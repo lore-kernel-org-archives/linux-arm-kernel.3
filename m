@@ -4,189 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E267DD59D99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 12:27:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23A2DD41D74
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 12:30:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SHPDVBh0BJqkM/MdCN2rYN4jsHWOJAuDmo86LIKpybE=; b=fTlqXzcwNncMoAQCWtBOlCRnuD
-	W3oTC45FCcoeYDA3rXjINjDbC/VkaeJduqY2M97kBIsjvpwYlyxuG+ylApcZdLnLaTIXUyf6EM0JN
-	uUTZaQxkG4hr/+aBl3/C4Ha90hS3OEiMNLbhV7f2cLgdZT3aJWjBr9RIzXex6GKz6aCEBIkgtscob
-	L4MsjM1pZT6NPRfgtBva3eTf+mQ2JarZonh47G9dqMojIPbR3Al1RNZLwb7nTiKugIzpDzr6n/9vi
-	HjkT7/IMv4wf9ZQ+e70l0kksGZgHirDCtmJigvfj7cEV+Fl9EzHduINyeVFQ2s4p5a+14Mi79SHmh
-	TeMMAxhg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=juPpp4zwMaR29F4s6SX8P4Y9o0HZhkn1aHpIS5UX6nc=; b=395vLRZobD22OF
+	63nSn/DCZGmv3PsQodcIYQcnHF2wsSvrjZnkfMnrYGcaX8uNi/TRkmj20wvh4jofVIeghg5urffeG
+	ZROnfbtHROwDmxKiudaer8oULxRFo7pfKFaDXG6L+RsNFoLGSlQQFgCVPPg7H2+bMV4ndPBhfCDm9
+	1Vc9K88f+MruTq5XJqw0Pxr/XnemUG+buquz/Bj2zb34y8FP0qiZZSo3vaK7/dZdwdr595Xb3OYN0
+	DyoSzJ4dHHP53SrmSbFil1U1uyl1RNUhM0yrW5C9SXKZhLZcQgd19vJwDDhBjNLqZUjkTN9YKnipx
+	JLuIWa+DQ76vTNcpOi5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV7fK-00000003c8u-1Obs;
-	Mon, 15 Dec 2025 12:27:02 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1vV7iN-00000003cfy-2IBa;
+	Mon, 15 Dec 2025 12:30:11 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV7fD-00000003c5C-0zL3
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 12:26:57 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BFCELlT2976764;
-	Mon, 15 Dec 2025 13:26:47 +0100
-Received: from du2pr03cu002.outbound.protection.outlook.com (mail-northeuropeazon11011023.outbound.protection.outlook.com [52.101.65.23])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4b11dx624t-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 15 Dec 2025 13:26:47 +0100 (CET)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hiicPzzoL6j28wNR/CNaXZwY6Ljg/XgkVI2+V1+xWWuMdu4UkkG4UFYqRR70rEZKZBouSlk4GsLcRwnjz6oZSUmAzyOkEtj2PtElG35XCssx6W7a+T/2AgCihnwCE2XLxDkL433ytAC7qa7iDHaV6bu37zYADD+uxAXBLo/idK7ZYm7AohxylrdMcb42i/416jZhPWBydQykDv1OkV6ft306EXqKVEzRr/6iGduZt6F/mBMU0JL84EvSf7P1PnR3tUdTVmHpZ90OqRpFhen/RnJQmx4trIgJHpQhHQ4cw1cK6Hk/dRR57FLHtYKKtt1aFkLr6tulaXFON0KATyVDhg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SHPDVBh0BJqkM/MdCN2rYN4jsHWOJAuDmo86LIKpybE=;
- b=f7za1x/1ovd/GPzJyQ6ds1lATmVpHi3fuUw5KxRynsFeJscJtn9Bagzp3NnzY3vMltSbeohvJcm3mug2aV0yHXM5h6Fd4Jsfka7/wn0WtlIP77iMHbg2B5i4D9MKna7UvYn1HuMQ1GtckMQjFdPnB9Pj0cz7jL0YjlRuQYWXLv3edZNN5wrrWvFWvhnB8/Gc/xHxpHmpkemZYpOW6xAIHgdBI0Gt0aBCeimSgwsEIwa0xDK8maOlgfcdcWv+b48AdzNK8joq8cqzm6QLvLaTXCM3qKScc06CvRuBAMmyX2Lhs8SSt+dP3ZV35HlcE+3uDRpASjjTnymfsdPlTiCTSw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SHPDVBh0BJqkM/MdCN2rYN4jsHWOJAuDmo86LIKpybE=;
- b=MqKL6c1+KGQUVuuEWgKaCLIvwlBhNgUeUgLWWLJLd+6XfFy7sev+IjvZOYcfyz5nneELArNVLBkn7HS89qgTWpYeXxvKGx0m0A2EQjLtHxPULgFN10AwiZnhcMZXQx6eKecjByt/Qc/EW6Fu+pbI08Ohhuj+xZEcngJY3PgTfNz7DDlxOA+t5O5BK1qlYGh4XH2FkRsi6CMwa5roVuYE6qA/PIqswK2doYmAet37xX2ChcBshwVQi9PPscV1F+qCiYNIw313+Msa0DF9aS5GjOf7UkzdyQ8TCRP1/2/D/CnZ6/Urq1IK43Y7dMr/wOIjWnWeOC1WNONHMGDCSFUEWQ==
-Received: from DUZP191CA0052.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:4fa::15)
- by AS4PR10MB6110.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:582::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.13; Mon, 15 Dec
- 2025 12:26:43 +0000
-Received: from DB1PEPF00050A00.eurprd03.prod.outlook.com
- (2603:10a6:10:4fa:cafe::d6) by DUZP191CA0052.outlook.office365.com
- (2603:10a6:10:4fa::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9412.13 via Frontend Transport; Mon,
- 15 Dec 2025 12:26:35 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- DB1PEPF00050A00.mail.protection.outlook.com (10.167.242.42) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9434.6 via Frontend Transport; Mon, 15 Dec 2025 12:26:43 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Mon, 15 Dec
- 2025 13:27:27 +0100
-Received: from localhost (10.130.74.193) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Mon, 15 Dec
- 2025 13:26:42 +0100
-From: Alain Volmat <alain.volmat@foss.st.com>
-Date: Mon, 15 Dec 2025 13:26:20 +0100
-Subject: [PATCH 1/3] dt-bindings: spi: st,stm32-spi: add 'power-domains'
- property
+	id 1vV7iK-00000003cfF-35nH;
+	Mon, 15 Dec 2025 12:30:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1765801796; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Je1nxOP1Dfsjeh7PQbSGDw5GZEWWv7yyb2BAfvx6nHclb1zZk//RR8yaH03KOJJKoaJxzd7Mgxiv6qvgCAHAqWMGfpXskRJL3drB5Rtyl3kO/6RGMgPg3NOXWjf7isV7JI3x6W6o1ycYorVOwjcgN700Elv/7rv2ayISvDHrwfA=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1765801796; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=juPpp4zwMaR29F4s6SX8P4Y9o0HZhkn1aHpIS5UX6nc=; 
+	b=aEpUbidBM5btDVfhTkZMODBOEgCNPsjjoMvJp8Qj1Qj/cUpd6rQ5ebJQKP3jj2gkUak0WqhUhSFvC8BrPZXHuvQ+JH5UdBhVx9tWd5AFigP4/ECaDXI4/gZQMN4ZU3OemEWgYOLRW09PuGMNxSSGpRn0eUR5eZkaS38MV1AimEU=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1765801796;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
+	bh=juPpp4zwMaR29F4s6SX8P4Y9o0HZhkn1aHpIS5UX6nc=;
+	b=LuJ7FXfUDrJoKmushT0WrJRcHjoGiVwwFaaOSN88sKmj4Yc9QnpPucMmPy15z1KR
+	mqzUx/oYYc2Jjdcje7MYiYDmL5SGHfqguGv7/ABUecwqhh6Hjb1Sno4Xdcf6e39QJ5Z
+	a3dkLQ2XGna6zVlw5qnb2JYO7dUlbymPS9vlVWKk=
+Received: by mx.zohomail.com with SMTPS id 1765801793005302.7427697539812;
+	Mon, 15 Dec 2025 04:29:53 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Subject: [PATCH v2 0/4] ROCK 4D audio enablement
+Date: Mon, 15 Dec 2025 13:29:28 +0100
+Message-Id: <20251215-rock4d-audio-v2-0-82a61de39b4c@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20251215-stm32-spi-mp2x-dt-updates-v1-1-464a5fd20f13@foss.st.com>
-References: <20251215-stm32-spi-mp2x-dt-updates-v1-0-464a5fd20f13@foss.st.com>
-In-Reply-To: <20251215-stm32-spi-mp2x-dt-updates-v1-0-464a5fd20f13@foss.st.com>
-To: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        "Maxime
- Coquelin" <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue
-	<alexandre.torgue@foss.st.com>,
-        Erwan Leray <erwan.leray@foss.st.com>,
-        Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-CC: <linux-spi@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        "Alain Volmat" <alain.volmat@foss.st.com>
+X-B4-Tracking: v=1; b=H4sIACj/P2kC/1WOQQ6DIBBFr2JmXQxgq+iq92hc4ACVVKUFJW2Md
+ y/VVZdv8v/7s0LQ3uoATbaC19EG66YE/JQB9nK6a2JVYuCUX2jJK+IdPs6KyEVZR9AgrQwrhaQ
+ CUuXptbHvXXdrD/b6tSTrfByhk0ETdONo5yaLZc5q4pHBL9zbMDv/2V+JbE8fqwX9X42MUEK7A
+ oUWRskar+iGQXbOyzypod227Qvmaucf2QAAAA==
+X-Change-ID: 20250627-rock4d-audio-cfc07f168a08
+To: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Heiko Stuebner <heiko@sntech.de>
+Cc: kernel@collabora.com, linux-input@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 X-Mailer: b4 0.14.3
-X-Originating-IP: [10.130.74.193]
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB1PEPF00050A00:EE_|AS4PR10MB6110:EE_
-X-MS-Office365-Filtering-Correlation-Id: e6091c91-80d0-42ab-b64b-08de3bd534f5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|7416014|376014|1800799024|82310400026;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?V1NiRmJJQzhPU3ZtR1I4NWVRUnJrYUNCOG52N1ZmdVBPSW9uY21nODlmeWo3?=
- =?utf-8?B?WmI5ZjMrYktKdFhCTmFYTDNyV2NPSzdNdVVLdS9SRFBVaURKVGFtd3kyUjBG?=
- =?utf-8?B?MUxRNUtLQ1QwMDk5d0tKeTB6MG8yV08xbEhWSW40SFJwVHlzTFV4R2EySkpZ?=
- =?utf-8?B?WjFZNk9PMWFucGhXQUpBNEx5a2M1NldoTGZ1N21WOElvekpXeHJYVzl5Mzhx?=
- =?utf-8?B?dG1iM2lHS2ZtLzdLeHM2c3RxSHdEd3gwUmlIRDIvQmYzQUNLZnNJVXZ6NHBl?=
- =?utf-8?B?NTl5a0RDdGxFdUdxNWVHM01CRmhnSzBnUkdtL3Jaelc0RnJBL280M29yY3Fm?=
- =?utf-8?B?OGFWb3JFR2psQzN0RjdIQ2x0UDhsanV2Zk14Uk96UmlMUmlqcUZvdzY3blpF?=
- =?utf-8?B?V2Y3dlo1RGd5blFMa3NrN0E2eWFBRVBpM1UrYjlEWUFFQU1KQkNJMjZHaEdY?=
- =?utf-8?B?WjNKTXN5azZIbmpsT2VtMWFBWE0yVzdMKzkxU3ZUMkJqYkhIb2ErSzJHcjhM?=
- =?utf-8?B?K2tqUVkzUDhVU0Z6Z3JPNzRRMUQyYlRHMVphZW9tRW9UTGZKRVpSeDk0UlZZ?=
- =?utf-8?B?cTVzdHl0NXZkTUV4SU0rRmp6L0hBRzBTY2hrT1FzQnc1bHR5cTN6ZVkyZ21X?=
- =?utf-8?B?SUMyZ2VCd2M0bHhXekRicDExTktPbVhJcjBEd1ZhTEdDaGswYlZ5bE5uNE5K?=
- =?utf-8?B?WHQxUTNnTGREOFIwWldsOVNSdTNMd1V0TDI5ZmtTWVJacG43M0xjbS9aNFF3?=
- =?utf-8?B?YzZiVkJsdGt6K2lCRWZGK3RzSDVTQ3pDWmg2TTFGcFVSQUk3N2VTcTZ5OW9F?=
- =?utf-8?B?ZzZES3B0YUN6ZHBXdGNVU2FiS2ppNG9DNzV3WnRqOTExZkV4RUxaSXg3eS9y?=
- =?utf-8?B?cEZtb29rSzZrbFNiL3I4cnArOFZWd2R5OVNUMWtQWEc5N2Y3NitWcmNHTHVo?=
- =?utf-8?B?cjdwQU00Z2VFVmR1cCtJaTlnajYwdE5ZblRLdVJvUDV2WlZGK2RRc0RFZmk1?=
- =?utf-8?B?dTlPbGJTZ25lUnVyUEZYcG5oTlJ3L0tkTElLSFh2c25LN2JsenNKMzMzWGkw?=
- =?utf-8?B?emRqTzUzNEV1a2hWa2g5Tk9iczZrcFZMSDFmV3JkNUMrVndQVklhNzhGem5T?=
- =?utf-8?B?UlhHY2lhV2JWY1BCeHcyRkJSdEQ3MXNsdjY1eERRdWhhZGZvQ1dBRUVmSjdr?=
- =?utf-8?B?UEJxZDRhdURFRjlMdTQvZkFhZFF5b0NlVkFteHJseFNQZC9LSm45aFpBbVM2?=
- =?utf-8?B?bDV5WFV1czkwV2JZQ3JEL2QrOS9aTnFwakVBNmh3Sno0cTFSRUlZTm51SmhH?=
- =?utf-8?B?MkR1bTJ0aVFPY1RTMEEwbk1wb1FGV3AzY3gzRDgyUmlBbUsyMG5Mck1ZWWZh?=
- =?utf-8?B?MUxnNW5OeVVoc2F1K0YzSSt6TmRLZ2dOZ1VsU3dybzdUVXdCN05yb2pURHJL?=
- =?utf-8?B?TXBSMDJyWHZjTHJjVkM1NUt1QjZsb2JacWtKNFFtOTlxanZpRzJ6N0hOQVBu?=
- =?utf-8?B?RHdBUC9TUEF1UWZIMS9tK1E0azF3eGQxNUp3cXYrVGxlRThuWVcxL09GYVFo?=
- =?utf-8?B?SGJVMndySWw2aFliQ0JJeVFDUlI0bnVsQWs4dlZvaTYvVjVhUkdvSldIdHM5?=
- =?utf-8?B?WXpxSncxQUU1SEY4V2M0Ymp3aHdGeHJMWWw2cnU3c0M5L0k2RjQvTHJOL1dz?=
- =?utf-8?B?ZERicmxGVzMyMGNwcmRrUXZoOXN5VWRJQ1RKSjA4UXBqWFhsK0pWd2VEL1dQ?=
- =?utf-8?B?V3ZudHYyZUtkVVU4eURlMmVOT3RhUUVNV0FUNlE4V0ZBS2pmT1BJOFVBTTVo?=
- =?utf-8?B?cXlRMUl5SHhDbGJzRE9Da0hrK2k5b1lzOXprZllzN0pjUHV6Z1BZaHluRnpi?=
- =?utf-8?B?Z2d2UW1YS2c3Und0NHhBZ2p0RGNaZXJFWkdyb1k1OTNrbENXbEFFREhNeExW?=
- =?utf-8?B?b1ZSdnBNSy96eUJqMU9tWE5lR1JPdktWK0xqMjR0eTh4OFh3VkhrWVExcVdL?=
- =?utf-8?B?WlpXWGZ1OEU2MnY0aVJNL0VYNjZ3UThUNVI4SG9mbld4WDk5cHR1enhnQTJa?=
- =?utf-8?B?WEc2VnNmWlA2em5uVXN5VWJOc2VFN1pUeHh0YUlrbzZ3TXFzUjNQb2VCVi9E?=
- =?utf-8?Q?GxKM=3D?=
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(7416014)(376014)(1800799024)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Dec 2025 12:26:43.4722
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e6091c91-80d0-42ab-b64b-08de3bd534f5
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF00050A00.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR10MB6110
-X-Authority-Analysis: v=2.4 cv=PLsCOPqC c=1 sm=1 tr=0 ts=693ffe87 cx=c_pps
- a=GWnjdLoi7hWW8E7zIUJB4w==:117 a=uCuRqK4WZKO1kjFMGfU4lQ==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=wL9PcE0S0AMA:10 a=IkcTkHD0fZMA:10
- a=wP3pNCr1ah4A:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=8b9GpE9nAAAA:8 a=jVnx1S62xqOjl58bLOQA:9
- a=QEXdDO2ut3YA:10 a=zZCYzV9kfG8A:10 a=T3LWEMljR5ZiDmsYVIUa:22
-X-Proofpoint-GUID: Qyyo-TnTq4KDfc3Dh2yxhltclC1GpuiP
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjE1MDEwNyBTYWx0ZWRfXw0vZZJ1YZrgq
- pA3bh/oskH4Z+c0JzmO8LOz1Svaptt40Fv0P/Z+9tSyvjLLkV/L96RVmVJEufS2/TU36jiGncJk
- XQ9DF3IwxBxdrJUvS2pOYL0RASv/4aAxrS9Aqcn2i6LDrvH3+Hj9pibmCt0k69MWVIVqXFiNBYv
- cbRCVqVOSRjfvZaDi/si0aTG4YrG5zFoPSOICBnTRJzyM7YE5qilQjg3H6n6EaCKFK5OmA1bWXt
- EMvm/7xC0vpFXNNTpDJK0qKKBQOBC67ItBOyz9uZU/KGLDcWy2JsrjBU/TPLjX0r6fzJ70+87MW
- CFKWLlTyT48wuP4hs4Gwc1soU0rDXx4OdGuStlzDTmQ+cGV5Bg29JKRysvTzwp1bccIUkNJp3HF
- odrC1XuywS4vwdlM+E+D6XC66Mmobg==
-X-Proofpoint-ORIG-GUID: Qyyo-TnTq4KDfc3Dh2yxhltclC1GpuiP
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-12-15_02,2025-12-15_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0
- bulkscore=0 malwarescore=0 impostorscore=0 phishscore=0 spamscore=0
- lowpriorityscore=0 priorityscore=1501 clxscore=1011 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2512150107
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_042655_606527_E8D9B3A9 
-X-CRM114-Status: UNSURE (   8.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251215_043008_836585_C3F2F803 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -201,30 +86,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-STM32 SPI may be in a power domain which is the case for the STM32MP2x
-based boards. Allow a single 'power-domains' entry for STM32 SPI.
+The ROCK 4D uses an ADC input to distinguish between a headphone (i.e.,
+no mic) and a headset (i.e., with mic). After some searching, it appears
+that the closest we can get to modelling this is by sending a particular
+switch input event.
 
-Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
+So this series modifies the adc-keys bindings, extends the adc-keys
+driver to allow sending other input types as well, and then adds the
+analog audio nodes to ROCK 4D's device tree.
+
+It should be noted that analog capture from the TRRS jack currently
+results in completely digitally silent audio for me, i.e. no data other
+than 0xFF. There's a few reasons why this could happen, chief among them
+that my SAI driver is broken or that the ES8328 codec driver is once
+again broken. The DAPM routes when graphed out look fine though. So the
+DTS part is correct, and I can fix the broken capture in a separate
+follow-up patch that doesn't have to include DT people.
+
+Another possibility is that my phone headset, despite being 4 rings and
+having a little pin hole at the back of the volume doodad, does not
+actually have a microphone, but in that case I'd still expect some noise
+in the PCM. Maybe it's just shy.
+
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- Documentation/devicetree/bindings/spi/st,stm32-spi.yaml | 3 +++
- 1 file changed, 3 insertions(+)
+Changes in v2:
+- Drop HDMI audio patch, as it was already merged.
+- adc-keys: rename "keycode" to "code".
+- adc-keys: make the keycode (now "code") local a u32 instead of an int
+- adc-keys: only allow EV_KEY and EV_SW for now. Rename patch
+  accordingly.
+- adc-keys: Add another patch to rework probe function error logging.
+- Link to v1: https://lore.kernel.org/r/20250630-rock4d-audio-v1-0-0b3c8e8fda9c@collabora.com
 
-diff --git a/Documentation/devicetree/bindings/spi/st,stm32-spi.yaml b/Documentation/devicetree/bindings/spi/st,stm32-spi.yaml
-index ca880a226afa..472e92974714 100644
---- a/Documentation/devicetree/bindings/spi/st,stm32-spi.yaml
-+++ b/Documentation/devicetree/bindings/spi/st,stm32-spi.yaml
-@@ -96,6 +96,9 @@ properties:
-       The region should be defined as child node of the AHB SRAM node
-       as per the generic bindings in Documentation/devicetree/bindings/sram/sram.yaml
- 
-+  power-domains:
-+    maxItems: 1
-+
-   access-controllers:
-     minItems: 1
-     maxItems: 2
+---
+Nicolas Frattaroli (4):
+      dt-bindings: input: adc-keys: allow linux,input-type property
+      Input: adc-keys - support EV_SW as well, not just EV_KEY.
+      Input: adc-keys - Use dev_err_probe in probe function
+      arm64: dts: rockchip: add analog audio to ROCK 4D
 
+ .../devicetree/bindings/input/adc-keys.yaml        |  3 +
+ arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts    | 90 ++++++++++++++++++++++
+ drivers/input/keyboard/adc-keys.c                  | 88 ++++++++++-----------
+ 3 files changed, 138 insertions(+), 43 deletions(-)
+---
+base-commit: 3e7f562e20ee87a25e104ef4fce557d39d62fa85
+change-id: 20250627-rock4d-audio-cfc07f168a08
+
+Best regards,
 -- 
-2.34.1
+Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
 
