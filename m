@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBDDBD5B861
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 18:06:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC0FDD5B861
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 18:09:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CG0gW1iIBjVUQ601gkP2K4B+M7f6NFCRLl0r29M0TLc=; b=H40IBEDJqq/HR4fvNr2cf3CHjj
-	h30rkk36xl1ep3BVb8qjtBeMakeNbBD6co49olQY2G/D9/9d2XUmV8PCI0c7d3Ky6JtRqzlDVLRFK
-	BMLH6bezfqcUtw2bLnOqvRO8zOGEI7UUIhrgZs4PH6c7ljwNymaqc1yEjM+22E4b0hOxsizJ+3dVg
-	qzxl7H3iphkndRqQFMBwhZ+tNa1IXh7aRXd3bPWmHspAK8u0BjffFzRHSOC5q381Kr5GIqdANsSE4
-	+zeRyM7aZ0xye7xDDv2rBn8lpY72J9jXhQ9L3n5V60gW9HEHffU5QkjiJBzM/c+GprcLwAY9S5lr+
-	Lp2PIpCw==;
+	bh=mJPV8VKb5u8PkEm1/xT9lhparHwNaE6Wht2S1sszcAw=; b=AyMx0yuDBC4AyIiJnLCG12ZGL/
+	lkFbAMTtLPtey/wKNY4P1EKFpzyluToulqJ5qBRjrrL67VDm54TE55iPy2oiYUo7t7I4byu8bQ7ul
+	59mbe+wXb/squIl732OIDu8xwmL9f0M3WO+S8X4U7jOdg9fk/o2LDJofkosXqp/JiFZabgp3sdKyk
+	Q6yTOoZkxitl0wELIsLozObidfalhJjIA+SbvJml+ivP0EmLUD9d9Z3fB2AToptawVqUp07tm8w54
+	NY5WZ5uElcz4pR4+nf5lpX90Q/vCKvCIerWe9qeGp6c84YtmPs9bsiI6YMZ5SFqn3mdCu/b49PbNT
+	xH25vdsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVCxq-000000046mC-0OSo;
-	Mon, 15 Dec 2025 18:06:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vVD0x-000000046xA-2Xr0;
+	Mon, 15 Dec 2025 18:09:43 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVCxl-000000046lg-1hIe
+	id 1vVD0w-000000046x3-2Dxd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 18:06:28 +0000
+	Mon, 15 Dec 2025 18:09:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E355843852;
-	Mon, 15 Dec 2025 18:06:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 815FCC4CEF5;
-	Mon, 15 Dec 2025 18:06:23 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9FA9D60133;
+	Mon, 15 Dec 2025 18:09:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15912C4CEF5;
+	Mon, 15 Dec 2025 18:09:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765821983;
-	bh=rJKmpgwGt+PHS/ree1WrcDO5XiHWvRcZqNyAmcIy9es=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=X4dXhe815EGINN9+D1XDn9JYU912TK9FP4PyD9foSopSle3q6dYCpVr7jyRI+DWhV
-	 i6Kl7yfrDQ4oeU9p4NFbKlHcZcHLCJnJKJW94SSYYy2027yh6oiX0HK+vlP/mFkgUK
-	 mdZ1j/FEb2u77rv4Czi+cnB6TX/3tPXeEf921FoIY1kP8zucob8vquXGqRRwH5blGu
-	 xe7Yqqh6OPmRYcD0CODaZO0GScRbWURp5ofAw6wIEfevB9DzZdxup/JiUjV7dz0lu4
-	 al90hyz2mGYTARGtQoXeQzQHL243qPui+pkwqiXgqGkCb0e324FpssFbB2tPlaUd/9
-	 po/4NT+SEhi5Q==
-Date: Mon, 15 Dec 2025 10:06:22 -0800
-From: Oliver Upton <oupton@kernel.org>
-To: Colton Lewis <coltonlewis@google.com>
-Cc: kvm@vger.kernel.org, pbonzini@redhat.com, corbet@lwn.net,
-	linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
-	maz@kernel.org, oliver.upton@linux.dev, mizhang@google.com,
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	mark.rutland@arm.com, shuah@kernel.org,
-	gankulkarni@os.amperecomputing.com, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, linux-perf-users@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v5 19/24] KVM: arm64: Implement lazy PMU context swaps
-Message-ID: <aUBOHnT1whwR3vbo@kernel.org>
-References: <aTidfRwYLYwTfmK_@kernel.org>
- <gsntecoz2v87.fsf@coltonlewis-kvm.c.googlers.com>
+	s=k20201202; t=1765822181;
+	bh=sJ0PanZdlGRt6sE05Z//hl9xXWQ8gP2sHeCPp+9cNxU=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=mzOopvwPU06fZET1fGgc81omur+ilBqKE/gwOHBKK2/m+tqXHJ/fPogQbHHDBSDqY
+	 k2I2Gk2eZKPb1QMeM/woGiSgPimAA7KT7pBj1ODgKIAB4CO6nEvrnxaqvzkoSPHnDg
+	 WaXrXRxMt+JZgW5547zfjtIGTvFlewpbxg9Jzrael5Utudzwg7f4tDGt9mzN+9jEqC
+	 c6ehZ1pN+53tCpdcipvNKNAdAc9Kn39/ttnjctzlnw2qhj0qsEDieOk3TqAb2F0zLR
+	 f4vTiDRuzKardG6Bg3z+IoVlHpmaIFtUSeh6ZmhQe5fSgcyjeWmVI9L1MDjvJB/lEp
+	 3Ok0ToWxDdbWQ==
+Date: Mon, 15 Dec 2025 12:09:39 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <gsntecoz2v87.fsf@coltonlewis-kvm.c.googlers.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_100625_468237_2AEC0795 
-X-CRM114-Status: GOOD (  20.46  )
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Chester Lin <chester62515@gmail.com>, 
+ Matthias Brugger <mbrugger@suse.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ linux-arm-kernel@lists.infradead.org, Shawn Guo <shawnguo@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, "David S. Miller" <davem@davemloft.net>, 
+ linux-kernel@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org, 
+ Eric Dumazet <edumazet@google.com>, devicetree@vger.kernel.org, 
+ Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, imx@lists.linux.dev, 
+ Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
+ Conor Dooley <conor+dt@kernel.org>
+To: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+In-Reply-To: <20251214-dwmac_multi_irq-v1-2-36562ab0e9f7@oss.nxp.com>
+References: <20251214-dwmac_multi_irq-v1-0-36562ab0e9f7@oss.nxp.com>
+ <20251214-dwmac_multi_irq-v1-2-36562ab0e9f7@oss.nxp.com>
+Message-Id: <176582217911.3066791.4926710165988218857.robh@kernel.org>
+Subject: Re: [PATCH RFC 2/4] dt-bindings: net: nxp,s32-dwmac: Declare
+ per-queue interrupts
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,53 +83,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 12, 2025 at 10:25:44PM +0000, Colton Lewis wrote:
-> Oliver Upton <oupton@kernel.org> writes:
+
+On Sun, 14 Dec 2025 23:15:38 +0100, Jan Petrous (OSS) wrote:
+> The DWMAC IP on supported SoCs has connected queue-based IRQ lines.
 > 
-> > On Tue, Dec 09, 2025 at 08:51:16PM +0000, Colton Lewis wrote:
-> > > +enum vcpu_pmu_register_access {
-> > > +	VCPU_PMU_ACCESS_UNSET,
-> > > +	VCPU_PMU_ACCESS_VIRTUAL,
-> > > +	VCPU_PMU_ACCESS_PHYSICAL,
-> > > +};
+> Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
+> ---
+>  .../devicetree/bindings/net/nxp,s32-dwmac.yaml     | 40 +++++++++++++++++++---
+>  1 file changed, 36 insertions(+), 4 deletions(-)
 > 
-> > This is confusing. Even when the guest is accessing registers directly
-> > on the CPU I'd still call that "hardware assisted virtualization" and
-> > not "physical".
-> 
-> It was what I thought described the access pattern. Do you have another
-> naming suggestion?
 
-	PMU_STATE_FREE,
-	PMU_STATE_GUEST_OWNED,
+My bot found errors running 'make dt_binding_check' on your patch:
 
-> > > +	kvm_pmu_set_physical_access(vcpu);
-> > > +
-> > >   	return true;
-> > >   }
-> 
-> > Aren't there a ton of other registers the guest may access before
-> > these two? Having generic PMU register accessors would allow you to
-> > manage residence of PMU registers from a single spot.
-> 
-> Yes but these are the only two that use the old trap handlers. I also
-> call set_physical_access from my fast path handler that handles all the
-> other registers when partitioned.
+yamllint warnings/errors:
 
-The fast path accessors should only be accessing state already loaded
-on the CPU. If the guest's PMU context isn't loaded on the CPU then it
-should return to a kernel context and do a full put/load on the vCPU.
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml: ignoring, error in schema: properties: interrupt-names
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml: properties:interrupt-names: [{'items': [{'const': 'macirq'}, {'const': 'rx-queue-0'}, {'const': 'tx-queue-0'}, {'const': 'rx-queue-1'}, {'const': 'tx-queue-1'}, {'const': 'rx-queue-2'}, {'const': 'tx-queue-2'}, {'const': 'rx-queue-3'}, {'const': 'tx-queue-3'}, {'const': 'rx-queue-4'}, {'const': 'tx-queue-4'}]}] is not of type 'object', 'boolean'
+	from schema $id: http://devicetree.org/meta-schemas/keywords.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml: properties:interrupt-names: [{'items': [{'const': 'macirq'}, {'const': 'rx-queue-0'}, {'const': 'tx-queue-0'}, {'const': 'rx-queue-1'}, {'const': 'tx-queue-1'}, {'const': 'rx-queue-2'}, {'const': 'tx-queue-2'}, {'const': 'rx-queue-3'}, {'const': 'tx-queue-3'}, {'const': 'rx-queue-4'}, {'const': 'tx-queue-4'}]}] is not of type 'object', 'boolean'
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml: properties:interrupt-names: [{'items': [{'const': 'macirq'}, {'const': 'rx-queue-0'}, {'const': 'tx-queue-0'}, {'const': 'rx-queue-1'}, {'const': 'tx-queue-1'}, {'const': 'rx-queue-2'}, {'const': 'tx-queue-2'}, {'const': 'rx-queue-3'}, {'const': 'tx-queue-3'}, {'const': 'rx-queue-4'}, {'const': 'tx-queue-4'}]}] is not of type 'object', 'boolean'
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml: properties:interrupt-names: [{'items': [{'const': 'macirq'}, {'const': 'rx-queue-0'}, {'const': 'tx-queue-0'}, {'const': 'rx-queue-1'}, {'const': 'tx-queue-1'}, {'const': 'rx-queue-2'}, {'const': 'tx-queue-2'}, {'const': 'rx-queue-3'}, {'const': 'tx-queue-3'}, {'const': 'rx-queue-4'}, {'const': 'tx-queue-4'}]}] is not of type 'object', 'boolean'
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml: properties:interrupt-names: [{'items': [{'const': 'macirq'}, {'const': 'rx-queue-0'}, {'const': 'tx-queue-0'}, {'const': 'rx-queue-1'}, {'const': 'tx-queue-1'}, {'const': 'rx-queue-2'}, {'const': 'tx-queue-2'}, {'const': 'rx-queue-3'}, {'const': 'tx-queue-3'}, {'const': 'rx-queue-4'}, {'const': 'tx-queue-4'}]}] is not of type 'object', 'boolean'
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml: properties:interrupt-names: [{'items': [{'const': 'macirq'}, {'const': 'rx-queue-0'}, {'const': 'tx-queue-0'}, {'const': 'rx-queue-1'}, {'const': 'tx-queue-1'}, {'const': 'rx-queue-2'}, {'const': 'tx-queue-2'}, {'const': 'rx-queue-3'}, {'const': 'tx-queue-3'}, {'const': 'rx-queue-4'}, {'const': 'tx-queue-4'}]}] is not of type 'object', 'boolean'
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml: properties:interrupt-names: [{'items': [{'const': 'macirq'}, {'const': 'rx-queue-0'}, {'const': 'tx-queue-0'}, {'const': 'rx-queue-1'}, {'const': 'tx-queue-1'}, {'const': 'rx-queue-2'}, {'const': 'tx-queue-2'}, {'const': 'rx-queue-3'}, {'const': 'tx-queue-3'}, {'const': 'rx-queue-4'}, {'const': 'tx-queue-4'}]}] is not of type 'object', 'boolean'
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml: properties:interrupt-names: [{'items': [{'const': 'macirq'}, {'const': 'rx-queue-0'}, {'const': 'tx-queue-0'}, {'const': 'rx-queue-1'}, {'const': 'tx-queue-1'}, {'const': 'rx-queue-2'}, {'const': 'tx-queue-2'}, {'const': 'rx-queue-3'}, {'const': 'tx-queue-3'}, {'const': 'rx-queue-4'}, {'const': 'tx-queue-4'}]}] is not of type 'object', 'boolean'
+Traceback (most recent call last):
+  File "/usr/local/bin/dt-doc-validate", line 8, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/usr/local/lib/python3.13/dist-packages/dtschema/doc_validate.py", line 66, in main
+    ret |= check_doc(f)
+           ~~~~~~~~~^^^
+  File "/usr/local/lib/python3.13/dist-packages/dtschema/doc_validate.py", line 37, in check_doc
+    dtsch.check_schema_refs()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/usr/local/lib/python3.13/dist-packages/dtschema/schema.py", line 241, in check_schema_refs
+    self._check_schema_refs(resolver, self)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/dtschema/schema.py", line 212, in _check_schema_refs
+    self._check_schema_refs(resolver, v, parent=k, is_common=is_common,
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                            has_constraint=has_constraint)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/dtschema/schema.py", line 216, in _check_schema_refs
+    self._check_schema_refs(resolver, schema[i], parent=parent, is_common=is_common,
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                            has_constraint=has_constraint)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/dtschema/schema.py", line 203, in _check_schema_refs
+    ref_sch = resolver.lookup(schema['$ref']).contents
+              ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/dist-packages/referencing/_core.py", line 682, in lookup
+    retrieved = self._registry.get_or_retrieve(uri)
+  File "/usr/local/lib/python3.13/dist-packages/referencing/_core.py", line 422, in get_or_retrieve
+    registry = self.crawl()
+  File "/usr/local/lib/python3.13/dist-packages/referencing/_core.py", line 500, in crawl
+    id = resource.id()
+  File "/usr/local/lib/python3.13/dist-packages/referencing/_core.py", line 231, in id
+    id = self._specification.id_of(self.contents)
+  File "/usr/local/lib/python3.13/dist-packages/referencing/jsonschema.py", line 50, in _dollar_id
+    return contents.get("$id")
+           ^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'get'
+Lexical error: Documentation/devicetree/bindings/net/nxp,s32-dwmac.example.dts:58.13-17 Unexpected 'snps'
+Error: Documentation/devicetree/bindings/net/nxp,s32-dwmac.example.dts:58.13-17 syntax error
+FATAL ERROR: Unable to parse input tree
+make[2]: *** [scripts/Makefile.dtbs:141: Documentation/devicetree/bindings/net/nxp,s32-dwmac.example.dtb] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1559: dt_binding_check] Error 2
+make: *** [Makefile:248: __sub-make] Error 2
 
-I'm not seeing how this all fits together but for lazy loading to work
-correctly you need to evaluate the state of the vPMU at vcpu_load(). If
-there exists an enabled PMC, set PMU_STATE_GUEST_OWNED and load it
-upfront.
+doc reference errors (make refcheckdocs):
 
-Otherwise, default to PMU_STATE_FREE until the next register access and
-this whole thing resets when the vCPU is scheduled out. I had suggested
-to you a while back that you should follow a similar model to the debug
-registers, this is how they behave.
+See https://patchwork.kernel.org/project/devicetree/patch/20251214-dwmac_multi_irq-v1-2-36562ab0e9f7@oss.nxp.com
 
-Thanks,
-Oliver
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
