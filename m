@@ -4,71 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC0FDD5B861
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 18:09:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B2E9D5B862
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 18:16:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mJPV8VKb5u8PkEm1/xT9lhparHwNaE6Wht2S1sszcAw=; b=AyMx0yuDBC4AyIiJnLCG12ZGL/
-	lkFbAMTtLPtey/wKNY4P1EKFpzyluToulqJ5qBRjrrL67VDm54TE55iPy2oiYUo7t7I4byu8bQ7ul
-	59mbe+wXb/squIl732OIDu8xwmL9f0M3WO+S8X4U7jOdg9fk/o2LDJofkosXqp/JiFZabgp3sdKyk
-	Q6yTOoZkxitl0wELIsLozObidfalhJjIA+SbvJml+ivP0EmLUD9d9Z3fB2AToptawVqUp07tm8w54
-	NY5WZ5uElcz4pR4+nf5lpX90Q/vCKvCIerWe9qeGp6c84YtmPs9bsiI6YMZ5SFqn3mdCu/b49PbNT
-	xH25vdsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mgNHGQuNqJYS8SDNw0YQDcQ0j9dj4XHzKQA/e9DbvTI=; b=n3Rc36VtHd/+DaKR8z3xsZtNTZ
+	J2wKzYRMm5c/0R7NiTueX1rA9gvsNe0d1z6OkUecI9g09Lfu5VB7Tgy5q9NpUaJaPqRnwVwzUJYDV
+	gvFs9lY+0Ls/Bo53WUYhYZcrHidNgHyla+MFjqj1yuKj1s0FkMs4mBct8HS5EV/a2NiD2j4sP3CNk
+	SmWBjZsP22wKeJIq+e3X1jdrlM3nKgLOz5EYFT2UmSngcEe57kPH1vd/Dr+M3pyiAJ121v46NL7Mk
+	/PNtI9TVzf+nAwNNDMCdFkZh4y4WbiFnamBAHK4OZ3CxwHGOusNsegnYZ7+6aS544sFHV+OvYYeP/
+	bjkHkzJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVD0x-000000046xA-2Xr0;
-	Mon, 15 Dec 2025 18:09:43 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vVD7I-000000047Rp-2ADY;
+	Mon, 15 Dec 2025 18:16:16 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVD0w-000000046x3-2Dxd
+	id 1vVD7F-000000047Qq-06UB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 18:09:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9FA9D60133;
-	Mon, 15 Dec 2025 18:09:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15912C4CEF5;
-	Mon, 15 Dec 2025 18:09:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765822181;
-	bh=sJ0PanZdlGRt6sE05Z//hl9xXWQ8gP2sHeCPp+9cNxU=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=mzOopvwPU06fZET1fGgc81omur+ilBqKE/gwOHBKK2/m+tqXHJ/fPogQbHHDBSDqY
-	 k2I2Gk2eZKPb1QMeM/woGiSgPimAA7KT7pBj1ODgKIAB4CO6nEvrnxaqvzkoSPHnDg
-	 WaXrXRxMt+JZgW5547zfjtIGTvFlewpbxg9Jzrael5Utudzwg7f4tDGt9mzN+9jEqC
-	 c6ehZ1pN+53tCpdcipvNKNAdAc9Kn39/ttnjctzlnw2qhj0qsEDieOk3TqAb2F0zLR
-	 f4vTiDRuzKardG6Bg3z+IoVlHpmaIFtUSeh6ZmhQe5fSgcyjeWmVI9L1MDjvJB/lEp
-	 3Ok0ToWxDdbWQ==
-Date: Mon, 15 Dec 2025 12:09:39 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Mon, 15 Dec 2025 18:16:14 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-42e2d5e119fso1732266f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Dec 2025 10:16:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1765822571; x=1766427371; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mgNHGQuNqJYS8SDNw0YQDcQ0j9dj4XHzKQA/e9DbvTI=;
+        b=WE2QQakDIx1e5qZVLlecHn+E/pdxhios8CZfoACrMZD98EjDh+3K/40kyxvtnVVqMY
+         E3kE/SGqYOwMKZm2ZGZ8q0Jr30ZJvnwUACn3JLpq5jUvGxgnlA3o41SrtySp/9Bbxuoy
+         xTUkNHzyFciMcZu+UmoBvGWVKA4K3zcmufv91CA8mki93ZCOt9/ptlrqmgyTq76YQoJB
+         i5820UcWvgDsSxASUdTnOruTm30klVX7z7T5oykNdRjp9y8958YLvHahRjqPZUKsnK/G
+         8I//7ytINic42THdWR9eU+ry9bkCK/yaVd7O59VVThzeZ7s209FmoOs+gNXaRl1B/xhZ
+         LgBA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765822571; x=1766427371;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=mgNHGQuNqJYS8SDNw0YQDcQ0j9dj4XHzKQA/e9DbvTI=;
+        b=lx+biyHIcCKboYYpLQe+EydRLHWG0iIZzQUpkOOgM/ItHwlEck6iy1pw+W6CErM7XQ
+         Cx2p0w6c3yydtrw+/qiLyfYprM7CGsNehatuWYhYBOXY7Wom6RxMd9SEVL8KJt9SSH8I
+         2zPvy1vExufX36fA2Cj9z4twSioyAZIx6lcxGx/EM2CD7UHKuv9EbJj7AEgsSRK9ONBF
+         QvcgMOVhw4yyXl+HRwUKi6YQO/4qkvSnEogUykaJjEdsqRTbF/LTaKQxNU0R2wv1y+dR
+         hcVO2U5Jlqt2MBvkIqumaMYfyHEK5wFYtOuA+iLFuxBF25BBWGFa1XZj2XMY6ERoYcKb
+         JoNQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU6/+OdyaLc5FUOeUrZS7jjqRWi25+bx3XbMMLjTEJ4l9g5n5MWQeBeCdzpC8EC/08Q8B8XISU853Iyj3O636S7@lists.infradead.org
+X-Gm-Message-State: AOJu0YzyV68bWRzD3SH/zTYhS0abmxEKYCQiWfApNbDYZ45dM9u9NMRe
+	Wcs4/+AdV+HRvqJwJUQCn2Ds+idbzJMnRgB7nU8D/kpahBbnuDOxmk/5
+X-Gm-Gg: AY/fxX5nPN6Dw0uuc8G3w9hbDOiSIEOTAizMGxvnbDrGtrsuGRGAtVfd9xm1snGggh3
+	617TUYOjaIzDlWxQeYPldI2wrqBsihGd7qCF2h6hFk//yYBKQazTGNg7z3+ARUUuaghmCM3uFei
+	espw3814jDrpayhkGWGSPnJ9rphUjRy1pRREfoZvn7oFpOw/SbiijdLnyMRzIB+kaEoSVFzdk+c
+	/HXSuo5QxhWPxXwBJXto6nAhljv9FpnaiYC3WohKUqPyNhDGoJrXrVXFrfBAvT9nRF5OZlP7YzZ
+	jpwp6eJgLrf9UWhdksRjhO/YUZmfAUp7zXQ/w+EDY0Dw3KdbwsFfds7+6AX3r8lT1kVj+Xg3Mbj
+	G5bRWGw0wRpH05tnd6QpLBNqHsQX6f5vWeiMO99cZH6KGx72akGx4F8C5eQ/m+8h8gPJRR9NF0A
+	LVJMma20HRJuRGmvWmp557G74vR994FT3/oUoBOJVXYeuHOSuFKSN1ojZMQH0vGN0=
+X-Google-Smtp-Source: AGHT+IHyDJpQHBms/ienI8KAmWZu5MhqukBnjyYtenMu2CYLWW1CjFUhtTLo4yMnCvX9Pd/MmTJfXQ==
+X-Received: by 2002:a5d:6643:0:b0:42f:bad9:20c9 with SMTP id ffacd0b85a97d-42fbad92628mr9345753f8f.19.1765822570360;
+        Mon, 15 Dec 2025 10:16:10 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-430f9339d86sm11129355f8f.29.2025.12.15.10.16.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 15 Dec 2025 10:16:10 -0800 (PST)
+Date: Mon, 15 Dec 2025 18:16:05 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Daniel Stone <daniel@fooishbar.org>
+Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Sandy Huang
+ <hjc@rock-chips.com>, Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
+ Andy Yan <andy.yan@rock-chips.com>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, Daniel
+ Stone <daniels@collabora.com>, kernel@collabora.com
+Subject: Re: [PATCH v4 1/8] drm/rockchip: vop2: Switch impossible format
+ conditional to WARN_ON
+Message-ID: <20251215181605.29f6afcc@pumpkin>
+In-Reply-To: <CAPj87rMeJWLm9J=7kMrEvbpzVOMiQc-TThSNE-Gfac7nhUB3bw@mail.gmail.com>
+References: <20251211-vop2-atomic-fixups-v4-0-5d50eda26bf8@collabora.com>
+	<20251211-vop2-atomic-fixups-v4-1-5d50eda26bf8@collabora.com>
+	<20251211223822.6eeabb4d@pumpkin>
+	<14738785.uLZWGnKmhe@workhorse>
+	<CAPj87rMeJWLm9J=7kMrEvbpzVOMiQc-TThSNE-Gfac7nhUB3bw@mail.gmail.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Chester Lin <chester62515@gmail.com>, 
- Matthias Brugger <mbrugger@suse.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- linux-arm-kernel@lists.infradead.org, Shawn Guo <shawnguo@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, "David S. Miller" <davem@davemloft.net>, 
- linux-kernel@vger.kernel.org, NXP S32 Linux Team <s32@nxp.com>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- linux-stm32@st-md-mailman.stormreply.com, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org, 
- Eric Dumazet <edumazet@google.com>, devicetree@vger.kernel.org, 
- Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, Jakub Kicinski <kuba@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, imx@lists.linux.dev, 
- Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
- Conor Dooley <conor+dt@kernel.org>
-To: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
-In-Reply-To: <20251214-dwmac_multi_irq-v1-2-36562ab0e9f7@oss.nxp.com>
-References: <20251214-dwmac_multi_irq-v1-0-36562ab0e9f7@oss.nxp.com>
- <20251214-dwmac_multi_irq-v1-2-36562ab0e9f7@oss.nxp.com>
-Message-Id: <176582217911.3066791.4926710165988218857.robh@kernel.org>
-Subject: Re: [PATCH RFC 2/4] dt-bindings: net: nxp,s32-dwmac: Declare
- per-queue interrupts
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251215_101613_089673_A7BF5D62 
+X-CRM114-Status: GOOD (  27.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,92 +112,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, 15 Dec 2025 17:55:13 +0000
+Daniel Stone <daniel@fooishbar.org> wrote:
 
-On Sun, 14 Dec 2025 23:15:38 +0100, Jan Petrous (OSS) wrote:
-> The DWMAC IP on supported SoCs has connected queue-based IRQ lines.
+> Hi,
 > 
-> Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
-> ---
->  .../devicetree/bindings/net/nxp,s32-dwmac.yaml     | 40 +++++++++++++++++++---
->  1 file changed, 36 insertions(+), 4 deletions(-)
+> On Fri, 12 Dec 2025 at 12:46, Nicolas Frattaroli
+> <nicolas.frattaroli@collabora.com> wrote:
+> > On Thursday, 11 December 2025 23:38:22 Central European Standard Time David Laight wrote:  
+> > > Except that all the systems with PANIC_ON_WARN set will panic.
+> > > I believe that is somewhere over 90% of systems.  
+> >
+> > I also like making up statistics. Warning here is the correct move
+> > in my opinion because this warning being triggered indicates a bug
+> > in the kernel code, and with PANIC_ON_WARN the user explicitly says
+> > they would rather panic in such a case than treat it as an abnormal
+> > condition that is recoverable.
+> >
+> > The reason why this condition ever occurring should be treated as an
+> > abnormal condition is because the DRM subsystem should guarantee we
+> > don't get a framebuffer of a format we didn't explicitly declare
+> > support for in the first place. So this condition being hit either
+> > means drm_universal_plane_init is broken, or the array of formats
+> > that's passed to it is out of sync with the conversion code, which
+> > is also a bug. Or someone managed to thoroughly hose DRM's internal
+> > kernel-side data structures, which is precisely the kind of thing
+> > PANIC_ON_WARN users want to abort for.  
 > 
+> Yes, that's exactly it. We make all kinds of load-bearing assumptions
+> everywhere: that PM code won't pass in a NULL struct device pointer to
+> the resume handler, that our driver callbacks won't get called whilst
+> the device is runtime-suspended, etc. We could try to handle every
+> single one of those with if (clk == NULL) return 0; /* ??? */, or we
+> could not.
+> 
+> If you'd like, we could just delete every one of these checks and
+> replace them with comments, explaining what we assume the invariants
+> to be, and wait for an OOPS due to dereferencing invalid pointers. But
+> the MISRA style of 'handling' every possible impossible case is not
+> tractable.
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Especially since it is often easier to debug the NULL pointer reference
+that the work out why a BUG_ON(!ptr) happened.
+(In the former case you should have the contents of all the registers
+making it easier to backtrack to where the NULL came from.)
 
-yamllint warnings/errors:
+	David
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml: ignoring, error in schema: properties: interrupt-names
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml: properties:interrupt-names: [{'items': [{'const': 'macirq'}, {'const': 'rx-queue-0'}, {'const': 'tx-queue-0'}, {'const': 'rx-queue-1'}, {'const': 'tx-queue-1'}, {'const': 'rx-queue-2'}, {'const': 'tx-queue-2'}, {'const': 'rx-queue-3'}, {'const': 'tx-queue-3'}, {'const': 'rx-queue-4'}, {'const': 'tx-queue-4'}]}] is not of type 'object', 'boolean'
-	from schema $id: http://devicetree.org/meta-schemas/keywords.yaml
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml: properties:interrupt-names: [{'items': [{'const': 'macirq'}, {'const': 'rx-queue-0'}, {'const': 'tx-queue-0'}, {'const': 'rx-queue-1'}, {'const': 'tx-queue-1'}, {'const': 'rx-queue-2'}, {'const': 'tx-queue-2'}, {'const': 'rx-queue-3'}, {'const': 'tx-queue-3'}, {'const': 'rx-queue-4'}, {'const': 'tx-queue-4'}]}] is not of type 'object', 'boolean'
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml: properties:interrupt-names: [{'items': [{'const': 'macirq'}, {'const': 'rx-queue-0'}, {'const': 'tx-queue-0'}, {'const': 'rx-queue-1'}, {'const': 'tx-queue-1'}, {'const': 'rx-queue-2'}, {'const': 'tx-queue-2'}, {'const': 'rx-queue-3'}, {'const': 'tx-queue-3'}, {'const': 'rx-queue-4'}, {'const': 'tx-queue-4'}]}] is not of type 'object', 'boolean'
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml: properties:interrupt-names: [{'items': [{'const': 'macirq'}, {'const': 'rx-queue-0'}, {'const': 'tx-queue-0'}, {'const': 'rx-queue-1'}, {'const': 'tx-queue-1'}, {'const': 'rx-queue-2'}, {'const': 'tx-queue-2'}, {'const': 'rx-queue-3'}, {'const': 'tx-queue-3'}, {'const': 'rx-queue-4'}, {'const': 'tx-queue-4'}]}] is not of type 'object', 'boolean'
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml: properties:interrupt-names: [{'items': [{'const': 'macirq'}, {'const': 'rx-queue-0'}, {'const': 'tx-queue-0'}, {'const': 'rx-queue-1'}, {'const': 'tx-queue-1'}, {'const': 'rx-queue-2'}, {'const': 'tx-queue-2'}, {'const': 'rx-queue-3'}, {'const': 'tx-queue-3'}, {'const': 'rx-queue-4'}, {'const': 'tx-queue-4'}]}] is not of type 'object', 'boolean'
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml: properties:interrupt-names: [{'items': [{'const': 'macirq'}, {'const': 'rx-queue-0'}, {'const': 'tx-queue-0'}, {'const': 'rx-queue-1'}, {'const': 'tx-queue-1'}, {'const': 'rx-queue-2'}, {'const': 'tx-queue-2'}, {'const': 'rx-queue-3'}, {'const': 'tx-queue-3'}, {'const': 'rx-queue-4'}, {'const': 'tx-queue-4'}]}] is not of type 'object', 'boolean'
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml: properties:interrupt-names: [{'items': [{'const': 'macirq'}, {'const': 'rx-queue-0'}, {'const': 'tx-queue-0'}, {'const': 'rx-queue-1'}, {'const': 'tx-queue-1'}, {'const': 'rx-queue-2'}, {'const': 'tx-queue-2'}, {'const': 'rx-queue-3'}, {'const': 'tx-queue-3'}, {'const': 'rx-queue-4'}, {'const': 'tx-queue-4'}]}] is not of type 'object', 'boolean'
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/net/nxp,s32-dwmac.yaml: properties:interrupt-names: [{'items': [{'const': 'macirq'}, {'const': 'rx-queue-0'}, {'const': 'tx-queue-0'}, {'const': 'rx-queue-1'}, {'const': 'tx-queue-1'}, {'const': 'rx-queue-2'}, {'const': 'tx-queue-2'}, {'const': 'rx-queue-3'}, {'const': 'tx-queue-3'}, {'const': 'rx-queue-4'}, {'const': 'tx-queue-4'}]}] is not of type 'object', 'boolean'
-Traceback (most recent call last):
-  File "/usr/local/bin/dt-doc-validate", line 8, in <module>
-    sys.exit(main())
-             ~~~~^^
-  File "/usr/local/lib/python3.13/dist-packages/dtschema/doc_validate.py", line 66, in main
-    ret |= check_doc(f)
-           ~~~~~~~~~^^^
-  File "/usr/local/lib/python3.13/dist-packages/dtschema/doc_validate.py", line 37, in check_doc
-    dtsch.check_schema_refs()
-    ~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "/usr/local/lib/python3.13/dist-packages/dtschema/schema.py", line 241, in check_schema_refs
-    self._check_schema_refs(resolver, self)
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.13/dist-packages/dtschema/schema.py", line 212, in _check_schema_refs
-    self._check_schema_refs(resolver, v, parent=k, is_common=is_common,
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                            has_constraint=has_constraint)
-                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.13/dist-packages/dtschema/schema.py", line 216, in _check_schema_refs
-    self._check_schema_refs(resolver, schema[i], parent=parent, is_common=is_common,
-    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                            has_constraint=has_constraint)
-                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.13/dist-packages/dtschema/schema.py", line 203, in _check_schema_refs
-    ref_sch = resolver.lookup(schema['$ref']).contents
-              ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "/usr/local/lib/python3.13/dist-packages/referencing/_core.py", line 682, in lookup
-    retrieved = self._registry.get_or_retrieve(uri)
-  File "/usr/local/lib/python3.13/dist-packages/referencing/_core.py", line 422, in get_or_retrieve
-    registry = self.crawl()
-  File "/usr/local/lib/python3.13/dist-packages/referencing/_core.py", line 500, in crawl
-    id = resource.id()
-  File "/usr/local/lib/python3.13/dist-packages/referencing/_core.py", line 231, in id
-    id = self._specification.id_of(self.contents)
-  File "/usr/local/lib/python3.13/dist-packages/referencing/jsonschema.py", line 50, in _dollar_id
-    return contents.get("$id")
-           ^^^^^^^^^^^^
-AttributeError: 'list' object has no attribute 'get'
-Lexical error: Documentation/devicetree/bindings/net/nxp,s32-dwmac.example.dts:58.13-17 Unexpected 'snps'
-Error: Documentation/devicetree/bindings/net/nxp,s32-dwmac.example.dts:58.13-17 syntax error
-FATAL ERROR: Unable to parse input tree
-make[2]: *** [scripts/Makefile.dtbs:141: Documentation/devicetree/bindings/net/nxp,s32-dwmac.example.dtb] Error 1
-make[2]: *** Waiting for unfinished jobs....
-make[1]: *** [/builds/robherring/dt-review-ci/linux/Makefile:1559: dt_binding_check] Error 2
-make: *** [Makefile:248: __sub-make] Error 2
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.kernel.org/project/devicetree/patch/20251214-dwmac_multi_irq-v1-2-36562ab0e9f7@oss.nxp.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+> 
+> Cheers,
+> Daniel
 
 
