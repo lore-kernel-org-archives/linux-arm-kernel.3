@@ -4,78 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30E04D41D74
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 12:22:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63495D41D74
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 12:22:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qa/Vn79sYc/2vpTEh8B+lsrkZfuYz71JIBQPlwooPhc=; b=3AcCBu+GB0KHZ4Q+R8gYT6zFhk
-	cNMUwZFgIkLYEvLpIPFRd07SX4TvFJ+zTgyjgGkrNdxvwJ10iAHOEaRm1To4Hp7zWL6omRX8GDxMg
-	cuqnY6FvnioaheYHv3KCLacnxPyCp/Ty6Ft+yCv3bEivemUyMcP3R2Hcz6P8sbuTuICH+9KHcrOPd
-	AFUNqticRHmLK7c9H1IZ1kbaguuxo3gHJA3guNDm3JbreGiSUCtjLfbQcQLd5+TtzPKpkRqsKqwjU
-	WZZ20ce3lCU28Zq2msZNTqoZRmnoE+508055PWYwX81XzGlAssyv4m4f8d6zdUcFtEzyY0VLaFpUr
-	NCxarRQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nX3FD3M4ElDf5gKwO+rrIIt9v74oINUi/KijGikZ1qc=; b=W44bKmIkmaCaj0blF9vZz/rXje
+	LyAI2ORO5zzQKog/Oe10sPySSJwZFTwkBkHjKDOifE95Q8ElPKO+dFNnov1A2Yj8HaA4ugo+8SPvt
+	94GOK6j6n4Yso3aXdOyODBwVCOWXnmFshYRMjjxJgcCUxhG3dOnrcDphHq+s0fAbS6bwWs9y4odY7
+	32qA8818NkbfHiKnQHEXAbIkVcN/x347gfDoW7PbhQoSq4Ylwnfn7+qrfvA8YAgLuclB+rkIc31ao
+	ULFYUscY3yLpCf0lM6oTOyfyhBUFKix7ddt13VlyXnxij8ZtiPLzdH6Btri3xLPofKW2i14A9IKMB
+	T4j+BmUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV7ae-00000003bTS-0GsH;
-	Mon, 15 Dec 2025 12:22:12 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1vV7aw-00000003bXd-1UYA;
+	Mon, 15 Dec 2025 12:22:30 +0000
+Received: from flow-b7-smtp.messagingengine.com ([202.12.124.142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV7aa-00000003bSx-3a8W;
-	Mon, 15 Dec 2025 12:22:10 +0000
-X-UUID: a8a33f48d9b011f0a52f393f94899d25-20251215
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=qa/Vn79sYc/2vpTEh8B+lsrkZfuYz71JIBQPlwooPhc=;
-	b=XpD3toFO5bN5TlyGuWrok+W1ZUkSrP5q8DnWwmmfAgMI/CwQRiricRBjekECrs98U5HJE7oiqGN251uG9E6n2Mzf8lfmfOWqDDHv8bVyfLFEq5AGKmO0U2zrpOYCBtgvC85vs7O9TaEzAaPAgT+uHfOYLmsRxVqnzgRcmfVJtBs=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:9013a1f1-98cf-455a-8b6c-6a6a9e8e04f6,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:a9d874c,CLOUDID:7f0036aa-6421-45b1-b8b8-e73e3dc9a90f,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|123|836|888|898,TC:-5,Content:0|
-	15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:
-	0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: a8a33f48d9b011f0a52f393f94899d25-20251215
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw02.mediatek.com
-	(envelope-from <ed.tsai@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 627645115; Mon, 15 Dec 2025 05:22:01 -0700
-Received: from mtkmbs11n1.mediatek.inc (172.21.101.185) by
- mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Mon, 15 Dec 2025 20:21:58 +0800
-Received: from mtksitap99.mediatek.inc (10.233.130.16) by
- mtkmbs11n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Mon, 15 Dec 2025 20:21:58 +0800
-From: <ed.tsai@mediatek.com>
-To: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
-	Pavel Machek <pavel@kernel.org>, Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>, Danilo Krummrich <dakr@kernel.org>, "Matthias
- Brugger" <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Ulf Hansson
-	<ulf.hansson@linaro.org>
-CC: <linux-kernel@vger.kernel.org>, <linux-mediatek@lists.infradead.org>,
-	<chun-hung.wu@mediatek.com>, <freddy.shin@mediatek.com>, Ed Tsai
-	<ed.tsai@mediatek.com>, "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
-	<linux-pm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH 1/1] PM: runtime: fix bitfield race of needs_force_resume
-Date: Mon, 15 Dec 2025 20:21:42 +0800
-Message-ID: <20251215122154.3180001-1-ed.tsai@mediatek.com>
-X-Mailer: git-send-email 2.45.2
+	id 1vV7at-00000003bWp-0JWP
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 15 Dec 2025 12:22:28 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailflow.stl.internal (Postfix) with ESMTP id 483D1130013E;
+	Mon, 15 Dec 2025 07:22:25 -0500 (EST)
+Received: from phl-imap-17 ([10.202.2.105])
+  by phl-compute-04.internal (MEProxy); Mon, 15 Dec 2025 07:22:25 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1765801345;
+	 x=1765808545; bh=nX3FD3M4ElDf5gKwO+rrIIt9v74oINUi/KijGikZ1qc=; b=
+	QdTO6WX4YcXk7bXnZKwsFTY528xx7OGmujUKGMPJhniWiXbt1XE+JWeXRsIiuIi4
+	Y1wl3UJ+yRITA2xOwZ0VaLV+IoR2iG8xm2MjHNGPcw0/jDqywKBiMpl1qzFY5nWU
+	wk+6PVgItm3ZM3K8PvpKQizgw2WoNhhiP/Qa/h6xWUY+VSLUQdmUBVz6HMNMxr0e
+	YEpN6JdelDi9eMuhcRQf7NegEXwahQGjT9Gtn/kQ2V0pBElg2Ecs1uIzSJXq3OYs
+	4ihh7u/BZiG0m5W05q9Sk4R5a6RmLlqgOLDZyxq1MFz4l14/sFGOAkfl8ZwweD0S
+	q8RHDRJ69LuZjfm/lFbZFQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1765801345; x=
+	1765808545; bh=nX3FD3M4ElDf5gKwO+rrIIt9v74oINUi/KijGikZ1qc=; b=u
+	kb2r1ZFHXhXrNhY5RqiCKkQXPcZNYTk3qcti8FAAnaTGsMPgKWKZNCyOGSPHZcI7
+	fru62djvwPJgEUyNoI1N+qxsytur9rm0jsX4x3UwfaLuIE7/RMaGzo4b4wGHJw3A
+	s7CUdpbdGD9OenjNnkKIQvHNTyyAhHsdo3GXAaiomeZy+onlNNzNAGQd/3WHm1qO
+	jorVv+RgKMyHYVYUoUtQ8pkotNTNpTqd3GsuweywiKSmPFrxjsoGsv5FD1v+3KYr
+	w3WWRwgTDtfaf3/8ZDxW0NVIF+1iOhRnpr6GojjCB/ge+2Z6vZL+NX+dgR/f5hik
+	sByvndAUptbc/gF8QNERw==
+X-ME-Sender: <xms:gP0_acFLbb_GMfqpajTVQ1RvZ3yTg_AZPoUVtlrxwK5GR2WQfH23QQ>
+    <xme:gP0_aQJ7E8Of-BBQlR7HFtYFQQL5_zIr0MXfF_8R-7gmHqYT12GrgAu7irU7jaU_P
+    ROBgSQRXpri3BvbeytywK0FEJ9gmm2qG5jNht_jfcj9dsGEjml5Cg>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdefieektdcutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
+    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
+    hnpefhtdfhvddtfeehudekteeggffghfejgeegteefgffgvedugeduveelvdekhfdvieen
+    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
+    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopeekpdhmohguvgepshhmthhpohhuthdp
+    rhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpth
+    htoheplhgvohdrhigrnhesrghrmhdrtghomhdprhgtphhtthhopehirhhoghgvrhhssehg
+    ohhoghhlvgdrtghomhdprhgtphhtthhopehjohgvlhdqlhhinhhugiesjhhmrgihrdhush
+    dprhgtphhtthhopeifihhllheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepjhgrmhgv
+    shdrtghlrghrkheslhhinhgrrhhordhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmh
+    dqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohep
+    lhhinhhugidqphgvrhhfqdhushgvrhhssehvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:gP0_aUmWdGnoGSoI2Xn0APXiPrU1sIZ9qr7K_jZqm7ZrC7vOkiAhpw>
+    <xmx:gP0_af2QrV9dUU7LmCWJj2er0UxYWPCjLKvWZoUW1dB3FJ82g1PklQ>
+    <xmx:gP0_aU1aKT_qhkjHOGIyHRjkkA7xQlCFm73BLDTm9s--uZlpp4imBg>
+    <xmx:gP0_aRqBbEM0-pAsSwlHBKcbpzPhCjXUtRJla45oqev5yZIeBKFN6g>
+    <xmx:gf0_aeS4nynp-ToJtmWSudM-NDnjTGbDzmQnlrIV07pa4sJsUM_i5nOP>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id D6C4BC40072; Mon, 15 Dec 2025 07:22:24 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-ThreadId: AV8M3mJaQpUZ
+Date: Mon, 15 Dec 2025 13:22:04 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Leo Yan" <leo.yan@arm.com>, "James Clark" <james.clark@linaro.org>
+Cc: "Joel May" <joel-linux@jmay.us>, "Ian Rogers" <irogers@google.com>,
+ linux-arm-kernel@lists.infradead.org,
+ "Linux perf Profiling" <linux-perf-users@vger.kernel.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>
+Message-Id: <0076b248-9b23-408d-9448-701df3c8d952@app.fastmail.com>
+In-Reply-To: <20251215112818.GB681384@e132581.arm.com>
+References: <b2651f20-6f3a-49f5-9cd8-3fb028b2cab5@app.fastmail.com>
+ <fcefc3c0-541d-40cc-84e3-9c2460308bdb@linaro.org>
+ <23c07ac4-ff13-47a5-824a-e7af1d1847a3@app.fastmail.com>
+ <bda366b4-fa53-4feb-a7ce-ee47cfc404b5@linaro.org>
+ <20251215112818.GB681384@e132581.arm.com>
+Subject: Re: [PATCH] arm64: perf: fix syscalltbl path base
 Content-Type: text/plain
-X-MTK: N
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_042208_983089_019374CC 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20251215_042227_680647_E21453BF 
+X-CRM114-Status: GOOD (  23.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,76 +119,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ed Tsai <ed.tsai@mediatek.com>
+On Mon, Dec 15, 2025, at 12:28, Leo Yan wrote:
+> On Mon, Dec 15, 2025 at 12:52:24PM +0200, James Clark wrote:
+>> On 15/12/2025 11:33, Arnd Bergmann wrote:
+>> > On Mon, Dec 15, 2025, at 09:47, James Clark wrote:
+>> > > The first commit has an older fixes: tag and also fixes some other
+>> > > issues so it might be better to take that one rather than this one.
+>> > 
+>> > I don't understand that other "fix", doesn't that just work around
+>> > the arm64 build issue by adding another special case for arm64?
+>> > 
+>> > If we want the tools directory to have a copy of the generated unistd.h
+>> > files instead of generating them, it should at the minimum be done
+>> > the same across all architectures.
+>> 
+>> I don't think it's a special case, the other architectures already have a
+>> copy of their syscall headers in tools/ don't they?
+>
+> Correct.  Most of architectures simply include
+>
+>     tools/include/uapi/asm-generic/unistd.h
+>
+> x86 includes their own unistd_32/64.h; only arm64 attempted to generate
+> unistd_64.h dynamically, but this is problem for build dependency - when
+> build perf, feature tests in tools/build/feature/ run before libperf and
+> fail if unistd_64.h has not yet been generated by libperf Makefile.
 
-needs_force_resume is a bitfield member in struct dev_pm_info and must
-be accessed under the same lock as its bitfield group.
+Ah, I see now that arc/hexagon/loongarch/riscv just use an old
+copy of the header based on the and no longer update them. I only
+saw that they have the stub version but hadn't realized that they
+never updated past the point where we started generating the
+ones for the uapi.
 
-A real concurrent write was observed between needs_force_resume and
-idle_notification; stacks below:
+Still, I would suggest using the same method across all architectures:
+either we figure out how to use the generated headers on all of them
+(including x86, which uses yet another method), or we just stick with
+the old asm-generic/unistd.h copy and use that on arm64 as well.
 
-write needs_force_resume:
-  pm_runtime_reinit+0x110/0x360
-  really_probe+0xe0/0x464
-  __driver_probe_device+0x9c/0x104
-  driver_probe_device+0x3c/0x1a8
-  __device_attach_driver+0x100/0x17c
-  bus_for_each_drv+0x10c/0x168
-  __device_attach_async_helper+0x7c/0xf4
-  async_run_entry_fn+0x4c/0x1b4
-  process_scheduled_works+0x1dc/0x498
-  worker_thread+0x220/0x320
-  kthread+0x150/0x27c
-  ret_from_fork+0x10/0x20
-
-write idle_notification:
-  rpm_idle+0x464/0x5f8
-  __pm_runtime_idle+0x7c/0x170
-  scsi_autopm_put_device+0x18/0x28
-  scsi_sysfs_add_sdev+0x1a0/0x1d8
-  scsi_probe_and_add_lun+0xbd8/0xcd0
-  __scsi_add_device+0xb8/0x11c
-  ufshcd_async_scan+0xb4/0x3a4
-  async_run_entry_fn+0x4c/0x1b4
-  process_scheduled_works+0x1dc/0x498
-  worker_thread+0x220/0x320
-  kthread+0x150/0x27c
-  ret_from_fork+0x10/0x20
-
-Fixes: 89d9cec3b1e9 ("PM: runtime: Clear power.needs_force_resume in pm_runtime_reinit()")
-Signed-off-by: Ed Tsai <ed.tsai@mediatek.com>
----
- drivers/base/power/runtime.c | 11 +++++++++++
- 1 file changed, 11 insertions(+)
-
-diff --git a/drivers/base/power/runtime.c b/drivers/base/power/runtime.c
-index 84676cc24221..3328543b1ed8 100644
---- a/drivers/base/power/runtime.c
-+++ b/drivers/base/power/runtime.c
-@@ -1879,11 +1879,22 @@ void pm_runtime_reinit(struct device *dev)
- 				pm_runtime_put(dev->parent);
- 		}
- 	}
-+
- 	/*
- 	 * Clear power.needs_force_resume in case it has been set by
- 	 * pm_runtime_force_suspend() invoked from a driver remove callback.
- 	 */
-+	if (dev->power.irq_safe)
-+		spin_lock(&dev->power.lock);
-+	else
-+		spin_lock_irq(&dev->power.lock);
-+
- 	dev->power.needs_force_resume = false;
-+
-+	if (dev->power.irq_safe)
-+		spin_unlock(&dev->power.lock);
-+	else
-+		spin_unlock_irq(&dev->power.lock);
- }
- 
- /**
--- 
-2.45.2
-
+     Arnd
 
