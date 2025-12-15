@@ -4,203 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94437D59D99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 09:36:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6179CD41D74
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 09:38:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QSHQxAhMADQ8Lcq/XqZsEh1meodoSWqgjCwK8QyNgLQ=; b=dXK2oLIK/QuSn5LDHqOg+afGiE
-	2WX8uflgHU7GlyFVvpBqI57LYkvBMKrNfgyZQTDBWzol9+PrA0ivbGNe/CQk/sFTAtXhoY5zrFUz/
-	bMTSPMOrui1GVKvXdzMDEyEpjrPwe5IfQtIfatSLuG8a60SpuVNGu9W7J1hHiwAr/jGVtpLuzJE6z
-	nwBRasbnQikKdL/D1lh4g19DRlBKBa76WeH65y9uuRsdv1dYNfR41Ny2NFVwXQHA/QskQyM+F0uu7
-	FGRFgc/DmqrscQjRDDrSVqwiivcJ3AUfKc3lzhuDGvoUVWa+1bkv4lhrI9WLNVW+dQbhu11jQ3SCe
-	ofWtNnEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=A2ofUMV8vPgmaOuh+YZV7CVgRP8TEUPgjBpp5OjiYrM=; b=PUQ/xa2EuMZfiV
+	UGnKXM7bt4SoYCZWpdsAKAnVw/+vNd8xP+VUJ7wPBl0oFDSZSLtOsEBSEUQLwAlRIFGS6863pdheH
+	Bgcq3YUdTXaxng6mGn2gmtmMh6+vNbHzVYSRihJDnKgEKysB3tdlXloWK37WAms5naHmQGpD/slzv
+	FEdD+NZl+Sf2M96+s6OBml0Ddp4SLatl+2VFZLusWZ5w1XQdf/1CFTUvpmZYORy2mO6fvj7B0eRjc
+	74s9+O0spaeJOSSviRm26sS3S37VCo+0xuHZbu5ARfyS3SJO3mRJCpfKyW3BT1wSfxoDlebiG7+eC
+	rdGTxgGGmr9tzN0BuWbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV500-00000003NIs-3wTX;
-	Mon, 15 Dec 2025 09:36:12 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1vV528-00000003NSM-1uYW;
+	Mon, 15 Dec 2025 09:38:24 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV4zx-00000003NIH-2zFv
+	id 1vV525-00000003NRw-0cJU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 09:36:11 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=oKJga5MZNPj4jnH58sWpBaI2bxMfZbL0Qc5uatDNfWBP5Zsas8FOhKHtEwSdchdM1dEH42q3diepBhe1Bj6W8Lmy3DXqboInl+mAHmKePyMHeBzTZHRrC1p9ggMZD9AOXVbc9lHOQtO3j2AnMHjWh0vtrhRvIkI5hRKstp+FMSnAB6gcUPBCUHBQtE5YQj+MVsZks1rmEEOCu8o7j33XV1lO2Ha8vpy9+nQg9pgZNFCCKzhejBCOXNFQPrRY6NQi7MhJKxzwYc7bwYir/+1wfZxeiD3Ff9DsAIp7B+KmErmRZnUppQI7FclufazhQyGY8wGk/7PlG7Zmve7ntxkm+w==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QSHQxAhMADQ8Lcq/XqZsEh1meodoSWqgjCwK8QyNgLQ=;
- b=Rbq0PQGAxLsriyM/J/UwrBM3XRzc702Wh30rlUQHKczeffCT7gMPSkPtgMCmQIRmezaARcH2dzdYhSQq5hmdqmOaTx2RAAZlGn3KK9vEbwPWWNBnCRtRS/s8miuqIt+hXrUCAyv2Hr+Zwvg8mYhsypSEhrrHoPgqIo9bTvSDKbEil0hTFKDWeyeRY+qraA8SCSA7eMsos50v2ozlI8OUwKypgUUWI7QecTdsCBWqkleV8OJ8C6uzLJSVQ458/PvQ3L+H+qkrmsxU6n3RIGTF8KwlGJO5+Mgz6nn5KrfHbLViV1NeIeEEWzmrOiLl0Ce9lsJg4pe0hwZ0W5ZT7esPSw==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=google.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QSHQxAhMADQ8Lcq/XqZsEh1meodoSWqgjCwK8QyNgLQ=;
- b=I9RE8EckoBMABu+4APmggTrK0ARBL7d4bVKVk4B/rsLk7Z3a9YzOge7CRPo+bZ66x9ActtNXVVL4T/R8oda0+goodqtSMe3V7qiLTQrGvcRyUKot0SFrAqD2s5PiZ3JBWiDWLE4k+TBSxZ4NXM4H8Q+O+7IGSR+mIOEuQ6OaidY=
-Received: from AM9P250CA0004.EURP250.PROD.OUTLOOK.COM (2603:10a6:20b:21c::9)
- by DBAPR08MB5718.eurprd08.prod.outlook.com (2603:10a6:10:1a9::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.13; Mon, 15 Dec
- 2025 09:36:01 +0000
-Received: from AMS1EPF00000042.eurprd04.prod.outlook.com
- (2603:10a6:20b:21c:cafe::d3) by AM9P250CA0004.outlook.office365.com
- (2603:10a6:20b:21c::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9412.12 via Frontend Transport; Mon,
- 15 Dec 2025 09:36:00 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AMS1EPF00000042.mail.protection.outlook.com (10.167.16.39) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.6
- via Frontend Transport; Mon, 15 Dec 2025 09:35:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Wb/rDqC9iv5HmsiNKfKTbvPhj5rMOLue2kIOO6XXfyZ5hAvUfwRoc/rq7W6Bi05FZfuh6rYWbKMBCp+cdlxTRZJp7C5BsyP/I+yAoWkyl+0avPrFtPaewnMYywwqVrmEFrlBnZuSPzfZ0VdivTvXfkAoSIxA8eBcdrasF/7dKNDkAsg430L3YjPvhtT77/c4mfU+095LcWXdFyTwAsj7z5qnUUVFgjpSHtBFHQePMBgDrbkay9gawFjDradIDkEQvgCT5Hv6jTfNGtvZ8SjUSf7aTX0Ty0S6a21XLSOBnsJwUQF6xSMzwOB5tGwpunfo3CmNAMDJ4QofUGJ57FzgHw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QSHQxAhMADQ8Lcq/XqZsEh1meodoSWqgjCwK8QyNgLQ=;
- b=yUIIEWCUdR9Fyw1bth9JxB4UKhbD/EILFfCLByQ4AiXrsATzzfp5k0eg8y7n9N4km6LruQGCXUWSuRsX3CASptPkZYzV9rB9Fxk8AQ+mvcz8sBtmJakwN+twvEapVpBnP3bOns/iCB6nTvRucHVy2HWlWL8mxTyWeE1pto+brT+ByttE5rP9IImxw1Rx5qfE421bCCHtfjjZlc2BsqDPp+n7DntGdW6C876OjI6MwftpWUh8siz0tM5YNYWPfltzv4Yb7TVtyzkTKQIm2Q+eL146+fl3T/RuZ53o+WZIx3g4Ja52w6QbrPxNu2fHhA243Eu+F9gnrimZTa6IiNsGwQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QSHQxAhMADQ8Lcq/XqZsEh1meodoSWqgjCwK8QyNgLQ=;
- b=I9RE8EckoBMABu+4APmggTrK0ARBL7d4bVKVk4B/rsLk7Z3a9YzOge7CRPo+bZ66x9ActtNXVVL4T/R8oda0+goodqtSMe3V7qiLTQrGvcRyUKot0SFrAqD2s5PiZ3JBWiDWLE4k+TBSxZ4NXM4H8Q+O+7IGSR+mIOEuQ6OaidY=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by AS8PR08MB9119.eurprd08.prod.outlook.com
- (2603:10a6:20b:5b0::16) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.13; Mon, 15 Dec
- 2025 09:34:52 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739%3]) with mapi id 15.20.9412.011; Mon, 15 Dec 2025
- 09:34:52 +0000
-Date: Mon, 15 Dec 2025 09:34:48 +0000
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Brendan Jackman <jackmanb@google.com>
-Cc: akpm@linux-foundation.org, david@kernel.org, lorenzo.stoakes@oracle.com,
-	Liam.Howlett@oracle.com, vbabka@suse.cz, rppt@kernel.org,
-	surenb@google.com, mhocko@suse.com, ast@kernel.org,
-	daniel@iogearbox.net, andrii@kernel.org, martin.lau@linux.dev,
-	eddyz87@gmail.com, song@kernel.org, yonghong.song@linux.dev,
-	john.fastabend@gmail.com, kpsingh@kernel.org, sdf@fomichev.me,
-	haoluo@google.com, jolsa@kernel.org, hannes@cmpxchg.org,
-	ziy@nvidia.com, bigeasy@linutronix.de, clrkwllms@kernel.org,
-	rostedt@goodmis.org, catalin.marinas@arm.com, will@kernel.org,
-	ryan.roberts@arm.com, kevin.brodsky@arm.com, dev.jain@arm.com,
-	yang@os.amperecomputing.com, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/2] arm64: mmu: use pagetable_alloc_nolock() while
- stop_machine()
-Message-ID: <aT/WOAr4osoJWaMS@e129823.arm.com>
-References: <20251212161832.2067134-1-yeoreum.yun@arm.com>
- <20251212161832.2067134-3-yeoreum.yun@arm.com>
- <CA+i-1C2e7QNTy5u=HF7tLsLXLq4xYbMTCbNjWGAxHz4uwgR05g@mail.gmail.com>
- <aT5/y3cSGIzi2K+m@e129823.arm.com>
- <DEYOI8H2OESD.1H56D3H8HKILB@google.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <DEYOI8H2OESD.1H56D3H8HKILB@google.com>
-X-ClientProxiedBy: LO2P265CA0377.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:a3::29) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
+	Mon, 15 Dec 2025 09:38:22 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2a0fe77d141so7400645ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Dec 2025 01:38:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1765791500; x=1766396300; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=A2ofUMV8vPgmaOuh+YZV7CVgRP8TEUPgjBpp5OjiYrM=;
+        b=mWS6ZEuP7HCyaVRYp70kmozn4PF36QIOcFmeZJsmrJF3gsRUTJ0FNdxKzpkvhO+Ha3
+         fI57cNcluGl6CProy/ibtGAM0B595Pxi2G8h7IAHslH2aQgrhHoffBMzCAWPE2RKPLln
+         lX/ni30dPoXtQ2u3KXEZbZGuyWM0xrAfq4ZJkYZLoyORB1XurApdjFFlOhHR3WeVbdWn
+         i90IBiwsWxLk4Sa1CaW4+9bZ7Rz5Nw1xvHMdLd9CTeYUbpRyogU+NUYmlCnvdLH+CDj6
+         OVj5Vuhoed6J1xFcFoY3cFX1Bg76FPeibAHLUN9DR1e/hYnrBSkD2lo1252ksPhnIAu3
+         k7nw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765791500; x=1766396300;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=A2ofUMV8vPgmaOuh+YZV7CVgRP8TEUPgjBpp5OjiYrM=;
+        b=bxxZoN41ZrV3gJMzlpYD5lA1Zratn/csKODr6GyNUMTjJXkINJE3pWls9ZOHSSMuAc
+         IzIcHSig5edw7RxtBLJZe/FUGKBe0pogQugPKErIG9w/UAH42zYkxeCzOCxckUQFasq0
+         LOEopCB9Gk/YZKoFe1xQkVSOjPVaoKE1LmcoqAhCfEOtxMaa05/5qzLuiKEa/M25/9UG
+         xHKY77/9yIn2uVspW9+27UACfZvHfRpu53TYBE/b1IsQ8et0nqKPagXr+4cXTYrh5sWm
+         6HNepZP+usj+pTJsWeGyrpHt5MJ/vIj09+0SoKutBY6j84trbUZHHPuDZNY554wAXQLd
+         /ZdQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX1l8WwSjsqggmQjoqUBsnQ6EgtBvuIpMrS1R7IYBX2aLIC9IgJNeewl9/hp4w0OR1rLpLo212yECwkSmEmIELH@lists.infradead.org
+X-Gm-Message-State: AOJu0YySEUTiN0Fa5l6RuoVl9SPn10NKbtdAtZ06SMt9M+mr+zH7s1uu
+	AEb/y2vLqNosFyQitxn3xsLDiccBlNb8WdTYsr7gjPTBQSarBd1mQIbC
+X-Gm-Gg: AY/fxX6saR9irCr0WPeNOybtSYdEc8BhZ2a2uesqbBrGz1oxvlO8EziYJHZbo3sLWjP
+	Byz2GM/fzPRVG9HZicB/gILT9CMx1qsxlLVJepjj65fG2HgW/ZBtkpdHu8DqQluoMN/oucoeSnH
+	Q2CnSMWZ57mgnUrw0AVKQs6YdDH3vZ7kgnYqSc3HmU5Y1k+vazzH4Q1YFVGna/sebE0mNxVMmVw
+	Vy+ZI77Lp9QkkIXxATRPJcr5X/6DTzyi6uESTS0pB8KJM0jFK/U3e9CTMgExKAYxLipwgYpqmBc
+	jsgnqK6zkRa48/H+lAalr2KqmF/I7sv1IHGhRZPpi1H9ioIIrYHSG7P9h6+VnM1ZJnoXUCjjLxG
+	/cXmEWXrFSS4HXb6YhNSVi6+ZZEjRFykYwluvQ2bMJHemKovwCkF50b0/yQs64waGi5caN/0lKI
+	cYGM8SZqnSyfw4Y8AM0PgB9pJ7ck28ui/ihOJZ0kQwBiN5zF3H1Uv3EbWmBUUzXmhN+xYgFs7id
+	WJDWgCVkgdn/XLJwpZM1E4SzfoH7e6XSm3nzuddbj3ixRS714jLXmuA5pKTuJdBH4XAapZMAqgu
+	Gpzlk9za6mRVPg402H7meZ6yUyfxPIcc4B99Qeg+b0rmGIXBzow=
+X-Google-Smtp-Source: AGHT+IGE3gq1ZgxyZw713bIINxNwXEl9ah/Lp4tSBM1uH035Fhp+NAhTmMOItSGS6fepfB6QrYDu/A==
+X-Received: by 2002:a17:903:19c8:b0:2a0:906c:5caf with SMTP id d9443c01a7336-2a0906c6125mr74500505ad.17.1765791499706;
+        Mon, 15 Dec 2025 01:38:19 -0800 (PST)
+Received: from [192.168.2.3] (2403-580a-80ed-0-4835-5a07-49e7-f115.ip6.aussiebb.net. [2403:580a:80ed:0:4835:5a07:49e7:f115])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29efd74f5e1sm113017705ad.16.2025.12.15.01.38.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 15 Dec 2025 01:38:19 -0800 (PST)
+From: James Calligeros <jcalligeros99@gmail.com>
+Subject: [PATCH v6 0/7] mfd: macsmc: add rtc, hwmon and hid subdevices
+Date: Mon, 15 Dec 2025 19:37:44 +1000
+Message-Id: <20251215-macsmc-subdevs-v6-0-0518cb5f28ae@gmail.com>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|AS8PR08MB9119:EE_|AMS1EPF00000042:EE_|DBAPR08MB5718:EE_
-X-MS-Office365-Filtering-Correlation-Id: 304dc94c-d16d-4c1a-55dd-08de3bbd5ae7
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?EmNu7+hUczxXwwrjvLpoNAe+rmCS7GVf/UN+4/iI2efTYeHshVNY0M+GGmat?=
- =?us-ascii?Q?bl53Qdk9NHgV7dmczUMS/UtIDsuziGfsNPY6uN0irniK0zESpFuTTQIRTp1L?=
- =?us-ascii?Q?u3H6RyizstId3bU2zNE562zQfurS7UxosDQ8PktUrvk+oJjOnnh5RBeI+OZ9?=
- =?us-ascii?Q?8sKh0WSFNWEjz6lRwpdySeMIIpVcdvRs5KbnvBDn9r82px8k1832gtOXOTWr?=
- =?us-ascii?Q?Pk+JT33E3yOIWTLeu8tHMgLTDP9n+lffG/NdwwdqZ+xzpfDX+DyV1yAYSR60?=
- =?us-ascii?Q?72Lyjl2Q/o4fVJJW0w3ldnRmCr1+q7vCqYOLA5aR8Sl+PYyHJQEz96imkWgE?=
- =?us-ascii?Q?pW9CaOy40RtmciPJTxVLKRMqVMtrn7FoJHi75H8gfdleRIxdI71iCnpku8O4?=
- =?us-ascii?Q?dZB7dr7f3tHCfETDGiLWrF+3Dtx5bT2DU1zPH5wJYbembG0NGq/jDacbs1Wv?=
- =?us-ascii?Q?NBW82Id8dJ4IfO5CBNuHyT95uco3POFoA5DVKjunO/xP00MaHlLhR1mupGp0?=
- =?us-ascii?Q?0BuBdrkpFzdgN6b7iftJ3GQuymkaJQyuJxk1WnKCkQNx+d3f7lHdtyVzVw3T?=
- =?us-ascii?Q?i77AtwplhdhaLbVJIEx2MZXn6ZS2WOt7RpePKQrLJa45piPa1QFediXylmLT?=
- =?us-ascii?Q?Sz2uRZaDQYct4bg/1wuYzILjnLR83B1xuy12pkkczBgFYRFLa83hz4zdCQAZ?=
- =?us-ascii?Q?Yze/FzTuPfd3j3IH2vWO05oLWsilTSJhNF2PrY+Ay2Rq6Bvr/nNLStY424Wt?=
- =?us-ascii?Q?yiTW0L27ZAPOXss/TEDwFB2DeonGfjc+VqfQddYmJ5Qq4jdn2Zz0br5bRAnm?=
- =?us-ascii?Q?XoOYNGg/4lIWykVyBXLvAPbYCaQATRpd3j0cU2AOgNC2B7ItuYPACwihOAfG?=
- =?us-ascii?Q?cN0UCeyLHrGFidlDhulO2NWK+5ZbN9Id2m/t8BRpXdikCDNv1JJMaxmlBl1C?=
- =?us-ascii?Q?63j8VyH4Y1rCVBzr563ZU8tOFNZaagHBoNX5OAK3/pYhJNHKvhCHI3T8O5m7?=
- =?us-ascii?Q?JAHTQO8Z5WcYa/BdR038/8sZVzc/lz8hJxJBO/mtmJgEmajdxIxinocWt4v6?=
- =?us-ascii?Q?HnX+URh9CA/AnDbjqrxc5Sx+thX3Cd3ZuS6vcbb2nZLf6zpOy6I07bkl61eL?=
- =?us-ascii?Q?N95BhKwAhnnxXvClklYr0YyJRcCenk6N6oW8TW6kNYrVTQdh2Pui2ws7NpDl?=
- =?us-ascii?Q?vaVXstiFZ9b/4T3ee6T5bStxTrJinBoSxUellGkpbOx97apiFxfzD5xMFjRa?=
- =?us-ascii?Q?rJEIoYzuW7Mj4KBjTCgLFNBtzytQpuNdTCTiOZln6irO+smsk4Be7faB6QC+?=
- =?us-ascii?Q?xf5B3fdXE4LpUmGpFZCYd9SKBy4IWd/2PKMUBevpZ4Mqyl8Tt20X1QEdP2gr?=
- =?us-ascii?Q?0KTOV7g2VgHinkLBfkwMhckZt7X8kYSAbZvLiAT1u7TMMYmUgoluN/+lL9dp?=
- =?us-ascii?Q?WJpizH+bfmMh/2syyWBTTk659KwP3c4k?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB9119
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS1EPF00000042.eurprd04.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 1b175031-454c-4a71-6edf-08de3bbd32db
-X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|36860700013|14060799003|7416014|82310400026|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?DTkJWjX26pfvZ7IEcY/INXF+U/zw0FqzuRs4gUnshaxIUiPDb417PCd5KJNK?=
- =?us-ascii?Q?jSzKWEJxZ+MBWTbhq9A/RUcu4i/MOYYGRrdFihEKvMGSsf3XgmzkLsiHIjq+?=
- =?us-ascii?Q?LjsXnq8wAhTc00qTvPZuVuFCvNeHV+thaMawB5JCXjpfpU7t4RvpMKyfwY75?=
- =?us-ascii?Q?DXYs5Cr0VeRaCjtIE9Q+jEYDNHaHNqObCfGEpV7A8Bs68JUmUHkBjaaQ5jKa?=
- =?us-ascii?Q?GPGtm8oC78F2ntGhSZQyDRN+40tdBuCNEM/9pplqjWlE96w6PSFTJAwnNSwE?=
- =?us-ascii?Q?+Lhpzu2hNeqUm6ui2rKl9hvQFassABTb+Enu4CN7pAiSvAX29B+rtQidZtz4?=
- =?us-ascii?Q?osFirGaVP83r8EP2I40Tmpsp9OZD8OVwK2Jy9dvDDD4j+nzYuBzPc6MB/768?=
- =?us-ascii?Q?XLBTiemyNz6xemrXrKjWfaoDfnVBKOW1ZADcZgoN6kC2QIPp/xatrvG0lqrc?=
- =?us-ascii?Q?z9rn2ovI7Uc3ZtvstQCj3hxpXfOg5Cah0/AR/mQ98ua0RKT/48sRu+puDhDg?=
- =?us-ascii?Q?SUptk0HklZb8vP1rURRJvEgF2S4/3QxN1bWDHTT3vuCLRF7JqoMlgwUEY7ai?=
- =?us-ascii?Q?YA+LC64K3lSqEfI0W3BM/ji+DIW4Nyzc52kn3TWl51FO5WaqjrWSgkkwE9XK?=
- =?us-ascii?Q?sONdE8W9F3je+hbwaR8ueQJlP212GWjwvGuXaytoOFXASUxV30OW7AO3qobm?=
- =?us-ascii?Q?4/RzrYuSRn6NFoLHoEfbCZl2FlxPgQOhGoNCLsfR3R0Yld89MOVBRDOjIpMu?=
- =?us-ascii?Q?sZRHQefoRSnRBv5/MV3bhlRKyrfZVjWKnu6VP/xuSQRMicxW1rcoG8y/3vAR?=
- =?us-ascii?Q?bWjrrL78eMD7vde0HyFbrvp7yHqEiUz4UjdnxILTO0VkG1M4CrQi7mosF+KG?=
- =?us-ascii?Q?d6mtK8HqQtjY3O2IY2IZwIaPuuQ4JQRtzbHuRSK33gSRONk2bK1Ukl8SAEDO?=
- =?us-ascii?Q?qFywsp7TxcTU5jH0Ebe94Tts2YsSZVsESutRO1L6FxOZB/w8Tx+NBcG3b+Dx?=
- =?us-ascii?Q?V8F6fqq+DNKIz5cf+W0hL4EpJA7MJoWe3RwgUGOx6Yumf8gBDHsjpz2tpie8?=
- =?us-ascii?Q?lhTKx/7zje3pJx3YDgxfotBoQBV0dBT2dhBFfODpk2oRiIpcQlerjwsuvyl4?=
- =?us-ascii?Q?SUbYuT3xIlRAc63eOxT+iBfTwnUTgcZeX/Aps2ns7WM5wY71SfCLom96V8fw?=
- =?us-ascii?Q?gcTMWwCH0dxiDub5vklBY2xeDWD1x8jUYFfcNajxOScOMXp8gQSfTse3gar4?=
- =?us-ascii?Q?BYi4GJjqor2gvYOK9vCcE4CbdknfSOmBWnCZWdegrAofUCU3tZbqiGLUzgUw?=
- =?us-ascii?Q?98Rm9bIC/SNEt0LhR1DpfZXoM1X8wEvFgikpjylI5wPgPLHOSTBwrifO0jaC?=
- =?us-ascii?Q?0bzRn30S/lx94xUtobOTsKZ57/Arbs4PXzQHJHAXmdBQ7bfr4VAJ8XFApk6d?=
- =?us-ascii?Q?WzAqmfMyYlEGEMlBAYBBTWAPSGuop7JqvpR1LvNBLI/OP9sqHyedFitjKaPM?=
- =?us-ascii?Q?JrD0hRVnt5cWdEnvF9C66m7GMuN99LHSUKRUQIgIdH4RTCRrC2OPRsjS1dl3?=
- =?us-ascii?Q?2qWfn+YkpJ05YsuqiO0=3D?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(36860700013)(14060799003)(7416014)(82310400026)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Dec 2025 09:35:59.2683
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 304dc94c-d16d-4c1a-55dd-08de3bbd5ae7
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS1EPF00000042.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR08MB5718
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAOjWP2kC/2XMQW7DIBCF4atErEs1M4AxXfUeURcYhgSpjivTo
+ FaR714Sqa1lL9+Tvv8mCs+Zi3g53MTMNZc8Xdrong4inP3lxDLHtgUBGeixk6MPZQyyXIfItcj
+ egqIAaCME0dDHzCl/PYLHt7bPuXxO8/ejX/H+/qbcNlVRgjQ2pi4oNgnd62n0+f05TKO4pyqtO
+ Nkdp8YDG3YuGh2o33L1xxFgz1Xj0UY1pGg9A225XnEyO64bV1ZHExwPHnjLzT9HpB03jVvqWQ8
+ OE/e45suy/AAFQXzSqAEAAA==
+X-Change-ID: 20250816-macsmc-subdevs-87032c017d0c
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, 
+ Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Jean Delvare <jdelvare@suse.com>, Guenter Roeck <linux@roeck-us.net>, 
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+ Jonathan Corbet <corbet@lwn.net>, 
+ James Calligeros <jcalligeros99@gmail.com>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-rtc@vger.kernel.org, linux-hwmon@vger.kernel.org, 
+ linux-input@vger.kernel.org, linux-doc@vger.kernel.org, 
+ Hector Martin <marcan@marcan.st>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6798;
+ i=jcalligeros99@gmail.com; h=from:subject:message-id;
+ bh=LpUT1tST1uzwN8B4qY2fL3L3g40kh3NGJb9E7/IhWWo=;
+ b=owGbwMvMwCV2xczoYuD3ygTG02pJDJn21/4fePXRd+6nrcW5vKI302y0pikzlru+kH3HvytCo
+ fmZYPnyjoksDGJcDJZiiiwbmoQ8Zhux3ewXqdwLM4eVCWSItEgDAxCwMPDlJuaVGukY6ZlqG+oZ
+ GuoY6xgxcHEKwFR7ajH8s3quunnFa2uOfSd6L0zwelt5/9nyrN63qRPEs2tjNjp8TWNkmN+WJnz
+ yVdkGuzIzjo630/fd+rZPtCeC86b6tA9J0lNvsgMA
+X-Developer-Key: i=jcalligeros99@gmail.com; a=openpgp;
+ fpr=B08212489B3206D98F1479BDD43632D151F77960
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_013609_848318_518A5F71 
-X-CRM114-Status: GOOD (  16.85  )
+X-CRM114-CacheID: sfid-20251215_013821_225576_226BB5A0 
+X-CRM114-Status: GOOD (  21.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -215,27 +126,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Brendan,
-> On Sun Dec 14, 2025 at 9:13 AM UTC, Yeoreum Yun wrote:
-> >> I don't have the context on what this code is doing so take this with
-> >> a grain of salt, but...
-> >>
-> >> The point of the _nolock alloc is to give the allocator an excuse to
-> >> fail. Panicking on that failure doesn't seem like a great idea to me?
-> >
-> > I thought first whether it changes to "static" memory area to handle
-> > this in PREEMPT_RT.
-> > But since this function is called while smp_cpus_done().
-> > So, I think it's fine since there wouldn't be a contention for
-> > memory allocation in this phase.
->
-> Then shouldn't it use _nolock unconditionally?
+Hi all,
 
-As you pointed out, I think it should be fine even in the !PREEMPT_RT case.
-However, in case I missed something or if my understanding is incorrect,
-I applied it only to the PREEMPT_RT case for now.
+This series adds support for the remaining SMC subdevices. These are the
+RTC, hwmon, and HID devices. They are being submitted together as the RTC
+and hwmon drivers both require changes to the SMC DT schema.
 
---
-Sincerely,
-Yeoreum Yun
+The RTC driver is responsible for getting and setting the system clock,
+and requires an NVMEM cell. This series replaces Sven's original RTC driver
+submission [1].
+
+The hwmon function is an interesting one. While each Apple Silicon device
+exposes pretty similar sets of sensors, these all seem to be paired to
+different SMC keys in the firmware interface. This is true even when the
+sensors are on the SoC. For example, an M1 MacBook Pro will use different
+keys to access the LITTLE core temperature sensors to an M1 Mac mini. This
+necessitates describing which keys correspond to which sensors for each
+device individually, and populating the hwmon structs at runtime. We do
+this with a node in the device tree. This series includes only the keys
+for sensors which we know to be common to all devices. The SMC is also
+responsible for monitoring and controlling fan speeds on systems with fans,
+which we expose via the hwmon driver.
+
+The SMC also handles the hardware power button and lid switch. Power
+button presses and lid opening/closing are emitted as HID events, so we
+add an input subdevice to handle them.
+
+Since there are no real dependencies between the components of this series,
+it should be fine for each subsystem to take the relevant patches through
+their trees. The mfd one-liners should be taken in order to avoid trivial
+conflicts.
+
+Regards,
+
+James
+
+[1] https://lore.kernel.org/asahi/CAEg-Je84XxLWH7vznQmPRfjf6GxWOu75ZetwN7AdseAwfMLLrQ@mail.gmail.com/T/#t
+[2] https://lore.kernel.org/asahi/20251106140050.GQ8064@google.com/
+
+---
+Changes in v6:
+- Rebase onto 6.19-rc1, dropping already merged commits
+- Link to v5: https://lore.kernel.org/r/20251112-macsmc-subdevs-v5-0-728e4b91fe81@gmail.com
+
+Changes in v5:
+- Drop inadvertent mfd core includes in rtc and input drivers
+- Link to v4: https://lore.kernel.org/r/20251025-macsmc-subdevs-v4-0-374d5c9eba0e@gmail.com
+
+Changes in v4:
+- Added Rob's R-b to hwmon Devicetree schema
+- Added missing include to hwmon driver
+- Dropped superfluous dev_info() from hwmon probe
+- Added Guenter's A-b to hwmon driver
+- Renamed INPUT_MACSMC_INPUT to INPUT_MACSMC
+- Dropped leftover mention of HID in input driver
+- Reinstated input driver MODULE_ALIAS
+- Trigger a hard wakeup on power button/lid switch when coming out of
+  s2idle
+- Suppress KEY_POWER event on wakeup to prevent an immediate shutdown
+  when waking up
+- Squashed hwmon Devicetree commits into one
+- Link to v3: https://lore.kernel.org/r/20251007-macsmc-subdevs-v3-0-d7d3bfd7ae02@gmail.com
+
+Changes in v3:
+- Renamed macsmc-hid to macsmc-input
+- Switched to pm_wakeup_event in macsmc-input
+- macsmc-input now configures its capabilities before registering the device
+- Renamed macsmc_hwmon to macsmc-hwmon
+- Dropped module aliases in macsmc-input and macsmc_hwmon
+- Introduced new SMC FourCC macro to silence GCC errors
+- Condensed hwmon binding using $defs
+- Made label property optional for hwmon sensors
+- Fixed incorrect hwmon is_visible implementation
+- Dropped 64-bit math from SMC float ops
+- Fixed incorrect use of error numbers in hwmon driver
+- Replaced a number of non-fatal dev_errs with dev_dbgs in hwmon driver
+- Added hwmon driver documentation
+- Added hwmon subdevice directly to the DT SMC node
+- Included "common" hwmon sensors in SoC .dtsi files
+- Fixed typo in hwmon-common.dtsi
+- Added Neal's R-b to series
+- Added required nodes to t602x Devicetrees
+- Link to v2: https://lore.kernel.org/r/20250827-macsmc-subdevs-v2-0-ce5e99d54c28@gmail.com
+
+Changes in v2:
+- Added Rob's R-b tag to RTC DT binding
+- Removed redundant nesting from hwmon DT binding
+- Dedpulicated property definitions in hwmon DT schema
+- Made label a required property for hwmon DT nodes
+- Clarified semantics in hwmon DT schema definitions
+- Split mfd tree changes into separate commits
+- Fixed numerous style errors in hwmon driver
+- Removed log messages sysfs read/write functions in hwmon driver
+- Removed ignored errors from hwmon driver
+- Removed uses of dev_err for non-errors in hwmon driver
+- Made it more obvious that a number of hwmon fan properties are optional
+- Modified hwmon driver to reflect DT schema changes
+- Added compatible property to hwmon node
+- Link to v1: https://lore.kernel.org/r/20250819-macsmc-subdevs-v1-0-57df6c3e5f19@gmail.com
+
+---
+Hector Martin (1):
+      input: macsmc-input: New driver to handle the Apple Mac SMC buttons/lid
+
+James Calligeros (5):
+      dt-bindings: hwmon: Add Apple System Management Controller hwmon schema
+      mfd: macsmc: Wire up Apple SMC RTC subdevice
+      mfd: macsmc: Wire up Apple SMC hwmon subdevice
+      mfd: macsmc: Wire up Apple SMC input subdevice
+      arm64: dts: apple: t8103, t8112, t60xx: Add hwmon SMC subdevice
+
+Sven Peter (1):
+      arm64: dts: apple: t8103,t60xx,t8112: Add SMC RTC node
+
+ .../bindings/hwmon/apple,smc-hwmon.yaml  |  86 ++++++++++
+ .../bindings/mfd/apple,smc.yaml          |  36 +++++
+ MAINTAINERS                              |   2 +
+ .../boot/dts/apple/hwmon-common.dtsi     |  33 ++++
+ .../boot/dts/apple/hwmon-fan-dual.dtsi   |  22 +++
+ arch/arm64/boot/dts/apple/hwmon-fan.dtsi |  17 ++
+ .../boot/dts/apple/hwmon-laptop.dtsi     |  33 ++++
+ .../boot/dts/apple/hwmon-mac-mini.dtsi   |  15 ++
+ .../arm64/boot/dts/apple/t6001-j375c.dts |   2 +
+ arch/arm64/boot/dts/apple/t6001.dtsi     |   2 +
+ .../arm64/boot/dts/apple/t6002-j375d.dts |   2 +
+ .../arm64/boot/dts/apple/t600x-die0.dtsi |  10 ++
+ .../boot/dts/apple/t600x-j314-j316.dtsi  |   3 +
+ .../arm64/boot/dts/apple/t602x-die0.dtsi |  10 ++
+ arch/arm64/boot/dts/apple/t8103-j274.dts |   2 +
+ arch/arm64/boot/dts/apple/t8103-j293.dts |   3 +
+ arch/arm64/boot/dts/apple/t8103-j313.dts |   2 +
+ arch/arm64/boot/dts/apple/t8103-j456.dts |   2 +
+ arch/arm64/boot/dts/apple/t8103-j457.dts |   2 +
+ arch/arm64/boot/dts/apple/t8103.dtsi     |  11 ++
+ arch/arm64/boot/dts/apple/t8112-j413.dts |   2 +
+ arch/arm64/boot/dts/apple/t8112-j473.dts |   2 +
+ arch/arm64/boot/dts/apple/t8112-j493.dts |   3 +
+ arch/arm64/boot/dts/apple/t8112.dtsi     |  11 ++
+ drivers/input/misc/Kconfig               |  11 ++
+ drivers/input/misc/Makefile              |   1 +
+ drivers/input/misc/macsmc-input.c        | 207 +++++++++++++++++++++++++
+ drivers/mfd/macsmc.c                     |   3 +
+ 28 files changed, 535 insertions(+)
+---
+base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+change-id: 20250816-macsmc-subdevs-87032c017d0c
+
+Best regards,
+-- 
+James Calligeros <jcalligeros99@gmail.com>
+
 
