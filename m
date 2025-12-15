@@ -4,56 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4DFFD5B16E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 12:30:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB85FD59D99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 12:30:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YFvkp8sx9x7p+ety3YU1OWBYrz0nSL8Cjejt5tXhoXY=; b=dUAnB31cfzqXqJ9djRI6ldfWUf
-	SAmrd6l8im64tsYxfuiIXzs8w6Xl3d/EWGCvi5WHn5EiAznKuPV/UgFbkx/fM9sl3rSmliVKyN+iq
-	AorSHOzXBL3eLLgwLRua/k+IWvTyqIWjEo9eGtTuHcoxiOCc5/GYwSSxj/55ePYrz4+VEjNf8Uxfd
-	rQ/praTu2uL0gND62FXcX34X5JATHXC2jBkfL78yHMMs11AkOJem9G3KP0ZFprsNo89zPD7+nFuT6
-	TIZbz2/32U9HJKwhvxJBJOgCcw8QdIVCAmq5qq/l8CV9Y/xMFYUx/mg1tJjM52STWNKZcQW/OMivU
-	i15guA5g==;
+	bh=KeacQ4CeOE09azYmxQDko//Tpjw/tUJXHdiwkLf+/DM=; b=w/Q3freD7tZr4UDCMX9XHQ0BjR
+	b0qiG2wzgbXouQYW107qbhjG5Ln0Hq1GWf+eAkigvOu0m+QbB8mVwx/Uf1OLu+T7cgR2QpPnz7C2P
+	LdvLmo1Q2h+hx6M5CU+ogq8A315aXHJ4gDX8ojyxmZVNTPnxhQ0yNV63N+40RQPwL2TWBZdhb+oC9
+	LIKYO6M/7yyxEQxYUMNZZr/TTBm13UplUrT0Xhe0wzl2lwHVEQcK+IyfGtztS5oe0IWLLxeUEDhx9
+	0VPQKvw5SKeh4BZRGG1Pjy1uMV38UJGAwP5D1zsf3PzsRq+yNgwpRPD4lSZgbCifOv1ScN20m7tM7
+	tq6bD+vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV7ik-00000003coy-1FMT;
-	Mon, 15 Dec 2025 12:30:34 +0000
+	id 1vV7iu-00000003cxi-0XHS;
+	Mon, 15 Dec 2025 12:30:44 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV7if-00000003cl7-0pwt;
-	Mon, 15 Dec 2025 12:30:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1765801797; cv=none; 
+	id 1vV7iq-00000003cth-3wSK;
+	Mon, 15 Dec 2025 12:30:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1765801809; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=NLE7W6B1mOuoDcXwW1XAoLLAmagS6oyKJKxl7CaU1nywuPYY3WFykZQnYFo07fQYOEEGdZvjsMnJTZwpjGw+sJ5HMZSJ/npyFcmP/rfXed9xAelll1JkW2b2RPGc+oBK9QNxwo+O5WVsNZ+B/ztKm4RAmxkLTY/ABFfNYGuwuuk=
+	b=IkQhk3qgaT0JEZCT+ICA+VpgJqzUKjZ5dXc5wZo5AbZyXXrtoe8NiraYfYV4BGaRp5f03Qrin3Xtzf9asGWyGsQN9zFfVGNEVEzNnV3TMRdJwrV73V780Wo5jc/j1WLzceC1EhidBu5fqfXjHEh1SuoYrjKOhDXHFN7OMw9TpTo=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1765801797; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=YFvkp8sx9x7p+ety3YU1OWBYrz0nSL8Cjejt5tXhoXY=; 
-	b=GjE8xM3YZHW8+IBDQMM7+Lr9wDE8nQikU8UfVwX8Z47g7i8UTmS5hc854UZMJyjXf40Lw7c1mP3xqmrtaPmbeGU8fmzOMdzTgRdJtAHbsP37rEkYXBAPbC7PtZGl3OynEafhF+KZa6/o4QW9+v3fM8vLLosemFHWFgM/uk580Fg=
+	t=1765801809; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=KeacQ4CeOE09azYmxQDko//Tpjw/tUJXHdiwkLf+/DM=; 
+	b=mShRcSZwr+AKd13J8lsiNFoYe4Sp/Bpp+TPY9uJvCU0M0kVIa3rB4YwBRkOyl+Tb6FCcr0yXiOm13gRliWzYoDGm5f+vxR9P3tvApWnWOtl3jWVZ6vGSsl0EfUqlQmzka4Lwxjk+qMGsQLcoO6J/bcSFioVDmZcHEwNPjrkJJCY=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1765801797;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1765801809;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=YFvkp8sx9x7p+ety3YU1OWBYrz0nSL8Cjejt5tXhoXY=;
-	b=WlgM9zOdeK7/1T9h5CDUKt9jGDi0MbmpLvxiZIH86qNNrjY/Spwu376r2z1gVMFe
-	BAqtFRIFBORKjIbyCWx/kd61UBCFCxfoEJwpq4ePIzOqWX3rx9dBYZjSPoqn4FzSSuc
-	22YsFV0ckstqo4BcsYs/f2ZinvAJJZ2QkFOjJBHU=
-Received: by mx.zohomail.com with SMTPS id 176580179655941.66611173233514;
-	Mon, 15 Dec 2025 04:29:56 -0800 (PST)
+	bh=KeacQ4CeOE09azYmxQDko//Tpjw/tUJXHdiwkLf+/DM=;
+	b=ci0ioW4zERaa+1afcdhbATNSbDRVokSy+jGsQR4XJ/G3SVmc6vWi8QpjosEb7mhC
+	HGgiM7+RJhNgIEBYhiwKVti03r3ue0VVW0Z2mO8sysEPdMayOAlCyjq1bOGIoNZ5KUe
+	q6MsfuBbUvAcug6xAXfjJ+ouhpSiHZTsZaog6qic=
+Received: by mx.zohomail.com with SMTPS id 17658018079051022.900831674124;
+	Mon, 15 Dec 2025 04:30:07 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Mon, 15 Dec 2025 13:29:29 +0100
-Subject: [PATCH v2 1/4] dt-bindings: input: adc-keys: allow
- linux,input-type property
+Date: Mon, 15 Dec 2025 13:29:32 +0100
+Subject: [PATCH v2 4/4] arm64: dts: rockchip: add analog audio to ROCK 4D
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251215-rock4d-audio-v2-1-82a61de39b4c@collabora.com>
+Message-Id: <20251215-rock4d-audio-v2-4-82a61de39b4c@collabora.com>
 References: <20251215-rock4d-audio-v2-0-82a61de39b4c@collabora.com>
 In-Reply-To: <20251215-rock4d-audio-v2-0-82a61de39b4c@collabora.com>
 To: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
@@ -64,12 +63,12 @@ To: Dmitry Torokhov <dmitry.torokhov@gmail.com>,
 Cc: kernel@collabora.com, linux-input@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_043029_490352_4EA22042 
-X-CRM114-Status: UNSURE (   8.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251215_043041_372576_733A6B89 
+X-CRM114-Status: GOOD (  18.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,32 +83,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-adc-keys, unlike gpio-keys, does not allow linux,input-type as a valid
-property. This makes it impossible to model devices that have ADC inputs
-that should generate switch events.
+The RADXA ROCK 4D, like many other Rockchip-based boards, uses an ES8388
+analog audio codec. On the production version of the board, the codec's
+LOUT1 and ROUT1 pins are tied to the headphone jack, whereas pins LOUT2
+and ROUT2 lead to a non-populated speaker amplifier that itself leads to
+a non-populated speaker jack. The schematic is still haunted by the
+ghosts of those symbols, but it clearly marks them as "NC".
 
-Add the property to the binding with the same default as gpio-keys.
+The 3.5mm TRRS jack has its microphone ring (and ground ring) wired to
+the codec's LINPUT1 and RINPUT1 pins for differential signalling.
 
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Furthermore, it uses the SoCs ADC to detect whether the inserted cable
+is of headphones (i.e., no microphone), or a headset (i.e., with
+microphone). The way this is done is that the ADC input taps the output
+of a 100K/100K resistor divider that divides the microphone ring pin
+that's pulled up to 3.3V.
+
+There is no ADC level difference between a completely empty jack and one
+with a set of headphones (i.e., ones that don't have a microphone)
+connected. Consequently headphone insertion detection isn't something
+that can be done.
+
+Add the necessary codec and audio card nodes. The non-populated parts,
+i.e. LOUT2 and ROUT2, are not modeled at all, as they are not present on
+the hardware.
+
+Also, add an adc-keys node for the headset detection, which uses an
+input type of EV_SW with the SW_MICROPHONE_INSERT keycode. Below the
+220mV pressed voltage level of our SW_MICROPHONE_INSERT switch, we also
+define a button that emits a KEY_RESERVED code, which is there to model
+this part of the voltage range as not just being extra legroom for the
+button above it, but actually a state that is encountered in the real
+world, and should be recognised as a valid state for the ADC range to be
+in so that no "closer" ADC button is chosen.
+
+Tested-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- Documentation/devicetree/bindings/input/adc-keys.yaml | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts | 90 +++++++++++++++++++++++++
+ 1 file changed, 90 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/input/adc-keys.yaml b/Documentation/devicetree/bindings/input/adc-keys.yaml
-index 7aa078dead37..e372ebc23d16 100644
---- a/Documentation/devicetree/bindings/input/adc-keys.yaml
-+++ b/Documentation/devicetree/bindings/input/adc-keys.yaml
-@@ -42,6 +42,9 @@ patternProperties:
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
+index 7023dc326d0e..d86fe2951da6 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
+@@ -6,6 +6,7 @@
+ /dts-v1/;
  
-       linux,code: true
+ #include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/input/input.h>
+ #include <dt-bindings/leds/common.h>
+ #include <dt-bindings/pinctrl/rockchip.h>
+ #include <dt-bindings/pwm/pwm.h>
+@@ -37,6 +38,31 @@ hdmi_con_in: endpoint {
+ 		};
+ 	};
  
-+      linux,input-type:
-+        default: 1  # EV_KEY
++	es8388_sound: es8388-sound {
++		compatible = "simple-audio-card";
++		simple-audio-card,format = "i2s";
++		simple-audio-card,mclk-fs = <256>;
++		simple-audio-card,name = "On-board Analog ES8388";
++		simple-audio-card,widgets = "Microphone", "Headphone Mic",
++					    "Headphone", "Headphone";
++		simple-audio-card,routing = "Headphone", "LOUT1",
++					    "Headphone", "ROUT1",
++					    "Left PGA Mux", "Differential Mux",
++					    "Differential Mux", "LINPUT1",
++					    "Differential Mux", "RINPUT1",
++					    "LINPUT1", "Headphone Mic",
++					    "RINPUT1", "Headphone Mic";
 +
-       press-threshold-microvolt:
-         description:
-           Voltage above or equal to which this key is considered pressed. No
++		simple-audio-card,cpu {
++			sound-dai = <&sai1>;
++		};
++
++		simple-audio-card,codec {
++			sound-dai = <&es8388>;
++			system-clock-frequency = <12288000>;
++		};
++	};
++
+ 	rfkill {
+ 		compatible = "rfkill-gpio";
+ 		pinctrl-names = "default";
+@@ -65,6 +91,37 @@ user-led {
+ 		};
+ 	};
+ 
++	saradc_keys: adc-keys {
++		compatible = "adc-keys";
++		io-channels = <&saradc 3>;
++		io-channel-names = "buttons";
++		keyup-threshold-microvolt = <3000000>;
++		poll-interval = <100>;
++
++		/*
++		 * During insertion and removal of a regular set of headphones,
++		 * i.e. one without a microphone, the voltage level briefly
++		 * dips below the 220mV of the headset connection switch.
++		 * By having a button definition with a KEY_RESERVED signal
++		 * between 0 to 220, we ensure no driver implementation thinks
++		 * that the closest thing to 0V is 220mV so clearly there must
++		 * be a headset connected.
++		 */
++
++		button-headset-disconnected {
++			label = "Headset Microphone Disconnected";
++			linux,code = <KEY_RESERVED>;
++			press-threshold-microvolt = <0>;
++		};
++
++		button-headset-connected {
++			label = "Headset Microphone Connected";
++			linux,code = <SW_MICROPHONE_INSERT>;
++			linux,input-type = <EV_SW>;
++			press-threshold-microvolt = <220000>;
++		};
++	};
++
+ 	vcc_5v0_dcin: regulator-vcc-5v0-dcin {
+ 		compatible = "regulator-fixed";
+ 		regulator-always-on;
+@@ -682,6 +739,25 @@ hym8563: rtc@51 {
+ 	};
+ };
+ 
++&i2c3 {
++	status = "okay";
++
++	es8388: audio-codec@10 {
++		compatible = "everest,es8388", "everest,es8328";
++		reg = <0x10>;
++		clocks = <&cru CLK_SAI1_MCLKOUT_TO_IO>;
++		AVDD-supply = <&vcca_3v3_s0>;
++		DVDD-supply = <&vcc_3v3_s0>;
++		HPVDD-supply = <&vcca_3v3_s0>;
++		PVDD-supply = <&vcc_3v3_s0>;
++		assigned-clocks = <&cru CLK_SAI1_MCLKOUT_TO_IO>;
++		assigned-clock-rates = <12288000>;
++		#sound-dai-cells = <0>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&sai1m0_mclk>;
++	};
++};
++
+ &mdio0 {
+ 	rgmii_phy0: ethernet-phy@1 {
+ 		compatible = "ethernet-phy-id001c.c916";
+@@ -756,10 +832,24 @@ wifi_en_h: wifi-en-h {
+ 	};
+ };
+ 
++&sai1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&sai1m0_lrck
++		     &sai1m0_sclk
++		     &sai1m0_sdi0
++		     &sai1m0_sdo0>;
++	status = "okay";
++};
++
+ &sai6 {
+ 	status = "okay";
+ };
+ 
++&saradc {
++	vref-supply = <&vcca1v8_pldo2_s0>;
++	status = "okay";
++};
++
+ &sdmmc {
+ 	bus-width = <4>;
+ 	cap-mmc-highspeed;
 
 -- 
 2.52.0
