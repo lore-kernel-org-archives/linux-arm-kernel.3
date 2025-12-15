@@ -4,100 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB502D41D74
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 08:40:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B595D41D74
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 08:43:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zQmhYgUl0R3ZoA9Kzf0ZNjLsJ7LHllV2YtG/6mbLmIc=; b=zW64utqlpjN0gDk9fmwdzUWMyx
-	1Jca5UnZfs5j9UkTL/Yl9TYgEx6lS7hZE4euM35No6MIpRO+0CV6sr5dZvFlrdSBbynzWmBUVsrLC
-	p3HJQ7r5Wgy50R9rcdGlU1U1TJX5bFgQNRlvlZsqEH9vtyLPC7BPbjssUnJG2paacctobQAszuIS7
-	VQfzzTL2dlVywd/695lCEOdFxnQQBpydSApGC+ch71cxgVD9v1uFlw3zzrOMqdzhjexOgyFkmWklE
-	p3eLeneRq1tZv34TAMNDJNN7OCvL6BLbRHRBGDQ6nPpPSsTiZe2V6VXLS4+Xc6AG4S3cfZV5N9UmT
-	kmsRlGTQ==;
+	bh=1tFKAikKjm6tBprRgPzWzdtS5V4B2XoS880Br+FtTZg=; b=4DZUO0sGJ1MzPnGKOCBO/8ndiG
+	zxzZCP0v/Re3ip5ImzP/SDx7EBwb2AwLRzxVX6CH3t9uqVv0ix9Me+VOrv8tFGKLU860TY5qRa4be
+	hkT4NdBhchBcrrWzqcmMWLoOHIxTVTAqPZmdU47UyfPcxbGBZyJOclkMT9jkG0ZZenLcoR1Ae57iA
+	FYBRkT41AkXeFoGKGyjN/1SdJWybKYtOPAhFyaPBEi0TuMMuiGk46YKTNyHeuugjg1bf0z2iU8mMp
+	DZ3FiFivp5v2fcCyOTI12K0fXPIaLygGt5RJJ4cvN1S8MXyYkK/Bst4v1ZfyyQmPr/TGzQodfsSSu
+	84nvIJLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV48D-00000003HfE-3Osp;
-	Mon, 15 Dec 2025 08:40:37 +0000
-Received: from flow-b3-smtp.messagingengine.com ([202.12.124.138])
+	id 1vV4Ag-00000003Hrq-1sWV;
+	Mon, 15 Dec 2025 08:43:10 +0000
+Received: from inva021.nxp.com ([92.121.34.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV48A-00000003HeO-45xB
+	id 1vV4Ad-00000003Hqw-3Rjr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 08:40:36 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailflow.stl.internal (Postfix) with ESMTP id B879A13002AC;
-	Mon, 15 Dec 2025 03:40:31 -0500 (EST)
-Received: from phl-imap-17 ([10.202.2.105])
-  by phl-compute-04.internal (MEProxy); Mon, 15 Dec 2025 03:40:31 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1765788031;
-	 x=1765795231; bh=zQmhYgUl0R3ZoA9Kzf0ZNjLsJ7LHllV2YtG/6mbLmIc=; b=
-	VqOX09Gl1gxCf35lMhsjA6j0mX0XFP3E/qqBQQ3cOM6i+f3foyzw4MSmFq5vEl8g
-	XjTpKQ5ZOE/oslCrnHTD1hTmMSfJbzSqzxMbxqQwwiRNuGl3uJC0B7COPmojzrGg
-	REvT4f9POGAZei7S9+AcxpzWua15SuXPJieMlXPkhSzTrsR0d1o6zQEBRYREs+RE
-	Ou3Sp7HaVcvACU28sAfLESA8zdbVJ0dPeKZpQ9WH2Nwod0JMdCf4A3oBzN5gIsO3
-	hALI1O3+IiZXU6fiN6fE/7EUGa4gWTZbssjvwbO2tWq0rgFPM+L/C5Y/yhPFWE0Q
-	e3FLic6kg+zMqOUAsF/K2Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1765788031; x=
-	1765795231; bh=zQmhYgUl0R3ZoA9Kzf0ZNjLsJ7LHllV2YtG/6mbLmIc=; b=Q
-	UM+a1zpEbITXo3WWWuA6DJS7sJpi6vq4xQPFzjn0RRsCZsg4oamYT+6YFlM6B35g
-	5QrdJ5ovYZD+O5tA5ozFKHV2V95KNjdGg5GG1jpdV0aVuxAFBkj8yNPhKIFLmhdn
-	PW0bIJOLcMhBMly4rvtY/JheR1iB/DWkMFYYJKPTpWnAOajurXwe4eiiQgE6m1pz
-	aET7r4cYyDMdzyIBw5LFf5nvPJeq1sIYLTl6b9Vxa2m0cjawr3En/Z+R2wJyHapG
-	rUenVdNLYWKITegHwVA/kf69eZgSOy2KR5C6YaeqJ9DZZzruSF3mpZZYXb7sUzfC
-	oFGbRJnkKPoL7qnaAFFBA==
-X-ME-Sender: <xms:f8k_aS0Uf7ojBtvJ3lxmb-KQXXW6F_mpemjWtUQvE1BMgQUl-5_B-Q>
-    <xme:f8k_af7YRg97HjdaSZHUGgJzZ-7qqjBwzZ4ULHDOE8XoIyibYW588mNAlw2rmTbeW
-    jJ9LJkrW7PD4FLTexGojxPcWw_141LJd478KGTGnL79O4Pu9ITyrA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdefieefiecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
-    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
-    hnpeeggfejudejvdeijeeglefgtdfhudffieetfedugefhffekjeefhedtjeefjeetfeen
-    ucffohhmrghinhepghhithhhuhgsrdgtohhmnecuvehluhhsthgvrhfuihiivgeptdenuc
-    frrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghp
-    thhtohephedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheptggrthgrlhhinhdrmh
-    grrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhopehjohgvlhdqlhhinhhugiesjhhm
-    rgihrdhushdprhgtphhtthhopeifihhllheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoh
-    epjhgrmhgvshdrtghlrghrkheslhhinhgrrhhordhorhhgpdhrtghpthhtoheplhhinhhu
-    gidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhg
-X-ME-Proxy: <xmx:f8k_aUbjpxesmrRuZgIU-_sEijVU7hrbCX2efuivesOQHioloqPZxg>
-    <xmx:f8k_aQ7T1aYnBk6w4ouIfKuAHKxZ7a7FxqDpW_cCk5whmtfTFtwx-w>
-    <xmx:f8k_afAtpw6ctBVzdJA72NKhRObdSENM7bLAvaS-L83kvGgP4ogqxw>
-    <xmx:f8k_aeeIsO2Vwpg-GvihzjEVqs4sysICjqr66pfuJqwsfLM__7ymdA>
-    <xmx:f8k_aR6b-QnZSdJrdnhJUrYhMqJDTv8IjMpZCYM9aWrjBV1-IOR2DKw8>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 1A7B9C40054; Mon, 15 Dec 2025 03:40:31 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Mon, 15 Dec 2025 08:43:09 +0000
+Received: from inva021.nxp.com (localhost [127.0.0.1])
+	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id BBFFA20165A;
+	Mon, 15 Dec 2025 09:43:04 +0100 (CET)
+Received: from aprdc01srsp001v.ap-rdc01.nxp.com (aprdc01srsp001v.ap-rdc01.nxp.com [165.114.16.16])
+	by inva021.eu-rdc02.nxp.com (Postfix) with ESMTP id 86BE320132D;
+	Mon, 15 Dec 2025 09:43:04 +0100 (CET)
+Received: from lsvm11u0000554.swis.ap-northeast-2.aws.nxp.com (lsvm11u0000554.swis.ap-northeast-2.aws.nxp.com [10.52.9.11])
+	by aprdc01srsp001v.ap-rdc01.nxp.com (Postfix) with ESMTP id 2B1E81800096;
+	Mon, 15 Dec 2025 16:43:02 +0800 (+08)
+From: Yanan Yang <yanan.yang@nxp.com>
+Date: Mon, 15 Dec 2025 17:42:51 +0900
+Subject: [PATCH v2 1/2] dt-bindings: arm: fsl: Add FRDM-IMX91S board
 MIME-Version: 1.0
-X-ThreadId: AV8M3mJaQpUZ
-Date: Mon, 15 Dec 2025 09:40:10 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Joel May" <joel-linux@jmay.us>,
- "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
- "James Clark" <james.clark@linaro.org>
-Message-Id: <fcc6ada2-8a4d-4989-b257-e4ba17d5d14b@app.fastmail.com>
-In-Reply-To: <b2651f20-6f3a-49f5-9cd8-3fb028b2cab5@app.fastmail.com>
-References: <b2651f20-6f3a-49f5-9cd8-3fb028b2cab5@app.fastmail.com>
-Subject: Re: [PATCH] arm64: perf: fix syscalltbl path base
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20251215-imx91s-frdm-v2-1-87996bdaa59c@nxp.com>
+References: <20251215-imx91s-frdm-v2-0-87996bdaa59c@nxp.com>
+In-Reply-To: <20251215-imx91s-frdm-v2-0-87996bdaa59c@nxp.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ yanan.yang@nxp.com, qijian.guo@nxp.com, justin.jiang@nxp.com
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1765788179; l=1289;
+ i=yanan.yang@nxp.com; s=20251205; h=from:subject:message-id;
+ bh=gNNn0SRmoio4wuH8+Sxd8xlRMKwBWC18TaGdgZZgfKk=;
+ b=KU+ZksGO+GHiB2rgQocr+jTgT5csc5yw0NfF6EUERYu2oltL6V5yOnSJ2MdXSkUZkZUUJQNbA
+ y4FE79oOTpoDYUrfl2K4fTYyeKrPELp/+mySPfvlZKhaCodnewtGzcy
+X-Developer-Key: i=yanan.yang@nxp.com; a=ed25519;
+ pk=d4hHTp5SW/PyyxexLEo/3c2RAaQDwym0zuYlifH95PI=
+X-Virus-Scanned: ClamAV using ClamSMTP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_004035_445744_5EE162B4 
-X-CRM114-Status: UNSURE (   8.77  )
+X-CRM114-CacheID: sfid-20251215_004307_996765_32A5BDAA 
+X-CRM114-Status: UNSURE (   7.94  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -113,19 +80,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Dec 14, 2025, at 23:12, Joel May wrote:
->
-> The problem is that scripts/Makefile.asm-headers is including a relative
-> syscalltbl path from arch/arm64/kernel/Makefile.syscalls.  The syscalltbl
-> path needs to be based on the srctree root.
->
-> Fixes: 7fe33e9f662c0 ("arm64: convert unistd_32.h to syscall.tbl 
-> format")
-> Fixes: bfb713ea53c74 ("perf tools: Fix arm64 build by generating 
-> unistd_64.h")
-> Link: 
-> https://github.com/truenas/linux/commit/91377b555a57dfa75364d7da85b5e21e41e81625#diff-831a0e8e3eaa7a5ca92599e58771b8a6b2c4bd7533f627e33138873995aac61eR147
-> Signed-off-by: Joel May <joel-linux@jmay.us>
+Add DT compatible string for NXP FRDM-IMX91S board
 
-Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+The FRDM-IMX91S is a low-cost, compact development board based on the
+i.MX91 applications processor. It is a cost-optimized variant of the
+FRDM-IMX91 board, with notable hardware differences requiring a separate
+DTS:
+- 512MB LPDDR4 (FRDM-IMX91 uses 1GB)
+- 256MB FlexSPI-NAND (FRDM-IMX91 uses 8GB eMMC)
+- Single GbE port (FRDM-IMX91 has dual GbE)
+- PMIC PF9453 (FRDM-IMX91 uses PCA9451A)
+
+Signed-off-by: Yanan Yang <yanan.yang@nxp.com>
+
+---
+Changes in v2:
+- Correct author name: removed extra period in "Yanan.Yang"
+- Refined commit message to clarify board differences
+---
+ Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+index 68a2d5fecc43..82f28be401b8 100644
+--- a/Documentation/devicetree/bindings/arm/fsl.yaml
++++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+@@ -1412,6 +1412,7 @@ properties:
+         items:
+           - enum:
+               - fsl,imx91-11x11-evk       # i.MX91 11x11 EVK Board
++              - fsl,imx91-11x11-frdm-s    # FRDM-IMX91S Board
+           - const: fsl,imx91
+ 
+       - description: i.MX93 based Boards
+
+-- 
+2.43.0
+
 
