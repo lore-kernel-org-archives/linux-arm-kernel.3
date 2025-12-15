@@ -4,45 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C468BD5B864
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 19:18:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D30D7D5B867
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 19:19:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=JflWnfhXZSY/C25yADfL4K5U8oOMF7zPuM1TuaRfjNU=; b=soGHUBryCPf3Sw
-	TtcDPz+DNcUbrLUpKcs4ToiE59oyukHmo87sg97ncDhSbeW1Z2kWI8l6Sq6wOHZds1icuGddxaxy7
-	V7/LCskHFZt6xIkK6ba0cpX/+tzjvhlOzUUAGy0PL0nBTx1Cy1gKwbeoPEpGyR9JgXMwMuqvFDwmU
-	nsTa1sAdr42zxpN6eOd5DtlJT4OLt6V4272Py4KWKaWapOgjt/kfiCMG9odkNuD6pgDJDgIngIOTl
-	SW8SE4b88A/snTLspLCKUEydfhXUvmvgU/RQU9EjBJEhFjvHqRRrZGk6VRhAu2hZms9c2fZAJoVX2
-	DwETQ/lOcq4ns1DotFyQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yUPwyokN3Xzwn7m5JrmiKIu1p+JgiknSLvBC5+/ExGA=; b=IQg+mqzxydx28jb03QOyVykubl
+	IqG1ijfxaeIuXOSnTaKrqWsKIdz6QDJNofHhnLddR6dF2yu4HZzY7kJVzCgwTtHzwnP6MVuX+1NZd
+	rFiKr7Hv2EpDVeFrFE7SWYxtyLDt0NfZjhk1Bp7DoprKCEU5WtLiGzI//phtzCukUG54prn8drQ9Q
+	zGFvYzt6THEcb8phimlJYrnkZLQIJiu8rnayzVheT7GmMswJRSqKA2goUGc0ut4AQrsfBMKCl+AhP
+	Bh2mVgKyvt33/k1XWHM38zscAtRlsDtEC8TOnL7aL51QDaADDNsbOJ/iVyJNqqmNanyfvOLj9wTye
+	SZ+pJBig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVE5s-00000004ALi-2w05;
-	Mon, 15 Dec 2025 19:18:52 +0000
+	id 1vVE5w-00000004AMU-48RF;
+	Mon, 15 Dec 2025 19:18:56 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVE5p-00000004AKC-1kqe
+	id 1vVE5p-00000004AKA-1n5S
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 19:18:50 +0000
+	Mon, 15 Dec 2025 19:18:52 +0000
 Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <m.felsch@pengutronix.de>)
-	id 1vVE5a-0007x7-5s; Mon, 15 Dec 2025 20:18:34 +0100
+	id 1vVE5a-0007x7-B8; Mon, 15 Dec 2025 20:18:34 +0100
 From: Marco Felsch <m.felsch@pengutronix.de>
-Subject: [PATCH v3 0/3] i.MX91/93 BLK-CTRL improvements
-Date: Mon, 15 Dec 2025 20:18:24 +0100
-Message-Id: <20251215-v6-18-topic-imx93-blkctrl-v3-0-51dbd1333938@pengutronix.de>
+Date: Mon, 15 Dec 2025 20:18:27 +0100
+Subject: [PATCH v3 3/3] pmdomain: imx93-blk-ctrl: add support for optional
+ subnodes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAABfQGkC/43NQQ6CMBCF4auQrh3TTimgK+9hXAAdYCICKdhgC
- He3sDIxMS7/l8w3ixjJMY3iHC3CkeeR+y6EPkSibPKuJmAbWqBEo1Aq8AmoDKZ+4BL4MZ80FO2
- 9nFwLOlaIskplFlsR7gdHFc+7fb2FbnicevfaX3m1rf+oXoGEwqR5ipRIJc1loK5+Tq7veD5aE
- hvt8ZPDXxwGjlJtAqXj3JZf3Lqubx1pwJ8WAQAA
-X-Change-ID: 20251201-v6-18-topic-imx93-blkctrl-341220f7084d
+Message-Id: <20251215-v6-18-topic-imx93-blkctrl-v3-3-51dbd1333938@pengutronix.de>
+References: <20251215-v6-18-topic-imx93-blkctrl-v3-0-51dbd1333938@pengutronix.de>
+In-Reply-To: <20251215-v6-18-topic-imx93-blkctrl-v3-0-51dbd1333938@pengutronix.de>
 To: Ulf Hansson <ulf.hansson@linaro.org>, Shawn Guo <shawnguo@kernel.org>, 
  Sascha Hauer <s.hauer@pengutronix.de>, 
  Pengutronix Kernel Team <kernel@pengutronix.de>, 
@@ -57,9 +55,8 @@ X-SA-Exim-Mail-From: m.felsch@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_111849_460848_C4B92C82 
-X-CRM114-Status: UNSURE (   8.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251215_111849_464916_2BB9AC48 
+X-CRM114-Status: GOOD (  11.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,50 +71,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+This particular block can have DT subnodes describing the LVDS LDB, MIPI
+DSI and parallel DPI bridge.
 
-there were several approaches to bring the sub-devices population
-mainline [1,2] but non of them made it upstream. Both approaches were
-part of either the i.MX93 LVDS or MIPI-CSI enablement.
+Scan for possible sub-devices within the driver, instead of misusing the
+simple-bus to perform the scan.
 
-This small patchset decouples the blk-ctrl changes which allows the
-MIPI-CSI and LVDS patchstack to be rebased ontop of this patchset.
-
-Before adding the sub-device supprt, I converted the driver to devm_*
-only API.
-
-Regards,
-  Marco
-
-[1] https://lore.kernel.org/all/20250701-95_cam-v1-3-c5172bab387b@nxp.com/
-[2] https://lore.kernel.org/all/20250304154929.1785200-4-alexander.stein@ew.tq-group.com/
-
+Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
 ---
-Changes in v3:
-- Link to v2: https://lore.kernel.org/r/20251202-v6-18-topic-imx93-blkctrl-v2-0-e73501034adc@pengutronix.de
-- Add r-b (Frank)
-- Rebase to v6.19-rc1
+ drivers/pmdomain/imx/imx93-blk-ctrl.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-Changes in v2:
-- Link to v1: https://lore.kernel.org/r/20251201-v6-18-topic-imx93-blkctrl-v1-0-b57a72e60105@pengutronix.de
-- Adapt patch2 commit message (Frank)
-- Check devm_pm_runtime_enable() return (Frank)
-- Add r-b tags (Frank, Alexander)
+diff --git a/drivers/pmdomain/imx/imx93-blk-ctrl.c b/drivers/pmdomain/imx/imx93-blk-ctrl.c
+index 49610f2389c3bbaf4de4133918fbcacb7924f672..1afc78b034fad8fa09a3e8527586387156fc2543 100644
+--- a/drivers/pmdomain/imx/imx93-blk-ctrl.c
++++ b/drivers/pmdomain/imx/imx93-blk-ctrl.c
+@@ -7,6 +7,7 @@
+ #include <linux/device.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
++#include <linux/of_platform.h>
+ #include <linux/platform_device.h>
+ #include <linux/pm_domain.h>
+ #include <linux/pm_runtime.h>
+@@ -313,6 +314,10 @@ static int imx93_blk_ctrl_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return dev_err_probe(dev, ret, "failed to add genpd_provider release callback\n");
+ 
++	ret = devm_of_platform_populate(dev);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to populate blk-ctrl sub-devices\n");
++
+ 	return 0;
+ }
+ 
 
----
-Marco Felsch (3):
-      pmdomain: imx93-blk-ctrl: cleanup error path
-      pmdomain: imx93-blk-ctrl: convert to devm_* only
-      pmdomain: imx93-blk-ctrl: add support for optional subnodes
-
- drivers/pmdomain/imx/imx93-blk-ctrl.c | 77 ++++++++++++++++-------------------
- 1 file changed, 36 insertions(+), 41 deletions(-)
----
-base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-change-id: 20251201-v6-18-topic-imx93-blkctrl-341220f7084d
-
-Best regards,
 -- 
-Marco Felsch <m.felsch@pengutronix.de>
+2.47.3
 
 
