@@ -4,90 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70759D5B16F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 13:31:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46CADD5B16F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 13:32:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bw+VWiqd/R4wFDIFdR2X28ZvT94yjzl0km0pBRnN7OY=; b=mJpeZ/H1QscSmWQHxJ9nzkYWuw
-	rwcDq2rhEIYxCuevdY4PEDoWQ9S8FhPrEy3czBBbfqRbLhwbKtW0phBLepNUBi8q8zNqhyUxqDwNO
-	edz62flPr0pE5cuevfkJd3fZShHmqEnmGRUnDHpZNSmshlSZWVuqh1i62VYQMWBhmVG3Os9NRk2FW
-	z6r/QVgVvahLyxbOslmEGGRF8sw235qdq3Zhsa4KaOK97Wsuq8DWmNSCe2J1vHFLqRj7CB8itBtxV
-	nvjW9kK6RBLYbBnZXsmJ6LWN6+alsedFtXWS5vBswoFUeZF23s2gjP/sDXQfvKEG4uSWjo7NECE7d
-	YZANr/NQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=orZI0EA3Ip1IF/vra9eDT/Mcoy2S5uXGtgvc7KpVE+w=; b=jzx8a4VoRaudiHawXXXRDSs/Qi
+	8RfoswE5uR8TFpiiPNpifH0Ivmo2PkkMrQhhWHO4GIUTxtfKZ8Vq8eZqAaTBZqmYM4D4EUJTDkrX9
+	v0xuoyal0sIh9O+l0Zc9BkwCgrYiyG5XRpW9YVVKTSCx7HV0Z/Z6cX5Ue3R2QwdCHWHRLWzMh/qgG
+	L9WOePcOfEce1lL+FQ53SlXKwfDJa/flXb0prJDITs67XUCJHIzGnHMzDvvMM72WaFdJXj1LGDUG+
+	uoP9GKcSgrQ8S6JLJV7RAhqRctQ8jyQiYKL6rwPTw8ed55qbiMCe+tzZlptDFiPe7hgKw4eZ7Yz5f
+	kdHbNoVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV8fc-00000003gzu-0BcY;
-	Mon, 15 Dec 2025 13:31:24 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1vV8gM-00000003h70-46Y5;
+	Mon, 15 Dec 2025 13:32:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV8fU-00000003gz5-0kad
+	id 1vV8gK-00000003h60-3NoY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 13:31:22 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-b728a43e410so552306366b.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Dec 2025 05:31:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sartura.hr; s=sartura; t=1765805473; x=1766410273; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Bw+VWiqd/R4wFDIFdR2X28ZvT94yjzl0km0pBRnN7OY=;
-        b=niFXesqHvK0huOydCa8MTFYDqHCqycSBbEdTDSqAeqiNH7uFxBNozcW0b28jPUHkwF
-         KEZ9nwqdS8CVTnFXCZb+p79qAEXQQPAN8t0lrIH33jQ3rPYISdNlM/xA/XsxDkxE6+gB
-         /reJhn9Rbi6xuPiZP1mnLt4Vf1qFsbbmIZ7Md9Si0tmOfQnz236UyxvIV34gynlZYHwe
-         SLLd/68kCpylKGX8o6cdkWEoO04SYGxG2pCtDWGqMl/mofvbhv6UDOHJ5TNZ41Vf6toU
-         ZpuiBA7Qwy5nf2Hnuss3dWZWvEtHG2ShH/P8EcUDiWU5KsGgbelxj4Vwh4Vu2OeEbcgQ
-         pcsQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765805473; x=1766410273;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Bw+VWiqd/R4wFDIFdR2X28ZvT94yjzl0km0pBRnN7OY=;
-        b=YPkhgJxc9kADHcH9JU4ueG8x9lVrFZFkWI2oG6w8DlkJDCUagS2rx0zHHSYvglZEGM
-         UBXE5niH26PKno4nxWYhoYzv3Vc/d0IvURC+UIjT+ABBhLKLi5akGfCVMo/qeR03md43
-         Dtk4jJ7XGQX6IWP0vJYJW1qOTcqLD705JWw9JRw5X76ToQwOLr7wKv42o1mtnfTLmBrI
-         PO2/mF5hDvwGcFSGp0PEB7XSvVNGIber/48wEF7hNzbCFogsvCAie0L19TJHfMNbsM7I
-         C9y15OhIvQUKZG6Wa2dZxknRMJMGW/4cT5uz8fTLJG62Iewmc3nNh9/map3pVI6zdJco
-         CJPw==
-X-Forwarded-Encrypted: i=1; AJvYcCXITcFKfB2iQT0lU/zPlepZlHYH4yoil6UqabO2GGQ18UV4nWzOqIDhJYlNbJmUWTYyvRlpp4vAj0EHwNZQPAPz@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzq8GsPKjs22rEA3MIDoGAMjQ3/FQBo6EgOsASAhlsEeDtBvrob
-	9zTFDLMXmN94wFOQ+KGYpTbJofPwYstRhc5aBEqR/r3Jy5gnasn7+FRQaNDeggomYKWTroM6Kdj
-	/B6pQBT9q+Ax5B1vCIetyuOBgFWpgZnYKSJ/sSwnxYA==
-X-Gm-Gg: AY/fxX4rNxVHStRWxEH5alNQaQWDIXIEGRJEB6P2Tgigdf4Lw4VCIEK7l/NZdvHuuKg
-	ejRJ+zlzGQQYOlxSU4KNYYyb0kNC0VpLBiPKyh8av3mcM/7uI+vHaqdlmcnFf5zPmmgZauicdu0
-	q76p8MXiu924ArY7YcStxDi42SXJ8y+mr4d9vKFDEvGsVsN+bSk4tOyxNqvRVBBMvQpTOIgEuhs
-	LaB7vB4HDz3lSHIZwbtiHV1bM/AbapWEOQJ9HitpxWE8gBBgoR6HuLtkJ+L9KBAK34RuncK
-X-Google-Smtp-Source: AGHT+IH0jOC7I2V4n9q5hO9cE+4qZGL5l0QgmCHa+z37icAIbpE4GF3fcjaXDt2pkrHPiEtG7N6pGTFx3A7hEnLj0+M=
-X-Received: by 2002:a17:907:9496:b0:b7a:1bde:a01b with SMTP id
- a640c23a62f3a-b7d23d13da0mr931934966b.63.1765805473126; Mon, 15 Dec 2025
- 05:31:13 -0800 (PST)
-MIME-Version: 1.0
-References: <20251203122313.1287950-1-robert.marko@sartura.hr>
- <20251203122313.1287950-4-robert.marko@sartura.hr> <20251203-splendor-cubbyhole-eda2d6982b46@spud>
- <CA+HBbNGdd-u=4PtXZtirqRkFBhKwraa5gV-32QChDDjfVARPRg@mail.gmail.com> <173412c8-c2fb-4c38-8de7-5b1c2eebdbf9@microchip.com>
-In-Reply-To: <173412c8-c2fb-4c38-8de7-5b1c2eebdbf9@microchip.com>
-From: Robert Marko <robert.marko@sartura.hr>
-Date: Mon, 15 Dec 2025 14:31:00 +0100
-X-Gm-Features: AQt7F2riRZ6DJPf2Vnc_Dn8R65r6BvztUnfjR9AMbbKZbxLcNxf74LNl1xmAB1k
-Message-ID: <CA+HBbNFzETiySdw-VuzMJx6vdhPU_3d_aU2v9eJ4-_OBaTn2mA@mail.gmail.com>
-Subject: Re: [PATCH 4/4] arm64: dts: microchip: add LAN969x support
-To: Nicolas Ferre <nicolas.ferre@microchip.com>
-Cc: Conor Dooley <conor@kernel.org>, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, gregkh@linuxfoundation.org, claudiu.beznea@tuxon.dev, 
-	mturquette@baylibre.com, sboyd@kernel.org, richardcochran@gmail.com, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-clk@vger.kernel.org, daniel.machon@microchip.com, 
-	UNGLinuxDriver@microchip.com, luka.perkov@sartura.hr
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Mon, 15 Dec 2025 13:32:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0071E40A9C;
+	Mon, 15 Dec 2025 13:32:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACCE7C4CEF5;
+	Mon, 15 Dec 2025 13:32:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765805526;
+	bh=84Dzn8gAnsI6rfNIwAA64Hfmd016CVzpMPiihOVlWyg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Ru0RAagsbL9KNqe1Me//gm6BO/+23CBjfd27AM2LTwLRN45kO//JZxSJgLcx7uuvM
+	 b9rFetWD40fsyaF+74q4WwpnlWRATjeb9oLRYzPlfcDRxnpOMV08pauoQnAiU8caVY
+	 vyJkFpirTGUOcDdd+r/wypoK1TmdEsKoF6k1FB70+cP4nK6G59ec1xvLx6Yjl3I7IE
+	 Gu4fK8yxigXmCKT79RDQyfA5QD3D0Q2EbvRLD/m9rfmJrJP9jR02tAJbuDry3eD5In
+	 f8VTq2peiRnW0rtQVG1/vz3d4J6Tu/sWsJhCsH9dscy3+brDXcgn2AHlDu6v13LIw4
+	 HMHRUe5wUzk/A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vV8gG-0000000Cm4r-2Oi3;
+	Mon, 15 Dec 2025 13:32:04 +0000
+Date: Mon, 15 Dec 2025 13:32:04 +0000
+Message-ID: <86jyynooq3.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	nd <nd@arm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Joey Gouly
+	<Joey.Gouly@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org"
+	<peter.maydell@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>
+Subject: Re: [PATCH 07/32] KVM: arm64: gic: Introduce interrupt type helpers
+In-Reply-To: <20251212152215.675767-8-sascha.bischoff@arm.com>
+References: <20251212152215.675767-1-sascha.bischoff@arm.com>
+	<20251212152215.675767-8-sascha.bischoff@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_053118_283785_7C61D3F9 
-X-CRM114-Status: GOOD (  19.89  )
+X-CRM114-CacheID: sfid-20251215_053208_886582_7E09B586 
+X-CRM114-Status: GOOD (  36.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,60 +97,232 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 15, 2025 at 1:32=E2=80=AFPM Nicolas Ferre
-<nicolas.ferre@microchip.com> wrote:
+On Fri, 12 Dec 2025 15:22:37 +0000,
+Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+> 
+> GICv5 has moved from using interrupt ranges for different interrupt
+> types to using some of the upper bits of the interrupt ID to denote
+> the interrupt type. This is not compatible with older GICs (which rely
+> on ranges of interrupts to determine the type), and hence a set of
+> helpers is introduced. These helpers take a struct kvm*, and use the
+> vgic model to determine how to interpret the interrupt ID.
+> 
+> Helpers are introduced for PPIs, SPIs, and LPIs. Additionally, a
+> helper is introduced to determine if an interrupt is private - SGIs
+> and PPIs for older GICs, and PPIs only for GICv5.
+> 
+> The helpers are plumbed into the core vgic code, as well as the Arch
+> Timer and PMU code.
+> 
+> There should be no functional changes as part of this change.
+> 
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> ---
+>  arch/arm64/kvm/arch_timer.c           |  2 +-
+>  arch/arm64/kvm/pmu-emul.c             |  6 +++---
+>  arch/arm64/kvm/vgic/vgic-kvm-device.c |  2 +-
+>  arch/arm64/kvm/vgic/vgic.c            | 14 +++++++-------
+>  include/kvm/arm_vgic.h                | 27 +++++++++++++++++++++++----
+>  5 files changed, 35 insertions(+), 16 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+> index 99a07972068d1..6f033f6644219 100644
+> --- a/arch/arm64/kvm/arch_timer.c
+> +++ b/arch/arm64/kvm/arch_timer.c
+> @@ -1598,7 +1598,7 @@ int kvm_arm_timer_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
+>  	if (get_user(irq, uaddr))
+>  		return -EFAULT;
+>  
+> -	if (!(irq_is_ppi(irq)))
+> +	if (!(irq_is_ppi(vcpu->kvm, irq)))
+
+nit: From a high-level perspective, I'd find it mentally more
+satisfying to pass a vcpu to the macro rather than a vm pointer when
+dealing with PPIs. It would also keep the dereference hidden away. But
+maybe i just need to go with the flow here.
+
+>  		return -EINVAL;
+>  
+>  	mutex_lock(&vcpu->kvm->arch.config_lock);
+> diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+> index b03dbda7f1ab9..0baf8e0fe23bd 100644
+> --- a/arch/arm64/kvm/pmu-emul.c
+> +++ b/arch/arm64/kvm/pmu-emul.c
+> @@ -939,7 +939,7 @@ int kvm_arm_pmu_v3_enable(struct kvm_vcpu *vcpu)
+>  		 * number against the dimensions of the vgic and make sure
+>  		 * it's valid.
+>  		 */
+> -		if (!irq_is_ppi(irq) && !vgic_valid_spi(vcpu->kvm, irq))
+> +		if (!irq_is_ppi(vcpu->kvm, irq) && !vgic_valid_spi(vcpu->kvm, irq))
+>  			return -EINVAL;
+>  	} else if (kvm_arm_pmu_irq_initialized(vcpu)) {
+>  		   return -EINVAL;
+> @@ -991,7 +991,7 @@ static bool pmu_irq_is_valid(struct kvm *kvm, int irq)
+>  		if (!kvm_arm_pmu_irq_initialized(vcpu))
+>  			continue;
+>  
+> -		if (irq_is_ppi(irq)) {
+> +		if (irq_is_ppi(kvm, irq)) {
+>  			if (vcpu->arch.pmu.irq_num != irq)
+>  				return false;
+>  		} else {
+> @@ -1142,7 +1142,7 @@ int kvm_arm_pmu_v3_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
+>  			return -EFAULT;
+>  
+>  		/* The PMU overflow interrupt can be a PPI or a valid SPI. */
+> -		if (!(irq_is_ppi(irq) || irq_is_spi(irq)))
+> +		if (!(irq_is_ppi(vcpu->kvm, irq) || irq_is_spi(vcpu->kvm, irq)))
+>  			return -EINVAL;
+>  
+>  		if (!pmu_irq_is_valid(kvm, irq))
+> diff --git a/arch/arm64/kvm/vgic/vgic-kvm-device.c b/arch/arm64/kvm/vgic/vgic-kvm-device.c
+> index 3d1a776b716d7..b12ba99a423e5 100644
+> --- a/arch/arm64/kvm/vgic/vgic-kvm-device.c
+> +++ b/arch/arm64/kvm/vgic/vgic-kvm-device.c
+> @@ -639,7 +639,7 @@ static int vgic_v3_set_attr(struct kvm_device *dev,
+>  		if (vgic_initialized(dev->kvm))
+>  			return -EBUSY;
+>  
+> -		if (!irq_is_ppi(val))
+> +		if (!irq_is_ppi(dev->kvm, val))
+>  			return -EINVAL;
+>  
+>  		dev->kvm->arch.vgic.mi_intid = val;
+> diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
+> index 430aa98888fda..2c0e8803342e2 100644
+> --- a/arch/arm64/kvm/vgic/vgic.c
+> +++ b/arch/arm64/kvm/vgic/vgic.c
+> @@ -94,7 +94,7 @@ struct vgic_irq *vgic_get_irq(struct kvm *kvm, u32 intid)
+>  	}
+>  
+>  	/* LPIs */
+> -	if (intid >= VGIC_MIN_LPI)
+> +	if (irq_is_lpi(kvm, intid))
+>  		return vgic_get_lpi(kvm, intid);
+>  
+>  	return NULL;
+> @@ -123,7 +123,7 @@ static void vgic_release_lpi_locked(struct vgic_dist *dist, struct vgic_irq *irq
+>  
+>  static __must_check bool __vgic_put_irq(struct kvm *kvm, struct vgic_irq *irq)
+>  {
+> -	if (irq->intid < VGIC_MIN_LPI)
+> +	if (!irq_is_lpi(kvm, irq->intid))
+>  		return false;
+>  
+>  	return refcount_dec_and_test(&irq->refcount);
+> @@ -148,7 +148,7 @@ void vgic_put_irq(struct kvm *kvm, struct vgic_irq *irq)
+>  	 * Acquire/release it early on lockdep kernels to make locking issues
+>  	 * in rare release paths a bit more obvious.
+>  	 */
+> -	if (IS_ENABLED(CONFIG_LOCKDEP) && irq->intid >= VGIC_MIN_LPI) {
+> +	if (IS_ENABLED(CONFIG_LOCKDEP) && irq_is_lpi(kvm, irq->intid)) {
+>  		guard(spinlock_irqsave)(&dist->lpi_xa.xa_lock);
+>  	}
+>  
+> @@ -186,7 +186,7 @@ void vgic_flush_pending_lpis(struct kvm_vcpu *vcpu)
+>  	raw_spin_lock_irqsave(&vgic_cpu->ap_list_lock, flags);
+>  
+>  	list_for_each_entry_safe(irq, tmp, &vgic_cpu->ap_list_head, ap_list) {
+> -		if (irq->intid >= VGIC_MIN_LPI) {
+> +		if (irq_is_lpi(vcpu->kvm, irq->intid)) {
+>  			raw_spin_lock(&irq->irq_lock);
+>  			list_del(&irq->ap_list);
+>  			irq->vcpu = NULL;
+> @@ -521,12 +521,12 @@ int kvm_vgic_inject_irq(struct kvm *kvm, struct kvm_vcpu *vcpu,
+>  	if (ret)
+>  		return ret;
+>  
+> -	if (!vcpu && intid < VGIC_NR_PRIVATE_IRQS)
+> +	if (!vcpu && irq_is_private(kvm, intid))
+>  		return -EINVAL;
+>  
+>  	trace_vgic_update_irq_pending(vcpu ? vcpu->vcpu_idx : 0, intid, level);
+>  
+> -	if (intid < VGIC_NR_PRIVATE_IRQS)
+> +	if (irq_is_private(kvm, intid))
+>  		irq = vgic_get_vcpu_irq(vcpu, intid);
+>  	else
+>  		irq = vgic_get_irq(kvm, intid);
+> @@ -685,7 +685,7 @@ int kvm_vgic_set_owner(struct kvm_vcpu *vcpu, unsigned int intid, void *owner)
+>  		return -EAGAIN;
+>  
+>  	/* SGIs and LPIs cannot be wired up to any device */
+> -	if (!irq_is_ppi(intid) && !vgic_valid_spi(vcpu->kvm, intid))
+> +	if (!irq_is_ppi(vcpu->kvm, intid) && !vgic_valid_spi(vcpu->kvm, intid))
+>  		return -EINVAL;
+>  
+>  	irq = vgic_get_vcpu_irq(vcpu, intid);
+> diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
+> index b261fb3968d03..be1f45a494f78 100644
+> --- a/include/kvm/arm_vgic.h
+> +++ b/include/kvm/arm_vgic.h
+> @@ -19,6 +19,7 @@
+>  #include <linux/jump_label.h>
+>  
+>  #include <linux/irqchip/arm-gic-v4.h>
+> +#include <linux/irqchip/arm-gic-v5.h>
+>  
+>  #define VGIC_V3_MAX_CPUS	512
+>  #define VGIC_V2_MAX_CPUS	8
+> @@ -31,9 +32,22 @@
+>  #define VGIC_MIN_LPI		8192
+>  #define KVM_IRQCHIP_NUM_PINS	(1020 - 32)
+>  
+> -#define irq_is_ppi(irq) ((irq) >= VGIC_NR_SGIS && (irq) < VGIC_NR_PRIVATE_IRQS)
+> -#define irq_is_spi(irq) ((irq) >= VGIC_NR_PRIVATE_IRQS && \
+> -			 (irq) <= VGIC_MAX_SPI)
+> +#define irq_is_ppi_legacy(irq) ((irq) >= VGIC_NR_SGIS && (irq) < VGIC_NR_PRIVATE_IRQS)
+> +#define irq_is_spi_legacy(irq) ((irq) >= VGIC_NR_PRIVATE_IRQS && \
+> +					(irq) <= VGIC_MAX_SPI)
+> +#define irq_is_lpi_legacy(irq) ((irq) > VGIC_MAX_SPI)
+
+This last line is wrong. v3 LPIs start at 8192, while VGIC_MAX_SPI is
+1019. Also, "legacy" is remarkably ambiguous. v2 is legacy for v3, v3
+for v4...  You see where this is going.
+
+I'd rather you have something that denotes the non-GICv5-ness of the
+implementation. irq_is_nv5_ppi()?
+
+> +
+> +#define irq_is_ppi_v5(irq) (FIELD_GET(GICV5_HWIRQ_TYPE, irq) == GICV5_HWIRQ_TYPE_PPI)
+> +#define irq_is_spi_v5(irq) (FIELD_GET(GICV5_HWIRQ_TYPE, irq) == GICV5_HWIRQ_TYPE_SPI)
+> +#define irq_is_lpi_v5(irq) (FIELD_GET(GICV5_HWIRQ_TYPE, irq) == GICV5_HWIRQ_TYPE_LPI)
+> +
+> +#define gic_is_v5(k) ((k)->arch.vgic.vgic_model == KVM_DEV_TYPE_ARM_VGIC_V5)
+> +
+> +#define irq_is_ppi(k, i) (gic_is_v5(k) ? irq_is_ppi_v5(i) : irq_is_ppi_legacy(i))
+> +#define irq_is_spi(k, i) (gic_is_v5(k) ? irq_is_spi_v5(i) : irq_is_spi_legacy(i))
+> +#define irq_is_lpi(k, i) (gic_is_v5(k) ? irq_is_lpi_v5(i) : irq_is_lpi_legacy(i))
+> +
+> +#define irq_is_private(k, i) (gic_is_v5(k) ? irq_is_ppi_v5(i) : i < VGIC_NR_PRIVATE_IRQS)
+>  
+>  enum vgic_type {
+>  	VGIC_V2,		/* Good ol' GICv2 */
+> @@ -418,8 +432,13 @@ u64 vgic_v3_get_misr(struct kvm_vcpu *vcpu);
+>  
+>  #define irqchip_in_kernel(k)	(!!((k)->arch.vgic.in_kernel))
+>  #define vgic_initialized(k)	((k)->arch.vgic.initialized)
+> -#define vgic_valid_spi(k, i)	(((i) >= VGIC_NR_PRIVATE_IRQS) && \
+> +#define vgic_ready(k)		((k)->arch.vgic.ready)
+
+What is this for? Nothing seem to be using it yet. How different is it
+from the 'initialized' field?
+
+> +#define vgic_valid_spi_legacy(k, i)	(((i) >= VGIC_NR_PRIVATE_IRQS) && \
+>  			((i) < (k)->arch.vgic.nr_spis + VGIC_NR_PRIVATE_IRQS))
+> +#define vgic_valid_spi_v5(k, i)	(irq_is_spi(k, i) && \
+> +				 (FIELD_GET(GICV5_HWIRQ_ID, i) < (k)->arch.vgic.nr_spis))
+> +#define vgic_valid_spi(k, i) (((k)->arch.vgic.vgic_model != KVM_DEV_TYPE_ARM_VGIC_V5) ? \
+> +				vgic_valid_spi_legacy(k, i) : vgic_valid_spi_v5(k, i))
 >
-> Robert,
->
-> On 15/12/2025 at 12:36, Robert Marko wrote:
-> > On Wed, Dec 3, 2025 at 8:21=E2=80=AFPM Conor Dooley <conor@kernel.org> =
-wrote:
-> >>
-> >> On Wed, Dec 03, 2025 at 01:21:32PM +0100, Robert Marko wrote:
-> >>> Add support for Microchip LAN969x switch SoC, including the EV23X71A
-> >>> EVB board.
-> >>>
-> >>> Signed-off-by: Robert Marko <robert.marko@sartura.hr>
-> >>> ---
-> >>>   arch/arm64/boot/dts/microchip/Makefile        |   2 +
-> >>>   .../boot/dts/microchip/lan9696-ev23x71a.dts   | 761 +++++++++++++++=
-+++
-> >>
-> >>>   arch/arm64/boot/dts/microchip/lan969x.dtsi    | 482 +++++++++++
-> >>
-> >> The majority of devices in this file are missing soc-specific
-> >> compatibles.
-> >
-> > Hi,
-> > I missed this before.
-> >
-> > The majority of the devices are simply reused from the AT91 series, so
-> > I thought it was not required to
-> > update all of the bindings to add the LAN9691 compatible.
-> >
-> > If that is required, I will do so in v2.
-> Well, history told us it was better (in addition to be required by DT
-> best practices). Indeed, even if the same IP block is used, sometimes
-> integration subtleties pay game with us and a dedicated compatible
-> string saves us.
 
-Ok, I will then update the required bindings and include them in the
-series in v2.
+This macro has its v5/nv5 statements in the opposite order of all the
+others. Some consistency would be welcome.
 
-Regards,
-Robert
->
-> Regards,
->    Nicolas
+Thanks,
 
+	M.
 
-
---=20
-Robert Marko
-Staff Embedded Linux Engineer
-Sartura d.d.
-Lendavska ulica 16a
-10000 Zagreb, Croatia
-Email: robert.marko@sartura.hr
-Web: www.sartura.hr
+-- 
+Without deviation from the norm, progress is not possible.
 
