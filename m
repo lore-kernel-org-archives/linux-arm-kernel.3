@@ -4,59 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23BE9D5B854
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 16:49:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45923D5B858
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 16:52:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QjdAh91N38JTTN3WcUdzvziMIhuBPgDj6HNd+K1rqpo=; b=sTy95w2hyRvBCQ6Y2RvSQxR4D/
-	h1GaHGvV7WM3SNRQu2jwHQCB++jIbbpB5M4wE5S5MutRib25cjzf2xW/dPMdJhxpNFPkDJQYrlQ2/
-	oaodJaHk8eI+5NdQRlk8Y8lG/b0xUGonppIkavmZU67OkHLH/U/rHuqiPUC4qMcj4H/L60E7jRibj
-	/LIOE+2g+pJjw0RmqlHil2uFERvRGOHh8Q6DICEEcY51u4X+rJImoF3YI4dlI/PsNjojEsCG+alp1
-	uZ3TzN9Au9KvlpFyLH7iHtXx8kp0H8w50yd0X/1LYT3L+M+r9bxxNRAQRwVYLR44BQxUCJKlzWkW2
-	lXQuqFTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=k4K0A7tw0piWVnb/7q48qsAOBuaPwaaJnbI388C3EIk=; b=Srlh/U488hXYzW3HyfC8IJ1ANz
+	YYDOZoZ3kyBd9m2vsTi0U8lDFN/RaWLCniR8Vb2bQxU6Seyi+k7YIqEZcE/uB7DUdoD8gXavTCws0
+	m9LXR/jdvs7fW7hsKZo9Lb+8E53vZRWRlX1V4e2iv9NlFt7LQP/lsli+4zv8xiBS6l+oYqkna3C7b
+	PXuRU0ChhHBXt0JNTTzp7PVgE3PoBM27ge0e9b/aRVZnywY72CBIn1cO84MRSbXet+Wm0+DoCaLlw
+	PHbK86Rm8f6x4pEFa2HmQkR0AxO89afUTktuLNMY4LiZHjC834IPmFJo1rmO3eaNFsbwWpjCyRNAn
+	3lQgWn+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVBlG-000000041J2-3pKv;
-	Mon, 15 Dec 2025 16:49:26 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVBlE-000000041IZ-3TaL
+	id 1vVBnl-000000041aQ-0GPI;
+	Mon, 15 Dec 2025 16:52:01 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vVBni-000000041YU-3P3p
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 16:49:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C40E7FEC;
-	Mon, 15 Dec 2025 08:49:15 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8C76F3F694;
-	Mon, 15 Dec 2025 08:49:22 -0800 (PST)
-Date: Mon, 15 Dec 2025 16:49:20 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: James Clark <james.clark@linaro.org>, Joel May <joel-linux@jmay.us>,
-	Ian Rogers <irogers@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Linux perf Profiling <linux-perf-users@vger.kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH] arm64: perf: fix syscalltbl path base
-Message-ID: <20251215164920.GD681384@e132581.arm.com>
-References: <b2651f20-6f3a-49f5-9cd8-3fb028b2cab5@app.fastmail.com>
- <fcefc3c0-541d-40cc-84e3-9c2460308bdb@linaro.org>
- <23c07ac4-ff13-47a5-824a-e7af1d1847a3@app.fastmail.com>
- <bda366b4-fa53-4feb-a7ce-ee47cfc404b5@linaro.org>
- <20251215112818.GB681384@e132581.arm.com>
- <0076b248-9b23-408d-9448-701df3c8d952@app.fastmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <0076b248-9b23-408d-9448-701df3c8d952@app.fastmail.com>
+	Mon, 15 Dec 2025 16:51:59 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-477c49f273fso43575395e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Dec 2025 08:51:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1765817516; x=1766422316; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=k4K0A7tw0piWVnb/7q48qsAOBuaPwaaJnbI388C3EIk=;
+        b=i3NJffp+7p8r/F8m/q3K7Jh7EH0ZVotjA/BtTCeEGw+yhusx/Yuz3rjtOmSMmL0Kna
+         X9FLGMBuaBV9iGVQYMKKbN2SGtI+cOTaqMkVpO+U50B8S5mJbeaSV3SDGJKy/7FW1ey9
+         SuhVYxQ2/fNPjw9xlzVSessMYKomh1LdENB34ZcwmaUcSKvT6Ls4gFMm/w9tmNSkzWh3
+         46CzTgeTnoZ4naOt5R1Ai9orXaBfzpN0LapFkX1kzJ3Z4uLDUl1A0J8WiWwmsOxPTOVc
+         cN+9lJniBCi7VS7YxyirkIbZw2d/V4FgKwCd//PCWb/RPvi5XiPZWOn0jPwRmRL5WySu
+         JFvQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765817516; x=1766422316;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=k4K0A7tw0piWVnb/7q48qsAOBuaPwaaJnbI388C3EIk=;
+        b=S5a1szr0Q4UADOr6cFyFVou5R8pw7e1AA1ieTvT8JHK0K7oFJkwUSAKfgpRfsqlDZW
+         JzI4SSO2atqfdgEXhAmqX5isNmkYcDicjb8t9JYZxqwyl/kRL/pRYWOGms8lnMLNJLZu
+         D0w+7csciG22ySxYkKoncHuJtpkDP34Z67JkA7ILB5cHqV/XEb9zrJge0Ca0hE+ppg1m
+         fbKR/2b51pf+A19i4zqGfcYC8mf9jvGHLqxWduiFVXiMAgFVgb8FkqVOb3o95bMxIRpO
+         rtjMSd5XLoLhyqeIbNd0sUASIkHvKyQY0JEE8wrgy0TeVzNGJ+DHvBulO+R9xaPbArcK
+         6DWg==
+X-Forwarded-Encrypted: i=1; AJvYcCUWnqF6QiBUAdDIlcIvZn9Af7XweUisrWxeAXQd59/MRjhr6INe+6b3WFn70ZQ+nH7+LxBCCq4cIh+VucXADXHk@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3X4eBK0u04pZSTCGfLiXdEfYPEtc2zLaxaiqwO1x2YSQlQzkm
+	FUZ2Ttw/cUkejR2/Icz7GMl8ovRU/nYHwF9rjGpX+SHUAkcq8aHjAOTwEnKoAK/kZXouX7vlqUh
+	9fg==
+X-Google-Smtp-Source: AGHT+IGNq+OOelN0gNt5/INxptKwNuOhXBeg9PpZV5h/y2ooLGgWvT+8nQuHYF+Ar/8EPep76SDOriq1fw==
+X-Received: from wmpo6.prod.google.com ([2002:a05:600c:3386:b0:475:d804:bfd2])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:840f:b0:479:1a09:1c4a
+ with SMTP id 5b1f17b1804b1-47a96378c50mr93572455e9.31.1765817516238; Mon, 15
+ Dec 2025 08:51:56 -0800 (PST)
+Date: Mon, 15 Dec 2025 16:51:50 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.52.0.239.gd5f0c6e74e-goog
+Message-ID: <20251215165155.3451819-1-tabba@google.com>
+Subject: [PATCH v2 0/5] KVM: selftests: Alignment fixes and arm64 MMU cleanup
+From: Fuad Tabba <tabba@google.com>
+To: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, will@kernel.org, 
+	pbonzini@redhat.com, shuah@kernel.org, anup@brainfault.org, tabba@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_084924_903559_6A083D13 
-X-CRM114-Status: GOOD (  17.91  )
+X-CRM114-CacheID: sfid-20251215_085158_876386_58AA7BA3 
+X-CRM114-Status: GOOD (  11.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,55 +89,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 15, 2025 at 01:22:04PM +0100, Arnd Bergmann wrote:
+v2:
+- Resend to correct partial To/Cc lists. The previous versions were
+  inadvertently sent to disjoint subsets of the maintainers and lists
+  (kvmarm vs kvm-riscv). Apologies for the noise and the duplicate
+  threads.
+- No code changes.
 
-[...]
+This series tidies up a few things in the KVM selftests. It addresses an
+error in memory alignment, hardens the arm64 MMU configuration for
+selftests, and fixes minor documentation issues.
 
-> Ah, I see now that arc/hexagon/loongarch/riscv just use an old
-> copy of the header based on the and no longer update them. I only
-> saw that they have the stub version but hadn't realized that they
-> never updated past the point where we started generating the
-> ones for the uapi.
-> 
-> Still, I would suggest using the same method across all architectures:
-> either we figure out how to use the generated headers on all of them
-> (including x86, which uses yet another method)
+First, for arm64, the series explicitly disables translation table walks
+for the unused upper virtual address range (TTBR1). Since selftests run
+entirely in the lower range (TTBR0), leaving TTBR1 uninitialized but
+active could lead to unpredictable behavior if guest code accesses high
+addresses. We set EPD1 (and TBI1) to ensure such accesses
+deterministically generate translation faults.
 
-Switching to generated unistd.h headers would require removing
-tools/include/uapi/asm-generic/unistd.h and generating unistd_64/32.h
-on the fly, while still keeping arch's stub headers under
-tools/arch/${arch}/include/uapi/asm/.
+Second, the series fixes the `page_align()` implementation in both arm64
+and riscv. The previous version incorrectly rounded up already-aligned
+addresses to the *next* page, potentially wasting memory or causing
+unexpected gaps. After fixing the logic in the arch-specific files, the
+function is moved to the common `kvm_util.h` header to eliminate code
+duplication.
 
-As discussed in [1], I would prefer to drop these headers, but Ian
-noted that this could break builds with older toolchains.  We keep the
-tools/ copies of unistd.h because tools need the latest syscall
-numbers; relying on outdated toolchain headers can lead to build
-failures or incorrect behavior (e.g., perf falling back to predefined
-but wrong syscall numbers).
+Finally, a few comments and argument descriptions in `kvm_util` are
+updated to match the actual code implementation.
 
-One idea is to install kernel headers first and then build tools, e,g.:
+Based on Linux 6.19-rc1.
 
-   cd linux
-   export CROSS_COMPILE=aarch64-linux-gnu-
-   make ARCH=arm64 headers_install O=$OUT
-   make ARCH=arm64 O=$OUT -C tools/perf
+Cheers,
+/fuad
 
-Generating the headers dynamically would avoid maintaining duplicated
-copies under tools/ and no need for periodic syncs.  However, this is a
-quite big effort, not just perf, we need to update makefiles to the path
-of the installed headers.  I'd like to hear opinions from tools
-(perf/bpf/selftest) maintainers before proceeding.
+Fuad Tabba (5):
+  KVM: arm64: selftests: Disable unused TTBR1_EL1 translations
+  KVM: arm64: selftests: Fix incorrect rounding in page_align()
+  KVM: riscv: selftests: Fix incorrect rounding in page_align()
+  KVM: selftests: Move page_align() to shared header
+  KVM: selftests: Fix typos and stale comments in kvm_util
 
-> or we just stick with
-> the old asm-generic/unistd.h copy and use that on arm64 as well.
+ tools/testing/selftests/kvm/include/arm64/processor.h | 4 ++++
+ tools/testing/selftests/kvm/include/kvm_util.h        | 9 +++++++--
+ tools/testing/selftests/kvm/lib/arm64/processor.c     | 7 ++-----
+ tools/testing/selftests/kvm/lib/kvm_util.c            | 2 +-
+ tools/testing/selftests/kvm/lib/riscv/processor.c     | 5 -----
+ 5 files changed, 14 insertions(+), 13 deletions(-)
 
-I will proceed this way for now.  From a maintenance view, it is a
-pragmatic solution that only requires reverting a few patches and does
-not introduce any new code.
 
-Thanks for your suggestion!
+base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+-- 
+2.52.0.239.gd5f0c6e74e-goog
 
-Leo
-
-[1] https://lore.kernel.org/linux-perf-users/20251209104926.GS724103@e132581.arm.com/
 
