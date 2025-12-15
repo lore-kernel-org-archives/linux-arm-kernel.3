@@ -4,92 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D659CD5B16D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 02:19:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35600D59D99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 02:27:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vyQpy40LuVc+jIOEZN17H+ajGzV6rjuUMt2NowJl5CE=; b=0Wn9hiX/x7evb11n3F86yLAolL
-	twdZaKvOgsEUAuV3ZiXFSOXhSIUSiCuwjWcOUx7sHSji7CuIKhYfMWxFgjC1O7EZ4N6mucmK/oe88
-	QxJzDv7I06+qtBXgR+dAcJqEToyW+xYc8+RLeGeIbEbeoprqDSC50H/E1Zu23zDOWrHf4+5Di2+Mj
-	5T4y3ZJ8yk8DNDvBPSJynMyRB/sXLcNV8rFuMnotwI6XPM4oY9vBEXSQ3n8H8+/sOHQPPVX7YFEkR
-	Ti671D86cnTcZySIeY+QwMvB7b4bwXMjxQ3tIQ3SH6oUv3LgqONT0LPOp/9ljzz15cNZ/in0z1DbC
-	x3sura2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9YNcMzr2iuZs3aPijfdu0EH7e9VjJIBMMpMeMGn702c=; b=XVn9ExqVNcQyC2iaVzt0O/iJKz
+	m4PJUuL3jxaN/CrIe5l62vmZJdh+H78iqVSDAtcJA2JwpTYEuqAVpT2tmxvEViFX2DEwQkv6dJmC/
+	GZtiJQsgbGttmnHQ9x4GtjGgYZpXYpgYr79NqXUthWeRzrw7KtNzn8KxZOFHEcqPCL/WtXcYgKsgc
+	XmjDyB0qaSE+zZKISNsWJBIGuPB2lLkhAkHTvFIHyiQl13eVwEqRY+vyUx7EdMOapczOh676E0s/Y
+	duEWeXqMzUJh1ijbWoEInC0sq+KO0le7tMi1W6ubV3TrqUVE2x1OexoB7ssW19OVgBhNXrmpYK6KL
+	WI9C5m7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUyBk-00000002wKv-1k3r;
-	Mon, 15 Dec 2025 02:19:52 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1vUyJ7-00000002wh0-3qYP;
+	Mon, 15 Dec 2025 02:27:29 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUyBh-00000002wKW-3kkC
+	id 1vUyJ3-00000002wgC-0TNz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 02:19:51 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2a0833b5aeeso26085545ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Dec 2025 18:19:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1765765189; x=1766369989; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=vyQpy40LuVc+jIOEZN17H+ajGzV6rjuUMt2NowJl5CE=;
-        b=nqJO4aPAfTSJxJKo0gUuYQA8desBS9csdDQ8B9yLK2LUPktmgfzHdPcy0c6raSf+ef
-         whHrth14IWVhInYwgN+f41TbJCATcpSlkgjuuiU672mh7aMVoY2HqWk4Cb7I8BpeM3Sm
-         Fc84U2I5OfCShx7O6WX2ckCtcMNUS5yRNSLZLsCX33WRv3j+JBWWDs+bevre7SQYUlVP
-         q2yH0JjuojtXeEPJM+TdYcgWq8rj5/chj1ppk+JO3k2HYVMORX1KucwBIkbBBTn3Zlu3
-         YZ03Zjtn7uALg+AQN+atocKxsmT0W2O9ZGiygzm2owa1iNahid6MpWCqhE8jx6E/R/In
-         mj3w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765765189; x=1766369989;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=vyQpy40LuVc+jIOEZN17H+ajGzV6rjuUMt2NowJl5CE=;
-        b=lKqYiiulZkx5HHQ4poGkYp30U2AcAQbw0jIhvcqWSfoM7v+Xt9npRlRUzdD+bFvFZs
-         ouLEO3qIwLO6T9jL6oNoQkDufgu9X9LZJaiDfWSoDdj8PM6ez8bstBPLto/tTACc9lEY
-         agYRWZ0VKlQJmukijDwsbjwx4xbuGwIdlJ/9bySdp/ihWc5ioZU4AnwD0LDvJ8IwLeO5
-         sJWddRFXTkl4qpmwz5v/68b9WzUru0eH+BKWJVeEatVmm8xNvVYJBVRNtQ5ct8LeEnPd
-         ZPxF+TMwRT0LwVpx+lZh0p2Kk6PfaMK99maFv90jrk3Y4ODeH3O6ZuzWQTywVKSpqZHi
-         p/fQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWZAXS5GAQ0ouz5Zy59ICT3+qpE28T5+glWG+iKrD/Iy/+6HPiZbAupBZpYXOPatdxV8fYpc7iY8djRGNZBa2YU@lists.infradead.org
-X-Gm-Message-State: AOJu0YwinaJuMxiWKYsXNVeMGVDFDZ9SwbbmLwE6x2QCTACxdnFT3K1R
-	p/NzmybVBa0s/jEtRg8raSflT6aAgvF7VAW6TZtdcN9uvsEWjsW0+vPWKv4BLbv5vdk=
-X-Gm-Gg: AY/fxX6eMnhcoxprSpd8zVEGwbWLwRYqr3TOkr5D935M/NW3PmbNu5dbpXnyZg3OlLC
-	AwYomUmuZPBhzn/6GKHqRnrOtj/jkEQtsvdArfGinzk3+8g6smcKEySkT9cbUU3FkcoY8zmE371
-	MH6h6VPGnFWhtGI9Tgk/iqNH4ZL5nSsTbbkjknksAFjcrvjn+PN2Pzuot0oAeilpAo/45cu2JdQ
-	t2DoUeMXhfY7xExC23bnL2yGdLGLeE/tZmg2upyA3KWGgn/QURaUpkTVFhKXAM+IWL+UDI7TGNZ
-	Y2fFHkPT9pl5YdzLIUIHoDFddtTpshAhMVk4PhOVbCHb4GxHxb8+hQfUkaayECiJsw1B4mpJT58
-	bjnN0ORQ1G2lwvjlWWKFz7cqHABb7zaRGvCA1QZWsgp4h74pf2Y94qtEeCjkSxgHUby8uP/OK3C
-	PrUV5HIcJQoyzC6JgguSLI4XWUflVvG5YERsfn9ecLvQ==
-X-Google-Smtp-Source: AGHT+IHIU/jYZqSE4lK3mrtbuZ7ZFUKFi0MmSupmKRFzoKfYEL8mWKvDxqp7/lHuRh29MqAgh78KvQ==
-X-Received: by 2002:a17:902:f544:b0:2a0:d6d5:b342 with SMTP id d9443c01a7336-2a0d6d5b935mr26580395ad.37.1765765188823;
-        Sun, 14 Dec 2025 18:19:48 -0800 (PST)
-Received: from p14s (p7838222-ipoefx.ipoe.ocn.ne.jp. [123.225.39.221])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a0e96df1c9sm15403105ad.39.2025.12.14.18.19.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 14 Dec 2025 18:19:48 -0800 (PST)
-Date: Sun, 14 Dec 2025 19:19:43 -0700
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Shenwei Wang <shenwei.wang@nxp.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-imx@nxp.com
-Subject: Re: [PATCH] remoteproc: imx_rproc: Use strstarts for "rsc-table"
- check
-Message-ID: <aT9wP_3olsf7WbPL@p14s>
-References: <20251208233302.684139-1-shenwei.wang@nxp.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251208233302.684139-1-shenwei.wang@nxp.com>
+	Mon, 15 Dec 2025 02:27:28 +0000
+Received: from localhost.localdomain (unknown [202.112.113.212])
+	by APP-01 (Coremail) with SMTP id qwCowACHL2v+cT9p2CezAA--.45584S2;
+	Mon, 15 Dec 2025 10:27:19 +0800 (CST)
+From: Ma Ke <make24@iscas.ac.cn>
+To: suzuki.poulose@arm.com,
+	mike.leach@linaro.org,
+	james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com,
+	mathieu.poirier@linaro.org
+Cc: coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	akpm@linux-foundation.org,
+	Ma Ke <make24@iscas.ac.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH v2 RESEND] coresight: etm-perf: Fix reference count leak in etm_setup_aux
+Date: Mon, 15 Dec 2025 10:27:09 +0800
+Message-Id: <20251215022709.17220-1-make24@iscas.ac.cn>
+X-Mailer: git-send-email 2.17.1
+X-CM-TRANSID: qwCowACHL2v+cT9p2CezAA--.45584S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7XryfuFW3XryfKFy5JF1DJrb_yoW8JF18pF
+	4DK39Iyr98GrWvv39rJr1DZFW5Ww1SyayagFy5K395uF4YqF9FvF15KFyFvrs7CrW8GF93
+	Krs7tF48ZFyUXaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUP014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr
+	0_GcWlnxkEFVAIw20F6cxK64vIFxWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xv
+	F2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r
+	4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I
+	648v4I1lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFylc2xSY4AK67
+	AK6r4UMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAF
+	wI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc4
+	0Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AK
+	xVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr
+	1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUb9NVDUU
+	UUU==
+X-Originating-IP: [202.112.113.212]
+X-CM-SenderInfo: ppdnvj2u6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251214_181949_960860_A85C31E4 
-X-CRM114-Status: GOOD (  16.68  )
+X-CRM114-CacheID: sfid-20251214_182725_584177_7B7A5510 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,36 +83,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 08, 2025 at 05:33:02PM -0600, Shenwei Wang wrote:
-> The resource name may include an address suffix, for example:
-> rsc-table@1fff8000.
-> 
-> To handle such cases, use strstarts() instead of strcmp() when checking
-> for "rsc-table".
-> 
-> Signed-off-by: Shenwei Wang <shenwei.wang@nxp.com>
-> ---
->  drivers/remoteproc/imx_rproc.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-> index 3be8790c14a2..33f21ab24c92 100644
-> --- a/drivers/remoteproc/imx_rproc.c
-> +++ b/drivers/remoteproc/imx_rproc.c
-> @@ -694,7 +694,7 @@ static int imx_rproc_addr_init(struct imx_rproc *priv,
->  		}
->  		priv->mem[b].sys_addr = res.start;
->  		priv->mem[b].size = resource_size(&res);
-> -		if (!strcmp(res.name, "rsc-table"))
-> +		if (strstarts(res.name, "rsc-table"))
->  			priv->rsc_table = priv->mem[b].cpu_addr;
+In etm_setup_aux(), when a user sink is obtained via
+coresight_get_sink_by_id(), it increments the reference count of the
+sink device. However, if the sink is used in path building, the path
+holds a reference, but the initial reference from
+coresight_get_sink_by_id() is not released, causing a reference count
+leak. We should release the initial reference after the path is built.
 
-Before applying this patch, I want to know how it ever worked before.  How
-did DT with a suffix tested?
+Found by code review.
 
->  		b++;
->  	}
-> -- 
-> 2.43.0
-> 
+Cc: stable@vger.kernel.org
+Fixes: 0e6c20517596 ("coresight: etm-perf: Allow an event to use different sinks")
+Signed-off-by: Ma Ke <make24@iscas.ac.cn>
+---
+Changes in v2:
+- modified the patch as suggestions.
+---
+ drivers/hwtracing/coresight/coresight-etm-perf.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
+index 17afa0f4cdee..56d012ab6d3a 100644
+--- a/drivers/hwtracing/coresight/coresight-etm-perf.c
++++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+@@ -454,6 +454,11 @@ static void *etm_setup_aux(struct perf_event *event, void **pages,
+ 		goto err;
+ 
+ out:
++	if (user_sink) {
++		put_device(&user_sink->dev);
++		user_sink = NULL;
++	}
++
+ 	return event_data;
+ 
+ err:
+-- 
+2.17.1
+
 
