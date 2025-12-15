@@ -4,215 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27F61D5B854
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 16:54:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66BE9D5B857
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 17:09:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8/W6l29RwKRvQiKjOmlgFycm7Qo8+6A28MW3ffQAxVM=; b=koEhClft+Jnvl0rCxp1QVq7+32
-	PvmjIMdCmq670BQ/YMyAeHad1vCgaobES5Qof34oQVzY+YB1spTJ451jzJEQxIt19X1C1w0srArWb
-	9ZNrtlN3oKgeC2VBLZdELRgnwGjoT6FGmUFat6WxaLvb15d+1+J/cCmdSGWeOtn9a143OTCEsT3rf
-	wvofI97L06tUvpZQmdGE8Hib6f9/wYC2toIebwUowapVy+O8TSi4u1u71VyCt/FdPNI6E3bAW0gQB
-	b7NBhK9AI85m0miBZM0mKGdoa/kG5BYWRzeouiYAE+sXWjC6wjH7XDrbuEggRhbL2v3yGEHkj74/L
-	dE84/JpA==;
+	bh=yHQvSRl1j8ZUcUPLByOvGqvMNE11iQ7hF5mQe6hKSlY=; b=iWumylXikEDiD4oGB7vNu9ZlNH
+	Hl3iLqiRdesBEu+Bdb3hHMk+A/p2OnvtEZXU0eucf26+Igrb//8JSOkRwHEQTGfIlAgunuowzoZHk
+	vKCLwusl9veMwisFhP9MWATfcZaTkX7dFrZIdyXnr1ymJH+E7DIGWqzMFGoPIs4CQCSdsgTgXLd26
+	JyybLwaZGTErAHYfqUwP+Q7vhzB8E3SmiwxoXeA3YUu44i+pO3g0u8EyJdBcgBtFSWKEqs6GdKxxF
+	Ps5je08QlqdmrWX1wO8EELN0z1+UqSz8mrtqaz+addlTk45/K2QW5emjIqwuXoK/sPYlu2sUSAY9p
+	S5RflS9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVBpi-000000042Gc-1jLQ;
-	Mon, 15 Dec 2025 16:54:02 +0000
-Received: from mail-northeuropeazon11010059.outbound.protection.outlook.com ([52.101.84.59] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1vVC45-000000042yy-1VlY;
+	Mon, 15 Dec 2025 17:08:53 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVBpd-000000042Fq-1EP9
+	id 1vVC42-000000042yC-2GDk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 16:54:00 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=Uqgjc6EJPcuU47SZIzC8zdoCw+Surzn0qG4wAuNOPzg5fMbTPMt4Oe4W5kB07UbSsRRqGD2xjl7DsK8VTtljMety8Wq8Ay8mA73ifPTXY8sE/nwHkLM4Q50tqkfYzLPFMFuFDB6pYwvLVsWuRcCNoO+vPv6szVhK9r6kC2AuNHq+LvTIy1j6Q5bFWdnY72VoQJpE+7kjAl9lC8BCnQ5iguiHGw87zZCv4xyEcOe7Dq2DjDCL3VPXNo2qil2ZKl+0Dw6SsOF6KePMvnThEhP8YHdzuJLA68XtojvJy9A36e8Pd1w/F6qYBlq5MJR6QSZ47gykH06RP6NDgxulRWhEkg==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8/W6l29RwKRvQiKjOmlgFycm7Qo8+6A28MW3ffQAxVM=;
- b=AJXsYXpvlpwfCvh8d6jYBF00xh6SYRiRI43JwODw3HPcA8ZspLglhyBIkhH/rnQZ7bI9VX/CMI3+Mqv8uumdAmD8lBsyGEcer0UksZvZ8o6BafqQ0jZ+xYejQ2KcDPz5cWp4OFFmJHiaCc9akXquv+aw4EJxrSo+KnI3FA+lhq2qCPphv8w1ng07zC+6Vm2j0zIE8aSDm+d4KiOBeYItnGKmcyYVRgiiYKmA0IhfKHdJRAd7y4irtg3RC1hpNGrE+smbUZO0va3WGQS+1VU37mdbg/nEswz+9L2ll/sbeQX0B1tiemch83XxUa7/WErZE/43tNWXkpgu0jhNADkXKQ==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kvack.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8/W6l29RwKRvQiKjOmlgFycm7Qo8+6A28MW3ffQAxVM=;
- b=NpuIhWv2/SYwyoTwxqJEp+LUttli+ls7ALljKOwrYVUwynwm7TJf6lumJIiBTKkQ64YLOB57iiENePt8zXny5gLV1Vmm9zAUEqb9FEtkGAkucnUNgEbpdx+2wdq7nJMQY8D9EbCarF6hai4J88xVxCJxHCpAwiuIF/txKOjyYbI=
-Received: from DUZPR01CA0069.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:3c2::12) by VI1PR08MB10173.eurprd08.prod.outlook.com
- (2603:10a6:800:1cb::9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.13; Mon, 15 Dec
- 2025 16:53:46 +0000
-Received: from DU6PEPF0000B61F.eurprd02.prod.outlook.com
- (2603:10a6:10:3c2:cafe::ba) by DUZPR01CA0069.outlook.office365.com
- (2603:10a6:10:3c2::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9412.13 via Frontend Transport; Mon,
- 15 Dec 2025 16:53:43 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DU6PEPF0000B61F.mail.protection.outlook.com (10.167.8.134) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9412.4
- via Frontend Transport; Mon, 15 Dec 2025 16:53:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LgddzwHmxbJSjKxG0hhVuK+odF1FC/zGMr5Rfr3WOvKhRVqG1YtcjvjwIn/2aUQ9f/k6fjZao+EqMjdRylwcLu/aensvxftZaEIdFGQ6Nt6A9Fm2q043hWOUaKBRPREEpZ4rZoZAtDJn1QcqMIkv/hOUoh2IHrDOI0vFd7wof6F4hMuka2GIissipp6NjAN87vWjJFCtFdlRZ3y6a1jUx7wtCpRhFJjtRXy1n5eJ65l/bxWNV8jc9qiZsVgoNSaINWYrywU9o7XDDp9XdcxPeoeBsVsf0jhwDY4KxJtgEBqF7QOa9CFsIdMZMyAydegHcUcTyrE5AoDI+iH2MS/s9A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8/W6l29RwKRvQiKjOmlgFycm7Qo8+6A28MW3ffQAxVM=;
- b=uYSUo8FEDj+a84PWVNUzr+egX2mNotnRPqbY8QbuV7gvrefO7noRRMijbo1S6m62kBzPaWkZ+qUjWTTGAiOA3mAd0QUYaOKePolGXgmd0viAZmr09/cTQxaCUrdEA+PZ7GaaYy4D1KQO8S93CdIRmERw6XRCc+5DluOfG3fqvDf59fI5BPqX4N+Dx/42bc27wviqUnGTXMwP36iiW2JP7A3jOz6kaUG2+VdZy4VFh73g7JjDQ4RADvVsOtzreQM0kseTsc2nU+N3WWLHetLpLinmoizMBy6suEXsrEB0zB0QhigjbjJJP5tBKbBqnFDf9QNWG3LYUNF+OWqJIX+zoQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8/W6l29RwKRvQiKjOmlgFycm7Qo8+6A28MW3ffQAxVM=;
- b=NpuIhWv2/SYwyoTwxqJEp+LUttli+ls7ALljKOwrYVUwynwm7TJf6lumJIiBTKkQ64YLOB57iiENePt8zXny5gLV1Vmm9zAUEqb9FEtkGAkucnUNgEbpdx+2wdq7nJMQY8D9EbCarF6hai4J88xVxCJxHCpAwiuIF/txKOjyYbI=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by DU0PR08MB9050.eurprd08.prod.outlook.com
- (2603:10a6:10:47a::17) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.13; Mon, 15 Dec
- 2025 16:52:42 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739%3]) with mapi id 15.20.9412.011; Mon, 15 Dec 2025
- 16:52:41 +0000
-Date: Mon, 15 Dec 2025 16:52:38 +0000
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Boris Ostrovsky <boris.ostrovsky@oracle.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Hildenbrand <david@redhat.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	David Woodhouse <dwmw2@infradead.org>,
-	"H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
-	Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Venkat Rao Bagalkote <venkat88@linux.ibm.com>,
-	Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-	sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org,
-	x86@kernel.org
-Subject: Re: [PATCH v6 00/14] Nesting support for lazy MMU mode
-Message-ID: <aUA81joXQL0ZyIgm@e129823.arm.com>
-References: <20251215150323.2218608-1-kevin.brodsky@arm.com>
+	Mon, 15 Dec 2025 17:08:52 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vVC36-0007TL-5t; Mon, 15 Dec 2025 18:07:52 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vVC35-005okW-0J;
+	Mon, 15 Dec 2025 18:07:51 +0100
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vVC34-008zRV-32;
+	Mon, 15 Dec 2025 18:07:50 +0100
+Date: Mon, 15 Dec 2025 18:07:50 +0100
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Primoz Fiser <primoz.fiser@norik.com>
+Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, andrej.picej@norik.com,
+	c.hemp@phytec.de, s.mueller-klieser@phytec.de, n.wesp@phytec.de,
+	c.stoidner@phytec.de, linux-clk@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH 2/2] arm64: dts: imx93-phyboard-segin: Add peb-av-02
+ overlay
+Message-ID: <20251215170750.j2l6gnbocmhdloe6@pengutronix.de>
+References: <20251202-v6-18-topic-imx93-phyboard-segin-av-02-display-v1-0-9c14be6c7478@pengutronix.de>
+ <20251202-v6-18-topic-imx93-phyboard-segin-av-02-display-v1-2-9c14be6c7478@pengutronix.de>
+ <15bb2331-713a-4b6a-ae9a-4870066e84dc@norik.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251215150323.2218608-1-kevin.brodsky@arm.com>
-X-ClientProxiedBy: LO4P123CA0323.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:197::22) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
-MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|DU0PR08MB9050:EE_|DU6PEPF0000B61F:EE_|VI1PR08MB10173:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3616d0f9-d03f-4f6b-ac15-08de3bfa82c0
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?pzhAZZwGWJzd2xgVNmW9IljA9Y8eJspiViZIWh6wHso8M5V9/hP7Xp48c6Ra?=
- =?us-ascii?Q?murX1T0Nm5N6sBhlON20saGNVE0yQ+0f/J+Lcxt5eri1wjvvuKwkcA4oiusq?=
- =?us-ascii?Q?2ez1Oac5wCVJyffTzfVq4TdrsfTDPWHW4zw2MiN1jb9ETKs8t/nbI0Uaj39B?=
- =?us-ascii?Q?dlPXBismRRnq2mE9U8l/EDCxNF2WjNbG8CgQGtr2lh00hZ30d21r/8kdoq2e?=
- =?us-ascii?Q?CwJZlp0VrX+ZTikjw4ERtV6JYLGisV0+GWJhBIpU8Q5NoQVWOUdgcDKkNHYX?=
- =?us-ascii?Q?HIVj+9F981bg5UBbLvSGkPFayNb5O40vkUwzFnL1Nf9kXfiaFKpz3rXrlA/p?=
- =?us-ascii?Q?jDA4zYQ82Jwim4mJZV2Q5HsbAUW0o/hN160zyj1z/VfjF8E+qIz+d6Mp2mYb?=
- =?us-ascii?Q?3zr1qFp1XkB0HF0rKyfJ1NTyHh42cmXEiIcq003tQnD0zMHjWLOyMcXANGj0?=
- =?us-ascii?Q?0NBK3ojJWHyhw2pmfLSR2QeI+qccGWQO0zbEE5DUTTwHffx0Z0vM94ac6TSZ?=
- =?us-ascii?Q?2eBoMq83Ph9aP0MMvnmzVeENVhBl3tFTgeR5p2/gFKTu0LkU7hsM1eWkbNmc?=
- =?us-ascii?Q?F2id7OZvf7zFKs1O/y7nVAIJmzVV3N65FT3n9A9YrzymzniP08mIp97wWGOm?=
- =?us-ascii?Q?EZnxGXeLFH682OCh3gSADulUaQLL8UI8PLYmDoW5iTBggZVm4pV/zqr4yntD?=
- =?us-ascii?Q?TB80oSc4RgD+HomIFBGWaolGPFL8TcTIKpVrBAUpVCKDLJ1H0odbJcq57jY9?=
- =?us-ascii?Q?c7l0SofUCSXzngkfyLeDSjgnDqltndsRpOU3zgTz/vRJaQdZ0EbnwX8WYw1O?=
- =?us-ascii?Q?JP1/fEhKzf5YduAEFKWnUFBypkzrK10v8AgOI1rMogxC556pGVR0GyBT0Zl8?=
- =?us-ascii?Q?BhRiMi+GbHkUvF/pGJ/xWhjxJrnxo2wirvryxRf9hbmTocovqYzpifI1rIi+?=
- =?us-ascii?Q?Lk/PrRzzzFrcw+o//Ase3h2KsPspnPC2lKQM8C4BLKzXiLIw509uFs5a/m1D?=
- =?us-ascii?Q?WqeUFnDMtWAg6Xv/4jw86H7C5dDwOw5hmUiMCalw66ZsCsrKXn9pKfQPvoKe?=
- =?us-ascii?Q?6Z35SCVmCCoe1LyodWNCtA0e7vpAwocZiOQy09qNA4wP0VntCqCQ0/mLxKAx?=
- =?us-ascii?Q?nR7gkjYXj+JryIT62NAECTn0xX1XRmJ75XR6VqFngmLbTt+V6DeLGGHX90k5?=
- =?us-ascii?Q?M7ZafmVH2s9oHVJ/b8UH7B+DFRw8KL6CHwBp2iz+gbmowpWZxrzp9vk1FMcq?=
- =?us-ascii?Q?5IzCNCJRiYJVIDJ7UmAeFaPspDSiolfGm+xtJnx4+eFpMhTSPu3aLfbcl+Ff?=
- =?us-ascii?Q?GsOjb9kYEvH3pa0NbRUz9TMVAp9R0OML2c4W30fw0qbipdW/zqUw0G2f34G1?=
- =?us-ascii?Q?rlYW8EogCxnxi9U3JdpgOZ4HIVNgi5D38Z8K1SQIGNb4t/TZ0rLDCwD2U71B?=
- =?us-ascii?Q?u8vnrfFpxrmwbR2ySerVrklJPeZZS6ci7U3xsxkvb8teDnhabwpnsA=3D=3D?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB9050
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU6PEPF0000B61F.eurprd02.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 5e434924-911d-4672-46f7-08de3bfa5caf
-X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|35042699022|7416014|376014|1800799024|82310400026|36860700013|13003099007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?zuqIIqd/l6AydQr35yD1higpmzfOYfxMiv0s0sjNB0C69/59KEUtQcn6Y4tk?=
- =?us-ascii?Q?kpq+VTZCvX1H6Sm907dbj9V6quSESqUZjE7tJC6Q+2m2r7NYDp9kJnIEAAAX?=
- =?us-ascii?Q?Au/+FYYkkQuwFxHYvEe7nl5T28DdBkunZr5Ozu0gu1WI5597losXFe/FfL3h?=
- =?us-ascii?Q?SQU2hLrugc/J90/pyGL77BQVta35FER4E8OdBKxYOc/lWGCq5IsJDA+LrQmw?=
- =?us-ascii?Q?vZs/9i9r7R5DULAh7PjN+MD/s6CkRYEiNzUsy1o9lyhSoK2xCyMGIlMDR/Jo?=
- =?us-ascii?Q?JfUTpLi2Ef6Zr/Y6/4edzjBSXBYJOHZxLAlIUG3r59LRE4CQl9Q/l5Jxu9gA?=
- =?us-ascii?Q?43o+Myp2Uur9GS+LMBnuB4cJkF98AHGFjWtNnRMJbOD78rwiJhtatFBKlzVV?=
- =?us-ascii?Q?+RgRge0bj+f7gIUBzJjGHcuw1NbeI0UMiohF88IGb3RhulDOU4Xpn9AeQgxl?=
- =?us-ascii?Q?TFKLiTXg0aUi54PB7FEowDoN3vUCnQFdBtlDOhmXcn0772K4Jgha7yzH6Zbe?=
- =?us-ascii?Q?VlLDIEaBGJqvxzQ5cnyYkvo+Kcp0/s5jHe2qd2h9kUKd28xSQrmPzB72MuLP?=
- =?us-ascii?Q?BuBPOxiOKfdCczAiwd7YUiwoXLT3P7xtiwVIPsvcyhoLR6KwciiT3LbDRzlF?=
- =?us-ascii?Q?Q6Hx1OtbZSU45PhANkTvRTF/X/s+coGONUEvnCG1pQ2FqQMpTB89neNLxsrp?=
- =?us-ascii?Q?Bw2JZ6eVUVZItYDJzEVoYa+ECDg/UE685eL9KYCK8uiszLHH+9yx/Y0X/90D?=
- =?us-ascii?Q?2qwbpVUDBndTbjfdRWeJqcXg3r8BdhKgjvXUHF3vN1LKA2u4SFLVEJ2S3iq1?=
- =?us-ascii?Q?X9sibqtpfT6yGV8UJ8gb8vd9d8oyr/rblzdLv0t4+KXisTusdPG0SqwdP7Yw?=
- =?us-ascii?Q?0k1zK7nasZGL+aCznnwIAwv5mT5SGRTMv2e+U2CkeUPyQIvbmJBF95PfQtiv?=
- =?us-ascii?Q?bp12wiF+ooP57r293Fl4KEs4whV3msj79dLqc0KEBdJvL8a1p0+TSddM86U5?=
- =?us-ascii?Q?Dx3R14HLdneaU2UmKiXlo5O7AyKS6sERQoD8RU4KNQSZVR/VJ8IpOD23NlTA?=
- =?us-ascii?Q?SA70gv1XYFAiVPpm8jUPCcYy7dyUgzPlM6TEYp0LQeM0BKlj40Dn/YOI46aT?=
- =?us-ascii?Q?Fv+QDdfum4ocCI79mRSwRJN4Qhu+wH7yTffOc5PcPFMesGYRd7AtmW6iDoFV?=
- =?us-ascii?Q?XgoJC0HQyPpaan/86/mLqbwcxv6qrGB0ccm5gUb9YRK1697OgN8MVK5fpANr?=
- =?us-ascii?Q?OhCmXyjy1av7ICNDLvaHuvhzcNbT8UYXjMklkgeTYMS2huHqZFYXQFGtPhBR?=
- =?us-ascii?Q?+xPHxrJv5oB6Qu2ZNLRHhpP9lRJxdU0SsW05hWEqSyhLGqkwaFeYw47ZU375?=
- =?us-ascii?Q?e+vuJLXDQobAvxzb200y3amBjOAfFa54DJbY1/ZfUVIKRH0DUujc6QCQiPQ8?=
- =?us-ascii?Q?pHA/NDTgwFmdBdgHmnticDCye9KiQlUikslfu0iyOwMtc5NfQHwYGcB2L4dT?=
- =?us-ascii?Q?P9Zc7MkwYT9kNo3PyDkq/nUhj5rYrjnX5Ma0Y7P4qgTe3FTAqh9oNuXYivLv?=
- =?us-ascii?Q?zhldyvx8Xjc48g6TL+M=3D?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(14060799003)(35042699022)(7416014)(376014)(1800799024)(82310400026)(36860700013)(13003099007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Dec 2025 16:53:45.3928
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3616d0f9-d03f-4f6b-ac15-08de3bfa82c0
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000B61F.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR08MB10173
+In-Reply-To: <15bb2331-713a-4b6a-ae9a-4870066e84dc@norik.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_085359_246037_8046FF1C 
-X-CRM114-Status: GOOD (  19.61  )
+X-CRM114-CacheID: sfid-20251215_090850_737051_E3D8E3F3 
+X-CRM114-Status: GOOD (  40.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -227,279 +88,273 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> When the lazy MMU mode was introduced eons ago, it wasn't made clear
-> whether such a sequence was legal:
->
-> 	arch_enter_lazy_mmu_mode()
-> 	...
-> 		arch_enter_lazy_mmu_mode()
-> 		...
-> 		arch_leave_lazy_mmu_mode()
-> 	...
-> 	arch_leave_lazy_mmu_mode()
->
-> It seems fair to say that nested calls to
-> arch_{enter,leave}_lazy_mmu_mode() were not expected, and most
-> architectures never explicitly supported it.
->
-> Nesting does in fact occur in certain configurations, and avoiding it
-> has proved difficult. This series therefore enables lazy_mmu sections to
-> nest, on all architectures.
->
-> Nesting is handled using a counter in task_struct (patch 8), like other
-> stateless APIs such as pagefault_{disable,enable}(). This is fully
-> handled in a new generic layer in <linux/pgtable.h>; the arch_* API
-> remains unchanged. A new pair of calls, lazy_mmu_mode_{pause,resume}(),
-> is also introduced to allow functions that are called with the lazy MMU
-> mode enabled to temporarily pause it, regardless of nesting.
->
-> An arch now opts in to using the lazy MMU mode by selecting
-> CONFIG_ARCH_LAZY_MMU; this is more appropriate now that we have a
-> generic API, especially with state conditionally added to task_struct.
->
-> ---
->
-> Background: Ryan Roberts' series from March [1] attempted to prevent
-> nesting from ever occurring, and mostly succeeded. Unfortunately, a
-> corner case (DEBUG_PAGEALLOC) may still cause nesting to occur on arm64.
-> Ryan proposed [2] to address that corner case at the generic level but
-> this approach received pushback; [3] then attempted to solve the issue
-> on arm64 only, but it was deemed too fragile.
->
-> It feels generally difficult to guarantee that lazy_mmu sections don't
-> nest, because callers of various standard mm functions do not know if
-> the function uses lazy_mmu itself.
->
-> The overall approach in v3/v4 is very close to what David Hildenbrand
-> proposed on v2 [4].
->
-> Unlike in v1/v2, no special provision is made for architectures to
-> save/restore extra state when entering/leaving the mode. Based on the
-> discussions so far, this does not seem to be required - an arch can
-> store any relevant state in thread_struct during arch_enter() and
-> restore it in arch_leave(). Nesting is not a concern as these functions
-> are only called at the top level, not in nested sections.
->
-> The introduction of a generic layer, and tracking of the lazy MMU state
-> in task_struct, also allows to streamline the arch callbacks - this
-> series removes 67 lines from arch/.
->
-> Patch overview:
->
-> * Patch 1: cleanup - avoids having to deal with the powerpc
->   context-switching code
->
-> * Patch 2-4: prepare arch_flush_lazy_mmu_mode() to be called from the
->   generic layer (patch 9)
->
-> * Patch 5: documentation clarification (not directly related to the
->   changes in this series)
->
-> * Patch 6-7: new API + CONFIG_ARCH_LAZY_MMU
->
-> * Patch 8: ensure correctness in interrupt context
->
-> * Patch 9: nesting support
->
-> * Patch 10-13: replace arch-specific tracking of lazy MMU mode with
->   generic API
->
-> * Patch 14: basic tests to ensure that the state added in patch 9 is
->   tracked correctly
->
-> This series has been tested by running the mm kselftests on arm64 with
-> DEBUG_VM, DEBUG_PAGEALLOC, KFENCE and KASAN. Extensive testing on
-> powerpc was also kindly provided by Venkat Rao Bagalkote [5]. It was
-> build-tested on other architectures (with and without XEN_PV on x86).
->
-> - Kevin
->
-> [1] https://lore.kernel.org/all/20250303141542.3371656-1-ryan.roberts@arm.com/
-> [2] https://lore.kernel.org/all/20250530140446.2387131-1-ryan.roberts@arm.com/
-> [3] https://lore.kernel.org/all/20250606135654.178300-1-ryan.roberts@arm.com/
-> [4] https://lore.kernel.org/all/ef343405-c394-4763-a79f-21381f217b6c@redhat.com/
-> [5] https://lore.kernel.org/all/94889730-1AEF-458F-B623-04092C0D6819@linux.ibm.com/
-> ---
-> Changelog
->
-> v5..v6:
->
-> - Rebased on v6.19-rc1
-> - Overall: no functional change
-> - Patch 5: new patch clarifying that generic code may not sleep while in lazy
->   MMU mode [Alexander Gordeev]
-> - Patch 6: added description for the ARCH_HAS_LAZY_MMU_MODE option
->   [Anshuman Khandual]
-> - Patch 9: rename in_lazy_mmu_mode() to is_lazy_mmu_mode_active() [Alexander]
-> - Patch 14: new patch with basic KUnit tests [Anshuman]
-> - Collected R-b/A-b/T-b tags
->
-> v5: https://lore.kernel.org/all/20251124132228.622678-1-kevin.brodsky@arm.com/
->
-> v4..v5:
->
-> - Rebased on mm-unstable
-> - Patch 3: added missing radix_enabled() check in arch_flush()
->   [Ritesh Harjani]
-> - Patch 6: declare arch_flush_lazy_mmu_mode() as static inline on x86
->   [Ryan Roberts]
-> - Patch 7 (formerly 12): moved before patch 8 to ensure correctness in
->   interrupt context [Ryan]. The diffs in in_lazy_mmu_mode() and
->   queue_pte_barriers() are moved to patch 8 and 9 resp.
-> - Patch 8:
->   * Removed all restrictions regarding lazy_mmu_mode_{pause,resume}().
->     They may now be called even when lazy MMU isn't enabled, and
->     any call to lazy_mmu_mode_* may be made while paused (such calls
->     will be ignored). [David, Ryan]
->   * lazy_mmu_state.{nesting_level,active} are replaced with
->     {enable_count,pause_count} to track arbitrary nesting of both
->     enable/disable and pause/resume [Ryan]
->   * Added __task_lazy_mmu_mode_active() for use in patch 12 [David]
->   * Added documentation for all the functions [Ryan]
-> - Patch 9: keep existing test + set TIF_LAZY_MMU_PENDING instead of
->   atomic RMW [David, Ryan]
-> - Patch 12: use __task_lazy_mmu_mode_active() instead of accessing
->   lazy_mmu_state directly [David]
-> - Collected R-b/A-b tags
->
-> v4: https://lore.kernel.org/all/20251029100909.3381140-1-kevin.brodsky@arm.com/
->
-> v3..v4:
->
-> - Patch 2: restored ordering of preempt_{disable,enable}() [Dave Hansen]
-> - Patch 5 onwards: s/ARCH_LAZY_MMU/ARCH_HAS_LAZY_MMU_MODE/ [Mike Rapoport]
-> - Patch 7: renamed lazy_mmu_state members, removed VM_BUG_ON(),
->   reordered writes to lazy_mmu_state members [David Hildenbrand]
-> - Dropped patch 13 as it doesn't seem justified [David H]
-> - Various improvements to commit messages [David H]
->
-> v3: https://lore.kernel.org/all/20251015082727.2395128-1-kevin.brodsky@arm.com/
->
-> v2..v3:
->
-> - Full rewrite; dropped all Acked-by/Reviewed-by.
-> - Rebased on v6.18-rc1.
->
-> v2: https://lore.kernel.org/all/20250908073931.4159362-1-kevin.brodsky@arm.com/
->
-> v1..v2:
-> - Rebased on mm-unstable.
-> - Patch 2: handled new calls to enter()/leave(), clarified how the "flush"
->   pattern (leave() followed by enter()) is handled.
-> - Patch 5,6: removed unnecessary local variable [Alexander Gordeev's
->   suggestion].
-> - Added Mike Rapoport's Acked-by.
->
-> v1: https://lore.kernel.org/all/20250904125736.3918646-1-kevin.brodsky@arm.com/
-> ---
-> Cc: Alexander Gordeev <agordeev@linux.ibm.com>
-> Cc: Andreas Larsson <andreas@gaisler.com>
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-> Cc: Boris Ostrovsky <boris.ostrovsky@oracle.com>
-> Cc: Borislav Petkov <bp@alien8.de>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
-> Cc: Dave Hansen <dave.hansen@linux.intel.com>
-> Cc: David Hildenbrand <david@redhat.com>
-> Cc: "David S. Miller" <davem@davemloft.net>
-> Cc: David Woodhouse <dwmw2@infradead.org>
-> Cc: "H. Peter Anvin" <hpa@zytor.com>
-> Cc: Ingo Molnar <mingo@redhat.com>
-> Cc: Jann Horn <jannh@google.com>
-> Cc: Juergen Gross <jgross@suse.com>
-> Cc: "Liam R. Howlett" <Liam.Howlett@oracle.com>
-> Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-> Cc: Madhavan Srinivasan <maddy@linux.ibm.com>
-> Cc: Michael Ellerman <mpe@ellerman.id.au>
-> Cc: Michal Hocko <mhocko@suse.com>
-> Cc: Mike Rapoport <rppt@kernel.org>
-> Cc: Nicholas Piggin <npiggin@gmail.com>
-> Cc: Peter Zijlstra <peterz@infradead.org>
-> Cc: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> Cc: Suren Baghdasaryan <surenb@google.com>
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Venkat Rao Bagalkote <venkat88@linux.ibm.com>
-> Cc: Vlastimil Babka <vbabka@suse.cz>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Yeoreum Yun <yeoreum.yun@arm.com>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> Cc: linuxppc-dev@lists.ozlabs.org
-> Cc: sparclinux@vger.kernel.org
-> Cc: xen-devel@lists.xenproject.org
-> Cc: x86@kernel.org
-> ---
-> Alexander Gordeev (1):
->   powerpc/64s: Do not re-activate batched TLB flush
->
-> Kevin Brodsky (13):
->   x86/xen: simplify flush_lazy_mmu()
->   powerpc/mm: implement arch_flush_lazy_mmu_mode()
->   sparc/mm: implement arch_flush_lazy_mmu_mode()
->   mm: clarify lazy_mmu sleeping constraints
->   mm: introduce CONFIG_ARCH_HAS_LAZY_MMU_MODE
->   mm: introduce generic lazy_mmu helpers
->   mm: bail out of lazy_mmu_mode_* in interrupt context
->   mm: enable lazy_mmu sections to nest
->   arm64: mm: replace TIF_LAZY_MMU with is_lazy_mmu_mode_active()
->   powerpc/mm: replace batch->active with is_lazy_mmu_mode_active()
->   sparc/mm: replace batch->active with is_lazy_mmu_mode_active()
->   x86/xen: use lazy_mmu_state when context-switching
->   mm: Add basic tests for lazy_mmu
->
->  arch/arm64/Kconfig                            |   1 +
->  arch/arm64/include/asm/pgtable.h              |  41 +----
->  arch/arm64/include/asm/thread_info.h          |   3 +-
->  arch/arm64/mm/mmu.c                           |   8 +-
->  arch/arm64/mm/pageattr.c                      |   4 +-
->  .../include/asm/book3s/64/tlbflush-hash.h     |  20 +--
->  arch/powerpc/include/asm/thread_info.h        |   2 -
->  arch/powerpc/kernel/process.c                 |  25 ---
->  arch/powerpc/mm/book3s64/hash_tlb.c           |  10 +-
->  arch/powerpc/mm/book3s64/subpage_prot.c       |   4 +-
->  arch/powerpc/platforms/Kconfig.cputype        |   1 +
->  arch/sparc/Kconfig                            |   1 +
->  arch/sparc/include/asm/tlbflush_64.h          |   5 +-
->  arch/sparc/mm/tlb.c                           |  14 +-
->  arch/x86/Kconfig                              |   1 +
->  arch/x86/boot/compressed/misc.h               |   1 +
->  arch/x86/boot/startup/sme.c                   |   1 +
->  arch/x86/include/asm/paravirt.h               |   1 -
->  arch/x86/include/asm/pgtable.h                |   1 +
->  arch/x86/include/asm/thread_info.h            |   4 +-
->  arch/x86/xen/enlighten_pv.c                   |   3 +-
->  arch/x86/xen/mmu_pv.c                         |   6 +-
->  fs/proc/task_mmu.c                            |   4 +-
->  include/linux/mm_types_task.h                 |   5 +
->  include/linux/pgtable.h                       | 158 +++++++++++++++++-
->  include/linux/sched.h                         |  45 +++++
->  mm/Kconfig                                    |  19 +++
->  mm/Makefile                                   |   1 +
->  mm/kasan/shadow.c                             |   8 +-
->  mm/madvise.c                                  |  18 +-
->  mm/memory.c                                   |  16 +-
->  mm/migrate_device.c                           |   8 +-
->  mm/mprotect.c                                 |   4 +-
->  mm/mremap.c                                   |   4 +-
->  mm/tests/lazy_mmu_mode_kunit.c                |  71 ++++++++
->  mm/userfaultfd.c                              |   4 +-
->  mm/vmalloc.c                                  |  12 +-
->  mm/vmscan.c                                   |  12 +-
->  38 files changed, 380 insertions(+), 166 deletions(-)
->  create mode 100644 mm/tests/lazy_mmu_mode_kunit.c
->
->
-> base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+Hi Primoz,
+
+On 25-12-03, Primoz Fiser wrote:
+> Hi Marco,
+> 
+> On 2. 12. 25 14:44, Marco Felsch wrote:
+> > From: Andrej Picej <andrej.picej@norik.com>
+> > 
+> > Add overlay for Audio-Video module PEB-AV-02. Add support for panel
+> > display, capacitive touchscreen and backlight.
+> > 
+> > For now the backlight is configured as a GPIO, brightness of the display
+> > can not be set. When the FLEXIO PWM driver is available this should be
+> > switched to PWM backlight driver.
+> > 
+> > Signed-off-by: Andrej Picej <andrej.picej@norik.com>
+> > [rework commit message, use local regulator, remove compatible]
+> > Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+> > Signed-off-by: Christian Hemp <c.hemp@phytec.de>
+> > [m.felsch@pengutronix.de: cleanup downstream commit]
+> > Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+> > ---
+> >  arch/arm64/boot/dts/freescale/Makefile             |   2 +
+> >  .../freescale/imx93-phyboard-segin-peb-av-02.dtso  | 135 +++++++++++++++++++++
+> >  2 files changed, 137 insertions(+)
+> > 
+> > diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+> > index 525ef180481d331e9c4decd092b7b831c497b67e..27e27ac29e82bc0692e86c2ba15c240dc9fbe1c6 100644
+> > --- a/arch/arm64/boot/dts/freescale/Makefile
+> > +++ b/arch/arm64/boot/dts/freescale/Makefile
+> > @@ -357,10 +357,12 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash.dtb
+> >  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin.dtb
+> >  
+> >  imx93-phyboard-nash-peb-wlbt-07-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-peb-wlbt-07.dtbo
+> > +imx93-phyboard-segin-peb-av-02-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-av-02.dtbo
+> >  imx93-phyboard-segin-peb-eval-01-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-eval-01.dtbo
+> >  imx93-phyboard-segin-peb-wlbt-05-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-wlbt-05.dtbo
+> >  imx93-phycore-rpmsg-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-segin.dtb imx93-phycore-rpmsg.dtbo
+> >  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash-peb-wlbt-07.dtb
+> > +dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-av-02.dtb
+> 
+> Here you need to rebase since new commits on linux-next.
+
+Argh.. will do.
+
+> >  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-eval-01.dtb
+> >  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-wlbt-05.dtb
+> >  dtb-$(CONFIG_ARCH_MXC) += imx93-phycore-rpmsg.dtb
+> > diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-02.dtso b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-02.dtso
+> > new file mode 100644
+> > index 0000000000000000000000000000000000000000..2e7074e402dc8fdeb1568d4f2d4960431e972501
+> > --- /dev/null
+> > +++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-02.dtso
+> > @@ -0,0 +1,135 @@
+> > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+> > +/*
+> > + * Copyright (C) 2025 PHYTEC Messtechnik GmbH
+> > + * Copyright (C) 2025 Pengutronix
+> > + *
+> > + * Author: Andrej Picej <andrej.picej@norik.com>
+> > + * Author: Marco Felsch <kernel@pengutronix.de>
+> > + */
+> > +
+> > +#include <dt-bindings/clock/imx93-clock.h>
+> > +#include <dt-bindings/gpio/gpio.h>
+> > +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> > +#include "imx93-pinfunc.h"
+> > +
+> > +/dts-v1/;
+> > +/plugin/;
+> > +
+> > +&{/} {
+> > +	/* TODO: Convert to PWM backlight once the FlexIO PWM is supported */
+> > +	backlight: backlight {
+> > +		compatible = "gpio-backlight";
+> > +		pinctrl-names = "default";
+> > +		pinctrl-0 = <&pinctrl_backlight>;
+> > +		gpios = <&gpio4 28 GPIO_ACTIVE_HIGH>;
+> > +	};
+> > +
+> > +	panel {
+> > +		compatible = "edt,etm0700g0edh6";
+> > +		pinctrl-names = "default";
+> > +		pinctrl-0 = <&pinctrl_panel>;
+> > +
+> > +		backlight = <&backlight>;
+> > +		enable-gpios = <&gpio4 29 GPIO_ACTIVE_HIGH>;
+> > +		power-supply = <&reg_x71_vcc_3v3>;
+> > +
+> > +		port {
+> > +			panel_in: endpoint {
+> > +				remote-endpoint = <&dpi_to_panel>;
+> > +			};
+> > +		};
+> > +	};
+> > +
+> > +	reg_x71_vcc_3v3: regulator-x71-vcc-3v3 {
+> 
+> I just checked the schematics.
+> 
+> Can we rename this to reg_vcc_3v3_con in v2 maybe?
+> 
+> > +		compatible = "regulator-fixed";
+> > +		regulator-name = "X71-VCC3V3";
+> 
+> And this to "VCC3V3_CON"?
+> 
+> The reasoning behind is that "X71-VCC3V3" voltage doesn't exist on the
+> schematics, while there is actually "VCC3V3_CON" voltage supplying the
+> display panel.
+
+I know that "X71-VCC3V3" doesn't exist, I also thought about
+"X71:VCC3V3" to make it clear. Why I mentioned the X71 in the first
+place was to not cause any naming conflict. I would like to keep the X71
+naming since "VCC3V3_CON" really is the "X71-VCC3V3" with some filters
+applied. Anyway, I can change this of course.
+
+> > +		regulator-max-microvolt = <3300000>;
+> > +		regulator-min-microvolt = <3300000>;
+> > +	};
+> > +};
+> > +
+> > +&dpi_bridge {
+> > +	status = "okay";
+> > +};
+> > +
+> > +&dpi_to_panel {
+> > +	remote-endpoint = <&panel_in>;
+> > +	bus-width = <18>;
+> > +};
+> > +
+> > +&lcdif {
+> > +	pinctrl-names = "default";
+> > +	pinctrl-0 = <&pinctrl_lcdif>;
+> > +	assigned-clocks = <&clk IMX93_CLK_VIDEO_PLL>;
+> > +	assigned-clock-rates = <332600000>;
+> > +	status = "okay";
+> > +};
+> > +
+> > +&lpi2c2 {
+> > +	#address-cells = <1>;
+> > +	#size-cells = <0>;
+> > +
+> > +	touchscreen@38 {
+> > +		compatible = "edt,edt-ft5406";
+> > +		reg = <0x38>;
+> > +		pinctrl-names = "default";
+> > +		pinctrl-0 = <&pinctrl_touchscreen>;
+> > +		interrupt-parent = <&gpio4>;
+> > +		interrupts = <12 IRQ_TYPE_EDGE_FALLING>;
+> > +		reset-gpios = <&gpio4 1 GPIO_ACTIVE_LOW>;
+> > +		touchscreen-size-x = <1792>;
+> > +		touchscreen-size-y = <1024>;
+> 
+> Please add "wakeup-source" property here like in the downstream commit.
+> 
+> With this in place, panel touch can be used to wake up the board from sleep.
+
+Is this a required feature? Touchscreens with no certain
+low-power mode handlig (e.g. reduced scanning time) can draw much power
+in suspend.
+
+I can add it if Phytec is aware of this fact and still wants to have
+thsi feature.
+
+> Last but not least, can you add the vcc and iovcc supply regulators here
+> like in the downstream commit:
+> 
+> vcc-supply = <&reg_vcc_3v3_con>;
+> iovcc-supply = <&reg_vcc_3v3_con>;
+> 
+> to get rid of the following warnings:
+> 
+> edt_ft5x06 1-0038: supply vcc not found, using dummy regulator
+> edt_ft5x06 1-0038: supply iovcc not found, using dummy regulator
+
+Will do.
+
+> Anyway, I tested the display on the segin board with latest linux-next
+> and your patches. Can report display, touch and backlight work as expected.
+> 
+> Thank you!
+> 
+> Tested-by: Primoz Fiser <primoz.fiser@norik.com>
+
+Regards,
+  Marco
+
+> 
+> BR,
+> Primoz
+> 
+> > +	};
+> > +};
+> > +
+> > +&media_blk_ctrl {
+> > +	status = "okay";
+> > +};
+> > +
+> > +&iomuxc {
+> > +	pinctrl_backlight: backlightgrp {
+> > +		fsl,pins = <
+> > +			MX93_PAD_CCM_CLKO3__GPIO4_IO28			0x1133e
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_lcdif: lcdifgrp {
+> > +		fsl,pins = <
+> > +			MX93_PAD_GPIO_IO00__MEDIAMIX_DISP_CLK		0x50e
+> > +			MX93_PAD_GPIO_IO01__MEDIAMIX_DISP_DE		0x50e
+> > +			MX93_PAD_GPIO_IO02__MEDIAMIX_DISP_VSYNC		0x50e
+> > +			MX93_PAD_GPIO_IO03__MEDIAMIX_DISP_HSYNC		0x50e
+> > +			MX93_PAD_GPIO_IO04__MEDIAMIX_DISP_DATA00	0x50e
+> > +			MX93_PAD_GPIO_IO05__MEDIAMIX_DISP_DATA01	0x50e
+> > +			MX93_PAD_GPIO_IO06__MEDIAMIX_DISP_DATA02	0x50e
+> > +			MX93_PAD_GPIO_IO07__MEDIAMIX_DISP_DATA03	0x50e
+> > +			MX93_PAD_GPIO_IO08__MEDIAMIX_DISP_DATA04	0x50e
+> > +			MX93_PAD_GPIO_IO09__MEDIAMIX_DISP_DATA05	0x51e
+> > +			MX93_PAD_GPIO_IO10__MEDIAMIX_DISP_DATA06	0x50e
+> > +			MX93_PAD_GPIO_IO11__MEDIAMIX_DISP_DATA07	0x50e
+> > +			MX93_PAD_GPIO_IO12__MEDIAMIX_DISP_DATA08	0x50e
+> > +			MX93_PAD_GPIO_IO13__MEDIAMIX_DISP_DATA09	0x50e
+> > +			MX93_PAD_GPIO_IO14__MEDIAMIX_DISP_DATA10	0x50e
+> > +			MX93_PAD_GPIO_IO15__MEDIAMIX_DISP_DATA11	0x50e
+> > +			MX93_PAD_GPIO_IO16__MEDIAMIX_DISP_DATA12	0x506
+> > +			MX93_PAD_GPIO_IO17__MEDIAMIX_DISP_DATA13	0x506
+> > +			MX93_PAD_GPIO_IO18__MEDIAMIX_DISP_DATA14	0x506
+> > +			MX93_PAD_GPIO_IO19__MEDIAMIX_DISP_DATA15	0x506
+> > +			MX93_PAD_GPIO_IO20__MEDIAMIX_DISP_DATA16	0x506
+> > +			MX93_PAD_GPIO_IO21__MEDIAMIX_DISP_DATA17	0x506
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_panel: panelgrp {
+> > +		fsl,pins = <
+> > +			MX93_PAD_CCM_CLKO4__GPIO4_IO29			0x1133e
+> > +		>;
+> > +	};
+> > +
+> > +	pinctrl_touchscreen: touchscreengrp {
+> > +		fsl,pins = <
+> > +			MX93_PAD_ENET1_MDIO__GPIO4_IO01			0x11e
+> > +			MX93_PAD_ENET1_RD2__GPIO4_IO12			0x1133e
+> > +		>;
+> > +	};
+> > +};
+> > 
+> 
+> -- 
+> Primoz Fiser
+> phone: +386-41-390-545
+> email: primoz.fiser@norik.com
 > --
-> 2.51.2
+> Norik systems d.o.o.
+> Your embedded software partner
+> Slovenia, EU
+> phone: +386-41-540-545
+> email: info@norik.com
+> 
+> 
 
-All of these look good to me.
+-- 
+#gernperDu 
+#CallMeByMyFirstName
 
-Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-
---
-Sincerely,
-Yeoreum Yun
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
 
