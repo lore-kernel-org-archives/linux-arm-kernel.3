@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE012D59D99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 03:51:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33909D41D74
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 03:51:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RmDJgwXbm35Z2wfRYsS8TNQR8hHqiY/YclqaKR5ue6M=; b=c0J3HYPpkcYtCGgCt6pchGb2bG
-	XgNz5f60tNvseKc4vINiA/+dWYhN30AS+ztH3zVD5EBGWNk/TZ8uC5XVgdNoy3UQTPt4ItG+V8ULG
-	+mnn8EMuGamsf/r1WTi6acFHLFsiY1ilxOt4/RAq+1UdJWrkDUicjgh/ML5GuQibqeUyhPOgpKEDu
-	d4BB9+Xa62VrvnDvgHAYk+R5tjoy1giQqaBBR9X4Mzxsir/bJIIjGBC+YMt9MDohjYC5Ewn6evvHk
-	OteIc8VFxPGUgagWS+z3L8zd29YQJx0LvjatBdg0vcIMF7LbQBXBmdt7F2Rwiox46lG4dOzSR42Qz
-	HpEy1Fjg==;
+	bh=I/gxz9L70EgGOxX7lC3id5jzSqCMUnCNLc4lGqjga5w=; b=qJGQILjswQRDXMaL55BvJ79Xww
+	KFKFYfuOVfOedPADrIYaCmFlChHzBS9LnRreBV6/dhmSnu6kASJYcJ/EOFRoNGJ2c66O/fe9lJiy7
+	ZH1bojGSUb/jEGKGnWn0rAclZ5fvAVDnKbQyGV68omJszRZNvbl4hRe3tXtfFO14A6ppVvTIg4M+A
+	Cj880gOxrlRijTqIOAacXgOIrNN+uK7JEB6IqqNSG0OtL8nPeC0ovCmY55F+Hd6VxWRFZL5JyKMwl
+	8cefI1ozU5X83XdrbLfvdQHgqAQukaMLMb2OSLehvKPoCxBkAtMCrH9J4/UTvlawrxWTmH2XHVW+h
+	2ymDn2EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUzcG-000000030Gk-23Sw;
-	Mon, 15 Dec 2025 03:51:22 +0000
+	id 1vUzcM-000000030Oj-1cYP;
+	Mon, 15 Dec 2025 03:51:26 +0000
 Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUzb2-00000002zdU-132S;
-	Mon, 15 Dec 2025 03:50:07 +0000
-X-UUID: 1e3ff928d96911f0a52f393f94899d25-20251214
+	id 1vUzb2-00000002zdV-3TGt;
+	Mon, 15 Dec 2025 03:50:12 +0000
+X-UUID: 1e80b8dcd96911f0a52f393f94899d25-20251214
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=RmDJgwXbm35Z2wfRYsS8TNQR8hHqiY/YclqaKR5ue6M=;
-	b=tiHhwXN/s71i1KgAPZW/tNQiQoFFvicgd/CyMKHKsg7AODCopkLcq2IQXpFpkhBVvZPXUxfg+F/x6fb3wu3i6h5sUIcyDM/PPIzqwsXxTBVsO+bRNBcgsHEu36g3E/agZWBcwgipMTaLurYjavGVpxdT8MbXnMVDdCTvFDEJI+k=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=I/gxz9L70EgGOxX7lC3id5jzSqCMUnCNLc4lGqjga5w=;
+	b=tKsO30S2q663WCfwZkz4W1xX05BNH5zkgDaJremoLTDwmAy+k4+2dG3eXV2tjffVxraPTP13TsZfBH5fDhnLpaZvYXXOZJriePQVEgDNjuIh+3j6+pOHszeW130/TsGjJED2V5FKd0rmVjNIoo1gu9kbYhEoA0w+hpYojoY/CQY=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:2230afd6-b4f8-467d-a90d-0b5a80929a5e,IP:0,UR
-	L:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
-	:release,TS:-25
-X-CID-META: VersionHash:a9d874c,CLOUDID:c56970c6-8a73-4871-aac2-7b886d064f36,B
+X-CID-O-INFO: VERSION:1.3.6,REQID:aeeca3c9-91b3-4ca6-af7f-49a8a631f143,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:a9d874c,CLOUDID:4dd0c402-1fa9-44eb-b231-4afc61466396,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
 	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
 	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
@@ -42,18 +42,18 @@ X-CID-BVR: 2,SSN|SDN
 X-CID-BAS: 2,SSN|SDN,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
 X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 1e3ff928d96911f0a52f393f94899d25-20251214
-Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw02.mediatek.com
+X-UUID: 1e80b8dcd96911f0a52f393f94899d25-20251214
+Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
 	(envelope-from <irving-ch.lin@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 625460194; Sun, 14 Dec 2025 20:49:55 -0700
+	with ESMTP id 1381175532; Sun, 14 Dec 2025 20:49:55 -0700
 Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
+ mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Mon, 15 Dec 2025 11:49:51 +0800
+ 15.2.2562.29; Mon, 15 Dec 2025 11:49:52 +0800
 Received: from mtksitap99.mediatek.inc (10.233.130.16) by
  mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Mon, 15 Dec 2025 11:49:51 +0800
+ 15.2.2562.29 via Frontend Transport; Mon, 15 Dec 2025 11:49:52 +0800
 From: irving.ch.lin <irving-ch.lin@mediatek.com>
 To: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
 	<sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
@@ -68,9 +68,9 @@ CC: Qiqi Wang <qiqi.wang@mediatek.com>, <linux-clk@vger.kernel.org>,
 	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
 	<sirius.wang@mediatek.com>, <vince-wl.liu@mediatek.com>,
 	<jh.hsu@mediatek.com>, <irving-ch.lin@mediatek.com>
-Subject: [PATCH v4 06/21] clk: mediatek: Add MT8189 vlpckgen clock support
-Date: Mon, 15 Dec 2025 11:49:15 +0800
-Message-ID: <20251215034944.2973003-7-irving-ch.lin@mediatek.com>
+Subject: [PATCH v4 09/21] clk: mediatek: Add MT8189 cam clock support
+Date: Mon, 15 Dec 2025 11:49:18 +0800
+Message-ID: <20251215034944.2973003-10-irving-ch.lin@mediatek.com>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20251215034944.2973003-1-irving-ch.lin@mediatek.com>
 References: <20251215034944.2973003-1-irving-ch.lin@mediatek.com>
@@ -78,8 +78,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251214_195004_403616_F38D263F 
-X-CRM114-Status: GOOD (  16.67  )
+X-CRM114-CacheID: sfid-20251214_195004_971632_918EEC41 
+X-CRM114-Status: GOOD (  18.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,315 +96,164 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Irving-CH Lin <irving-ch.lin@mediatek.com>
 
-Add support for the MT8189 vlpckgen clock controller, which provides
-muxes and dividers for clock selection in vlp domain for other IP blocks.
+Add support for the MT8189 cam clock controller,
+which provides clock gate control for camera.
 
 Signed-off-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
 ---
- drivers/clk/mediatek/Makefile              |   3 +-
- drivers/clk/mediatek/clk-mt8189-vlpckgen.c | 280 +++++++++++++++++++++
- 2 files changed, 282 insertions(+), 1 deletion(-)
- create mode 100644 drivers/clk/mediatek/clk-mt8189-vlpckgen.c
+ drivers/clk/mediatek/Kconfig          |  11 +++
+ drivers/clk/mediatek/Makefile         |   1 +
+ drivers/clk/mediatek/clk-mt8189-cam.c | 108 ++++++++++++++++++++++++++
+ 3 files changed, 120 insertions(+)
+ create mode 100644 drivers/clk/mediatek/clk-mt8189-cam.c
 
+diff --git a/drivers/clk/mediatek/Kconfig b/drivers/clk/mediatek/Kconfig
+index 0e7fdb5421e6..82a26d952bff 100644
+--- a/drivers/clk/mediatek/Kconfig
++++ b/drivers/clk/mediatek/Kconfig
+@@ -839,6 +839,17 @@ config COMMON_CLK_MT8189_BUS
+ 	  MT8189 chipset, ensuring that all bus-related components receive the
+ 	  correct clock signals for optimal performance.
+ 
++config COMMON_CLK_MT8189_CAM
++	tristate "Clock driver for MediaTek MT8189 cam"
++	depends on COMMON_CLK_MT8189
++	default COMMON_CLK_MT8189
++	help
++	  Enable this to support the clock management for the camera interface
++	  on MediaTek MT8189 SoCs. This includes enabling, disabling, and
++	  setting the rate for camera-related clocks. If you have a camera
++	  that relies on this SoC and you want to control its clocks, say Y or M
++	  to include this driver in your kernel build.
++
+ config COMMON_CLK_MT8192
+ 	tristate "Clock driver for MediaTek MT8192"
+ 	depends on ARM64 || COMPILE_TEST
 diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefile
-index 9d3d2983bfb2..3b25df9e7b50 100644
+index aabfb42cb1b2..95a8f4ae05ee 100644
 --- a/drivers/clk/mediatek/Makefile
 +++ b/drivers/clk/mediatek/Makefile
-@@ -123,7 +123,8 @@ obj-$(CONFIG_COMMON_CLK_MT8188_VDOSYS) += clk-mt8188-vdo0.o clk-mt8188-vdo1.o
- obj-$(CONFIG_COMMON_CLK_MT8188_VENCSYS) += clk-mt8188-venc.o
- obj-$(CONFIG_COMMON_CLK_MT8188_VPPSYS) += clk-mt8188-vpp0.o clk-mt8188-vpp1.o
- obj-$(CONFIG_COMMON_CLK_MT8188_WPESYS) += clk-mt8188-wpe.o
--obj-$(CONFIG_COMMON_CLK_MT8189) += clk-mt8189-apmixedsys.o clk-mt8189-topckgen.o
-+obj-$(CONFIG_COMMON_CLK_MT8189) += clk-mt8189-apmixedsys.o clk-mt8189-topckgen.o \
-+				   clk-mt8189-vlpckgen.o
+@@ -126,6 +126,7 @@ obj-$(CONFIG_COMMON_CLK_MT8188_WPESYS) += clk-mt8188-wpe.o
+ obj-$(CONFIG_COMMON_CLK_MT8189) += clk-mt8189-apmixedsys.o clk-mt8189-topckgen.o \
+ 				   clk-mt8189-vlpckgen.o clk-mt8189-vlpcfg.o
+ obj-$(CONFIG_COMMON_CLK_MT8189_BUS) += clk-mt8189-bus.o
++obj-$(CONFIG_COMMON_CLK_MT8189_CAM) += clk-mt8189-cam.o
  obj-$(CONFIG_COMMON_CLK_MT8192) += clk-mt8192-apmixedsys.o clk-mt8192.o
  obj-$(CONFIG_COMMON_CLK_MT8192_AUDSYS) += clk-mt8192-aud.o
  obj-$(CONFIG_COMMON_CLK_MT8192_CAMSYS) += clk-mt8192-cam.o
-diff --git a/drivers/clk/mediatek/clk-mt8189-vlpckgen.c b/drivers/clk/mediatek/clk-mt8189-vlpckgen.c
+diff --git a/drivers/clk/mediatek/clk-mt8189-cam.c b/drivers/clk/mediatek/clk-mt8189-cam.c
 new file mode 100644
-index 000000000000..950cc1fb73a1
+index 000000000000..d65ac08cedd6
 --- /dev/null
-+++ b/drivers/clk/mediatek/clk-mt8189-vlpckgen.c
-@@ -0,0 +1,280 @@
++++ b/drivers/clk/mediatek/clk-mt8189-cam.c
+@@ -0,0 +1,108 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
 + * Copyright (c) 2025 MediaTek Inc.
 + * Author: Qiqi Wang <qiqi.wang@mediatek.com>
 + */
 +
-+#include <linux/clk.h>
-+#include <linux/delay.h>
-+#include <linux/mfd/syscon.h>
++#include <linux/clk-provider.h>
 +#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_address.h>
 +#include <linux/of_device.h>
 +#include <linux/platform_device.h>
-+#include <linux/slab.h>
 +
 +#include "clk-mtk.h"
-+#include "clk-mux.h"
 +#include "clk-gate.h"
 +
 +#include <dt-bindings/clock/mediatek,mt8189-clk.h>
 +
-+static DEFINE_SPINLOCK(mt8189_vlpclk_lock);
-+
-+static const char * const vlp_26m_oscd10_parents[] = {
-+	"clk26m",
-+	"osc_d10"
++static const struct mtk_gate_regs cam_m_cg_regs = {
++	.set_ofs = 0x4,
++	.clr_ofs = 0x8,
++	.sta_ofs = 0x0,
 +};
 +
-+static const char * const vlp_vadsp_vowpll_parents[] = {
-+	"clk26m",
-+	"vowpll"
++#define GATE_CAM_M(_id, _name, _parent, _shift)				\
++	GATE_MTK_FLAGS(_id, _name, _parent, &cam_m_cg_regs, _shift,	\
++		       &mtk_clk_gate_ops_setclr, CLK_IGNORE_UNUSED)
++
++static const struct mtk_gate cam_m_clks[] = {
++	GATE_CAM_M(CLK_CAM_M_LARB13, "cam_m_larb13", "cam_sel", 0),
++	GATE_CAM_M(CLK_CAM_M_LARB14, "cam_m_larb14", "cam_sel", 2),
++	GATE_CAM_M(CLK_CAM_M_CAMSYS_MAIN_CAM, "cam_m_camsys_main_cam", "cam_sel", 6),
++	GATE_CAM_M(CLK_CAM_M_CAMSYS_MAIN_CAMTG, "cam_m_camsys_main_camtg", "cam_sel", 7),
++	GATE_CAM_M(CLK_CAM_M_SENINF, "cam_m_seninf", "cam_sel", 8),
++	GATE_CAM_M(CLK_CAM_M_CAMSV1, "cam_m_camsv1", "cam_sel", 10),
++	GATE_CAM_M(CLK_CAM_M_CAMSV2, "cam_m_camsv2", "cam_sel", 11),
++	GATE_CAM_M(CLK_CAM_M_CAMSV3, "cam_m_camsv3", "cam_sel", 12),
++	GATE_CAM_M(CLK_CAM_M_FAKE_ENG, "cam_m_fake_eng", "cam_sel", 17),
++	GATE_CAM_M(CLK_CAM_M_CAM2MM_GALS, "cam_m_cam2mm_gals", "cam_sel", 19),
++	GATE_CAM_M(CLK_CAM_M_CAMSV4, "cam_m_camsv4", "cam_sel", 20),
++	GATE_CAM_M(CLK_CAM_M_PDA, "cam_m_pda", "cam_sel", 21),
 +};
 +
-+static const char * const vlp_sspm_ulposc_parents[] = {
-+	"ulposc",
-+	"univpll_d5_d2",
-+	"osc_d10"
++static const struct mtk_clk_desc cam_m_mcd = {
++	.clks = cam_m_clks,
++	.num_clks = ARRAY_SIZE(cam_m_clks),
 +};
 +
-+static const char * const vlp_aud_adc_parents[] = {
-+	"clk26m",
-+	"vowpll",
-+	"aud_adc_ext",
-+	"osc_d10"
++static const struct mtk_gate_regs cam_ra_cg_regs = {
++	.set_ofs = 0x4,
++	.clr_ofs = 0x8,
++	.sta_ofs = 0x0,
 +};
 +
-+static const char * const vlp_scp_iic_spi_parents[] = {
-+	"clk26m",
-+	"mainpll_d5_d4",
-+	"mainpll_d7_d2",
-+	"osc_d10"
++#define GATE_CAM_RA(_id, _name, _parent, _shift)			\
++	GATE_MTK_FLAGS(_id, _name, _parent, &cam_ra_cg_regs, _shift,	\
++		       &mtk_clk_gate_ops_setclr, CLK_IGNORE_UNUSED)
++
++static const struct mtk_gate cam_ra_clks[] = {
++	GATE_CAM_RA(CLK_CAM_RA_CAMSYS_RAWA_LARBX, "cam_ra_camsys_rawa_larbx", "cam_sel", 0),
++	GATE_CAM_RA(CLK_CAM_RA_CAMSYS_RAWA_CAM, "cam_ra_camsys_rawa_cam", "cam_sel", 1),
++	GATE_CAM_RA(CLK_CAM_RA_CAMSYS_RAWA_CAMTG, "cam_ra_camsys_rawa_camtg", "cam_sel", 2),
 +};
 +
-+static const char * const vlp_vadsp_uarthub_b_parents[] = {
-+	"clk26m",
-+	"osc_d10",
-+	"univpll_d6_d4",
-+	"univpll_d6_d2"
++static const struct mtk_clk_desc cam_ra_mcd = {
++	.clks = cam_ra_clks,
++	.num_clks = ARRAY_SIZE(cam_ra_clks),
 +};
 +
-+static const char * const vlp_axi_kp_parents[] = {
-+	"clk26m",
-+	"osc_d10",
-+	"osc_d2",
-+	"mainpll_d7_d4",
-+	"mainpll_d7_d2"
++static const struct mtk_gate_regs cam_rb_cg_regs = {
++	.set_ofs = 0x4,
++	.clr_ofs = 0x8,
++	.sta_ofs = 0x0,
 +};
 +
-+static const char * const vlp_sspm_parents[] = {
-+	"clk26m",
-+	"osc_d10",
-+	"mainpll_d5_d2",
-+	"ulposc",
-+	"mainpll_d6"
++#define GATE_CAM_RB(_id, _name, _parent, _shift)			\
++	GATE_MTK_FLAGS(_id, _name, _parent, &cam_rb_cg_regs, _shift,	\
++		       &mtk_clk_gate_ops_setclr, CLK_IGNORE_UNUSED)
++
++static const struct mtk_gate cam_rb_clks[] = {
++	GATE_CAM_RB(CLK_CAM_RB_CAMSYS_RAWB_LARBX, "cam_rb_camsys_rawb_larbx", "cam_sel", 0),
++	GATE_CAM_RB(CLK_CAM_RB_CAMSYS_RAWB_CAM, "cam_rb_camsys_rawb_cam", "cam_sel", 1),
++	GATE_CAM_RB(CLK_CAM_RB_CAMSYS_RAWB_CAMTG, "cam_rb_camsys_rawb_camtg", "cam_sel", 2),
 +};
 +
-+static const char * const vlp_pwm_vlp_parents[] = {
-+	"clk26m",
-+	"osc_d4",
-+	"clk32k",
-+	"osc_d10",
-+	"mainpll_d4_d8"
++static const struct mtk_clk_desc cam_rb_mcd = {
++	.clks = cam_rb_clks,
++	.num_clks = ARRAY_SIZE(cam_rb_clks),
 +};
 +
-+static const char * const vlp_pwrap_ulposc_parents[] = {
-+	"clk26m",
-+	"osc_d10",
-+	"osc_d7",
-+	"osc_d8",
-+	"osc_d16",
-+	"mainpll_d7_d8"
-+};
-+
-+static const char * const vlp_vadsp_parents[] = {
-+	"clk26m",
-+	"osc_d20",
-+	"osc_d10",
-+	"osc_d2",
-+	"ulposc",
-+	"mainpll_d4_d2"
-+};
-+
-+static const char * const vlp_scp_parents[] = {
-+	"clk26m",
-+	"univpll_d4",
-+	"univpll_d3",
-+	"mainpll_d3",
-+	"univpll_d6",
-+	"apll1",
-+	"mainpll_d4",
-+	"mainpll_d6",
-+	"mainpll_d7",
-+	"osc_d10"
-+};
-+
-+static const char * const vlp_spmi_p_parents[] = {
-+	"clk26m",
-+	"f26m_d2",
-+	"osc_d8",
-+	"osc_d10",
-+	"osc_d16",
-+	"osc_d7",
-+	"clk32k",
-+	"mainpll_d7_d8",
-+	"mainpll_d6_d8",
-+	"mainpll_d5_d8"
-+};
-+
-+static const char * const vlp_camtg_parents[] = {
-+	"clk26m",
-+	"univpll_192m_d8",
-+	"univpll_d6_d8",
-+	"univpll_192m_d4",
-+	"osc_d16",
-+	"osc_d20",
-+	"osc_d10",
-+	"univpll_d6_d16",
-+	"tvdpll1_d16",
-+	"f26m_d2",
-+	"univpll_192m_d10",
-+	"univpll_192m_d16",
-+	"univpll_192m_d32"
-+};
-+
-+static const struct mtk_mux vlp_ck_muxes[] = {
-+	/* VLP_CLK_CFG_0 */
-+	MUX_GATE_CLR_SET_UPD(CLK_VLP_CK_SCP_SEL, "vlp_scp_sel",
-+			     vlp_scp_parents, 0x008, 0x00c, 0x010,
-+			     0, 4, 7, 0x04, 0),
-+	MUX_CLR_SET_UPD(CLK_VLP_CK_PWRAP_ULPOSC_SEL, "vlp_pwrap_osc_sel",
-+			vlp_pwrap_ulposc_parents, 0x008, 0x00c, 0x010,
-+			8, 3, 0x04, 1),
-+	MUX_CLR_SET_UPD(CLK_VLP_CK_SPMI_P_MST_SEL, "vlp_spmi_p_sel",
-+			vlp_spmi_p_parents, 0x008, 0x00c, 0x010,
-+			16, 4, 0x04, 2),
-+	MUX_CLR_SET_UPD(CLK_VLP_CK_DVFSRC_SEL, "vlp_dvfsrc_sel",
-+			vlp_26m_oscd10_parents, 0x008, 0x00c, 0x010,
-+			24, 1, 0x04, 3),
-+	/* VLP_CLK_CFG_1 */
-+	MUX_CLR_SET_UPD(CLK_VLP_CK_PWM_VLP_SEL, "vlp_pwm_vlp_sel",
-+			vlp_pwm_vlp_parents, 0x014, 0x018, 0x01c,
-+			0, 3, 0x04, 4),
-+	MUX_CLR_SET_UPD(CLK_VLP_CK_AXI_VLP_SEL, "vlp_axi_vlp_sel",
-+			vlp_axi_kp_parents, 0x014, 0x018, 0x01c,
-+			8, 3, 0x04, 5),
-+	MUX_CLR_SET_UPD(CLK_VLP_CK_SYSTIMER_26M_SEL, "vlp_timer_26m_sel",
-+			vlp_26m_oscd10_parents, 0x014, 0x018, 0x01c,
-+			16, 1, 0x04, 6),
-+	MUX_CLR_SET_UPD(CLK_VLP_CK_SSPM_SEL, "vlp_sspm_sel",
-+			vlp_sspm_parents, 0x014, 0x018, 0x01c,
-+			24, 3, 0x04, 7),
-+	/* VLP_CLK_CFG_2 */
-+	MUX_CLR_SET_UPD(CLK_VLP_CK_SSPM_F26M_SEL, "vlp_sspm_f26m_sel",
-+			vlp_26m_oscd10_parents, 0x020, 0x024, 0x028,
-+			0, 1, 0x04, 8),
-+	MUX_CLR_SET_UPD(CLK_VLP_CK_SRCK_SEL, "vlp_srck_sel",
-+			vlp_26m_oscd10_parents, 0x020, 0x024, 0x028,
-+			8, 1, 0x04, 9),
-+	MUX_CLR_SET_UPD(CLK_VLP_CK_SCP_SPI_SEL, "vlp_scp_spi_sel",
-+			vlp_scp_iic_spi_parents, 0x020, 0x024, 0x028,
-+			16, 2, 0x04, 10),
-+	MUX_CLR_SET_UPD(CLK_VLP_CK_SCP_IIC_SEL, "vlp_scp_iic_sel",
-+			vlp_scp_iic_spi_parents, 0x020, 0x024, 0x028,
-+			24, 2, 0x04, 11),
-+	/* VLP_CLK_CFG_3 */
-+	MUX_CLR_SET_UPD(CLK_VLP_CK_SCP_SPI_HIGH_SPD_SEL,
-+			"vlp_scp_spi_hs_sel",
-+			vlp_scp_iic_spi_parents, 0x02c, 0x030, 0x034,
-+			0, 2, 0x04, 12),
-+	MUX_CLR_SET_UPD(CLK_VLP_CK_SCP_IIC_HIGH_SPD_SEL,
-+			"vlp_scp_iic_hs_sel",
-+			vlp_scp_iic_spi_parents, 0x02c, 0x030, 0x034,
-+			8, 2, 0x04, 13),
-+	MUX_CLR_SET_UPD(CLK_VLP_CK_SSPM_ULPOSC_SEL, "vlp_sspm_ulposc_sel",
-+			vlp_sspm_ulposc_parents, 0x02c, 0x030, 0x034,
-+			16, 2, 0x04, 14),
-+	MUX_CLR_SET_UPD(CLK_VLP_CK_APXGPT_26M_SEL, "vlp_apxgpt_26m_sel",
-+			vlp_26m_oscd10_parents, 0x02c, 0x030, 0x034,
-+			24, 1, 0x04, 15),
-+	/* VLP_CLK_CFG_4 */
-+	MUX_GATE_CLR_SET_UPD(CLK_VLP_CK_VADSP_SEL, "vlp_vadsp_sel",
-+			     vlp_vadsp_parents, 0x038, 0x03c, 0x040,
-+			     0, 3, 7, 0x04, 16),
-+	MUX_GATE_CLR_SET_UPD(CLK_VLP_CK_VADSP_VOWPLL_SEL,
-+			     "vlp_vadsp_vowpll_sel",
-+			     vlp_vadsp_vowpll_parents, 0x038, 0x03c, 0x040,
-+			     8, 1, 15, 0x04, 17),
-+	MUX_GATE_CLR_SET_UPD(CLK_VLP_CK_VADSP_UARTHUB_BCLK_SEL,
-+			     "vlp_vadsp_uarthub_b_sel",
-+			     vlp_vadsp_uarthub_b_parents,
-+			     0x038, 0x03c, 0x040, 16, 2, 23, 0x04, 18),
-+	MUX_GATE_CLR_SET_UPD(CLK_VLP_CK_CAMTG0_SEL, "vlp_camtg0_sel",
-+			     vlp_camtg_parents, 0x038, 0x03c, 0x040,
-+			     24, 4, 31, 0x04, 19),
-+	/* VLP_CLK_CFG_5 */
-+	MUX_GATE_CLR_SET_UPD(CLK_VLP_CK_CAMTG1_SEL, "vlp_camtg1_sel",
-+			     vlp_camtg_parents, 0x044, 0x048, 0x04c,
-+			     0, 4, 7, 0x04, 20),
-+	MUX_GATE_CLR_SET_UPD(CLK_VLP_CK_CAMTG2_SEL, "vlp_camtg2_sel",
-+			     vlp_camtg_parents, 0x044, 0x048, 0x04c,
-+			     8, 4, 15, 0x04, 21),
-+	MUX_GATE_CLR_SET_UPD(CLK_VLP_CK_AUD_ADC_SEL, "vlp_aud_adc_sel",
-+			     vlp_aud_adc_parents, 0x044, 0x048, 0x04c,
-+			     16, 2, 23, 0x04, 22),
-+	MUX_GATE_CLR_SET_UPD(CLK_VLP_CK_KP_IRQ_GEN_SEL, "vlp_kp_irq_sel",
-+			     vlp_axi_kp_parents, 0x044, 0x048, 0x04c,
-+			     24, 3, 31, 0x04, 23),
-+};
-+
-+static const struct mtk_gate_regs vlp_ck_cg_regs = {
-+	.set_ofs = 0x1f4,
-+	.clr_ofs = 0x1f8,
-+	.sta_ofs = 0x1f0,
-+};
-+
-+#define GATE_VLP_CK_FLAGS(_id, _name, _parent, _shift, _flag) {	\
-+		.id = _id,				\
-+		.name = _name,				\
-+		.parent_name = _parent,			\
-+		.regs = &vlp_ck_cg_regs,		\
-+		.shift = _shift,			\
-+		.flags = _flag,				\
-+		.ops = &mtk_clk_gate_ops_setclr_inv,	\
-+	}
-+
-+#define GATE_VLP_CK(_id, _name, _parent, _shift)	\
-+	GATE_VLP_CK_FLAGS(_id, _name, _parent, _shift, 0)
-+
-+static const struct mtk_gate vlp_ck_clks[] = {
-+	GATE_VLP_CK(CLK_VLP_CK_VADSYS_VLP_26M_EN, "vlp_vadsys_vlp_26m", "clk26m", 1),
-+	GATE_VLP_CK_FLAGS(CLK_VLP_CK_FMIPI_CSI_UP26M_CK_EN, "VLP_fmipi_csi_up26m",
-+			  "osc_d10", 11, CLK_IS_CRITICAL),
-+};
-+
-+static const struct mtk_clk_desc vlpck_desc = {
-+	.mux_clks = vlp_ck_muxes,
-+	.num_mux_clks = ARRAY_SIZE(vlp_ck_muxes),
-+	.clks = vlp_ck_clks,
-+	.num_clks = ARRAY_SIZE(vlp_ck_clks),
-+	.clk_lock = &mt8189_vlpclk_lock,
-+};
-+
-+static const struct of_device_id of_match_clk_mt8189_vlpck[] = {
-+	{ .compatible = "mediatek,mt8189-vlpckgen", .data = &vlpck_desc },
++static const struct of_device_id of_match_clk_mt8189_cam[] = {
++	{ .compatible = "mediatek,mt8189-camsys-main", .data = &cam_m_mcd },
++	{ .compatible = "mediatek,mt8189-camsys-rawa", .data = &cam_ra_mcd },
++	{ .compatible = "mediatek,mt8189-camsys-rawb", .data = &cam_rb_mcd },
 +	{ /* sentinel */ }
 +};
++MODULE_DEVICE_TABLE(of, of_match_clk_mt8189_cam);
 +
-+static struct platform_driver clk_mt8189_vlpck_drv = {
++static struct platform_driver clk_mt8189_cam_drv = {
 +	.probe = mtk_clk_simple_probe,
 +	.remove = mtk_clk_simple_remove,
 +	.driver = {
-+		.name = "clk-mt8189-vlpck",
-+		.of_match_table = of_match_clk_mt8189_vlpck,
++		.name = "clk-mt8189-cam",
++		.of_match_table = of_match_clk_mt8189_cam,
 +	},
 +};
 +
-+module_platform_driver(clk_mt8189_vlpck_drv);
-+MODULE_DESCRIPTION("MediaTek MT8189 vlpckgen clocks driver");
++module_platform_driver(clk_mt8189_cam_drv);
++MODULE_DESCRIPTION("MediaTek MT8189 cam clocks driver");
 +MODULE_LICENSE("GPL");
 -- 
 2.45.2
