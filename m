@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B582ED59D99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 11:44:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 663C0D41D74
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 11:44:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RvvOtAVJLHnAKBsqjizZd5oF9r1DQPPsNT3gzWU0WGI=; b=nMnee0s+ain5fHIBd/TqfkuGFQ
-	xL05G1bQMIdwxwsR4CThucaOENNM3ZkAzOs3tAjK/NdwjSs5gJC5yn07rjXuhZEGheAM20PSxmRnV
-	OPGVRlIWVFCRtAlrOJWvF+hvMBKPwWPrsXqsp5zJBJHN02XgF0ESEMj+ozWTqJOib85DV75EzPozc
-	msudO48CmERZlZSSK8wcJHqRTz8iHc/MNqgicHEyDkJ54FXjsVnHHpNmHNph3hDnTA/o8u5nRjnJG
-	mLr24b+V4CPPUYISddrUoat3owGWYH2nlMMR9eqCbGynCFuB552mLKIWpWzA7C9t2x7RP+XoKzrP/
-	NoTdebQg==;
+	bh=cZke8YhXEQgs2kkq5V/0+P2LcsmgpyhNwtkadBVLyNw=; b=vSy76eTBCtonk3IsAW+790qrfw
+	9BF1rQreWbZUgG/4iYo2n7aPEhjwuhP6QCU8WJ4/vCsn1q3KNU6dwWMh39Tm90pVnAEmGbEcZMJr4
+	svF8p/WGOJ8EqrFiXO6XSqPWM/20anNV+PD/eK50HuUj9lFBJIKTLaZG4Ewe3NzuOQgVHukuIRDcP
+	eS2XiBHHI+lJtnmfgrbofoOwSLf9LKM6f27TPmGZ/qsNg/CO6SOeBbtPievdRIC5GKziOwrmlJHs7
+	6YvxV2c9DLHMR1NBxssM8pBjAzzt/PR48OSvwdebONHer5FDCRz9dmF4ocf1ttE4ogooRWyNKcukP
+	1gDoBP1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV70D-00000003Xzk-3Wn5;
-	Mon, 15 Dec 2025 11:44:33 +0000
+	id 1vV70J-00000003Y2i-0X2X;
+	Mon, 15 Dec 2025 11:44:39 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV709-00000003Xwx-0wOw
+	id 1vV70B-00000003XyY-3l89
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 11:44:31 +0000
+	Mon, 15 Dec 2025 11:44:33 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6BE1DFEC;
-	Mon, 15 Dec 2025 03:44:19 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C06AC165C;
+	Mon, 15 Dec 2025 03:44:23 -0800 (PST)
 Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BC7653F73B;
-	Mon, 15 Dec 2025 03:44:24 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1D1EB3F73B;
+	Mon, 15 Dec 2025 03:44:28 -0800 (PST)
 From: Alexandru Elisei <alexandru.elisei@arm.com>
 To: maz@kernel.org,
 	oupton@kernel.org,
@@ -44,17 +44,18 @@ To: maz@kernel.org,
 	tabba@google.com,
 	linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev
-Subject: [PATCH v2 1/4] KVM: arm64: Copy FGT traps to unprotected pKVM VCPU on VCPU load
-Date: Mon, 15 Dec 2025 11:44:06 +0000
-Message-ID: <20251215114409.212512-2-alexandru.elisei@arm.com>
+Subject: [PATCH v2 3/4] KVM: arm64: Remove extra argument for __pvkm_host_{share,unshare}_hyp()
+Date: Mon, 15 Dec 2025 11:44:08 +0000
+Message-ID: <20251215114409.212512-4-alexandru.elisei@arm.com>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20251215114409.212512-1-alexandru.elisei@arm.com>
 References: <20251215114409.212512-1-alexandru.elisei@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_034429_300801_DE991414 
-X-CRM114-Status: GOOD (  13.73  )
+X-CRM114-CacheID: sfid-20251215_034431_984249_B8B1839F 
+X-CRM114-Status: UNSURE (   9.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,53 +70,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit fb10ddf35c1c ("KVM: arm64: Compute per-vCPU FGTs at vcpu_load()")
-introduced per-VCPU FGT traps. For an unprotected pKVM VCPU, the untrusted
-host FGT configuration is copied in pkvm_vcpu_init_traps(), which is called
-from __pkvm_init_vcpu(). __pkvm_init_vcpu() is called once per VCPU (when
-the VCPU is first run) which means that the uninitialized, zero, values for
-the FGT registers end up being used for the entire lifetime of the VCPU.
-This causes both unwanted traps (for the inverse polarity trap bits) and
-the guest being allowed to access registers it shouldn't.
+__pvkm_host_share_hyp() and __pkvm_host_unshare_hyp() both have one
+parameter, the pfn, not two. Even though correctness isn't impacted because
+the SMCCC handlers pass the first argument and ignore the second one, let's
+call the functions with the proper number of arguments.
 
-Fix it by copying the FGT traps for unprotected pKVM VCPUs when the
-untrusted host loads the VCPU.
-
-Fixes: fb10ddf35c1c ("KVM: arm64: Compute per-vCPU FGTs at vcpu_load()")
-Acked-by: Will Deacon <will@kernel.org>
-Tested-by: Fuad Tabba <tabba@google.com>
-Reviewed-by: Fuad Tabba <tabba@google.com>
 Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
 ---
- arch/arm64/kvm/hyp/nvhe/hyp-main.c | 3 +++
- arch/arm64/kvm/hyp/nvhe/pkvm.c     | 1 -
- 2 files changed, 3 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/mmu.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index a7c689152f68..8ffbbce5e2ed 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -180,6 +180,9 @@ static void handle___pkvm_vcpu_load(struct kvm_cpu_context *host_ctxt)
- 		/* Propagate WFx trapping flags */
- 		hyp_vcpu->vcpu.arch.hcr_el2 &= ~(HCR_TWE | HCR_TWI);
- 		hyp_vcpu->vcpu.arch.hcr_el2 |= hcr_el2 & (HCR_TWE | HCR_TWI);
-+	} else {
-+		memcpy(&hyp_vcpu->vcpu.arch.fgt, hyp_vcpu->host_vcpu->arch.fgt,
-+		       sizeof(hyp_vcpu->vcpu.arch.fgt));
- 	}
- }
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 48d7c372a4cd..124404eb208d 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -497,7 +497,7 @@ static int share_pfn_hyp(u64 pfn)
+ 	this->count = 1;
+ 	rb_link_node(&this->node, parent, node);
+ 	rb_insert_color(&this->node, &hyp_shared_pfns);
+-	ret = kvm_call_hyp_nvhe(__pkvm_host_share_hyp, pfn, 1);
++	ret = kvm_call_hyp_nvhe(__pkvm_host_share_hyp, pfn);
+ unlock:
+ 	mutex_unlock(&hyp_shared_pfns_lock);
  
-diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-index 8911338961c5..12b2acfbcfd1 100644
---- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-@@ -172,7 +172,6 @@ static int pkvm_vcpu_init_traps(struct pkvm_hyp_vcpu *hyp_vcpu)
+@@ -523,7 +523,7 @@ static int unshare_pfn_hyp(u64 pfn)
  
- 		/* Trust the host for non-protected vcpu features. */
- 		vcpu->arch.hcrx_el2 = host_vcpu->arch.hcrx_el2;
--		memcpy(vcpu->arch.fgt, host_vcpu->arch.fgt, sizeof(vcpu->arch.fgt));
- 		return 0;
- 	}
+ 	rb_erase(&this->node, &hyp_shared_pfns);
+ 	kfree(this);
+-	ret = kvm_call_hyp_nvhe(__pkvm_host_unshare_hyp, pfn, 1);
++	ret = kvm_call_hyp_nvhe(__pkvm_host_unshare_hyp, pfn);
+ unlock:
+ 	mutex_unlock(&hyp_shared_pfns_lock);
  
 -- 
 2.52.0
