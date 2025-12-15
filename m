@@ -4,67 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 531E7D5B86F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 21:25:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 677C8D5B86F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 21:25:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xd2xszWLdwRmGmmRfRKjv6Ud8DXA7mr3aXv1B0jrWGg=; b=awMhl+VcFxt4MZPXRS0Mdk7pgJ
-	JX5GwhkW9JHLjO4RwBNddZVd0kfkQkcgEGfNmdX1gPsc6jodSXxyHEqkstOC3d5uQMpnP3y2nnieg
-	MNK1wistq9bOv6moK5fav1eTnPu1V7Ee2T5ASoh7DffwB/D5VXmweqYkOIz2KsqUYl8qHXEdYGd2Y
-	Q4ZAbmkYS5XrQ4ZwtMn1FD2+puDOSfmo6uFtWPmNX3+5iFqja4TFmBizUmY00glXAivau9cZDKGby
-	W5iAYl8cO+cPW1X9AUXQo4M+tU5NDW1vf6qKLc1djXPww65pVBGbKX6jbZGjDeFcz+0vaaguxhVD2
-	VYcf8bbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SEFbJeK7NytMHFA9UYqkwPI1iaiHJx5UezKUH+CPvgM=; b=dhwpRbe+5wRn49ccGmAtY692oU
+	ImgHz9ktp1MGYc4atmn0W1o1XtCm2/YFXxg6bowAsLhZUYZ6TQTQyaJBV7rft02xTLKyCa6ftCiY4
+	gN63GB/1WBauwA5KcZVJbuy2gZehQTEPdnduFQ1WryaP9+d9k+OshaoJCpwBOx9qoi6vyqS+6odxh
+	s0vqaQITg5r+e5exukfjA/5Ysi3DaIB7jWETvBZRR+45f6LqYgkJ/izyspGO7D212rkgJijO/fRgk
+	dMvOCLU0zZ7gkzgHEqmna4FzcgwEYBhL21ns+x78uFURVuOTfah/Ge0u79CGmLSHz/P8lE1IVCLlb
+	Lp3MYsiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVG41-00000004HXJ-2n5Z;
-	Mon, 15 Dec 2025 21:25:05 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vVG43-00000004HXm-3yvy;
+	Mon, 15 Dec 2025 21:25:08 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVG3z-00000004HWi-229k
+	id 1vVG41-00000004HX0-0wJL
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 21:25:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C37FB4002B;
-	Mon, 15 Dec 2025 21:25:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70BC6C4CEF5;
-	Mon, 15 Dec 2025 21:25:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765833902;
-	bh=M7UaQpz4jW3hjZgi/W6Zm+fYN8tvjLjDw0dBDQ15e5w=;
-	h=From:To:Cc:Subject:Date:From;
-	b=QPAgoKHwzAjngSr7dD6jsQOt83/ddfFyPv3JcLp+nD1FckJI4CvnsyH0ZFgpTjLGO
-	 jfE4lyFoG8jArUnY7vEDdQE6T+20LPtjWSTBMmY29CCKSXb5xrIjgFPf2o62+pOd2c
-	 +2PukrEpvdz3LXC0iCGsKFcg0GTdRVlrW17CyZlcmLAhEuQGAtfP6QBhJi4d3SBs1u
-	 syk5UyqDf4svXhMQPj9igK//9DxQRDmG4uyBItLv/u/lPXbFjtohbta+HjW4iN04O+
-	 8pl0CUlAXHnkNbIBRdfszk6wuHABre1hLkIHEu7cWahjP6Q+VCoDxFa/R79kzlB9YR
-	 s0/p09t4Jog9w==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Masami Hiramatsu <mhiramat@kernel.org>
-Cc: linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] dt-bindings: PCI: socionext,uniphier-pcie: Fix interrupt controller node name
-Date: Mon, 15 Dec 2025 15:24:56 -0600
-Message-ID: <20251215212456.3317558-1-robh@kernel.org>
-X-Mailer: git-send-email 2.51.0
+	Mon, 15 Dec 2025 21:25:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1765833905; x=1797369905;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=QnAPE6e7tVNh1L4SSaHUKeQax1Y3ZxVhkUf81AdJuSk=;
+  b=XiAZzpCbd07askg6ObSBukC6+p2ge/vfnCYSZYXlxnzja/ZfleIonwin
+   R5wS9N3kl9ZAGwNOnUaOG0kiF2h36824LjP5dwCWD07Vr0rhqQ9FS9+/m
+   etGdfT/ua5TVv//zLvnMunjTmJMudpB2eqTTdb5kb4Tcfd8CAketOFrG3
+   fTNWuLbJ1NJR6w789Ny+Sa3ap8kViGRRPxVfJ8dN6Q14hV2hr81dOnk3i
+   MK/VPumygenTbCUr1fy+VCdg++1q7Mh9MyecHsg4Sw1UwsvgdjA07NSFQ
+   watPLsP3Izp8szCfhAgf22prZMCtZe1pSx6ihD3gEZLNm+QZ8omSn/mmd
+   Q==;
+X-CSE-ConnectionGUID: EsVycrSWT3Wv1opfyozLcA==
+X-CSE-MsgGUID: fiykcUl7RPaPa0sCRSV2sw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11643"; a="78865948"
+X-IronPort-AV: E=Sophos;i="6.21,151,1763452800"; 
+   d="scan'208";a="78865948"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Dec 2025 13:25:03 -0800
+X-CSE-ConnectionGUID: MW024P1lTh2ip6Qrzm/vzw==
+X-CSE-MsgGUID: 7U1AeipUR4OQQDD+ercKjg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,151,1763452800"; 
+   d="scan'208";a="228486639"
+Received: from lkp-server02.sh.intel.com (HELO 034c7e8e53c3) ([10.239.97.151])
+  by orviesa002.jf.intel.com with ESMTP; 15 Dec 2025 13:24:57 -0800
+Received: from kbuild by 034c7e8e53c3 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vVG3U-000000000oT-3Boe;
+	Mon, 15 Dec 2025 21:24:39 +0000
+Date: Tue, 16 Dec 2025 05:23:42 +0800
+From: kernel test robot <lkp@intel.com>
+To: Ankur Arora <ankur.a.arora@oracle.com>, linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org, bpf@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, arnd@arndb.de, catalin.marinas@arm.com,
+	will@kernel.org, peterz@infradead.org, akpm@linux-foundation.org,
+	mark.rutland@arm.com, harisokn@amazon.com, cl@gentwo.org,
+	ast@kernel.org, rafael@kernel.org, daniel.lezcano@linaro.org,
+	memxor@gmail.com, zhenglifeng1@huawei.com,
+	xueshuai@linux.alibaba.com, joao.m.martins@oracle.com,
+	boris.ostrovsky@oracle.com, konrad.wilk@oracle.com,
+	Ankur Arora <ankur.a.arora@oracle.com>
+Subject: Re: [PATCH v8 12/12] cpuidle/poll_state: Wait for need-resched via
+ tif_need_resched_relaxed_wait()
+Message-ID: <202512160519.pKMkOXsP-lkp@intel.com>
+References: <20251215044919.460086-13-ankur.a.arora@oracle.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251215044919.460086-13-ankur.a.arora@oracle.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_132503_540840_6C2C16E4 
-X-CRM114-Status: UNSURE (   9.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251215_132505_306093_9BE609F3 
+X-CRM114-Status: GOOD (  10.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,37 +96,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The child node name in use by .dts files and the driver is
-"legacy-interrupt-controller", not "interrupt-controller".
+Hi Ankur,
 
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
----
- .../devicetree/bindings/pci/socionext,uniphier-pcie.yaml      | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+kernel test robot noticed the following build warnings:
 
-diff --git a/Documentation/devicetree/bindings/pci/socionext,uniphier-pcie.yaml b/Documentation/devicetree/bindings/pci/socionext,uniphier-pcie.yaml
-index c07b0ed51613..8a2f1eef51bd 100644
---- a/Documentation/devicetree/bindings/pci/socionext,uniphier-pcie.yaml
-+++ b/Documentation/devicetree/bindings/pci/socionext,uniphier-pcie.yaml
-@@ -51,7 +51,7 @@ properties:
-   phy-names:
-     const: pcie-phy
- 
--  interrupt-controller:
-+  legacy-interrupt-controller:
-     type: object
-     additionalProperties: false
- 
-@@ -111,7 +111,7 @@ examples:
-                         <0 0 0  3  &pcie_intc 2>,
-                         <0 0 0  4  &pcie_intc 3>;
- 
--        pcie_intc: interrupt-controller {
-+        pcie_intc: legacy-interrupt-controller {
-             #address-cells = <0>;
-             interrupt-controller;
-             #interrupt-cells = <1>;
+[auto build test WARNING on bpf-next/master]
+[also build test WARNING on bpf/master linus/master v6.19-rc1 next-20251215]
+[cannot apply to arm64/for-next/core bpf-next/net arnd-asm-generic/master]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Ankur-Arora/asm-generic-barrier-Add-smp_cond_load_relaxed_timeout/20251215-130116
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git master
+patch link:    https://lore.kernel.org/r/20251215044919.460086-13-ankur.a.arora%40oracle.com
+patch subject: [PATCH v8 12/12] cpuidle/poll_state: Wait for need-resched via tif_need_resched_relaxed_wait()
+config: x86_64-randconfig-005-20251215 (https://download.01.org/0day-ci/archive/20251216/202512160519.pKMkOXsP-lkp@intel.com/config)
+compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251216/202512160519.pKMkOXsP-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202512160519.pKMkOXsP-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> vmlinux.o: warning: objtool: poll_idle+0x3b: call to tif_need_resched_relaxed_wait() leaves .noinstr.text section
+
 -- 
-2.51.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
