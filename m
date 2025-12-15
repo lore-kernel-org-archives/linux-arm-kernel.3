@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29B11D59D99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 12:30:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A75D4D41D74
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 12:30:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=39OmIwXfdmPw69o0cpAowcv7j0z798lr3Zhxe2aAZ+I=; b=fRfmTjEk51m3Y4vBn0sh/ye8o2
-	xrfWMdKR40kOZ8B4j3lIXaGgfKM/ks+SLSIAGfOlk1n5N0NKw7NLoNcKgsKItH/87uSeN3TqMHKgt
-	e/FYFixBsTtcoHUHkajUMd6wivO7m3anJl4xYD2n9UdqLF16uSbSQu5pqvdg7gF20dyBVCDS1TPe4
-	Fhc20fs6DJ96UGh+EtTIJniveJUwPifgsRTgmO+F1ggxR1mlP5gN6wzIecHkIafiFmMC6ajt7gmxd
-	vTCZ2Vv1LEbx22mHmkl3AFhjRBbGUutSB/hWbTe0PuFWfN07yuO03/JvCJWtm7QNcC/ZartisNH/X
-	jH1extEA==;
+	bh=TuKNRaz7MrQ0hh61vH11eGIxG3RyMa5h1730t+udGTs=; b=tya/DGviCVufsygIrdZYIOLlBw
+	muG7MoHGnrZGGLZchr0SuCP3F/Mc+DasigOZR8vuDO/WTiZix1Tb2IyI0B/BStkWWZFsvMxqusjGb
+	pbzx2fjyKJGEiokd8W3I1hCW6m5/8TPBDQymrYURIhzH1QivQRzem59y+7g5RIZsBATbg+wbPEgcB
+	kbKxoehyU191GgIPExGbLGRVdDBFkluIhL30zk/ViOzKSq/yrJ5ripbGPWb8wilpoR8DvlYhvfyun
+	tW5LucH7GOYp0Be7Bt8TSUFYN9CJcKFGJ4bZQRlKXK6S5csYtc4AWYMm6JW+9HVkm6dPttCXIHFPN
+	Qt1TJt5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV7ic-00000003ck7-1H0e;
-	Mon, 15 Dec 2025 12:30:26 +0000
+	id 1vV7im-00000003cqr-03v1;
+	Mon, 15 Dec 2025 12:30:36 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV7iX-00000003ciB-1wCh;
-	Mon, 15 Dec 2025 12:30:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1765801801; cv=none; 
+	id 1vV7ig-00000003cmS-3PAs;
+	Mon, 15 Dec 2025 12:30:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1765801805; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=CvR3Zn1MaPwq2vkBfl9IUi21oYWD3iMXyRi2x3ycVcs7QCkMYrBmIoAlirl8czz3rf3HLs5/Rwm4rlbkf7/JYJAGMV9er2u7buC43/Cr+wP0ZbK/nf/RdQ9cBZ1JoaqHRqG+rGGpTzEv1c5LYQu3sZ33bKUj5+3kb1mlrHlrfFU=
+	b=MIqPvcu8f4lxYvcZwsgV8rAX3pVUZHTMnXNL64KenDPT/wCnpJiSxx2H+rHfOl57smOYIfv+m1tCkivMb2spJtwsO5dHcO/UmqaNWJDEZd+fA0L9S0POWxegCpCxbYzu3uIZ3Lslfl/6KE+BadWJuSrLBKAqy5dJH3zLpVg1kTk=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1765801801; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=39OmIwXfdmPw69o0cpAowcv7j0z798lr3Zhxe2aAZ+I=; 
-	b=ks9k7pmiZIS5i/DlJ/lSOFjhkR17AGPCUKB0dxbCKV/E5reJvusbk4Azmby1dm4QXrs3WlKG1bsMDdq1g6cCKM2JgXYYMmS4MX3/PDHatM5dFY7iZzRg2nxJ5FEn2690JJLIuGL5RWgGxjWPAse9/WpExJ27sfUi+6GJZzWs+mQ=
+	t=1765801805; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=TuKNRaz7MrQ0hh61vH11eGIxG3RyMa5h1730t+udGTs=; 
+	b=IsNDvLFrk6aLJMgauGdh1pBfg3y+hs3v7kD1+q8Vp9f5WqTAg24Qix8dHZGa/fePgtumdrL4JnIXwzVbCW4HktaQnyFcfyP/B5RjSfHYZazyZSRzAXN95lH4jf5a/SMWeIECAT2s94ShAX19SA6ex37rNhNhUSosCyjtFW12A/M=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1765801801;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1765801805;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=39OmIwXfdmPw69o0cpAowcv7j0z798lr3Zhxe2aAZ+I=;
-	b=LryNsyYChnaPRg4/Za7PeYsFJFTlgFgnmCO/TGC8JG1/LUFTyh7DFRYes3IKy/d2
-	rsi44gUotpQPe3umEAp6HYHRz1YXcubcP9ckfNgngZNNs7KouEeAz8NVARw4nHqwz/4
-	wRzD5HQ4bacTDsLbEPVM7LGgZbwX/7Ii1KdRwzrA=
-Received: by mx.zohomail.com with SMTPS id 1765801799867522.9935835434184;
-	Mon, 15 Dec 2025 04:29:59 -0800 (PST)
+	bh=TuKNRaz7MrQ0hh61vH11eGIxG3RyMa5h1730t+udGTs=;
+	b=kuLtwajXx7289h4z8M055JO6EtPECSzvaKBVOLAAVs8A8ETvwt9+WvCK3GanUZx7
+	7ScxqacgN/q+BCLrQCrI8LPdXoeQ6QLRhWlbGg3jXmwQzwCrhouDvJ5euxb4ht5YdwH
+	yLM4PgJjVd6wCEMTZsajPV1OVOzqKHu/BI6XkVG8=
+Received: by mx.zohomail.com with SMTPS id 176580180327052.47775160298363;
+	Mon, 15 Dec 2025 04:30:03 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Mon, 15 Dec 2025 13:29:30 +0100
-Subject: [PATCH v2 2/4] Input: adc-keys - support EV_SW as well, not just
- EV_KEY.
+Date: Mon, 15 Dec 2025 13:29:31 +0100
+Subject: [PATCH v2 3/4] Input: adc-keys - Use dev_err_probe in probe
+ function
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251215-rock4d-audio-v2-2-82a61de39b4c@collabora.com>
+Message-Id: <20251215-rock4d-audio-v2-3-82a61de39b4c@collabora.com>
 References: <20251215-rock4d-audio-v2-0-82a61de39b4c@collabora.com>
 In-Reply-To: <20251215-rock4d-audio-v2-0-82a61de39b4c@collabora.com>
 To: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
@@ -67,8 +67,8 @@ Cc: kernel@collabora.com, linux-input@vger.kernel.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_043021_673961_62F5B745 
-X-CRM114-Status: GOOD (  15.63  )
+X-CRM114-CacheID: sfid-20251215_043031_306357_BFDE3B04 
+X-CRM114-Status: GOOD (  13.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,120 +83,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Instead of doing something like what gpio-keys is doing, adc-keys
-hardcodes that all keycodes must be of type EV_KEY.
+Rework the probe function, and functions called by the probe function,
+to use dev_err_probe for error logging.
 
-This limits the usefulness of adc-keys, and overcomplicates the code
-with manual bit-setting logic.
-
-Instead, refactor the code to read the linux,input-type fwnode property,
-and get rid of the custom bit setting logic, replacing it with
-input_set_capability instead. input_report_key is replaced with
-input_event, which allows us to explicitly pass the type.
-
-Only EV_KEY and EV_SW is allowed at this stage.
+While at it, also do some minor style cleanups, like not error logging
+on -ENOMEM and using ! instead of == 0.
 
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/input/keyboard/adc-keys.c | 37 +++++++++++++++++++++++++------------
- 1 file changed, 25 insertions(+), 12 deletions(-)
+ drivers/input/keyboard/adc-keys.c | 53 ++++++++++++++++-----------------------
+ 1 file changed, 21 insertions(+), 32 deletions(-)
 
 diff --git a/drivers/input/keyboard/adc-keys.c b/drivers/input/keyboard/adc-keys.c
-index f1753207429d..62376f34f7d0 100644
+index 62376f34f7d0..6f2ddcecea99 100644
 --- a/drivers/input/keyboard/adc-keys.c
 +++ b/drivers/input/keyboard/adc-keys.c
-@@ -18,13 +18,15 @@
+@@ -74,10 +74,8 @@ static int adc_keys_load_keymap(struct device *dev, struct adc_keys_state *st)
+ 	int i;
  
- struct adc_keys_button {
- 	u32 voltage;
--	u32 keycode;
-+	u32 code;
-+	u32 type;
- };
+ 	st->num_keys = device_get_child_node_count(dev);
+-	if (st->num_keys == 0) {
+-		dev_err(dev, "keymap is missing\n");
+-		return -EINVAL;
+-	}
++	if (!st->num_keys)
++		return dev_err_probe(dev, -EINVAL, "keymap is missing\n");
  
- struct adc_keys_state {
- 	struct iio_channel *channel;
- 	u32 num_keys;
- 	u32 last_key;
-+	u32 last_type;
- 	u32 keyup_voltage;
- 	const struct adc_keys_button *map;
- };
-@@ -34,7 +36,8 @@ static void adc_keys_poll(struct input_dev *input)
- 	struct adc_keys_state *st = input_get_drvdata(input);
- 	int i, value, ret;
- 	u32 diff, closest = 0xffffffff;
--	int keycode = 0;
-+	u32 code = 0;
-+	u32 type = EV_KEY;
- 
- 	ret = iio_read_channel_processed(st->channel, &value);
- 	if (unlikely(ret < 0)) {
-@@ -45,22 +48,24 @@ static void adc_keys_poll(struct input_dev *input)
- 			diff = abs(st->map[i].voltage - value);
- 			if (diff < closest) {
- 				closest = diff;
--				keycode = st->map[i].keycode;
-+				code = st->map[i].code;
-+				type = st->map[i].type;
- 			}
- 		}
- 	}
- 
- 	if (abs(st->keyup_voltage - value) < closest)
--		keycode = 0;
-+		code = 0;
- 
--	if (st->last_key && st->last_key != keycode)
--		input_report_key(input, st->last_key, 0);
-+	if (st->last_key && st->last_key != code)
-+		input_event(input, st->last_type, st->last_key, 0);
- 
--	if (keycode)
--		input_report_key(input, keycode, 1);
-+	if (code)
-+		input_event(input, type, code, 1);
- 
- 	input_sync(input);
--	st->last_key = keycode;
-+	st->last_key = code;
-+	st->last_type = type;
- }
- 
- static int adc_keys_load_keymap(struct device *dev, struct adc_keys_state *st)
-@@ -88,11 +93,20 @@ static int adc_keys_load_keymap(struct device *dev, struct adc_keys_state *st)
+ 	map = devm_kmalloc_array(dev, st->num_keys, sizeof(*map), GFP_KERNEL);
+ 	if (!map)
+@@ -86,17 +84,16 @@ static int adc_keys_load_keymap(struct device *dev, struct adc_keys_state *st)
+ 	i = 0;
+ 	device_for_each_child_node_scoped(dev, child) {
+ 		if (fwnode_property_read_u32(child, "press-threshold-microvolt",
+-					     &map[i].voltage)) {
+-			dev_err(dev, "Key with invalid or missing voltage\n");
+-			return -EINVAL;
+-		}
++					     &map[i].voltage))
++			return dev_err_probe(dev, -EINVAL,
++					     "Key with invalid or missing voltage\n");
++
  		map[i].voltage /= 1000;
  
  		if (fwnode_property_read_u32(child, "linux,code",
--					     &map[i].keycode)) {
-+					     &map[i].code)) {
- 			dev_err(dev, "Key with invalid or missing linux,code\n");
- 			return -EINVAL;
- 		}
- 
-+		if (fwnode_property_read_u32(child, "linux,input-type",
-+					     &map[i].type))
-+			map[i].type = EV_KEY;
-+
-+		if (map[i].type != EV_KEY && map[i].type != EV_SW)
+-					     &map[i].code)) {
+-			dev_err(dev, "Key with invalid or missing linux,code\n");
+-			return -EINVAL;
+-		}
++					     &map[i].code))
 +			return dev_err_probe(dev, -EINVAL,
-+					     "Invalid linux,input-type: 0x%x\n",
-+					     map[i].type);
++					     "Key with invalid or missing linux,code\n");
+ 
+ 		if (fwnode_property_read_u32(child, "linux,input-type",
+ 					     &map[i].type))
+@@ -129,7 +126,8 @@ static int adc_keys_probe(struct platform_device *pdev)
+ 
+ 	st->channel = devm_iio_channel_get(dev, "buttons");
+ 	if (IS_ERR(st->channel))
+-		return PTR_ERR(st->channel);
++		return dev_err_probe(dev, PTR_ERR(st->channel),
++				     "Could not get iio channel\n");
+ 
+ 	if (!st->channel->indio_dev)
+ 		return -ENXIO;
+@@ -138,16 +136,13 @@ static int adc_keys_probe(struct platform_device *pdev)
+ 	if (error < 0)
+ 		return error;
+ 
+-	if (type != IIO_VOLTAGE) {
+-		dev_err(dev, "Incompatible channel type %d\n", type);
+-		return -EINVAL;
+-	}
++	if (type != IIO_VOLTAGE)
++		return dev_err_probe(dev, -EINVAL, "Incompatible channel type %d\n", type);
+ 
+ 	if (device_property_read_u32(dev, "keyup-threshold-microvolt",
+-				     &st->keyup_voltage)) {
+-		dev_err(dev, "Invalid or missing keyup voltage\n");
+-		return -EINVAL;
+-	}
++				     &st->keyup_voltage))
++		return dev_err_probe(dev, -EINVAL, "Invalid or missing keyup voltage\n");
 +
- 		i++;
- 	}
+ 	st->keyup_voltage /= 1000;
  
-@@ -156,9 +170,8 @@ static int adc_keys_probe(struct platform_device *pdev)
- 	input->id.product = 0x0001;
- 	input->id.version = 0x0100;
+ 	error = adc_keys_load_keymap(dev, st);
+@@ -155,10 +150,8 @@ static int adc_keys_probe(struct platform_device *pdev)
+ 		return error;
  
--	__set_bit(EV_KEY, input->evbit);
- 	for (i = 0; i < st->num_keys; i++)
--		__set_bit(st->map[i].keycode, input->keybit);
-+		input_set_capability(input, st->map[i].type, st->map[i].code);
+ 	input = devm_input_allocate_device(dev);
+-	if (!input) {
+-		dev_err(dev, "failed to allocate input device\n");
++	if (!input)
+ 		return -ENOMEM;
+-	}
  
- 	if (device_property_read_bool(dev, "autorepeat"))
- 		__set_bit(EV_REP, input->evbit);
+ 	input_set_drvdata(input, st);
+ 
+@@ -178,19 +171,15 @@ static int adc_keys_probe(struct platform_device *pdev)
+ 
+ 
+ 	error = input_setup_polling(input, adc_keys_poll);
+-	if (error) {
+-		dev_err(dev, "Unable to set up polling: %d\n", error);
+-		return error;
+-	}
++	if (error)
++		return dev_err_probe(dev, error, "Unable to set up polling\n");
+ 
+ 	if (!device_property_read_u32(dev, "poll-interval", &value))
+ 		input_set_poll_interval(input, value);
+ 
+ 	error = input_register_device(input);
+-	if (error) {
+-		dev_err(dev, "Unable to register input device: %d\n", error);
+-		return error;
+-	}
++	if (error)
++		return dev_err_probe(dev, error, "Unable to register input device\n");
+ 
+ 	return 0;
+ }
 
 -- 
 2.52.0
