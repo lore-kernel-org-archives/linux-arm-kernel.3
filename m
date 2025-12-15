@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDD65D5B174
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 20:16:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B946CD5B174
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 20:25:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TjdtjNpj32b2G7UMC7OVPOm1IVXgYZarnYzEj0bcAJ4=; b=LO+iZaXwNzX/UG8ToEklzjVmqs
-	UI/CZCW1LaSsyUf28MF5co4VNDj94kmbYuPnoHbDYJnVH7N+L3Gv6IsgPT5Nh1KUai2ZrFhtK9qNh
-	jznJ06ztIn6mZ/Kqhx/XgeR7Gw1102OAmdsU9gvrGvjSRyAlG1zHocPMbs0Nfd6rnwfeRcsLSPkBu
-	e/Cup0azjhgO+CUpcBIKo1x/5CEydFy1XKmbQVuC6RhE+DA9yeG2eCON3fTMn5jM38JDRc2RPIiXu
-	8scoBBzjPilbEdEQM7YCA2dzT0USfuJuTIXZDdlfRGGw6IBUVGvyWUleK8q2os9RY1wenD63yi7sJ
-	WZ8ndF3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7MZtKP2RrIUXN9pyE62MBtmmVucdQ4kYHAvrSr+HDH0=; b=MRvNLSO3CXhf1yV1JLvZ/2bXOT
+	a7xueSEp35Z/4y7VWYQHjzzc+/PujMeloMANqyujXTwoIevUwVDcSBH8a3gZiQGE4mDOhyOMzvkB6
+	GygD6kx4AF/mbEwcKvxW31mf3OeVjoJJyXKP3SQJZ15NqFsz6RQsejxzd8W+WTNrIHMOp4m2x2LCN
+	Se/jdMGY5DvDqheIPt3QHONUc1V4BExSz0EAMyEip6O5VH+YUnYkEK6Sqxf8m4v6+7tyj12Ylxexr
+	VUFDo591ntL7kwEqrO8BjmFogHqoZ2KHb2t4V0bsVGFQAG6I0r6NtNzfQCf1GmaWJWlEzmLrx2m6P
+	jrDyES4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVEzQ-00000004DbO-0kst;
-	Mon, 15 Dec 2025 20:16:16 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vVF82-00000004DyG-3eD5;
+	Mon, 15 Dec 2025 20:25:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVEzP-00000004DbE-0CRe
+	id 1vVF80-00000004Dxq-2k93
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 20:16:15 +0000
+	Mon, 15 Dec 2025 20:25:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2058F60156;
-	Mon, 15 Dec 2025 20:16:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E44DC4CEF5;
-	Mon, 15 Dec 2025 20:16:13 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D505140707
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Dec 2025 20:25:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A621FC4CEF5;
+	Mon, 15 Dec 2025 20:25:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765829773;
-	bh=lF8AfJF90zeVvajpf257VP8+PAS/iA+1OUWO0EJGo4Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gTq7jxl+/X4t0clkH+mEIN1Yg389a3M1yJZlum/0+HWjs0BADwL0wGHgJE2yuY56G
-	 BY2dQ0dXnWxEsVWSdJe4hqMGCzyh5sRgqf2VUyDrteCmtp4ljq93GTSPvK9Xp0qqG0
-	 bf39yzzPeKqFVFzbEe8n93pn1mHzt8YQghp1i8rC/fkyWiTHTKTwgBHOaxs9YXV1Zp
-	 KPO9xp0g+xQKuR7S6e9WocY5rOmKO+YSVUbO9i0bH16S+U+Od5e5R5P0w3Zk8WSYmt
-	 FfjLs4qx3LdNpN0VkOuB1gHDxqiW6QUkLG1pTXEbLL2jqub0IYwiviCRP9AZpCe05U
-	 kof8RhLgE7img==
-Date: Mon, 15 Dec 2025 20:16:11 +0000
-From: Eric Biggers <ebiggers@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Diederik de Haas <diederik@cknow-tech.com>,
-	linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
-Subject: Re: [PATCH] crypto: arm64/ghash - Fix incorrect output from
- ghash-neon
-Message-ID: <20251215201611.GB10539@google.com>
-References: <DETXT7QI62KE.F3CGH2VWX1SC@cknow-tech.com>
- <20251209223417.112294-1-ebiggers@kernel.org>
- <DEUFDH7FJURL.3J0FN5I19VV8F@cknow-tech.com>
- <CAMj1kXEQkB9MWB+PAi4XE_MuBt0ScitxTsKMDo1-7Cp-=xXOpw@mail.gmail.com>
- <20251212054020.GB4838@sol>
- <CAMj1kXHVq1NWA28jKxBrHHi1JOPoGXEamC7uMgTOmFwzmcYxRA@mail.gmail.com>
+	s=k20201202; t=1765830306;
+	bh=jP5lpq2LOwmvTnRrKT+DTVLnvpu/X1E0EgAQfBfTPjM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=V3haMYzTwBediby/Zlpwk73gzH8c7YCuBsd+sjuPkmIE1HqQqMnVR9vx/R4CpthaV
+	 4dbGA55/7yNth+KvT+zzkmCFk+3VajD697ZkE1kEsfNp1670sbotjoOEVUSTTre43a
+	 /JZglQ3LC4kOnkg2s9Mm0r8AEWMg3hhJT/x+LxlOGFCHKMu9aIZVwr2jNxQ/NMZpxZ
+	 ySk5U2fehv11Hnvy9CkPkMgGVVGddZRH/B84py0pnCtSarwzgjXAtmxprzMWL0It6R
+	 V+a+tLqqFfDFWrwXQf1TL2YBacOuwzcVbgk+5TxYTJ1vR0bSnQO0IZ9xKoGz7fVnfH
+	 bak50MNCNelWw==
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: soc@kernel.org,
+	Linus Walleij <linusw@kernel.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] ARM: dts: ixp4xx: Fix up Actiontec MI424WR DTS files
+Date: Mon, 15 Dec 2025 21:25:01 +0100
+Message-ID: <176583027654.110616.5692785131178789330.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251211-ixp4xx-actiontec-dts-fix-v1-1-97af8e79d474@kernel.org>
+References: <20251211-ixp4xx-actiontec-dts-fix-v1-1-97af8e79d474@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMj1kXHVq1NWA28jKxBrHHi1JOPoGXEamC7uMgTOmFwzmcYxRA@mail.gmail.com>
+Content-Type: text/plain; charset="utf-8"
+X-Developer-Signature: v=1; a=openpgp-sha256; l=589; i=krzk@kernel.org; h=from:subject:message-id; bh=VNvTpX+IUbbw98YtQo9u9OYa7rAUIxvWwHWSIiGXWMY=; b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpQG6dGZTh4EYSxcWG1fiiStGGW0Z4P53VixfgZ FFNEMwoAbmJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaUBunQAKCRDBN2bmhouD 1xbdD/93MMebgxboaOJNU1uqaz4LHEgiXi79N5FWPyR9ybg4CT/8ImF4vmVr63M1d/Lv47BNlF/ dNF6nP35kIRSCEBqWYJ5ZJwZAqyoOADHbbmN6l/iRO9g8TnZWR2TAFwSHxjJQ0yaCkWXnz1RzvY 8S4qXylPaf6tI88O/vFhoZ4cJOEvxIGXLTx75aYR+WZEBvo8mPHAw0yD6g+kyBtGVL2GHwVGi7I unFPuCeqqu8JdzE9dqqOtYTLTDJ/sQesNO8R856tSXBANRgjHPXR0dLHFmVMbaizsttAWISsNPy elYRuXk28IPKQZFgXju4m+9+vxhP5/GhC2VKvuqeE5EqpBylcy+csYZ2Fak57x0FWC1CEIz0J+w skfdMcR7w5i6ygtFk1jZ5K7c60XBhm+u3ldykVY1OLEVsVcTXlJRein44IG1sCUv+I9mbTDrfl4 QAriUvHX28hLnMd8xuszjKvEgPbXgORx7hmS3MVplCrQEdRG0EpunTv1CgXSP++ESuLerwfWae7 0ltJCVMe3vgGISjyASTBkxXGnd9hKH/1+uIsuda1ANIUQrsMcM8MO5s9xdzk1fQFQFwGaWNI2gy ZAgu/PV0wiGboDLhUyfGziUhSgEVaFcFl5CGX/anIvrQqHbtqfKox6ppA2rkIbyNSyQKqrg0sOj laePeDGTL9mGhG
+ g==
+X-Developer-Key: i=krzk@kernel.org; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251215_122508_714422_BD68C8FA 
+X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,57 +77,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 15, 2025 at 04:54:34PM +0900, Ard Biesheuvel wrote:
-> > > All 64-bit RPi models except the RPi5 are affected by this, as those
-> > > do not implement the crypto extensions. So I would expect QEMU to do
-> > > the same.
-> > >
-> > > It would be nice, though, if we could emulate this on the mach-virt
-> > > machine model too. It should be fairly trivial to do, so if there is
-> > > demand for this I can look into it.
-> >
-> > I'm definitely interested in it.  I'm already testing multiple "-cpu"
-> > options, and it's easy to add more.
-> >
-> > With qemu-system-aarch64 I'm currently only using "-M virt", since the
-> > other machine models I've tried don't boot with arm64 defconfig,
-> > including "-M raspi3b" and "-M raspi4b".
-> >
-> > There may be some tricks I'm missing.  Regardless, expanding the
-> > selection of available CPUs for "-M virt" would be helpful.  Either by
-> > adding "real" CPUs that have "interesting" combinations of features, or
-> > by just allowing turning features off like
-> > "-cpu max,aes=off,pmull=off,sha256=off".  (Certain features like sve can
-> > already be turned off in that way, but not the ones relevant to us.)
-> >
+
+On Thu, 11 Dec 2025 14:05:01 +0100, Linus Walleij wrote:
+> The KS8995 switch was unconditionally wired to EthC (eth1)
+> on both MI424WR variants, this is wrong: the D revision has
+> the switch connected to EthB (eth0) so pull this assingment
+> out of the generic MI424WR DTSI file and make it a property
+> of the respective variants instead.
 > 
-> There are some architectural rules around which combinations of crypto
-> extensions are permitted:
-> - PMULL implies AES, and there is no way for the ID registers to
-> describe a CPU that has PMULL but not AES
-> - SHA256 implies SHA1 (but the ID register fields are independent)
-> - SHA3 and SHA512 both imply SHA256+SHA1
-> - SVE versions are not allowed to be implemented unless the plain NEON
-> version is implemented as well
-> -  FEAT_Crypto has different meanings for v8.0, v8.2 and v9.x
 > 
-> So it would be much easier, also in terms of future maintenance, to
-> have a simple 'crypto=off' setting that applies to all emulated CPU
-> models, given that disabling all crypto on any given compliant CPU
-> will never result in something that the architecture does not permit.
-> 
-> Would that work for you?
+> [...]
 
-I thought it had been established that the "crypto" grouping of features
-(as implemented by gcc and clang) doesn't reflect the actual hardware
-feature fields and is misleading because additional crypto extensions
-continue to be added.
+Applied, thanks!
 
-I'm not sure that applies here, but just something to consider.
+[1/1] ARM: dts: ixp4xx: Fix up Actiontec MI424WR DTS files
+      https://git.kernel.org/soc/soc/c/ececfba255bf3616301419e47a5c824e04b60ab8
 
-There's certainly no need to support emulating combinations of features
-that no hardware actually implements.  So yes, if that means "crypto" is
-the right choice, that sounds fine.
-
-- Eric
+Best regards,
+-- 
+Krzysztof Kozlowski <krzk@kernel.org>
 
