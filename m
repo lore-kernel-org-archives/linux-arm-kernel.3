@@ -4,80 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12765D59D99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 09:03:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E7C3D41D74
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 09:07:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PVqXy9TRHB2TybwEThNpp7djI9w4ePSHOoRYc3TF81s=; b=BkgG8p+llI5F39kGOI+3/pPqNq
-	DWYz9EY9JHV6CsC52J3WZxsfvfpyAhjpDSAhPQpIdFe0MyuA1PVzV4X/EVSSIyjDHVT77sJHKXLVW
-	5QiP4t9yRJMNBMqs1S/Nhs+yzHnbCXUUqonT9BpeIorj0HLtiT2b/3DfHEX9Vx1PcL1r7axvaXp8h
-	DuvaVqm+qDvQZDQtYIr0B9+bvya/ruV4/ZcLPZnUi7jqBck1Z3ZxTU3KFgnGV1RBQRWuWD3+q5f/7
-	wzV1rJgInkHn+VKrzCrr6me5dsUgXHPCNSdtaXY+cwbsW4g2rEO/ckFXkpLHoIOmUNMekzg2knKVp
-	D3q/qVkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Hs7n9rE/ZSXIZh7D66Dmmhb3yV46UGbZb/DO4yw0PEU=; b=mCq8DKoc8ok6Io
+	l7/wZr8exoIogfLWIlRRZ6UXL3Y0npIbjT5a5NmMvZuzw8gEyu8YQ3SvuQN28hBYOKI0TAHg6RvyA
+	ZxyGSYA3RCbfAJ+ahh4R7DUyFoMetrBsEsuvbUL7mSvF0Q/WNgFgVC1/HTeUeXhET+w4CnI6iHuGl
+	zOfIZzUn0xCaX+iYM16ftdqKPYCzHlgRIHzg56qtFl1HH3rKwV4DaT5hQ5OaOCXqx6Val/2deYJYc
+	kr3EJpaMe4AR4Dv94eP1BnM8Mv0QJqyIiYw0+FRCVU9B9priNWu+UpU2cargS8i/q1H5elDFlLPDZ
+	FnCKCxTUXAmvirYUzh1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV4UE-00000003KPk-3AP5;
-	Mon, 15 Dec 2025 09:03:22 +0000
+	id 1vV4YS-00000003KsQ-3vtd;
+	Mon, 15 Dec 2025 09:07:44 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV4UC-00000003KOk-2GTk
+	id 1vV4YP-00000003Krg-3SgS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 09:03:22 +0000
+	Mon, 15 Dec 2025 09:07:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1765789400; x=1797325400;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=DYuEDXxxQwHvC4lI/FenVDoXRgqfrlpjK+/ONxLKFbQ=;
-  b=YgdOR4qS4/KGrB7shS6ugetw9RhG8XxwE8YfNeRfBZxSYokRZzQOkhaM
-   fYF6NTOa8ljzLLb0kgr8jXNSJ5GNwx0Z/nwLb7bh8kcd41F3ZaH5MQIM4
-   avYhzJReZDcKCbVmMugqvgeMxlXQ6gC1zTacY9QT3hG3tbJQypUfGNddh
-   o1QEOgHv0Xeez8dD7+UVbCxZcS1VYltsD6RVus2cCJg21NNTuJklunIyW
-   8yMuGLH6Q/3Pc8clxWWIQ939SaPa8KyVVu/KxRm2K9QGl7Cuv1k4pWc+l
-   MhlxdVAD8zO88kmPlZ1A4gzSleVuczw/9n/LaO60taEtty3SF9k6poCqb
-   Q==;
-X-CSE-ConnectionGUID: YyHp0N6PScmqn7V/vLHJ2Q==
-X-CSE-MsgGUID: IVipBb0SRZWUaB0w29GKSQ==
+  t=1765789661; x=1797325661;
+  h=from:to:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=uJLQFJraqizUE67dqXdm91xUJsTZgel7BQijceu5F8A=;
+  b=sKD3U3fbnbVV+Sz/+rxAhFmpgJAG9NEt/piLNA8EA6dXHrBRcRaWivcL
+   Pcph2WdiBGEBVIkgzIZsj70Z3akYCk183tmVfWffZGxBfZBZjAx+OqaRt
+   bDb7BqNxQZ/NFbbR3fYEp6p5a/iFAA6iSYeNytX3mOi4EamWJJrNubvA1
+   y7Y7WB1O929sPA65Pwrc6sp2AjKzkMAmln6ag+Xq0TKVfo1yAv7lzKqO8
+   dW2SZQ9lRdcIUsT3kmx63Ro3yjdxIuV5KdekNldZ7ZMc3mrmbq87D/yiR
+   kJhf+XyeeBabhYN6Mn4PfohDmyLzDlZuxAfJyAZcXPSeuembhw4KIo9PP
+   A==;
+X-CSE-ConnectionGUID: PcTJoc4CSZSXBJPpFg6KMg==
+X-CSE-MsgGUID: MAb+FIXPRJKeJQCgXrPXHw==
 X-IronPort-AV: E=Sophos;i="6.21,150,1763449200"; 
-   d="scan'208";a="49860825"
+   d="scan'208";a="217865848"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 15 Dec 2025 02:03:16 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 15 Dec 2025 02:07:36 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Mon, 15 Dec 2025 02:02:58 -0700
-Received: from [10.159.245.205] (10.10.85.11) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Mon, 15 Dec 2025 02:02:56 -0700
-Message-ID: <0ec01064-2755-401a-b2c8-76ad6ce686af@microchip.com>
-Date: Mon, 15 Dec 2025 10:02:56 +0100
+ 15.1.2507.58; Mon, 15 Dec 2025 02:07:06 -0700
+Received: from che-lt-i67131.microchip.com (10.10.85.11) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Mon, 15 Dec 2025 02:06:59 -0700
+From: Manikandan Muralidharan <manikandan.m@microchip.com>
+To: <lee@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <nicolas.ferre@microchip.com>,
+	<alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
+	<manikandan.m@microchip.com>, <dharma.b@microchip.com>,
+	<maarten.lankhorst@linux.intel.com>, <mripard@kernel.org>,
+	<tzimmermann@suse.de>, <airlied@gmail.com>, <simona@ffwll.ch>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <dri-devel@lists.freedesktop.org>
+Subject: [PATCH 1/2] dt-bindings: mfd: atmel,hlcdc: Add sama7d65 compatible string
+Date: Mon, 15 Dec 2025 14:36:38 +0530
+Message-ID: <20251215090639.346288-1-manikandan.m@microchip.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: dts: microchip: Drop usb_a9g20-dab-mmx.dtsi
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>, Wolfram Sang
-	<wsa+renesas@sang-engineering.com>
-CC: "Rob Herring (Arm)" <robh@kernel.org>, Geert Uytterhoeven
-	<geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Claudiu
- Beznea <claudiu.beznea@tuxon.dev>, <linux-renesas-soc@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-References: <20251212203226.458694-8-robh@kernel.org>
- <aTytWyyZiYFnyauo@shikoro> <20251213010934353f1efe@mail.local>
-From: Nicolas Ferre <nicolas.ferre@microchip.com>
-Content-Language: en-US, fr
-Organization: microchip
-In-Reply-To: <20251213010934353f1efe@mail.local>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_010320_850023_A0304E1A 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20251215_010741_978968_26EEAC46 
+X-CRM114-Status: UNSURE (   7.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,25 +88,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/12/2025 at 02:09, Alexandre Belloni wrote:
-> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
-> 
-> On 13/12/2025 09:03:39+0900, Wolfram Sang wrote:
->> On Fri, Dec 12, 2025 at 02:32:14PM -0600, Rob Herring (Arm) wrote:
->>> This .dtsi file is not included anywhere in the tree and can't be
->>> tested.
->>>
->>> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
->>
->> Nowadays, this should be a dtso which did not exist back then. Is it
->> okay to convert it? Yes, I can do this.
->>
-> 
-> I don't think this will be missed by anyone. Unless you actually have
-> one of the boards, I would simply drop this.
+Add LCD compatible string for sama7d65.
 
-+1
+Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+---
+ Documentation/devicetree/bindings/mfd/atmel,hlcdc.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-Regards,
-   Nicolas
+diff --git a/Documentation/devicetree/bindings/mfd/atmel,hlcdc.yaml b/Documentation/devicetree/bindings/mfd/atmel,hlcdc.yaml
+index 4aa36903e755..dfee8707bac2 100644
+--- a/Documentation/devicetree/bindings/mfd/atmel,hlcdc.yaml
++++ b/Documentation/devicetree/bindings/mfd/atmel,hlcdc.yaml
+@@ -25,6 +25,7 @@ properties:
+       - atmel,sama5d4-hlcdc
+       - microchip,sam9x60-hlcdc
+       - microchip,sam9x75-xlcdc
++      - microchip,sama7d65-xlcdc
+ 
+   reg:
+     maxItems: 1
+
+base-commit: 7f790dd21a931c61167f7bdc327aecf2cebad327
+-- 
+2.25.1
+
 
