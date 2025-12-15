@@ -4,83 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B167D59D99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 03:53:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49177D41D74
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 03:54:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nUp7rfUJM9vOqlJExyEHPT2rDZ3mN00FQH9tdhSrMIs=; b=Vj/3hYvHO4LmifzH9jzHAmrc8m
-	bFv4MCEsDbtGVufPweif7d3bXDzQpnI+8+qv9UAWDKBBWGyYizhsql7XYP5y+LUgX0VBvhL7jpGnI
-	U9t+48OXKWCPvQ/ZNar6BOp7H5k4Rmxs4Yg1ovkS2Rqmsmgv+2Ty7Z2zY8yfWKcmMcIij9GKrlWk/
-	9p5H7BKfQCjImBw+vhW3rS/ucposD2ioYgAVPoPVaEZZZ8XeTLLzEyjjFrdQADGuHqZyoll+CisNY
-	askM20spWUYMgkCYbziEX0ACwVUTzC2KHLtmzNv6TYFTZdVIppK7arAQ8Hz/jLn1bDPHWd0YTM/UV
-	GVVJxy8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cs41d7yCNQsicDzPOtK67VW5w6RIcuLsk1wC6vBHoOI=; b=F/VH5mz4C+bl76JbVPIjo8FCuJ
+	9NhJJ6xH3DDI/hPul6URvDAqilce+/PYXFW6nf9Dcd8YmaaJeIiAYZpUJ4AuJYwLIfLA1flqX9HdQ
+	5QiwYmrz1K8ZNjcU7uBY/bE5QeUcmk47/P6XuAA/SA/RUWihgV6xYnQI1STd8pDnj5nTxrgjyzesQ
+	YLEsP5S7naRilaWHq23AhVwVLU/qwscSooADCFaldyM59ZslvbjyjaS/33sSmx/z7+BeUH0sKOxMX
+	idvbhwjmhd204hv3B5PAbrbX8kkZdjn9g73ICpuH3w/EPKkxayXDgZSdJ9yKb91J1EbC1KIGsVk+t
+	DwsDFWew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUzeJ-000000031kt-0v7S;
-	Mon, 15 Dec 2025 03:53:27 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1vUzex-0000000326E-0aFt;
+	Mon, 15 Dec 2025 03:54:07 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUzcr-000000030ep-464D
+	id 1vUzes-0000000324i-1vbM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 03:52:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1765770718; x=1797306718;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Tv+6WHQtcQWkl905f+3Iu7W12IYA8HG6+Bx0cStnWM0=;
-  b=U3tHfszaanuNwIWVcSzYU3ffYB72RsrkJkRxTpQrUMIyP05WnyNmAj5q
-   2ug+TIlJSq4iJXlL0TbZrmw3Eb3nrBYxV3pOdwJiU+Ju3QgJq4Aj2r9Av
-   x4N2tTSW6DOQ2N9ZmtTMTXC/eCo2RfbJRiBMpfoy7X56IDrcLFdZBofUU
-   Ug/uy0oavtxaogqqtriRX5rEy8/yXTmerU1SN8FrTEXzrsrFw++zD9T+j
-   E6JEXMI9/LWPJDAZh4Fjt8SwpqoTfekjxageezw8luwKpcD87Q/1i6sHJ
-   vXp+l7lMeMdH+VImF3I2dW7rcj7E6FT2xQmMrvD2L++tKYt1m1qPfDLJ4
-   w==;
-X-CSE-ConnectionGUID: AtfQq555QfSsO2nTqPbDmw==
-X-CSE-MsgGUID: XPP9rNYuRB249sImmIWg6A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11642"; a="67546371"
-X-IronPort-AV: E=Sophos;i="6.21,150,1763452800"; 
-   d="scan'208";a="67546371"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Dec 2025 19:51:56 -0800
-X-CSE-ConnectionGUID: lYLPdDnXST+jKbZOghK46Q==
-X-CSE-MsgGUID: 3KULLt40RoW4AAvitoKi5g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,150,1763452800"; 
-   d="scan'208";a="197382913"
-Received: from igk-lkp-server01.igk.intel.com (HELO 8a0c053bdd2a) ([10.211.93.152])
-  by orviesa009.jf.intel.com with ESMTP; 14 Dec 2025 19:51:53 -0800
-Received: from kbuild by 8a0c053bdd2a with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vUzck-000000002Ye-2ivA;
-	Mon, 15 Dec 2025 03:51:50 +0000
-Date: Mon, 15 Dec 2025 04:51:39 +0100
-From: kernel test robot <lkp@intel.com>
-To: Pankaj Gupta <pankaj.gupta@nxp.com>, Jonathan Corbet <corbet@lwn.net>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v21 1/7] Documentation/firmware: add imx/se to
- other_interfaces
-Message-ID: <202512150427.Kc14BEvI-lkp@intel.com>
-References: <20251212-imx-se-if-v21-1-ee7d6052d848@nxp.com>
+	Mon, 15 Dec 2025 03:54:03 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-34a2acb736eso2287394a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Dec 2025 19:54:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1765770841; x=1766375641; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=cs41d7yCNQsicDzPOtK67VW5w6RIcuLsk1wC6vBHoOI=;
+        b=HftSXjF658Q0ZyIGA2EkU1qGzN7/ds1d9ehVkzlEcNQvvg4328lQLWNWaN1rzyc52o
+         knU4bakuKRmEcM3txlUSJWr8QAKKvUyJqJP5IhAXWHuZTlzbU5DrW5Paqk1kd3cXih/q
+         4C2GKhfkvt7K9/L2W6Jcroaq75ewG179XPuXaReKg8kruISnnYVaEAqj/opaCNEWoT63
+         uWMNjF3VDqI3Q6x6iRVDwo9IxNCj4ktuKTLlW5/un2Ox2Yhwxkqvuca7rEysVC2TQ9au
+         ZWSId44NlFrCKv29FPolIxF9sLQ7uufKBN1/VbEak7RzoK3/eIgrvdRN/TZH02GCcKD6
+         nOdw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765770841; x=1766375641;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=cs41d7yCNQsicDzPOtK67VW5w6RIcuLsk1wC6vBHoOI=;
+        b=ln0nFopB164lFHqHRrq9rLwR6VztYL1zZ1DbindFu34lqGeHz0tQxIt7+2tYbQwiTC
+         ESzN2H3joioZ+xNOGhThtj6yv8Tc+g//1hLnQnnohBIeWHT5sO1+/ZX4C9vM70zrlihS
+         39Tr7X4duaSpg/GBrVDYhuDqTqr3997vTm3tQ3rAOIZYuG/nzesU3S0ITg+PqOXEACjH
+         XiKeDelZTWOkryglj98pNYIc/2PtAwBDYW13tPOX4x1MLy85MtqdWxDrOPaXB/EalZt6
+         /38pAhsHGegy0i1dRKwGlPJ7mp49DAWAUvwFjSm/laa6zNNNxiVUcFeJdoOU+eP2tjUM
+         2pKw==
+X-Forwarded-Encrypted: i=1; AJvYcCXFrQWIwRHKfclgYFlT04quUbE6WMgw97TK0OnpFkO2DfDJZO02UXkUPagCYoZ+oE6NUsJNee9/FT2+nnnXU8+Z@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYqlcJxpP41rRXX/CEwRp78EZtvfcGq+LTee/GSC5q5GKo45v7
+	tdVxeTgbze7+QFlcu1A8rMzCZuqlIh4xWWy29PEE3ELq9pUzeaI+1igA+MWQKTScHd0/ZW04J66
+	Bbz2OOP+m6vUaufVTSypSst3lZU2Raa8=
+X-Gm-Gg: AY/fxX5FAuKRjUNz0NhIu+JM6AA1hDEJNvm02yuS5r3gJddUAwjlSnAYpz5hQBwjJRO
+	iNwvLEe73cP8+x8I66SupGDi0q6COV0gEx/Vpy/1N0ve3acE65JDumrzc7h4DP50jrPh6dF9kVm
+	E60kLYQ9kQ3rfhUZBoXMBILMTGVFtZR7gqynopcI1NlSc+VIrKDp02cZbEjSvrw7q0VoLjlxbhH
+	l2UnfEBrWi66El3kPaofx1eQ2dWm4QrEy40wHVGuAOAkpf5hg9NOJw1nkqPhV6fYi8JtzVa7koI
+	lLvW+A==
+X-Google-Smtp-Source: AGHT+IGktv+3+C+sSak5S3BM24sHFO297gHq+KUTFjA6NjjfpI4d7RiO44sokmLBPP2KLBwlNfaQajcbNWc+g+LH9GE=
+X-Received: by 2002:a17:90b:2891:b0:32b:9774:d340 with SMTP id
+ 98e67ed59e1d1-34abd78d3a2mr7741666a91.33.1765770840967; Sun, 14 Dec 2025
+ 19:54:00 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251212-imx-se-if-v21-1-ee7d6052d848@nxp.com>
+References: <CAOMZO5BuMLhMyMkfE1xhOwEs2U=+pZnVq+FP+_bp5W_Qg6oMxQ@mail.gmail.com>
+ <CAOMZO5BhmvC1_AhcKTerd1p6PdJ7+YLonU59CcHfmpTVavgqdA@mail.gmail.com>
+In-Reply-To: <CAOMZO5BhmvC1_AhcKTerd1p6PdJ7+YLonU59CcHfmpTVavgqdA@mail.gmail.com>
+From: Shengjiu Wang <shengjiu.wang@gmail.com>
+Date: Mon, 15 Dec 2025 11:53:49 +0800
+X-Gm-Features: AQt7F2r0RvjI0X4IfZMMXkA086kkoJNbhuveSQyEiOdiJG9AzHMiJjCeaNWhWHM
+Message-ID: <CAA+D8AMMDuakAXSUizUmxdbPZiD_kzTEC_gSS5FVCRJ1nxDHgQ@mail.gmail.com>
+Subject: Re: imx8mp SPDIF TX does not produce a lockable signal
+To: Fabio Estevam <festevam@gmail.com>
+Cc: Shenwei Wang <shenwei.wang@nxp.com>, 
+	"open list:SOUND - SOC LAYER / DYNAMIC AUDIO POWER MANAGEM..." <linux-sound@vger.kernel.org>, 
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, NXP Linux Team <linux-imx@nxp.com>, 
+	Viorel Suman <viorel.suman@nxp.com>, Mark Brown <broonie@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251214_195206_415069_D6C5E329 
-X-CRM114-Status: GOOD (  12.63  )
+X-CRM114-CacheID: sfid-20251214_195402_496038_FD9087FF 
+X-CRM114-Status: GOOD (  10.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,124 +99,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Pankaj,
+On Sat, Dec 13, 2025 at 6:12=E2=80=AFAM Fabio Estevam <festevam@gmail.com> =
+wrote:
+>
+> On Fri, Dec 12, 2025 at 4:11=E2=80=AFPM Fabio Estevam <festevam@gmail.com=
+> wrote:
+>
+> > Any suggestions for debugging or fixing this would be appreciated.
+>
+> The SPDIF TX audio locks and operation now works.
+>
+> The key thing was to pass AES1 information.
 
-kernel test robot noticed the following build warnings:
+Yes,  the only supported format is IEC958 in driver,  so need to convert to=
+ this
+format from alsa-lib.
 
-[auto build test WARNING on 4a26e7032d7d57c998598c08a034872d6f0d3945]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Pankaj-Gupta/Documentation-firmware-add-imx-se-to-other_interfaces/20251212-172535
-base:   4a26e7032d7d57c998598c08a034872d6f0d3945
-patch link:    https://lore.kernel.org/r/20251212-imx-se-if-v21-1-ee7d6052d848%40nxp.com
-patch subject: [PATCH v21 1/7] Documentation/firmware: add imx/se to other_interfaces
-reproduce: (https://download.01.org/0day-ci/archive/20251215/202512150427.Kc14BEvI-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202512150427.Kc14BEvI-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   ERROR: Cannot find file ./include/linux/firmware/intel/stratix10-svc-client.h
-   WARNING: No kernel-doc for file ./include/linux/firmware/intel/stratix10-svc-client.h
-   Documentation/driver-api/firmware/other_interfaces.rst:60: ERROR: Unexpected indentation. [docutils]
-   Documentation/driver-api/firmware/other_interfaces.rst:103: ERROR: Unexpected indentation. [docutils]
-   Documentation/driver-api/firmware/other_interfaces.rst:115: ERROR: Unexpected indentation. [docutils]
->> Documentation/driver-api/firmware/other_interfaces.rst:116: WARNING: Blank line required after table. [docutils]
->> Documentation/driver-api/firmware/other_interfaces.rst:140: WARNING: Bullet list ends without a blank line; unexpected unindent. [docutils]
-   ERROR: Cannot find file ./drivers/firmware/imx/se_fw.c
-   ERROR: Cannot find file ./drivers/firmware/imx/se_fw.c
-   WARNING: No kernel-doc for file ./drivers/firmware/imx/se_fw.c
-   ERROR: Cannot find file ./include/linux/fpga/fpga-bridge.h
-   WARNING: No kernel-doc for file ./include/linux/fpga/fpga-bridge.h
-
-
-vim +116 Documentation/driver-api/firmware/other_interfaces.rst
-
-    94	
-    95	::
-    96	   +--------------------------------------------+
-    97	   |            Character Device(C_DEV)         |
-    98	   |                                            |
-    99	   |   +---------+ +---------+     +---------+  |
-   100	   |   | misc #1 | | misc #2 | ... | misc #n |  |
-   101	   |   |  dev    | |  dev    |     | dev     |  |
-   102	   |   +---------+ +---------+     +---------+  |
-   103	   |        +-------------------------+         |
-   104	   |        | Misc. Dev Synchr. Logic |         |
-   105	   |        +-------------------------+         |
-   106	   |                                            |
-   107	   +--------------------------------------------+
-   108	
-   109	   +--------------------------------------------+
-   110	   |               Service Layer                |
-   111	   |                                            |
-   112	   |      +-----------------------------+       |
-   113	   |      | Message Serialization Logic |       |
-   114	   |      +-----------------------------+       |
-   115	   |          +---------------+                 |
- > 116	   |          |  imx-mailbox  |                 |
-   117	   |          |   mailbox.c   |                 |
-   118	   |          +---------------+                 |
-   119	   |                                            |
-   120	   +--------------------------------------------+
-   121	
-   122	- service layer:
-   123	  This layer is responsible for ensuring the communication protocol that is defined
-   124	  for communication with firmware.
-   125	
-   126	  FW Communication protocol ensures two things:
-   127	  - Serializing the messages to be sent over an MU.
-   128	
-   129	  - FW can handle one command message at a time.
-   130	
-   131	- c_dev:
-   132	  This layer offers character device contexts, created as '/dev/<se>_mux_chx'.
-   133	  Using these multiple device contexts that are getting multiplexed over a single MU,
-   134	  userspace application(s) can call fops like write/read to send the command message,
-   135	  and read back the command response message to/from Firmware.
-   136	  fops like read & write use the above defined service layer API(s) to communicate with
-   137	  Firmware.
-   138	
-   139	  Misc-device(/dev/<se>_mux_chn) synchronization protocol:
- > 140	::
-   141	
-   142	                                Non-Secure               +   Secure
-   143	                                                         |
-   144	                                                         |
-   145	                  +---------+      +-------------+       |
-   146	                  | se_fw.c +<---->+imx-mailbox.c|       |
-   147	                  |         |      |  mailbox.c  +<-->+------+    +------+
-   148	                  +---+-----+      +-------------+    | MU X +<-->+ ELE |
-   149	                      |                               +------+    +------+
-   150	                      +----------------+                 |
-   151	                      |                |                 |
-   152	                      v                v                 |
-   153	                  logical           logical              |
-   154	                  receiver          waiter               |
-   155	                     +                 +                 |
-   156	                     |                 |                 |
-   157	                     |                 |                 |
-   158	                     |            +----+------+          |
-   159	                     |            |           |          |
-   160	                     |            |           |          |
-   161	              device_ctx     device_ctx     device_ctx   |
-   162	                                                         |
-   163	                User 0        User 1       User Y        |
-   164	                +------+      +------+     +------+      |
-   165	                |misc.c|      |misc.c|     |misc.c|      |
-   166	 kernel space   +------+      +------+     +------+      |
-   167	                                                         |
-   168	 +------------------------------------------------------ |
-   169	                    |             |           |          |
-   170	 userspace     /dev/ele_muXch0    |           |          |
-   171	                          /dev/ele_muXch1     |          |
-   172	                                        /dev/ele_muXchY  |
-   173	                                                         |
-   174	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Best regards
+Shengjiu Wang
+>
+> In /etc/asound.conf:
+>
+> pcm.spdif_out {
+>     type iec958
+>     slave {
+>         format IEC958_SUBFRAME_LE
+>         pcm {
+>             type hw
+>             card imxaudioxcvr
+>         }
+>     }
+>     status [ 0x00 0x0A 0x00 0x00 ]
+>     preamble.z 0x0
+>     preamble.x 0x1
+>     preamble.y 0x3
+> }
+>
+> Play the wav file:
+> aplay -D plug:spdif_out  96-24.wav
+>
+> or a 440 Hz tone via speaker test:
+>
+> speaker-test -D plug:spdif_out -c 2 -t sine
+>
+> Thanks
 
