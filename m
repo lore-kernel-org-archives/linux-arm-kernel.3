@@ -4,192 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45609D5B170
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 09:27:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4D54D41D74
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 09:32:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sONj9qJO3xW6NVxWrQ6cQBa+GRsI9FSdSQoWk/qPV40=; b=TmMzcHlP9FkCvZJZNXqKfLrkfZ
-	/eorHIGM4/Lua7isuMB3vu+S+uttzflVuBTr1PCbDBkfCCd/zFl0OJf8NNfq6pbl0OZLsq7uNXG3j
-	4s9L6uKjc/muyoP47hnX67jEEXnAL9jXJOwfFfJxE5Ptokzzm/crC/H4owuhAoPaA768YqwxLMnt9
-	88u8xMPBiBIVdYF7mt375Mzae8IiGPkZni2sAf7Qiy4dT+0py54JA2R9QT3K0/FSH3q6uvx4thpgF
-	mzddkBCG3ntT1qxpRBJK4F/0naKkB8FwNEWNVKjya2TER470tPNV9j1U8mxUgqcT5chrb5JJuJd7q
-	I7nLyHfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pMgRQp2NAuNDw0Pr8DKsFpJ1DQmsliJUNJj+b1nHdRA=; b=JeUAkPwy1wJGvoE1lDU8BoIVJ6
+	mFFJHI/kdS141HrJPt6yHIoUzqQG1qV1YYyWvewgSYNgK7M3CvCj1FOIQQzVPbNUmbIKPfxeGYLg/
+	JxXuVMBV7vHVUmi8T1904E/X2Bk1LQMlYRvdIb5h8bgPSjACMu1snPoa7c1NMKrNVrjTK2Pn4XhG6
+	2DhD+4wI63+0uVC/8oBzMXAdyxgUvPPGyP1Zf8QH7GwPrP13t/VqLtFD9e0v9BWJ4h9HEBqGxoqs2
+	OZJIq1SvE1uUzCY1lTIW+Y6qOg3lfbqAcBYwuKEwkdijZiHO0dSiu14w9prrTJet5/KtRnwXEigMb
+	htHPRUdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV4rF-00000003MUo-0t46;
-	Mon, 15 Dec 2025 09:27:09 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1vV4wM-00000003MuQ-2Qt8;
+	Mon, 15 Dec 2025 09:32:28 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV4rB-00000003MUQ-1NxR
+	id 1vV4wJ-00000003MsV-0Akp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 09:27:07 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BF9P1uY1698651;
-	Mon, 15 Dec 2025 10:26:47 +0100
-Received: from duzpr83cu001.outbound.protection.outlook.com (mail-northeuropeazon11012049.outbound.protection.outlook.com [52.101.66.49])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4b1jk5bqgm-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 15 Dec 2025 10:26:47 +0100 (CET)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=f2RMOw9nL5soxHLOAShKUdmV6ysrhMJKoeUmXclJGS1koo3zKCmn99PyiBlJ8jJC1M8LOVw40JF38lwUJFXqaQXZ77n60KcbsyddnvQ36OLq1qNJVusMRxbMIZKHY8z/9ZJ0FSHFtueALpeVgnDBtRCAPSaYG5MbWd8AffOPuLGGC97/BuzIGV3n2h6HPEW2VTMYOj4R+EQbv2nPJIXIZnmYZTImfCqAiLFi/cRL6TgZ+bvtEyNgfAVfAK9EFaKQDo/0GcjyJ4DstqRwh8J9/ZAOtrXiTNeeEzWFESUzA+jv/z0+uqVB9/kj6AjQHvzISAT/tfvqiASdHVUj2w2DXw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sONj9qJO3xW6NVxWrQ6cQBa+GRsI9FSdSQoWk/qPV40=;
- b=vi0D6XA5IG7+P1m3Dtv7Tlp8B9ZYsQQkKBkXgNzkz5VvJlp3DqA8q78Ux1Lq4NhuDZBV0Xwce8hey5tH5rokp3dINj7k0eSEo7IrG5qfsjNRgRWUKKMQxigO99n6ZK4yv6L7wrQ430YOwKgQksdTBv5EGdJRYvRaNN0vYZ6ZyT0YWHIkTZcGBt6rqpf4w2yF8DDcgi6ETmxqleuCHmxNsyS7LoaM0ozO6+kZnOYmd9+eE0VhuX0a/1c+kKZRYaXGM2qrC+81aVwZR6kGuvq+5DUi+wydsOlnOuHTnibZxicDuy/hZUGr40FsKwTdPagdoNoJlz+I23OQhkOc9In0lA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=kernel.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sONj9qJO3xW6NVxWrQ6cQBa+GRsI9FSdSQoWk/qPV40=;
- b=S3IFVqJqPe4V1Ehlns1RRSLx4YJDSoUjBEAOSLTBxdtFJJauj7l5wYYFIr8HlTov3/Qu5TnF/1J/ZhK1LLleQC4W/1eSdgP0rVuCp9CCbUJz40jXcbAMRtrgrZxcUkrvkLhUE8/5rBO/UyUJZvR59Dq7J7GMppDjh8Lm4kNEVK0t7938VsCBqNFn4iTxc6IJyEfd2DniJlPWagpvCzAiq+64Sy2+mETGyqzApaV1PQGfUn2ctJvgSziLHlAOUVm+WPrLcKclI8WOASwMlE/xrJQIsIYCger5h8yRo/28AVV1kqZC89C5PgS5+Bp6Ti0qG1NafxlZ9D5SGPyW6/No5A==
-Received: from DUZPR01CA0203.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4b6::16) by VI1PR10MB3342.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:803:132::24) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.13; Mon, 15 Dec
- 2025 09:26:45 +0000
-Received: from DB1PEPF000509F3.eurprd02.prod.outlook.com
- (2603:10a6:10:4b6:cafe::69) by DUZPR01CA0203.outlook.office365.com
- (2603:10a6:10:4b6::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9412.13 via Frontend Transport; Mon,
- 15 Dec 2025 09:26:43 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- DB1PEPF000509F3.mail.protection.outlook.com (10.167.242.149) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9412.4 via Frontend Transport; Mon, 15 Dec 2025 09:26:45 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Mon, 15 Dec
- 2025 10:27:28 +0100
-Received: from [10.48.86.79] (10.48.86.79) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Mon, 15 Dec
- 2025 10:26:43 +0100
-Message-ID: <73678ca9-0943-4daa-a2f4-05219db2384e@foss.st.com>
-Date: Mon, 15 Dec 2025 10:26:26 +0100
+	Mon, 15 Dec 2025 09:32:25 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-b7636c96b9aso532132566b.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Dec 2025 01:32:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1765791140; x=1766395940; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=pMgRQp2NAuNDw0Pr8DKsFpJ1DQmsliJUNJj+b1nHdRA=;
+        b=v+jRZTxLvTGSVT/0y6Jq7AneAa681sqw5oZY7DtjWvhM6XrjLbKUlV4PifVeyqrJhO
+         3jT4dv3QANlStT8q7JCsh26rBipMWkQYuVKk1QGSvopIw9z3H7kvM8SJrVcpnjMHFit/
+         pZo7ZE4zyMz/mrPh7CK2Fw45zE+VnkLtkuGQdMJVt/UrJ0MD9JV0px62cL294nqXVl7t
+         O6e92NTbUxKeFIcO+lcb21+aX6qSK2gT0RglEbrMblvsiSkPKSWMi7xIcSAQWQCX04NJ
+         2ff1+8jKHbwAgv8uK+s1Lp5yDsyybckv0Mp/25d+DRCXt6tKQxKWIA+vLjv6vAxRFGq0
+         2aXg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765791140; x=1766395940;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=pMgRQp2NAuNDw0Pr8DKsFpJ1DQmsliJUNJj+b1nHdRA=;
+        b=C+83CzVXFBDJMEmli3G1Yrgvr7C9WYdTfBWWbKzB+blqxwyjIW2kHtMc76Jr0OnyZy
+         EZv6lCF3Bn9vXH2S1+FjG+OinhV4pq6SaYMobXLgHz9aIJiX0Nlf17k3iSdkpMjG0Ek9
+         I7HlFLt19ZGKsBOgYWbjVr+dV0hALsEZdb4EMkm1+jSVZw0bqs+UlXKtoukbO9UAQK1t
+         I1Qwe41K56HyeIRSizaqsmzoEovUcsAqgalgWaNJzOQSFRn9LEDkyAIfXHc1OiwyT+Y4
+         VkSTnJoCaiqgz+f/HJjN5nJgGmCp57UulKmBosyFJdzZpanstJ0FpEXxpN4R97X9lQ4S
+         Ze/g==
+X-Forwarded-Encrypted: i=1; AJvYcCWhtC72bXb8w7aXQiqD/aohbajFP0Zem+3LSqRQD2m4GHUAd10Da3qopAb/paW+vm9I5lqHFmrXZMin4IQDLhaZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzjDIjO88mx1esbTlIVshlLG7RMDvjXb8bv81j6rRUvMJWYeCvN
+	X92AdmEkZB8lQs9oJfQ2R21eFXtADzktc7rYOQgvUNFZE5vDT/xKhCtrlc5+Xi8ZE+U=
+X-Gm-Gg: AY/fxX4+j3FK9+uUz65qN7G7Wf/gFhPJqIxr63JVqS1JqwBQESzOINcDcekQ4JiNVzb
+	FKzLhEUH1oJJKxBY/OGdfQyc0MQLuyf+4JuqAI3i3ZqOUkfuKO8+UbQDRUfnDQY33YS8GPedrWI
+	p79JBGrpDUF626g2rWq7wn0obckjBh5OcJQlShWLXih94zdwcnJMls5/UhNxbhK/gp0I8ERrX4M
+	a74suDxsFKHMINabhHKmblx6qN5bJBclCvBem/+kL9FxeKGSYiPRtG3+cll94HSFRZ56HXLRnha
+	zgmoCrWmHYqoHy5rQubJudYZWqa+O1H4MXTYaZU6SuDlSmTf89n96ZRiasqdu+HZpKeiaptrFQR
+	93OiKOs2/De4haKnX7J0JzNGthtonPiGq6d4Dk9v6vs9DTfRVTkDrBlJZ9O42LF1bp/AzVtO2ye
+	ADkoNiz3zvbc45WUobJ2j8pe+Nibn1wrECUYf9Cg1wqBnGS+HyurGv1lJB21XQV6oigmmhcNvex
+	fs=
+X-Google-Smtp-Source: AGHT+IEaCg0quo15SNx/nGnta9oq72ocRWkg5l3SHsMTaK2wohhdkzDoQR/uDt0uWt8Scz8Vq184Fw==
+X-Received: by 2002:a17:907:1c0b:b0:b7a:1be1:984 with SMTP id a640c23a62f3a-b7d23a912c7mr930197866b.64.1765791140272;
+        Mon, 15 Dec 2025 01:32:20 -0800 (PST)
+Received: from localhost (p200300f65f006608181e6e27368f7e86.dip0.t-ipconnect.de. [2003:f6:5f00:6608:181e:6e27:368f:7e86])
+        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-b7cfa56a7f9sm1329836266b.51.2025.12.15.01.32.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 15 Dec 2025 01:32:19 -0800 (PST)
+Date: Mon, 15 Dec 2025 10:32:18 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Sumit Garg <sumit.garg@kernel.org>
+Cc: Jens Wiklander <jens.wiklander@linaro.org>, 
+	Olivia Mackall <olivia@selenic.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
+	=?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <clement.leger@bootlin.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+	Ard Biesheuvel <ardb@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Sumit Garg <sumit.garg@oss.qualcomm.com>, 
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Jan Kiszka <jan.kiszka@siemens.com>, 
+	Sudeep Holla <sudeep.holla@arm.com>, Christophe JAILLET <christophe.jaillet@wanadoo.fr>, 
+	Michael Chan <michael.chan@broadcom.com>, Pavan Chebbi <pavan.chebbi@broadcom.com>, 
+	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>, James Bottomley <James.Bottomley@hansenpartnership.com>, 
+	Jarkko Sakkinen <jarkko@kernel.org>, Mimi Zohar <zohar@linux.ibm.com>, 
+	David Howells <dhowells@redhat.com>, Paul Moore <paul@paul-moore.com>, 
+	James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, 
+	Peter Huewe <peterhuewe@gmx.de>, op-tee@lists.trustedfirmware.org, linux-kernel@vger.kernel.org, 
+	linux-crypto@vger.kernel.org, linux-rtc@vger.kernel.org, linux-efi@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-mips@vger.kernel.org, linux-integrity@vger.kernel.org, keyrings@vger.kernel.org, 
+	linux-security-module@vger.kernel.org, Jason Gunthorpe <jgg@ziepe.ca>
+Subject: Re: [PATCH v1 00/17] tee: Use bus callbacks instead of driver
+ callbacks
+Message-ID: <dhunzydod4d7vj73llpuqemxb5er2ja4emxusr66irwf77jhhb@es4yd2axzl25>
+References: <cover.1765472125.git.u.kleine-koenig@baylibre.com>
+ <aT--ox375kg2Mzh-@sumit-X1>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm/arm64: dts: st: Drop unused .dtsi
-To: "Rob Herring (Arm)" <robh@kernel.org>,
-        Geert Uytterhoeven
-	<geert+renesas@glider.be>,
-        Magnus Damm <magnus.damm@gmail.com>,
-        "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        "Viresh
- Kumar" <vireshk@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio
-	<konradybcio@kernel.org>
-CC: <linux-renesas-soc@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <soc@lists.linux.dev>, <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-msm@vger.kernel.org>
-References: <20251212203226.458694-3-robh@kernel.org>
-Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <20251212203226.458694-3-robh@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: STKCAS1NODE1.st.com (10.75.128.134) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB1PEPF000509F3:EE_|VI1PR10MB3342:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0751f43d-ebdc-4b4a-8b07-08de3bbc10b1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|82310400026|36860700013|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?dHJFQXVZY1VzbWx1WmR4Mk9ZS01RVnhSdGFDZjIzVGMvN3RZTEpEcm9zMVBx?=
- =?utf-8?B?dFYwYVlKLy9MbkdhQjZFTWFOV2NHdUVDY1IxSnNmYzI1VjVhNVVOUzk5WE1r?=
- =?utf-8?B?bW1EQW5xYXUvT1ZlQ29Kd09IMXBHMy9xNU9ON1lBbVFuakpLRGp0UjhkNW9s?=
- =?utf-8?B?QVEwSGFud0lpLzRVMitnQWJoQ3MyRWNrRlBoa1l1c2wzOEsyLzRxZzVtYU9P?=
- =?utf-8?B?cnB0YSt4eEh1RHZONzFJTDRXTTNrY3ZyUmhJMVN5eXdjeXUvZWtCMC8zRUpa?=
- =?utf-8?B?MGJYS2VsVi9YOVd0eVladkxKTGthTFlaWHVGVWsrNjBEMWtXZ2JHVmJVSGcv?=
- =?utf-8?B?bGJIMm84dm1BZlY2ekpXZS93aGtCSDlYVjlnUXlhVEtlNWx4bzFHbVo1eHZZ?=
- =?utf-8?B?ZVFhT3VTUlNxQ24xRUV2UkxiREwxT0VIYzgvM242ZS9CeTFuS2M3MEkrZi8w?=
- =?utf-8?B?bjZPL1JoKytBcVNVQ0hCU1BVRytraC90VkwzVjVvRmRVTFVXWG9BTkNmcllS?=
- =?utf-8?B?dDMwNEdZczV1bG4yZG53SkZsUG5CQkdGN1hPbWZ5TEdIVGIzcE5IT293c1Jj?=
- =?utf-8?B?aEJDNTlVbzZOSXZkdkNMRmdxeTZhWlhqcjZxY09JNkV5WFllS1BLWVU0dkRr?=
- =?utf-8?B?aG9aQnEzYnVwYVYxczkxY0hmbVpndWd2SGw1RFpoK2IzL0RHSXRWU2hPalVt?=
- =?utf-8?B?azhhdzRBd1draWNZWWNuVlV3dEQ3Z0hwSGtDVUJCSHVYNEFSN1draUJlYmp5?=
- =?utf-8?B?SU03U01KS2NVL1JoYWVJb2wvU1BZK2xkemZIYWlaL3ZLWENvazlOdmM4M1Fp?=
- =?utf-8?B?bUJuSXoxNEZjMXBkSGR3MTN2UDV3U3JXYmZIVm5hMWZ4UEduYlNkZ3R3M1lG?=
- =?utf-8?B?NGRrTGxYajljRzE3cmo3NjE3WklKdzFTMjRnY2QvUnRKTVgyaFNRYmVMSlZJ?=
- =?utf-8?B?ck9ZOEN4bytQdHFGWDRlV284QVpvSkFJZ3F1RWQwM3AwRnFTRGlVRCtHbDFJ?=
- =?utf-8?B?OW5tN1NzeGpUQVpzWUZ6VzMxbEpYeFlxYXVnT3FPSGxoWStOd0xxQ01JVFU3?=
- =?utf-8?B?MzJhU3NnWSt2cnFQeWQ5bkFYM1VOb2xzZWdhZ00zMVNiU1RXZGdpZGIwZi93?=
- =?utf-8?B?QW1WQ0hvYUZSNURIdDNiT0RLd0J6Y1Brc3NLK1phbUFuT3JKYzIrcHh6WWtJ?=
- =?utf-8?B?bHVNU1lBUjA3L2tEOGVjdnJqSjd6ZmpaS1Qya21iYVVoQktVai95SWljSHRJ?=
- =?utf-8?B?RUtwRTk0blBCVElPd2x1YjZ2TEZDcmh4ay8wVHRyNnRpTDhlVnM1VW90RmI1?=
- =?utf-8?B?Q0Uxd1pGM2ovVXU2cWFyY2V6MDl5SHhrWnRVbU1Wb21jSEoyTUpOTWk5ZlQ5?=
- =?utf-8?B?Q0JrUnQzVkZEem9LVEZtdlJ5M0IwMndPMWkwRnhydEoxdlpuUXRYU3ArajNX?=
- =?utf-8?B?aUYybnhKb0Z6clFjZENyeWxtclhHa1orNDhxU3h4ZWtBNkhaNkpwTFNRNW1J?=
- =?utf-8?B?ZDdLVmhJRlpPUCtuTGlnU0MyU0NJeFJ1dEVGUUs5RFgzaUl2ekYwanFTRGJS?=
- =?utf-8?B?M2hXamRhUXJBOC8wNzlTSnVuMlV4YjRzU0lFbDVJRHhOZUhvUlVVL3lHVTQw?=
- =?utf-8?B?MGU3MmhNMjdDSTc5U1dLcHFIU09IeU5HWEFPSHFZZ3Nrdy9LNjI0ZlJJUmgx?=
- =?utf-8?B?NWlVTUFieVVpeXhWSWFVSGEzandXQkJNdkJQZkZOWDJYNnJYR2d2U29VcDBZ?=
- =?utf-8?B?Q0lOSmZVaUlNQjVTdXpwaUxWV2VibmVQaXFsRE44YmhEL25EcCtSeXpMNjY1?=
- =?utf-8?B?Tk12cW1TcjRBY29OZnBDYXNrQlN0emN4OHdvQ2txbUxUeXk3TzRrendkdnUy?=
- =?utf-8?B?ampFbFE5NVBkR1BFcjNWOGNRZXF0VXNhaDBxeEJYYTJiVWR2dUd5STFENVV2?=
- =?utf-8?B?Rk1KNCt1cXhwcmd5MHFBR3FOTnFOU2krMTkrQ3JOVXFmZ2VHZ3FMMGNOeTFu?=
- =?utf-8?B?R2packJtc0tDbW1FVHlhMVVqNlFjVENBNkt0L2RJWmVYa2RRNVpWTUJJY2or?=
- =?utf-8?B?RDBjVFdvUENLNmtHcVJDWldvQjlrRkdleElycVFWUXdKbWtFbzl3UlBqZ1ZW?=
- =?utf-8?Q?S1A8=3D?=
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(82310400026)(36860700013)(7053199007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Dec 2025 09:26:45.2023
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0751f43d-ebdc-4b4a-8b07-08de3bbc10b1
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DB1PEPF000509F3.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR10MB3342
-X-Proofpoint-GUID: TP7hzq-2S5uSP2JkQ2QTwVE6vpRqkgq_
-X-Authority-Analysis: v=2.4 cv=NKvYOk6g c=1 sm=1 tr=0 ts=693fd457 cx=c_pps
- a=LNCg/zpmBfqMMZfMBfYAWg==:117 a=uCuRqK4WZKO1kjFMGfU4lQ==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=TP8aPCUxYTYA:10 a=IkcTkHD0fZMA:10
- a=wP3pNCr1ah4A:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=8b9GpE9nAAAA:8
- a=HGlTMLAbYNIrajXc9F4A:9 a=QEXdDO2ut3YA:10 a=T3LWEMljR5ZiDmsYVIUa:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjE1MDA3OSBTYWx0ZWRfXxJwnqiOtmzA/
- REShqRh4PiLrlZDOakw+blTpyP3X2QqeqZWurRKLndPSlKGZRg0hOMKjB5I12KbHZcEpetwIQ3E
- RV3kHVZ7efNtgkIpQuPmAYbGVEkq008NLft69k+cra7bYZkMBvVKanxGtG8Bqsym9zlrRkbTUBB
- kH40yD9/6z24MUk/pSGWxBzIeuRG8NTLx3lokQ9+CfIh6ipO+RvYx31t8Mce74H7PsFPE1NFO6n
- mXb3AxlywWiT4WKCMx0MfDPtpeI6R7u9+dPyUUwbHtf4sW8UzVuCBmN4AcUaN0tiXOiXROkYKTg
- kMIJOu/Rw99gFgWkW6XBH285yoVpBnNyBF+1Vy3tAFsej/i+Ed1Y7wt/8LNhWAQ68kCxvYvEovn
- h/teSGiPxtKBJnBAPYkfW+on1va6lw==
-X-Proofpoint-ORIG-GUID: TP7hzq-2S5uSP2JkQ2QTwVE6vpRqkgq_
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-12-15_01,2025-12-15_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 bulkscore=0
- adultscore=0 suspectscore=0 spamscore=0 impostorscore=0 malwarescore=0
- clxscore=1011 lowpriorityscore=0 priorityscore=1501 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2512150079
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="yi4htjinth7u7w6q"
+Content-Disposition: inline
+In-Reply-To: <aT--ox375kg2Mzh-@sumit-X1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_012706_081040_2E004F50 
-X-CRM114-Status: UNSURE (   9.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251215_013223_349702_EF53A0EB 
+X-CRM114-Status: GOOD (  36.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -204,35 +118,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob
 
-On 12/12/25 21:32, Rob Herring (Arm) wrote:
-> These .dtsi files are not included anywhere in the tree and can't be
-> tested.
-> 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
->   arch/arm/boot/dts/st/spear320s.dtsi           | 24 -------
->   .../boot/dts/st/stm32mp15xxab-pinctrl.dtsi    | 57 ---------------
->   arch/arm64/boot/dts/qcom/msm8996-v3.0.dtsi    | 63 ----------------
->   arch/arm64/boot/dts/st/stm32mp21xc.dtsi       |  8 ---
->   arch/arm64/boot/dts/st/stm32mp23xc.dtsi       |  8 ---
->   arch/arm64/boot/dts/st/stm32mp25xc.dtsi       |  8 ---
->   .../boot/dts/st/stm32mp25xxal-pinctrl.dtsi    | 71 -------------------
->   7 files changed, 239 deletions(-)
->   delete mode 100644 arch/arm/boot/dts/st/spear320s.dtsi
->   delete mode 100644 arch/arm/boot/dts/st/stm32mp15xxab-pinctrl.dtsi
->   delete mode 100644 arch/arm64/boot/dts/qcom/msm8996-v3.0.dtsi
->   delete mode 100644 arch/arm64/boot/dts/st/stm32mp21xc.dtsi
->   delete mode 100644 arch/arm64/boot/dts/st/stm32mp23xc.dtsi
->   delete mode 100644 arch/arm64/boot/dts/st/stm32mp25xc.dtsi
->   delete mode 100644 arch/arm64/boot/dts/st/stm32mp25xxal-pinctrl.dtsi
->
+--yi4htjinth7u7w6q
+Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v1 00/17] tee: Use bus callbacks instead of driver
+ callbacks
+MIME-Version: 1.0
 
-...
+Hello Sumit,
 
-Ok with this patch. We'll re introduce files when we'll have really a 
-usage of those files by a board.
+On Mon, Dec 15, 2025 at 04:54:11PM +0900, Sumit Garg wrote:
+> On Thu, Dec 11, 2025 at 06:14:54PM +0100, Uwe Kleine-K=F6nig wrote:
+> > Hello,
+> >=20
+> > the objective of this series is to make tee driver stop using callbacks
+> > in struct device_driver. These were superseded by bus methods in 2006
+> > (commit 594c8281f905 ("[PATCH] Add bus_type probe, remove, shutdown
+> > methods.")) but nobody cared to convert all subsystems accordingly.
+> >=20
+> > Here the tee drivers are converted. The first commit is somewhat
+> > unrelated, but simplifies the conversion (and the drivers). It
+> > introduces driver registration helpers that care about setting the bus
+> > and owner. (The latter is missing in all drivers, so by using these
+> > helpers the drivers become more correct.)
+> >=20
+> > The patches #4 - #17 depend on the first two, so if they should be
+> > applied to their respective subsystem trees these must contain the first
+> > two patches first.
+>=20
+> Thanks Uwe for your efforts to clean up the boilerplate code for TEE bus
+> drivers.
 
-Reviewed-by: Alexandre Torgue <alexandre.torgue@foss.st.com>
+Thanks for your feedback. I will prepare a v2 and address your comments
+(whitespace issues and wrong callback in the shutdown method).
+
+> > Note that after patch #2 is applied, unconverted drivers provoke a
+> > warning in driver_register(), so it would be good for the user
+> > experience if the whole series goes in during a single merge window.
+>=20
+> +1
+>=20
+> I suggest the whole series goes via the Jens tree since there shouldn't
+> be any chances for conflict here.
+>=20
+> > So
+> > I guess an immutable branch containing the frist three patches that can
+> > be merged into the other subsystem trees would be sensible.
+> >=20
+> > After all patches are applied, tee_bus_type can be made private to
+> > drivers/tee as it's not used in other places any more.
+> >=20
+>=20
+> Feel free to make the tee_bus_type private as the last patch in the series
+> such that any followup driver follows this clean approach.
+
+There is a bit more to do for that than I'm willing to invest. With my
+patch series applied `tee_bus_type` is still used in
+drivers/tee/optee/device.c and drivers/tee/tee_core.c. Maybe it's
+sensible to merge these two files into a single one.
+
+The things I wonder about additionally are:
+
+ - if CONFIG_OPTEE=3Dn and CONFIG_TEE=3Dy|m the tee bus is only used for
+   drivers but not devices.
+
+ - optee_register_device() calls device_create_file() on
+   &optee_device->dev after device_register(&optee_device->dev).
+   (Attention half-knowledge!) I think device_create_file() should not
+   be called on an already registered device (or you have to send a
+   uevent afterwards). This should probably use type attribute groups.
+   (Or the need_supplicant attribute should be dropped as it isn't very
+   useful. This would maybe be considered an ABI change however.)
+
+ - Why does optee_probe() in drivers/tee/optee/smc_abi.c unregister all
+   optee devices in its error path (optee_unregister_devices())?
+
+Best regards
+Uwe
+
+--yi4htjinth7u7w6q
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmk/1ZQACgkQj4D7WH0S
+/k5/qQf+NMGu64faecGn5WH+D12Iy/zqcfwRwh4Jv5/z/9n8f9SRKuXtH6kM3hvA
+3qOp/DbN1aDIomzFdgcPUq9OJEeC51ry33uJW7UWHl5lUk4UawAR28vX/1R3nV7t
+tz6suQjR2YkY2a/sAxZTSKZZ/A6RTGDxePvozHzuElCmEYDDbNhZpHsvgsLqs3T+
+Cso9zyEM2is8g673w2FcAnlW3JL/8jKClvZfcm9JEIRlx48uP6uCqbWeRcYS3rrt
+JBUGmWSMNEfYbD3cQbhybixsTPLzfKqkGrbJSyVRkJ2AUAQuRS14sbv7uSGhFw3B
+QWGugzTdTxcSdC0SqkOUZrCXgVUKmA==
+=VNEB
+-----END PGP SIGNATURE-----
+
+--yi4htjinth7u7w6q--
 
