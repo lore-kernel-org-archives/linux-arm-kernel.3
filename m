@@ -4,57 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7918D59D99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 11:28:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4020FD41D74
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 11:30:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yGqoFSDWLOV8851mhEU1eX7X6R0vyVbI0a4sg15Ylrs=; b=V0i/SKRG7jfP4WPk7mMjltnL26
-	Hhg07jLv0wr/3TAaDmKcr8VlcRRQ7wDpDIlHEs6mikejpIoWyi3TK//l3XJxNB9tLtdmbYBdDNl6w
-	OKlTid58DC4YgXklMH1tdEJA/Pt1OmyTTnYjiIXyY8SPky+y8vQZ2cYNM+0B6cEh54zu+qbT6U85C
-	CKozcPlCm0KIzPkBgbU8R0yb+p+MUFI2YMn0MIxULVNdZ2HftffsqgTKt8UVd2Sp3CSrbKX0xZOeq
-	GO8QaOdgg9igxbKrOsJBLax0xsH4JFIoDNKTYzIcMaopTaIRHrYQsk/DPX+ViuxMTJrNL+3eX8NAC
-	swc6uvZg==;
+	bh=usrboNhr07WsYh1biy8+JtVQT99Fk/4sqr0V9+UQCBw=; b=Z6w9Ce7DDD4SOyxieE5m4TvXao
+	j/NmwFoaX1YAvQ5uzOGSUio50haopK1s9RblOh0K57palQIPht7sEuLeGx2t36XZT31nxkEI8uhqn
+	chhPgJ+VLGTRjFMQ7WOcx965/ZI+HtaMfIifkYGGQ8iS9ugkT9qP+ZK44OWgKG/Tf9FL35gaSTafM
+	aQE6huI8ltlFaOChw1mPJO9eyfaadgs/b+GQ1s+jq4WJmGXiyC7xFBojnhftehxllGvwkfDQEotEZ
+	/dnNozXPccWRCChBvxN16qvzkVxDKrPOnSM5sOanhKmBqBKduIF6oTjlmIRUA22/QdAMMmRgSH0ps
+	NL393V8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV6kd-00000003WVz-2JSQ;
-	Mon, 15 Dec 2025 11:28:27 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV6kZ-00000003WVe-1v2M
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 11:28:25 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DAB81497;
-	Mon, 15 Dec 2025 03:28:13 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9FA853F73B;
-	Mon, 15 Dec 2025 03:28:20 -0800 (PST)
-Date: Mon, 15 Dec 2025 11:28:18 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Joel May <joel-linux@jmay.us>,
-	Ian Rogers <irogers@google.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Linux perf Profiling <linux-perf-users@vger.kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH] arm64: perf: fix syscalltbl path base
-Message-ID: <20251215112818.GB681384@e132581.arm.com>
-References: <b2651f20-6f3a-49f5-9cd8-3fb028b2cab5@app.fastmail.com>
- <fcefc3c0-541d-40cc-84e3-9c2460308bdb@linaro.org>
- <23c07ac4-ff13-47a5-824a-e7af1d1847a3@app.fastmail.com>
- <bda366b4-fa53-4feb-a7ce-ee47cfc404b5@linaro.org>
+	id 1vV6mA-00000003WdV-191t;
+	Mon, 15 Dec 2025 11:30:02 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vV6m8-00000003Wd2-3VC9;
+	Mon, 15 Dec 2025 11:30:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9940D60150;
+	Mon, 15 Dec 2025 11:29:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4B16C4CEF5;
+	Mon, 15 Dec 2025 11:29:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765798199;
+	bh=pZvRKNQnveDpt4V3OuxBYvkE88PpxoFZHMOMx6hAFFM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QeEDjTNtlu9KzfO/VGbdPOVYs0Jkgs3j99bFjHVOla3Fki2xoaIRpy7WR7dVgo2Xb
+	 60ocg1esw6KniRVqwo7YqlpILGpw87am44mYenCzPASr2NF6hZsPzSG2eT06R3HyFH
+	 5vf9ZIMTxnJTXPsUm4xdVlMEoD5KI4VZ3wgFWGB5tsKkn++ILWshafpKbo6krVnclE
+	 wXnRTptk8iWmLfkLhonDXCT/mCs8aL7PavHSSsdy60wHAj0+EBby74pMs2SeeZyhKp
+	 yf02De/IVtYEN+h+H0HQontkvZSaMu/YTrUzgNaKgFLkhMq0j8u8kghe41YTgsscXh
+	 s82OBDHbYEh0g==
+Date: Mon, 15 Dec 2025 12:29:56 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: 20190311120055 created <payne.lin@mediatek.com>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-pwm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	Project_Global_Chrome_Upstream_Group@mediatek.com, sirius.wang@mediatek.com, vince-wl.liu@mediatek.com, 
+	jh.hsu@mediatek.com
+Subject: Re: [PATCH] pwm: mediatek: Add error handling for zero rate in PWM
+ state
+Message-ID: <s5ieu7cciqgw3x5rnpcn43fm3nkinm4guz33nhwwi45apdz2ot@4zsbi7tckuwz>
+References: <20251215104037.3100485-1-payne.lin@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="d547b5x5tvmpvovf"
 Content-Disposition: inline
-In-Reply-To: <bda366b4-fa53-4feb-a7ce-ee47cfc404b5@linaro.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_032824_292933_A4A2E1A0 
-X-CRM114-Status: GOOD (  34.47  )
+In-Reply-To: <20251215104037.3100485-1-payne.lin@mediatek.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,65 +72,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 15, 2025 at 12:52:24PM +0200, James Clark wrote:
 
-[...]
+--d547b5x5tvmpvovf
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] pwm: mediatek: Add error handling for zero rate in PWM
+ state
+MIME-Version: 1.0
 
-> On 15/12/2025 11:33, Arnd Bergmann wrote:
-> > On Mon, Dec 15, 2025, at 09:47, James Clark wrote:
-> > > On 15/12/2025 00:12, Joel May wrote:
-> > > 
-> > > Hi Joel,
-> > > 
-> > > There is a similar fix on the list here:
-> > > 
-> > > https://lore.kernel.org/linux-perf-users/20251204-perf_fix_syscall_header-v1-1-b8e27f74ed6a@arm.com/
-> > > 
-> > > I'm not sure if commit 1 alone will also fix your issue, or we'd need to
-> > > collapse both of the commits in that set.
+Hello,
 
-We need to apply both patches in the share link - we need to apply the
-second patch to revert generating unistd_64.h in libperf.
+the From: line of your patch is strange.
 
-> > > The first commit has an older fixes: tag and also fixes some other
-> > > issues so it might be better to take that one rather than this one.
-> > 
-> > I don't understand that other "fix", doesn't that just work around
-> > the arm64 build issue by adding another special case for arm64?
-> > 
-> > If we want the tools directory to have a copy of the generated unistd.h
-> > files instead of generating them, it should at the minimum be done
-> > the same across all architectures.
-> 
-> I don't think it's a special case, the other architectures already have a
-> copy of their syscall headers in tools/ don't they?
+On Mon, Dec 15, 2025 at 06:40:32PM +0800, 20190311120055 created wrote:
+> From: Payne Lin <payne.lin@mediatek.com>
+>=20
+> Added a check to handle cases where the rate is zero in the
+> mtk_disp_pwm_get_state function. This prevents division by zero errors
+> when calculating the period.
+> - Added error message for zero rate scenario
+>=20
+> Signed-off-by: Payne Lin <payne.lin@mediatek.com>
+> ---
+>  drivers/pwm/pwm-mtk-disp.c | 31 +++++++++++++++++++------------
+>  1 file changed, 19 insertions(+), 12 deletions(-)
+>=20
+> diff --git a/drivers/pwm/pwm-mtk-disp.c b/drivers/pwm/pwm-mtk-disp.c
+> index bafd6b6195f6..dd0ae041af70 100644
+> --- a/drivers/pwm/pwm-mtk-disp.c
+> +++ b/drivers/pwm/pwm-mtk-disp.c
+> @@ -176,19 +176,18 @@ static int mtk_disp_pwm_get_state(struct pwm_chip *=
+chip,
+>  	struct mtk_disp_pwm *mdp =3D to_mtk_disp_pwm(chip);
+>  	u64 rate, period, high_width;
+>  	u32 clk_div, pwm_en, con0, con1;
+> -	int err;
+> +	int ret;
 
-Correct.  Most of architectures simply include
+If you keep the variable name, the patch gets quite a bit more obivious.
 
-    tools/include/uapi/asm-generic/unistd.h
+> -	err =3D clk_prepare_enable(mdp->clk_main);
+> -	if (err < 0) {
+> -		dev_err(pwmchip_parent(chip), "Can't enable mdp->clk_main: %pe\n", ERR=
+_PTR(err));
+> -		return err;
+> +	ret =3D clk_prepare_enable(mdp->clk_main);
+> +	if (ret < 0) {
+> +		dev_err(pwmchip_parent(chip), "Can't enable mdp->clk_main: %pe\n", ERR=
+_PTR(ret));
+> +		goto err_handle;
+>  	}
 
-x86 includes their own unistd_32/64.h; only arm64 attempted to generate
-unistd_64.h dynamically, but this is problem for build dependency - when
-build perf, feature tests in tools/build/feature/ run before libperf and
-fail if unistd_64.h has not yet been generated by libperf Makefile.
+Fixing error handling should go into a separate patch please.
 
-> My original commit that is reverted by Leo's patches is more of a "fix" than
-> his fix. It turned out that running the generator script for the Perf build
-> wasn't the best idea after all. Now it's obvious that we'd have to keep
-> injecting that build rule into every tool that needs it. And it doesn't even
-> respect this rule described here that tools headers should be decoupled from
-> the kernel sources:
-> 
->  linux/tools/include/uapi/README
-> 
-> I don't see the benefit of manually copying over the generator script and
-> its input file and then updating every build rule to invoke it when we can
-> manually copy over the output of that script and not have to do anything
-> else.
-> 
-> Ian makes the point that we can run the generator for doing
-> check_headers.sh. But at least that only needs to be done for one tool and
-> can be in addition to the manual copy.
-> 
-> James
+> -	err =3D clk_prepare_enable(mdp->clk_mm);
+> -	if (err < 0) {
+> -		dev_err(pwmchip_parent(chip), "Can't enable mdp->clk_mm: %pe\n", ERR_P=
+TR(err));
+> -		clk_disable_unprepare(mdp->clk_main);
+> -		return err;
+> +	ret =3D clk_prepare_enable(mdp->clk_mm);
+> +	if (ret < 0) {
+> +		dev_err(pwmchip_parent(chip), "Can't enable mdp->clk_mm: %pe\n", ERR_P=
+TR(ret));
+> +		goto err_disable_clk_main;
+>  	}
+> =20
+>  	/*
+> @@ -212,15 +211,23 @@ static int mtk_disp_pwm_get_state(struct pwm_chip *=
+chip,
+>  	 * period has 12 bits, clk_div 11 and NSEC_PER_SEC has 30,
+>  	 * so period * (clk_div + 1) * NSEC_PER_SEC doesn't overflow.
+>  	 */
+That comment belongs to the assignment to state->period. Don't separate
+them with your addition.
+
+> +	if (rate =3D=3D 0) {
+> +		dev_err(pwmchip_parent(chip), "rate is zero, cannot calculate period\n=
+");
+
+All the other messages (at least those in the context above) start with
+a capital letter.
+
+> +		ret =3D -EINVAL;
+> +		goto err_disable_clk_mm;
+> +	}
+>  	state->period =3D DIV64_U64_ROUND_UP(period * (clk_div + 1) * NSEC_PER_=
+SEC, rate);
+>  	high_width =3D FIELD_GET(PWM_HIGH_WIDTH_MASK, con1);
+>  	state->duty_cycle =3D DIV64_U64_ROUND_UP(high_width * (clk_div + 1) * N=
+SEC_PER_SEC,
+>  					       rate);
+>  	state->polarity =3D PWM_POLARITY_NORMAL;
+> +
+> +err_disable_clk_mm:
+>  	clk_disable_unprepare(mdp->clk_mm);
+> +err_disable_clk_main:
+>  	clk_disable_unprepare(mdp->clk_main);
+> -
+> -	return 0;
+> +err_handle:
+> +	return ret;
+>  }
+
+Best regards
+Uwe
+
+--d547b5x5tvmpvovf
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmk/8TEACgkQj4D7WH0S
+/k4RfAgAtDQpygYx//qBH7qfXb2Sege4VLwIXT72UTne+KCDGEH6C50zawka5dG2
+s6HT6h93xT9u8srTNskLw/w54rA0Sig2FhZHHE6hdxefIEUsRFAEZg1RR2opnIU5
+vzVpPb1kKdwYOn6ropXs+j5mDAY6VYsD5bGc2R54VoNek8saJdzOMfKzICTmmAYr
+3SMyBPyNIS/rUnaP8qkIKcd7i3/a0moKPqx8fhSJOL3sfE2uZkOQyDoSNlJQmqCK
+V7LrmVVCUqbhfk+fahjoLebPfwXVIiUPzqoPv+QKLo1TFirzq/9xNE20Vc4xhoax
+NCv4Gi+rGy3z3BFccks2wuQpIut1ww==
+=XB1O
+-----END PGP SIGNATURE-----
+
+--d547b5x5tvmpvovf--
 
