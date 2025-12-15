@@ -4,95 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1473ED59D99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 08:40:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB502D41D74
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 08:40:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gOvWJVHqe92dPhZ+P0BBeZG4l3s19nOAl9yNieAQXok=; b=CW9bqsZQ929enWf6808pf5pw5t
-	0wCKkiLnU75MIpnNMr8mqFvDJZ9pwzwDznW9O1QQD7utET+RlGxmizpYhxJP7Mzh38ZChgPdXAu0C
-	QRjlKSYu1hnJdOwiEY1T3aaEdczCQxyVQpKfqRdSt73m/d7WCY4DujbLaskkdvAH1S6d7pxm9O+16
-	/rgRynDulkplPOo+zUCheD66EaMN0JHDpE39JAlXG9wep3zg/nigTPgIhktWEa0cvTrA0Wd0D3u/O
-	ITBHyFdKfiospDNHAwmgA5PFo7tOJh9tc9NPiGSl8CGZdQOhYoBIPKhJ/t4LGfn4pVfFnguDuxSgn
-	+e4DkspA==;
+	bh=zQmhYgUl0R3ZoA9Kzf0ZNjLsJ7LHllV2YtG/6mbLmIc=; b=zW64utqlpjN0gDk9fmwdzUWMyx
+	1Jca5UnZfs5j9UkTL/Yl9TYgEx6lS7hZE4euM35No6MIpRO+0CV6sr5dZvFlrdSBbynzWmBUVsrLC
+	p3HJQ7r5Wgy50R9rcdGlU1U1TJX5bFgQNRlvlZsqEH9vtyLPC7BPbjssUnJG2paacctobQAszuIS7
+	VQfzzTL2dlVywd/695lCEOdFxnQQBpydSApGC+ch71cxgVD9v1uFlw3zzrOMqdzhjexOgyFkmWklE
+	p3eLeneRq1tZv34TAMNDJNN7OCvL6BLbRHRBGDQ6nPpPSsTiZe2V6VXLS4+Xc6AG4S3cfZV5N9UmT
+	kmsRlGTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV47j-00000003Hap-0XCP;
-	Mon, 15 Dec 2025 08:40:07 +0000
-Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
+	id 1vV48D-00000003HfE-3Osp;
+	Mon, 15 Dec 2025 08:40:37 +0000
+Received: from flow-b3-smtp.messagingengine.com ([202.12.124.138])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV47g-00000003Ha2-2BQO
+	id 1vV48A-00000003HeO-45xB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 08:40:05 +0000
-Received: by mail-wm1-x343.google.com with SMTP id 5b1f17b1804b1-47796a837c7so22374485e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Dec 2025 00:40:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1765788002; x=1766392802; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=gOvWJVHqe92dPhZ+P0BBeZG4l3s19nOAl9yNieAQXok=;
-        b=xAofnosMfdsoO9YX7Km6wL32kCboKRK+uATu5xws2v6NqsmMjRSWeuPIrGgla5MhRq
-         erqHav7drf1AHMDdo/zNlxA9NhiA4pVdnEde4GQ1w9YuhMorl/9e2XKAmuPMOyHMyWcO
-         Q0FZjPtetcIiOFggYOPsxjizpTKCSCflf2sP0bf/J4egu23gwwcq+4wUhmjdD8wIxezx
-         fR1s7C1DFR6a1zNgtEsj18R44NT9dMf4ybuv6IihnjYb67+cRbRyXRjj7tr6mLKdyXF4
-         3FQfPL+lTzaRys/MWp6N24zQqZ3XoK0COvPrzdZMsxAeEEvcZH+PxiGQUt+LmGkRqUX2
-         YUGA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765788002; x=1766392802;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=gOvWJVHqe92dPhZ+P0BBeZG4l3s19nOAl9yNieAQXok=;
-        b=A3rQnc1B8DIfbv8O1mI0ZRjXNmYZ7TwIm3Nv02plATZ09bS7D2bfx6Idf2LCaffYyp
-         DT4dggduxQ0BN5IOXf6T8y+eyYfZEYPfaPO3S8/OBZNI3hPTM3nVZnguTffQgN2FQZ2Z
-         M9pAhe83ilGB69vw7WU8uO4KhOH8nuDhbFL6GzFzihu799scGOb2x5NhOVdYXJTe1kx4
-         1obr1SeCyeOoWHq2dwh7uFX6AuNbfBfYToZV97KGiZgt+9TLQEN5QBTcemhBU11a/3fn
-         6snE3oTnpXOfNC+Nmgx7QaAWwBWcbhdSJB8kqdFfU0UWW81ahhSOLPFAyrLAkCfwCbtv
-         6FGw==
-X-Gm-Message-State: AOJu0YzlBw2Mp+vXej5rzBV4+YwbWupHGb2C1iYKhzNQ5/ThnAp0IWhr
-	MLsdOVJ9NLx1V/MYIXnnvHf452a+X2TqbdfoTQyZX3n7+h/qmV9N8qCqxJF+ti1kXWA=
-X-Gm-Gg: AY/fxX5sGwmECEJXSHbTKJ8XXxZoDpkqoZJBFQ+mlrRvQEdrzUo6P98yFkJVtrKVXLj
-	3CulryDQzxAdFSOu0DNlULN2egEB2nj6OuDakqkaRgtzs7KJs3ZGrvLbN+ZRARwEusNAMREg9A4
-	m6St6UB6ax5da3mZPJnFFkyF42OVEyTHhJlMjtmalLAxyDGN3LFxrYgY8DC7u0vp8tNTVLIf7sI
-	cizVuJ239/cWaNu8XT4mVjuqQ7BHJV8/4R3KmjvuxgbFkRtDS9xVdxQGhf59EE/RPBSu2QmvmMV
-	PpWL57nRh4fMv+Pvi2E+GWktzzAsNfK+0WnN/kDyo2Pfwv4sXYS1EOmJBRsMcvds+hJrLZvVeji
-	9qrxXCpMKXwz027jAHbfk2KC7sA+Ym8DkDG8a/0lznVil8Qe+VImDiZBd3TuytNmapUfDud8jzN
-	QDpCNrFxY9mqOqM14CIX7f
-X-Google-Smtp-Source: AGHT+IGAFPjjozwxCPXgm59vyjrVwkbrxG7ETDJg6c98bYHLWBLTFoMu/6fzFgarA/z2HfhN4eM9kQ==
-X-Received: by 2002:a05:600c:46cb:b0:477:aed0:f3fd with SMTP id 5b1f17b1804b1-47a8f89ce2emr104709825e9.8.1765788002143;
-        Mon, 15 Dec 2025 00:40:02 -0800 (PST)
-Received: from [192.168.0.108] ([130.185.218.160])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47a8f38a4e9sm213401445e9.2.2025.12.15.00.40.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 15 Dec 2025 00:40:01 -0800 (PST)
-Message-ID: <651e1a79-356f-4f86-a6c3-8119f1c6c98f@linaro.org>
-Date: Mon, 15 Dec 2025 10:40:04 +0200
+	Mon, 15 Dec 2025 08:40:36 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailflow.stl.internal (Postfix) with ESMTP id B879A13002AC;
+	Mon, 15 Dec 2025 03:40:31 -0500 (EST)
+Received: from phl-imap-17 ([10.202.2.105])
+  by phl-compute-04.internal (MEProxy); Mon, 15 Dec 2025 03:40:31 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1765788031;
+	 x=1765795231; bh=zQmhYgUl0R3ZoA9Kzf0ZNjLsJ7LHllV2YtG/6mbLmIc=; b=
+	VqOX09Gl1gxCf35lMhsjA6j0mX0XFP3E/qqBQQ3cOM6i+f3foyzw4MSmFq5vEl8g
+	XjTpKQ5ZOE/oslCrnHTD1hTmMSfJbzSqzxMbxqQwwiRNuGl3uJC0B7COPmojzrGg
+	REvT4f9POGAZei7S9+AcxpzWua15SuXPJieMlXPkhSzTrsR0d1o6zQEBRYREs+RE
+	Ou3Sp7HaVcvACU28sAfLESA8zdbVJ0dPeKZpQ9WH2Nwod0JMdCf4A3oBzN5gIsO3
+	hALI1O3+IiZXU6fiN6fE/7EUGa4gWTZbssjvwbO2tWq0rgFPM+L/C5Y/yhPFWE0Q
+	e3FLic6kg+zMqOUAsF/K2Q==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1765788031; x=
+	1765795231; bh=zQmhYgUl0R3ZoA9Kzf0ZNjLsJ7LHllV2YtG/6mbLmIc=; b=Q
+	UM+a1zpEbITXo3WWWuA6DJS7sJpi6vq4xQPFzjn0RRsCZsg4oamYT+6YFlM6B35g
+	5QrdJ5ovYZD+O5tA5ozFKHV2V95KNjdGg5GG1jpdV0aVuxAFBkj8yNPhKIFLmhdn
+	PW0bIJOLcMhBMly4rvtY/JheR1iB/DWkMFYYJKPTpWnAOajurXwe4eiiQgE6m1pz
+	aET7r4cYyDMdzyIBw5LFf5nvPJeq1sIYLTl6b9Vxa2m0cjawr3En/Z+R2wJyHapG
+	rUenVdNLYWKITegHwVA/kf69eZgSOy2KR5C6YaeqJ9DZZzruSF3mpZZYXb7sUzfC
+	oFGbRJnkKPoL7qnaAFFBA==
+X-ME-Sender: <xms:f8k_aS0Uf7ojBtvJ3lxmb-KQXXW6F_mpemjWtUQvE1BMgQUl-5_B-Q>
+    <xme:f8k_af7YRg97HjdaSZHUGgJzZ-7qqjBwzZ4ULHDOE8XoIyibYW588mNAlw2rmTbeW
+    jJ9LJkrW7PD4FLTexGojxPcWw_141LJd478KGTGnL79O4Pu9ITyrA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdefieefiecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
+    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
+    hnpeeggfejudejvdeijeeglefgtdfhudffieetfedugefhffekjeefhedtjeefjeetfeen
+    ucffohhmrghinhepghhithhhuhgsrdgtohhmnecuvehluhhsthgvrhfuihiivgeptdenuc
+    frrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghp
+    thhtohephedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheptggrthgrlhhinhdrmh
+    grrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhopehjohgvlhdqlhhinhhugiesjhhm
+    rgihrdhushdprhgtphhtthhopeifihhllheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoh
+    epjhgrmhgvshdrtghlrghrkheslhhinhgrrhhordhorhhgpdhrtghpthhtoheplhhinhhu
+    gidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhg
+X-ME-Proxy: <xmx:f8k_aUbjpxesmrRuZgIU-_sEijVU7hrbCX2efuivesOQHioloqPZxg>
+    <xmx:f8k_aQ7T1aYnBk6w4ouIfKuAHKxZ7a7FxqDpW_cCk5whmtfTFtwx-w>
+    <xmx:f8k_afAtpw6ctBVzdJA72NKhRObdSENM7bLAvaS-L83kvGgP4ogqxw>
+    <xmx:f8k_aeeIsO2Vwpg-GvihzjEVqs4sysICjqr66pfuJqwsfLM__7ymdA>
+    <xmx:f8k_aR6b-QnZSdJrdnhJUrYhMqJDTv8IjMpZCYM9aWrjBV1-IOR2DKw8>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 1A7B9C40054; Mon, 15 Dec 2025 03:40:31 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] perf c2c: Update documentation for adding memory
- event table
-To: Leo Yan <leo.yan@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>,
- Mike Leach <mike.leach@linaro.org>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
- Adrian Hunter <adrian.hunter@intel.com>, Al Grant <al.grant@arm.com>
-References: <20251212-perf_c2c_update_event-v2-0-27df9a6cb1d4@arm.com>
- <20251212-perf_c2c_update_event-v2-2-27df9a6cb1d4@arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20251212-perf_c2c_update_event-v2-2-27df9a6cb1d4@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+X-ThreadId: AV8M3mJaQpUZ
+Date: Mon, 15 Dec 2025 09:40:10 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Joel May" <joel-linux@jmay.us>,
+ "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+ "James Clark" <james.clark@linaro.org>
+Message-Id: <fcc6ada2-8a4d-4989-b257-e4ba17d5d14b@app.fastmail.com>
+In-Reply-To: <b2651f20-6f3a-49f5-9cd8-3fb028b2cab5@app.fastmail.com>
+References: <b2651f20-6f3a-49f5-9cd8-3fb028b2cab5@app.fastmail.com>
+Subject: Re: [PATCH] arm64: perf: fix syscalltbl path base
+Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_004004_632924_713383FD 
-X-CRM114-Status: GOOD (  18.80  )
+X-CRM114-CacheID: sfid-20251215_004035_445744_5EE162B4 
+X-CRM114-Status: UNSURE (   8.77  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,88 +113,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sun, Dec 14, 2025, at 23:12, Joel May wrote:
+>
+> The problem is that scripts/Makefile.asm-headers is including a relative
+> syscalltbl path from arch/arm64/kernel/Makefile.syscalls.  The syscalltbl
+> path needs to be based on the srctree root.
+>
+> Fixes: 7fe33e9f662c0 ("arm64: convert unistd_32.h to syscall.tbl 
+> format")
+> Fixes: bfb713ea53c74 ("perf tools: Fix arm64 build by generating 
+> unistd_64.h")
+> Link: 
+> https://github.com/truenas/linux/commit/91377b555a57dfa75364d7da85b5e21e41e81625#diff-831a0e8e3eaa7a5ca92599e58771b8a6b2c4bd7533f627e33138873995aac61eR147
+> Signed-off-by: Joel May <joel-linux@jmay.us>
 
-
-On 12/12/2025 19:25, Leo Yan wrote:
-> Users may occasionally need to see which options are applied to memory
-> events.  This helps to understand the behavior of "perf c2c" and
-> "perf mem", and provides guidance for configuring memory event options
-> directly.
-> 
-> Add a table to track memory events and their corresponding options, and
-> include the Arm SPE events in it.
-> 
-> Suggested-by: Al Grant <al.grant@arm.com>
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-
-Reviewed-by: James Clark <james.clark@linaro.org>
-
-> ---
->   tools/perf/Documentation/perf-c2c.txt | 51 +++++++++++++++++++++++++----------
->   1 file changed, 37 insertions(+), 14 deletions(-)
-> 
-> diff --git a/tools/perf/Documentation/perf-c2c.txt b/tools/perf/Documentation/perf-c2c.txt
-> index 40b0f71a2c44eb642ff3bb234631a614b7c4fc9d..e57a122b8719f1b2e20dd509959fc1563a6c20fd 100644
-> --- a/tools/perf/Documentation/perf-c2c.txt
-> +++ b/tools/perf/Documentation/perf-c2c.txt
-> @@ -160,20 +160,43 @@ Following perf record options are configured by default:
->   
->     -W,-d,--phys-data,--sample-cpu
->   
-> -Unless specified otherwise with '-e' option, following events are monitored by
-> -default on Intel:
-> -
-> -  cpu/mem-loads,ldlat=30/P
-> -  cpu/mem-stores/P
-> -
-> -following on AMD:
-> -
-> -  ibs_op//
-> -
-> -and following on PowerPC:
-> -
-> -  cpu/mem-loads/
-> -  cpu/mem-stores/
-> +The following table lists the events monitored on different architectures.
-> +Unless specified otherwise with the -e option, the tool will select the
-> +default events.
-> +
-> +  +--------+---------------+-----------------+--------------------------------------------------------------------------------+
-> +  | Arch   | Configuration | Options         | Events                                                                         |
-> +  +--------+---------------+-----------------+--------------------------------------------------------------------------------+
-> +  | Intel  | Default       | -e ldlat-loads  | cpu/mem-loads,ldlat=30/P                                                       |
-> +  |        |               | -e ldlat-stores | cpu/mem-stores/P                                                               |
-> +  |        |---------------+-----------------+--------------------------------------------------------------------------------+
-> +  |        | Load only     | -e ldlat-loads  | cpu/mem-loads,ldlat=30/P                                                       |
-> +  |        |---------------+-----------------+--------------------------------------------------------------------------------+
-> +  |        | Store only    | -e ldlat-stores | cpu/mem-stores/P                                                               |
-> +  +--------+---------------+-----------------+--------------------------------------------------------------------------------+
-> +  | Intel  | Default       | -e ldlat-loads  | {cpu/mem-loads-aux/,cpu/mem-loads,ldlat=30/}:P                                 |
-> +  | with   |               | -e ldlat-stores | cpu/mem-stores/P                                                               |
-> +  | AUX    |--------------+------------------+--------------------------------------------------------------------------------+
-> +  |        | Load only     | -e ldlat-loads  | {cpu/mem-loads-aux/,cpu/mem-loads,ldlat=30/}:P                                 |
-> +  |        |---------------+-----------------+--------------------------------------------------------------------------------+
-> +  |        | Store only    | -e ldlat-stores | cpu/mem-stores/P                                                               |
-> +  +--------+---------------+-----------------+--------------------------------------------------------------------------------+
-> +  | AMD    | Default       | -e mem-ldst     | ibs_op// (without latency support)                                             |
-> +  |        |               |                 | ibs_op/ldlat=30/ (with latency support)                                        |
-> +  +--------+---------------+-----------------+--------------------------------------------------------------------------------+
-> +  | PowerPC| Default       | -e ldlat-loads  | cpu/mem-loads/                                                                 |
-> +  |        |               | -e ldlat-stores | cpu/mem-stores/                                                                |
-> +  |        |---------------+-----------------+--------------------------------------------------------------------------------+
-> +  |        | Load only     | -e ldlat-loads  | cpu/mem-loads/                                                                 |
-> +  |        |---------------+-----------------+--------------------------------------------------------------------------------+
-> +  |        | Store only    | -e ldlat-stores | cpu/mem-stores/                                                                |
-> +  +--------+---------------+-----------------+--------------------------------------------------------------------------------+
-> +  | Arm    | Default       | -e spe-ldst     | arm_spe_0/ts_enable=1,pa_enable=1,load_filter=1,store_filter=1,min_latency=30/ |
-> +  | SPE    |---------------+-----------------+--------------------------------------------------------------------------------+
-> +  |        | Load only     | -e spe-load     | arm_spe_0/ts_enable=1,pa_enable=1,load_filter=1,min_latency=30/                |
-> +  |        |---------------+-----------------+--------------------------------------------------------------------------------+
-> +  |        | Store only    | -e spe-store    | arm_spe_0/ts_enable=1,pa_enable=1,store_filter=1/                              |
-> +  +--------+---------------+-----------------+--------------------------------------------------------------------------------+
->   
->   User can pass any 'perf record' option behind '--' mark, like (to enable
->   callchains and system wide monitoring):
-> 
-
+Reviewed-by: Arnd Bergmann <arnd@arndb.de>
 
