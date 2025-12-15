@@ -4,61 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5761DD5B16F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 13:59:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82140D5B16E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 13:59:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FEfjPPMKngyR1fa+QGnCJB4lIjeocWCJtbHsn8x8VVY=; b=25xXJDRNOwGvZ+l5YXzEMsmgf0
-	qUSBT8uEq9hS1QOorzS9X+0pBUh/tRrSfRSA5vOjy3t5R6iWnhCLYDAZC/hm1g/nGRoUnN0H3vHmq
-	+GGiw9OOVAs0OhJa1ekjErYCfL8SjVlposdIyEfrxvp9RHQyisnxBKoks9AuNSzzmGbWdnoy9tygh
-	1xzNX6wMibrUK9G5Zpkgiqd4ZO1IowWnmrxtTfRc6h1g7ySJzs0kEh47CzTyZFINisYi5EZSGAKmH
-	btW9KKKq1ZZOi2uDFcQy/aaVlHAwJG+Du1Elh9TWiB6vH9+ZEbpirYUGByvEOfwgBCeRKIKb3w4ct
-	Q6fDPAFw==;
+	bh=rTX45AAyIV9M4SQQIldGTQA0KG/dZ7EqLubw7nLMbv0=; b=oLMEtaipQqFo+lhBLl9DYM96Un
+	7qD33J8QSvOv5fu1FqT2L/FzSwUKL7e/bFDzWean1tM7GGirpQ2wmUN38OyRW+bqV3uuwQVFKveq+
+	oatNDWSwLioo8a1JkbmGd5FFY4VvF2xOl7xCHR8pZ+l3AuKh84JkxeZniPaaWC+joPETJ73fBDNYI
+	QkTHFwkYsiL4KbrZxiGKnsSNrpqCpBHqWlUcmXeVYE76tcG4ccdfOdFOkhtCF5OkSo2Dh86cxyNdu
+	5h2EHiMvbBLrVyf9ZyoSpDUeULlyoCpQmRn6TxqUmhiQJw3BdVSr8+M12aXXRcSRF+W0l9XbYTj9w
+	CLbx3sWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV96o-00000003j7p-0rui;
-	Mon, 15 Dec 2025 13:59:30 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vV96n-00000003j7P-3pmW;
+	Mon, 15 Dec 2025 13:59:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV96m-00000003j6k-2D6l
+	id 1vV96k-00000003j5c-34HU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 13:59:28 +0000
+	Mon, 15 Dec 2025 13:59:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F0A8960156;
-	Mon, 15 Dec 2025 13:59:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EEE3BC4CEF5;
+	by sea.source.kernel.org (Postfix) with ESMTP id BD84143E80;
 	Mon, 15 Dec 2025 13:59:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A386C4CEFB;
+	Mon, 15 Dec 2025 13:59:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765807167;
-	bh=cfJDm4wYiGitWnngtHNxkthZHqnlQgjzwLU69mBly90=;
+	s=k20201202; t=1765807165;
+	bh=JITlun+LUxfRZs2r1MFqhuMlKLc42EgEPR3agL6aR7s=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=OdV9YeSsdQmu7/bQcVmD8XlVXOq3y/rwXUDJUbHHLgin2Oo8ssgtvwDFQ9n1/6Fjd
-	 AKc1xgWoASmNyybhSks9k6oDzfiiaj8iy8Y9uLuDbpmf0wWJ/nWT5PQfq7XlCfP1rG
-	 vae+9jtWehpPHxlLiX4Y46vVMfZoO/+560L0Yhof29O3RYHURNzDsl4EXv/Kcg8e0T
-	 TGTXx30ZWIfvhJPusm7xLeuV5/o3G8cthFfb7NGf+jUnd/IBHU9xCI95psT4oTqJjr
-	 ZfLJw7hivwWdRJlLyB9oUGBwmFTBl3X36/NFj7HTJr2OR8NbBt7CcHbO1rV4CUB5Rr
-	 6QuvKgv7j2haQ==
+	b=oFEXrMMpeRORmI9dPoX79JDKsQD7TGn9JkW7QuEgnobHYeWJXj1VLD3iQV9vjkBxj
+	 JPo5OCU2EGs7EpSVQlSehcdPF/TnDVLXrCPWbs2iOoKPwDTOZrPi+DajEznhS3bR8p
+	 UlUSTfBoH9Uv73Uy6OvDHaJmYCy2r5XTY69qchLIf22xpAkgeYsYPxeFKFMYjAkByR
+	 Aa7eKiEd5DhEDTsciXgcEv8j3S2ReF1gW6wbP2seqvj3Hc+TPriS9BvO1SQfDXvS4a
+	 /ukIlaeMNUl27NEDg2UyipbQW577TdNIlGr6lu3bo6X89bhRqKoM3+71YEmbLHlxge
+	 enr/skcKpjwNQ==
 From: Mark Brown <broonie@kernel.org>
 To: frank.li@nxp.com, mkl@pengutronix.de, shawnguo@kernel.org, 
  s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
  kees@kernel.org, gustavoars@kernel.org, Carlos Song <carlos.song@nxp.com>
 Cc: linux-spi@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-hardening@vger.kernel.org
-In-Reply-To: <20251203085949.2922166-1-carlos.song@nxp.com>
-References: <20251203085949.2922166-1-carlos.song@nxp.com>
-Subject: Re: [PATCH v3 0/6] Support ECSPI dynamic burst feature for DMA
+In-Reply-To: <20251202075503.2448339-1-carlos.song@nxp.com>
+References: <20251202075503.2448339-1-carlos.song@nxp.com>
+Subject: Re: [PATCH v2 0/6] Support ECSPI dynamic burst feature for DMA
  mode
-Message-Id: <176580716540.161463.10558713364568567703.b4-ty@kernel.org>
-Date: Mon, 15 Dec 2025 22:59:25 +0900
+Message-Id: <176580716285.161463.10166271924842509723.b4-ty@kernel.org>
+Date: Mon, 15 Dec 2025 22:59:22 +0900
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.15-dev-47773
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251215_055926_794202_C1CAF64F 
+X-CRM114-Status: GOOD (  12.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,7 +76,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 03 Dec 2025 16:59:43 +0800, Carlos Song wrote:
+On Tue, 02 Dec 2025 15:54:57 +0800, Carlos Song wrote:
 > ECSPI has a low throughput because of no dynamic burst support, it
 > transfers only one word per frame in DMA mode, causing SCLK stalls
 > between words due to BURST_LENGTH updates.
