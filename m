@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CE4BD59D99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 07:55:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDDE5D59D99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 07:56:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J3sn6WlPrbdS65TUj6zZh3jspJHmou/nbFLvlvYT/Yo=; b=PoM9raI4NCb+FYn+P10RBhiQ4b
-	QNKvjNBu/Avc0pySdn66QUsDmoBbisY1IOEv2TWQnKidAo8ZEP3smvUzwJg126lmqukbsHZ3qt2Ki
-	Nk2S1zf8wzWwdFAQyMSADX1QKbdSMsmJcbAC30T3r7Mci/iFlYiWs6wdGsr3A1AlEcLPH6iXm7Puk
-	//wu+RoAocHCYs2vtBt1cMYodYZRhTsVNVTfxEppq0WC6jCagQoEg2Jt0CMMNjzPwSrLA2ZC9wmsz
-	km1hxlDaPkHjHjP2rhgoYfOiP80pO/lmpnLUf1mN120RB2AcTCHUleuD9LFEJP65NJslxqYCK9jaV
-	iCsdywtw==;
+	bh=v8hSoFbRC6UgMvkba9IddQVbd8BN8EHwUuiQw4WJtJg=; b=jsdnzgPtMAMrmOD4qnEqNC1N/5
+	vu4Qq1Y80pIFe2HH8gHeaPajdCPOmlnWUo9f4Z9VI/2MqVp5f0DY/OKQVyepAc25b8QBHlKLJvDPl
+	7SQi6v2i/q3CuvQ/WJlvtAvoI5fqzVZt9IejNxi2VZAWicVy+rmPDVcqhZ/khHY9jhEckzJY7xfmq
+	PLCH3bPNZsv7DZmv0aO2JS5fFxO1yKRy981NnrkF0COXiiT35XrmMMMoe0qHFluQIY5VlUMeH/tea
+	/ccctbnaqQGLjz+KRf5vlbghHsMrIvxjK6Wce+6V//unYFRl2fPaR/9kECgvjlfLJO4bodP4OgYob
+	uqr19H1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV3QV-00000003ED2-3mz5;
-	Mon, 15 Dec 2025 07:55:27 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vV3RD-00000003ELI-14EL;
+	Mon, 15 Dec 2025 07:56:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV3QU-00000003ECY-3rcb
+	id 1vV3R8-00000003EKQ-1XvW
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 07:55:26 +0000
+	Mon, 15 Dec 2025 07:56:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5574360129;
-	Mon, 15 Dec 2025 07:55:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC736C4CEF5;
-	Mon, 15 Dec 2025 07:55:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3EE2A4165B;
+	Mon, 15 Dec 2025 07:56:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8F90C4CEF5;
+	Mon, 15 Dec 2025 07:56:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765785326;
-	bh=2qJr895ogd7LPk/YsFAb/JfvV6B7y4KUOhDxybT1U8I=;
+	s=k20201202; t=1765785365;
+	bh=MlLssv01cYup7HpjM3F8nb2QRsjJ2hpns8lGvv96LxA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nqsTVgQ85nB3TC8WJu8my6yqsPEwgqdKMCHvbMV9Kk9vZi/KtU34Vp9mDYZkIkGvS
-	 Rdv6SZ2PGO5hUg31hQqFiZC/huPk/HA0qATQzmYkwMQtpaYjN+4T9amD49GWE5OTJu
-	 TXoehSJh6ITWFZt9u5OxLmWBwMA/F0j6FVpaB8S2Y49wXHS9cMi5fPtyXLwr3GxNGb
-	 OGV2YoE22969pwGcn4fcSsxyzrpMTOFqil6WPhBRXBDoPKCsD/eGYt2vQg+B7xmiwv
-	 3jKkeDKGQB2NhEQIhKXRSDf+rtgAke3aFRxjbovJXfcxMrj+70Iq8wHl5KE7H9xNQx
-	 0S+Zv6QQWugIw==
-Date: Mon, 15 Dec 2025 16:55:19 +0900
+	b=deQNvTratwzTgo1nYpirqW+raG211ew5e5OBLf6eOcDnhuHXPD80+udhz+WDYVaD3
+	 uPznMJOefvjSB0YpIX+U8ByiU0aTknd/jqseZKkoy5F9ZGRSR7tkGy+y6ykzzT8FL5
+	 Y4mxOuEDOvg3ynqQGStVdFuzjvpCqNoWba/+xKiVE95RKHeBLlyRb3rHQwBjo5AZE9
+	 Hu73u4pMijggb8SRcIj2w963f5s6bs1PoPnE7c3IH/AeWyTj6b/anVxbt/NS5xX/7V
+	 iMM/XK0ynNtSqkNQoN+JRyUCgOv2LvzBGKeJ3otrWuy2CAjgb17cgQpWXcytkZKIRa
+	 k00BOxcaaco7g==
+Date: Mon, 15 Dec 2025 16:55:57 +0900
 From: Sumit Garg <sumit.garg@kernel.org>
 To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>
 Cc: Jens Wiklander <jens.wiklander@linaro.org>,
@@ -55,16 +55,18 @@ Cc: Jens Wiklander <jens.wiklander@linaro.org>,
 	op-tee@lists.trustedfirmware.org, linux-efi@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1 08/17] efi: stmm: Make use of
- module_tee_client_driver()
-Message-ID: <aT--5-bIY8S2PiZa@sumit-X1>
+Subject: Re: [PATCH v1 09/17] efi: stmm: Make use of tee bus methods
+Message-ID: <aT-_DbMYPN0p2CrK@sumit-X1>
 References: <cover.1765472125.git.u.kleine-koenig@baylibre.com>
- <0896270bc530d1e3b7fbcf5f7e168172dcc05d1e.1765472125.git.u.kleine-koenig@baylibre.com>
+ <9e3d9ab0f7987f313237b51911865f0cccae8eb5.1765472125.git.u.kleine-koenig@baylibre.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <0896270bc530d1e3b7fbcf5f7e168172dcc05d1e.1765472125.git.u.kleine-koenig@baylibre.com>
+In-Reply-To: <9e3d9ab0f7987f313237b51911865f0cccae8eb5.1765472125.git.u.kleine-koenig@baylibre.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251214_235606_425983_328791BF 
+X-CRM114-Status: GOOD (  20.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,15 +81,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 11, 2025 at 06:15:02PM +0100, Uwe Kleine-König wrote:
-> Reduce boilerplate by using the newly introduced module_tee_client_driver().
-> That takes care of assigning the driver's bus, so the explicit assigning
-> in this driver can be dropped.
+On Thu, Dec 11, 2025 at 06:15:03PM +0100, Uwe Kleine-König wrote:
+> The tee bus got dedicated callbacks for probe and remove.
+> Make use of these. This fixes a runtime warning about the driver needing
+> to be converted to the bus methods.
 > 
 > Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
 > ---
->  drivers/firmware/efi/stmm/tee_stmm_efi.c | 14 +-------------
->  1 file changed, 1 insertion(+), 13 deletions(-)
+>  drivers/firmware/efi/stmm/tee_stmm_efi.c | 11 +++++------
+>  1 file changed, 5 insertions(+), 6 deletions(-)
 
 Reviewed-by: Sumit Garg <sumit.garg@oss.qualcomm.com>
 
@@ -95,35 +97,45 @@ Reviewed-by: Sumit Garg <sumit.garg@oss.qualcomm.com>
 
 > 
 > diff --git a/drivers/firmware/efi/stmm/tee_stmm_efi.c b/drivers/firmware/efi/stmm/tee_stmm_efi.c
-> index 65c0fe1ba275..5903811858b6 100644
+> index 5903811858b6..7b04dd649629 100644
 > --- a/drivers/firmware/efi/stmm/tee_stmm_efi.c
 > +++ b/drivers/firmware/efi/stmm/tee_stmm_efi.c
-> @@ -584,24 +584,12 @@ static struct tee_client_driver tee_stmm_efi_driver = {
+> @@ -520,8 +520,9 @@ static void tee_stmm_restore_efivars_generic_ops(void)
+>  	efivars_generic_ops_register();
+>  }
+>  
+> -static int tee_stmm_efi_probe(struct device *dev)
+> +static int tee_stmm_efi_probe(struct tee_client_device *tee_dev)
+>  {
+> +	struct device *dev = &tee_dev->dev;
+>  	struct tee_ioctl_open_session_arg sess_arg;
+>  	efi_status_t ret;
+>  	int rc;
+> @@ -571,21 +572,19 @@ static int tee_stmm_efi_probe(struct device *dev)
+>  	return 0;
+>  }
+>  
+> -static int tee_stmm_efi_remove(struct device *dev)
+> +static void tee_stmm_efi_remove(struct tee_client_device *dev)
+>  {
+>  	tee_stmm_restore_efivars_generic_ops();
+> -
+> -	return 0;
+>  }
+>  
+>  MODULE_DEVICE_TABLE(tee, tee_stmm_efi_id_table);
+>  
+>  static struct tee_client_driver tee_stmm_efi_driver = {
 >  	.id_table	= tee_stmm_efi_id_table,
+> +	.probe		= tee_stmm_efi_probe,
+> +	.remove		= tee_stmm_efi_remove,
 >  	.driver		= {
 >  		.name		= "tee-stmm-efi",
-> -		.bus		= &tee_bus_type,
->  		.probe		= tee_stmm_efi_probe,
->  		.remove		= tee_stmm_efi_remove,
+> -		.probe		= tee_stmm_efi_probe,
+> -		.remove		= tee_stmm_efi_remove,
 >  	},
 >  };
 >  
-> -static int __init tee_stmm_efi_mod_init(void)
-> -{
-> -	return driver_register(&tee_stmm_efi_driver.driver);
-> -}
-> -
-> -static void __exit tee_stmm_efi_mod_exit(void)
-> -{
-> -	driver_unregister(&tee_stmm_efi_driver.driver);
-> -}
-> -
-> -module_init(tee_stmm_efi_mod_init);
-> -module_exit(tee_stmm_efi_mod_exit);
-> +module_tee_client_driver(tee_stmm_efi_driver);
->  
->  MODULE_LICENSE("GPL");
->  MODULE_AUTHOR("Ilias Apalodimas <ilias.apalodimas@linaro.org>");
 > -- 
 > 2.47.3
 > 
