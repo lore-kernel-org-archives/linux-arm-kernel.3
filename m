@@ -4,68 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54839D5B86D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 21:16:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D43ED5B866
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 21:20:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r8qJOsADiEjQoYP0ZogrysP20V68KNX/o8KdkqSYHWc=; b=yMeTwyyupeI985txDKhh5bcvRu
-	JZm/oaL3Dknrl+LpyEhg6s6L/kgTCJdJzzOE558p5vPMGOrErS39GopMrWjP3sJVVfmZ1W1yvik4Z
-	ecMjdxm9GFLdm7fmeriXqAcGjrmb8nv9n4Jra1VaUyHZBIrn/zWUXn2kOS1BP7qd1efk0cfTLckQY
-	6cfwdfpgLkIB662JwsGq9Tlr4Xzy+VyMPif3l6ziQ6nUufyxzimlV2wMkZCZte0ow510ZE2qCPwX2
-	vIHcDXiRKurV4CR9zyKh+YHlH7LqJvk9saIlNx/UCEpyVL0CcsN/thlpXndrACBqrNqHGzwCvyhnv
-	ApyyizNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Xy2Yi5gsKQEM/K9n6LEoZR6y9ntNefdeLc3esZmezF4=; b=T5LYpDhkMT4j9J41S6pGsD314R
+	lF8kdTnjxUwPMba722nUwOIuYs9ivTDGmIQy5ACw4xJcfp5wpNxYPWB+mSLZfMyVu/gxHLeEO7XC0
+	36wj7Ta2293hkp1zJC8BfaOmXT+uAirnKeVd+FEgDNB9F5QsH5fc8Oj3ffMDhQu6KV9+yPVNHyTX2
+	//A47Jrja0DjdVzSDc3fHuXDxlS545sASDclCP7eUlX1ZtQrNBHwELZ5Ht9Td0YidF8Jy9scAY8lI
+	X97iXsyIxDR2alky3PyVzLzUGtOLUFDYMrMCKl6NeSpb4wsVdMEUZV1o8/uw3kyvLIYakHQ0FBG7d
+	JHokAhuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVFv8-00000004Gei-10v9;
-	Mon, 15 Dec 2025 21:15:54 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vVFz8-00000004HCQ-2TlE;
+	Mon, 15 Dec 2025 21:20:02 +0000
+Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVFv4-00000004Gbz-2ir6
+	id 1vVFz5-00000004HBo-2si9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 21:15:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3EAE040780;
-	Mon, 15 Dec 2025 21:15:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 147D2C4CEF5;
-	Mon, 15 Dec 2025 21:15:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765833350;
-	bh=Jo1jvSmRmIM42YncpphXMuoEXR5OXv17CdkU8UbAYw4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SA9DbMFln84aK30+lEinoT/qtf9AXa3GuG2TOrEjqqsRGT5bv54CBIWRg8nSn7gPQ
-	 V/cfMWZiZb80cl0WtKTlsG6fTEek+F6R4IkjTyQQTYfBFB9ZM+52cv9Ouk8qTJ0JL4
-	 RmfqA5wzkcEPf9T/WQfHu9wp+u8ufUHmJe/rica3uyCGtRTM3SfRmmVMBuZAD9QYWS
-	 NOmyJgRMa7kduM41kNORpsrfzhSNAXfclzWRpBBWGkFR7vlWqlRGFnFLJr1AM/QyPO
-	 wvv9t55/QlAcVgivghicSkw8AwX9Mv9lgnBw1sHej39EQpZLoPW1rcRKtknCXCWkE4
-	 fAYuZXMULEPdQ==
-From: Jiri Olsa <jolsa@kernel.org>
-To: Steven Rostedt <rostedt@kernel.org>,
-	Florent Revest <revest@google.com>,
-	Mark Rutland <mark.rutland@arm.com>
-Cc: bpf@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Menglong Dong <menglong8.dong@gmail.com>,
-	Song Liu <song@kernel.org>
-Subject: [PATCHv5 bpf-next 9/9] bpf,x86: Use single ftrace_ops for direct calls
-Date: Mon, 15 Dec 2025 22:14:02 +0100
-Message-ID: <20251215211402.353056-10-jolsa@kernel.org>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20251215211402.353056-1-jolsa@kernel.org>
-References: <20251215211402.353056-1-jolsa@kernel.org>
+	Mon, 15 Dec 2025 21:20:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LDbdZ2sIK1erwTnbjrqkOdQfSBTX/XHiP+BE9JJfTny/azX1joe4oi78kv+Rz9NPCpWn4fP0hIWvUsiNwBdcQ1L7fY/nShch4SLQj/hS+bnbdUy60BU4qjZ4tF41bSXh6c4zFMMU8oBSL8eXSTs8HcZryKV8Yy89VkLXfHQ6UiiAj+U2DXV1YXUp2zV6zlm1OeTFklWTuRNH1iS7QeRk4K+9hcAQ6A9f/S3oRR7AKzh5UCRjXgl5eM/Jcc+jgOSdrmPdTaay2ZtNIE2tdE94cQjtwCHxeKcg/gWX99AwWq2oLG/P1vdKF7slrGHrKVtVlPMQM1gUaa30k3ouH86m4w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Xy2Yi5gsKQEM/K9n6LEoZR6y9ntNefdeLc3esZmezF4=;
+ b=UKOZSl0nswV/bCUlPaV5hStlsqePy3tAxZTF9ZjcUfxomWuEA7V2YI6J8WSbudxMX8HO5U/ehscnKeHZaRXjtiPaUlFEi9y0aOPZDQmw98d6uw5nCFPO/OC5WB2PrZ0ST9Y61OVrZdmxs87S+9NPibFRx+gpM5pOvSALytaUaVpwruWQlvAqymq012eVwhciHW4UOB3xvOM7NXv1apklzwhyoNSWzuP8rEx4/CvYaNuF1AD9H7FfYR60CAYglNCy9lun7wYtnT2Zy/FqgwHVF905KwRi9Y7g3hXvMR6jed1E5kQm9URDJC/TrAXKwlMQ3fHFVJAEZr9/iypZvnaMNw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Xy2Yi5gsKQEM/K9n6LEoZR6y9ntNefdeLc3esZmezF4=;
+ b=GhI1TGkkBxQUlgdWfj42F/Yis203Dq0ygNdFkAPbxabHacM6smywtY7hXI0jC1qjA3i+loFrPDFflCoab5duoOEMXiHt6BOfRUZo90nZRZ7//olwgSFtMAjInwErw0BNO5rm4kVbijISR8Qm7GxzocEIwbP39JztFCZg7qQ105L+AtoDxOc4inXwrOrHI/UFmZk49Y9TKz9fhmWSpArQLIr8i97CD6bzUHhEf++CiTri2ymwEVOkFhW+gVUfGieS0XBPhB+8ox6jmzNXKeqexvXIuiu1b+zP1P2hOtYog/foOa2sqpK84E2DaPr2xXSiDWLkx+/taGUsmUELWCatoQ==
+Received: from SJ0PR13CA0109.namprd13.prod.outlook.com (2603:10b6:a03:2c5::24)
+ by DM4PR12MB5962.namprd12.prod.outlook.com (2603:10b6:8:69::7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9412.13; Mon, 15 Dec 2025 21:19:46 +0000
+Received: from SJ1PEPF00002327.namprd03.prod.outlook.com
+ (2603:10b6:a03:2c5:cafe::66) by SJ0PR13CA0109.outlook.office365.com
+ (2603:10b6:a03:2c5::24) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.6 via Frontend Transport; Mon,
+ 15 Dec 2025 21:19:42 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ SJ1PEPF00002327.mail.protection.outlook.com (10.167.242.90) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9434.6 via Frontend Transport; Mon, 15 Dec 2025 21:19:46 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 15 Dec
+ 2025 13:19:31 -0800
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 15 Dec
+ 2025 13:19:31 -0800
+Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com (10.129.68.8)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Mon, 15 Dec 2025 13:19:30 -0800
+Date: Mon, 15 Dec 2025 13:19:28 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Ashish Mhetre <amhetre@nvidia.com>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<thierry.reding@gmail.com>, <jonathanh@nvidia.com>, <vdumpa@nvidia.com>,
+	<jgg@ziepe.ca>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-tegra@vger.kernel.org>
+Subject: Re: [PATCH V7 3/4] dt-bindings: iommu: Add NVIDIA Tegra CMDQV support
+Message-ID: <aUB7YNiCarEY7Ig7@Asurada-Nvidia>
+References: <20251215064819.3345361-1-amhetre@nvidia.com>
+ <20251215064819.3345361-4-amhetre@nvidia.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20251215064819.3345361-4-amhetre@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00002327:EE_|DM4PR12MB5962:EE_
+X-MS-Office365-Filtering-Correlation-Id: a1c10b0e-1b8c-42d1-9d2b-08de3c1fac0a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|1800799024|7416014|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ClPmm+HEyKioTa1umTUSzxdKMQY9JBHzlLrZ1HybnV6q8NVidGeyiKNaX9HU?=
+ =?us-ascii?Q?hicPT7Y+uqLhW4lmeURVm+MMycEVBd80TRD95vpzH7tFAyF+R5/rWsgexhv0?=
+ =?us-ascii?Q?O2YGe3hCBeBdy6irUm5I5p1JfJZPRLbb3ZBYs+nZge17nKVPmNv+56nu7yZ6?=
+ =?us-ascii?Q?hchbMPCj5/pXawMSl+FqlT32uV9dmVNB+CiD8zxuacTVa7F3N28wtCVwEoJ6?=
+ =?us-ascii?Q?QdpASf7y4rxPb2jd9Axnz8ooR1rSLxrjHsUQyhTvH8zYIWzVJAcBS1kV4i3L?=
+ =?us-ascii?Q?5Dx/rXl9bi0UWiCVgtskGcL7yq8ATd3YyFQjayEN0PFN9fFU12FxrGfqlLhC?=
+ =?us-ascii?Q?JukjfVnu/fsBTZ8+ejuTCPcTfKVpr1VunX++dpCorzXNiAy/HsZGokPZuPsh?=
+ =?us-ascii?Q?I+Dj02FZ3YZn6E3BiifBw1ysdoQjIqrScbobY2ZhXDwWP52Inm9189JK0LWc?=
+ =?us-ascii?Q?VsM1JoUeXJsXz954ORh4iDcx5Xgg/R29TU4Ff/rEUYunlVNT4liZuz8tkAJA?=
+ =?us-ascii?Q?qGxyB993kyxX8nfS+bwWttDKAQkZ4tP0fElQFo8y/NXXDLSuztXao/Rjx1CA?=
+ =?us-ascii?Q?nns2sB1rT/Vz0e5BLnnGpx313iPHjbwhiXC7VrVVaIIIrRKWVIgBObJsk6MB?=
+ =?us-ascii?Q?UyKvetqeYHOULzbw7di/etMYhmDBpDfVu+MlsUxwvpj2ANmGDdKdPaxOqGPI?=
+ =?us-ascii?Q?tk47ex8lY/5okvAvPIud4xoOnY31qnqCF89P75S32tdOzZpFRDVesf9gBbVp?=
+ =?us-ascii?Q?h/pyEEXnR4A3NwIWo+c+AGuPWWfO2d43gpfGEiCM8EUwsMiNB+16r+nbrP2q?=
+ =?us-ascii?Q?0hDw4jZCdX0jZ1XX2mcHKzzC/Sw9n9qCZUHLAtAPOl2HDCQeyXycUKTQru7v?=
+ =?us-ascii?Q?sOUYVc9y7OoYyEgSxAO+XWsOkXgF0zoUttQZrFv/hnKpzB7pWdYO6oZxP6pv?=
+ =?us-ascii?Q?cBy2fA+3KZxdisDH8nJk5WS8qTgSILjuTgC2dY3LtnS660+z2iG7mmmvmuSq?=
+ =?us-ascii?Q?UljalDZI2qeZWCQ3w9gtP6uMTA/cEY5UDOAE7BvEyUPFehg9MxzrzRSeVp2i?=
+ =?us-ascii?Q?/LOAdpaksYGrtj6A2WFtQ+hA95GpN+tOMnKtohJS2vJNuJITD+1QWC2lXnrU?=
+ =?us-ascii?Q?dIfjYO+7Tx5iDalruXxWD6dy1ZGbKgl022MJxDIFE8AqS0KvkIHYBmD8XB7g?=
+ =?us-ascii?Q?TmIajQCagChtBXwk5RbIWGIm9lwe0F3jT08nLd4vlsvncp0DPTiOMIXcpjE/?=
+ =?us-ascii?Q?OT1CAvfaqovufnfao9EFMzD1r/Gx/pgBMNeWratWZu0y95SRiObkJktnMrDj?=
+ =?us-ascii?Q?TIyZhMOKT2JDCt38VjOPf5TGUtD5m9h+PJeCUbQZOj9HSXhS7CJxig7/7blA?=
+ =?us-ascii?Q?C43oSdsGM/R6iDJXhQBMeiglmlRTcCi5lDlKYC796kiuMV5CsF+dMDMG7uu6?=
+ =?us-ascii?Q?zIzNjhaf7e7WaI95VU9B1v0oGuCs9Ji6d0IeCjaVSz1xOBMIfyUXUGF5cBW3?=
+ =?us-ascii?Q?FVpAdpXJ9xJOQl3vXTIzIg6kc+Y4/Mpzt6Vx3qcTbGAOY0Ku19f8Z0iTrSip?=
+ =?us-ascii?Q?VOky4bqIeZ8RWcVVuUw=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(376014)(1800799024)(7416014)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Dec 2025 21:19:46.0942
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a1c10b0e-1b8c-42d1-9d2b-08de3c1fac0a
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002327.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB5962
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_131550_732039_ABD36716 
-X-CRM114-Status: GOOD (  20.77  )
+X-CRM114-CacheID: sfid-20251215_131959_939403_CA5145CB 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,331 +154,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Using single ftrace_ops for direct calls update instead of allocating
-ftrace_ops object for each trampoline.
+On Mon, Dec 15, 2025 at 06:48:18AM +0000, Ashish Mhetre wrote:
+> The Command Queue Virtualization (CMDQV) hardware is part of the
+> SMMUv3 implementation on NVIDIA Tegra SoCs. It assists in
+> virtualizing the command queue for the SMMU.
+> 
+> Add a new device tree binding document for nvidia,tegra264-cmdqv.
+> 
+> Also update the arm,smmu-v3 binding to include an optional nvidia,cmdqv
+> property. This property is a phandle to the CMDQV device node, allowing
+> the SMMU driver to associate with its corresponding CMDQV instance.
+> Restrict this property usage to Nvidia Tegra264 only.
+> 
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> Signed-off-by: Ashish Mhetre <amhetre@nvidia.com>
 
-With single ftrace_ops object we can use update_ftrace_direct_* api
-that allows multiple ip sites updates on single ftrace_ops object.
-
-Adding HAVE_SINGLE_FTRACE_DIRECT_OPS config option to be enabled on
-each arch that supports this.
-
-At the moment we can enable this only on x86 arch, because arm relies
-on ftrace_ops object representing just single trampoline image (stored
-in ftrace_ops::direct_call). Ach that do not support this will continue
-to use *_ftrace_direct api.
-
-Signed-off-by: Jiri Olsa <jolsa@kernel.org>
----
- arch/x86/Kconfig        |   1 +
- kernel/bpf/trampoline.c | 195 ++++++++++++++++++++++++++++++++++------
- kernel/trace/Kconfig    |   3 +
- kernel/trace/ftrace.c   |   7 +-
- 4 files changed, 177 insertions(+), 29 deletions(-)
-
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index 17a107cc5244..d0c36e49e66e 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -335,6 +335,7 @@ config X86
- 	select SCHED_SMT			if SMP
- 	select ARCH_SUPPORTS_SCHED_CLUSTER	if SMP
- 	select ARCH_SUPPORTS_SCHED_MC		if SMP
-+	select HAVE_SINGLE_FTRACE_DIRECT_OPS	if X86_64 && DYNAMIC_FTRACE_WITH_DIRECT_CALLS
- 
- config INSTRUCTION_DECODER
- 	def_bool y
-diff --git a/kernel/bpf/trampoline.c b/kernel/bpf/trampoline.c
-index 17af2aad8382..02371db3db3e 100644
---- a/kernel/bpf/trampoline.c
-+++ b/kernel/bpf/trampoline.c
-@@ -33,12 +33,40 @@ static DEFINE_MUTEX(trampoline_mutex);
- #ifdef CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
- static int bpf_trampoline_update(struct bpf_trampoline *tr, bool lock_direct_mutex);
- 
-+#ifdef CONFIG_HAVE_SINGLE_FTRACE_DIRECT_OPS
-+static struct bpf_trampoline *direct_ops_ip_lookup(struct ftrace_ops *ops, unsigned long ip)
-+{
-+	struct hlist_head *head_ip;
-+	struct bpf_trampoline *tr;
-+
-+	mutex_lock(&trampoline_mutex);
-+	head_ip = &trampoline_ip_table[hash_64(ip, TRAMPOLINE_HASH_BITS)];
-+	hlist_for_each_entry(tr, head_ip, hlist_ip) {
-+		if (tr->ip == ip)
-+			goto out;
-+	}
-+	tr = NULL;
-+out:
-+	mutex_unlock(&trampoline_mutex);
-+	return tr;
-+}
-+#else
-+static struct bpf_trampoline *direct_ops_ip_lookup(struct ftrace_ops *ops, unsigned long ip)
-+{
-+	return ops->private;
-+}
-+#endif /* CONFIG_HAVE_SINGLE_FTRACE_DIRECT_OPS */
-+
- static int bpf_tramp_ftrace_ops_func(struct ftrace_ops *ops, unsigned long ip,
- 				     enum ftrace_ops_cmd cmd)
- {
--	struct bpf_trampoline *tr = ops->private;
-+	struct bpf_trampoline *tr;
- 	int ret = 0;
- 
-+	tr = direct_ops_ip_lookup(ops, ip);
-+	if (!tr)
-+		return -EINVAL;
-+
- 	if (cmd == FTRACE_OPS_CMD_ENABLE_SHARE_IPMODIFY_SELF) {
- 		/* This is called inside register_ftrace_direct_multi(), so
- 		 * tr->mutex is already locked.
-@@ -137,6 +165,139 @@ void bpf_image_ksym_del(struct bpf_ksym *ksym)
- 			   PAGE_SIZE, true, ksym->name);
- }
- 
-+#ifdef CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
-+#ifdef CONFIG_HAVE_SINGLE_FTRACE_DIRECT_OPS
-+/*
-+ * We have only single direct_ops which contains all the direct call
-+ * sites and is the only global ftrace_ops for all trampolines.
-+ *
-+ * We use 'update_ftrace_direct_*' api for attachment.
-+ */
-+struct ftrace_ops direct_ops = {
-+	.ops_func = bpf_tramp_ftrace_ops_func,
-+};
-+
-+static int direct_ops_alloc(struct bpf_trampoline *tr)
-+{
-+	tr->fops = &direct_ops;
-+	return 0;
-+}
-+
-+static void direct_ops_free(struct bpf_trampoline *tr) { }
-+
-+static struct ftrace_hash *hash_from_ip(struct bpf_trampoline *tr, void *ptr)
-+{
-+	unsigned long ip, addr = (unsigned long) ptr;
-+	struct ftrace_hash *hash;
-+
-+	ip = ftrace_location(tr->ip);
-+	if (!ip)
-+		return NULL;
-+	hash = alloc_ftrace_hash(FTRACE_HASH_DEFAULT_BITS);
-+	if (!hash)
-+		return NULL;
-+	if (bpf_trampoline_use_jmp(tr->flags))
-+		addr = ftrace_jmp_set(addr);
-+	if (!add_hash_entry_direct(hash, ip, addr)) {
-+		free_ftrace_hash(hash);
-+		return NULL;
-+	}
-+	return hash;
-+}
-+
-+static int direct_ops_add(struct bpf_trampoline *tr, void *addr)
-+{
-+	struct ftrace_hash *hash = hash_from_ip(tr, addr);
-+	int err = -ENOMEM;
-+
-+	if (hash)
-+		err = update_ftrace_direct_add(tr->fops, hash);
-+	free_ftrace_hash(hash);
-+	return err;
-+}
-+
-+static int direct_ops_del(struct bpf_trampoline *tr, void *addr)
-+{
-+	struct ftrace_hash *hash = hash_from_ip(tr, addr);
-+	int err = -ENOMEM;
-+
-+	if (hash)
-+		err = update_ftrace_direct_del(tr->fops, hash);
-+	free_ftrace_hash(hash);
-+	return err;
-+}
-+
-+static int direct_ops_mod(struct bpf_trampoline *tr, void *addr, bool lock_direct_mutex)
-+{
-+	struct ftrace_hash *hash = hash_from_ip(tr, addr);
-+	int err = -ENOMEM;
-+
-+	if (hash)
-+		err = update_ftrace_direct_mod(tr->fops, hash, lock_direct_mutex);
-+	free_ftrace_hash(hash);
-+	return err;
-+}
-+#else
-+/*
-+ * We allocate ftrace_ops object for each trampoline and it contains
-+ * call site specific for that trampoline.
-+ *
-+ * We use *_ftrace_direct api for attachment.
-+ */
-+static int direct_ops_alloc(struct bpf_trampoline *tr)
-+{
-+	tr->fops = kzalloc(sizeof(struct ftrace_ops), GFP_KERNEL);
-+	if (!tr->fops)
-+		return -ENOMEM;
-+	tr->fops->private = tr;
-+	tr->fops->ops_func = bpf_tramp_ftrace_ops_func;
-+	return 0;
-+}
-+
-+static void direct_ops_free(struct bpf_trampoline *tr)
-+{
-+	if (tr->fops) {
-+		ftrace_free_filter(tr->fops);
-+		kfree(tr->fops);
-+	}
-+}
-+
-+static int direct_ops_add(struct bpf_trampoline *tr, void *ptr)
-+{
-+	unsigned long addr = (unsigned long) ptr;
-+	struct ftrace_ops *ops = tr->fops;
-+	int ret;
-+
-+	if (bpf_trampoline_use_jmp(tr->flags))
-+		addr = ftrace_jmp_set(addr);
-+
-+	ret = ftrace_set_filter_ip(ops, tr->ip, 0, 1);
-+	if (ret)
-+		return ret;
-+	return register_ftrace_direct(ops, addr);
-+}
-+
-+static int direct_ops_del(struct bpf_trampoline *tr, void *addr)
-+{
-+	return unregister_ftrace_direct(tr->fops, (long)addr, false);
-+}
-+
-+static int direct_ops_mod(struct bpf_trampoline *tr, void *ptr, bool lock_direct_mutex)
-+{
-+	unsigned long addr = (unsigned long) ptr;
-+	struct ftrace_ops *ops = tr->fops;
-+
-+	if (bpf_trampoline_use_jmp(tr->flags))
-+		addr = ftrace_jmp_set(addr);
-+	if (lock_direct_mutex)
-+		return modify_ftrace_direct(ops, addr);
-+	return modify_ftrace_direct_nolock(ops, addr);
-+}
-+#endif /* CONFIG_HAVE_SINGLE_FTRACE_DIRECT_OPS */
-+#else
-+static void direct_ops_free(struct bpf_trampoline *tr) { }
-+#endif /* CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS */
-+
- static struct bpf_trampoline *bpf_trampoline_lookup(u64 key, unsigned long ip)
- {
- 	struct bpf_trampoline *tr;
-@@ -155,14 +316,11 @@ static struct bpf_trampoline *bpf_trampoline_lookup(u64 key, unsigned long ip)
- 	if (!tr)
- 		goto out;
- #ifdef CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
--	tr->fops = kzalloc(sizeof(struct ftrace_ops), GFP_KERNEL);
--	if (!tr->fops) {
-+	if (direct_ops_alloc(tr)) {
- 		kfree(tr);
- 		tr = NULL;
- 		goto out;
- 	}
--	tr->fops->private = tr;
--	tr->fops->ops_func = bpf_tramp_ftrace_ops_func;
- #endif
- 
- 	tr->key = key;
-@@ -206,7 +364,7 @@ static int unregister_fentry(struct bpf_trampoline *tr, u32 orig_flags,
- 	int ret;
- 
- 	if (tr->func.ftrace_managed)
--		ret = unregister_ftrace_direct(tr->fops, (long)old_addr, false);
-+		ret = direct_ops_del(tr, old_addr);
- 	else
- 		ret = bpf_trampoline_update_fentry(tr, orig_flags, old_addr, NULL);
- 
-@@ -220,15 +378,7 @@ static int modify_fentry(struct bpf_trampoline *tr, u32 orig_flags,
- 	int ret;
- 
- 	if (tr->func.ftrace_managed) {
--		unsigned long addr = (unsigned long) new_addr;
--
--		if (bpf_trampoline_use_jmp(tr->flags))
--			addr = ftrace_jmp_set(addr);
--
--		if (lock_direct_mutex)
--			ret = modify_ftrace_direct(tr->fops, addr);
--		else
--			ret = modify_ftrace_direct_nolock(tr->fops, addr);
-+		ret = direct_ops_mod(tr, new_addr, lock_direct_mutex);
- 	} else {
- 		ret = bpf_trampoline_update_fentry(tr, orig_flags, old_addr,
- 						   new_addr);
-@@ -251,15 +401,7 @@ static int register_fentry(struct bpf_trampoline *tr, void *new_addr)
- 	}
- 
- 	if (tr->func.ftrace_managed) {
--		unsigned long addr = (unsigned long) new_addr;
--
--		if (bpf_trampoline_use_jmp(tr->flags))
--			addr = ftrace_jmp_set(addr);
--
--		ret = ftrace_set_filter_ip(tr->fops, (unsigned long)ip, 0, 1);
--		if (ret)
--			return ret;
--		ret = register_ftrace_direct(tr->fops, addr);
-+		ret = direct_ops_add(tr, new_addr);
- 	} else {
- 		ret = bpf_trampoline_update_fentry(tr, 0, NULL, new_addr);
- 	}
-@@ -910,10 +1052,7 @@ void bpf_trampoline_put(struct bpf_trampoline *tr)
- 	 */
- 	hlist_del(&tr->hlist_key);
- 	hlist_del(&tr->hlist_ip);
--	if (tr->fops) {
--		ftrace_free_filter(tr->fops);
--		kfree(tr->fops);
--	}
-+	direct_ops_free(tr);
- 	kfree(tr);
- out:
- 	mutex_unlock(&trampoline_mutex);
-diff --git a/kernel/trace/Kconfig b/kernel/trace/Kconfig
-index 4661b9e606e0..1ad2e307c834 100644
---- a/kernel/trace/Kconfig
-+++ b/kernel/trace/Kconfig
-@@ -50,6 +50,9 @@ config HAVE_DYNAMIC_FTRACE_WITH_REGS
- config HAVE_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
- 	bool
- 
-+config HAVE_SINGLE_FTRACE_DIRECT_OPS
-+	bool
-+
- config HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS
- 	bool
- 
-diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
-index c2054fe80de7..a0789727b971 100644
---- a/kernel/trace/ftrace.c
-+++ b/kernel/trace/ftrace.c
-@@ -2605,8 +2605,13 @@ unsigned long ftrace_find_rec_direct(unsigned long ip)
- static void call_direct_funcs(unsigned long ip, unsigned long pip,
- 			      struct ftrace_ops *ops, struct ftrace_regs *fregs)
- {
--	unsigned long addr = READ_ONCE(ops->direct_call);
-+	unsigned long addr;
- 
-+#ifdef CONFIG_HAVE_SINGLE_FTRACE_DIRECT_OPS
-+	addr = ftrace_find_rec_direct(ip);
-+#else
-+	addr = READ_ONCE(ops->direct_call);
-+#endif
- 	if (!addr)
- 		return;
- 
--- 
-2.52.0
-
+Acked-by: Nicolin Chen <nicolinc@nvidia.com>
 
