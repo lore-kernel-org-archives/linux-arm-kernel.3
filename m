@@ -4,89 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEECAD5B85B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 17:57:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43270D5B170
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 18:01:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JrDNYX4hqSI6y4PGIj6+dxdIojaAEYXvHqNt+FhuuhY=; b=zbTHlnq7IYjv8zoT2Q2Y8S8Ye4
-	cbuEcogVaaHvbzIERE97VD40jAao2aVY0o9aD+jC87HwMpV9l44wntGN8Prr0uRxtfBvcZ8DQQxaG
-	2jxnbLuBS8xGCgy43NXyOW8wIvic4P+kBvjMKIhp/CL8uQQvFx5COdVZngF7lYyNMVv0owwIlgJ46
-	ajze/5SLsQkcOKr4zugxDv1VN59U6Wwtj06/+q4aT3z8OBTb6T1wTuo5sHmHpCItQx73GoZIuFMUM
-	9ZsPgiN6rJGUYVnuKhyRnq6p1F5sE+CMcm8/n6yGwAEyafsmvk8gnPvvsjcRAXrxGzpTTf7h4Zc2/
-	KYgCd6bw==;
+	bh=SYJ+2h/JnDJa2+yjOVOQDdjDQHGVLHt52RB5LE7/+vw=; b=s7YXAy/l454fjLJKYeQd7pCVcx
+	v8kFFQkKoNa9SCpD9P/2gVqEc2870vNs1dnZgD8+a0K+K44tue4O4OqOLHEQNYsL86zp7E0uSVjBl
+	D09UGEfjl9wIhDwCoFwanWRB7RU8iDYeCG+Yn/TAZU/B7/ySH7Xeq9HaXsGyTR70eLM6Ifyc5ECNK
+	mtsVnLiwaShD9zfde7iZA0o0d+S1l7+ct0E3OYg0JbfmHzkJCHcLJXl/AfsH7uPbTt5pkwQNJW+1G
+	tAErDPv2L3Qq10vLR/PDjv2q13JxnwNi7Cdb6NZfh+657NhZxZOGOXdfDgPpG6YD8I4rdgGodyRG0
+	2D8DoKug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVCp1-0000000466t-2dId;
-	Mon, 15 Dec 2025 17:57:23 +0000
-Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
+	id 1vVCsT-000000046LB-1D6u;
+	Mon, 15 Dec 2025 18:00:57 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVCoy-0000000465u-03cU
+	id 1vVCsP-000000046Kn-2AI6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 17:57:21 +0000
-Received: by mail-qt1-x836.google.com with SMTP id d75a77b69052e-4ee1939e70bso37357551cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Dec 2025 09:57:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=fooishbar.org; s=google; t=1765821439; x=1766426239; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=JrDNYX4hqSI6y4PGIj6+dxdIojaAEYXvHqNt+FhuuhY=;
-        b=iubR99S11MXFCXOneKzN1xeZq1cjGsUWI2aC1UqO5nwpZraufEG0uoOkstKeh5Mv88
-         LuR3hL4suQ8b6/Ath8NAb1dphefM8PV45sbU04M6Lv7QJK3wtg5O54iiFA3H/mWr6mHx
-         w0uiRFjuZZIHCumZ9oWjDjaASD66jclK2PGfCdF6ewBEGXlWBAA1wmTYp0x4fSh4zYlr
-         3ZUfqlMkhJfqKyqfiH5di3gcnFcmrYzG+NusZ8hZEQ3ouWHTpByY7hjV7nvPhAUGlMlP
-         3nJ4deEqmWERAMQFK5JIApntrqRNRFirVHwNAbYrrF3IkQWnzbeIUuYKnMxobSbU2IkN
-         VVtg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765821439; x=1766426239;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JrDNYX4hqSI6y4PGIj6+dxdIojaAEYXvHqNt+FhuuhY=;
-        b=G/ZzRhpQneOMCLxYY5xC+4M89PttekHP3kPt0vsrnkRyzG/3A2CN/hjII9+jEeoEbP
-         LSS8J1TPuj+T4hW01+8ojqD+FK0hbOytitjo7MO6elSgyjk0iKfBY+yh4nmztkgSdpcx
-         cL79672SWuGPcCSVur2hOPvp3T3wv8k9ZrFvTH9h5u2DcCSMyGp74Fjd088UiURkLHdR
-         jFwuQ/L8dCe0Bg/0NEpwvwa4pY9oG9NKcBL9J7TOOoN8ydeTft07OhCtRbuCODeSZL8i
-         hm5q/CEkfgtci8Yc2EwoGNKEg/cle02N69VojplI/l/yePnKWMOgHkqnK66rCJcs601m
-         7xAQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV+gMzJvpRq3jK7ejEbyRmDaRRt+46A6nxW7tA6zaRBvoZ6CRLRV6oQ8oiRQSNmf05Bc8s4lnPHfqaZwbIgy8Ss@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZIMy0h0gF+nt8ONdy0yHXGupIxaYm0d+xoDKBQ90bPf8agrrW
-	mCdBZ759qyq4fIw1aYgIP9O9T2Ji9UR0sUEVDML6ZNKEuq3QXqhsRiVWlttpnKB1KBy/LuKi31Q
-	3fZcG9icw6hAD3Kxrqr7I2koFDSY+VlNHjvvdfrXB+w==
-X-Gm-Gg: AY/fxX52eHrH+tMSwGKG/PMkHZKf1c50YewuolBlKDs37BkY8BDWyHQb51S+Plts8DC
-	1Z9vgLRAWI24OxIOORuhJzgFrHrW6oUhk6+Xm1FRW9NNyom4uL2Z6Q6xa+yBXO/lMPbj/5pWxs7
-	YuKYELzcY3opbuIndj/sXUamj+txTieRkTRQ3AGnjEuUQ5JApFAMdo8G6fliUArB8vZ6y80Y1tj
-	3TZKdnWggKCk0+u57vxbNhiE1mkAzBIgOuzk7MqSsavwSrW/aDWKNDhMbl7V85KKGCjH10=
-X-Google-Smtp-Source: AGHT+IGFC2JQ4V1SECaV//h1EmhEsxokdnKGAqKcXjQqd+tP6HAhA9hYS9lkjNvisVQC+6Z2K5Vl/WM78Ka8I+v/P7A=
-X-Received: by 2002:a05:622a:481a:b0:4ee:213b:3391 with SMTP id
- d75a77b69052e-4f1d049ff6dmr180679491cf.20.1765821438771; Mon, 15 Dec 2025
- 09:57:18 -0800 (PST)
+	Mon, 15 Dec 2025 18:00:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1765821653; x=1797357653;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=xxgOgB20hanHcYFd7t7oP4Q0JQiogpWh4jHFCannRyA=;
+  b=U0HKm0tB6KgwH9/uMrCElXbI2REwlcOhWRR/VIPYuLTgCq5GMU8V6rFg
+   i9QkLLExUtpU3de5qjcCETVA+Jd0AluNxcQABFEYFUYCa8FNo9i5jCdQ/
+   eo2opB3wbDakKvhfIeGg12G9hL3FryL1aDT6zAwBkx7A0vtI/ca83gYfA
+   7miuU+aLKIMZxRxqz/fgehUtlu+mj/9GDJ1TfN8nXpP8QbE/UFFq4UjCg
+   PxSJIQjErxcWF9tqVJEEt/NX9AQqAFnX89HS7ezhf9q3GcYUaYwmpE336
+   MhOYIvcj/4gVrx6lUDxIAqXv8mGspjsOxMTZVR2DBzKwDJ5qTQhVRarYv
+   A==;
+X-CSE-ConnectionGUID: ZWlzN078Q7G6y2YVeRYwIQ==
+X-CSE-MsgGUID: gzoJE9rzSzSWI7yGbq4Rzg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11643"; a="66915139"
+X-IronPort-AV: E=Sophos;i="6.21,151,1763452800"; 
+   d="scan'208";a="66915139"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Dec 2025 10:00:52 -0800
+X-CSE-ConnectionGUID: gyonBzQQS7KxnXu5g8+D5g==
+X-CSE-MsgGUID: Xp6e8NnbQCC0lFcwV4kLnw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,151,1763452800"; 
+   d="scan'208";a="202199486"
+Received: from lkp-server02.sh.intel.com (HELO 034c7e8e53c3) ([10.239.97.151])
+  by fmviesa005.fm.intel.com with ESMTP; 15 Dec 2025 10:00:46 -0800
+Received: from kbuild by 034c7e8e53c3 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vVCrv-000000000aD-2VzS;
+	Mon, 15 Dec 2025 18:00:30 +0000
+Date: Tue, 16 Dec 2025 01:59:37 +0800
+From: kernel test robot <lkp@intel.com>
+To: Ankur Arora <ankur.a.arora@oracle.com>, linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org, bpf@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, arnd@arndb.de, catalin.marinas@arm.com,
+	will@kernel.org, peterz@infradead.org, akpm@linux-foundation.org,
+	mark.rutland@arm.com, harisokn@amazon.com, cl@gentwo.org,
+	ast@kernel.org, rafael@kernel.org, daniel.lezcano@linaro.org,
+	memxor@gmail.com, zhenglifeng1@huawei.com,
+	xueshuai@linux.alibaba.com, joao.m.martins@oracle.com,
+	boris.ostrovsky@oracle.com, konrad.wilk@oracle.com,
+	Ankur Arora <ankur.a.arora@oracle.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Christoph Lameter <cl@linux-foundation.org>
+Subject: Re: [PATCH v8 03/12] arm64/delay: move some constants out to a
+ separate header
+Message-ID: <202512160125.4rEePFm5-lkp@intel.com>
+References: <20251215044919.460086-4-ankur.a.arora@oracle.com>
 MIME-Version: 1.0
-References: <20251211-vop2-atomic-fixups-v4-0-5d50eda26bf8@collabora.com>
- <20251211-vop2-atomic-fixups-v4-2-5d50eda26bf8@collabora.com> <20251211224102.5e079d70@pumpkin>
-In-Reply-To: <20251211224102.5e079d70@pumpkin>
-From: Daniel Stone <daniel@fooishbar.org>
-Date: Mon, 15 Dec 2025 17:57:07 +0000
-X-Gm-Features: AQt7F2oFXSBO4SC0UxvNyq3w7s43LPnK4r_t9yQh-dyuuj24u5z5H133-vHKl9M
-Message-ID: <CAPj87rO45oAihxRhshwvP=9N6oDtd+yRN-R4M3=TsFYmwjr1cA@mail.gmail.com>
-Subject: Re: [PATCH v4 2/8] drm/rockchip: vop2: Switch impossible pos
- conditional to WARN_ON
-To: David Laight <david.laight.linux@gmail.com>
-Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Sandy Huang <hjc@rock-chips.com>, 
-	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
-	Andy Yan <andy.yan@rock-chips.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>, kernel@collabora.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251215044919.460086-4-ankur.a.arora@oracle.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_095720_054782_78601CDD 
-X-CRM114-Status: GOOD (  13.09  )
+X-CRM114-CacheID: sfid-20251215_100053_573468_241A7983 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,42 +99,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Ankur,
 
-On Thu, 11 Dec 2025 at 22:41, David Laight <david.laight.linux@gmail.com> wrote:
-> On Thu, 11 Dec 2025 21:40:32 +0100
-> Nicolas Frattaroli <nicolas.frattaroli@collabora.com> wrote:
-> > -     if (dest->y1 + dsp_h > adjusted_mode->vdisplay) {
-> > -             drm_dbg_kms(vop2->drm,
-> > -                         "vp%d %s dest->y1[%d] + dsp_h[%d] exceed mode vdisplay[%d]\n",
-> > -                         vp->id, win->data->name, dest->y1, dsp_h, adjusted_mode->vdisplay);
-> > -             dsp_h = adjusted_mode->vdisplay - dest->y1;
-> > -             if (dsp_h < 4)
-> > -                     dsp_h = 4;
-> > -             src_h = dsp_h * src_h / drm_rect_height(dest);
-> > -     }
-> > +     /* drm_atomic_helper_check_plane_state calls drm_rect_clip_scaled for
-> > +      * us, which keeps our planes bounded within the CRTC active area
-> > +      */
-> > +     WARN_ON(dest->x1 + dsp_w > adjusted_mode->hdisplay);
-> > +     WARN_ON(dest->y1 + dsp_h > adjusted_mode->vdisplay);
-> > +     WARN_ON(dsp_w < 4);
-> > +     WARN_ON(dsp_h < 4);
-> > +     WARN_ON(src_w < 4);
-> > +     WARN_ON(src_h < 4);
->
-> You need to do something when the tests fail.
-> Carrying on regardless is never right.
+kernel test robot noticed the following build errors:
 
-When we arrive at this point, because the load-bearing assumption in
-the comment has not been met, our options would be:
-* display random incorrect content, and hope that we aren't reading
-out of bounds from a buffer that's too small
-* turn the display off
-* there is no third option
+[auto build test ERROR on bpf-next/master]
+[also build test ERROR on bpf/master linus/master arnd-asm-generic/master v6.19-rc1 next-20251215]
+[cannot apply to arm64/for-next/core bpf-next/net]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Which are you suggesting?
+url:    https://github.com/intel-lab-lkp/linux/commits/Ankur-Arora/asm-generic-barrier-Add-smp_cond_load_relaxed_timeout/20251215-130116
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git master
+patch link:    https://lore.kernel.org/r/20251215044919.460086-4-ankur.a.arora%40oracle.com
+patch subject: [PATCH v8 03/12] arm64/delay: move some constants out to a separate header
+config: sh-allmodconfig (https://download.01.org/0day-ci/archive/20251216/202512160125.4rEePFm5-lkp@intel.com/config)
+compiler: sh4-linux-gcc (GCC) 15.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251216/202512160125.4rEePFm5-lkp@intel.com/reproduce)
 
-Cheers,
-Daniel
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202512160125.4rEePFm5-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> drivers/soc/qcom/rpmh-rsc.c:29:10: fatal error: asm/delay-const.h: No such file or directory
+      29 | #include <asm/delay-const.h>
+         |          ^~~~~~~~~~~~~~~~~~~
+   compilation terminated.
+
+
+vim +29 drivers/soc/qcom/rpmh-rsc.c
+
+     8	
+     9	#include <linux/atomic.h>
+    10	#include <linux/cpu_pm.h>
+    11	#include <linux/delay.h>
+    12	#include <linux/interrupt.h>
+    13	#include <linux/io.h>
+    14	#include <linux/iopoll.h>
+    15	#include <linux/kernel.h>
+    16	#include <linux/ktime.h>
+    17	#include <linux/list.h>
+    18	#include <linux/module.h>
+    19	#include <linux/notifier.h>
+    20	#include <linux/of.h>
+    21	#include <linux/of_irq.h>
+    22	#include <linux/of_platform.h>
+    23	#include <linux/platform_device.h>
+    24	#include <linux/pm_domain.h>
+    25	#include <linux/pm_runtime.h>
+    26	#include <linux/slab.h>
+    27	#include <linux/spinlock.h>
+    28	#include <linux/wait.h>
+  > 29	#include <asm/delay-const.h>
+    30	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
