@@ -4,59 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11088D5B16F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 13:59:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AA3FD5B16E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 13:59:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8ZU72f/WSkylee/jlvxwVkfbfYRrPrrwZE8L9knKBNI=; b=C2snbjNUjoB9jtrOfwtPBz4+WS
-	0zwi21X3df05UCAYqq4/5Fr1FQSozQtyM8rCU+cNHmzD+P4mTmo0OKtekRd8ukvW4TPNxz6CVBc+y
-	SdDy0/9p/BOyW5OTxr5zD4+rMKCd0LYdmOUbSK+2xHEpzL/vHT0NlOjNR9UbZAPf441BWEkcwvAiE
-	mrTM4oqt8C6rVRW9XOCUu2Alt+k3OLbAXLIc3uEO7FR00bRfoY1dB8RA6VJacVZE2xM3EbAcGcz37
-	7/dcaqYmq1mABprbzYJR2/QfjtuxaGA3xJfRKb/YGwbWXHhW7G4YKxNR0ZDDJ/CkJUakobT+sVMdD
-	y+DFFs6A==;
+	bh=yAI2GHGKtlyMfvLhtTdpQSmDEMl1PTNIwy4JdtIPJGk=; b=PFE3qZEpceNo++ZKyi9NIs9vLd
+	pQuQuxNGyKF+Zs7MIQITk/qbCki///gwnMAvjzoDBLWSi1qhZBVUfZGifntXfDv9jZ2xTTTe6nbYD
+	OakzyVZSYE3zfYvoynLMsna/zfwWtOvkZRZrN9GDsR5Yl07O8WP3m0lIhUwirZGU2IuHJ22oImWV+
+	6RxScyh5IbKnNYOEkucz/Alav2AEfhuW2Df2301Jn95KF7KXQYFp6+NQUAqB4VeSTjS9ezz543zzc
+	F1mTWoQ8JYqMNtztxGM1pfnnKqOdHOdSFcJqapbm4PJtRlzOPSlyi+5RxyFqfJxADgHJjIbcqkDw6
+	zDGKus0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV96y-00000003jEf-3jek;
+	id 1vV96y-00000003jE2-2CF8;
 	Mon, 15 Dec 2025 13:59:40 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV96v-00000003jCJ-2AfI
+	id 1vV96q-00000003j9Q-2fsk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 13:59:37 +0000
+	Mon, 15 Dec 2025 13:59:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EB0E16015E;
-	Mon, 15 Dec 2025 13:59:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93286C4CEF5;
-	Mon, 15 Dec 2025 13:59:35 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4FB8943DBB;
+	Mon, 15 Dec 2025 13:59:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B0D3C4CEFB;
+	Mon, 15 Dec 2025 13:59:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765807176;
-	bh=o0X2IyCU5xJJncvKbdeohmJq4Nt8o89APee6pHzCAfE=;
+	s=k20201202; t=1765807172;
+	bh=X8bSPkSn54gl5nm6i0LYZaDo4hg0moqVmaxzKL4v99o=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=jEvPfafcH0xiTVOe9LMvWBjQf488lqW7thyhMiVVthpo5/vh+2KdAn8BpLKo9i98v
-	 FuBThjuFN8DNEY9PWXJVaWsSJHzwCM1SiU5dmrHAGCIm3efvNPFyHFUxZC1w95DFDm
-	 hzN45fijycF81XBy2KM2ilr8ukGrEPoV4s00U2aSANlG5xjKwssk4vJceErAAsqU1u
-	 eSKXpPjJiUwvDPOl9No4mQogMnMoFoqMKfw/VUYhnhArR9Hjx4m9v09DI59pqCfwWA
-	 tyyNYgDkpPBENE0+lTuGw2Ne2fm2D8PMWJZR7Rz+A4bNiZpRMYt8EtFDPl5iLbBJVR
-	 45vCXp0M8calg==
+	b=iwvl8iBgu+44+2mrFTRq7DsILnmh9WsWrxJ7FmMphGh4FfjG4tmO+V34NacuArIUF
+	 m2pVgwx6tvl9Na7dwU7fwhRteO99B/KhsHUoD56Iml+avy/aMHJnvX5eZuF7Zq9wNG
+	 oq2znZ3YNJCiK89oSmjtUKUNcKnKxNDpE4VhNM3apDGTKGYxt1PcxnrlhCdRw0BDGD
+	 kCPhy0mDpCk8NzAW4Ez247ov2XZkOoUZxue96xbPQfnHgkV0aJYTS9E5lVxsMJ68AT
+	 mVG23SQ8NC/EZzsy0AOtP83ttMIl09fTp4Qqq1s/Z5rffxgQlZ7aHFHFJbSSCm+VlR
+	 L+7AMYNKxIM7g==
 From: Mark Brown <broonie@kernel.org>
 To: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
  Alexandre Torgue <alexandre.torgue@foss.st.com>, 
  Patrice Chotard <patrice.chotard@foss.st.com>
 Cc: linux-spi@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20251208-upstream_qspi_ospi_updates-v2-0-62526c9467dc@foss.st.com>
-References: <20251208-upstream_qspi_ospi_updates-v2-0-62526c9467dc@foss.st.com>
-Subject: Re: [PATCH v2 0/8] spi: stm32: Update for OSPI and QSPI drivers
-Message-Id: <176580717503.161463.8142752344614450653.b4-ty@kernel.org>
-Date: Mon, 15 Dec 2025 22:59:35 +0900
+In-Reply-To: <20251205-upstream_qspi_ospi_updates-v1-0-7e6c8b9f5141@foss.st.com>
+References: <20251205-upstream_qspi_ospi_updates-v1-0-7e6c8b9f5141@foss.st.com>
+Subject: Re: [PATCH 0/8] spi: stm32: Update for OSPI and QSPI drivers
+Message-Id: <176580717045.161463.13864912582865667097.b4-ty@kernel.org>
+Date: Mon, 15 Dec 2025 22:59:30 +0900
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.15-dev-47773
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251215_055932_714039_FFEE5568 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,7 +74,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 08 Dec 2025 08:29:07 +0100, Patrice Chotard wrote:
+On Fri, 05 Dec 2025 10:04:50 +0100, Patrice Chotard wrote:
 > This serie applies the following updates on the spi-stm32-ospi and
 > spi-stm32-qspi dirvers :
 > 
