@@ -4,56 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4144D5B16E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 14:12:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84A96D5B16E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 14:12:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r3vBDPiRwM/pFVmzlF7hTqqQx7+trjW5u24oYfBFoQo=; b=FhUZRWaV0/LTmFIqUKvtLzavDP
-	1HouL2ZO5ulVLcro7afLP1Freu20npT3Xplutt7MkLxc8zrykkKOmOKefLdCOZHd3dj61FNsoXD/R
-	EdxDDXI8Hd0830UpaGk6widRSXU4KXzKKpHvvI2XuYoVsU94rIpLSbxv43QMq04BS4isI97XhfeUM
-	T7OeHc9wL/n1q+VkkjDOvjEwb27QTRr2Z8iB0zoEZT0/Qh24jgx/h3iuozwDbXRNlUQ1n0Np5X6As
-	zVKxRHylwZ0WM1efiLUero6vLlqYaNco8rfuw7dzhzkIVtpT98YuUPRCaaoTw+PfPnaST7xRqt8IG
-	nmEr7yAQ==;
+	bh=p065Ctfv0+YZkVudNfEaBaJuLCONxpch52O21i+TW98=; b=N+UrDtMbWsFroXSfoxLfJPk7Ob
+	fm2Gntl6A2sG8cMofbDHijuyXXBfClJ+FQPTjD7yOBblCE7Uw/vusvXSOobB2U4OEyyTp8LWaXHYY
+	IbanEgXFyEA6mukVcss9gKzXWDc3pQbHCt5CHMbjG7WfysDo432BBB29aA+fQieoi1ThhxXN28ijq
+	18wbwfeJmhD1WK2I1kC4h4ZeJF/Qp1g2tNyuhOpIKk9h65abChLks/G4xDl2wHdd5b1vuRQorHWeb
+	cWMswllt5214/WtaTFqX+5dEzVB7khtjQdaUBQsqKTp3OenwwpwHORkfF73LJ9QtPlIpS/ptIoEIM
+	PGJCAh5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV9J5-00000003lBx-2CkG;
-	Mon, 15 Dec 2025 14:12:11 +0000
+	id 1vV9JP-00000003lNg-2gOb;
+	Mon, 15 Dec 2025 14:12:31 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV9J2-00000003lA0-2wOY;
-	Mon, 15 Dec 2025 14:12:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1765807894; cv=none; 
+	id 1vV9JN-00000003lMh-2bzW;
+	Mon, 15 Dec 2025 14:12:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1765807912; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=P04G21Yi4J5KwA1r0rsmtaqXn7iCetRyaLCG+kHUhN/Jj8ozKvUHGIHDtLAKPlu5sF2JqiVgChtONtELHJUdNHtn3pM2k7o2r8/gZ7eXJyxxP2O/IF/8XbhsEP1bK1jVLYbeODanA2XNWv8j1i5dU1lamYhfqEVpoCvX9wKsYpM=
+	b=Pe5zEGen7DWMIxa0od2V27KaZd5+IYdcsbmA109St1b4Tma8sLq/nrWMj+pK4uYwDZdpkmOoFUsuFE579SDvm13+7leM3eeELm4eMNSI4yJa7lWF8dpZONizF/rgv4vVfeWE+xY+67aV84AIH1S5hQ5w3vXTvaXWCPl19OUzajo=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1765807894; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=r3vBDPiRwM/pFVmzlF7hTqqQx7+trjW5u24oYfBFoQo=; 
-	b=H8Bgy7c1YZG7u8kFE30rTI9vj8bO0b9UVJVSWDKqiOeehxDUpbCfMX6eYJPwiiViGeS8mlGIKZBWR4RaFYbI+EM4oXqzkcF/jacQ2T7/1ULg11b3iWWXXFgcN6DR4ULK3z+JIN+xKKCzMT3buV/7y7taf8Rj3iP7dF+UzLkNpbA=
+	t=1765807912; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=p065Ctfv0+YZkVudNfEaBaJuLCONxpch52O21i+TW98=; 
+	b=l39otskCqJRUucKHJXIrtcgsQwwak6Jpfxgi4eNObTAEFpGM7Ebp/fyVJsSHDY3L9MQCGl+IllVUhvKfQ9CPpmQQf7uzACKXZPkROzTp7evXYNaptubrIi2VEZk7N9wgScdjQH0giJj+S1AhFagT1Crw6BAlckbGKQyEDrwHgRo=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1765807894;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1765807912;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=r3vBDPiRwM/pFVmzlF7hTqqQx7+trjW5u24oYfBFoQo=;
-	b=AhgZgkRMYY11fJouSY6tgowdzal2IXzfQBRuhv58oZqt4JozGSw0skNTibIrhG6j
-	D9v86VkjIJPZxE/E0zk9xKmhAWqBdMj3Qy3zH3Hbf9EoAG7xQrrR7/xCqXa6IV6XY6m
-	YDQMq/1JDqa3DmJFyowYNAJ+pvITu9+pAmVRgS8c=
-Received: by mx.zohomail.com with SMTPS id 176580788851118.171113445808487;
-	Mon, 15 Dec 2025 06:11:28 -0800 (PST)
+	bh=p065Ctfv0+YZkVudNfEaBaJuLCONxpch52O21i+TW98=;
+	b=d9lZdGCXn+1rU5HzZhl0hdtdnqfneWhgLdqRxMqHXX/AyhNVd3bu+MmX0o/wsYII
+	q7XzwADK0RkiHmRCiZ5osIZHFzDuqx/8TmEdb3Wg/TEcvjc+FWorWA02yH4tbvLAvnT
+	mkGyloQ3O+cP4sWYa4jwwbKg6XaA1qr1DoDHuh6M=
+Received: by mx.zohomail.com with SMTPS id 1765807906487314.75561026470734;
+	Mon, 15 Dec 2025 06:11:46 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Mon, 15 Dec 2025 15:09:22 +0100
-Subject: [PATCH v5 6/8] drm/rockchip: vop2: Enforce AFBC transform stride
- align in plane_check
+Date: Mon, 15 Dec 2025 15:09:23 +0100
+Subject: [PATCH v5 7/8] drm/rockchip: vop2: Use drm_is_afbc helper function
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251215-vop2-atomic-fixups-v5-6-83463c075a8d@collabora.com>
+Message-Id: <20251215-vop2-atomic-fixups-v5-7-83463c075a8d@collabora.com>
 References: <20251215-vop2-atomic-fixups-v5-0-83463c075a8d@collabora.com>
 In-Reply-To: <20251215-vop2-atomic-fixups-v5-0-83463c075a8d@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
@@ -70,8 +69,8 @@ Cc: David Laight <david.laight.linux@gmail.com>,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_061208_799185_65659BF8 
-X-CRM114-Status: GOOD (  10.21  )
+X-CRM114-CacheID: sfid-20251215_061229_722934_481DC625 
+X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,45 +87,28 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Daniel Stone <daniels@collabora.com>
 
-Make sure we can't break the hardware by requesting an unsupported
-configuration.
+We don't need to do a long open-coded walk here; we can simply check the
+modifier value.
 
 Signed-off-by: Daniel Stone <daniels@collabora.com>
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 12 +++++++++---
- 1 file changed, 9 insertions(+), 3 deletions(-)
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index 0eab3370f088..7591a34ba912 100644
+index 7591a34ba912..707b48c7e9d8 100644
 --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -1083,6 +1083,15 @@ static int vop2_plane_atomic_check(struct drm_plane *plane,
- 		return -EINVAL;
+@@ -1207,7 +1207,7 @@ static void vop2_plane_atomic_update(struct drm_plane *plane,
+ 		return;
  	}
  
-+	if (drm_is_afbc(fb->modifier) &&
-+	    pstate->rotation &
-+		(DRM_MODE_REFLECT_X | DRM_MODE_ROTATE_90 | DRM_MODE_ROTATE_270) &&
-+	    (fb->pitches[0] << 3) / vop2_get_bpp(fb->format) % 64) {
-+		drm_dbg_kms(vop2->drm,
-+			    "AFBC buffers must be 64-pixel aligned for horizontal rotation or mirroring\n");
-+		return -EINVAL;
-+	}
-+
- 	return 0;
- }
+-	afbc_en = rockchip_afbc(plane, fb->modifier);
++	afbc_en = drm_is_afbc(fb->modifier);
  
-@@ -1290,9 +1299,6 @@ static void vop2_plane_atomic_update(struct drm_plane *plane,
- 		 * with WIN_VIR_STRIDE.
- 		 */
- 		stride = (fb->pitches[0] << 3) / bpp;
--		if ((stride & 0x3f) && (xmirror || rotate_90 || rotate_270))
--			drm_dbg_kms(vop2->drm, "vp%d %s stride[%d] not 64 pixel aligned\n",
--				    vp->id, win->data->name, stride);
+ 	offset = (src->x1 >> 16) * fb->format->cpp[0];
  
- 		 /* It's for head stride, each head size is 16 byte */
- 		stride = ALIGN(stride, block_w) / block_w * 16;
 
 -- 
 2.52.0
