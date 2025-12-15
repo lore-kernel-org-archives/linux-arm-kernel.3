@@ -4,156 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6517FD5B176
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 10:20:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81447D59D99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 10:24:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yxzN3aiY3DdD0G7xCGQJ5UVLzyvlmS9JMliSeUp60sg=; b=hiMuHiiXIfE+W54eArhThijyy7
-	sCLpa+iIvSKters54hnWCSnSjbY1XGItBvfWszr10xCSXsQb3ryQUw2YRtxeZEfOmb2M/RYEChMhM
-	DBYyZvwmV7oc0RExhx8LKMcTX+RpfeKBTiCf0SWiYpNnVVKEzBq4zM89egUhxfLQVnRvEEfbxWRO3
-	8gy62W/lGS3Pov/ojz89Ja5u0T5XKG6rzAMOd0cI/pV+PU8jrrzDszMNx0Uj6hX2CTfLyzBs+sUsh
-	sSy/Of+3RS0oKWF/xgs3GzNgXyLAgvpab6dl5n5hCx3qkImuvQeOo55UzW6ImN+MbKWcDnIXWVBiP
-	w94m9fyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=sBsztCZvN1TwT/rBOoE+/nHWNkGvyC+G21JWeCvj0sc=; b=NIn2UPQF/EF9t9
+	3RxMasDSXfo8KTeo6STgaIUUvLJxgcj8jPgbsCj92dVy5mbvQbrlwctM5z9aK23tiFsdZDndLBHyL
+	l1De3aDfz3Du0JEH6SbAnchnKsVU6ziKvQau5sgVaYd3TWkABvTXIQACH37n+QJpHghcRc5R/4MnX
+	a2SKIEzbAxI2jWbX40ktW7IR5RhV/6tF3/uSV1SfUK3uwncP2fLruOIQJQUJNpVqkCeAHgxfjM2Dz
+	t/3AD6ka/dpYtN/tHimh6vZPqPh1Bo8M79WFwA72fWg30Ad4+xZBEaV1uzC0QQ0qynOkjb7j21qht
+	hfw52w/5NlFDui6MdNbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV5hC-00000003RRu-1rkz;
-	Mon, 15 Dec 2025 10:20:50 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1vV5kw-00000003RfQ-1tSM;
+	Mon, 15 Dec 2025 10:24:42 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV5hA-00000003RRT-28ba
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 10:20:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sscuDosUNXp31thYVg9PaAefjD6xEBrFgQqQDkSpbsBAAJNZcAEQKrElCLDy2CD+MlvGoNouOWcsczladL3O0u4VyToCnzEEv8iz4r34UEosD2Y88Ds2HiQiQykAC37R+Z4C7XGSlkhnbCfrXsI/WWkAvPy6PJtcGv/c9UQEK488vqbArA4jTKugEEtjHCeChxhdkhcjShMvb7KEIYdpMPzPZN8yxEQb2eynSoSfuZqfJsQLiOH5TC6QuV0+mKElcvrVCSGIkELigw3cUvytXrOnZb5pMXf+IsHUPFOz2ZI+p3+aZCJwQWt6uMtN7H+ytH2xNAvnaIvzfAIY8uKxAg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yxzN3aiY3DdD0G7xCGQJ5UVLzyvlmS9JMliSeUp60sg=;
- b=YlBUAK+UHyJ2vs+bOxGNCxZfkjv90xDH5QCavJG466TqZz5UPLz3v7d2WSDyZ6TjMSUjPM23hLR+TbEt3GbLLMsNqDaCjxTs2d3682NHW8yay7v4pImxzBvsHKMqRQIZtDjXTS7T9YYczwAo5Prv3BN7MPgtAcVDRsi6twFZwbENzmv+auzZWw/RoT1C2EmupMDyyF2PRjsDrxo4yhVh3B65JUaze7nnQyr2qQ5SGFRRm0vLNhs8lQc8/OPMVvoBKEFZmkviBuIxFOcuMlaQGnFB7jmzb2eTwC/kMkAs4VWw6eLmMYbhMS4B0JntpC2xy7BbBHwvKZ88daAZpJN5ug==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yxzN3aiY3DdD0G7xCGQJ5UVLzyvlmS9JMliSeUp60sg=;
- b=SMz1ColVuuYNFHHLDj9BSYHjZ3YG/SI7u0W4K8k9FK+iX1WlK8vM3GVy5Cf4l8IH/0QB31ciy++4z9n7eNNz9AXxXT2mwQJfIqzVFcGMXMTPBU0TUfxiI1fvwijmcFbly5XPxEvofcmo1ZTpuKpQ5MqzwQPwH1cF6xHNma106x+oljXN2t4hnf56ep/2myK9lut55ERy/n6h/EKORAvu6dAVOsJp6k797Bp3mI2FSZPJdJ24WD9jHOrj61PMjRfBU8EjZ8erWDNlult5JjnFEkGs9+wrndvrkFa5r1n2kyBjTPfi5oQhXu49X0kvXhFiHitJ18UkF+xhH23uw2qF+w==
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AS8PR04MB8866.eurprd04.prod.outlook.com (2603:10a6:20b:42d::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.13; Mon, 15 Dec
- 2025 10:20:42 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9412.011; Mon, 15 Dec 2025
- 10:20:42 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Shenwei Wang <shenwei.wang@nxp.com>, Bjorn Andersson
-	<andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, Shawn
- Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>
-CC: Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
-	<festevam@gmail.com>, "linux-remoteproc@vger.kernel.org"
-	<linux-remoteproc@vger.kernel.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, dl-linux-imx <linux-imx@nxp.com>
-Subject: RE: [PATCH] remoteproc: imx_rproc: Use strstarts for "rsc-table"
- check
-Thread-Topic: [PATCH] remoteproc: imx_rproc: Use strstarts for "rsc-table"
- check
-Thread-Index: AQHcaJsRpvSgZG43WEGbv/V//qPUhbUihaIQgAAB0sA=
-Date: Mon, 15 Dec 2025 10:20:42 +0000
-Message-ID: <PAXPR04MB8459D21BF666688CBBE92AE188ADA@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20251208233302.684139-1-shenwei.wang@nxp.com>
- <PAXPR04MB84599C141E28B6B83BD62C2388ADA@PAXPR04MB8459.eurprd04.prod.outlook.com>
-In-Reply-To: <PAXPR04MB84599C141E28B6B83BD62C2388ADA@PAXPR04MB8459.eurprd04.prod.outlook.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|AS8PR04MB8866:EE_
-x-ms-office365-filtering-correlation-id: 95a1f1ea-0a63-422c-99ce-08de3bc39a5e
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|19092799006|366016|1800799024|38070700021;
-x-microsoft-antispam-message-info: =?us-ascii?Q?RQzIYGc7Yv3KW7ghrYyH80Qx3z/IGmsRUxSkNmnrK6v+uk92yGb/6klQpW5z?=
- =?us-ascii?Q?M//TxPoyauCH3/Ndzt+juOXFkc8qFkOU03fprZEhn3T+dMkDKO+efBgkbvln?=
- =?us-ascii?Q?RaBMcDTB/EYrUP9mhMy85l31UIYjSr5YSQ4dKcEQVm1IsO2AX3uFHaUulzEk?=
- =?us-ascii?Q?V1AaMZO0qMkKKsCCuWUerZKLpOQ+vpPTKyeRupaDmRSnf1O+ParcMHJo0x5x?=
- =?us-ascii?Q?m7O7bUlA8Z0mjXN6F7C5hOYetbbfeWQNsH8Rgt/gDJkJXbYd+LcgjFc79qda?=
- =?us-ascii?Q?/wt5BBq3MHihqpERfpRchz4dhRCIxY5QMHIrtZ8zqbrvKBqYRijdFTLqq+uE?=
- =?us-ascii?Q?zkSXhXJ7dYnMxWoKb5r16BcUDMmGmkDKb41man+4IOsKKqFGJF+4Cn7Z2YKi?=
- =?us-ascii?Q?u8n7s6KZEjixyDyZvfj7YevtXeVjQ2+O5tPKldMYz/k5n0hTKwSNqn/gIfoL?=
- =?us-ascii?Q?KkbMyAIhOYd1o8QVGvKT77L/ITCnFXvKz931R3gK6j1kkD5XvrvzbZLYyqq+?=
- =?us-ascii?Q?H5r6d1k+2KIoTVSti4/OcCyEN4ZBC9dsUuj02EUrQMzKj0MvyX9S63Goa8kB?=
- =?us-ascii?Q?xReCgjLxcTNKrybNeMStcoHz+jkH0murBXf/gw3OgJe7g/wn5S9yvyIcxCEK?=
- =?us-ascii?Q?Dppk/WXsWl79W00PH6cjmiAOwxQnKt8tRrcMwVuQfTUGT6ROBW0+F1YH03xO?=
- =?us-ascii?Q?41tyfZKb86wbw7Isipu7Abry7s+h56upYnr8t5evuYAafHY9hpDeaAJDsK/C?=
- =?us-ascii?Q?r/xylIYPDW3fePlRjXbJKXISav/6IKOG7AoBZez5N6IGhd589fcfUoJXkZK9?=
- =?us-ascii?Q?N8GDpiqtPoZVMa66o0y4oRw/uKGbP9Qd2Eggf/OCvseoKwyA8bfyLdVnhwuH?=
- =?us-ascii?Q?43W+uPScMo+mEiWd2luvqk9hY4bJ6hys2IinWrf8Oe74Av5d3iq+BSyrtnbs?=
- =?us-ascii?Q?rCviSXpgrfb0Q5O/AhuAUejoEHLErlrgdBgT4ZNULYg3QxY24lNi8W7V1Xzu?=
- =?us-ascii?Q?nKE6pZaXjj9Iidt9Ch4khzuL2srCbvxiBW4bAlRR0lRw2/MO3u4uoXmXv1Y3?=
- =?us-ascii?Q?Bd3QX4s2IFhMG1HLCD0+uBb671XVLb3M4UeMVAQagqpydl4DW3HIyeBeXSpC?=
- =?us-ascii?Q?tOHiGmE3a8kQfNyKBZ5a3ugKaFAPVQGZM2WYDYFqe+l8pAudumHirNxCO2j3?=
- =?us-ascii?Q?z/GhbQzjm6Vtvv13HxRNy5DoeoNzbPonqSbaO/xVYi6LEK2GAxKba2Qi2kcW?=
- =?us-ascii?Q?EA5DVjlMHL4fdqeVM3fjixpBFjMDwztSk3RWK4vc6U7fs1C7dByox0SQAkQX?=
- =?us-ascii?Q?nawboGbDirsP1RwmnvMpI/AYYxZd6nKsvxyrC9HWX/z38Nam+I6ShmhwSCbN?=
- =?us-ascii?Q?+2ayPvRgwK2eGLEvXVf1apXmQWTkcyQwIMKU1Mi1KzhRXPm6puaCZCciLYi+?=
- =?us-ascii?Q?tQKKQcaS57V3mEwoL6rE+KOfrkeC7SnoddlPbMcjo74T4pqTHrsjsafwAtb8?=
- =?us-ascii?Q?zF32/hTks2SSDVNmaFm72cN0gZANqQV6qQ8K?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(19092799006)(366016)(1800799024)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?AN1/4cwzDCkOKHGDalbb7AKeVgJBcZ4SfopHjFtd7du7O12V7NcZi5E9SATt?=
- =?us-ascii?Q?R7SQHOi/2IZwWCECqQp07ZbYLR9K+eEASxUI2+eUjsiqlsfJhPBdpVpFWqbI?=
- =?us-ascii?Q?d8oCyOku1Z9Cqc/GvivP2wdTOSBIpLmrtG5ts2Pv7cZSTIiYit5nYzgxMnWG?=
- =?us-ascii?Q?DB7aeYcF4fpfo+U8Fty+kJCeDuyNxzD58uYGXydKVedFrf/bJipaaZLlr7bX?=
- =?us-ascii?Q?4roYhMrwAUnW8HdVJ4d+CBRkZBcJJmB6gNEGf/2iFdgMBwstksPkzjJd8/PE?=
- =?us-ascii?Q?e39QPNlo101veJnwbsPf3Th13C7yFiFE31x4xRDbaTrtaQEcvhtsPkKiQPPF?=
- =?us-ascii?Q?N7JV6xmqFHh0mwMSPi5RiCVBuDFdE9fG06QuaPi7RbXJdAHxWlllzY38fLao?=
- =?us-ascii?Q?Aqk39Obeu2CO9ht79M9XQAcJB8i52g6erRA3uTcc7ZWx5mySyoLRip6tt5wC?=
- =?us-ascii?Q?u8uVwowS4NLOM2X+U8EJVXg1o52U1PFKYiR31EDlcnrTbA3Avl/Y04Bo3jEH?=
- =?us-ascii?Q?aVKwtYkzZ79gjkloByUpUhZWMYObQMvTt7wsZDfJ5j1WxMHRdM26yUi8iTQF?=
- =?us-ascii?Q?FLoJJCSkalplZ8WaA8pOB2f0iEZFsHE97DvkGSM45zoo8B3RcVBoV8h9KTLQ?=
- =?us-ascii?Q?JrPhnVzT9/dQ0KV4CxCU9qtMaoBQ21bMO+hELO5ebker7CS8rm2TFze82NQf?=
- =?us-ascii?Q?4a3shoJt3TgxcGZboX1zBFhSZoCzPgo0sDdbUT0Xym0JFMV4TmOtrN9xHDFi?=
- =?us-ascii?Q?5RZAqnKu/nSLN5BRTR0EsKn+P8wCFEvfY5NWsrl56ZMgiLgjG4kcte36Nn4W?=
- =?us-ascii?Q?qCWyUNNKwJSZrFOiR5FwA5vN7uNORRL+A2M6ED7jq/aI/RLVn78ebEuKzHRO?=
- =?us-ascii?Q?+WWwiHrFMPv4w4XqliKjLogq5U3d3GdOMqVLaojiAIQnm2dkSvrOoEy+Jx3k?=
- =?us-ascii?Q?RRy884qaANWZ+DVYNVCBJGbRMU95Hbav0XOXgBU77BiV/HKcfPtuTAqcYkn9?=
- =?us-ascii?Q?NV5RmDlK/flo8QphM/17ArZkKQ2rlpPWTtepjmB97MAmicxg7QEQFbdpQ0Yj?=
- =?us-ascii?Q?qb5dqCOGmulDhLAx+DFv2XjleJHw/LN/tkcS+KVYR6p3QEIZe7+WHsll6974?=
- =?us-ascii?Q?HA3dsD8k0jBBAEtPkhfjpGGe/MkVdd51VxOJpT0Q1KO8pmKhWEsg381nKJMs?=
- =?us-ascii?Q?kJonzYD3xJBf7w0/OsTHcbuYGjSm8jy4tuURCB9vz+OUSejVLmEhsk3kjubs?=
- =?us-ascii?Q?ZvdzFrlaYYd+OBCAHf1u1BPgU9enPiT74RyqvjJFUNg83MxEQ4SJ2HUoNQ7g?=
- =?us-ascii?Q?3gldKt2AdFetY6YO9rOS0oLi/3IQkjFMgx8SwrOaXQVcqQGYHFFneqB3dIfo?=
- =?us-ascii?Q?A1dHhHZPuoPviVN0ThMx0dAivtkgtDuNxglTp16IGHF2M6voExIua1biyXUr?=
- =?us-ascii?Q?dP7TTbmKbHGO2jPpGiV208106/wCSYKDtO5VnidRsapv4OCeyNJWR+jshiqw?=
- =?us-ascii?Q?hTqv6RsEO1aAhv1ie8QeqS2J5WUgFJ3HNl1ELh2Eh0Sb04u8eW4pwYl6bJU5?=
- =?us-ascii?Q?9yapv4ZeTBbiIviOKMU=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1vV5ks-00000003Rdw-3iIA;
+	Mon, 15 Dec 2025 10:24:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1765794260; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=QLjlPj+tvZWRAjoGNAGyEoOpem8GcrNjacZoKbw2y6I8mcqEi+D+BhRCQEpe+9nW/4NaMetQNvL/wc/Tws0Wx7OOejSixtTScyLnvri1UeSPZpHvHV3+sMJqoxw8YvDPL5NquTSw5a6xbj1q+qpAZhdKfnQRHW8JyGEHx/ttr8w=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1765794260; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=sBsztCZvN1TwT/rBOoE+/nHWNkGvyC+G21JWeCvj0sc=; 
+	b=THSRqDBximEy/ELB6IMOFF1tawjZhVMy/ImN9/MmQIan+l2RorkP4+Gi6Q2RrS3Dv225NYxnlIJZ51kq4M4PMCH1AA1UG8/5SX8BX3PR0IYCj+NpbpP9jfFS8RhFdKKxocUcMP9LwX80P7mSKBZt0/P9YJPbhTlTEVCvqxO2FVQ=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1765794260;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
+	bh=sBsztCZvN1TwT/rBOoE+/nHWNkGvyC+G21JWeCvj0sc=;
+	b=IP0Vvkg70yvbd9j92sv04YVU94CqXrZX64p0QBosLPjHFwyM1m4WiRk3HiJCSsuv
+	E2hxlye0IweZhvgoLWAIUAOnhH1SAaMIKaw/D+XCpKbNyBeJCxlPtnO3+pQuXsOxtE2
+	uh6iu6rzhW73uLqrcse1zHJwDQdl401065frIyn0=
+Received: by mx.zohomail.com with SMTPS id 176579425872939.55466776054391;
+	Mon, 15 Dec 2025 02:24:18 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Subject: [PATCH RESEND v3 0/5] MediaTek PLL Refactors and Fixes
+Date: Mon, 15 Dec 2025 11:23:57 +0100
+Message-Id: <20251215-mtk-pll-rpm-v3-0-5afb3191e869@collabora.com>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 95a1f1ea-0a63-422c-99ce-08de3bc39a5e
-X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Dec 2025 10:20:42.7606
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: LDcCkPuN/F9FW/WKQCM/4k7UHKT9+NVDbl5gIf8bvny5DPYt859hdeEa6S2uhisHChxuR5NdcC0GUjIfQ86p4Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8866
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Dong Aisheng <aisheng.dong@nxp.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ Yassine Oudjana <y.oudjana@protonmail.com>, 
+ Laura Nao <laura.nao@collabora.com>, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>, 
+ Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>
+Cc: kernel@collabora.com, linux-clk@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_022048_593274_D97C860B 
-X-CRM114-Status: GOOD (  19.36  )
+X-CRM114-CacheID: sfid-20251215_022438_982155_3601AE6F 
+X-CRM114-Status: GOOD (  13.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,59 +83,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: RE: [PATCH] remoteproc: imx_rproc: Use strstarts for "rsc-
-> table" check
->=20
-> Hi Shenwei,
->=20
-> > Subject: [PATCH] remoteproc: imx_rproc: Use strstarts for "rsc-table"
-> > check
-> >
-> > The resource name may include an address suffix, for example:
-> > rsc-table@1fff8000.
->=20
-> device_node->name does not contain the suffix "@xyz".
-> device_node->full_name contains the name and "@xyz"
->=20
-> Do you see the device_node->name is rsc-table@1fff8000 in your test?
+This series refactors all users of mtk-pll, just so we can enable
+runtime power management for the clock controllers that want it. It's
+also generally more useful to have the struct device in the pll code,
+rather than the device node.
 
-Ignore above. I use an old tree, just see this change
-"remoteproc: Use of_reserved_mem_region_* functions for "memory-region"
-use res to replace device_node.
+Also fix up MT8196 mfgpll to declare its parent-child relationship with
+mfg_eb, and fix the common clock framework core to take
+CLK_OPS_PARENT_ENABLE into account for the recalc_rate op as well.
 
-Regards
-Peng.
+The reason why this is all in the same series is that it grew out of me
+first modelling this as an RPM clock for mfgpll, which Angelo disagreed
+with, so I did some investigation and it seems MFG_EB indeed is a parent
+clock. However, the earlier refactoring to pass the device pointer down
+is still useful.
 
->=20
-> Regards
-> Peng.
->=20
-> >
-> > To handle such cases, use strstarts() instead of strcmp() when
-> > checking for "rsc-table".
-> >
-> > Signed-off-by: Shenwei Wang <shenwei.wang@nxp.com>
-> > ---
-> >  drivers/remoteproc/imx_rproc.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/remoteproc/imx_rproc.c
-> > b/drivers/remoteproc/imx_rproc.c index
-> > 3be8790c14a2..33f21ab24c92 100644
-> > --- a/drivers/remoteproc/imx_rproc.c
-> > +++ b/drivers/remoteproc/imx_rproc.c
-> > @@ -694,7 +694,7 @@ static int imx_rproc_addr_init(struct
-> imx_rproc
-> > *priv,
-> >  		}
-> >  		priv->mem[b].sys_addr =3D res.start;
-> >  		priv->mem[b].size =3D resource_size(&res);
-> > -		if (!strcmp(res.name, "rsc-table"))
-> > +		if (strstarts(res.name, "rsc-table"))
-> >  			priv->rsc_table =3D priv->mem[b].cpu_addr;
-> >  		b++;
-> >  	}
-> > --
-> > 2.43.0
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+---
+Changes in v3:
+- Make device_node forward declaration a device forward declaration
+- Remove forward declarations of struct clk_ops and struct
+  clk_hw_onecell_data. (clk-provider.h include remains as it's needed
+  for a complete type of clk_hw)
+- Move PLL_PARENT_EN flag to individual mfgpll definitions.
+- Link to v2: https://lore.kernel.org/r/20251008-mtk-pll-rpm-v2-0-170ed0698560@collabora.com
+
+Changes in v2:
+- Drop bindings patch
+- Drop mfgpll RPM patch
+- Add patch to also transition pllfh to passing device
+- Add fixes patch to make CLK_OPS_PARENT_ENABLE also apply to the
+  recalc_rate operation
+- Remodel mfgpll's mfg_eb dependency as parent-child with
+  CLK_OPS_PARENT_ENABLE
+- Link to v1: https://lore.kernel.org/r/20250929-mtk-pll-rpm-v1-0-49541777878d@collabora.com
+
+---
+Nicolas Frattaroli (5):
+      clk: Respect CLK_OPS_PARENT_ENABLE during recalc
+      clk: mediatek: Refactor pll registration to pass device
+      clk: mediatek: Pass device to clk_hw_register for PLLs
+      clk: mediatek: Refactor pllfh registration to pass device
+      clk: mediatek: Add mfg_eb as parent to mt8196 mfgpll clocks
+
+ drivers/clk/clk.c                            | 13 +++++++++++++
+ drivers/clk/mediatek/clk-mt2701.c            |  2 +-
+ drivers/clk/mediatek/clk-mt2712-apmixedsys.c |  2 +-
+ drivers/clk/mediatek/clk-mt6735-apmixedsys.c |  4 ++--
+ drivers/clk/mediatek/clk-mt6765.c            |  2 +-
+ drivers/clk/mediatek/clk-mt6779.c            |  2 +-
+ drivers/clk/mediatek/clk-mt6795-apmixedsys.c |  2 +-
+ drivers/clk/mediatek/clk-mt6797.c            |  2 +-
+ drivers/clk/mediatek/clk-mt7622-apmixedsys.c |  2 +-
+ drivers/clk/mediatek/clk-mt7629.c            |  2 +-
+ drivers/clk/mediatek/clk-mt7981-apmixed.c    |  2 +-
+ drivers/clk/mediatek/clk-mt7986-apmixed.c    |  2 +-
+ drivers/clk/mediatek/clk-mt7988-apmixed.c    |  2 +-
+ drivers/clk/mediatek/clk-mt8135-apmixedsys.c |  3 ++-
+ drivers/clk/mediatek/clk-mt8167-apmixedsys.c |  2 +-
+ drivers/clk/mediatek/clk-mt8173-apmixedsys.c | 14 +++++++-------
+ drivers/clk/mediatek/clk-mt8183-apmixedsys.c |  2 +-
+ drivers/clk/mediatek/clk-mt8186-apmixedsys.c |  2 +-
+ drivers/clk/mediatek/clk-mt8188-apmixedsys.c |  2 +-
+ drivers/clk/mediatek/clk-mt8192-apmixedsys.c |  2 +-
+ drivers/clk/mediatek/clk-mt8195-apmixedsys.c |  2 +-
+ drivers/clk/mediatek/clk-mt8195-apusys_pll.c |  3 ++-
+ drivers/clk/mediatek/clk-mt8196-apmixedsys.c |  3 ++-
+ drivers/clk/mediatek/clk-mt8196-mcu.c        |  2 +-
+ drivers/clk/mediatek/clk-mt8196-mfg.c        | 15 ++++++++-------
+ drivers/clk/mediatek/clk-mt8196-vlpckgen.c   |  2 +-
+ drivers/clk/mediatek/clk-mt8365-apmixedsys.c |  2 +-
+ drivers/clk/mediatek/clk-mt8516-apmixedsys.c |  2 +-
+ drivers/clk/mediatek/clk-pll.c               | 19 +++++++++++++------
+ drivers/clk/mediatek/clk-pll.h               | 15 ++++++++-------
+ drivers/clk/mediatek/clk-pllfh.c             | 13 ++++++++-----
+ drivers/clk/mediatek/clk-pllfh.h             |  2 +-
+ 32 files changed, 87 insertions(+), 59 deletions(-)
+---
+base-commit: adff43957b0d8b9f6ad0e1b1f6daa7136f9ffbef
+change-id: 20250929-mtk-pll-rpm-bf28192dd016
+
+Best regards,
+-- 
+Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
 
