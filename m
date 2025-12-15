@@ -4,85 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C935D5B843
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 15:50:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 060C4D5B846
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 15:57:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2AIfMVMpoNrBDMLFVujv4CBoT6ExZsShIy+rhuoUUA8=; b=O1seB/rucD5jlyAD3xhHI8idsf
-	Q1NhnMnqRwMLFIhv8zanvozpMOyrPLSYagTVGe3h7NptMCfyzGEdwHVUD0RWFUmgkZ870B2x1JOxl
-	UqJ3DSNXagDCQxu+1lXUaA4hClPLcjtc/S3zkY0h64VukFIbVbGGl7e1d3B/1pHaGxxTpe6bZPC3z
-	FpWE+DSam/u9H6AndvVZ3I75di7m490584BRo4gnmfuD5SORLn21vMNK8KFiksHIrFdoanu6VRTD/
-	lQJmKA4sKegKqxCWbwZMHs8WNqBtzzeWFUbO6HQPfagf8Yr9MN5dBzZGZgEvvSOXJE/bsl55ESc16
-	htcwptjg==;
+	bh=C09fmyMEduK1iyPZFMGELqRX5X/nS9NPR5cuFoMTXWo=; b=mcZYTAbYEqo96Sp0yVNbmoUhAF
+	9H9NU1OisZiNRcLopvEytszV6SqGvB3st+3cspHt7DY5LGOS6urOiH85kXJceqtsggSOWFLDr06rF
+	sQUCPDjwcutc+G7me6p2csfgxPfFEbdTQ/NCdnvB2B0CynOzwGTB0gC+B3xewkU2vCcvzZJnpmXcJ
+	lcMMH19hjEUlJ99THYqr9OKwLhHB0lkocHV2NgijwjdUVmMX9baumTivLZyXAp1jC9Y5rLJwmaK3d
+	dckaG+3XCN6wpj+mjtg86w1OllT8ORsJnWbKAGlbUwr4GYG35J2+S1MtL06M+fD+4c/vuYGpajMCF
+	UnNMn0ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVAps-00000003w6W-1UNx;
-	Mon, 15 Dec 2025 15:50:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vVAwh-00000003wbb-3sIp;
+	Mon, 15 Dec 2025 15:57:11 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVApq-00000003w6B-0VvR
+	id 1vVAwf-00000003wZs-0sht
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 15:50:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 716EA417A1;
-	Mon, 15 Dec 2025 15:50:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B8E1C4CEF5;
-	Mon, 15 Dec 2025 15:50:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765813805;
-	bh=6lXuSDV9n2orlCipXDqKPqEz8td46vUDn+RSqCKCvFE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=DgTYehs+enlChOQva9sp3QMiEhj361iK+nVkuPSwHOPJTdPc2HF8vtcufPbn6ewzf
-	 K0kl1TnmEh1h2AW6peaqXC78yPIi9GoHJU6VzzGSGh1xgFnOdenxdA9krxEgT+/K8d
-	 sd0tXie6Ln+4ou2Bljmq/J/eBipSlJFP/wtlnrLfKFCBWTDu5JsK2cSLULYI87DDGu
-	 HK3hi3sO1Ef+Y7m/K9+Xrxb2R4MpFSov8Y6G1kQhwbiDbvOg06pKEr/muzecN2SqFv
-	 qQq8Q6EcmC+rhR+lh+meIO0ajEV+sK+5W9mK4FRA8DYNvu/hEv4mLMP271GcqgS+In
-	 ITPxGdtQ0ksTQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vVApn-0000000CoVQ-0LU0;
-	Mon, 15 Dec 2025 15:50:03 +0000
-Date: Mon, 15 Dec 2025 15:50:02 +0000
-Message-ID: <86fr9boic5.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	nd <nd@arm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Joey Gouly
-	<Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>
-Subject: Re: [PATCH 23/32] KVM: arm64: gic-v5: Bump arch timer for GICv5
-In-Reply-To: <20251212152215.675767-24-sascha.bischoff@arm.com>
-References: <20251212152215.675767-1-sascha.bischoff@arm.com>
-	<20251212152215.675767-24-sascha.bischoff@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 15 Dec 2025 15:57:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dk1d36ufB+tsRidUIuCY5ptA1UMFAGNaL9SbtRm2D9FUjM72alQ7Oo4me9JJGlM8ykZq7HKtS07KQ7i2pOZkK5MoGtlvHxh0h1ZzPNcOtccqczerR4vohHYVcldV/2a+PSdc7JW160H1oMq0pcYb4LTLCkzBBKXLoC8PThNsamZj9OU468i/abFxPfHddTWA3VfUaamLPf/1IKx7yf1m9LNCQCtn689x7OzIOdutroUbdQdsNbBwFvtSIa8oLhCB+gb0Qm1pvLN9YhpTBA73w7E8PMaTD8ng8x1UM1IW+5gXUzjLhgQJT1tQwYPyLo6qFn1j6DXZECkfpUZTUOyrAA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=C09fmyMEduK1iyPZFMGELqRX5X/nS9NPR5cuFoMTXWo=;
+ b=Lxap3lVvGiajEYq/7aHRmWjTgojdsYkHWWiIDVpYk4pX/toqF4IMBPD7i7ZuaBuZR+nlxkUOq6WDdT4Mgf3tyRLYjWv8FlwNgffRfdCW79YT5ssY++cvJJMfNkZwH8LCmktSlIkj87zVTWdavW0tpkd4HV5oVqFesvEj3CJJOn8Ttow3MSehGzVwDkndbp01UJUf34vi/rbGvQRIxZ0375e2U/3X/oX+f/hL+DCYVFxRnX2g87OFsixekyiASwWxDTfHktYAOqoB7FLxH3A4xvpeulMZoXf+ZjHPUOj35UJwLIUwkAVmIzAqev/jy8QXa5dZeSO5qTyNv3giF1yPyA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=C09fmyMEduK1iyPZFMGELqRX5X/nS9NPR5cuFoMTXWo=;
+ b=RmXEVmpLNAg703ipnQj8iWARjO1NwS5kIMnadTJ5YB5rPJ5UkrkMFT4icnSJUMaWQBMv+ftDcMoBnad9QFhEd8JUsgD1fG54OYiT+o6a5ADlyEm+DqKd3z5Ite841DeIwqHc+gbnO2BPnvgcE6YAXRJYVEdwh21wSDBq5GR8BfN1sW7t77mcjNDLCu/pCwns06NnKe3FQX04Q6Pe3fS4zGKpUHEzxRYofU6vo77DHomr2+zVNZZp27F4O0i8yIfP18S1hMwlpIYWPHWn1HoKJOEuM2X4mu4OJNIMLLQ2Gr9ibmBk0t3S1Q6BMeqMJJteNnmcUIX1TXiPvBXX9pEKQQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
+ by VI2PR04MB10859.eurprd04.prod.outlook.com (2603:10a6:800:278::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.13; Mon, 15 Dec
+ 2025 15:56:58 +0000
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9412.011; Mon, 15 Dec 2025
+ 15:56:58 +0000
+Date: Mon, 15 Dec 2025 10:56:49 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: Chester Lin <chester62515@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>, devicetree@vger.kernel.org,
+	Eric Dumazet <edumazet@google.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	imx@lists.linux.dev, Jakub Kicinski <kuba@kernel.org>,
+	Jan Petrous <jan.petrous@oss.nxp.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Lee Jones <lee@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Matthias Brugger <mbrugger@suse.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	NXP S32 Linux Team <s32@nxp.com>, Paolo Abeni <pabeni@redhat.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, linaro-s32@linaro.org
+Subject: Re: [PATCH v2 0/4] s32g: Use a syscon for GPR
+Message-ID: <aUAvwRmIZBC0W6ql@lizhi-Precision-Tower-5810>
+References: <cover.1765806521.git.dan.carpenter@linaro.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <cover.1765806521.git.dan.carpenter@linaro.org>
+X-ClientProxiedBy: PH7P221CA0075.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:328::26) To DU2PR04MB8951.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e2::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|VI2PR04MB10859:EE_
+X-MS-Office365-Filtering-Correlation-Id: c323dff8-e811-4b9c-1319-08de3bf29419
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|19092799006|7416014|366016|376014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?vl0A1vSvJ+1R8pv++pkg9dS1ZpQTMJMvWEqcoZDU935nesgw3Z41gAEN51gG?=
+ =?us-ascii?Q?aay91xvSQwsRpHEGUrrNAYnxNvoWTTEE9Ty3xzoHNaX/nM/MZ5/aD8zooZWc?=
+ =?us-ascii?Q?2DVeIEblFfIoBHpD9gIu30b3YIU7MDp5yONNXHZEk5Vadojfkjldkuo4vj79?=
+ =?us-ascii?Q?RbnbI5dBztPdEfZj7iNrm6z7Kjr1Hdh0yz6KrxoT8zRwKdEZEqAIIZRDVoXL?=
+ =?us-ascii?Q?KCvEm06PvnFPfXGftaD3lKiWxw5sdps8lJRaazh/eA/5e7WIc5d2DiMhtH8A?=
+ =?us-ascii?Q?XqXw5UwXLk6muoAOHk830lxEzBVZ0ez7yUr9GT6q/n4zJ/JkXDTEkZ7jB9RI?=
+ =?us-ascii?Q?YsTAI5hi0z+pkyQFSsu0ZT7mDrCFToyFynpGKHSgGnedEdAVDJSGNNj6HoTv?=
+ =?us-ascii?Q?PXZlB8uyXdPm2GmUGA7Cum2QaeEXuZIC0AHbhZCkHcpLcA3+jkhFNsPzVsfc?=
+ =?us-ascii?Q?wtUtaOuWZCKLu+MaqTF0auF77Ush9KdBxJg/ne/s3ZAMtodbd55me8zSlJPE?=
+ =?us-ascii?Q?y9g01C4jRMTZuuYefHkWCZtnbse3OEVP4P3aeZOhBIKvxhDWGawi2tuCfIt9?=
+ =?us-ascii?Q?1FWNuS0JinAKnJc4Kwzrt+CT0J9zvL3OfIGXXm7Le2i4LR7lY2uizy1AnQyx?=
+ =?us-ascii?Q?eVKfge6wWi61gC3zGARNwIIzsugTn2jyg5F7HQU828/FdH8EZYCiCmQjyDRl?=
+ =?us-ascii?Q?Os2AGYS7d95urDLVHBg07XlpbWlp89BpW2551sZQOaI3y880ae7xCUQrAv9t?=
+ =?us-ascii?Q?8cnweRowiDjP+IbUDNzCM1ofye8J1CfJomZye+bZYp9Qamlh+zO7pdtbPT8Z?=
+ =?us-ascii?Q?0JavpQpi3CgpEerty3Ds6dsS24Ums6+VWomq70qd33BPi2UYdjHZcddX1HgD?=
+ =?us-ascii?Q?RHK0l0nTY27qYdcX8bFNL7AG+O671mA6OZlDgYwAZIWM5S2e0aDB+FjtQ0aJ?=
+ =?us-ascii?Q?wyYLihk7YXvbBsLOdBRY5XlefOcym5Mh6btvhEzaWtA6Xcm7oOxlmG6yNags?=
+ =?us-ascii?Q?lP0lOmrcCvnMIt9Av6AqywZdpE/2BNUkoWTdSB00j8oUSxpknszmongLqyDQ?=
+ =?us-ascii?Q?kpCv+iO2jAbWyfmLJHLlp9DoBiPOHwGDI84AxhaVARopP+6d1fqsIW8f/Qhb?=
+ =?us-ascii?Q?58baAd7fa9Sx/+9B9EJiK6PLgGdGlx/oFgM+H/3pH66OCaxvo9kxim1CWlDo?=
+ =?us-ascii?Q?ACefF7/82OW7E5q+vf9A49PwH9TOV5q1p4g/cUxLAzH8ZJHgIzjIZ0mjwoxF?=
+ =?us-ascii?Q?szU6YO607oXLSQiZjwZC/AEfoNlRliUMxwdqh+mNwQz+BMLENBZM3e6Pq921?=
+ =?us-ascii?Q?oy1y7MXjpQe7QGfMTUqG2cnEgLEbxen+pPlQY0tvw+CZTX5GnEmyTI3eV11L?=
+ =?us-ascii?Q?EshWWNCDms3+MUa+I4z1SnF2Ksqx/GHAOOnkF6MgGHiRAjH/xLmSR30fpM1C?=
+ =?us-ascii?Q?Pwn97ClNLTadVV9TnvMol/G1M3BPgal56IgP5QsLuWfQL28PrGywCQ6Khk2S?=
+ =?us-ascii?Q?p6EpmsD0DIMDK/d1fOq4bIZC77LpWhc28v2j?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(19092799006)(7416014)(366016)(376014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?jDKOrYFzViGVmo09s7A3kR9qtXW8u5/gs1mExuKEhJLlefSnrb9e7SpOpPPw?=
+ =?us-ascii?Q?EM0lIldHuZfPiBW/X9CLraMk3G/olK6iY7wUewHt9s6wBM50m86NzfPemSgu?=
+ =?us-ascii?Q?bXz2cOLG3JlqbfZS7NbPTQZs0pyAZe06XCzCeGmLMRbD+WxLPKZ6JUoFntiS?=
+ =?us-ascii?Q?rhAeLewIFE6pyVMiWNbrj3GUjqdetsqb6/EAxEcfbENnMGzG8pcAhgzt0pnx?=
+ =?us-ascii?Q?KzTXSYnsrLQM/JRsCVHf7OnQ3r1FqkfnD4+DqXjiXzFXlwrvW4QFNjbXMSoE?=
+ =?us-ascii?Q?cKgqpoDuI6CWblULc3s9NQzlTkVeqXk0ipPRtG5YmGUZ+kybcR6UlF3QDIx/?=
+ =?us-ascii?Q?U7amLrBZwE+jgaprnQx+vYsjTKXTbfiQH9FwNVzJFaNL0gPMCNnzwSNjYktu?=
+ =?us-ascii?Q?QV0GeGo7U5D63l2sMI4b86VyNnGHL+E4DoxPjRWpQrICC4njqaKDGSo8Cftp?=
+ =?us-ascii?Q?yFXjUZWyA91+WCneCOZ6zz054U9AyZjSeJCioRFN+4QlIlsWs378JQ6513HT?=
+ =?us-ascii?Q?/5uShcKLao662HeTeNUkXQVQZ3ZCzaGP1zkQwh2VszuM09QESROav+HdJlpe?=
+ =?us-ascii?Q?2BN6QJLnZb6gAxGCL4g4QYxQPaBMd7dFtlTgn0dU5ZSbkfVf5SqxxDCsgVEd?=
+ =?us-ascii?Q?lZTfjNCLSaExIX/rVJAVRHVHZeUkohrQhg69XlEgyMYQH//9XBaQoOKudWCD?=
+ =?us-ascii?Q?jbO15qXGCD/BDOdg7sQw3wH+r76SIachxc8V4BdjyIZTJMccjJcE6QfwrRqN?=
+ =?us-ascii?Q?O4nWrLTawB0DUwRdQdsCtpQWyNXRDh3yKV3LcL4kHs0Wa0a03zRtk32qozFr?=
+ =?us-ascii?Q?dGlZtSv+cNLf6F/4f9Cn3cCab0EsJBAQLAxr514TBiYizprPUXBozdxM5SRD?=
+ =?us-ascii?Q?xYfG+TjxDwVHP0EragP2QV/dEThUio/3DPB0/LxoAACPmce3Knb5ssimkIfX?=
+ =?us-ascii?Q?SCzoTPSvM+O0bipDnNZ5nps5a3caIPYIaY6j0zsQPnrUOoBgxD/fv1EKL5Fo?=
+ =?us-ascii?Q?MnYq8rSPg41zRIZMieengjBsWIPTsVLvzt0y0M18NYLr+cJCDmL3qtU6TqGC?=
+ =?us-ascii?Q?lEfnPKMTG5HtKlxqwfFyUKBWHYdvEMT9ZUkYjoT0FIKF7kOaov2hlSTi0Sow?=
+ =?us-ascii?Q?MPbc/eIbJK2raIm222wnUJoUXBUY7CIA8QTULeaAZ6e8ezuH1qlapUcNtLx6?=
+ =?us-ascii?Q?HbFu+E5YE2dJqhBqdsMHEIbHYFUs3rrtu8oDiORK36UdAZehFjHKXtvb8cFA?=
+ =?us-ascii?Q?Ax/Xp4Yteho8rTTedAcfLAZGDu9OobhI5csiwnjPRhps4DUpDAQb5yYUdXVF?=
+ =?us-ascii?Q?UtMB9lAmovu6tm2dJC8KVtVxCEul/D68zzXMnVWKR/+cYpsfxzW4ikAdGtJn?=
+ =?us-ascii?Q?vjaBzHdngls3N08AbqJHM62ulmCgmWvBiuxcp9ziI1PqV1ijk/IX5WmoQB8F?=
+ =?us-ascii?Q?f06EzJERPe5mxVcBB/L73UuqAfVUR8UDW65q1EOfqtnMfdcnkNcZjUoM4PiB?=
+ =?us-ascii?Q?le1hCA1mnBH5xUdgj84LZEFkG07+vcSWq2jfF01JLEIIEDaSgFO/qjTStO1a?=
+ =?us-ascii?Q?aFmkJcQTaq7elYzexAE=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c323dff8-e811-4b9c-1319-08de3bf29419
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Dec 2025 15:56:58.7370
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: CHFcZ8Ahw1aJ/PMdezcITfUSh2fWJJzZ5C1MzYRCH67Q6mHb5wGvTKZLlB+Jdi2ujt4Dl4LgqsKsGjzlIRq90w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10859
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_075006_202937_6B2D679F 
-X-CRM114-Status: GOOD (  31.83  )
+X-CRM114-CacheID: sfid-20251215_075709_255988_60239849 
+X-CRM114-Status: GOOD (  29.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,75 +175,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 12 Dec 2025 15:22:43 +0000,
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
-> 
-> Now that GICv5 has arrived, the arch timer requires some TLC to
-> address some of the key differences introduced with GICv5.
-> 
-> For PPIs on GICv5, the set_pending_state and queue_irq_unlock irq_ops
-> are used as AP lists are not required at all for GICv5. The arch timer
-> also introduces an irq_op - get_input_level. Extend the
-> arch-timer-provided irq_ops to include the two PPI ops for vgic_v5
-> guests.
-> 
-> When possible, DVI (Direct Virtual Interrupt) is set for PPIs when
-> using a vgic_v5, which directly inject the pending state in to the
-> guest. This means that the host never sees the interrupt for the guest
-> for these interrupts. This has two impacts.
-> 
-> * First of all, the kvm_cpu_has_pending_timer check is updated to
->   explicitly check if the timers are expected to fire.
-> 
-> * Secondly, for mapped timers (which use DVI) they must be masked on
->   the host prior to entering a GICv5 guest, and unmasked on the return
->   path. This is handled in set_timer_irq_phys_masked.
-> 
-> The final, but rather important, change is that the architected PPIs
-> for the timers are made mandatory for a GICv5 guest. Attempts to set
-> them to anything else are actively rejected. Once a vgic_v5 is
-> initialised, the arch timer PPIs are also explicitly reinitialised to
-> ensure the correct GICv5-compatible PPIs are used - this also adds in
-> the GICv5 PPI type to the intid.
-> 
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> ---
->  arch/arm64/kvm/arch_timer.c     | 114 +++++++++++++++++++++++++++-----
->  arch/arm64/kvm/vgic/vgic-init.c |   9 +++
->  arch/arm64/kvm/vgic/vgic-v5.c   |   6 +-
->  include/kvm/arm_arch_timer.h    |   7 +-
->  include/kvm/arm_vgic.h          |   5 ++
->  5 files changed, 119 insertions(+), 22 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-> index 6f033f6644219..b0a5a6c6bf8da 100644
-> --- a/arch/arm64/kvm/arch_timer.c
-> +++ b/arch/arm64/kvm/arch_timer.c
-> @@ -56,6 +56,17 @@ static struct irq_ops arch_timer_irq_ops = {
->  	.get_input_level = kvm_arch_timer_get_input_level,
->  };
->  
-> +static struct irq_ops arch_timer_irq_ops_vgic_v5 = {
-> +	.get_input_level = kvm_arch_timer_get_input_level,
-> +	.set_pending_state = vgic_v5_ppi_set_pending_state,
-> +	.queue_irq_unlock = vgic_v5_ppi_queue_irq_unlock,
-> +};
-> +
-> +static bool vgic_is_v5(struct kvm_vcpu *vcpu)
-> +{
-> +	return vcpu->kvm->arch.vgic.vgic_model == KVM_DEV_TYPE_ARM_VGIC_V5;
-> +}
-> +
+On Mon, Dec 15, 2025 at 05:41:43PM +0300, Dan Carpenter wrote:
+> The s32g devices have a GPR register region which holds a number of
+> miscellaneous registers.  Currently only the stmmac/dwmac-s32.c uses
+> anything from there and we just add a line to the device tree to
+> access that GMAC_0_CTRL_STS register:
+>
+>                         reg = <0x4033c000 0x2000>, /* gmac IP */
+>                               <0x4007c004 0x4>;    /* GMAC_0_CTRL_STS */
+>
+> We still have to maintain backwards compatibility to this format,
+> of course, but it would be better to access these through a syscon.
+> First of all, putting all the registers together is more organized
+> and shows how the hardware actually is implemented.  Secondly, in
+> some versions of this chipset those registers can only be accessed
+> via SCMI, if the registers aren't grouped together each driver will
+> have to create a whole lot of if then statements to access it via
+> IOMEM or via SCMI,
 
-Drive-by comment: you also have
+Does SCMI work as regmap? syscon look likes simple, but missed abstract
+in overall.
 
-arch/arm64/kvm/vgic/vgic.h:static inline bool vgic_is_v5(struct kvm *kvm)
-include/kvm/arm_vgic.h:#define gic_is_v5(k) ((k)->arch.vgic.vgic_model == KVM_DEV_TYPE_ARM_VGIC_V5)
+You still use regmap by use MMIO. /* GMAC_0_CTRL_STS */
 
-At least two of them have to die.
+regmap = devm_regmap_init_mmio(dev, sts_offset, &regmap_config);
 
-	M.
+So all code can use regmap function without if-then statements if SCMI work
+as regmap.
 
--- 
-Without deviation from the norm, progress is not possible.
+Frank
+
+
+>where if we use a syscon interface we can write
+> a driver to handle that quite transparently without modifying each
+> individual driver which reads or writes to one of these registers.
+> That code is out of tree for now, but eventually we'll want to
+> support this.
+>
+> Changed since v1:
+> * Add imx@lists.linux.dev to the CC list.
+> * Fix forward porting bug.  s/PHY_INTF_SEL_RGMII/S32_PHY_INTF_SEL_RGMII/
+> * Use the correct SoC names nxp,s32g2-gpr and nxp,s32g3-gpr instead of
+>   nxp,s32g-gpr which is the SoC family.
+> * Fix the phandle name by adding the vendor prefix
+> * Fix the documentation for the phandle
+> * Remove #address-cells and #size-cells from the syscon block
+>
+> Here is the whole list of registers in the GPR region
+>
+> Starting from 0x4007C000
+>
+> 0  Software-Triggered Faults (SW_NCF)
+> 4  GMAC Control (GMAC_0_CTRL_STS)
+> 28 CMU Status 1 (CMU_STATUS_REG1)
+> 2C CMUs Status 2 (CMU_STATUS_REG2)
+> 30 FCCU EOUT Override Clear (FCCU_EOUT_OVERRIDE_CLEAR_REG)
+> 38 SRC POR Control (SRC_POR_CTRL_REG)
+> 54 GPR21 (GPR21)
+> 5C GPR23 (GPR23)
+> 60 GPR24 Register (GPR24)
+> CC Debug Control (DEBUG_CONTROL)
+> F0 Timestamp Control (TIMESTAMP_CONTROL_REGISTER)
+> F4 FlexRay OS Tick Input Select (FLEXRAY_OS_TICK_INPUT_SELECT_REG)
+> FC GPR63 Register (GPR63)
+>
+> Starting from 0x4007CA00
+>
+> 0  Coherency Enable for PFE Ports (PFE_COH_EN)
+> 4  PFE EMAC Interface Mode (PFE_EMACX_INTF_SEL)
+> 20 PFE EMACX Power Control (PFE_PWR_CTRL)
+> 28 Error Injection on Cortex-M7 AHB and AXI Pipe (CM7_TCM_AHB_SLICE)
+> 2C Error Injection AHBP Gasket Cortex-M7 (ERROR_INJECTION_AHBP_GASKET_CM7)
+> 40 LLCE Subsystem Status (LLCE_STAT)
+> 44 LLCE Power Control (LLCE_CTRL)
+> 48 DDR Urgent Control (DDR_URGENT_CTRL)
+> 4C FTM Global Load Control (FLXTIM_CTRL)
+> 50 FTM LDOK Status (FLXTIM_STAT)
+> 54 Top CMU Status (CMU_STAT)
+> 58 Accelerator NoC No Pending Trans Status (NOC_NOPEND_TRANS)
+> 90 SerDes RD/WD Toggle Control (PCIE_TOGGLE)
+> 94 SerDes Toggle Done Status (PCIE_TOGGLEDONE_STAT)
+> E0 Generic Control 0 (GENCTRL0)
+> E4 Generic Control 1 (GENCTRL1)
+> F0 Generic Status 0 (GENSTAT0)
+> FC Cortex-M7 AXI Parity Error and AHBP Gasket Error Alarm (CM7_AXI_AHBP_GASKET_ERROR_ALARM)
+>
+> Starting from 4007C800
+>
+> 4  GPR01 Register (GPR01)
+> 30 GPR12 Register (GPR12)
+> 58 GPR22 Register (GPR22)
+> 70 GPR28 Register (GPR28)
+> 74 GPR29 Register (GPR29)
+>
+> Starting from 4007CB00
+>
+> 4 WKUP Pad Pullup/Pulldown Select (WKUP_PUS)
+>
+> Dan Carpenter (4):
+>   net: stmmac: s32: use a syscon for S32_PHY_INTF_SEL_RGMII
+>   dt-bindings: mfd: syscon: Document the GPR syscon for the NXP S32 SoCs
+>   dt-bindings: net: nxp,s32-dwmac: Use the GPR syscon
+>   dts: s32g: Add GPR syscon region
+>
+>  .../devicetree/bindings/mfd/syscon.yaml       |  4 ++++
+>  .../bindings/net/nxp,s32-dwmac.yaml           | 10 ++++++++
+>  arch/arm64/boot/dts/freescale/s32g2.dtsi      |  6 +++++
+>  arch/arm64/boot/dts/freescale/s32g3.dtsi      |  6 +++++
+>  .../net/ethernet/stmicro/stmmac/dwmac-s32.c   | 23 +++++++++++++++----
+>  5 files changed, 44 insertions(+), 5 deletions(-)
+>
+> --
+> 2.51.0
+>
 
