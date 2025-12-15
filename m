@@ -4,82 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 506E7D5B846
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 16:17:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3042D5B854
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 16:35:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hKN9m25ODFilBaGhInYmdb3n4QQJ3SrqyTMPGdytOz0=; b=S/UcS7WQO3butX53t87UhK160u
-	tYIKZ4x2qQ+jHtypdap1Ps+9yJMJPoQnB/kt0qWXcjmzNCm1yfH9SThvjF6dlVLcnNi5mpA/CmQgV
-	HtnQGkno1vm7k9+fdOj501VwuQGbMMXNVKPZx7B1B/+zzk5tW2c1rPS0l7U/DFKx09pA2wpPB7gjA
-	rRUbZC7pJjZ0wkWQBPcyklzLJoBkbp8u/x10MtdL56CdOOtqnzBqgmp7YHoZGrUmIr86ZRynKDCce
-	qa4DCeOkez4LXq+THL7BFSy9Mupe3jonuv+t8m3NiLOaCxkqQvuSdOV6Gw2n53wo4eQPVthhK7b+7
-	QGbIGTOw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dEavvaRpE62+x38UZpJCOpp9zt7vvpwS81YGGJJlZD0=; b=b0VAohTuOEoTkuovJ78WMRQBVf
+	r7GDyJNDwKf1oAN3fDpFZeWDU10iTxNysc0gF2fhNvHnQENgjmFYNaw4Ow55c8RE011U2XaSBSaOm
+	tNlcdemK6hZw9dm0gYYzcR1/qJnVJjXroVuMM8XaT9bvB/us/LzbaL3XI3GoikUKQGyJauAloFVzl
+	eOjM+QyHGd2eTNy8eHzv1ZR+nePjf9CLTVOf+OB3pAHu65EPGoOH73uVh5ac493jTOpJo+haMxnFX
+	1GJgWVn7gEPhgKNi535QC0NXQaBNoo+2tsHSmGnfPvanCVEkRXFbnd34AiZpu0nVYq5tE5XHhiko1
+	wQE/L6+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVBGO-00000003yYx-0k9k;
-	Mon, 15 Dec 2025 16:17:32 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVBGL-00000003yXd-1dWc
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 16:17:30 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vVBG0-0000Xh-53; Mon, 15 Dec 2025 17:17:08 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vVBFz-005oIV-0T;
-	Mon, 15 Dec 2025 17:17:07 +0100
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vVBFy-008z7u-30;
-	Mon, 15 Dec 2025 17:17:06 +0100
-Date: Mon, 15 Dec 2025 17:17:06 +0100
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Liu Ying <victor.liu@nxp.com>, krzk+dt@kernel.org
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH v7 1/3] dt-bindings: soc: imx93-media-blk-ctrl: Add PDFC
- subnode to schema and example
-Message-ID: <20251215161706.2ea3wtu3xlwcxxar@pengutronix.de>
-References: <20251202-v6-18-topic-imx93-parallel-display-v7-0-2cce31d64608@pengutronix.de>
- <20251202-v6-18-topic-imx93-parallel-display-v7-1-2cce31d64608@pengutronix.de>
- <705773fc-5aba-4bff-b05e-272e1cd0262c@nxp.com>
+	id 1vVBY0-00000003zWv-452p;
+	Mon, 15 Dec 2025 16:35:44 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vVBXy-00000003zW1-2US6;
+	Mon, 15 Dec 2025 16:35:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ECF2EFEC;
+	Mon, 15 Dec 2025 08:35:29 -0800 (PST)
+Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 24DE43F694;
+	Mon, 15 Dec 2025 08:35:33 -0800 (PST)
+From: Ryan Roberts <ryan.roberts@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Mark Rutland <mark.rutland@arm.com>,
+	"Jason A. Donenfeld" <Jason@zx2c4.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Jeremy Linton <jeremy.linton@arm.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-hardening@vger.kernel.org
+Subject: [PATCH v2 0/3] Fix bugs and performance of kstack offset randomisation
+Date: Mon, 15 Dec 2025 16:35:14 +0000
+Message-ID: <20251215163520.1144179-1-ryan.roberts@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <705773fc-5aba-4bff-b05e-272e1cd0262c@nxp.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_081729_590143_BDD7538B 
-X-CRM114-Status: GOOD (  34.72  )
+X-CRM114-CacheID: sfid-20251215_083542_777711_233C60AB 
+X-CRM114-Status: GOOD (  16.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,215 +86,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Liu,
+Hi All,
 
-On 25-12-08, Liu Ying wrote:
-> Hi Marco,
-> 
-> On 12/02/2025, Marco Felsch wrote:
-> > From: Liu Ying <victor.liu@nxp.com>
-> > 
-> > i.MX93 SoC mediamix blk-ctrl contains one DISPLAY_MUX register which
-> > configures parallel display format by using the "PARALLEL_DISP_FORMAT"
-> > field. Document the Parallel Display Format Configuration(PDFC) subnode
-> > and add the subnode to example.
-> > 
-> > Signed-off-by: Liu Ying <victor.liu@nxp.com>
-> > [m.felsch@pengutronix.de: port to v6.18-rc1]
-> > [m.felsch@pengutronix.de: add bus-width]
-> > Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
-> > ---
-> >  .../bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml | 92 ++++++++++++++++++++++
-> >  1 file changed, 92 insertions(+)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
-> > index 34aea58094e55365a2f9c86092f637e533f954ff..6e2d86d9341c75108b492bcbabc8a560d8e707cd 100644
-> > --- a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
-> > +++ b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
-> > @@ -26,6 +26,12 @@ properties:
-> >    reg:
-> >      maxItems: 1
-> >  
-> > +  '#address-cells':
-> > +    const: 1
-> > +
-> > +  '#size-cells':
-> > +    const: 1
-> > +
-> >    '#power-domain-cells':
-> >      const: 1
-> >  
-> > @@ -40,6 +46,60 @@ properties:
-> >      minItems: 8
-> >      maxItems: 10
-> >  
-> > +  bridge@60:
-> 
-> The dependency patch series mentioned in cover letter has two links in it's
-> cover letter.  Reading the patch sets pointed by the two links, we may find
-> Krzysztof's comments - the child nodes of the blk-ctrl should be completely
-> documented.
+As I reported at [1], kstack offset randomisation suffers from a couple of bugs
+and, on arm64 at least, the performance is poor. This series attempts to fix
+both; patch 1 provides back-portable fixes for the functional bugs. Patches 2-3
+propose a performance improvement approach.
 
-Thanks for pointing this out.
+I've looked at a few different options but ultimately decided that Jeremy's
+original prng approach is the fastest. I made the argument that this approach is
+secure "enough" in the RFC [2] and the responses indicated agreement.
 
-@Krzysztof
-Requesting to add everything seems not feasible if everything added
-should be tested too.
-I don't see why everything should be added in one step, since the base
-.dtsi isn't added in one step too.
-The different devices (parallel-out bridge, DSI bridge, LVDS bridge,
-CSI) logically don't belong together, ableit all device use the same
-syscon as parent.
+More details in the commit logs.
 
-Regards,
-  Marco
 
-> > +    type: object
-> > +    additionalProperties: false
-> > +
-> > +    properties:
-> > +      compatible:
-> > +        const: nxp,imx93-pdfc
-> > +
-> > +      reg:
-> > +        maxItems: 1
-> > +
-> > +      ports:
-> > +        $ref: /schemas/graph.yaml#/properties/ports
-> > +
-> > +        properties:
-> > +          port@0:
-> > +            $ref: /schemas/graph.yaml#/properties/port
-> > +            description: Input port node to receive pixel data.
-> > +
-> > +          port@1:
-> > +            $ref: /schemas/graph.yaml#/$defs/port-base
-> > +            unevaluatedProperties: false
-> > +            description: Output port node to downstream pixel data receivers.
-> > +
-> > +            properties:
-> > +              endpoint:
-> > +                $ref: /schemas/graph.yaml#/$defs/endpoint-base
-> > +                unevaluatedProperties: false
-> > +
-> > +                properties:
-> > +                  bus-width:
-> 
-> In v1-v5, I thought the output bus format can be determined by the sink
-> device(a panel or a bridge) hence properties like bus-width were not needed.
-> But, if this property is really needed, then reference video-interfaces.yaml
-> since bus-width is documented there.  Should we reference bus-type defined
-> in video-interfaces.yaml too?
-> 
-> > +                    enum: [ 16, 18, 24 ]
-> 
-> The PARALLEL_DISP_FORMAT field of DISPLAY_MUX register says this IP supports
-> below formats.  It seems that the enum here may tell RGB888, RGB666 and RGB565.
-> How can we tell RGB555, YCbCr 24 bits and YUV444 then?
-> 
-> 000b RGB888 -> RGB888
-> 001b RGB888 -> RGB666
-> 010b RGB565 -> RGB565
-> 011b RGB555 -> RGB555
-> 100b YUV -> YCbCr 24 bits
-> 101b YUV -> YUV444
-> 
-> > +                    description:
-> > +                      Specify the physical parallel bus width.
-> > +
-> > +                      This property is optional if the display bus-width
-> > +                      matches the SoC bus-width, e.g. a 18-bit RGB666 (display)
-> > +                      is connected and all 18-bit data lanes are muxed to the
-> 
-> Per video-interfaces.yaml, s/data lanes/data lines/.  "data lanes" is a
-> value for MIPI DSI/CSI, afaik.
-> 
-> > +                      parallel-output pads.
-> 
-> How about just saying that this property is optional and by default it's 24?
-> 
-> > +
-> > +                      This property must be set to 18 to cut only the LSBs
-> > +                      instead of the MSBs in case a 24-bit RGB888 display is
-> > +                      connected and only the lower 18-bit data lanes are muxed
-> > +                      to the parallel-output pads.
-> 
-> The __lower__ 18-bit?  Isn't it the __MSB__ 6bit in each color component?
-> 
-> > +
-> > +        required:
-> > +          - port@0
-> > +          - port@1
-> > +
-> > +    required:
-> > +      - compatible
-> > +      - reg
-> > +      - ports
-> > +
-> >  allOf:
-> >    - if:
-> >        properties:
-> > @@ -81,9 +141,12 @@ allOf:
-> >              - const: isi
-> >              - const: csi
-> >              - const: dsi
-> > +
-> >  required:
-> >    - compatible
-> >    - reg
-> > +  - '#address-cells'
-> > +  - '#size-cells'
-> >    - power-domains
-> >    - clocks
-> >    - clock-names
-> > @@ -112,4 +175,33 @@ examples:
-> >                 clock-names = "apb", "axi", "nic", "disp", "cam",
-> >                               "pxp", "lcdif", "isi", "csi", "dsi";
-> >        #power-domain-cells = <1>;
-> > +      #address-cells = <1>;
-> > +      #size-cells = <1>;
-> > +
-> > +      bridge@60 {
-> > +        compatible = "nxp,imx93-pdfc";
-> > +        reg = <0x60 0x4>;
-> > +
-> > +        ports {
-> > +          #address-cells = <1>;
-> > +          #size-cells = <0>;
-> > +
-> > +          port@0 {
-> > +            reg = <0>;
-> > +
-> > +            pdfc_from_lcdif: endpoint {
-> > +              remote-endpoint = <&lcdif_to_pdfc>;
-> > +            };
-> > +          };
-> > +
-> > +          port@1 {
-> > +            reg = <1>;
-> > +
-> > +            pdfc_to_panel: endpoint {
-> > +              remote-endpoint = <&panel_from_pdfc>;
-> > +              bus-width = <18>;
-> > +            };
-> > +          };
-> > +        };
-> > +      };
-> >      };
-> > 
-> 
-> 
-> -- 
-> Regards,
-> Liu Ying
-> 
+Performance
+===========
 
--- 
-#gernperDu 
-#CallMeByMyFirstName
+Mean and tail performance of 3 "small" syscalls was measured. syscall was made
+10 million times and each individually measured and binned. These results have
+low noise so I'm confident that they are trustworthy.
 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
+The baseline is v6.18-rc5 with stack randomization turned *off*. So I'm showing
+performance cost of turning it on without any changes to the implementation,
+then the reduced performance cost of turning it on with my changes applied.
+
+**NOTE**: The below results were generated using the RFC patches but there is no
+meaningful change, so the numbers are still valid.
+
+arm64 (AWS Graviton3):
++-----------------+--------------+-------------+---------------+
+| Benchmark       | Result Class |   v6.18-rc5 | per-task-prng |
+|                 |              | rndstack-on |               |
+|                 |              |             |               |
++=================+==============+=============+===============+
+| syscall/getpid  | mean (ns)    |  (R) 15.62% |     (R) 3.43% |
+|                 | p99 (ns)     | (R) 155.01% |     (R) 3.20% |
+|                 | p99.9 (ns)   | (R) 156.71% |     (R) 2.93% |
++-----------------+--------------+-------------+---------------+
+| syscall/getppid | mean (ns)    |  (R) 14.09% |     (R) 2.12% |
+|                 | p99 (ns)     | (R) 152.81% |         1.55% |
+|                 | p99.9 (ns)   | (R) 153.67% |         1.77% |
++-----------------+--------------+-------------+---------------+
+| syscall/invalid | mean (ns)    |  (R) 13.89% |     (R) 3.32% |
+|                 | p99 (ns)     | (R) 165.82% |     (R) 3.51% |
+|                 | p99.9 (ns)   | (R) 168.83% |     (R) 3.77% |
++-----------------+--------------+-------------+---------------+
+
+Because arm64 was previously using get_random_u16(), it was expensive when it
+didn't have any buffered bits and had to call into the crng. That's what caused
+the enormous tail latency.
+
+
+x86 (AWS Sapphire Rapids):
++-----------------+--------------+-------------+---------------+
+| Benchmark       | Result Class |   v6.18-rc5 | per-task-prng |
+|                 |              | rndstack-on |               |
+|                 |              |             |               |
++=================+==============+=============+===============+
+| syscall/getpid  | mean (ns)    |  (R) 13.32% |     (R) 4.60% |
+|                 | p99 (ns)     |  (R) 13.38% |    (R) 18.08% |
+|                 | p99.9 (ns)   |      16.26% |    (R) 19.38% |
++-----------------+--------------+-------------+---------------+
+| syscall/getppid | mean (ns)    |  (R) 11.96% |     (R) 5.26% |
+|                 | p99 (ns)     |  (R) 11.83% |     (R) 8.35% |
+|                 | p99.9 (ns)   |  (R) 11.42% |    (R) 22.37% |
++-----------------+--------------+-------------+---------------+
+| syscall/invalid | mean (ns)    |  (R) 10.58% |     (R) 2.91% |
+|                 | p99 (ns)     |  (R) 10.51% |     (R) 4.36% |
+|                 | p99.9 (ns)   |  (R) 10.35% |    (R) 21.97% |
++-----------------+--------------+-------------+---------------+
+
+I was surprised to see that the baseline cost on x86 is 10-12% since it is just
+using rdtsc. But as I say, I believe the results are accurate.
+
+
+Changes since v1 (RFC) [2]
+==========================
+
+- Introduced patch 2 to make prandom_u32_state() __always_inline (needed since
+  its called from noinstr code)
+- In patch 3, prng is now per-cpu instead of per-task (per Ard)
+
+
+[1] https://lore.kernel.org/all/dd8c37bc-795f-4c7a-9086-69e584d8ab24@arm.com/
+[2] https://lore.kernel.org/all/20251127105958.2427758-1-ryan.roberts@arm.com/
+
+Thanks,
+Ryan
+
+
+Ryan Roberts (3):
+  randomize_kstack: Maintain kstack_offset per task
+  prandom: Convert prandom_u32_state() to __always_inline
+  randomize_kstack: Unify random source across arches
+
+ arch/Kconfig                         |  5 +--
+ arch/arm64/kernel/syscall.c          | 11 -----
+ arch/loongarch/kernel/syscall.c      | 11 -----
+ arch/powerpc/kernel/syscall.c        | 12 ------
+ arch/riscv/kernel/traps.c            | 12 ------
+ arch/s390/include/asm/entry-common.h |  8 ----
+ arch/x86/include/asm/entry-common.h  | 12 ------
+ include/linux/prandom.h              | 19 ++++++++-
+ include/linux/randomize_kstack.h     | 61 ++++++++++++----------------
+ init/main.c                          |  2 +-
+ kernel/fork.c                        |  1 +
+ lib/random32.c                       | 19 ---------
+ 12 files changed, 49 insertions(+), 124 deletions(-)
+
+--
+2.43.0
+
 
