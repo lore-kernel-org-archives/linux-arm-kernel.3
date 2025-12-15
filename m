@@ -4,77 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E40CD41D74
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 11:12:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54DBBD59D99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 11:13:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iNMq/kMMtrh+atZlu0wFrs1Lk9ZRC23XVxG/j940ZaM=; b=u7xjhPRyrLWdXjxOogmX0a1Li4
-	JfITTwKIaMEY7qHQxMKq7QYpdnIbyBVERrCXDdrENYdktUkJtyTLUF1ZCTdXB2LgLSoP3baqgdGpO
-	MAZ8xbAKO3gAVXkjZsQfp0s5tZ/NW8EBTweqQp81+uT4igMmzDfGL8e3zia2eaGiotd3m3EEmFFWW
-	SJiDz+kwh0RBk42obZ9/iFacsUpf2AgMfryoWzBypZfuwh2KM4guSyniMk1iIC45BWtHKaP+z+CXZ
-	y14tXrCg9pJ+8Tlq0PHVxmJ4GOPOnoXiiaG8yu7hsAoGN2JruKfj9E5ft/1bm2u/QNCFdpeUrogV7
-	D0l+27Fw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fhSxIcbmigIpicURiFFVV0HhgnMe4/DAaNcWTO5VrvU=; b=JY3ETwy/ZX60UZSMFZxcXiu5p9
+	Rle/1Q0avDJF8EyYeFIL7xFqsc9sdH7GehEMlpIGk4zzgGWG0i510qolXzB/AprU99g4h4jbPg28s
+	vQjrtKKUXJLYhPDZbNPr0zCs2JNIOzdBTe0u7WkT8M3lJOBaWEGo+AAVKAsdZ7FQAZkCs1PCdXsjm
+	QfWoVnuSY8crrMnnQFDF96JUT4CUSnJPPq/ZMU3SUuNmtHVHmsLJF4mpQ0kVHJxitvFVR9ZYpctVx
+	DjcbM/hjTZ/7JbzNRszMdYvAtZlzH+1PWaiMEOuxHnw9gXOzx5Y39QJ7X4YjaVYSkPvqKbkvFwVzo
+	yZILKliQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV6Uy-00000003VAL-1bRv;
-	Mon, 15 Dec 2025 11:12:16 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vV6WR-00000003VMs-3Yf9;
+	Mon, 15 Dec 2025 11:13:47 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV6Uu-00000003V94-32zU
+	id 1vV6WP-00000003VML-30UX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 11:12:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0691B438CC
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Dec 2025 11:12:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9042C4CEF5
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Dec 2025 11:12:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765797130;
-	bh=PfyeLEgI6Wzc6o2hbREqBJyP/hoLKlVKC4Tey8dRMWo=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=U5dUn6aMhhp361U/Bl6qL2owrzeigHv1ROJwsataDh1i8Sj2gAIIkopdmGlMYY1yP
-	 8FYHCab9Q7HyE68HrBG7PVfXuScO81YmfZyL7HeO2JrK/J9bGI2jU5FJ4kka4Znkrj
-	 /wMRQlXTUODdBwYIz+rShGqKYQ1x/4/ydyEnAPZOHdUYggBFZ2RjZoZ1InOpaNhYJk
-	 B9nfUnju8r/XzzucLGe+EJdGSxg8Bie0lh/zBt+aEqJCtIUJpwSIYgcZyoTyNfO037
-	 gipU9WSH53VO/4CS90QhAobPMmFGByTj6thW3ypiFB9NsMZIYQc3jnOOPuPmEz0kzU
-	 5f/gmvS2RZ5+w==
-Received: by mail-oo1-f47.google.com with SMTP id 006d021491bc7-65791c35134so2110871eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Dec 2025 03:12:10 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCVrmKenECURMDZKXuM/5jm3zaHOULCzQoDg3kfFjYBMKDcq8G5ZVdBF3mW+c9xpnEPQoyPCUit6IqeLCxSQwQdc@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0JkYE1WJSwUtFQT7Gr28nFGj/bSawlCn0dU4213TXK2kH5YGq
-	DIQrbFZgsW3UZUSdyd8S5UXyOkIZpU6wCM0itmZCTyKuqn9wora/TzhqghtbYDJM4Vy3oVF+YJS
-	t1IjzZfZp3Gp6RjX7jh3p4k5yh39PnTI=
-X-Google-Smtp-Source: AGHT+IGZT1oNvB00Vs0bo+1zSzNBqfaw6T6Q5aS4m9jK/Kze3wHdZKUoJCgVLJBOELGz/mfBFrHcJOmixXKZ8YRAhzQ=
-X-Received: by 2002:a05:6820:1623:b0:659:9a49:8ea8 with SMTP id
- 006d021491bc7-65b4523bfd8mr5105858eaf.44.1765797130168; Mon, 15 Dec 2025
- 03:12:10 -0800 (PST)
-MIME-Version: 1.0
-References: <20251215044919.460086-1-ankur.a.arora@oracle.com> <20251215044919.460086-13-ankur.a.arora@oracle.com>
-In-Reply-To: <20251215044919.460086-13-ankur.a.arora@oracle.com>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Mon, 15 Dec 2025 12:11:59 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0imk5kdqunNGvK+6_BPh2_k89RPPC8B4MDDF1GLZrUhLQ@mail.gmail.com>
-X-Gm-Features: AQt7F2rG4xuAbbsQmykYUcenlgwWyBYqZnb2M67LAaRf0_2PJQ6JaqpYbcxHgdI
-Message-ID: <CAJZ5v0imk5kdqunNGvK+6_BPh2_k89RPPC8B4MDDF1GLZrUhLQ@mail.gmail.com>
-Subject: Re: [PATCH v8 12/12] cpuidle/poll_state: Wait for need-resched via tif_need_resched_relaxed_wait()
-To: Ankur Arora <ankur.a.arora@oracle.com>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
-	bpf@vger.kernel.org, arnd@arndb.de, catalin.marinas@arm.com, will@kernel.org, 
-	peterz@infradead.org, akpm@linux-foundation.org, mark.rutland@arm.com, 
-	harisokn@amazon.com, cl@gentwo.org, ast@kernel.org, rafael@kernel.org, 
-	daniel.lezcano@linaro.org, memxor@gmail.com, zhenglifeng1@huawei.com, 
-	xueshuai@linux.alibaba.com, joao.m.martins@oracle.com, 
-	boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
-Content-Type: text/plain; charset="UTF-8"
+	Mon, 15 Dec 2025 11:13:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pSmjvkJB32F8J9D4MCgE3NyoxKeQ/uppOiPEcz7N7oevi3XU6cTgTPdUOeticBw1QVGJBS9m/cpRMZMNSGLWO3lrQ3lJLSKEqCYikNc3m7NjRXGAoeBWUYbspz2+x4Lde4MlhGRM9h8Ec7wCDVGOjkZsWibPgMjK0OiEv6zjJhQG+E5MOf8H6uVwxppkNhhfGCbLN7DyeiIyyK6BeiOg7X8bkxBSactvWlPiOSCID7BcQHlp80A2fuNYdxvUli5aOxStNx/7SqbZ3rMshgZCFE4RiYiR4F/05Vb7qKpwQbTN/oQB4dNRi0gPFvRqKJT0NOM2RxE4e1CyXz3NlZ5WCA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fhSxIcbmigIpicURiFFVV0HhgnMe4/DAaNcWTO5VrvU=;
+ b=kCosweTslCD9nCnS77XITGe6Mepm1LDJN3qNRjDDICC7Yhe2Hb0SiZLTK4R0y3VWOdQrStS2B91wV9IJJsNPn0Sn5b/A1FnHemyBdqf/yg330QS3wZC+AMxQOB/elhjB6Gl2bWYwR743BybRa7+iuSHWS8QnS8cvNfeGyUjc4MpoJwn82QgUa/rI4mSa0QSOW12qgzAa+48N9uktIGrOvtw2QUK1thA3i/u67RpWGv+4uMOnSmK2cukb9KLuOJ0iu7QpsUWFGPZVS153iRiHUZD1TGmxMnEKYey/BkJhKown1TqZkj8IDPBRh0KrxZTDItKLFC0aW3VMBd3UrKlFCQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fhSxIcbmigIpicURiFFVV0HhgnMe4/DAaNcWTO5VrvU=;
+ b=bqVjBxf5LI4pueC/q14Jk3jW2d3yoskuFp/KD8n8lTCluPC3XO7lenBz1eg3zIHeqWH/DJF/iCj+ZFUL6l1Cce5fYjj8GYkDG16+W+KtaqKXy/SgsL79mx66a9+i2SDV/CybXf3tyLJi+G+ywQ2dI8ULC4heU4nAhtTwc6nUCLLZDbwtkaXHdKxJ1Q0K/AeFNu6MlBSYoDCN73kCIBeyIP7q6kf763gGX7cbKcSH2HfYiacC0o1jT43nt24mFezYwo5qqImTJiCInlRbGUXEfh1+oykYL8Sx5R5YKxOZ570RDCVAgIc8+o/xc7AcDi2Wty7cvlHheY5tKRNsb0tZQw==
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by DU0PR04MB9659.eurprd04.prod.outlook.com (2603:10a6:10:320::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.13; Mon, 15 Dec
+ 2025 11:13:41 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9412.011; Mon, 15 Dec 2025
+ 11:13:41 +0000
+From: Peng Fan <peng.fan@nxp.com>
+To: Shenwei Wang <shenwei.wang@nxp.com>, Bjorn Andersson
+	<andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, Shawn
+ Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>
+CC: Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
+	<festevam@gmail.com>, "linux-remoteproc@vger.kernel.org"
+	<linux-remoteproc@vger.kernel.org>, "imx@lists.linux.dev"
+	<imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, dl-linux-imx <linux-imx@nxp.com>
+Subject: RE: [PATCH] remoteproc: imx_rproc: Use strstarts for "rsc-table"
+ check
+Thread-Topic: [PATCH] remoteproc: imx_rproc: Use strstarts for "rsc-table"
+ check
+Thread-Index: AQHcaJsRpvSgZG43WEGbv/V//qPUhbUilj5g
+Date: Mon, 15 Dec 2025 11:13:41 +0000
+Message-ID: <PAXPR04MB8459148338CF7EBB38C699EA88ADA@PAXPR04MB8459.eurprd04.prod.outlook.com>
+References: <20251208233302.684139-1-shenwei.wang@nxp.com>
+In-Reply-To: <20251208233302.684139-1-shenwei.wang@nxp.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|DU0PR04MB9659:EE_
+x-ms-office365-filtering-correlation-id: f59b4b89-c706-47e6-50f2-08de3bcb00cc
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|19092799006|376014|366016|38070700021;
+x-microsoft-antispam-message-info: =?us-ascii?Q?vgpQcTAQtDPggKqSBihaMuNjxDGlDCzfLONrMV62FuRyiWcyYn8f3ZYBGoUu?=
+ =?us-ascii?Q?+J8LObYNWrE76aZ8cxAX7kRtvewoxpJxvPPYXfr055PcGIfEmzWCuwi9ArTA?=
+ =?us-ascii?Q?d1nlSwla0MQTlI81EzR6r/HdyNhp7BQwdynbkZgDXZeWf75/p0wiZHPhVMXG?=
+ =?us-ascii?Q?jCnK+6641cRGkn9G6uUdQzzpiOo9ccfY9Cmw88dGbHeCRs7Znt9p8A5lW/Vv?=
+ =?us-ascii?Q?90ZLf8gCXRiq/0N5tCE0T1AmaaArN+KLtcAhKlUE1hCeZBt/SEOC5czCM2iA?=
+ =?us-ascii?Q?aF3atrhW/k01C+OG2eGVBxEKmoiu7luZkfRCEzXnaTNcVNMZIK3xHgjSJ5e0?=
+ =?us-ascii?Q?JYbCD485b9s2CvaQEyGCfp2tZQ/BgUsKfSfAEWpnQS3iPs/cXiG+S1XICQVs?=
+ =?us-ascii?Q?XMnbNqxALjgimn0WOeDtuEtWkIVBEWRUZnmhKYfjoSHTtSbeI0oS8IZKq0ca?=
+ =?us-ascii?Q?hCMrqnQ65hDbpkar8sLXKGquwL8Kiqk+REqhJlwCQ6PKU3VNBDCvU/xgODWP?=
+ =?us-ascii?Q?12HdWiegVldF2lpVhrwuFFbsxIHrDjGBZy8Kt06aLq6AU7rxItKXgZRNlzh1?=
+ =?us-ascii?Q?VND4lK1GNCEepW04z/94vsz4gX8XAjrdNGXQ7Li0wzLoMgERGSK2AK9KZoQE?=
+ =?us-ascii?Q?5AADA3Ry02yjtF3D5qHNPvAmPPvT5zzfC05GfU8+upgQM9JILmjoFOdyGt4K?=
+ =?us-ascii?Q?PsXFi4CCzoAU/drHNK5USuwQ8umyw+ujISQc05jboD0YuXoxQAJSTuDjfiZG?=
+ =?us-ascii?Q?q9Ope89qiMvQOrZzd3QZ4UXRdV+ssD2nYK9iCbaJjKyxNiebZTvEr6JW9Wh6?=
+ =?us-ascii?Q?JQc/6RFXe49EQpVC3WdvETCJfpa8h+9IfFYh31g+pQYnVE/zG0ISljqsKMcr?=
+ =?us-ascii?Q?eHZKkUpYfT+4MsOasV8Y2dAUrKj068vR/0Fw5FSujAEyuRX/iPju9vlcmMKH?=
+ =?us-ascii?Q?AqMTb8Ur7xxcvBBNFmhCYk/nJl0oo0J2XatoJgOGBwa+SM/thjVCkVKmgAJC?=
+ =?us-ascii?Q?7qzSsER4AmwQKZBpxZYNcxclrWt1z6xunzMDvuQGE0d4C1bWqfODBRkAP+64?=
+ =?us-ascii?Q?qyp+rQiF623WLXJuyl+68IcP6X1VVVrwEHVCOM3T0HXmN2nZs6i8nFAnO18K?=
+ =?us-ascii?Q?SmBzsG1v4XFr39TIjUWBfwwI7A7YHtxO5oMke+fhcTrf/4/VfaUxbB7w9R9o?=
+ =?us-ascii?Q?/0On/X0+GUxUAc8fkwNc9DVtqkxii0Pb5tfitKMPkL8TqZgbq3l5AChjhsfV?=
+ =?us-ascii?Q?C2nQyQeqjOJdxBjY+vW6fdjFmXxRoUaZ7knB5tvIM3ybx8HMyxtVBvJCs8Cg?=
+ =?us-ascii?Q?+Qxwn5001MWs1yN1tLZpLjd3fxfg0M1e2UVLPr9aHeb4mqGzp+s5ObhJnEbV?=
+ =?us-ascii?Q?KHgXGVAS1oZaMOl1QMfW8o8Jz9MK0+I4vtOrVQzrHJ6seknqEjfa0cSvfEn8?=
+ =?us-ascii?Q?Q11htxnRaFWWL37v6zENOFR4iT9wHfY76AsmrldOFFES6h3+jKzCKpuScBPk?=
+ =?us-ascii?Q?1L/B5WLde03LSsYZGE2ySrq4W9FER9irvT37?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(19092799006)(376014)(366016)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?+kIXXksvIKF3BNgTYoCdFo/YM6+UtN5JPDGtVOt4D8jfv6CZUxxzPEE7R7jg?=
+ =?us-ascii?Q?y+R28xEkZE38xzuEFrpnz7os9auRX+01cDUUo70PSu+GaB4d/2/o3FMfpgGT?=
+ =?us-ascii?Q?LdEE+QQDIIqMDCANxOlymauN2MUH+w/70qKLfMpxqalg+6CMe2H3Qhn3eJnw?=
+ =?us-ascii?Q?8cQY03J7V0F1cYFyVThYt6p9nY6mVRMGmeakw++9GOfw5bav6QrJBjTPm61X?=
+ =?us-ascii?Q?MyA4AtDC7hxVz7onedJ6Zg4dlcWdZ+eHulKW4xZyMSojxgDBqILIGhiPr+ju?=
+ =?us-ascii?Q?9YP7uovcVOWx9ez1/fLXFkNlfW2espHrzqC98EvWh9D3MLu8paOShWGq1kJj?=
+ =?us-ascii?Q?JWJI4Ht/J97aGoNFLfIgW6H7n6nxkEsQwdq2EoW6KgUwN9xX/r+DkRIrLkLa?=
+ =?us-ascii?Q?sgAIg8cF+/SDIN9jhgyIPwQQCJQbJG+ShWigyRRDN5U6982GzFTq6S8OxboW?=
+ =?us-ascii?Q?jpSL+IdDDzGA8ZPOFzvcyWCxKZr0Njm9Foy7beuBy7TV/RbR7jmyxOsC4yfu?=
+ =?us-ascii?Q?uNSpLZinlnhvEPCdUFarX4sm7Dj0gs5Xo5FE/jZ2TGs6PtAJaaMr35RPKd8t?=
+ =?us-ascii?Q?61j2gR58todoiXJhg6gVviHQYkk2XqC2uoHFE/FdaJMA9IesUZrQgpl7aeCM?=
+ =?us-ascii?Q?zU3UjkeWsAR5Epgyz7CmBje+jn9EvqACFframRprVtuiRVHdWOGoiBRo/rmO?=
+ =?us-ascii?Q?7BYeRerwckiLmssJlFKjTFGUBrihoDm5un1VdctwerhuSL6sWqyVypdbWGlf?=
+ =?us-ascii?Q?kgrG51TnH8HTMbrp+5+M55oZsJyyjoL3I3PTlmOg9JlRskWekWXkq9Bv79pC?=
+ =?us-ascii?Q?1oUHvf9IpWoCy0FWc+x2m0HvdDfDPrsHnezIF3QxdG5XceXYCIgwQV+A3vk0?=
+ =?us-ascii?Q?zgjBgNI3s4HiUFU2cpEXP/mGBABY6ACu96GCBJ5QgzB4cpJohBHny9eL+8Sp?=
+ =?us-ascii?Q?Zf34BZZBkT7OmqTc5iywv/fgPAUTRzuYlJPc2lMR9FAGwb2s8H7eP0EPeEki?=
+ =?us-ascii?Q?VfdabHncvTNb7vTI1UwFQYgcemG5CmHhTSW/GHQDf3RpS1xeSrAdLqEOLdL5?=
+ =?us-ascii?Q?gvyYY9qhdDq82gcDmwZISXMGQc6ZMKa4XUBtBHfnQID4W7yaFI8KTBFRWlRR?=
+ =?us-ascii?Q?tpQyJ8TsicfVgXcRC7PwncdcGvBc2TpLgFPAyLign7V3coQQhz+pHEhu4QqS?=
+ =?us-ascii?Q?RUrxDYijWBpt25AFG4kyL2imy1q7ljNbDAGHBupo8FlxiIRkr6HNx2z+fXG6?=
+ =?us-ascii?Q?kV7gZB98qtr/5uxSGM+a8SZaqYOX8HqJ6Pqi04cLjg+EUnXgZ6527HH5YLTk?=
+ =?us-ascii?Q?n3lDMlnPUH27f1ChupPrayKpQPyXU0tVDigy/TMiGb9nt6CqxI4tCi3zxuPu?=
+ =?us-ascii?Q?3Qrqd4pfAa91q8scwhlwpQMsH4rLgtZJnjTOnnYI9otRM1Ek20hAlgePtTTA?=
+ =?us-ascii?Q?38uv8+J63XV7eW3dj2KtPAsx3R4sti4dLHm/FDEpD4o9f6VeUJJiInZtmA1Z?=
+ =?us-ascii?Q?0KTJV+W7gWiBfE4q8VOm5j4+VlLZ/CD6eNl6QAjKQYmkmw1IreOf8InUFoZj?=
+ =?us-ascii?Q?e/e3BllyCIkmLsZu5W8=3D?=
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f59b4b89-c706-47e6-50f2-08de3bcb00cc
+X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Dec 2025 11:13:41.0777
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: WjMRXL3EQm634spDLGbYtW3Q/y6o6Z/OBKmHYdVA77aVK4wKUQiwGdIfnsXD/Se2fGTmsLaIcRnKneVNLpot5w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9659
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_031212_827457_1682EC46 
-X-CRM114-Status: GOOD (  25.14  )
+X-CRM114-CacheID: sfid-20251215_031345_816667_FA56FE7F 
+X-CRM114-Status: UNSURE (   8.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,104 +168,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 15, 2025 at 5:55=E2=80=AFAM Ankur Arora <ankur.a.arora@oracle.c=
-om> wrote:
->
-> The inner loop in poll_idle() polls over the thread_info flags,
-> waiting to see if the thread has TIF_NEED_RESCHED set. The loop
-> exits once the condition is met, or if the poll time limit has
-> been exceeded.
->
-> To minimize the number of instructions executed in each iteration,
-> the time check is rate-limited. In addition, each loop iteration
-> executes cpu_relax() which on certain platforms provides a hint to
-> the pipeline that the loop busy-waits, allowing the processor to
-> reduce power consumption.
->
-> Switch over to tif_need_resched_relaxed_wait() instead, since that
-> provides exactly that.
->
-> However, given that when running in idle we want to minimize our power
-> consumption, continue to depend on CONFIG_ARCH_HAS_CPU_RELAX as that
-> serves as an indicator that the platform supports an optimized version
-> of tif_need_resched_relaxed_wait() (via
-> smp_cond_load_acquire_timeout()).
->
-> Cc: "Rafael J. Wysocki" <rafael@kernel.org>
-> Cc: Daniel Lezcano <daniel.lezcano@linaro.org>
-> Cc: linux-pm@vger.kernel.org
-> Suggested-by: "Rafael J. Wysocki" <rafael@kernel.org>
-> Signed-off-by: Ankur Arora <ankur.a.arora@oracle.com>
-> ---
->
-> Notes:
->   - use tif_need_resched_relaxed_wait() instead of
->     smp_cond_load_relaxed_timeout()
->
->  drivers/cpuidle/poll_state.c | 27 +++++----------------------
->  1 file changed, 5 insertions(+), 22 deletions(-)
->
-> diff --git a/drivers/cpuidle/poll_state.c b/drivers/cpuidle/poll_state.c
-> index c7524e4c522a..20136b3a08c2 100644
-> --- a/drivers/cpuidle/poll_state.c
-> +++ b/drivers/cpuidle/poll_state.c
-> @@ -6,41 +6,24 @@
->  #include <linux/cpuidle.h>
->  #include <linux/export.h>
->  #include <linux/irqflags.h>
-> -#include <linux/sched.h>
-> -#include <linux/sched/clock.h>
->  #include <linux/sched/idle.h>
->  #include <linux/sprintf.h>
->  #include <linux/types.h>
->
-> -#define POLL_IDLE_RELAX_COUNT  200
-> -
->  static int __cpuidle poll_idle(struct cpuidle_device *dev,
->                                struct cpuidle_driver *drv, int index)
->  {
-> -       u64 time_start;
-> -
-> -       time_start =3D local_clock_noinstr();
-> -
->         dev->poll_time_limit =3D false;
->
->         raw_local_irq_enable();
->         if (!current_set_polling_and_test()) {
-> -               unsigned int loop_count =3D 0;
-> -               u64 limit;
-> +               s64 limit;
-> +               bool nr_set;
+> Subject: [PATCH] remoteproc: imx_rproc: Use strstarts for "rsc-table"
+> check
+>=20
+> The resource name may include an address suffix, for example:
+> rsc-table@1fff8000.
+>=20
+> To handle such cases, use strstarts() instead of strcmp() when checking
+> for "rsc-table".
+>=20
+> Signed-off-by: Shenwei Wang <shenwei.wang@nxp.com>
 
-It doesn't look like the nr_set variable is really needed.
-
->
-> -               limit =3D cpuidle_poll_time(drv, dev);
-> +               limit =3D (s64)cpuidle_poll_time(drv, dev);
-
-Is the explicit cast needed to suppress a warning?  If not, I'd drop it.
-
->
-> -               while (!need_resched()) {
-> -                       cpu_relax();
-> -                       if (loop_count++ < POLL_IDLE_RELAX_COUNT)
-> -                               continue;
-> -
-> -                       loop_count =3D 0;
-> -                       if (local_clock_noinstr() - time_start > limit) {
-> -                               dev->poll_time_limit =3D true;
-> -                               break;
-> -                       }
-> -               }
-> +               nr_set =3D tif_need_resched_relaxed_wait(limit);
-> +               dev->poll_time_limit =3D !nr_set;
-
-This can be
-
-dev->poll_time_limit =3D !tif_need_resched_relaxed_wait(limit);
-
->         }
->         raw_local_irq_disable();
->
-> --
+With fixes tag added:
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
 
