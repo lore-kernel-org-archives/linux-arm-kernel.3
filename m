@@ -4,72 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32F34D5B170
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 17:43:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8774D5B85E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 17:49:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+ja9Hg/6jdomRAc5p9N6p8aFKV+8j7gnQ9qOwI5/OuY=; b=yrbnWtgZG0v2o0Wivi20uvq0Pt
-	aJffYehujHO9vgXiXKTT2QbhuIkbzQ6KGyLxzD1afTtKIQoJiRIKoMrJDx+Y/HONeKfpRF35gzW0L
-	zrryPu6OJJsyUGMpy4kp9B8QU+RLH7XipUcaYpYHSeflsxMEcLRAlr/cZ2BIIx4YgiZ67T7llc8h6
-	G71Kl/yyua4d3dk9hHj3rObjJzC1+IPH/CoYnRpJOmsSqhulP0Juy4m/cT5D1VpcCOZMyadHhDkkR
-	2zjp7xm3xWub6d5F/xVWnojwbnWPsgqRl/f04YP+A9ry9RAGbB7HgIxsJuRR0DYwM7jgoXdPQ94i2
-	uSCyoZlA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LXuzL5EebOkBmMK8Aq8nvsj5n+kUXEYFHV9Bdy5czmI=; b=3aLDXHn3zRgwan8fOvfAVWrzyV
+	t9Tv02AyFa/VMlCwGpeTIBLP6NjHS//uyM2Za3dT3emnI53tW+LzSaesVxzxJbqNd+vfchujSDLTX
+	jTv9B5fDI4h4dlGepaTwjMA7c9rVHwo8TYepZssZgFDbs49oKMdJFrVM+BIAvfRF7PJwxJ4Linf67
+	7Yc/mRPLbY5FfhRBvLIYjE9RtnBUObXMcrsh6wQrY328e4t7mb/K+OU2hQG6mDh5jKZR02yrWUd5z
+	jewQIX+Fed/xx5ZXUcu9JCbnppQwTvAzdaCVZnr4MLEP+/gaajFLeXg2uNGgulUOWMo2C3q2MazHM
+	nLAKrs8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVCbJ-00000004596-3sgc;
-	Mon, 15 Dec 2025 17:43:13 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVCbH-0000000458j-0JNp
+	id 1vVCh1-000000045QT-2sR9;
+	Mon, 15 Dec 2025 17:49:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vVCgz-000000045Pi-0Mbs
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 17:43:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1765820588;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=+ja9Hg/6jdomRAc5p9N6p8aFKV+8j7gnQ9qOwI5/OuY=;
-	b=TCktwdRqDIbyBSvzCCCFSz5d/NaeoMMRWpVbzPWoT9NddLxKqrXCsKR0LIZkrlkCVVyuIj
-	x39U4svwHJlJ52IsEyf9alDwxZuwgXtXecU+Zs95VCK17dfQIyZ4UxzTAkvOPOXBJT8k9n
-	/2Dm6uH8C+fpgfu67yqeMPV9TFeVT38=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-217-yjm_VGTXPayI-TU2MbSW4g-1; Mon,
- 15 Dec 2025 12:43:04 -0500
-X-MC-Unique: yjm_VGTXPayI-TU2MbSW4g-1
-X-Mimecast-MFC-AGG-ID: yjm_VGTXPayI-TU2MbSW4g_1765820584
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 702E11956094;
-	Mon, 15 Dec 2025 17:43:03 +0000 (UTC)
-Received: from [172.20.50.79] (unknown [10.30.44.138])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 526B71956056;
-	Mon, 15 Dec 2025 17:43:02 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.19.0-rc1,
- upstream-arm-next, 8f0b4cce)
-Date: Mon, 15 Dec 2025 17:43:02 -0000
-To: will@kernel.org, linux-arm-kernel@lists.infradead.org,
- catalin.marinas@arm.com
+	Mon, 15 Dec 2025 17:49:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 43E0C168F;
+	Mon, 15 Dec 2025 09:48:56 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 088373F73B;
+	Mon, 15 Dec 2025 09:49:02 -0800 (PST)
+Date: Mon, 15 Dec 2025 17:49:01 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Alexandru Elisei <alexandru.elisei@arm.com>
+Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, will@kernel.org,
+	catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, james.clark@linaro.org,
+	mark.rutland@arm.com, james.morse@arm.com
+Subject: Re: [RFC PATCH v6 08/35] HACK! KVM: arm64: Enable SPE virtualization
+ only in VHE mode
+Message-ID: <20251215174901.GA779696@e132581.arm.com>
+References: <20251114160717.163230-1-alexandru.elisei@arm.com>
+ <20251114160717.163230-9-alexandru.elisei@arm.com>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
-Message-Id: <74421.125121512430402225@us-mta-217.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: utnR8k6IVcuH4AwSIR6zF1LrhcQwjFa_rkjA86jAMpI_1765820584
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251114160717.163230-9-alexandru.elisei@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_094311_207402_432E0A61 
-X-CRM114-Status: UNSURE (   6.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251215_094905_185534_FC795952 
+X-CRM114-Status: GOOD (  16.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,38 +67,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+On Fri, Nov 14, 2025 at 04:06:49PM +0000, Alexandru Elisei wrote:
+> For RFC only.
+> 
+> Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
+> ---
+>  arch/arm64/kvm/spe.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/spe.c b/arch/arm64/kvm/spe.c
+> index 7e38f7d9075b..101258b55053 100644
+> --- a/arch/arm64/kvm/spe.c
+> +++ b/arch/arm64/kvm/spe.c
+> @@ -24,8 +24,8 @@ void kvm_host_spe_init(struct arm_spe_pmu *arm_spu)
+>  {
+>  	struct arm_spu_entry *entry;
+>  
+> -	/* TODO: pKVM support */
+> -	if (is_protected_kvm_enabled())
+> +	/* TODO: pKVM and nVHE support */
+> +	if (is_protected_kvm_enabled() || !has_vhe())
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
-              Test: OK
+I totally agree we should focus on VHE mode first.  But it is worth
+considering if we can unify solution across different virtualization
+modes.
 
-Tested-by: CKI Project <cki-project@redhat.com>
+Aside from register access and IRQ handling, buffer management is the
+most complex part of this series, it would be useful to know whether
+the change can support different modes.
 
-Kernel information:
-    Commit message: Linux 6.19-rc1
+Thanks,
+Leo
 
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2215260160
-
-
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
-
+P.S. an interesting question is whether we can reuse virtio-iommu or
+DMA buffer allocation for SPE.  My understanding is the IOMMU would be
+simpler case, as the page table allocation and mapping occur entirely
+on the host side.
 
