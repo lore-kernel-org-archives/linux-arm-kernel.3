@@ -4,57 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72CD4D59D99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 05:14:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32158D41D74
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 06:09:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
-	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5Qct1mTvF7IU3iB2C0M1IQ5oot1LEvPeaJXQcB7A30s=; b=FcjAsR3dLRaVqpubRxvh4+CEj5
-	66of2uB/HAkTAC3rjDywecwsAI5BNhu/7DHIeBtLkFm7hv2VF3UE5Rq/uOPWaDHHdpnVRkMa8AYAa
-	3gZWUWNEojlCYIqq1DB437Tj27V0MLYxi7piiWg14WBkm49TsyOpeSx1a5wGGdxXt0t7vKnGmU1c6
-	t2CVlvj1JYuAVY3vQfnS0M2sSGMDFkGJYO/9zvwnKD1KUpYjeUUcqT7PrRmnL5i6e3v7gRQLrYzqH
-	jQb1gnKhhyb6FNAXAIQr9mlysXdZ79w6Gx5rUVaXHIppCGpmZy8tofM3ldR8KLLze0xLqgRRBJt3g
-	M9qxrRXw==;
+	bh=yNLWP4hfaMxiTNJa61md9epLlIVSptt//iYgoF1alJ4=; b=izbwvAtBnDB0su5x6KREtECH7/
+	n5SQlbDZI8lL6SxxLq4crKMYtX8UcxE2iXQvyAchUpMqO3h3zbKOhXRRYbGqQnoTE/dz14zqpI/96
+	9ZV+NYF/oBF5MGF/wDKINVsR07oGl04LOfMJRLFdoWdSW+Elzrxb5/kUYQzenGlrsnS9vA9V8bNHE
+	FHBmanfQwKCGQtBld3ExDJQCVbLZq0BuYi9suqPZjRwZK/u77pZTbeuhPgAYhamUjepdLghD6NCV6
+	45jsO0x1EfAHFloPUvqSYDxy2LJd4EqUH6UveH7BEAFMjbaXkuaMC1WkpCoQd7SJQIw561MPap4lw
+	T397s+WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV0uo-000000036QQ-2CNj;
-	Mon, 15 Dec 2025 05:14:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vV1ls-000000038lc-2mby;
+	Mon, 15 Dec 2025 06:09:24 +0000
+Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV0uj-000000036Pw-2SaL
+	id 1vV1lp-000000038kt-2df8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 05:14:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 466E2409E9;
-	Mon, 15 Dec 2025 05:14:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB595C4CEF5;
-	Mon, 15 Dec 2025 05:14:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765775667;
-	bh=6oKeEWsAGgWcNvr2xLFSKT0iktHyWUhyJOdbpeo+Cu4=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date:From;
-	b=EdfG4xGMpV4109L7vUlQhHa7tiIppNWoo4U1lyA6JEr1xmtOXm9T6U0slR+WlzU2q
-	 TfeTOKYccf6dKZV4gvyozEgKh4ibG2h9mmpEHuZPts3/oO9G5xB9ezLJt+iV11YCsK
-	 Jelz5suExdnjorwb/TJIunG8Kk4aV/r4chrbfAAaSv09LcfN91tgDEJiqqNWGGq3EI
-	 f4usMiFdyn4IjozsLnSOMFu46Lt5Bz44EBI14T48Yyvm7Kn0HPAT4yEne6rxmsYJSa
-	 Lfkjwdtg76TIG6HTttBA8vcPOOh4FcJuu/IrE0KOVQ/i/wRSLoCxBm0NxhiFLUmjQp
-	 wb4yY7ZGIxeBg==
-Content-Type: multipart/mixed; boundary="===============5514130710034652785=="
+	Mon, 15 Dec 2025 06:09:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZJ9fy50/WmWl52d0/ZQNz6GKp+mExs961RK+Nc8U45GE6lzfeIr4i9q5IhA6uepqsPkKF6xBWbvX5z0ZkAtjUe29B3+GEoodZpHhOzkdEEa9uxvLhgqgqzQ2AYpjSrEUBDJrbI3Za7hLxCxb28Zs2D7MIUHEy76pxhQbThnLI0w5rkmFo/SkcAtiz2EB+JmqOY1SPaUrGMLRFDDRDWx6vZREAVqfJw9IZfYeOqPiWjJrcI4pNokRnN4tyIYftbGu+MRgcMq5RTXALOW4+f8Us1wuDXXW6m3b6dOi1t4HoEwK7BgqpGrfqnd4PekLZLl5xLMmjptcWtfr2ZSSgV1f3Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yNLWP4hfaMxiTNJa61md9epLlIVSptt//iYgoF1alJ4=;
+ b=FD595T0QCsj01P+mMC7RuFrpxEBf/SDh7QMWQ7aF2fhKx5d7uF/Vh85xKE2aozGCuZ48icPkhQU8PsZhfVE5RnGBbNabzwty+zelNXnUuX4YV3ArTRxZA4nG40z6dL3HL4fWELnUW2e+7MpnilvRI1aCHWH6zehe6DmaZwHtBQC8vy9hfcl4RtpHeWCiJjMb0g12YaTD6ReIQAOHqnTyuUlYSwNJjeKMRJ+fdVnvfQrhZbmLmscOPaspZ0Zp1U06Zpyl1S8SP34L4jxiQjG6yBv/dkvi8nNzbkDJXag6TZzBi/f479mNaUdFPVO51NB7udIn43aDKfQV/cxVhzaMDQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yNLWP4hfaMxiTNJa61md9epLlIVSptt//iYgoF1alJ4=;
+ b=ODjxkau+KYmOiOXKg32epr+YqjIl4xvHxaatSoNsZLLTtSGfOOV3AAcuH6aKpMVrLmZyOyUjazk7ivULi/HiXLSxvUiHOuAYDOKTV9j1WJaQTDAeOyO5emWPsEjsBRb/t09bzqMzW9PQoo5FNKJkzADa75EGGHmKBi4/69VbembEyecllf8tdkverHYQ/HEdHh1vK8RyfCfL0Xk/eZ5xgoxXkjfzE2qSlkFjAoxKxTZAltaGMJBGOxdOpueI1Qwx6PZIo4ElugsM2cYMO3hZ8sKXCZ3tZm65vuMu+a/ZP6Q4Ewht5/TrhILwzsXjxRWQk9S3k4hag8cEUdpvNgmEzw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from BN5PR12MB9511.namprd12.prod.outlook.com (2603:10b6:408:2a9::14)
+ by DS7PR12MB5959.namprd12.prod.outlook.com (2603:10b6:8:7e::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.13; Mon, 15 Dec
+ 2025 06:09:15 +0000
+Received: from BN5PR12MB9511.namprd12.prod.outlook.com
+ ([fe80::4d8d:5f91:6c3c:dc8c]) by BN5PR12MB9511.namprd12.prod.outlook.com
+ ([fe80::4d8d:5f91:6c3c:dc8c%4]) with mapi id 15.20.9412.011; Mon, 15 Dec 2025
+ 06:09:15 +0000
+Message-ID: <d4e942de-296c-409b-915a-cb7ad23c53e0@nvidia.com>
+Date: Mon, 15 Dec 2025 11:39:08 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V6 1/4] iommu/tegra241-cmdqv: Decouple driver from ACPI
+To: Robin Murphy <robin.murphy@arm.com>, Nicolin Chen <nicolinc@nvidia.com>
+Cc: will@kernel.org, joro@8bytes.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, thierry.reding@gmail.com, jonathanh@nvidia.com,
+ vdumpa@nvidia.com, jgg@ziepe.ca, linux-arm-kernel@lists.infradead.org,
+ iommu@lists.linux.dev, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org
+References: <20251212060803.1712637-1-amhetre@nvidia.com>
+ <20251212060803.1712637-2-amhetre@nvidia.com>
+ <54fce1f8-7675-4351-b292-0009b2e8c599@arm.com> <aTxxBdcY4hODXcdu@nvidia.com>
+ <104441bd-1284-4147-873a-f94c91788609@arm.com>
+Content-Language: en-US
+From: Ashish Mhetre <amhetre@nvidia.com>
+In-Reply-To: <104441bd-1284-4147-873a-f94c91788609@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: PN4PR01CA0108.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:c01:266::12) To BN5PR12MB9511.namprd12.prod.outlook.com
+ (2603:10b6:408:2a9::14)
 MIME-Version: 1.0
-Message-Id: <5dfe5e4c186bcc18bf8fb935b4ba81c7e0a2ce3c13a49fe91aac51b07975a1a4@mail.kernel.org>
-In-Reply-To: <20251215044919.460086-6-ankur.a.arora@oracle.com>
-References: <20251215044919.460086-6-ankur.a.arora@oracle.com>
-Subject: Re: [PATCH v8 05/12] arm64: rqspinlock: Remove private copy of smp_cond_load_acquire_timewait()
-From: bot+bpf-ci@kernel.org
-To: ankur.a.arora@oracle.com,linux-kernel@vger.kernel.org,linux-arch@vger.kernel.org,linux-arm-kernel@lists.infradead.org,linux-pm@vger.kernel.org,bpf@vger.kernel.org
-Cc: arnd@arndb.de,catalin.marinas@arm.com,will@kernel.org,peterz@infradead.org,akpm@linux-foundation.org,mark.rutland@arm.com,harisokn@amazon.com,cl@gentwo.org,ast@kernel.org,rafael@kernel.org,daniel.lezcano@linaro.org,memxor@gmail.com,zhenglifeng1@huawei.com,xueshuai@linux.alibaba.com,joao.m.martins@oracle.com,boris.ostrovsky@oracle.com,konrad.wilk@oracle.com,ankur.a.arora@oracle.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
-Date: Mon, 15 Dec 2025 05:14:26 +0000 (UTC)
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN5PR12MB9511:EE_|DS7PR12MB5959:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2d851a67-25a3-489d-43c8-08de3ba07929
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|366016|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?OUZkMWpDbDVLcmhFYmlUbEgrcGdJVkhKdjBrV1pySGpTc1FDbnNsZFRsSVYw?=
+ =?utf-8?B?V1FkbVIvU1d2c2ZTZjVQRGZ3WWhublovSXFtdEwvTm9WZXlDd0ZsYUtVRTl4?=
+ =?utf-8?B?Si8yc0UwdlJsK011bzNLVy85YlZhMGFZUlhuZU5OcVJOQ1FKMlhWSjFyL1Nv?=
+ =?utf-8?B?K2p0MTZrMEh0ZGxIblptYUFRTFdmeGl3bHlRaWR5eGhtY1FKL2U2M2RFZEN2?=
+ =?utf-8?B?Zy9UY2dNN05wMVJ0bHo1QUxNN3VRRzFKaSs1eEdhV09rYWt1Y0FWRm9EV0hJ?=
+ =?utf-8?B?V21qczhXd0VSQzlBZXZKS3lVSnN4SjY2L1pQTm11Nm5FMS9TQm01ZW9XNXNN?=
+ =?utf-8?B?a1BZcU1YN3ZCZmxUMVJHU2lMamcxVHVKNzNwMlV6R1pGcHpESGY1MU4wazFD?=
+ =?utf-8?B?aC8vQkJIMU95cnFKMkMwNHB4dkp3Rm1XYXF6bDI5Vm5ybUpaNFUwQnBUWDQ2?=
+ =?utf-8?B?L21EaFdvNEEvUmdaUGdhSy9oTWY5SjFsODJTWmNSTzc1c09hYVZ3Y25STXBy?=
+ =?utf-8?B?blR3OTdnR3ErQ1FQUFhMTzUrclZEUHhxWWo4K2pkcDY5SUJkODR3Ukpkdlpl?=
+ =?utf-8?B?YVcyVVFMZXV5Z3RPdzFRY2hVdlpZckdDR1d2L1E5eGg5cVlIQ0xWbFE4N052?=
+ =?utf-8?B?SVhFd01UWUdKV0RtaTNLZkVEWEt4UUcwMUtPaHBqa2R6Sm01THVYd1VpcHZY?=
+ =?utf-8?B?TWRBYnpuSzBKWERjS1cyRU8zb3ZGYnJMUGdFZC82ME1vNUV5VkhjNFZmZ3VS?=
+ =?utf-8?B?Q08zZXdMTXdjSGdtb2dCL1l1TmpZZUN3OTF4c0hUVmJ4NnRHNkk1cm8vd2tk?=
+ =?utf-8?B?Q1hTbm9Ybmp0WlowRHRqZ21zZ2IrRGR6b0VqQnE5T1BwRWpxcCtDVFRkYzVp?=
+ =?utf-8?B?ODcySmEzMU9OZzBpR0FDOW9ScnU4UEU2cUZ3MjcwSnlhUHFSMTAycnd1cVh3?=
+ =?utf-8?B?eC9BUkt1ZlZWT252NkIxWEJqN2k2YU1lclhWa2ZreWNjSVphMFlrUmZUeWZk?=
+ =?utf-8?B?NWxoQXorbFNDNzgwblZVMlhoUEZBNENSbkVlU1U2ZjBxK2hhWjZiU1JYZFkv?=
+ =?utf-8?B?c0xYWHFuOWFtNDEvYVpWeWg4Y0NnY3ltc25Zdkd5TWxYNkhlYTJCbzdmV2dn?=
+ =?utf-8?B?bHdFa1lSbVUyc21iODIyeEdCdk90RkFUVUtIR2lnbjB1K0Y0NCtkY1F5WEZr?=
+ =?utf-8?B?YVhUL0RPaW5qSjQ2YjRiNGpCVjdITG1VOVVFRllDRDU4Qkd0VkxWVzViS1pz?=
+ =?utf-8?B?MVRseHZxalpqR0R4VEt3MlFZOWhDa0lmaTlhd0p3ZDJvaXhiV0VwY0R2NGxp?=
+ =?utf-8?B?QnlMTDZ0eW9RSWUzTVVYR1N3WUhheHZDY3ArbjJKaWNZdHRvenVyRmxvTVRp?=
+ =?utf-8?B?MnVJQmZjWE9ZYWh2YkdBajNoelJRY0NPanRxLzE2d1UvQmlBWVRiUEpHcHZJ?=
+ =?utf-8?B?TEFrc0Q2cWhsKzU4bm1NQUkvN0YzUUUyVUNLaEFzOHNUZVUrdHRHU2xNS2N5?=
+ =?utf-8?B?QU84YWQycHM2QVpsQmpDaUp5cytSZmNKR0F5NEtDakNDdmZ6OUlXd3ZETzZG?=
+ =?utf-8?B?ank3d0hldW42eXFWeHE5Skg5RDB4NUx4K0pDNXd1YmRIenU4TlpqZEtjclZz?=
+ =?utf-8?B?UjhycVhVcml4RGtkS1ZCYXNVN2dYQ0sxcEREWDdPam45TzEybWI4eVRia1NR?=
+ =?utf-8?B?dWNpTW4yem93ZGNvR1Zzb0ZzUDVyRXdrdEd6WXZDWTFVUjVnL3hsZmV3RXQr?=
+ =?utf-8?B?Z2hWSHQ1UzRkMHZKZVRKOUZhSi81YkJjemM4Qm9OUXJHOHBrT2V1a1o0M2xu?=
+ =?utf-8?B?Wm5QNzJhVDNhT1hmUHFOWGlCekgrK0ZrNU1jMFh0b3NnWUtheEEvV0VleU5y?=
+ =?utf-8?B?MG1hbTM0ZEVVNVVYL1NjekhrKzYzMXoxNGZkbmUrYmV5WHp0WHFrc0NWYndD?=
+ =?utf-8?Q?uhtZcGKMsbNl0ib6ocsUfuxarzhHvbsP?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN5PR12MB9511.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(366016)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YzNZQjUreVRGeUtSMWtHNUJlR3ZpU2FEcFJMeTArcEFxb0s2UlR6RG9xSko4?=
+ =?utf-8?B?ZFhZWlRsS29ta2J1R0RHSjZoT1IxdHNuNGEwcUo5bCsrbW5lRi8zQkt6ZDV3?=
+ =?utf-8?B?MzBzejVDZUtGeVg0SnJMWG9LSEl2Q2hnWmVYZDlLM2VNZFplakZpKzdIZ3VK?=
+ =?utf-8?B?TFRaTFUrdVBzeU5XQjF4dnRFdHV1Yk81dmdlMjhuNmZYRnM0ck9mRTRubFJ0?=
+ =?utf-8?B?bzJCRjdnNGd5Qmk4aERzUHQ3MFluQXdEbmc5Z3psOUNiY21mZkxITDRvSWk3?=
+ =?utf-8?B?ckZXYjdqeFJ6b1I0RmhlYmRzZTM3TkJRRnM1bDdMcjZXVzN6NkJWZGYyTC93?=
+ =?utf-8?B?cUwvZkJPV3RVTVR6WGFiMis0ZmRUWTIxYVBTWlZESjdkMGlTTXRVelN2OTAv?=
+ =?utf-8?B?NmZONXorMkIycXZMVzgzRTZVYWdCbEVtclBSWWk1Z1UzWVpHNURKMWRFRVJM?=
+ =?utf-8?B?aXZuWEgwT1ZDNzNQTXRaanczeS9ybHJTSDdpWCtacGxnYVFpeEN4aUNFdWll?=
+ =?utf-8?B?c1ovdzlPelkvRUcyZVhDTkk1KzVlUERQM09DWW1mbitUbXpyZDV3N0RFZFJF?=
+ =?utf-8?B?c3RMbDBFUFdiWG5xVUJ2bGVHTkpNVHJaNk5id005bGc2elJnQXB0QjZvaURV?=
+ =?utf-8?B?VFBUaFBpL1Fsa1dNUnlJcTFhaGNwb2E3dSs2end1TWNWdDlLb3Vnbzh1NS95?=
+ =?utf-8?B?NTZUR3RxY1pnY0h3OSswem50UzlFTFNrTmd2cVlGeXhVMUMwZ3VPSlNPcXBZ?=
+ =?utf-8?B?U01CU0dZbCs2SXkrWGZ4T1M4OVlRMG5qZDBINmN1b21sN3hkQmhqUjVmdXNj?=
+ =?utf-8?B?UEYvdXlnVFJnQ3RxRnhZR09LYlJIY1FPejl0K0FSMG9TNlBDaWZ1OWVkQlFt?=
+ =?utf-8?B?US9OTnUrYi8rOEhyRkpHOElmdlJodEY5QUIvQVdEMFpBZ1Vkb2swQVBYWDBl?=
+ =?utf-8?B?eXg1YXl0TXg3eG55N2hzRUtaam1IQTFnMndTUHBQbCs3ZXovRUs1TGtEYTRF?=
+ =?utf-8?B?Tk5XRis2cVpUQkttQ2k5ZGpnajQ4ZmhkVlNmeStiWmpCK0xSMFRITTg3VXcw?=
+ =?utf-8?B?aTJyZzg5bXc1QVBNZXZhN3JjZFJ1cGVjbTErWWttZW9Mb3F5TU9wQTBqQy8y?=
+ =?utf-8?B?bHV6cnJWbGx6NTA5bFBpNWlMYzhweDY5djFPaFMwWHVEaDZ0RitMSWJmeEVD?=
+ =?utf-8?B?T3NGOVJPNWhjbWZ1UkZ1UlJiODh3dGN5YmZqejdxWklXaDlkYkg5ZXd3WC94?=
+ =?utf-8?B?Sjg4UGk5MGRLalZzNkZ1elNxL0hoR0hiVFd1SFhuVFNybFZPV2hLZzZjOGw3?=
+ =?utf-8?B?ay9vYlNhVVRBU1FvT251a25jcGxKMWVCaC9sSWZkUEFsbnNaZzBVb28xYzE3?=
+ =?utf-8?B?YmJmUHdvaWIvaVM5UXg4d2ZFZXJVZ2pYZEptS3VVK1loVUxVcm41T2l0M1dB?=
+ =?utf-8?B?SUFGL2lQS2w2ZXZZRStUQnYzT2RtdlZtTkpyQW1GTkFiT1o5MXRiRWlJaXQ3?=
+ =?utf-8?B?S2VmZEUwalpNU3VLYU5BUnV1UlNUTmFXYTZCcUFaMWNtVmdSNzYyVHhtVUk3?=
+ =?utf-8?B?WUVTK3I0SzdXcmxHWnV5V3dicjR5ZXlKckhRSUdIVmVZU2RRSGJDRDMyZEls?=
+ =?utf-8?B?SDFFUXlVL1VRK1plN1FhdHBkKy9iMzVCUVpYR2RRVUZIUi9lbmJuMFZGU2sz?=
+ =?utf-8?B?UHFlc01paCtKVGcyZGhtQk9zRS91Y3lZSldJcDM5NlVVbFp3dmNOMjVUbEpR?=
+ =?utf-8?B?eUF4ZlcyaE9YbXpPWFBmTmlvSExJWU0zcVNYK3lWMUhWUFFVcS94TVM2V2Nk?=
+ =?utf-8?B?V3FsVmwvOXI5eUpnNHVxUmZSblRjcm11dFI1S3g1WmZvU0c5b0c4YUlIaGtW?=
+ =?utf-8?B?UTdRdkR2c1JYcDN2ZzZqY1dFN3RVaVFiRkdRYUFGYVZXUkEzUE83YjExWnJy?=
+ =?utf-8?B?YVZFbVdlWnRGOWxLeHVOZnFiSllYajM4QjZYamhQVnJxNTdvbXBLQXF3RnFL?=
+ =?utf-8?B?bHZaRm5DR01nMGtYT1puQ3ZqclhucDdtSzh5cjBtZGF3SkpVd0ROSEFJdlIx?=
+ =?utf-8?B?K3BuOC9jK3ZRRjROU0IzektKOEIyZ29YTjBVd2k2WFJFUnJYRGtyeGVWT0VX?=
+ =?utf-8?Q?hg0rX4aWKSeisc1ZucmqDed8n?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2d851a67-25a3-489d-43c8-08de3ba07929
+X-MS-Exchange-CrossTenant-AuthSource: BN5PR12MB9511.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Dec 2025 06:09:14.9799
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 2Jnt6sh4wqHfAUzSQOMwENIrDm9Ffr8MdJ6kFo9Inoj6DsD9c8cP3CmHEspFBRlwrD6HufyWcUsNN8jFPvHGzA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB5959
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251214_211429_775601_64B6BB78 
-X-CRM114-Status: GOOD (  15.59  )
+X-CRM114-CacheID: sfid-20251214_220921_750859_23DEEF7C 
+X-CRM114-Status: GOOD (  13.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,80 +181,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---===============5514130710034652785==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
 
-> diff --git a/arch/arm64/include/asm/rqspinlock.h b/arch/arm64/include/asm/rqspinlock.h
-> index 9ea0a74e5892..a385603436e9 100644
-> --- a/arch/arm64/include/asm/rqspinlock.h
-> +++ b/arch/arm64/include/asm/rqspinlock.h
-> @@ -3,91 +3,6 @@
->  #define _ASM_RQSPINLOCK_H
+On 12/13/2025 2:06 AM, Robin Murphy wrote:
+> External email: Use caution opening links or attachments
 >
->  #include <asm/barrier.h>
-> -
-> -/*
-> - * Hardcode res_smp_cond_load_acquire implementations for arm64 to a custom
-> - * version based on [0]. In rqspinlock code, our conditional expression involves
-> - * checking the value _and_ additionally a timeout. However, on arm64, the
-> - * WFE-based implementation may never spin again if no stores occur to the
-> - * locked byte in the lock word. As such, we may be stuck forever if
-> - * event-stream based unblocking is not available on the platform for WFE spin
-> - * loops (arch_timer_evtstrm_available).
-                                               ^^^^
-
-Can lock acquisition hang indefinitely on platforms without event-stream
-support? The deleted implementation provided special handling for the
-arch_timer_evtstrm_available() == false case using
-__smp_cond_load_relaxed_spinwait(), which checked the timeout condition
-every 200 iterations via cpu_relax().
-
-After this removal, resilient_queued_spin_lock_slowpath() at line 408
-calls:
-
-    res_smp_cond_load_acquire(&lock->locked,
-                              !VAL || RES_CHECK_TIMEOUT(ts, ret, _Q_LOCKED_MASK));
-
-This now falls back to the generic smp_cond_load_acquire() (defined in
-kernel/bpf/rqspinlock.c:307), which uses __cmpwait_relaxed(). On
-platforms without event-stream, __cmpwait_relaxed() becomes just
-cpu_relax() (a yield instruction), and the WFE instruction may never wake
-up if no stores occur to the lock word.
-
-Even if WFE does wake up periodically, the RES_CHECK_TIMEOUT macro is
-defined with amortization (checking timeout every ~256 iterations when
-!(ts.spin++) wraps), which may be too sparse compared to the deleted
-implementation's explicit check every 200 iterations.
-
-This means the timeout and deadlock detection logic may not function
-correctly, potentially causing lock acquisition to hang instead of
-returning -ETIMEDOUT or -EDEADLK after the intended 250ms timeout
-(RES_DEF_TIMEOUT).
-
-Note: The next commit in the series (f150b57ec7c8 "bpf/rqspinlock: Use
-smp_cond_load_acquire_timeout()") switches to proper timeout-aware
-primitives, which resolves this issue.
-
-> - *
-> - * Once support for smp_cond_load_acquire_timewait [0] lands, we can drop this
-> - * copy-paste.
-
-[ ... ]
-
-> -#define res_smp_cond_load_acquire(v, c) smp_cond_load_acquire_timewait(v, c, 0, 1)
-> -
->  #include <asm-generic/rqspinlock.h>
 >
->  #endif /* _ASM_RQSPINLOCK_H */
+> On 12/12/2025 7:46 pm, Nicolin Chen wrote:
+>> On Fri, Dec 12, 2025 at 12:01:41PM +0000, Robin Murphy wrote:
+>>>> @@ -4542,7 +4542,7 @@ static void 
+>>>> acpi_smmu_dsdt_probe_tegra241_cmdqv(struct acpi_iort_node *node,
+>>>>     adev = acpi_dev_get_first_match_dev("NVDA200C", uid, -1);
+>>>>     if (adev) {
+>>>>             /* Tegra241 CMDQV driver is responsible for 
+>>>> put_device() */
+>>>
+>>> Don't we need to bring the put_device(adev) out to this level, since
+>>> impl_dev is now something else that AFAICS we are *not* taking a new
+>>> reference on (and thus should not be putting either)?
+>>
+>> Ah, right! We are using the platform device now.
+>>
+>>>> -           smmu->impl_dev = &adev->dev;
+>>>> +           smmu->impl_dev = acpi_get_first_physical_node(adev);
+>>>>             smmu->options |= ARM_SMMU_OPT_TEGRA241_CMDQV;
+>>>>             dev_info(smmu->dev, "found companion CMDQV device: %s\n",
+>>>>                      dev_name(smmu->impl_dev));
+>>
+>> I think we should squash this:
+>
+> Ack, it occurred to me shortly after sending that in fact it's good to
+> still hold our own reference on impl_dev itself, as we're not relying on
+> a bound driver to hold one for us.
+>
+> Cheers,
+> Robin.
+>
 
+Ack, thanks Nic and Robin. I will include this and send
+new version.
 
----
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
-
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/20221060323
-
---===============5514130710034652785==--
+>> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c 
+>> b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+>> index 0c98be3135c63..88625e3c27a65 100644
+>> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+>> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+>> @@ -5280,10 +5280,11 @@ static void 
+>> acpi_smmu_dsdt_probe_tegra241_cmdqv(struct acpi_iort_node *node,
+>>       adev = acpi_dev_get_first_match_dev("NVDA200C", uid, -1);
+>>       if (adev) {
+>>               /* Tegra241 CMDQV driver is responsible for 
+>> put_device() */
+>> -             smmu->impl_dev = acpi_get_first_physical_node(adev);
+>> +             smmu->impl_dev = 
+>> get_device(acpi_get_first_physical_node(adev));
+>>               smmu->options |= ARM_SMMU_OPT_TEGRA241_CMDQV;
+>>               dev_info(smmu->dev, "found companion CMDQV device: %s\n",
+>>                        dev_name(smmu->impl_dev));
+>> +             acpi_dev_put(adev);
+>>       }
+>>       kfree(uid);
+>>   }
+>>
+>> Thanks
+>> Nicolin
+>
 
