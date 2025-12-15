@@ -4,112 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E433CD5B868
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 20:06:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25A06D5B868
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 20:11:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z4j2/uGpnszAMbRY/gTyuwO8hAfsQxxFOQaGfJQ8+/s=; b=N6RaUCpB50KZgb8DnvxEh1fiV2
-	1dDOIK+Hrt/cidHNu90aqpulZ5AB5WmY1I57G/MgjsEU8yqeoJTrgZxip549229V5vCtKIRL6JhLy
-	2c5bDRL2HPK89IWiDprnMttgjeOpRuKF6SK4KHpIUGVdGLKi/1wQVVxGJnZb8DFaKzl+DwMXhEU/M
-	dlBsGlol6Nr9BhTX4ZHZeNxxmf5c0IOvWAw5DLrxf+83j/jQJcCX5V6DIdz5UJK5BDkvf2JZJ4Foi
-	GCsO1MfM6gfT3ZszkgQHtxOFJ/GRelj+9n9MU/pfvQjapc97ZAv4Fq0DWZgC7xhBf+ivVjnq3ZQHv
-	RMxcBH+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NVHWp8cheEcClOBV4c/zxK94NkQEphirpcQRQ+Yuj0w=; b=j61zemV6jSWvkbnQlemsFJyXla
+	H5wW1/t809AmdNavuKz0QwqDHPa/rekqM1RNEfc3nV2wEdQ21vXQrm0xL4PLqJeRGWJ5dwj6UadW0
+	Iy+7fmPNyTDxGrc4rOxBHm05tnR4p8a3ykWlKuGGzwm6lKRMbxe6jxUbbzsbgS3CXYsXOF8SDSgm5
+	/wFxt+ezWu1D7/cgKU/43CTtVVBYczRckJQ6n5RCNvAc3iz3dDEpYoEz2EPynfdmQ9qcoqrzIg6VQ
+	Kfy3Bn0phQ4Kf4R5bILGU1DG36IhjY3E2JgKB8UHouJG/mDsneFPXnukITyP1J1EpmhdyVcs64/fh
+	mvQ1F3vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVEqB-00000004D4W-23fd;
-	Mon, 15 Dec 2025 20:06:43 +0000
-Received: from ip-94-112-25-9.bb.vodafone.cz ([94.112.25.9] helo=ixit.cz)
+	id 1vVEuZ-00000004DLc-1pv4;
+	Mon, 15 Dec 2025 20:11:15 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVEq8-00000004D3a-0JxS
+	id 1vVEuU-00000004DKa-1taa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 20:06:42 +0000
-Received: from [10.0.0.200] (unknown [10.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by ixit.cz (Postfix) with ESMTPSA id 2ADB753412AF;
-	Mon, 15 Dec 2025 21:06:32 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ixit.cz; s=dkim;
-	t=1765829192;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=Z4j2/uGpnszAMbRY/gTyuwO8hAfsQxxFOQaGfJQ8+/s=;
-	b=huo3+38UZOFn2IkZEBBtuqFO09u1rKe8NVzXWLiYN2PP4BZeit03wPYs+ZwIWhqvA2Eztl
-	pXjz9JJwqezQ5PT7wQ4urT532/DugbEppBUebJsX89ZLis9GNXE3YkHizFJrR+3JcTx0J1
-	6gi5kUlYET02Et/Kx4Y7ATF564+2vLI=
-Message-ID: <eb898d21-5fda-474d-979e-18da33a85415@ixit.cz>
-Date: Mon, 15 Dec 2025 21:06:31 +0100
+	Mon, 15 Dec 2025 20:11:14 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-477632b0621so28032805e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Dec 2025 12:11:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1765829468; x=1766434268; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=NVHWp8cheEcClOBV4c/zxK94NkQEphirpcQRQ+Yuj0w=;
+        b=uEfev6AIYeOzR+J0nKqQX/6hx/7hyWfDwNHN7+ZKgmxIJHIwMgO2b8LQyv2katgshd
+         V8RMcSwq30XKfNrPDsjrX2HtTsAQ4gc3BRk6JVtx6E5y9Kh7/oNDav/RlXLKSxlxZLRM
+         wywyZErTG5gFQ8NJqlBt5Lr073Ia9pJadordWXymMsGS8+Nik5RwTAGitCtPFHcjrTyj
+         sAlqG1sV7q2jBmrWi5dnsxb3lbzexxoX5n/LAtBXsIKSjmdZmUcgoScVMVJilLzxovfj
+         bjlmnL6CF5YPjQ+LCVXHB1bNMkM2HtsWJQCTD7BeZ6AbR1CDiDNEMFRABPp0isJD4w34
+         GNGw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765829468; x=1766434268;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=NVHWp8cheEcClOBV4c/zxK94NkQEphirpcQRQ+Yuj0w=;
+        b=NgUZdBAYubTK7odjv25wtIYHdg83H9s3VcJFdW5iezgJbBPWsmCVWZHYyUgTGGS37B
+         STFY1rSA8u5TJPlkDFmcpY26nuvFsRQ5LpnLLtg7GtG4Rq0mJNE0qtMhuNiE4g0xc9/y
+         Lan39QutNzQxujniKu1JkKLdfG9aiOZTFVDMLHOx83HATXj8fOkrm5yWd+3HCej0aLbf
+         XL591a7aJkZTFP1EPPnv3ReSSdzCRDwXnLqSIlzsw4iGl0uf/ZX2QHPjYGUgTD6K0DgA
+         bhSOm70uU9ep3xEDlwt6h217QhpCbHPL1QGZ8Th9Migck8ndGLRu9F40cFXN8EaFnfJP
+         fSgg==
+X-Forwarded-Encrypted: i=1; AJvYcCXgCmu8zhYlSSh/jnb5hNNJkBdwWYwEI+uJ5QKMbfNKcA56Gy7ubTYNHUb4hbg0nMvWrA74C6EJpN2PmdIx2FA9@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx2vgBS4RDo4PbF/L3vzpzIPy8jMIusJoGblDHBRuspS35Qy4Dt
+	moDpIkU1fAYSSbZqKaOVTj1RLsTDvgoIeiSZZguXAcEde5jh2nN8T50re3Cn6+QfBPI=
+X-Gm-Gg: AY/fxX6Z+2cGEsek/0F4Lexlkqj8V2Df7JnGQnrYbx0SKQOhDdJUSRkM4jY6EFRyXRa
+	ARQuCY5TtqaXgH45EWO07wuWw31/ooZOEqJYTKveviz4NhC8uXXyL6pMbyg04rQsmV+NEeDa6E6
+	dN1ChurqUTVmvciqCGZgr7f0l0MGRNDg2kty4URorCW5EoWUIHMXYVtv4IuzWm08q3xSjC4duBy
+	buWH2zAe5flXkwNEFZbipL7Brh9YnuRVsHUlvZH5OAThtWuBQ4TR49hRQL7sjKRvG8u6poTg8G2
+	mj6AbDKazJrIG8kI9xhqjBfSn+UVa2h9whbiS4kA9tWY0yuZhiQqbPX58d0EE0gN19/n4BbOj8f
+	MEoXzkJ2OVb6ctYiAD6RjXud7Utu1EoKEH61cjNInpw0HfxcWn8ZR2NuUVtxsniz0Ihtrenrs1O
+	iCozEcsrhqMHrnX63n
+X-Google-Smtp-Source: AGHT+IFzTdgd8HuBCRpheWEKJMhw6vXCy8KxXaScp0+GwrnVXW68cCuyCfDLEuzw7wX+ZV30A2XRQg==
+X-Received: by 2002:a05:600c:46c4:b0:46e:59bd:f7d3 with SMTP id 5b1f17b1804b1-47a8f9046fcmr137755605e9.20.1765829468100;
+        Mon, 15 Dec 2025 12:11:08 -0800 (PST)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47a8f4ace61sm200864155e9.7.2025.12.15.12.11.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 15 Dec 2025 12:11:07 -0800 (PST)
+Date: Mon, 15 Dec 2025 23:11:03 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Chester Lin <chester62515@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>, devicetree@vger.kernel.org,
+	Eric Dumazet <edumazet@google.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	imx@lists.linux.dev, Jakub Kicinski <kuba@kernel.org>,
+	Jan Petrous <jan.petrous@oss.nxp.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Lee Jones <lee@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Matthias Brugger <mbrugger@suse.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	NXP S32 Linux Team <s32@nxp.com>, Paolo Abeni <pabeni@redhat.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, linaro-s32@linaro.org
+Subject: Re: [PATCH v2 0/4] s32g: Use a syscon for GPR
+Message-ID: <aUBrV2_Iv4oTPkC4@stanley.mountain>
+References: <cover.1765806521.git.dan.carpenter@linaro.org>
+ <aUAvwRmIZBC0W6ql@lizhi-Precision-Tower-5810>
+ <aUBUkuLf7NHtLSl1@stanley.mountain>
+ <aUBha2/xiZsIF/o5@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/3] ARM: dts: exynos: Add Google Manta (Nexus 10)
-To: Krzysztof Kozlowski <krzk@kernel.org>,
- Lukas Timmermann <linux@timmermann.space>,
- Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Russell King <linux@armlinux.org.uk>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- phone-devel@vger.kernel.org, Alexandre Marquet <tb@a-marquet.fr>
-References: <20251215-lat3st-staging-v3-0-2e4914b64dd8@timmermann.space>
- <20251215-lat3st-staging-v3-2-2e4914b64dd8@timmermann.space>
- <c62d6c99-0c8d-40e5-95fc-ae73ecaca926@ixit.cz>
- <546ff0cb-a3a2-4fa4-a78b-79c923ed7765@kernel.org>
-Content-Language: en-US
-From: David Heidelberg <david@ixit.cz>
-Autocrypt: addr=david@ixit.cz; keydata=
- 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
-In-Reply-To: <546ff0cb-a3a2-4fa4-a78b-79c923ed7765@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aUBha2/xiZsIF/o5@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_120640_579461_0477A30D 
-X-CRM114-Status: GOOD (  18.25  )
+X-CRM114-CacheID: sfid-20251215_121110_923324_BB7B3A6A 
+X-CRM114-Status: GOOD (  38.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,132 +120,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 15/12/2025 20:33, Krzysztof Kozlowski wrote:
-> On 15/12/2025 19:53, David Heidelberg wrote:
->> Hello Lucas,
->>
->> thanks for the sending Nexus 10 upstream, see few nitpicks below:
->>
->> On 15/12/2025 16:05, Lukas Timmermann wrote:
->>> From: Alexandre Marquet <tb@a-marquet.fr>
->>>
->>> Manta is the code name for Google Nexus 10, and was manufactured by
->>> Samsung with their Exynos5250 SoC.
->>> This patch adds initial device-tree file for this board.
->>>
->>> Signed-off-by: Alexandre Marquet <tb@a-marquet.fr>
->>> Co-developed-by: Lukas Timmermann <linux@timmermann.space>
->>> Signed-off-by: Lukas Timmermann <linux@timmermann.space>
->>> ---
->>>    arch/arm/boot/dts/samsung/Makefile             |   1 +
->>>    arch/arm/boot/dts/samsung/exynos5250-manta.dts | 511 +++++++++++++++++++++++++
->>>    2 files changed, 512 insertions(+)
->>>
->>> diff --git a/arch/arm/boot/dts/samsung/Makefile b/arch/arm/boot/dts/samsung/Makefile
->>> index 7becf36656b1..e0143ee8c82d 100644
->>> --- a/arch/arm/boot/dts/samsung/Makefile
->>> +++ b/arch/arm/boot/dts/samsung/Makefile
->>> @@ -26,6 +26,7 @@ dtb-$(CONFIG_ARCH_EXYNOS4) += \
->>>    	exynos4412-trats2.dtb
->>>    dtb-$(CONFIG_ARCH_EXYNOS5) += \
->>>    	exynos5250-arndale.dtb \
->>> +	exynos5250-manta.dtb \
->>>    	exynos5250-smdk5250.dtb \
->>>    	exynos5250-snow.dtb \
->>>    	exynos5250-snow-rev5.dtb \
->>> diff --git a/arch/arm/boot/dts/samsung/exynos5250-manta.dts b/arch/arm/boot/dts/samsung/exynos5250-manta.dts
->>> new file mode 100644
->>> index 000000000000..0f006590576c
->>> --- /dev/null
->>> +++ b/arch/arm/boot/dts/samsung/exynos5250-manta.dts
->>> @@ -0,0 +1,511 @@
->>> +// SPDX-License-Identifier: GPL-2.0
->>
->> you could use here modern SPDX I guess (GPL-2.0-only)
->>
->>> +/*
->>> + * Google Manta (Nexus 10) board device tree source
->>> + *
->>> + * Copyright (c) 2023-2025 Alexandre Marquet
->>> + * Copyright (c) 2025 Lukas Timmermann
->>> + */
->>> +
->>> +/dts-v1/;
->>> +#include <dt-bindings/leds/common.h>
->>> +#include <dt-bindings/gpio/gpio.h>
->>> +#include <dt-bindings/clock/maxim,max77686.h>
->>> +#include <dt-bindings/input/linux-event-codes.h>
->>> +#include "exynos-pinctrl.h"
->>> +#include "exynos5250.dtsi"
->>> +#include "exynos-mfc-reserved-memory.dtsi"
->>> +
->>> +/ {
->>> +	model = "Google Nexus 10";
->>> +	compatible = "google,manta", "samsung,exynos5250", "samsung,exynos5";
->>> +
->>> +	aliases {
->>> +		mmc0 = &mmc_0; /* eMMC */
->>> +		mmc1 = &mmc_1; /* WiFi */
->>> +	};
->>> +
->>> +	bmp180_vdda_reg: regulator-bmp180-vdda {
->>> +		compatible = "regulator-fixed";
->>> +		regulator-name = "BMP180_VDDA";
->>> +	};
->> something-something-regulator (all occurences within the DTS)
->>
+On Mon, Dec 15, 2025 at 02:28:43PM -0500, Frank Li wrote:
+> On Mon, Dec 15, 2025 at 09:33:54PM +0300, Dan Carpenter wrote:
+> > On Mon, Dec 15, 2025 at 10:56:49AM -0500, Frank Li wrote:
+> > > On Mon, Dec 15, 2025 at 05:41:43PM +0300, Dan Carpenter wrote:
+> > > > The s32g devices have a GPR register region which holds a number of
+> > > > miscellaneous registers.  Currently only the stmmac/dwmac-s32.c uses
+> > > > anything from there and we just add a line to the device tree to
+> > > > access that GMAC_0_CTRL_STS register:
+> > > >
+> > > >                         reg = <0x4033c000 0x2000>, /* gmac IP */
+> > > >                               <0x4007c004 0x4>;    /* GMAC_0_CTRL_STS */
+> > > >
+> > > > We still have to maintain backwards compatibility to this format,
+> > > > of course, but it would be better to access these through a syscon.
+> > > > First of all, putting all the registers together is more organized
+> > > > and shows how the hardware actually is implemented.  Secondly, in
+> > > > some versions of this chipset those registers can only be accessed
+> > > > via SCMI, if the registers aren't grouped together each driver will
+> > > > have to create a whole lot of if then statements to access it via
+> > > > IOMEM or via SCMI,
+> > >
+> > > Does SCMI work as regmap? syscon look likes simple, but missed abstract
+> > > in overall.
+> > >
+> >
+> > The SCMI part of this is pretty complicated and needs discussion.  It
+> > might be that it requires a vendor extension.  Right now, the out of
+> > tree code uses a nvmem vendor extension but that probably won't get
+> > merged upstream.
+> >
+> > But in theory, it's fairly simple, you can write a regmap driver and
+> > register it as a syscon and everything that was accessing nxp,phy-sel
+> > accesses the same register but over SCMI.
 > 
-> I don't understand this suggestion.
+> nxp,phy-sel is not standard API. Driver access raw register value. such
+> as write 1 to offset 0x100.
+> 
+> After change to SCMI, which may mapped to difference command. Even change
+> to other SOC, value and offset also need be changed. It is not standilzed
+> as what you expected.
 
-oh right, let me clarify,
-
-the regulator name should end with -regulator postfix.
+We're writing to an offset in a syscon.  Right now the device tree
+says that the syscon is an MMIO syscon.  But for SCMI devices we
+would point the phandle to a custom syscon.  The phandle and the offset
+would stay the same, but how the syscon is implemented would change.
 
 > 
->>> +
->>> +	bmp180_vddd_reg: regulator-bmp180-vddd {
->>> +		compatible = "regulator-fixed";
->>> +		regulator-name = "BMP180_VDDD";
->>> +	};
+> >
+> > > You still use regmap by use MMIO. /* GMAC_0_CTRL_STS */
+> > >
+> > > regmap = devm_regmap_init_mmio(dev, sts_offset, &regmap_config);
+> > >
+> >
+> > You can use have an MMIO syscon, or you can create a custom driver
+> > and register it as a syscon using of_syscon_register_regmap().
 > 
+> My means is that it is not necessary to create nxp,phy-sel, especially
+> there already have <0x4007c004 0x4>;    /* GMAC_0_CTRL_STS */
 > 
-> 
->>> +};
->>> +
->>> +&clock {
->>> +	assigned-clocks = <&clock CLK_FOUT_APLL>;
->>> +	assigned-clock-rates = <1000000000>;
->>> +};
->>> +
->>> +&cpu0 {
->>> +	cpu0-supply = <&buck2_reg>;
->>> +};
->>> +
->>> +&ehci {
->>> +	status = "disabled";
->>> +};
->>> +
->>> +&i2c_0 {
->>> +	status = "okay";
->>
->> status should be before first sub-node (none in this case), with
->> preceding newline, please change all occurences
->>
-> 
-> Well yeah, but do you have actually any comment pointing real issues?
 
-No I don't, just generic device-tree nitpicks.
+Right now the out of tree dwmac-s32cc.c driver does something like
+this:
 
-David
+    89          if (gmac->use_nvmem) {
+    90                  ret = write_nvmem_cell(gmac->dev, "gmac_phy_intf_sel", intf_sel);
+    91                  if (ret)
+    92                          return ret;
+    93          } else {
+    94                  writel(intf_sel, gmac->ctrl_sts);
+    95          }
 
-> 
-> 
-> Best regards,
-> Krzysztof
+Which is quite complicated, but with a syscon, then it's just:
 
--- 
-David Heidelberg
+	regmap_write(gmac->sts_regmap, gmac->sts_offset, S32_PHY_INTF_SEL_RGMII);
+
+Even without SCMI, the hardware has all these registers grouped together
+it just feels cleaner to group them together in the device tree as well.
+
+regards,
+dan carpenter
 
 
