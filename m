@@ -4,55 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2915CD41D74
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 11:46:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B22AFD41D74
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 11:47:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4mKuCA0Z50HT6gGEmCoX13yW85L+S++ZeY240sfmtbY=; b=EoTlqut8bvpw/V9fRmK6sOstSs
-	1Ajy3TcFpCqYB2sWILYm6Up0MX0lkoRCzPFJLcivn0+0Zxdy5sqIkpF3b5gQe+CnBqnIjyE9t8ZOR
-	Aa8u6tqfEBuBHAOt4bfF82D2t7D8cDTd+5MnfCjOwoulioO8k9c72BhfCFka5faqMXeYqxltkN23K
-	vhhXt2rFHXl0NoLwi/LSCWccYwpdh+SR9Y20p4UIKywV6C2rgG/ICQ+QoL4AEEwuCS3F94BRt1mzQ
-	CqRiY+KxEKAYZyUWIqubTQhwaYf6Os5+Hst6rGX+5lNo6FbjaKs4zQ0PvkiiFj/dXKdrVl0sSv2mK
-	C9dgnfdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8VsYkPqVn11djoNpxIXUqfR5nF0llqUA37rnKhEinx4=; b=x3AesOrUkHEgWbGeCjJZqLwnLP
+	7JP7ILW/GXfQVALX2G9kQHhOSJMF3rhy4WL+x/YqcyjjPUqtIn0J2B0DoB2XMr8ZyNm0tKDWEnad+
+	XPLPykWuv9mxy6CXqyxzYtMTSb/qbIoTBrx9D98cTaUm0AjFx4vCaHa2Q3h10qMGW1vREmv8ExGey
+	QQjp3i3ssZVOAWjXNoSS1iwWjS8JEsXDiEeH2yKYkgIuWQSkXkfSWKYP0xuxqzzVKOmNjWN5i7NRu
+	U7VbWBPApoprEHO6W81z6vcF6XDHOOpxOCPBiXxdW6BX4id0UCdSVSy8xxY7VyUZR2J4TF6o1l1DZ
+	0yxrNDFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV72N-00000003YRq-1W8g;
-	Mon, 15 Dec 2025 11:46:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV72K-00000003YRU-0qGM
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 11:46:45 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7322F497;
-	Mon, 15 Dec 2025 03:46:36 -0800 (PST)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4F1B63F73B;
-	Mon, 15 Dec 2025 03:46:41 -0800 (PST)
-Date: Mon, 15 Dec 2025 11:46:38 +0000
-From: Alexandru Elisei <alexandru.elisei@arm.com>
-To: Leo Yan <leo.yan@linux.dev>
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, will@kernel.org,
-	catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, james.clark@linaro.org,
-	mark.rutland@arm.com, james.morse@arm.com
-Subject: Re: [RFC PATCH v6 05/35] KVM: arm64: Add KVM_CAP_ARM_SPE capability
-Message-ID: <aT_1HimOyJk6H1ko@raptor>
-References: <20251114160717.163230-1-alexandru.elisei@arm.com>
- <20251114160717.163230-6-alexandru.elisei@arm.com>
- <20251214121842.GA16796@debian-dev>
+	id 1vV73E-00000003YY4-3DzF;
+	Mon, 15 Dec 2025 11:47:40 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vV73C-00000003YX9-2FX1;
+	Mon, 15 Dec 2025 11:47:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=8VsYkPqVn11djoNpxIXUqfR5nF0llqUA37rnKhEinx4=; b=F/p1CudFDrVHOofWOv20shOQyS
+	f0fpEFf5Fa6wJ4KVenEC6dVqcRKJ3rav/K9qlM5OGR02NhAqcPHKZSqkeZ1tw3PKYAbgP0clLvzKk
+	wlgCUYQ4wh59jNqetJMkzXa/T7IiRHGrrMaczWlkcG6Cici4HRw8LtN0mOMSJEDc+1aH8mo4LnHit
+	2FBKXUc7WsrnhvxpErJ8m3rhJyhehz8yuc6DVnsE30myirz8/CUQkZnJiEqbSPNltUuAAOnpHQyB9
+	oNOOl9Y2qTe/wH4fzWXUDNcdMHsG5aFMaRnjhnBmgtyA50aCuOHN3hFigkk0sIsUZUmtDWuGSysEs
+	+UbZ1pCQ==;
+Received: from [192.76.154.237] (helo=phil.dip.tu-dresden.de)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vV739-0000On-NN; Mon, 15 Dec 2025 12:47:35 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alexey Charkov <alchark@gmail.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: dts: rockchip: Add overlay for the PCIe slot on RK3576 EVB1
+Date: Mon, 15 Dec 2025 12:47:30 +0100
+Message-ID: <176579924021.1404176.5086927047208846310.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20251202-evb1-pcie1-v2-1-810693b1b72f@gmail.com>
+References: <20251202-evb1-pcie1-v2-1-810693b1b72f@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251214121842.GA16796@debian-dev>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_034644_294958_F8713194 
-X-CRM114-Status: GOOD (  13.03  )
+X-CRM114-CacheID: sfid-20251215_034738_570079_EF60E4EF 
+X-CRM114-Status: GOOD (  11.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,37 +76,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Leo,
 
-On Sun, Dec 14, 2025 at 08:18:42PM +0800, Leo Yan wrote:
-> On Fri, Nov 14, 2025 at 04:06:46PM +0000, Alexandru Elisei wrote:
+On Tue, 02 Dec 2025 13:54:31 +0400, Alexey Charkov wrote:
+> Rockchip RK3576 EVB1 has an onboard PCIe slot (PCIe 2.1, x4 mechanically,
+> x1 electrically), but it shares pins and PHY with the only USB3 Type-A
+> port.
+> 
+> There is a physical switch next to the slot to transfer respective pins
+> connection from the USB3 port to the PCIe slot, but apart from flipping
+> the switch one must also disable the USB3 host controller to prevent it
+> from claiming the PHY before the PCIe slot can become usable.
 > 
 > [...]
-> 
-> > +void kvm_host_spe_init(struct arm_spe_pmu *arm_spu)
-> > +{
-> > +	struct arm_spu_entry *entry;
-> > +
-> > +	guard(mutex)(&arm_spus_lock);
-> > +
-> > +	entry = kmalloc(sizeof(*entry), GFP_KERNEL);
-> > +	if (!entry)
-> > +		return;
-> > +
-> > +	entry->arm_spu = arm_spu;
-> > +	list_add_tail(&entry->link, &arm_spus);
-> > +
-> > +	if (list_is_singular(&arm_spus))
-> > +		static_branch_enable(&kvm_spe_available);
-> 
-> We can simply check if list_empty(&arm_spus) in kvm_supports_spe(), thus
-> the static key kvm_spe_available is not needed.  Another benefit is this
-> is consistent with CPU PMU's virt implementation.
 
-Sure, that makes sense. I think I added a static key because I was thinking
-about performance on hot paths, but looking at the series I forgot to actually
-make use of it.
+Applied, thanks!
 
-Thanks,
-Alex
+[1/1] arm64: dts: rockchip: Add overlay for the PCIe slot on RK3576 EVB1
+      commit: 47b5d3697f6b9f53a0db30a99656a2f8f919e246
+
+Best regards,
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
