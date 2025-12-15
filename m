@@ -4,61 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B410D5B16F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 14:10:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04731D5B16E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 14:10:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=BrGq34DSgZzEGAjhyTFeF9OFKrRHfm7+y6zzR9S4rh4=; b=me1Nj15tVo9jpA
-	j60jTthzaUspn6pemKsReFTXDOlX/+sn+LuZ68oQlw7EYefyOGRZfCFfKTGi8jDIZ/Kw54x0R43to
-	uDUoGRmoumc5KnEQqpZOEu114CKJLrIbNmkYWhDbk/lD2Z0dmwB+E41y85Oo4GShxF8CGwxHCAViG
-	FphUc0A/A94P+MQHw/a6fU7MTnier+fqU1E+a4GQfyz/Lbz5SpTkSFRyIZLnbkhol8NKxYvO4cfCa
-	IRl0vEk0ymrbQXQzJtrRhpSDIIJ22gMhqLlLY8y+6WPvYIDns0XGaG5QVhWeysA8zTA5uaUVmo/ge
-	caUn2jyZpIQkUGSzyj8g==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xa75FA/RqA1hTGcKPQBo5+mpgZRoAUQ+aXrfjGdq9w8=; b=rvGURdVe2fnCUgts9BE/9Fimxy
+	ky7GYus2bd+/m8+aMsa1/sQHmk0lNBPtwer6XuKQaYteXbMBd2YxwNwkCsU7Hrfq2WNoZv0kqFvVw
+	gBC3cbiFPFxnZGmRnWhJTai5sdpvKx12PZbERwXyUSXzxeLvFuqM2hrgL7SimyFCQF/6JkOr9mXtj
+	TLcb+JiSVjykGNZqz3ktjENyMtpK/WIZ+68NrYdAckbn8ilfCkIG2Qya0W0e//C8yWi7syTBvqZHE
+	aQmL8ospzFXpx5Y75Dou7ZcM7mcfZmBPOavV3y+3DRdYuEg1ZAquSmOi6E0NMktmCEOS+cXBYttYH
+	YCSdU1SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV9HN-00000003kQP-3gdA;
-	Mon, 15 Dec 2025 14:10:25 +0000
+	id 1vV9Hm-00000003kX0-21zr;
+	Mon, 15 Dec 2025 14:10:50 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV9HK-00000003kPV-0g8K;
-	Mon, 15 Dec 2025 14:10:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1765807798; cv=none; 
+	id 1vV9Hk-00000003kWF-1KET;
+	Mon, 15 Dec 2025 14:10:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1765807815; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=U3j+KSwEDnsAZ3iJ9Ct2fsoDFC8pJpo974PQdZPUMdU22Vd1XnMQLUNHQ0tq3opTKd5R7MjiRd8e9Awk1veEei2BuX1KfH/ufYV03Z4bz7pWblQhBKCvIbzwNgoe2l5qqLdh5phae5tWclkXg5tOVhJP52/ZJtJSMLCt/zCfI00=
+	b=R3o+hGXvUapVQ5VCm+yS9PfOLszeIb8BZ4GiZaYOA/q/MfTNlEsF4a0xAaPIU7LmUCJkaTbRNvw/2behwM8dEFsnr9CbdCI7cEcZHZAaI9qBnvEhdFBCHOwYgoZmzPLcalwCQp+PztuQzEYUGEMCqEo7gQSrXUCTYKLyUTbNg88=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1765807798; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=BrGq34DSgZzEGAjhyTFeF9OFKrRHfm7+y6zzR9S4rh4=; 
-	b=OEH8DH9qirfT9gIjUbd0c/RFC3Ua5uzF7O8tnuwayVpwIFn63DbOYN3w3wxPUl8Rl+GqapAHQJhxu+fbJK4m7L/SjDF9mQoYPwXYhkJammnKlVV/Ncm19EPmXKx2iuDw2bUE7we8MSLCiO6O+MSmEUab7YGTumkmdQ2+YHelLzM=
+	t=1765807815; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=xa75FA/RqA1hTGcKPQBo5+mpgZRoAUQ+aXrfjGdq9w8=; 
+	b=WyXpkNBlhQA1E/6JHBrrqxeodpPkHQdRCNidMT5mV8HNGVoLjePPjHP4U10cmXRB24zek0Sri8dPN0nQwKY8V8FwnTaxJItyTZIJpZEUmBUiPBTEMQtqEFwEtPrOJ7rrrbo0vME2xsmp1tRtALHLJfO13sYs5aKpN6qFZLJIMr4=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1765807798;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1765807815;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
-	bh=BrGq34DSgZzEGAjhyTFeF9OFKrRHfm7+y6zzR9S4rh4=;
-	b=elwnEnMvKSYWqv7eRBmCYrwf+lN6oeH+ccFZA5jhFKVXGL9TSxPIo1OhiJB9Q5ML
-	sdcS3xhZJYDQlWCHZnwlCX7ajbuc8a/qNG3Ac42j+XybN2G16YdqBWfJN0WscMZrjZH
-	MPZptSioWi66oNx/W+3vRlG8NJN50w1Uh44KP4qs=
-Received: by mx.zohomail.com with SMTPS id 1765807791521712.4981457029588;
-	Mon, 15 Dec 2025 06:09:51 -0800 (PST)
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=xa75FA/RqA1hTGcKPQBo5+mpgZRoAUQ+aXrfjGdq9w8=;
+	b=SMOlJD0wpctpy2O7koRqm0IocKl1oGKAFyXSZD/kDNKz+if9gljK5t2+zcP2ah2i
+	Njp9Vbfkl09u/E6SUx0xAiRJLeQ+6NlCOk+hJttPcNujWawCMxGstg53Y/QO0HD0P0a
+	vr/6oPeMDuVHbAz+VPtl3hXBM7Yr23ryhBoZzS3Q=
+Received: by mx.zohomail.com with SMTPS id 1765807811261322.6235762524807;
+	Mon, 15 Dec 2025 06:10:11 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Subject: [PATCH v5 0/8] drm/rockchip: No more post-atomic_check fixups
-Date: Mon, 15 Dec 2025 15:09:16 +0100
-Message-Id: <20251215-vop2-atomic-fixups-v5-0-83463c075a8d@collabora.com>
+Date: Mon, 15 Dec 2025 15:09:17 +0100
+Subject: [PATCH v5 1/8] drm/rockchip: vop2: Switch impossible format
+ conditional to WARN_ON
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAIwWQGkC/33OSw7CIBAG4Ks0rB0z0FJbV97DuAA6KImVCpVoT
- O8u1o0xjct/Ht/Mk0UKjiLbFk8WKLno/CUHuSqYOanLkcB1OTOBQnKBNSQ/CFCj750B6+63IQK
- aEgnbBm0jWV4cAuXOjO4Pnxzoesv2+CkyrSKB8X3vxm2R6jVvIRjO3sMnF0cfHvNDSczT/24nA
- QgbqyuptdWku53x57PSPqh1PjCTqfxm2kWmzAxuTNVYtNziIlN9MZwvMlVmZCeROiVqbZtfZpq
- mFxDOEXxzAQAA
-X-Change-ID: 20251206-vop2-atomic-fixups-0c30e0980f85
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251215-vop2-atomic-fixups-v5-1-83463c075a8d@collabora.com>
+References: <20251215-vop2-atomic-fixups-v5-0-83463c075a8d@collabora.com>
+In-Reply-To: <20251215-vop2-atomic-fixups-v5-0-83463c075a8d@collabora.com>
 To: Sandy Huang <hjc@rock-chips.com>, 
  =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
  Andy Yan <andy.yan@rock-chips.com>, 
@@ -73,8 +70,8 @@ Cc: David Laight <david.laight.linux@gmail.com>,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_061022_250259_43B5277F 
-X-CRM114-Status: GOOD (  21.99  )
+X-CRM114-CacheID: sfid-20251215_061048_412939_0AC941C1 
+X-CRM114-Status: GOOD (  11.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,111 +86,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I'm taking over this series to get it across the finish line. Original
-cover letter from Daniel Stone on v1:
+From: Daniel Stone <daniels@collabora.com>
 
-> Hi,
-> This series is a pretty small and consistent one for VOP2. The atomic
-> uAPI very clearly specifies that drivers should either do what userspace
-> requested (on a successful commit), or fail atomic_check if it is not
-> for any reason possible to do what userspace requested.
-> 
-> VOP2 is unfortunately littered with a bunch of cases where it will apply
-> fixups after atomic_check - doing something different to what userspace
-> requested, e.g. clipping or aligning regions - or throw error messages
-> into the log when userspace does request a condition which can't be met.
-> 
-> Doing something different to what was requested is bad because it
-> results in unexpected visual output which can look like artifacts.
-> Throwing errors into the log is bad because generic userspace will
-> reasonably attempt to try any configuration it can. For example,
-> throwing an error message on a plane not being aligned to a 16 pixel
-> boundary can result in 15 frames' worth of error output in the log when
-> a window is being animated across a screen.
-> 
-> This series removes all post-check fixups - failing the check if the
-> configuration cannot be applied - and also demotes all messages about
-> unsupported configurations to DEBUG_KMS.
-> 
-> Cheers,
-> Daniel
-
----
-Changes in v5:
-- Reword message in "Switch impossible format conditional to WARN_ON" to
-  remove the reference to "staggering on", as it previously didn't do
-  that either.
-- Return from atomic_update if any of the WARN_ON conditionals came
-  true.
-- Link to v4: https://lore.kernel.org/r/20251211-vop2-atomic-fixups-v4-0-5d50eda26bf8@collabora.com
-
-Changes in v4:
-- s/64-byte/64-pixel/
-- Link to v3: https://lore.kernel.org/r/20251209-vop2-atomic-fixups-v3-0-07c48f0f1f0d@collabora.com
-
-Changes in v3:
-- Change the AFBC source rectangle debug message to talk about 4-pixel
-  alignment instead of 4-byte alignment.
-- Fix another eSmart->Esmart casing case in a debug message
-- Link to v2: https://lore.kernel.org/r/20251206-vop2-atomic-fixups-v2-0-7fb45bbfbebd@collabora.com
-
-Changes in v2:
-- Dropped patches [1, 5] as they were already applied.
-- Changed the patch subject to use prefix "drm/rockchip: vop2:" for the
-  remaining ones.
-- Fixed a checkpatch nag about commenting style in "Switch impossible
-  pos conditional to WARN_ON".
-- Reworded "eSmart" to "Esmart" for consistency, and to avoid drawing
-  Tim Apple's ire.
-- Make the hopefully impossible WARN_ON format conditional in
-  vop2_plane_atomic_check still bubble the error up to userspace,
-  instead of continuing on.
-- Use dest_w instead of dsp_w in patch "Enforce scaling workaround
-  in plane_check", to avoid a compiler error.
-- Only reject non-multiple-of-4-pixel-wide framebuffers on
-  RK3566/RK3568, as the other SoCs have no such limitation. (Thank you
-  to Andy Yan for doing the research to confirm this!)
-- Consequently also only WARN_ON if this condition is violated in
-  atomic_update on those SoCs.
-- Link to v1: https://lore.kernel.org/dri-devel/20251015110042.41273-1-daniels@collabora.com/
+We should never be able to create a framebuffer with an unsupported
+format, so throw a warning if this ever happens.
 
 Signed-off-by: Daniel Stone <daniels@collabora.com>
-Cc: Daniel Stone <daniels@collabora.com>
-To: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-To: Sandy Huang <hjc@rock-chips.com>
-To: Heiko Stübner <heiko@sntech.de>
-To: Andy Yan <andy.yan@rock-chips.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-To: Maxime Ripard <mripard@kernel.org>
-To: Thomas Zimmermann <tzimmermann@suse.de>
-To: David Airlie <airlied@gmail.com>
-To: Simona Vetter <simona@ffwll.ch>
-Cc: dri-devel@lists.freedesktop.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-rockchip@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Cc: kernel@collabora.com
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-
 ---
-Daniel Stone (8):
-      drm/rockchip: vop2: Switch impossible format conditional to WARN_ON
-      drm/rockchip: vop2: Switch impossible pos conditional to WARN_ON
-      drm/rockchip: vop2: Fix Esmart test condition
-      drm/rockchip: vop2: Enforce scaling workaround in plane_check
-      drm/rockchip: vop2: Enforce AFBC source alignment in plane_check
-      drm/rockchip: vop2: Enforce AFBC transform stride align in plane_check
-      drm/rockchip: vop2: Use drm_is_afbc helper function
-      drm/rockchip: vop2: Simplify format_mod_supported
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 137 ++++++++++++---------------
- 1 file changed, 62 insertions(+), 75 deletions(-)
----
-base-commit: 3e7f562e20ee87a25e104ef4fce557d39d62fa85
-change-id: 20251206-vop2-atomic-fixups-0c30e0980f85
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+index 498df0ce4680..20b49209ddcd 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+@@ -1030,7 +1030,8 @@ static int vop2_plane_atomic_check(struct drm_plane *plane,
+ 		return 0;
+ 
+ 	format = vop2_convert_format(fb->format->format);
+-	if (format < 0)
++	/* We shouldn't be able to create a fb for an unsupported format */
++	if (WARN_ON(format < 0))
+ 		return format;
+ 
+ 	/* Co-ordinates have now been clipped */
 
-Best regards,
 -- 
-Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+2.52.0
 
 
