@@ -4,65 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAE54D5B16C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 15:46:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C935D5B843
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 15:50:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lyIG3kyPOrhYuNzKWsPZ/3Be5W0Th8kfyhTyc9cCkhU=; b=as4EXLB33PsDWq2E6C4N2lWbI7
-	2QDY3CrK8Z/byqLa+gB8XgIUiR8y8m/HdOZOi2NeivoxMoYVKG7Nl7VWXOZxlIH0c5VV7MCf8zbVf
-	MFtZ1XTt5CKS5R2uvfOUH3tKiVwXFXUm1MuNo7YcgAemVD5dAZMkdSt2g/fIeLpRtEGyIu3UMg85E
-	yisNAT4qttdm6Teh90N3qpbYs4ce5Am5WpK3WYILe+9Sq/JgmWfF5RzUOg4tRfbNNEPXWfzF8SY3T
-	VmkPOk9aKWpcvvo7ZIsFU0GiLUME6f1P9ayLOcV1rcn+jF27cltkSVTmSRyPh+yO1C3fdwbixXqfs
-	8m2Gqi5g==;
+	bh=2AIfMVMpoNrBDMLFVujv4CBoT6ExZsShIy+rhuoUUA8=; b=O1seB/rucD5jlyAD3xhHI8idsf
+	Q1NhnMnqRwMLFIhv8zanvozpMOyrPLSYagTVGe3h7NptMCfyzGEdwHVUD0RWFUmgkZ870B2x1JOxl
+	UqJ3DSNXagDCQxu+1lXUaA4hClPLcjtc/S3zkY0h64VukFIbVbGGl7e1d3B/1pHaGxxTpe6bZPC3z
+	FpWE+DSam/u9H6AndvVZ3I75di7m490584BRo4gnmfuD5SORLn21vMNK8KFiksHIrFdoanu6VRTD/
+	lQJmKA4sKegKqxCWbwZMHs8WNqBtzzeWFUbO6HQPfagf8Yr9MN5dBzZGZgEvvSOXJE/bsl55ESc16
+	htcwptjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVAm8-00000003vJw-3Px7;
-	Mon, 15 Dec 2025 15:46:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vVAps-00000003w6W-1UNx;
+	Mon, 15 Dec 2025 15:50:08 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVAm7-00000003vIi-2Wje
+	id 1vVApq-00000003w6B-0VvR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 15:46:15 +0000
+	Mon, 15 Dec 2025 15:50:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A2E2F60158;
-	Mon, 15 Dec 2025 15:46:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A2B4C116B1;
-	Mon, 15 Dec 2025 15:46:10 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 716EA417A1;
+	Mon, 15 Dec 2025 15:50:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B8E1C4CEF5;
+	Mon, 15 Dec 2025 15:50:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765813574;
-	bh=RBcP/eSO2QNmdalyQxiVfyGHG3izklUqdyBs1bazKGM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nDPtDi6y6AReGXrwzZJU/MPynvSNnFn5P2VOXFwC3Q9DsyOxbJ4JcLQ73AC6qQgiM
-	 RP2AdeMar9cJeS2YDWlNJMkECGX6sdIX2XPNRXldvL3HcOISkbsc5GGD87quvhyUKa
-	 +MIaCU9wQumdmwhmraFETLzSMIyOQmJHoCV9ILIT0FyQCnm0GVdpNDCRIxvaIsMuYx
-	 EZJqvmAEzQvWYzkTPf3Hff2OvEPkNTQ/CuFuC3AUAII53L3G16SPofInDiAwlOxNrq
-	 6xL/7RrJda1tfFINlnHJJwHBkK7wTqOSq1SY9DmtxHXXxJpkY1sqNCol7w4LbM84hw
-	 W7+yEkobgRV1A==
-Date: Mon, 15 Dec 2025 15:46:07 +0000
-From: Lee Jones <lee@kernel.org>
-To: Manikandan Muralidharan <manikandan.m@microchip.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev, dharma.b@microchip.com,
-	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
-	tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	Ryan Wanner <Ryan.Wanner@microchip.com>
-Subject: Re: [PATCH 2/2] drm: atmel-hlcdc: add LCD controller layer
- definition for sama7d65
-Message-ID: <20251215154607.GE9275@google.com>
-References: <20251215090639.346288-1-manikandan.m@microchip.com>
- <20251215090639.346288-2-manikandan.m@microchip.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251215090639.346288-2-manikandan.m@microchip.com>
+	s=k20201202; t=1765813805;
+	bh=6lXuSDV9n2orlCipXDqKPqEz8td46vUDn+RSqCKCvFE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=DgTYehs+enlChOQva9sp3QMiEhj361iK+nVkuPSwHOPJTdPc2HF8vtcufPbn6ewzf
+	 K0kl1TnmEh1h2AW6peaqXC78yPIi9GoHJU6VzzGSGh1xgFnOdenxdA9krxEgT+/K8d
+	 sd0tXie6Ln+4ou2Bljmq/J/eBipSlJFP/wtlnrLfKFCBWTDu5JsK2cSLULYI87DDGu
+	 HK3hi3sO1Ef+Y7m/K9+Xrxb2R4MpFSov8Y6G1kQhwbiDbvOg06pKEr/muzecN2SqFv
+	 qQq8Q6EcmC+rhR+lh+meIO0ajEV+sK+5W9mK4FRA8DYNvu/hEv4mLMP271GcqgS+In
+	 ITPxGdtQ0ksTQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vVApn-0000000CoVQ-0LU0;
+	Mon, 15 Dec 2025 15:50:03 +0000
+Date: Mon, 15 Dec 2025 15:50:02 +0000
+Message-ID: <86fr9boic5.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	nd <nd@arm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Joey Gouly
+	<Joey.Gouly@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org"
+	<peter.maydell@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>
+Subject: Re: [PATCH 23/32] KVM: arm64: gic-v5: Bump arch timer for GICv5
+In-Reply-To: <20251212152215.675767-24-sascha.bischoff@arm.com>
+References: <20251212152215.675767-1-sascha.bischoff@arm.com>
+	<20251212152215.675767-24-sascha.bischoff@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251215_075006_202937_6B2D679F 
+X-CRM114-Status: GOOD (  31.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,24 +97,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 15 Dec 2025, Manikandan Muralidharan wrote:
-
-> From: Ryan Wanner <Ryan.Wanner@microchip.com>
+On Fri, 12 Dec 2025 15:22:43 +0000,
+Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
 > 
-> Add the LCD controller layer definition and atmel_hlcdc_of_match
-> entry for sama7d65.
+> Now that GICv5 has arrived, the arch timer requires some TLC to
+> address some of the key differences introduced with GICv5.
 > 
-> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
-> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+> For PPIs on GICv5, the set_pending_state and queue_irq_unlock irq_ops
+> are used as AP lists are not required at all for GICv5. The arch timer
+> also introduces an irq_op - get_input_level. Extend the
+> arch-timer-provided irq_ops to include the two PPI ops for vgic_v5
+> guests.
+> 
+> When possible, DVI (Direct Virtual Interrupt) is set for PPIs when
+> using a vgic_v5, which directly inject the pending state in to the
+> guest. This means that the host never sees the interrupt for the guest
+> for these interrupts. This has two impacts.
+> 
+> * First of all, the kvm_cpu_has_pending_timer check is updated to
+>   explicitly check if the timers are expected to fire.
+> 
+> * Secondly, for mapped timers (which use DVI) they must be masked on
+>   the host prior to entering a GICv5 guest, and unmasked on the return
+>   path. This is handled in set_timer_irq_phys_masked.
+> 
+> The final, but rather important, change is that the architected PPIs
+> for the timers are made mandatory for a GICv5 guest. Attempts to set
+> them to anything else are actively rejected. Once a vgic_v5 is
+> initialised, the arch timer PPIs are also explicitly reinitialised to
+> ensure the correct GICv5-compatible PPIs are used - this also adds in
+> the GICv5 PPI type to the intid.
+> 
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
 > ---
->  drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c | 81 ++++++++++++++++++++
+>  arch/arm64/kvm/arch_timer.c     | 114 +++++++++++++++++++++++++++-----
+>  arch/arm64/kvm/vgic/vgic-init.c |   9 +++
+>  arch/arm64/kvm/vgic/vgic-v5.c   |   6 +-
+>  include/kvm/arm_arch_timer.h    |   7 +-
+>  include/kvm/arm_vgic.h          |   5 ++
+>  5 files changed, 119 insertions(+), 22 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+> index 6f033f6644219..b0a5a6c6bf8da 100644
+> --- a/arch/arm64/kvm/arch_timer.c
+> +++ b/arch/arm64/kvm/arch_timer.c
+> @@ -56,6 +56,17 @@ static struct irq_ops arch_timer_irq_ops = {
+>  	.get_input_level = kvm_arch_timer_get_input_level,
+>  };
+>  
+> +static struct irq_ops arch_timer_irq_ops_vgic_v5 = {
+> +	.get_input_level = kvm_arch_timer_get_input_level,
+> +	.set_pending_state = vgic_v5_ppi_set_pending_state,
+> +	.queue_irq_unlock = vgic_v5_ppi_queue_irq_unlock,
+> +};
+> +
+> +static bool vgic_is_v5(struct kvm_vcpu *vcpu)
+> +{
+> +	return vcpu->kvm->arch.vgic.vgic_model == KVM_DEV_TYPE_ARM_VGIC_V5;
+> +}
+> +
 
->  drivers/mfd/atmel-hlcdc.c                    |  1 +
+Drive-by comment: you also have
 
-Please separate this into its own patch.
+arch/arm64/kvm/vgic/vgic.h:static inline bool vgic_is_v5(struct kvm *kvm)
+include/kvm/arm_vgic.h:#define gic_is_v5(k) ((k)->arch.vgic.vgic_model == KVM_DEV_TYPE_ARM_VGIC_V5)
 
->  2 files changed, 82 insertions(+)
+At least two of them have to die.
+
+	M.
 
 -- 
-Lee Jones [李琼斯]
+Without deviation from the norm, progress is not possible.
 
