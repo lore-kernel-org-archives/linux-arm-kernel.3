@@ -4,90 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDCEBD41D74
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 11:36:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A0F6D59D99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 11:38:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Our2tTrLeS9+cKoDnOgCot+9A7UItxQonDfN3Zuzcsc=; b=xqB7qxjTr8tMBaN4CPWBdCtz5o
-	9mZ/0mOcqmZepDbr+0ON5KIUR6Yvu/RI929uihmEZlQopuJtTEhOFKV8ngyvTneyi9cnnR5iThDEG
-	hcv8xfl8InuKAfSmfS9UC7cZUgya253XBjC/5zlhDzqB06SAH0ARpKOCePGCLLDBzvu3/2J/F9Tql
-	sA1BoMVegxOjrs3AdVj0OYWOAKdlvEVyiLS1kCmKaT0IzZukG5GR1MoeQRxq8EZUinn6/2/bworYY
-	lUxhUk0SuRiYO1Yh3953pMO5WADpfoz70D6Yr+anxkzFahFZ7r13+JJLFyk73rgC7ivQbKKHaFv4Y
-	wpu8apCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gYPdjCs2I4pKStwB8vwr/UnSwkBP0xQatRIbmAK/KFA=; b=nyTWQPBNpwfmjgqHxPPY80BYLe
+	jz+j/KqbEfx4uYhZVOOkwL+AkXqnFmOcbdih5kSqueoR7cQN/6l0UQG7w2Jg+QwKIXZpsBajt3vDY
+	AUf8uzGEqaYWs321C8rEuKreAnnaEHA+QamWzZeL+uE/x0lXOzlXIEBdOlA7lNQgdv1HB1LhWYZKi
+	KQp+BWhASACina1DRFPsOwFh92id7wsXnifUWeyUMqA6Fuba+SAGxBk9HGaQscLgXyIMFJxtbtpZ4
+	OPIAXK+t3haXcFUe78PGtOIkIxqHPPJaCsQryK/Y25og8irC0Vm15XymKdrvD4cyaAXM41PuVQIBv
+	WlrFHrFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV6se-00000003XAZ-1i4w;
-	Mon, 15 Dec 2025 11:36:44 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1vV6uE-00000003XRz-3jdW;
+	Mon, 15 Dec 2025 11:38:22 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV6sZ-00000003X7y-0Clb
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 11:36:40 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-b79af62d36bso643567366b.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Dec 2025 03:36:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sartura.hr; s=sartura; t=1765798596; x=1766403396; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Our2tTrLeS9+cKoDnOgCot+9A7UItxQonDfN3Zuzcsc=;
-        b=rmxyBmMHezwy4MDDG1pNmcc0emTxWbS25LrXxqunauI9Tr6r8Z+D59pc3nJ1+PeLaj
-         HwQ+fj4Vd7oS6PolgiKVGBpKEBAjBBCl4K7DX7IUyACgH9E81Lfc1bUArWkmWjoTz7bU
-         4Pwpam67BMVSiHM4GWGkgCZzFgXNtuPwHZ42debaGHMXfEt+oH4J6gMbvhFX8ppn/XQD
-         MX+fqC0usjqgp/PDQSKlTTd7y8YrVE5OypjwwrCV0/DeiVOjnTRYTbLwzWSDaXF27VBE
-         wN6Qmr+27k/k8Gl5U1+1ATdPbRDt0oQ9jxevmu1gdhiTiASvQBIjYhcjo0HHOewrPV3g
-         KjAw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765798596; x=1766403396;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Our2tTrLeS9+cKoDnOgCot+9A7UItxQonDfN3Zuzcsc=;
-        b=k4evvFBMqMZXbbablTVIs97n35611onT+vUfWhJdm13ySXaiE8P9YRRmyp1/IQIy6c
-         wsT1ffiskUfnsUTJb1y5QURTBy6MgO3qhYZOzh1KU5JCV/NxHNZH83qZcU33Ht1XW1Tm
-         Ons+6YSJLlH5HQpCdA7u+x59ws4naY8blooWO6/nc7TvIWtzmL6Ptq/r/qbbzflcNqIE
-         WCDpeWyTsCuoxpchOhW/Mi6tc1VhStWGWAczUecYz71e2cSoXF7h9gpXwxJeTKO9zVE7
-         bGQCdEVL5mwoWC9P+RyVMzv0u29FZSFHa0zkNs3+c1y+CXQlf/YCWnwSOE3JtfLcCFZx
-         axXg==
-X-Forwarded-Encrypted: i=1; AJvYcCU+VEXwnO/PSyNfTq/B84YLW7304+Phv/62gpWlWrUeFt83thFLykTqBmohwTbLNFYN0LVT9UPm51yVMN90IizO@lists.infradead.org
-X-Gm-Message-State: AOJu0YxkOeIxUXM3e+FjLtLJcvwKeT3zk9BSQ1qObKKARrnvRc/r/udg
-	W1D6eYVZyMkUvhPeRRJ/T24y9hNPZGuJ/E/kbO2TWBRu0l6Ui6sv9UzSDmeyTzRYtIe4DHR9frq
-	3xouabYfdorRrHONJI67c0d4TADABZEwVzaDSxLAwtw==
-X-Gm-Gg: AY/fxX4iFm6lO0iPq/VubllaRin/Xl/LpW8XLULdmWHexEM7Nwxh6aPh1byDLEzFQdQ
-	LAtiUT6ALKl7HfXq25A54zZxTgkEs+K88RLvlieTJgWXnysKW+ZUhg1YmwCMlmoRbdXUOUSzI9L
-	yK9gj8i3HnEfW44krR23xAAnC0PXi39jcPbmLjY17xhDdQFcgqTl3BO0CzsIN3eaw5vnJxPXlyr
-	5/R3XcX1OCKiuyer6IFsyN850CtzvUP6nxJmZtdpPq2sTyBgNCAQYJfJdzMEJlaunYqlI4j
-X-Google-Smtp-Source: AGHT+IFe8rw0qhWAiH0mQoOljUOiqcSqb5gRs5qS5m8hogOLlJs+w47H8LQqQzDIOFZ44fMZWWGRbbSWXqIYIq4YXXE=
-X-Received: by 2002:a17:907:9628:b0:b73:8798:3be6 with SMTP id
- a640c23a62f3a-b7d23665c4fmr1116568866b.24.1765798596197; Mon, 15 Dec 2025
- 03:36:36 -0800 (PST)
+	id 1vV6uC-00000003XRa-2Cyf;
+	Mon, 15 Dec 2025 11:38:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=gYPdjCs2I4pKStwB8vwr/UnSwkBP0xQatRIbmAK/KFA=; b=OdCBfSVEdv2ReAg+WKWx43rNzw
+	zcUqPS79qXRZQ7rP82AHOeQJ+ncOzDbBwLM35SE2VJAQ64T5tEd7NH4cInw4KoYGyAnTiDm4UdPfA
+	UkAUmCuhbZqV3nTd/Ix2Rs0xjLGdy2Zb6I+matGxiVOM0EXd1vaBcx5R7tKwo9WfUBFHZ+p2BKiRG
+	xgazN6dei/Fi1iQupd/lK4pP+xsJUNtRG2zq8eU63V8Lzb5GACnF3Wax9pwiyXIHpQle/fwAsqAnR
+	/Nvczwt37mvB+Wm/pSFCcw7fvR6P0E69z/Vsk4gbx5Ja2TrI2YY8nVf3rqHBK1xAjzkcr2CxCF4Av
+	BCy7klPQ==;
+Received: from [192.76.154.237] (helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vV6uA-0000CP-HC; Mon, 15 Dec 2025 12:38:18 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, guptarud@gmail.com
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ phone-devel@vger.kernel.org, Rudraksha Gupta <guptarud@gmail.com>,
+ Ondrej Jirman <megi@xff.cz>, "Leonardo G. Trombetta" <lgtrombetta@gmx.com>,
+ Pavel Machek <pavel@ucw.cz>
+Subject: Re: [PATCH v5 3/4] arm64: dts: rockchip: Add magnetometer sensor to Pinephone
+ Pro
+Date: Mon, 15 Dec 2025 12:38:17 +0100
+Message-ID: <7420522.MhkbZ0Pkbq@phil>
+In-Reply-To: <20251124-ppp_light_accel_mag_vol-down-v5-3-f9a10a0a50eb@gmail.com>
+References: <20251124-ppp_light_accel_mag_vol-down-v5-0-f9a10a0a50eb@gmail.com>
+ <20251124-ppp_light_accel_mag_vol-down-v5-3-f9a10a0a50eb@gmail.com>
 MIME-Version: 1.0
-References: <20251203122313.1287950-1-robert.marko@sartura.hr>
- <20251203122313.1287950-4-robert.marko@sartura.hr> <20251203-splendor-cubbyhole-eda2d6982b46@spud>
-In-Reply-To: <20251203-splendor-cubbyhole-eda2d6982b46@spud>
-From: Robert Marko <robert.marko@sartura.hr>
-Date: Mon, 15 Dec 2025 12:36:25 +0100
-X-Gm-Features: AQt7F2oZT8D46ks79tXEN44Gcwk4DCt-08YRdCse_jKqK0ZpniHWAPSwJLfDHCc
-Message-ID: <CA+HBbNGdd-u=4PtXZtirqRkFBhKwraa5gV-32QChDDjfVARPRg@mail.gmail.com>
-Subject: Re: [PATCH 4/4] arm64: dts: microchip: add LAN969x support
-To: Conor Dooley <conor@kernel.org>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	gregkh@linuxfoundation.org, nicolas.ferre@microchip.com, 
-	claudiu.beznea@tuxon.dev, mturquette@baylibre.com, sboyd@kernel.org, 
-	richardcochran@gmail.com, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
-	daniel.machon@microchip.com, UNGLinuxDriver@microchip.com, 
-	luka.perkov@sartura.hr
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_033639_100050_80CD0E84 
-X-CRM114-Status: GOOD (  12.96  )
+X-CRM114-CacheID: sfid-20251215_033820_594162_AC4D094D 
+X-CRM114-Status: GOOD (  12.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,40 +75,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 3, 2025 at 8:21=E2=80=AFPM Conor Dooley <conor@kernel.org> wrot=
-e:
->
-> On Wed, Dec 03, 2025 at 01:21:32PM +0100, Robert Marko wrote:
-> > Add support for Microchip LAN969x switch SoC, including the EV23X71A
-> > EVB board.
-> >
-> > Signed-off-by: Robert Marko <robert.marko@sartura.hr>
-> > ---
-> >  arch/arm64/boot/dts/microchip/Makefile        |   2 +
-> >  .../boot/dts/microchip/lan9696-ev23x71a.dts   | 761 ++++++++++++++++++
->
-> >  arch/arm64/boot/dts/microchip/lan969x.dtsi    | 482 +++++++++++
->
-> The majority of devices in this file are missing soc-specific
-> compatibles.
+Am Dienstag, 25. November 2025, 04:47:02 Mitteleurop=C3=A4ische Normalzeit =
+schrieb Rudraksha Gupta via B4 Relay:
 
-Hi,
-I missed this before.
+>  arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts | 15 +++++++++++++=
+++
+>  1 file changed, 15 insertions(+)
+>=20
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch=
+/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+> index f8c74b43ae9f..03721d71766c 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+> @@ -553,6 +553,21 @@ mpu6500@68 {
+>  	};
+>  };
+> =20
+> +&i2c4 {
+> +	af8133j: compass@1c {
+> +		compatible =3D "voltafield,af8133j";
+> +		reg =3D <0x1c>;
+> +		reset-gpios =3D <&gpio1 RK_PA1 GPIO_ACTIVE_LOW>;
 
-The majority of the devices are simply reused from the AT91 series, so
-I thought it was not required to
-update all of the bindings to add the LAN9691 compatible.
+reset-gpios below dvdd-*
 
-If that is required, I will do so in v2.
+And for completeness sake, you probably want to also add a simple
+pinctrl entry
 
-Regards,
-Robert
---=20
-Robert Marko
-Staff Embedded Linux Engineer
-Sartura d.d.
-Lendavska ulica 16a
-10000 Zagreb, Croatia
-Email: robert.marko@sartura.hr
-Web: www.sartura.hr
+> +		avdd-supply =3D <&vcc_3v0>;
+> +		dvdd-supply =3D <&vcc_1v8>;
+> +
+> +		mount-matrix =3D
+> +			"0", "1", "0",
+> +			"-1", "0", "0",
+> +			"0", "0", "1";
+> +	};
+> +};
+> +
+
+Thanks
+Heiko
+
+
 
