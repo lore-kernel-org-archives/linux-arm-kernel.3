@@ -4,92 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF371D5B86D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 21:40:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BBB0D5B871
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 21:42:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PtrYjcDo8W8ENLiooSwtuxxlBPD0y00FacSVPre/Faw=; b=wldjnl7cfN1AOgBRQsC3G/iUCf
-	GAlbWEX4vGC0KZbdywEG2lkpuRncG9eg9rY7gzD1Jfuqd948fX3bRD6QlxQPYxFu9Rw2F8W8OL2Xh
-	gEwVjev3+0L4vzL31K6xjHknnh5cKw1iPP8DwZP0kKiAm5qkqqY/frKYnWGGhoZOvKEAqsrgodt0Q
-	JMM9YNx7vxltYoaT9cNs+QttNobMTe4waa4Uzvv/95AW4a765M/83HIbSjEE2UyxRC/Dvjn7zRITT
-	c63VVLD2iMdWZr3Y87OzEQFhlXkaods9S59Cslint8SwnBUaPp2RsSC6TXt53FdK+KVavYL8IoiAr
-	U/yxWi3A==;
+	bh=4dyQIGswOKbsgnVwgu5ftO7OW53QMFBD2De7rwb0CbQ=; b=dWD4OVYDDVuu7xhh5lpzfdwZeo
+	xaJTG4xauHO/X2yVOykh1Eiwg9jb6tCz9jppnEMJzlzysSOGj1CELMOlUuHj2enAWdPxDYmKlMgdY
+	SkhEMd25Pb5bEDTqnT/yagnZjyNZMkDw8X/DmHL5A2l9DDIQCX4dtfquYvt2GWD9F4P1SARP8Nyuy
+	nAVHOaF6FdvNguYY+ITol+Od3pN9fpw23+1cGmaL1L9FyMVoHRCqGu5odSV2PPelTHLmTTYuRnLDk
+	xk7Jyz4DX8alUce8fuJ7lKBrlZlDpHLik/NCntuzue/ukn3LzsW+R0FtDFFPHrmScgE7HkWfzF8Z5
+	bvu5Z9VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVGIo-00000004JTn-0erO;
-	Mon, 15 Dec 2025 21:40:22 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVGIl-00000004JTO-36K8
+	id 1vVGL4-00000004JfK-379O;
+	Mon, 15 Dec 2025 21:42:42 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vVGL1-00000004Jet-18qV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 21:40:20 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4779aa4f928so49056925e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Dec 2025 13:40:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1765834817; x=1766439617; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PtrYjcDo8W8ENLiooSwtuxxlBPD0y00FacSVPre/Faw=;
-        b=US0udr4Qtw0/Kt9PRd6rTjW8Za6Rljv+z1Dy30x2FLE4f8K7SIslQy6/YVyjv1EbD5
-         9MqvZIdFhJ+T9jV2xGJS1S1ETxtmwl4Zvm52jzZeA2n7vWls2tYQAId3Ek3QqSL4vEXd
-         O5TwJlqdMlblNZElFU7lL/IiJ71Af+pRRHxMpgJJ88SyFlsO5Zu29BBPn2/04LMJg1tB
-         BYtW5I8crymdXGn4Txg3QY8OK9Q27/oBi8znkvWSKl6YlZYkiP+VqUnj1vkDkQvLoA4l
-         yX6M2mpeqrIM/+jPChHEaOoG6hWHG2FVJbZpSEfiJf4soErjV8v6YKIZWA2Ohp7zE+MS
-         58ow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765834817; x=1766439617;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=PtrYjcDo8W8ENLiooSwtuxxlBPD0y00FacSVPre/Faw=;
-        b=VbuqaSsYh1xPiG3WBF0kSnUgIu0lIdJ+ii+5OZhYZ4T/3/cUnlMlRW6HhlJx1/RgD1
-         rCFhZXruHHH0a2oCavm0wkeJU+6eNnO1ZMoa42UJaaK5oQaBVCOWgnV5GfqeUJftlphv
-         5lYB1MlVbAXNKV4BVDNcils9Gf4gJMIJ0ZJ2g2EIxtD5hsq4bq6vikL6uIwA7LC6WBNn
-         JtPamCrKGawijTtXDbFbY+sewIcfXMa5KM7QuYDMm9yRj6yYrxHmTE1HgdgNdjZqo3wR
-         rQLW7oUeidQmXZfOEk1UDmAGHQ0jfyyEQjmBMHjbdGB3DtrZCj2jxqV9uFbCnlDcPP7k
-         Hlmw==
-X-Forwarded-Encrypted: i=1; AJvYcCX7ife2WNk1+PHVC5xQGEygl8/tpXQf1Sq3uud8xPj/hGXTTMcH0sq16YkUOD1tXINjWwTu5fdv+JOzvfn7l8E5@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy4hMo1AuaJQ9r5Hytc1+kUxIQwBhBL7E6RbzRfRd3DMpp6DQoK
-	Fg1ZWZr78Or3fY2bU+Jmjb2FZiKfnaf9/NHfVDEt6yr3t5/10y/xffiIQmIo6zHQeWOCCoif4iY
-	5JrfArDK5wAK34QLRSiw8sDPFQZvGyJw=
-X-Gm-Gg: AY/fxX42i9+2+FDEf2Yoz/l9D/NvT8glds5S3HMUNKi9PXdjmANG1eVry+FBP0LMiMk
-	frnrgTTvctUvzQ4frY/ARVdfnfgQrw0n8C/sSkJAMYDNG12S6Y+NvVv2/kCv7PHbyGKd6skU9Qw
-	eajqXEZA0kSqjnTrM/pSgKrubnoBH0Ls1jbsn8RiVgONk1CaZqzEIIlCFquv9hcQ0J8JBlHWQ49
-	RHp9Lg1xZsutVvaCVlhxAXWEjH0ScoxFn0JM+hy6gn/EA+qaNXpM6p5mfwEg2tmwItouTeiILKb
-	zcOeQZdBCxRJHZZOEhCVuMHWrLTS
-X-Google-Smtp-Source: AGHT+IFLwg9qrtGIR+KKSJwR/7/cX3U7rq6rlbIqE5QA9N+Q5KZyJ8O41sxw+c2I52/X9p3wPLvNSGsFlF/3a+MqKoo=
-X-Received: by 2002:a5d:5f82:0:b0:430:fd0f:28fe with SMTP id
- ffacd0b85a97d-430fd0f2a7bmr4935997f8f.31.1765834817292; Mon, 15 Dec 2025
- 13:40:17 -0800 (PST)
+	Mon, 15 Dec 2025 21:42:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0C55FFEC;
+	Mon, 15 Dec 2025 13:42:29 -0800 (PST)
+Received: from [10.57.78.22] (unknown [10.57.78.22])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 97E3D3F73B;
+	Mon, 15 Dec 2025 13:42:34 -0800 (PST)
+Message-ID: <f080bfaf-9946-42ee-98c4-b31badc65621@arm.com>
+Date: Mon, 15 Dec 2025 21:42:33 +0000
 MIME-Version: 1.0
-References: <20251215044919.460086-1-ankur.a.arora@oracle.com> <20251215044919.460086-11-ankur.a.arora@oracle.com>
-In-Reply-To: <20251215044919.460086-11-ankur.a.arora@oracle.com>
-From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Date: Mon, 15 Dec 2025 13:40:06 -0800
-X-Gm-Features: AQt7F2rQ1ApFWmx4BVk_0MGk_PcVWn8dueHeO96jKZChfmmCmjnf-YqQHmYoFps
-Message-ID: <CAADnVQKYoE85HFAOE5OBFpKbXej=h12m4DVvHuPViJSjAncK4A@mail.gmail.com>
-Subject: Re: [PATCH v8 10/12] bpf/rqspinlock: Use smp_cond_load_acquire_timeout()
-To: Ankur Arora <ankur.a.arora@oracle.com>
-Cc: LKML <linux-kernel@vger.kernel.org>, linux-arch <linux-arch@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	Linux Power Management <linux-pm@vger.kernel.org>, bpf <bpf@vger.kernel.org>, 
-	Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	Mark Rutland <mark.rutland@arm.com>, harisokn@amazon.com, 
-	Christoph Lameter <cl@gentwo.org>, Alexei Starovoitov <ast@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Daniel Lezcano <daniel.lezcano@linaro.org>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, zhenglifeng1@huawei.com, 
-	xueshuai@linux.alibaba.com, joao.m.martins@oracle.com, 
-	Boris Ostrovsky <boris.ostrovsky@oracle.com>, konrad.wilk@oracle.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v6 01/35] arm64/sysreg: Add new SPE fields
+Content-Language: en-GB
+To: Alexandru Elisei <alexandru.elisei@arm.com>, maz@kernel.org,
+ oliver.upton@linux.dev, joey.gouly@arm.com, yuzenghui@huawei.com,
+ will@kernel.org, catalin.marinas@arm.com,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+Cc: james.clark@linaro.org, mark.rutland@arm.com, james.morse@arm.com
+References: <20251114160717.163230-1-alexandru.elisei@arm.com>
+ <20251114160717.163230-2-alexandru.elisei@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20251114160717.163230-2-alexandru.elisei@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_134019_819572_88FBA107 
-X-CRM114-Status: GOOD (  10.86  )
+X-CRM114-CacheID: sfid-20251215_134239_385246_813ABB7C 
+X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,34 +68,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Dec 14, 2025 at 8:51=E2=80=AFPM Ankur Arora <ankur.a.arora@oracle.c=
-om> wrote:
->
->  /**
->   * resilient_queued_spin_lock_slowpath - acquire the queued spinlock
->   * @lock: Pointer to queued spinlock structure
-> @@ -415,7 +415,9 @@ int __lockfunc resilient_queued_spin_lock_slowpath(rq=
-spinlock_t *lock, u32 val)
->          */
->         if (val & _Q_LOCKED_MASK) {
->                 RES_RESET_TIMEOUT(ts, RES_DEF_TIMEOUT);
-> -               res_smp_cond_load_acquire(&lock->locked, !VAL || RES_CHEC=
-K_TIMEOUT(ts, timeout_err, _Q_LOCKED_MASK) < 0);
-> +               smp_cond_load_acquire_timeout(&lock->locked, !VAL,
-> +                                             (timeout_err =3D clock_dead=
-lock(lock, _Q_LOCKED_MASK, &ts)),
-> +                                             ts.duration);
+On 14/11/2025 16:06, Alexandru Elisei wrote:
+> Add the PMBSR_EL1.MSS2, PMBISR_EL1.MaxBuffSize, PMBLIMITR_EL1.nVM and
 
-I'm pretty sure we already discussed this and pointed out that
-this approach is not acceptable.
-We cannot call ktime_get_mono_fast_ns() first.
-That's why RES_CHECK_TIMEOUT() exists and it does
-if (!(ts).spin++)
-before doing the first check_timeout() that will do ktime_get_mono_fast_ns(=
-).
-Above is a performance critical lock acquisition path where
-pending is spinning on the lock word waiting for the owner to
-release the lock.
-Adding unconditional ktime_get_mono_fast_ns() will destroy
-performance for quick critical section.
+minor nit:                ^PMBIDR_EL1
+
+> PMBIDR_EL1.AddrMode fields, which will be used by KVM.
+> 
+
+The defintions look correct to me.
+
+Suzuki
+
+
+> Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
+> ---
+>   arch/arm64/tools/sysreg | 18 ++++++++++++++----
+>   1 file changed, 14 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+> index 1c6cdf9d54bb..1e7b69594f04 100644
+> --- a/arch/arm64/tools/sysreg
+> +++ b/arch/arm64/tools/sysreg
+> @@ -3070,7 +3070,9 @@ EndSysreg
+>   
+>   Sysreg	PMBLIMITR_EL1	3	0	9	10	0
+>   Field	63:12	LIMIT
+> -Res0	11:6
+> +Res0	11:8
+> +Field	7	nVM
+> +Res0	6
+>   Field	5	PMFZ
+>   Res0	4:3
+>   Enum	2:1	FM
+> @@ -3085,7 +3087,8 @@ Field	63:0	PTR
+>   EndSysreg
+>   
+>   Sysreg	PMBSR_EL1	3	0	9	10	3
+> -Res0	63:32
+> +Res0	63:56
+> +Field	55:32	MSS2
+>   Enum	31:26	EC
+>   	0b000000	BUF
+>   	0b100100	FAULT_S1
+> @@ -3112,13 +3115,20 @@ Field	7:0	Attr
+>   EndSysreg
+>   
+>   Sysreg	PMBIDR_EL1	3	0	9	10	7
+> -Res0	63:12
+> +Res0	63:48
+> +Field	47:32	MaxBuffSize
+> +Res0	31:12
+>   Enum	11:8	EA
+>   	0b0000	NotDescribed
+>   	0b0001	Ignored
+>   	0b0010	SError
+>   EndEnum
+> -Res0	7:6
+> +Enum	7:6	AddrMode
+> +	0b00	VM_ONLY
+> +	0b01	BOTH
+> +	0b10	RESERVED
+> +	0b11	nVM_ONLY
+> +EndEnum
+>   Field	5	F
+>   Field	4	P
+>   Field	3:0	ALIGN
+
 
