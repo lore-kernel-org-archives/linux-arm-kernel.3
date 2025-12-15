@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C701D5B86D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 21:28:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 766A4D5B86D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 21:29:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5qF+3C8lWkCptQzvYRwoE6YLl9wZ4IDJow19haO5/YY=; b=ON6Rb5IJcL5VFS3cP52qwHwVQy
-	1yuc2ig/LmhxsJA4Hpghrc4UJnABSBjHNjuU6iEKTS288/G9GYjhl8BApmarkuwHTZyqKZ1eargRe
-	dDKfJyRZpShlLzfDALagm/ECvyrsg/kRI3Q8PwToDLrjCYI2c3s5Pf/0e50ilssQkexGzwdfLVVO3
-	DGuAD590jT2oT222NMr9P8YsXA5vhPK19NpuhweQeyypUEbpwqvvMPT6edbRPVQ3gyf9ML/YifzyB
-	u9xMJOOytSMFxeo9RpRExPtAaXC2MsNFC2hFkp4ljAWWtCaGBSHssXzGeNXA6zdCagmn+1OQqiJtt
-	oPOAevfw==;
+	bh=td46xjH24ofaxzKhEKh0P67Vek1B5awPPGZeaiyfTU4=; b=n4ONvMIs+WcQxNwRXWFXlOptns
+	GOAf2ua6TC+7V3HG1Mc7q4wXiHyAA4OWVo+1qmhxtSbDt5bEn0RbHNvP7RPorkv3vQAMq5hFij3D7
+	TmbMSVhIiNdFJxc3Dc53s23mXj5aarPxWsTUd+vBsOQoA8BKsqYdGkN5NYNRJNr1iQTQX5KROEs/E
+	vBVdVCaPGRFt4sf0RIKzjwqU6CWDK+gG4/hLSj+1n1DcjVRrQypwBOS9do5iQi2LYO/ala2wHFAR9
+	j52Feeq7Qt6jKHnRWvpfj9p+HuKvYmnT+7zxjWxSg3cX1zLHgx3rEuNmZ2drqDivynr0Yga/OLcL1
+	toxgx6HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVG76-00000004I94-2MQs;
-	Mon, 15 Dec 2025 21:28:16 +0000
+	id 1vVG8J-00000004IIw-3qu9;
+	Mon, 15 Dec 2025 21:29:31 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVG73-00000004I8R-3FkT
+	id 1vVG8H-00000004IIS-19jz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 21:28:15 +0000
+	Mon, 15 Dec 2025 21:29:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 49CC743B34;
-	Mon, 15 Dec 2025 21:28:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03545C4CEF5;
-	Mon, 15 Dec 2025 21:28:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D3F0D4326F;
+	Mon, 15 Dec 2025 21:29:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99AC3C4CEF5;
+	Mon, 15 Dec 2025 21:29:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765834093;
-	bh=MwEPe6yOtotUQ0GRK4y2j5mze7HbrjZNWC8je5U2g4A=;
+	s=k20201202; t=1765834168;
+	bh=HlJaDgmgggM9C2+Omdle529eY/0vP7j79g++4G803eo=;
 	h=From:To:Cc:Subject:Date:From;
-	b=NMNMYp94q3rH02CLHtiICX4yi2SW3CvsA9RB0BVOaoPypPzYeGLxD9YTdO8dLJ/Xz
-	 zANEhXvJS3ikKvKMzRJdTlYXKfgTuq98Q4iL43IGeYuChH5/VffYjp+EuwvO/rG0/D
-	 ps6+N3X7L+Lqxbpovqf9oBd6OO6Xys+qkgdwD9+KdevYiRSym3goCVBSpxJaC38Cfp
-	 7TEg5ew4/RR5IjwrBciHfMUyn/GBbKEEVuxU1wedYwqUQuG1ioTjzbRiFhDf3aV8ih
-	 8xBlVxdyCb8kHbZi0Rf6+1ch9RvNJDRK00D8x+GEG9oCQoYV5J/BqNwP+jYSZcGJOO
-	 rwBhjzqREnkDw==
+	b=IaxHSqtEAEaDbVFX1GzfynMD7hppI+wgYKwTgLy8deVGFR1Y1UWg36lp+kIppsrZM
+	 WeRpShAhd07hvc9dJHA5e54BYeHpt4NesAOr33+SboG9v3GExJnmEmc7cE1rWhiykj
+	 1aC6iE1fnNBp0e6prJluLOACvyQtwZxMmk+VxJc6FS/odfDaWkvjU1WjMyPeWLi1gi
+	 rxvVTXdE49d8Qw78ah/x8JdqoXsOSwR7uYKC2QPOju5Zf+PZkxPOlB66OiUF6pQfOC
+	 SLsvfzy35JA5bqnyxPv1+ujZ5GpVqrd/BulYnzvcERSHWrQgiqi5tRkkj9nEGsxCr0
+	 tx4nvo68wzahg==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Andi Shyti <andi.shyti@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Ray Jui <rjui@broadcom.com>,
-	Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>
-Cc: linux-i2c@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	Liviu Dudau <liviu.dudau@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Andre Przywara <andre.przywara@arm.com>
+Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] dt-bindings: i2c: brcm,iproc-i2c: Allow 2 reg entries for brcm,iproc-nic-i2c
-Date: Mon, 15 Dec 2025 15:28:05 -0600
-Message-ID: <20251215212805.3322218-1-robh@kernel.org>
+Subject: [PATCH] dt-bindings: arm: vexpress-config: Update clock and regulator node names
+Date: Mon, 15 Dec 2025 15:29:14 -0600
+Message-ID: <20251215212914.3323741-1-robh@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_132813_833038_7AD66AE0 
-X-CRM114-Status: UNSURE (   9.40  )
+X-CRM114-CacheID: sfid-20251215_132929_337704_ECB879EB 
+X-CRM114-Status: UNSURE (   9.05  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,46 +76,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The brcm,iproc-nic-i2c variant has 2 reg entries.
-
-The second one is related to the brcm,ape-hsls-addr-mask property, but it's
-not clear what a proper description would be.
+The clock and regulator node names were updated to use standard node names,
+but the binding wasn't updated.
 
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- .../devicetree/bindings/i2c/brcm,iproc-i2c.yaml        | 10 +++++++++-
- 1 file changed, 9 insertions(+), 1 deletion(-)
+ Documentation/devicetree/bindings/arm/vexpress-config.yaml | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/i2c/brcm,iproc-i2c.yaml b/Documentation/devicetree/bindings/i2c/brcm,iproc-i2c.yaml
-index 2aa75b7add7b..daa70a8500e9 100644
---- a/Documentation/devicetree/bindings/i2c/brcm,iproc-i2c.yaml
-+++ b/Documentation/devicetree/bindings/i2c/brcm,iproc-i2c.yaml
-@@ -16,7 +16,8 @@ properties:
-       - brcm,iproc-nic-i2c
+diff --git a/Documentation/devicetree/bindings/arm/vexpress-config.yaml b/Documentation/devicetree/bindings/arm/vexpress-config.yaml
+index b74380da3198..41c53e3acc12 100644
+--- a/Documentation/devicetree/bindings/arm/vexpress-config.yaml
++++ b/Documentation/devicetree/bindings/arm/vexpress-config.yaml
+@@ -103,7 +103,7 @@ required:
+   - arm,vexpress,config-bridge
  
-   reg:
--    maxItems: 1
-+    minItems: 1
-+    maxItems: 2
+ patternProperties:
+-  'clk[0-9]*$':
++  '^clock-controller.*$':
+     type: object
+     description:
+       clocks
+@@ -137,7 +137,7 @@ patternProperties:
+       - arm,vexpress-sysreg,func
+       - "#clock-cells"
  
-   clock-frequency:
-     enum: [ 100000, 400000 ]
-@@ -41,8 +42,15 @@ allOf:
-           contains:
-             const: brcm,iproc-nic-i2c
-     then:
-+      properties:
-+        reg:
-+          minItems: 2
-       required:
-         - brcm,ape-hsls-addr-mask
-+    else:
-+      properties:
-+        reg:
-+          maxItems: 1
+-  "^volt-.+$":
++  "^regulator-.+$":
+     $ref: /schemas/regulator/regulator.yaml#
+     properties:
+       compatible:
+@@ -272,7 +272,7 @@ examples:
+         compatible = "arm,vexpress,config-bus";
+         arm,vexpress,config-bridge = <&v2m_sysreg>;
  
- unevaluatedProperties: false
- 
+-        clk0 {
++        clock-controller {
+             compatible = "arm,vexpress-osc";
+             arm,vexpress-sysreg,func = <1 0>;
+             #clock-cells = <0>;
 -- 
 2.51.0
 
