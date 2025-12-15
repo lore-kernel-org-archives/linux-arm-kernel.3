@@ -4,56 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE1E5D5B870
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 21:33:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6918BD5B86D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 21:37:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3gF3wyhlmta7Ho8rkDOvPc4bBIPEAjNGdCMZAhZdBnI=; b=DKQmUpLhK1E4NzeSWYN8xGLCoE
-	P8MxiZKLZaHI3QQ+vmfbq79gN7olu7TB0DxhF9XSyOo4Xv7BLbcnRCoqe/laFBnrTW0KELqVFW2dT
-	WwTDHO2z4hAx9lrySvUG75KVfj/82cr+veDkMKEWO46BnJzT5xyZx+7ag6JuHbs+cDcIAZoOTodDM
-	0jRIvEZBe+C6ZvuE0h5MaviRIm/du+sJAe0FX6DXBlA1CNa1/RycIg7Pfvpn7fOenhkiL718OJCGg
-	GoyqKiBQTmPrLqKpf+MbhZ9B7V6tj0LSvPP/thUNrYrLO/a41pHFLH1RtGmZPhqusciDOHSI02y6R
-	n8Grirdg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=y7/mODUWIJ7WcjhYvW1iThbGnXVZthYhPasyb98rI4Y=; b=HQzIH9OGs5Og06lw5y08fGw/Yu
+	007O9qcbCPWKN1HV0n5WMRteYgs0muipU+moAmJoTVWUSl/pZ+xRxchyiaIX6djPcAKwIAvjs+N/x
+	m8Bq4oRly+N5ybP76mM6IbleD1vrKzvp8jSzCJ/b2IW0ppYAXSPF93oQJs7QEl8p2iLOOAu5C3Xol
+	x3s55mG4+qrTAALh4FQIPFXeza1GTlzins3b/CViABnSe11q0TTt2UqYCFf+GUM5CqV4YR1EOBFhi
+	7x70vcug9q6Dc9ZEgdF9m/CzaBYc1MXoifvf2VmiOrcxKCY2XMn4BZMTmbH1IpQPtvEec1ovxQVTy
+	vvnRb5Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVGCP-00000004In1-2p14;
-	Mon, 15 Dec 2025 21:33:45 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVGCM-00000004Imi-1e8l
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 21:33:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9DE8CFEC;
-	Mon, 15 Dec 2025 13:33:30 -0800 (PST)
-Received: from [10.57.78.22] (unknown [10.57.78.22])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3AD753F73B;
-	Mon, 15 Dec 2025 13:33:36 -0800 (PST)
-Message-ID: <be79ca29-0233-4397-b3b0-38686512bc83@arm.com>
-Date: Mon, 15 Dec 2025 21:33:34 +0000
+	id 1vVGFz-00000004Iyz-1eq0;
+	Mon, 15 Dec 2025 21:37:27 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vVGFy-00000004Iye-0Y0Z;
+	Mon, 15 Dec 2025 21:37:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 55D7860188;
+	Mon, 15 Dec 2025 21:37:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E23BAC4CEF5;
+	Mon, 15 Dec 2025 21:37:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765834645;
+	bh=wmjDBhckxO9cRIHd2f6bnvjoFkSVEjiuEsebiJDC2DE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=goeXrmN13YhUySTuMj4Nrbvpzs8W3dpD3jVhIUfys8R4l3kkEK9v0BZy7CCNYBlBP
+	 xk93RAEiKW3TycTO8GAqJbDNxlL9r50WMbS6NEbBfyBEa8Cbw0lKWEGSY46I1emFCj
+	 V3qWgalKiUV2Jx2QoVu7hiOItVAyZd0QVSlCbjs/d2jknO+sJd7BVZ0vQ86Ci8P6SN
+	 qRPF/Z+AIrA/ZPIte6hIJF+xX+lS4/wpPjKoHWc1dY5e9BuLFjWeyP4DTRZkc0gM20
+	 HKRv/BY1UqAKr64NpTMjaLjZCzKpwO7z3dQdl+2VMJsmPHaeWl8eT9bHH2nPPsLk87
+	 R3oRSkCQdk0TQ==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Eric Anholt <eric@anholt.net>,
+	Stefan Wahren <wahrenst@gmx.net>
+Cc: devicetree@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] dt-bindings: raspberrypi,bcm2835-firmware: Add 'power' and gpio-hog nodes
+Date: Mon, 15 Dec 2025 15:35:14 -0600
+Message-ID: <20251215213513.3331128-2-robh@kernel.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v6 02/35] arm64/sysreg: Define MDCR_EL2.E2PB values
-Content-Language: en-GB
-To: Alexandru Elisei <alexandru.elisei@arm.com>, maz@kernel.org,
- oliver.upton@linux.dev, joey.gouly@arm.com, yuzenghui@huawei.com,
- will@kernel.org, catalin.marinas@arm.com,
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Cc: james.clark@linaro.org, mark.rutland@arm.com, james.morse@arm.com
-References: <20251114160717.163230-1-alexandru.elisei@arm.com>
- <20251114160717.163230-3-alexandru.elisei@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20251114160717.163230-3-alexandru.elisei@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_133342_483684_2AD90406 
-X-CRM114-Status: UNSURE (   9.74  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,33 +74,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/11/2025 16:06, Alexandru Elisei wrote:
-> KVM will make use of the different values for MDCR_EL2.E2PB, document them.
-> 
-> Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
-> ---
->   arch/arm64/tools/sysreg | 7 ++++++-
->   1 file changed, 6 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-> index 1e7b69594f04..0de8af0e0778 100644
-> --- a/arch/arm64/tools/sysreg
-> +++ b/arch/arm64/tools/sysreg
-> @@ -3851,7 +3851,12 @@ Field	17	HPMD
->   Res0	16
->   Field	15	EnSPM
->   Field	14	TPMS
-> -Field	13:12	E2PB
-> +UnsignedEnum	13:12 E2PB
-> +	0b00	EL2
-> +	0b01	RESERVED
-> +	0b10	EL1_TRAP
-> +	0b11	EL1
-> +EndEnum
->   Field	11	TDRA
->   Field	10	TDOSA
->   Field	9	TDA
+Add missing child nodes for the RaspberryPi firmware. The firmware
+implements a power domain provider in a 'power' node. GPIO hog nodes are
+also already in use.
 
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+v2:
+ - The error in the hog pattern was from my own bad addition, so fix the 
+   patch to add gpio hog nodes.
+
+ .../bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml    | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
+index 8349c0a854d9..983ea80eaec9 100644
+--- a/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
++++ b/Documentation/devicetree/bindings/arm/bcm/raspberrypi,bcm2835-firmware.yaml
+@@ -65,6 +65,11 @@ properties:
+       gpio-line-names:
+         minItems: 8
+ 
++    patternProperties:
++      '-hog$':
++        required:
++          - gpio-hog
++
+     required:
+       - compatible
+       - gpio-controller
+@@ -87,6 +92,9 @@ properties:
+       - compatible
+       - "#reset-cells"
+ 
++  power:
++    $ref: /schemas/power/raspberrypi,bcm2835-power.yaml#
++
+   pwm:
+     type: object
+     additionalProperties: false
+-- 
+2.51.0
 
 
