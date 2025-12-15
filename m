@@ -4,90 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDCE3D41D74
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 08:47:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F755D41D74
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 08:54:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=olctGR1OoIBKA9JqPtxHxqGDlNhk2l7c5pdiCsPqVzQ=; b=LTwss2xrMxCu74YtV6k9AezA+Z
-	fywLmHlvARBlJfoZZDPkt5N0VOVsYSYH3IZuxq/SxOoHSP0ItD68d4rEdScv9cpLjskJZ2mfmW/94
-	7ZPkg+pgdZFDTBxiYGx44KpMZ3KaZBDvG1NxaPiThOUVW5uyQs6rLn/2znA5c+WP5fgOk9Fb9IBC0
-	aLGdmsX+5bL6QqyU16YOLy66to0AqzgN0PHf5EDLCabw6sVZRI92HzAPZBXqf3QUC0PKy79asoz0p
-	ol6JiXkOgoRbAooTpulT379+CfqnteLkoG700EyQ0sG4gx9PTXKwPHFLrpb4GJNzRSDQYRSzqBHHK
-	pXjmTUgw==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SpEDhKipvwn+zQp6bK+RJKfE2yZRvxKlO0/gPPTbqMo=; b=NRS2vCV05aUZ7Df25QmxDmhaul
+	MxfDPgMyzKyfNM1lIly1KlSQgHu6fJNSNtF9YnakSVAEZhrL5G5Lmn9l4iDhe5+ycFsavmquX0d+j
+	4E24/VbFdd2Jt8asPFi94oK/DmDc07c2JKgkVZ/Qrw/Jv1zdHeNiMA3sAET4yHhoAqMYFOzKwvAkR
+	xWuCsULADmnOloSaljDD+zS4Yc6yFykl0TjMsl52Jb9bXqX8gEjVq46EGwfOWvqWRfES9CEQ0PAzs
+	0iAFJEi3MbiLPpiVTkR4YR0iWopxncSTCcpf4qVk4JdZkhOuDxJhAFSaHuUjHn214bjRAcPjNKCug
+	iMd4Q0tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV4EV-00000003IMP-3jZ5;
-	Mon, 15 Dec 2025 08:47:07 +0000
-Received: from mail-ed1-x541.google.com ([2a00:1450:4864:20::541])
+	id 1vV4LB-00000003J0e-0Tj4;
+	Mon, 15 Dec 2025 08:54:01 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV4ET-00000003ILy-0axM
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 08:47:06 +0000
-Received: by mail-ed1-x541.google.com with SMTP id 4fb4d7f45d1cf-6492e7891d2so4203753a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Dec 2025 00:47:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1765788423; x=1766393223; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=olctGR1OoIBKA9JqPtxHxqGDlNhk2l7c5pdiCsPqVzQ=;
-        b=VwgEh/dhoEwbh23erYTXBmONGSG810UV+OM+4yMNSUdOi5SXAf03QjhwgFjZzIcLhx
-         JeLTLQpurxh6E0bHVjirNZXLtWguQMjelV6w4sEUCSKYAjcKEPsAFGaBmOL5dz7o3kvB
-         pcaA9iOfZUpuBZMZUUv77lFK0vnnksR++Wib3aY1E3VPKfCZyg0Z1474B9fA+sculMoP
-         TjqkHZ1CsYW7MELgQwVg56CbePkdpogar94GHs5MVJd6Zu2WsHqikK2K2OoUzd6Vwat8
-         YsDMvswY2tISL+KsCceQfLzIR4s+P609OgwFKQE7p6vU8+3DZvoT3zatra1UXBEJM4c7
-         dnvg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765788423; x=1766393223;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=olctGR1OoIBKA9JqPtxHxqGDlNhk2l7c5pdiCsPqVzQ=;
-        b=wGXfgFwYm6kralvHYWcrhOVmZ6o0MZJ2AMoA74fpr8lBHPoaCLGtQy0DIWj7dR5RP3
-         MwTjiHnxNY29i0ogiEzqVJlU8VxVWmbBf1eZcpNKJRZHEqptjqc6A7+HVPPWtCVF2WDw
-         aelYS4WejDBFbh8kY1oa2GzW1TOlh2MljrYQG4K7gVqvsgFnfssvrHSONjDmAgZUJ4KM
-         ybZMNke2SFRGeq4VvlbQWbc4HV+UEYHkzxYVXZMM6rxOEyrCVpfjvvViA8+fsV9GTSV8
-         UJwGdnX+hP82KheTUSVeYW4kfpPjtr+BDnyf67jgOBkWUial8UtXB1R+sRP58xTpQCRT
-         yH6g==
-X-Gm-Message-State: AOJu0YwgtfoEgEGJIyWUbiBoQLRdnoJJXxynMefuBK8xdqOdvEbtnVWJ
-	I1upEGq6XqipvZJ3cHgSRtKVagTvIyKOFROhyavXnbL5SPpuEuB+QyMxG8fQtEUPqpQ=
-X-Gm-Gg: AY/fxX6sYfePE56p3O1DkqjzQJc54Q0BairnLM1jXqDrpeu2u/OAqIt/7+tB+tFyWW8
-	chy6ayzrkGWxBPxmsPXUCimey9Ue1wViDsdsW0qEfwzEkYuM93lSA0xK4JS3MekHeSm/o96GKB1
-	3FDEf120VLsqfH6o3ydBv/bd/ZBOKuH+Ip699H6ZwvGTxsY3HEM+9Qt5pZ2xLnqpKFjJbEeVPhm
-	Pz3tEjJZXvThWP2ILAVivFnImZHN/YLHIaDeSOq1mbfgWpv7TO3kKMDeUGNx1DWgK4YNNTj9YAc
-	mZqgPTfvr12YH6Dtwe4nLzIr+rnuM42OvmbEH3jFM1LDu1j7cwabY9Y+CcjYVkyFjMpLmENfRPR
-	SYVw7LX8YWtfC5cV+RN9GknxrrxxxzKX/Vkb53Bze4RRqdfv4Px/yUtVGUdHbIXH+MYZwmJu4j0
-	BvxpDaDmbUanbsC2Dcyiul43ygrjDlF9w=
-X-Google-Smtp-Source: AGHT+IE11WB6QPPr1tBqpVVVM08QRXAEa1dmMcvpY5A4CSjX64MQTPPHz0VIcmU0USVC6McrtkW0VA==
-X-Received: by 2002:a17:907:2d8d:b0:b73:8639:cd93 with SMTP id a640c23a62f3a-b7d2362927fmr1008136966b.14.1765788423083;
-        Mon, 15 Dec 2025 00:47:03 -0800 (PST)
-Received: from [192.168.0.108] ([130.185.218.160])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b7cfa29f6cbsm1362342666b.5.2025.12.15.00.47.02
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 15 Dec 2025 00:47:02 -0800 (PST)
-Message-ID: <fcefc3c0-541d-40cc-84e3-9c2460308bdb@linaro.org>
-Date: Mon, 15 Dec 2025 10:47:05 +0200
+	id 1vV4L8-00000003Iz5-2KuZ;
+	Mon, 15 Dec 2025 08:54:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1765788835;
+	bh=aC7H/Tmab4zhybp7BBcY+/SuHj8ed8QSGcvjdAbp5fI=;
+	h=From:To:Cc:Subject:Date:From;
+	b=TKQQJWMCtBFnIxbmr4W5ZNB5Q4tP3qsE4yacA4IQTDdWRAeNQzyJjzB+w257Jkg/L
+	 RQEmk4uxadQwZ/tHiuMjCC6eE9zzCjD77ZIf5hJvVX2KofODNmJpc6f2wiwM6OXvEG
+	 nCzlNqPQYOryN8AdHuziyC4NfoLs8xVGjuBnSyfCWAWGeXattFgSryU2r9QRYoepno
+	 TjDKkEWZfLsgjJH25BA7loPx0t8EZ7SMjKvEFvDMexzfHMCNEHrPQFv2DcUmG1Tuwp
+	 g1sXDNDJUg61HKByzWxGvDit3jrBZ3TQBHIS+E+/mfwUzhqGvi0T2BMhfZwGvxjPI2
+	 nraF3V1dyT4Cw==
+Received: from benjamin-XPS-13-9310.. (unknown [IPv6:2a01:e0a:120:3210:c17e:135b:5095:83a8])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: benjamin.gaignard)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0339017E12A2;
+	Mon, 15 Dec 2025 09:53:54 +0100 (CET)
+From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+To: joro@8bytes.org,
+	will@kernel.org,
+	robin.murphy@arm.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	heiko@sntech.de,
+	nicolas.dufresne@collabora.com,
+	p.zabel@pengutronix.de,
+	mchehab@kernel.org
+Cc: iommu@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-media@vger.kernel.org,
+	kernel@collabora.com,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Subject: [PATCH v10 0/7] Add support for Verisilicon IOMMU used by media
+Date: Mon, 15 Dec 2025 09:53:37 +0100
+Message-ID: <20251215085349.10155-1-benjamin.gaignard@collabora.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: perf: fix syscalltbl path base
-To: Joel May <joel-linux@jmay.us>, catalin.marinas@arm.com, will@kernel.org,
- Leo Yan <leo.yan@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, arnd@arndb.de,
- Linux perf Profiling <linux-perf-users@vger.kernel.org>
-References: <b2651f20-6f3a-49f5-9cd8-3fb028b2cab5@app.fastmail.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <b2651f20-6f3a-49f5-9cd8-3fb028b2cab5@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=y
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_004705_217004_5EA713C5 
-X-CRM114-Status: GOOD (  24.97  )
+X-CRM114-CacheID: sfid-20251215_005358_833110_70A2AA13 
+X-CRM114-Status: GOOD (  22.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,67 +86,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi all,
 
+This patch series adds support for the Verisilicon IOMMU, which is found
+in front
+of hardware encoder and decoder blocks in several SoCs using Verisilicon
+IP. 
+A first implementation of this IOMMU is available on the Rockchip RK3588
+SoC.
 
-On 15/12/2025 00:12, Joel May wrote:
-> From: Joel May <joel-linux@jmay.us>
-> 
-> A fix for the Perf build process was introduced in commit bfb713ea53c74
-> ("perf tools: Fix arm64 build by generating unistd_64.h"), which generates
-> the unistd_64.h header as necessary.  This fix works fine in some
-> scenarios.
-> 
-> My problem is when building Perf from tools/perf with SRCARCH=arm64, the
-> path used in scripts/Makefile.asm-headers is relative to tools/perf
-> instead of root directory.  This results in the build failing like so.
-> This snippet is a simplified repro of the problem, see the link to the
-> TrueNAS SCALE build script to see the problem in context.
-> 
->    jmay@debian13-aarch64:/mnt/linux/linux-vanilla/tools/perf$ ARCH=arm64 SRCARCH=arm64 make -j1
->    ...
->    make[4]: *** No rule to make target '/mnt/linux/linux-vanilla/tools/perf/libperf/arch/arm64/include/generated/uapi/asm/unistd_64.h'.  Stop.
->    make[3]: *** [Makefile:108: uapi-asm-generic] Error 2
->    make[2]: *** [Makefile.perf:972: /mnt/linux/linux-vanilla/tools/perf/libperf/libperf.a] Error 2
-> 
-> The problem is that scripts/Makefile.asm-headers is including a relative
-> syscalltbl path from arch/arm64/kernel/Makefile.syscalls.  The syscalltbl
-> path needs to be based on the srctree root.
-> 
-> Fixes: 7fe33e9f662c0 ("arm64: convert unistd_32.h to syscall.tbl format")
-> Fixes: bfb713ea53c74 ("perf tools: Fix arm64 build by generating unistd_64.h")
+Rockchip provides a driver for this hardware in their 6.1 kernel branch:
+https://github.com/rockchip-linux/kernel/blob/develop-6.1/drivers/iommu/rockchip-iommu-av1d.c
 
-Hi Joel,
+This series includes:
+- a new binding for the Verisilicon IOMMU
+- a driver implementation
+- DT updates for RK3588
 
-There is a similar fix on the list here:
+The driver was forward-ported from Rockchip’s 6.1 implementation, 
+the prefix was renamed to vsi for generality, and several fixes were
+applied.
 
-https://lore.kernel.org/linux-perf-users/20251204-perf_fix_syscall_header-v1-1-b8e27f74ed6a@arm.com/
+AV1 decoding was tested using the stateless VPU driver and Fluster.
+The test results show a score of 205/239, which confirms that no
+regressions
+were introduced by this series.
 
-I'm not sure if commit 1 alone will also fix your issue, or we'd need to 
-collapse both of the commits in that set.
+Feedback and testing welcome.
 
-The first commit has an older fixes: tag and also fixes some other 
-issues so it might be better to take that one rather than this one.
+changes in version 10:
+- Update vsi_iommu_identity_attach() and vsi_iommu_attach_device()
+  prototypes.
+- Fix build as module issue when Verisilicon video decoder is built-in.
+- Rebase on master branch.
 
-Thanks
-James
+changes in version 9:
+- removing blanks lines.
 
-> Link: https://github.com/truenas/linux/commit/91377b555a57dfa75364d7da85b5e21e41e81625#diff-831a0e8e3eaa7a5ca92599e58771b8a6b2c4bd7533f627e33138873995aac61eR147
-> Signed-off-by: Joel May <joel-linux@jmay.us>
-> ---
->   arch/arm64/kernel/Makefile.syscalls | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kernel/Makefile.syscalls b/arch/arm64/kernel/Makefile.syscalls
-> index 0542a718871a..958f2335ec1b 100644
-> --- a/arch/arm64/kernel/Makefile.syscalls
-> +++ b/arch/arm64/kernel/Makefile.syscalls
-> @@ -3,4 +3,4 @@
->   syscall_abis_32 +=
->   syscall_abis_64 += renameat rlimit memfd_secret
->   
-> -syscalltbl = arch/arm64/tools/syscall_%.tbl
-> +syscalltbl = $(srctree)/arch/arm64/tools/syscall_%.tbl
-> 
-> base-commit: edde060637b92607f3522252c03d64ad06369933
+changes in version 8:
+- Add myself in MAINTAINERS file.
+- Add API to restore VSI iommu context from decoder driver
+- Fix reported checkpatch issues: add comment in pinlock_t declaration
+  and remove blank line.
+- Include board name in defconfig patch commit message
+
+changes in version 7:
+- fix locking issues.
+- add a patch in AV1 video decoder to manage per context iommu domain.
+- fix compilation issues when build as module.
+- remove useless "rockchip,rk3588-av1-iommu" compatible in driver code.
+
+changes in version 6:
+- rework lock schema in vsi_iommu_attach_device() so
+  it protected against concurrent invalidation.
+- flush the cache after changing of domain.
+
+changes in version 5:
+- change locking schema to use 2 spin_locks: one to protect vsi_domain
+  data and one to protect vsi_iommu structure.
+- make suspend/resume more robust by calling disable/enable function.
+- rebased on top of v6.16-rc5
+
+changes in version 4:
+- rename and reorder compatibles fields.
+- Kconfig dependencies
+- Fix the remarks done by Jason and Robin: locking, clocks, macros
+  probing, pm_runtime, atomic allocation.
+
+changes in version 3:
+- Change compatible to "rockchip,rk3588-iommu-1.2"
+- Fix compatible in .yaml
+- Update DT and driver to use "rockchip,rk3588-iommu-1.2" compatible
+- Set CONFIG_VSI_IOMMU as module in defconfig
+- Create an identity domain for the driver
+- Fix double flush issue
+- Rework attach/detach logic
+- Simplify xlate function
+- Discover iommu device like done in ARM driver
+- Remove ARM_DMA_USE_IOMMU from Kconfig
+
+changes in version 2:
+- Add a compatible "rockchip,rk3588-av1-iommu"
+- Fix clock-names in binding 
+- Remove "vsi_mmu" label in binding example.
+- Rework driver probe function
+- Remove double flush
+- Rework driver internal structures and avoid allocate
+  in xlate function.
+- Do not touch to VPU driver anymore (path removed)
+- Add a patch to enable the driver in arm64 defconfig
+
+Benjamin Gaignard (7):
+  dt-bindings: vendor-prefixes: Add Verisilicon
+  dt-bindings: iommu: verisilicon: Add binding for VSI IOMMU
+  iommu: Add verisilicon IOMMU driver
+  MAINTAINERS: Add entry for Verisilicon IOMMU driver
+  media: verisilicon: AV1: Restore IOMMU context before decoding a frame
+  arm64: dts: rockchip: Add verisilicon IOMMU node on RK3588
+  arm64: defconfig: enable Verisilicon IOMMU for Rockchip RK3588
+
+ .../bindings/iommu/verisilicon,iommu.yaml     |  71 ++
+ .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+ MAINTAINERS                                   |   8 +
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi |  11 +
+ arch/arm64/configs/defconfig                  |   1 +
+ drivers/iommu/Kconfig                         |  11 +
+ drivers/iommu/Makefile                        |   1 +
+ drivers/iommu/vsi-iommu.c                     | 808 ++++++++++++++++++
+ drivers/media/platform/verisilicon/Kconfig    |   1 +
+ .../verisilicon/rockchip_vpu981_hw_av1_dec.c  |  15 +
+ include/linux/vsi-iommu.h                     |  21 +
+ 11 files changed, 950 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/iommu/verisilicon,iommu.yaml
+ create mode 100644 drivers/iommu/vsi-iommu.c
+ create mode 100644 include/linux/vsi-iommu.h
+
+-- 
+2.43.0
 
 
