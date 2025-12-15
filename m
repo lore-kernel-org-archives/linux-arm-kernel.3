@@ -4,87 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49177D41D74
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 03:54:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B103CD41D74
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 04:43:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cs41d7yCNQsicDzPOtK67VW5w6RIcuLsk1wC6vBHoOI=; b=F/VH5mz4C+bl76JbVPIjo8FCuJ
-	9NhJJ6xH3DDI/hPul6URvDAqilce+/PYXFW6nf9Dcd8YmaaJeIiAYZpUJ4AuJYwLIfLA1flqX9HdQ
-	5QiwYmrz1K8ZNjcU7uBY/bE5QeUcmk47/P6XuAA/SA/RUWihgV6xYnQI1STd8pDnj5nTxrgjyzesQ
-	YLEsP5S7naRilaWHq23AhVwVLU/qwscSooADCFaldyM59ZslvbjyjaS/33sSmx/z7+BeUH0sKOxMX
-	idvbhwjmhd204hv3B5PAbrbX8kkZdjn9g73ICpuH3w/EPKkxayXDgZSdJ9yKb91J1EbC1KIGsVk+t
-	DwsDFWew==;
+	bh=3lOSDOM4oQzUiD2Hxei8TKH49gYyrijPqR+c7lN4i6k=; b=MZ/BtAJHm0qSc/d6TFM2+d4PQb
+	C5ABTOhrWQEMOW11K6JbznjKdUw9KPW9RK8Ku9iNCANtq/P6PG10m/qgJ9lbvru86KylMEAs5lllb
+	QBIIMMsvfR5wcZ32e2T0QWWGHOkOnz5vjlaz5G74+5TJUosA4+vdJpbnma6TgzDihRz9W5vZuwm3R
+	a6EPfA2tx5l2A929EE3Pt1UoCwU2TzE609VmNF1d10lLYieMRfgAOgtVXSCFpIq+eDrQ3dDi3yYD6
+	RYndYCXKyrMnw93K7fJuXY0nKDkjxFpvi1Ug5rkl1vcjZW4+1lyW1RuywLFYgbzS/remkxwtMMJ8+
+	fOw4h57w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUzex-0000000326E-0aFt;
-	Mon, 15 Dec 2025 03:54:07 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1vV0QB-000000033vn-0tpq;
+	Mon, 15 Dec 2025 04:42:55 +0000
+Received: from smtpbguseast3.qq.com ([54.243.244.52])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUzes-0000000324i-1vbM
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 03:54:03 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-34a2acb736eso2287394a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Dec 2025 19:54:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1765770841; x=1766375641; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cs41d7yCNQsicDzPOtK67VW5w6RIcuLsk1wC6vBHoOI=;
-        b=HftSXjF658Q0ZyIGA2EkU1qGzN7/ds1d9ehVkzlEcNQvvg4328lQLWNWaN1rzyc52o
-         knU4bakuKRmEcM3txlUSJWr8QAKKvUyJqJP5IhAXWHuZTlzbU5DrW5Paqk1kd3cXih/q
-         4C2GKhfkvt7K9/L2W6Jcroaq75ewG179XPuXaReKg8kruISnnYVaEAqj/opaCNEWoT63
-         uWMNjF3VDqI3Q6x6iRVDwo9IxNCj4ktuKTLlW5/un2Ox2Yhwxkqvuca7rEysVC2TQ9au
-         ZWSId44NlFrCKv29FPolIxF9sLQ7uufKBN1/VbEak7RzoK3/eIgrvdRN/TZH02GCcKD6
-         nOdw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765770841; x=1766375641;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=cs41d7yCNQsicDzPOtK67VW5w6RIcuLsk1wC6vBHoOI=;
-        b=ln0nFopB164lFHqHRrq9rLwR6VztYL1zZ1DbindFu34lqGeHz0tQxIt7+2tYbQwiTC
-         ESzN2H3joioZ+xNOGhThtj6yv8Tc+g//1hLnQnnohBIeWHT5sO1+/ZX4C9vM70zrlihS
-         39Tr7X4duaSpg/GBrVDYhuDqTqr3997vTm3tQ3rAOIZYuG/nzesU3S0ITg+PqOXEACjH
-         XiKeDelZTWOkryglj98pNYIc/2PtAwBDYW13tPOX4x1MLy85MtqdWxDrOPaXB/EalZt6
-         /38pAhsHGegy0i1dRKwGlPJ7mp49DAWAUvwFjSm/laa6zNNNxiVUcFeJdoOU+eP2tjUM
-         2pKw==
-X-Forwarded-Encrypted: i=1; AJvYcCXFrQWIwRHKfclgYFlT04quUbE6WMgw97TK0OnpFkO2DfDJZO02UXkUPagCYoZ+oE6NUsJNee9/FT2+nnnXU8+Z@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYqlcJxpP41rRXX/CEwRp78EZtvfcGq+LTee/GSC5q5GKo45v7
-	tdVxeTgbze7+QFlcu1A8rMzCZuqlIh4xWWy29PEE3ELq9pUzeaI+1igA+MWQKTScHd0/ZW04J66
-	Bbz2OOP+m6vUaufVTSypSst3lZU2Raa8=
-X-Gm-Gg: AY/fxX5FAuKRjUNz0NhIu+JM6AA1hDEJNvm02yuS5r3gJddUAwjlSnAYpz5hQBwjJRO
-	iNwvLEe73cP8+x8I66SupGDi0q6COV0gEx/Vpy/1N0ve3acE65JDumrzc7h4DP50jrPh6dF9kVm
-	E60kLYQ9kQ3rfhUZBoXMBILMTGVFtZR7gqynopcI1NlSc+VIrKDp02cZbEjSvrw7q0VoLjlxbhH
-	l2UnfEBrWi66El3kPaofx1eQ2dWm4QrEy40wHVGuAOAkpf5hg9NOJw1nkqPhV6fYi8JtzVa7koI
-	lLvW+A==
-X-Google-Smtp-Source: AGHT+IGktv+3+C+sSak5S3BM24sHFO297gHq+KUTFjA6NjjfpI4d7RiO44sokmLBPP2KLBwlNfaQajcbNWc+g+LH9GE=
-X-Received: by 2002:a17:90b:2891:b0:32b:9774:d340 with SMTP id
- 98e67ed59e1d1-34abd78d3a2mr7741666a91.33.1765770840967; Sun, 14 Dec 2025
- 19:54:00 -0800 (PST)
+	id 1vV0Q7-000000033se-2pda;
+	Mon, 15 Dec 2025 04:42:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1765773706;
+	bh=3lOSDOM4oQzUiD2Hxei8TKH49gYyrijPqR+c7lN4i6k=;
+	h=Message-ID:Date:MIME-Version:Subject:To:From;
+	b=FsFB3PJN6tU6lMyRa5z7WS4PwHO6OXhu68Rm8HAV5vmLZ7xOjWX835saFRhlCtnBN
+	 pRiwSFAtwC78pbPZuRWf8o9l9YARlmGwivVAL8lPlambWgFXBa/RXpRIClTbHqamD/
+	 TChT0N6A2zxwo16MSUsD185+nHgZakRgyDrGLUGg=
+X-QQ-mid: esmtpgz15t1765773698t10035d30
+X-QQ-Originating-IP: 0WfD5yvhvW13kvUdeyJmv1hnISC08Dc8ngn/qRYwPgU=
+Received: from [10.10.74.117] ( [123.114.60.34])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 15 Dec 2025 12:41:36 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 10387698090418089952
+Message-ID: <B86C6BDD7F4F1AC4+1b245d22-60ed-48d4-829e-aadfa145098f@uniontech.com>
+Date: Mon, 15 Dec 2025 12:41:36 +0800
 MIME-Version: 1.0
-References: <CAOMZO5BuMLhMyMkfE1xhOwEs2U=+pZnVq+FP+_bp5W_Qg6oMxQ@mail.gmail.com>
- <CAOMZO5BhmvC1_AhcKTerd1p6PdJ7+YLonU59CcHfmpTVavgqdA@mail.gmail.com>
-In-Reply-To: <CAOMZO5BhmvC1_AhcKTerd1p6PdJ7+YLonU59CcHfmpTVavgqdA@mail.gmail.com>
-From: Shengjiu Wang <shengjiu.wang@gmail.com>
-Date: Mon, 15 Dec 2025 11:53:49 +0800
-X-Gm-Features: AQt7F2r0RvjI0X4IfZMMXkA086kkoJNbhuveSQyEiOdiJG9AzHMiJjCeaNWhWHM
-Message-ID: <CAA+D8AMMDuakAXSUizUmxdbPZiD_kzTEC_gSS5FVCRJ1nxDHgQ@mail.gmail.com>
-Subject: Re: imx8mp SPDIF TX does not produce a lockable signal
-To: Fabio Estevam <festevam@gmail.com>
-Cc: Shenwei Wang <shenwei.wang@nxp.com>, 
-	"open list:SOUND - SOC LAYER / DYNAMIC AUDIO POWER MANAGEM..." <linux-sound@vger.kernel.org>, 
-	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, NXP Linux Team <linux-imx@nxp.com>, 
-	Viorel Suman <viorel.suman@nxp.com>, Mark Brown <broonie@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 2/3] kexec: print out debugging message if required for
+ kexec_load
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: bhe@redhat.com, catalin.marinas@arm.com, will@kernel.org,
+ kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, kernel test robot <lkp@intel.com>
+References: <20251212095649.857796-1-maqianga@uniontech.com>
+ <20251212095649.857796-3-maqianga@uniontech.com>
+ <20251214163214.5018b9c083f11c7ecc081a5d@linux-foundation.org>
+Content-Language: en-US
+From: Qiang Ma <maqianga@uniontech.com>
+In-Reply-To: <20251214163214.5018b9c083f11c7ecc081a5d@linux-foundation.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:uniontech.com:qybglogicsvrsz:qybglogicsvrsz3b-0
+X-QQ-XMAILINFO: OGRTx1KypL8C/viUD4JUiKSm32Nj7azkR04soI1I0Sxd2qA6HJGzz6lJ
+	HhwHGrNH1tI8XQXMkksBHUWHl7sOK2XMK0zGjEzKl0M1TSV4kOBeMbWxAwhwbGh0lhj5q8L
+	E5yfFySbRs80kEgd9eeH2s6y0abPBCAILFY2UYNOjRIXyD3Xw7I6mnTxB5t8G/H3SJZXWtw
+	/CElFnKKd3GMbnlC/6RHLfjlvE03NxUgblnf7pkxu8EZxmmznGdHG9+wT9XorpR30Tg/wG7
+	nMUi33Pz4oEaps6K94FpRdG4wY/8mFFamEc14ifBNkOJm31x+SHkupNd1v7GghpnpaDtusQ
+	c52BPBmh5rMOlGh5nZaruiF7fjuPiXdjZiQt52xT5YryOcQG34U9SxmudOE7ykw9+9ruFhX
+	dybGhVdzPrO5IvTM6yQyu+D8m1ftA/+pC7wynId7feBk8bXrLfUnEtF21jblGJr/7FO5Uyr
+	M4oJCZY1jnKJ3Rj9Rlz9cEH97KxbvdJeZPjjzwnR29dQlKxE5H8HCpUKGL1WpnzknZc1x19
+	pH5QiyvWPTs6O4djJSIZWcux5fHMhFltFdGXYwwWu4nRkzy6w7ICBTHIG8oXIE/EsbaD8um
+	8Ly2wRUnzDHLVUc+KoK7enCKCenNBZCsO+0Kzv1N6BiQ0zs3EqP9Wt2iAZ5fupREFn31RJJ
+	zAyUFSFZ79CmyyMOOzxcvb4JrwJllictfmsUt43IrdKLLz3G1wHzSlHLpO2mELC3i81xgmO
+	B+h5rbm2cPX9IPkgDMspVo6AKUar+iTUO3x9NmaZNSC3zDYjPdERNilQZ01NRGxiPcr4op+
+	LVjRhCLokuJ4RRKCRwEwjEQWZ/puR6cxwgZxal2zLphOXgLjk4g3a8Id04sCj+3YSbp1tB1
+	JE/FnHWBzsrY3aZpAZSpNKVGgS06MkqVVfLsnKvsswq9wRmD5liKeHJceAIvAZ8DKX18CAE
+	2Ci5gKTqjoK5KfF1b79NVexo3tWvyxRzYk0mdfyeiMfiJfxQg1+/AGFuJDq4C3WhH4eXAyg
+	iC+Gl8Kmm7EzXqr6oQXapxwOGJcqw8dlkAIbnDCjvoEp6u5QQy
+X-QQ-XMRINFO: OWPUhxQsoeAVDbp3OJHYyFg=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251214_195402_496038_FD9087FF 
-X-CRM114-Status: GOOD (  10.96  )
+X-CRM114-CacheID: sfid-20251214_204252_241906_5C540354 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,48 +96,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Dec 13, 2025 at 6:12=E2=80=AFAM Fabio Estevam <festevam@gmail.com> =
-wrote:
->
-> On Fri, Dec 12, 2025 at 4:11=E2=80=AFPM Fabio Estevam <festevam@gmail.com=
-> wrote:
->
-> > Any suggestions for debugging or fixing this would be appreciated.
->
-> The SPDIF TX audio locks and operation now works.
->
-> The key thing was to pass AES1 information.
 
-Yes,  the only supported format is IEC958 in driver,  so need to convert to=
- this
-format from alsa-lib.
+在 2025/12/15 08:32, Andrew Morton 写道:
+> On Fri, 12 Dec 2025 17:56:48 +0800 Qiang Ma <maqianga@uniontech.com> wrote:
+>
+>> The commit a85ee18c7900 ("kexec_file: print out debugging message
+>> if required") has added general code printing in kexec_file_load(),
+>> but not in kexec_load().
+>>
+>> As a result, when using '-d' for the kexec_load interface,
+>> print nothing in the kernel space.
+> That doesn't sound like a thing which "kernel test robot" would detect
+> and report.
+>
+>> Since the segments debugging message has already been printed by the
+>> user-space tool kexec-tools, it will not be printed here in the
+>> kernel space.
+>>
+>> And print out type/start/head of kimage and flags to help debug.
+>>
+>> Signed-off-by: Qiang Ma <maqianga@uniontech.com>
+>> Reported-by: kernel test robot <lkp@intel.com>
+>> Closes: https://lore.kernel.org/oe-kbuild-all/202510310332.6XrLe70K-lkp@intel.com/
+> Oh I see, that's a warning against an earlier version of this patch.
+> But this is labelled "v1"!
+yes.
+>
+> I suggest we remove this Reported-by record.
+ok, I'll collect some other suggestions and fix it together in the next 
+version.
+>> --- a/kernel/kexec.c
+>> +++ b/kernel/kexec.c
+>> @@ -166,6 +166,9 @@ static int do_kexec_load(unsigned long entry, unsigned long nr_segments,
+>>   	if (ret)
+>>   		goto out;
+>>   
+>> +	kexec_dprintk("kexec_load: type:%u, start:0x%lx head:0x%lx flags:0x%lx\n",
+>> +		      image->type, image->start, image->head, flags);
+>> +
+>>   	/* Install the new kernel and uninstall the old */
+>>   	image = xchg(dest_image, image);
+> Thanks, I'll await reviewer input before proceeding with this series.
+>
 
-Best regards
-Shengjiu Wang
->
-> In /etc/asound.conf:
->
-> pcm.spdif_out {
->     type iec958
->     slave {
->         format IEC958_SUBFRAME_LE
->         pcm {
->             type hw
->             card imxaudioxcvr
->         }
->     }
->     status [ 0x00 0x0A 0x00 0x00 ]
->     preamble.z 0x0
->     preamble.x 0x1
->     preamble.y 0x3
-> }
->
-> Play the wav file:
-> aplay -D plug:spdif_out  96-24.wav
->
-> or a 440 Hz tone via speaker test:
->
-> speaker-test -D plug:spdif_out -c 2 -t sine
->
-> Thanks
 
