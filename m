@@ -4,67 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 697A0D41D74
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 11:47:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22535D41D74
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 11:48:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cDCAdTgs2P3VG3lCGDQQe/McF+oPTUo+A/A40/PgerU=; b=gizSCax4w5ccyws8fvbQgjunlM
-	BOAHERTIEfny9IAetarlt1AXOEq4WMxZLlzYZP+F/xvlXMFSt1xhPeY3lvmQ4rhrHTllxEkJTRdAI
-	ZWGOs0j7Bm+CrecDAsrw8Xf5hb6Ek2ucZkOH+ZzTlOqXdP0TTIMx1z3tMo5iYfreoF2ATl5vLJ2qh
-	QDVhBAMqyYIdsd5H1tutT2o2GHRrLCGFIscNGO9ExPOUXcUFrzs2hImL3TBs9Ik1V8jvvQCvJtZMm
-	HTEfLjR5FXrPyoUKLLNdLWh2zp3eTIV27i8jphjFLUjSXGOXlmQ8A13iYD4snN8WpxvDYDgdUmISH
-	/DvnCN1A==;
+	bh=Zn/uhcRYE9P5t+xoL0MI1jmstVKavxgMn3GHiQkhybw=; b=tQdOxb2TdkV0D5efdgJ0HMJGTG
+	pxTQnTHHbcuLJ51HT0HA/MZi4zyUt4VXo771oIFmF3RHsjdRz+NcuB3nDURICCBdGw/xVMCFkmK8T
+	3ADIFf1aiZp6AvrJZrxGPtguJiOIfMjbYBrX+m0fkDqW+PSEyh9YzImwHyg+nHzryIpsIlZ55n7GF
+	ithf6UUM5hiozP9ybiSlV4GC6ItSafnZDDm8BAFMnFvzJeEHkxxWhqr9ksI/pwsGztCzoEmtViHq3
+	y3Xhz/TuXdy0tBC7nAk057fAJwyBfXpJdYj4v8p4V3rgKCEFlEfH1TQzb8in0IdYdXBI4UnAOuOo/
+	EyCL6NEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV73S-00000003YfA-02JV;
-	Mon, 15 Dec 2025 11:47:54 +0000
+	id 1vV73Y-00000003YjH-0ddX;
+	Mon, 15 Dec 2025 11:48:00 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV73G-00000003YYs-3rfk;
-	Mon, 15 Dec 2025 11:47:45 +0000
+	id 1vV73S-00000003Yf5-3zA1;
+	Mon, 15 Dec 2025 11:47:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=cDCAdTgs2P3VG3lCGDQQe/McF+oPTUo+A/A40/PgerU=; b=2Dzjn248o/8afFCxkZtum0p2YK
-	UeeI0k6+K3TX+bhvV4nXMAl0Tdupum+oSRjVFAuyILhnSbylG2RUPmjGTz1JRGzgkaLAyZ8nlHNLr
-	E74vxWg27sFGhmXD/VpHmzqNH/yZ8uBUu+mZQLihafhQANSQUkJZo6x14UOUrXXd6XspUqwOganxy
-	ITCUq33LKI2lNOrCCGmUb8UCYqpLMPCjkh9Rln6ogMG5UpRE1k4xalNHY58Og9p5LCM1aOyaHBdVT
-	Dv2Dvd69Cs/qhMiGIN0xfFRR6SDPzAh09oS7S9Ybbem3rPaKdGJw4mUis4QjL/clKv9spKBeEa598
-	dMRqw7JA==;
+	bh=Zn/uhcRYE9P5t+xoL0MI1jmstVKavxgMn3GHiQkhybw=; b=hud35EViFGxZ44fZq/v+HIIQPc
+	dTRWejKOXGyjBVZYEnUaTWVXrXqNNvaXb0ZOjA9g56ZKi0xzkx3dU0esoYNKQQMZfZdcX4c8xIYQE
+	qiaoTd+1Ed94OHM37OruzmwCxKQPmc5FDDKsC65nkd4K72GpiHX/8mkrMFWQdLm4KEFjaazyDYCLR
+	fwHjpWRGKy9Az61I/7fQ12RroiyyZDrNYwwu5O9UnAzxLDR6nmVPbuQNo6NHS4UxKLYo2cfawOxme
+	M1X7l8myTK0zzAYxzRKaJjrUwcHm35eqrsvmJ+zWnfkVzFnumdBzKA+t8t3i+3YhlXxnUW7fbzps/
+	faLM5GlQ==;
 Received: from [192.76.154.237] (helo=phil.dip.tu-dresden.de)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1vV73A-0000On-Pb; Mon, 15 Dec 2025 12:47:36 +0100
+	id 1vV73A-0000On-2C; Mon, 15 Dec 2025 12:47:36 +0100
 From: Heiko Stuebner <heiko@sntech.de>
-To: Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
-	Detlev Casanova <detlev.casanova@collabora.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Jonas Karlman <jonas@kwiboo.se>
+To: Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Jianfeng Liu <liujianfeng1994@gmail.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Torsten Duwe <duwe@lst.de>
 Cc: Heiko Stuebner <heiko@sntech.de>,
-	Alex Bee <knaerzche@gmail.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: (subset) [PATCH v3 0/7] media: rkvdec: Add HEVC backend
-Date: Mon, 15 Dec 2025 12:47:33 +0100
-Message-ID: <176579924020.1404176.16613704782665436214.b4-ty@sntech.de>
+Subject: Re: [PATCH] arm64: dts: rockchip: enable SPDIF audio on Rock 5 ITX
+Date: Mon, 15 Dec 2025 12:47:31 +0100
+Message-ID: <176579924017.1404176.3512598682044953071.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250905161942.3759717-1-jonas@kwiboo.se>
-References: <20250905161942.3759717-1-jonas@kwiboo.se>
+In-Reply-To: <20251124183056.B853068C4E@verein.lst.de>
+References: <20251124183056.B853068C4E@verein.lst.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_034744_374410_DF7853FD 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20251215_034755_047411_1EC3E9CD 
+X-CRM114-Status: GOOD (  10.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,20 +81,17 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 05 Sep 2025 16:19:18 +0000, Jonas Karlman wrote:
-> This series add a HEVC backend to the Rockchip Video Decoder driver.
+On Mon, 24 Nov 2025 19:30:56 +0100, Torsten Duwe wrote:
+> The Rock5 ITX has an S/PDIF (TOSLINK) socket in its I/O-shield, whose
+> TX signal is wired to GPIO4 C1. Activate SPDIF TX unit 1 and select
+> the proper pinmux (M2).
 > 
-> With the dependent H.264 High 10 and 4:2:2 profile support series
-> finally merged there is finally time to send a v2 with minor changes and
-> a suggested code style fix of this series. v1 of this series has been
-> fully functional up until recent unstaging of the rkvdec driver.
 > 
-> [...]
 
 Applied, thanks!
 
-[7/7] ARM: dts: rockchip: Add vdec node for RK3288
-      commit: e74470cf3101da79666f20186c9406192223e9a8
+[1/1] arm64: dts: rockchip: enable SPDIF audio on Rock 5 ITX
+      commit: 2cc30da80a28a8a5d1337230c3586eb2f9580120
 
 Best regards,
 -- 
