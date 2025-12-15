@@ -4,95 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6850D5B172
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 14:42:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49D25D5B17B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 14:59:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xiDNjJReuH+sQcPwA2otPS6JuC4RYSH/oTmgctrVOF8=; b=QOh7eMtzBoXVqFNk3vp+jg9PTt
-	gwLxE6zmWILwmISP23DYXqxomXhEelTym+cCoVC9wuM3BCbVLcZ9p/IM0JqTQ5IidhWbHSPaBZLLa
-	jEl/GNvzNbOW7RCu24br05HysPjJ8l0N3duow5AvVirpIQl/IVWuDtnbOP4nY0kWehU3Hjmd5MV13
-	FwOpbtfa5FbUNM5tdyBICSGzAhNt8Sn6L1Q6Q2yhF9Hn/q3m4uk4BxpNoCnPVamBnxe5JqKP+ak70
-	mqvrSueOSacI5PLCaJsWS8T+AFXzjuuQpUgq6CpbHnWUuwqCXM0shTOAgII26EmlE3VzM2wNLCtMm
-	yjcigZcw==;
+	bh=WB5xMIRwAbyWJ6x0t01HnHBTIU6RaSAZoRyYflZR1pE=; b=paTDpan2Jc3VKwIUBCGDnNIPPk
+	yNMI0mPXVjKxLWISIH7GGPAOiKIgzxESAdpHBt60H5WgqhjYRPHU0/JxE6joUW4jgehWgORk72FTV
+	Q/7tA5dq/6Nw3o8x9/oLua+VO9k4bBJwYHIXSSCbVkd7CEWn/vjjhqbYCK3P5aB+zlmXJUD+uRyBT
+	tNSBBqX8419LGavOxR0fQhpUHNYE7nCe9BmDLkvEnY6H5HDMmVJINcRrinfTS3+yGJOI00zOffn9G
+	NeER3gX8hRAVstJc0ChBnyLtzaso5+TqViGFxG1/vL8Kuc836/E+febFYYWQdFtt/7mZyVIC4KdAa
+	c7/SvxWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV9m7-00000003oto-3MJW;
-	Mon, 15 Dec 2025 14:42:11 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV9m3-00000003ory-3dhp
+	id 1vVA2d-00000003ppY-2xBV;
+	Mon, 15 Dec 2025 14:59:15 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vVA2b-00000003ppA-369f
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 14:42:10 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-430f5ecaa08so770408f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Dec 2025 06:42:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1765809726; x=1766414526; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=xiDNjJReuH+sQcPwA2otPS6JuC4RYSH/oTmgctrVOF8=;
-        b=bpNXJQXiv17kh72o8v8d6Vi7zMcQO+UZtsd6fjeIrC1kTICHjDOjlskwRx5KvbQKBS
-         tdWvJe4TlFtoQW5ToGSvDSzgqlAPHZBQwXsIDcSyivzsde6T7Qbiz5F1Mccx71EMf2N1
-         6Ha0Lqm21shyMWyXI98ZyWyHdmkqf7DTO0T+T/lhKZWuU4k5eSMJe9j1juTUq/xFvmka
-         blYp8ZMDhYcc4KnstXr/jyeZUl5GTX9xPWqK/eX1kLOy6lFpNOk9HUxQlFwnfRpg60vl
-         +mLjx3j05hhx6Z0/QUGwRLVg+DlXt2gJiXzvt+Q4x2OE5Cw9EemfUwNz0wcRfWTmrYhV
-         t9Mg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765809726; x=1766414526;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=xiDNjJReuH+sQcPwA2otPS6JuC4RYSH/oTmgctrVOF8=;
-        b=FXIG6RhSgeP/yVFMgcPJBHEq6198Q+4KlLeMPm93k2FlO/bjWo5L5Ib5iysUj95Gqi
-         Z/FT6PVUKz59BJ+VOQtNuTb0XSK3OsfqakNQ7gXfJnDPJz1Pv6exY2Djmyj1qg24aE10
-         R4K3JGySS1PZOKf0FSJoeZoCLw8Dsaf7d/s1ytpL7Cyqa5C+hWqudFC5yU5WGmsAlqTW
-         pr9UHxrGYxhj3NLaOOCt2Qkg+OmcC6vc571P0mpTSJ6a/+q9Tqr7SyxeieQAuOIIbRcz
-         hCeDGLICIFMeLa8APbMYIu8iVoKEZy6os1tcJetNFVrK4W8sKZi7e6QHMc9iu2+Nwmu8
-         4MvQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXMl1Q1S1lc1HEifnutU1WbSiH/r1yxvamLEDBJor1dA8ZC4hQYhIKBoZduiEkjFFw4J/ErBIgaA7SDHBDpG/EK@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywm/ZplONKohkd9Y6bGWdFKig/ilPFh22WI3C+y8XRoUnlGKMjo
-	YeP2T8vKmGohPsyjcO7/m8iNiv8Eyo3nqXNuYPMi6THF2XyxNqUFb3vhn1sV1Qoh+ws=
-X-Gm-Gg: AY/fxX79Ibdqagms1fiAw0mu5wZw4jzzBAATcRzE4/Lm2duZAID+lKl0ZMIdlA1a9ZZ
-	rUpfgrGZE8ri7awP0ySL9411Xp34MMkpWae3ej387HH0tpA22w6+1OaeuY1DwOA/9dvV77WDO0v
-	xces7BagcbKsGZFkmFNqRz9DpPKQYwojaYjq0ADJpjBwSg5ycmxLjlBZeUejfV8ZMso+1yUtoop
-	Ypxi6jRgh5s3yMIf4Y2jSoPEc3n/9iR1lPJxS4DefVCygZT/eNpRz9gAHcyyB+9rtF/Ex+CQu30
-	jKXJbT/rmxK1QFFjxEMlmktaraC5neFb60AGD3gG7r9CpdX8c8ZtMPtKI3bsFLgvDgxp2uZeJh4
-	rmYGDe7G9y9ufFksRG7sUNKn+Qtzk+tuInsM4rYzchqhQ2SyRkdotVKk5b5UNp0nqz4+a96GBUs
-	eSInnF1lprHNQybv39
-X-Google-Smtp-Source: AGHT+IG8c3SGHRSscuhUyyGSsZusN01T0eo9ZxX9zQGjydj3gQVdrRgDNwh4QNxdusEz1PCq34CxnQ==
-X-Received: by 2002:a05:6000:18a9:b0:430:f463:b6b4 with SMTP id ffacd0b85a97d-430f472faedmr8436759f8f.50.1765809725859;
-        Mon, 15 Dec 2025 06:42:05 -0800 (PST)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42fa8b9b26fsm32113105f8f.40.2025.12.15.06.42.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Dec 2025 06:42:05 -0800 (PST)
-Date: Mon, 15 Dec 2025 17:42:02 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Chester Lin <chester62515@gmail.com>
-Cc: Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
-	NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linaro-s32@linaro.org
-Subject: [PATCH v2 4/4] dts: s32g: Add GPR syscon region
-Message-ID: <990c6317baca68b1ec0391eba3b66f511d75710c.1765806521.git.dan.carpenter@linaro.org>
-References: <cover.1765806521.git.dan.carpenter@linaro.org>
+	Mon, 15 Dec 2025 14:59:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 230CC497;
+	Mon, 15 Dec 2025 06:59:04 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DCC3C3F73B;
+	Mon, 15 Dec 2025 06:59:10 -0800 (PST)
+Date: Mon, 15 Dec 2025 14:59:09 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Osama Abdelkader <osama.abdelkader@gmail.com>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: hw_breakpoint: warn on invalid breakpoint
+ length
+Message-ID: <20251215145909.GC681384@e132581.arm.com>
+References: <20251213112336.26503-1-osama.abdelkader@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <cover.1765806521.git.dan.carpenter@linaro.org>
+In-Reply-To: <20251213112336.26503-1-osama.abdelkader@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_064207_924796_10C84CF5 
-X-CRM114-Status: GOOD (  10.76  )
+X-CRM114-CacheID: sfid-20251215_065913_848953_58B4A609 
+X-CRM114-Status: GOOD (  24.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,65 +65,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the GPR syscon region for the s32 chipset.
+Hi,
 
-Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
----
-v2: Remove #address-cells and #size-cells
+On Sat, Dec 13, 2025 at 12:23:35PM +0100, Osama Abdelkader wrote:
+> Some tools (e.g. perf) incorrectly assume that breakpoints should be
+> sizeof(long), but this is wrong for AArch64 where breakpoints must be
+> 4 bytes. Add a warning when we silently fix up the parameter so tool
+> developers can get notified.
 
- arch/arm64/boot/dts/freescale/s32g2.dtsi | 6 ++++++
- arch/arm64/boot/dts/freescale/s32g3.dtsi | 6 ++++++
- 2 files changed, 12 insertions(+)
+To be clear, the perf tool has fixed the issue since:
 
-diff --git a/arch/arm64/boot/dts/freescale/s32g2.dtsi b/arch/arm64/boot/dts/freescale/s32g2.dtsi
-index 51d00dac12de..b954952d962b 100644
---- a/arch/arm64/boot/dts/freescale/s32g2.dtsi
-+++ b/arch/arm64/boot/dts/freescale/s32g2.dtsi
-@@ -325,6 +325,11 @@ usdhc0-200mhz-grp4 {
- 			};
- 		};
- 
-+		gpr: syscon@4007c000 {
-+			compatible = "nxp,s32g2-gpr", "syscon";
-+			reg = <0x4007c000 0x3000>;
-+		};
-+
- 		ocotp: nvmem@400a4000 {
- 			compatible = "nxp,s32g2-ocotp";
- 			reg = <0x400a4000 0x400>;
-@@ -731,6 +736,7 @@ gmac0: ethernet@4033c000 {
- 			compatible = "nxp,s32g2-dwmac";
- 			reg = <0x4033c000 0x2000>, /* gmac IP */
- 			      <0x4007c004 0x4>;    /* GMAC_0_CTRL_STS */
-+			nxp,phy-sel = <&gpr 0x4>;
- 			interrupt-parent = <&gic>;
- 			interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "macirq";
-diff --git a/arch/arm64/boot/dts/freescale/s32g3.dtsi b/arch/arm64/boot/dts/freescale/s32g3.dtsi
-index eff7673e7f34..71ee1c043d03 100644
---- a/arch/arm64/boot/dts/freescale/s32g3.dtsi
-+++ b/arch/arm64/boot/dts/freescale/s32g3.dtsi
-@@ -383,6 +383,11 @@ usdhc0-200mhz-grp4 {
- 			};
- 		};
- 
-+		gpr: syscon@4007c000 {
-+			compatible = "nxp,s32g3-gpr", "syscon";
-+			reg = <0x4007c000 0x3000>;
-+		};
-+
- 		ocotp: nvmem@400a4000 {
- 			compatible = "nxp,s32g3-ocotp", "nxp,s32g2-ocotp";
- 			reg = <0x400a4000 0x400>;
-@@ -808,6 +813,7 @@ gmac0: ethernet@4033c000 {
- 			compatible = "nxp,s32g2-dwmac";
- 			reg = <0x4033c000 0x2000>, /* gmac IP */
- 			      <0x4007c004 0x4>;    /* GMAC_0_CTRL_STS */
-+			nxp,phy-sel = <&gpr 0x4>;
- 			interrupt-parent = <&gic>;
- 			interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "macirq";
--- 
-2.51.0
+  fa6cc3f93258 ("perf parse-events: Vary default_breakpoint_len on i386 and arm64")
 
+The latest perf can pass the correct length (4) for instruction
+breakpoint.
+
+> This addresses the FIXME comment by adding diagnostic output rather
+> than breaking existing tools by returning -EINVAL.
+> 
+> Signed-off-by: Osama Abdelkader <osama.abdelkader@gmail.com>
+> ---
+> v2: fix warning messageline splitting
+> ---
+>  arch/arm64/kernel/hw_breakpoint.c | 10 ++++++----
+>  1 file changed, 6 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/hw_breakpoint.c b/arch/arm64/kernel/hw_breakpoint.c
+> index ab76b36dce82..cce306145d78 100644
+> --- a/arch/arm64/kernel/hw_breakpoint.c
+> +++ b/arch/arm64/kernel/hw_breakpoint.c
+> @@ -475,11 +475,13 @@ static int arch_build_bp_info(struct perf_event *bp,
+>  				return -EINVAL;
+>  		} else if (hw->ctrl.len != ARM_BREAKPOINT_LEN_4) {
+>  			/*
+> -			 * FIXME: Some tools (I'm looking at you perf) assume
+> -			 *	  that breakpoints should be sizeof(long). This
+> -			 *	  is nonsense. For now, we fix up the parameter
+> -			 *	  but we should probably return -EINVAL instead.
+
+This FIXME is still valid for me.  IMO, if really want to remove the
+comment, a reasonable solution is:
+
+  1) Backport two patches (fa6cc3f93258 and 70b27c756f9) onto the
+     stable kernel code base for fixing perf tool.
+
+  2) Based on perf tool has fixed the issue on the mainline kernel and
+     stable kernels, we can change to return -EINVAL instead.
+
+> +			 * Some tools (e.g. perf) incorrectly assume that
+> +			 * breakpoints should be sizeof(long). This is wrong
+> +			 * for AArch64 where breakpoints must be 4 bytes.
+> +			 * Warn the user and fix up the parameter.
+>  			 */
+> +			pr_warn_once("hw_breakpoint: invalid AArch64 breakpoint length %d, fixing to 4 bytes\n",
+> +				     hw->ctrl.len);
+
+AFAIK, since I started to use Armv5 CPUs, Arm instructions (not Thumb
+ones) are always 4-byte length. Not sure if the log is useful or not,
+I would leave this to maintainers.
+
+Thanks,
+Leo
+
+>  			hw->ctrl.len = ARM_BREAKPOINT_LEN_4;
+>  		}
+>  	}
+> -- 
+> 2.43.0
+> 
+> 
 
