@@ -4,108 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25A06D5B868
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 20:11:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDD65D5B174
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 20:16:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NVHWp8cheEcClOBV4c/zxK94NkQEphirpcQRQ+Yuj0w=; b=j61zemV6jSWvkbnQlemsFJyXla
-	H5wW1/t809AmdNavuKz0QwqDHPa/rekqM1RNEfc3nV2wEdQ21vXQrm0xL4PLqJeRGWJ5dwj6UadW0
-	Iy+7fmPNyTDxGrc4rOxBHm05tnR4p8a3ykWlKuGGzwm6lKRMbxe6jxUbbzsbgS3CXYsXOF8SDSgm5
-	/wFxt+ezWu1D7/cgKU/43CTtVVBYczRckJQ6n5RCNvAc3iz3dDEpYoEz2EPynfdmQ9qcoqrzIg6VQ
-	Kfy3Bn0phQ4Kf4R5bILGU1DG36IhjY3E2JgKB8UHouJG/mDsneFPXnukITyP1J1EpmhdyVcs64/fh
-	mvQ1F3vA==;
+	bh=TjdtjNpj32b2G7UMC7OVPOm1IVXgYZarnYzEj0bcAJ4=; b=LO+iZaXwNzX/UG8ToEklzjVmqs
+	UI/CZCW1LaSsyUf28MF5co4VNDj94kmbYuPnoHbDYJnVH7N+L3Gv6IsgPT5Nh1KUai2ZrFhtK9qNh
+	jznJ06ztIn6mZ/Kqhx/XgeR7Gw1102OAmdsU9gvrGvjSRyAlG1zHocPMbs0Nfd6rnwfeRcsLSPkBu
+	e/Cup0azjhgO+CUpcBIKo1x/5CEydFy1XKmbQVuC6RhE+DA9yeG2eCON3fTMn5jM38JDRc2RPIiXu
+	8scoBBzjPilbEdEQM7YCA2dzT0USfuJuTIXZDdlfRGGw6IBUVGvyWUleK8q2os9RY1wenD63yi7sJ
+	WZ8ndF3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVEuZ-00000004DLc-1pv4;
-	Mon, 15 Dec 2025 20:11:15 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1vVEzQ-00000004DbO-0kst;
+	Mon, 15 Dec 2025 20:16:16 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVEuU-00000004DKa-1taa
+	id 1vVEzP-00000004DbE-0CRe
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 20:11:14 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-477632b0621so28032805e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Dec 2025 12:11:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1765829468; x=1766434268; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=NVHWp8cheEcClOBV4c/zxK94NkQEphirpcQRQ+Yuj0w=;
-        b=uEfev6AIYeOzR+J0nKqQX/6hx/7hyWfDwNHN7+ZKgmxIJHIwMgO2b8LQyv2katgshd
-         V8RMcSwq30XKfNrPDsjrX2HtTsAQ4gc3BRk6JVtx6E5y9Kh7/oNDav/RlXLKSxlxZLRM
-         wywyZErTG5gFQ8NJqlBt5Lr073Ia9pJadordWXymMsGS8+Nik5RwTAGitCtPFHcjrTyj
-         sAlqG1sV7q2jBmrWi5dnsxb3lbzexxoX5n/LAtBXsIKSjmdZmUcgoScVMVJilLzxovfj
-         bjlmnL6CF5YPjQ+LCVXHB1bNMkM2HtsWJQCTD7BeZ6AbR1CDiDNEMFRABPp0isJD4w34
-         GNGw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765829468; x=1766434268;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=NVHWp8cheEcClOBV4c/zxK94NkQEphirpcQRQ+Yuj0w=;
-        b=NgUZdBAYubTK7odjv25wtIYHdg83H9s3VcJFdW5iezgJbBPWsmCVWZHYyUgTGGS37B
-         STFY1rSA8u5TJPlkDFmcpY26nuvFsRQ5LpnLLtg7GtG4Rq0mJNE0qtMhuNiE4g0xc9/y
-         Lan39QutNzQxujniKu1JkKLdfG9aiOZTFVDMLHOx83HATXj8fOkrm5yWd+3HCej0aLbf
-         XL591a7aJkZTFP1EPPnv3ReSSdzCRDwXnLqSIlzsw4iGl0uf/ZX2QHPjYGUgTD6K0DgA
-         bhSOm70uU9ep3xEDlwt6h217QhpCbHPL1QGZ8Th9Migck8ndGLRu9F40cFXN8EaFnfJP
-         fSgg==
-X-Forwarded-Encrypted: i=1; AJvYcCXgCmu8zhYlSSh/jnb5hNNJkBdwWYwEI+uJ5QKMbfNKcA56Gy7ubTYNHUb4hbg0nMvWrA74C6EJpN2PmdIx2FA9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx2vgBS4RDo4PbF/L3vzpzIPy8jMIusJoGblDHBRuspS35Qy4Dt
-	moDpIkU1fAYSSbZqKaOVTj1RLsTDvgoIeiSZZguXAcEde5jh2nN8T50re3Cn6+QfBPI=
-X-Gm-Gg: AY/fxX6Z+2cGEsek/0F4Lexlkqj8V2Df7JnGQnrYbx0SKQOhDdJUSRkM4jY6EFRyXRa
-	ARQuCY5TtqaXgH45EWO07wuWw31/ooZOEqJYTKveviz4NhC8uXXyL6pMbyg04rQsmV+NEeDa6E6
-	dN1ChurqUTVmvciqCGZgr7f0l0MGRNDg2kty4URorCW5EoWUIHMXYVtv4IuzWm08q3xSjC4duBy
-	buWH2zAe5flXkwNEFZbipL7Brh9YnuRVsHUlvZH5OAThtWuBQ4TR49hRQL7sjKRvG8u6poTg8G2
-	mj6AbDKazJrIG8kI9xhqjBfSn+UVa2h9whbiS4kA9tWY0yuZhiQqbPX58d0EE0gN19/n4BbOj8f
-	MEoXzkJ2OVb6ctYiAD6RjXud7Utu1EoKEH61cjNInpw0HfxcWn8ZR2NuUVtxsniz0Ihtrenrs1O
-	iCozEcsrhqMHrnX63n
-X-Google-Smtp-Source: AGHT+IFzTdgd8HuBCRpheWEKJMhw6vXCy8KxXaScp0+GwrnVXW68cCuyCfDLEuzw7wX+ZV30A2XRQg==
-X-Received: by 2002:a05:600c:46c4:b0:46e:59bd:f7d3 with SMTP id 5b1f17b1804b1-47a8f9046fcmr137755605e9.20.1765829468100;
-        Mon, 15 Dec 2025 12:11:08 -0800 (PST)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47a8f4ace61sm200864155e9.7.2025.12.15.12.11.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Dec 2025 12:11:07 -0800 (PST)
-Date: Mon, 15 Dec 2025 23:11:03 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Chester Lin <chester62515@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>, devicetree@vger.kernel.org,
-	Eric Dumazet <edumazet@google.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
-	imx@lists.linux.dev, Jakub Kicinski <kuba@kernel.org>,
-	Jan Petrous <jan.petrous@oss.nxp.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Lee Jones <lee@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Matthias Brugger <mbrugger@suse.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	NXP S32 Linux Team <s32@nxp.com>, Paolo Abeni <pabeni@redhat.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>, linaro-s32@linaro.org
-Subject: Re: [PATCH v2 0/4] s32g: Use a syscon for GPR
-Message-ID: <aUBrV2_Iv4oTPkC4@stanley.mountain>
-References: <cover.1765806521.git.dan.carpenter@linaro.org>
- <aUAvwRmIZBC0W6ql@lizhi-Precision-Tower-5810>
- <aUBUkuLf7NHtLSl1@stanley.mountain>
- <aUBha2/xiZsIF/o5@lizhi-Precision-Tower-5810>
+	Mon, 15 Dec 2025 20:16:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2058F60156;
+	Mon, 15 Dec 2025 20:16:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E44DC4CEF5;
+	Mon, 15 Dec 2025 20:16:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765829773;
+	bh=lF8AfJF90zeVvajpf257VP8+PAS/iA+1OUWO0EJGo4Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=gTq7jxl+/X4t0clkH+mEIN1Yg389a3M1yJZlum/0+HWjs0BADwL0wGHgJE2yuY56G
+	 BY2dQ0dXnWxEsVWSdJe4hqMGCzyh5sRgqf2VUyDrteCmtp4ljq93GTSPvK9Xp0qqG0
+	 bf39yzzPeKqFVFzbEe8n93pn1mHzt8YQghp1i8rC/fkyWiTHTKTwgBHOaxs9YXV1Zp
+	 KPO9xp0g+xQKuR7S6e9WocY5rOmKO+YSVUbO9i0bH16S+U+Od5e5R5P0w3Zk8WSYmt
+	 FfjLs4qx3LdNpN0VkOuB1gHDxqiW6QUkLG1pTXEbLL2jqub0IYwiviCRP9AZpCe05U
+	 kof8RhLgE7img==
+Date: Mon, 15 Dec 2025 20:16:11 +0000
+From: Eric Biggers <ebiggers@kernel.org>
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Diederik de Haas <diederik@cknow-tech.com>,
+	linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
+Subject: Re: [PATCH] crypto: arm64/ghash - Fix incorrect output from
+ ghash-neon
+Message-ID: <20251215201611.GB10539@google.com>
+References: <DETXT7QI62KE.F3CGH2VWX1SC@cknow-tech.com>
+ <20251209223417.112294-1-ebiggers@kernel.org>
+ <DEUFDH7FJURL.3J0FN5I19VV8F@cknow-tech.com>
+ <CAMj1kXEQkB9MWB+PAi4XE_MuBt0ScitxTsKMDo1-7Cp-=xXOpw@mail.gmail.com>
+ <20251212054020.GB4838@sol>
+ <CAMj1kXHVq1NWA28jKxBrHHi1JOPoGXEamC7uMgTOmFwzmcYxRA@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aUBha2/xiZsIF/o5@lizhi-Precision-Tower-5810>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_121110_923324_BB7B3A6A 
-X-CRM114-Status: GOOD (  38.06  )
+In-Reply-To: <CAMj1kXHVq1NWA28jKxBrHHi1JOPoGXEamC7uMgTOmFwzmcYxRA@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,85 +77,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 15, 2025 at 02:28:43PM -0500, Frank Li wrote:
-> On Mon, Dec 15, 2025 at 09:33:54PM +0300, Dan Carpenter wrote:
-> > On Mon, Dec 15, 2025 at 10:56:49AM -0500, Frank Li wrote:
-> > > On Mon, Dec 15, 2025 at 05:41:43PM +0300, Dan Carpenter wrote:
-> > > > The s32g devices have a GPR register region which holds a number of
-> > > > miscellaneous registers.  Currently only the stmmac/dwmac-s32.c uses
-> > > > anything from there and we just add a line to the device tree to
-> > > > access that GMAC_0_CTRL_STS register:
-> > > >
-> > > >                         reg = <0x4033c000 0x2000>, /* gmac IP */
-> > > >                               <0x4007c004 0x4>;    /* GMAC_0_CTRL_STS */
-> > > >
-> > > > We still have to maintain backwards compatibility to this format,
-> > > > of course, but it would be better to access these through a syscon.
-> > > > First of all, putting all the registers together is more organized
-> > > > and shows how the hardware actually is implemented.  Secondly, in
-> > > > some versions of this chipset those registers can only be accessed
-> > > > via SCMI, if the registers aren't grouped together each driver will
-> > > > have to create a whole lot of if then statements to access it via
-> > > > IOMEM or via SCMI,
+On Mon, Dec 15, 2025 at 04:54:34PM +0900, Ard Biesheuvel wrote:
+> > > All 64-bit RPi models except the RPi5 are affected by this, as those
+> > > do not implement the crypto extensions. So I would expect QEMU to do
+> > > the same.
 > > >
-> > > Does SCMI work as regmap? syscon look likes simple, but missed abstract
-> > > in overall.
-> > >
+> > > It would be nice, though, if we could emulate this on the mach-virt
+> > > machine model too. It should be fairly trivial to do, so if there is
+> > > demand for this I can look into it.
 > >
-> > The SCMI part of this is pretty complicated and needs discussion.  It
-> > might be that it requires a vendor extension.  Right now, the out of
-> > tree code uses a nvmem vendor extension but that probably won't get
-> > merged upstream.
+> > I'm definitely interested in it.  I'm already testing multiple "-cpu"
+> > options, and it's easy to add more.
 > >
-> > But in theory, it's fairly simple, you can write a regmap driver and
-> > register it as a syscon and everything that was accessing nxp,phy-sel
-> > accesses the same register but over SCMI.
-> 
-> nxp,phy-sel is not standard API. Driver access raw register value. such
-> as write 1 to offset 0x100.
-> 
-> After change to SCMI, which may mapped to difference command. Even change
-> to other SOC, value and offset also need be changed. It is not standilzed
-> as what you expected.
-
-We're writing to an offset in a syscon.  Right now the device tree
-says that the syscon is an MMIO syscon.  But for SCMI devices we
-would point the phandle to a custom syscon.  The phandle and the offset
-would stay the same, but how the syscon is implemented would change.
-
-> 
+> > With qemu-system-aarch64 I'm currently only using "-M virt", since the
+> > other machine models I've tried don't boot with arm64 defconfig,
+> > including "-M raspi3b" and "-M raspi4b".
 > >
-> > > You still use regmap by use MMIO. /* GMAC_0_CTRL_STS */
-> > >
-> > > regmap = devm_regmap_init_mmio(dev, sts_offset, &regmap_config);
-> > >
+> > There may be some tricks I'm missing.  Regardless, expanding the
+> > selection of available CPUs for "-M virt" would be helpful.  Either by
+> > adding "real" CPUs that have "interesting" combinations of features, or
+> > by just allowing turning features off like
+> > "-cpu max,aes=off,pmull=off,sha256=off".  (Certain features like sve can
+> > already be turned off in that way, but not the ones relevant to us.)
 > >
-> > You can use have an MMIO syscon, or you can create a custom driver
-> > and register it as a syscon using of_syscon_register_regmap().
 > 
-> My means is that it is not necessary to create nxp,phy-sel, especially
-> there already have <0x4007c004 0x4>;    /* GMAC_0_CTRL_STS */
+> There are some architectural rules around which combinations of crypto
+> extensions are permitted:
+> - PMULL implies AES, and there is no way for the ID registers to
+> describe a CPU that has PMULL but not AES
+> - SHA256 implies SHA1 (but the ID register fields are independent)
+> - SHA3 and SHA512 both imply SHA256+SHA1
+> - SVE versions are not allowed to be implemented unless the plain NEON
+> version is implemented as well
+> -  FEAT_Crypto has different meanings for v8.0, v8.2 and v9.x
 > 
+> So it would be much easier, also in terms of future maintenance, to
+> have a simple 'crypto=off' setting that applies to all emulated CPU
+> models, given that disabling all crypto on any given compliant CPU
+> will never result in something that the architecture does not permit.
+> 
+> Would that work for you?
 
-Right now the out of tree dwmac-s32cc.c driver does something like
-this:
+I thought it had been established that the "crypto" grouping of features
+(as implemented by gcc and clang) doesn't reflect the actual hardware
+feature fields and is misleading because additional crypto extensions
+continue to be added.
 
-    89          if (gmac->use_nvmem) {
-    90                  ret = write_nvmem_cell(gmac->dev, "gmac_phy_intf_sel", intf_sel);
-    91                  if (ret)
-    92                          return ret;
-    93          } else {
-    94                  writel(intf_sel, gmac->ctrl_sts);
-    95          }
+I'm not sure that applies here, but just something to consider.
 
-Which is quite complicated, but with a syscon, then it's just:
+There's certainly no need to support emulating combinations of features
+that no hardware actually implements.  So yes, if that means "crypto" is
+the right choice, that sounds fine.
 
-	regmap_write(gmac->sts_regmap, gmac->sts_offset, S32_PHY_INTF_SEL_RGMII);
-
-Even without SCMI, the hardware has all these registers grouped together
-it just feels cleaner to group them together in the device tree as well.
-
-regards,
-dan carpenter
-
+- Eric
 
