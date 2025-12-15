@@ -4,79 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19970D5B174
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 13:58:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D974D5B16F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 13:58:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UnNN3NmfowoEI8Yxg4VH5T8VsRGkvk4yK86LBA/umVc=; b=xi0yDWIjBx3IBm2pKbPQYp9R/4
-	IHGQ7xz66WBeqgHQQzB4nniqiNYOKlgWIEDAsMUKThT6LLCjDIHYhCDsUtVVVgTIr6Vezu3upYyQ8
-	xV91jn9tbmN1fz2hGIsSo2B5oV0InElvBd0zMhhDnYVjGJxzjwSCXu8aysApTGvMQS1jdT6uK+VYF
-	MH0eeDMr2xIHCkbYfLtQ6at+h3PCr+u5M1fhai98SrGsuAnl1ovZJy+CwC4QaaCsY18iBNF5cYvwF
-	0cui8IdAdlsBf8os7paXB1yB1laUqG2MNqevLyjmg6doQdG5fw/jcCWMa0mTAqfFI+h6smjZxbzW1
-	r9Lxg8TQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E1Tuoz1VdP8HCKEI7nDFghitcggF+sDNI9eHqZa6eGY=; b=Sht+KOioWi+VOd193e/s/fm7Vl
+	iJiFwTK33Gliakm7uiH0eEaw3RldGlk3nmNJD37w0+5XvTswNAfsOFkoOsNB7gOY2T4VZfo88zgFl
+	N6l9AAUH2Cd/sY0nr1r7hmo/suwzNSGmiF2sy2uddcRjsfL+0s0vyf025uGXFC9lN+A6TNNxwjtma
+	HOgQyfO8aZCoxAKWBaehvzNdurnkmqeMTyLtcIaUiPsP5ZiIuZNXfmwR+GUznrUVDvDoQ0s3A+ASI
+	82izBtj4by5rzLtRw0oIV8mvrNGn/fhJzoB+AFcpiJbOStHsrXWsnKOxhmsL1I59tSfRu7dFcqmfh
+	oYcfG22w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV966-00000003inQ-0lwt;
-	Mon, 15 Dec 2025 13:58:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vV96D-00000003iqg-3OCK;
+	Mon, 15 Dec 2025 13:58:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV963-00000003ilY-2fvf
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 13:58:44 +0000
+	id 1vV96B-00000003ipX-2A8i;
+	Mon, 15 Dec 2025 13:58:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B34954447C;
-	Mon, 15 Dec 2025 13:58:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89DE6C19422;
-	Mon, 15 Dec 2025 13:58:42 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 96B0C6019C;
+	Mon, 15 Dec 2025 13:58:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3224EC4CEF5;
+	Mon, 15 Dec 2025 13:58:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765807122;
-	bh=Vf7zzfbdgRtZPUqHyBBRLu76rSNg6wAlAZK53fZzzFg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=cnbLA2cwn8H3e2IBVbpalCppTh31oS4ZiC8fAiVQTPlsu9X4xkBuHNZVQXZADAq4Y
-	 geMSuM4BtA6v3ooxtHahHPamDBOe/sdvw+GRwF6Tizy6rVwR+EQ0s+LXlZs2u+SjfO
-	 OyEnoPSby3qTEe1DJlkx7zvnGml0u8j4tlejuLzOh1ERUHPFNMAcK/wfMbm/G4Cvrt
-	 QMlp9PY1kUpCeIuwh8hOsR0ylxavOgJT7nZEpTgRFtQ5mWIE4Y6oT3kw3XjU5sz85H
-	 q7E4fd4AXfuNqZaQZsPjKfUkoE2zFQHuvKTsZ5FAAerJ1FUzajU5PsY1DzKfGyHsQx
-	 PIPEzB24Ar9cQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vV960-0000000CmOD-2TH6;
-	Mon, 15 Dec 2025 13:58:40 +0000
-Date: Mon, 15 Dec 2025 13:58:40 +0000
-Message-ID: <86ike7onhr.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: oupton@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	qperret@google.com,
-	will@kernel.org,
-	tabba@google.com,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH v2 2/4] KVM: arm64: Print register encoding if there's no accessor
-In-Reply-To: <20251215114409.212512-3-alexandru.elisei@arm.com>
-References: <20251215114409.212512-1-alexandru.elisei@arm.com>
-	<20251215114409.212512-3-alexandru.elisei@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: alexandru.elisei@arm.com, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, qperret@google.com, will@kernel.org, tabba@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_055843_744605_572666FD 
-X-CRM114-Status: GOOD (  22.06  )
+	s=k20201202; t=1765807130;
+	bh=m82WsvRRZfI3omoyvVudU1ntkd1y7W+CAVgLo4GxqLs=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=Fr9tgQucU7dN/hImWXrVU6vFjfZAVw0RQykau6Kb7hXxG/vU0cylNgNmhK9rMt9xa
+	 RLx4xgwifdAGBpBQgGkc8FSFwJoDPH1MHbyd1fKiEhYwn1jz/xyVSPcj27qI6SBO+T
+	 ffbvsKb0YvE5JnmfE/1QgV2Weu1sFthmtM52A38MNw9bzWVMEeZBq09yECVMWXAC17
+	 LoSuvJ1wld7gYSIJkS2+gHPn1NqiLu3tC8R/6S/PAfi1IHR4DX949g2tWIa8EAf2gX
+	 hV6vupUealSGh/+H5A+JO2DAql6/fjtKSI+SqlNY4M0pO79CYlpCUjwiVY25W6wxwa
+	 6ffTo/3q6+zSQ==
+From: Mark Brown <broonie@kernel.org>
+To: lgirdwood@gmail.com, matthias.bgg@gmail.com, 
+ angelogioacchino.delregno@collabora.com, hariconscious@gmail.com
+Cc: perex@perex.cz, tiwai@suse.com, khalid@kernel.org, shuah@kernel.org, 
+ david.hunter.linux@gmail.com, linux-sound@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org
+In-Reply-To: <20251212044408.1286-2-hariconscious@gmail.com>
+References: <20251212044408.1286-2-hariconscious@gmail.com>
+Subject: Re: [PATCH RESEND] ASoC: mediatek: mt8195: optimize property
+ formatting error handling by using scnprintf()
+Message-Id: <176580712756.161056.16246291831827319109.b4-ty@kernel.org>
+Date: Mon, 15 Dec 2025 22:58:47 +0900
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-47773
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,53 +72,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 15 Dec 2025 11:44:07 +0000,
-Alexandru Elisei <alexandru.elisei@arm.com> wrote:
+On Fri, 12 Dec 2025 10:14:09 +0530, hariconscious@gmail.com wrote:
+> Replace snprintf() with scnprintf() when constructing the property
+> and remove negative return error handling as scnprintf() returns the
+> actual number of bytes written to buffer.
 > 
-> Configuring a register trap without specifying an accessor function is
-> abviously a bug. Instead of calling die() when that happens, let's be a bit
-> more helpful and print the register encoding and kill the virtual machine
-> instead.
+> snprintf() as defined by the C99 standard,returns the number of
+> characters that *would have been* written if enough space were
+> available.Use scnprintf() that returns the actual number of
+> characters written.
 > 
-> Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
-> ---
->  arch/arm64/kvm/sys_regs.c | 8 +++++++-
->  1 file changed, 7 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index c8fd7c6a12a1..d669f6fef177 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -4668,7 +4668,13 @@ static void perform_access(struct kvm_vcpu *vcpu,
->  	 * that we don't know how to handle. This certainly qualifies
->  	 * as a gross bug that should be fixed right away.
->  	 */
-> -	BUG_ON(!r->access);
-> +	if (!r->access) {
-> +		KVM_BUG(1, vcpu->kvm,
-> +			"Unexpected access to register: { Op0(%2u), Op1(%2u), CRn(%2u), CRm(%2u), Op2(%2u) } (%s)",
-> +			params->Op0, params->Op1, params->CRn, params->CRm, params->Op2,
-> +			str_write_read(params->is_write));
-> +		return;
-> +	}
+> [...]
 
-Why not writing
+Applied to
 
-	if (KVM_BUG(!r>access, ...))
-		return;
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
 
-instead? And you could reuse the format that's already defined in
-print_sys_reg_msg().
+Thanks!
 
-You could instead consider injecting an UNDEF in the guest, which I
-find more palatable than this "vm_bugged" stuff. It would at least be
-consistent with the "register does not exist in the sysreg table"
-approach that we already have.
+[1/1] ASoC: mediatek: mt8195: optimize property formatting error handling by using scnprintf()
+      commit: 180cdb96e821e30528b02708b927c93daa0ed40b
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
 Thanks,
+Mark
 
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
 
