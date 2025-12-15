@@ -4,75 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA854D5B178
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 08:54:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76DCCD59D99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 09:02:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S+UcJu+5cR97n1+PGqwO2Rv6m8N37SpsKECBAKfuEo0=; b=A6/GSh9J7KO6ZZy4E8b+y7z8Dz
-	bSToWyJPmk0HzFWBHjVg5RZtOD0OlcM6vaeBI45egW3BtWkk6d//ahTbSaVjBClbjGQrMd16U7Cf7
-	KeVK+tBe/wzXhKizrfNArXbQo+4WmofZgkwVuJiW0a+X64nR6+t8d2F5p8B5ownkq8nCBo20NIYGT
-	vBMf4DBe1Rvas/+N7SrHeE+PuOJpLUpHSBNsnuTuEOULHCZcWPL0ypB1tp7RMsU/HezFdTKtm1Z0q
-	cKNGfAw3NjRReeTPHF0hT2W1lhDpcKtdyXySzZYRdjztx7SI0wyYmt3X7Ezz0tBYgb6TQ51C9naK/
-	zPdSnzXg==;
+	bh=/eh2Jk7y1LUL7tcgTyarCIDEPQpluVmFaeTv2vZoA4M=; b=bVjNdsU/4LeXiLbOwoeR5sU4dX
+	7szAVSPBDsQXoE5LUgJQkV8kgJJD1zLbPGVW6tHfxnJteocCwkIIYl/DJBEdvW06GUT/PYSnS//ws
+	Sv1Bkw4CZA2bJYvLolAMMPqQAe8vykzjrcjo7PPT4ozHAbzxJnm2V37XDtHLI882TyV7GAI/iHLse
+	VPXlxbtFSF1smQqKajt3NRXnF0C1WPHt8htmA5pGAu07j4HZOd1sYDnMh3fB97bL90RKW72OLJatz
+	Y+Nm3W385yjQmZpv02HkR3gNzuxHdUNr5jkMDIDaYoSugMTw4+pHrUZ6QCDL1UcjHhodnTwCLAw3J
+	4mcs2Pgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV4LI-00000003JAB-1Nea;
-	Mon, 15 Dec 2025 08:54:09 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vV4T4-00000003KHA-2lok;
+	Mon, 15 Dec 2025 09:02:10 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV4LC-00000003J0d-1t95;
-	Mon, 15 Dec 2025 08:54:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1765788838;
-	bh=eRnEvjh2q0SJ1Tg1mygUFwm603wsxCDIEZ3pEp2Tr80=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=WULtIqpzXb7kyp4msQmiZqtbhI97nPFoup0q3fbiZzeO+JjiT0ZPVNerF8/crRanC
-	 ZgT8s/K1xbo2zZsIEEJJWDAkWhn6+Y/bi9TRQbYy2KrkNDLOAK6OP+6aVBpjkbUuXi
-	 xrlf/0S3uXoKy8H4HZdEORxfF+OtErjqU0Im0QsyePDqIqt8T/+JDGsri1BgULp+8+
-	 jl8mesumAvlIsD/ba8r+h2Wxe0Tke7EU8nw/8725PU5GskZv1lsCOCrdoE9eZ9Rno4
-	 oeDUCPooRLSA9vIiRYbrdhfHAb4h/hAAMGFz4A30InYiDpKOknxZLVbxPbrq8aslan
-	 KBTNeiIi9wW/g==
-Received: from benjamin-XPS-13-9310.. (unknown [IPv6:2a01:e0a:120:3210:c17e:135b:5095:83a8])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: benjamin.gaignard)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1BB1717E1513;
-	Mon, 15 Dec 2025 09:53:58 +0100 (CET)
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-To: joro@8bytes.org,
-	will@kernel.org,
-	robin.murphy@arm.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	heiko@sntech.de,
-	nicolas.dufresne@collabora.com,
-	p.zabel@pengutronix.de,
-	mchehab@kernel.org
-Cc: iommu@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-media@vger.kernel.org,
-	kernel@collabora.com,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Subject: [PATCH v10 5/7] media: verisilicon: AV1: Restore IOMMU context before decoding a frame
-Date: Mon, 15 Dec 2025 09:53:42 +0100
-Message-ID: <20251215085349.10155-6-benjamin.gaignard@collabora.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251215085349.10155-1-benjamin.gaignard@collabora.com>
-References: <20251215085349.10155-1-benjamin.gaignard@collabora.com>
+	id 1vV4T2-00000003KGd-2ZWi
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 15 Dec 2025 09:02:09 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-640c1fda178so6421413a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Dec 2025 01:02:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1765789326; x=1766394126; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=/eh2Jk7y1LUL7tcgTyarCIDEPQpluVmFaeTv2vZoA4M=;
+        b=gPSjKG2tBoBBe42XWHtcvE9+LSDtTbTsYtqtkQe9Weq0MZ1jYGtht8v6iaKdO+iVO/
+         UKxy3OkSm/Ht2djP858zW9JAQkFAZ4CBVXmKWOkfOFj+2SDfJzTmz1oXx5T3LV8Bq2vS
+         xguFDPYKNfIoFRXasSADjY4mN8du2n3HzPjaJVVIKdBgmJbtetAp39Ey2qELi26BFKp2
+         FZiYOxcE9DN5p3SN5P77n1UWjgjHMlv5WBcUeuxPlh4huHlOvgRt0m45IZLZ+d3pDQ7r
+         zMbnS7lRg+xCaOHFoBqc4e4hcCfKGY13s9wbAhOZgZzF7Snzakji8RbGJzNqmkF+yeuL
+         l1sA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765789326; x=1766394126;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=/eh2Jk7y1LUL7tcgTyarCIDEPQpluVmFaeTv2vZoA4M=;
+        b=u4XL2RiSMU1VY4boDWETc6q03lcfj1mdN4xq94UNQJPZ1ipzoBDZzbWdNW/t5C5A3y
+         etmkZ9xQKMNnSS3Yix8VLt+j/KcXfcVIynCrlOh3Rkucdc0kSxJRb67dhDBU3lBZj9Zu
+         sGybtecFUSTBYEsRdyVlDdHhirQ8FTHxrfw6bx6y6FmCYC377i20J5FtM0B/0aAHDzd1
+         f/tJsKcpfioxQm60rxkd3yi9BqxDocYlqlEstfWjgXY69WpOO+oimwNpioWPWcGKuZPJ
+         2J79j0AH+x2wfTyE2XuUDhi7iy45sWAvPqid1vjxc929j8M3NzPTj+QR4UqVXsgbTOyM
+         M5Ug==
+X-Forwarded-Encrypted: i=1; AJvYcCWp1RLxvQ5Bs2xHwkKnFVpVXJm56OzsBJqgaw1Fh1xj1QdUtLH6gSdv7hJtflmrwre7Tfnx5YuUGreVNRXp68VU@lists.infradead.org
+X-Gm-Message-State: AOJu0YxGklHnJdmtEp1y+85Q7mtMJCQx0YhJzB03gLmwD12vlbw7/7xf
+	/mj00fI/U/hciNUbQFYyl+PeewitEXk7PN7HFDM1Xua3epdmmF3M24ssKsIYDIdSSSI=
+X-Gm-Gg: AY/fxX7WdsceSZJDDwOC0MMHkzXcX3txOt4WdZOQ7HpsriYZCiLEfTiwi+UW3ecXCyb
+	FANqBhe0PEMMifTtXUVlPa4o2KK+eeJ0SYbxyRmwuDzekzGVvJNWv+1sGeIqvlh9xKvSwz9YWeu
+	1gM6nDmI3jjaGLhMR432ydceLVZw+Hj6WusIniBpUVcy7tafpNJrW11AbgSRyOCIIFCxqKbU9cz
+	xeNKTvuF77D/bhB9GAIHUQZGvOdXXJND+MNosa8JvkKSPDTel2S0u7UE5co9fGI0GEo9fSdIhmI
+	PBGMzrzAEPdOyJQlXYZzKZEINiPIVuYHa5bbmbtPQhqzkdoVvNYPNKh6GGUTjNf/pe2xjY1t2GJ
+	/PRN/kpQRPqVicZOWIRWJ65NdSMsOaKyWrsJpAajJlJeX0UeMCGZ/42nkAmLchEF0bVhppc5x1K
+	pldl5Fw7Ktbg5ArZBrQZKS
+X-Google-Smtp-Source: AGHT+IG4myQfras1/40xDmXOQgpwgiM3Ljs8/6uploYCUZ16zAD9bEd9YTmSTzDXHafRBREFjId5kg==
+X-Received: by 2002:a05:6402:1446:b0:640:ca0a:dc1c with SMTP id 4fb4d7f45d1cf-6499b16e791mr10050760a12.7.1765789326445;
+        Mon, 15 Dec 2025 01:02:06 -0800 (PST)
+Received: from [192.168.0.108] ([130.185.218.160])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-64981fa5514sm12907579a12.0.2025.12.15.01.02.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 15 Dec 2025 01:02:06 -0800 (PST)
+Message-ID: <c698d581-da15-42bf-9612-62f1bad66615@linaro.org>
+Date: Mon, 15 Dec 2025 11:02:08 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 RESEND] coresight: etm-perf: Fix reference count leak
+ in etm_setup_aux
+To: Ma Ke <make24@iscas.ac.cn>, Leo Yan <leo.yan@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, akpm@linux-foundation.org,
+ stable@vger.kernel.org, suzuki.poulose@arm.com, mike.leach@linaro.org,
+ alexander.shishkin@linux.intel.com, mathieu.poirier@linaro.org
+References: <20251215022709.17220-1-make24@iscas.ac.cn>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20251215022709.17220-1-make24@iscas.ac.cn>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_005402_662900_04282A26 
-X-CRM114-Status: GOOD (  10.90  )
+X-CRM114-CacheID: sfid-20251215_010208_675385_69EEFB61 
+X-CRM114-Status: GOOD (  19.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,72 +105,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-AV1 is a stateless decoder which means multiple AV1 bitstreams could be
-decoded at the same time using the same hardware block. Before decoding
-a frame it is needed to restore the iommu tables to avoid mixing decode
-contexts.
 
-Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
----
-changes in version 10:
-- Fix build as module issue when Verisilicon video decoder is built-in.
 
- drivers/media/platform/verisilicon/Kconfig        |  1 +
- .../verisilicon/rockchip_vpu981_hw_av1_dec.c      | 15 +++++++++++++++
- 2 files changed, 16 insertions(+)
+On 15/12/2025 04:27, Ma Ke wrote:
+> In etm_setup_aux(), when a user sink is obtained via
+> coresight_get_sink_by_id(), it increments the reference count of the
+> sink device. However, if the sink is used in path building, the path
+> holds a reference, but the initial reference from
+> coresight_get_sink_by_id() is not released, causing a reference count
+> leak. We should release the initial reference after the path is built.
+> 
+> Found by code review.
+> 
+> Cc: stable@vger.kernel.org
+> Fixes: 0e6c20517596 ("coresight: etm-perf: Allow an event to use different sinks")
+> Signed-off-by: Ma Ke <make24@iscas.ac.cn>
+> ---
+> Changes in v2:
+> - modified the patch as suggestions.
 
-diff --git a/drivers/media/platform/verisilicon/Kconfig b/drivers/media/platform/verisilicon/Kconfig
-index 3272a24db71d..e64bc8b55235 100644
---- a/drivers/media/platform/verisilicon/Kconfig
-+++ b/drivers/media/platform/verisilicon/Kconfig
-@@ -49,6 +49,7 @@ config VIDEO_HANTRO_ROCKCHIP
- 	bool "Hantro VPU Rockchip support"
- 	depends on VIDEO_HANTRO
- 	depends on ARCH_ROCKCHIP || COMPILE_TEST
-+	select VSI_IOMMU
- 	default y
- 	help
- 	  Enable support for RK3288, RK3328, and RK3399 SoCs.
-diff --git a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-index e4703bb6be7c..d9e68e0ded68 100644
---- a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-+++ b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-@@ -5,6 +5,9 @@
-  * Author: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-  */
- 
-+#include <linux/iommu.h>
-+#include <linux/vsi-iommu.h>
-+
- #include <media/v4l2-mem2mem.h>
- #include "hantro.h"
- #include "hantro_v4l2.h"
-@@ -2095,12 +2098,24 @@ rockchip_vpu981_av1_dec_set_output_buffer(struct hantro_ctx *ctx)
- 	hantro_write_addr(vpu, AV1_TILE_OUT_MV, mv_addr);
- }
- 
-+static void rockchip_vpu981_av1_restore_iommu(struct hantro_ctx *ctx)
-+{
-+	struct iommu_domain *domain;
-+
-+	/* Before decoding any frame iommu context need to be restored */
-+	domain = iommu_get_domain_for_dev(ctx->dev->v4l2_dev.dev);
-+	if (domain)
-+		vsi_iommu_restore_ctx(domain);
-+}
-+
- int rockchip_vpu981_av1_dec_run(struct hantro_ctx *ctx)
- {
- 	struct hantro_dev *vpu = ctx->dev;
- 	struct vb2_v4l2_buffer *vb2_src;
- 	int ret;
- 
-+	rockchip_vpu981_av1_restore_iommu(ctx);
-+
- 	hantro_start_prepare_run(ctx);
- 
- 	ret = rockchip_vpu981_av1_dec_prepare_run(ctx);
--- 
-2.43.0
+I think Leo's comment on the previous v2 is still unaddressed. But 
+releasing it in coresight_get_sink_by_id() would make it consistent with 
+coresight_find_csdev_by_fwnode() and prevent further mistakes.
+
+It also leads me to see that users of coresight_find_device_by_fwnode() 
+should also release it, but only one out of two appears to.
+
+James
+
+> ---
+>   drivers/hwtracing/coresight/coresight-etm-perf.c | 5 +++++
+>   1 file changed, 5 insertions(+)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
+> index 17afa0f4cdee..56d012ab6d3a 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm-perf.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+> @@ -454,6 +454,11 @@ static void *etm_setup_aux(struct perf_event *event, void **pages,
+>   		goto err;
+>   
+>   out:
+> +	if (user_sink) {
+> +		put_device(&user_sink->dev);
+> +		user_sink = NULL;
+> +	}
+> +
+>   	return event_data;
+>   
+>   err:
 
 
