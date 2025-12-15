@@ -4,93 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76DCCD59D99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 09:02:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12765D59D99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 09:03:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/eh2Jk7y1LUL7tcgTyarCIDEPQpluVmFaeTv2vZoA4M=; b=bVjNdsU/4LeXiLbOwoeR5sU4dX
-	7szAVSPBDsQXoE5LUgJQkV8kgJJD1zLbPGVW6tHfxnJteocCwkIIYl/DJBEdvW06GUT/PYSnS//ws
-	Sv1Bkw4CZA2bJYvLolAMMPqQAe8vykzjrcjo7PPT4ozHAbzxJnm2V37XDtHLI882TyV7GAI/iHLse
-	VPXlxbtFSF1smQqKajt3NRXnF0C1WPHt8htmA5pGAu07j4HZOd1sYDnMh3fB97bL90RKW72OLJatz
-	Y+Nm3W385yjQmZpv02HkR3gNzuxHdUNr5jkMDIDaYoSugMTw4+pHrUZ6QCDL1UcjHhodnTwCLAw3J
-	4mcs2Pgg==;
+	bh=PVqXy9TRHB2TybwEThNpp7djI9w4ePSHOoRYc3TF81s=; b=BkgG8p+llI5F39kGOI+3/pPqNq
+	DWYz9EY9JHV6CsC52J3WZxsfvfpyAhjpDSAhPQpIdFe0MyuA1PVzV4X/EVSSIyjDHVT77sJHKXLVW
+	5QiP4t9yRJMNBMqs1S/Nhs+yzHnbCXUUqonT9BpeIorj0HLtiT2b/3DfHEX9Vx1PcL1r7axvaXp8h
+	DuvaVqm+qDvQZDQtYIr0B9+bvya/ruV4/ZcLPZnUi7jqBck1Z3ZxTU3KFgnGV1RBQRWuWD3+q5f/7
+	wzV1rJgInkHn+VKrzCrr6me5dsUgXHPCNSdtaXY+cwbsW4g2rEO/ckFXkpLHoIOmUNMekzg2knKVp
+	D3q/qVkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV4T4-00000003KHA-2lok;
-	Mon, 15 Dec 2025 09:02:10 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1vV4UE-00000003KPk-3AP5;
+	Mon, 15 Dec 2025 09:03:22 +0000
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV4T2-00000003KGd-2ZWi
+	id 1vV4UC-00000003KOk-2GTk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 09:02:09 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-640c1fda178so6421413a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Dec 2025 01:02:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1765789326; x=1766394126; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=/eh2Jk7y1LUL7tcgTyarCIDEPQpluVmFaeTv2vZoA4M=;
-        b=gPSjKG2tBoBBe42XWHtcvE9+LSDtTbTsYtqtkQe9Weq0MZ1jYGtht8v6iaKdO+iVO/
-         UKxy3OkSm/Ht2djP858zW9JAQkFAZ4CBVXmKWOkfOFj+2SDfJzTmz1oXx5T3LV8Bq2vS
-         xguFDPYKNfIoFRXasSADjY4mN8du2n3HzPjaJVVIKdBgmJbtetAp39Ey2qELi26BFKp2
-         FZiYOxcE9DN5p3SN5P77n1UWjgjHMlv5WBcUeuxPlh4huHlOvgRt0m45IZLZ+d3pDQ7r
-         zMbnS7lRg+xCaOHFoBqc4e4hcCfKGY13s9wbAhOZgZzF7Snzakji8RbGJzNqmkF+yeuL
-         l1sA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765789326; x=1766394126;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/eh2Jk7y1LUL7tcgTyarCIDEPQpluVmFaeTv2vZoA4M=;
-        b=u4XL2RiSMU1VY4boDWETc6q03lcfj1mdN4xq94UNQJPZ1ipzoBDZzbWdNW/t5C5A3y
-         etmkZ9xQKMNnSS3Yix8VLt+j/KcXfcVIynCrlOh3Rkucdc0kSxJRb67dhDBU3lBZj9Zu
-         sGybtecFUSTBYEsRdyVlDdHhirQ8FTHxrfw6bx6y6FmCYC377i20J5FtM0B/0aAHDzd1
-         f/tJsKcpfioxQm60rxkd3yi9BqxDocYlqlEstfWjgXY69WpOO+oimwNpioWPWcGKuZPJ
-         2J79j0AH+x2wfTyE2XuUDhi7iy45sWAvPqid1vjxc929j8M3NzPTj+QR4UqVXsgbTOyM
-         M5Ug==
-X-Forwarded-Encrypted: i=1; AJvYcCWp1RLxvQ5Bs2xHwkKnFVpVXJm56OzsBJqgaw1Fh1xj1QdUtLH6gSdv7hJtflmrwre7Tfnx5YuUGreVNRXp68VU@lists.infradead.org
-X-Gm-Message-State: AOJu0YxGklHnJdmtEp1y+85Q7mtMJCQx0YhJzB03gLmwD12vlbw7/7xf
-	/mj00fI/U/hciNUbQFYyl+PeewitEXk7PN7HFDM1Xua3epdmmF3M24ssKsIYDIdSSSI=
-X-Gm-Gg: AY/fxX7WdsceSZJDDwOC0MMHkzXcX3txOt4WdZOQ7HpsriYZCiLEfTiwi+UW3ecXCyb
-	FANqBhe0PEMMifTtXUVlPa4o2KK+eeJ0SYbxyRmwuDzekzGVvJNWv+1sGeIqvlh9xKvSwz9YWeu
-	1gM6nDmI3jjaGLhMR432ydceLVZw+Hj6WusIniBpUVcy7tafpNJrW11AbgSRyOCIIFCxqKbU9cz
-	xeNKTvuF77D/bhB9GAIHUQZGvOdXXJND+MNosa8JvkKSPDTel2S0u7UE5co9fGI0GEo9fSdIhmI
-	PBGMzrzAEPdOyJQlXYZzKZEINiPIVuYHa5bbmbtPQhqzkdoVvNYPNKh6GGUTjNf/pe2xjY1t2GJ
-	/PRN/kpQRPqVicZOWIRWJ65NdSMsOaKyWrsJpAajJlJeX0UeMCGZ/42nkAmLchEF0bVhppc5x1K
-	pldl5Fw7Ktbg5ArZBrQZKS
-X-Google-Smtp-Source: AGHT+IG4myQfras1/40xDmXOQgpwgiM3Ljs8/6uploYCUZ16zAD9bEd9YTmSTzDXHafRBREFjId5kg==
-X-Received: by 2002:a05:6402:1446:b0:640:ca0a:dc1c with SMTP id 4fb4d7f45d1cf-6499b16e791mr10050760a12.7.1765789326445;
-        Mon, 15 Dec 2025 01:02:06 -0800 (PST)
-Received: from [192.168.0.108] ([130.185.218.160])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-64981fa5514sm12907579a12.0.2025.12.15.01.02.04
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 15 Dec 2025 01:02:06 -0800 (PST)
-Message-ID: <c698d581-da15-42bf-9612-62f1bad66615@linaro.org>
-Date: Mon, 15 Dec 2025 11:02:08 +0200
+	Mon, 15 Dec 2025 09:03:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1765789400; x=1797325400;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=DYuEDXxxQwHvC4lI/FenVDoXRgqfrlpjK+/ONxLKFbQ=;
+  b=YgdOR4qS4/KGrB7shS6ugetw9RhG8XxwE8YfNeRfBZxSYokRZzQOkhaM
+   fYF6NTOa8ljzLLb0kgr8jXNSJ5GNwx0Z/nwLb7bh8kcd41F3ZaH5MQIM4
+   avYhzJReZDcKCbVmMugqvgeMxlXQ6gC1zTacY9QT3hG3tbJQypUfGNddh
+   o1QEOgHv0Xeez8dD7+UVbCxZcS1VYltsD6RVus2cCJg21NNTuJklunIyW
+   8yMuGLH6Q/3Pc8clxWWIQ939SaPa8KyVVu/KxRm2K9QGl7Cuv1k4pWc+l
+   MhlxdVAD8zO88kmPlZ1A4gzSleVuczw/9n/LaO60taEtty3SF9k6poCqb
+   Q==;
+X-CSE-ConnectionGUID: YyHp0N6PScmqn7V/vLHJ2Q==
+X-CSE-MsgGUID: IVipBb0SRZWUaB0w29GKSQ==
+X-IronPort-AV: E=Sophos;i="6.21,150,1763449200"; 
+   d="scan'208";a="49860825"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 15 Dec 2025 02:03:16 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Mon, 15 Dec 2025 02:02:58 -0700
+Received: from [10.159.245.205] (10.10.85.11) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Mon, 15 Dec 2025 02:02:56 -0700
+Message-ID: <0ec01064-2755-401a-b2c8-76ad6ce686af@microchip.com>
+Date: Mon, 15 Dec 2025 10:02:56 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 RESEND] coresight: etm-perf: Fix reference count leak
- in etm_setup_aux
-To: Ma Ke <make24@iscas.ac.cn>, Leo Yan <leo.yan@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, akpm@linux-foundation.org,
- stable@vger.kernel.org, suzuki.poulose@arm.com, mike.leach@linaro.org,
- alexander.shishkin@linux.intel.com, mathieu.poirier@linaro.org
-References: <20251215022709.17220-1-make24@iscas.ac.cn>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20251215022709.17220-1-make24@iscas.ac.cn>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH] ARM: dts: microchip: Drop usb_a9g20-dab-mmx.dtsi
+To: Alexandre Belloni <alexandre.belloni@bootlin.com>, Wolfram Sang
+	<wsa+renesas@sang-engineering.com>
+CC: "Rob Herring (Arm)" <robh@kernel.org>, Geert Uytterhoeven
+	<geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Claudiu
+ Beznea <claudiu.beznea@tuxon.dev>, <linux-renesas-soc@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+References: <20251212203226.458694-8-robh@kernel.org>
+ <aTytWyyZiYFnyauo@shikoro> <20251213010934353f1efe@mail.local>
+From: Nicolas Ferre <nicolas.ferre@microchip.com>
+Content-Language: en-US, fr
+Organization: microchip
+In-Reply-To: <20251213010934353f1efe@mail.local>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_010208_675385_69EEFB61 
-X-CRM114-Status: GOOD (  19.34  )
+X-CRM114-CacheID: sfid-20251215_010320_850023_A0304E1A 
+X-CRM114-Status: GOOD (  12.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,53 +92,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 15/12/2025 04:27, Ma Ke wrote:
-> In etm_setup_aux(), when a user sink is obtained via
-> coresight_get_sink_by_id(), it increments the reference count of the
-> sink device. However, if the sink is used in path building, the path
-> holds a reference, but the initial reference from
-> coresight_get_sink_by_id() is not released, causing a reference count
-> leak. We should release the initial reference after the path is built.
+On 13/12/2025 at 02:09, Alexandre Belloni wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
 > 
-> Found by code review.
+> On 13/12/2025 09:03:39+0900, Wolfram Sang wrote:
+>> On Fri, Dec 12, 2025 at 02:32:14PM -0600, Rob Herring (Arm) wrote:
+>>> This .dtsi file is not included anywhere in the tree and can't be
+>>> tested.
+>>>
+>>> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+>>
+>> Nowadays, this should be a dtso which did not exist back then. Is it
+>> okay to convert it? Yes, I can do this.
+>>
 > 
-> Cc: stable@vger.kernel.org
-> Fixes: 0e6c20517596 ("coresight: etm-perf: Allow an event to use different sinks")
-> Signed-off-by: Ma Ke <make24@iscas.ac.cn>
-> ---
-> Changes in v2:
-> - modified the patch as suggestions.
+> I don't think this will be missed by anyone. Unless you actually have
+> one of the boards, I would simply drop this.
 
-I think Leo's comment on the previous v2 is still unaddressed. But 
-releasing it in coresight_get_sink_by_id() would make it consistent with 
-coresight_find_csdev_by_fwnode() and prevent further mistakes.
++1
 
-It also leads me to see that users of coresight_find_device_by_fwnode() 
-should also release it, but only one out of two appears to.
-
-James
-
-> ---
->   drivers/hwtracing/coresight/coresight-etm-perf.c | 5 +++++
->   1 file changed, 5 insertions(+)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
-> index 17afa0f4cdee..56d012ab6d3a 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm-perf.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
-> @@ -454,6 +454,11 @@ static void *etm_setup_aux(struct perf_event *event, void **pages,
->   		goto err;
->   
->   out:
-> +	if (user_sink) {
-> +		put_device(&user_sink->dev);
-> +		user_sink = NULL;
-> +	}
-> +
->   	return event_data;
->   
->   err:
-
+Regards,
+   Nicolas
 
