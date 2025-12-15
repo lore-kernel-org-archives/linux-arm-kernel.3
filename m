@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D398D5B858
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 16:52:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E846D5B84D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 16:52:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ozb3WNjr0r/hE1f6GMZd7Idc+wYYTjRgIGjeMMU1tjI=; b=tVX0VT8daYVFr/7tGwrtId84RP
-	39rsXZdn/AmjfKrbDq69iMljw2MwIIaMWz2rsgdC+aQwfSMI20nC6G1OTX3E5dK4PtNcAfiji3noc
-	SqK/87xLy+3XMkmdHbO5IQM8Buv/3d8Bx+eTHTSmQzEOe05tmcbnufdaP30vbycyMUpNkpO9Fsz++
-	YmNQsxW+wOipKIF3TrvGh+6wX7Tz/T77K9agSk+20zkIdOypO/WeE7bgwjhSFmnzYnK6g0Fm8Gu6u
-	rrkJSpIuKPwKhzHeAvUjmLOof18K0Axc90znNEzHr939UJnzZcuRWohOHAZQ/dctNVdfGFNzrvRla
-	s2xPyKiQ==;
+	bh=ugLBh2wdanmYlXG/Hn2z0Lmtzfai0mPG/qbIe+jLCHk=; b=YZaRoID/jp6+tYF2/Yn5BMCTeQ
+	uUpM0+C995/aihPdhXureHhDwSMGSf7yg0AVzKOlr46YkAP5dzCvMxOUhM7kalTMwtH6XNG3s8taC
+	jVVO4WQOKUtsznd0AJphpTNlrHFfHjdurzNWqkcpH4eaf6ex7DlTLk6rmRzK9/V3eM1cdLOCLbfer
+	32qeTFqoPju41alXsxN3JZou4ngSGtUCxg1ZotnRsTBvm/uQmc0LlliocBaZsZUsj/w81YYrZDNmb
+	Yb7nQB05fm+BaKu3X9xW6/tXNDPYsywSLBxPqbxspjuiBTTQcPUrgSLxpNb0D0fg88k5X9m1wCfYQ
+	b0HwrKeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVBnp-000000041fv-3ko1;
-	Mon, 15 Dec 2025 16:52:05 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1vVBnv-000000041lK-1UUY;
+	Mon, 15 Dec 2025 16:52:11 +0000
+Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVBnl-000000041Z5-0fU1
+	id 1vVBnn-000000041b6-1t1z
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 16:52:02 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-4788112ec09so26841335e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Dec 2025 08:52:00 -0800 (PST)
+	Mon, 15 Dec 2025 16:52:04 +0000
+Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-42b2ad29140so1831209f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Dec 2025 08:52:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1765817519; x=1766422319; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1765817521; x=1766422321; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ozb3WNjr0r/hE1f6GMZd7Idc+wYYTjRgIGjeMMU1tjI=;
-        b=Hlf71QKZaTQkUfCaEOM41D9Vr+z6UcWanK6pZsz27cyxHI2ac8sPgaidJe1QRxhowo
-         VU9cM3FfjdvqeV1s4pG3h8OVCYxTSAIUanplT9tYyVa0Jn8oOKBuosxvdInAah8sIWUA
-         OHFamFOAeFfSvME5HEFZiwwqyIBBW+cc3Rnj9man99CeYZEs0EyqjKIikGTMVZC4W4vr
-         isFmKL46uLRiQ5wR9xVazZ/k6WmcmUH/NkpLx6xcZqmuzigUbkd2FFMB3pxISBR41b0i
-         Gve6d0FpszOqIiGVXQzHvlUQobh5vcn9297NBef/LbfpH8SByds3hfO8xUeaXffm36tb
-         gRCQ==
+        bh=ugLBh2wdanmYlXG/Hn2z0Lmtzfai0mPG/qbIe+jLCHk=;
+        b=31sZDZvjw36XUhDAzfqg3Ghx6s2RnXvSD/fLvn60arU4TmbxUSPGai4IWztoajbNIH
+         G7DT8q30z+Tl6U5ony2w6556EVrv6kAb124lEgmIM3swwuTLGRg/QGFK62VTnJ/RKJ2g
+         IeWDY/HK07YQlZnK+4dUGCTtvov72RDv2WwDzHSTzC49IObyFDqOAc1wd+flfSdUejYP
+         lXo8WEgzbJOgiiULaV32SEy21fSYV/E8wMKoztk7MJp1Ii9aPKj1zyq8XPDWJw9Mixtc
+         7Huk+vfuWqQwxzlVrW6ig1sMFfVsVWPd9XnP0VmpUL6ObBZNaQQ4Qz4Cc0/5FRM08CGe
+         UjxQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765817519; x=1766422319;
+        d=1e100.net; s=20230601; t=1765817521; x=1766422321;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ozb3WNjr0r/hE1f6GMZd7Idc+wYYTjRgIGjeMMU1tjI=;
-        b=ejPKIWE2npNpp827G1EZ8VYm20+q6McWxMe+iM03E9Dnyst/a00i94AcH1ezkkbmbd
-         a8nYlvWPg39rD3rtPe0IlmWth7rAf0Ys88H+THMxD0SEp3iqqt5xrdzt10hQFFte3lPi
-         CXKLfJmn3AqpOCNcWpRAOBg9QF1C3zyallNpXITjlz+r73xjr9vGkXvAY16qEalDzlv+
-         OPbhxD57JrfllKHx29WYDbhLKgleRBui8FaqWjPgFOLcqYgYaHhuSACSLQqYxlzxFh0F
-         9pd5L6QqusM9XIELh7uETcWdS/GlulEvMd7j+G/OGXMAQ4IV5MizOceJpFQOePTaIXBg
-         ETNw==
-X-Forwarded-Encrypted: i=1; AJvYcCUOKp2luLYW1tE8DAvpJnYQHeJEVrhGQvJxpjb5zBcxmHQ2hxdKeBt3y+1yqxtM9SUfk2ntVJc76GDHz0iavaMZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwoXbsZLzQ5NUoPuqshbEwjD4sKIhIKoLveDhduyAqTqSGgf/NU
-	7jxwiljssgoPQBAl40GRIUQDBPHg4cxhw4kxfZXJPMfj1ZOj6TMhhkqoIxJYmWEcsZA/UwEPmBK
-	fMg==
-X-Google-Smtp-Source: AGHT+IEXfGMQYTlXaZjDRjEyi8ps8t9i1lBXKwi2r5crX0EL+3ytnijgNklZSLLzPd74DIRXBqTJZjRKHA==
-X-Received: from wmbil2.prod.google.com ([2002:a05:600c:a582:b0:47a:7fdc:6925])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:35c9:b0:479:3046:6bb3
- with SMTP id 5b1f17b1804b1-47a8f906f07mr127619025e9.23.1765817519032; Mon, 15
- Dec 2025 08:51:59 -0800 (PST)
-Date: Mon, 15 Dec 2025 16:51:53 +0000
+        bh=ugLBh2wdanmYlXG/Hn2z0Lmtzfai0mPG/qbIe+jLCHk=;
+        b=V9EVnZZIAdLHtw6rNSjrrS3LdSrHK5Tqz+PCV7MYFwQqaL1MYWbBm7tssHVzzoceJc
+         dvbLuw6y4Y7lamfTwKztPZb1WZ3fGFpJbwsfwloOhdR0UgjDziOENs2y0E/wr8m9Q4kX
+         7Pfk0ueyGxUCRUelypIFGnTPSaDD18S5Zu/Th6MvPVTfDfiHLS27YR3MMzLoB0EHA5UI
+         jIE2tOeG71DTUUC4W3QoMrPL0HuBE8yxT032UXl2PvF2FCjkd2qj3SodV+CNj8/lUsKP
+         evMDkfr0K9bIap6dqglW2bkFwUqf+DKnBT/0GU+Qk92syJhbYYhET/muflV5axUPc1wI
+         CxnA==
+X-Forwarded-Encrypted: i=1; AJvYcCWegugJFbKJS+gUhkbsDcusIPUobkpq6zbdOFg3Z7q+UaiTS3ucbZTlyNpQUK0eeRgzcOqBz9JTBUduVh4Ca7H5@lists.infradead.org
+X-Gm-Message-State: AOJu0YzmrwksBUI32JJU0GRkOWTUjqLX44G//AdbH9zRqypV8vqD/txn
+	pk68ZhLcUDJDmSXYAl9PyeuJTPaZcmVS/w0+jvPcSDSYzqSSZ5AISZD7c17RHkY0sdyM94A5wnk
+	Ebg==
+X-Google-Smtp-Source: AGHT+IEtLqdqM2TCcz8tE6+Rp1QAj2pRxjGKZNUndLMFxKWF31WsAS2y+R/nz+ivNRonRnxHnhbxUpbtug==
+X-Received: from wmxb4-n1.prod.google.com ([2002:a05:600d:8444:10b0:477:9bcb:dd8b])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:8288:b0:477:a1a2:d829
+ with SMTP id 5b1f17b1804b1-47a8f8c0caamr110913215e9.13.1765817520904; Mon, 15
+ Dec 2025 08:52:00 -0800 (PST)
+Date: Mon, 15 Dec 2025 16:51:55 +0000
 In-Reply-To: <20251215165155.3451819-1-tabba@google.com>
 Mime-Version: 1.0
 References: <20251215165155.3451819-1-tabba@google.com>
 X-Mailer: git-send-email 2.52.0.239.gd5f0c6e74e-goog
-Message-ID: <20251215165155.3451819-4-tabba@google.com>
-Subject: [PATCH v2 3/5] KVM: riscv: selftests: Fix incorrect rounding in page_align()
+Message-ID: <20251215165155.3451819-6-tabba@google.com>
+Subject: [PATCH v2 5/5] KVM: selftests: Fix typos and stale comments in kvm_util
 From: Fuad Tabba <tabba@google.com>
 To: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, kvmarm@lists.linux.dev, 
 	linux-arm-kernel@lists.infradead.org
@@ -75,8 +75,8 @@ Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
 	pbonzini@redhat.com, shuah@kernel.org, anup@brainfault.org, tabba@google.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_085201_223663_D438D76B 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20251215_085203_508985_163CADBC 
+X-CRM114-Status: GOOD (  15.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,34 +91,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The implementation of `page_align()` in `processor.c` calculates
-alignment incorrectly for values that are already aligned. Specifically,
-`(v + vm->page_size) & ~(vm->page_size - 1)` aligns to the *next* page
-boundary even if `v` is already page-aligned, potentially wasting a page
-of memory.
+Fix minor documentation errors in `kvm_util.h` and `kvm_util.c`.
 
-Fix the calculation to use standard alignment logic: `(v + vm->page_size
-- 1) & ~(vm->page_size - 1)`.
+- Correct the argument description for `vcpu_args_set` in `kvm_util.h`,
+  which incorrectly listed `vm` instead of `vcpu`.
+- Fix a typo in the comment for `kvm_selftest_arch_init` ("exeucting" ->
+  "executing").
+- Correct the return value description for `vm_vaddr_unused_gap` in
+  `kvm_util.c` to match the implementation, which returns an address "at
+  or above" `vaddr_min`, not "at or below".
 
-Fixes: 3e06cdf10520 ("KVM: selftests: Add initial support for RISC-V 64-bit")
+No functional change intended.
+
 Signed-off-by: Fuad Tabba <tabba@google.com>
 ---
- tools/testing/selftests/kvm/lib/riscv/processor.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ tools/testing/selftests/kvm/include/kvm_util.h | 4 ++--
+ tools/testing/selftests/kvm/lib/kvm_util.c     | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/lib/riscv/processor.c b/tools/testing/selftests/kvm/lib/riscv/processor.c
-index 2eac7d4b59e9..d5e8747b5e69 100644
---- a/tools/testing/selftests/kvm/lib/riscv/processor.c
-+++ b/tools/testing/selftests/kvm/lib/riscv/processor.c
-@@ -28,7 +28,7 @@ bool __vcpu_has_ext(struct kvm_vcpu *vcpu, uint64_t ext)
- 
- static uint64_t page_align(struct kvm_vm *vm, uint64_t v)
- {
--	return (v + vm->page_size) & ~(vm->page_size - 1);
-+	return (v + vm->page_size - 1) & ~(vm->page_size - 1);
+diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
+index dabbe4c3b93f..e29b2cbcb82b 100644
+--- a/tools/testing/selftests/kvm/include/kvm_util.h
++++ b/tools/testing/selftests/kvm/include/kvm_util.h
+@@ -939,7 +939,7 @@ void *vcpu_map_dirty_ring(struct kvm_vcpu *vcpu);
+  * VM VCPU Args Set
+  *
+  * Input Args:
+- *   vm - Virtual Machine
++ *   vcpu - vCPU
+  *   num - number of arguments
+  *   ... - arguments, each of type uint64_t
+  *
+@@ -1264,7 +1264,7 @@ static inline uint64_t page_align(struct kvm_vm *vm, uint64_t v)
  }
  
- static uint64_t pte_addr(struct kvm_vm *vm, uint64_t entry)
+ /*
+- * Arch hook that is invoked via a constructor, i.e. before exeucting main(),
++ * Arch hook that is invoked via a constructor, i.e. before executing main(),
+  * to allow for arch-specific setup that is common to all tests, e.g. computing
+  * the default guest "mode".
+  */
+diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
+index 8279b6ced8d2..fab6b62d7810 100644
+--- a/tools/testing/selftests/kvm/lib/kvm_util.c
++++ b/tools/testing/selftests/kvm/lib/kvm_util.c
+@@ -1351,7 +1351,7 @@ struct kvm_vcpu *__vm_vcpu_add(struct kvm_vm *vm, uint32_t vcpu_id)
+  * Output Args: None
+  *
+  * Return:
+- *   Lowest virtual address at or below vaddr_min, with at least
++ *   Lowest virtual address at or above vaddr_min, with at least
+  *   sz unused bytes.  TEST_ASSERT failure if no area of at least
+  *   size sz is available.
+  *
 -- 
 2.52.0.239.gd5f0c6e74e-goog
 
