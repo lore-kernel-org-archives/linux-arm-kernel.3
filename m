@@ -4,60 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4020FD41D74
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 11:30:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7D69D59D99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 11:36:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=usrboNhr07WsYh1biy8+JtVQT99Fk/4sqr0V9+UQCBw=; b=Z6w9Ce7DDD4SOyxieE5m4TvXao
-	j/NmwFoaX1YAvQ5uzOGSUio50haopK1s9RblOh0K57palQIPht7sEuLeGx2t36XZT31nxkEI8uhqn
-	chhPgJ+VLGTRjFMQ7WOcx965/ZI+HtaMfIifkYGGQ8iS9ugkT9qP+ZK44OWgKG/Tf9FL35gaSTafM
-	aQE6huI8ltlFaOChw1mPJO9eyfaadgs/b+GQ1s+jq4WJmGXiyC7xFBojnhftehxllGvwkfDQEotEZ
-	/dnNozXPccWRCChBvxN16qvzkVxDKrPOnSM5sOanhKmBqBKduIF6oTjlmIRUA22/QdAMMmRgSH0ps
-	NL393V8A==;
+	bh=QuF8eKYdyq0Lx8q7EFdB8lJKxyIkO2eBdUsXglP9txM=; b=IOTcRzzddUqjAQej1AG37UA05g
+	hRP7HPfnX5Fh4oojdB/6GREUluarVXhEoSxcOvEB1ruRZDrTLLs4bSFRYM5TAXH/1YUNfKXQiKo0k
+	fP914p9pSHcostR7z2Lrsg8cYBIXMcBmmhqFc9VZb+Wgv90K45hbHtD6WAarpAI3i+tI97HY963Da
+	iNwpbHaDJLgoyyjA+8NaJwz0eax3GHM5PJTvFo1jUsHv1tJovSARZOqsG4m+M5Qr7RcJPFTRYoa2j
+	rRhTSRaRTVKtwfy/yNyUaE1976dkQ2YzgX0CReHj85vmFmQtFC2x6vfxG9r/6yeafISeVqcVGqOhq
+	dYH9dt2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV6mA-00000003WdV-191t;
-	Mon, 15 Dec 2025 11:30:02 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vV6sU-00000003X7F-2UAU;
+	Mon, 15 Dec 2025 11:36:34 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV6m8-00000003Wd2-3VC9;
-	Mon, 15 Dec 2025 11:30:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9940D60150;
-	Mon, 15 Dec 2025 11:29:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4B16C4CEF5;
-	Mon, 15 Dec 2025 11:29:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765798199;
-	bh=pZvRKNQnveDpt4V3OuxBYvkE88PpxoFZHMOMx6hAFFM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QeEDjTNtlu9KzfO/VGbdPOVYs0Jkgs3j99bFjHVOla3Fki2xoaIRpy7WR7dVgo2Xb
-	 60ocg1esw6KniRVqwo7YqlpILGpw87am44mYenCzPASr2NF6hZsPzSG2eT06R3HyFH
-	 5vf9ZIMTxnJTXPsUm4xdVlMEoD5KI4VZ3wgFWGB5tsKkn++ILWshafpKbo6krVnclE
-	 wXnRTptk8iWmLfkLhonDXCT/mCs8aL7PavHSSsdy60wHAj0+EBby74pMs2SeeZyhKp
-	 yf02De/IVtYEN+h+H0HQontkvZSaMu/YTrUzgNaKgFLkhMq0j8u8kghe41YTgsscXh
-	 s82OBDHbYEh0g==
-Date: Mon, 15 Dec 2025 12:29:56 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: 20190311120055 created <payne.lin@mediatek.com>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-pwm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	Project_Global_Chrome_Upstream_Group@mediatek.com, sirius.wang@mediatek.com, vince-wl.liu@mediatek.com, 
-	jh.hsu@mediatek.com
-Subject: Re: [PATCH] pwm: mediatek: Add error handling for zero rate in PWM
- state
-Message-ID: <s5ieu7cciqgw3x5rnpcn43fm3nkinm4guz33nhwwi45apdz2ot@4zsbi7tckuwz>
-References: <20251215104037.3100485-1-payne.lin@mediatek.com>
+	id 1vV6sS-00000003X6q-2593;
+	Mon, 15 Dec 2025 11:36:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=QuF8eKYdyq0Lx8q7EFdB8lJKxyIkO2eBdUsXglP9txM=; b=1AlnazApiDEhlijBTC0mwxyBQu
+	Yk9J4u2sl6IlknfNmDU06dEBcLn7GF4vglaa7tkWsjvCnHRYV/dgnrtoUQh1ekSay9NBjHHO1PEee
+	AsWcz/JMZOQ6+LRbU027X3kDK9Nawin2HhVzyKDGC+icz4TkDs5fea/XJk0huyDlzD5QMeGuNW7rf
+	MWfz30VnoGipVOHUX4yBDUDBEjdMfdN6vc/VV1KFcDXvgZfqBOnv1kdGKOxF/AiVexzV0bcC+L7wq
+	cOtPdDqJhpcZGDcJAA6jrNFOu3YqTcBaXeGseK2sc6CBx77ENl9lVuCLM3eCs27XC/ApGURT6tfwo
+	KkziR4yQ==;
+Received: from [192.76.154.229] (helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vV6sN-0000B7-NP; Mon, 15 Dec 2025 12:36:27 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, guptarud@gmail.com
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ phone-devel@vger.kernel.org, Rudraksha Gupta <guptarud@gmail.com>,
+ Ondrej Jirman <megi@xff.cz>, Martijn Braam <martijn@brixit.nl>,
+ Kamil =?UTF-8?B?VHJ6Y2nFhHNraQ==?= <ayufan@ayufan.eu>
+Subject: Re: [PATCH v5 1/4] arm64: dts: rockchip: Add light/proximity sensor to
+ Pinephone Pro
+Date: Mon, 15 Dec 2025 12:36:26 +0100
+Message-ID: <10855349.CDJkKcVGEf@phil>
+In-Reply-To: <20251124-ppp_light_accel_mag_vol-down-v5-1-f9a10a0a50eb@gmail.com>
+References: <20251124-ppp_light_accel_mag_vol-down-v5-0-f9a10a0a50eb@gmail.com>
+ <20251124-ppp_light_accel_mag_vol-down-v5-1-f9a10a0a50eb@gmail.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="d547b5x5tvmpvovf"
-Content-Disposition: inline
-In-Reply-To: <20251215104037.3100485-1-payne.lin@mediatek.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251215_033632_721525_D78C0D8D 
+X-CRM114-Status: GOOD (  11.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,127 +75,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
---d547b5x5tvmpvovf
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH] pwm: mediatek: Add error handling for zero rate in PWM
- state
-MIME-Version: 1.0
+Am Dienstag, 25. November 2025, 04:47:00 Mitteleurop=C3=A4ische Normalzeit =
+schrieb Rudraksha Gupta via B4 Relay:
 
-Hello,
-
-the From: line of your patch is strange.
-
-On Mon, Dec 15, 2025 at 06:40:32PM +0800, 20190311120055 created wrote:
-> From: Payne Lin <payne.lin@mediatek.com>
->=20
-> Added a check to handle cases where the rate is zero in the
-> mtk_disp_pwm_get_state function. This prevents division by zero errors
-> when calculating the period.
-> - Added error message for zero rate scenario
->=20
-> Signed-off-by: Payne Lin <payne.lin@mediatek.com>
-> ---
->  drivers/pwm/pwm-mtk-disp.c | 31 +++++++++++++++++++------------
->  1 file changed, 19 insertions(+), 12 deletions(-)
->=20
-> diff --git a/drivers/pwm/pwm-mtk-disp.c b/drivers/pwm/pwm-mtk-disp.c
-> index bafd6b6195f6..dd0ae041af70 100644
-> --- a/drivers/pwm/pwm-mtk-disp.c
-> +++ b/drivers/pwm/pwm-mtk-disp.c
-> @@ -176,19 +176,18 @@ static int mtk_disp_pwm_get_state(struct pwm_chip *=
-chip,
->  	struct mtk_disp_pwm *mdp =3D to_mtk_disp_pwm(chip);
->  	u64 rate, period, high_width;
->  	u32 clk_div, pwm_en, con0, con1;
-> -	int err;
-> +	int ret;
-
-If you keep the variable name, the patch gets quite a bit more obivious.
-
-> -	err =3D clk_prepare_enable(mdp->clk_main);
-> -	if (err < 0) {
-> -		dev_err(pwmchip_parent(chip), "Can't enable mdp->clk_main: %pe\n", ERR=
-_PTR(err));
-> -		return err;
-> +	ret =3D clk_prepare_enable(mdp->clk_main);
-> +	if (ret < 0) {
-> +		dev_err(pwmchip_parent(chip), "Can't enable mdp->clk_main: %pe\n", ERR=
-_PTR(ret));
-> +		goto err_handle;
->  	}
-
-Fixing error handling should go into a separate patch please.
-
-> -	err =3D clk_prepare_enable(mdp->clk_mm);
-> -	if (err < 0) {
-> -		dev_err(pwmchip_parent(chip), "Can't enable mdp->clk_mm: %pe\n", ERR_P=
-TR(err));
-> -		clk_disable_unprepare(mdp->clk_main);
-> -		return err;
-> +	ret =3D clk_prepare_enable(mdp->clk_mm);
-> +	if (ret < 0) {
-> +		dev_err(pwmchip_parent(chip), "Can't enable mdp->clk_mm: %pe\n", ERR_P=
-TR(ret));
-> +		goto err_disable_clk_main;
->  	}
-> =20
->  	/*
-> @@ -212,15 +211,23 @@ static int mtk_disp_pwm_get_state(struct pwm_chip *=
-chip,
->  	 * period has 12 bits, clk_div 11 and NSEC_PER_SEC has 30,
->  	 * so period * (clk_div + 1) * NSEC_PER_SEC doesn't overflow.
->  	 */
-That comment belongs to the assignment to state->period. Don't separate
-them with your addition.
-
-> +	if (rate =3D=3D 0) {
-> +		dev_err(pwmchip_parent(chip), "rate is zero, cannot calculate period\n=
-");
-
-All the other messages (at least those in the context above) start with
-a capital letter.
-
-> +		ret =3D -EINVAL;
-> +		goto err_disable_clk_mm;
-> +	}
->  	state->period =3D DIV64_U64_ROUND_UP(period * (clk_div + 1) * NSEC_PER_=
-SEC, rate);
->  	high_width =3D FIELD_GET(PWM_HIGH_WIDTH_MASK, con1);
->  	state->duty_cycle =3D DIV64_U64_ROUND_UP(high_width * (clk_div + 1) * N=
-SEC_PER_SEC,
->  					       rate);
->  	state->polarity =3D PWM_POLARITY_NORMAL;
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch=
+/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+> index 6f97e57f36f5..2d2858ee149e 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+> @@ -520,6 +520,16 @@ touchscreen@14 {
+>  		touchscreen-size-x =3D <720>;
+>  		touchscreen-size-y =3D <1440>;
+>  	};
 > +
-> +err_disable_clk_mm:
->  	clk_disable_unprepare(mdp->clk_mm);
-> +err_disable_clk_main:
->  	clk_disable_unprepare(mdp->clk_main);
-> -
-> -	return 0;
-> +err_handle:
-> +	return ret;
->  }
+> +	light-sensor@48 {
+> +		compatible =3D "sensortek,stk3311";
+> +		proximity-near-level =3D <300>;
 
-Best regards
-Uwe
+proximity-next-... belongs below pinctrl-*
 
---d547b5x5tvmpvovf
-Content-Type: application/pgp-signature; name="signature.asc"
 
------BEGIN PGP SIGNATURE-----
+> +		reg =3D <0x48>;
+> +		interrupt-parent =3D <&gpio4>;
+> +		interrupts =3D <RK_PD3 IRQ_TYPE_EDGE_FALLING>;
+> +		pinctrl-names =3D "default";
+> +		pinctrl-0 =3D <&light_int_l>;
+> +	};
+>  };
+> =20
+>  &i2c4 {
+> @@ -689,6 +699,12 @@ vcc1v8_codec_en: vcc1v8-codec-en {
+>  		};
+>  	};
+> =20
+> +	stk3311 {
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmk/8TEACgkQj4D7WH0S
-/k4RfAgAtDQpygYx//qBH7qfXb2Sege4VLwIXT72UTne+KCDGEH6C50zawka5dG2
-s6HT6h93xT9u8srTNskLw/w54rA0Sig2FhZHHE6hdxefIEUsRFAEZg1RR2opnIU5
-vzVpPb1kKdwYOn6ropXs+j5mDAY6VYsD5bGc2R54VoNek8saJdzOMfKzICTmmAYr
-3SMyBPyNIS/rUnaP8qkIKcd7i3/a0moKPqx8fhSJOL3sfE2uZkOQyDoSNlJQmqCK
-V7LrmVVCUqbhfk+fahjoLebPfwXVIiUPzqoPv+QKLo1TFirzq/9xNE20Vc4xhoax
-NCv4Gi+rGy3z3BFccks2wuQpIut1ww==
-=XB1O
------END PGP SIGNATURE-----
+please sort nodes alphabetically
+(stk3311 after vcc1v8-codec-en is incorrect)
 
---d547b5x5tvmpvovf--
+
+> +		light_int_l: light-int-l {
+> +			rockchip,pins =3D <4 RK_PD3 RK_FUNC_GPIO &pcfg_input_pull_up>;
+> +		};
+> +	};
+> +
+>  	wireless-bluetooth {
+>  		bt_wake_pin: bt-wake-pin {
+>  			rockchip,pins =3D <2 RK_PD2 RK_FUNC_GPIO &pcfg_pull_none>;
+>=20
+>=20
+
+
+Heiko
+
+
+
 
