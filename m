@@ -4,90 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8C95D41D74
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 10:35:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAA9DD41D74
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 10:36:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l77XOUJUw+siBdLkNkL/6nxwP2TBf85O5sQ3l2Iab84=; b=w76SbVM96RHv/x12gQLkmlQCUa
-	nEF3lwXNbhoU3slazDquHoh2OXs8JMDAZLNNGZjP4BsR3zPb0U6nRNzDUkBRFgUmwJ+A3+7WnI0Rk
-	OpCscDWjBkiC/vaHtmusP2X01wbh6rzDQKs91PR7Xkx6vEt4vQ8fgWxiJ/9J3JfE0uCvzQup5pnBp
-	gIeSfDFROmKaMHIkbgzufhTn+aJlNJkS5EWD9bbCyrgSRgE83TpV1g30H8SOb+V1Q68ewtJbqvlUO
-	zxConicrPcwbqrLwvLG23MJL3sKgaljD4BtLbJZNuoLz55v5E8ZVdpfTfzsLx0YrwGv65/LlvkMlJ
-	k/qc1Uzg==;
+	bh=tMd64CShUEZr+qMjmqnfEJZKUprzSxa99OitiXiFU1I=; b=qR8dmNFOidZ7LoGnW89fZcfTaB
+	NKP4cW/LEQvGELAHJdPRvMyVHJ2IPUyNx5U4bLT+JJbBvhMqfEnOmz0HchtpRJqeH4/bPzkWNnQA5
+	RUjGXVJvopDTqqOY/y1hvVfCKXEFONsaakxmaKY/1O0QysPptsDg0jVAgbotyQKW/0TNa+xCXNDK+
+	7ayxOFXunJ2pC5w+fI3l/5zZ4Dm7NZCqISXM/Q/DzS31DhKyC4E6cJ9EmIhBuKaEX/TouoC461PRn
+	zhytqnTbvQcVo4B809UichYt5EkNKo8AiN0Fny352rfhPVvfAhSWx9hmWGi7BLs6l24niHlC8W1c4
+	FaWu6fug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV5uf-00000003Sc3-0DIn;
-	Mon, 15 Dec 2025 10:34:45 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vV5wN-00000003Szv-3KyN;
+	Mon, 15 Dec 2025 10:36:31 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV5ub-00000003SbW-26ya;
-	Mon, 15 Dec 2025 10:34:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=l77XOUJUw+siBdLkNkL/6nxwP2TBf85O5sQ3l2Iab84=; b=Z+XEILzsWzheftiRKZ/CW+z6JI
-	mH6oL1lSWyDeRl5xRIGgAmdhqQdqh67hDckbZwfNi/3hCWN+lrw1PlWUWxZXAtyINnckBZJ0pvTQO
-	8V3HBQH8QGLd0+ir+UbGdq0RpvqtDsr4AsSiUBUwnoPG2mSnYgaN9tCQj5jE8AiamcjVdY7Yx3f2q
-	82XNWQpGqheySr7sm29e+RqYBeDuKoDJT4LNUYU5gaICq9949Zy41YrM34rf7HX7YJ/9oiW+NDXxl
-	DAdXtdJnLs0SzdWQeuwXKkOuGRtzm1DqhY3rthsE57VUebg6qndJpYN+GfrkWoQIn2yGslprQxwEj
-	VtneTeEg==;
-Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV533-00000002YuS-3eIe;
-	Mon, 15 Dec 2025 09:39:24 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 5BFAVwivE1656929, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1765794718; bh=l77XOUJUw+siBdLkNkL/6nxwP2TBf85O5sQ3l2Iab84=;
-	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type;
-	b=JD36ajVjuoIjOFAb1DRRIAx/JTpft3m1WnM/hjgpvq+90b4kOEqSTmmFeKYzFgxop
-	 EC4LMFL/gS1N3SzWq0Tw8QiO6poHsqLbUzs84A+5wQTIp9/6yrs6aSN+XRwFVLxuCA
-	 RlL3ks8w3u9o+oaaoRX0BBDfJWLJo0J0yEv1da7fnS+EFJjplLzqO55a3ef8J2zUlD
-	 6wWyxSQg782VlEZGTMnJXGWVx7n9GuyAGw5InBLYgFaIbe6NIB+GA3HvtLClBYrcdX
-	 cfWYQdtpj53AgNRBJxca7C7WZMFy84/Fz7RfECqjJRs5BeXBFMyp5QJ9+h5CFVV2kv
-	 5xZT69orON5+A==
-Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
-	by rtits2.realtek.com.tw (8.15.2/3.21/5.94) with ESMTPS id 5BFAVwivE1656929
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 15 Dec 2025 18:31:58 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Mon, 15 Dec 2025 18:31:58 +0800
-Received: from RTKEXHMBS03.realtek.com.tw (10.21.1.53) by
- RTKEXHMBS06.realtek.com.tw (10.21.1.56) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.27; Mon, 15 Dec 2025 18:31:58 +0800
-Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS03.realtek.com.tw
- (10.21.1.53) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Mon, 15 Dec 2025 18:31:58 +0800
-From: Yu-Chun Lin <eleanor.lin@realtek.com>
-To: <afaerber@suse.de>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <james.tai@realtek.com>
-CC: <linux-arm-kernel@lists.infradead.org>,
-        <linux-realtek-soc@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <cy.huang@realtek.com>,
-        <stanley_chang@realtek.com>, <eleanor.lin@realtek.com>,
-        Conor Dooley
-	<conor.dooley@microchip.com>
-Subject: [PATCH v3 1/2 RESEND] dt-bindings: arm: realtek: Add Kent Soc family compatibles
-Date: Mon, 15 Dec 2025 18:31:56 +0800
-Message-ID: <20251215103157.27039-2-eleanor.lin@realtek.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20251215103157.27039-1-eleanor.lin@realtek.com>
-References: <20251215103157.27039-1-eleanor.lin@realtek.com>
-MIME-Version: 1.0
+	id 1vV5wM-00000003Szo-2yc3
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 15 Dec 2025 10:36:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B269460129;
+	Mon, 15 Dec 2025 10:36:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A4F1C4CEF5;
+	Mon, 15 Dec 2025 10:36:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765794989;
+	bh=VnZ9AI+OcSYjRRCKYpKhQNADkzDfaUzJNzcsasS8Vos=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=ULVZ/usPznXq3DhQThXZBO4aMJjHoKA+pwX75G7MAXzBw0Wn1zC2vrBwOvcFA41xC
+	 ULin4X7tqnkgmW26HZnJ3w0CgFKGu1o842V2AKsmaCVLYtjRr8deodkKtvtpbLAB1l
+	 BEPLvuLrRahuZ8yZ4hhFQJOueLxi+TpJys7JJD1MzdspYT/rdSbN/T7Hm8dPlfWAUc
+	 7uiTH4lWg2NjaobkqgPiCeIXHfXmqCW+JXsiareBFSVyW/48VNkWqhb5YB0qL1QL/H
+	 Mq5xrxiRn9uudLeKLrKnWbi4tz7L+Tpcplc9ihm39Uuu8R93Hk4JoreYdKqSS22u5/
+	 8gzm6RHv/C0/Q==
+Date: Mon, 15 Dec 2025 04:36:26 -0600
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_093922_566010_22566F0D 
-X-CRM114-Status: UNSURE (   6.97  )
-X-CRM114-Notice: Please train this message.
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
+ Jonathan Corbet <corbet@lwn.net>, linux-hwmon@vger.kernel.org, 
+ Conor Dooley <conor+dt@kernel.org>, Sven Peter <sven@kernel.org>, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, asahi@lists.linux.dev, 
+ Lee Jones <lee@kernel.org>, linux-input@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Jean Delvare <jdelvare@suse.com>, 
+ linux-arm-kernel@lists.infradead.org, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Guenter Roeck <linux@roeck-us.net>, linux-rtc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-doc@vger.kernel.org, 
+ Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: James Calligeros <jcalligeros99@gmail.com>
+In-Reply-To: <20251215-macsmc-subdevs-v6-1-0518cb5f28ae@gmail.com>
+References: <20251215-macsmc-subdevs-v6-0-0518cb5f28ae@gmail.com>
+ <20251215-macsmc-subdevs-v6-1-0518cb5f28ae@gmail.com>
+Message-Id: <176579498664.1749225.5193965875803198793.robh@kernel.org>
+Subject: Re: [PATCH v6 1/7] dt-bindings: hwmon: Add Apple System Management
+ Controller hwmon schema
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,103 +80,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Define compatible strings for Realtek RTD1501s, RTD1861b and RTD1920s.
 
-Additionally, convert legacy DTS-style comments to YAML description
-properties, following the pattern from the ARM bindings conversion series
-[1].
+On Mon, 15 Dec 2025 19:37:45 +1000, James Calligeros wrote:
+> Apple Silicon devices integrate a vast array of sensors, monitoring
+> current, power, temperature, and voltage across almost every part of
+> the system. The sensors themselves are all connected to the System
+> Management Controller (SMC). The SMC firmware exposes the data
+> reported by these sensors via its standard FourCC-based key-value
+> API. The SMC is also responsible for monitoring and controlling any
+> fans connected to the system, exposing them in the same way.
+> 
+> For reasons known only to Apple, each device exposes its sensors with
+> an almost totally unique set of keys. This is true even for devices
+> which share an SoC. An M1 Mac mini, for example, will report its core
+> temperatures on different keys to an M1 MacBook Pro. Worse still, the
+> SMC does not provide a way to enumerate the available keys at runtime,
+> nor do the keys follow any sort of reasonable or consistent naming
+> rules that could be used to deduce their purpose. We must therefore
+> know which keys are present on any given device, and which function
+> they serve, ahead of time.
+> 
+> Add a schema so that we can describe the available sensors for a given
+> Apple Silicon device in the Devicetree.
+> 
+> Reviewed-by: Neal Gompa <neal@gompa.dev>
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
+> ---
+>  .../bindings/hwmon/apple,smc-hwmon.yaml  | 86 +++++++++++++++++++++++++
+>  .../bindings/mfd/apple,smc.yaml          | 36 +++++++++++
+>  MAINTAINERS                              |  1 +
+>  3 files changed, 123 insertions(+)
+> 
 
-[1] https://lore.kernel.org/lkml/20200622125527.24207-2-afaerber@suse.de/
+My bot found errors running 'make dt_binding_check' on your patch:
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
----
- .../devicetree/bindings/arm/realtek.yaml      | 42 +++++++++++++------
- 1 file changed, 30 insertions(+), 12 deletions(-)
+yamllint warnings/errors:
+./Documentation/devicetree/bindings/hwmon/apple,smc-hwmon.yaml:73:1: [warning] too many blank lines (2 > 1) (empty-lines)
 
-diff --git a/Documentation/devicetree/bindings/arm/realtek.yaml b/Documentation/devicetree/bindings/arm/realtek.yaml
-index ddd9a85099e9..be529490640c 100644
---- a/Documentation/devicetree/bindings/arm/realtek.yaml
-+++ b/Documentation/devicetree/bindings/arm/realtek.yaml
-@@ -14,21 +14,21 @@ properties:
-     const: '/'
-   compatible:
-     oneOf:
--      # RTD1195 SoC based boards
--      - items:
-+      - description: RTD1195 SoC based boards
-+        items:
-           - enum:
-               - mele,x1000 # MeLE X1000
-               - realtek,horseradish # Realtek Horseradish EVB
-           - const: realtek,rtd1195
- 
--      # RTD1293 SoC based boards
--      - items:
-+      - description: RTD1293 SoC based boards
-+        items:
-           - enum:
-               - synology,ds418j # Synology DiskStation DS418j
-           - const: realtek,rtd1293
- 
--      # RTD1295 SoC based boards
--      - items:
-+      - description: RTD1295 SoC based boards
-+        items:
-           - enum:
-               - mele,v9 # MeLE V9
-               - probox2,ava # ProBox2 AVA
-@@ -36,25 +36,43 @@ properties:
-               - zidoo,x9s # Zidoo X9S
-           - const: realtek,rtd1295
- 
--      # RTD1296 SoC based boards
--      - items:
-+      - description: RTD1296 SoC based boards
-+        items:
-           - enum:
-               - synology,ds418 # Synology DiskStation DS418
-           - const: realtek,rtd1296
- 
--      # RTD1395 SoC based boards
--      - items:
-+      - description: RTD1395 SoC based boards
-+        items:
-           - enum:
-               - bananapi,bpi-m4 # Banana Pi BPI-M4
-               - realtek,lion-skin # Realtek Lion Skin EVB
-           - const: realtek,rtd1395
- 
--      # RTD1619 SoC based boards
--      - items:
-+      - description: RTD1501s SoC based boards
-+        items:
-+          - enum:
-+              - realtek,phantom # Realtek Phantom EVB (8GB)
-+          - const: realtek,rtd1501s
-+
-+      - description: RTD1619 SoC based boards
-+        items:
-           - enum:
-               - realtek,mjolnir # Realtek Mjolnir EVB
-           - const: realtek,rtd1619
- 
-+      - description: RTD1861b SoC based boards
-+        items:
-+          - enum:
-+              - realtek,krypton # Realtek Krypton EVB (8GB)
-+          - const: realtek,rtd1861b
-+
-+      - description: RTD1920s SoC based boards
-+        items:
-+          - enum:
-+              - realtek,smallville # Realtek Smallville EVB (4GB)
-+          - const: realtek,rtd1920s
-+
- additionalProperties: true
- 
- ...
--- 
-2.34.1
+dtschema/dtc warnings/errors:
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.kernel.org/project/devicetree/patch/20251215-macsmc-subdevs-v6-1-0518cb5f28ae@gmail.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
