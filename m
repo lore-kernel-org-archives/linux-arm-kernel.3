@@ -4,68 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22535D41D74
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 11:48:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB320D59D99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 11:52:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zn/uhcRYE9P5t+xoL0MI1jmstVKavxgMn3GHiQkhybw=; b=tQdOxb2TdkV0D5efdgJ0HMJGTG
-	pxTQnTHHbcuLJ51HT0HA/MZi4zyUt4VXo771oIFmF3RHsjdRz+NcuB3nDURICCBdGw/xVMCFkmK8T
-	3ADIFf1aiZp6AvrJZrxGPtguJiOIfMjbYBrX+m0fkDqW+PSEyh9YzImwHyg+nHzryIpsIlZ55n7GF
-	ithf6UUM5hiozP9ybiSlV4GC6ItSafnZDDm8BAFMnFvzJeEHkxxWhqr9ksI/pwsGztCzoEmtViHq3
-	y3Xhz/TuXdy0tBC7nAk057fAJwyBfXpJdYj4v8p4V3rgKCEFlEfH1TQzb8in0IdYdXBI4UnAOuOo/
-	EyCL6NEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vOhXgZnhdq7SiZKkb/XYXlDf68CEcFGY7RomafomB/0=; b=UhBkWApoPfnWw2DV44iUloN5TZ
+	v4vrEzAdRK9JGFPnWD9n/gYr/rOB826/7Zl4eq82PiMCFGgyY3XcHeYL7G0O8D3K7M8ioRTvyDdwa
+	ulk5mPYhBsECvGlrFP5RD6lDdq/4FQPnoDX0KJM8mYZFM1cGGN86YV7Ixj20MdXiTMY5+Hcc+q+98
+	C2i8hQPh5xCNm8zlOBJA1dJjvQMY4iNqU1EMU7TC/6FLU6VkLDQG1LcTQfx0h4LAVT0ZLbd3uUTwJ
+	Ai/uvBg1SNqDWRAyAfWW5LGJBgRlb7xXFdFmZuISd8m/TxQEmBjK1Z/wp0w6gAwMpEKd+oeKWQdzr
+	IOl0wgzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV73Y-00000003YjH-0ddX;
-	Mon, 15 Dec 2025 11:48:00 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1vV77V-00000003ZAz-1vxc;
+	Mon, 15 Dec 2025 11:52:05 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV73S-00000003Yf5-3zA1;
-	Mon, 15 Dec 2025 11:47:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=Zn/uhcRYE9P5t+xoL0MI1jmstVKavxgMn3GHiQkhybw=; b=hud35EViFGxZ44fZq/v+HIIQPc
-	dTRWejKOXGyjBVZYEnUaTWVXrXqNNvaXb0ZOjA9g56ZKi0xzkx3dU0esoYNKQQMZfZdcX4c8xIYQE
-	qiaoTd+1Ed94OHM37OruzmwCxKQPmc5FDDKsC65nkd4K72GpiHX/8mkrMFWQdLm4KEFjaazyDYCLR
-	fwHjpWRGKy9Az61I/7fQ12RroiyyZDrNYwwu5O9UnAzxLDR6nmVPbuQNo6NHS4UxKLYo2cfawOxme
-	M1X7l8myTK0zzAYxzRKaJjrUwcHm35eqrsvmJ+zWnfkVzFnumdBzKA+t8t3i+3YhlXxnUW7fbzps/
-	faLM5GlQ==;
-Received: from [192.76.154.237] (helo=phil.dip.tu-dresden.de)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1vV73A-0000On-2C; Mon, 15 Dec 2025 12:47:36 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Jianfeng Liu <liujianfeng1994@gmail.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Torsten Duwe <duwe@lst.de>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: rockchip: enable SPDIF audio on Rock 5 ITX
-Date: Mon, 15 Dec 2025 12:47:31 +0100
-Message-ID: <176579924017.1404176.3512598682044953071.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20251124183056.B853068C4E@verein.lst.de>
-References: <20251124183056.B853068C4E@verein.lst.de>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_034755_047411_1EC3E9CD 
-X-CRM114-Status: GOOD (  10.27  )
+	id 1vV77U-00000003ZAr-2dha
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 15 Dec 2025 11:52:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A119060133;
+	Mon, 15 Dec 2025 11:52:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CA7CC4CEF5;
+	Mon, 15 Dec 2025 11:52:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765799523;
+	bh=JnLOHFJSBCxTCbFcO3IwUKhfZyQvwK42bdXHq4zEKAU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ecrITf35hlLUYBMQR+704mj6RKcWsVAQ+AXtBmyohBf25HQtOXMOpkSqtePUMlGb4
+	 +1/b5izSnh73C+EDjhuYl5DVRpC9LvfmcxsK/dExtREkLLRVNz3Zk3KcBblrgtlWNf
+	 gf6yClbgqUhb+xQ6l0HwffnukjDQAZq/WDKeMkgg8gWKWvRvOHXK44wQjSeIcyW+t/
+	 6oqaJxEr6E0dyV1K9/tFsOXG5lRa9qkuRFi27XlUXoBaXGZ5qIHjTBzwu/KQKz3Dtn
+	 XKpvb6P3jfT3KpUwjyHmPLW/Lz/fyWPOSCGCZtgY9zhI440oNUDY4wDMeMYdp06c0j
+	 /d3Cqe3PHaBpw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vV77R-0000000CkVl-0Dus;
+	Mon, 15 Dec 2025 11:52:01 +0000
+Date: Mon, 15 Dec 2025 11:52:00 +0000
+Message-ID: <86ldj4nesf.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	nd <nd@arm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Joey Gouly
+	<Joey.Gouly@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org"
+	<peter.maydell@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>
+Subject: Re: [PATCH 02/32] KVM: arm64: gic-v3: Switch vGIC-v3 to use generated ICH_VMCR_EL2
+In-Reply-To: <20251212152215.675767-3-sascha.bischoff@arm.com>
+References: <20251212152215.675767-1-sascha.bischoff@arm.com>
+	<20251212152215.675767-3-sascha.bischoff@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,20 +94,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Mon, 24 Nov 2025 19:30:56 +0100, Torsten Duwe wrote:
-> The Rock5 ITX has an S/PDIF (TOSLINK) socket in its I/O-shield, whose
-> TX signal is wired to GPIO4 C1. Activate SPDIF TX unit 1 and select
-> the proper pinmux (M2).
+On Fri, 12 Dec 2025 15:22:35 +0000,
+Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
 > 
+> From: Sascha Bischoff <Sascha.Bischoff@arm.com>
 > 
+> The VGIC-v3 code relied on hand-written definitions for the
+> ICH_VMCR_EL2 register. This register, and the associated fields, is
+> now generated as part of the sysreg framework. Move to using the
+> generated definitions instead of the hand-written ones.
+> 
+> There are no functional changes as part of this change.
+> 
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> ---
+>  arch/arm64/include/asm/sysreg.h      | 21 ---------
+>  arch/arm64/kvm/hyp/vgic-v3-sr.c      | 64 ++++++++++++----------------
+>  arch/arm64/kvm/vgic/vgic-v3-nested.c |  8 ++--
+>  arch/arm64/kvm/vgic/vgic-v3.c        | 48 ++++++++++-----------
+>  4 files changed, 54 insertions(+), 87 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+> index 9df51accbb025..b3b8b8cd7bf1e 100644
+> --- a/arch/arm64/include/asm/sysreg.h
+> +++ b/arch/arm64/include/asm/sysreg.h
+> @@ -560,7 +560,6 @@
+>  #define SYS_ICC_SRE_EL2			sys_reg(3, 4, 12, 9, 5)
+>  #define SYS_ICH_EISR_EL2		sys_reg(3, 4, 12, 11, 3)
+>  #define SYS_ICH_ELRSR_EL2		sys_reg(3, 4, 12, 11, 5)
+> -#define SYS_ICH_VMCR_EL2		sys_reg(3, 4, 12, 11, 7)
+>  
+>  #define __SYS__LR0_EL2(x)		sys_reg(3, 4, 12, 12, x)
+>  #define SYS_ICH_LR0_EL2			__SYS__LR0_EL2(0)
+> @@ -988,26 +987,6 @@
+>  #define ICH_LR_PRIORITY_SHIFT	48
+>  #define ICH_LR_PRIORITY_MASK	(0xffULL << ICH_LR_PRIORITY_SHIFT)
+>  
+> -/* ICH_VMCR_EL2 bit definitions */
+> -#define ICH_VMCR_ACK_CTL_SHIFT	2
+> -#define ICH_VMCR_ACK_CTL_MASK	(1 << ICH_VMCR_ACK_CTL_SHIFT)
+> -#define ICH_VMCR_FIQ_EN_SHIFT	3
+> -#define ICH_VMCR_FIQ_EN_MASK	(1 << ICH_VMCR_FIQ_EN_SHIFT)
+> -#define ICH_VMCR_CBPR_SHIFT	4
+> -#define ICH_VMCR_CBPR_MASK	(1 << ICH_VMCR_CBPR_SHIFT)
+> -#define ICH_VMCR_EOIM_SHIFT	9
+> -#define ICH_VMCR_EOIM_MASK	(1 << ICH_VMCR_EOIM_SHIFT)
+> -#define ICH_VMCR_BPR1_SHIFT	18
+> -#define ICH_VMCR_BPR1_MASK	(7 << ICH_VMCR_BPR1_SHIFT)
+> -#define ICH_VMCR_BPR0_SHIFT	21
+> -#define ICH_VMCR_BPR0_MASK	(7 << ICH_VMCR_BPR0_SHIFT)
+> -#define ICH_VMCR_PMR_SHIFT	24
+> -#define ICH_VMCR_PMR_MASK	(0xffUL << ICH_VMCR_PMR_SHIFT)
+> -#define ICH_VMCR_ENG0_SHIFT	0
+> -#define ICH_VMCR_ENG0_MASK	(1 << ICH_VMCR_ENG0_SHIFT)
+> -#define ICH_VMCR_ENG1_SHIFT	1
+> -#define ICH_VMCR_ENG1_MASK	(1 << ICH_VMCR_ENG1_SHIFT)
+> -
+>  /*
+>   * Permission Indirection Extension (PIE) permission encodings.
+>   * Encodings with the _O suffix, have overlays applied (Permission Overlay Extension).
+> diff --git a/arch/arm64/kvm/hyp/vgic-v3-sr.c b/arch/arm64/kvm/hyp/vgic-v3-sr.c
+> index 0b670a033fd87..24a2074f3a8cf 100644
+> --- a/arch/arm64/kvm/hyp/vgic-v3-sr.c
+> +++ b/arch/arm64/kvm/hyp/vgic-v3-sr.c
+> @@ -569,11 +569,11 @@ static int __vgic_v3_highest_priority_lr(struct kvm_vcpu *vcpu, u32 vmcr,
+>  			continue;
+>  
+>  		/* Group-0 interrupt, but Group-0 disabled? */
+> -		if (!(val & ICH_LR_GROUP) && !(vmcr & ICH_VMCR_ENG0_MASK))
+> +		if (!(val & ICH_LR_GROUP) && !(vmcr & ICH_VMCR_EL2_VENG0_MASK))
+>  			continue;
+>  
+>  		/* Group-1 interrupt, but Group-1 disabled? */
+> -		if ((val & ICH_LR_GROUP) && !(vmcr & ICH_VMCR_ENG1_MASK))
+> +		if ((val & ICH_LR_GROUP) && !(vmcr & ICH_VMCR_EL2_VENG1_MASK))
+>  			continue;
+>  
+>  		/* Not the highest priority? */
+> @@ -646,19 +646,19 @@ static int __vgic_v3_get_highest_active_priority(void)
+>  
+>  static unsigned int __vgic_v3_get_bpr0(u32 vmcr)
+>  {
+> -	return (vmcr & ICH_VMCR_BPR0_MASK) >> ICH_VMCR_BPR0_SHIFT;
+> +	return FIELD_GET(ICH_VMCR_EL2_VBPR0, vmcr);
+>  }
+>  
+>  static unsigned int __vgic_v3_get_bpr1(u32 vmcr)
+>  {
+>  	unsigned int bpr;
+>  
+> -	if (vmcr & ICH_VMCR_CBPR_MASK) {
+> +	if (vmcr & ICH_VMCR_EL2_VCBPR_MASK) {
+>  		bpr = __vgic_v3_get_bpr0(vmcr);
+>  		if (bpr < 7)
+>  			bpr++;
+>  	} else {
+> -		bpr = (vmcr & ICH_VMCR_BPR1_MASK) >> ICH_VMCR_BPR1_SHIFT;
+> +		bpr = FIELD_GET(ICH_VMCR_EL2_VBPR1, vmcr);
+>  	}
+>  
+>  	return bpr;
+> @@ -758,7 +758,7 @@ static void __vgic_v3_read_iar(struct kvm_vcpu *vcpu, u32 vmcr, int rt)
+>  	if (grp != !!(lr_val & ICH_LR_GROUP))
+>  		goto spurious;
+>  
+> -	pmr = (vmcr & ICH_VMCR_PMR_MASK) >> ICH_VMCR_PMR_SHIFT;
+> +	pmr = FIELD_GET(ICH_VMCR_EL2_VPMR, vmcr);
+>  	lr_prio = (lr_val & ICH_LR_PRIORITY_MASK) >> ICH_LR_PRIORITY_SHIFT;
+>  	if (pmr <= lr_prio)
+>  		goto spurious;
+> @@ -806,7 +806,7 @@ static int ___vgic_v3_write_dir(struct kvm_vcpu *vcpu, u32 vmcr, int rt)
+>  	int lr;
+>  
+>  	/* EOImode == 0, nothing to be done here */
+> -	if (!(vmcr & ICH_VMCR_EOIM_MASK))
+> +	if (!FIELD_GET(ICH_VMCR_EL2_VEOIM_MASK, vmcr))
 
-Applied, thanks!
+nit: FIELD_GET() doesn't bring anything here. Similar comment applies
+to most 'if (val & MASK)' constructs that get changed here.
 
-[1/1] arm64: dts: rockchip: enable SPDIF audio on Rock 5 ITX
-      commit: 2cc30da80a28a8a5d1337230c3586eb2f9580120
+>  		return 1;
+>  
+>  	/* No deactivate to be performed on an LPI */
+> @@ -849,7 +849,7 @@ static void __vgic_v3_write_eoir(struct kvm_vcpu *vcpu, u32 vmcr, int rt)
+>  	}
+>  
+>  	/* EOImode == 1 and not an LPI, nothing to be done here */
+> -	if ((vmcr & ICH_VMCR_EOIM_MASK) && !(vid >= VGIC_MIN_LPI))
+> +	if (FIELD_GET(ICH_VMCR_EL2_VEOIM_MASK, vmcr) && !(vid >= VGIC_MIN_LPI))
+>  		return;
+>  
+>  	lr_prio = (lr_val & ICH_LR_PRIORITY_MASK) >> ICH_LR_PRIORITY_SHIFT;
+> @@ -865,12 +865,12 @@ static void __vgic_v3_write_eoir(struct kvm_vcpu *vcpu, u32 vmcr, int rt)
+>  
+>  static void __vgic_v3_read_igrpen0(struct kvm_vcpu *vcpu, u32 vmcr, int rt)
+>  {
+> -	vcpu_set_reg(vcpu, rt, !!(vmcr & ICH_VMCR_ENG0_MASK));
+> +	vcpu_set_reg(vcpu, rt, !!FIELD_GET(ICH_VMCR_EL2_VENG0_MASK, vmcr));
 
-Best regards,
+Here, !! is actually really superfluous and makes it harder to
+understand what is being done. Similar thing for IRGPEN1.
+
+Apart from these two points, this looks OK to me.
+
+Thanks,
+
+	M.
+
 -- 
-Heiko Stuebner <heiko@sntech.de>
+Without deviation from the norm, progress is not possible.
 
