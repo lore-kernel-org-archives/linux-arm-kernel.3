@@ -4,173 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E1EFD59D99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 02:06:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33884D5B16D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 02:10:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TFe+SsfqrHcTUzW6My3ZbJJ+/v1qmr8o2Az1mFeXSXY=; b=A922SQ8kY9lsmxlE/Yup0yMjvC
-	FHWJ2dGKswbya6rik4JJla0/LLc1YdGF8/lpVIoL3rYwVbVdcGvceWwW77fvsh0hUA11pxqDXvo0x
-	MgMcEScXwUP8tLwoJ0CBk6q1m0ZO15s4ZmFfuTRWfJADO1P/ESJQamwB/Z0/gqKqTFpTa6Qq8TFEy
-	s4YddV+ZV1Zp84eRzWmQtsUAwOAxbczTeUB3gq2FEPfi0leZAWLdaUxWPT0eWCclSIZ6rw33bd1Qr
-	7a+L3JHudyTxQXq25/UKKIHEVcfwtU1U4Wh6MIVb7J6ZpCEZ7rQdboWOc+GIOEqQ4bwtGIUtKFiKs
-	iwjSD0tA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1m7EupBSLkJ5pGQ24M5emok4JkjLjJEKBB4r9u84yxQ=; b=hl/wLsfS2dYK2Qr6G1ss+gq2++
+	aWocwVyThfnTJLOjaMbFeoMDqjA1G1calaolZbPHmf4Vpbq7PsVd9dYMBNknMXwcc+dMLTauQC1lC
+	TsW3pWY3H+ZynSVUGV9lMgoHHLyhnqXZi4sDeaYcgdJo0lE0TpwQ8weP6Sj3uVEa17sVfkzW7+V0m
+	/syuZkYE9yIgbLrmoJ+Ef28Es5lGkROXzyNiHBMn2LkNk7AilGZYrlQj3CIvNvXsMfkUYfJQ2h/cF
+	kZCJ93Wi74nFjxbwKoijd3etAt764P8EtIQxPi45R4Z3Cz6E5x3Pl+HaHZzHyzxXUg/A/aUynektq
+	+2MJ7VKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUxyX-00000002vbb-0zd4;
-	Mon, 15 Dec 2025 02:06:13 +0000
-Received: from mail-westeuropeazon11010064.outbound.protection.outlook.com ([52.101.69.64] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1vUy2F-00000002vn2-3JKB;
+	Mon, 15 Dec 2025 02:10:03 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUxyL-00000002vaY-08IZ
+	id 1vUy2C-00000002vmD-2gVj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 02:06:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sUOELZHRSkzJcRkS6Hmpp7huEq9i5mmKLY/AVSCHQAM/rHMOe50nfGcds1eqLl89XKCsXGf0hEaII/CG/oRjHHESw/f04Iz3SYZLFDS8Adb9ISrEcoRu7ZSbqVczdeKZfl4c4cuDCCRyhSQEJPWjQ1Y/6vyhEq9nqsnSox4vvUcETr1qY7t/s8fgOoIEbYC1NM0Rm0dso3q1/hcVXiIcQRtKcY1zTdEYWubzb1281HvPj5PzsV8QsJ6dRNRXAY/QAdBWowlP9wPJHfhFgxEqt4eOEbxwda8YDrkOC1WABu3QHSGAM+Jco46M4MGicAS9rtcgcMwmcWPK/trf6qh2CQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TFe+SsfqrHcTUzW6My3ZbJJ+/v1qmr8o2Az1mFeXSXY=;
- b=JiQ0tuL8TKC0LlolV/MCCS0GqNfEykqnj6YW+MURPP0x4rdezLcmuJ2PznSqqnj6zTitvl75ho1JqBGiFLG2aZ9m1wAeTAEgCer4I58lbIbqet+sj7ZgC42OaTBLIedjcO5nelnXM1prxzCAY32zq91X840/ScxVEICDHMHMWMhTL6fKrRnoYGXblVF1uvEg30qb9INCXh8Z9EnrJH8CaoLvPagHf+ydf8+xuJWBzSiE4jxzSkQfX3MII7yMOr+3ZP1SpfDzJXsE9S1gHnTCqDLNnm1/Pq7XxK5iwFLYMJ52zjiP8Wm8KYz9nGU4TcKPijmlBhwP2Ab223npt6MUVA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TFe+SsfqrHcTUzW6My3ZbJJ+/v1qmr8o2Az1mFeXSXY=;
- b=Y6u1ee7ga3s7b9fBx351rpx40eCBokzCeiHiVS3DwapA9Wn4+rUoxkrF8no23VdkLLwJyQquIIuAZOJtI5tft9T9YQiygPhxJz908/WE2F4FZ3aDKfaqVTPF43dyGDsbZ4kNcAQ94ye86J1nfB9m3V90XmqefduzLwbl1kxz9BTl6HXaar/UY1AvgvwRj5ycFV5PLWNqGXBRGu6Q1dibWy/3Z3zXEb1p91thfjIaYV4BBlXoPXkrGxgaS4YBkmhK0OSyCC/HRURwK4MMRO13c2U12Hiia8A6F0cfl+vFhQtMeSHdNaszdheYajHfN7h5izMAbt3iPRcSj7cQWDR/Ug==
-Received: from DU0PR04MB9496.eurprd04.prod.outlook.com (2603:10a6:10:32d::19)
- by VI1PR04MB9812.eurprd04.prod.outlook.com (2603:10a6:800:1d2::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.13; Mon, 15 Dec
- 2025 02:05:50 +0000
-Received: from DU0PR04MB9496.eurprd04.prod.outlook.com
- ([fe80::868b:3935:5e0f:6a33]) by DU0PR04MB9496.eurprd04.prod.outlook.com
- ([fe80::868b:3935:5e0f:6a33%6]) with mapi id 15.20.9412.011; Mon, 15 Dec 2025
- 02:05:49 +0000
-From: Bough Chen <haibo.chen@nxp.com>
-To: Jared Kangas <jkangas@redhat.com>, Ulf Hansson <ulf.hansson@linaro.org>,
-	Adrian Hunter <adrian.hunter@intel.com>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Chester Lin
-	<chester62515@gmail.com>
-CC: "linux-mmc@vger.kernel.org" <linux-mmc@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>, dl-S32 <S32@nxp.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: RE: [PATCH] mmc: sdhci-esdhc-imx: add alternate ARCH_S32 dependency
- to Kconfig
-Thread-Topic: [PATCH] mmc: sdhci-esdhc-imx: add alternate ARCH_S32 dependency
- to Kconfig
-Thread-Index: AQHca3iR9OtOLtq9I0K4V7MIlKwwkLUh939Q
-Date: Mon, 15 Dec 2025 02:05:49 +0000
-Message-ID: <DU0PR04MB94963E37EF077E5A3FF7359D90ADA@DU0PR04MB9496.eurprd04.prod.outlook.com>
-References: <20251212-s32g-sdhci-kconfig-v1-1-8e278c8d7f78@redhat.com>
-In-Reply-To: <20251212-s32g-sdhci-kconfig-v1-1-8e278c8d7f78@redhat.com>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DU0PR04MB9496:EE_|VI1PR04MB9812:EE_
-x-ms-office365-filtering-correlation-id: ef6e55c1-e1a7-4fe3-3ea4-08de3b7e77f7
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|19092799006|7416014|366016|376014|38070700021|7053199007;
-x-microsoft-antispam-message-info: =?gb2312?B?WjlVWkV1WHU5N0hOa3Rjd0hESlRweTZVR2JqSVBZckdCeDRYV0Q3TnZodFhh?=
- =?gb2312?B?Z1NVQ2toQlJ3U0hrZUo4TzhJakFnZXhMUjQ5Ky95ZGhXQUFxb0ZXejRZTmNG?=
- =?gb2312?B?UDljVjRNRlZnbk9QNnkzRVJ2ektXSHBVaTdKVWk3bTIzMHU3Sko0dmNQWU9C?=
- =?gb2312?B?UXVaMWpzNU5zbDUxYUtsbFRNRXNhdUF6NE1GcEEwcnl5bjAxRkpoQnBBeG5F?=
- =?gb2312?B?R1F5cnRzTkhhd015WFV6dmVwdExrRWlVUU85WVlNZlZLcVJnNXUrdGczR09o?=
- =?gb2312?B?UmNkUmoxcFRCcFJtUWsxanlDYUNOaEJXcXM3ZUhrWHY0WVpidFdPdnVKZHNH?=
- =?gb2312?B?RUZMQVE5QXo2MTZSSEdRU2RNUEFoQ0JlbkNnNFNXNFd6QW4zNWxaMC9WOWV2?=
- =?gb2312?B?UmFVL3gySm5qd2VybFI0M3dxL0wxd3UrR1k5bE9GaFU1TEI5Z0Zoamh1L2Jo?=
- =?gb2312?B?WFNtMEVWQTQ0RGxHckFvNkxBdmVQQ3Z0dVNYeGlDYi9FczhzaE5jVWl1b3BF?=
- =?gb2312?B?TE5NOWhnZDlWNlA4KzBhNVdJZzZhOHR1YUorN0o1MHpDZlNkU01jNkg5VHVm?=
- =?gb2312?B?cHB2alJPMnA3cEhmc25NZ2dkQmh0alRKLzRWeUp3MnZLc0p4cmxhY0s0SU82?=
- =?gb2312?B?ZldLN0ZrZUFBY3lLRlhQZzFXNnZkb0tNck1OMTBpa0FXMXVlQ3B2d3VEZzNr?=
- =?gb2312?B?MVRoV0ZzaHdVbHQxYWxXNVdSU2NMdTRxQWg4eTE3UzBSaTFvYU5melZSdzhu?=
- =?gb2312?B?T0RxUm90MEJkTWMrbFFaMUNWU1QvU2QrR29kQWFjNHBOVFVzZi9uRzRIbXVl?=
- =?gb2312?B?aDJrUXBtbkQ2QlJmSFgzRmlPQXgxVUtyeGxISHFBNkVSbS9lZnV5NjBKeURY?=
- =?gb2312?B?VEd6c3JXQ2ZSR091Uml1Wk1lOGNNb1FUaHVXQW5DV2MwV2tpK2tBaDVnWFNN?=
- =?gb2312?B?bTE5UXVwSlFxMDdhK2liVEZ0MkRKaXNMT1lucWRORHFVVGRKeWhXSThTb0Nt?=
- =?gb2312?B?aEFqNjJWQmhRQW5QQXFvR050VlQvZVFEMlBKY3plMVhTUXBlWG55bmZjZGpp?=
- =?gb2312?B?VWtJQ3A2N1RSMXBCcU5rNlhTS1dHa0NhZnduekRFbUJVU2xwOXFLTU4rby9a?=
- =?gb2312?B?enBoV0h4US9GSnkzaUFzbVBBRmdsYVg3clp4d1BwYjlDRGNhZk85bnYweURQ?=
- =?gb2312?B?U3g1Z2lXVXdJckIvQ1I3bklOalgxdFkxTCtWNU0wT2dTZHdGaWxpZnNzblBx?=
- =?gb2312?B?aXdtWXIrRytKalJsYjVBRGxoN1JoeUlEVnJkZ1pHOU9aUnpLY2IwcUlLRHEz?=
- =?gb2312?B?azBkWXdYTzEvY2k1Mkp4bjJKWjI4d2dyd3dUUXk0b3lLaThLdG5vdHpMaHZp?=
- =?gb2312?B?d0xvTzlabm5VYmZMOVZCSzNQYm5YOUVwcmdOT0hmWFlsVjkzSEZOWDF3L1dt?=
- =?gb2312?B?aGFBVnV3TlduM0owQ21TN1F3OGhYdVZuank0VFNCR0MyeS9JMjlXMFgzdnRs?=
- =?gb2312?B?aWZoTzJkbXFBeTM1VVdqdlhjamNUUzY5T0RVN3U5MjdCeDJwNkFxWkJMYlM1?=
- =?gb2312?B?bUtQQy9oYVAySWUzSGxIUEhKdlNkMk1oMVc4bmphdUg0NVJqTnh3WWZiY3hB?=
- =?gb2312?B?Ym1RdXNxQ01YeWVhUDFNZVBhNDFJTU9GRnFOQm5memo4d2hBYjF2RUp5MWpT?=
- =?gb2312?B?c084R0t1QkppMVl1OWxQbU5sN1B2SFpKZ0t0M0FVSmNQa1MxNkFRdlZmVTdk?=
- =?gb2312?B?MlJudlRBYnh4Vy93VllwaXV2d2VBNVM1QjlUcVBtc1p2RXlVU2tsMmdXcmlW?=
- =?gb2312?B?VVhwM3JuTWVzQ0pnR05MOWluMksrT015TnV5UUVaYWhaMG9JQnErZGlOU3FO?=
- =?gb2312?B?bDZWRjlVQm8xallvNURGVi8vNTZ2a1JNVHNWOUN5MEl6OTFOenlWVlVGQ3VE?=
- =?gb2312?B?clpWY3lLc0lsdmxlSGVuVW1RVFBXMTJRaFZZUDVzbDBsYjN6WEJUNHdYN0No?=
- =?gb2312?B?TnJsV2VnNjlCNjBnd0FKeElDU3JDY29tOVdDek12dE5maVV6OEtYQjZUSmpN?=
- =?gb2312?Q?gvInMO?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9496.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(7416014)(366016)(376014)(38070700021)(7053199007);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?gb2312?B?bE1qZHJHaWE1bE9jOUNtbHg1MDc0VjBBNTJpL2cxZkdBSlBSMzNINW1RSTk2?=
- =?gb2312?B?Rk4xcUtkcXozOTI5NlFzWWQ0QmNSblhvS3VHSlVhY0VqRVJZVDZkWDNDeXhF?=
- =?gb2312?B?cVN2S1BYRCtLNDk5RGg5TWFVUEFHNHY2eGY4TjQyOHhQbG5IQXdMSUZ0MGdl?=
- =?gb2312?B?OVVRVVdVa29YcTFSYThSQldZRVUxSlFTNEZMVSs2bnZZNk5HaHZhcm5sTEw1?=
- =?gb2312?B?YWJyRUhEMDM0TFg3bDZWYzVtcUh1ZkxsWXAyUTJWblg2QzBiRjVWN0tyYVdy?=
- =?gb2312?B?eUNYUFVJYnlXRytzUG1WTkZHYlU4NGlZMmZqUG4wV21HQy9ld1ROaDhmREx6?=
- =?gb2312?B?UnliZkU1b1Axc2ZTOG9ScDdZV2h5bkdjV3dYKzl5c0N3MDR0Ujk1QllxcFpv?=
- =?gb2312?B?ZEljeExrNXVQNXpqcHNMZXpySFFqRkpGUkNnckpWRTZGYlBMWXFVY3FrL3JX?=
- =?gb2312?B?RFNOVDhrdFZUSlZYYjI5bXlNaEpodGRJanBIM0tRNEtMczdGNnd2Q0JuVm5S?=
- =?gb2312?B?cWdVNkhlbjhENGN4bXFTTzYzV09HMk9BMkV3SzhzTkdSS1dEdG5xcFV2OFQ2?=
- =?gb2312?B?Rm8rSlorMFJnNmVtOVc0UTllN1pVUVhGMWErUnlpT0Nyam9mdGl6ODF2T1kx?=
- =?gb2312?B?V05GcnVSUDUxeFUxRWlXbFZpOWhqNHF4YW43OHptNnVuWlM2TkE4ajFNdWpT?=
- =?gb2312?B?TlYzSmw1RDY3am5ERytxaVArajdWNlV6aWZkTTFIcnRndEVvZDhwU0Qra0kr?=
- =?gb2312?B?ZU1UZ0VMNUtmRzRlTXlPcWRIZGJjQXRkT2VnVFltWkhrQjk4UnZudit3amx4?=
- =?gb2312?B?b1lhT0JTQlJZZzRhOFJzcEJLSFMveXBROTRBeXJ2OXpQSDdBQ25jOGUzRHBv?=
- =?gb2312?B?K052c3dUWG5oNVhaMHZVWVNYNzNheURxWi9yNDhQNCtFNFFWSWtUazd0R2Zm?=
- =?gb2312?B?RjY0bzV1aVRGY2xJRzZHdzBFTVBGa01rU1MxdHVXd01Hb1oxWGJpY09lVGti?=
- =?gb2312?B?a21KRk9VblBvUTRlTmFlWldCazVJUndzVGNWVzBYazBDemgxMjNCejNaSzlY?=
- =?gb2312?B?Qnhib3BwZWpEbFR2OUxRbUVZZytYWjIxY3M3Z29MVkk3UWY5anBaclhWQjhy?=
- =?gb2312?B?R1BQZXFTTU5Xak9sZkxDOE5UditNQjlXd2dGTE93a3p0TjZwTXl1N2tMNTdX?=
- =?gb2312?B?akM2SWFHalBvWmtCa1IzYXVSd2tLcHFQNjNwUG5KeUJrbEZSNHg0OUg2Z2M5?=
- =?gb2312?B?Yk9EVXlVNi9Kc1RoVHJRM21mcTgyTmlZY0tuanVTcDNDd2dzL0VTUTN1cHN0?=
- =?gb2312?B?aFBNMktiMmhycHl4Nzl3SHlPS09GOHlKYjJyZUZDZ01rZG0zUklDeTZvK1NX?=
- =?gb2312?B?MVFCaWxmK3BkbDF6ZU9ONVQxZitsdWNXR0dqR0xaRitndkdGRHF1VjlQa3F5?=
- =?gb2312?B?MS83aG81MVVjanN3aWhJMHJBU3hVK0dOSUd4eHpKZlJ2SHVHK3EyMk9IYnVM?=
- =?gb2312?B?bm1jWko4cjNueFpBeHdHTks1WnBIanNnU0R6VU1PTnQ1RVU0VDNNOHNkb01w?=
- =?gb2312?B?OE1DeU45WDZWMTJXcldwamdMeCtBdzJ2NmpJTlZ0NTFWRXU0ZWR6emZhaWN6?=
- =?gb2312?B?cHVsRXJ5eFpvRkoyTDFHanR3OHdFOHc0VWpsRDhQZkR0OGRFRE9nTDhYeHI1?=
- =?gb2312?B?Z21WdVpNMVlvSjdRU3BQZWxNdFZ5VUZOSjBJcHc4dTQ4NHR6SVZoOGhVMjUy?=
- =?gb2312?B?cFlaUXN4T3Y5M3AzM0dqOFVsSEdPOHhXZEo3elk5Q2tpYVplbUtQcTRnNGhZ?=
- =?gb2312?B?RDlTZ3EwT1dzcG5TK0VkVkZqNUllOXRqVFA2TTZiSE1HbDhzK3FyY1F6dGVp?=
- =?gb2312?B?ZTA5cG8yTFR2R1BBK211UmZkUFJKVWg1anJoWWcvdmlBYUZUd1pBMzRVM2hY?=
- =?gb2312?B?MjV2OWY3SUdJSE1lbnRqQy82aWNvajhkN3E1RytTcFoxTXYvVkVBTFByNlJr?=
- =?gb2312?B?YnM1bHJrL21HSkZBa0FRT1g1eG9OQkNRK3ZCeXNsYWRJamJ6UzA5c3E4eXQ0?=
- =?gb2312?B?S1dHUE4yTktOeVA5Y21EWUpOb043N1MxRVJXVG5kd0U5U0JGUTh6NHdITE85?=
- =?gb2312?Q?ubUc=3D?=
-Content-Type: text/plain; charset="gb2312"
-Content-Transfer-Encoding: base64
-MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9496.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ef6e55c1-e1a7-4fe3-3ea4-08de3b7e77f7
-X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Dec 2025 02:05:49.7180
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: VxumTHnAgBzW2CK5+P+D3zXzL1QIX2q6ClGM2zrHid2FsBG4UOoo96grADafW0HkGzFzex+XHvzyua+voyn8cw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9812
+	Mon, 15 Dec 2025 02:10:02 +0000
+Received: from localhost.localdomain (unknown [202.112.113.212])
+	by APP-01 (Coremail) with SMTP id qwCowACHLmrcbT9pNeSyAA--.35718S2;
+	Mon, 15 Dec 2025 10:09:40 +0800 (CST)
+From: Ma Ke <make24@iscas.ac.cn>
+To: gregkh@linuxfoundation.org,
+	vz@mleia.com,
+	piotr.wojtaszczyk@timesys.com,
+	make24@iscas.ac.cn,
+	stigge@antcom.de,
+	arnd@arndb.de
+Cc: linux-usb@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	akpm@linux-foundation.org,
+	stable@vger.kernel.org
+Subject: [PATCH v2] USB: Fix error handling in gadget driver
+Date: Mon, 15 Dec 2025 10:09:31 +0800
+Message-Id: <20251215020931.15324-1-make24@iscas.ac.cn>
+X-Mailer: git-send-email 2.17.1
+X-CM-TRANSID: qwCowACHLmrcbT9pNeSyAA--.35718S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxCF48CrWxCryUAry7Gr15Arb_yoW5uF1fpw
+	1xGFWYkFWUGwnrKwnxAa1DuF1FkF4Iy34rtrZrG3Wq93ZxZ3srJ3W8WF1IqF4xKF97Ar4a
+	yanFya10yF1UuFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPY14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
+	6r4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Cr
+	1j6rxdM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVAC
+	Y4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJV
+	W8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI2
+	0VAGYxC7M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxkIecxEwV
+	AFwVW8JwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E
+	14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIx
+	kGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAF
+	wI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r
+	4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUmLvtU
+	UUUU=
+X-Originating-IP: [202.112.113.212]
+X-CM-SenderInfo: ppdnvj2u6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251214_180603_741841_41C90C4D 
-X-CRM114-Status: GOOD (  23.27  )
+X-CRM114-CacheID: sfid-20251214_181001_085170_DAF481BF 
+X-CRM114-Status: GOOD (  14.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,49 +83,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBKYXJlZCBLYW5nYXMgPGprYW5n
-YXNAcmVkaGF0LmNvbT4NCj4gU2VudDogMjAyNcTqMTLUwjEyyNUgMjM6MDMNCj4gVG86IFVsZiBI
-YW5zc29uIDx1bGYuaGFuc3NvbkBsaW5hcm8ub3JnPjsgQm91Z2ggQ2hlbiA8aGFpYm8uY2hlbkBu
-eHAuY29tPjsNCj4gQWRyaWFuIEh1bnRlciA8YWRyaWFuLmh1bnRlckBpbnRlbC5jb20+OyBTaGF3
-biBHdW8NCj4gPHNoYXduZ3VvQGtlcm5lbC5vcmc+OyBTYXNjaGEgSGF1ZXIgPHMuaGF1ZXJAcGVu
-Z3V0cm9uaXguZGU+Ow0KPiBQZW5ndXRyb25peCBLZXJuZWwgVGVhbSA8a2VybmVsQHBlbmd1dHJv
-bml4LmRlPjsgRmFiaW8gRXN0ZXZhbQ0KPiA8ZmVzdGV2YW1AZ21haWwuY29tPjsgQ2hlc3RlciBM
-aW4gPGNoZXN0ZXI2MjUxNUBnbWFpbC5jb20+DQo+IENjOiBsaW51eC1tbWNAdmdlci5rZXJuZWwu
-b3JnOyBsaW51eC1rZXJuZWxAdmdlci5rZXJuZWwub3JnOw0KPiBpbXhAbGlzdHMubGludXguZGV2
-OyBkbC1TMzIgPFMzMkBueHAuY29tPjsNCj4gbGludXgtYXJtLWtlcm5lbEBsaXN0cy5pbmZyYWRl
-YWQub3JnOyBKYXJlZCBLYW5nYXMgPGprYW5nYXNAcmVkaGF0LmNvbT4NCj4gU3ViamVjdDogW1BB
-VENIXSBtbWM6IHNkaGNpLWVzZGhjLWlteDogYWRkIGFsdGVybmF0ZSBBUkNIX1MzMiBkZXBlbmRl
-bmN5IHRvDQo+IEtjb25maWcNCj4gDQo+IFtZb3UgZG9uJ3Qgb2Z0ZW4gZ2V0IGVtYWlsIGZyb20g
-amthbmdhc0ByZWRoYXQuY29tLiBMZWFybiB3aHkgdGhpcyBpcw0KPiBpbXBvcnRhbnQgYXQgaHR0
-cHM6Ly9ha2EubXMvTGVhcm5BYm91dFNlbmRlcklkZW50aWZpY2F0aW9uIF0NCj4gDQo+IE1NQ19T
-REhDSV9FU0RIQ19JTVggcmVxdWlyZXMgQVJDSF9NWEMgZGVzcGl0ZSBhbHNvIGJlaW5nIHVzZWQg
-b24NCj4gQVJDSF9TMzIsIHdoaWNoIHJlc3VsdHMgaW4gdW5tZXQgZGVwZW5kZW5jaWVzIHdoZW4g
-Y29tcGlsaW5nIHN0cmljdGx5IGZvcg0KPiBBUkNIX1MzMi4gUmVzb2x2ZSB0aGlzIGJ5IGFkZGlu
-ZyBBUkNIX1MzMiBhcyBhbiBhbHRlcm5hdGl2ZSB0byBBUkNIX01YQyBpbg0KPiB0aGUgZHJpdmVy
-J3MgZGVwZW5kZW5jaWVzLg0KDQpSZXZpZXdlZC1ieTogSGFpYm8gQ2hlbiA8aGFpYm8uY2hlbkBu
-eHAuY29tPg0KDQpUaGFua3MNCkhhaWJvDQo+IA0KPiBGaXhlczogNWM0ZjAwNjI3YzlhICgibW1j
-OiBzZGhjaS1lc2RoYy1pbXg6IGFkZCBOWFAgUzMyRzIgc3VwcG9ydCIpDQo+IFNpZ25lZC1vZmYt
-Ynk6IEphcmVkIEthbmdhcyA8amthbmdhc0ByZWRoYXQuY29tPg0KPiAtLS0NCj4gIGRyaXZlcnMv
-bW1jL2hvc3QvS2NvbmZpZyB8IDQgKystLQ0KPiAgMSBmaWxlIGNoYW5nZWQsIDIgaW5zZXJ0aW9u
-cygrKSwgMiBkZWxldGlvbnMoLSkNCj4gDQo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL21tYy9ob3N0
-L0tjb25maWcgYi9kcml2ZXJzL21tYy9ob3N0L0tjb25maWcgaW5kZXgNCj4gMTBkMGVmNThlZjQ5
-MzEwMmQzNTg2ZDdhMzFkNzU1NTQzMjk3OTk5YS4uYzk0YWU0Nzk0NTQ1ZGUxYzgxOGFkNTBiDQo+
-IGU3ZjkxMzMxODYyYjZhY2YgMTAwNjQ0DQo+IC0tLSBhL2RyaXZlcnMvbW1jL2hvc3QvS2NvbmZp
-Zw0KPiArKysgYi9kcml2ZXJzL21tYy9ob3N0L0tjb25maWcNCj4gQEAgLTMxNSwxNCArMzE1LDE0
-IEBAIGNvbmZpZyBNTUNfU0RIQ0lfRVNESENfTUNGDQo+IA0KPiAgY29uZmlnIE1NQ19TREhDSV9F
-U0RIQ19JTVgNCj4gICAgICAgICB0cmlzdGF0ZSAiU0RIQ0kgc3VwcG9ydCBmb3IgdGhlIEZyZWVz
-Y2FsZSBlU0RIQy91U0RIQyBpLk1YDQo+IGNvbnRyb2xsZXIiDQo+IC0gICAgICAgZGVwZW5kcyBv
-biBBUkNIX01YQyB8fCBDT01QSUxFX1RFU1QNCj4gKyAgICAgICBkZXBlbmRzIG9uIEFSQ0hfTVhD
-IHx8IEFSQ0hfUzMyIHx8IENPTVBJTEVfVEVTVA0KPiAgICAgICAgIGRlcGVuZHMgb24gTU1DX1NE
-SENJX1BMVEZNDQo+ICAgICAgICAgZGVwZW5kcyBvbiBPRg0KPiAgICAgICAgIHNlbGVjdCBNTUNf
-U0RIQ0lfSU9fQUNDRVNTT1JTDQo+ICAgICAgICAgc2VsZWN0IE1NQ19DUUhDSQ0KPiAgICAgICAg
-IGhlbHANCj4gICAgICAgICAgIFRoaXMgc2VsZWN0cyB0aGUgRnJlZXNjYWxlIGVTREhDL3VTREhD
-IGNvbnRyb2xsZXIgc3VwcG9ydA0KPiAtICAgICAgICAgZm91bmQgb24gaS5NWDI1LCBpLk1YMzUg
-aS5NWDV4IGFuZCBpLk1YNnguDQo+ICsgICAgICAgICBmb3VuZCBvbiBpLk1YMjUsIGkuTVgzNSwg
-aS5NWDV4LCBpLk1YNngsIGFuZCBTMzJHLg0KPiANCj4gICAgICAgICAgIElmIHlvdSBoYXZlIGEg
-Y29udHJvbGxlciB3aXRoIHRoaXMgaW50ZXJmYWNlLCBzYXkgWSBvciBNIGhlcmUuDQo+IA0KPiAN
-Cj4gLS0tDQo+IGJhc2UtY29tbWl0OiA3ZDBhNjZlNGJiOTA4MWQ3NWM4MmVjNDk1N2M1MDAzNGNi
-MGVhNDQ5DQo+IGNoYW5nZS1pZDogMjAyNTEyMTEtczMyZy1zZGhjaS1rY29uZmlnLTU4NWI2OTA5
-ZjdiNA0KPiANCj4gQmVzdCByZWdhcmRzLA0KPiAtLQ0KPiBKYXJlZCBLYW5nYXMgPGprYW5nYXNA
-cmVkaGF0LmNvbT4NCg0K
+lpc32xx_udc_probe() acquires an i2c_client reference through
+isp1301_get_client() but fails to release it in both error handling
+paths and the normal removal path. This could result in a reference
+count leak for the I2C device, preventing proper cleanup and
+potentially leading to resource exhaustion. Add put_device() to
+release the reference in the probe failure path and in the remove
+function.
+
+Calling path: isp1301_get_client() -> of_find_i2c_device_by_node() ->
+i2c_find_device_by_fwnode(). As comments of
+i2c_find_device_by_fwnode() says, 'The user must call
+put_device(&client->dev) once done with the i2c client.'
+
+Found by code review.
+
+Cc: stable@vger.kernel.org
+Fixes: 24a28e428351 ("USB: gadget driver for LPC32xx")
+Signed-off-by: Ma Ke <make24@iscas.ac.cn>
+---
+Changes in v2:
+- simplified the patch as suggestions.
+---
+ drivers/usb/gadget/udc/lpc32xx_udc.c | 21 +++++++++++++++------
+ 1 file changed, 15 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/usb/gadget/udc/lpc32xx_udc.c b/drivers/usb/gadget/udc/lpc32xx_udc.c
+index 1a7d3c4f652f..73c0f28a8585 100644
+--- a/drivers/usb/gadget/udc/lpc32xx_udc.c
++++ b/drivers/usb/gadget/udc/lpc32xx_udc.c
+@@ -3020,7 +3020,7 @@ static int lpc32xx_udc_probe(struct platform_device *pdev)
+ 	pdev->dev.dma_mask = &lpc32xx_usbd_dmamask;
+ 	retval = dma_set_coherent_mask(&pdev->dev, DMA_BIT_MASK(32));
+ 	if (retval)
+-		return retval;
++		goto i2c_fail;
+ 
+ 	udc->board = &lpc32xx_usbddata;
+ 
+@@ -3038,28 +3038,32 @@ static int lpc32xx_udc_probe(struct platform_device *pdev)
+ 	/* Get IRQs */
+ 	for (i = 0; i < 4; i++) {
+ 		udc->udp_irq[i] = platform_get_irq(pdev, i);
+-		if (udc->udp_irq[i] < 0)
+-			return udc->udp_irq[i];
++		if (udc->udp_irq[i] < 0) {
++			retval = udc->udp_irq[i];
++			goto i2c_fail;
++		}
+ 	}
+ 
+ 	udc->udp_baseaddr = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(udc->udp_baseaddr)) {
+ 		dev_err(udc->dev, "IO map failure\n");
+-		return PTR_ERR(udc->udp_baseaddr);
++		retval = PTR_ERR(udc->udp_baseaddr);
++		goto i2c_fail;
+ 	}
+ 
+ 	/* Get USB device clock */
+ 	udc->usb_slv_clk = devm_clk_get(&pdev->dev, NULL);
+ 	if (IS_ERR(udc->usb_slv_clk)) {
+ 		dev_err(udc->dev, "failed to acquire USB device clock\n");
+-		return PTR_ERR(udc->usb_slv_clk);
++		retval = PTR_ERR(udc->usb_slv_clk);
++		goto i2c_fail;
+ 	}
+ 
+ 	/* Enable USB device clock */
+ 	retval = clk_prepare_enable(udc->usb_slv_clk);
+ 	if (retval < 0) {
+ 		dev_err(udc->dev, "failed to start USB device clock\n");
+-		return retval;
++		goto i2c_fail;
+ 	}
+ 
+ 	/* Setup deferred workqueue data */
+@@ -3161,6 +3165,8 @@ static int lpc32xx_udc_probe(struct platform_device *pdev)
+ 	dma_free_coherent(&pdev->dev, UDCA_BUFF_SIZE,
+ 			  udc->udca_v_base, udc->udca_p_base);
+ i2c_fail:
++	if (udc->isp1301_i2c_client)
++		put_device(&udc->isp1301_i2c_client->dev);
+ 	clk_disable_unprepare(udc->usb_slv_clk);
+ 	dev_err(udc->dev, "%s probe failed, %d\n", driver_name, retval);
+ 
+@@ -3189,6 +3195,9 @@ static void lpc32xx_udc_remove(struct platform_device *pdev)
+ 	dma_free_coherent(&pdev->dev, UDCA_BUFF_SIZE,
+ 			  udc->udca_v_base, udc->udca_p_base);
+ 
++	if (udc->isp1301_i2c_client)
++		put_device(&udc->isp1301_i2c_client->dev);
++
+ 	clk_disable_unprepare(udc->usb_slv_clk);
+ }
+ 
+-- 
+2.17.1
+
 
