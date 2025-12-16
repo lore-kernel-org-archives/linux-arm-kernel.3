@@ -4,105 +4,198 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3592D5CCBE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 10:47:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10EF7D5E12A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 10:54:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wmKGehAtF2aC6hECS065yudbuhoIUUvkuW0P86X+zRI=; b=aiN85g6eRWjA7KcriM7vgrXClb
-	NcNy6u3RAnGYlYlC3XxQGe9oujx7P8RJx/HYNIZjc4RmCMbP1wAJusxRoy4iy+56onpPV2DVObQqp
-	HdlnxS9wCO2Ws3MrC0ZEv3o94vnFlKFOoGrrjc54H9JSJUsyox+PoALgFx98w950e9Ntq5WBODRB9
-	ejdEPejKWTiXYL0itTqXmF0W36gX3fOsc9ntAfxU4bsddMDhhr+B5xvPfgKhtn9TcfrnF9J8dhGoo
-	0/IIeqSvctZSR4iNfxufNua3xKfhY75C7UbLYlFFCbXVJDsE5RFC8YVEJFplf4Ou28TJa5aOqtiP+
-	3yHSHN0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=weI1zJCX5OEXPmCLgywMXUdE/ktjWTotOcNIyzL9dfc=; b=l7tzvcV8ld/GaYfLYblhtnYuXw
+	AoEbYHCEJm+02PJRmKDLDTj35Vh85YYTXkAK3MUUpi+48ZWSCrGGfLO/YDXIIG1AHWpFsMxXj2BOM
+	4SLGAttwxJ38Da7STkOEMe1AxcXA3BdqLXV+JwGUatnR75eSODUkDZAuIMN9N0Tyh5pRLwvq1zuBG
+	Yjtr8U4XTJnGZuISVbjMasv7pHZ7PV9xv5BdEIumfPlQhnLCxUOgXuEv+tNunBnMSj6VOSBMD7pah
+	ytOw/oNaNXOIomVvPURwkO2sJzCliy5IcXwSm4cBM3pzWw/lETrxuR1pg38f/ubMqHRzTYQRjVU8c
+	jzY4QrQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVSav-000000053oD-0rPp;
-	Tue, 16 Dec 2025 10:47:53 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	id 1vVSh4-000000054DP-0eYF;
+	Tue, 16 Dec 2025 10:54:14 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVSat-000000053ns-1eVY
+	id 1vVSh0-000000054Cr-2ezj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 10:47:52 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-59426dc96f2so391084e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 02:47:50 -0800 (PST)
+	Tue, 16 Dec 2025 10:54:12 +0000
+Received: from pps.filterd (m0246630.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BGArlFH142099;
+	Tue, 16 Dec 2025 10:53:51 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=corp-2025-04-25; bh=weI1zJCX5OEXPmCLgy
+	wMXUdE/ktjWTotOcNIyzL9dfc=; b=APQz9mZsFyUDBB74uQZS545/XLSPXj40E8
+	LZBHE+7M5zCV1jyRVwMDPYZQwZgwajmMp5iFqYmdsyigvqxLrVp9NEeukMD+kqNU
+	5KykC5mgARnZsl10bylUGG0ByHyyB/Mbm/BDqMBHfKWrHr4GdHU+Raky8LbttZY2
+	BD+gDw8liT7dapBPDjrulnoHhvJzSbqbq/3LFrTQICl0R5PyRbc8f3Wa77BwXvHs
+	RVBgRH/DWPaG4l1LG5dNFJv6HLyQa/Y0Ulolv3/Br6TpqeP05CY/1bnfxPSRhTCs
+	QFyiYrhv3j6OYi3ooDJsEXEhXdHdm72Zg5G05DPcMsV1IUPqIgIA==
+Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4b0xja3qhx-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 16 Dec 2025 10:53:50 +0000 (GMT)
+Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 5BG8fPKO022460;
+	Tue, 16 Dec 2025 10:53:50 GMT
+Received: from dm5pr21cu001.outbound.protection.outlook.com (mail-centralusazon11011058.outbound.protection.outlook.com [52.101.62.58])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 4b0xkk45d4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 16 Dec 2025 10:53:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tr0Wvxbe346aS2pvXvNPjqCUK+bRaLsz30BmXK7A8ITl24icnO6dfXXDAoZVMqI7xaY+I6MlpVzxAgKsfq0bPOGl8R0P86P/iRyrt7Z/PJ00gJjN4H7gQX0S/KLRoMRAfoYZbJVIb80wsFhRn+PJE8Ud2qy+C46EVYxbSEFnOSm+GwfTKnMUjXpTYF5+G615+TfPiOLQ7a7wyut/m6UukuhYcekoGLf6vXWYSMGIrKHbDK4S3jUJ3Eng9TZlX13pr2pRr7XSIVxpstJZzKpKYwUZzfL7J7qSuh/IRO5LTVEuQPEajdDbnh78Zq2WGybTRfWgtijmDORkycSwZDOcFA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=weI1zJCX5OEXPmCLgywMXUdE/ktjWTotOcNIyzL9dfc=;
+ b=SJ3QVC8VaMjjy5FSloxoPDD+s/t/c95DewQZpFDnnKTG1wc1SFM+sO1oCw88s/s10pqE8Gj+t4JCgthk2xz0aXxTFpn0yH+tOSMLM9oI9H0xoWuYno/QB/jAMVMlpPT1ynmbRuF0GTVCOzIOCl7R4rabwm9RqqiqiYkpuZIoN2RrF4Go890MFFz4diYtNvcbEqN9hp9DD9mCqrNNWp93x9LhVAQ7/7heGG7X4af7dkbUPhOT/3aVF2EeMJ75GIlWe0y5fpU1Oq6FF2Q53fRY4XeuhbzQyhSBzhbOsqStSuHA4aJlgVvDl10XVZUYj6URa+XHkk3mdh/arjFfo1wibg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
+ dkim=pass header.d=oracle.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1765882069; x=1766486869; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=wmKGehAtF2aC6hECS065yudbuhoIUUvkuW0P86X+zRI=;
-        b=IXYuASazf7lhop8sZH6eTdROTx/hrN0HRvyeJKdO7V9cau7Hgwg6zORj7z67SFZFmJ
-         54Lz3n2ZKl+psr25y45YOH9zd7SgU89sikXLtPs+m24XAEnz0YHtgm206GucLBxaFF9/
-         IMENUIUoYWjQksQWxHpJOqBGVGgDLOeQyDKdQwNesbJLGigjb4FtXwV3m0pxvyt071VB
-         0YIBVGcSvi8Fi3JCT/G2JCBFAh1qqZL6gZRNWkTPt9tbEwZ43V90MBp+rO/qjWo+MH1N
-         3+u6JHwF6d8ACKAgwA6m/NxALk/mNmlEb0/ZoC+3JOxsDCw5o2ofFSUiGfVryJ/F+CP1
-         UjNA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765882069; x=1766486869;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=wmKGehAtF2aC6hECS065yudbuhoIUUvkuW0P86X+zRI=;
-        b=QD7usUFfReXWDQiLelOWU1/XkQkDbXcziWhDwvmiGVhvM4tq9shbwYvtzj+bxVBmG1
-         qZSP3NQNogrCHcRcF3q3ibgnBL6XTp4/8i3D3oYrklgRs/qnMgwJMnvy/9z7O1FgfUbn
-         m+G8a8KlreB7ogv1Ruut4vPNY4IoWOGnN3i4znLtE/iaAP78ThBYkmpqalEj9ibVVAe0
-         CGern72AnJWZSdz4IS3+9NFPpXtde1TFPtX0FTROBPNSQ3bO02T1FNXFsIIB8lX5miyz
-         o8atbl7cG1/ECB5GwUm6vpvzx/xInbhNdWWqFh0AZweT/PYxo04IKLBkWxg0EzrguZpO
-         xJ9A==
-X-Forwarded-Encrypted: i=1; AJvYcCXiskH38PFSb1KwWddLAeDWt9X+Tyyut5MVBtn3LnPgCade4hQV5f5JnEMOU/hpDv6kz0Kex+O66w1WZCpLCQOZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwIq+LGx4v3JZXZxxAf4nmQggyDTDDeKVmkFlmi5JuOHMWYosfV
-	VCPfw7G+/NQTezxV85Dv6JimwKGYOq02b6sIcZ0jrR/c5KGbDcfue9a7RrctkCS8aJE=
-X-Gm-Gg: AY/fxX4FTg+A4Cb7d49FyDzmjJEk+JTH+elzpyY1PeoBRQAcbauPn1tIy4x+b3bWI8u
-	6KeQebTDt7b3ByLbkmaNxd2Qc5UBbB5xF0mzzeasSW3IkQQl9Y/tb8eZ/THsUB7KAOQo29CeHQX
-	3yYDSXWU9WdxAbNVjUd3ww+W8O31lMn1tERlu4dpYH2wjgNQYCyzdw0Kx3siVwS6DyHAT8ebmP2
-	9cd2wdP7Tzi+m81f2H5BWDe5BpznLof45CmRe3x3ktBu6PJMPxkdpB3jXyBjWvYLxTfmEldI4EH
-	OKtTrfeyZpsWPcvn14Hcsh22h+id2YVs+FWGyxmsINmADfxnlAD6sT2gqFwtDMccSrqQCExIQDl
-	6KUVZlL/G4hTtZzS9UvC+qty8mmH6VBAgIsLNUL/REQM+8ii/QhqIw2x8nWC949hrz0aZG1euwx
-	6V4X7C01/dRGaHS14rGHYfJP9lrtWnyVJmGHXQR25asPx4knjIyNJCP5MtWScQ71Eb/A==
-X-Google-Smtp-Source: AGHT+IF0H41NSoDHeiVoQB8t5PFRmbwgMPCmvxitVkRlghvklguwBlJGvPt9E5BeekSJvgfAgDKMYA==
-X-Received: by 2002:a05:6512:3c8b:b0:594:2f72:2f78 with SMTP id 2adb3069b0e04-598faab5a2emr2935465e87.8.1765882069039;
-        Tue, 16 Dec 2025 02:47:49 -0800 (PST)
-Received: from [192.168.1.100] (91-159-24-186.elisa-laajakaista.fi. [91.159.24.186])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5990da119c1sm806260e87.18.2025.12.16.02.47.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 16 Dec 2025 02:47:47 -0800 (PST)
-Message-ID: <3658e6cc-755c-4b38-aec7-b8bfdd7c8bd2@linaro.org>
-Date: Tue, 16 Dec 2025 12:47:46 +0200
+ d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=weI1zJCX5OEXPmCLgywMXUdE/ktjWTotOcNIyzL9dfc=;
+ b=uKr8ynbHD0MLpYTgz4xc81fOjTAERrbfQH9U3wi4PPm1xFhuEi9lhszYO/QLZA26FvfVQuACONDi6oyPWrHQFnNgxdxruYZokkL9WN92WVk310lis+5qo0kR82cb2Cb8XsFVwcv9c2wSDR/En3fa6J1Rt7DHOLz1roujb/VQYxc=
+Received: from BL4PR10MB8229.namprd10.prod.outlook.com (2603:10b6:208:4e6::14)
+ by PH7PR10MB6250.namprd10.prod.outlook.com (2603:10b6:510:212::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.6; Tue, 16 Dec
+ 2025 10:53:47 +0000
+Received: from BL4PR10MB8229.namprd10.prod.outlook.com
+ ([fe80::552b:16d2:af:c582]) by BL4PR10MB8229.namprd10.prod.outlook.com
+ ([fe80::552b:16d2:af:c582%6]) with mapi id 15.20.9412.011; Tue, 16 Dec 2025
+ 10:53:47 +0000
+Date: Tue, 16 Dec 2025 10:53:46 +0000
+From: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+To: Baolin Wang <baolin.wang@linux.alibaba.com>
+Cc: akpm@linux-foundation.org, david@kernel.org, catalin.marinas@arm.com,
+        will@kernel.org, ryan.roberts@arm.com, Liam.Howlett@oracle.com,
+        vbabka@suse.cz, rppt@kernel.org, surenb@google.com, mhocko@suse.com,
+        riel@surriel.com, harry.yoo@oracle.com, jannh@google.com,
+        willy@infradead.org, baohua@kernel.org, linux-mm@kvack.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 3/3] mm: rmap: support batched unmapping for file
+ large folios
+Message-ID: <b0cde352-0b8e-4330-8c05-fdbc68826e28@lucifer.local>
+References: <cover.1765439380.git.baolin.wang@linux.alibaba.com>
+ <af330c9ea188bd0f28189b1e6e5803f6de9d2abe.1765439381.git.baolin.wang@linux.alibaba.com>
+ <70d1dedc-b4fc-4eb6-baf6-9e54b6a62249@lucifer.local>
+ <eb871ca2-47c8-4b10-a61d-321716f6c147@linux.alibaba.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <eb871ca2-47c8-4b10-a61d-321716f6c147@linux.alibaba.com>
+X-ClientProxiedBy: LO4P123CA0005.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:150::10) To DM4PR10MB8218.namprd10.prod.outlook.com
+ (2603:10b6:8:1cc::16)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 05/11] dt-bindings: clock: qcom: Add support for CAMCC
- for Kaanapali
-Content-Language: ru-RU
-To: Taniya Das <taniya.das@oss.qualcomm.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Konrad Dybcio <konradybcio@kernel.org>
-Cc: Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
- Imran Shaik <imran.shaik@oss.qualcomm.com>,
- Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
- linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20251125-kaanapali-mmcc-v2-v2-0-fb44e78f300b@oss.qualcomm.com>
- <20251125-kaanapali-mmcc-v2-v2-5-fb44e78f300b@oss.qualcomm.com>
-From: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-In-Reply-To: <20251125-kaanapali-mmcc-v2-v2-5-fb44e78f300b@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL4PR10MB8229:EE_|PH7PR10MB6250:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6bf29e77-d307-46cc-128d-08de3c91633f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?IHI0mvOt6/SNF9dMTR+/SLCWt7f+hy/4eGdiOEj3AX+bwzjohMcV+ltWUxky?=
+ =?us-ascii?Q?EZdVnVhTvLOgTkfECDOWcbpdkmsPa+ufmoVJgqDAKngJ+Y2063UWDEhCCtnX?=
+ =?us-ascii?Q?jeb8ulNUCRIK+JnryK6OjWkHPVnHFlPEvCbAyrNjLrjCPL00gjrQYQtNDRpH?=
+ =?us-ascii?Q?stVJxdHHlAp2qXJHbfWetqVkqo7QKgauJZuq0wM0LK8eTFtZwqF/KmZ2LI0b?=
+ =?us-ascii?Q?lBLa1RAx5ArMARArQ0Couo+Y7OnBfv7Gl16agMJrGaU4fn35i8c7C34m6dvI?=
+ =?us-ascii?Q?HIF2d7JwLvoKYBxqoyqClpMdQUW6grPAj+HLqTLuCJIRx2P7neZcIyUlI90f?=
+ =?us-ascii?Q?2ixJdz24lxGTdQ/GqDTT6leFX4cmsXAqMf4Xj3mwH9DCYvpZjON05+qUpHde?=
+ =?us-ascii?Q?YTAVAxRoabjvTDpOp+rNcPCiimgUz/mPsJLqLGon4i9jslBAAG7dIXOBs5ED?=
+ =?us-ascii?Q?8spM6YIF7Z4Hjvla1y/YfhkEPXdeNuOJY7ItEhvXM8eLyXmAOT2xSgfyblWi?=
+ =?us-ascii?Q?czmX/PbfuecBwZu4rFcMDrGakXMHMy6kBet91fgJIyetC9SVABZ8K3j098LO?=
+ =?us-ascii?Q?GOimTqPgtz2IwATEpAzof/sUgMqCm0CDz/urNl9ZrwE24vvIS4N8cCdEeNr3?=
+ =?us-ascii?Q?MFs4xs3FqJ7j2MfbCYXFzEHAXYMecrAKN4ak82WWsqFmcvrJr+sj/u9mlxpu?=
+ =?us-ascii?Q?KwtjQOeF/OSN1mYrZLezqWyQQNLzDCnObkAKqmastkqq4NAM4FIpMy94e8be?=
+ =?us-ascii?Q?hzHvESRm8x1DVlrVW0WwTRHFITl7Js10OxXmXIW/IuBKtUr+jI/XOmDJqkHK?=
+ =?us-ascii?Q?qCIWDUe6oZHZY1qqyJX68azU+cSLoDgBopPj3v0k4nmdywCD5jjjZQ6vmjgp?=
+ =?us-ascii?Q?SX4KmzPbJ9K9px1cuRP+gjZ5i2h6F9Rz5PDBS2dG6cZis5H85HUKbtxZsHyY?=
+ =?us-ascii?Q?AwxvIFbHufob82l609z/0pV59pfADndh43G1Tja4ew1AcwD5We1R+R6lTNFU?=
+ =?us-ascii?Q?e+ubX0iPxOgnKG7oX1Os9wUjqyRAG18Dt7Ln0lswOMoMzoGb6hqiG7CAlCmg?=
+ =?us-ascii?Q?txiupyT9oU5uCH7rkmWTxirD48r7vncYUqZMCujAyZH7jrlRQD2SpOF5JdjW?=
+ =?us-ascii?Q?UalpJcwo/XWv6kYSH3ILRpu8gww5OAiBxH2LfqyGIzUXbOVIRwvCURfsaw7O?=
+ =?us-ascii?Q?VWhlPPuMN+EW5cyF3jU4EX/mYDxP65bSQyfFkztO9UaRgF3zmDTOmxosOHCE?=
+ =?us-ascii?Q?KSyg75W/d+2w71mD3Qx6jpYi4fdxrWTOeqm12oiBvupSbwg4NRt+UuJc/JMF?=
+ =?us-ascii?Q?KDclgpmK/1b5yW2RiUlpgE474amt58AZoce5e6V3jsk2nAe2ONW6SlB99tKQ?=
+ =?us-ascii?Q?4FNTouoanOQbk7lWMhmeOuEUSFsWjQJ+jiA2DEzLP/oKJZ1pDg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL4PR10MB8229.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?2JAgv0lMr9RzCNzQK6XK/6FUALiGFKNwyYXMogNJSREFhHxAvqf0JEP3bsuQ?=
+ =?us-ascii?Q?tERuWajyhXA5Hqeg2mmzLckiYwUuWV55kc4yJCnptTn9BA8B2Gml8QJeYByB?=
+ =?us-ascii?Q?2rCEBy/XDmPm3nutu1LjHXYbKyQ+4B/YSu+RdPiL7+dHrYEJM7bGs69Siasu?=
+ =?us-ascii?Q?QZ5rkFHRTUeRwj2eLQNjiRaG527bRxu1LHc5FQV3Gd52rom4fjcF5Uv/+FG3?=
+ =?us-ascii?Q?/KSy6lS9YJqP5VG+fi75AY1u6ejq2/QDKOITZyGqEW/hzgysLz0nIktxtGIG?=
+ =?us-ascii?Q?hIb2ylXvyIny4IvfsnJuf9z9z7eJcK99Kk0z0pKb+img2L03lXnpFB9z9Qyl?=
+ =?us-ascii?Q?y7e5s/dbNRsnJ9F6/rd1pJir4kerTS0ovuXMhCXegTZ73j1+3XoiVwnSlr/L?=
+ =?us-ascii?Q?PDaY0BZmZKvQ3r/sH9c9K+/dmdaFw86wGLU2l1bSIkEsyEty2LpTCpytO4Vc?=
+ =?us-ascii?Q?DAHMPe4bCmsJWH/NipRxKk42oH5lbsnM5p0eURDSfEoUCyGJIeLfwVMTcZHp?=
+ =?us-ascii?Q?TvDcgvispv70QjhKse5fSOVs/GZbcmAEDrvsYV5PBLSiiQ9V0tFVyyFpBSUg?=
+ =?us-ascii?Q?+W6ICjv97lswf8+2WpJY4/DSp+FZ4jqG6iGYMX5D5iuJSVgYDA/QuuaQbukA?=
+ =?us-ascii?Q?l4Z3VVzkKW7my/Nk1AEwPJtvqEQgpsZjiaa4ZHp0JbybwL+gPLbOPGWZSfAr?=
+ =?us-ascii?Q?0Hi98l9k9823PwrsLV7sKAVSXzPDf9RT89MuUhG5gNPdGutLUpBaMBXyf2BL?=
+ =?us-ascii?Q?fCaXVyP+GQrWg3NmJz8HBXduRWakOWrN/4GUMBUCaQmpCXapzo2BY4E/B8Gx?=
+ =?us-ascii?Q?0sbXxkjsv7NkjQyYwrXZV5OqR+b1+jq/zLDoCFcZZV3N6RGUFq+DY+SRWawz?=
+ =?us-ascii?Q?mKjAZfeduENJIzpdJEEaGeol7jgeRYhIuGM5/wgf6n0aTAW0WTJxQReefeyL?=
+ =?us-ascii?Q?V9mY6L/ptXyP/6GIerLD0aam7rLiaiuOeOxZ0aRnrbC2OaojqZ3Z+a0DAN6w?=
+ =?us-ascii?Q?mP5jg8RRILg4Gj0oepuLSQ9/kBVc0TgtLNWwuJ/7CMk/IldLcj+MH16p6R2V?=
+ =?us-ascii?Q?D0LEWZDqbS+8RCPDn/8tan9UbNuIspE+PEwOtllYAAmp89VGVc4LZo9PuMRR?=
+ =?us-ascii?Q?x8t+hAWeG3PglOo8SQ5/cZbtROJDdfb5YkLYT3ZJgu7CB/zC7MyGrDSTobIe?=
+ =?us-ascii?Q?nBdhI70CL+01Uact2XE4XgoRIcAB+iqPZuFSTygJitzf8JwOw9R273wmog8i?=
+ =?us-ascii?Q?bafdNwYEbXEf7Nv/KzGew7n+7fAOOJC2Qk0nqLnom0Na5cM13D/2w847nEpR?=
+ =?us-ascii?Q?eq0U9EVF+l4vwXbKuaIxX8yQ/+GvR/F3PZKHOfF65v4+slYFRwpZMQK7L+ld?=
+ =?us-ascii?Q?maVFYFGa6jON9a0eHJaeADstqDOHVXMLp6Y/GO9NMx5q559IRo1nzI3eEg4n?=
+ =?us-ascii?Q?ehvlLAhlkAJ6CUv0+Y3LsSu9T9F30EoOFPvqDZjCaM65dISXDtsDaP57xYco?=
+ =?us-ascii?Q?edhW43FXJh2YFh961/1uk5uxDewz9smnsfG3Ig5S0YkIToP3j9HlGhm3AwhB?=
+ =?us-ascii?Q?/fI8ZeNbbxzvaFOWYJtVkYz3w6PWCwQX9FnameGoKCPWelgkRR/ps/oBfMBe?=
+ =?us-ascii?Q?nA=3D=3D?=
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: NMd1XXzkX2FQOyEATUaSJdKo4CaHN2lgpqiDRQEi9CepSwkqwL7DyVXCpTBozI3jrmWtmrUQ0y/JDkRiueffWv/zxM9YlihSaORHbIS4K8kIPPNRpZTw+UrqekrYi3AK9vXtrGxAWTRiFVvHrIPUcx43oIdgT87uccpiXYMNT3TyzWNd4XDgkRKGT2uS79Hwg499LAQTBofJ5YsW2Afjs/hRgr9ze15zjbtWpK5Q0RtqtlymUxZWjAf21v8aWBZQJ3AXCLVts6UnC2R6dfLdG10XFFu/z+f4ta+as0jATcGfvnSoTmfPHUaM7gMmsWda4n6H7tuNkmkIESbQAskLtutOl+qT8zUeallr3S+/7EpihKPFM59GvmyDOQZ5PXVhVViVIJKX85EYbzD+Pu3FMbY5t4+o4PfzW//7jJ+DbiFhtkoamOSVTt12XUP2XwjrSd6ILL1FkEMS5uwwBjYz/vCX/jFzJ3+bokw5VNX3ZQ799Mr4uJuTTObwhfOXXm4ZB6XQQ65leQUwcElYnYAmILVDIoVUWSIrnbbHYvDwI35z9RF0PirOZAwIjy2wdg6PzL/Y1MCYH5wc7OLRuHlbt6AUIBOEr26eM0mIgIY+Es8=
+X-OriginatorOrg: oracle.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6bf29e77-d307-46cc-128d-08de3c91633f
+X-MS-Exchange-CrossTenant-AuthSource: DM4PR10MB8218.namprd10.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Dec 2025 10:53:47.0169
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: dfdgZwKnjowlTatNjpdM0fWjRWOW7g05jsiLdaXvp45ub0zl4wd6vlfFscRwjH28Pp7EIPaaw5zMR276rlyAK0PX7PKP+IX4ShnNU11+23o=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR10MB6250
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-12-16_02,2025-12-15_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 bulkscore=0 suspectscore=0 adultscore=0
+ mlxscore=0 malwarescore=0 mlxlogscore=999 phishscore=0 spamscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2510240000
+ definitions=main-2512160092
+X-Authority-Analysis: v=2.4 cv=TbWbdBQh c=1 sm=1 tr=0 ts=69413a3e b=1 cx=c_pps
+ a=e1sVV491RgrpLwSTMOnk8w==:117 a=e1sVV491RgrpLwSTMOnk8w==:17
+ a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
+ a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=wP3pNCr1ah4A:10 a=GoEa3M9JfhUA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8 a=SRrdq9N9AAAA:8 a=XzBnalfdy0WIq3LgxNoA:9
+ a=CjuIK1q_8ugA:10 cc=ntf awl=host:13654
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjE2MDA5MSBTYWx0ZWRfX7by9kFoKHIqt
+ p2zbWD2+TmsZ78VV21erq8juFrQVV8I2dTdC20vtPpk8ZUe0U5x39tDluH5mrnexbwSKMjNsepM
+ JvsyD6iJvCa5tywi77+pgi3GwjczkNkrH58HxIhXPCMVsLXak3cbqnOtm6oN0+AJzD2aqVXvDs9
+ yXDOrKkKT36aXByK4vRbwBFvNElIA5ftfIaYX0YGy0JPDDxtZW95joj9NW5XkngjYEta5O7LUxb
+ 51qgDc4dGXt5a5sFZosCBpfkCgAdNvolcuTbL3+LdU7Vo0nRNDgRIWGhHVRoJS81XFKfQVXvsIM
+ 3SkK7wJELhRUmVimn/gfJPbD3kI/mlkvxTW7ow+oj8SQoph0Wi8Ag492SQwoEs04aDh0a8KXRng
+ tN36SUb6LXhfbwknte9rilWgnrrwil9gSnKJiNnW0OEYJb0BpCc=
+X-Proofpoint-ORIG-GUID: K7tonjE7JMV5EeM3hLZTw3LnTJUIZu47
+X-Proofpoint-GUID: K7tonjE7JMV5EeM3hLZTw3LnTJUIZu47
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_024751_495792_51905D4F 
-X-CRM114-Status: GOOD (  19.18  )
+X-CRM114-CacheID: sfid-20251216_025410_793798_4CB2B375 
+X-CRM114-Status: GOOD (  33.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,101 +210,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Taniya.
+On Tue, Dec 16, 2025 at 01:48:52PM +0800, Baolin Wang wrote:
+>
+>
+> On 2025/12/15 20:38, Lorenzo Stoakes wrote:
+> > On Thu, Dec 11, 2025 at 04:16:56PM +0800, Baolin Wang wrote:
+> > > Similar to folio_referenced_one(), we can apply batched unmapping for file
+> > > large folios to optimize the performance of file folios reclamation.
+> > >
+> > > Performance testing:
+> > > Allocate 10G clean file-backed folios by mmap() in a memory cgroup, and try to
+> > > reclaim 8G file-backed folios via the memory.reclaim interface. I can observe
+> > > 75% performance improvement on my Arm64 32-core server.
+> >
+> > Again, you must test on non-arm64 architectures and report the numbers for this
+> > also.
+>
+> Yes, I've tested on the x86 machine, and will add the data in the commit
+> message.
+>
+> > > W/o patch:
+> > > real    0m1.018s
+> > > user    0m0.000s
+> > > sys     0m1.018s
+> > >
+> > > W/ patch:
+> > > real	0m0.249s
+> > > user	0m0.000s
+> > > sys	0m0.249s
+> > >
+> > > Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+> > > ---
+> > >   mm/rmap.c | 7 ++++---
+> > >   1 file changed, 4 insertions(+), 3 deletions(-)
+> > >
+> > > diff --git a/mm/rmap.c b/mm/rmap.c
+> > > index ec232165c47d..4c9d5777c8da 100644
+> > > --- a/mm/rmap.c
+> > > +++ b/mm/rmap.c
+> > > @@ -1855,9 +1855,10 @@ static inline unsigned int folio_unmap_pte_batch(struct folio *folio,
+> > >   	end_addr = pmd_addr_end(addr, vma->vm_end);
+> > >   	max_nr = (end_addr - addr) >> PAGE_SHIFT;
+> > >
+> > > -	/* We only support lazyfree batching for now ... */
+> > > -	if (!folio_test_anon(folio) || folio_test_swapbacked(folio))
+> > > +	/* We only support lazyfree or file folios batching for now ... */
+> > > +	if (folio_test_anon(folio) && folio_test_swapbacked(folio))
+> >
+> > Why is it now ok to support file-backed batched unmapping when it wasn't in
+> > Barry's series (see [0])? You don't seem to be justifying this?
+>
+> Barry's series[0] is merely aimed at optimizing lazyfree anonymous large
+> folios and does not continue to optimize anonymous large folios or
+> file-backed large folios at that point.
+>
+> Subsequently, Barry sent out a new patch (see [1]) to optimize anonymous
+> large folios. As for file-backed large folios, the batched unmapping support
+> is relatively simple, since we only need to clear the PTE entries for
+> file-backed large folios.
 
-On 11/25/25 19:45, Taniya Das wrote:
-> Update the compatible and the bindings for CAMCC support on Kaanapali
-> SoC.
-> 
-> Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
-> ---
->   .../bindings/clock/qcom,sm8450-camcc.yaml          |   6 +
->   .../clock/qcom,kaanapali-cambistmclkcc.h           |  33 +++++
->   include/dt-bindings/clock/qcom,kaanapali-camcc.h   | 147 +++++++++++++++++++++
->   3 files changed, 186 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/clock/qcom,sm8450-camcc.yaml b/Documentation/devicetree/bindings/clock/qcom,sm8450-camcc.yaml
-> index c1e06f39431e68a3cd2f6c2dba84be2a3c143bb1..3ec9bf4d82ad3b0fbb3e58fe312a416b3580c30c 100644
-> --- a/Documentation/devicetree/bindings/clock/qcom,sm8450-camcc.yaml
-> +++ b/Documentation/devicetree/bindings/clock/qcom,sm8450-camcc.yaml
-> @@ -15,6 +15,8 @@ description: |
->     domains on SM8450.
->   
->     See also:
-> +    include/dt-bindings/clock/qcom,kaanapali-camcc.h
-> +    include/dt-bindings/clock/qcom,kaanapali-cambistmclkcc.h
->       include/dt-bindings/clock/qcom,sm8450-camcc.h
->       include/dt-bindings/clock/qcom,sm8550-camcc.h
->       include/dt-bindings/clock/qcom,sm8650-camcc.h
-> @@ -22,6 +24,8 @@ description: |
->   properties:
->     compatible:
->       enum:
-> +      - qcom,kaanapali-cambistmclkcc
-> +      - qcom,kaanapali-camcc
+Yeah, but he sent an entire patch changing a bunch of logic to accommodate this,
+you're just changing the conditional and not really justifying it in the commit
+message?
 
-I do have right the same review comment as the given for SM8750 CAMCC one.
+It really needs a 'it is safe to allow this for file-backed because blah blah
+blah'.
 
-The introduced qcom,kaanapali-cambistmclkcc does not inherit reset
-controller or power domain controller properties, thus it should not be
-added to the list of regular camera clock contollers.
+Is this relying on the prior commits you've added? If so you should say so.
 
-Please create a new dt schema file for qcom,kaanapali-cambistmclkcc
-and qcom,sm8750-cambistmclkcc IP descriptions.
+If it was as easy as just changing the conditional then it begs the question as
+to why Barry didn't do that in the first place :)
 
->         - qcom,sm8450-camcc
->         - qcom,sm8475-camcc
->         - qcom,sm8550-camcc
-> @@ -63,6 +67,8 @@ allOf:
->           compatible:
->             contains:
->               enum:
-> +              - qcom,kaanapali-cambistmclkcc
-> +              - qcom,kaanapali-camcc
->                 - qcom,sc8280xp-camcc
->                 - qcom,sm8450-camcc
->                 - qcom,sm8550-camcc
-> diff --git a/include/dt-bindings/clock/qcom,kaanapali-cambistmclkcc.h b/include/dt-bindings/clock/qcom,kaanapali-cambistmclkcc.h
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..ddb083b5289ecc5ddbf9ce0b8afa5e2b3bd7ccad
-> --- /dev/null
-> +++ b/include/dt-bindings/clock/qcom,kaanapali-cambistmclkcc.h
-> @@ -0,0 +1,33 @@
-> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-> +/*
-> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-> + */
-> +
-> +#ifndef _DT_BINDINGS_CLK_QCOM_CAM_BIST_MCLK_CC_KAANAPALI_H
-> +#define _DT_BINDINGS_CLK_QCOM_CAM_BIST_MCLK_CC_KAANAPALI_H
-> +
-> +/* CAM_BIST_MCLK_CC clocks */
-> +#define CAM_BIST_MCLK_CC_DEBUG_CLK				0
-> +#define CAM_BIST_MCLK_CC_DEBUG_DIV_CLK_SRC			1
-> +#define CAM_BIST_MCLK_CC_MCLK0_CLK				2
-> +#define CAM_BIST_MCLK_CC_MCLK0_CLK_SRC				3
-> +#define CAM_BIST_MCLK_CC_MCLK1_CLK				4
-> +#define CAM_BIST_MCLK_CC_MCLK1_CLK_SRC				5
-> +#define CAM_BIST_MCLK_CC_MCLK2_CLK				6
-> +#define CAM_BIST_MCLK_CC_MCLK2_CLK_SRC				7
-> +#define CAM_BIST_MCLK_CC_MCLK3_CLK				8
-> +#define CAM_BIST_MCLK_CC_MCLK3_CLK_SRC				9
-> +#define CAM_BIST_MCLK_CC_MCLK4_CLK				10
-> +#define CAM_BIST_MCLK_CC_MCLK4_CLK_SRC				11
-> +#define CAM_BIST_MCLK_CC_MCLK5_CLK				12
-> +#define CAM_BIST_MCLK_CC_MCLK5_CLK_SRC				13
-> +#define CAM_BIST_MCLK_CC_MCLK6_CLK				14
-> +#define CAM_BIST_MCLK_CC_MCLK6_CLK_SRC				15
-> +#define CAM_BIST_MCLK_CC_MCLK7_CLK				16
-> +#define CAM_BIST_MCLK_CC_MCLK7_CLK_SRC				17
-> +#define CAM_BIST_MCLK_CC_PLL0					18
-> +#define CAM_BIST_MCLK_CC_PLL_TEST_CLK				19
-> +#define CAM_BIST_MCLK_CC_PLL_TEST_DIV_CLK_SRC			20
-> +#define CAM_BIST_MCLK_CC_SLEEP_CLK				21
-> +
-> +#endif
+>
+> > [0]:https://lore.kernel.org/all/20250214093015.51024-4-21cnbao@gmail.com/T/#u
+>
+> [1] https://lore.kernel.org/all/20250513084620.58231-1-21cnbao@gmail.com/
+>
+> > >   		return 1;
+> > > +
+> > >   	if (pte_unused(pte))
+> > >   		return 1;
+> > >
+> > > @@ -2223,7 +2224,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
+> > >   			 *
+> > >   			 * See Documentation/mm/mmu_notifier.rst
+> > >   			 */
+> > > -			dec_mm_counter(mm, mm_counter_file(folio));
+> > > +			add_mm_counter(mm, mm_counter_file(folio), -nr_pages);
+> >
+> > Was this just a bug before?
+>
+> Nope. Before this patch, we never supported batched unmapping for
+> file-backed large folios, so the 'nr_pages' was always 1. After this patch,
+> we should use the number of pages in this file-backed large folio.
 
--- 
-Best wishes,
-Vladimir
+Right ok :)
+
+Cheers, Lorenzo
 
