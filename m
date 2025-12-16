@@ -4,109 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75624D5B161
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 07:18:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 088A4D5B161
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 07:21:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lsgj8OuzqVfDWSQO7R1AiBs/4NDQw6VrhmnOAUFhsI8=; b=XyZGYX3VoGXoeDbcqB0+Q9YrJ2
-	ACVBFg+znP+j6NApNHBnUCt6TRplYv2uNBeiFLcaDKs9pu6F8IEg6Szkm2eUjeV5pTmXfdvaUF278
-	Igv4SZ+3gRpeCW6WjnZ7R/OG2UbnZpqZJE+GkFaKTDKcL/LD9lBT3tsamvX63y1qQXITmB178GwNe
-	P+6nG+O/7LetpW2GV9ww/d1pmiJiZe4YWOILfl9etpBkwdTSkTWraZsAEU6jdcxjfyrRXbbSfqitx
-	KqRSomGgqpMHl9J4Cqf21yyQBh1NL3rejyK9/sX8QDweha2PPOyXIoi6IhjZ9SeoyWsrdJOyIdXgK
-	xdeilxMw==;
+	bh=j2DcE5/95zKMGcm5PK6kvg2lmrYchM0TUglmEw2Vw9w=; b=Lxyiiuhfh5Fk6B0rk36Dvjh0YA
+	pAnDubyYuJ4fuEF6Gvz+XDw/BfTfpcVZzjODDmyvmEd/5zlG4ydUP0k6aS2QE+yLV5uCqOeiY97XD
+	MyIZomNB4rMm70oDvU6/x6S5teqdRczkQZAMlWv9SOu8IkdE+Rarpfg+ww6IjpI/89Y3afFsNPjVp
+	FLU7BTUg+Q2pFsshiG5IQEP4uHS1WbzrpPrQibO8yv6T6NIOU6z8LGdWiyIS/+X5R73uBFndYx4wo
+	9gRg2UeBkxxSeMvoJBZMkYO35MoRkcmhVywYZczbGU5YsjK+XZd3haI93ZbFTJ9LlYwF+WzmZirSV
+	aWUITeLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVPK5-00000004pyO-2r01;
-	Tue, 16 Dec 2025 07:18:17 +0000
-Received: from fout-b2-smtp.messagingengine.com ([202.12.124.145])
+	id 1vVPNE-00000004qBY-3Flo;
+	Tue, 16 Dec 2025 07:21:32 +0000
+Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVPK3-00000004pxx-06Cp
+	id 1vVPNC-00000004qAp-0BCe
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 07:18:16 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.stl.internal (Postfix) with ESMTP id 692C41D00149;
-	Tue, 16 Dec 2025 02:18:13 -0500 (EST)
-Received: from phl-imap-17 ([10.202.2.105])
-  by phl-compute-04.internal (MEProxy); Tue, 16 Dec 2025 02:18:13 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1765869493;
-	 x=1765955893; bh=Lsgj8OuzqVfDWSQO7R1AiBs/4NDQw6VrhmnOAUFhsI8=; b=
-	Ee+eWgIyyqGFQ2U++/CCQfKtX1+PBraLcFgCVSjRTmiHVd4v7cOAtqBISMUoZK2I
-	/unVBNqkXUnAo7v369WXoBPr0PMwXRuymkveGrq3/4hyg/HDDDldn+AZ4gEMTPke
-	jlQGjyCfSBTTKOmXCBALCZDeoqXO+363SVyzwOOvqz4ls3WkQCmjf+EpkjQDqxNL
-	bEX5I4P0cn64xkyMLObLbRJ1bTLyOqOm+6GjWUabXIV8TU5M2u2xjqUG0zrjMk/F
-	XWfYbYtd3GZQAf+CpHhWPdzk65twJNyidxo8Q/cBubC1wTyQidS1LPywta+9WRs6
-	lcEDtPrH3vFA3d6P86j8eA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1765869493; x=
-	1765955893; bh=Lsgj8OuzqVfDWSQO7R1AiBs/4NDQw6VrhmnOAUFhsI8=; b=E
-	tukkHQ2YrviOGwMTrESN0wNEloj3aeZqQbLr5m6puuJ5ls/S8ly/IJ2/jPpxYaoQ
-	FOlokDEf6OBcrJxWI9qtK9FbviUhH6FbGM2btFX2zMomhj8GV/DTVN6cAkI7LKEz
-	CDCKK/8+ZhJkco98/VDUhHfGe1CYXUZGchJnXRQUyJfucLl6ouC4ZcA44FrlAeMc
-	a11nOuMUC2dWY9McsBz6hkvr6Vti9DZ0s+th5ATlUEQTtuAmWjV7VbRFm0xt4eiZ
-	qjk44MfELfAwYmjf4GaY0/qnwbElMv1QYaidkugtcju4rBcekQf9lebRnA1ymIdF
-	Y0/c1Ug9lJmoPVU09EsFA==
-X-ME-Sender: <xms:tQdBaTqci9f5MQlHxVNLOJ8o4-osZO0LrQ-E5CCFtSc5XiW3P4PLRw>
-    <xme:tQdBaYd01GHiuDnL59bTT7eecpJrOZB606OKWEPhNrYM--rla-ekOotP_0zXNG-lK
-    q3_mZxvmcwmffGz8_tZ2cLokNiu0tNjZEtNCMOrVLKxyMHu-mr_Wlc>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdefledtiecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
-    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
-    hnpefhtdfhvddtfeehudekteeggffghfejgeegteefgffgvedugeduveelvdekhfdvieen
-    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
-    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopeekpdhmohguvgepshhmthhpohhuthdp
-    rhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpth
-    htoheplhgvohdrhigrnhesrghrmhdrtghomhdprhgtphhtthhopehirhhoghgvrhhssehg
-    ohhoghhlvgdrtghomhdprhgtphhtthhopehjohgvlhdqlhhinhhugiesjhhmrgihrdhush
-    dprhgtphhtthhopeifihhllheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepjhgrmhgv
-    shdrtghlrghrkheslhhinhgrrhhordhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmh
-    dqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohep
-    lhhinhhugidqphgvrhhfqdhushgvrhhssehvghgvrhdrkhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:tQdBabqlVGzyMXgvvDrOHVcNHcJCijQBB5LAKg_b-DLBZOfuODTprQ>
-    <xmx:tQdBaRqqHyE3Pe5XM5WRM1GI1r6iILCQ6rZp3-7EjY-468z95MXsjw>
-    <xmx:tQdBaaYZCmxy8JbVSwHT030E9CdK0dcvgOAGorPfCoOvqi-yTLtFyQ>
-    <xmx:tQdBaf_vE98Sq-O-6NLIrSl9uRm1QVQeW6NdnKv5GYmQJOvX-iUtIA>
-    <xmx:tQdBaQ3RztgEaVGa-htyM0sa-EZ0bLG4Hgv81PlMDG2VRjOJ_LPsefWQ>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id EDB30C40071; Tue, 16 Dec 2025 02:18:12 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Tue, 16 Dec 2025 07:21:31 +0000
+Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-37a33bd356fso3578311fa.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Dec 2025 23:21:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1765869687; x=1766474487; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=j2DcE5/95zKMGcm5PK6kvg2lmrYchM0TUglmEw2Vw9w=;
+        b=EBtP/JB3F2XhD1dATvJgly8P3k4DtUTJVkTezIFYFw2nLVMgaieWgO6vcog+AZ6Y7A
+         AtohAdUXEt58/a72+ut4+xhCfQ4WUJAMxHMEJZlQFNTb1lGTDPbkWu1v9X/dftkAClgQ
+         fIwmY9Zibm83VAG1fEPQKIqYeHwdrjp1/+qA5t8uil+pmlUcQZcOdms8vHUko9/I/YOM
+         05yO/9YTnwQoEIowS/hNVDoSmbevp1HjNZdr8I8CHcyXvDHh3pFKt4L1QHA6FYHqZWAJ
+         1T4FQX37WurUWJjR/aagsZYh2vGomUrOh7dU1PTGr4zEzU60W2YDcFRURNw2G19Skd9u
+         OVFw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765869687; x=1766474487;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=j2DcE5/95zKMGcm5PK6kvg2lmrYchM0TUglmEw2Vw9w=;
+        b=r5kdiJifpmG7GOBu5qtPR8k3CjmjGxXV9VCla8DZ4rrPqSshZzhrEotuUDQTfaXyNl
+         5eBE28uPKgEqMKm8Okp3lGPhVuUEochOdySZUaYFSLcOeWRip1w4bvOP2uYcZuUSmbOp
+         v6jKlqqKaocrHeZPpI1e6jmnJtVvA2PSfTyRIVmfAatBpShfMWkVRv//buSiF6/+fi+e
+         jLD+uaS6knZuf0XvWd1m6/KbZr68gqLfmfe34OIpOj61FLL4QwC7OR+aconXaHgP5l9c
+         D2TrZQsUzOQ6J5Te03uAOJF1waSN1hdDuEF2JBgwrbaXUoGf0JQM/THaNd/u6ofICPyd
+         P0uA==
+X-Gm-Message-State: AOJu0YxGKel7bbttAAS6XNCFRmyj9x6Bz/E5LRh0a+Cfw0zAa+86HXCj
+	CKQ5jW8fEL+bBf6UWSBbdBmISUk3ptqud9eDTG2eFVuH1n8tuGrJoUnzP1ng2tV6RSc=
+X-Gm-Gg: AY/fxX4NxOlzAg28ZOjkYk10QiMxyEE5pw4cRoemUrqLJzFk61GX/jn2txw7+NtReY2
+	cIGYK8TlRbX2YjR6fVb+9IrZVvCiJKG7jEVXff+D/VDMABhpMJ2KMFbE4ctQ/Bd5naKR7RUZOVC
+	lxNFOSHqA6ryDyozV+CXU9m7VeLhWfLdRHOYfMYkb/V4DVahb0qFnjSrL9w8GYw4x5c5UUGQdLu
+	VXK6++1/VNHYpIVTGNDQHtZjUMDlN8F92O8Ln8numN9fuaM6lktlDfOK3bc6D4xpqm13+FFUm3S
+	Euf3r4mCVvwXG46bwhLmP+TNPswgx2+ex7AzI2inUBlWKE8cTNZTocVTdCbieaPYtXytgu7UgCX
+	jrH2wzDCLsrae4etl9vkBy6WkPQgVe3LdIZME8KjKNrPnZtoGhJnkKr6GrKBhZOW/6uQeMMkbwS
+	D/I/mpnuLOrWwn0rS3hEOJzKyintDH9X2rdjipXGD5Za51bq85Xmap+MfAa3B2rXYifg==
+X-Google-Smtp-Source: AGHT+IHNMgsgp9u2yPWPCiPcD2bTZmOe3omll5Q5NDvnxjcWG7cZCuUSmQe6KNVWP+5AylmWofEkEg==
+X-Received: by 2002:a05:6512:3d1b:b0:597:d7d6:398d with SMTP id 2adb3069b0e04-598faa01850mr2816802e87.2.1765869687301;
+        Mon, 15 Dec 2025 23:21:27 -0800 (PST)
+Received: from [192.168.1.100] (91-159-24-186.elisa-laajakaista.fi. [91.159.24.186])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5990da79110sm613437e87.101.2025.12.15.23.21.25
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 15 Dec 2025 23:21:26 -0800 (PST)
+Message-ID: <87815e05-737a-4051-b139-499f388cc144@linaro.org>
+Date: Tue, 16 Dec 2025 09:21:24 +0200
 MIME-Version: 1.0
-X-ThreadId: AV8M3mJaQpUZ
-Date: Tue, 16 Dec 2025 08:17:51 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Leo Yan" <leo.yan@arm.com>
-Cc: "James Clark" <james.clark@linaro.org>, "Joel May" <joel-linux@jmay.us>,
- "Ian Rogers" <irogers@google.com>, linux-arm-kernel@lists.infradead.org,
- "Linux perf Profiling" <linux-perf-users@vger.kernel.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>
-Message-Id: <67bafe7d-6761-4b1c-8742-628513e7e8bd@app.fastmail.com>
-In-Reply-To: <20251215164920.GD681384@e132581.arm.com>
-References: <b2651f20-6f3a-49f5-9cd8-3fb028b2cab5@app.fastmail.com>
- <fcefc3c0-541d-40cc-84e3-9c2460308bdb@linaro.org>
- <23c07ac4-ff13-47a5-824a-e7af1d1847a3@app.fastmail.com>
- <bda366b4-fa53-4feb-a7ce-ee47cfc404b5@linaro.org>
- <20251215112818.GB681384@e132581.arm.com>
- <0076b248-9b23-408d-9448-701df3c8d952@app.fastmail.com>
- <20251215164920.GD681384@e132581.arm.com>
-Subject: Re: [PATCH] arm64: perf: fix syscalltbl path base
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 3/5] arm64: dts: qcom: monaco: Add camera MCLK pinctrl
+Content-Language: ru-RU
+To: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>,
+ bryan.odonoghue@linaro.org, mchehab@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, andersson@kernel.org,
+ konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
+ cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com, will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, quic_svankada@quicinc.com,
+ linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20251216062223.2474216-1-quic_nihalkum@quicinc.com>
+ <20251216062223.2474216-4-quic_nihalkum@quicinc.com>
+From: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+In-Reply-To: <20251216062223.2474216-4-quic_nihalkum@quicinc.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_231815_370010_E5FFCD10 
-X-CRM114-Status: GOOD (  18.61  )
+X-CRM114-CacheID: sfid-20251215_232130_108684_5C83B07E 
+X-CRM114-Status: GOOD (  12.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,45 +107,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 15, 2025, at 17:49, Leo Yan wrote:
-> On Mon, Dec 15, 2025 at 01:22:04PM +0100, Arnd Bergmann wrote:
-> As discussed in [1], I would prefer to drop these headers, but Ian
-> noted that this could break builds with older toolchains.
+On 12/16/25 08:22, Nihal Kumar Gupta wrote:
+> Define pinctrl definitions to enable camera master clocks on Monaco.
+> 
+> Signed-off-by: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
+> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
+> ---
+>   arch/arm64/boot/dts/qcom/monaco.dtsi | 21 +++++++++++++++++++++
+>   1 file changed, 21 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/qcom/monaco.dtsi b/arch/arm64/boot/dts/qcom/monaco.dtsi
+> index 4b2d8a449b00..ace09239d167 100644
+> --- a/arch/arm64/boot/dts/qcom/monaco.dtsi
+> +++ b/arch/arm64/boot/dts/qcom/monaco.dtsi
+> @@ -5182,6 +5182,27 @@ tlmm: pinctrl@f100000 {
+>   			#interrupt-cells = <2>;
+>   			wakeup-parent = <&pdc>;
+>   
+> +			cam0_default: cam0-default-state {
+> +				pins = "gpio67";
+> +				function = "cam_mclk";
+> +				drive-strength = <2>;
+> +				bias-disable;
+> +			};
+> +
+> +			cam1_default: cam1-default-state {
+> +				pins = "gpio68";
+> +				function = "cam_mclk";
+> +				drive-strength = <2>;
+> +				bias-disable;
+> +			};
+> +
+> +			cam2_default: cam2-default-state {
+> +				pins = "gpio69";
+> +				function = "cam_mclk";
+> +				drive-strength = <2>;
+> +				bias-disable;
+> +			};
+> +
+>   			cci0_0_default: cci0-0-default-state {
+>   				sda-pins {
+>   					pins = "gpio57";
 
-I didn't find the reference to breaking, do you just mean it
-would break when falling back to a header provided by the
-toolchain's own asm/unistd.h, or a problem with the modern
-generated version that is solved by using the old asm-generic
-file?
+Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
 
-> Generating the headers dynamically would avoid maintaining duplicated
-> copies under tools/ and no need for periodic syncs.  However, this is a
-> quite big effort, not just perf, we need to update makefiles to the path
-> of the installed headers.  I'd like to hear opinions from tools
-> (perf/bpf/selftest) maintainers before proceeding.
-
-I see that we do ship the sources for generating headers on
-most architectures in tools/perf/arch/*/entry/syscalls/syscall*.tbl,
-the only exceptions being mips-o32, mips-n32 and x86.
-
-I would also point out that s390 no longer needs a custom script
-as of 6.19, since the last incompatibility between the s390 format
-and the x86 format of the tbl files got resolved with the removal
-of the s390 compat mode.
-
->> or we just stick with
->> the old asm-generic/unistd.h copy and use that on arm64 as well.
->
-> I will proceed this way for now.  From a maintenance view, it is a
-> pragmatic solution that only requires reverting a few patches and does
-> not introduce any new code.
-
-Note that if we ever need to update the
-tools/include/uapi/asm-generic/unistd.h file for new syscalls,
-that will get harder in the future once we remove the
-kernel's own include/uapi/asm-generic/unistd.h. I'm sorry
-I never sent that fix after the previous cleanup that introduced
-the common script.
-
-     Arnd
+-- 
+Best wishes,
+Vladimir
 
