@@ -4,95 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41F46D64060
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 22:58:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1DBB8D637DF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 23:08:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+K9oHXy9CoE2Iutxvsb9f32gwPILUiKga23gHX+m8Es=; b=i3vThsI5GO5Do8b3EyM3EjYYvZ
-	eZZtG4ukTBPKqHsxRy7NlIaoaqpWMuD7W6Ma2tH75SaIjSCYCplDvDiYIbBWfvqFETGRGdn+l0JaA
-	I5p1WladWVYg6heIIJNuDjteObD1smJ31q004w1QbsmSUdhlfQnImHTSF51AawE4QX75Dc7dENIaB
-	A4J50SVA+Byx3CL12yhJHfrZqw7lY0cOqrQx3OpoTrp4qTF8h1h/u0xW+1JlK/q/a3vcsuvqxfDog
-	DWNC3COYGhChic73fUxTxkrMJSYL5w1eCV2aKiJFyPvE/EpsEMvFsC1dvYNuimoKs1XBeNdkrR2qN
-	PMbaICxA==;
+	bh=fEnKjDj9pQFaCr4EZmae2jNEPFVNmbflp2ZNa+r+P+Y=; b=Y2iP0wYw5qVSuEnxWrGU8WP/Z4
+	gtsK2xrM2aYMSH4sMZrDJm8RkhJFMsngD2/ZHSsBKpmRjFKd9EmnAzSjg4EawFcM0m5db0hyNEFJ6
+	Ylx7sP1BayneN4J6Us+W/g+P3nYuRhfhuQgng5r6DaBeMkR4chSE651ra0u2I0PKPsAfyBTT2qm41
+	0k22BZnMudZfLTerGQ37qxQkQgP/pQVGAtqsIb3LQHDYoqZ2iIQM4s5yXPm/EHc7hD6mPesgUV7DL
+	P5IrUXpAC4NlYOAxArjqzUoy298tZVATRhT0TZSG+/EsjmWt76g0J1wZ1qPobJEz5UU1WKuKdHlyL
+	9VNHfBRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVe0C-00000005vGT-1D0u;
-	Tue, 16 Dec 2025 22:58:44 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1vVe9W-00000005vqY-3ed4;
+	Tue, 16 Dec 2025 23:08:22 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVe0A-00000005vFS-0aqe
+	id 1vVe9U-00000005vq9-1HDi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 22:58:43 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4779e2ac121so11135e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 14:58:41 -0800 (PST)
+	Tue, 16 Dec 2025 23:08:21 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-477a1c8cc47so26295e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 15:08:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1765925920; x=1766530720; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=+K9oHXy9CoE2Iutxvsb9f32gwPILUiKga23gHX+m8Es=;
-        b=wppLgqtACPAw6fRUqdO2Z5sSt8S2svpbqJF0rdmCGxUfipaK2MeuIYIXX80zvmIaLA
-         QFr9Q95TgLlbbXzFdnwUe5XjQw9RPx2pO/vxg97h+LbB1PWmwH0n3ZvTlex7VYWF+rH/
-         RRfI0aG17wkfhPwJeOnCCMOAk25kd2fxvmSnOc2+NZX9O5tIE1hTfV2JD67chlfRZBJO
-         5bHGqYQ1sHVH1IeOTH+hD8NDyAWBukQpPxkYbNLdWi2eVC3INYdTSu4N1e7KG167HQQj
-         kHl+fi9nvW+FomJKoK3HJsdQqTnthjfngNmNqDnZmanvsIh9vDiM30XgFdOcwYjuaueO
-         kOgQ==
+        d=google.com; s=20230601; t=1765926498; x=1766531298; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=fEnKjDj9pQFaCr4EZmae2jNEPFVNmbflp2ZNa+r+P+Y=;
+        b=A+YyCY2rqTe2Z9jFC1A43zAScGetdq9t6L5e7+ZgDbYLk7GsX9AH/gkAkZYS2XIrFV
+         KP7PyjEBZlQiUvt4sWXpwHvooRXSvITYpn1eDItt9YxTftX9oFkGTAfa7D6x67Mhp7Vl
+         4KO1hcW+Q4y0d23TH9mic3eTbXmQxUWqaeIuYbjmLyujbYpVKOdF9iJUxk0yFDmW8jCD
+         AeOPNGxwn1mKL1Sq4zkVqipDLtJPuwc1CnMmOop9AKwf1I1Q61+icmCv9fnKgWr3L459
+         wzcKCmnm3Hv92tPWOf4y/HGczzctqdvNvhpwXy5WI1RwrvQrtgxJb3KdSTViblZXvrQI
+         A69w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765925920; x=1766530720;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+K9oHXy9CoE2Iutxvsb9f32gwPILUiKga23gHX+m8Es=;
-        b=RNYTp39jSGODpF3W+h2lSEDq3GRx59qFxmEYMuYrvK5HucdL0/u93Ucn8Sqi50vpTg
-         y1bQA5qD65GEexEDrzQPDTlfLWDhFgDtZw6+OAHFNzNav2pfUmd0qD+mvqJdBIPAzW/r
-         QGiGNXIQXSVywPi71GzULk6YVr6u2S0Tqf/+fgy6bta0Lf1YKs6GvVY99QkMZqFmypB1
-         LSx3mPcCxKKQLpW/9rqI/IPiFLAjkaM8hsna5OkvPvSZ1LQtwLPv+80axLGFC/ODfWYU
-         B8bgytOntdFEa+TkePJzQvvTmg5dO0lP0ezT0S/pby3fkA0hZRd5ePAN2VjxyL1bi7VX
-         +mVg==
-X-Forwarded-Encrypted: i=1; AJvYcCV6FZpTOLLoB7wUiw/EV1r1Swbs8rNgA/VppyiumA//33Ai0lkyEIXCC9dW5NVohEl3jkt56e+6Kyx8vPFufVXa@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz7TJUOctjOaQVtlrGn2H2aug4LFCW1zY97CdQfjN80E7o7QS6X
-	M3CJhSZ4winmLQpella7WSHGPn9JmXXlBy3LpP86eCgnAzJhUOaYH/t3+CKQNSEjtg==
-X-Gm-Gg: AY/fxX5YYj9stS1oLsqM0D+DDbmzb1mRA1F8OOCynTmYIaYX8v+qHhk3s+ihp2XihfW
-	Vws2iZD2xNeUUTzkT6eziqm2+GGhu0uLieLkEwZwpERZsuqDV92kAwn9IPCQ12idoDgvzavb1AI
-	lRDPJvw8H0sOKlND7zdZ0eO8CNBze0eeRkrRAIvQMJ/Hu1W29Uhl6CzdNl8wTaffEGtZdbCe88k
-	eN21sLTUBEmF3XdAeQxCK1KkvWApfa9/07N6wgSKQkIW4c9c8szYjyYqX58qgD8fLZhaMh0PHK/
-	gFCyYIVRZP1k6X8ebICPMvkY66/KbdkDngxTCz9L1H4k4mMRnEn5EBWl2ZgI+AXkuxaGpf4nM44
-	Jt5hZouTrSe1BLs4nbDM3kuT5/tmNIBGJURwdd4nGdr1g2LXq5KFJr82oKlUy4N0uld4qg43btS
-	OWjcyBbMcvAYOntlZPEJR35QJ9AHhCegNVXhTLJrNKVEeKA65gVWkJ
-X-Google-Smtp-Source: AGHT+IFlMVBkDaS1E2qi3AffURSPog2nfcOnVrpcf8Ei/2t/IInwUKpWIeZ4ineTv2meyteT01GDwQ==
-X-Received: by 2002:a05:600c:58c6:b0:477:b358:c0cc with SMTP id 5b1f17b1804b1-47bdd2be429mr49955e9.17.1765925919932;
-        Tue, 16 Dec 2025 14:58:39 -0800 (PST)
+        d=1e100.net; s=20230601; t=1765926498; x=1766531298;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=fEnKjDj9pQFaCr4EZmae2jNEPFVNmbflp2ZNa+r+P+Y=;
+        b=OXd19ZkZ4wSnIgApb8Yn4j4Tki6BD2XLH/eGTxGorrbe1oTodsK6KHmQdv5LA3y0bj
+         XHWOLLpzdqiNKZGOeTKho9ONPFF38xygvEnEqlZ+esiO4AX8eHIGMgbpvD0gKBsNh++a
+         9rlndXkt61eMmCc8OFWaG5c5cjow0ZaYRca6DuudT0IVF6I5qm8LhG+Vy/nXsZu0G1ej
+         pv9JV8o7Xb/6TZsyoRwdGHF9Bfm4O5XtQcnSmlJF/zePpe9hkTQf435IeJ5y93394wF7
+         xMMnhhxuQcBT+1X26WR4hAYBAhwSPzuqSAPGm0U1qIMUUt0BhI2QdvKe6vzeby7om7Up
+         gsEw==
+X-Gm-Message-State: AOJu0Yy28uu0eZ/UUY47JfCKEkvv/tFP40ibEeuYtZcwuj75pGSXaWnA
+	BA5cHVnMmFa4J79tdwaaspr6iGr7vM8aimAzwPm8ozfFo4HvPI6StJbojR0Mz9BMRA==
+X-Gm-Gg: AY/fxX7v+FbA0EFQH0tpRBYWyrOtZfmibrR48rVBV2fjjruz/WEOvv2A7+mc9se7OHL
+	TE4nGWkBObbBzahCEZkribJfOnLbs8lsH7imRJbkJNTxRUkNAi+bPl3Gq/ueuGwWymDVJ1gdCDN
+	TL2+rBjUcFGPEq/c3SX6IALgL9VAZq81KUbdLukRmFlAU76FBnf/VQPk1S4dC1xC6bC+nXggU19
+	EITPdOC2GnQ9ApLWGVk+w7K4F+nDzdJkLCXH+6uXSsesDgbQ6ajtEwj2O5Fa1eKqiURYCUlonjD
+	zP8SGwQy/nww++I7uzry31yPsB6gK56vYj5WBFvm6qVt28IiA0leDXj9jZWlvhXq+B8TXyVeSIe
+	gbJj0lalT0RkyvFXIDYL3MJtdSi3P5/0YmSvPa9GVtwRvD20r3jRPoLmt1CpIsvctT0ozUMvC18
+	hwqbKZXVfe/0LX7Mcb2nNGTaylPkCVMLW8dDLIo0Uu7vMFJaZwbkRiogRYTNVyGFw=
+X-Google-Smtp-Source: AGHT+IG7LwUc1KusrGX+ZA2zOk94gnfIHzqutaEubqj6+XSKrKArOVejMGxCukQG8Efn/eVNuyxG+Q==
+X-Received: by 2002:a05:600c:4b99:b0:477:255c:bea8 with SMTP id 5b1f17b1804b1-47bdd2b0bfamr45995e9.7.1765926498247;
+        Tue, 16 Dec 2025 15:08:18 -0800 (PST)
 Received: from google.com (170.226.195.35.bc.googleusercontent.com. [35.195.226.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47bdc1edd26sm10841175e9.13.2025.12.16.14.58.37
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47bdc2355d7sm11409285e9.14.2025.12.16.15.08.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Dec 2025 14:58:38 -0800 (PST)
-Date: Tue, 16 Dec 2025 22:58:33 +0000
+        Tue, 16 Dec 2025 15:08:17 -0800 (PST)
+Date: Tue, 16 Dec 2025 23:08:14 +0000
 From: Mostafa Saleh <smostafa@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Nicolin Chen <nicolinc@nvidia.com>, will@kernel.org,
-	robin.murphy@arm.com, joro@8bytes.org,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, skolothumtho@nvidia.com,
-	praan@google.com, xueshuai@linux.alibaba.com
-Subject: Re: [PATCH rc v3 1/4] iommu/arm-smmu-v3: Add ignored bits to fix STE
- update sequence
-Message-ID: <aUHkGCEeu7L5uCMR@google.com>
-References: <cover.1765334526.git.nicolinc@nvidia.com>
- <cc0d4ab571e2e789ee1cddfa035379dc54f0601b.1765334526.git.nicolinc@nvidia.com>
- <aT87A1ur4htPjM5T@google.com>
- <20251216000952.GA6079@nvidia.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
+	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
+	praan@google.com, danielmentz@google.com, mark.rutland@arm.com,
+	qperret@google.com, tabba@google.com
+Subject: Re: [PATCH v5 04/27] iommu/io-pgtable-arm: Factor kernel specific
+ code out
+Message-ID: <aUHmXkdehGGYX5Mg@google.com>
+References: <20251117184815.1027271-1-smostafa@google.com>
+ <20251117184815.1027271-5-smostafa@google.com>
+ <20251128164541.GA812105@ziepe.ca>
+ <aTw2x1UlldJGVA4Y@google.com>
+ <20251216005834.GC31492@ziepe.ca>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251216000952.GA6079@nvidia.com>
+In-Reply-To: <20251216005834.GC31492@ziepe.ca>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_145842_221733_54E1DFC0 
-X-CRM114-Status: GOOD (  46.22  )
+X-CRM114-CacheID: sfid-20251216_150820_361429_C5B1C871 
+X-CRM114-Status: GOOD (  20.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,160 +107,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 15, 2025 at 08:09:52PM -0400, Jason Gunthorpe wrote:
-> On Sun, Dec 14, 2025 at 10:32:35PM +0000, Mostafa Saleh wrote:
-> > >   * Figure out if we can do a hitless update of entry to become target. Returns a
-> > >   * bit mask where 1 indicates that qword needs to be set disruptively.
-> > > @@ -1094,13 +1100,22 @@ static u8 arm_smmu_entry_qword_diff(struct arm_smmu_entry_writer *writer,
-> > >  {
-> > >  	__le64 target_used[NUM_ENTRY_QWORDS] = {};
-> > >  	__le64 cur_used[NUM_ENTRY_QWORDS] = {};
-> > > +	__le64 ignored[NUM_ENTRY_QWORDS] = {};
+On Mon, Dec 15, 2025 at 08:58:34PM -0400, Jason Gunthorpe wrote:
+> On Fri, Dec 12, 2025 at 03:37:43PM +0000, Mostafa Saleh wrote:
+> > On Fri, Nov 28, 2025 at 12:45:41PM -0400, Jason Gunthorpe wrote:
+> > > On Mon, Nov 17, 2025 at 06:47:51PM +0000, Mostafa Saleh wrote:
+> > > > Some of the used APIs are only part of the kernel and are not
+> > > > available in the hypervisor, factor those out:
+> > > > - alloc/free memory
+> > > 
+> > > Why not provide the iommu-pages API for the hypervisor environment?
+> > > 
+> > > Same for virt_to_phys, that could be moved into an iommu-pages wrapper
+> > > too..
 > > 
-> > I think we can avoid extra stack allocation for another STE, if we make
-> > the function update cur_used directly, but no strong opinion.
+> > I guess that's possible, but then we would have to stub dma_map/unmap,
+> > which might a bit ugly. I will look more into it.
 > 
-> It does more than just mask cur_used, it also adjusts ignored:
+> I am hoping to drop the dma_map/unmap and replace it with an arch
+> cache flush call directly since the code is no longer modular and
+> relying on the DMA API will have some problems with a future patch
+> series I'm expecting..
 > 
-> > > +		/*
-> > > +		 * Ignored is only used for bits that are used by both entries,
-> > > +		 * otherwise it is sequenced according to the unused entry.
-> > > +		 */
-> > > +		ignored[i] &= target_used[i] & cur_used[i];
-> 
-> Which also explains this:
 
-I haven't tested that, but I was thinking about (applies on top of the patches)
-
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 72ba41591fdb..9981eefcf0da 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -1083,7 +1083,7 @@ void arm_smmu_get_ste_used(const __le64 *ent, __le64 *used_bits)
- EXPORT_SYMBOL_IF_KUNIT(arm_smmu_get_ste_used);
-
- VISIBLE_IF_KUNIT
--void arm_smmu_get_ste_ignored(__le64 *ignored_bits)
-+void arm_smmu_get_ste_ignored(__le64 *used)
- {
- 	/*
- 	 * MEV does not meaningfully impact the operation of the HW, it only
-@@ -1093,17 +1093,14 @@ void arm_smmu_get_ste_ignored(__le64 *ignored_bits)
- 	 *
- 	 *  Note: Software must expect, and be able to deal with, coalesced
- 	 *  fault records even when MEV == 0.
--	 */
--	ignored_bits[1] |= cpu_to_le64(STRTAB_STE_1_MEV);
--
--	/*
-+	 *
- 	 * EATS is used to reject and control the ATS behavior of the device. If
- 	 * we are changing it away from 0 then we already trust the device to
- 	 * use ATS properly and we have sequenced the device's ATS enable in PCI
- 	 * config space to prevent it from issuing ATS while we are changing
- 	 * EATS.
- 	 */
--	ignored_bits[1] |= cpu_to_le64(STRTAB_STE_1_EATS);
-+	used[1] &= ~cpu_to_le64(STRTAB_STE_1_EATS | STRTAB_STE_1_MEV);
- }
- EXPORT_SYMBOL_IF_KUNIT(arm_smmu_get_ste_ignored);
-
-@@ -1119,22 +1116,15 @@ static u8 arm_smmu_entry_qword_diff(struct arm_smmu_entry_writer *writer,
- {
- 	__le64 target_used[NUM_ENTRY_QWORDS] = {};
- 	__le64 cur_used[NUM_ENTRY_QWORDS] = {};
--	__le64 ignored[NUM_ENTRY_QWORDS] = {};
- 	u8 used_qword_diff = 0;
- 	unsigned int i;
-
- 	writer->ops->get_used(entry, cur_used);
- 	writer->ops->get_used(target, target_used);
--	if (writer->ops->get_ignored)
--		writer->ops->get_ignored(ignored);
-+	if (writer->ops->filter_ignored)
-+		writer->ops->filter_ignored(cur_used);
-
- 	for (i = 0; i != NUM_ENTRY_QWORDS; i++) {
--		/*
--		 * Ignored is only used for bits that are used by both entries,
--		 * otherwise it is sequenced according to the unused entry.
--		 */
--		ignored[i] &= target_used[i] & cur_used[i];
--
- 		/*
- 		 * Check that masks are up to date, the make functions are not
- 		 * allowed to set a bit to 1 if the used function doesn't say it
-@@ -1142,8 +1132,6 @@ static u8 arm_smmu_entry_qword_diff(struct arm_smmu_entry_writer *writer,
- 		 */
- 		WARN_ON_ONCE(target[i] & ~target_used[i]);
-
--		/* Bits can change because they are not currently being used */
--		cur_used[i] &= ~ignored[i];
- 		unused_update[i] = (entry[i] & cur_used[i]) |
- 				   (target[i] & ~cur_used[i]);
- 		/*
-@@ -1575,7 +1563,7 @@ static void arm_smmu_ste_writer_sync_entry(struct arm_smmu_entry_writer *writer)
- static const struct arm_smmu_entry_writer_ops arm_smmu_ste_writer_ops = {
- 	.sync = arm_smmu_ste_writer_sync_entry,
- 	.get_used = arm_smmu_get_ste_used,
--	.get_ignored = arm_smmu_get_ste_ignored,
-+	.filter_ignored = arm_smmu_get_ste_ignored,
- };
-
- static void arm_smmu_write_ste(struct arm_smmu_master *master, u32 sid,
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index d5f0e5407b9f..97b995974049 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -900,7 +900,7 @@ struct arm_smmu_entry_writer {
-
- struct arm_smmu_entry_writer_ops {
- 	void (*get_used)(const __le64 *entry, __le64 *used);
--	void (*get_ignored)(__le64 *ignored_bits);
-+	void (*filter_ignored)(__le64 *used);
- 	void (*sync)(struct arm_smmu_entry_writer *writer);
- };
-
-
-And we only clear the bits from cur_used, there is no need to for the
-other mask ignored (ignored[i] &= target_used[i] & cur_used[i])
-- If an ignored bit is not in cur_used it will not impact
-  "cur_used[i] &= ~ignored[i]" as it must be already zero
-- If an ignored bit is not in target_used, it doesn't really matter,
-  we can ignore it anyway, as it is safe to do so.
-
-Anyway, I am not fixated on that though, extra 64B on the stack is not that bad.
-
-> 
-> > I have some mixed feelings about this, having get_used(), then get_ignored()
-> > with the same bits set seems confusing to me, specially the get_ignored()
-> > loops back to update cur_used, which is set from get_used()
-> 
-> The same bits are set because of the above - we need to know what the
-> actual used bits are to decide if we need to rely on the ignored rule
-> to do the update.
->  
-> > My initial though was just to remove this bit from get_used() + some changes
-> > to checks setting bits that are not used would be enough, and the semantics
-> > of get_used() can be something as:
-> > “Return bits used by the updated translation regime that MUST be observed
-> > atomically” and in that case we can ignore things as MEV as it doesn’t
-> > impact the translation.
-> 
-> Aside from the above this would cause problems with the validation
-> assertions, so it is not a great idea.
-
-Yes, that's why I didn't like this, it had to hack the validation logic.
+I see, I always wondered about that, it's because CMO are not exported
+for modules, I can look more into it and send a separate clean up.
 
 Thanks,
 Mostafa
 
-> 
-> > However, this approach makes it a bit explicit which bits are ignored, if we
-> > keep this logic, I think changing the name of get_ignored() might help, to
-> > something as "get_allowed_break()" or "get_update_safe()"?
-> 
-> update_safe sounds good to me
-> 
 > Jason
 
