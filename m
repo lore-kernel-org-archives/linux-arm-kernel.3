@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FA80D5E374
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 14:24:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDEAFD5E370
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 14:27:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jfx3NHidGW5UuJWoYB1IprnwhJjORPuWqiTdZQff9WE=; b=UNsIurTPbVdpvjpa6DMRK41u+G
-	GlL/q5QqV6O2wKWU++fKc5v+3rZsXTtQsm9N6OG+vZTG/796Eq4Nxmql/B4QJIybQ2nkEyOAuZHwo
-	RDP/aCpMK7a6s6rrlQMsXOF4K0qaQSLcno/hao6Epu3FzI7n+Y9Hf9vco7DjWRPQMmaQnWCFy6fz0
-	Zpit9KIfn/i8nd4C9NyuFrmO3t0TLKMqwAelSDkz7M0lHjZBGrZowDFSK+Eh3DeQ2ypUAIrW3VYUC
-	TsgId2KQCTucm7JlBrmgSTYWgUL+JxiqwcHlO0myegx7Cp8PJK88lfMHs38ulw8oHNQe1gJzAeF+e
-	IYRPXLHA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TMQjV9M6xknV3fX6npfTwFh5rCyAtMk1NHWm6l2FYsM=; b=T+5IF/kBbK6iR0/MFkY3Cl+kBr
+	ztCt8AKYXl1Df+mWsSbAQvx3xxIZ4+bWwbU58sYef5WGU1DXjlzUUmM7+Pir6RoESzW4oVK8EhBlX
+	BRJVZaD1pKRCZ+Fcja1ErM/JXDU+yHMKL2GCfByMB04pNyyZBOPVVpXIa+XhP0oNsJUxhD7HuBCqH
+	6kBcf3RW/n3T1DuX5/l7tWb/wt3rWQVvQjIvpq3hQBNn86uCnVW7n/+nw7mT/UEO4YiPxNkFsraOU
+	GOgoDrrWCDMH8r/ZO+YGeS59vizQUMLzl5tnY82bnAieQJNjXEwn5IfRUhvu3ZXa5dJ4vjyzQbjRT
+	qRCqgFmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVVyy-00000005KrC-0dUA;
-	Tue, 16 Dec 2025 14:24:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVVyv-00000005Kq3-2C1L
+	id 1vVW1g-00000005LHR-2AMx;
+	Tue, 16 Dec 2025 14:27:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vVW1f-00000005LH5-03Uy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 14:24:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 15AAEFEC;
-	Tue, 16 Dec 2025 06:24:44 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E48A13F694;
-	Tue, 16 Dec 2025 06:24:47 -0800 (PST)
-Message-ID: <16b5063a-1201-4453-8038-4ef937d20abd@arm.com>
-Date: Tue, 16 Dec 2025 14:24:46 +0000
+	Tue, 16 Dec 2025 14:27:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B225C40346;
+	Tue, 16 Dec 2025 14:27:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C76EC4CEF1;
+	Tue, 16 Dec 2025 14:27:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765895261;
+	bh=QdLkOuh3yfjXqnCRwL0PfHBAIt4oRHGu7KJeW9xmhOU=;
+	h=From:Date:Subject:To:Cc:From;
+	b=ljkMt4zTzCcpZyKjnyxGNKK97xqdcxvqWjkHMjzeoIh0h0vVSYHMw0PrGXdiaZIDz
+	 kDamfR/BFIYixgOaR/UTD0A7EJW5ZeIONIhCgf91cICjVypVEhDz/F6mjvdBGlJF8C
+	 rsNA/qV4yj7OzGViZdPexf9MBhqapNySzMKTvjkIWvTzo4i4eL29+boKErsR5GhQlK
+	 P13EhrAye++z7++KcyTa2nFMp6oCQV9U9fnWTTEyybO5Gl3yUfn0aVk19vXHelRTOo
+	 xe1A2an8MymMMgpWBhbRsUr/eu6pAMTByZq+nFbcvoN6bDYNeUapvzzmL6XKZQWlzK
+	 uOH6JjFh+6jdw==
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 16 Dec 2025 15:27:37 +0100
+Subject: [PATCH v2] ARM: entry: expand comment in __switch_to
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 13/38] arm_mpam: resctrl: Add CDP emulation
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@kernel.org>, Dave Martin <dave.martin@arm.com>,
- Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- fenghuay@nvidia.com, baisheng.gao@unisoc.com,
- Jonathan Cameron <jonathan.cameron@huawei.com>, Gavin Shan
- <gshan@redhat.com>, rohit.mathew@arm.com, reinette.chatre@intel.com,
- Punit Agrawal <punit.agrawal@oss.qualcomm.com>
-References: <20251205215901.17772-1-james.morse@arm.com>
- <20251205215901.17772-14-james.morse@arm.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <20251205215901.17772-14-james.morse@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20251216-comments-in-switch-to-v2-1-190d8741db14@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/4WNQQrCMBBFr1Jm7cgkRJu68h7SRUjHdsAmkoSql
+ N7d2Au4fA/++ytkTsIZLs0KiRfJEkMFfWjATy6MjDJUBk3aKNIWfZxnDiWjBMwvKX7CEpFYG2O
+ JrelOULfPxHd5791bX3mSXGL67DeL+tl/xUUhYastDdSdW+Xs9SHBpXiMaYR+27YvhTIGjbsAA
+ AA=
+X-Change-ID: 20241028-comments-in-switch-to-0e24480e8495
+To: Russell King <linux@armlinux.org.uk>, Ard Biesheuvel <ardb@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Mark Rutland <mark.rutland@arm.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_062453_683422_03B57907 
-X-CRM114-Status: GOOD (  29.18  )
+X-CRM114-CacheID: sfid-20251216_062743_082738_912E9365 
+X-CRM114-Status: GOOD (  13.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,136 +76,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
+From: Linus Walleij <linus.walleij@linaro.org>
 
-On 12/5/25 21:58, James Morse wrote:
-> Intel RDT's CDP feature allows the cache to use a different control value
-> depending on whether the accesses was for instruction fetch or a data
-> access. MPAM's equivalent feature is the other way up: the CPU assigns a
-> different partid label to traffic depending on whether it was instruction
-> fetch or a data access, which causes the cache to use a different control
-> value based solely on the partid.
-> 
-> MPAM can emulate CDP, with the side effect that the alternative partid is
-> seen by all MSC, it can't be enabled per-MSC.
-> 
-> Add the resctrl hooks to turn this on or off. Add the helpers that
-> match a closid against a task, which need to be aware that the value
-> written to hardware is not the same as the one resctrl is using.
-> 
-> Update the 'arm64_mpam_global_default' variable the arch code uses
-> during context switch to know when the per-cpu value should be used
-> instead.
-> 
-> Awkwardly, the MB controls don't implement CDP. To emulate this, the
-> MPAM equivalent needs programming twice by the resctrl glue, as
-> resctrl expects the bandwidth controls to be applied independently for
-> both data and isntruction-fetch.
-> 
-> CC: Dave Martin <Dave.Martin@arm.com>
-> CC: Ben Horgan <ben.horgan@arm.com>
-> CC: Amit Singh Tomar <amitsinght@marvell.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> ---
->  arch/arm64/include/asm/mpam.h  |   1 +
->  drivers/resctrl/mpam_resctrl.c | 115 ++++++++++++++++++++++++++++++++-
->  include/linux/arm_mpam.h       |   3 +
->  3 files changed, 118 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/include/asm/mpam.h b/arch/arm64/include/asm/mpam.h
-> index 2960ffaf6574..689285c4c61f 100644
-> --- a/arch/arm64/include/asm/mpam.h
-> +++ b/arch/arm64/include/asm/mpam.h
-> @@ -4,6 +4,7 @@
->  #ifndef __ASM__MPAM_H
->  #define __ASM__MPAM_H
->  
-> +#include <linux/arm_mpam.h>
->  #include <linux/bitops.h>
->  #include <linux/bitfield.h>
->  #include <linux/init.h>
-> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-> index c2650abb99ec..d5f75ed67e46 100644
-> --- a/drivers/resctrl/mpam_resctrl.c
-> +++ b/drivers/resctrl/mpam_resctrl.c
-> @@ -33,6 +33,10 @@ static DEFINE_MUTEX(domain_list_lock);
->  static bool exposed_alloc_capable;
->  static bool exposed_mon_capable;
->  
-> +/*
-> + * MPAM emulates CDP by setting different PARTID in the I/D fields of MPAM0_EL1.
-> + * This applies globally to all traffic the CPU generates.
-> + */
->  static bool cdp_enabled;
->  
->  bool resctrl_arch_alloc_capable(void)
-> @@ -45,6 +49,67 @@ bool resctrl_arch_mon_capable(void)
->  	return exposed_mon_capable;
->  }
->  
-> +bool resctrl_arch_get_cdp_enabled(enum resctrl_res_level rid)
-> +{
-> +	switch (rid) {
-> +	case RDT_RESOURCE_L2:
-> +	case RDT_RESOURCE_L3:
-> +		return cdp_enabled;
-> +	case RDT_RESOURCE_MBA:
-> +	default:
-> +		/*
-> +		 * x86's MBA control doesn't support CDP, so user-space doesn't
-> +		 * expect it.
-> +		 */
-> +		return false;
-> +	}
-> +}
-> +
-> +/**
-> + * resctrl_reset_task_closids() - Reset the PARTID/PMG values for all tasks.
-> + *
-> + * At boot, all existing tasks use partid zero for D and I.
-> + * To enable/disable CDP emulation, all these tasks need relabelling.
-> + */
-> +static void resctrl_reset_task_closids(void)
-> +{
-> +	struct task_struct *p, *t;
-> +
-> +	read_lock(&tasklist_lock);
-> +	for_each_process_thread(p, t) {
-> +		resctrl_arch_set_closid_rmid(t, RESCTRL_RESERVED_CLOSID,
-> +					     RESCTRL_RESERVED_RMID);
-> +	}
-> +	read_unlock(&tasklist_lock);
-> +}
-> +
-> +int resctrl_arch_set_cdp_enabled(enum resctrl_res_level ignored, bool enable)
-> +{
-> +	u32 partid_i, partid_d;
-> +
-> +	cdp_enabled = enable;
-> +	partid_i = partid_d = RESCTRL_RESERVED_CLOSID;
-> +
-> +	if (enable) {
-> +		u32 partid = RESCTRL_RESERVED_CLOSID;
-> +
-> +		partid_d = resctrl_get_config_index(partid, CDP_CODE);
-> +		partid_i = resctrl_get_config_index(partid, CDP_DATA);
+As per discussion between the developers in the mail thread
+linked, expand the comment in __switch_to so that readers
+of the code understand what is going on.
 
-These are back to front, partid_d is data and partid_i is code. Also, if
-there is only one partid then we don't have 2 different partids and we
-should fail to enable cdp.
+Link: https://lore.kernel.org/linux-arm-kernel/ZxDh9biUbf9W8gNN@J2N7QTR9R3/
+Suggested-by: Mark Rutland <mark.rutland@arm.com>
+Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
+---
+Changes in v2:
+- Rebased on v6.19-rc1
+- Link to v1: https://lore.kernel.org/r/20241028-comments-in-switch-to-v1-0-7280d09671a8@linaro.org
+---
+ arch/arm/kernel/entry-armv.S | 13 ++++++++++---
+ 1 file changed, 10 insertions(+), 3 deletions(-)
 
-> +	}
-> +
-> +	mpam_set_task_partid_pmg(current, partid_d, partid_i, 0, 0);
-> +	WRITE_ONCE(arm64_mpam_global_default, mpam_get_regval(current));
-> +
-> +	resctrl_reset_task_closids();
-> +
-> +	return 0;
-> +}
+diff --git a/arch/arm/kernel/entry-armv.S b/arch/arm/kernel/entry-armv.S
+index ef6a657c8d13..5c016c68b5a3 100644
+--- a/arch/arm/kernel/entry-armv.S
++++ b/arch/arm/kernel/entry-armv.S
+@@ -557,9 +557,16 @@ ENTRY(__switch_to)
+ 	ldmia	r4, {r4 - sl, fp, ip, lr}	@ Load all regs saved previously
+ #ifdef CONFIG_VMAP_STACK
+ 	@
+-	@ Do a dummy read from the new stack while running from the old one so
+-	@ that we can rely on do_translation_fault() to fix up any stale PMD
+-	@ entries covering the vmalloc region.
++	@ For a non-lazy mm switch, check_vmalloc_seq() has ensured that
++	@ that the active mm's page tables have mappings for the prev
++	@ task's stack and the next task's stack.
++	@
++	@ For a lazy mm switch the active mm's page tables have mappings
++	@ for the prev task's stack but might not have mappings for the
++	@ new taks stack. Do a dummy read from the new stack while
++	@ running from the old stack so that we can rely on
++	@ do_translation_fault() to fix up any stale PMD entries
++	@ covering the vmalloc region.
+ 	@
+ 	ldr	r2, [ip]
+ #ifdef CONFIG_KASAN_VMALLOC
 
-Thanks,
+---
+base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+change-id: 20241028-comments-in-switch-to-0e24480e8495
 
-Ben
+Best regards,
+-- 
+Linus Walleij <linusw@kernel.org>
 
 
