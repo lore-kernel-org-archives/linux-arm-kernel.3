@@ -4,99 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87955D609CE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 16:27:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12F8BD609C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 16:32:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rJ1e1P6F4CyulVnt004SCDge6FBFbgLQSB8l5Ftm9W0=; b=R0ZOq6F8WsfDseE+dsrq5gcz9E
-	ARHJ+uuFRFMLV5lLq30EgQPRkgAtfA6yytjDFSDTDgkbJiXLeC7ams1cqYog+Tp+qJvOzEisvpzqe
-	dM9Wc9kVtr9f2vBCJRgEm2GqtQCfs2tTdCZYC8XdzlMJwAJgWSzsB8A2gIqgUDcxpQMKUfJK+FngE
-	zrN2wSYL5UOJINmZtZGsPdJ01wz3KIPQuuAxge59RzdOqc7f29M8ZhbKYF5Sx2zht73WGUxeWZXAj
-	cYQnpzILskunj1JXfNi2TKWd1hWkF+hIVIpIPSvhQcmwiCQvmWdiGkIjqmLtwRGZ5lLX2VdUBfMKf
-	LKVCIqCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eZRUio5zfRZF4Wp0TXIUZCi5a4FZapbOokb+FP2/ep4=; b=FqPA1ull2h4MPMd6nRYY2vuAeB
+	8RWttSe6nZC4m8tlelMB0xHeEAgV6o71wezUj0NsaoKFWBvl7edBYNDNitvp2++RvEccKqfXd1I0Y
+	lgbvoXBeRCHkDH0SyaxLXI0N7Xt1uYHLFQGO7dqb8ExXs7jr/INNTSEqIjtY2NpR9tqVonV3nVkGL
+	m6FByMaN3jpT1LHiMMdUrWn8YGD4rR4YswVEKgcy9neQLFppYIhEF0dRwFtXTVwgEP9zNqWk1zs3S
+	z3bwnDU86tULYoiA/nsijWRyceoDDzCCWBcMklsqhf/iCFWNMxyj7pMbi0RaPgJSD3oYw3DByxiJN
+	+WrvUDyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVXte-00000005Wcm-1jXv;
-	Tue, 16 Dec 2025 16:27:34 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1vVXy7-00000005Wth-2yva;
+	Tue, 16 Dec 2025 16:32:11 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVXtb-00000005WcN-3e4h
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 16:27:33 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-b7355f6ef12so927024566b.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 08:27:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1765902450; x=1766507250; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=rJ1e1P6F4CyulVnt004SCDge6FBFbgLQSB8l5Ftm9W0=;
-        b=En6ryr0eckHzCeQ6L4dPQGyEVIIAwagm/Zo3wjASBfmEl76pGm6qply5sxgnx9e3ba
-         AE3Q6HQp4xqfRkcRdVbyoZNhS60hhtKXPlKxl8dX5ZEsJ0Sj/yORLmOyfDnMmBmg35kD
-         UuK7Y1iRveWkR5paxrMt8tgg2/Vt+eVIY7cqSWxT0WJhcH05LT78UwPw7QnqT7PbtBEI
-         ohyDwk8+w9avt1Kn3GXWhPrydtzlVzMU/7RJeGo2dVGZ8V/OXQjdd/2H6TmmMcEBhnfD
-         Gfc1MFcGDvvx+q5nkPlH3VwTWiClZPSNU1z0LelCAGNKPHAAM3GFHMVInE1NdifYM0j/
-         cNcQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765902450; x=1766507250;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=rJ1e1P6F4CyulVnt004SCDge6FBFbgLQSB8l5Ftm9W0=;
-        b=dEUxoe/+SxWsWhSYk8K6r3NY3W9gBPwWo9lA7nxZQPrnT/uLMV5Eu6tMr2fcxbKDQR
-         fXXhh0jF4WsImrKrgnDM3dxwufa5fmFyrUNqG/vxbhmCc2mhO9cEjoWuQcnJ+YPNvEC4
-         un9adIOYhhreDpXc2uYxb+c7qtiB1F/3+YRqGwOCes7GSQjC9D546uH/hOju1OPphVSc
-         bhHrHfYeFOg0LLXYr7ZpQfRNZOzoUYxbZMgKL77r1NGr9bqov6s3kRMRose4GIBNIS3E
-         vpUDKssRHchlo+w8d+9COWjgWSp1nKR9ZAnkDlwP+WkbQUKWLRWsOEH9PphCUUEAANnB
-         0SXw==
-X-Forwarded-Encrypted: i=1; AJvYcCVM4qMMsRpPdBApPikuAta419EqrRj5NmihKtq60dhJL/ZiZD2ohpulE4q/Bf9k7/NHZCMuQyTl8q7LYlsRE8oS@lists.infradead.org
-X-Gm-Message-State: AOJu0YxAeE8+JyGkaYZURdqvrypfrQhx3opm4fZEiakyg0W+YIYBKZTS
-	Bwj7DlzopY5WfNbHwB9WvA/vawSTOR/HkHkZ6S6z65R1OIda/YefWTJ6efxr5I2wiAk=
-X-Gm-Gg: AY/fxX7pyz/mcIdANQ/mU6IkOEwEkYlBqid9uwSn2/Ox/vg6Y3FPzDxJfuF/46DzYad
-	zEwDYztqO+pk6r9BnQQ9L/syuzjgQSmUtIrgSOkwTyekx6tRWd5j9xSElzIhIgUpxODePjTlwPJ
-	2lt14r7j0WmiD3FqNyfjXNLDfAC2KoN7s5yFqNEna7bOoe3XPe9g8fJY72UG45l9yFDEvOqpyTW
-	ANgK3RJTqiFUEC1mxgOI8Qm0NFDI0UlGuHq3UKNwbfcgdT5oUZ/tnGdA4UbETRlnA6WALceYllP
-	gw4qYm/3WdkPCc2O4dBqBabHGONnu9erv8vySvJ48PYFW59JhM/dsf8VOeV3MD8P4J2Ux2/pMpt
-	gcdHaIiMnJAesKxR02++atrHoe/CJWb/yfMc6JSbsqAVOzDsxSb5VCZF9L7uAJGXmX7mV+0xDSG
-	8aKBAMTc72PK68jblC3pYs
-X-Google-Smtp-Source: AGHT+IEK6iaFERqvEdHq4Ged5LPvd31mh1w4HuC+BU0D8njB6TOveN15IML8gddkUz7RlIw6lJ98MQ==
-X-Received: by 2002:a17:907:608d:b0:b77:1d75:8b78 with SMTP id a640c23a62f3a-b7d23cb3a2fmr1722671866b.53.1765902449781;
-        Tue, 16 Dec 2025 08:27:29 -0800 (PST)
-Received: from [192.168.0.108] ([130.185.218.160])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6498210de23sm16756928a12.28.2025.12.16.08.27.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 16 Dec 2025 08:27:29 -0800 (PST)
-Message-ID: <c8fad013-b022-4037-94e8-1f0536535469@linaro.org>
-Date: Tue, 16 Dec 2025 18:27:27 +0200
+	id 1vVXy5-00000005WtH-2RR3;
+	Tue, 16 Dec 2025 16:32:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1765902729; x=1797438729;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=BYYyvPXCv/z3Zv/yIQlMx58UIuXYnnZWL+o4/ZYGJM8=;
+  b=Ww//Ya2IZVJRpwLMfIwJ5jgCThrWjqPhEoxWXeH0Q7zcAiCH3AQhNnnz
+   l41g73hFbnrfLDMjG3thBu05ij8egQPGaO8OfRPf0NmK5ftcBq8Rik6hH
+   Y2gQQt5DsdKNme5DYj8+d+VrEpKrDhhcIZo+mDgzvkEdlxrd9hkSnHGoZ
+   KIuRl1Dyy8WN6O3TxCtyo/9vEfkV+i3okOkJR+voSESeeD5tjLbMfRczV
+   oCOCiY1OdMT2CnPWg5xQXalu3iIMbT8TgVvJUOyNu5/yYebNPhp/x3zBd
+   r5sYnu09RCOzZ1SqGI3/FSJqx1ZYeJ7/R65Gtd9WwkCDPYhKVYzb+20lc
+   Q==;
+X-CSE-ConnectionGUID: 8cSpbeVITI+irXho8Tn9hQ==
+X-CSE-MsgGUID: fJ0M90HpTC2tpIqVKQQHKQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11644"; a="67868233"
+X-IronPort-AV: E=Sophos;i="6.21,153,1763452800"; 
+   d="scan'208";a="67868233"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Dec 2025 08:32:07 -0800
+X-CSE-ConnectionGUID: hOe0vqPVR7CciV+fTWvORw==
+X-CSE-MsgGUID: v02B96M3SIa8VhPps1uokQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,153,1763452800"; 
+   d="scan'208";a="197808734"
+Received: from lkp-server02.sh.intel.com (HELO 034c7e8e53c3) ([10.239.97.151])
+  by orviesa009.jf.intel.com with ESMTP; 16 Dec 2025 08:32:00 -0800
+Received: from kbuild by 034c7e8e53c3 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vVXxu-000000003YO-0J5B;
+	Tue, 16 Dec 2025 16:31:58 +0000
+Date: Wed, 17 Dec 2025 00:31:27 +0800
+From: kernel test robot <lkp@intel.com>
+To: Ryan Roberts <ryan.roberts@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>, Mark Rutland <mark.rutland@arm.com>,
+	"Jason A. Donenfeld" <Jason@zx2c4.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Jeremy Linton <jeremy.linton@arm.com>
+Cc: oe-kbuild-all@lists.linux.dev, Ryan Roberts <ryan.roberts@arm.com>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v2 3/3] randomize_kstack: Unify random source across
+ arches
+Message-ID: <202512170038.vJZdUhEN-lkp@intel.com>
+References: <20251215163520.1144179-4-ryan.roberts@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 16/19] coresight: trbe: Support trigger mode
-To: Leo Yan <leo.yan@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@linaro.org>, Anshuman Khandual <anshuman.khandual@arm.com>,
- Yeoreum Yun <yeoreum.yun@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Tamas Petz <tamas.petz@arm.com>,
- Tamas Zsoldos <tamas.zsoldos@arm.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
- Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>
-References: <20251201-trbe_buffer_refactor_v1-1-v1-0-7da32b076b28@arm.com>
- <20251201-trbe_buffer_refactor_v1-1-v1-16-7da32b076b28@arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20251201-trbe_buffer_refactor_v1-1-v1-16-7da32b076b28@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251215163520.1144179-4-ryan.roberts@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_082731_967179_AF72892A 
-X-CRM114-Status: GOOD (  30.69  )
+X-CRM114-CacheID: sfid-20251216_083209_711411_12604CCE 
+X-CRM114-Status: GOOD (  13.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,104 +108,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Ryan,
+
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on tip/sched/core]
+[also build test ERROR on akpm-mm/mm-everything linus/master v6.19-rc1 next-20251216]
+[cannot apply to kees/for-next/hardening kees/for-next/execve]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Ryan-Roberts/prandom-Convert-prandom_u32_state-to-__always_inline/20251216-013546
+base:   tip/sched/core
+patch link:    https://lore.kernel.org/r/20251215163520.1144179-4-ryan.roberts%40arm.com
+patch subject: [PATCH v2 3/3] randomize_kstack: Unify random source across arches
+config: x86_64-rhel-9.4-ltp (https://download.01.org/0day-ci/archive/20251217/202512170038.vJZdUhEN-lkp@intel.com/config)
+compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251217/202512170038.vJZdUhEN-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202512170038.vJZdUhEN-lkp@intel.com/
+
+All error/warnings (new ones prefixed by >>):
+
+>> arch/x86/boot/startup/sev-startup.o: warning: objtool: section .discard.addressable has absolute relocation at offset 0x0
+--
+   In file included from include/linux/device/driver.h:21,
+                    from include/linux/device.h:32,
+                    from include/linux/blk_types.h:11,
+                    from include/linux/writeback.h:13,
+                    from include/linux/memcontrol.h:23,
+                    from include/linux/resume_user_mode.h:8,
+                    from include/linux/entry-virt.h:6,
+                    from include/linux/kvm_host.h:5,
+                    from arch/x86/kvm/svm/svm.c:3:
+>> include/linux/module.h:132:49: error: redefinition of '__inittest'
+     132 |         static inline initcall_t __maybe_unused __inittest(void)                \
+         |                                                 ^~~~~~~~~~
+   arch/x86/kvm/svm/svm.c:5509:1: note: in expansion of macro 'module_init'
+    5509 | module_init(svm_init)
+         | ^~~~~~~~~~~
+   include/linux/module.h:132:49: note: previous definition of '__inittest' with type 'int (*(void))(void)'
+     132 |         static inline initcall_t __maybe_unused __inittest(void)                \
+         |                                                 ^~~~~~~~~~
+   include/linux/module.h:125:41: note: in expansion of macro 'module_init'
+     125 | #define late_initcall(fn)               module_init(fn)
+         |                                         ^~~~~~~~~~~
+   include/linux/randomize_kstack.h:86:1: note: in expansion of macro 'late_initcall'
+      86 | late_initcall(random_kstack_init);
+         | ^~~~~~~~~~~~~
+>> include/linux/module.h:134:13: error: redefinition of 'init_module'
+     134 |         int init_module(void) __copy(initfn)                    \
+         |             ^~~~~~~~~~~
+   arch/x86/kvm/svm/svm.c:5509:1: note: in expansion of macro 'module_init'
+    5509 | module_init(svm_init)
+         | ^~~~~~~~~~~
+   include/linux/module.h:134:13: note: previous definition of 'init_module' with type 'int(void)'
+     134 |         int init_module(void) __copy(initfn)                    \
+         |             ^~~~~~~~~~~
+   include/linux/module.h:125:41: note: in expansion of macro 'module_init'
+     125 | #define late_initcall(fn)               module_init(fn)
+         |                                         ^~~~~~~~~~~
+   include/linux/randomize_kstack.h:86:1: note: in expansion of macro 'late_initcall'
+      86 | late_initcall(random_kstack_init);
+         | ^~~~~~~~~~~~~
+--
+   ld: arch/x86/kvm/vmx/main.o: in function `vt_init':
+>> arch/x86/kvm/vmx/main.c:1038: multiple definition of `init_module'; arch/x86/kvm/vmx/vmx.o:include/linux/randomize_kstack.h:81: first defined here
+--
+   In file included from drivers/misc/sgi-xp/xpc_main.c:47:
+>> include/linux/module.h:132:49: error: redefinition of '__inittest'
+     132 |         static inline initcall_t __maybe_unused __inittest(void)                \
+         |                                                 ^~~~~~~~~~
+   drivers/misc/sgi-xp/xpc_main.c:1285:1: note: in expansion of macro 'module_init'
+    1285 | module_init(xpc_init);
+         | ^~~~~~~~~~~
+   include/linux/module.h:132:49: note: previous definition of '__inittest' with type 'int (*(void))(void)'
+     132 |         static inline initcall_t __maybe_unused __inittest(void)                \
+         |                                                 ^~~~~~~~~~
+   include/linux/module.h:125:41: note: in expansion of macro 'module_init'
+     125 | #define late_initcall(fn)               module_init(fn)
+         |                                         ^~~~~~~~~~~
+   include/linux/randomize_kstack.h:86:1: note: in expansion of macro 'late_initcall'
+      86 | late_initcall(random_kstack_init);
+         | ^~~~~~~~~~~~~
+>> include/linux/module.h:134:13: error: redefinition of 'init_module'
+     134 |         int init_module(void) __copy(initfn)                    \
+         |             ^~~~~~~~~~~
+   drivers/misc/sgi-xp/xpc_main.c:1285:1: note: in expansion of macro 'module_init'
+    1285 | module_init(xpc_init);
+         | ^~~~~~~~~~~
+   include/linux/module.h:134:13: note: previous definition of 'init_module' with type 'int(void)'
+     134 |         int init_module(void) __copy(initfn)                    \
+         |             ^~~~~~~~~~~
+   include/linux/module.h:125:41: note: in expansion of macro 'module_init'
+     125 | #define late_initcall(fn)               module_init(fn)
+         |                                         ^~~~~~~~~~~
+   include/linux/randomize_kstack.h:86:1: note: in expansion of macro 'late_initcall'
+      86 | late_initcall(random_kstack_init);
+         | ^~~~~~~~~~~~~
 
 
-On 01/12/2025 13:22, Leo Yan wrote:
-> The buffer currently operates in fill mode, where tracing stops when it
-> reaches the end of the buffer and a maintenance interrupt is raised.
-> However, due to IRQ latency, trace data may be lost during the window in
-> which tracing is halted but the program continues to run.
-> 
-> To mitigate the issue, this commit enables the trigger count to support
-> buffer maintenance without disabling tracing.  This is fulfilled with
-> two modes:
-> 
-> 1) Set a trigger count as a watermark and use fill mode to prevent the
->     buffer from being overwritten.  Once the count is decremented to
->     zero, an interrupt is raised for buffer maintenance, but the hardware
->     continues collecting trace data until limit.
-> 
->            head            watermark tail
->       +----+---------------+---------+-------+
->       |$$$$|               |         |$$$$$$$|
->       +----+---------------+---------+-------+
->       base `---- count ----'         limit   base + nr_pages
-> 
->       $$$ : Filled trace data
-> 
-> 2) Use wrap mode so that tracing continues when reach the top of the
->     buffer.  The trigger count is configured as "Stop on trigger" to
->     guard the trace data not to be overwritten.
-> 
->                watermark   tail      head
->       +--------+-----------+---------+-------+
->       |        |           |$$$$$$$$$|       |
->       +--------+-----------+---------+-------+
->       base                                   base + nr_pages
->                                              limit
-> 
->                                      `------->
->       >-- counter ---------'
-> 
->       $$$ : Filled trace data
-> 
-> The modes are selected by comparing the limit with the trigger position.
-> 
-> An extra TRBE_FAULT_ACT_TRIG state is introduced for fault action, it is
-> used to distinguish the trigger event from the WRAP event.
-> 
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->   drivers/hwtracing/coresight/coresight-trbe.c | 101 +++++++++++++++++++++------
->   drivers/hwtracing/coresight/coresight-trbe.h |  14 ++++
->   2 files changed, 94 insertions(+), 21 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
-> index 8390d0a8fe23d35945610df15f21751279ee37ee..0551ea9b4f8286c156e3c9c7ac94e2ecd3b9dc3f 100644
-> --- a/drivers/hwtracing/coresight/coresight-trbe.c
-> +++ b/drivers/hwtracing/coresight/coresight-trbe.c
-> @@ -48,6 +48,7 @@
->   #define TRBE_TRACE_MIN_BUF_SIZE		64
->   
->   enum trbe_fault_action {
-> +	TRBE_FAULT_ACT_TRIG,
->   	TRBE_FAULT_ACT_WRAP,
->   	TRBE_FAULT_ACT_SPURIOUS,
->   	TRBE_FAULT_ACT_FATAL,
-> @@ -67,6 +68,7 @@ struct trbe_buf {
->   	unsigned long trbe_hw_base;
->   	unsigned long trbe_limit;
->   	unsigned long trbe_write;
-> +	unsigned long trbe_count;
->   	int nr_pages;
->   	void **pages;
->   	bool snapshot;
-> @@ -478,6 +480,10 @@ static unsigned long __trbe_normal_offset(struct perf_output_handle *handle)
->   	if (head < tail)
->   		limit = round_down(tail, PAGE_SIZE);
->   
-> +	/* If trigger mode is enabled, no need to use limit for watermark */
-> +	if (!static_branch_unlikely(&trbe_trigger_mode_bypass))
-> +		goto out;
-> +
->   	/*
->   	 * Wakeup may be arbitrarily far into the future. If it's not in the
->   	 * current generation, either we'll wrap before hitting it, or it's
-> @@ -495,6 +501,7 @@ static unsigned long __trbe_normal_offset(struct perf_output_handle *handle)
->   	if (handle->wakeup < (handle->head + handle->size) && head <= wakeup)
->   		limit = min(limit, round_up(wakeup, PAGE_SIZE));
+vim +1038 arch/x86/kvm/vmx/main.c
 
-I kept wondering how this limit was relvant now in wrap mode. But I see 
-it's skipped from the goto above, but that only jumps over one 
-statement. Can we have that static branch as a regular if statement 
-guarding the limit calculation instead of the goto?
+d6bee7813752b3 Kai Huang 2025-01-22  1036  
+d6bee7813752b3 Kai Huang 2025-01-22  1037  static int __init vt_init(void)
+d6bee7813752b3 Kai Huang 2025-01-22 @1038  {
 
-Negating "trigger_mode_bypass" and renaming it into just "trigger_mode" 
-might help too. The double negative of "not trigger_trigger_mode_bypass 
-goto" is a bit hard to understand.
-
->   
-> +out:
->   	/*
->
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
