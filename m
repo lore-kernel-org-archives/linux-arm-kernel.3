@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FCB3D5CC89
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 09:20:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA153D5CC89
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 09:21:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vdbkGAZvcEXm5SWEKUVClkLJFjPHLzhKuSzzyVtMACI=; b=A4ooNrFLNHaeiT2FXwBgOmHH38
-	6kmWTnKsYQXIMuW0j/0Y7ZzE4eraQ57N7DE/bRWZ9kYmSiAZhmQUkNbmXpmSYXpPcZLAtwTlynjtv
-	UYctQlCl1dlQPME9Vd8RdpHJRSqUJXGc9tRRRKSAR64xFVh4+Nv6CJR6s/4pY8lTIe7rGHQtyuYv6
-	A1iPbZUiRH7tzPgxj2DkZvVGK6cqn4p9alIz0xGtIenUAMx/haVAnv4pCjlgAEfiqY/7OpB99Mdm1
-	M69mwhMFEhZXEC4DN4b2JIpTv8/xgtuVxlqLKLCPU54yHSD88Ra2GjyrHuoQiDGZKy/KXH5ZxsgmJ
-	cPBI7LTQ==;
+	bh=NGYedUjMSAQqTTCfPBzG7GGpp5/HnFYa13zWq/TfU5g=; b=XMBvlE8o3VNDdZs28OP/feNBJe
+	AqXJ0qwAuy14+ETqtH9VgfUJ3HTpOb10JF17Yr2gZdmhyNZzTEaFceObgefkdZ+9vz90RJcn3TKYS
+	Mvn76rtxX6yVG2g6ANXD1qTvEEM3tG7C0lVTD/xRgUc+Hxy+kma+bAATczRnb1fj5r8EhaHxXK02K
+	/hgAiaPwj8OHteUmUoos+v4KuepktUChZQ2AGpMnZODBtp51b80A3QwxUBxlNc28dXdddrefQp0Ux
+	EwjMUoK1RHy2Q9kc/XC4JEkKyUdJNHrBh8F0xr7rK6f3F+Xd6ybpE2pygwF4hnGXwTBCRFdNPfdpk
+	+OjITVqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVREE-00000004ysZ-1BL8;
-	Tue, 16 Dec 2025 09:20:22 +0000
-Received: from mail-yw1-x112a.google.com ([2607:f8b0:4864:20::112a])
+	id 1vVRFN-00000004z0R-0hB8;
+	Tue, 16 Dec 2025 09:21:33 +0000
+Received: from mail-yw1-x1133.google.com ([2607:f8b0:4864:20::1133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVREB-00000004yrq-0n3l
+	id 1vVRFK-00000004yzj-1U7x
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 09:20:20 +0000
-Received: by mail-yw1-x112a.google.com with SMTP id 00721157ae682-78d6a3c3b77so46506467b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 01:20:16 -0800 (PST)
+	Tue, 16 Dec 2025 09:21:31 +0000
+Received: by mail-yw1-x1133.google.com with SMTP id 00721157ae682-78c686aa4f9so16527547b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 01:21:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1765876815; x=1766481615; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1765876889; x=1766481689; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=vdbkGAZvcEXm5SWEKUVClkLJFjPHLzhKuSzzyVtMACI=;
-        b=G3dbaFrUIscZTL+blM37CSSMK5MAxCKr6MdsBOw4rlSSEWySreHTH4iYqV8s05Kkkt
-         NIk/c6d3eJsy2EvJh9aOiUi9y0o57Kv9j6MQgwYThCybPgJBLPcvFg6tL6N8ClmnkS5L
-         4Bm4W64RIu3vEqKTWvxgPiM/qKCiiadG7Xj7aNVcJD+PINK0vk2RyYmfxUdNOLS07qIS
-         38B57PPehYzIvs+n9tKJvIh82eMqo24rbP7bRFH7R3dk1sLXsC5Qk5gPkNqgFNEx6D9E
-         wEaA7kgBN54O0XvFdOduimUegnExJr3+Me6Nor2b9Cvv2Cia21jyTog2vK3wNdXD3Dhf
-         6b5w==
+        bh=NGYedUjMSAQqTTCfPBzG7GGpp5/HnFYa13zWq/TfU5g=;
+        b=k8K1bKNhieD14ssjHevfG1NABG8et+nFERYEpwBir/RIwmauV3kaj1HWG9XIlfjIPA
+         2iIxG2zYZuOGj7UG3PktoeJYk9YIgoD1LTPIKZ1ZBRFOiCIXK01N/L7lDph+x+rwVaxg
+         IuL6sRww7AQOEAK5tklcysKHKitivDersGkFA0lbAXrcOjX0odXf0P0raP5CD7BERhhU
+         ts1gISczcypHv/EOyOmS6ALUTcbxYRDyrTLyFqFWcyOk3ACNiFTfEUlg++6eTu/jRb1C
+         z4VpXha0JEb5DpE0caOcOQcWfnTyRmUGZVtMFDGjl2QLfR8L+9OWu6vcQcOy0mekgl8l
+         W+0Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765876815; x=1766481615;
+        d=1e100.net; s=20230601; t=1765876889; x=1766481689;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=vdbkGAZvcEXm5SWEKUVClkLJFjPHLzhKuSzzyVtMACI=;
-        b=nCL4YqM5azORZQMzzvKESRX/2coTnOgKLwsaqgqJHLp9PvvWs9agy5c/qHdxFRKggm
-         u2vwOQeug03LJGsRyulhTLs0L6OaqdQqNXe92H/V6c1f/J8faCLIxCFDJQh3LKdo/1pf
-         l7RlmSmZc1+wvAJ2zVwVxoDOAVhsHov5cwPcNatFxT3N3boHaTa0R9MGGFH20WXR7Rez
-         ZxcK6nFvoKZGrLHCD0/EkQAGjuxF1x581W4eBtjW/p9xoU+ScorPomWbe7VR4mrW7rZy
-         8oh8cjw2wWF2Gs7CI6BKTlCKVNso7WsN90sASG707naQgr2tdKN5cAwXLWs+nmK3URa/
-         /+kQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWUsKAVpDaxSKZNTDJTeniQQouEvKviw7EJhSqyiZx+w+wYWTfjtDMnxFFTS/jqA4vuePOsY/qa0IjXOEpVqGRD@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywtc1jRjZ5GX0fLYi8vqZ7pB9yU4mtGm0Ra3DHDRrwhCipOHCaD
-	W1VO0tSaS5ZFGQISbyvVqbd4huhZwNmuCezqESq3prpipNZX9pGB91ruAMRxrOKeXje5KZtBIoz
-	47pQd2TPfZnTjZ6zVALNKnJba/3azH6YGAYQnNITgnw==
-X-Gm-Gg: AY/fxX5xOx17Vaodj+lqbITMZbDY1TE+VJgjscz5P0sgYDvU/bT1WPJ0AzOxDA0eTWG
-	kJoZR8Nc3psYpleMmP1DMPZ/Loir/Y5LeSjDCPIRZhoTjQMoQxBz0BbNqEd1N4Y1eKGa7R1lmzU
-	4Qozq5TmUM7BEa2g1CV8wHOWouOWP8yan2bCls1XlwBncL2RI08zqSltO19QXlL2hD81/cJOEt6
-	bAZMiZ8ToYB/9fNc9apj8aAjy71OugM81yi+zuQNSY901iIpXdm3iZkgEAPMtfVmxAvv43zjz5J
-	pV0NuTE3lZqrDunUWqDNkvrMFB24sWGSxyqShMMWkJPrQ+6xp3L9EYqiHB6CCWZ7tPqc5EWVuNV
-	HdxTJVlzwqw5lha7XISjwcAOLLfQgZpPLtie1DYx2137CMqy1qBkq+lmInxPwgrShTUxbseJaLU
-	9H3YhjFlP9LLf9yr2hHiPS3K/mCi7JS00Klqu1g01KjXBtfevEwKmVFYp9GjFTtVtRA8/kxK0YM
-	ll49thrvXzlgKduasZyaSYhhi2MOg8Chh1c61HFF+tHvXZ80Rv6gP/dK+LOGmukJGJOTYGuVmQ+
-	5IQsMnMeVpeqjjhnEtWYZ+acJqdr3Xx2
-X-Google-Smtp-Source: AGHT+IEctBGbOPb8tWUDebvS3L7V3SseQeGkk4xalk8WHK1PQ+/ej2AUM8IRRWIxM80NV5FFMSeI1zTaZrQqMMcHcdA=
-X-Received: by 2002:a05:690e:d0b:b0:644:60d9:8660 with SMTP id
- 956f58d0204a3-6447a5a7193mr11828178d50.44.1765876815167; Tue, 16 Dec 2025
- 01:20:15 -0800 (PST)
+        bh=NGYedUjMSAQqTTCfPBzG7GGpp5/HnFYa13zWq/TfU5g=;
+        b=uKy+z5Pvcvr/KGEel6xGIYvPDx7JYE8B3mMxO0np9ToR5/32rMMTszJ9JEMYhgkTG5
+         EYDtkbJOQPoCkf4azHGbmdS3UHyo4QPcL1QHq1Ui2mL1HSRQsT49qDB+jrHpvQZl0xA/
+         5iA84+ee36oefUn5srssZewObRJB3n383mJPofyTDCSbmHeSvxDAsGcTZGrKfuZp5eRE
+         Avip9MCqfCDITfbIh8XdyZdg2TchTDvzzNmNI8UXlvtYdTpYP56R0XlrCXCLqRWxYmmI
+         q5VqL7yB4ym/gLMWCkY1/7iU9H8udoRrohkuarhhxe6jcsSeTTTCqp7U0drnnZ86PECc
+         si+w==
+X-Forwarded-Encrypted: i=1; AJvYcCVaoOFwVXPrWQQP0n+a+Z32EbK3u1LlK054xkVpQw8vjadUxCIJRcP19nzok8HK0SkEmQiGgNG3kc4v9AyG5tbC@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxy4swufU+fjEDTKBH0O9yizg9XfdwTaVIqhu6VkGcqxeG1pMsZ
+	BjjnI9b5ZgjBxHkw5wJ62SNHKdyn9mOBOQeJuskeRUQPXgsINfxxxGJK9Sb6gvSuHstu86h+X62
+	0lGgpsYjwLSx+Ie1AsDZAk7Zmh/alocQGRDkC23fQNQ==
+X-Gm-Gg: AY/fxX5GpIcIkOK1XQi2qmXhiD0tkJxWNaer0ERWKbbGoYi3CTZYcUQg0FyVLTTEXza
+	B44nPqJJm3RIjt674S7A5oIOk3FwIAgcihqVJsYY9LD64rLeyQ2YR8+TK00/QohwEdu0U8Ro2IZ
+	h38xlaa+YjfQYdos6TE0T283Qoe59kMoDURN/iXZ4/Kk+1GAHXWAA6wFDlnqTaYlxtuGSdC9B3O
+	XaR31J49FyXN8J2ChyWzFax0Z7+qGlvaF8sY9Erhnz8AxClk50w0nnupDMUc8aRmPytjfVZ8BNI
+	Vvk4P7xS+/9MSWAmhtuckg8q9aAfnki3HFbUUpXx1Gqq2lhbgzWbqIoJQ/T2U0noTzBkW1PokQm
+	DKyWaSdn7MxmlMb0cUxTeiyLcUgyqT+FiW/QS0uUEX9w7XjnNfULONb9biOIw8hTibvxJ3BKXS8
+	MFQ//0YIFMgtLbib2LgNiN5yZ9VUuRtftGoSERW2Xj1mZuz+QD9DpqhHjuMKAgKMIFxjevlt2m5
+	2V4YnbRra5Uart6fnoDhgGt1LkBLmW8hKtZDPOnEEkwuXlQzBI1Rr6QLsTWC+LrJJgEJ9vhw5gZ
+	aK59I6kMGg5s1NP+y/lp2ZdgdS6uuhW0
+X-Google-Smtp-Source: AGHT+IEAFokQb5D1JItH9s+uj3Sa3EAOeQhnCG2QizFVOaNkP6qUDXOVMm6HltsGpBU7JI8LFSpiz0VIaHoanmm6gBM=
+X-Received: by 2002:a05:690c:688f:b0:78d:6c06:4a0f with SMTP id
+ 00721157ae682-78e6809a375mr112570247b3.0.1765876889065; Tue, 16 Dec 2025
+ 01:21:29 -0800 (PST)
 MIME-Version: 1.0
-References: <cover.1765791463.git.u.kleine-koenig@baylibre.com> <b70ad65c88a82cf56c93cf17cf326213f8273e37.1765791463.git.u.kleine-koenig@baylibre.com>
-In-Reply-To: <b70ad65c88a82cf56c93cf17cf326213f8273e37.1765791463.git.u.kleine-koenig@baylibre.com>
+References: <cover.1765791463.git.u.kleine-koenig@baylibre.com> <6a56ee61e485703d548e9e44d53b2920b4e43ca6.1765791463.git.u.kleine-koenig@baylibre.com>
+In-Reply-To: <6a56ee61e485703d548e9e44d53b2920b4e43ca6.1765791463.git.u.kleine-koenig@baylibre.com>
 From: Ilias Apalodimas <ilias.apalodimas@linaro.org>
-Date: Tue, 16 Dec 2025 11:19:39 +0200
-X-Gm-Features: AQt7F2rnkMoQPLRnnlXil8zyHYfAadd5PzbCSjslnX3-94C0khuY7zIbQk2gds8
-Message-ID: <CAC_iWj+TevKq7TzPQ4_eEhu0rJJ03PV=ASf7SwTszp-mJY6Vzw@mail.gmail.com>
-Subject: Re: [PATCH v2 09/17] efi: stmm: Make use of tee bus methods
+Date: Tue, 16 Dec 2025 11:20:52 +0200
+X-Gm-Features: AQt7F2rtv6sYjRJcPW49bnernszF66e86Q28fTD0Bfhuswf7pxXDfIzUWVoUNmU
+Message-ID: <CAC_iWjLG7o96E=9W-cjJ=_622RFg-b9t6hQnMrSmgHS+ThaXyw@mail.gmail.com>
+Subject: Re: [PATCH v2 08/17] efi: stmm: Make use of module_tee_client_driver()
 To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>
 Cc: Jens Wiklander <jens.wiklander@linaro.org>, Ard Biesheuvel <ardb@kernel.org>, 
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
@@ -88,8 +88,8 @@ Cc: Jens Wiklander <jens.wiklander@linaro.org>, Ard Biesheuvel <ardb@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_012019_292617_17E9AA6D 
-X-CRM114-Status: GOOD (  18.39  )
+X-CRM114-CacheID: sfid-20251216_012130_407472_6B0961D1 
+X-CRM114-Status: GOOD (  16.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,61 +107,52 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Mon, 15 Dec 2025 at 16:17, Uwe Kleine-K=C3=B6nig
 <u.kleine-koenig@baylibre.com> wrote:
 >
-> The tee bus got dedicated callbacks for probe and remove.
-> Make use of these. This fixes a runtime warning about the driver needing
-> to be converted to the bus methods.
+> Reduce boilerplate by using the newly introduced module_tee_client_driver=
+().
+> That takes care of assigning the driver's bus, so the explicit assigning
+> in this driver can be dropped.
 >
 > Reviewed-by: Sumit Garg <sumit.garg@oss.qualcomm.com>
 > Signed-off-by: Uwe Kleine-K=C3=B6nig <u.kleine-koenig@baylibre.com>
 > ---
 
-Reviewed-by: Ilias Apalodimas <ilias.apalodimas@linaro.org>
+Acked-by: Ilias Apalodimas <ilias.apalodimas@linaro.org>
 
->  drivers/firmware/efi/stmm/tee_stmm_efi.c | 11 +++++------
->  1 file changed, 5 insertions(+), 6 deletions(-)
+>  drivers/firmware/efi/stmm/tee_stmm_efi.c | 14 +-------------
+>  1 file changed, 1 insertion(+), 13 deletions(-)
 >
 > diff --git a/drivers/firmware/efi/stmm/tee_stmm_efi.c b/drivers/firmware/=
 efi/stmm/tee_stmm_efi.c
-> index 5903811858b6..7b04dd649629 100644
+> index 65c0fe1ba275..5903811858b6 100644
 > --- a/drivers/firmware/efi/stmm/tee_stmm_efi.c
 > +++ b/drivers/firmware/efi/stmm/tee_stmm_efi.c
-> @@ -520,8 +520,9 @@ static void tee_stmm_restore_efivars_generic_ops(void=
-)
->         efivars_generic_ops_register();
->  }
->
-> -static int tee_stmm_efi_probe(struct device *dev)
-> +static int tee_stmm_efi_probe(struct tee_client_device *tee_dev)
->  {
-> +       struct device *dev =3D &tee_dev->dev;
->         struct tee_ioctl_open_session_arg sess_arg;
->         efi_status_t ret;
->         int rc;
-> @@ -571,21 +572,19 @@ static int tee_stmm_efi_probe(struct device *dev)
->         return 0;
->  }
->
-> -static int tee_stmm_efi_remove(struct device *dev)
-> +static void tee_stmm_efi_remove(struct tee_client_device *dev)
->  {
->         tee_stmm_restore_efivars_generic_ops();
-> -
-> -       return 0;
->  }
->
->  MODULE_DEVICE_TABLE(tee, tee_stmm_efi_id_table);
->
->  static struct tee_client_driver tee_stmm_efi_driver =3D {
+> @@ -584,24 +584,12 @@ static struct tee_client_driver tee_stmm_efi_driver=
+ =3D {
 >         .id_table       =3D tee_stmm_efi_id_table,
-> +       .probe          =3D tee_stmm_efi_probe,
-> +       .remove         =3D tee_stmm_efi_remove,
 >         .driver         =3D {
 >                 .name           =3D "tee-stmm-efi",
-> -               .probe          =3D tee_stmm_efi_probe,
-> -               .remove         =3D tee_stmm_efi_remove,
+> -               .bus            =3D &tee_bus_type,
+>                 .probe          =3D tee_stmm_efi_probe,
+>                 .remove         =3D tee_stmm_efi_remove,
 >         },
 >  };
 >
+> -static int __init tee_stmm_efi_mod_init(void)
+> -{
+> -       return driver_register(&tee_stmm_efi_driver.driver);
+> -}
+> -
+> -static void __exit tee_stmm_efi_mod_exit(void)
+> -{
+> -       driver_unregister(&tee_stmm_efi_driver.driver);
+> -}
+> -
+> -module_init(tee_stmm_efi_mod_init);
+> -module_exit(tee_stmm_efi_mod_exit);
+> +module_tee_client_driver(tee_stmm_efi_driver);
+>
+>  MODULE_LICENSE("GPL");
+>  MODULE_AUTHOR("Ilias Apalodimas <ilias.apalodimas@linaro.org>");
 > --
 > 2.47.3
 >
