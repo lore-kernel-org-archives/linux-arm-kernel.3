@@ -4,159 +4,181 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF055D5C0C4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 02:55:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00972D5C0C5
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 03:19:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i0sjYByRB2otD7JdRoE+nj/02SbgDuWZ/AomPomhtug=; b=IJxW7DtsqkuLMQgqqRcDXxC62z
-	QfqyfCMFUbawXxAban2b3XabJaP33iunOm19WeZUPfnB20vsk42jXQ66izpI5ltdZCSlS6jEBaPWv
-	lTOzToQ/zlTt9/S0Ft0eU/7yfXXqCsCTg39KrtWt8nCq/2DbL0BVhaa3Mw4xfRBFHmVHWy4RfcmF+
-	ZTpIjIgPYdvDqbMkWBJ7cdR7Nkj5U/uBrhJg9Os7nC9Bg00jTzHdCzlOmgeUs0UqWpaZC9ZG/Ie8L
-	6ltZ1jBdvcGm9SLPQK8aiem2MaEJVJITGZbDkHVWRKQvix5wzfZAFBE7dAjd09272NbQm5HQyjRBx
-	rZ566Y3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RgZQm2fZDZp6KlYgX+7dMUcvwkAG0po4rAbDqkMa7Ko=; b=L4MqKSXPnPKSDvGBfk2+IfLeta
+	hmhbLAcfp8ZOra1qyc+r332Yq/3VFWAH0xCm1nBUQalgcJjzACqSt1WcDjLXQvRtM0kGRnhNe+2qe
+	4mItsDuwze2D5JEO216MZgOE+FBGtb/WD8RWP6XTt/PXKomvAa3PCdBkpce1tNPfCpXAGVXZvoT0q
+	+BXxYCXY/nfKxYXZlcP5GUQ6z5LDf+eYa/PDxvlTxMdtJNuzMkCaWcQx0V0ji1ZzHlgWzn7YcwV4N
+	3u2S7B2n1ppLHgQqx0CwU/ZDXCqOXKOh7ADoegC94jl2F99Ci+o/pNtX4D+BN3GIMRUGq2FA+9vey
+	CNXgoCRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVLE2-00000004b9d-2Z41;
-	Tue, 16 Dec 2025 02:55:46 +0000
-Received: from mail-southcentralusazlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c10d::1] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1vVLbG-00000004cKt-2PZK;
+	Tue, 16 Dec 2025 03:19:46 +0000
+Received: from mail-swedencentralazon11013026.outbound.protection.outlook.com ([52.101.83.26] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVLDz-00000004b9G-3ImW
+	id 1vVLbC-00000004cKI-1BRl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 02:55:44 +0000
+	Tue, 16 Dec 2025 03:19:43 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rG/qvKZnprj/SwupiXL0tqH1SHo9q77YQpKMFLRRsU13X8/r8f42LLHuLBtwaDtzHAkDLs28JfbleP6rrH9CTh2Fkhs41n8U2nA1y7zokXYuwNJ3Yr87Oc/Uxdn4BJhf9VFuel2+pXoZygiVyjf6JqJV0rkKz/rbT9QlN4Vk2E4vFgHKyVT5Bkci9fywaOVEcEGLZI3d1bEXaVNtSa96rVqMGs8jHPdf8kVZOh3hDNovMFSSDq2BCBtGbTb+Yo5tXoGXrx5uy0gkGp9HaOnpU32TP2vrYB0j1ax64+Spf8DuA9KqRAn5G3+/9iz4CDYODsO84Nv2ERChrQox4TwSqA==
+ b=RMR+O2VL+mB0AFCtZWNwcTbA8atGmVN2XlodZkaazHDGGMdVJZS/hpK7Xx3PW5U+MOzO9f65MsCKiUlrbEoieEbYbFX17fwR64Pd5z9zW+0Tmv7lpWXf5k1VcbcG08Gmz0yI24vOx67r44b3/JYVuW95NL7XBHHEBVZwmjDB0UOt0PBXXpzHutwTcMwAMbYgbRL7oM1bAUCm3ODyr6LErdDqrGguz7marBGBs0koJHzKwZfmOz2LzR7jHwDiee70Ej54Pbrc+TD5V99Lew3ytJwXtSLqVfDzigBUw86p051qcluIpA2xXPzCugwTNNe+/wE6mYG4GrxCRjtrSMGQCg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=i0sjYByRB2otD7JdRoE+nj/02SbgDuWZ/AomPomhtug=;
- b=VFgMLjSe5SGJmaSdML96KoEsO3ZdiVhgQdqQ4jgMGijxIImn3w4agPHdhqP22fV5LPQCJHm87BpBjdpLHHxgq6Rm+If0egsT8u6/3Oh+Obr2gttzBNHhdY5qdOYBZ6SnaOF3ysL9E8XvdoRYFp6lK5nZr+fjaBf6FQ1rCoZUSITTluxfrp+4BsdK0B8eR+Gmnp6MmfiYLwBSsZn9ucV8FCsTcm1ZSH83Lc8igsh5bEwf19gvxXdq6feS8Xp63xHM54xQok90fUiLIjJxvdqfmuUz9dW9s3Q2DwJd7ZerLEmDkb7TaiydiOLq+Ap/CIG+r2cTtLPxycOltvYFMsUXaA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ bh=RgZQm2fZDZp6KlYgX+7dMUcvwkAG0po4rAbDqkMa7Ko=;
+ b=I4LBRY8m0DI8fkbE6OM2BaPgLJa3TMx6vN9TisqtEOb+X5242wjffElRanxSG2U21bWPVMKoBMJ1cNyIiTHFl9/nFqcj2XxOlWM2PxuRPBfbS+yzxf4Scvq9jjmy16LmW/JXL0uo1dIJ4Uf1iuZEfMf9i1iaFVDN5Wh03calNefESC23E4mqvjYYd03N5bcTdmaJiMzxVfwzsQRLFKQJcbjeweXnTJchdDdkgedJlpaGENBqJpXUXWbjGntSJN3Di+EGPDciXswoTqigXKUAic9iY6s7pJVxMBUQ6B3ZPa7YMAqnR+3bFr03kASOWsb7aF3Ew4jTv38q3QqFDT8Vog==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=i0sjYByRB2otD7JdRoE+nj/02SbgDuWZ/AomPomhtug=;
- b=dOT+9l7csKXq7CBpGDjZ17oxbqut7W6kGehqIFO0Em4arIzWuwpAOrY/DEmKdgG0nNteZjp+CR3qHZG0zmEmVM/AxfV0dY6O4rnOlMNlVYid6845ItWGy4NEshwyDKsOTAzhZiPe7OgYimgb5UpgZMY/oM6OhNdYvaaxiFDByxE=
-Received: from PH7PR17CA0051.namprd17.prod.outlook.com (2603:10b6:510:325::14)
- by IA1PR10MB6145.namprd10.prod.outlook.com (2603:10b6:208:3ab::11) with
+ bh=RgZQm2fZDZp6KlYgX+7dMUcvwkAG0po4rAbDqkMa7Ko=;
+ b=mnDDIbtqYs0zEcbRU0Fs80DHYacGjm31A1V5fmxcFWMj72CrzdGR7alIQjl94nASY8qZCo8Cd5juwSMu0YLtVFXTiFKJHCAXYUTMLXcy8265fHCPVuOsjRGHruycWB/fQNiXkyp76XwqRaHE3CL5u04fwMVeLBt4EW+C/wd12TrD8UAZ1Eq3cY9YamLy35d5EdKBpENZlXoZcHS/UbaEWcbJoP4ye4+LEuSvFywpBwn8AIstjvMw/YmU2s8CtafMllSkKcEwAgAy1Xfd4s6tJy3mu2vS7Ihx/5T5fLLEnprZFwx/xXJTuJNtFqCIKuzfdHb3wsT6avI3ivFzrOjdYw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU0PR04MB9496.eurprd04.prod.outlook.com (2603:10a6:10:32d::19)
+ by GV2PR04MB11935.eurprd04.prod.outlook.com (2603:10a6:150:2f1::11) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.13; Tue, 16 Dec
- 2025 02:55:39 +0000
-Received: from CY4PEPF0000EDD0.namprd03.prod.outlook.com
- (2603:10b6:510:325:cafe::95) by PH7PR17CA0051.outlook.office365.com
- (2603:10b6:510:325::14) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9412.13 via Frontend Transport; Tue,
- 16 Dec 2025 02:55:28 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- CY4PEPF0000EDD0.mail.protection.outlook.com (10.167.241.196) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9434.6 via Frontend Transport; Tue, 16 Dec 2025 02:55:37 +0000
-Received: from DFLE208.ent.ti.com (10.64.6.66) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 15 Dec
- 2025 20:55:33 -0600
-Received: from DFLE209.ent.ti.com (10.64.6.67) by DFLE208.ent.ti.com
- (10.64.6.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 15 Dec
- 2025 20:55:33 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE209.ent.ti.com
- (10.64.6.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 15 Dec 2025 20:55:33 -0600
-Received: from [10.249.141.75] ([10.249.141.75])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5BG2tT0v3418535;
-	Mon, 15 Dec 2025 20:55:30 -0600
-Message-ID: <a12c3825-a80e-491f-a862-9cd5151a5f73@ti.com>
-Date: Tue, 16 Dec 2025 08:25:28 +0530
+ 2025 03:19:34 +0000
+Received: from DU0PR04MB9496.eurprd04.prod.outlook.com
+ ([fe80::868b:3935:5e0f:6a33]) by DU0PR04MB9496.eurprd04.prod.outlook.com
+ ([fe80::868b:3935:5e0f:6a33%6]) with mapi id 15.20.9412.011; Tue, 16 Dec 2025
+ 03:19:33 +0000
+From: Haibo Chen <haibo.chen@nxp.com>
+Subject: [PATCH v7 0/2] Add support for NXP XSPI
+Date: Tue, 16 Dec 2025 11:20:12 +0800
+Message-Id: <20251216-xspi-v7-0-282525220979@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAO3PQGkC/13Pz07EIBAG8FfZcBbDDP9aT76H8UBhcDnYNsWQm
+ k3fXbpbI/X4Tfh9w9xYpiVRZi+XG1uopJymsQb7dGH+6sYP4inUzFCgBoEdX/OcuIteOLDUW9G
+ x+nReKKb1XvP2XvM15a9p+b63FtinjwIQ6lFQgAsOuhYq6wIp8Tqu87OfPtnOCzYE7EGwEjIaJ
+ Mq+l5HORLbk+GaRlZggXQ+D6bz9R1RL+oOoSpzS4OLgfZTyTHRD8PcWvW+JQUhn/GCNORPTEn0
+ QUwnigBhICx/cH9m27Qe245nUlQEAAA==
+X-Change-ID: 20251028-xspi-afc0a17e9708
+To: Han Xu <han.xu@nxp.com>, Mark Brown <broonie@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-spi@vger.kernel.org, imx@lists.linux.dev, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, Haibo Chen <haibo.chen@nxp.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1765855251; l=4567;
+ i=haibo.chen@nxp.com; s=20250421; h=from:subject:message-id;
+ bh=aA0wFguApB2fGvCfSkKS1IhaC/wDRZFeh2hRA/lYMZI=;
+ b=IJ5R3spweNXZHpIuZ1Mrl6tYUvqAb8ZMSSMOARTZ1mZNpfaWkCsD0zUCNnH5Xj8/t967NMwEU
+ EMzqOgWSgk6D3c3wAngC9Svhu+PE3Yh1/9lg4yYvSFuCFryWlqzx4DJ
+X-Developer-Key: i=haibo.chen@nxp.com; a=ed25519;
+ pk=HR9LLTuVOg3BUNeAf4/FNOIkMaZvuwVJdNrGpvKDKaI=
+X-ClientProxiedBy: SI2PR01CA0021.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:192::19) To DU0PR04MB9496.eurprd04.prod.outlook.com
+ (2603:10a6:10:32d::19)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/4] clk: keystone: sci-clk: add restore_context()
- operation
-To: "Thomas Richard (TI.com)" <thomas.richard@bootlin.com>, Nishanth Menon
-	<nm@ti.com>, Tero Kristo <kristo@kernel.org>, Santosh Shilimkar
-	<ssantosh@kernel.org>, Michael Turquette <mturquette@baylibre.com>, "Stephen
- Boyd" <sboyd@kernel.org>
-CC: Gregory CLEMENT <gregory.clement@bootlin.com>,
-	<richard.genoud@bootlin.com>, Prasanth Mantena <p-mantena@ti.com>, "Abhash
- Kumar" <a-kumar2@ti.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>
-References: <20251205-ti-sci-jacinto-s2r-restore-irq-v3-0-d06963974ad4@bootlin.com>
- <20251205-ti-sci-jacinto-s2r-restore-irq-v3-3-d06963974ad4@bootlin.com>
-Content-Language: en-US
-From: "Kumar, Udit" <u-kumar1@ti.com>
-In-Reply-To: <20251205-ti-sci-jacinto-s2r-restore-irq-v3-3-d06963974ad4@bootlin.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000EDD0:EE_|IA1PR10MB6145:EE_
-X-MS-Office365-Filtering-Correlation-Id: d412b941-af16-4b00-41ff-08de3c4e975c
+X-MS-TrafficTypeDiagnostic: DU0PR04MB9496:EE_|GV2PR04MB11935:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0da5dfe2-59e3-49c4-ad0a-08de3c51ef2e
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|7416014|82310400026|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?MnpBajFuU3NIQ3BvbUlkLzNHRGk3cnJKYlhGNHE0eFFUNy9HQy90UlpLZnpO?=
- =?utf-8?B?akpRV0VjSytBQ2k5OUtVQ2JaODhFUUhMY1RMbGNxVnpRcmo5Rjh2YVRpRnoy?=
- =?utf-8?B?RUl3T3ppVjdITkdiSWFjSitTdUVMZythWGV1ZkpHbHhZVUFqdDYzWFYvR1Ur?=
- =?utf-8?B?VHptNzBLY1d4ZjBYL3lnM1N0MG9oSmExMWI1ai85S3NBbml6MnY3TW50YVFH?=
- =?utf-8?B?TW5rUHJDZXp0Ny9IaTUyY0FZRjhwVURGY1d0eGQwMDdJcE55d1M2UFY4ajVu?=
- =?utf-8?B?cFRYRFhoZGsxY0JkYUV5eXFMWUJObGkxRXhPUkdkRloyL1ZiOE9rM1FpalBC?=
- =?utf-8?B?dlBKbEk3OWo2VnNJZnh1Y2RLeGJJTDZkREw3dy9DaHRQeVFJaXM1RDFWb3VK?=
- =?utf-8?B?N2JscitVWWQ0UHpMa0svWU1ISDNtTk5mMHNpWHJZS1dhNDBDaGpKZVB6L1dU?=
- =?utf-8?B?aGM0OUZFT0VLaHJqL1o1QTRkdks4dXRPaDAwVW5EWVdDZm5rbFlyQVFqQy92?=
- =?utf-8?B?djNUVFMvaGRycFY0QXhSNzFobnNsRlJKeGhWM0JnZ05UYlkxSVUra08zY2cx?=
- =?utf-8?B?Vk1NdlJLcmZQWm9MOHg4U2U3NlZwZmJTR2JLbzdOTFF6eUpmOW53UngrT2VC?=
- =?utf-8?B?WVI2bGgzeVZKNUdBK3doTnRUVkMyVGdIbW12RWFwcjg3TlRpVGs0RVozWWs4?=
- =?utf-8?B?em1vT09lTldPNjJMU2pyUDNtMEd5SnZjb1RhTzBBeUFmVTBoR3FZVWp6SHJY?=
- =?utf-8?B?QjlXNzNzZ25YeWxwSjlEVGhCS21XYng2akhKdjBYRnUxY0g1NlhUZVQ3SWEz?=
- =?utf-8?B?dXNLbEtZeitTa0I0SHQxRmJXdWhhL2JMSmgxUjhFV3lRQkw3RmNhK3BPcGJ2?=
- =?utf-8?B?MXpjaHdlaUxtU2krMmZLaDZqcVNYWHU4Skdnb04rSTkvcURDaGhhMFVpaE1a?=
- =?utf-8?B?TDR2ZnByRVJKNk5GOEdYUFdGSTdXckJBQ2c1TkJjeHNWS0h2S1B1akYxdCtu?=
- =?utf-8?B?U0QzT0Q1YmM3Um5oTjdVV0lLVzlIMzI0aHhhM2RKbnNuWE9PTjdDY1BOVlRy?=
- =?utf-8?B?aWk3OStCc1R2dlY4WE1rSGZMNkRBOFFURXd3eEdtU2JpMW4xS09JRUIrQVlI?=
- =?utf-8?B?dFdjOTBBM0FhbGR6YkxlRGU0SytOS3NXdk5NK3FPS1lFMTVKUzRlT1p2djdx?=
- =?utf-8?B?cUV6U0EyZ1V6L2E1N1hpRUlPWGR3K3krNEh1Qkdsc1kvN05DWkJhQTFuNUpl?=
- =?utf-8?B?UHhKNWZ6WE02aVg1bklHU0RxUG1INjd0UEJwcWJYSFc5YVpGaUpwUnl4TE5w?=
- =?utf-8?B?UnJma1daVG9aREJKaGN2K1NUenAyUW9kRERzRVA3RUQvYlhwRm1QVDhaalg1?=
- =?utf-8?B?TjE5aGh5aHlOQWNLZy9hK0tFdCtwellicnFqUG1NdExnWE4vQmVCYzV3bUp4?=
- =?utf-8?B?dUxLdWx5NTVJdFNSWTk0bnhsam9SSFZoc3JxSlBYOUt4bjROYi9QOVNJbTN2?=
- =?utf-8?B?UHdKV3hsYTFkcVRlYkZXV0podXd1amFpY20rWC9aeUNtL1ZHUkJQc1h6dGxu?=
- =?utf-8?B?U1ZwRDJ6aUc0UlB4dmxHTWVRMkpweGJ4dDNyWU5EUzViM2NBZ2x5VlIxVWhs?=
- =?utf-8?B?Vnp2ZWRtdWtQL010aDFMWUJ2MURvUkNhdDVXdnM2eFAyU3Y5bGxNLzFSSUsv?=
- =?utf-8?B?NVNwbFZsdkJLOE1jUGFkWTZONDJhMVZRYi9NR0ptdVNYNFc4MElRUlNESHB5?=
- =?utf-8?B?dDZ4Uk81K2VuellsUndxRkh3VVUzMW9Nbk9xcjRzKzVadmlIV2NEcm42bFpG?=
- =?utf-8?B?MXZOK1M3OVhkY1BPL2lmOWlLK1Q4ZUtiWGI0dGNUbzBtRms2VlhraW5RNFNu?=
- =?utf-8?B?NHNQaENpYkI4Q2RDeEx3Z2hNcUhubm5ZeGFPOTBaUmo1S1pLbHRhdE5kdzk4?=
- =?utf-8?B?L0l1Nk5DQWs1eVFDSFZxL2ZhRHZyTjdrTEdDRWVEYzEybHVmSmJxbXNmTkRa?=
- =?utf-8?B?SjZTdmFPam9tY1hiRHdEUWhlUnNKRjRuejZaUWtnMlgxZzRManlIUGRHdS9h?=
- =?utf-8?B?SGdGekljZXJuQzlVUmt3SlBxMEttaDVKamw5K2Mrb2pKeWZxcTduTmkzenNy?=
- =?utf-8?Q?h8X8=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(36860700013)(7416014)(82310400026)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Dec 2025 02:55:37.7034
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|19092799006|7416014|376014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?RElJSGQrTDVqMWw3Rnk2TnlXejZUWTVnUkdWTVhrcWJQTnlQczZnR3ZJYzNy?=
+ =?utf-8?B?MVB0M2dHYjFubFNuYXBvSHlJYWFrWkF6eTB6L2Z2Qk5CUnNmRGFwa0oyM3FD?=
+ =?utf-8?B?OTJxOEZjSFJTTTUwcnU0WVIrQkJCSHQ2THNtL3ozMkhjaWVTMk9RcnFJaGMy?=
+ =?utf-8?B?OTV0d2JIbWZicS96d0pOK3NJMjRFQkZHd1BVZjdRM1ZUMDRHakJiVnluZXRj?=
+ =?utf-8?B?QThFKzQvZDVtb3pjMy94WWdqVWwxMUNQQWZ2Sk1rSlU4ejRWY0pNSE5FcEdH?=
+ =?utf-8?B?UGh3WE02ZWZ0Y3hoZ0taOUI5SjEySUFacXRUQ2pwR1IrYTE5U0Qxdm1teDNw?=
+ =?utf-8?B?NGdQeHdLZ0NsL2ZldXdXK0E3RE8wcVFjT2NPQUdMR2tJMlgwemhOVyt4eld1?=
+ =?utf-8?B?NDNVaDVXeTlxcDdmUjZtdjRxWEY5Uy9SWDNMYWFsN3lqcmNMeXV3ekhuTnZR?=
+ =?utf-8?B?ZXcrblcwd2JrcDZMaCtEY3pBQTBjOWFxTlh6bVhjbFlRei9JdDliOWwxaGNr?=
+ =?utf-8?B?eC9CaDZuVkdqK1VTSEVkb1lua1ZLQU5hKzhkTmYwaDg2VDduTzhMUVFQM08r?=
+ =?utf-8?B?NTFHSHRRdEh5L2I3Z1FXa0pWZnZqdW9pMFBnRHNoekQ2dkJkT3FYeGVnR1Fw?=
+ =?utf-8?B?S1R6Zm1EanlQRFc3eFpvaHcyS2M2amtXT0ZYRTVDdFZ6akJvSmhqWEd1ekx2?=
+ =?utf-8?B?SWhBQklZY0ZTak5UYU1zOTZuN3d0K1VwbDJoc2l2RFdvWXhGaVVKWHdSU1pD?=
+ =?utf-8?B?eUFaeWRGREFVZ0RHcG51Nytpd1BHTUFuUkVla2JMTDIvMkJiYWhYK0dXWEZP?=
+ =?utf-8?B?VXBVQXNocnNLSHlpNVNhMDF5Y00zdmlPbzdWbnQ0N0JoS1V6OVdPemJyb2JO?=
+ =?utf-8?B?U3E3Yy90Uk1kTDRuU2ZjR0tXclVzcENvc29zcSs5c0R6emFtVjNrMmNaZTIr?=
+ =?utf-8?B?TjBFRUEvVE9NNW5QcSs4bGs3RWxydFY5dkZUYWZiWGNidXc5ckdadllKbnFU?=
+ =?utf-8?B?MXd4V2hnRGx4MEFORGV1VXA2MVpFTktyWXpWZXc5WTdYM2lmTUVUNWJlb0JJ?=
+ =?utf-8?B?b1U3UEplL215OGx2bDFWMGRkdGEwQ2o1eXFYWDA3Mnd6aVJ2bVZhTFF4RUVY?=
+ =?utf-8?B?UHhJVzQxK2NIeWR4NnVzL2RmTjU0dEJieHdjdXJlSzRWNk95TzQ3aHpOL29Q?=
+ =?utf-8?B?ck5PY1hnbzJ0UGo4NUpwbzVWeUxQSi9jZDQ0amZGUGFmaFgwblB4VVd6cmJx?=
+ =?utf-8?B?NVBPYUlrYXVRajRQbGhYZXlieWhmZ2pyMUdCM0Z0dWk2T3IzSmVIV2h1Q3hj?=
+ =?utf-8?B?eU1UcE96MDg5QTVUODhBUzdFZFd0c2pKRFlpNlBiVEsycE54bCtqQzFSR0p6?=
+ =?utf-8?B?L1JDV2hEdkhOZTl3SUpFL2h3aHJyQkhRMzBTOHRoWXJnQ1NLcGFRMEU4M1VC?=
+ =?utf-8?B?TW41TFBBK29WNkN1dGYxakc5ZHUxRHA4azQxUmV4SVBlZU82Mys4Rk9RUW85?=
+ =?utf-8?B?dXFaWlA0WkpuY1MwQTVCdVZhWjA1TEU4NHhNNU1jdEtRWng2YXF2dThkaDhp?=
+ =?utf-8?B?QUNEejZxc3A4VVE0Zkc0V2tBYjd1Z2MxRlBaQmsrd2lPM2RIWFJMdWFUSE9m?=
+ =?utf-8?B?cjltOGNiQkQ1cmhmdTd1UXhZS2UvN2Z4cDFiT0tiRlQrVzdLYnRkYjU1c2dR?=
+ =?utf-8?B?ZUs4STR0WGJJUEs4eGNhVHZ2NXAyQ3dwV0NJTzByUEJQY1FLZkZiYlNSVDhV?=
+ =?utf-8?B?VFovYTAza0dGYVVOd2Nrb2dMS0FXOUY4UzNoQ2VyZlcxZ2FBbDhxeU1MSmJz?=
+ =?utf-8?B?QkdkMnNmQ01FcU00S1huYXBqV2g2aTZucDhXT2UyR0FteEhoamZQZTFhWlJY?=
+ =?utf-8?B?clJiQmNaSlUxMll6dEVNbjkvaVJPMTlNckR4L2Y1RTBKS0RXdDFGNDh0bW1G?=
+ =?utf-8?B?aUs2ZEtrUkxyU3hBT1M4a1N1WTBIUXc2dTl3eXVrZ3hldWpWWDdPaHh3NWpN?=
+ =?utf-8?B?VmRoeCtpTUhDaEtoR0I4R3hTb2pubyticjBEY1VDbm5md2FuU0QxM3dNZXE3?=
+ =?utf-8?B?OWova1JFSTdHSHZEd2lkVnJmZFpoSTczS24wUT09?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR04MB9496.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(19092799006)(7416014)(376014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WDdLb2MwaVJSUDJGTkVQcm5ObXd1UW5RMi9kOCtFai81QkZ5VFNNczBCbEt2?=
+ =?utf-8?B?NXNhUW03TjhYTnFBNDRVWnF0aUVRYXV6MlBDZUNoWkhWcEtkQ0hQOU1nVzJw?=
+ =?utf-8?B?dWRaeGZmSjd3MFhCVmpFd25Dd2xJNDYxN1NYbFh3RThObXhFVWJ3YVZaaE9B?=
+ =?utf-8?B?a2hxV3p5d1BUbVJMQU0vN0FGMlBOQWpaMkFSbDNQdHdUbmJUN2NVMGlWTjJr?=
+ =?utf-8?B?MzVaeUN6RkRBZmVWcnZCTUlnOTZYT2hKUkYxUjBWM1I3b2xFYjZDdmhOZjh1?=
+ =?utf-8?B?aVdYZUk3R3VrcU52R0c5b251amI3MWUvakpsMzlnQ1M0SjFtTDM4b2IyOXdD?=
+ =?utf-8?B?WktQYkhmVmRtRXplSzMzU2ZydXRTdmIyRlhZTUtlSEtEWGFvUTFYVnFxeUpX?=
+ =?utf-8?B?dzd6ditGYnd3a1ltelF6UFJlcGlTY2VYMlMzUnRIbmFhK3p4d3ptTVZnZTFY?=
+ =?utf-8?B?SmdwQmZNL3NFeFV2eGptVWtxeWU0bXFpVFZlYk8zUlpJcHRUUWVuZ3NyTjUx?=
+ =?utf-8?B?WWlPYzhQaEU2RGlSanl2bUU2ZzlGUFkwQXFMNU5GS1orZ0w2clNNYXhJakZS?=
+ =?utf-8?B?U2xKRmRGam9NeW5iNHJzd2lwY3dTUmhRUXpnMHBWRFMrUmFZdEMvU3NqclJI?=
+ =?utf-8?B?cXMxOG96bXBKQmMzNjZDNHpjUjVrOXJUV08vR2lCaTFQTUVzdXpySlVTcWlr?=
+ =?utf-8?B?MGV5aWxoWHhjV2tvWkpOMXBsYnp6cm5ZdExjQnZadXVGOVVpTDFud1VYQWh0?=
+ =?utf-8?B?RUZ2dnV1Sy9FREMrdWxhYmZaejNoOHZQTU5yNTZWRFBWYXdzU2R4dFJkeFph?=
+ =?utf-8?B?RzNPSTd2MTlpZFJkZDQ1WWdvWUNwOXN4MEZjbmxWUWMxRWM3ZUdOcmYvQmJE?=
+ =?utf-8?B?RUhMZ0U4Yi9qWDJaTWIrOEUyL2RxUkVpckRRWlNXTUdRdkFabFc3T0V6bTk2?=
+ =?utf-8?B?VGUwR011dTRHc2lGWWJYcWlZQ09rWE44cVIwTG5uZHpadm1LdlFTd0MvU201?=
+ =?utf-8?B?QVl0WnZVZlBraTRhYkJJYXJtdDB1TlE3cmtCSHd4U2cvSzQxSjlDdWdBbWZ3?=
+ =?utf-8?B?d3cyc2RZT1JTZWlyT3VGY3dmOFNORzNVWGk1WlVqMCtsSmZwTWFGS1V2QnBm?=
+ =?utf-8?B?RksyckpFYnRUV0FaMTA2U3pObml0VW1UMTAraTNGaEg4bFROZkZDYWNOWThF?=
+ =?utf-8?B?Qmx4d1dxcEw5dENyM0QzYWxIZTExaUVTb252V3BxUDYxaDdwam5VdlVjQm1z?=
+ =?utf-8?B?bzhVZitlNTFEb1JpVHR6L3hNUERtUzUvTlRjNlcrMzF1Wld6LzlObm5KZzZ5?=
+ =?utf-8?B?RWQ4NVd6TGRiVVJZTm1oTUI1a3prSDhKaDk4QU5VNU9Jdzl3SC9qVEVCZTNJ?=
+ =?utf-8?B?K2ZDcEREWlUrbzRvcjd6NHR6SFhBWmJ1aXQvVEp0dlpjOTViejRaZnY3MXlu?=
+ =?utf-8?B?SGpTZEVQYnFBbHg0bGtmNmh6ODNOclVudk9GRlBCYUhjeVNYcUlSSzFaeGFF?=
+ =?utf-8?B?K3Z1VXVIYXJkOGF3Q1lJYmMxeUFGMWJLT2lDNlJuaWRmblIxTWtteDlyS0J1?=
+ =?utf-8?B?Y3p2WEpmdHdiM2hiSC80UERidzZmc3NTWjFRYnBUTHZiQVp1eVpRZ2x1Smlu?=
+ =?utf-8?B?cVZLMG9XS2VnMWdyOFFQUmt0K0pHVHdsMWVwS0lnNzlPYk5ZMjg2NW55V0Fj?=
+ =?utf-8?B?U0t0Yml3MjF3NDc3L0owMlAydEVpTnExcWx4ZVRhaFZSRzVBemt5dkVUVkZC?=
+ =?utf-8?B?QUowQUhOU0h3YjZaaHBtL1d5bGN3cVNKYzJEdEp2RjNjVjZnRXplc0plYWx5?=
+ =?utf-8?B?T2ROUWx6RlUvMXNkeGZWbVZTTHl1SnJhb3Q2TWxObkNCdEpQNnZoTmk1dGVW?=
+ =?utf-8?B?RS9nZWdHTnd4OFBRRnNnTTZtdU14NWdKSmlSczA5aUFhc05RNkg2K0hTLzhV?=
+ =?utf-8?B?VEtpU2VsWitqWUZIQ3cyTzMrSmp4RDkwbnpnY3htM213eEJ0MnZLaHNseWpq?=
+ =?utf-8?B?aEJYb3JnelJ1aCtVS2RhOTdFS2M1ZXlBMklPOWQ5Y0oyd0hMOFdZVUpIOVJ6?=
+ =?utf-8?B?UVdNY0VjZElVcEpQelFTWU5UdjV6eXI1eXBvb3pINk0zKzF3dHQ1TmU2QS9N?=
+ =?utf-8?Q?2PnAD8/Nc9WuoQDUbTiFQViz3?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0da5dfe2-59e3-49c4-ad0a-08de3c51ef2e
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR04MB9496.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Dec 2025 03:19:33.7962
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d412b941-af16-4b00-41ff-08de3c4e975c
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EDD0.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR10MB6145
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 8eMm6s/Lhb7T/TV5ylaTbRhLBkbAVNoRePj8P3j4vu1AFDxVodtWt6YoAT7qHmmeXb4tmj+4c6NyFELUmmSi2Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11935
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_185543_833913_C8CC0B8A 
-X-CRM114-Status: GOOD (  19.20  )
+X-CRM114-CacheID: sfid-20251215_191942_333317_F2EB8A1B 
+X-CRM114-Status: GOOD (  17.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,121 +193,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+XSPI is a flexible SPI host controller which supports up to
+2 external devices (2 CS). It support Single/Dual/Quad/Octal
+mode data transfer.
 
-On 12/5/2025 7:58 PM, Thomas Richard (TI.com) wrote:
-> Implement the restore_context() operation to restore the clock rate and the
-> clock parent state. The clock rate is saved in sci_clk struct during
-> set_rate() operation. The parent index is saved in sci_clk struct during
-> set_parent() operation. During clock registration, the core retrieves each
-> clock’s parent using get_parent() operation to ensure the internal clock
-> tree reflects the actual hardware state, including any configurations made
-> by the bootloader. So we also save the parent index in get_parent().
->
-> Signed-off-by: Thomas Richard (TI.com) <thomas.richard@bootlin.com>
-> ---
->   drivers/clk/keystone/sci-clk.c | 42 ++++++++++++++++++++++++++++++++++--------
->   1 file changed, 34 insertions(+), 8 deletions(-)
->
-> diff --git a/drivers/clk/keystone/sci-clk.c b/drivers/clk/keystone/sci-clk.c
-> index 9d5071223f4cb..428050a05de31 100644
-> --- a/drivers/clk/keystone/sci-clk.c
-> +++ b/drivers/clk/keystone/sci-clk.c
-> @@ -47,6 +47,8 @@ struct sci_clk_provider {
->    * @node:	 Link for handling clocks probed via DT
->    * @cached_req:	 Cached requested freq for determine rate calls
->    * @cached_res:	 Cached result freq for determine rate calls
-> + * @parent_id:	 Parent index for this clock
-> + * @rate:	 Clock rate
->    */
->   struct sci_clk {
->   	struct clk_hw hw;
-> @@ -58,6 +60,8 @@ struct sci_clk {
->   	struct list_head node;
->   	unsigned long cached_req;
->   	unsigned long cached_res;
-> +	u8 parent_id;
-> +	unsigned long rate;
->   };
->   
->   #define to_sci_clk(_hw) container_of(_hw, struct sci_clk, hw)
-> @@ -210,10 +214,16 @@ static int sci_clk_set_rate(struct clk_hw *hw, unsigned long rate,
->   			    unsigned long parent_rate)
->   {
->   	struct sci_clk *clk = to_sci_clk(hw);
-> +	int ret;
-> +
-> +	ret = clk->provider->ops->set_freq(clk->provider->sci, clk->dev_id,
-> +					   clk->clk_id, rate / 10 * 9, rate,
-> +					   rate / 10 * 11);
->   
-> -	return clk->provider->ops->set_freq(clk->provider->sci, clk->dev_id,
-> -					    clk->clk_id, rate / 10 * 9, rate,
-> -					    rate / 10 * 11);
-> +	if (!ret)
-> +		clk->rate = rate;
-> +
-> +	return ret;
->   }
->   
->   /**
-> @@ -237,9 +247,9 @@ static u8 sci_clk_get_parent(struct clk_hw *hw)
->   		return 0;
->   	}
->   
-> -	parent_id = parent_id - clk->clk_id - 1;
-> +	clk->parent_id = (u8)(parent_id - clk->clk_id - 1);
->   
-> -	return (u8)parent_id;
-> +	return clk->parent_id;
->   }
->   
->   /**
-> @@ -252,12 +262,27 @@ static u8 sci_clk_get_parent(struct clk_hw *hw)
->   static int sci_clk_set_parent(struct clk_hw *hw, u8 index)
->   {
->   	struct sci_clk *clk = to_sci_clk(hw);
-> +	int ret;
->   
->   	clk->cached_req = 0;
->   
-> -	return clk->provider->ops->set_parent(clk->provider->sci, clk->dev_id,
-> -					      clk->clk_id,
-> -					      index + 1 + clk->clk_id);
-> +	ret = clk->provider->ops->set_parent(clk->provider->sci, clk->dev_id,
-> +					     clk->clk_id,
-> +					     index + 1 + clk->clk_id);
-> +	if (!ret)
-> +		clk->parent_id = index;
-> +
-> +	return ret;
-> +}
-> +
-> +static void sci_clk_restore_context(struct clk_hw *hw)
-> +{
-> +	struct sci_clk *clk = to_sci_clk(hw);
-> +
-> +	sci_clk_set_parent(hw, clk->parent_id);
-> +
-> +	if (clk->rate)
-> +		sci_clk_set_rate(hw, clk->rate, 0);
+The difference between XSPI and Flexspi is XSPI support
+multiple independent execution environments (EENVs) for HW
+virtualization with some limitations. Each EENV has its own
+interrupt and its own set of programming registers that exists
+in a specific offset range in the XSPI memory map.
+The main environment (EENV0) address space contains all of the
+registers for controlling EENV0 plus all of the general XSPI
+control and programming registers. The register mnemonics for
+the user environments (EENV1 to EENV4) have "_SUB_n" appended
+to the mnemonic for the corresponding main-environment register.
 
+Current driver based on EENV0, which means system already give
+EENV0 right to linux.
 
-Mostly looks ok ,  Please add some warning prints in case of resume path 
-either of
+This driver use SPI memory interface of the SPI framework to issue
+flash memory operations. Tested this driver with mtd_debug and
+UBIFS on NXP i.MX943 EVK board which has one MT35XU512ABA spi nor
+flash. NOw this driver has the following key features:
+- Support up to OCT DDR mode
+- Support AHB read
+- Support IP read and IP write
+- Support two CS
 
-sci_clk_set_parent/sci_clk_set_rate returned failure
+Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
+---
+Changes in v7:
+- PATCH1: adjust subject lines reflecting the style for the spi subsystem
+- PATCH2: no changes, just wait this commit ef8057b07c72 ("PM: runtime:
+          Wrapper macros for ACQUIRE()/ACQUIRE_ERR()"), so that current
+	  driver which use the new macros PM_RUNTIME_ACQUIRE can compile
+	  without error.
+- Link to v6: https://lore.kernel.org/r/20251125-xspi-v6-0-22b22de50cda@nxp.com
 
+Changes in v6:
+- PATCH 2: check return of devm_pm_runtime_enable()
+           return err when trigger WARN_ON()
+- Link to v5: https://lore.kernel.org/r/20251124-xspi-v5-0-6fd03a6cb766@nxp.com
 
->   }
->   
->   static const struct clk_ops sci_clk_ops = {
-> @@ -269,6 +294,7 @@ static const struct clk_ops sci_clk_ops = {
->   	.set_rate = sci_clk_set_rate,
->   	.get_parent = sci_clk_get_parent,
->   	.set_parent = sci_clk_set_parent,
-> +	.restore_context = sci_clk_restore_context,
->   };
->   
->   /**
->
+Changes in v5:
+- PATCH 2: fix a typo of GENMASK to avoid build warning which reproted by kernel test robot
+	   -#define XSPI_DLLCRA_DLLRES_MASK                GENMASK(32, 20)
+	   +#define XSPI_DLLCRA_DLLRES_MASK                GENMASK(23, 20)
+
+	   do not write XSPI_MCR_MDIS to MCR directlly in nxp_xspi_cleanup(), instead
+	   read MCR, only set this XSPI_MCR_MDIS and write MCR. Find this issue when
+	   do the bind/unbind test, find some reserved bits are accidently cleared and
+	   finally impact the data transfer, because the reserved bits[3,2] need to keep in
+	   the default value.
+- Link to v4: https://lore.kernel.org/r/20251119-xspi-v4-0-a451afbccf33@nxp.com
+
+Changes in v4:
+- PATCH 2: add changes according to Frank's comments:
+           - rename XSPI_RPM_TIMEOUT to XSPI_RPM_TIMEOUT_MS
+	   - rename POLL_TOUT to POLL_TOUT_US
+	   - return IRQ_NONE directlly
+	   - use min_t() to replace min()
+	   - use the new macros PM_RUNTIME_ACQUIRE_AUTOSUSPEND and
+	     PM_RUNTIME_ACQUIRE_ERR in nxp_xspi_exec_op() and nxp_xspi_probe()
+	   - refine nxp_xspi_cleanup()
+	   - use devm_pm_runtime_enable()
+- Link to v3: https://lore.kernel.org/r/20251118-xspi-v3-0-6d3a91b68c7e@nxp.com
+
+Changes in v3:
+- PATCH 1: fix the messed ordering in MAINTAINERS, add Krzysztof's ack
+- PATCH 2: fix some typo, and add IRQ_NONE in nxp_xspi_irq_handler()
+	   also add {} for else when the if has {}
+- Link to v2: https://lore.kernel.org/r/20251117-xspi-v2-0-e651323993fe@nxp.com
+
+Changes in v2:
+- PATCH 1: re-name the yaml file, and correct the compatible string and reg in the example to pass binding check.
+- PATCH 2: involve changes according to Frank's comments 
+           - use GENMASK and FIELD_PREP
+           - remove little endian, use readl/writel/read_poll_timeout directly
+	   - use fsleep instead of udelay
+	   - remove pm_runtime_mark_last_busy()
+	   - keep one style to use up case
+	   - use SYSTEM_SLEEP_PM_OPS/RUNTIME_PM_OPS
+- Link to v1: https://lore.kernel.org/r/20251104-xspi-v1-0-1502847ade40@nxp.com
+
+---
+Haibo Chen (2):
+      spi: dt-bindings: nxp,imx94-xspi: Document imx94 xspi
+      spi: add driver for NXP XSPI controller
+
+ .../devicetree/bindings/spi/nxp,imx94-xspi.yaml    |   88 ++
+ MAINTAINERS                                        |    9 +
+ drivers/spi/Kconfig                                |   10 +
+ drivers/spi/Makefile                               |    1 +
+ drivers/spi/spi-nxp-xspi.c                         | 1385 ++++++++++++++++++++
+ 5 files changed, 1493 insertions(+)
+---
+base-commit: 563c8dd425b59e44470e28519107b1efc99f4c7b
+change-id: 20251028-xspi-afc0a17e9708
+
+Best regards,
+-- 
+Haibo Chen <haibo.chen@nxp.com>
+
 
