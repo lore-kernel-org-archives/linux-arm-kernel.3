@@ -4,145 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 300ADD637A9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 20:47:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02CEBD637AE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 20:49:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Z6IR4UK0Q8fFDpN7EclItAZP+fdGlpjl0uVZ0qII3Y=; b=o9GisQTR0A8ZWSrZi9R9kPMuq/
-	TBNstxnSZMbKw8Y9iEmjl/AwLnblOmTlCoof8avGQ+vpDqAfBH4l7WHF+UDG5IyhCJm8HyW7/z05q
-	RYaQSstV9kAt3VYconJ6R4Z7L6JkrrgSW7wLzoUgrbQs+7wkjFGTgx+uitMAyu1NgISwLdNby8FyF
-	8k5MZfh6bJHp933CCOOoe++0Ga3IqTsP7DZOnOtQvp8+NWRDa9P4PaQ+3tR6qhvkIGbtzamLozSBA
-	GGpZCMdqlzO1NwLyI8+qUcVUus9w9yIF2zGVD8rajBq8LId0miN86X1g15NdDZRYbLBR9Xqd4Bb/y
-	LDfqM9Eg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ca75mjl2ylCa0bxIWbc8enL9XzPv7wMBHz9lP28nTcA=; b=LxE72Wroia5k0RukX4msQnt9UO
+	3tz0i/OgkueyTZEsJf9vfKil7CesXILt1HfvKMexhH+snb1gSekw9nW58BVgjglRLwxYx30x4mzUU
+	w1gBGMoyNtEIku+7e38B49MtLulu3+Dxtkf5E1A3SgZgtQoQ4XGqWrgG/X7jr0KIohJNGkECBP064
+	HHz9A96Ks+san18kaqpjhRXX5WipiajSaocYiRxld21e0sh3AajB8cJC8eaaebFokUoSXlXcYV/HQ
+	xD1MOhsZ6w8Bbq/mB5tCZP1X1DSg162hsEQ/pxTK1WwXtyHJ2sZyPjYq5vWU89t9NPek5XSmoi0oD
+	DmRT7Dnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVbxD-00000005ny2-3NGf;
-	Tue, 16 Dec 2025 20:47:31 +0000
-Received: from mail-northcentralusazon11010062.outbound.protection.outlook.com ([52.101.193.62] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1vVbyt-00000005o5R-25cl;
+	Tue, 16 Dec 2025 20:49:15 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVbxB-00000005nxe-0Tf8
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 20:47:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WTrgeirwT1rdHcy0tY4xEOOvY/1XBQzub1HUAYei94BLxBz5KzJ1DtZPSUWMdLypKzleVRntRJoP1Wlzx2I29WgGkhHWRJLJm1rPHeKn71o7F0G3QIoVtakMfBpAa/8l0pi7CNFSx9Fo6zhD/YysaOTPTQm5UGoF1E9xlvXkwOj/uNZYE726mmyhLE9bkepQVQQ7P3CeDDvxJ7wI7zxW8HOoeWAvGzz8iQQlpWWKfJ7GYZPILuXeGST6fWlzQpfHhiSzK3YOm9KTtjGYH3pZ78Dak8wpJvaw1aBfVA021E3mQK4d5q3+6faHwhZSdR9MqW1BfAvR6xhqZzHFQFRr2Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+Z6IR4UK0Q8fFDpN7EclItAZP+fdGlpjl0uVZ0qII3Y=;
- b=Pboa3Wv5dx+1/IOzZxniYDLbUC9r+c10nmPrI1jh+8d61Z6+2wZAjH6BHGrSjDumjKBt8DEe2vTYyA7q/9z5h51K+cXnMUeG7FvwLnY6iPT91PvNwYCnJO0pBX8tceZ8azCGI274+9fNlCZcxzyKtUZQRA+GLCat2PUPsg29fwedfsQ8H8tPyzWZj81RIGY7p8Z2gAYQtNea/m+ybTdlbtv9bdHt/4cwClh4acucoR3iw8K4+zYyDPXFki0VdfNQmxRPb0WhdjH9dylF6DKC4Pz1yXQKHb+2sVUttA2bI63jq6SB8iYzLOqCqbm8OCdc9BFIrnYakX9bsQjdKKGEzg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+Z6IR4UK0Q8fFDpN7EclItAZP+fdGlpjl0uVZ0qII3Y=;
- b=J0wjLNDLru5wwnAW4qkZeuJOVVRBOWDSBvwajyHoS0gHmOzsz53nOHygb1JGR+LADhrqkTCD7wdoNXFy717Cf0YeI4VQqygwQ/Mu6vE75PsWN5vhrgeYt2ERNbJCuMIoTOdM98LwuCX5TZqBR9RR3nWDdnZfkwGIDv40IwXp1yI3SbL9aAj9uGjMo6IeZZ3Nw/ESdpWt3BhXthdnfdaR23xkK8K7nKczVCU23ciV7J15UXHeHD0wYpB4tRFxSczynkziqy9ZB6xDQmGIpdrRENstyMiaKKT4r0/QHMb8+v5pMZIOX4WLhFWgjxGkFwIID9X9JD47yhRLAsUQxr0juQ==
-Received: from CH0P223CA0008.NAMP223.PROD.OUTLOOK.COM (2603:10b6:610:116::19)
- by PH0PR12MB7981.namprd12.prod.outlook.com (2603:10b6:510:26c::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.6; Tue, 16 Dec
- 2025 20:47:22 +0000
-Received: from CH1PEPF0000AD7C.namprd04.prod.outlook.com
- (2603:10b6:610:116:cafe::83) by CH0P223CA0008.outlook.office365.com
- (2603:10b6:610:116::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.6 via Frontend Transport; Tue,
- 16 Dec 2025 20:47:21 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- CH1PEPF0000AD7C.mail.protection.outlook.com (10.167.244.84) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9434.6 via Frontend Transport; Tue, 16 Dec 2025 20:47:21 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 16 Dec
- 2025 12:47:02 -0800
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 16 Dec
- 2025 12:47:01 -0800
-Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com (10.129.68.8)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 16 Dec 2025 12:47:00 -0800
-Date: Tue, 16 Dec 2025 12:46:59 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Mostafa Saleh <smostafa@google.com>, <will@kernel.org>,
-	<robin.murphy@arm.com>, <joro@8bytes.org>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <skolothumtho@nvidia.com>,
-	<praan@google.com>, <xueshuai@linux.alibaba.com>
-Subject: Re: [PATCH rc v3 1/4] iommu/arm-smmu-v3: Add ignored bits to fix STE
- update sequence
-Message-ID: <aUHFQ1Ep2x4/vdk/@Asurada-Nvidia>
-References: <cover.1765334526.git.nicolinc@nvidia.com>
- <cc0d4ab571e2e789ee1cddfa035379dc54f0601b.1765334526.git.nicolinc@nvidia.com>
- <aT87A1ur4htPjM5T@google.com>
- <20251216000952.GA6079@nvidia.com>
+	id 1vVbyr-00000005o4u-1owP;
+	Tue, 16 Dec 2025 20:49:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1765918131; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=PWaVYsnoiZji0m2Vak4l2GrTUxoYt4kMHURmwjMjZguN7UWa59kydpjQsG8/mKjUo7tBa2IRkWyGvn3osGnQtysH22zg0z0gPvDLk11dN1t8OIVWMcjFNhIj5z4D2/RVShSp6GLIvRV7GUK1qxD7oqVYfOjI2yDzzQFtV/FjIb8=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1765918131; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=ca75mjl2ylCa0bxIWbc8enL9XzPv7wMBHz9lP28nTcA=; 
+	b=iz1+RkKe76OYgFc+4x90CG7/JNEo+qjeBULdrVd98VaeDlbOTS9HkTTGbX3vGUbXE6peyXxQWNDHt2N0hOlGKrYXDV/tREjcVvLD80QuuH5Kzt08+uapiKD8I211EaRZ0QeInDtrW9BlWURE9FQaE4onedCohFGAV9P/mGub2Ic=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=detlev.casanova@collabora.com;
+	dmarc=pass header.from=<detlev.casanova@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1765918131;
+	s=zohomail; d=collabora.com; i=detlev.casanova@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=ca75mjl2ylCa0bxIWbc8enL9XzPv7wMBHz9lP28nTcA=;
+	b=a1tIKX9L+xVzbyG57TB4ApRpWDthyRhwKsQJ7HkIT8WPogciDBoSctMIEPAuFV/p
+	z60f2A0v3saJAjWok8CugoEtdYvFnlbn6RsjSBaZ/fGkfOFN2valBWilUvpkhslB4lj
+	8Mrv80gmZ9qCkywpn36KArj9AZqfVVffEll65/7g=
+Received: by mx.zohomail.com with SMTPS id 1765918128524840.1763123080524;
+	Tue, 16 Dec 2025 12:48:48 -0800 (PST)
+Message-ID: <37da2fe3-41bd-470e-bb6c-93fe35ee1528@collabora.com>
+Date: Tue, 16 Dec 2025 15:48:45 -0500
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20251216000952.GA6079@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH1PEPF0000AD7C:EE_|PH0PR12MB7981:EE_
-X-MS-Office365-Filtering-Correlation-Id: f0fdc1ab-abc4-433d-43da-08de3ce44fb3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|82310400026|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?orBnuFvYtsHsPMuz3ZiiwNie5h4QoZtctNqeYWf04VXTip5UF4iv+vFdc+1U?=
- =?us-ascii?Q?0GGfr8ylJMC8TzXI5C+DWiP7VdcIt44tFcxeo4wQlJVq1ybcUwe1PIVNSfwI?=
- =?us-ascii?Q?FfeS20izM7t/YAExA72aJW2jHcscBgeO6MPfzjlvsTx5WMpsSgPMSO+jPVYa?=
- =?us-ascii?Q?T2SUUVxvpinJkdZ82CBT43A9iEp3sHSYceqRIQDX6PRnQ/CJZPNTXJmO65f+?=
- =?us-ascii?Q?z4w+V4kTpM8d+kVND639qAM2pMPomWXuVOIb7jVHEDm+2BS35FKou2dDBQnl?=
- =?us-ascii?Q?yUf9003iQo9F8thYRWyTpdElvAgvxcMPLEqdHVtjI82ZBPoha5zvllHYhZ2f?=
- =?us-ascii?Q?noxMHxRmmM4oySjrIwlt8EQ7rVR8N8jQRCHAAYo1TyfWvB3ALA+/s6ji0q7V?=
- =?us-ascii?Q?XK3X6NdcVXP7F522I2RStlLXOmE2rm5p/aPGU50apBjKsp7C+OjOfXzcMkts?=
- =?us-ascii?Q?NJaenuTfR4tLrzyuUYE4BNKHO8zxxUb1MFbHCumUxiaUOIq08JnqyFl4W1zA?=
- =?us-ascii?Q?AfjTFDRzB4EfA2EcVTHxeHjibXDhHemqco+JoMMyBJtRWkeNNrcemLPKBCum?=
- =?us-ascii?Q?waR1qTnHHx+xePKvIQK3C2BNK8FUAQpd4jampGwkKqsIs+jYu4UMjsmhyK76?=
- =?us-ascii?Q?4H8igCggCGTA7t/0unYR56adUb6iAdSkNDOYsE40M+wQbu4kKPZOKFuZl1nV?=
- =?us-ascii?Q?zOEzMCzr9emMSZWtbA0MLqrobnY2VoldjMLjBrXW51W3jnCSy2cWHNsqHT9a?=
- =?us-ascii?Q?ypAE/DaEjseLq8ZCFkYac7HS6iArzk4LycJ2o99i5OnqIjuGtDJOlDqR+2/+?=
- =?us-ascii?Q?AURgjYDgPOOX+vS/SuzcnDoVcrgbW9Gl4xhIO4cceX+6J9o1Gcr0BCK8lR7x?=
- =?us-ascii?Q?NM1RgfNCjZxA6b8sOQLvDvscJJPK/7uflROCx/+a0hIoQqKuaO2Ea7mvwF4x?=
- =?us-ascii?Q?UHlBBmaZ9TYMYeXtbxBXdoymbxIKrOFA7LKgq13smgs9guWT78RzRcgYuIWm?=
- =?us-ascii?Q?56leEUyoxMPKPuDpMmyLWJDnJ0iQr9RSHtZB7q1hvaen0D7ZjjPbZoqwXQzL?=
- =?us-ascii?Q?jGgOEgBYhAU+21rWCm6yG4AeZVNFgl92eKFUNWjtCbv+QrTkbNKYHYYy5xj1?=
- =?us-ascii?Q?b94qc/eIZe4/Zl0Aylee8amfFkl5ecM+VfZLUj2eqzC2FpMBK3w4yny/CpDS?=
- =?us-ascii?Q?gklG8aiRzBxvtmkyC+MHsq9eC2sYVX/Adza7YjEXsNtbBGpoSj4rCXSm92+y?=
- =?us-ascii?Q?LpX/Frg38RWKAXCmF8Ws0FhepH0+c98uydqwr9HHr6JJFXr2fFGX/c/OG04Z?=
- =?us-ascii?Q?rfx6JVN40VLgpW+S9YFYRPkGqKPaDcLUfcE5dlk8g2aNFtgytJxZ83ErCyZT?=
- =?us-ascii?Q?HGt0gamh0YljHnSqjUu159TWMg2Ztoai2t0SR5ps2xuqH7w/mKXpri2LgeSk?=
- =?us-ascii?Q?m78876p0SMK33leM5HkjzwTslK5YdfUY2s51SHc0ZFXVqUTVRDrlt6pbEcLv?=
- =?us-ascii?Q?E7+u9Jy/hnqpwtSKFdyufyf5Xfh+4mPkyrvQIWZa25DbE0tLlC0m4IgdAaOy?=
- =?us-ascii?Q?gOxSdq1aWnMnnINMxRo=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(376014)(82310400026)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Dec 2025 20:47:21.8995
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f0fdc1ab-abc4-433d-43da-08de3ce44fb3
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000AD7C.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB7981
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 01/15] media: uapi: HEVC: Add
+ v4l2_ctrl_hevc_ext_sps_[ls]t_rps controls
+To: Hans Verkuil <hverkuil+cisco@kernel.org>, linux-kernel@vger.kernel.org
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Heiko Stuebner <heiko@sntech.de>, Ricardo Ribalda <ribalda@chromium.org>,
+ Hans Verkuil <hverkuil@kernel.org>, Hans de Goede <hansg@kernel.org>,
+ Yunke Cao <yunkec@google.com>, Jonathan Corbet <corbet@lwn.net>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ James Cowgill <james.cowgill@blaize.com>, linux-media@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ kernel@collabora.com, Nicolas Dufresne <nicolas.dufresne@collabora.com>
+References: <20251023214247.459931-1-detlev.casanova@collabora.com>
+ <20251023214247.459931-2-detlev.casanova@collabora.com>
+ <d8ef0f88-e81d-4159-8945-52197cbc95ba@kernel.org>
+Content-Language: en-US
+From: Detlev Casanova <detlev.casanova@collabora.com>
+In-Reply-To: <d8ef0f88-e81d-4159-8945-52197cbc95ba@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_124729_157911_D5C0F6B1 
-X-CRM114-Status: GOOD (  10.35  )
+X-CRM114-CacheID: sfid-20251216_124913_533937_278F583A 
+X-CRM114-Status: GOOD (  28.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,17 +89,214 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 15, 2025 at 08:09:52PM -0400, Jason Gunthorpe wrote:
-> On Sun, Dec 14, 2025 at 10:32:35PM +0000, Mostafa Saleh wrote:
-> > However, this approach makes it a bit explicit which bits are ignored, if we
-> > keep this logic, I think changing the name of get_ignored() might help, to
-> > something as "get_allowed_break()" or "get_update_safe()"?
-> 
-> update_safe sounds good to me
+Hi Hans,
 
-I have renamed the op and changed entry_set to void. I'll send v4
-later today.
+On 10/24/25 03:55, Hans Verkuil wrote:
+> On 23/10/2025 23:42, Detlev Casanova wrote:
+>> Some hardware (e.g.: Rockchip's rk3588 hevc decoder) need the
+>> long and short term reference information for HEVC decoding.
+>>
+>> Add controls to provide it as the raw data form the stream.
+>>
+>> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+>> ---
+>>   .../media/v4l/ext-ctrls-codec-stateless.rst   | 114 ++++++++++++++++++
+>>   .../media/v4l/videodev2.h.rst.exceptions      |   2 +
+>>   .../media/v4l/vidioc-queryctrl.rst            |  12 ++
+>>   3 files changed, 128 insertions(+)
+>>
+>> diff --git a/Documentation/userspace-api/media/v4l/ext-ctrls-codec-stateless.rst b/Documentation/userspace-api/media/v4l/ext-ctrls-codec-stateless.rst
+>> index 497ae74379f6..7b18e12fafbb 100644
+>> --- a/Documentation/userspace-api/media/v4l/ext-ctrls-codec-stateless.rst
+>> +++ b/Documentation/userspace-api/media/v4l/ext-ctrls-codec-stateless.rst
+>> @@ -2959,6 +2959,120 @@ This structure contains all loop filter related parameters. See sections
+>>         - 0x00000004
+>>         -
+>>   
+>> +``V4L2_CID_STATELESS_HEVC_EXT_SPS_LT_RPS (struct)``
+>> +    Specifies the list of Long-Term reference sets parameters from the SPS.
+>> +    These parameters are defined according to :ref:`hevc`.
+>> +    They are described in section 7.4.3.2.1 "General sequence parameter set
+>> +    RBSP semantics" of the specification.
+>> +    This control is a dynamically sized 1-dimensional array,
+>> +    V4L2_CTRL_FLAG_DYNAMIC_ARRAY flag must be set when using it.
+> I'd drop this last sentence. It suggests that the application has to set it,
+> but is it set by the kernel.
+>
+> Same for the next control below.
+>
+> I noticed that this is probably a copy-and-paste from the V4L2_CID_STATELESS_HEVC_SLICE_PARAMS
+> documentation: can you post a separate patch removing that same line from the description of
+> that control? I think it is a confusing line, and we missed it during the original review
+> of V4L2_CID_STATELESS_HEVC_SLICE_PARAMS.
+>
+> I have another question about these two controls: currently dynamic controls have always at
+> least one element. I have been working on supporting zero-sized dynamic controls. Would
+> that make sense here? Or will these two controls - if present - always have one element or
+> more?
+>
+> If zero-length dynamic array controls are useful here, then I can clean up my patches and
+> post them so you can use it.
 
-Thanks
-Nicolin
+I guess that could happen depending on what userspace does, but the size 
+of the array is determined by num_long_term_ref_pics_sps and 
+num_short_term_ref_pic_sets from v4l2_ctrl_hevc_sps respectively.
+
+If that value is 0, there is no point in setting the (respective) 
+control, except for simplifying userspace code I suppose.
+
+So 0-length support is avoidable.
+
+Detlev.
+
+> Regards,
+>
+> 	Hans
+>
+>> +
+>> +.. c:type:: v4l2_ctrl_hevc_ext_sps_lt_rps
+>> +
+>> +.. cssclass:: longtable
+>> +
+>> +.. flat-table:: struct v4l2_ctrl_hevc_ext_sps_lt_rps
+>> +    :header-rows:  0
+>> +    :stub-columns: 0
+>> +    :widths:       1 1 2
+>> +
+>> +    * - __u16
+>> +      - ``lt_ref_pic_poc_lsb_sps``
+>> +      - Long term reference picture order count as described in section 7.4.3.2.1
+>> +        "General sequence parameter set RBSP semantics" of the specification.
+>> +    * - __u8
+>> +      - ``flags``
+>> +      - See :ref:`Extended Long-Term RPS Flags <hevc_ext_sps_lt_rps_flags>`
+>> +
+>> +.. _hevc_ext_sps_lt_rps_flags:
+>> +
+>> +``Extended SPS Long-Term RPS Flags``
+>> +
+>> +.. cssclass:: longtable
+>> +
+>> +.. flat-table::
+>> +    :header-rows:  0
+>> +    :stub-columns: 0
+>> +    :widths:       1 1 2
+>> +
+>> +    * - ``V4L2_HEVC_EXT_SPS_LT_RPS_FLAG_USED_LT``
+>> +      - 0x00000001
+>> +      - Specifies if the long-term reference picture is used 7.4.3.2.1 "General sequence parameter
+>> +        set RBSP semantics" of the specification.
+>> +
+>> +``V4L2_CID_STATELESS_HEVC_EXT_SPS_ST_RPS (struct)``
+>> +    Specifies the list of Short-Term reference sets parameters from the SPS.
+>> +    These parameters are defined according to :ref:`hevc`.
+>> +    They are described in section 7.4.8 "Short-term reference picture set
+>> +    semantics" of the specification.
+>> +    This control is a dynamically sized 1-dimensional array,
+>> +    V4L2_CTRL_FLAG_DYNAMIC_ARRAY flag must be set when using it.
+>> +
+>> +.. c:type:: v4l2_ctrl_hevc_ext_sps_st_rps
+>> +
+>> +.. cssclass:: longtable
+>> +
+>> +.. flat-table:: struct v4l2_ctrl_hevc_ext_sps_st_rps
+>> +    :header-rows:  0
+>> +    :stub-columns: 0
+>> +    :widths:       1 1 2
+>> +
+>> +    * - __u8
+>> +      - ``delta_idx_minus1``
+>> +      - Specifies the delta compare to the index. See details in section 7.4.8 "Short-term
+>> +        reference picture set semantics" of the specification.
+>> +    * - __u8
+>> +      - ``delta_rps_sign``
+>> +      - Sign of the delta as specified in section 7.4.8 "Short-term reference picture set
+>> +        semantics" of the specification.
+>> +    * - __u16
+>> +      - ``abs_delta_rps_minus1``
+>> +      - Absolute delta RPS as specified in section 7.4.8 "Short-term reference picture set
+>> +        semantics" of the specification.
+>> +    * - __u8
+>> +      - ``num_negative_pics``
+>> +      - Number of short-term RPS entries that have picture order count values less than the
+>> +        picture order count value of the current picture.
+>> +    * - __u8
+>> +      - ``num_positive_pics``
+>> +      - Number of short-term RPS entries that have picture order count values greater than the
+>> +        picture order count value of the current picture.
+>> +    * - __u32
+>> +      - ``used_by_curr_pic``
+>> +      - Bit i specifies if short-term RPS i is used by the current picture.
+>> +    * - __u32
+>> +      - ``use_delta_flag``
+>> +      - Bit i specifies if short-term RPS i is included in the short-term RPS entries.
+>> +    * - __u16
+>> +      - ``delta_poc_s0_minus1[16]``
+>> +      - Specifies the negative picture order count delta for the i-th entry in the short-term RPS.
+>> +        See details in section 7.4.8 "Short-term reference picture set semantics" of the
+>> +        specification.
+>> +    * - __u16
+>> +      - ``delta_poc_s1_minus1[16]``
+>> +      - Specifies the positive picture order count delta for the i-th entry in the short-term RPS.
+>> +        See details in section 7.4.8 "Short-term reference picture set semantics" of the
+>> +        specification.
+>> +    * - __u8
+>> +      - ``flags``
+>> +      - See :ref:`Extended Short-Term RPS Flags <hevc_ext_sps_st_rps_flags>`
+>> +
+>> +.. _hevc_ext_sps_st_rps_flags:
+>> +
+>> +``Extended SPS Short-Term RPS Flags``
+>> +
+>> +.. cssclass:: longtable
+>> +
+>> +.. flat-table::
+>> +    :header-rows:  0
+>> +    :stub-columns: 0
+>> +    :widths:       1 1 2
+>> +
+>> +    * - ``V4L2_HEVC_EXT_SPS_ST_RPS_FLAG_INTER_REF_PIC_SET_PRED``
+>> +      - 0x00000001
+>> +      - Specifies if the short-term RPS is predicted from another short term RPS. See details in
+>> +        section 7.4.8 "Short-term reference picture set semantics" of the specification.
+>> +
+>>   .. _v4l2-codec-stateless-av1:
+>>   
+>>   ``V4L2_CID_STATELESS_AV1_SEQUENCE (struct)``
+>> diff --git a/Documentation/userspace-api/media/v4l/videodev2.h.rst.exceptions b/Documentation/userspace-api/media/v4l/videodev2.h.rst.exceptions
+>> index c41693115db6..6182b4e2d2ee 100644
+>> --- a/Documentation/userspace-api/media/v4l/videodev2.h.rst.exceptions
+>> +++ b/Documentation/userspace-api/media/v4l/videodev2.h.rst.exceptions
+>> @@ -150,6 +150,8 @@ replace symbol V4L2_CTRL_TYPE_H264_SCALING_MATRIX :c:type:`V4L.v4l2_ctrl_type`
+>>   replace symbol V4L2_CTRL_TYPE_H264_PRED_WEIGHTS :c:type:`V4L.v4l2_ctrl_type`
+>>   replace symbol V4L2_CTRL_TYPE_H264_SLICE_PARAMS :c:type:`V4L.v4l2_ctrl_type`
+>>   replace symbol V4L2_CTRL_TYPE_H264_DECODE_PARAMS :c:type:`V4L.v4l2_ctrl_type`
+>> +replace symbol V4L2_CTRL_TYPE_HEVC_EXT_SPS_ST_RPS :c:type:`V4L.v4l2_ctrl_type`
+>> +replace symbol V4L2_CTRL_TYPE_HEVC_EXT_SPS_LT_RPS :c:type:`V4L.v4l2_ctrl_type`
+>>   replace symbol V4L2_CTRL_TYPE_HEVC_SPS :c:type:`V4L.v4l2_ctrl_type`
+>>   replace symbol V4L2_CTRL_TYPE_HEVC_PPS :c:type:`V4L.v4l2_ctrl_type`
+>>   replace symbol V4L2_CTRL_TYPE_HEVC_SLICE_PARAMS :c:type:`V4L.v4l2_ctrl_type`
+>> diff --git a/Documentation/userspace-api/media/v4l/vidioc-queryctrl.rst b/Documentation/userspace-api/media/v4l/vidioc-queryctrl.rst
+>> index c8baa9430c14..82c8b52e771c 100644
+>> --- a/Documentation/userspace-api/media/v4l/vidioc-queryctrl.rst
+>> +++ b/Documentation/userspace-api/media/v4l/vidioc-queryctrl.rst
+>> @@ -531,6 +531,18 @@ See also the examples in :ref:`control`.
+>>         - n/a
+>>         - A struct :c:type:`v4l2_ctrl_hevc_decode_params`, containing HEVC
+>>   	decoding parameters for stateless video decoders.
+>> +    * - ``V4L2_CTRL_TYPE_HEVC_EXT_SPS_LT_RPS``
+>> +      - n/a
+>> +      - n/a
+>> +      - n/a
+>> +      - A struct :c:type:`v4l2_ctrl_hevc_ext_sps_lt_rps`, containing HEVC
+>> +	extended Long-Term RPS for stateless video decoders.
+>> +    * - ``V4L2_CTRL_TYPE_HEVC_EXT_SPS_ST_RPS``
+>> +      - n/a
+>> +      - n/a
+>> +      - n/a
+>> +      - A struct :c:type:`v4l2_ctrl_hevc_ext_sps_st_rps`, containing HEVC
+>> +	extended Short-Term RPS for stateless video decoders.
+>>       * - ``V4L2_CTRL_TYPE_VP9_COMPRESSED_HDR``
+>>         - n/a
+>>         - n/a
 
