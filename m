@@ -4,107 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE8FED5B87C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 07:27:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61F74D5B161
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 07:31:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PJCA2xXmtdABe9cuOOw6HKVAFYxYWKkv6zuIQkQSiJk=; b=aQGXE+E7+uXkqEBJGeJ7nka86Z
-	J9SwkWsENaJP6064s9gmeR6W8R0Irox8Yzpj/JHhMqaoi1I0bsto6sUltGXl+uHz4EzbDD++J77zn
-	V3gzckdLSSErkshjnVI74yho9ukol30yl8uatAk/0rRb3yvgNDjwPrTEJSv0L41GwPsOy+Lj4KZHR
-	GtmFhEam5TOGtNl3D4fz6CqcJ3sEBnNLM4ojPf0iJHKKa8PQ2HqAVJGoOcN70811rOs/hpmVnhfX/
-	1RebI5d8Ns5G6kasxv8UEhSWHF9uGwddtBw40bgm27/FZ9BvgrdU2NoQGGT/eWr4MzHMruTxI2ifH
-	Z4LG00DQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2pyJv45tDjDKywJWeYp3I9ulqUEPqCbg6pglbJWo3s8=; b=AOPf4KaJdNUGNQPvK+DCzD1JJI
+	kqOW9TNjV66BK8rKV/1zjC9OllJ4O+ZiZTRCMT0zVfCudhdsNzmfVJydWLP9sKCj8eoIct6ozOQ1q
+	hbkZz1us5XurCcST98K8ZFw8ClXhP6ymf9I+B0oCbKY/WUFqvc2GCr5nEE2vUuRl3oJ3ufqGMx5/r
+	PYcrE3317rjMAk3bYi9vmBHQ98b0L8U175POhwJX6X64mA21QbYhPUHaxJv0hptH29XK/UgwcGS0f
+	YFBMQ7ACyZdKp6KV4J22mlYgbiJMoZ1jUg2bfRc3Ac9mPFE5Q8edMJSNdgqE6ivGlZZQghpz9WEiP
+	l6fVoSWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVPSq-00000004qYo-3X7h;
-	Tue, 16 Dec 2025 07:27:20 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1vVPWI-00000004qt5-2yuF;
+	Tue, 16 Dec 2025 07:30:54 +0000
+Received: from mx-relay100-hz2.antispameurope.com ([94.100.136.201])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVPSo-00000004qYT-1XGw
+	id 1vVPWE-00000004qsN-090g
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 07:27:19 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2a0834769f0so29693675ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Dec 2025 23:27:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1765870037; x=1766474837; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=PJCA2xXmtdABe9cuOOw6HKVAFYxYWKkv6zuIQkQSiJk=;
-        b=J4aDxmFPjrDGYNBOvIMw2vq2MgzsAzMyLES//m3yKdDRQB08Ie5enbPDGUCSJMtyca
-         B0oSTAByUqvoRumOEkKIMNnqn+3QCfWo8FgyS0qLnLV/jQ3sBqFU+JCqsSPxDtsiE+7R
-         S6/9nd7XLOi+f5VtlHsXJFftKeNJsGzBWQBD39EeBLEyqqe+p30tlyxYA8paNRIer4QJ
-         Y6bdnXmGizOwWi+M86J3kJgXcs5YPpNHdunNFgX7EjTuFyGlAlkxc7QDcM1wfn56fbgX
-         52PWDp4WygDzWXALXAPwKqRKgzs/xXPn4O0x7g+d3GZhQ3pT3WuwsJHlR9fGeoR8tlHT
-         MC7A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765870037; x=1766474837;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=PJCA2xXmtdABe9cuOOw6HKVAFYxYWKkv6zuIQkQSiJk=;
-        b=dpY6MLn4JNaCVqrwxOFsftVCY2yPzBfn45LcFcXcQWsSB52i385Ba3UTszrXBgLwIH
-         Lc5q3+eC2I1/+glsygzqj6L95Wa/9hE8Uaexymfp57Vgcd+jo4jHT6d5OGDZp+aT0pyt
-         7/iFMp1uVgGXdSiD7b8Xi/e6t9l06Xd1ugEZpJuQVBLeic0YBMHRnBR8v6HqIfiWTMX0
-         mxn95pjRdZa3oUdKSmeYwF9z0FJHpBYRmCRBMI3kXLjGQcHTm73IRx4MMZKTjQT1SDTh
-         zZ3EQCPjoI9ZLWFTHII6iATfZeJmGPIQnSpwR72WqSTKfN2rgKVrscJG58Jz+s0ZW/oo
-         1n9w==
-X-Forwarded-Encrypted: i=1; AJvYcCWF8ZO/AjyRh9dpAenT/Lv3b9krH3i9SvnKC0MbsOtzbtJ44sk605RHJgl0KQhsXF9QmFMvQo+m5Iehyg5aGTHI@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPvArAnSLQ7SsJsFRR5rSmjYGARFmai0ZjapQo3n13cBc8/R9K
-	2immhJqdcauvcHZOBHp/SRhrMH1gie0py74vNlinQT0rVWkVZdrkwT9jSntMSx1B1rk=
-X-Gm-Gg: AY/fxX4Rcxa199IukQso0rPzSVkfznmoSnW6V0tcIlsnkFt98l9pepLhEaFMzbUIKN+
-	W9Ln7DMTFSe74yxIVYa0jFKJV0p8+eXyntoUMr6/Pn6xk7rdUBeszk26KiZPLpz7D+pRyj/3Da+
-	UMJ4Gx5llhh9jHtW/tP2GOl5AF9ULvXpc2mAAqMbbylLKjt7t0hXIqhvAKfC+US546hDxSVumGt
-	TycA5HuelzW62xNbZOEs/ISAT96vRwT1G/zfLVxvQXwopl8NTe4uaCkFWCAoUWH3ZTSmyWNTN6T
-	TrbgFzWEV+TlL/CToYeTJvMOzdM0Sr1mUyQu29BRu0dOPIfuhR0DdnvwPhOzhJn4Hy0Qx5N537w
-	SDU86F2Zm3JiAD3emu1k4T1lUdiEbnYEAj0UsHOBxkAW4uxS35f4HGCTAb62tzuIDNmTY9qmHT2
-	0WJmXoIrmgRLe4L4Vu7xxgHEf3rd2sMhwZgEGxtHFnw7AJpU6GZyT2qA==
-X-Google-Smtp-Source: AGHT+IG0XHPlxrZ19+Thmc35PPwHSeilDW9jn34WiJoQPAtDXf3ILNz55k3pKMcPVzcVte7yg4mphg==
-X-Received: by 2002:a17:902:ea0b:b0:297:dabf:9900 with SMTP id d9443c01a7336-29f23bde313mr144794935ad.0.1765870036820;
-        Mon, 15 Dec 2025 23:27:16 -0800 (PST)
-Received: from [192.168.10.197] (14-201-17-74.static.tpgi.com.au. [14.201.17.74])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29ee9b36a80sm155735495ad.19.2025.12.15.23.27.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 15 Dec 2025 23:27:16 -0800 (PST)
-Message-ID: <93297eb0-1ad4-40ba-9438-ac02aa6b1d6b@linaro.org>
-Date: Tue, 16 Dec 2025 09:27:03 +0200
+	Tue, 16 Dec 2025 07:30:53 +0000
+ARC-Authentication-Results: i=1; mx-gate100-hz2.hornetsecurity.com 1;
+ spf=pass reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ smtp.mailfrom=ew.tq-group.com
+ smtp.helo=hmail-p-smtp01-out03-hz1.hornetsecurity.com; dmarc=pass
+ header.from=ew.tq-group.com orig.disposition=pass
+ARC-Message-Signature: a=rsa-sha256;
+ bh=2pyJv45tDjDKywJWeYp3I9ulqUEPqCbg6pglbJWo3s8=; c=relaxed/relaxed;
+ d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
+ t=1765870197;
+ b=b08VWtD50W7johvXjad53Yked2K4dgyqcvMLP+t7+ZkssdkNRQFPTfGXpmqCAwgaIZ4iJnyo
+ nCnB8pmp1VDbFWFrK/gvogNUS6ohzper1da/Nz9+eNaqayG0jPVmzCwjBbb5x19zfUvsSMPoKZV
+ FHKjXCewJqR3zevp0OTukiCB1ijU3Vkoyp4GZ/5G3ZJ+VoxeAfMncC9hMMd1RmDbbz1BlnsYhyF
+ 3m8PzkbFf87asGH9LUECTPn/2RnD2zajd4AuJ273QMDAeH9/OJKW2woQ7IqjPozkOCcaSDGkKrh
+ ExTQ9nyxar9019X5wL6dQVfeODhYRidd5v4qKd8U5jGAQ==
+ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
+ t=1765870197;
+ b=CWirndWwVyVyBm11UHdmhZ0vM0sgIIjYChX5go5n0ur8tt+Zc24YlSKu17gBwsmPRxM6Eq/1
+ V2POkID7Sn338Y8M4OioJpVms5/HgYgthbLoDOuaxzuAg2v08QErOzHqvTn25EFgt9V9N3u7T9m
+ pAVmicjvHjTQiYAHPmtSMlDf8T31zb0QZGG+bnJ2XTxTNsMJVzZ7lSQoiNWd6AgVup2CObSg060
+ fxkJ/eTYmXeb0bPASYDVvwYD8ZVDaivTr+8pnYKL6cFYJWmMds6xrg7aCjgvhhK1euc29ygLpDS
+ 7NLtJh8Rn/NGy2uTCtGxX0CcXPqPuPBvDtTIW56pLYJ+w==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay100-hz2.antispameurope.com;
+ Tue, 16 Dec 2025 08:29:57 +0100
+Received: from steina-w.localnet (host-82-135-125-110.customer.m-online.net [82.135.125.110])
+	(Authenticated sender: alexander.stein@ew.tq-group.com)
+	by hmail-p-smtp01-out03-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 61240CC0DC8;
+	Tue, 16 Dec 2025 08:29:32 +0100 (CET)
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Liu Ying <victor.liu@nxp.com>, dri-devel@lists.freedesktop.org
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, Marco Felsch <m.felsch@pengutronix.de>
+Subject: Re: [PATCH v7 1/3] dt-bindings: soc: imx93-media-blk-ctrl: Add PDFC subnode
+ to schema and example
+Date: Tue, 16 Dec 2025 08:29:31 +0100
+Message-ID: <3210190.mvXUDI8C0e@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20251215175436.wwlgzxionq55zu27@pengutronix.de>
+References: <20251202-v6-18-topic-imx93-parallel-display-v7-0-2cce31d64608@pengutronix.de>
+ <705773fc-5aba-4bff-b05e-272e1cd0262c@nxp.com>
+ <20251215175436.wwlgzxionq55zu27@pengutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/26] Introduce meminspect
-To: Randy Dunlap <rdunlap@infradead.org>, linux-arm-msm@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org, tglx@linutronix.de,
- andersson@kernel.org, pmladek@suse.com, corbet@lwn.net, david@redhat.com,
- mhocko@suse.com, linux-debuggers@vger.kernel.org,
- "kees@kernel.org" <kees@kernel.org>
-Cc: tudor.ambarus@linaro.org, mukesh.ojha@oss.qualcomm.com,
- linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
- jonechou@google.com, rostedt@goodmis.org, linux-doc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org,
- linux-arch@vger.kernel.org, tony.luck@intel.com, kees@kernel.org,
- Trilok Soni <tsoni@quicinc.com>, Kaushal Kumar <kaushalk@qti.qualcomm.com>,
- Shiraz Hashim <shashim@qti.qualcomm.com>,
- Peter Griffin <peter.griffin@linaro.org>, stephen.s.brennan@oracle.com,
- Will McVicker <willmcvicker@google.com>,
- "stefan.schmidt@linaro.org" <stefan.schmidt@linaro.org>
-References: <20251119154427.1033475-1-eugen.hristev@linaro.org>
- <bf00eec5-e9fe-41df-b758-7601815b24a0@linaro.org>
- <5903a8e1-71c6-4546-ac50-35effa078dda@infradead.org>
- <c3db6ccd-dfc7-4a6a-82b7-3d615f8cab4f@linaro.org>
- <b74aef93-9138-413a-8327-36c746d67e10@infradead.org>
- <93682055-4a6d-4098-b74f-afef735d1699@infradead.org>
-From: Eugen Hristev <eugen.hristev@linaro.org>
-Content-Language: en-US
-In-Reply-To: <93682055-4a6d-4098-b74f-afef735d1699@infradead.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; boundary="nextPart13198926.O9o76ZdvQC";
+ micalg="pgp-sha512"; protocol="application/pgp-signature"
+X-cloud-security-sender: alexander.stein@ew.tq-group.com
+X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
+X-cloud-security-crypt: load encryption module
+X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
+X-cloud-security-Mailarchivtype: outbound
+X-cloud-security-Virusscan: CLEAN
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay100-hz2.antispameurope.com with 4dVpTn4rt4z3PJZL
+X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
+X-cloud-security-Digest: 7843bfe7f806661645c9883349bcb132
+X-cloud-security: scantime:2.036
+DKIM-Signature: a=rsa-sha256;
+ bh=2pyJv45tDjDKywJWeYp3I9ulqUEPqCbg6pglbJWo3s8=; c=relaxed/relaxed;
+ d=ew.tq-group.com;
+ h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
+ t=1765870197; v=1;
+ b=AiZkH4cEfy4dkJ53if9dWwCwwcbafU+ZKZQ2i0STubGzuw8MLPFBXdqJoetC1gjVjd1k4rSi
+ 4MzI8kQT3qy70XFelnP+fj2dwR8hRn+Jqpig3pVkFjPgLHSTIxCcwMMq98vZGz2qsTlLBKr3eIa
+ XqVtp29hA2j+5/qLk39SsvPqMoEqf78hm2bNU047aOMPirf/GDf2hwMwFF/P6i7aJ/O06rw5nq/
+ rQHouVSg6ELOVCryPlKhHI/e7SLJLwqMkALKWEjGqdGz1k9Hh0+YrcXr9yOjgp1BKHyaOR5L8rw
+ UtJEzYDkKd4bZFYHZS2CPmHSuHPUOzYMMgvWPtuP8PCzg==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_232718_420135_639F6C28 
-X-CRM114-Status: GOOD (  31.88  )
+X-CRM114-CacheID: sfid-20251215_233050_491457_8980D13D 
+X-CRM114-Status: GOOD (  29.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,158 +120,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+--nextPart13198926.O9o76ZdvQC
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"; protected-headers="v1"
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Liu Ying <victor.liu@nxp.com>, dri-devel@lists.freedesktop.org
+Date: Tue, 16 Dec 2025 08:29:31 +0100
+Message-ID: <3210190.mvXUDI8C0e@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20251215175436.wwlgzxionq55zu27@pengutronix.de>
+MIME-Version: 1.0
+
+Hi,
+
+Am Montag, 15. Dezember 2025, 18:54:36 CET schrieb Marco Felsch:
+> Hi Liu,
+>=20
+> sorry I didn't fully answer you please see below.
+>=20
+> On 25-12-08, Liu Ying wrote:
+> > Hi Marco,
+> >=20
+> > On 12/02/2025, Marco Felsch wrote:
+> > > From: Liu Ying <victor.liu@nxp.com>
+> > >=20
+> > > i.MX93 SoC mediamix blk-ctrl contains one DISPLAY_MUX register which
+> > > configures parallel display format by using the "PARALLEL_DISP_FORMAT"
+> > > field. Document the Parallel Display Format Configuration(PDFC) subno=
+de
+> > > and add the subnode to example.
+> > >=20
+> > > Signed-off-by: Liu Ying <victor.liu@nxp.com>
+> > > [m.felsch@pengutronix.de: port to v6.18-rc1]
+> > > [m.felsch@pengutronix.de: add bus-width]
+> > > Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+> > > ---
+> > >  .../bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml | 92 ++++++++++++=
+++++++++++
+> > >  1 file changed, 92 insertions(+)
+> > >=20
+> > > diff --git a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-medi=
+a-blk-ctrl.yaml b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media=
+=2Dblk-ctrl.yaml
+> > > index 34aea58094e55365a2f9c86092f637e533f954ff..6e2d86d9341c75108b492=
+bcbabc8a560d8e707cd 100644
+> > > --- a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-c=
+trl.yaml
+> > > +++ b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-c=
+trl.yaml
+> > > @@ -26,6 +26,12 @@ properties:
+> > >    reg:
+> > >      maxItems: 1
+>=20
+> ...
+>=20
+> > > +            properties:
+> > > +              endpoint:
+> > > +                $ref: /schemas/graph.yaml#/$defs/endpoint-base
+> > > +                unevaluatedProperties: false
+> > > +
+> > > +                properties:
+> > > +                  bus-width:
+> >=20
+> > In v1-v5, I thought the output bus format can be determined by the sink
+> > device(a panel or a bridge) hence properties like bus-width were not ne=
+eded.
+> > But, if this property is really needed, then reference video-interfaces=
+=2Eyaml
+> > since bus-width is documented there.  Should we reference bus-type defi=
+ned
+> > in video-interfaces.yaml too?
+>=20
+> You're right, the bus-width should be determined by the connected panel.
+> But there are cases where a 24-bit panel is connected but only the lower
+> 18-bits are muxed. I added the bus-width property to handle this case.
+> In the end most users don't have to specify this since the correct
+> bus-width is coming from the panel bus-fmt.
+>=20
+> > > +                    enum: [ 16, 18, 24 ]
+> >=20
+> > The PARALLEL_DISP_FORMAT field of DISPLAY_MUX register says this IP sup=
+ports
+> > below formats.  It seems that the enum here may tell RGB888, RGB666 and=
+ RGB565.
+> > How can we tell RGB555, YCbCr 24 bits and YUV444 then?
+> >=20
+> > 000b RGB888 -> RGB888
+> > 001b RGB888 -> RGB666
+> > 010b RGB565 -> RGB565
+> > 011b RGB555 -> RGB555
+> > 100b YUV -> YCbCr 24 bits
+> > 101b YUV -> YUV444
+>=20
+> This enum is about the physical bus width. RGB565 =3D=3D 16-bit, YUV =3D=
+=3D
+> 24-bit.
+>=20
+> That said, I don't think that you need to specify the bus-fmt since this
+> is coming from the panel. As said above, my itension with the bus-width
+> property is to provide integrators (dts-writers) a possibility to limit
+> the physical available bus width.
+
+Mh, isn't [1] exactly about this? Not sure about the outcome at that time.
+
+Best regards,
+Alexander
+
+[1] https://lore.kernel.org/all/20250304101530.969920-1-victor.liu@nxp.com/
+
+> [snip]
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+--nextPart13198926.O9o76ZdvQC
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part.
+Content-Transfer-Encoding: 7Bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEByESxqszIvkmWRwbaS+g2M0Z/iUFAmlBClsACgkQaS+g2M0Z
+/iVQ0Qf8CUXPNQgjvninNpUlo9wHMSxcj70F/nwY4xnJ9mAHPkIcrl+Ye0RpxJvm
+HUghMQJsn8g5oW1mw3ihaOEFFyjI2Nmpn839jZzyuWZFCzy+6ZArWMnhjAmU3EK8
+axvxjC6n5kJ2/Dx3wih+X2Ub6IbwNIB01Xq368832yntOGHje3ucsFLNNV8RXaNH
+PRwXcgrJ0fSDoEZPC1Eh59z+2sRZbA8rdLxHP+tqq71jwpBaTJUCZDSUfO1ZgFy7
+LeiQPAchQ1p/gqgo9xvkM5pISy7hj0p/f1jRTroTT1VfHKsp4LDxb71VE/S+IKQU
+dYOr28lQ8IOXSDJuSIAYKAynFx8akw==
+=c8lD
+-----END PGP SIGNATURE-----
+
+--nextPart13198926.O9o76ZdvQC--
 
 
-On 12/16/25 09:00, Randy Dunlap wrote:
-> 
-> 
-> On 12/15/25 10:54 PM, Randy Dunlap wrote:
->>
->>
->> On 12/12/25 11:22 PM, Eugen Hristev wrote:
->>>
->>>
->>> On 12/13/25 08:57, Randy Dunlap wrote:
->>>> Hi,
->>>>
->>>> On 12/12/25 10:48 PM, Eugen Hristev wrote:
->>>>>
->>>>>
->>>>> On 11/19/25 17:44, Eugen Hristev wrote:
->>>>>> meminspect is a mechanism which allows the kernel to mark specific memory
->>>>>> areas for memory dumping or specific inspection, statistics, usage.
->>>>>> Once regions are marked, meminspect keeps an internal list with the regions
->>>>>> in a dedicated table.
->>>>>
->>>>> [...]
->>>>>
->>>>>
->>>>>> I will present this version at Plumbers conference in Tokyo on December 13th:
->>>>>> https://lpc.events/event/19/contributions/2080/
->>>>>> I am eager to discuss it there face to face.
->>>>>
->>>>> Summary of the discussions at LPC talk on Dec 13th:
->>>>>
->>>>> One main idea on the static variables annotation was to do some linker
->>>>> magic, to create a list of variables in the tree, that would be parsed
->>>>> by some script, the addresses and sizes would be then stored into the
->>>>> dedicated section at the script level, without having any C code change.
->>>>> Pros: no C code change, Cons: it would be hidden/masked from the code,
->>>>> easy to miss out, which might lead to people's variables being annotated
->>>>> without them knowing
->>>>>
->>>>> Another idea was to have variables directly stored in a dedicated
->>>>> section which would be added to the table.
->>>>> e.g. static int __attribute(section (...)) nr_irqs;
->>>>> Pros: no more meminspect section Cons: have to keep all interesting
->>>>> variables in a separate section, which might not be okay for everyone.
->>>>>
->>>>> On dynamic memory, the memblock flag marking did not receive any obvious
->>>>> NAKs.
->>>>>
->>>>> On dynamic memory that is bigger in size than one page, as the table
->>>>> entries are registered by virtual address, this would be non-contiguous
->>>>> in physical memory. How is this solved?
->>>>> -> At the moment it's left for the consumer drivers to handle this
->>>>> situation. If the region is a VA and the size > PAGE_SIZE, then the
->>>>> driver needs to handle the way it handles it. Maybe the driver that
->>>>> parses the entry needs to convert it into multiple contiguous entries,
->>>>> or just have virtual address is enough. The inspection table does not
->>>>> enforce or limit the entries to contiguous entries only.
->>>>>
->>>>> On the traverse/notifier system, the implementation did not receive any
->>>>> obvious NAKs
->>>>>
->>>>> General comments:
->>>>>
->>>>> Trilok Soni from Qualcomm mentioned they will be using this into their
->>>>> software deliveries in production.
->>>>>
->>>>> Someone suggested to have some mechanism to block specific data from
->>>>> being added to the inspection table as being sensitive non-inspectable
->>>>> data.
->>>>> [Eugen]: Still have to figure out how that could be done. Stuff is not
->>>>> being added to the table by default.
->>>>>
->>>>> Another comment was about what use case there is in mind, is this for
->>>>> servers, or for confidential computing, because each different use case
->>>>> might have different requirements, like ignoring some regions is an
->>>>> option in one case, but bloating the table in another case might not be
->>>>> fine.
->>>>> [Eugen]: The meminspect scenario should cover all cases and not be too
->>>>> specific. If it is generic enough and customizable enough to care for
->>>>> everyone's needs then I consider it being a success. It should not
->>>>> specialize in neither of these two different cases, but rather be
->>>>> tailored by each use case to provide the mandatory requirements for that
->>>>> case.
->>>>>
->>>>> Another comment mentioned that this usecase does not apply to many
->>>>> people due to firmware or specific hardware needed.
->>>>> [Eugen]: one interesting proposed usecase is to have a pstore
->>>>> driver/implementation that would traverse the inspection table at panic
->>>>> handler time, then gather data from there to store in the pstore
->>>>> (ramoops, mtdoops or whatever backend) and have it available to the
->>>>> userspace after reboot. This would be a nice use case that does not
->>>>> require firmware nor specific hardware, just pstore backend support.
->>>>>
->>>>> Ending note was whether this implementation is going in a good direction
->>>>> and what would be the way to having it moving upstream.
->>>>>
->>>>> Thanks everyone who attended and came up with ideas and comments.
->>>>> There are a few comments which I may have missed, so please feel free to
->>>>> reply to this email to start a discussion thread on the topic you are
->>>>> interested in.
->>>>>
->>>>> Eugen
->>>>>
->>>>
->>>> Maybe you or someone else has already mentioned this. If so, sorry I missed it.
->>>>
->>>> How does this compare or contrast to VMCOREINFO?
->>>>
->>>> thanks.
->>>
->>> This inspection table could be created in an VMCOREINFO way, the patch
->>> series here[1] is something that would fit it best .
->>>
->>> The drawbacks are :
->>> some static variables have to be registered to VMCOREINFO in their file
->>> of residence. This means including vmcoreinfo header and adding
->>> functions/code there, and everywhere that would be needed , or , the
->>> variables have to be un-static'ed , which is a no-go.
->>> This received more negative opinions on that particular patch series.
->>> The annotation idea seemed cleaner and simpler, and more generic.
->>>
->>> We could add more and more entries to the vmcoreinfo table, but that
->>> would mean expanding it a lot, which it would maybe defy its purpose,
->>> and be getting too big, especially for the cases where custom drivers
->>> would like to register data.
->>>
->>> How I see it, is that maybe the vmcoreinfo init function, could also
->>> parse the inspection table and create more entries if that is needed.
->>> So somehow memory inspection is a superset or generalization , while
->>> VMCOREINFO is a more particular use case that would fit here.
->>>
->>> Do you think of some better way to integrate the meminspect table into
->>> VMCOREINFO ?
->>
->> No, I just wanted to make sure that you or someone had looked into that.
->> Thanks for your summary.
-> 
-> Although you copied Stephen Brennan on this, I think it would be a good idea
-> to copy the linux-debuggers@vger.kernel.org mailing list also to see if
-> there are any other comments about it. [now done]
-
-Thanks . I copied Stephen because we had a discussion at LPC at his talk
-and he also attended my talk.
-
-I also had a nice talk with Kees Cook and he was very interested in
-having pstore as a backend for meminspect. (copied now as well)
-
-> 
->>> [1]
->>> https://lore.kernel.org/all/20250912150855.2901211-1-eugen.hristev@linaro.org/
->>
-> 
 
 
