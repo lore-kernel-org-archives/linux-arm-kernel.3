@@ -4,89 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BEF9D637A1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 20:36:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 224CFD637AB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 20:39:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gv3fR1f0d4J7Wx8tPpx3i+Ybrysql766wrV4wqRgUXM=; b=pjoVXYv9o5YGn5aX8FpRasSLtG
-	Zhvi1HdSov2+DJ4IXB64gsGYcIqsQzXasgfU5nX6M6I+17Eu+J37j3aY5hFyxNZMz7LG9odIadknU
-	xVztguqXEAJ0/rd1jxeVkLZyAmRIW+5VMPDuF3CgyKEHQnqUwE0Bv2FSKHaWnDvKnhf3gSQhaFF5/
-	Lgf6WyfR8ePuR4bQ0l/HqmstPHk/X43oqCgIO2V0SCMJcfK80UygmnzxhPieo/Iy4iE+W9HqSECjE
-	So83kJ3fAJPoWEvr5++nJ1toFp9KikZu61FXlYfJ9MSTUChX7DwC73Izw2A3HtuzOyCYGFkDkOy/B
-	qihcdW4A==;
+	bh=Ukuk6hNM0rhIIJoAwXdQKqwGGG0/U9BA+D9A0gMIbO4=; b=gpbtLcoYNE+sOLRHqBVF1JNoc6
+	XvBizUZY0lUsQag3BcROGUiNNkt3B767i2RHNlTCAR4N9+AbjAHU6+f1TbvI54KtL8VGQZJ9DNLzv
+	qQJPdQ9Mrn8PHUaqOkczjuh7d6mJTJU5xAi+0unkjJfrsywqFmyX293ppHpHJDp3zhiVqiTdjTwb5
+	OIIYKMZt4IrKV3mmCTVA2ytj0wiYHfjxkekx5cslkgflrwHKR50BtfLgpl8fHtrBFynZFJVVB4c+5
+	tQ5MGDVAPn6xFYIDO/wvCG3XTvRP4c81gdD1Ehz4BScg0zHcFPfFBFgpaM8PdvcF0THGfJTns1Lyx
+	Jj0Mv/3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVbmf-00000005n4z-3Y6f;
-	Tue, 16 Dec 2025 20:36:37 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1vVbpS-00000005nZr-40yL;
+	Tue, 16 Dec 2025 20:39:30 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVbmd-00000005n3o-17Em
+	id 1vVbpQ-00000005nZL-2sEL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 20:36:36 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-6495c4577adso7045328a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 12:36:34 -0800 (PST)
+	Tue, 16 Dec 2025 20:39:29 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-29e0753e5d8so7295ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 12:39:27 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1765917567; cv=none;
+        d=google.com; s=arc-20240605;
+        b=aqPYAAfOQjtga3ox7flv3AszpJHZwIFIycU17e0QkEPvLFBnyEBLYU+0U2mBP8e/qG
+         yHolb1vdAL14T7mtTF3SthNOgtH2cgGf/4+npnu4uBBrsaO9cZOJKK5UN4yXTfYNyD+e
+         U2qEmgVOyrHjQ4/Ja1lkq1T3bq54NLcwFt5JohrsEoaRt6hB4fO964n3A1TIj87vxJyT
+         Icdqw+o4/lcL7sz6Ee2A/3WdSBAecCJAxXY9NG4kRaL6sF6JukVTMKZVhL4xFqIUg27g
+         l5D+e6u7gw2cI7gl4ja8Iw1dcBj1YnfRcApU1GsHd+1ebfI4yqlS7IvJatJP/9SwFkck
+         Z7yQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Ukuk6hNM0rhIIJoAwXdQKqwGGG0/U9BA+D9A0gMIbO4=;
+        fh=ghDXChDWpVmsyizuyyuoIYbsGbHSqsd+ECBU1yDBDmQ=;
+        b=TPRCHtzvB03jlxwv7PjthNOPperbRfaxj4+8s4YJP0J4edVu6FZ8Q2NRg6STniPbZ6
+         puwtZ+9FtMfWr5jy6PH8YOpcnJPBlZkPqaVnoF0lBgdRxd93Lci7rJi7Nj3vGjToIymc
+         tqK6kHc5DX/eKnVnzMxL/Bg87aDPYlAGC5mucxFBYfSfUbdcDTpE/+usQRmp1w44MlKc
+         CKH/websQws9lSDYv0g4WMDaSFChR7503KtTCMMUNZk9cYXW/Pzxsnzz3ih/EBG5nqKi
+         qqkwfml/SrPPkzYJXMV+mF/9Kt6eirXKT0eJ4Ueu2COAxlGkKWP9bOznDQleapIegBmJ
+         cwDA==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc.com; s=google; t=1765917393; x=1766522193; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1765917567; x=1766522367; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Gv3fR1f0d4J7Wx8tPpx3i+Ybrysql766wrV4wqRgUXM=;
-        b=IJggBz39k4VPM1tUBKw2LtO7cVmrBXdLzz/9WY81xE/O5d67nI/WhwYsD+abM8hy8c
-         eXamFanU1G3UIiHRljOu8R/95UsYK+6CcOGwI4B2YU6NHJ7Qmv3iB7JvpKO1HVj3aATz
-         ClX7903W1Qp/q2Nf0Q1JOn47nLnwDmHwN4T4+8w5P1UozyHIMgwfme71L6PbEWdZsz/G
-         B2KwVRSJep4Q82G4Qf7Yjg3DwSCFMsXSFAkKmf0+K5uy/n/BOcuCPbKv7Ez2/609Icsp
-         fa23GbY4Pk5ptXliE21YLKmZqjXV5m+USVKw+w9BCR8Bqm8Y0OkLJGmeu3QSu3okS2Ne
-         jvYw==
+        bh=Ukuk6hNM0rhIIJoAwXdQKqwGGG0/U9BA+D9A0gMIbO4=;
+        b=JhfE1s8tJ8/TsXUKTQH/t7VI7tDxlSoKuNMA0k7yOu1kDgaoZU/y+Qr3ixL4EN9gZy
+         p1L3Tj5fJv8LpsqrEvBSSwboU0j/OUAko/SM4SjbSiBFPUvEhyjodh26lnwDHhGT4cDH
+         re6B0MQMVe6CFNpAcB1WadTzoc01+O/jdfFrQW+s/7aAHhpCoV15ls6voO+Ijjx6MXkQ
+         ik36/gNPZUxcBqhnezAkoCThoeKOQyS+DVzgQv+TM09q5yu58uGepbHVYFS1yK//dN9x
+         Sfuh54Q0varPdy/5Q4fwvqwde+u5kr/ihJNt8aiegJkaIYN9lNFxxY5krQBv6497EeFc
+         Xulg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765917393; x=1766522193;
+        d=1e100.net; s=20230601; t=1765917567; x=1766522367;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=Gv3fR1f0d4J7Wx8tPpx3i+Ybrysql766wrV4wqRgUXM=;
-        b=qSh7ye/0qh2z4O+v7YSsVTtAxIN3DzwFAVpJvItTvRucfCi8CVJpc5Dh89k3wBduFS
-         amjYJyPuER/TTo2ZuKi3ZFMigdIcTET3x4q//PO6ManQLXbjLs5Eh32mQHNyp9FH16vj
-         DeB7xNlkA/YRvATMyPhD5jig7VjEXETsf243wJ5SLXHCSOdMLDTPrsVJmHn9Mhk9ht7l
-         pncXm0rnkNm5lT+OKYMNedEKCX+DEDKjDo8v1T7SQ5urXr/0/3Y6XrK6fNHaW90IHHwj
-         rwnWhx9s00jru1XTjKhjhcE3LedDC6h8yzB0jYF/kr7khBBpcEr900Qak6oDyybTOOc2
-         Vnhg==
-X-Forwarded-Encrypted: i=1; AJvYcCVm1oVHYEVObSybI6x7Qrg/dTM9ThOGbYO2HNjiyIeF7rDr7huPfXc8p6jQNtVmaq8ZURUdjIuXEsF6CkfWL3/L@lists.infradead.org
-X-Gm-Message-State: AOJu0YzKdiT/1yvxveRKt9oCqwB3C11UwfFhl8qhH6sov99UbV57smI7
-	XrdThPhQIE8QYbUKVRvQlRhN4w0nIJX+05ah6mp+xDUp+kNHlwwVYjiSpFK6CA8nOEinkhAQEPh
-	ddiuXLnjoe3WNkCAczyEziIyltrWtET+/UwUg3eJsaw==
-X-Gm-Gg: AY/fxX5QpAIheb3YOsvJ9ng26ppYyw9pO2CIuRn6EF2GAMdoUleTEyQ0RBZP91aCEOL
-	y2zu1zpYEciYOHJ1PsCH+q8P2ZAU85gvZn8kY+L6G+jWNV9WrDgKqkCdN9a9dCKDdA892DC0CHF
-	QYX5oclSuFj43EMHd80oUhJSTOPX8KNvzEnhsbuID+j5w3qOvRZBxEschmk1Sbh/1Jf7vzNY1P9
-	p2q/GSHdN06mcfsCMgZBVQU7Hwi5tqGtEuVKZcyyk6o1FU1Yfv6AMI4CeYuJCe3A4C82DP1D3b1
-	1RRA4t+rQ9emU+8/HVHKIcBgjKU=
-X-Google-Smtp-Source: AGHT+IExU87DSA2S8FSy599HClbXmZSv9EyKVLPHHplD5eT/zCPtN3v7yL9S8zyn9eTla/ftNmU4AxeJdv6gSgRVcTE=
-X-Received: by 2002:a05:6402:3549:b0:649:9260:1031 with SMTP id
- 4fb4d7f45d1cf-6499b2fab64mr14180164a12.32.1765917393067; Tue, 16 Dec 2025
- 12:36:33 -0800 (PST)
+        bh=Ukuk6hNM0rhIIJoAwXdQKqwGGG0/U9BA+D9A0gMIbO4=;
+        b=W1zyxxjpPAyWputU8V1Ee8zPJ2CrcAO7J65VQJngiMYXz+ebA7Phd98PCthJUkOhYO
+         sL+e+B3qs//NvNWZoYAYv3alTyErTsJqKU/Vu6/vwU9jxfSrINlBugoMsCq4cAnGlnj9
+         SVbYs5TzE0cZyGs9pVuBDFpDp8MCv55NnsHp8jJFsn78Wf3DzBhf16g+5tO5m7q9RTf5
+         LOpCf9h4hvhed0q96FsBdUkXQsckX9Vd6DKe35+aexDtuwmTlKgX4RZZXw0btSY6lpnx
+         baaUM8NcP/vEUH9lmevrA31dpm1+hOkc7vq6XiuamEJ84gqxMRHn5XnS0SnC3Ry0stDk
+         GrRA==
+X-Forwarded-Encrypted: i=1; AJvYcCWj7mTAJJTUHLmzsD/1JM2/MfWtj+kEhL3815D9Dxu8Wpkf2lu6+U1O4+te69diETXMmlsdi1u0d5rKW/gP8gTD@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJwt/V5RUCHnJAR8UnRzYytd1kSZ6zUkKcuwZBoKA6qD/dmAqe
+	xQATj0Z822xdqAoNZKmsZ3XleAxIBTLZh1poef0cAULfcDI8UkCtNdBKt/rNaEcpWmAsXsczzB4
+	hc50h2/j/grvVMuO0iA/xzzGSufVC59XCHMwOfHU/
+X-Gm-Gg: AY/fxX58aSaVI5fC6qtwzuVKG8qKVuZ85j/KT4zmcYcf9eIF8OLrSa3LIZ1LhMLQIVp
+	EulKTAcq2kjvTnA3wvQy1kIq6mueniNcMGr/2uuroHZPWWEK2Uf+CC38RNc8ya6X6f/RFT6hQs+
+	LNFuOLh7ACq1dKmvoy83e74/c0f9MbdGXGrR6bo4eo6ld8xpt7bvgGwWVZmkc+eOzoBwIPUPNp6
+	Jse8lTas9orgOVAtl0tw0W5X8586HDS/W19/+RWh6aBqR2fy2nNo4HS+vHaR7ZJWWs++/6s8q8o
+	gXoiMJERrhTuKZtfVNsEPfzoPg==
+X-Google-Smtp-Source: AGHT+IFbtromBH6vAzZR3khshhkq7zEpAfWZpYBVhFN1J0nhsZlubwpQbDkoQhPYSPVohaFwBMJplA+PSSewgLadUlI=
+X-Received: by 2002:a17:902:e552:b0:294:d42c:ca0f with SMTP id
+ d9443c01a7336-2a15f24dc5emr588085ad.2.1765917566615; Tue, 16 Dec 2025
+ 12:39:26 -0800 (PST)
 MIME-Version: 1.0
-References: <20251105082639.342973-1-cleger@rivosinc.com> <20251105082639.342973-5-cleger@rivosinc.com>
- <CAEEQ3wnQiUdNVjUpdDgAx1=y76vSo66vCD0Wf3EGes274jnkxw@mail.gmail.com>
-In-Reply-To: <CAEEQ3wnQiUdNVjUpdDgAx1=y76vSo66vCD0Wf3EGes274jnkxw@mail.gmail.com>
-From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
-Date: Tue, 16 Dec 2025 21:36:21 +0100
-X-Gm-Features: AQt7F2oJjudh2yUHpteIzwQ-QrinFlTlFBTNMiuLYLvYre9WM5CdGCJaEQiOqa0
-Message-ID: <CADGDLFgnx3z9WMZBjURx7eEFeeDwb9tj+8WAik4siR_G8erk0Q@mail.gmail.com>
-Subject: Re: [External] [PATCH v8 4/5] perf: RISC-V: add support for SSE event
-To: yunhui cui <cuiyunhui@bytedance.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, 
-	Himanshu Chauhan <hchauhan@ventanamicro.com>, Anup Patel <apatel@ventanamicro.com>, 
-	Xu Lu <luxu.kernel@bytedance.com>, Atish Patra <atishp@atishpatra.org>, 
-	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>
+References: <20251212-james-perf-config-bits-v3-0-aa36a4846776@linaro.org> <20251212-james-perf-config-bits-v3-3-aa36a4846776@linaro.org>
+In-Reply-To: <20251212-james-perf-config-bits-v3-3-aa36a4846776@linaro.org>
+From: Ian Rogers <irogers@google.com>
+Date: Tue, 16 Dec 2025 12:39:15 -0800
+X-Gm-Features: AQt7F2o23fY33OmRwFHSMOklIQAwK0RjO2RcUW0zisLbAmMBE5vBP7v2D-DGMhY
+Message-ID: <CAP-5=fUBSOHcK5rjJgyJed3PkgLb_dMys_qDNu=Cy_18faLX_Q@mail.gmail.com>
+Subject: Re: [PATCH v3 03/12] perf parse-events: Track all user changed config bits
+To: James Clark <james.clark@linaro.org>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Mike Leach <mike.leach@linaro.org>, John Garry <john.g.garry@oracle.com>, 
+	Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>, linux-perf-users@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_123635_365744_DBE81F59 
-X-CRM114-Status: GOOD (  34.36  )
+X-CRM114-CacheID: sfid-20251216_123928_736926_DE5CECB9 
+X-CRM114-Status: GOOD (  25.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,322 +124,227 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 12, 2025 at 4:17=E2=80=AFAM yunhui cui <cuiyunhui@bytedance.com=
+On Fri, Dec 12, 2025 at 7:32=E2=80=AFAM James Clark <james.clark@linaro.org=
 > wrote:
 >
-> Hi Cl=C3=A9ment,
+> Currently we only track which bits were set by the user in attr->config.
+> But all configN fields should be treated equally as they can all have
+> default and user overridden values.
 >
-> On Wed, Nov 5, 2025 at 4:29=E2=80=AFPM Cl=C3=A9ment L=C3=A9ger <cleger@ri=
-vosinc.com> wrote:
-> >
-> > In order to use SSE within PMU drivers, register a SSE handler for the
-> > local PMU event. Reuse the existing overflow IRQ handler and pass
-> > appropriate pt_regs. Add a config option RISCV_PMU_SSE to select event
-> > delivery via SSE events.
-> >
-> > Signed-off-by: Cl=C3=A9ment L=C3=A9ger <cleger@rivosinc.com>
-> > ---
-> >  drivers/perf/Kconfig           | 10 +++++
-> >  drivers/perf/riscv_pmu.c       | 23 +++++++++++
-> >  drivers/perf/riscv_pmu_sbi.c   | 71 +++++++++++++++++++++++++++++-----
-> >  include/linux/perf/riscv_pmu.h |  5 +++
-> >  4 files changed, 99 insertions(+), 10 deletions(-)
-> >
-> > diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
-> > index 638321fc9800..d6ffc2b036e5 100644
-> > --- a/drivers/perf/Kconfig
-> > +++ b/drivers/perf/Kconfig
-> > @@ -105,6 +105,16 @@ config RISCV_PMU_SBI
-> >           full perf feature support i.e. counter overflow, privilege mo=
-de
-> >           filtering, counter configuration.
-> >
-> > +config RISCV_PMU_SBI_SSE
-> > +       depends on RISCV_PMU && RISCV_SBI_SSE
-> > +       bool "RISC-V PMU SSE events"
-> > +       default n
-> > +       help
-> > +         Say y if you want to use SSE events to deliver PMU interrupts=
-. This
-> > +         provides a way to profile the kernel at any level by using NM=
-I-like
-> > +         SSE events. SSE events being really intrusive, this option al=
-lows
-> > +         to select it only if needed.
-> > +
-> >  config STARFIVE_STARLINK_PMU
-> >         depends on ARCH_STARFIVE || COMPILE_TEST
-> >         depends on 64BIT
-> > diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
-> > index 7644147d50b4..dda2814801c0 100644
-> > --- a/drivers/perf/riscv_pmu.c
-> > +++ b/drivers/perf/riscv_pmu.c
-> > @@ -13,6 +13,7 @@
-> >  #include <linux/irqdesc.h>
-> >  #include <linux/perf/riscv_pmu.h>
-> >  #include <linux/printk.h>
-> > +#include <linux/riscv_sbi_sse.h>
-> >  #include <linux/smp.h>
-> >  #include <linux/sched_clock.h>
-> >
-> > @@ -254,6 +255,24 @@ void riscv_pmu_start(struct perf_event *event, int=
- flags)
-> >         perf_event_update_userpage(event);
-> >  }
-> >
-> > +#ifdef CONFIG_RISCV_PMU_SBI_SSE
-> > +static void riscv_pmu_disable(struct pmu *pmu)
-> > +{
-> > +       struct riscv_pmu *rvpmu =3D to_riscv_pmu(pmu);
-> > +
-> > +       if (rvpmu->sse_evt)
-> > +               sse_event_disable_local(rvpmu->sse_evt);
-> > +}
-> > +
-> > +static void riscv_pmu_enable(struct pmu *pmu)
-> > +{
-> > +       struct riscv_pmu *rvpmu =3D to_riscv_pmu(pmu);
-> > +
-> > +       if (rvpmu->sse_evt)
-> > +               sse_event_enable_local(rvpmu->sse_evt);
-> > +}
-> > +#endif
-> > +
-> >  static int riscv_pmu_add(struct perf_event *event, int flags)
-> >  {
-> >         struct riscv_pmu *rvpmu =3D to_riscv_pmu(event->pmu);
-> > @@ -411,6 +430,10 @@ struct riscv_pmu *riscv_pmu_alloc(void)
-> >                 .event_mapped   =3D riscv_pmu_event_mapped,
-> >                 .event_unmapped =3D riscv_pmu_event_unmapped,
-> >                 .event_idx      =3D riscv_pmu_event_idx,
-> > +#ifdef CONFIG_RISCV_PMU_SBI_SSE
-> > +               .pmu_enable     =3D riscv_pmu_enable,
-> > +               .pmu_disable    =3D riscv_pmu_disable,
-> > +#endif
-> >                 .add            =3D riscv_pmu_add,
-> >                 .del            =3D riscv_pmu_del,
-> >                 .start          =3D riscv_pmu_start,
-> > diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.=
-c
-> > index e255c1b069ec..c852f64a5022 100644
-> > --- a/drivers/perf/riscv_pmu_sbi.c
-> > +++ b/drivers/perf/riscv_pmu_sbi.c
-> > @@ -17,6 +17,7 @@
-> >  #include <linux/irqdomain.h>
-> >  #include <linux/of_irq.h>
-> >  #include <linux/of.h>
-> > +#include <linux/riscv_sbi_sse.h>
-> >  #include <linux/cpu_pm.h>
-> >  #include <linux/sched/clock.h>
-> >  #include <linux/soc/andes/irq.h>
-> > @@ -1038,10 +1039,10 @@ static void pmu_sbi_start_overflow_mask(struct =
-riscv_pmu *pmu,
-> >                 pmu_sbi_start_ovf_ctrs_sbi(cpu_hw_evt, ctr_ovf_mask);
-> >  }
-> >
-> > -static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
-> > +static irqreturn_t pmu_sbi_ovf_handler(struct cpu_hw_events *cpu_hw_ev=
-t,
-> > +                                      struct pt_regs *regs, bool from_=
-sse)
-> >  {
-> >         struct perf_sample_data data;
-> > -       struct pt_regs *regs;
-> >         struct hw_perf_event *hw_evt;
-> >         union sbi_pmu_ctr_info *info;
-> >         int lidx, hidx, fidx;
-> > @@ -1049,7 +1050,6 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, v=
-oid *dev)
-> >         struct perf_event *event;
-> >         u64 overflow;
-> >         u64 overflowed_ctrs =3D 0;
-> > -       struct cpu_hw_events *cpu_hw_evt =3D dev;
-> >         u64 start_clock =3D sched_clock();
-> >         struct riscv_pmu_snapshot_data *sdata =3D cpu_hw_evt->snapshot_=
-addr;
-> >
-> > @@ -1059,13 +1059,15 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq,=
- void *dev)
-> >         /* Firmware counter don't support overflow yet */
-> >         fidx =3D find_first_bit(cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COU=
-NTERS);
-> >         if (fidx =3D=3D RISCV_MAX_COUNTERS) {
-> > -               csr_clear(CSR_SIP, BIT(riscv_pmu_irq_num));
-> > +               if (!from_sse)
-> > +                       csr_clear(CSR_SIP, BIT(riscv_pmu_irq_num));
-> >                 return IRQ_NONE;
-> >         }
-> >
-> >         event =3D cpu_hw_evt->events[fidx];
-> >         if (!event) {
-> > -               ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_mask);
-> > +               if (!from_sse)
-> > +                       ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_mas=
-k);
-> >                 return IRQ_NONE;
-> >         }
-> >
-> > @@ -1080,16 +1082,16 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq,=
- void *dev)
-> >
-> >         /*
-> >          * Overflow interrupt pending bit should only be cleared after =
-stopping
-> > -        * all the counters to avoid any race condition.
-> > +        * all the counters to avoid any race condition. When using SSE=
-,
-> > +        * interrupt is cleared when stopping counters.
-> >          */
-> > -       ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_mask);
-> > +       if (!from_sse)
-> > +               ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_mask);
-> >
-> >         /* No overflow bit is set */
-> >         if (!overflow)
-> >                 return IRQ_NONE;
-> >
-> > -       regs =3D get_irq_regs();
-> > -
-> >         for_each_set_bit(lidx, cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COUN=
-TERS) {
-> >                 struct perf_event *event =3D cpu_hw_evt->events[lidx];
-> >
-> > @@ -1145,6 +1147,51 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, =
-void *dev)
-> >         return IRQ_HANDLED;
-> >  }
-> >
-> > +static irqreturn_t pmu_sbi_ovf_irq_handler(int irq, void *dev)
-> > +{
-> > +       return pmu_sbi_ovf_handler(dev, get_irq_regs(), false);
-> > +}
-> > +
-> > +#ifdef CONFIG_RISCV_PMU_SBI_SSE
-> > +static int pmu_sbi_ovf_sse_handler(u32 evt, void *arg, struct pt_regs =
-*regs)
-> > +{
-> > +       struct cpu_hw_events __percpu *hw_events =3D arg;
-> > +       struct cpu_hw_events *hw_event =3D raw_cpu_ptr(hw_events);
-> > +
-> > +       pmu_sbi_ovf_handler(hw_event, regs, true);
-> > +
-> > +       return 0;
-> > +}
-> > +
-> > +static int pmu_sbi_setup_sse(struct riscv_pmu *pmu)
-> > +{
-> > +       int ret;
-> > +       struct sse_event *evt;
-> > +       struct cpu_hw_events __percpu *hw_events =3D pmu->hw_events;
-> > +
-> > +       evt =3D sse_event_register(SBI_SSE_EVENT_LOCAL_PMU_OVERFLOW, 0,
-> > +                                pmu_sbi_ovf_sse_handler, hw_events);
+> Track them all by making get_config_chgs() generic and calling it once
+> for each config value.
 >
-> As Radim suggested, we had better preset a priority for different
-> events, such as these events and future ones:
-> SBI_SSE_EVENT_LOCAL_HIGH_PRIO_RAS
-> SBI_SSE_EVENT_LOCAL_DOUBLE_TRAP
-> SBI_SSE_EVENT_GLOBAL_HIGH_PRIO_RAS
-> SBI_SSE_EVENT_LOCAL_PMU_OVERFLOW
-> SBI_SSE_EVENT_LOCAL_LOW_PRIO_RAS
-> SBI_SSE_EVENT_GLOBAL_LOW_PRIO_RAS
-> SBI_SSE_EVENT_LOCAL_SOFTWARE_INJECTED
-> SBI_SSE_EVENT_LOCAL_UNKNOWN_NMI
-> SBI_SSE_EVENT_GLOBAL_SOFTWARE_INJECTED
+> Signed-off-by: James Clark <james.clark@linaro.org>
+> ---
+>  tools/perf/util/evsel.c        |  6 ++-
+>  tools/perf/util/evsel_config.h |  6 ++-
+>  tools/perf/util/parse-events.c | 98 +++++++++++++++++++++++-------------=
+------
+>  tools/perf/util/pmu.c          |  2 +-
+>  4 files changed, 65 insertions(+), 47 deletions(-)
+>
+> diff --git a/tools/perf/util/evsel.c b/tools/perf/util/evsel.c
+> index 9cd706f6279313c2cc53eba1adbd45f352090f75..dcadf022405d398bf394b3da7=
+f0db5c81a3ec268 100644
+> --- a/tools/perf/util/evsel.c
+> +++ b/tools/perf/util/evsel.c
+> @@ -1242,7 +1242,11 @@ static void evsel__apply_config_terms(struct evsel=
+ *evsel,
+>                 case EVSEL__CONFIG_TERM_AUX_SAMPLE_SIZE:
+>                         /* Already applied by auxtrace */
+>                         break;
+> -               case EVSEL__CONFIG_TERM_CFG_CHG:
+> +               case EVSEL__CONFIG_TERM_USR_CHG_CONFIG:
+> +               case EVSEL__CONFIG_TERM_USR_CHG_CONFIG1:
+> +               case EVSEL__CONFIG_TERM_USR_CHG_CONFIG2:
+> +               case EVSEL__CONFIG_TERM_USR_CHG_CONFIG3:
+> +               case EVSEL__CONFIG_TERM_USR_CHG_CONFIG4:
+>                         break;
+>                 case EVSEL__CONFIG_TERM_RATIO_TO_PREV:
+>                         rtp_buf =3D term->val.str;
+> diff --git a/tools/perf/util/evsel_config.h b/tools/perf/util/evsel_confi=
+g.h
+> index 685fd8d5c4a88fb8ae601ded60c1fc36dde73403..7b565d76c0bc4277effbbf950=
+110986b423f571c 100644
+> --- a/tools/perf/util/evsel_config.h
+> +++ b/tools/perf/util/evsel_config.h
+> @@ -27,7 +27,11 @@ enum evsel_term_type {
+>         EVSEL__CONFIG_TERM_AUX_OUTPUT,
+>         EVSEL__CONFIG_TERM_AUX_ACTION,
+>         EVSEL__CONFIG_TERM_AUX_SAMPLE_SIZE,
+> -       EVSEL__CONFIG_TERM_CFG_CHG,
+> +       EVSEL__CONFIG_TERM_USR_CHG_CONFIG,
+> +       EVSEL__CONFIG_TERM_USR_CHG_CONFIG1,
+> +       EVSEL__CONFIG_TERM_USR_CHG_CONFIG2,
+> +       EVSEL__CONFIG_TERM_USR_CHG_CONFIG3,
+> +       EVSEL__CONFIG_TERM_USR_CHG_CONFIG4,
+>         EVSEL__CONFIG_TERM_RATIO_TO_PREV,
+>  };
+>
+> diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-event=
+s.c
+> index 46422286380f33a48087e7079a45bb21beb2d573..7ef63b808d0542999fd1303b9=
+f94cae68e38030f 100644
+> --- a/tools/perf/util/parse-events.c
+> +++ b/tools/perf/util/parse-events.c
+> @@ -1253,66 +1253,32 @@ static int get_config_terms(const struct parse_ev=
+ents_terms *head_config,
+>         return 0;
+>  }
+>
+> -/*
+> - * Add EVSEL__CONFIG_TERM_CFG_CHG where cfg_chg will have a bit set for
+> - * each bit of attr->config that the user has changed.
+> - */
+> -static int get_config_chgs(struct perf_pmu *pmu, struct parse_events_ter=
+ms *head_config,
+> -                          struct list_head *head_terms)
+> +static int add_cfg_chg(struct perf_pmu *pmu,
+> +                      struct parse_events_terms *head_config,
 
-Hey Yunhui,
+nit: the head_config could be made const here.
 
-What do you mean exactly ? Events have default priority based on their
-ID. However, the register call will set a priority =3D 0 for the event.
-I'll modify that to allow using an optional priority (or even remove
-it)
-
-Thanks,
-
-Cl=C3=A9ment
-
+> +                      struct list_head *head_terms,
+> +                      int format_type,
+> +                      enum parse_events__term_type term_type,
+> +                      enum evsel_term_type new_term_type)
+>  {
+>         struct parse_events_term *term;
+>         u64 bits =3D 0;
+>         int type;
 >
-> Could you please help add a "global priority enum"?
+>         list_for_each_entry(term, &head_config->terms, list) {
+> -               switch (term->type_term) {
+> -               case PARSE_EVENTS__TERM_TYPE_USER:
+> +               if (term->type_term =3D=3D PARSE_EVENTS__TERM_TYPE_USER) =
+{
+>                         type =3D perf_pmu__format_type(pmu, term->config)=
+;
+> -                       if (type !=3D PERF_PMU_FORMAT_VALUE_CONFIG)
+> +                       if (type !=3D format_type)
+>                                 continue;
+>                         bits |=3D perf_pmu__format_bits(pmu, term->config=
+);
+> -                       break;
+> -               case PARSE_EVENTS__TERM_TYPE_CONFIG:
+> +               } else if (term->type_term =3D=3D term_type) {
+>                         bits =3D ~(u64)0;
+> -                       break;
+> -               case PARSE_EVENTS__TERM_TYPE_CONFIG1:
+> -               case PARSE_EVENTS__TERM_TYPE_CONFIG2:
+> -               case PARSE_EVENTS__TERM_TYPE_CONFIG3:
+> -               case PARSE_EVENTS__TERM_TYPE_CONFIG4:
+> -               case PARSE_EVENTS__TERM_TYPE_LEGACY_HARDWARE_CONFIG:
+> -               case PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE_CONFIG:
+> -               case PARSE_EVENTS__TERM_TYPE_NAME:
+> -               case PARSE_EVENTS__TERM_TYPE_SAMPLE_PERIOD:
+> -               case PARSE_EVENTS__TERM_TYPE_SAMPLE_FREQ:
+> -               case PARSE_EVENTS__TERM_TYPE_BRANCH_SAMPLE_TYPE:
+> -               case PARSE_EVENTS__TERM_TYPE_TIME:
+> -               case PARSE_EVENTS__TERM_TYPE_CALLGRAPH:
+> -               case PARSE_EVENTS__TERM_TYPE_STACKSIZE:
+> -               case PARSE_EVENTS__TERM_TYPE_NOINHERIT:
+> -               case PARSE_EVENTS__TERM_TYPE_INHERIT:
+> -               case PARSE_EVENTS__TERM_TYPE_MAX_STACK:
+> -               case PARSE_EVENTS__TERM_TYPE_MAX_EVENTS:
+> -               case PARSE_EVENTS__TERM_TYPE_NOOVERWRITE:
+> -               case PARSE_EVENTS__TERM_TYPE_OVERWRITE:
+> -               case PARSE_EVENTS__TERM_TYPE_DRV_CFG:
+> -               case PARSE_EVENTS__TERM_TYPE_PERCORE:
+> -               case PARSE_EVENTS__TERM_TYPE_AUX_OUTPUT:
+> -               case PARSE_EVENTS__TERM_TYPE_AUX_ACTION:
+> -               case PARSE_EVENTS__TERM_TYPE_AUX_SAMPLE_SIZE:
+> -               case PARSE_EVENTS__TERM_TYPE_METRIC_ID:
+> -               case PARSE_EVENTS__TERM_TYPE_RAW:
+> -               case PARSE_EVENTS__TERM_TYPE_CPU:
+> -               case PARSE_EVENTS__TERM_TYPE_RATIO_TO_PREV:
+> -               default:
+> -                       break;
+>                 }
+>         }
 >
+>         if (bits) {
+>                 struct evsel_config_term *new_term;
 >
-> > +       if (IS_ERR(evt))
-> > +               return PTR_ERR(evt);
-> > +
-> > +       ret =3D sse_event_enable(evt);
-> > +       if (ret) {
-> > +               sse_event_unregister(evt);
-> > +               return ret;
-> > +       }
-> > +
-> > +       pr_info("using SSE for PMU event delivery\n");
-> > +       pmu->sse_evt =3D evt;
-> > +
-> > +       return ret;
-> > +}
-> > +#else
-> > +static int pmu_sbi_setup_sse(struct riscv_pmu *pmu)
-> > +{
-> > +       return -EOPNOTSUPP;
-> > +}
-> > +#endif
-> > +
-> >  static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *n=
-ode)
-> >  {
-> >         struct riscv_pmu *pmu =3D hlist_entry_safe(node, struct riscv_p=
-mu, node);
-> > @@ -1195,6 +1242,10 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *=
-pmu, struct platform_device *pde
-> >         struct cpu_hw_events __percpu *hw_events =3D pmu->hw_events;
-> >         struct irq_domain *domain =3D NULL;
-> >
-> > +       ret =3D pmu_sbi_setup_sse(pmu);
-> > +       if (!ret)
-> > +               return 0;
-> > +
-> >         if (riscv_isa_extension_available(NULL, SSCOFPMF)) {
-> >                 riscv_pmu_irq_num =3D RV_IRQ_PMU;
-> >                 riscv_pmu_use_irq =3D true;
-> > @@ -1229,7 +1280,7 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *p=
-mu, struct platform_device *pde
-> >                 return -ENODEV;
-> >         }
-> >
-> > -       ret =3D request_percpu_irq(riscv_pmu_irq, pmu_sbi_ovf_handler, =
-"riscv-pmu", hw_events);
-> > +       ret =3D request_percpu_irq(riscv_pmu_irq, pmu_sbi_ovf_irq_handl=
-er, "riscv-pmu", hw_events);
-> >         if (ret) {
-> >                 pr_err("registering percpu irq failed [%d]\n", ret);
-> >                 return ret;
-> > diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_=
-pmu.h
-> > index f82a28040594..08fdcf6baf4e 100644
-> > --- a/include/linux/perf/riscv_pmu.h
-> > +++ b/include/linux/perf/riscv_pmu.h
-> > @@ -28,6 +28,8 @@
-> >
-> >  #define RISCV_PMU_CONFIG1_GUEST_EVENTS 0x1
-> >
-> > +struct sse_event;
-> > +
-> >  struct cpu_hw_events {
-> >         /* currently enabled events */
-> >         int                     n_events;
-> > @@ -54,6 +56,9 @@ struct riscv_pmu {
-> >         char            *name;
-> >
-> >         irqreturn_t     (*handle_irq)(int irq_num, void *dev);
-> > +#ifdef CONFIG_RISCV_PMU_SBI_SSE
-> > +       struct sse_event *sse_evt;
-> > +#endif
-> >
-> >         unsigned long   cmask;
-> >         u64             (*ctr_read)(struct perf_event *event);
-> > --
-> > 2.43.0
-> >
+> -               new_term =3D add_config_term(EVSEL__CONFIG_TERM_CFG_CHG,
+> -                                          head_terms, false);
+> +               new_term =3D add_config_term(new_term_type, head_terms, f=
+alse);
+>                 if (!new_term)
+>                         return -ENOMEM;
+>                 new_term->val.cfg_chg =3D bits;
+> @@ -1321,6 +1287,50 @@ static int get_config_chgs(struct perf_pmu *pmu, s=
+truct parse_events_terms *head
+>         return 0;
+>  }
 >
-> Thanks,
-> Yunhui
+> +/*
+> + * Add EVSEL__CONFIG_TERM_USR_CFG_CONFIGn where cfg_chg will have a bit =
+set for
+> + * each bit of attr->configN that the user has changed.
+> + */
+> +static int get_config_chgs(struct perf_pmu *pmu,
+> +                          struct parse_events_terms *head_config,
+> +                          struct list_head *head_terms)
+> +{
+> +       int ret;
+> +
+> +       ret =3D add_cfg_chg(pmu, head_config, head_terms,
+> +                         PERF_PMU_FORMAT_VALUE_CONFIG,
+> +                         PARSE_EVENTS__TERM_TYPE_CONFIG,
+> +                         EVSEL__CONFIG_TERM_USR_CHG_CONFIG);
+> +       if (ret)
+> +               return ret;
+> +
+> +       ret =3D add_cfg_chg(pmu, head_config, head_terms,
+> +                         PERF_PMU_FORMAT_VALUE_CONFIG1,
+> +                         PARSE_EVENTS__TERM_TYPE_CONFIG1,
+> +                         EVSEL__CONFIG_TERM_USR_CHG_CONFIG1);
+> +       if (ret)
+> +               return ret;
+> +
+> +       ret =3D add_cfg_chg(pmu, head_config, head_terms,
+> +                         PERF_PMU_FORMAT_VALUE_CONFIG2,
+> +                         PARSE_EVENTS__TERM_TYPE_CONFIG2,
+> +                         EVSEL__CONFIG_TERM_USR_CHG_CONFIG2);
+> +       if (ret)
+> +               return ret;
+> +
+> +       ret =3D add_cfg_chg(pmu, head_config, head_terms,
+> +                         PERF_PMU_FORMAT_VALUE_CONFIG3,
+> +                         PARSE_EVENTS__TERM_TYPE_CONFIG3,
+> +                         EVSEL__CONFIG_TERM_USR_CHG_CONFIG3);
+> +       if (ret)
+> +               return ret;
+> +
+> +       return add_cfg_chg(pmu, head_config, head_terms,
+> +                          PERF_PMU_FORMAT_VALUE_CONFIG4,
+> +                          PARSE_EVENTS__TERM_TYPE_CONFIG4,
+> +                          EVSEL__CONFIG_TERM_USR_CHG_CONFIG4);
+> +}
+> +
+>  int parse_events_add_tracepoint(struct parse_events_state *parse_state,
+>                                 struct list_head *list,
+>                                 const char *sys, const char *event,
+> diff --git a/tools/perf/util/pmu.c b/tools/perf/util/pmu.c
+> index 2c26c8d76bed920c7b5b43beb867e4d1bcaa2970..e02f74d4020c151082ecc434c=
+29c0ec4c2c9b2c8 100644
+> --- a/tools/perf/util/pmu.c
+> +++ b/tools/perf/util/pmu.c
+> @@ -1387,7 +1387,7 @@ void evsel__set_config_if_unset(struct perf_pmu *pm=
+u, struct evsel *evsel,
+>                                 const char *config_name, u64 val)
+>  {
+>         u64 user_bits =3D 0, bits;
+> -       struct evsel_config_term *term =3D evsel__get_config_term(evsel, =
+CFG_CHG);
+> +       struct evsel_config_term *term =3D evsel__get_config_term(evsel, =
+USR_CHG_CONFIG);
+>
+>         if (term)
+>                 user_bits =3D term->val.cfg_chg;
+>
+> --
+> 2.34.1
+>
 
