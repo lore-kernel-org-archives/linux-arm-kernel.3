@@ -4,69 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6208AD5C0F2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 08:48:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9D03D5C0C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 08:50:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gvNrMludRXxgFxLNR7QEWDmK9gJ2gERs277nXQ2+YGM=; b=kbX8aI2cThYd1QOXGuGNB1dobp
-	bJHeWTI9IjTdvjv0b7GMNQcILrgQISy2zce+H7J6O8e38TxeXXK0GYBV5V6io9T/oRJky/YTnKASr
-	KNZZ4fQKDWSqHUVau2cmB/oGGKK30PXAZAiq8kbbL3it6uaGXeziV88yJRQaciKYpWs9uJrvbOo8I
-	gF20sa1yIp/b2G8vrJpwgBK8sM6TEHHSiUdDyAHPDNBz7TBqcd+HXEP6tHbTvZzVnCMKIBAxmou/z
-	mCcePjffFs5L/y4RbubWV1/oFTL8XnJ4SWm8cCg0KcPCVGOjx1xk5N6J7hQBbkmo6a4g0WoiTtFN+
-	EzxgkhxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZUFe47qtGYjU5Yn2pY9F8UI7JZG74YZxx2wQ1k0dRgg=; b=PuKMW2TPf0ROtqqOVUKmdZdJG/
+	kPZWP2itkdLwVS7RWShvNpx5ZoZmRw92lTMgyyWkMlYX0xeW784CESLgEiDrUcLsCjeYpdr27y0qM
+	xaeYI5LAEktlm6ZI4w8sIRi77QxSg40l1zK2ZvALv6mUzbAAHbfLoK4EeLipP9yDtgKmEKD5bxj8l
+	KW7ibzyj/d7zKrWpD+N5pnhUFDC9JsLB1jqc63SRvRsvDJpuc89cUXN6149KC9Qzi6TK9WA2VVB5Y
+	isO7PAD55VpXYqH1V3Fn9Ws2Vke7jYcd5viV0uCbGU1PDhLZATM4yUAqvGVv4WaIgi2sxp1m+M4rx
+	W54FU+YA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVQir-00000004wpk-0ykw;
-	Tue, 16 Dec 2025 08:47:57 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vVQl1-00000004x24-2ChY;
+	Tue, 16 Dec 2025 08:50:12 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVQio-00000004wp5-2LDt
+	id 1vVQkz-00000004x1g-0ccM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 08:47:56 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id D77BEC19D35;
-	Tue, 16 Dec 2025 08:47:27 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 30F5A6071C;
-	Tue, 16 Dec 2025 08:47:52 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D3461119431B8;
-	Tue, 16 Dec 2025 09:47:45 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1765874867; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=gvNrMludRXxgFxLNR7QEWDmK9gJ2gERs277nXQ2+YGM=;
-	b=DIq5brBRta/TiINKp4M5huv5tPncOYq/k/KPgcFh83dyP2Ff4kqo0PKdlyN64UzI9pD3Z2
-	8hYV/UlhLtD+/+EvXp59CEtjCStQ/UYa+3ZDJYzkyLgHCNtKfesWi+elbS4dfSGE5YGoIm
-	KOGOCU5nkjsP/9eg90yut6i1bZ5hN/oUpGIVZh/2Xs2t7T/SJkvmmKEZqWOiPz+TGHiDDJ
-	/kouSIHSFYczWt9VOtzmBImKNghpe9lFF1DPmkAJuVJlUsNAc7Yj3y04u8E2dM8gDiVb4U
-	HWHn8uXh7VFwbrM+P+jW+Bkzoj9xMP9ltHAy1h6iMOUO5GxjoVI63YjKJnB3iA==
-Date: Tue, 16 Dec 2025 09:47:45 +0100
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, kernel@collabora.com,
-	linux-input@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v2 1/4] dt-bindings: input: adc-keys: allow
- linux,input-type property
-Message-ID: <202512160847455082a875@mail.local>
-References: <20251215-rock4d-audio-v2-0-82a61de39b4c@collabora.com>
- <20251215-rock4d-audio-v2-1-82a61de39b4c@collabora.com>
+	Tue, 16 Dec 2025 08:50:10 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2a0f3f74587so23327185ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 00:50:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1765875008; x=1766479808; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZUFe47qtGYjU5Yn2pY9F8UI7JZG74YZxx2wQ1k0dRgg=;
+        b=FgMLtGRv1t7wNJ3cdDr2ppiLRD4k8LB8fPKPOk8NYznZDexy6NvXsbjfNcncYFbd8R
+         gVbF+0TJmtHi1UKwu1mYF1TdSJgMlnJJpucEVhoAjzblVxIf9CjaraYOZZ0W7Sw226qA
+         sL8WXpwV6MInu7/vVJGelrj1aBxFsEuxvkeoYDqsWjqEUfK7oKyIytMHGCvYzyXk1jVw
+         xu4wig54vnGxFhra4kmcn+CUV4RGkRWrQ/En1iu2JUuDnx/UBqvHCKMOlctaat+PIf2K
+         u36o1ww2n+Ry998kUjFqcWnOtA9F7+f1/6fH9r8wQSDh9VxrDrJW7UTbvb0vkGkIwm7c
+         558w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765875008; x=1766479808;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=ZUFe47qtGYjU5Yn2pY9F8UI7JZG74YZxx2wQ1k0dRgg=;
+        b=mTI4ZuGIyRKgIrgZm7eZOxEUELGdPHDi8yI23YCDBz4hANBGsSJgawzwIofjXegb0Q
+         fVuTg/GSb0jQfGmHDbjpYkdCU7NF7IfY5aERbPmB0y45UWXO6BZ/w5Cziq88a5GS5AbH
+         3QMxHh/1ew3e09IXjQdbsk7qv0JF5f/o+Xf//RiBF6BX0oM1Hm+sWVD1T2mbnuCvqFYV
+         2juYZ1H14cxBhZIrjVYT33cy4/5T9A7JGcEmREuXKkdqCtg8Xj0ezI/ZtrgZjRHlPSHh
+         pBaRF/fEYbLwdGEaCZ5zMwgQM/78aqOjtbdGzPDnYa4R2g6miu/1SpdmJ4ekkxRJwsIn
+         LYTQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW3ZH5X7OG4XJJlx+/QgxFv34roA+c4FoE+Rxm4giNFBxgHO9L6ypt/qtuuGtWel7f/DzKf/aa1lM0Sy1U9TVa/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzUpM2dkslrWEeCwM4xa79w5PEeXXkXgc8cQEjiav07fWKHqgX3
+	QfotEA++NELdslABwdyZzuzI4HHYAkp9IlXkuJ69SmrxEpVcgP52WTLpMZe0ENt2j2frjAVuXcf
+	At9UjbkvZWBWX6iOyUvdeKaSeWBwiTcvoYQ==
+X-Gm-Gg: AY/fxX7YYjemqDLA9sEv/8VvKFPmUvLxzNaskRH3q5f03tsaU+6JVRI22lVaeh0PI7Z
+	Cgc59OO8saBCTl2uZDN69AitWnhzY/JiPT9XfiraAEQg4/jcq0SRgk3HOpY1pTKR1wdfGn8F0OD
+	etvqdJFEYlWbRG33kH6HF5Xh+AtrYkAO/uWu9wDbDduaICg8Grk4J9VTDz60cSit2oSeU4XzXVa
+	oXMupUiLiFkr5pTOSwDK2mGOxc9qRe2qi116MjmPXkPcHbJPgSGpohaLevZlGIdVLx8vMd7W3sZ
+	yoCHmA4qu/n8oO/lLOAmTiHbgUOoJF9tDmMRlTyzOZ16u5JmqR01yn64NkHQNC6c98a9LFVeuTM
+	kf6lmdNwCfZAEZuwIFKC9
+X-Google-Smtp-Source: AGHT+IFdZYFT+NIwzhAXA50MF6zrj86tN0JwKIahPILeOcWuOCFok0qYlbb+VZx5E16t5BM86z6amXtW1CuiK+Z1D7g=
+X-Received: by 2002:a05:7022:5f04:b0:11b:88a7:e1b0 with SMTP id
+ a92af1059eb24-11f354cd726mr6498824c88.26.1765875007985; Tue, 16 Dec 2025
+ 00:50:07 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251215-rock4d-audio-v2-1-82a61de39b4c@collabora.com>
-X-Last-TLS-Session-Version: TLSv1.3
+References: <20251216074216.447193-1-shengjiu.wang@nxp.com>
+In-Reply-To: <20251216074216.447193-1-shengjiu.wang@nxp.com>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Tue, 16 Dec 2025 10:52:38 +0200
+X-Gm-Features: AQt7F2qAJy_LSqPhNedKh08SXl3wUZHMX7Nrl3yXqFHsKDgpXLFzkxbItF2FoEo
+Message-ID: <CAEnQRZCZe3z8F7TsFdCz5P6mu6qzGkdoqC76XkyCCzQz+pSpmA@mail.gmail.com>
+Subject: Re: [PATCH] remoteproc: imx_dsp_rproc: only reset carveout memory at
+ RPROC_OFFLINE state
+To: Shengjiu Wang <shengjiu.wang@nxp.com>
+Cc: andersson@kernel.org, mathieu.poirier@linaro.org, shawnguo@kernel.org, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
+	daniel.baluta@nxp.com, linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_004754_743039_765AE033 
-X-CRM114-Status: GOOD (  15.91  )
+X-CRM114-CacheID: sfid-20251216_005009_488918_AFB44207 
+X-CRM114-Status: UNSURE (   9.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,42 +101,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/12/2025 13:29:29+0100, Nicolas Frattaroli wrote:
-> adc-keys, unlike gpio-keys, does not allow linux,input-type as a valid
-> property. This makes it impossible to model devices that have ADC inputs
-> that should generate switch events.
-> 
-> Add the property to the binding with the same default as gpio-keys.
-> 
-> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Reviewed-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
+On Tue, Dec 16, 2025 at 9:59=E2=80=AFAM Shengjiu Wang <shengjiu.wang@nxp.co=
+m> wrote:
+>
+> Don't need to reset memory at suspend and resume stage, because some
+> memory is used to save the software state for resume, if it is cleared,
+> the resume operation can fail.
 
-> ---
->  Documentation/devicetree/bindings/input/adc-keys.yaml | 3 +++
->  1 file changed, 3 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/input/adc-keys.yaml b/Documentation/devicetree/bindings/input/adc-keys.yaml
-> index 7aa078dead37..e372ebc23d16 100644
-> --- a/Documentation/devicetree/bindings/input/adc-keys.yaml
-> +++ b/Documentation/devicetree/bindings/input/adc-keys.yaml
-> @@ -42,6 +42,9 @@ patternProperties:
->  
->        linux,code: true
->  
-> +      linux,input-type:
-> +        default: 1  # EV_KEY
-> +
->        press-threshold-microvolt:
->          description:
->            Voltage above or equal to which this key is considered pressed. No
-> 
-> -- 
-> 2.52.0
-> 
+I would rephrase this as "Do not reset memory ...".
 
--- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+"Don't need .." suggests that this operation is unnecessary, but not wrong.
+
+With that,
+
+Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
 
