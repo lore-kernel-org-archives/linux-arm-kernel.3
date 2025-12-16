@@ -4,234 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0077ED5B161
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 07:34:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 781E8D5B87C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 07:34:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Message-ID:Date:In-reply-to:Subject:Cc
-	:To:From:References:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fAbrzY46z3vvxoM5JF+HTlV0gDcqie6IfuulCFGhiKY=; b=ape0RYDf17U0T9yYr/uz9HaOxG
-	RzN1ypfzYdp5weMFDNGIBFQT667aLe/W8biXRulRncApnDE4D+zQ6CZbaib5tgZLUehImKafuE1Z3
-	vtTPJS0JO0wPSxAvUg95bYZUnC3LZEKpYEYL0W7lGMxUVvR6MwgdNkTlQxCA8l6C5j8Xqt5YpFSxZ
-	cmsSmHUCqwmFtSXv3xHm6gouMaQ+ujx0OXiaXu8rwsDvoIzq5EvR+7gJ6Xin14hpEV0TZkyGXUNml
-	qoVlIZJoU9G7uORAmIzhkesJTeJrtIm+peo7ccBki4RkJUi92bpCDN88EE8fJILEjh9/kto07/H0l
-	9fp5/7Pw==;
+	bh=cXefL1483wNE2cHUN0ZgrldQvbgj+w+ETemoOKVrBJs=; b=HsIl+tkYUoKJJamhuFHpPDmWnr
+	w9B4lqGXsJ3rEFEJzJzE7oGGljPHEZ5Bs23vHI852pDkkgGO31zdp93f9wjw7RbjbwVGzQ32dmf/+
+	Bvf4YowSWZ5nHx6ZlYL0PqykZdVY++hN5TJHner3VOY9WcpAyjD8xF5eSJ/OlU3a8V6lv+sT/LzAr
+	4FzOfIp7OExHUJBPyfc3vV3RGcbYgM3YsUZmpdmIHuJ2JFLaid4gkBtGX7DdPFLP17PM5LiBQ3fMm
+	NkcNI0AMQ3Yhs1KAIbPomM5bhWQc9NDHjw03e1hhjCh720o2zNBrek1CUOlDTzYa7ooLOiIfnlT/6
+	maA8CTGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVPa0-00000004rOc-3lQ0;
-	Tue, 16 Dec 2025 07:34:44 +0000
-Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
+	id 1vVPa4-00000004rPm-0nqh;
+	Tue, 16 Dec 2025 07:34:48 +0000
+Received: from mx-relay15-hz2.antispameurope.com ([83.246.65.157])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVPZz-00000004rO0-10wh
+	id 1vVPa1-00000004rO4-08v3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 07:34:44 +0000
-Received: from pps.filterd (m0246630.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BG1gXHX3442868;
-	Tue, 16 Dec 2025 07:34:12 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	corp-2025-04-25; bh=fAbrzY46z3vvxoM5JF+HTlV0gDcqie6IfuulCFGhiKY=; b=
-	ZUurskjKhZj18VH/xr3eiinz7IM8yk1SWuojoJ9hC/6+5M72vMy9xIDnGPxmaRZn
-	Z8mirjuRBjg9Gk/LZ462ISeWRTziNNG/XT58GdIFsKlLeo7LV4fAyKXxpAFOSUus
-	dEr+97XfcHTxNK4RIzBM6prBIsbbPBQ1CEnAMPZfJdMyF/SkCdGBmWyQwOqhgPiI
-	Hn1wLC8N/qR9Vx9/NcTHe83iIlghYpjcSb+hLvYgxR1sMhxR+yv4kAKdtgL/B8sI
-	JlOk7up/QLuIlxVGCGIg28cmWy5zg3umbtnpMlOELtxrsHTNv+ajvYOge8je0SCO
-	yXHeetXQjDt6Yj82tjtgYg==
-Received: from phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (phxpaimrmta03.appoci.oracle.com [138.1.37.129])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4b0xja3fv9-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 16 Dec 2025 07:34:12 +0000 (GMT)
-Received: from pps.filterd (phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com [127.0.0.1])
-	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 5BG5e9a8024758;
-	Tue, 16 Dec 2025 07:34:11 GMT
-Received: from co1pr03cu002.outbound.protection.outlook.com (mail-westus2azon11010036.outbound.protection.outlook.com [52.101.46.36])
-	by phxpaimrmta03.imrmtpd1.prodappphxaev1.oraclevcn.com (PPS) with ESMTPS id 4b0xk9wbmj-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 16 Dec 2025 07:34:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GfOdEtC29R6iqPBkEP+9AdFZmM4J/369RYm81krcqPKFg9F1fNjFg+qQsj1FlEdGPBZe4tEWpYb5KhguE8TiXdxxfXapKUcg1lypxmmcuOc6lqS/a6dbcfSRCMz8STHm2hOwqk4XEvAnoWY/84E0KKk23j5xUhIqt7IdVc4W+VYeUASRPsZ8TreAilb5b3V4yaJlAFiQT3+BxwWOw9DuDRTITaXotZJd54NvMAoIv2UyLBYjp23K2RPostHsEYmKYwrgBKDW4b55BG0+bYG0MrCa/iwV3yJMSDKFD+QICax863LlPeV82P60O1cW7G4YaNmnAZS6BbYN5N5AqQz0Xw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fAbrzY46z3vvxoM5JF+HTlV0gDcqie6IfuulCFGhiKY=;
- b=KLHpBeFNeDEvwLNwXdFJbLgazGQ98AlvnhXZ4K+P7Im+J1duGTAuotsjkB8TofZhoriB6NfmNToM9l/5CpVOzSKJsnchtsEYJsvdMs77J/H98xdhzbhgmUbvdVtf6N6f5WfVFB8kDp5/JESRbMCuQGSNJZrFPNPxLRo6I28P6QYYiLoUM/RUzw0RtMZAYLLIzUtN879ydsSuxGqq0dM388T5DXqQtcO6XFyRdl1fpjOqQ+mV4Zj197hUIMNpKjIQ3r605BWsCC6XMMydCv6bBcI6qDbn0RDvS0e4NpIuoOg4Md0HeYEImLH0Sl2TSSgwerCOfi4lL10mCXcQzK3BJQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fAbrzY46z3vvxoM5JF+HTlV0gDcqie6IfuulCFGhiKY=;
- b=UK/3RpcBlA08xfcrzwe+s+a1SwGhVNd/BWI9GLSaHxdru3UexINMTQ56BDAXZFbeTV8+pTqylnP9GP/06KMfKAWjnMYNETWfTPXhn3CO8ZnAnJsyxWZoo6I1lPeE2+ImCztPc54K/chYEF+Nf/jDQ3uEtObRUOKS4k5Bv1ry7jI=
-Received: from CO6PR10MB5409.namprd10.prod.outlook.com (2603:10b6:5:357::14)
- by DS4PPFAEF42CAE1.namprd10.prod.outlook.com (2603:10b6:f:fc00::d40) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.6; Tue, 16 Dec
- 2025 07:34:08 +0000
-Received: from CO6PR10MB5409.namprd10.prod.outlook.com
- ([fe80::3c92:21f3:96a:b574]) by CO6PR10MB5409.namprd10.prod.outlook.com
- ([fe80::3c92:21f3:96a:b574%4]) with mapi id 15.20.9412.011; Tue, 16 Dec 2025
- 07:34:08 +0000
-References: <20251215044919.460086-1-ankur.a.arora@oracle.com>
- <20251215044919.460086-11-ankur.a.arora@oracle.com>
- <CAADnVQKYoE85HFAOE5OBFpKbXej=h12m4DVvHuPViJSjAncK4A@mail.gmail.com>
-User-agent: mu4e 1.4.10; emacs 27.2
-From: Ankur Arora <ankur.a.arora@oracle.com>
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Cc: Ankur Arora <ankur.a.arora@oracle.com>,
-        LKML
- <linux-kernel@vger.kernel.org>,
-        linux-arch <linux-arch@vger.kernel.org>,
-        linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-        Linux Power
- Management <linux-pm@vger.kernel.org>,
-        bpf <bpf@vger.kernel.org>, Arnd
- Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will
- Deacon <will@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
-        Andrew
- Morton <akpm@linux-foundation.org>,
-        Mark Rutland <mark.rutland@arm.com>, harisokn@amazon.com,
-        Christoph Lameter <cl@gentwo.org>,
-        Alexei Starovoitov
- <ast@kernel.org>,
-        "Rafael J. Wysocki" <rafael@kernel.org>,
-        Daniel Lezcano
- <daniel.lezcano@linaro.org>,
-        Kumar Kartikeya Dwivedi <memxor@gmail.com>, zhenglifeng1@huawei.com,
-        xueshuai@linux.alibaba.com, joao.m.martins@oracle.com,
-        Boris Ostrovsky <boris.ostrovsky@oracle.com>, konrad.wilk@oracle.com
-Subject: Re: [PATCH v8 10/12] bpf/rqspinlock: Use
- smp_cond_load_acquire_timeout()
-In-reply-to: <CAADnVQKYoE85HFAOE5OBFpKbXej=h12m4DVvHuPViJSjAncK4A@mail.gmail.com>
-Date: Mon, 15 Dec 2025 23:34:07 -0800
-Message-ID: <874ipqc234.fsf@oracle.com>
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-ClientProxiedBy: MW4PR04CA0387.namprd04.prod.outlook.com
- (2603:10b6:303:81::32) To CO6PR10MB5409.namprd10.prod.outlook.com
- (2603:10b6:5:357::14)
+	Tue, 16 Dec 2025 07:34:46 +0000
+ARC-Authentication-Results: i=1; mx-gate15-hz2.hornetsecurity.com 1; spf=pass
+ reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ smtp.mailfrom=ew.tq-group.com
+ smtp.helo=hmail-p-smtp01-out04-hz1.hornetsecurity.com; dmarc=pass
+ header.from=ew.tq-group.com orig.disposition=pass
+ARC-Message-Signature: a=rsa-sha256;
+ bh=cXefL1483wNE2cHUN0ZgrldQvbgj+w+ETemoOKVrBJs=; c=relaxed/relaxed;
+ d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
+ t=1765870471;
+ b=dg674cXfks4XGriOgcaDPK8XThcKcCceB3YevDHV9CoRf6rAoYmRC7W8OLhBLrI7GTuzxnbq
+ rcrWJqjw2P5vMjZs33sLjJalE461W8NrG5JDTENor0ejG8gQSnOWRUhGp7LybOtcXapHKjPl3X0
+ CgQ2M9ibhrITG1A37sv7RK8TKGONxmDUquhVZYwkA4HaQKRLVC4zTj48uzGMMbIymfNCdn+F4Ve
+ G2DpSEZf0E6/KVkiUG8LmFRUplQlWrJGoI+0aC/JYhnOVx26gjLswzYd5+htNTwd2hrsnjCqBeg
+ EJh1hmmhNj3QcHGkKIUUvXc6AmiW5Rk/dNahyOxpZnQQA==
+ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
+ t=1765870471;
+ b=dSuZYXE85/4aAOqKM2a3zu3wlGU8znrg/1Adi9EXPLpjSnB6XhoPtsSd4X7MrMSy1tEpLJGM
+ PAF0NS1z1GBVgjfjXaN/TTwm+74+AvqJOHgCfH0Sq/jsNfNBekZGk6BjJ2AwUgp1uTdiSoOELVU
+ mSrSpSPP99SpDvz7aj4gy4TANnXwG2tLgQfyg6M5phXzgP84SYX9T3KEBPx/K0+DZ0JAC1379mq
+ j3uWOIDyW7Lg8oSQfTcBmBVQlyFpYSHXHEPDCUu5fI3oyY4JPhfGQQ9cPtSYX3oUTaUFDtqpCJq
+ RPUzDjN6CL5pgVcgibMt6aGtOWTH1Ga/DAenkP3LqeRvQ==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay15-hz2.antispameurope.com;
+ Tue, 16 Dec 2025 08:34:31 +0100
+Received: from steina-w.localnet (host-82-135-125-110.customer.m-online.net [82.135.125.110])
+	(Authenticated sender: alexander.stein@ew.tq-group.com)
+	by hmail-p-smtp01-out04-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 85EA2220CD2;
+	Tue, 16 Dec 2025 08:34:18 +0100 (CET)
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Philipp Zabel <p.zabel@pengutronix.de>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Rui Miguel Silva <rmfrfs@gmail.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Martin Kepplinger-Novakovic <martink@posteo.de>,
+ Purism Kernel Team <kernel@puri.sm>, linux-arm-kernel@lists.infradead.org
+Cc: linux-media@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Frank Li <Frank.Li@nxp.com>, Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH v3 2/5] media: nxp: use dev_err_probe() to simplify code
+Date: Tue, 16 Dec 2025 08:34:18 +0100
+Message-ID: <5462566.31r3eYUQgx@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20251215-cam_cleanup-v3-2-a61995068f38@nxp.com>
+References: <20251215-cam_cleanup-v3-0-a61995068f38@nxp.com>
+ <20251215-cam_cleanup-v3-2-a61995068f38@nxp.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO6PR10MB5409:EE_|DS4PPFAEF42CAE1:EE_
-X-MS-Office365-Filtering-Correlation-Id: c00ec338-250c-4da3-c7fe-08de3c757f84
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?TTlDcWNEZDBBMm1HenFZSVBqVzZMZVMzeENlTWZsTlJscjBVZStDb3ZWTyt1?=
- =?utf-8?B?VXlWbldyMzFQV05vZStsQVprMU5EdHBySXlFMGVvTTVMUGVNSGs2TWRlRmxX?=
- =?utf-8?B?VkFyZFlKS0lSNXoxdjlkRUdWaG9zcjJnSm1aTmp1OEc3Rjk4eUVROU5QdnZM?=
- =?utf-8?B?ZDhvUnVFWUx5OTIra0E2NnFhQ0xSdUp4NmpITktsZUpJTm1rVDFJVFkyeVBq?=
- =?utf-8?B?OEVxZmRSVU9CRURtRmZyMHJmaWFiVFZEVWc0UWQ5bXZVRkRjNVpCMHpkMVpQ?=
- =?utf-8?B?TlJpRzV3SmpObEcwWmxPZXpMbW1Fa0UvVkdZRm00TzdrbXhUbmpkRnlMQWZT?=
- =?utf-8?B?Sk5SU3NvVUQrZitXREs4elUzRlBWaHp4aWt6a08wOVlQZGp0R2RrUnVvWlln?=
- =?utf-8?B?K2xJcHZzK24vTmNjbzJCK2xZL1dyTG9zemJuSURwZXNGZHoyWnZuRU5wQlZa?=
- =?utf-8?B?WGt1S1R4YkhUWUE0UmFXOTNjcEZkOStMR2drcy9Zd01OeTlHRHBpdkdYc2FV?=
- =?utf-8?B?UFU4Z0RtV3dSeW5NQ052S1NXTy83aDRpdmFsOWtCSFlYWUIzNlFrQkxkZS9C?=
- =?utf-8?B?U29SRndSWjF5L01CaGxHN2xOTGUvdVVKbnhiS2pYeURxeDdGTkFVekhSOFY2?=
- =?utf-8?B?K0lWTUtEek1iU1NubWZNL0JoVGtqR0VPN2k5QXA3Q0dqdzBYMFlnL2NhV0Ju?=
- =?utf-8?B?MVJJbEFBSjlEVEJaRmpQMXJ2U2dTbFNYenV0UStTcUg1bjJ2bkZTa1Vzc1NW?=
- =?utf-8?B?MG81Y1Zja3FBQStKWWs4cGwveGw5TlM4ZVhoL3Q0SmFhbWlRdVowSWlKSmZE?=
- =?utf-8?B?ZWJKbGRmaFBTNDJBZGluZjBJYU8wRjJkM2Y2RFNqd2FQbjVPY20vTTdxSlBa?=
- =?utf-8?B?S0ZrU3dSQTRSK1VRVDJVNnREdGYwdlVVZnVRWXRXSWpJMlNHdGdrWmM3dC9m?=
- =?utf-8?B?RGxoTEU2NUEyZnZYVUVwd1JxNUF5a0t4Q0tGcWxkV3BBeGJIODN3VFpNd2tE?=
- =?utf-8?B?dXpoOG1Ob1RKUldmQUE3S3dKOU9TVGFqRENEeGN0NUpMaFRvRlJHOHlkMWJl?=
- =?utf-8?B?ODBGS3dwclR3UHBlRHBWU1VCNVhhczlQSm82dml2QktCTlZ3bGVDcStnSE4z?=
- =?utf-8?B?ako1SXppcHJZZEpDMGVabXRHNzZsM3dwVzRmNWJidFQyTkkzQitMeDFxTTF3?=
- =?utf-8?B?Tk5jaTB5aDVwMUdXWCtOQm9UYlZsSVExVXIwUkhzWEJYVWpLQ3gxRysxejJi?=
- =?utf-8?B?RHRqZU4zN1ZURTN0c2ZlZmNLejhWODNCbGVHM2dVbnAzUTRTTXFLNnBPRTFW?=
- =?utf-8?B?VmlKWnowOHVzSENaV2w4UmFSRFMrNUtTaW9jZk0rSW9ZcmtwcE85d0diNnJI?=
- =?utf-8?B?UWF3WEJPTTZpV3VTQlhESEdrak9jMk1hbkpTZjYrYW1pb2d4YU91bTVMRW9v?=
- =?utf-8?B?SVRiYVU3N3NxZzR6MUFzaTZqcktrZWV2U3BTOXJsRDVmSkpWR1Yvd0w5d3Vj?=
- =?utf-8?B?RE0vSzlaQ3V5Ukd5bFZLU0s1UVZQUVBuRkV4ZENVdzFJaGllamFLNTNBSGtG?=
- =?utf-8?B?ZFNHMHFMci9ueERQdVUyTytobUlRaE5xVzVDU1lWYnlrTHBBcmhrQjhqVElk?=
- =?utf-8?B?djl0QTExd3ZaWXdNWjhvbVdEQzZkVjRCa2twZ1R1SHl6TlQrcXp4cGgyN0Ny?=
- =?utf-8?B?dHU1Y2thWVEwak5VYStIV1FMRGZDM2tGaE8zTFMrSXlRMEZFK1FqcXV0T2I4?=
- =?utf-8?B?UmV3Z3dvc2J2c2NnVlBqUnNaQ1B1NzM2SVZSTzlhZUROQy9OT0lsVjQ0Z3hy?=
- =?utf-8?B?cGFtMjJPbGZXOU9aUzQ4UUFQMDZEdURzTk9YQzU4ekFzTmZtQ2hhK1kwU1Fq?=
- =?utf-8?B?V0ZFbXFaUmRQTjB0TG9KY01TYWd4R2tEdldsci9wZm81N2g1ZmM4aXBOTGlP?=
- =?utf-8?Q?KIfQ4UcXG9ovmsI2uN+xtuYItibh3F4j?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR10MB5409.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?azlWNXlDSCtXM1owS2kzWXo5Qi9DV1NxaFN2SHo1aTJWMmF0ZkFjTzJXNXgw?=
- =?utf-8?B?MThRejlEODVnWDRMOWoxeWFVaG5NTDZjd0ZWY3pqMVdmT2xwYXRDVW9IYlZV?=
- =?utf-8?B?WDhqWGJGSFl6cllDN1gzaUovQW1BUDFCYVdmajFZUVRiMVYveUU4Qm1pWDIz?=
- =?utf-8?B?b0c1MlVHTG5GTHQrMnhVcU1aZVo0cWpNdXkxeisveFN1QVJjK2FheEdsQ1Nv?=
- =?utf-8?B?dytUZUgxZy9ESTVQeTFrdWhaaDlXcTVQc0Ztc0JMRHZWS3E3Z1JXK2NHQ0dz?=
- =?utf-8?B?dzM0bkhaY0dMV3pocnhGbDc0Q1llcDl4TWVmSHFqWHVldGQ5WUw4dVlyMXJj?=
- =?utf-8?B?WFRpb3l2Z1MrSlc1MDJ6cDQwUSt1KzFsaDVULy9qNmxjMDB0RU82a2kyN20y?=
- =?utf-8?B?RDhkcVUwSUo4NFFTK3Q2enpDaCttRDNFVG5PM05EWWVCcTBJN0Zwd0hmeUly?=
- =?utf-8?B?bWpmcGIvaUpReVd1emg3aGQxQzhZQkRBanFBVnFyV2VmblEybmNyZGR0UC9p?=
- =?utf-8?B?T24wNVNYSSs2cEhHMkltakgvSUc0MHhtUnB0bHAwMk9nOVdUQVk4ZWVjTlE4?=
- =?utf-8?B?ZXptL2NjUWpraWNzbXJsZlBLQ2lYb0orM3A4cnlVOHI5VDQzblg2Y0RHRTdy?=
- =?utf-8?B?ZGdZUXlHd2hRN2V1K1ZIcFljU0wwQ2I5ck5VUGxPMFIxVlpia1k3a0o0STY4?=
- =?utf-8?B?NFNyaUVtZnRsWTNOU2pyaEF0NFhEMnFVRm4rU0l2WGdJMDdFaDlGN1I0ZEZL?=
- =?utf-8?B?blR0VzU0OStvTHVBSWpmYkt3c0t3MjViTXdJdFFOaVdiaTlHNy85Qk9HOEMr?=
- =?utf-8?B?d2hGMEFLdzduRGZONjB2SmdVbHdRdVJBWlZFYkkxZWMzU3ZNbXVudUtlU2pU?=
- =?utf-8?B?NkZNbzVkQVFRZ0ZoMVZuL21qdTVLeFBQUVhPdFZvTW5VQlEvaDdtamliVk01?=
- =?utf-8?B?VmlZRFFxM0I0SlBRbW1tbVUvbWlkV2tpa05wWU1yMHpzcDhCZ0RzNFRQbUZk?=
- =?utf-8?B?Zmg5OWtYS09wNk5jQVVNNnBtWUJSd2xSYVVhYlFtVm9OZXA3eGVOOC9PK25W?=
- =?utf-8?B?Y0MvTHJPdlNFWjhrWnN3RG04YlFtNVVlYmttVWE0a09GU0tLVWk1Vkpvd3dO?=
- =?utf-8?B?NkRWbkFMTFcyMU1Kd1hBTk1UaU1zbHRsNmdJZVQ5WG05akJUSjMrc3c0TVUr?=
- =?utf-8?B?N0l3RkhsQWpzWFYvVlFsMGJOWDQ1SGZSdGYyMDlSZjlYdTY5Rkw0TERUeXpI?=
- =?utf-8?B?Y0R6NWRRRHdIVnFUN0dHdHlGa2lnVmFmcUNzWm9RZFRsUnkyQlplbDRWR1pa?=
- =?utf-8?B?YjlQREJjY0E4K2VVUEJveEZPZi9oRENyeHRBT0dHUXh0S2VyMjlEckxJbm5G?=
- =?utf-8?B?eGFOTGp2WkdhSGNNVFN1Tzh6b0FvVzNHam5oSkZ6MXFrQUVXLzZIVHVrVHZL?=
- =?utf-8?B?bmY4OVhXWVVxOTRnYTYwa3hSdzNCRWlsQkFZeVBaSEdTeEdqWHpMV1lhL2dq?=
- =?utf-8?B?a09CdVFRM2VKR1dnZTl4Z1RscnNCVnRsbXljdHBDdlZyWTdEOTlkc01lV3BN?=
- =?utf-8?B?WEUzN280ZkIrY2JTK2Q4Z2pOMTlEUEZJOVZJcm1sYW53VUVjK3ZqNGlrUjd1?=
- =?utf-8?B?L1k0aEJXRk9JV0Q1ODdnVjRjYktLbE5tbjlXMFlhTVVMNkVJK21BQ2NXYjJa?=
- =?utf-8?B?RnJOYXIvdlY4QUtpdUxqb1JEcHM2YzFUS2pXM3U2UnNsQUdLd0JNdnlSZnRC?=
- =?utf-8?B?dHBKTXo5bTFNVFc0Q2NnMXZYU09jOTlJVGNkb3ZUK3Fhc3l1Ly9OWDdONE9x?=
- =?utf-8?B?bGJMblBsNHlPd3hPbUZmR1QxZmxmUkV0YXc0bkcvNVgxWndHMEJ3VG5sbjZz?=
- =?utf-8?B?bjkwYTg3Q0pPRWo4SFFERjZlZUw2K0RwMDBKZ3RVZEYvRXJQZ2VKUEtzU2Vr?=
- =?utf-8?B?MVd4RG01b1lxOVBMcE1SSU44cXRBTDF0WUpCbUQxcDE1Y1BvbEMzRW5seUFu?=
- =?utf-8?B?UEgyK3BWc2hjeEFZeWhkS1VhbWtkOUtnemY1dEhlQytRN1hFV1EvK1ovWUhG?=
- =?utf-8?B?VE4yb2svT3pVWFIxQklCRzFZdTVHREZ5OVFhb3ZRSlRicDE2YlFTZkk2VXd0?=
- =?utf-8?B?bzdZanFONWpKOGgwdVE2dS9DOGRoeFJmdHR0Z2J3SXV3eEZKQi82ZEt3ZXc5?=
- =?utf-8?B?NEE9PQ==?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: T8EH+eOx2bdjBl3TcbiAexlIFXnCQXNfZnOfeIAK5MDlWMPNrht3aRpxNk57rWV4gWVuBfYBAcmxzyUrs+W8CoVtATfGh15IYDAyGLiZxj6wR3WQIGOBW1VETR6WFqcVuZ6OSo8jgkw9utwYaBVoU+Ayd/YFLGibOUgKySs7sm/wITWheRPa9+qG2u+fRYiDie42Fj8ku9bGi3Q4EfG0qHkZ7CQUvaFynX0A9J/MpjgK4rAjgod6S1BqZifaj4gpf3cfzmsVblO2eLGprNDsfPulQiKSUT54PTGNZhSgMq9nWe8LNwgRCxPF9RjaXmGS6+PZFg2Jm0dJukikqqMIhoxT8e4oTTYOu8mZHfmjxHGhi3S0s70bTmEy2uYo6YV0ZrGk3TtAAvHhhghrKKRjeRWS2RMjqObjRkphfAQxv2AGz+bN3mBCP56GYPjBI0uV+nzIglbrHhVqkHLVntayZYKCe6eI2BJXOtTi2DMQd7tdeiK1qXis0Rsv8YU/R73da58G5MLYfngFPX1q12jpg3S3QFGnnHdDst8eRzS1ZviKIl6Zv/RDK+boniGhYcHPWiqucVe7cKLP7uy+VDvr/nk67ingELGmRKigK6ymLb4=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c00ec338-250c-4da3-c7fe-08de3c757f84
-X-MS-Exchange-CrossTenant-AuthSource: CO6PR10MB5409.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Dec 2025 07:34:08.3038
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 0cc8DARy6ED0Qo1ahwaaDHE8eKAevWkY56ct42eshIP3uckfrst4Q6qRK8qNp9w3r1f9XYOpYQxOWchsnyi+fknboGB/awygMk8VVrkrChM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PPFAEF42CAE1
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-12-16_01,2025-12-15_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 adultscore=0 mlxscore=0 spamscore=0
- bulkscore=0 suspectscore=0 phishscore=0 mlxlogscore=999 malwarescore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2510240000
- definitions=main-2512160061
-X-Authority-Analysis: v=2.4 cv=TbWbdBQh c=1 sm=1 tr=0 ts=69410b74 b=1 cx=c_pps
- a=WeWmnZmh0fydH62SvGsd2A==:117 a=WeWmnZmh0fydH62SvGsd2A==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19
- a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=wP3pNCr1ah4A:10 a=GoEa3M9JfhUA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=pGLkceISAAAA:8 a=yPCof4ZbAAAA:8 a=45ocHdjcDIs8bpFY1qgA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjE2MDA2MSBTYWx0ZWRfX1QtXvUS4sKSc
- h+xSZOhtwYHjbvVH41eHgtU5o2GcHpXYi962LGTqbR7MTqJsA/3iurKFJ+g1XxhSbH7dvkGsImi
- juQZi5GNt7wTKSNYswQjMyGbA7tA1nZtDd4lTAUgHlW8lIBbww6OH4ccl2FghPqDGOuDRlAsBu6
- MB3r+vWgoJ0xiueWu/NCOizLMAqBwHQZ4wunsl47e65OVKzLH+yXLWY/CI2r703+mIjARtybhRF
- CxP2l8zth2K4929sKf9ewrhkjLYK51m3d1G6AK1TXzoathv2L5PvRR4LwSnnITcTAnD4s4/tvuc
- yE2E8qBveQkB7mtpCWzfWqK6I0B1LL6wUHm5ASQLLVdUvJN7ZY6pWNe4aeqdSqtvF1YQ6qmm9m/
- Vvkr/3CEQ9i8KMZHr5KHrpqLtdPUrg==
-X-Proofpoint-ORIG-GUID: VDhtVfjL7KKhnjgGlzYbXpaj2XdrS4YJ
-X-Proofpoint-GUID: VDhtVfjL7KKhnjgGlzYbXpaj2XdrS4YJ
+Content-Type: multipart/signed; boundary="nextPart5099229.LvFx2qVVIh";
+ micalg="pgp-sha512"; protocol="application/pgp-signature"
+X-cloud-security-sender: alexander.stein@ew.tq-group.com
+X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
+X-cloud-security-crypt: load encryption module
+X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
+X-cloud-security-Mailarchivtype: outbound
+X-cloud-security-Virusscan: CLEAN
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay15-hz2.antispameurope.com with 4dVpbH2fBmz2FbCB
+X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
+X-cloud-security-Digest: cb77c3a0d9b6a7fc0c8e18a2ac2881b9
+X-cloud-security: scantime:1.811
+DKIM-Signature: a=rsa-sha256;
+ bh=cXefL1483wNE2cHUN0ZgrldQvbgj+w+ETemoOKVrBJs=; c=relaxed/relaxed;
+ d=ew.tq-group.com;
+ h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
+ t=1765870470; v=1;
+ b=UjW8xW1IVxDU9Qn60mTK7TZ131bpIqDWqz3LAxUTogcAGhBT8MAiIwuNMewxuGOPoWfCLx10
+ hDvSTlrdk8xj9t0MGCteil/TqefQ2fDyX+a+88C6M2xp1N5KS9hRExLN1SRSAsSDO0cjwq2/OSC
+ Uk45JzN0TgliTBBNQur2ZVd7RC9sy9V0H+aT7eUcFPk9lPrIwfffRk59VbXCadsdi8tQjAg2sIc
+ B/9byxfTI493cI/HPfpEv76spavb5hUQbSWAeHMAeXhdlXCO+NTKVcigKltJLKv42KwZmBeJw17
+ URHGEf8ILCrE0cZAhkPPMu2sbIUdaeIYjBkeTAR/ftBng==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_233443_396973_BF5CE787 
-X-CRM114-Status: GOOD (  13.22  )
+X-CRM114-CacheID: sfid-20251215_233445_228319_884B5288 
+X-CRM114-Status: GOOD (  25.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -246,98 +113,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+--nextPart5099229.LvFx2qVVIh
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"; protected-headers="v1"
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+Date: Tue, 16 Dec 2025 08:34:18 +0100
+Message-ID: <5462566.31r3eYUQgx@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20251215-cam_cleanup-v3-2-a61995068f38@nxp.com>
+MIME-Version: 1.0
 
-Alexei Starovoitov <alexei.starovoitov@gmail.com> writes:
+Hi,
 
-> On Sun, Dec 14, 2025 at 8:51=E2=80=AFPM Ankur Arora <ankur.a.arora@oracle=
-.com> wrote:
->>
->>  /**
->>   * resilient_queued_spin_lock_slowpath - acquire the queued spinlock
->>   * @lock: Pointer to queued spinlock structure
->> @@ -415,7 +415,9 @@ int __lockfunc resilient_queued_spin_lock_slowpath(r=
-qspinlock_t *lock, u32 val)
->>          */
->>         if (val & _Q_LOCKED_MASK) {
->>                 RES_RESET_TIMEOUT(ts, RES_DEF_TIMEOUT);
->> -               res_smp_cond_load_acquire(&lock->locked, !VAL || RES_CHE=
-CK_TIMEOUT(ts, timeout_err, _Q_LOCKED_MASK) < 0);
->> +               smp_cond_load_acquire_timeout(&lock->locked, !VAL,
->> +                                             (timeout_err =3D clock_dea=
-dlock(lock, _Q_LOCKED_MASK, &ts)),
->> +                                             ts.duration);
->
-> I'm pretty sure we already discussed this and pointed out that
-> this approach is not acceptable.
+Am Montag, 15. Dezember 2025, 23:49:53 CET schrieb Frank Li:
+> Use dev_err_probe() to simplify the code. Drop the explicit error message
+> after returning from imx8mq_mipi_csi_parse_dt(), as the error is already
+> reported by this helper.
+>=20
+> No functional change.
+>=20
+> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+> change in v2:
+> - add  Laurent Pinchart review tags
+> - wrap error message to new line
+> - remove error code print in dev_err_probe();
+> - drop error messaage at imx8mq_mipi_csi_parse_dt()
+> ---
+>  drivers/media/platform/nxp/imx-mipi-csis.c    |  6 ++---
+>  drivers/media/platform/nxp/imx7-media-csi.c   | 14 ++++--------
+>  drivers/media/platform/nxp/imx8mq-mipi-csi2.c | 33 ++++++++++++---------=
+=2D-----
+>  3 files changed, 21 insertions(+), 32 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/p=
+latform/nxp/imx-mipi-csis.c
+> index 088b2945aee33731c565f049dd17721356300b84..ce93d868746f002c22e2f86b1=
+e0aa84ec1a76061 100644
+> --- a/drivers/media/platform/nxp/imx-mipi-csis.c
+> +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
+> @@ -1547,10 +1547,8 @@ static int mipi_csis_probe(struct platform_device =
+*pdev)
+>  	/* Now that the hardware is initialized, request the interrupt. */
+>  	ret =3D devm_request_irq(dev, irq, mipi_csis_irq_handler, 0,
+>  			       dev_name(dev), csis);
+> -	if (ret) {
+> -		dev_err(dev, "Interrupt request failed\n");
+> -		return ret;
+> -	}
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "Interrupt request failed\n");
+> =20
+>  	/* Initialize and register the subdev. */
+>  	ret =3D mipi_csis_subdev_init(csis);
+> diff --git a/drivers/media/platform/nxp/imx7-media-csi.c b/drivers/media/=
+platform/nxp/imx7-media-csi.c
+> index 933a5f39f9f4c9b43ca8d2a1819d0145981266e6..7ddc7ba06e3d4e007013821f6=
+7d783898a15461f 100644
+> --- a/drivers/media/platform/nxp/imx7-media-csi.c
+> +++ b/drivers/media/platform/nxp/imx7-media-csi.c
+> @@ -2218,11 +2218,9 @@ static int imx7_csi_probe(struct platform_device *=
+pdev)
+> =20
+>  	/* Acquire resources and install interrupt handler. */
+>  	csi->mclk =3D devm_clk_get(&pdev->dev, "mclk");
+> -	if (IS_ERR(csi->mclk)) {
+> -		ret =3D PTR_ERR(csi->mclk);
+> -		dev_err(dev, "Failed to get mclk: %d", ret);
+> -		return ret;
+> -	}
+> +	if (IS_ERR(csi->mclk))
+> +		return dev_err_probe(dev, PTR_ERR(csi->mclk),
+> +				     "Failed to get mclk\n");
+> =20
+>  	csi->irq =3D platform_get_irq(pdev, 0);
+>  	if (csi->irq < 0)
+> @@ -2236,10 +2234,8 @@ static int imx7_csi_probe(struct platform_device *=
+pdev)
+> =20
+>  	ret =3D devm_request_irq(dev, csi->irq, imx7_csi_irq_handler, 0, "csi",
+>  			       (void *)csi);
+> -	if (ret < 0) {
+> -		dev_err(dev, "Request CSI IRQ failed.\n");
+> -		return ret;
+> -	}
+> +	if (ret < 0)
+> +		return dev_err_probe(dev, ret, "Request CSI IRQ failed.\n");
+> =20
+>  	/* Initialize all the media device infrastructure. */
+>  	ret =3D imx7_csi_media_init(csi);
+> diff --git a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c b/drivers/medi=
+a/platform/nxp/imx8mq-mipi-csi2.c
+> index 0851f4a9ae52d3096f454da643cfdc5017e000b1..a007c582b4d91660a97910a6a=
+0d53c9b6fcd73e9 100644
+> --- a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+> +++ b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+> @@ -951,10 +951,9 @@ static int imx8mq_mipi_csi_parse_dt(struct csi_state=
+ *state)
+>  	int ret =3D 0;
+> =20
+>  	state->rst =3D devm_reset_control_array_get_exclusive(dev);
+> -	if (IS_ERR(state->rst)) {
+> -		dev_err(dev, "Failed to get reset: %pe\n", state->rst);
+> -		return PTR_ERR(state->rst);
+> -	}
+> +	if (IS_ERR(state->rst))
+> +		return dev_err_probe(dev, PTR_ERR(state->rst),
+> +				     "Failed to get reset\n");
+> =20
+>  	if (state->pdata->use_reg_csr) {
+>  		const struct regmap_config regmap_config =3D {
+> @@ -977,24 +976,22 @@ static int imx8mq_mipi_csi_parse_dt(struct csi_stat=
+e *state)
+> =20
+>  	ret =3D of_property_read_u32_array(np, "fsl,mipi-phy-gpr", out_val,
+>  					 ARRAY_SIZE(out_val));
+> -	if (ret) {
+> -		dev_err(dev, "no fsl,mipi-phy-gpr property found: %d\n", ret);
+> -		return ret;
+> -	}
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "no %s property found\n",
+> +				    "fsl,mipi-phy-gpr");
 
-Where? I don't see any mail on this at all.
+Do you really need to pass the (fixed) property name as an argument? Why
+not move into the const string directly? I would also rephrase it a bit:
+"property fsl,mipi-phy-gpr not found"
 
-In any case your technical point below is quite reasonable. It's better
-to lead with that instead of peremptorily declaring what you find
-acceptable and what not.
+With that fixed:
+Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 
-> We cannot call ktime_get_mono_fast_ns() first.
-> That's why RES_CHECK_TIMEOUT() exists and it does
-> if (!(ts).spin++)
-> before doing the first check_timeout() that will do ktime_get_mono_fast_n=
-s().
-> Above is a performance critical lock acquisition path where
-> pending is spinning on the lock word waiting for the owner to
-> release the lock.
-> Adding unconditional ktime_get_mono_fast_ns() will destroy
-> performance for quick critical section.
+> =20
+>  	ph =3D *out_val;
+> =20
+>  	node =3D of_find_node_by_phandle(ph);
+> -	if (!node) {
+> -		dev_err(dev, "Error finding node by phandle\n");
+> -		return -ENODEV;
+> -	}
+> +	if (!node)
+> +		return dev_err_probe(dev, -ENODEV,
+> +				     "Error finding node by phandle\n");
+> +
+>  	state->phy_gpr =3D syscon_node_to_regmap(node);
+>  	of_node_put(node);
+> -	if (IS_ERR(state->phy_gpr)) {
+> -		dev_err(dev, "failed to get gpr regmap: %pe\n", state->phy_gpr);
+> -		return PTR_ERR(state->phy_gpr);
+> -	}
+> +	if (IS_ERR(state->phy_gpr))
+> +		return dev_err_probe(dev, PTR_ERR(state->phy_gpr),
+> +				     "failed to get gpr regmap\n");
+> =20
+>  	state->phy_gpr_reg =3D out_val[1];
+>  	dev_dbg(dev, "phy gpr register set to 0x%x\n", state->phy_gpr_reg);
+> @@ -1017,10 +1014,8 @@ static int imx8mq_mipi_csi_probe(struct platform_d=
+evice *pdev)
+>  	state->pdata =3D of_device_get_match_data(dev);
+> =20
+>  	ret =3D imx8mq_mipi_csi_parse_dt(state);
+> -	if (ret < 0) {
+> -		dev_err(dev, "Failed to parse device tree: %d\n", ret);
+> +	if (ret < 0)
+>  		return ret;
+> -	}
+> =20
+>  	/* Acquire resources. */
+>  	state->regs =3D devm_platform_ioremap_resource(pdev, 0);
+>=20
+>=20
 
-Yes that makes sense.
 
-This is not ideal, but how about something like this:
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+--nextPart5099229.LvFx2qVVIh
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part.
+Content-Transfer-Encoding: 7Bit
 
-  #define smp_cond_load_relaxed_timeout(ptr, cond_expr,                 \
-                                      time_expr_ns, timeout_ns)         \
-  ({                                                                    \
-        typeof(ptr) __PTR =3D (ptr);                                      \
-        __unqual_scalar_typeof(*ptr) VAL;                               \
-        u32 __n =3D 0, __spin =3D SMP_TIMEOUT_POLL_COUNT;                  =
- \
-        s64 __timeout =3D (s64)timeout_ns;                                \
-        s64 __time_now, __time_end =3D 0;                                 \
-                                                                        \
-        for (;;) {                                                      \
-                VAL =3D READ_ONCE(*__PTR);                                \
-                if (cond_expr)                                          \
-                        break;                                          \
-                cpu_poll_relax(__PTR, VAL, __timeout);                  \
-                if (++__n < __spin)                                     \
-                        continue;                                       \
-                __time_now =3D (s64)(time_expr_ns);                       \
-                if (unlikely(__time_end =3D=3D 0))                         =
- \
-                        __time_end =3D __time_now + __timeout;            \
-                __timeout =3D __time_end - __time_now;                    \
-                if (__time_now <=3D 0 || __timeout <=3D 0) {               =
- \
-                        VAL =3D READ_ONCE(*__PTR);                        \
-                        break;                                          \
-                }                                                       \
-                __n =3D 0;                                                \
-        }                                                               \
-                                                                        \
-        (typeof(*ptr))VAL;                                              \
-  })
+-----BEGIN PGP SIGNATURE-----
 
-The problem with this version is that there's no way to know how much
-time has passed in the first cpu_poll_relax()). So for the waiting case
-this has a builtin overshoot of up to __timeout for the WFET case.
-And ~100us for WFE and ~2us for x86 cpu_relax.
+iQEzBAABCgAdFiEEByESxqszIvkmWRwbaS+g2M0Z/iUFAmlBC3oACgkQaS+g2M0Z
+/iXBPAgAuns0Z/5M2rvJGyTchlUPlwCRo6k9vA9+ZnlRFiJOs6b6lgs0XyCE+siX
+wo9qiDnRgE0CkdZZrNXrxJKbr7ut2PZakYm4MZDTiL9VOUr8zAC63SHyHAIIpT6Z
+SCY7qC6hkK75ednfn/W0VM3189TDkUtBNMPLxIx977BTqzGr5nbZLPmmj2vQE1v/
+6DNNvRQEAXa31cNb08y9YW/bVgjVrXC0GCkjqEVL+Dc0H7510ATimhT+gaqBi8C5
+48CX8FiEzYRziUz6/kesCcMcuvYYamQGymDrGiiY9nmSRlZ2fWXLKINIbDy2J9Gj
+IKjmNRD8rkVPtmZMYConvQVie4Tf7A==
+=Wdrp
+-----END PGP SIGNATURE-----
 
-Of course we could specify a small __timeout value for the first iteration
-which would help WFET.
+--nextPart5099229.LvFx2qVVIh--
 
-Anyway let me take another look at this tomorrow.
 
-But, that is more complexity.
 
-Opinions?
-
---
-ankur
 
