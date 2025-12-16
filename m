@@ -4,61 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AACFD609B3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 15:44:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25622D609B1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 15:44:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vIgAsiaq92RHSdMq2QoN92q3zPBWK/U76ZgrzdhJjbg=; b=CcFB1mqUD4GpOWqDNkT3zFJDbO
-	VAGdP8qHt4zotxFGFVue0yJBYFNFbOeBQbJP6vMpKj0fMOh0Kdj278w8SrONX/SSoIpafifD6rDpW
-	tF00xQkENQCkaKSIDn5E6tnpjhzG3dc8sZImstOgZtCUYz8qLapvLzh5oB/2JQPqLoteK8EnRYm05
-	76Dt3TGTdDmQvwn3wvbH79aGjyNSVvj92E9+1PV6n/2UqafD1jSB6i5vMs/sUzKy4oiyZ8flikGfn
-	qCEjaqrpjz0C2zgF6EfyHq6RCYdUg9JepSHc0pT1oaXUNBUELbGULf5zjbv9qulUd74Rg30qjwlTO
-	0jleUIIA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WWhAy9+9PNeOPwF/R4/xqInvj31Q4dE74xVNHSXPp8A=; b=ylWTbM51eCWOODno6sZerJyQTB
+	fD4RJ5qaCwzW4wRijjr6elcHzlPiReMBcU2gji2QZwMUl2WnqZw8q2BwqRUH4Kq+7wQiA16jWQ7nE
+	R1soaEZCua8I8+93PKSS0xmmeYZM6H7CVCea262LhVfXLeBPviYZ2OMZuUq4XBBaKOl6qKfyVBUfc
+	Jr+0Jl5s6CXz+Uh10jgpBnLxwKuWpibvbOH7AvZ0Co5umw4X37fWyDNCemaJgfOFALAVerqlhoCGu
+	HxyZHoplPg0EJ+mMaRYaFH02vmu610+8VbH30jiOF+Vc4pkBSqbsEcdB36XIP+n7MrPCA20mWwbaE
+	gzxvL1pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVXDn-00000005TDo-1fZs;
-	Tue, 16 Dec 2025 15:44:19 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vVXEI-00000005TK1-0Ws4;
+	Tue, 16 Dec 2025 15:44:50 +0000
+Received: from out-182.mta1.migadu.com ([2001:41d0:203:375::b6])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVXDm-00000005TD8-00Yw;
-	Tue, 16 Dec 2025 15:44:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 70D4F6017B;
-	Tue, 16 Dec 2025 15:44:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04171C4CEF1;
-	Tue, 16 Dec 2025 15:44:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765899857;
-	bh=5FCtWKu4gSPyAonL0m0zznCMC+guvfyTLTTvXhmL8WA=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=tEpMjfb9GWfRRhPdxOIJMXHcRFAHwmC7zhL96Uu8qx+M2D5EHDd2u+y/zwoW74rGe
-	 a+SfB0xzOdAeadMTQS8OpzypNzOht01ZAYy32TC/Iz6Zaggmb+SoUuUmjCoEb+V5GT
-	 ujjHqPWYedSwPL8BzcEI5ld5JWY6+fNI5QudhFaFFaOeOlWkXWRJCUKtVR7ppwKjCa
-	 4HFpl7pukWPYaakGCP1dm7fFBWJm0S/4IhrOlpi+5wRXoihqlmP57YKVLNI6EaFG8Z
-	 7hRKt/L6PHHmmeGK04QfhfvKpJHt0vFmQlggIhNJRM0/pP7eofupAaJ5aJlXcsMih7
-	 8f5OwD87pRvCg==
-Date: Tue, 16 Dec 2025 09:44:14 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1vVXEE-00000005TJI-1pkp
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 16 Dec 2025 15:44:49 +0000
+Message-ID: <7f42e053-b7d6-4216-9ed1-c496db3a54d0@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1765899882;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WWhAy9+9PNeOPwF/R4/xqInvj31Q4dE74xVNHSXPp8A=;
+	b=A06oI68CcEav+v+vYa/lHCpPzjs52pwkzI5ahVnbFirnpvlIYTrsAMRD2nenKuaVv3BWgT
+	UhwzqRJ9tPqUGFMdfK6T8QlTOGgzIcMQEzce2TFTeEQhYNl6a5a1qtg27Rt/foouw5b9RW
+	Lu4l2a79fIqlZJddYQPMEozwDcYqL+k=
+Date: Tue, 16 Dec 2025 10:44:34 -0500
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, devicetree@vger.kernel.org, 
- tao.huang@rock-chips.com, Linus Walleij <linus.walleij@linaro.org>, 
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- Heiko Stuebner <heiko@sntech.de>, linux-gpio@vger.kernel.org, 
- Conor Dooley <conor+dt@kernel.org>
-To: Ye Zhang <ye.zhang@rock-chips.com>
-In-Reply-To: <20251216112053.1927852-7-ye.zhang@rock-chips.com>
-References: <20251216112053.1927852-1-ye.zhang@rock-chips.com>
- <20251216112053.1927852-7-ye.zhang@rock-chips.com>
-Message-Id: <176589985437.2528677.5118158763336562885.robh@kernel.org>
-Subject: Re: [PATCH v3 6/7] dt-bindings: pinctrl: rockchip: Add RMIO
- controller binding
+Subject: Re: [PATCH] serial: xilinx_uartps: fix rs485 initialization at boot
+To: "j.turek" <jakub.turek@elsta.tech>, gregkh@linuxfoundation.org,
+ jirislaby@kernel.org
+Cc: michal.simek@amd.com, namcao@linutronix.de, tglx@linutronix.de,
+ zack.rusin@broadcom.com, hshah@axiado.com, linux-serial@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251216152641.196221-1-jakub.turek@elsta.tech>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Sean Anderson <sean.anderson@linux.dev>
+In-Reply-To: <20251216152641.196221-1-jakub.turek@elsta.tech>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251216_074447_185032_F73C23F6 
+X-CRM114-Status: GOOD (  19.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,47 +71,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Tue, 16 Dec 2025 19:20:52 +0800, Ye Zhang wrote:
-> 1. Add header file with constants for RMIO function IDs for the Rockchip
-> RK3506 SoC.
-> 2. Add device tree binding for the RMIO (Rockchip Matrix I/O) controller
-> which is a sub-device of the main pinctrl on some Rockchip SoCs.
+On 12/16/25 10:26, j.turek wrote:
+> When 'linux,rs485-enabled-at-boot-time;' property is enabled in device-tree
+> and there is no rts-gpio defined there is NULL pointer dereference in
+> function 'cdns_rts_gpio_enable' because 'cdns_uart->port->membase' pointer
+> is not set at this point
 > 
-> Signed-off-by: Ye Zhang <ye.zhang@rock-chips.com>
+> Signed-off-by: Jakub Turek <jakub.turek@elsta.tech>
+> 
+> Fixes: fccc9d9233f9 ("tty: serial: uartps: Add rs485 support to uartps driver")
 > ---
->  .../bindings/pinctrl/rockchip,pinctrl.yaml    |   9 ++
->  .../bindings/pinctrl/rockchip,rmio.yaml       | 106 +++++++++++++++++
->  .../pinctrl/rockchip,rk3506-rmio.h            | 109 ++++++++++++++++++
->  3 files changed, 224 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pinctrl/rockchip,rmio.yaml
->  create mode 100644 include/dt-bindings/pinctrl/rockchip,rk3506-rmio.h
+>  drivers/tty/serial/xilinx_uartps.c | 5 +++--
+>  1 file changed, 3 insertions(+), 2 deletions(-)
 > 
+> diff --git a/drivers/tty/serial/xilinx_uartps.c b/drivers/tty/serial/xilinx_uartps.c
+> index c793fc74c26b..1e4d54fd5762 100644
+> --- a/drivers/tty/serial/xilinx_uartps.c
+> +++ b/drivers/tty/serial/xilinx_uartps.c
+> @@ -1816,8 +1816,6 @@ static int cdns_uart_probe(struct platform_device *pdev)
+>  		console_port = port;
+>  	}
+>  #endif
+> -	if (cdns_uart_data->port->rs485.flags & SER_RS485_ENABLED)
+> -		cdns_rs485_rx_setup(cdns_uart_data);
+>  
+>  	rc = uart_add_one_port(&cdns_uart_uart_driver, port);
+>  	if (rc) {
+> @@ -1826,6 +1824,9 @@ static int cdns_uart_probe(struct platform_device *pdev)
+>  		goto err_out_pm_disable;
+>  	}
+>  
+> +	if (cdns_uart_data->port->rs485.flags & SER_RS485_ENABLED)
+> +		cdns_rs485_rx_setup(cdns_uart_data);
+> +
+>  #ifdef CONFIG_SERIAL_XILINX_PS_UART_CONSOLE
+>  	/* This is not port which is used for console that's why clean it up */
+>  	if (console_port == port &&
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Is probe the right place to do this configuration? Maybe
+cdns_rs485_rx_setup should get moved to cdns_rs485_config.
 
-yamllint warnings/errors:
-./Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml:88:11: [error] string value is redundantly quoted with any quotes (quoted-strings)
-
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/pinctrl/rockchip,rmio.example.dtb: rmio (rockchip,rk3506-rmio): compatible: ['rockchip,rk3506-rmio', 'rockchip,rmio'] is not of type 'object'
-	from schema $id: http://devicetree.org/schemas/pinctrl/rockchip,rmio.yaml
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.kernel.org/project/devicetree/patch/20251216112053.1927852-7-ye.zhang@rock-chips.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+--Sean
 
