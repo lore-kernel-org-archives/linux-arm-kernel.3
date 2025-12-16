@@ -4,87 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B6EED637DA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 22:02:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C53DED637DA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 22:13:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0RrJ1QhB6SeWPYyB42DaNQ+ZKxlr8jXkDy3vz7ReoSU=; b=jCtxvz/MqImLBynRhitB1oiW2S
-	tuWShVFPppANvCPhVM0XFwD8WT5ITO5CWJBw7PZHtdvsQUihu6hrfeglHITmIpFsmdtkhn9g+/hGl
-	cdQiZhhdsibVZ84EYVcUKjROuse+W2NlvSZabm2M+4UsLG3wiyZ8PULKZFyXeDR4wz+Pcdb3TYw7E
-	x1GBQRPtrbNXngSZK7rmHV0GLLLlpacGkKBPUmLybcP10ifAIehVmHqr0c+lYHlDFDgnaLRf9H14C
-	FJQoMK6FC6TYki4gR+kCMcEbqp4Kw/f+UKtnADwG/1lJyzhvX2KrRVumG/3d3kLGHIFj0CVfHffTo
-	1U3KUCSQ==;
+	bh=auWb4dQBMJYzfosA/pOnNDayLZ5ZzA6A+0CwU8nFlUY=; b=Dxr6SJRPuMg4Alb4ECE3SvQKo0
+	DmFbU3VbJI8U0Qel1Sj2cxo9KSjBkOPp5rYJLqV3G9kXCcMWs3JGqkb9YC6bQaBI4v1wq4uorKfuA
+	Ya9IV8g1ROV6O+B1zbBdShWKGHgCfZCFg/mjBY/+/7w+RuG3Mqn5whFtWTmTKt7Zn/39Rc2cwoohB
+	y5iOWyNXurUOfTo9MVdQyzEBnTQH+TT2/zTsETuUcpOpLY4z5OyTrM0YZ3WQUPWNm+xLLf4YSZLqL
+	hQB9wjw/UaT9L3XzEUU1HYUp4qvCmeXWrhc4dwMNIAZxQl9zdcxstCuZAH/8Sed0nW9jwwFJIEVyK
+	654mO7qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVd87-00000005sMJ-0fHn;
-	Tue, 16 Dec 2025 22:02:51 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vVdI2-00000005syC-2ZDb;
+	Tue, 16 Dec 2025 22:13:06 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVd83-00000005sLO-43NT;
-	Tue, 16 Dec 2025 22:02:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1765922563;
-	bh=v1pRSjTzwbmQL1hsDfF9eqLJi60pl/WRvFfhhQUSjj8=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=p46/GdG1x4W/qnRWPwhZbouSnGZCj3wxbqDjCdH2LryI/gC33rvKZqtTGBxUo/yPJ
-	 8QDiWPcndi2DvF0o0n1TFhREuSCLA5t2YvzGbFnEB/but7gw4EwXg4dyXI0FqyN4S8
-	 Sn4RxzS80Wiit/L7Aio4I8S8qJ9+X/QuYj7ITUVhr0a+EoCwokCLjsSbdF3L50wfC0
-	 pbO6zyYTNBdzknloDXFqW1MZAEGAi2Pp4iOLElL1cJIxX7FZfzeTRi8E6lKqs8jVq3
-	 lwXIIminq1LrApT7AVZVArkYAnCpsiUiKXP0uUOEPNPKVnHg0yD51+yt888b03w3T/
-	 Ta2vZamQA3GZA==
-Received: from [IPv6:2606:6d00:17:7b4b::c41] (unknown [IPv6:2606:6d00:17:7b4b::c41])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 41DAC17E12FE;
-	Tue, 16 Dec 2025 23:02:41 +0100 (CET)
-Message-ID: <bcbf8247a778c0a179cef2e0338acb2266c18809.camel@collabora.com>
-Subject: Re: [PATCH v5 01/15] media: uapi: HEVC: Add
- v4l2_ctrl_hevc_ext_sps_[ls]t_rps controls
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Detlev Casanova <detlev.casanova@collabora.com>, Hans Verkuil
-	 <hverkuil+cisco@kernel.org>, linux-kernel@vger.kernel.org
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Ezequiel Garcia	
- <ezequiel@vanguardiasur.com.ar>, Heiko Stuebner <heiko@sntech.de>, Ricardo
- Ribalda <ribalda@chromium.org>, Hans Verkuil <hverkuil@kernel.org>, Hans de
- Goede <hansg@kernel.org>,  Yunke Cao <yunkec@google.com>, Jonathan Corbet
- <corbet@lwn.net>, Laurent Pinchart	 <laurent.pinchart@ideasonboard.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,  James Cowgill
- <james.cowgill@blaize.com>, linux-media@vger.kernel.org,
- linux-rockchip@lists.infradead.org, 	linux-arm-kernel@lists.infradead.org,
- kernel@collabora.com
-Date: Tue, 16 Dec 2025 17:02:39 -0500
-In-Reply-To: <37da2fe3-41bd-470e-bb6c-93fe35ee1528@collabora.com>
-References: <20251023214247.459931-1-detlev.casanova@collabora.com>
-	 <20251023214247.459931-2-detlev.casanova@collabora.com>
-	 <d8ef0f88-e81d-4159-8945-52197cbc95ba@kernel.org>
-	 <37da2fe3-41bd-470e-bb6c-93fe35ee1528@collabora.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-j2Yu32W+NlJeaG5ToHIu"
-User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
+	id 1vVdHy-00000005sxp-1Dh6
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 16 Dec 2025 22:13:05 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2a0bb2f093aso33742085ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 14:13:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1765923181; x=1766527981; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=auWb4dQBMJYzfosA/pOnNDayLZ5ZzA6A+0CwU8nFlUY=;
+        b=jbZzRJtrWgqDZbXwLPUj74OSGZW00E0kofG0Fw4IjYY+LUh9pM4bzvfroM5KeYUKqs
+         ddhIvFvaDlM+kZxzFbYnPjRbROvbBs0oICXzhxLRSObOjWFdTwDTsPY+OjCSH89ZTQM1
+         4M/mn/LGBgUXo7rmsbEsslLqH5TCdQiFdl5mzG+QJNzwPJpxVqwUgJPYci6m2t0rL72q
+         VmGIwScuvK6nibWivgHiDddDRzSEpreTWD+0yn124DrX62BSOnOMwJz5gtXT4C9/jwRf
+         h40ou6VxmizvU8ZSnSuy5oni9Vx7D7It/KyE14YbUMdVwtXhdPmKEeOBlLkWh7EbQOlG
+         vybA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765923181; x=1766527981;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=auWb4dQBMJYzfosA/pOnNDayLZ5ZzA6A+0CwU8nFlUY=;
+        b=nP+scIflz64NEuAHihBychAgsJgVSzX0cghW5XwGS2szVEl29oQ8hgJxRFikp3ssDg
+         DQRFNMVcLOlRkB7vluSfFuLc5BZroH0V6w7FN682jwgXBb6q7648L6kCY3vxF6XCjKCL
+         t3AxNWwzdeumJdopQj+2ZeNE33UMWbfKJXcSvJBa2DMXU0Ou7Opq5m72DC88/1Qq9H2i
+         FdJ8tKZsEhrnj+wpvhX3l6BzajTMJrLVV6zEUTwStAHwihk178J5+Y4pPnnzcEHscOn3
+         YOOnlIe896Ij5hZlVrMY6EkzANmlEg5AFkikvqzqFBJ8/66hphoQTijrEcho2zQj0hvc
+         f6hQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUmVHoBIWgr7FYgg2uHLrhi6J6k/ryqAhclaj4N56C11U4bqAcjpSci/QxNQvQwyeozzWr/T7kS8Aiu4/6pNT1G@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzckv5hhqUTYLjn23T2Fle4NXSx2VhSfeejLzgD4TZ5hkHLf7+b
+	TvZqhJfFGMQlFOWoF1YSFHCu3cseANEbLv1i8co+xeNEUjEt/9D79vutGfQ9nJXt/bw=
+X-Gm-Gg: AY/fxX5dfufIou/NqS+j3rYjv1hdQAHazZYU+eVDv/h0BhZ6i0zTQdAQ5BvwTmS/fSH
+	myvW2rLA8ND02iH5sZdqVqmKKb+Y0e/Y/TOHUFRIWcNhTrJdl6oGfsDYLizJMGu9C8EFlHOnyj8
+	1iwdvDZyzh2XCinANR6T6ss1XdB0ANnvVKWqBGDlMgd8YM6PVSAvIaM3Cxp9o9hnHRZ6ilmvvb4
+	+2P/1v8vyGMEhwehc8CbUiy/h8gbDoduR4I8P4mHa4nJ9E6MUKBo8Ef7kPSGbfeYXmeb/YC+1+r
+	JhJKmmlioP1uCG3kaRYLnlU2jKe9NhZ0ypkmlTdqpbz9iVll/DVn84GuTYDiaHZb2f2KuUHgopG
+	uFEMBcpk6+jyt1rxPj/0soIGKYBNscNwGKBu3x43rQnn68fB5VciJ8ZPihPXWlYeehz7popu8X8
+	kTtbBlUwLWXTzAog==
+X-Google-Smtp-Source: AGHT+IG5tChOpyR0Nhxu0Rhdpo8VAFsmpzSG4K1uTUFmNnHdpvpNSpU1hBhSP/GWyCviK9VF9gEm4g==
+X-Received: by 2002:a17:903:1986:b0:295:738f:73fe with SMTP id d9443c01a7336-29f23c7d087mr141376425ad.30.1765923181120;
+        Tue, 16 Dec 2025 14:13:01 -0800 (PST)
+Received: from p14s ([2604:3d09:148c:c800:ba5d:91e2:900a:fb01])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29eea0594e8sm172904795ad.87.2025.12.16.14.12.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Dec 2025 14:13:00 -0800 (PST)
+Date: Tue, 16 Dec 2025 15:12:57 -0700
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Daniel Baluta <daniel.baluta@nxp.com>
+Cc: andersson@kernel.org, m.szyprowski@samsung.com, shawnguo@kernel.org,
+	kernel@pengutronix.de, festevam@gmail.com,
+	arnaud.pouliquen@foss.st.com, robh@kernel.org,
+	geert+renesas@glider.be, linux-remoteproc@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, iuliana.prodan@nxp.com
+Subject: Re: [PATCH v2] remoteproc: imx_dsp_rproc: Fix multiple start/stop
+ operations
+Message-ID: <aUHZaapZ1IAs_mRE@p14s>
+References: <20251210154906.99210-1-daniel.baluta@nxp.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251210154906.99210-1-daniel.baluta@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_140248_382527_D83A3E37 
-X-CRM114-Status: GOOD (  35.63  )
+X-CRM114-CacheID: sfid-20251216_141302_360331_7AC792FA 
+X-CRM114-Status: GOOD (  29.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,336 +103,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Good day,
 
---=-j2Yu32W+NlJeaG5ToHIu
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+On Wed, Dec 10, 2025 at 05:49:06PM +0200, Daniel Baluta wrote:
+> After commit 67a7bc7f0358 ("remoteproc: Use of reserved_mem_region_*
+> functions for "memory-region"") following commands with
+> imx-dsp-rproc started to fail:
+> 
+> $ echo zephyr.elf > /sys/class/remoteproc/remoteproc0/firmware
+> $ echo start > /sys/class/remoteproc/remoteproc0/state
+> $ echo stop > /sys/class/remoteproc/remoteproc0/state
+> $ echo start > /sys/class/remoteproc/remoteproc0/state #! This fails
+> -sh: echo: write error: Device or resource busy
+> 
+> This happens because aforementioned commit replaced devm_ioremap_wc with
+> devm_ioremap_resource_wc which will "reserve" the memory region with the
+> first start and then will fail at the second start if the memory
+> region is already reserved.
+> 
+> Even partially reverting the faulty commit won't fix the
+> underlying issue because we map the address in prepare() but we never
+> unmap it at unprepare(), so we will keep leaking memory regions.
+> 
+> So, lets use alloc() and release() callbacks for memory carveout
+> handling. This will nicely map() the memory region at prepare() time
+> and unmap() it at unprepare().
+> 
+> Fixes: 67a7bc7f0358 ("remoteproc: Use of_reserved_mem_region_* functions for "memory-region"")
+> Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
+> ---
+> Changes since v1:
+>  * https://lore.kernel.org/imx/091a4f29-5435-428a-9a1c-ef82465211cb@nxp.com/T/#t 
+>  * took a different approach and instead of partially reverting the
+>   faulty patch, used alloc() and release() callbacks to handle memory
+>   region mapping.
+>  drivers/remoteproc/imx_dsp_rproc.c | 50 ++++++++++++++++++++----------
+>  1 file changed, 33 insertions(+), 17 deletions(-)
+> 
+> diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
+> index 5130a35214c9..83468558e634 100644
+> --- a/drivers/remoteproc/imx_dsp_rproc.c
+> +++ b/drivers/remoteproc/imx_dsp_rproc.c
+> @@ -644,6 +644,32 @@ static void imx_dsp_rproc_free_mbox(struct imx_dsp_rproc *priv)
+>  	mbox_free_channel(priv->rxdb_ch);
+>  }
+>  
+> +static int imx_dsp_rproc_mem_alloc(struct rproc *rproc,
+> +				   struct rproc_mem_entry *mem)
+> +{
+> +	struct device *dev = rproc->dev.parent;
+> +	void *va;
+> +
+> +	va = ioremap_wc(mem->dma, mem->len);
+> +	if (!va) {
+> +		dev_err(dev, "Unable to map memory region: %pa+%zx\n",
+> +			&mem->dma, mem->len);
+> +		return -ENOMEM;
+> +	}
+> +
+> +	mem->va = va;
+> +
+> +	return 0;
+> +}
+> +
+> +static int imx_dsp_rproc_mem_release(struct rproc *rproc,
+> +				     struct rproc_mem_entry *mem)
+> +{
+> +	iounmap(mem->va);
+> +
+> +	return 0;
+> +}
+> +
+>  /**
+>   * imx_dsp_rproc_add_carveout() - request mailbox channels
+>   * @priv: private data pointer
+> @@ -659,7 +685,6 @@ static int imx_dsp_rproc_add_carveout(struct imx_dsp_rproc *priv)
+>  	struct device *dev = rproc->dev.parent;
+>  	struct device_node *np = dev->of_node;
+>  	struct rproc_mem_entry *mem;
+> -	void __iomem *cpu_addr;
+>  	int a, i = 0;
+>  	u64 da;
+>  
+> @@ -673,15 +698,10 @@ static int imx_dsp_rproc_add_carveout(struct imx_dsp_rproc *priv)
+>  		if (imx_dsp_rproc_sys_to_da(priv, att->sa, att->size, &da))
+>  			return -EINVAL;
+>  
+> -		cpu_addr = devm_ioremap_wc(dev, att->sa, att->size);
+> -		if (!cpu_addr) {
+> -			dev_err(dev, "failed to map memory %p\n", &att->sa);
+> -			return -ENOMEM;
+> -		}
+> -
+>  		/* Register memory region */
+> -		mem = rproc_mem_entry_init(dev, (void __force *)cpu_addr, (dma_addr_t)att->sa,
+> -					   att->size, da, NULL, NULL, "dsp_mem");
+> +		mem = rproc_mem_entry_init(dev, NULL, (dma_addr_t)att->sa,
+> +					   att->size, da, imx_dsp_rproc_mem_alloc,
+> +					   imx_dsp_rproc_mem_release, "dsp_mem");
 
-Hi,
+Was there a reason you kept those here rather than moving them to probe() as
+Iuliana suggested?  Note that I would be fine with this solution since this is
+how it was before, but if we have to go through a refactoring we may as well
+take those things into account.
 
-Le mardi 16 d=C3=A9cembre 2025 =C3=A0 15:48 -0500, Detlev Casanova a =C3=A9=
-crit=C2=A0:
-> Hi Hans,
->=20
-> On 10/24/25 03:55, Hans Verkuil wrote:
-> > On 23/10/2025 23:42, Detlev Casanova wrote:
-> > > Some hardware (e.g.: Rockchip's rk3588 hevc decoder) need the
-> > > long and short term reference information for HEVC decoding.
-> > >=20
-> > > Add controls to provide it as the raw data form the stream.
-> > >=20
-> > > Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
-> > > ---
-> > > =C2=A0 .../media/v4l/ext-ctrls-codec-stateless.rst=C2=A0=C2=A0 | 114 =
-++++++++++++++++++
-> > > =C2=A0 .../media/v4l/videodev2.h.rst.exceptions=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 |=C2=A0=C2=A0 2 +
-> > > =C2=A0 .../media/v4l/vidioc-queryctrl.rst=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 12 ++
-> > > =C2=A0 3 files changed, 128 insertions(+)
-> > >=20
-> > > diff --git a/Documentation/userspace-api/media/v4l/ext-ctrls-codec-st=
-ateless.rst b/Documentation/userspace-api/media/v4l/ext-ctrls-codec-statele=
-ss.rst
-> > > index 497ae74379f6..7b18e12fafbb 100644
-> > > --- a/Documentation/userspace-api/media/v4l/ext-ctrls-codec-stateless=
-.rst
-> > > +++ b/Documentation/userspace-api/media/v4l/ext-ctrls-codec-stateless=
-.rst
-> > > @@ -2959,6 +2959,120 @@ This structure contains all loop filter relat=
-ed parameters. See sections
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - 0x00000004
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 -
-> > > =C2=A0=20
-> > > +``V4L2_CID_STATELESS_HEVC_EXT_SPS_LT_RPS (struct)``
-> > > +=C2=A0=C2=A0=C2=A0 Specifies the list of Long-Term reference sets pa=
-rameters from the SPS.
-> > > +=C2=A0=C2=A0=C2=A0 These parameters are defined according to :ref:`h=
-evc`.
-> > > +=C2=A0=C2=A0=C2=A0 They are described in section 7.4.3.2.1 "General =
-sequence parameter set
-> > > +=C2=A0=C2=A0=C2=A0 RBSP semantics" of the specification.
-> > > +=C2=A0=C2=A0=C2=A0 This control is a dynamically sized 1-dimensional=
- array,
-> > > +=C2=A0=C2=A0=C2=A0 V4L2_CTRL_FLAG_DYNAMIC_ARRAY flag must be set whe=
-n using it.
-> > I'd drop this last sentence. It suggests that the application has to se=
-t it,
-> > but is it set by the kernel.
-> >=20
-> > Same for the next control below.
-> >=20
-> > I noticed that this is probably a copy-and-paste from the V4L2_CID_STAT=
-ELESS_HEVC_SLICE_PARAMS
-> > documentation: can you post a separate patch removing that same line fr=
-om the description of
-> > that control? I think it is a confusing line, and we missed it during t=
-he original review
-> > of V4L2_CID_STATELESS_HEVC_SLICE_PARAMS.
-> >=20
-> > I have another question about these two controls: currently dynamic con=
-trols have always at
-> > least one element. I have been working on supporting zero-sized dynamic=
- controls. Would
-> > that make sense here? Or will these two controls - if present - always =
-have one element or
-> > more?
-> >=20
-> > If zero-length dynamic array controls are useful here, then I can clean=
- up my patches and
-> > post them so you can use it.
->=20
-> I guess that could happen depending on what userspace does, but the size=
-=20
-> of the array is determined by num_long_term_ref_pics_sps and=20
-> num_short_term_ref_pic_sets from v4l2_ctrl_hevc_sps respectively.
->=20
-> If that value is 0, there is no point in setting the (respective)=20
-> control, except for simplifying userspace code I suppose.
->=20
-> So 0-length support is avoidable.
+>  
+>  		if (mem)
+>  			rproc_coredump_add_segment(rproc, da, att->size);
+> @@ -709,15 +729,11 @@ static int imx_dsp_rproc_add_carveout(struct imx_dsp_rproc *priv)
+>  		if (imx_dsp_rproc_sys_to_da(priv, res.start, resource_size(&res), &da))
+>  			return -EINVAL;
+>  
+> -		cpu_addr = devm_ioremap_resource_wc(dev, &res);
+> -		if (IS_ERR(cpu_addr)) {
+> -			dev_err(dev, "failed to map memory %pR\n", &res);
+> -			return PTR_ERR(cpu_addr);
+> -		}
+> -
+>  		/* Register memory region */
+> -		mem = rproc_mem_entry_init(dev, (void __force *)cpu_addr, (dma_addr_t)res.start,
+> -					   resource_size(&res), da, NULL, NULL,
+> +		mem = rproc_mem_entry_init(dev, NULL, (dma_addr_t)res.start,
+> +					   resource_size(&res), da,
+> +					    imx_dsp_rproc_mem_alloc,
+> +					    imx_dsp_rproc_mem_release,
+>  					   "%.*s", strchrnul(res.name, '@') - res.name, res.name);
 
-With our rule of keeping controls as consistent as possible, we'd need a ze=
-ro
-length array here since key frame have zero long and short references.
+I'm fine with this part.
 
-Basically, we should be able to clear that control when
-long_term_ref_pics_present_flag is not set, or num_short_term_ref_pic_sets =
-is
-zero.
+Thanks,
+Mathieu
 
-Feel free to send an update anyway, since I don't expect Hans to be able to
-provide this code now, would have been better to reply earlier. In fact, I =
-agree
-we can probably move on without the zero-length immediately added and add i=
-t
-later.
-
-Before going that route, how big are these two arrays ? Short term can be 6=
-4
-ref, long term 32, how big in bytes that is ? Was is worth goign with dynam=
-ic
-array ? Its not like slices, where we can have 600 or more.
-
-Nicolas
-
->=20
-> Detlev.
->=20
-> > Regards,
-> >=20
-> > 	Hans
-> >=20
-> > > +
-> > > +.. c:type:: v4l2_ctrl_hevc_ext_sps_lt_rps
-> > > +
-> > > +.. cssclass:: longtable
-> > > +
-> > > +.. flat-table:: struct v4l2_ctrl_hevc_ext_sps_lt_rps
-> > > +=C2=A0=C2=A0=C2=A0 :header-rows:=C2=A0 0
-> > > +=C2=A0=C2=A0=C2=A0 :stub-columns: 0
-> > > +=C2=A0=C2=A0=C2=A0 :widths:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 1 1 =
-2
-> > > +
-> > > +=C2=A0=C2=A0=C2=A0 * - __u16
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``lt_ref_pic_poc_lsb_sps``
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Long term reference picture order c=
-ount as described in section 7.4.3.2.1
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 "General sequence paramet=
-er set RBSP semantics" of the specification.
-> > > +=C2=A0=C2=A0=C2=A0 * - __u8
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``flags``
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - See :ref:`Extended Long-Term RPS Fl=
-ags <hevc_ext_sps_lt_rps_flags>`
-> > > +
-> > > +.. _hevc_ext_sps_lt_rps_flags:
-> > > +
-> > > +``Extended SPS Long-Term RPS Flags``
-> > > +
-> > > +.. cssclass:: longtable
-> > > +
-> > > +.. flat-table::
-> > > +=C2=A0=C2=A0=C2=A0 :header-rows:=C2=A0 0
-> > > +=C2=A0=C2=A0=C2=A0 :stub-columns: 0
-> > > +=C2=A0=C2=A0=C2=A0 :widths:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 1 1 =
-2
-> > > +
-> > > +=C2=A0=C2=A0=C2=A0 * - ``V4L2_HEVC_EXT_SPS_LT_RPS_FLAG_USED_LT``
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - 0x00000001
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Specifies if the long-term referenc=
-e picture is used 7.4.3.2.1 "General sequence parameter
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 set RBSP semantics" of th=
-e specification.
-> > > +
-> > > +``V4L2_CID_STATELESS_HEVC_EXT_SPS_ST_RPS (struct)``
-> > > +=C2=A0=C2=A0=C2=A0 Specifies the list of Short-Term reference sets p=
-arameters from the SPS.
-> > > +=C2=A0=C2=A0=C2=A0 These parameters are defined according to :ref:`h=
-evc`.
-> > > +=C2=A0=C2=A0=C2=A0 They are described in section 7.4.8 "Short-term r=
-eference picture set
-> > > +=C2=A0=C2=A0=C2=A0 semantics" of the specification.
-> > > +=C2=A0=C2=A0=C2=A0 This control is a dynamically sized 1-dimensional=
- array,
-> > > +=C2=A0=C2=A0=C2=A0 V4L2_CTRL_FLAG_DYNAMIC_ARRAY flag must be set whe=
-n using it.
-> > > +
-> > > +.. c:type:: v4l2_ctrl_hevc_ext_sps_st_rps
-> > > +
-> > > +.. cssclass:: longtable
-> > > +
-> > > +.. flat-table:: struct v4l2_ctrl_hevc_ext_sps_st_rps
-> > > +=C2=A0=C2=A0=C2=A0 :header-rows:=C2=A0 0
-> > > +=C2=A0=C2=A0=C2=A0 :stub-columns: 0
-> > > +=C2=A0=C2=A0=C2=A0 :widths:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 1 1 =
-2
-> > > +
-> > > +=C2=A0=C2=A0=C2=A0 * - __u8
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``delta_idx_minus1``
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Specifies the delta compare to the =
-index. See details in section 7.4.8 "Short-term
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 reference picture set sem=
-antics" of the specification.
-> > > +=C2=A0=C2=A0=C2=A0 * - __u8
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``delta_rps_sign``
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Sign of the delta as specified in s=
-ection 7.4.8 "Short-term reference picture set
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 semantics" of the specifi=
-cation.
-> > > +=C2=A0=C2=A0=C2=A0 * - __u16
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``abs_delta_rps_minus1``
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Absolute delta RPS as specified in =
-section 7.4.8 "Short-term reference picture set
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 semantics" of the specifi=
-cation.
-> > > +=C2=A0=C2=A0=C2=A0 * - __u8
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``num_negative_pics``
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Number of short-term RPS entries th=
-at have picture order count values less than the
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 picture order count value=
- of the current picture.
-> > > +=C2=A0=C2=A0=C2=A0 * - __u8
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``num_positive_pics``
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Number of short-term RPS entries th=
-at have picture order count values greater than the
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 picture order count value=
- of the current picture.
-> > > +=C2=A0=C2=A0=C2=A0 * - __u32
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``used_by_curr_pic``
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Bit i specifies if short-term RPS i=
- is used by the current picture.
-> > > +=C2=A0=C2=A0=C2=A0 * - __u32
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``use_delta_flag``
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Bit i specifies if short-term RPS i=
- is included in the short-term RPS entries.
-> > > +=C2=A0=C2=A0=C2=A0 * - __u16
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``delta_poc_s0_minus1[16]``
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Specifies the negative picture orde=
-r count delta for the i-th entry in the short-term RPS.
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 See details in section 7.=
-4.8 "Short-term reference picture set semantics" of the
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 specification.
-> > > +=C2=A0=C2=A0=C2=A0 * - __u16
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``delta_poc_s1_minus1[16]``
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Specifies the positive picture orde=
-r count delta for the i-th entry in the short-term RPS.
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 See details in section 7.=
-4.8 "Short-term reference picture set semantics" of the
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 specification.
-> > > +=C2=A0=C2=A0=C2=A0 * - __u8
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``flags``
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - See :ref:`Extended Short-Term RPS F=
-lags <hevc_ext_sps_st_rps_flags>`
-> > > +
-> > > +.. _hevc_ext_sps_st_rps_flags:
-> > > +
-> > > +``Extended SPS Short-Term RPS Flags``
-> > > +
-> > > +.. cssclass:: longtable
-> > > +
-> > > +.. flat-table::
-> > > +=C2=A0=C2=A0=C2=A0 :header-rows:=C2=A0 0
-> > > +=C2=A0=C2=A0=C2=A0 :stub-columns: 0
-> > > +=C2=A0=C2=A0=C2=A0 :widths:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 1 1 =
-2
-> > > +
-> > > +=C2=A0=C2=A0=C2=A0 * - ``V4L2_HEVC_EXT_SPS_ST_RPS_FLAG_INTER_REF_PIC=
-_SET_PRED``
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - 0x00000001
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Specifies if the short-term RPS is =
-predicted from another short term RPS. See details in
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 section 7.4.8 "Short-term=
- reference picture set semantics" of the specification.
-> > > +
-> > > =C2=A0 .. _v4l2-codec-stateless-av1:
-> > > =C2=A0=20
-> > > =C2=A0 ``V4L2_CID_STATELESS_AV1_SEQUENCE (struct)``
-> > > diff --git a/Documentation/userspace-api/media/v4l/videodev2.h.rst.ex=
-ceptions b/Documentation/userspace-api/media/v4l/videodev2.h.rst.exceptions
-> > > index c41693115db6..6182b4e2d2ee 100644
-> > > --- a/Documentation/userspace-api/media/v4l/videodev2.h.rst.exception=
-s
-> > > +++ b/Documentation/userspace-api/media/v4l/videodev2.h.rst.exception=
-s
-> > > @@ -150,6 +150,8 @@ replace symbol V4L2_CTRL_TYPE_H264_SCALING_MATRIX=
- :c:type:`V4L.v4l2_ctrl_type`
-> > > =C2=A0 replace symbol V4L2_CTRL_TYPE_H264_PRED_WEIGHTS :c:type:`V4L.v=
-4l2_ctrl_type`
-> > > =C2=A0 replace symbol V4L2_CTRL_TYPE_H264_SLICE_PARAMS :c:type:`V4L.v=
-4l2_ctrl_type`
-> > > =C2=A0 replace symbol V4L2_CTRL_TYPE_H264_DECODE_PARAMS :c:type:`V4L.=
-v4l2_ctrl_type`
-> > > +replace symbol V4L2_CTRL_TYPE_HEVC_EXT_SPS_ST_RPS :c:type:`V4L.v4l2_=
-ctrl_type`
-> > > +replace symbol V4L2_CTRL_TYPE_HEVC_EXT_SPS_LT_RPS :c:type:`V4L.v4l2_=
-ctrl_type`
-> > > =C2=A0 replace symbol V4L2_CTRL_TYPE_HEVC_SPS :c:type:`V4L.v4l2_ctrl_=
-type`
-> > > =C2=A0 replace symbol V4L2_CTRL_TYPE_HEVC_PPS :c:type:`V4L.v4l2_ctrl_=
-type`
-> > > =C2=A0 replace symbol V4L2_CTRL_TYPE_HEVC_SLICE_PARAMS :c:type:`V4L.v=
-4l2_ctrl_type`
-> > > diff --git a/Documentation/userspace-api/media/v4l/vidioc-queryctrl.r=
-st b/Documentation/userspace-api/media/v4l/vidioc-queryctrl.rst
-> > > index c8baa9430c14..82c8b52e771c 100644
-> > > --- a/Documentation/userspace-api/media/v4l/vidioc-queryctrl.rst
-> > > +++ b/Documentation/userspace-api/media/v4l/vidioc-queryctrl.rst
-> > > @@ -531,6 +531,18 @@ See also the examples in :ref:`control`.
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - n/a
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - A struct :c:type:`v4l2_c=
-trl_hevc_decode_params`, containing HEVC
-> > > =C2=A0=C2=A0	decoding parameters for stateless video decoders.
-> > > +=C2=A0=C2=A0=C2=A0 * - ``V4L2_CTRL_TYPE_HEVC_EXT_SPS_LT_RPS``
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - n/a
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - n/a
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - n/a
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - A struct :c:type:`v4l2_ctrl_hevc_ex=
-t_sps_lt_rps`, containing HEVC
-> > > +	extended Long-Term RPS for stateless video decoders.
-> > > +=C2=A0=C2=A0=C2=A0 * - ``V4L2_CTRL_TYPE_HEVC_EXT_SPS_ST_RPS``
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - n/a
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - n/a
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - n/a
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - A struct :c:type:`v4l2_ctrl_hevc_ex=
-t_sps_st_rps`, containing HEVC
-> > > +	extended Short-Term RPS for stateless video decoders.
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 * - ``V4L2_CTRL_TYPE_VP9_COMPRESSED_HD=
-R``
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - n/a
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - n/a
-
---=-j2Yu32W+NlJeaG5ToHIu
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaUHXAAAKCRDZQZRRKWBy
-9N5pAQDw36UxG6/tFUkRej1+ngQLHpNN64KxopMOLHv6Q/rZZQEAsJCRhm8QdSUp
-keRUSwqcponKn9oaTWFDPXPlm167fgM=
-=fUye
------END PGP SIGNATURE-----
-
---=-j2Yu32W+NlJeaG5ToHIu--
+>  		if (!mem)
+>  			return -ENOMEM;
+> -- 
+> 2.45.2
+> 
 
