@@ -4,76 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A246D609B6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 16:08:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87955D609CE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 16:27:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9Yc98cLWDNy1eXBoIHvdNFSymFwWhrfu5YKysH37ymk=; b=rpVypO6ty/0E6X7ikG9lcsplcr
-	fTj7OcKWh4FkBw5cUHV9hsjZJaTtbhclIEzHUD90l2SNj5bvMGn5vZESS5mxU1QptyIEBs7rv+kbi
-	lsP2d37ukFz2GuwgtxE4IPgN06SPYlYTLumsX05eTEV4j6XOaTYjFcvHswZ37eR4fcM03/KO6JGr6
-	W1gFTN5477mLGHkTeh2gBSirIWdTYVysVbQ1EJfiSK0J8kmE33Ck3aWlBr9NNcVJiLWeOLiIENbko
-	OQuv6xqM2lDlJN9SLlbGq2c5rwH4XqZDvYFrNLRstssqXlPKG6UHhiJGNAPQVmmlhfR7ptNJB8Zjt
-	W+pG94AQ==;
+	bh=rJ1e1P6F4CyulVnt004SCDge6FBFbgLQSB8l5Ftm9W0=; b=R0ZOq6F8WsfDseE+dsrq5gcz9E
+	ARHJ+uuFRFMLV5lLq30EgQPRkgAtfA6yytjDFSDTDgkbJiXLeC7ams1cqYog+Tp+qJvOzEisvpzqe
+	dM9Wc9kVtr9f2vBCJRgEm2GqtQCfs2tTdCZYC8XdzlMJwAJgWSzsB8A2gIqgUDcxpQMKUfJK+FngE
+	zrN2wSYL5UOJINmZtZGsPdJ01wz3KIPQuuAxge59RzdOqc7f29M8ZhbKYF5Sx2zht73WGUxeWZXAj
+	cYQnpzILskunj1JXfNi2TKWd1hWkF+hIVIpIPSvhQcmwiCQvmWdiGkIjqmLtwRGZ5lLX2VdUBfMKf
+	LKVCIqCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVXbD-00000005VkW-2A7v;
-	Tue, 16 Dec 2025 16:08:31 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1vVXte-00000005Wcm-1jXv;
+	Tue, 16 Dec 2025 16:27:34 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVXb8-00000005Vjn-1Jon
+	id 1vVXtb-00000005WcN-3e4h
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 16:08:27 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-640c1fda178so9552551a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 08:08:25 -0800 (PST)
+	Tue, 16 Dec 2025 16:27:33 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-b7355f6ef12so927024566b.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 08:27:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1765901304; x=1766506104; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1765902450; x=1766507250; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=9Yc98cLWDNy1eXBoIHvdNFSymFwWhrfu5YKysH37ymk=;
-        b=rKhcL8P8M+WFKdt78Hv7yXJ9CtDjp6RUIB5mbVuXCoxh3k3HuTOQQxMewoLc6NcxCz
-         XesYOw9Zkq4x8xJjdOhvBOYTvl8CgnCkW4mf/0MtRMGeyoopo70CYX33xC+WRUo22jbg
-         4b0R5RD59wy4JsH9EclQSPF5WCM8H7PgR8TGyV6v3sEbytUks6W4s+D2wLapNOo70EA1
-         pTF6BTPedITyx4K0LfwvGtxZViSyML0TWs2V0P3dc0rGiKJFmE7xEQ/qnpekndQy15xz
-         7oDEUJm8eiorx5kb1F1jv9kIXDtkFTwlKO1pq8q/fU305R9c5Hvp9cQVq7Ar4pPRBbTt
-         0yqA==
+        bh=rJ1e1P6F4CyulVnt004SCDge6FBFbgLQSB8l5Ftm9W0=;
+        b=En6ryr0eckHzCeQ6L4dPQGyEVIIAwagm/Zo3wjASBfmEl76pGm6qply5sxgnx9e3ba
+         AE3Q6HQp4xqfRkcRdVbyoZNhS60hhtKXPlKxl8dX5ZEsJ0Sj/yORLmOyfDnMmBmg35kD
+         UuK7Y1iRveWkR5paxrMt8tgg2/Vt+eVIY7cqSWxT0WJhcH05LT78UwPw7QnqT7PbtBEI
+         ohyDwk8+w9avt1Kn3GXWhPrydtzlVzMU/7RJeGo2dVGZ8V/OXQjdd/2H6TmmMcEBhnfD
+         Gfc1MFcGDvvx+q5nkPlH3VwTWiClZPSNU1z0LelCAGNKPHAAM3GFHMVInE1NdifYM0j/
+         cNcQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765901304; x=1766506104;
+        d=1e100.net; s=20230601; t=1765902450; x=1766507250;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=9Yc98cLWDNy1eXBoIHvdNFSymFwWhrfu5YKysH37ymk=;
-        b=dZEdjd0jTmEcRRMNDzAEn2nS/4Tx1xz2r8kHIR8GzqQiXh/GsFuUmCBHCS9XlHS5Xx
-         auOInmdQuetTTtdL3/EGpWPBJ+867G8NfHVatAS1L7W6oFfimk8x+gbzd0cwCSGRENaJ
-         nv1C3AHT8UsEfEOHCd//zoMYSFGYFGJllERV2jnnXLFkxQoj9RKE2joaB6vhhURDzHLP
-         nu9ZBcJQ4aqa5fPoKBo44x8BaNqM0imz4hnNh6y9v7iGRj+avfEcsmjWdS/s59UtW5He
-         SpLVwua73kTqW0pF8xEtzillzA2hW8AjUklYjC5GXmnBrnikGZD1VKZZM71IjGNMF6HG
-         KR+w==
-X-Forwarded-Encrypted: i=1; AJvYcCU0YjBUy2pfNF7bplwEF87mulHqD3LLsDgNlW+GVgUpVbVDb2Ld+Gj/vjBHEJ+MGqCe9I72J81dVJlkxi1/BI61@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQfEHpUbztURpYO+i7scujoKpM+exVvVHr7H7p5z+wKLaNqGwM
-	/ee4KytYzBSvCKUe2molhhM+8p4NB5//OOuzhf0fG/M/x8B7b73N2x31qX9tmSn/Rru/K77amSU
-	Knm28CFajLkAc
-X-Gm-Gg: AY/fxX74j6TauTKpg1WDDpYVi0Z+n3IzX2sNR9ISxeksnKW/VF/J0lnGlpmVAG2K3z5
-	NGlEpDsYK5Ft285p4w9uhI+ssE5yPewnTN9egAozNtQN6Ee2jJERYTgLno4vpsivuQqifd8xNbE
-	ObaQ9sJlzdlAd+jiT3YlL2Q0yfE0MzEPQvRgQqvphmgUDemJPl6cLuMJCft27lm0nxfTs9YtNm/
-	PVkIAtkHparL2wuQZDjCdoZ2ublwdmiMH2CH7aT4XCrMwszJD/ak4Z4RD1FDcYgOTDPZu08iqtk
-	oKnSmVNgwRKrFofRH587JsFUTsZYILZMToOdg3StWuyGMTEOF9I7K+2U1edmiX84J+GCy/8b8H/
-	FvLLQmB6I+buijqEwpGMvgzDjeXywVwltumh7V37q2/TfrXdNbJGaNRWQZbHO+Na6bSQQ36mIWZ
-	s9fyG49V4ndWi3LqARhybz
-X-Google-Smtp-Source: AGHT+IGoXFodqKaN2YW+blhloOPWonYoIEfQwookHr2zJuDPQoF57J1VfykD2dCWz+T56g8wMnyRng==
-X-Received: by 2002:a05:6402:42c8:b0:647:a127:7c1e with SMTP id 4fb4d7f45d1cf-6499b1fa9demr14895891a12.20.1765901304181;
-        Tue, 16 Dec 2025 08:08:24 -0800 (PST)
+        bh=rJ1e1P6F4CyulVnt004SCDge6FBFbgLQSB8l5Ftm9W0=;
+        b=dEUxoe/+SxWsWhSYk8K6r3NY3W9gBPwWo9lA7nxZQPrnT/uLMV5Eu6tMr2fcxbKDQR
+         fXXhh0jF4WsImrKrgnDM3dxwufa5fmFyrUNqG/vxbhmCc2mhO9cEjoWuQcnJ+YPNvEC4
+         un9adIOYhhreDpXc2uYxb+c7qtiB1F/3+YRqGwOCes7GSQjC9D546uH/hOju1OPphVSc
+         bhHrHfYeFOg0LLXYr7ZpQfRNZOzoUYxbZMgKL77r1NGr9bqov6s3kRMRose4GIBNIS3E
+         vpUDKssRHchlo+w8d+9COWjgWSp1nKR9ZAnkDlwP+WkbQUKWLRWsOEH9PphCUUEAANnB
+         0SXw==
+X-Forwarded-Encrypted: i=1; AJvYcCVM4qMMsRpPdBApPikuAta419EqrRj5NmihKtq60dhJL/ZiZD2ohpulE4q/Bf9k7/NHZCMuQyTl8q7LYlsRE8oS@lists.infradead.org
+X-Gm-Message-State: AOJu0YxAeE8+JyGkaYZURdqvrypfrQhx3opm4fZEiakyg0W+YIYBKZTS
+	Bwj7DlzopY5WfNbHwB9WvA/vawSTOR/HkHkZ6S6z65R1OIda/YefWTJ6efxr5I2wiAk=
+X-Gm-Gg: AY/fxX7pyz/mcIdANQ/mU6IkOEwEkYlBqid9uwSn2/Ox/vg6Y3FPzDxJfuF/46DzYad
+	zEwDYztqO+pk6r9BnQQ9L/syuzjgQSmUtIrgSOkwTyekx6tRWd5j9xSElzIhIgUpxODePjTlwPJ
+	2lt14r7j0WmiD3FqNyfjXNLDfAC2KoN7s5yFqNEna7bOoe3XPe9g8fJY72UG45l9yFDEvOqpyTW
+	ANgK3RJTqiFUEC1mxgOI8Qm0NFDI0UlGuHq3UKNwbfcgdT5oUZ/tnGdA4UbETRlnA6WALceYllP
+	gw4qYm/3WdkPCc2O4dBqBabHGONnu9erv8vySvJ48PYFW59JhM/dsf8VOeV3MD8P4J2Ux2/pMpt
+	gcdHaIiMnJAesKxR02++atrHoe/CJWb/yfMc6JSbsqAVOzDsxSb5VCZF9L7uAJGXmX7mV+0xDSG
+	8aKBAMTc72PK68jblC3pYs
+X-Google-Smtp-Source: AGHT+IEK6iaFERqvEdHq4Ged5LPvd31mh1w4HuC+BU0D8njB6TOveN15IML8gddkUz7RlIw6lJ98MQ==
+X-Received: by 2002:a17:907:608d:b0:b77:1d75:8b78 with SMTP id a640c23a62f3a-b7d23cb3a2fmr1722671866b.53.1765902449781;
+        Tue, 16 Dec 2025 08:27:29 -0800 (PST)
 Received: from [192.168.0.108] ([130.185.218.160])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6498210fd0csm16496547a12.25.2025.12.16.08.08.21
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6498210de23sm16756928a12.28.2025.12.16.08.27.28
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 16 Dec 2025 08:08:23 -0800 (PST)
-Message-ID: <0b381f5b-66a4-4407-9b91-18ecc28b3695@linaro.org>
-Date: Tue, 16 Dec 2025 18:08:21 +0200
+        Tue, 16 Dec 2025 08:27:29 -0800 (PST)
+Message-ID: <c8fad013-b022-4037-94e8-1f0536535469@linaro.org>
+Date: Tue, 16 Dec 2025 18:27:27 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH 16/19] coresight: trbe: Support trigger mode
@@ -96,8 +95,8 @@ In-Reply-To: <20251201-trbe_buffer_refactor_v1-1-v1-16-7da32b076b28@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_080826_437941_D5C677E6 
-X-CRM114-Status: GOOD (  50.54  )
+X-CRM114-CacheID: sfid-20251216_082731_967179_AF72892A 
+X-CRM114-Status: GOOD (  30.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,22 +144,6 @@ On 01/12/2025 13:22, Leo Yan wrote:
 >       +--------+-----------+---------+-------+
 >       |        |           |$$$$$$$$$|       |
 >       +--------+-----------+---------+-------+
-
-I think some of the existing comments and diagrams need to be updated 
-for wrap mode. For example this one isn't true anymore:
-
-   neither an wrap around nor an IRQ is expected while being enabled.
-
-It's quite hard to make sense of the comments in __trbe_normal_offset() 
-because they don't even mention the new mode of operation because they 
-were written before it. But when reading them they appear to describe 
-definitively how the buffer works.
-
-Also these diagrams in the commit message are inconsistent with the 
-existing ones that use #### for free instead of blank. Personally I 
-prefer blank for free as I don't have to keep going back to the legend 
-to see which one is free. Same for the kunit tests.
-
 >       base                                   base + nr_pages
 >                                              limit
 > 
@@ -214,196 +197,18 @@ to see which one is free. Same for the kunit tests.
 > @@ -495,6 +501,7 @@ static unsigned long __trbe_normal_offset(struct perf_output_handle *handle)
 >   	if (handle->wakeup < (handle->head + handle->size) && head <= wakeup)
 >   		limit = min(limit, round_up(wakeup, PAGE_SIZE));
+
+I kept wondering how this limit was relvant now in wrap mode. But I see 
+it's skipped from the goto above, but that only jumps over one 
+statement. Can we have that static branch as a regular if statement 
+guarding the limit calculation instead of the goto?
+
+Negating "trigger_mode_bypass" and renaming it into just "trigger_mode" 
+might help too. The double negative of "not trigger_trigger_mode_bypass 
+goto" is a bit hard to understand.
+
 >   
 > +out:
 >   	/*
->   	 * There is a situation when this can happen i.e limit is before
->   	 * the head and hence TRBE cannot be configured.
-> @@ -518,6 +525,39 @@ static unsigned long __trbe_normal_offset(struct perf_output_handle *handle)
->   	return 0;
->   }
->   
-> +static u64 __trbe_normal_trigger_count(struct perf_output_handle *handle)
-> +{
-> +	struct trbe_buf *buf = etm_perf_sink_config(handle);
-> +	struct trbe_cpudata *cpudata = buf->cpudata;
-> +	u64 limit, head, wakeup;
-> +	u64 count = 0;
-> +
-> +	if (static_branch_unlikely(&trbe_trigger_mode_bypass))
-> +		return 0;
-> +
-> +	limit = buf->trbe_limit - buf->trbe_base;
-> +	head = PERF_IDX2OFF(handle->head, buf);
-> +	wakeup = PERF_IDX2OFF(handle->wakeup, buf);
-> +
-> +	/* Set the count to guard the end of free buffer after wrap around */
-> +	if (limit == buf->nr_pages * PAGE_SIZE && (head + handle->size) > limit)
-> +		count = handle->size;
-> +
-> +	/*
-> +	 * If the watermark is less than the limit, use the trigger count for
-> +	 * the watermark maintenance.
-> +	 */
-> +	if (handle->wakeup < (handle->head + handle->size) && head <= wakeup) {
-> +		u64 wakeup_count =
-> +			round_up(wakeup - head, cpudata->trbe_hw_align);
-> +
-> +		if (head + wakeup_count < limit)
-> +			count = wakeup_count;
-> +	}
-> +
-> +	return count;
-> +}
-> +
->   static int trbe_normal_offset(struct perf_output_handle *handle)
->   {
->   	struct trbe_buf *buf = etm_perf_sink_config(handle);
-> @@ -542,6 +582,7 @@ static int trbe_normal_offset(struct perf_output_handle *handle)
->   		return -ENOSPC;
->   
->   	buf->trbe_limit = buf->trbe_base + limit;
-> +	buf->trbe_count = __trbe_normal_trigger_count(handle);
->   	return 0;
->   }
->   
-> @@ -594,24 +635,40 @@ static void set_trbe_limit_pointer_enabled(struct trbe_buf *buf)
->   	trblimitr &= ~TRBLIMITR_EL1_TM_MASK;
->   	trblimitr &= ~TRBLIMITR_EL1_LIMIT_MASK;
->   
-> -	/*
-> -	 * Fill trace buffer mode is used here while configuring the
-> -	 * TRBE for trace capture. In this particular mode, the trace
-> -	 * collection is stopped and a maintenance interrupt is raised
-> -	 * when the current write pointer wraps. This pause in trace
-> -	 * collection gives the software an opportunity to capture the
-> -	 * trace data in the interrupt handler, before reconfiguring
-> -	 * the TRBE.
-> -	 */
-> -	trblimitr |= (TRBLIMITR_EL1_FM_FILL << TRBLIMITR_EL1_FM_SHIFT) &
-> -		     TRBLIMITR_EL1_FM_MASK;
-> +	if (!buf->trbe_count ||
-> +	    buf->trbe_write + buf->trbe_count == buf->trbe_limit) {
-> +		/*
-> +		 * Fill trace buffer mode is used here while configuring the
-> +		 * TRBE for trace capture. In this particular mode, the trace
-> +		 * collection is stopped and a maintenance interrupt is raised
-> +		 * when the current write pointer wraps. This pause in trace
-> +		 * collection gives the software an opportunity to capture the
-> +		 * trace data in the interrupt handler, before reconfiguring
-> +		 * the TRBE.
-> +		 */
-> +		trblimitr |= FIELD_PREP(TRBLIMITR_EL1_FM_MASK, TRBLIMITR_EL1_FM_FILL) |
-> +			     FIELD_PREP(TRBLIMITR_EL1_TM_MASK, TRBLIMITR_EL1_TM_IGNR);
-
-I thought there were only two modes required: Wrap with trigger stop or 
-Fill with trigger IRQ. What's this first one for? Is this to support the 
-errata cases where the trigger counter isn't used?
-
-> +	} else if (buf->trbe_write + buf->trbe_count < buf->trbe_limit) {
-> +		/*
-> +		 * Fill mode is used here to stop trace collection and prevent
-> +		 * the buffer from being overwritten. Trigger mode continues
-> +		 * trace collection and raises a maintenance interrupt on a
-> +		 * trigger event, which acts as a watermark for notifying
-> +		 * userspace.
-> +		 */
-> +		trblimitr |= FIELD_PREP(TRBLIMITR_EL1_FM_MASK, TRBLIMITR_EL1_FM_FILL) |
-> +			     FIELD_PREP(TRBLIMITR_EL1_TM_MASK, TRBLIMITR_EL1_TM_IRQ);
-> +	} else if (buf->trbe_write + buf->trbe_count > buf->trbe_limit) {
-> +		/*
-> +		 * Wrap buffer mode continues trace collection and raises
-> +		 * maintenance interrupt on buffer wrap. Trigger mode stops
-> +		 * trace on trigger event to guard the buffer from being
-> +		 * overwritten.
-> +		 */
-> +		trblimitr |= FIELD_PREP(TRBLIMITR_EL1_FM_MASK, TRBLIMITR_EL1_FM_WRAP) |
-> +			     FIELD_PREP(TRBLIMITR_EL1_TM_MASK, TRBLIMITR_EL1_TM_STOP);
-> +	}
-
-Can you document what the case is for a final else here, even if there's 
-no code? Or should it even be a WARN()?
-
->   
-> -	/*
-> -	 * Trigger mode is not used here while configuring the TRBE for
-> -	 * the trace capture. Hence just keep this in the ignore mode.
-> -	 */
-> -	trblimitr |= (TRBLIMITR_EL1_TM_IGNR << TRBLIMITR_EL1_TM_SHIFT) &
-> -		     TRBLIMITR_EL1_TM_MASK;
->   	trblimitr |= (addr & PAGE_MASK);
->   	set_trbe_enabled(buf->cpudata, trblimitr);
->   }
-> @@ -623,6 +680,7 @@ static void trbe_enable_hw(struct trbe_buf *buf)
->   	WARN_ON(buf->trbe_write >= buf->trbe_limit);
->   	set_trbe_base_pointer(buf->trbe_hw_base);
->   	set_trbe_write_pointer(buf->trbe_write);
-> +	set_trbe_trigger_count(buf->trbe_count);
->   
->   	/*
->   	 * Synchronize all the register updates
-> @@ -639,8 +697,6 @@ static enum trbe_fault_action trbe_get_fault_act(struct perf_output_handle *hand
->   	int ec = get_trbe_ec(trbsr);
->   	int bsc = get_trbe_bsc(trbsr);
->   
-> -	WARN_ON(is_trbe_running(trbsr));
-> -
->   	if (is_trbe_abort(trbsr)) {
->   		err_str = "External abort";
->   		goto out_fatal;
-> @@ -672,8 +728,7 @@ static enum trbe_fault_action trbe_get_fault_act(struct perf_output_handle *hand
->   	case TRBE_BSC_FILLED:
->   		break;
->   	case TRBE_BSC_TRIGGERED:
-> -		err_str = "Unexpected trigger status";
-> -		goto out_fatal;
-> +		break;
->   	default:
->   		err_str = "Unexpected buffer status code";
->   		goto out_fatal;
-> @@ -692,6 +747,9 @@ static enum trbe_fault_action trbe_get_fault_act(struct perf_output_handle *hand
->   	if (is_trbe_wrap(trbsr))
->   		return TRBE_FAULT_ACT_WRAP;
->   
-> +	if (is_trbe_trg(trbsr))
-> +		return TRBE_FAULT_ACT_TRIG;
-> +
->   	return TRBE_FAULT_ACT_SPURIOUS;
->   
->   out_fatal:
-> @@ -1180,6 +1238,7 @@ static irqreturn_t arm_trbe_irq_handler(int irq, void *dev)
->   		clr_trbe_status();
->   
->   	switch (act) {
-> +	case TRBE_FAULT_ACT_TRIG:
->   	case TRBE_FAULT_ACT_WRAP:
->   		truncated = !!trbe_handle_overflow(handle, act);
->   		break;
-> diff --git a/drivers/hwtracing/coresight/coresight-trbe.h b/drivers/hwtracing/coresight/coresight-trbe.h
-> index d7f7cd763c0c7139cf322b7336ee563073e3bea0..4c65d164a946ec9860825e7564196745b60d730b 100644
-> --- a/drivers/hwtracing/coresight/coresight-trbe.h
-> +++ b/drivers/hwtracing/coresight/coresight-trbe.h
-> @@ -114,6 +114,20 @@ static inline void set_trbe_write_pointer(unsigned long addr)
->   	write_sysreg_s(addr, SYS_TRBPTR_EL1);
->   }
->   
-> +static inline void set_trbe_trigger_count(unsigned long count)
-> +{
-> +	u64 trbsr;
-> +
-> +	write_sysreg_s(count, SYS_TRBTRG_EL1);
-> +
-> +	/* TRBSR_EL1.TRG has been cleared in clr_trbe_status() */
-> +	if (!count)
-> +		return;
-> +
-> +	trbsr = read_sysreg_s(SYS_TRBSR_EL1);
-> +	write_sysreg_s(trbsr | TRBSR_EL1_TRG, SYS_TRBSR_EL1);
-> +}
-> +
->   static inline unsigned long get_trbe_limit_pointer(void)
->   {
->   	u64 trblimitr = read_sysreg_s(SYS_TRBLIMITR_EL1);
-> 
-
+>
 
