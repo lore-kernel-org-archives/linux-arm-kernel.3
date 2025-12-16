@@ -4,66 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F520D609B7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 15:57:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A246D609B6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 16:08:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZvBIZJXRH0npCfQhDSmPLW559A69xlpARWt5ABuGlN4=; b=G3tcPV9wCpRogezoI9RLVDf8GX
-	zcaCpfmH9XBZeV4XZFKyRcqaYwxEKRSyFAHD5il4eQtsDyu0WJ0AVmykdMSKIUDEPTU7zoLUxxmdA
-	cL/oxuP+oxBuZft0Rf6iornbuCcWxihfeOC0mklKqWE3pmMCTVNmPja/g+0rZd9ATi8pmexilWNmS
-	aE/2rWNjqaeNyOVWq5+Ug1i0wbRKYldki++/YipTByuWTFBgMg5DjBSlvLBULvaC1VBU5uraynoEu
-	0qWSjy76OoVyxbZl8tJowB2dF9uMKb5VdBVZahYk8mX9vTxc4oJvMqMhENK325Tm2JMaL1TStLedW
-	K/K8Yk7A==;
+	bh=9Yc98cLWDNy1eXBoIHvdNFSymFwWhrfu5YKysH37ymk=; b=rpVypO6ty/0E6X7ikG9lcsplcr
+	fTj7OcKWh4FkBw5cUHV9hsjZJaTtbhclIEzHUD90l2SNj5bvMGn5vZESS5mxU1QptyIEBs7rv+kbi
+	lsP2d37ukFz2GuwgtxE4IPgN06SPYlYTLumsX05eTEV4j6XOaTYjFcvHswZ37eR4fcM03/KO6JGr6
+	W1gFTN5477mLGHkTeh2gBSirIWdTYVysVbQ1EJfiSK0J8kmE33Ck3aWlBr9NNcVJiLWeOLiIENbko
+	OQuv6xqM2lDlJN9SLlbGq2c5rwH4XqZDvYFrNLRstssqXlPKG6UHhiJGNAPQVmmlhfR7ptNJB8Zjt
+	W+pG94AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVXQ6-00000005UaI-3nQl;
-	Tue, 16 Dec 2025 15:57:02 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVXQ3-00000005UZ5-1LQ4
+	id 1vVXbD-00000005VkW-2A7v;
+	Tue, 16 Dec 2025 16:08:31 +0000
+Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vVXb8-00000005Vjn-1Jon
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 15:57:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 33C18FEC;
-	Tue, 16 Dec 2025 07:56:51 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C71763F73F;
-	Tue, 16 Dec 2025 07:56:54 -0800 (PST)
-Message-ID: <934ac602-f467-4359-8505-de7879201b7a@arm.com>
-Date: Tue, 16 Dec 2025 15:56:53 +0000
+	Tue, 16 Dec 2025 16:08:27 +0000
+Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-640c1fda178so9552551a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 08:08:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1765901304; x=1766506104; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=9Yc98cLWDNy1eXBoIHvdNFSymFwWhrfu5YKysH37ymk=;
+        b=rKhcL8P8M+WFKdt78Hv7yXJ9CtDjp6RUIB5mbVuXCoxh3k3HuTOQQxMewoLc6NcxCz
+         XesYOw9Zkq4x8xJjdOhvBOYTvl8CgnCkW4mf/0MtRMGeyoopo70CYX33xC+WRUo22jbg
+         4b0R5RD59wy4JsH9EclQSPF5WCM8H7PgR8TGyV6v3sEbytUks6W4s+D2wLapNOo70EA1
+         pTF6BTPedITyx4K0LfwvGtxZViSyML0TWs2V0P3dc0rGiKJFmE7xEQ/qnpekndQy15xz
+         7oDEUJm8eiorx5kb1F1jv9kIXDtkFTwlKO1pq8q/fU305R9c5Hvp9cQVq7Ar4pPRBbTt
+         0yqA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765901304; x=1766506104;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9Yc98cLWDNy1eXBoIHvdNFSymFwWhrfu5YKysH37ymk=;
+        b=dZEdjd0jTmEcRRMNDzAEn2nS/4Tx1xz2r8kHIR8GzqQiXh/GsFuUmCBHCS9XlHS5Xx
+         auOInmdQuetTTtdL3/EGpWPBJ+867G8NfHVatAS1L7W6oFfimk8x+gbzd0cwCSGRENaJ
+         nv1C3AHT8UsEfEOHCd//zoMYSFGYFGJllERV2jnnXLFkxQoj9RKE2joaB6vhhURDzHLP
+         nu9ZBcJQ4aqa5fPoKBo44x8BaNqM0imz4hnNh6y9v7iGRj+avfEcsmjWdS/s59UtW5He
+         SpLVwua73kTqW0pF8xEtzillzA2hW8AjUklYjC5GXmnBrnikGZD1VKZZM71IjGNMF6HG
+         KR+w==
+X-Forwarded-Encrypted: i=1; AJvYcCU0YjBUy2pfNF7bplwEF87mulHqD3LLsDgNlW+GVgUpVbVDb2Ld+Gj/vjBHEJ+MGqCe9I72J81dVJlkxi1/BI61@lists.infradead.org
+X-Gm-Message-State: AOJu0YzQfEHpUbztURpYO+i7scujoKpM+exVvVHr7H7p5z+wKLaNqGwM
+	/ee4KytYzBSvCKUe2molhhM+8p4NB5//OOuzhf0fG/M/x8B7b73N2x31qX9tmSn/Rru/K77amSU
+	Knm28CFajLkAc
+X-Gm-Gg: AY/fxX74j6TauTKpg1WDDpYVi0Z+n3IzX2sNR9ISxeksnKW/VF/J0lnGlpmVAG2K3z5
+	NGlEpDsYK5Ft285p4w9uhI+ssE5yPewnTN9egAozNtQN6Ee2jJERYTgLno4vpsivuQqifd8xNbE
+	ObaQ9sJlzdlAd+jiT3YlL2Q0yfE0MzEPQvRgQqvphmgUDemJPl6cLuMJCft27lm0nxfTs9YtNm/
+	PVkIAtkHparL2wuQZDjCdoZ2ublwdmiMH2CH7aT4XCrMwszJD/ak4Z4RD1FDcYgOTDPZu08iqtk
+	oKnSmVNgwRKrFofRH587JsFUTsZYILZMToOdg3StWuyGMTEOF9I7K+2U1edmiX84J+GCy/8b8H/
+	FvLLQmB6I+buijqEwpGMvgzDjeXywVwltumh7V37q2/TfrXdNbJGaNRWQZbHO+Na6bSQQ36mIWZ
+	s9fyG49V4ndWi3LqARhybz
+X-Google-Smtp-Source: AGHT+IGoXFodqKaN2YW+blhloOPWonYoIEfQwookHr2zJuDPQoF57J1VfykD2dCWz+T56g8wMnyRng==
+X-Received: by 2002:a05:6402:42c8:b0:647:a127:7c1e with SMTP id 4fb4d7f45d1cf-6499b1fa9demr14895891a12.20.1765901304181;
+        Tue, 16 Dec 2025 08:08:24 -0800 (PST)
+Received: from [192.168.0.108] ([130.185.218.160])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6498210fd0csm16496547a12.25.2025.12.16.08.08.21
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 16 Dec 2025 08:08:23 -0800 (PST)
+Message-ID: <0b381f5b-66a4-4407-9b91-18ecc28b3695@linaro.org>
+Date: Tue, 16 Dec 2025 18:08:21 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 16/38] arm_mpam: resctrl: Add support for 'MB'
- resource
-To: Gavin Shan <gshan@redhat.com>, James Morse <james.morse@arm.com>,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@kernel.org>, Dave Martin <dave.martin@arm.com>,
- Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- fenghuay@nvidia.com, baisheng.gao@unisoc.com,
- Jonathan Cameron <jonathan.cameron@huawei.com>, rohit.mathew@arm.com,
- reinette.chatre@intel.com, Punit Agrawal <punit.agrawal@oss.qualcomm.com>,
- Zeng Heng <zengheng4@huawei.com>
-References: <20251205215901.17772-1-james.morse@arm.com>
- <20251205215901.17772-17-james.morse@arm.com>
- <6d257a70-d27f-4741-8fa5-fa765fa10643@redhat.com>
-From: Ben Horgan <ben.horgan@arm.com>
+Subject: Re: [PATCH 16/19] coresight: trbe: Support trigger mode
+To: Leo Yan <leo.yan@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
+ <mike.leach@linaro.org>, Anshuman Khandual <anshuman.khandual@arm.com>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Tamas Petz <tamas.petz@arm.com>,
+ Tamas Zsoldos <tamas.zsoldos@arm.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
+ Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>
+References: <20251201-trbe_buffer_refactor_v1-1-v1-0-7da32b076b28@arm.com>
+ <20251201-trbe_buffer_refactor_v1-1-v1-16-7da32b076b28@arm.com>
 Content-Language: en-US
-In-Reply-To: <6d257a70-d27f-4741-8fa5-fa765fa10643@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20251201-trbe_buffer_refactor_v1-1-v1-16-7da32b076b28@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_075700_918909_887F534F 
-X-CRM114-Status: GOOD (  36.17  )
+X-CRM114-CacheID: sfid-20251216_080826_437941_D5C677E6 
+X-CRM114-Status: GOOD (  50.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,383 +112,298 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Gavin,
 
-On 12/12/25 04:27, Gavin Shan wrote:
-> Hi James and Ben,
-> 
-> On 12/6/25 7:58 AM, James Morse wrote:
->> resctrl supports 'MB', as a percentage throttling of traffic somewhere
->> after the L3. This is the control that mba_sc uses, so ideally the
->> class chosen should be as close as possible to the counters used for
->> mba_local.
->>
->> MB's percentage control should be backed either with the fixed point
->> fraction MBW_MAX. The bandwidth portion bitmaps is not used as its
->> tricky to pick which bits to use to avoid contention, and may be
->> possible to expose this as something other than a percentage in the
->> future.
->>
->> CC: Zeng Heng <zengheng4@huawei.com>
->> Co-developed-by: Dave Martin <Dave.Martin@arm.com>
->> Signed-off-by: Dave Martin <Dave.Martin@arm.com>
->> Signed-off-by: James Morse <james.morse@arm.com>>
->> ---
->>   drivers/resctrl/mpam_resctrl.c | 212 ++++++++++++++++++++++++++++++++-
->>   1 file changed, 211 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/
->> mpam_resctrl.c
->> index 55576d0caf12..b9f3f00d8cad 100644
->> --- a/drivers/resctrl/mpam_resctrl.c
->> +++ b/drivers/resctrl/mpam_resctrl.c
->> @@ -247,6 +247,33 @@ static bool cache_has_usable_cpor(struct
->> mpam_class *class)
->>       return (class->props.cpbm_wd <= 32);
->>   }
->>   +static bool mba_class_use_mbw_max(struct mpam_props *cprops)
->> +{
->> +    return (mpam_has_feature(mpam_feat_mbw_max, cprops) &&
->> +        cprops->bwa_wd);
->> +}
->> +
->> +static bool class_has_usable_mba(struct mpam_props *cprops)
->> +{
->> +    return mba_class_use_mbw_max(cprops);
->> +}
->> +
->> +/*
->> + * Calculate the worst-case percentage change from each implemented step
->> + * in the control.
->> + */
->> +static u32 get_mba_granularity(struct mpam_props *cprops)
->> +{
->> +    if (!mba_class_use_mbw_max(cprops))
->> +        return 0;
->> +
->> +    /*
->> +     * bwa_wd is the number of bits implemented in the 0.xxx
->> +     * fixed point fraction. 1 bit is 50%, 2 is 25% etc.
->> +     */
->> +    return DIV_ROUND_UP(MAX_MBA_BW, 1 << cprops->bwa_wd);
->> +}
->> +
->>   /*
->>    * Each fixed-point hardware value architecturally represents a range
->>    * of values: the full range 0% - 100% is split contiguously into
->> @@ -287,6 +314,96 @@ static u16 percent_to_mbw_max(u8 pc, struct
->> mpam_props *cprops)
->>       return val;
->>   }
->>   +static u32 get_mba_min(struct mpam_props *cprops)
->> +{
->> +    u32 val = 0;
->> +
->> +    if (mba_class_use_mbw_max(cprops))
->> +        val = mbw_max_to_percent(val, cprops);
->> +    else
->> +        WARN_ON_ONCE(1);
->> +
->> +    return val;
->> +}
->> +
->> +/* Find the L3 cache that has affinity with this CPU */
->> +static int find_l3_equivalent_bitmask(int cpu, cpumask_var_t
->> tmp_cpumask)
->> +{
->> +    u32 cache_id = get_cpu_cacheinfo_id(cpu, 3);
->> +
->> +    lockdep_assert_cpus_held();
->> +
->> +    return mpam_get_cpumask_from_cache_id(cache_id, 3, tmp_cpumask);
->> +}
->> +
->> +/*
->> + * topology_matches_l3() - Is the provided class the same shape as L3
->> + * @victim:        The class we'd like to pretend is L3.
->> + *
->> + * resctrl expects all the world's a Xeon, and all counters are on the
->> + * L3. We play fast and loose with this, mapping counters on other
->> + * classes - provided the CPU->domain mapping is the same kind of shape.
->> + *
->> + * Using cacheinfo directly would make this work even if resctrl can't
->> + * use the L3 - but cacheinfo can't tell us anything about offline CPUs.
->> + * Using the L3 resctrl domain list also depends on CPUs being online.
->> + * Using the mpam_class we picked for L3 so we can use its domain list
->> + * assumes that there are MPAM controls on the L3.
->> + * Instead, this path eventually uses the
->> mpam_get_cpumask_from_cache_id()
->> + * helper which can tell us about offline CPUs ... but getting the
->> cache_id
->> + * to start with relies on at least one CPU per L3 cache being online at
->> + * boot.
->> + *
->> + * Walk the victim component list and compare the affinity mask with the
->> + * corresponding L3. The topology matches if each victim:component's
->> affinity
->> + * mask is the same as the CPU's corresponding L3's. These lists/
->> masks are
->> + * computed from firmware tables so don't change at runtime.
->> + */
->> +static bool topology_matches_l3(struct mpam_class *victim)
->> +{
->> +    int cpu, err;
->> +    struct mpam_component *victim_iter;
->> +    cpumask_var_t __free(free_cpumask_var) tmp_cpumask;
->> +
->> +    if (!alloc_cpumask_var(&tmp_cpumask, GFP_KERNEL))
->> +        return false;
->> +
->> +    guard(srcu)(&mpam_srcu);
->> +    list_for_each_entry_srcu(victim_iter, &victim->components,
->> class_list,
->> +                 srcu_read_lock_held(&mpam_srcu)) {
->> +        if (cpumask_empty(&victim_iter->affinity)) {
->> +            pr_debug("class %u has CPU-less component %u - can't
->> match L3!\n",
->> +                 victim->level, victim_iter->comp_id);
->> +            return false;
->> +        }
->> +
->> +        cpu = cpumask_any(&victim_iter->affinity);
->> +        if (WARN_ON_ONCE(cpu >= nr_cpu_ids))
->> +            return false;
->> +
->> +        cpumask_clear(tmp_cpumask);
->> +        err = find_l3_equivalent_bitmask(cpu, tmp_cpumask);
->> +        if (err) {
->> +            pr_debug("Failed to find L3's equivalent component to
->> class %u component %u\n",
->> +                 victim->level, victim_iter->comp_id);
->> +            return false;
->> +        }
->> +
->> +        /* Any differing bits in the affinity mask? */
->> +        if (!cpumask_equal(tmp_cpumask, &victim_iter->affinity)) {
->> +            pr_debug("class %u component %u has Mismatched CPU mask
->> with L3 equivalent\n"
->> +                 "L3:%*pbl != victim:%*pbl\n",
->> +                 victim->level, victim_iter->comp_id,
->> +                 cpumask_pr_args(tmp_cpumask),
->> +                 cpumask_pr_args(&victim_iter->affinity));
->> +
->> +            return false;
->> +        }
->> +    }
->> +
->> +    return true;
->> +}
->> +
->>   /* Test whether we can export MPAM_CLASS_CACHE:{2,3}? */
->>   static void mpam_resctrl_pick_caches(void)
->>   {
->> @@ -330,10 +447,63 @@ static void mpam_resctrl_pick_caches(void)
->>       }
->>   }
->>   +static void mpam_resctrl_pick_mba(void)
->> +{
->> +    struct mpam_class *class, *candidate_class = NULL;
->> +    struct mpam_resctrl_res *res;
->> +
->> +    lockdep_assert_cpus_held();
->> +
->> +    guard(srcu)(&mpam_srcu);
->> +    list_for_each_entry_srcu(class, &mpam_classes, classes_list,
->> +                 srcu_read_lock_held(&mpam_srcu)) {
->> +        struct mpam_props *cprops = &class->props;
->> +
->> +        if (class->level < 3) {
->> +            pr_debug("class %u is before L3\n", class->level);
->> +            continue;
->> +        }
->> +
->> +        if (!class_has_usable_mba(cprops)) {
->> +            pr_debug("class %u has no bandwidth control\n",
->> +                 class->level);
->> +            continue;
->> +        }
->> +
->> +        if (!cpumask_equal(&class->affinity, cpu_possible_mask)) {
->> +            pr_debug("class %u has missing CPUs\n", class->level);
->> +            continue;
->> +        }
->> +
->> +        if (!topology_matches_l3(class)) {
->> +            pr_debug("class %u topology doesn't match L3\n",
->> +                 class->level);
->> +            continue;
->> +        }
->> +
->> +        /*
->> +         * mba_sc reads the mbm_local counter, and waggles the MBA
->> +         * controls. mbm_local is implicitly part of the L3, pick a
->> +         * resource to be MBA that as close as possible to the L3.
->> +         */
->> +        if (!candidate_class || class->level < candidate_class->level)
->> +            candidate_class = class;
->> +    }
->> +
->> +    if (candidate_class) {
->> +        pr_debug("selected class %u to back MBA\n",
->> +             candidate_class->level);
->> +        res = &mpam_resctrl_controls[RDT_RESOURCE_MBA];
->> +        res->class = candidate_class;
->> +        exposed_alloc_capable = true;
->> +    }
->> +}
->> +
->>   static int mpam_resctrl_control_init(struct mpam_resctrl_res *res,
->>                        enum resctrl_res_level type)
->>   {
->>       struct mpam_class *class = res->class;
->> +    struct mpam_props *cprops = &class->props;
->>       struct rdt_resource *r = &res->resctrl_res;
->>         switch (res->resctrl_res.rid) {
->> @@ -362,6 +532,20 @@ static int mpam_resctrl_control_init(struct
->> mpam_resctrl_res *res,
->>            * 'all the bits' is the correct answer here.
->>            */
->>           r->cache.shareable_bits = resctrl_get_default_ctrl(r);
->> +        break;
->> +    case RDT_RESOURCE_MBA:
->> +        r->alloc_capable = true;
->> +        r->schema_fmt = RESCTRL_SCHEMA_RANGE;
->> +        r->ctrl_scope = RESCTRL_L3_CACHE;
->> +
->> +        r->membw.delay_linear = true;
->> +        r->membw.throttle_mode = THREAD_THROTTLE_UNDEFINED;
->> +        r->membw.min_bw = get_mba_min(cprops);
->> +        r->membw.max_bw = MAX_MBA_BW;
->> +        r->membw.bw_gran = get_mba_granularity(cprops);
->> +
->> +        r->name = "MB";
->> +
->>           break;
->>       default:
->>           break;
->> @@ -377,7 +561,17 @@ static int mpam_resctrl_pick_domain_id(int cpu,
->> struct mpam_component *comp)
->>       if (class->type == MPAM_CLASS_CACHE)
->>           return comp->comp_id;
->>   -    /* TODO: repaint domain ids to match the L3 domain ids */
->> +    if (topology_matches_l3(class)) {
->> +        /* Use the corresponding L3 component ID as the domain ID */
->> +        int id = get_cpu_cacheinfo_id(cpu, 3);
->> +
->> +        /* Implies topology_matches_l3() made a mistake */
->> +        if (WARN_ON_ONCE(id == -1))
->> +            return comp->comp_id;
->> +
->> +        return id;
->> +    }
->> +
->>       /*
->>        * Otherwise, expose the ID used by the firmware table code.
->>        */
->> @@ -419,6 +613,12 @@ u32 resctrl_arch_get_config(struct rdt_resource
->> *r, struct rdt_ctrl_domain *d,
->>       case RDT_RESOURCE_L3:
->>           configured_by = mpam_feat_cpor_part;
->>           break;
->> +    case RDT_RESOURCE_MBA:
->> +        if (mpam_has_feature(mpam_feat_mbw_max, cprops)) {
->> +            configured_by = mpam_feat_mbw_max;
->> +            break;
->> +        }
->> +        fallthrough;
->>       default:
->>           return resctrl_get_default_ctrl(r);
->>       }
->> @@ -430,6 +630,8 @@ u32 resctrl_arch_get_config(struct rdt_resource
->> *r, struct rdt_ctrl_domain *d,
->>       switch (configured_by) {
->>       case mpam_feat_cpor_part:
->>           return cfg->cpbm;
->> +    case mpam_feat_mbw_max:
->> +        return mbw_max_to_percent(cfg->mbw_max, cprops);
->>       default:
->>           return resctrl_get_default_ctrl(r);
->>       }
->> @@ -474,6 +676,13 @@ int resctrl_arch_update_one(struct rdt_resource
->> *r, struct rdt_ctrl_domain *d,
->>           cfg.cpbm = cfg_val;
->>           mpam_set_feature(mpam_feat_cpor_part, &cfg);
->>           break;
->> +    case RDT_RESOURCE_MBA:
->> +        if (mpam_has_feature(mpam_feat_mbw_max, cprops)) {
->> +            cfg.mbw_max = percent_to_mbw_max(cfg_val, cprops);
->> +            mpam_set_feature(mpam_feat_mbw_max, &cfg);
->> +            break;
->> +        }
->> +        fallthrough;
-> 
-> I think mpam_feat_mbw_min peroperly need to be cleared in '&cfg', whose
-> content
-> is copied from that of the component. mpam_feat_mbw_min may have been
-> existing
-> in '&cfg' and struct mpam_config::mbw_min won't be updated correctly in the
-> subsequent call mpam_extend_config(). It means register MPAMCFG_MBW_MIN
-> isn't
-> updated correctly.
 
-Thanks for the report. The suggested fix makes sense too. I'll fix this
-in the later patch where mbw_min is introduced.
+On 01/12/2025 13:22, Leo Yan wrote:
+> The buffer currently operates in fill mode, where tracing stops when it
+> reaches the end of the buffer and a maintenance interrupt is raised.
+> However, due to IRQ latency, trace data may be lost during the window in
+> which tracing is halted but the program continues to run.
+> 
+> To mitigate the issue, this commit enables the trigger count to support
+> buffer maintenance without disabling tracing.  This is fulfilled with
+> two modes:
+> 
+> 1) Set a trigger count as a watermark and use fill mode to prevent the
+>     buffer from being overwritten.  Once the count is decremented to
+>     zero, an interrupt is raised for buffer maintenance, but the hardware
+>     continues collecting trace data until limit.
+> 
+>            head            watermark tail
+>       +----+---------------+---------+-------+
+>       |$$$$|               |         |$$$$$$$|
+>       +----+---------------+---------+-------+
+>       base `---- count ----'         limit   base + nr_pages
+> 
+>       $$$ : Filled trace data
+> 
+> 2) Use wrap mode so that tracing continues when reach the top of the
+>     buffer.  The trigger count is configured as "Stop on trigger" to
+>     guard the trace data not to be overwritten.
+> 
+>                watermark   tail      head
+>       +--------+-----------+---------+-------+
+>       |        |           |$$$$$$$$$|       |
+>       +--------+-----------+---------+-------+
 
-> 
-> On NVidia's grace-hopper machine, I got:
-> 
-> host$ mount none -tresctrl /sys/fs/resctrl/
-> host$ mkdir -p /sys/fs/resctrl/all
-> host$ mkdir -p /sys/fs/resctrl/test
-> host$ cat /proc/dump_feat_regs
-> MPAMF_IDR         0000008057010027
-> MAPMF_MBW_IDR     00000c07
-> 
-> host$ echo "MB:1=98" > /sys/fs/resctrl/test/schemata
-> host$ cat /proc/dump_cfg_regs
-> MPAMCFG_PART_SEL  00000002
-> MPAMCFG_MBW_MAX   0000f9ff
-> MPAMCFG_MBW_MIN   0000f000
-> 
-> host$ echo "MB:1=2" > /sys/fs/resctrl/test/schemata
-> host$ cat /proc/dump_cfg_regs
-> MPAMCFG_PART_SEL  00000002
-> MPAMCFG_MBW_MAX   000005ff
-> MPAMCFG_MBW_MIN   0000f000
-> 
-> With 'mpam_clear_feature(mpam_feat_mbw_min, &cfg);' applied here, the
-> register
-> can be updated correctly. It also makes my (soft) MBW limiting tests happy.
-> 
-> host$ echo "MB:1=98" > /sys/fs/resctrl/test/schemata
-> host$ cat /proc/dump_cfg_regs
-> MPAMCFG_PART_SEL  00000002
-> MPAMCFG_MBW_MAX   0000f9ff
-> MPAMCFG_MBW_MIN   0000ea00
-> 
-> host$ echo "MB:1=2" > /sys/fs/resctrl/test/schemata
-> host$ cat /proc/dump_cfg_regs
-> MPAMCFG_PART_SEL  00000002
-> MPAMCFG_MBW_MAX   000005ff
-> MPAMCFG_MBW_MIN   00000200
-> 
-> 
-> Thanks,
-> Gavin
-> 
->>       default:
->>           return -EINVAL;
->>       }
->> @@ -743,6 +952,7 @@ int mpam_resctrl_setup(void)
->>         /* Find some classes to use for controls */
->>       mpam_resctrl_pick_caches();
->> +    mpam_resctrl_pick_mba();
->>         /* Initialise the resctrl structures from the classes */
->>       for (i = 0; i < RDT_NUM_RESOURCES; i++) {
-> 
+I think some of the existing comments and diagrams need to be updated 
+for wrap mode. For example this one isn't true anymore:
 
-Thanks,
+   neither an wrap around nor an IRQ is expected while being enabled.
 
-Ben
+It's quite hard to make sense of the comments in __trbe_normal_offset() 
+because they don't even mention the new mode of operation because they 
+were written before it. But when reading them they appear to describe 
+definitively how the buffer works.
+
+Also these diagrams in the commit message are inconsistent with the 
+existing ones that use #### for free instead of blank. Personally I 
+prefer blank for free as I don't have to keep going back to the legend 
+to see which one is free. Same for the kunit tests.
+
+>       base                                   base + nr_pages
+>                                              limit
+> 
+>                                      `------->
+>       >-- counter ---------'
+> 
+>       $$$ : Filled trace data
+> 
+> The modes are selected by comparing the limit with the trigger position.
+> 
+> An extra TRBE_FAULT_ACT_TRIG state is introduced for fault action, it is
+> used to distinguish the trigger event from the WRAP event.
+> 
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+>   drivers/hwtracing/coresight/coresight-trbe.c | 101 +++++++++++++++++++++------
+>   drivers/hwtracing/coresight/coresight-trbe.h |  14 ++++
+>   2 files changed, 94 insertions(+), 21 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
+> index 8390d0a8fe23d35945610df15f21751279ee37ee..0551ea9b4f8286c156e3c9c7ac94e2ecd3b9dc3f 100644
+> --- a/drivers/hwtracing/coresight/coresight-trbe.c
+> +++ b/drivers/hwtracing/coresight/coresight-trbe.c
+> @@ -48,6 +48,7 @@
+>   #define TRBE_TRACE_MIN_BUF_SIZE		64
+>   
+>   enum trbe_fault_action {
+> +	TRBE_FAULT_ACT_TRIG,
+>   	TRBE_FAULT_ACT_WRAP,
+>   	TRBE_FAULT_ACT_SPURIOUS,
+>   	TRBE_FAULT_ACT_FATAL,
+> @@ -67,6 +68,7 @@ struct trbe_buf {
+>   	unsigned long trbe_hw_base;
+>   	unsigned long trbe_limit;
+>   	unsigned long trbe_write;
+> +	unsigned long trbe_count;
+>   	int nr_pages;
+>   	void **pages;
+>   	bool snapshot;
+> @@ -478,6 +480,10 @@ static unsigned long __trbe_normal_offset(struct perf_output_handle *handle)
+>   	if (head < tail)
+>   		limit = round_down(tail, PAGE_SIZE);
+>   
+> +	/* If trigger mode is enabled, no need to use limit for watermark */
+> +	if (!static_branch_unlikely(&trbe_trigger_mode_bypass))
+> +		goto out;
+> +
+>   	/*
+>   	 * Wakeup may be arbitrarily far into the future. If it's not in the
+>   	 * current generation, either we'll wrap before hitting it, or it's
+> @@ -495,6 +501,7 @@ static unsigned long __trbe_normal_offset(struct perf_output_handle *handle)
+>   	if (handle->wakeup < (handle->head + handle->size) && head <= wakeup)
+>   		limit = min(limit, round_up(wakeup, PAGE_SIZE));
+>   
+> +out:
+>   	/*
+>   	 * There is a situation when this can happen i.e limit is before
+>   	 * the head and hence TRBE cannot be configured.
+> @@ -518,6 +525,39 @@ static unsigned long __trbe_normal_offset(struct perf_output_handle *handle)
+>   	return 0;
+>   }
+>   
+> +static u64 __trbe_normal_trigger_count(struct perf_output_handle *handle)
+> +{
+> +	struct trbe_buf *buf = etm_perf_sink_config(handle);
+> +	struct trbe_cpudata *cpudata = buf->cpudata;
+> +	u64 limit, head, wakeup;
+> +	u64 count = 0;
+> +
+> +	if (static_branch_unlikely(&trbe_trigger_mode_bypass))
+> +		return 0;
+> +
+> +	limit = buf->trbe_limit - buf->trbe_base;
+> +	head = PERF_IDX2OFF(handle->head, buf);
+> +	wakeup = PERF_IDX2OFF(handle->wakeup, buf);
+> +
+> +	/* Set the count to guard the end of free buffer after wrap around */
+> +	if (limit == buf->nr_pages * PAGE_SIZE && (head + handle->size) > limit)
+> +		count = handle->size;
+> +
+> +	/*
+> +	 * If the watermark is less than the limit, use the trigger count for
+> +	 * the watermark maintenance.
+> +	 */
+> +	if (handle->wakeup < (handle->head + handle->size) && head <= wakeup) {
+> +		u64 wakeup_count =
+> +			round_up(wakeup - head, cpudata->trbe_hw_align);
+> +
+> +		if (head + wakeup_count < limit)
+> +			count = wakeup_count;
+> +	}
+> +
+> +	return count;
+> +}
+> +
+>   static int trbe_normal_offset(struct perf_output_handle *handle)
+>   {
+>   	struct trbe_buf *buf = etm_perf_sink_config(handle);
+> @@ -542,6 +582,7 @@ static int trbe_normal_offset(struct perf_output_handle *handle)
+>   		return -ENOSPC;
+>   
+>   	buf->trbe_limit = buf->trbe_base + limit;
+> +	buf->trbe_count = __trbe_normal_trigger_count(handle);
+>   	return 0;
+>   }
+>   
+> @@ -594,24 +635,40 @@ static void set_trbe_limit_pointer_enabled(struct trbe_buf *buf)
+>   	trblimitr &= ~TRBLIMITR_EL1_TM_MASK;
+>   	trblimitr &= ~TRBLIMITR_EL1_LIMIT_MASK;
+>   
+> -	/*
+> -	 * Fill trace buffer mode is used here while configuring the
+> -	 * TRBE for trace capture. In this particular mode, the trace
+> -	 * collection is stopped and a maintenance interrupt is raised
+> -	 * when the current write pointer wraps. This pause in trace
+> -	 * collection gives the software an opportunity to capture the
+> -	 * trace data in the interrupt handler, before reconfiguring
+> -	 * the TRBE.
+> -	 */
+> -	trblimitr |= (TRBLIMITR_EL1_FM_FILL << TRBLIMITR_EL1_FM_SHIFT) &
+> -		     TRBLIMITR_EL1_FM_MASK;
+> +	if (!buf->trbe_count ||
+> +	    buf->trbe_write + buf->trbe_count == buf->trbe_limit) {
+> +		/*
+> +		 * Fill trace buffer mode is used here while configuring the
+> +		 * TRBE for trace capture. In this particular mode, the trace
+> +		 * collection is stopped and a maintenance interrupt is raised
+> +		 * when the current write pointer wraps. This pause in trace
+> +		 * collection gives the software an opportunity to capture the
+> +		 * trace data in the interrupt handler, before reconfiguring
+> +		 * the TRBE.
+> +		 */
+> +		trblimitr |= FIELD_PREP(TRBLIMITR_EL1_FM_MASK, TRBLIMITR_EL1_FM_FILL) |
+> +			     FIELD_PREP(TRBLIMITR_EL1_TM_MASK, TRBLIMITR_EL1_TM_IGNR);
+
+I thought there were only two modes required: Wrap with trigger stop or 
+Fill with trigger IRQ. What's this first one for? Is this to support the 
+errata cases where the trigger counter isn't used?
+
+> +	} else if (buf->trbe_write + buf->trbe_count < buf->trbe_limit) {
+> +		/*
+> +		 * Fill mode is used here to stop trace collection and prevent
+> +		 * the buffer from being overwritten. Trigger mode continues
+> +		 * trace collection and raises a maintenance interrupt on a
+> +		 * trigger event, which acts as a watermark for notifying
+> +		 * userspace.
+> +		 */
+> +		trblimitr |= FIELD_PREP(TRBLIMITR_EL1_FM_MASK, TRBLIMITR_EL1_FM_FILL) |
+> +			     FIELD_PREP(TRBLIMITR_EL1_TM_MASK, TRBLIMITR_EL1_TM_IRQ);
+> +	} else if (buf->trbe_write + buf->trbe_count > buf->trbe_limit) {
+> +		/*
+> +		 * Wrap buffer mode continues trace collection and raises
+> +		 * maintenance interrupt on buffer wrap. Trigger mode stops
+> +		 * trace on trigger event to guard the buffer from being
+> +		 * overwritten.
+> +		 */
+> +		trblimitr |= FIELD_PREP(TRBLIMITR_EL1_FM_MASK, TRBLIMITR_EL1_FM_WRAP) |
+> +			     FIELD_PREP(TRBLIMITR_EL1_TM_MASK, TRBLIMITR_EL1_TM_STOP);
+> +	}
+
+Can you document what the case is for a final else here, even if there's 
+no code? Or should it even be a WARN()?
+
+>   
+> -	/*
+> -	 * Trigger mode is not used here while configuring the TRBE for
+> -	 * the trace capture. Hence just keep this in the ignore mode.
+> -	 */
+> -	trblimitr |= (TRBLIMITR_EL1_TM_IGNR << TRBLIMITR_EL1_TM_SHIFT) &
+> -		     TRBLIMITR_EL1_TM_MASK;
+>   	trblimitr |= (addr & PAGE_MASK);
+>   	set_trbe_enabled(buf->cpudata, trblimitr);
+>   }
+> @@ -623,6 +680,7 @@ static void trbe_enable_hw(struct trbe_buf *buf)
+>   	WARN_ON(buf->trbe_write >= buf->trbe_limit);
+>   	set_trbe_base_pointer(buf->trbe_hw_base);
+>   	set_trbe_write_pointer(buf->trbe_write);
+> +	set_trbe_trigger_count(buf->trbe_count);
+>   
+>   	/*
+>   	 * Synchronize all the register updates
+> @@ -639,8 +697,6 @@ static enum trbe_fault_action trbe_get_fault_act(struct perf_output_handle *hand
+>   	int ec = get_trbe_ec(trbsr);
+>   	int bsc = get_trbe_bsc(trbsr);
+>   
+> -	WARN_ON(is_trbe_running(trbsr));
+> -
+>   	if (is_trbe_abort(trbsr)) {
+>   		err_str = "External abort";
+>   		goto out_fatal;
+> @@ -672,8 +728,7 @@ static enum trbe_fault_action trbe_get_fault_act(struct perf_output_handle *hand
+>   	case TRBE_BSC_FILLED:
+>   		break;
+>   	case TRBE_BSC_TRIGGERED:
+> -		err_str = "Unexpected trigger status";
+> -		goto out_fatal;
+> +		break;
+>   	default:
+>   		err_str = "Unexpected buffer status code";
+>   		goto out_fatal;
+> @@ -692,6 +747,9 @@ static enum trbe_fault_action trbe_get_fault_act(struct perf_output_handle *hand
+>   	if (is_trbe_wrap(trbsr))
+>   		return TRBE_FAULT_ACT_WRAP;
+>   
+> +	if (is_trbe_trg(trbsr))
+> +		return TRBE_FAULT_ACT_TRIG;
+> +
+>   	return TRBE_FAULT_ACT_SPURIOUS;
+>   
+>   out_fatal:
+> @@ -1180,6 +1238,7 @@ static irqreturn_t arm_trbe_irq_handler(int irq, void *dev)
+>   		clr_trbe_status();
+>   
+>   	switch (act) {
+> +	case TRBE_FAULT_ACT_TRIG:
+>   	case TRBE_FAULT_ACT_WRAP:
+>   		truncated = !!trbe_handle_overflow(handle, act);
+>   		break;
+> diff --git a/drivers/hwtracing/coresight/coresight-trbe.h b/drivers/hwtracing/coresight/coresight-trbe.h
+> index d7f7cd763c0c7139cf322b7336ee563073e3bea0..4c65d164a946ec9860825e7564196745b60d730b 100644
+> --- a/drivers/hwtracing/coresight/coresight-trbe.h
+> +++ b/drivers/hwtracing/coresight/coresight-trbe.h
+> @@ -114,6 +114,20 @@ static inline void set_trbe_write_pointer(unsigned long addr)
+>   	write_sysreg_s(addr, SYS_TRBPTR_EL1);
+>   }
+>   
+> +static inline void set_trbe_trigger_count(unsigned long count)
+> +{
+> +	u64 trbsr;
+> +
+> +	write_sysreg_s(count, SYS_TRBTRG_EL1);
+> +
+> +	/* TRBSR_EL1.TRG has been cleared in clr_trbe_status() */
+> +	if (!count)
+> +		return;
+> +
+> +	trbsr = read_sysreg_s(SYS_TRBSR_EL1);
+> +	write_sysreg_s(trbsr | TRBSR_EL1_TRG, SYS_TRBSR_EL1);
+> +}
+> +
+>   static inline unsigned long get_trbe_limit_pointer(void)
+>   {
+>   	u64 trblimitr = read_sysreg_s(SYS_TRBLIMITR_EL1);
+> 
 
 
