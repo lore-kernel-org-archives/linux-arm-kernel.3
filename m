@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCE3FD5C0C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 01:50:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C044D5B87A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 01:50:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a2v9AIdwaPAL6jblyry96mGZ7pn99ZZcNYRAxxIyeOE=; b=zW2pslrYMqjpLER2kEe3DKg1Dj
-	rVzzXMovC4M5wOxRKeJZJMm+MerYp6Kh1jDFIS2jcF2//FZNLRZdUr6vBqKl6OLPqJ8C/41yt32KM
-	SFp9gnO1VzUzMqepUBNrghC8v6yw308NwhRlMB7GQwaDdMFcPXbn4b/JeMVkOz7HQPb7up+AMqHna
-	rs4q2LzKJ0VvvWCOBkZJVFg0qxSoI7sjF4hIveiBvXDkII78zOvRvNoI1k0N8qWk5j6D7woeG1z9u
-	Naw8CVz+3okaSB7b0VAoWpMT5mCKAFYo84ffDosUGTgu/8VbPjpx8OVKjGykGydw5ep/JAQ6BGNWW
-	E8GPHkdA==;
+	bh=c99lV5XbwMeYCb6C/UXSekWsYjPQbNGy9E5UjxIMP/0=; b=z5rtBh8YTSciafif4zeXz+wO9P
+	KLX59qvC8nOmFc1OinBhHJxZ7mS7f2M+PeVZDGlSpfCG1V05IPPooUBC7weU1Z68WnRJ4bDUuhuxI
+	BTIAKUzbMzuiSz9hQEKHSX55Q56lit4u5v3eLouMZ+J+goSbIqnsW2h1p0Pv1hdYuuoGcYjvQ8RKV
+	mhs5WBt12al8WBDZEhbFhKWZZS+nLiYhOWXuQokP5nh9mvWV3FRoKHTk8siTgvsJcojy77f1SBz4c
+	N0Nr0Pjz03LMCi8NPmBiQMP81ISugI79SvOkcVHA48w6YZNCxx2gI4Zr5XWTH8IYfo7w/nPoch/6g
+	ajarMkXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVKCn-00000004WHE-1ian;
-	Tue, 16 Dec 2025 01:50:25 +0000
+	id 1vVKCm-00000004WGN-3bFu;
+	Tue, 16 Dec 2025 01:50:24 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVKCk-00000004WA6-27mX;
-	Tue, 16 Dec 2025 01:50:23 +0000
+	id 1vVKCi-00000004WA6-2g8g;
+	Tue, 16 Dec 2025 01:50:21 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Tue, 16 Dec
@@ -34,12 +34,12 @@ Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
  Transport; Tue, 16 Dec 2025 09:50:01 +0800
 From: Jacky Chou <jacky_chou@aspeedtech.com>
-Date: Tue, 16 Dec 2025 09:50:03 +0800
-Subject: [PATCH v7 4/7] PHY: aspeed: Add ASPEED PCIe PHY driver
+Date: Tue, 16 Dec 2025 09:50:02 +0800
+Subject: [PATCH v7 3/7] ARM: dts: aspeed-g6: Add PCIe RC and PCIe PHY node
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20251216-upstream_pcie_rc-v7-4-4aeb0f53c4ce@aspeedtech.com>
+Message-ID: <20251216-upstream_pcie_rc-v7-3-4aeb0f53c4ce@aspeedtech.com>
 References: <20251216-upstream_pcie_rc-v7-0-4aeb0f53c4ce@aspeedtech.com>
 In-Reply-To: <20251216-upstream_pcie_rc-v7-0-4aeb0f53c4ce@aspeedtech.com>
 To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
@@ -57,16 +57,17 @@ CC: <linux-aspeed@lists.ozlabs.org>, <linux-pci@vger.kernel.org>,
 	Andrew Jeffery <andrew@aj.id.au>, <openbmc@lists.ozlabs.org>,
 	<linux-gpio@vger.kernel.org>, Jacky Chou <jacky_chou@aspeedtech.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1765849800; l=8385;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1765849800; l=2673;
  i=jacky_chou@aspeedtech.com; s=20251031; h=from:subject:message-id;
- bh=nnKcVVj3TO+UHviYvMPr2JZHj1rR59EDO0Kxrx3wwws=;
- b=N6fwuXDweQ1qBw9YaustyLC2iwPoK2Sps39IvUtdLJrhgAiVwpGQdbFFuziaZ+yAyq0s8GOdg
- NHnkh8ssvDuCvqcKO9RpJRBTrz2YbjMsBc/VdtvmngYDuqHbbwi2ils
+ bh=5iCz5vaaMTKJcJypZ4ZjGdGSe5ESf+2Fv7rlS6vHva0=;
+ b=4Xf/cCJdCLRSpmiSlzel8Lp5eYu4jYVblVkkuPCIJxx2JX/004XO6r6TOwgs3kvCfBvkrpJwS
+ 96DsV9mC85aCh/TUmk06ogWS62f2w0yPt73/uB14nDp94aAdVqK95Iy
 X-Developer-Key: i=jacky_chou@aspeedtech.com; a=ed25519;
  pk=8XBx7KFM1drEsfCXTH9QC2lbMlGU4XwJTA6Jt9Mabdo=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_175022_703353_651FA24B 
-X-CRM114-Status: GOOD (  18.54  )
+X-CRM114-CacheID: sfid-20251215_175020_689608_0191D739 
+X-CRM114-Status: UNSURE (   8.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,288 +82,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce support for Aspeed PCIe PHY controller available in
-AST2600/2700.
+The AST2600 has one PCIe RC and add the PCIe PHY for RC.
+And add pinctrl support for PCIe RC PERST#.
 
 Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
 ---
- drivers/phy/Kconfig                  |   1 +
- drivers/phy/Makefile                 |   1 +
- drivers/phy/aspeed/Kconfig           |  15 +++
- drivers/phy/aspeed/Makefile          |   2 +
- drivers/phy/aspeed/phy-aspeed-pcie.c | 209 +++++++++++++++++++++++++++++++++++
- 5 files changed, 228 insertions(+)
+ arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi |  5 +++
+ arch/arm/boot/dts/aspeed/aspeed-g6.dtsi         | 51 +++++++++++++++++++++++++
+ 2 files changed, 56 insertions(+)
 
-diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
-index 678dd0452f0a..f6a8f06fd244 100644
---- a/drivers/phy/Kconfig
-+++ b/drivers/phy/Kconfig
-@@ -103,6 +103,7 @@ config PHY_NXP_PTN3222
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi
+index e87c4b58994a..d46f2047135c 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi
++++ b/arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi
+@@ -2,6 +2,11 @@
+ // Copyright 2019 IBM Corp.
  
- source "drivers/phy/allwinner/Kconfig"
- source "drivers/phy/amlogic/Kconfig"
-+source "drivers/phy/aspeed/Kconfig"
- source "drivers/phy/broadcom/Kconfig"
- source "drivers/phy/cadence/Kconfig"
- source "drivers/phy/freescale/Kconfig"
-diff --git a/drivers/phy/Makefile b/drivers/phy/Makefile
-index bfb27fb5a494..18990c87dfb0 100644
---- a/drivers/phy/Makefile
-+++ b/drivers/phy/Makefile
-@@ -15,6 +15,7 @@ obj-$(CONFIG_PHY_AIROHA_PCIE)		+= phy-airoha-pcie.o
- obj-$(CONFIG_PHY_NXP_PTN3222)		+= phy-nxp-ptn3222.o
- obj-y					+= allwinner/	\
- 					   amlogic/	\
-+					   aspeed/	\
- 					   broadcom/	\
- 					   cadence/	\
- 					   freescale/	\
-diff --git a/drivers/phy/aspeed/Kconfig b/drivers/phy/aspeed/Kconfig
-new file mode 100644
-index 000000000000..6aeeca84091f
---- /dev/null
-+++ b/drivers/phy/aspeed/Kconfig
-@@ -0,0 +1,15 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+#
-+# Phy drivers for Aspeed platforms
-+#
-+config PHY_ASPEED_PCIE
-+	tristate "ASPEED PCIe PHY driver"
-+	select GENERIC_PHY
-+	depends on ARCH_ASPEED
-+	default y
-+	help
-+	  This option enables support for the ASPEED PCIe PHY driver.
-+	  The driver provides the necessary interface to control and
-+	  configure the PCIe PHY hardware found on ASPEED SoCs.
-+	  It is required for proper operation of PCIe devices on
-+	  platforms using ASPEED chips.
-\ No newline at end of file
-diff --git a/drivers/phy/aspeed/Makefile b/drivers/phy/aspeed/Makefile
-new file mode 100644
-index 000000000000..7203152f44bf
---- /dev/null
-+++ b/drivers/phy/aspeed/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0
-+obj-$(CONFIG_PHY_ASPEED_PCIE)		+= phy-aspeed-pcie.o
-\ No newline at end of file
-diff --git a/drivers/phy/aspeed/phy-aspeed-pcie.c b/drivers/phy/aspeed/phy-aspeed-pcie.c
-new file mode 100644
-index 000000000000..3de43a86ac17
---- /dev/null
-+++ b/drivers/phy/aspeed/phy-aspeed-pcie.c
-@@ -0,0 +1,209 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * Copyright 2025 Aspeed Technology Inc.
-+ */
+ &pinctrl {
++	pinctrl_pcierc1_default: pcierc1-default {
++		function = "PCIERC1";
++		groups = "PCIERC1";
++	};
 +
-+#include <linux/clk.h>
-+#include <linux/clk-provider.h>
-+#include <linux/delay.h>
-+#include <linux/err.h>
-+#include <linux/io.h>
-+#include <linux/iopoll.h>
-+#include <linux/kernel.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_address.h>
-+#include <linux/phy/pcie.h>
-+#include <linux/phy/phy.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
-+#include <linux/regulator/consumer.h>
-+#include <linux/reset.h>
-+#include <linux/slab.h>
+ 	pinctrl_adc0_default: adc0_default {
+ 		function = "ADC0";
+ 		groups = "ADC0";
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
+index f8662c8ac089..a525c63dac3c 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
++++ b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
+@@ -379,6 +379,57 @@ rng: hwrng@1e6e2524 {
+ 				quality = <100>;
+ 			};
+ 
++			pcie_phy1: phy@1e6ed200 {
++				compatible = "aspeed,ast2600-pcie-phy";
++				reg = <0x1e6ed200 0x100>;
++				#phy-cells = <0>;
++			};
 +
-+/* AST2600 PCIe Host Controller Registers */
-+#define PEHR_GLOBAL		0x30
-+#define  AST2600_PORT_TYPE_MASK		GENMASK(5, 4)
-+#define  AST2600_PORT_TYPE(x)		FIELD_PREP(AST2600_PORT_TYPE_MASK, x)
-+#define PEHR_LOCK		0x7c
-+#define  PCIE_UNLOCK			0xa8
++			pcie0: pcie@1e770000 {
++				compatible = "aspeed,ast2600-pcie";
++				device_type = "pci";
++				reg = <0x1e770000 0x100>;
++				#address-cells = <3>;
++				#size-cells = <2>;
++				interrupts = <GIC_SPI 168 IRQ_TYPE_LEVEL_HIGH>;
++				bus-range = <0x00 0xff>;
 +
-+/* AST2700 PEHR */
-+#define PEHR_MISC_58		0x58
-+#define  LOCAL_SCALE_SUP		BIT(0)
-+#define PEHR_MISC_5C		0x5c
-+#define  CONFIG_RC_DEVICE		BIT(30)
-+#define PEHR_MISC_60		0x60
-+#define  AST2700_PORT_TYPE_MASK		GENMASK(7, 4)
-+#define  PORT_TYPE_ROOT			BIT(6)
-+#define PEHR_MISC_70		0x70
-+#define  POSTED_DATA_CREDITS(x)		FIELD_PREP(GENMASK(15, 0), x)
-+#define  POSTED_HEADER_CREDITS(x)	FIELD_PREP(GENMASK(27, 16), x)
-+#define PEHR_MISC_78		0x78
-+#define  COMPLETION_DATA_CREDITS(x)	FIELD_PREP(GENMASK(15, 0), x)
-+#define  COMPLETION_HEADER_CREDITS(x)	FIELD_PREP(GENMASK(27, 16), x)
++				ranges = <0x01000000 0x0 0x00018000 0x00018000 0x0 0x00008000
++					  0x02000000 0x0 0x60000000 0x60000000 0x0 0x20000000>;
 +
-+/**
-+ * struct aspeed_pcie_phy - PCIe PHY information
-+ * @dev: pointer to device structure
-+ * @reg: PCIe host register base address
-+ * @phy: pointer to PHY structure
-+ * @platform: platform specific information
-+ */
-+struct aspeed_pcie_phy {
-+	struct device *dev;
-+	void __iomem *reg;
-+	struct phy *phy;
-+	const struct aspeed_pcie_phy_platform *platform;
-+};
++				status = "disabled";
 +
-+/**
-+ * struct aspeed_pcie_phy_platform - Platform information
-+ * @phy_ops: phy operations
-+ */
-+struct aspeed_pcie_phy_platform {
-+	const struct phy_ops *phy_ops;
-+};
++				resets = <&syscon ASPEED_RESET_H2X>;
++				reset-names = "h2x";
 +
-+static int ast2600_phy_init(struct phy *phy)
-+{
-+	struct aspeed_pcie_phy *pcie_phy = phy_get_drvdata(phy);
++				#interrupt-cells = <1>;
++				msi-controller;
 +
-+	writel(PCIE_UNLOCK, pcie_phy->reg + PEHR_LOCK);
++				aspeed,ahbc = <&ahbc>;
 +
-+	return 0;
-+}
++				interrupt-controller;
++				interrupt-map-mask = <0 0 0 7>;
++				interrupt-map = <0 0 0 1 &pcie0 0>,
++						<0 0 0 2 &pcie0 1>,
++						<0 0 0 3 &pcie0 2>,
++						<0 0 0 4 &pcie0 3>;
 +
-+static int ast2600_phy_set_mode(struct phy *phy, enum phy_mode mode,
-+				int submode)
-+{
-+	struct aspeed_pcie_phy *pcie_phy = phy_get_drvdata(phy);
++				pcie@8,0 {
++					compatible = "pciclass,0604";
++					reg = <0x00004000 0 0 0 0>;
++					#address-cells = <3>;
++					#size-cells = <2>;
++					device_type = "pci";
++					resets = <&syscon ASPEED_RESET_PCIE_RC_O>;
++					reset-names = "perst";
++					clocks = <&syscon ASPEED_CLK_GATE_BCLK>;
++					pinctrl-names = "default";
++					pinctrl-0 = <&pinctrl_pcierc1_default>;
++					phys = <&pcie_phy1>;
++					ranges;
++				};
++			};
 +
-+	switch (submode) {
-+	case PHY_MODE_PCIE_RC:
-+		writel(AST2600_PORT_TYPE(0x3), pcie_phy->reg + PEHR_GLOBAL);
-+		break;
-+	default:
-+		dev_err(&phy->dev, "Unsupported submode %d\n", submode);
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct phy_ops ast2600_phy_ops = {
-+	.init		= ast2600_phy_init,
-+	.set_mode	= ast2600_phy_set_mode,
-+	.owner		= THIS_MODULE,
-+};
-+
-+static int ast2700_phy_init(struct phy *phy)
-+{
-+	struct aspeed_pcie_phy *pcie_phy = phy_get_drvdata(phy);
-+
-+	writel(POSTED_DATA_CREDITS(0xc0) | POSTED_HEADER_CREDITS(0xa),
-+	       pcie_phy->reg + PEHR_MISC_70);
-+	writel(COMPLETION_DATA_CREDITS(0x30) | COMPLETION_HEADER_CREDITS(0x8),
-+	       pcie_phy->reg + PEHR_MISC_78);
-+	writel(LOCAL_SCALE_SUP, pcie_phy->reg + PEHR_MISC_58);
-+
-+	return 0;
-+}
-+
-+static int ast2700_phy_set_mode(struct phy *phy, enum phy_mode mode,
-+				int submode)
-+{
-+	struct aspeed_pcie_phy *pcie_phy = phy_get_drvdata(phy);
-+	u32 cfg_val;
-+
-+	switch (submode) {
-+	case PHY_MODE_PCIE_RC:
-+		writel(CONFIG_RC_DEVICE, pcie_phy->reg + PEHR_MISC_5C);
-+		cfg_val = readl(pcie_phy->reg + PEHR_MISC_60);
-+		cfg_val &= ~AST2700_PORT_TYPE_MASK;
-+		cfg_val |= PORT_TYPE_ROOT;
-+		writel(cfg_val, pcie_phy->reg + PEHR_MISC_60);
-+		break;
-+	default:
-+		dev_err(&phy->dev, "Unsupported submode %d\n", submode);
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct phy_ops ast2700_phy_ops = {
-+	.init		= ast2700_phy_init,
-+	.set_mode	= ast2700_phy_set_mode,
-+	.owner		= THIS_MODULE,
-+};
-+
-+const struct aspeed_pcie_phy_platform pcie_phy_ast2600 = {
-+	.phy_ops = &ast2600_phy_ops,
-+};
-+
-+const struct aspeed_pcie_phy_platform pcie_phy_ast2700 = {
-+	.phy_ops = &ast2700_phy_ops,
-+};
-+
-+static int aspeed_pcie_phy_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct phy_provider *phy_provider;
-+	struct aspeed_pcie_phy *pcie_phy;
-+	const struct aspeed_pcie_phy_platform *md;
-+
-+	md = of_device_get_match_data(dev);
-+	if (!md)
-+		return -ENODEV;
-+
-+	pcie_phy = devm_kzalloc(dev, sizeof(*pcie_phy), GFP_KERNEL);
-+	if (!pcie_phy)
-+		return -ENOMEM;
-+
-+	pcie_phy->reg = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(pcie_phy->reg))
-+		return PTR_ERR(pcie_phy->reg);
-+
-+	pcie_phy->dev = dev;
-+	pcie_phy->platform = md;
-+
-+	pcie_phy->phy = devm_phy_create(dev, dev->of_node,
-+					pcie_phy->platform->phy_ops);
-+	if (IS_ERR(pcie_phy->phy))
-+		return dev_err_probe(dev, PTR_ERR(pcie_phy->phy),
-+				     "failed to create PHY\n");
-+
-+	phy_set_drvdata(pcie_phy->phy, pcie_phy);
-+	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
-+
-+	return PTR_ERR_OR_ZERO(phy_provider);
-+}
-+
-+static const struct of_device_id aspeed_pcie_phy_of_match_table[] = {
-+	{
-+		.compatible = "aspeed,ast2600-pcie-phy",
-+		.data = &pcie_phy_ast2600,
-+	},
-+	{
-+		.compatible = "aspeed,ast2700-pcie-phy",
-+		.data = &pcie_phy_ast2700,
-+	},
-+	{ },
-+};
-+MODULE_DEVICE_TABLE(of, aspeed_pcie_phy_of_match_table);
-+
-+static struct platform_driver aspeed_pcie_driver = {
-+	.probe		= aspeed_pcie_phy_probe,
-+	.driver = {
-+		.name	= "aspeed-pcie-phy",
-+		.of_match_table = aspeed_pcie_phy_of_match_table,
-+	},
-+};
-+
-+module_platform_driver(aspeed_pcie_driver);
-+
-+MODULE_AUTHOR("Jacky Chou <jacky_chou@aspeedtech.com>");
-+MODULE_DESCRIPTION("ASPEED PCIe PHY");
-+MODULE_LICENSE("GPL");
+ 			gfx: display@1e6e6000 {
+ 				compatible = "aspeed,ast2600-gfx", "syscon";
+ 				reg = <0x1e6e6000 0x1000>;
 
 -- 
 2.34.1
