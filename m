@@ -4,109 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E068D637DB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 22:50:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7372BD637B3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 22:58:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=62+SRIZ98WwwWs2kgA6doBGmZ5Cs8CyuW9dLlAZbi6s=; b=07LHjBpgy+LM1tgx1epBtd+ZjF
-	mt7QyE6n470X6fHjR1N8J3GX8GE6gHHAq2e1T0XKyJgrgtYance2WPi5frST2gh9hh6o0x/jluqTP
-	dzX6myY4RV00Qn5VyAkowvrR1y7SFQi1Z/Mg6zbtmdyFc2Qxb4M/8SPgHqkAGkQntaFyKxc3M7guf
-	FwETocndB7otJIuibHbAVDB2eiLKbqrvqmeBYveqfEdAcbTpDAM1Yaaks4iiMIjpQy8QLJ3ftbs59
-	iQaqnvj/mXMaKfPkso1ZGAsJgeAAiH4msbz/vnanKIo2HyA35C/zGytXMI5QXR0Kr5EMY5W9E2NBT
-	TTsIF99w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ooOYMKF+H2KmYqWB5Ili55QDSI+uZ+QcC5rU+1Qm5GE=; b=h1ExahuI1l051wuyO1ZiCW/1bO
+	8S4PK3cMx4akxQcmMAwCwVVdYeQjEyXFi5gzg4ex0YneM7h/ZwPYhFw/LgRPlEsB0rqZNDnCA/P3N
+	RJgA7CXnpUZ2OFGWdFhLt9kNzQIW4nK1pAwg8Chk3DOTLcJAHf1tOZSeoq00NrE9NA1ABm2WXWLS0
+	zVKm3M0YPB32tWWBaGSfxLRdybyNB0ZnupoNBKzbhRMpcS76zxBnw45EtutdHDdcp/Uo+1naEu6Q0
+	KRXxUX6aR+rxdHkvmru7AwGkPIuiLeWRS52tORN7rhOI1dff93SaSaVDrMpGwsurOz4QjLq5unhee
+	kXNGUEgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVdrx-00000005url-2F4L;
-	Tue, 16 Dec 2025 22:50:13 +0000
-Received: from mail-qt1-x835.google.com ([2607:f8b0:4864:20::835])
+	id 1vVdzg-00000005vBA-323C;
+	Tue, 16 Dec 2025 22:58:12 +0000
+Received: from mail-oi1-x22b.google.com ([2607:f8b0:4864:20::22b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVdrv-00000005uqt-15Pt
+	id 1vVdzd-00000005vAM-0ldR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 22:50:12 +0000
-Received: by mail-qt1-x835.google.com with SMTP id d75a77b69052e-4f34f257a1bso145541cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 14:50:10 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1765925409; cv=none;
-        d=google.com; s=arc-20240605;
-        b=beCpPXRYNFNfMkWfodhjB4BmmRwPrdIK9YAripPAeh76A6RuB55HfMV6ES8OubmCJR
-         NLl5XBqSFZRut9880Pr6fj05fHjDn61e3aOrRLdp+5VcR/w7M7rQYANmmM34HBpLCPBl
-         eLeDU+7OX3XUSW9YTTpJ5G9LJ/VednCSjEA0/HbiWfSrnVhzdi131dM1GLMxYXKDRE3F
-         2x7Gy4rD6yYuxpr57TcjGmCIm9nPwhxIF49umsfrPxVjF6ARUttqiHiS0y+RAS7JEQ2D
-         EkqhAlVfvvnJNZBud95Nzxg0cT5iBriztt5CyFMCqJ164lrNTx4kG3Skk+wtcAT39pMz
-         q2qQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=62+SRIZ98WwwWs2kgA6doBGmZ5Cs8CyuW9dLlAZbi6s=;
-        fh=RXBVnCVNB1RAiWVIdhj4v7uceedgRwj8rdIDYMBrMZo=;
-        b=NPHNjHOjP7bSuEiGcjPTk7HYTI6Lek7RHFL7YIBhsCbY7u9qMRORu1mOHmmbEhtEmc
-         5wLZidRv+J4mjWtT1/bJzvDOqXmDpwB9/PQlydqEgm9HC2HcPJMOgpj9ZM/XdjpbIXlr
-         BqwKNtLU2PChsoqtT8oexx3mM3Dn/pj/OCrfKPShQFG6ZmkUzv5WXiX9i/wgT73vjZou
-         JHz73BkrDFR/JBsVe+Bndjiqk0gvBYfFV3wTjCALMXWBulPRt1hiww+yy/iMzMfBYg3R
-         6AOOPO4GBMmiQLS1+K/CSfFWTO62g/1ydycQw2M7Cesa9RC9iT8LmymTusB6q6JkaMk4
-         zkIg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Tue, 16 Dec 2025 22:58:11 +0000
+Received: by mail-oi1-x22b.google.com with SMTP id 5614622812f47-450be85b7d9so3247425b6e.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 14:58:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1765925409; x=1766530209; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=62+SRIZ98WwwWs2kgA6doBGmZ5Cs8CyuW9dLlAZbi6s=;
-        b=2g7hrQwkqgzD9WOIIwl8JkdhQIM4igO5PHl46YffPDt+sGVhQ+jBKzlCL0e6qT1DeC
-         R1m3DHMc2V1Xq2nADIJMGw841aJL7UkzlbC6j/WkrByhYU5aUKGjY56mLsN6Iq+aB/7c
-         xLKTytx5S6XsSFzrnjBr8RrhG1ocPH9bhJmkNga5dMcQYTzOfj00RKDYmO8BjCKb5/4n
-         wOq2B/JW1pkC4t71DSEGdSz8DYu/My8KqHduDobRcXRNxa6QBkGKHp/6g5/Bu5O4VSa0
-         SGpfPXE8BoWatibh9rVsxiA/jPzGEpVIu600LiJGg2B1BDsQDEzn3iqgmqysOppXD9hW
-         /csA==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1765925887; x=1766530687; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ooOYMKF+H2KmYqWB5Ili55QDSI+uZ+QcC5rU+1Qm5GE=;
+        b=1u21u3cyVxS4qms3CBT07jenk+J7FuBxWg9EG+kKvCx0ps2VEfQsIu60uBpHr4uQyd
+         EtzG1fNMohh2qUvNYmqkiGhDwrIobVQXkwNX2VWcYzeEGJlgFZaH/eJIInMIRwGkDtgm
+         +b3R1pzf3ppYrUnq4FBfY+5wFC1QITHvmHuqRkCKigHrSSV70rJtTithKitxx7CjmCb0
+         7/bzoeZJ1Vu/R/72+56NxY0UQofvxjzwmeDYkynawTMTuP6sRd4A7PZtZOQdCwHU4lUn
+         58KbP39Aj8fXMnqGRHZuQEMCmbixAkAdjGJdWp1Bk1yJux7G8mRs0fi7luMOFKo7ol2r
+         8zpw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765925409; x=1766530209;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=62+SRIZ98WwwWs2kgA6doBGmZ5Cs8CyuW9dLlAZbi6s=;
-        b=jCQ0rytxrH4cbfd/V7JAQHibe7gNyr21OCh4DXB+ZeMJSmEf13X0YKs3DzL2I6tjT/
-         vMF6JYNWlyv5O20Cl4vlL/J3xFyG9Oiu2kMuxfztxZ05kfI//fx0QYFIZ6iFzIsNai1t
-         /nouH6yWZEdllyA3J3r3KcC2xX/Xg5ZYxJU3VogcbmeyTHAxvkmRBSi98f8vldv2ctPx
-         t7hSc2ZX92s99mlF9QkjSMAZPVly5HfLX1Iw9mCZBKgfnVkpdRRuvsVokstExjHsMpv+
-         JMXp08iAJ81/EEDq/NuZ7U1BfjweYKVohGQkdzMfsg5ILP23FLqB/JAfbgcL3g/2QG+9
-         7Dnw==
-X-Forwarded-Encrypted: i=1; AJvYcCUp22yzvyCt/q/iekdcMYxi1/o7JQwsUk5twuRDKhnK3y93JMAjETSdQvH2PKOkbt9/4itFR9Xs+ueorVFBseSe@lists.infradead.org
-X-Gm-Message-State: AOJu0YyhnHO/r3g9gYx2MtGUwc0Dk+PZveMhh/PP2q1QmF9iZphznCIu
-	koyp2yvFezyaIcB2p/v9pTtIju/Xr+CNEuuQs/1ju2cmrUy+gJb3UHxD6ltavUnCMYdiR6Tn8nA
-	4s5wDGnVpvGR/Q63N06jCZKU/M8pbjdf7U111bVQi
-X-Gm-Gg: AY/fxX4K0VX8099CpYmx6wfxudR1DdyVVEi9qjrrJXCSmPIGYoDxdQ3ERnDXqHIob4l
-	U6P9jlQMDQbQVFlC6GVgwCjIGy5Tm5U6eBrDXreuOq7+cYgcRGcRLRh4kIV+5GUid5W50gdN1A1
-	8mvJB/ElL6lzZmlCdejeGo51JuT0epZNprvIxBpq+SJsJltjXZuEK7R9q4ummMULdKNZITigD2M
-	dJj3o1lUxBjuPNei5rwotAC4dC6kBOhlJEdIRKj15reHl2SDzYt5P7IGFgmp97cvS8Zunw2rV4G
-	DT6/WV5tmLJlRDeJHie+Y9evINNNDA==
-X-Google-Smtp-Source: AGHT+IHRovgVdEdoTpfJBQNPndiAvLg4h0XYlICvrVg++0Z98jb8QPhOp+hOCQlqL17fWZvobnxYO4M8LzufWJx4ZGI=
-X-Received: by 2002:ac8:5808:0:b0:4ed:ff79:e679 with SMTP id
- d75a77b69052e-4f3546d6609mr1208081cf.19.1765925409187; Tue, 16 Dec 2025
- 14:50:09 -0800 (PST)
+        d=1e100.net; s=20230601; t=1765925887; x=1766530687;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ooOYMKF+H2KmYqWB5Ili55QDSI+uZ+QcC5rU+1Qm5GE=;
+        b=FeTjAadObGvn0Kxho0XHHxwxxpvfPMs50facXdwIxcjUiweeCdDkF9MhobvVGXFmNO
+         2Soi6gkRb9LIEj7NHL0ZbBXr65D0MMzpxBOcBT8hC6lMTRxDMfiNR6ZeewEJ9tQ/w+wl
+         JubBrk7p5aizqSv4w9e67cZdVDzAwLcWxEoZaGPKJrHhkmzzIxQo+eykfNyWXUD2ENS5
+         DAV7ksJgB58OWAWWrkEaNohAB8sJt20Kq7ozXXfWSuQvQBxl+kbA9bzcXN3BuQASr+2e
+         idD1AQ3+t9Anx7tacCMWU9lFLkyiCN6E+vxwhEoKcWSeGKRsg69OcNnrK/wcHRBrcnmJ
+         yOxw==
+X-Forwarded-Encrypted: i=1; AJvYcCXpJh6FBgd3MSoNNMr00TbhVRqgoXkvun2lWXnBsJU21XXJjXgAXGGA3Xk2NxAVWdteGSJnPqfVsvxcpoGmOZe7@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyj/ZmVL1t2QYNaMwbzuC1hZd54IbFycr5QiIBbErPTKlj3whqM
+	SR+KH9aeDn8p3mSOffaAoSpmWVI44423Qpc+PgO7tuYqJHnxneKJDU0LYApJZEzCDxQ=
+X-Gm-Gg: AY/fxX6kjzBpNENeHlwZTh8beJtxeYfXSPvAL5yxovRRI7BdZlZm6m7UEXq43Fzb66G
+	tRVAtyPLNWKUku0BL1f3wN34t7WMnMw9YvoqhzzdooHukCUwnpqV0XfPPOmzyit2hafWTJlMDo4
+	BYfB0FlWH2lNDupMJ28ZSXMv+B5wBR6Yf5DwNkdZLv9gsI/717t0E/axaewqCN6xiQpTfLIJxlo
+	jt1EKB7uDCdviMSNEAIInrGGoeY4HBhlL3qXuRXFrepe7MgKSCXEiYljW9Y8q8jfdkpOQxrCcxw
+	Fn/jOZcw7tXvfhr1gai4IotOZ6RkrYVLoKnT5ymsMcHZGrKvjCtzliA84FtTP3eGn3qE47Wn0hL
+	8gxJoFOGw8n2qqLfbgvjK3XY4tvf9oSICLr8vCig1Po1k6tnFiRUo2boQ/1QZuAAodjGT83zqNc
+	nROoxL89WGnG1b2Q==
+X-Google-Smtp-Source: AGHT+IGvIl3sZdeYyABXtNkH9gms15ySp/W+3mzb7VAalGLpvvkhDucsn104GfSkCZW78M7CnCL4DA==
+X-Received: by 2002:a05:6808:4a54:10b0:455:eba2:9ede with SMTP id 5614622812f47-455eba2a67emr991795b6e.23.1765925887473;
+        Tue, 16 Dec 2025 14:58:07 -0800 (PST)
+Received: from [127.0.1.1] ([2600:8803:e7e4:500:11a:676d:852f:9349])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-45598cf191dsm8806668b6e.10.2025.12.16.14.58.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Dec 2025 14:58:06 -0800 (PST)
+From: David Lechner <dlechner@baylibre.com>
+Date: Tue, 16 Dec 2025 16:57:53 -0600
+Subject: [PATCH] arm64: dts: mediatek: mt8365: fix infracfg_nao node
 MIME-Version: 1.0
-References: <cover.1765334526.git.nicolinc@nvidia.com> <cc0d4ab571e2e789ee1cddfa035379dc54f0601b.1765334526.git.nicolinc@nvidia.com>
- <aT87A1ur4htPjM5T@google.com> <aUB0t4MSf624Wwmw@Asurada-Nvidia>
-In-Reply-To: <aUB0t4MSf624Wwmw@Asurada-Nvidia>
-From: Mostafa Saleh <smostafa@google.com>
-Date: Tue, 16 Dec 2025 22:49:58 +0000
-X-Gm-Features: AQt7F2oAVNd4BF3J14ZyQBuIyHCibuWRhpjMatdY8mcWa6Ix5db5Jg_y5HhSJH8
-Message-ID: <CAFgf54pDfBhx8j0M0JJfJR8kDwqOyPem7W1E8kpmBur5q2pjxQ@mail.gmail.com>
-Subject: Re: [PATCH rc v3 1/4] iommu/arm-smmu-v3: Add ignored bits to fix STE
- update sequence
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: jgg@nvidia.com, will@kernel.org, robin.murphy@arm.com, joro@8bytes.org, 
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, skolothumtho@nvidia.com, praan@google.com, 
-	xueshuai@linux.alibaba.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251216-mtk-fix-infracfg_nao-compatibile-v1-1-d339b151ac81@baylibre.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2NQQqDMBAAvyJ77oKJxqJfKSKbdKNLNZFESkH8u
+ 6HHgWHmhMxJOMNQnZD4K1liKKAeFbiFwswo78Kga22UVh1uxwe9/FCCT+T8PAWK6OK20yFWVkZ
+ Lpm2eXe+N7aFk9sTF/y9e43XdpmBIOnIAAAA=
+X-Change-ID: 20251216-mtk-fix-infracfg_nao-compatibile-ba543769f5b9
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Amjad Ouled-Ameur <aouledameur@baylibre.com>, 
+ Alexandre Mergnat <amergnat@baylibre.com>, 
+ =?utf-8?q?Bernhard_Rosenkr=C3=A4nzer?= <bero@baylibre.com>
+Cc: Fabien Parent <fparent@baylibre.com>, 
+ Julien Stephan <jstephan@baylibre.com>, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, David Lechner <dlechner@baylibre.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1233; i=dlechner@baylibre.com;
+ h=from:subject:message-id; bh=3b4ENHu/9j5dLIMx7Lb7rEQYQt3l9o0AQcUszqUwcQQ=;
+ b=owEBbQGS/pANAwAKAcLMIAH/AY/AAcsmYgBpQeP20JBd34+C400NYEMIY1MHpeh3e2Evyq63J
+ dFtNazIPwqJATMEAAEKAB0WIQTsGNmeYg6D1pzYaJjCzCAB/wGPwAUCaUHj9gAKCRDCzCAB/wGP
+ wEWKCACNVAHidpy4BANZQcTr0S0Ws/oeGNHfWiH//n3PQZYZz7A0JeiGQEkUGjzS7EblzCkq/tg
+ 2RXNOhWTEb0b6E403ut78HghMj33dyOV+7yZU/gRKOu9Uus6VHMYkhgGV6aBNSivgdiaxF99SXW
+ uwznzsHOAGISWnQ/zFuQPPvGaD1EGUY+TM9g2S0Kh3IQ6CBHg2K6n4ANRy9BQ2Yc93XAPyaET8U
+ WqC89plhJkAlMlNaHSRhbHj2nPwuop8+6AxJoauJoqmHrXgvpKOd5CGq5fzJUEo9LJMedkz4x1l
+ izZLPPFKx8EaI0Ey31Uo94B7iiygFnM47riGfvju5inPBm5m
+X-Developer-Key: i=dlechner@baylibre.com; a=openpgp;
+ fpr=8A73D82A6A1F509907F373881F8AF88C82F77C03
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_145011_313207_6A3FC99E 
-X-CRM114-Status: GOOD (  31.16  )
+X-CRM114-CacheID: sfid-20251216_145809_534371_61AF9A17 
+X-CRM114-Status: GOOD (  11.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,106 +120,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 15, 2025 at 8:51=E2=80=AFPM Nicolin Chen <nicolinc@nvidia.com> =
-wrote:
->
-> Hi Mostafa,
->
-> On Sun, Dec 14, 2025 at 10:32:35PM +0000, Mostafa Saleh wrote:
-> > On Tue, Dec 09, 2025 at 06:45:16PM -0800, Nicolin Chen wrote:
-> > > @@ -1207,12 +1223,9 @@ void arm_smmu_write_entry(struct arm_smmu_entr=
-y_writer *writer, __le64 *entry,
-> > >             entry_set(writer, entry, target, 0, 1);
-> > >     } else {
-> > >             /*
-> > > -            * No inuse bit changed. Sanity check that all unused bit=
-s are 0
-> > > -            * in the entry. The target was already sanity checked by
-> > > -            * compute_qword_diff().
-> > > +            * No inuse bit changed, though ignored bits may have cha=
-nged.
-> > >              */
-> > > -           WARN_ON_ONCE(
-> > > -                   entry_set(writer, entry, target, 0, NUM_ENTRY_QWO=
-RDS));
-> > > +           entry_set(writer, entry, target, 0, NUM_ENTRY_QWORDS);
-> >
-> > After this change, no other caller uses the entry_set() return value, s=
-o it
-> > can be changed to return void.
->
-> OK.
->
-> > >     }
-> > >  }
-> > >  EXPORT_SYMBOL_IF_KUNIT(arm_smmu_write_entry);
-> > > @@ -1543,6 +1556,7 @@ static void arm_smmu_ste_writer_sync_entry(stru=
-ct arm_smmu_entry_writer *writer)
-> > >  static const struct arm_smmu_entry_writer_ops arm_smmu_ste_writer_op=
-s =3D {
-> > >     .sync =3D arm_smmu_ste_writer_sync_entry,
-> > >     .get_used =3D arm_smmu_get_ste_used,
-> > > +   .get_ignored =3D arm_smmu_get_ste_ignored,
-> > >  };
-> > >
-> >
-> > I have some mixed feelings about this, having get_used(), then get_igno=
-red()
-> > with the same bits set seems confusing to me, specially the get_ignored=
-()
-> > loops back to update cur_used, which is set from get_used()
-> >
-> > My initial though was just to remove this bit from get_used() + some ch=
-anges
-> > to checks setting bits that are not used would be enough, and the seman=
-tics
-> > of get_used() can be something as:
-> > =E2=80=9CReturn bits used by the updated translation regime that MUST b=
-e observed
-> > atomically=E2=80=9D and in that case we can ignore things as MEV as it =
-doesn=E2=80=99t
-> > impact the translation.
-> >
-> > However, this approach makes it a bit explicit which bits are ignored, =
-if we
-> > keep this logic, I think changing the name of get_ignored() might help,=
- to
-> > something as "get_allowed_break()" or "get_update_safe()"?
->
-> I think "ignored" itself is brief and understandable.. Instead,
-> perhaps we can add a kdocs to make it clearer:
->
-> /**
->  * struct arm_smmu_entry_writer_ops - STE/CD entry writer operations
->  * @get_used: Output to @used the bits used by the hardware corresponding=
- to the
->  *            configurations bits set in a given @entry
->  * @get_ignored: Output to @ignored the bits that are listed in the "used=
-" list
->  *               but allowed to be ignored by arm_smmu_entry_qword_diff()=
-. Each
->  *               field (bits) must provide a reason to justify that the e=
-ntries
->  *               can be updated safely without breaking STE/CD configurat=
-ions.
->  * @sync: Operation to synchronize the updated STE/CD entries in the memo=
-ry
->  */
-> struct arm_smmu_entry_writer_ops {
->         void (*get_used)(const __le64 *entry, __le64 *used);
->         void (*get_ignored)(__le64 *ignored);
->         void (*sync)(struct arm_smmu_entry_writer *writer);
-> };
->
-> ?
->
+Use correct compatible string for the infracfg_nao: node and remove
+the #clock-cells property.
 
-A comment is indeed helpful, but my point was that "used" and
-"ignored" make it seem that they are mutually exclusive.
+Likely this was copied from the similar infracfg: node. However,
+infracfg_nao: is just a syscon node with it's own register definitions
+and is not a clock provider.
 
-Thanks,
-Mostafa
+Fixes: 6ff945376556 ("arm64: dts: mediatek: Initial mt8365-evk support")
+Signed-off-by: David Lechner <dlechner@baylibre.com>
+---
+ arch/arm64/boot/dts/mediatek/mt8365.dtsi | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
 
-> Thanks
-> Nicolin
+diff --git a/arch/arm64/boot/dts/mediatek/mt8365.dtsi b/arch/arm64/boot/dts/mediatek/mt8365.dtsi
+index a5ca3cda6ef3..4116f96c81a9 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8365.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8365.dtsi
+@@ -537,9 +537,8 @@ iommu: iommu@10205000 {
+ 		};
+ 
+ 		infracfg_nao: infracfg@1020e000 {
+-			compatible = "mediatek,mt8365-infracfg", "syscon";
++			compatible = "mediatek,mt8365-infracfg-nao", "syscon";
+ 			reg = <0 0x1020e000 0 0x1000>;
+-			#clock-cells = <1>;
+ 		};
+ 
+ 		rng: rng@1020f000 {
+
+---
+base-commit: 6987d58a9cbc5bd57c983baa514474a86c945d56
+change-id: 20251216-mtk-fix-infracfg_nao-compatibile-ba543769f5b9
+
+Best regards,
+-- 
+David Lechner <dlechner@baylibre.com>
+
 
