@@ -4,59 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCAA1D5C0EA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 14:46:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBF78D5E393
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 14:46:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0muFH4rx5CX0Gcd17pP8LZDoVV08UEjFy/R8LT9Tzpg=; b=ipVFggKr/yYuqBq5eL1pDgzTq3
-	gPtKzTTInkGPvg7Wh6045UxIZcFuvWg8Pktr5oEjwFpYrBXitUj7ZnViBolBNjFEa++syzEAi75aU
-	39aggxoqQ8Y7E3hiLUBlUaMQNxV/Olg+B4r0oivON09JFt0yHtKOu35RiyBcL6ilg5CPLcoN6BFrH
-	35f+AH4+vKKsCdu+tZF+SFC5wgcaZHtTP4Ef7IVY382k8erTdNVRz88Ib8Ma0zfJxTQYu9x0GP6vw
-	zkn8IyQr7W9NiV/aYmJmh0f0tHarOkMshe22pM6xtjDkRxxoXyTN+cidRjI1Ys6xQyDSSQhSLjuUT
-	QyG4H4yg==;
+	bh=aJU/T/69tCTdCELcdy6mnwYdq3WLoYPw4nT1DtJ4qfU=; b=mWV5tIIPkgamWscmMzEvFDtxFR
+	GjVyMNpIcxM02w/xcquN4nCqhW0jRlrzbMEhNBsgQF8cAMPizF0oqYSvgHgTDsoWDykyKBjQkPD0J
+	6YuNkiBZ4NonDr9abAlwTPedkPcnAtK38qbek2BKAPu3WXNBcJzPS4+1EK3DvjhpzljzYoVT2A7fe
+	F/SU/ozCEkKCdiLz/nb6PXUIfVHs29FOVF4olNRkJ2bZf6KEG+M4kvbR1ZOFR5Hfpb0hatCnBh6ya
+	7VbUWDx8IdW0O2kcTDK4nUiBaK1deQvsGmFPmBTCmVTj+9qyTXAzH2nOiJekuv1llDBchGs4gm0tJ
+	adBhnXPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVWJq-00000005MlX-2WuD;
-	Tue, 16 Dec 2025 14:46:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVWJe-00000005Mfw-1biV
+	id 1vVWJr-00000005Mm2-01IW;
+	Tue, 16 Dec 2025 14:46:31 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vVWJe-00000005MfE-2Ry6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 14:46:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C2434FEC;
-	Tue, 16 Dec 2025 06:46:10 -0800 (PST)
-Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 71F473F73F;
-	Tue, 16 Dec 2025 06:46:16 -0800 (PST)
-From: Ryan Roberts <ryan.roberts@arm.com>
-To: Will Deacon <will@kernel.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Marc Zyngier <maz@kernel.org>,
-	Dev Jain <dev.jain@arm.com>,
-	Linu Cherian <Linu.Cherian@arm.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 04/13] arm64: mm: Push __TLBI_VADDR() into __tlbi_level()
-Date: Tue, 16 Dec 2025 14:45:49 +0000
-Message-ID: <20251216144601.2106412-5-ryan.roberts@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251216144601.2106412-1-ryan.roberts@arm.com>
-References: <20251216144601.2106412-1-ryan.roberts@arm.com>
-MIME-Version: 1.0
+	Tue, 16 Dec 2025 14:46:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=J7iC6WzONZIiNtQssj/uxrAchaiuDs92WG+InTFJFoKuqcNp66DUNDMFyl5yAz1aZ/rZqBsdPXSwaLkgfDsOG4UH/JrpsaIUDFFmtLJasTo8BwZZBFgd+o7lD2ztlkkTEg+CaOa7Lz1YPj4Ip3yoDy/xoSfYMTMJXvJmjqXMo7Zqt7/hX+MgCw1aAeV9cequ+372QDFueucoJrF/2gMc5nT0ytMws0BFKP9U1nK87q49LweO8d1/zXv6sUIV5JeA2KHSUR3w9fiIwvivtNgfmys9pig3N9YcU7MCWtgVSYWxmFcsETRhP/0tV0JII1h+JZoQRREMFWO3gWq/6n9K+A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=x6zIqvziQkSaAjcEumzv6Ydd1cAburN4gwS/SoqWdPo=;
+ b=azlyIyWEU1QSKadUn6Zf6OgqGkCZ8lKolxaUOseYKeupFLfparmApgCwI6T6VsvAYGJ893K4aiRvd6aygDlmGYvO1jozjYAIc2FKs+zaDHf6q7J5Sm/eIwMj2DXV/+LvlXFaZpvLaJEb3b/fmAKI5KiwyJ0C48+F4MfdRL7aH2O53MzG4GxhJD3WIGym+bgCkY6cHLOpJVTVwWNlGEHYsXeJkNCrTbv9kTGaR40jn1cRIUTm6qjrPixs8VbNWIPI980gzxff3D+F/vr6h1gqKhjSo0JKONHLHs2yEBVajbOu8I1QG5yiBh+WX6QApUGvrbj2WM16QfPFpLTQPU488w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=x6zIqvziQkSaAjcEumzv6Ydd1cAburN4gwS/SoqWdPo=;
+ b=BW8okLyT2tktA6TNr21BDpTgKI3GDw7dH1lVUiAPuiN3vIkRB5P7CEgy8LbCZdYrsh6NZDPhHFmMoBw9wv1GHqZt3E0chiRF3M9fIXGSsq4RVfCz7C7QHu19hwptzjgb99VHNvmdOWgEUFdGq/p70Ecf0SZuAnjxDvPNLrTIplpZRZwKAF+59CSGxT7oH+qydp7pRvDH0QH2+GOCpwhXjRbWQatmCQ75qS7Tre6BjXTl9J0fTJohHBu/0hVyEsl6eHdwRC//+bmvOj8Y0KqtlB2ntXgmsFPgdsaxkQOScseWWoiVdsT6V+qD+clCVKwd/MBtj2l/lD161TFO+LL2yw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
+ by AM8PR04MB7731.eurprd04.prod.outlook.com (2603:10a6:20b:249::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.13; Tue, 16 Dec
+ 2025 14:46:11 +0000
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9412.011; Tue, 16 Dec 2025
+ 14:46:11 +0000
+Date: Tue, 16 Dec 2025 09:46:00 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rui Miguel Silva <rmfrfs@gmail.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Martin Kepplinger-Novakovic <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>,
+	linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/5] media: nxp: use dev_err_probe() to simplify code
+Message-ID: <aUFwqMiYE+P+KdsO@lizhi-Precision-Tower-5810>
+References: <20251215-cam_cleanup-v3-0-a61995068f38@nxp.com>
+ <20251215-cam_cleanup-v3-2-a61995068f38@nxp.com>
+ <5462566.31r3eYUQgx@steina-w>
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <5462566.31r3eYUQgx@steina-w>
+X-ClientProxiedBy: SJ0PR13CA0157.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c7::12) To DU2PR04MB8951.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e2::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|AM8PR04MB7731:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8cdeb8b6-73d6-4ec3-e6f9-08de3cb1db1e
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|376014|7416014|366016|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?XPxlgR6uoRGPBLo59Gvh52GUrysOhJ9LSV/tY9rOs13Y2YwCkPqYfmom/G?=
+ =?iso-8859-1?Q?ue/Jv720+Zvwf2dpH1PQqm/m8WbIlI6JgrMDZ3eSC241vt9T9Y4w1lGErK?=
+ =?iso-8859-1?Q?XUWoe1OL2vfdZssXh1NS9aHPbEMFNGTfvc06xQ4YLaIKtXjNpR9LFZ4rJf?=
+ =?iso-8859-1?Q?rEofx4H9FsC0W6ogYg+NzMKODpiXrKzWD52CvcIDO+M7BiF4vdXciFRWgs?=
+ =?iso-8859-1?Q?bmZSrj1uy0Exk21XwyAKAZJw5NB2HC34wgd8qJOF/bTlXgCiYGJyrF1k2r?=
+ =?iso-8859-1?Q?4rrU9Z+1EnhzfsIt7ROO/+rR60G+7VTe1UK8YWWHxj5p1vHQkJIALq0U2L?=
+ =?iso-8859-1?Q?uftVd3b4+6Cy0GHCmqnCziBg2Ffd/eoAPQ75C/AfP57KxpdGx7ZlTFYImC?=
+ =?iso-8859-1?Q?tZIPJ8OBNFrJAinEa02Q3Xm9jPy3HeWbDIrQrdNm95XFvngAhT9oGN87Db?=
+ =?iso-8859-1?Q?GjMqWOLY5iUxseBffruRttE8Qw3HO8FB6tbLqCuIUAo66z6rE8FnG7LA1H?=
+ =?iso-8859-1?Q?pHa5zdyO6YunZCGH+EFhizv+StDZ9Dp2fdrKTqHcxszsIsQrzdJdVk7CCH?=
+ =?iso-8859-1?Q?ugPOHJ30fkmdPs/3gTyzZZ13TzuEhc2/101L6LgskP5yDebgUPaOun6H+y?=
+ =?iso-8859-1?Q?YUz+4XZcecWVVesDciYBXIxzEthpUdsF5nRIVOd1P5hx5mIJfoSpDmC+kN?=
+ =?iso-8859-1?Q?11JrLVRh3pV5M9rxRBXamliygxWfXYOD9mxcqEls0sFD5XZxOvMeYC3NEO?=
+ =?iso-8859-1?Q?fvMgLb9+JPWBUab3B1PP1dqv2kGFweW6Isw5ObtX5P6CuZtZZB2rRGHboB?=
+ =?iso-8859-1?Q?1O2qQldFwiQnRBGxxeoU3b5Z+FvHiV3XX0ci0xP/yApEGxw/51C+cBU6fW?=
+ =?iso-8859-1?Q?8YzbyVet0qdvl7x2xW+2Va9oLSAV8UnsulkxRL+x8huRbx+IAfHCGURS61?=
+ =?iso-8859-1?Q?/hK8of1OboALYgPHBGiLiZbv03qmn2VpVuvhF408WLRz7w0JzrmftALzW9?=
+ =?iso-8859-1?Q?FpiVtFRjYRcJ8fJCBDby8bTAICxkneQsuLkBq0jw0etgtFCCuNLTSw5Cna?=
+ =?iso-8859-1?Q?iNR5EZPPkAIZBRlfz6GMubnS7R2Ti9lS6a4JEk0RN8jTU3F3XFRqeCCfnx?=
+ =?iso-8859-1?Q?G/mxegFBgHXBN993YNKNdsNdop5pKRCr7+1CetepKNd6g6OPgDilWV5fDW?=
+ =?iso-8859-1?Q?mcoIeXZFgq4MwGvoOAV/D7efvJjcic2BjLlXl/3eWiJtjVqiN0b4mXb/nw?=
+ =?iso-8859-1?Q?tJbzOwFLP8TwwKLt2Sn00yWKH5FqhEeaJINH4QELcs819m+HW2N/AS5s1Y?=
+ =?iso-8859-1?Q?d8p0aHlYDhx9hIS00gO0Ei6DOExRmPNltt4EUK4piHbkn0NBg55RA78u3/?=
+ =?iso-8859-1?Q?nGbdTWNDQsWIpVzdaWeTZ/6D+25E8G/D8guroZUuMxAuyNFgRQFmXZWSx6?=
+ =?iso-8859-1?Q?9lESJZVMsqiaH4+ZkKWYvEZw3dJFedMyq3tUh3pi99gkHDmf+2sa27x8EF?=
+ =?iso-8859-1?Q?Cm7mijiinFFN5hRn65MAw3dfZvWq0jPIZ2d2GdkUP/mg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(376014)(7416014)(366016)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?bkdt34tjSaP/2ve22/lFw5dD6lcw7Q+kZ0FaorBZCPHpqNEzYTukT9tW2K?=
+ =?iso-8859-1?Q?dfE3F66ANIlOa29UQH7PEHfSwu5lC4aYrVg4kqSBdQhL6oNVrfpjFhUeDa?=
+ =?iso-8859-1?Q?ZlrmXN7DYBtnq3tswhHSPKekwfRkrksyic1tZkLBIR+DUAk6RcPqgJPuUw?=
+ =?iso-8859-1?Q?pqMxqCRoeVH2nIQ7Q5pa5n9QMjshXlS7Er5VTld252Osn+v7X3ImRhz0td?=
+ =?iso-8859-1?Q?XhsGHLdzED+JDnf6899yExS6z9BuuQj0hU629nVBhpSnxZB8J4zgPOcntH?=
+ =?iso-8859-1?Q?s5rGqY/FpDfjTLS5Mzx8bMpAYrcJPGnyZZcV015BcyFmJSsYA9g3cIuqhw?=
+ =?iso-8859-1?Q?vknmf96IEqljHpyIye8tmhCyybNg5dC7+Cn+zX+2DkCXdkJ9XVnqsxch3H?=
+ =?iso-8859-1?Q?GtgKT3AGFSTl3jB9fhe9h/7h+c9/f63B6i5yeo5JhG1GWJAidpXd0PGc2N?=
+ =?iso-8859-1?Q?4FEEy+nnFV40RmJFt6l7wLx8hp9hzthj8lpEfSS2iYGUgU6VEn+vP1AqXF?=
+ =?iso-8859-1?Q?r7VTNNNTK5j2+wfXsksJrCTJeAL61wjsC1e+b1T9CNW8k3vtJq7uOSHudB?=
+ =?iso-8859-1?Q?ndtA1SryKME2El8+7wEF4mghJ5mk5C+6GQRY2sty2yUcac5P7r83H7G31x?=
+ =?iso-8859-1?Q?JMa2gT2EtYmz4lrEKxgMkIazLuq9Rel5Q6OCh8W4vhZBVLOAarLG/v0ul4?=
+ =?iso-8859-1?Q?v1onJZGoMsofhMyWa0OKwjRIKRFrjbr4L+/ohh08xCDxwjes+VaUizkhpC?=
+ =?iso-8859-1?Q?j1R2jXTXYtKQtYT7LZXpPHWpB6aZt78iLct/GjTv66i0h43ONC7We/zefk?=
+ =?iso-8859-1?Q?6AHVGRcanViwo3zh1Tk0HnjWBlVr/y7+bDMGR6QqwAQvKeUjPf/oyTrYdn?=
+ =?iso-8859-1?Q?fzlgwvI6IbLAk64hBYOK1bYWnhbSFUSxJl6QyVmIvrXVC6rjn2CpgD+vX1?=
+ =?iso-8859-1?Q?1TUZH7CgdgguKSMj3eALSOM9WXTGcGnOvrbXt+RUe36SEypX8XdiUhwUXE?=
+ =?iso-8859-1?Q?r3QNYKO3LSsQ+QZfmo5Y5eSm6oZ7d6QW3L2YmJGuFAUaigWRZj+/nkTvKv?=
+ =?iso-8859-1?Q?kXQea0D18XXTJcwq66pSUVPnwj6n8+GkGsgcFsTyVtlOz6gAd/J9wYRoI4?=
+ =?iso-8859-1?Q?ftmHil/wA+LdcNepLWAO1YosPM9HdvU3Ew7oCK8bvpOB5zcRGhL4rhgOCS?=
+ =?iso-8859-1?Q?Cz89RRYlrhYnYOgMiNZtVRDx6UH23wDTctD+r1hdlltSp3ilBAfYgJlovx?=
+ =?iso-8859-1?Q?qdM5xxY6RzANeaDqcSZkziFC0AcjLRpfZ7yUPAxLUO+9ZJ3buvpnGO2eQo?=
+ =?iso-8859-1?Q?6CkRmxfK1ucY/XPdqypPrWzp7FOpRHxnNMjTCWjnOH1Du/RWr/2UdskKvi?=
+ =?iso-8859-1?Q?G0Uko42r0VHmfezO3h+Bd/eaZ8aUE1t0Xs0H/KWNRuZBxD6XW2bLygMDYg?=
+ =?iso-8859-1?Q?gThOrEZnT10K2pR0Xjeb60XKojLP3XQdZ4XqnzPB7IZ1l05cgmRf3myLQA?=
+ =?iso-8859-1?Q?s7W7ANlK6zq60aj2C63Lr7UPJbB8mOs8hNghYwF2e10m/MkGbDz5tkirZD?=
+ =?iso-8859-1?Q?7Bay18Cl7xtyJB3Ub6WL797NWA22Ik3CHdcHOB4p/TTsGgFfelrYwVqx1B?=
+ =?iso-8859-1?Q?FfF7C2c2u219xt6511PmtageraniThPej+?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8cdeb8b6-73d6-4ec3-e6f9-08de3cb1db1e
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Dec 2025 14:46:11.7826
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: z6ElhA5MdBavAVPjSO7veJL2K5Azdf6dK4jp0kaz26bGeLVn8z/vf+JjT6lqyx6ZVkS9Jvvx21HwOajmLC88Tg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM8PR04MB7731
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_064620_649834_E81992FF 
-X-CRM114-Status: GOOD (  13.10  )
+X-CRM114-CacheID: sfid-20251216_064623_129700_B64282ED 
+X-CRM114-Status: GOOD (  27.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,119 +171,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Will Deacon <will@kernel.org>
+On Tue, Dec 16, 2025 at 08:34:18AM +0100, Alexander Stein wrote:
+> Hi,
+>
+> Am Montag, 15. Dezember 2025, 23:49:53 CET schrieb Frank Li:
+> > Use dev_err_probe() to simplify the code. Drop the explicit error message
+> > after returning from imx8mq_mipi_csi_parse_dt(), as the error is already
+> > reported by this helper.
+> >
+> > No functional change.
+> >
+> > Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > ---
+> > change in v2:
+> > - add  Laurent Pinchart review tags
+> > - wrap error message to new line
+> > - remove error code print in dev_err_probe();
+> > - drop error messaage at imx8mq_mipi_csi_parse_dt()
+> > ---
+> >  drivers/media/platform/nxp/imx-mipi-csis.c    |  6 ++---
+> >  drivers/media/platform/nxp/imx7-media-csi.c   | 14 ++++--------
+> >  drivers/media/platform/nxp/imx8mq-mipi-csi2.c | 33 ++++++++++++---------------
+> >  3 files changed, 21 insertions(+), 32 deletions(-)
+> >
+> > diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
+> > index 088b2945aee33731c565f049dd17721356300b84..ce93d868746f002c22e2f86b1e0aa84ec1a76061 100644
+> > --- a/drivers/media/platform/nxp/imx-mipi-csis.c
+> > +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
+> > @@ -1547,10 +1547,8 @@ static int mipi_csis_probe(struct platform_device *pdev)
+> >  	/* Now that the hardware is initialized, request the interrupt. */
+> >  	ret = devm_request_irq(dev, irq, mipi_csis_irq_handler, 0,
+> >  			       dev_name(dev), csis);
+> > -	if (ret) {
+> > -		dev_err(dev, "Interrupt request failed\n");
+> > -		return ret;
+> > -	}
+> > +	if (ret)
+> > +		return dev_err_probe(dev, ret, "Interrupt request failed\n");
+> >
+> >  	/* Initialize and register the subdev. */
+> >  	ret = mipi_csis_subdev_init(csis);
+> > diff --git a/drivers/media/platform/nxp/imx7-media-csi.c b/drivers/media/platform/nxp/imx7-media-csi.c
+> > index 933a5f39f9f4c9b43ca8d2a1819d0145981266e6..7ddc7ba06e3d4e007013821f67d783898a15461f 100644
+> > --- a/drivers/media/platform/nxp/imx7-media-csi.c
+> > +++ b/drivers/media/platform/nxp/imx7-media-csi.c
+> > @@ -2218,11 +2218,9 @@ static int imx7_csi_probe(struct platform_device *pdev)
+> >
+> >  	/* Acquire resources and install interrupt handler. */
+> >  	csi->mclk = devm_clk_get(&pdev->dev, "mclk");
+> > -	if (IS_ERR(csi->mclk)) {
+> > -		ret = PTR_ERR(csi->mclk);
+> > -		dev_err(dev, "Failed to get mclk: %d", ret);
+> > -		return ret;
+> > -	}
+> > +	if (IS_ERR(csi->mclk))
+> > +		return dev_err_probe(dev, PTR_ERR(csi->mclk),
+> > +				     "Failed to get mclk\n");
+> >
+> >  	csi->irq = platform_get_irq(pdev, 0);
+> >  	if (csi->irq < 0)
+> > @@ -2236,10 +2234,8 @@ static int imx7_csi_probe(struct platform_device *pdev)
+> >
+> >  	ret = devm_request_irq(dev, csi->irq, imx7_csi_irq_handler, 0, "csi",
+> >  			       (void *)csi);
+> > -	if (ret < 0) {
+> > -		dev_err(dev, "Request CSI IRQ failed.\n");
+> > -		return ret;
+> > -	}
+> > +	if (ret < 0)
+> > +		return dev_err_probe(dev, ret, "Request CSI IRQ failed.\n");
+> >
+> >  	/* Initialize all the media device infrastructure. */
+> >  	ret = imx7_csi_media_init(csi);
+> > diff --git a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+> > index 0851f4a9ae52d3096f454da643cfdc5017e000b1..a007c582b4d91660a97910a6a0d53c9b6fcd73e9 100644
+> > --- a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+> > +++ b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
+> > @@ -951,10 +951,9 @@ static int imx8mq_mipi_csi_parse_dt(struct csi_state *state)
+> >  	int ret = 0;
+> >
+> >  	state->rst = devm_reset_control_array_get_exclusive(dev);
+> > -	if (IS_ERR(state->rst)) {
+> > -		dev_err(dev, "Failed to get reset: %pe\n", state->rst);
+> > -		return PTR_ERR(state->rst);
+> > -	}
+> > +	if (IS_ERR(state->rst))
+> > +		return dev_err_probe(dev, PTR_ERR(state->rst),
+> > +				     "Failed to get reset\n");
+> >
+> >  	if (state->pdata->use_reg_csr) {
+> >  		const struct regmap_config regmap_config = {
+> > @@ -977,24 +976,22 @@ static int imx8mq_mipi_csi_parse_dt(struct csi_state *state)
+> >
+> >  	ret = of_property_read_u32_array(np, "fsl,mipi-phy-gpr", out_val,
+> >  					 ARRAY_SIZE(out_val));
+> > -	if (ret) {
+> > -		dev_err(dev, "no fsl,mipi-phy-gpr property found: %d\n", ret);
+> > -		return ret;
+> > -	}
+> > +	if (ret)
+> > +		return dev_err_probe(dev, ret, "no %s property found\n",
+> > +				    "fsl,mipi-phy-gpr");
+>
+> Do you really need to pass the (fixed) property name as an argument? Why
+> not move into the const string directly? I would also rephrase it a bit:
+> "property fsl,mipi-phy-gpr not found"
 
-The __TLBI_VADDR() macro takes an ASID and an address and converts them
-into a single argument formatted correctly for a TLB invalidation
-instruction.
+Laurent Pinchart provide comments at previous version. The same
+"fsl,mipi-phy-gpr" share one entry at RO region. slice save RO region
+space.
 
-Rather than have callers worry about this (especially in the case where
-the ASID is zero), push the macro down into __tlbi_level() via a new
-__tlbi_level_asid() helper.
+https://lore.kernel.org/imx/20251119043307.GH17526@pendragon.ideasonboard.com/
 
-Signed-off-by: Will Deacon <will@kernel.org>
-Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
----
- arch/arm64/include/asm/tlbflush.h | 14 ++++++++++----
- arch/arm64/kernel/sys_compat.c    |  2 +-
- arch/arm64/kvm/hyp/nvhe/mm.c      |  2 +-
- arch/arm64/kvm/hyp/pgtable.c      |  4 ++--
- 4 files changed, 14 insertions(+), 8 deletions(-)
+Frank
 
-diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-index 31f43d953ce2..39717f98c31e 100644
---- a/arch/arm64/include/asm/tlbflush.h
-+++ b/arch/arm64/include/asm/tlbflush.h
-@@ -150,9 +150,10 @@ static __always_inline void ipas2e1is(u64 arg)
- 	__tlbi(ipas2e1is, arg);
- }
- 
--static __always_inline void __tlbi_level(tlbi_op op, u64 addr, u32 level)
-+static __always_inline void __tlbi_level_asid(tlbi_op op, u64 addr, u32 level,
-+					      u16 asid)
- {
--	u64 arg = addr;
-+	u64 arg = __TLBI_VADDR(addr, asid);
- 
- 	if (alternative_has_cap_unlikely(ARM64_HAS_ARMv8_4_TTL) && level <= 3) {
- 		u64 ttl = level | (get_trans_granule() << 2);
-@@ -164,6 +165,11 @@ static __always_inline void __tlbi_level(tlbi_op op, u64 addr, u32 level)
- 	op(arg);
- }
- 
-+static inline void __tlbi_level(tlbi_op op, u64 addr, u32 level)
-+{
-+	__tlbi_level_asid(op, addr, level, 0);
-+}
-+
- /*
-  * This macro creates a properly formatted VA operand for the TLB RANGE. The
-  * value bit assignments are:
-@@ -501,8 +507,7 @@ do {									\
- 		if (!system_supports_tlb_range() ||			\
- 		    __flush_pages == 1 ||				\
- 		    (lpa2 && __flush_start != ALIGN(__flush_start, SZ_64K))) {	\
--			addr = __TLBI_VADDR(__flush_start, asid);	\
--			__tlbi_level(op, addr, tlb_level);		\
-+			__tlbi_level_asid(op, __flush_start, tlb_level, asid);	\
- 			__flush_start += stride;			\
- 			__flush_pages -= stride >> PAGE_SHIFT;		\
- 			continue;					\
-@@ -675,5 +680,6 @@ static inline bool huge_pmd_needs_flush(pmd_t oldpmd, pmd_t newpmd)
- #define huge_pmd_needs_flush huge_pmd_needs_flush
- 
- #undef __tlbi_user
-+#undef __TLBI_VADDR
- #endif
- #endif
-diff --git a/arch/arm64/kernel/sys_compat.c b/arch/arm64/kernel/sys_compat.c
-index 4a609e9b65de..ad4857df4830 100644
---- a/arch/arm64/kernel/sys_compat.c
-+++ b/arch/arm64/kernel/sys_compat.c
-@@ -36,7 +36,7 @@ __do_compat_cache_op(unsigned long start, unsigned long end)
- 			 * The workaround requires an inner-shareable tlbi.
- 			 * We pick the reserved-ASID to minimise the impact.
- 			 */
--			__tlbi(aside1is, __TLBI_VADDR(0, 0));
-+			__tlbi(aside1is, 0UL);
- 			dsb(ish);
- 		}
- 
-diff --git a/arch/arm64/kvm/hyp/nvhe/mm.c b/arch/arm64/kvm/hyp/nvhe/mm.c
-index ae8391baebc3..581385b21826 100644
---- a/arch/arm64/kvm/hyp/nvhe/mm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mm.c
-@@ -270,7 +270,7 @@ static void fixmap_clear_slot(struct hyp_fixmap_slot *slot)
- 	 * https://lore.kernel.org/kvm/20221017115209.2099-1-will@kernel.org/T/#mf10dfbaf1eaef9274c581b81c53758918c1d0f03
- 	 */
- 	dsb(ishst);
--	__tlbi_level(vale2is, __TLBI_VADDR(addr, 0), level);
-+	__tlbi_level(vale2is, addr, level);
- 	dsb(ish);
- 	isb();
- }
-diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index 947ac1a951a5..9292c569afe6 100644
---- a/arch/arm64/kvm/hyp/pgtable.c
-+++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -472,14 +472,14 @@ static int hyp_unmap_walker(const struct kvm_pgtable_visit_ctx *ctx,
- 
- 		kvm_clear_pte(ctx->ptep);
- 		dsb(ishst);
--		__tlbi_level(vae2is, __TLBI_VADDR(ctx->addr, 0), TLBI_TTL_UNKNOWN);
-+		__tlbi_level(vae2is, ctx->addr, TLBI_TTL_UNKNOWN);
- 	} else {
- 		if (ctx->end - ctx->addr < granule)
- 			return -EINVAL;
- 
- 		kvm_clear_pte(ctx->ptep);
- 		dsb(ishst);
--		__tlbi_level(vale2is, __TLBI_VADDR(ctx->addr, 0), ctx->level);
-+		__tlbi_level(vale2is, ctx->addr, ctx->level);
- 		*unmapped += granule;
- 	}
- 
--- 
-2.43.0
+>
+> With that fixed:
+> Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+>
+> >
+> >  	ph = *out_val;
+> >
+> >  	node = of_find_node_by_phandle(ph);
+> > -	if (!node) {
+> > -		dev_err(dev, "Error finding node by phandle\n");
+> > -		return -ENODEV;
+> > -	}
+> > +	if (!node)
+> > +		return dev_err_probe(dev, -ENODEV,
+> > +				     "Error finding node by phandle\n");
+> > +
+> >  	state->phy_gpr = syscon_node_to_regmap(node);
+> >  	of_node_put(node);
+> > -	if (IS_ERR(state->phy_gpr)) {
+> > -		dev_err(dev, "failed to get gpr regmap: %pe\n", state->phy_gpr);
+> > -		return PTR_ERR(state->phy_gpr);
+> > -	}
+> > +	if (IS_ERR(state->phy_gpr))
+> > +		return dev_err_probe(dev, PTR_ERR(state->phy_gpr),
+> > +				     "failed to get gpr regmap\n");
+> >
+> >  	state->phy_gpr_reg = out_val[1];
+> >  	dev_dbg(dev, "phy gpr register set to 0x%x\n", state->phy_gpr_reg);
+> > @@ -1017,10 +1014,8 @@ static int imx8mq_mipi_csi_probe(struct platform_device *pdev)
+> >  	state->pdata = of_device_get_match_data(dev);
+> >
+> >  	ret = imx8mq_mipi_csi_parse_dt(state);
+> > -	if (ret < 0) {
+> > -		dev_err(dev, "Failed to parse device tree: %d\n", ret);
+> > +	if (ret < 0)
+> >  		return ret;
+> > -	}
+> >
+> >  	/* Acquire resources. */
+> >  	state->regs = devm_platform_ioremap_resource(pdev, 0);
+> >
+> >
+>
+>
+> --
+> TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
+> Amtsgericht München, HRB 105018
+> Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
+> http://www.tq-group.com/
+
 
 
