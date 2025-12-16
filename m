@@ -4,113 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0A2CD637A9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 20:45:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 300ADD637A9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 20:47:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2LLx7o8qacULiY5CnsYaJ+nvNRuzxxG70dIx5GLh8eU=; b=pwMFNeY7YV2plBJf6kJ2mtjLSO
-	fXXNfH/aa3GbcKXANBD75HMGd0wBHRCBcjAI4qSbls1SzoJes90TNs6T15lXv/frNxa7JCi/1dwVE
-	Vz1yUCARmTSyYym8d0AbiegGPSSe5xL926UFeueCCxEj+yrClPze4vKdnwzgBpbvG9pW3YEJpBehu
-	qnfbgYwmFQsPvevcdx5VHjjm5inwxpD5LZaW3oScAJNb3uuqE/xylhBudLzPQtDAv6mx7WhaQXBWX
-	SE3xhElz1PCTPwiFXawWdXpkrrhhKCOkkvIOqy66n7wJYydhRrK3VbXRoiMd0wGxeKJcXnoWLUFw4
-	UBSQBUzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+Z6IR4UK0Q8fFDpN7EclItAZP+fdGlpjl0uVZ0qII3Y=; b=o9GisQTR0A8ZWSrZi9R9kPMuq/
+	TBNstxnSZMbKw8Y9iEmjl/AwLnblOmTlCoof8avGQ+vpDqAfBH4l7WHF+UDG5IyhCJm8HyW7/z05q
+	RYaQSstV9kAt3VYconJ6R4Z7L6JkrrgSW7wLzoUgrbQs+7wkjFGTgx+uitMAyu1NgISwLdNby8FyF
+	8k5MZfh6bJHp933CCOOoe++0Ga3IqTsP7DZOnOtQvp8+NWRDa9P4PaQ+3tR6qhvkIGbtzamLozSBA
+	GGpZCMdqlzO1NwLyI8+qUcVUus9w9yIF2zGVD8rajBq8LId0miN86X1g15NdDZRYbLBR9Xqd4Bb/y
+	LDfqM9Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVbuh-00000005npC-1JzG;
-	Tue, 16 Dec 2025 20:44:55 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1vVbxD-00000005ny2-3NGf;
+	Tue, 16 Dec 2025 20:47:31 +0000
+Received: from mail-northcentralusazon11010062.outbound.protection.outlook.com ([52.101.193.62] helo=CH1PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVbuf-00000005noo-0335
+	id 1vVbxB-00000005nxe-0Tf8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 20:44:54 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-29f02651fccso41215ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 12:44:52 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1765917892; cv=none;
-        d=google.com; s=arc-20240605;
-        b=fcNwBQNTdrYpUl744Zp6y/aEvAg/NUkpWgYYnQ0nB94iE3aBuHdUXCABapnuR+Z0jx
-         WFRHJMJDGU31WuCcgEI/IYd6imhhP952RPWFODCacaHGd41ngOE8e46KAvUxI8Nb86Vx
-         abtmeOJYQFX78ePXljStePAxFadZa4xkMoAgy6PmokeJBKsMb7byIsVpM8aBGsXH7dBl
-         7KxVvYb+fGzH6ATMCWJma+nwfIaoQ5Hu7r4zx7GdgN6Z9SI51wLaTcuoWRYf+olIu/yx
-         BCqRfL6K96BM4UiN6czr8213vzNrXQqXUPK+wE7EHXzhz0KOUiupISmG1CqPbxa/5hQM
-         zxow==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=2LLx7o8qacULiY5CnsYaJ+nvNRuzxxG70dIx5GLh8eU=;
-        fh=sEoUCSvRcAl0r1s3qdft/gx1z9Xp0aRoOiGnAcrO8Yg=;
-        b=ZAiOyzYYAvXJoAE03vGHVRVrBbgtpVWuxxTvNQ5BZmNDp/vLWv4EQI/MDuOK5VVoNr
-         jhEsBb7RTlS2u6TGVh7xSzn8pGjoZemnx+Jiey8xfTy3Qb3iPf+lnfGlvub91kr+FflQ
-         t2NLDYHpsFlI1ZFZ4i70qxvtIzeKZnQuKv608ds73Zj7Mxk+77pIOWCsawYON8UBEEA6
-         M3Us13RrpRZs/v4FanJ8Pm2WbmNdc2RUtZwWoiCnF2QibH4tTNL66Z7HVWWPXr5KC7Ru
-         LkT8wEIKBZf/zRD1sLx/kCmDQm13jaMI+KNpJthxPjbdotW3unLvaXJxuJDTS7nVBbjb
-         XN4g==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1765917892; x=1766522692; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2LLx7o8qacULiY5CnsYaJ+nvNRuzxxG70dIx5GLh8eU=;
-        b=MX/BOaJ5exlWfpO36uqaEGGVm+ZQ2v0EMI4ZyTphEXAM9ODn3J+L/iUbiTLTNAuX41
-         QNt/54W/r2/bZSrohT3VNM32I5NTT7g32k/VTNIG+hfnGUzK+nQk/SOAEOTxCmRer4ls
-         B4mOxiTS0bsyzYmGc+pyI1H09y12NZEHmTRfwdRLYBSAY4+8Ld9sTR6saR2v2EXGs3uF
-         5zE/p8sn9EVXcbNdlfobUy/6plsc3Awr2GeiEC9N6aonieInOSW/wHzV6UsELCrLjlOw
-         M4wYMyYD4XaPnrs8OP4aqQU/bs3M5D3zA9F4aYfIGVe54aTon+9iUqQecxok0WYeE/Pe
-         6XuQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765917892; x=1766522692;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=2LLx7o8qacULiY5CnsYaJ+nvNRuzxxG70dIx5GLh8eU=;
-        b=nPSYD4cpq/LNoTBykgLASOqSIVZVu7qBaYZk7TniKusKpmVmn/bBRqrwGn2/3VWFfr
-         Fr2sP6RY+x8dxyanl7h2sRyDMWTjzUeoxqG1d3Zh5/vERLAoOxSXPfyhetlysMGjjM4J
-         kT5nsLyhA23vo+V8zXgjnCRFs1L34ttkuys9Vfn7waBiS/GFiSSTDrMPzxnY9amM4tsw
-         s4BXEVUcYLGWqbXZ/kPB/r8BASe9lFueZs1pUNWbZTA8ba0eaqh6gLDyorh2pERcmwI+
-         ZJlc6U5CcuDg4ZJVvPqo5wjQlXFhTmDCfbiVqblUJ7SUphW0sHCWM37U11YR4fHJJjhn
-         fNkQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVUDt6hYkmG+xhQfgweEdXcJDwhMrrcmNtoW5/VOFgzvX0Em4EuJQqwQabFpLVNB6IxII5TdWI1wOnYemsZfOWe@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzAl1PXttwzvPhsvDX693FRx0zkec0wjXrJce4JmouQWx0v2DG
-	xYXCnP1RI9nR8Lq88q8lErjKMawIO0o5CU/ggfM3Hxp8V7jjnn4kTw44FJQoJfkgjlIdGJ46p9H
-	y1tZzbkq32Z6eWfY23/CmGV24c5mGbzP4yVoeWc35
-X-Gm-Gg: AY/fxX5J2jZekjw6uwuNGDuf2zUOd+ppFTkwRYzECh+YoXEztUPInXdRlgdDBIFrhWE
-	1IvFlysIdXV+/69aRusFih2kuTz98gI+mnw3prsKnZc9Np3eT8YgUzoeVavSRX1BxKXzdkbBtCN
-	NtUor1EnKOUfuv/pIMF2eGwIrPSK2ifdbuB9xlNh9CA8QWxn+2rWs1xYD1XBMd7m9gfL9mq7/XC
-	DAHQc+3Yr9QhpnM3G8jFllEy0xsc1W1SCbnIZgej5KR+ZcUkQX++NQb5TFfYYP2Vmu1TLIGroPV
-	6F4KMTeSBwDR376onDJeRL7pOQ==
-X-Google-Smtp-Source: AGHT+IE6CjCFZBwbsdmegBB69hl7iVQBsVm/wpuAsXfRbt/LWg5fDNm8swZTLE0fwCiZj305lX7sT+/YotUXZ03uutM=
-X-Received: by 2002:a17:903:46c5:b0:298:144f:b759 with SMTP id
- d9443c01a7336-2a15f32ceacmr409475ad.9.1765917891871; Tue, 16 Dec 2025
- 12:44:51 -0800 (PST)
+	Tue, 16 Dec 2025 20:47:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WTrgeirwT1rdHcy0tY4xEOOvY/1XBQzub1HUAYei94BLxBz5KzJ1DtZPSUWMdLypKzleVRntRJoP1Wlzx2I29WgGkhHWRJLJm1rPHeKn71o7F0G3QIoVtakMfBpAa/8l0pi7CNFSx9Fo6zhD/YysaOTPTQm5UGoF1E9xlvXkwOj/uNZYE726mmyhLE9bkepQVQQ7P3CeDDvxJ7wI7zxW8HOoeWAvGzz8iQQlpWWKfJ7GYZPILuXeGST6fWlzQpfHhiSzK3YOm9KTtjGYH3pZ78Dak8wpJvaw1aBfVA021E3mQK4d5q3+6faHwhZSdR9MqW1BfAvR6xhqZzHFQFRr2Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+Z6IR4UK0Q8fFDpN7EclItAZP+fdGlpjl0uVZ0qII3Y=;
+ b=Pboa3Wv5dx+1/IOzZxniYDLbUC9r+c10nmPrI1jh+8d61Z6+2wZAjH6BHGrSjDumjKBt8DEe2vTYyA7q/9z5h51K+cXnMUeG7FvwLnY6iPT91PvNwYCnJO0pBX8tceZ8azCGI274+9fNlCZcxzyKtUZQRA+GLCat2PUPsg29fwedfsQ8H8tPyzWZj81RIGY7p8Z2gAYQtNea/m+ybTdlbtv9bdHt/4cwClh4acucoR3iw8K4+zYyDPXFki0VdfNQmxRPb0WhdjH9dylF6DKC4Pz1yXQKHb+2sVUttA2bI63jq6SB8iYzLOqCqbm8OCdc9BFIrnYakX9bsQjdKKGEzg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+Z6IR4UK0Q8fFDpN7EclItAZP+fdGlpjl0uVZ0qII3Y=;
+ b=J0wjLNDLru5wwnAW4qkZeuJOVVRBOWDSBvwajyHoS0gHmOzsz53nOHygb1JGR+LADhrqkTCD7wdoNXFy717Cf0YeI4VQqygwQ/Mu6vE75PsWN5vhrgeYt2ERNbJCuMIoTOdM98LwuCX5TZqBR9RR3nWDdnZfkwGIDv40IwXp1yI3SbL9aAj9uGjMo6IeZZ3Nw/ESdpWt3BhXthdnfdaR23xkK8K7nKczVCU23ciV7J15UXHeHD0wYpB4tRFxSczynkziqy9ZB6xDQmGIpdrRENstyMiaKKT4r0/QHMb8+v5pMZIOX4WLhFWgjxGkFwIID9X9JD47yhRLAsUQxr0juQ==
+Received: from CH0P223CA0008.NAMP223.PROD.OUTLOOK.COM (2603:10b6:610:116::19)
+ by PH0PR12MB7981.namprd12.prod.outlook.com (2603:10b6:510:26c::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.6; Tue, 16 Dec
+ 2025 20:47:22 +0000
+Received: from CH1PEPF0000AD7C.namprd04.prod.outlook.com
+ (2603:10b6:610:116:cafe::83) by CH0P223CA0008.outlook.office365.com
+ (2603:10b6:610:116::19) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.6 via Frontend Transport; Tue,
+ 16 Dec 2025 20:47:21 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ CH1PEPF0000AD7C.mail.protection.outlook.com (10.167.244.84) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9434.6 via Frontend Transport; Tue, 16 Dec 2025 20:47:21 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 16 Dec
+ 2025 12:47:02 -0800
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 16 Dec
+ 2025 12:47:01 -0800
+Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com (10.129.68.8)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 16 Dec 2025 12:47:00 -0800
+Date: Tue, 16 Dec 2025 12:46:59 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: Mostafa Saleh <smostafa@google.com>, <will@kernel.org>,
+	<robin.murphy@arm.com>, <joro@8bytes.org>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <skolothumtho@nvidia.com>,
+	<praan@google.com>, <xueshuai@linux.alibaba.com>
+Subject: Re: [PATCH rc v3 1/4] iommu/arm-smmu-v3: Add ignored bits to fix STE
+ update sequence
+Message-ID: <aUHFQ1Ep2x4/vdk/@Asurada-Nvidia>
+References: <cover.1765334526.git.nicolinc@nvidia.com>
+ <cc0d4ab571e2e789ee1cddfa035379dc54f0601b.1765334526.git.nicolinc@nvidia.com>
+ <aT87A1ur4htPjM5T@google.com>
+ <20251216000952.GA6079@nvidia.com>
 MIME-Version: 1.0
-References: <20251212-james-perf-config-bits-v3-0-aa36a4846776@linaro.org> <20251212-james-perf-config-bits-v3-5-aa36a4846776@linaro.org>
-In-Reply-To: <20251212-james-perf-config-bits-v3-5-aa36a4846776@linaro.org>
-From: Ian Rogers <irogers@google.com>
-Date: Tue, 16 Dec 2025 12:44:40 -0800
-X-Gm-Features: AQt7F2rjA-Iq0O35uFlH-FSpbyzfTkG3lNU-Igxt37dlPKq959y9P2pH2UKNTRM
-Message-ID: <CAP-5=fUbr56hFd7e7yt33-gnhEGGa72GLmShQ5bCHxQjFAbFCQ@mail.gmail.com>
-Subject: Re: [PATCH v3 05/12] perf evsel: Add a helper to get the value of a
- config field
-To: James Clark <james.clark@linaro.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Mike Leach <mike.leach@linaro.org>, John Garry <john.g.garry@oracle.com>, 
-	Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>, linux-perf-users@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20251216000952.GA6079@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH1PEPF0000AD7C:EE_|PH0PR12MB7981:EE_
+X-MS-Office365-Filtering-Correlation-Id: f0fdc1ab-abc4-433d-43da-08de3ce44fb3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|82310400026|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?orBnuFvYtsHsPMuz3ZiiwNie5h4QoZtctNqeYWf04VXTip5UF4iv+vFdc+1U?=
+ =?us-ascii?Q?0GGfr8ylJMC8TzXI5C+DWiP7VdcIt44tFcxeo4wQlJVq1ybcUwe1PIVNSfwI?=
+ =?us-ascii?Q?FfeS20izM7t/YAExA72aJW2jHcscBgeO6MPfzjlvsTx5WMpsSgPMSO+jPVYa?=
+ =?us-ascii?Q?T2SUUVxvpinJkdZ82CBT43A9iEp3sHSYceqRIQDX6PRnQ/CJZPNTXJmO65f+?=
+ =?us-ascii?Q?z4w+V4kTpM8d+kVND639qAM2pMPomWXuVOIb7jVHEDm+2BS35FKou2dDBQnl?=
+ =?us-ascii?Q?yUf9003iQo9F8thYRWyTpdElvAgvxcMPLEqdHVtjI82ZBPoha5zvllHYhZ2f?=
+ =?us-ascii?Q?noxMHxRmmM4oySjrIwlt8EQ7rVR8N8jQRCHAAYo1TyfWvB3ALA+/s6ji0q7V?=
+ =?us-ascii?Q?XK3X6NdcVXP7F522I2RStlLXOmE2rm5p/aPGU50apBjKsp7C+OjOfXzcMkts?=
+ =?us-ascii?Q?NJaenuTfR4tLrzyuUYE4BNKHO8zxxUb1MFbHCumUxiaUOIq08JnqyFl4W1zA?=
+ =?us-ascii?Q?AfjTFDRzB4EfA2EcVTHxeHjibXDhHemqco+JoMMyBJtRWkeNNrcemLPKBCum?=
+ =?us-ascii?Q?waR1qTnHHx+xePKvIQK3C2BNK8FUAQpd4jampGwkKqsIs+jYu4UMjsmhyK76?=
+ =?us-ascii?Q?4H8igCggCGTA7t/0unYR56adUb6iAdSkNDOYsE40M+wQbu4kKPZOKFuZl1nV?=
+ =?us-ascii?Q?zOEzMCzr9emMSZWtbA0MLqrobnY2VoldjMLjBrXW51W3jnCSy2cWHNsqHT9a?=
+ =?us-ascii?Q?ypAE/DaEjseLq8ZCFkYac7HS6iArzk4LycJ2o99i5OnqIjuGtDJOlDqR+2/+?=
+ =?us-ascii?Q?AURgjYDgPOOX+vS/SuzcnDoVcrgbW9Gl4xhIO4cceX+6J9o1Gcr0BCK8lR7x?=
+ =?us-ascii?Q?NM1RgfNCjZxA6b8sOQLvDvscJJPK/7uflROCx/+a0hIoQqKuaO2Ea7mvwF4x?=
+ =?us-ascii?Q?UHlBBmaZ9TYMYeXtbxBXdoymbxIKrOFA7LKgq13smgs9guWT78RzRcgYuIWm?=
+ =?us-ascii?Q?56leEUyoxMPKPuDpMmyLWJDnJ0iQr9RSHtZB7q1hvaen0D7ZjjPbZoqwXQzL?=
+ =?us-ascii?Q?jGgOEgBYhAU+21rWCm6yG4AeZVNFgl92eKFUNWjtCbv+QrTkbNKYHYYy5xj1?=
+ =?us-ascii?Q?b94qc/eIZe4/Zl0Aylee8amfFkl5ecM+VfZLUj2eqzC2FpMBK3w4yny/CpDS?=
+ =?us-ascii?Q?gklG8aiRzBxvtmkyC+MHsq9eC2sYVX/Adza7YjEXsNtbBGpoSj4rCXSm92+y?=
+ =?us-ascii?Q?LpX/Frg38RWKAXCmF8Ws0FhepH0+c98uydqwr9HHr6JJFXr2fFGX/c/OG04Z?=
+ =?us-ascii?Q?rfx6JVN40VLgpW+S9YFYRPkGqKPaDcLUfcE5dlk8g2aNFtgytJxZ83ErCyZT?=
+ =?us-ascii?Q?HGt0gamh0YljHnSqjUu159TWMg2Ztoai2t0SR5ps2xuqH7w/mKXpri2LgeSk?=
+ =?us-ascii?Q?m78876p0SMK33leM5HkjzwTslK5YdfUY2s51SHc0ZFXVqUTVRDrlt6pbEcLv?=
+ =?us-ascii?Q?E7+u9Jy/hnqpwtSKFdyufyf5Xfh+4mPkyrvQIWZa25DbE0tLlC0m4IgdAaOy?=
+ =?us-ascii?Q?gOxSdq1aWnMnnINMxRo=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(376014)(82310400026)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Dec 2025 20:47:21.8995
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f0fdc1ab-abc4-433d-43da-08de3ce44fb3
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000AD7C.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB7981
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_124453_066954_72937E54 
-X-CRM114-Status: GOOD (  31.48  )
+X-CRM114-CacheID: sfid-20251216_124729_157911_D5C0F6B1 
+X-CRM114-Status: GOOD (  10.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,223 +157,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 12, 2025 at 7:32=E2=80=AFAM James Clark <james.clark@linaro.org=
-> wrote:
->
-> This will be used by aux PMUs to read an already written value for
-> configuring their events and for also testing.
->
-> Its helper pmu_format_unpack() does the opposite of the existing
-> pmu_format_value() so rename that one to pmu_format_pack() so it's clear
-> how they are related.
->
-> Signed-off-by: James Clark <james.clark@linaro.org>
-> ---
->  tools/perf/util/evsel.h |  2 ++
->  tools/perf/util/pmu.c   | 77 ++++++++++++++++++++++++++++++++++++++++++-=
-------
->  2 files changed, 68 insertions(+), 11 deletions(-)
->
-> diff --git a/tools/perf/util/evsel.h b/tools/perf/util/evsel.h
-> index a08130ff2e47a887b19f6c47bfa9f51e0c40d226..092904a61ec7afdc59253f9b7=
-8a9fe8b7cb5bfa7 100644
-> --- a/tools/perf/util/evsel.h
-> +++ b/tools/perf/util/evsel.h
-> @@ -575,6 +575,8 @@ void evsel__uniquify_counter(struct evsel *counter);
->         ((((src) >> (pos)) & ((1ull << (size)) - 1)) << (63 - ((pos) + (s=
-ize) - 1)))
->
->  u64 evsel__bitfield_swap_branch_flags(u64 value);
-> +int evsel__get_config_val(struct perf_pmu *pmu, struct evsel *evsel,
-> +                         const char *config_name, u64 *val);
->  void evsel__set_config_if_unset(struct perf_pmu *pmu, struct evsel *evse=
-l,
->                                 const char *config_name, u64 val);
->
-> diff --git a/tools/perf/util/pmu.c b/tools/perf/util/pmu.c
-> index 514cba91f5d99b399d2d6a1e350971660c54a9fc..ef7358ad1fb955f29f2e68b3d=
-0ce711754e4d67c 100644
-> --- a/tools/perf/util/pmu.c
-> +++ b/tools/perf/util/pmu.c
-> @@ -144,8 +144,8 @@ struct perf_pmu_format {
->  };
->
->  static int pmu_aliases_parse(struct perf_pmu *pmu);
-> -static void pmu_format_value(unsigned long *format, __u64 value, __u64 *=
-v,
-> -                            bool zero);
-> +static void pmu_format_pack(unsigned long *format, __u64 value, __u64 *v=
-,
-> +                           bool zero);
->  static struct perf_pmu_format *pmu_find_format(const struct list_head *f=
-ormats,
->                                                const char *name);
->
-> @@ -1377,6 +1377,61 @@ bool evsel__is_aux_event(const struct evsel *evsel=
-)
->         return pmu && pmu->auxtrace;
->  }
->
-> +/*
-> + * Unpacks a raw config[n] value using the sparse bitfield that defines =
-a
-> + * format attr. For example "config1:1,6-7,44" defines a 4 bit value acr=
-oss non
-> + * contiguous bits and this function returns those 4 bits as a value.
-> + */
-> +static u64 pmu_format_unpack(u64 format, u64 config_val)
-> +{
-> +       int val_bit =3D 0;
-> +       u64 res =3D 0;
-> +       int fmt_bit;
-> +
-> +       for_each_set_bit(fmt_bit, &format, PERF_PMU_FORMAT_BITS) {
-> +               if (test_bit(fmt_bit, &config_val))
-> +                       res |=3D BIT_ULL(val_bit);
-> +
-> +               val_bit++;
-> +       }
-> +       return res;
-> +}
-> +
-> +int evsel__get_config_val(struct perf_pmu *pmu, struct evsel *evsel,
-> +                         const char *config_name, u64 *val)
+On Mon, Dec 15, 2025 at 08:09:52PM -0400, Jason Gunthorpe wrote:
+> On Sun, Dec 14, 2025 at 10:32:35PM +0000, Mostafa Saleh wrote:
+> > However, this approach makes it a bit explicit which bits are ignored, if we
+> > keep this logic, I think changing the name of get_ignored() might help, to
+> > something as "get_allowed_break()" or "get_update_safe()"?
+> 
+> update_safe sounds good to me
 
-nits:
-This is an evsel__ function but the evsel is the 2nd argument not the first=
-.
-Why pass the PMU and not just read evsel->pmu (or better evsel__find_pmu) ?
-Why not place this in evsel.c to match the header file declaration?
-The evsel could be likely be const.
+I have renamed the op and changed entry_set to void. I'll send v4
+later today.
 
-Thanks,
-Ian
-
-> +{
-> +       struct perf_pmu_format *format =3D pmu_find_format(&pmu->format, =
-config_name);
-> +       u64 bits =3D perf_pmu__format_bits(pmu, config_name);
-> +
-> +       if (!format || !bits) {
-> +               pr_err("Unknown/empty format name: %s\n", config_name);
-> +               *val =3D 0;
-> +               return -EINVAL;
-> +       }
-> +
-> +       switch (format->value) {
-> +       case PERF_PMU_FORMAT_VALUE_CONFIG:
-> +               *val =3D pmu_format_unpack(bits, evsel->core.attr.config)=
-;
-> +               return 0;
-> +       case PERF_PMU_FORMAT_VALUE_CONFIG1:
-> +               *val =3D pmu_format_unpack(bits, evsel->core.attr.config1=
-);
-> +               return 0;
-> +       case PERF_PMU_FORMAT_VALUE_CONFIG2:
-> +               *val =3D pmu_format_unpack(bits, evsel->core.attr.config2=
-);
-> +               return 0;
-> +       case PERF_PMU_FORMAT_VALUE_CONFIG3:
-> +               *val =3D pmu_format_unpack(bits, evsel->core.attr.config3=
-);
-> +               return 0;
-> +       case PERF_PMU_FORMAT_VALUE_CONFIG4:
-> +               *val =3D pmu_format_unpack(bits, evsel->core.attr.config4=
-);
-> +               return 0;
-> +       default:
-> +               pr_err("Unknown format value: %d\n", format->value);
-> +               *val =3D 0;
-> +               return -EINVAL;
-> +       }
-> +}
-> +
->  /*
->   * Set @config_name to @val as long as the user hasn't already set or cl=
-eared it
->   * by passing a config term on the command line.
-> @@ -1432,7 +1487,7 @@ void evsel__set_config_if_unset(struct perf_pmu *pm=
-u, struct evsel *evsel,
->                 return;
->
->         /* Otherwise replace it */
-> -       pmu_format_value(&bits, val, vp, /*zero=3D*/true);
-> +       pmu_format_pack(&bits, val, vp, /*zero=3D*/true);
->  }
->
->  static struct perf_pmu_format *
-> @@ -1477,8 +1532,8 @@ int perf_pmu__format_type(struct perf_pmu *pmu, con=
-st char *name)
->   * Sets value based on the format definition (format parameter)
->   * and unformatted value (value parameter).
->   */
-> -static void pmu_format_value(unsigned long *format, __u64 value, __u64 *=
-v,
-> -                            bool zero)
-> +static void pmu_format_pack(unsigned long *format, __u64 value, __u64 *v=
-,
-> +                           bool zero)
->  {
->         unsigned long fbit, vbit;
->
-> @@ -1595,23 +1650,23 @@ static int pmu_config_term(const struct perf_pmu =
-*pmu,
->                 switch (term->type_term) {
->                 case PARSE_EVENTS__TERM_TYPE_CONFIG:
->                         assert(term->type_val =3D=3D PARSE_EVENTS__TERM_T=
-YPE_NUM);
-> -                       pmu_format_value(bits, term->val.num, &attr->conf=
-ig, zero);
-> +                       pmu_format_pack(bits, term->val.num, &attr->confi=
-g, zero);
->                         break;
->                 case PARSE_EVENTS__TERM_TYPE_CONFIG1:
->                         assert(term->type_val =3D=3D PARSE_EVENTS__TERM_T=
-YPE_NUM);
-> -                       pmu_format_value(bits, term->val.num, &attr->conf=
-ig1, zero);
-> +                       pmu_format_pack(bits, term->val.num, &attr->confi=
-g1, zero);
->                         break;
->                 case PARSE_EVENTS__TERM_TYPE_CONFIG2:
->                         assert(term->type_val =3D=3D PARSE_EVENTS__TERM_T=
-YPE_NUM);
-> -                       pmu_format_value(bits, term->val.num, &attr->conf=
-ig2, zero);
-> +                       pmu_format_pack(bits, term->val.num, &attr->confi=
-g2, zero);
->                         break;
->                 case PARSE_EVENTS__TERM_TYPE_CONFIG3:
->                         assert(term->type_val =3D=3D PARSE_EVENTS__TERM_T=
-YPE_NUM);
-> -                       pmu_format_value(bits, term->val.num, &attr->conf=
-ig3, zero);
-> +                       pmu_format_pack(bits, term->val.num, &attr->confi=
-g3, zero);
->                         break;
->                 case PARSE_EVENTS__TERM_TYPE_CONFIG4:
->                         assert(term->type_val =3D=3D PARSE_EVENTS__TERM_T=
-YPE_NUM);
-> -                       pmu_format_value(bits, term->val.num, &attr->conf=
-ig4, zero);
-> +                       pmu_format_pack(bits, term->val.num, &attr->confi=
-g4, zero);
->                         break;
->                 case PARSE_EVENTS__TERM_TYPE_LEGACY_HARDWARE_CONFIG:
->                         assert(term->type_val =3D=3D PARSE_EVENTS__TERM_T=
-YPE_NUM);
-> @@ -1749,7 +1804,7 @@ static int pmu_config_term(const struct perf_pmu *p=
-mu,
->                  */
->         }
->
-> -       pmu_format_value(format->bits, val, vp, zero);
-> +       pmu_format_pack(format->bits, val, vp, zero);
->         return 0;
->  }
->
->
-> --
-> 2.34.1
->
+Thanks
+Nicolin
 
