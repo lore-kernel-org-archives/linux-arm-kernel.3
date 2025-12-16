@@ -4,57 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A78F1D5CCB7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 10:31:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9486CD5CCB7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 10:41:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Dc4LLdCmlkY4EowmjvFRKco8cy143ukTnzbekLwxxo=; b=Q/XqnX3BYN5MKororc3jig6w4U
-	F4ZJO2thtPmnvkK1e02vipW+4y2Bzk2fNZoHD6dkNKHKN0MchQP/Zxk5lDJ1u7X8em1znq+58EiVd
-	xowNNnDv0q9nAqRiMoR+WtYg47Hlths/+whII/sXQ+UUm8+lu5PdeZ0aH+DcorhBW2cJI6sNHJK2D
-	KJLoUIaAN34UrjQj1MO0kYjAtLpre4k4pqrm+GOGoMnxdEoo+he26uyegkEbMLJJvGgewxinrkESc
-	uinCDrIVtHGoD1gJGKfxrU+HNPN/d9SVLyI33Wh8dRTct0pFJSL6dpy5AEStIaLXNMHVb5MUqZJ1s
-	nIBDxdtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AuuMdwK02jsbngNz2/KGy8abaufND9j6yXH8qr9+6Ko=; b=S8pqm4BsD0xSK4FSQPa+ze6XwB
+	lIn1xKT26kBf+mXcy24iMEK88tlswarb10PvBvMfQXDH1wZPP3ybbSWFPnVxjENde9803XDJ1P8OZ
+	hZOnGm9qHkTWKNQNqOnst8eNwgRZ9QIHVFCpp0LUu4Frbq8zDYbib2prafTJvMjFIt/kNzmqFYhKY
+	sUj+kuuqI5i4OiEHD5AVlybo5qMXX2EHrevU+NgnzTroGfpP1K0jkw3Rtb8YFaMajmAlq8du1t60h
+	XdmhTS8L5L7fvD8mQPHNe4a1U/GjUP+LtltxxUzeAtgqSH3syjRu/BnlaPa+70zuP0cLNlB9npFyF
+	P+WGW9Og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVSL5-000000052ZY-2QPC;
-	Tue, 16 Dec 2025 10:31:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVSL0-000000052WZ-226x
+	id 1vVSUY-000000053EI-0N67;
+	Tue, 16 Dec 2025 10:41:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vVSUW-000000053EA-0ZyM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 10:31:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0EF3B1655;
-	Tue, 16 Dec 2025 02:31:18 -0800 (PST)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8FEEC3F694;
-	Tue, 16 Dec 2025 02:31:23 -0800 (PST)
-From: Alexandru Elisei <alexandru.elisei@arm.com>
-To: maz@kernel.org,
-	oupton@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	qperret@google.com,
-	will@kernel.org,
-	tabba@google.com,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Subject: [PATCH v3 4/4] KVM: arm64: Remove unused parameter in synchronize_vcpu_pstate()
-Date: Tue, 16 Dec 2025 10:30:53 +0000
-Message-ID: <20251216103053.47224-5-alexandru.elisei@arm.com>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20251216103053.47224-1-alexandru.elisei@arm.com>
-References: <20251216103053.47224-1-alexandru.elisei@arm.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_023126_570710_DD9E0656 
-X-CRM114-Status: GOOD (  10.52  )
+	Tue, 16 Dec 2025 10:41:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2FF0160179;
+	Tue, 16 Dec 2025 10:41:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEBC3C4CEF1;
+	Tue, 16 Dec 2025 10:41:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765881674;
+	bh=5F0yzfk3QuF+NEqe5ZZwL0sej8LtmyufVRa3QRlK7aE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=OVWlwpZrfZk2dI8M4s0fry3CZ1Jy2mK1ooSSbMXxYchdkSMRpL4/Ld86ki0zwXF0l
+	 2T+KoVFzOz3rfj5IDsoG/O553ChMN1aa0pPg3/Dn24dDjjREucEuKrSuSPR/fjLzvl
+	 Br0aNEz89dlhoEEHZudJeXzl7aZlYgPQ18I0xP9cJiZy5dYzcpJzcgOCZQzbJJLUv/
+	 KyD/711w4kOUVJmjv38ZvA1z+W4G88JkXGHrIH7Jm04IZqaxt8O7fKlQFdDhCQUzlb
+	 ESYEtwhEDmOa3eFCewkE0mbObghZge43ApkdwTaNFDrd5Tsh+ft5BJ28vDwK13ZjNn
+	 yJ3t0pAZXN3aw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vVSUS-0000000D28E-10CT;
+	Tue, 16 Dec 2025 10:41:12 +0000
+Date: Tue, 16 Dec 2025 10:41:11 +0000
+Message-ID: <86a4ziogjc.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	nd <nd@arm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Joey Gouly
+	<Joey.Gouly@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org"
+	<peter.maydell@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>
+Subject: Re: [PATCH 11/32] KVM: arm64: gic-v5: Trap and emulate ICH_PPI_HMRx_EL1 accesses
+In-Reply-To: <20251212152215.675767-12-sascha.bischoff@arm.com>
+References: <20251212152215.675767-1-sascha.bischoff@arm.com>
+	<20251212152215.675767-12-sascha.bischoff@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,57 +94,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-synchronize_vcpu_pstate() doesn't make use of the reference to exit_code,
-remove the parameter.
+On Fri, 12 Dec 2025 15:22:39 +0000,
+Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+> 
+> The ICC_PPI_HMRx_EL1 register is used to determine which PPIs use
+> Level-sensitive semantics, and which use Edge. For a GICv5 guest, the
+> correct view of the virtual PPIs must be provided to the guest.
 
-Reviewed-by: Fuad Tabba <tabba@google.com>
-Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
----
- arch/arm64/kvm/hyp/include/hyp/switch.h | 2 +-
- arch/arm64/kvm/hyp/nvhe/switch.c        | 2 +-
- arch/arm64/kvm/hyp/vhe/switch.c         | 2 +-
- 3 files changed, 3 insertions(+), 3 deletions(-)
+s/ICH/ICC/ in $SUBJECT
 
-diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-index c5d5e5b86eaf..afecbdd3c1e9 100644
---- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-@@ -854,7 +854,7 @@ static inline bool kvm_hyp_handle_exit(struct kvm_vcpu *vcpu, u64 *exit_code,
- 	return false;
- }
- 
--static inline void synchronize_vcpu_pstate(struct kvm_vcpu *vcpu, u64 *exit_code)
-+static inline void synchronize_vcpu_pstate(struct kvm_vcpu *vcpu)
- {
- 	/*
- 	 * Check for the conditions of Cortex-A510's #2077057. When these occur
-diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
-index d3b9ec8a7c28..779089e42681 100644
---- a/arch/arm64/kvm/hyp/nvhe/switch.c
-+++ b/arch/arm64/kvm/hyp/nvhe/switch.c
-@@ -211,7 +211,7 @@ static inline bool fixup_guest_exit(struct kvm_vcpu *vcpu, u64 *exit_code)
- {
- 	const exit_handler_fn *handlers = kvm_get_exit_handler_array(vcpu);
- 
--	synchronize_vcpu_pstate(vcpu, exit_code);
-+	synchronize_vcpu_pstate(vcpu);
- 
- 	/*
- 	 * Some guests (e.g., protected VMs) are not be allowed to run in
-diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-index 9984c492305a..9db3f11a4754 100644
---- a/arch/arm64/kvm/hyp/vhe/switch.c
-+++ b/arch/arm64/kvm/hyp/vhe/switch.c
-@@ -536,7 +536,7 @@ static const exit_handler_fn hyp_exit_handlers[] = {
- 
- static inline bool fixup_guest_exit(struct kvm_vcpu *vcpu, u64 *exit_code)
- {
--	synchronize_vcpu_pstate(vcpu, exit_code);
-+	synchronize_vcpu_pstate(vcpu);
- 
- 	/*
- 	 * If we were in HYP context on entry, adjust the PSTATE view
+> 
+> The GICv5 architecture doesn't provide an ICV_PPI_HMRx_EL1 or
+
+The spec disagree with you here (see 9.5.4).
+
+> ICH_PPI_HMRx_EL2 register, and therefore all guest accesses must be
+> trapped to avoid the guest directly accessing the host's
+> ICC_PPI_HMRx_EL1 state. This change hence configures the FGTs to
+> always trap and emulate guest accesses to the HMR running a
+> GICv5-based guest.
+
+The real question is what we gain by emulating this register, given
+that virtual PPIs are only guaranteed to exist if the physical version
+exist. If they exist, then the handling mode is defined by the
+that HW, and we can't deviate from it.
+
+Given that, I can't really see the point in trapping something that is
+bound to be the same thing as the host, unless this comes with
+additional restrictions, for example a mask of interrupts that are
+actually exposed to the guest.
+
+Or am I missing something?
+
+> 
+> This change also introduces the struct vgic_v5_cpu_if, which includes
+> the vgic_hmr. This is not yet populated as it can only be correctly
+> populated at vcpu reset time. This will be introduced in a subsquent
+> change.
+> 
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> ---
+>  arch/arm64/kvm/config.c   |  6 +++++-
+>  arch/arm64/kvm/sys_regs.c | 26 ++++++++++++++++++++++++++
+>  include/kvm/arm_vgic.h    |  5 +++++
+>  3 files changed, 36 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+> index cbdd8ac90f4d0..7683407ce052a 100644
+> --- a/arch/arm64/kvm/config.c
+> +++ b/arch/arm64/kvm/config.c
+> @@ -1586,8 +1586,12 @@ static void __compute_ich_hfgrtr(struct kvm_vcpu *vcpu)
+>  {
+>  	__compute_fgt(vcpu, ICH_HFGRTR_EL2);
+>  
+> -	/* ICC_IAFFIDR_EL1 *always* needs to be trapped when running a guest */
+> +	/*
+> +	 * ICC_IAFFIDR_EL1 and ICH_PPI_HMRx_EL1 *always* needs to be
+> +	 * trapped when running a guest.
+> +	 **/
+>  	*vcpu_fgt(vcpu, ICH_HFGRTR_EL2) &= ~ICH_HFGRTR_EL2_ICC_IAFFIDR_EL1;
+> +	*vcpu_fgt(vcpu, ICH_HFGRTR_EL2) &= ~ICH_HFGRTR_EL2_ICC_PPI_HMRn_EL1;
+>  }
+>  
+>  void kvm_vcpu_load_fgt(struct kvm_vcpu *vcpu)
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index 31c08fd591d08..a4ae034340040 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -699,6 +699,30 @@ static bool access_gicv5_iaffid(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+>  	return true;
+>  }
+>  
+> +static bool access_gicv5_ppi_hmr(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+> +				 const struct sys_reg_desc *r)
+> +{
+> +	if (!vgic_is_v5(vcpu->kvm))
+> +		return undef_access(vcpu, p, r);
+> +
+> +	if (p->is_write)
+> +		return ignore_write(vcpu, p);
+> +
+> +	/*
+> +	 * For GICv5 VMs, the IAFFID value is the same as the VPE ID. The VPE ID
+> +	 * is the same as the VCPU's ID.
+> +	 */
+
+Unrelated comment?
+
+> +
+> +	if (p->Op2 == 0) {	/* ICC_PPI_HMR0_EL1 */
+> +		p->regval = vcpu->arch.vgic_cpu.vgic_v5.vgic_ppi_hmr[0];
+> +	} else {		/* ICC_PPI_HMR1_EL1 */
+> +		p->regval = vcpu->arch.vgic_cpu.vgic_v5.vgic_ppi_hmr[1];
+> +	}
+
+nit: Can probably be written as:
+
+	p->regval = vcpu->arch.vgic_cpu.vgic_v5.vgic_ppi_hmr[p->Op2];
+
+Thanks,
+
+	M.
+
 -- 
-2.52.0
-
+Without deviation from the norm, progress is not possible.
 
