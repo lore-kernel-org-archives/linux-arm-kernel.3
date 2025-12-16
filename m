@@ -4,100 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81B33D609B0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 15:52:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B723AD609B0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 15:52:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6bpYrpdLa1BV6o5WcuoYN/S5eTO5xCy/135Fpy8l8VQ=; b=A2xAVzoIohlnE7U+MQKRlUwYTq
-	QGyg/P2Et1TlCcjImEf0H8vf9F8ojNKKF6nTFFFkSeTZDcI7TzQmkYa8p75j7AOsWVIHmPT237oqG
-	63odbQBYlZcsOEoXr7kxLsoAfVZhiQuw55SQTnpEBXs2AwFDsjfhsXF51vgq2EheWVHVTogiAsp6X
-	5sItESUhtwt1+GkxIyZM/mX39CiqjT3hrLvfuLo/FbtJigHN1xKPqMCmV0OBSGyzY/jACCwLKZXl5
-	bvFxB/fvWpO4Mvo1BPrlP9fJufZfDi8M+qPcQz30g4JmP9zo5gE83i1HtKsRKfCBR9QyUB9vw1ULm
-	undzD8Gg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AT+SEmO6ezyq55BXA+Z5id/JCgLawY1EZizgcUpiObo=; b=ZKLVS3ptnXzipBB/anEO7XFScG
+	HUDJe1I9MnxSyZZbvImbEqYndj5eNAFa/G5CwDe9kr+x6CAdTVTKJcmz9pszZYkyKFdj6WFRr/25h
+	21Pskx7Qs1Wep030BE7VSYaUkgzVbT59rtwtc92M8T8ejWP+x73cLZCaDj7EjLR4SJ2ibYcnUvKrM
+	Jzba5lLgQ3Ac27Tei6dwh9DC8m/Vv8raDBv3GiYltGT2ioAw8i0Ix8XtMo3ZpiyUh3IR1n03SfZyX
+	wz9wZISc7VsVvVzACjjlw59KD0SkRymgLKAqwEIi78u/gKN+Uecx0azYB+8tagyclB9kePxovzrd4
+	DTsGKnqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVXLO-00000005TsM-02hb;
-	Tue, 16 Dec 2025 15:52:10 +0000
-Received: from mx-relay102-hz1.antispameurope.com ([94.100.133.89])
+	id 1vVXLU-00000005TuM-1Lh0;
+	Tue, 16 Dec 2025 15:52:16 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVXLK-00000005Tra-1Faq
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 15:52:09 +0000
-ARC-Authentication-Results: i=1; mx-gate102-hz1.hornetsecurity.com 1;
- spf=pass reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com smtp.helo=smtp-out01-hz1.hornetsecurity.com;
- dmarc=pass header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=6bpYrpdLa1BV6o5WcuoYN/S5eTO5xCy/135Fpy8l8VQ=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1765900311;
- b=ZKeBCWXkpVldNFaJsaSUkh8nrOk7jY8Jb/kdXNJlNm29PkeYObx3F8+LMbdjVCfFrWPdJZZf
- cXPVkfeSgFUEY2993plWs7nMN2PqJYyoHXbY05OjJpEYIMBx8XAi5Mey/fnn11sH7FpaqhGCvOe
- 5hRen5AGtvgE7XyOE7KfeUfQTMa1bh+xUxTdk3iFimBW8bPpOd0ZCRLx+v/oYV4K5JUA3QdfdJX
- JALH4mcMw+aB/J5ajbqSJQPQ/CPE2V7QNLv8VpnwMdRi0SpKYO7i4OP+XAFZtdfM27KojwcIjBH
- sMIsiTexpYnAvl3TUElYemqWwVeANcPJunJS6PTM5GDdw==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1765900311;
- b=SPKMPCG4+husZ7c+vw6k7dgm8FkTW7ITO7rVnjiiM+FxSHRDVNsPDEuCTzaDGKqFgmL41MV9
- Imu3FMJi1RfDjb4jMetbXs8L2YhybjQFHr911RpjvyHmdBDyMJFuOPba9FIqDDvx/sJAVkYTcNI
- HDNYfmgO22hsklUgyFLPritB84hgIjL6YEUzcp91SodZsSZZBFtS4WTP5nWgjmPIcLBd48Fa7pp
- nE8kQqtMkh6tmhFXiGhHiivi2Ld7HKpj9JdZf979axfgbLWfPB7pGQZxhsG2PGZjEapS8RBLMX4
- SeSRb41UpfthVUbeld1LWo6L7TnpOJKvNN21bzRyIMoMw==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay102-hz1.antispameurope.com;
- Tue, 16 Dec 2025 16:51:51 +0100
-Received: from steina-w.localnet (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: alexander.stein@ew.tq-group.com)
-	by smtp-out01-hz1.hornetsecurity.com (Postfix) with ESMTPSA id AFB67A4071D;
-	Tue, 16 Dec 2025 16:51:38 +0100 (CET)
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Rui Miguel Silva <rmfrfs@gmail.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Martin Kepplinger-Novakovic <martink@posteo.de>,
- Purism Kernel Team <kernel@puri.sm>, linux-arm-kernel@lists.infradead.org,
- linux-media@vger.kernel.org, imx@lists.linux.dev,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 2/5] media: nxp: use dev_err_probe() to simplify code
-Date: Tue, 16 Dec 2025 16:51:38 +0100
-Message-ID: <5692334.31r3eYUQgx@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <aUF9wPzPaGD1nmM2@lizhi-Precision-Tower-5810>
-References: <20251215-cam_cleanup-v3-0-a61995068f38@nxp.com>
- <13428800.O9o76ZdvQC@steina-w> <aUF9wPzPaGD1nmM2@lizhi-Precision-Tower-5810>
+	id 1vVXLR-00000005TtU-3zTl;
+	Tue, 16 Dec 2025 15:52:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4AF144339C;
+	Tue, 16 Dec 2025 15:52:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64FD6C4CEF1;
+	Tue, 16 Dec 2025 15:52:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765900333;
+	bh=K8pZtvebClu3B/cJuAfF0UnhnnGQopgoSPsXHN/hcN8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ADm1V8T6S680/QK1LgaeuPNCbzu+pEz9pr6PGcj1DSxaCmr6RYUW+b03qAR10f/FR
+	 mu2p/7qoL3HDi+ioNVeF6d3WhM2nHoAc5cWPcIOjkOLQ1WIq5Nofzn7jh50onjzB4/
+	 Pv70wePghtuP3vjMYzYJeV6ifIoRHoB3E4khxht++oiAFhGymRYAOGnnyz7IVbw/TN
+	 T3nVumGYv9GT3QKOoHS9tGx3kfEQEdVpKsCgbN9BQwTi01cUH78pVxHekZaPHOUDS/
+	 DN0AOUad+zb2cyqHNzK9UbtOj4RJkiF+S10m8wfhwjS5KZ6YVUkfTMIDg8eYP68I8a
+	 hiy56zaTCAdTQ==
+Message-ID: <5154ca76-0f23-4b52-8e6d-07005c52ac6d@kernel.org>
+Date: Tue, 16 Dec 2025 16:52:08 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPart5328991.LvFx2qVVIh";
- micalg="pgp-sha512"; protocol="application/pgp-signature"
-X-cloud-security-sender: alexander.stein@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay102-hz1.antispameurope.com with 4dW1d73G2Vz16W4
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: ceddf39c8a353a802996f9c91063b891
-X-cloud-security: scantime:1.849
-DKIM-Signature: a=rsa-sha256;
- bh=6bpYrpdLa1BV6o5WcuoYN/S5eTO5xCy/135Fpy8l8VQ=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1765900311; v=1;
- b=NOn1KYRw9BqwuA+4NldbLW4KBBiipzLlqRmli5mPiT3tGIzWPxuQyhzCmWK81TqkIlZTjQa2
- 5D3sFH+e2sk5LDJxlWQxuviAHw3upzGTEOsnvDrj7QGEdgWic0XZSy3EnrqwmA7fN54iZ33RRyW
- 87UGZRDV6R0OvSV7r/n5nvy4JMCiGJH5EOtTqYsZDNFPaHTFsb5dAao4n55QLqTxVKfw8tgemmP
- vRY0XY2HqYYf956RMk5A146OjgvVDaaFuzdTzt45NL5BiHYJZ4BVnKzXV+6aFD7tW+eGzxeXOeI
- ZNKiuvEcAQ/qERFCx3xVQ2LNe2ANmc9qxU+KJBM/cbYEg==
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 6/7] dt-bindings: pinctrl: rockchip: Add RMIO
+ controller binding
+To: Ye Zhang <ye.zhang@rock-chips.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ tao.huang@rock-chips.com
+References: <20251216112053.1927852-1-ye.zhang@rock-chips.com>
+ <20251216112053.1927852-7-ye.zhang@rock-chips.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251216112053.1927852-7-ye.zhang@rock-chips.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_075206_588448_C9E3BC95 
-X-CRM114-Status: GOOD (  34.78  )
+X-CRM114-CacheID: sfid-20251216_075214_042153_E56E354A 
+X-CRM114-Status: GOOD (  25.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,196 +122,225 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---nextPart5328991.LvFx2qVVIh
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"; protected-headers="v1"
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Frank Li <Frank.li@nxp.com>
-Date: Tue, 16 Dec 2025 16:51:38 +0100
-Message-ID: <5692334.31r3eYUQgx@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <aUF9wPzPaGD1nmM2@lizhi-Precision-Tower-5810>
-MIME-Version: 1.0
+On 16/12/2025 12:20, Ye Zhang wrote:
+> 1. Add header file with constants for RMIO function IDs for the Rockchip
+> RK3506 SoC.
+> 2. Add device tree binding for the RMIO (Rockchip Matrix I/O) controller
+> which is a sub-device of the main pinctrl on some Rockchip SoCs.
+> 
+> Signed-off-by: Ye Zhang <ye.zhang@rock-chips.com>
+> ---
+>  .../bindings/pinctrl/rockchip,pinctrl.yaml    |   9 ++
+>  .../bindings/pinctrl/rockchip,rmio.yaml       | 106 +++++++++++++++++
+>  .../pinctrl/rockchip,rk3506-rmio.h            | 109 ++++++++++++++++++
+>  3 files changed, 224 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pinctrl/rockchip,rmio.yaml
+>  create mode 100644 include/dt-bindings/pinctrl/rockchip,rk3506-rmio.h
+> 
+> diff --git a/Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml
+> index 97960245676d..9a27eaf7942b 100644
+> --- a/Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml
+> +++ b/Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml
+> @@ -82,6 +82,15 @@ required:
+>    - rockchip,grf
+>  
+>  patternProperties:
+> +  "rmio[0-9]*$":
+> +    type: object
+> +
+> +    $ref: "/schemas/pinctrl/rockchip,rmio.yaml#"
+> +
+> +    description:
+> +      The RMIO (Rockchip Matrix I/O) controller node which functions as a
+> +      sub-device of the main pinctrl to handle flexible function routing.
 
-Am Dienstag, 16. Dezember 2025, 16:41:52 CET schrieb Frank Li:
-> On Tue, Dec 16, 2025 at 03:50:17PM +0100, Alexander Stein wrote:
-> > Hi Frank,
-> >
-> > Am Dienstag, 16. Dezember 2025, 15:46:00 CET schrieb Frank Li:
-> > > On Tue, Dec 16, 2025 at 08:34:18AM +0100, Alexander Stein wrote:
-> > > > Hi,
-> > > >
-> > > > Am Montag, 15. Dezember 2025, 23:49:53 CET schrieb Frank Li:
-> > > > > Use dev_err_probe() to simplify the code. Drop the explicit error=
- message
-> > > > > after returning from imx8mq_mipi_csi_parse_dt(), as the error is =
-already
-> > > > > reported by this helper.
-> > > > >
-> > > > > No functional change.
-> > > > >
-> > > > > Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> > > > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > > > > ---
-> > > > > change in v2:
-> > > > > - add  Laurent Pinchart review tags
-> > > > > - wrap error message to new line
-> > > > > - remove error code print in dev_err_probe();
-> > > > > - drop error messaage at imx8mq_mipi_csi_parse_dt()
-> > > > > ---
-> > > > >  drivers/media/platform/nxp/imx-mipi-csis.c    |  6 ++---
-> > > > >  drivers/media/platform/nxp/imx7-media-csi.c   | 14 ++++--------
-> > > > >  drivers/media/platform/nxp/imx8mq-mipi-csi2.c | 33 ++++++++++++-=
-=2D-------------
-> > > > >  3 files changed, 21 insertions(+), 32 deletions(-)
-> > > > >
-> > > > > diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers=
-/media/platform/nxp/imx-mipi-csis.c
-> > > > > index 088b2945aee33731c565f049dd17721356300b84..ce93d868746f002c2=
-2e2f86b1e0aa84ec1a76061 100644
-> > > > > --- a/drivers/media/platform/nxp/imx-mipi-csis.c
-> > > > > +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
-> > > > > @@ -1547,10 +1547,8 @@ static int mipi_csis_probe(struct platform=
-_device *pdev)
-> > > > >  	/* Now that the hardware is initialized, request the interrupt.=
- */
-> > > > >  	ret =3D devm_request_irq(dev, irq, mipi_csis_irq_handler, 0,
-> > > > >  			       dev_name(dev), csis);
-> > > > > -	if (ret) {
-> > > > > -		dev_err(dev, "Interrupt request failed\n");
-> > > > > -		return ret;
-> > > > > -	}
-> > > > > +	if (ret)
-> > > > > +		return dev_err_probe(dev, ret, "Interrupt request failed\n");
-> > > > >
-> > > > >  	/* Initialize and register the subdev. */
-> > > > >  	ret =3D mipi_csis_subdev_init(csis);
-> > > > > diff --git a/drivers/media/platform/nxp/imx7-media-csi.c b/driver=
-s/media/platform/nxp/imx7-media-csi.c
-> > > > > index 933a5f39f9f4c9b43ca8d2a1819d0145981266e6..7ddc7ba06e3d4e007=
-013821f67d783898a15461f 100644
-> > > > > --- a/drivers/media/platform/nxp/imx7-media-csi.c
-> > > > > +++ b/drivers/media/platform/nxp/imx7-media-csi.c
-> > > > > @@ -2218,11 +2218,9 @@ static int imx7_csi_probe(struct platform_=
-device *pdev)
-> > > > >
-> > > > >  	/* Acquire resources and install interrupt handler. */
-> > > > >  	csi->mclk =3D devm_clk_get(&pdev->dev, "mclk");
-> > > > > -	if (IS_ERR(csi->mclk)) {
-> > > > > -		ret =3D PTR_ERR(csi->mclk);
-> > > > > -		dev_err(dev, "Failed to get mclk: %d", ret);
-> > > > > -		return ret;
-> > > > > -	}
-> > > > > +	if (IS_ERR(csi->mclk))
-> > > > > +		return dev_err_probe(dev, PTR_ERR(csi->mclk),
-> > > > > +				     "Failed to get mclk\n");
-> > > > >
-> > > > >  	csi->irq =3D platform_get_irq(pdev, 0);
-> > > > >  	if (csi->irq < 0)
-> > > > > @@ -2236,10 +2234,8 @@ static int imx7_csi_probe(struct platform_=
-device *pdev)
-> > > > >
-> > > > >  	ret =3D devm_request_irq(dev, csi->irq, imx7_csi_irq_handler, 0=
-, "csi",
-> > > > >  			       (void *)csi);
-> > > > > -	if (ret < 0) {
-> > > > > -		dev_err(dev, "Request CSI IRQ failed.\n");
-> > > > > -		return ret;
-> > > > > -	}
-> > > > > +	if (ret < 0)
-> > > > > +		return dev_err_probe(dev, ret, "Request CSI IRQ failed.\n");
-> > > > >
-> > > > >  	/* Initialize all the media device infrastructure. */
-> > > > >  	ret =3D imx7_csi_media_init(csi);
-> > > > > diff --git a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c b/driv=
-ers/media/platform/nxp/imx8mq-mipi-csi2.c
-> > > > > index 0851f4a9ae52d3096f454da643cfdc5017e000b1..a007c582b4d91660a=
-97910a6a0d53c9b6fcd73e9 100644
-> > > > > --- a/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> > > > > +++ b/drivers/media/platform/nxp/imx8mq-mipi-csi2.c
-> > > > > @@ -951,10 +951,9 @@ static int imx8mq_mipi_csi_parse_dt(struct c=
-si_state *state)
-> > > > >  	int ret =3D 0;
-> > > > >
-> > > > >  	state->rst =3D devm_reset_control_array_get_exclusive(dev);
-> > > > > -	if (IS_ERR(state->rst)) {
-> > > > > -		dev_err(dev, "Failed to get reset: %pe\n", state->rst);
-> > > > > -		return PTR_ERR(state->rst);
-> > > > > -	}
-> > > > > +	if (IS_ERR(state->rst))
-> > > > > +		return dev_err_probe(dev, PTR_ERR(state->rst),
-> > > > > +				     "Failed to get reset\n");
-> > > > >
-> > > > >  	if (state->pdata->use_reg_csr) {
-> > > > >  		const struct regmap_config regmap_config =3D {
-> > > > > @@ -977,24 +976,22 @@ static int imx8mq_mipi_csi_parse_dt(struct =
-csi_state *state)
-> > > > >
-> > > > >  	ret =3D of_property_read_u32_array(np, "fsl,mipi-phy-gpr", out_=
-val,
-> > > > >  					 ARRAY_SIZE(out_val));
-> > > > > -	if (ret) {
-> > > > > -		dev_err(dev, "no fsl,mipi-phy-gpr property found: %d\n", ret);
-> > > > > -		return ret;
-> > > > > -	}
-> > > > > +	if (ret)
-> > > > > +		return dev_err_probe(dev, ret, "no %s property found\n",
-> > > > > +				    "fsl,mipi-phy-gpr");
-> > > >
-> > > > Do you really need to pass the (fixed) property name as an argument=
-? Why
-> > > > not move into the const string directly? I would also rephrase it a=
- bit:
-> > > > "property fsl,mipi-phy-gpr not found"
-> > >
-> > > Laurent Pinchart provide comments at previous version. The same
-> > > "fsl,mipi-phy-gpr" share one entry at RO region. slice save RO region
-> > > space.
-> > >
-> > > https://lore.kernel.org/imx/20251119043307.GH17526@pendragon.ideasonb=
-oard.com/
-> >
-> > "assuming it's worth it". Do you have any numbers? I doubt there is a
-> > significant benefit, but I don't have strong opinion here.
->=20
-> Yes, only few byte. But no worth to argue this. Laurent Pinchart, who pick
-> patches.
+No. Your child has no resources, so it's not proper hardware
+representation. Don't use Linux driver model in the bindings.
 
-Agreed.
+That's a NAK. Don't send the same AGAIN without addressing comments like
+you did here.
 
->=20
-> > But the grammar should still be improved.
->=20
-> Okay, will update it.
+> +
+>    "gpio@[0-9a-f]+$":
+>      type: object
+>  
+> diff --git a/Documentation/devicetree/bindings/pinctrl/rockchip,rmio.yaml b/Documentation/devicetree/bindings/pinctrl/rockchip,rmio.yaml
+> new file mode 100644
+> index 000000000000..af0b34512fb9
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pinctrl/rockchip,rmio.yaml
+> @@ -0,0 +1,106 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pinctrl/rockchip,rmio.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: RMIO (Rockchip Matrix I/O) Controller
+> +
+> +maintainers:
+> +  - Heiko Stuebner <heiko@sntech.de>
+> +
+> +description: |
+> +  The RMIO controller provides a flexible routing matrix that allows mapping
+> +  various internal peripheral functions (UART, SPI, PWM, etc.) to specific
+> +  physical pins. This block is typically a sub-block of the GRF
+> +  (General Register Files) or PMU (Power Management Unit).
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - rockchip,rk3506-rmio
+> +      - const: rockchip,rmio
 
-Thanks
-
-Best regards
-Alexander
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
---nextPart5328991.LvFx2qVVIh
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEByESxqszIvkmWRwbaS+g2M0Z/iUFAmlBgAoACgkQaS+g2M0Z
-/iX//gf+LtS33Qw18u2HwxSsJ7cUH4+Wm7d0R4DwbhMp7PG2AOID6bU0gq5fnDCT
-zKRKE+ex3uY7AmJa4GUj8wl+zLqGoedz5hT59N7FC36dKCElvkxehSQpEy/Ci9xv
-5HJ8OSNnXyXSjrDLrkdfGv0vq01whLw1c4IXLf7wzas6vyLR9DN0dQejxvCaJE1/
-UzaCjnZFl/VXFB82rqVFlcl2h9bDMJfl2bJxeCKds4L/UJrWr8eVdej47n1O05hJ
-x/uXTLbnb+TJUuR3M1VkdfEphzSSdIgO5KK9Wgiy39YZwrlLMhjIYL6GsrGkt/r5
-w1t4tDhtQ/nHni5X/XLYFr4dBXlo8A==
-=G4dM
------END PGP SIGNATURE-----
-
---nextPart5328991.LvFx2qVVIh--
+I don't see how pinctrl deserves generic compatible. I already commented
+on this.
 
 
+> +
+> +  rockchip,rmio-grf:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description:
+> +      The phandle of the syscon node (GRF or PMU) containing the RMIO registers.
+> +      This property is required if the RMIO registers are located in a different
+> +      syscon than the parent pinctrl node.
 
+Why "if"? How this can be flexible?
+
+Anyway, you did not address my previous comment at all.
+
+NAK
+
+> +
+> +  rockchip,offset:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    description:
+> +      The offset of the RMIO configuration registers within the GRF.
+
+No, this belongs to the phandle.
+
+Look how this is already described and do not come with other style.
+
+> +
+> +  rockchip,pins-num:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    description:
+> +      The number of physical pins supported by this RMIO instance.
+> +      Used for boundary checking and driver initialization.
+> +
+> +patternProperties:
+> +  "^[a-z0-9-]+$":
+
+No, use a prefix or suffix. See other pinctrl bindings.
+
+> +    type: object
+> +    description:
+> +      Function node grouping multiple groups.
+> +
+> +    patternProperties:
+> +      "^[a-z0-9-]+$":
+
+Same ocmment
+
+> +        type: object
+> +        description:
+> +          Group node containing the pinmux configuration.
+> +
+> +        properties:
+> +          rockchip,rmio:
+> +            $ref: /schemas/types.yaml#/definitions/uint32-matrix
+> +            description:
+> +              A list of pin-function pairs. The format is <pin_id function_id>.
+> +            minItems: 1
+> +            items:
+> +              items:
+> +                - description: RMIO Pin ID (0 to pins-num - 1)
+> +                  minimum: 0
+> +                  maximum: 31
+> +                - description: Function ID
+> +                  minimum: 0
+> +                  maximum: 98
+> +
+> +        required:
+> +          - rockchip,rmio
+
+Why aren't you using standard pinctrl bindings?
+
+> +
+> +        additionalProperties: false
+> +
+> +    additionalProperties: false
+> +
+> +required:
+> +  - compatible
+> +  - rockchip,rmio-grf
+> +  - rockchip,offset
+> +  - rockchip,pins-num
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/pinctrl/rockchip,rk3506-rmio.h>
+> +
+> +    pinctrl: pinctrl {
+
+What's this?
+
+> +        rmio: rmio {
+> +            compatible = "rockchip,rk3506-rmio", "rockchip,rmio";
+> +            rockchip,rmio-grf = <&grf_pmu>;
+> +            rockchip,offset = <0x80>;
+> +            rockchip,pins-num = <32>;
+> +
+> +            rmio-uart {
+> +                rmio_pin27_uart1_tx: rmio-pin27-uart1-tx {
+> +                    rockchip,rmio = <27 RMIO_UART1_TX>;
+> +                };
+> +
+> +                rmio_pin28_uart1_rx: rmio-pin28-uart1-rx {
+> +                    rockchip,rmio = <28 RMIO_UART1_RX>;
+> +                };
+> +            };
+> +        };
+> +    };
+> diff --git a/include/dt-bindings/pinctrl/rockchip,rk3506-rmio.h b/include/dt-bindings/pinctrl/rockchip,rk3506-rmio.h
+> new file mode 100644
+> index 000000000000..b129e9a8c287
+> --- /dev/null
+> +++ b/include/dt-bindings/pinctrl/rockchip,rk3506-rmio.h
+> @@ -0,0 +1,109 @@
+> +/* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
+> +/*
+> + * Copyright (c) 2025 Rockchip Electronics Co., Ltd.
+> + */
+> +
+> +#ifndef __DT_BINDINGS_PINCTRL_ROCKCHIP_RK3506_RMIO_H
+> +#define __DT_BINDINGS_PINCTRL_ROCKCHIP_RK3506_RMIO_H
+> +
+> +/* RMIO function definition */
+> +#define RMIO_UART1_TX			1
+> +#define RMIO_UART1_RX			2
+> +#define RMIO_UART2_TX			3
+> +#define RMIO_UART2_RX			4
+> +#define RMIO_UART3_TX			5
+> +#define RMIO_UART3_RX			6
+> +#define RMIO_UART3_CTSN			7
+> +#define RMIO_UART3_RTSN			8
+> +#define RMIO_UART4_TX			9
+> +#define RMIO_UART4_RX			10
+> +#define RMIO_UART4_CTSN			11
+> +#define RMIO_UART4_RTSN			12
+> +#define RMIO_MIPITE			13
+> +#define RMIO_CLK_32K			14
+> +#define RMIO_I2C0_SCL			15
+> +#define RMIO_I2C0_SDA			16
+
+
+I do not see how this is a binding. Please point me to the patch using
+this in the driver.
+
+Best regards,
+Krzysztof
 
