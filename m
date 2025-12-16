@@ -4,101 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41C58D5B87C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 07:00:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B807BD5C0C0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 07:00:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xxO3Zr4GGXhv9MSbjuvXnBMc8QWuyMGq6rezmpmYr8c=; b=0T0zr/q2oswJPNr7cGjkpN9n2O
-	FMQTbw+WoUIWW7M3dxaToQA506APqKGqv3f7TU8Bcs0a1hg87PzHqx/WMrhLWb13T7IPw788oOeMh
-	lRA82yQ6bN8x+Vz84a6uoVhgHu9kXgX8gGP+ROua3Hh+QhbdgnPh03vlw+5tOhJWhUpULVgtf7ELk
-	SCTJlnbVmD9TkiFqEGm1j6OW3UkqKELAMj8eDKWUKkgh+atZdjGlxjHh+k90s2bXd5KoJr2gEWr10
-	3S2VdcQ4U2jv9pjBH+PY3+lNQcSBPFoONkmZsXnR+FhBETBhHdBT6kOI/RDgJ0/VBia5OsumtvgJS
-	M5iQy+nA==;
+	bh=ACLxWNBKlHzVYrQhk+bIPDxbMvRXgt1a0foI415LnX4=; b=Ybec5BW+Zw3MeJDHH39XmwCUXO
+	91g0vYXCj2fH/vfmGWOuptWWbb8Ni15Sc2JZMa47IpEEVvtx6sg0q4Gi1Hk8HVD67bj9WAWepHBBj
+	rtEF9zcK2A9yRe32g4u9zt1100AFRYOBx7bJPSXWK87MYMGySB8BPopozyKRDUt4GdYgeeQf/aOJT
+	qClnl1zpApF34ecBFsL8F5CPUdCsxA/Ui7C3VqqOomyES9AcDO/WHifbbC8kfwvbPSlfUYtdWDNzy
+	FG3+pvwTWnyMuyvRnaWsmkkdQDwdieFsNPTZ6/Y9mX4pR4jdlfdhLYLmYYGdW97jIE/Jp53he2uDn
+	kK8rVPNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVP2b-00000004ohk-0YJU;
-	Tue, 16 Dec 2025 07:00:13 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVP2Z-00000004ohX-0SqR
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 07:00:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2EE5960145;
-	Tue, 16 Dec 2025 07:00:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39CA0C4CEF1;
-	Tue, 16 Dec 2025 07:00:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765868409;
-	bh=ggVJKzADJo3rG7eJ9KsI278cMJxOQ5tzWaPvmEBoOXQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WA7HLLiLDCuFkVKz46QO295YxxQEbS1sS7qS/k4c1P6U8zxXdAvzhQLboGFVdjZ4H
-	 mQEvNOmh11thkKUdsmMJA1qTlndLyqTVBt3fh4SXnIOTFzxLrmIwS3HVP/6QE9EDvg
-	 MP51VH+Wg3HS/vwWgNhmiwGVGlAoAKp9P7ZfbjOYxHvk4XIrS5Ru2blMqAUs4Gfi0C
-	 mfs79ndRAmwHh3hpWvb5+EgLm/dlylN3KP5AFHgCb2NMLgr217hbjFczX7vEylyq9T
-	 xRJUIHqoJnOfyxnKkew0ZrMAWgnSdYaIjVKqbyFU75fGAfFVVfv3PwgrqjT7tVxVJj
-	 4fpr0VDJfIULA==
-Message-ID: <5ee13869-de7f-4d17-87fb-edf9eda3388b@kernel.org>
-Date: Tue, 16 Dec 2025 08:00:06 +0100
+	id 1vVP2y-00000004okF-2QoH;
+	Tue, 16 Dec 2025 07:00:36 +0000
+Received: from [50.53.43.113] (helo=[192.168.254.34])
+	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vVP2w-00000004ojt-3TS1;
+	Tue, 16 Dec 2025 07:00:34 +0000
+Message-ID: <93682055-4a6d-4098-b74f-afef735d1699@infradead.org>
+Date: Mon, 15 Dec 2025 23:00:33 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mailmap: Add entry for Sam Protsenko
-To: Sam Protsenko <semen.protsenko@linaro.org>, Arnd Bergmann <arnd@arndb.de>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20251118033111.23382-1-semen.protsenko@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH 00/26] Introduce meminspect
+From: Randy Dunlap <rdunlap@infradead.org>
+To: Eugen Hristev <eugen.hristev@linaro.org>, linux-arm-msm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org, tglx@linutronix.de,
+ andersson@kernel.org, pmladek@suse.com, corbet@lwn.net, david@redhat.com,
+ mhocko@suse.com, linux-debuggers@vger.kernel.org
+Cc: tudor.ambarus@linaro.org, mukesh.ojha@oss.qualcomm.com,
+ linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
+ jonechou@google.com, rostedt@goodmis.org, linux-doc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org,
+ linux-arch@vger.kernel.org, tony.luck@intel.com, kees@kernel.org,
+ Trilok Soni <tsoni@quicinc.com>, Kaushal Kumar <kaushalk@qti.qualcomm.com>,
+ Shiraz Hashim <shashim@qti.qualcomm.com>,
+ Peter Griffin <peter.griffin@linaro.org>, stephen.s.brennan@oracle.com,
+ Will McVicker <willmcvicker@google.com>,
+ "stefan.schmidt@linaro.org" <stefan.schmidt@linaro.org>
+References: <20251119154427.1033475-1-eugen.hristev@linaro.org>
+ <bf00eec5-e9fe-41df-b758-7601815b24a0@linaro.org>
+ <5903a8e1-71c6-4546-ac50-35effa078dda@infradead.org>
+ <c3db6ccd-dfc7-4a6a-82b7-3d615f8cab4f@linaro.org>
+ <b74aef93-9138-413a-8327-36c746d67e10@infradead.org>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251118033111.23382-1-semen.protsenko@linaro.org>
+In-Reply-To: <b74aef93-9138-413a-8327-36c746d67e10@infradead.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -115,29 +69,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/11/2025 04:31, Sam Protsenko wrote:
-> Use 'Sam Protsenko' as my name consistently in git-shortlog. Also map my
-> old GlobalLogic email address to my current email to stay reachable.
+
+
+On 12/15/25 10:54 PM, Randy Dunlap wrote:
 > 
-> Signed-off-by: Sam Protsenko <semen.protsenko@linaro.org>
-> ---
->  .mailmap | 2 ++
->  1 file changed, 2 insertions(+)
 > 
-> diff --git a/.mailmap b/.mailmap
-> index 3a3ba16c2601..9901716af12c 100644
-> --- a/.mailmap
-> +++ b/.mailmap
-> @@ -691,6 +691,8 @@ Sachin Mokashi <sachin.mokashi@intel.com> <sachinx.mokashi@intel.com>
->  Sachin P Sant <ssant@in.ibm.com>
->  Sai Prakash Ranjan <quic_saipraka@quicinc.com> <saiprakash.ranjan@codeaurora.org>
->  Sakari Ailus <sakari.ailus@linux.intel.com> <sakari.ailus@iki.fi>
-> +Sam Protsenko <semen.protsenko@linaro.org>
-> +Sam Protsenko <semen.protsenko@linaro.org> <semen.protsenko@globallogic.com>
+> On 12/12/25 11:22 PM, Eugen Hristev wrote:
+>>
+>>
+>> On 12/13/25 08:57, Randy Dunlap wrote:
+>>> Hi,
+>>>
+>>> On 12/12/25 10:48 PM, Eugen Hristev wrote:
+>>>>
+>>>>
+>>>> On 11/19/25 17:44, Eugen Hristev wrote:
+>>>>> meminspect is a mechanism which allows the kernel to mark specific memory
+>>>>> areas for memory dumping or specific inspection, statistics, usage.
+>>>>> Once regions are marked, meminspect keeps an internal list with the regions
+>>>>> in a dedicated table.
+>>>>
+>>>> [...]
+>>>>
+>>>>
+>>>>> I will present this version at Plumbers conference in Tokyo on December 13th:
+>>>>> https://lpc.events/event/19/contributions/2080/
+>>>>> I am eager to discuss it there face to face.
+>>>>
+>>>> Summary of the discussions at LPC talk on Dec 13th:
+>>>>
+>>>> One main idea on the static variables annotation was to do some linker
+>>>> magic, to create a list of variables in the tree, that would be parsed
+>>>> by some script, the addresses and sizes would be then stored into the
+>>>> dedicated section at the script level, without having any C code change.
+>>>> Pros: no C code change, Cons: it would be hidden/masked from the code,
+>>>> easy to miss out, which might lead to people's variables being annotated
+>>>> without them knowing
+>>>>
+>>>> Another idea was to have variables directly stored in a dedicated
+>>>> section which would be added to the table.
+>>>> e.g. static int __attribute(section (...)) nr_irqs;
+>>>> Pros: no more meminspect section Cons: have to keep all interesting
+>>>> variables in a separate section, which might not be okay for everyone.
+>>>>
+>>>> On dynamic memory, the memblock flag marking did not receive any obvious
+>>>> NAKs.
+>>>>
+>>>> On dynamic memory that is bigger in size than one page, as the table
+>>>> entries are registered by virtual address, this would be non-contiguous
+>>>> in physical memory. How is this solved?
+>>>> -> At the moment it's left for the consumer drivers to handle this
+>>>> situation. If the region is a VA and the size > PAGE_SIZE, then the
+>>>> driver needs to handle the way it handles it. Maybe the driver that
+>>>> parses the entry needs to convert it into multiple contiguous entries,
+>>>> or just have virtual address is enough. The inspection table does not
+>>>> enforce or limit the entries to contiguous entries only.
+>>>>
+>>>> On the traverse/notifier system, the implementation did not receive any
+>>>> obvious NAKs
+>>>>
+>>>> General comments:
+>>>>
+>>>> Trilok Soni from Qualcomm mentioned they will be using this into their
+>>>> software deliveries in production.
+>>>>
+>>>> Someone suggested to have some mechanism to block specific data from
+>>>> being added to the inspection table as being sensitive non-inspectable
+>>>> data.
+>>>> [Eugen]: Still have to figure out how that could be done. Stuff is not
+>>>> being added to the table by default.
+>>>>
+>>>> Another comment was about what use case there is in mind, is this for
+>>>> servers, or for confidential computing, because each different use case
+>>>> might have different requirements, like ignoring some regions is an
+>>>> option in one case, but bloating the table in another case might not be
+>>>> fine.
+>>>> [Eugen]: The meminspect scenario should cover all cases and not be too
+>>>> specific. If it is generic enough and customizable enough to care for
+>>>> everyone's needs then I consider it being a success. It should not
+>>>> specialize in neither of these two different cases, but rather be
+>>>> tailored by each use case to provide the mandatory requirements for that
+>>>> case.
+>>>>
+>>>> Another comment mentioned that this usecase does not apply to many
+>>>> people due to firmware or specific hardware needed.
+>>>> [Eugen]: one interesting proposed usecase is to have a pstore
+>>>> driver/implementation that would traverse the inspection table at panic
+>>>> handler time, then gather data from there to store in the pstore
+>>>> (ramoops, mtdoops or whatever backend) and have it available to the
+>>>> userspace after reboot. This would be a nice use case that does not
+>>>> require firmware nor specific hardware, just pstore backend support.
+>>>>
+>>>> Ending note was whether this implementation is going in a good direction
+>>>> and what would be the way to having it moving upstream.
+>>>>
+>>>> Thanks everyone who attended and came up with ideas and comments.
+>>>> There are a few comments which I may have missed, so please feel free to
+>>>> reply to this email to start a discussion thread on the topic you are
+>>>> interested in.
+>>>>
+>>>> Eugen
+>>>>
+>>>
+>>> Maybe you or someone else has already mentioned this. If so, sorry I missed it.
+>>>
+>>> How does this compare or contrast to VMCOREINFO?
+>>>
+>>> thanks.
+>>
+>> This inspection table could be created in an VMCOREINFO way, the patch
+>> series here[1] is something that would fit it best .
+>>
+>> The drawbacks are :
+>> some static variables have to be registered to VMCOREINFO in their file
+>> of residence. This means including vmcoreinfo header and adding
+>> functions/code there, and everywhere that would be needed , or , the
+>> variables have to be un-static'ed , which is a no-go.
+>> This received more negative opinions on that particular patch series.
+>> The annotation idea seemed cleaner and simpler, and more generic.
+>>
+>> We could add more and more entries to the vmcoreinfo table, but that
+>> would mean expanding it a lot, which it would maybe defy its purpose,
+>> and be getting too big, especially for the cases where custom drivers
+>> would like to register data.
+>>
+>> How I see it, is that maybe the vmcoreinfo init function, could also
+>> parse the inspection table and create more entries if that is needed.
+>> So somehow memory inspection is a superset or generalization , while
+>> VMCOREINFO is a more particular use case that would fit here.
+>>
+>> Do you think of some better way to integrate the meminspect table into
+>> VMCOREINFO ?
+> 
+> No, I just wanted to make sure that you or someone had looked into that.
+> Thanks for your summary.
 
+Although you copied Stephen Brennan on this, I think it would be a good idea
+to copy the linux-debuggers@vger.kernel.org mailing list also to see if
+there are any other comments about it. [now done]
 
-This does not apply anymore.
+>> [1]
+>> https://lore.kernel.org/all/20250912150855.2901211-1-eugen.hristev@linaro.org/
+> 
 
-Best regards,
-Krzysztof
+-- 
+~Randy
+
 
