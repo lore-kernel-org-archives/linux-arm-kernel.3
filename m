@@ -4,57 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E297DD637DF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 22:29:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3831CD637DB
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 22:35:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZLlGX/Zb/h89gFUDI2kAuu57cWdmtK2L0VrOOiUfD2M=; b=E/oPA0yoLbqS4xHHEhkdh4Iq3G
-	PYO8DzGvpc/wFvApRXi+7Z5+SqWwF5dmgnvEh4i1rTkuB9o57S2hOgpLFaKEu/EPkoDa3VoWIL5sP
-	b3Ma3E/TX4ZixePPWdHaakc4dJnMlvlhSkBz2k7myIzeiJOaHWvuvswSVLTOboy7Zv0bTLqdqnAP/
-	R37d1O0W8GkvFu+R9XKkILUclTOwbwahfGmVSNAzR1J9w1DbtWnkwlZres3uRDU6Q8LI1XTc0qEdE
-	60vaBI/scWYicqdc41O2tV5hV7QuhI9ub85I8yc0On5887ITky+h5oANOlnOVVxOPzFZaWTyDEwTL
-	iZkfoghg==;
+	bh=G9oy1mVBHtCuqnsn3+BU8JFCo5GJkRzJZT8ov4L0WnE=; b=bMAGzsscGmGZX6yc+Jnwq5lP9K
+	U4QhtsEvd6EaaN6j6WB7mA2tvZTnW1OkyiNxUhbmuOwEyjGcDXWpNrBaa4MLMnf+oQcpQbNkB8XYu
+	z0bGWH3x3ZOB0AXxTcikJRzqQEE184E4/ecPITZRppHGe+hLAnYw59lYAu3afQYBs33275OpUqMDW
+	hmUtHj31MomApjXGjqoagoTriizirno+iNtovL1Xn3I77d/vDAF20ENUdMiKJEIhLcCMRaC6q6WZU
+	6UPpY4KfC28QgLQ1LSAO3ZWZPCkuqQMa5CqIMiYjdW800nTSSZ4edVaFIu8Z9irn0DORkQOxfomL7
+	jApQNQiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVdXS-00000005te3-2MVD;
-	Tue, 16 Dec 2025 22:29:02 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vVddL-00000005tzY-1Sp7;
+	Tue, 16 Dec 2025 22:35:07 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVdXR-00000005tdx-2nLA
+	id 1vVddJ-00000005tzD-07PI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 22:29:01 +0000
+	Tue, 16 Dec 2025 22:35:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AD29B60097;
-	Tue, 16 Dec 2025 22:29:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FEC2C4CEF1;
-	Tue, 16 Dec 2025 22:29:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 247D34005B;
+	Tue, 16 Dec 2025 22:35:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4495C4CEF1;
+	Tue, 16 Dec 2025 22:35:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765924140;
-	bh=EL1DAB+aQaWawnqUTU0r/jA74EFo/IqWPPi5ybJq/c8=;
+	s=k20201202; t=1765924504;
+	bh=Bn9sSdytmqzw2IsPFuvFcTMtuAc3guBz6pZ8asbkXrQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aQXJNsX5rb0dPNGdTD3o0u+w+T8WwVYm4+XFZmNexoSELyzKK/qM40sLpe5O5N4et
-	 QtqrUgX1rBNaUGr2+Stin/j0XetNCrhaUO9nJOIuj0pXA1ch9Re6CR80jET4V1xRCD
-	 bqaIFhJZrZRcUFGkmwzMMl8U5bF/OC7jLk0z+n4sHJz0WQNB+VsbgAz2seKpCp+P+j
-	 wDoMimToYHhBeA0hLd882Szl34762yptF7gOHPBkhiwf9fDapgz6WPMcEWMr3y39i1
-	 Kz1rlyuQvlU9rEzEtWl4L/kC1hntyksv/6sO9DG6zYEJhl6DtCOqCuMvRshx7PLrRF
-	 AWuzT8xRP32Dw==
-Date: Tue, 16 Dec 2025 16:28:57 -0600
+	b=hHyYRmgfN/vXayDad54aIDHHAohwGtgtbiScN3oRVaBkYCy+8eGkqyJ/i8lgFkzUZ
+	 chXu7EkDOCCemRDdu6VsUMi9Znd3g0tragVQP+nOtlVxD8qEITHkIiACT0zxZXcxjM
+	 7OSbJAfBk9M13Q1GdHsn+3e558ibo67tO1v2hk0ak2VtoqEDn41J12DSxB1og7oOVA
+	 zyQK7NPU5t4cujbzZyE+v5s1BoGVS0yjuYwdMPGfQIPqmx80JZ4mBOIJXeQoqe/WT7
+	 sgssLM0VoM3Y6EZlLDxdqnTXWcIg9AAYggeEFmAzd8TISnRJGSoiA+t0r0Oo+RWuRw
+	 6usyPV5C5ycFA==
+Date: Tue, 16 Dec 2025 16:35:01 -0600
 From: Rob Herring <robh@kernel.org>
 To: Ronak Jain <ronak.jain@amd.com>
 Cc: krzk+dt@kernel.org, conor+dt@kernel.org, michal.simek@amd.com,
 	nava.kishore.manne@amd.com, devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/2] Update firmware dt-binding
-Message-ID: <20251216222857.GA3151380-robh@kernel.org>
+Subject: Re: [PATCH v2 2/2] dt-bindings: firmware: xilinx: Add conditional
+ pinctrl schema
+Message-ID: <20251216223501.GB3151380-robh@kernel.org>
 References: <20251212100542.2756757-1-ronak.jain@amd.com>
+ <20251212100542.2756757-3-ronak.jain@amd.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251212100542.2756757-1-ronak.jain@amd.com>
+In-Reply-To: <20251212100542.2756757-3-ronak.jain@amd.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251216_143505_111762_0D1A6D78 
+X-CRM114-Status: GOOD (  18.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,23 +74,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 12, 2025 at 02:05:40AM -0800, Ronak Jain wrote:
-> The patch fixes/enhances below problems,
->     1. Add missing compatible property under the example section for
->     zynqmp_firmware node.
->     2. Add conditional pinctrl schema
+On Fri, Dec 12, 2025 at 02:05:42AM -0800, Ronak Jain wrote:
+> Updates the Device Tree bindings for Xilinx firmware by introducing
+> conditional schema references for the pinctrl node.
 > 
-> Changes in v2:
-> - Added acked-by signature in patch #1
-> - Following up on the queries again in patch #2. No code changes in
-> the patch itself
-> - Dropped off patch #3
+> Previously, the pinctrl node directly referenced
+> xlnx,zynqmp-pinctrl.yaml. However, this patch modifies the schema to
+> conditionally apply the correct pinctrl schema based on the compatible
+> property. Specifically:
+> - If compatible contains "xlnx,zynqmp-pinctrl", reference
+>   xlnx,zynqmp-pinctrl.yaml.
+> - If compatible contains "xlnx,versal-pinctrl", reference
+>   xlnx,versal-pinctrl.yaml.
 > 
-> Ronak Jain (2):
->   dt-bindings: firmware: xilinx: Add xlnx,zynqmp-firmware compatible
->   dt-bindings: firmware: xilinx: Add conditional pinctrl schema
+> Additionally, an example entry for "xlnx,versal-pinctrl" has been
+> added under the examples section.
+> 
+> Signed-off-by: Ronak Jain <ronak.jain@amd.com>
+> ---
+> Suggestion from Rob:
+> 
+> The somewhat preferred way to do this would be to do this in the top
+> level:
+> 
+> pinctrl:
+>   type: object
+>   additionalProperties: true
+>   properties:
+>     compatible:
+>       contains:
+>         enum:
+>           - xlnx,zynqmp-pinctrl
+>           - xlnx,versal-pinctrl
+>   required:
+>     - compatible
+> 
+> Otherwise, the pinctrl schema ends up being applied twice.
+> 
+> 
+> My response:
+> 
+> In your suggested code, the schema allows either xlnx,zynqmp-pinctrl
+> or xlnx,versal-pinctrl on any platform, which is incorrect. This
+> means that if a user mistakenly assigns xlnx,versal-pinctrl to a
+> ZynqMP platform or xlnx,zynqmp-pinctrl to a Versal platform, the
+> wrong reference will be used, but no error is reported. The
+> dt-binding check still passes instead of flagging this as an issue.
 
-Applied, thanks.
+True, but you can create a whole DT that's just random bindings from all 
+sorts of different SoCs and the schema validation would be perfectly 
+happy. We can't really ever check everything.
+
+> By using a conditional schema, we can enforce platform-specific
+> compatibility, ensuring that the correct compatible string is used
+> for the corresponding platform. This would also generate an error if
+> an incorrect compatible string is provided, preventing
+> misconfigurations.
+
+But what you have is fine too. It will validate the node twice as I 
+pointed out and that slows things down some, but it's already slow...
 
 Rob
 
