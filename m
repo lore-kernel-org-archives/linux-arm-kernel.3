@@ -4,104 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DDBED5E125
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 10:44:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3592D5CCBE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 10:47:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1bLnyMwbJt24z0SAwK1Vw8LDbfVkEjMUM7xGF0eU5NM=; b=3PI1QcV8IW8TGEdJV1x9edE+d2
-	O01Ku+/b7ZVJtnka5eZM90dV8N4pBOlq9jxj+LYL/M8apMwrJ6Elrkm7xyjfmVBU/9y4ozRuEN8qT
-	AeHE6hufeZa0a/vGjgYgDVrSdqLdXlM2A2tqMa1hhMHivzWWwiqUVVHdBKE7Wk+BImoWdwCoNllh9
-	Djij3UwNUICa8xBdaTLLe0Bhv9lFecrCIZLz+XTM6frNKqZ+AXEhAXUpdvgt8vPpy3n6X6MVQzz1E
-	dNGPZR1WMNiejyeJ8NnCw65EwVDlO1cRp4UjPk1uLx+G2TqpQx2IkGB2d0MV6TIMh9InZ++a/Psta
-	IweDkpFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wmKGehAtF2aC6hECS065yudbuhoIUUvkuW0P86X+zRI=; b=aiN85g6eRWjA7KcriM7vgrXClb
+	NcNy6u3RAnGYlYlC3XxQGe9oujx7P8RJx/HYNIZjc4RmCMbP1wAJusxRoy4iy+56onpPV2DVObQqp
+	HdlnxS9wCO2Ws3MrC0ZEv3o94vnFlKFOoGrrjc54H9JSJUsyox+PoALgFx98w950e9Ntq5WBODRB9
+	ejdEPejKWTiXYL0itTqXmF0W36gX3fOsc9ntAfxU4bsddMDhhr+B5xvPfgKhtn9TcfrnF9J8dhGoo
+	0/IIeqSvctZSR4iNfxufNua3xKfhY75C7UbLYlFFCbXVJDsE5RFC8YVEJFplf4Ou28TJa5aOqtiP+
+	3yHSHN0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVSXe-000000053Zo-2YG0;
-	Tue, 16 Dec 2025 10:44:30 +0000
-Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
+	id 1vVSav-000000053oD-0rPp;
+	Tue, 16 Dec 2025 10:47:53 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVSXb-000000053ZM-2mP8
+	id 1vVSat-000000053ns-1eVY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 10:44:28 +0000
-Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-4ee243b98caso243591cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 02:44:27 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1765881866; cv=none;
-        d=google.com; s=arc-20240605;
-        b=DBLCGjFJ6nfcDec4QL2rLR8Cln6GE1xRUoXgCPHrcgCI03FWy4Ui9/4b4LPUADl0pL
-         JLhbcPaORDojcpu1344iQ/qk4EOHOiLRvQ9gLdjpLbbZzA/MXtDo411GZ6cAcGJYuMow
-         cQAgQYP9zeqxLMsFS4vqzWbSFxZ1Wv0IzLiBv4j4YgoK8Zy000Sm8EX1cADWXgSE7D9W
-         W0YleVx8cdWhaCHdVM/K5QVoW8iqh7ILj2w0GZ5El+ZxC11mzvv5pz8HX+1z8omMZdE0
-         j6sRhLh6Jdy8M8wt3AMBVj5vWJr1aZRzwwiGywMcdenQmAdymkiICIWIAIjdPnfoo39z
-         2hnA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=1bLnyMwbJt24z0SAwK1Vw8LDbfVkEjMUM7xGF0eU5NM=;
-        fh=nkXI7HfQpIJMGPb4iIHIxWY7i2jrttcV3m8b4KLD9bw=;
-        b=YLOD9wdAetppMPW//sQelrpSuNA0X4dXtV6X+0T06A+bFxMkezP+r5xzrQ8CknZnCb
-         yOSNcJUSh2JI+dSaTfS+eabwmOj57Zw6OR7KGePGFlrX/swLRRRCoRn0zdM2p6O1aFRP
-         28+xGKX4WIoyoK3vlKbTQyu2j7wNjhTrMS+B/7V90DysojR/QhCybx9+TEEAkih+D18+
-         3nRlPo+CgF81UEH9DNE09mgjD3hsQQZgyt0Mut3Q6zaq7QCANzlPYqbBQkCrw3WJd300
-         nbDR0HHgodnTjB6Gts6Hh2NyjprHtN0eFMMZJUGCBwoEw2WDSMjABSO7pb5jwrJrYf8+
-         3D+g==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Tue, 16 Dec 2025 10:47:52 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-59426dc96f2so391084e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 02:47:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1765881866; x=1766486666; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=1bLnyMwbJt24z0SAwK1Vw8LDbfVkEjMUM7xGF0eU5NM=;
-        b=xV8RlNx4/9BjfcWKE0uDh/ZfNBqC9EKXl0nHCA/b8ZGNgylwCfE0MfH6G8OvxnB9E5
-         JAnRzdp/bSDseDSPnzxXwnUnoUSu4eg7kMrI/QOmZODMc1HlwPzznbkXw/UjNFPzQMZw
-         W+a6E/ONkNJf4h7GMc4SfA8Lux8W8EIdV8PQBvLae9zzUF/lbyyk574DfJOCDtIZZYlQ
-         OpwNOh1SOisEQxLPpMITbLucHZCYKxdrl6gr9KhLyYkoDPWCcZHEZt3Cgisb4EgPGk6n
-         zRloRi8H/lrLMSdIMo8ul5r7a5KrZ4fR+cU4joylsokGeNzliG51yrMn1G37CPWBpxap
-         nh5w==
+        d=linaro.org; s=google; t=1765882069; x=1766486869; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=wmKGehAtF2aC6hECS065yudbuhoIUUvkuW0P86X+zRI=;
+        b=IXYuASazf7lhop8sZH6eTdROTx/hrN0HRvyeJKdO7V9cau7Hgwg6zORj7z67SFZFmJ
+         54Lz3n2ZKl+psr25y45YOH9zd7SgU89sikXLtPs+m24XAEnz0YHtgm206GucLBxaFF9/
+         IMENUIUoYWjQksQWxHpJOqBGVGgDLOeQyDKdQwNesbJLGigjb4FtXwV3m0pxvyt071VB
+         0YIBVGcSvi8Fi3JCT/G2JCBFAh1qqZL6gZRNWkTPt9tbEwZ43V90MBp+rO/qjWo+MH1N
+         3+u6JHwF6d8ACKAgwA6m/NxALk/mNmlEb0/ZoC+3JOxsDCw5o2ofFSUiGfVryJ/F+CP1
+         UjNA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765881866; x=1766486666;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1bLnyMwbJt24z0SAwK1Vw8LDbfVkEjMUM7xGF0eU5NM=;
-        b=M7f6819PvOwwecmq/rFSFPRWhIzeS+0fSIIVIcUAqkuEF37FL2Ppq3OR2tOSDIe5vQ
-         YLbkpAu7GZs8E6lRXfkBPtrHqO2LCPJvrK2FjBV9lksDF2HaQk6u2dVz6MDPudxsfnlC
-         uF/SUtmJ5VBlcKUP2AhXXPbRJ809fna3ogVIOOKfjrn9xiBawS+e4F+LG1zodamfXngg
-         W3YBPQP5QcAARzevb2OH7x976n/qRPEm/mA6u65u66iqO7DUaxQFM7H8R/At+wki40OI
-         QV50jyV02gqIvzxjMCbflrfsVxVnb1CRCg7gdDt+qpIjC7Ub5kySLu1o+YeaAVDZKuXx
-         j4BA==
-X-Forwarded-Encrypted: i=1; AJvYcCWnH/mn27Gn11zABbIXZfMtqXA9wg2XELH4ULM8dD9ymub0rBwvDLiw7R07UH79shYAnvWNlj1iRgFNiEWJMBKd@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrvJsmUX81UNwG8AxRcJZSpG2432Kd7qTwjpEoQvEIu75HgAcU
-	x1zLUC6Xj6sKFK6HwNZ1No3jHx+vG34WCgxzOFMLSEZu8xpH/bk0u1b6j7F0hpFDx8s8Kx4T0eI
-	VswQRj1akK2Gnihw7xk+PhVXiZy3HytB//rDeMEE5
-X-Gm-Gg: AY/fxX7Ce4APQGE6UDiZLVV7xTM6t08Ol+0BTcqSZJv/6uJtJY18jvyQe8GeGiiD6+L
-	VSnJoo0SgtDpiq3FNsQ7BPuetW5ywwKGXK9NCn6PEMVPtXSV7+L5lSfA3yggIYly02ku1AXASVY
-	TYHR72xTvgyzIl+0cgeg0rGm4Lhl5BFhKDfafUZ33g3tmy/xz1cNWJbBl0VYrVFfgKBkTvU6IH0
-	ECKjimm2M3Tz3abS5+8i5/uyIqrXtBSwB1yehd2XiyX2r8NtYQTtVf2b3YXJNYocvho+XJIRv0e
-	vbNelyM=
-X-Google-Smtp-Source: AGHT+IHz7BFOmePdPYRRE7Q8kvnfHsJmAEebo6Vy9yk0HTVhVqC7xGkfePdaKQeHq/oBf/Snyives1gg5U33ImR9vBw=
-X-Received: by 2002:a05:622a:1802:b0:4b3:1617:e617 with SMTP id
- d75a77b69052e-4f34c9628ddmr2886501cf.11.1765881865974; Tue, 16 Dec 2025
- 02:44:25 -0800 (PST)
+        d=1e100.net; s=20230601; t=1765882069; x=1766486869;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=wmKGehAtF2aC6hECS065yudbuhoIUUvkuW0P86X+zRI=;
+        b=QD7usUFfReXWDQiLelOWU1/XkQkDbXcziWhDwvmiGVhvM4tq9shbwYvtzj+bxVBmG1
+         qZSP3NQNogrCHcRcF3q3ibgnBL6XTp4/8i3D3oYrklgRs/qnMgwJMnvy/9z7O1FgfUbn
+         m+G8a8KlreB7ogv1Ruut4vPNY4IoWOGnN3i4znLtE/iaAP78ThBYkmpqalEj9ibVVAe0
+         CGern72AnJWZSdz4IS3+9NFPpXtde1TFPtX0FTROBPNSQ3bO02T1FNXFsIIB8lX5miyz
+         o8atbl7cG1/ECB5GwUm6vpvzx/xInbhNdWWqFh0AZweT/PYxo04IKLBkWxg0EzrguZpO
+         xJ9A==
+X-Forwarded-Encrypted: i=1; AJvYcCXiskH38PFSb1KwWddLAeDWt9X+Tyyut5MVBtn3LnPgCade4hQV5f5JnEMOU/hpDv6kz0Kex+O66w1WZCpLCQOZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIq+LGx4v3JZXZxxAf4nmQggyDTDDeKVmkFlmi5JuOHMWYosfV
+	VCPfw7G+/NQTezxV85Dv6JimwKGYOq02b6sIcZ0jrR/c5KGbDcfue9a7RrctkCS8aJE=
+X-Gm-Gg: AY/fxX4FTg+A4Cb7d49FyDzmjJEk+JTH+elzpyY1PeoBRQAcbauPn1tIy4x+b3bWI8u
+	6KeQebTDt7b3ByLbkmaNxd2Qc5UBbB5xF0mzzeasSW3IkQQl9Y/tb8eZ/THsUB7KAOQo29CeHQX
+	3yYDSXWU9WdxAbNVjUd3ww+W8O31lMn1tERlu4dpYH2wjgNQYCyzdw0Kx3siVwS6DyHAT8ebmP2
+	9cd2wdP7Tzi+m81f2H5BWDe5BpznLof45CmRe3x3ktBu6PJMPxkdpB3jXyBjWvYLxTfmEldI4EH
+	OKtTrfeyZpsWPcvn14Hcsh22h+id2YVs+FWGyxmsINmADfxnlAD6sT2gqFwtDMccSrqQCExIQDl
+	6KUVZlL/G4hTtZzS9UvC+qty8mmH6VBAgIsLNUL/REQM+8ii/QhqIw2x8nWC949hrz0aZG1euwx
+	6V4X7C01/dRGaHS14rGHYfJP9lrtWnyVJmGHXQR25asPx4knjIyNJCP5MtWScQ71Eb/A==
+X-Google-Smtp-Source: AGHT+IF0H41NSoDHeiVoQB8t5PFRmbwgMPCmvxitVkRlghvklguwBlJGvPt9E5BeekSJvgfAgDKMYA==
+X-Received: by 2002:a05:6512:3c8b:b0:594:2f72:2f78 with SMTP id 2adb3069b0e04-598faab5a2emr2935465e87.8.1765882069039;
+        Tue, 16 Dec 2025 02:47:49 -0800 (PST)
+Received: from [192.168.1.100] (91-159-24-186.elisa-laajakaista.fi. [91.159.24.186])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5990da119c1sm806260e87.18.2025.12.16.02.47.47
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 16 Dec 2025 02:47:47 -0800 (PST)
+Message-ID: <3658e6cc-755c-4b38-aec7-b8bfdd7c8bd2@linaro.org>
+Date: Tue, 16 Dec 2025 12:47:46 +0200
 MIME-Version: 1.0
-References: <20251216103053.47224-1-alexandru.elisei@arm.com>
-In-Reply-To: <20251216103053.47224-1-alexandru.elisei@arm.com>
-From: Fuad Tabba <tabba@google.com>
-Date: Tue, 16 Dec 2025 10:43:49 +0000
-X-Gm-Features: AQt7F2pbPUAUSDN-4yptnwHbXr7-_gU3rXIO--1nsFwFxItLyZ6NRgGtQkeKyrM
-Message-ID: <CA+EHjTwoimWFrLbL97nhBsKXAdDdSCrcb__MCacVHnk7Hvc2tA@mail.gmail.com>
-Subject: Re: [PATCH v3 0/4] KVM: arm64: pKVM fixes
-To: Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, qperret@google.com, 
-	will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 05/11] dt-bindings: clock: qcom: Add support for CAMCC
+ for Kaanapali
+Content-Language: ru-RU
+To: Taniya Das <taniya.das@oss.qualcomm.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Konrad Dybcio <konradybcio@kernel.org>
+Cc: Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
+ Imran Shaik <imran.shaik@oss.qualcomm.com>,
+ Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
+ linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20251125-kaanapali-mmcc-v2-v2-0-fb44e78f300b@oss.qualcomm.com>
+ <20251125-kaanapali-mmcc-v2-v2-5-fb44e78f300b@oss.qualcomm.com>
+From: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
+In-Reply-To: <20251125-kaanapali-mmcc-v2-v2-5-fb44e78f300b@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_024427_710759_56663FA8 
-X-CRM114-Status: GOOD (  15.34  )
+X-CRM114-CacheID: sfid-20251216_024751_495792_51905D4F 
+X-CRM114-Status: GOOD (  19.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,62 +117,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alexandru,
+Hi Taniya.
 
-On Tue, 16 Dec 2025 at 10:31, Alexandru Elisei <alexandru.elisei@arm.com> wrote:
->
-> v2 can be found at [1].
->
-> Similar to [2], when trying to run an unprotected VM on FVP with S1PIE enabled
-> and kvm-arm.mode=protected, writes to PIRE0_EL1 made by the guest in
-> __cpu_setup() are trapped by KVM and the BUG_ON(!r->access) is hit. That's
-> because HFGWTR_EL2.nPIRE0_EL1 is an inverse polarity trap and the FGT values for
-> the unprotected pKVM VCPU weren't being propagated from kvm_arch_vcpu_load().
->
-> Couldn't figure out how to run a protected pKVM VM, so that's untested.
+On 11/25/25 19:45, Taniya Das wrote:
+> Update the compatible and the bindings for CAMCC support on Kaanapali
+> SoC.
+> 
+> Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
+> ---
+>   .../bindings/clock/qcom,sm8450-camcc.yaml          |   6 +
+>   .../clock/qcom,kaanapali-cambistmclkcc.h           |  33 +++++
+>   include/dt-bindings/clock/qcom,kaanapali-camcc.h   | 147 +++++++++++++++++++++
+>   3 files changed, 186 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/clock/qcom,sm8450-camcc.yaml b/Documentation/devicetree/bindings/clock/qcom,sm8450-camcc.yaml
+> index c1e06f39431e68a3cd2f6c2dba84be2a3c143bb1..3ec9bf4d82ad3b0fbb3e58fe312a416b3580c30c 100644
+> --- a/Documentation/devicetree/bindings/clock/qcom,sm8450-camcc.yaml
+> +++ b/Documentation/devicetree/bindings/clock/qcom,sm8450-camcc.yaml
+> @@ -15,6 +15,8 @@ description: |
+>     domains on SM8450.
+>   
+>     See also:
+> +    include/dt-bindings/clock/qcom,kaanapali-camcc.h
+> +    include/dt-bindings/clock/qcom,kaanapali-cambistmclkcc.h
+>       include/dt-bindings/clock/qcom,sm8450-camcc.h
+>       include/dt-bindings/clock/qcom,sm8550-camcc.h
+>       include/dt-bindings/clock/qcom,sm8650-camcc.h
+> @@ -22,6 +24,8 @@ description: |
+>   properties:
+>     compatible:
+>       enum:
+> +      - qcom,kaanapali-cambistmclkcc
+> +      - qcom,kaanapali-camcc
 
-Hopefully this will change soon [1]!
+I do have right the same review comment as the given for SM8750 CAMCC one.
 
-I applied this to the pKVM/Android stack, and tested it with protected
-VMs as well as non-protected VMs.
+The introduced qcom,kaanapali-cambistmclkcc does not inherit reset
+controller or power domain controller properties, thus it should not be
+added to the list of regular camera clock contollers.
 
-For the series:
-Tested-by: Fuad Tabba <tabba@google.com>
-Reviewed-by: Fuad Tabba <tabba@google.com>
+Please create a new dt schema file for qcom,kaanapali-cambistmclkcc
+and qcom,sm8750-cambistmclkcc IP descriptions.
 
-Cheers,
-/fuad
+>         - qcom,sm8450-camcc
+>         - qcom,sm8475-camcc
+>         - qcom,sm8550-camcc
+> @@ -63,6 +67,8 @@ allOf:
+>           compatible:
+>             contains:
+>               enum:
+> +              - qcom,kaanapali-cambistmclkcc
+> +              - qcom,kaanapali-camcc
+>                 - qcom,sc8280xp-camcc
+>                 - qcom,sm8450-camcc
+>                 - qcom,sm8550-camcc
+> diff --git a/include/dt-bindings/clock/qcom,kaanapali-cambistmclkcc.h b/include/dt-bindings/clock/qcom,kaanapali-cambistmclkcc.h
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..ddb083b5289ecc5ddbf9ce0b8afa5e2b3bd7ccad
+> --- /dev/null
+> +++ b/include/dt-bindings/clock/qcom,kaanapali-cambistmclkcc.h
+> @@ -0,0 +1,33 @@
+> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
+> +/*
+> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+> + */
+> +
+> +#ifndef _DT_BINDINGS_CLK_QCOM_CAM_BIST_MCLK_CC_KAANAPALI_H
+> +#define _DT_BINDINGS_CLK_QCOM_CAM_BIST_MCLK_CC_KAANAPALI_H
+> +
+> +/* CAM_BIST_MCLK_CC clocks */
+> +#define CAM_BIST_MCLK_CC_DEBUG_CLK				0
+> +#define CAM_BIST_MCLK_CC_DEBUG_DIV_CLK_SRC			1
+> +#define CAM_BIST_MCLK_CC_MCLK0_CLK				2
+> +#define CAM_BIST_MCLK_CC_MCLK0_CLK_SRC				3
+> +#define CAM_BIST_MCLK_CC_MCLK1_CLK				4
+> +#define CAM_BIST_MCLK_CC_MCLK1_CLK_SRC				5
+> +#define CAM_BIST_MCLK_CC_MCLK2_CLK				6
+> +#define CAM_BIST_MCLK_CC_MCLK2_CLK_SRC				7
+> +#define CAM_BIST_MCLK_CC_MCLK3_CLK				8
+> +#define CAM_BIST_MCLK_CC_MCLK3_CLK_SRC				9
+> +#define CAM_BIST_MCLK_CC_MCLK4_CLK				10
+> +#define CAM_BIST_MCLK_CC_MCLK4_CLK_SRC				11
+> +#define CAM_BIST_MCLK_CC_MCLK5_CLK				12
+> +#define CAM_BIST_MCLK_CC_MCLK5_CLK_SRC				13
+> +#define CAM_BIST_MCLK_CC_MCLK6_CLK				14
+> +#define CAM_BIST_MCLK_CC_MCLK6_CLK_SRC				15
+> +#define CAM_BIST_MCLK_CC_MCLK7_CLK				16
+> +#define CAM_BIST_MCLK_CC_MCLK7_CLK_SRC				17
+> +#define CAM_BIST_MCLK_CC_PLL0					18
+> +#define CAM_BIST_MCLK_CC_PLL_TEST_CLK				19
+> +#define CAM_BIST_MCLK_CC_PLL_TEST_DIV_CLK_SRC			20
+> +#define CAM_BIST_MCLK_CC_SLEEP_CLK				21
+> +
+> +#endif
 
-[1] https://lore.kernel.org/all/aTMPn0dBbSVUwwJ1@willie-the-truck/
-
-
->
-> Changelog v2->v3:
-> * Gathered Reviewed-by tags, thanks!
-> * In patch #2, KVM now calls bad_trap() instead of KVM_BUG(). Also changed patch
->   subject to match.
->
-> [1] https://lore.kernel.org/kvmarm/20251215114409.212512-1-alexandru.elisei@arm.com/
-> [2] https://lore.kernel.org/all/20251112102853.47759-1-alexandru.elisei@arm.com/
->
-> Alexandru Elisei (4):
->   KVM: arm64: Copy FGT traps to unprotected pKVM VCPU on VCPU load
->   KVM: arm64: Inject UNDEF for a register trap without accessor
->   KVM: arm64: Remove extra argument for __pvkm_host_{share,unshare}_hyp()
->   KVM: arm64: Remove unused parameter in synchronize_vcpu_pstate()
->
->  arch/arm64/kvm/hyp/include/hyp/switch.h | 2 +-
->  arch/arm64/kvm/hyp/nvhe/hyp-main.c      | 3 +++
->  arch/arm64/kvm/hyp/nvhe/pkvm.c          | 1 -
->  arch/arm64/kvm/hyp/nvhe/switch.c        | 2 +-
->  arch/arm64/kvm/hyp/vhe/switch.c         | 2 +-
->  arch/arm64/kvm/mmu.c                    | 4 ++--
->  arch/arm64/kvm/sys_regs.c               | 5 ++++-
->  7 files changed, 12 insertions(+), 7 deletions(-)
->
->
-> base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-> --
-> 2.52.0
->
+-- 
+Best wishes,
+Vladimir
 
