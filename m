@@ -4,63 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5661D5B87A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 01:28:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B44CD5B87E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 01:50:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0RrFiAMOgIT9n77Eb4RRA4QZX8jYfBN/zYM5/IzU8kc=; b=KJev83m8lTt4J6/7JGIzKguPev
-	jsbx9V3/BqBEiIFw/VcLkEOW6dryoow7FOxPhWup6Ad29NRsUS8f69x1fACv8t7HhvVd4OFCbzfDT
-	BUKr2GLmfaV6/1gf7Pb3m2LlRrDSi7tQIJ61G09pQmembSjqZgCu9JfXm2xZAMefY7ugfid+DIYJx
-	jgTMutDllAGof5C8qjUbl54FfqZ78pWu1RAWj9QfTXT7RcvhOL+c0/RyHHcLZ4maSZve/AUEH9oD1
-	g2uuwoWT9UQGKM25kFYNV0ZHazHpDhCs70YGCj4dnYv3urbcbDVpbwg5opa+boY3mLb4k1a60Tw3u
-	5ODLwe8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=fssCcI19H+WqqSDfL3u3ldJamQB7JD+WzWFsgBpyp54=; b=dn71qzTcuIxRlm
+	CvEUhfK84cNmUuWEucHO1oiZY1rExJz++WnZupKqDUva7rJqLMuhSlXRa56DifU4FeIa0fZKBIOIb
+	6/Zrt2XAzyA99rbiEJ2wS+rkpqQHOD9GBOHb6FMMUrSkDeDdUCwZ5briYOTSk413JDrWRewDs2Gqs
+	BDGh3wcOIhfeNIV2pXemCzWCiwQ3paKEbtRdD+nvNKTd9u9kajT/QSaiGJMY/rAO4EF+dbv7lM7OR
+	6+RFJgR4ca6FLqyY0BEqA5M7c9qZoj5o8T84e+UFKNRS6F0hHcVrJgSpMi7S2YHvn0pazws/s1Ffr
+	APlk7dAL/5jO8lIuj6/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVJr9-00000004UnM-2e2u;
-	Tue, 16 Dec 2025 01:28:03 +0000
-Received: from out-188.mta0.migadu.com ([91.218.175.188])
+	id 1vVKCf-00000004WB3-1JyI;
+	Tue, 16 Dec 2025 01:50:17 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVJr6-00000004Ulx-2kZY
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 01:28:02 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1765848453;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0RrFiAMOgIT9n77Eb4RRA4QZX8jYfBN/zYM5/IzU8kc=;
-	b=ZaMr54xmA1hQUFcq9/kR48cS+8Z7kQ42inStwg/uAGbJf6bldMjmk/WYHvIL5mDepuR6Kr
-	D6fFeVpbpAt6lEiGS4rIuBXo1f1Oj9tpR54Gga4VjYQk/yhxFTaVKz3mn9IzFRbCIWynKI
-	5fjx51i3LdPiMuBdEbYcZAlorxvpXa4=
-From: Menglong Dong <menglong.dong@linux.dev>
-To: jolsa@kernel.org, rostedt@kernel.org, revest@google.com,
- mark.rutland@arm.com, bot+bpf-ci@kernel.org
-Cc: bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org,
- menglong8.dong@gmail.com, song@kernel.org, ast@kernel.org, andrii@kernel.org,
- daniel@iogearbox.net, martin.lau@kernel.org, eddyz87@gmail.com,
- yonghong.song@linux.dev, clm@meta.com, ihor.solodrai@linux.dev
-Subject: Re: [PATCHv5 bpf-next 1/9] ftrace,bpf: Remove FTRACE_OPS_FL_JMP ftrace_ops
- flag
-Date: Tue, 16 Dec 2025 09:27:21 +0800
-Message-ID: <12802095.O9o76ZdvQC@7940hx>
-In-Reply-To: <95c13c0b793604796037ca67c191e1bfce22770dd020107c7179a698c5d49b91@mail.kernel.org>
-References: <20251215211402.353056-2-jolsa@kernel.org>
- <95c13c0b793604796037ca67c191e1bfce22770dd020107c7179a698c5d49b91@mail.kernel.org>
+	id 1vVKCb-00000004WA6-1Nv7;
+	Tue, 16 Dec 2025 01:50:15 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Tue, 16 Dec
+ 2025 09:50:00 +0800
+Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Tue, 16 Dec 2025 09:50:00 +0800
+From: Jacky Chou <jacky_chou@aspeedtech.com>
+Subject: [PATCH v7 0/7] Add ASPEED PCIe Root Complex support
+Date: Tue, 16 Dec 2025 09:49:59 +0800
+Message-ID: <20251216-upstream_pcie_rc-v7-0-4aeb0f53c4ce@aspeedtech.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
 Content-Type: text/plain; charset="utf-8"
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAMe6QGkC/43QQWrDMBCF4asErSszo/FIcle9RylGlpVaLYmN5
+ JiG4LtXyaJeJJAun+D7B3QROaQYsnjdXUQKS8xxPJZhXnbCD+74GWTsyxYKFCMCydOU5xTcoZ1
+ 8DG3y0tY1G276ziKJwqYU9vHnlnz/KHuIeR7T+XZhwevrLQYaCYgAsCJk0mQkyi/nv8+tH8bTm
+ 8tTCP0c/FD58SCupUVt2iAD1aSgUsxk/6Np0w0gMDdKVVg0MzzX9Z9GUAYatoortIgan2PeMKK
+ 5/8OFJciudthYNtr5/cOK3ioK8EFFl4r11gJ41h3qu8q6rr+L85hu8gEAAA==
+X-Change-ID: 20251103-upstream_pcie_rc-8445759db813
+To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, "Andrew
+ Jeffery" <andrew@codeconstruct.com.au>, Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, "Manivannan
+ Sadhasivam" <mani@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>, Neil Armstrong
+	<neil.armstrong@linaro.org>
+CC: <linux-aspeed@lists.ozlabs.org>, <linux-pci@vger.kernel.org>,
+	<linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Andrew Jeffery <andrew@aj.id.au>, <openbmc@lists.ozlabs.org>,
+	<linux-gpio@vger.kernel.org>, Jacky Chou <jacky_chou@aspeedtech.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1765849800; l=5397;
+ i=jacky_chou@aspeedtech.com; s=20251031; h=from:subject:message-id;
+ bh=cJwhKYW1mmF+nLh+Mx/yy2wJXAjZzNw2SxwR3VWI+Sw=;
+ b=3J44svCb+SFxYbW4PGjsRszZw90/97HE2keEtgn1pIzkD+ujyFhSIgcg+p2up1Vuciv7OLd2Y
+ uay+YUp3FkDCJG+wnPwpHVxGTrNYfjgGn6NCLm0JVtlr7kyfCUZcrfz
+X-Developer-Key: i=jacky_chou@aspeedtech.com; a=ed25519;
+ pk=8XBx7KFM1drEsfCXTH9QC2lbMlGU4XwJTA6Jt9Mabdo=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_172801_027001_E77CF7A7 
-X-CRM114-Status: GOOD (  21.05  )
+X-CRM114-CacheID: sfid-20251215_175013_381621_BA6EC17E 
+X-CRM114-Status: GOOD (  16.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,131 +85,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/12/16 05:31 bot+bpf-ci@kernel.org write:
-> > diff --git a/include/linux/ftrace.h b/include/linux/ftrace.h
-> > index 015dd1049bea..505b7d3f5641 100644
-> > --- a/include/linux/ftrace.h
-> > +++ b/include/linux/ftrace.h
-> 
-> [ ... ]
-> 
-> > diff --git a/kernel/bpf/trampoline.c b/kernel/bpf/trampoline.c
-> > index 976d89011b15..b9a358d7a78f 100644
-> > --- a/kernel/bpf/trampoline.c
-> > +++ b/kernel/bpf/trampoline.c
-> > @@ -214,10 +214,15 @@ static int modify_fentry(struct bpf_trampoline *tr, u32 orig_flags,
-> >  	int ret;
-> >
-> >  	if (tr->func.ftrace_managed) {
-> > +		unsigned long addr = (unsigned long) new_addr;
-> > +
-> > +		if (bpf_trampoline_use_jmp(tr->flags))
-> > +			addr = ftrace_jmp_set(addr);
-> > +
-> >  		if (lock_direct_mutex)
-> > -			ret = modify_ftrace_direct(tr->fops, (long)new_addr);
-> > +			ret = modify_ftrace_direct(tr->fops, addr);
-> >  		else
-> > -			ret = modify_ftrace_direct_nolock(tr->fops, (long)new_addr);
-> > +			ret = modify_ftrace_direct_nolock(tr->fops, addr);
-> >  	} else {
-> >  		ret = bpf_trampoline_update_fentry(tr, orig_flags, old_addr,
-> >  						   new_addr);
-> > @@ -240,10 +245,15 @@ static int register_fentry(struct bpf_trampoline *tr, void *new_addr)
-> >  	}
-> >
-> >  	if (tr->func.ftrace_managed) {
-> > +		unsigned long addr = (unsigned long) new_addr;
-> > +
-> > +		if (bpf_trampoline_use_jmp(tr->flags))
-> > +			addr = ftrace_jmp_set(addr);
-> > +
-> >  		ret = ftrace_set_filter_ip(tr->fops, (unsigned long)ip, 0, 1);
-> >  		if (ret)
-> >  			return ret;
-> > -		ret = register_ftrace_direct(tr->fops, (long)new_addr);
-> > +		ret = register_ftrace_direct(tr->fops, addr);
-> >  	} else {
-> >  		ret = bpf_trampoline_update_fentry(tr, 0, NULL, new_addr);
-> >  	}
-> 
-> After this change, register_ftrace_direct() receives an address with
-> the LSB bit already set (via ftrace_jmp_set) and stores it as-is in
-> entry->direct. This address then flows through to ftrace_find_rec_direct()
-> which returns entry->direct unchanged.
-> 
-> In available_filter_functions_show():
-> 
->     direct = ftrace_find_rec_direct(rec->ip);
->     if (direct)
->         seq_printf(m, "\n\tdirect-->%pS", (void *)direct);
-> 
-> Can the debug output show misleading symbol offsets? When the LSB is
-> set, %pS will resolve addresses like "function+0x1" instead of just
-> "function". This makes ftrace debug output harder to read for users
-> trying to understand direct call attachments.
-> 
-> The fix would be to strip the LSB bit before printing:
->     seq_printf(m, "\n\tdirect-->%pS", (void *)ftrace_jmp_get(direct));
+This patch series adds support for the ASPEED PCIe Root Complex,
+including device tree bindings, pinctrl support, and the PCIe host controller
+driver. The patches introduce the necessary device tree nodes, pinmux groups,
+and driver implementation to enable PCIe functionality on ASPEED platforms.
+Currently, the ASPEED PCIe Root Complex only supports a single port.
 
-Ah, this is a good point. However, it's totally another problem, and
-I'll follow up it.
+Summary of changes:
+- Add device tree binding documents for ASPEED PCIe PHY and PCIe RC
+- Update MAINTAINERS for new bindings and driver
+- Implement ASPEED PCIe PHY driver
+- Implement ASPEED PCIe Root Complex host controller driver
 
-Thanks!
-Menglong Dong
+This series has been tested on AST2600/AST2700 platforms and enables PCIe device
+enumeration and operation.
 
-> 
-> [ ... ]
-> 
-> > diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
-> > index bbb37c0f8c6c..b0dc911411f1 100644
-> > --- a/kernel/trace/ftrace.c
-> > +++ b/kernel/trace/ftrace.c
-> > @@ -6017,15 +6017,8 @@ int register_ftrace_direct(struct ftrace_ops *ops, unsigned long addr)
-> >  	if (ftrace_hash_empty(hash))
-> >  		return -EINVAL;
-> >
-> > -	/* This is a "raw" address, and this should never happen. */
-> > -	if (WARN_ON_ONCE(ftrace_is_jmp(addr)))
-> > -		return -EINVAL;
-> > -
-> >  	mutex_lock(&direct_mutex);
-> >
-> > -	if (ops->flags & FTRACE_OPS_FL_JMP)
-> > -		addr = ftrace_jmp_set(addr);
-> > -
-> >  	/* Make sure requested entries are not already registered.. */
-> >  	size = 1 << hash->size_bits;
-> >  	for (i = 0; i < size; i++) {
-> 
-> [ ... ]
-> 
-> > @@ -6146,13 +6139,6 @@ __modify_ftrace_direct(struct ftrace_ops *ops, unsigned long addr)
-> >
-> >  	lockdep_assert_held_once(&direct_mutex);
-> >
-> > -	/* This is a "raw" address, and this should never happen. */
-> > -	if (WARN_ON_ONCE(ftrace_is_jmp(addr)))
-> > -		return -EINVAL;
-> > -
-> > -	if (ops->flags & FTRACE_OPS_FL_JMP)
-> > -		addr = ftrace_jmp_set(addr);
-> > -
-> >  	/* Enable the tmp_ops to have the same functions as the direct ops */
-> >  	ftrace_ops_init(&tmp_ops);
-> >  	tmp_ops.func_hash = ops->func_hash;
-> 
-> [ ... ]
-> 
-> 
-> ---
-> AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-> See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
-> 
-> CI run summary: https://github.com/kernel-patches/bpf/actions/runs/20247816064
-> 
+Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
+---
+Changes in v7:
+- Add PCIe port into aspeed,ast2600-pci.yaml.
+- Remove aspeed_pcie_init_ports() and merge aspeed_pcie_port_init() to
+  aspeed_pcie_parse_port()
+- Refactor aspeed remap pcie addr to aspeed_pcie_map_ranges()
+- Link to v6: https://lore.kernel.org/r/20251201-upstream_pcie_rc-v6-0-8c8800c56b16@aspeedtech.com
 
+Changes in v6:
+- Refer to pci-cpi-bridge.yaml to update aspeed,ast2600-pcie.yaml and
+  the pcie node of aspeed-g6.dtsi.
+- 'dt-bindings: pinctrl: aspeed,ast2600-pinctrl: Add PCIe RC PERST#
+  group' have applied, remove it from this version.
+- Adjust the defnitions in pci.h. 
+- Link to v5: https://lore.kernel.org/r/20251117-upstream_pcie_rc-v5-0-b4a198576acf@aspeedtech.com
 
+Changes in v5:
+- Remove legacy-interrupt-controller and the INTx points to pcie node itself.
+- Correct bar mapping description and implementation to PCIe address
+  configuration in pcie-aspeed.c driver.
+- Link to v4: https://lore.kernel.org/r/20251027095825.181161-1-jacky_chou@aspeedtech.com/
 
+Changes in v4:
+- Remove aspeed,ast2700-pcie-cfg.yaml
+- Add more descriptions for AST2600 PCIe RC in aspeed,ast2600-pcie.yaml
+- Change interrupt-controller to legacy-interrupt-controller in yaml
+  and dtsi
+- Remove msi-parent property in yaml and dtsi
+- Modify the bus range to starting from 0x00 in aspeed-g6.dtsi
+- Fixed the typo on MODULE_DEVICE_TABLE() in phy-aspeed-pcie.c
+- Add PCIE_CPL_STS_SUCCESS definition in pci/pci.h
+- Add prefix ASPEED_ for register definition in RC driver
+- Add a flag to indicate clear msi status twice for AST2700 workaround
+- Remove getting domain number
+- Remove scanning AST2600 HOST bridge on device number 0
+- Remove all codes about CONFIG_PCI_MSI
+- Get root but number from resouce list by IORESOURCE_BUS
+- Change module_platform_driver to builtin_platform_driver
+- Link to v3: https://lore.kernel.org/r/20250901055922.1553550-1-jacky_chou@aspeedtech.com/
+
+Changes in v3:
+- Add ASPEED PCIe PHY driver
+- Remove the aspeed,pciecfg property from AST2600 RC node, merged into RC node
+- Update the binding doc for aspeed,ast2700-pcie-cfg to reflect the changes
+- Update the binding doc for aspeed,ast2600-pcie to reflect the changes
+- Update the binding doc for aspeed,ast2600-pinctrl to reflect the changes
+- Update the device tree source to reflect the changes
+- Adjusted the use of mutex in RC drivers to use GRAND
+- Updated from reviewer comments
+- Link to v2: https://lore.kernel.org/r/20250715034320.2553837-1-jacky_chou@aspeedtech.com/
+
+Changes in v2:
+- Moved ASPEED PCIe PHY yaml binding to `soc/aspeed` directory and
+  changed it as syscon
+- Added `MAINTAINERS` entry for the new PCIe RC driver
+- Updated device tree bindings to reflect the new structure
+- Refactored configuration read and write functions to main bus and
+  child bus ops
+- Refactored initialization to implement multiple ports support
+- Added PCIe FMT and TYPE definitions for TLP header in
+  `include/uapi/linux/pci_regs.h`
+- Updated from reviewer comments
+- Link to v1: https://lore.kernel.org/r/20250613033001.3153637-1-jacky_chou@aspeedtech.com/
+
+---
+Jacky Chou (7):
+      dt-bindings: phy: aspeed: Add ASPEED PCIe PHY
+      dt-bindings: PCI: Add ASPEED PCIe RC support
+      ARM: dts: aspeed-g6: Add PCIe RC and PCIe PHY node
+      PHY: aspeed: Add ASPEED PCIe PHY driver
+      PCI: Add FMT, TYPE and CPL status definition for TLP header
+      PCI: aspeed: Add ASPEED PCIe RC driver
+      MAINTAINERS: Add ASPEED PCIe RC driver
+
+ .../bindings/pci/aspeed,ast2600-pcie.yaml          |  182 ++++
+ .../bindings/phy/aspeed,ast2600-pcie-phy.yaml      |   42 +
+ MAINTAINERS                                        |   12 +
+ arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi    |    5 +
+ arch/arm/boot/dts/aspeed/aspeed-g6.dtsi            |   51 +
+ drivers/pci/controller/Kconfig                     |   16 +
+ drivers/pci/controller/Makefile                    |    1 +
+ drivers/pci/controller/pcie-aspeed.c               | 1111 ++++++++++++++++++++
+ drivers/pci/pci.h                                  |   15 +
+ drivers/phy/Kconfig                                |    1 +
+ drivers/phy/Makefile                               |    1 +
+ drivers/phy/aspeed/Kconfig                         |   15 +
+ drivers/phy/aspeed/Makefile                        |    2 +
+ drivers/phy/aspeed/phy-aspeed-pcie.c               |  209 ++++
+ 14 files changed, 1663 insertions(+)
+---
+base-commit: 50455515d2364d7f4397b9db98515a1028558295
+change-id: 20251103-upstream_pcie_rc-8445759db813
+
+Best regards,
+-- 
+Jacky Chou <jacky_chou@aspeedtech.com>
 
 
