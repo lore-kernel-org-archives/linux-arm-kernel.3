@@ -4,110 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BC4ED637B5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 21:04:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A377D637AE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 21:16:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JSPWTH5LvhyX27MDxiyB/vR3lpYpOwI1LKp0PW+a/sI=; b=qUG8wvUWWtUQiA3khcWB/3B9vN
-	MwVr2TL2krnr+00SQnS5TMtrOEWeKlIqYalajVFxwbtLVKrpueNvjpzYfXgMs/2HFBZgaPpk/ZQg5
-	Cp3y6kGbbjMvB38kGKf0QFyrV6/EAGaDq5QLNC3DTDJRlQeS4GTT8RKFHfGXfL8pEV5h32AfbpdjG
-	JiD/L0dz8mDrZyBw3ZKuwDie7lyccP2HjA4benE7vNu6YWzLHq8wALTRxOAisLUFKA1omHj3Xjkai
-	CAX6dEg26qAIEOzJtbP8NnhDOtAtCfAwEdi/6eKn1UucHX3BEOi7ecLWRC+3Dn5nAX+R7OT3r9K0R
-	dMTe0GtQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:Cc:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ebwgGAkNx1wNoLhOAOZ/UY0M0Mpf4583EjnHoCJDQNs=; b=WJ4lM/R4kTgAUx1PWD45AvCWKh
+	x2jqcBqPxlQHHLi/nGF4DRK0BuQbmnYsbahFISQDszJpHsclxljZdwRkvIekEsRrW7VGjiwFpK/e9
+	hKw7Dyv+Dc4vYQ0qEdlGDPOAyvBcsYDppn47Q6YBSfj8spY65bhlyRw0pShNtzsR1fRsXVz94hS1E
+	FDnKUdwFfidQTlqEQjs/nLHYmfIbvlD9GU/MuqIBi38bQePZ7F8zapdFgNqsuetEeyKA870Fs5fMt
+	/HiJqUtonYPNkMauzYf6NbueZ13TWEUKqzyVRIlnmcqh/onp06imT34O7ZC53sdzXUa5CXi6SZf1W
+	JdXCUYzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVcDH-00000005oy3-2iUr;
-	Tue, 16 Dec 2025 21:04:07 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1vVcOe-00000005pbs-3qtw;
+	Tue, 16 Dec 2025 21:15:52 +0000
+Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVcDF-00000005oxY-3N5V
+	id 1vVcOZ-00000005pax-3v9M
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 21:04:06 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2a1462573caso44875ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 13:04:05 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1765919045; cv=none;
-        d=google.com; s=arc-20240605;
-        b=JtelwZZALBap+QcTGZ4PfnAU+S8KKKc4kM8dRwJW2rzFeHJECneBvD823pRKmzO/0K
-         tHrdBxpUd/caxFoRRjs2BZvOKY4C791bGIdXbEymYu1nUhhF6KnrFQF9LEMhABRXdNXA
-         K834YqwIcGcIOmhA5VHOeIVgEoZwWcLj5WKoiyvXH3BUgP8Rj7ceXc8c0lsvkUR6vrsy
-         HRLbIc+pUBgn53St13EGtcrmdGEmTJrYNtqTjZfq7uAdlroBZjexAR7A5Z9jz+u9LwLZ
-         fDdWXm3CEH5uLfIdAb4cHaVAzLVcD0riB8PPDpYIflPrurn4+5FwQrkbH7IPu9zr6s/1
-         KB0A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=JSPWTH5LvhyX27MDxiyB/vR3lpYpOwI1LKp0PW+a/sI=;
-        fh=Q1zxN1VP47CspIUP2v/W4SdUyMHuG07dDio+OfoyOC0=;
-        b=SXQUOjdtkLpNcU8VIodTf7Rysdol1xxjgOm2YxVfR27dwE/U65bHqTS04nKPtrtbAz
-         wav4oOayTJVKG35Rsf5F6DP8NDCbg79yn0UKp/BYe0T0xZGPtIPONL16aaOBDLXRzm6s
-         2ae3W6/dPiKHGSKr2JUUpKZpv985uCxBO9tXQWrEJawPv/+uVoJiG+Ok8iKPMPNX8QD3
-         pJ92LWp/o0EL4bz9m3dtqO4Z9AR0oTashBnbpuXQBrvsIORgSQV9UwTqpgkxKJ/uiUSz
-         hCdgt5djJ6UB2Mw0vaOPyu/CCtIenO94OATkU4Zl3GcNFrV0P2DLg/7VEcw7r43YozYB
-         mUtg==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	Tue, 16 Dec 2025 21:15:50 +0000
+Received: by mail-qt1-x836.google.com with SMTP id d75a77b69052e-4ee2293e6a2so42199681cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 13:15:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1765919045; x=1766523845; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JSPWTH5LvhyX27MDxiyB/vR3lpYpOwI1LKp0PW+a/sI=;
-        b=grbx/GHU5f2cWkhQnl75hAYbfuCoZW5ulAlAcmWGbXOgLfMxe8L4EalYClCK4QYf3h
-         IMYd//hyvjm//TzPEsUQmSGQRIcVemBZ/dvhALsZmmfUEGjh3UiLTn0HSceBzfCl146f
-         nV0gt9/E+3Au9ZVEfbQCNZ4NxnIP1+iTKiPIqmkiJEASpqtNepozFIwOLgqOmwKiyL4p
-         VjvLY95h0wR9j3rwEjFhd4f10WDva3ndRIE6dkQPf9qh09mLL5zdT40u4HCqN1gngflf
-         CC53gbhWdJ5ffbmduWen6SyeBE8Z323VhP2i4Brtw4JqeSjR5ihxfvG2s5DfCTzNkXoS
-         usIw==
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1765919746; x=1766524546; darn=lists.infradead.org;
+        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:to
+         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=ebwgGAkNx1wNoLhOAOZ/UY0M0Mpf4583EjnHoCJDQNs=;
+        b=W/QD/aO9pxqfXj403fP4jzeI+bc9+NODn3hT1o2xYQh2TmXWPWZEqC/Pz+PJGh6sV3
+         uVACLrS8I+cQFmAxnmv9Ej/CURiH+j6+MRLYbTL29rg2A+epgiyfMCEtFtCmoIDyPWdr
+         UQ9YdkNfh8JpMJTmrs6IF90J1lBJZ1v0NRyvffyISxaJqGlVdrr+sUw4rUdmVnK+Ywat
+         V3y/WndWu8hxHXwD3zMSDjoROdCzDcaabaMJvIxAQwX5djqsg32LfOqMkwYOrsowIRqd
+         iX8TE6sduL/hWjPOKQcIzXKjuUmCs+UxB6V2c2cs+dc913hSyVKH9/tcwwMeN9HWT0wd
+         otog==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765919045; x=1766523845;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=JSPWTH5LvhyX27MDxiyB/vR3lpYpOwI1LKp0PW+a/sI=;
-        b=Ugrv+Nydk9uXJhy4pm9Y9XPVil4ZoeTbct4OEzgJOw4/rt7OPEiY07Q/haS0o4YEv/
-         Stz9DRc46i7aNbhLtUQrU2YLW/fOfptGLVb89N+oEBNUxeOceZWG8MGw2h8aTdK9OUe8
-         ftH86ov+EMYngYFzSCkoxR4/1ewlkZyENCSeYBlIfbQEnZEn2RYtID1JQj49Ao4i61ET
-         ykLGXyNZIztRlnCxnFULtleDGSsXNLlY42DK+hAVcREeuy2wKevqc8GmNxPqTHffhE0e
-         VU0BosKSec9Z32Mzb24A0jlADbv2CcjnSfKZkZR3GVG1VZU0R7695698Jpei8ifkQ7lS
-         gLVw==
-X-Forwarded-Encrypted: i=1; AJvYcCULAnrs8CWKa/EQPccfUBrnYwlbL+wWZ5DTyXpLSoTGDWuz4w9lhVJXeeB+xz8sh3uYGuly07X7FQREIfzfpzxh@lists.infradead.org
-X-Gm-Message-State: AOJu0YyWAJHhZM5BxjDdrHGIW7itAbu3BVkz2wP6C/TK0RJWsZMt+q1F
-	PNexzMLt4kE0zxzIQ4GHQ6FgISls5uW+H/E2/OCPkAt5LEmpF05rm3/jrylyb2kRDcUiB0IbZKy
-	r39fM+iRsRDwmQyvh/1FunN6VX5u75m59jojBZSSP
-X-Gm-Gg: AY/fxX7U33zTFWoew3y7mRwhb/Q2BPRjV7v8/1+lfWOlVObmQ6MivAd8pmKTde/PXjx
-	NGsS/aPfUubihJBIiqVeHFhxYbhu5jlHXWF1b64DXYwvAIrysvYsRIhPbnjQec+LLd8NBylHsGk
-	IKVAZMmRdZnJs+R/fr5Lr3Mpvxv4Aqs5jtqn/mL64f5cU3nKtbltQib0985akGiBk0Xn6v6pR2H
-	ovWZs6PEi4Zhe6y5pf65MQ2PLXpsW2kQLxP6bBeikVhNNsRqiOC8w0nt72HWEn2HMSsJbaT0JtO
-	a8RtTpzinMUqg4RVqD4BHyfZjg==
-X-Google-Smtp-Source: AGHT+IG5ELEF7AzQOZVlYy0IUuQ462eAR+/pa+XIzVeTo/fmvpwfzQavCHWTXXEeE4o0TNRdX8Ioon4m9vaF1JMTRnE=
-X-Received: by 2002:a17:902:e80c:b0:29f:181c:1f0 with SMTP id
- d9443c01a7336-2a2060db3f5mr21095ad.11.1765919044535; Tue, 16 Dec 2025
- 13:04:04 -0800 (PST)
+        d=1e100.net; s=20230601; t=1765919746; x=1766524546;
+        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:to
+         :from:subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ebwgGAkNx1wNoLhOAOZ/UY0M0Mpf4583EjnHoCJDQNs=;
+        b=dA0O82Nm+9gjllDHi4IGhbeFEdjmh3XolWXu25x0GZppiRZwKCI8lyA8AqEMKbYTC5
+         ummk73F38Ri5xEv+myCWaYUtWpDtxCVDkAFwgeV7MWrtVsndfxtv5OVpaJh7HnGVOuq6
+         eeBeLD8f79C7BueM+dqebVLhFACkfwO5xtlVy2zAt2Db1RFZ9ogCCa5UvQnN4LIp5UEk
+         wtMbw9RLBAD9OGtub20pannRC0VqjrovY4m38VbPtLfI57MqBLzENyOroitg3hEfR4gJ
+         +YddnfRJ80v618VFAeIU059wqkKmxLuuIXUW5WYRM7ff3Z75fbyNfOTBFlMo7yfEb4Qg
+         NfYg==
+X-Forwarded-Encrypted: i=1; AJvYcCVsmxDuk/Vnz949SM15IF9M1kUbIQHj0FcAf5zaSMbSOJ8qDA6Yh0Y8xmLzKXEf82C1cIKTii/lkRSgvrY/r278@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyon6VTN/DeQvA32PfyCYIKkQ9BCKa+ZRMfNHCrvOfRBOZxh+6l
+	jk7LmUMB+n5j6wNi7qG/YqM7FTFasA6fpdXF9OyEIFFZtGxnmaRgF2hRimbzkk8Lszk=
+X-Gm-Gg: AY/fxX6WL19TynKiOhwn+WCW0F1c3ZHznS+HnnuTu5tMvnPBPwmVlOrhjBD2l3X85Vz
+	N2plOQIqdfWinirT8+at3GwkqDbzRCeCxyXz552gBzezODLUa+sVHicwp8G29KUC2j7CQqP3NHh
+	gs8/Opn9cZAHw9Dp4JXG/GHsay3qj/SqnDXo0zKdd7SX+gsjAzvNSzutn5+a1BmLiVIPGhAcCLX
+	JKjBjnh+GuXERTnJu1d83vnYHeARomztPqXJS6ulWIdkZkDMMbA2K7cYlDV0L0bUNufSe+bKtF+
+	Raf4j1iWYtOqRuB51mzE/6X/sprkASNmDXmCzc1RWUkS48uPAhAba0jWw2KoTQ2UiCqTkYaYk5w
+	vFtOlpFTGqBEeKEvApXu08p0VvrO2lnZDcBI+jk4iAEU1s5wI9722sO6lMu70Ti+gFSggbhdgLV
+	IAo6FMOX6+ZgdkckDIvSBH1nAjRxI=
+X-Google-Smtp-Source: AGHT+IH9ieEzITl/25GTBr1twC9xFLUuMn0MCssFBfn2TLe8Le8JQ2UJuWsc+eqTvu1swSD82saAFw==
+X-Received: by 2002:a05:622a:4ac8:b0:4ee:1ed1:43c6 with SMTP id d75a77b69052e-4f1d049f56amr195093861cf.10.1765919746405;
+        Tue, 16 Dec 2025 13:15:46 -0800 (PST)
+Received: from ?IPv6:2606:6d00:17:7b4b::c41? ([2606:6d00:17:7b4b::c41])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-889a860bd0bsm86012026d6.54.2025.12.16.13.15.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Dec 2025 13:15:45 -0800 (PST)
+Message-ID: <36268d4980a1cd6d976bdf5de148f1c2668a92e4.camel@ndufresne.ca>
+Subject: Re: [PATCH v11 02/12] media: mediatek: jpeg: fix jpeg buffer
+ payload setting
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Kyrie Wu <kyrie.wu@mediatek.com>, Hans Verkuil
+ <hverkuil-cisco@xs4all.nl>,  Mauro Carvalho Chehab	 <mchehab@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	 <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger	
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
+ <angelogioacchino.delregno@collabora.com>, linux-media@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Date: Tue, 16 Dec 2025 16:15:43 -0500
+In-Reply-To: <20251202094800.6140-3-kyrie.wu@mediatek.com>
+References: <20251202094800.6140-1-kyrie.wu@mediatek.com>
+	 <20251202094800.6140-3-kyrie.wu@mediatek.com>
+Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-DXnq4KBLzU3zHo31WhpX"
+User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
 MIME-Version: 1.0
-References: <20251212-perf_c2c_update_event-v1-0-29a26c7a949b@arm.com>
- <20251212-perf_c2c_update_event-v1-1-29a26c7a949b@arm.com> <6a642215-2834-4c27-b716-477d5444ad9c@linaro.org>
-In-Reply-To: <6a642215-2834-4c27-b716-477d5444ad9c@linaro.org>
-From: Ian Rogers <irogers@google.com>
-Date: Tue, 16 Dec 2025 13:03:52 -0800
-X-Gm-Features: AQt7F2rncr8NvM5nl7aWHc1gmXASdTJlpuNlkoAQFQxFwabBXixeogpD2unqQnc
-Message-ID: <CAP-5=fWB7QxTvtEY6_9DBoQ23J471zvrRz+z6TYgNk3eJOWGRg@mail.gmail.com>
-Subject: Re: [PATCH 1/2] perf mem: Simplify Arm SPE event config
-To: James Clark <james.clark@linaro.org>
-Cc: Leo Yan <leo.yan@arm.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mike Leach <mike.leach@linaro.org>, Will Deacon <will@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, Al Grant <al.grant@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_130405_849235_D7FD8398 
-X-CRM114-Status: GOOD (  15.37  )
+X-CRM114-CacheID: sfid-20251216_131548_495311_B015EFDD 
+X-CRM114-Status: GOOD (  27.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,46 +119,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 12, 2025 at 7:18=E2=80=AFAM James Clark <james.clark@linaro.org=
-> wrote:
->
-> On 12/12/2025 14:44, Leo Yan wrote:
-> > Since configuration fields default to zero, the zero assignments are
-> > redundant, remove them.
-> >
-> > Signed-off-by: Leo Yan <leo.yan@arm.com>
-> > ---
-> >   tools/perf/arch/arm64/util/mem-events.c | 4 ++--
-> >   1 file changed, 2 insertions(+), 2 deletions(-)
-> >
-> > diff --git a/tools/perf/arch/arm64/util/mem-events.c b/tools/perf/arch/=
-arm64/util/mem-events.c
-> > index 9f8da7937255cc9b14c3c58a1119b40bd0c76f6b..eaf00e0609c6c1b7d939a02=
-fe3794471d1ed119b 100644
-> > --- a/tools/perf/arch/arm64/util/mem-events.c
-> > +++ b/tools/perf/arch/arm64/util/mem-events.c
-> > @@ -6,7 +6,7 @@
-> >   #define E(t, n, s, l, a) { .tag =3D t, .name =3D n, .event_name =3D s=
-, .ldlat =3D l, .aux_event =3D a }
-> >
-> >   struct perf_mem_event perf_mem_events_arm[PERF_MEM_EVENTS__MAX] =3D {
-> > -     E("spe-load",   "%s/ts_enable=3D1,pa_enable=3D1,load_filter=3D1,s=
-tore_filter=3D0,min_latency=3D%u/",      NULL,   true,   0),
-> > -     E("spe-store",  "%s/ts_enable=3D1,pa_enable=3D1,load_filter=3D0,s=
-tore_filter=3D1/",                     NULL,   false,  0),
-> > +     E("spe-load",   "%s/ts_enable=3D1,pa_enable=3D1,load_filter=3D1,m=
-in_latency=3D%u/",     NULL,   true,   0),
-> > +     E("spe-store",  "%s/ts_enable=3D1,pa_enable=3D1,store_filter=3D1/=
-",                   NULL,   false,  0),
-> >       E("spe-ldst",   "%s/ts_enable=3D1,pa_enable=3D1,load_filter=3D1,s=
-tore_filter=3D1,min_latency=3D%u/",      NULL,   true,   0),
-> >   };
-> >
->
-> Reviewed-by: James Clark <james.clark@linaro.org>
 
-Reviewed-by: Ian Rogers <irogers@google.com>
+--=-DXnq4KBLzU3zHo31WhpX
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Thanks,
-Ian
+Hi.
+
+Le mardi 02 d=C3=A9cembre 2025 =C3=A0 17:47 +0800, Kyrie Wu a =C3=A9crit=C2=
+=A0:
+> For multi-core jpegdec, if one of hws gets the event of resolution
+> changing, the payload size, representing the size of Y/C data,
+
+-> "gets the resolution change event, ..."
+
+> needed to change. But others hws are decoding at the same time and
+
+needed -> needs,               hws -> cores ?
+
+It this specific to decoders or any type of cores ?
+
+> it can not be changed immediately, which results that the payload
+
+                                                    in the playload
+
+> size is not equal to the real buffer length of the hw's, which occurred
+
+size to not match the real buffer lenght for the ... hw ?
+
+> resolution changing and a warnning call trace will print.
+
+Can't parse. You can probably split that large sentence, and it needs to be
+rework.
+
+> So the setting of payload size must less than the real buffer length
+> to remove the warnning logs.
+>=20
+> Fixes: 0fa49df4222f ("media: mtk-jpegdec: support jpegdec multi-hardware"=
+)
+>=20
+
+Don't add blank line in tags please.
+
+> Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
+> ---
+> =C2=A0.../platform/mediatek/jpeg/mtk_jpeg_core.c=C2=A0=C2=A0=C2=A0 | 19 +=
++++++++++++++-----
+> =C2=A01 file changed, 14 insertions(+), 5 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> index 6a7e01130f1c..0cf3dc5407e4 100644
+> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> @@ -709,6 +709,7 @@ static int mtk_jpeg_buf_prepare(struct vb2_buffer *vb=
+)
+> =C2=A0	struct mtk_jpeg_ctx *ctx =3D vb2_get_drv_priv(vb->vb2_queue);
+> =C2=A0	struct mtk_jpeg_q_data *q_data =3D NULL;
+> =C2=A0	struct v4l2_plane_pix_format plane_fmt =3D {};
+> +	unsigned long max_size;
+
+size_t ?
+
+> =C2=A0	int i;
+> =C2=A0
+> =C2=A0	q_data =3D mtk_jpeg_get_q_data(ctx, vb->vb2_queue->type);
+> @@ -717,12 +718,20 @@ static int mtk_jpeg_buf_prepare(struct vb2_buffer *=
+vb)
+> =C2=A0
+> =C2=A0	for (i =3D 0; i < q_data->fmt->colplanes; i++) {
+> =C2=A0		plane_fmt =3D q_data->pix_mp.plane_fmt[i];
+> +		max_size =3D plane_fmt.sizeimage;
+> +
+> =C2=A0		if (ctx->enable_exif &&
+> -		=C2=A0=C2=A0=C2=A0 q_data->fmt->fourcc =3D=3D V4L2_PIX_FMT_JPEG)
+> -			vb2_set_plane_payload(vb, i, plane_fmt.sizeimage +
+> -					=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MTK_JPEG_MAX_EXIF_SIZE);
+> -		else
+> -			vb2_set_plane_payload(vb, i,=C2=A0 plane_fmt.sizeimage);
+> +			q_data->fmt->fourcc =3D=3D V4L2_PIX_FMT_JPEG) {
+> +			max_size +=3D MTK_JPEG_MAX_EXIF_SIZE;
+> +
+> +			vb2_set_plane_payload(vb, i,
+> +					=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MIN(vb->planes[i].length,
+> +						=C2=A0 max_size));
+
+This is still not quite right. sizeimage, straight from s_fmt should alread=
+y
+account for the EXIF headers. If enable_exif is unknown at the moment, then=
+ you
+should just always include that space. This way, the buffer length will onl=
+y be
+bigger if userspace asked for more at allocation time, and wil never be sma=
+ller
+then this.
+
+The point of sizeimage it to allow userspace allocate externally the right =
+size,
+this driver failed at that task it seems.
+
+Stepping back a little, I don't even understand why you set the payload siz=
+e
+like this here. Why isn't the true payload size written once, when the buff=
+er is
+encoded ? Are you using bytesused to tell the HW how much space can be writ=
+ten
+too ? Just give it the full space, wich is the allocated size (length).
+
+Nicolas
+
+
+> +		} else {
+> +			vb2_set_plane_payload(vb, i,
+> +					=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 MIN(plane_fmt.sizeimage,
+> +						=C2=A0 vb->planes[i].length));
+> +		}
+> =C2=A0	}
+> =C2=A0
+> =C2=A0	return 0;
+
+--=-DXnq4KBLzU3zHo31WhpX
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaUHMAAAKCRDZQZRRKWBy
+9LqrAQDXLmz8aa7r5neaZh7xka6kqpE8h8U1FhjrhrVnGKv4zAD+NUWeHnhgbVbv
+dhs9VoCxfbieBWTj3WDJe6eQSQhghQk=
+=UJW7
+-----END PGP SIGNATURE-----
+
+--=-DXnq4KBLzU3zHo31WhpX--
 
