@@ -4,89 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9D03D5C0C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 08:50:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AB4BD5C0C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 08:52:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZUFe47qtGYjU5Yn2pY9F8UI7JZG74YZxx2wQ1k0dRgg=; b=PuKMW2TPf0ROtqqOVUKmdZdJG/
-	kPZWP2itkdLwVS7RWShvNpx5ZoZmRw92lTMgyyWkMlYX0xeW784CESLgEiDrUcLsCjeYpdr27y0qM
-	xaeYI5LAEktlm6ZI4w8sIRi77QxSg40l1zK2ZvALv6mUzbAAHbfLoK4EeLipP9yDtgKmEKD5bxj8l
-	KW7ibzyj/d7zKrWpD+N5pnhUFDC9JsLB1jqc63SRvRsvDJpuc89cUXN6149KC9Qzi6TK9WA2VVB5Y
-	isO7PAD55VpXYqH1V3Fn9Ws2Vke7jYcd5viV0uCbGU1PDhLZATM4yUAqvGVv4WaIgi2sxp1m+M4rx
-	W54FU+YA==;
+	bh=2J5AadwEBdTwAWucvKupulv4Jg5vl93UuJXQSAqvTPc=; b=Cx++z/nbdd/qzudbf059zzaNBv
+	FfCOUE6GRlUqVJpTMDAC5m4KU/PnSkIQgW2de72DPM6w7MvyTXX13tw1f82EpytMzhg8/BgF4OKUG
+	O+5GjV2lQTdqQzFtlhZSFbfMPTaRP/8QAViSzoRn362GoeB8fOwOwMEsV7XHdFKNp7MMJAqDNA4C0
+	mwFY8Bqrt1HeQTFF3m+lJHmyIiLGuMg7P2bvFYJ1DRklzrSOaffmMRQyy+1YweRsV5BKfst62UM2p
+	bD3z0P5AxHuoJ9ibNKiyXKe7XbJJm7t7sTxs3WlWx4Wol+bKIGTmgB16mxunEsmJsLOWO7OP/mtoA
+	TVlQcPzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVQl1-00000004x24-2ChY;
-	Tue, 16 Dec 2025 08:50:12 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1vVQmr-00000004xCU-2beH;
+	Tue, 16 Dec 2025 08:52:05 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVQkz-00000004x1g-0ccM
+	id 1vVQmq-00000004xCI-0RFd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 08:50:10 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2a0f3f74587so23327185ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 00:50:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1765875008; x=1766479808; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZUFe47qtGYjU5Yn2pY9F8UI7JZG74YZxx2wQ1k0dRgg=;
-        b=FgMLtGRv1t7wNJ3cdDr2ppiLRD4k8LB8fPKPOk8NYznZDexy6NvXsbjfNcncYFbd8R
-         gVbF+0TJmtHi1UKwu1mYF1TdSJgMlnJJpucEVhoAjzblVxIf9CjaraYOZZ0W7Sw226qA
-         sL8WXpwV6MInu7/vVJGelrj1aBxFsEuxvkeoYDqsWjqEUfK7oKyIytMHGCvYzyXk1jVw
-         xu4wig54vnGxFhra4kmcn+CUV4RGkRWrQ/En1iu2JUuDnx/UBqvHCKMOlctaat+PIf2K
-         u36o1ww2n+Ry998kUjFqcWnOtA9F7+f1/6fH9r8wQSDh9VxrDrJW7UTbvb0vkGkIwm7c
-         558w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765875008; x=1766479808;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=ZUFe47qtGYjU5Yn2pY9F8UI7JZG74YZxx2wQ1k0dRgg=;
-        b=mTI4ZuGIyRKgIrgZm7eZOxEUELGdPHDi8yI23YCDBz4hANBGsSJgawzwIofjXegb0Q
-         fVuTg/GSb0jQfGmHDbjpYkdCU7NF7IfY5aERbPmB0y45UWXO6BZ/w5Cziq88a5GS5AbH
-         3QMxHh/1ew3e09IXjQdbsk7qv0JF5f/o+Xf//RiBF6BX0oM1Hm+sWVD1T2mbnuCvqFYV
-         2juYZ1H14cxBhZIrjVYT33cy4/5T9A7JGcEmREuXKkdqCtg8Xj0ezI/ZtrgZjRHlPSHh
-         pBaRF/fEYbLwdGEaCZ5zMwgQM/78aqOjtbdGzPDnYa4R2g6miu/1SpdmJ4ekkxRJwsIn
-         LYTQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW3ZH5X7OG4XJJlx+/QgxFv34roA+c4FoE+Rxm4giNFBxgHO9L6ypt/qtuuGtWel7f/DzKf/aa1lM0Sy1U9TVa/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUpM2dkslrWEeCwM4xa79w5PEeXXkXgc8cQEjiav07fWKHqgX3
-	QfotEA++NELdslABwdyZzuzI4HHYAkp9IlXkuJ69SmrxEpVcgP52WTLpMZe0ENt2j2frjAVuXcf
-	At9UjbkvZWBWX6iOyUvdeKaSeWBwiTcvoYQ==
-X-Gm-Gg: AY/fxX7YYjemqDLA9sEv/8VvKFPmUvLxzNaskRH3q5f03tsaU+6JVRI22lVaeh0PI7Z
-	Cgc59OO8saBCTl2uZDN69AitWnhzY/JiPT9XfiraAEQg4/jcq0SRgk3HOpY1pTKR1wdfGn8F0OD
-	etvqdJFEYlWbRG33kH6HF5Xh+AtrYkAO/uWu9wDbDduaICg8Grk4J9VTDz60cSit2oSeU4XzXVa
-	oXMupUiLiFkr5pTOSwDK2mGOxc9qRe2qi116MjmPXkPcHbJPgSGpohaLevZlGIdVLx8vMd7W3sZ
-	yoCHmA4qu/n8oO/lLOAmTiHbgUOoJF9tDmMRlTyzOZ16u5JmqR01yn64NkHQNC6c98a9LFVeuTM
-	kf6lmdNwCfZAEZuwIFKC9
-X-Google-Smtp-Source: AGHT+IFdZYFT+NIwzhAXA50MF6zrj86tN0JwKIahPILeOcWuOCFok0qYlbb+VZx5E16t5BM86z6amXtW1CuiK+Z1D7g=
-X-Received: by 2002:a05:7022:5f04:b0:11b:88a7:e1b0 with SMTP id
- a92af1059eb24-11f354cd726mr6498824c88.26.1765875007985; Tue, 16 Dec 2025
- 00:50:07 -0800 (PST)
+	Tue, 16 Dec 2025 08:52:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3FF0760010;
+	Tue, 16 Dec 2025 08:52:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CD6BC4CEF1;
+	Tue, 16 Dec 2025 08:51:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765875123;
+	bh=5yo5JqZWB7fW9gV7EpQXnHOSL2dm1tpCTiFS4yqKKJY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=n/F1mud59bDspQ+N7JBK2BrasxGl7iffNcwcAG0O4e1SqcVQiwos9yL8uIG66HF1T
+	 vkiIBO0ydpAQWExnKTWSuLTtz2oretzZjqes8YCrfQUVLz+s3obZiHzkQdSlEz0v51
+	 avGhZme8uCNMO+JlHdNhv7GkpkKdnivH4E+ikv+X/6fFQa3dWhdCvRLVhWWQEe+fbl
+	 4eQ9NnGz/BwCXXjEfm4xDKjr2U4MTJEeyQZqCwOKtFxv3EmPJZaqWmFufCumv+Y+cB
+	 UqxemO+lsUxri/rcSaV9tHb55JKI/Fyz9Hzx5BoCg5wax3i4lYkThYyEn2W8G8i19t
+	 zhxl3xsEhrx6w==
+Message-ID: <fbe39eac-7c92-4a08-bafb-31e5c51a0613@kernel.org>
+Date: Tue, 16 Dec 2025 09:51:56 +0100
 MIME-Version: 1.0
-References: <20251216074216.447193-1-shengjiu.wang@nxp.com>
-In-Reply-To: <20251216074216.447193-1-shengjiu.wang@nxp.com>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Tue, 16 Dec 2025 10:52:38 +0200
-X-Gm-Features: AQt7F2qAJy_LSqPhNedKh08SXl3wUZHMX7Nrl3yXqFHsKDgpXLFzkxbItF2FoEo
-Message-ID: <CAEnQRZCZe3z8F7TsFdCz5P6mu6qzGkdoqC76XkyCCzQz+pSpmA@mail.gmail.com>
-Subject: Re: [PATCH] remoteproc: imx_dsp_rproc: only reset carveout memory at
- RPROC_OFFLINE state
-To: Shengjiu Wang <shengjiu.wang@nxp.com>
-Cc: andersson@kernel.org, mathieu.poirier@linaro.org, shawnguo@kernel.org, 
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
-	daniel.baluta@nxp.com, linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_005009_488918_AFB44207 
-X-CRM114-Status: UNSURE (   9.05  )
-X-CRM114-Notice: Please train this message.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 07/11] dt-bindings: clock: qcom: document the Kaanapali
+ GPU Clock Controller
+To: Taniya Das <taniya.das@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+ Konrad Dybcio <konradybcio@kernel.org>,
+ Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
+ Imran Shaik <imran.shaik@oss.qualcomm.com>,
+ Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
+ linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org,
+ Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
+ Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+References: <20251125-kaanapali-mmcc-v2-v2-0-fb44e78f300b@oss.qualcomm.com>
+ <20251125-kaanapali-mmcc-v2-v2-7-fb44e78f300b@oss.qualcomm.com>
+ <20251126-elated-stoic-scorpion-25b630@kuoka>
+ <de44560d-4ed8-41fe-be7b-56412b933a8c@oss.qualcomm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <de44560d-4ed8-41fe-be7b-56412b933a8c@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,18 +133,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 16, 2025 at 9:59=E2=80=AFAM Shengjiu Wang <shengjiu.wang@nxp.co=
-m> wrote:
->
-> Don't need to reset memory at suspend and resume stage, because some
-> memory is used to save the software state for resume, if it is cleared,
-> the resume operation can fail.
+On 04/12/2025 07:49, Taniya Das wrote:
+>>> +  power-domains:
+>>> +    description:
+>>> +      Power domains required for the clock controller to operate
+>>> +    items:
+>>> +      - description: GFX power domain
+>>> +      - description: GMXC power domain
+>>> +      - description: GPUCC(CX) power domain
+>>> +
+>>> +  '#power-domain-cells':
+>>
+>> Power domain controllers do not belong to clocks, so this is:
+>> 1. Misplaced - wrong folder
+>> 2. Probably wrongly named. gxclkctl sounds like clock controller, but
+>> this is domain controller?
+>>
+> 
+> The GFXCLKCTL is actually a clock controller which has PLLs, clocks and
+> Power domains (GDSC), but the requirement here is to use the GDSC from
+> the clock controller to recover the GPU firmware in case of any
+> failure/hangs. The rest of the resources of the clock controller are
+> being used by the firmware of GPU. The GDSC is a clock controller
+> resource and modeled from the clock controller drivers across chipsets.
 
-I would rephrase this as "Do not reset memory ...".
+This should be somewhere explained.
 
-"Don't need .." suggests that this operation is unnecessary, but not wrong.
+> 
+>>> +    const: 1
+>>> +
+>>> +  reg:
+>>> +    maxItems: 1
+>>> +
+>>> +required:
+>>> +  - compatible
+>>> +  - reg
+>>> +  - power-domains
+>>> +  - '#power-domain-cells'
+>>> +
+>>> +unevaluatedProperties: false
+>>> +
+>>> +examples:
+>>> +  - |
+>>> +    #include <dt-bindings/power/qcom,rpmhpd.h>
+>>> +    soc {
+>>> +        #address-cells = <2>;
+>>> +        #size-cells = <2>;
+>>> +
+>>> +        clock-controller@3d68024 {
+>>> +            compatible = "qcom,kaanapali-gxclkctl";
+>>> +            reg = <0 0x3d68024 0x0 0x8>;
+>>
+>> Keep consistent hex, so first 0 -> 0x0.
+> 
+> Sure, will fix this.
+> 
+>> But the problem is that you defined a device for two registers,
+>> basically one domain. I have doubts now whether this is complete and
+>> real device.
+>>
+> 
+> As the Linux GPU driver requires only the GDSC, I have mapped the region
+> which is required by the clock controller driver. If required, the
+> entire region can be mapped as well.
 
-With that,
+Required is to properly describe the hardware, please read writing
+bindings doc.
 
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+> 
+>>> +            power-domains = <&rpmhpd RPMHPD_GFX>,
+>>> +                            <&rpmhpd RPMHPD_GMXC>,
+>>> +                            <&gpucc 0>;
+>>> +            #power-domain-cells = <1>;
+>>
+>> And cells 1 makes no sense in such case.
+>>
+> 
+> We would like to leverage the existing common clock driver(GDSC) code to
+
+Fix the driver code if it cannot handle other cells. Your drivers do not
+matter for choices made in bindings.
+
+> register the power-domains and also maintain uniformity across chipsets
+> and consistency in consumer GDSC phandle usage.
+
+There is no such consistency rule. Don't make up your own rules.
+
+Best regards,
+Krzysztof
 
