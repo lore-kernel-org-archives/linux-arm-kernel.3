@@ -4,225 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5A52D5E130
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 11:04:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70ADDD5E130
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 11:08:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NPwQzKLhLFSvAOtSMsOtC8/iXGecaoK7dhKgScvvuRA=; b=aDE9lDqhWhv6A+iIXJIXzZnP94
-	KJamxlBLif5HLN9OU9Q4iScs7LPnpAwZ/satP/2CkXB4VKryfhfS98HzihgBGG3DQrEbDxMgPb+J3
-	H7hkNW5Ts1eVjHDFgmLQqlgAIIoFyZAvg2/wBh4yywUVoSJuMbr/fQQmo7RYWreUZT7a85TUCBV+h
-	UCOkw1JJtPzwG7IRl+4XzKCoql7VlHx49cfoxWTm6DDuFeJhPhGttV/jy2FsOZ513AKVwsiWVYbbN
-	AdiKoss28mYst9EY4b/Yv2tz+Z1LYG3PiJJIN32TVDQtFAYLD3Y0V9m3vTIymv01b5iWjHPAfT+kv
-	E8+DmZNg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JzbZNSoR9XV7c/fw2WEyAJLfwBQw/kZL/Ydt6MIWYlk=; b=jsAqg8mY1tLJzqqF7/d0xSQEg5
+	7tkV8yb9OnbwYZh4u8ruqH3DmkOLpIZ1rz83NvN/OFDdX3DdpaG2tDBmbCDWFvNB551lRYYDyrPuT
+	+fXRSQhAxnDhyKdtlW0nLshBiAkkByuiW145Z2o6ywxxh+vKIpUhnD2hV6IotJktb3X8oIk2xfGHK
+	ag6KqjfP1b9SrXmnOaUJaT5ui12Uk+7wh7D1a5MjA2Jm2bVA01UTy1JWfSwSP51h06XH5kH+cnwgK
+	SIEvfNn0+2k4/JBfUQE9NvOFnSn4h40GUU8N955MoO13/YE96nrNhkwGaP2AaQGCjA8sAeUISZ8yp
+	h0i+KalQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVSr5-000000055gZ-0TZW;
-	Tue, 16 Dec 2025 11:04:35 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1vVSv9-0000000560F-2Xkr;
+	Tue, 16 Dec 2025 11:08:47 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVSr2-000000055fw-2Hgb
+	id 1vVSv5-000000055zp-1Cyn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 11:04:34 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=UWTAWAllGIQvzTVrmv1UmLecbLapRTmbThOaMlJ05xkkE4vQvIxBz8hcV1afR2kAlRLZkAXqV489561w4T8LgIlSyx+MosoEiQ3NswJ5Hn1s/0gB+Wh0KD/fgFE/tq+TjToKwl++pQlEmDqyvKy8dLj06Q6UW9lz1vmJxrq2Z8IE8Cq9MNGlQV/S4caDbqHfZ7odIIKCjRoid7fSjIVN4mQRv/veg2NYbKzwd/ZABhiQ1+rB1FLVq2ut6UazVXQ+sUViilPYDMGUqWfgg+n7Qto9CtKivBQhhFHL2hflNtFaZtBoLL5LsDheaEGTdIBgnZbMtEsw3rAIJDtvGofrPw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NPwQzKLhLFSvAOtSMsOtC8/iXGecaoK7dhKgScvvuRA=;
- b=WE0PpvCTVXwu7CBTu8Z9qBOFZlqcoJbQ4gBI4isWGuXMMyiZEsspPKf9dsCSE+oQbjvPDHYXEt03K8mOiFrG+T5tUgucULMDgqSbcnIyX3/BS19fzBazNC/ujkCGk0fN3PTRHwVIVKhu9pyPzmy8UdoCn2L+wr3L44XPt83aVRWAFzQyn2x6c5kOahPyzzffYdlzZbEUadwLplWjQv3FplmIOhOOOTHVW0aS1+cS1L5iNIUY8WoBLOQ/ek9r5MsO5irZEKffHcy+1uE+GT5AJ4VTl6fYIbv7lMVaDSQ7Hgbz05tRkZsFmHwt+sOT4iB/lhAaDv2Gl40jUvy0Aja7Lw==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=google.com smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NPwQzKLhLFSvAOtSMsOtC8/iXGecaoK7dhKgScvvuRA=;
- b=MqKDo41eRkNqRsyBRY5nZNGygH8hn6qOpOo07tk8UqyY0gUGvgKy7unaB2lpF3z0ZYfuFIIqI3GWnuIzW33m1fRyKJdftN3rzATOlMROxI/B/m10RGOT0+lVmOhZpSor/i7diSHp8Y95/eAAkdd7FhQSSARfiYTgyvh34F3Bz4Y=
-Received: from DB8P191CA0017.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:130::27)
- by AS4PR08MB8191.eurprd08.prod.outlook.com (2603:10a6:20b:58e::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.13; Tue, 16 Dec
- 2025 11:04:22 +0000
-Received: from DU2PEPF00028D09.eurprd03.prod.outlook.com
- (2603:10a6:10:130:cafe::87) by DB8P191CA0017.outlook.office365.com
- (2603:10a6:10:130::27) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9412.13 via Frontend Transport; Tue,
- 16 Dec 2025 11:04:22 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DU2PEPF00028D09.mail.protection.outlook.com (10.167.242.169) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.6
- via Frontend Transport; Tue, 16 Dec 2025 11:04:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GL36KmA0/8JyR7dsSIlfsTtvnB/xkIG1MaGDRvomsLkv9oJD6pWBjrIzgbYBd6ViDFqLONHsmAkq8dyHQJpgsunuMzPv7jNo+unz6VssRcLQTYpSF+ByAn5mizUHOjAwiIv/XPo1XOY8IJsfbpQJSfeD+B9j3BmJ7MALR36dh08LrF4CBhZsll97Go6x6PElitFzvhqN/HLDglyWGsG+BdSaH1Vd1w6VnCgoNXu9B6iFh3DIf1GNOtD/xadXrNf6LetMZgXazg73fme3lxKeUqX2yao4csxEY1bVe7gABf15FDaHlwl74zUq52oaEFOcWJG2ZL4LhP2Nu1m45X75KQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NPwQzKLhLFSvAOtSMsOtC8/iXGecaoK7dhKgScvvuRA=;
- b=ENnqK8Vh4M6VrVJwzRauD5n35hHDRIDPvNLBX0+kq/xioXdhRNjuzNHSJsPdS1X1q7wir6uc85agyW3pRWEg5JiREncjuGgFYPNoYdnXcc3ewI8S4FP35762tvrzBd2P8zE8svDMMYwozDYcm2ddm/rrsf+VjfCK79v7mD8oZITv7AJ213HnI5UtuGEIlDBa/3210YEgNcpr+CuZVejMEk/pJAEBFW+GYgIjel0IQ8w1TJSi49OFbQYqrY4wJBLF4DEtzBBYf/WlLLvybhqgJV4xN7XtUqYkler+iEoguL5wSR4+GZxY56EKM3OkRMhzduSGQ0skYRzZVZUeKU9pNQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NPwQzKLhLFSvAOtSMsOtC8/iXGecaoK7dhKgScvvuRA=;
- b=MqKDo41eRkNqRsyBRY5nZNGygH8hn6qOpOo07tk8UqyY0gUGvgKy7unaB2lpF3z0ZYfuFIIqI3GWnuIzW33m1fRyKJdftN3rzATOlMROxI/B/m10RGOT0+lVmOhZpSor/i7diSHp8Y95/eAAkdd7FhQSSARfiYTgyvh34F3Bz4Y=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by GV1PR08MB8131.eurprd08.prod.outlook.com
- (2603:10a6:150:91::7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.13; Tue, 16 Dec
- 2025 11:03:16 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739%3]) with mapi id 15.20.9412.011; Tue, 16 Dec 2025
- 11:03:15 +0000
-Date: Tue, 16 Dec 2025 11:03:11 +0000
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Brendan Jackman <jackmanb@google.com>
-Cc: akpm@linux-foundation.org, david@kernel.org, lorenzo.stoakes@oracle.com,
-	Liam.Howlett@oracle.com, vbabka@suse.cz, rppt@kernel.org,
-	surenb@google.com, mhocko@suse.com, ast@kernel.org,
-	daniel@iogearbox.net, andrii@kernel.org, martin.lau@linux.dev,
-	eddyz87@gmail.com, song@kernel.org, yonghong.song@linux.dev,
-	john.fastabend@gmail.com, kpsingh@kernel.org, sdf@fomichev.me,
-	haoluo@google.com, jolsa@kernel.org, hannes@cmpxchg.org,
-	ziy@nvidia.com, bigeasy@linutronix.de, clrkwllms@kernel.org,
-	rostedt@goodmis.org, catalin.marinas@arm.com, will@kernel.org,
-	ryan.roberts@arm.com, kevin.brodsky@arm.com, dev.jain@arm.com,
-	yang@os.amperecomputing.com, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/2] arm64: mmu: use pagetable_alloc_nolock() while
- stop_machine()
-Message-ID: <aUE8bwUVa6jSUft1@e129823.arm.com>
-References: <20251212161832.2067134-1-yeoreum.yun@arm.com>
- <20251212161832.2067134-3-yeoreum.yun@arm.com>
- <CA+i-1C2e7QNTy5u=HF7tLsLXLq4xYbMTCbNjWGAxHz4uwgR05g@mail.gmail.com>
- <aT5/y3cSGIzi2K+m@e129823.arm.com>
- <DEYOI8H2OESD.1H56D3H8HKILB@google.com>
- <aT/WOAr4osoJWaMS@e129823.arm.com>
- <DEYP7JSVTB9D.3EFN2KEHH3O79@google.com>
- <aT/drjN1BkvyAGoi@e129823.arm.com>
- <DEZK5U2YP6I0.27VJHSVK14646@google.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <DEZK5U2YP6I0.27VJHSVK14646@google.com>
-X-ClientProxiedBy: LO6P265CA0015.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:339::8) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
+	Tue, 16 Dec 2025 11:08:45 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-477aa218f20so29544005e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 03:08:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1765883321; x=1766488121; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=JzbZNSoR9XV7c/fw2WEyAJLfwBQw/kZL/Ydt6MIWYlk=;
+        b=DJUKBEwtg4ehk/4LgtJPpMvQJOQeq01bEn7NGvVJeIor6AA7Q+oCHp0VIerowPoRKX
+         o61GrxGXCNMp5rBMgVBfk3jmg8BW7lPkp5yi5uC0fEZ/ZeCnX6mCcJPb68WmSGTB9Wmc
+         B0WyJ+14apmtL4CQDebYEMQ1pMMjYTm+Zrsa8vHsGd77u/FRvOY1T1tPO5x+GOsAeoFW
+         QHxkI/mBK+1mPY0kgfjv80VBY54ZMFruRNluQ3fP5qGlKBDsZZczNLx9KbdjIMdSHQLO
+         d63jlj1Md96iza6MErKjUcQZPOYXn/nZFGbLgm7PbLSZon5ddD8ZvVDFsRaNyyqaEmtq
+         5jyw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765883321; x=1766488121;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=JzbZNSoR9XV7c/fw2WEyAJLfwBQw/kZL/Ydt6MIWYlk=;
+        b=X4TaKFctZ9pfn01b6gCjgPOVqWkNdPncze4Il+XIATualCAuf5OjLvkoUx2mzmeFaC
+         JLow+B0IOfOzUcPpDvCcXmbkoCoN8ZVN5fQwPcy4nTYTxPrSZz+B9EaSpl7TqZZu+2+y
+         F6ybtuVf1hqN3RflQptDLECwCrH8M8rD6fKOJudiBykWcLgJc1ctINIPFzOXbq5VBk6X
+         dhYSVSY9fyUj42viyoPBZIUXfv6jr5/e9TuApu15rWuSlMUCzjbr2Grl6WN3IxCzvF2q
+         E5k3umvy7GJNSk3CJeZH7M4PU/J/Y/CLliZRl7tAgiEW0FSNGjTr3vZtZ+KFn2GTz98r
+         022w==
+X-Forwarded-Encrypted: i=1; AJvYcCUO9CvuYs/o9/pLPxgie1d4yDy79Rpi6lLrt+Vn7Uf9FxRwhVpYgXLzzHxNKxhoyOWtKISVK2pQBrvp9rE2OU3g@lists.infradead.org
+X-Gm-Message-State: AOJu0YzPQ9KJoS79+fiVCyF74pqQbvERBdDhFYQT6vZEZEbodnLPYbiD
+	tLb6rufG4cnq5BA+lcr6ULv7YxX1J8Ke9z48A52IHvhD22NQRgeJ/SeOwSx0hV6MvSc=
+X-Gm-Gg: AY/fxX5gZfaoCGYwfuVEzDA4R5WKA4o8LYM0GjPQzC72PGTDzsTS5LN46imPfFBpt5Z
+	/7i5n48kgW5eUAkelQ3UpJPULtCxp6PlbERNtMruDDuxL0hZA9h2afyo387u6ST1JmGnOF4BHmF
+	q0Bw9aPNUqLEHWDKjNfhp8OVSnWC8hbppDPh7jHEgr+HOjD7Z5L5N5jpLPpTmae2HODlUx2a561
+	pwTklzr8etQdRWo4PH3GeDEzny2iPVbL5T6HUjyMlM8RaJa1YKFDUhCXEweN09M9BgJQ5mFAiWn
+	xYfw77RW8rnOdSJ4Osm8zdOcuuWuM8CGx4a1peAO+i/aqIZs5yMv9g6dn+IB9DGb0muIfMrKFyF
+	xHPVoZ69322FsUyqGru6fvIdBfhrSudPLQ93qtRXt9FVlgOKVUD/jCgFR5AmXDCclyi/x2IPPWz
+	i7LzW5b9yclgv3lel8ed9+80mbVXsifjt1N8LOmwnegklmPS5vtC8lBwMpFUrnsXuQ7xg9zL0jP
+	1A=
+X-Google-Smtp-Source: AGHT+IFp5IncMGvMC+pwiacOOoEIbditx6SKu86limMmxyrWyAZX1pq9RrgklnX8yEKbt8tmwVfkyQ==
+X-Received: by 2002:a05:600c:8288:b0:477:a1a2:d829 with SMTP id 5b1f17b1804b1-47a8f8c0caamr134941025e9.13.1765883320955;
+        Tue, 16 Dec 2025 03:08:40 -0800 (PST)
+Received: from localhost (p200300f65f00660852dfbbf029d2e03c.dip0.t-ipconnect.de. [2003:f6:5f00:6608:52df:bbf0:29d2:e03c])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-47a8f4ace61sm233401395e9.7.2025.12.16.03.08.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 16 Dec 2025 03:08:40 -0800 (PST)
+Date: Tue, 16 Dec 2025 12:08:38 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Sumit Garg <sumit.garg@oss.qualcomm.com>
+Cc: Sumit Garg <sumit.garg@kernel.org>, 
+	Jens Wiklander <jens.wiklander@linaro.org>, Olivia Mackall <olivia@selenic.com>, 
+	Herbert Xu <herbert@gondor.apana.org.au>, =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <clement.leger@bootlin.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Ard Biesheuvel <ardb@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Jan Kiszka <jan.kiszka@siemens.com>, 
+	Sudeep Holla <sudeep.holla@arm.com>, Christophe JAILLET <christophe.jaillet@wanadoo.fr>, 
+	Michael Chan <michael.chan@broadcom.com>, Pavan Chebbi <pavan.chebbi@broadcom.com>, 
+	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>, James Bottomley <James.Bottomley@hansenpartnership.com>, 
+	Jarkko Sakkinen <jarkko@kernel.org>, Mimi Zohar <zohar@linux.ibm.com>, 
+	David Howells <dhowells@redhat.com>, Paul Moore <paul@paul-moore.com>, 
+	James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, 
+	Peter Huewe <peterhuewe@gmx.de>, op-tee@lists.trustedfirmware.org, linux-kernel@vger.kernel.org, 
+	linux-crypto@vger.kernel.org, linux-rtc@vger.kernel.org, linux-efi@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-mips@vger.kernel.org, linux-integrity@vger.kernel.org, keyrings@vger.kernel.org, 
+	linux-security-module@vger.kernel.org, Jason Gunthorpe <jgg@ziepe.ca>
+Subject: Re: [PATCH v1 00/17] tee: Use bus callbacks instead of driver
+ callbacks
+Message-ID: <ayebinxqpcnl7hpa35ytrudiy7j75u5bdk3enlirkp5pevppeg@6mx6a5fwymwf>
+References: <cover.1765472125.git.u.kleine-koenig@baylibre.com>
+ <aT--ox375kg2Mzh-@sumit-X1>
+ <dhunzydod4d7vj73llpuqemxb5er2ja4emxusr66irwf77jhhb@es4yd2axzl25>
+ <CAGptzHOOqLhBnAXDURAzkgckUvRr__UuF1S_7MLV0u-ZxYEdyA@mail.gmail.com>
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|GV1PR08MB8131:EE_|DU2PEPF00028D09:EE_|AS4PR08MB8191:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1944617f-fa00-4a4d-8d55-08de3c92ddcb
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
-X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?U1FSV2pQMjl2V0JkK2FnK2ZEamcxRkxFYzFmM0p4RHVzYnkycWw4QzE1UE9l?=
- =?utf-8?B?VzYwRGpqeUpZY1VVbXd3UkQ0amFHamJYbE44YWwrTE1zRlVyY3pxRGZwYlly?=
- =?utf-8?B?VVM4UmExSVZyVGo3dURqbHFOMm1OVFhobEpPZVRJYUh0Y3ZkT3Z3UXBCTjha?=
- =?utf-8?B?U2MrdnVkei95dEpQd2VJSlE3NUZ5cFRSRWFWcFhONit1c0tDZ240SlNCN0Rq?=
- =?utf-8?B?M0VqM296a2tVN05ONVYycmxxcjkvMUpFcXFFVnpyMTZQOFRGS1U4em1VamQ3?=
- =?utf-8?B?eFlTTlZrWVp2V1RvcjZBbVZoUmZwY0xwZzcyK1VaMXVEMi9EMGNuUWI4L2x6?=
- =?utf-8?B?bm9TcC9tbjFwZUhyT2VmYWw2VW9KYU51R0lSK1hXaU9rd0NkNXQycUswWWdN?=
- =?utf-8?B?ZjE0aVk0OXUranl3UXN5QnBCRkVDbGVrU0Qzb21TVm5LK2tyckI0blZPNkIz?=
- =?utf-8?B?NmxpVDBVLzlscmR0QTdnN1U4NzMwYXJVUVdCamJsam55ZjRGVXFBWTA4WmND?=
- =?utf-8?B?NXFDc0phVXNvRFR2R1ZYam15U0NXcUxUL2wzSVN6T0FEQVZhMjJUaWphcDhW?=
- =?utf-8?B?c2dkTEdJL1BNeGU3UzV3aWxJVGZyMThXcDlqNEVIbDJyaEhOb3dMMDBWRzVl?=
- =?utf-8?B?WFZWTzZXYW13aDE1bXlNYkx5UDliR1EvS1cyeWJ1eEdZUnRYei9sZGFzeG8x?=
- =?utf-8?B?cWQ1bFVUSnA2MTNhRGlDYXpTK2ZpdlUrcmlRclJqcmxHRmpXaHB0QkpIWEp2?=
- =?utf-8?B?V2szZWVuMS9NdWRNQnJ3Qk5ZNHBCclk1MmJGNkt2RHlrdHZ5bFRYN0xFQ21q?=
- =?utf-8?B?cmFBSXdza2J4NEs3YmVFTmtYREhQeVFCVjIyUmtJbjhyeUU1VFVpa2JRL2E1?=
- =?utf-8?B?R2duSFppa3ZQT3FCNU9nN0hsMjgyY2k4c0VWYWZXNzZhZll2aFZUd2N1Tndh?=
- =?utf-8?B?aWc4ekpYMVlNVFFrTTFacUx2RVRmeWE3MmV5eG5pdE5lVkZ4c1JKcGt0eEtB?=
- =?utf-8?B?enozK3NlYmVWbEM1eUh2bVp3RnZJRmNwSVhQZXJidER6a2R4eXVCd0hoYjA2?=
- =?utf-8?B?VWVsdTlzaERvNWZ5STBqY0NmVnVrRlNQZFlvNENmTmkyTlFvUHkzMnZKaUps?=
- =?utf-8?B?bjhXNzN2ZzI2WFh6N1Zzem9GUU1OK3J0MUs3aVpSbTVWT2EvMnVzTWJpNFB2?=
- =?utf-8?B?bDhDbmlMZlF3VmF1RHUxQkxlWHlMTi9Bc1pHVEZTRW1jTnRlS0czcFAwYVBT?=
- =?utf-8?B?U2g0Y29ZSCtObnRBQ1p4Y1ZaVjBRNmJEQml6YVNvMnR1M3p4bzNFQ0l4eUVH?=
- =?utf-8?B?aHpteU5MUzVnekZJemJFK24zaGtIdlFrRVF2YktmWitocDlnOG5IZG9IOFR5?=
- =?utf-8?B?Wnh0aDk1NnNqRGRlWkZRZlpHOE1EN2JCV1RRTk9QWFpoNkN0eUc2QlB0QWp3?=
- =?utf-8?B?bnVQa2l0U0dvNmpwNStHR1J0YUJUYVRCSVVNL28vcU1GWmZld1RJTXkzMFNU?=
- =?utf-8?B?UGVDT2RHd3AxaVRxYnBFTnJnbU5mRFZxK1pIU1ZtRjdJZ3BReWVDNXRtbHZ3?=
- =?utf-8?B?VkdzOS9DWmhpck9DM01UdUZkUzdyQ2MwWWMvbW1NNS9Ka0Y3TnNTWnJuZDVZ?=
- =?utf-8?B?T0tYdXBGOHVOa0lFT3k1ZUpDR2hVZ3dSM2xadFhaQXlLc1ZnSm1uUXU4VjVh?=
- =?utf-8?B?Y3NlRW5wMDhYcFA4U05pZ1o4Ujg1QzZzUHdLRXc5Vm9rT09RbldKVEJYdGlX?=
- =?utf-8?B?YVNHcnlnZkI1VU5QdE5kQ0hiY3hNRldrOWs1Slh2TVlHeE11VDArM1NyTEpE?=
- =?utf-8?B?YTNlWC9IdXNObEphVmx4Zk42UXVaSlpLTEdoZXBYWlNOZlpWbzZmT1hxazFI?=
- =?utf-8?B?eVFhanZqdDZoRW5CWGxPSkUyT0thMlZDaTBFdEptb2QwOEcrc3owc0tGSFEy?=
- =?utf-8?Q?Em/sf43TzXR5vKm+lg9SbQv8ILhbV6Wq?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR08MB8131
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU2PEPF00028D09.eurprd03.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 79556496-175c-40e7-6658-08de3c92b630
-X-Microsoft-Antispam: BCL:0;ARA:13230040|35042699022|82310400026|14060799003|7416014|376014|36860700013|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?c0tNSWFXZ3pWcjAzVnZnN2ViclZGbFp4bW96bzI1R1hyQ1gvOTNjOE4rZFdU?=
- =?utf-8?B?aVU1OEZSaGgwMGZCMSttUWdVbFhYQUZ0bTlsWk1kUFV6NE5EQ1hiSFFKeGsv?=
- =?utf-8?B?K2pTOWoxRUt0RDFabUdPNFFzd0wrRGtZcEFhaUZ2QUUydEduVXUzYlpUUHdV?=
- =?utf-8?B?L2V3Yk9Sbm5xKzhJSmYrcmJ1SjZnUk9CYm52OXF6a1NwVGpRRmhIR1kwdzVt?=
- =?utf-8?B?Qm42V1IvYVNyVFd6K2dDaS9Cd0czWU9zb21iN2FrTjkwSDRjTlVBdHArbnM2?=
- =?utf-8?B?QnZZNk8wTnNGanArMk0rTzFiaGZYZE5HS2ZUajVFVnd4QXkrbTh5TE9KY3VL?=
- =?utf-8?B?ZlFHYzQwZVIrUHZpc0wvNkVMZFJxUU5GWElITGM4SkZjZjhSbGdzY2FqNG1Y?=
- =?utf-8?B?T0YxQ0wwRVEraTJjQ3lYcWZML0gvVDZiUzJrSmp4dWtOelk2eWpyR0RzUUdI?=
- =?utf-8?B?N1pzdlJDNTUvWUV3bS9Oekd5cmEvRGZ3ZlgwU3dIUVdyTktKajNSZHRqQ1Av?=
- =?utf-8?B?dzZ6ZDg3MjhHRmQxRnVlVTdrQlZ4TnQ0ZjhVbjRtSmI5dTcxempaR05JYk9u?=
- =?utf-8?B?djFja1ZEU3doRHBKZ1Jnb3R6eGdHZDREY25sb0U1U2xVcGsvTkpXMktrL0FB?=
- =?utf-8?B?UWo2dEx4MmdyK2J4RGI4NEppdnZFSGFEQXZpVDZGaFVSclBOdXpYSC9laXhC?=
- =?utf-8?B?UVZGSmFBeS83Rm9tTVBGbU83YS9tNFBxV0FFT3NVMHRLU3NBKzNjNFY0ZjEy?=
- =?utf-8?B?ZjZCWGxhK0VENXVSdUtwcFFBemJSK1VTaGFTdkF4RnNtNWZ0Q2NObEhRRm9Y?=
- =?utf-8?B?aktsbXkzWi9jL2kwWk1JYzBFd3BabE9oM0R2RUo5aWxzRzNSbTNwcHlrMFRn?=
- =?utf-8?B?V0wwY0tweE1zWTBxLzJtZlFXZTY3T1U0YTdqUlUyZ1lSY2t5QnRqY092Mlht?=
- =?utf-8?B?MWI1UDkzcnFyTWw2V09HaWlLS25zMU1US05xOHQ4ZFFVblVRUmNzcFhKQmlW?=
- =?utf-8?B?dU1JcjhVV20vU1ROL2dkZytNSDNFbTBlc0VRdUhNN0JxU0owSlFwWFEzZWJ1?=
- =?utf-8?B?OHc5Sm1YRFpkWDJSS3dITXZJLzZvQ1lOL3NDeG9UWmhFM25DUWdqS2hhZlhN?=
- =?utf-8?B?U1BWU2ZnbTRNa0h3V2JURktrN28wTUlDVlc1Si9QMkVVTWUxam9oZDVKSjZL?=
- =?utf-8?B?eEl1WW1jTXpDaStSVlE5ZFp2MXVaT0dTQUc4QjNWaHExNFMxdHZrNldqbFlZ?=
- =?utf-8?B?aDROTDJVci90L3hzemFSMUNrVlltSXA0V2tnM2Y2cHpuMURjMEFRUkhXY3JK?=
- =?utf-8?B?cXJBMGtjL1ZCVGdoSFE4bWNVc3VPdlVEejliKzVyb3ZJWDJ3TEVab0VUSURt?=
- =?utf-8?B?T25QRVRzajREcVRpTjVjd3hmdXpqbDVkNEduTFRFakp3Tmg4V25SY0Qzem43?=
- =?utf-8?B?WVZaS01MWFN0cjR5MG9TNHlhRTY5TjdVWmMxcmVWaGlnV1E5dTV4QW5BNWVP?=
- =?utf-8?B?SmpjZGltNFBEUGhvNitLd0xKUEJEUFZyTmhRdWg2Z3U3UGFLS1Y0Q2Z5VHVL?=
- =?utf-8?B?R05MVXBjMmhWZkN6TXZHSGgrc01qZnl0aFNLbU5YeHlxL1pEWVJsZUVKdksx?=
- =?utf-8?B?NXN4ejZoK3JBTVlSQ1FtOHRPZklrL3MrWkljdG9Sbjk2NUZ4aDE1aFZ5MHNY?=
- =?utf-8?B?Z1dQTGd0OVp6VzVZVGRxdjdCZENPUzh3ZDJRZ3QxMlpzQmIrM0tlWHpnQngy?=
- =?utf-8?B?L2NneEl6RCtCMTNMOUNHcTlrYzM0TTdRWmtUdXhkSXQvS3Yza1dNM05PRW9B?=
- =?utf-8?B?QXFlNTFEd3BBUWloZU8ySDZPTVJ3VkZXV0dmZDdacWl1dk5KUUFkcWJKeTM3?=
- =?utf-8?B?dVcwVUdDMFVtcDRiYmwzalFGd0F0aUE5T29vOC9vTmxNZHFHT3JNMGpJUVFl?=
- =?utf-8?B?QXQ3NkdHWC9NV0JubWh3TEVlZnVVKzJhNVcvSll5dnVURVBiVWgxUFhSUEx0?=
- =?utf-8?B?eU04NC9tWElNckRyb1dQTmpjWTQycmo5Y0ROK1ZUQVdDMitROVNKSitiOUp1?=
- =?utf-8?B?YS9TeklGRUhEVmpIZXBjZzRQb0NsWEszbzJ4c3pzSkU3cnV6cVZDVTE3WXVZ?=
- =?utf-8?Q?eR3Q=3D?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(35042699022)(82310400026)(14060799003)(7416014)(376014)(36860700013)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Dec 2025 11:04:21.6465
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1944617f-fa00-4a4d-8d55-08de3c92ddcb
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D09.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR08MB8191
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="judjbtjlccebrcda"
+Content-Disposition: inline
+In-Reply-To: <CAGptzHOOqLhBnAXDURAzkgckUvRr__UuF1S_7MLV0u-ZxYEdyA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_030432_737654_93179CEA 
-X-CRM114-Status: GOOD (  15.98  )
+X-CRM114-CacheID: sfid-20251216_030843_639129_46A1AAD2 
+X-CRM114-Status: GOOD (  37.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -237,80 +120,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Brendan,
 
-> On Mon Dec 15, 2025 at 10:06 AM UTC, Yeoreum Yun wrote:
-> [snip]
-> >> Overall I am feeling a bit uncomfortable about this use of _nolock, but
-> >> I am also feeling pretty ignorant about PREEMPT_RT and also about this
-> >> arm64 code, so I am hesitant to suggest alternatives, I hope someone
-> >> else can offer some input here...
+--judjbtjlccebrcda
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v1 00/17] tee: Use bus callbacks instead of driver
+ callbacks
+MIME-Version: 1.0
+
+Hello,
+
+On Tue, Dec 16, 2025 at 01:08:38PM +0530, Sumit Garg wrote:
+> On Mon, Dec 15, 2025 at 3:02=E2=80=AFPM Uwe Kleine-K=C3=B6nig
+> <u.kleine-koenig@baylibre.com> wrote:
+> > On Mon, Dec 15, 2025 at 04:54:11PM +0900, Sumit Garg wrote:
+> > > Feel free to make the tee_bus_type private as the last patch in the s=
+eries
+> > > such that any followup driver follows this clean approach.
 > >
-> > I understand. However, as I mentioned earlier,
-> > my main intention was to hear opinions specifically about memory contention.
+> > There is a bit more to do for that than I'm willing to invest. With my
+> > patch series applied `tee_bus_type` is still used in
+> > drivers/tee/optee/device.c and drivers/tee/tee_core.c.
+>=20
+> Oh I see, I guess we need to come with some helpers around device
+> register/unregister from TEE subsystem as well. Let's plan that for a
+> followup patch-set, I don't want this patch-set to be bloated more.
+
+Don't consider me in for that. But it sounds like a nice addition.
+
+> > Maybe it's
+> > sensible to merge these two files into a single one.
+>=20
+> It's not possible as the design for TEE bus is to have TEE
+> implementation drivers like OP-TEE, AMD-TEE, TS-TEE, QTEE and so on to
+> register devices on the bus.
+
+So only OP-TEE uses the bus for devices and the other *-TEE don't. Also
+sounds like something worth to be fixed.
+
+> > The things I wonder about additionally are:
 > >
-> > That said, if there is no memory contention,
-> > I don’t think using the _nolock API is necessarily a bad approach.
->
->
-> > In fact, I believe a bigger issue is that, under PREEMPT_RT,
-> > code that uses the regular memory allocation APIs may give users the false impression
-> > that those APIs are “safe to use,” even though they are not.
->
-> Yeah, I share this concern. I would bet I have written code that's
-> broken under PREEMPT_RT (luckily only in Google's kernel fork). The
-> comment for GFP_ATOMIC says:
->
->  * %GFP_ATOMIC users can not sleep and need the allocation to succeed. A lower
->  * watermark is applied to allow access to "atomic reserves".
->  * The current implementation doesn't support NMI and few other strict
->  * non-preemptive contexts (e.g. raw_spin_lock). The same applies to %GFP_NOWAIT.
->
-> It kinda sounds like it's supposed to be OK to use GFP_ATOMIC in a
-> normal preempt_disable() context. So do you know exactly why it's
-> invalid to use it in this stop_machine() context here? Maybe we need to
-> update this comment.
+> >  - if CONFIG_OPTEE=3Dn and CONFIG_TEE=3Dy|m the tee bus is only used for
+> >    drivers but not devices.
+>=20
+> Yeah since the devices are rather added by the TEE implementation driver.
+>=20
+> >
+> >  - optee_register_device() calls device_create_file() on
+> >    &optee_device->dev after device_register(&optee_device->dev).
+> >    (Attention half-knowledge!) I think device_create_file() should not
+> >    be called on an already registered device (or you have to send a
+> >    uevent afterwards). This should probably use type attribute groups.
+> >    (Or the need_supplicant attribute should be dropped as it isn't very
+> >    useful. This would maybe be considered an ABI change however.)
+>=20
+> The reasoning for this attribute should be explained by commit:
+> 7269cba53d90 ("tee: optee: Fix supplicant based device enumeration").
+> In summary it's due to a weird dependency for devices we have with the
+> user-space daemon: tee-supplicant.
 
-In non-PREEMPT_RT configurations, this is fine to use.
-However, in PREEMPT_RT, it should not be used because
-spin_lock becomes a sleepable lock backed by an rt-mutex.
+=46rom reading that once I don't understand it. (But no need to explain
+:-)
 
-From Documentation/locking/locktypes.rst:
+Still the file should better be added before device_add() is called.
 
-  The fact that PREEMPT_RT changes the lock category of spinlock_t and
-  rwlock_t from spinning to sleeping.
+> >  - Why does optee_probe() in drivers/tee/optee/smc_abi.c unregister all
+> >    optee devices in its error path (optee_unregister_devices())?
+>=20
+> This is mostly to take care of if any device got registered before the
+> failure occured. Let me know if you have a better way to address that.
 
-As you know, all locks related to memory allocation
-(e.g., zone_lock, PCP locks, etc.) use spin_lock,
-which becomes sleepable under PREEMPT_RT.
+Without understanding the tee stuff, I'd say: Don't bother and only undo
+the things that probe did before the failure.
 
-The callback of stop_machine() is executed in a preemption-disabled context
-(see cpu_stopper_thread()). In this context, if it fails to acquire a spinlock
-during memory allocation,
-the task would be able to go to sleep while preemption is disabled,
-which is an obviously problematic situation.
+Best regards
+Uwe
 
-> Or maybe actually we need to fix the allocator
-> so that GFP_ATOMIC allocs are safe in this context?
+--judjbtjlccebrcda
+Content-Type: application/pgp-signature; name="signature.asc"
 
-I don’t think so, because GFP_ATOMIC can still be used by
-IRQ threads in PREEMPT_RT. (If an IRQ handler is non-threaded
-due to IRQF_NO_THREAD, then it cannot use it.)
+-----BEGIN PGP SIGNATURE-----
 
-Although the root cause appears to be that the memory allocator uses spin_lock(),
-I believe the real issue is where such allocations are allowed to be used.
-If we changed the lock to raw_spin_lock(),
-this would introduce significant latency during memory allocation.
-So I believe this is why the memory allocator continues to use spin_lock().
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmlBPbMACgkQj4D7WH0S
+/k50zggAsVQDsAnPdX//uyplsEvssm5818ssVGID4+9TjkXIhLGs1HOk+Aj1Obfh
+3kp723jXSfcxla/GVnutv+SGgjCbWQLat1zF3XNhzFZBDegNnPHffiYotY4NYV+x
+z+cBC6Mgx1s9c5xNg134fGOJ+TxBlfUxarnCrkXKqWF+dVSwTe5Cv3f0SXlVU/7L
+l/3T0OflRgILL2Y6wod6E9ydmYfiSapc79eKAzVY5jnUx1sGt7oLNYrjpHmJklBF
+J4I7ToK96aPowluUQqNPzlS13OTb/sx00zg5CnrrGchqVR6i1kK71xhoszfQPcx5
+IOs/eRzJsAmcF/JiN04ZsRRMrAvppA==
+=QAXr
+-----END PGP SIGNATURE-----
 
-IOW, what I really want to ask is whether
-general memory allocation/free operations are
-permissible in a stop_machine() context
-(I think nolock() can be allowable only).
-
-Thanks
-
---
-Sincerely,
-Yeoreum Yun
+--judjbtjlccebrcda--
 
