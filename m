@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83EC4D5E130
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72AFED5E12A
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 11:01:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,30 +12,30 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5j9l0lLB+dk89q67g1lccxwm1ZlWz1b1cNTFiRu4h/M=; b=tczto9HTjUP6D42oJHAPBNUUV6
-	udq7BLniBvmIUGWUuz0m2al9dcXLsHESwX1fGt5ivVR0VPZtRnDKl5QleYN+k31cRPvpaFbwodU7A
-	2NogAmU+3HGC6YMFPEdo3vdiuhooDFHxPg1rrCyFc6m6PAb1XRSn27LiS/J7Cbzv6/FuwFn4Sdk0s
-	eZzzKBBTIGws/+YMJSXfPWsMn2s+NVzwa4eyuJYFBKGw+KpPaCAyCNmci9TwFIE6TBJqunUK1bFA/
-	qHR9elPqkdCoWdItO7xpdwMY6pX+WM/MFQPj3wcb7Z3OY5KCJFrD434W9xLG5dIBSvM0qiLMDFWJA
-	+9upDdbw==;
+	bh=tq+lzXGxxoDEwpxte16D1D1WXNhN/lvNXA7mbucg0gM=; b=DD0wA2DzDjJC/pGGNi5Fk84Wzt
+	vtLYRX682KB9Q1FvtJVfFzRPpVQBkCYsbAPcWKTkyd3ozu4dloFBs4ELuNoxTmZhV3UF6XZdi6CUE
+	dxqNOjn8fqPbcsGt07tTf32nThT7pKbXuKPT0Jml+pibj3qLuiHmfdytxbocAlF6V0HcOzqUEuAxc
+	Dn5Xrs2cmeJMGIBqZiBPddifasas1o0on26imVKh7h4DkRHE7ThJhNc9pk05RRrcwbvBXOaVOosPb
+	25WxhrYhwLyz09wOxnD/X15Ry5GcsiLWUDJBCawksmNLxXkY9iPBlCEzNfCvjtQqAunMfRPbtGMV6
+	tNzgrIkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVSoC-0000000558Z-05ll;
-	Tue, 16 Dec 2025 11:01:36 +0000
+	id 1vVSoB-0000000557z-2voK;
+	Tue, 16 Dec 2025 11:01:35 +0000
 Received: from mx.socionext.com ([202.248.49.38])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVSo7-0000000555G-2Fw3
+	id 1vVSo6-0000000554L-09AM
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 16 Dec 2025 11:01:32 +0000
 Received: from unknown (HELO kinkan3-ex.css.socionext.com) ([172.31.9.52])
-  by mx.socionext.com with ESMTP; 16 Dec 2025 20:01:30 +0900
+  by mx.socionext.com with ESMTP; 16 Dec 2025 20:01:28 +0900
 Received: from mail.mfilter.local (mail-arc01.css.socionext.com [10.213.46.36])
-	by kinkan3-ex.css.socionext.com (Postfix) with ESMTP id A92D12069FC4;
-	Tue, 16 Dec 2025 20:01:30 +0900 (JST)
-Received: from kinkan3.css.socionext.com ([172.31.9.51]) by m-FILTER with ESMTP; Tue, 16 Dec 2025 20:01:30 +0900
+	by kinkan3-ex.css.socionext.com (Postfix) with ESMTP id A5CB12069FC4;
+	Tue, 16 Dec 2025 20:01:28 +0900 (JST)
+Received: from kinkan3.css.socionext.com ([172.31.9.51]) by m-FILTER with ESMTP; Tue, 16 Dec 2025 20:01:28 +0900
 Received: from plum.e01.socionext.com (unknown [10.212.245.39])
-	by kinkan3.css.socionext.com (Postfix) with ESMTP id 2C3871C52;
-	Tue, 16 Dec 2025 20:01:30 +0900 (JST)
+	by kinkan3.css.socionext.com (Postfix) with ESMTP id 602451C55;
+	Tue, 16 Dec 2025 20:01:28 +0900 (JST)
 From: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -45,17 +45,17 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
-Subject: [PATCH 5/5] arm64: dts: uniphier: Remove smpctrl nodes
-Date: Tue, 16 Dec 2025 20:01:13 +0900
-Message-Id: <20251216110113.1801245-6-hayashi.kunihiko@socionext.com>
+Subject: [PATCH 3/5] ARM: dts: uniphier: Drop unit-address from port node of wm8960
+Date: Tue, 16 Dec 2025 20:01:11 +0900
+Message-Id: <20251216110113.1801245-4-hayashi.kunihiko@socionext.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20251216110113.1801245-1-hayashi.kunihiko@socionext.com>
 References: <20251216110113.1801245-1-hayashi.kunihiko@socionext.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_030131_696205_876CC0D6 
-X-CRM114-Status: GOOD (  11.63  )
+X-CRM114-CacheID: sfid-20251216_030130_582193_9F083D73 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,67 +70,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This node has no bindings definition and does not affect various
-functions, so remove the nodes from .dtsi files to avoid warnings.
+The "port" node represents a logical connection and does not have a
+reg property. According to dt-bindings, the "port" node should not use
+unit-address. Rename "port@0" to "port" to remove warnings.
 
-  arch/arm64/boot/dts/socionext/uniphier-ld20-ref.dtb: /soc@0/smpctrl@59801000:
-  failed to match any schema with compatible: ['socionext,uniphier-smpctrl']
+  arch/arm/boot/dts/socionext/uniphier-pxs2-gentil.dtb: wm8960@1a (wlf,wm8960):
+  Unevaluated properties are not allowed ('port@0' was unexpected)
 
 Signed-off-by: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
 ---
- arch/arm64/boot/dts/socionext/uniphier-ld11.dtsi | 5 -----
- arch/arm64/boot/dts/socionext/uniphier-ld20.dtsi | 5 -----
- arch/arm64/boot/dts/socionext/uniphier-pxs3.dtsi | 5 -----
- 3 files changed, 15 deletions(-)
+ arch/arm/boot/dts/socionext/uniphier-pxs2-gentil.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/boot/dts/socionext/uniphier-ld11.dtsi b/arch/arm64/boot/dts/socionext/uniphier-ld11.dtsi
-index 4680571c264d..62c7980e86ce 100644
---- a/arch/arm64/boot/dts/socionext/uniphier-ld11.dtsi
-+++ b/arch/arm64/boot/dts/socionext/uniphier-ld11.dtsi
-@@ -414,11 +414,6 @@ system_bus: system-bus@58c00000 {
- 			pinctrl-0 = <&pinctrl_system_bus>;
- 		};
+diff --git a/arch/arm/boot/dts/socionext/uniphier-pxs2-gentil.dts b/arch/arm/boot/dts/socionext/uniphier-pxs2-gentil.dts
+index 5f18b926c50a..78653d4bec0b 100644
+--- a/arch/arm/boot/dts/socionext/uniphier-pxs2-gentil.dts
++++ b/arch/arm/boot/dts/socionext/uniphier-pxs2-gentil.dts
+@@ -68,7 +68,7 @@ wm8960@1a {
+ 		reg = <0x1a>;
+ 		#sound-dai-cells = <0>;
  
--		smpctrl@59801000 {
--			compatible = "socionext,uniphier-smpctrl";
--			reg = <0x59801000 0x400>;
--		};
--
- 		syscon@59810000 {
- 			compatible = "socionext,uniphier-ld11-sdctrl",
- 				     "simple-mfd", "syscon";
-diff --git a/arch/arm64/boot/dts/socionext/uniphier-ld20.dtsi b/arch/arm64/boot/dts/socionext/uniphier-ld20.dtsi
-index c3858666550c..5afe04325657 100644
---- a/arch/arm64/boot/dts/socionext/uniphier-ld20.dtsi
-+++ b/arch/arm64/boot/dts/socionext/uniphier-ld20.dtsi
-@@ -547,11 +547,6 @@ system_bus: system-bus@58c00000 {
- 			pinctrl-0 = <&pinctrl_system_bus>;
- 		};
- 
--		smpctrl@59801000 {
--			compatible = "socionext,uniphier-smpctrl";
--			reg = <0x59801000 0x400>;
--		};
--
- 		sdctrl: syscon@59810000 {
- 			compatible = "socionext,uniphier-ld20-sdctrl",
- 				     "simple-mfd", "syscon";
-diff --git a/arch/arm64/boot/dts/socionext/uniphier-pxs3.dtsi b/arch/arm64/boot/dts/socionext/uniphier-pxs3.dtsi
-index e00a5caed822..eba9927f439e 100644
---- a/arch/arm64/boot/dts/socionext/uniphier-pxs3.dtsi
-+++ b/arch/arm64/boot/dts/socionext/uniphier-pxs3.dtsi
-@@ -367,11 +367,6 @@ system_bus: system-bus@58c00000 {
- 			pinctrl-0 = <&pinctrl_system_bus>;
- 		};
- 
--		smpctrl@59801000 {
--			compatible = "socionext,uniphier-smpctrl";
--			reg = <0x59801000 0x400>;
--		};
--
- 		sdctrl: syscon@59810000 {
- 			compatible = "socionext,uniphier-pxs3-sdctrl",
- 				     "simple-mfd", "syscon";
+-		port@0 {
++		port {
+ 			wm_speaker: endpoint {
+ 				dai-format = "i2s";
+ 				remote-endpoint = <&i2s_aux>;
 -- 
 2.34.1
 
