@@ -4,154 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7651AD5E130
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 11:31:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88293D5E136
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 11:40:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hZkHI4e86e2FS+JBrM/mvkDq4YcgQisf6x9G9hVzCvM=; b=wEQOyncWvxAevXoH7h+f4LKfKU
-	iE1BS7jm2Om1kOL186GQRPiSyXznWdbOiPXUEydCaza14yVv7PoFKRO8Y6UbqAL0iF+Coq99ikQjD
-	jemPDrA0QnhUb1ulQbC3FatwXe4bXfRFtuXvET7h8D4FeSyzPWNNinnr4wrhTz+5fEiPxdNPAmRNe
-	Q6KtSAueN+W6+V0eL7IDpxa8mi8kCE5D6FSnxSR7ep15P54injUksOe+QgbJHAc3FIr3aKKZ1ZX60
-	2T4wVJxc8I0BOkkmRIDlpXOTgRlDCKLtlfW9BCeYhiDGuWM+G0XUmT6nIisHd5NjnzOtpzV0NSWjU
-	ptnLefdQ==;
+	bh=dSLNKK6uTL9XJCETWk2MIYgVXXd0ahELnJGbE7yBbj4=; b=lYb0Hf9eHK8ACfz4zxawYKmPTm
+	u8TwZH/Omjil++wVmgx7V7J1omQ1fiJc0Biv/E75ekrSGKWm47OIZnQs0DJIe1shmoXpcj6v5nJGr
+	M32M3QxdWp3OVb0Gp7GsNdrcbnvciuARHm7H1IC0bTv64Bp4Z2tZyv3KhdxsG9CxV03uq9RFylGrJ
+	QaU/rYbT6sUHj/0ncZkO8OMnbhVnHa5OvKZBrfy1w7mge+TdZXZh4UmjKrLIFuka48uNkrEYOYYNE
+	7kglehsJFWGMUibHYYzO8TWyskttfrDqrixyxNZ57wS3/esSQ63edNaX6qb6nuBlQRUrchMvsX9WQ
+	GnqUCqXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVTGs-000000058Kx-3rQg;
-	Tue, 16 Dec 2025 11:31:14 +0000
-Received: from mail-southcentralusazon11011056.outbound.protection.outlook.com ([40.93.194.56] helo=SN4PR0501CU005.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVTGq-000000058Kb-1vQK
+	id 1vVTPo-000000058gl-3t9I;
+	Tue, 16 Dec 2025 11:40:28 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vVTPl-000000058gA-0eCv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 11:31:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eawQ7LctHnGTAhaDntQLf2B2CpamtMrGCZ9RwU7vNPCRxdF3mELonODhwXA3b9bDLFghUECjw5obSc7ruSsnVbfn1el94y/uMSy8VbwZTz/8pwsQEugfBAMGMmrzRx32qWxE4E2HDMCheMygjuao+D1Lw9J3weC5EorJndd93ZBUHjB1xr118fShhr1j1C8vng1PEnfn/LC78cjAlXUdiLuQwaT/onppMKDueOKI9kJV5qboENyCIObf4Wv5uXFfc4J8QiXkpEdw6q09Pb7LuR5cZTZ7UV156+kCWF9tVqwcvs983fhfaXeWtnLTSo67sg+4BtmKaOGQen+/MaRxlQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hZkHI4e86e2FS+JBrM/mvkDq4YcgQisf6x9G9hVzCvM=;
- b=FJnCTCTiw2SjSROp0eIdd14BAyZ8H+IMDLk5VPZNN5ZZGKhki+tVQYQAdM6H4qiJl4IPxH/8PMxaI6EbgpVw2dc0LkPmq3ifILAD6JCK6MYGKLKfr9eQsrRZCtSPi7rncQfe/AmD1UNcSVTquSh0NBqy4s3njF2HeP2gSGS6pDq3TaFSlwxJr/DXYwvCyUKgYegh3Q5/j2h0t1G+ufHL+niXI6xbA00VfSx8sdd+ELQMvQttPh70rSOXm8krZhWKj7RgVZHVRWPfaRFdqnpZIDKCs9ZG117tQafpjrnOQrRuCrmuJq0uUXsdmAMj6cWIFrj5XE+vRsgaOvlJpSR9uA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hZkHI4e86e2FS+JBrM/mvkDq4YcgQisf6x9G9hVzCvM=;
- b=eSfAUodZPr2rStVVmUCoLzAgMrNnFkiepPpQ6gxjRCI4BXMAT/5VbcJcezh0r9qGcuBYLyGNuQcOGbDXOwCQreUERfsEZXqWtNq3plsBntaU0z6JzUEXdjudczpHTJz+UmRLwuMdCTO+UdZRb9j0R09BNCYV8hHhtSDw0+Ujxnw=
-Received: from SJ0PR13CA0050.namprd13.prod.outlook.com (2603:10b6:a03:2c2::25)
- by MW5PR10MB5714.namprd10.prod.outlook.com (2603:10b6:303:19b::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.8; Tue, 16 Dec
- 2025 11:31:07 +0000
-Received: from SJ1PEPF00001CE4.namprd03.prod.outlook.com
- (2603:10b6:a03:2c2:cafe::80) by SJ0PR13CA0050.outlook.office365.com
- (2603:10b6:a03:2c2::25) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.6 via Frontend Transport; Tue,
- 16 Dec 2025 11:30:47 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- SJ1PEPF00001CE4.mail.protection.outlook.com (10.167.242.20) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9434.6 via Frontend Transport; Tue, 16 Dec 2025 11:31:06 +0000
-Received: from DFLE203.ent.ti.com (10.64.6.61) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 16 Dec
- 2025 05:31:03 -0600
-Received: from DFLE212.ent.ti.com (10.64.6.70) by DFLE203.ent.ti.com
- (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 16 Dec
- 2025 05:31:03 -0600
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE212.ent.ti.com
- (10.64.6.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 16 Dec 2025 05:31:03 -0600
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5BGBV3cc3971499;
-	Tue, 16 Dec 2025 05:31:03 -0600
-From: Nishanth Menon <nm@ti.com>
-To: Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>,
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Francesco Dolcini <francesco@dolcini.it>
-CC: Nishanth Menon <nm@ti.com>, Francesco Dolcini
-	<francesco.dolcini@toradex.com>, <linux-arm-kernel@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<stable@vger.kernel.org>
-Subject: Re: [PATCH v1] arm64: dts: ti: am62p-verdin: Fix SD regulator startup delay
-Date: Tue, 16 Dec 2025 05:31:01 -0600
-Message-ID: <176588464864.57937.8124279856116763834.b4-ty@ti.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20251209084126.33282-1-francesco@dolcini.it>
-References: <20251209084126.33282-1-francesco@dolcini.it>
+	Tue, 16 Dec 2025 11:40:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D3B6CFEC;
+	Tue, 16 Dec 2025 03:40:16 -0800 (PST)
+Received: from [10.57.79.61] (unknown [10.57.79.61])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5C3463F73B;
+	Tue, 16 Dec 2025 03:40:22 -0800 (PST)
+Message-ID: <36416368-4447-4b16-8496-3e3d603d88d4@arm.com>
+Date: Tue, 16 Dec 2025 11:40:20 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CE4:EE_|MW5PR10MB5714:EE_
-X-MS-Office365-Filtering-Correlation-Id: 73dd0120-d7a2-43c6-dee1-08de3c969a7c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|36860700013|82310400026|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?MGVka2tHbENyRjUvVEpranpzTmZXemJ3b0gyR0ZxOXgwZEVock90Tk02UGp4?=
- =?utf-8?B?a1lWN0Zkb1FRaUh3NDRyVGlTSyt2RThOcDh4a0JudzRIL0dZaTgrOFVnOVNt?=
- =?utf-8?B?bVBZd2ErOUtlakdBQlpCQXlMYmx4UVNtdDdjYTZzWUlSK3FkMDZ3S0FzOEla?=
- =?utf-8?B?OTc3dGM0RDg3Mk91ZXRmOHk3b1lQYnpjWjJPNndrZ0JPNjlVcGNVVHBIL3ZJ?=
- =?utf-8?B?akV6bFFiMlFrT3N5UDFkVmg1cTJKaStFNkRYMlBjZVpYZXpxOVFFSkQ3MUMx?=
- =?utf-8?B?UlREc0NpYmJGMEU1Q04xNFk0akdhRHZaazNTbU9HazErTnZZVzFzaGtQTWpL?=
- =?utf-8?B?VGlRWHJ2dUFjWlU4UWFsVjVFK2tpb0Y4UVEyZ3FBWlk2czFiSUIxTjl1eldS?=
- =?utf-8?B?UWgyS29xckhFN2w5amVVVmNya1FDV1hxK0lDQ3JQR0cxVFB6UHVTUjlZdUND?=
- =?utf-8?B?MGVlRkYvKzQ3aHB4MEFVcEEyb0c1VmZnSUFIdWc4d29ObFB1TFZJK255SUVm?=
- =?utf-8?B?QnZ6Y3dla3grQXBMbC9HWWhnbW1uZ2FJQ2JIa2phdnRsTHJNSUlEYkM2eHgy?=
- =?utf-8?B?MVV1eUJqRHphdWdwM2NOc1JwQ1FQSTZaV2R3bFdGR3EvTWd6a1RybDBhZ1o2?=
- =?utf-8?B?Z1BtelExUmVqNVBpVlVvUVVSWVpUdEtvUmRBSFo1T3ZKWnlRMnVwMXNRUWZz?=
- =?utf-8?B?L0UzaGU3Y3BzOHhPZXVDb1VXNWJtYjlkYjBCemJkRG4vM01IRjdrSWNHMlFV?=
- =?utf-8?B?Wkg2Qkh2bVZORXZma0M4VGRpSEpaTnZPeDlCdWlWNmVnVE5MVW1LaWZHQllV?=
- =?utf-8?B?blpuYW9FSzJKTlBSalI2SlF1ZW1KNHo0dFBzMlJobUJpU0UwQlQ5TW03ZkUv?=
- =?utf-8?B?MEpieEhzT2RtZkNqZUt3MFl1NWJPRDJzdlFkcjY1cjd6b1hvVmtHTHZXQlY3?=
- =?utf-8?B?SXFSN01ZUHoydUNpeCszSytDUk0wNVlWZmtmVG10UUQySUFmNUJGMVVRK1F3?=
- =?utf-8?B?bFhtTzZmN3d4WWFFbjhWR3dlOGh5STUvWUE5aDhZdTljYWFJYWxiWjlSL3g3?=
- =?utf-8?B?c1N2TWp2SjFnNmJCeEJ2alkxakQyK3lNS04xMVZoMWo2b2FXRzQ2VlI2Vnh0?=
- =?utf-8?B?dnorNFZLK3BoWE1hdUV3c1hOOEIwR245ekZRNVlQQXFQSTVwbkoveG96Q25s?=
- =?utf-8?B?eWJnc0FnQUpsaEdGc1BDcDkyRUZEdUt6MVVQdGxPc0J0VFhmbmNGTkpHQU5r?=
- =?utf-8?B?UDVoZmgzSHkrVWdOVW5qS09qcVhPT2VzbHBxeENGS2NoWVJQMkpwOE1sdUh1?=
- =?utf-8?B?cHFCN1BIanZMd3ZhV3VBVGRoeERCcXo3ZzFuYTdCQWpJTEVLMmduMW40bTJ2?=
- =?utf-8?B?VCtkRVY2TWJabjBQZDdETjU3WVpIekZmRjFja3E1VjgrMzNBcDhDcXRTVm0y?=
- =?utf-8?B?VFNQNUJpK05KODIxb2c4Rm1KdG9IbTB6R1V2dTBwK1p6Tjdxd2RQTGNlRzVB?=
- =?utf-8?B?SWs0YzB0NmYxNnFrMzVmbWdZUER1Tkc2d3hoWit0dlFyOXV5R0NxSE56ZTk1?=
- =?utf-8?B?NmF2RiszZWEzRFJVMW9FN1QreEVQeWN3TjZoWTN0djQ3SGRMdUxCa0lmMXE4?=
- =?utf-8?B?K1J6OGxWVmhKaW0yb3RyckpEZTF4cGc5Qkw5amxnazRQRVo1S0ZhR2xrRmhs?=
- =?utf-8?B?ZnRPSk9SdW1GcDY4WGhVcStrRzJWQVdiT3BvQmx6TTVNS1Z0cGlCSUR3YWwz?=
- =?utf-8?B?c05KbzdiVGRtY0VsSHNPNHRJL0poNTIyRTdhYmIyLzRQaWhPaXhwYksxTXZT?=
- =?utf-8?B?Qlpidy8zdG02eDkxRHc0UUJjQVQwd1dkOURQOThuQ1B4UWRlT2xGVW5aVE4v?=
- =?utf-8?B?TEhab1FxVVFrdEh2d1cwMXp3ZnlReGpRelpNM3hKM1JqTnNtN1FVbUNBa2Nn?=
- =?utf-8?B?ZFlOb0JTZjIwSXBNZjBuZlR5dXNTN3Z4REVEL2h5TFhZeUZEMDMweURUNml0?=
- =?utf-8?B?MVBpVWhoSzBaclBjSFlYRHVVQk9uWG8vNkpHQ09JbGliSkNlSnQ1d3N2aGhz?=
- =?utf-8?B?REZKV21WNk1mUVV5V0tXOTV6RHdHOXpFeFl0R0JWT01TNjg1OXE2YWp3R3lY?=
- =?utf-8?Q?JXMY=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(7416014)(376014)(36860700013)(82310400026)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Dec 2025 11:31:06.6957
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 73dd0120-d7a2-43c6-dee1-08de3c969a7c
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CE4.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW5PR10MB5714
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v6 16/35] KVM: arm64: Advertise SPE version in
+ ID_AA64DFR0_EL1.PMSver
+Content-Language: en-GB
+To: Alexandru Elisei <alexandru.elisei@arm.com>, maz@kernel.org,
+ oliver.upton@linux.dev, joey.gouly@arm.com, yuzenghui@huawei.com,
+ will@kernel.org, catalin.marinas@arm.com,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+Cc: james.clark@linaro.org, mark.rutland@arm.com, james.morse@arm.com
+References: <20251114160717.163230-1-alexandru.elisei@arm.com>
+ <20251114160717.163230-17-alexandru.elisei@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20251114160717.163230-17-alexandru.elisei@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_033112_521435_2404A9CE 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20251216_034025_308002_030A8332 
+X-CRM114-Status: GOOD (  21.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,42 +68,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Francesco Dolcini,
+On 14/11/2025 16:06, Alexandru Elisei wrote:
+> The VCPU registers are reset during the KVM_ARM_VCPU_INIT ioctl, before
+> userspace can set the desired SPU. Assume that the VCPU is initialized from
 
-On Tue, 09 Dec 2025 09:41:25 +0100, Francesco Dolcini wrote:
-> The power switch used to power the SD card interface might have
-> more than 2ms turn-on time, increase the startup delay to 20ms to
-> prevent failures.
+
+> a thread that runs on one of the physical CPUs that correspond to the SPU
+> that userspace will choose for the VM. Set PMSVer to that CPUs hardware
+> value.
+
+This doesn't match the code. See below.
+
 > 
+> Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
+> ---
+>   arch/arm64/include/asm/kvm_spe.h |  6 ++++++
+>   arch/arm64/kvm/spe.c             | 10 ++++++++++
+>   arch/arm64/kvm/sys_regs.c        | 10 +++++++++-
+>   3 files changed, 25 insertions(+), 1 deletion(-)
 > 
+> diff --git a/arch/arm64/include/asm/kvm_spe.h b/arch/arm64/include/asm/kvm_spe.h
+> index 6ce70cf2abaf..5e6d7e609a48 100644
+> --- a/arch/arm64/include/asm/kvm_spe.h
+> +++ b/arch/arm64/include/asm/kvm_spe.h
+> @@ -33,6 +33,8 @@ static __always_inline bool kvm_supports_spe(void)
+>   void kvm_spe_init_vm(struct kvm *kvm);
+>   int kvm_spe_vcpu_first_run_init(struct kvm_vcpu *vcpu);
+>   
+> +u8 kvm_spe_get_pmsver_limit(void);
+> +
+>   int kvm_spe_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
+>   int kvm_spe_get_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
+>   int kvm_spe_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
+> @@ -53,6 +55,10 @@ static inline int kvm_spe_vcpu_first_run_init(struct kvm_vcpu *vcpu)
+>   {
+>   	return 0;
+>   }
+> +static inline u8 kvm_spe_get_pmsver_limit(void)
+> +{
+> +	return 0;
+> +}
+>   static inline int kvm_spe_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
+>   {
+>   	return -ENXIO;
+> diff --git a/arch/arm64/kvm/spe.c b/arch/arm64/kvm/spe.c
+> index 6bd074e40f6c..0c4896c6a873 100644
+> --- a/arch/arm64/kvm/spe.c
+> +++ b/arch/arm64/kvm/spe.c
+> @@ -68,6 +68,16 @@ int kvm_spe_vcpu_first_run_init(struct kvm_vcpu *vcpu)
+>   	return 0;
+>   }
+>   
+> +u8 kvm_spe_get_pmsver_limit(void)
+> +{
+> +	unsigned int pmsver;
+> +
+> +	pmsver = SYS_FIELD_GET(ID_AA64DFR0_EL1, PMSVer,
+> +			       read_sanitised_ftr_reg(SYS_ID_AA64DFR0_EL1));
 
-I have applied the following to branch ti-k3-dts-next on [1].
-Thank you!
+The read_sanitised_ftr_reg() gives you the system wide sanitised
+version, not the one on the current CPU. You may need
+read_sysreg_s() instead here.
 
-[1/1] arm64: dts: ti: am62p-verdin: Fix SD regulator startup delay
-      commit: de86dbc0fb00bd3773db4b05d9f5926f0faa2244
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent up the chain during
-the next merge window (or sooner if it is a relevant bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+> +
+> +	return min(pmsver, ID_AA64DFR0_EL1_PMSVer_V1P5);
+> +}
+> +
+>   static u64 max_buffer_size_to_pmbidr_el1(u64 size)
+>   {
+>   	u64 msb_idx, num_bits;
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index e67eb39ddc11..ac859c39c2be 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -29,6 +29,7 @@
+>   #include <asm/kvm_hyp.h>
+>   #include <asm/kvm_mmu.h>
+>   #include <asm/kvm_nested.h>
+> +#include <asm/kvm_spe.h>
+>   #include <asm/perf_event.h>
+>   #include <asm/sysreg.h>
+>   
+> @@ -1652,6 +1653,9 @@ static s64 kvm_arm64_ftr_safe_value(u32 id, const struct arm64_ftr_bits *ftrp,
+>   		case ID_AA64DFR0_EL1_DebugVer_SHIFT:
+>   			kvm_ftr.type = FTR_LOWER_SAFE;
+>   			break;
+> +		case ID_AA64DFR0_EL1_PMSVer_SHIFT:
+> +			kvm_ftr.type = FTR_LOWER_SAFE;
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+PMSVer is already FTR_LOWER_SAFE, and we don't need to override it here 
+? (unlike the DebugVer or PMU Ver)
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+> +			break;
+>   		}
+>   		break;
+>   	case SYS_ID_DFR0_EL1:
+> @@ -2021,8 +2025,11 @@ static u64 sanitise_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
+>   		val |= SYS_FIELD_PREP(ID_AA64DFR0_EL1, PMUVer,
+>   				      kvm_arm_pmu_get_pmuver_limit());
+>   
+> -	/* Hide SPE from guests */
+>   	val &= ~ID_AA64DFR0_EL1_PMSVer_MASK;
+> +	if (vcpu_has_spe(vcpu)) {
+> +		val |= SYS_FIELD_PREP(ID_AA64DFR0_EL1, PMSVer,
+> +				      kvm_spe_get_pmsver_limit());
+> +	}
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+So, we ignore value that the user sets and go with what the SPE instance
+that has been chosen ? Should we make it non-writable then ?
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+Suzuki
+
+>   
+>   	/* Hide BRBE from guests */
+>   	val &= ~ID_AA64DFR0_EL1_BRBE_MASK;
+> @@ -3209,6 +3216,7 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+>   	 */
+>   	ID_FILTERED(ID_AA64DFR0_EL1, id_aa64dfr0_el1,
+>   		    ID_AA64DFR0_EL1_DoubleLock_MASK |
+> +		    ID_AA64DFR0_EL1_PMSVer_MASK |
+>   		    ID_AA64DFR0_EL1_WRPs_MASK |
+>   		    ID_AA64DFR0_EL1_PMUVer_MASK |
+>   		    ID_AA64DFR0_EL1_DebugVer_MASK),
 
 
