@@ -4,107 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E0D9D637B3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 20:57:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6BCAD5E374
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 21:00:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NI+fFEGZEuQSR+8e8anlQQzkl/ir4KKuZpATc87A3Nc=; b=LHGrMkNg5moMoqctymXVxVaCu7
-	SDUV7UG1kPur0Eb4wWtYX3V6n1fGDWSbYF769+DcRb9vxMf5Ztwa8/ZOULX83jgPK3rc67KiS681o
-	2i3JHdRtM930C0EgcjJAUK3aYXqteUsKxDJRB3IVNRSSacIa6XmZW+fQCfA6mpKsNeWsRpFUPXunm
-	kPXRipF9eHeQJgNtvE/6D4lQOIpJh3ub+UfKLEJMUJOcKHRk0t1JVwIcVL4vvYYabVAnxJMtrCcHS
-	IUaZabiJchkHv75tGXaTWvGjEyuUcdQt8Fue4y0I8XJFO3qTq17Hq4/q8zI2tdEASwJoVsKrgJA0y
-	8X7vqQew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MPgDgTzJlPC+y/csl8zb48BISjPd8hzRdgiNPsiDEYc=; b=vrNY+lJqk1QP0qHy08xiJgoEBm
+	qx37pHd3E8/sZ0Uz2R+9hhmMsqDvNqN4i9cVemWlspoEEsqHD6sTuanhd4tf5/bepxlmj5FOWXMHG
+	XUdU/e7y94+F5+gM8MNBCgfzNnvqLlV4xpEUjzvuZO9unEkBM/9wOLypjapoBPfG7Qq4sZgFPdE02
+	1ykYuw7ER2dqsulsGGGpUzuPtPZCBXRTBXAfXg6W6aqbJNtpA8fU8eWVtebpUxKRkWKGfwXAlITf5
+	pL6FzUQlNzhKBSabaXe0CmF/otvMhINuzJqkZJD6V5wpN/E3T1NF5ebACw2TD+gpb7Z74g6vJ1a5c
+	jB8J8BdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVc6w-00000005oaI-2RNQ;
-	Tue, 16 Dec 2025 20:57:34 +0000
-Received: from mail-qv1-xf2a.google.com ([2607:f8b0:4864:20::f2a])
+	id 1vVcA4-00000005ok6-2TWX;
+	Tue, 16 Dec 2025 21:00:48 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVc6u-00000005oZC-10ZO
+	id 1vVcA1-00000005ojj-3hjj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 20:57:33 +0000
-Received: by mail-qv1-xf2a.google.com with SMTP id 6a1803df08f44-88a2e3bd3cdso36470016d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 12:57:31 -0800 (PST)
+	Tue, 16 Dec 2025 21:00:47 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-29f02651fccso44195ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 13:00:45 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1765918845; cv=none;
+        d=google.com; s=arc-20240605;
+        b=hPL48eqT9z4c5FXMI5um5VPdMpM6SIQnzCvQF146VbNG4ddcNAbhIkKE4qumqTNXPz
+         6WkYW4y3GmfodaeDoKAZdKu4ZIxC8Yg8dfRPMt8qsHFozapXSnuzzCqv8wNFcE6N8wSA
+         Q8Pc2Xa+gYAn+t2ZnyLfoleXij7pBwzbwjWuS1Xpd/hkFdbbDd8VRGSlli4QGmZ8+cah
+         felfQTurhuIP8+L17sGdTWbYAiFjCaupnqmlueP4boD57FlN+I1ZLC4HbvH3TI4ZS9WS
+         JtzHxN/ubjyK7mmSKfdqNvXBw8aUyS9mg2FV8kUQ4G7l7vXG/RiBoJ/zZMEheFEm9Kil
+         f1AA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=MPgDgTzJlPC+y/csl8zb48BISjPd8hzRdgiNPsiDEYc=;
+        fh=u8o3ke5us6NYUIoqh0t1cfRVCsizXDeP2egM+MWudlY=;
+        b=KwCSjEoAIzP7KPQMw8j99fQ5HgCSw7RQak55wahz9Kq2zVMMqz2qveQBbl0CfQxgEK
+         SqRhoiZ+J0lRxeifZyMZ0rhx66rVz9iCT8hwAOE7ClVizufhhWB+TmfMZe1h6xQalI94
+         Jeqe/dP1jPv7YfAcAuwgy6s8NoQ4M9ywqeNvLGQ9e/4CNZZcj4yM9ZMkKfNGCb4SaMhk
+         3/DBkk0D6ECJUTaC28+e5N8Cr1fY8mu9D4GyKFi7y/YPbB64qlm+bjakqj29EXCiq/DH
+         ANlvnkqOdY914TftGvn0qnXLHrfNxRS9w2FH+heztYBRpwV71HmUAcFbaCajd7po5j1s
+         4j3w==;
+        darn=lists.infradead.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1765918650; x=1766523450; darn=lists.infradead.org;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:to
-         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=NI+fFEGZEuQSR+8e8anlQQzkl/ir4KKuZpATc87A3Nc=;
-        b=cm99O4tvr0hxmdB2pSm/tLYOAlm4ZK5dv5Up4cXf5kIyFF+GrYe926XTrZq0+7n7Vb
-         mrjEM/cwrBghmVyD6t8mZ/25DmTo0hnj/pSoLWEtlDYYMnUvRARnCTAA8KsX3LQQkvM6
-         mIpngM/12yTxL4g25QsIvmfLg3v2DKjI6jQsFRyKiSVz9zex8muBzcMvWgXX+WPKCOcY
-         1wElLirKRjx3kqfkDHZRNl8ooLpZJrkFSeJPXCbcpXJ04h+w+/5dyyN8Gt9U3hHHC9W/
-         TExsFJJmaRKywLJPP5J6EyMkXbYqy3wy6wXTn7si4JhyM31k72DDMyWQN2Ems0pa0fJ1
-         b1pw==
+        d=google.com; s=20230601; t=1765918845; x=1766523645; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MPgDgTzJlPC+y/csl8zb48BISjPd8hzRdgiNPsiDEYc=;
+        b=OzI4Gv9i+8nCSW0JA+FigXHiB7lpxnh4BgS3S9e6b0apGzKRzRyRiTML0cTjCATNBu
+         REJkxHrqDGif+lbLAtQV+HHCtRxCHrkm0qvKG9s/RqUxGi07EskKsHeBLOFZkIxceEiF
+         ytxJodAXh971AV1PzaAxiJ52+QGD18zRbzrAM9ay03NCfLaGyFv7IujRys23wQFqE0sJ
+         0p9H5McYcblx9Y9aEwyEyEfEwhGfx/A7jRBCRMoKr16wrwVlRnpMJbSuC5EvAm+p6S4U
+         dZEvE1FF4jID4ED5FC58Vm3jh/xlDZe01V/1FIBn5nF+No0tzifRZhb7wgxgsTxYzcBH
+         89fw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765918650; x=1766523450;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:to
-         :from:subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=NI+fFEGZEuQSR+8e8anlQQzkl/ir4KKuZpATc87A3Nc=;
-        b=Jx0cfy8n1mJG0TIvq6BYN0R6HWvxeZu2GUWADLEyySiJPXaGncsnLGap2vibQQUNvW
-         JbLucHIYbbmcfMbhE3ENNND3bG6gbxzOw2K7Xnk5aCNjh4qJwsA9BqVtGObPgKDri7MM
-         CzNEgqsM/TQfJIH3f7P8QQeZZ/w3FPepcghriPtoFoL8NmnsqjxN0wV4w23WLM5bXOz5
-         aZ2lXRcPWF8FlHnZfdQZcBg6CZ35fGUomsLLtmm1AbT3kY0hg628G5nW4Srr7neiSPre
-         /xcyNwNovXkJs1sb51XkoHDgy/eZ7FqHvFCoH1PQajb2wlCYhbetLivNCEf6Uo24v7aX
-         Xvjw==
-X-Forwarded-Encrypted: i=1; AJvYcCVZKL4zelovfsRbTZ9QaJc5+FWYGEW8c+YnGH+tZNJsLU5qGUcIGOdc/VqPIZnvMuzi47SZuwrakM32T0td1zKO@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLjvDQmRh8wLbfnJrXn/VRZPMBXfOV+GtfOivak9sNm93mxwLD
-	9hVn7oBbvqeb/430EwrNZGlzMQeP8eQGyk/JT0evr+acRCsN5113ftrWylE2CBHMh6I=
-X-Gm-Gg: AY/fxX6Yc+oPmuUYIjwD2jAtAEawywL3rkVOuiSCgRqjr1uF3Y4Mdk2QhqehZcI0Dx/
-	TONuQvtfX70ZKUvJ4zv5beQMWCG5cU1mXyAcEtagOiUzX2P/wbVo6f5SLkvBL23UjD/vKnff9mT
-	VZXDyfFfqchjdQFXLjGj643NT7LYARSUprM6qkngxjYrxzqlRBPs+V/wZ58soZ80pw2av12VljY
-	QoAO+eJt8yv90OW0VI24LOBhEUFETarhivXkGtRr3OwOCPEYyUFDfSrhZYAJ/EWBsBKjxUCOWuP
-	cF55ORiugIsfK0BrRDbiIhrxj/2qH793i5xHbch8n0aRkSa2KkVCl/qeFZTRnhlIcr9vrSwrAwr
-	+rqADbsJwOkwVne43NS5C9YQG5VJIWmEJPkuo1yX2LhCRGhxXZD6x22K8K7Ne9APQtItp/28oM+
-	J/S58zhnhvJOXSvgNb/nsz8b5ruls=
-X-Google-Smtp-Source: AGHT+IFebuDiAx1fQCJ1bJ+HCUvcn2MaYOSV8hypD23tenWABYQbV3BpMm8itf3ay4PR1vwFnMW/dA==
-X-Received: by 2002:a05:6214:328c:b0:882:36d6:e5c1 with SMTP id 6a1803df08f44-8887f30ac93mr209640086d6.29.1765918650452;
-        Tue, 16 Dec 2025 12:57:30 -0800 (PST)
-Received: from ?IPv6:2606:6d00:17:7b4b::c41? ([2606:6d00:17:7b4b::c41])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-88993b4204asm81707196d6.7.2025.12.16.12.57.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Dec 2025 12:57:29 -0800 (PST)
-Message-ID: <cd4c9c6f89d2ad506113745f4273ff6e6b65c75a.camel@ndufresne.ca>
-Subject: Re: [PATCH v11 01/12] media: mediatek: jpeg: fix jpeg hw count
- setting
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Kyrie Wu <kyrie.wu@mediatek.com>, Hans Verkuil
- <hverkuil-cisco@xs4all.nl>,  Mauro Carvalho Chehab	 <mchehab@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	 <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger	
- <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
- <angelogioacchino.delregno@collabora.com>, linux-media@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Date: Tue, 16 Dec 2025 15:57:27 -0500
-In-Reply-To: <20251202094800.6140-2-kyrie.wu@mediatek.com>
-References: <20251202094800.6140-1-kyrie.wu@mediatek.com>
-	 <20251202094800.6140-2-kyrie.wu@mediatek.com>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-aSUcQgXs1+0RJXU1/VOk"
-User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
+        d=1e100.net; s=20230601; t=1765918845; x=1766523645;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=MPgDgTzJlPC+y/csl8zb48BISjPd8hzRdgiNPsiDEYc=;
+        b=mURg8H4h9uctCt9L7gNX9nJ6NZX6OvTXNV9HGeW/lkdI+qUgmHBEEYmb32hVjsgGYr
+         02a+iRtFIjV8PlJVSCO5UW4S6J86O10AJcyAiylD8Ou8JfY8m0gGETeskfqNwGR+Mpo+
+         g+sUmbU9o9B+1FmGxMJYhRBjLPfN7QInfAZ+9M/IDKtV3gjT8DoDIB0ZD/b+5sa7ft2w
+         sIPzG1/Xvq12FX0Rl9wVAIG6hNmtqhEYNs3w+1cMfaFl+lKjXqU9BYjvzzEDYTXuaLI/
+         PK6o0rAjPrS3261sfTellwpQ4I44hb/vIcd1tK0zroJeqZZPtMlOs/OhhiMzsiJwVbQL
+         bZHA==
+X-Forwarded-Encrypted: i=1; AJvYcCX4b9iR3q5gTxJbm/4vtAlgleXOP2B40xM9QsN6CeOvBq0ZPg4vy0XLjTn2CRdyE0kTQtdzhGOOMiTwLLzxLCqo@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywpj2zf2X/rhl0CI4aWwuKkpFviyPDo43t8RxLUba45NbWzJ6L5
+	3DYH/3DoKg+a4ECftcUJqDq9Fg7cR/2qwCKju6YVCnQCucinA4a5rOteaDk7hDBaVclh4ga6N9n
+	jTj6rdKeJODuT/GakK1OKK5RJyum/aawDFjMGMyj+
+X-Gm-Gg: AY/fxX6f1jptDJVOPAieKmqA9OJ9LztXwVMnJxSqoaLBZKPwC96pkFtiQH3kAR0CU42
+	BqKOCck8HU1X8owjUtYVuD50wDfLm0LxDBwroRdgQGOgJckvPcdxEY92x1YdKnYrsG2hs3HSmjZ
+	LtIDNywAD7bGD9J6ZKff3nsa++jZAp/hu6SOxd11RJ4fyMPXGvZRsKLBFjSY8nx9UnYLLu0HA0t
+	XtKwDNjia2OGssgZ/5XYDNjl8/OEzUbYPkjztoSfNTf8UuHleP8QKucXlV0OhmSjkf9g8yXq3xa
+	fVm1Poxl2YjFMt5pLhJzw+iSXQ==
+X-Google-Smtp-Source: AGHT+IFeEj1OTrXPDDAW4OHR+SODf9ucb+7BEaQ5zy/HBN2Rk5K6JqhJvXKHum/u4HTb+/5gQFpjNCBexVtov2LLHZk=
+X-Received: by 2002:a17:902:cf0f:b0:295:3f35:a315 with SMTP id
+ d9443c01a7336-2a2060d67a4mr1545ad.5.1765918844260; Tue, 16 Dec 2025 13:00:44
+ -0800 (PST)
 MIME-Version: 1.0
+References: <20251212-james-perf-config-bits-v3-0-aa36a4846776@linaro.org>
+In-Reply-To: <20251212-james-perf-config-bits-v3-0-aa36a4846776@linaro.org>
+From: Ian Rogers <irogers@google.com>
+Date: Tue, 16 Dec 2025 13:00:32 -0800
+X-Gm-Features: AQt7F2qUL9uG3NkQvcPif7vaaI5zxe2jzk3wSZhfi4NFBM5CaA7NejrbSWS7En8
+Message-ID: <CAP-5=fXrLck7XACML16hzQO-pHGXA+qAM69kDDC6Za4O5S=SmA@mail.gmail.com>
+Subject: Re: [PATCH v3 00/12] perf cs-etm/arm-spe: Remove hard coded config fields
+To: James Clark <james.clark@linaro.org>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Mike Leach <mike.leach@linaro.org>, John Garry <john.g.garry@oracle.com>, 
+	Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>, linux-perf-users@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org, Leo Yan <leo.yan@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_125732_584304_784A7140 
-X-CRM114-Status: GOOD (  21.98  )
+X-CRM114-CacheID: sfid-20251216_130045_929385_CD02E32D 
+X-CRM114-Status: GOOD (  28.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,155 +124,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Dec 12, 2025 at 7:32=E2=80=AFAM James Clark <james.clark@linaro.org=
+> wrote:
+>
+> The specific config field that an event format attribute is in is
+> consistently hard coded, even though the API is supposed to be that the
+> driver publishes the config field name. To stop this pattern from being
+> copy pasted and causing problems in the future, replace them all with
+> calls to a new helper that returns the value that a user set.
+>
+> This reveals some issues in evsel__set_config_if_unset(). It doesn't
+> work with sparse bitfields, which are an unused but documented feature.
+> And it also only writes to the attr.config field. To fix it we need to
+> start tracking user changes for all config fields and then use existing
+> helper functions that support sparse bitfields. Some other refactoring
+> was also required and a test was added.
+>
+> Signed-off-by: James Clark <james.clark@linaro.org>
 
---=-aSUcQgXs1+0RJXU1/VOk
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Outside of some nits, for the series:
+Reviewed-by: Ian Rogers <irogers@google.com>
 
-Hi,
+Thanks,
+Ian
 
-Le mardi 02 d=C3=A9cembre 2025 =C3=A0 17:47 +0800, Kyrie Wu a =C3=A9crit=C2=
-=A0:
-> Different ICs have different amounts of hardware,
-> use a variable to set the amount of hardware.
-
-Did you mean different amount of cores ? The use of "hardware" is strange i=
-n
-this description.
-
->=20
-> Fixes: 934e8bccac95 ("mtk-jpegenc: support jpegenc multi-hardware")
-> Fixes: 0fa49df4222f ("media: mtk-jpegdec: support jpegdec multi-hardware"=
-)
-
-Its not clear from your description if this is in preparation of MT8196 or =
-an
-actual fix. If its in preparation of, drop this, if it fixes some existing =
-SoC,
-please tell use which one. And tell us how it breaks without this fix.
-
-regards,
-Nicolas
-
->=20
-> Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
-ora.com>
 > ---
-> =C2=A0drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c=C2=A0=C2=A0 | =
-8 ++++----
-> =C2=A0drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h=C2=A0=C2=A0 | =
-2 ++
-> =C2=A0drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c | 1 +
-> =C2=A0drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c | 1 +
-> =C2=A04 files changed, 8 insertions(+), 4 deletions(-)
->=20
-> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c b/drive=
-rs/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> index 6268d651bdcf..6a7e01130f1c 100644
-> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> @@ -1467,7 +1467,7 @@ static int mtk_jpegenc_get_hw(struct mtk_jpeg_ctx *=
-ctx)
-> =C2=A0	int i;
-> =C2=A0
-> =C2=A0	spin_lock_irqsave(&jpeg->hw_lock, flags);
-> -	for (i =3D 0; i < MTK_JPEGENC_HW_MAX; i++) {
-> +	for (i =3D 0; i < jpeg->max_hw_count; i++) {
-> =C2=A0		comp_jpeg =3D jpeg->enc_hw_dev[i];
-> =C2=A0		if (comp_jpeg->hw_state =3D=3D MTK_JPEG_HW_IDLE) {
-> =C2=A0			hw_id =3D i;
-> @@ -1514,7 +1514,7 @@ static int mtk_jpegdec_get_hw(struct mtk_jpeg_ctx *=
-ctx)
-> =C2=A0	int i;
-> =C2=A0
-> =C2=A0	spin_lock_irqsave(&jpeg->hw_lock, flags);
-> -	for (i =3D 0; i < MTK_JPEGDEC_HW_MAX; i++) {
-> +	for (i =3D 0; i < jpeg->max_hw_count; i++) {
-> =C2=A0		comp_jpeg =3D jpeg->dec_hw_dev[i];
-> =C2=A0		if (comp_jpeg->hw_state =3D=3D MTK_JPEG_HW_IDLE) {
-> =C2=A0			hw_id =3D i;
-> @@ -1597,7 +1597,7 @@ static void mtk_jpegenc_worker(struct work_struct *=
-work)
-> =C2=A0		jpeg_work);
-> =C2=A0	struct mtk_jpeg_dev *jpeg =3D ctx->jpeg;
-> =C2=A0
-> -	for (i =3D 0; i < MTK_JPEGENC_HW_MAX; i++)
-> +	for (i =3D 0; i < jpeg->max_hw_count; i++)
-> =C2=A0		comp_jpeg[i] =3D jpeg->enc_hw_dev[i];
-> =C2=A0	i =3D 0;
-> =C2=A0
-> @@ -1692,7 +1692,7 @@ static void mtk_jpegdec_worker(struct work_struct *=
-work)
-> =C2=A0	struct mtk_jpeg_fb fb;
-> =C2=A0	unsigned long flags;
-> =C2=A0
-> -	for (i =3D 0; i < MTK_JPEGDEC_HW_MAX; i++)
-> +	for (i =3D 0; i < jpeg->max_hw_count; i++)
-> =C2=A0		comp_jpeg[i] =3D jpeg->dec_hw_dev[i];
-> =C2=A0	i =3D 0;
-> =C2=A0
-> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h b/drive=
-rs/media/platform/mediatek/jpeg/mtk_jpeg_core.h
-> index 02ed0ed5b736..6be5cf30dea1 100644
-> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
-> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.h
-> @@ -212,6 +212,7 @@ struct mtk_jpegdec_comp_dev {
-> =C2=A0 * @reg_decbase:	jpg decode register base addr
-> =C2=A0 * @dec_hw_dev:	jpg decode hardware device
-> =C2=A0 * @hw_index:		jpg hw index
-> + * @max_hw_count:	jpeg hw-core count
-> =C2=A0 */
-> =C2=A0struct mtk_jpeg_dev {
-> =C2=A0	struct mutex		lock;
-> @@ -234,6 +235,7 @@ struct mtk_jpeg_dev {
-> =C2=A0	void __iomem *reg_decbase[MTK_JPEGDEC_HW_MAX];
-> =C2=A0	struct mtk_jpegdec_comp_dev *dec_hw_dev[MTK_JPEGDEC_HW_MAX];
-> =C2=A0	atomic_t hw_index;
-> +	u32 max_hw_count;
-> =C2=A0};
-> =C2=A0
-> =C2=A0/**
-> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c b/dri=
-vers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-> index e78e1d11093c..a1e54715cb7e 100644
-> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-> @@ -664,6 +664,7 @@ static int mtk_jpegdec_hw_probe(struct platform_devic=
-e *pdev)
-> =C2=A0	master_dev->dec_hw_dev[i] =3D dev;
-> =C2=A0	master_dev->reg_decbase[i] =3D dev->reg_base;
-> =C2=A0	dev->master_dev =3D master_dev;
-> +	master_dev->max_hw_count++;
-> =C2=A0
-> =C2=A0	platform_set_drvdata(pdev, dev);
-> =C2=A0	pm_runtime_enable(&pdev->dev);
-> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c b/dri=
-vers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-> index 9ab27aee302a..28d05909c96f 100644
-> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-> @@ -386,6 +386,7 @@ static int mtk_jpegenc_hw_probe(struct platform_devic=
-e *pdev)
-> =C2=A0	master_dev->enc_hw_dev[i] =3D dev;
-> =C2=A0	master_dev->reg_encbase[i] =3D dev->reg_base;
-> =C2=A0	dev->master_dev =3D master_dev;
-> +	master_dev->max_hw_count++;
-> =C2=A0
-> =C2=A0	platform_set_drvdata(pdev, dev);
-> =C2=A0	pm_runtime_enable(&pdev->dev);
-
---=-aSUcQgXs1+0RJXU1/VOk
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iHQEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaUHHtwAKCRDZQZRRKWBy
-9NdGAP4tOcZwNQQTymlNx94MWUKA4PjZ+mQqLOMHCXr7idoEXAD4zKTg2quujgCl
-TfD03rQO+Y+ho+zj5A3QHmGFpNjmCg==
-=sWoq
------END PGP SIGNATURE-----
-
---=-aSUcQgXs1+0RJXU1/VOk--
+> Changes in v3:
+> - Fix uninitialized variable warning on GCC
+> - Fix leak of evlist in test
+> - Confirm no type punning issues with ubsan (Ian)
+> - Link to v2: https://lore.kernel.org/r/20251208-james-perf-config-bits-v=
+2-0-4ac0281993b0@linaro.org
+>
+> Changes in v2:
+> - Remove macros in get_config_chgs() and some other refactoring.
+> - Support sparse bitfields in evsel__set_config_if_unset().
+> - Always track user changes instead of only when
+>   'pmu->perf_event_attr_init_default' is set.
+> - Add a test.
+> - Don't bail out in cs-etm.c if any format fields are missing (Leo).
+> - Rename 'guess' to 'synth' (Mike).
+> - Link to v1: https://lore.kernel.org/r/20251201-james-perf-config-bits-v=
+1-0-22ecbbf8007c@linaro.org
+>
+> ---
+> James Clark (12):
+>       perf parse-events: Refactor get_config_terms() to remove macros
+>       perf evsel: Support sparse fields in evsel__set_config_if_unset()
+>       perf parse-events: Track all user changed config bits
+>       perf evsel: apply evsel__set_config_if_unset() to all config fields
+>       perf evsel: Add a helper to get the value of a config field
+>       perf parse-events: Always track user config changes
+>       perf tests: Test evsel__set_config_if_unset() and config change tra=
+cking
+>       perf cs-etm: Make a helper to find the Coresight evsel
+>       perf cs-etm: Don't use hard coded config bits when setting up ETMCR
+>       perf cs-etm: Don't use hard coded config bits when setting up TRCCO=
+NFIGR
+>       perf cs-etm: Don't hard code config attribute when configuring the =
+event
+>       perf arm-spe: Don't hard code config attribute
+>
+>  tools/perf/arch/arm/util/cs-etm.c    | 193 +++++++++++++++------------
+>  tools/perf/arch/arm64/util/arm-spe.c |  15 ++-
+>  tools/perf/tests/pmu.c               |  91 +++++++++++++
+>  tools/perf/util/evsel.c              |   6 +-
+>  tools/perf/util/evsel.h              |   2 +
+>  tools/perf/util/evsel_config.h       |   7 +-
+>  tools/perf/util/parse-events.c       | 248 ++++++++++++++++++++---------=
+------
+>  tools/perf/util/pmu.c                | 112 ++++++++++++++--
+>  8 files changed, 460 insertions(+), 214 deletions(-)
+> ---
+> base-commit: 2eeb09fe1c5173b659929f92fee4461796ca8c14
+> change-id: 20251112-james-perf-config-bits-bee7106f0f00
+>
+> Best regards,
+> --
+> James Clark <james.clark@linaro.org>
+>
 
