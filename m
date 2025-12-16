@@ -4,100 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63D69D5C0C0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 05:17:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9C8ED5B87C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 05:49:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:Date:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xjD+cNbyJGOMAKpBo5e8LJBh9aFpu4/6uuuLCwZXOF0=; b=koEfX8onfFNGdRCicvTFwqIhPy
-	6kHjM2L2ejLuuInH8BQ6cR51daOJC1+bXnhWsp5GdDYfw2ArCW/ngSNc+bN/ujW9ANRTo0NB5saLL
-	CoT14jNp8Fs9F/tYfMme29uwxTWsecc1gr169O/nCB8zeTOBZ06o816lidvYpjiHAxIksJ96jzZGH
-	0mJWCBYw3Y4wJxJvBw46xE14P9cqYPu+o/5mIeguWJDZeCvKb1SQsVT+m/8hOHiklkSvTPO7XTl4B
-	iChb7Nw0sO7tm1R4zqRjtjcZqk4NVGzbsJ3xNcB5k4XXPTl9geIqZJD44kcK5bkH1z9/eX1Tfgo35
-	hiJjLC1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tRhxoTZ+3IIdYwTnJoWC2Y2iVLI35ww6bqSlIUl0XxQ=; b=NCAApA8K9Pys5p8mrykVje7cOJ
+	mAiY9GWadjwrUiDx/bBiRSYzK1tM0h2YgQt58KHVR/I3a3Axvc/g2PtMscfYBQ4REuCJBlT8Aq5R1
+	ikYEHF90hA+/tDBOIqhONRhkLTKqhcBaGrliWz9eEa6Jhmu5f4rHAp36le7PLYfIOvxM48shCUS/Z
+	d3A7vHCEpQ51j5JOy6MIThqQjseu9Y5bGDepbBFS/BVsj9WIKyU4OQceKUzh2ENquHK3dj+gBM+9U
+	zd/nAf3/J9aNJsQGFpM+juDCJhB2WDmNf57Q87YkW2/4Jshy9h/tT00OevDw/GfxDy34rilrsM9Ln
+	1A7H0MUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVNQg-00000004i0a-20J4;
-	Tue, 16 Dec 2025 05:16:58 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1vVNvh-00000004jHb-2KbU;
+	Tue, 16 Dec 2025 05:49:01 +0000
+Received: from out30-132.freemail.mail.aliyun.com ([115.124.30.132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVNQd-00000004i09-3ijq
+	id 1vVNve-00000004jGj-3uyl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 05:16:57 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-7fbbb84f034so183477b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Dec 2025 21:16:55 -0800 (PST)
+	Tue, 16 Dec 2025 05:49:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1765862214; x=1766467014; darn=lists.infradead.org;
-        h=mime-version:references:message-id:date:in-reply-to:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=xjD+cNbyJGOMAKpBo5e8LJBh9aFpu4/6uuuLCwZXOF0=;
-        b=dVDXeb+nOjAvLIGPTz0BCFpByECL2HfwLptuzQ7Ob5lT5P0nUMwpq9qAk0SO1OxNt3
-         pzj+Iw5T88q01yXAJ0Sb8M6n111WUehLFd8Xl2j/j/wh79lyuvDSoJmSezDeNnji8aK2
-         +6VZ9SXmPpv69fjOLqyGEjbOIyi88ShOQ0402KlLYqBkPSez17HCpmYUyh4ZwEzLAGar
-         dSJeCUoMmyN7sGPMKEkAQ/7FACYwVi6odhfSFRmLhodAGD5ThIy82wCVOGRWHfiuo5G+
-         TKKeGFuMKSTWLvGL6nH1jz+O3Uhj0gxk3hn2qkjBEEqLPfbkPA9cUB2ZYwbECvSSFzUg
-         40Lg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765862214; x=1766467014;
-        h=mime-version:references:message-id:date:in-reply-to:subject:cc:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=xjD+cNbyJGOMAKpBo5e8LJBh9aFpu4/6uuuLCwZXOF0=;
-        b=DGOKeW5tJkkyq0WdUgWPce33X4nJNwNPJGa6fJrdkMMO1v60RpVTsJsdcxbKg+eq/g
-         /fJ+QO58AMt7gMSSum95wUS1ehPPe0RFu22bB55ynv0r4UhGvL+4kcL4+gX30l1IAEPW
-         9Io/tM2PqlgTzf4Aoev2YQkgCgsE+88Zs7/K0ITGYN4aD1RerD4W/O4Qn9yQGDofIzMz
-         iLXK54NC4PcRnyj9dzLM/4dbq2ww0LMHimmojlOk97wB09Q32yP4+IqM2ov1UpeVhAnp
-         p76RRpxXe4sMBZVEZLTggpg4Un6JnK6ejFPXB4R9r2cuVO6NNLc6wLlEQBejnTstnzTU
-         7WWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXuzKPRoSGf0fcYYyY9h0VjgfmU1TN/HnzDUbNRmoljrYx2MGbXs4sMxcGRWoiLAnDnk2SUFz0jNyvoKEgOfqP4@lists.infradead.org
-X-Gm-Message-State: AOJu0YzqpXtO/aZh3dRg3NHcUPRS5VNjpsTusNrPKPwbQNFYLxjKIhul
-	hYW+TulkI+d/uM3l+sX3kEkhQeV+vpJI/UeX5UdrefQ+MBVm4hVZPUJO
-X-Gm-Gg: AY/fxX65nPk36sxXW2s9mSi4rc6CU5ybfbTuX09WnkFsCNWLZrLWkHYZg9sM9ji25YS
-	oIDQgALYSif+BWdJ5VZ9qeJosRNrcV98Q07thqTeH2ChcOqAy3RkjAbufiQgBiqpN8eTkJAz/MI
-	a4H+b2K97QnK1WYZK7XyeT/mR4yv6xkRFfq0AWtwiosQUEB7U/ALUbwRcvI2iXqGKywgeeTGeMU
-	Ft5slct+mUOJNvcxd/U5/CPVapcBd3jEc2EzEVELxdYxvffOaMTC3EGf2zwxgRDVA3pRyriBHSE
-	wCoUPaxHMlgkKUxbWtPghh7Q+0wEJYxmKFPlgM5akrZbmplN6iPxOZVp9MOzjrlajFIyVaOi5Qv
-	ZE847oDTgMglOhEgDRIWiYvEqhRFWL731D1k3SZkQm+a+hsneVMq5RmwIRVw3oD0AzqxPwcIUu6
-	B7eouC
-X-Google-Smtp-Source: AGHT+IFRNBpu36xO7SS++RmJSf+Yd0YivNXXnhzhZN3Px6CmR0fp7AX2KZRojw083jfNpLsrb718Lg==
-X-Received: by 2002:a05:6a20:5491:b0:366:14b0:4b05 with SMTP id adf61e73a8af0-369afc00407mr13380900637.65.1765862214371;
-        Mon, 15 Dec 2025 21:16:54 -0800 (PST)
-Received: from dw-tp ([203.81.242.64])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c0c25a87487sm14064659a12.7.2025.12.15.21.16.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Dec 2025 21:16:53 -0800 (PST)
-From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, Kevin Brodsky <kevin.brodsky@arm.com>, 
-	Alexander Gordeev <agordeev@linux.ibm.com>, Andreas Larsson <andreas@gaisler.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Anshuman Khandual <anshuman.khandual@arm.com>, 
-	Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov <bp@alien8.de>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, David Hildenbrand <david@redhat.com>, 
-	"David S. Miller" <davem@davemloft.net>, David Woodhouse <dwmw2@infradead.org>, 
-	"H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>, 
-	Juergen Gross <jgross@suse.com>, "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>, 
-	Nicholas Piggin <npiggin@gmail.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Suren Baghdasaryan <surenb@google.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Venkat Rao Bagalkote <venkat88@linux.ibm.com>, 
-	Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
-	sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org, x86@kernel.org
-Subject: Re: [PATCH v6 03/14] powerpc/mm: implement arch_flush_lazy_mmu_mode()
-In-Reply-To: <20251215150323.2218608-4-kevin.brodsky@arm.com>
-Date: Tue, 16 Dec 2025 10:44:45 +0530
-Message-ID: <87345b6m9m.ritesh.list@gmail.com>
-References: <20251215150323.2218608-1-kevin.brodsky@arm.com> <20251215150323.2218608-4-kevin.brodsky@arm.com>
+	d=linux.alibaba.com; s=default;
+	t=1765864136; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=tRhxoTZ+3IIdYwTnJoWC2Y2iVLI35ww6bqSlIUl0XxQ=;
+	b=ley2j58OCPEN3x20n8oxg6pFGJnGlk8GrMo6CL7d8+SvNvePqBKLUq2zNhA69T4xehYYRq+rk92Sb5AO9y9kgdahimDadEQI3sKh+agUOHv59vqzALUkG+xmRYVzLfABQHgGGMmxtztC3YRqcbWinHXYjt1b+HgXMU/N+v/YZE8=
+Received: from 30.74.144.116(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0Wuxvaan_1765864133 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Tue, 16 Dec 2025 13:48:53 +0800
+Message-ID: <eb871ca2-47c8-4b10-a61d-321716f6c147@linux.alibaba.com>
+Date: Tue, 16 Dec 2025 13:48:52 +0800
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/3] mm: rmap: support batched unmapping for file large
+ folios
+To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: akpm@linux-foundation.org, david@kernel.org, catalin.marinas@arm.com,
+ will@kernel.org, ryan.roberts@arm.com, Liam.Howlett@oracle.com,
+ vbabka@suse.cz, rppt@kernel.org, surenb@google.com, mhocko@suse.com,
+ riel@surriel.com, harry.yoo@oracle.com, jannh@google.com,
+ willy@infradead.org, baohua@kernel.org, linux-mm@kvack.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <cover.1765439380.git.baolin.wang@linux.alibaba.com>
+ <af330c9ea188bd0f28189b1e6e5803f6de9d2abe.1765439381.git.baolin.wang@linux.alibaba.com>
+ <70d1dedc-b4fc-4eb6-baf6-9e54b6a62249@lucifer.local>
+From: Baolin Wang <baolin.wang@linux.alibaba.com>
+In-Reply-To: <70d1dedc-b4fc-4eb6-baf6-9e54b6a62249@lucifer.local>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_211655_932410_E0C86EB4 
-X-CRM114-Status: GOOD (  15.93  )
+X-CRM114-CacheID: sfid-20251215_214859_126380_B0F4B040 
+X-CRM114-Status: GOOD (  19.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,37 +72,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Kevin Brodsky <kevin.brodsky@arm.com> writes:
 
-> Upcoming changes to the lazy_mmu API will cause
-> arch_flush_lazy_mmu_mode() to be called when leaving a nested
-> lazy_mmu section.
->
-> Move the relevant logic from arch_leave_lazy_mmu_mode() to
-> arch_flush_lazy_mmu_mode() and have the former call the latter. The
-> radix_enabled() check is required in both as
-> arch_flush_lazy_mmu_mode() will be called directly from the generic
-> layer in a subsequent patch.
->
-> Note: the additional this_cpu_ptr() and radix_enabled() calls on the
-> arch_leave_lazy_mmu_mode() path will be removed in a subsequent
-> patch.
->
-> Acked-by: David Hildenbrand <david@redhat.com>
-> Tested-by: Venkat Rao Bagalkote <venkat88@linux.ibm.com>
-> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> ---
->  .../powerpc/include/asm/book3s/64/tlbflush-hash.h | 15 ++++++++++++---
->  1 file changed, 12 insertions(+), 3 deletions(-)
 
-Sorry I was away for a while. 
+On 2025/12/15 20:38, Lorenzo Stoakes wrote:
+> On Thu, Dec 11, 2025 at 04:16:56PM +0800, Baolin Wang wrote:
+>> Similar to folio_referenced_one(), we can apply batched unmapping for file
+>> large folios to optimize the performance of file folios reclamation.
+>>
+>> Performance testing:
+>> Allocate 10G clean file-backed folios by mmap() in a memory cgroup, and try to
+>> reclaim 8G file-backed folios via the memory.reclaim interface. I can observe
+>> 75% performance improvement on my Arm64 32-core server.
+> 
+> Again, you must test on non-arm64 architectures and report the numbers for this
+> also.
 
-Thanks for taking care of the radix path as we had discussed previously
-here [1]. 
+Yes, I've tested on the x86 machine, and will add the data in the commit 
+message.
 
-[1]: https://lore.kernel.org/all/87jz044xn4.ritesh.list@gmail.com/
+>> W/o patch:
+>> real    0m1.018s
+>> user    0m0.000s
+>> sys     0m1.018s
+>>
+>> W/ patch:
+>> real	0m0.249s
+>> user	0m0.000s
+>> sys	0m0.249s
+>>
+>> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+>> ---
+>>   mm/rmap.c | 7 ++++---
+>>   1 file changed, 4 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/mm/rmap.c b/mm/rmap.c
+>> index ec232165c47d..4c9d5777c8da 100644
+>> --- a/mm/rmap.c
+>> +++ b/mm/rmap.c
+>> @@ -1855,9 +1855,10 @@ static inline unsigned int folio_unmap_pte_batch(struct folio *folio,
+>>   	end_addr = pmd_addr_end(addr, vma->vm_end);
+>>   	max_nr = (end_addr - addr) >> PAGE_SHIFT;
+>>
+>> -	/* We only support lazyfree batching for now ... */
+>> -	if (!folio_test_anon(folio) || folio_test_swapbacked(folio))
+>> +	/* We only support lazyfree or file folios batching for now ... */
+>> +	if (folio_test_anon(folio) && folio_test_swapbacked(folio))
+> 
+> Why is it now ok to support file-backed batched unmapping when it wasn't in
+> Barry's series (see [0])? You don't seem to be justifying this?
 
-The change looks good to me. So, please feel free to add:
+Barry's series[0] is merely aimed at optimizing lazyfree anonymous large 
+folios and does not continue to optimize anonymous large folios or 
+file-backed large folios at that point.
 
-Reviewed-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+Subsequently, Barry sent out a new patch (see [1]) to optimize anonymous 
+large folios. As for file-backed large folios, the batched unmapping 
+support is relatively simple, since we only need to clear the PTE 
+entries for file-backed large folios.
+
+> [0]:https://lore.kernel.org/all/20250214093015.51024-4-21cnbao@gmail.com/T/#u
+
+[1] https://lore.kernel.org/all/20250513084620.58231-1-21cnbao@gmail.com/
+
+>>   		return 1;
+>> +
+>>   	if (pte_unused(pte))
+>>   		return 1;
+>>
+>> @@ -2223,7 +2224,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
+>>   			 *
+>>   			 * See Documentation/mm/mmu_notifier.rst
+>>   			 */
+>> -			dec_mm_counter(mm, mm_counter_file(folio));
+>> +			add_mm_counter(mm, mm_counter_file(folio), -nr_pages);
+> 
+> Was this just a bug before?
+
+Nope. Before this patch, we never supported batched unmapping for 
+file-backed large folios, so the 'nr_pages' was always 1. After this 
+patch, we should use the number of pages in this file-backed large folio.
 
