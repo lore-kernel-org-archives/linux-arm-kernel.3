@@ -4,151 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 849E1D5E12E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 11:26:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6903BD5E133
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 11:26:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zy9Z9lOdibBQdx6VOzSwrw7RoXpnwWLzsjjTaGLzJE0=; b=agC6Ewqo/0mXFn63ZxzmM0vjva
-	rPc4jOuM3g6iYexQ+TlPb2qwWbyU3najShQAaIgyxPfrfjLLMwvflwVSciTEBiC5WW7hTy7e+xj22
-	EToZb2RJ1mXAs/FKjFGRbTaAYfp1P4agfsI/dEKE4QwcJDzRcVwqzGRJEMBR3kdGnTpPtme4QmsYX
-	/DL0EPTfbkYybtTs22vZHTx5YVP0CvWiejDbfFtU53V85iv9c6JdZ5uj0f/uOdDm/RKFi+FO6Cis7
-	A6JHqHBho70DAqjvOtwsRYAVvajDGmBR60GF3a5WjwXO/opLH5JtEgObrQcxXAJ7BrQrxGRmosr7X
-	yQVHrv8A==;
+	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
+	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=krMeQQo0RYkVVveyUInYgEYC1GtxSzSLPYvL0R6jcGk=; b=Zyd4Y4klcdpXfNIzkD/JWWQ0Xd
+	rpfqfrFz38JQg9YGqobW5vA7RblZSXVcVxeJ0q55Kvm37Pnx7wh5jLFCsQrDCSLju3UGcQswEULKi
+	4unFAWkEarOUBO8JKs4x7pQlEyiWXsqhrqnWrgguWcyzIPpD0WbKY3lz+1/Xakyu10xEDcPcUwpsb
+	x9gOuaouHGYfY9YUyFsZc1rrFzYuDOWeaCnRv4bu7JxiBDGtm+3f3kayt+gu3ihYLFV0ZAEJmi7Fj
+	REkV8YpRz0yPdRXyDY5cj6zIxIJ3bcG9D30F4szWeFDG6GojbUfhnqixUN965VE9hoDOUot9zWRNu
+	fg00B9MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVTCH-000000057k5-2X05;
-	Tue, 16 Dec 2025 11:26:29 +0000
-Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	id 1vVTCM-000000057lv-1qlr;
+	Tue, 16 Dec 2025 11:26:34 +0000
+Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVTCE-000000057jI-0oyJ
+	id 1vVTCK-000000057kb-1Tgt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 11:26:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dTGJMlAcmKh3TXZrp7rB7UhWzhmZed4yb5zlMVXBnTBmIZSZ/nJXVvaAICAlgq6FEXO5reHSKKLyYTdY7rloIb6BcC7SriKlMBr9+TNrwsR/xuWfyE1uFFo/hJOXukcAOhZcLOu+RA2ZSfSIF0IA5VKn2m2gMJ9TTcpNb0xM1pTYUOef74TrDh5zp8SZe1zK5AYEYYsVSCDePexxxEb+6SroBjsNNb+UyYRttSDaTRVmj5Lf824iAdm0kBEfVjfw90YvmREbVGhqmtSmweZqM5jwYRUrK6sLS7tQNi7RtqLDFK591n/vkFC8CRqdZVmep6KFz7Luwc6HfmXoQ/RLjg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zy9Z9lOdibBQdx6VOzSwrw7RoXpnwWLzsjjTaGLzJE0=;
- b=amo9xMQ6JnG9FRPRqD153TaZI2DUrXlJJ68Oz4JaAjpc9b6IHgzUzNZHj+avSjhDOVQvONGcu0MsvZCqvA6G/OG4Vf8xOfTQBtxnjmQuOfUcrp4tZYi86wdVFHWoqpw0CudX7eYFDiGXpFZUsqXOROQEAtyHoLdq/TjDobefkz2DA8+XK3uif1X1WzsMU2xYZ06Wxf75tJa4SCm9MU7QpgT+GWLy5voyzBa2ni/aXCG56UCh1aW/Nj53nP5VbWKjupENCCSbuhRexso5gklll7HEmWASB8Faj2hUakoLuOydntZjUXyIyfSmh01zErmsu17ztSVGg3oFPeQKJxlqKQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=lists.phytec.de smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zy9Z9lOdibBQdx6VOzSwrw7RoXpnwWLzsjjTaGLzJE0=;
- b=Dd+NX0AbG/CYbsDWdJH39kXdCXr+8X2EQ584CRV1f992nD8vrQcgZ6ezWyzjhxOvJNG8q/G72mx6FBTH6mcRmnb4hxu0OUCyjqQel9Ci2cttsE5L7oIuJewE/lNALV8EUkMDuIhPPsIX7+PkktNCntJtAWSc2ZGrAMOQBaeKQAc=
-Received: from DS7PR03CA0213.namprd03.prod.outlook.com (2603:10b6:5:3ba::8) by
- BN0PR10MB5143.namprd10.prod.outlook.com (2603:10b6:408:12c::7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9434.6; Tue, 16 Dec 2025 11:26:21 +0000
-Received: from DS1PEPF00017099.namprd05.prod.outlook.com
- (2603:10b6:5:3ba:cafe::4b) by DS7PR03CA0213.outlook.office365.com
- (2603:10b6:5:3ba::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.6 via Frontend Transport; Tue,
- 16 Dec 2025 11:26:21 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- DS1PEPF00017099.mail.protection.outlook.com (10.167.18.103) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9434.6 via Frontend Transport; Tue, 16 Dec 2025 11:26:20 +0000
-Received: from DLEE215.ent.ti.com (157.170.170.118) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 16 Dec
- 2025 05:26:18 -0600
-Received: from DLEE205.ent.ti.com (157.170.170.85) by DLEE215.ent.ti.com
- (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 16 Dec
- 2025 05:26:18 -0600
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE205.ent.ti.com
- (157.170.170.85) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 16 Dec 2025 05:26:18 -0600
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5BGBQIfP3965706;
-	Tue, 16 Dec 2025 05:26:18 -0600
-From: Nishanth Menon <nm@ti.com>
-To: <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, Daniel Schultz <d.schultz@phytec.de>
-CC: Nishanth Menon <nm@ti.com>, <upstream@lists.phytec.de>
-Subject: Re: [PATCH v2 1/2] arm64: dts: ti: k3-am62-phycore-som: Enable cpsw_mac_syscon in U-Boot
-Date: Tue, 16 Dec 2025 05:26:17 -0600
-Message-ID: <176588434530.55546.1839102927935177683.b4-ty@ti.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20251124090842.3377294-1-d.schultz@phytec.de>
-References: <20251124090842.3377294-1-d.schultz@phytec.de>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS1PEPF00017099:EE_|BN0PR10MB5143:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9849301d-34c8-4082-0f94-08de3c95f02b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|82310400026|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?VTdzUnlwaHNtd2M2SjYzblpLWHNmUDVQbjR6NWJ2cXlSVEY3Tk5IMXlSVFFz?=
- =?utf-8?B?SHdjcVRaeXpWRFFWUkVWVmtJOS8reDJ0YXVLN3lqcFNUU3VTU1NVd1N0MVM2?=
- =?utf-8?B?NzloRTh5T0M4YlpIZkR2MTJqYTFOR09JSjlVYlJHa2svNURPQm9KMHdlTlRx?=
- =?utf-8?B?N0R2aTNRbmVTTnV4NFZidUprenlzNDdNUWNJMm9FR2g2ZnE4Y3dtTmpBUXAz?=
- =?utf-8?B?T0YxUXBpOHQ2Q2ZGeThLQklnSlNvajZjNk50cDlXZmNSVjBhaFhmWTkzYUoy?=
- =?utf-8?B?bWM1dnl6bmloaWJ0YzVSL3h2RzF4dytHZkV4VHN4SUI5S1M3OE11SytiV1Vx?=
- =?utf-8?B?Z2JreTJJQlJSdUYrbEFxSEJ1TGdIemQxWGlTNkthK0dDcHo5cW10QUlRWnBF?=
- =?utf-8?B?Ui9PWEFtQ0NqSWtSTVIvbUwxbG9JZk9Fc1hoSS9nWmthY2UzalhPQW4wcDVx?=
- =?utf-8?B?ZVlZYXRnbUlPTXd4TlY5MFZxTzc1aW01c3dZRVY4QmhXMHdvMERNSVp0NmZk?=
- =?utf-8?B?S3JWZ0habTdoSDZnNGV1cVhpL0xWcFUzSDJqOXphWUhnY0xLVjRrcUN4S3ZP?=
- =?utf-8?B?aUd2OTNUUEVGTW1IVzEyRGh4TkxncEdGTHVIeGdueEh2ZWNRczAvV3VObDRq?=
- =?utf-8?B?bDhCaE90QmoxZVR5bCtDT1IrU1BuT2V6VVduMXhhektnbnZVcnVGSzdsb3B4?=
- =?utf-8?B?d1hOOEhKazJvUkwyYWUrSDNqNUIzU2tBUVBUOEMrNWlrL0JrV1lZKzd4S0Jp?=
- =?utf-8?B?WDF6V0JWN2k0TitxaTNZS0V4a2RoVDJMTHo4enl2bVlZT01DdWlvUi8vYVdN?=
- =?utf-8?B?bUlxOU9oWSsrdWlndjQ5UERmTDBpakhhcnVPNVMveXlmN3hseWVuZjJObHpV?=
- =?utf-8?B?cjBPbm54T1JzM1UvcGRYN2xEVGVuSkZGTVNKVnpPWGZEVkVLOG9MbGFLSVpH?=
- =?utf-8?B?bTJnTDJoY1g3UlgrN2lseTJ0eUloWDRpdk9QY3lLY1IxRXdpSzhGUmhlWHFv?=
- =?utf-8?B?NUJWRXVocUsrWVNoMlNoeGQxRDB1ZXpuODBRdGNNNVdOeTZia2kzcXc0bVo4?=
- =?utf-8?B?M1czZCtsSnd4aTlIdHlKK2g4MW01aFRkbC9ETHVYeDBmekZOQXNEbkljYldU?=
- =?utf-8?B?NmF6c1dmblh3WHQ2WDA3TWVqaFVTQ25EQ1lKWFZFNU9qWkU1bUtIc0Y3UW44?=
- =?utf-8?B?cnFPMTBjald1ZDNEdTRwSTBicjhuQU90Y3c5eUoyTnQwRjZJS3NzZWVZZzdE?=
- =?utf-8?B?eGxxWnNoOWM2OWk2MzF0eGxFZ2x2T2FUZDFrU01pcDQ0NnRXVS9EOWFVVUc2?=
- =?utf-8?B?V3FCS0tCNkwyYlZMVlBQMm51YTJFbE1ydmdwKzArcTMzQzFFUW9Dd2FmTTAv?=
- =?utf-8?B?c2k2Y25DZVdLczg1UUFDb0Y2eUxtMDByZTloUHdUSlA2c1NTTUZIU3ZwaUEx?=
- =?utf-8?B?ay9pVFpVTTZubHVWM1hPQUgyckg0Y0tOSGZmZml5M2I1NWpiOWtzNzhxeEtE?=
- =?utf-8?B?T2Q0MDZMSkUyWlFyWTQrRUZvTTdCR05Wc0F5SG5aV0t5NmZ3R3JiK1ZCRFd6?=
- =?utf-8?B?eTExSE80SEJOSks3c2MxcDBZVTlHVmJwN0dJalVaQTJOeVFuZUh2K0ozQ3Nm?=
- =?utf-8?B?MzFkRzRVblJhVENrRTNrYjNuWUg5REFyb2RKNmxPV2d6N2Y1WE1JS3dvOG1E?=
- =?utf-8?B?VjQ4ZWsva25SeDRJUnpFNGFoOE5jQVNwR2VZeGRXeld0MDB1cXRlRm5GTFVi?=
- =?utf-8?B?b0hzMkRzSXhhckhUZ1UzMzI0cFVtaEpLRU9TWHVpMGVaQlZ4bWNHU1E1ZzBT?=
- =?utf-8?B?WnN1Vlc2Rk50VDZvaXQrRHk2VlZ5T3ZhU0NrVDNITkdYSjdNeVNxQmdoQXZ0?=
- =?utf-8?B?TkprOTV4RHhlNURRRXUvenEyMGxUSVNtZ1hvZGhnQWJaN1N3SlNERjc3S2RF?=
- =?utf-8?B?Rk1VOHhpSHpPWGpBZ2VrbDdva2xSSjhVZ09UNDdYNXMxUWpQRWg4aUN5bmt6?=
- =?utf-8?B?V3FRcklDNFhRb3FONEVOQjVSY1lpUlIwSDF4SURseE56NFVPeHBxand4NlUz?=
- =?utf-8?B?dU9EUmVGcTVDa0o4V0syTy9zemVTWnZ3dGZ5QmxjeUM0UDlEdFo0RG15ZHRm?=
- =?utf-8?Q?N8d0=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700013)(82310400026)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Dec 2025 11:26:20.9568
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9849301d-34c8-4082-0f94-08de3c95f02b
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: DS1PEPF00017099.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN0PR10MB5143
+	Tue, 16 Dec 2025 11:26:33 +0000
+Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-42fb1c2c403so3579081f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 03:26:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1765884390; x=1766489190; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=krMeQQo0RYkVVveyUInYgEYC1GtxSzSLPYvL0R6jcGk=;
+        b=kFeuc+yEdEvUBZBjT5M0c5oNFoymm/E9bLHM1ulSitJJv26GMIEmXa1jC2inhYiY97
+         0r/pF1kJ5Nmnq0Ex6M1UWMhJFFhgYBywB4BCs2StZfi7hXyb/DM6qC3drmALh62y6PFk
+         5aUMa13q62crgLbhCB0ixKl8BdrkzmupuKCj46mqnsPhK+R3pKHwsPQsB8KTlb+1Fevr
+         093SsdNR/Bza+feN33s27tzzgrs9EMcM+NDi3i1d+smq20RDmOr3lPZBrU+/4WiCLFxw
+         fDlYBjvq14BNOOsed+ZcKtTuw2jcECxziZad77SkOx1AiYODhyBW7HC3LbIbS/6otr15
+         LP7g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765884390; x=1766489190;
+        h=content-transfer-encoding:cc:to:from:subject:message-id:references
+         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=krMeQQo0RYkVVveyUInYgEYC1GtxSzSLPYvL0R6jcGk=;
+        b=kEVLnrqDZYunq/dRhileHx/xo3hXjz8Y8dnbZ3YlArllj29ucKKpbgBfdUK0a+u+xA
+         BJzwYnAYi5r1NSfH/qivj3q/aO/qqnIvSScvm5CjbY4FuPq3CLHTW0Q5Z+SlSGapNCSY
+         swJS4CExQaJXbLPO6JfkzmoJfldOPtxySfWi/qqZQTCVTXGgzmX8c0VyYcgJMVqM3ZRr
+         P/AM62z6nKcf2+/T6ckbjedznAW8OoEl4oy5JheaSA5bCJ/f4OxP7rTobwmeltI2SbKA
+         5a9Nde7gkooRgCAIsZEF+s5NGq6NegnzFKIbTB6rL/ExeCai3yqkNUPpAyzCUT/+T0M5
+         6iUA==
+X-Forwarded-Encrypted: i=1; AJvYcCV4+VSLqE3eSHspc12FpxdtKbEDEyBrwk4PK+OpHB0fMTrsbqhQj96jupl/pSwW/+45Ty2Blxk2QjzRheu7no4P@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx0FllZ+7LW119zzwJDvev0uTd32CQZuBBNOnAqWsmLLMQfi/j8
+	ZF50kbGWUqXpn9UG+ewjjS4igut17iZDlC2teUssco16+g2kHT8hQ63VBAD3ElHsxD4ddPAtxtA
+	GJSU86tp0rMdYkQ==
+X-Google-Smtp-Source: AGHT+IHRBFMdNHijFHNhfpSjk2TQJ9kZwXaGz3RsF4bB/Qt7P2NzdaKmXMouO4czF1ta3V3ssZTXVLAPCUMyQQ==
+X-Received: from wrrr18.prod.google.com ([2002:adf:a152:0:b0:427:87c:f46])
+ (user=jackmanb job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6000:310e:b0:430:fcda:4529 with SMTP id ffacd0b85a97d-430fcda47a1mr7553444f8f.61.1765884389671;
+ Tue, 16 Dec 2025 03:26:29 -0800 (PST)
+Date: Tue, 16 Dec 2025 11:26:29 +0000
+In-Reply-To: <aUE8bwUVa6jSUft1@e129823.arm.com>
+Mime-Version: 1.0
+References: <20251212161832.2067134-1-yeoreum.yun@arm.com> <20251212161832.2067134-3-yeoreum.yun@arm.com>
+ <CA+i-1C2e7QNTy5u=HF7tLsLXLq4xYbMTCbNjWGAxHz4uwgR05g@mail.gmail.com>
+ <aT5/y3cSGIzi2K+m@e129823.arm.com> <DEYOI8H2OESD.1H56D3H8HKILB@google.com>
+ <aT/WOAr4osoJWaMS@e129823.arm.com> <DEYP7JSVTB9D.3EFN2KEHH3O79@google.com>
+ <aT/drjN1BkvyAGoi@e129823.arm.com> <DEZK5U2YP6I0.27VJHSVK14646@google.com> <aUE8bwUVa6jSUft1@e129823.arm.com>
+X-Mailer: aerc 0.21.0
+Message-ID: <DEZLRT59S25H.2YWTZ2G0TN3HV@google.com>
+Subject: Re: [PATCH 2/2] arm64: mmu: use pagetable_alloc_nolock() while stop_machine()
+From: Brendan Jackman <jackmanb@google.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>, Brendan Jackman <jackmanb@google.com>
+Cc: <akpm@linux-foundation.org>, <david@kernel.org>, 
+	<lorenzo.stoakes@oracle.com>, <Liam.Howlett@oracle.com>, <vbabka@suse.cz>, 
+	<rppt@kernel.org>, <surenb@google.com>, <mhocko@suse.com>, <ast@kernel.org>, 
+	<daniel@iogearbox.net>, <andrii@kernel.org>, <martin.lau@linux.dev>, 
+	<eddyz87@gmail.com>, <song@kernel.org>, <yonghong.song@linux.dev>, 
+	<john.fastabend@gmail.com>, <kpsingh@kernel.org>, <sdf@fomichev.me>, 
+	<haoluo@google.com>, <jolsa@kernel.org>, <hannes@cmpxchg.org>, 
+	<ziy@nvidia.com>, <bigeasy@linutronix.de>, <clrkwllms@kernel.org>, 
+	<rostedt@goodmis.org>, <catalin.marinas@arm.com>, <will@kernel.org>, 
+	<ryan.roberts@arm.com>, <kevin.brodsky@arm.com>, <dev.jain@arm.com>, 
+	<yang@os.amperecomputing.com>, <linux-mm@kvack.org>, 
+	<linux-kernel@vger.kernel.org>, <bpf@vger.kernel.org>, 
+	<linux-rt-devel@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_032626_675154_60E9464D 
-X-CRM114-Status: GOOD (  14.17  )
+X-CRM114-CacheID: sfid-20251216_032632_433624_493DE672 
+X-CRM114-Status: GOOD (  26.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,49 +107,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Daniel Schultz,
+On Tue Dec 16, 2025 at 11:03 AM UTC, Yeoreum Yun wrote:
+> Hi Brendan,
+>
+>> On Mon Dec 15, 2025 at 10:06 AM UTC, Yeoreum Yun wrote:
+>> [snip]
+>> >> Overall I am feeling a bit uncomfortable about this use of _nolock, b=
+ut
+>> >> I am also feeling pretty ignorant about PREEMPT_RT and also about thi=
+s
+>> >> arm64 code, so I am hesitant to suggest alternatives, I hope someone
+>> >> else can offer some input here...
+>> >
+>> > I understand. However, as I mentioned earlier,
+>> > my main intention was to hear opinions specifically about memory conte=
+ntion.
+>> >
+>> > That said, if there is no memory contention,
+>> > I don=E2=80=99t think using the _nolock API is necessarily a bad appro=
+ach.
+>>
+>>
+>> > In fact, I believe a bigger issue is that, under PREEMPT_RT,
+>> > code that uses the regular memory allocation APIs may give users the f=
+alse impression
+>> > that those APIs are =E2=80=9Csafe to use,=E2=80=9D even though they ar=
+e not.
+>>
+>> Yeah, I share this concern. I would bet I have written code that's
+>> broken under PREEMPT_RT (luckily only in Google's kernel fork). The
+>> comment for GFP_ATOMIC says:
+>>
+>>  * %GFP_ATOMIC users can not sleep and need the allocation to succeed. A=
+ lower
+>>  * watermark is applied to allow access to "atomic reserves".
+>>  * The current implementation doesn't support NMI and few other strict
+>>  * non-preemptive contexts (e.g. raw_spin_lock). The same applies to %GF=
+P_NOWAIT.
+>>
+>> It kinda sounds like it's supposed to be OK to use GFP_ATOMIC in a
+>> normal preempt_disable() context. So do you know exactly why it's
+>> invalid to use it in this stop_machine() context here? Maybe we need to
+>> update this comment.
+>
+> In non-PREEMPT_RT configurations, this is fine to use.
+> However, in PREEMPT_RT, it should not be used because
+> spin_lock becomes a sleepable lock backed by an rt-mutex.
+>
+> From Documentation/locking/locktypes.rst:
+>
+>   The fact that PREEMPT_RT changes the lock category of spinlock_t and
+>   rwlock_t from spinning to sleeping.
+>
+> As you know, all locks related to memory allocation
+> (e.g., zone_lock, PCP locks, etc.) use spin_lock,
+> which becomes sleepable under PREEMPT_RT.
+>
+> The callback of stop_machine() is executed in a preemption-disabled conte=
+xt
+> (see cpu_stopper_thread()). In this context, if it fails to acquire a spi=
+nlock
+> during memory allocation,
+> the task would be able to go to sleep while preemption is disabled,
+> which is an obviously problematic situation.
 
-On Mon, 24 Nov 2025 01:08:41 -0800, Daniel Schultz wrote:
-> Add the "bootph-all" property to cpsw_mac_syscon.
-> 
-> This fuse region contains the internal MAC address. Without this
-> syscon node enabled, this interface will get a random MAC during
-> network boot. This is problematic because the AM62x network
-> boot is using BOOTP protocol for some binaries and this protocol
-> does not support dynamic lease expiration. Therefore, the DHCP
-> server can run out of free IP addresses.
-> 
-> [...]
-
-I have applied the following to branch ti-k3-dts-next on [1] with cosmetic
-fixups. Thank you!
-
-[1/2] arm64: dts: ti: k3-am62-phycore-som: Enable cpsw_mac_syscon in U-Boot
-      commit: d468b7b8a6fe3d21df5a186d04f9d6124ef66d4d
-[2/2] arm64: dts: ti: k3-am62a-phycore-som: Enable cpsw_mac_syscon in U-Boot
-      commit: a9bd8d35a88e0bf72ebf5a803eb4c7f8e4731e3e
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent up the chain during
-the next merge window (or sooner if it is a relevant bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
-
+But this is what I mean, doesn't this sound like the GFP_ATOMIC comment
+I quoted is wrong (or at least, it implies things which are wrong)? The
+comment refers specifically to raw_spin_lock() and "strict
+non-preemptive contexts". Which sounds like it is being written with
+PREEMPT_RT in mind. But that doesn't really match what you've said.
 
