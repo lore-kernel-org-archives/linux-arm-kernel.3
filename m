@@ -4,99 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3660D5E15A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 13:40:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDE41D5E15A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 13:41:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Zho2kDWL8J6XWsKmcJQhJUsDkOCGRd6yWhy2/tVl1AA=; b=QHlCavQgO39/VrmS3kbu4PQx30
-	bERGYLe+62RcSwGDwGjNiGDEd1jYFcPVMC1X45A7Vkk5tQ2Bmbxnh/iPlnMwJOx0s5zLVtAyK5UAy
-	glUeVoRF5S1hkuJMBIHSJWP5g+V3iL2X3r3bLvt5QUAjRana8j5qjsAUBu5wzpgrogqYxWI+ShVUs
-	b/V1A5MyaicCvThQ1H9mgPdrzWfg6o7au4hvkD0SDrKPDJ+UWqpJUumJtpqUlk3I01DZGxd0lujSS
-	TgLcWHFlclTVIKLyg3vHB6id4EZBzPEVcGOwOvwjcolwL6eMDk2PSmn1vMjwILk3oAQr+51Lio+59
-	DOLbFCfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6s5a+8iKx1asd3Iss9l5uMN5yVO3vIlass2blQdgmks=; b=jnE0AVpy579XqYsE/x3wtKM4yb
+	xyinSm88Neycc2j/sBLLLaM7+XTDlod+1YGJ3fZF2pidO9y/3nK0ztv3ExqPxJvomXHjQV9FfbYKl
+	oReDpc64CXRbLWDLG8WgIQksFgatSbkZMkV3CxkKmhND0stWQAabe5Yok2k8uuskxHX8cvXABtIhp
+	r+o7/1T4Vg9ygMDTqxDXdsIv9NMeej6OBnR+UOhMyGBkUz73qoavfpKstgie7hTgeKlkibQZgnv/d
+	6zsMaMIWiXL9PCp88RzgUJTcuKXIbdeqfJ7u/Fh3pKzvxFEfkUzydFMDWe4IuvVJrbuummiJIvSpv
+	w/BZDy3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVVHs-00000005HcR-3Z7C;
-	Tue, 16 Dec 2025 13:40:24 +0000
-Received: from mx-relay49-hz3.antispameurope.com ([94.100.134.238])
+	id 1vVVIP-00000005HiS-0Xgo;
+	Tue, 16 Dec 2025 13:40:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVVHn-00000005HbO-3kpr
+	id 1vVVIM-00000005HhG-3lhm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 13:40:21 +0000
-ARC-Authentication-Results: i=1; mx-gate49-hz3.hornetsecurity.com 1; spf=pass
- reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com smtp.helo=smtp-out02-hz1.hornetsecurity.com;
- dmarc=pass header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=Zho2kDWL8J6XWsKmcJQhJUsDkOCGRd6yWhy2/tVl1AA=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1765892407;
- b=Qv2BpBxqgAPi7JqMBN2GYC0ROfq2Vn00LpHPvqjCfFqUqeFzWgTX2MQNyqcpp0dmjNQnlDYP
- ZgkC6U7NQo9TCqL2reNpBmJA/T8Ojosp6f1Lyw6KPc9n/SYuo2YdX+Qt2yC8LmwCATvQ4otbeMi
- IrVdjpyV8Tl8vEh+j29pJi8sdsbLVmgyk0p9KcFY21Pnyv9i6WuSbhuCOQKd0vGbQO1adw8729d
- GTxwbZHfswXMBMzHk49cyEH1USHabbS2ZM2Pk7R/GsnjC4fk3gqJYJB34TqksZ8AUW8CM/SaHwd
- r5ZFT3VJK3b2iJqZKcoHTFl1Tw7adztwNXveMgHl2K6VQ==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1765892407;
- b=jvpwG9IuejIPjdH1nknZslNPTrPZfXIuQ2W7ETmFjqg6X0SBza/rgKPWJF6DVb6dt65yG49I
- 9zkPSYOnM4Quwy057mKDHglqGU8KtXkK9oMtI2+ePiY4ShC33Xpb5FzElTL/82xJjX/ls5LWtHy
- FRKa/6B9AnlJknJJqiDroonj4oJnU8AiZwmptGVBJUAuGbriWPT7ATZt8Yxxcd0gnF7OoSSSK8l
- JBJpQojiB1xrktC+9ycyL3sxdt7yGc6XmWgciJCTR+EkCyetJ8mQdXdbohKWWsKRi6jfw1+F+0X
- NH3S4lg0QTWBFPdBWodd2HPA5hIlwiidHB6oHrUAHclBg==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay49-hz3.antispameurope.com;
- Tue, 16 Dec 2025 14:40:07 +0100
-Received: from steina-w.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: alexander.stein@ew.tq-group.com)
-	by smtp-out02-hz1.hornetsecurity.com (Postfix) with ESMTPSA id C47625A1600;
-	Tue, 16 Dec 2025 14:39:43 +0100 (CET)
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Markus Niebel <Markus.Niebel@ew.tq-group.com>,
-	linux@ew.tq-group.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Alexander Stein <alexander.stein@ew.tq-group.com>
-Subject: [PATCH 1/3] arm64: dts: imx8mn-tqma8mqnl: remove virtual 3.3V regulator
-Date: Tue, 16 Dec 2025 14:39:23 +0100
-Message-ID: <20251216133927.913039-1-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.43.0
+	Tue, 16 Dec 2025 13:40:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3F4AE4421B
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 13:40:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23B5FC2BCB2
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 13:40:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765892454;
+	bh=bpE6mSMhtsJNcViEHUKqxdpK/zXIk25nSDmiikJg7Jo=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=NeZdgjmofb5XyxZ/9WvmQDRKMMTSL7UvRP7wXhCM0Sn1k0OBFCu7ph/Ju5GY0XNL7
+	 aqoPVZqK6Uf82+24gaphNn/PeUkv1uFk6jNXl84kPZwk63Ov+FFGyxxW3JfHP6gQ7K
+	 hiEX4jmVRRQ4gXRa8TTiN7k2GFggH0g4IrXrHv/svzQ67VjOTSouguE4IL4rEqYkRu
+	 1fCwDjUzmIhKIHieXY7Djjg+l3hHsd53Fuu1izTymS6+7mURvOZSjrfDGXv1E1njvR
+	 VE6jFsByaR6RC69K1SiOW4Utea7uiGZbxTDnZaJaogGFKZ85nLoQzcQrm6ab4btr3s
+	 ikpOL4/rzbaVQ==
+Received: by mail-pl1-f175.google.com with SMTP id d9443c01a7336-29f1bc40b35so66680685ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 05:40:54 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUsVqX8CO7KcqcX4x59JKcMHIc5JOAgJ0KfcBcDAxcqAmywCE4sG7jLN893DIHrmSiv3P+cPmKKglW6VzoVVvBE@lists.infradead.org
+X-Gm-Message-State: AOJu0YzPOUAg1gb4BZV2KzQM3iF1S3HU5GBmvtTwMqSIH5stMatc27xd
+	BhUCrzxMtKQL4Y/gG1YbW2Zam0y029+OrJcdTGR1PUl1FfPgrkUfE2bF1mw5WyZMW3fCkqKz7Rk
+	7x9fT6gAG4KgsVaKIKn0DgiSc5XtsMak=
+X-Google-Smtp-Source: AGHT+IHcmZJ38d94bL4vjoP1Iao4l30Ahx8lP9aMcBlBTOZ7Gso5/FdhsFfK6P+oxGrsyN3M1S7cHEzzA6Roze4LOiE=
+X-Received: by 2002:a17:902:cf0d:b0:2a0:d59e:9848 with SMTP id
+ d9443c01a7336-2a0d59e9a43mr99280585ad.53.1765892453645; Tue, 16 Dec 2025
+ 05:40:53 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-cloud-security-sender: alexander.stein@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay49-hz3.antispameurope.com with 4dVyj56Nzmz3yc8W
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: b6a3cc6271770ced19cc5cbfdde1669a
-X-cloud-security: scantime:1.858
-DKIM-Signature: a=rsa-sha256;
- bh=Zho2kDWL8J6XWsKmcJQhJUsDkOCGRd6yWhy2/tVl1AA=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1765892407; v=1;
- b=T5pRLvMl3daFgzInDcFEAxXmDu1MSdFU9s3npIAuTaLh4PfZOlN087yWG3MTB54nIEuADQhb
- 2ueVQTEsa4AdbBqNz7yQt7+R1ENuT7fUUtkxK+2xFzSWJ9dC4KA++QZFqj7LHUvl1aTQV3XZBbF
- gX0N8DFlRij54BCCLCIxsGQwobqVp0GBaRpYDTSD+s7ZxmXs6pITisORlV7iKoGYWo9J+gqEwTE
- FCbpxtQnBhlxgZqEjyl70ts8+4R50TSzrju6UJP9kya8RLCtmGwLfP7QfwbTqmRDwglS4FhuXFd
- OnpslP/G2FzQaZZ2CasmGBWBUMLOjvN8nYiPM60eMkDEg==
+References: <20251126160854.553077-1-tzimmermann@suse.de> <20251126160854.553077-8-tzimmermann@suse.de>
+In-Reply-To: <20251126160854.553077-8-tzimmermann@suse.de>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Tue, 16 Dec 2025 14:40:42 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXG6cFsKwZk3a+xRrOYNz73efxjo=6Jnnr8HCKRO0X-zCQ@mail.gmail.com>
+X-Gm-Features: AQt7F2qIXhwz3lKtiowhJ6LkUm-qxxF02G3Bdlrhhj6FcFVAi1NXBSE5o0PIhTQ
+Message-ID: <CAMj1kXG6cFsKwZk3a+xRrOYNz73efxjo=6Jnnr8HCKRO0X-zCQ@mail.gmail.com>
+Subject: Re: [PATCH v3 7/9] efi: Refactor init_primary_display() helpers
+To: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: javierm@redhat.com, arnd@arndb.de, richard.lyu@suse.com, 
+	helgaas@kernel.org, x86@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-efi@vger.kernel.org, 
+	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org, 
+	dri-devel@lists.freedesktop.org, linux-hyperv@vger.kernel.org, 
+	linux-pci@vger.kernel.org, linux-fbdev@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_054020_079338_2F90D379 
-X-CRM114-Status: GOOD (  11.19  )
+X-CRM114-CacheID: sfid-20251216_054054_980171_B51D7B3E 
+X-CRM114-Status: GOOD (  20.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,62 +86,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Markus Niebel <Markus.Niebel@ew.tq-group.com>
+On Wed, 26 Nov 2025 at 17:09, Thomas Zimmermann <tzimmermann@suse.de> wrote:
+>
+> Rework the kernel's init_primary_display() helpers to allow for later
+> support of additional config-table entries and EDID information. No
+> functional changes.
+>
+> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+> ---
+>  arch/loongarch/kernel/efi.c     | 22 +++++++++++-----------
+>  drivers/firmware/efi/efi-init.c | 19 ++++++++++---------
+>  2 files changed, 21 insertions(+), 20 deletions(-)
+>
 
-BUCK4 rail supplies the 3.3V rail. Use the actual regulator
-instead of a virtual fixed regulator.
+This patch seems unnecessary now that we've replace one table with another.
 
-Signed-off-by: Markus Niebel <Markus.Niebel@ew.tq-group.com>
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
----
- arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl.dtsi | 13 +++----------
- 1 file changed, 3 insertions(+), 10 deletions(-)
+I've dropped it for now - let me know if you really want to keep it.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl.dtsi b/arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl.dtsi
-index 1d23814e11cd3..34d6415348f8c 100644
---- a/arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mn-tqma8mqnl.dtsi
-@@ -23,13 +23,6 @@ reg_vcc1v8: regulator-vcc1v8 {
- 		regulator-max-microvolt = <1800000>;
- 	};
- 
--	reg_vcc3v3: regulator-vcc3v3 {
--		compatible = "regulator-fixed";
--		regulator-name = "TQMA8MXNL_VCC3V3";
--		regulator-min-microvolt = <3300000>;
--		regulator-max-microvolt = <3300000>;
--	};
--
- 	reserved-memory {
- 		#address-cells = <2>;
- 		#size-cells = <2>;
-@@ -217,14 +210,14 @@ eeprom1: eeprom@53 {
- 		read-only;
- 		reg = <0x53>;
- 		pagesize = <16>;
--		vcc-supply = <&reg_vcc3v3>;
-+		vcc-supply = <&buck4_reg>;
- 	};
- 
- 	eeprom0: eeprom@57 {
- 		compatible = "atmel,24c64";
- 		reg = <0x57>;
- 		pagesize = <32>;
--		vcc-supply = <&reg_vcc3v3>;
-+		vcc-supply = <&buck4_reg>;
- 	};
- };
- 
-@@ -242,7 +235,7 @@ &usdhc3 {
- 	non-removable;
- 	no-sd;
- 	no-sdio;
--	vmmc-supply = <&reg_vcc3v3>;
-+	vmmc-supply = <&buck4_reg>;
- 	vqmmc-supply = <&reg_vcc1v8>;
- 	status = "okay";
- };
--- 
-2.43.0
 
+> diff --git a/arch/loongarch/kernel/efi.c b/arch/loongarch/kernel/efi.c
+> index 638a392d2cd2..1ef38036e8ae 100644
+> --- a/arch/loongarch/kernel/efi.c
+> +++ b/arch/loongarch/kernel/efi.c
+> @@ -81,19 +81,19 @@ EXPORT_SYMBOL_GPL(sysfb_primary_display);
+>
+>  static void __init init_primary_display(void)
+>  {
+> -       struct screen_info *si;
+> -
+> -       if (screen_info_table == EFI_INVALID_TABLE_ADDR)
+> -               return;
+> -
+> -       si = early_memremap(screen_info_table, sizeof(*si));
+> -       if (!si) {
+> -               pr_err("Could not map screen_info config table\n");
+> +       if (screen_info_table == EFI_INVALID_TABLE_ADDR) {
+> +               struct screen_info *si = early_memremap(screen_info_table, sizeof(*si));
+> +
+> +               if (!si) {
+> +                       pr_err("Could not map screen_info config table\n");
+> +                       return;
+> +               }
+> +               sysfb_primary_display.screen = *si;
+> +               memset(si, 0, sizeof(*si));
+> +               early_memunmap(si, sizeof(*si));
+> +       } else {
+>                 return;
+>         }
+> -       sysfb_primary_display.screen = *si;
+> -       memset(si, 0, sizeof(*si));
+> -       early_memunmap(si, sizeof(*si));
+>
+>         memblock_reserve(__screen_info_lfb_base(&sysfb_primary_display.screen),
+>                          sysfb_primary_display.screen.lfb_size);
+> diff --git a/drivers/firmware/efi/efi-init.c b/drivers/firmware/efi/efi-init.c
+> index d1d418a34407..ca697d485116 100644
+> --- a/drivers/firmware/efi/efi-init.c
+> +++ b/drivers/firmware/efi/efi-init.c
+> @@ -67,10 +67,9 @@ EXPORT_SYMBOL_GPL(sysfb_primary_display);
+>
+>  static void __init init_primary_display(void)
+>  {
+> -       struct screen_info *si;
+> -
+>         if (screen_info_table != EFI_INVALID_TABLE_ADDR) {
+> -               si = early_memremap(screen_info_table, sizeof(*si));
+> +               struct screen_info *si = early_memremap(screen_info_table, sizeof(*si));
+> +
+>                 if (!si) {
+>                         pr_err("Could not map screen_info config table\n");
+>                         return;
+> @@ -78,14 +77,16 @@ static void __init init_primary_display(void)
+>                 sysfb_primary_display.screen = *si;
+>                 memset(si, 0, sizeof(*si));
+>                 early_memunmap(si, sizeof(*si));
+> +       } else {
+> +               return;
+> +       }
+>
+> -               if (memblock_is_map_memory(sysfb_primary_display.screen.lfb_base))
+> -                       memblock_mark_nomap(sysfb_primary_display.screen.lfb_base,
+> -                                           sysfb_primary_display.screen.lfb_size);
+> +       if (memblock_is_map_memory(sysfb_primary_display.screen.lfb_base))
+> +               memblock_mark_nomap(sysfb_primary_display.screen.lfb_base,
+> +                                   sysfb_primary_display.screen.lfb_size);
+>
+> -               if (IS_ENABLED(CONFIG_EFI_EARLYCON))
+> -                       efi_earlycon_reprobe();
+> -       }
+> +       if (IS_ENABLED(CONFIG_EFI_EARLYCON))
+> +               efi_earlycon_reprobe();
+>  }
+>
+>  static int __init uefi_init(u64 efi_system_table)
+> --
+> 2.51.1
+>
 
