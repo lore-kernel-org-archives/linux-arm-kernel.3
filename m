@@ -4,87 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E0A8D637D6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 21:49:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B6EED637DA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 22:02:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:To:From:Subject:Message-ID:Reply-To:Cc:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bdCldys7nQSDy6vXu7JlMpmSPr3k8VWJix7kbyw58m8=; b=oMKZC1oh5DfZnahfWjmNufDPpU
-	1/6dLcjvGHW/hM18mznjjs4PVGw7Bi3vjuT2WlocCkra8dMB9vtf55X0AvJa4zXnYjxr+NrXkBDU1
-	KKWm89o1NMxtOtpnP1W+Di+lvwo6ptyHaZznyDn2N1idxl/IM5kFmnmwt+NSyM+iNkQihFS4H1Zj7
-	Rm0ofaanQeVeon2GtGuKlutrLxyZaDeDkwR0YLeLOGDytTY02cb4m2uWWvmucI2cxj+2K6b/WC7Qt
-	cWrh2w+uK3k3DAh0PNl+Cv/qoRMprKiHB/NUCirJ1wZaAxg2Qo1qzgeRLRJjLj7q7OmLubM30RhEQ
-	+X12ehJA==;
+	bh=0RrJ1QhB6SeWPYyB42DaNQ+ZKxlr8jXkDy3vz7ReoSU=; b=jCtxvz/MqImLBynRhitB1oiW2S
+	tuWShVFPppANvCPhVM0XFwD8WT5ITO5CWJBw7PZHtdvsQUihu6hrfeglHITmIpFsmdtkhn9g+/hGl
+	cdQiZhhdsibVZ84EYVcUKjROuse+W2NlvSZabm2M+4UsLG3wiyZ8PULKZFyXeDR4wz+Pcdb3TYw7E
+	x1GBQRPtrbNXngSZK7rmHV0GLLLlpacGkKBPUmLybcP10ifAIehVmHqr0c+lYHlDFDgnaLRf9H14C
+	FJQoMK6FC6TYki4gR+kCMcEbqp4Kw/f+UKtnADwG/1lJyzhvX2KrRVumG/3d3kLGHIFj0CVfHffTo
+	1U3KUCSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVcv3-00000005rYr-2T7I;
-	Tue, 16 Dec 2025 21:49:21 +0000
-Received: from mail-qv1-xf36.google.com ([2607:f8b0:4864:20::f36])
+	id 1vVd87-00000005sMJ-0fHn;
+	Tue, 16 Dec 2025 22:02:51 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVcux-00000005rXs-2JXA
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 21:49:19 +0000
-Received: by mail-qv1-xf36.google.com with SMTP id 6a1803df08f44-88888d80590so26528076d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 13:49:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1765921754; x=1766526554; darn=lists.infradead.org;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:to
-         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=bdCldys7nQSDy6vXu7JlMpmSPr3k8VWJix7kbyw58m8=;
-        b=pE9i4ggL9W7aJUfR6S9Zhew4CYHemH2EYoLi4FWLwcZ1T6CeEwoUBXTZwc8M97Ihvc
-         OBOnKHyQRbXr7fViKzI7NOwmcqota0OhDaoKelnigTFARjL0WYxbBEBErWKQMVw/wWqa
-         VZ5yTd9n9mYp5Ulp5HOCTQRguoplIzSttk2yA25ShfYHar91AC8KBsG6JJDJKMyyiH3f
-         1qXydzc6p8+5Dk2H2uzTVw/zcSQltAvx46qabq5mjHY9OJeoHHcnz0rzk4OYgRJzC7SO
-         M6braiUCSzIALxUziGCNtFihOJu/O/WHEQwIeLemXWGqcd9Gi9xca7IAbJWyY/KME4wE
-         wvVA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765921754; x=1766526554;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:to
-         :from:subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=bdCldys7nQSDy6vXu7JlMpmSPr3k8VWJix7kbyw58m8=;
-        b=GH1g6twDPNDrkcqrmlPAR2W6E4n82dL9hEOw970VRkU8HmBBpBlA4Vpe66DI3lb3RS
-         nvT7ABQOtwLhR71hlbnJxzOAoeKcLcR/a9M9a62RaUsiSsC7DHBfnMdVzsPyfpGNPJA3
-         VCi72egWcO/DZuzHETXjkD2pQoWwwxKgBgONhMoFW0IpX++S4tFSFbWPYXe3HugvZBle
-         NchfaFEv1HUZVNX1IOITKsK4TmP9lY1zogdumZbLcGfaGj0J5pBbLr2NZhl9JGrzY6PP
-         sFXZWT7Wf1ZclUyuNwH34treXxqSfHSQB5r+wouRcd8Jiz32378HBc0P6GHfR53kQ3ma
-         P6OA==
-X-Forwarded-Encrypted: i=1; AJvYcCUzqeS8omFac2fUoyVJv/75wsXo4BDJ1WlbwvbdD5b4zNB7iEg6uMVo3TehYKRWlgTdQQA2su6nWrFSI/aiJPvp@lists.infradead.org
-X-Gm-Message-State: AOJu0YzIXfGQQ+5TrqCGK1Y9trQdrpCiVq/YVjt4iW9JMctSUiDZE37G
-	I2DIKvYe3hBGjztF8jqr0Bw5tIEtK4GLZdE3LWydVJjxwAYpQLmbQc5Bk8074k86RI4=
-X-Gm-Gg: AY/fxX4B+aMYKu5HIkG9R2qYpZSTv1ShKDDKDIZsOSQxjtkhVSVC5F9HutDj9L7/u2G
-	yagXVaheRmZlTEzA0V4vYOxjXi6i1nHbkQHlKJqcHKOIWUdrsa5VIkS8UL3zGsHhVOrxwAWJK5i
-	+EWIHSoq6g5ayaX2UCOykWmCdgqgeb+fH/W4/oB35D63jje3fX0HIK/aE7c5nZiVtT9OCW2YcOV
-	QJKJ30CQ0gU72VB8sURO2x1SqXZ2xLSUEk6U13y3N4VgzryTlnqhxa7ujrY6U2i6ecNQGw/yaq5
-	80fE0G6Vrg/8vq38Dk+UJesEfZeRaYUHbrhmhGstvK3AoHLlqdZevXLwd2AbHMGvKHY69Ezsyjk
-	0wavBZCv0TPFZLloIGvJfPPNpajK53Fdag/+XPEu70/r50H2dXPUh+Vy01fiq3B+/wLYHsYdQ47
-	y6aX11zbq/JxAaIWQ1
-X-Google-Smtp-Source: AGHT+IH+V/Mr5+CqGLcI3EzYLOmPSV6tSlboBRvR5DbANVmIdH9NhazPVg8f1thYKYgGBLLqtCy2dA==
-X-Received: by 2002:a05:622a:1b88:b0:4ec:f073:4239 with SMTP id d75a77b69052e-4f1d04787c8mr198004211cf.6.1765921754277;
-        Tue, 16 Dec 2025 13:49:14 -0800 (PST)
-Received: from ?IPv6:2606:6d00:17:7b4b::c41? ([2606:6d00:17:7b4b::c41])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4f345c7dfbfsm21515751cf.31.2025.12.16.13.49.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Dec 2025 13:49:13 -0800 (PST)
-Message-ID: <3dd2c364f84725a68823f13a9f2b1f0499abaed5.camel@ndufresne.ca>
-Subject: Re: [PATCH v11 11/12] media: mediatek: jpeg: add jpeg compatible
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Kyrie Wu <kyrie.wu@mediatek.com>, Hans Verkuil
- <hverkuil-cisco@xs4all.nl>,  Mauro Carvalho Chehab	 <mchehab@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	 <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger	
- <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
- <angelogioacchino.delregno@collabora.com>, linux-media@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Date: Tue, 16 Dec 2025 16:49:12 -0500
-In-Reply-To: <20251202094800.6140-12-kyrie.wu@mediatek.com>
-References: <20251202094800.6140-1-kyrie.wu@mediatek.com>
-	 <20251202094800.6140-12-kyrie.wu@mediatek.com>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
+	id 1vVd83-00000005sLO-43NT;
+	Tue, 16 Dec 2025 22:02:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1765922563;
+	bh=v1pRSjTzwbmQL1hsDfF9eqLJi60pl/WRvFfhhQUSjj8=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=p46/GdG1x4W/qnRWPwhZbouSnGZCj3wxbqDjCdH2LryI/gC33rvKZqtTGBxUo/yPJ
+	 8QDiWPcndi2DvF0o0n1TFhREuSCLA5t2YvzGbFnEB/but7gw4EwXg4dyXI0FqyN4S8
+	 Sn4RxzS80Wiit/L7Aio4I8S8qJ9+X/QuYj7ITUVhr0a+EoCwokCLjsSbdF3L50wfC0
+	 pbO6zyYTNBdzknloDXFqW1MZAEGAi2Pp4iOLElL1cJIxX7FZfzeTRi8E6lKqs8jVq3
+	 lwXIIminq1LrApT7AVZVArkYAnCpsiUiKXP0uUOEPNPKVnHg0yD51+yt888b03w3T/
+	 Ta2vZamQA3GZA==
+Received: from [IPv6:2606:6d00:17:7b4b::c41] (unknown [IPv6:2606:6d00:17:7b4b::c41])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 41DAC17E12FE;
+	Tue, 16 Dec 2025 23:02:41 +0100 (CET)
+Message-ID: <bcbf8247a778c0a179cef2e0338acb2266c18809.camel@collabora.com>
+Subject: Re: [PATCH v5 01/15] media: uapi: HEVC: Add
+ v4l2_ctrl_hevc_ext_sps_[ls]t_rps controls
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Detlev Casanova <detlev.casanova@collabora.com>, Hans Verkuil
+	 <hverkuil+cisco@kernel.org>, linux-kernel@vger.kernel.org
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Ezequiel Garcia	
+ <ezequiel@vanguardiasur.com.ar>, Heiko Stuebner <heiko@sntech.de>, Ricardo
+ Ribalda <ribalda@chromium.org>, Hans Verkuil <hverkuil@kernel.org>, Hans de
+ Goede <hansg@kernel.org>,  Yunke Cao <yunkec@google.com>, Jonathan Corbet
+ <corbet@lwn.net>, Laurent Pinchart	 <laurent.pinchart@ideasonboard.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,  James Cowgill
+ <james.cowgill@blaize.com>, linux-media@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, 	linux-arm-kernel@lists.infradead.org,
+ kernel@collabora.com
+Date: Tue, 16 Dec 2025 17:02:39 -0500
+In-Reply-To: <37da2fe3-41bd-470e-bb6c-93fe35ee1528@collabora.com>
+References: <20251023214247.459931-1-detlev.casanova@collabora.com>
+	 <20251023214247.459931-2-detlev.casanova@collabora.com>
+	 <d8ef0f88-e81d-4159-8945-52197cbc95ba@kernel.org>
+	 <37da2fe3-41bd-470e-bb6c-93fe35ee1528@collabora.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
  keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
  /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
  cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
@@ -97,13 +77,14 @@ Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
  iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
  ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
  bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
 Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-YBjB4a/FKYc454GerwhG"
+	protocol="application/pgp-signature"; boundary="=-j2Yu32W+NlJeaG5ToHIu"
 User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_134917_941348_6256B78E 
-X-CRM114-Status: GOOD (  14.26  )
+X-CRM114-CacheID: sfid-20251216_140248_382527_D83A3E37 
+X-CRM114-Status: GOOD (  35.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,133 +100,335 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---=-YBjB4a/FKYc454GerwhG
+--=-j2Yu32W+NlJeaG5ToHIu
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-Le mardi 02 d=C3=A9cembre 2025 =C3=A0 17:47 +0800, Kyrie Wu a =C3=A9crit=C2=
-=A0:
-> Add jpeg dec and enc compatible for mt8196
+Hi,
+
+Le mardi 16 d=C3=A9cembre 2025 =C3=A0 15:48 -0500, Detlev Casanova a =C3=A9=
+crit=C2=A0:
+> Hi Hans,
 >=20
-> Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
-
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-
-> ---
-> =C2=A0.../platform/mediatek/jpeg/mtk_jpeg_core.c=C2=A0=C2=A0=C2=A0 | 34 +=
+> On 10/24/25 03:55, Hans Verkuil wrote:
+> > On 23/10/2025 23:42, Detlev Casanova wrote:
+> > > Some hardware (e.g.: Rockchip's rk3588 hevc decoder) need the
+> > > long and short term reference information for HEVC decoding.
+> > >=20
+> > > Add controls to provide it as the raw data form the stream.
+> > >=20
+> > > Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+> > > ---
+> > > =C2=A0 .../media/v4l/ext-ctrls-codec-stateless.rst=C2=A0=C2=A0 | 114 =
 ++++++++++++++++++
-> =C2=A0.../platform/mediatek/jpeg/mtk_jpeg_dec_hw.c=C2=A0 |=C2=A0 3 ++
-> =C2=A0.../platform/mediatek/jpeg/mtk_jpeg_enc_hw.c=C2=A0 |=C2=A0 3 ++
-> =C2=A03 files changed, 40 insertions(+)
+> > > =C2=A0 .../media/v4l/videodev2.h.rst.exceptions=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 |=C2=A0=C2=A0 2 +
+> > > =C2=A0 .../media/v4l/vidioc-queryctrl.rst=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 12 ++
+> > > =C2=A0 3 files changed, 128 insertions(+)
+> > >=20
+> > > diff --git a/Documentation/userspace-api/media/v4l/ext-ctrls-codec-st=
+ateless.rst b/Documentation/userspace-api/media/v4l/ext-ctrls-codec-statele=
+ss.rst
+> > > index 497ae74379f6..7b18e12fafbb 100644
+> > > --- a/Documentation/userspace-api/media/v4l/ext-ctrls-codec-stateless=
+.rst
+> > > +++ b/Documentation/userspace-api/media/v4l/ext-ctrls-codec-stateless=
+.rst
+> > > @@ -2959,6 +2959,120 @@ This structure contains all loop filter relat=
+ed parameters. See sections
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - 0x00000004
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 -
+> > > =C2=A0=20
+> > > +``V4L2_CID_STATELESS_HEVC_EXT_SPS_LT_RPS (struct)``
+> > > +=C2=A0=C2=A0=C2=A0 Specifies the list of Long-Term reference sets pa=
+rameters from the SPS.
+> > > +=C2=A0=C2=A0=C2=A0 These parameters are defined according to :ref:`h=
+evc`.
+> > > +=C2=A0=C2=A0=C2=A0 They are described in section 7.4.3.2.1 "General =
+sequence parameter set
+> > > +=C2=A0=C2=A0=C2=A0 RBSP semantics" of the specification.
+> > > +=C2=A0=C2=A0=C2=A0 This control is a dynamically sized 1-dimensional=
+ array,
+> > > +=C2=A0=C2=A0=C2=A0 V4L2_CTRL_FLAG_DYNAMIC_ARRAY flag must be set whe=
+n using it.
+> > I'd drop this last sentence. It suggests that the application has to se=
+t it,
+> > but is it set by the kernel.
+> >=20
+> > Same for the next control below.
+> >=20
+> > I noticed that this is probably a copy-and-paste from the V4L2_CID_STAT=
+ELESS_HEVC_SLICE_PARAMS
+> > documentation: can you post a separate patch removing that same line fr=
+om the description of
+> > that control? I think it is a confusing line, and we missed it during t=
+he original review
+> > of V4L2_CID_STATELESS_HEVC_SLICE_PARAMS.
+> >=20
+> > I have another question about these two controls: currently dynamic con=
+trols have always at
+> > least one element. I have been working on supporting zero-sized dynamic=
+ controls. Would
+> > that make sense here? Or will these two controls - if present - always =
+have one element or
+> > more?
+> >=20
+> > If zero-length dynamic array controls are useful here, then I can clean=
+ up my patches and
+> > post them so you can use it.
 >=20
-> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> index da1ca494ed4b..10a588b92e76 100644
-> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
-> @@ -1932,6 +1932,19 @@ static struct mtk_jpeg_variant mtk8195_jpegenc_drv=
-data
-> =3D {
-> =C2=A0	.jpeg_worker =3D mtk_jpegenc_worker,
-> =C2=A0};
-> =C2=A0
-> +static struct mtk_jpeg_variant mtk8196_jpegenc_drvdata =3D {
-> +	.formats =3D mtk_jpeg_enc_formats,
-> +	.num_formats =3D MTK_JPEG_ENC_NUM_FORMATS,
-> +	.qops =3D &mtk_jpeg_enc_qops,
-> +	.m2m_ops =3D &mtk_jpeg_multicore_enc_m2m_ops,
-> +	.dev_name =3D "mtk-jpeg-enc",
-> +	.ioctl_ops =3D &mtk_jpeg_enc_ioctl_ops,
-> +	.out_q_default_fourcc =3D V4L2_PIX_FMT_YUYV,
-> +	.cap_q_default_fourcc =3D V4L2_PIX_FMT_JPEG,
-> +	.multi_core =3D true,
-> +	.jpeg_worker =3D mtk_jpegenc_worker,
-> +};
-> +
-> =C2=A0static const struct mtk_jpeg_variant mtk8195_jpegdec_drvdata =3D {
-> =C2=A0	.formats =3D mtk_jpeg_dec_formats,
-> =C2=A0	.num_formats =3D MTK_JPEG_DEC_NUM_FORMATS,
-> @@ -1945,6 +1958,19 @@ static const struct mtk_jpeg_variant
-> mtk8195_jpegdec_drvdata =3D {
-> =C2=A0	.jpeg_worker =3D mtk_jpegdec_worker,
-> =C2=A0};
-> =C2=A0
-> +static const struct mtk_jpeg_variant mtk8196_jpegdec_drvdata =3D {
-> +	.formats =3D mtk_jpeg_dec_formats,
-> +	.num_formats =3D MTK_JPEG_DEC_NUM_FORMATS,
-> +	.qops =3D &mtk_jpeg_dec_qops,
-> +	.m2m_ops =3D &mtk_jpeg_multicore_dec_m2m_ops,
-> +	.dev_name =3D "mtk-jpeg-dec",
-> +	.ioctl_ops =3D &mtk_jpeg_dec_ioctl_ops,
-> +	.out_q_default_fourcc =3D V4L2_PIX_FMT_JPEG,
-> +	.cap_q_default_fourcc =3D V4L2_PIX_FMT_YUV420M,
-> +	.multi_core =3D true,
-> +	.jpeg_worker =3D mtk_jpegdec_worker,
-> +};
-> +
-> =C2=A0static const struct of_device_id mtk_jpeg_match[] =3D {
-> =C2=A0	{
-> =C2=A0		.compatible =3D "mediatek,mt8173-jpgdec",
-> @@ -1966,6 +1992,14 @@ static const struct of_device_id mtk_jpeg_match[] =
-=3D {
-> =C2=A0		.compatible =3D "mediatek,mt8195-jpgdec",
-> =C2=A0		.data =3D &mtk8195_jpegdec_drvdata,
-> =C2=A0	},
-> +	{
-> +		.compatible =3D "mediatek,mt8196-jpgenc",
-> +		.data =3D &mtk8196_jpegenc_drvdata,
-> +	},
-> +	{
-> +		.compatible =3D "mediatek,mt8196-jpgdec",
-> +		.data =3D &mtk8196_jpegdec_drvdata,
-> +	},
-> =C2=A0	{},
-> =C2=A0};
-> =C2=A0
-> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-> b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-> index b3142dc9be85..e453a1634f33 100644
-> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_dec_hw.c
-> @@ -45,6 +45,9 @@ static const struct of_device_id mtk_jpegdec_hw_ids[] =
-=3D {
-> =C2=A0	{
-> =C2=A0		.compatible =3D "mediatek,mt8195-jpgdec-hw",
-> =C2=A0	},
-> +	{
-> +		.compatible =3D "mediatek,mt8196-jpgdec-hw",
-> +	},
-> =C2=A0	{},
-> =C2=A0};
-> =C2=A0MODULE_DEVICE_TABLE(of, mtk_jpegdec_hw_ids);
-> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-> b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-> index 82c971936c4d..b30c728c3712 100644
-> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_enc_hw.c
-> @@ -52,6 +52,9 @@ static const struct of_device_id mtk_jpegenc_drv_ids[] =
-=3D {
-> =C2=A0	{
-> =C2=A0		.compatible =3D "mediatek,mt8195-jpgenc-hw",
-> =C2=A0	},
-> +	{
-> +		.compatible =3D "mediatek,mt8196-jpgenc-hw",
-> +	},
-> =C2=A0	{},
-> =C2=A0};
-> =C2=A0MODULE_DEVICE_TABLE(of, mtk_jpegenc_drv_ids);
+> I guess that could happen depending on what userspace does, but the size=
+=20
+> of the array is determined by num_long_term_ref_pics_sps and=20
+> num_short_term_ref_pic_sets from v4l2_ctrl_hevc_sps respectively.
+>=20
+> If that value is 0, there is no point in setting the (respective)=20
+> control, except for simplifying userspace code I suppose.
+>=20
+> So 0-length support is avoidable.
 
---=-YBjB4a/FKYc454GerwhG
+With our rule of keeping controls as consistent as possible, we'd need a ze=
+ro
+length array here since key frame have zero long and short references.
+
+Basically, we should be able to clear that control when
+long_term_ref_pics_present_flag is not set, or num_short_term_ref_pic_sets =
+is
+zero.
+
+Feel free to send an update anyway, since I don't expect Hans to be able to
+provide this code now, would have been better to reply earlier. In fact, I =
+agree
+we can probably move on without the zero-length immediately added and add i=
+t
+later.
+
+Before going that route, how big are these two arrays ? Short term can be 6=
+4
+ref, long term 32, how big in bytes that is ? Was is worth goign with dynam=
+ic
+array ? Its not like slices, where we can have 600 or more.
+
+Nicolas
+
+>=20
+> Detlev.
+>=20
+> > Regards,
+> >=20
+> > 	Hans
+> >=20
+> > > +
+> > > +.. c:type:: v4l2_ctrl_hevc_ext_sps_lt_rps
+> > > +
+> > > +.. cssclass:: longtable
+> > > +
+> > > +.. flat-table:: struct v4l2_ctrl_hevc_ext_sps_lt_rps
+> > > +=C2=A0=C2=A0=C2=A0 :header-rows:=C2=A0 0
+> > > +=C2=A0=C2=A0=C2=A0 :stub-columns: 0
+> > > +=C2=A0=C2=A0=C2=A0 :widths:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 1 1 =
+2
+> > > +
+> > > +=C2=A0=C2=A0=C2=A0 * - __u16
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``lt_ref_pic_poc_lsb_sps``
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Long term reference picture order c=
+ount as described in section 7.4.3.2.1
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 "General sequence paramet=
+er set RBSP semantics" of the specification.
+> > > +=C2=A0=C2=A0=C2=A0 * - __u8
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``flags``
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - See :ref:`Extended Long-Term RPS Fl=
+ags <hevc_ext_sps_lt_rps_flags>`
+> > > +
+> > > +.. _hevc_ext_sps_lt_rps_flags:
+> > > +
+> > > +``Extended SPS Long-Term RPS Flags``
+> > > +
+> > > +.. cssclass:: longtable
+> > > +
+> > > +.. flat-table::
+> > > +=C2=A0=C2=A0=C2=A0 :header-rows:=C2=A0 0
+> > > +=C2=A0=C2=A0=C2=A0 :stub-columns: 0
+> > > +=C2=A0=C2=A0=C2=A0 :widths:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 1 1 =
+2
+> > > +
+> > > +=C2=A0=C2=A0=C2=A0 * - ``V4L2_HEVC_EXT_SPS_LT_RPS_FLAG_USED_LT``
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - 0x00000001
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Specifies if the long-term referenc=
+e picture is used 7.4.3.2.1 "General sequence parameter
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 set RBSP semantics" of th=
+e specification.
+> > > +
+> > > +``V4L2_CID_STATELESS_HEVC_EXT_SPS_ST_RPS (struct)``
+> > > +=C2=A0=C2=A0=C2=A0 Specifies the list of Short-Term reference sets p=
+arameters from the SPS.
+> > > +=C2=A0=C2=A0=C2=A0 These parameters are defined according to :ref:`h=
+evc`.
+> > > +=C2=A0=C2=A0=C2=A0 They are described in section 7.4.8 "Short-term r=
+eference picture set
+> > > +=C2=A0=C2=A0=C2=A0 semantics" of the specification.
+> > > +=C2=A0=C2=A0=C2=A0 This control is a dynamically sized 1-dimensional=
+ array,
+> > > +=C2=A0=C2=A0=C2=A0 V4L2_CTRL_FLAG_DYNAMIC_ARRAY flag must be set whe=
+n using it.
+> > > +
+> > > +.. c:type:: v4l2_ctrl_hevc_ext_sps_st_rps
+> > > +
+> > > +.. cssclass:: longtable
+> > > +
+> > > +.. flat-table:: struct v4l2_ctrl_hevc_ext_sps_st_rps
+> > > +=C2=A0=C2=A0=C2=A0 :header-rows:=C2=A0 0
+> > > +=C2=A0=C2=A0=C2=A0 :stub-columns: 0
+> > > +=C2=A0=C2=A0=C2=A0 :widths:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 1 1 =
+2
+> > > +
+> > > +=C2=A0=C2=A0=C2=A0 * - __u8
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``delta_idx_minus1``
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Specifies the delta compare to the =
+index. See details in section 7.4.8 "Short-term
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 reference picture set sem=
+antics" of the specification.
+> > > +=C2=A0=C2=A0=C2=A0 * - __u8
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``delta_rps_sign``
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Sign of the delta as specified in s=
+ection 7.4.8 "Short-term reference picture set
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 semantics" of the specifi=
+cation.
+> > > +=C2=A0=C2=A0=C2=A0 * - __u16
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``abs_delta_rps_minus1``
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Absolute delta RPS as specified in =
+section 7.4.8 "Short-term reference picture set
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 semantics" of the specifi=
+cation.
+> > > +=C2=A0=C2=A0=C2=A0 * - __u8
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``num_negative_pics``
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Number of short-term RPS entries th=
+at have picture order count values less than the
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 picture order count value=
+ of the current picture.
+> > > +=C2=A0=C2=A0=C2=A0 * - __u8
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``num_positive_pics``
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Number of short-term RPS entries th=
+at have picture order count values greater than the
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 picture order count value=
+ of the current picture.
+> > > +=C2=A0=C2=A0=C2=A0 * - __u32
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``used_by_curr_pic``
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Bit i specifies if short-term RPS i=
+ is used by the current picture.
+> > > +=C2=A0=C2=A0=C2=A0 * - __u32
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``use_delta_flag``
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Bit i specifies if short-term RPS i=
+ is included in the short-term RPS entries.
+> > > +=C2=A0=C2=A0=C2=A0 * - __u16
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``delta_poc_s0_minus1[16]``
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Specifies the negative picture orde=
+r count delta for the i-th entry in the short-term RPS.
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 See details in section 7.=
+4.8 "Short-term reference picture set semantics" of the
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 specification.
+> > > +=C2=A0=C2=A0=C2=A0 * - __u16
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``delta_poc_s1_minus1[16]``
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Specifies the positive picture orde=
+r count delta for the i-th entry in the short-term RPS.
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 See details in section 7.=
+4.8 "Short-term reference picture set semantics" of the
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 specification.
+> > > +=C2=A0=C2=A0=C2=A0 * - __u8
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``flags``
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - See :ref:`Extended Short-Term RPS F=
+lags <hevc_ext_sps_st_rps_flags>`
+> > > +
+> > > +.. _hevc_ext_sps_st_rps_flags:
+> > > +
+> > > +``Extended SPS Short-Term RPS Flags``
+> > > +
+> > > +.. cssclass:: longtable
+> > > +
+> > > +.. flat-table::
+> > > +=C2=A0=C2=A0=C2=A0 :header-rows:=C2=A0 0
+> > > +=C2=A0=C2=A0=C2=A0 :stub-columns: 0
+> > > +=C2=A0=C2=A0=C2=A0 :widths:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 1 1 =
+2
+> > > +
+> > > +=C2=A0=C2=A0=C2=A0 * - ``V4L2_HEVC_EXT_SPS_ST_RPS_FLAG_INTER_REF_PIC=
+_SET_PRED``
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - 0x00000001
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Specifies if the short-term RPS is =
+predicted from another short term RPS. See details in
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 section 7.4.8 "Short-term=
+ reference picture set semantics" of the specification.
+> > > +
+> > > =C2=A0 .. _v4l2-codec-stateless-av1:
+> > > =C2=A0=20
+> > > =C2=A0 ``V4L2_CID_STATELESS_AV1_SEQUENCE (struct)``
+> > > diff --git a/Documentation/userspace-api/media/v4l/videodev2.h.rst.ex=
+ceptions b/Documentation/userspace-api/media/v4l/videodev2.h.rst.exceptions
+> > > index c41693115db6..6182b4e2d2ee 100644
+> > > --- a/Documentation/userspace-api/media/v4l/videodev2.h.rst.exception=
+s
+> > > +++ b/Documentation/userspace-api/media/v4l/videodev2.h.rst.exception=
+s
+> > > @@ -150,6 +150,8 @@ replace symbol V4L2_CTRL_TYPE_H264_SCALING_MATRIX=
+ :c:type:`V4L.v4l2_ctrl_type`
+> > > =C2=A0 replace symbol V4L2_CTRL_TYPE_H264_PRED_WEIGHTS :c:type:`V4L.v=
+4l2_ctrl_type`
+> > > =C2=A0 replace symbol V4L2_CTRL_TYPE_H264_SLICE_PARAMS :c:type:`V4L.v=
+4l2_ctrl_type`
+> > > =C2=A0 replace symbol V4L2_CTRL_TYPE_H264_DECODE_PARAMS :c:type:`V4L.=
+v4l2_ctrl_type`
+> > > +replace symbol V4L2_CTRL_TYPE_HEVC_EXT_SPS_ST_RPS :c:type:`V4L.v4l2_=
+ctrl_type`
+> > > +replace symbol V4L2_CTRL_TYPE_HEVC_EXT_SPS_LT_RPS :c:type:`V4L.v4l2_=
+ctrl_type`
+> > > =C2=A0 replace symbol V4L2_CTRL_TYPE_HEVC_SPS :c:type:`V4L.v4l2_ctrl_=
+type`
+> > > =C2=A0 replace symbol V4L2_CTRL_TYPE_HEVC_PPS :c:type:`V4L.v4l2_ctrl_=
+type`
+> > > =C2=A0 replace symbol V4L2_CTRL_TYPE_HEVC_SLICE_PARAMS :c:type:`V4L.v=
+4l2_ctrl_type`
+> > > diff --git a/Documentation/userspace-api/media/v4l/vidioc-queryctrl.r=
+st b/Documentation/userspace-api/media/v4l/vidioc-queryctrl.rst
+> > > index c8baa9430c14..82c8b52e771c 100644
+> > > --- a/Documentation/userspace-api/media/v4l/vidioc-queryctrl.rst
+> > > +++ b/Documentation/userspace-api/media/v4l/vidioc-queryctrl.rst
+> > > @@ -531,6 +531,18 @@ See also the examples in :ref:`control`.
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - n/a
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - A struct :c:type:`v4l2_c=
+trl_hevc_decode_params`, containing HEVC
+> > > =C2=A0=C2=A0	decoding parameters for stateless video decoders.
+> > > +=C2=A0=C2=A0=C2=A0 * - ``V4L2_CTRL_TYPE_HEVC_EXT_SPS_LT_RPS``
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - n/a
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - n/a
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - n/a
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - A struct :c:type:`v4l2_ctrl_hevc_ex=
+t_sps_lt_rps`, containing HEVC
+> > > +	extended Long-Term RPS for stateless video decoders.
+> > > +=C2=A0=C2=A0=C2=A0 * - ``V4L2_CTRL_TYPE_HEVC_EXT_SPS_ST_RPS``
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - n/a
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - n/a
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - n/a
+> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - A struct :c:type:`v4l2_ctrl_hevc_ex=
+t_sps_st_rps`, containing HEVC
+> > > +	extended Short-Term RPS for stateless video decoders.
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 * - ``V4L2_CTRL_TYPE_VP9_COMPRESSED_HD=
+R``
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - n/a
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - n/a
+
+--=-j2Yu32W+NlJeaG5ToHIu
 Content-Type: application/pgp-signature; name="signature.asc"
 Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaUHT2AAKCRDZQZRRKWBy
-9IZqAPkBoSLa+bFdlDtR1FQo5Uc5A2dt+rMGU51H/CGtt205EAEAqnmGw/ine3cr
-vP6MeovY8uQj7THLju96VbvCAKmDCQY=
-=jQmg
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaUHXAAAKCRDZQZRRKWBy
+9N5pAQDw36UxG6/tFUkRej1+ngQLHpNN64KxopMOLHv6Q/rZZQEAsJCRhm8QdSUp
+keRUSwqcponKn9oaTWFDPXPlm167fgM=
+=fUye
 -----END PGP SIGNATURE-----
 
---=-YBjB4a/FKYc454GerwhG--
+--=-j2Yu32W+NlJeaG5ToHIu--
 
