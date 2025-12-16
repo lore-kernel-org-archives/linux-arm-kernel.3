@@ -4,106 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2402CD5B161
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 06:23:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54BC2D5B161
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 06:25:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2HjJrGjhfs07c73fKTkfOQ/NGQqBB4D5WunMQYV/3Eg=; b=DaFGVi1xxKQosu7ibmnDfFmb4H
-	QD2wEgR1KCkLABROAOXzgM1m/0JfZ84wqnAWFXPBaIxFBzfXcqwVb1HdUbKaxeDYgbfdeax6SeShf
-	qq/XnF8FnmVXauIottq9HVG9/48Zuv5Pj44PDa82cLoUuf3d+oP0EDsmqm7MN5u1NRQYTlb3bWxO3
-	tEIdALxokX1F6Sz6w4+wJ9ItY1Vds+HkfZF3OT01tSfgP4EGeUsuYeuZ4XE8rZDfyxEbPeplmkNPS
-	WV/KtXBHlDqfVpswv0JTRTPe+dmbohs5MdgulG4ej/JnrUSuhZ9zq/z1sN4hT/0H2eZ6snPwjpw3S
-	ZHq1kLfw==;
+	bh=4uJzsh/7B5SBq4huKfJ24GYK5+66IuujLDlaWSU9v70=; b=O/f3K5qC/6K+K+ipLEOM/bxkKs
+	stxOs5aqcDV0uc6lk9a7R6GkFkRWUUs1MwU+JdPvE2+TVwUwZx3qHo3E2Ylz5cHfReadXyXtUh74b
+	NVCbWSdmMUlT5fmOjRX8XvhhPB/DsfJJOIr3ZwGstddVhidYl6ap3KcRcEvgPDl5gj1m3NWWdTJ8S
+	ai3mPCxDJBI8zHomUHbWvPYsIbk4QwVaNq0bNcJ3VRq8XU7QRnp8TBTgUdps/6F+EDKcaOJ4lBJnS
+	rUf5nQSrT+qu55Ow6Zf3/USoeS4ELXnH30WpLNV1DTDDnyZ5Kzxdn/G5hG4kvqYJ+h5aFIzsH9FCw
+	n1B8OB9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVOSv-00000004mHa-2REt;
-	Tue, 16 Dec 2025 06:23:21 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vVOUt-00000004mgd-2uaV;
+	Tue, 16 Dec 2025 06:25:25 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVOSt-00000004mFS-0WIw
+	id 1vVOUs-00000004mgX-124o
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 06:23:21 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BG47nmU366854;
-	Tue, 16 Dec 2025 06:23:13 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	2HjJrGjhfs07c73fKTkfOQ/NGQqBB4D5WunMQYV/3Eg=; b=fiUth0hswedBK2d4
-	rLxGQUjO7OYbWzojh+mMKCrriWtfiHSUIRb52cS33wVqRRAlD1f1C6dNkPNc01jG
-	l4arnmwnFWsJso8O2MmObQB/2Tr/OKP+Mx1V7KibaeY9PZ/9fCNpkQxt1hpY/5MA
-	/oNObV14N4uWmFB2IOjrHBpweAhl+SEY8jBccF+KxWOFwpk0sIh2xVxc+68REdlp
-	7D8cbYnBCHMJGjs1bJaVVDxzV3GvSigDZuiF5FL+gIETFuyXJn5G9T1NSUSYZyzR
-	4PT2w5tfqan815ncdcjkuGCeNblnXWTRpzViO2E/4p5ivclTzcafxreFyL2zVVwZ
-	TsZorw==
-Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4b2j1c3d6h-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 16 Dec 2025 06:23:12 +0000 (GMT)
-Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
-	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5BG6NBPu006817
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 16 Dec 2025 06:23:11 GMT
-Received: from hu-nihalkum-hyd.qualcomm.com (10.80.80.8) by
- nalasex01c.na.qualcomm.com (10.47.97.35) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Mon, 15 Dec 2025 22:23:05 -0800
-From: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
-To: <bryan.odonoghue@linaro.org>, <mchehab@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <andersson@kernel.org>,
-        <konradybcio@kernel.org>, <hverkuil-cisco@xs4all.nl>,
-        <cros-qcom-dts-watchers@chromium.org>, <catalin.marinas@arm.com>,
-        <will@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <quic_svankada@quicinc.com>,
-        <linux-media@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        Ravi Shankar
-	<quic_rshankar@quicinc.com>,
-        Vishal Verma <quic_vishverm@quicinc.com>,
-        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-Subject: [PATCH v7 5/5] arm64: dts: qcom: monaco-evk-camera: Add DT overlay
-Date: Tue, 16 Dec 2025 11:52:23 +0530
-Message-ID: <20251216062223.2474216-6-quic_nihalkum@quicinc.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251216062223.2474216-1-quic_nihalkum@quicinc.com>
-References: <20251216062223.2474216-1-quic_nihalkum@quicinc.com>
+	Tue, 16 Dec 2025 06:25:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E8DF96013F;
+	Tue, 16 Dec 2025 06:25:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DEA4C4CEF1;
+	Tue, 16 Dec 2025 06:25:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765866320;
+	bh=jURSggc8h5Auoce5njAyzjWeWLT5P7bncC7/J9uqAIk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=X6eKLQbs299j6gqCWs0N6kliERfyOLEJYBLj9OjmQWO8xApvcW1nMZW7qSPX9qF2t
+	 Gpl8+hGXqMt3pkh0mxh/9/e+v5GKe7qILvY7jujhVhdrTJDI8QDBp0e/zterdp/Au8
+	 XZ7GtBVJr8c33wkRJEmNk/pxUSM36yPE5/+e39YE+pIdIRqyd21KJxjfieF+Y++vHu
+	 KLfdXaj1r+PVuSxADZZpJczinr4nWQOZ+dlCe4/iSsOeGsEGzNAhDqs8PQKwxUNDQl
+	 N6x9LzTfvBVbI4qDrV+33hthxDs4imD+uGJ+ksRIC7z2GVq/u54ScozuMvWeVf9khP
+	 3sP/tTAuG7i4A==
+Date: Tue, 16 Dec 2025 07:25:18 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	=?utf-8?B?SsOpcsOpbWll?= Dautheribes <jeremie.dautheribes@bootlin.com>, Wim Van Sebroeck <wim@linux-watchdog.org>, 
+	Guenter Roeck <linux@roeck-us.net>, Lee Jones <lee@kernel.org>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH 1/8] dt-bindings: vendor-prefixes: Add AAEON vendor prefix
+Message-ID: <20251216-tricky-masterful-wildcat-1efbd5@quoll>
+References: <20251212-dev-b4-aaeon-mcu-driver-v1-0-6bd65bc8ef12@bootlin.com>
+ <20251212-dev-b4-aaeon-mcu-driver-v1-1-6bd65bc8ef12@bootlin.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01c.na.qualcomm.com (10.47.97.35)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjE2MDA1MCBTYWx0ZWRfXxj7pSTvFbkGF
- /gDkiMgb1InQQ9RfrpBHg66yaJmXiu5BbW1GwotzxCyMGM/WULQ/wXLfWUa+4bTj7DYddAFqZit
- DwW5Q3FwNYe4/E/rAtV8Cxh2WylBl4S2J+9+ChlpIFRdXa8YjceLSEYlaioMPOeyCpw1J2iDjjG
- 1vnZKqqlFyuxABgWR93rEe/89SdYVHAJ4bqBgQFpbpusqWBeRLUYZCKecJDFNR6tbJZUpFIQhKQ
- wuY2XSmytJnlMEO9kJ3BBMPTREotV2wSM5FJAg5GgPYm5T1PBMJ8uPgOZ/mEX4R+DE3fHcN94S4
- Qm5JK/g1JpIjZbFJoY6D/jRg5XB1XoJwwpSFTW8LGkuiuIJqBCHkj+gSNm1VKNVr6VUU9J7Cz5b
- gm5Wud9s7vVaM4qSP4K3soSPXdVQew==
-X-Proofpoint-GUID: JJdPrIxGELN33m3KaFl7TsKBOlAJn2e_
-X-Authority-Analysis: v=2.4 cv=ceLfb3DM c=1 sm=1 tr=0 ts=6940fad0 cx=c_pps
- a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=GEpy-HfZoHoA:10 a=wP3pNCr1ah4A:10 a=VkNPw1HP01LnGYTKEx00:22
- a=COk6AnOGAAAA:8 a=KKAkSRfTAAAA:8 a=8jGGn9Z0z0XTtIQmd1MA:9
- a=TjNXssC_j7lpFel5tvFf:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-ORIG-GUID: JJdPrIxGELN33m3KaFl7TsKBOlAJn2e_
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-12-16_01,2025-12-15_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 impostorscore=0 clxscore=1015 phishscore=0 priorityscore=1501
- adultscore=0 bulkscore=0 lowpriorityscore=0 malwarescore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2512160050
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_222319_210966_56521D48 
-X-CRM114-Status: GOOD (  15.57  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20251212-dev-b4-aaeon-mcu-driver-v1-1-6bd65bc8ef12@bootlin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,127 +77,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Monaco EVK board does not include a camera sensor in its default hardware
-configuration. Introducing a device tree overlay to support optional
-integration of the IMX577 sensor via CSIPHY1.
+On Fri, Dec 12, 2025 at 08:41:04AM +0100, Thomas Perrot (Schneider Electric) wrote:
+> Add the AAEON vendor prefix to support the AAEON SRG-IMX8PL MCU driver
+> devicetree bindings.
+> 
+> Signed-off-by: Thomas Perrot (Schneider Electric) <thomas.perrot@bootlin.com>
+> ---
+>  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
 
-Camera reset is handled through an I2C expander, and power is enabled
-via TLMM GPIO74.
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-An example media-ctl pipeline for the imx577 is:
-
-media-ctl --reset
-media-ctl -V '"imx577 3-001a":0[fmt:SRGGB10/4056x3040 field:none]'
-media-ctl -V '"msm_csiphy1":0[fmt:SRGGB10/4056x3040]'
-media-ctl -V '"msm_csid0":0[fmt:SRGGB10/4056x3040]'
-media-ctl -V '"msm_vfe0_rdi0":0[fmt:SRGGB10/4056x3040]'
-media-ctl -l '"msm_csiphy1":1->"msm_csid0":0[1]'
-media-ctl -l '"msm_csid0":1->"msm_vfe0_rdi0":0[1]'
-yavta -B capture-mplane -c -I -n 5 -f SRGGB10P -s 4056x3040 -F /dev/video1
-
-Signed-off-by: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
-Co-developed-by: Ravi Shankar <quic_rshankar@quicinc.com>
-Signed-off-by: Ravi Shankar <quic_rshankar@quicinc.com>
-Co-developed-by: Vishal Verma <quic_vishverm@quicinc.com>
-Signed-off-by: Vishal Verma <quic_vishverm@quicinc.com>
-Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
-Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
----
- arch/arm64/boot/dts/qcom/Makefile             |  4 ++
- .../dts/qcom/monaco-evk-camera-imx577.dtso    | 67 +++++++++++++++++++
- 2 files changed, 71 insertions(+)
- create mode 100644 arch/arm64/boot/dts/qcom/monaco-evk-camera-imx577.dtso
-
-diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
-index 6f34d5ed331c..b1ba182a0d8d 100644
---- a/arch/arm64/boot/dts/qcom/Makefile
-+++ b/arch/arm64/boot/dts/qcom/Makefile
-@@ -38,6 +38,10 @@ lemans-evk-camera-dtbs	:= lemans-evk.dtb lemans-evk-camera.dtbo
- dtb-$(CONFIG_ARCH_QCOM)	+= lemans-evk-camera-csi1-imx577.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= lemans-evk-camera.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= monaco-evk.dtb
-+
-+monaco-evk-camera-imx577-dtbs	:= monaco-evk.dtb monaco-evk-camera-imx577.dtbo
-+dtb-$(CONFIG_ARCH_QCOM)	+= monaco-evk-camera-imx577.dtb
-+
- dtb-$(CONFIG_ARCH_QCOM)	+= msm8216-samsung-fortuna3g.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= msm8916-acer-a1-724.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= msm8916-alcatel-idol347.dtb
-diff --git a/arch/arm64/boot/dts/qcom/monaco-evk-camera-imx577.dtso b/arch/arm64/boot/dts/qcom/monaco-evk-camera-imx577.dtso
-new file mode 100644
-index 000000000000..351eb5ee70ba
---- /dev/null
-+++ b/arch/arm64/boot/dts/qcom/monaco-evk-camera-imx577.dtso
-@@ -0,0 +1,67 @@
-+// SPDX-License-Identifier: BSD-3-Clause
-+/*
-+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/clock/qcom,sa8775p-camcc.h>
-+#include <dt-bindings/gpio/gpio.h>
-+
-+&camss {
-+	vdda-phy-supply = <&vreg_l4a>;
-+	vdda-pll-supply = <&vreg_l5a>;
-+
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@1 {
-+			reg = <1>;
-+
-+			csiphy1_ep: endpoint {
-+				clock-lanes = <7>;
-+				data-lanes = <0 1 2 3>;
-+				remote-endpoint = <&imx577_ep1>;
-+			};
-+		};
-+	};
-+};
-+
-+&cci1 {
-+	pinctrl-0 = <&cci1_0_default>;
-+	pinctrl-1 = <&cci1_0_sleep>;
-+
-+	status = "okay";
-+};
-+
-+&cci1_i2c0 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	camera@1a {
-+		compatible = "sony,imx577";
-+		reg = <0x1a>;
-+
-+		reset-gpios = <&expander2 1 GPIO_ACTIVE_LOW>;
-+		pinctrl-0 = <&cam1_default>;
-+		pinctrl-names = "default";
-+
-+		clocks = <&camcc CAM_CC_MCLK1_CLK>;
-+		assigned-clocks = <&camcc CAM_CC_MCLK1_CLK>;
-+		assigned-clock-rates = <24000000>;
-+
-+		avdd-supply = <&vreg_cam1_2p8>;
-+
-+		port {
-+			imx577_ep1: endpoint {
-+				link-frequencies = /bits/ 64 <600000000>;
-+				data-lanes = <0 1 2 3>;
-+				remote-endpoint = <&csiphy1_ep>;
-+			};
-+		};
-+	};
-+};
--- 
-2.34.1
+Best regards,
+Krzysztof
 
 
