@@ -4,148 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 979A7D609D7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 19:15:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BEF9D637A1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 20:36:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UlLRO1MFpB3tGHbPpuN3jHextC3d85g5cPKcwWDJ+lg=; b=QbqKJeEx1+Vi9OBUv5yWxNTeey
-	XFMSLeLx5fvRJnBlaN8LpTQe1pEDeDfUsZPcDWvK1bHUkik/blj5Yo0MVcw/azMeDdXi4rkXkmCxb
-	J4O5GQys91T7XEMLLjq0SaG70PZFhnhWWGM9Va1tvmJdU5UkLzK3wj7ve2XIoNNT0HYQNtdQWRjSo
-	yKPUsaHPTbQJmMBLqAqaSBkOoDCw5YoUAn8yDU4C5IIVTvbiXwVo7GitxG/AkKrhtwClkVpi4QEUE
-	7kCecTuneg/M6JaS/IMSVaHaK078hanIE9feNLFO4oC1URcVoylJAMZsCEh/fpnqQRllsZ1ap4aK3
-	3T2hfjtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gv3fR1f0d4J7Wx8tPpx3i+Ybrysql766wrV4wqRgUXM=; b=pjoVXYv9o5YGn5aX8FpRasSLtG
+	Zhvi1HdSov2+DJ4IXB64gsGYcIqsQzXasgfU5nX6M6I+17Eu+J37j3aY5hFyxNZMz7LG9odIadknU
+	xVztguqXEAJ0/rd1jxeVkLZyAmRIW+5VMPDuF3CgyKEHQnqUwE0Bv2FSKHaWnDvKnhf3gSQhaFF5/
+	Lgf6WyfR8ePuR4bQ0l/HqmstPHk/X43oqCgIO2V0SCMJcfK80UygmnzxhPieo/Iy4iE+W9HqSECjE
+	So83kJ3fAJPoWEvr5++nJ1toFp9KikZu61FXlYfJ9MSTUChX7DwC73Izw2A3HtuzOyCYGFkDkOy/B
+	qihcdW4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVaW1-00000005k9r-2p0E;
-	Tue, 16 Dec 2025 19:15:21 +0000
-Received: from mail-westusazon11010024.outbound.protection.outlook.com ([52.101.85.24] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1vVbmf-00000005n4z-3Y6f;
+	Tue, 16 Dec 2025 20:36:37 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVaVz-00000005k9X-0wnZ
+	id 1vVbmd-00000005n3o-17Em
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 19:15:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vRy8QErEBMlX4zaqumyMNeZqr+XJ3vKNlXHAEvsFA97q7ItP+mHI8lp13aM6+Yts1FL2I6pVdQPRxrjDLaCXVXMWAryuzEaOttYm4hPFfQeOSVBl8vZDmgNhnDHnqLgShYiD6pI25BYqMtbIgOqYb3pKAWeEZju8zmSssoQMy5B1VmbpzQg3cnanTRwBEYUQcnZJwb5g+4bN0+PgwAzloUa72HT2KSz2f7nuA0bMEO6HP/TLPmQFZDxfgoFsstlDLhS2JT86vYY9vbm/0m0T7LaebDT7ZDmivTV50uAyUQMcT0ittsXfufsHMMVRIFDq2UGc2Yt8w0T+dNfjJt+JUw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UlLRO1MFpB3tGHbPpuN3jHextC3d85g5cPKcwWDJ+lg=;
- b=rCKsxyaytdtGTZ9+yMVrWzte7eVN+LTacFIg+IIiHwf2ESTHfYsnGuuLTQYwrfQZxwimEP5hP1BFDt8mJoO09E95W7wGgwUNGNvwpY3RVW75s72UOAnVVXLPHCX+6tX0FyQNR2/haNEHC3mvJ+6nh14SuVtIAZD8NiiVFH/Y+WXelUtPb0Fqgw0d3Il71bMSwSbUZ3r9au1FPQv1GJVTEKwe7rNJklqdsE5/BS+N3dZP+hfSfchex2/K4ks0zxTcfEztwsjeGC2baor7uBAa6UxliB+Mo6nvkehuT/vts6KoFUSyqzQWUitjrPeCk30nAHaOngqsCZtdhfVyxuix/g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=infradead.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UlLRO1MFpB3tGHbPpuN3jHextC3d85g5cPKcwWDJ+lg=;
- b=Y22ISPy+iF5Wri6vkjCm0cXasGKOgOLfaoDWHPlrRcvAZGJ7konHPFVUVByGRKf5nGfNygOeueFedN5P7WKUZy3Gc2Ch0O8vIHKJZ1SHcIi11nC/HiwF1J8dLyq2m5Vrt6Ur9IErW3PX4zjSsl0pzRXMHt36SwMKfZmIyZfNNmm84tcM38fvBwpZYN3cGJBYZGT5B+E6XdBcwJGwFlVYAgVl6Q54x5IxhfntbWEPp1E6C9b30n0f3Ds/t1dhusSXTpBc/SuyOkEa/DnDK/VORx9tXnSNg/Qm7PWuK9Vi2avkRnyhqPEe2MgpVybzVOFRshQnpTsEjeXD0RtO+AjDkw==
-Received: from SJ0PR05CA0209.namprd05.prod.outlook.com (2603:10b6:a03:330::34)
- by CH1PPF84B7B0C96.namprd12.prod.outlook.com (2603:10b6:61f:fc00::618) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.6; Tue, 16 Dec
- 2025 19:15:08 +0000
-Received: from SJ1PEPF00001CDE.namprd05.prod.outlook.com
- (2603:10b6:a03:330:cafe::34) by SJ0PR05CA0209.outlook.office365.com
- (2603:10b6:a03:330::34) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.6 via Frontend Transport; Tue,
- 16 Dec 2025 19:15:08 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- SJ1PEPF00001CDE.mail.protection.outlook.com (10.167.242.6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9434.6 via Frontend Transport; Tue, 16 Dec 2025 19:15:07 +0000
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 16 Dec
- 2025 11:14:45 -0800
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail204.nvidia.com
- (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 16 Dec
- 2025 11:14:45 -0800
-Received: from Asurada-Nvidia (10.127.8.12) by mail.nvidia.com (10.129.68.7)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 16 Dec 2025 11:14:44 -0800
-Date: Tue, 16 Dec 2025 11:14:42 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: Peter Zijlstra <peterz@infradead.org>, <will@kernel.org>,
-	<jean-philippe@linaro.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<balbirs@nvidia.com>, <miko.lenczewski@arm.com>, <kevin.tian@intel.com>,
-	<praan@google.com>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v7 6/7] iommu/arm-smmu-v3: Add arm_smmu_invs based
- arm_smmu_domain_inv_range()
-Message-ID: <aUGvojnCaMKWM6QG@Asurada-Nvidia>
-References: <cover.1765850465.git.nicolinc@nvidia.com>
- <f4261c5b30ce3c6942470433033d4933ec5eef3e.1765850465.git.nicolinc@nvidia.com>
- <20251216090926.GR3707837@noisy.programming.kicks-ass.net>
- <20251216135613.GB6079@nvidia.com>
- <20251216140410.GV3707837@noisy.programming.kicks-ass.net>
- <20251216141511.GD6079@nvidia.com>
+	Tue, 16 Dec 2025 20:36:36 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-6495c4577adso7045328a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 12:36:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc.com; s=google; t=1765917393; x=1766522193; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Gv3fR1f0d4J7Wx8tPpx3i+Ybrysql766wrV4wqRgUXM=;
+        b=IJggBz39k4VPM1tUBKw2LtO7cVmrBXdLzz/9WY81xE/O5d67nI/WhwYsD+abM8hy8c
+         eXamFanU1G3UIiHRljOu8R/95UsYK+6CcOGwI4B2YU6NHJ7Qmv3iB7JvpKO1HVj3aATz
+         ClX7903W1Qp/q2Nf0Q1JOn47nLnwDmHwN4T4+8w5P1UozyHIMgwfme71L6PbEWdZsz/G
+         B2KwVRSJep4Q82G4Qf7Yjg3DwSCFMsXSFAkKmf0+K5uy/n/BOcuCPbKv7Ez2/609Icsp
+         fa23GbY4Pk5ptXliE21YLKmZqjXV5m+USVKw+w9BCR8Bqm8Y0OkLJGmeu3QSu3okS2Ne
+         jvYw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765917393; x=1766522193;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Gv3fR1f0d4J7Wx8tPpx3i+Ybrysql766wrV4wqRgUXM=;
+        b=qSh7ye/0qh2z4O+v7YSsVTtAxIN3DzwFAVpJvItTvRucfCi8CVJpc5Dh89k3wBduFS
+         amjYJyPuER/TTo2ZuKi3ZFMigdIcTET3x4q//PO6ManQLXbjLs5Eh32mQHNyp9FH16vj
+         DeB7xNlkA/YRvATMyPhD5jig7VjEXETsf243wJ5SLXHCSOdMLDTPrsVJmHn9Mhk9ht7l
+         pncXm0rnkNm5lT+OKYMNedEKCX+DEDKjDo8v1T7SQ5urXr/0/3Y6XrK6fNHaW90IHHwj
+         rwnWhx9s00jru1XTjKhjhcE3LedDC6h8yzB0jYF/kr7khBBpcEr900Qak6oDyybTOOc2
+         Vnhg==
+X-Forwarded-Encrypted: i=1; AJvYcCVm1oVHYEVObSybI6x7Qrg/dTM9ThOGbYO2HNjiyIeF7rDr7huPfXc8p6jQNtVmaq8ZURUdjIuXEsF6CkfWL3/L@lists.infradead.org
+X-Gm-Message-State: AOJu0YzKdiT/1yvxveRKt9oCqwB3C11UwfFhl8qhH6sov99UbV57smI7
+	XrdThPhQIE8QYbUKVRvQlRhN4w0nIJX+05ah6mp+xDUp+kNHlwwVYjiSpFK6CA8nOEinkhAQEPh
+	ddiuXLnjoe3WNkCAczyEziIyltrWtET+/UwUg3eJsaw==
+X-Gm-Gg: AY/fxX5QpAIheb3YOsvJ9ng26ppYyw9pO2CIuRn6EF2GAMdoUleTEyQ0RBZP91aCEOL
+	y2zu1zpYEciYOHJ1PsCH+q8P2ZAU85gvZn8kY+L6G+jWNV9WrDgKqkCdN9a9dCKDdA892DC0CHF
+	QYX5oclSuFj43EMHd80oUhJSTOPX8KNvzEnhsbuID+j5w3qOvRZBxEschmk1Sbh/1Jf7vzNY1P9
+	p2q/GSHdN06mcfsCMgZBVQU7Hwi5tqGtEuVKZcyyk6o1FU1Yfv6AMI4CeYuJCe3A4C82DP1D3b1
+	1RRA4t+rQ9emU+8/HVHKIcBgjKU=
+X-Google-Smtp-Source: AGHT+IExU87DSA2S8FSy599HClbXmZSv9EyKVLPHHplD5eT/zCPtN3v7yL9S8zyn9eTla/ftNmU4AxeJdv6gSgRVcTE=
+X-Received: by 2002:a05:6402:3549:b0:649:9260:1031 with SMTP id
+ 4fb4d7f45d1cf-6499b2fab64mr14180164a12.32.1765917393067; Tue, 16 Dec 2025
+ 12:36:33 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20251216141511.GD6079@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CDE:EE_|CH1PPF84B7B0C96:EE_
-X-MS-Office365-Filtering-Correlation-Id: 218e48be-8509-48d3-7f35-08de3cd76d14
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|82310400026|7416014|1800799024|3613699012;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nypnc31UWTyqIhpv6lrDnL1iDdBHEmkEvg0V6rvV27mAPL3C2R+08h6PL/zK?=
- =?us-ascii?Q?WzgCa4kvJY5kXldQJ4sEf4ABhTOwq+xHDMynlQGjezFiT5uSDo6NV+ligVts?=
- =?us-ascii?Q?cxRjEKYUzps0w5DQJU1msC5lt2Ss+USJmdd9fvuRMe3beaKIJAdQoKk6pzJ3?=
- =?us-ascii?Q?Mw+x0eQ8Rse3tsnEhrDuZxe1YRAH3G+tuqzF58Q+SKp7qiU9zwPkWbHTZ1HA?=
- =?us-ascii?Q?rU36Z5JwNzpaYgZHJLzIEGBiDD2fMpcDNjeJiKYP9b8usnBxXgWCPDoazw/K?=
- =?us-ascii?Q?r6S8XJoA0ilLdx9bUJNQN2ug4QDJdlq9QODKHFy+yelOLKSXhaHPCG0+uQSt?=
- =?us-ascii?Q?dvnn1r81p/gMZ9zX1TsoATZGgjxz49WF/0GNlVi2JTZGQD8wBg1H1D+qdqHa?=
- =?us-ascii?Q?x73KxKlpeVsNhk//Udq9vCnKZg5IpdlDmb/17cAttiVLRBqINPKfX7iEM+Bt?=
- =?us-ascii?Q?vBkGD3/AT173hpSsfD3ZZWdV2oqpGgMbNhUkbEwlcffjJxSLArFun4ldFy4E?=
- =?us-ascii?Q?WNzrOEsL32zxwWuA2s8tC27rxXGNz+34RqJ/Hj9cQ7dAn2i58hR0JfjYiLfA?=
- =?us-ascii?Q?WUXfKBoCbSwHRZNgfvCdEMLcTVfEkutU7pMYWh4vYaQUCCAESHk2gylxWhYZ?=
- =?us-ascii?Q?uflMGqGCNru+mPUbM7ErV3dzCIxJVmppIOhknC/tbFojCxfosFjAOvclvIXb?=
- =?us-ascii?Q?umWPD2577a7nTGDcw0BH1gM8cVEr9vAaUVobsPlDvaoOv9sZmio+vohZ2iWk?=
- =?us-ascii?Q?KzaevW0xIAqcPrftUIche3VUniUplgardiuopTKA/G6Gcxkbpx/nNS8FsNLu?=
- =?us-ascii?Q?XKNMcEEk6REtWKIQw63/qHYBGXLQE+LS/aXEk1/eduRjJzzfK5DT0b6xgCnV?=
- =?us-ascii?Q?WqVaVw1+Y9a9cn7rHGvxUKudp70RhveCrcUDYz6YeT+Hskz7NxlInZBvNQcf?=
- =?us-ascii?Q?h2dFTAaxa7KEI9O0QGbu6QgS14aRHQlIbjEq79nrjoEUmORqCkfHytItls72?=
- =?us-ascii?Q?WOJ1mmI2lWuLxXJgZRTBW6cwAdBRkHQivUhFtRr3CFf9rCDMf5FVtVhFKVwq?=
- =?us-ascii?Q?TUl3+/l6QDl/OfrTaaYqI46IZQyMF3Fa4dQRZsoPj9tlvSIBWkNKqqBFopND?=
- =?us-ascii?Q?1SRZI0MsRn2sbdpCPQVOOHPokPlkdzBW9cjtDtOoA5rd60G65L6NnkZZQCWV?=
- =?us-ascii?Q?0aXi/S+rcCZFP2inDv6Z95f0HUWEl/mhPpoYBc+tGICeFaaVBbqtBNx8OFCc?=
- =?us-ascii?Q?6HZjHGCirXvx3+kJcol+eez4qvG32i+Jfr2keg1lmNLDo2GJHl32Omp2B0zk?=
- =?us-ascii?Q?RAgayOZDl2L2hIZHLZ3Hg/x6GKMfkPI0RCwefRwiM0mU7MVXHpXJLSMeoqX3?=
- =?us-ascii?Q?oPg/e7EYpa7ZfkAjtzaI2Z8c4v4Ls+v4TsEvx2pmfhThGZXsyTTF8VX2SI0Z?=
- =?us-ascii?Q?24OrUeblL0KvGgTEJWvLYQcNDJfe/mdZiT5ikq5DHJwbdsI3/nzy8SODUPu8?=
- =?us-ascii?Q?NOlioxbCTR0Gg2KM3falXPoaVvCwjLcQ0s7zaLvyJpPNFSroGNkR6kZ9TrzO?=
- =?us-ascii?Q?653meLNY6gpCrUGciF3abkPvfH/r9J8sHby4uZE5?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(376014)(82310400026)(7416014)(1800799024)(3613699012);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Dec 2025 19:15:07.7568
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 218e48be-8509-48d3-7f35-08de3cd76d14
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CDE.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH1PPF84B7B0C96
+References: <20251105082639.342973-1-cleger@rivosinc.com> <20251105082639.342973-5-cleger@rivosinc.com>
+ <CAEEQ3wnQiUdNVjUpdDgAx1=y76vSo66vCD0Wf3EGes274jnkxw@mail.gmail.com>
+In-Reply-To: <CAEEQ3wnQiUdNVjUpdDgAx1=y76vSo66vCD0Wf3EGes274jnkxw@mail.gmail.com>
+From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
+Date: Tue, 16 Dec 2025 21:36:21 +0100
+X-Gm-Features: AQt7F2oJjudh2yUHpteIzwQ-QrinFlTlFBTNMiuLYLvYre9WM5CdGCJaEQiOqa0
+Message-ID: <CADGDLFgnx3z9WMZBjURx7eEFeeDwb9tj+8WAik4siR_G8erk0Q@mail.gmail.com>
+Subject: Re: [External] [PATCH v8 4/5] perf: RISC-V: add support for SSE event
+To: yunhui cui <cuiyunhui@bytedance.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, 
+	Himanshu Chauhan <hchauhan@ventanamicro.com>, Anup Patel <apatel@ventanamicro.com>, 
+	Xu Lu <luxu.kernel@bytedance.com>, Atish Patra <atishp@atishpatra.org>, 
+	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_111519_288679_0AF9266D 
-X-CRM114-Status: UNSURE (   8.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251216_123635_365744_DBE81F59 
+X-CRM114-Status: GOOD (  34.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,23 +101,322 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 16, 2025 at 10:15:11AM -0400, Jason Gunthorpe wrote:
-> This also has a pre-existing dma_wmb(), a fuller chart would be like this:
-> 
->    arm_smmu_domain_inv_range() 		arm_smmu_install_new_domain_invs()
->  
->      [W] IOPTE				  [Wrel] smmu_domain->invs
->      smp_mb()				  smp_mb()  <--- arm_smmu_install_new_domain_invs()
-> 					  [build the STE]
-> 					  [post the STE]
-> 					  dma_wmb() <--- arm_smmu_cmdq_issue_cmdlist()
->                                           Doorbell Write to Device
->      [Lacq] smmu_domain->invs		  [L] IOPTE via DMA
-> 
-> Nicolin, please elabortate more of these details in the comment.
+On Fri, Dec 12, 2025 at 4:17=E2=80=AFAM yunhui cui <cuiyunhui@bytedance.com=
+> wrote:
+>
+> Hi Cl=C3=A9ment,
+>
+> On Wed, Nov 5, 2025 at 4:29=E2=80=AFPM Cl=C3=A9ment L=C3=A9ger <cleger@ri=
+vosinc.com> wrote:
+> >
+> > In order to use SSE within PMU drivers, register a SSE handler for the
+> > local PMU event. Reuse the existing overflow IRQ handler and pass
+> > appropriate pt_regs. Add a config option RISCV_PMU_SSE to select event
+> > delivery via SSE events.
+> >
+> > Signed-off-by: Cl=C3=A9ment L=C3=A9ger <cleger@rivosinc.com>
+> > ---
+> >  drivers/perf/Kconfig           | 10 +++++
+> >  drivers/perf/riscv_pmu.c       | 23 +++++++++++
+> >  drivers/perf/riscv_pmu_sbi.c   | 71 +++++++++++++++++++++++++++++-----
+> >  include/linux/perf/riscv_pmu.h |  5 +++
+> >  4 files changed, 99 insertions(+), 10 deletions(-)
+> >
+> > diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
+> > index 638321fc9800..d6ffc2b036e5 100644
+> > --- a/drivers/perf/Kconfig
+> > +++ b/drivers/perf/Kconfig
+> > @@ -105,6 +105,16 @@ config RISCV_PMU_SBI
+> >           full perf feature support i.e. counter overflow, privilege mo=
+de
+> >           filtering, counter configuration.
+> >
+> > +config RISCV_PMU_SBI_SSE
+> > +       depends on RISCV_PMU && RISCV_SBI_SSE
+> > +       bool "RISC-V PMU SSE events"
+> > +       default n
+> > +       help
+> > +         Say y if you want to use SSE events to deliver PMU interrupts=
+. This
+> > +         provides a way to profile the kernel at any level by using NM=
+I-like
+> > +         SSE events. SSE events being really intrusive, this option al=
+lows
+> > +         to select it only if needed.
+> > +
+> >  config STARFIVE_STARLINK_PMU
+> >         depends on ARCH_STARFIVE || COMPILE_TEST
+> >         depends on 64BIT
+> > diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
+> > index 7644147d50b4..dda2814801c0 100644
+> > --- a/drivers/perf/riscv_pmu.c
+> > +++ b/drivers/perf/riscv_pmu.c
+> > @@ -13,6 +13,7 @@
+> >  #include <linux/irqdesc.h>
+> >  #include <linux/perf/riscv_pmu.h>
+> >  #include <linux/printk.h>
+> > +#include <linux/riscv_sbi_sse.h>
+> >  #include <linux/smp.h>
+> >  #include <linux/sched_clock.h>
+> >
+> > @@ -254,6 +255,24 @@ void riscv_pmu_start(struct perf_event *event, int=
+ flags)
+> >         perf_event_update_userpage(event);
+> >  }
+> >
+> > +#ifdef CONFIG_RISCV_PMU_SBI_SSE
+> > +static void riscv_pmu_disable(struct pmu *pmu)
+> > +{
+> > +       struct riscv_pmu *rvpmu =3D to_riscv_pmu(pmu);
+> > +
+> > +       if (rvpmu->sse_evt)
+> > +               sse_event_disable_local(rvpmu->sse_evt);
+> > +}
+> > +
+> > +static void riscv_pmu_enable(struct pmu *pmu)
+> > +{
+> > +       struct riscv_pmu *rvpmu =3D to_riscv_pmu(pmu);
+> > +
+> > +       if (rvpmu->sse_evt)
+> > +               sse_event_enable_local(rvpmu->sse_evt);
+> > +}
+> > +#endif
+> > +
+> >  static int riscv_pmu_add(struct perf_event *event, int flags)
+> >  {
+> >         struct riscv_pmu *rvpmu =3D to_riscv_pmu(event->pmu);
+> > @@ -411,6 +430,10 @@ struct riscv_pmu *riscv_pmu_alloc(void)
+> >                 .event_mapped   =3D riscv_pmu_event_mapped,
+> >                 .event_unmapped =3D riscv_pmu_event_unmapped,
+> >                 .event_idx      =3D riscv_pmu_event_idx,
+> > +#ifdef CONFIG_RISCV_PMU_SBI_SSE
+> > +               .pmu_enable     =3D riscv_pmu_enable,
+> > +               .pmu_disable    =3D riscv_pmu_disable,
+> > +#endif
+> >                 .add            =3D riscv_pmu_add,
+> >                 .del            =3D riscv_pmu_del,
+> >                 .start          =3D riscv_pmu_start,
+> > diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.=
+c
+> > index e255c1b069ec..c852f64a5022 100644
+> > --- a/drivers/perf/riscv_pmu_sbi.c
+> > +++ b/drivers/perf/riscv_pmu_sbi.c
+> > @@ -17,6 +17,7 @@
+> >  #include <linux/irqdomain.h>
+> >  #include <linux/of_irq.h>
+> >  #include <linux/of.h>
+> > +#include <linux/riscv_sbi_sse.h>
+> >  #include <linux/cpu_pm.h>
+> >  #include <linux/sched/clock.h>
+> >  #include <linux/soc/andes/irq.h>
+> > @@ -1038,10 +1039,10 @@ static void pmu_sbi_start_overflow_mask(struct =
+riscv_pmu *pmu,
+> >                 pmu_sbi_start_ovf_ctrs_sbi(cpu_hw_evt, ctr_ovf_mask);
+> >  }
+> >
+> > -static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+> > +static irqreturn_t pmu_sbi_ovf_handler(struct cpu_hw_events *cpu_hw_ev=
+t,
+> > +                                      struct pt_regs *regs, bool from_=
+sse)
+> >  {
+> >         struct perf_sample_data data;
+> > -       struct pt_regs *regs;
+> >         struct hw_perf_event *hw_evt;
+> >         union sbi_pmu_ctr_info *info;
+> >         int lidx, hidx, fidx;
+> > @@ -1049,7 +1050,6 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, v=
+oid *dev)
+> >         struct perf_event *event;
+> >         u64 overflow;
+> >         u64 overflowed_ctrs =3D 0;
+> > -       struct cpu_hw_events *cpu_hw_evt =3D dev;
+> >         u64 start_clock =3D sched_clock();
+> >         struct riscv_pmu_snapshot_data *sdata =3D cpu_hw_evt->snapshot_=
+addr;
+> >
+> > @@ -1059,13 +1059,15 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq,=
+ void *dev)
+> >         /* Firmware counter don't support overflow yet */
+> >         fidx =3D find_first_bit(cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COU=
+NTERS);
+> >         if (fidx =3D=3D RISCV_MAX_COUNTERS) {
+> > -               csr_clear(CSR_SIP, BIT(riscv_pmu_irq_num));
+> > +               if (!from_sse)
+> > +                       csr_clear(CSR_SIP, BIT(riscv_pmu_irq_num));
+> >                 return IRQ_NONE;
+> >         }
+> >
+> >         event =3D cpu_hw_evt->events[fidx];
+> >         if (!event) {
+> > -               ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_mask);
+> > +               if (!from_sse)
+> > +                       ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_mas=
+k);
+> >                 return IRQ_NONE;
+> >         }
+> >
+> > @@ -1080,16 +1082,16 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq,=
+ void *dev)
+> >
+> >         /*
+> >          * Overflow interrupt pending bit should only be cleared after =
+stopping
+> > -        * all the counters to avoid any race condition.
+> > +        * all the counters to avoid any race condition. When using SSE=
+,
+> > +        * interrupt is cleared when stopping counters.
+> >          */
+> > -       ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_mask);
+> > +       if (!from_sse)
+> > +               ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_mask);
+> >
+> >         /* No overflow bit is set */
+> >         if (!overflow)
+> >                 return IRQ_NONE;
+> >
+> > -       regs =3D get_irq_regs();
+> > -
+> >         for_each_set_bit(lidx, cpu_hw_evt->used_hw_ctrs, RISCV_MAX_COUN=
+TERS) {
+> >                 struct perf_event *event =3D cpu_hw_evt->events[lidx];
+> >
+> > @@ -1145,6 +1147,51 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq, =
+void *dev)
+> >         return IRQ_HANDLED;
+> >  }
+> >
+> > +static irqreturn_t pmu_sbi_ovf_irq_handler(int irq, void *dev)
+> > +{
+> > +       return pmu_sbi_ovf_handler(dev, get_irq_regs(), false);
+> > +}
+> > +
+> > +#ifdef CONFIG_RISCV_PMU_SBI_SSE
+> > +static int pmu_sbi_ovf_sse_handler(u32 evt, void *arg, struct pt_regs =
+*regs)
+> > +{
+> > +       struct cpu_hw_events __percpu *hw_events =3D arg;
+> > +       struct cpu_hw_events *hw_event =3D raw_cpu_ptr(hw_events);
+> > +
+> > +       pmu_sbi_ovf_handler(hw_event, regs, true);
+> > +
+> > +       return 0;
+> > +}
+> > +
+> > +static int pmu_sbi_setup_sse(struct riscv_pmu *pmu)
+> > +{
+> > +       int ret;
+> > +       struct sse_event *evt;
+> > +       struct cpu_hw_events __percpu *hw_events =3D pmu->hw_events;
+> > +
+> > +       evt =3D sse_event_register(SBI_SSE_EVENT_LOCAL_PMU_OVERFLOW, 0,
+> > +                                pmu_sbi_ovf_sse_handler, hw_events);
+>
+> As Radim suggested, we had better preset a priority for different
+> events, such as these events and future ones:
+> SBI_SSE_EVENT_LOCAL_HIGH_PRIO_RAS
+> SBI_SSE_EVENT_LOCAL_DOUBLE_TRAP
+> SBI_SSE_EVENT_GLOBAL_HIGH_PRIO_RAS
+> SBI_SSE_EVENT_LOCAL_PMU_OVERFLOW
+> SBI_SSE_EVENT_LOCAL_LOW_PRIO_RAS
+> SBI_SSE_EVENT_GLOBAL_LOW_PRIO_RAS
+> SBI_SSE_EVENT_LOCAL_SOFTWARE_INJECTED
+> SBI_SSE_EVENT_LOCAL_UNKNOWN_NMI
+> SBI_SSE_EVENT_GLOBAL_SOFTWARE_INJECTED
 
-Ack. I will add the chart above.
+Hey Yunhui,
 
-Thanks
-Nicolin
+What do you mean exactly ? Events have default priority based on their
+ID. However, the register call will set a priority =3D 0 for the event.
+I'll modify that to allow using an optional priority (or even remove
+it)
+
+Thanks,
+
+Cl=C3=A9ment
+
+>
+> Could you please help add a "global priority enum"?
+>
+>
+> > +       if (IS_ERR(evt))
+> > +               return PTR_ERR(evt);
+> > +
+> > +       ret =3D sse_event_enable(evt);
+> > +       if (ret) {
+> > +               sse_event_unregister(evt);
+> > +               return ret;
+> > +       }
+> > +
+> > +       pr_info("using SSE for PMU event delivery\n");
+> > +       pmu->sse_evt =3D evt;
+> > +
+> > +       return ret;
+> > +}
+> > +#else
+> > +static int pmu_sbi_setup_sse(struct riscv_pmu *pmu)
+> > +{
+> > +       return -EOPNOTSUPP;
+> > +}
+> > +#endif
+> > +
+> >  static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *n=
+ode)
+> >  {
+> >         struct riscv_pmu *pmu =3D hlist_entry_safe(node, struct riscv_p=
+mu, node);
+> > @@ -1195,6 +1242,10 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *=
+pmu, struct platform_device *pde
+> >         struct cpu_hw_events __percpu *hw_events =3D pmu->hw_events;
+> >         struct irq_domain *domain =3D NULL;
+> >
+> > +       ret =3D pmu_sbi_setup_sse(pmu);
+> > +       if (!ret)
+> > +               return 0;
+> > +
+> >         if (riscv_isa_extension_available(NULL, SSCOFPMF)) {
+> >                 riscv_pmu_irq_num =3D RV_IRQ_PMU;
+> >                 riscv_pmu_use_irq =3D true;
+> > @@ -1229,7 +1280,7 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu *p=
+mu, struct platform_device *pde
+> >                 return -ENODEV;
+> >         }
+> >
+> > -       ret =3D request_percpu_irq(riscv_pmu_irq, pmu_sbi_ovf_handler, =
+"riscv-pmu", hw_events);
+> > +       ret =3D request_percpu_irq(riscv_pmu_irq, pmu_sbi_ovf_irq_handl=
+er, "riscv-pmu", hw_events);
+> >         if (ret) {
+> >                 pr_err("registering percpu irq failed [%d]\n", ret);
+> >                 return ret;
+> > diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/riscv_=
+pmu.h
+> > index f82a28040594..08fdcf6baf4e 100644
+> > --- a/include/linux/perf/riscv_pmu.h
+> > +++ b/include/linux/perf/riscv_pmu.h
+> > @@ -28,6 +28,8 @@
+> >
+> >  #define RISCV_PMU_CONFIG1_GUEST_EVENTS 0x1
+> >
+> > +struct sse_event;
+> > +
+> >  struct cpu_hw_events {
+> >         /* currently enabled events */
+> >         int                     n_events;
+> > @@ -54,6 +56,9 @@ struct riscv_pmu {
+> >         char            *name;
+> >
+> >         irqreturn_t     (*handle_irq)(int irq_num, void *dev);
+> > +#ifdef CONFIG_RISCV_PMU_SBI_SSE
+> > +       struct sse_event *sse_evt;
+> > +#endif
+> >
+> >         unsigned long   cmask;
+> >         u64             (*ctr_read)(struct perf_event *event);
+> > --
+> > 2.43.0
+> >
+>
+> Thanks,
+> Yunhui
 
