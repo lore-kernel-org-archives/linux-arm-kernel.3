@@ -4,81 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98CB3D609D7
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 18:01:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B687AD609D7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 18:01:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q1SQgG8CDgy8pHJUhmPefyNI4mOwi1BDcEiUTUoG2qs=; b=rUcN4wfqyMG7O7TFO/G+c1hHRP
-	QNrICIx8EPSaGL+ayl1qOVZUYpEKQ42+XcAjqxLh4BVy6SdTbYM/q2LHoBvWUxRh+Qwq50W+Mxo1t
-	9VgZ1ex3M/cQenUyz6ZuOyISJo8NOhseo5GJ7zK/pu5deOiQbhhNgLHNRGSt9adPAll2blGmsmmBG
-	SK36n8Z4icq6nnxbiwlLOtIlZsYNBQI1pRtzq+RkfQ+lt094c/q26O4LuftkxPqZO80vbZqZnt/4+
-	GN0QLp8xAZqC8l+vpl5jC01kp0wav3gZ0rIDC5PvFpSqXRQoYy6CxrOjNyS1rAFoe0ALx8e6D63J3
-	o7XgxpKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3MnI1dIuceXVlcCF5b1M18jcWU30dytsPlcPOyQI2+U=; b=exZi6+qp4EPRrAZdfyuKzodIAs
+	hB1t2cQNMK3wfL0uvg53Z7SLvC4vuLPTAcuoU5cB6TmhlN6fxx1z1F8CIflaQ9IhyPQv5uDzEsfVO
+	pMt6x+jFoHx/ZnOhbZdjhNZn3WJtA1NT4Ho8zGfkAQH+W3HZTCNwqnXEaoYyB4iSQc6DCnf2yH0SS
+	kaShIhD3EHrhRpuzmKCG7VTN9nN2tPkLDyWYjMH1lSc/uuaUfZl/52xHFGcjp2Y2DU8x0HQBQzHFW
+	JSLWzpplRPrMTiuzMcg2fRkfPh1MI0NmPQKu3n2eFc8L5VE6ayXF1eWLYkAT7ZZdPieomo47A+8M8
+	DoAH+5Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVZMM-00000005fd4-2KEk;
-	Tue, 16 Dec 2025 18:01:18 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vVZMY-00000005fnl-2J3L;
+	Tue, 16 Dec 2025 18:01:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVZME-00000005fQR-16bD
+	id 1vVZMO-00000005fej-44C6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 18:01:13 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 83FA71A2256;
-	Tue, 16 Dec 2025 18:01:08 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 5824C6071C;
-	Tue, 16 Dec 2025 18:01:08 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 03259119A97F1;
-	Tue, 16 Dec 2025 19:00:59 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1765908063; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=q1SQgG8CDgy8pHJUhmPefyNI4mOwi1BDcEiUTUoG2qs=;
-	b=K40Qm54C3qdPF1+qLRUL+AfP2p8yAX1aWTb5MdJ5M1M6JIaqfvIKIdfG/XNh3YHiSd1elV
-	L/V7oyrMVc+BYvsG2C+wfa+mO6KA+3DGdlxnIHxD6L5WzwsWQsFVRYou5gLS+UJOdLHM6u
-	ar6vAMFqbotLZk6bgd/f16073Qir2VWOJBDRGidTy8ulP7z9/SbnP0ocqFgL7Qo1f3zSaJ
-	UYj3CLRGAXutCaTsq+fpks/CY68yAu6ds1Wbh4YU5edv1m7qvrZOj0tXnc0gJY+B7F5GnL
-	QJ9dtLvpqb3tS7yHZj/CKp8HkftGnPMgAdx/66AqAwoL+eLy5ZT87ZVpe2YFmQ==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Tue, 16 Dec 2025 18:58:54 +0100
-Subject: [PATCH v3 21/22] drm/bridge: imx8qxp-pixel-link:
- imx8qxp_pixel_link_find_next_bridge: return int, not ERR_PTR
+	Tue, 16 Dec 2025 18:01:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 67B35601A2;
+	Tue, 16 Dec 2025 18:01:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE8E3C4CEF1;
+	Tue, 16 Dec 2025 18:01:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765908080;
+	bh=UKbvHEFdrbGA70W2Vp+q+A5UUZFxp7s4Z2HxcK440Tw=;
+	h=From:To:Cc:Subject:Date:From;
+	b=OLSy2oumnMUuLjA6kChb6sehsEOr4pZYYgFz1ab08CgzmpgGCngCdfQSpoNEOe7DG
+	 ChZkA31NDloUjKxbr+LWK4Ad5nNxJlggPbo4vn1kgYS/pieSTKlNLZIkB3HfncmHyC
+	 ld6Ybj7cKKEl7FcuUMoR+qtG0FIJ3jJcgS5WfOj3tnC8JkhlSYOER4VsdSbQdi7COs
+	 5zYOlmIXjvkjDBrDkX3svjd7c6fIYd+p1hIBShxITPnxNrI3SEuSk3VYKS3d1K4z9t
+	 tpG5aim5Lafa/Oe8Z43LoZQKnGHDsG88joj7OxgtfqL8M89TB6oHk7r2C7b3rolcSz
+	 mxMq7KOkgwnWA==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: soc@kernel.org,
+	Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: toshiba: Use recommended node names
+Date: Tue, 16 Dec 2025 12:00:54 -0600
+Message-ID: <20251216180055.2793215-2-robh@kernel.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251216-drm-bridge-alloc-getput-drm_of_find_bridge-v3-21-b5165fab8058@bootlin.com>
-References: <20251216-drm-bridge-alloc-getput-drm_of_find_bridge-v3-0-b5165fab8058@bootlin.com>
-In-Reply-To: <20251216-drm-bridge-alloc-getput-drm_of_find_bridge-v3-0-b5165fab8058@bootlin.com>
-To: Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Jonathan Corbet <corbet@lwn.net>, Alexey Brodkin <abrodkin@synopsys.com>, 
- Phong LE <ple@baylibre.com>, Liu Ying <victor.liu@nxp.com>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Kevin Hilman <khilman@baylibre.com>, 
- Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: Hui Pu <Hui.Pu@gehealthcare.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-doc@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_100110_642094_71253289 
-X-CRM114-Status: GOOD (  14.38  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,78 +70,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for using bridge->next_bridge, we need to ensure that it
-will never contain anything but NULL or a valid bridge pointer. Current
-code stores an ERR_PTR when imx8qxp_pixel_link_find_next_bridge() errors
-out. Instead of fixing that after the facts in the caller, change the
-function to internally set pl->next_bridge and just return an int error
-value.
+Update Toshiba TMPV7708 node name to the recommended standard node
+names. Generally, node names and paths aren't considered ABI, so it
+is safe to change them.
 
-No functional changes.
-
-Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- drivers/gpu/drm/bridge/imx/imx8qxp-pixel-link.c | 16 ++++++++--------
- 1 file changed, 8 insertions(+), 8 deletions(-)
+SoC maintainers, Please take this directly.
 
-diff --git a/drivers/gpu/drm/bridge/imx/imx8qxp-pixel-link.c b/drivers/gpu/drm/bridge/imx/imx8qxp-pixel-link.c
-index 0c5ed06eee1b..91e4f4d55469 100644
---- a/drivers/gpu/drm/bridge/imx/imx8qxp-pixel-link.c
-+++ b/drivers/gpu/drm/bridge/imx/imx8qxp-pixel-link.c
-@@ -256,8 +256,7 @@ static int imx8qxp_pixel_link_disable_all_controls(struct imx8qxp_pixel_link *pl
- 	return imx8qxp_pixel_link_disable_sync(pl);
- }
- 
--static struct drm_bridge *
--imx8qxp_pixel_link_find_next_bridge(struct imx8qxp_pixel_link *pl)
-+static int imx8qxp_pixel_link_find_next_bridge(struct imx8qxp_pixel_link *pl)
- {
- 	struct device_node *np = pl->dev->of_node;
- 	struct device_node *port;
-@@ -282,7 +281,7 @@ imx8qxp_pixel_link_find_next_bridge(struct imx8qxp_pixel_link *pl)
- 
- 	if (!found_port) {
- 		DRM_DEV_ERROR(pl->dev, "no available output port\n");
--		return ERR_PTR(-ENODEV);
-+		return -ENODEV;
- 	}
- 
- 	for (reg = 0; reg < PL_MAX_NEXT_BRIDGES; reg++) {
-@@ -300,7 +299,7 @@ imx8qxp_pixel_link_find_next_bridge(struct imx8qxp_pixel_link *pl)
- 
- 		struct drm_bridge *next_bridge = of_drm_find_bridge(remote);
- 		if (!next_bridge)
--			return ERR_PTR(-EPROBE_DEFER);
-+			return -EPROBE_DEFER;
- 
- 		/*
- 		 * Select the next bridge with companion PXL2DPI if
-@@ -311,8 +310,9 @@ imx8qxp_pixel_link_find_next_bridge(struct imx8qxp_pixel_link *pl)
- 	}
- 
- 	pl->mst_addr = port_id - 1;
-+	pl->next_bridge = selected_bridge;
- 
--	return selected_bridge;
-+	return 0;
- }
- 
- static int imx8qxp_pixel_link_bridge_probe(struct platform_device *pdev)
-@@ -368,9 +368,9 @@ static int imx8qxp_pixel_link_bridge_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
--	pl->next_bridge = imx8qxp_pixel_link_find_next_bridge(pl);
--	if (IS_ERR(pl->next_bridge))
--		return PTR_ERR(pl->next_bridge);
-+	ret = imx8qxp_pixel_link_find_next_bridge(pl);
-+	if (ret)
-+		return ret;
- 
- 	platform_set_drvdata(pdev, pl);
- 
+ arch/arm64/boot/dts/toshiba/tmpv7708-rm-mbrc.dts      | 2 +-
+ arch/arm64/boot/dts/toshiba/tmpv7708-visrobo-vrb.dts  | 2 +-
+ arch/arm64/boot/dts/toshiba/tmpv7708-visrobo-vrc.dtsi | 2 +-
+ arch/arm64/boot/dts/toshiba/tmpv7708.dtsi             | 4 ++--
+ arch/arm64/boot/dts/toshiba/tmpv7708_pins.dtsi        | 2 +-
+ 5 files changed, 6 insertions(+), 6 deletions(-)
 
+diff --git a/arch/arm64/boot/dts/toshiba/tmpv7708-rm-mbrc.dts b/arch/arm64/boot/dts/toshiba/tmpv7708-rm-mbrc.dts
+index d209fdc98597..8d099b237025 100644
+--- a/arch/arm64/boot/dts/toshiba/tmpv7708-rm-mbrc.dts
++++ b/arch/arm64/boot/dts/toshiba/tmpv7708-rm-mbrc.dts
+@@ -43,7 +43,7 @@ &piether {
+ 	phy-handle = <&phy0>;
+ 	phy-mode = "rgmii-id";
+ 
+-	mdio0 {
++	mdio {
+ 		#address-cells = <1>;
+ 		#size-cells = <0>;
+ 		compatible = "snps,dwmac-mdio";
+diff --git a/arch/arm64/boot/dts/toshiba/tmpv7708-visrobo-vrb.dts b/arch/arm64/boot/dts/toshiba/tmpv7708-visrobo-vrb.dts
+index ed7aa7e457b1..4439b3e8acbb 100644
+--- a/arch/arm64/boot/dts/toshiba/tmpv7708-visrobo-vrb.dts
++++ b/arch/arm64/boot/dts/toshiba/tmpv7708-visrobo-vrb.dts
+@@ -43,7 +43,7 @@ &piether {
+ 	phy-handle = <&phy0>;
+ 	phy-mode = "rgmii-id";
+ 
+-	mdio0 {
++	mdio {
+ 		#address-cells = <1>;
+ 		#size-cells = <0>;
+ 		compatible = "snps,dwmac-mdio";
+diff --git a/arch/arm64/boot/dts/toshiba/tmpv7708-visrobo-vrc.dtsi b/arch/arm64/boot/dts/toshiba/tmpv7708-visrobo-vrc.dtsi
+index 0c8321022a73..af406f7285c4 100644
+--- a/arch/arm64/boot/dts/toshiba/tmpv7708-visrobo-vrc.dtsi
++++ b/arch/arm64/boot/dts/toshiba/tmpv7708-visrobo-vrc.dtsi
+@@ -26,7 +26,7 @@ &spi0_pins {
+ &spi0 {
+ 	status = "okay";
+ 
+-	mmc-slot@0 {
++	mmc@0 {
+ 		compatible = "mmc-spi-slot";
+ 		reg = <0>;
+ 		gpios = <&gpio 15 GPIO_ACTIVE_LOW>;
+diff --git a/arch/arm64/boot/dts/toshiba/tmpv7708.dtsi b/arch/arm64/boot/dts/toshiba/tmpv7708.dtsi
+index 9aa7b1872bd6..88e38d6efcaa 100644
+--- a/arch/arm64/boot/dts/toshiba/tmpv7708.dtsi
++++ b/arch/arm64/boot/dts/toshiba/tmpv7708.dtsi
+@@ -161,7 +161,7 @@ gic: interrupt-controller@24001000 {
+ 			      <0 0x24006000 0 0x2000>;
+ 		};
+ 
+-		pmux: pmux@24190000 {
++		pmux: pinctrl@24190000 {
+ 			compatible = "toshiba,tmpv7708-pinctrl";
+ 			reg = <0 0x24190000 0 0x10000>;
+ 		};
+@@ -463,7 +463,7 @@ piether: ethernet@28000000 {
+ 			status = "disabled";
+ 		};
+ 
+-		wdt: wdt@28330000 {
++		wdt: watchdog@28330000 {
+ 			compatible = "toshiba,visconti-wdt";
+ 			reg = <0 0x28330000 0 0x1000>;
+ 			clocks = <&pismu TMPV770X_CLK_WDTCLK>;
+diff --git a/arch/arm64/boot/dts/toshiba/tmpv7708_pins.dtsi b/arch/arm64/boot/dts/toshiba/tmpv7708_pins.dtsi
+index a480c6ba5f5d..5ea835fe08a8 100644
+--- a/arch/arm64/boot/dts/toshiba/tmpv7708_pins.dtsi
++++ b/arch/arm64/boot/dts/toshiba/tmpv7708_pins.dtsi
+@@ -91,7 +91,7 @@ i2c8_pins: i2c8-pins {
+ 		bias-pull-up;
+ 	};
+ 
+-	pwm_mux: pwm_mux {
++	pwm_mux: pwm-pins {
+ 		function = "pwm";
+ 	};
+ 
 -- 
-2.52.0
+2.51.0
 
 
