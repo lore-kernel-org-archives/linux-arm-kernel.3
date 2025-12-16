@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 307E2D5E396
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 14:46:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFE04D5E393
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 14:46:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+7qp8RI06fGIC5yL5SaOIu17L15Et1Nd735oggnem1Y=; b=ryHSoxci7pcyiP5u7rmkm8PtXR
-	+zHUEQlCX4nkBE2QgVHV2oTMHfp7wLsByQA2F+pl3WG62cduK30ALxcQSFogerI0Yf2wlrRPfs5bR
-	H/D0UnSbU40LStneJqhNs/mVgjdQCVHIwu/HrQrIPBiX2b/CGFnx8POWUILueUoaPE1nhcyTpg4pU
-	AgPgjqL8zQEsNdhOzKm6p8XUjPql3RQ9rK5zej1mgcIQS1mQg6m/joW9sM+LfZCzQ9tZNIB22p6Nb
-	5iuMgOrjp5Janqkp9+T7UpY4tzbExpc4thPrsWZyTHI4weT10bbmSAUbMbIFPzvGXzw05jxoyc4Wm
-	6DliacaA==;
+	bh=TlU3SzCu8jv6xGJu1su9AwiWG7MSA4m7E/Pjf38rzIk=; b=LufMJf1dUY6AVdE1Er9lzGWhvq
+	UR6kg4x0m/gSJVZdJQYEkJUU9Djnrbw16XHBhUf2vqvPSAtyZ8W1djK4+nce3rYi2RM77l3N5B/fd
+	pv2v5+NPgQTPUqkjNYCZ8GqYszvNrqeCjWhfaz90mDdY9SeIRquvIWzk6sJVuURWpmuPe5r95FrWF
+	z1DT7tpqJgQ0kH0fPnPSgKn/XABtJXzyK54qleWIM0LqEI4PiNbuHgiEmkBT9YwmgpeVf7KLqOxPT
+	2drnvPxJLvryO3qooxDChBpgJ/HhLxKQhKL1PmKOcWuhI3OrnHEvbAiUarnGuWwKDGmvwMzbjG379
+	XOrFjdMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVWK2-00000005Myc-4A6l;
+	id 1vVWK2-00000005Mxn-2hxZ;
 	Tue, 16 Dec 2025 14:46:42 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVWJu-00000005MpR-1jix
+	id 1vVWJs-00000005Mnl-2nlI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 14:46:35 +0000
+	Tue, 16 Dec 2025 14:46:33 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CC2741516;
-	Tue, 16 Dec 2025 06:46:26 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 18BA7168F;
+	Tue, 16 Dec 2025 06:46:25 -0800 (PST)
 Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7E1F53F73F;
-	Tue, 16 Dec 2025 06:46:32 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 71C223F73F;
+	Tue, 16 Dec 2025 06:46:30 -0800 (PST)
 From: Ryan Roberts <ryan.roberts@arm.com>
 To: Will Deacon <will@kernel.org>,
 	Ard Biesheuvel <ardb@kernel.org>,
@@ -46,17 +46,17 @@ To: Will Deacon <will@kernel.org>,
 Cc: Ryan Roberts <ryan.roberts@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 13/13] arm64: mm: Provide level hint for flush_tlb_page()
-Date: Tue, 16 Dec 2025 14:45:58 +0000
-Message-ID: <20251216144601.2106412-14-ryan.roberts@arm.com>
+Subject: [PATCH v1 12/13] arm64: mm: Wrap flush_tlb_page() around ___flush_tlb_range()
+Date: Tue, 16 Dec 2025 14:45:57 +0000
+Message-ID: <20251216144601.2106412-13-ryan.roberts@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251216144601.2106412-1-ryan.roberts@arm.com>
 References: <20251216144601.2106412-1-ryan.roberts@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_064634_513083_2EC80DCB 
-X-CRM114-Status: GOOD (  12.95  )
+X-CRM114-CacheID: sfid-20251216_064632_804091_4D70BB8F 
+X-CRM114-Status: GOOD (  17.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,57 +71,173 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Previously tlb invalidations issued by __flush_tlb_page() did not
-contain a level hint. But the function is clearly only ever targeting
-level 3 tlb entries and its documentation agrees:
+Flushing a page from the tlb is just a special case of flushing a range.
+So let's rework flush_tlb_page() so that it simply wraps
+___flush_tlb_range(). While at it, let's also update the API to take the
+same flags that we use when flushing a range. This allows us to delete
+all the ugly "_nosync", "_local" and "_nonotify" variants.
 
-  | this operation only invalidates a single, last-level page-table
-  | entry and therefore does not affect any walk-caches
-
-However, it turns out that the function was actually being used to
-invalidate a level 2 mapping via flush_tlb_fix_spurious_fault_pmd(). The
-bug was benign because the level hint was not set so the HW would still
-invalidate the PMD mapping, and also because the TLBF_NONOTIFY flag was
-set, the bounds of the mapping were never used for anything else.
-
-Now that we have the new and improved range-invalidation API, it is
-trival to fix flush_tlb_fix_spurious_fault_pmd() to explicitly flush the
-whole range (locally, without notification and last level only). So
-let's do that, and then update __flush_tlb_page() to hint level 3.
+Thanks to constant folding, all of the complex looping and tlbi-by-range
+options get eliminated so that the generated code for flush_tlb_page()
+looks very similar to the previous version.
 
 Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
 ---
- arch/arm64/include/asm/pgtable.h  | 5 +++--
- arch/arm64/include/asm/tlbflush.h | 2 +-
- 2 files changed, 4 insertions(+), 3 deletions(-)
+ arch/arm64/include/asm/pgtable.h  |  6 +--
+ arch/arm64/include/asm/tlbflush.h | 81 ++++++++++---------------------
+ arch/arm64/mm/fault.c             |  2 +-
+ 3 files changed, 29 insertions(+), 60 deletions(-)
 
 diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index b96a7ca465a1..61f57647361a 100644
+index 736747fbc843..b96a7ca465a1 100644
 --- a/arch/arm64/include/asm/pgtable.h
 +++ b/arch/arm64/include/asm/pgtable.h
-@@ -138,8 +138,9 @@ static inline void arch_leave_lazy_mmu_mode(void)
+@@ -136,10 +136,10 @@ static inline void arch_leave_lazy_mmu_mode(void)
+  * entries exist.
+  */
  #define flush_tlb_fix_spurious_fault(vma, address, ptep)	\
- 	__flush_tlb_page(vma, address, TLBF_NOBROADCAST | TLBF_NONOTIFY)
+-	local_flush_tlb_page_nonotify(vma, address)
++	__flush_tlb_page(vma, address, TLBF_NOBROADCAST | TLBF_NONOTIFY)
  
--#define flush_tlb_fix_spurious_fault_pmd(vma, address, pmdp)	\
--	__flush_tlb_page(vma, address, TLBF_NOBROADCAST | TLBF_NONOTIFY)
-+#define flush_tlb_fix_spurious_fault_pmd(vma, address, pmdp)			\
-+	__flush_tlb_range(vma, address, address + PMD_SIZE, PMD_SIZE, 2,	\
-+			  TLBF_NOBROADCAST | TLBF_NONOTIFY | TLBF_NOWALKCACHE)
+ #define flush_tlb_fix_spurious_fault_pmd(vma, address, pmdp)	\
+-	local_flush_tlb_page_nonotify(vma, address)
++	__flush_tlb_page(vma, address, TLBF_NOBROADCAST | TLBF_NONOTIFY)
  
  /*
   * ZERO_PAGE is a global shared page that is always zero: used
+@@ -1351,7 +1351,7 @@ static inline int __ptep_clear_flush_young(struct vm_area_struct *vma,
+ 		 * context-switch, which provides a DSB to complete the TLB
+ 		 * invalidation.
+ 		 */
+-		flush_tlb_page_nosync(vma, address);
++		__flush_tlb_page(vma, address, TLBF_NOSYNC);
+ 	}
+ 
+ 	return young;
 diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-index fa5aee990742..f24211b51df3 100644
+index ee747e66bbef..fa5aee990742 100644
 --- a/arch/arm64/include/asm/tlbflush.h
 +++ b/arch/arm64/include/asm/tlbflush.h
-@@ -577,7 +577,7 @@ static inline void __flush_tlb_page(struct vm_area_struct *vma,
- 	unsigned long start = round_down(uaddr, PAGE_SIZE);
- 	unsigned long end = start + PAGE_SIZE;
+@@ -256,10 +256,7 @@ static inline void __tlbi_level(tlbi_op op, u64 addr, u32 level)
+  *		unmapping pages from vmalloc/io space.
+  *
+  *	flush_tlb_page(vma, addr)
+- *		Invalidate a single user mapping for address 'addr' in the
+- *		address space corresponding to 'vma->mm'.  Note that this
+- *		operation only invalidates a single, last-level page-table
+- *		entry and therefore does not affect any walk-caches.
++ *		Equivalent to __flush_tlb_page(..., flags=TLBF_NONE)
+  *
+  *
+  *	Next, we have some undocumented invalidation routines that you probably
+@@ -287,13 +284,14 @@ static inline void __tlbi_level(tlbi_op op, u64 addr, u32 level)
+  *		TLBF_NOSYNC (don't issue trailing dsb) and TLBF_NOBROADCAST
+  *		(only perform the invalidation for the local cpu).
+  *
+- *	local_flush_tlb_page(vma, addr)
+- *		Local variant of flush_tlb_page().  Stale TLB entries may
+- *		remain in remote CPUs.
+- *
+- *	local_flush_tlb_page_nonotify(vma, addr)
+- *		Same as local_flush_tlb_page() except MMU notifier will not be
+- *		called.
++ *	__flush_tlb_page(vma, addr, flags)
++ *		Invalidate a single user mapping for address 'addr' in the
++ *		address space corresponding to 'vma->mm'.  Note that this
++ *		operation only invalidates a single, last-level page-table entry
++ *		and therefore does not affect any walk-caches. flags may contain
++ *		any combination of TLBF_NONOTIFY (don't call mmu notifiers),
++ *		TLBF_NOSYNC (don't issue trailing dsb) and TLBF_NOBROADCAST
++ *		(only perform the invalidation for the local cpu).
+  *
+  *	Finally, take a look at asm/tlb.h to see how tlb_flush() is implemented
+  *	on top of these routines, since that is our interface to the mmu_gather
+@@ -327,51 +325,6 @@ static inline void flush_tlb_mm(struct mm_struct *mm)
+ 	mmu_notifier_arch_invalidate_secondary_tlbs(mm, 0, -1UL);
+ }
  
--	___flush_tlb_range(vma, start, end, PAGE_SIZE, TLBI_TTL_UNKNOWN,
-+	___flush_tlb_range(vma, start, end, PAGE_SIZE, 3,
- 			   TLBF_NOWALKCACHE | flags);
+-static inline void __local_flush_tlb_page_nonotify_nosync(struct mm_struct *mm,
+-							  unsigned long uaddr)
+-{
+-	dsb(nshst);
+-	__tlbi_level_asid(vale1, uaddr, TLBI_TTL_UNKNOWN, ASID(mm));
+-}
+-
+-static inline void local_flush_tlb_page_nonotify(struct vm_area_struct *vma,
+-						 unsigned long uaddr)
+-{
+-	__local_flush_tlb_page_nonotify_nosync(vma->vm_mm, uaddr);
+-	dsb(nsh);
+-}
+-
+-static inline void local_flush_tlb_page(struct vm_area_struct *vma,
+-					unsigned long uaddr)
+-{
+-	__local_flush_tlb_page_nonotify_nosync(vma->vm_mm, uaddr);
+-	mmu_notifier_arch_invalidate_secondary_tlbs(vma->vm_mm, uaddr & PAGE_MASK,
+-						(uaddr & PAGE_MASK) + PAGE_SIZE);
+-	dsb(nsh);
+-}
+-
+-static inline void __flush_tlb_page_nosync(struct mm_struct *mm,
+-					   unsigned long uaddr)
+-{
+-	dsb(ishst);
+-	__tlbi_level_asid(vale1is, uaddr, TLBI_TTL_UNKNOWN, ASID(mm));
+-	mmu_notifier_arch_invalidate_secondary_tlbs(mm, uaddr & PAGE_MASK,
+-						(uaddr & PAGE_MASK) + PAGE_SIZE);
+-}
+-
+-static inline void flush_tlb_page_nosync(struct vm_area_struct *vma,
+-					 unsigned long uaddr)
+-{
+-	return __flush_tlb_page_nosync(vma->vm_mm, uaddr);
+-}
+-
+-static inline void flush_tlb_page(struct vm_area_struct *vma,
+-				  unsigned long uaddr)
+-{
+-	flush_tlb_page_nosync(vma, uaddr);
+-	dsb(ish);
+-}
+-
+ static inline bool arch_tlbbatch_should_defer(struct mm_struct *mm)
+ {
+ 	/*
+@@ -618,6 +571,22 @@ static inline void flush_tlb_range(struct vm_area_struct *vma,
+ 	__flush_tlb_range(vma, start, end, PAGE_SIZE, TLBI_TTL_UNKNOWN, TLBF_NONE);
+ }
+ 
++static inline void __flush_tlb_page(struct vm_area_struct *vma,
++				    unsigned long uaddr, tlbf_t flags)
++{
++	unsigned long start = round_down(uaddr, PAGE_SIZE);
++	unsigned long end = start + PAGE_SIZE;
++
++	___flush_tlb_range(vma, start, end, PAGE_SIZE, TLBI_TTL_UNKNOWN,
++			   TLBF_NOWALKCACHE | flags);
++}
++
++static inline void flush_tlb_page(struct vm_area_struct *vma,
++				  unsigned long uaddr)
++{
++	__flush_tlb_page(vma, uaddr, TLBF_NONE);
++}
++
+ static inline void flush_tlb_kernel_range(unsigned long start, unsigned long end)
+ {
+ 	const unsigned long stride = PAGE_SIZE;
+diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+index be9dab2c7d6a..f91aa686f142 100644
+--- a/arch/arm64/mm/fault.c
++++ b/arch/arm64/mm/fault.c
+@@ -239,7 +239,7 @@ int __ptep_set_access_flags(struct vm_area_struct *vma,
+ 	 * flush_tlb_fix_spurious_fault().
+ 	 */
+ 	if (dirty)
+-		local_flush_tlb_page(vma, address);
++		__flush_tlb_page(vma, address, TLBF_NOBROADCAST);
+ 	return 1;
  }
  
 -- 
