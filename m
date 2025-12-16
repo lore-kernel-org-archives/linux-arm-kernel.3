@@ -4,72 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F1EDD5E150
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 13:49:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 972BDD5E156
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 13:49:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sFLsYOIToyI1CYsLfOe9PNPAZa7SMcZGDRLeye3TkV4=; b=MwR9l/592yfFtXw67O225HE0Wp
-	8u0mtnUCg77rYrLlU7utCDkDuiZ1yiU/J/NiD52vOt1t5S0IeTNme6ywh4Ib4UiZ7g1pewmHMoWa+
-	0gAUxEj/8INwx+JDOdNR02lUGFkpQwqwatasFYt+I8NgSMxeC8NK38UJyxaWd6E1hLT+7zXZ685YW
-	b+tVY3Ngh4Sc3wXkUdLhGJI79thNbVvNS36AAzYrxccZLBF9OmbpSlaocetYLZSIIY+bXKrKFFw1U
-	F0pD+vCLrBrMSSGRM+rhDfgYHyw2Nwh+tuUPI8B1TMDtZtxq072ybsifbZh6Yc0DXmAMXV7UoZzAB
-	Aw4+5m8g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h71K1XWglBsgaSI5guXNEKLcJzvNUsuD2MB4zZoEpwU=; b=cFX+2DQkbVTA61t3FGIQjHrE1g
+	LrYIA0jJhnoiXomKDDE02ExFe8CmfYNCKZj5uj5ptC7XAZY1M22I2rtljQ/PWdki4FJhVtjBYFKMB
+	v7dqLFqWbw5LfGqizjRW8VZr6+Q4urvmG6UHMIdSPYW1Rhdb7Zv/q8s7ePZRPE9auF8ePzjqiCoWN
+	GFVxRwQdHpikJqaFCPi+QPGnd0LZQV3vupz773YZ5ckB0H21g5uw5brBm+Rp9A2Gy7xBFu9YjN5DN
+	HOjvq9KFZ6rsMP/TGlwymf4FbviBcJJYzHCP3P6g7fgOHYHaq9AVU82CQ3jPOdgERaDhQT5QqdRet
+	eHXJwLYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVVQZ-00000005IN9-2N89;
-	Tue, 16 Dec 2025 13:49:23 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1vVVQh-00000005IQo-2SdE;
+	Tue, 16 Dec 2025 13:49:31 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVVQW-00000005IMH-0UBi;
-	Tue, 16 Dec 2025 13:49:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=sFLsYOIToyI1CYsLfOe9PNPAZa7SMcZGDRLeye3TkV4=; b=1cVIG/eg7I6sS8hSAue2feSosa
-	fs9JYZLPNZbpWOz+5uum2rewSRjwJieZr8xzpUV4bVReoRWYTT+mHCMkrJwoHhPQSGGR4sPYkzGME
-	RDsFsScNiP6CEnjPay7NzFuwIgrFnlWdjIBcjNaVq8fDUXuIaKOW1yPFJct87k4LnqJiex01iAtJC
-	+Fz+7SV96+v9afwrM24tqAFdJ6qSg/CFjF9ANZ2MwSKnE6OQY6GWDS9sX+mM66a1RGHlrF4XCy4eq
-	tmRZp4LuDiR8emPv9NnninxunaM3+fUtsB+aMFPl4oLO0sv1kYMOkT8HpqoosgGfpuXJ0fkaxQjwv
-	m+v2sXhw==;
-Received: from [141.76.253.243] (helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1vVVPc-0004Lk-DA; Tue, 16 Dec 2025 14:48:24 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>, andrzej.hajda@intel.com,
- neil.armstrong@linaro.org, rfoss@kernel.org,
- Damon Ding <damon.ding@rock-chips.com>
-Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
- kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
- jingoohan1@gmail.com, p.zabel@pengutronix.de, hjc@rock-chips.com,
- andy.yan@rock-chips.com, dmitry.baryshkov@oss.qualcomm.com,
- dianders@chromium.org, m.szyprowski@samsung.com, jani.nikula@intel.com,
- linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v7 01/18] drm/display: bridge_connector: Ensure last bridge
- determines EDID/modes detection capabilities
-Date: Tue, 16 Dec 2025 14:48:23 +0100
-Message-ID: <3351986.usQuhbGJ8B@phil>
-In-Reply-To: <ff65f453-68a9-41fc-b9e3-02733bba96e3@rock-chips.com>
-References: <20251021023130.1523707-1-damon.ding@rock-chips.com>
- <DDNXIYL494D2.2N8L1J7XTBT4S@bootlin.com>
- <ff65f453-68a9-41fc-b9e3-02733bba96e3@rock-chips.com>
+	id 1vVVQf-00000005IPZ-2GkK
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 16 Dec 2025 13:49:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=h71K1XWglBsgaSI5guXNEKLcJzvNUsuD2MB4zZoEpwU=; b=lXDTVPekqetuCPPFmAyZJ2Xqxd
+	FycQPhcBlOyN/Dxttay2NHIgJzznd6jj0ECgj3hA1tppkuAT4FCdwKtBmP7jw2pA6liB5jcIdOHXy
+	Y4OSpnpuv4qXk7elP0YnAo5U4GjdTx06zCDDd47JEIww1Ahn1ZsUITiRrtBrnERnulG3mOqRngscj
+	RGYroidSm58ot+JBWKczv4vQcRYHiixB1/aMY7HvbjTKBgLoP9fZPD/PnZZOOHavgVGzkPvVqEvbr
+	XxWgCQqWIEJxZJ2YLbG/hx5MBEDrDtQ87RHmnK5ZHk+k5x+d5X7beQYSCB726+ZYg+7M8iDOHcxnS
+	C//0HGAw==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vVUZ9-00000004pNF-0f91
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 16 Dec 2025 12:54:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 023F4FEC;
+	Tue, 16 Dec 2025 05:49:15 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CF4C13F73B;
+	Tue, 16 Dec 2025 05:49:18 -0800 (PST)
+Message-ID: <6c652963-eda0-416b-b1b3-98c5313ed5fc@arm.com>
+Date: Tue, 16 Dec 2025 13:49:17 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 13/38] arm_mpam: resctrl: Add CDP emulation
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@kernel.org>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com,
+ Jonathan Cameron <jonathan.cameron@huawei.com>, Gavin Shan
+ <gshan@redhat.com>, rohit.mathew@arm.com, reinette.chatre@intel.com,
+ Punit Agrawal <punit.agrawal@oss.qualcomm.com>
+References: <20251205215901.17772-1-james.morse@arm.com>
+ <20251205215901.17772-14-james.morse@arm.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20251205215901.17772-14-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_054920_276799_22E4DBE4 
-X-CRM114-Status: GOOD (  18.69  )
+X-CRM114-CacheID: sfid-20251216_125411_553004_FC6E8A51 
+X-CRM114-Status: GOOD (  25.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,45 +91,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 22. Oktober 2025, 03:15:52 Mitteleurop=C3=A4ische Normalzeit s=
-chrieb Damon Ding:
-> Hi Luca,
->=20
-> On 10/21/2025 6:31 PM, Luca Ceresoli wrote:
-> > Hello Damon,
-> >=20
-> > On Tue Oct 21, 2025 at 4:31 AM CEST, Damon Ding wrote:
+Hi James,
 
-> >=20
-> > This does not apply on current drm-misc-next, due to the patch I mentio=
-ned
-> > in a previous iteration, now applied as commit 2be300f9a0b6 ("drm/displ=
-ay:
-> > bridge_connector: get/put the stored bridges").
-> >=20
-> > However I'm sorry I have to mention that patch turned out being buggy, =
-so
-> > I've sent a series to apply a corrected version [0]. I suggest watching=
- the
-> > disucssion about the fix series, and if that gets approved rebase on to=
-p of
-> > that and adapt your changes.
-> >=20
-> > Sorry about the mess. :(
-> >=20
-> > [0] https://lore.kernel.org/r/20251017-drm-bridge-alloc-getput-bridge-c=
-onnector-fix-hdmi_cec-v2-0-667abf6d47c0@bootlin.com
-> >=20
-> >=20
->=20
-> I saw your fix patches before sending this series. I think your patches=20
-> will likely be merged relatively quickly, so I plan to wait until the=20
-> other patches in my patch series are confirmed to be fine, then submit=20
-> v8 version based on the latest bridge_connector driver. :-)
+On 12/5/25 21:58, James Morse wrote:
+> Intel RDT's CDP feature allows the cache to use a different control value
+> depending on whether the accesses was for instruction fetch or a data
+> access. MPAM's equivalent feature is the other way up: the CPU assigns a
+> different partid label to traffic depending on whether it was instruction
+> fetch or a data access, which causes the cache to use a different control
+> value based solely on the partid.
+> 
+> MPAM can emulate CDP, with the side effect that the alternative partid is
+> seen by all MSC, it can't be enabled per-MSC.
+> 
+> Add the resctrl hooks to turn this on or off. Add the helpers that
+> match a closid against a task, which need to be aware that the value
+> written to hardware is not the same as the one resctrl is using.
+> 
+> Update the 'arm64_mpam_global_default' variable the arch code uses
+> during context switch to know when the per-cpu value should be used
+> instead.
+> 
+> Awkwardly, the MB controls don't implement CDP. To emulate this, the
+> MPAM equivalent needs programming twice by the resctrl glue, as
+> resctrl expects the bandwidth controls to be applied independently for
+> both data and isntruction-fetch.
+> 
+> CC: Dave Martin <Dave.Martin@arm.com>
+> CC: Ben Horgan <ben.horgan@arm.com>
+> CC: Amit Singh Tomar <amitsinght@marvell.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+>  arch/arm64/include/asm/mpam.h  |   1 +
+>  drivers/resctrl/mpam_resctrl.c | 115 ++++++++++++++++++++++++++++++++-
+>  include/linux/arm_mpam.h       |   3 +
+>  3 files changed, 118 insertions(+), 1 deletion(-)
+> 
+[...]
+>  
+> @@ -272,6 +369,7 @@ u32 resctrl_arch_get_config(struct rdt_resource *r, struct rdt_ctrl_domain *d,
+>  int resctrl_arch_update_one(struct rdt_resource *r, struct rdt_ctrl_domain *d,
+>  			    u32 closid, enum resctrl_conf_type t, u32 cfg_val)
+>  {
+> +	int err;
+>  	u32 partid;
+>  	struct mpam_config cfg;
+>  	struct mpam_props *cprops;
+> @@ -311,7 +409,22 @@ int resctrl_arch_update_one(struct rdt_resource *r, struct rdt_ctrl_domain *d,
+>  		return -EINVAL;
+>  	}
+>  
+> -	return mpam_apply_config(dom->ctrl_comp, partid, &cfg);
+> +	/*
+> +	 * When CDP is enabled, but the resource doesn't support it, we need to
+> +	 * apply the same configuration to the other partid.
+> +	 */
+> +	if (mpam_resctrl_hide_cdp(r->rid)) {
+> +		partid = resctrl_get_config_index(closid, CDP_CODE);
+> +		err = mpam_apply_config(dom->ctrl_comp, partid, &cfg);
+> +		if (err)
+> +			return err;
+> +
+> +		partid = resctrl_get_config_index(closid, CDP_DATA);
+> +		return mpam_apply_config(dom->ctrl_comp, partid, &cfg);
 
-I think with 6.19-rc1 out, now is a great time for v8? :-)
+This is indeed awkward. As we are programming twice, if instruction and
+data use b/w equally then the MB setting will be as if it was double.
+However, if we halved the configured value, and most of the bandwidth
+was for data, then it would be as if it was halved. For controls where
+the actual parts are chosen, rather than just the size then this
+programming twice will work as expected. Therefore, I think your chosen
+policy is the least surprising and I'll keep this as is.
 
-Heiko
+> +
+> +	} else {
+> +		return mpam_apply_config(dom->ctrl_comp, partid, &cfg);
+> +	}
+>  }
+[...]
 
+Thanks,
+
+Ben
 
 
