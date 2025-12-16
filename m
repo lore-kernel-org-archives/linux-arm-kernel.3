@@ -4,73 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B631CD609B1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 15:43:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AACFD609B3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 15:44:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sNZ29PXPWaJHxUEAABq5WyvNSfOGiRAU7qqEK1X4BWI=; b=bGg3hWfvBQHeTUJBDCFbGg15XC
-	ngcViamav/93xg01zEDkWaLEEX3utmKFoqX9ie7QN+KIB46Xegvk2GaXHhNM+/1t227b/JFpof7Pw
-	SoyVPSCz+vPdlC1mWBhVeWuJ2VVZwBhPo+fo3dJoxEdZRH5aPMNv17cUv8qWjuwuJxAlt18A7nZw8
-	wEAaoPkN7ogDeF/9nNTer+x7MFN1Nfnzfe3uXNACzIE45Q775fSpaYhWPIdwWXEWgBJ09RWqPdUwc
-	tiQwE2rx8bUpURyAi50SMUxRbrTimdcvVwcoxj+sEEv23n+9STAS9r0KwcFJbKVert9N6ApCYhivd
-	ym9tVwXA==;
+	bh=vIgAsiaq92RHSdMq2QoN92q3zPBWK/U76ZgrzdhJjbg=; b=CcFB1mqUD4GpOWqDNkT3zFJDbO
+	VAGdP8qHt4zotxFGFVue0yJBYFNFbOeBQbJP6vMpKj0fMOh0Kdj278w8SrONX/SSoIpafifD6rDpW
+	tF00xQkENQCkaKSIDn5E6tnpjhzG3dc8sZImstOgZtCUYz8qLapvLzh5oB/2JQPqLoteK8EnRYm05
+	76Dt3TGTdDmQvwn3wvbH79aGjyNSVvj92E9+1PV6n/2UqafD1jSB6i5vMs/sUzKy4oiyZ8flikGfn
+	qCEjaqrpjz0C2zgF6EfyHq6RCYdUg9JepSHc0pT1oaXUNBUELbGULf5zjbv9qulUd74Rg30qjwlTO
+	0jleUIIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVXCk-00000005T1V-0mlS;
-	Tue, 16 Dec 2025 15:43:14 +0000
+	id 1vVXDn-00000005TDo-1fZs;
+	Tue, 16 Dec 2025 15:44:19 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVXCi-00000005T1A-2A01;
-	Tue, 16 Dec 2025 15:43:13 +0000
+	id 1vVXDm-00000005TD8-00Yw;
+	Tue, 16 Dec 2025 15:44:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 97AF36017B;
-	Tue, 16 Dec 2025 15:43:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD8A9C4CEF1;
-	Tue, 16 Dec 2025 15:43:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 70D4F6017B;
+	Tue, 16 Dec 2025 15:44:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04171C4CEF1;
+	Tue, 16 Dec 2025 15:44:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765899791;
-	bh=ZJTJypfLe1H/1AUEwksCTkMoXxELG4u7pdR81YdX+EQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=avTeetSCg2f1iVCLtIL2eMD8lxo6IXEVPcYP29oezKOpSlnYbzQvySLzpryda+R1A
-	 ew6Qmjryuhzff4o2BNqhJbYikZ/FxB9nsZ+SVx/fEVe4+Vk8KAAXNTxXKgB1dOxfC6
-	 74+SKOUxUYH7bvsWWQn3Q5qwYcHK43xEPD2CbWjHDldkEanlq21fmXVgnU0XBWMqbv
-	 BNwMTA5V4T1ZdwdXE45rLHOcG/cKJ0JLceGyQuUmh04zLBAqknv3qYM1zyCFIEZrg6
-	 xNyoNgN2Bk8xHpe+jauDCs8GKdRJcRNBlYtSaJq0IBEmiVa1MMIQaZqoQDY1frH7eC
-	 nyyoTKRn0yS8A==
-Date: Tue, 16 Dec 2025 21:13:07 +0530
-From: Vinod Koul <vkoul@kernel.org>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Manivannan Sadhasivam <mani@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>, Christoph Hellwig <hch@lst.de>,
-	Sagi Grimberg <sagi@grimberg.me>,
-	Chaitanya Kulkarni <kch@nvidia.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Koichiro Den <den@valinux.co.jp>, Niklas Cassel <cassel@kernel.org>,
-	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-nvme@lists.infradead.org,
-	mhi@lists.linux.dev, linux-arm-msm@vger.kernel.org,
-	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev
-Subject: Re: [PATCH 0/8] dmaengine: Add new API to combine onfiguration and
- descriptor preparation
-Message-ID: <aUF-C8iUCs-dYXGm@vaman>
-References: <20251208-dma_prep_config-v1-0-53490c5e1e2a@nxp.com>
- <aUFUX0e_h7RGAecz@vaman>
- <aUF2SX/6bV2lHtF0@lizhi-Precision-Tower-5810>
+	s=k20201202; t=1765899857;
+	bh=5FCtWKu4gSPyAonL0m0zznCMC+guvfyTLTTvXhmL8WA=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=tEpMjfb9GWfRRhPdxOIJMXHcRFAHwmC7zhL96Uu8qx+M2D5EHDd2u+y/zwoW74rGe
+	 a+SfB0xzOdAeadMTQS8OpzypNzOht01ZAYy32TC/Iz6Zaggmb+SoUuUmjCoEb+V5GT
+	 ujjHqPWYedSwPL8BzcEI5ld5JWY6+fNI5QudhFaFFaOeOlWkXWRJCUKtVR7ppwKjCa
+	 4HFpl7pukWPYaakGCP1dm7fFBWJm0S/4IhrOlpi+5wRXoihqlmP57YKVLNI6EaFG8Z
+	 7hRKt/L6PHHmmeGK04QfhfvKpJHt0vFmQlggIhNJRM0/pP7eofupAaJ5aJlXcsMih7
+	 8f5OwD87pRvCg==
+Date: Tue, 16 Dec 2025 09:44:14 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aUF2SX/6bV2lHtF0@lizhi-Precision-Tower-5810>
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, devicetree@vger.kernel.org, 
+ tao.huang@rock-chips.com, Linus Walleij <linus.walleij@linaro.org>, 
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ Heiko Stuebner <heiko@sntech.de>, linux-gpio@vger.kernel.org, 
+ Conor Dooley <conor+dt@kernel.org>
+To: Ye Zhang <ye.zhang@rock-chips.com>
+In-Reply-To: <20251216112053.1927852-7-ye.zhang@rock-chips.com>
+References: <20251216112053.1927852-1-ye.zhang@rock-chips.com>
+ <20251216112053.1927852-7-ye.zhang@rock-chips.com>
+Message-Id: <176589985437.2528677.5118158763336562885.robh@kernel.org>
+Subject: Re: [PATCH v3 6/7] dt-bindings: pinctrl: rockchip: Add RMIO
+ controller binding
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,110 +73,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16-12-25, 10:10, Frank Li wrote:
-> On Tue, Dec 16, 2025 at 06:15:19PM +0530, Vinod Koul wrote:
-> > On 08-12-25, 12:09, Frank Li wrote:
-> >
-> > Spell check on subject please :-)
-> >
-> > > Previously, configuration and preparation required two separate calls. This
-> > > works well when configuration is done only once during initialization.
-> > >
-> > > However, in cases where the burst length or source/destination address must
-> > > be adjusted for each transfer, calling two functions is verbose.
-> > >
-> > > 	if (dmaengine_slave_config(chan, &sconf)) {
-> > > 		dev_err(dev, "DMA slave config fail\n");
-> > > 		return -EIO;
-> > > 	}
-> > >
-> > > 	tx = dmaengine_prep_slave_single(chan, dma_local, len, dir, flags);
-> > >
-> > > After new API added
-> > >
-> > > 	tx = dmaengine_prep_slave_single(chan, dma_local, len, dir, flags, &sconf);
-> >
-> > Nak, we cant change the API like this.
-> 
-> Sorry, it is typo here. in patch
-> 	dmaengine_prep_slave_single_config(chan, dma_local, len, dir, flags, &sconf);
-> 
-> > I agree that you can add a new way to call dmaengine_slave_config() and
-> > dmaengine_prep_slave_single() together.
-> > maybe dmaengine_prep_config_perip_single() (yes we can go away with slave, but
-> > cant drop it, as absence means something else entire).
-> 
-> how about dmaengine_prep_peripheral_single() and dmaengine_prep_peripheral_sg()
-> to align recent added "dmaengine_prep_peripheral_dma_vec()"
 
-It doesnt imply config has been done, how does it differ from usual
-prep_ calls. I see confusions can be caused!
-
-> I think "peripheral" also is reduntant. dmaengine_prep_single() and
-> dmaengine_prep_sg() should be enough because
-
-Then you are missing the basic premises of dmaengine that we have memcpy
-ops and peripheral dma ops (aka slave) Absence of peripheral always
-implies that it is memcpy
-
-> - dmaengine_prep_dma_cyclic() is actually work with prepiperial FIFO
-> - some prepierial FIFO work like memory, by use shared memory method, like
-> PCIe map windows.
-> - argument: config and dir already passdown information to indicate if it
-> is device preiperial. So needn't indicate at function name.
-> - maybe later extend to support mem to mem by config becuase adjust burst
-> size for difference alignment or difference bus fabric port to optimaze
-> performance.
+On Tue, 16 Dec 2025 19:20:52 +0800, Ye Zhang wrote:
+> 1. Add header file with constants for RMIO function IDs for the Rockchip
+> RK3506 SoC.
+> 2. Add device tree binding for the RMIO (Rockchip Matrix I/O) controller
+> which is a sub-device of the main pinctrl on some Rockchip SoCs.
 > 
-> Frank
+> Signed-off-by: Ye Zhang <ye.zhang@rock-chips.com>
+> ---
+>  .../bindings/pinctrl/rockchip,pinctrl.yaml    |   9 ++
+>  .../bindings/pinctrl/rockchip,rmio.yaml       | 106 +++++++++++++++++
+>  .../pinctrl/rockchip,rk3506-rmio.h            | 109 ++++++++++++++++++
+>  3 files changed, 224 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pinctrl/rockchip,rmio.yaml
+>  create mode 100644 include/dt-bindings/pinctrl/rockchip,rk3506-rmio.h
 > 
-> >
-> > I would like to retain the dmaengine_prep_slave_single() as an API for
-> > users to call and invoke. There are users who configure channel once as
-> > well
-> >
-> > >
-> > > Additional, prevous two calls requires additional locking to ensure both
-> > > steps complete atomically.
-> > >
-> > >     mutex_lock()
-> > >     dmaengine_slave_config()
-> > >     dmaengine_prep_slave_single()
-> > >     mutex_unlock()
-> > >
-> > > after new API added, mutex lock can be moved. See patch
-> > >      nvmet: pci-epf: Use dmaengine_prep_slave_single_config() API
-> > >
-> > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > > ---
-> > > Frank Li (8):
-> > >       dmaengine: Add API to combine configuration and preparation (sg and single)
-> > >       PCI: endpoint: pci-epf-test: use new DMA API to simple code
-> > >       dmaengine: dw-edma: Use new .device_prep_slave_sg_config() callback
-> > >       dmaengine: dw-edma: Pass dma_slave_config to dw_edma_device_transfer()
-> > >       nvmet: pci-epf: Remove unnecessary dmaengine_terminate_sync() on each DMA transfer
-> > >       nvmet: pci-epf: Use dmaengine_prep_slave_single_config() API
-> > >       PCI: epf-mhi:Using new API dmaengine_prep_slave_single_config() to simple code.
-> > >       crypto: atmel: Use dmaengine_prep_slave_single_config() API
-> > >
-> > >  drivers/crypto/atmel-aes.c                    | 10 ++---
-> > >  drivers/dma/dw-edma/dw-edma-core.c            | 38 +++++++++++-----
-> > >  drivers/nvme/target/pci-epf.c                 | 21 +++------
-> > >  drivers/pci/endpoint/functions/pci-epf-mhi.c  | 52 +++++++---------------
-> > >  drivers/pci/endpoint/functions/pci-epf-test.c |  8 +---
-> > >  include/linux/dmaengine.h                     | 64 ++++++++++++++++++++++++---
-> > >  6 files changed, 111 insertions(+), 82 deletions(-)
-> > > ---
-> > > base-commit: bc04acf4aeca588496124a6cf54bfce3db327039
-> > > change-id: 20251204-dma_prep_config-654170d245a2
-> > >
-> > > Best regards,
-> > > --
-> > > Frank Li <Frank.Li@nxp.com>
-> >
-> > --
-> > ~Vinod
 
--- 
-~Vinod
+My bot found errors running 'make dt_binding_check' on your patch:
+
+yamllint warnings/errors:
+./Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml:88:11: [error] string value is redundantly quoted with any quotes (quoted-strings)
+
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/pinctrl/rockchip,rmio.example.dtb: rmio (rockchip,rk3506-rmio): compatible: ['rockchip,rk3506-rmio', 'rockchip,rmio'] is not of type 'object'
+	from schema $id: http://devicetree.org/schemas/pinctrl/rockchip,rmio.yaml
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.kernel.org/project/devicetree/patch/20251216112053.1927852-7-ye.zhang@rock-chips.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
