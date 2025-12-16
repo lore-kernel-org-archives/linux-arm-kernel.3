@@ -4,63 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CED18D5E146
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 12:05:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1F18D5E144
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 12:30:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QqrKpPBYw5wpF0Dodsy2Se7XrTTqVI3LQhOdZ9MeH9Q=; b=KgiRcWGAJAHqXCIV0I5skToF0N
-	LmwYl2peEla9lO3DF/hrwK21mWoSXVzVlI4E87W0mbQNdv+0XZx4ZPGY+vWOjBswFAL1h30EWkLDR
-	poeW6kg646lg++aydjojIxX8/aCHmuqIWf+nSbYQreu57IR4PwiKUyW1H8OzHMyfUvUlEOZKHJuAl
-	MNMlh0P+uhBZhxSFdCiGi3Q5sUOL0x0L+82z5i/YtV2aEgy1ZCqBml0i2a61cDX/QoaFQpxfPpB5T
-	vhx1huqWbDHDbuNwVUs8cD0dbf18vnVpjcYH7lcaVQtchHjt+MzkRJQz9IGbUJxmrO6uPd8tfur/A
-	a6d1pPeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vYCnl86Ut8GCmdwuCi/7sC/CFgv/BMq396WfwSMOY1c=; b=QR9MG0i/+diiw2+snWLH2JToI6
+	G0KwU+EguTPgp8UQYhmS0s7DeqYIedTX4KDLOOwMGLeqV+sKc4qh82u5tB2FxrQv7+j38GPTMw2OJ
+	yGlxvFIQ9xLOVd3GzY7dF8sDnJTayjxc2zTEGvSOe0rA60GHuzDxjQ9+tgjZlLA7G/jhj+JEYDJGn
+	ot6lMocn/uXyXJUPvHtlK2w+2rWXuSdjZDjnlt6SLcXDfr+A/gAUZ8srfDzaombVdX5U2NKmoSPSF
+	2CDZnPrOvuF+IrH9TVohqXJwjmvvygaRuQ44VfO6ityb+0r8fTG243FYexPk90+L4VCOwueVxXem1
+	eF2C9SsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVTnZ-00000005ABS-20RY;
-	Tue, 16 Dec 2025 12:05:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVTnX-00000005AAP-1QMR
+	id 1vVUCS-00000005BO0-3bZ3;
+	Tue, 16 Dec 2025 12:30:44 +0000
+Received: from mail-koreacentralazon11023114.outbound.protection.outlook.com ([40.107.44.114] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vVUCM-00000005BMz-061v
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 12:05:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 97BD7FEC;
-	Tue, 16 Dec 2025 04:04:47 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5DEE43F694;
-	Tue, 16 Dec 2025 04:04:54 -0800 (PST)
-Date: Tue, 16 Dec 2025 12:04:52 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: James Clark <james.clark@linaro.org>, Joel May <joel-linux@jmay.us>,
-	Ian Rogers <irogers@google.com>,
+	Tue, 16 Dec 2025 12:30:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vI/A8orfToHPaODI2tNgjv+NaPgAU4YUnQU4xaD1HZzNV2BGsKEZnFfGJkN5AHKnENUNSA3xgEiVbIkyWO2Cnn5rWNWPmcM/vIaGajcJDFLH6FoaVgSfxzChPy3+j2U04Q4UUVboS+Od9Oe+JF9zeIu/F4YGqdQtTkXCZk7zIgox/VkcDnvFras2RHZ3tGV/00PhVjdcGBvgfTbC7OtfVjSyB0HIFkKCPHFg9arHk4ZhmjgYQPn603auzZLaaQkiyUCFFhj2NVQvc7piAbzDibGOAImHrZ8ZuuPzbHS/DdSahO+YLlG9QKynjAY1Xyo8wSxIPnN9UrCk4rD5AsNa6g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vYCnl86Ut8GCmdwuCi/7sC/CFgv/BMq396WfwSMOY1c=;
+ b=y1ogTK1rx2tdxACgp94hpSr5/AKCXkd7eFli4/Ca4Tit4EpwX5q6GjSsCp2l+wrVUbPtO89VkC9uU2xXMA9lb3kmpOFLxX3elw9Xu3x/2M+q+ZdqWTu7/okYlmoGPusOydbHAdZrPsb1f6iBZxWVoaKLmkv6b1LB9BSKfiT6sAIiPuTVhBvTNhmcmglODWybvazZHtDBsbCK9XFvLRqaQsp1lTFo7jTgFqTuC6NSm8d3zSkOw3psfSCbwYdl+ISx2bZuKSARgdC7j30t8ukZQiyoE7HSIFbCZoUeQkdJdV0MGrhaVPhphMJNwFAgZLimF/rkNtakeqM4ZFYsyFvjkw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from OS7PR01CA0119.jpnprd01.prod.outlook.com (2603:1096:604:258::6)
+ by SI2PR06MB5140.apcprd06.prod.outlook.com (2603:1096:4:1af::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.6; Tue, 16 Dec
+ 2025 12:30:29 +0000
+Received: from OSA0EPF000000CA.apcprd02.prod.outlook.com
+ (2603:1096:604:258:cafe::6e) by OS7PR01CA0119.outlook.office365.com
+ (2603:1096:604:258::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9412.13 via Frontend Transport; Tue,
+ 16 Dec 2025 12:30:29 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ OSA0EPF000000CA.mail.protection.outlook.com (10.167.240.56) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9434.6 via Frontend Transport; Tue, 16 Dec 2025 12:30:28 +0000
+Received: from guoo-System-Product-Name.. (unknown [172.20.64.188])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id E008240A5A13;
+	Tue, 16 Dec 2025 20:30:26 +0800 (CST)
+From: Jun Guo <jun.guo@cixtech.com>
+To: peter.chen@cixtech.com,
+	fugang.duan@cixtech.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	vkoul@kernel.org,
+	ychuang3@nuvoton.com,
+	schung@nuvoton.com,
+	robin.murphy@arm.com
+Cc: dmaengine@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	cix-kernel-upstream@cixtech.com,
 	linux-arm-kernel@lists.infradead.org,
-	Linux perf Profiling <linux-perf-users@vger.kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>
-Subject: Re: [PATCH] arm64: perf: fix syscalltbl path base
-Message-ID: <20251216120452.GA912180@e132581.arm.com>
-References: <b2651f20-6f3a-49f5-9cd8-3fb028b2cab5@app.fastmail.com>
- <fcefc3c0-541d-40cc-84e3-9c2460308bdb@linaro.org>
- <23c07ac4-ff13-47a5-824a-e7af1d1847a3@app.fastmail.com>
- <bda366b4-fa53-4feb-a7ce-ee47cfc404b5@linaro.org>
- <20251215112818.GB681384@e132581.arm.com>
- <0076b248-9b23-408d-9448-701df3c8d952@app.fastmail.com>
- <20251215164920.GD681384@e132581.arm.com>
- <67bafe7d-6761-4b1c-8742-628513e7e8bd@app.fastmail.com>
+	jelly.jia@cixtech.com,
+	Jun Guo <jun.guo@cixtech.com>
+Subject: [PATCH v2 0/3] dmaengine: arm-dma350: add support for shared interrupt mode
+Date: Tue, 16 Dec 2025 20:30:23 +0800
+Message-Id: <20251216123026.3519923-1-jun.guo@cixtech.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <67bafe7d-6761-4b1c-8742-628513e7e8bd@app.fastmail.com>
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: OSA0EPF000000CA:EE_|SI2PR06MB5140:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: 5d585da4-c115-46e9-84a5-08de3c9ee59c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|36860700013|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?km1cN4dfSKCDuyr3aJlEu/DD5hPJLccNUQrfwZDuN5AW7yIkIjGzypfqtjw1?=
+ =?us-ascii?Q?mA7q7EXSIWJAkcDa9aSUD0znJthKWJ1O27JRmdIcXQbJy3tqd81jSISyLue8?=
+ =?us-ascii?Q?pDFu4+aN9DNOKrWby73Yd7lDugWCI2N+UAa7BxtKkIkuOnZSvakMcDZWtpfT?=
+ =?us-ascii?Q?BFCGZE5ZZPwBa0MXL67T7yH9qYS8+n25j2T9dQ+BKOS+aCqNKJq6tS23f2yq?=
+ =?us-ascii?Q?eyoO9Mri0gxBDs9jdEu/3WfUx78O6/OKCNi575bHh+mbxuMYtWNYhxDyKjDD?=
+ =?us-ascii?Q?bUrA2yMwl7m2qzutzMYNfD6XZAY5/hKHxvf3Jt1oQLQbsXkv14pG7iC9gxOr?=
+ =?us-ascii?Q?C2RxM077wNhYnKs4G7hERGEpmOppoxGVwajHozRWhoJmEuc21XWFqQTzYweP?=
+ =?us-ascii?Q?fgBVImwfUisVGrrS5HuddY5qWoiWtLCT9wRTEpxloL+WLEC50AtH0WQP2zL7?=
+ =?us-ascii?Q?8W6GWm4Irzjqppuii8+WYpJ0nHeGHVObxCJZNSgGMLZiNtFUsRTIuaDq31+8?=
+ =?us-ascii?Q?al8KldLiEaVlq7rMX1w67yoccJGcpMXdlUYjRIsvZx73izQpHjEwLUqXHf4K?=
+ =?us-ascii?Q?RmzeCFOTJ9h9R8zprxryH5Aw7J5K1PYhgZSeWMKHVCbO0oduGumiiX2MeQZJ?=
+ =?us-ascii?Q?y2oRJYyThVlfrsg7U92yBPiDtDcZ69iDUoMikWd93n7xw++3ihN/nf8Hhkue?=
+ =?us-ascii?Q?BGX7vdXlTeJl9e5WiAmYZXVg5g79/WzLEJCs9ZwBUjEWUpRFD8hW/1QsLKcI?=
+ =?us-ascii?Q?4VzgMCrcpdJvKDWkGq8He1Qj6jJYGqdhDZXKineyxOgUd/p/US5Z9dNfWKi1?=
+ =?us-ascii?Q?qSrs6gB2dJA1IaVUhE5N5/bBklFEQ4+4TUu9ms74Vnd2LZz2o8lCNIrWcSk2?=
+ =?us-ascii?Q?DZAnB3Kgjy+1kWeMXRa4I93QjG4NG1MJqAMfGdIlqWENR1CJA7b/w43BtoVO?=
+ =?us-ascii?Q?Oqr/LwWK7rTjpXFgLOHhYy64kO6uo8iW/8W5XBvGV+Ga2kKhVFQ8oRJQBRBi?=
+ =?us-ascii?Q?w/BlqCj1TTe8FTRZn9xUeAvAnqReYsShfUsLMGOF7Idvim9cpIRTK0KSbzCf?=
+ =?us-ascii?Q?AHZXSUVW1moW+RKI1AZRKos8PPfm1gQe5gx1SQEkZArgzN2Jn6ObCWWfLoHU?=
+ =?us-ascii?Q?7MO9KdSX/htuS1G14Xhlwms9cH9GMOX/MpuE/zKrTL3OwxdpQWKhJrN6ePZ3?=
+ =?us-ascii?Q?jh8HYO7+7a3i03bQaNrSsvO52ItkRuYo2rRQbLqMrkd94m4cMzSckkTj1Qfh?=
+ =?us-ascii?Q?SwsAtlKrRyxNhQBAvOZp6WT5Wbp71pvuu3jxbB8XqRNxaQQnPPfrA+i5HAMw?=
+ =?us-ascii?Q?HFKpwIW+t8iFIoG77p23n+dcx9SStBs/lsUn5JPi59JypTNgnrDhUypCYrqC?=
+ =?us-ascii?Q?ipers0iESHglaagJED0P2AsWOOxbPI7DueoC3PsyiES74Jql6nD9Ttp89W6z?=
+ =?us-ascii?Q?1KJ/dYAcDmTTQjWXii69Q8EpOO6tlV6lDc8Vfn/ls5c0s4JDDpCjfokSmsUo?=
+ =?us-ascii?Q?cBXGS2LjTT7KGZKhq7B3V9at3IiMO7wEtZwgLxjCFlHImrbvZT1gyxAgq44a?=
+ =?us-ascii?Q?IVf5swDTGOQUIooYoSo=3D?=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(36860700013)(82310400026);DIR:OUT;SFP:1102;
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Dec 2025 12:30:28.5379
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5d585da4-c115-46e9-84a5-08de3c9ee59c
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000CA.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SI2PR06MB5140
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_040459_440798_3933224E 
-X-CRM114-Status: GOOD (  22.68  )
+X-CRM114-CacheID: sfid-20251216_043038_090349_22D105CB 
+X-CRM114-Status: GOOD (  10.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,50 +147,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 16, 2025 at 08:17:51AM +0100, Arnd Bergmann wrote:
+The arm dma350 controller's hardware implementation varies: some
+designs dedicate a separate interrupt line for each channel, while
+others have all channels sharing a single interrupt.This patch adds
+support for the hardware design where all DMA channels share a
+single interrupt.
 
-[...]
+This series introduces the following enhancements for arm dma350
+controller support on arm64 platforms:
 
-> I didn't find the reference to breaking, do you just mean it
-> would break when falling back to a header provided by the
-> toolchain's own asm/unistd.h, or a problem with the modern
-> generated version that is solved by using the old asm-generic
-> file?
+Patch 1: Add a compatible string "cix,sky1-dma-350" for the cix
+sky1 SoC.
+Patch 2: Implement support for the shared interrupt design of the DMA
+controller.
+Patch 3: add DT nodes for DMA.
 
-Sorry for confusion.  I mean build breakage caused by using
-toolchain's own asm/unistd.h.
+The patches have been tested on CIX SKY1 platform, the test steps are
+as follows:
+    % echo 2000 > /sys/module/dmatest/parameters/timeout
+    % echo 1 > /sys/module/dmatest/parameters/iterations
+    % echo "" > /sys/module/dmatest/parameters/channel
+    % echo 1 > /sys/module/dmatest/parameters/run
 
-> I would also point out that s390 no longer needs a custom script
-> as of 6.19, since the last incompatibility between the s390 format
-> and the x86 format of the tbl files got resolved with the removal
-> of the s390 compat mode.
+Changes for v2:
+- Update to kernel standards, enhance patch description, and refactor
+ driver to use match data for hardware differentiation instead of
+ compatible strings.
 
-Thanks for the info.  I saw 4ac286c4a8d9 ("s390/syscalls: Switch to
-generic system call table generation") for the s390 consolidation.
+Jun Guo (3):
+  dt-bindings: dma: arm-dma350: update DT binding docs for cix sky1 SoC
+  dma: arm-dma350: add support for shared interrupt mode
+  arm64: dts: cix: add DT nodes for DMA
 
-To be clear, Perf makefile now only uses
-tools/perf/arch/*/entry/syscalls/syscall*.tbl to create syscall arrays
-for tracing (e.g., print beauty string for syscall trace).
+ .../devicetree/bindings/dma/arm,dma-350.yaml  |  31 +++--
+ arch/arm64/boot/dts/cix/sky1.dtsi             |   7 +
+ drivers/dma/arm-dma350.c                      | 124 ++++++++++++++++--
+ 3 files changed, 142 insertions(+), 20 deletions(-)
 
-The dilemma is that the *.tbl files are in ./tools/perf, if we generate
-unistd_64/32.h headers are not visible to other programs under ./tools.
+-- 
+2.34.1
 
-> >> or we just stick with
-> >> the old asm-generic/unistd.h copy and use that on arm64 as well.
-> >
-> > I will proceed this way for now.  From a maintenance view, it is a
-> > pragmatic solution that only requires reverting a few patches and does
-> > not introduce any new code.
-> 
-> Note that if we ever need to update the
-> tools/include/uapi/asm-generic/unistd.h file for new syscalls,
-> that will get harder in the future once we remove the
-> kernel's own include/uapi/asm-generic/unistd.h. I'm sorry
-> I never sent that fix after the previous cleanup that introduced
-> the common script.
-
-I agree this is a potential risk if we stick to static headers.
-
-Thanks,
-Leo
 
