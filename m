@@ -4,162 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73E4ED609B6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 15:55:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F520D609B7
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 15:57:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rWKRvvQqrWnyJvD6H3w1zuqhISioJQivJla4pZjnjvs=; b=Sf/SJHknZZ7kx0FbUECWYZ6nac
-	+VWGO7DiFHIZEH+rlFMzOYtaTqLb8smPoXF884xN+cqxyivHF3xVPVscgmEUr0Z3fmpkhyj32ch7i
-	G5ghSNM+4S0B8GyORbmwokloub6S57tO9e0q0zLv3OJDvB6GMHqYwIj82RS0scGwc6g5flY9llb7m
-	R+nVYXRO0jLRq3u7Wu7JKv7pWIBy8t8T3NU7pzMcisTPKkR+rNDteWCXWc3eCKNYr1wp+r2lbgueU
-	OhDohsQr1r7WUqyf7F3HsQkj+bjCV+3NCQNqqwiFMF7x3M1Djv1ffLtxXJYqp18TZc2XchZ1lCBVY
-	LKT/j0nw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZvBIZJXRH0npCfQhDSmPLW559A69xlpARWt5ABuGlN4=; b=G3tcPV9wCpRogezoI9RLVDf8GX
+	zcaCpfmH9XBZeV4XZFKyRcqaYwxEKRSyFAHD5il4eQtsDyu0WJ0AVmykdMSKIUDEPTU7zoLUxxmdA
+	cL/oxuP+oxBuZft0Rf6iornbuCcWxihfeOC0mklKqWE3pmMCTVNmPja/g+0rZd9ATi8pmexilWNmS
+	aE/2rWNjqaeNyOVWq5+Ug1i0wbRKYldki++/YipTByuWTFBgMg5DjBSlvLBULvaC1VBU5uraynoEu
+	0qWSjy76OoVyxbZl8tJowB2dF9uMKb5VdBVZahYk8mX9vTxc4oJvMqMhENK325Tm2JMaL1TStLedW
+	K/K8Yk7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVXOn-00000005UHT-44mv;
-	Tue, 16 Dec 2025 15:55:45 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVXOl-00000005UGO-22rn;
-	Tue, 16 Dec 2025 15:55:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=khk6Kvyw0HvxDPeIJlky/ex/kZMmr93eGfIFg+DzRGEmJGvxb4eeoL81AxoJTQ3Z6Isof8sELimZ4NZgFS4TTqOEDUUdubgrdSyfR1EbOppd2dSg1HM1HAnO2bgTvrQCdkXwLKLU4NgoIJNydykakZlGzENqLRq77B3CyMkxbQh7aF5v+lcm2EhXHkz+oq29DENNO8m2lvcTxKEpLqbnuQILO/I6KWAlFLc4jd6EM7V9OcyMXoLNH0cTOm1QFPFLSQJC+2OAPVlu+DzVAOXgq69nEqgBoPaLK38epE5jIzlGA+GhoEj2qladPN1c1Zwyuc3k48rzY4Roe35Vq+4THg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rWKRvvQqrWnyJvD6H3w1zuqhISioJQivJla4pZjnjvs=;
- b=pGQlxv5sQibem6bIXN+c3BxmJJPHUjhOwEm/yK1zgf6BGEcekokuAfrKzFKxfP28wd22pcTiqJAtNZxPM7SzkJKj4pvpSLYRPFqhR025R/6pk/2+YBI0vFth2ZNxfPO5tRr++BopXqqpeluUTyYOLn8qZiPMAqtdIaM6bSyPHjC5C2dqmgliZjkF+Z0lg4sAJ8MrFTuoNe6V2HrDNhXd5ULABx8lWwJ/yMHbn9EfAF+BD5xler3s3GzzX3NAPmdb0kwCbrOF1bTc+TMbcIxItV0U2W0u+t1g4q0/bIaLOO6tMTnKtFOow7kwLszri6MEfl+GX/Lt/6k1Sfe3ZDKZvQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rWKRvvQqrWnyJvD6H3w1zuqhISioJQivJla4pZjnjvs=;
- b=MIxWhb2pfGAo2dGS2wGP4AFdrnhCfJ4XFMKHZfg/uxHD/PVUcZ/lbQCvk3cvyDMbewgIfOJhCQOw1gxQJ5srhBSkEILnng6pEmrrvDqsOO5TwOIT7IGvF+QTxIXMM5WbzZBAYTblK/TVsBDB3qqaLbvkJ3uamw2FNNbtTWzX5PdAKZh6gZgpOH2CIip+dWzRgT6mbhQZEUXsCW8jJdzOeqJoh9gFJJsFPmoRSFhjx9t7blsc/hPhX3E8FtJus96kEkerhJh2oT+I53fTzFhyOj0FqhZCVT1tO5llMNyvvoubC0n+BYzx9P6rJWCR9FmpzPcOIqGHU4BsWFz6acgpSw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
- by AM9PR04MB8954.eurprd04.prod.outlook.com (2603:10a6:20b:409::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.6; Tue, 16 Dec
- 2025 15:55:34 +0000
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9412.011; Tue, 16 Dec 2025
- 15:55:34 +0000
-Date: Tue, 16 Dec 2025 10:55:26 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Manivannan Sadhasivam <mani@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>, Christoph Hellwig <hch@lst.de>,
-	Sagi Grimberg <sagi@grimberg.me>,
-	Chaitanya Kulkarni <kch@nvidia.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Koichiro Den <den@valinux.co.jp>, Niklas Cassel <cassel@kernel.org>,
-	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-nvme@lists.infradead.org,
-	mhi@lists.linux.dev, linux-arm-msm@vger.kernel.org,
-	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev
-Subject: Re: [PATCH 0/8] dmaengine: Add new API to combine onfiguration and
- descriptor preparation
-Message-ID: <aUGA7tmDYm1MhRXn@lizhi-Precision-Tower-5810>
-References: <20251208-dma_prep_config-v1-0-53490c5e1e2a@nxp.com>
- <aUFUX0e_h7RGAecz@vaman>
- <aUF2SX/6bV2lHtF0@lizhi-Precision-Tower-5810>
- <aUF-C8iUCs-dYXGm@vaman>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aUF-C8iUCs-dYXGm@vaman>
-X-ClientProxiedBy: SN7PR04CA0235.namprd04.prod.outlook.com
- (2603:10b6:806:127::30) To DU2PR04MB8951.eurprd04.prod.outlook.com
- (2603:10a6:10:2e2::22)
+	id 1vVXQ6-00000005UaI-3nQl;
+	Tue, 16 Dec 2025 15:57:02 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vVXQ3-00000005UZ5-1LQ4
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 16 Dec 2025 15:57:02 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 33C18FEC;
+	Tue, 16 Dec 2025 07:56:51 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C71763F73F;
+	Tue, 16 Dec 2025 07:56:54 -0800 (PST)
+Message-ID: <934ac602-f467-4359-8505-de7879201b7a@arm.com>
+Date: Tue, 16 Dec 2025 15:56:53 +0000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|AM9PR04MB8954:EE_
-X-MS-Office365-Filtering-Correlation-Id: f632ccca-1e06-4802-15bf-08de3cbb8c1a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|52116014|7416014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?b9YMGedgganElge629YlXO3Z5ArbwvhE9GEtmKg8WoG89zdHT4l4qhTnw/ip?=
- =?us-ascii?Q?p8BY3AK1ukYexiElBVJHRLlZPSCei2ymhyfoD3sfq9gGuzen8yRxNH8n7nT9?=
- =?us-ascii?Q?Tndz5LxWwD46HjHjEcI/ui2in+Ab0OxdDpTQuKXltq1JyVuGpbg90u8/+6aV?=
- =?us-ascii?Q?t14P7qwOob3TgL/SeT4xPatKEf/cJxqi4m1u+90Gme+n03zKmfhxYN58ue7b?=
- =?us-ascii?Q?6HRAmo8C5fzCXfvD0F8A2KOEfHEBnEUL9/GWj0I7M7oIqRFJAuAkhoRoHWf5?=
- =?us-ascii?Q?7+s0RBVM0vH6KBpSHWsWqVY0P7Vno4h4g70AJQ/V2BPHoyumXhl6chua7raY?=
- =?us-ascii?Q?g65zBsu633+4oK7NN1zSG47w0YO5i987qhBf7ts3RXCYfO47oW02S9Y9LbOt?=
- =?us-ascii?Q?kCB28kPKhR5GY/lhjsKZHiXGgphw+tEByH7qM2HHAAnSzIUK8li4DFGWuvRB?=
- =?us-ascii?Q?PuaROQsPJGU9I5C0VAaTcl29StRZDcKE8LqgRDdTjegdda6+sGMjCFnpdyWE?=
- =?us-ascii?Q?ienWbPGRegxsuMekAxLMmCyXdEgyncEmfj8PVErbtYa9wI8+ZqqOWNOxNfR6?=
- =?us-ascii?Q?21fV1M6uaQAxcr5lR6RR+i1s1xp3qEhuNmsG9oxzjbYb4r/wIPchgCbPJ1p8?=
- =?us-ascii?Q?qQ/HV+fDOS5RWyCPBQebZwQCk9wh6mj/XNpatTm3sMLBmc9CtTlcCiQ+YzH5?=
- =?us-ascii?Q?KaJLEun8nZMRSTmz8oLqXYqct67WsdtgYM8tkaXewWkDoDxUqeSw/U2Z5nRG?=
- =?us-ascii?Q?dabMCwoYWL1ogKlulWaOEqE+XbPlAD2AaQ5JtlNpA2MQi4SxO7KzAVx/gqk3?=
- =?us-ascii?Q?9NxCuxD1aEmA/fD/jSCJztLXXJPSgUymUlcvfLaHtG8usbxyGsjQqAlxksTc?=
- =?us-ascii?Q?TcOL041JcYNUAtNhoDwgkxr/gJ6QAV4XVR05pA0DSChNZ1wEyOIOGgNVBMKz?=
- =?us-ascii?Q?wiR/Y3bpEGe12lXGzgoGfFiOy7kDW/dESeJ0WBYF+Q6kYmUGSLSuMItCobfp?=
- =?us-ascii?Q?NTpVPZpZdOgEFTcFNCgBi4coe7vjpsUj4VKLYv9O7sCkIuZwh0+opF1NCQCe?=
- =?us-ascii?Q?rmNVvC6q3tyCPgrKityzO9h0rQQ7iaTr2nNKvD/SkXfXax6fGjHbYT4lmQVC?=
- =?us-ascii?Q?YF1O7y3MjQ5BHFpHUjWiV+ykGjNRlRyih8ku99q6ee41Gf55fAV2a2NwqJpX?=
- =?us-ascii?Q?GTF3m6KEQlCp+3ipN7PJNgT56oZ98rQ54+W2fGn5hyGCe1gnWG1HJU7t+03H?=
- =?us-ascii?Q?0lJhkM8zJ/IUsK7rurzeXzJPxE1hzTrRn2/gGIBLvZ3kEcGV8yQ93enNwmvn?=
- =?us-ascii?Q?U4VyBfgfP83C1RjWcJAvYCKC61y10YuJH/pSupZrF240OzZsakdPzSbF3Xb2?=
- =?us-ascii?Q?IlKQnfoiIbbnYMge+aHxvlIX0XCcaf3WDDB+sFrLQT9iLf1DNwtwjI0M3n1T?=
- =?us-ascii?Q?auG1gZKtLIyWX7k3uFHkVXJnwUtxlWsO7U/y34fznU1CMCFFIfHimzQbJAoC?=
- =?us-ascii?Q?frJS27drQXeT1hDbGr/pvMwni7+9pBnYVmT5?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(52116014)(7416014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?iB2L/0CIEBXx1PmYT7v9VCUKzc59mBuvpXG1BpauRoOhvxEoyOUqDHOOXM24?=
- =?us-ascii?Q?2sr4IHMvZOUIfo3OHTkVq9ytp4Z/57Y21JxYyzY6dtYHQhgeqUGkCZ9e+B0j?=
- =?us-ascii?Q?SXLBXAMoczBGq4FbzFTG9GdBQq7OP/H4qnGMW+3PwNnHXZ5L+D4yuBlhYx3F?=
- =?us-ascii?Q?sjmiTdiZutQm3f0TiDhSRkPmH7kU9zT8z7DZsSf0LI72x+fgKhGDtq1RyD4F?=
- =?us-ascii?Q?+EpwCrSKXFtMIeyNFDFZWKDd5RDJIJ+SCWBidBUhVWuKy8o5RPyJFhC85JLg?=
- =?us-ascii?Q?vme4n9FVH2k8QPOM2oiOB9+i+BIfMsuTdCvpOvRrLTKuJLkbqyc3Kl4lJVyR?=
- =?us-ascii?Q?GpIYGhDyB7gbjzwmL8ik3IkJbKnvhHKI2sInNJT4Rnkuzptwi0q1YKDxvGC2?=
- =?us-ascii?Q?Fvt2gWsNh9dbBqRvZp9Flq8pe4RHQYWRbIzvrtBhxlEvxM5oYrICD6rLzEGF?=
- =?us-ascii?Q?/GzRtKmHz775CXsnhRo/A5TyK5l7IgrQ0SLiK24TgJiADC15LyiiekFDkfAn?=
- =?us-ascii?Q?sm4VsMUjLcaoswFX3vQlfsIsf8Wx1YjdqA9hh3XunggYpfQ0ChyoZzGTz4Sk?=
- =?us-ascii?Q?nxbLVfc9io3IV6SlM6rWQYHxStrS/eGaltD7SAbp2MNxN8uK8X46A6Q3D2nW?=
- =?us-ascii?Q?7inRk0GCwrS1y4HGCqXOG5Nm0eo85xVykbg8/bWGD4GIvgiwnEQOr9pQpib4?=
- =?us-ascii?Q?e5VXEQ7kdAJI3OwtIAtl3gKU3jfvDF7Tx6b1Pgis1KHURVRl/4v090NW27fW?=
- =?us-ascii?Q?vVEs4yMcM6/76lj8/N8mDIhFUp4VZ1lRv9awGrVNtCASGbGCb60CSIrrxdSZ?=
- =?us-ascii?Q?Wt0aV4PHv9Zk2FnYiArnyel8s3H2l+fXY3NY7n3OTwC+XdoFOU7BRzT3wLD2?=
- =?us-ascii?Q?JqmrooINZD9StVE0JpdO7FH54WvnhZO8zmnWVxcq4kapDBN7uHd7aMkdY/pi?=
- =?us-ascii?Q?bKsImGLong9daMhBaX144GpJburnTgnx0zyYTV+L0iO9+yJGyw7ZRysqTSLs?=
- =?us-ascii?Q?3ykxz+0YwAKUILINgbc9JzPCpluLNqnlQ7NwsYBzEUxezjf7SHMbKJ+5fpGZ?=
- =?us-ascii?Q?w0KbTU85V0A7ZNT72tG2Xz89XROcdZXI7Pvn7tmdqRuQK0b9EOakt0pQmG4q?=
- =?us-ascii?Q?fADPwpW33jyPRfgFzzv1ADu53sSAvIh7fVO5YAAzKH6Pfp+W0GA5zkdWBJGX?=
- =?us-ascii?Q?e49zQj+YvAM2qEstqx5K7t+FHenem3bIDdUE/ULcp3d/KnNgGcobmrCzX6GD?=
- =?us-ascii?Q?bMdDdSZvpRsncQmzWaG4CD0g3h4Z05GigZcRFXdD76IyjD0SN3A7Lyj4c5p4?=
- =?us-ascii?Q?RU1bO58AkBSgw0t/xJ2HSLfnWSCRn3M3k2r0nmBAftB8410reA02tIOQsyzd?=
- =?us-ascii?Q?ZOP8vnBWZU5ya1aA6wbrc28Qi7MasHnuwqmkHPL8jzDvvNjqv3OYiBRRkYTt?=
- =?us-ascii?Q?4sGxPM5Vr3pc+lAIk9pixZfV3oTrbPP8unmsiAjnVHExXxfbx9Zqxor37A7Q?=
- =?us-ascii?Q?YI/AOsdareS6peLQbDnQUUSf/RVrNcoaoZaMDgW+YENxKxkietNXQjlg4alA?=
- =?us-ascii?Q?jq18+gDJCzrTfuarmWmjqOznpXBGfg3PQZgUMwBE?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f632ccca-1e06-4802-15bf-08de3cbb8c1a
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Dec 2025 15:55:34.3562
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: z55vdi7hIw/1NNMsD4xM83rlsi2JYA+NW9fLPc2Vxb/Q9cBelnwosPBimuKsYwFvkVN7Q6L/OlR/WYiVkedzIQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8954
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 16/38] arm_mpam: resctrl: Add support for 'MB'
+ resource
+To: Gavin Shan <gshan@redhat.com>, James Morse <james.morse@arm.com>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@kernel.org>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com,
+ Jonathan Cameron <jonathan.cameron@huawei.com>, rohit.mathew@arm.com,
+ reinette.chatre@intel.com, Punit Agrawal <punit.agrawal@oss.qualcomm.com>,
+ Zeng Heng <zengheng4@huawei.com>
+References: <20251205215901.17772-1-james.morse@arm.com>
+ <20251205215901.17772-17-james.morse@arm.com>
+ <6d257a70-d27f-4741-8fa5-fa765fa10643@redhat.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <6d257a70-d27f-4741-8fa5-fa765fa10643@redhat.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_075539_557224_7A10B0E3 
-X-CRM114-Status: GOOD (  36.40  )
+X-CRM114-CacheID: sfid-20251216_075700_918909_887F534F 
+X-CRM114-Status: GOOD (  36.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,127 +78,383 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 16, 2025 at 09:13:07PM +0530, Vinod Koul wrote:
-> On 16-12-25, 10:10, Frank Li wrote:
-> > On Tue, Dec 16, 2025 at 06:15:19PM +0530, Vinod Koul wrote:
-> > > On 08-12-25, 12:09, Frank Li wrote:
-> > >
-> > > Spell check on subject please :-)
-> > >
-> > > > Previously, configuration and preparation required two separate calls. This
-> > > > works well when configuration is done only once during initialization.
-> > > >
-> > > > However, in cases where the burst length or source/destination address must
-> > > > be adjusted for each transfer, calling two functions is verbose.
-> > > >
-> > > > 	if (dmaengine_slave_config(chan, &sconf)) {
-> > > > 		dev_err(dev, "DMA slave config fail\n");
-> > > > 		return -EIO;
-> > > > 	}
-> > > >
-> > > > 	tx = dmaengine_prep_slave_single(chan, dma_local, len, dir, flags);
-> > > >
-> > > > After new API added
-> > > >
-> > > > 	tx = dmaengine_prep_slave_single(chan, dma_local, len, dir, flags, &sconf);
-> > >
-> > > Nak, we cant change the API like this.
-> >
-> > Sorry, it is typo here. in patch
-> > 	dmaengine_prep_slave_single_config(chan, dma_local, len, dir, flags, &sconf);
-> >
-> > > I agree that you can add a new way to call dmaengine_slave_config() and
-> > > dmaengine_prep_slave_single() together.
-> > > maybe dmaengine_prep_config_perip_single() (yes we can go away with slave, but
-> > > cant drop it, as absence means something else entire).
-> >
-> > how about dmaengine_prep_peripheral_single() and dmaengine_prep_peripheral_sg()
-> > to align recent added "dmaengine_prep_peripheral_dma_vec()"
->
-> It doesnt imply config has been done, how does it differ from usual
-> prep_ calls. I see confusions can be caused!
+Hi Gavin,
 
-dmaengine_prep_peripheral_single(.., &sconf) and
-dmaengine_prep_peripheral_sg(..., &sconf).
+On 12/12/25 04:27, Gavin Shan wrote:
+> Hi James and Ben,
+> 
+> On 12/6/25 7:58 AM, James Morse wrote:
+>> resctrl supports 'MB', as a percentage throttling of traffic somewhere
+>> after the L3. This is the control that mba_sc uses, so ideally the
+>> class chosen should be as close as possible to the counters used for
+>> mba_local.
+>>
+>> MB's percentage control should be backed either with the fixed point
+>> fraction MBW_MAX. The bandwidth portion bitmaps is not used as its
+>> tricky to pick which bits to use to avoid contention, and may be
+>> possible to expose this as something other than a percentage in the
+>> future.
+>>
+>> CC: Zeng Heng <zengheng4@huawei.com>
+>> Co-developed-by: Dave Martin <Dave.Martin@arm.com>
+>> Signed-off-by: Dave Martin <Dave.Martin@arm.com>
+>> Signed-off-by: James Morse <james.morse@arm.com>>
+>> ---
+>>   drivers/resctrl/mpam_resctrl.c | 212 ++++++++++++++++++++++++++++++++-
+>>   1 file changed, 211 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/
+>> mpam_resctrl.c
+>> index 55576d0caf12..b9f3f00d8cad 100644
+>> --- a/drivers/resctrl/mpam_resctrl.c
+>> +++ b/drivers/resctrl/mpam_resctrl.c
+>> @@ -247,6 +247,33 @@ static bool cache_has_usable_cpor(struct
+>> mpam_class *class)
+>>       return (class->props.cpbm_wd <= 32);
+>>   }
+>>   +static bool mba_class_use_mbw_max(struct mpam_props *cprops)
+>> +{
+>> +    return (mpam_has_feature(mpam_feat_mbw_max, cprops) &&
+>> +        cprops->bwa_wd);
+>> +}
+>> +
+>> +static bool class_has_usable_mba(struct mpam_props *cprops)
+>> +{
+>> +    return mba_class_use_mbw_max(cprops);
+>> +}
+>> +
+>> +/*
+>> + * Calculate the worst-case percentage change from each implemented step
+>> + * in the control.
+>> + */
+>> +static u32 get_mba_granularity(struct mpam_props *cprops)
+>> +{
+>> +    if (!mba_class_use_mbw_max(cprops))
+>> +        return 0;
+>> +
+>> +    /*
+>> +     * bwa_wd is the number of bits implemented in the 0.xxx
+>> +     * fixed point fraction. 1 bit is 50%, 2 is 25% etc.
+>> +     */
+>> +    return DIV_ROUND_UP(MAX_MBA_BW, 1 << cprops->bwa_wd);
+>> +}
+>> +
+>>   /*
+>>    * Each fixed-point hardware value architecturally represents a range
+>>    * of values: the full range 0% - 100% is split contiguously into
+>> @@ -287,6 +314,96 @@ static u16 percent_to_mbw_max(u8 pc, struct
+>> mpam_props *cprops)
+>>       return val;
+>>   }
+>>   +static u32 get_mba_min(struct mpam_props *cprops)
+>> +{
+>> +    u32 val = 0;
+>> +
+>> +    if (mba_class_use_mbw_max(cprops))
+>> +        val = mbw_max_to_percent(val, cprops);
+>> +    else
+>> +        WARN_ON_ONCE(1);
+>> +
+>> +    return val;
+>> +}
+>> +
+>> +/* Find the L3 cache that has affinity with this CPU */
+>> +static int find_l3_equivalent_bitmask(int cpu, cpumask_var_t
+>> tmp_cpumask)
+>> +{
+>> +    u32 cache_id = get_cpu_cacheinfo_id(cpu, 3);
+>> +
+>> +    lockdep_assert_cpus_held();
+>> +
+>> +    return mpam_get_cpumask_from_cache_id(cache_id, 3, tmp_cpumask);
+>> +}
+>> +
+>> +/*
+>> + * topology_matches_l3() - Is the provided class the same shape as L3
+>> + * @victim:        The class we'd like to pretend is L3.
+>> + *
+>> + * resctrl expects all the world's a Xeon, and all counters are on the
+>> + * L3. We play fast and loose with this, mapping counters on other
+>> + * classes - provided the CPU->domain mapping is the same kind of shape.
+>> + *
+>> + * Using cacheinfo directly would make this work even if resctrl can't
+>> + * use the L3 - but cacheinfo can't tell us anything about offline CPUs.
+>> + * Using the L3 resctrl domain list also depends on CPUs being online.
+>> + * Using the mpam_class we picked for L3 so we can use its domain list
+>> + * assumes that there are MPAM controls on the L3.
+>> + * Instead, this path eventually uses the
+>> mpam_get_cpumask_from_cache_id()
+>> + * helper which can tell us about offline CPUs ... but getting the
+>> cache_id
+>> + * to start with relies on at least one CPU per L3 cache being online at
+>> + * boot.
+>> + *
+>> + * Walk the victim component list and compare the affinity mask with the
+>> + * corresponding L3. The topology matches if each victim:component's
+>> affinity
+>> + * mask is the same as the CPU's corresponding L3's. These lists/
+>> masks are
+>> + * computed from firmware tables so don't change at runtime.
+>> + */
+>> +static bool topology_matches_l3(struct mpam_class *victim)
+>> +{
+>> +    int cpu, err;
+>> +    struct mpam_component *victim_iter;
+>> +    cpumask_var_t __free(free_cpumask_var) tmp_cpumask;
+>> +
+>> +    if (!alloc_cpumask_var(&tmp_cpumask, GFP_KERNEL))
+>> +        return false;
+>> +
+>> +    guard(srcu)(&mpam_srcu);
+>> +    list_for_each_entry_srcu(victim_iter, &victim->components,
+>> class_list,
+>> +                 srcu_read_lock_held(&mpam_srcu)) {
+>> +        if (cpumask_empty(&victim_iter->affinity)) {
+>> +            pr_debug("class %u has CPU-less component %u - can't
+>> match L3!\n",
+>> +                 victim->level, victim_iter->comp_id);
+>> +            return false;
+>> +        }
+>> +
+>> +        cpu = cpumask_any(&victim_iter->affinity);
+>> +        if (WARN_ON_ONCE(cpu >= nr_cpu_ids))
+>> +            return false;
+>> +
+>> +        cpumask_clear(tmp_cpumask);
+>> +        err = find_l3_equivalent_bitmask(cpu, tmp_cpumask);
+>> +        if (err) {
+>> +            pr_debug("Failed to find L3's equivalent component to
+>> class %u component %u\n",
+>> +                 victim->level, victim_iter->comp_id);
+>> +            return false;
+>> +        }
+>> +
+>> +        /* Any differing bits in the affinity mask? */
+>> +        if (!cpumask_equal(tmp_cpumask, &victim_iter->affinity)) {
+>> +            pr_debug("class %u component %u has Mismatched CPU mask
+>> with L3 equivalent\n"
+>> +                 "L3:%*pbl != victim:%*pbl\n",
+>> +                 victim->level, victim_iter->comp_id,
+>> +                 cpumask_pr_args(tmp_cpumask),
+>> +                 cpumask_pr_args(&victim_iter->affinity));
+>> +
+>> +            return false;
+>> +        }
+>> +    }
+>> +
+>> +    return true;
+>> +}
+>> +
+>>   /* Test whether we can export MPAM_CLASS_CACHE:{2,3}? */
+>>   static void mpam_resctrl_pick_caches(void)
+>>   {
+>> @@ -330,10 +447,63 @@ static void mpam_resctrl_pick_caches(void)
+>>       }
+>>   }
+>>   +static void mpam_resctrl_pick_mba(void)
+>> +{
+>> +    struct mpam_class *class, *candidate_class = NULL;
+>> +    struct mpam_resctrl_res *res;
+>> +
+>> +    lockdep_assert_cpus_held();
+>> +
+>> +    guard(srcu)(&mpam_srcu);
+>> +    list_for_each_entry_srcu(class, &mpam_classes, classes_list,
+>> +                 srcu_read_lock_held(&mpam_srcu)) {
+>> +        struct mpam_props *cprops = &class->props;
+>> +
+>> +        if (class->level < 3) {
+>> +            pr_debug("class %u is before L3\n", class->level);
+>> +            continue;
+>> +        }
+>> +
+>> +        if (!class_has_usable_mba(cprops)) {
+>> +            pr_debug("class %u has no bandwidth control\n",
+>> +                 class->level);
+>> +            continue;
+>> +        }
+>> +
+>> +        if (!cpumask_equal(&class->affinity, cpu_possible_mask)) {
+>> +            pr_debug("class %u has missing CPUs\n", class->level);
+>> +            continue;
+>> +        }
+>> +
+>> +        if (!topology_matches_l3(class)) {
+>> +            pr_debug("class %u topology doesn't match L3\n",
+>> +                 class->level);
+>> +            continue;
+>> +        }
+>> +
+>> +        /*
+>> +         * mba_sc reads the mbm_local counter, and waggles the MBA
+>> +         * controls. mbm_local is implicitly part of the L3, pick a
+>> +         * resource to be MBA that as close as possible to the L3.
+>> +         */
+>> +        if (!candidate_class || class->level < candidate_class->level)
+>> +            candidate_class = class;
+>> +    }
+>> +
+>> +    if (candidate_class) {
+>> +        pr_debug("selected class %u to back MBA\n",
+>> +             candidate_class->level);
+>> +        res = &mpam_resctrl_controls[RDT_RESOURCE_MBA];
+>> +        res->class = candidate_class;
+>> +        exposed_alloc_capable = true;
+>> +    }
+>> +}
+>> +
+>>   static int mpam_resctrl_control_init(struct mpam_resctrl_res *res,
+>>                        enum resctrl_res_level type)
+>>   {
+>>       struct mpam_class *class = res->class;
+>> +    struct mpam_props *cprops = &class->props;
+>>       struct rdt_resource *r = &res->resctrl_res;
+>>         switch (res->resctrl_res.rid) {
+>> @@ -362,6 +532,20 @@ static int mpam_resctrl_control_init(struct
+>> mpam_resctrl_res *res,
+>>            * 'all the bits' is the correct answer here.
+>>            */
+>>           r->cache.shareable_bits = resctrl_get_default_ctrl(r);
+>> +        break;
+>> +    case RDT_RESOURCE_MBA:
+>> +        r->alloc_capable = true;
+>> +        r->schema_fmt = RESCTRL_SCHEMA_RANGE;
+>> +        r->ctrl_scope = RESCTRL_L3_CACHE;
+>> +
+>> +        r->membw.delay_linear = true;
+>> +        r->membw.throttle_mode = THREAD_THROTTLE_UNDEFINED;
+>> +        r->membw.min_bw = get_mba_min(cprops);
+>> +        r->membw.max_bw = MAX_MBA_BW;
+>> +        r->membw.bw_gran = get_mba_granularity(cprops);
+>> +
+>> +        r->name = "MB";
+>> +
+>>           break;
+>>       default:
+>>           break;
+>> @@ -377,7 +561,17 @@ static int mpam_resctrl_pick_domain_id(int cpu,
+>> struct mpam_component *comp)
+>>       if (class->type == MPAM_CLASS_CACHE)
+>>           return comp->comp_id;
+>>   -    /* TODO: repaint domain ids to match the L3 domain ids */
+>> +    if (topology_matches_l3(class)) {
+>> +        /* Use the corresponding L3 component ID as the domain ID */
+>> +        int id = get_cpu_cacheinfo_id(cpu, 3);
+>> +
+>> +        /* Implies topology_matches_l3() made a mistake */
+>> +        if (WARN_ON_ONCE(id == -1))
+>> +            return comp->comp_id;
+>> +
+>> +        return id;
+>> +    }
+>> +
+>>       /*
+>>        * Otherwise, expose the ID used by the firmware table code.
+>>        */
+>> @@ -419,6 +613,12 @@ u32 resctrl_arch_get_config(struct rdt_resource
+>> *r, struct rdt_ctrl_domain *d,
+>>       case RDT_RESOURCE_L3:
+>>           configured_by = mpam_feat_cpor_part;
+>>           break;
+>> +    case RDT_RESOURCE_MBA:
+>> +        if (mpam_has_feature(mpam_feat_mbw_max, cprops)) {
+>> +            configured_by = mpam_feat_mbw_max;
+>> +            break;
+>> +        }
+>> +        fallthrough;
+>>       default:
+>>           return resctrl_get_default_ctrl(r);
+>>       }
+>> @@ -430,6 +630,8 @@ u32 resctrl_arch_get_config(struct rdt_resource
+>> *r, struct rdt_ctrl_domain *d,
+>>       switch (configured_by) {
+>>       case mpam_feat_cpor_part:
+>>           return cfg->cpbm;
+>> +    case mpam_feat_mbw_max:
+>> +        return mbw_max_to_percent(cfg->mbw_max, cprops);
+>>       default:
+>>           return resctrl_get_default_ctrl(r);
+>>       }
+>> @@ -474,6 +676,13 @@ int resctrl_arch_update_one(struct rdt_resource
+>> *r, struct rdt_ctrl_domain *d,
+>>           cfg.cpbm = cfg_val;
+>>           mpam_set_feature(mpam_feat_cpor_part, &cfg);
+>>           break;
+>> +    case RDT_RESOURCE_MBA:
+>> +        if (mpam_has_feature(mpam_feat_mbw_max, cprops)) {
+>> +            cfg.mbw_max = percent_to_mbw_max(cfg_val, cprops);
+>> +            mpam_set_feature(mpam_feat_mbw_max, &cfg);
+>> +            break;
+>> +        }
+>> +        fallthrough;
+> 
+> I think mpam_feat_mbw_min peroperly need to be cleared in '&cfg', whose
+> content
+> is copied from that of the component. mpam_feat_mbw_min may have been
+> existing
+> in '&cfg' and struct mpam_config::mbw_min won't be updated correctly in the
+> subsequent call mpam_extend_config(). It means register MPAMCFG_MBW_MIN
+> isn't
+> updated correctly.
 
-The above two funcitions have pass down &sconf.
+Thanks for the report. The suggested fix makes sense too. I'll fix this
+in the later patch where mbw_min is introduced.
 
-The usual prep_ call have not sconf argument, which need depend on previous
-config.
+> 
+> On NVidia's grace-hopper machine, I got:
+> 
+> host$ mount none -tresctrl /sys/fs/resctrl/
+> host$ mkdir -p /sys/fs/resctrl/all
+> host$ mkdir -p /sys/fs/resctrl/test
+> host$ cat /proc/dump_feat_regs
+> MPAMF_IDR         0000008057010027
+> MAPMF_MBW_IDR     00000c07
+> 
+> host$ echo "MB:1=98" > /sys/fs/resctrl/test/schemata
+> host$ cat /proc/dump_cfg_regs
+> MPAMCFG_PART_SEL  00000002
+> MPAMCFG_MBW_MAX   0000f9ff
+> MPAMCFG_MBW_MIN   0000f000
+> 
+> host$ echo "MB:1=2" > /sys/fs/resctrl/test/schemata
+> host$ cat /proc/dump_cfg_regs
+> MPAMCFG_PART_SEL  00000002
+> MPAMCFG_MBW_MAX   000005ff
+> MPAMCFG_MBW_MIN   0000f000
+> 
+> With 'mpam_clear_feature(mpam_feat_mbw_min, &cfg);' applied here, the
+> register
+> can be updated correctly. It also makes my (soft) MBW limiting tests happy.
+> 
+> host$ echo "MB:1=98" > /sys/fs/resctrl/test/schemata
+> host$ cat /proc/dump_cfg_regs
+> MPAMCFG_PART_SEL  00000002
+> MPAMCFG_MBW_MAX   0000f9ff
+> MPAMCFG_MBW_MIN   0000ea00
+> 
+> host$ echo "MB:1=2" > /sys/fs/resctrl/test/schemata
+> host$ cat /proc/dump_cfg_regs
+> MPAMCFG_PART_SEL  00000002
+> MPAMCFG_MBW_MAX   000005ff
+> MPAMCFG_MBW_MIN   00000200
+> 
+> 
+> Thanks,
+> Gavin
+> 
+>>       default:
+>>           return -EINVAL;
+>>       }
+>> @@ -743,6 +952,7 @@ int mpam_resctrl_setup(void)
+>>         /* Find some classes to use for controls */
+>>       mpam_resctrl_pick_caches();
+>> +    mpam_resctrl_pick_mba();
+>>         /* Initialise the resctrl structures from the classes */
+>>       for (i = 0; i < RDT_NUM_RESOURCES; i++) {
+> 
 
-further, If passdown NULL for config, it means use previuos config.
+Thanks,
 
->
-> > I think "peripheral" also is reduntant. dmaengine_prep_single() and
-> > dmaengine_prep_sg() should be enough because
->
-> Then you are missing the basic premises of dmaengine that we have memcpy
-> ops and peripheral dma ops (aka slave) Absence of peripheral always
-> implies that it is memcpy
+Ben
 
-Okay, it is not big deal. is dmaengine_prep_dma_cyclic() exception? which
-have not "peripheral" or "slave", but it is not for memcpy.
-
-Frank
->
-> > - dmaengine_prep_dma_cyclic() is actually work with prepiperial FIFO
-> > - some prepierial FIFO work like memory, by use shared memory method, like
-> > PCIe map windows.
-> > - argument: config and dir already passdown information to indicate if it
-> > is device preiperial. So needn't indicate at function name.
-> > - maybe later extend to support mem to mem by config becuase adjust burst
-> > size for difference alignment or difference bus fabric port to optimaze
-> > performance.
-> >
-> > Frank
-> >
-> > >
-> > > I would like to retain the dmaengine_prep_slave_single() as an API for
-> > > users to call and invoke. There are users who configure channel once as
-> > > well
-> > >
-> > > >
-> > > > Additional, prevous two calls requires additional locking to ensure both
-> > > > steps complete atomically.
-> > > >
-> > > >     mutex_lock()
-> > > >     dmaengine_slave_config()
-> > > >     dmaengine_prep_slave_single()
-> > > >     mutex_unlock()
-> > > >
-> > > > after new API added, mutex lock can be moved. See patch
-> > > >      nvmet: pci-epf: Use dmaengine_prep_slave_single_config() API
-> > > >
-> > > > Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> > > > ---
-> > > > Frank Li (8):
-> > > >       dmaengine: Add API to combine configuration and preparation (sg and single)
-> > > >       PCI: endpoint: pci-epf-test: use new DMA API to simple code
-> > > >       dmaengine: dw-edma: Use new .device_prep_slave_sg_config() callback
-> > > >       dmaengine: dw-edma: Pass dma_slave_config to dw_edma_device_transfer()
-> > > >       nvmet: pci-epf: Remove unnecessary dmaengine_terminate_sync() on each DMA transfer
-> > > >       nvmet: pci-epf: Use dmaengine_prep_slave_single_config() API
-> > > >       PCI: epf-mhi:Using new API dmaengine_prep_slave_single_config() to simple code.
-> > > >       crypto: atmel: Use dmaengine_prep_slave_single_config() API
-> > > >
-> > > >  drivers/crypto/atmel-aes.c                    | 10 ++---
-> > > >  drivers/dma/dw-edma/dw-edma-core.c            | 38 +++++++++++-----
-> > > >  drivers/nvme/target/pci-epf.c                 | 21 +++------
-> > > >  drivers/pci/endpoint/functions/pci-epf-mhi.c  | 52 +++++++---------------
-> > > >  drivers/pci/endpoint/functions/pci-epf-test.c |  8 +---
-> > > >  include/linux/dmaengine.h                     | 64 ++++++++++++++++++++++++---
-> > > >  6 files changed, 111 insertions(+), 82 deletions(-)
-> > > > ---
-> > > > base-commit: bc04acf4aeca588496124a6cf54bfce3db327039
-> > > > change-id: 20251204-dma_prep_config-654170d245a2
-> > > >
-> > > > Best regards,
-> > > > --
-> > > > Frank Li <Frank.Li@nxp.com>
-> > >
-> > > --
-> > > ~Vinod
->
-> --
-> ~Vinod
 
