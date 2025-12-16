@@ -4,169 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38F42D5E38D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 14:42:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D626D5C0EA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 14:46:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HyB1m9AUoFyAxeM0O8mXIkJSDauPa3LsyNCkr//3bFc=; b=ZAVcmi8YXmRTscLn6JcZUb9wO6
-	ox9JBQNki8KVQkq4AXPGfpGAwv99dhf7b5bXit9KmS34zjxD/HbhN2cXyg1PhPqbVpF4q2EJhdFTj
-	tDZkaPtAUnalDZkOcpLIIw7dM8AXN5ZQ69USxs05AKqzs7/KH6XXyCjgRxzilzvGhLUnBvCxRYUmQ
-	8hdFx287qZTA5IIye1yWVLk4IPn46TzG7jpapbc4zRsjONkt+5Uv+uq424A1LqtAJEqyNSizv9yuZ
-	3CCvzL5RdEpeR23eBHNHAbhFOXmuYASilgjAhfrZ7LbnGi/RAGvPT7kNWXMJL2CMePL7IXhNZdZmK
-	V0mysY/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IQXwmSzMXzp6fc+pmS86by7b0nQIrW28Izqo/HJWjsE=; b=uj+ZkrE4ofI6yd6ei0m3QZC4hO
+	lnP9nA10+CUw+2xmEKAifDN1ThMijJYzDL07iI3hNCdYSClLrXkkZOHXEquY5RuJMEkYZV+SDGFWz
+	rqhiF8BRb2blGd9UrbhlxNtBXh5ZAiyXuICwAp1LnUj1vVAEKnk53q+yCb4f044B53kIfvazPeSNN
+	sT4gZRzV6ZBwKevJL5+mGAm1ogA38gfzpeDpVZmS0xle7jyCjCFCVtErEEJUJcP7fAJEEb3LgzSe6
+	N2Rus/F6iDv51pmrv4KuZMDaIszOYDv95BzJ1Se472TV+h965/FTk6UhblZp/E8KBPOmq4r37R8Da
+	pqwXNeJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVWFz-00000005MKG-1v3I;
-	Tue, 16 Dec 2025 14:42:31 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVWFu-00000005MJF-2et9
+	id 1vVWJb-00000005MeN-3nsu;
+	Tue, 16 Dec 2025 14:46:15 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vVWJY-00000005MdP-3xks
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 14:42:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GSuMaLKqRlDw1a2l1p0BelP9EDPB7obZjzD6EhF7BwlNxdUDAsZWBkcgHkel6/ld4xSzpx2Fh882QAO8EAzfdMOJvzWluuG1kbiA99Wo+WIwGxD9isWaewR+DvtJTt8gSPFUcmKAxX19J/btGukBjLixR53Z8k6UqNW+V1z56MGnokY7RCXPGtsGX1/dLWO1cLr2MhZ9GOz7mnL+3+btjq8Z3Bqwcl6Zgo3/48Bld5pZ6LwQQ5NIF2ylpSRfA0p3bBna4zELSHDjnBFoxYJJc+/+JK8U/OZa6YuhrAoIRxbP3skzTaX89RZLvUZqFAlFFQN4zmjDg6vN1Dh/jE7rvg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HyB1m9AUoFyAxeM0O8mXIkJSDauPa3LsyNCkr//3bFc=;
- b=CW9BiLfLUpnSm5xn7TB2VX7qaxr1CjrYlIv9B++KevkBiT21Igt1k3poDd7Bga0kPY6OGikZl8OBM5z60uCouBW6EiqIBt5Qh5BVIHbpJewXLiYel1bkVxpq/jimaxxQ+d41onbQeS8yhSwjNNdl3zWiXFSiwZH2RHP4YmiXA6mlrccWbHX0bR1ruGIn+DVwcW7xyg22J8OcEXjAs/LTi/E3OyUKzPpsu3dvFvOTr10419Ogz7lcobpUK7foiRFiJBxoTWXB35rrPLyO6RmROHSbaMSfbTeI12SpU/PRgV4hJA4NjqsTWklrAdbiviJSSh5ZLDiTvgkqW1aV4tJeYQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HyB1m9AUoFyAxeM0O8mXIkJSDauPa3LsyNCkr//3bFc=;
- b=SKiiLB9txa6dEeIhxCtRvwcX/pjBUOQiIHveU0i6filU2zO8MYEPW5ZfKNIzpoG+OlKM23buIyFHEcvDak4DoHiXHN38STVOSeu7/Vp/POcHFKd9elld8XRwdH8mpnlVObU10vYCbjZoonEcOGhvFuCqIROLCzJvAi5syj5MDg9SPAzlndqO7HWWjclmtszUWircEu+rs8MFT+NE+SmH85nAA87yv9nKu8wdAWz0tBtAq6ShUwkf+1exNfccfi3KUR6hZxteMGum1kRrpBx7W5hpuvOpeCRRM6FjiXIZi42zGKYW/ArJUWBZsAkcs6i+aJYbQdYQQGLd8HhPKN58pg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
- by AS8PR04MB7590.eurprd04.prod.outlook.com (2603:10a6:20b:23d::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.13; Tue, 16 Dec
- 2025 14:42:18 +0000
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9412.011; Tue, 16 Dec 2025
- 14:42:18 +0000
-Date: Tue, 16 Dec 2025 09:42:06 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Chester Lin <chester62515@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Conor Dooley <conor+dt@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>, devicetree@vger.kernel.org,
-	Eric Dumazet <edumazet@google.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
-	imx@lists.linux.dev, Jakub Kicinski <kuba@kernel.org>,
-	Jan Petrous <jan.petrous@oss.nxp.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Lee Jones <lee@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Matthias Brugger <mbrugger@suse.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	NXP S32 Linux Team <s32@nxp.com>, Paolo Abeni <pabeni@redhat.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>, linaro-s32@linaro.org
-Subject: Re: [PATCH v2 0/4] s32g: Use a syscon for GPR
-Message-ID: <aUFvvmDUai9QrhZ2@lizhi-Precision-Tower-5810>
-References: <cover.1765806521.git.dan.carpenter@linaro.org>
- <aUAvwRmIZBC0W6ql@lizhi-Precision-Tower-5810>
- <aUBUkuLf7NHtLSl1@stanley.mountain>
- <aUBha2/xiZsIF/o5@lizhi-Precision-Tower-5810>
- <aUBrV2_Iv4oTPkC4@stanley.mountain>
- <aUB4pFEwmMBzW52T@lizhi-Precision-Tower-5810>
- <aUEQkuzSZXFs5nqr@stanley.mountain>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aUEQkuzSZXFs5nqr@stanley.mountain>
-X-ClientProxiedBy: SJ0PR05CA0184.namprd05.prod.outlook.com
- (2603:10b6:a03:330::9) To DU2PR04MB8951.eurprd04.prod.outlook.com
- (2603:10a6:10:2e2::22)
+	Tue, 16 Dec 2025 14:46:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CB90FFEC;
+	Tue, 16 Dec 2025 06:46:03 -0800 (PST)
+Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7BEB83F73F;
+	Tue, 16 Dec 2025 06:46:09 -0800 (PST)
+From: Ryan Roberts <ryan.roberts@arm.com>
+To: Will Deacon <will@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Marc Zyngier <maz@kernel.org>,
+	Dev Jain <dev.jain@arm.com>,
+	Linu Cherian <Linu.Cherian@arm.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1 00/13] arm64: Refactor TLB invalidation API and implementation
+Date: Tue, 16 Dec 2025 14:45:45 +0000
+Message-ID: <20251216144601.2106412-1-ryan.roberts@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|AS8PR04MB7590:EE_
-X-MS-Office365-Filtering-Correlation-Id: 77f5781c-3382-4a43-1726-08de3cb15002
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|376014|7416014|366016|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?RAVrC+xuh5CEg62Fw/O5NDDrsqvfmhzjxNgF3MJZFgGMCFNhhHV7NUYV4eTv?=
- =?us-ascii?Q?bmXDhrlEI5F9QCOQpLis8vNSRo1ynF8Xq+imdw8ypg0Rnj5e+lLIfPOvy/6v?=
- =?us-ascii?Q?VCBn4bSNpjlViOyqwSwQiRnczeSbdH/Q3z0MEc1UjSZnwvUMGNDnZJCrRzrY?=
- =?us-ascii?Q?UIamtr0Fknuy6KR/N8DldjkCfiwnfgD4vA7JiApmmY8TXGqTJ2OOI4IS7K7M?=
- =?us-ascii?Q?kXNCovtEghtosxu09vRViS0nsHSrgdTZfxE1LZJ6T3+NvPBydtrfFFX/NeHn?=
- =?us-ascii?Q?VlrbDhj/+OKTOoyT7Xm30hSB+cRov0RgHgR7tkRT/mBqvaBOekw3h4JElE9M?=
- =?us-ascii?Q?EF3qC/re38y+Q1akCH+f8FyfLxdzncF8dk0Q2vREs4OpNCExbiN3+NTmGs1y?=
- =?us-ascii?Q?DuXPE+ObYXABRLvJYp+BY3gXZZxMRGtLaxdYkIvlIwExTb/SZbdTX4erjb2b?=
- =?us-ascii?Q?ccc1VS6SUcxyyGFRLW2cMoAlt/KdMMaWPeXTYrSVL607+cxoWLmHE8YQNprh?=
- =?us-ascii?Q?3PD01g2OC08SAZvn+5om7sN69GpbsZ3WDErUOFwaLbOKUIymGERth37BYGa/?=
- =?us-ascii?Q?B/F0DNIzchFoLU+koG8+WB4O/2t4s5XXbtwjsGxPKnr5L7nVcgE5vBPx4uSX?=
- =?us-ascii?Q?DODRO5koLDI35UTg4ilmQvOP4xh9EXQOo31nxFVvpguJKhvmWhcL9zKCGto0?=
- =?us-ascii?Q?jTfLRqdn1Oc9oiU+k/l0QzN8RgS5Fpi6uxpB6p5s3JngdjIVvLCKvDbZZzhD?=
- =?us-ascii?Q?DaL7lVUoIXHIgEgVi5dFPY4XcpDZzKuyhRcv9oCpDpA9tGRJ+AH2uNyekl6Q?=
- =?us-ascii?Q?L9vaN52Yt2ru9nISg02o+FcOf9QtGpqLAQPUxkrHH0w0TjKK3mQN1+hvehTR?=
- =?us-ascii?Q?QT2GjqOSX/bB0T0evCKJJC8TLWAxISuCtl0ecwL9WQDV7UR+zXutnKgpO7QR?=
- =?us-ascii?Q?nZBPzwzQI/KKqpzxgUG5nW9YIbFWWBaOpwO8lwO2olqX5DB09wVhA+ODkWCK?=
- =?us-ascii?Q?yK1yeQRxIqCjzbJQerlz9MU1R6RsRjzmB58jCY34emATggCNJudQ3e56zdp9?=
- =?us-ascii?Q?X31zbJWHGxenfbHhpXowkcRv8xFFpaZp9zIYJoCpCOp8OmGZdmgAerH+4BeL?=
- =?us-ascii?Q?jh5A599J20Fj8DIVfOA+a2pSyQA1pguBt6lf99tiaefaS6Dk22xuUlyOEVJI?=
- =?us-ascii?Q?aen8LG8DWQ3salPf3R4YPkV2JSsZQrfQGlAnpSMoJDL0U8KthVADz2emMusm?=
- =?us-ascii?Q?2xPuS2BsvLz+K7Z3e/buQMN+/ADw949ag3RX4UKOf+l+ESKIgvABwrqIRR0E?=
- =?us-ascii?Q?W5auYIXlP91mcs/aWvEMw2+RGSiY5WWENWG4sWibYkUAxtHB7GCDmb1q9EDy?=
- =?us-ascii?Q?dB5Gqn3poMszUHIrhrX+SKpa5XPKuF1SYMQR7Tw1ZcVbNziIzJX1ZoTvqGuE?=
- =?us-ascii?Q?dE3vkTNXbuavyCt2cumL944GOQ7Z+36zjj9OVqjSZsBNVk0vLtWcnOis/Yj+?=
- =?us-ascii?Q?4CJdvr+7BqAMm6T7PSExqz+lPEg1eOjRa9ZJ?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(376014)(7416014)(366016)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?iSzbRhwZkLTNQXhAO+HEohPEBih+sxm9Xrkst5M53RkWVaisFszXaGxJNOEp?=
- =?us-ascii?Q?An+cjMb9cx0U802KvCGpnfbMbxq7lQoK4LS+krO52USXRbpNxemog1Ecdp4y?=
- =?us-ascii?Q?VUk3BiubtiCO88N9/+MiimP6vJqnEwXmlKzlvfzBQz8edh9+hNk/i7qBomUf?=
- =?us-ascii?Q?NnMkmOm3C4hSNCFglLrK3wWDGFNMDiLIWyzhjHvvpAXD3TbDNtKoXo6alEdO?=
- =?us-ascii?Q?3llxXj0I3RHFkkxWYAa6OOGhHKQw8e2qAj+uhJMdZNZ4XJE4//pRWyqUv82W?=
- =?us-ascii?Q?TmkDCsvKDTGmLHKPuzJLniX4yCY9Q0kbMVdv2h0GBadbQ0LGs6pq5c1CG+1O?=
- =?us-ascii?Q?uCtqPcNPkYTXEAVoqOwg51EOWufHF7hKEoLO6xI9w/32qNP8xLJbJo9CTmtL?=
- =?us-ascii?Q?StJP823NfXSD5NbyK7R10OUCd/Nbt4+8CV0s8t5r+esScRerEImqGg9W010J?=
- =?us-ascii?Q?lAFP9flc1bhXJQIj/v0/AzOdQEu/sToJPVk3eVDFlr4CNLeI4+gAAcfWV3dp?=
- =?us-ascii?Q?IeYzpHxTq+zvgQlnAPod5EkB+b90DjPEdXU73w1dAhv/jU4GceuTPj1MLdGq?=
- =?us-ascii?Q?pV8UBKF18Dd2K5O4XpGUH+kSmeUbZ2ff/bsX9IuxDgA/GRETjF+yj+suoJzR?=
- =?us-ascii?Q?KdcK1qVUFINktkoejCC4Ll1eCfMcUlD2vHtNhhTBgONgCjZ0pu7wsq2fpfPR?=
- =?us-ascii?Q?KiQnDPmVLVoIfgzaSCg23MsGC5pvjuQOPrDy95kQ15gha700cNBxAwBd32PM?=
- =?us-ascii?Q?SopHt1nUXGzgno/+zG/2a+fnng5BXDU2PXwCJaKCKnrVQB+uYUl4V3Z8+Ejc?=
- =?us-ascii?Q?Wf9QZl8ct+bMoP4bhKy0XhOKeQSAzrVzBTgkgwVMhfUtGvnrDPZ8sS6gd8tr?=
- =?us-ascii?Q?bzqMlgUs9o1/FtWfHczPxFrAkxCbqHwTUSKQ6V5w2ZlNqQx6zNCGsv8d+gO+?=
- =?us-ascii?Q?Cczkd2iOh1zPmib9Npe5YeSrnKiDRf+Pf3asknmYI+Mzm9edUAADdWqwlLlx?=
- =?us-ascii?Q?tE3G7rtWUXlLcC2Tcl//835+LEm/M4mTXmZgyYhCh6ALdxHSdTvb4EeIl/4G?=
- =?us-ascii?Q?CjBEDywEd+Mo8UXVfgQh+fLo7s+/8FwzRsuTcXIave24E1jNwGAkEEc4bYWM?=
- =?us-ascii?Q?RQfKR/m3tZnNudjPdmm5HW8wo2YUY0JKjBy3XaIgh7M7+TlIqm6jYmHDvP0G?=
- =?us-ascii?Q?88F77UfZBizhHDvTirOrG+BudSEQZH4yvyYn5NK6i3nLrBmkTrOVs+sXGX3G?=
- =?us-ascii?Q?KCFzHYbTHtzW+ZCQulNvMrU6C4HjSf8HJF7th551WWrObUfg3/B3WlDMq+7U?=
- =?us-ascii?Q?5usgFH7jtR5zU7Mq8JxiAckjDvaUy7GppVIiwN9zGAMvclPS7+dduuA5FQh+?=
- =?us-ascii?Q?UI2oi4J8Nsp2aJWCNYdHcut2wlXix8Be6m1rSGSxHPapKwKJ7u7+q/h18lXG?=
- =?us-ascii?Q?uNzuVE5Ff3pQWZioXpkpPg43ufHikBXmp7x0bx39ByUGkLCUTgMl9X6B3kde?=
- =?us-ascii?Q?BA1E13Q1s9ggRcEkCF2MFtAqS/wZTbZVrY2z9fPfMCraDgaD6neXjcRK+QUB?=
- =?us-ascii?Q?nJMbgGNUPsCJmBW6Z7WDEEwAafF4EiRLxEuqgbSH?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 77f5781c-3382-4a43-1726-08de3cb15002
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Dec 2025 14:42:18.4415
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: /3pnHxrM2IEY7VV92XDVNYD6sVCaQydZvVvvlPeKfnUidBhU5336vuMrkW/gK37Ybto04P0fjUM1TMlsmC+GNw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7590
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_064226_836844_C3AEDE60 
-X-CRM114-Status: GOOD (  46.95  )
+X-CRM114-CacheID: sfid-20251216_064613_114538_EBA2E8DC 
+X-CRM114-Status: GOOD (  15.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,119 +69,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 16, 2025 at 10:56:02AM +0300, Dan Carpenter wrote:
-> On Mon, Dec 15, 2025 at 04:07:48PM -0500, Frank Li wrote:
-> > On Mon, Dec 15, 2025 at 11:11:03PM +0300, Dan Carpenter wrote:
-> > > On Mon, Dec 15, 2025 at 02:28:43PM -0500, Frank Li wrote:
-> > > > On Mon, Dec 15, 2025 at 09:33:54PM +0300, Dan Carpenter wrote:
-> > > > > On Mon, Dec 15, 2025 at 10:56:49AM -0500, Frank Li wrote:
-> > > > > > On Mon, Dec 15, 2025 at 05:41:43PM +0300, Dan Carpenter wrote:
-> > > > > > > The s32g devices have a GPR register region which holds a number of
-> > > > > > > miscellaneous registers.  Currently only the stmmac/dwmac-s32.c uses
-> > > > > > > anything from there and we just add a line to the device tree to
-> > > > > > > access that GMAC_0_CTRL_STS register:
-> > > > > > >
-> > > > > > >                         reg = <0x4033c000 0x2000>, /* gmac IP */
-> > > > > > >                               <0x4007c004 0x4>;    /* GMAC_0_CTRL_STS */
-> > > > > > >
-> > > > > > > We still have to maintain backwards compatibility to this format,
-> > > > > > > of course, but it would be better to access these through a syscon.
-> > > > > > > First of all, putting all the registers together is more organized
-> > > > > > > and shows how the hardware actually is implemented.  Secondly, in
-> > > > > > > some versions of this chipset those registers can only be accessed
-> > > > > > > via SCMI, if the registers aren't grouped together each driver will
-> > > > > > > have to create a whole lot of if then statements to access it via
-> > > > > > > IOMEM or via SCMI,
-> > > > > >
-> > > > > > Does SCMI work as regmap? syscon look likes simple, but missed abstract
-> > > > > > in overall.
-> > > > > >
-> > > > >
-> > > > > The SCMI part of this is pretty complicated and needs discussion.  It
-> > > > > might be that it requires a vendor extension.  Right now, the out of
-> > > > > tree code uses a nvmem vendor extension but that probably won't get
-> > > > > merged upstream.
-> > > > >
-> > > > > But in theory, it's fairly simple, you can write a regmap driver and
-> > > > > register it as a syscon and everything that was accessing nxp,phy-sel
-> > > > > accesses the same register but over SCMI.
-> > > >
-> > > > nxp,phy-sel is not standard API. Driver access raw register value. such
-> > > > as write 1 to offset 0x100.
-> > > >
-> > > > After change to SCMI, which may mapped to difference command. Even change
-> > > > to other SOC, value and offset also need be changed. It is not standilzed
-> > > > as what you expected.
-> > >
-> > > We're writing to an offset in a syscon.  Right now the device tree
-> > > says that the syscon is an MMIO syscon.  But for SCMI devices we
-> > > would point the phandle to a custom syscon.  The phandle and the offset
-> > > would stay the same, but how the syscon is implemented would change.
-> >
-> > Your SCMI syscon driver will convert some private hard code to some
-> > function, such previous example's '1' as SEL_RGMII. It is hard maintained
-> > in long term.
-> >
->
-> No, there isn't any conversion needed.  It's exactly the same as writing
-> to the register except it goes through SCMI.
->
-> > >
-> > > >
-> > > > >
-> > > > > > You still use regmap by use MMIO. /* GMAC_0_CTRL_STS */
-> > > > > >
-> > > > > > regmap = devm_regmap_init_mmio(dev, sts_offset, &regmap_config);
-> > > > > >
-> > > > >
-> > > > > You can use have an MMIO syscon, or you can create a custom driver
-> > > > > and register it as a syscon using of_syscon_register_regmap().
-> > > >
-> > > > My means is that it is not necessary to create nxp,phy-sel, especially
-> > > > there already have <0x4007c004 0x4>;    /* GMAC_0_CTRL_STS */
-> > > >
-> > >
-> > > Right now the out of tree dwmac-s32cc.c driver does something like
-> > > this:
-> > >
-> > >     89          if (gmac->use_nvmem) {
-> > >     90                  ret = write_nvmem_cell(gmac->dev, "gmac_phy_intf_sel", intf_sel);
-> > >     91                  if (ret)
-> > >     92                          return ret;
-> > >     93          } else {
-> > >     94                  writel(intf_sel, gmac->ctrl_sts);
-> > >     95          }
-> > >
-> > > Which is quite complicated, but with a syscon, then it's just:
-> > >
-> > > 	regmap_write(gmac->sts_regmap, gmac->sts_offset, S32_PHY_INTF_SEL_RGMII);
-> > >
-> > > Even without SCMI, the hardware has all these registers grouped together
-> > > it just feels cleaner to group them together in the device tree as well.
-> >
-> > Why not implement standard phy interface,
-> > phy_set_mode_ext(PHY_MODE_ETHERNET, RGMII);
-> >
-> > For example:  drivers/pci/controller/dwc/pci-imx6.c
-> >
-> > In legency platform, it use syscon to set some registers. It becomes mess
-> > when more platform added.  And it becomes hard to convert because avoid
-> > break compatibltiy now.
-> >
-> > It doesn't become worse since new platforms switched to use standard
-> > inteface, (phy, reset ...).
-> >
->
-> This happens below that layer, this is just saying where the registers
-> are found.  The GMAC_0_CTRL_STS is just one register in the GPR region,
-> most of the others are unrelated to PHY.
+Hi All,
 
-The other register should work as other function's providor with mfd.
+This series refactors the TLB invalidation API to make it more general and
+flexible, and refactors the implementation, aiming to make it more robust,
+easier to understand and easier to add new features in future.
 
-Frank
+It is heavily based on the series posted by Will back in July at [1]; I've
+attempted to maintain correct authorship and tags - apologies if I got any of
+the etiquette wrong.
 
->
-> regards,
-> dan carpenter
->
+The first 8 patches reimplement the full scope of Will's series, but fixed up to
+use function pointers instead of the enum, as per Linus's suggestion. Patches
+9-12 then reformulate the API for the range- and page-based functions to remove
+all the "nosync", "nonotify" and "local" function variants and replace with a
+set of flags to modify the behaviour instead. This allows having a single
+implementation that can rely on constant folding. IMO It's much cleaner and more
+flexible. Finally, patch 13 provides a minor theoretical performance improvement
+by hinting the TTL for page-based invalidations (the preceeding API improvements
+made that pretty simple).
+
+We have a couple of other things in the queue to put on top of this series,
+which these changes make simpler:
+
+ - Optimization to only do local TLBI when an mm is single-threaded
+ - Introduce TLBIP for use with D128 pgtables
+
+The series applies on top of v6.19-rc1, I've compile tested each patch and run
+mm selftests for the end result in a VM on Apple M2; all tests pass. I've run an
+earlier version of this code through our performance benchmarking system and no
+regressions were found. I've looked at the generated instructions and all the
+expected constant folding seems to be happening, and I've checked code size
+before and after; there is no significant change.
+
+[1] https://lore.kernel.org/linux-arm-kernel/20250711161732.384-1-will@kernel.org/
+
+Thanks,
+Ryan
+
+Ryan Roberts (9):
+  arm64: mm: Re-implement the __tlbi_level macro as a C function
+  arm64: mm: Introduce a C wrapper for by-range TLB invalidation
+  arm64: mm: Implicitly invalidate user ASID based on TLBI operation
+  arm64: mm: Re-implement the __flush_tlb_range_op macro in C
+  arm64: mm: Refactor flush_tlb_page() to use __tlbi_level_asid()
+  arm64: mm: Refactor __flush_tlb_range() to take flags
+  arm64: mm: More flags for __flush_tlb_range()
+  arm64: mm: Wrap flush_tlb_page() around ___flush_tlb_range()
+  arm64: mm: Provide level hint for flush_tlb_page()
+
+Will Deacon (4):
+  arm64: mm: Push __TLBI_VADDR() into __tlbi_level()
+  arm64: mm: Inline __TLBI_VADDR_RANGE() into __tlbi_range()
+  arm64: mm: Simplify __TLBI_RANGE_NUM() macro
+  arm64: mm: Simplify __flush_tlb_range_limit_excess()
+
+ arch/arm64/include/asm/hugetlb.h  |  12 +-
+ arch/arm64/include/asm/pgtable.h  |  13 +-
+ arch/arm64/include/asm/tlb.h      |   6 +-
+ arch/arm64/include/asm/tlbflush.h | 461 +++++++++++++++++-------------
+ arch/arm64/kernel/sys_compat.c    |   2 +-
+ arch/arm64/kvm/hyp/nvhe/mm.c      |   2 +-
+ arch/arm64/kvm/hyp/pgtable.c      |   4 +-
+ arch/arm64/mm/contpte.c           |  12 +-
+ arch/arm64/mm/fault.c             |   2 +-
+ arch/arm64/mm/hugetlbpage.c       |   4 +-
+ arch/arm64/mm/mmu.c               |   2 +-
+ 11 files changed, 288 insertions(+), 232 deletions(-)
+
+--
+2.43.0
+
 
