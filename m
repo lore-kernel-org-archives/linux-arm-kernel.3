@@ -4,69 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 677D9D5B87E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 01:50:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22922D5B87A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 01:51:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PXsPEiMvMFgzdY4DGmlLQYJ0FuAZ/pVYFnBc45YHja8=; b=ONtmRloFMptZbG5X2yT2Lqan4o
-	/oa+81lJ0J7t4kJfKfnjL+i2nhAgdQd5fbOulRxA47zMz/5EQaPmyB2/qHkm/wZj3bxNAAX8dW/s4
-	UbfgUG9drSICZkVs288APXwj5l2XYWlWkSe7c/oiZNJ+7gqZ+wcJVGKIUKfPhoc1QbxA1WZGct+Od
-	o28luNjMydI1uLboWPqqmmvaeUlsH8wQPy2/C9Y3Yc4C7GU6RIVtksJYDHrNYhYY7DTrLbeeH8XBY
-	X5MTfjlkBt+7wl1Xt3cVMDMvcz5OmCONC3yX/Rm97O6/WtzzVFs7GaAFFZmUcwYQYF5uRK1i4fgcT
-	+xGL6eaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vNUccsZ2EKFvf6pKVWeFKkAG9R6FkML074UKIn588/g=; b=nJcGYEbsDP1m1cw+7z2HC0I/i/
+	AclAF49o0ARGwvXwp+M3xfeBkftfQ14zsm4c49hdiKTz4ZdN1uhoWhpqYovp/BSLcmnQxOWDTMBKd
+	V6UoMlCrgBBYypykAOojaJesSzcI6lFLCF9XBNIygrqR4BuIQeHFSPkfGs5KJuZ6oSSWyb17FhrhN
+	aly+XF7RMvHAq4qxBd5kKeJz41KFrSch7R1gDz120y9Li7q/l3+WFfpANmwEB+pGY+Hqnv3fQqjB2
+	Or6xW9x+c7tC8MXUydi7l5tlyet9dkldSnPOzgRIHJ74ReMjCIzsTU54zeGUxpcB4Ei4qKl2UKpru
+	l30ZGqvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVKCt-00000004WN0-0ljW;
-	Tue, 16 Dec 2025 01:50:31 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1vVKDy-00000004Wwn-31aR;
+	Tue, 16 Dec 2025 01:51:38 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVKCo-00000004WA6-1Xw6;
-	Tue, 16 Dec 2025 01:50:28 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Tue, 16 Dec
- 2025 09:50:01 +0800
-Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Tue, 16 Dec 2025 09:50:01 +0800
-From: Jacky Chou <jacky_chou@aspeedtech.com>
-Date: Tue, 16 Dec 2025 09:50:05 +0800
-Subject: [PATCH v7 6/7] PCI: aspeed: Add ASPEED PCIe RC driver
-MIME-Version: 1.0
+	id 1vVKDu-00000004Wum-1jiV
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 16 Dec 2025 01:51:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fMbuwfvxl6pEHbIWNM4xjFUf3Hxflj5PtDU7j6pwVC9FF6kbtcCrJ1FAxtPIiLo17gWCaiT11XYbMvxsX7fhuSU6gCd9dDAeSCpaUZi6yav5IJ2TMnDQDRKAg3bm0qUnQ2Ccqi6vNjsERsYApMm21AZB/o2DYircnxRnHjwE7eH5eHySMm0bYX3+nuhPcXlMBWc8WNZvdqQCCjX60Yvi/oWiAKsfltmQLU/MKxw5jnA8z4MrRAqpBL4Th9PAN8Stqj6gSIxQ46Dw8NLSdaWcXqMmqnuAon+MNyiO0b3RwVJDL/Yuj8IuFPGk4mZ6vV4/aCCoILzn2FtH2Zz747P5Aw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vNUccsZ2EKFvf6pKVWeFKkAG9R6FkML074UKIn588/g=;
+ b=G+eFyUUTu40lZlffEKQgqSyafi+Fi4L2PKNUi9Nt/UlFFTZ09jK3b+wFgmoITIy5hYoYOpHtkOVtfFtQyH/gbCLDCPiSIe8vaskOpxTF9PX2uEKU/stbs3AXWrv3Br8CCgDAkjqkQrKzEeg/niH6uqUWokTrTJNaX5LQoumic6fVQWU1TlprRlKt0Q+fqDJl1Pm93wScRhVkilTaDUb6nG6lMUN5F4fLis3vFHD/7fPY0B0TItlqCWc2Q/HZSoIGTaAjJ+JCObX8X5LwAR4cqe+kfgN1WqoMf4WFPGopIf4ddJLpAQOCgxXQC3Lg6V9ZYl4LeZenPlXS8h78BgMhpQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vNUccsZ2EKFvf6pKVWeFKkAG9R6FkML074UKIn588/g=;
+ b=ab/ib3jVzcpOwa3VuGSiEqY+95KTrxQUKMFVKL8342WOLpMzNUtGOtV++qcCt4X+ctpNSIsYoXljrvhKism/AJJ089G4gZIENn1SeVsNdkJItrRL19TIUw+PGDLc8A7fycSdaqLvyitD2Ct2Z7rDYMdw3+fc9W1nw2Cf6PVt3617jXOhlkQeZYRVNX3cAehotx7hapclqCycheF+puKbaPGWBv48lE6fl/ON5najJfl3Msec1Z0RuULyuQSGOAsaoR1KtFZpcdgNQ0s2HaZRzZJesiEJ+HAqiqzXoY7iKx/0VPUg7KVyKwE10MJR36wH27F+jVMDPcfMbFztGyM88A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by AM0PR04MB6915.eurprd04.prod.outlook.com (2603:10a6:208:187::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.13; Tue, 16 Dec
+ 2025 01:51:29 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9412.011; Tue, 16 Dec 2025
+ 01:51:29 +0000
+From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Subject: [PATCH v4 0/5] remoteproc: imx_rproc: Support i.MX95
+Date: Tue, 16 Dec 2025 09:50:58 +0800
+Message-Id: <20251216-imx95-rproc-2025-12-15-v4-0-bf1064ea8daf@nxp.com>
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20251216-upstream_pcie_rc-v7-6-4aeb0f53c4ce@aspeedtech.com>
-References: <20251216-upstream_pcie_rc-v7-0-4aeb0f53c4ce@aspeedtech.com>
-In-Reply-To: <20251216-upstream_pcie_rc-v7-0-4aeb0f53c4ce@aspeedtech.com>
-To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, "Andrew
- Jeffery" <andrew@codeconstruct.com.au>, Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, "Manivannan
- Sadhasivam" <mani@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>, Neil Armstrong
-	<neil.armstrong@linaro.org>
-CC: <linux-aspeed@lists.ozlabs.org>, <linux-pci@vger.kernel.org>,
-	<linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	Andrew Jeffery <andrew@aj.id.au>, <openbmc@lists.ozlabs.org>,
-	<linux-gpio@vger.kernel.org>, Jacky Chou <jacky_chou@aspeedtech.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1765849800; l=36309;
- i=jacky_chou@aspeedtech.com; s=20251031; h=from:subject:message-id;
- bh=ZwTnXprlAKNv3XxsycStHgf8TdhBrwKgjfPTo4abJy4=;
- b=5k2EkIgL7FyDsyguRiMTOXsqcQiG0EXkIrXfKn2RiEzArwPTkE8jVg80rGeB2XikDvpSBvBxo
- woG7bCgYzxtAoBPqP76E5hnjKXmfGegyqCGb5cOQU5d+04GGUEyqEkL
-X-Developer-Key: i=jacky_chou@aspeedtech.com; a=ed25519;
- pk=8XBx7KFM1drEsfCXTH9QC2lbMlGU4XwJTA6Jt9Mabdo=
+X-B4-Tracking: v=1; b=H4sIAAK7QGkC/x2MSwqAMAwFryJZG2iDVfQq4qLUVLPwQwoiiHe3d
+ TMwA+89kFiFEwzVA8qXJDn2LE1dQVj9vjDKnB3IkLNkHcp29w711CNgiWgJbaExHLu2CZ4gj0/
+ lKPd/PE7v+wHcB+rLaAAAAA==
+X-Change-ID: 20251215-imx95-rproc-2025-12-15-1200ef764ca2
+To: Bjorn Andersson <andersson@kernel.org>, 
+ Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>, 
+ Daniel Baluta <daniel.baluta@nxp.com>
+Cc: linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>
+X-Mailer: b4 0.14.2
+X-ClientProxiedBy: SG2PR03CA0120.apcprd03.prod.outlook.com
+ (2603:1096:4:91::24) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AM0PR04MB6915:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0c7cf4b3-2a11-4fb0-7c98-08de3c45a12d
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|7416014|376014|1800799024|19092799006|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?WG1EZFRlcVFORHdzMXRONytTSk02V1E5dVVPTXlzbURGTmlLWDJhQUtiemFC?=
+ =?utf-8?B?ZExHT0ZRVU4vODVvMmRWRGJXbzRwRENYRmFSYWlqSjlJOXZQQmJhV2w2OFNY?=
+ =?utf-8?B?d2ZjUm1PQTJnYm5UaGtVbXJYMDdaaXZHZjV4eXJOcms0VkJPNlNRcTh4azAz?=
+ =?utf-8?B?R2Fzd05pZWZpcGxmb1dBM1JXeG5kVlk2VStnZWlUK0NHZE02ZW5QMWFYSUdq?=
+ =?utf-8?B?RG5veHpkbER4N2hqV0xXMVJXYTROVWJZNHlxN3lMbEdWTlpPUFBiNTl1TDND?=
+ =?utf-8?B?U3dXdXpVcHRlSUsxWjdoWG9LTUJpdnJkMHhyeHlHS01Fc1ZuSGdiWUc4MDVC?=
+ =?utf-8?B?QklEcWQ3MjNIellyc1QvWkFhSXlmS1l3UzVnSGxRTUR5dG9DVmgzMDREZGhW?=
+ =?utf-8?B?cnRWSXJJWnBHK2I4eFRaRDl2OTM5NmNtZWo0NCsvTnM1VmZyaWdzRGFLcnJr?=
+ =?utf-8?B?cjRWdzlrbjN4elZZN25TTU50Znk1MWlDSThtMlZTQlduNkZURzdvVlVVVThT?=
+ =?utf-8?B?SUIyMFNZMGd3Vm5nWUIvOHFLNGhOTG9zMDAxbTdoazAzY3FHaUd6YTJJQUIy?=
+ =?utf-8?B?dm5jTkp4WXkvcFUyUkFETUROelVBelpHTG01VEVObGRsK29wa1lkdTNCd2M0?=
+ =?utf-8?B?WkQzdGRiZUNVMGllM1daT1FBREJWYnlDSm01MG5BUVcvc3RZazZsTDVCQi9t?=
+ =?utf-8?B?SEdNWkQzZEJyUmZ6S1ZnYkpGTHFmdW9LNU1JU0FkR0J3Y015K1Z4NHJCUUg0?=
+ =?utf-8?B?bGc5SCszdHUvRnd3dmxJODZmazloWVphSTJPV2pGcm5DU2ZQNWhldHI1WEVx?=
+ =?utf-8?B?QWVPVWthcUVWOEdiWWU2cSs3VEJBcndKNG9OOW1BRlk4ZkpNeXNPZ3RqUE43?=
+ =?utf-8?B?SHExMjcvMEg1ajhGNndnZmVOajZBSm5hYWl3WWI2b09KMHMrVFlUTjliUkxz?=
+ =?utf-8?B?Z0RwQXk1bm16WnR5NGk5dTJKYXcwTkxmdHdoQUN6RWZqUjVZdmJNK0lLVE83?=
+ =?utf-8?B?RTdtTkZxeWFHSGtncHoyK1hGUEJvK21pbWlwNFNJbnRzRjIxZ25XTmpTVGRu?=
+ =?utf-8?B?R1pZYktGaGFreWZ3R0lVY3RORStodlo1Y0RLZ1QrMGlxZ3VGS3RUcDMycy9l?=
+ =?utf-8?B?aXdua3hPaHpBczA1ajR1UnBYaCtGSEI4czVYRjhVMlNwNWFsV215M1hZT0Q1?=
+ =?utf-8?B?SHdwdkZ5ZXdBbUtjMmNDbTk4dktSVFNDT3g4TkhIWnEzbk5vTUNNR1Z2aFZE?=
+ =?utf-8?B?SFRsMld4YmdCbkR4NzZ1MUJnWS9zdHp4TEovWGxzUXhyemdLeDRxQWVZaHdS?=
+ =?utf-8?B?YWprV0VZaTU3WDZ2dzRVblFraUFUWW1hR3Vub1hkd2FPSGxzb0dBdjRSUDU5?=
+ =?utf-8?B?aFRhYytsL3hIaC9GUVBGaFJYMXJJZFNaRnNmck1abUhIYlNQUks5YkZRVnpr?=
+ =?utf-8?B?bWI5c1J3QWY4S2FBeHpNLzQ3YjM4U0RBcHAyWEtzOWFaUERudHU5YzZaSUlP?=
+ =?utf-8?B?Q3dwUkJKdFMwRk9SR1QvdUNwRTdGQll6OUNVeHdSbHU4N1kxV0oyc3JOaHNZ?=
+ =?utf-8?B?S01iTDI5ZUduWWRLV0JPdTVIdVIwMHl6ajB3THFSekIvTjBSRkFWSkJVUFNG?=
+ =?utf-8?B?TVJVRlh0N0x4cGI4QVFZYWRWTHdIL1ZUdGp0RHVFd2hnZGQ1QXBHeDRPcHJB?=
+ =?utf-8?B?R0cybjBsckk5dVc1c2pPbzBvdlJMamlzN3dBUlNiWDcyV0x6VFZpd3FzTmJu?=
+ =?utf-8?B?L3NYSS9mdTF5UlprRS9aY3JldzcwNXBGNzV1ZzhocVA4Vk8zbG83RFh5aWFa?=
+ =?utf-8?B?YitoTmdXd0JBYVg1NkI1MUpDejhXKzBSbVR5bm9uZGpmako0VDdzaXBDZUFD?=
+ =?utf-8?B?WnNxMHlwakZhSk9VREl5ekRVU3UwRGVjR0wxWmxRakl6NUpIbG16eGJ3ZkJj?=
+ =?utf-8?B?a0FoQUo2WW1aL0VLaC8zVUFUYkkyZ3JSb0liU3dvdkRaSUhxc3h6L2M0QnA3?=
+ =?utf-8?B?VWRHa01UR0NIdGJrL0RmSnprZkdBVVJkNmFyelYzSFFUaDI4NlUycXY0Ky8x?=
+ =?utf-8?B?WEswU3F2dURwbVQwYVVHTEZDVWNpRmpYTTBsZzBEVnplK1FIeGlWR0NYNUZ5?=
+ =?utf-8?Q?CF7k=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(7416014)(376014)(1800799024)(19092799006)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Ry9ZVC9NcTVZT1E1UGl1SnJDaWVVdnc0QmJXNVBYOTI1WkJTWHgyZVZtd3My?=
+ =?utf-8?B?V0xLRmk5QlVJUUFlSkh0a29QQ0NoK3lIelk2eWtHM0RzMTFEN3ZlY01vbVVC?=
+ =?utf-8?B?YW5rK2J2SE9zWHlDNnlObDZ5akdsWENwQitVaVI4L3pKMForN3AzOGQwOU9P?=
+ =?utf-8?B?NGo0T2pIYU5NVU95WDRqWTVPQ1hvWHhjUmY4THRyODEvSUh6VCsxWHphNWpl?=
+ =?utf-8?B?Sjl2T1RWUnBqRlgvaWdpKzI0OUNuV2tlUTRrTzlaK28xL3d6UWF5dDQ4amRn?=
+ =?utf-8?B?bW01MXY2dHhaZndUd0hoWWRoOHB6ZU5RRnkzRGVxaVBVR0tPUnk3MGRBVmJ2?=
+ =?utf-8?B?V3picVh0NGVBbFdIOGVKOFRLNDAyV2thZ1dQUllDSmdYY3ByU1dvY3lwbG9q?=
+ =?utf-8?B?KzQyQ0lmMVZBNzBmaG5STG5ZY3RUNGFYcXNwQSsvdldEbHo4cUd5aStSMVdw?=
+ =?utf-8?B?ZG14anpqbkQ0V1RSNWJ0ei9XOXBEM1M4R2hGZDF6Mkp1aTJjWHNYVGFjZkJk?=
+ =?utf-8?B?cWp3VzJZdmh6S3kvOHNpaHhnWFFHUVk2VktYRGEyaXVWcTRrVGZVT1p6dzR5?=
+ =?utf-8?B?UVdCUzByL0pMQTNVY2dIT05mWXp5eEV5alYxdGJaOGo2aTl5bmdRZnBJQkZB?=
+ =?utf-8?B?cHlQeEQ5N0xPT0JvWDdjUzZ4ZUl1YnFla2tyNkFUNVlVcjNOMjVOYW1wQjNQ?=
+ =?utf-8?B?cmZjNE5hSW1odlk5bWZXa0tMK1MrM0trUnIvcC82NUVzRXdyYzF4ZjdDZUxC?=
+ =?utf-8?B?OXVVYTRpZVdPdDV5MHk0Z3RKQ0ZYZmIvbisxWUhXcGI3OU5sMUlxUElhdS90?=
+ =?utf-8?B?enNMekdzWTVqa0xCbE55T0h6cVFkNUZxRkUvaGczR3Z6MVRLc0N2OGZWZmt5?=
+ =?utf-8?B?TmlYT1MvU3dEYUpZRlFRbWlXQmY2b28zQ0JyUytIN2Z5Y1o1dnNPOWVVeUN3?=
+ =?utf-8?B?U054TkJ4c0lqRjEveGNDdWNRbGphOHdvenBZSnM4M0kzTXI5WU1WVWVnUkpp?=
+ =?utf-8?B?eHFtdy9FdkQyUE02YU5mdWxueFp1d2JwWWorOWZNeW85ZFRzellPMVJ1SnZj?=
+ =?utf-8?B?T0pnMU1QQUErV3VVT1VBVkJyck94NFJaWHJGdFlVcWlhODBvSlh0THlXZ0xz?=
+ =?utf-8?B?encweXJjSjBCZFd4bzFrdDdwZm1ock1Dd3hsOEE2ZERDQ21Fb3NWRXlrZ0Zm?=
+ =?utf-8?B?VURIOGNXRkN0SUpQY0lzRmdWVWRERFFReTI4b0JyYmR0aVN3dVZCcHZKNnFU?=
+ =?utf-8?B?UjB2aW9sN290WlAxYVgvM3dveEpSM2VGSEdBczJHYTR2K1UxR242UzMwQU1v?=
+ =?utf-8?B?TlNNcmYrUmd3K2VENXkvL1pnTmZMeS95Rkt1bFN2SVkycVlOMGlITnVmTzh6?=
+ =?utf-8?B?dDZVeFBIU0tNU3FCRVhtRHlVSTZnbnlEcm9kSGkrOG9POVE4eFFaYmg3WWlX?=
+ =?utf-8?B?aDFtWHlDd1NXOWdEZVpCOTdadlEydGNnNU52RUk3NWw4NkpnSjdjK1JrNFBD?=
+ =?utf-8?B?ekR4QUhJUEw4cVRBVGZ6eVJJbUZpd2hGcmxab3J0OGF5bFVWWmxwV0RQZnl0?=
+ =?utf-8?B?dlBwVkNQenFNdVBWa051U2wvU0w3VkFXbUxCZnBLS3hTR3pvVzBmbzE4SHNM?=
+ =?utf-8?B?cVNjajM1dTVsaEo5RVFuTmw5dnlJQUtaS0lzSHBScFFTaHZUSjVZWnRwcjhX?=
+ =?utf-8?B?cGxLTlUvZWVpWFpuV2pBS0dPYjJ1ZVZjYkwxbENkY29tQ25kcnRTc1VwZlp2?=
+ =?utf-8?B?TU13SGxiS0txbzZNRm8xay8yS1lOeXlTOGQrMDc4TXZpMXdZc05yRkxKQzZV?=
+ =?utf-8?B?UGVMQjJmdk5CdUtXa0tqRUwzQlY5YXowQTVCc3BuZHZUWDBKdjJiVWpPdXZs?=
+ =?utf-8?B?NFZ3NUN0VEJJcmwvMjYvYVp1R1lWcEVsSi9DNGN6ekRXZ3ppeHRyTHUySG44?=
+ =?utf-8?B?MlZyeGRjbzQ4YTJXSlZrOHJBdXg5UzlENVdLbzdKZlBEWWZscWo1SnR5azFE?=
+ =?utf-8?B?aGM2U2JGSldCeHpxV1YzazVBZ1BrUUJRcCttV2JoZjJFODdsQkZMcGFJdDdT?=
+ =?utf-8?B?b0dFV0Z6bzlrdlhvQXkzVUQ2bHVsaDFmd3gwbVp2VUtmVlptRlk3L3l5YzR4?=
+ =?utf-8?Q?RFj+kJ2Qiyo0f1n3Qwv3poOAu?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0c7cf4b3-2a11-4fb0-7c98-08de3c45a12d
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Dec 2025 01:51:28.9834
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 717M11w4o5fmo+Kpi9WDJySZUif3xc3uW5qIsFl2huyDNbJq27V6cH8MS382pdDT8giAaU/0fZQNSZgDV9tVmQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6915
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_175026_437541_763D3064 
-X-CRM114-Status: GOOD (  21.82  )
+X-CRM114-CacheID: sfid-20251215_175135_729797_8DDF11B2 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,1177 +190,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce PCIe Root Complex driver for ASPEED SoCs. Support RC
-initialization, reset, clock, IRQ domain, and MSI domain setup.
-Implement platform-specific setup and register configuration for
-ASPEED. And provide PCI config space read/write and INTx/MSI
-interrupt handling.
+This patchset is pick up a previous patchset [1] with rebased on
+next-20251030, and some changes applied.
+ - Add runtime ops to separate cpu ops and lmm ops
+ - added more comments
+ - moved some check imx_sm_rproc_detect_mode() from imx_rproc_sm_prepare().
 
-Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
+No changes to the dt-binding patch, so R-b/A-b are kept.
+More info could be found in commit message of each patch and below.
+
+[1]https://lore.kernel.org/linux-remoteproc/20250821-imx95-rproc-1-v5-0-e93191dfac51@nxp.com/
+
+i.MX95 features a Cortex-M33 core, six Cortex-A55 cores, and
+one Cortex-M7 core. The System Control Management Interface(SCMI)
+firmware runs on the M33 core. The i.MX95 SCMI firmware named System
+Manager(SM) includes vendor extension protocols, Logical Machine
+Management(LMM) protocol and CPU protocol and etc.
+
+There are three cases for M7:
+(1) M7 in a separate Logical Machine(LM) that Linux couldn't control it.
+(2) M7 in a separate Logical Machine that Linux could control it using
+    LMM protocol
+(3) M7 runs in same Logical Machine as A55, so Linux could control it
+    using CPU protocol
+
+In patch 3, Use LMM and CPU protocol to manage M7. More info could be
+found in the patch commit log
+    Current setup relies on pre-Linux software(U-Boot) to do
+M7 TCM ECC initialization. In future, we could add the support in Linux
+
+Patchset was tested with below boot images when the patchset based on next-20251030:
+imx-boot-variant-rpmsg-imx95-19x19-lpddr5-evk-sd.bin-flash_lpboot_sm_a55 (Use LMM protocol)
+imx-boot-variant-alt-imx95-19x19-lpddr5-evk-sd.bin-flash_alt (Use CPU protocol)
+imx-boot-imx95-19x19-lpddr5-evk-sd.bin-flash_all (M7 not under A55 control)
+
+Also tested i.MX8MP/8ULP-EVK.
+
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
 ---
- drivers/pci/controller/Kconfig       |   16 +
- drivers/pci/controller/Makefile      |    1 +
- drivers/pci/controller/pcie-aspeed.c | 1111 ++++++++++++++++++++++++++++++++++
- 3 files changed, 1128 insertions(+)
+Changes in V4:
+- Rebased to 6.19-rc1 to resolve conflicts.
+- Address Frank's comment patch 4 regarding "if (ret != 0)" -> "if (ret)"
+- Link to v3: https://lore.kernel.org/linux-remoteproc/20251122-imx95-rproc-2025-11-20-v3-0-9ae6ee619a78@nxp.com/#t
 
-diff --git a/drivers/pci/controller/Kconfig b/drivers/pci/controller/Kconfig
-index c254d2b8bf17..5d34bb78bab2 100644
---- a/drivers/pci/controller/Kconfig
-+++ b/drivers/pci/controller/Kconfig
-@@ -58,6 +58,22 @@ config PCI_VERSATILE
- 	bool "ARM Versatile PB PCI controller"
- 	depends on ARCH_VERSATILE || COMPILE_TEST
- 
-+config PCIE_ASPEED
-+	bool "ASPEED PCIe controller"
-+	depends on ARCH_ASPEED || COMPILE_TEST
-+	depends on OF
-+	depends on PCI_MSI
-+	select IRQ_MSI_LIB
-+	help
-+	  Enable this option to support the PCIe controller found on ASPEED
-+	  SoCs.
-+
-+	  This driver provides initialization and management for PCIe
-+	  Root Complex functionality, including INTx and MSI support.
-+
-+	  Select Y if your platform uses an ASPEED SoC and requires PCIe
-+	  connectivity.
-+
- config PCIE_BRCMSTB
- 	tristate "Broadcom Brcmstb PCIe controller"
- 	depends on ARCH_BRCMSTB || ARCH_BCM2835 || ARCH_BCMBCA || \
-diff --git a/drivers/pci/controller/Makefile b/drivers/pci/controller/Makefile
-index 229929a945c2..ac8db283f0fe 100644
---- a/drivers/pci/controller/Makefile
-+++ b/drivers/pci/controller/Makefile
-@@ -40,6 +40,7 @@ obj-$(CONFIG_PCI_LOONGSON) += pci-loongson.o
- obj-$(CONFIG_PCIE_HISI_ERR) += pcie-hisi-error.o
- obj-$(CONFIG_PCIE_APPLE) += pcie-apple.o
- obj-$(CONFIG_PCIE_MT7621) += pcie-mt7621.o
-+obj-$(CONFIG_PCIE_ASPEED) += pcie-aspeed.o
- 
- # pcie-hisi.o quirks are needed even without CONFIG_PCIE_DW
- obj-y				+= dwc/
-diff --git a/drivers/pci/controller/pcie-aspeed.c b/drivers/pci/controller/pcie-aspeed.c
-new file mode 100644
-index 000000000000..3e1a39d1e648
---- /dev/null
-+++ b/drivers/pci/controller/pcie-aspeed.c
-@@ -0,0 +1,1111 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * Copyright 2025 Aspeed Technology Inc.
-+ */
-+#include <linux/bitfield.h>
-+#include <linux/clk.h>
-+#include <linux/interrupt.h>
-+#include <linux/irq.h>
-+#include <linux/irqdomain.h>
-+#include <linux/irqchip/chained_irq.h>
-+#include <linux/irqchip/irq-msi-lib.h>
-+#include <linux/kernel.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/module.h>
-+#include <linux/msi.h>
-+#include <linux/mutex.h>
-+#include <linux/of.h>
-+#include <linux/of_address.h>
-+#include <linux/of_pci.h>
-+#include <linux/pci.h>
-+#include <linux/platform_device.h>
-+#include <linux/phy/pcie.h>
-+#include <linux/phy/phy.h>
-+#include <linux/regmap.h>
-+#include <linux/reset.h>
-+
-+#include "../pci.h"
-+
-+#define MAX_MSI_HOST_IRQS	64
-+#define ASPEED_RESET_RC_WAIT_MS	10
-+
-+/* AST2600 AHBC Registers */
-+#define ASPEED_AHBC_KEY			0x00
-+#define  ASPEED_AHBC_UNLOCK_KEY			0xaeed1a03
-+#define  ASPEED_AHBC_UNLOCK			0x01
-+#define ASPEED_AHBC_ADDR_MAPPING	0x8c
-+#define  ASPEED_PCIE_RC_MEMORY_EN		BIT(5)
-+
-+/* AST2600 H2X Controller Registers */
-+#define ASPEED_H2X_INT_STS		0x08
-+#define  ASPEED_PCIE_TX_IDLE_CLEAR		BIT(0)
-+#define  ASPEED_PCIE_INTX_STS			GENMASK(3, 0)
-+#define ASPEED_H2X_HOST_RX_DESC_DATA	0x0c
-+#define ASPEED_H2X_TX_DESC0		0x10
-+#define ASPEED_H2X_TX_DESC1		0x14
-+#define ASPEED_H2X_TX_DESC2		0x18
-+#define ASPEED_H2X_TX_DESC3		0x1c
-+#define ASPEED_H2X_TX_DESC_DATA		0x20
-+#define ASPEED_H2X_STS			0x24
-+#define  ASPEED_PCIE_TX_IDLE			BIT(31)
-+#define  ASPEED_PCIE_STATUS_OF_TX		GENMASK(25, 24)
-+#define	ASPEED_PCIE_RC_H_TX_COMPLETE		BIT(25)
-+#define  ASPEED_PCIE_TRIGGER_TX			BIT(0)
-+#define ASPEED_H2X_AHB_ADDR_CONFIG0	0x60
-+#define  ASPEED_AHB_REMAP_LO_ADDR(x)		(x & GENMASK(15, 4))
-+#define  ASPEED_AHB_MASK_LO_ADDR(x)		FIELD_PREP(GENMASK(31, 20), x)
-+#define ASPEED_H2X_AHB_ADDR_CONFIG1	0x64
-+#define  ASPEED_AHB_REMAP_HI_ADDR(x)		(x)
-+#define ASPEED_H2X_AHB_ADDR_CONFIG2	0x68
-+#define  ASPEED_AHB_MASK_HI_ADDR(x)		(x)
-+#define ASPEED_H2X_DEV_CTRL		0xc0
-+#define  ASPEED_PCIE_RX_DMA_EN			BIT(9)
-+#define  ASPEED_PCIE_RX_LINEAR			BIT(8)
-+#define  ASPEED_PCIE_RX_MSI_SEL			BIT(7)
-+#define  ASPEED_PCIE_RX_MSI_EN			BIT(6)
-+#define  ASPEED_PCIE_UNLOCK_RX_BUFF		BIT(4)
-+#define  ASPEED_PCIE_WAIT_RX_TLP_CLR		BIT(2)
-+#define  ASPEED_PCIE_RC_RX_ENABLE		BIT(1)
-+#define  ASPEED_PCIE_RC_ENABLE			BIT(0)
-+#define ASPEED_H2X_DEV_STS		0xc8
-+#define  ASPEED_PCIE_RC_RX_DONE_ISR		BIT(4)
-+#define ASPEED_H2X_DEV_RX_DESC_DATA	0xcc
-+#define ASPEED_H2X_DEV_RX_DESC1		0xd4
-+#define ASPEED_H2X_DEV_TX_TAG		0xfc
-+#define  ASPEED_RC_TLP_TX_TAG_NUM		0x28
-+
-+/* AST2700 H2X */
-+#define ASPEED_H2X_CTRL			0x00
-+#define  ASPEED_H2X_BRIDGE_EN			BIT(0)
-+#define  ASPEED_H2X_BRIDGE_DIRECT_EN		BIT(1)
-+#define ASPEED_H2X_CFGE_INT_STS		0x08
-+#define  ASPEED_CFGE_TX_IDLE			BIT(0)
-+#define  ASPEED_CFGE_RX_BUSY			BIT(1)
-+#define ASPEED_H2X_CFGI_TLP		0x20
-+#define  ASPEED_CFGI_BYTE_EN_MASK		GENMASK(19, 16)
-+#define  ASPEED_CFGI_BYTE_EN(x) \
-+		FIELD_PREP(ASPEED_CFGI_BYTE_EN_MASK, (x))
-+#define ASPEED_H2X_CFGI_WR_DATA		0x24
-+#define  ASPEED_CFGI_WRITE			BIT(20)
-+#define ASPEED_H2X_CFGI_CTRL		0x28
-+#define  ASPEED_CFGI_TLP_FIRE			BIT(0)
-+#define ASPEED_H2X_CFGI_RET_DATA	0x2c
-+#define ASPEED_H2X_CFGE_TLP_1ST		0x30
-+#define ASPEED_H2X_CFGE_TLP_NEXT	0x34
-+#define ASPEED_H2X_CFGE_CTRL		0x38
-+#define  ASPEED_CFGE_TLP_FIRE			BIT(0)
-+#define ASPEED_H2X_CFGE_RET_DATA	0x3c
-+#define ASPEED_H2X_REMAP_PREF_ADDR	0x70
-+#define  ASPEED_REMAP_PREF_ADDR_63_32(x)	(x)
-+#define ASPEED_H2X_REMAP_PCI_ADDR_HI	0x74
-+#define  ASPEED_REMAP_PCI_ADDR_63_32(x)		(((x) >> 32) & GENMASK(31, 0))
-+#define ASPEED_H2X_REMAP_PCI_ADDR_LO	0x78
-+#define  ASPEED_REMAP_PCI_ADDR_31_12(x)		((x) & GENMASK(31, 12))
-+
-+/* AST2700 SCU */
-+#define ASPEED_SCU_60			0x60
-+#define  ASPEED_RC_E2M_PATH_EN			BIT(0)
-+#define  ASPEED_RC_H2XS_PATH_EN			BIT(16)
-+#define  ASPEED_RC_H2XD_PATH_EN			BIT(17)
-+#define  ASPEED_RC_H2XX_PATH_EN			BIT(18)
-+#define  ASPEED_RC_UPSTREAM_MEM_EN		BIT(19)
-+#define ASPEED_SCU_64			0x64
-+#define  ASPEED_RC0_DECODE_DMA_BASE(x)		FIELD_PREP(GENMASK(7, 0), x)
-+#define  ASPEED_RC0_DECODE_DMA_LIMIT(x)		FIELD_PREP(GENMASK(15, 8), x)
-+#define  ASPEED_RC1_DECODE_DMA_BASE(x)		FIELD_PREP(GENMASK(23, 16), x)
-+#define  ASPEED_RC1_DECODE_DMA_LIMIT(x)		FIELD_PREP(GENMASK(31, 24), x)
-+#define ASPEED_SCU_70			0x70
-+#define  ASPEED_DISABLE_EP_FUNC			0
-+
-+/* Macro to combine Fmt and Type into the 8-bit field */
-+#define ASPEED_TLP_FMT_TYPE(fmt, type)	((((fmt) & 0x7) << 5) | ((type) & 0x1f))
-+#define ASPEED_TLP_COMMON_FIELDS	GENMASK(31, 24)
-+
-+/* Completion status */
-+#define CPL_STS(x)	FIELD_GET(GENMASK(15, 13), (x))
-+/* TLP configuration type 0 and type 1 */
-+#define CFG0_READ_FMTTYPE                                        \
-+	FIELD_PREP(ASPEED_TLP_COMMON_FIELDS,                     \
-+		   ASPEED_TLP_FMT_TYPE(PCIE_TLP_FMT_3DW_NO_DATA, \
-+				       PCIE_TLP_TYPE_CFG0_RD))
-+#define CFG0_WRITE_FMTTYPE                                    \
-+	FIELD_PREP(ASPEED_TLP_COMMON_FIELDS,                  \
-+		   ASPEED_TLP_FMT_TYPE(PCIE_TLP_FMT_3DW_DATA, \
-+				       PCIE_TLP_TYPE_CFG0_WR))
-+#define CFG1_READ_FMTTYPE                                        \
-+	FIELD_PREP(ASPEED_TLP_COMMON_FIELDS,                     \
-+		   ASPEED_TLP_FMT_TYPE(PCIE_TLP_FMT_3DW_NO_DATA, \
-+				       PCIE_TLP_TYPE_CFG1_RD))
-+#define CFG1_WRITE_FMTTYPE                                    \
-+	FIELD_PREP(ASPEED_TLP_COMMON_FIELDS,                  \
-+		   ASPEED_TLP_FMT_TYPE(PCIE_TLP_FMT_3DW_DATA, \
-+				       PCIE_TLP_TYPE_CFG1_WR))
-+#define CFG_PAYLOAD_SIZE		0x01 /* 1 DWORD */
-+#define TLP_HEADER_BYTE_EN(x, y)	((GENMASK((x) - 1, 0) << ((y) % 4)))
-+#define TLP_GET_VALUE(x, y, z)	\
-+	(((x) >> ((((z) % 4)) * 8)) & GENMASK((8 * (y)) - 1, 0))
-+#define TLP_SET_VALUE(x, y, z)	\
-+	((((x) & GENMASK((8 * (y)) - 1, 0)) << ((((z) % 4)) * 8)))
-+#define AST2600_TX_DESC1_VALUE		0x00002000
-+#define AST2700_TX_DESC1_VALUE		0x00401000
-+
-+/**
-+ * struct aspeed_pcie_port - PCIe port information
-+ * @list: port list
-+ * @pcie: pointer to PCIe host info
-+ * @clk: pointer to the port clock gate
-+ * @phy: pointer to PCIe PHY
-+ * @perst: pointer to port reset control
-+ * @slot: port slot
-+ */
-+struct aspeed_pcie_port {
-+	struct list_head list;
-+	struct aspeed_pcie *pcie;
-+	struct clk *clk;
-+	struct phy *phy;
-+	struct reset_control *perst;
-+	u32 slot;
-+};
-+
-+/**
-+ * struct aspeed_pcie - PCIe RC information
-+ * @host: pointer to PCIe host bridge
-+ * @dev: pointer to device structure
-+ * @reg: PCIe host register base address
-+ * @ahbc: pointer to AHHC register map
-+ * @cfg: pointer to Aspeed PCIe configuration register map
-+ * @platform: platform specific information
-+ * @ports: list of PCIe ports
-+ * @tx_tag: current TX tag for the port
-+ * @root_bus_nr: bus number of the host bridge
-+ * @h2xrst: pointer to H2X reset control
-+ * @intx_domain: IRQ domain for INTx interrupts
-+ * @msi_domain: IRQ domain for MSI interrupts
-+ * @lock: mutex to protect MSI bitmap variable
-+ * @msi_irq_in_use: bitmap to track used MSI host IRQs
-+ * @clear_msi_twice: AST2700 workaround to clear MSI status twice
-+ */
-+struct aspeed_pcie {
-+	struct pci_host_bridge *host;
-+	struct device *dev;
-+	void __iomem *reg;
-+	struct regmap *ahbc;
-+	struct regmap *cfg;
-+	const struct aspeed_pcie_rc_platform *platform;
-+	struct list_head ports;
-+
-+	u8 tx_tag;
-+	u8 root_bus_nr;
-+
-+	struct reset_control *h2xrst;
-+
-+	struct irq_domain *intx_domain;
-+	struct irq_domain *msi_domain;
-+	struct mutex lock;
-+	DECLARE_BITMAP(msi_irq_in_use, MAX_MSI_HOST_IRQS);
-+
-+	bool clear_msi_twice;		/* AST2700 workaround */
-+};
-+
-+/**
-+ * struct aspeed_pcie_rc_platform - Platform information
-+ * @setup: initialization function
-+ * @pcie_map_ranges: function to map PCIe address ranges
-+ * @reg_intx_en: INTx enable register offset
-+ * @reg_intx_sts: INTx status register offset
-+ * @reg_msi_en: MSI enable register offset
-+ * @reg_msi_sts: MSI enable register offset
-+ * @msi_address: HW fixed MSI address
-+ */
-+struct aspeed_pcie_rc_platform {
-+	int (*setup)(struct platform_device *pdev);
-+	void (*pcie_map_ranges)(struct aspeed_pcie *pcie, u64 pci_addr);
-+	int reg_intx_en;
-+	int reg_intx_sts;
-+	int reg_msi_en;
-+	int reg_msi_sts;
-+	u32 msi_address;
-+};
-+
-+static void aspeed_pcie_intx_irq_ack(struct irq_data *d)
-+{
-+	struct aspeed_pcie *pcie = irq_data_get_irq_chip_data(d);
-+	int intx_en = pcie->platform->reg_intx_en;
-+	u32 en;
-+
-+	en = readl(pcie->reg + intx_en);
-+	en |= BIT(d->hwirq);
-+	writel(en, pcie->reg + intx_en);
-+}
-+
-+static void aspeed_pcie_intx_irq_mask(struct irq_data *d)
-+{
-+	struct aspeed_pcie *pcie = irq_data_get_irq_chip_data(d);
-+	int intx_en = pcie->platform->reg_intx_en;
-+	u32 en;
-+
-+	en = readl(pcie->reg + intx_en);
-+	en &= ~BIT(d->hwirq);
-+	writel(en, pcie->reg + intx_en);
-+}
-+
-+static void aspeed_pcie_intx_irq_unmask(struct irq_data *d)
-+{
-+	struct aspeed_pcie *pcie = irq_data_get_irq_chip_data(d);
-+	int intx_en = pcie->platform->reg_intx_en;
-+	u32 en;
-+
-+	en = readl(pcie->reg + intx_en);
-+	en |= BIT(d->hwirq);
-+	writel(en, pcie->reg + intx_en);
-+}
-+
-+static struct irq_chip aspeed_intx_irq_chip = {
-+	.name = "INTx",
-+	.irq_ack = aspeed_pcie_intx_irq_ack,
-+	.irq_mask = aspeed_pcie_intx_irq_mask,
-+	.irq_unmask = aspeed_pcie_intx_irq_unmask,
-+};
-+
-+static int aspeed_pcie_intx_map(struct irq_domain *domain, unsigned int irq,
-+				irq_hw_number_t hwirq)
-+{
-+	irq_set_chip_and_handler(irq, &aspeed_intx_irq_chip, handle_level_irq);
-+	irq_set_chip_data(irq, domain->host_data);
-+	irq_set_status_flags(irq, IRQ_LEVEL);
-+
-+	return 0;
-+}
-+
-+static const struct irq_domain_ops aspeed_intx_domain_ops = {
-+	.map = aspeed_pcie_intx_map,
-+};
-+
-+static irqreturn_t aspeed_pcie_intr_handler(int irq, void *dev_id)
-+{
-+	struct aspeed_pcie *pcie = dev_id;
-+	const struct aspeed_pcie_rc_platform *platform = pcie->platform;
-+	unsigned long status;
-+	unsigned long intx;
-+	u32 bit;
-+	int i;
-+
-+	intx = FIELD_GET(ASPEED_PCIE_INTX_STS,
-+			 readl(pcie->reg + platform->reg_intx_sts));
-+	for_each_set_bit(bit, &intx, PCI_NUM_INTX)
-+		generic_handle_domain_irq(pcie->intx_domain, bit);
-+
-+	for (i = 0; i < 2; i++) {
-+		int msi_sts_reg = platform->reg_msi_sts + (i * 4);
-+
-+		status = readl(pcie->reg + msi_sts_reg);
-+		writel(status, pcie->reg + msi_sts_reg);
-+
-+		/*
-+		 * AST2700 workaround:
-+		 * The MSI status needs to clear one more time.
-+		 */
-+		if (pcie->clear_msi_twice)
-+			writel(status, pcie->reg + msi_sts_reg);
-+
-+		for_each_set_bit(bit, &status, 32) {
-+			bit += (i * 32);
-+			generic_handle_domain_irq(pcie->msi_domain, bit);
-+		}
-+	}
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static u32 aspeed_pcie_get_bdf_offset(struct pci_bus *bus, unsigned int devfn,
-+				      int where)
-+{
-+	return ((bus->number) << 24) | (PCI_SLOT(devfn) << 19) |
-+		(PCI_FUNC(devfn) << 16) | (where & ~3);
-+}
-+
-+static int aspeed_ast2600_conf(struct pci_bus *bus, unsigned int devfn,
-+			       int where, int size, u32 *val, u32 fmt_type,
-+			       bool write)
-+{
-+	struct aspeed_pcie *pcie = bus->sysdata;
-+	u32 bdf_offset, cfg_val, isr;
-+	int ret;
-+
-+	bdf_offset = aspeed_pcie_get_bdf_offset(bus, devfn, where);
-+
-+	/* Driver may set unlock RX buffer before triggering next TX config */
-+	cfg_val = readl(pcie->reg + ASPEED_H2X_DEV_CTRL);
-+	writel(ASPEED_PCIE_UNLOCK_RX_BUFF | cfg_val,
-+	       pcie->reg + ASPEED_H2X_DEV_CTRL);
-+
-+	cfg_val = fmt_type | CFG_PAYLOAD_SIZE;
-+	writel(cfg_val, pcie->reg + ASPEED_H2X_TX_DESC0);
-+
-+	cfg_val = AST2600_TX_DESC1_VALUE |
-+		  FIELD_PREP(GENMASK(11, 8), pcie->tx_tag) |
-+		  TLP_HEADER_BYTE_EN(size, where);
-+	writel(cfg_val, pcie->reg + ASPEED_H2X_TX_DESC1);
-+
-+	writel(bdf_offset, pcie->reg + ASPEED_H2X_TX_DESC2);
-+	writel(0, pcie->reg + ASPEED_H2X_TX_DESC3);
-+	if (write)
-+		writel(TLP_SET_VALUE(*val, size, where),
-+		       pcie->reg + ASPEED_H2X_TX_DESC_DATA);
-+
-+	cfg_val = readl(pcie->reg + ASPEED_H2X_STS);
-+	cfg_val |= ASPEED_PCIE_TRIGGER_TX;
-+	writel(cfg_val, pcie->reg + ASPEED_H2X_STS);
-+
-+	ret = readl_poll_timeout(pcie->reg + ASPEED_H2X_STS, cfg_val,
-+				 (cfg_val & ASPEED_PCIE_TX_IDLE), 0, 50);
-+	if (ret) {
-+		dev_err(pcie->dev,
-+			"%02x:%02x.%d CR tx timeout sts: 0x%08x\n",
-+			bus->number, PCI_SLOT(devfn), PCI_FUNC(devfn), cfg_val);
-+		ret = PCIBIOS_SET_FAILED;
-+		PCI_SET_ERROR_RESPONSE(val);
-+		goto out;
-+	}
-+
-+	cfg_val = readl(pcie->reg + ASPEED_H2X_INT_STS);
-+	cfg_val |= ASPEED_PCIE_TX_IDLE_CLEAR;
-+	writel(cfg_val, pcie->reg + ASPEED_H2X_INT_STS);
-+
-+	cfg_val = readl(pcie->reg + ASPEED_H2X_STS);
-+	switch (cfg_val & ASPEED_PCIE_STATUS_OF_TX) {
-+	case ASPEED_PCIE_RC_H_TX_COMPLETE:
-+		ret = readl_poll_timeout(pcie->reg + ASPEED_H2X_DEV_STS, isr,
-+					 (isr & ASPEED_PCIE_RC_RX_DONE_ISR), 0,
-+					 50);
-+		if (ret) {
-+			dev_err(pcie->dev,
-+				"%02x:%02x.%d CR rx timeout sts: 0x%08x\n",
-+				bus->number, PCI_SLOT(devfn),
-+				PCI_FUNC(devfn), isr);
-+			ret = PCIBIOS_SET_FAILED;
-+			PCI_SET_ERROR_RESPONSE(val);
-+			goto out;
-+		}
-+		if (!write) {
-+			cfg_val = readl(pcie->reg + ASPEED_H2X_DEV_RX_DESC1);
-+			if (CPL_STS(cfg_val) != PCIE_CPL_STS_SUCCESS) {
-+				ret = PCIBIOS_SET_FAILED;
-+				PCI_SET_ERROR_RESPONSE(val);
-+				goto out;
-+			} else {
-+				*val = readl(pcie->reg +
-+					     ASPEED_H2X_DEV_RX_DESC_DATA);
-+			}
-+		}
-+		break;
-+	case ASPEED_PCIE_STATUS_OF_TX:
-+		ret = PCIBIOS_SET_FAILED;
-+		PCI_SET_ERROR_RESPONSE(val);
-+		goto out;
-+	default:
-+		*val = readl(pcie->reg + ASPEED_H2X_HOST_RX_DESC_DATA);
-+		break;
-+	}
-+
-+	cfg_val = readl(pcie->reg + ASPEED_H2X_DEV_CTRL);
-+	cfg_val |= ASPEED_PCIE_UNLOCK_RX_BUFF;
-+	writel(cfg_val, pcie->reg + ASPEED_H2X_DEV_CTRL);
-+
-+	*val = TLP_GET_VALUE(*val, size, where);
-+
-+	ret = PCIBIOS_SUCCESSFUL;
-+out:
-+	cfg_val = readl(pcie->reg + ASPEED_H2X_DEV_STS);
-+	writel(cfg_val, pcie->reg + ASPEED_H2X_DEV_STS);
-+	pcie->tx_tag = (pcie->tx_tag + 1) % 0x8;
-+	return ret;
-+}
-+
-+static int aspeed_ast2600_rd_conf(struct pci_bus *bus, unsigned int devfn,
-+				  int where, int size, u32 *val)
-+{
-+	/*
-+	 * AST2600 has only one Root Port on the root bus.
-+	 */
-+	if (PCI_SLOT(devfn) != 8)
-+		return PCIBIOS_DEVICE_NOT_FOUND;
-+
-+	return aspeed_ast2600_conf(bus, devfn, where, size, val,
-+				   CFG0_READ_FMTTYPE, false);
-+}
-+
-+static int aspeed_ast2600_child_rd_conf(struct pci_bus *bus, unsigned int devfn,
-+					int where, int size, u32 *val)
-+{
-+	return aspeed_ast2600_conf(bus, devfn, where, size, val,
-+				   CFG1_READ_FMTTYPE, false);
-+}
-+
-+static int aspeed_ast2600_wr_conf(struct pci_bus *bus, unsigned int devfn,
-+				  int where, int size, u32 val)
-+{
-+	/*
-+	 * AST2600 has only one Root Port on the root bus.
-+	 */
-+	if (PCI_SLOT(devfn) != 8)
-+		return PCIBIOS_DEVICE_NOT_FOUND;
-+
-+	return aspeed_ast2600_conf(bus, devfn, where, size, &val,
-+				   CFG0_WRITE_FMTTYPE, true);
-+}
-+
-+static int aspeed_ast2600_child_wr_conf(struct pci_bus *bus, unsigned int devfn,
-+					int where, int size, u32 val)
-+{
-+	return aspeed_ast2600_conf(bus, devfn, where, size, &val,
-+				   CFG1_WRITE_FMTTYPE, true);
-+}
-+
-+static int aspeed_ast2700_config(struct pci_bus *bus, unsigned int devfn,
-+				 int where, int size, u32 *val, bool write)
-+{
-+	struct aspeed_pcie *pcie = bus->sysdata;
-+	u32 cfg_val;
-+
-+	cfg_val = ASPEED_CFGI_BYTE_EN(TLP_HEADER_BYTE_EN(size, where)) |
-+		  (where & ~3);
-+	if (write)
-+		cfg_val |= ASPEED_CFGI_WRITE;
-+	writel(cfg_val, pcie->reg + ASPEED_H2X_CFGI_TLP);
-+
-+	writel(TLP_SET_VALUE(*val, size, where),
-+	       pcie->reg + ASPEED_H2X_CFGI_WR_DATA);
-+	writel(ASPEED_CFGI_TLP_FIRE, pcie->reg + ASPEED_H2X_CFGI_CTRL);
-+	*val = readl(pcie->reg + ASPEED_H2X_CFGI_RET_DATA);
-+	*val = TLP_GET_VALUE(*val, size, where);
-+
-+	return PCIBIOS_SUCCESSFUL;
-+}
-+
-+static int aspeed_ast2700_child_config(struct pci_bus *bus, unsigned int devfn,
-+				       int where, int size, u32 *val,
-+				       bool write)
-+{
-+	struct aspeed_pcie *pcie = bus->sysdata;
-+	u32 bdf_offset, status, cfg_val;
-+	int ret;
-+
-+	bdf_offset = aspeed_pcie_get_bdf_offset(bus, devfn, where);
-+
-+	cfg_val = CFG_PAYLOAD_SIZE;
-+	if (write)
-+		cfg_val |= (bus->number == (pcie->root_bus_nr + 1)) ?
-+				   CFG0_WRITE_FMTTYPE :
-+				   CFG1_WRITE_FMTTYPE;
-+	else
-+		cfg_val |= (bus->number == (pcie->root_bus_nr + 1)) ?
-+				   CFG0_READ_FMTTYPE :
-+				   CFG1_READ_FMTTYPE;
-+	writel(cfg_val, pcie->reg + ASPEED_H2X_CFGE_TLP_1ST);
-+
-+	cfg_val = AST2700_TX_DESC1_VALUE |
-+		  FIELD_PREP(GENMASK(11, 8), pcie->tx_tag) |
-+		  TLP_HEADER_BYTE_EN(size, where);
-+	writel(cfg_val, pcie->reg + ASPEED_H2X_CFGE_TLP_NEXT);
-+
-+	writel(bdf_offset, pcie->reg + ASPEED_H2X_CFGE_TLP_NEXT);
-+	if (write)
-+		writel(TLP_SET_VALUE(*val, size, where),
-+		       pcie->reg + ASPEED_H2X_CFGE_TLP_NEXT);
-+	writel(ASPEED_CFGE_TX_IDLE | ASPEED_CFGE_RX_BUSY,
-+	       pcie->reg + ASPEED_H2X_CFGE_INT_STS);
-+	writel(ASPEED_CFGE_TLP_FIRE, pcie->reg + ASPEED_H2X_CFGE_CTRL);
-+
-+	ret = readl_poll_timeout(pcie->reg + ASPEED_H2X_CFGE_INT_STS, status,
-+				 (status & ASPEED_CFGE_TX_IDLE), 0, 50);
-+	if (ret) {
-+		dev_err(pcie->dev,
-+			"%02x:%02x.%d CR tx timeout sts: 0x%08x\n",
-+			bus->number, PCI_SLOT(devfn), PCI_FUNC(devfn), status);
-+		ret = PCIBIOS_SET_FAILED;
-+		PCI_SET_ERROR_RESPONSE(val);
-+		goto out;
-+	}
-+
-+	ret = readl_poll_timeout(pcie->reg + ASPEED_H2X_CFGE_INT_STS, status,
-+				 (status & ASPEED_CFGE_RX_BUSY), 0, 50);
-+	if (ret) {
-+		dev_err(pcie->dev,
-+			"%02x:%02x.%d CR rx timeout sts: 0x%08x\n",
-+			bus->number, PCI_SLOT(devfn), PCI_FUNC(devfn), status);
-+		ret = PCIBIOS_SET_FAILED;
-+		PCI_SET_ERROR_RESPONSE(val);
-+		goto out;
-+	}
-+	*val = readl(pcie->reg + ASPEED_H2X_CFGE_RET_DATA);
-+	*val = TLP_GET_VALUE(*val, size, where);
-+
-+	ret = PCIBIOS_SUCCESSFUL;
-+out:
-+	writel(status, pcie->reg + ASPEED_H2X_CFGE_INT_STS);
-+	pcie->tx_tag = (pcie->tx_tag + 1) % 0xf;
-+	return ret;
-+}
-+
-+static int aspeed_ast2700_rd_conf(struct pci_bus *bus, unsigned int devfn,
-+				  int where, int size, u32 *val)
-+{
-+	/*
-+	 * AST2700 has only one Root Port on the root bus.
-+	 */
-+	if (devfn != 0)
-+		return PCIBIOS_DEVICE_NOT_FOUND;
-+
-+	return aspeed_ast2700_config(bus, devfn, where, size, val, false);
-+}
-+
-+static int aspeed_ast2700_child_rd_conf(struct pci_bus *bus, unsigned int devfn,
-+					int where, int size, u32 *val)
-+{
-+	return aspeed_ast2700_child_config(bus, devfn, where, size, val, false);
-+}
-+
-+static int aspeed_ast2700_wr_conf(struct pci_bus *bus, unsigned int devfn,
-+				  int where, int size, u32 val)
-+{
-+	/*
-+	 * AST2700 has only one Root Port on the root bus.
-+	 */
-+	if (devfn != 0)
-+		return PCIBIOS_DEVICE_NOT_FOUND;
-+
-+	return aspeed_ast2700_config(bus, devfn, where, size, &val, true);
-+}
-+
-+static int aspeed_ast2700_child_wr_conf(struct pci_bus *bus, unsigned int devfn,
-+					int where, int size, u32 val)
-+{
-+	return aspeed_ast2700_child_config(bus, devfn, where, size, &val, true);
-+}
-+
-+static struct pci_ops aspeed_ast2600_pcie_ops = {
-+	.read = aspeed_ast2600_rd_conf,
-+	.write = aspeed_ast2600_wr_conf,
-+};
-+
-+static struct pci_ops aspeed_ast2600_pcie_child_ops = {
-+	.read = aspeed_ast2600_child_rd_conf,
-+	.write = aspeed_ast2600_child_wr_conf,
-+};
-+
-+static struct pci_ops aspeed_ast2700_pcie_ops = {
-+	.read = aspeed_ast2700_rd_conf,
-+	.write = aspeed_ast2700_wr_conf,
-+};
-+
-+static struct pci_ops aspeed_ast2700_pcie_child_ops = {
-+	.read = aspeed_ast2700_child_rd_conf,
-+	.write = aspeed_ast2700_child_wr_conf,
-+};
-+
-+static void aspeed_irq_compose_msi_msg(struct irq_data *data,
-+				       struct msi_msg *msg)
-+{
-+	struct aspeed_pcie *pcie = irq_data_get_irq_chip_data(data);
-+
-+	msg->address_hi = 0;
-+	msg->address_lo = pcie->platform->msi_address;
-+	msg->data = data->hwirq;
-+}
-+
-+static struct irq_chip aspeed_msi_bottom_irq_chip = {
-+	.name = "ASPEED MSI",
-+	.irq_compose_msi_msg = aspeed_irq_compose_msi_msg,
-+};
-+
-+static int aspeed_irq_msi_domain_alloc(struct irq_domain *domain,
-+				       unsigned int virq, unsigned int nr_irqs,
-+				       void *args)
-+{
-+	struct aspeed_pcie *pcie = domain->host_data;
-+	int bit;
-+	int i;
-+
-+	guard(mutex)(&pcie->lock);
-+
-+	bit = bitmap_find_free_region(pcie->msi_irq_in_use, MAX_MSI_HOST_IRQS,
-+				      get_count_order(nr_irqs));
-+
-+	if (bit < 0)
-+		return -ENOSPC;
-+
-+	for (i = 0; i < nr_irqs; i++) {
-+		irq_domain_set_info(domain, virq + i, bit + i,
-+				    &aspeed_msi_bottom_irq_chip,
-+				    domain->host_data, handle_simple_irq, NULL,
-+				    NULL);
-+	}
-+
-+	return 0;
-+}
-+
-+static void aspeed_irq_msi_domain_free(struct irq_domain *domain,
-+				       unsigned int virq, unsigned int nr_irqs)
-+{
-+	struct irq_data *data = irq_domain_get_irq_data(domain, virq);
-+	struct aspeed_pcie *pcie = irq_data_get_irq_chip_data(data);
-+
-+	guard(mutex)(&pcie->lock);
-+
-+	bitmap_release_region(pcie->msi_irq_in_use, data->hwirq,
-+			      get_count_order(nr_irqs));
-+}
-+
-+static const struct irq_domain_ops aspeed_msi_domain_ops = {
-+	.alloc = aspeed_irq_msi_domain_alloc,
-+	.free = aspeed_irq_msi_domain_free,
-+};
-+
-+#define ASPEED_MSI_FLAGS_REQUIRED (MSI_FLAG_USE_DEF_DOM_OPS	| \
-+				  MSI_FLAG_USE_DEF_CHIP_OPS	| \
-+				  MSI_FLAG_NO_AFFINITY)
-+
-+#define ASPEED_MSI_FLAGS_SUPPORTED (MSI_GENERIC_FLAGS_MASK	| \
-+				   MSI_FLAG_MULTI_PCI_MSI	| \
-+				   MSI_FLAG_PCI_MSIX)
-+
-+static const struct msi_parent_ops aspeed_msi_parent_ops = {
-+	.required_flags		= ASPEED_MSI_FLAGS_REQUIRED,
-+	.supported_flags	= ASPEED_MSI_FLAGS_SUPPORTED,
-+	.bus_select_token	= DOMAIN_BUS_PCI_MSI,
-+	.chip_flags		= MSI_CHIP_FLAG_SET_ACK,
-+	.prefix			= "ASPEED-",
-+	.init_dev_msi_info	= msi_lib_init_dev_msi_info,
-+};
-+
-+static int aspeed_pcie_msi_init(struct aspeed_pcie *pcie)
-+{
-+	writel(~0, pcie->reg + pcie->platform->reg_msi_en);
-+	writel(~0, pcie->reg + pcie->platform->reg_msi_en + 0x04);
-+	writel(~0, pcie->reg + pcie->platform->reg_msi_sts);
-+	writel(~0, pcie->reg + pcie->platform->reg_msi_sts + 0x04);
-+
-+	struct irq_domain_info info = {
-+		.fwnode		= dev_fwnode(pcie->dev),
-+		.ops		= &aspeed_msi_domain_ops,
-+		.host_data	= pcie,
-+		.size		= MAX_MSI_HOST_IRQS,
-+	};
-+
-+	pcie->msi_domain = msi_create_parent_irq_domain(&info,
-+							&aspeed_msi_parent_ops);
-+	if (!pcie->msi_domain)
-+		return dev_err_probe(pcie->dev, -ENOMEM,
-+				     "failed to create MSI domain\n");
-+
-+	return 0;
-+}
-+
-+static void aspeed_pcie_msi_free(struct aspeed_pcie *pcie)
-+{
-+	if (pcie->msi_domain) {
-+		irq_domain_remove(pcie->msi_domain);
-+		pcie->msi_domain = NULL;
-+	}
-+}
-+
-+static void aspeed_pcie_irq_domain_free(void *d)
-+{
-+	struct aspeed_pcie *pcie = d;
-+
-+	if (pcie->intx_domain) {
-+		irq_domain_remove(pcie->intx_domain);
-+		pcie->intx_domain = NULL;
-+	}
-+	aspeed_pcie_msi_free(pcie);
-+}
-+
-+static int aspeed_pcie_init_irq_domain(struct aspeed_pcie *pcie)
-+{
-+	int ret;
-+
-+	pcie->intx_domain = irq_domain_add_linear(pcie->dev->of_node,
-+						  PCI_NUM_INTX,
-+						  &aspeed_intx_domain_ops,
-+						  pcie);
-+	if (!pcie->intx_domain) {
-+		ret = dev_err_probe(pcie->dev, -ENOMEM,
-+				    "failed to get INTx IRQ domain\n");
-+		goto err;
-+	}
-+
-+	writel(0, pcie->reg + pcie->platform->reg_intx_en);
-+	writel(~0, pcie->reg + pcie->platform->reg_intx_sts);
-+
-+	ret = aspeed_pcie_msi_init(pcie);
-+	if (ret)
-+		goto err;
-+
-+	return 0;
-+err:
-+	aspeed_pcie_irq_domain_free(pcie);
-+	return ret;
-+}
-+
-+static int aspeed_pcie_port_init(struct aspeed_pcie_port *port)
-+{
-+	struct aspeed_pcie *pcie = port->pcie;
-+	struct device *dev = pcie->dev;
-+	int ret;
-+
-+	ret = clk_prepare_enable(port->clk);
-+	if (ret)
-+		return dev_err_probe(dev, ret,
-+				     "failed to set clock for slot (%d)\n",
-+				     port->slot);
-+
-+	ret = phy_init(port->phy);
-+	if (ret)
-+		return dev_err_probe(dev, ret,
-+				     "failed to init phy pcie for slot (%d)\n",
-+				     port->slot);
-+
-+	ret = phy_set_mode_ext(port->phy, PHY_MODE_PCIE, PHY_MODE_PCIE_RC);
-+	if (ret)
-+		return dev_err_probe(dev, ret,
-+				     "failed to set phy mode for slot (%d)\n",
-+				     port->slot);
-+
-+	reset_control_deassert(port->perst);
-+	msleep(PCIE_RESET_CONFIG_WAIT_MS);
-+
-+	return 0;
-+}
-+
-+static void aspeed_host_reset(struct aspeed_pcie *pcie)
-+{
-+	reset_control_assert(pcie->h2xrst);
-+	mdelay(ASPEED_RESET_RC_WAIT_MS);
-+	reset_control_deassert(pcie->h2xrst);
-+}
-+
-+static void aspeed_pcie_map_ranges(struct aspeed_pcie *pcie)
-+{
-+	struct pci_host_bridge *bridge = pcie->host;
-+	struct resource_entry *window;
-+
-+	resource_list_for_each_entry(window, &bridge->windows) {
-+		u64 pci_addr;
-+
-+		if (resource_type(window->res) != IORESOURCE_MEM)
-+			continue;
-+
-+		pci_addr = window->res->start - window->offset;
-+		pcie->platform->pcie_map_ranges(pcie, pci_addr);
-+		break;
-+	}
-+}
-+
-+static void aspeed_ast2600_pcie_map_ranges(struct aspeed_pcie *pcie,
-+					  u64 pci_addr)
-+{
-+	u32 pci_addr_lo = pci_addr & GENMASK(31, 0);
-+	u32 pci_addr_hi = (pci_addr >> 32) & GENMASK(31, 0);
-+
-+	pci_addr_lo >>= 16;
-+	writel(ASPEED_AHB_REMAP_LO_ADDR(pci_addr_lo) |
-+	       ASPEED_AHB_MASK_LO_ADDR(0xe00),
-+	       pcie->reg + ASPEED_H2X_AHB_ADDR_CONFIG0);
-+	writel(ASPEED_AHB_REMAP_HI_ADDR(pci_addr_hi),
-+	       pcie->reg + ASPEED_H2X_AHB_ADDR_CONFIG1);
-+	writel(ASPEED_AHB_MASK_HI_ADDR(~0),
-+	       pcie->reg + ASPEED_H2X_AHB_ADDR_CONFIG2);
-+}
-+
-+static int aspeed_ast2600_setup(struct platform_device *pdev)
-+{
-+	struct aspeed_pcie *pcie = platform_get_drvdata(pdev);
-+	struct device *dev = pcie->dev;
-+
-+	pcie->ahbc = syscon_regmap_lookup_by_phandle(dev->of_node,
-+						     "aspeed,ahbc");
-+	if (IS_ERR(pcie->ahbc))
-+		return dev_err_probe(dev, PTR_ERR(pcie->ahbc),
-+				     "failed to map ahbc base\n");
-+
-+	aspeed_host_reset(pcie);
-+
-+	regmap_write(pcie->ahbc, ASPEED_AHBC_KEY, ASPEED_AHBC_UNLOCK_KEY);
-+	regmap_update_bits(pcie->ahbc, ASPEED_AHBC_ADDR_MAPPING,
-+			   ASPEED_PCIE_RC_MEMORY_EN, ASPEED_PCIE_RC_MEMORY_EN);
-+	regmap_write(pcie->ahbc, ASPEED_AHBC_KEY, ASPEED_AHBC_UNLOCK);
-+
-+	writel(ASPEED_H2X_BRIDGE_EN, pcie->reg + ASPEED_H2X_CTRL);
-+
-+	writel(ASPEED_PCIE_RX_DMA_EN | ASPEED_PCIE_RX_LINEAR |
-+	       ASPEED_PCIE_RX_MSI_SEL | ASPEED_PCIE_RX_MSI_EN |
-+	       ASPEED_PCIE_WAIT_RX_TLP_CLR | ASPEED_PCIE_RC_RX_ENABLE |
-+	       ASPEED_PCIE_RC_ENABLE,
-+	       pcie->reg + ASPEED_H2X_DEV_CTRL);
-+
-+	writel(ASPEED_RC_TLP_TX_TAG_NUM, pcie->reg + ASPEED_H2X_DEV_TX_TAG);
-+
-+	pcie->host->ops = &aspeed_ast2600_pcie_ops;
-+	pcie->host->child_ops = &aspeed_ast2600_pcie_child_ops;
-+
-+	return 0;
-+}
-+
-+static void aspeed_ast2700_pcie_map_ranges(struct aspeed_pcie *pcie,
-+					  u64 pci_addr)
-+{
-+	writel(ASPEED_REMAP_PCI_ADDR_31_12(pci_addr),
-+		pcie->reg + ASPEED_H2X_REMAP_PCI_ADDR_LO);
-+	writel(ASPEED_REMAP_PCI_ADDR_63_32(pci_addr),
-+		pcie->reg + ASPEED_H2X_REMAP_PCI_ADDR_HI);
-+}
-+
-+static int aspeed_ast2700_setup(struct platform_device *pdev)
-+{
-+	struct aspeed_pcie *pcie = platform_get_drvdata(pdev);
-+	struct device *dev = pcie->dev;
-+
-+	pcie->cfg = syscon_regmap_lookup_by_phandle(dev->of_node,
-+						    "aspeed,pciecfg");
-+	if (IS_ERR(pcie->cfg))
-+		return dev_err_probe(dev, PTR_ERR(pcie->cfg),
-+				     "failed to map pciecfg base\n");
-+
-+	regmap_update_bits(pcie->cfg, ASPEED_SCU_60,
-+			   ASPEED_RC_E2M_PATH_EN | ASPEED_RC_H2XS_PATH_EN |
-+			   ASPEED_RC_H2XD_PATH_EN | ASPEED_RC_H2XX_PATH_EN |
-+			   ASPEED_RC_UPSTREAM_MEM_EN,
-+			   ASPEED_RC_E2M_PATH_EN | ASPEED_RC_H2XS_PATH_EN |
-+			   ASPEED_RC_H2XD_PATH_EN | ASPEED_RC_H2XX_PATH_EN |
-+			   ASPEED_RC_UPSTREAM_MEM_EN);
-+	regmap_write(pcie->cfg, ASPEED_SCU_64,
-+		     ASPEED_RC0_DECODE_DMA_BASE(0) |
-+		     ASPEED_RC0_DECODE_DMA_LIMIT(0xff) |
-+		     ASPEED_RC1_DECODE_DMA_BASE(0) |
-+		     ASPEED_RC1_DECODE_DMA_LIMIT(0xff));
-+	regmap_write(pcie->cfg, ASPEED_SCU_70, ASPEED_DISABLE_EP_FUNC);
-+
-+	aspeed_host_reset(pcie);
-+
-+	writel(0, pcie->reg + ASPEED_H2X_CTRL);
-+	writel(ASPEED_H2X_BRIDGE_EN | ASPEED_H2X_BRIDGE_DIRECT_EN,
-+	       pcie->reg + ASPEED_H2X_CTRL);
-+
-+	/* Prepare for 64-bit BAR pref */
-+	writel(ASPEED_REMAP_PREF_ADDR_63_32(0x3),
-+	       pcie->reg + ASPEED_H2X_REMAP_PREF_ADDR);
-+
-+	pcie->host->ops = &aspeed_ast2700_pcie_ops;
-+	pcie->host->child_ops = &aspeed_ast2700_pcie_child_ops;
-+	pcie->clear_msi_twice = true;
-+
-+	return 0;
-+}
-+
-+static void aspeed_pcie_reset_release(void *d)
-+{
-+	struct reset_control *perst = d;
-+
-+	if (!perst)
-+		return;
-+
-+	reset_control_put(perst);
-+}
-+
-+static int aspeed_pcie_parse_port(struct aspeed_pcie *pcie,
-+				  struct device_node *node,
-+				  int slot)
-+{
-+	struct aspeed_pcie_port *port;
-+	struct device *dev = pcie->dev;
-+	int ret;
-+
-+	port = devm_kzalloc(dev, sizeof(*port), GFP_KERNEL);
-+	if (!port)
-+		return -ENOMEM;
-+
-+	port->clk = devm_get_clk_from_child(dev, node, NULL);
-+	if (IS_ERR(port->clk))
-+		return dev_err_probe(dev, PTR_ERR(port->clk),
-+				     "failed to get pcie%d clock\n", slot);
-+
-+	port->phy = devm_of_phy_get(dev, node, NULL);
-+	if (IS_ERR(port->phy))
-+		return dev_err_probe(dev, PTR_ERR(port->phy),
-+				     "failed to get phy pcie%d\n", slot);
-+
-+	port->perst = of_reset_control_get_exclusive(node, "perst");
-+	if (IS_ERR(port->perst))
-+		return dev_err_probe(dev, PTR_ERR(port->perst),
-+				     "failed to get pcie%d reset control\n",
-+				     slot);
-+	ret = devm_add_action_or_reset(dev, aspeed_pcie_reset_release,
-+				       port->perst);
-+	if (ret)
-+		return ret;
-+	reset_control_assert(port->perst);
-+
-+	port->slot = slot;
-+	port->pcie = pcie;
-+
-+	INIT_LIST_HEAD(&port->list);
-+	list_add_tail(&port->list, &pcie->ports);
-+
-+	ret = aspeed_pcie_port_init(port);
-+	if (ret)
-+		return ret;
-+
-+	return 0;
-+}
-+
-+static int aspeed_pcie_parse_dt(struct aspeed_pcie *pcie)
-+{
-+	struct device *dev = pcie->dev;
-+	struct device_node *node = dev->of_node;
-+	int ret;
-+
-+	for_each_available_child_of_node_scoped(node, child) {
-+		int slot;
-+		const char *type;
-+
-+		ret = of_property_read_string(child, "device_type", &type);
-+		if (ret || strcmp(type, "pci"))
-+			continue;
-+
-+		ret = of_pci_get_devfn(child);
-+		if (ret < 0)
-+			return dev_err_probe(dev, ret,
-+					     "failed to parse devfn\n");
-+
-+		slot = PCI_SLOT(ret);
-+
-+		ret = aspeed_pcie_parse_port(pcie, child, slot);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	if (list_empty(&pcie->ports))
-+		return dev_err_probe(dev, -ENODEV,
-+				     "No PCIe port found in DT\n");
-+
-+	return 0;
-+}
-+
-+static int aspeed_pcie_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct pci_host_bridge *host;
-+	struct aspeed_pcie *pcie;
-+	struct resource_entry *entry;
-+	const struct aspeed_pcie_rc_platform *md;
-+	int irq, ret;
-+
-+	md = of_device_get_match_data(dev);
-+	if (!md)
-+		return -ENODEV;
-+
-+	host = devm_pci_alloc_host_bridge(dev, sizeof(*pcie));
-+	if (!host)
-+		return -ENOMEM;
-+
-+	pcie = pci_host_bridge_priv(host);
-+	pcie->dev = dev;
-+	pcie->tx_tag = 0;
-+	platform_set_drvdata(pdev, pcie);
-+
-+	pcie->platform = md;
-+	pcie->host = host;
-+	INIT_LIST_HEAD(&pcie->ports);
-+
-+	/* Get root bus num for cfg command to decide tlp type 0 or type 1 */
-+	entry = resource_list_first_type(&host->windows, IORESOURCE_BUS);
-+	if (entry)
-+		pcie->root_bus_nr = entry->res->start;
-+
-+	pcie->reg = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(pcie->reg))
-+		return PTR_ERR(pcie->reg);
-+
-+	pcie->h2xrst = devm_reset_control_get_exclusive(dev, "h2x");
-+	if (IS_ERR(pcie->h2xrst))
-+		return dev_err_probe(dev, PTR_ERR(pcie->h2xrst),
-+				     "failed to get h2x reset\n");
-+
-+	ret = devm_mutex_init(dev, &pcie->lock);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to init mutex\n");
-+
-+	ret = pcie->platform->setup(pdev);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to setup PCIe RC\n");
-+
-+	aspeed_pcie_map_ranges(pcie);
-+
-+	ret = aspeed_pcie_parse_dt(pcie);
-+	if (ret)
-+		return ret;
-+
-+	host->sysdata = pcie;
-+
-+	ret = aspeed_pcie_init_irq_domain(pcie);
-+	if (ret)
-+		return ret;
-+
-+	irq = platform_get_irq(pdev, 0);
-+	if (irq < 0)
-+		return irq;
-+
-+	ret = devm_add_action_or_reset(dev, aspeed_pcie_irq_domain_free, pcie);
-+	if (ret)
-+		return ret;
-+
-+	ret = devm_request_irq(dev, irq, aspeed_pcie_intr_handler, IRQF_SHARED,
-+			       dev_name(dev), pcie);
-+	if (ret)
-+		return ret;
-+
-+	return pci_host_probe(host);
-+}
-+
-+static const struct aspeed_pcie_rc_platform pcie_rc_ast2600 = {
-+	.setup = aspeed_ast2600_setup,
-+	.pcie_map_ranges = aspeed_ast2600_pcie_map_ranges,
-+	.reg_intx_en = 0xc4,
-+	.reg_intx_sts = 0xc8,
-+	.reg_msi_en = 0xe0,
-+	.reg_msi_sts = 0xe8,
-+	.msi_address = 0x1e77005c,
-+};
-+
-+static const struct aspeed_pcie_rc_platform pcie_rc_ast2700 = {
-+	.setup = aspeed_ast2700_setup,
-+	.pcie_map_ranges = aspeed_ast2700_pcie_map_ranges,
-+	.reg_intx_en = 0x40,
-+	.reg_intx_sts = 0x48,
-+	.reg_msi_en = 0x50,
-+	.reg_msi_sts = 0x58,
-+	.msi_address = 0x000000f0,
-+};
-+
-+static const struct of_device_id aspeed_pcie_of_match[] = {
-+	{ .compatible = "aspeed,ast2600-pcie", .data = &pcie_rc_ast2600 },
-+	{ .compatible = "aspeed,ast2700-pcie", .data = &pcie_rc_ast2700 },
-+	{}
-+};
-+
-+static struct platform_driver aspeed_pcie_driver = {
-+	.driver = {
-+		.name = "aspeed-pcie",
-+		.of_match_table = aspeed_pcie_of_match,
-+		.suppress_bind_attrs = true,
-+		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
-+	},
-+	.probe = aspeed_pcie_probe,
-+};
-+
-+builtin_platform_driver(aspeed_pcie_driver);
-+
-+MODULE_AUTHOR("Jacky Chou <jacky_chou@aspeedtech.com>");
-+MODULE_DESCRIPTION("ASPEED PCIe Root Complex");
-+MODULE_LICENSE("GPL");
+Changes in v3:
+- Add R-b for patch 2,3,5
+- Patch 4:
+  Rename imx_rproc_ops_sm to imx_rproc_ops_sm_lmm.
+  Add more comments in code
+  Simplify if check in imx_rproc_sm_lmm_prepare()
+  Update commit log
+  Use dev_err for failure path
+- Link to v2: https://lore.kernel.org/linux-remoteproc/20251031-imx95-rproc-2025-10-31-v2-0-758b2e547a55@nxp.com/T/#t
 
+Changes in v2:
+- Patch 2: Change to const pointer for ops, update commit log and add R-b from Frank
+- Patch 3: New patch, introduce prepare ops
+- Patch 4: Rename imx_rproc_sm_prepare to imx_rproc_sm_lmm_prepare
+           drop IMX_RPROC_FLAGS_SM_CPU_OP and IMX_RPROC_FLAGS_SM_LMM_OP
+           Add a bool for dcfg->lmid and info->lmid check.
+           Provide separate plat ops for lmm and cpu setup.
+           Move LM permission check to a separate function.
+- Patch 5: Drop macro IMX95_M7_CPUID and IMX95_M7_LMID
+- Link to v1: https://lore.kernel.org/r/20251028-imx95-rproc-2025-10-28-v1-0-ce9e7db9edcb@nxp.com
+
+---
+Peng Fan (5):
+      dt-bindings: remoteproc: fsl,imx-rproc: Add support for i.MX95
+      remoteproc: imx_rproc: Add runtime ops copy to support dynamic behavior
+      remoteproc: imx_rproc: Introduce prepare ops for imx_rproc_dcfg
+      remoteproc: imx_rproc: Add support for System Manager API
+      remoteproc: imx_rproc: Add support for i.MX95
+
+ .../bindings/remoteproc/fsl,imx-rproc.yaml         |   1 +
+ drivers/remoteproc/Kconfig                         |   2 +
+ drivers/remoteproc/imx_rproc.c                     | 245 +++++++++++++++++++--
+ drivers/remoteproc/imx_rproc.h                     |   4 +
+ 4 files changed, 239 insertions(+), 13 deletions(-)
+---
+base-commit: 4a5663c04bb679631985a15efab774da58c37815
+change-id: 20251215-imx95-rproc-2025-12-15-1200ef764ca2
+
+Best regards,
 -- 
-2.34.1
+Peng Fan <peng.fan@nxp.com>
 
 
