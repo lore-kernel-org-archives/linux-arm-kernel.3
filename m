@@ -4,127 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BED33D65528
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 10:09:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64634D65528
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 10:11:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VZURmgPxxQZjI3zrHvlskrrJJrpiAJiNx6WGvMHRVu4=; b=oDX/jeey7cpHQNjU+wXnCqk7aB
-	TUltIbtgacn29ywXf/tYz6e6YEzLPUMaclFa1XaccsjZh+6L4A1K+qtMUtpC6Ff0MbMXD5bkzQG3C
-	6gRwhNoTGCgXCt9jG979uU+One8bXASOrKW4LG6p4UmuzE7AY+UYepAFlNBhLTv40QGhMo4+OJDFR
-	j14jagI8Pnj3zOYkEDOejnrk3bgE0v/PBCgyLnWkJekkt6HbI4ahGnCCor0X2inN0IME4E5syx3EV
-	UwuBU4ciS5zkZpQEZ8FGPk6RcYnFlsBzY+wxyDQ5w4lj/CrA/Urr0U8o4B+R061axRjSh0l1LN0hW
-	QcGppp0g==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7Pxfcgf9ESJFQ3CbAFDbmQCHe4wAyVbpr9IYTCTYoUU=; b=yYwobgn334eUUgKjVOUKaMBulg
+	+BEJ43rN3K+My7cbvmpGhKQMl7sgCLEQiXrRrvPmZTnemp7AGasoQE5kn1LjoplN4XIyNfhcnghla
+	uo2DH6gfVjpfbLQwhEqIwtPI8N68u5ZRBqVon4L1sfB5fvZbGRGxKgPbeHaWNLbK3G5U8NR+ypOsd
+	tqQATJ7rmMJhCr6lecnZgFm3Lla33xzm2rdGE2Hthwea3thHleMFnkH7aE59IOJjN2+XlUrvggO0G
+	BQNYnN3hpWNuwfL747HPPb+9P3o1KSy0D471XV+Gw5CNNZ2IQctP5c4l5m1vPIIN/oKrXK5eexpCQ
+	hhUcruGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVoTL-00000006VYa-2zxT;
-	Wed, 17 Dec 2025 10:09:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVoTI-00000006VXv-2aku
+	id 1vVoVa-00000006Vmn-3427;
+	Wed, 17 Dec 2025 10:11:50 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vVoVY-00000006VmC-1Za4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 10:09:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EB5B540A5A;
-	Wed, 17 Dec 2025 10:09:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A033C4CEF5;
-	Wed, 17 Dec 2025 10:09:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765966167;
-	bh=NDvrx/7kD9DYBw5z2rjeyvn6k+is+NExRwPN54G/f4w=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PfumqNM59n0/h2D8RT4CMK9XEEQt6r5l7OgNJKLp4euwVcg83MXtyighanWhK7L0F
-	 w4yopXBZtyegdnJGq9emKXxwH2z645+LQf/XDvUNbiVA+U5RGuY8WZtu5l3shXIFi7
-	 Fc3dCWTe5mngT0LbTO61vgUgUB2wK1neDxcFzNffA7aXYQTlnAeCDnxO7Lhi97wivh
-	 tzPVhbJoVZGz7vSf45l1YiAp4oizVkv5bA+sqnoJgZO3R2TebK5YJLhcmbIidxpIB3
-	 jeFYu0YkUvSSs/n9+Ysz3/Vc38CqhHmCr51l5dNKZ7NXMv8tjHgiT5UtMQjI5OwSaw
-	 5f9Ij8PcQzLsw==
-Message-ID: <e8bdb176-b6fb-4dd2-8b5b-9da8073fa915@kernel.org>
-Date: Wed, 17 Dec 2025 11:09:21 +0100
+	Wed, 17 Dec 2025 10:11:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BA7A514BF;
+	Wed, 17 Dec 2025 02:11:38 -0800 (PST)
+Received: from e122027.arm.com (unknown [10.57.45.201])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DDC673F73B;
+	Wed, 17 Dec 2025 02:11:40 -0800 (PST)
+From: Steven Price <steven.price@arm.com>
+To: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Cc: Steven Price <steven.price@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>
+Subject: [PATCH v12 00/46] arm64: Support for Arm CCA in KVM
+Date: Wed, 17 Dec 2025 10:10:37 +0000
+Message-ID: <20251217101125.91098-1-steven.price@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 07/11] dt-bindings: clock: qcom: document the Kaanapali
- GPU Clock Controller
-To: Taniya Das <taniya.das@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
- Konrad Dybcio <konradybcio@kernel.org>,
- Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
- Imran Shaik <imran.shaik@oss.qualcomm.com>,
- Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
- linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org,
- Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
- Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-References: <20251125-kaanapali-mmcc-v2-v2-0-fb44e78f300b@oss.qualcomm.com>
- <20251125-kaanapali-mmcc-v2-v2-7-fb44e78f300b@oss.qualcomm.com>
- <20251126-elated-stoic-scorpion-25b630@kuoka>
- <de44560d-4ed8-41fe-be7b-56412b933a8c@oss.qualcomm.com>
- <fbe39eac-7c92-4a08-bafb-31e5c51a0613@kernel.org>
- <503f445e-0d12-407d-bc77-f48ad335639b@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <503f445e-0d12-407d-bc77-f48ad335639b@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_020928_704519_3CA25947 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251217_021148_504655_AD8F99F2 
+X-CRM114-Status: GOOD (  17.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,21 +82,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/12/2025 10:32, Taniya Das wrote:
->>>
->>> We would like to leverage the existing common clock driver(GDSC) code to
->>
->> Fix the driver code if it cannot handle other cells. Your drivers do not
->> matter for choices made in bindings.
->>
-> 
-> As it is still a clock controller from hardware design and in SW I will
-> be map the entire hardware region and this way this clock controller
-> will also be aligned to the existing clock controllers and keep the
-> #power-domain-cells = <1> as other CCs.
+This series adds support for running protected VMs using KVM under the
+Arm Confidential Compute Architecture (CCA). I've changed the uAPI
+following feedback from Marc.
 
-I don't see how this resolves my comment.
+The main change is that rather than providing a multiplex CAP and
+expecting the VMM to drive the different stages of realm construction,
+there's now just a minimal interface and KVM performs the necessary
+operations when needed.
 
-Best regards,
-Krzysztof
+This series is lightly tested and is meant as a demonstration of the new
+uAPI. There are a number of (known) rough corners in the implementation
+that I haven't dealt with properly.
+
+In particular please note that this series is still targetting RMM v1.0.
+There is an alpha quality version of RMM v2.0 available[1]. Feedback was
+that there are a number of blockers for merging with RMM v1.0 and so I
+expect to rework this series to support RMM v2.0 before it is merged.
+That will necessarily involve reworking the implementation.
+
+Specifically I'm expecting improvements in:
+
+ * GIC handling - passing state in registers, and allowing the host to
+   fully emulate the GIC by allowing trap bits to be set.
+
+ * PMU handling - again providing flexibility to the host's emulation.
+
+ * Page size/granule size mismatch. RMM v1.0 defines the granule as 4k,
+   RMM v2.0 provide the option for the host to change the granule size.
+   The intention is that Linux would simply set the granule size equal
+   to its page size which will significantly simplify the management of
+   granules.
+
+ * Some performance improvement from the use of range-based map/unmap
+   RMI calls.
+
+This series is based on v6.19-rc1. It is also available as a git
+repository:
+
+https://gitlab.arm.com/linux-arm/linux-cca cca-host/v12
+
+Work in progress changes for kvmtool are available from the git
+repository below:
+
+https://gitlab.arm.com/linux-arm/kvmtool-cca cca/v10
+
+[1] https://developer.arm.com/documentation/den0137/latest/
+
+Jean-Philippe Brucker (7):
+  arm64: RMI: Propagate number of breakpoints and watchpoints to
+    userspace
+  arm64: RMI: Set breakpoint parameters through SET_ONE_REG
+  arm64: RMI: Initialize PMCR.N with number counter supported by RMM
+  arm64: RMI: Propagate max SVE vector length from RMM
+  arm64: RMI: Configure max SVE vector length for a Realm
+  arm64: RMI: Provide register list for unfinalized RMI RECs
+  arm64: RMI: Provide accurate register list
+
+Joey Gouly (2):
+  arm64: RMI: allow userspace to inject aborts
+  arm64: RMI: support RSI_HOST_CALL
+
+Steven Price (34):
+  arm64: RME: Handle Granule Protection Faults (GPFs)
+  arm64: RMI: Add SMC definitions for calling the RMM
+  arm64: RMI: Add wrappers for RMI calls
+  arm64: RMI: Check for RMI support at KVM init
+  arm64: RMI: Define the user ABI
+  arm64: RMI: Basic infrastructure for creating a realm.
+  KVM: arm64: Allow passing machine type in KVM creation
+  arm64: RMI: RTT tear down
+  arm64: RMI: Activate realm on first VCPU run
+  arm64: RMI: Allocate/free RECs to match vCPUs
+  KVM: arm64: vgic: Provide helper for number of list registers
+  arm64: RMI: Support for the VGIC in realms
+  KVM: arm64: Support timers in realm RECs
+  arm64: RMI: Handle realm enter/exit
+  arm64: RMI: Handle RMI_EXIT_RIPAS_CHANGE
+  KVM: arm64: Handle realm MMIO emulation
+  KVM: arm64: Expose support for private memory
+  arm64: RMI: Allow populating initial contents
+  arm64: RMI: Set RIPAS of initial memslots
+  arm64: RMI: Create the realm descriptor
+  arm64: RMI: Add a VMID allocator for realms
+  arm64: RMI: Runtime faulting of memory
+  KVM: arm64: Handle realm VCPU load
+  KVM: arm64: Validate register access for a Realm VM
+  KVM: arm64: Handle Realm PSCI requests
+  KVM: arm64: WARN on injected undef exceptions
+  arm64: Don't expose stolen time for realm guests
+  arm64: RMI: Always use 4k pages for realms
+  arm64: RMI: Prevent Device mappings for Realms
+  HACK: Restore per-CPU cpu_armpmu pointer
+  arm_pmu: Provide a mechanism for disabling the physical IRQ
+  arm64: RMI: Enable PMU support with a realm guest
+  KVM: arm64: Expose KVM_ARM_VCPU_REC to user space
+  arm64: RMI: Enable realms to be created
+
+Suzuki K Poulose (3):
+  kvm: arm64: Include kvm_emulate.h in kvm/arm_psci.h
+  kvm: arm64: Don't expose unsupported capabilities for realm guests
+  arm64: RMI: Allow checking SVE on VM instance
+
+ Documentation/virt/kvm/api.rst       |   78 +-
+ arch/arm64/include/asm/kvm_emulate.h |   31 +
+ arch/arm64/include/asm/kvm_host.h    |   13 +-
+ arch/arm64/include/asm/kvm_rmi.h     |  137 +++
+ arch/arm64/include/asm/rmi_cmds.h    |  508 ++++++++
+ arch/arm64/include/asm/rmi_smc.h     |  269 +++++
+ arch/arm64/include/asm/virt.h        |    1 +
+ arch/arm64/kernel/cpufeature.c       |    1 +
+ arch/arm64/kvm/Kconfig               |    2 +
+ arch/arm64/kvm/Makefile              |    2 +-
+ arch/arm64/kvm/arch_timer.c          |   37 +-
+ arch/arm64/kvm/arm.c                 |  179 ++-
+ arch/arm64/kvm/guest.c               |   95 +-
+ arch/arm64/kvm/hypercalls.c          |    4 +-
+ arch/arm64/kvm/inject_fault.c        |    5 +-
+ arch/arm64/kvm/mmio.c                |   16 +-
+ arch/arm64/kvm/mmu.c                 |  214 +++-
+ arch/arm64/kvm/pmu-emul.c            |    6 +
+ arch/arm64/kvm/psci.c                |   30 +
+ arch/arm64/kvm/reset.c               |   13 +-
+ arch/arm64/kvm/rmi-exit.c            |  207 ++++
+ arch/arm64/kvm/rmi.c                 | 1663 ++++++++++++++++++++++++++
+ arch/arm64/kvm/sys_regs.c            |   53 +-
+ arch/arm64/kvm/vgic/vgic-init.c      |    2 +-
+ arch/arm64/kvm/vgic/vgic-v2.c        |    6 +-
+ arch/arm64/kvm/vgic/vgic-v3.c        |   14 +-
+ arch/arm64/kvm/vgic/vgic.c           |   55 +-
+ arch/arm64/kvm/vgic/vgic.h           |   20 +-
+ arch/arm64/mm/fault.c                |   28 +-
+ drivers/perf/arm_pmu.c               |   20 +
+ include/kvm/arm_arch_timer.h         |    2 +
+ include/kvm/arm_pmu.h                |    4 +
+ include/kvm/arm_psci.h               |    2 +
+ include/linux/perf/arm_pmu.h         |    7 +
+ include/uapi/linux/kvm.h             |   42 +-
+ 35 files changed, 3650 insertions(+), 116 deletions(-)
+ create mode 100644 arch/arm64/include/asm/kvm_rmi.h
+ create mode 100644 arch/arm64/include/asm/rmi_cmds.h
+ create mode 100644 arch/arm64/include/asm/rmi_smc.h
+ create mode 100644 arch/arm64/kvm/rmi-exit.c
+ create mode 100644 arch/arm64/kvm/rmi.c
+
+-- 
+2.43.0
+
 
