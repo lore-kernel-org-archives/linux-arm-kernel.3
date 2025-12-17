@@ -4,55 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA626D65C49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 14:23:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96130D65C49
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 14:23:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GVOOD0oX6H5lnhqoOO9kSPnDHon5igPG7Kldg5a0Tug=; b=1zJi59dIMVrY2IHEWNRakRlU7w
-	2YB2+kzu3g7F2EExve6Uq9xPZqbBz+Kpxb+C/1R+dX/cfZ0vHezN+5yRR/OhHujC0Tz6Xcwgo0r8i
-	Mxd97fPJK8oZCAC1BFqhXjyGFZk87yr/UoG/B8gMpEesDazZskMk4VbWL7Zp4G3S3nD97a7fD+HX7
-	TJS+WY6/jB4OhmYy/YPlTZuXcl0YXVNodq/T1s55daKzhKrhlMXUhY4ZBuJB/Veft8TFtQPsmc7Bq
-	tBZdaPMfUuAA2MxAzA92O/CMicrvrjv3yPUpvJQquh1p9MQX9mYahZ5n7EGXzYbih23BffzHQZeA5
-	Vc4+PPuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PQXWHhYmoog6RDGC6nnle+PdRxyWB7Z0ccsSrwYW+bE=; b=JL8/xQXtLNHRNiZUsinSeIHrq2
+	PvKmSxhEisH9EzIaDaqE4DDz8z4hlX6l6L8NMZut8NdyVx4F/EfH0J+rFVJnQJF1CJ6REAIqWaZz8
+	vcxJGfv7/TW9THb6xWpYUpWDa0VOzvPc+eB9ubXzm9w+MJy7yRCdNuha8mCh8tWXje/bMnBTM2kMS
+	+rVKjBAK1Wyr3qTsEBVXtEL88pTY9KYt/DmMJnSKumad4+TFzbkJJrNLtix0R/JZjLl1+aKbjyqgl
+	SL9sFrwoPsvRtvrOK4g2IkvE/LGBd7xYI2Tu8lchmCoUZ3FcgdP8N/sgqeyFbiUXYtAnmApx/lXNB
+	pfNdbJRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVsQa-00000006v9H-2cw7;
-	Wed, 17 Dec 2025 14:22:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVsQY-00000006v8u-0hEl
+	id 1vVsQj-00000006vAj-3rVy;
+	Wed, 17 Dec 2025 14:23:05 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vVsQf-00000006v98-3ywh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 14:22:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6DE84FEC
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 06:22:43 -0800 (PST)
-Received: from [192.168.0.1] (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 56F353F73B
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 06:22:50 -0800 (PST)
-Date: Wed, 17 Dec 2025 14:21:58 +0000
-From: Liviu Dudau <liviu.dudau@arm.com>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: soc@kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] ARM: dts: vexpress/v2m-rs1: Use documented
- arm,vexpress,config-bus child node names
-Message-ID: <aUK8hkoz0LmsIZXA@e142607>
-References: <20251216191212.2879226-2-robh@kernel.org>
+	Wed, 17 Dec 2025 14:23:04 +0000
+Received: from dfae2b116770.home.arpa (unknown [124.16.138.129])
+	by APP-05 (Coremail) with SMTP id zQCowACnPBCevEJpHCT7AA--.33529S2;
+	Wed, 17 Dec 2025 22:22:22 +0800 (CST)
+From: Wentao Liang <vulab@iscas.ac.cn>
+To: aaro.koskinen@iki.fi,
+	andreas@kemnade.info,
+	khilman@baylibre.com,
+	rogerq@kernel.org,
+	tony@atomide.com,
+	linux@armlinux.org.uk
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-omap@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Wentao Liang <vulab@iscas.ac.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH] ARM: omap2: Fix reference count leaks in omap_control_init()
+Date: Wed, 17 Dec 2025 14:21:22 +0000
+Message-Id: <20251217142122.1861292-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20251216191212.2879226-2-robh@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: zQCowACnPBCevEJpHCT7AA--.33529S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7AF4xJr47ZF15Xr4rtry3CFg_yoW8Zr43pF
+	ZFk39Ivr1UJrs3Ga40yry8WF97K3Z7Aa1jkwnak3WIvwsayw17JryFq3WfAF98JrWrZ3W8
+	Zw4rtF1vqF4DAwUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9C14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
+	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr
+	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
+	n2IY04v7MxkF7I0En4kS14v26r1q6r43MxkIecxEwVAFwVW5XwCF04k20xvY0x0EwIxGrw
+	CFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE
+	14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2
+	IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxK
+	x2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI
+	0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUPR6wUUUUU=
+X-Originating-IP: [124.16.138.129]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiCRETA2lCkIR3vgAAs+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_062254_275115_BF61A44B 
-X-CRM114-Status: GOOD (  15.89  )
+X-CRM114-CacheID: sfid-20251217_062302_422045_933D384C 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,65 +84,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 16, 2025 at 01:12:12PM -0600, Rob Herring (Arm) wrote:
-> Update the arm,vexpress,config-bus child node names to use the
-> documented ones. Most of these were updated a while back, but I missed
-> these.
-> 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+The of_get_child_by_name() function increments the reference count
+of child nodes, causing multiple reference leaks in omap_control_init():
 
-Reviewed-by: Liviu Dudau <liviu.dudau@arm.com>
+1. scm_conf node never released in normal/error paths
+2. clocks node leak when checking existence
+3. Missing scm_conf release before np in error paths
 
-Best regards,
-Liviu
+Fix these leaks by adding proper of_node_put() calls and separate error
+handling.
 
-> ---
-> SoC maintainers may want to take this directly?
-> 
->  arch/arm/boot/dts/arm/vexpress-v2m-rs1.dtsi | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/arm/boot/dts/arm/vexpress-v2m-rs1.dtsi b/arch/arm/boot/dts/arm/vexpress-v2m-rs1.dtsi
-> index 158b3923eae3..248b8e492d43 100644
-> --- a/arch/arm/boot/dts/arm/vexpress-v2m-rs1.dtsi
-> +++ b/arch/arm/boot/dts/arm/vexpress-v2m-rs1.dtsi
-> @@ -420,7 +420,7 @@ mcc {
->  					compatible = "arm,vexpress,config-bus";
->  					arm,vexpress,config-bridge = <&v2m_sysreg>;
->  
-> -					oscclk0 {
-> +					clock-controller-0 {
->  						/* MCC static memory clock */
->  						compatible = "arm,vexpress-osc";
->  						arm,vexpress-sysreg,func = <1 0>;
-> @@ -429,7 +429,7 @@ oscclk0 {
->  						clock-output-names = "v2m:oscclk0";
->  					};
->  
-> -					v2m_oscclk1: oscclk1 {
-> +					v2m_oscclk1: clock-controller-1 {
->  						/* CLCD clock */
->  						compatible = "arm,vexpress-osc";
->  						arm,vexpress-sysreg,func = <1 1>;
-> @@ -438,7 +438,7 @@ v2m_oscclk1: oscclk1 {
->  						clock-output-names = "v2m:oscclk1";
->  					};
->  
-> -					v2m_oscclk2: oscclk2 {
-> +					v2m_oscclk2: clock-controller-2 {
->  						/* IO FPGA peripheral clock */
->  						compatible = "arm,vexpress-osc";
->  						arm,vexpress-sysreg,func = <1 2>;
-> @@ -447,7 +447,7 @@ v2m_oscclk2: oscclk2 {
->  						clock-output-names = "v2m:oscclk2";
->  					};
->  
-> -					volt-vio {
-> +					regulator-vio {
->  						/* Logic level voltage */
->  						compatible = "arm,vexpress-volt";
->  						arm,vexpress-sysreg,func = <2 0>;
-> -- 
-> 2.51.0
-> 
+Fixes: e5b635742e98 ("ARM: OMAP2+: control: add syscon support for register accesses")
+Cc: stable@vger.kernel.org
+Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+---
+ arch/arm/mach-omap2/control.c | 14 ++++++++++----
+ 1 file changed, 10 insertions(+), 4 deletions(-)
+
+diff --git a/arch/arm/mach-omap2/control.c b/arch/arm/mach-omap2/control.c
+index 79860b23030d..eb6fc7c61b6e 100644
+--- a/arch/arm/mach-omap2/control.c
++++ b/arch/arm/mach-omap2/control.c
+@@ -732,7 +732,7 @@ int __init omap2_control_base_init(void)
+  */
+ int __init omap_control_init(void)
+ {
+-	struct device_node *np, *scm_conf;
++	struct device_node *np, *scm_conf, *clocks_node;
+ 	const struct of_device_id *match;
+ 	const struct omap_prcm_init_data *data;
+ 	int ret;
+@@ -753,16 +753,19 @@ int __init omap_control_init(void)
+ 
+ 			if (IS_ERR(syscon)) {
+ 				ret = PTR_ERR(syscon);
+-				goto of_node_put;
++				goto err_put_scm_conf;
+ 			}
+ 
+-			if (of_get_child_by_name(scm_conf, "clocks")) {
++			clocks_node = of_get_child_by_name(scm_conf, "clocks");
++			if (clocks_node) {
++				of_node_put(clocks_node);
+ 				ret = omap2_clk_provider_init(scm_conf,
+ 							      data->index,
+ 							      syscon, NULL);
+ 				if (ret)
+-					goto of_node_put;
++					goto err_put_scm_conf;
+ 			}
++			of_node_put(scm_conf);
+ 		} else {
+ 			/* No scm_conf found, direct access */
+ 			ret = omap2_clk_provider_init(np, data->index, NULL,
+@@ -780,6 +783,9 @@ int __init omap_control_init(void)
+ 
+ 	return 0;
+ 
++err_put_scm_conf:
++	if (scm_conf)
++		of_node_put(scm_conf);
+ of_node_put:
+ 	of_node_put(np);
+ 	return ret;
+-- 
+2.34.1
+
 
