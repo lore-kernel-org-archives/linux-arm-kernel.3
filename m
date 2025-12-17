@@ -4,92 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2E04D65C7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 17:19:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6AD0D65C7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 17:20:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fmH64XmJ0F0IHGr/hDAMtzC5HIceqcOPcSCpGBeY+GU=; b=sMbPZMh+fMN3lAqN6R3qOUei5l
-	Hsl6nIoo6NLtCxfcj6Sgm3ZgNDTVVRUMjj/ZtdROczJ+TAZtT6772j65jA2S8oV4ThUjQsMM6wFry
-	CR0Hwqbe4E1MBWmMBkUOy4lX/qSnQW7AHFiOmcRofMjCFNYggb4wWBezItAfUnKXCwRlHS6t16Aqw
-	RFGMJadbIqu+icBSg/IxLI3w0AArJyo781WMRm00edk26/ON03mggC1E3x+GvoCd/YXEJUCo4l/GL
-	D8EKiBwBuV33eJw/NQTHB7DgoY37tFSq5BPdaJ4KoF6Xf7B+hFnXbq4W6EktbczsLWR+xpDsKPmPK
-	GDhig+oA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1PLCuMWygfjE9L1lzXFWDm0qVBpMn5rh+24N+CXz7TI=; b=2LJV5WuZARVmJxYv+J9oM/wweF
+	4sKpJSLMmsSGiU+vB5rxDloWc7x62gxziSJsASTm/812eNtpp0a0iGCUcSJ266c+sBBdkJar4zSAa
+	rk7ZSF8m1iAjYodUYRtEFFNXByjM/e6yui2+zTR8z5G4OjSqtL6qtGjDx5bhI6UB3VqrbRdN8Q/1f
+	Qs8roQumRAeNWY9YHf0VLqa2jgXcG+cru5O25vSzB5hp2yaJOtTQwU2Ya1tjBRZ1aF9Ol3bL11SuZ
+	ki1yyKiFXvnSJ1rJI0EMgPx1tAz02VWzU0VGZfZpfXkXMtzXAFD9jrj56Klzbk+Z5qoXQ/Oo0HLfm
+	ME6Kl8iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVvBV-00000007AmE-0El7;
-	Wed, 17 Dec 2025 17:19:33 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	id 1vVvCl-00000007Auu-28po;
+	Wed, 17 Dec 2025 17:20:51 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVvBT-00000007Als-0QKC
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 17:19:32 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-43102ac1da8so2054384f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 09:19:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1765991968; x=1766596768; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=fmH64XmJ0F0IHGr/hDAMtzC5HIceqcOPcSCpGBeY+GU=;
-        b=TIiq6PcbZPQo/4bRDbqw6LwsFcWnl/l6nD/AGSy6nPJjVyWkp7TnsgYMUBdx9TUqP8
-         YrxK0SDr9OMLP1bYHIm7+YChP38OuNfZV++Axddwp1WtL9vkd4jnSI6KDgxK6XADsEJb
-         g3pAlQ7Qm9Nb24A8nWIQ6g/ZBjCCCUF6GZGXnAR6zGM02x0cca3jgPyZuCCZue1aY0WJ
-         fSa8yM7oxMaeiBnQENUpQ/jUU+zrFw4RsDXnnL7lhuRTkkytoqtbDwSQG8FxXX/2zvtZ
-         RTld4PMq75wW1Y8kgGWppTIcVoVd/plWhQ2CACElKQfX4d7jG8psLemrtoBcY4tvxsXa
-         DFXA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765991968; x=1766596768;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=fmH64XmJ0F0IHGr/hDAMtzC5HIceqcOPcSCpGBeY+GU=;
-        b=UI1z8DH3KN97L0yVY/HI6i2k4lMlH8tOJO2xwDmZbrwxECWFJhFBJdnn6G905IXnCD
-         BQW/mr64XnjhNFllf1fo/fzSVR4Lld5fCirT+C8aRnfp/6rmC8aff8n9QbpT1I0H4bCh
-         D+hfODXB6ny5LtpR37zQHvKYkNlRXaIWu+C2S0yLMxi9zuE36XPbzljehTaK2/yd4e6/
-         HVsOpzksGEVN5j9IaRYsTJLQasYMwvM9pfP9KA0gAxDHIV8WuO/Fk1kJkOPHNEfb0f8s
-         9hGNgATvAqqEGrkxwjf2sh194PMv6IcCqYn0Z6xQnmZU/a7FAT/0Ff1MZH/+SOS16mU2
-         tMdw==
-X-Forwarded-Encrypted: i=1; AJvYcCU2QGp+Tjq2ouT9X4tVQftPJEMxc0WXTA/gjvm7Zo9vNbBgbU4bF7Kzr+eVizBc7Q7pURkIJHP9P+F1oAr/DpRp@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3IQht6fLQn0QCTG1LI/7WDDZZKBv1dFI4IR1j/rakkpaAV/Us
-	+oJRdRas4TH1LbRVLzyUQbDHwyPwpWxPLp+fNqBTm2Gu04sHdUy+GN03EiFUegFi75bfoocUDiK
-	RxsEoxzCPPKNahQ==
-X-Google-Smtp-Source: AGHT+IHT10heBTKc0la75zjUcdcWeKQLxIjteE6wN3WG7RYWYRpvl3lG55/6zSe2LENPLJF5rOBhHUOFskHNYw==
-X-Received: from wrbfo17.prod.google.com ([2002:a05:6000:2911:b0:430:fdbe:cc61])
- (user=jackmanb job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:2404:b0:431:864:d492 with SMTP id ffacd0b85a97d-4310864d73emr6566925f8f.36.1765991967910;
- Wed, 17 Dec 2025 09:19:27 -0800 (PST)
-Date: Wed, 17 Dec 2025 17:19:27 +0000
-In-Reply-To: <d5354d96-6f28-41d7-9f66-64c254d9477b@suse.cz>
-Mime-Version: 1.0
-References: <20251212161832.2067134-1-yeoreum.yun@arm.com> <916c17ba-22b1-456e-a184-cb3f60249af7@arm.com>
- <aUGOPd7gNRf1xHEc@e129823.arm.com> <100cc8da-b826-4fc2-a624-746bf6fb049d@arm.com>
- <aUKKZR0u22KOPfd7@e129823.arm.com> <d96ac977-222e-4e8d-9487-da1306198419@arm.com>
- <aUKnfU/3FREY13g1@e129823.arm.com> <d912480a-5229-4efe-9336-b31acded30f5@suse.cz>
- <DF0J58HOVLL4.2E16Q87D2UXRW@google.com> <d5354d96-6f28-41d7-9f66-64c254d9477b@suse.cz>
-X-Mailer: aerc 0.21.0
-Message-ID: <DF0NWLWKRKYI.3PLY78UGGG2PD@google.com>
-Subject: Re: [PATCH 0/2] introduce pagetable_alloc_nolock()
-From: Brendan Jackman <jackmanb@google.com>
-To: Vlastimil Babka <vbabka@suse.cz>, Brendan Jackman <jackmanb@google.com>, 
-	Yeoreum Yun <yeoreum.yun@arm.com>, Ryan Roberts <ryan.roberts@arm.com>
-Cc: <akpm@linux-foundation.org>, <david@kernel.org>, 
-	<lorenzo.stoakes@oracle.com>, <Liam.Howlett@oracle.com>, <rppt@kernel.org>, 
-	<surenb@google.com>, <mhocko@suse.com>, <ast@kernel.org>, 
-	<daniel@iogearbox.net>, <andrii@kernel.org>, <martin.lau@linux.dev>, 
-	<eddyz87@gmail.com>, <song@kernel.org>, <yonghong.song@linux.dev>, 
-	<john.fastabend@gmail.com>, <kpsingh@kernel.org>, <sdf@fomichev.me>, 
-	<haoluo@google.com>, <jolsa@kernel.org>, <hannes@cmpxchg.org>, 
-	<ziy@nvidia.com>, <bigeasy@linutronix.de>, <clrkwllms@kernel.org>, 
-	<rostedt@goodmis.org>, <catalin.marinas@arm.com>, <will@kernel.org>, 
-	<kevin.brodsky@arm.com>, <dev.jain@arm.com>, <yang@os.amperecomputing.com>, 
-	<linux-mm@kvack.org>, <linux-kernel@vger.kernel.org>, <bpf@vger.kernel.org>, 
-	<linux-rt-devel@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
+	id 1vVvCi-00000007Atx-0qgl;
+	Wed, 17 Dec 2025 17:20:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1765992045;
+	bh=Y9YEMqCOaRn9nWISRWIOagoTl21UEQ/DY+m2rBZ6YSk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=epK3AyeXUp2FZABNF07bFT7e0KVu4mytFWGi74liuJj6pEM7CDfl6PUxpMrnOZ9u6
+	 AcN2YFicfI9kWfplIYbc2wDrzsMcX9XxAhMOlc+w7D8dNz8fhd7GmorSzsPCK52Pp+
+	 Fis8zi+LW9j6qj/lQYZ8lJGVFXK2fCWd6zqxNyUCmO0JXHmBfdqsRI6ALj6N0s4jJM
+	 lujKnpd7ojXxxE8q45cadWjnpWk92Bw5hUn3Iaqz13e2oEjIUT7R0iFDCMuaaMkuVA
+	 ONrOae+/kZatf1hCJD9JV+YFAL1nbV5G/J1y2bkSdKZFxswpEAoEClyoQPKt2wAwRY
+	 2/HXroMnpXX2g==
+Received: from fedora (unknown [IPv6:2a01:e0a:2c:6930:d919:a6e:5ea1:8a9f])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bbrezillon)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4C7FA17E127F;
+	Wed, 17 Dec 2025 18:20:44 +0100 (CET)
+Date: Wed, 17 Dec 2025 18:20:38 +0100
+From: Boris Brezillon <boris.brezillon@collabora.com>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+ <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
+ <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Ulf
+ Hansson <ulf.hansson@linaro.org>, Chen-Yu Tsai <wenst@chromium.org>, Chia-I
+ Wu <olvaffe@gmail.com>, kernel@collabora.com,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org
+Subject: Re: [PATCH 3/4] drm/panthor: Implement reading shader_present from
+ nvmem
+Message-ID: <20251217182038.6779a191@fedora>
+In-Reply-To: <20251217-mt8196-shader-present-v1-3-f6f8f3aa1e93@collabora.com>
+References: <20251217-mt8196-shader-present-v1-0-f6f8f3aa1e93@collabora.com>
+	<20251217-mt8196-shader-present-v1-3-f6f8f3aa1e93@collabora.com>
+Organization: Collabora
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.51; x86_64-redhat-linux-gnu)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_091931_157005_3085C704 
-X-CRM114-Status: GOOD (  15.53  )
+X-CRM114-CacheID: sfid-20251217_092048_388965_48CF9EF3 
+X-CRM114-Status: GOOD (  24.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,52 +86,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->> From 4c6b4d4cb08aee9559d02a348b9ecf799142c96f Mon Sep 17 00:00:00 2001
->> From: Brendan Jackman <jackmanb@google.com>
->> Date: Wed, 17 Dec 2025 13:26:28 +0000
->> Subject: [PATCH] mm: clarify GFP_ATOMIC/GFP_NOWAIT doc-comment
->> 
->> The current description of contexts where it's invalid to make
->> GFP_ATOMIC and GFP_NOWAIT calls is rather vague.
->> 
->> Replace this with a direct description of the actual contexts of concern
->> and refer to the RT docs where this is explained more discursively.
->> 
->> While rejigging this prose, also move the documentation of GFP_NOWAIT to
->> the GFP_NOWAIT section.
->
-> There doesn't seem to be any move?
+On Wed, 17 Dec 2025 18:03:29 +0100
+Nicolas Frattaroli <nicolas.frattaroli@collabora.com> wrote:
 
-This is referring to [0] and [1].
+> On some platforms, notably MediaTek MT8196, the shader_present bitmask
+> in the Mali GPU register for it has cores enabled that may be faulty.
+> The true shader_present bitmask is found in an efuse instead.
+> 
+> Implement reading shader_present from an nvmem cell if one is present,
+> falling back to the Mali register if it's absent. The error codes are
+> trickled up through to the probe function so that probe deferral works.
+> 
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
->> diff --git a/include/linux/gfp_types.h b/include/linux/gfp_types.h
->> index 3de43b12209ee..07a378542caf2 100644
->> --- a/include/linux/gfp_types.h
->> +++ b/include/linux/gfp_types.h
->> @@ -309,8 +309,10 @@ enum {
->>   *
->>   * %GFP_ATOMIC users can not sleep and need the allocation to succeed. A lower
->>   * watermark is applied to allow access to "atomic reserves".
->> - * The current implementation doesn't support NMI and few other strict
->> - * non-preemptive contexts (e.g. raw_spin_lock). The same applies to %GFP_NOWAIT.
-[0]                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
->> + * The current implementation doesn't support NMI, nor contexts that disable
->> + * preemption under PREEMPT_RT. This includes raw_spin_lock() and plain
->> + * preempt_disable() - see Documentation/core-api/real-time/differences.rst for
->> + * more info.
->
-> Can we reference the "Memory allocation" section directly?
+Reviewed-by: Boris Brezillon <boris.brezillon@collabora.com>
 
-Yeah good point. I will send this as a standalone [PATCH] mail tomorrow.
-
->>   *
->>   * %GFP_KERNEL is typical for kernel-internal allocations. The caller requires
->>   * %ZONE_NORMAL or a lower zone for direct access but can direct reclaim.
->> @@ -321,6 +323,7 @@ enum {
->>   * %GFP_NOWAIT is for kernel allocations that should not stall for direct
->>   * reclaim, start physical IO or use any filesystem callback.  It is very
->>   * likely to fail to allocate memory, even for very small allocations.
->> + * The same restrictions on calling contexts apply as for %GFP_ATOMIC.
-[1]     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> ---
+>  drivers/gpu/drm/panthor/panthor_hw.c | 63 ++++++++++++++++++++++++++++++++----
+>  1 file changed, 57 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/panthor/panthor_hw.c b/drivers/gpu/drm/panthor/panthor_hw.c
+> index 87ebb7ae42c4..eb44c8b108aa 100644
+> --- a/drivers/gpu/drm/panthor/panthor_hw.c
+> +++ b/drivers/gpu/drm/panthor/panthor_hw.c
+> @@ -1,6 +1,7 @@
+>  // SPDX-License-Identifier: GPL-2.0 or MIT
+>  /* Copyright 2025 ARM Limited. All rights reserved. */
+>  
+> +#include <linux/nvmem-consumer.h>
+>  #include <drm/drm_print.h>
+>  
+>  #include "panthor_device.h"
+> @@ -109,7 +110,52 @@ static char *get_gpu_model_name(struct panthor_device *ptdev)
+>  	return "(Unknown Mali GPU)";
+>  }
+>  
+> -static void panthor_gpu_info_init(struct panthor_device *ptdev)
+> +static int overload_shader_present(struct panthor_device *ptdev)
+> +{
+> +	struct device *dev = ptdev->base.dev;
+> +	struct nvmem_cell *cell = nvmem_cell_get(dev, "shader-present");
+> +	ssize_t len;
+> +	void *buf;
+> +	int ret;
+> +
+> +	if (IS_ERR(cell)) {
+> +		/* On platforms without this cell, use the Mali register */
+> +		if (PTR_ERR(cell) == -ENOENT)
+> +			return 0;
+> +
+> +		return dev_err_probe(dev, PTR_ERR(cell),
+> +				     "Failed to get shader-present nvmem cell\n");
+> +	}
+> +
+> +	buf = nvmem_cell_read(cell, &len);
+> +	if (IS_ERR(buf)) {
+> +		ret = dev_err_probe(dev, PTR_ERR(buf),
+> +				    "Failed to read shader-present nvmem cell\n");
+> +		goto err_put_cell;
+> +	}
+> +
+> +	if (!len || len > 8) {
+> +		ret = dev_err_probe(dev, -EINVAL, "shader-present cell can't be length %ld\n",
+> +				    len);
+> +		goto err_free;
+> +	}
+> +
+> +	memcpy(&ptdev->gpu_info.shader_present, buf, len);
+> +
+> +	kfree(buf);
+> +	nvmem_cell_put(cell);
+> +
+> +	return 0;
+> +
+> +err_free:
+> +	kfree(buf);
+> +err_put_cell:
+> +	nvmem_cell_put(cell);
+> +
+> +	return ret;
+> +}
+> +
+> +static int panthor_gpu_info_init(struct panthor_device *ptdev)
+>  {
+>  	unsigned int i;
+>  
+> @@ -143,13 +189,18 @@ static void panthor_gpu_info_init(struct panthor_device *ptdev)
+>  		ptdev->gpu_info.tiler_present = gpu_read64(ptdev, GPU_TILER_PRESENT);
+>  		ptdev->gpu_info.l2_present = gpu_read64(ptdev, GPU_L2_PRESENT);
+>  	}
+> +
+> +	return overload_shader_present(ptdev);
+>  }
+>  
+> -static void panthor_hw_info_init(struct panthor_device *ptdev)
+> +static int panthor_hw_info_init(struct panthor_device *ptdev)
+>  {
+>  	u32 major, minor, status;
+> +	int ret;
+>  
+> -	panthor_gpu_info_init(ptdev);
+> +	ret = panthor_gpu_info_init(ptdev);
+> +	if (ret)
+> +		return ret;
+>  
+>  	major = GPU_VER_MAJOR(ptdev->gpu_info.gpu_id);
+>  	minor = GPU_VER_MINOR(ptdev->gpu_info.gpu_id);
+> @@ -172,6 +223,8 @@ static void panthor_hw_info_init(struct panthor_device *ptdev)
+>  		 "shader_present=0x%0llx l2_present=0x%0llx tiler_present=0x%0llx",
+>  		 ptdev->gpu_info.shader_present, ptdev->gpu_info.l2_present,
+>  		 ptdev->gpu_info.tiler_present);
+> +
+> +	return 0;
+>  }
+>  
+>  static int panthor_hw_bind_device(struct panthor_device *ptdev)
+> @@ -218,7 +271,5 @@ int panthor_hw_init(struct panthor_device *ptdev)
+>  	if (ret)
+>  		return ret;
+>  
+> -	panthor_hw_info_init(ptdev);
+> -
+> -	return 0;
+> +	return panthor_hw_info_init(ptdev);
+>  }
+> 
 
 
