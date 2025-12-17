@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF984D6552C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 11:30:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1CDBD6554E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 11:31:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0zl7/1rExuU1sck6Yj6OK3zUURvMQpnT89RtkeeETrw=; b=pnqou9ognN7Aa9mS6AC2ZiA/Ij
-	8GxoOFohqhJXx3F1wBDyfNAh7fBKlcVnYpXQeyHiCD7zW7UEhyYOs4jcRyyTVZhuBkEyxfcERijUR
-	802xSeK6bsx/r7VyT0BlPCMcmvLo/L5FHX5rARZA7mtWzJ1/unk9gbYYvWA18TXgkntc3N/pYmSWF
-	wGDKce0U6PQfyLqPL2DF78PPCHftPon5bpmnMJvv/DFyvHtPDFVmr7t9ikCjyXBiHaRF+mHtI+WVq
-	tzZfdzxmbxpxEfVKHyN1fmRhkYQsF6h9yPqlYqwfh2avg6q5O79knnGwPWrrm9R6SD1o734PlFatD
-	l8bWFXTQ==;
+	bh=pepXBqTRObPorUhfu6kwsuA6OQILZDG52wmdCDtRRmE=; b=J6vXhxliTpBEieyM741Kf0v+ho
+	0z+MGAN0CheANrOOGSA1d+hAUJN5sBfksSD+4AiwhyDTFl3EV9CyclsbZjWhgYOiamx+PHYRQ1B8p
+	q+YzcpKmqUpBcRCboLtCpkfg/QEdx5d14D7SifFBLEfvM1YaN/eCDYoQJBArOBNIPwOBlXYoi35yU
+	fc22OBHBhr148v/URUSOVF6p7wWMPAsDI9h9O/rXYR8DAF4/9PGyiMKp5pGQxVS1YePyoOFyKtyCX
+	Ncfqh5YnyhniH9PJx+SzahsJljWuKt2+AmpfTnGUj3RiDsFSKLs2JFWPGFtkYUqJk06elA7oTpz+7
+	aN/iRnCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVpjy-00000006j1u-2d1U;
-	Wed, 17 Dec 2025 11:30:46 +0000
+	id 1vVpkF-00000006j6s-0KJ5;
+	Wed, 17 Dec 2025 11:31:03 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVpjv-00000006j09-3vQK
+	id 1vVpkC-00000006j5v-32jW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 11:30:45 +0000
+	Wed, 17 Dec 2025 11:31:01 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 043F31684;
-	Wed, 17 Dec 2025 03:30:36 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3B06B1688;
+	Wed, 17 Dec 2025 03:30:52 -0800 (PST)
 Received: from e134710.manchester.arm.com (e134710.arm.com [10.33.10.82])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4A6B83F73B;
-	Wed, 17 Dec 2025 03:30:41 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 831643F73B;
+	Wed, 17 Dec 2025 03:30:57 -0800 (PST)
 From: Ahmed Tiba <ahmed.tiba@arm.com>
 To: linux-acpi@vger.kernel.org,
 	devicetree@vger.kernel.org
@@ -49,17 +49,18 @@ Cc: tony.luck@intel.com,
 	Dmitry.Lamerov@arm.com,
 	Michael.Zhao2@arm.com,
 	ahmed.tiba@arm.com
-Subject: [PATCH 07/12] ghes: prepare estatus hooks for shared handling
-Date: Wed, 17 Dec 2025 11:28:40 +0000
-Message-ID: <20251217112845.1814119-8-ahmed.tiba@arm.com>
+Subject: [PATCH 08/12] ghes: add estatus provider ops
+Date: Wed, 17 Dec 2025 11:28:41 +0000
+Message-ID: <20251217112845.1814119-9-ahmed.tiba@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251217112845.1814119-1-ahmed.tiba@arm.com>
 References: <20251217112845.1814119-1-ahmed.tiba@arm.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_033044_098866_7AE0BEC0 
-X-CRM114-Status: GOOD (  12.95  )
+X-CRM114-CacheID: sfid-20251217_033100_856929_31FADDEB 
+X-CRM114-Status: GOOD (  14.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,102 +75,210 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce struct estatus_source inside struct ghes and export thin
-wrappers around the existing GHES estatus helpers. These helpers are
-not ACPI-specific, so moving them behind a common interface is the
-first step toward reusing the logic for other firmware providers.
-Behaviour stays the same for GHES in this patch.
+Add the estatus_ops implementation that lets GHES present its CPER buffer
+through the new core. The helper plugs the existing fixmap read/write code
+into the generic callbacks, wires up the acknowledgment path for GHESv2
+sources, and exposes the source name/notification attributes. No behaviour
+changes yet—the next patch switches the GHES paths over to these hooks.
 
 Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
 ---
- drivers/acpi/apei/Kconfig      |  1 +
- drivers/firmware/efi/estatus.c |  3 +--
- include/acpi/ghes.h            | 17 +++++++++++++----
- 3 files changed, 15 insertions(+), 6 deletions(-)
+ drivers/acpi/apei/ghes.c | 157 +++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 157 insertions(+)
 
-diff --git a/drivers/acpi/apei/Kconfig b/drivers/acpi/apei/Kconfig
-index 070c07d68dfb..90cb8360988b 100644
---- a/drivers/acpi/apei/Kconfig
-+++ b/drivers/acpi/apei/Kconfig
-@@ -24,6 +24,7 @@ config ACPI_APEI_GHES
- 	select IRQ_WORK
- 	select GENERIC_ALLOCATOR
- 	select ARM_SDE_INTERFACE if ARM64
-+	select RAS_ESTATUS_CORE
- 	help
- 	  Generic Hardware Error Source provides a way to report
- 	  platform hardware errors (such as that from chipset). It
-diff --git a/drivers/firmware/efi/estatus.c b/drivers/firmware/efi/estatus.c
-index 8043d68f907b..259122730303 100644
---- a/drivers/firmware/efi/estatus.c
-+++ b/drivers/firmware/efi/estatus.c
-@@ -654,9 +654,8 @@ static bool estatus_handle_arm_hw_error(estatus_generic_data *gdata, int sev, bo
- 	int sec_sev, i;
- 	char *p;
+diff --git a/drivers/acpi/apei/ghes.c b/drivers/acpi/apei/ghes.c
+index 0dc767392a6c..5932542ea942 100644
+--- a/drivers/acpi/apei/ghes.c
++++ b/drivers/acpi/apei/ghes.c
+@@ -53,6 +53,7 @@
+ #include <asm/tlbflush.h>
+ #include <cxl/event.h>
+ #include <ras/ras_event.h>
++#include <linux/estatus.h>
  
--	log_arm_hw_error(err);
--
- 	sec_sev = estatus_severity(gdata->error_severity);
-+	log_arm_hw_error(err, sec_sev);
- 	if (sev != ESTATUS_SEV_RECOVERABLE || sec_sev != ESTATUS_SEV_RECOVERABLE)
- 		return false;
+ #include "apei-internal.h"
  
-diff --git a/include/acpi/ghes.h b/include/acpi/ghes.h
-index 022c0325f1e0..7dc6acde3e2e 100644
---- a/include/acpi/ghes.h
-+++ b/include/acpi/ghes.h
-@@ -5,6 +5,7 @@
- #include <acpi/apei.h>
- #include <acpi/hed.h>
- #include <linux/estatus.h>
-+#include <linux/notifier.h>
+@@ -250,6 +251,8 @@ static void unmap_gen_v2(struct ghes *ghes)
+ 	apei_unmap_generic_address(&ghes->generic_v2->read_ack_register);
+ }
  
- /*
-  * One struct ghes is created for each generic hardware error source.
-@@ -22,6 +23,7 @@ struct ghes {
- 		struct acpi_hest_generic_v2 *generic_v2;
- 	};
- 	struct acpi_hest_generic_status *estatus;
-+	struct estatus_source estatus_src;
- 	unsigned long flags;
- 	union {
- 		struct list_head list;
-@@ -30,6 +32,7 @@ struct ghes {
- 	};
- 	struct device *dev;
- 	struct list_head elist;
-+	char name[32];
- };
- 
- struct ghes_estatus_node {
-@@ -47,10 +50,10 @@ struct ghes_estatus_cache {
- };
- 
- enum {
--	GHES_SEV_NO = 0x0,
--	GHES_SEV_CORRECTED = 0x1,
--	GHES_SEV_RECOVERABLE = 0x2,
--	GHES_SEV_PANIC = 0x3,
-+	GHES_SEV_NO = ESTATUS_SEV_NO,
-+	GHES_SEV_CORRECTED = ESTATUS_SEV_CORRECTED,
-+	GHES_SEV_RECOVERABLE = ESTATUS_SEV_RECOVERABLE,
-+	GHES_SEV_PANIC = ESTATUS_SEV_PANIC,
- };
- 
- #ifdef CONFIG_ACPI_APEI_GHES
-@@ -73,6 +76,12 @@ void ghes_unregister_vendor_record_notifier(struct notifier_block *nb);
- struct list_head *ghes_get_devices(void);
- 
- void ghes_estatus_pool_region_free(unsigned long addr, u32 size);
-+int ghes_register_vendor_record_notifier(struct notifier_block *nb);
-+void ghes_unregister_vendor_record_notifier(struct notifier_block *nb);
-+void ghes_register_report_chain(struct notifier_block *nb);
-+void ghes_unregister_report_chain(struct notifier_block *nb);
++static const struct estatus_ops ghes_estatus_ops;
 +
-+void estatus_pool_region_free(unsigned long addr, u32 size);
- #else
- static inline struct list_head *ghes_get_devices(void) { return NULL; }
+ static void ghes_ack_error(struct acpi_hest_generic_v2 *gv2)
+ {
+ 	int rc;
+@@ -276,6 +279,8 @@ static struct ghes *ghes_new(struct acpi_hest_generic *generic)
+ 		return ERR_PTR(-ENOMEM);
  
+ 	ghes->generic = generic;
++	scnprintf(ghes->name, sizeof(ghes->name), "GHES source %d",
++		  generic->header.source_id);
+ 	if (is_hest_type_generic_v2(ghes)) {
+ 		rc = map_gen_v2(ghes);
+ 		if (rc)
+@@ -299,6 +304,12 @@ static struct ghes *ghes_new(struct acpi_hest_generic *generic)
+ 		goto err_unmap_status_addr;
+ 	}
+ 
++	ghes->estatus_src.ops = &ghes_estatus_ops;
++	ghes->estatus_src.priv = ghes;
++	ghes->estatus_src.estatus = ghes->estatus;
++	ghes->estatus_src.fixmap_idx = FIX_APEI_GHES_IRQ;
++	INIT_LIST_HEAD(&ghes->elist);
++
+ 	return ghes;
+ 
+ err_unmap_status_addr:
+@@ -1844,3 +1855,149 @@ void ghes_unregister_report_chain(struct notifier_block *nb)
+ 	atomic_notifier_chain_unregister(&ghes_report_chain, nb);
+ }
+ EXPORT_SYMBOL_GPL(ghes_unregister_report_chain);
++
++#define GHES_ESTATUS_RW_FROM_PHYS	1
++#define GHES_ESTATUS_RW_TO_PHYS		0
++
++static void __iomem *ghes_estatus_map(struct ghes *ghes, u64 pfn,
++				      enum fixed_addresses fixmap_idx)
++{
++	phys_addr_t paddr = PFN_PHYS(pfn);
++	pgprot_t prot = arch_apei_get_mem_attribute(paddr);
++
++	__set_fixmap(fixmap_idx, paddr, prot);
++
++	return (void __iomem *)__fix_to_virt(fixmap_idx);
++}
++
++static void ghes_estatus_unmap(void __iomem *vaddr,
++			       enum fixed_addresses fixmap_idx)
++{
++	int _idx = virt_to_fix((unsigned long)vaddr);
++
++	WARN_ON_ONCE(fixmap_idx != _idx);
++	clear_fixmap(fixmap_idx);
++}
++
++static void ghes_estatus_copy_buffer(struct ghes *ghes, void *buffer,
++				     phys_addr_t paddr, size_t len,
++				     int from_phys,
++				     enum fixed_addresses fixmap_idx)
++{
++	void __iomem *vaddr;
++	u64 offset;
++	u32 chunk;
++
++	while (len > 0) {
++		offset = paddr - (paddr & PAGE_MASK);
++		vaddr = ghes_estatus_map(ghes, PHYS_PFN(paddr), fixmap_idx);
++		chunk = PAGE_SIZE - offset;
++		chunk = min_t(u32, chunk, len);
++		if (from_phys == GHES_ESTATUS_RW_FROM_PHYS)
++			memcpy_fromio(buffer, vaddr + offset, chunk);
++		else
++			memcpy_toio(vaddr + offset, buffer, chunk);
++
++		len -= chunk;
++		paddr += chunk;
++		buffer += chunk;
++		ghes_estatus_unmap(vaddr, fixmap_idx);
++	}
++}
++
++static int ghes_estatus_get_phys(struct estatus_source *source,
++				 phys_addr_t *addr)
++{
++	struct ghes *ghes = source->priv;
++	u64 value = 0;
++	int rc;
++
++	rc = apei_read(&value, &ghes->generic->error_status_address);
++	if (rc)
++		return rc;
++
++	*addr = value;
++	return 0;
++}
++
++static int ghes_estatus_read(struct estatus_source *source, phys_addr_t addr,
++			     void *buf, size_t len,
++			     enum fixed_addresses fixmap_idx)
++{
++	struct ghes *ghes = source->priv;
++
++	ghes_estatus_copy_buffer(ghes, buf, addr, len,
++				 GHES_ESTATUS_RW_FROM_PHYS, fixmap_idx);
++	return 0;
++}
++
++static int ghes_estatus_write(struct estatus_source *source, phys_addr_t addr,
++			      const void *buf, size_t len,
++			      enum fixed_addresses fixmap_idx)
++{
++	struct ghes *ghes = source->priv;
++
++	ghes_estatus_copy_buffer(ghes, (void *)buf, addr, len,
++				 GHES_ESTATUS_RW_TO_PHYS, fixmap_idx);
++	return 0;
++}
++
++static void ghes_estatus_ack(struct estatus_source *source)
++{
++	struct ghes *ghes = source->priv;
++	struct acpi_hest_generic_v2 *gv2;
++	u64 val = 0;
++	int rc;
++
++	if (ghes->generic->header.type != ACPI_HEST_TYPE_GENERIC_ERROR_V2)
++		return;
++
++	gv2 = ghes->generic_v2;
++	rc = apei_read(&val, &gv2->read_ack_register);
++	if (rc)
++		return;
++
++	val &= gv2->read_ack_preserve << gv2->read_ack_register.bit_offset;
++	val |= gv2->read_ack_write << gv2->read_ack_register.bit_offset;
++
++	apei_write(val, &gv2->read_ack_register);
++}
++
++static size_t ghes_estatus_get_max_len(struct estatus_source *source)
++{
++	struct ghes *ghes = source->priv;
++
++	return ghes->generic->error_block_length;
++}
++
++static enum estatus_notify_mode
++ghes_estatus_get_notify_mode(struct estatus_source *source)
++{
++	struct ghes *ghes = source->priv;
++	u8 notify_type = ghes->generic->notify.type;
++
++	if (notify_type == ACPI_HEST_NOTIFY_SEA)
++		return ESTATUS_NOTIFY_SEA;
++
++	return ESTATUS_NOTIFY_ASYNC;
++}
++
++static const char *ghes_estatus_get_name(struct estatus_source *source)
++{
++	struct ghes *ghes = source->priv;
++
++	if (ghes->dev)
++		return dev_name(ghes->dev);
++
++	return ghes->name;
++}
++
++static const struct estatus_ops ghes_estatus_ops = {
++	.get_phys	= ghes_estatus_get_phys,
++	.read		= ghes_estatus_read,
++	.write		= ghes_estatus_write,
++	.ack		= ghes_estatus_ack,
++	.get_max_len	= ghes_estatus_get_max_len,
++	.get_notify_mode = ghes_estatus_get_notify_mode,
++	.get_name	= ghes_estatus_get_name,
++};
 -- 
 2.43.0
 
