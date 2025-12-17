@@ -4,69 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8622D65559
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 13:24:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFD8BD65C46
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 13:34:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+oOef/TXOrRIwhDHwBDJLYPwMvf9m53lk4KQvN4U2m4=; b=PrOyq1F2uiw4egVVRihwaOJQCN
-	DDDnNztVXnw/R/RyXtQ6QjJWC7pyP8TR3sdV5Z7g1CsfhI73wynXWtIvFbB1SDWc7x0YJfwPYseYn
-	gs4yUwa+Skhui68e9C9epQeA6qRRKjc3B69gFltdzZi7+bxZnNoqhTLy2NwVX5JDfC/F+Bvp5VGB9
-	mBSdivsSbvmtHbnezT7OY43DKLJrXSmW9e8TiT2siBi/1HNh5t8O0O76s+qktP6uyrXmzEZZXa9t2
-	zl4f8QNk+1wz9gtuHI1LM1k3/NN11soErWFE5VbjDXjxtsykjWzihE8TpZu5Ws5/jdy+/qtVPm6Bk
-	NUBjM4vw==;
+	bh=tCIxJNLWcIU2TjDVqmnt1h0tCwLC0XUxy/MtT8w/Hpw=; b=lDlAPo6JpkpOGREUbmWgyIcl7n
+	CoPGOeVGLwdUjavz33Yqmk4Y/irtPwVTJRTmMl2RRnlqxShy80dDGCGC4zUCQxubbDv3jcO+pDzGh
+	6/Vijkj2UgR2qw8cav2P+gK/Dyark9mNCVgja5po5AL7Z6f8vqKRMmhvF7APthlePqOI4i5q+Sehs
+	MAH37xRSI+qrgJvCu9pk0ilPjyjdE/ErFRDyur0BX2AnBM2+p2HUoWppIKHBUvWYh8ZudWxs0vcoK
+	1YyPkwcV2+9MPH/PTeJ2qL5sEyCadygG+fVcXFomzxhO9WPrxS3QDhb+xmv+i7r+J0T9Mt03vVHRU
+	wdmIPb4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVrW4-00000006qhr-2ulA;
-	Wed, 17 Dec 2025 13:24:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vVrfx-00000006reY-1bNf;
+	Wed, 17 Dec 2025 13:34:45 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVrW3-00000006qhk-27FV
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 13:24:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 812F6601A5;
-	Wed, 17 Dec 2025 13:24:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76F5AC4CEF5;
-	Wed, 17 Dec 2025 13:24:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1765977870;
-	bh=S4mO0XF+32E7SFhkQwowz/nXG8YSqhpXqW4U5Y8ZoMU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nbny4sEAa3vtjAV51VCdRhWNa3o885gFfxTIyISmrDt3HSxaTS3uTncYjewmC2+SJ
-	 FoiodPOp8/dKAZn/a4e5o7la/5iqh4pYt5+7+hl3i2nAPSjysY/eF9WqnI8vOilh4e
-	 BKiZFGXmZl4A/J36w6g2xZo2FwivWFSzXC/4Qdoc=
-Date: Wed, 17 Dec 2025 14:24:27 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Roy Luo <royluo@google.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Badhri Jagan Sridharan <badhri@google.com>,
-	Doug Anderson <dianders@google.com>, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	Joy Chakraborty <joychakr@google.com>,
-	Naveen Kumar <mnkumar@google.com>
-Subject: Re: [PATCH v9 2/2] usb: dwc3: Add Google Tensor SoC DWC3 glue driver
-Message-ID: <2025121728-reliably-crabgrass-2601@gregkh>
-References: <20251205-controller-v9-0-9f158b18f979@google.com>
- <20251205-controller-v9-2-9f158b18f979@google.com>
- <2025120553-suffrage-divisive-5890@gregkh>
- <CA+zupgzL7v5MZDpxKDQQCqAZaqTdHbiG9-xTr+8RnigMFZJ_7Q@mail.gmail.com>
+	id 1vVrfs-00000006rde-2FNa;
+	Wed, 17 Dec 2025 13:34:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1765978477;
+	bh=tCIxJNLWcIU2TjDVqmnt1h0tCwLC0XUxy/MtT8w/Hpw=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=d+1j1d9zjTT0M1ZAHDWdZcQBLAZ0jUo76R2g68OKWsVIny5JoICl0hvi7nc6fetLT
+	 mUfee6SJPrC/t8mhJJLyEa1iW4Y/UszNDWXW6L1gb1/hU12dtIqWQho0L5qR8Q45dJ
+	 ZrncfPTAYlt8i97fR4YHA2CMUYfbStzNgiG5dKyh3FPurzt0BX/9+fntuuZWAitptU
+	 GH9ES5FMV9lpvzZD8wE4nciBTpLWJjDCvnaKJn1EjEI9MJg8YcXMIE4VxAfid9Uawu
+	 /pUOZ/yhYn2AVxmaeDSwx83WnetnXaI6p4YZmcHbZntDd2r8mUKNnYsEdPxj75Kd8z
+	 fFU+hsjldkFYA==
+Received: from [IPv6:2606:6d00:17:7b4b::5ac] (unknown [IPv6:2606:6d00:17:7b4b::5ac])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 80A4917E127F;
+	Wed, 17 Dec 2025 14:34:35 +0100 (CET)
+Message-ID: <0482b76919217cf007d0abe1c683e862903a1a40.camel@collabora.com>
+Subject: Re: [PATCH v5 01/15] media: uapi: HEVC: Add
+ v4l2_ctrl_hevc_ext_sps_[ls]t_rps controls
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Detlev Casanova <detlev.casanova@collabora.com>, Hans Verkuil
+	 <hverkuil+cisco@kernel.org>, linux-kernel@vger.kernel.org
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Ezequiel Garcia	
+ <ezequiel@vanguardiasur.com.ar>, Heiko Stuebner <heiko@sntech.de>, Ricardo
+ Ribalda <ribalda@chromium.org>, Hans Verkuil <hverkuil@kernel.org>, Hans de
+ Goede <hansg@kernel.org>,  Yunke Cao <yunkec@google.com>, Jonathan Corbet
+ <corbet@lwn.net>, Laurent Pinchart	 <laurent.pinchart@ideasonboard.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,  James Cowgill
+ <james.cowgill@blaize.com>, linux-media@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, 	linux-arm-kernel@lists.infradead.org,
+ kernel@collabora.com
+Date: Wed, 17 Dec 2025 08:34:33 -0500
+In-Reply-To: <e88eb64e-ae47-4c70-87af-44c8f0371be9@collabora.com>
+References: <20251023214247.459931-1-detlev.casanova@collabora.com>
+	 <20251023214247.459931-2-detlev.casanova@collabora.com>
+	 <d8ef0f88-e81d-4159-8945-52197cbc95ba@kernel.org>
+	 <37da2fe3-41bd-470e-bb6c-93fe35ee1528@collabora.com>
+	 <bcbf8247a778c0a179cef2e0338acb2266c18809.camel@collabora.com>
+	 <e88eb64e-ae47-4c70-87af-44c8f0371be9@collabora.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-L53cNKzQuROd39WEVXeE"
+User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CA+zupgzL7v5MZDpxKDQQCqAZaqTdHbiG9-xTr+8RnigMFZJ_7Q@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251217_053442_944832_4A0D22D5 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,59 +101,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 04, 2025 at 11:14:39PM -0800, Roy Luo wrote:
-> On Thu, Dec 4, 2025 at 10:05 PM Greg Kroah-Hartman
-> <gregkh@linuxfoundation.org> wrote:
-> >
-> > On Fri, Dec 05, 2025 at 02:26:38AM +0000, Roy Luo wrote:
-> > > +config USB_DWC3_GOOGLE
-> > > +     tristate "Google Platform"
-> > > +     depends on ARCH_GOOGLE || COMPILE_TEST
-> >
-> > There is no ARCH_GOOGLE in the tree now, so how is this supposed to
-> > work?  Shouldn't tools that check for "invalid config options" trigger
-> > on this?
-> >
-> > thanks,
-> >
-> > greg k-h
-> 
-> Hi Greg,
-> 
-> The menuconfig looks like the following and it doesn't complain:
-> | Symbol: ARCH_GOOGLE [=ARCH_GOOGLE]
-> | Type  : unknown
-> |
-> | Symbol: PHY_GOOGLE_USB [=y]
-> | Type  : tristate
-> | Defined at drivers/phy/Kconfig:104
-> |     Prompt: Google Tensor SoC USB PHY driver
-> |     Depends on: ARCH_GOOGLE || COMPILE_TEST [=y]
-> 
-> According to Kconfig documentation [1], the unknown symbol
-> would simply be evaluated as an "n", which is what we want.
-> "Convert the symbol into an expression. Boolean and tristate
-> symbols are simply converted into the respective expression
-> values. All other symbol types result in ‘n’."
-> 
-> In a different Kconfig documentation, an environment variable
-> "KCONFIG_WARN_UNKNOWN_SYMBOLS" is there to detect
-> undefined symbols in the "config input", but I can't find one that
-> catches undefined symbols in the Kconfig tree itself.
-> 
-> That is, the tool seems to allow this.
-> However, if this turns out to be a major problem. I think we
-> can either:
-> - Remove ARCH_GOOGLE and leave COMPILE_TEST as
->   the only dependency. Then add ARCH_GOOGLE back
->   later once it's in the tree.
 
-Please do this.  I do not want to take patches that purposfully add
-dependencies on config options that might, or might not, appear in the
-future.  Please just remove all of the dependancies for now, as they are
-not needed, right?
+--=-L53cNKzQuROd39WEVXeE
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-thanks,
+Hi,
 
-greg k-h
+Le mardi 16 d=C3=A9cembre 2025 =C3=A0 17:18 -0500, Detlev Casanova a =C3=A9=
+crit=C2=A0:
+> > Before going that route, how big are these two arrays ? Short term can =
+be 64
+> > ref, long term 32, how big in bytes that is ? Was is worth goign with
+> > dynamic
+> > array ? Its not like slices, where we can have 600 or more.
+>=20
+> The short term one can still be quite big, it's about 80 bytes per=20
+> element, so 5120 bytes for the 64.
+>=20
+> I don't know how often we go that high, I've seen around 10 short term=
+=20
+> ref sets in test videos.
+
+We've never defined a threshold, so its hard to just define which direction=
+ to
+go. I generally think using dynamic array was logical thing to do though.
+
+Nicolas
+
+--=-L53cNKzQuROd39WEVXeE
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaUKxaQAKCRDZQZRRKWBy
+9DvsAP0Q2NNHxc8jrYFvxcg9jsWj09g2eOj92V1QsYgjR4pNVQEA2eK88BefxbvK
+v1zF5F4ZJe7rb2RMaHpvkmxnnK28cww=
+=3ld5
+-----END PGP SIGNATURE-----
+
+--=-L53cNKzQuROd39WEVXeE--
 
