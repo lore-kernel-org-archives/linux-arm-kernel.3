@@ -4,89 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFD8BD65C46
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 13:34:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94F47D65C46
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 13:34:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tCIxJNLWcIU2TjDVqmnt1h0tCwLC0XUxy/MtT8w/Hpw=; b=lDlAPo6JpkpOGREUbmWgyIcl7n
-	CoPGOeVGLwdUjavz33Yqmk4Y/irtPwVTJRTmMl2RRnlqxShy80dDGCGC4zUCQxubbDv3jcO+pDzGh
-	6/Vijkj2UgR2qw8cav2P+gK/Dyark9mNCVgja5po5AL7Z6f8vqKRMmhvF7APthlePqOI4i5q+Sehs
-	MAH37xRSI+qrgJvCu9pk0ilPjyjdE/ErFRDyur0BX2AnBM2+p2HUoWppIKHBUvWYh8ZudWxs0vcoK
-	1YyPkwcV2+9MPH/PTeJ2qL5sEyCadygG+fVcXFomzxhO9WPrxS3QDhb+xmv+i7r+J0T9Mt03vVHRU
-	wdmIPb4g==;
+	bh=nlTbisg9JoHlU7KO2hYMEkRsoKyN4AECUu6vPXElY3I=; b=K2h6lzTODJCNh2PD9SeA4SB+Xx
+	/1n0mm5oHz2jaigaB5cJKreyArCQ5HwgTn4ouapPp/8elb1iePSle9d0gz0LsavkPQ3Rn8dAKgxRW
+	Y9kkdjGCDuV/yAk1qObC/CeBiiLmz3lpO3ecBoilguUNS+t/q30BuynS8AsOynQzVfNZzAZDCFrjv
+	t9SpTMSx/4M2rQ5VrMlXgFXTmv5vrQXSNNQjxoVyZCowoMhWH+pjIEyvv2Sw9jB7WLsrS/w+ie9F6
+	taqyin6WPO+Xv6dA7SnFsmMeDscu8TA2gvUBafshTJYQYIiDbbrS6wX9n3U76ZyBQZkCru/PQYPxl
+	ygC9KikQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVrfx-00000006reY-1bNf;
-	Wed, 17 Dec 2025 13:34:45 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vVrg0-00000006rgC-3sC3;
+	Wed, 17 Dec 2025 13:34:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVrfs-00000006rde-2FNa;
+	id 1vVrfv-00000006rdy-3utk;
 	Wed, 17 Dec 2025 13:34:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1765978477;
-	bh=tCIxJNLWcIU2TjDVqmnt1h0tCwLC0XUxy/MtT8w/Hpw=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=d+1j1d9zjTT0M1ZAHDWdZcQBLAZ0jUo76R2g68OKWsVIny5JoICl0hvi7nc6fetLT
-	 mUfee6SJPrC/t8mhJJLyEa1iW4Y/UszNDWXW6L1gb1/hU12dtIqWQho0L5qR8Q45dJ
-	 ZrncfPTAYlt8i97fR4YHA2CMUYfbStzNgiG5dKyh3FPurzt0BX/9+fntuuZWAitptU
-	 GH9ES5FMV9lpvzZD8wE4nciBTpLWJjDCvnaKJn1EjEI9MJg8YcXMIE4VxAfid9Uawu
-	 /pUOZ/yhYn2AVxmaeDSwx83WnetnXaI6p4YZmcHbZntDd2r8mUKNnYsEdPxj75Kd8z
-	 fFU+hsjldkFYA==
-Received: from [IPv6:2606:6d00:17:7b4b::5ac] (unknown [IPv6:2606:6d00:17:7b4b::5ac])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 80A4917E127F;
-	Wed, 17 Dec 2025 14:34:35 +0100 (CET)
-Message-ID: <0482b76919217cf007d0abe1c683e862903a1a40.camel@collabora.com>
-Subject: Re: [PATCH v5 01/15] media: uapi: HEVC: Add
- v4l2_ctrl_hevc_ext_sps_[ls]t_rps controls
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Detlev Casanova <detlev.casanova@collabora.com>, Hans Verkuil
-	 <hverkuil+cisco@kernel.org>, linux-kernel@vger.kernel.org
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Ezequiel Garcia	
- <ezequiel@vanguardiasur.com.ar>, Heiko Stuebner <heiko@sntech.de>, Ricardo
- Ribalda <ribalda@chromium.org>, Hans Verkuil <hverkuil@kernel.org>, Hans de
- Goede <hansg@kernel.org>,  Yunke Cao <yunkec@google.com>, Jonathan Corbet
- <corbet@lwn.net>, Laurent Pinchart	 <laurent.pinchart@ideasonboard.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,  James Cowgill
- <james.cowgill@blaize.com>, linux-media@vger.kernel.org,
- linux-rockchip@lists.infradead.org, 	linux-arm-kernel@lists.infradead.org,
- kernel@collabora.com
-Date: Wed, 17 Dec 2025 08:34:33 -0500
-In-Reply-To: <e88eb64e-ae47-4c70-87af-44c8f0371be9@collabora.com>
-References: <20251023214247.459931-1-detlev.casanova@collabora.com>
-	 <20251023214247.459931-2-detlev.casanova@collabora.com>
-	 <d8ef0f88-e81d-4159-8945-52197cbc95ba@kernel.org>
-	 <37da2fe3-41bd-470e-bb6c-93fe35ee1528@collabora.com>
-	 <bcbf8247a778c0a179cef2e0338acb2266c18809.camel@collabora.com>
-	 <e88eb64e-ae47-4c70-87af-44c8f0371be9@collabora.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-L53cNKzQuROd39WEVXeE"
-User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0C845444E6;
+	Wed, 17 Dec 2025 13:34:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD577C113D0;
+	Wed, 17 Dec 2025 13:34:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765978482;
+	bh=WbdwYa16DoWEN3/Yr3ZaWWyy2Z5ondfDmYkQkpRb1w4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=geltRgvBm39rAwgQ1NV0VCrxJsi4mQabC5ra3uEZbjEbJRMGnBEjnozr0GbS58oA3
+	 XIyekP5dO+Q3sAX4Stmiqp9IzlsrYMYorbBWnrh9ZhReJX+X4PY10UNjOJtSc2OBPw
+	 Hl7GgdvVcfl+2g3IysGfSoF2C6vtgFfGRlQoEnwJQlI7fZX5+NwsDllQ4AaIJsncYt
+	 UbdlD64bh7Fcqz1Wo23uTDeE8hUIyELSP+Vd3dP7/9vkwJfw5aUAN6QATdcMHzDS6P
+	 VKfzBrl08GFv08hDif1j+B2/D+mtSzvGUIgaSy1I94Y5PNK75yHVyqe3A4DQUibk4Z
+	 8bbUPxvCVVtyw==
+Date: Wed, 17 Dec 2025 07:34:40 -0600
+From: Rob Herring <robh@kernel.org>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Heiko Stuebner <heiko@sntech.de>, kernel@collabora.com,
+	linux-input@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v2 1/4] dt-bindings: input: adc-keys: allow
+ linux,input-type property
+Message-ID: <20251217133440.GA724723-robh@kernel.org>
+References: <20251215-rock4d-audio-v2-0-82a61de39b4c@collabora.com>
+ <20251215-rock4d-audio-v2-1-82a61de39b4c@collabora.com>
+ <20251217-tough-ultra-junglefowl-f1a9ae@quoll>
+ <6778765.lOV4Wx5bFT@workhorse>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <6778765.lOV4Wx5bFT@workhorse>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_053442_944832_4A0D22D5 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20251217_053443_988842_78AA231A 
+X-CRM114-Status: GOOD (  22.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,46 +82,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Dec 17, 2025 at 01:57:46PM +0100, Nicolas Frattaroli wrote:
+> On Wednesday, 17 December 2025 09:31:15 Central European Standard Time Krzysztof Kozlowski wrote:
+> > On Mon, Dec 15, 2025 at 01:29:29PM +0100, Nicolas Frattaroli wrote:
+> > > adc-keys, unlike gpio-keys, does not allow linux,input-type as a valid
+> > > property. This makes it impossible to model devices that have ADC inputs
+> > > that should generate switch events.
+> > 
+> > The solution is to use unevaluatedProps instead, which also allows
+> > dropping other properties.
+> > 
+> > Best regards,
+> > Krzysztof
+> > 
+> > 
+> 
+> Hi Krzysztof,
+> 
+> to understand the motivation behind this suggestion correctly:
+> are the "linux," vendor prefixed properties, especially with regards
+> to key codes, generally a bit of a thorn in the side of DT bindings
+> maintainers?
 
---=-L53cNKzQuROd39WEVXeE
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Not really. Most have existed for decades. New ones get extra scrutiny 
+and often end up dropping the linux prefix.
 
-Hi,
+> I'd imagine so since they technically tie the DT to a specific OS
+> kernel (though of course, others are free to translate those key
+> codes). And the whole idea of configuring which code is emitted
+> from something is basically abusing DT for configuring software
+> rather than describing hardware.
+> 
+> I'm mainly interested because this is a thought that has been in
+> the back of my mind for a while now, and I'm curious if the DT
+> binding maintainers happen to have arrived at the same impassé,
+> where linux,input-type et al abuse the DT model for something we
+> would tell any other vendor not to abuse it for, but no better
+> solution exists right now to achieve the same thing.
 
-Le mardi 16 d=C3=A9cembre 2025 =C3=A0 17:18 -0500, Detlev Casanova a =C3=A9=
-crit=C2=A0:
-> > Before going that route, how big are these two arrays ? Short term can =
-be 64
-> > ref, long term 32, how big in bytes that is ? Was is worth goign with
-> > dynamic
-> > array ? Its not like slices, where we can have 600 or more.
->=20
-> The short term one can still be quite big, it's about 80 bytes per=20
-> element, so 5120 bytes for the 64.
->=20
-> I don't know how often we go that high, I've seen around 10 short term=
-=20
-> ref sets in test videos.
+Not sure what the BSDs do here. It's never come up that I remember. Best 
+I can tell is they just make it a userspace problem. So every possible 
+keyboard needs a keymap file. Though I'm not sure how that would work 
+with GPIO keys as you don't really have a scan code.
 
-We've never defined a threshold, so its hard to just define which direction=
- to
-go. I generally think using dynamic array was logical thing to do though.
-
-Nicolas
-
---=-L53cNKzQuROd39WEVXeE
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaUKxaQAKCRDZQZRRKWBy
-9DvsAP0Q2NNHxc8jrYFvxcg9jsWj09g2eOj92V1QsYgjR4pNVQEA2eK88BefxbvK
-v1zF5F4ZJe7rb2RMaHpvkmxnnK28cww=
-=3ld5
------END PGP SIGNATURE-----
-
---=-L53cNKzQuROd39WEVXeE--
+Rob
 
