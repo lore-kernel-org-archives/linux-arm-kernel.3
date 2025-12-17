@@ -4,96 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8647D64087
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 07:50:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2641D64086
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 07:56:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3mEDspWRxu8ev/Lf8BHmK/EnPiZCfkr2HvPb/NoKe5Q=; b=s8Ri6EM9XQGwRl248kZJuP9CUS
-	U1eimpmM1ro+pOeZak1mIdfTiVNnq7XHRtEgBqYLB6WvvQhWxuSrMpCuZBngoriu26WvNnZ3T9WcN
-	lMZ0cKTJWpXRSIzOkfUd1Ou2KJ+XUWJdDslRU3F/iX4A/G4gsOsjdxxRnXKySnpQeumrioIcxtXdD
-	wjb4Y4kukzo4qKfeNjTFaFeSOEfmtQ57ziXNBZPRX9Byhv/zdQ5nM8Qcqw0yJg5+BeQ9tMRRSHq3w
-	zV3PldYbqqDVT72RZ7SvGZiFQ63CXqi1eE7k6+PDO83W6Ous/grU9koWAPP0cV6HOCX7nTRzBtO81
-	GUBhVCkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=weKmakq2lYFxIO7hjbTn3qhhnyYjQJJ8VDykTpvMCY8=; b=JAzJHpn0tcTaQiz4Ltboya3UnD
+	K9tXWRw9pPxuRd88ZOpSKcKZ19nL8rnaZ7WgKm6gceSmrFBssZEIFTYjc+kHEZYRiZFZ/dt2whKLD
+	wNuC7b8wXWfTx1jtQCXPQ9mAUjYutw29FrTreonk3wAN85YAt1pJ+3hoHZuTXY4jLaKaBhV/kaxLm
+	7ZVHn/upiuD/8nHJg9fjdTaF2ZXU68l/c8MlmCPr1/eKAt0WI3tbXjK5TRqP8oLj9R2cl6DCEkQNu
+	MafJd2FOwaEv/8LpoTOkZh2x27aQkFaRL1y1TM4pCMkupPuAfBZwIA1xCeV4RiR4kX62dBLJ3vgyU
+	equ9tFuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVmIn-00000006Ist-3iQj;
-	Wed, 17 Dec 2025 07:50:29 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1vVmO9-00000006JCo-0ghp;
+	Wed, 17 Dec 2025 07:56:01 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVmIh-00000006IrL-1NDO
+	id 1vVmO6-00000006JCP-1Emx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 07:50:24 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-477770019e4so50683205e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 23:50:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1765957821; x=1766562621; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3mEDspWRxu8ev/Lf8BHmK/EnPiZCfkr2HvPb/NoKe5Q=;
-        b=B8pTt1HqY58KkFug5n1ibo62twDANoHl12rexaT5CoEiO/GzzsLf8NWW//r7N1VqkN
-         0a2VaD7xQvxnvjHpfadI5Zwl6RqdjeFMPcXcTmtdRwL2TcioUSPPa2LvoIPsF4m/feRt
-         tZrmNNnz7zicRrK3tIHpr2EDpBNHVQDdaVkbtbG4/E7xvJN/Rt47pXthc7/9un9PPOnV
-         ydnYqTXflp56BrRRX37OXEFX6mCGWwE2Yz2KU1CoTalGKltUBB0A5gQhcrK3basJua3P
-         u16MpVs45/0+33GEqubgAcdSWQZtlK4XWrsonMvtrHB0dbXXNI6XCm0PbmhQn2xi/pOH
-         x17g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765957821; x=1766562621;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=3mEDspWRxu8ev/Lf8BHmK/EnPiZCfkr2HvPb/NoKe5Q=;
-        b=vkC7nz8dQ3NOHGD3XkxqwTod+sgIA8pM/8Lt/7rHlk5GwD7NyrWcnUigyAPuSWM771
-         WbJIrikeiFBTvC5kLIK765hkzOnd4LxhdGA0K26hklCC4qoyCHRtg9zhDpPb+FcyUMfc
-         NSDHAF8MkPkYqsI5UyZ4zt5POQCqPI6JySV1KUc4Eii8mljvSgoxTYZPooRi27QxUCeI
-         M4/CoYZeXyMdcNbDa59nPu7HYKi5CX4nEYdkEP4p1p8zFMDnBTvRzQyCmQeQpO21v4hP
-         JuKDJHDV7JNM7jjc3BcXPZXkuBna7LY1Xg92R153J22Pi2p3xq6xEuJkCaZTDI4wFf59
-         wRVg==
-X-Forwarded-Encrypted: i=1; AJvYcCWobczWLGuky1Zf0e/DmIdWJOkOR7hh8k5Awji57WJpEfOuP3xrlMSyueDroTBz7DazLGixUdi+aXEgfeqMt5vo@lists.infradead.org
-X-Gm-Message-State: AOJu0YwnKh6HzTwAvmLn4UgaNId0BkJ/k6TOfDy8zjSkFKx/ciS0PTem
-	2qqDzNx2dZh/Kxm7BDHsWLJQjB89sRfFSGgohte8beK5r2Cd0GbDJGCEVZ3BGLPIFvA=
-X-Gm-Gg: AY/fxX62ob7WpQQ7LctbSEAWvFeTXTLdDGeA/VeW8+fm46Dvb92boAa9zRDrysPovLo
-	3w9DtEsR0F4okqerLz0IUor52Z/SUmioI/VBhc576PpOsETVgNk4oLdnPceHIHpxDqZxxYhXcv7
-	fUz3WpAyzDJ+08pWEP61vOXgYliuxle3zumTgx6HruvZu3Vc6LuDYTQWbFfuGns5j77qUwUZW6G
-	G3WAxMIzl9/QBgiESdm2Hvm/2RJn10BLPMYb7fngSmtnyr9EhuDqh60qjExF6oWUm1RSguSmL84
-	e1oWu9G/4XNyaEyTerraBx2sJpWjhRsRB8kGS1W44AwQJOGnpuKQwDPKRnL5AFA7jM5UFI14VhE
-	1mKTvioIjYepbw1WC9RZfJkKPaQV4nSd2QHRrx+ahyAfNvKHd351K4LBuAV3dYI6lbivHUp9R6D
-	TLEhgfb9o/Tjid4ifvW1sk/k42CECEcM4=
-X-Google-Smtp-Source: AGHT+IE5wiDfaK/vzIGieNFAGeN1n7bTb5hWPHvlVtjJbKESFVmmsC3/l1Mw+mozuxMdTSpQ8GYC6A==
-X-Received: by 2002:a05:600c:4e54:b0:477:9eb8:97d2 with SMTP id 5b1f17b1804b1-47a8f8a7092mr197954635e9.8.1765957821327;
-        Tue, 16 Dec 2025 23:50:21 -0800 (PST)
-Received: from mai.box.freepro.com ([2a05:6e02:1041:c10:37e6:ed62:3c8b:2621])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47bdc1edff5sm26094315e9.14.2025.12.16.23.50.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 16 Dec 2025 23:50:20 -0800 (PST)
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-To: wbg@kernel.org,
-	robh@kernel.org,
-	conor+dt@kernel.org,
-	krzk+dt@kernel.org
-Cc: s32@nxp.com,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-iio@vger.kernel.org,
+	Wed, 17 Dec 2025 07:55:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1C1A44435B;
+	Wed, 17 Dec 2025 07:55:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69B78C4CEF5;
+	Wed, 17 Dec 2025 07:55:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765958157;
+	bh=Xo9c1qEYiQMSvCEooBFQkEOr2bYPsShQNIttr2X1DG8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ELlSPoe46Vp/wKpVK3LLNZx61ZRTeN9a8aiwZ+dBOq6JSgu8lT1rxJ3wY80rxeXhw
+	 OZrPCLpEBFk6TLKFBA5pONUweIEe6/iPED+L08U/dXepE25vl89hRZiQ/FCns7UqdC
+	 coya/6tg0ImJ/cGQDCryPzjE8vQi9Nqu3aUuHEAmYgRVp1m3qEkelGkvr/TPOrnFV9
+	 yhPHmKfYuEbW8BihXNYfIx3rYzf4yaVAhlcte6H35pz0VG5SbKINKXAIGTAmOGvHIK
+	 XqbbXlo5Mxru1Gcnu0BaAUfhCIDC3t50dTRFkXYmmP/w7QngJootP/5QLOgvwTke2k
+	 Z91VDTNTIflIw==
+Date: Wed, 17 Dec 2025 13:25:39 +0530
+From: Sumit Garg <sumit.garg@kernel.org>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>
+Cc: Sumit Garg <sumit.garg@oss.qualcomm.com>,
+	Jens Wiklander <jens.wiklander@linaro.org>,
+	Olivia Mackall <olivia@selenic.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <clement.leger@bootlin.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-stm32@st-md-mailman.stormreply.com (moderated list:ARM/STM32 ARCHITECTURE),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/STM32 ARCHITECTURE)
-Subject: [PATCH v3 3/3] counter: Add STM based counter
-Date: Wed, 17 Dec 2025 08:49:57 +0100
-Message-ID: <20251217075000.2592966-4-daniel.lezcano@linaro.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251217075000.2592966-1-daniel.lezcano@linaro.org>
-References: <20251217075000.2592966-1-daniel.lezcano@linaro.org>
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	Jan Kiszka <jan.kiszka@siemens.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
+	Michael Chan <michael.chan@broadcom.com>,
+	Pavan Chebbi <pavan.chebbi@broadcom.com>,
+	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>,
+	James Bottomley <James.Bottomley@hansenpartnership.com>,
+	Jarkko Sakkinen <jarkko@kernel.org>,
+	Mimi Zohar <zohar@linux.ibm.com>,
+	David Howells <dhowells@redhat.com>,
+	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
+	"Serge E. Hallyn" <serge@hallyn.com>,
+	Peter Huewe <peterhuewe@gmx.de>, op-tee@lists.trustedfirmware.org,
+	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
+	linux-rtc@vger.kernel.org, linux-efi@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	arm-scmi@vger.kernel.org, netdev@vger.kernel.org,
+	linux-mips@vger.kernel.org, linux-integrity@vger.kernel.org,
+	keyrings@vger.kernel.org, linux-security-module@vger.kernel.org,
+	Jason Gunthorpe <jgg@ziepe.ca>
+Subject: Re: [PATCH v1 00/17] tee: Use bus callbacks instead of driver
+ callbacks
+Message-ID: <aUJh--HGVeJWIilS@sumit-xelite>
+References: <cover.1765472125.git.u.kleine-koenig@baylibre.com>
+ <aT--ox375kg2Mzh-@sumit-X1>
+ <dhunzydod4d7vj73llpuqemxb5er2ja4emxusr66irwf77jhhb@es4yd2axzl25>
+ <CAGptzHOOqLhBnAXDURAzkgckUvRr__UuF1S_7MLV0u-ZxYEdyA@mail.gmail.com>
+ <ayebinxqpcnl7hpa35ytrudiy7j75u5bdk3enlirkp5pevppeg@6mx6a5fwymwf>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <ayebinxqpcnl7hpa35ytrudiy7j75u5bdk3enlirkp5pevppeg@6mx6a5fwymwf>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_235023_426365_1C047F5E 
-X-CRM114-Status: GOOD (  24.12  )
+X-CRM114-CacheID: sfid-20251216_235558_404117_69CBA319 
+X-CRM114-Status: GOOD (  41.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,458 +107,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The NXP S32G2 automotive platform integrates four Cortex-A53 cores and
-three Cortex-M7 cores, along with a large number of timers and
-counters. These hardware blocks can be used as clocksources or
-clockevents, or as timestamp counters shared across the various
-subsystems running alongside the Linux kernel, such as firmware
-components. Their actual usage depends on the overall platform
-software design.
+On Tue, Dec 16, 2025 at 12:08:38PM +0100, Uwe Kleine-König wrote:
+> Hello,
+> 
+> On Tue, Dec 16, 2025 at 01:08:38PM +0530, Sumit Garg wrote:
+> > On Mon, Dec 15, 2025 at 3:02 PM Uwe Kleine-König
+> > <u.kleine-koenig@baylibre.com> wrote:
+> > > On Mon, Dec 15, 2025 at 04:54:11PM +0900, Sumit Garg wrote:
+> > > > Feel free to make the tee_bus_type private as the last patch in the series
+> > > > such that any followup driver follows this clean approach.
+> > >
+> > > There is a bit more to do for that than I'm willing to invest. With my
+> > > patch series applied `tee_bus_type` is still used in
+> > > drivers/tee/optee/device.c and drivers/tee/tee_core.c.
+> > 
+> > Oh I see, I guess we need to come with some helpers around device
+> > register/unregister from TEE subsystem as well. Let's plan that for a
+> > followup patch-set, I don't want this patch-set to be bloated more.
+> 
+> Don't consider me in for that. But it sounds like a nice addition.
+>
 
-In a Linux-based system, the kernel controls the counter, which is a
-read-only shared resource for the other subsystems. One of its primary
-purposes is to act as a common timestamp source for messages or
-traces, allowing correlation of events occurring in different
-operating system contexts.
+No worries, the current cleanup is fine for now.
 
-These changes introduce a basic counter driver that can start, stop,
-and reset the counter. It also handles overflow accounting and
-configures the prescaler value.
+> > > Maybe it's
+> > > sensible to merge these two files into a single one.
+> > 
+> > It's not possible as the design for TEE bus is to have TEE
+> > implementation drivers like OP-TEE, AMD-TEE, TS-TEE, QTEE and so on to
+> > register devices on the bus.
+> 
+> So only OP-TEE uses the bus for devices and the other *-TEE don't. Also
+> sounds like something worth to be fixed.
 
-Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
----
- drivers/counter/Kconfig       |  10 +
- drivers/counter/Makefile      |   1 +
- drivers/counter/nxp-stm-cnt.c | 386 ++++++++++++++++++++++++++++++++++
- 3 files changed, 397 insertions(+)
- create mode 100644 drivers/counter/nxp-stm-cnt.c
+The TEE bus is common for all the TEE implementation drivers which need
+to support kernel TEE client drivers. I am aware there will be QTEE and
+TS-TEE from past discussion that they will be exposing devices on the
+TEE bus.
 
-diff --git a/drivers/counter/Kconfig b/drivers/counter/Kconfig
-index d30d22dfe577..bf5b281f194c 100644
---- a/drivers/counter/Kconfig
-+++ b/drivers/counter/Kconfig
-@@ -90,6 +90,16 @@ config MICROCHIP_TCB_CAPTURE
- 	  To compile this driver as a module, choose M here: the
- 	  module will be called microchip-tcb-capture.
- 
-+config NXP_STM_CNT
-+	tristate "NXP System Timer Module Counter driver"
-+	depends on ARCH_S32 || COMPILE_TEST
-+	help
-+	  Select this option to enable the NXP System Timer Module
-+	  Counter driver.
-+
-+	  To compile this driver as a module, choose M here: the
-+	  module will be called nxp_stm_cnt.
-+
- config RZ_MTU3_CNT
- 	tristate "Renesas RZ/G2L MTU3a counter driver"
- 	depends on RZ_MTU3
-diff --git a/drivers/counter/Makefile b/drivers/counter/Makefile
-index 40e644948e7a..196b3c216875 100644
---- a/drivers/counter/Makefile
-+++ b/drivers/counter/Makefile
-@@ -12,6 +12,7 @@ obj-$(CONFIG_I8254)			+= i8254.o
- obj-$(CONFIG_INTEL_QEP)			+= intel-qep.o
- obj-$(CONFIG_INTERRUPT_CNT)		+= interrupt-cnt.o
- obj-$(CONFIG_MICROCHIP_TCB_CAPTURE)	+= microchip-tcb-capture.o
-+obj-$(CONFIG_NXP_STM_CNT)		+= nxp-stm-cnt.o
- obj-$(CONFIG_RZ_MTU3_CNT)		+= rz-mtu3-cnt.o
- obj-$(CONFIG_STM32_TIMER_CNT)		+= stm32-timer-cnt.o
- obj-$(CONFIG_STM32_LPTIMER_CNT)		+= stm32-lptimer-cnt.o
-diff --git a/drivers/counter/nxp-stm-cnt.c b/drivers/counter/nxp-stm-cnt.c
-new file mode 100644
-index 000000000000..36463fcbc9df
---- /dev/null
-+++ b/drivers/counter/nxp-stm-cnt.c
-@@ -0,0 +1,386 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright 2018,2021-2025 NXP
-+ * Copyright 2025 Linaro Limited
-+ *
-+ * Author: Daniel Lezcano <daniel.lezcano@linaro.org>
-+ *
-+ * NXP S32G System Timer Module counters:
-+ *
-+ *  STM supports commonly required system and application software
-+ *  timing functions. STM includes a 32-bit count-up timer and four
-+ *  32-bit compare channels with a separate interrupt source for each
-+ *  channel. The timer is driven by the STM module clock divided by an
-+ *  8-bit prescale value (1 to 256). It has ability to stop the timer
-+ *  in Debug mode
-+ *
-+ */
-+#include <linux/bitfield.h>
-+#include <linux/clk.h>
-+#include <linux/counter.h>
-+#include <linux/interrupt.h>
-+#include <linux/io.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm.h>
-+#include <linux/slab.h>
-+#include <linux/spinlock.h>
-+
-+#define STM_CR(__base)		(__base)
-+#define STM_CR_TEN		BIT(0)
-+#define STM_CR_FRZ		BIT(1)
-+#define STM_CR_CPS_MASK         GENMASK(15, 8)
-+
-+#define STM_CCR0(__base)	((__base) + 0x10)
-+#define STM_CCR_CEN		BIT(0)
-+
-+#define STM_CIR0(__base)	((__base) + 0x14)
-+#define STM_CIR_CIF		BIT(0)
-+
-+#define STM_CMP0(__base)	((__base) + 0x18)
-+
-+#define STM_CNT(__base)		((__base) + 0x04)
-+
-+#define STM_ENABLE_MASK	(STM_CR_FRZ | STM_CR_TEN)
-+
-+struct nxp_stm_cnt {
-+	spinlock_t lock;
-+	void __iomem *base;
-+	u64 overflow;
-+	u32 counter;
-+	u8 prescaler;
-+	bool is_started;
-+};
-+
-+static void nxp_stm_cnt_enable(struct nxp_stm_cnt *stm_cnt)
-+{
-+	u32 reg;
-+
-+	reg = readl(STM_CR(stm_cnt->base));
-+
-+	reg |= STM_ENABLE_MASK;
-+
-+	writel(reg, STM_CR(stm_cnt->base));
-+}
-+
-+static void nxp_stm_cnt_disable(struct nxp_stm_cnt *stm_cnt)
-+{
-+	u32 reg;
-+
-+	reg = readl(STM_CR(stm_cnt->base));
-+
-+	reg &= ~STM_ENABLE_MASK;
-+
-+	writel(reg, STM_CR(stm_cnt->base));
-+}
-+
-+static void nxp_stm_cnt_ccr_disable(struct nxp_stm_cnt *stm_cnt)
-+{
-+	writel(0, STM_CCR0(stm_cnt->base));
-+}
-+
-+static void nxp_stm_cnt_ccr_enable(struct nxp_stm_cnt *stm_cnt)
-+{
-+	writel(STM_CCR_CEN, STM_CCR0(stm_cnt->base));
-+}
-+
-+static void nxp_stm_cnt_set_overflow(struct nxp_stm_cnt *stm_cnt)
-+{
-+	writel(UINT_MAX, STM_CMP0(stm_cnt->base));
-+}
-+
-+static u32 nxp_stm_cnt_get_counter(struct nxp_stm_cnt *stm_cnt)
-+{
-+	return readl(STM_CNT(stm_cnt->base));
-+}
-+
-+static void nxp_stm_cnt_set_counter(struct nxp_stm_cnt *stm_cnt, u32 counter)
-+{
-+	writel(counter, STM_CNT(stm_cnt->base));
-+}
-+
-+static void nxp_stm_cnt_set_prescaler(struct nxp_stm_cnt *stm_cnt, u8 prescaler)
-+{
-+	u32 reg;
-+
-+	reg = readl(STM_CR(stm_cnt->base));
-+
-+	FIELD_MODIFY(STM_CR_CPS_MASK, &reg, prescaler);
-+
-+	writel(reg, STM_CR(stm_cnt->base));
-+}
-+
-+static u8 nxp_stm_cnt_get_prescaler(struct nxp_stm_cnt *stm_cnt)
-+{
-+	u32 reg = readl(STM_CR(stm_cnt->base));
-+
-+	return FIELD_GET(STM_CR_CPS_MASK, reg);
-+}
-+
-+static bool nxp_stm_cnt_is_started(struct nxp_stm_cnt *stm_cnt)
-+{
-+	u32 reg;
-+
-+	reg = readl(STM_CR(stm_cnt->base));
-+
-+	return !!FIELD_GET(STM_CR_TEN, reg);
-+}
-+
-+static void nxp_stm_cnt_irq_ack(struct nxp_stm_cnt *stm_cnt)
-+{
-+	writel(STM_CIR_CIF, STM_CIR0(stm_cnt->base));
-+}
-+
-+static irqreturn_t nxp_stm_cnt_irq(int irq, void *dev_id)
-+{
-+	struct nxp_stm_cnt *stm_cnt = dev_id;
-+
-+	nxp_stm_cnt_irq_ack(stm_cnt);
-+
-+	spin_lock(&stm_cnt->lock);
-+	stm_cnt->overflow++;
-+	spin_unlock(&stm_cnt->lock);
-+
-+	return IRQ_HANDLED;
-+}
-+
-+static void nxp_stm_cnt_start(struct nxp_stm_cnt *stm_cnt)
-+{
-+	nxp_stm_cnt_ccr_enable(stm_cnt);
-+	nxp_stm_cnt_set_overflow(stm_cnt);
-+	nxp_stm_cnt_enable(stm_cnt);
-+}
-+
-+static void nxp_stm_cnt_stop(struct nxp_stm_cnt *stm_cnt)
-+{
-+	nxp_stm_cnt_disable(stm_cnt);
-+	nxp_stm_cnt_irq_ack(stm_cnt);
-+	nxp_stm_cnt_ccr_disable(stm_cnt);
-+}
-+
-+static int nxp_stm_cnt_overflow_read(struct counter_device *counter,
-+				     struct counter_count *count, u64 *val)
-+{
-+	struct nxp_stm_cnt *stm_cnt = counter_priv(counter);
-+	unsigned long irqflags;
-+
-+	spin_lock_irqsave(&stm_cnt->lock, irqflags);
-+	*val = stm_cnt->overflow;
-+	spin_unlock_irqrestore(&stm_cnt->lock, irqflags);
-+
-+	return 0;
-+}
-+
-+static int nxp_stm_cnt_overflow_write(struct counter_device *counter,
-+				      struct counter_count *count, u64 val)
-+{
-+	struct nxp_stm_cnt *stm_cnt = counter_priv(counter);
-+	unsigned long irqflags;
-+
-+	spin_lock_irqsave(&stm_cnt->lock, irqflags);
-+	stm_cnt->overflow = val;
-+	spin_unlock_irqrestore(&stm_cnt->lock, irqflags);
-+
-+	return 0;
-+}
-+
-+static int nxp_stm_cnt_reset_write(struct counter_device *counter,
-+				   struct counter_count *count, u8 val)
-+{
-+	struct nxp_stm_cnt *stm_cnt = counter_priv(counter);
-+
-+	nxp_stm_cnt_set_counter(stm_cnt, 0);
-+	spin_lock(&stm_cnt->lock);
-+	stm_cnt->overflow = 0;
-+	spin_unlock(&stm_cnt->lock);
-+
-+	return 0;
-+}
-+
-+static int nxp_stm_cnt_prescaler_read(struct counter_device *counter,
-+				      struct counter_count *count, u8 *val)
-+{
-+	struct nxp_stm_cnt *stm_cnt = counter_priv(counter);
-+
-+	*val = nxp_stm_cnt_get_prescaler(stm_cnt);
-+
-+	return 0;
-+}
-+
-+static int nxp_stm_cnt_prescaler_write(struct counter_device *counter,
-+				       struct counter_count *count, u8 val)
-+{
-+	struct nxp_stm_cnt *stm_cnt = counter_priv(counter);
-+
-+	nxp_stm_cnt_set_prescaler(stm_cnt, val);
-+
-+	return 0;
-+}
-+
-+static int nxp_stm_cnt_count_enable_write(struct counter_device *counter,
-+					  struct counter_count *count, u8 enable)
-+{
-+	struct nxp_stm_cnt *stm_cnt = counter_priv(counter);
-+
-+	if (enable)
-+		nxp_stm_cnt_start(stm_cnt);
-+	else
-+		nxp_stm_cnt_stop(stm_cnt);
-+
-+	return 0;
-+}
-+
-+static int nxp_stm_cnt_count_enable_read(struct counter_device *counter,
-+					 struct counter_count *count, u8 *enable)
-+{
-+	struct nxp_stm_cnt *stm_cnt = counter_priv(counter);
-+
-+	*enable = nxp_stm_cnt_is_started(stm_cnt);
-+
-+	return 0;
-+}
-+
-+static struct counter_comp stm_cnt_count_ext[] = {
-+	COUNTER_COMP_COUNT_BOOL("reset",  NULL, nxp_stm_cnt_reset_write),
-+	COUNTER_COMP_COUNT_U8("prescaler", nxp_stm_cnt_prescaler_read, nxp_stm_cnt_prescaler_write),
-+	COUNTER_COMP_COUNT_U64("overflows", nxp_stm_cnt_overflow_read, nxp_stm_cnt_overflow_write),
-+	COUNTER_COMP_ENABLE(nxp_stm_cnt_count_enable_read, nxp_stm_cnt_count_enable_write),
-+};
-+
-+static int nxp_stm_cnt_count_read(struct counter_device *dev,
-+				  struct counter_count *count, u64 *val)
-+{
-+	struct nxp_stm_cnt *stm_cnt = counter_priv(dev);
-+
-+	*val = nxp_stm_cnt_get_counter(stm_cnt);
-+
-+	return 0;
-+}
-+
-+static const struct counter_ops nxp_stm_cnt_counter_ops = {
-+	.count_read  = nxp_stm_cnt_count_read,
-+};
-+
-+static struct counter_count nxp_stm_cnt_counts[] = {
-+	{
-+		.id = 0,
-+		.name = "stm_cnt",
-+		.ext = stm_cnt_count_ext,
-+		.num_ext = ARRAY_SIZE(stm_cnt_count_ext),
-+	},
-+};
-+
-+static int nxp_stm_cnt_suspend(struct device *dev)
-+{
-+	struct nxp_stm_cnt *stm_cnt = dev_get_drvdata(dev);
-+
-+	stm_cnt->is_started = nxp_stm_cnt_is_started(stm_cnt);
-+
-+	if (stm_cnt->is_started) {
-+		nxp_stm_cnt_stop(stm_cnt);
-+		stm_cnt->prescaler = nxp_stm_cnt_get_prescaler(stm_cnt);
-+		stm_cnt->counter = nxp_stm_cnt_get_counter(stm_cnt);
-+	}
-+
-+	return 0;
-+}
-+
-+static int nxp_stm_cnt_resume(struct device *dev)
-+{
-+	struct nxp_stm_cnt *stm_cnt = dev_get_drvdata(dev);
-+
-+	if (stm_cnt->is_started) {
-+		nxp_stm_cnt_set_counter(stm_cnt, stm_cnt->counter);
-+		nxp_stm_cnt_set_prescaler(stm_cnt, stm_cnt->prescaler);
-+		nxp_stm_cnt_start(stm_cnt);
-+	}
-+
-+	return 0;
-+}
-+
-+static DEFINE_SIMPLE_DEV_PM_OPS(nxp_stm_cnt_pm_ops, nxp_stm_cnt_suspend,
-+				nxp_stm_cnt_resume);
-+
-+static int nxp_stm_cnt_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct device_node *np = dev->of_node;
-+	struct counter_device *counter;
-+	struct nxp_stm_cnt *stm_cnt;
-+	struct clk *clk;
-+	void __iomem *base;
-+	int irq, ret;
-+
-+	base = devm_of_iomap(dev, np, 0, NULL);
-+	if (IS_ERR(base))
-+		return dev_err_probe(dev, PTR_ERR(base), "Failed to iomap %pOFn\n", np);
-+
-+	irq = platform_get_irq(pdev, 0);
-+	if (irq < 0)
-+		return dev_err_probe(dev, irq, "Failed to get IRQ\n");
-+
-+	clk = devm_clk_get_enabled(dev, NULL);
-+	if (IS_ERR(clk))
-+		return dev_err_probe(dev, PTR_ERR(clk), "Clock not found\n");
-+
-+	counter = devm_counter_alloc(dev, sizeof(*stm_cnt));
-+	if (!counter)
-+		return -ENOMEM;
-+
-+	stm_cnt = counter_priv(counter);
-+
-+	stm_cnt->base = base;
-+	stm_cnt->overflow = 0;
-+	spin_lock_init(&stm_cnt->lock);
-+
-+	counter->name       = "stm_counter";
-+	counter->parent     = &pdev->dev;
-+	counter->ops        = &nxp_stm_cnt_counter_ops;
-+	counter->counts     = nxp_stm_cnt_counts;
-+	counter->num_counts = ARRAY_SIZE(nxp_stm_cnt_counts);
-+
-+	ret = devm_request_irq(dev, irq, nxp_stm_cnt_irq, IRQF_TIMER | IRQF_NOBALANCING,
-+			       dev_name(&counter->dev), stm_cnt);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Unable to allocate interrupt line\n");
-+
-+	ret = devm_counter_add(dev, counter);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to register counter\n");
-+
-+	platform_set_drvdata(pdev, stm_cnt);
-+
-+	return 0;
-+}
-+
-+static void nxp_stm_cnt_remove(struct platform_device *pdev)
-+{
-+	struct nxp_stm_cnt *stm_cnt = platform_get_drvdata(pdev);
-+
-+	if (nxp_stm_cnt_is_started(stm_cnt))
-+		nxp_stm_cnt_stop(stm_cnt);
-+}
-+
-+static const struct of_device_id nxp_stm_cnt_of_match[] = {
-+	{ .compatible = "nxp,s32g2-stm-cnt", },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, nxp_stm_cnt_of_match);
-+
-+static struct platform_driver nxp_stm_cnt_driver = {
-+	.probe  = nxp_stm_cnt_probe,
-+	.remove = nxp_stm_cnt_remove,
-+	.driver = {
-+		.name           = "nxp-stm-cnt",
-+		.pm		= pm_sleep_ptr(&nxp_stm_cnt_pm_ops),
-+		.of_match_table = nxp_stm_cnt_of_match,
-+	},
-+};
-+module_platform_driver(nxp_stm_cnt_driver);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_AUTHOR("Daniel Lezcano");
-+MODULE_DESCRIPTION("NXP System Timer Module counter driver");
-+MODULE_IMPORT_NS("COUNTER");
--- 
-2.43.0
+> 
+> > > The things I wonder about additionally are:
+> > >
+> > >  - if CONFIG_OPTEE=n and CONFIG_TEE=y|m the tee bus is only used for
+> > >    drivers but not devices.
+> > 
+> > Yeah since the devices are rather added by the TEE implementation driver.
+> > 
+> > >
+> > >  - optee_register_device() calls device_create_file() on
+> > >    &optee_device->dev after device_register(&optee_device->dev).
+> > >    (Attention half-knowledge!) I think device_create_file() should not
+> > >    be called on an already registered device (or you have to send a
+> > >    uevent afterwards). This should probably use type attribute groups.
+> > >    (Or the need_supplicant attribute should be dropped as it isn't very
+> > >    useful. This would maybe be considered an ABI change however.)
+> > 
+> > The reasoning for this attribute should be explained by commit:
+> > 7269cba53d90 ("tee: optee: Fix supplicant based device enumeration").
+> > In summary it's due to a weird dependency for devices we have with the
+> > user-space daemon: tee-supplicant.
+> 
+> From reading that once I don't understand it. (But no need to explain
+> :-)
+> 
+> Still the file should better be added before device_add() is called.
 
+Noted, let me see if I can get to fix this until someone jumps in before
+me.
+
+> 
+> > >  - Why does optee_probe() in drivers/tee/optee/smc_abi.c unregister all
+> > >    optee devices in its error path (optee_unregister_devices())?
+> > 
+> > This is mostly to take care of if any device got registered before the
+> > failure occured. Let me know if you have a better way to address that.
+> 
+> Without understanding the tee stuff, I'd say: Don't bother and only undo
+> the things that probe did before the failure.
+> 
+
+True, but this is special case where if there is any leftover device
+registered from the TEE implementation then it is likely going to cause
+the corresponding kernel client driver crash.
+
+-Sumit
 
