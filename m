@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E268D65C4F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 14:25:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 306E4D65C4F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 14:26:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
 	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
 	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L3SdKe0+mpvWx/w9cqykw3mICMMKsX8oYQHThmIAD9I=; b=aFtFPg6C64F/Y4z8KPwVeqVv4R
-	qaqPILnnv3Jiwxp93Yl7fun0AMf/Jff/I0EJgTYGUPFdXngwE79t16+yMpmJoP+T2SBqarZwvL9fc
-	fK+sIO0Kt+lhmIfhAbhmqkoNllS/tyzVdb/zOqX5bmzv95oYVguuaSnfoReL+UzLaxqG11sbG4XKK
-	34AAsbbVoK01WTV80nLNuwbIqc3G1q35EJ/HPPnAnTL+TIxZfejjN42MYI3rHyfKOaO8B3VMw5nrQ
-	z9ReiHfYPvB1nbFcxsqqLRBIHDKkvkzlYEfHDRcj2fCcLGU/eHDfIg4QMC4kgU68MWy9CV0SvaWBO
-	wZDN62+w==;
+	bh=zHGq9IXZnBW7eRUrSpb4u2mpy3tMbvnCqqPzrqz3jkY=; b=x9x4bLDA1u5m2zWFk3BSXTpDqF
+	D2ueebyU1JcvTYUb83V0BTEIPQC78Y/G4sGjidh0fCc027rrDGGGnX6NjJ8IyfGvcUFAA98REEk9C
+	zzGEueab2CcnOnL6V3dzUu8Tzf5D4qknnCIOyrXTBrPwxJatB1jtEK94TfuhmDHYobZ2VTSnsIZ72
+	Jb2TzFsm5g2lAPNm3wTMxu2rG8QwtVPtB+UBDjW2CD5Udgt87gFsnvyqHGCYpNwZ3KHlhFWDsZQFZ
+	Ns2C4gLBWa3Hz9HzQXZLG7NIYcARL5GRgb32KCqfvU8taivgOpPq6QdK3BlhAakjB4UpnPm+ee4M9
+	wlLXSo/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVsTP-00000006vhI-0M7p;
-	Wed, 17 Dec 2025 14:25:51 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vVsTV-00000006vjm-1Zly;
+	Wed, 17 Dec 2025 14:25:57 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVsTI-00000006vga-32m4
+	id 1vVsTP-00000006vh7-1zR1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 14:25:50 +0000
+	Wed, 17 Dec 2025 14:25:53 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 34EE4C1A59E;
-	Wed, 17 Dec 2025 14:25:18 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 2E5871A2281;
+	Wed, 17 Dec 2025 14:25:49 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id BABAD6072F;
-	Wed, 17 Dec 2025 14:25:42 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0ED14102F0ADF;
-	Wed, 17 Dec 2025 15:25:33 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 030396072F;
+	Wed, 17 Dec 2025 14:25:49 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 92D3D102F0AD6;
+	Wed, 17 Dec 2025 15:25:40 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1765981537; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1765981543; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=L3SdKe0+mpvWx/w9cqykw3mICMMKsX8oYQHThmIAD9I=;
-	b=JXMif9lSO/HF/s09Z1Fv0hHZ4pTNi4CKZu/x2lz6qckEmlQMvd3e74clghSiVAy/VJlD2z
-	89mRCz3WjXhcAu8cn4R1Bl5KZ5Wgw98CDF+5NQlJ4ZJRWlmq8biMo2JQoqDMnVy5gUckfy
-	qpcjJBPDRf6fbXQYyySrTUBtosGl5woV7rcygMESq0eVZe+G+XYhbmfgmr857SUHbsg2fM
-	pIz3N7O9MSgy7XSKHr0Bhd+6Npl1CxyS30Ny37oLhDxyAfaK+m2abu34ckkUYcsL+lSQxU
-	MhWAWn11TVv6JIYOORcW4M1Gvys3HYYLGXgoO6D82JsfBQbzGay+qGWCVOER7A==
+	bh=zHGq9IXZnBW7eRUrSpb4u2mpy3tMbvnCqqPzrqz3jkY=;
+	b=YLwG9uu4miJcCiS4PauUoFGBmSt4Mu4Of8VQF1/watYpRV/stxgihcWzmBzdtEOqrKg9Ly
+	8/oPQA2xCa+x6ofTLP1MFsLEq3Jmq7BU1EQZk/cxjnvqqEYw/JbAN2KBL8cb0USXNPnYCY
+	PdFUm+IY3U+L5PZpe2g7/lv4rwmcCF8rWEgIbDglIdKzooK5tEC1D6FSwxw7ybGKQRRB8d
+	SE6cn645lDh2cDY7Q0mGW18ZQfeqQkEckS5q30CEGHA996HMzSN1copF7e1hBLEPYStFCY
+	1S+mdIgzNdfjxEdTd8RzpiwkgH/uoNYmdLVcz96dyNvfZDEvQB4EkzwI2nhQQQ==
 Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Date: Wed, 17 Dec 2025 15:25:33 +0100
-Message-Id: <DF0K7GL30M9O.2Y1P92MSM6CEY@bootlin.com>
-Subject: Re: [PATCH v2 12/20] drm/tilcdc: Rename tilcdc_external to
- tilcdc_encoder
+Date: Wed, 17 Dec 2025 15:25:40 +0100
+Message-Id: <DF0K7JPSOKLU.3V1FT4LAZSPGB@bootlin.com>
+Subject: Re: [PATCH v2 13/20] drm/tilcdc: Remove the useless module list
+ support
 Cc: "Markus Schneider-Pargmann" <msp@baylibre.com>, "Bajjuri Praneeth"
  <praneeth@ti.com>, "Louis Chauvet" <louis.chauvet@bootlin.com>, "Thomas
  Petazzoni" <thomas.petazzoni@bootlin.com>, "Miguel Gazquez"
@@ -73,13 +73,12 @@ To: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>, "Jyri Sarha"
 From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
 X-Mailer: aerc 0.20.1
 References: <20251211-feature_tilcdc-v2-0-f48bac3cd33e@bootlin.com>
- <20251211-feature_tilcdc-v2-12-f48bac3cd33e@bootlin.com>
-In-Reply-To: <20251211-feature_tilcdc-v2-12-f48bac3cd33e@bootlin.com>
+ <20251211-feature_tilcdc-v2-13-f48bac3cd33e@bootlin.com>
+In-Reply-To: <20251211-feature_tilcdc-v2-13-f48bac3cd33e@bootlin.com>
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_062549_234112_971365F5 
-X-CRM114-Status: UNSURE (   6.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251217_062551_644628_EB639B5B 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,15 +94,45 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On Thu Dec 11, 2025 at 5:38 PM CET, Kory Maincent (TI.com) wrote:
-> The tilcdc_external module describes the encoder part of the tilcdc
-> driver. Rename it to tilcdc_encoder for better clarity and to make
-> the naming more consistent with DRM subsystem conventions, where
-> encoder-related files typically use "encoder" in their names.
+> The tilcdc driver previously supported a sub-module system where
+> external display drivers (panels, encoders) could register themselves
+> through tilcdc_module_init() and be automatically initialized through
+> a module list. This infrastructure became unused after the component
+> framework support and panel driver was removed.
 >
 > Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
 
-Makes sense!
+[...]
 
+> @@ -562,24 +533,7 @@ static struct platform_driver tilcdc_platform_driver=
+ =3D {
+>  		.of_match_table =3D tilcdc_of_match,
+>  	},
+>  };
+> -
+> -static int __init tilcdc_drm_init(void)
+> -{
+> -	if (drm_firmware_drivers_only())
+> -		return -ENODEV;
+> -
+> -	DBG("init");
+> -	return platform_driver_register(&tilcdc_platform_driver);
+> -}
+> -
+> -static void __exit tilcdc_drm_fini(void)
+> -{
+> -	DBG("fini");
+> -	platform_driver_unregister(&tilcdc_platform_driver);
+> -}
+> -
+> -module_init(tilcdc_drm_init);
+> -module_exit(tilcdc_drm_fini);
+> +module_platform_driver(tilcdc_platform_driver);
+
+Is this hunk related to the removal of the module list? Looks like it
+should be a separate patch.
+
+With that hunk removed (or kept if I'm wrong and it should stay):
 Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
 --
