@@ -4,68 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D64F9D66B85
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 20:41:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA855D66BA4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 20:42:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=93zNIG70yctC/o2F6/8pEzAVpRB3wDBmDkdUnANafeo=; b=IDoRgI1hdbW8dxf4hj1lerDdyB
-	DIaSBRB20cB24TzGJbYGzMNtgo6S5eriklsu6f0easjkb7LhohOcRoKV/ASa8LDqd8rdsfuoYnPy4
-	/3HCLrudW8uBnPjwHOXx7A0FWnhwkkBVwd2g1l14PtMrriUomwYKqkums2TqW1InVCbiFYXk3oqGW
-	LJ7ZFcDsVqrLhZoCLiRETbcydeQn7ypuO5HRkunXpU2vIoODJHh+G0+hYGeOO6IfzynNd7L084Y7q
-	iJigCDDBJSVUolKTfzDnujnp7rKNNqQaT112w8l7f1rGA8cEyUSM6CWTSPcTFdOgPr+2mNc7Cu9yh
-	/pKJcavg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9n4jhjFePTS9/IljxavjRwXAbxRiqON1Ih8K7F1PRpw=; b=miNBbXDhintWu4Nv+JoxHtTfIg
+	9xGgI8aQNNLOVUyW6A0ZZipaJ5HKA9GyElmSY2wrmrSOUNvDFkolBXAEp2nE0PQynHY2UMOQMVITX
+	8QdvCCPsK2ZS+VYbP15AItk7NxBSDcbwOUAvkE+MMijrNfr/00RzkgUJCYoNIj2tF4pA5y+oBjRRO
+	h88Blz3EuHV5OsZC81swhXn27y02ykNspsCL78MsKOdzCay9btM6ABCcuL9cdHJXylTcq5LW+yEDc
+	eIo+5mckuWFAduywn+dE9yz5Y87lp7c21JL2cJbyxROdU1L1JCR3WcXge3Ts/EjB9kHYtxy2Ck4KJ
+	H084dxUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVyKw-00000007O5o-2Mm4;
-	Wed, 17 Dec 2025 20:41:30 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vVyMA-00000007OEt-40zZ;
+	Wed, 17 Dec 2025 20:42:46 +0000
+Received: from mail-southcentralusazon11011010.outbound.protection.outlook.com ([40.93.194.10] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVyKu-00000007O5e-3XGm
+	id 1vVyM8-00000007OE0-0hF3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 20:41:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E6BD560018
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 20:41:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D7E3C4AF09
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 20:41:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766004087;
-	bh=m+NGJvGmb4urpfziB2n2S8uyWajpGXAoCxUHE9tBX0g=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=ggwMKfIEEVmg/z3iJ20zptR+342nL3MSwCkf1CbpqqLPxZV5WJ22KsrWwA/lr/iYd
-	 6D6LzPQ4gcsahpC3nr+8Nv7fZOGGaJ2D07AaZGY4rG4RJmB7oKW8lPwZvVyhIRNX0C
-	 Diztk8yUWdeNVqpyPW8RxVcVAmbckC8O5wAtYlDLx7Mi7TJEN1g2iDFRnN2M5kX6DV
-	 uDbGgj3y4w2unjiVhDYxeZGkc3qpwDnbr+VdYj6/SxGrE56K8MtC8o9zIX56cRSvA7
-	 LTaP3uNgAmL1R4frYIk5e0BPI4c6GKw+YWHqA2ybKMn33RioseVfEK9+kZWgiuiLqA
-	 eX7IvUbDhel0Q==
-Received: by mail-ed1-f41.google.com with SMTP id 4fb4d7f45d1cf-649822b4b64so9434349a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 12:41:27 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXMOpeqbb/Ov8/kOAdDEgXQU1R6B3ZIMEjQjjQfrbwWfvKu+ujHCz2ZITmNyJjakKkrqIg4np04JOjXaoDGwz6r@lists.infradead.org
-X-Gm-Message-State: AOJu0YzOmqM7M/2u7As0Qble625N7b2ew5dsAG3ykoZYnBW2XqJcRdH9
-	JoRAMf9SK4KQxITw032rATYmq5rcboVoS0tdJI3qrfn5pCCEbCbhxUML60ae9egeRHzarJLQQIo
-	Up0PxlmSLnI+KNcHW6KV2uYpYz20RIA==
-X-Google-Smtp-Source: AGHT+IHVj3VdlynG/5Zxp1SorxpjcAJfgTUO5NT+kBjbK+YjDVtTifflWtOBxnZqixTIPdtNI7wwltsMKCzYVtPNolE=
-X-Received: by 2002:a05:6402:26d3:b0:64b:412b:a1a6 with SMTP id
- 4fb4d7f45d1cf-64b412ba1c9mr3294249a12.13.1766004086133; Wed, 17 Dec 2025
- 12:41:26 -0800 (PST)
+	Wed, 17 Dec 2025 20:42:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RNTfDZMJ6FNBUViabMZvgb2Me6vHVc6a12l169pwD31YpMX3vmqUK8O6g/cYFrd3G0uqhnoFCSjM9GkAwB1pgSIB16vXGjP5Ywu4AIH+v+zG5NU24AUpe58hh0vg6XqIBKDOFPNEvj7HbVejCINCzZqn9fiMsdW5DjCziHY3m7E5JLrtCJ2h82rR1KRi0nACBpROmFUo7zwZN9EjEA8210xgyaU81ZGZlOs+V4NE4w03nkpl8M73YWLpBoJHbtdoNaedeTk1OsohDB56X6MP1+0nDLmRaWM1uxPCwP/1B2PIDy6kbYNT33uGldIRspBQZbaKpf33H5GcKrRsYWqBnw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9n4jhjFePTS9/IljxavjRwXAbxRiqON1Ih8K7F1PRpw=;
+ b=EKYDTfH23px7qJ5byrBY4Jn5PtW7d7XQiq8i8R+gcEsrIV7BzZ6FAgVtF9Yw9nQmjqyDSAnGNpUDzGXbaLc+d2yiFylwwx6Z+JWZe70lbUcs5rFWaSbyvsS17cA/QcorRQa3Y9qNeB1u2cesB4aDJiXmE69uUrWPwj2BdwB32WGODZ4QEs/SdkBXcjnLZG0YNP1dOBMzSeVARTEZM5ijkmBYy82dsPCotFCfij+eVONsZVmNxhRI9kyqB2aAIKqDPDIAsvZ2rkxRbNhl0vzEAq9rxvX5fEr3M/bq6cHdGBidIauqbItGD8CUH9fZIvB0/UAEo/FDnWn5Cm16ITXbOw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9n4jhjFePTS9/IljxavjRwXAbxRiqON1Ih8K7F1PRpw=;
+ b=uoxeNOGoB+35d1fot3NNEzIrEsIpIF8Ysy/qGlalDDst8jH3B1H6NniCs7wtSEnECODBa9AobHIWIZdq5ig9wRr/cFFWAimZ5uZrkSvi6V5b7GgFDoti6LSZ2AH9n8RuJgk/19w9gfY7C+ezYLSM8qPqPUPXdBcNbb9PCEqt1HU8KQeXT4x2yWURyXo/G1JVjFCTK4Bw7m4s4s9J+X2XBUGKo0S7CgaadhpXc2xIhX3woC/nRmBj8VJRYfbX28bjcA+MRL+9IX5HoEm8DAJS04kJ4cjAnfGm2fbJb6aDLf2KP9bVw0g0/j9ZthTuoDy1BX/YYBI65YZ6VuZsURz2mA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from SJ2PR12MB8784.namprd12.prod.outlook.com (2603:10b6:a03:4d0::11)
+ by CH3PR12MB9341.namprd12.prod.outlook.com (2603:10b6:610:1cd::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.6; Wed, 17 Dec
+ 2025 20:42:37 +0000
+Received: from SJ2PR12MB8784.namprd12.prod.outlook.com
+ ([fe80::1660:3173:eef6:6cd9]) by SJ2PR12MB8784.namprd12.prod.outlook.com
+ ([fe80::1660:3173:eef6:6cd9%7]) with mapi id 15.20.9434.001; Wed, 17 Dec 2025
+ 20:42:37 +0000
+Message-ID: <325a9641-a3cb-4137-8cca-99597ca2caa0@nvidia.com>
+Date: Wed, 17 Dec 2025 20:42:31 +0000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V7 4/4] arm64: dts: nvidia: Add nodes for CMDQV
+To: Ashish Mhetre <amhetre@nvidia.com>, will@kernel.org,
+ robin.murphy@arm.com, joro@8bytes.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, nicolinc@nvidia.com
+Cc: thierry.reding@gmail.com, vdumpa@nvidia.com, jgg@ziepe.ca,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-tegra@vger.kernel.org
+References: <20251215064819.3345361-1-amhetre@nvidia.com>
+ <20251215064819.3345361-5-amhetre@nvidia.com>
+From: Jon Hunter <jonathanh@nvidia.com>
+Content-Language: en-US
+In-Reply-To: <20251215064819.3345361-5-amhetre@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: LO4P265CA0283.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:38f::14) To SJ2PR12MB8784.namprd12.prod.outlook.com
+ (2603:10b6:a03:4d0::11)
 MIME-Version: 1.0
-References: <20251216175914.2791200-1-robh@kernel.org> <aa064ecf-1714-4d40-8658-19952392cae8@amd.com>
-In-Reply-To: <aa064ecf-1714-4d40-8658-19952392cae8@amd.com>
-From: Rob Herring <robh@kernel.org>
-Date: Wed, 17 Dec 2025 14:41:14 -0600
-X-Gmail-Original-Message-ID: <CAL_JsqKdrN5UpUWQVQXpJjbTy1gN9_FhhwOoX6zVpG+zZVAptA@mail.gmail.com>
-X-Gm-Features: AQt7F2pslnRnOQwS3k8GuK0iuEWjAgkgx1SkEN3Smf-dCaJjbj1CVhpbDXoEzus
-Message-ID: <CAL_JsqKdrN5UpUWQVQXpJjbTy1gN9_FhhwOoX6zVpG+zZVAptA@mail.gmail.com>
-Subject: Re: [PATCH] arm64: dts: xilinx: Drop "label" property on dlg,slg7xl45106
-To: Michal Simek <michal.simek@amd.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR12MB8784:EE_|CH3PR12MB9341:EE_
+X-MS-Office365-Filtering-Correlation-Id: a7ba8578-9ae4-4987-c63d-08de3dacd074
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|10070799003|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZUIrZ3pBb2NkKzlaaHVqR042SjgwSGxhK1ViNFAra0ltYmlsQWxFZmV1MHFQ?=
+ =?utf-8?B?by9BcnJvYW5MWWhOSlBXYkkvWGlWRGYwVjk2czZ6ZjVBa3l2a2xaMWc2bEVC?=
+ =?utf-8?B?YzA3NWlKeWx1c3ArL3ZQWExTZ0lISVJibFZlcEVRUUFSSUk0WDNLeE1kWHZO?=
+ =?utf-8?B?ZllCS0JwZFoxeXlEZUx3eEpacml4ZC9KUllEWHUyNnIzdmNaTk5KbE5rU2dU?=
+ =?utf-8?B?L1h6d0FMS0gvMGNFcndQUmZmMWNteFc3eElMcDVOZ2F6YmxFNGQ5eHhDSnVD?=
+ =?utf-8?B?OWxpVytlRThma0grQXBqd24xTFEwNHFqa2QyODFHMlVsYktBM0tOQmVMM3JS?=
+ =?utf-8?B?TExCTktkaG5lQldMaXRuQ0ZtVnJUN09NSXRXM0QxdjRiODRGRXZ2T1RJbWxV?=
+ =?utf-8?B?VVJ6YUhTQnVMKzVSTS9NMEw5KzlJVWp2V3lDd25kaG9mZDJGVXltQkF2MnZi?=
+ =?utf-8?B?eWFVckFuNVVidlR3aXFNNUkwcnJuVEN2UTYrK2w3bHpEc0Mrc2wrbStIVzRh?=
+ =?utf-8?B?SlJrZmpSQUtLc3hadFpvVWtxU2JLU2JKeFJUZGppbCtLRlNnRXBQTTQrOHdk?=
+ =?utf-8?B?Uy91M05OazFkaWhQN25jTStQNlFYMFdFVlFNM1ZyczJFV2lnTWNZUmJ3dlhv?=
+ =?utf-8?B?UXFEcU9oZHFNbnNvMzhyOFU1M2NMQmVJaTI3bU5pcjJPcGZxNFp4dkUxMjh3?=
+ =?utf-8?B?TzhVTzBsYXJoemdhWXRSd3N5K2xORmRJUlVQM1Q2QW1zeGszOXJnWUxSNGZG?=
+ =?utf-8?B?NzdBZldldVhSdkdjdDdoc2JhZm9kQXZNYWhmTmY4VmZYZDdONlZXN0FvZHly?=
+ =?utf-8?B?alhNbEcrYk1UWXB0bVRCa3M4M3dsekFBN0VoVkh3dkU2dmwyMWF5RCtwNjVP?=
+ =?utf-8?B?dktJcVdKZU50dmREbTRFZXFlTmVNV1NFMTVLNFU1NENJQ1ZQV01HdW5BRGUx?=
+ =?utf-8?B?U25QbW1KNmsydnlidytWRDYzSVhnY2h1UFBLOGw1QUhQNnAyMTA3WE1lQml3?=
+ =?utf-8?B?YXN4NFhqRUU0RHBxcTBsNWxnWUFnWlZkanY4MjJpaU5WQlNxS1Vaczd6YTFa?=
+ =?utf-8?B?TEVrOVB5SzdGdC9iUlZLNTQ0VmhRR0h0OWRZM3FMbUNSOHdXb04wcmsrNHI0?=
+ =?utf-8?B?TVFxa0JQT1YxdEJnSGVxVElpNStPL0xHbHM2d3VVYlpoOG1BRndxL0sydmU4?=
+ =?utf-8?B?a3c0K0pNdVI4K3Z3R3VYeWJiYkx4S1JuYW9mRTBzTUlUYS9ISDNiSFdEalBi?=
+ =?utf-8?B?bHArVkcrOHE3NUtaYVR1bDNSelNicjJJY0ZmWFRSMWJoalpoMTBHQUV0Nm8v?=
+ =?utf-8?B?TUl3VnBpeDJsNU1PV3Z3U1J5SlZWV3puU3VtNzlNbGVMdStMQ2JSNEdVeHU4?=
+ =?utf-8?B?Y1FFNXRhd1dNRTZzakVDZXZaNHFMMnhzVzlDVzhlSDFlaVdyZlhmaFRrNTBG?=
+ =?utf-8?B?aTVra0dUYXdqVzMrUWRsT0tHeUhGRkZwdlNNRlpIU0E3SVE1dUN4MzNYQXAv?=
+ =?utf-8?B?SDc1dU9XNnM5b0xSbUMzMjVhTTBoVU1ONitCbU90NnhTTDlaWU15SjQ3Zjky?=
+ =?utf-8?B?MGdPd0hlTGJtbzhZczVjRXZQVnlmODNKZ1U5akQyT0RRcU4yQ2E0a3hxOFZp?=
+ =?utf-8?B?T2NLdGlKcG14NWFXeStTRncyd0N2T1IrTTcrY2pHTHZnNGJsMG1IR3QwVitt?=
+ =?utf-8?B?Szl5OTNnZDlta1EvR1JZNytiSVdHaGxLTmpiTThIUEhlL20rcGh0ckFjKzNh?=
+ =?utf-8?B?Njk1QVR2STRJQlpGa2NOZjJjOU5LaU50cFhVZkZxaXBlSDA2NFFZcVVRQmtz?=
+ =?utf-8?B?VEo5elUvMFcvZTQvSWpjelNPeDU3NVVxWElrWTBNeGNKKzBOSzRkZEo3OXRO?=
+ =?utf-8?B?eVlnN3ljQ3hRNFRmckpLYU9PNVA3enhmaHR6Wi9MMjJTR0JxRDRuNkRvb3lq?=
+ =?utf-8?Q?gX2Ft4wsLGh37zqF2mAywGfEH3ysOq+z?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB8784.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(10070799003)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MFA4ajhFdVZyaUFMN05xZ1U3RnBDN2kwWWZoOHp2aGMvclZwdGl4NElaKzlR?=
+ =?utf-8?B?bEt5Q1FzbXBUa21UWldZeHZZL1I4STVxTThMKzFtRUVEQ3RNcXQzZm80Vnlm?=
+ =?utf-8?B?R29INmx1VmdPVDczc0JZaDZDU25RNFlqL3JVVHlRL3dYQVQ1QkNReU5QV1dN?=
+ =?utf-8?B?WXVvVVNzeVd5YjVWcm9acUI1WXF6VUs4aDFuNm91ZXRZeHVWeCtuMmpnOUVn?=
+ =?utf-8?B?NXA0djJBRG52d2hUT01kYStRSkM4VXJvNjVocUh5UjJ1SzcydlhRNENvOU55?=
+ =?utf-8?B?TGREa3dmeTZMUVh2MEE2OHpRaTVUU2pMTmNZUFNoZW5pREhZd2hNZHRCSmpL?=
+ =?utf-8?B?YjVib2FEOEk4dFcrNXZxUmkzMVdWSnZVZ1l1aEZ0eHZKay9LV3RRdGIxQ1U0?=
+ =?utf-8?B?cUVZcnlvRU8vSjZmYVRWQUJsdDljUFcraUFQcUlTbjQwekNJWTdLUUdCZ0ZI?=
+ =?utf-8?B?dFQrdHRobC9Ka2haSENiUndubXIrRG8rNzUvYUpGYXlpSGlXbjFaRzhGaHoz?=
+ =?utf-8?B?Tmc5RUExTDA3OG44ekNqdFpiSGFWTXgybU1JNEJINVc0VklkMFQ3Yi9TRjNw?=
+ =?utf-8?B?YWV5V0JReUNxRGFkQUk5c2dMcnIvNUxDTks2UVA1UWZvYitBWHZ6UVZTWGN3?=
+ =?utf-8?B?R0NlL1NCcktoc3RXYjJDQnd1NlRGaS9venV1SEdScVhzSlpURDRFM2ZJL1lB?=
+ =?utf-8?B?QTVoSFcwdWNKSlVNWFc5TFM5TTdWOGx5V0Y3S01laVhPZm0vclRDVFQzTzdM?=
+ =?utf-8?B?c09HVFZOWTJDTktPZjZoS2hCK2tmYW1kT01ZU0VmZGpPR1BLQjJxd2FyZEdT?=
+ =?utf-8?B?SCt3dTFoaUNsK0Z4TXZPODk2VzhLaFpPdkhZY1k0aUZ3cE8ySkVqRlNUZVJU?=
+ =?utf-8?B?QnpsVWxTLzNTTjlNOTFMdTZCNVJhMWw2N1Z6K3JWNnZqSEQ0dlgxbyt3K01M?=
+ =?utf-8?B?Z1FIL041QjNQTDNuNm1Ka1pwRkh2d0UxcWJlSC8rOTljQmhJL0M0SHRlaGpO?=
+ =?utf-8?B?eksrQmY0WU02OWZvNGVobEtnbytHd29vVjhUaXR5QW1NdnhVVjFOM3lTNUFa?=
+ =?utf-8?B?VkdnS0htZzdJNU8rSktCVG5DcFdFTm5wcm40V1gzeGRxUi9OdHVZRU5oL1h5?=
+ =?utf-8?B?WmFHWXRHcElFTnBOZXRQVE1iN1Z4L3plOVFnSTk5SmtzQ0taQVBOZXByQ0lH?=
+ =?utf-8?B?cVYzSjZlaDM5VmxsMnZmT3dtdEVaOFpnSHduSjdkRnl4MzVpN20zbWlDL3dV?=
+ =?utf-8?B?TC90anVPa1lBS2tJYkFBM0d2d0hGZTU2TlkzbEMveG1heHUvWmF0NGdoZlBM?=
+ =?utf-8?B?L2d1ODdFNXJYS1UzVGh6ODdpOFBSekFkOC9vay85dWNMTmlNMmZ1dzY2dk1S?=
+ =?utf-8?B?QzBNZ2lhZHZoMGF0UkVMQUF2L3QwbkpKRGVzeE5ZeHVvQlg5NFBaTXRTKy9a?=
+ =?utf-8?B?UFZGQUpDbUdUd0gyclB0N253eUEwUzNMQklRbjBOWnR2ZmIvU2lqYmt4ZHJB?=
+ =?utf-8?B?c1VkVTRTb0JZUzZrN1RZZlZzdEdNQnlsRDAyVWJDeDNGVjZuQ0pNZGtndnNz?=
+ =?utf-8?B?d2gwa3MzU0cyeDhZMEVBajhRa3VEMkRnSUdGQk4zd2x0WGJ0bzdXcmljdWJ3?=
+ =?utf-8?B?YmM2WTl4QXNvSVRCQWhUaTJ2RXVEVDd0M0phNlJQZVloTWVaWE45Y2ZWTWs3?=
+ =?utf-8?B?eTk4SDE0L0Y5MFBLakp6RkFLVlhUZktQVVQyTlhTQjY1cElyb0ZlaHd4QVFm?=
+ =?utf-8?B?OTZWMUx0a0tmQXJmWE1Id2lSZlVGWVJaWjlsM041MUFLdURkVXFQRTdaZ0lR?=
+ =?utf-8?B?SitYTzFOL1ZnaFZxVzE0R1hiUDF3cFl1YUdDRzlzRzZZck9GdUVFZHBDeHpk?=
+ =?utf-8?B?SGNFTHBWRXhTZGxVU3JISms5K3ZSQnJ5SmUySXBkbktzSlpORTdIcHhsTWF1?=
+ =?utf-8?B?QUVPV3hNYnIvK0xZeWR2cXAyOXZaL0tDRzh6ZENXTWZsN1NuSitsZ2xxSThO?=
+ =?utf-8?B?bzZ4d0o2WTc0dGNEZDM0RGtObmowRWFLRVFKL2N3RUtwQkpIbThPUFpud0V5?=
+ =?utf-8?B?QlZJeHViQ1VCSDJhamhnQ1Z0S3k4Q2czdlR6eGJhdmhiWFFYR1UweVBCd0dt?=
+ =?utf-8?B?VUE5N0lvMGJXekx5MW5zUDNYMUVMMUo1dUF6cGtJRWhaOU9NZDIvbVBSdW1o?=
+ =?utf-8?Q?9zQ6/4clkUrw7OFMK4ZFCs+n4a9TzssHGc0Y1OGOAxTK?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a7ba8578-9ae4-4987-c63d-08de3dacd074
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB8784.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Dec 2025 20:42:37.6695
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: XrjPHUWuTlLlDXlnShar+AqL0t8Ru0Y9cK8lEI2SSkFwRFm9qdJk72Qme6KM+1af/NDzM5ecAaaHCgeU2T23zg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9341
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251217_124244_256494_343F2F2A 
+X-CRM114-Status: GOOD (  15.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,32 +181,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 17, 2025 at 6:39=E2=80=AFAM Michal Simek <michal.simek@amd.com>=
- wrote:
-> On 12/16/25 18:59, Rob Herring (Arm) wrote:
-> > The "label" property is not documented for the dlg,slg7xl45106. Nor is
-> > it common to use for GPIO controllers. So drop it.
-> >
->
-> Correct it is not documented but it is at least used in Linux also by
-> drivers/gpio/gpio-mmio.c:810:   err =3D device_property_read_string(dev, =
-"label",
-> &label);
->
-> which is also not documented in DT binding.
 
-It really should be for all GPIO providers or none of them. IMO, it
-should be none of them as we already have "gpio-line-names" which is
-essentially per line labels. I can't see why anyone should care about
-a label for the controller.
+On 15/12/2025 06:48, Ashish Mhetre wrote:
+> The Command Queue Virtualization (CMDQV) hardware is part of the
+> SMMUv3 implementation on NVIDIA Tegra SoCs. It assists in
+> virtualizing the command queue for the SMMU.
+> 
+> Update SMMU compatible strings to use nvidia,tegra264-smmu to enable
+> CMDQV support. Add device tree nodes for the CMDQV hardware and enable
+> them on the tegra264-p3834 platform where SMMUs are enabled. Each SMMU
+> instance is paired with its corresponding CMDQV instance via the
+> nvidia,cmdqv property.
+> 
+> Signed-off-by: Ashish Mhetre <amhetre@nvidia.com>
+> ---
+>   .../arm64/boot/dts/nvidia/tegra264-p3834.dtsi |  8 +++
+>   arch/arm64/boot/dts/nvidia/tegra264.dtsi      | 50 +++++++++++++++++--
+>   2 files changed, 53 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/nvidia/tegra264-p3834.dtsi b/arch/arm64/boot/dts/nvidia/tegra264-p3834.dtsi
+> index 06795c82427a..7e2c3e66c2ab 100644
+> --- a/arch/arm64/boot/dts/nvidia/tegra264-p3834.dtsi
+> +++ b/arch/arm64/boot/dts/nvidia/tegra264-p3834.dtsi
+> @@ -23,8 +23,16 @@ iommu@5000000 {
+>   			status = "okay";
+>   		};
+>   
+> +		cmdqv@5200000 {
+> +			status = "okay";
+> +		};
+> +
+>   		iommu@6000000 {
+>   			status = "okay";
+>   		};
+> +
+> +		cmdqv@6200000 {
+> +			status = "okay";
+> +		};
+>   	};
+>   };
+> diff --git a/arch/arm64/boot/dts/nvidia/tegra264.dtsi b/arch/arm64/boot/dts/nvidia/tegra264.dtsi
+> index f137565da804..9eb7058e3149 100644
+> --- a/arch/arm64/boot/dts/nvidia/tegra264.dtsi
+> +++ b/arch/arm64/boot/dts/nvidia/tegra264.dtsi
+> @@ -3361,7 +3361,7 @@ bus@8100000000 {
+>   			 <0x02 0x00000000 0xd0 0x00000000 0x08 0x80000000>; /* ECAM, prefetchable memory, I/O */
+>   
+>   		smmu1: iommu@5000000 {
+> -			compatible = "arm,smmu-v3";
+> +			compatible = "nvidia,tegra264-smmu", "arm,smmu-v3";
+>   			reg = <0x00 0x5000000 0x0 0x200000>;
+>   			interrupts = <GIC_SPI 12 IRQ_TYPE_EDGE_RISING>,
+>   				     <GIC_SPI 13 IRQ_TYPE_EDGE_RISING>;
+> @@ -3370,10 +3370,18 @@ smmu1: iommu@5000000 {
+>   
+>   			#iommu-cells = <1>;
+>   			dma-coherent;
+> +			nvidia,cmdqv = <&cmdqv1>;
+> +		};
+> +
+> +		cmdqv1: cmdqv@5200000 {
+> +			compatible = "nvidia,tegra264-cmdqv";
+> +			reg = <0x00 0x5200000 0x0 0x830000>;
+> +			interrupts = <GIC_SPI 19 IRQ_TYPE_LEVEL_HIGH>;
+> +			status = "disabled";
+>   		};
+>   
+>   		smmu2: iommu@6000000 {
+> -			compatible = "arm,smmu-v3";
+> +			compatible = "nvidia,tegra264-smmu", "arm,smmu-v3";
+>   			reg = <0x00 0x6000000 0x0 0x200000>;
+>   			interrupts = <GIC_SPI 1 IRQ_TYPE_EDGE_RISING>,
+>   				     <GIC_SPI 2 IRQ_TYPE_EDGE_RISING>;
+> @@ -3382,6 +3390,14 @@ smmu2: iommu@6000000 {
+>   
+>   			#iommu-cells = <1>;
+>   			dma-coherent;
+> +			nvidia,cmdqv = <&cmdqv2>;
+> +		};
+> +
+> +		cmdqv2: cmdqv@6200000 {
+> +			compatible = "nvidia,tegra264-cmdqv";
+> +			reg = <0x00 0x6200000 0x0 0x830000>;
+> +			interrupts = <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>;
+> +			status = "disabled";
+>   		};
+>   
+>   		mc: memory-controller@8020000 {
+> @@ -3437,7 +3453,7 @@ emc: external-memory-controller@8800000 {
+>   		};
+>   
+>   		smmu0: iommu@a000000 {
+> -			compatible = "arm,smmu-v3";
+> +			compatible = "nvidia,tegra264-smmu", "arm,smmu-v3";
+>   			reg = <0x00 0xa000000 0x0 0x200000>;
+>   			interrupts = <GIC_SPI 21 IRQ_TYPE_EDGE_RISING>,
+>   				     <GIC_SPI 22 IRQ_TYPE_EDGE_RISING>;
+> @@ -3446,10 +3462,18 @@ smmu0: iommu@a000000 {
+>   
+>   			#iommu-cells = <1>;
+>   			dma-coherent;
+> +			nvidia,cmdqv = <&cmdqv0>;
+> +		};
+> +
+> +		cmdqv0: cmdqv@a200000 {
+> +			compatible = "nvidia,tegra264-cmdqv";
+> +			reg = <0x00 0xa200000 0x0 0x830000>;
+> +			interrupts = <GIC_SPI 28 IRQ_TYPE_LEVEL_HIGH>;
+> +			status = "disabled";
+>   		};
+>   
+>   		smmu4: iommu@b000000 {
+> -			compatible = "arm,smmu-v3";
+> +			compatible = "nvidia,tegra264-smmu", "arm,smmu-v3";
+>   			reg = <0x00 0xb000000 0x0 0x200000>;
+>   			interrupts = <GIC_SPI 30 IRQ_TYPE_EDGE_RISING>,
+>   				     <GIC_SPI 31 IRQ_TYPE_EDGE_RISING>;
+> @@ -3458,6 +3482,14 @@ smmu4: iommu@b000000 {
+>   
+>   			#iommu-cells = <1>;
+>   			dma-coherent;
+> +			nvidia,cmdqv = <&cmdqv4>;
+> +		};
+> +
+> +		cmdqv4: cmdqv@b200000 {
+> +			compatible = "nvidia,tegra264-cmdqv";
+> +			reg = <0x00 0xb200000 0x0 0x830000>;
+> +			interrupts = <GIC_SPI 37 IRQ_TYPE_LEVEL_HIGH>;
+> +			status = "disabled";
+>   		};
+>   
+>   		i2c14: i2c@c410000 {
+> @@ -3690,7 +3722,7 @@ bus@8800000000 {
+>   		ranges = <0x00 0x00000000 0x88 0x00000000 0x01 0x00000000>;
+>   
+>   		smmu3: iommu@6000000 {
+> -			compatible = "arm,smmu-v3";
+> +			compatible = "nvidia,tegra264-smmu", "arm,smmu-v3";
+>   			reg = <0x00 0x6000000 0x0 0x200000>;
+>   			interrupts = <GIC_SPI 225 IRQ_TYPE_EDGE_RISING>,
+>   				     <GIC_SPI 226 IRQ_TYPE_EDGE_RISING>;
+> @@ -3699,6 +3731,14 @@ smmu3: iommu@6000000 {
+>   
+>   			#iommu-cells = <1>;
+>   			dma-coherent;
+> +			nvidia,cmdqv = <&cmdqv3>;
+> +		};
+> +
+> +		cmdqv3: cmdqv@6200000 {
+> +			compatible = "nvidia,tegra264-cmdqv";
+> +			reg = <0x00 0x6200000 0x0 0x830000>;
+> +			interrupts = <GIC_SPI 232 IRQ_TYPE_LEVEL_HIGH>;
+> +			status = "disabled";
+>   		};
+>   
+>   		hda@90b0000 {
 
-> I don't have a problem with it because I can't see it used anywhere.
->
-> But there are other devices where label is the part of binding. And IMHO =
-this
-> should be more generic property.
+Looks good to me.
 
-"label" is the generic property. Not sure what you are suggesting here.
+Reviewed-by: Jon Hunter <jonathanh@nvidia.com>
 
-Rob
+Jon
+
+-- 
+nvpublic
+
 
