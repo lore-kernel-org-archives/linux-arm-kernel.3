@@ -4,78 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A50C3D65C73
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 15:37:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C44CFD65C70
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 15:37:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P4Hj6kUIjPKS1U4b5WrIC6hTm+90YDETyj8ZGZZXRGE=; b=JWzw9ZbsvZ/DTZOCijrdWl+i8E
-	U8m0CF87jOs2U7LGfPUK9/boIR0SWe+gKw8esGI401Gt4xOPmdQVMF+DD8JHtjJukvE4xww7xigXm
-	acwghAeart91dW4K0GpHrF63Yb2nD1aviBYjGvkiI/njrzfOypT2y3m0qAX5ab0wgw483Eo/E6JH4
-	eJ5iH55nM7Z/3gI0+PnHCjJctufzI25yC79afSj06ten73qzj438rtWilBtUONPsmp/w0P9F8jzHu
-	GZR/vdchq3uZzGu3934boRPSETc0hxoyRjcg66ujjHntiWFHwcPXuWyeurrUgED+aa5AKCuJQUTMk
-	flrT/89Q==;
+	bh=FNXnygxVGZlNSda/Xzng+nXL6FF3ilHKktsZ5KooddY=; b=EMPL9OdwKKsOFRYuudvTcMCs1W
+	hEuIow+1VqbUsJJ07fOostKcqio9nCGxRaoYVuvRksJil+DNdwfSZKQhLu4gaV5r2KEYhutWNHGpz
+	/RSHfAEFtSuYrw1F2YXxXQQ8J6cDMb6bNhp2yBm1sz0UEmIuIMI7zkcJDxDbGxMVRBdxjEDcmg1/N
+	krIerW22KU9Y4Gi9/QnsHbrJUSb7Fmt9nj68w3kw6ftNle8oichIVajQrPQqTJQxwnlTTRtv56vKp
+	5Yl852w5dqfp16Y01Yv6s0YoHQNCzlXcSoHdFRbnxBvzl0avoJWazIfltpl41FDquXd0u+A4/d4L3
+	hHeZVYhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVtaz-000000070uX-0lV6;
-	Wed, 17 Dec 2025 15:37:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVtaw-000000070to-43X2
+	id 1vVtb3-000000070vR-20cW;
+	Wed, 17 Dec 2025 15:37:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vVtax-000000070tp-1Jfm
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 17 Dec 2025 15:37:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id F2524440FF
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 15:37:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CCE80C2BC87
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 15:37:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765985861;
-	bh=3zWGgAak/FBm7Vkk94ZrLytELeHbedaeePRas4C5o5A=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=hMNPbQfHkiOGVqJHw5AtuOCvRV0FWKVO23ESw20F2cpxcqWTBIOhlBqGNkwequi0i
-	 3oeUmzcEgHgSCtPoeLi5W9KvVXmE1VGX7UUnHrN1mtR68GvWl08uXF7HTsH54i7ZE9
-	 KfYRP9/8MnbbeqwSYkqRzywXs1Oee8xupqaf+a3s5LDAgTLnveEoDXptQ80gqAbzq5
-	 bjMNZezJ7p4GnTY2AwYJ0eq5AHSinGdYScOtbFN/Adxv8qepgBFrnvzwv9d+LJGjra
-	 iG70B1IeKSjTYdQQgNkT1NrvCLmUQmuqa9VxS8bv5ivZq+pOTD21TTRtZYR98YCKkC
-	 GNKlOB4AN3+tA==
-Received: by mail-ej1-f42.google.com with SMTP id a640c23a62f3a-b79ea617f55so599483066b.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 07:37:41 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWk1jjV5gk95xgGaOdbjHrwzAxl4GjEBqQmq1OzHzbRfZT85rb1oX0EAjQSG8O9FUQOfvHwGLQklZy6IWcgkGuH@lists.infradead.org
-X-Gm-Message-State: AOJu0YzxxZCwz42dqyy8LsTbmqT2TwbUySUfrbKv8otW1nom16jfjRt7
-	GTubvCIIW/p2OjStRzu4MKgVfoPb1baLyMx3HH3DYYWW8l/ApjJgBOTQo/D+g9FGTlDNf139GfA
-	SJ6xvUMddQ8gTOR+MUlQx+4p1nCEI8g==
-X-Google-Smtp-Source: AGHT+IE+MbpVy0D9cI7vtayEcuAQ5BpKDVDav3dQlj552I/4svzEpwf9VDtWU/NeRoVokGuFNkCPT8ATPD0NU91eNy8=
-X-Received: by 2002:a17:907:3cca:b0:b72:c261:3ad2 with SMTP id
- a640c23a62f3a-b7d23af00e6mr1859042566b.50.1765985860268; Wed, 17 Dec 2025
- 07:37:40 -0800 (PST)
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7EBF6FEC;
+	Wed, 17 Dec 2025 07:37:34 -0800 (PST)
+Received: from [10.57.47.3] (unknown [10.57.47.3])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 487443F73F;
+	Wed, 17 Dec 2025 07:37:35 -0800 (PST)
+Message-ID: <6afcb722-80cc-4bb2-a745-d9ad7893f0ae@arm.com>
+Date: Wed, 17 Dec 2025 16:37:32 +0100
 MIME-Version: 1.0
-References: <20251211-dev-dt-warnings-all-v1-0-21b18b9ada77@codeconstruct.com.au>
- <20251211-dev-dt-warnings-all-v1-1-21b18b9ada77@codeconstruct.com.au>
-In-Reply-To: <20251211-dev-dt-warnings-all-v1-1-21b18b9ada77@codeconstruct.com.au>
-From: Rob Herring <robh@kernel.org>
-Date: Wed, 17 Dec 2025 09:37:28 -0600
-X-Gmail-Original-Message-ID: <CAL_JsqJUaKKsJ8BCNbVXe4vLVsQ2Av7VuWqf9DnUKHeLzLb8NQ@mail.gmail.com>
-X-Gm-Features: AQt7F2q-nb9Xy6ZmXCdkQqrO-_0mpnqJ_RWJ9ZzKv3sOBl98lQ-TH7L8rvtaBLo
-Message-ID: <CAL_JsqJUaKKsJ8BCNbVXe4vLVsQ2Av7VuWqf9DnUKHeLzLb8NQ@mail.gmail.com>
-Subject: Re: [PATCH RFC 01/16] dt-bindings: hwmon: Convert aspeed,ast2400-pwm-tacho
- to DT schema
-To: Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Linus Walleij <linusw@kernel.org>, Joel Stanley <joel@jms.id.au>, linux-hwmon@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
-	openbmc@lists.ozlabs.org, linux-gpio@vger.kernel.org, 
-	linux-mmc@vger.kernel.org, linux-crypto@vger.kernel.org, 
-	linux-iio@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 14/14] mm: Add basic tests for lazy_mmu
+To: Ryan Roberts <ryan.roberts@arm.com>,
+ Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Andreas Larsson <andreas@gaisler.com>,
+ Anshuman Khandual <anshuman.khandual@arm.com>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
+ <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ David Hildenbrand <david@redhat.com>, "David S. Miller"
+ <davem@davemloft.net>, David Woodhouse <dwmw2@infradead.org>,
+ "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
+ Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+ Suren Baghdasaryan <surenb@google.com>, Thomas Gleixner
+ <tglx@linutronix.de>, Venkat Rao Bagalkote <venkat88@linux.ibm.com>,
+ Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
+ xen-devel@lists.xenproject.org, x86@kernel.org
+References: <20251215150323.2218608-1-kevin.brodsky@arm.com>
+ <20251215150323.2218608-15-kevin.brodsky@arm.com>
+ <20251216201403.4647a4f9861d3122ee9e90d7@linux-foundation.org>
+ <f9550d22-8810-4145-aaa8-48961f6ea35e@arm.com>
+ <ca0da7fd-245c-4d52-8f4d-f8fce4717494@arm.com>
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+Content-Language: en-GB
+In-Reply-To: <ca0da7fd-245c-4d52-8f4d-f8fce4717494@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_073743_066853_D13B95EF 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20251217_073743_476136_13605959 
+X-CRM114-Status: GOOD (  12.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,30 +92,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 11, 2025 at 2:46=E2=80=AFAM Andrew Jeffery
-<andrew@codeconstruct.com.au> wrote:
->
-> From: "Rob Herring (Arm)" <robh@kernel.org>
->
-> Convert the ASpeed fan controller binding to DT schema format.
->
-> The '#cooling-cells' value used is 1 rather than 2. '#size-cells' is 0
-> rather 1.
+On 17/12/2025 11:01, Ryan Roberts wrote:
+> On 17/12/2025 09:26, Kevin Brodsky wrote:
+>> On 17/12/2025 05:14, Andrew Morton wrote:
+>>> On Mon, 15 Dec 2025 15:03:23 +0000 Kevin Brodsky <kevin.brodsky@arm.com> wrote:
+>>>
+>>>> Add basic KUnit tests for the generic aspects of the lazy MMU mode:
+>>>> ensure that it appears active when it should, depending on how
+>>>> enable/disable and pause/resume pairs are nested.
+>>> I needed this for powerpc allmodconfig;
+>>>
+>>> --- a/arch/powerpc/mm/book3s64/hash_tlb.c~mm-add-basic-tests-for-lazy_mmu-fix
+>>> +++ a/arch/powerpc/mm/book3s64/hash_tlb.c
+>>> @@ -30,6 +30,7 @@
+>>>  #include <trace/events/thp.h>
+>>>  
+>>>  DEFINE_PER_CPU(struct ppc64_tlb_batch, ppc64_tlb_batch);
+>>> +EXPORT_SYMBOL_GPL(ppc64_tlb_batch);
+>>>  
+>>>  /*
+>>>   * A linux PTE was changed and the corresponding hash table entry
+>>> @@ -154,6 +155,7 @@ void __flush_tlb_pending(struct ppc64_tl
+>>>  		flush_hash_range(i, local);
+>>>  	batch->index = 0;
+>>>  }
+>>> +EXPORT_SYMBOL_GPL(__flush_tlb_pending);
+>>>  
+>>>  void hash__tlb_flush(struct mmu_gather *tlb)
+>>>  {
+>>> _
+>> Oh indeed I hadn't considered that arch_{enter,leave}_lazy_mmu_mode()
+>> refer to those symbols on powerpc... Maybe a bit overkill to export
+>> those just for a test module, but I'm not sure there's a good
+>> alternative. Forcing LAZY_MMU_MODE_KUNIT_TEST=y is ugly as it would also
+>> force KUNIT=y. Alternatively we could depend on !PPC, not pretty either.
+> Does EXPORT_SYMBOL_IF_KUNIT() help?
 
-Okay, I can't figure out why I thought '#cooling-cells' needed to be 1
-here. I don't see that anywhere in the tree. The driver for sure only
-supports 2, so anything that's not is an error in any case.
+It most certainly would, I didn't know about that one, thanks!
 
-> Some users define more that 8 fan nodes where 2 fans share a PWM. The
-> driver seems to let the 2nd fan just overwrite the 1st one. That also
-> creates some addressing errors in the DT (duplicate addresses and wrong
-> unit-addresses).
->
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: Andrew Jeffery <andrew@codeconstruct.com.au>
-> ---
->  .../bindings/hwmon/aspeed,ast2400-pwm-tacho.yaml   | 106 +++++++++++++++=
-++++++
->  .../devicetree/bindings/hwmon/aspeed-pwm-tacho.txt |  73 --------------
->  2 files changed, 106 insertions(+), 73 deletions(-)
+- Kevin
 
