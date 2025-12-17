@@ -4,78 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A16D1D65C63
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 23:27:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7245DD66BBB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 23:31:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D97LNM3xTPb3lu2pCUacaxqZ/Z7K+l0F92U+9biIWtM=; b=d83DKS5DzgjmBO22ydy/j0LT8W
-	wCla3e8fAaJdIU8sk8brLVverkWQXrrU/fsHRCDV0J79pixzabSo5uSG6G0yTUemsrXNy5EPel7wa
-	jZQyt4tCJA0HdiEKAOXv6LBqvNM1RYs6yfgYuB1kT1iS98quXM34FKlnsBKmtzRPPZ1YmwmcVoEAT
-	t20Z2U4lDNTtSgwmWZhjEhyNKKpyiyHNgJZuhjnaFwvWzPjAXuKaN7vDQIoWpjh7IxbBEpF8uRldI
-	Dp5VofZpUJfRnkoJS8df15UPOG38Y5AWwCYk1PDfD0NdOtikAPqGTyAU6fFwbIYwt/4sZ/3+LJQSp
-	JHK6dF/w==;
+	bh=N2mq0Gx7GZeTynP2HqywdZDBMJbkGwWK5LlhAShzLmQ=; b=n4Tt3J5GwszchJACh77AZ/c8RH
+	nqLHImvjAnuFV6EZJYmDB5LXeq5C2BzeA0imq1GrAnyzbjZIy8r08ieGIcvvmt3umJWG8pX3QqVlW
+	9q2mT7qzcQSDU1Kvf21m9YdGxcEsQK+gtxTPI8o9FvQ8Wem7rWJbRjauycN5WQEmguHQskWRZIRmC
+	jUhA9jpfryHcsXQdT13XM+dBkTyv0iHilnxOwRu3+Hj1AcwbI9/0+Le29FRuariSb+jBerVLYWneY
+	fr6w77492k/i1yAyuHOcpfqI1qPyf2gScgVCHFAHg5qP7EvV3h/ECGksPdEjEgWhdCan2/WPwBDeR
+	uHXKgUww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vW0vt-00000007Xcd-46yq;
-	Wed, 17 Dec 2025 23:27:50 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1vW0zc-00000007Xr1-17IQ;
+	Wed, 17 Dec 2025 23:31:40 +0000
+Received: from m1-out-mua-15.websupport.sk ([2a00:4b40:aaaa:2101:45:13:137:24])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vW0vs-00000007Xc6-0Lou
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 23:27:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1766014067;
- bh=D97LNM3xTPb3lu2pCUacaxqZ/Z7K+l0F92U+9biIWtM=;
- b=kkbHoIXt0XV8hF8tN8Mn0x3SqzF/n+jvGEA/n5Ld1+3onAtOX6YtQR7H+MTCqnwn4xYleOn3/
- VSvmmpDbp2KNmbnMQ4zE0qfQm68BYq3VSCWb4nMVPwFrjOTb3z1o5BrYGPaWM6Sxq1Y7p2Vb964
- COMrhWtE6FGPedjrr87p14isHXJToUfYSQDiXaMtmvwWu44HvMQL8C3xWOCRLNgeV5GfIJZMczI
- /eP3Y98WBk301ub19hqJQJmLt57nvATYQIoP3uxTPEqj27gqD+7I3GlkQMR/sajB8/fV4c1VlbI
- +SvyoCFRz93yY6qpfsmX4v+Q42NN9kuZZiGoQurV4RWQ==
-X-Forward-Email-ID: 69433c6947898a7fd2fef012
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 2.0.6
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <7431a691-64b3-4b03-85e3-a6162587f6c9@kwiboo.se>
-Date: Thu, 18 Dec 2025 00:27:32 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 10/17] media: rkvdec: Add RCB and SRAM support
-To: Detlev Casanova <detlev.casanova@collabora.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Heiko Stuebner <heiko@sntech.de>,
- Daniel Almeida <daniel.almeida@collabora.com>,
- Jonathan Corbet <corbet@lwn.net>, Ricardo Ribalda <ribalda@chromium.org>,
- Hans Verkuil <hverkuil@kernel.org>, Yunke Cao <yunkec@google.com>,
- Hans de Goede <hansg@kernel.org>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
- Pavan Bobba <opensource206@gmail.com>,
- James Cowgill <james.cowgill@blaize.com>, linux-media@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- kernel@collabora.com, Diederik de Haas <didi.debian@cknow.org>,
+	id 1vW0zZ-00000007XqY-0UW1;
+	Wed, 17 Dec 2025 23:31:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=probably.group;
+	s=mail; t=1766014290;
+	bh=N2mq0Gx7GZeTynP2HqywdZDBMJbkGwWK5LlhAShzLmQ=;
+	h=Subject:From:In-Reply-To:Date:Cc:References:To:From;
+	b=aH9uNQNkP+QzUUguji0xI1K+VchucuyeSDKy/54IGGTCPJC2kPIDnxalJ+VxlrCDy
+	 1UR5LDchY6sRTknWwHKo9UKeCM8BSqkV5doFIsRvsd0Zqp9UeV3eOkUv2bR67bQrim
+	 cv5+ObQZntiuEtbW4yeGhw3Lax1q6VADwJp1LxDuX5P/NnhJsrLyp4d7HYAwd+pdp7
+	 I0mM8VOsOLFD5HivqkwVN8fKz1D3Ivp9qvnfdsSh2pxKtKXHh83splYpjoZpfN0mcG
+	 bymuITuTmDGwXf/PdwTU8MqAtdIrFgQ3ElS5bth7/+g4FSGrPf0DLSeFhwaqs40c/u
+	 OB0I/7mjG4UuQ==
+Received: from m1-u6-ing.websupport.sk (unknown [10.30.6.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	by m1-out-mua-15.websupport.sk (Postfix) with ESMTPS id 4dWqnG2CSGz1Md5;
+	Thu, 18 Dec 2025 00:31:30 +0100 (CET)
+X-Authenticated-Sender: mh@probably.group
+Authentication-Results: m1-u6-ing.websupport.sk;
+	auth=pass smtp.auth=mh@probably.group smtp.mailfrom=mh@probably.group
+Received: from smtpclient.apple (unknown [109.164.127.134])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	(Authenticated sender: mh@probably.group)
+	by m1-u6-ing.websupport.sk (Postfix) with ESMTPSA id 4dWqnF0STBzdMvK;
+	Thu, 18 Dec 2025 00:31:28 +0100 (CET)
+Content-Type: text/plain;
+	charset=utf-8
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.300.41.1.7\))
+Subject: Re: [PATCH] arm64: dts: rockchip: enable dual 2.5GbE on Rock 5T
+From: =?utf-8?B?Ik1hcnRpbiBIb2xvdnNrw70gKFByb2JhYmx5IE5vdGhpbmcgcy5yLm8u?=
+ =?utf-8?B?KSI=?= <mh@probably.group>
+In-Reply-To: <176580661874.1441131.12947657582985645446.b4-ty@sntech.de>
+Date: Thu, 18 Dec 2025 00:31:18 +0100
+Cc: Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org,
  linux-kernel@vger.kernel.org
-References: <20251217174059.1341784-1-detlev.casanova@collabora.com>
- <20251217174059.1341784-11-detlev.casanova@collabora.com>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20251217174059.1341784-11-detlev.casanova@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <7A2ADADA-3FD8-4AAE-B7D8-9137399FBE6E@probably.group>
+References: <96516D1F-9787-47FE-A67E-4745D11D9207@probably.group>
+ <176580661874.1441131.12947657582985645446.b4-ty@sntech.de>
+To: Heiko Stuebner <heiko@sntech.de>
+X-Mailer: Apple Mail (2.3864.300.41.1.7)
+X-Out-Spamd-Result: default: False [0.40 / 1000.00];
+	MV_CASE(0.50)[];
+	MIME_GOOD(-0.10)[text/plain];
+	MID_RHS_MATCH_FROM(0.00)[];
+	TAGGED_RCPT(0.00)[dt];
+	FROM_HAS_DN(0.00)[];
+	ASN(0.00)[asn:44489, ipnet:109.164.0.0/17, country:CZ];
+	ARC_NA(0.00)[];
+	RCVD_COUNT_ZERO(0.00)[0];
+	RCPT_COUNT_SEVEN(0.00)[8];
+	HAS_X_AS(0.00)[];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	MIME_TRACE(0.00)[0:+]
+X-Out-Rspamd-Queue-Id: 4dWqnF0STBzdMvK
+X-Rspamd-Action: no action
+X-Out-Rspamd-Server: m1-rspamd-out-5
+X-purgate-type: clean
+X-purgate-Ad: Categorized by eleven eXpurgate (R) https://www.eleven.de
+X-purgate: This mail is considered clean (visit https://www.eleven.de for further information)
+X-purgate: clean
+X-purgate-size: 1109
+X-purgate-ID: 155908::1766014290-C0FE6043-56D75A65/0/0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_152748_123206_A51C561A 
-X-CRM114-Status: GOOD (  37.20  )
+X-CRM114-CacheID: sfid-20251217_153137_438291_CE6ECCDF 
+X-CRM114-Status: GOOD (  12.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,432 +113,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Detlev,
+Perfect, thanks a lot!
 
-On 12/17/2025 6:40 PM, Detlev Casanova wrote:
-> The RCB (Rows and Cols Buffers) are a set of buffers used by other
-> variations of the decoder to store temporary data.
-> 
-> Those variation come with a dedicated SRAM area used to store those
-> buffers for better performances.
-> 
-> The buffer sizes are either the width or height of the frame being
-> decoded multiplied by a documented factor and can be stored either
-> in SRAM or RAM.
-> A fallback to RAM is provided if the SRAM is full (e.g.: multiple
-> streams are being decoded at the same time).
-> 
-> To manage the different kind of allocation, an enum is added to the
-> rkvdec_aux_buf struct to specify how the buffer was allocated, and
-> so, how to free it.
-> 
-> This commit is in preparation of other variants support.
-> 
-> Tested-by: Diederik de Haas <didi.debian@cknow.org>  # Rock 5B
-> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
-> ---
->  .../media/platform/rockchip/rkvdec/Makefile   |   1 +
->  .../platform/rockchip/rkvdec/rkvdec-rcb.c     | 178 ++++++++++++++++++
->  .../platform/rockchip/rkvdec/rkvdec-rcb.h     |  29 +++
->  .../media/platform/rockchip/rkvdec/rkvdec.c   |  27 ++-
->  .../media/platform/rockchip/rkvdec/rkvdec.h   |  13 ++
->  5 files changed, 246 insertions(+), 2 deletions(-)
->  create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
->  create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h
-> 
-> diff --git a/drivers/media/platform/rockchip/rkvdec/Makefile b/drivers/media/platform/rockchip/rkvdec/Makefile
-> index 1b4bc44be23e..3d75103e536d 100644
-> --- a/drivers/media/platform/rockchip/rkvdec/Makefile
-> +++ b/drivers/media/platform/rockchip/rkvdec/Makefile
-> @@ -7,4 +7,5 @@ rockchip-vdec-y += \
->  		   rkvdec-h264-common.o \
->  		   rkvdec-hevc.o \
->  		   rkvdec-hevc-common.o \
-> +		   rkvdec-rcb.o \
->  		   rkvdec-vp9.o
-> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
-> new file mode 100644
-> index 000000000000..320998ed2c74
-> --- /dev/null
-> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
-> @@ -0,0 +1,178 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Rockchip video decoder Rows and Cols Buffers manager
-> + *
-> + * Copyright (C) 2025 Collabora, Ltd.
-> + *  Detlev Casanova <detlev.casanova@collabora.com>
-> + */
-> +
-> +#include "rkvdec.h"
-> +#include "rkvdec-rcb.h"
-> +
-> +#include <linux/types.h>
-> +#include <linux/iommu.h>
-> +#include <linux/genalloc.h>
-> +
-> +struct rkvdec_rcb_config {
-> +	struct rkvdec_aux_buf *rcb_bufs;
-> +	size_t rcb_count;
-> +};
-> +
-> +static size_t rkvdec_rcb_size(const struct rcb_size_info *size_info,
-> +			      unsigned int width, unsigned int height)
-> +{
-> +	return size_info->multiplier * (size_info->axis == PIC_HEIGHT ? height : width);
-> +}
-> +
-> +dma_addr_t rkvdec_rcb_buf_dma_addr(struct rkvdec_ctx *ctx, int id)
-> +{
-> +	return ctx->rcb_config->rcb_bufs[id].dma;
-> +}
-> +
-> +size_t rkvdec_rcb_buf_size(struct rkvdec_ctx *ctx, int id)
-> +{
-> +	return ctx->rcb_config->rcb_bufs[id].size;
-> +}
-> +
-> +int rkvdec_rcb_buf_count(struct rkvdec_ctx *ctx)
-> +{
-> +	return ctx->rcb_config->rcb_count;
-> +}
-> +
-> +void rkvdec_free_rcb(struct rkvdec_ctx *ctx)
-> +{
-> +	struct rkvdec_dev *dev = ctx->dev;
-> +	struct rkvdec_rcb_config *cfg = ctx->rcb_config;
-> +	unsigned long virt_addr;
-> +	int i;
-> +
-> +	if (!cfg)
-> +		return;
-> +
-> +	for (i = 0; i < cfg->rcb_count; i++) {
-> +		size_t rcb_size = cfg->rcb_bufs[i].size;
-> +
-> +		if (!cfg->rcb_bufs[i].cpu)
-> +			continue;
-> +
-> +		switch (cfg->rcb_bufs[i].type) {
-> +		case RKVDEC_ALLOC_SRAM:
-> +			virt_addr = (unsigned long)cfg->rcb_bufs[i].cpu;
-> +
-> +			if (dev->iommu_domain)
-> +				iommu_unmap(dev->iommu_domain, virt_addr, rcb_size);
-> +			gen_pool_free(dev->sram_pool, virt_addr, rcb_size);
-> +			break;
-> +		case RKVDEC_ALLOC_DMA:
-> +			dma_free_coherent(dev->dev,
-> +					  rcb_size,
-> +					  cfg->rcb_bufs[i].cpu,
-> +					  cfg->rcb_bufs[i].dma);
-> +			break;
-> +		}
-> +	}
-> +
-> +	if (cfg->rcb_bufs)
-> +		devm_kfree(dev->dev, cfg->rcb_bufs);
-> +
-> +	devm_kfree(dev->dev, cfg);
-> +}
-> +
-> +int rkvdec_allocate_rcb(struct rkvdec_ctx *ctx,
-> +			const struct rcb_size_info *size_info,
-> +			size_t rcb_count)
-> +{
-> +	int ret, i;
-> +	u32 width, height;
-> +	struct rkvdec_dev *rkvdec = ctx->dev;
-> +	struct rkvdec_rcb_config *cfg;
-> +
-> +	if (!size_info || !rcb_count) {
-> +		ctx->rcb_config = NULL;
-> +		return 0;
-> +	}
-> +
-> +	ctx->rcb_config = devm_kzalloc(rkvdec->dev, sizeof(*ctx->rcb_config), GFP_KERNEL);
-> +	if (!ctx->rcb_config)
-> +		return -ENOMEM;
-> +
-> +	cfg = ctx->rcb_config;
-> +
-> +	cfg->rcb_bufs = devm_kzalloc(rkvdec->dev, sizeof(*cfg->rcb_bufs) * rcb_count, GFP_KERNEL);
-> +	if (!cfg->rcb_bufs) {
-> +		ret = -ENOMEM;
-> +		goto err_alloc;
-> +	}
-> +
-> +	width = ctx->decoded_fmt.fmt.pix_mp.width;
-> +	height = ctx->decoded_fmt.fmt.pix_mp.height;
-> +
-> +	for (i = 0; i < rcb_count; i++) {
-> +		void *cpu = NULL;
-> +		dma_addr_t dma;
-> +		size_t rcb_size = rkvdec_rcb_size(&size_info[i], width, height);
-> +		enum rkvdec_alloc_type alloc_type = RKVDEC_ALLOC_SRAM;
-> +
-> +		/* Try allocating an SRAM buffer */
-> +		if (ctx->dev->sram_pool) {
-> +			if (rkvdec->iommu_domain)
-> +				rcb_size = ALIGN(rcb_size, 0x1000);
-
-Maybe SZ_4K instead of 0x1000 ?
-
-> +
-> +			cpu = gen_pool_dma_zalloc_align(ctx->dev->sram_pool,
-> +							rcb_size,
-> +							&dma,
-> +							0x1000);
-
-Same here ?
-
-Regards,
-Jonas
-
-> +		}
-> +
-> +		/* If an IOMMU is used, map the SRAM address through it */
-> +		if (cpu && rkvdec->iommu_domain) {
-> +			unsigned long virt_addr = (unsigned long)cpu;
-> +			phys_addr_t phys_addr = dma;
-> +
-> +			ret = iommu_map(rkvdec->iommu_domain, virt_addr, phys_addr,
-> +					rcb_size, IOMMU_READ | IOMMU_WRITE, 0);
-> +			if (ret) {
-> +				gen_pool_free(ctx->dev->sram_pool,
-> +					      (unsigned long)cpu,
-> +					      rcb_size);
-> +				cpu = NULL;
-> +				goto ram_fallback;
-> +			}
-> +
-> +			/*
-> +			 * The registers will be configured with the virtual
-> +			 * address so that it goes through the IOMMU
-> +			 */
-> +			dma = virt_addr;
-> +		}
-> +
-> +ram_fallback:
-> +		/* Fallback to RAM */
-> +		if (!cpu) {
-> +			cpu = dma_alloc_coherent(ctx->dev->dev,
-> +						 rcb_size,
-> +						 &dma,
-> +						 GFP_KERNEL);
-> +			alloc_type = RKVDEC_ALLOC_DMA;
-> +		}
-> +
-> +		if (!cpu) {
-> +			ret = -ENOMEM;
-> +			goto err_alloc;
-> +		}
-> +
-> +		cfg->rcb_bufs[i].cpu = cpu;
-> +		cfg->rcb_bufs[i].dma = dma;
-> +		cfg->rcb_bufs[i].size = rcb_size;
-> +		cfg->rcb_bufs[i].type = alloc_type;
-> +
-> +		cfg->rcb_count += 1;
-> +	}
-> +
-> +	return 0;
-> +
-> +err_alloc:
-> +	rkvdec_free_rcb(ctx);
-> +
-> +	return ret;
-> +}
-> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h
-> new file mode 100644
-> index 000000000000..30e8002555c8
-> --- /dev/null
-> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h
-> @@ -0,0 +1,29 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Rockchip video decoder Rows and Cols Buffers manager
-> + *
-> + * Copyright (C) 2025 Collabora, Ltd.
-> + *  Detlev Casanova <detlev.casanova@collabora.com>
-> + */
-> +
-> +#include <linux/types.h>
-> +
-> +struct rkvdec_ctx;
-> +
-> +enum rcb_axis {
-> +	PIC_WIDTH = 0,
-> +	PIC_HEIGHT = 1
-> +};
-> +
-> +struct rcb_size_info {
-> +	u8 multiplier;
-> +	enum rcb_axis axis;
-> +};
-> +
-> +int rkvdec_allocate_rcb(struct rkvdec_ctx *ctx,
-> +			const struct rcb_size_info *size_info,
-> +			size_t rcb_count);
-> +dma_addr_t rkvdec_rcb_buf_dma_addr(struct rkvdec_ctx *ctx, int id);
-> +size_t rkvdec_rcb_buf_size(struct rkvdec_ctx *ctx, int id);
-> +int rkvdec_rcb_buf_count(struct rkvdec_ctx *ctx);
-> +void rkvdec_free_rcb(struct rkvdec_ctx *ctx);
-> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> index 968982f6e62c..028ce8e1c4ca 100644
-> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
-> @@ -10,6 +10,7 @@
->   */
->  
->  #include <linux/clk.h>
-> +#include <linux/genalloc.h>
->  #include <linux/interrupt.h>
->  #include <linux/iommu.h>
->  #include <linux/module.h>
-> @@ -28,6 +29,7 @@
->  
->  #include "rkvdec.h"
->  #include "rkvdec-regs.h"
-> +#include "rkvdec-rcb.h"
->  
->  static bool rkvdec_image_fmt_match(enum rkvdec_image_fmt fmt1,
->  				   enum rkvdec_image_fmt fmt2)
-> @@ -771,6 +773,7 @@ static int rkvdec_start_streaming(struct vb2_queue *q, unsigned int count)
->  {
->  	struct rkvdec_ctx *ctx = vb2_get_drv_priv(q);
->  	const struct rkvdec_coded_fmt_desc *desc;
-> +	const struct rkvdec_variant *variant = ctx->dev->variant;
->  	int ret;
->  
->  	if (V4L2_TYPE_IS_CAPTURE(q->type))
-> @@ -780,13 +783,22 @@ static int rkvdec_start_streaming(struct vb2_queue *q, unsigned int count)
->  	if (WARN_ON(!desc))
->  		return -EINVAL;
->  
-> +	ret = rkvdec_allocate_rcb(ctx, variant->rcb_sizes, variant->num_rcb_sizes);
-> +	if (ret)
-> +		return ret;
-> +
->  	if (desc->ops->start) {
->  		ret = desc->ops->start(ctx);
->  		if (ret)
-> -			return ret;
-> +			goto err_ops_start;
->  	}
->  
->  	return 0;
-> +
-> +err_ops_start:
-> +	rkvdec_free_rcb(ctx);
-> +
-> +	return ret;
->  }
->  
->  static void rkvdec_queue_cleanup(struct vb2_queue *vq, u32 state)
-> @@ -822,6 +834,8 @@ static void rkvdec_stop_streaming(struct vb2_queue *q)
->  
->  		if (desc->ops->stop)
->  			desc->ops->stop(ctx);
-> +
-> +		rkvdec_free_rcb(ctx);
->  	}
->  
->  	rkvdec_queue_cleanup(q, VB2_BUF_STATE_ERROR);
-> @@ -1348,6 +1362,10 @@ static int rkvdec_probe(struct platform_device *pdev)
->  		return ret;
->  	}
->  
-> +	rkvdec->sram_pool = of_gen_pool_get(pdev->dev.of_node, "sram", 0);
-> +	if (!rkvdec->sram_pool && rkvdec->variant->num_rcb_sizes > 0)
-> +		dev_info(&pdev->dev, "No sram node, RCB will be stored in RAM\n");
-> +
->  	pm_runtime_set_autosuspend_delay(&pdev->dev, 100);
->  	pm_runtime_use_autosuspend(&pdev->dev);
->  	pm_runtime_enable(&pdev->dev);
-> @@ -1356,7 +1374,8 @@ static int rkvdec_probe(struct platform_device *pdev)
->  	if (ret)
->  		goto err_disable_runtime_pm;
->  
-> -	if (iommu_get_domain_for_dev(&pdev->dev)) {
-> +	rkvdec->iommu_domain = iommu_get_domain_for_dev(&pdev->dev);
-> +	if (rkvdec->iommu_domain) {
->  		rkvdec->empty_domain = iommu_paging_domain_alloc(rkvdec->dev);
->  
->  		if (IS_ERR(rkvdec->empty_domain)) {
-> @@ -1370,6 +1389,10 @@ static int rkvdec_probe(struct platform_device *pdev)
->  err_disable_runtime_pm:
->  	pm_runtime_dont_use_autosuspend(&pdev->dev);
->  	pm_runtime_disable(&pdev->dev);
-> +
-> +	if (rkvdec->sram_pool)
-> +		gen_pool_destroy(rkvdec->sram_pool);
-> +
->  	return ret;
->  }
->  
-> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-> index aac6cba4c623..77c0950a465d 100644
-> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
-> @@ -19,6 +19,7 @@
->  #include <media/v4l2-ctrls.h>
->  #include <media/v4l2-device.h>
->  #include <media/v4l2-ioctl.h>
-> +#include <media/v4l2-mem2mem.h>
->  #include <media/videobuf2-core.h>
->  #include <media/videobuf2-dma-contig.h>
->  
-> @@ -29,6 +30,7 @@
->  #define RKVDEC_QUIRK_DISABLE_QOS	BIT(0)
->  
->  struct rkvdec_ctx;
-> +struct rkvdec_rcb_config;
->  
->  struct rkvdec_ctrl_desc {
->  	struct v4l2_ctrl_config cfg;
-> @@ -73,6 +75,8 @@ struct rkvdec_variant {
->  	unsigned int num_regs;
->  	const struct rkvdec_coded_fmt_desc *coded_fmts;
->  	size_t num_coded_fmts;
-> +	const struct rcb_size_info *rcb_sizes;
-> +	size_t num_rcb_sizes;
->  	unsigned int capabilities;
->  	unsigned int quirks;
->  };
-> @@ -125,6 +129,8 @@ struct rkvdec_dev {
->  	void __iomem *regs;
->  	struct mutex vdev_lock; /* serializes ioctls */
->  	struct delayed_work watchdog_work;
-> +	struct gen_pool *sram_pool;
-> +	struct iommu_domain *iommu_domain;
->  	struct iommu_domain *empty_domain;
->  	const struct rkvdec_variant *variant;
->  };
-> @@ -137,6 +143,7 @@ struct rkvdec_ctx {
->  	struct v4l2_ctrl_handler ctrl_hdl;
->  	struct rkvdec_dev *dev;
->  	enum rkvdec_image_fmt image_fmt;
-> +	struct rkvdec_rcb_config *rcb_config;
->  	void *priv;
->  };
->  
-> @@ -145,10 +152,16 @@ static inline struct rkvdec_ctx *file_to_rkvdec_ctx(struct file *filp)
->  	return container_of(file_to_v4l2_fh(filp), struct rkvdec_ctx, fh);
->  }
->  
-> +enum rkvdec_alloc_type {
-> +	RKVDEC_ALLOC_DMA  = 0,
-> +	RKVDEC_ALLOC_SRAM = 1,
-> +};
-> +
->  struct rkvdec_aux_buf {
->  	void *cpu;
->  	dma_addr_t dma;
->  	size_t size;
-> +	enum rkvdec_alloc_type type;
->  };
->  
->  void rkvdec_run_preamble(struct rkvdec_ctx *ctx, struct rkvdec_run *run);
+> On 15. 12. 2025, at 14:51, Heiko Stuebner <heiko@sntech.de> wrote:
+>=20
+>=20
+> On Fri, 12 Dec 2025 17:23:35 +0100, "Martin Holovsk=C3=BD (Probably =
+Nothing s.r.o. )" wrote:
+>> The Radxa Rock 5T board features two RTL8125B 2.5GbE Ethernet =
+controllers
+>> connected via PCIe lanes pcie2x1l0 (fe170000) and pcie2x1l2 =
+(fe190000).
+>> Currently only one interface is functional because the PCIe =
+controller
+>> nodes lack the necessary reset GPIO configuration.
+>>=20
+>> Without the reset-gpios property, the RTL8125B PHYs remain in reset =
+state
+>> and are not enumerated by the PCIe bus. This results in only one =
+Ethernet
+>> interface being detected, or none at all depending on U-Boot =
+initialization.
+>>=20
+>> [...]
+>=20
+> Applied, thanks!
+>=20
+> [1/1] arm64: dts: rockchip: enable dual 2.5GbE on Rock 5T
+>      commit: 96029ffeccf677b1e4baa98f30909a83a485b6d7
+>=20
+> I've resorted both the pcie phandles as well as the pinctrl entries
+> pcie2-0 comes before pcie2-1 etc :-) .
+>=20
+> Best regards,
+> --=20
+> Heiko Stuebner <heiko@sntech.de>
 
 
