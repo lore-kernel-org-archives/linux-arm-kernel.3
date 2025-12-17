@@ -4,71 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9DB2D65528
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 10:12:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3453D65528
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 10:12:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3KiUP62ziTyOYcn8eCn7x6x4FDr4zU6mCOyHfG/J2go=; b=SG6k6CpWuFc0LuS5Bz6CYY5WN4
-	WleOm9d4N2QUXIpXSuzqRElDweJzRg3EW+3Alv+ngv7sMu6iQDuy8Y5C5xh0JjCEG8t8DoJW0d80X
-	Yj9dgCYw21NIl74NlB6V7jHuJ5dDIqoJ8HX4DvN7lwMHtu4YwAs+duBiuLTMZqAE2qPUucwiGjR3o
-	MBszOfIhGw3B8f3zEEJD0PH1YD4DRsAepvwJPcFopN2Qp3PpdMQgJzptp4UxFstxlvWAzU+Fr9Bm8
-	4+aBtZpscUUh0cgwOz3E90Gh8nSjru3allZcZ+6lNUaZExY8cS0GvTGmc3MQo72N3X6ATncO/0IIF
-	Dat12u3Q==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=K04ow0eNGFdOpSpME/SmZeUSWAE32cTHhjE42HTO9TQ=; b=39qQ9IF6m8AkdAJdJYjR+JRr82
+	0nqonr9QJTQ7LsSZt7xLyFlrY1vLJemi+3crdQ2PGTC51GaXOqGMk3FH0K5Iie6gzgpSgy0oLBfan
+	G7TZO34d0a78IpAKrS6miIlzsfAYE/DmLwG2UQf/JTbfjKIVjjzLepVVTybEnDAWaq40JCCjxRhJP
+	7JLGaQ3PGq1AcQDXVFOZO0VtbiQilvCBOR4uZzw6dhIGaFfRmPLj83xfYhpJ3n7wtZbb/5nFRTCw7
+	Bap4y2gjQsw4oajiyQRAA9Q+nVgDIvdj6tK8WUabQ/SMzUfO5r24KJvwMf8dpnEpMwHDrwhN70h8T
+	We6zrhdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVoVj-00000006Vqg-1Wjo;
+	id 1vVoVj-00000006Vr4-2t23;
 	Wed, 17 Dec 2025 10:11:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVoVg-00000006Von-1aEo
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vVoVh-00000006VpH-1rHB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 10:11:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B36D41517;
-	Wed, 17 Dec 2025 02:11:48 -0800 (PST)
-Received: from e122027.arm.com (unknown [10.57.45.201])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9744D3F73B;
-	Wed, 17 Dec 2025 02:11:51 -0800 (PST)
-From: Steven Price <steven.price@arm.com>
-To: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Cc: Steven Price <steven.price@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
+	Wed, 17 Dec 2025 10:11:58 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2a09d981507so3515295ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 02:11:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1765966316; x=1766571116; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=K04ow0eNGFdOpSpME/SmZeUSWAE32cTHhjE42HTO9TQ=;
+        b=BCCM3oIAngZl4BhSc9ReN2w7CDl1pq7gegvAQiOCjoUKXDieV2ij4j4ni+NI2WiZrI
+         GUzODFP8Nfga8tSl3wLxOpIphGDAuFpWA0yXIOPEIMjrnEjgZCZedevyxcXeNDTFGiYh
+         eDhdtNoReW/F0suG/7pa6fcB1WcXlD9RBeGjI=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765966316; x=1766571116;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=K04ow0eNGFdOpSpME/SmZeUSWAE32cTHhjE42HTO9TQ=;
+        b=waK0ku8YG6zNdDhmQAEZSMoJ5MF4rP3Nutc2lxUSAP+v4cJ9klTZHXtwDQD3OczYkT
+         BSbRjKfls4xRMVWUVjxW7f008ykbKwzcGYeVZaC6KwS34bZ2tJnokqFa8yJ8TCYKHhlL
+         gfSqo2qLIaIFy2IXwbTLHWo+7CGS0oH3974nugVCX8QUAn3Bzo3QhpMULI9Sv/Eryykc
+         9P9iwXDnOa3fq1N4yvMWmZfsG472UmBJT60pzxjMFQxTVhVyRY2NA7UvK9JlicqX6zcf
+         Vp0MckgKXdL8hSNmB1DLHmVPKMcw2B+f+M0JF6Kmj0ovGUKn0iKrOgF2ThKIz5NN2npp
+         8IRQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWQYcBCfXIb2BeIyZRdgiOb3uLhOBBZcKMvdas7SmD/MY/zmgHw30RNUVImDR7wHUofS6DyXY8ua/VOdyGi4E4T@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXfp4760QE4+WaU9t02+bJTLtX/uloFWT+rmqoVvcZgRCw37pf
+	G5nQUD99dJrsHr/6DwFr5qZvXXSv9L6pr25eiATPhiB4vAZj1GAJIgYZcRigRfnFoA==
+X-Gm-Gg: AY/fxX65QHjYAVO1EV3uG97/7/fK5BOfh+9lL01/FjUgYyqs72a3Czk2W5uwfxrXTFU
+	4KTmcwTVrhB4P04rXMuHo9o/WtASW1TXuX/Q1fRhhQfMa1dxDWW1voJc5YLxBDB/fIzonQbvEHq
+	wKJZTOQL8NxRLeVuZ5a38ZQvYklQOn00Z9/VRoqEcgSyNyi2mwhQFF2OeABzUn14kqpb7DevSAB
+	XKUWRuiBUoMjvSuSj7VerVCA0E7PblKxYitH3Ee5NyuP5XT1dtgVoBqNAw+BxpCQH7gnHemYnic
+	YIsLWLafq6ZyddraQngLM5qEFEs6YkaVcFSOn/ZrATCFPjiZh1dGV8lZvHZj6d31WPd9uLOOzvH
+	09lZiH936Zh3P6Je9VmuuLY8mIImIbihM6AXJmFxIty3l/HqACHTjsM9039utb5rAPQ/WbP+vNM
+	nmABAjp5Z4kwV+v662Au49SXiaXg1NooAozEnOR0ALuKQzxlblalk1In6jZB/eoKNjs9Rz
+X-Google-Smtp-Source: AGHT+IH9JDk9/8ttnmED8uX+Mmzi2jbUa2ALm/TceQ9Kmj2oqUNGhg7IR2LAST5VvPsW7hnAHuK+Yg==
+X-Received: by 2002:a17:902:ea0f:b0:2a0:9238:881d with SMTP id d9443c01a7336-2a092388d07mr158621885ad.15.1765966316255;
+        Wed, 17 Dec 2025 02:11:56 -0800 (PST)
+Received: from fshao-p620.tpe.corp.google.com ([2a00:79e0:201d:8:6cf9:c1ec:793:b8d8])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a0cf143804sm102912045ad.73.2025.12.17.02.11.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 17 Dec 2025 02:11:55 -0800 (PST)
+From: Fei Shao <fshao@chromium.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: Fei Shao <fshao@chromium.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>
-Subject: [PATCH v12 02/46] arm64: RME: Handle Granule Protection Faults (GPFs)
-Date: Wed, 17 Dec 2025 10:10:39 +0000
-Message-ID: <20251217101125.91098-3-steven.price@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251217101125.91098-1-steven.price@arm.com>
-References: <20251217101125.91098-1-steven.price@arm.com>
+	linux-mediatek@lists.infradead.org,
+	linux-spi@vger.kernel.org
+Subject: [PATCH] spi: mt65xx: Use IRQF_ONESHOT with threaded IRQ
+Date: Wed, 17 Dec 2025 18:10:47 +0800
+Message-ID: <20251217101131.1975131-1-fshao@chromium.org>
+X-Mailer: git-send-email 2.52.0.305.g3fc767764a-goog
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_021156_537404_72B1BF94 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20251217_021157_518972_E43962DC 
+X-CRM114-Status: GOOD (  12.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,75 +98,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If the host attempts to access granules that have been delegated for use
-in a realm these accesses will be caught and will trigger a Granule
-Protection Fault (GPF).
+This driver is migrated to use threaded IRQ since commit 5972eb05ca32
+("spi: spi-mt65xx: Use threaded interrupt for non-SPIMEM transfer"), and
+we almost always want to disable the interrupt line to avoid excess
+interrupts while the threaded handler is processing SPI transfer.
+Use IRQF_ONESHOT for that purpose.
 
-A fault during a page walk signals a bug in the kernel and is handled by
-oopsing the kernel. A non-page walk fault could be caused by user space
-having access to a page which has been delegated to the kernel and will
-trigger a SIGBUS to allow debugging why user space is trying to access a
-delegated page.
+In practice, we see MediaTek devices show SPI transfer timeout errors
+when communicating with ChromeOS EC in certain scenarios, and with
+IRQF_ONESHOT, the issue goes away.
 
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
-Signed-off-by: Steven Price <steven.price@arm.com>
+Signed-off-by: Fei Shao <fshao@chromium.org>
 ---
-Changes since v10:
- * Don't call arm64_notify_die() in do_gpf() but simply return 1.
-Changes since v2:
- * Include missing "Granule Protection Fault at level -1"
----
- arch/arm64/mm/fault.c | 28 ++++++++++++++++++++++------
- 1 file changed, 22 insertions(+), 6 deletions(-)
 
-diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-index be9dab2c7d6a..13b1d5de6d77 100644
---- a/arch/arm64/mm/fault.c
-+++ b/arch/arm64/mm/fault.c
-@@ -858,6 +858,22 @@ static int do_tag_check_fault(unsigned long far, unsigned long esr,
- 	return 0;
- }
+ drivers/spi/spi-mt65xx.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/spi/spi-mt65xx.c b/drivers/spi/spi-mt65xx.c
+index 4b40985af1ea..90e5813cfdc3 100644
+--- a/drivers/spi/spi-mt65xx.c
++++ b/drivers/spi/spi-mt65xx.c
+@@ -1320,7 +1320,7 @@ static int mtk_spi_probe(struct platform_device *pdev)
  
-+static int do_gpf_ptw(unsigned long far, unsigned long esr, struct pt_regs *regs)
-+{
-+	const struct fault_info *inf = esr_to_fault_info(esr);
-+
-+	die_kernel_fault(inf->name, far, esr, regs);
-+	return 0;
-+}
-+
-+static int do_gpf(unsigned long far, unsigned long esr, struct pt_regs *regs)
-+{
-+	if (!is_el1_instruction_abort(esr) && fixup_exception(regs, esr))
-+		return 0;
-+
-+	return 1;
-+}
-+
- static const struct fault_info fault_info[] = {
- 	{ do_bad,		SIGKILL, SI_KERNEL,	"ttbr address size fault"	},
- 	{ do_bad,		SIGKILL, SI_KERNEL,	"level 1 address size fault"	},
-@@ -894,12 +910,12 @@ static const struct fault_info fault_info[] = {
- 	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 32"			},
- 	{ do_alignment_fault,	SIGBUS,  BUS_ADRALN,	"alignment fault"		},
- 	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 34"			},
--	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 35"			},
--	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 36"			},
--	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 37"			},
--	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 38"			},
--	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 39"			},
--	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 40"			},
-+	{ do_gpf_ptw,		SIGKILL, SI_KERNEL,	"Granule Protection Fault at level -1" },
-+	{ do_gpf_ptw,		SIGKILL, SI_KERNEL,	"Granule Protection Fault at level 0" },
-+	{ do_gpf_ptw,		SIGKILL, SI_KERNEL,	"Granule Protection Fault at level 1" },
-+	{ do_gpf_ptw,		SIGKILL, SI_KERNEL,	"Granule Protection Fault at level 2" },
-+	{ do_gpf_ptw,		SIGKILL, SI_KERNEL,	"Granule Protection Fault at level 3" },
-+	{ do_gpf,		SIGBUS,  SI_KERNEL,	"Granule Protection Fault not on table walk" },
- 	{ do_bad,		SIGKILL, SI_KERNEL,	"level -1 address size fault"	},
- 	{ do_bad,		SIGKILL, SI_KERNEL,	"unknown 42"			},
- 	{ do_translation_fault,	SIGSEGV, SEGV_MAPERR,	"level -1 translation fault"	},
+ 	ret = devm_request_threaded_irq(dev, irq, mtk_spi_interrupt,
+ 					mtk_spi_interrupt_thread,
+-					IRQF_TRIGGER_NONE, dev_name(dev), host);
++					IRQF_ONESHOT, dev_name(dev), host);
+ 	if (ret)
+ 		return dev_err_probe(dev, ret, "failed to register irq\n");
+ 
 -- 
-2.43.0
+2.52.0.305.g3fc767764a-goog
 
 
