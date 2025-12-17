@@ -4,101 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E31DD6409F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 09:31:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AEAFD64099
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 09:32:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=reyxjbWnqQbkZ/PY9ifbYGWOG1VNVTq6TpSbrTRbFzs=; b=FgET8K4fH1Q4Wj8NPjY73DH6gW
-	/A3iUsSAKQnydKzg+0hzL2oSKv9tFSJ1f1apjc8r5Gg67Is7dJ76H9jovKX/cgFBXHDZKOQBax9Ds
-	AE5Fk2417Yzp/NgX7gC8jXHcZN6xMrLAFIZ2N0wPoeNF3kAo5NOvR3zJ0W8AA+c+/7qelrEFa9brb
-	nDi8NxkHcM7zn0PaI8JxHCFwTBQLa3ONJba2PzOIb6JY0FCWe+X0uu8icnUxnb+MFeAJLjVvnfR0N
-	oxcRHo5gjflOVuxI0i50+T8MOHSyMIz+28eXw5J70it1XLyyIeefVid9G/uqbVpwIT1RVcA7SviMl
-	wgXMKAVQ==;
+	bh=k5eSqAi+UmVzEQJzPdvYOyZ8r83jZpTMhH6t4IKjvyc=; b=akeS0sxfpOns/uwSTgC677D7Lz
+	9bR7e2iDPHZwCFJw5GXEzV7W9cv9mHkOMqpuSvyPXsTLGGGmsS44uTdP48WphxVYW1WxtPa22TZzr
+	t1W7HS9q589XLWjDdhKr9+vcHyXkqjgymyFZwNkqCX/FXNoH3GKvFsYTxkM17FYdPALDXpddaxB2B
+	Dl1NxrFnL39fOSplmrQtq8yHhj70lWnQIuMHtzm7oxoy4XSv6Z5fjD5+65P/zEsGrjhIHQS5GGSKX
+	co5sA5hajocKTQd95uxXxclzghBK10vLHkn0EkQLdZZl/tOP1leSBeVmh5/QpWKbnf8Lr6SP05LIL
+	sViMfiDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVnry-00000006PnR-34F5;
-	Wed, 17 Dec 2025 09:30:54 +0000
-Received: from mail-ed1-x541.google.com ([2a00:1450:4864:20::541])
+	id 1vVntL-00000006PwA-0m3W;
+	Wed, 17 Dec 2025 09:32:19 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVnrv-00000006Pmx-386O
+	id 1vVntI-00000006Pve-3iMv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 09:30:53 +0000
-Received: by mail-ed1-x541.google.com with SMTP id 4fb4d7f45d1cf-644f90587e5so9405072a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 01:30:51 -0800 (PST)
+	Wed, 17 Dec 2025 09:32:17 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BH86Riu1946768
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 09:32:16 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	k5eSqAi+UmVzEQJzPdvYOyZ8r83jZpTMhH6t4IKjvyc=; b=W94gv6xWyx61wULt
+	Ek1YjlEgwrMYRchM8lepWXGvncaTCf0L5BwyIPWatQ/g6dGbx2XEvGmhcQcIYVBo
+	KsXcUGNe7ZiOAkckuVJtN3anaiQUw25cnP336Ey51ctNlSxxpBYke9O8AhxUSCSO
+	qZbG2N6+DVOrSSLPMVkbqvWsmxM375FhNbIIclSVfu/xnCcX/mq7LFQWlXAJUli2
+	xRmoE0T8E9LbOtZFJtdat1WMezMqQXmY9mYbpaW2tJ6b2RbYsAkqfq5z2fH98nZw
+	8ehJU3EC2T9vfybnwZ5ECuwlcblQVGdpusc5JppVI9sjYe+r6aviOl3C1nVLfAX/
+	b06H9Q==
+Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4b3rqa89up-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 09:32:15 +0000 (GMT)
+Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-34cc8bf226cso3995231a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 01:32:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1765963850; x=1766568650; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1765963935; x=1766568735; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=reyxjbWnqQbkZ/PY9ifbYGWOG1VNVTq6TpSbrTRbFzs=;
-        b=pJV4Tlyi21ya+RpqB4UjNtSbKkRO04qyj2wsc81g0fedSScCtvqzag8DFeu5mVx06g
-         PdbLBnhBaiQ8fWein8Gf7DgPXztNHPnvZ2nhWXgyXit2/tz03AOky96hNcGYXzBQl/om
-         kr6Tgu21LoE4IbtqEutwEjASdpGzelKEO24MGJpWt4KWU7DYj425BXaQyI8eaxFh8Biv
-         twHtaHeQ/KPsM6zWcg5bEMJ7DO8v5gyfWmKjuq++6iQG/zegCDbCihdcHKHPVGsz6Qez
-         VEok5X9T0QeHe0FrlGuGtN89rvw8fIF7GSlNXzPbn4SgGZC2sAGTOh2U2FiwBEzd1M9U
-         ouew==
+        bh=k5eSqAi+UmVzEQJzPdvYOyZ8r83jZpTMhH6t4IKjvyc=;
+        b=UMog105vdoqxzLAYddeMhWrG1B18NC9N3BV1f3YC+YzoQFGRxHdntY2NRt7a7fDWHo
+         ggTjCIeCvIDw5qxSnQiPht1CStp713wi04jnQdNckK0lI/+rqGMhw7mncg5XgmSR5UYH
+         R1tfXH3PJ0fo29uz2rntA6X5jMMb9WBQ+YJt96UqgfCetxRDyezUzslsJndVM69DB+Rn
+         zLYAzkyKi5XNHw5XTxtwremM7e5gVp3d8cAfiT6rPCTtoXgP/r3793GnC9GZGlSA9qGi
+         IlWrRuTW6bJ/S1r8xtbhSS9jx3ijyZ2CWSDn3BID/hOOtnoHRcpmnqTEx7aTbGZ2RC+p
+         BP+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765963850; x=1766568650;
+        d=1e100.net; s=20230601; t=1765963935; x=1766568735;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=reyxjbWnqQbkZ/PY9ifbYGWOG1VNVTq6TpSbrTRbFzs=;
-        b=dOJQVrYKi/P6W8ueysFog/k+veXPVkljqbyXVLNfIM5fpQSvD1ZFXEq1AzX/r0V6RZ
-         X6K+P33zwMKgFF6E2uQ9h1TgNrJGN+cWSrHuTQO0b538NXWaV3K40uoVoBgI6G/cYgVj
-         r26nVAKOa2vK6YA2qKiZ6yJdxj0jw4oncK8NkX5YbKXsliRJpATsVBxRvdXWMGTP/H43
-         HQFl2x18RsSFu+RO6mdvti8dITc9lg/1VpG/R/QZKXTD5lLshOEZUlb0vGfmiEoEJeZz
-         slwIjPul64fXpRutcdXHNbu3SOr877/pa4u4DFab61tRfBc6oYljw50A2QLQ9BC7PcmB
-         DdSg==
-X-Forwarded-Encrypted: i=1; AJvYcCURB5atOROxX6qK1cTxfzgNxZtWpcNGnAQUWB60dRdfz8Q7CrxTxVgEPiiyTKA7UwFr2gP4D5qe0DxYxv8e7zso@lists.infradead.org
-X-Gm-Message-State: AOJu0YzGUpWOJVx+Cycu/uzUp7EWVnNGxRP+4DTIvqbYTZFKd6BcfawW
-	JNOi6kupGQdEDf/Q9cJG2pME9hDdKKRZK0tlTnQMiiUupxfhPJhGOd9UTkis+K0fnQs=
-X-Gm-Gg: AY/fxX7DlEh/2eONpcB6gYVNYC4BsB5CaeLCPOZn43147w0oIKbKK5dIvhpujeYoQhd
-	fYNBdmBw6B2PjwcL2d8FUli0ytdsqU6vr7rtbcIkr7Zl2PEMuor4Tr4TBosEUyzPTo7oU8W5FZL
-	JQstrS8LdzWAJzQwtB56+Cz3il2O4H1gBUeRqiixTATmOlILK70/Ggib+4NtL0hWI3LbiQDZa/9
-	W5QLY6cgRzUP5BburRezqRfWBXxPEgQpbROI20M4skKFOQu9qtwt43zOkNyovIg6Dqi0ydarj6w
-	dDmLxM0eq/AOqUbvInxuLzQ5AVnMMAaPu7+Vp0aKBdqBziKnti9OulGlDrJPUDfvLiyQMOmTSEJ
-	CmxoHXF2yj+ciWo8OmggAYKz1cSahc4ANqYDTIB5mq8WNLZdRB8S2oTXzyEYtIhnsijbLnTPEMu
-	fsKl8p9ebp4aVDH0hOzUPf
-X-Google-Smtp-Source: AGHT+IHo8MFKKOZcL4dFoI0ohz3Jq9DYwnbOFUbkPu3ssXHjV+PQjNsSYu4MEOkNhQs6nFW7YSQgzA==
-X-Received: by 2002:a05:6402:26cf:b0:649:6c78:dc48 with SMTP id 4fb4d7f45d1cf-6499b1e1a0fmr16912267a12.26.1765963849665;
-        Wed, 17 Dec 2025 01:30:49 -0800 (PST)
-Received: from [192.168.0.108] ([130.185.218.160])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-64b3f4ea39csm1870183a12.6.2025.12.17.01.30.48
+        bh=k5eSqAi+UmVzEQJzPdvYOyZ8r83jZpTMhH6t4IKjvyc=;
+        b=Azf3CO7P/ArdufSFbsVsQ3JSyvdK26MI9+MIwhQPa2gMXhqupwKaz/Bl6vtpjsTse9
+         dROTj9EAsZ1UH2Qrpp+13QjQZkT1zA9ec3jWZcInlclxPlg+kUWh6/B9Dv73eqpFPeIQ
+         hInITsSFg48jBEfXW/r1te0NCnD9xNe5x+7VuhAs2Zyvgg2CMuPneiwiotjyrx1F0dza
+         JexGk/fw8JjvTo/AnNj1APVt8CwHC8k7cAci45/XlB2MDO0VPh1EwEGFbyK4CHFoBCOS
+         PS32jPE81bvtxlRmJUvwS7pmFWeeULkDbArhXqDyG0z+L0cen3KcpTKEPeCZy8Tmepvv
+         8MUg==
+X-Forwarded-Encrypted: i=1; AJvYcCWBVHiUEM7rd8jATIcWhL6WK6rtMRUUIL0ideTMazrz4JMc6LQvR8LmTMwmtay5Gl5q3q/n2GG4Mce5fR/2ysPt@lists.infradead.org
+X-Gm-Message-State: AOJu0YxyyG6gttPKfP/j7NAZr2hOFkzCgw0ytdBOEVJ3Y4QLsatmoqJ7
+	4yG+FwbMRW+AJn4sZwkMsVD57w8ij3zhjfnfBhAajCU23gEqaey5r+P/GNY9NIaRN0JCErQf1ql
+	1bRnJDSvBQNWh9CD5LeL+ZsRAficJZZaZmd/1uNDvfFlOWbyl7gzK6BCIzuoyuy13+SNQ5iPI8x
+	m+1w==
+X-Gm-Gg: AY/fxX6A3X8wIIMvNspcxn1QXbArIT2lnQthaw2cIGLo9oCAFVd11FxCXPwOL7ueiia
+	xMyfjCtogztlSlfB7H8Yfx2y2YcUxBGfnLrz62tYXAjcG9wRuZ89517TRpm8CnmJ3pOI8jCxugi
+	r/vhYPh5XRvKXvV11m2Xrsx7i8KlxF9vrJDVBNM4ydD/OWPVCl8flljEKwG5Nf88PKUrUdM/9ja
+	ZHAz+8S7bwq/G0xAsQOEoRkJ/PRI1mIQqkEdY3QHV81qub51YfXATQnVWqOFeRc/kSyeeCrQ31R
+	tlmFjYkKNc5hKrfDp9Ibk8vLjhuaLHi0jmTGxGWJZ73oR5zQ+Hi5Uv9OGECM5D6PQi9Q3Mi+rIk
+	BuILUQRV3DDUnMApTT6bCjZmcWViTLu941S8d
+X-Received: by 2002:a17:90b:37c5:b0:341:2b78:61b8 with SMTP id 98e67ed59e1d1-34abd75b84cmr16118275a91.20.1765963935258;
+        Wed, 17 Dec 2025 01:32:15 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IH2IAzyeAsxmbkCnxnu4u0xxCDf9pVYnBNLb9NM9pOCNAkCdEN4BEa2l81OARdkqZ8OLtxezA==
+X-Received: by 2002:a17:90b:37c5:b0:341:2b78:61b8 with SMTP id 98e67ed59e1d1-34abd75b84cmr16118239a91.20.1765963934714;
+        Wed, 17 Dec 2025 01:32:14 -0800 (PST)
+Received: from [10.218.35.249] ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-34cfdc607c0sm1774392a91.12.2025.12.17.01.32.08
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 17 Dec 2025 01:30:49 -0800 (PST)
-Message-ID: <58d9f452-c075-4499-8975-387f3cdb052a@linaro.org>
-Date: Wed, 17 Dec 2025 11:30:47 +0200
+        Wed, 17 Dec 2025 01:32:14 -0800 (PST)
+Message-ID: <503f445e-0d12-407d-bc77-f48ad335639b@oss.qualcomm.com>
+Date: Wed, 17 Dec 2025 15:02:06 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 05/12] perf evsel: Add a helper to get the value of a
- config field
-To: Ian Rogers <irogers@google.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@linaro.org>, John Garry <john.g.garry@oracle.com>,
- Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>,
- linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
-References: <20251212-james-perf-config-bits-v3-0-aa36a4846776@linaro.org>
- <20251212-james-perf-config-bits-v3-5-aa36a4846776@linaro.org>
- <CAP-5=fUbr56hFd7e7yt33-gnhEGGa72GLmShQ5bCHxQjFAbFCQ@mail.gmail.com>
+Subject: Re: [PATCH v2 07/11] dt-bindings: clock: qcom: document the Kaanapali
+ GPU Clock Controller
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
+        Imran Shaik <imran.shaik@oss.qualcomm.com>,
+        Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
+        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org,
+        Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
+        Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+References: <20251125-kaanapali-mmcc-v2-v2-0-fb44e78f300b@oss.qualcomm.com>
+ <20251125-kaanapali-mmcc-v2-v2-7-fb44e78f300b@oss.qualcomm.com>
+ <20251126-elated-stoic-scorpion-25b630@kuoka>
+ <de44560d-4ed8-41fe-be7b-56412b933a8c@oss.qualcomm.com>
+ <fbe39eac-7c92-4a08-bafb-31e5c51a0613@kernel.org>
 Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <CAP-5=fUbr56hFd7e7yt33-gnhEGGa72GLmShQ5bCHxQjFAbFCQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+From: Taniya Das <taniya.das@oss.qualcomm.com>
+In-Reply-To: <fbe39eac-7c92-4a08-bafb-31e5c51a0613@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: 1HdxHiz0qNGElS2mjJwo671EwLA8CeJD
+X-Authority-Analysis: v=2.4 cv=ALq93nRn c=1 sm=1 tr=0 ts=694278a0 cx=c_pps
+ a=UNFcQwm+pnOIJct1K4W+Mw==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=EdL18t7L_n9XgEVTQngA:9 a=QEXdDO2ut3YA:10
+ a=uKXjsCUrEbL0IQVhDsJ9:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjE3MDA3NSBTYWx0ZWRfX9z3tQSlKRB3c
+ NUB7xYH42XUQ6YGcqEOF0Zu8SWAl+vIeOJbr7QgDDbTV0TRExFxETk1yGDkQARTyBN8Q+eOVc6t
+ +5gmrmWhi40RZ6e6V+mnMP43Zlw0NqGT5VIPMJkhdqepOAkvXmrMjvrIjl8AN2mlZGmRuRcVEye
+ AcnLMfImuXk/GQHG4X6RmvSdZ/3LeU40fZqNCJcoeS82qm9WTDvWiW1ExFMU/Rpx4ypBPmfpWCR
+ O5+fptAnQSjHok8GuFN722rzibL9BMZ1aHCP6OO+lizFTU1UeC9LmlGJNTiqpc3QDtZUaSl6CE1
+ Xy/TsOHjWYohcDvobYTjbVnCU+ufowpcfRsLL6sInf8yHEbS+GM63YIFLi1YgnCFTgIqXOCQNxk
+ 2jeKbIZoLpshxrMzcQJpQu2TOOCBuQ==
+X-Proofpoint-GUID: 1HdxHiz0qNGElS2mjJwo671EwLA8CeJD
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-12-17_01,2025-12-16_05,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 clxscore=1015 priorityscore=1501 malwarescore=0
+ suspectscore=0 phishscore=0 impostorscore=0 spamscore=0 adultscore=0
+ bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2510240001
+ definitions=main-2512170075
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_013051_883616_A079045F 
-X-CRM114-Status: GOOD (  29.20  )
+X-CRM114-CacheID: sfid-20251217_013216_934435_B1C2F8BB 
+X-CRM114-Status: GOOD (  24.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,204 +171,107 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 16/12/2025 22:44, Ian Rogers wrote:
-> On Fri, Dec 12, 2025 at 7:32 AM James Clark <james.clark@linaro.org> wrote:
+On 12/16/2025 2:21 PM, Krzysztof Kozlowski wrote:
+> On 04/12/2025 07:49, Taniya Das wrote:
+>>>> +  power-domains:
+>>>> +    description:
+>>>> +      Power domains required for the clock controller to operate
+>>>> +    items:
+>>>> +      - description: GFX power domain
+>>>> +      - description: GMXC power domain
+>>>> +      - description: GPUCC(CX) power domain
+>>>> +
+>>>> +  '#power-domain-cells':
+>>>
+>>> Power domain controllers do not belong to clocks, so this is:
+>>> 1. Misplaced - wrong folder
+>>> 2. Probably wrongly named. gxclkctl sounds like clock controller, but
+>>> this is domain controller?
+>>>
 >>
->> This will be used by aux PMUs to read an already written value for
->> configuring their events and for also testing.
->>
->> Its helper pmu_format_unpack() does the opposite of the existing
->> pmu_format_value() so rename that one to pmu_format_pack() so it's clear
->> how they are related.
->>
->> Signed-off-by: James Clark <james.clark@linaro.org>
->> ---
->>   tools/perf/util/evsel.h |  2 ++
->>   tools/perf/util/pmu.c   | 77 ++++++++++++++++++++++++++++++++++++++++++-------
->>   2 files changed, 68 insertions(+), 11 deletions(-)
->>
->> diff --git a/tools/perf/util/evsel.h b/tools/perf/util/evsel.h
->> index a08130ff2e47a887b19f6c47bfa9f51e0c40d226..092904a61ec7afdc59253f9b78a9fe8b7cb5bfa7 100644
->> --- a/tools/perf/util/evsel.h
->> +++ b/tools/perf/util/evsel.h
->> @@ -575,6 +575,8 @@ void evsel__uniquify_counter(struct evsel *counter);
->>          ((((src) >> (pos)) & ((1ull << (size)) - 1)) << (63 - ((pos) + (size) - 1)))
->>
->>   u64 evsel__bitfield_swap_branch_flags(u64 value);
->> +int evsel__get_config_val(struct perf_pmu *pmu, struct evsel *evsel,
->> +                         const char *config_name, u64 *val);
->>   void evsel__set_config_if_unset(struct perf_pmu *pmu, struct evsel *evsel,
->>                                  const char *config_name, u64 val);
->>
->> diff --git a/tools/perf/util/pmu.c b/tools/perf/util/pmu.c
->> index 514cba91f5d99b399d2d6a1e350971660c54a9fc..ef7358ad1fb955f29f2e68b3d0ce711754e4d67c 100644
->> --- a/tools/perf/util/pmu.c
->> +++ b/tools/perf/util/pmu.c
->> @@ -144,8 +144,8 @@ struct perf_pmu_format {
->>   };
->>
->>   static int pmu_aliases_parse(struct perf_pmu *pmu);
->> -static void pmu_format_value(unsigned long *format, __u64 value, __u64 *v,
->> -                            bool zero);
->> +static void pmu_format_pack(unsigned long *format, __u64 value, __u64 *v,
->> +                           bool zero);
->>   static struct perf_pmu_format *pmu_find_format(const struct list_head *formats,
->>                                                 const char *name);
->>
->> @@ -1377,6 +1377,61 @@ bool evsel__is_aux_event(const struct evsel *evsel)
->>          return pmu && pmu->auxtrace;
->>   }
->>
->> +/*
->> + * Unpacks a raw config[n] value using the sparse bitfield that defines a
->> + * format attr. For example "config1:1,6-7,44" defines a 4 bit value across non
->> + * contiguous bits and this function returns those 4 bits as a value.
->> + */
->> +static u64 pmu_format_unpack(u64 format, u64 config_val)
->> +{
->> +       int val_bit = 0;
->> +       u64 res = 0;
->> +       int fmt_bit;
->> +
->> +       for_each_set_bit(fmt_bit, &format, PERF_PMU_FORMAT_BITS) {
->> +               if (test_bit(fmt_bit, &config_val))
->> +                       res |= BIT_ULL(val_bit);
->> +
->> +               val_bit++;
->> +       }
->> +       return res;
->> +}
->> +
->> +int evsel__get_config_val(struct perf_pmu *pmu, struct evsel *evsel,
->> +                         const char *config_name, u64 *val)
+>> The GFXCLKCTL is actually a clock controller which has PLLs, clocks and
+>> Power domains (GDSC), but the requirement here is to use the GDSC from
+>> the clock controller to recover the GPU firmware in case of any
+>> failure/hangs. The rest of the resources of the clock controller are
+>> being used by the firmware of GPU. The GDSC is a clock controller
+>> resource and modeled from the clock controller drivers across chipsets.
 > 
-> nits:
-> This is an evsel__ function but the evsel is the 2nd argument not the first.
-> Why pass the PMU and not just read evsel->pmu (or better evsel__find_pmu) ?
+> This should be somewhere explained.
 
-That makes sense, I can do that.
+I will capture it in the binding description in the next patch set.
 
-> Why not place this in evsel.c to match the header file declaration?
-
-This was for consistency with evsel__set_config_if_unset() that Arnaldo 
-moved to pmu.c because of an issue with the Python bindings [1]. That 
-doesn't seem to be an issue any more so I could move both to evsel.c. 
-That would require making the following things public:
-
-   struct perf_pmu_format
-   pmu_format_pack()
-   pmu_format_unpack()
-   pmu_find_format()
-
-Probably not the end of the world though?
-
-[1]: https://lore.kernel.org/all/ZEbAS2yx2fguW60w@kernel.org/
-
-> The evsel could be likely be const.
+> 
+>>
+>>>> +    const: 1
+>>>> +
+>>>> +  reg:
+>>>> +    maxItems: 1
+>>>> +
+>>>> +required:
+>>>> +  - compatible
+>>>> +  - reg
+>>>> +  - power-domains
+>>>> +  - '#power-domain-cells'
+>>>> +
+>>>> +unevaluatedProperties: false
+>>>> +
+>>>> +examples:
+>>>> +  - |
+>>>> +    #include <dt-bindings/power/qcom,rpmhpd.h>
+>>>> +    soc {
+>>>> +        #address-cells = <2>;
+>>>> +        #size-cells = <2>;
+>>>> +
+>>>> +        clock-controller@3d68024 {
+>>>> +            compatible = "qcom,kaanapali-gxclkctl";
+>>>> +            reg = <0 0x3d68024 0x0 0x8>;
+>>>
+>>> Keep consistent hex, so first 0 -> 0x0.
+>>
+>> Sure, will fix this.
+>>
+>>> But the problem is that you defined a device for two registers,
+>>> basically one domain. I have doubts now whether this is complete and
+>>> real device.
+>>>
+>>
+>> As the Linux GPU driver requires only the GDSC, I have mapped the region
+>> which is required by the clock controller driver. If required, the
+>> entire region can be mapped as well.
+> 
+> Required is to properly describe the hardware, please read writing
+> bindings doc.
 > 
 
-Will do
+Sure, will map the entire region to be describe the entire hardware.
 
-> Thanks,
-> Ian
+>>
+>>>> +            power-domains = <&rpmhpd RPMHPD_GFX>,
+>>>> +                            <&rpmhpd RPMHPD_GMXC>,
+>>>> +                            <&gpucc 0>;
+>>>> +            #power-domain-cells = <1>;
+>>>
+>>> And cells 1 makes no sense in such case.
+>>>
+>>
+>> We would like to leverage the existing common clock driver(GDSC) code to
 > 
->> +{
->> +       struct perf_pmu_format *format = pmu_find_format(&pmu->format, config_name);
->> +       u64 bits = perf_pmu__format_bits(pmu, config_name);
->> +
->> +       if (!format || !bits) {
->> +               pr_err("Unknown/empty format name: %s\n", config_name);
->> +               *val = 0;
->> +               return -EINVAL;
->> +       }
->> +
->> +       switch (format->value) {
->> +       case PERF_PMU_FORMAT_VALUE_CONFIG:
->> +               *val = pmu_format_unpack(bits, evsel->core.attr.config);
->> +               return 0;
->> +       case PERF_PMU_FORMAT_VALUE_CONFIG1:
->> +               *val = pmu_format_unpack(bits, evsel->core.attr.config1);
->> +               return 0;
->> +       case PERF_PMU_FORMAT_VALUE_CONFIG2:
->> +               *val = pmu_format_unpack(bits, evsel->core.attr.config2);
->> +               return 0;
->> +       case PERF_PMU_FORMAT_VALUE_CONFIG3:
->> +               *val = pmu_format_unpack(bits, evsel->core.attr.config3);
->> +               return 0;
->> +       case PERF_PMU_FORMAT_VALUE_CONFIG4:
->> +               *val = pmu_format_unpack(bits, evsel->core.attr.config4);
->> +               return 0;
->> +       default:
->> +               pr_err("Unknown format value: %d\n", format->value);
->> +               *val = 0;
->> +               return -EINVAL;
->> +       }
->> +}
->> +
->>   /*
->>    * Set @config_name to @val as long as the user hasn't already set or cleared it
->>    * by passing a config term on the command line.
->> @@ -1432,7 +1487,7 @@ void evsel__set_config_if_unset(struct perf_pmu *pmu, struct evsel *evsel,
->>                  return;
->>
->>          /* Otherwise replace it */
->> -       pmu_format_value(&bits, val, vp, /*zero=*/true);
->> +       pmu_format_pack(&bits, val, vp, /*zero=*/true);
->>   }
->>
->>   static struct perf_pmu_format *
->> @@ -1477,8 +1532,8 @@ int perf_pmu__format_type(struct perf_pmu *pmu, const char *name)
->>    * Sets value based on the format definition (format parameter)
->>    * and unformatted value (value parameter).
->>    */
->> -static void pmu_format_value(unsigned long *format, __u64 value, __u64 *v,
->> -                            bool zero)
->> +static void pmu_format_pack(unsigned long *format, __u64 value, __u64 *v,
->> +                           bool zero)
->>   {
->>          unsigned long fbit, vbit;
->>
->> @@ -1595,23 +1650,23 @@ static int pmu_config_term(const struct perf_pmu *pmu,
->>                  switch (term->type_term) {
->>                  case PARSE_EVENTS__TERM_TYPE_CONFIG:
->>                          assert(term->type_val == PARSE_EVENTS__TERM_TYPE_NUM);
->> -                       pmu_format_value(bits, term->val.num, &attr->config, zero);
->> +                       pmu_format_pack(bits, term->val.num, &attr->config, zero);
->>                          break;
->>                  case PARSE_EVENTS__TERM_TYPE_CONFIG1:
->>                          assert(term->type_val == PARSE_EVENTS__TERM_TYPE_NUM);
->> -                       pmu_format_value(bits, term->val.num, &attr->config1, zero);
->> +                       pmu_format_pack(bits, term->val.num, &attr->config1, zero);
->>                          break;
->>                  case PARSE_EVENTS__TERM_TYPE_CONFIG2:
->>                          assert(term->type_val == PARSE_EVENTS__TERM_TYPE_NUM);
->> -                       pmu_format_value(bits, term->val.num, &attr->config2, zero);
->> +                       pmu_format_pack(bits, term->val.num, &attr->config2, zero);
->>                          break;
->>                  case PARSE_EVENTS__TERM_TYPE_CONFIG3:
->>                          assert(term->type_val == PARSE_EVENTS__TERM_TYPE_NUM);
->> -                       pmu_format_value(bits, term->val.num, &attr->config3, zero);
->> +                       pmu_format_pack(bits, term->val.num, &attr->config3, zero);
->>                          break;
->>                  case PARSE_EVENTS__TERM_TYPE_CONFIG4:
->>                          assert(term->type_val == PARSE_EVENTS__TERM_TYPE_NUM);
->> -                       pmu_format_value(bits, term->val.num, &attr->config4, zero);
->> +                       pmu_format_pack(bits, term->val.num, &attr->config4, zero);
->>                          break;
->>                  case PARSE_EVENTS__TERM_TYPE_LEGACY_HARDWARE_CONFIG:
->>                          assert(term->type_val == PARSE_EVENTS__TERM_TYPE_NUM);
->> @@ -1749,7 +1804,7 @@ static int pmu_config_term(const struct perf_pmu *pmu,
->>                   */
->>          }
->>
->> -       pmu_format_value(format->bits, val, vp, zero);
->> +       pmu_format_pack(format->bits, val, vp, zero);
->>          return 0;
->>   }
->>
->>
->> --
->> 2.34.1
->>
+> Fix the driver code if it cannot handle other cells. Your drivers do not
+> matter for choices made in bindings.
+> 
+
+As it is still a clock controller from hardware design and in SW I will
+be map the entire hardware region and this way this clock controller
+will also be aligned to the existing clock controllers and keep the
+#power-domain-cells = <1> as other CCs.
+
+>> register the power-domains and also maintain uniformity across chipsets
+>> and consistency in consumer GDSC phandle usage.
+> 
+> There is no such consistency rule. Don't make up your own rules.
+> 
+-- 
+Thanks,
+Taniya Das
 
 
