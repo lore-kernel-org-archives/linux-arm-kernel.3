@@ -4,96 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE0C7D66B9A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 20:05:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49907D66BA1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 20:14:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KkZw88bP/WyfJ8Slp31S2XqQ4vEo9HvTWj1BeMFalg4=; b=30NGSxk5S+Xzu7NzB/G8u2F2aI
-	wSTieRzJIprCgJuzAK3wxipMb2/uhSSqLYN/y5kiPTKzaHilYvqutQFqPp/PhiwNI0isU3Mo+0UcT
-	sNCKLcgz430j+kc7sh8i5klXDe3XJs1ow+k8daVzxDH7PtnHJa3QaXCV8ZgdkzIy0bZNvdajVzK6q
-	mu12Lajbo3WAHlmRGVoy8+sOXkVT7agLOVxD9spl3znA7nwp5ajqCbFzUAhkS11vdrdM1xlYW5a8L
-	4AjfJTxlbTWLRC+h2fTZ1I8LTV6DPw6B1pv+xPZ6GrBQTBK4JS9AXPmsy5uINWHpsQGzrlLnKdKdP
-	m9WUPrgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tM/V/k/fSUtW462XR6FXOM+8RdQaX18bynBaXcytSDg=; b=SERT1hMhHsfHydqQlU5C1P3/h1
+	I12sQUFTmTquXvBsy3Dhv0/ihQuLfMc1A1ZU25q3oYqTekXTYoSC8u/qRJ0onOQsm2SkZ/eOjORlr
+	hELWCzt7hhxtYuBNCq7fBBweeK00+514ay72IiuP0E9bgGk2malSm4ngd2EQWgX2Wl9reb3R54QX7
+	C+N5zVskZjVqOhJTLkfM1TJVOfYgd66VFw/j7Mn+Dih2CRNtaUdnbbpmS8kUR6PnV3HYbKgpSj0eO
+	lz0yIqQdGakHYHgIoDpRWQ6m3EsdWXxCtQ28M6EIn8gOMhuxEKkI6g3VJXwDpM9oFf7Vr3nuXViUo
+	dKY8Icgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVxmH-00000007M7y-1W7C;
-	Wed, 17 Dec 2025 20:05:41 +0000
-Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
+	id 1vVxv2-00000007MTB-1cg4;
+	Wed, 17 Dec 2025 20:14:44 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVxmD-00000007M7X-0uRc
+	id 1vVxuz-00000007MSi-3os4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 20:05:40 +0000
-Received: by mail-pf1-x443.google.com with SMTP id d2e1a72fcca58-7bf0ad0cb87so7786842b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 12:05:36 -0800 (PST)
+	Wed, 17 Dec 2025 20:14:43 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-b7a72874af1so956943766b.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 12:14:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1766001936; x=1766606736; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=KkZw88bP/WyfJ8Slp31S2XqQ4vEo9HvTWj1BeMFalg4=;
-        b=tMpnN0N0vzfNViHe2wg2AsoZGLVEg32J0mcfeB5SseyVbg7xxFygCtphkek5+VKneS
-         SANd2ay0Y4kuYDMjmF3TlJExpTXXLa8y8hf8RNNmaz8zb3TGt+eYajk4GJqFcOSmThem
-         tCoLJ2NXsza4mBbmRAX8VQeW1ryN98jXxWyh7l/vfEXcCj9rDerStMh/OM73bUqdX0Gx
-         A2vKjy6+zTLVmAOcXCzds5UAtZZkKh75J6VrlyMJXsAz5qBgaSDc4Wz/y7YxG+rbs7oo
-         cvQQCVW3LmYkKkoyUgo+gzYYI6O/BTYHINu4MEhx7Zbg2oNd4dt0wPJodxL1VLzbrb2b
-         ESyQ==
+        d=google.com; s=20230601; t=1766002479; x=1766607279; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tM/V/k/fSUtW462XR6FXOM+8RdQaX18bynBaXcytSDg=;
+        b=C5uFFYXmy4njvccB+bWknmaiHdOv8OQjBrQZ4lt8kX8i2y6Btku+uugfp374ZsjvNF
+         r4gmo0FZu/yohvNO8FyYJZPMVpuFdoBfn5R0ETDOnsopR05WxoJXL6+cB5PZJhuQZqxV
+         3J51eI6bTC7k7m6qSpUcU63Ns/2DJ9yhdFF6hOYLe65YU2Dx1pJJYDY4O9NB7A0j3ZDY
+         gePufz+BEKrThTT+rZxeUCqD5qnI+FsHCfPeaM0M16bvGM8w1piTpl0zPku4jJyVeODe
+         7xDMIqAqr08Xt3d/LjEFqxPP74f0q8anKtCq+zE0NR/cw1R+6ayMiT6e/KPbx08rzfqZ
+         Tfeg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766001936; x=1766606736;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=KkZw88bP/WyfJ8Slp31S2XqQ4vEo9HvTWj1BeMFalg4=;
-        b=UI5oSy0WMTsm8n8uTRlbfHL0G4tsYSS5cJktiH6luUiLOWEosdvG9gIMrilMTRqc84
-         9PIotQc2vEOc7ei7nr3K+JCsJ2MYdVLjdmuTz/r6G3/hFP1lNpyFvkWzSyFYFTpLzmPa
-         NnLOZpO4j2qgRDn+x9rZYCI7BzLxB/QAAqv5BS2NJg7Wj80wddxCxu+x2Bxw4B9N3UYM
-         2q+2yo0caA4pLoq9P8nhHe6epoOtji+mME9AVbNneXtAcwQqtpdsNkeCPjdJZ17u8zif
-         tPlyYW3EePU/vlorWdcn2zAkdztibQ73Okad6af34M7j6QXPPy6FseLOeD7EjHlA0gQb
-         CqCA==
-X-Forwarded-Encrypted: i=1; AJvYcCVz9q+sEk33ktCnRbySmDY90d6mnWwiUndFW74LhFfOuEKyarUd6dE73tts2ynCeIhw9M0Buq+/mq4NbDBQFlAQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyi1JlPb6HiM9wnhKXW6QRX8AHmSVxdrtvDbREmNhunX81YMnpH
-	PtvJNGxc/WE8Yht3KW+JxoYvWKzLG/JBeLqPmeswUu8UK/kkp1MHXIq9ZrBjJfnXOdQ=
-X-Gm-Gg: AY/fxX6g4/fK2utguUcGl1XqHrQDNqYGuX6f8GEJ22apO2SX2TQKL9Zg5e42b5ujqQ5
-	KWDkoTUK96rOfX8TVgj2TsOpL7cqxevM7Ox5fboFMjgm21OG3vOftu8+XLsxvfZWxfQ+qjFtsPa
-	GNrUbWhkWioFD3UVmxbZSNbCCPqqM8+8WYfNcu5KfuVSZsNj1PR5ljqH64s8k6g7os9WXCjrcAA
-	pam2zueZg4vcwRu6yPBI+PJgjgXy2BGevJXl9FRAQebGNJre23o2ofNy3YFrUu15jA882qlIw42
-	Z16HYE7Wp86npTFR5KkOyFf0VmD+6eWxawY6ZAZ2jqz1PEiFF7Ws32rilTBq8hoK55PW0hQ8ACR
-	2qiKU3l4NloMkLtJMBVu8Qu1e+A7atxGzEUtaO3s+uc8vGyoGLe6f8sXGwAeZPXcb9dxNODGqJU
-	pKARRxKj85r1fgVg1IZXrHl/Q=
-X-Google-Smtp-Source: AGHT+IGVFo2yytymuAHw5hqToh3gZn9Ym3kLzhpy9bauNTlCV7XCowv2jhys9XWTGUuET8Vi204aBA==
-X-Received: by 2002:a05:6a20:7344:b0:366:581e:1a07 with SMTP id adf61e73a8af0-369afff165cmr18496165637.60.1766001936049;
-        Wed, 17 Dec 2025 12:05:36 -0800 (PST)
-Received: from p14s ([2604:3d09:148c:c800:cfb9:c35:9f28:8222])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c1d304d1909sm206545a12.31.2025.12.17.12.05.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Dec 2025 12:05:35 -0800 (PST)
-Date: Wed, 17 Dec 2025 13:05:32 -0700
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Daniel Baluta <daniel.baluta@gmail.com>
-Cc: Daniel Baluta <daniel.baluta@nxp.com>, andersson@kernel.org,
-	m.szyprowski@samsung.com, shawnguo@kernel.org,
-	kernel@pengutronix.de, festevam@gmail.com,
-	arnaud.pouliquen@foss.st.com, robh@kernel.org,
-	geert+renesas@glider.be, linux-remoteproc@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, iuliana.prodan@nxp.com
-Subject: Re: [PATCH v2] remoteproc: imx_dsp_rproc: Fix multiple start/stop
- operations
-Message-ID: <aUMNDPDgN7ACvry9@p14s>
-References: <20251210154906.99210-1-daniel.baluta@nxp.com>
- <aUHZaapZ1IAs_mRE@p14s>
- <CAEnQRZC0WU+MGfZ5z3yJCz==MBCcFG4BUwNs2v1ABOMkiRbPrw@mail.gmail.com>
+        d=1e100.net; s=20230601; t=1766002479; x=1766607279;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=tM/V/k/fSUtW462XR6FXOM+8RdQaX18bynBaXcytSDg=;
+        b=snVPJrDIoCC9ey6VMXGflNq4+NkVRsGXZUVGDrUUlp1nA2Qrdv02FncNEq7hzWAvak
+         DZwIuq2G6vlCRiN952pM2WPjXtLqxCSFVpqbU63jnV/sJQ5REWj0aE+OkIS+gOutuWOg
+         wwrGrQ2ikcQ5uwKmnmNkB24VTQhmsmpf6vhy9qqZe1AWtYYRYCPPBJheSMB4XXQYNllS
+         pzlv09rke1oGalDsTdB216PSx6HzIv2wseeKPi5YsK3jua+76a/isGMpueYm4HUKZmUa
+         lszG5sLw/NHsJDtJZ3HHrtiKKZGpmf7R93w31klB923tyH/y3+C9kkMvY6a8avAkH44M
+         nejg==
+X-Forwarded-Encrypted: i=1; AJvYcCWNzvhVfBgLmTTrU5GJv5kHRbz5njzXYL8U56GOeM/YHHyHgJQ5zDQxsrJJc0kSTRBGfObbZDhhC7tzKA9Wq/+I@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQQBWserVCYKkNlqd5yT3kUh/3M+dmebcmmycR9On3H7VPr3sE
+	gVTDIfz2HjoqcfEiFUcIfRQHvhf0lREAuLlotsZrgPcChktC71nCd2RASJrYM87aNudcWEBBTuG
+	yYlWmb1JRoPuCWc7dipjfhR01xAXWanqpv42l/BiY
+X-Gm-Gg: AY/fxX7atuONnLeCPS8BYH8TbclNT1pyCKC/JB4aC7pGLFSeJFWj8KqbMqHMFRL1dFg
+	6vv/GcSTg852RgWqAqecjyDsNPYhjtiKvbYKQ+sfY3TRtLXZ934hv+jYHHgtrJ/sUzKfmTV80H0
+	TPtHHdBZudaE74bO7naL1bT8FfrojmSFLa9GxHl751+cnmmbABE4YqdEU6kEne4FxWhuxL05eaK
+	UiMiDKxP+YHjUT09CejJHz0BPaW86+iQ7/Hgicw+4+LUeVDXyeJAwm23cXXRofaq1ZCNkK2SUai
+	9n4W8rYPLMRXLbkG01RF6a36Dw==
+X-Google-Smtp-Source: AGHT+IG4PFt6/xl6TY17qdZDo/fSC5jvUriMDmtoPhK6WjCwoIZvzT7uFwVBMWf3+gIeet+IH6pEPp4HA0evjsAE9aQ=
+X-Received: by 2002:a17:907:96a6:b0:b79:d152:566a with SMTP id
+ a640c23a62f3a-b7d236ca22emr1906214666b.28.1766002478506; Wed, 17 Dec 2025
+ 12:14:38 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAEnQRZC0WU+MGfZ5z3yJCz==MBCcFG4BUwNs2v1ABOMkiRbPrw@mail.gmail.com>
+References: <20251205-controller-v9-0-9f158b18f979@google.com>
+ <20251205-controller-v9-2-9f158b18f979@google.com> <2025120553-suffrage-divisive-5890@gregkh>
+ <CA+zupgzL7v5MZDpxKDQQCqAZaqTdHbiG9-xTr+8RnigMFZJ_7Q@mail.gmail.com>
+ <2025121728-reliably-crabgrass-2601@gregkh> <CA+zupgxZCyNonfNPbGnFymGGOQuaWR1TsL+hujTbH4DEcfEt9Q@mail.gmail.com>
+In-Reply-To: <CA+zupgxZCyNonfNPbGnFymGGOQuaWR1TsL+hujTbH4DEcfEt9Q@mail.gmail.com>
+From: Doug Anderson <dianders@google.com>
+Date: Wed, 17 Dec 2025 12:14:25 -0800
+X-Gm-Features: AQt7F2r-ws7J5EyDz0pvtMEQpxK_o2RQbdVkWKJTgzdUasSvuVkdkxrUDLQsMMI
+Message-ID: <CAD=FV=U63F-wxwKDo9be6_X2P2zp6aTBjNghZRbXX1rn4jFNyg@mail.gmail.com>
+Subject: Re: [PATCH v9 2/2] usb: dwc3: Add Google Tensor SoC DWC3 glue driver
+To: Roy Luo <royluo@google.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Peter Griffin <peter.griffin@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Badhri Jagan Sridharan <badhri@google.com>, linux-usb@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_120539_502722_5075C421 
-X-CRM114-Status: GOOD (  36.17  )
+X-CRM114-CacheID: sfid-20251217_121441_994878_8A1A1C2E 
+X-CRM114-Status: GOOD (  33.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,135 +105,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 17, 2025 at 02:57:24PM +0200, Daniel Baluta wrote:
-> On Wed, Dec 17, 2025 at 12:13 AM Mathieu Poirier
-> <mathieu.poirier@linaro.org> wrote:
-> >
-> > Good day,
-> >
-> > On Wed, Dec 10, 2025 at 05:49:06PM +0200, Daniel Baluta wrote:
-> > > After commit 67a7bc7f0358 ("remoteproc: Use of reserved_mem_region_*
-> > > functions for "memory-region"") following commands with
-> > > imx-dsp-rproc started to fail:
-> > >
-> > > $ echo zephyr.elf > /sys/class/remoteproc/remoteproc0/firmware
-> > > $ echo start > /sys/class/remoteproc/remoteproc0/state
-> > > $ echo stop > /sys/class/remoteproc/remoteproc0/state
-> > > $ echo start > /sys/class/remoteproc/remoteproc0/state #! This fails
-> > > -sh: echo: write error: Device or resource busy
-> > >
-> > > This happens because aforementioned commit replaced devm_ioremap_wc with
-> > > devm_ioremap_resource_wc which will "reserve" the memory region with the
-> > > first start and then will fail at the second start if the memory
-> > > region is already reserved.
-> > >
-> > > Even partially reverting the faulty commit won't fix the
-> > > underlying issue because we map the address in prepare() but we never
-> > > unmap it at unprepare(), so we will keep leaking memory regions.
-> > >
-> > > So, lets use alloc() and release() callbacks for memory carveout
-> > > handling. This will nicely map() the memory region at prepare() time
-> > > and unmap() it at unprepare().
-> > >
-> > > Fixes: 67a7bc7f0358 ("remoteproc: Use of_reserved_mem_region_* functions for "memory-region"")
-> > > Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
-> > > ---
-> > > Changes since v1:
-> > >  * https://lore.kernel.org/imx/091a4f29-5435-428a-9a1c-ef82465211cb@nxp.com/T/#t
-> > >  * took a different approach and instead of partially reverting the
-> > >   faulty patch, used alloc() and release() callbacks to handle memory
-> > >   region mapping.
-> > >  drivers/remoteproc/imx_dsp_rproc.c | 50 ++++++++++++++++++++----------
-> > >  1 file changed, 33 insertions(+), 17 deletions(-)
-> > >
-> > > diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
-> > > index 5130a35214c9..83468558e634 100644
-> > > --- a/drivers/remoteproc/imx_dsp_rproc.c
-> > > +++ b/drivers/remoteproc/imx_dsp_rproc.c
-> > > @@ -644,6 +644,32 @@ static void imx_dsp_rproc_free_mbox(struct imx_dsp_rproc *priv)
-> > >       mbox_free_channel(priv->rxdb_ch);
-> > >  }
-> > >
-> > > +static int imx_dsp_rproc_mem_alloc(struct rproc *rproc,
-> > > +                                struct rproc_mem_entry *mem)
-> > > +{
-> > > +     struct device *dev = rproc->dev.parent;
-> > > +     void *va;
-> > > +
-> > > +     va = ioremap_wc(mem->dma, mem->len);
-> > > +     if (!va) {
-> > > +             dev_err(dev, "Unable to map memory region: %pa+%zx\n",
-> > > +                     &mem->dma, mem->len);
-> > > +             return -ENOMEM;
-> > > +     }
-> > > +
-> > > +     mem->va = va;
-> > > +
-> > > +     return 0;
-> > > +}
-> > > +
-> > > +static int imx_dsp_rproc_mem_release(struct rproc *rproc,
-> > > +                                  struct rproc_mem_entry *mem)
-> > > +{
-> > > +     iounmap(mem->va);
-> > > +
-> > > +     return 0;
-> > > +}
-> > > +
-> > >  /**
-> > >   * imx_dsp_rproc_add_carveout() - request mailbox channels
-> > >   * @priv: private data pointer
-> > > @@ -659,7 +685,6 @@ static int imx_dsp_rproc_add_carveout(struct imx_dsp_rproc *priv)
-> > >       struct device *dev = rproc->dev.parent;
-> > >       struct device_node *np = dev->of_node;
-> > >       struct rproc_mem_entry *mem;
-> > > -     void __iomem *cpu_addr;
-> > >       int a, i = 0;
-> > >       u64 da;
-> > >
-> > > @@ -673,15 +698,10 @@ static int imx_dsp_rproc_add_carveout(struct imx_dsp_rproc *priv)
-> > >               if (imx_dsp_rproc_sys_to_da(priv, att->sa, att->size, &da))
-> > >                       return -EINVAL;
-> > >
-> > > -             cpu_addr = devm_ioremap_wc(dev, att->sa, att->size);
-> > > -             if (!cpu_addr) {
-> > > -                     dev_err(dev, "failed to map memory %p\n", &att->sa);
-> > > -                     return -ENOMEM;
-> > > -             }
-> > > -
-> > >               /* Register memory region */
-> > > -             mem = rproc_mem_entry_init(dev, (void __force *)cpu_addr, (dma_addr_t)att->sa,
-> > > -                                        att->size, da, NULL, NULL, "dsp_mem");
-> > > +             mem = rproc_mem_entry_init(dev, NULL, (dma_addr_t)att->sa,
-> > > +                                        att->size, da, imx_dsp_rproc_mem_alloc,
-> > > +                                        imx_dsp_rproc_mem_release, "dsp_mem");
-> >
-> > Was there a reason you kept those here rather than moving them to probe() as
-> > Iuliana suggested?  Note that I would be fine with this solution since this is
-> > how it was before, but if we have to go through a refactoring we may as well
-> > take those things into account.
-> 
-> Tried moving imx_dsp_rproc_add_carveout at probe() time but it doesn't work
-> because stop() will clean the carveout list and then the next start() will fail.
-> 
-> at probe()
-> imx_dsp_rproc_add_carveout
-> -> rproc_add_carveout (adds allocated carveout to the list).
-> 
-> at start():
->    -> first start OK
-> 
-> at stop()
->    -> rproc_shutdown
->        -> rproc_stop
->        -> rproc_resource_cleanup ;//cleans up careveout allocations
-> 
-> at next start()
->      -> CRASH
+Hi,
 
-I have applied this patch.
+On Wed, Dec 17, 2025 at 11:18=E2=80=AFAM Roy Luo <royluo@google.com> wrote:
+>
+> On Wed, Dec 17, 2025 at 5:24=E2=80=AFAM Greg Kroah-Hartman
+> <gregkh@linuxfoundation.org> wrote:
+> >
+> > On Thu, Dec 04, 2025 at 11:14:39PM -0800, Roy Luo wrote:
+> > > On Thu, Dec 4, 2025 at 10:05=E2=80=AFPM Greg Kroah-Hartman
+> > > <gregkh@linuxfoundation.org> wrote:
+> > > >
+> > > > On Fri, Dec 05, 2025 at 02:26:38AM +0000, Roy Luo wrote:
+> > > > > +config USB_DWC3_GOOGLE
+> > > > > +     tristate "Google Platform"
+> > > > > +     depends on ARCH_GOOGLE || COMPILE_TEST
+> > > >
+> > > > There is no ARCH_GOOGLE in the tree now, so how is this supposed to
+> > > > work?  Shouldn't tools that check for "invalid config options" trig=
+ger
+> > > > on this?
+> > > >
+> > > > thanks,
+> > > >
+> > > > greg k-h
+> > >
+> > > Hi Greg,
+> > >
+> > > The menuconfig looks like the following and it doesn't complain:
+> > > | Symbol: ARCH_GOOGLE [=3DARCH_GOOGLE]
+> > > | Type  : unknown
+> > > |
+> > > | Symbol: PHY_GOOGLE_USB [=3Dy]
+> > > | Type  : tristate
+> > > | Defined at drivers/phy/Kconfig:104
+> > > |     Prompt: Google Tensor SoC USB PHY driver
+> > > |     Depends on: ARCH_GOOGLE || COMPILE_TEST [=3Dy]
+> > >
+> > > According to Kconfig documentation [1], the unknown symbol
+> > > would simply be evaluated as an "n", which is what we want.
+> > > "Convert the symbol into an expression. Boolean and tristate
+> > > symbols are simply converted into the respective expression
+> > > values. All other symbol types result in =E2=80=98n=E2=80=99."
+> > >
+> > > In a different Kconfig documentation, an environment variable
+> > > "KCONFIG_WARN_UNKNOWN_SYMBOLS" is there to detect
+> > > undefined symbols in the "config input", but I can't find one that
+> > > catches undefined symbols in the Kconfig tree itself.
+> > >
+> > > That is, the tool seems to allow this.
+> > > However, if this turns out to be a major problem. I think we
+> > > can either:
+> > > - Remove ARCH_GOOGLE and leave COMPILE_TEST as
+> > >   the only dependency. Then add ARCH_GOOGLE back
+> > >   later once it's in the tree.
+> >
+> > Please do this.  I do not want to take patches that purposfully add
+> > dependencies on config options that might, or might not, appear in the
+> > future.  Please just remove all of the dependancies for now, as they ar=
+e
+> > not needed, right?
+> >
+> > thanks,
+> >
+> > greg k-h
+>
+> Greg,
+>
+> Yes, we can remove ARCH_GOOGLE for now.
+> To clarify, we're not removing all of the dependencies, we still want
+> to keep COMPILE_TEST for build tests, right?
+> Please let me know if you think otherwise.
 
-Thanks,
-Mathieu
+I think you'd just remove all of them. Normally COMPILE_TEST just
+allows folks to compile stuff even when they don't want the ARCH. We
+can can add ARCH_GOOGLE back in later once the config exists.
 
+-Doug
 
