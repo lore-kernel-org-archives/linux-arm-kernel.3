@@ -4,51 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31157D65C4F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 14:20:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9075DD65C4F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 14:21:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:
-	Subject:From:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Cc
+	:Subject:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
 	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FXeSnaeUCeq2poCC8SB7HwoeEyqC5tY0nRKawuzYQpY=; b=txCMAFWX5RY8iNlzqXsqqBPla2
-	5faiCOZ/ZUxD1v2j417Xgs7N5v3SN2r/D5yx7/J/SoPRiYznr2RSYxm4mI9rlc4aEm7GSFRPlOn/I
-	92jFHg7ZzNB0neJ30PzmIGCBTX/cH6Kpd35GfOevh6yCFvnX1swbJHOhhGQstXCt9fT3VJSZhn9Vx
-	PcOywDWCMb4USuP41A612K0U0n40dv8vWc0lo+kE362pEDggU+lZOFBcu7f0nilLSOoezFpAQVmJg
-	/Xyzp9Lro3NUxG3HnoDyZ4MShzI8EKBEpWhh+32myWyoTHi389LumvcRKmNovnMIlWQgJMaP6veYc
-	1JgweC0w==;
+	bh=fzuwhM6lbndckRqp5riuGOoINfb0fnQbjhJBQ4T2P2Y=; b=jbmmyIYXwP4NUA1yUY+pVL4AqJ
+	lqOmcHe5NAuM9gRZPulyeukd1CSVAyERxLhzhkFLLz0Sn2ELiw/BWItvzr/VyZcb5vhWfrUNihLWV
+	qlisbLr1ScoGdrZRv4mLnGmzNGdVE5udDx7vQ50i8oWydadOjPyEQfBDvpD9eRK+zmToFXzgMf6jF
+	MEcC62ywDJN9gL7LPJbm926wSnco1FHtJ+53lkoXiepkZW9Gr3ew6O1gPqB+vqbCwWwlGmhNT2dUB
+	EZljAWdHzcxmPrtNmXWYBuBLpbLvS5HSrjdmlizAKTtwRIXMZonm/unSaJ0FQPqDkrUlUYxXtfwpc
+	tvmpHD1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVsOF-00000006urr-3HWt;
-	Wed, 17 Dec 2025 14:20:31 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vVsOq-00000006uxi-0Wvw;
+	Wed, 17 Dec 2025 14:21:08 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVsOC-00000006uqd-2pxj
+	id 1vVsOn-00000006uwD-1C7D
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 14:20:31 +0000
+	Wed, 17 Dec 2025 14:21:06 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 1AB454E41C63;
-	Wed, 17 Dec 2025 14:20:25 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id E9DC9C1A59E;
+	Wed, 17 Dec 2025 14:20:32 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id D2B406072F;
-	Wed, 17 Dec 2025 14:20:24 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C5F1C102F0AD5;
-	Wed, 17 Dec 2025 15:20:10 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 7856B6072F;
+	Wed, 17 Dec 2025 14:20:57 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2AD0C102F0AE7;
+	Wed, 17 Dec 2025 15:20:50 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1765981219; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1765981256; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=FXeSnaeUCeq2poCC8SB7HwoeEyqC5tY0nRKawuzYQpY=;
-	b=LHcy7tbcWgKNnbGmUxOlMOBySmxpFEfq3HpPYCboxqOS0InHSE2jsyLPoDc6g1K2IZE/7t
-	3buuqUiZoTVvR0KidqwpqnHZzuKCUrptEpiBRoyQ+XN66Ig72pyOXXTojG9kVBcfJkjeps
-	An6pX7EtnKRkGqT25rAc1S1a38lAMmftuJ6bcaNx/7W/7w4s3gmhv6/Hmo2jd27iegZQtk
-	lwjk63yzkf+h3o1fjamDFT12Z/8OSL8U62AuB06sLvCQTTeox8gqrmmjCBjcoqZSdvcbtH
-	4OAyX3SjocA/4RKzdC1VUi35zIKIQVzSlYEL8nN7+dYicXCQbgjQOJo3UvTMFA==
+	bh=fzuwhM6lbndckRqp5riuGOoINfb0fnQbjhJBQ4T2P2Y=;
+	b=uo/EpFVW114mOVRPBJ6qYD906sPlDPXN6KS04EyTCQk5y1TX+kbG/JzkDeugkXJ2ezYT8I
+	oxd6n6GjqVr7w5osstXPY1iHWlwu9tdSbCRbaQI9oU54oVAsYQD8nOzUchcVzDMn3q/O36
+	3iWM9AGXAJELmC0B3cYuHKVKoIfTVAs3ZPby1bZ4lLuvsxnOgNhGbzgChpU7CV2x1wrP6+
+	rkufEsTngy2GmQKMyl2Ea7odZkZqV8Eyrzn8PCApU94zRhA2LhHiGg1Rhahcp/YOWZu1Rh
+	DyaVdBflWfKg9JDLDyhcnxQgGy63jUuATOVpWltDbPwZXWFNXSZfuvojxc5LyA==
 Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Date: Wed, 17 Dec 2025 15:20:09 +0100
-Message-Id: <DF0K3BRQKOSI.10X5SMXI1YM60@bootlin.com>
+Date: Wed, 17 Dec 2025 15:20:49 +0100
+Message-Id: <DF0K3U9DB08N.2LEUCUUQ7FN0L@bootlin.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH v2 04/20] drm/tilcdc: Add support for DRM bus flags and
+ simplify panel config
+Cc: "Markus Schneider-Pargmann" <msp@baylibre.com>, "Bajjuri Praneeth"
+ <praneeth@ti.com>, "Louis Chauvet" <louis.chauvet@bootlin.com>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>, "Miguel Gazquez"
+ <miguel.gazquez@bootlin.com>, <dri-devel@lists.freedesktop.org>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-omap@vger.kernel.org>
 To: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>, "Jyri Sarha"
  <jyri.sarha@iki.fi>, "Tomi Valkeinen" <tomi.valkeinen@ideasonboard.com>,
  "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
@@ -62,22 +71,15 @@ To: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>, "Jyri Sarha"
  <rfoss@kernel.org>, "Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>,
  "Jonas Karlman" <jonas@kwiboo.se>, "Jernej Skrabec"
  <jernej.skrabec@gmail.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v2 03/20] drm/tilcdc: Remove simulate_vesa_sync flag
-Cc: "Markus Schneider-Pargmann" <msp@baylibre.com>, "Bajjuri Praneeth"
- <praneeth@ti.com>, "Louis Chauvet" <louis.chauvet@bootlin.com>, "Thomas
- Petazzoni" <thomas.petazzoni@bootlin.com>, "Miguel Gazquez"
- <miguel.gazquez@bootlin.com>, <dri-devel@lists.freedesktop.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-omap@vger.kernel.org>
 X-Mailer: aerc 0.20.1
 References: <20251211-feature_tilcdc-v2-0-f48bac3cd33e@bootlin.com>
- <20251211-feature_tilcdc-v2-3-f48bac3cd33e@bootlin.com>
-In-Reply-To: <20251211-feature_tilcdc-v2-3-f48bac3cd33e@bootlin.com>
+ <20251211-feature_tilcdc-v2-4-f48bac3cd33e@bootlin.com>
+In-Reply-To: <20251211-feature_tilcdc-v2-4-f48bac3cd33e@bootlin.com>
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_062028_843926_61481031 
-X-CRM114-Status: GOOD (  13.45  )
+X-CRM114-CacheID: sfid-20251217_062105_553255_F01912E9 
+X-CRM114-Status: UNSURE (   9.10  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,42 +94,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi K=C3=B6ry,
-
 On Thu Dec 11, 2025 at 5:38 PM CET, Kory Maincent (TI.com) wrote:
-> The tilcdc hardware does not generate VESA-compliant sync signals. It
-> aligns the vertical sync (VS) on the second edge of the horizontal sync
-> (HS) instead of the first edge. To compensate for this hardware
-> behavior, the driver applies a timing adjustment in mode_fixup().
+> Migrate CRTC mode configuration to use standard DRM bus flags in
+> preparation for removing the tilcdc_panel driver and its custom
+> tilcdc_panel_info structure.
 >
-> Previously, this adjustment was conditional based on the simulate_vesa_sy=
-nc
-> flag, which was only set when using external encoders. This appears
-> problematic because:
+> Add support for DRM_BUS_FLAG_PIXDATA_DRIVE_NEGEDGE and
+> DRM_BUS_FLAG_SYNC_DRIVE_NEGEDGE flags to control pixel clock and sync
+> signal edge polarity, while maintaining backward compatibility with the
+> existing tilcdc panel info structure.
 >
-> 1. The timing adjustment seems needed for the hardware behavior regardles=
-s
->    of whether an external encoder is used
-> 2. The external encoder infrastructure is driver-specific and being
->    removed due to design issues
-> 3. Boards using tilcdc without bridges (e.g., am335x-evm, am335x-evmsk)
->    may not be getting the necessary timing adjustments
+> Simplify several hardware parameters by setting them to fixed defaults
+> based on common usage across existing device trees:
+> - DMA burst size: 16 (previously configurable via switch statement)
+> - AC bias frequency: 255 (previously panel-specific)
+> - FIFO DMA request delay: 128 (previously panel-specific)
 >
-> Remove the simulate_vesa_sync flag and apply the VESA sync timing
-> adjustment unconditionally, ensuring consistent behavior across all
-> configurations. While it's unclear if the previous conditional behavior
-> was causing actual issues, the unconditional adjustment better reflects
-> the hardware's characteristics.
+> These parameters show no variation in real-world usage, so hardcoding
+> them simplifies the driver without losing functionality.
+>
+> Preserve FIFO threshold configurability by detecting the SoC type, as
+> this parameter varies between AM33xx (8) and DA850 (16) platforms.
 >
 > Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
 
-Code looks good. Based on your testing, which covered both boards currently
-setting simulate_vesa_sync and boards not setting it:
-
 Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-
-Still it would be good to have this series, and especially this patch,
-tested by someone having access to other TI boards.
 
 --
 Luca Ceresoli, Bootlin
