@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1203D5C0C9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 04:33:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DC93D5C0C9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 04:43:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y0J3PnL2BKaLoFuJGvyxGh17PgdmTUCfDKR9Hdls1sA=; b=HLeiOFShuQyNtIRUJMtxNEvC9q
-	FnOv78F7OXlPksbvFqZ4cH7G4v7kC6IbKXVRO6UfkYz79mUf8Ax+mbnUYG4q//Zs92SIuJQxYaNY/
-	2eno9Bc0HBVc7DpfUgF86sEBalUpD6NybxmhqwxxTYMio/rFa083dqNfnC+05ZFkdeJ3uuPpJ1mIG
-	QTZoGokUevl+bzU7dePzj97f7MSdfR8TGQZqZxRZyuI/8JcC9LXFY0z4aFZXRn2g9yWAUPojLZYQx
-	5gGZ5Uzq2LIIgr/oRMkLLX0ULi5aVxVLweH24ovB6WtOb17/jrVVvKtayFNHVhgHyw9EUR+ZAkZ2Y
-	IZWtOvKw==;
+	bh=wntWIHSg9UY6achikBORjG8viGhEJfOq4UuJcKAlK+g=; b=cTeFdnBJlstr9j0yE+8myZSbHK
+	dxvfbaxaUOWiNoyDJUC0xD3XrEst4DPDM7axGIFgmQxjGSWEqw7x2J0XcKq5CA3nexA0mMnmHItxC
+	8D3oLYXsZbnlrPPQjP7cklyXp8foF6rTg5f7OeWJ2xjngU/0X5SwV3zIPTpTIKWQ0lw5VK+9VI1d2
+	JB4VAqfQTtEdsnH/76bE2PkX91BBla3/w0MM2yEb7m92hpTOSVN4HcIQR5sa3IHY7+3Gqmz8tMa6v
+	zpSpVPXtxYLVDi9P48mAMnb1i7j3xE6Ryz1m0d5rBG7YQcxWG5BtMiPBcb+4wpUrvriQx30L3Ohbu
+	I+s3E1cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVjEE-00000006A2Z-0CcK;
-	Wed, 17 Dec 2025 04:33:34 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1vVjNx-00000006AKS-0RsF;
+	Wed, 17 Dec 2025 04:43:37 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVjE9-00000006A2B-3KVd
+	id 1vVjNt-00000006AK0-3jsz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 04:33:32 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20251217043320epoutp013c206831fd11ba8e3ef71bc484d6da3e~B5ofuCEaG0108401084epoutp01I
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 04:33:20 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20251217043320epoutp013c206831fd11ba8e3ef71bc484d6da3e~B5ofuCEaG0108401084epoutp01I
+	Wed, 17 Dec 2025 04:43:35 +0000
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20251217044325epoutp04a238374486771c423dabdfa5c004515e~B5xTDSlNh0475304753epoutp04A
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 04:43:25 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20251217044325epoutp04a238374486771c423dabdfa5c004515e~B5xTDSlNh0475304753epoutp04A
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1765946000;
-	bh=y0J3PnL2BKaLoFuJGvyxGh17PgdmTUCfDKR9Hdls1sA=;
+	s=mail20170921; t=1765946605;
+	bh=wntWIHSg9UY6achikBORjG8viGhEJfOq4UuJcKAlK+g=;
 	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=Si8KYqBcRT1XjtFJRIKLJmNTT2vCPV0FEyBJY6rbA5A0ANTBSKS5s52tt2Kd6vB9H
-	 qdvK58Y85NRkVpvNtHS71KaS1a/uhh9B0/osnkh4nQZkvZHQke2mxGc0t2EvRehP3B
-	 eZ+SVgnjscriQHHvs9vEYmxE86ceHwPZNRAVj7Tw=
-Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
-	20251217043319epcas5p4985f521bd57309ed404f3b9218d41b59~B5ofIagsg1310513105epcas5p4_;
-	Wed, 17 Dec 2025 04:33:19 +0000 (GMT)
-Received: from epcas5p1.samsung.com (unknown [182.195.38.90]) by
-	epsnrtp02.localdomain (Postfix) with ESMTP id 4dWLWy5d7sz2SSKX; Wed, 17 Dec
-	2025 04:33:18 +0000 (GMT)
+	b=DOFN8gqSfX4toBLOtYCQ6YJ2t6OnrPP44OERtI64Vlmhqprxld4RD8WXh5P3o7lNM
+	 fjXbILz8j2haDKLMdDrLD5uRoWg0NCQ2oFLYnZuEOLpQPbwKlIbSo6PCKhxJCkXeIv
+	 3mWpBgkWmQB7yDZ8iJP660c8RL/tQUxFkC53Efps=
+Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
+	20251217044324epcas5p24766d5be3325dd37a25ca3b25c734ff1~B5xSnBQPo2573425734epcas5p2U;
+	Wed, 17 Dec 2025 04:43:24 +0000 (GMT)
+Received: from epcas5p2.samsung.com (unknown [182.195.38.88]) by
+	epsnrtp01.localdomain (Postfix) with ESMTP id 4dWLlb5Hq5z6B9m6; Wed, 17 Dec
+	2025 04:43:23 +0000 (GMT)
 Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
-	20251217043317epcas5p303a51a5ecae59ec994dec8d1ae7bce9d~B5odYEZVn2667326673epcas5p3T;
-	Wed, 17 Dec 2025 04:33:17 +0000 (GMT)
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
+	20251217044323epcas5p1509325d070f6a5bbdccafa4b07e22010~B5xRH2t390460304603epcas5p1k;
+	Wed, 17 Dec 2025 04:43:23 +0000 (GMT)
 Received: from INBRO002756 (unknown [107.122.3.168]) by epsmtip2.samsung.com
 	(KnoxPortal) with ESMTPA id
-	20251217043313epsmtip22e5d96625da110faf098ce06ffa52b64~B5oZAxP-T0687206872epsmtip2k;
-	Wed, 17 Dec 2025 04:33:12 +0000 (GMT)
+	20251217044320epsmtip29c4e29ee7c9ce92651fcdd7810bfd325~B5xO67pQn1118811188epsmtip21;
+	Wed, 17 Dec 2025 04:43:20 +0000 (GMT)
 From: "Alim Akhtar" <alim.akhtar@samsung.com>
 To: "'Youngmin Nam'" <youngmin.nam@samsung.com>, <krzk@kernel.org>,
 	<s.nawrocki@samsung.com>, <linus.walleij@linaro.org>,
@@ -62,29 +62,29 @@ Cc: <ryu.real@samsung.com>, <d7271.choe@samsung.com>,
 	<shin.son@samsung.com>, <jaewon02.kim@samsung.com>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
 	<linux-gpio@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-In-Reply-To: <20251202093613.852109-3-youngmin.nam@samsung.com>
-Subject: RE: [PATCH v3 2/5] pinctrl: samsung: fix incorrect pin-bank entries
- on Exynos2200/7885/8890/8895
-Date: Wed, 17 Dec 2025 10:03:10 +0530
-Message-ID: <12a401dc6f0e$441ae1f0$cc50a5d0$@samsung.com>
+In-Reply-To: <20251202093613.852109-5-youngmin.nam@samsung.com>
+Subject: RE: [PATCH v3 4/5] pinctrl: samsung: fold GS101 pin-bank macros
+ into EXYNOS9_*
+Date: Wed, 17 Dec 2025 10:13:19 +0530
+Message-ID: <12a501dc6f0f$ace76270$06b62750$@samsung.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQF3wuMlGH6lOpjjwF0q/fgc3qftgQIr5xjBAatK81O1z9vLcA==
+Thread-Index: AQF3wuMlGH6lOpjjwF0q/fgc3qftgQHmAf8yAbO5uNu10cjf4A==
 Content-Language: en-us
-X-CMS-MailID: 20251217043317epcas5p303a51a5ecae59ec994dec8d1ae7bce9d
+X-CMS-MailID: 20251217044323epcas5p1509325d070f6a5bbdccafa4b07e22010
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
 CMS-TYPE: 105P
 cpgsPolicy: CPGSC10-542,Y
 X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20251202093027epcas2p24adbd3226dd50b2780baceee6588f3ba
+X-CMS-RootMailID: 20251202093028epcas2p1955176332d21ce4cadf7ed8894c5c1fa
 References: <20251202093613.852109-1-youngmin.nam@samsung.com>
-	<CGME20251202093027epcas2p24adbd3226dd50b2780baceee6588f3ba@epcas2p2.samsung.com>
-	<20251202093613.852109-3-youngmin.nam@samsung.com>
+	<CGME20251202093028epcas2p1955176332d21ce4cadf7ed8894c5c1fa@epcas2p1.samsung.com>
+	<20251202093613.852109-5-youngmin.nam@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_203331_028906_9EB4FBA5 
-X-CRM114-Status: GOOD (  15.69  )
+X-CRM114-CacheID: sfid-20251216_204334_578879_133739FF 
+X-CRM114-Status: GOOD (  11.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,7 +99,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Youngmin
+Hi Youngmin
 
 > -----Original Message-----
 > From: Youngmin Nam <youngmin.nam=40samsung.com>
@@ -113,55 +113,34 @@ m;
 > kernel=40lists.infradead.org; linux-samsung-soc=40vger.kernel.org; linux-
 > gpio=40vger.kernel.org; linux-kernel=40vger.kernel.org; Youngmin Nam
 > <youngmin.nam=40samsung.com>
-> Subject: =5BPATCH v3 2/5=5D pinctrl: samsung: fix incorrect pin-bank entr=
-ies on
-> Exynos2200/7885/8890/8895
+> Subject: =5BPATCH v3 4/5=5D pinctrl: samsung: fold GS101 pin-bank macros =
+into
+> EXYNOS9_*
 >=20
-> This patch corrects wrong pin bank table definitions for 4 SoCs based on =
-their
-> TRMs.
+> GS101 had dedicated GS101_PIN_BANK_EINT=7BG,W=7D helpers, but they are
+> redundant with EXYNOS9_PIN_BANK_EINT=7BG,W=7D (same semantics, including
+> the per-bank .eint_fltcon_offset).
+> This change removes the GS101_* macros and switches the GS101 pin-bank
+> tables to the EXYNOS9_* helpers with exynos9_bank_type_=7Balive,off=7D.
+> While here, update the struct comment to note FLTCON is Exynos9-specific
+> (not 'GS101-specific').
 >=20
-> Exynos2200
-> - gpq0/1/2 were using EXYNOS_PIN_BANK_EINTN(), which implies a
->   'bank_type_off' layout (.fld_width =3D =7B4,1,2,2,2,2=7D).
-> - Per the SoC TRM these banks must use the 'alive' layout
->   (.fld_width =3D =7B4,1,4,4=7D).
-> - Switch them to EXYNOS9_PIN_BANK_EINTN(exynos9_bank_type_alive, ...).
->=20
-> Exynos7885
-> - etc0, etc1: update bank type to match the SoC TRM.
-> - gpq0 is a non-wakeup interrupt bank; change EINTW -> EINTN accordingly.
->=20
-> Exynos8890
-> - Per the SoC TRM, rename bank ect0 to gpb3 and mark it as
->   a non-external interrupt bank.
-> - gpi1, gpi2: update bank type to match the SoC TRM.
->   exynos8895_bank_type_off (.fld_width =3D =7B4,1,2,3,2,2=7D) ->
->   exynos5433_bank_type_off (.fld_width =3D =7B4,1,2,4,2,2=7D)
-> - Per the SoC TRM, mark etc1 as a non-external interrupt bank.
-> - apply lower case style for hex numbers.
->=20
-> Exynos8895
-> - gpa4 is a non-wakeup interrupt bank per the SoC TRM.
->   change EINTW -> EINTN. (The bank_type itself was correct and is kept
->   unchanged.)
-> - apply lower case style for hex numbers.
->=20
-> This aligns the pin-bank tables with the documented bitfield layouts and
-> wakeup domains. No DT/ABI change.
+> One macro family for all Exynos9-era SoCs (incl. GS101) reduces copy-past=
+e
+> drift and keeps the FLTCON handling consistent.
+> There is no functional change.
 >=20
 > Signed-off-by: Youngmin Nam <youngmin.nam=40samsung.com>
 > Reviewed-by: Sam Protsenko <semen.protsenko=40linaro.org>
-> Reviewed-by: Ivaylo Ivanov <ivo.ivanov.ivanov1=40gmail.com>
+> Reviewed-by: Peter Griffin <peter.griffin=40linaro.org>
 > Tested-by: Sam Protsenko <semen.protsenko=40linaro.org>
+> Tested-by: Peter Griffin <peter.griffin=40linaro.org> (tested on Pixel6/g=
+s101)
 > ---
-
 Reviewed-by: Alim Akhtar <alim.akhtar=40samsung.com>
 
-Tested on Exynosautov920 SADK board
+Tested this series on Exynosautov920 sadk board
 
 Tested-by: Alim Akhtar <alim.akhtar=40samsung.com>
-
-
 
 
