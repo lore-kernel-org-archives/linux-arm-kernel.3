@@ -4,93 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B776D66B85
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 19:18:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90FF2D66B85
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 19:19:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CK2xc4O1CWL3YyR5Jlk5dSHvCSo9+K5mz+4BdYDHf5E=; b=O5bdcCdqHtsjwXrsazBsRmJncB
-	vQe4pemezSjUfiuIL6l4OePegkWYFYwn21FEhQGmiiUdhkr4TLEEZHwIuJsiMtzp7NBshdjewEdZH
-	76WRar1snZASxSGNO6cZdvlv7w2OjTqzHSiyuFSrA6YY7+3hpTXXhP0b8KOcmiuR2TtVVxlAV/83t
-	Sf2TreY3nV+RKwH39+f0ZeiMavbmWAJaYn8+K/JM4U1+89QIOpeb+xck1F9t1sMEz6kg3BNa4/Dth
-	iXgtO8FM0R62GkBJ8lR/zYXxLvWqd2Pxw3xY+bCE2V2xlkD6ruH2xZu8OhNK80q+7CX6bLyFDr//n
-	x6PotuKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hBD8zTV/fZZabLsCtTOJeEByxi2eZY1xLjHhJuYgSgk=; b=kIVZmdL73pRMAntgmQ6Rl7Uky2
+	jKgWKrbEVHYlLoCc9VqRmSmaup0LCLWW/x2X1K9V1cg7dqKI4Gqqu+T44nsxuO2YDUHQnvJUe2pZm
+	QVDw5hwqWTLu7vD+gEd3hTW8FvWmYSmBlk5xU1375aQjZ5eQA/5PfCCS7jmn6oyROLkEV7CvcF5/G
+	YvNRR9+eeGFx/OJ3RQiOXEKkkzWUztqeo1n/iD9pVvoBOOX/bI2BlPk4atwmwOEMD2Cv3OxcTzxQ9
+	TPZOYstU4saGx4+LOUck83Mey6h2cdujp8WGvFdK5kp4Kj6lrbWtXiMiD3vvA2oUE20quKUkZlr9P
+	h7coyJ0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVx2M-00000007Jgv-15ap;
-	Wed, 17 Dec 2025 19:18:14 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1vVx3m-00000007JqP-2oQ3;
+	Wed, 17 Dec 2025 19:19:42 +0000
+Received: from mail-westeuropeazon11010018.outbound.protection.outlook.com ([52.101.69.18] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVx2K-00000007JgO-08TW
+	id 1vVx3k-00000007Jpw-2gv4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 19:18:13 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-7bc248dc16aso5109586b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 11:18:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1765999091; x=1766603891; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CK2xc4O1CWL3YyR5Jlk5dSHvCSo9+K5mz+4BdYDHf5E=;
-        b=Vtj5J/K0enmVw5buHxgIAzJ5IEDN2J4b51qWhYefHPJIPEosO1uUlWl00p9aRGv04N
-         bFjkdFNEytxKbQDX3Ylapq8//IdBkXblnr4tehw8NijvXF13gwyxtgVCg+scuWk4tKMe
-         MdOrMgi+oMAXk6OipUV7MWqklzQZV1pLW+0fI3/GUSM3+9drDYgVKzhrZxWnSog7ubj9
-         RfXLabTMk4UPqXCuaC5v2bOxL/evS+Zqa6kDarJTsU4wwfBIo/bM3kSP78B0uoMPpnTm
-         BgfmYmAvM8pJzO8P3mDMC4AnnFBI3sEzXXqEPqynGLew+9UabZgkQBoWyaxmeejaDYih
-         YFkw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765999091; x=1766603891;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=CK2xc4O1CWL3YyR5Jlk5dSHvCSo9+K5mz+4BdYDHf5E=;
-        b=tJvJOr+7DUcw97EFH+P0xqT5UpYKDL8A5Guo8vZEbO+k6cwNKWHaqQA9aeHy8wMP4A
-         F7oaWhuJSEI3XMbmhCQiFLp2xpmbcwXAbKjeJQ5vYIfkd5zUja6J7EuoRaDWruqx4JFQ
-         yaCm/2AAK9iqvaCUaONWGtiJCwqY5WEZlgvBEmyMnVDX4S6yjeesAYquLwwdzQKDnBTU
-         nQwi2RatQn09vCW7efPFHNDbnisKjbnOIbqa997aEhHUIWLO1PsRjlUsAYbZ487s1gTD
-         GNT7jNam4hKI4l9tJWUOXqssJKySzehFweH5FGWsg0hDPSxPteixsl2Zt8zEJN5F8oiQ
-         HTiw==
-X-Forwarded-Encrypted: i=1; AJvYcCVhPc68Nu978Ie2HKtF7+lgq7jd8GKGN2RP4qPKblcN8q94nWzqtpxoaSaOH1k8RftWCGYsQmRa3ckwiKo1qEvp@lists.infradead.org
-X-Gm-Message-State: AOJu0YxAkK4nlP88DH17uDb5Xxe2867HpNJ6EwRiSA5/l/IgBnXf/whz
-	VIuRP+kO7oS3rxox1feZetrfmT9ZZXuac8jr1foiMN3yKHh8D+1bRelaxFJYrkDD5PNq7sy6pdG
-	gbolOMGasMrJhRfx17jby3qUY68YsgNu3SNsZXRRX
-X-Gm-Gg: AY/fxX4Z4/vhaIYFEgrsz9Fl1GdNyHQz6lJqOk6wDFmmbvFakcSC9Ds+4P4HvsBTmk6
-	yLM8L1eaVsI8fE4isWtc5/ZXpgIesQC2gc73N2sb+E/QhS6ewm1TIQVK79R4jUVPr6P+d6iEerZ
-	98zheKY8VJgbD+v/8N+9t20OvRkvGeWigCswEDVuTBsa7Pn8x6YVgWoYre6a2QrfNV7JMdcN+/Z
-	dSD8Sib+4UBNLhgdwHw5eRFFdaLyPH9JQrP0ClOi6QlomZHxbCeCmiqVgSQcbatyZFDEzSQEuM+
-	2hRFk+9DAlmBlHTP4FOQ/IJY5A==
-X-Google-Smtp-Source: AGHT+IHU2vpetQSDEWGYm+Y16+Q+hMrDA20ASiwjGw22PJF4oOT0FZWKdk6jDg2jAFGB5cCqYCpdKNR8qXBpSDUqoaU=
-X-Received: by 2002:a05:7022:7e09:b0:11b:a892:80a5 with SMTP id
- a92af1059eb24-11f349c5953mr12769514c88.13.1765999090603; Wed, 17 Dec 2025
- 11:18:10 -0800 (PST)
+	Wed, 17 Dec 2025 19:19:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jgskuyzA6esYZRzGSsAKU5aMA7SFtH5UDtE97DtFSjw0g7Geo4/voKSIZKP7AiIrMZvMdB4Ynl8L3Szqspc9IIyQ1Gbpd96jqmC6JinPpvj6DI08pHcE722yhlAbPKmUQHV2P6sAp+VNSy9KqYwWIbN2jqhnVDhOLcC2eKU+gC70Y2H9ZeX1Sx2UwP1RBZN5WBBLQWbuZrxv1l6SVcl8q5czeu5VpGjvGyZR7DdWXgZUd1SRNa2tG7aEcSl4LuNBWMGZYKqfK2d9kkD+LKzh4SLayd033S903otQ0Oz/JfhfxWIkBV4wyPSZV5OGZ05pVswexe2wUtp7v+xJ20GW8g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hBD8zTV/fZZabLsCtTOJeEByxi2eZY1xLjHhJuYgSgk=;
+ b=AnPArGPn9sHm6xtD+L3nYJuvBeR+5DaMB5oub1EbnU954EyisyDS3xwb6F9J6XdOMJ30fUnxlfw0hHbLik6dmWgLkE5qSYqPXZ4I9BWcrQUT+V0gi60/sWoQW+4gdMfPP6Po/psEwSsrcjOBf469S2MPDAhzzVD6eqM168aYgcLCLnK1hLpbK57UPx+Ecipm+FJiNM3QHtJH4LJ3kpmpsq69/A3ECsqgsHDwEd4fyojINmUX7b6lEG6b/TXhi1NHaZHoYjAGGK1eNhrF9Wm8ipRoSwMTnqcuauUQGw66YZlPTqyWf/2JeX+U9fQx7ZmI8hcCcNeTJA9WgiiXiuTjsQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hBD8zTV/fZZabLsCtTOJeEByxi2eZY1xLjHhJuYgSgk=;
+ b=O2KwuoGPJSIw20Kg2DO88iuTYMg/weBrIEQSLUPRN1lqbdvYXcB9LJFXeXEBro2nHKiI572p1o2qbuUyofZZBO5b9/gnHfd+mRS/CC2tj9geGIeotf98NXIWmEmw2MDKY2oSZv4Mrd8LxP4Ztr2VevyZSIcXwiHWB52O9eywmcCfuePJsDe/iTVfyZ4Hsu6IcDFyZ0mMLSG0Dqp1UWZakW94pIzQCgr16x8SPcwVqtGBlRnaosI3tfI6suqZ5fJup3fLF2W4dIsLK+3z/+TKwIsf6/ryxdCucY3lJuvUEYWRuxGkb+VmRjOs6F/UnjE3Tx1SXFHLY+eNB+CDcozVcw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
+ by GV2PR04MB12018.eurprd04.prod.outlook.com (2603:10a6:150:30d::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.13; Wed, 17 Dec
+ 2025 19:19:35 +0000
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9434.001; Wed, 17 Dec 2025
+ 19:19:34 +0000
+Date: Wed, 17 Dec 2025 14:19:24 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: Chester Lin <chester62515@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>, devicetree@vger.kernel.org,
+	Eric Dumazet <edumazet@google.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
+	imx@lists.linux.dev, Jakub Kicinski <kuba@kernel.org>,
+	Jan Petrous <jan.petrous@oss.nxp.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Lee Jones <lee@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Matthias Brugger <mbrugger@suse.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	NXP S32 Linux Team <s32@nxp.com>, Paolo Abeni <pabeni@redhat.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, linaro-s32@linaro.org
+Subject: Re: [PATCH v2 0/4] s32g: Use a syscon for GPR
+Message-ID: <aUMCPKicgsoICAJ0@lizhi-Precision-Tower-5810>
+References: <cover.1765806521.git.dan.carpenter@linaro.org>
+ <aUAvwRmIZBC0W6ql@lizhi-Precision-Tower-5810>
+ <aUBUkuLf7NHtLSl1@stanley.mountain>
+ <aUBha2/xiZsIF/o5@lizhi-Precision-Tower-5810>
+ <aUBrV2_Iv4oTPkC4@stanley.mountain>
+ <aUB4pFEwmMBzW52T@lizhi-Precision-Tower-5810>
+ <aUEQkuzSZXFs5nqr@stanley.mountain>
+ <aUFvvmDUai9QrhZ2@lizhi-Precision-Tower-5810>
+ <aUGlMP7J19L_AHF2@stanley.mountain>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aUGlMP7J19L_AHF2@stanley.mountain>
+X-ClientProxiedBy: PH7P223CA0028.NAMP223.PROD.OUTLOOK.COM
+ (2603:10b6:510:338::29) To DU2PR04MB8951.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e2::22)
 MIME-Version: 1.0
-References: <20251205-controller-v9-0-9f158b18f979@google.com>
- <20251205-controller-v9-2-9f158b18f979@google.com> <2025120553-suffrage-divisive-5890@gregkh>
- <CA+zupgzL7v5MZDpxKDQQCqAZaqTdHbiG9-xTr+8RnigMFZJ_7Q@mail.gmail.com> <2025121728-reliably-crabgrass-2601@gregkh>
-In-Reply-To: <2025121728-reliably-crabgrass-2601@gregkh>
-From: Roy Luo <royluo@google.com>
-Date: Wed, 17 Dec 2025 11:17:34 -0800
-X-Gm-Features: AQt7F2pRcbJChuQijr6nIYQ6eCnDyo-nRUDl_79j5YJBIy8PmN9l851-QlzkUmI
-Message-ID: <CA+zupgxZCyNonfNPbGnFymGGOQuaWR1TsL+hujTbH4DEcfEt9Q@mail.gmail.com>
-Subject: Re: [PATCH v9 2/2] usb: dwc3: Add Google Tensor SoC DWC3 glue driver
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
-	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Badhri Jagan Sridharan <badhri@google.com>, 
-	Doug Anderson <dianders@google.com>, linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, Joy Chakraborty <joychakr@google.com>, 
-	Naveen Kumar <mnkumar@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|GV2PR04MB12018:EE_
+X-MS-Office365-Filtering-Correlation-Id: 60255e1d-cbec-4359-3b23-08de3da13642
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|52116014|376014|7416014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?X1VQzM3FMzown0FPUxKF+plHx73yXdUZ2v3k3ikQOqnW9ER2gj4r7vz14ElT?=
+ =?us-ascii?Q?7ffpWuR4kaZXRyp2oT+zg5Pj/rqU2Ys3KaQvlO8i8fL2cXZ/NlVLn8ey4vrG?=
+ =?us-ascii?Q?TQHGgHBrqnXQGnbYVzF1LpZP/280cM0xD7+QMocb0hUFeJebECPKYA23Qo9z?=
+ =?us-ascii?Q?RVZCgD2+pw/+Wkr+GivVH4oIQ1BypLHeU+8dfNlfcqqpT+RzX4sqJc7dvs1I?=
+ =?us-ascii?Q?0ljaRwjJFMilwDNLfAZ/2cJWhXgD744bbvq5FzZRYh4fthBvMDEIx6entm55?=
+ =?us-ascii?Q?87T/gYwSDxM1HYW02F2HNcDt1SCtiUMUhrGxZYRyeCmXvv/jrOeVZmlVWKkt?=
+ =?us-ascii?Q?p85MDaQujd/LWT/TAu8KOdhHT4xtjNnO0830BsVaz30mFKhzL8kA8ARgqMuV?=
+ =?us-ascii?Q?HZxNZEiapwlOU1Vb1CrnNZiocHelE+gU5GRviU4H80T1QdK7K9BmQ1WtmLtJ?=
+ =?us-ascii?Q?c1k/A8p8pvF/+yK40BnK+i22fS8ZovMisKLvqOh2YiKneSDF7WLraaxA2xWe?=
+ =?us-ascii?Q?Pw7FnZ7MceTs1tKRFyYFGnuP4/ZEfWUnu30qtqq9ubFy+CNWbgPAc6y29wMM?=
+ =?us-ascii?Q?CMIyeF3oHtepU3lGAPrRi+v6zVfpzLJwHwfSNglPnC6+JRjqwbvs87Hqpslo?=
+ =?us-ascii?Q?547kJy9jABvlaHPhsfSWaMhOGH+5TLb6LK7RD/3/Iyp8+sKZN6bK8qFFbNME?=
+ =?us-ascii?Q?aFGUawJ4niR4NaLd0U1Eotpga9Z2xJ6xBabdL8Mavpl4h+rEyKXu7WYX0qvd?=
+ =?us-ascii?Q?UVeoYlZkDMpn/H8JiEl2eKi8YgF1vpMD1oJhBm2XsazibRSFvt+hKI4GU0Ny?=
+ =?us-ascii?Q?eDKb3bryIoOWHfymXDc34fBCUZmESwoLoC42YowSaZl7s+PhBXsKlXdoQVCl?=
+ =?us-ascii?Q?I57yqn/q06qc4PkOu1H+/tsjulqwbNhHeb94fp5XwPEn2Z6YVoV5f8r73+nt?=
+ =?us-ascii?Q?cMBTX1QtGWiy2Z4Swhj2vJEb5yFkJILxFO2i0F+v7voLMbmzg8KwDtHXAA0W?=
+ =?us-ascii?Q?15axpRLGFB6tE7x1LMPQLQ4G453emLMRGCP+jBk0EqTxwpajxc17xrgSxUYe?=
+ =?us-ascii?Q?h4GCR8IJVD2cDyA0MBmPK1nEwQoJn6NNATf6GhIyOK/+7JiG+dZRT7DbwMOD?=
+ =?us-ascii?Q?8Ixv8on7BPkrAC5V07/YA+XbWqF5xcPju81pLA7txhRGXVDuQ3HHz+k45YFV?=
+ =?us-ascii?Q?+4NaCYpqvykioRAhZ7oQdmGEoFGX+TuDZx9L7y0GTvhwdICb5oAn4TqZeJLI?=
+ =?us-ascii?Q?JnQSlncTYhAt+1gg/MJMA4suNbtZcJnuRrjPC1DV8YPf1BB854ge8fQyGudr?=
+ =?us-ascii?Q?5NSgruyRcfsLtNryW/fqBYqmrG0h404DcHjcgCvtICETqmABIPWdBdMr+Sz0?=
+ =?us-ascii?Q?o2liulkW3vgFtTJtuEC0G9wQzV4TYa+r4PNg4jFQFEoTF98PfZP9xQZkrRYy?=
+ =?us-ascii?Q?BSWG0Y+rPDOvqGr1Q5PJ1pL22qa+8ijkfuUVoJK3WggvLCiWSlKWpbpk6jo3?=
+ =?us-ascii?Q?gcJV7DB8fjjZwzB9SJw9dMKuXl8N4EmM6PZH?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(52116014)(376014)(7416014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?RHhU13zj3m8TXpjT/GXXwx9+Kv3NNnVfxdx01gi07AV1hneb+BPj+KwXqaua?=
+ =?us-ascii?Q?dyfc5ldgOLw+HTHPEdxZUOBBisdOfsEpuZwSzljqY8tUBoN6cbgA6pCt+5LV?=
+ =?us-ascii?Q?lZw3sSAcs7IFVFwCqufHA8IvYfDa4vMuWYmfV0Ums9IzcLhAj045p0KPHhKj?=
+ =?us-ascii?Q?qfcYke6p1ZMUDF1Olybh9YHh8+IgX0ase/j+i1thcyqHfljy9srs7/+4cjTn?=
+ =?us-ascii?Q?SI7uUMPFhP33k58wj/HuqCHQQ1pVmQaJxTF7j5D9F30zgnXdYKHG2gcJhM3C?=
+ =?us-ascii?Q?Cbfxrkhk+Z4ayxFXG+t0JGvnhFeoOc6818F56aSjYIw4LPDCD1Zsg4pQKXeY?=
+ =?us-ascii?Q?WivKYeAB/W6BcP2ENT4k2VJU4HNlWZ3GBXNVEnjSgSmwFqStGpgSPTbxDmNd?=
+ =?us-ascii?Q?upKe2eL96BpeQPps9U1CqnVNovz+f3nnt3C/cP5nv+8cU7apT4NL5+zekQp8?=
+ =?us-ascii?Q?xFdGyM35V18ciZzSwsxOM/3G0T0SNrajxi4zw3DsFG2QQjD+ROrYXIH+2NAk?=
+ =?us-ascii?Q?oQOwGLo/sI0RlSqt47p+q4DaMR8eSoEQX4YNe619GCK34kff8G79FeukOn1k?=
+ =?us-ascii?Q?eGPl+8NZb5KKQvkNQ2PRg2EgcNITcQb7510clXu6tgtANPQuF8GUNxPeXFKM?=
+ =?us-ascii?Q?yxSICmA+SV9uifuNpSNSbA/h6Zy7a26MNU0XXVY+U9WLUsYuHSB7yDRn+++E?=
+ =?us-ascii?Q?GeLWDEUjeRO24Wi7Ik3tCoo9W3t4UZHXNP4W70gjAyn/QKecqSy3YfW/xw3Y?=
+ =?us-ascii?Q?QkGJqS+lBXc1/+YuScA1hu/shejqOTQgWiRoz//bzYlQdnvSbaaDNahCnEqQ?=
+ =?us-ascii?Q?VqdK/y+sXW0lkbYq4PEROPzDwJfsSNQxlOsB6h8w0Zn9C8EzZ6dtbnfYT+FE?=
+ =?us-ascii?Q?/uiuDj6PovMTqcABNuXhH2brdC94bIpA9LSGpBa4A9myaiRqoR5x8h8QQ7Km?=
+ =?us-ascii?Q?UyHZ1N4oKezLcRFUDaOxij+2mZg1u8iJy8CuFLTmj+juJqTdTEQW5K7cdQlN?=
+ =?us-ascii?Q?7Zaa+DFIaWIcJBPPxhZ5s7Mn4qdXuLuQ9D7biTCkxIMAueI9yqw2VoWzxGZe?=
+ =?us-ascii?Q?MpwR3wzdN7fEviinuja17Ox1PpR/bXYSbsKGNXy+ZY7SCuVvSPGzgBs4X2T8?=
+ =?us-ascii?Q?rHrF369GDuMohCnAfCKjnDcghueCXjFb/GX77mRuNpVDYl4l1ghrJv7yndr3?=
+ =?us-ascii?Q?D4wJN36cIkS+EQPzlLM0tOWQwjOXf7bFTVezc9u0l5K5SpkuZWEq0w5YamaI?=
+ =?us-ascii?Q?NqgQ2r2zDPnziDEIQPxOF/HLBxOf1P6O4HheLmmw5dAUY5bDclNlWrruqhxn?=
+ =?us-ascii?Q?xmk64Y5V3wH5g2/6lnGpV25A4Xe7YFHiuIsHRqptyOKg/OpIIU5XtuG35VSL?=
+ =?us-ascii?Q?3f9hytb5lO7g4P3DAqGv528/hc1xt+v5DPYFYXOUjJee7kzXjAtVIrqYNXP+?=
+ =?us-ascii?Q?m5qnHDDtivYHbh3JN6aiWjx1+oZbYXkEJAYLXKbtu1ullUL+KAi7qH+g3dKa?=
+ =?us-ascii?Q?IcduodVZg19l1RFgndKbs7ZEEZ23tfmiIivO9tcCT61E9teKoanTj2YVXXNH?=
+ =?us-ascii?Q?NFlE+TeOce0Yxf59OMc=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 60255e1d-cbec-4359-3b23-08de3da13642
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Dec 2025 19:19:34.6620
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: az4Jt3w73zZI+thgOwY3qY1NwF9KTsUvvFhvoB48WJBx45vc0FykbO0tZfP4ZtpqJEg+xpSVj3tZfc2BjF17Lw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB12018
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_111812_075953_471E5075 
-X-CRM114-Status: GOOD (  29.00  )
+X-CRM114-CacheID: sfid-20251217_111940_712953_F9B6A8BB 
+X-CRM114-Status: GOOD (  19.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,73 +183,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 17, 2025 at 5:24=E2=80=AFAM Greg Kroah-Hartman
-<gregkh@linuxfoundation.org> wrote:
->
-> On Thu, Dec 04, 2025 at 11:14:39PM -0800, Roy Luo wrote:
-> > On Thu, Dec 4, 2025 at 10:05=E2=80=AFPM Greg Kroah-Hartman
-> > <gregkh@linuxfoundation.org> wrote:
+On Tue, Dec 16, 2025 at 09:30:08PM +0300, Dan Carpenter wrote:
+> On Tue, Dec 16, 2025 at 09:42:06AM -0500, Frank Li wrote:
+> > > >
+> > > > Why not implement standard phy interface,
+> > > > phy_set_mode_ext(PHY_MODE_ETHERNET, RGMII);
+> > > >
+> > > > For example:  drivers/pci/controller/dwc/pci-imx6.c
+> > > >
+> > > > In legency platform, it use syscon to set some registers. It becomes mess
+> > > > when more platform added.  And it becomes hard to convert because avoid
+> > > > break compatibltiy now.
+> > > >
+> > > > It doesn't become worse since new platforms switched to use standard
+> > > > inteface, (phy, reset ...).
+> > > >
 > > >
-> > > On Fri, Dec 05, 2025 at 02:26:38AM +0000, Roy Luo wrote:
-> > > > +config USB_DWC3_GOOGLE
-> > > > +     tristate "Google Platform"
-> > > > +     depends on ARCH_GOOGLE || COMPILE_TEST
-> > >
-> > > There is no ARCH_GOOGLE in the tree now, so how is this supposed to
-> > > work?  Shouldn't tools that check for "invalid config options" trigge=
-r
-> > > on this?
-> > >
-> > > thanks,
-> > >
-> > > greg k-h
+> > > This happens below that layer, this is just saying where the registers
+> > > are found.  The GMAC_0_CTRL_STS is just one register in the GPR region,
+> > > most of the others are unrelated to PHY.
 > >
-> > Hi Greg,
+> > The other register should work as other function's providor with mfd.
 > >
-> > The menuconfig looks like the following and it doesn't complain:
-> > | Symbol: ARCH_GOOGLE [=3DARCH_GOOGLE]
-> > | Type  : unknown
-> > |
-> > | Symbol: PHY_GOOGLE_USB [=3Dy]
-> > | Type  : tristate
-> > | Defined at drivers/phy/Kconfig:104
-> > |     Prompt: Google Tensor SoC USB PHY driver
-> > |     Depends on: ARCH_GOOGLE || COMPILE_TEST [=3Dy]
-> >
-> > According to Kconfig documentation [1], the unknown symbol
-> > would simply be evaluated as an "n", which is what we want.
-> > "Convert the symbol into an expression. Boolean and tristate
-> > symbols are simply converted into the respective expression
-> > values. All other symbol types result in =E2=80=98n=E2=80=99."
-> >
-> > In a different Kconfig documentation, an environment variable
-> > "KCONFIG_WARN_UNKNOWN_SYMBOLS" is there to detect
-> > undefined symbols in the "config input", but I can't find one that
-> > catches undefined symbols in the Kconfig tree itself.
-> >
-> > That is, the tool seems to allow this.
-> > However, if this turns out to be a major problem. I think we
-> > can either:
-> > - Remove ARCH_GOOGLE and leave COMPILE_TEST as
-> >   the only dependency. Then add ARCH_GOOGLE back
-> >   later once it's in the tree.
 >
-> Please do this.  I do not want to take patches that purposfully add
-> dependencies on config options that might, or might not, appear in the
-> future.  Please just remove all of the dependancies for now, as they are
-> not needed, right?
->
-> thanks,
->
-> greg k-h
+> Syscons are a really standard way to do register accesses.
 
-Greg,
+It is quite like back door. Many clock/reset also use phandle to node to
+controller by raw register read/write.
 
-Yes, we can remove ARCH_GOOGLE for now.
-To clarify, we're not removing all of the dependencies, we still want
-to keep COMPILE_TEST for build tests, right?
-Please let me know if you think otherwise.
+> The
+> pci-imx6.c driver you mentioned earlier does it that way...
 
-Thanks,
-Roy
+It is not preferred when we tried to add new one. Give me some time to look
+for original threads.
+
+> The only
+> thing which my code does differently is I put the offset into the
+> phandle, but that's not so unusual and it's arguably a cleaner way
+> because now both the base address and offset are in the same file.
+
+It is not big deal about offset. The key is if use phande to direct access
+other module's register.
+
+Frank
+>
+> regards,
+> dan carpenter
+>
 
