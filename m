@@ -4,85 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87166D6408B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 11:40:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92ACFD6408B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 11:41:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6aGzK6agjuFnlQvfx1CbY4lOLMAOL4AI/lVML6MNHT0=; b=yCd1QZX6OAcjwGBOUhh87sg7MQ
-	UTBtJhFFl3xcPIvtsSDTh8uBlkj9TSYrCEyWHbeOVxd5ANQczdemLBmIT/2n3qPlwCYz3qA6uGiKB
-	oYlFiIIiao+ZjFfM4eXJRXFZrdYAPvhDv61WYa3G+pofX0iYchYCTslxpUEwbvk/SHlqnPsBtIakY
-	o3dn4IOP4dBiqrcZIzM9H195q+CQBg3LwGDbVDPTJehNRBiHEGs4Bn1t59VpueV3gcRAZ2iQ2jlDb
-	RigTzUqJ8J1o0cvxB8LHk3NhHgH7s8GnF3EBHtezrAYxPeI00WdNYuO+IBj5K5nRTXTugRVvs/ASf
-	ShcVT2pQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Content-type:To:From
+	:Message-ID:Date:Reply-To:Cc:MIME-Version:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jpgTdhRISdkMXYdSgVkMn1XgAd0iJiwBSYaxzPju3UA=; b=inPwlAL5QTzNUoxkEsT1LbCwBr
+	8UEE88f3XvJUYyB1cLjpoo8A2ZCScGsOgwa+VDl5wbsrs9I4vDZ0vOcjIkr6uMxlt36cfa5IomazJ
+	zyEnQoUWseqoYgOlpFhrBHau3iy0BrXnyTWk6QYLNoqmPwVUNlH/fwyIBOZuHaG7+838VNiR7Nz7B
+	QHinTzdL9X2PWRVsw+xu8FWC7myX/920zyBzcrds1E9CJgwxYwa5BqG0AdLYmgwra3q/QBqIdL7Tx
+	hBnVDdxXWSxIBxOUAZRZTXEBopybUccAuPgw5ajGi/AVVzAgfCmVNymS/fkSZ6Zh5JuZ8U0J6Qkdc
+	Wkxx59GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVptW-00000006jxv-0C79;
-	Wed, 17 Dec 2025 11:40:38 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vVptq-00000006k1W-46Qb;
+	Wed, 17 Dec 2025 11:40:58 +0000
+Received: from 3.mo591.mail-out.ovh.net ([46.105.37.71])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVptT-00000006jxY-20MO
+	id 1vVptn-00000006jz5-2z69
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 11:40:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C40B44071A;
-	Wed, 17 Dec 2025 11:40:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FF23C4CEF5;
-	Wed, 17 Dec 2025 11:40:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765971634;
-	bh=uqwVsWJ8uisJ2wNnLh7lsr40H7RB5s1TQv5LWb9t0R4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=FNybXqu812pCpuRRRwMC9R7TwkcMb2fQtVD1jCfoC4Ri6bEZqaLvs1Uv5WeuVQL8r
-	 sZ0ffVl7jcNeCcNEcB53jDJyXtByxIMMJWd70zt2NsEo4MBGRGTgEWb7rFC0ScIX8d
-	 UKPSt/9/YgKVSYJrk/7rZXVHZA72eO0O2TmiyUswuHK4+W6DZpLqcYCNSyJlnN6WKP
-	 4wlMrizNmjG9ZDfA0Jr5YFM4V0tlFc3ndegm1UaAEtxJuAsNxP1gYU+y+VIvcgN0FI
-	 Gbo3E2cRybovmdKIROhZbCGpcYXNS+CXpjiLnhdG/mdqwz/7o5uKLYap5S5lLKLu2b
-	 +TCrk+i6kN4tQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vVptP-0000000DLhr-3EaW;
-	Wed, 17 Dec 2025 11:40:31 +0000
-Date: Wed, 17 Dec 2025 11:40:31 +0000
-Message-ID: <861pktnxow.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	nd <nd@arm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Joey Gouly
-	<Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>
-Subject: Re: [PATCH 15/32] KVM: arm64: gic-v5: Implement direct injection of PPIs
-In-Reply-To: <20251212152215.675767-16-sascha.bischoff@arm.com>
-References: <20251212152215.675767-1-sascha.bischoff@arm.com>
-	<20251212152215.675767-16-sascha.bischoff@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Wed, 17 Dec 2025 11:40:58 +0000
+Received: from mx1.ovh.net (unknown [10.110.178.94])
+	by mo591.mail-out.ovh.net (Postfix) with SMTP id 4dWX173N2yz5y9F
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 11:40:42 +0000 (UTC)
+Received: from localhost (HELO queueml) (127.0.0.1)
+	by localhost with SMTP; 17 Dec 2025 13:40:00 +0200
+Mailing-List: contact a06-help@20252027frontrepublicain.site; run by ezmlm
+Date: 17 Dec 2025 11:40:00 -0000
+Message-ID: <1765971600.26811.ezmlm-warn@20252027frontrepublicain.site>
+From: a06-help@20252027frontrepublicain.site
+To: linux-arm-kernel@lists.infradead.org
+Content-type: text/plain; charset=utf-8
+Subject: ezmlm warning
+X-Ovh-Tracer-Id: 10861274928440004888
+X-VR-SPAMSTATE: BOUNCE
+X-VR-SPAMSCORE: 10114
+X-VR-SPAMCAUSE: dmFkZTE60yNGdMYy8HVmfmAqCaE9czW9GJT84Pbqyz1wFQDnQfsEIbEc8vQlVb+8+o0DBGyYasKGspFiT9GI6eSjRKuDLYCN4dNY0LdHGrrn20eAwD7dip/XDUG7HXDiqJiwn3GMxTJbS75FGReT6ajxYFCc5JctKivx4lvx2sNuN+Au99XgssYIA9+ONHU4uDxsalRtTZ2VUp7AeCsIj0qktKMfreViOLxjKMslprk9JABJe4VXYkX3iHWg0p7CMWiSakvMinfhJPRaj3GFCmNdqeirBYK/o4hxnPhsPEYzPWW9R+eBaJng3Ts1XjnXcaTtr6jUNvFo6cdcxcl4hjAyF3UZadlYEw2Q4wZ7XChsWqVlFsRl56TmDJhOyNTlbgf5EwwjSdPqrFts82LYI07TFzYCK77SsJfHWE4ijGhha/OM7p+LPhGSBhOcVUo1uzHDo0iPhCoTaakgyLT98/plwL0H03V3zCxmqBQrFBJ5cqcra3yBXwo1OoVTQb9MxoS03eqWhvNvuqd8mgLetG4ugRBOmUwSxVoNjaKpmcm9Aj0q2KjjdkRRFlj0CteUZWS+N15pOrYyeuJPLQcTwNwrLsHcaQEKaxo9yAdZSQ4vpJnsKljzPHESPoWC2U4Vni4zbcYCKcCwioQjM07MSMFhCVxvsTyiCzY9RkaHE2BkEK0ryQ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_034035_598539_1A4B34E3 
-X-CRM114-Status: GOOD (  40.87  )
+X-CRM114-CacheID: sfid-20251217_034056_072151_63EA510B 
+X-CRM114-Status: GOOD (  15.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,201 +60,236 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 12 Dec 2025 15:22:40 +0000,
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
-> 
-> GICv5 is able to directly inject PPI pending state into a guest using
-> a mechanism called DVI whereby the pending bit for a paticular PPI is
-> driven directly by the physically-connected hardware. This mechanism
-> itself doesn't allow for any ID translation, so the host interrupt is
-> directly mapped into a guest with the same interrupt ID.
-> 
-> When mapping a virtual interrupt to a physical interrupt via
-> kvm_vgic_map_irq for a GICv5 guest, check if the interrupt itself is a
-> PPI or not. If it is, and the host's interrupt ID matches that used
-> for the guest DVI is enabled, and the interrupt itself is marked as
-> directly_injected.
-> 
-> When the interrupt is unmapped again, this process is reversed, and
-> DVI is disabled for the interrupt again.
-> 
-> Note: the expectation is that a directly injected PPI is disabled on
-> the host while the guest state is loaded. The reason is that although
-> DVI is enabled to drive the guest's pending state directly, the host
-> pending state also remains driven. In order to avoid the same PPI
-> firing on both the host and the guest, the host's interrupt must be
-> disabled (masked). This is left up to the code that owns the device
-> generating the PPI as this needs to be handled on a per-VM basis. One
-> VM might use DVI, while another might not, in which case the physical
-> PPI should be enabled for the latter.
-> 
-> Co-authored-by: Timothy Hayes <timothy.hayes@arm.com>
-> Signed-off-by: Timothy Hayes <timothy.hayes@arm.com>
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> ---
->  arch/arm64/kvm/vgic/vgic-v5.c | 22 ++++++++++++++++++++++
->  arch/arm64/kvm/vgic/vgic.c    | 16 ++++++++++++++++
->  arch/arm64/kvm/vgic/vgic.h    |  1 +
->  include/kvm/arm_vgic.h        |  1 +
->  4 files changed, 40 insertions(+)
-> 
-> diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
-> index 2fb2db23ed39a..22558080711eb 100644
-> --- a/arch/arm64/kvm/vgic/vgic-v5.c
-> +++ b/arch/arm64/kvm/vgic/vgic-v5.c
-> @@ -54,6 +54,28 @@ int vgic_v5_probe(const struct gic_kvm_info *info)
->  	return 0;
->  }
->  
-> +/*
-> + * Sets/clears the corresponding bit in the ICH_PPI_DVIR register.
-> + */
-> +int vgic_v5_set_ppi_dvi(struct kvm_vcpu *vcpu, u32 irq, bool dvi)
-> +{
-> +	struct vgic_v5_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
-> +	u32 ppi = FIELD_GET(GICV5_HWIRQ_ID, irq);
-> +
-> +	if (ppi >= 128)
-> +		return -EINVAL;
+Bonjour ! Je suis le programme ezmlm. Je m'occupe de la liste
+de diffusion a06@20252027frontrepublicain.site.
 
-Surely this is bad. *very* bad. How can we get here the first place?
+Un certain nombre de messages provenant de la liste de diffusion
+a06 n'ont pas pu vous etre remis correctement. En attachement, vous trouverez
+une copie du premier message de retour a l'envoyeur que j'ai recu.
 
-> +
-> +	if (dvi) {
-> +		/* Set the bit */
-> +		cpu_if->vgic_ppi_dvir[ppi / 64] |= 1UL << (ppi % 64);
-> +	} else {
-> +		/* Clear the bit */
-> +		cpu_if->vgic_ppi_dvir[ppi / 64] &= ~(1UL << (ppi % 64));
-> +	}
+Si le message que vous lisez actuellement ne parvient pas non plus a
+destination, un dernier message vous sera envoye. Si celui-ci echoue aussi,
+votre adresse sera malheureusement retiree de la liste a06.
 
-This should be simplified:
+J'ai conserve une liste des messages de la liste de diffusion a06 qui
+n'ont temporairement pas pu etre delivres a votre adresse.
 
-diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
-index d74cc3543b9a4..f434ee85f7e1a 100644
---- a/arch/arm64/kvm/vgic/vgic-v5.c
-+++ b/arch/arm64/kvm/vgic/vgic-v5.c
-@@ -191,8 +191,8 @@ bool vgic_v5_ppi_set_pending_state(struct kvm_vcpu *vcpu,
- 				   struct vgic_irq *irq)
- {
- 	struct vgic_v5_cpu_if *cpu_if;
--	const u32 id_bit = BIT_ULL(irq->intid % 64);
- 	const u32 reg = FIELD_GET(GICV5_HWIRQ_ID, irq->intid) / 64;
-+	unsigned long *p;
- 
- 	if (!vcpu || !irq)
- 		return false;
-@@ -203,10 +203,8 @@ bool vgic_v5_ppi_set_pending_state(struct kvm_vcpu *vcpu,
- 
- 	cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
- 
--	if (irq_is_pending(irq))
--		cpu_if->vgic_ppi_pendr[reg] |= id_bit;
--	else
--		cpu_if->vgic_ppi_pendr[reg] &= ~id_bit;
-+	p = (unsigned long *)&cpu_if->vgic_ppi_pendr[reg];
-+	__assign_bit(irq->intid % 64, p, irq_is_pending(irq));
- 
- 	return true;
- }
-@@ -449,17 +447,13 @@ int vgic_v5_set_ppi_dvi(struct kvm_vcpu *vcpu, u32 irq, bool dvi)
- {
- 	struct vgic_v5_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
- 	u32 ppi = FIELD_GET(GICV5_HWIRQ_ID, irq);
-+	unsigned long *p;
- 
- 	if (ppi >= 128)
- 		return -EINVAL;
- 
--	if (dvi) {
--		/* Set the bit */
--		cpu_if->vgic_ppi_dvir[ppi / 64] |= 1UL << (ppi % 64);
--	} else {
--		/* Clear the bit */
--		cpu_if->vgic_ppi_dvir[ppi / 64] &= ~(1UL << (ppi % 64));
--	}
-+	p = (unsigned long *)&cpu_if->vgic_ppi_dvir[ppi / 64];
-+	__assign_bit(ppi % 64, p, dvi);
- 
- 	return 0;
- }
+Voici les numeros des messages en question :
+   1
+   2
 
-(yes, unsigned long and u64 are the same thing on any sane
-architecture).
+--- Ci-dessous se trouve une copie du message problematique qui m'est revenu :
+Return-Path: <>
+Received: from localhost (HELO queue) (127.0.0.1)
+	by localhost with SMTP; 4 Dec 2025 12:07:21 +0200
+Received: from unknown (HELO output52.mail.ovh.net) (192.168.13.188)
+  by 192.168.9.18 with AES256-GCM-SHA384 encrypted SMTP; 4 Dec 2025 12:07:21 +0200
+Received: from vr39.mail.ovh.net (unknown [10.101.8.39])
+	by out52.mail.ovh.net (Postfix) with ESMTP id 4dMVYP0Mr1zBrS7
+	for <a06-return-1-linux-arm-kernel=lists.infradead.org@20252027frontrepublicain.site>; Thu,  4 Dec 2025 10:07:21 +0000 (UTC)
+Received: from in59.mail.ovh.net (unknown [10.101.4.59])
+	by vr39.mail.ovh.net (Postfix) with ESMTP id 4dMVYN6ffqz1N7QM
+	for <a06-return-1-linux-arm-kernel=lists.infradead.org@20252027frontrepublicain.site>; Thu,  4 Dec 2025 10:07:20 +0000 (UTC)
+Received: from 4.mo594.mail-out.ovh.net (4.mo594.mail-out.ovh.net [178.33.252.92])
+	by in59.mail.ovh.net (Postfix) with ESMTPS id 4dMVYN5m4jz3fjgh
+	for <a06-return-1-linux-arm-kernel=lists.infradead.org@20252027frontrepublicain.site>; Thu,  4 Dec 2025 10:07:20 +0000 (UTC)
+Authentication-Results: mx.mail.ovh.net;
+    arc=none (no signatures found);
+    dkim=none (no signatures found);
+    dmarc=fail policy.published-domain-policy=none policy.applied-disposition=none policy.evaluated-disposition=none (p=none,d=none,d.eval=none) policy.policy-from=p header.from=mo594.mail-out.ovh.net;
+    spf=none smtp.mailfrom="" smtp.helo=4.mo594.mail-out.ovh.net;
+    x-tls=pass smtp.version=TLSv1.3 smtp.cipher=TLS_AES_256_GCM_SHA384 smtp.bits=256
+Received-SPF: none
+    (4.mo594.mail-out.ovh.net: No applicable sender policy available)
+    receiver=in59.mail.ovh.net;
+    identity=helo;
+    helo=4.mo594.mail-out.ovh.net;
+    client-ip=178.33.252.92
+Received: by mo594.mail-out.ovh.net (Postfix)
+	id 4dMVYN4nrZz3xfD; Thu,  4 Dec 2025 10:07:20 +0000 (UTC)
+Date: Thu,  4 Dec 2025 10:07:20 +0000 (UTC)
+From: Mail Delivery System <MAILER-DAEMON@mo594.mail-out.ovh.net>
+Subject: Undelivered Mail Returned to Sender
+To: a06-return-1-linux-arm-kernel=lists.infradead.org@20252027frontrepublicain.site
+Auto-Submitted: auto-replied
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="4dMVY307Hpz3wpC.1764842840/mo594.mail-out.ovh.net"
+Message-Id: <4dMVYN4nrZz3xfD@mo594.mail-out.ovh.net>
+X-OVH-Remote: 178.33.252.92 (4.mo594.mail-out.ovh.net)
+X-Ovh-Tracer-Id: 6726126047121343819
+X-VR-SPAMSTATE: BOUNCE
+X-VR-SPAMSCORE: 10000
+X-VR-SPAMCAUSE: dmFkZTFv+4gZ9uCcHicGZLIGHgED/wBEoXP9ZDyVd+itRoEPmNZ4R8b2MYlhQEh76b9ROLaWDmyGlj6ePMuUaOArPa0u2NkapTUtb/TF0mMOuEvGVdBOx8Q4XCfp9VkGSishkwxykuYqq5lGypRneKRGJm0zSU9P538yMg3kL7TaFko4T7F7eFc9CyHyrvjSWiA/YmcZEG3SVsphLGa0jVP2GJ0TKQ8k/ndexUDYIHTqzZ9DDNVV0tiG6+6rRsY6mMw8ZMNzT5uDPCdjKiUWQB3HdDzsVlddmQA+zDL1c7UD7iyVTvzdYC/Qv0LyE2sxv9S5pQwe325EPCD4IJN1SbwXdsD8Mzvc5KiVVKUCiPYTgkBr9H1IryYu+VLK7ZnsVQu6WZOLEBfsUdeA9cUUX+pcbUhzdesWayd7w9T+vUwfzsK5g2F6CsiL0S5Y/oghZyDbjsDZaSLRqzRnDggAYsrxNFIxYRDARdMWNoKCiFDUS9pjlNXNCt/nys1kTRpn+wZ4naFrbFFXTxFi6eo02iz3rZwdIrqjEDFdUKinf8ogzbfWAKf0UGbynLaO0au0AsgnfW7g2Bm2RJy4tpM3C8XEpTC81aDv9xKjl57kBZriWHmlvA5U/m2+ecKj66DjyrXSKoCs25pFCoH8fwU4n7vufvr4p95RD6K5w3H5aNzu213rNw
+X-Ovh-Spam-Status: OK
+X-Ovh-Spam-Reason: vr: BOUNCE; dkim: disabled; spf: disabled
+X-Ovh-Message-Type: BOUNCE
 
-> +
-> +	return 0;
-> +}
-> +
->  void vgic_v5_load(struct kvm_vcpu *vcpu)
->  {
->  	struct vgic_v5_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
-> diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
-> index 1005ff5f36235..1fe3dcc997860 100644
-> --- a/arch/arm64/kvm/vgic/vgic.c
-> +++ b/arch/arm64/kvm/vgic/vgic.c
-> @@ -577,12 +577,28 @@ static int kvm_vgic_map_irq(struct kvm_vcpu *vcpu, struct vgic_irq *irq,
->  	irq->host_irq = host_irq;
->  	irq->hwintid = data->hwirq;
->  	irq->ops = ops;
-> +
-> +	if (vgic_is_v5(vcpu->kvm)) {
-> +		/* Nothing for us to do */
-> +		if (!irq_is_ppi_v5(irq->intid))
-> +			return 0;
-> +
-> +		if (FIELD_GET(GICV5_HWIRQ_ID, irq->intid) == irq->hwintid) {
-> +			if (!vgic_v5_set_ppi_dvi(vcpu, irq->hwintid, true))
-> +				irq->directly_injected = true;
+This is a MIME-encapsulated message.
 
-The error handling gives me the creeps. If we can end-up at this stage
-with the wrong INTID, we're screwed.
+--4dMVY307Hpz3wpC.1764842840/mo594.mail-out.ovh.net
+Content-Description: Notification
+Content-Type: text/plain; charset=us-ascii
 
-> +		}
-> +	}
-> +
->  	return 0;
->  }
->  
->  /* @irq->irq_lock must be held */
->  static inline void kvm_vgic_unmap_irq(struct vgic_irq *irq)
->  {
-> +	if (irq->directly_injected && vgic_is_v5(irq->target_vcpu->kvm))
-> +		WARN_ON(vgic_v5_set_ppi_dvi(irq->target_vcpu, irq->hwintid, false));
-> +
-> +	irq->directly_injected = false;
->  	irq->hw = false;
->  	irq->hwintid = 0;
->  	irq->ops = NULL;
-> diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
-> index 6e1f386dffade..b6e3f5e3aba18 100644
-> --- a/arch/arm64/kvm/vgic/vgic.h
-> +++ b/arch/arm64/kvm/vgic/vgic.h
-> @@ -363,6 +363,7 @@ void vgic_debug_init(struct kvm *kvm);
->  void vgic_debug_destroy(struct kvm *kvm);
->  
->  int vgic_v5_probe(const struct gic_kvm_info *info);
-> +int vgic_v5_set_ppi_dvi(struct kvm_vcpu *vcpu, u32 irq, bool dvi);
->  void vgic_v5_load(struct kvm_vcpu *vcpu);
->  void vgic_v5_put(struct kvm_vcpu *vcpu);
->  void vgic_v5_set_vmcr(struct kvm_vcpu *vcpu, struct vgic_vmcr *vmcr);
-> diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
-> index 45d83f45b065d..ce9e149b85a58 100644
-> --- a/include/kvm/arm_vgic.h
-> +++ b/include/kvm/arm_vgic.h
-> @@ -163,6 +163,7 @@ struct vgic_irq {
->  	bool enabled:1;
->  	bool active:1;
->  	bool hw:1;			/* Tied to HW IRQ */
-> +	bool directly_injected:1;	/* A directly injected HW IRQ */
->  	bool on_lr:1;			/* Present in a CPU LR */
->  	refcount_t refcount;		/* Used for LPIs */
->  	u32 hwintid;			/* HW INTID number */
+This is the mail system at host mo594.mail-out.ovh.net.
 
-Thanks,
+I'm sorry to have to inform you that your message could not
+be delivered to one or more recipients. It's attached below.
 
-	M.
+For further assistance, please send mail to postmaster.
 
--- 
-Without deviation from the norm, progress is not possible.
+If you do so, please include this problem report. You can
+delete your own text from the attached returned message.
+
+                   The mail system
+
+<linux-arm-kernel@lists.infradead.org>: host
+    bombadil.infradead.org[198.137.202.133] said: 550-Mailing lists do not
+    accept HTML mail. See 550 http://david.woodhou.se/email.html (in reply to
+    end of DATA command)
+
+--4dMVY307Hpz3wpC.1764842840/mo594.mail-out.ovh.net
+Content-Description: Delivery report
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mo594.mail-out.ovh.net
+X-Postfix-Queue-ID: 4dMVY307Hpz3wpC
+X-Postfix-Sender: rfc822; a06-return-1-linux-arm-kernel=lists.infradead.org@20252027frontrepublicain.site
+Arrival-Date: Thu,  4 Dec 2025 10:07:02 +0000 (UTC)
+
+Final-Recipient: rfc822; linux-arm-kernel@lists.infradead.org
+Original-Recipient: rfc822;linux-arm-kernel@lists.infradead.org
+Action: failed
+Status: 5.0.0
+Remote-MTA: dns; bombadil.infradead.org
+Diagnostic-Code: smtp; 550-Mailing lists do not accept HTML mail. See 550
+    http://david.woodhou.se/email.html
+
+--4dMVY307Hpz3wpC.1764842840/mo594.mail-out.ovh.net
+Content-Description: Undelivered Message Headers
+Content-Type: text/rfc822-headers
+
+Return-Path: <a06-return-1-linux-arm-kernel=lists.infradead.org@20252027frontrepublicain.site>
+Received: from mx1.ovh.net (unknown [10.110.113.114])
+	by mo594.mail-out.ovh.net (Postfix) with SMTP id 4dMVY307Hpz3wpC
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  4 Dec 2025 10:07:02 +0000 (UTC)
+Received: from localhost (HELO queueml) (127.0.0.1)
+	by localhost with SMTP; 4 Dec 2025 11:58:37 +0200
+Mailing-List: contact a06-help@20252027frontrepublicain.site; run by ezmlm
+Precedence: bulk
+X-No-Archive: yes
+List-Post: <mailto:a06@20252027frontrepublicain.site>
+List-Help: <mailto:a06-help@20252027frontrepublicain.site>
+List-Unsubscribe: <mailto:a06-unsubscribe@20252027frontrepublicain.site>
+List-Subscribe: <mailto:a06-subscribe@20252027frontrepublicain.site>
+Reply-To: test@20252027frontrepublicain.site
+Delivered-To: mailing list a06@20252027frontrepublicain.site
+Delivered-To: moderator for a06@20252027frontrepublicain.site
+Received: from localhost (HELO queue) (127.0.0.1)
+	by localhost with SMTP; 3 Dec 2025 16:13:39 +0200
+Received: from unknown (HELO output43.mail.ovh.net) (192.168.13.173)
+  by 192.168.9.18 with AES256-GCM-SHA384 encrypted SMTP; 3 Dec 2025 16:13:39 +0200
+Received: from vr23.mail.ovh.net (unknown [10.101.8.23])
+	by out43.mail.ovh.net (Postfix) with ESMTP id 4dM0431YlPz2cMZF
+	for <a06@20252027frontrepublicain.site>; Wed,  3 Dec 2025 14:13:39 +0000 (UTC)
+Received: from in54.mail.ovh.net (unknown [10.101.4.54])
+	by vr23.mail.ovh.net (Postfix) with ESMTP id 4dM04260tbztQbb
+	for <a06@20252027frontrepublicain.site>; Wed,  3 Dec 2025 14:13:38 +0000 (UTC)
+Received: from mail-pl1-f170.google.com (mail-pl1-f170.google.com [209.85.214.170])
+	by in54.mail.ovh.net (Postfix) with ESMTPS id 4dM041322Qz2pFPl
+	for <a06@20252027frontrepublicain.site>; Wed,  3 Dec 2025 14:13:37 +0000 (UTC)
+Authentication-Results: mx.mail.ovh.net;
+    arc=none (no signatures found);
+    dkim=pass (2048-bit rsa key sha256) header.d=front-republicain-info.20230601.gappssmtp.com header.i=@front-republicain-info.20230601.gappssmtp.com header.b=M1IgvPom header.a=rsa-sha256 header.s=20230601;
+    dmarc=none policy.published-domain-policy=none policy.applied-disposition=none policy.evaluated-disposition=none (p=none,d=none,d.eval=none) policy.policy-from=p header.from=front-republicain.info;
+    spf=fail smtp.mailfrom=president@front-republicain.info smtp.helo=mail-pl1-f170.google.com;
+    x-tls=pass smtp.version=TLSv1.3 smtp.cipher=TLS_AES_256_GCM_SHA384 smtp.bits=256
+Received-SPF: fail
+    (front-republicain.info: Sender is not authorized by default to use 'president@front-republicain.info' in 'mfrom' identity (mechanism '-all' matched))
+    receiver=in54.mail.ovh.net;
+    identity=mailfrom;
+    envelope-from="president@front-republicain.info";
+    helo=mail-pl1-f170.google.com;
+    client-ip=209.85.214.170
+Received: by mail-pl1-f170.google.com with SMTP id d9443c01a7336-2955623e6faso75958165ad.1
+        for <a06@20252027frontrepublicain.site>; Wed, 03 Dec 2025 06:13:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=front-republicain-info.20230601.gappssmtp.com; s=20230601; t=1764771216; x=1765376016; darn=20252027frontrepublicain.site;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=SZ7aZ9wD9cvgcu+Oy5QihJ9y566Bnppw39eAHA6L4Q0=;
+        b=M1IgvPomwBEeVyyGNYT1zPcXINGmjvb8P2I1OP7lSIlfFce4asqHeXcMkOrBXaA8oO
+         6QABEPUMfZGqvWdGikr3ji/epWQPpzlv188IgkYyzT0oEoHc6pqE3+5aBOjmgar93XHf
+         35kYZKoCeeWKNmOxRYoGg0DtF3TO1Qvw2E3nFBaCgPqxEA+MgP+NOYTcPV7mT+CWiqP/
+         bKrX5tJI5wszlB8kmnmjiNdsYMOodhv70BFn5twwoHfEWttEbh3bzr8q/BCECx9npNPQ
+         7y+ZJNrTjSdrGEIy/MgG28tpK3l8UtLVbxs1fXifCXqayrkIr5PAKJnXAV3lnrsan0G9
+         Caow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764771216; x=1765376016;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=SZ7aZ9wD9cvgcu+Oy5QihJ9y566Bnppw39eAHA6L4Q0=;
+        b=dXv5HxI8o59vw99ViWS5ja2SNizJ72OCOw92xx8lElkDkSEhd4cSUjsge4X/Yw7w++
+         molCGC82jWZo4qshbuJMAIFT5vAkuwxRsIOe1b4GHU+wV2oG9V6/OcUC6HbYl9VBXz33
+         +NJwpGLdZ01wvQLsqjokmmr9aQ9ZzndSuATQtctwbuq/ur1k5c/eFA+/NnCuMCBrQ8KG
+         VRTfxe2dowMmzuDp636flCFOLmhIC+hrv2nuEoqBzdlzrLCRIA0Rxz1YcTxt1jnSjO2U
+         Z9QXZpSK86d8Dakn1VyuJleWcAVcpIKGC1ELkuiAbIPrAAS2iDtvyHk75MrZi1nhrgJj
+         WGuw==
+X-Forwarded-Encrypted: i=1; AJvYcCWIgxxK96ZoizYgOKx7eh2JxA3OoZobYHJ07BqlQXZORsYK5n+I0baPnnXL4Rvw19AgYTU=@20252027frontrepublicain.site
+X-Gm-Message-State: AOJu0YwvWFggBBj9FZLsot4PuWpavi1UZTpRcDxVE43vWAellVVgXWPV
+	rhzfvRKu4Cvu6beMPdJ0RG1vf7cN7/2SHQFLhHErwpzDtZWd366YGaV1oCnUnZNG6xAc+2W+dQA
+	mrYtQbVNqMRPGTz+aBnfG/YYuJGBOf0pHdz5bfyTAiJg=
+X-Gm-Gg: ASbGnctGEQaUcO3T/THdJzzwGquIYCD1qp/Fi2B12Ch6uWcLHjFURfoqpLfX6iQkNL4
+	PM+Dz0763rbLSlKvOsBj3zMclpve0WtvC2WTtzxbmmxpXBYY2iZFaf/+qzQM3HHZjN5yMYVLm5H
+	HuMny89QzUXqWb0eBqdcyVJ7BK2khLXxzWbvq/h+8+ip7tIGAUeE9+ofhLZlnjo07fKiHz8sW0C
+	NyayzSBotcB06bzPxdU4XJP61Rfek32D3Nc1vHT1thHQ7wSrcWhm5BCzHSjEYho8w7E+qw=
+X-Google-Smtp-Source: AGHT+IHEpX4tKWyjNOeKW8QpSd++zszEzleNYP7tdcuvFQDLFU0EkOOm32ot6RDG0fCFnzPkpWrWESu7Zn6hycktx6c=
+X-Received: by 2002:a17:903:b07:b0:296:4d61:6cd3 with SMTP id
+ d9443c01a7336-29d68451d5emr29655375ad.40.1764771214171; Wed, 03 Dec 2025
+ 06:13:34 -0800 (PST)
+MIME-Version: 1.0
+References: <CAL3Nd=-fPqV=dBMQCARopUhm+hBKgGoPWvrxAXZnzxc2kTe+Tg@mail.gmail.com>
+ <CAL3Nd=-1fhSdsPmF-+UaAR9PpUxWnSoOxwwRyZZmL3P+AZpnAA@mail.gmail.com>
+In-Reply-To: <CAL3Nd=-1fhSdsPmF-+UaAR9PpUxWnSoOxwwRyZZmL3P+AZpnAA@mail.gmail.com>
+From: =?UTF-8?Q?FRONT_R=C3=A9publicain_=2D_S=C3=A9bastien_PERETTI?= <president@front-republicain.info>
+Date: Wed, 3 Dec 2025 15:13:16 +0100
+X-Gm-Features: AWmQ_blQYBeN7sSA7lJd_feBYs5cmC2PDtXB2aRBPQuibOd2vTebH4Q7CVzt5Nc
+Message-ID: <CAL3Nd=_2DHXHWSWKomNwD7bc5g+JEaOz4YamhsjJ+bvLUT-_MQ@mail.gmail.com>
+To: e01@frontrepublicain.blog, e02@frontrepublicain.blog, 
+	e03@frontrepublicain.blog, e04@frontrepublicain.blog, 
+	e05@frontrepublicain.blog, e06@frontrepublicain.blog, 
+	e07@frontrepublicain.blog, e08@frontrepublicain.blog, 
+	e09@frontrepublicain.blog, e10@frontrepublicain.blog, 
+	d01@front-republicain.store, d02@front-republicain.store, 
+	d03@front-republicain.store, d04@front-republicain.store, 
+	d05@front-republicain.store, d06@front-republicain.store, 
+	d07@front-republicain.store, d08@front-republicain.store, 
+	d09@front-republicain.store, d10@front-republicain.store, 
+	b01@front-republicain.eu, b02@front-republicain.eu, b03@front-republicain.eu, 
+	b04@front-republicain.eu, b05@front-republicain.eu, b06@front-republicain.eu, 
+	b07@front-republicain.eu, b08@front-republicain.eu, b09@front-republicain.eu, 
+	b10@front-republicain.eu, a01@20252027frontrepublicain.site, 
+	a02@20252027frontrepublicain.site, a03@20252027frontrepublicain.site, 
+	a04@20252027frontrepublicain.site, a05@20252027frontrepublicain.site, 
+	a06@20252027frontrepublicain.site, a07@20252027frontrepublicain.site, 
+	a08@20252027frontrepublicain.site, a09@20252027frontrepublicain.site, 
+	a10@20252027frontrepublicain.site
+Content-Type: multipart/mixed; boundary="00000000000054faf406450cd186"
+X-OVH-Remote: 209.85.214.170 (mail-pl1-f170.google.com)
+X-Ovh-Tracer-Id: 5013069337901664930
+X-VR-SPAMSTATE: OK
+X-VR-SPAMSCORE: 89
+X-VR-SPAMCAUSE: dmFkZTGYGxgXpWqc41oHwle/i2CjKcwJwlwFb8l7X/FrHrC4kfsM142vLfusLlF32u8AizbzZxrIOsLwOHZTPnnZeo/cGcq35LXrsN0ps+VPeO7Ml9A4mO8cLAyh6J0xCHUx+l3O9BcgyJdmS3Q1iafXsJnN23nhn4xqBB4qVPH328NDI9vaZZnDdt0BUr4IBvPF9UuEFe91ZcWtLy4biK6YgxAc8hz4PkfDIwulHC3cLv+a8KJVQGXspx+c4rNCMAeNjts2V1Eu7xrXlEzyusUzRYMWCr+N4vL+m8XYi6cLSeWwBuzx70oYQXBckIOcgFzd4aLhKN9c4DG5YFxITc3oSZQ9O+5EXRNJluuvpcNHgLNXS2NWEpgbDLXV37oxcsQt2L3wwV9csVq+JMgG7WQ57Lhfl36qL/zZi+okozRV3aprA0yAhhKg97iwclcy6Gb5BVoPN207r5RcuuJslIFDi7nG3nvh+wm7daoDPrKJKf08nKG5fHnCGFo+Yz2e8rHyd6eJIfnRwL6n67g31G21/IOUjyHn0RRS06tUw7nsNtzJHVq2wtAiTJI6Q9wnLBP8fRY0uWfmF5iu2KoSreLqvFeXArG0C6k1qRcdRTWs7CvjTMI/triWJ3ezjRYxlds2KuHyWjMJsPNM07re5PNz0Xdls843bsLgnUZt+H3aU2V8lA
+X-Ovh-Spam-Status: OK
+X-Ovh-Spam-Reason: vr: OK; dkim: disabled; spf: disabled
+X-Ovh-Message-Type: OK
+Subject: [a06] =?UTF-8?Q?Le_FRONT_R=C3=A9publicain=2C_=C3=A0_l=27attention_de_M=2E_le_Pr=C3=A9s?=
+	=?UTF-8?Q?ident_TRUMP_et_=C3=A0_tous_les_membres_du_Club_BILDERBERG_et_du_?=
+	=?UTF-8?Q?BOHEMIAN_Club_=2D_Communiqu=C3=A9_du_29=2F11=2F2025=2E?=
+X-VR-SPAMSTATE: OK
+X-VR-SPAMSCORE: 20
+X-VR-SPAMCAUSE: dmFkZTECw0Iyznt4Jzdf1oy1ysCjT94WljvLvhgOeS/Am3J9NMuFR497OlW0oIAsC9/aRxOAFvAUUQTdITeX5Y8jxyE2XcSly4seNh8cdJwyT6E577fF4ZhsVHYdeApcRJiUrSyD2KTj+tOFOpFty2VtSepeQHUkKiITlv9TM1BpVujAwvfw34Bp42RgO8lkJzKr49mORQJ4wec4psh6A/gyRHYVRGhBDJWbaIJhXUmJbZY6iXYa9v/k15Xy7iz4yIISRgW79WjUde55Cr4JS5tVtsH3ACWmSEsRkW0DZyz6ClDmaMJdupTNEGldPNSVq/QUkGJUI4YvEYrr/SqJtXNCce7JFrv2t0rHhshUmH/fmuNoQ7Ndh1ScVBC/sQQqpNrj2m8yfUK6L/CHd5u5OldO+vzzUMUoAWpqQBLSeinEgIEKVhmhpkoCDqPqk6VLEHNHAOhGmWwg2PgjcydwPdI24NOH7j/u8/yO0RLCpX2zpep4Ae00UwVKo77CupVpvyrdilZ5d/5JpjFDovBqrsTI+GGSv3+RgsjR1rB96nMqId+VAAzTVCxsh9RIIaUmYDxVbheqzI4hfRo8Tg7Vrjke1IPKS/KHvP2i92yAXHf6i4qogrYRhBWkz7j8WG+EImpu3w/9xcya0CkTfzUkaskEG3HHcE8JIYAQrxobybKfBsKn6Q
+
+--4dMVY307Hpz3wpC.1764842840/mo594.mail-out.ovh.net--
 
