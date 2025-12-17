@@ -4,75 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A10AD65C49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 13:59:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83CECD65C49
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 14:00:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qNTY0Sqhk7+o+eguXb21G06qwMJTDsQYPt8jfcBPUac=; b=rETh2nQjSDwxOrletaEArWCEZo
-	tG8Qam+VExjQMWEgOs/z/yy667epcsmCLmkRfZfIzB6GTaZBXyV6Q6u9KpvcN9/LXKq01teweiYll
-	4JAzsVXC2/WJZkF0mDnPqW76DOBavWUCKzHU17VORlDV4WdYfZ8I638OhxVkJkXNm+UMxz7BAEGQD
-	MNde9qGXretz7j+szGcUIFHrsvBE0Ednq28ZgCgY1DJur4BY61j7mB71muTLoVzEPjrrQX5YyLbfQ
-	3bTHBoFJmNQ1YAi5IPaQliGZ5BpGA3+46JVzwtO3Dtijr6zwBAOQ96LGiTg15OZwYg0wVvLB2cOun
-	OUBEw4ig==;
+	bh=mNOaMPGrnsuzc/K3PgD8W+kjT2zih8ixOp0jwu7uQa8=; b=H2Tnn+JcSy9Jtj9W87Z3FFZtPy
+	WqjRz10orlHvxOZgMhEXSLgZ0jwh0HwPB40jA1inExM93tNsV3CVAZQxtf3ThyxiIEyuPlsqbRSGQ
+	qR+x1kZnt1MYGf5qou1QoLOzwBQ3PbrXKWaqtzhi1y5nF6WyQ7JnJaQNKdJ3EvLwTfqiuvqMnoVhD
+	MgsR8Z2OWyYSYbgcB4LXPaFIlR/sJNaGeTqBgt85u00Tt2VEjtyKzzMEc0N4ZBHybtPONnzuo+xYr
+	7u7YRnRmJC1FncXM9TNTBrEhKYpekmw3PqQsbcUE8k7mchpwY4iMTmFMY4AltzsJ1u/ynHo2EiMcH
+	mNixGkhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVs3t-00000006tYO-2sn6;
-	Wed, 17 Dec 2025 13:59:29 +0000
-Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
+	id 1vVs5E-00000006tiS-2gPh;
+	Wed, 17 Dec 2025 14:00:52 +0000
+Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVs3q-00000006tY0-0hqX
+	id 1vVs5C-00000006thk-2UUb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 13:59:28 +0000
-Received: by mail-qk1-x729.google.com with SMTP id af79cd13be357-8b29ff9d18cso631967685a.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 05:59:25 -0800 (PST)
+	Wed, 17 Dec 2025 14:00:51 +0000
+Received: by mail-qt1-x836.google.com with SMTP id d75a77b69052e-4f1899960f0so59869251cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 06:00:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1765979964; x=1766584764; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=qNTY0Sqhk7+o+eguXb21G06qwMJTDsQYPt8jfcBPUac=;
-        b=aDh01semZmUJK7xjFlLdv3Rb0dZpSLEAXYle+/nO6hkGe8OQO/PgLBMM3QGOY4GwMY
-         sCleefp84JikLvtDCXldgiNDB+Jxq+Wy5Ow3i7ru26YJt9AF9wtZEc00YpgTl0R93gpn
-         efjqR/+wPPk4Lqr0JjyLa8lATkKWzUz+wPgRTzZgUASNTuOWbI447tua+O/FmNQGf/Ij
-         /knJEBJMRScLzM+uC8lmzw3+zWrYNoVMBID9OQkrBjH5IRK27H9r8tkRSumnkyNIQk+J
-         MQ6rjobUyrWlzcWCld84hrn+kIAxEsr/A21kW7tzkVuSBJ7dDri5ak09biRzkJH7uOBX
-         jxrw==
+        d=ziepe.ca; s=google; t=1765980049; x=1766584849; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=mNOaMPGrnsuzc/K3PgD8W+kjT2zih8ixOp0jwu7uQa8=;
+        b=BLo7ALaNYOJLUFrkcDiRhRDJa2bRk/y6bq5ybN54qyNnz291rYVMqTghx61hpTZkrQ
+         p7aHwZ2KBqjpM9eCJJtyhUxlAzJgxara7pX4CrQJx3pOadtU7hEZZHUCDILRofmkYQ3u
+         KdowXG1Pu8CApD4USW3PbDPjiR8UIdY6fxXWUg+V3Xso4LjMuSUgfiJ4OsiGkOzfQZ5e
+         NawNc8Bv5O64/J5XHnLlfx9JrNqszkyehKzqOkmJptsKIqqWKT5CGnbjWnnVI0BzHBZ8
+         hfUf7Ipd1yEPlNLv9y8KJwvpYYxH0iFpBs2Bk+LapGZEQcmFxJhVKbZO3D0GO04AJvCP
+         OHIQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765979964; x=1766584764;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=qNTY0Sqhk7+o+eguXb21G06qwMJTDsQYPt8jfcBPUac=;
-        b=tnHbPllGcM4tMk4I6PGRWKcl06oDX2+lAnCQDPEyEVdHs1IRPY58wU5WG9p9k5+fMR
-         SVA29DUA+/+C5UHb/m/2/MkhJXhbdNsk0A5g24wIdV3I3BbZwEA4xnYQ8hjZKPfCTw6S
-         I+xCQeOZnX/beRi5P7OVBR9wf6Kd+NzoQBpIuvEhx18NRXFCvjJmybYzVj9YTtq29L1I
-         c+KA+tIfUgaQ9GsVDAYltFAOYB+6NaZyqRCSoz13zCBxiqe1OPGd2GWfTR7Bh7Q6IPUu
-         CviNbI9Daj6nU5KEhMUb1vhlyGtZusIKzAMx5dzW8ig9+wZ1eZJTxKOr8T8TBaoKdoSu
-         ICNQ==
-X-Gm-Message-State: AOJu0YzsvGwlYPXu+gJgtFSh2HksvauwPggy1ZeSik6z9ufdOyFzj3hH
-	MlKkCoOkqj4PLRX0U1US5zMOIepOgJJf/aw0Yr81bAhGBN0Ysjz7C9UbZ0qXNSjzxto=
-X-Gm-Gg: AY/fxX5/Jl0uLaCrKTgFYa3lkbtyeHcC7mjPFA8FZjUAP3iElY1FZlB/CwqI/9+OwYt
-	wWoHAsDy3hWhhfpm3yjmnLr5d8WKK3yc5AQ/nqGBGiYWgvd+bsoPS8wXs/xPVC72knbIJYk++6R
-	1rcbNIUiQNuWLf3HMP6BrOK7z4Ul+MQQSalHgXbDg8NUesIODe6o4M6ijyMl+YGpZBXPEqBZOWC
-	67+zEkmsJ8xse8z+D326nTtrsOtzfJE3pKeX2dNU/ZsJZXwtPhTLNLDikvDUkvsas5r41U5Ke6E
-	kHuSQVJUuvOGuFFR9OJBQV4TAk8+Wdue3DQ/pgC7b81SFntd0fnrNKyfu24sXkWlC7432PQGwyn
-	ctEdMaXBY5RFONy84ZsYtqKAMNShommIowNup6bhUrVC21wCEkseSYHrrcDFpo4j9Dsrj28aKFO
-	9XynbWksGpEryslI14097no0RroMjQv2qzFDDi4cbn8sXdLdLPyMlUKsN6w0wn+xTJ6FI=
-X-Google-Smtp-Source: AGHT+IExCGpmH3xSn76tDpf9mlwCNxEI0+dX+XnOw8fqnvLy+nODc5UF85vOKaQi2smq9F8P/d+5hQ==
-X-Received: by 2002:a05:620a:7108:b0:883:9b33:f6b6 with SMTP id af79cd13be357-8bb3a39bb23mr2288717785a.84.1765979964213;
-        Wed, 17 Dec 2025 05:59:24 -0800 (PST)
+        d=1e100.net; s=20230601; t=1765980049; x=1766584849;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=mNOaMPGrnsuzc/K3PgD8W+kjT2zih8ixOp0jwu7uQa8=;
+        b=jiP6ENW0KoIELnUdJB7ugLnlN3UOKl7P2xh4VPwGkwChjPplz8jca89+C49kKWYV4B
+         MICvLb6ZO+Q67eZriuF3/2/6xmF/oeiaxmumLAhVyvrf0hgaj0CbtCzQKE18KaagpCl+
+         c2Sv+pouf0FsbrmEcO7aPl3SsoES0m6Mbb8znwFXbouiFVglDeZY3DFnhzQ4/qI1Ywbo
+         ow6wV19D+x7FMsg0H/Nbvq5c1fWgQKVmvKLA4q1JUsi0F5HqFADOVaE5xk7W4QMrXu95
+         5+EWgrIAKnU3RlAzBWafQmtMv8rZCyylYyOin4oJP1HkKhaX3kISx3a2ByZaz4rogRnk
+         q1DA==
+X-Gm-Message-State: AOJu0YwGwqDodYbIPBiqXEZv3KzEibunGZ4dCjjn76nQQ5puxO4xeQiD
+	p/QrrJ1lF63KNb1saSTRqYuDiiJoTZNLa4WwXAkuXo02Vb5yPk+DqdvEn94qqLyrtW8=
+X-Gm-Gg: AY/fxX5PqkSY0mBgRMQcTK/ApyLgaJ1E9svjCkCB2InCXBF0OFkUECpHtahjmJmWUyz
+	5JsG94E69XhudS2Z3oAQOx2hswjxcdG+sQUbZTU/GT5X0bMNrByLhw/P7env1qxfCTmN+U/o51h
+	C7MfoRtALeeGViEAatexcJAUPd2BCCDVOamYOHyV3a9FYSvxNhWkjSP6aZfFaJzp39JUNC6ImL8
+	5jH60cy0c0nGiL5qmwUoGpWN//b3XpArlpJPydrEtvpIpojSxtZqKwHUEG/wfYG/MW1WZf+rN9F
+	LR2efebF7ZagVvSzC3AjSDboiR2njp62gSaTHeFw1C6luSh0dzVMowScOwkRkyHJXZqq2C+C1Ag
+	HsLYz/yfHGtGs8Rqe0OlgsL0vEMVqQ+ckGsHUBn/GF+r1+J+CUV7gdCa4Acftm1TS2NoniesM/u
+	Vg5ipEgVyvqmdiHfQPDT12JAkQMdtftpYRrsoSglgWlmBbebi3QmC/mGq/
+X-Google-Smtp-Source: AGHT+IEn7RK/pIYtYXrPbKMGVYlcUHkadYn8QaTKBX4Kd2HwfE2NzoNCX8QU7VpeXmpS/UZ6Pqr5SA==
+X-Received: by 2002:ac8:7515:0:b0:4f3:4c1a:4c49 with SMTP id d75a77b69052e-4f34c1a5041mr45692141cf.48.1765980048007;
+        Wed, 17 Dec 2025 06:00:48 -0800 (PST)
 Received: from ziepe.ca (hlfxns017vw-47-55-120-4.dhcp-dynamic.fibreop.ns.bellaliant.net. [47.55.120.4])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8be31b559cdsm418416585a.30.2025.12.17.05.59.23
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-889a85eaf02sm95103076d6.40.2025.12.17.06.00.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 17 Dec 2025 05:59:23 -0800 (PST)
+        Wed, 17 Dec 2025 06:00:47 -0800 (PST)
 Received: from jgg by wakko with local (Exim 4.97)
 	(envelope-from <jgg@ziepe.ca>)
-	id 1vVs3m-00000000fU1-385b;
-	Wed, 17 Dec 2025 09:59:22 -0400
-Date: Wed, 17 Dec 2025 09:59:22 -0400
+	id 1vVs58-00000000fUk-3YUQ;
+	Wed, 17 Dec 2025 10:00:46 -0400
+Date: Wed, 17 Dec 2025 10:00:46 -0400
 From: Jason Gunthorpe <jgg@ziepe.ca>
 To: Mostafa Saleh <smostafa@google.com>
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
@@ -82,20 +83,21 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
 	praan@google.com, danielmentz@google.com, mark.rutland@arm.com,
 	qperret@google.com, tabba@google.com
-Subject: Re: [PATCH v5 07/27] iommu/arm-smmu-v3: Move IDR parsing to common
- functions
-Message-ID: <20251217135922.GE31492@ziepe.ca>
+Subject: Re: [PATCH v5 14/27] iommu/arm-smmu-v3: Support probing KVM emulated
+ devices
+Message-ID: <20251217140046.GF31492@ziepe.ca>
 References: <20251117184815.1027271-1-smostafa@google.com>
- <20251117184815.1027271-8-smostafa@google.com>
- <20251128164816.GC812105@ziepe.ca>
- <aTw31-mh8z81yi4Y@google.com>
+ <20251117184815.1027271-15-smostafa@google.com>
+ <20251128165616.GD812105@ziepe.ca>
+ <aTw6afum4eqr5_e7@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <aTw31-mh8z81yi4Y@google.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aTw6afum4eqr5_e7@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_055926_422835_3E9EE528 
-X-CRM114-Status: GOOD (  16.00  )
+X-CRM114-CacheID: sfid-20251217_060050_639070_CB13B901 
+X-CRM114-Status: GOOD (  20.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,27 +112,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 12, 2025 at 03:42:15PM +0000, Mostafa Saleh wrote:
-> On Fri, Nov 28, 2025 at 12:48:16PM -0400, Jason Gunthorpe wrote:
-> > On Mon, Nov 17, 2025 at 06:47:54PM +0000, Mostafa Saleh wrote:
-> > > Move parsing of IDRs to functions so that it can be re-used
-> > > from the hypervisor.
-> > > 
-> > > Signed-off-by: Mostafa Saleh <smostafa@google.com>
-> > > ---
-> > >  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 112 +++-----------------
-> > >  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h | 111 +++++++++++++++++++
-> > >  2 files changed, 126 insertions(+), 97 deletions(-)
-> > 
-> > I don't see that this slow path stuff needs to be inlined?
-> > 
-> > +10 to my prior remark to not dump all the huge inlines in the main
-> > header.
+On Fri, Dec 12, 2025 at 03:53:13PM +0000, Mostafa Saleh wrote:
+> > It is OK I guess, I wouldn't insist you change it, but I think it is
+> > kind of gross. Registering the iommu driver against the platform
+> > device instead of the aux is pretty ugly and denies userspace the
+> > ability to see that the hypervisor is sitting in there through the
+> > sysfs topology.
 > 
-> They are inline as they are defined in the header file, otherwise they
-> get defined multiple times.
+> Yes, that’s why I was wondering if it’s better to keep this as a platform
+> driver and create the aux devices for the parent(KVM) but that was really
+> complicated to handle the probe ordering.
 
-Put them in a shared C file
+That sounds worse and inverts the required probe ordering.
+
+Attach it to the aux device :\
+
+> > Not sure why the commentary about built-in though, what does that have
+> > to do with anything? If the aux driver is not built in then it will
+> > just module load later and everything should be fine?
+> 
+> As at the moment the KVM driver doesn’t use drvdata(nor any device
+> resources) and the main driver(aux) does, but if that was a module, we
+> can’t know which version does what (if that changes in the future,
+> although unlikely).
+
+Kernel is monolithic, you don't need to worry about people doing silly
+games with modules.
 
 Jason
 
