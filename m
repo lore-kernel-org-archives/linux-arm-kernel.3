@@ -4,62 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30249D6554E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 11:32:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87166D6408B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 11:40:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G80husZ+iTC66Jzkr/GidUl6WYziBjz7qGAQ1/cTWDA=; b=KD/JdEF5TGWJEk1KujnKuEu9fq
-	yL0lskYrQ7AKUwLMWlQfZzyN27p4xr0ZbwTP+rgpWF/4sqzhKt+sxPnIkG4U5QSnd1EyEnZBjYro9
-	i2Zdzm4L3tawrG34diLPuj7NCjPhSOzfqxbiIb2zPRgTB8D0Ed8D+fR2Tnrog+Gb7XqE/Nw8PbqYG
-	76ClPMq3Yl0d+3FZupc2T+jB+NQyOb1gRcO7cFlUBwOg4Pjci0BhjYJ7t8CFrEFAENAjmulSLwZrS
-	2+550RYUg48LlXMR9bFIpKLxH57Dn+/uYgUVh9dd3IepSu6QOMkq/iVaPp0h+jbLhfGHAoP6NDAEJ
-	Z71kJ6yQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6aGzK6agjuFnlQvfx1CbY4lOLMAOL4AI/lVML6MNHT0=; b=yCd1QZX6OAcjwGBOUhh87sg7MQ
+	UTBtJhFFl3xcPIvtsSDTh8uBlkj9TSYrCEyWHbeOVxd5ANQczdemLBmIT/2n3qPlwCYz3qA6uGiKB
+	oYlFiIIiao+ZjFfM4eXJRXFZrdYAPvhDv61WYa3G+pofX0iYchYCTslxpUEwbvk/SHlqnPsBtIakY
+	o3dn4IOP4dBiqrcZIzM9H195q+CQBg3LwGDbVDPTJehNRBiHEGs4Bn1t59VpueV3gcRAZ2iQ2jlDb
+	RigTzUqJ8J1o0cvxB8LHk3NhHgH7s8GnF3EBHtezrAYxPeI00WdNYuO+IBj5K5nRTXTugRVvs/ASf
+	ShcVT2pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVplG-00000006jVa-0J8m;
-	Wed, 17 Dec 2025 11:32:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVplD-00000006jUf-3iTh
+	id 1vVptW-00000006jxv-0C79;
+	Wed, 17 Dec 2025 11:40:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vVptT-00000006jxY-20MO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 11:32:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 83C89169C;
-	Wed, 17 Dec 2025 03:31:55 -0800 (PST)
-Received: from e134710.manchester.arm.com (e134710.arm.com [10.33.10.82])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BB9843F73B;
-	Wed, 17 Dec 2025 03:32:00 -0800 (PST)
-From: Ahmed Tiba <ahmed.tiba@arm.com>
-To: linux-acpi@vger.kernel.org,
-	devicetree@vger.kernel.org
-Cc: tony.luck@intel.com,
-	bp@alien8.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	rafael@kernel.org,
-	linux-doc@vger.kernel.org,
-	Dmitry.Lamerov@arm.com,
-	Michael.Zhao2@arm.com,
-	ahmed.tiba@arm.com
-Subject: [PATCH 12/12] doc: ras: describe firmware-first estatus flow
-Date: Wed, 17 Dec 2025 11:28:45 +0000
-Message-ID: <20251217112845.1814119-13-ahmed.tiba@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251217112845.1814119-1-ahmed.tiba@arm.com>
-References: <20251217112845.1814119-1-ahmed.tiba@arm.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Wed, 17 Dec 2025 11:40:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C40B44071A;
+	Wed, 17 Dec 2025 11:40:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FF23C4CEF5;
+	Wed, 17 Dec 2025 11:40:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765971634;
+	bh=uqwVsWJ8uisJ2wNnLh7lsr40H7RB5s1TQv5LWb9t0R4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=FNybXqu812pCpuRRRwMC9R7TwkcMb2fQtVD1jCfoC4Ri6bEZqaLvs1Uv5WeuVQL8r
+	 sZ0ffVl7jcNeCcNEcB53jDJyXtByxIMMJWd70zt2NsEo4MBGRGTgEWb7rFC0ScIX8d
+	 UKPSt/9/YgKVSYJrk/7rZXVHZA72eO0O2TmiyUswuHK4+W6DZpLqcYCNSyJlnN6WKP
+	 4wlMrizNmjG9ZDfA0Jr5YFM4V0tlFc3ndegm1UaAEtxJuAsNxP1gYU+y+VIvcgN0FI
+	 Gbo3E2cRybovmdKIROhZbCGpcYXNS+CXpjiLnhdG/mdqwz/7o5uKLYap5S5lLKLu2b
+	 +TCrk+i6kN4tQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vVptP-0000000DLhr-3EaW;
+	Wed, 17 Dec 2025 11:40:31 +0000
+Date: Wed, 17 Dec 2025 11:40:31 +0000
+Message-ID: <861pktnxow.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	nd <nd@arm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Joey Gouly
+	<Joey.Gouly@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org"
+	<peter.maydell@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>
+Subject: Re: [PATCH 15/32] KVM: arm64: gic-v5: Implement direct injection of PPIs
+In-Reply-To: <20251212152215.675767-16-sascha.bischoff@arm.com>
+References: <20251212152215.675767-1-sascha.bischoff@arm.com>
+	<20251212152215.675767-16-sascha.bischoff@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_033203_968210_0F11BF04 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20251217_034035_598539_1A4B34E3 
+X-CRM114-Status: GOOD (  40.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,51 +97,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a short section to the RAS admin guide that explains how the new
-estatus core and DeviceTree provider are enabled, and point readers to
-the binding that describes the firmware-first CPER layout.
+On Fri, 12 Dec 2025 15:22:40 +0000,
+Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+> 
+> GICv5 is able to directly inject PPI pending state into a guest using
+> a mechanism called DVI whereby the pending bit for a paticular PPI is
+> driven directly by the physically-connected hardware. This mechanism
+> itself doesn't allow for any ID translation, so the host interrupt is
+> directly mapped into a guest with the same interrupt ID.
+> 
+> When mapping a virtual interrupt to a physical interrupt via
+> kvm_vgic_map_irq for a GICv5 guest, check if the interrupt itself is a
+> PPI or not. If it is, and the host's interrupt ID matches that used
+> for the guest DVI is enabled, and the interrupt itself is marked as
+> directly_injected.
+> 
+> When the interrupt is unmapped again, this process is reversed, and
+> DVI is disabled for the interrupt again.
+> 
+> Note: the expectation is that a directly injected PPI is disabled on
+> the host while the guest state is loaded. The reason is that although
+> DVI is enabled to drive the guest's pending state directly, the host
+> pending state also remains driven. In order to avoid the same PPI
+> firing on both the host and the guest, the host's interrupt must be
+> disabled (masked). This is left up to the code that owns the device
+> generating the PPI as this needs to be handled on a per-VM basis. One
+> VM might use DVI, while another might not, in which case the physical
+> PPI should be enabled for the latter.
+> 
+> Co-authored-by: Timothy Hayes <timothy.hayes@arm.com>
+> Signed-off-by: Timothy Hayes <timothy.hayes@arm.com>
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
+> ---
+>  arch/arm64/kvm/vgic/vgic-v5.c | 22 ++++++++++++++++++++++
+>  arch/arm64/kvm/vgic/vgic.c    | 16 ++++++++++++++++
+>  arch/arm64/kvm/vgic/vgic.h    |  1 +
+>  include/kvm/arm_vgic.h        |  1 +
+>  4 files changed, 40 insertions(+)
+> 
+> diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
+> index 2fb2db23ed39a..22558080711eb 100644
+> --- a/arch/arm64/kvm/vgic/vgic-v5.c
+> +++ b/arch/arm64/kvm/vgic/vgic-v5.c
+> @@ -54,6 +54,28 @@ int vgic_v5_probe(const struct gic_kvm_info *info)
+>  	return 0;
+>  }
+>  
+> +/*
+> + * Sets/clears the corresponding bit in the ICH_PPI_DVIR register.
+> + */
+> +int vgic_v5_set_ppi_dvi(struct kvm_vcpu *vcpu, u32 irq, bool dvi)
+> +{
+> +	struct vgic_v5_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
+> +	u32 ppi = FIELD_GET(GICV5_HWIRQ_ID, irq);
+> +
+> +	if (ppi >= 128)
+> +		return -EINVAL;
 
-Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
----
- Documentation/admin-guide/RAS/main.rst | 24 ++++++++++++++++++++++++
- 1 file changed, 24 insertions(+)
+Surely this is bad. *very* bad. How can we get here the first place?
 
-diff --git a/Documentation/admin-guide/RAS/main.rst b/Documentation/admin-guide/RAS/main.rst
-index 5a45db32c49b..adff8b4bc84b 100644
---- a/Documentation/admin-guide/RAS/main.rst
-+++ b/Documentation/admin-guide/RAS/main.rst
-@@ -205,6 +205,30 @@ Architecture (MCA)\ [#f3]_.
- .. [#f3] For more details about the Machine Check Architecture (MCA),
-   please read Documentation/arch/x86/x86_64/machinecheck.rst at the Kernel tree.
+> +
+> +	if (dvi) {
+> +		/* Set the bit */
+> +		cpu_if->vgic_ppi_dvir[ppi / 64] |= 1UL << (ppi % 64);
+> +	} else {
+> +		/* Clear the bit */
+> +		cpu_if->vgic_ppi_dvir[ppi / 64] &= ~(1UL << (ppi % 64));
+> +	}
+
+This should be simplified:
+
+diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
+index d74cc3543b9a4..f434ee85f7e1a 100644
+--- a/arch/arm64/kvm/vgic/vgic-v5.c
++++ b/arch/arm64/kvm/vgic/vgic-v5.c
+@@ -191,8 +191,8 @@ bool vgic_v5_ppi_set_pending_state(struct kvm_vcpu *vcpu,
+ 				   struct vgic_irq *irq)
+ {
+ 	struct vgic_v5_cpu_if *cpu_if;
+-	const u32 id_bit = BIT_ULL(irq->intid % 64);
+ 	const u32 reg = FIELD_GET(GICV5_HWIRQ_ID, irq->intid) / 64;
++	unsigned long *p;
  
-+Firmware-first CPER status providers
-+------------------------------------
-+
-+Some systems expose Common Platform Error Record (CPER) data via firmware
-+interfaces instead of relying on CPU machine-check banks. The kernel routes
-+those records through the shared *estatus* core:
-+
-+* ``CONFIG_RAS_ESTATUS_CORE`` hosts the in-kernel data movers and notifiers.
-+  It is selected automatically when ACPI/APEI GHES support is enabled or when
-+  the DeviceTree provider below is built.
-+* ``CONFIG_RAS_ESTATUS_DT`` adds the ``drivers/ras/estatus-dt.c`` provider that
-+  maps a firmware-advertised CPER status block on non-ACPI platforms. The
-+  DeviceTree binding is documented in
-+  ``Documentation/devicetree/bindings/ras/arm,ras-ffh.yaml`` and describes the
-+  status-buffer region and the notification signal (interrupt or polling) that
-+  firmware uses to advertise new records.
-+
-+Once a platform describes a firmware-first provider, both ACPI GHES and the
-+DeviceTree driver reuse the same code paths: CPER sections are iterated with
-+``estatus_for_each_section()``, logged through ``cper_estatus_print()``, and
-+handed to the RAS notifier chains that trigger memory-offline, PCIe AER, or
-+vendor-specific handlers. This keeps the behaviour consistent regardless of
-+whether the error source is described via ACPI tables or DeviceTree.
-+
- EDAC - Error Detection And Correction
- *************************************
+ 	if (!vcpu || !irq)
+ 		return false;
+@@ -203,10 +203,8 @@ bool vgic_v5_ppi_set_pending_state(struct kvm_vcpu *vcpu,
  
+ 	cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
+ 
+-	if (irq_is_pending(irq))
+-		cpu_if->vgic_ppi_pendr[reg] |= id_bit;
+-	else
+-		cpu_if->vgic_ppi_pendr[reg] &= ~id_bit;
++	p = (unsigned long *)&cpu_if->vgic_ppi_pendr[reg];
++	__assign_bit(irq->intid % 64, p, irq_is_pending(irq));
+ 
+ 	return true;
+ }
+@@ -449,17 +447,13 @@ int vgic_v5_set_ppi_dvi(struct kvm_vcpu *vcpu, u32 irq, bool dvi)
+ {
+ 	struct vgic_v5_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
+ 	u32 ppi = FIELD_GET(GICV5_HWIRQ_ID, irq);
++	unsigned long *p;
+ 
+ 	if (ppi >= 128)
+ 		return -EINVAL;
+ 
+-	if (dvi) {
+-		/* Set the bit */
+-		cpu_if->vgic_ppi_dvir[ppi / 64] |= 1UL << (ppi % 64);
+-	} else {
+-		/* Clear the bit */
+-		cpu_if->vgic_ppi_dvir[ppi / 64] &= ~(1UL << (ppi % 64));
+-	}
++	p = (unsigned long *)&cpu_if->vgic_ppi_dvir[ppi / 64];
++	__assign_bit(ppi % 64, p, dvi);
+ 
+ 	return 0;
+ }
+
+(yes, unsigned long and u64 are the same thing on any sane
+architecture).
+
+> +
+> +	return 0;
+> +}
+> +
+>  void vgic_v5_load(struct kvm_vcpu *vcpu)
+>  {
+>  	struct vgic_v5_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
+> diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
+> index 1005ff5f36235..1fe3dcc997860 100644
+> --- a/arch/arm64/kvm/vgic/vgic.c
+> +++ b/arch/arm64/kvm/vgic/vgic.c
+> @@ -577,12 +577,28 @@ static int kvm_vgic_map_irq(struct kvm_vcpu *vcpu, struct vgic_irq *irq,
+>  	irq->host_irq = host_irq;
+>  	irq->hwintid = data->hwirq;
+>  	irq->ops = ops;
+> +
+> +	if (vgic_is_v5(vcpu->kvm)) {
+> +		/* Nothing for us to do */
+> +		if (!irq_is_ppi_v5(irq->intid))
+> +			return 0;
+> +
+> +		if (FIELD_GET(GICV5_HWIRQ_ID, irq->intid) == irq->hwintid) {
+> +			if (!vgic_v5_set_ppi_dvi(vcpu, irq->hwintid, true))
+> +				irq->directly_injected = true;
+
+The error handling gives me the creeps. If we can end-up at this stage
+with the wrong INTID, we're screwed.
+
+> +		}
+> +	}
+> +
+>  	return 0;
+>  }
+>  
+>  /* @irq->irq_lock must be held */
+>  static inline void kvm_vgic_unmap_irq(struct vgic_irq *irq)
+>  {
+> +	if (irq->directly_injected && vgic_is_v5(irq->target_vcpu->kvm))
+> +		WARN_ON(vgic_v5_set_ppi_dvi(irq->target_vcpu, irq->hwintid, false));
+> +
+> +	irq->directly_injected = false;
+>  	irq->hw = false;
+>  	irq->hwintid = 0;
+>  	irq->ops = NULL;
+> diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
+> index 6e1f386dffade..b6e3f5e3aba18 100644
+> --- a/arch/arm64/kvm/vgic/vgic.h
+> +++ b/arch/arm64/kvm/vgic/vgic.h
+> @@ -363,6 +363,7 @@ void vgic_debug_init(struct kvm *kvm);
+>  void vgic_debug_destroy(struct kvm *kvm);
+>  
+>  int vgic_v5_probe(const struct gic_kvm_info *info);
+> +int vgic_v5_set_ppi_dvi(struct kvm_vcpu *vcpu, u32 irq, bool dvi);
+>  void vgic_v5_load(struct kvm_vcpu *vcpu);
+>  void vgic_v5_put(struct kvm_vcpu *vcpu);
+>  void vgic_v5_set_vmcr(struct kvm_vcpu *vcpu, struct vgic_vmcr *vmcr);
+> diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
+> index 45d83f45b065d..ce9e149b85a58 100644
+> --- a/include/kvm/arm_vgic.h
+> +++ b/include/kvm/arm_vgic.h
+> @@ -163,6 +163,7 @@ struct vgic_irq {
+>  	bool enabled:1;
+>  	bool active:1;
+>  	bool hw:1;			/* Tied to HW IRQ */
+> +	bool directly_injected:1;	/* A directly injected HW IRQ */
+>  	bool on_lr:1;			/* Present in a CPU LR */
+>  	refcount_t refcount;		/* Used for LPIs */
+>  	u32 hwintid;			/* HW INTID number */
+
+Thanks,
+
+	M.
+
 -- 
-2.43.0
-
+Without deviation from the norm, progress is not possible.
 
