@@ -4,94 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C813D64099
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 09:02:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 369CAD64095
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 09:11:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UthLIec/cwIuktVfa9EqyXI2OpVuqNJjlw1hhbbSLgE=; b=NM3HuravE7HJqYc+31eHPKlHs+
-	ck/NLrHX8KSNk6WTXbCFLGIJTmMPNJ8F6FM6phJdDHpyn1HIHl9PyHlsjEnTtylzdhKpmdNZwOj5u
-	/PtdJnNoHfzn4AyjuQmdjrgb/pde3FR9QKXPa7ldxIf3c1rqYika9DhzRoCOheVxAhOc/Kfv5xY+s
-	41wDB3NJ61YRjM4sSyLjhvuMCe/hHwwCF3jC3qWI1CYIvfxmru5TcTrYTfSI7SZYu152ZDJ+bVAPG
-	V7uXfOrMKwPivZ2z92i34WOsWnBB6relT6RZCer5ATxH4/0Fp3br3LRslD4JOvABVrzkNNbR9/7c/
-	ZScQyr6A==;
+	bh=xfujg8/O0zWHhjIR9pfaJn5dYWdiKI7tk4dkgx8mmsU=; b=GsCWlNiLMvQ3ksUdR8au1NHl6/
+	16iI/zLxaHArhgnHxgLtlUCO9G96SeiVWY1OXI/P0gXPIoaG/r6DQJlo9vmq08bqjheK4VghSW+TM
+	DuyAl7wAGT+fIyUyYmpmrIEX0SKLzT6mqcX5RXLROmc6/Ub2SpDiKCNnVawgJumTir8wDLSaI1A6G
+	2vdmS8+V0KYWrFhpUxAuaBnHsSLv+gm3MBFKXg1MW7gZi58/D8Epn3hXHkRhIpFrJYv2hzOK1LKSE
+	Kn25kI5NSvl64wqsrnMRKEQx0D3AfQGTeBaW25G4By4yIGMJYZWKN/N09nxIOUSp+NtTx2MRqYISh
+	UsypBEUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVnQN-00000006Nvn-31it;
-	Wed, 17 Dec 2025 09:02:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vVnYx-00000006OlM-3ebV;
+	Wed, 17 Dec 2025 09:11:15 +0000
+Received: from mx-relay36-hz1.antispameurope.com ([94.100.133.212])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVnQL-00000006Nue-1Tvw
+	id 1vVnYt-00000006Oks-2ddg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 09:02:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 496236018C;
-	Wed, 17 Dec 2025 09:02:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF8E2C19421;
-	Wed, 17 Dec 2025 09:02:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765962140;
-	bh=TqhCN05lIjCwKdoNH7O27Ib5W/fzrsm853qYAbg7qEk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mvAWqDTYEQLPIjasUrs0D/Ze97eatlfyL0mi6O0MGmE1SvVn8YHYiQ1hDIZZ4oE8K
-	 aFHFHT2tvqpmtTdxeiwwsKJeoEVwVelMoe4qdWjAQvcLtXTPchbIZ+ReSJGYbTCzr1
-	 qqsGRlLlswi0jMZNei2mTasXnvX0lpJbqMF7UmTpaAoqX1N9T1UOPYMMpKw8Gfqhqh
-	 UjNPCvimUrrUtTiIKv9N5Ccmev+XKHhu1cfOPYdPmfSUBm4ahYUsPiFyqCCGB8H6UA
-	 JpzEUlNfSO+k+Tl5V8osBsBwXeYIjSzePF5a/zlMumvvZfIBKHX3GrTd0HYyuz9UeN
-	 OzpkhIbfzPmTw==
-Date: Wed, 17 Dec 2025 14:32:02 +0530
-From: Sumit Garg <sumit.garg@kernel.org>
-To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>
-Cc: Sumit Garg <sumit.garg@oss.qualcomm.com>,
-	Jens Wiklander <jens.wiklander@linaro.org>,
-	Olivia Mackall <olivia@selenic.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <clement.leger@bootlin.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-	Jan Kiszka <jan.kiszka@siemens.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
-	Michael Chan <michael.chan@broadcom.com>,
-	Pavan Chebbi <pavan.chebbi@broadcom.com>,
-	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>,
-	James Bottomley <James.Bottomley@hansenpartnership.com>,
-	Jarkko Sakkinen <jarkko@kernel.org>,
-	Mimi Zohar <zohar@linux.ibm.com>,
-	David Howells <dhowells@redhat.com>,
-	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
-	"Serge E. Hallyn" <serge@hallyn.com>,
-	Peter Huewe <peterhuewe@gmx.de>, op-tee@lists.trustedfirmware.org,
-	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
-	linux-rtc@vger.kernel.org, linux-efi@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	arm-scmi@vger.kernel.org, netdev@vger.kernel.org,
-	linux-mips@vger.kernel.org, linux-integrity@vger.kernel.org,
-	keyrings@vger.kernel.org, linux-security-module@vger.kernel.org,
-	Jason Gunthorpe <jgg@ziepe.ca>
-Subject: Re: [PATCH v1 00/17] tee: Use bus callbacks instead of driver
- callbacks
-Message-ID: <aUJxiioKnDVSC34H@sumit-xelite>
-References: <cover.1765472125.git.u.kleine-koenig@baylibre.com>
- <aT--ox375kg2Mzh-@sumit-X1>
- <dhunzydod4d7vj73llpuqemxb5er2ja4emxusr66irwf77jhhb@es4yd2axzl25>
- <CAGptzHOOqLhBnAXDURAzkgckUvRr__UuF1S_7MLV0u-ZxYEdyA@mail.gmail.com>
- <ayebinxqpcnl7hpa35ytrudiy7j75u5bdk3enlirkp5pevppeg@6mx6a5fwymwf>
- <aUJh--HGVeJWIilS@sumit-xelite>
- <max5wxkcjjvnftwfwgymybwbnvf5s3ytwpy4oo5i74kfvnav4m@m2wasqyxsf4h>
+	Wed, 17 Dec 2025 09:11:14 +0000
+ARC-Authentication-Results: i=1; mx-gate36-hz1.hornetsecurity.com 1; spf=pass
+ reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ smtp.mailfrom=ew.tq-group.com smtp.helo=smtp-out02-hz1.hornetsecurity.com;
+ dmarc=pass header.from=ew.tq-group.com orig.disposition=pass
+ARC-Message-Signature: a=rsa-sha256;
+ bh=xfujg8/O0zWHhjIR9pfaJn5dYWdiKI7tk4dkgx8mmsU=; c=relaxed/relaxed;
+ d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
+ t=1765962642;
+ b=hhsP3fCQb2Rigl8R+ras6uICPUZLQAELa8dan2vDyiq2mQRiWiuvB8TIKJewezt4k4M8Ppdb
+ fGmAE1v2NTlafRucoGwDenTVXjWR8+Nhe70V7XAl7MwelEUeAlcynwDSjyr4qnYtyfMbqCPO3vM
+ qF9ieY3ULMuqagixp9XeFNYd28/k67OktKl5CfOPoJgYPYoF1YI7lZBNUMU7gsM/rIqczjV1928
+ h5gTZ1ssjmNcoHedDbqWp0lrEwh7bB/AmoyL/mGLCPts7qnEaxQ5D7J3acIku+MMwNMY0UFJ/fC
+ o4f1laddlzEME42LdfRBzBObnSFuEn9s7gH6wUG/OCNbA==
+ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
+ t=1765962642;
+ b=dO/9udcLZQTiQN61KmYDcIlzZSQjzX0tVigWXJR/q8W0A6f5edymyOkigFUBI5Z1rBk4Td2n
+ tVERDcFO0IugSgfvJeaRYBOWD4GJsbvSvKFdUBIp9S2P8qxf/cZrgDvHWmq+cXt6FpdnfC+6tLh
+ 3M8mJL1JgBRwitIY11wIOMF3MyAvY5oD5Dh+kMkCA3CDtnEEYCZYbctljnGSIYf3ZgxIjHufgvu
+ +L9sU5FBPB3M+u+r9yDV7kziW+D/CpaE+NMpdrJ8ONYn2q+DG2O/eMFXVRRaCd+QHckLWuoPbuy
+ lQzxv/q9WoMsSpcHe68l7fG0MMvy0TJHaREnCuUSGq3Aw==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay36-hz1.antispameurope.com;
+ Wed, 17 Dec 2025 10:10:42 +0100
+Received: from [192.168.153.128] (host-82-135-125-110.customer.m-online.net [82.135.125.110])
+	(Authenticated sender: matthias.schiffer@ew.tq-group.com)
+	by smtp-out02-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 90E2E5A0FA5;
+	Wed, 17 Dec 2025 10:10:16 +0100 (CET)
+Message-ID: <637f14d1c77c2a1d19f7ea221addbbea51392bd9.camel@ew.tq-group.com>
+Subject: Re: [PATCH v4 2/2] arm64: dts: ti: Add TQ-Systems TQMa62xx SoM and
+ MBa62xx carrier board Device Trees
+From: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+To: Vignesh Raghavendra <vigneshr@ti.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+  Conor Dooley <conor+dt@kernel.org>, Kees Cook <kees@kernel.org>, Tony Luck
+ <tony.luck@intel.com>,  "Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+ Andrew Lunn <andrew@lunn.ch>,  linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org,
+ linux-hardening@vger.kernel.org,  linux@ew.tq-group.com, Nishanth Menon
+ <nm@ti.com>, Tero Kristo <kristo@kernel.org>
+Date: Wed, 17 Dec 2025 10:10:16 +0100
+In-Reply-To: <671625aa-f5da-4e34-9c8c-7a1da282aa5e@ti.com>
+References: <cover.1762775119.git.matthias.schiffer@ew.tq-group.com>
+	 <0079cc291c78b94068f3d8c59df103e951247acc.1762775119.git.matthias.schiffer@ew.tq-group.com>
+	 <d13a95659bdd1c840dfaa46afd6d8583f1b7c88f.camel@ew.tq-group.com>
+	 <671625aa-f5da-4e34-9c8c-7a1da282aa5e@ti.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.3-0ubuntu1.1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <max5wxkcjjvnftwfwgymybwbnvf5s3ytwpy4oo5i74kfvnav4m@m2wasqyxsf4h>
+X-cloud-security-sender: matthias.schiffer@ew.tq-group.com
+X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
+X-cloud-security-crypt: load encryption module
+X-cloud-security-Mailarchiv: E-Mail archived for: matthias.schiffer@ew.tq-group.com
+X-cloud-security-Mailarchivtype: outbound
+X-cloud-security-Virusscan: CLEAN
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay36-hz1.antispameurope.com with 4dWSgY2fCdz2HYqw
+X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
+X-cloud-security-Digest: 3ce335cbe13af60b1b355940102977ec
+X-cloud-security: scantime:2.793
+DKIM-Signature: a=rsa-sha256;
+ bh=xfujg8/O0zWHhjIR9pfaJn5dYWdiKI7tk4dkgx8mmsU=; c=relaxed/relaxed;
+ d=ew.tq-group.com;
+ h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
+ t=1765962641; v=1;
+ b=Y/YIiX7pltTZyFTTqYQ5ZqLrrPMaLy9EvoXSf0Hnd5FQ1ikO9Eryy9xH0cGJs3d1xZZeSlqk
+ AsBIVAr4mkyRmHK5s3uHd9JPMwfcmo0mRbuGoG+hiePUyWKoAubZp/mFly+u04k2ybYZpu8zqvc
+ 865kQkYtR0UYZZ5wea8L026abopwQsp/TyYEYzswIlD8dHpdhCXvJ95eHGJg/U7FoRceHXd9i6x
+ UaXNUos7q6rOHr0wcnLORTehbYXHtXYxPYhxjz37w1JMvVMWoCyGqntjgETqb3xsU/Be7xPBbNX
+ kDO1z2EJUQyYJTrna15w5BNGH2M078KO464BsQX4gJGpw==
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251217_011111_921286_3DBFBA62 
+X-CRM114-Status: GOOD (  14.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,34 +112,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 17, 2025 at 09:21:41AM +0100, Uwe Kleine-König wrote:
-> Hello Sumit,
-> 
-> On Wed, Dec 17, 2025 at 01:25:39PM +0530, Sumit Garg wrote:
-> > On Tue, Dec 16, 2025 at 12:08:38PM +0100, Uwe Kleine-König wrote:
-> > > On Tue, Dec 16, 2025 at 01:08:38PM +0530, Sumit Garg wrote:
-> > > > On Mon, Dec 15, 2025 at 3:02 PM Uwe Kleine-König
-> > > > <u.kleine-koenig@baylibre.com> wrote:
-> > > > >  - Why does optee_probe() in drivers/tee/optee/smc_abi.c unregister all
-> > > > >    optee devices in its error path (optee_unregister_devices())?
-> > > > 
-> > > > This is mostly to take care of if any device got registered before the
-> > > > failure occured. Let me know if you have a better way to address that.
-> > > 
-> > > Without understanding the tee stuff, I'd say: Don't bother and only undo
-> > > the things that probe did before the failure.
-> > 
-> > True, but this is special case where if there is any leftover device
-> > registered from the TEE implementation then it is likely going to cause
-> > the corresponding kernel client driver crash.
-> 
-> You are aware that this is racy? So if a driver crashes e.g. after
-> teedev_close_context() it might happen that it is registered just after
-> optee_unregister_devices() returns.
-> 
+On Wed, 2025-11-26 at 10:47 +0530, Vignesh Raghavendra wrote:
+> Hi Matthias,
+>=20
+> On 25/11/25 15:32, Matthias Schiffer wrote:
+> > On Mon, 2025-11-10 at 12:49 +0100, Matthias Schiffer wrote:
+> > > The TQMa62xx is a SoM family with a pluggable board connector based o=
+n the
+> > > TI AM62x SoCs. Add DTS(I) for the AM625 (2x Cortex-A53) variant and i=
+ts
+> > > combination with our MBa62xx carrier board.
+> >=20
+> > Hi Vignesh,
+> >=20
+> > do you have any further comments? Can we get this in for 6.19?
+> >=20
+>=20
+> Oops, this somehow fell through the crack, my apologies!
+>=20
+> I have already sent out the PRs for v6.19. Sorry, this would need to
+> wait for v6.20 cycle.
+>=20
+> [...]
+>=20
+>=20
 
-I see your point about the unavoidable race. Maybe it's better to not
-try anything and let the kernel client driver fail.
+Hi Vignesh,
 
--Sumit
+will these patches by applied for v6.20 (if there aren't any more review
+comments)? Should I resend them?
+
+Best,
+Matthias
+
+
+
+
+
+--=20
+TQ-Systems GmbH | M=C3=BChlstra=C3=9Fe 2, Gut Delling | 82229 Seefeld, Germ=
+any
+Amtsgericht M=C3=BCnchen, HRB 105018
+Gesch=C3=A4ftsf=C3=BChrer: Detlef Schneider, R=C3=BCdiger Stahl, Stefan Sch=
+neider
+https://www.tq-group.com/
 
