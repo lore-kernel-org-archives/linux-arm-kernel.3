@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A51DCD6552C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 10:13:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AB7AD6552C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 10:13:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w2+/nTtYL+8weY/4eCrE2hfZW1CFIFN9wNHzcGAsWS0=; b=2ex9RPcpcKW48ndWVNAdMS2nEn
-	1OzDNGIe96WN5ae3kzAwuRnzubeUTR68tYeI/DHU/JAkCvLBy5rmsHVVoYJc2gpeV7VnEurETzdZw
-	5ntsEHsNjoSf6bFx5YvSxoup4SrLGIYlFKPwK/Krykd/OajoeE7eFqTwu/vXycRN2P1Gsh/qaMcYU
-	OKY56tuub82qFRj07Gx4g9F9WLO/dJzIDNEfjicpxIHSLi9PkmgjIQdNbto4WPRvJeBTk+LaY9QgR
-	PB/ziFiytdzoI0K4IQ7J7mX6QnrnSlikwVPsnGWVm3XOpFdcO2MCjxNxSMHdKgpEzj25Mmh1P+rAL
-	w1xcAjRA==;
+	bh=03feX63v7lpfVYlsSEw1mrqbxb0PzVdnq92152YweXg=; b=DZyV/WoYbB8kOLJRMPgAZF4o5d
+	UU16kUCVUV7r6+txIX6OpIeSeud8g3pw9oYPvwmDro7ZVu3oukN44Wpl3lNc8P7mmuqEtJIIJSL6b
+	Ts977aU7lOrtJLMj1YflWETlYck3Jp24h5Nq11tDqnPmLf2dWMmoxzoLtgAHs9M+9I7ytDb3pHPlo
+	X/xzgkeUK1Af0sALP46LI5OFGOwgSCLBudoLoL5tyI1Gw5VnfKmAqk5vRuFnkNP6y5VH1gbFP1vyn
+	6s2B6G4OFtijkPEu9mmDxRtlHe1Jr4+C9jCIPhINGlvVqdfZ0U8P/pfnkcH5Q7RRwThVOBdPDdZRK
+	ilX2ldnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVoX7-00000006X94-0sVK;
-	Wed, 17 Dec 2025 10:13:25 +0000
+	id 1vVoXA-00000006XC5-2QOg;
+	Wed, 17 Dec 2025 10:13:28 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVoWx-00000006Wys-2D4E
+	id 1vVoX1-00000006WtJ-19uN
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 10:13:24 +0000
+	Wed, 17 Dec 2025 10:13:27 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 11E5A1688;
-	Wed, 17 Dec 2025 02:13:07 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AFD2D1691;
+	Wed, 17 Dec 2025 02:13:11 -0800 (PST)
 Received: from e122027.arm.com (unknown [10.57.45.201])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F32373F73B;
-	Wed, 17 Dec 2025 02:13:09 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 893B13F73B;
+	Wed, 17 Dec 2025 02:13:14 -0800 (PST)
 From: Steven Price <steven.price@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -58,17 +58,17 @@ Cc: Steven Price <steven.price@arm.com>,
 	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
 	Emi Kisanuki <fj0570is@fujitsu.com>,
 	Vishal Annapurve <vannapurve@google.com>
-Subject: [PATCH v12 18/46] KVM: arm64: Handle realm MMIO emulation
-Date: Wed, 17 Dec 2025 10:10:55 +0000
-Message-ID: <20251217101125.91098-19-steven.price@arm.com>
+Subject: [PATCH v12 19/46] KVM: arm64: Expose support for private memory
+Date: Wed, 17 Dec 2025 10:10:56 +0000
+Message-ID: <20251217101125.91098-20-steven.price@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251217101125.91098-1-steven.price@arm.com>
 References: <20251217101125.91098-1-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_021315_700390_D375D2CC 
-X-CRM114-Status: GOOD (  19.55  )
+X-CRM114-CacheID: sfid-20251217_021319_461024_6037349E 
+X-CRM114-Status: GOOD (  10.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,129 +83,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MMIO emulation for a realm cannot be done directly with the VM's
-registers as they are protected from the host. However, for emulatable
-data aborts, the RMM uses GPRS[0] to provide the read/written value.
-We can transfer this from/to the equivalent VCPU's register entry and
-then depend on the generic MMIO handling code in KVM.
-
-For a MMIO read, the value is placed in the shared RecExit structure
-during kvm_handle_mmio_return() rather than in the VCPU's register
-entry.
+Select KVM_GENERIC_MEMORY_ATTRIBUTES and provide the necessary support
+functions.
 
 Signed-off-by: Steven Price <steven.price@arm.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
-Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 ---
-Changes since v7:
- * New comment for rec_exit_sync_dabt() explaining the call to
-   vcpu_set_reg().
-Changes since v5:
- * Inject SEA to the guest is an emulatable MMIO access triggers a data
-   abort.
- * kvm_handle_mmio_return() - disable kvm_incr_pc() for a REC (as the PC
-   isn't under the host's control) and move the REC_ENTER_EMULATED_MMIO
-   flag setting to this location (as that tells the RMM to skip the
-   instruction).
+Changes since v10:
+ * KVM_GENERIC_PRIVATE_MEM replacd with KVM_GENERIC_MEMORY_ATTRIBUTES.
+Changes since v9:
+ * Drop the #ifdef CONFIG_KVM_PRIVATE_MEM guard from the definition of
+   kvm_arch_has_private_mem()
+Changes since v2:
+ * Switch kvm_arch_has_private_mem() to a macro to avoid overhead of a
+   function call.
+ * Guard definitions of kvm_arch_{pre,post}_set_memory_attributes() with
+   #ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES.
+ * Early out in kvm_arch_post_set_memory_attributes() if the WARN_ON
+   should trigger.
 ---
- arch/arm64/kvm/inject_fault.c |  4 +++-
- arch/arm64/kvm/mmio.c         | 16 ++++++++++++----
- arch/arm64/kvm/rmi-exit.c     | 14 ++++++++++++++
- 3 files changed, 29 insertions(+), 5 deletions(-)
+ arch/arm64/include/asm/kvm_host.h |  2 ++
+ arch/arm64/kvm/Kconfig            |  1 +
+ arch/arm64/kvm/mmu.c              | 24 ++++++++++++++++++++++++
+ 3 files changed, 27 insertions(+)
 
-diff --git a/arch/arm64/kvm/inject_fault.c b/arch/arm64/kvm/inject_fault.c
-index dfcd66c65517..5e00f7a69bcc 100644
---- a/arch/arm64/kvm/inject_fault.c
-+++ b/arch/arm64/kvm/inject_fault.c
-@@ -224,7 +224,9 @@ static void inject_abt32(struct kvm_vcpu *vcpu, bool is_pabt, u32 addr)
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 5a24227088c1..7590d86c78a5 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -1462,6 +1462,8 @@ struct kvm *kvm_arch_alloc_vm(void);
  
- static void __kvm_inject_sea(struct kvm_vcpu *vcpu, bool iabt, u64 addr)
- {
--	if (vcpu_el1_is_32bit(vcpu))
-+	if (unlikely(vcpu_is_rec(vcpu)))
-+		vcpu->arch.rec.run->enter.flags |= REC_ENTER_FLAG_INJECT_SEA;
-+	else if (vcpu_el1_is_32bit(vcpu))
- 		inject_abt32(vcpu, iabt, addr);
- 	else
- 		inject_abt64(vcpu, iabt, addr);
-diff --git a/arch/arm64/kvm/mmio.c b/arch/arm64/kvm/mmio.c
-index 54f9358c9e0e..d7ad291b5357 100644
---- a/arch/arm64/kvm/mmio.c
-+++ b/arch/arm64/kvm/mmio.c
-@@ -6,6 +6,7 @@
+ #define vcpu_is_protected(vcpu)		kvm_vm_is_protected((vcpu)->kvm)
  
- #include <linux/kvm_host.h>
- #include <asm/kvm_emulate.h>
-+#include <asm/rmi_smc.h>
- #include <trace/events/kvm.h>
- 
- #include "trace.h"
-@@ -138,14 +139,21 @@ int kvm_handle_mmio_return(struct kvm_vcpu *vcpu)
- 		trace_kvm_mmio(KVM_TRACE_MMIO_READ, len, run->mmio.phys_addr,
- 			       &data);
- 		data = vcpu_data_host_to_guest(vcpu, data, len);
--		vcpu_set_reg(vcpu, kvm_vcpu_dabt_get_rd(vcpu), data);
++#define kvm_arch_has_private_mem(kvm) ((kvm)->arch.is_realm)
 +
-+		if (vcpu_is_rec(vcpu))
-+			vcpu->arch.rec.run->enter.gprs[0] = data;
-+		else
-+			vcpu_set_reg(vcpu, kvm_vcpu_dabt_get_rd(vcpu), data);
- 	}
+ int kvm_arm_vcpu_finalize(struct kvm_vcpu *vcpu, int feature);
+ bool kvm_arm_vcpu_is_finalized(struct kvm_vcpu *vcpu);
  
- 	/*
- 	 * The MMIO instruction is emulated and should not be re-executed
- 	 * in the guest.
- 	 */
--	kvm_incr_pc(vcpu);
-+	if (vcpu_is_rec(vcpu))
-+		vcpu->arch.rec.run->enter.flags |= REC_ENTER_FLAG_EMULATED_MMIO;
+diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
+index 4f803fd1c99a..1cac6dfc0972 100644
+--- a/arch/arm64/kvm/Kconfig
++++ b/arch/arm64/kvm/Kconfig
+@@ -38,6 +38,7 @@ menuconfig KVM
+ 	select SCHED_INFO
+ 	select GUEST_PERF_EVENTS if PERF_EVENTS
+ 	select KVM_GUEST_MEMFD
++	select KVM_GENERIC_MEMORY_ATTRIBUTES
+ 	help
+ 	  Support hosting virtualized guest machines.
+ 
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index cac3d7b73b3d..f2ac01c1de04 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -2503,6 +2503,30 @@ int kvm_arch_prepare_memory_region(struct kvm *kvm,
+ 	return ret;
+ }
+ 
++#ifdef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
++bool kvm_arch_pre_set_memory_attributes(struct kvm *kvm,
++					struct kvm_gfn_range *range)
++{
++	WARN_ON_ONCE(!kvm_arch_has_private_mem(kvm));
++	return false;
++}
++
++bool kvm_arch_post_set_memory_attributes(struct kvm *kvm,
++					 struct kvm_gfn_range *range)
++{
++	if (WARN_ON_ONCE(!kvm_arch_has_private_mem(kvm)))
++		return false;
++
++	if (range->arg.attributes & KVM_MEMORY_ATTRIBUTE_PRIVATE)
++		range->attr_filter = KVM_FILTER_SHARED;
 +	else
-+		kvm_incr_pc(vcpu);
- 
- 	return 1;
- }
-@@ -164,14 +172,14 @@ int io_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa)
- 	 * No valid syndrome? Ask userspace for help if it has
- 	 * volunteered to do so, and bail out otherwise.
- 	 *
--	 * In the protected VM case, there isn't much userspace can do
-+	 * In the protected/realm VM case, there isn't much userspace can do
- 	 * though, so directly deliver an exception to the guest.
- 	 */
- 	if (!kvm_vcpu_dabt_isvalid(vcpu)) {
- 		trace_kvm_mmio_nisv(*vcpu_pc(vcpu), kvm_vcpu_get_esr(vcpu),
- 				    kvm_vcpu_get_hfar(vcpu), fault_ipa);
- 
--		if (vcpu_is_protected(vcpu))
-+		if (vcpu_is_protected(vcpu) || vcpu_is_rec(vcpu))
- 			return kvm_inject_sea_dabt(vcpu, kvm_vcpu_get_hfar(vcpu));
- 
- 		if (test_bit(KVM_ARCH_FLAG_RETURN_NISV_IO_ABORT_TO_USER,
-diff --git a/arch/arm64/kvm/rmi-exit.c b/arch/arm64/kvm/rmi-exit.c
-index f5701153dec0..b4843f094615 100644
---- a/arch/arm64/kvm/rmi-exit.c
-+++ b/arch/arm64/kvm/rmi-exit.c
-@@ -25,6 +25,20 @@ static int rec_exit_reason_notimpl(struct kvm_vcpu *vcpu)
- 
- static int rec_exit_sync_dabt(struct kvm_vcpu *vcpu)
++		range->attr_filter = KVM_FILTER_PRIVATE;
++	kvm_unmap_gfn_range(kvm, range);
++
++	return false;
++}
++#endif
++
+ void kvm_arch_free_memslot(struct kvm *kvm, struct kvm_memory_slot *slot)
  {
-+	struct realm_rec *rec = &vcpu->arch.rec;
-+
-+	/*
-+	 * In the case of a write, copy over gprs[0] to the target GPR,
-+	 * preparing to handle MMIO write fault. The content to be written has
-+	 * been saved to gprs[0] by the RMM (even if another register was used
-+	 * by the guest). In the case of normal memory access this is redundant
-+	 * (the guest will replay the instruction), but the overhead is
-+	 * minimal.
-+	 */
-+	if (kvm_vcpu_dabt_iswrite(vcpu) && kvm_vcpu_dabt_isvalid(vcpu))
-+		vcpu_set_reg(vcpu, kvm_vcpu_dabt_get_rd(vcpu),
-+			     rec->run->exit.gprs[0]);
-+
- 	return kvm_handle_guest_abort(vcpu);
  }
- 
 -- 
 2.43.0
 
