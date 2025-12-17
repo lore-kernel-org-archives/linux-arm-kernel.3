@@ -4,64 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3525D65C55
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 14:30:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2023BD6554E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 14:31:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QPDdMXZZsLtKOyovtwhN09mXlcfNuAwH5YZ14Ik7l9w=; b=PRoJBjgYRPKVQVMpFlQ8av3gYO
-	2jxgRdGVWue0WJwej6R9RR7A+yC79an0H31Pg6WQziLHW3yAO1ZOPXNkxEGmxEtD+8pW/66kkY/z+
-	BzuJWWXt4F85CtKOD8fpKcyKt8TIvkBpo4SjPytdAFYeO4fCmsX+JyER63lyd6HPYPU5OLxmNXhxs
-	lRLGCyTUKqw6wPMBx4N5OenGRebqH80sh1boYkHBbulhxuEBnzuw5awGf0zvEJLrUbannvIs2FoQ9
-	6x6ODnZxsQPmHcrGvVT2UTHWEpdjMmujDxUBfRfAeM/wNVIO7grfyI2Qi9V6vunMs7iEzCF+Z9rxc
-	GpDVOl2g==;
+	bh=yAjEzU0lnm6w9HbHvxnWCw8lQ0bKDnGFd7xXe5yjJo0=; b=RVg0nF3StWt1faybsWCU6VQu5+
+	2gIgYb347x+H0oFX0VASXEMbev7VTnYBlPCEOVate2EQ5KfKaYC5uDgZF5yDrWVlE9nA/Vu0G4pRH
+	c2RpAx5wdedhBZ51PIPMyS2pht0h9uLuCDI+vzwJNWZRxHBdoPxv/u4EuL/q5eEU7ATW98hQwDK9L
+	GOWvz0gl3tbOmxP/Lwy0X56FBMoYK14fRDjdiVQBz5pClPueh15+GDEK8tdci1TbLSAljXZG8gUH7
+	YNn2z7zxx+YOVW7/Y0BTQVWe67D/ENMjy738TIGAtnMwiN2tAsF6/KfsjCv1z6cAsuElcyQC2TJXc
+	Dc7RjeEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVsXO-00000006wnm-1V1u;
-	Wed, 17 Dec 2025 14:29:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVsXL-00000006wn4-2YNx
+	id 1vVsYh-00000006wzB-07HG;
+	Wed, 17 Dec 2025 14:31:19 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vVsYa-00000006wx3-3EZr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 14:29:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 91910FEC;
-	Wed, 17 Dec 2025 06:29:44 -0800 (PST)
-Received: from [10.57.79.105] (unknown [10.57.79.105])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 495223F73B;
-	Wed, 17 Dec 2025 06:29:48 -0800 (PST)
-Message-ID: <f04bdf46-c752-43ec-88fa-dcd37f29d374@arm.com>
-Date: Wed, 17 Dec 2025 14:29:46 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 11/46] arm64: RMI: Activate realm on first VCPU run
-Content-Language: en-GB
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>
-References: <20251217101125.91098-1-steven.price@arm.com>
- <20251217101125.91098-12-steven.price@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20251217101125.91098-12-steven.price@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+	Wed, 17 Dec 2025 14:31:16 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 15BFC1A2281;
+	Wed, 17 Dec 2025 14:31:11 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id D3C3E6072F;
+	Wed, 17 Dec 2025 14:31:10 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 08228102F0ADF;
+	Wed, 17 Dec 2025 15:31:01 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1765981869; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=yAjEzU0lnm6w9HbHvxnWCw8lQ0bKDnGFd7xXe5yjJo0=;
+	b=xrG4jKk1868Dv7dPhgpQxbWfGUHPcegpZHAbpsi68LNt1qCvLavT7qg6pk0LyAOpy6g8vf
+	uCI/c6WhBKRbvJfH/9PevUAINIRZeoOldyX4fOqO+SKCVogGMwcD+YyeCa1fh6K0TiTtqw
+	i7q5sRSu4GJyjVf7mR9Y3/Qri1jAxFNDNws2wV4hE/ssLWNgu61nMSLCC09UXg1/i5guEu
+	143vac/E0zy0QYBvBIJMD6V50VaSq7IRSfaV3EGMI8yx/9ZEj9u8cmOSJceVeRYhrjLvTr
+	yt97q0vB58aPCsDXYu3m2nq3B4klQ0rtZb1eI7qcWYQlJfN12/1sBA27uTxx/w==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 17 Dec 2025 15:31:01 +0100
+Message-Id: <DF0KBN5Y22XW.2RE8HKDFY87XK@bootlin.com>
+Subject: Re: [PATCH v3 01/22] drm/bridge: add of_drm_find_and_get_bridge()
+Cc: <dri-devel@lists.freedesktop.org>, <imx@lists.linux.dev>,
+ <linux-amlogic@lists.infradead.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, "Alexey Brodkin" <abrodkin@synopsys.com>,
+ "Andrzej Hajda" <andrzej.hajda@intel.com>, "David Airlie"
+ <airlied@gmail.com>, "Fabio Estevam" <festevam@gmail.com>, "Hui Pu"
+ <Hui.Pu@gehealthcare.com>, "Jernej Skrabec" <jernej.skrabec@gmail.com>,
+ "Jerome Brunet" <jbrunet@baylibre.com>, "Jonas Karlman" <jonas@kwiboo.se>,
+ "Jonathan Corbet" <corbet@lwn.net>, "Kevin Hilman" <khilman@baylibre.com>,
+ "Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>, "Liu Ying"
+ <victor.liu@nxp.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Martin Blumenstingl"
+ <martin.blumenstingl@googlemail.com>, "Neil Armstrong"
+ <neil.armstrong@linaro.org>, "Pengutronix Kernel Team"
+ <kernel@pengutronix.de>, "Phong LE" <ple@baylibre.com>, "Robert Foss"
+ <rfoss@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>, "Shawn Guo"
+ <shawnguo@kernel.org>, "Simona Vetter" <simona@ffwll.ch>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>, "Thomas Zimmermann"
+ <tzimmermann@suse.de>
+To: "Maxime Ripard" <mripard@kernel.org>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+X-Mailer: aerc 0.20.1
+References: <20251216-drm-bridge-alloc-getput-drm_of_find_bridge-v3-1-b5165fab8058@bootlin.com> <0ba037c65f9cadd51082abf2b7857ba7@kernel.org>
+In-Reply-To: <0ba037c65f9cadd51082abf2b7857ba7@kernel.org>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_062955_911761_8D09DF5E 
-X-CRM114-Status: GOOD (  21.05  )
+X-CRM114-CacheID: sfid-20251217_063112_942564_64284318 
+X-CRM114-Status: UNSURE (   7.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,96 +93,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/12/2025 10:10, Steven Price wrote:
-> When a VCPU migrates to another physical CPU check if this is the first
-> time the guest has run, and if so activate the realm.
-> 
-> Before the realm can be activated it must first be created, this is a
-> stub in this patch and will be filled in by a later patch.
-> 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
-> New patch for v12
-> ---
->   arch/arm64/include/asm/kvm_rmi.h |  1 +
->   arch/arm64/kvm/arm.c             |  6 +++++
->   arch/arm64/kvm/rmi.c             | 42 ++++++++++++++++++++++++++++++++
->   3 files changed, 49 insertions(+)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_rmi.h b/arch/arm64/include/asm/kvm_rmi.h
-> index cb7350f8a01a..e4534af06d96 100644
-> --- a/arch/arm64/include/asm/kvm_rmi.h
-> +++ b/arch/arm64/include/asm/kvm_rmi.h
-> @@ -69,6 +69,7 @@ void kvm_init_rmi(void);
->   u32 kvm_realm_ipa_limit(void);
->   
->   int kvm_init_realm_vm(struct kvm *kvm);
-> +int kvm_activate_realm(struct kvm *kvm);
->   void kvm_destroy_realm(struct kvm *kvm);
->   void kvm_realm_destroy_rtts(struct kvm *kvm);
->   
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 941d1bec8e77..542df37b9e82 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -951,6 +951,12 @@ int kvm_arch_vcpu_run_pid_change(struct kvm_vcpu *vcpu)
->   			return ret;
->   	}
->   
-> +	if (kvm_is_realm(vcpu->kvm)) {
-> +		ret = kvm_activate_realm(kvm);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
->   	mutex_lock(&kvm->arch.config_lock);
->   	set_bit(KVM_ARCH_FLAG_HAS_RAN_ONCE, &kvm->arch.flags);
->   	mutex_unlock(&kvm->arch.config_lock);
-> diff --git a/arch/arm64/kvm/rmi.c b/arch/arm64/kvm/rmi.c
-> index e57e8b7eafa9..98929382c365 100644
-> --- a/arch/arm64/kvm/rmi.c
-> +++ b/arch/arm64/kvm/rmi.c
-> @@ -223,6 +223,48 @@ void kvm_realm_destroy_rtts(struct kvm *kvm)
->   	WARN_ON(realm_tear_down_rtt_range(realm, 0, (1UL << ia_bits)));
->   }
->   
-> +static int realm_ensure_created(struct kvm *kvm)
-> +{
-> +	/* Provided in later patch */
-> +	return -ENXIO;
-> +}
-> +
-> +int kvm_activate_realm(struct kvm *kvm)
-> +{
-> +	struct realm *realm = &kvm->arch.realm;
-> +	int ret;
-> +
-> +	if (!kvm_is_realm(kvm))
-> +		return -ENXIO;
-> +
-> +	if (kvm_realm_state(kvm) == REALM_STATE_ACTIVE)
-> +		return 0;
-> +
-> +	guard(mutex)(&kvm->arch.config_lock);
-> +	/* Check again with the lock held */
-> +	if (kvm_realm_state(kvm) == REALM_STATE_ACTIVE)
-> +		return 0;
-> +
-> +	ret = realm_ensure_created(kvm);
-> +	if (ret)
-> +		return ret;
-> +
-> +	/* Mark state as dead in case we fail */
-> +	WRITE_ONCE(realm->state, REALM_STATE_DEAD);
-> +
-> +	if (!irqchip_in_kernel(kvm)) {
-> +		/* Userspace irqchip not yet supported with realms */
-> +		return -EOPNOTSUPP;
-> +	}
+Hi Maxime,
 
-super minor nit: We could do this check before create the realm, within
-the config_lock'ed region.
+On Wed Dec 17, 2025 at 11:15 AM CET, Maxime Ripard wrote:
+> On Tue, 16 Dec 2025 18:58:34 +0100, Luca Ceresoli wrote:
+>> of_drm_find_bridge() does not increment the refcount for the returned
+>> bridge, but that is required now. However converting it and all its user=
+s
+>> is not realistically doable at once given the large amount of (direct an=
+d
+>> indirect) callers and the complexity of some.
+>>
+>>
+>> [ ... ]
+>
+> Reviewed-by: Maxime Ripard <mripard@kernel.org>
 
-Suzuki
+Thank you for the prompt review!
 
+All patches are reviewed now except patch 18 which has no reply. I'm just
+pointing out in case it's something you missed.
+
+Luca
+
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
