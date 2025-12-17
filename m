@@ -4,72 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E91E5D64095
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 09:02:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C813D64099
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 09:02:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CmX36RAUhkyAzoQriRKH2n45J/o9UqUfaBfGbZAHOVo=; b=ky9itY81S/5BizzkOfzf769Lu6
-	5396SbT7YncA84IRkefQnkvRnVg59dyNRsM7Bd/M6Om4eh1/M8pDJR5xMLLEdv06rUfez/m2VTKrP
-	aqd2QFPcmwpTCGgRUNdzraYqQDvemwolHc8oOMtoUErSqI7obI01j9Rgj4qVUi3ZtUlmwZ3W5aw89
-	N9hXMpjXvORt6ue/4UT+DO9EN6FlO5Bl1W4pm6t/1AoBnwcFOqDTsHX5nczyPZgM0vXsfC+FqTDM9
-	weamysFzpIAmXv09ZODBqFSxGdbpXs0FsxvMzppXqR3kS5LXcqxnuCB69x8TETVLls1ePbn5/SXcd
-	6dWnQtxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UthLIec/cwIuktVfa9EqyXI2OpVuqNJjlw1hhbbSLgE=; b=NM3HuravE7HJqYc+31eHPKlHs+
+	ck/NLrHX8KSNk6WTXbCFLGIJTmMPNJ8F6FM6phJdDHpyn1HIHl9PyHlsjEnTtylzdhKpmdNZwOj5u
+	/PtdJnNoHfzn4AyjuQmdjrgb/pde3FR9QKXPa7ldxIf3c1rqYika9DhzRoCOheVxAhOc/Kfv5xY+s
+	41wDB3NJ61YRjM4sSyLjhvuMCe/hHwwCF3jC3qWI1CYIvfxmru5TcTrYTfSI7SZYu152ZDJ+bVAPG
+	V7uXfOrMKwPivZ2z92i34WOsWnBB6relT6RZCer5ATxH4/0Fp3br3LRslD4JOvABVrzkNNbR9/7c/
+	ZScQyr6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVnQK-00000006NuV-0YrW;
-	Wed, 17 Dec 2025 09:02:20 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vVnQN-00000006Nvn-31it;
+	Wed, 17 Dec 2025 09:02:23 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVnQH-00000006Ntv-4060;
-	Wed, 17 Dec 2025 09:02:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1765962118; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=MQOr1bkaW6D53AOQOMtEz2hCoqHSLi7Z5Ma9AsaT6F9wPbbfKL0l+Zm0ZSZoNnpzd+1Ymh7JUZrd/cuPrrVw9eDlmrRb8TdauYvDcd9b8Xwn3hDoIovBlY14lQBZV8vWiDTUma6Zbvx/uTKxBOZNuZrT+BY0qH2cLoqlH1nNsys=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1765962118; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=CmX36RAUhkyAzoQriRKH2n45J/o9UqUfaBfGbZAHOVo=; 
-	b=U6d1R/IGFZY1Kwit84IuMtg8nMQtlINXU3reDKItzztfGRi31vhYJEDuc/z3gRFIaxrfI3SgrzaRGH87g9dEMl4M6EWfbLEIZwost6jnHXitEojGdmFsa+LExDdPOpsN8UOuQMsv4/GBUWaghDEmP46N9C03JICSZqkgjwd/0zU=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=benjamin.gaignard@collabora.com;
-	dmarc=pass header.from=<benjamin.gaignard@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1765962118;
-	s=zohomail; d=collabora.com; i=benjamin.gaignard@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=CmX36RAUhkyAzoQriRKH2n45J/o9UqUfaBfGbZAHOVo=;
-	b=Uo1Er425ZxLLeDatB8rAg48EZeP7+XgfT02adtU+dmlYUgKN4KNFrAhTIhtmWR/A
-	GHBwUHAh1chGVPnBLCE0iQ/SXK3WOg8vDAVZvXEU4K0ZoJtnIDLhZHQYvvg/Mbsrp+R
-	DrRPSu0zMFLgz+/KM5EnFkg0QUPTxIYIUtktIync=
-Received: by mx.zohomail.com with SMTPS id 1765962115824604.2212636872432;
-	Wed, 17 Dec 2025 01:01:55 -0800 (PST)
-Message-ID: <913d3056-0619-4e05-ac5f-1a21cf0e47c9@collabora.com>
-Date: Wed, 17 Dec 2025 10:01:48 +0100
+	id 1vVnQL-00000006Nue-1Tvw
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 17 Dec 2025 09:02:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 496236018C;
+	Wed, 17 Dec 2025 09:02:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF8E2C19421;
+	Wed, 17 Dec 2025 09:02:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765962140;
+	bh=TqhCN05lIjCwKdoNH7O27Ib5W/fzrsm853qYAbg7qEk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mvAWqDTYEQLPIjasUrs0D/Ze97eatlfyL0mi6O0MGmE1SvVn8YHYiQ1hDIZZ4oE8K
+	 aFHFHT2tvqpmtTdxeiwwsKJeoEVwVelMoe4qdWjAQvcLtXTPchbIZ+ReSJGYbTCzr1
+	 qqsGRlLlswi0jMZNei2mTasXnvX0lpJbqMF7UmTpaAoqX1N9T1UOPYMMpKw8Gfqhqh
+	 UjNPCvimUrrUtTiIKv9N5Ccmev+XKHhu1cfOPYdPmfSUBm4ahYUsPiFyqCCGB8H6UA
+	 JpzEUlNfSO+k+Tl5V8osBsBwXeYIjSzePF5a/zlMumvvZfIBKHX3GrTd0HYyuz9UeN
+	 OzpkhIbfzPmTw==
+Date: Wed, 17 Dec 2025 14:32:02 +0530
+From: Sumit Garg <sumit.garg@kernel.org>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>
+Cc: Sumit Garg <sumit.garg@oss.qualcomm.com>,
+	Jens Wiklander <jens.wiklander@linaro.org>,
+	Olivia Mackall <olivia@selenic.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <clement.leger@bootlin.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	Jan Kiszka <jan.kiszka@siemens.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
+	Michael Chan <michael.chan@broadcom.com>,
+	Pavan Chebbi <pavan.chebbi@broadcom.com>,
+	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>,
+	James Bottomley <James.Bottomley@hansenpartnership.com>,
+	Jarkko Sakkinen <jarkko@kernel.org>,
+	Mimi Zohar <zohar@linux.ibm.com>,
+	David Howells <dhowells@redhat.com>,
+	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
+	"Serge E. Hallyn" <serge@hallyn.com>,
+	Peter Huewe <peterhuewe@gmx.de>, op-tee@lists.trustedfirmware.org,
+	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
+	linux-rtc@vger.kernel.org, linux-efi@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	arm-scmi@vger.kernel.org, netdev@vger.kernel.org,
+	linux-mips@vger.kernel.org, linux-integrity@vger.kernel.org,
+	keyrings@vger.kernel.org, linux-security-module@vger.kernel.org,
+	Jason Gunthorpe <jgg@ziepe.ca>
+Subject: Re: [PATCH v1 00/17] tee: Use bus callbacks instead of driver
+ callbacks
+Message-ID: <aUJxiioKnDVSC34H@sumit-xelite>
+References: <cover.1765472125.git.u.kleine-koenig@baylibre.com>
+ <aT--ox375kg2Mzh-@sumit-X1>
+ <dhunzydod4d7vj73llpuqemxb5er2ja4emxusr66irwf77jhhb@es4yd2axzl25>
+ <CAGptzHOOqLhBnAXDURAzkgckUvRr__UuF1S_7MLV0u-ZxYEdyA@mail.gmail.com>
+ <ayebinxqpcnl7hpa35ytrudiy7j75u5bdk3enlirkp5pevppeg@6mx6a5fwymwf>
+ <aUJh--HGVeJWIilS@sumit-xelite>
+ <max5wxkcjjvnftwfwgymybwbnvf5s3ytwpy4oo5i74kfvnav4m@m2wasqyxsf4h>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 5/7] media: verisilicon: AV1: Restore IOMMU context
- before decoding a frame
-To: kernel test robot <lkp@intel.com>, joro@8bytes.org, will@kernel.org,
- robin.murphy@arm.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, heiko@sntech.de, nicolas.dufresne@collabora.com,
- p.zabel@pengutronix.de, mchehab@kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, iommu@lists.linux.dev,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-media@vger.kernel.org, kernel@collabora.com
-References: <20251215085349.10155-6-benjamin.gaignard@collabora.com>
- <202512162315.lcRwm6Mr-lkp@intel.com>
-Content-Language: en-US
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-In-Reply-To: <202512162315.lcRwm6Mr-lkp@intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_010218_052409_577054E3 
-X-CRM114-Status: GOOD (  19.45  )
+In-Reply-To: <max5wxkcjjvnftwfwgymybwbnvf5s3ytwpy4oo5i74kfvnav4m@m2wasqyxsf4h>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,223 +106,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Dec 17, 2025 at 09:21:41AM +0100, Uwe Kleine-König wrote:
+> Hello Sumit,
+> 
+> On Wed, Dec 17, 2025 at 01:25:39PM +0530, Sumit Garg wrote:
+> > On Tue, Dec 16, 2025 at 12:08:38PM +0100, Uwe Kleine-König wrote:
+> > > On Tue, Dec 16, 2025 at 01:08:38PM +0530, Sumit Garg wrote:
+> > > > On Mon, Dec 15, 2025 at 3:02 PM Uwe Kleine-König
+> > > > <u.kleine-koenig@baylibre.com> wrote:
+> > > > >  - Why does optee_probe() in drivers/tee/optee/smc_abi.c unregister all
+> > > > >    optee devices in its error path (optee_unregister_devices())?
+> > > > 
+> > > > This is mostly to take care of if any device got registered before the
+> > > > failure occured. Let me know if you have a better way to address that.
+> > > 
+> > > Without understanding the tee stuff, I'd say: Don't bother and only undo
+> > > the things that probe did before the failure.
+> > 
+> > True, but this is special case where if there is any leftover device
+> > registered from the TEE implementation then it is likely going to cause
+> > the corresponding kernel client driver crash.
+> 
+> You are aware that this is racy? So if a driver crashes e.g. after
+> teedev_close_context() it might happen that it is registered just after
+> optee_unregister_devices() returns.
+> 
 
-Le 16/12/2025 à 16:27, kernel test robot a écrit :
-> Hi Benjamin,
->
-> kernel test robot noticed the following build errors:
->
-> [auto build test ERROR on linus/master]
-> [also build test ERROR on v6.19-rc1 next-20251216]
-> [cannot apply to robh/for-next rockchip/for-next arm64/for-next/core]
-> [If your patch is applied to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use '--base' as documented in
-> https://git-scm.com/docs/git-format-patch#_base_tree_information]
->
-> url:    https://github.com/intel-lab-lkp/linux/commits/Benjamin-Gaignard/dt-bindings-vendor-prefixes-Add-Verisilicon/20251215-165740
-> base:   linus/master
-> patch link:    https://lore.kernel.org/r/20251215085349.10155-6-benjamin.gaignard%40collabora.com
-> patch subject: [PATCH v10 5/7] media: verisilicon: AV1: Restore IOMMU context before decoding a frame
-> config: arm-randconfig-r063-20251216 (https://download.01.org/0day-ci/archive/20251216/202512162315.lcRwm6Mr-lkp@intel.com/config)
-> compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 1335a05ab8bc8339ce24be3a9da89d8c3f4e0571)
-> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251216/202512162315.lcRwm6Mr-lkp@intel.com/reproduce)
->
-> If you fix the issue in a separate patch/commit (i.e. not just a new version of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Closes: https://lore.kernel.org/oe-kbuild-all/202512162315.lcRwm6Mr-lkp@intel.com/
->
-> All errors (new ones prefixed by >>):
->
->>> drivers/iommu/vsi-iommu.c:231:3: error: call to undeclared function 'report_iommu_fault'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
->       231 |                 report_iommu_fault(iommu->domain, iommu->dev, iova, status);
->           |                 ^
->>> drivers/iommu/vsi-iommu.c:245:21: error: no member named 'iommu_fwnode' in 'struct iommu_fwspec'
->       245 |                                                              fwspec->iommu_fwnode);
->           |                                                              ~~~~~~  ^
->>> drivers/iommu/vsi-iommu.c:254:28: error: call to undeclared function 'dev_iommu_priv_get'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
->       254 |         struct vsi_iommu *iommu = dev_iommu_priv_get(dev);
->           |                                   ^
->     drivers/iommu/vsi-iommu.c:254:28: note: did you mean 'dev_iommu_fwspec_get'?
->     include/linux/iommu.h:1457:36: note: 'dev_iommu_fwspec_get' declared here
->      1457 | static inline struct iommu_fwspec *dev_iommu_fwspec_get(struct device *dev)
->           |                                    ^
->>> drivers/iommu/vsi-iommu.c:254:20: error: incompatible integer to pointer conversion initializing 'struct vsi_iommu *' with an expression of type 'int' [-Wint-conversion]
->       254 |         struct vsi_iommu *iommu = dev_iommu_priv_get(dev);
->           |                           ^       ~~~~~~~~~~~~~~~~~~~~~~~
->     drivers/iommu/vsi-iommu.c:496:28: error: call to undeclared function 'dev_iommu_priv_get'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
->       496 |         struct vsi_iommu *iommu = dev_iommu_priv_get(dev);
->           |                                   ^
->     drivers/iommu/vsi-iommu.c:496:20: error: incompatible integer to pointer conversion initializing 'struct vsi_iommu *' with an expression of type 'int' [-Wint-conversion]
->       496 |         struct vsi_iommu *iommu = dev_iommu_priv_get(dev);
->           |                           ^       ~~~~~~~~~~~~~~~~~~~~~~~
->>> drivers/iommu/vsi-iommu.c:519:38: error: variable has incomplete type 'const struct iommu_domain_ops'
->       519 | static const struct iommu_domain_ops vsi_identity_ops = {
->           |                                      ^
->     include/linux/iommu.h:40:8: note: forward declaration of 'struct iommu_domain_ops'
->        40 | struct iommu_domain_ops;
->           |        ^
->     drivers/iommu/vsi-iommu.c:571:28: error: call to undeclared function 'dev_iommu_priv_get'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
->       571 |         struct vsi_iommu *iommu = dev_iommu_priv_get(dev);
->           |                                   ^
->     drivers/iommu/vsi-iommu.c:571:20: error: incompatible integer to pointer conversion initializing 'struct vsi_iommu *' with an expression of type 'int' [-Wint-conversion]
->       571 |         struct vsi_iommu *iommu = dev_iommu_priv_get(dev);
->           |                           ^       ~~~~~~~~~~~~~~~~~~~~~~~
->>> drivers/iommu/vsi-iommu.c:644:2: error: call to undeclared function 'dev_iommu_priv_set'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
->       644 |         dev_iommu_priv_set(dev, iommu);
->           |         ^
->     drivers/iommu/vsi-iommu.c:650:28: error: call to undeclared function 'dev_iommu_priv_get'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
->       650 |         struct vsi_iommu *iommu = dev_iommu_priv_get(dev);
->           |                                   ^
->     drivers/iommu/vsi-iommu.c:650:20: error: incompatible integer to pointer conversion initializing 'struct vsi_iommu *' with an expression of type 'int' [-Wint-conversion]
->       650 |         struct vsi_iommu *iommu = dev_iommu_priv_get(dev);
->           |                           ^       ~~~~~~~~~~~~~~~~~~~~~~~
->>> drivers/iommu/vsi-iommu.c:657:35: error: passing 'const uint32_t[16]' (aka 'const unsigned int[16]') to parameter of type 'u32 *' (aka 'unsigned int *') discards qualifiers [-Werror,-Wincompatible-pointer-types-discards-qualifiers]
->       657 |         return iommu_fwspec_add_ids(dev, args->args, 1);
->           |                                          ^~~~~~~~~~
->     include/linux/iommu.h:1451:65: note: passing argument to parameter 'ids' here
->      1451 | static inline int iommu_fwspec_add_ids(struct device *dev, u32 *ids,
->           |                                                                 ^
->>> drivers/iommu/vsi-iommu.c:667:18: error: use of undeclared identifier 'generic_single_device_group'
->       667 |         .device_group = generic_single_device_group,
->           |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
->     drivers/iommu/vsi-iommu.c:669:25: error: variable has incomplete type 'const struct iommu_domain_ops'
->       669 |         .default_domain_ops = &(const struct iommu_domain_ops) {
->           |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->       670 |                 .attach_dev             = vsi_iommu_attach_device,
->           |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->       671 |                 .map_pages              = vsi_iommu_map,
->           |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->       672 |                 .unmap_pages            = vsi_iommu_unmap,
->           |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->       673 |                 .flush_iotlb_all        = vsi_iommu_flush_tlb_all,
->           |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->       674 |                 .iova_to_phys           = vsi_iommu_iova_to_phys,
->           |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->       675 |                 .free                   = vsi_iommu_domain_free,
->           |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->       676 |         }
->           |         ~
->     include/linux/iommu.h:40:8: note: forward declaration of 'struct iommu_domain_ops'
->        40 | struct iommu_domain_ops;
->           |        ^
->     15 errors generated.
->
-> Kconfig warnings: (for reference only)
->     WARNING: unmet direct dependencies detected for VSI_IOMMU
->     Depends on [n]: IOMMU_SUPPORT [=n] && (ARCH_ROCKCHIP [=n] && ARM64 || COMPILE_TEST [=y])
->     Selected by [m]:
->     - VIDEO_HANTRO_ROCKCHIP [=y] && MEDIA_SUPPORT [=y] && MEDIA_PLATFORM_SUPPORT [=y] && MEDIA_PLATFORM_DRIVERS [=y] && VIDEO_HANTRO [=m] && (ARCH_ROCKCHIP [=n] || COMPILE_TEST [=y])VSI_IOMMU
+I see your point about the unavoidable race. Maybe it's better to not
+try anything and let the kernel client driver fail.
 
-I will make VIDEO_HANTRO_ROCKCHIP depends on VSI_IOMMU instead of select it on the next version.
-Regards,
-Benjamin
-
->
->
-> vim +/report_iommu_fault +231 drivers/iommu/vsi-iommu.c
->
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  214
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  215  static irqreturn_t vsi_iommu_irq(int irq, void *dev_id)
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  216  {
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  217  	struct vsi_iommu *iommu = dev_id;
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  218  	unsigned long flags;
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  219  	dma_addr_t iova;
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  220  	u32 status;
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  221
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  222  	if (pm_runtime_resume_and_get(iommu->dev) < 0)
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  223  		return IRQ_NONE;
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  224
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  225  	spin_lock_irqsave(&iommu->lock, flags);
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  226
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  227  	status = readl(iommu->regs + VSI_MMU_STATUS_BASE);
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  228  	if (status & VSI_MMU_IRQ_MASK) {
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  229  		dev_err(iommu->dev, "unexpected int_status=%08x\n", status);
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  230  		iova = readl(iommu->regs + VSI_MMU_PAGE_FAULT_ADDR);
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15 @231  		report_iommu_fault(iommu->domain, iommu->dev, iova, status);
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  232  	}
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  233  	writel(0, iommu->regs + VSI_MMU_STATUS_BASE);
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  234
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  235  	spin_unlock_irqrestore(&iommu->lock, flags);
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  236  	pm_runtime_put_autosuspend(iommu->dev);
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  237
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  238  	return IRQ_HANDLED;
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  239  }
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  240
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  241  static struct vsi_iommu *vsi_iommu_get_from_dev(struct device *dev)
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  242  {
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  243  	struct iommu_fwspec *fwspec = dev_iommu_fwspec_get(dev);
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  244  	struct device *iommu_dev = bus_find_device_by_fwnode(&platform_bus_type,
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15 @245  							     fwspec->iommu_fwnode);
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  246
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  247  	put_device(iommu_dev);
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  248
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  249  	return iommu_dev ? dev_get_drvdata(iommu_dev) : NULL;
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  250  }
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  251
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  252  static struct iommu_domain *vsi_iommu_domain_alloc_paging(struct device *dev)
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  253  {
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15 @254  	struct vsi_iommu *iommu = dev_iommu_priv_get(dev);
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  255  	struct vsi_iommu_domain *vsi_domain;
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  256
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  257  	vsi_domain = kzalloc(sizeof(*vsi_domain), GFP_KERNEL);
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  258  	if (!vsi_domain)
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  259  		return NULL;
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  260
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  261  	vsi_domain->dev = iommu->dev;
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  262  	spin_lock_init(&vsi_domain->lock);
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  263
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  264  	/*
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  265  	 * iommu use a 2 level pagetable.
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  266  	 * Each level1 (dt) and level2 (pt) table has 1024 4-byte entries.
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  267  	 * Allocate one 4 KiB page for each table.
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  268  	 */
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  269  	vsi_domain->dt = iommu_alloc_pages_sz(GFP_KERNEL | GFP_DMA32,
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  270  					      SPAGE_SIZE);
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  271  	if (!vsi_domain->dt)
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  272  		goto err_free_domain;
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  273
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  274  	vsi_domain->dt_dma = dma_map_single(vsi_domain->dev, vsi_domain->dt,
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  275  					    SPAGE_SIZE, DMA_TO_DEVICE);
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  276  	if (dma_mapping_error(vsi_domain->dev, vsi_domain->dt_dma)) {
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  277  		dev_err(dev, "DMA map error for DT\n");
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  278  		goto err_free_dt;
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  279  	}
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  280
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  281  	vsi_domain->pta = iommu_alloc_pages_sz(GFP_KERNEL | GFP_DMA32,
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  282  					       SPAGE_SIZE);
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  283  	if (!vsi_domain->pta)
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  284  		goto err_unmap_dt;
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  285
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  286  	vsi_domain->pta[0] = vsi_mk_pta(vsi_domain->dt_dma);
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  287  	vsi_domain->pta_dma = dma_map_single(vsi_domain->dev, vsi_domain->pta,
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  288  					     SPAGE_SIZE, DMA_TO_DEVICE);
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  289  	if (dma_mapping_error(vsi_domain->dev, vsi_domain->pta_dma)) {
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  290  		dev_err(dev, "DMA map error for PTA\n");
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  291  		goto err_free_pta;
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  292  	}
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  293
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  294  	INIT_LIST_HEAD(&vsi_domain->iommus);
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  295
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  296  	vsi_domain->domain.geometry.aperture_start = 0;
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  297  	vsi_domain->domain.geometry.aperture_end   = DMA_BIT_MASK(32);
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  298  	vsi_domain->domain.geometry.force_aperture = true;
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  299  	vsi_domain->domain.pgsize_bitmap	   = SZ_4K;
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  300
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  301  	return &vsi_domain->domain;
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  302
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  303  err_free_pta:
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  304  	iommu_free_pages(vsi_domain->pta);
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  305  err_unmap_dt:
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  306  	dma_unmap_single(vsi_domain->dev, vsi_domain->dt_dma,
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  307  			 SPAGE_SIZE, DMA_TO_DEVICE);
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  308  err_free_dt:
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  309  	iommu_free_pages(vsi_domain->dt);
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  310  err_free_domain:
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  311  	kfree(vsi_domain);
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  312
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  313  	return NULL;
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  314  }
-> b9e3cd4bea55cd Benjamin Gaignard 2025-12-15  315
->
+-Sumit
 
