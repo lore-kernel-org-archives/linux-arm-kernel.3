@@ -4,72 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C0D6D65526
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 10:15:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 035FAD65526
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 10:15:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
+	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
+	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tYqCvOcfJuVWMv8+FVzBG+4+hyZ6PGBDLtldjrUSWpQ=; b=rBU4psZQK2Hbe02Fcnq3dJaAMw
-	uqq5k3p70rQ2M/NKycleS6cPqLtp36t7J323YhEg3Ie63t0767iHt8OtZniH3EFPHXiWRQfPCuwUL
-	hVaA+3Zwf29JufX3JFyO1Oy3ofImAxwWGT7Aw0vp6iGsJ0NTIcMSrhvpnLYu1ge2dSPMrox8D8399
-	Xwfb2ZaNH9JB/w+uKWwMAAfqhRmUd6syFPe4677cCpyCRu+qw8EddRHqpFiHNY5Va8aLVizFYc8Az
-	3FynqOukBnt0dXJHSm8TnjYzioETESKgV5/qlyxvnzm0NDpybjwRuY9/QP2LE1dL8YIgLdtzYuEbV
-	exHo9RTA==;
+	bh=skfOYgfAuvLlvVFtYXO0nED04VoALMEVUW5taGZIDUg=; b=0Bu0Rs2CXYriTAPX8FfLAFKiN8
+	Yf205gQxHBuhj/otp2BVB+uVVb1EAtWcpuAsUI0tpVI2aubT4aR3cKiJ+8pgvNbQBbsD5hcxK54PO
+	yniBoRntGIYMWOOCICvZB5eSFw5gYg8IDiTSvvsZFd7v4rni/GKyQ6yFMc5f/Vv1UhJhM+7napc31
+	y/XYK1eAEl2e2ULlioB9kU+pIFfWyAzoEarXHN8Vd6biXXTdYk6I1TJUvBOfgxCe3hADUVo8RVzOh
+	LJoQRbI1tTTII3oRO7Yyzo9ui8uu+WYzAjqNZsvCaPXy6Eqg+34aHl3W1wugWIVKI3TTshM1jV4XT
+	0nOzEjCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVoZB-00000006ZOL-2qMX;
-	Wed, 17 Dec 2025 10:15:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVoZ1-00000006ZCU-22kS
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 10:15:30 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5BFDA168F;
-	Wed, 17 Dec 2025 02:15:15 -0800 (PST)
-Received: from e122027.arm.com (unknown [10.57.45.201])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7B0A93F73B;
-	Wed, 17 Dec 2025 02:15:18 -0800 (PST)
-From: Steven Price <steven.price@arm.com>
-To: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Cc: Steven Price <steven.price@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>
-Subject: [PATCH v12 45/46] KVM: arm64: Expose KVM_ARM_VCPU_REC to user space
-Date: Wed, 17 Dec 2025 10:11:22 +0000
-Message-ID: <20251217101125.91098-46-steven.price@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251217101125.91098-1-steven.price@arm.com>
-References: <20251217101125.91098-1-steven.price@arm.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_021523_602697_A8DF4ABC 
-X-CRM114-Status: UNSURE (   9.67  )
-X-CRM114-Notice: Please train this message.
+	id 1vVoZF-00000006ZSJ-15Jl;
+	Wed, 17 Dec 2025 10:15:37 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vVoZC-00000006ZNz-0eCY;
+	Wed, 17 Dec 2025 10:15:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 97DF26055A;
+	Wed, 17 Dec 2025 10:15:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C07F6C4CEF5;
+	Wed, 17 Dec 2025 10:15:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765966531;
+	bh=skfOYgfAuvLlvVFtYXO0nED04VoALMEVUW5taGZIDUg=;
+	h=Date:From:To:Subject:In-Reply-To:References:Cc:From;
+	b=Nz6p3DZzkqG8H4Nvbd2AHyWRx3TWgtrkGHCbG7nJP/yZ7YpQbUQ4sScJ0axpFSM76
+	 N3I04sjA4YLG+NMnOi+SoQIqDF1B4dY/9PK8lKk7/0Ac6Kknuhe3HgXPUfh1dMkWaL
+	 gGtES1r559SgmtcLu2EFp2cMk2ewcqkb19tBrfbdgplxNfF+Y9Pf1SbaPVem2zSlaP
+	 rRBieyJeZ4v6dRrrqHwDQZDFBOJQdzqi9c/tID5E3JhRqWUOg026uwBdbq6QPX5GKc
+	 p8HKcRIw2JDAKvrK23Ukl+qpfo+Ew8yzKm60eggM9XvyoV4GM2kJUpBxmyM6Rv6pA2
+	 udWFcrUaXyBwg==
+Message-ID: <0ba037c65f9cadd51082abf2b7857ba7@kernel.org>
+Date: Wed, 17 Dec 2025 10:15:28 +0000
+From: "Maxime Ripard" <mripard@kernel.org>
+To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH v3 01/22] drm/bridge: add of_drm_find_and_get_bridge()
+In-Reply-To: <20251216-drm-bridge-alloc-getput-drm_of_find_bridge-v3-1-b5165fab8058@bootlin.com>
+References: <20251216-drm-bridge-alloc-getput-drm_of_find_bridge-v3-1-b5165fab8058@bootlin.com>
+Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev, linux-amlogic@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, "Alexey
+ Brodkin" <abrodkin@synopsys.com>, "Andrzej Hajda" <andrzej.hajda@intel.com>, "David
+ Airlie" <airlied@gmail.com>, "Fabio Estevam" <festevam@gmail.com>, "Hui Pu" <Hui.Pu@gehealthcare.com>, "Jernej
+ Skrabec" <jernej.skrabec@gmail.com>, "Jerome Brunet" <jbrunet@baylibre.com>, "Jonas
+ Karlman" <jonas@kwiboo.se>, "Jonathan Corbet" <corbet@lwn.net>, "Kevin
+ Hilman" <khilman@baylibre.com>, "Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>, "Liu
+ Ying" <victor.liu@nxp.com>, "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Martin
+ Blumenstingl" <martin.blumenstingl@googlemail.com>, "Maxime Ripard" <mripard@kernel.org>, "Neil
+ Armstrong" <neil.armstrong@linaro.org>, "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Phong
+ LE" <ple@baylibre.com>, "Robert Foss" <rfoss@kernel.org>, "Sascha Hauer" <s.hauer@pengutronix.de>, "Shawn
+ Guo" <shawnguo@kernel.org>, "Simona Vetter" <simona@ffwll.ch>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>, "Thomas Zimmermann" <tzimmermann@suse.de>
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,32 +75,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Increment KVM_VCPU_MAX_FEATURES to expose the new capability to user
-space.
+On Tue, 16 Dec 2025 18:58:34 +0100, Luca Ceresoli wrote:
+> of_drm_find_bridge() does not increment the refcount for the returned
+> bridge, but that is required now. However converting it and all its users
+> is not realistically doable at once given the large amount of (direct and
+> indirect) callers and the complexity of some.
+>=20
+>=20
+> [ ... ]
 
-Signed-off-by: Steven Price <steven.price@arm.com>
-Reviewed-by: Gavin Shan <gshan@redhat.com>
----
-Changes since v8:
- * Since NV is now merged and enabled, this no longer conflicts with it.
----
- arch/arm64/include/asm/kvm_host.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 97c747cfb5be..7e3221d102a9 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -40,7 +40,7 @@
- 
- #define KVM_MAX_VCPUS VGIC_V3_MAX_CPUS
- 
--#define KVM_VCPU_MAX_FEATURES 9
-+#define KVM_VCPU_MAX_FEATURES 10
- #define KVM_VCPU_VALID_FEATURES	(BIT(KVM_VCPU_MAX_FEATURES) - 1)
- 
- #define KVM_REQ_SLEEP \
--- 
-2.43.0
-
+Thanks!
+Maxime
 
