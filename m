@@ -4,58 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E04FD65C6C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 15:43:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10194D65C6C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 15:48:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=abdvEQJkynthqL8sHDVp2505J170tCfnRSLgiNHWyus=; b=ownHRBnAm1ZzRwzpKgVY6jnyRl
-	QhZ+rA1JyteseVPiG2pQWftzZcbd79nS3mOZfYS2vkjngFnGEKT5oJm5GfDY7L9fpJZ4kt6TNgPJm
-	haSCForqZaZOFbnQsgeXNoV2krFs0ScVYvWGIJXKCiAwDoVuc8FZ8ud0nwavJmYUEvlRRT8DkYD7w
-	naalK+0mwcEHARPLpNb0ty0YwbQoLg2nyQbsCbR3+0Jre49zATy0XL4os0HHTFUTp8yvSd6YOGnlM
-	GRuqhrpAIs1Px4JVEMBar1qm/2SCjL00h93C55cGSclZDwiN8gA/a6lo8SxbRVYyDCGRaLLJ8OhVX
-	SEYMGDfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:Date:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k7g6szJSc9qKXraE1vzVnFUR39QDkw3X32snO8YJ7Qo=; b=3PkO3En7FC/j49VFOMd585RLS+
+	5h70XQvIu5temm7+XznJc2DFKaW1FkvFVhIkEkhtV8FNN/xEAnZgT4N/+QvcUM2k6jaiG/dOIaKRH
+	59Ui3FhRsiNGqhy+9YJyIDvEpsNE8nvI4VuD2uE2WTVx4d+wcdSKB3CEgkTjFgMesEYKLK698XlDh
+	nn6C5UhSjdRKX0qequFt66beOViAvm51irsy03ymnqEeWUJUzYRHurLpOvv11hhe4m4kS2V77N7yR
+	CjDkbNWvqCT8FHznUVPf3u+iadiH8sMwBW7x5gVTmopTPLiAcL1DMXKuUoRlL/44YE7daqHAGDNER
+	9UaZAT+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVtgs-000000071ue-36F2;
-	Wed, 17 Dec 2025 15:43:50 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVtgp-000000071uH-252j
+	id 1vVtlB-000000072En-3lPR;
+	Wed, 17 Dec 2025 15:48:17 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vVtl7-000000072EO-1dNA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 15:43:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2DAC5FEC;
-	Wed, 17 Dec 2025 07:43:39 -0800 (PST)
-Received: from [10.57.91.77] (unknown [10.57.91.77])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 03E363F73F;
-	Wed, 17 Dec 2025 07:43:42 -0800 (PST)
-Message-ID: <1beaa7de-4b31-4f19-abee-83872f868e28@arm.com>
-Date: Wed, 17 Dec 2025 15:43:41 +0000
+	Wed, 17 Dec 2025 15:48:14 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2a09757004cso52513535ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 07:48:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1765986492; x=1766591292; darn=lists.infradead.org;
+        h=mime-version:references:message-id:date:in-reply-to:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=k7g6szJSc9qKXraE1vzVnFUR39QDkw3X32snO8YJ7Qo=;
+        b=ipoFYzVmgpbkF6vky0knfpowJ2F39AfkNCc+Su2raz9YTonmz+dNWve/TgT9eqMeqM
+         B62EUneDP879L6DEAcIC2yeemIC/hx3zIHi4KNmY400bhrZdz6K+4d+VDTyaiJ9f7AB4
+         lsg8hx+vMxEmhEbrZ+wVxnlyi9ocqGBo86KSBUPJ0v2NCvYCyWS/PREkL52JxxFThwKI
+         uHnFFLVbcpp0IUmzj+exs6f37PvK83MT+HSy/rqrrFW3kUyh4xSO/mhJ8s10xYU5+jbg
+         WzlN+MM2zvNKezjCiPx5QFNoDLjrpGTga8l7PcL2Cm2xL+5MhoVVNHPcknElVmu+PgHm
+         lNAw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765986492; x=1766591292;
+        h=mime-version:references:message-id:date:in-reply-to:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=k7g6szJSc9qKXraE1vzVnFUR39QDkw3X32snO8YJ7Qo=;
+        b=MNaNnKlLqZajIXdn3lfx2Ag+4KwVsexXz1GZ7ujYiE/+v+VOoLRPJd6lmaoGr9oQRe
+         ae1f2aDh+CiUaNwkPEYKF6Icbn3ijDKLX0rMt1PzPWNxa3lc+MDCoHzLMQoxITA7kvH+
+         9yAGEKA6mpN9rgU2/qbfCPUnzhm2GsiwpFC/3yne4bJH0NnDOeZ5R2yXxjjCqSUy5lD4
+         9sqm/9u/Dpk8ybuUmLzX/dyAcV0YDaJnKvHXf62+p11PDLPdsNkUWcJPFl5OJknVSR79
+         1GDS56ISbA0DVBRH/ksy82v8TsykIIxawUdvGqlZpRoxAvWeRlEhbc7cNzRg88BUYGHW
+         T3mA==
+X-Forwarded-Encrypted: i=1; AJvYcCVbWNn9ydbq+wz/h2Aba+zOQbf+h+W6U1B0fBX1FQZSGR7FFIBGdcVh07TA7XelItqUbWqZ971c77WPjf4UmxJZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YyY0eaUh5PGFAWry8plf0d6eHcf1BgAwA/FeNU4g8BTnA2LYx/2
+	VWMqFDXHNZk6bfSXBxmDKSfrrdtrT5LNrq/vbjDAZvWQRgQKZlqxooqZ3Z35G4Ht
+X-Gm-Gg: AY/fxX7XiQkW0wRhmVcqISLPHfQbvJ4oB9hYJeXoAyeeL3xao/U/FsaZHp7sl1DUloS
+	krKNPwax/4YMJLgalRE83R/HLyMk2yod+sT5ynH9QWKKa1/2PugkMq55jaqvfUu2qH3V8YBnbbs
+	BhyH0X20qXs1VBw/cdgCzTQADMDrvtCcD94ykOPFAUGEVXkjCsgeaNt+R//L+wtpQaEiCyJcJmG
+	PA7/4Fhcw0HsAwylsynxM3DLNX9lBVKPN/cRnfqCF+TmkCmxMxZTCnv8WlKU/iSyu9kaDmlYaBr
+	AK6KanCWKGenDtFa/rcmR3NXFGlvVgdkX/StALZbL23gooy+Y6tZ4fpenHM/NyZ8ugzrhBUca/1
+	BE7mwROb0iyTcBgI7V7EHZKdurbyoXwb5p8WrToDyTiiGK/t2448z1oK26QkQUDN9Mr7hB+mXQs
+	TkH4fA+GHW3aGGfvh6
+X-Google-Smtp-Source: AGHT+IGzrC8xHoSohluxl3TB8gicGFdkGjx48ZJyAE+fsjdi1rZJJgtl3YetY/wOPW+z2c4mkNcmfA==
+X-Received: by 2002:a17:902:cf03:b0:2a0:bb05:df4f with SMTP id d9443c01a7336-2a0bb05e314mr123346515ad.44.1765986491997;
+        Wed, 17 Dec 2025 07:48:11 -0800 (PST)
+Received: from dw-tp ([171.76.225.126])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29eea016ef4sm207003795ad.56.2025.12.17.07.47.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 17 Dec 2025 07:48:11 -0800 (PST)
+From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+To: Ryan Roberts <ryan.roberts@arm.com>, Kevin Brodsky <kevin.brodsky@arm.com>, Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+	Alexander Gordeev <agordeev@linux.ibm.com>, Andreas Larsson <andreas@gaisler.com>, 
+	Anshuman Khandual <anshuman.khandual@arm.com>, Boris Ostrovsky <boris.ostrovsky@oracle.com>, 
+	Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Christophe Leroy <christophe.leroy@csgroup.eu>, Dave Hansen <dave.hansen@linux.intel.com>, 
+	David Hildenbrand <david@redhat.com>, "David S. Miller" <davem@davemloft.net>, 
+	David Woodhouse <dwmw2@infradead.org>, "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>, 
+	Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>, 
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>, 
+	Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>, 
+	Peter Zijlstra <peterz@infradead.org>, Suren Baghdasaryan <surenb@google.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Venkat Rao Bagalkote <venkat88@linux.ibm.com>, 
+	Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org, 
+	sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org, x86@kernel.org
+Subject: Re: [PATCH v6 14/14] mm: Add basic tests for lazy_mmu
+In-Reply-To: <ca0da7fd-245c-4d52-8f4d-f8fce4717494@arm.com>
+Date: Wed, 17 Dec 2025 21:16:14 +0530
+Message-ID: <87a4zhkt6h.ritesh.list@gmail.com>
+References: <20251215150323.2218608-1-kevin.brodsky@arm.com> <20251215150323.2218608-15-kevin.brodsky@arm.com> <20251216201403.4647a4f9861d3122ee9e90d7@linux-foundation.org> <f9550d22-8810-4145-aaa8-48961f6ea35e@arm.com> <ca0da7fd-245c-4d52-8f4d-f8fce4717494@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] arm64: mm: support batch clearing of the young
- flag for large folios
-Content-Language: en-GB
-To: Baolin Wang <baolin.wang@linux.alibaba.com>, akpm@linux-foundation.org,
- david@kernel.org, catalin.marinas@arm.com, will@kernel.org
-Cc: lorenzo.stoakes@oracle.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
- rppt@kernel.org, surenb@google.com, mhocko@suse.com, riel@surriel.com,
- harry.yoo@oracle.com, jannh@google.com, willy@infradead.org,
- baohua@kernel.org, linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <cover.1765439380.git.baolin.wang@linux.alibaba.com>
- <e10f876ce130134fa089befe83f30561b48b9889.1765439380.git.baolin.wang@linux.alibaba.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <e10f876ce130134fa089befe83f30561b48b9889.1765439380.git.baolin.wang@linux.alibaba.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_074348_529678_3A38C5B6 
-X-CRM114-Status: GOOD (  22.30  )
+X-CRM114-CacheID: sfid-20251217_074813_436317_596D1911 
+X-CRM114-Status: GOOD (  16.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,169 +111,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sorry I'm a bit late to the party...
+Ryan Roberts <ryan.roberts@arm.com> writes:
+
+> On 17/12/2025 09:26, Kevin Brodsky wrote:
+>> On 17/12/2025 05:14, Andrew Morton wrote:
+>>> On Mon, 15 Dec 2025 15:03:23 +0000 Kevin Brodsky <kevin.brodsky@arm.com> wrote:
+>>>
+>>>> Add basic KUnit tests for the generic aspects of the lazy MMU mode:
+>>>> ensure that it appears active when it should, depending on how
+>>>> enable/disable and pause/resume pairs are nested.
+>>> I needed this for powerpc allmodconfig;
+>>>
+>>> --- a/arch/powerpc/mm/book3s64/hash_tlb.c~mm-add-basic-tests-for-lazy_mmu-fix
+>>> +++ a/arch/powerpc/mm/book3s64/hash_tlb.c
+>>> @@ -30,6 +30,7 @@
+>>>  #include <trace/events/thp.h>
+>>>  
+>>>  DEFINE_PER_CPU(struct ppc64_tlb_batch, ppc64_tlb_batch);
+>>> +EXPORT_SYMBOL_GPL(ppc64_tlb_batch);
+>>>  
+>>>  /*
+>>>   * A linux PTE was changed and the corresponding hash table entry
+>>> @@ -154,6 +155,7 @@ void __flush_tlb_pending(struct ppc64_tl
+>>>  		flush_hash_range(i, local);
+>>>  	batch->index = 0;
+>>>  }
+>>> +EXPORT_SYMBOL_GPL(__flush_tlb_pending);
+>>>  
+>>>  void hash__tlb_flush(struct mmu_gather *tlb)
+>>>  {
+>>> _
+>> 
+>> Oh indeed I hadn't considered that arch_{enter,leave}_lazy_mmu_mode()
+>> refer to those symbols on powerpc... Maybe a bit overkill to export
+>> those just for a test module, but I'm not sure there's a good
+>> alternative. Forcing LAZY_MMU_MODE_KUNIT_TEST=y is ugly as it would also
+>> force KUNIT=y. Alternatively we could depend on !PPC, not pretty either.
+>
+> Does EXPORT_SYMBOL_IF_KUNIT() help?
+>
+
+yes, that make sense. Thanks for the suggestion!
+I guess we will need a diff like this in that case -
 
 
-On 11/12/2025 08:16, Baolin Wang wrote:
-> Currently, contpte_ptep_test_and_clear_young() and contpte_ptep_clear_flush_young()
-> only clear the young flag and flush TLBs for PTEs within the contiguous range.
-> To support batch PTE operations for other sized large folios in the following
-> patches, adding a new parameter to specify the number of PTEs.
-> 
-> While we are at it, rename the functions to maintain consistency with other
-> contpte_*() functions.
-> 
-> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
-> ---
->  arch/arm64/include/asm/pgtable.h | 12 ++++-----
->  arch/arm64/mm/contpte.c          | 44 ++++++++++++++++++++++----------
->  2 files changed, 37 insertions(+), 19 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> index 0944e296dd4a..e03034683156 100644
-> --- a/arch/arm64/include/asm/pgtable.h
-> +++ b/arch/arm64/include/asm/pgtable.h
-> @@ -1679,10 +1679,10 @@ extern void contpte_clear_full_ptes(struct mm_struct *mm, unsigned long addr,
->  extern pte_t contpte_get_and_clear_full_ptes(struct mm_struct *mm,
->  				unsigned long addr, pte_t *ptep,
->  				unsigned int nr, int full);
-> -extern int contpte_ptep_test_and_clear_young(struct vm_area_struct *vma,
-> -				unsigned long addr, pte_t *ptep);
-> -extern int contpte_ptep_clear_flush_young(struct vm_area_struct *vma,
-> -				unsigned long addr, pte_t *ptep);
-> +extern int contpte_test_and_clear_young_ptes(struct vm_area_struct *vma,
-> +				unsigned long addr, pte_t *ptep, unsigned int nr);
-> +extern int contpte_clear_flush_young_ptes(struct vm_area_struct *vma,
-> +				unsigned long addr, pte_t *ptep, unsigned int nr);
+diff --git a/arch/powerpc/mm/book3s64/hash_tlb.c b/arch/powerpc/mm/book3s64/hash_tlb.c
+index fbdeb8981ae7..ec2941cec815 100644
+--- a/arch/powerpc/mm/book3s64/hash_tlb.c
++++ b/arch/powerpc/mm/book3s64/hash_tlb.c
+@@ -25,11 +25,12 @@
+ #include <asm/tlb.h>
+ #include <asm/bug.h>
+ #include <asm/pte-walk.h>
+-
++#include <kunit/visibility.h>
+ 
+ #include <trace/events/thp.h>
+ 
+ DEFINE_PER_CPU(struct ppc64_tlb_batch, ppc64_tlb_batch);
++EXPORT_SYMBOL_IF_KUNIT(ppc64_tlb_batch);
+ 
+ /*
+  * A linux PTE was changed and the corresponding hash table entry
+@@ -154,6 +155,7 @@ void __flush_tlb_pending(struct ppc64_tlb_batch *batch)
+                flush_hash_range(i, local);
+        batch->index = 0;
+ }
++EXPORT_SYMBOL_IF_KUNIT(__flush_tlb_pending);
+ 
+ void hash__tlb_flush(struct mmu_gather *tlb)
+ {
+diff --git a/mm/tests/lazy_mmu_mode_kunit.c b/mm/tests/lazy_mmu_mode_kunit.c
+index 2720eb995714..340d7cda9096 100644
+--- a/mm/tests/lazy_mmu_mode_kunit.c
++++ b/mm/tests/lazy_mmu_mode_kunit.c
+@@ -69,3 +69,4 @@ kunit_test_suite(lazy_mmu_mode_test_suite);
+ 
+ MODULE_DESCRIPTION("Tests for the lazy MMU mode");
+ MODULE_LICENSE("GPL");
++MODULE_IMPORT_NS("EXPORTED_FOR_KUNIT_TESTING");
 
-The "contpte_" functions are intended to be private to the arm64 arch and should
-be exposed via the generic APIs. But I don't see any generic batched API for
-this, so you're only actually able to pass CONT_PTES as nr. Perhaps you're
-planning to define "test_and_clear_young_ptes()" and "clear_flush_young_ptes()"
-in later patches?
 
->  extern void contpte_wrprotect_ptes(struct mm_struct *mm, unsigned long addr,
->  				pte_t *ptep, unsigned int nr);
->  extern int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
-> @@ -1854,7 +1854,7 @@ static inline int ptep_test_and_clear_young(struct vm_area_struct *vma,
->  	if (likely(!pte_valid_cont(orig_pte)))
->  		return __ptep_test_and_clear_young(vma, addr, ptep);
->  
-> -	return contpte_ptep_test_and_clear_young(vma, addr, ptep);
-> +	return contpte_test_and_clear_young_ptes(vma, addr, ptep, CONT_PTES);
->  }
->  
->  #define __HAVE_ARCH_PTEP_CLEAR_YOUNG_FLUSH
-> @@ -1866,7 +1866,7 @@ static inline int ptep_clear_flush_young(struct vm_area_struct *vma,
->  	if (likely(!pte_valid_cont(orig_pte)))
->  		return __ptep_clear_flush_young(vma, addr, ptep);
->  
-> -	return contpte_ptep_clear_flush_young(vma, addr, ptep);
-> +	return contpte_clear_flush_young_ptes(vma, addr, ptep, CONT_PTES);
->  }
->  
->  #define wrprotect_ptes wrprotect_ptes
-> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
-> index c0557945939c..19b122441be3 100644
-> --- a/arch/arm64/mm/contpte.c
-> +++ b/arch/arm64/mm/contpte.c
-> @@ -488,8 +488,9 @@ pte_t contpte_get_and_clear_full_ptes(struct mm_struct *mm,
->  }
->  EXPORT_SYMBOL_GPL(contpte_get_and_clear_full_ptes);
->  
-> -int contpte_ptep_test_and_clear_young(struct vm_area_struct *vma,
-> -					unsigned long addr, pte_t *ptep)
-> +int contpte_test_and_clear_young_ptes(struct vm_area_struct *vma,
-> +					unsigned long addr, pte_t *ptep,
-> +					unsigned int nr)
->  {
->  	/*
->  	 * ptep_clear_flush_young() technically requires us to clear the access
-> @@ -500,39 +501,56 @@ int contpte_ptep_test_and_clear_young(struct vm_area_struct *vma,
->  	 * having to unfold.
->  	 */
->  
-> +	unsigned long start = addr;
-
-Personally I wouldn't bother defining start - just reuse addr. You're
-incrementing start in the below loop, so it's more appropriate to call it addr
-anyway.
-
-> +	unsigned long end = start + nr * PAGE_SIZE;
->  	int young = 0;
->  	int i;
->  
-> -	ptep = contpte_align_down(ptep);
-> -	addr = ALIGN_DOWN(addr, CONT_PTE_SIZE);
-> +	if (pte_cont(__ptep_get(ptep + nr - 1)))
-> +		end = ALIGN(end, CONT_PTE_SIZE);
->  
-> -	for (i = 0; i < CONT_PTES; i++, ptep++, addr += PAGE_SIZE)
-> -		young |= __ptep_test_and_clear_young(vma, addr, ptep);
-> +	if (pte_cont(__ptep_get(ptep))) {
-> +		start = ALIGN_DOWN(start, CONT_PTE_SIZE);
-> +		ptep = contpte_align_down(ptep);
-> +	}
-> +
-> +	nr = (end - start) / PAGE_SIZE;
-> +	for (i = 0; i < nr; i++, ptep++, start += PAGE_SIZE)
-
-Given you're now defining end, perhaps we don't need nr?
-
-	for (; addr != end; ptep++, addr += PAGE_SIZE)
-		young |= __ptep_test_and_clear_young(vma, addr, ptep);
-
-> +		young |= __ptep_test_and_clear_young(vma, start, ptep);
->  
->  	return young;
->  }
-> -EXPORT_SYMBOL_GPL(contpte_ptep_test_and_clear_young);
-> +EXPORT_SYMBOL_GPL(contpte_test_and_clear_young_ptes);
->  
-> -int contpte_ptep_clear_flush_young(struct vm_area_struct *vma,
-> -					unsigned long addr, pte_t *ptep)
-> +int contpte_clear_flush_young_ptes(struct vm_area_struct *vma,
-> +				unsigned long addr, pte_t *ptep,
-> +				unsigned int nr)
->  {
->  	int young;
->  
-> -	young = contpte_ptep_test_and_clear_young(vma, addr, ptep);
-> +	young = contpte_test_and_clear_young_ptes(vma, addr, ptep, nr);
->  
->  	if (young) {
-> +		unsigned long start = addr;
-> +		unsigned long end = start + nr * PAGE_SIZE;
-> +
-> +		if (pte_cont(__ptep_get(ptep + nr - 1)))
-> +			end = ALIGN(end, CONT_PTE_SIZE);
-> +
-> +		if (pte_cont(__ptep_get(ptep)))
-> +			start = ALIGN_DOWN(start, CONT_PTE_SIZE);
-> +
-
-We now have this pattern of expanding contpte blocks up and down in 3 places.
-Perhaps create a helper?
-
-Thanks,
-Ryan
-
->  		/*
->  		 * See comment in __ptep_clear_flush_young(); same rationale for
->  		 * eliding the trailing DSB applies here.
->  		 */
-> -		addr = ALIGN_DOWN(addr, CONT_PTE_SIZE);
-> -		__flush_tlb_range_nosync(vma->vm_mm, addr, addr + CONT_PTE_SIZE,
-> +		__flush_tlb_range_nosync(vma->vm_mm, start, end,
->  					 PAGE_SIZE, true, 3);
->  	}
->  
->  	return young;
->  }
-> -EXPORT_SYMBOL_GPL(contpte_ptep_clear_flush_young);
-> +EXPORT_SYMBOL_GPL(contpte_clear_flush_young_ptes);
->  
->  void contpte_wrprotect_ptes(struct mm_struct *mm, unsigned long addr,
->  					pte_t *ptep, unsigned int nr)
-
+-ritesh
 
