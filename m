@@ -4,62 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46082D65C49
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 14:19:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12A73D65C4F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 14:20:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:Subject:From:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iXkjmaeJXhi313Y9q+FKwmvBFYzW11FHKjbzhm/D7OU=; b=uhTLwgIigVqDhFAZC7mWioA8dA
-	N+HyZgAxccdlpYXlYTcHqEJ0555Yxio7AkrP5vM64RyYDWnuf4jZefXJ6NpPnJDXTZMjXveNi5+z5
-	y0oqn32cM2A9UTroMXY1qctQ7TqNIaRzKbxuJ+7rfAi/nKrE7KHlA6G5QfyfYaytSSPu/+PPKJM5H
-	okp7s25jkzacBmxJZusUB2spRuCx/GgLhp+FcHVCEt+ceyeeYl9IT/Bv+YZZU33sHcGm6tdyekTH1
-	iFYsnYRK1tDK7t8RjBRfvpt3rfRrHm+yKL2m+1U8rnL8/9ZRPiXYWk6UbN6bD8YsdjX03+DiksHm0
-	V95gNR8g==;
+	bh=n3wjoFjFX7e0nRTUtCuDG6KEqGwUEIVHx6duZb7nqZ4=; b=or0sl8yds7aUFrn4Px1MIvtCx/
+	b1rq7LyJ5GPKJhYJrsf3lJZs6nb54B6rMkz/Pglxs7Cd02YbAY35Hmg9+5W5FrrRxLF047giI4R7g
+	ljocMZfuvnlF2OcMO0+5868KP51Uk1iJhzzlOhXEAiygZ5SUlitmmYjA6Bf0fhRlfGKw8IQb3weov
+	rrWEhcgkymXCTStVCnNzpfaTezveJ38gG60NNFE0ZAhodLOdBqQ72NVZgVC2GWBicBj2Cb/QzPzEe
+	Hh7jZekq5WVxTER0kG4dqYeysZlwlij3HgCm99dMOjAuFPdvZYQnVAts4FFUZvIQ0MoeEHRtWMT+d
+	9p8nBCBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVsMf-00000006uey-2Pgl;
-	Wed, 17 Dec 2025 14:18:53 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vVsNl-00000006ulZ-3xmD;
+	Wed, 17 Dec 2025 14:20:01 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVsMd-00000006uec-3ml8
+	id 1vVsNj-00000006uks-2edw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 14:18:53 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BHCKqEc2390544;
-	Wed, 17 Dec 2025 14:18:43 GMT
+	Wed, 17 Dec 2025 14:20:01 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BHCKnJW2465103;
+	Wed, 17 Dec 2025 14:19:52 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	iXkjmaeJXhi313Y9q+FKwmvBFYzW11FHKjbzhm/D7OU=; b=I+Kp8n3xtrgX6eht
-	6vVsAF3YTjZ0RfPav+zJ81DoTojpKWItH8zM0c8T2zjP/lEklF4+R/guB+CAdvs8
-	LEefTsR3T7l2J3oivi1OROO2s+SZKd5+d/CuSnFYiCOEb47UdKdOlT8U2PwEnntq
-	A+Tft+tAJy0fuu0H6IjHgOQcT70tLEkWctXAwSSdTlbtDD+jvW7y1ZzmloMdCHcm
-	FwLA8PKor/E8NrBkxBbqPJMIunuJu1B9ffPeaUBT7INeSTk+o/D9hXd1ZrGxtGHP
-	xf93sOktsDZA6ddqcjhBEgYHfR7IQ4nEw5EcPmeXeVDGxiDBDqkAd2KXAVt/xSct
-	QXBNQw==
-Received: from nalasppmta05.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4b3b7g3ht5-1
+	n3wjoFjFX7e0nRTUtCuDG6KEqGwUEIVHx6duZb7nqZ4=; b=O4J8y2oUC0xVt1lh
+	h/tqYKk4MorXc/aFlj3/4EzePrD/TCkwZk2uH6fu/kMaz6LRSnDScjQ/41fAZIoH
+	rh7E8BTM8KMh/L/WtqJ2Gi8i8dtE6RbfKJ+o7siva5J8PFXAMBj5l45R8cMDuZu6
+	EO/707XEm0u+MCbqNvi6p32yMb9T56P84QSeO7xd6yWbJwm5hu0PP2+wykfrJ8YY
+	7k5G5gUtnIqXd/hQpDldXin1g2jvV7vqvKQK7q6Z188WXTMxmyliywulKPKmIf12
+	H0btfEfYg2T9MfzJyWS0zgA0Ixs0TLA/Lu/elMVzJULDblZS40DehNT26e1aJnB5
+	AtQwsw==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4b3fe2aq0a-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 17 Dec 2025 14:18:43 +0000 (GMT)
+	Wed, 17 Dec 2025 14:19:52 +0000 (GMT)
 Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
-	by NALASPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5BHEIfOP011359
+	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5BHEJp5I024099
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 17 Dec 2025 14:18:41 GMT
+	Wed, 17 Dec 2025 14:19:51 GMT
 Received: from [10.206.103.106] (10.80.80.8) by nalasex01c.na.qualcomm.com
  (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Wed, 17 Dec
- 2025 06:18:36 -0800
-Message-ID: <2e14bc60-8cfb-4710-bcfb-d2cef8f370b6@quicinc.com>
-Date: Wed, 17 Dec 2025 19:48:28 +0530
+ 2025 06:19:45 -0800
+Message-ID: <facbe87c-a2e1-4cc2-8dc1-30f716814588@quicinc.com>
+Date: Wed, 17 Dec 2025 19:49:42 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
-Subject: Re: [PATCH v7 4/5] arm64: dts: qcom: monaco-evk: Add camera AVDD
- regulators
-To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+Subject: Re: [PATCH v7 5/5] arm64: dts: qcom: monaco-evk-camera: Add DT
+ overlay
+To: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
         <bryan.odonoghue@linaro.org>, <mchehab@kernel.org>, <robh@kernel.org>,
         <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <andersson@kernel.org>,
         <konradybcio@kernel.org>, <hverkuil-cisco@xs4all.nl>,
@@ -67,45 +66,48 @@ To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
         <will@kernel.org>
 CC: <linux-arm-kernel@lists.infradead.org>, <quic_svankada@quicinc.com>,
         <linux-media@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        Ravi Shankar
+	<quic_rshankar@quicinc.com>,
+        Vishal Verma <quic_vishverm@quicinc.com>
 References: <20251216062223.2474216-1-quic_nihalkum@quicinc.com>
- <20251216062223.2474216-5-quic_nihalkum@quicinc.com>
- <19bf8b37-4b40-4825-a8be-a94139389c69@oss.qualcomm.com>
+ <20251216062223.2474216-6-quic_nihalkum@quicinc.com>
+ <5bd29b5f-6fcf-428d-b451-698d92f0883e@linaro.org>
 Content-Language: en-US
-In-Reply-To: <19bf8b37-4b40-4825-a8be-a94139389c69@oss.qualcomm.com>
+From: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
+In-Reply-To: <5bd29b5f-6fcf-428d-b451-698d92f0883e@linaro.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
  nalasex01c.na.qualcomm.com (10.47.97.35)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: 8Ktjcy-lhBAmmHEQw9iDdF62WUaCmsOU
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjE3MDExMSBTYWx0ZWRfXz1QIF5DyeCpT
- LXa8n09uF922YM3lCDy52vewDoE6hhfAtJaH/fglPc81TprIm8cp6o2CXyR8CVvRgZcz25NVKgn
- TbIjhKkY/QbrzOMWmauP9DL8CmN1f2WcBBc2dDLAwNma+fbklLtxPlM4wwQmN5wqm2Mheb4yiO6
- ylu5T/aUdV15e2atpqlZAY2eXETbrSIPuPMOXr1dM81kmXtMGeYwfu357/xLBCBB9dvdsHzx7Wm
- N2LBhVbSEN0dAWsWzoKBHCJCE54L4b32NwYuTiHGj51Gp+7ScutIdHpm/mjWe9w37O/+ho+m+oz
- fB/q2MveplKDe8k2Sd3VrJqvYDZ3FPXXtClWqjzldlqlh+5eqJ01E2to0zTVzkEauYkuhC0n61p
- L5TO+tVq+KqNq7x1taHDku4BlqD+Tg==
-X-Proofpoint-GUID: 8Ktjcy-lhBAmmHEQw9iDdF62WUaCmsOU
-X-Authority-Analysis: v=2.4 cv=PbLyRyhd c=1 sm=1 tr=0 ts=6942bbc3 cx=c_pps
+X-Proofpoint-GUID: R3RHhPMXwoLMY-DxpQ7nJtdArbYiyuaT
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjE3MDExMSBTYWx0ZWRfX5Eg330TVav/Q
+ unL4LPNZ2jyKYB/rHi0bw6rlOlVfe3gFQgcQS47DgKcZZvF7VPcKScF6sC6CIfRSmFxh8a8bLoq
+ RGu1gOgzI6K9GxpahzYSXxpHwNv4cw7llyOFc497AULkw/ER1s389z9CG9/pummMQEralkeUBCm
+ VeF1HQapJrWYl2bn4I/yNUxeVi0ewFwmGl+85lk/DcJQQkvrE5+3eGfMZ6FkGy37QeTzx40+AIj
+ q2fw2SiGKLNQYvjrn9Wpxc2NrrWYQaESC4hPIYKKhbGkkxuazVxD4AlNwDzNKaWRJcoqC4xhxYF
+ E5ZZZ8+ijY6gdzuy6feaFUuwlr+9uzNfCafXE0VWZ+Sawn4Ue6Whk18eTJXK7BfjANoIxqN4BrF
+ jJVZIdTgNjjVNAHB/lXgi7ova4sZ0g==
+X-Proofpoint-ORIG-GUID: R3RHhPMXwoLMY-DxpQ7nJtdArbYiyuaT
+X-Authority-Analysis: v=2.4 cv=HpN72kTS c=1 sm=1 tr=0 ts=6942bc08 cx=c_pps
  a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
  a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=fuV65yvZV9PlKjkSEkoA:9
- a=QEXdDO2ut3YA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
+ a=5vMn2XeAW159kYVkZ7kA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
  definitions=2025-12-17_01,2025-12-16_05,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 priorityscore=1501 spamscore=0 suspectscore=0 bulkscore=0
- malwarescore=0 clxscore=1015 adultscore=0 lowpriorityscore=0 impostorscore=0
+ malwarescore=0 bulkscore=0 clxscore=1015 priorityscore=1501 phishscore=0
+ suspectscore=0 lowpriorityscore=0 adultscore=0 impostorscore=0 spamscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2512170111
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_061852_092990_A8D0AA8D 
-X-CRM114-Status: UNSURE (   8.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251217_061959_675999_440A6297 
+X-CRM114-Status: GOOD (  14.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,18 +124,55 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 17-12-2025 16:44, Konrad Dybcio wrote:
->> +		bias-disable;
->> +	};
-> All other entries in this scope are sorted wrt the pin index..
-> Please take care of that and add my
+On 16-12-2025 13:05, Vladimir Zapolskiy wrote:
+>> @@ -0,0 +1,67 @@
+>> +// SPDX-License-Identifier: BSD-3-Clause
+>> +/*
+>> + * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 > 
-> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+> Year is missing.
 > 
-> Konrad
-> 
+This is as per new yearless copyright format.
+
+>> + */
+>> + 
 >> +
-ACK, Will address this in the next version.
+>> +            csiphy1_ep: endpoint {
+>> +                clock-lanes = <7>;
+> 
+> Please remove 'clock-lanes' property here.
+> 
+ACK
+
+>> +                data-lanes = <0 1 2 3>;
+>> +                remote-endpoint = <&imx577_ep1>;
+>> +            };
+>> +        };
+>> +    };
+>> +            imx577_ep1: endpoint {
+>> +                link-frequencies = /bits/ 64 <600000000>;
+>> +                data-lanes = <0 1 2 3>;
+> 
+> data-lanes property value should be '1 2 3 4>', 0 is for the clock lane.
+> 
+> On CAMSS side this cannot be changed, unfortunately it's a lingering issue.
+> 
+So, I should set data-lanes = <1 2 3 4> in imx577_ep1, and keep csiphy1_ep as <0 1 2 3>, correct?
+Is there a reason CAMSS side can’t change this? We should handle it properly in future targets.
+
+>> +                remote-endpoint = <&csiphy1_ep>;
+>> +            };
+>> +        };
+>> +    };
+>> +};
+> 
+> If only one of 3 defined from 4/5 regulators is used, do you really wish
+> to describle all 3 in advance? You may consider to remove 2 currently unused
+> GPIO controlled regulator descriptions, and squash this change with 4/5.
+As discussed, we agreed to add support for other sensors: https://lore.kernel.org/all/4b73f64a-1e28-4f25-80d2-3d59575b9da2@oss.qualcomm.com
+
+Regulator changes are in monaco-evk.dts, and sensor overlay changes are present in monaco-evk-camera-imx577.dtso
+It’s better to keep these as separate patches rather than merging them into one.
 
 -- 
 Regards,
