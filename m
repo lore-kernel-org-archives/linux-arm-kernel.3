@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B373ED6552C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 11:30:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF984D6552C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 11:30:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pWVNh10a0iJOwgzz0auI6gD6kYFtI1jjn2GN79kBQFs=; b=n/BY488+tLA/8BektAS27xxqeh
-	/K/G1xAatN4egrybXjV/27pC9XcQSfdTZ5aHy4rwOhmIzLXTxi1JM6EmMLz5+VWgbUJFBfAem/SrJ
-	qi/Z+6IZ2hpo3UrPKODNPEz87p6H1ioiieg3vX6qUofIAxoCqAW1YItAnbNqm2TMaHOqhoYmjLigB
-	rOa9Ly2ZDTlNJvcJtgzbRGmB0+Sl5To82CJTlhNH9zuzq03HSqxvIgdpRrUvOXA0se9nlTiTZR35+
-	O8ws/qa3cLouwnn987/nOJswewqce6dCMljvlgkF9pagU9kYvI/aYIeq5Ettlk80P1m0d+PChjOLf
-	NHAgesBw==;
+	bh=0zl7/1rExuU1sck6Yj6OK3zUURvMQpnT89RtkeeETrw=; b=pnqou9ognN7Aa9mS6AC2ZiA/Ij
+	8GxoOFohqhJXx3F1wBDyfNAh7fBKlcVnYpXQeyHiCD7zW7UEhyYOs4jcRyyTVZhuBkEyxfcERijUR
+	802xSeK6bsx/r7VyT0BlPCMcmvLo/L5FHX5rARZA7mtWzJ1/unk9gbYYvWA18TXgkntc3N/pYmSWF
+	wGDKce0U6PQfyLqPL2DF78PPCHftPon5bpmnMJvv/DFyvHtPDFVmr7t9ikCjyXBiHaRF+mHtI+WVq
+	tzZfdzxmbxpxEfVKHyN1fmRhkYQsF6h9yPqlYqwfh2avg6q5O79knnGwPWrrm9R6SD1o734PlFatD
+	l8bWFXTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVpjg-00000006iuK-1Bsu;
-	Wed, 17 Dec 2025 11:30:28 +0000
+	id 1vVpjy-00000006j1u-2d1U;
+	Wed, 17 Dec 2025 11:30:46 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVpje-00000006itL-2vTn
+	id 1vVpjv-00000006j09-3vQK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 11:30:27 +0000
+	Wed, 17 Dec 2025 11:30:45 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8A1DD1517;
-	Wed, 17 Dec 2025 03:30:18 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 043F31684;
+	Wed, 17 Dec 2025 03:30:36 -0800 (PST)
 Received: from e134710.manchester.arm.com (e134710.arm.com [10.33.10.82])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D61B53F73B;
-	Wed, 17 Dec 2025 03:30:23 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4A6B83F73B;
+	Wed, 17 Dec 2025 03:30:41 -0800 (PST)
 From: Ahmed Tiba <ahmed.tiba@arm.com>
 To: linux-acpi@vger.kernel.org,
 	devicetree@vger.kernel.org
@@ -49,17 +49,17 @@ Cc: tony.luck@intel.com,
 	Dmitry.Lamerov@arm.com,
 	Michael.Zhao2@arm.com,
 	ahmed.tiba@arm.com
-Subject: [PATCH 06/12] efi/cper: adopt estatus iteration helpers
-Date: Wed, 17 Dec 2025 11:28:39 +0000
-Message-ID: <20251217112845.1814119-7-ahmed.tiba@arm.com>
+Subject: [PATCH 07/12] ghes: prepare estatus hooks for shared handling
+Date: Wed, 17 Dec 2025 11:28:40 +0000
+Message-ID: <20251217112845.1814119-8-ahmed.tiba@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251217112845.1814119-1-ahmed.tiba@arm.com>
 References: <20251217112845.1814119-1-ahmed.tiba@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_033026_823405_59193EE7 
-X-CRM114-Status: GOOD (  13.30  )
+X-CRM114-CacheID: sfid-20251217_033044_098866_7AE0BEC0 
+X-CRM114-Status: GOOD (  12.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,203 +74,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Switch the CPER printer and validator to the estatus_*() accessor
-wrappers introduced by the new core. This is a mechanical change that
-replaces the local acpi_hest_*() helpers with their aliases and keeps
-the section iteration code shared ahead of the GHES conversion.
+Introduce struct estatus_source inside struct ghes and export thin
+wrappers around the existing GHES estatus helpers. These helpers are
+not ACPI-specific, so moving them behind a common interface is the
+first step toward reusing the logic for other firmware providers.
+Behaviour stays the same for GHES in this patch.
 
 Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
 ---
- drivers/firmware/efi/cper.c | 29 +++++++++++++-------------
- include/acpi/ghes.h         | 41 ++-----------------------------------
- 2 files changed, 17 insertions(+), 53 deletions(-)
+ drivers/acpi/apei/Kconfig      |  1 +
+ drivers/firmware/efi/estatus.c |  3 +--
+ include/acpi/ghes.h            | 17 +++++++++++++----
+ 3 files changed, 15 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/firmware/efi/cper.c b/drivers/firmware/efi/cper.c
-index 0232bd040f61..07119940486a 100644
---- a/drivers/firmware/efi/cper.c
-+++ b/drivers/firmware/efi/cper.c
-@@ -26,6 +26,7 @@
- #include <acpi/ghes.h>
- #include <ras/ras_event.h>
- #include <cxl/event.h>
-+#include <linux/estatus.h>
+diff --git a/drivers/acpi/apei/Kconfig b/drivers/acpi/apei/Kconfig
+index 070c07d68dfb..90cb8360988b 100644
+--- a/drivers/acpi/apei/Kconfig
++++ b/drivers/acpi/apei/Kconfig
+@@ -24,6 +24,7 @@ config ACPI_APEI_GHES
+ 	select IRQ_WORK
+ 	select GENERIC_ALLOCATOR
+ 	select ARM_SDE_INTERFACE if ARM64
++	select RAS_ESTATUS_CORE
+ 	help
+ 	  Generic Hardware Error Source provides a way to report
+ 	  platform hardware errors (such as that from chipset). It
+diff --git a/drivers/firmware/efi/estatus.c b/drivers/firmware/efi/estatus.c
+index 8043d68f907b..259122730303 100644
+--- a/drivers/firmware/efi/estatus.c
++++ b/drivers/firmware/efi/estatus.c
+@@ -654,9 +654,8 @@ static bool estatus_handle_arm_hw_error(estatus_generic_data *gdata, int sev, bo
+ 	int sec_sev, i;
+ 	char *p;
  
- /*
-  * CPER record ID need to be unique even after reboot, because record
-@@ -525,7 +526,7 @@ static void cper_print_fw_err(const char *pfx,
- 			      struct acpi_hest_generic_data *gdata,
- 			      const struct cper_sec_fw_err_rec_ref *fw_err)
- {
--	void *buf = acpi_hest_get_payload(gdata);
-+	void *buf = estatus_get_payload(gdata);
- 	u32 offset, length = gdata->error_data_length;
- 
- 	printk("%s""Firmware Error Record Type: %s\n", pfx,
-@@ -607,7 +608,7 @@ cper_estatus_print_section(const char *pfx, struct acpi_hest_generic_data *gdata
- 	__u16 severity;
- 	char newpfx[64];
- 
--	if (acpi_hest_get_version(gdata) >= 3)
-+	if (estatus_get_version(gdata) >= 3)
- 		cper_print_tstamp(pfx, (struct acpi_hest_generic_data_v300 *)gdata);
- 
- 	severity = gdata->error_severity;
-@@ -628,7 +629,7 @@ cper_estatus_print_section(const char *pfx, struct acpi_hest_generic_data *gdata
- 	}
- 
- 	if (guid_equal(sec_type, &CPER_SEC_PROC_GENERIC)) {
--		struct cper_sec_proc_generic *proc_err = acpi_hest_get_payload(gdata);
-+		struct cper_sec_proc_generic *proc_err = estatus_get_payload(gdata);
- 
- 		printk("%s""section_type: general processor error\n", newpfx);
- 		if (gdata->error_data_length >= sizeof(*proc_err))
-@@ -636,7 +637,7 @@ cper_estatus_print_section(const char *pfx, struct acpi_hest_generic_data *gdata
- 		else
- 			goto err_section_too_small;
- 	} else if (guid_equal(sec_type, &CPER_SEC_PLATFORM_MEM)) {
--		struct cper_sec_mem_err *mem_err = acpi_hest_get_payload(gdata);
-+		struct cper_sec_mem_err *mem_err = estatus_get_payload(gdata);
- 
- 		printk("%s""section_type: memory error\n", newpfx);
- 		if (gdata->error_data_length >=
-@@ -646,7 +647,7 @@ cper_estatus_print_section(const char *pfx, struct acpi_hest_generic_data *gdata
- 		else
- 			goto err_section_too_small;
- 	} else if (guid_equal(sec_type, &CPER_SEC_PCIE)) {
--		struct cper_sec_pcie *pcie = acpi_hest_get_payload(gdata);
-+		struct cper_sec_pcie *pcie = estatus_get_payload(gdata);
- 
- 		printk("%s""section_type: PCIe error\n", newpfx);
- 		if (gdata->error_data_length >= sizeof(*pcie))
-@@ -655,7 +656,7 @@ cper_estatus_print_section(const char *pfx, struct acpi_hest_generic_data *gdata
- 			goto err_section_too_small;
- #if defined(CONFIG_ARM64) || defined(CONFIG_ARM)
- 	} else if (guid_equal(sec_type, &CPER_SEC_PROC_ARM)) {
--		struct cper_sec_proc_arm *arm_err = acpi_hest_get_payload(gdata);
-+		struct cper_sec_proc_arm *arm_err = estatus_get_payload(gdata);
- 
- 		printk("%ssection_type: ARM processor error\n", newpfx);
- 		if (gdata->error_data_length >= sizeof(*arm_err))
-@@ -665,7 +666,7 @@ cper_estatus_print_section(const char *pfx, struct acpi_hest_generic_data *gdata
- #endif
- #if defined(CONFIG_UEFI_CPER_X86)
- 	} else if (guid_equal(sec_type, &CPER_SEC_PROC_IA)) {
--		struct cper_sec_proc_ia *ia_err = acpi_hest_get_payload(gdata);
-+		struct cper_sec_proc_ia *ia_err = estatus_get_payload(gdata);
- 
- 		printk("%ssection_type: IA32/X64 processor error\n", newpfx);
- 		if (gdata->error_data_length >= sizeof(*ia_err))
-@@ -674,7 +675,7 @@ cper_estatus_print_section(const char *pfx, struct acpi_hest_generic_data *gdata
- 			goto err_section_too_small;
- #endif
- 	} else if (guid_equal(sec_type, &CPER_SEC_FW_ERR_REC_REF)) {
--		struct cper_sec_fw_err_rec_ref *fw_err = acpi_hest_get_payload(gdata);
-+		struct cper_sec_fw_err_rec_ref *fw_err = estatus_get_payload(gdata);
- 
- 		printk("%ssection_type: Firmware Error Record Reference\n",
- 		       newpfx);
-@@ -684,7 +685,7 @@ cper_estatus_print_section(const char *pfx, struct acpi_hest_generic_data *gdata
- 		else
- 			goto err_section_too_small;
- 	} else if (guid_equal(sec_type, &CPER_SEC_CXL_PROT_ERR)) {
--		struct cxl_cper_sec_prot_err *prot_err = acpi_hest_get_payload(gdata);
-+		struct cxl_cper_sec_prot_err *prot_err = estatus_get_payload(gdata);
- 
- 		printk("%ssection_type: CXL Protocol Error\n", newpfx);
- 		if (gdata->error_data_length >= sizeof(*prot_err))
-@@ -692,7 +693,7 @@ cper_estatus_print_section(const char *pfx, struct acpi_hest_generic_data *gdata
- 		else
- 			goto err_section_too_small;
- 	} else {
--		const void *err = acpi_hest_get_payload(gdata);
-+		const void *err = estatus_get_payload(gdata);
- 
- 		printk("%ssection type: unknown, %pUl\n", newpfx, sec_type);
- 		printk("%ssection length: %#x\n", newpfx,
-@@ -723,7 +724,7 @@ void cper_estatus_print(const char *pfx,
- 	printk("%s""event severity: %s\n", pfx, cper_severity_str(severity));
- 	snprintf(newpfx, sizeof(newpfx), "%s ", pfx);
- 
--	apei_estatus_for_each_section(estatus, gdata) {
-+	estatus_for_each_section(estatus, gdata) {
- 		cper_estatus_print_section(newpfx, gdata, sec_no);
- 		sec_no++;
- 	}
-@@ -755,11 +756,11 @@ int cper_estatus_check(const struct acpi_hest_generic_status *estatus)
- 
- 	data_len = estatus->data_length;
- 
--	apei_estatus_for_each_section(estatus, gdata) {
--		if (acpi_hest_get_size(gdata) > data_len)
-+	estatus_for_each_section(estatus, gdata) {
-+		if (estatus_get_size(gdata) > data_len)
- 			return -EINVAL;
- 
--		record_size = acpi_hest_get_record_size(gdata);
-+		record_size = estatus_get_record_size(gdata);
- 		if (record_size > data_len)
- 			return -EINVAL;
+-	log_arm_hw_error(err);
+-
+ 	sec_sev = estatus_severity(gdata->error_severity);
++	log_arm_hw_error(err, sec_sev);
+ 	if (sev != ESTATUS_SEV_RECOVERABLE || sec_sev != ESTATUS_SEV_RECOVERABLE)
+ 		return false;
  
 diff --git a/include/acpi/ghes.h b/include/acpi/ghes.h
-index ebd21b05fe6e..022c0325f1e0 100644
+index 022c0325f1e0..7dc6acde3e2e 100644
 --- a/include/acpi/ghes.h
 +++ b/include/acpi/ghes.h
-@@ -4,6 +4,7 @@
- 
+@@ -5,6 +5,7 @@
  #include <acpi/apei.h>
  #include <acpi/hed.h>
-+#include <linux/estatus.h>
+ #include <linux/estatus.h>
++#include <linux/notifier.h>
  
  /*
   * One struct ghes is created for each generic hardware error source.
-@@ -80,46 +81,8 @@ static inline void ghes_estatus_pool_region_free(unsigned long addr, u32 size) {
+@@ -22,6 +23,7 @@ struct ghes {
+ 		struct acpi_hest_generic_v2 *generic_v2;
+ 	};
+ 	struct acpi_hest_generic_status *estatus;
++	struct estatus_source estatus_src;
+ 	unsigned long flags;
+ 	union {
+ 		struct list_head list;
+@@ -30,6 +32,7 @@ struct ghes {
+ 	};
+ 	struct device *dev;
+ 	struct list_head elist;
++	char name[32];
+ };
  
- int ghes_estatus_pool_init(unsigned int num_ghes);
+ struct ghes_estatus_node {
+@@ -47,10 +50,10 @@ struct ghes_estatus_cache {
+ };
  
--static inline int acpi_hest_get_version(struct acpi_hest_generic_data *gdata)
--{
--	return gdata->revision >> 8;
--}
--
--static inline void *acpi_hest_get_payload(struct acpi_hest_generic_data *gdata)
--{
--	if (acpi_hest_get_version(gdata) >= 3)
--		return (void *)(((struct acpi_hest_generic_data_v300 *)(gdata)) + 1);
--
--	return gdata + 1;
--}
--
--static inline int acpi_hest_get_error_length(struct acpi_hest_generic_data *gdata)
--{
--	return ((struct acpi_hest_generic_data *)(gdata))->error_data_length;
--}
--
--static inline int acpi_hest_get_size(struct acpi_hest_generic_data *gdata)
--{
--	if (acpi_hest_get_version(gdata) >= 3)
--		return sizeof(struct acpi_hest_generic_data_v300);
--
--	return sizeof(struct acpi_hest_generic_data);
--}
--
--static inline int acpi_hest_get_record_size(struct acpi_hest_generic_data *gdata)
--{
--	return (acpi_hest_get_size(gdata) + acpi_hest_get_error_length(gdata));
--}
--
--static inline void *acpi_hest_get_next(struct acpi_hest_generic_data *gdata)
--{
--	return (void *)(gdata) + acpi_hest_get_record_size(gdata);
--}
--
- #define apei_estatus_for_each_section(estatus, section)			\
--	for (section = (struct acpi_hest_generic_data *)(estatus + 1);	\
--	     (void *)section - (void *)(estatus + 1) < estatus->data_length; \
--	     section = acpi_hest_get_next(section))
-+	estatus_for_each_section(estatus, section)
+ enum {
+-	GHES_SEV_NO = 0x0,
+-	GHES_SEV_CORRECTED = 0x1,
+-	GHES_SEV_RECOVERABLE = 0x2,
+-	GHES_SEV_PANIC = 0x3,
++	GHES_SEV_NO = ESTATUS_SEV_NO,
++	GHES_SEV_CORRECTED = ESTATUS_SEV_CORRECTED,
++	GHES_SEV_RECOVERABLE = ESTATUS_SEV_RECOVERABLE,
++	GHES_SEV_PANIC = ESTATUS_SEV_PANIC,
+ };
  
- #ifdef CONFIG_ACPI_APEI_SEA
- int ghes_notify_sea(void);
+ #ifdef CONFIG_ACPI_APEI_GHES
+@@ -73,6 +76,12 @@ void ghes_unregister_vendor_record_notifier(struct notifier_block *nb);
+ struct list_head *ghes_get_devices(void);
+ 
+ void ghes_estatus_pool_region_free(unsigned long addr, u32 size);
++int ghes_register_vendor_record_notifier(struct notifier_block *nb);
++void ghes_unregister_vendor_record_notifier(struct notifier_block *nb);
++void ghes_register_report_chain(struct notifier_block *nb);
++void ghes_unregister_report_chain(struct notifier_block *nb);
++
++void estatus_pool_region_free(unsigned long addr, u32 size);
+ #else
+ static inline struct list_head *ghes_get_devices(void) { return NULL; }
+ 
 -- 
 2.43.0
 
