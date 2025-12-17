@@ -4,140 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C213D5C0C9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 04:26:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08C2AD6406D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 04:28:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pyUknLK10IFnRrY1t3LFmdvIDLQA+DUzE+qm0LYlouo=; b=Am6UFEEg1Xl8vj8srS3icHx9GC
-	3/+cqkMEPZnsG7uDkEsujS241LkyNkw3TIrpUacZP58j93TXspjjQgbDcSj8YWiWmPke8J+lxXhih
-	DdvczRJnT+stefE/pNJf9oV/edPcuL17y/c+MOP5UjJN4t2tOVoiAq9PqkZZuFsyXbwn6WOms5jYi
-	chyxBYJFaY/9CDpDl8lwEUfvYc3mOwLj8vZLuotaMAhaMGSg2e9MnQXVqrT+hOO5HBOsTRSYimk4+
-	Wejhwv+TwSEtu7Qy2gpnrvghcsXYEvaBPVQiig11Tmp8xGht6TidDXmvfR2v0I8WQFPm/VSMGDqb5
-	RhpjaHVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/MLdaOBVFsd/izW/TfLsuG1WooZaOmcXkxRbIL5DuhU=; b=zDnD59dZTakM05rn+MpgI7PmLA
+	6xO0x5q6kCvE4F+iIxUxEwx9Ttk2piLQIniCiPJTiFsnu2M23Ti/msOPy7ZOy0FX1KU7EEYLd7/gw
+	iIkp610i1E4FZNWg+xJgHszSUJp5Qfz90zhbGMtia12JNhACqwRqPX5nJKuD0sEhLtSulLiBNS2an
+	XsJiXEPIMXx8WIlpR0tqTp6aVo4deKVu3RGyiepNBmJoOejFmTO7dZEgFYPYCeMPKD8qEAa82Zu2T
+	pf99rm/r4GYl45MkOlkF5p+t6IYPXzFxbY7W3KF/RK1QtklFFKBDVQhtf7k5B5Sh2e2eeUW0YhsU5
+	i6eXMXqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVj7b-000000069Pk-3is4;
-	Wed, 17 Dec 2025 04:26:43 +0000
-Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1vVj9Q-000000069qy-1HNv;
+	Wed, 17 Dec 2025 04:28:36 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVj7U-000000069Lo-40K8
+	id 1vVj9J-000000069pw-1Zta
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 04:26:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Tt4zAsB1QlIq18rNuNuqkpLXdVZ2Vyx2F8MKeOISgdb8IPcZhxacKObGAvTHJCAbloBT4PiX+0CbPBM5sYsZxkaL9hr+hb4/D5QP1LJhPT5FZRqcTP0kFkIyRgXIRQ4OXGKWYShD/u/sjgskn+3/AuTD2uawlP7oOOdoinyJjYGCvXsuoSy6qDGd+EE+HYXEgcu3XGAnfW4Rj6waIW+7uWyZTxCTpOcxfFWWJMqeYnNQBdly+hv+8uUNT0G+NjHhY8HAp4vFB2bLuJXiap4ci3Pz44aFREe+vtfO7Z94LNs+NkLFriFyM8WyqyIq5Pzx7U7Zy/Fvbs7D9UB2lwbeyQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pyUknLK10IFnRrY1t3LFmdvIDLQA+DUzE+qm0LYlouo=;
- b=C42rZwXji6RNlnstVOMwVX9bVemUtYya4KwuzLHLp5GTNX7/6F8Jb1e+aZfoVfs5psikucgTA5eIO1YLj60lvXk02AFE1FP5P07iiubz1G6GdCRm1rU15rBclRrTGfebR0dUBlmjOf9X/uyGu8vNdap5Hx8nKgXrZp7cQ/IaU8Pei07r94OLpp8v7fFyxKF2kHd/X7scfo9wpRUvynDbAC8HFxBdfE+sw4I0xDu+pmzWPlsF7x7tld6XLVGFI8gKkoQPwBaP7FR82ZdrLPRvJZDudVMdO53q1xjoWvME5faz+JxTf/t0LJY75u8//cCDs1gJ2PAMo7wNAQ87m/lRRQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pyUknLK10IFnRrY1t3LFmdvIDLQA+DUzE+qm0LYlouo=;
- b=rF+1/xQF9WUoXcx21lF4rdUr812xDrFnRlIPQP38wan1/DurkmvhcydHMYOpxId5eLLOUTN3HXqQKZk8VUSaa7blLcPRVODNl35ejJnp0AVFhMVT+i9mYDhdTM10wt1PVGRDCCpjH6W19rE+j9++A8WGSSASYdivFhYNDMzI0bNMEnkRQi+1W4KC/IWIkrSNuA+i4fgqA/eOcy9pCUIeSiiqGXpKGl5SehuydanS1hOcAwQzDaGES/sOGFsGLFUbibsIhMc2T8A9q2HlSPkBgg9RUTWTTnqJ2gmJ7QJhRdzx4ShkJIVLYE2RVPosRryEUfANbYXcEziiHfmNRNIVDw==
-Received: from SJ0PR03CA0183.namprd03.prod.outlook.com (2603:10b6:a03:2ef::8)
- by SJ5PPF665EE4E73.namprd12.prod.outlook.com (2603:10b6:a0f:fc02::996) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.13; Wed, 17 Dec
- 2025 04:26:29 +0000
-Received: from SJ1PEPF00001CE8.namprd03.prod.outlook.com
- (2603:10b6:a03:2ef:cafe::8b) by SJ0PR03CA0183.outlook.office365.com
- (2603:10b6:a03:2ef::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.6 via Frontend Transport; Wed,
- 17 Dec 2025 04:26:27 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- SJ1PEPF00001CE8.mail.protection.outlook.com (10.167.242.24) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9434.6 via Frontend Transport; Wed, 17 Dec 2025 04:26:29 +0000
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 16 Dec
- 2025 20:26:18 -0800
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail203.nvidia.com
- (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 16 Dec
- 2025 20:26:17 -0800
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.12) by mail.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Tue, 16 Dec 2025 20:26:16 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <jgg@nvidia.com>, <will@kernel.org>, <robin.murphy@arm.com>
-CC: <smostafa@google.com>, <joro@8bytes.org>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <skolothumtho@nvidia.com>,
-	<praan@google.com>, <xueshuai@linux.alibaba.com>
-Subject: [PATCH rc v4 3/4] iommu/arm-smmu-v3: Mark STE EATS safe when computing the update sequence
-Date: Tue, 16 Dec 2025 20:26:01 -0800
-Message-ID: <adf08c3b9f289188aca4fe80e506dca7aa48aa19.1765945258.git.nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1765945258.git.nicolinc@nvidia.com>
-References: <cover.1765945258.git.nicolinc@nvidia.com>
+	Wed, 17 Dec 2025 04:28:34 +0000
+Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20251217042818epoutp02a8dc312a8944877af557f7fc5631df2a~B5kGGZBC_1361013610epoutp02p
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 04:28:18 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20251217042818epoutp02a8dc312a8944877af557f7fc5631df2a~B5kGGZBC_1361013610epoutp02p
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1765945698;
+	bh=/MLdaOBVFsd/izW/TfLsuG1WooZaOmcXkxRbIL5DuhU=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=oNZkn66d2du3qczkRk5avXr6T2yY4+VNv1oidNdrPcgup1tnBmYmFwusmIifqmP02
+	 +Pma9uQ+9T0iBeGFbYgzM71UpfY1eqEO7+1xRJob3ZkO0wdNdIms0EQOz6v5P7n7D+
+	 4EO7k5vWtLE0hwOXIPArI10EWr7ka4e4wDw6fsjs=
+Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
+	20251217042817epcas5p4d5b2133483b819fec15422a08f151ccb~B5kFYj5AG0716707167epcas5p4V;
+	Wed, 17 Dec 2025 04:28:17 +0000 (GMT)
+Received: from epcas5p1.samsung.com (unknown [182.195.38.87]) by
+	epsnrtp01.localdomain (Postfix) with ESMTP id 4dWLQ81B5Kz6B9m7; Wed, 17 Dec
+	2025 04:28:16 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
+	20251217042815epcas5p422dc94c78156fe4dd27a55bf5a3d77e2~B5kD0_GeO0716707167epcas5p4T;
+	Wed, 17 Dec 2025 04:28:15 +0000 (GMT)
+Received: from INBRO002756 (unknown [107.122.3.168]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20251217042811epsmtip2748351ac61ebf74c6fb34be3fb116b2a~B5j-nm8bu0203802038epsmtip2P;
+	Wed, 17 Dec 2025 04:28:10 +0000 (GMT)
+From: "Alim Akhtar" <alim.akhtar@samsung.com>
+To: "'Youngmin Nam'" <youngmin.nam@samsung.com>, <krzk@kernel.org>,
+	<s.nawrocki@samsung.com>, <linus.walleij@linaro.org>,
+	<peter.griffin@linaro.org>, <semen.protsenko@linaro.org>,
+	<ivo.ivanov.ivanov1@gmail.com>
+Cc: <ryu.real@samsung.com>, <d7271.choe@samsung.com>,
+	<shin.son@samsung.com>, <jaewon02.kim@samsung.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
+	<linux-gpio@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+In-Reply-To: <20251202093613.852109-2-youngmin.nam@samsung.com>
+Subject: RE: [PATCH v3 1/5] pinctrl: samsung: Consolidate pin-bank macros
+ under EXYNOS9_* and pass bank_type explicitly
+Date: Wed, 17 Dec 2025 09:58:08 +0530
+Message-ID: <12a301dc6f0d$8fea7ec0$afbf7c40$@samsung.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CE8:EE_|SJ5PPF665EE4E73:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8a96bf26-170e-4262-1071-08de3d24731a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?2XiA5bJnxYLLl8j3NzsvGsL5CX084CIH6ZRzEDKk4X0PwDHKzSkMjp4OjDAf?=
- =?us-ascii?Q?kXmR93eeLhJtKn7C7Ni8puPV+fQGZP1Lp3dpU0bYRbZxp5vhhRYyNnHntWUU?=
- =?us-ascii?Q?4OpfTXFiRjNyiw/Jdsof6h+Z9l1f/aMJZHlHxAbUBS8PfpbAlyy1xnk3nft4?=
- =?us-ascii?Q?dm07BplHhTpPkgQZZrd9vqnsNKv7emgwp8tFU7fjmckYLKI2yx15lkjkT+G5?=
- =?us-ascii?Q?TWcjOYGZ/Lb2opgkOb+vZ8ak076jcnM9+RgLHq3xmlQD2WnqWd40ARFIoGCP?=
- =?us-ascii?Q?saan0C+TNXvGzVh5BGEWqXB7/MLr+NNJBp9v8zDelLjAF7U9btrXOY4KRo4q?=
- =?us-ascii?Q?c0HAdNvqYDMqZjenZ+ngp02N0fbzlnEveB4lxCZRsAW9LJWYiqZf2syf3Rvp?=
- =?us-ascii?Q?qhRY85TwKGehvKhfQZSH6g+cQSP0aLRvFzZlqAiC5I7MmL0ki7zvvJIP+7CC?=
- =?us-ascii?Q?269tO5u79/SMRIbpuz67cg4EaREAgiW9rbbgR0ZofW0lc370YSjeyheVqx9g?=
- =?us-ascii?Q?KVEjkjUxdzx/go9mvfcRdkt7kFvQ+qpULWu+q/tJBliffIbLrIsmYKVNSzR2?=
- =?us-ascii?Q?kAGSx4VpqhI03+4jvSiFQYWU3Ux72zj5uawHwjdakDMuVMUfhmRVyeHC0XHz?=
- =?us-ascii?Q?bwP69KDh9ssuMYqpaV5+Ba+c4TgnG1d3L3Oc33PVHDIerdBgY6NUb4rTFBdo?=
- =?us-ascii?Q?mPvVBql86TopGTxKHUL8nrdFykWeSUscRjstjFpTc0WlqojZ/M9lIcBwXKe8?=
- =?us-ascii?Q?uoysJN5+9HDtcqp9mc8ZdpkyRwq1GNkVhJ0ugPx/J24DidEatsfBeYI85idq?=
- =?us-ascii?Q?UyZQWZcu5gB4mRsFxnVtd31garWRBllL6+1CNSzsoPc0oz9QQIwlIETNHk7K?=
- =?us-ascii?Q?K6xEdQgty5j3MuOcjXLQ3mg4Kjr+N9Isn4aT6FrbCMo+a+Ub9FyujrQ3q7Y/?=
- =?us-ascii?Q?Ge//a6ZN6x57duzSJDoZtSf4VSENFZuWlPJa8ERIU8m23Zj3TetMR/iqR8f5?=
- =?us-ascii?Q?c/eHK1xOVY5Z0Rnf6sFTYmBmAPv9Aha7dXYStGrzUMxAXmn3gfJnogjsg4BW?=
- =?us-ascii?Q?F1yCrfTyN+XzJ1YOmFZzVfryRymMlHSFVUCtzQ6/RgEQz8amqrynZzCAoNJf?=
- =?us-ascii?Q?R4ZMcL9z+emH+r5Yo2oilaU3JJy1Bb99zdvdiDMsaIkvdBNSBk6HEeSH9YMu?=
- =?us-ascii?Q?4ElPGHwYrrw0JkhxbDw2CCffHQ1diN4CfmU1dNvH24GGIt7nCR+HBoZxJs5u?=
- =?us-ascii?Q?9Wt7rfkDg6UEekHTKBUFz1SYXlUDR7sIAYEGOLsJCWbaW6HGxqiSOE73RX2j?=
- =?us-ascii?Q?oVImmUbE7h8TKx6guBdv1rXCoidVQ8niBpoqT2QRNBbt78EV8+HFs8L+mG7g?=
- =?us-ascii?Q?lmSwAievQpz9d0ImeslNSMXxabdfoeYEgbZOoqviLOgENkg+6sNmgsZJkdAm?=
- =?us-ascii?Q?YYrEb3cpHlpUYfvwBglrDRsjoTizfpdQuEt3f9IqSKi0dE1YDoCfMpuvvjt5?=
- =?us-ascii?Q?0Zk+QDm5sP9tWxjRX1kOkB7p7XPgqDY/MNGdVt1ssN4JSWEj5EXJd0TpfvgW?=
- =?us-ascii?Q?Z7JVs33yMJ2n9yrRaxI=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Dec 2025 04:26:29.1695
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8a96bf26-170e-4262-1071-08de3d24731a
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CE8.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ5PPF665EE4E73
+Content-Transfer-Encoding: 7bit
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQF3wuMlGH6lOpjjwF0q/fgc3qftgQDpeEtOAnYPzUS105ikcA==
+Content-Language: en-us
+X-CMS-MailID: 20251217042815epcas5p422dc94c78156fe4dd27a55bf5a3d77e2
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20251202093026epcas2p28ddfd32305695df996841fd73b231b6b
+References: <20251202093613.852109-1-youngmin.nam@samsung.com>
+	<CGME20251202093026epcas2p28ddfd32305695df996841fd73b231b6b@epcas2p2.samsung.com>
+	<20251202093613.852109-2-youngmin.nam@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_202636_999613_1616D03C 
-X-CRM114-Status: GOOD (  13.39  )
+X-CRM114-CacheID: sfid-20251216_202831_651933_0E5C1E0C 
+X-CRM114-Status: GOOD (  13.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,51 +99,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jason Gunthorpe <jgg@nvidia.com>
+Hello Youngmin,
 
-If a VM wants to toggle EATS off at the same time as changing the CFG, the
-hypervisor will see EATS change to 0 and insert a V=0 breaking update into
-the STE even though the VM did not ask for that.
+> -----Original Message-----
+> From: Youngmin Nam <youngmin.nam@samsung.com>
+> Sent: Tuesday, December 2, 2025 3:06 PM
+> To: krzk@kernel.org; s.nawrocki@samsung.com; alim.akhtar@samsung.com;
+> linus.walleij@linaro.org; peter.griffin@linaro.org;
+> semen.protsenko@linaro.org; ivo.ivanov.ivanov1@gmail.com
+> Cc: ryu.real@samsung.com; d7271.choe@samsung.com;
+> shin.son@samsung.com; jaewon02.kim@samsung.com; linux-arm-
+> kernel@lists.infradead.org; linux-samsung-soc@vger.kernel.org; linux-
+> gpio@vger.kernel.org; linux-kernel@vger.kernel.org; Youngmin Nam
+> <youngmin.nam@samsung.com>
+> Subject: [PATCH v3 1/5] pinctrl: samsung: Consolidate pin-bank macros under
+> EXYNOS9_* and pass bank_type explicitly
+> 
+> Modern Exynos platforms have several near-duplicate pin-bank macro
+> families (EXYNOS850_*, EXYNOS8895_*, EXYNOS7870_*), which makes
+> tables verbose and harder to share across SoCs that differ only by
+> bank_type (alive/off) layout.
+> 
+> This patch unifies them into one EXYNOS9_* macro family and makes the
+> bank_type an explicit argument. The common 850-era bank types are also
+> renamed to 'exynos9_bank_type_{alive,off}' to reflect their reuse on
+> later Exynos 9xxx-generation parts.
+> 
+> Naming rationale:
+> - Use of the EXYNOS9_* prefix indicates that these macros target
+>   current Exynos generations sharing the same register layout and
+>   EINT wiring model. Compared to SoC-specific prefixes
+>   (EXYNOS850_*, EXYNOS8895_*),
+>   EXYNOS9_* is clearer and more future-proof for modern parts.
+> 
+> Key changes:
+> - Introduce:
+>   - 'EXYNOS9_PIN_BANK_EINTN(bank_type, pins, reg, id)'
+>   - 'EXYNOS9_PIN_BANK_EINTG(bank_type, pins, reg, id, offs)'
+>   - 'EXYNOS9_PIN_BANK_EINTW(bank_type, pins, reg, id, offs)'
+> - Rename:
+>   - 'exynos850_bank_type_alive'-> 'exynos9_bank_type_alive'
+>   - 'exynos850_bank_type_off'  -> 'exynos9_bank_type_off'
+> - Convert pin-bank tables for:
+>   - Exynos2200, 7870, 7885, 850, 990, 9810, 8890, 8895,
+>     AutoV9, AutoV920, FSD
+> - Update GS101/EXYNOSV920 helpers to reference 'exynos9_bank_type_*'
+>   instead of the old exynos850 names.
+> - Standardize on EXYNOS9_* macros while keeping SoC-specific
+>   '*_bank_type_*' when layouts differ (e.g., 7870/8895).
+> 
+> No functional change intended.
+> 
+> Signed-off-by: Youngmin Nam <youngmin.nam@samsung.com>
+> Reviewed-by: Sam Protsenko <semen.protsenko@linaro.org>
+> Tested-by: Sam Protsenko <semen.protsenko@linaro.org>
+> ---
+Thanks for consolidating this.
+Feel free to add
+Reviewed-by: Alim Akhtar <alim.akhtar@samsung.com>
 
-In bare metal, EATS is ignored by CFG=ABORT/BYPASS, which is why this does
-not cause a problem until we have nested where CFG is always a variation of
-S2 trans that does use EATS.
+Also tested on SADK based on Exynosautov920, GPIO EINT works fine. 
 
-Relax the rules for EATS sequencing, we don't need it to be exact because
-the enclosing code will always disable ATS at the PCI device if we are
-changing EATS. This ensures there are no ATS transactions that can race
-with an EATS change so we don't need to carefully sequence these bits.
+Tested-by: Alim Akhtar <alim.akhtar@samsung.com>
 
-Fixes: 1e8be08d1c91 ("iommu/arm-smmu-v3: Support IOMMU_DOMAIN_NESTED")
-Cc: stable@vger.kernel.org
-Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
-
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 12a9669bcc83..a3b29ad20a82 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -1095,6 +1095,15 @@ void arm_smmu_get_ste_update_safe(__le64 *safe_bits)
- 	 *  fault records even when MEV == 0.
- 	 */
- 	safe_bits[1] |= cpu_to_le64(STRTAB_STE_1_MEV);
-+
-+	/*
-+	 * EATS is used to reject and control the ATS behavior of the device. If
-+	 * we are changing it away from 0 then we already trust the device to
-+	 * use ATS properly and we have sequenced the device's ATS enable in PCI
-+	 * config space to prevent it from issuing ATS while we are changing
-+	 * EATS.
-+	 */
-+	safe_bits[1] |= cpu_to_le64(STRTAB_STE_1_EATS);
- }
- EXPORT_SYMBOL_IF_KUNIT(arm_smmu_get_ste_update_safe);
- 
--- 
-2.43.0
 
 
