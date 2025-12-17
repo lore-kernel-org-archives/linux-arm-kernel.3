@@ -4,82 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0259ED65522
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DF27D65521
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 09:34:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vv0mBtoZNbgaiLTMznOvHyk1ah+8i5bVs20fUV2mgic=; b=a5IHmhkmbngr1f7+YCsAZORChi
-	n4KF9rauQJvQJcYkTqRjc95FGDzzZxeqqv42MUAahT1vJ1sYjN94v7IAqdj+JIumIDtSTzENFDoVR
-	lz9VqpBofnY7FMiRAM3gZ3NS2cNs2+oSf8OvzzbBjwhLP8lREft4UbasRRXuUG6r6Wz4c1iE7p9Oz
-	w6gLn7iqRQXLTFd7z1W7jbYoZlP/SQ26stCoDUXJ8qiJUEq0Gt6PxYOgvC7dCXmpnw7BkMeGBgUas
-	erzPtktdmNlM5SVGi3vB59XrWlh9rFGDwVhpUU56XKvYlHs2iIf9MmsAhOQiPpMhUEpeQnhItASIm
-	oqbCLprA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Lpa2rhDPjPOei7xhJfHDGmklb1GOZ+SO0ChmZ0J+oe4=; b=xl2Ulg8xXjduzI50MrhlVcMnGb
+	/Wn9iTyeSMwfPdOFLnJrV+KUDwrGQH8g0lji57AfJwiCvB9jnyWQeAfZ70RZB7yn/dya65iQUQBNe
+	XOmHTOLc90R08ait7J1uPodMK0UXmT3qg2SJyeO+c7WCBMK3kpJlTYc2ZZH32Rtt6WYE+eJ9thFZc
+	gvSi1YIRci2lVudknSxiyylm1KOFdEefpjOymcmqKwLDkOjZyC5bLQYFh1oNiKpMe/K+m0oSgUVmn
+	6AYV/69BjzzdPJ0AZr/bzyAcG7sa2bZK8rARO7Fm5zHb1cmeKePsOXc7KFKdLEzOt3Fq6zMcEp9mZ
+	rZUf0hBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVnvl-00000006REO-3frx;
-	Wed, 17 Dec 2025 09:34:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVnvf-00000006R41-012i
+	id 1vVnvh-00000006R9v-0Wil;
+	Wed, 17 Dec 2025 09:34:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vVnvM-00000006QnF-3IQi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 09:34:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8AD0D6018E;
-	Wed, 17 Dec 2025 09:34:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AE0CC4CEF5;
-	Wed, 17 Dec 2025 09:34:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765964081;
-	bh=7fWOO4IGNdrsluVaIpmb0wvFgE7AVE1LUfc4e55khsI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=j717YF/UPJ34QC/9vpPuspyHZDISNBeEGz4kzvEBemrD94NNkEftQ6gs5Jpt5VmCO
-	 Q45pbEJTMDo4eTYadjgnG7wzxdH8JCI4CtHmumnAArx5MtzeBEEXHuM24MBNyeCF7c
-	 uX/MpdN1PvWiZoGmLk2WEbh+3vlwUJotBRLwFv3kaxt8ZLwhMNyLirHF3eLgM7gyTA
-	 GSIbjOdJuLCoR4/Y5b1Afflr0y27mqlAVwuxiS+ybX5v82RWY0Qdfama3+kmXDSrqF
-	 UCAQRKuA7sFU5ri+bV5GFuhjGzTi/yaSXgQfmK2En4ZRBCAfzSsXWbmUptBbTbYRtH
-	 fJhFbiIqDZemA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vVnva-0000000DIi6-3o0A;
-	Wed, 17 Dec 2025 09:34:39 +0000
-Date: Wed, 17 Dec 2025 09:34:38 +0000
-Message-ID: <865xa5o3ip.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	nd <nd@arm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Joey Gouly
-	<Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>
-Subject: Re: [PATCH 16/32] KVM: arm64: gic: Introduce irq_queue and set_pending_state to irq_ops
-In-Reply-To: <20251212152215.675767-17-sascha.bischoff@arm.com>
-References: <20251212152215.675767-1-sascha.bischoff@arm.com>
-	<20251212152215.675767-17-sascha.bischoff@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Wed, 17 Dec 2025 09:34:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9305914BF;
+	Wed, 17 Dec 2025 01:34:16 -0800 (PST)
+Received: from [10.57.91.77] (unknown [10.57.91.77])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 894773F73B;
+	Wed, 17 Dec 2025 01:34:17 -0800 (PST)
+Message-ID: <100cc8da-b826-4fc2-a624-746bf6fb049d@arm.com>
+Date: Wed, 17 Dec 2025 09:34:15 +0000
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] introduce pagetable_alloc_nolock()
+Content-Language: en-GB
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: akpm@linux-foundation.org, david@kernel.org, lorenzo.stoakes@oracle.com,
+ Liam.Howlett@oracle.com, vbabka@suse.cz, rppt@kernel.org, surenb@google.com,
+ mhocko@suse.com, ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org,
+ martin.lau@linux.dev, eddyz87@gmail.com, song@kernel.org,
+ yonghong.song@linux.dev, john.fastabend@gmail.com, kpsingh@kernel.org,
+ sdf@fomichev.me, haoluo@google.com, jolsa@kernel.org, jackmanb@google.com,
+ hannes@cmpxchg.org, ziy@nvidia.com, bigeasy@linutronix.de,
+ clrkwllms@kernel.org, rostedt@goodmis.org, catalin.marinas@arm.com,
+ will@kernel.org, kevin.brodsky@arm.com, dev.jain@arm.com,
+ yang@os.amperecomputing.com, linux-mm@kvack.org,
+ linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
+ linux-rt-devel@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+References: <20251212161832.2067134-1-yeoreum.yun@arm.com>
+ <916c17ba-22b1-456e-a184-cb3f60249af7@arm.com>
+ <aUGOPd7gNRf1xHEc@e129823.arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <aUGOPd7gNRf1xHEc@e129823.arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251217_013425_036933_EC586AD1 
+X-CRM114-Status: GOOD (  33.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,64 +76,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 12 Dec 2025 15:22:40 +0000,
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+On 16/12/2025 16:52, Yeoreum Yun wrote:
+> Hi Ryan,
 > 
-> There are times when the default behaviour of vgic_queue_irq_unlock is
-> undesirable. This is because some GICs, such a GICv5 which is the main
-> driver for this change, handle the majority of the interrupt lifecycle
-> in hardware. In this case, there is no need for a per-VCPU AP list as
-> the interrupt can be made pending directly. This is done either via
-> the ICH_PPI_x_EL2 registers for PPIs, or with the VDPEND system
-> instruction for SPIs and LPIs.
+>> On 12/12/2025 16:18, Yeoreum Yun wrote:
+>>> Some architectures invoke pagetable_alloc() or __get_free_pages()
+>>> with preemption disabled.
+>>> For example, in arm64, linear_map_split_to_ptes() calls pagetable_alloc()
+>>> while spliting block entry to ptes and __kpti_install_ng_mappings()
+>>> calls __get_free_pages() to create kpti pagetable.
+>>>
+>>> Under PREEMPT_RT, calling pagetable_alloc() with
+>>> preemption disabled is not allowed, because it may acquire
+>>> a spin lock that becomes sleepable on RT, potentially
+>>> causing a sleep during page allocation.
+>>>
+>>> Since above two functions is called as callback of stop_machine()
+>>> where its callback is called in preemption disabled,
+>>> They could make a potential problem. (sleeping in preemption disabled).
+>>>
+>>> To address this, introduce pagetable_alloc_nolock() API.
+>>
+>> I don't really understand what the problem is that you're trying to fix. As I
+>> see it, there are 2 call sites in arm64 arch code that are calling into the page
+>> allocator from stop_machine() - one via via pagetable_alloc() and another via
+>> __get_free_pages(). But both of those calls are passing in GFP_ATOMIC. It was my
+>> understanding that the page allocator would ensure it never sleeps when
+>> GFP_ATOMIC is passed in, (even for PREEMPT_RT)?
 > 
-> The queue_irq_unlock function is made overridable using a new function
-> pointer in struct irq_ops. In kvm_vgic_inject_irq,
-> vgic_queue_irq_unlock is overridden if the function pointer is
-> non-null.
+> Although GFP_ATOMIC is specify, it only affects of "water mark" of the
+> page with __GFP_HIGH. and to get a page, it must grab the lock --
+> zone->lock or pcp_lock in the rmqueue().
 > 
-> Additionally, a new function is added via a function pointer -
-> set_pending_state. The intent is for this to be used to directly set
-> the pending state in hardware.
+> This zone->lock and pcp_lock is spin_lock and it's a sleepable in
+> PREEMPT_RT that's why the memory allocation/free using general API
+> except nolock() version couldn't be called since
+> if "contention" happens they'll sleep while waiting to get the lock.
 > 
-> Both of these new irq_ops are unused in this change - it is purely
-> providing the infrastructure itself. The subsequent PPI injection
-> changes provide a demonstration of their usage.
+> The reason why "nolock()" can use, it always uses "trylock" with
+> ALLOC_TRYLOCK flags. otherwise GFP_ATOMIC also can be sleepable in
+> PREEMPT_RT.
 > 
-> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
-> ---
->  arch/arm64/kvm/vgic/vgic.c |  9 ++++++++-
->  include/kvm/arm_vgic.h     | 15 +++++++++++++++
->  2 files changed, 23 insertions(+), 1 deletion(-)
+>>
+>> What is the actual symptom you are seeing?
 > 
-> diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
-> index 1fe3dcc997860..fc01c6d07fe62 100644
-> --- a/arch/arm64/kvm/vgic/vgic.c
-> +++ b/arch/arm64/kvm/vgic/vgic.c
-> @@ -547,7 +547,14 @@ int kvm_vgic_inject_irq(struct kvm *kvm, struct kvm_vcpu *vcpu,
->  	else
->  		irq->pending_latch = true;
->  
-> -	vgic_queue_irq_unlock(kvm, irq, flags);
-> +	if (irq->ops && irq->ops->set_pending_state)
-> +		WARN_ON_ONCE(!irq->ops->set_pending_state(vcpu, irq));
-> +
-> +	if (irq->ops && irq->ops->queue_irq_unlock)
-> +		WARN_ON_ONCE(!irq->ops->queue_irq_unlock(kvm, irq, flags));
-> +	else
-> +		vgic_queue_irq_unlock(kvm, irq, flags);
+> Since the place where called while smp_cpus_done() and there seems no
+> contention, there seems no problem. However as I mention in another
+> thread
+> (https://lore.kernel.org/all/aT%2FdrjN1BkvyAGoi@e129823.arm.com/),
+> This gives a the false impression --
+> GFP_ATOMIC are “safe to use in preemption disabled”
+> even though they are not in PREEMPT_RT case, I've changed it.
+> 
+>>
+>> If the page allocator is somehow ignoring the GFP_ATOMIC request for PREEMPT_RT,
+>> then isn't that a bug in the page allocator? I'm not sure why you would change
+>> the callsites? Can't you just change the page allocator based on GFP_ATOMIC?
+> 
+> It doesn't ignore the GFP_ATOMIC feature:
+>   - __GFP_HIGH: use water mark till min reserved
+>   - __GFP_KSWAPD_RECLAIM: wake up kswapd if reclaim required.
+> 
+> But, it's a restriction -- "page allocation / free" API cannot be called
+> in preempt-disabled context at PREEMPT_RT.
+> 
+> That's why I think it's wrong usage not a page allocator bug.
 
-I find it slightly dubious to WARN() in one case but not the other.
+I've taken a look at this and I agree with your analysis. Thanks for explaining.
 
-More importantly, why isn't the per-irq queue_unlock operation tucked
-into the vgic_queue_irq_unlock() primitive? We have 16 call sites for
-this function, and it is odd that only the injection primitive would
-benefit from this.
+Looking at other stop_machine() callbacks, there are some that call printk() and
+I would assume that spinlocks could be taken there which may present the same
+kind of issue or PREEMPT_RT? (I'm guessing). I don't see any others that attempt
+to allocate memory though.
+
+Anyway, to fix the 2 arm64 callsites, I see 2 possible approaches:
+
+- Call the nolock variant (as you are doing). But that would just convert a
+deadlock to a panic; if the lock is held when stop_machine() runs, without your
+change, we now have a deadlock due to waiting on the lock inside stop_machine().
+With your change, we notice the lock is already taken and panic. I guess it is
+marginally better, but not by much. Certainly I would just _always_ call the
+nolock variant regardless of PREEMPT_RT if we take this route; For !PREEMPT_RT,
+the lock is guarranteed to be free so nolock will always succeed.
+
+- Preallocate the memory before entering stop_machine(). I think this would be
+much more robust. For kpti_install_ng_mappings() I think you could hoist the
+allocation/free out of stop_machine() and pass the pointer in pretty easily. For
+linear_map_split_to_ptes() its a bit more complex; Perhaps, we need to walk the
+pgtable to figure out how much to preallocate, allocate it, then set it up as a
+special allocator, wrapped by an allocation function and modify the callchain to
+take a callback function instead of gfp flags.
+
+What do you think?
 
 Thanks,
+Ryan
 
-	M.
+> 
+> [...]
+> 
+> --
+> Sincerely,
+> Yeoreum Yun
 
--- 
-Without deviation from the norm, progress is not possible.
 
