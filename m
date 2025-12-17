@@ -4,86 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DEF2D65C48
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 13:46:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC109D65C49
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 13:52:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HeFvcwPuMBzJwPtY2IZ75UX9BR5Ij/OppFp2JBnCGZk=; b=Rnob1qWF48K34NdpJFEgGOMXsI
-	yF+IJZARa4MET2ax0PZNW7vlFZ8xJtanig4DhiuQlyzGWAED0Bcd3Q5itxtoup76yyDwxiFRri6BN
-	ZHi74v1/U23NwGdAWeFsb69qxLCrDAR0dW5fNJ2aYWuCKLlPrLLmJ/5VrXnJ25RN2qB4Db3yP43Xr
-	qsfSFOqd+YkwNWCqdOWgLWio3U5C4mn4IRCtacrQlXCWVkL+wEpT6uwHF+XNdQz7+UReYmYMJr0DH
-	ROWzJ6scobVMIIMJyl7+L9YSEGQfv0NxqsQwo6uocXvD/UrPY1kU+nvwlT/3uWGwYcLuHYOEG90W6
-	YkXMQxLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MUcFSeForpgs1zaOWkq8M3g4jUQqfiWW8mZI5c70ols=; b=bu50+vU5ciW9PQDcFrTRRyqX9B
+	BFtvBooWIHyBoyBnC5eEAlNfYwXSHx3PbfEhr5tr5Qqg/a2t7Nr3OiPYA+2Y6+zQ0dlcn7C5iyuKP
+	WBjW1Ayt8xM8rbom7PyUAKSfjjFdtGOMMlb1r2izBNWqIRpadD9qOoiMu79Fktn9S1NoYXjULgxfq
+	jSwBM1PvvTqDwqzRFcn3FFQ9Pv6++7XLIDxyP6ekRnTPv2ayN9+qXDAvcaVoWD2n2KWPtv0YAESXN
+	LQaooO/06cUIu2XBe5Cf5QSs1cA2Rjwf/wfMJ63h13hP4ylGSJfNaYziPHAA9IgtT4v4exoEpUq6/
+	0ODO5dxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVrqq-00000006sa1-0qzS;
-	Wed, 17 Dec 2025 13:46:00 +0000
-Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	id 1vVrxC-00000006t1d-2SjT;
+	Wed, 17 Dec 2025 13:52:34 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVrqo-00000006sYi-1GDH
+	id 1vVrx9-00000006t1I-3nVd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 13:45:59 +0000
-Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-5957db5bdedso7183913e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 05:45:57 -0800 (PST)
+	Wed, 17 Dec 2025 13:52:33 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BHCL4Ta331028
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 13:52:31 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	MUcFSeForpgs1zaOWkq8M3g4jUQqfiWW8mZI5c70ols=; b=IilCwr4hKN14NE4I
+	1siREeR44j54HJR1QBX/8we3n4wgCQr6ZmKT8NMxp6BHsqt9RbpktPpTJWfGLqKy
+	t7OWuDEpvSdMe5lXZihFb3rXDZEJEBvtsYxDnAE/eidS/xvHd8Qc6xV5QlLGy1+k
+	Giv6yLboDdA79j7/bNSnbhwMUmenZcWDqtd9LWT/1331gfscwuJ/UdtfagI8Sf9J
+	iR6+JnCmhynarrOeV9/ndcjoU4xmRdj2IQWilw6j4FteT0JsnWEg4dUT/IGO5wD+
+	0+sv8rX3t0uM+wpkbbsjJRZSypUMwCFDJcz3zRhlqcnVLtTPM3bYmCv1KPO1FhbX
+	9YACYA==
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4b3t8e0mwb-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 13:52:31 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-8b5ff26d6a9so83599085a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 05:52:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1765979156; x=1766583956; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=HeFvcwPuMBzJwPtY2IZ75UX9BR5Ij/OppFp2JBnCGZk=;
-        b=Y9INxEV++u+/d1qYmD0fAHouvAShOtGbzsb4qbtxALyi7D8sfMD3CrNz80RsnsKm59
-         FHbeNhiX21Ngk25ykJgNUdwx851CwQ7yuPE1xPquE9YsQxvzSJzTRBdt/QuIGcAlC7tR
-         YMTR+c/K5jSLdxljgJ0pFT6Mr05eVCG84+/z+qH/e48Q2QReAhTdL9uTS+bkDjl13aYv
-         uIc6AzSWnkjOL1N3PGCRRbvuQyg4t6bDqFUBoEYkJWpTa7Ww3Ju5R6FolRiA6osoX062
-         +653HTdXryyY4vFjSCiAqQR7cAhJr9DMvAaEjnOMqr7UQ44yO9xTUlMdBsAoI1xaqw6v
-         +PTg==
+        d=oss.qualcomm.com; s=google; t=1765979550; x=1766584350; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=MUcFSeForpgs1zaOWkq8M3g4jUQqfiWW8mZI5c70ols=;
+        b=HEFjwVzIsqM0PaSSNSTHlQ98yCIPEPi30webCxqenULk3VtnUIwB5QqtfEMg0YMNha
+         jEh54q3Gn7dLfyY3I7/mNOVaQtb/d89Kwwf5kbA+i7bOckFMt0F1sbZ5kfeu3chABup1
+         dhx8omG4pQrIslL/ccrLyYh4PG2OAHPoiH7WR0TqAtFwD97FTOQlNvjuSdvkGZqu2DtX
+         pqr4l++p87buTBfFoIokSGx2qK3QojV9XjpxqcujsEgBuEHysRwEuSF2KLujzX6ONTPO
+         45o9jlv9Xt7vF7HDGPXITPGL4mN5oIpTOTyPhMORUdeJQ3wfzWf0/vzhrXiv782pZ6/C
+         xA7g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765979156; x=1766583956;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HeFvcwPuMBzJwPtY2IZ75UX9BR5Ij/OppFp2JBnCGZk=;
-        b=t6P70Jb9tASNJYmVw3oMVA721zZne3D4JPsVoFdOXEPiG8PhVXt61XQwV5T0K7YpC5
-         Ey3ip4fLxmEdEt0l5S92F3f7dmMkB+HRWimVNWd/LAsBXUYAYypj+mI/zYQT0kzWVtTY
-         k9tZ28UQGD2qhpFetlijr5UEot1ZPSb/TVdiyvd1JfP2klz6UPVqM2Kiye7K5ON8cZCJ
-         E3XicgyBiCgMMLdt5xirkmiz6lH9/MLwDGlGi9BNSu2rAiKTB74cp1IkriKiFzA7dHzN
-         zEasdvS9We5nyr1rCaYjRqeoEdxpc6e34QMqGZLxOR9K86+UXawtbsnaHQ6EGNiV5XWw
-         wJxQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWxAAzgAz/kU3fXdmIlbb0Dmoq7NXhyU8j/Ho4QvU0Dvz2wa6d22ytneubb8aCqunH4KBpxNTyFOIH4t8/7Odd6@lists.infradead.org
-X-Gm-Message-State: AOJu0YyLVHUf9RksFBzJvEZWm5c5cLCVZ5l3TTd4fSA6gTaZbhGiIf66
-	uS5e4x9Nm8LktZGhNTnPbXyh14UMx4hKWeKU5gvpjzw7bGzQuV9I2qspn2cy3FMargJeY1GYTtY
-	cafkeURBkfoGDPnHocSdmBJwS0q8K7Tr48CydZGbu3w==
-X-Gm-Gg: AY/fxX5eWHFz/7IF2gcsgk9yTnqvCAXfRLeWBVn0l8CITlZ1OXvJJ+P5+SydnUD6MX3
-	IiwiNts/Ss4HcCai3WzZNI+Kykj2dj531InB5dzx1xdZlNmq59RsO7YKWGeg9SDW2CDzX5umKfK
-	icw6ciOLm7ooMyUNmeED9mx2QO6hrC8Fa0+qE4aowQwEaF1RiXXWk2Y7WBkQtxjr3HGv+0XflMf
-	t3ytL8sIrtcbL5BP8+ytjzIR2yA7HvEDSobqyIyfOI5XFbvWMxmoqJ6YShFiQuV9XeXats=
-X-Google-Smtp-Source: AGHT+IF8DUR3iFEJEHIZVoppRZ2LJ1i16lHQ3Olhnesdn9YtIYVJQ/fNEdH4vIoS5b8Lw4dMFXsWFN+VTySF0wVdcVI=
-X-Received: by 2002:a05:6512:3b86:b0:597:d7dc:b7ce with SMTP id
- 2adb3069b0e04-598faa3bd8amr6408543e87.30.1765979156040; Wed, 17 Dec 2025
- 05:45:56 -0800 (PST)
+        d=1e100.net; s=20230601; t=1765979550; x=1766584350;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=MUcFSeForpgs1zaOWkq8M3g4jUQqfiWW8mZI5c70ols=;
+        b=OyJ/LRmaIY/qdr0F47mgMppKYukTHIezWiU4NYxsaVlVnvC0TT0Xc+fvQNWas/qPhw
+         cF0AfMldi6eq0fjmPzj5bGCYxAg7gzuzXMcVR+DfiBbtgrCZ38NKWiEiWZ6NREAjKW0t
+         tUhf7tbI1XzDxndb9gTCowqFxlbgDw1pwHTr8pENNq7ELFPL3T05OMwJuYhywmONp+PU
+         +kMmZrH44zsxaDOHrIcru5wfYBRYqV7IY9+EuPBQTx3mmlqtL1FZzLS7jXCHhf8FO2vz
+         yVVLgIVr0Kw84kPFvxdxZtMxKN+nikzVL+/+z5l+5EVe2MbDYxlGvC2eRkXup5+Sq6BV
+         H4WA==
+X-Forwarded-Encrypted: i=1; AJvYcCWYNcmQu/aemWHLAhuB52z4kLWTSE1w9y0NnoIm6KRO/TR9sU3d8PwmOmVAKDkdUAHBmvCoxnri2q+Q19kMeTbP@lists.infradead.org
+X-Gm-Message-State: AOJu0YyW0encB4LQEB9XEou9rzZlmF5mBISSnMgT7rmi9tQizESuZLbk
+	wVWmfZsjDsKrHfXaE48Wbbk77bwIqTd8Ht6/lRosNRZmUMI3gE/MxDSO1rNzAhXPiCvXRXo2mnf
+	4MDEFFUTJtUa2jw6DVnZHiDuMTCzsLoO4vjVgvYRIgR2SJan+ft5EMlz2g8SqYStuucpIwhLp1b
+	xxbw==
+X-Gm-Gg: AY/fxX7AKZNIZL2RjhL9ekWFwkB/XMLHC9ZyKGANmXmgcajU4xyj4IV5inKeayYNYRi
+	gFuqxP7lZ0sbedKBbklJd1EpiKZK1gQt41ewHsUdIeGJn+t2t5u5bWdVwzL2w4PsOEveGkGyEJ5
+	acsf/QjnF4n82xey/2x3ztZ8zF0s+a/RqF9gfaegJ6bJjNEb4L6h3fDeJvnoDrqDLxxD/GXpaok
+	0oQOFfRce1uIM8BbZLnhTHzIL2qj653BXyvvIASqKwRbizzIpNJ8VBOsUfknXjhWUhpI/rv7oTY
+	jS90/1f69qobYTKeZgd7ET1XvgVLHPZTPdSlPR8DcnHRuttrZ95iEqgE+qSs4l/q9rQpNtdG7KT
+	slE0c3hfbg0dAj/6MNBqm1OXCVRkEe4vGYDilS8H70HEAbxEAFWRLMTnlb5SnKOppMg==
+X-Received: by 2002:a05:622a:102:b0:4f1:b580:fba8 with SMTP id d75a77b69052e-4f1d04e6df9mr194857981cf.3.1765979549951;
+        Wed, 17 Dec 2025 05:52:29 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHHn8FBGFvWlziwKU5p3n+hs/jstKbKvea0UICNhQkpwL2yQQ7Zau1SiOTq9MXzcJTbdWmhfw==
+X-Received: by 2002:a05:622a:102:b0:4f1:b580:fba8 with SMTP id d75a77b69052e-4f1d04e6df9mr194857621cf.3.1765979549545;
+        Wed, 17 Dec 2025 05:52:29 -0800 (PST)
+Received: from [192.168.119.72] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b7fc04f6015sm1054089766b.50.2025.12.17.05.52.25
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 17 Dec 2025 05:52:28 -0800 (PST)
+Message-ID: <5dc3d3e0-a338-4f2f-8987-5705fc1fde51@oss.qualcomm.com>
+Date: Wed, 17 Dec 2025 14:52:24 +0100
 MIME-Version: 1.0
-References: <20251212-s32g-sdhci-kconfig-v1-1-8e278c8d7f78@redhat.com>
-In-Reply-To: <20251212-s32g-sdhci-kconfig-v1-1-8e278c8d7f78@redhat.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Wed, 17 Dec 2025 14:45:17 +0100
-X-Gm-Features: AQt7F2p99M9efU4Kabtz6odZdNhny0sq2J-1crHyiipLb65xYIkOxCPnes_s36Q
-Message-ID: <CAPDyKFp++OQFxkY_zqkZSJz2R0sqxBnd-6U+VLsyZYDQ4H9MeA@mail.gmail.com>
-Subject: Re: [PATCH] mmc: sdhci-esdhc-imx: add alternate ARCH_S32 dependency
- to Kconfig
-To: Jared Kangas <jkangas@redhat.com>
-Cc: Haibo Chen <haibo.chen@nxp.com>, Adrian Hunter <adrian.hunter@intel.com>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Chester Lin <chester62515@gmail.com>, linux-mmc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, s32@nxp.com, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/3] arm64: dts: qcom: lemans: add mdss1 display device
+ nodes
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Mani Chandana Ballary Kuntumalla <quic_mkuntuma@quicinc.com>,
+        marijn.suijten@somainline.org, swboyd@chromium.org, mripard@kernel.org,
+        abel.vesa@linaro.org, andersson@kernel.org, konradybcio@kernel.org,
+        robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+        robin.clark@oss.qualcomm.com, jessica.zhang@oss.qualcomm.com,
+        abhinav.kumar@linux.dev, sean@poorly.run, airlied@gmail.com,
+        simona@ffwll.ch, alex.vinarskis@gmail.com,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        freedreno@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+        quic_rajeevny@quicinc.com, quic_vproddut@quicinc.com,
+        quic_riteshk@quicinc.com, quic_amitsi@quicinc.com,
+        Mahadevan P <mahadevan.p@oss.qualcomm.com>
+References: <20251125105622.1755651-1-quic_mkuntuma@quicinc.com>
+ <20251125105622.1755651-3-quic_mkuntuma@quicinc.com>
+ <32f013e7-ce2a-484b-8575-e98f2d23f59b@oss.qualcomm.com>
+ <faau2h5z53frwfply57oh75zr5gcz4gf3za4vflbyht3ok4zgz@2ylcwcqcl4rt>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <faau2h5z53frwfply57oh75zr5gcz4gf3za4vflbyht3ok4zgz@2ylcwcqcl4rt>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjE3MDEwOCBTYWx0ZWRfX+Pk46+e6DxaC
+ mjmN2oGw9UE94RPlLI28aZvPhmbXtZKoD6mU0aYbEqMpscx1B41YhIdC3ez2XQDLFXegcuPJ/iW
+ GVdp75vlP+/izwKeY8HFPAIxrFERyk/gLsavnBcmzeal+G6q/xQyZWuOT/rcJdfim+ox9W3+2+d
+ t4d+LeQgM+E1+5Zcy+QqMbfieTZE48pxZS3bItHMEq+2lSM80fIEu11qClt8wMEca99++FyZ2jp
+ Ughx/jHAx2pd4eVbtnM7lCn+hx42y7f0ai189BDNIfKI0xd7Nlymq02yh5JQlJ/UBPeVx3KIhDp
+ V/BxAvJP7tz4VyOqpoPzuuRNDOJ3uydFG4Zlts+RvSsS0tZXcgfBl5QLXglMcVkmxc84/RXPpmM
+ doTf7tH1HvSPh0blaVD/vxH+8OoYvg==
+X-Proofpoint-GUID: _rgLJSw9RKRyc233xkXJ3YwmnEkb0Gq0
+X-Proofpoint-ORIG-GUID: _rgLJSw9RKRyc233xkXJ3YwmnEkb0Gq0
+X-Authority-Analysis: v=2.4 cv=EsHfbCcA c=1 sm=1 tr=0 ts=6942b59f cx=c_pps
+ a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
+ a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=COk6AnOGAAAA:8
+ a=CW_yPJa_05T0x9ChYMQA:9 a=QEXdDO2ut3YA:10 a=PEH46H7Ffwr30OY-TuGO:22
+ a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-12-17_01,2025-12-16_05,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 bulkscore=0 priorityscore=1501 suspectscore=0 impostorscore=0
+ clxscore=1015 lowpriorityscore=0 phishscore=0 spamscore=0 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2512170108
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_054558_361135_3B0AFFFA 
-X-CRM114-Status: GOOD (  19.22  )
+X-CRM114-CacheID: sfid-20251217_055231_957884_931435C9 
+X-CRM114-Status: GOOD (  13.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,54 +160,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 12 Dec 2025 at 16:04, Jared Kangas <jkangas@redhat.com> wrote:
->
-> MMC_SDHCI_ESDHC_IMX requires ARCH_MXC despite also being used on
-> ARCH_S32, which results in unmet dependencies when compiling strictly
-> for ARCH_S32. Resolve this by adding ARCH_S32 as an alternative to
-> ARCH_MXC in the driver's dependencies.
->
-> Fixes: 5c4f00627c9a ("mmc: sdhci-esdhc-imx: add NXP S32G2 support")
-> Signed-off-by: Jared Kangas <jkangas@redhat.com>
+On 12/10/25 9:21 AM, Dmitry Baryshkov wrote:
+> On Mon, Dec 01, 2025 at 02:35:44PM +0100, Konrad Dybcio wrote:
+>> On 11/25/25 11:56 AM, Mani Chandana Ballary Kuntumalla wrote:
+>>> Add devicetree changes to enable second Mobile Display Subsystem (mdss1),
+>>> Display Processing Unit(DPU), Display Port(DP) controllers and eDP PHYs
+>>> on the Qualcomm Lemans platform.
+>>>
+>>> Signed-off-by: Mahadevan P <mahadevan.p@oss.qualcomm.com>
+>>> Signed-off-by: Mani Chandana Ballary Kuntumalla <quic_mkuntuma@quicinc.com>
+>>> ---
+>>
+>> [...]
+>>
+>>> +			mdss1_dp1: displayport-controller@2215c000 {
+>>> +				compatible = "qcom,sa8775p-dp";
+>>> +
+>>> +				reg = <0x0 0x2215c000 0x0 0x104>,
+>>> +				      <0x0 0x2215c200 0x0 0x0c0>,
+>>> +				      <0x0 0x2215d000 0x0 0x770>,
+>>> +				      <0x0 0x2215e000 0x0 0x09c>,
+>>> +				      <0x0 0x2215f000 0x0 0x09c>,
+>>> +				      <0x0 0x22160000 0x0 0x09c>,
+>>> +				      <0x0 0x22161000 0x0 0x09c>,
+>>> +				      <0x0 0x22162000 0x0 0x23c>,
+>>> +				      <0x0 0x22163000 0x0 0x23c>;
+>>
+>> The last two regions still happen not to exist
+> 
+> According to the memory map I observe, they do exist.
 
-Applied for fixes and by adding a stable-tag, thanks!
+Hm, you're right, I don't know why I couldn't find them in the past
 
-Kind regards
-Uffe
-
-
-> ---
->  drivers/mmc/host/Kconfig | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/mmc/host/Kconfig b/drivers/mmc/host/Kconfig
-> index 10d0ef58ef493102d3586d7a31d755543297999a..c94ae4794545de1c818ad50be7f91331862b6acf 100644
-> --- a/drivers/mmc/host/Kconfig
-> +++ b/drivers/mmc/host/Kconfig
-> @@ -315,14 +315,14 @@ config MMC_SDHCI_ESDHC_MCF
->
->  config MMC_SDHCI_ESDHC_IMX
->         tristate "SDHCI support for the Freescale eSDHC/uSDHC i.MX controller"
-> -       depends on ARCH_MXC || COMPILE_TEST
-> +       depends on ARCH_MXC || ARCH_S32 || COMPILE_TEST
->         depends on MMC_SDHCI_PLTFM
->         depends on OF
->         select MMC_SDHCI_IO_ACCESSORS
->         select MMC_CQHCI
->         help
->           This selects the Freescale eSDHC/uSDHC controller support
-> -         found on i.MX25, i.MX35 i.MX5x and i.MX6x.
-> +         found on i.MX25, i.MX35, i.MX5x, i.MX6x, and S32G.
->
->           If you have a controller with this interface, say Y or M here.
->
->
-> ---
-> base-commit: 7d0a66e4bb9081d75c82ec4957c50034cb0ea449
-> change-id: 20251211-s32g-sdhci-kconfig-585b6909f7b4
->
-> Best regards,
-> --
-> Jared Kangas <jkangas@redhat.com>
->
+Konrad
 
