@@ -4,60 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7FF8D64083
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 07:24:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B93FD64085
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 07:42:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vgRpvePxGoVV4YlwIyS2Oquq2eRhgUkEpMbAKegj3fo=; b=UxQYAMcg7ney3tseVCVUYg/D2y
-	yuRdkrMc0Yp4PT+ChL7S5MG3GloeiwdL6vBTg/wPKOuqsirTk2RIBRtXJPsLSm+niPQmKBV08yVAe
-	hqzkID/kLSnoSvMgXf8Jj05p4bUGV62Oka0CcOpAE2jRjE5XJ2GtuXe9EZ5681jjk6pvnJoxKSiop
-	Jl3vAh3V1WHKrIg35feP812khS+jlUwHJyZagP7k+Q3mvpbzgSvSv0Le3p/hIwPMlPHcbky5aXqbE
-	OdTFvG6BDzdTAC9NnattcTS/ZfCZ04tQH38JtQRIoSz7s9pkrsanzuMzhvaSf/bNkAsmLBz5PXz5r
-	q2ijovuw==;
+	bh=5cAXSvzFPqVii+g9QZN/R76uPwim9MrzK6kYcvIDkJY=; b=JxFL4rk4iKt/f0BhePqOD8W9sB
+	Vx5yejDHT+GgoRaMsvwrmonbOFhsueAE2TN9hH0SNk2u255aS4z15umlZ3W+xE9NFCLHpr7GXjbYB
+	XJNWgVafD+mSNC+ku4xbBkCO+MVug1oKWDcJqi4NGJND1Q8kdnTHYcEysvIEPVRC+xmTjRl3daVPh
+	QRXO94D6p39EvR5gWJMIE3BE9M3eqwSqiaN8szm2F7SXgbFs7+3UrzOOsJhXjWDT9tCrIyxVQ0iIc
+	d+sOrnl0olpO7FC40kdXHA2qItr9PgCvVnn1RfJwc4uyjI1u/a8aCzMWeBCV3V9aCPYttOSOna3zU
+	3qaAkXZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVltA-00000006Hl0-12Yy;
-	Wed, 17 Dec 2025 07:24:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVlt7-00000006Hkf-0vAC
+	id 1vVmBH-00000006IT7-1ViR;
+	Wed, 17 Dec 2025 07:42:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vVmBF-00000006ISz-2Wfe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 07:23:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1C4ADFEC;
-	Tue, 16 Dec 2025 23:23:47 -0800 (PST)
-Received: from [10.164.18.63] (MacBook-Pro.blr.arm.com [10.164.18.63])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1803C3F73F;
-	Tue, 16 Dec 2025 23:23:48 -0800 (PST)
-Message-ID: <b1075258-a42d-4e2f-95d7-5f8cb11f0d7d@arm.com>
-Date: Wed, 17 Dec 2025 12:53:46 +0530
+	Wed, 17 Dec 2025 07:42:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 64A416018D;
+	Wed, 17 Dec 2025 07:42:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DA83C4CEF5;
+	Wed, 17 Dec 2025 07:42:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765957360;
+	bh=t3sMS2rvoK+Hy6JMy1gsympBsNJDbFI9shsFoh+CkuE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=HsMpmN3moHHzUX1tScH74pLt+lHIdvdjHvtz+OywNBeAtDHjBnZYBRgMUYlttOcve
+	 YtC4KSaeazM4bCGsMWunKPL3khFF/8O0O05W49WeD3Tyer+QdBkfXI9LDtra0Vph28
+	 EYN6pehx5n33FyAtNiBUhyvNOE0iXnMZpL9ENJ64Fp25cGOtJF7akVwWu4UjL4z7CN
+	 6ATE7zi5NSnmC6HQlDq4at17CJ2q/i9951nCEOAYFkiMRSydKOgXZ5zQBe0/xn5T1/
+	 5kN4852lZKdQxxTHZy83hWw25Sy72JicMfHzEn9WRcyFwC6zVb5CeSwk50hje07Tn6
+	 /jQ8vWV4EhdvQ==
+Message-ID: <360ecc21-b748-474c-9ada-ca72b7ae3a4a@kernel.org>
+Date: Wed, 17 Dec 2025 08:42:34 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] mm: rmap: support batched checks of the references
- for large folios
-To: Baolin Wang <baolin.wang@linux.alibaba.com>, akpm@linux-foundation.org,
- david@kernel.org, catalin.marinas@arm.com, will@kernel.org
-Cc: lorenzo.stoakes@oracle.com, ryan.roberts@arm.com,
- Liam.Howlett@oracle.com, vbabka@suse.cz, rppt@kernel.org, surenb@google.com,
- mhocko@suse.com, riel@surriel.com, harry.yoo@oracle.com, jannh@google.com,
- willy@infradead.org, baohua@kernel.org, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <cover.1765439380.git.baolin.wang@linux.alibaba.com>
- <545dba5e899634bc6c8ca782417d16fef3bd049f.1765439381.git.baolin.wang@linux.alibaba.com>
- <52ed7e12-b32e-4a73-ba55-eed993b930b9@arm.com>
- <753ee7bd-8c9a-4242-a216-98defcd8280f@linux.alibaba.com>
+Subject: Re: [PATCH v2 2/2] media: nxp: Add i.MX9 CSI pixel formatter v4l2
+ driver
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Frank Li <frank.li@nxp.com>
+Cc: imx@lists.linux.dev, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>
+References: <20251217-csi_formatter-v2-0-62168af80210@nxp.com>
+ <20251217-csi_formatter-v2-2-62168af80210@nxp.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <753ee7bd-8c9a-4242-a216-98defcd8280f@linux.alibaba.com>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251217-csi_formatter-v2-2-62168af80210@nxp.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_232357_355409_9DEB62FC 
-X-CRM114-Status: GOOD (  19.21  )
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,183 +124,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 17/12/2025 07:11, Guoniu Zhou wrote:
+> +
+> +static const struct v4l2_async_notifier_operations formatter_notify_ops = {
+> +	.bound = csi_formatter_notify_bound,
+> +};
+> +
+> +static int csi_formatter_async_register(struct csi_formatter *formatter)
+> +{
+> +	struct device *dev = formatter->dev;
+> +	struct v4l2_async_connection *asc;
+> +	struct fwnode_handle *ep __free(fwnode_handle) = NULL;
 
-On 17/12/25 12:39 pm, Baolin Wang wrote:
->
->
-> On 2025/12/17 14:49, Dev Jain wrote:
->>
->> On 11/12/25 1:46 pm, Baolin Wang wrote:
->>> Currently, folio_referenced_one() always checks the young flag for each PTE
->>> sequentially, which is inefficient for large folios. This inefficiency is
->>> especially noticeable when reclaiming clean file-backed large folios, where
->>> folio_referenced() is observed as a significant performance hotspot.
->>>
->>> Moreover, on Arm architecture, which supports contiguous PTEs, there is already
->>> an optimization to clear the young flags for PTEs within a contiguous range.
->>> However, this is not sufficient. We can extend this to perform batched
->>> operations
->>> for the entire large folio (which might exceed the contiguous range:
->>> CONT_PTE_SIZE).
->>>
->>> Introduce a new API: clear_flush_young_ptes() to facilitate batched checking
->>> of the young flags and flushing TLB entries, thereby improving performance
->>> during large folio reclamation.
->>>
->>> Performance testing:
->>> Allocate 10G clean file-backed folios by mmap() in a memory cgroup, and try to
->>> reclaim 8G file-backed folios via the memory.reclaim interface. I can observe
->>> 33% performance improvement on my Arm64 32-core server (and 10%+ improvement
->>> on my X86 machine). Meanwhile, the hotspot folio_check_references() dropped
->>> from approximately 35% to around 5%.
->>>
->>> W/o patchset:
->>> real    0m1.518s
->>> user    0m0.000s
->>> sys    0m1.518s
->>>
->>> W/ patchset:
->>> real    0m1.018s
->>> user    0m0.000s
->>> sys    0m1.018s
->>>
->>> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
->>> ---
->>>   arch/arm64/include/asm/pgtable.h | 11 +++++++++++
->>>   include/linux/mmu_notifier.h     |  9 +++++----
->>>   include/linux/pgtable.h          | 19 +++++++++++++++++++
->>>   mm/rmap.c                        | 22 ++++++++++++++++++++--
->>>   4 files changed, 55 insertions(+), 6 deletions(-)
->>>
->>> diff --git a/arch/arm64/include/asm/pgtable.h
->>> b/arch/arm64/include/asm/pgtable.h
->>> index e03034683156..a865bd8c46a3 100644
->>> --- a/arch/arm64/include/asm/pgtable.h
->>> +++ b/arch/arm64/include/asm/pgtable.h
->>> @@ -1869,6 +1869,17 @@ static inline int ptep_clear_flush_young(struct
->>> vm_area_struct *vma,
->>>       return contpte_clear_flush_young_ptes(vma, addr, ptep, CONT_PTES);
->>>   }
->>>   +#define clear_flush_young_ptes clear_flush_young_ptes
->>> +static inline int clear_flush_young_ptes(struct vm_area_struct *vma,
->>> +                    unsigned long addr, pte_t *ptep,
->>> +                    unsigned int nr)
->>> +{
->>> +    if (likely(nr == 1))
->>> +        return __ptep_clear_flush_young(vma, addr, ptep);
->>> +
->>> +    return contpte_clear_flush_young_ptes(vma, addr, ptep, nr);
->>> +}
->>> +
->>>   #define wrprotect_ptes wrprotect_ptes
->>>   static __always_inline void wrprotect_ptes(struct mm_struct *mm,
->>>                   unsigned long addr, pte_t *ptep, unsigned int nr)
->>> diff --git a/include/linux/mmu_notifier.h b/include/linux/mmu_notifier.h
->>> index d1094c2d5fb6..be594b274729 100644
->>> --- a/include/linux/mmu_notifier.h
->>> +++ b/include/linux/mmu_notifier.h
->>> @@ -515,16 +515,17 @@ static inline void mmu_notifier_range_init_owner(
->>>       range->owner = owner;
->>>   }
->>>   -#define ptep_clear_flush_young_notify(__vma, __address, __ptep)        \
->>> +#define ptep_clear_flush_young_notify(__vma, __address, __ptep, __nr)    \
->>>   ({                                    \
->>>       int __young;                            \
->>>       struct vm_area_struct *___vma = __vma;                \
->>>       unsigned long ___address = __address;                \
->>> -    __young = ptep_clear_flush_young(___vma, ___address, __ptep);    \
->>> +    unsigned int ___nr = __nr;                    \
->>> +    __young = clear_flush_young_ptes(___vma, ___address, __ptep, ___nr);    \
->>>       __young |= mmu_notifier_clear_flush_young(___vma->vm_mm,    \
->>>                             ___address,        \
->>>                             ___address +        \
->>> -                            PAGE_SIZE);    \
->>> +                        nr * PAGE_SIZE);    \
->>>       __young;                            \
->>>   })
->>>   @@ -650,7 +651,7 @@ static inline void
->>> mmu_notifier_subscriptions_destroy(struct mm_struct *mm)
->>>     #define mmu_notifier_range_update_to_read_only(r) false
->>>   -#define ptep_clear_flush_young_notify ptep_clear_flush_young
->>> +#define ptep_clear_flush_young_notify clear_flush_young_ptes
->>>   #define pmdp_clear_flush_young_notify pmdp_clear_flush_young
->>>   #define ptep_clear_young_notify ptep_test_and_clear_young
->>>   #define pmdp_clear_young_notify pmdp_test_and_clear_young
->>> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
->>> index b13b6f42be3c..c7d0fd228cb7 100644
->>> --- a/include/linux/pgtable.h
->>> +++ b/include/linux/pgtable.h
->>> @@ -947,6 +947,25 @@ static inline void wrprotect_ptes(struct mm_struct *mm,
->>> unsigned long addr,
->>>   }
->>>   #endif
->>>   +#ifndef clear_flush_young_ptes
->>> +static inline int clear_flush_young_ptes(struct vm_area_struct *vma,
->>> +                     unsigned long addr, pte_t *ptep,
->>> +                     unsigned int nr)
->>> +{
->>> +    int young = 0;
->>> +
->>> +    for (;;) {
->>> +        young |= ptep_clear_flush_young(vma, addr, ptep);
->>> +        if (--nr == 0)
->>> +            break;
->>> +        ptep++;
->>> +        addr += PAGE_SIZE;
->>> +    }
->>> +
->>> +    return young;
->>> +}
->>> +#endif
->>> +
->>>   /*
->>>    * On some architectures hardware does not set page access bit when accessing
->>>    * memory page, it is responsibility of software setting this bit. It brings
->>> diff --git a/mm/rmap.c b/mm/rmap.c
->>> index d6799afe1114..ec232165c47d 100644
->>> --- a/mm/rmap.c
->>> +++ b/mm/rmap.c
->>> @@ -827,9 +827,11 @@ static bool folio_referenced_one(struct folio *folio,
->>>       struct folio_referenced_arg *pra = arg;
->>>       DEFINE_FOLIO_VMA_WALK(pvmw, folio, vma, address, 0);
->>>       int ptes = 0, referenced = 0;
->>> +    unsigned int nr;
->>>         while (page_vma_mapped_walk(&pvmw)) {
->>>           address = pvmw.address;
->>> +        nr = 1;
->>>             if (vma->vm_flags & VM_LOCKED) {
->>>               ptes++;
->>> @@ -874,9 +876,21 @@ static bool folio_referenced_one(struct folio *folio,
->>>               if (lru_gen_look_around(&pvmw))
->>>                   referenced++;
->>>           } else if (pvmw.pte) {
->>> +            if (folio_test_large(folio)) {
->>> +                unsigned long end_addr = pmd_addr_end(address, vma->vm_end);
->>
->> I may be hallucinating here but I am just trying to recall things - is this a
->> bug in
->> folio_pte_batch_flags()? A folio may not be naturally aligned in virtual
->> space and hence
->> we may cross the PTE table while batching across it, which can be fixed by
->> taking into
->> account pmd_addr_end() while computing max_nr.
->
-> IMHO, the comments for the folio_pte_batch_flags() function have already made
-> clear requirements for the caller to avoid such situations:
->
-> "
-> * @ptep must map any page of the folio. max_nr must be at least one and
-> * must be limited by the caller so scanning cannot exceed a single VMA and
-> * a single page table.
-> "
->
-> Additionally, Lance recently fixed a similar issue, see commit ddd05742b45b
-> ("mm/rmap: fix potential out-of-bounds page table access during batched unmap").
- 
+This is an undesired syntax explicitly documented as one to avoid. You
+need here proper assignment, not NULL. Please don't use cleanup.h if you
+do not intend to follow it because it does not make the code simpler.
 
-Ah I see, all other users of the folio_pte_batch API constrain start and end
-because they are already operating on a single PTE table. But for rmap code
+> +	int ret;
+> +
+> +	v4l2_async_subdev_nf_init(&formatter->notifier, &formatter->sd);
+> +
+> +	ep = fwnode_graph_get_endpoint_by_id(dev_fwnode(dev), 0, 0,
+> +					     FWNODE_GRAPH_ENDPOINT_NEXT);
+> +	if (!ep)
+> +		return -ENOTCONN;
+> +
+> +	asc = v4l2_async_nf_add_fwnode_remote(&formatter->notifier, ep,
+> +					      struct v4l2_async_connection);
+> +	if (IS_ERR(asc))
+> +		return PTR_ERR(asc);
+> +
+> +	formatter->notifier.ops = &formatter_notify_ops;
+> +
+> +	ret = v4l2_async_nf_register(&formatter->notifier);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return v4l2_async_register_subdev(&formatter->sd);
+> +}
+> +
+> +/* -----------------------------------------------------------------------------
+> + * Suspend/resume
+> + */
+> +
+> +static int csi_formatter_system_suspend(struct device *dev)
+> +{
+> +	return pm_runtime_force_suspend(dev);
+> +}
+> +
+> +static int csi_formatter_system_resume(struct device *dev)
+> +{
+> +	int ret;
+> +
+> +	ret = pm_runtime_force_resume(dev);
+> +	if (ret < 0) {
+> +		dev_err(dev, "force resume %s failed!\n", dev_name(dev));
+> +		return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int csi_formatter_runtime_suspend(struct device *dev)
+> +{
+> +	struct v4l2_subdev *sd = dev_get_drvdata(dev);
+> +	struct csi_formatter *formatter = sd_to_formatter(sd);
+> +
+> +	clk_disable_unprepare(formatter->clk);
+> +
+> +	return 0;
+> +}
+> +
+> +static int csi_formatter_runtime_resume(struct device *dev)
+> +{
+> +	struct v4l2_subdev *sd = dev_get_drvdata(dev);
+> +	struct csi_formatter *formatter = sd_to_formatter(sd);
+> +
+> +	return clk_prepare_enable(formatter->clk);
+> +}
+> +
+> +static const struct dev_pm_ops csi_formatter_pm_ops = {
+> +	SYSTEM_SLEEP_PM_OPS(csi_formatter_system_suspend,
+> +			    csi_formatter_system_resume)
+> +	RUNTIME_PM_OPS(csi_formatter_runtime_suspend,
+> +		       csi_formatter_runtime_resume, NULL)
+> +};
+> +
+> +static int csi_formatter_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct csi_formatter *formatter;
+> +	u32 val;
+> +	int ret;
+> +
+> +	formatter = devm_kzalloc(dev, sizeof(*formatter), GFP_KERNEL);
+> +	if (!formatter)
+> +		return -ENOMEM;
+> +
+> +	formatter->dev = dev;
+> +
+> +	formatter->regs = syscon_node_to_regmap(dev->parent->of_node);
+> +	if (IS_ERR(formatter->regs))
+> +		return dev_err_probe(dev, PTR_ERR(formatter->regs),
+> +				     "Failed to get csi formatter regmap\n");
+> +
+> +	ret = of_property_read_u32(dev->of_node, "reg", &val);
+> +	if (ret < 0)
+> +		return dev_err_probe(dev, ret, "Failed to get csi formatter reg property\n");
+> +
+> +	formatter->reg_offset = val;
+> +
+> +	formatter->clk = devm_clk_get(dev, NULL);
+> +	if (IS_ERR(formatter->clk))
+> +		return dev_err_probe(dev, PTR_ERR(formatter->clk),
+> +				     "Failed to get pixel clock\n");
+> +
+> +	ret = csi_formatter_subdev_init(formatter);
+> +	if (ret < 0)
+> +		return dev_err_probe(dev, ret, "formatter subdev init fail\n");
+> +
+> +	/* Initialize formatter pixel format */
+> +	formatter->fmt = find_csi_format(formatter_default_fmt.code);
+> +
+> +	ret = csi_formatter_async_register(formatter);
+> +	if (ret < 0) {
+> +		v4l2_subdev_cleanup(&formatter->sd);
+> +		return dev_err_probe(dev, ret, "Async register failed\n");
+> +	}
+> +
+> +	platform_set_drvdata(pdev, &formatter->sd);
+> +
+> +	/* Enable runtime PM. */
+> +	pm_runtime_enable(dev);
+> +
+> +	return 0;
+> +}
+> +
+> +static void csi_formatter_remove(struct platform_device *pdev)
+> +{
+> +	struct v4l2_subdev *sd = platform_get_drvdata(pdev);
+> +	struct csi_formatter *formatter = sd_to_formatter(sd);
+> +
+> +	v4l2_async_nf_unregister(&formatter->notifier);
+> +	v4l2_async_nf_cleanup(&formatter->notifier);
+> +	v4l2_async_unregister_subdev(&formatter->sd);
+> +
+> +	pm_runtime_disable(&pdev->dev);
+> +	media_entity_cleanup(&formatter->sd.entity);
+> +	pm_runtime_set_suspended(&pdev->dev);
+> +}
+> +
+> +static const struct of_device_id csi_formatter_of_match[] = {
+> +	{ .compatible = "fsl,imx9-csi-formatter" },
+> +	{ /* sentinel */ },
+> +};
+> +MODULE_DEVICE_TABLE(of, csi_formatter_of_match);
+> +
+> +static struct platform_driver csi_formatter_device_driver = {
+> +	.driver = {
+> +		.owner          = THIS_MODULE,
 
-this may not be the case. 
+Why are you sending us 12 year old code without cleaning it up first?
 
+> +		.name           = CSI_FORMATTER_DRV_NAME,
+> +		.of_match_table = csi_formatter_of_match,
+> +		.pm             = pm_ptr(&csi_formatter_pm_ops),
+> +	},
+> +	.probe  = csi_formatter_probe,
+> +	.remove = csi_formatter_remove,
+> +};
+> +
+Best regards,
+Krzysztof
 
