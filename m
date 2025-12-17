@@ -4,89 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60D4DD6406B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 02:22:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF803D6406D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 02:38:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8tG7gbuCGz2VEtDJz5NoA+5yzBAJyFs+yPzvYJuVK8o=; b=e3dTnuawcxG7n/xVhUID9Dk766
-	DwvUsN2lLqjXkL/eGmfNouCkyxSrGA07LksVY2/uOGmFVgEEir6D3yjzPpY79KChzR2VzD1bkp9Si
-	tZyEBA8Z2jEMxsOIJ1o/2WvTRBd9E3yfkQqgGkHxkXBeoc6q1nPkr53HR5TdETlSljUmmyXlc1wy9
-	HeGMTCJaeM5RKxKV0V+NKbxmKd9PudQHqn+yIKAAql2BymvfZmpi3E/tSo9BtR5IwgTEsggMytCHk
-	ds0kW2amIsq6YdVS3Jwhf/zEI8GO73809gIpesaPnIpyox3xXtUBzFh3TnPafwZxG1nUvWw1CGitE
-	oHc2xIFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DPQcLvgIPm0srHMtdp6yEblasdjsKuWxgUFKZ13WL2k=; b=hN12jxaZQlRBqSdEUCFO1k3AwG
+	viHA5jIBl2ShpCkEuZvjoYYLBBIcHg3GM99jdwCGf++aOA2IIXNXYTUGz/Fl03H8flGqeEQZxpHII
+	n0oEnlMY7fVnPzJw+aaDIEodTMzfZGPA5E/+gx3TW3kDTvqeT279yEyUJblbZndwYC3nliFPUPiTD
+	4pI3dlsxayfzV45ic0m7M4Zsi09YoSJzR1AN/DIM++OWDMOB6+FtX56AZswm0DgCGRvjhsicDt8Un
+	dwjOGObZlPaSCPTk1Tu0oyhqarhirt1cDEei5dFC13xGe/8Q71+/dH0IeSesOTgh00gUZgWExZzbd
+	rkuKsE/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVhBQ-000000063PD-05yE;
-	Wed, 17 Dec 2025 02:22:32 +0000
-Received: from mail-oi1-x234.google.com ([2607:f8b0:4864:20::234])
+	id 1vVhRB-000000063ql-3W6e;
+	Wed, 17 Dec 2025 02:38:49 +0000
+Received: from mail-japanwestazon11022077.outbound.protection.outlook.com ([40.107.75.77] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVhBM-000000063OY-3pU5
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 02:22:30 +0000
-Received: by mail-oi1-x234.google.com with SMTP id 5614622812f47-4557f0e5ed2so84589b6e.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 18:22:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1765938145; x=1766542945; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8tG7gbuCGz2VEtDJz5NoA+5yzBAJyFs+yPzvYJuVK8o=;
-        b=HMUryf9dqOz+/EOOmwoLRhbDG3FKYGF4Cd1XghkRwEgyPDncina1Ic3eAmzR1mPC5w
-         doZuiyRc8CayvwQHPWWfEGyAa7KGheOrvKPPI8CGjHDXM1UhuCEFyk3yhhByD4itPcbu
-         1y3amiDzLZMZa6GHK3ck2aidtWsnhz0py0dXn2YVXHC1uPFKZb1xXNcntbFuaHMf8QZY
-         7Q5IPQ4eozBhXTERBo/MjYIsXz1dFuf5NlR2NR8rjrrTQk80GqiezB1JxygggJOgcSMr
-         7AAVsYCOvaY0GzEwdRvKE+JSxpUP0+rSOl5qNsV8RlJhx9pkArcg0j/JJee6FDwDfTCZ
-         bKKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765938145; x=1766542945;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=8tG7gbuCGz2VEtDJz5NoA+5yzBAJyFs+yPzvYJuVK8o=;
-        b=okMFw9Kx7ihGMxNU1RuGhzbnUJTXnZNOlyrIpf8N0gm8DxvvSPbhhVrTlxga7xIVXE
-         w5gooo4y6+S0DqBujP9vymvX/mOiz8BPahLpEoz2X/fuXbXcKMM4DAV2M2GvKNwqM1tJ
-         UteJqoVyF1QCNwAPE+ti9bTvufewDEUDX4nOLL2nkL7KhjWz1DHE93SPa0ERdV+g+yJj
-         5F8mzEsKBUC3Nv//qxU3pFDg61/hiyiAmOSXQggQqObfqpTylbWVyVoBDDU44Q+sH64d
-         TmNif1XXIvUXDMcQtB2TTdBWxYjkSjW+T27XIkTzWji1fMwwEXMYWlSppdcDJ013o0Ol
-         91/A==
-X-Forwarded-Encrypted: i=1; AJvYcCVpmhte02xHPcGaaQNBKDcRyCGfYMtwtaTj0fLGSk7MUQ2rb1sIbfTs3SFUpUTOJUwAp/RW5XJrLNHrWKRKLwTc@lists.infradead.org
-X-Gm-Message-State: AOJu0YzzQHh3wnqKLIh4IzRj+l2L81oO4H/6W9d1gucxg+bgTQ9lxzM8
-	RymnX+YGFKaBYts2LdToHkHvxXK9agPxy3DyODxEgnVZR35KMyVmqOXa7kGy7LVGytzFpBwTUou
-	oZxbDOKuV0RZl8hYWhDIRPYSa3wrvKsihLtm46h4u+A==
-X-Gm-Gg: AY/fxX5mIvjCU65jR5vyXX5uEsuDg2Au6+TVbM2IMQTj0mJpdHBQ2+mNrzbLzYMQA8g
-	k+gQbcmxgH2V5dg9UAqwTH6sWW9WWzxedY4LhZHmw93w+kFgXoWYeHlhStHYtUUh+2Ob55g689g
-	H1ihko0v6VwV5MFq0gMkJpdOPSn2fN9hsB/k2zjo8KmoeBZngyoVG6/xS4YJublxKaHAcdIxPy0
-	293VnB0LS4letNLpyFuUNBCkEnswmRNa8/52vc+ydKKjOFHFDl3YUVFbMWQSq+4dAlfXDZtTRUD
-	CA==
-X-Google-Smtp-Source: AGHT+IF5C9jac6/7XdxNi+eVsUaFjO5ejIrN7BfKgN/LL9TP5xxRqOeyUIjESNZMLJWCpvedvtQAlZcB5wQF7jF+R5s=
-X-Received: by 2002:a05:6808:1312:b0:450:aef0:ffd0 with SMTP id
- 5614622812f47-455ab7988edmr8518830b6e.29.1765938145219; Tue, 16 Dec 2025
- 18:22:25 -0800 (PST)
+	id 1vVhR9-000000063qL-2YS3;
+	Wed, 17 Dec 2025 02:38:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VvThZGkV9ELQPsglAudxOWWSUfvXlKB53WQyxo+/eSLhusrmf3+nV9MPT8whM5+BOUp/2GFEZThxstTcfGRmOFLM8fmEdONexjbptZtBPnWxshkczF0iF62kpNSsVvuruHJCZcgzO1kHa8gDzQQBnbRor3LiDsIK8pPrN53kZlvZbqwD8QrmAkNiCMrKlQD2TAoAohi8l8rdeskN8u8+3x1kXnrVCOGjdv0Ht2gaRc6N22JggjGCk5FrLeqRv44W5v5s/5CsN7fO7ZEUgNKgQZWcHJB9CCqUGUK5y7gWyGrkI0NlU/YKZfagR7U9KbODqcyxhcWdeMQ0HQt4eDNRAA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=DPQcLvgIPm0srHMtdp6yEblasdjsKuWxgUFKZ13WL2k=;
+ b=g2AOw0sHEJwVv2ZbzQC8g2Nk1B2qjGIlj2FwFsXCW0qDU9FKOwWaMrVw2jLfo04vBdYKU2Un2cKWxh+BOosF693N2ZNGLZv3xCHvL7b7BhX2t0ofmY0CYfIl+psFHyZXxIo/48aV60+rtYGcRZO3zdaRUyJLCc/q1IkNBYzMLgioFR+cS6l86kb4BYaYqU8u49MPgc9m52pTLvkJxKiotp5YUbeLXk46Vpvh57RGsdgQtRnrPNWMr2p+85HPfOPzsrdqAD1wk6t9g7OqIsGcZqia6tigMrL6rDe6atkmRx41XZMIcODJL9RbVAWjNRLynTzOqgrO7Yb2uzsISIa6PA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=DPQcLvgIPm0srHMtdp6yEblasdjsKuWxgUFKZ13WL2k=;
+ b=m/8hhH9/+P6MBilLeILdR2MY73TsSkRM1KZ9QFmntYJua8J71kIoU276w0H5/mv94Olf0/tiLwPs7I0VLOFOIAIENPMVvfJLh2dUnkzglrEjbp8cjZ+LUDO0yKyfBCgDVdPAsX5EhUS6xTbi2GjRlrEqwfrHpChFXfU+cpz7iUMQvbuk+nj7sUqg3qd0OJlXxCD81UaooDmrRVubAsw+6fC3TXj4wqa8ofx4FcieHmJWZSYq9/jm61ezRBHABo0VFfKICp7zdWfh5vDFmAbPDDZhgJxzMhVzJ2hj6w4ABMSBSNWrdxexkWfq/8cw1D5jA1YucO8MkK2M3Z+bg4+vvA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from KL1PR03MB5521.apcprd03.prod.outlook.com (2603:1096:820:51::12)
+ by JH0PR03MB7324.apcprd03.prod.outlook.com (2603:1096:990:17::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.6; Wed, 17 Dec
+ 2025 02:38:36 +0000
+Received: from KL1PR03MB5521.apcprd03.prod.outlook.com
+ ([fe80::f12b:85e:f95c:191e]) by KL1PR03MB5521.apcprd03.prod.outlook.com
+ ([fe80::f12b:85e:f95c:191e%4]) with mapi id 15.20.9434.001; Wed, 17 Dec 2025
+ 02:38:35 +0000
+Message-ID: <7ea65b00-a2d9-471c-bc3d-cc340ee1046d@amlogic.com>
+Date: Wed, 17 Dec 2025 10:38:33 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC v2 1/3] media: dt-bindings: Add Amlogic V4L2 video
+ decoder
+To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org
+References: <20251124-b4-s4-vdec-upstream-v2-0-bdbbce3f11a6@amlogic.com>
+ <20251124-b4-s4-vdec-upstream-v2-1-bdbbce3f11a6@amlogic.com>
+ <CAFBinCDO5UWVEtbOOdMn9vy=0H2Q1hJDKhH+X7i0nMsSsw=wbg@mail.gmail.com>
+From: Zhentao Guo <zhentao.guo@amlogic.com>
+In-Reply-To: <CAFBinCDO5UWVEtbOOdMn9vy=0H2Q1hJDKhH+X7i0nMsSsw=wbg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: SI2PR04CA0018.apcprd04.prod.outlook.com
+ (2603:1096:4:197::9) To KL1PR03MB5521.apcprd03.prod.outlook.com
+ (2603:1096:820:51::12)
 MIME-Version: 1.0
-References: <20251105082639.342973-1-cleger@rivosinc.com> <20251105082639.342973-5-cleger@rivosinc.com>
- <CAEEQ3wnQiUdNVjUpdDgAx1=y76vSo66vCD0Wf3EGes274jnkxw@mail.gmail.com> <CADGDLFgnx3z9WMZBjURx7eEFeeDwb9tj+8WAik4siR_G8erk0Q@mail.gmail.com>
-In-Reply-To: <CADGDLFgnx3z9WMZBjURx7eEFeeDwb9tj+8WAik4siR_G8erk0Q@mail.gmail.com>
-From: yunhui cui <cuiyunhui@bytedance.com>
-Date: Wed, 17 Dec 2025 10:22:13 +0800
-X-Gm-Features: AQt7F2rsyyv5lusN6nINqVf6NilAzTgu6JoWTmmLqNsuUE50eR63ntU_bvWdUNk
-Message-ID: <CAEEQ3wmLvBy0rVCwP_LcF9ube0=a1K6QFyp9jnE7JRMXxL11nw@mail.gmail.com>
-Subject: Re: [External] [PATCH v8 4/5] perf: RISC-V: add support for SSE event
-To: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, 
-	Himanshu Chauhan <hchauhan@ventanamicro.com>, Anup Patel <apatel@ventanamicro.com>, 
-	Xu Lu <luxu.kernel@bytedance.com>, Atish Patra <atishp@atishpatra.org>, 
-	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: KL1PR03MB5521:EE_|JH0PR03MB7324:EE_
+X-MS-Office365-Filtering-Correlation-Id: 35d8e456-cf37-47f6-2ba6-08de3d156060
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?UGxvc056aXhTNzlKREFGaDRYUXNkaGQyamI0eGNxU3gwVVFON2tmQ0JKOFpU?=
+ =?utf-8?B?a0pDb1ZKVjUzY0JwdTVyZGJobG5XYzAzcmc4MzFCbmdHYVRCdW9UZHdQRGpG?=
+ =?utf-8?B?WHNwRWY0b09tWnBXY1BDOEZlNnF0NXNwTVh5K1lGMXlocGhTTU9CZHlvRDBy?=
+ =?utf-8?B?aWFmSEZQb2QrS2EzNFdONnNaeGovZ29KY1VWbGNZd0NCd3JCUWRQZkk5bmpZ?=
+ =?utf-8?B?Z0F3VHhOT21pMGJwKzlBYWl2WHJnWkIxWlRuU2gwaG5jbnpjdmtjWVlwZWlp?=
+ =?utf-8?B?bk4zYkNHMW1vWGdXUDMwUjZ6YXFuMU1yaFk0RjFpVjFSaWxScmp0QTUraXdw?=
+ =?utf-8?B?Nkw3TDBlWFBQZHRpRm82ZndKMklrNFFscGJ0S3BudjNLYVVuUDZsQ2w4dkxI?=
+ =?utf-8?B?K25yUGc1YnlZZGVha2EyVEpqYmkxZHB2NDNrbGF0U2Z1ZWJ1VE5yU242bUJC?=
+ =?utf-8?B?SDEvVDcyamIrTjM5T1lTRXJHbFJoeTdSUkoxTXFnVW5BcU9kUk5HTUZTZ00w?=
+ =?utf-8?B?LzNib2Z5MHRONitwb0k2SU5tSDZVU3JZNVBSdm4wYUVtRTMxbFkwOVJnSndp?=
+ =?utf-8?B?Ky94SDBqeWc4UXZnV3QyOUhHajY3K3JFT0E0RFFLaTU0TmZEVG9yTklINEpl?=
+ =?utf-8?B?cWE2ZWMvaWRVYVhsYWJSWDlKc3BJL3c3bmlKd1o2a3ZBZkM2SXlCV2hOVWVj?=
+ =?utf-8?B?dlA2SU5ZMzRpZG0xUUIxVHhwOVlrc2I5NkRJYy9jc1o1bjIzdDdCS3NjV3ox?=
+ =?utf-8?B?MGo2OFFaQUQwdytuMDBTN1EwSGVHbFdsVjMrUTJ2N3hjRi8rYVYrNktCZWUy?=
+ =?utf-8?B?TkllYjB0TFJ1VGpyQThOazBYY3llYmY3bVp1aWZUWDlQd1pDS3ZVbXdmeVZ3?=
+ =?utf-8?B?YU84OVVaaCtjTkFkRXZOVGVRL2JBbXljejZ4THZGc2c0Um9CSGtzS3p5cERB?=
+ =?utf-8?B?bGI0TVl5VDBDZmNKejFsdTJSN3NuR1JzMGQ5bStTY0JRcFdiNVFuSWFZYkhF?=
+ =?utf-8?B?clhUVUNmbHV0bjdQWHBPWENCMkM3cHBiY2RNNm9WR0RLcDQzOGhqSTRRMW8x?=
+ =?utf-8?B?OVRjQ0kvbHg3cWZzZUtIOWtVTHQxbStBTjYyMEtDODBOZUEwWE0zL1lzd05G?=
+ =?utf-8?B?eDNpV3FGYjMydHpuNDFVczRoZzZQaXlmTnNPTWJsWDlzZnNpcUQyNnB1Wmo5?=
+ =?utf-8?B?ZnBqc0RVczRXUTRGNTc3UFl5NEtWMHlMUlFyS0VnZitiK0lPM1lWbndyS2VT?=
+ =?utf-8?B?YTl3N1RVNTNONkJVTDZMSGRYRFh6Mi9taDFxdkIvMTM5a3VXMFBKUHh4dVZC?=
+ =?utf-8?B?dCtMVlA4RFpuK1Nrek5idWUrdDBDNDhSS3hLQVBhcFBiWTNVR3YrdHV6UDlj?=
+ =?utf-8?B?ZE1ZbGNCM0NIRjE0bTNrNlRMU3dwSWwxOFc4bGwwVjVhVitGdTRmd241MjRt?=
+ =?utf-8?B?QVdyR3hJRzNoMWNYNEljMUVLdHdKZDl1aGJhdW9qaUtjNUJ3SURaU09lOGVk?=
+ =?utf-8?B?MFYzMm16bGxsSFovWmljNW9RblN5Vm90SHMyUTZkdmtrdWxNNWVkc2xqTVVQ?=
+ =?utf-8?B?b1JCaHlZVzZrQ0dEdTh1bzNwS3AwQ3R2TWY2SHNWZXRyRVBOcG9KZldzKzAw?=
+ =?utf-8?B?RU1qd3FCcmdSYVhYTWhDa1dpcEl0Snkxd3QyZTF3QncxSHdJUXlPblJZaFp3?=
+ =?utf-8?B?aXhnMVZqVjY4WVJtbS8zVzErcmswYVdFeFk0THVPdndoeXNqZ3dMTFNmejFZ?=
+ =?utf-8?B?bmhTczhMbjV5MTJPeGh3L0g5RlhONXZRT3ZTSjZNeVFkOWNCRnpEV3pDTjhQ?=
+ =?utf-8?B?emFBM2xmZXVwcEk0ZzVJWUMrU3JBTVUxaUIzQ0xnRHJ1YlhJOGlnM2YxKzg5?=
+ =?utf-8?B?d1VPRTB5SVNocFZsSXdMVzZhdDh6SmkvU0lCNXRBK1ZNekE9PQ==?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB5521.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ell4dm1iclluV01MdXlxR0hXZmJsRVZ3akxkZS9YOFdONU0wckxDUVR6VW1K?=
+ =?utf-8?B?cGZZbjVpek1HTGluWFVGa1hJcm1WY0hLVHgzMXlDNVBOZ2FLWm4zRVRDNTB0?=
+ =?utf-8?B?T05iS255Z1JxdFRlajMvSCtlVXJzU3dVVzEyMUpKQmJhQTI0bTg5dDFvVmhZ?=
+ =?utf-8?B?ZWhveEEvZ2w3NkovbW41RGRaQUw5c0doTG1xRkNNUmR6QXJtTVQrYkozT2lS?=
+ =?utf-8?B?UjlieHVQNHdoR09adlpGVDhpbllLNjAwM21ZM2I0U0N0S3BJZWdqSTBOWUZR?=
+ =?utf-8?B?dUp2bk9MdGhnSHJPSGxtM3RrRDFkVkRLeCs1dG1nUE80YmFWUzdNeWFNTExV?=
+ =?utf-8?B?bW4wUGhnWU56U0cxWVJPVStWc21lQUFwVGJ5Sm5EMzNIeXFNaXFEU3F1eU55?=
+ =?utf-8?B?WlM2bXVKVUJudEVNNVBVK091THFaMEMvb3dnUlFxVnJua0NOUEFDZkVjZjBP?=
+ =?utf-8?B?WEdjcER2aXFwNExSVENKYU1mQ05XNnp1K0ZaRWFpTVE1bkp4QWQ0d0QvWlJQ?=
+ =?utf-8?B?d3BPbFl4MEFlbXc5RFFvYzRLd1FpN1pBSE1ydHliVlVRWmVUdFQwVDRCSUht?=
+ =?utf-8?B?NTRtOVRFamRXZVZFSkxhamdCTUpzSHR0aXhpa2RpeXk2aUpWWnBzRkNUdGZy?=
+ =?utf-8?B?WGw2KzRRMUhDODJld3hGNlY1UkRmS21taE1PQklDTk5UL2R1Mm9xd0xlVWpz?=
+ =?utf-8?B?RXZ5TXovcjBteWRSZkxsMWJTVDlkZ1NoQjhZQS94ZE45OHBJcVdFOE1uUDZi?=
+ =?utf-8?B?MzJ0RFJsSXF5TTVsNUR2a25vMHJPODBSOGlLdGU0bXdrTTRkU1N3S1VKYUdE?=
+ =?utf-8?B?SG1ReEVXd3RBN3k4RkJlcjM2dGEzaEhBNHYxOUN6bDY5VTVlY0JyWWtxT04r?=
+ =?utf-8?B?VVNUVEIrUVBYci9VTFI1em51TGE4cm5HUjRaUGl2OWFNbWh0NVJsVjVTVjRj?=
+ =?utf-8?B?UnRYVTMxN2g0dkZEQVlFeXhZZnFLb3BvTHY5NFNWaDlDNXl3RXA4ZFBJMzJY?=
+ =?utf-8?B?ZTNzV2NBaGQ4VEdZQ2RRVjhDMFlWbHJrdXlYK1IrSzRsS081ZmFlQ2hoRVFx?=
+ =?utf-8?B?SFZCZ2sxZVl2OUZkZXlrNDhrZWgyMWFsZjVOaEI0RnI1ZDIxdkhlNlk3WkE3?=
+ =?utf-8?B?bkFVcHE3K2hYdHFjWWNsL0FvUElMaGRTYVRuUXZwbnhPMmw1VGJ1cW9pMTdz?=
+ =?utf-8?B?cW42a1VZb01NWUR0cVQ2UDZZNFRiMTNmT29hMWVDZ1krMTZGbHZ3SkJFaTBi?=
+ =?utf-8?B?QlRkRExRamlsVGFIanNFd3EycjQyNGhRQmZIYUpxRVJ3RDUzUlFvQWtYZGFC?=
+ =?utf-8?B?U2NneFZWSTJqOUxUZWZHODV3WXJTNWRMdW1GREhtaklQZWxJVlVDWUxyTjJw?=
+ =?utf-8?B?SGk5TzdDdXRidXhCSDMvQ1lOSGtEaFBDdWxCWkhtL01tYThPKzdaZkNxNCta?=
+ =?utf-8?B?VWNld2dLMkczM2FvdUFnMXJIRXpaYjJkK3NORFJSWUtLb0FGeGRDZjY3b3ZZ?=
+ =?utf-8?B?L0ptTzJJWStyMWxRcmVpSWd6UXBLdWxaUUZROGJLNEtDT1FaRXpPLzlyVzZs?=
+ =?utf-8?B?Zm92Y3R1V1NEVGUwMXdlVjRoL2N0K2U1RmM3VWdqbEpVUlkveURuamZYSGNn?=
+ =?utf-8?B?ZUZ4Ky82WTlyWVpFMUNuWG5QUzVJQTYxUko5eDh1dVBIMVVRSSt5aG5YTEd6?=
+ =?utf-8?B?WVFUYmRBOW1xLytoTlh6WnhoZUJ2R3QxcHNHS0dNSDU4RlRQNHpXZ1ZSb2N4?=
+ =?utf-8?B?ZTZ1Skg4Ung5TXlZbEZ2K1FQa3NSNlU0ZUFuM0MvQWFwa2hvbzhBaEtnYjRw?=
+ =?utf-8?B?blloVUdNelNKV0tEVnhabjdYVFRvL0E5Y29TUGxtWkcrZW1mVUV4VDNKODNt?=
+ =?utf-8?B?VEFHSWs3eUo4MzJTb2hqMVhVTVhielhyK1VIOFJMellRNVJEVFB2NnpwZnN5?=
+ =?utf-8?B?RWhMcnpaWWFsK3RiNFJPeVIzb1N2MjVta1RFZFdqa0FOQ3lMRG1oRnNGeUtS?=
+ =?utf-8?B?cXNyVGIrSGYxZ1dwU0s3eGhIVjMySW85QWc0Z0JaZjhqK3BCOGhtYlVzQ0ZD?=
+ =?utf-8?B?Z2o2b2JFOTlscW1DVW91ZEJTVzZXdUpmblBoTC9GVWFrV0szYklxR3lMbEFl?=
+ =?utf-8?Q?PdTHf4h/+XOQn5FTKqDG1ZVJo?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 35d8e456-cf37-47f6-2ba6-08de3d156060
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB5521.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Dec 2025 02:38:35.6416
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: nerSsSIHLPOJ5JgSjI1dqCzXmAXePa79aYliUT01CJVFr490ps7mC6eLoixSC0PLvSVEJwoWDPS3wwb8gG6ilw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: JH0PR03MB7324
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_182228_986964_EAA9C937 
-X-CRM114-Status: GOOD (  34.66  )
+X-CRM114-CacheID: sfid-20251216_183847_663678_B2B93C8A 
+X-CRM114-Status: GOOD (  29.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,340 +181,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cl=C3=A9ment,
+Hi Martain,
 
-On Wed, Dec 17, 2025 at 4:36=E2=80=AFAM Cl=C3=A9ment L=C3=A9ger <cleger@riv=
-osinc.com> wrote:
+在 2025/12/17 7:43, Martin Blumenstingl 写道:
+> [ EXTERNAL EMAIL ]
 >
-> On Fri, Dec 12, 2025 at 4:17=E2=80=AFAM yunhui cui <cuiyunhui@bytedance.c=
-om> wrote:
-> >
-> > Hi Cl=C3=A9ment,
-> >
-> > On Wed, Nov 5, 2025 at 4:29=E2=80=AFPM Cl=C3=A9ment L=C3=A9ger <cleger@=
-rivosinc.com> wrote:
-> > >
-> > > In order to use SSE within PMU drivers, register a SSE handler for th=
-e
-> > > local PMU event. Reuse the existing overflow IRQ handler and pass
-> > > appropriate pt_regs. Add a config option RISCV_PMU_SSE to select even=
-t
-> > > delivery via SSE events.
-> > >
-> > > Signed-off-by: Cl=C3=A9ment L=C3=A9ger <cleger@rivosinc.com>
-> > > ---
-> > >  drivers/perf/Kconfig           | 10 +++++
-> > >  drivers/perf/riscv_pmu.c       | 23 +++++++++++
-> > >  drivers/perf/riscv_pmu_sbi.c   | 71 +++++++++++++++++++++++++++++---=
---
-> > >  include/linux/perf/riscv_pmu.h |  5 +++
-> > >  4 files changed, 99 insertions(+), 10 deletions(-)
-> > >
-> > > diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
-> > > index 638321fc9800..d6ffc2b036e5 100644
-> > > --- a/drivers/perf/Kconfig
-> > > +++ b/drivers/perf/Kconfig
-> > > @@ -105,6 +105,16 @@ config RISCV_PMU_SBI
-> > >           full perf feature support i.e. counter overflow, privilege =
-mode
-> > >           filtering, counter configuration.
-> > >
-> > > +config RISCV_PMU_SBI_SSE
-> > > +       depends on RISCV_PMU && RISCV_SBI_SSE
-> > > +       bool "RISC-V PMU SSE events"
-> > > +       default n
-> > > +       help
-> > > +         Say y if you want to use SSE events to deliver PMU interrup=
-ts. This
-> > > +         provides a way to profile the kernel at any level by using =
-NMI-like
-> > > +         SSE events. SSE events being really intrusive, this option =
-allows
-> > > +         to select it only if needed.
-> > > +
-> > >  config STARFIVE_STARLINK_PMU
-> > >         depends on ARCH_STARFIVE || COMPILE_TEST
-> > >         depends on 64BIT
-> > > diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
-> > > index 7644147d50b4..dda2814801c0 100644
-> > > --- a/drivers/perf/riscv_pmu.c
-> > > +++ b/drivers/perf/riscv_pmu.c
-> > > @@ -13,6 +13,7 @@
-> > >  #include <linux/irqdesc.h>
-> > >  #include <linux/perf/riscv_pmu.h>
-> > >  #include <linux/printk.h>
-> > > +#include <linux/riscv_sbi_sse.h>
-> > >  #include <linux/smp.h>
-> > >  #include <linux/sched_clock.h>
-> > >
-> > > @@ -254,6 +255,24 @@ void riscv_pmu_start(struct perf_event *event, i=
-nt flags)
-> > >         perf_event_update_userpage(event);
-> > >  }
-> > >
-> > > +#ifdef CONFIG_RISCV_PMU_SBI_SSE
-> > > +static void riscv_pmu_disable(struct pmu *pmu)
-> > > +{
-> > > +       struct riscv_pmu *rvpmu =3D to_riscv_pmu(pmu);
-> > > +
-> > > +       if (rvpmu->sse_evt)
-> > > +               sse_event_disable_local(rvpmu->sse_evt);
-> > > +}
-> > > +
-> > > +static void riscv_pmu_enable(struct pmu *pmu)
-> > > +{
-> > > +       struct riscv_pmu *rvpmu =3D to_riscv_pmu(pmu);
-> > > +
-> > > +       if (rvpmu->sse_evt)
-> > > +               sse_event_enable_local(rvpmu->sse_evt);
-> > > +}
-> > > +#endif
-> > > +
-> > >  static int riscv_pmu_add(struct perf_event *event, int flags)
-> > >  {
-> > >         struct riscv_pmu *rvpmu =3D to_riscv_pmu(event->pmu);
-> > > @@ -411,6 +430,10 @@ struct riscv_pmu *riscv_pmu_alloc(void)
-> > >                 .event_mapped   =3D riscv_pmu_event_mapped,
-> > >                 .event_unmapped =3D riscv_pmu_event_unmapped,
-> > >                 .event_idx      =3D riscv_pmu_event_idx,
-> > > +#ifdef CONFIG_RISCV_PMU_SBI_SSE
-> > > +               .pmu_enable     =3D riscv_pmu_enable,
-> > > +               .pmu_disable    =3D riscv_pmu_disable,
-> > > +#endif
-> > >                 .add            =3D riscv_pmu_add,
-> > >                 .del            =3D riscv_pmu_del,
-> > >                 .start          =3D riscv_pmu_start,
-> > > diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sb=
-i.c
-> > > index e255c1b069ec..c852f64a5022 100644
-> > > --- a/drivers/perf/riscv_pmu_sbi.c
-> > > +++ b/drivers/perf/riscv_pmu_sbi.c
-> > > @@ -17,6 +17,7 @@
-> > >  #include <linux/irqdomain.h>
-> > >  #include <linux/of_irq.h>
-> > >  #include <linux/of.h>
-> > > +#include <linux/riscv_sbi_sse.h>
-> > >  #include <linux/cpu_pm.h>
-> > >  #include <linux/sched/clock.h>
-> > >  #include <linux/soc/andes/irq.h>
-> > > @@ -1038,10 +1039,10 @@ static void pmu_sbi_start_overflow_mask(struc=
-t riscv_pmu *pmu,
-> > >                 pmu_sbi_start_ovf_ctrs_sbi(cpu_hw_evt, ctr_ovf_mask);
-> > >  }
-> > >
-> > > -static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
-> > > +static irqreturn_t pmu_sbi_ovf_handler(struct cpu_hw_events *cpu_hw_=
-evt,
-> > > +                                      struct pt_regs *regs, bool fro=
-m_sse)
-> > >  {
-> > >         struct perf_sample_data data;
-> > > -       struct pt_regs *regs;
-> > >         struct hw_perf_event *hw_evt;
-> > >         union sbi_pmu_ctr_info *info;
-> > >         int lidx, hidx, fidx;
-> > > @@ -1049,7 +1050,6 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq,=
- void *dev)
-> > >         struct perf_event *event;
-> > >         u64 overflow;
-> > >         u64 overflowed_ctrs =3D 0;
-> > > -       struct cpu_hw_events *cpu_hw_evt =3D dev;
-> > >         u64 start_clock =3D sched_clock();
-> > >         struct riscv_pmu_snapshot_data *sdata =3D cpu_hw_evt->snapsho=
-t_addr;
-> > >
-> > > @@ -1059,13 +1059,15 @@ static irqreturn_t pmu_sbi_ovf_handler(int ir=
-q, void *dev)
-> > >         /* Firmware counter don't support overflow yet */
-> > >         fidx =3D find_first_bit(cpu_hw_evt->used_hw_ctrs, RISCV_MAX_C=
-OUNTERS);
-> > >         if (fidx =3D=3D RISCV_MAX_COUNTERS) {
-> > > -               csr_clear(CSR_SIP, BIT(riscv_pmu_irq_num));
-> > > +               if (!from_sse)
-> > > +                       csr_clear(CSR_SIP, BIT(riscv_pmu_irq_num));
-> > >                 return IRQ_NONE;
-> > >         }
-> > >
-> > >         event =3D cpu_hw_evt->events[fidx];
-> > >         if (!event) {
-> > > -               ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_mask);
-> > > +               if (!from_sse)
-> > > +                       ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_m=
-ask);
-> > >                 return IRQ_NONE;
-> > >         }
-> > >
-> > > @@ -1080,16 +1082,16 @@ static irqreturn_t pmu_sbi_ovf_handler(int ir=
-q, void *dev)
-> > >
-> > >         /*
-> > >          * Overflow interrupt pending bit should only be cleared afte=
-r stopping
-> > > -        * all the counters to avoid any race condition.
-> > > +        * all the counters to avoid any race condition. When using S=
-SE,
-> > > +        * interrupt is cleared when stopping counters.
-> > >          */
-> > > -       ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_mask);
-> > > +       if (!from_sse)
-> > > +               ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_mask);
-> > >
-> > >         /* No overflow bit is set */
-> > >         if (!overflow)
-> > >                 return IRQ_NONE;
-> > >
-> > > -       regs =3D get_irq_regs();
-> > > -
-> > >         for_each_set_bit(lidx, cpu_hw_evt->used_hw_ctrs, RISCV_MAX_CO=
-UNTERS) {
-> > >                 struct perf_event *event =3D cpu_hw_evt->events[lidx]=
-;
-> > >
-> > > @@ -1145,6 +1147,51 @@ static irqreturn_t pmu_sbi_ovf_handler(int irq=
-, void *dev)
-> > >         return IRQ_HANDLED;
-> > >  }
-> > >
-> > > +static irqreturn_t pmu_sbi_ovf_irq_handler(int irq, void *dev)
-> > > +{
-> > > +       return pmu_sbi_ovf_handler(dev, get_irq_regs(), false);
-> > > +}
-> > > +
-> > > +#ifdef CONFIG_RISCV_PMU_SBI_SSE
-> > > +static int pmu_sbi_ovf_sse_handler(u32 evt, void *arg, struct pt_reg=
-s *regs)
-> > > +{
-> > > +       struct cpu_hw_events __percpu *hw_events =3D arg;
-> > > +       struct cpu_hw_events *hw_event =3D raw_cpu_ptr(hw_events);
-> > > +
-> > > +       pmu_sbi_ovf_handler(hw_event, regs, true);
-> > > +
-> > > +       return 0;
-> > > +}
-> > > +
-> > > +static int pmu_sbi_setup_sse(struct riscv_pmu *pmu)
-> > > +{
-> > > +       int ret;
-> > > +       struct sse_event *evt;
-> > > +       struct cpu_hw_events __percpu *hw_events =3D pmu->hw_events;
-> > > +
-> > > +       evt =3D sse_event_register(SBI_SSE_EVENT_LOCAL_PMU_OVERFLOW, =
-0,
-> > > +                                pmu_sbi_ovf_sse_handler, hw_events);
-> >
-> > As Radim suggested, we had better preset a priority for different
-> > events, such as these events and future ones:
-> > SBI_SSE_EVENT_LOCAL_HIGH_PRIO_RAS
-> > SBI_SSE_EVENT_LOCAL_DOUBLE_TRAP
-> > SBI_SSE_EVENT_GLOBAL_HIGH_PRIO_RAS
-> > SBI_SSE_EVENT_LOCAL_PMU_OVERFLOW
-> > SBI_SSE_EVENT_LOCAL_LOW_PRIO_RAS
-> > SBI_SSE_EVENT_GLOBAL_LOW_PRIO_RAS
-> > SBI_SSE_EVENT_LOCAL_SOFTWARE_INJECTED
-> > SBI_SSE_EVENT_LOCAL_UNKNOWN_NMI
-> > SBI_SSE_EVENT_GLOBAL_SOFTWARE_INJECTED
+> Hi,
 >
-> Hey Yunhui,
->
-> What do you mean exactly ? Events have default priority based on their
-> ID. However, the register call will set a priority =3D 0 for the event.
-> I'll modify that to allow using an optional priority (or even remove
-> it)
+> On Mon, Nov 24, 2025 at 4:32 AM Zhentao Guo via B4 Relay
+> <devnull+zhentao.guo.amlogic.com@kernel.org> wrote:
+>> From: Zhentao Guo <zhentao.guo@amlogic.com>
+>>
+>> Describe the initial support for the V4L2 stateless video decoder
+>> driver used with the Amlogic S4 (S805X2) platform.
+>>
+>> Signed-off-by: Zhentao Guo <zhentao.guo@amlogic.com>
+>> ---
+>>   .../bindings/media/amlogic,s4-vcodec-dec.yaml      | 87 ++++++++++++++++++++++
+>>   1 file changed, 87 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/media/amlogic,s4-vcodec-dec.yaml b/Documentation/devicetree/bindings/media/amlogic,s4-vcodec-dec.yaml
+>> new file mode 100644
+>> index 000000000000..401a5a32902e
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/media/amlogic,s4-vcodec-dec.yaml
+>> @@ -0,0 +1,87 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +# Copyright (C) 2025 Amlogic, Inc. All rights reserved
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/media/amlogic,vcodec-dec.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: Amlogic Video Decode Accelerator
+>> +
+>> +maintainers:
+>> +  - Zhentao Guo <zhentao.guo@amlogic.com>
+>> +
+>> +description:
+>> +  The Video Decoder Accelerator present on Amlogic SOCs.
+>> +  It supports stateless h264 decoding.
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: amlogic,s4-vcodec-dec
+>> +
+>> +  reg:
+>> +    maxItems: 2
+>> +
+>> +  reg-names:
+>> +    items:
+>> +      - const: dos
+>> +      - const: dmc
+> Neil has commented on the driver patch (in v1) to use the existing
+> canvas driver.
+> The same applies to the binding: you can replace the whole "dmc"
+> registers with an "amlogic,canvas" property (see
+> Documentation/devicetree/bindings/display/amlogic,meson-vpu.yaml for
+> an example).
 
-Actually, each event needs to be assigned a reasonable priority.
-Reference: https://lore.kernel.org/all/CAEEQ3wmEVVHC=3DS795dFsQ9iM5Xkz-KOBe=
-_CxXbvzyDBUo3wU6A@mail.gmail.com/
+Indeed, only a section of the dmc registers is for canvas. For the reset 
+part of the registers, canvas driver should not access them directely.
+
+For example, on S805X2 platform, the DMC registers range from 0xfe036000 
+to 0xfe038000. The canvas registers only range from 0xfe036048 
+to 0xfe03605c.
+
+The decoder driver also need to access the register 0xfe036000, which is 
+not contained in the range of canvas registers, so we still need to 
+remap this register in the decoder driver. Therefore, the property 'dmc' 
+is still needed.
 
 >
-> Thanks,
+> [...]
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - reg-names
+>> +  - interrupts
+>> +  - clocks
+>> +  - clock-names
+>> +  - power-domains
+>> +  - power-domain-names
+> I did a quick:
+> $ git grep RESET_DOS
+> {include/dt-bindings/reset/amlogic,arch/arm64/boot/dts/amlogic/}*.h
+> -> that lists DOS reset lines for most (all?) SoCs that were supported
+> by the old vdec driver as well as DOS reset lines for the S4 SoC (for
+> which you're adding support here).
+> If some of those reset lines are wired in hardware to the DOS region
+> then you should include them in the binding.
+> For reference in case you are not already familiar with it: [0] "[...]
+> make bindings complete even if a driver doesn’t support some features.
+> For example, if a device has an interrupt, then include the
+> ‘interrupts’ property even if the driver is only polled mode".
+> (the same also applies to any additional clocks or power-domains that
+> are wired as inputs into the hardware which you have not listed yet as
+> they are not needed for the initially supported codecs)
+Yes, I also noticed this issue. The DOS reset line should be added. We 
+will fix this in the next patch version. Thanks for your suggestions!
+> Best regards,
+> Martin
 >
-> Cl=C3=A9ment
->
-> >
-> > Could you please help add a "global priority enum"?
-> >
-> >
-> > > +       if (IS_ERR(evt))
-> > > +               return PTR_ERR(evt);
-> > > +
-> > > +       ret =3D sse_event_enable(evt);
-> > > +       if (ret) {
-> > > +               sse_event_unregister(evt);
-> > > +               return ret;
-> > > +       }
-> > > +
-> > > +       pr_info("using SSE for PMU event delivery\n");
-> > > +       pmu->sse_evt =3D evt;
-> > > +
-> > > +       return ret;
-> > > +}
-> > > +#else
-> > > +static int pmu_sbi_setup_sse(struct riscv_pmu *pmu)
-> > > +{
-> > > +       return -EOPNOTSUPP;
-> > > +}
-> > > +#endif
-> > > +
-> > >  static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node =
-*node)
-> > >  {
-> > >         struct riscv_pmu *pmu =3D hlist_entry_safe(node, struct riscv=
-_pmu, node);
-> > > @@ -1195,6 +1242,10 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu=
- *pmu, struct platform_device *pde
-> > >         struct cpu_hw_events __percpu *hw_events =3D pmu->hw_events;
-> > >         struct irq_domain *domain =3D NULL;
-> > >
-> > > +       ret =3D pmu_sbi_setup_sse(pmu);
-> > > +       if (!ret)
-> > > +               return 0;
-> > > +
-> > >         if (riscv_isa_extension_available(NULL, SSCOFPMF)) {
-> > >                 riscv_pmu_irq_num =3D RV_IRQ_PMU;
-> > >                 riscv_pmu_use_irq =3D true;
-> > > @@ -1229,7 +1280,7 @@ static int pmu_sbi_setup_irqs(struct riscv_pmu =
-*pmu, struct platform_device *pde
-> > >                 return -ENODEV;
-> > >         }
-> > >
-> > > -       ret =3D request_percpu_irq(riscv_pmu_irq, pmu_sbi_ovf_handler=
-, "riscv-pmu", hw_events);
-> > > +       ret =3D request_percpu_irq(riscv_pmu_irq, pmu_sbi_ovf_irq_han=
-dler, "riscv-pmu", hw_events);
-> > >         if (ret) {
-> > >                 pr_err("registering percpu irq failed [%d]\n", ret);
-> > >                 return ret;
-> > > diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/risc=
-v_pmu.h
-> > > index f82a28040594..08fdcf6baf4e 100644
-> > > --- a/include/linux/perf/riscv_pmu.h
-> > > +++ b/include/linux/perf/riscv_pmu.h
-> > > @@ -28,6 +28,8 @@
-> > >
-> > >  #define RISCV_PMU_CONFIG1_GUEST_EVENTS 0x1
-> > >
-> > > +struct sse_event;
-> > > +
-> > >  struct cpu_hw_events {
-> > >         /* currently enabled events */
-> > >         int                     n_events;
-> > > @@ -54,6 +56,9 @@ struct riscv_pmu {
-> > >         char            *name;
-> > >
-> > >         irqreturn_t     (*handle_irq)(int irq_num, void *dev);
-> > > +#ifdef CONFIG_RISCV_PMU_SBI_SSE
-> > > +       struct sse_event *sse_evt;
-> > > +#endif
-> > >
-> > >         unsigned long   cmask;
-> > >         u64             (*ctr_read)(struct perf_event *event);
-> > > --
-> > > 2.43.0
-> > >
-> >
-> > Thanks,
-> > Yunhui
+BRs
 
-Thanks,
-Yunhui
+Zhentao
+
+> [0] https://docs.kernel.org/devicetree/bindings/writing-bindings.html
 
