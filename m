@@ -4,150 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AEF9D64077
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 05:30:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A76E7D64076
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 05:52:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oaIxa8kNET3ieCjb5yAjQtvVb3TrplraWqKUnJ17IoU=; b=eCA6VwrGRjeKos8xtxU1BqkARR
-	LoRQywfHqrWzgxOY884uMigeuDfl1RZU/7XUxtDM+jly3eZksetzZ7FqSrrRc/zZBn5Ou0yyNJQ/a
-	T4+HcL4FMlKFBX+7/ViYKJPZ8K/JlyJXQX+E3rujlqGWzR4ilo93B9vGCIXkDfjA7zQa7hNIQ+a8m
-	I3IwnvA35c9t0x5ZGheAJlAmnbAWEc8wkn5BvfBxhDaF+/YoLvH3V4Q9ivtAJRAzoN6AXAofQ6C0B
-	HmaiqJ3ZJxfJEfOiNSD1Q4lr/rDxFS/9ibEcI8L+CIxGAQUf/qwXNxAHDdh0yqkMDSYYIT/DO6sAg
-	IDoDPMgA==;
+	bh=1yCOpJg6X0Um66Kme35mqxsOl+PZm8sb2E061AMQWa4=; b=IX5EToJqAXIAZQ/iTTufufEZ3m
+	KC3uoIA4PmzK71i/OYAGqKm1WspEic9yVjvUlaNQTPEj9pd5vr6hn53rrAaqQFLphItFaRZbT4iP6
+	rqAY4o0pLdDBY0bjDvwuUQTC1v7lo1dbcBwYTwptzF0gHPwpgPOLNDiAUpm5JhyPSggxUJnn2XU3D
+	EFkiLbrtSFmgmGZvZn5zNumfapZJl1v9DNjZ5brOn1Uw+D+LsntidXee+pYUSmYwaAhsRvJfIecBA
+	qwDynHwDf7nrH7kIDkvcMbtJwcxbQ74a5RpUtPxQJBLJk2hg5/CDJv+tM6uDcHaO727Ce50Z2BuZI
+	4rbGeo7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVk6m-00000006Bug-3rII;
-	Wed, 17 Dec 2025 05:29:56 +0000
-Received: from mail-eastusazon11012034.outbound.protection.outlook.com ([52.101.53.34] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1vVkST-00000006CiQ-3SDP;
+	Wed, 17 Dec 2025 05:52:21 +0000
+Received: from inva020.nxp.com ([92.121.34.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVk6k-00000006BuI-1gKw
+	id 1vVkSQ-00000006Cht-2tmc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 05:29:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LyWAmwedBFqjslnWPhVa5GnYmxPl38n6mDTrDmsOFE5JrtrVoesYY1SWfe40/1KNwj+ySlI5zbR36OpWI9cELWyDGWw2XGRuw2jxUCXe2HSgp3hA0Bj6PGmrqBOufriyIkJWiqzNgh07p0RD3LfAoUdcDje53ZiDlnFma+jbodCwY/ztKjVtgYhIJrq/Etsm+FORGwdUF5FoJylXtfUGRYfiL5+ZmitvNizcU1mxa6yWl35F4+f0/SaW+RzOjR6FgHjuhRr0uVF06q+AM/L5sNzrVBgCn+FQ9+81lxu77uHbzMnp/6tdn0naJ/383RDfYszHGrAOJlM/Ew3/sMS46A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RbtmaOZfo8DyWQreH/kIst2H+pTtWPHiinAYxxB+wQM=;
- b=L+R9/NTR58CkRSLlDduhcfHeB9ag+mSs3qpSAh3VE6t7NKO2eVHu5D7a4N9ezimh6Sx8ZzXLL/wAyT/SdHoMfDuc0+3+iy8YCIFG9H+nQVXN18Ke4zYmB0xZpi3KuXzW+6wymcL5UUoAC1ax1W6Ie2FL4cLRuUEzVStz22udOUCbdv2j3oLc5GZhcKgaPlsKcCwzR1BVldDhRRZ29DeRCq0gMcTDsazhJYqdye3QUG2NAgTdFydQyeGvhb6PXN1QKQ9JYRwnr+2NcRcabO0t7bFMfg1TrWp5F4W9N4GhlidXAf6gAV40ZQq43fO1PtfDHLhOB85vA/0HM9ykhEbM2g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RbtmaOZfo8DyWQreH/kIst2H+pTtWPHiinAYxxB+wQM=;
- b=T8w7/5kg7GOJk7xrT7C3ODtvAdO0T4wTNECC0X3OxhU17uUfURKCFoZKk7vK33hFJB8j4vfiV6tacoq5nPMgetcnYHlBSrNc3aN9hrvYhI/8B1gXN1wsXoOhekI4b0nbvEc6/VOY/YvDQzSyE3R6TNk+7fqsKvtETgrHAbrVqNk=
-Received: from MN2PR01CA0040.prod.exchangelabs.com (2603:10b6:208:23f::9) by
- IA1PR10MB6097.namprd10.prod.outlook.com (2603:10b6:208:3ae::9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9434.6; Wed, 17 Dec 2025 05:29:44 +0000
-Received: from BL02EPF0001A0FC.namprd03.prod.outlook.com
- (2603:10b6:208:23f:cafe::f5) by MN2PR01CA0040.outlook.office365.com
- (2603:10b6:208:23f::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.6 via Frontend Transport; Wed,
- 17 Dec 2025 05:31:33 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.194; helo=lewvzet200.ext.ti.com; pr=C
-Received: from lewvzet200.ext.ti.com (198.47.23.194) by
- BL02EPF0001A0FC.mail.protection.outlook.com (10.167.242.103) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9434.6 via Frontend Transport; Wed, 17 Dec 2025 05:29:44 +0000
-Received: from DLEE209.ent.ti.com (157.170.170.98) by lewvzet200.ext.ti.com
- (10.4.14.103) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 16 Dec
- 2025 23:29:40 -0600
-Received: from DLEE211.ent.ti.com (157.170.170.113) by DLEE209.ent.ti.com
- (157.170.170.98) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 16 Dec
- 2025 23:29:40 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE211.ent.ti.com
- (157.170.170.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 16 Dec 2025 23:29:40 -0600
-Received: from localhost (lcpd911.dhcp.ti.com [172.24.233.130])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5BH5TdHs1070514;
-	Tue, 16 Dec 2025 23:29:40 -0600
-Date: Wed, 17 Dec 2025 10:59:38 +0530
-From: Dhruva Gole <d-gole@ti.com>
-To: "Kumar, Udit" <u-kumar1@ti.com>
-CC: "Thomas Richard (TI.com)" <thomas.richard@bootlin.com>, Nishanth Menon
-	<nm@ti.com>, Tero Kristo <kristo@kernel.org>, Santosh Shilimkar
-	<ssantosh@kernel.org>, Michael Turquette <mturquette@baylibre.com>, "Stephen
- Boyd" <sboyd@kernel.org>, Gregory CLEMENT <gregory.clement@bootlin.com>,
-	<richard.genoud@bootlin.com>, Prasanth Mantena <p-mantena@ti.com>, "Abhash
- Kumar" <a-kumar2@ti.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-clk@vger.kernel.org>
-Subject: Re: [PATCH v3 2/4] firmware: ti_sci: handle IRQ restore in
- BOARDCFG_MANAGED mode during resume
-Message-ID: <20251217052938.fpgclxhmyydvw7ce@lcpd911>
-References: <20251205-ti-sci-jacinto-s2r-restore-irq-v3-0-d06963974ad4@bootlin.com>
- <20251205-ti-sci-jacinto-s2r-restore-irq-v3-2-d06963974ad4@bootlin.com>
- <bcc7a3da-3cb5-451b-98eb-4f7896c615a1@ti.com>
+	Wed, 17 Dec 2025 05:52:20 +0000
+Received: from inva020.nxp.com (localhost [127.0.0.1])
+	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 9F12F1A1AB7;
+	Wed, 17 Dec 2025 06:52:14 +0100 (CET)
+Received: from aprdc01srsp001v.ap-rdc01.nxp.com (aprdc01srsp001v.ap-rdc01.nxp.com [165.114.16.16])
+	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 689271A0B5C;
+	Wed, 17 Dec 2025 06:52:14 +0100 (CET)
+Received: from lsvm11u0000395.swis.ap-northeast-2.aws.nxp.com (lsvm11u0000395.swis.ap-northeast-2.aws.nxp.com [10.52.9.99])
+	by aprdc01srsp001v.ap-rdc01.nxp.com (Postfix) with ESMTP id 3AE411800089;
+	Wed, 17 Dec 2025 13:52:12 +0800 (+08)
+Date: Wed, 17 Dec 2025 14:52:11 +0900
+From: Joseph Guo <qijian.guo@nxp.com>
+To: Yanan Yang <yanan.yang@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, justin.jiang@nxp.com,
+	Lei Xu <lei.xu@nxp.com>, Xiaofeng Wei <xiaofeng.wei@nxp.com>,
+	qijian.guo@oss.nxp.com
+Subject: Re: [PATCH v2 2/2] arm64: dts: freescale: add NXP FRDM-IMX91S board
+ support
+Message-ID: <aUJFC4ll033PzX7L@lsvm11u0000395.swis.ap-northeast-2.aws.nxp.com>
+References: <20251215-imx91s-frdm-v2-0-87996bdaa59c@nxp.com>
+ <20251215-imx91s-frdm-v2-2-87996bdaa59c@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <bcc7a3da-3cb5-451b-98eb-4f7896c615a1@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL02EPF0001A0FC:EE_|IA1PR10MB6097:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9e3b6659-374b-4e63-a2a3-08de3d2d4947
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|7416014|376014|82310400026|1800799024;
-X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?kk9sBROu03uvtxlIXBKmuV/u+JP2TluC5z1kWdl4NME+WP/zRtDgbE9VSj?=
- =?iso-8859-1?Q?l455YDcZUTcRAFjOnf13jwB32W86Kw2lGoBYD59I0+n2kdakUsTzVYKeSa?=
- =?iso-8859-1?Q?UzUAq91/dQhFk4MYCX7svdmsxp8CPPhitsp+whZDNDSHb3qr2RjLiscpoq?=
- =?iso-8859-1?Q?ydFYgeMdU/TkzzQZL3L1Md/4I9QHaJWFm7Jod7XdSiUzZTwWbEVv5vn4O0?=
- =?iso-8859-1?Q?Tf1gM4hypAboWXz+vN0cgVj3gpHhcSMIPPsfcBai/QE96l1FMMqrjy5+76?=
- =?iso-8859-1?Q?gmnE5DzNAL8vWOR9DJO5eEbwEXLm5rl1H4xWIBU03LQ/hS8yKgyUzpQ6gN?=
- =?iso-8859-1?Q?wDYARdMnCvsp7VezlgTTE9zYx/BaO69vygfpepZddd2bJsjvEnGl3f3wke?=
- =?iso-8859-1?Q?KbY3Dpnsw7F04XsBTj7YZfK9dCCAgRvc2ZspX2x614iKrqrrVZitTX/Q/K?=
- =?iso-8859-1?Q?uTiaH51GRTztdyhs9BZTyeSbEtFejp+JHzdXmJk5otYuuwbDAAECQLR+dY?=
- =?iso-8859-1?Q?E02PPipJFhrmCov7G8tmX5Hi5RWBsuK9nxD/MrPd6jhj3Drtql8AYB3s1A?=
- =?iso-8859-1?Q?63GifsNLXbl4/wjb0LWjj1c2ROZlRJIL0b6mCPPibXG+6dXW55hWqbP7j+?=
- =?iso-8859-1?Q?punGKmrMkLN6I6W+RQHgkDDZyVLFobnh81b7usDxtf1gSlzQ7XvfOfL9wt?=
- =?iso-8859-1?Q?hSfynT8FltigPDO8TIA83gdU3sPkR9FWwlV9lMZjRGcLsdg54tdQFN32e7?=
- =?iso-8859-1?Q?fn4aveF1Q91BjdDBswrbccXGg6RNiCiWIYGpL87pp3INlS+HDps3UoR+q7?=
- =?iso-8859-1?Q?Qt+zqx0Pt1kaHs+K56RFpAOpHHI+7PcyrmPnT8GhKdrRYs/aYCq1qIEQRQ?=
- =?iso-8859-1?Q?xEkb3DqnDxHpkmMFoGe+M1ETIyLVzB6Fd3lBu7m9DZ6bZtE8qvJjuHx3/t?=
- =?iso-8859-1?Q?Opeuozq8oqKJOBDJ4GJRtHLwFHTpe2tDK48MzgFAPk3OGEE2m23V6km05j?=
- =?iso-8859-1?Q?uZXFx5xFCOtiaF0lR/ZjdwSpsozHs+AWaWd/Q44RvaAaFzRspKrBRfSlLx?=
- =?iso-8859-1?Q?VXbKGFXnpyIme+KD25c15ZNx9md2n0798DJa4g6TME6H95IqTvpzb8x/zP?=
- =?iso-8859-1?Q?XczV+fmUHB3OxiMygzya6DXdPwzcltIgY0DQRuVGO9vaA7G2AK169eyApZ?=
- =?iso-8859-1?Q?/aLcwgdOcluRVJxiIDkksx6miJZdxCpgE9+LU1QNyl8KCPAvSVTOSRj47l?=
- =?iso-8859-1?Q?p/79/5JXAEPWr+dd/+EZjenu+o6gaNdz8gwjMAOlU6nBUwnTPv8zOas0yg?=
- =?iso-8859-1?Q?F5k2Thw+j7jAfk7U2jXlTED7C3fDqmVZvubS9JuX5CvDM1Y4IzuyHB4zqo?=
- =?iso-8859-1?Q?AEYS7oVa0k3MAzkl+QqZZ3f6xL21k2UKRjp0mInm+enBF4P57NdeewJ9Ci?=
- =?iso-8859-1?Q?JMX8ysSdRPlk7aIeb5R4F6ebiIBmTJ/UvLAgck1QxJ1W5ipESNcp2p6z8n?=
- =?iso-8859-1?Q?joay6sYXryI/fQHu8IW5PD2aE1HhOROXavClcJZPFYhBO2IJT1EO+qdhfz?=
- =?iso-8859-1?Q?YPUsoV35HY3snWIF1hzs6vhXy57qndssJJwk2uB5z5iHvRJABrRKHauqym?=
- =?iso-8859-1?Q?+OKuONl0kfwh8=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.23.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet200.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(7416014)(376014)(82310400026)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Dec 2025 05:29:44.4270
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9e3b6659-374b-4e63-a2a3-08de3d2d4947
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.194];Helo=[lewvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL02EPF0001A0FC.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR10MB6097
+In-Reply-To: <20251215-imx91s-frdm-v2-2-87996bdaa59c@nxp.com>
+X-Virus-Scanned: ClamAV using ClamSMTP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_212954_537360_771A6E02 
-X-CRM114-Status: GOOD (  25.33  )
+X-CRM114-CacheID: sfid-20251216_215218_864730_AFF3ECD4 
+X-CRM114-Status: GOOD (  16.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,204 +75,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Dec 16, 2025 at 08:17:24 +0530, Kumar, Udit wrote:
+On Mon, Dec 15, 2025 at 05:42:52PM +0900, Yanan Yang wrote:
+> Add DeviceTree support for the NXP FRDM-IMX91S development board based
+> on the i.MX91 SoC. FRDM-IMX91S is a cost-optimized variant of FRDM-IMX91
+> and differs in memory, storage, Ethernet, and PMIC configuration:
 > 
-> On 12/5/2025 7:58 PM, Thomas Richard (TI.com) wrote:
-> > In BOARDCFG_MANAGED mode, the firmware cannot restore IRQs during
-> > resume. This responsibility is delegated to the ti_sci driver,
-> > which maintains an internal list of all requested IRQs. This list
-> > is updated on each set/free operation, and all IRQs are restored
-> > during the resume_noirq() phase.
-> > 
-> > Signed-off-by: Thomas Richard (TI.com) <thomas.richard@bootlin.com>
-> > ---
-> >   drivers/firmware/ti_sci.c | 147 +++++++++++++++++++++++++++++++++++++++++++---
-> >   1 file changed, 138 insertions(+), 9 deletions(-)
-> > 
-> > diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
-> > index d77b631d9c855..8d94745376e2a 100644
-> > --- a/drivers/firmware/ti_sci.c
-> > +++ b/drivers/firmware/ti_sci.c
-> > @@ -12,6 +12,7 @@
-> >   #include <linux/cpu.h>
-> >   #include <linux/debugfs.h>
-> >   #include <linux/export.h>
-> > +#include <linux/hashtable.h>
-> >   #include <linux/io.h>
-> >   #include <linux/iopoll.h>
-> >   #include <linux/kernel.h>
-> > @@ -87,6 +88,16 @@ struct ti_sci_desc {
-> >   	int max_msg_size;
-> >   };
-> > +/**
-> > + * struct ti_sci_irq - Description of allocated irqs
-> > + * @node: Link to hash table
-> > + * @desc: Description of the irq
-> > + */
-> > +struct ti_sci_irq {
-> > +	struct hlist_node node;
-> > +	struct ti_sci_msg_req_manage_irq desc;
-> > +};
-> > +
-> >   /**
-> >    * struct ti_sci_info - Structure representing a TI SCI instance
-> >    * @dev:	Device pointer
-> > @@ -101,6 +112,7 @@ struct ti_sci_desc {
-> >    * @chan_rx:	Receive mailbox channel
-> >    * @minfo:	Message info
-> >    * @node:	list head
-> > + * @irqs:	List of allocated irqs
-> >    * @host_id:	Host ID
-> >    * @fw_caps:	FW/SoC low power capabilities
-> >    * @users:	Number of users of this instance
-> > @@ -117,6 +129,7 @@ struct ti_sci_info {
-> >   	struct mbox_chan *chan_tx;
-> >   	struct mbox_chan *chan_rx;
-> >   	struct ti_sci_xfers_info minfo;
-> > +	DECLARE_HASHTABLE(irqs, 8);
-> >   	struct list_head node;
-> >   	u8 host_id;
-> >   	u64 fw_caps;
-> > @@ -2301,6 +2314,32 @@ static int ti_sci_manage_irq(const struct ti_sci_handle *handle,
-> >   	return ret;
-> >   }
-> > +/**
-> > + * ti_sci_irq_hash() - Helper API to compute irq hash for the hash table.
-> > + * @irq:	irq to hash
-> > + *
-> > + * Return: the computed hash value.
-> > + */
-> > +static int ti_sci_irq_hash(struct ti_sci_msg_req_manage_irq *irq)
-> > +{
-> > +	return irq->src_id ^ irq->src_index;
-> > +}
-> > +
-> > +/**
-> > + * ti_sci_irq_equal() - Helper API to compare two irqs (generic headers are not
-> > + *                       compared)
-> > + * @irq_a:	irq_a to compare
-> > + * @irq_b:	irq_b to compare
-> > + *
-> > + * Return: true if the two irqs are equal, else false.
-> > + */
-> > +static bool ti_sci_irq_equal(struct ti_sci_msg_req_manage_irq *irq_a,
-> > +			     struct ti_sci_msg_req_manage_irq *irq_b)
-> > +{
-> > +	return !memcmp(&irq_a->valid_params, &irq_b->valid_params,
-> > +		       sizeof(*irq_a) - sizeof(irq_a->hdr));
-> > +}
-> > +
-> >   /**
-> >    * ti_sci_set_irq() - Helper api to configure the irq route between the
-> >    *		      requested source and destination
-> > @@ -2324,15 +2363,43 @@ static int ti_sci_set_irq(const struct ti_sci_handle *handle, u32 valid_params,
-> >   			  u16 dst_host_irq, u16 ia_id, u16 vint,
-> >   			  u16 global_event, u8 vint_status_bit, u8 s_host)
-> >   {
-> > +	struct ti_sci_info *info = handle_to_ti_sci_info(handle);
-> > +	struct ti_sci_msg_req_manage_irq *desc;
-> > +	struct ti_sci_irq *irq;
-> > +	int ret;
-> > +
-> >   	pr_debug("%s: IRQ set with valid_params = 0x%x from src = %d, index = %d, to dst = %d, irq = %d,via ia_id = %d, vint = %d, global event = %d,status_bit = %d\n",
-> >   		 __func__, valid_params, src_id, src_index,
-> >   		 dst_id, dst_host_irq, ia_id, vint, global_event,
-> >   		 vint_status_bit);
-> > -	return ti_sci_manage_irq(handle, valid_params, src_id, src_index,
-> > -				 dst_id, dst_host_irq, ia_id, vint,
-> > -				 global_event, vint_status_bit, s_host,
-> > -				 TI_SCI_MSG_SET_IRQ);
-> > +	ret = ti_sci_manage_irq(handle, valid_params, src_id, src_index,
-> > +				dst_id, dst_host_irq, ia_id, vint,
-> > +				global_event, vint_status_bit, s_host,
-> > +				TI_SCI_MSG_SET_IRQ);
-> > +
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	irq = kzalloc(sizeof(*irq), GFP_KERNEL);
-> > +	if (!irq)
-> > +		return -ENOMEM;
-> > +
-> > +	desc = &irq->desc;
-> > +	desc->valid_params = valid_params;
-> > +	desc->src_id = src_id;
-> > +	desc->src_index = src_index;
-> > +	desc->dst_id = dst_id;
-> > +	desc->dst_host_irq = dst_host_irq;
-> > +	desc->ia_id = ia_id;
-> > +	desc->vint = vint;
-> > +	desc->global_event = global_event;
-> > +	desc->vint_status_bit = vint_status_bit;
-> > +	desc->secondary_host = s_host;
-> > +
-> > +	hash_add(info->irqs, &irq->node, ti_sci_irq_hash(desc));
-> > +
-> > +	return 0;
-> >   }
-> >   /**
-> > @@ -2358,15 +2425,46 @@ static int ti_sci_free_irq(const struct ti_sci_handle *handle, u32 valid_params,
-> >   			   u16 dst_host_irq, u16 ia_id, u16 vint,
-> >   			   u16 global_event, u8 vint_status_bit, u8 s_host)
-> >   {
-> > +	struct ti_sci_info *info = handle_to_ti_sci_info(handle);
-> > +	struct ti_sci_msg_req_manage_irq irq_desc;
-> > +	struct ti_sci_irq *this_irq;
-> > +	struct hlist_node *tmp_node;
-> > +	int ret;
-> > +
-> >   	pr_debug("%s: IRQ release with valid_params = 0x%x from src = %d, index = %d, to dst = %d, irq = %d,via ia_id = %d, vint = %d, global event = %d,status_bit = %d\n",
-> >   		 __func__, valid_params, src_id, src_index,
-> >   		 dst_id, dst_host_irq, ia_id, vint, global_event,
-> >   		 vint_status_bit);
-> > -	return ti_sci_manage_irq(handle, valid_params, src_id, src_index,
-> > -				 dst_id, dst_host_irq, ia_id, vint,
-> > -				 global_event, vint_status_bit, s_host,
-> > -				 TI_SCI_MSG_FREE_IRQ);
-> > +	ret = ti_sci_manage_irq(handle, valid_params, src_id, src_index,
-> > +				dst_id, dst_host_irq, ia_id, vint,
-> > +				global_event, vint_status_bit, s_host,
-> > +				TI_SCI_MSG_FREE_IRQ);
-> > +
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	irq_desc.valid_params = valid_params;
-> > +	irq_desc.src_id = src_id;
-> > +	irq_desc.src_index = src_index;
-> > +	irq_desc.dst_id = dst_id;
-> > +	irq_desc.dst_host_irq = dst_host_irq;
-> > +	irq_desc.ia_id = ia_id;
-> > +	irq_desc.vint = vint;
-> > +	irq_desc.global_event = global_event;
-> > +	irq_desc.vint_status_bit = vint_status_bit;
-> > +	irq_desc.secondary_host = s_host;
-> > +
-> > +	hash_for_each_possible_safe(info->irqs, this_irq, tmp_node, node,
-> > +				    ti_sci_irq_hash(&irq_desc)) {
-> > +		if (ti_sci_irq_equal(&irq_desc, &this_irq->desc)) {
-> > +			hlist_del(&this_irq->node);
-> > +			kfree(this_irq);
-> > +			return 0;
+> - 512MB LPDDR4 (FRDM-IMX91 uses 1GB)
+> - 256MB FlexSPI-NAND (FRDM-IMX91 uses 8GB eMMC)
+> - Single GbE port (FRDM-IMX91 has dual GbE)
+> - PMIC PF9453 (FRDM-IMX91 uses PCA9451A)
 > 
+> This DT enables:
+> - ADC1
+> - UART1 and UART5
+> - I2C bus and children nodes
+> - USB and related nodes
+> - uSDHC1 and uSDHC2
+> - FlexSPI NAND flash
+> - Watchdog3
+> - Ethernet (eqos)
+> - FlexCAN
+> - MQS
 > 
-> IMO,  you can restrict saving of irq and list management to fw having
+> Link: https://www.nxp.com/design/design-center/development-boards-and-designs/FRDM-IMX91S
+> (FRDM-IMX91S board page)
+> Link: https://www.nxp.com/design/design-center/development-boards-and-designs/FRDM-IMX91
+> (FRDM-IMX91 board page)
 > 
-> BOARDCFG_MANAGED capability.
+> Co-developed-by: Lei Xu <lei.xu@nxp.com>
+> Signed-off-by: Lei Xu <lei.xu@nxp.com>
+> Co-developed-by: Xiaofeng Wei <xiaofeng.wei@nxp.com>
+> Signed-off-by: Xiaofeng Wei <xiaofeng.wei@nxp.com>
+> Signed-off-by: Yanan Yang <yanan.yang@nxp.com>
 > 
-> Dhurva ?
+> ---
+> Changes in v2:
+> - Correct author name: removed extra period in "Yanan.Yang"
+> - Removed aliases pointing to disabled nodes from DTS
+> - Add "rtc0 = &pcf2131;" in aliases to make external RTC the primary device
+> - Fix DT node name: change
+>   "usdhc1_pwrseq: usdhc1_pwrseq" to "usdhc1_pwrseq: usdhc1-pwrseq"
+> - Renamed LED node from 'status' to 'led-0' to comply with gpio-leds binding
+> - Replace regulator-based transceiver (reg_can_stby) with CAN PHY (nxp,tja1051)
+> - Replaced 'xceiver-supply' property with 'phys' in flexcan1 node
+> - Adjusted alignment in fsl,pins property: used spaces between pin names and values for proper DTS style.
+> ---
+>  arch/arm64/boot/dts/freescale/Makefile             |   1 +
+>  .../boot/dts/freescale/imx91-11x11-frdm-s.dts      | 677 +++++++++++++++++++++
+>  2 files changed, 678 insertions(+)
+>
 
-Yes I agree with Udit, we should gate hash operations by firmware capability.
-Everywhere else you'll need to make it conditional accordingly.
+Hi Yanan,
 
-Also, how much is the IRQ count usually? If IRQ count is typically small (< 50),
-then won't a simple linked list be more efficient than a hash table? The
-code becomes a bit more readable too that way IMO.
-Take a call based on if there's really that many IRQs that LL's become
-less practical.
+According to u-boot requirement. We should ensure the minimum difference to the U-boot dts and kernel DTS.
+So I suggesst to add bootph- properties to the nodes should be initialized at u-boot stage.
 
--- 
-Best regards,
-Dhruva Gole
-Texas Instruments Incorporated
+Regards,
+Joseph
 
