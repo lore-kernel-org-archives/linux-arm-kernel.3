@@ -4,68 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3874D66B85
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 19:17:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B776D66B85
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 19:18:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=81Abl9aSXqO6VCJZziQzRy2Nkmg+USJz57ws9VtOYYM=; b=0Mhl2G3pdYFgNdvwaaqvBDYJzR
-	YDg/DbZQHbl/7y8dNWd6IIulVZ3A6qaccM5pOvSye6mu0w+TQn5JZxkmSsI/v20xXWK/kZuCRJxq2
-	Y1ubPX4YKNSGJPBEoZqq7yCMGWyce2cjySevu7rx2+i1B+oKCf3m4oicXBqo8goV8KwaT+auDBPzK
-	DIVXgzFN5qYa30FJgkKFyLHBNYj9+tbHKzkYaJ/l2YnLnzY0bhmyEwP4fTnFUf8vIX/pZWSWhnKlx
-	E+rqFcsOCtjinbI58pSoB/jD/mmh+s1G8IDoblwpYtiTTRHoY0VS7uyUZR9cnPSv9nXTsWVrMsgw2
-	XjVG52sA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CK2xc4O1CWL3YyR5Jlk5dSHvCSo9+K5mz+4BdYDHf5E=; b=O5bdcCdqHtsjwXrsazBsRmJncB
+	vQe4pemezSjUfiuIL6l4OePegkWYFYwn21FEhQGmiiUdhkr4TLEEZHwIuJsiMtzp7NBshdjewEdZH
+	76WRar1snZASxSGNO6cZdvlv7w2OjTqzHSiyuFSrA6YY7+3hpTXXhP0b8KOcmiuR2TtVVxlAV/83t
+	Sf2TreY3nV+RKwH39+f0ZeiMavbmWAJaYn8+K/JM4U1+89QIOpeb+xck1F9t1sMEz6kg3BNa4/Dth
+	iXgtO8FM0R62GkBJ8lR/zYXxLvWqd2Pxw3xY+bCE2V2xlkD6ruH2xZu8OhNK80q+7CX6bLyFDr//n
+	x6PotuKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVx1e-00000007Jbl-3oFX;
-	Wed, 17 Dec 2025 19:17:30 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vVx2M-00000007Jgv-15ap;
+	Wed, 17 Dec 2025 19:18:14 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVx1a-00000007JbQ-1YQZ
+	id 1vVx2K-00000007JgO-08TW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 19:17:29 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id E139E4E41C66
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 19:17:21 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 9B4046072F;
-	Wed, 17 Dec 2025 19:17:21 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E0B35102F0AF3;
-	Wed, 17 Dec 2025 20:17:15 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1765999037; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=81Abl9aSXqO6VCJZziQzRy2Nkmg+USJz57ws9VtOYYM=;
-	b=D0zzTwtH8rkpA3QHSZ9WyVjL9H4YQPxC1eQuACw7FknGFABBOdidh/uDc2GIjb10s1/+4Q
-	8ZPJ4dYi61SHm1RHj9hRAXzoRXdFpziIk6EKJdLP3U3gEo8zrHQ9Ia7SYR+iaWBDSFLnMs
-	SDasUUQZNP+zfBT1/Dy4zQEckye2TNGlcK15V3U+34nhpF2qaWWO2kIgZtHwaLXagyMRUt
-	BeuizFmum9QkckiwVAUvnuF5xdVnVxlUKnftNw9kvsiT2NGO8VVL3QDp/o5yGtOQwiwobe
-	drgIRJaqBinjyVUlOx+CSy5kkMmzdrNoWndS9ykDEROKpyJ4jYSJTuiOV4FgEA==
-Date: Wed, 17 Dec 2025 20:17:15 +0100
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: "T, Harini" <Harini.T@amd.com>
-Cc: Tomas Melin <tomas.melin@vaisala.com>,
-	"Simek, Michal" <michal.simek@amd.com>,
-	"linux-rtc@vger.kernel.org" <linux-rtc@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 2/4] rtc: zynqmp: rework read_offset
-Message-ID: <202512171917155dba6723@mail.local>
-References: <20251201-zynqmp-rtc-updates-v1-0-33875c1e385b@vaisala.com>
- <20251201-zynqmp-rtc-updates-v1-2-33875c1e385b@vaisala.com>
- <LV5PR12MB98047B0A754AFFFB01163E0992A3A@LV5PR12MB9804.namprd12.prod.outlook.com>
- <353422a2-ba6e-4600-9326-e0cee2098062@vaisala.com>
- <LV5PR12MB980448D3F4109DC0775A56AA92ABA@LV5PR12MB9804.namprd12.prod.outlook.com>
+	Wed, 17 Dec 2025 19:18:13 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-7bc248dc16aso5109586b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 11:18:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1765999091; x=1766603891; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CK2xc4O1CWL3YyR5Jlk5dSHvCSo9+K5mz+4BdYDHf5E=;
+        b=Vtj5J/K0enmVw5buHxgIAzJ5IEDN2J4b51qWhYefHPJIPEosO1uUlWl00p9aRGv04N
+         bFjkdFNEytxKbQDX3Ylapq8//IdBkXblnr4tehw8NijvXF13gwyxtgVCg+scuWk4tKMe
+         MdOrMgi+oMAXk6OipUV7MWqklzQZV1pLW+0fI3/GUSM3+9drDYgVKzhrZxWnSog7ubj9
+         RfXLabTMk4UPqXCuaC5v2bOxL/evS+Zqa6kDarJTsU4wwfBIo/bM3kSP78B0uoMPpnTm
+         BgfmYmAvM8pJzO8P3mDMC4AnnFBI3sEzXXqEPqynGLew+9UabZgkQBoWyaxmeejaDYih
+         YFkw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765999091; x=1766603891;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=CK2xc4O1CWL3YyR5Jlk5dSHvCSo9+K5mz+4BdYDHf5E=;
+        b=tJvJOr+7DUcw97EFH+P0xqT5UpYKDL8A5Guo8vZEbO+k6cwNKWHaqQA9aeHy8wMP4A
+         F7oaWhuJSEI3XMbmhCQiFLp2xpmbcwXAbKjeJQ5vYIfkd5zUja6J7EuoRaDWruqx4JFQ
+         yaCm/2AAK9iqvaCUaONWGtiJCwqY5WEZlgvBEmyMnVDX4S6yjeesAYquLwwdzQKDnBTU
+         nQwi2RatQn09vCW7efPFHNDbnisKjbnOIbqa997aEhHUIWLO1PsRjlUsAYbZ487s1gTD
+         GNT7jNam4hKI4l9tJWUOXqssJKySzehFweH5FGWsg0hDPSxPteixsl2Zt8zEJN5F8oiQ
+         HTiw==
+X-Forwarded-Encrypted: i=1; AJvYcCVhPc68Nu978Ie2HKtF7+lgq7jd8GKGN2RP4qPKblcN8q94nWzqtpxoaSaOH1k8RftWCGYsQmRa3ckwiKo1qEvp@lists.infradead.org
+X-Gm-Message-State: AOJu0YxAkK4nlP88DH17uDb5Xxe2867HpNJ6EwRiSA5/l/IgBnXf/whz
+	VIuRP+kO7oS3rxox1feZetrfmT9ZZXuac8jr1foiMN3yKHh8D+1bRelaxFJYrkDD5PNq7sy6pdG
+	gbolOMGasMrJhRfx17jby3qUY68YsgNu3SNsZXRRX
+X-Gm-Gg: AY/fxX4Z4/vhaIYFEgrsz9Fl1GdNyHQz6lJqOk6wDFmmbvFakcSC9Ds+4P4HvsBTmk6
+	yLM8L1eaVsI8fE4isWtc5/ZXpgIesQC2gc73N2sb+E/QhS6ewm1TIQVK79R4jUVPr6P+d6iEerZ
+	98zheKY8VJgbD+v/8N+9t20OvRkvGeWigCswEDVuTBsa7Pn8x6YVgWoYre6a2QrfNV7JMdcN+/Z
+	dSD8Sib+4UBNLhgdwHw5eRFFdaLyPH9JQrP0ClOi6QlomZHxbCeCmiqVgSQcbatyZFDEzSQEuM+
+	2hRFk+9DAlmBlHTP4FOQ/IJY5A==
+X-Google-Smtp-Source: AGHT+IHU2vpetQSDEWGYm+Y16+Q+hMrDA20ASiwjGw22PJF4oOT0FZWKdk6jDg2jAFGB5cCqYCpdKNR8qXBpSDUqoaU=
+X-Received: by 2002:a05:7022:7e09:b0:11b:a892:80a5 with SMTP id
+ a92af1059eb24-11f349c5953mr12769514c88.13.1765999090603; Wed, 17 Dec 2025
+ 11:18:10 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <LV5PR12MB980448D3F4109DC0775A56AA92ABA@LV5PR12MB9804.namprd12.prod.outlook.com>
-X-Last-TLS-Session-Version: TLSv1.3
+References: <20251205-controller-v9-0-9f158b18f979@google.com>
+ <20251205-controller-v9-2-9f158b18f979@google.com> <2025120553-suffrage-divisive-5890@gregkh>
+ <CA+zupgzL7v5MZDpxKDQQCqAZaqTdHbiG9-xTr+8RnigMFZJ_7Q@mail.gmail.com> <2025121728-reliably-crabgrass-2601@gregkh>
+In-Reply-To: <2025121728-reliably-crabgrass-2601@gregkh>
+From: Roy Luo <royluo@google.com>
+Date: Wed, 17 Dec 2025 11:17:34 -0800
+X-Gm-Features: AQt7F2pRcbJChuQijr6nIYQ6eCnDyo-nRUDl_79j5YJBIy8PmN9l851-QlzkUmI
+Message-ID: <CA+zupgxZCyNonfNPbGnFymGGOQuaWR1TsL+hujTbH4DEcfEt9Q@mail.gmail.com>
+Subject: Re: [PATCH v9 2/2] usb: dwc3: Add Google Tensor SoC DWC3 glue driver
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
+	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Badhri Jagan Sridharan <badhri@google.com>, 
+	Doug Anderson <dianders@google.com>, linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, Joy Chakraborty <joychakr@google.com>, 
+	Naveen Kumar <mnkumar@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_111726_923629_AD07A3C4 
-X-CRM114-Status: GOOD (  25.66  )
+X-CRM114-CacheID: sfid-20251217_111812_075953_471E5075 
+X-CRM114-Status: GOOD (  29.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,82 +105,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/12/2025 18:14:30+0000, T, Harini wrote:
-> [Public]
-> 
-> Hi,
-> 
-> > -----Original Message-----
-> > From: Tomas Melin <tomas.melin@vaisala.com>
-> > Sent: Wednesday, December 10, 2025 5:35 PM
-> > To: T, Harini <Harini.T@amd.com>; Alexandre Belloni
-> > <alexandre.belloni@bootlin.com>; Simek, Michal <michal.simek@amd.com>
-> > Cc: linux-rtc@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-
-> > kernel@vger.kernel.org
-> > Subject: Re: [PATCH 2/4] rtc: zynqmp: rework read_offset
-> >
-> > Caution: This message originated from an External Source. Use proper caution
-> > when opening attachments, clicking links, or responding.
-> >
-> >
-> > Hi,
-> >
-> > On 09/12/2025 19:28, T, Harini wrote:
-> > > [Public]
+On Wed, Dec 17, 2025 at 5:24=E2=80=AFAM Greg Kroah-Hartman
+<gregkh@linuxfoundation.org> wrote:
+>
+> On Thu, Dec 04, 2025 at 11:14:39PM -0800, Roy Luo wrote:
+> > On Thu, Dec 4, 2025 at 10:05=E2=80=AFPM Greg Kroah-Hartman
+> > <gregkh@linuxfoundation.org> wrote:
 > > >
-> > > Hi,
+> > > On Fri, Dec 05, 2025 at 02:26:38AM +0000, Roy Luo wrote:
+> > > > +config USB_DWC3_GOOGLE
+> > > > +     tristate "Google Platform"
+> > > > +     depends on ARCH_GOOGLE || COMPILE_TEST
 > > >
-> > >> -----Original Message-----
-> > >> From: Tomas Melin <tomas.melin@vaisala.com>
-> > >> Sent: Monday, December 1, 2025 6:20 PM
-> > >> To: Alexandre Belloni <alexandre.belloni@bootlin.com>; Simek, Michal
-> > >> <michal.simek@amd.com>
-> > >> Cc: linux-rtc@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
-> > >> linux- kernel@vger.kernel.org; Tomas Melin <tomas.melin@vaisala.com>
-> > >> Subject: [PATCH 2/4] rtc: zynqmp: rework read_offset
-> > >>
-> > >> Caution: This message originated from an External Source. Use proper
-> > >> caution when opening attachments, clicking links, or responding.
-> > >>
-> > >>
-> > >> read_offset() was using static frequency for determining the tick
-> > >> offset. It was also using remainder from do_div() operation as
-> > >> tick_mult value which caused the offset to be incorrect.
-> > >>
-> > >> At the same time, rework function to improve readability.
-> > >>
-> > >> Signed-off-by: Tomas Melin <tomas.melin@vaisala.com>
-> > >> ---
-> > >>  drivers/rtc/rtc-zynqmp.c | 25 ++++++++++++++++---------
-> > >>  1 file changed, 16 insertions(+), 9 deletions(-)
-> > >>
-> > >> diff --git a/drivers/rtc/rtc-zynqmp.c b/drivers/rtc/rtc-zynqmp.c
-> > >> index
-> > >>
-> > 856bc1678e7d31144f320ae9f75fc58c742a2a64..7af5f6f99538f961a53ff56
-> > bfc6
-> > >> 56c907611b900 100644
-> > >> --- a/drivers/rtc/rtc-zynqmp.c
-> > >> +++ b/drivers/rtc/rtc-zynqmp.c
-> > >> @@ -178,21 +178,28 @@ static void xlnx_init_rtc(struct xlnx_rtc_dev
-> > >> *xrtcdev)  static int xlnx_rtc_read_offset(struct device *dev, long *offset)  {
-> > >>         struct xlnx_rtc_dev *xrtcdev = dev_get_drvdata(dev);
-> > >> -       unsigned long long rtc_ppb = RTC_PPB;
-> > >> -       unsigned int tick_mult = do_div(rtc_ppb, xrtcdev->freq);
-> > >> -       unsigned int calibval;
-> > >> +       unsigned int calibval, fract_data, fract_part;
-> > > Prefer one variable assignment per line for readability.
-> > This is after all quite common practice, and in a function like this where several
-> > variables are needed, I would argue that this is more readable than the
-> > alternative. Is there some convention I'm not aware of?
-> There is no such mandatory convention. It's up to the RTC maintainer.
+> > > There is no ARCH_GOOGLE in the tree now, so how is this supposed to
+> > > work?  Shouldn't tools that check for "invalid config options" trigge=
+r
+> > > on this?
+> > >
+> > > thanks,
+> > >
+> > > greg k-h
+> >
+> > Hi Greg,
+> >
+> > The menuconfig looks like the following and it doesn't complain:
+> > | Symbol: ARCH_GOOGLE [=3DARCH_GOOGLE]
+> > | Type  : unknown
+> > |
+> > | Symbol: PHY_GOOGLE_USB [=3Dy]
+> > | Type  : tristate
+> > | Defined at drivers/phy/Kconfig:104
+> > |     Prompt: Google Tensor SoC USB PHY driver
+> > |     Depends on: ARCH_GOOGLE || COMPILE_TEST [=3Dy]
+> >
+> > According to Kconfig documentation [1], the unknown symbol
+> > would simply be evaluated as an "n", which is what we want.
+> > "Convert the symbol into an expression. Boolean and tristate
+> > symbols are simply converted into the respective expression
+> > values. All other symbol types result in =E2=80=98n=E2=80=99."
+> >
+> > In a different Kconfig documentation, an environment variable
+> > "KCONFIG_WARN_UNKNOWN_SYMBOLS" is there to detect
+> > undefined symbols in the "config input", but I can't find one that
+> > catches undefined symbols in the Kconfig tree itself.
+> >
+> > That is, the tool seems to allow this.
+> > However, if this turns out to be a major problem. I think we
+> > can either:
+> > - Remove ARCH_GOOGLE and leave COMPILE_TEST as
+> >   the only dependency. Then add ARCH_GOOGLE back
+> >   later once it's in the tree.
+>
+> Please do this.  I do not want to take patches that purposfully add
+> dependencies on config options that might, or might not, appear in the
+> future.  Please just remove all of the dependancies for now, as they are
+> not needed, right?
+>
+> thanks,
+>
+> greg k-h
 
-I don't mind having multiple variable declarations on a single line.
+Greg,
 
+Yes, we can remove ARCH_GOOGLE for now.
+To clarify, we're not removing all of the dependencies, we still want
+to keep COMPILE_TEST for build tests, right?
+Please let me know if you think otherwise.
 
-
--- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Thanks,
+Roy
 
