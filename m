@@ -4,95 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B11E1D65C47
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 13:35:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1582FD65C47
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 13:40:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
-	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L3+abCe5E3Tvk7YKU0mcCWD1gF9CHnTNJLhm+1muw5I=; b=i/smA2hzpNZ/txIsMpDPAURVke
-	iHmoYLyamMkT9KkdfJQkh7KcDRj+u3uiChG7oQD1hRJUt6YhZofWhahiC25vZ2L/jYCHtiCXoV22L
-	qQrpoi9IWEn3F4Wew/UXcgfFUEt/akYUTWgqg9tmfezEQS0iluxJlFUfYysv1VTEAlm70RCJCUJBD
-	hd+x8endsLB+z83rZeVxgUFJcP4BCuDVhHRM7k5uVTKxpanjLihIEti1lIuL5lDMBs4AxnH20Eep0
-	isXsrHPDzFHU01xzzrAgFe4GSE4oVGFL2+0CJKVFigFCEyJPFJSwZ4mM50QEt2vUK97Zs2s0oT30p
-	VJUWu43g==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6pIj46nVvtUq+4eec5aThnrTEmEGNk5gVfAEDmgIrpg=; b=GLu77hKLseEjibEXH04nFRe5A5
+	c0a6ngbELyIxyPsViGSC7mZeSO6bZMy+6Ya058A/Q4q4PQG65BGkVPF7awah70dAh4c589AIaPqAM
+	c2AxAoq5fY75G6oZyhf+K860jv8WKoXjD7bRERd5pD1s3wSwMwxIxC+3V28NNvowibhCUjxThT/yN
+	YduKIYriDLnX7Gg4zUYK1VIjo75tQGkrOQ+TNIlTgwyd6a0jnkfrVc63ThsYNnCZYk8SGekbo70kj
+	XTMHCFkS/wPLjflPa6imL4ByYplINOyef1xdTqjjp/xbF/vd8l/fVk5zjaAQqPRu/IfEqqjoXWO97
+	Y7gu656w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVrgs-00000006rsV-2Pym;
-	Wed, 17 Dec 2025 13:35:42 +0000
-Received: from mail-ej1-x64a.google.com ([2a00:1450:4864:20::64a])
+	id 1vVrl4-00000006sBG-3xom;
+	Wed, 17 Dec 2025 13:40:02 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVrgq-00000006rrh-39Hm
+	id 1vVrl2-00000006sA0-2enK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 13:35:42 +0000
-Received: by mail-ej1-x64a.google.com with SMTP id a640c23a62f3a-b7ce2f26824so675312666b.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 05:35:39 -0800 (PST)
+	Wed, 17 Dec 2025 13:40:02 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-349bb6f9c86so7429878a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 05:39:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1765978538; x=1766583338; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=L3+abCe5E3Tvk7YKU0mcCWD1gF9CHnTNJLhm+1muw5I=;
-        b=YSTC+qNJYNMKqrLZHhDEBOz6oZnKpHaZJE43FTmN08LkXxYdXH3pvHGXrdtb5QV7uD
-         YyyE2ZVc3xoU3aOPlDEp/d2CJPm8A3dnes81lByGyWweCcd90R2KbReJ6wlvqg+8p44T
-         eBPNwdp3hhHSfUpTlW+0DUMrmwy3s9RluNbGhhwwY3wocdncQyE+v78BbRGm5rdk0mNZ
-         nZq9FhwmWy38oD709j/RgP4uSeWtE3Zb1s4LONLx0+SWwPIryjiMKKwNnGp0IoZI2ce2
-         12CnATP8eSphydEN8rRYyBv6dYnnXAwM606gYpX6HjpOiin2FlIpIquTXDwoCd5ndmo6
-         N/Uw==
+        d=gmail.com; s=20230601; t=1765978794; x=1766583594; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=6pIj46nVvtUq+4eec5aThnrTEmEGNk5gVfAEDmgIrpg=;
+        b=I/m+r6hZ1nrOKZoTWf2AIQI0XsYh5UmrfxyrPxkS/uA7T+JWBe7DPa/p7uZ63HT8b5
+         rd6jqK+Y4rWKjvTedYSgVPd/csZ4648RYl4cCywDCKCY2u6Ls7QpY+8UfF2PLrrO3QnG
+         T3rY9B5aYK0FuS5iHmSKHxGVQTtfU2V5GfTmlaiyJzXv/OXq6t+BwQYRsXjuYtiAwTc5
+         y/f3kX0o0wjsG9fC5Jyw1tJPLG2bPyz1PRXWjpWeS9hf5hYxh0R+JeXpfkK7qUKdwXyb
+         SDg381pv0wnTrBBjhomZFp0V3HLhCp/IYLs5W3fHQ1Ln5uFZKJNh5e9YVW25NoHaaLlZ
+         Jrlw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765978538; x=1766583338;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=L3+abCe5E3Tvk7YKU0mcCWD1gF9CHnTNJLhm+1muw5I=;
-        b=Hx23RZwrkdyhFeifdcxw48v+Z00f63sivHuA0GBPNJ3v7miqaGB/vxMB5YdbibWAjh
-         4Md+JSpD6+oDKa77hIjo41meBjn1v+vUNABMvUkpRCjEjf0Zcn+wfCkORI7jBi8T9HLV
-         fd0MUf/SGkBBiH3xhjKZnwWB9rIjpTFmchrU5yUbH95UAZuWABqsjz1Er3fJKW8dEHsC
-         NkJKRGe+fc+m7EioFkC6DuylymBGnAAWKyJs0p8QudwofotuuWmZVoedZ5KBAX8swKv1
-         c6SOhXDswsCVyx/fL/VT8CKZ+r+bHSs/7RSrJeNu7WuQ3ZeAqc6FeV3fgfS6HbQuAhx/
-         wYXA==
-X-Forwarded-Encrypted: i=1; AJvYcCV03XBBciaMYAZgTzpLXggUmU+yiI+k3s2t2DrsFcB4FzoRUbCmqeXE/7x90Hskkbw5zUvqq0vpi3GeH5sKtrDa@lists.infradead.org
-X-Gm-Message-State: AOJu0YzAHck3G/R+aBPysq8SIEhdyFqWw4l/ZGrsTobNHqLRB6a9kBtl
-	ejb/r+d+yz2agk66oBpypIgKloUtY+uX72WxmXSG9ibC4aB4H3xZQDAukCMDnKUmaWfdh8HTj4u
-	BApGFLIyhnPpZ/Q==
-X-Google-Smtp-Source: AGHT+IEH+CdZ04WhFeb5ACXOuocx1dvo+huQmXb+rWY+iQbXbRJaTnTHbLhzGq2SLmIXnR9UZvwmulhup/NTKw==
-X-Received: from ejns16.prod.google.com ([2002:a17:906:99d0:b0:b80:1160:f8f0])
- (user=jackmanb job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:907:e112:b0:b80:b7f:aa14 with SMTP id a640c23a62f3a-b800b7fc0f1mr189984166b.32.1765978538592;
- Wed, 17 Dec 2025 05:35:38 -0800 (PST)
-Date: Wed, 17 Dec 2025 13:35:37 +0000
-In-Reply-To: <d912480a-5229-4efe-9336-b31acded30f5@suse.cz>
-Mime-Version: 1.0
-References: <20251212161832.2067134-1-yeoreum.yun@arm.com> <916c17ba-22b1-456e-a184-cb3f60249af7@arm.com>
- <aUGOPd7gNRf1xHEc@e129823.arm.com> <100cc8da-b826-4fc2-a624-746bf6fb049d@arm.com>
- <aUKKZR0u22KOPfd7@e129823.arm.com> <d96ac977-222e-4e8d-9487-da1306198419@arm.com>
- <aUKnfU/3FREY13g1@e129823.arm.com> <d912480a-5229-4efe-9336-b31acded30f5@suse.cz>
-X-Mailer: aerc 0.21.0
-Message-ID: <DF0J58HOVLL4.2E16Q87D2UXRW@google.com>
-Subject: Re: [PATCH 0/2] introduce pagetable_alloc_nolock()
-From: Brendan Jackman <jackmanb@google.com>
-To: Vlastimil Babka <vbabka@suse.cz>, Yeoreum Yun <yeoreum.yun@arm.com>, 
-	Ryan Roberts <ryan.roberts@arm.com>
-Cc: <akpm@linux-foundation.org>, <david@kernel.org>, 
-	<lorenzo.stoakes@oracle.com>, <Liam.Howlett@oracle.com>, <rppt@kernel.org>, 
-	<surenb@google.com>, <mhocko@suse.com>, <ast@kernel.org>, 
-	<daniel@iogearbox.net>, <andrii@kernel.org>, <martin.lau@linux.dev>, 
-	<eddyz87@gmail.com>, <song@kernel.org>, <yonghong.song@linux.dev>, 
-	<john.fastabend@gmail.com>, <kpsingh@kernel.org>, <sdf@fomichev.me>, 
-	<haoluo@google.com>, <jolsa@kernel.org>, <jackmanb@google.com>, 
-	<hannes@cmpxchg.org>, <ziy@nvidia.com>, <bigeasy@linutronix.de>, 
-	<clrkwllms@kernel.org>, <rostedt@goodmis.org>, <catalin.marinas@arm.com>, 
-	<will@kernel.org>, <kevin.brodsky@arm.com>, <dev.jain@arm.com>, 
-	<yang@os.amperecomputing.com>, <linux-mm@kvack.org>, 
-	<linux-kernel@vger.kernel.org>, <bpf@vger.kernel.org>, 
-	<linux-rt-devel@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+        d=1e100.net; s=20230601; t=1765978794; x=1766583594;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=6pIj46nVvtUq+4eec5aThnrTEmEGNk5gVfAEDmgIrpg=;
+        b=HqEU4/piXL+KBnl+l3yQGaOAVvon9xmuzEw55u33mz40vMM41qaHQsbh676UJx1BnK
+         IWuOibyeu6Qz2izLvcK7i8lmUQt5OM6V5e/Jey72EooQ2LuDp/3HvreNeMAd+IqQQIsX
+         YqGFZ2hCojKOJd1X+BEKfEfMVsbtlIzakYV861htdQKeqcvPryuhrH/04u84zOydUQZi
+         /zZMOYkCExXP7Lucgsq7IMPzqF/MreG4voKwl+FnQb0at1bR24x/nisWlKHM8mc1VJ0/
+         chMvj51BqJRM95omNocrLsaH4Z2ZdoAoEow0xNW1vTJHynbc/dJjWnbf3lAYuXOvNdGl
+         K1tA==
+X-Forwarded-Encrypted: i=1; AJvYcCWJJTe6wOTSKIKG9ixCi3SDE0bCUjvW5N5X4FYkI202rQsf+REyiWuQqcZBLf8Z4nSziwd23dCsz/r9HhYBcTHE@lists.infradead.org
+X-Gm-Message-State: AOJu0YwWY//a+ZGh1NC2o2Bd9YFv2ORN0Amxx3MvuaRBxvPjP74d0/Bq
+	ZAjF8Fc/pZwyjL/YOXfv3Hl5kgip4Kqyo+PJAlZ7zSsmGGNmyvHRMVCsjQVOuA==
+X-Gm-Gg: AY/fxX4tyDeAw/1l2ia4aZkrUW11zzxGhEMzIzTZzpCW4/oQBARJd0qxovbhsYRM20H
+	Tg43oIm6hzLxmFHvMIdNhOkmx+7WhsVq3xLH4dOhqUsaOr4SmkhPBIV7yd07RobDY3UMJUvmM/h
+	BA5q6wu4Rge5/8TegMRkF5poY9lbeItHEj+mYibHu97GoWZ76JJ+YxBaCWUD5WN4A+FdF6pXA0w
+	5yzKa8rKSS+hd91J8nwHjvFCIyYY1jPTmj4GNI0ulsgKGOuWL4dwzt+QHLj70+8+B704zBLu6DS
+	o9CA2/UhcyNNnxnp0lSve5OsE7ByPHY3Df1aj72dgqzBK9elNf9jg7xYFTDNLdVy4GJ6dxsfG5A
+	y4fosokhu3OWZDZuYcVFoGDlAJAsb6+yhkoc3sw0MG0tBsLamehJEhsBR+nWtUs4wS3ob+iwQ/K
+	3xLhuUA0jcgH5rvpvlETJAER8Wz91AMd7L2MkqQUdFZINfUa5g7DcewVRSQ0mnq8asdjOPEbwUi
+	1PAYf+d5wcRx7fVsYq2eV8bHEo=
+X-Google-Smtp-Source: AGHT+IG3LzjynQX7X4H7S9Io3Ynamjd2a9PPbU+36SGNDnZcAgiWppcnGVLBSdjNiAVnsvjUFOBbeQ==
+X-Received: by 2002:a17:90b:2ccf:b0:340:cb18:922 with SMTP id 98e67ed59e1d1-34abd71f7e6mr16889624a91.14.1765978794294;
+        Wed, 17 Dec 2025 05:39:54 -0800 (PST)
+Received: from [172.27.236.53] (ec2-13-250-3-147.ap-southeast-1.compute.amazonaws.com. [13.250.3.147])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c0c25b7d59dsm18602604a12.6.2025.12.17.05.39.48
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 17 Dec 2025 05:39:53 -0800 (PST)
+Message-ID: <87df4cba-b191-49cf-9486-fc379470a6eb@gmail.com>
+Date: Wed, 17 Dec 2025 21:39:45 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/5] KVM: arm64: Enable HDBSS support and handle HDBSSF
+ events
+To: Tian Zheng <zhengtian10@huawei.com>, maz@kernel.org,
+ oliver.upton@linux.dev, catalin.marinas@arm.com, corbet@lwn.net,
+ pbonzini@redhat.com, will@kernel.org
+Cc: linux-kernel@vger.kernel.org, yuzenghui@huawei.com,
+ wangzhou1@hisilicon.com, yezhenyu2@huawei.com, xiexiangyou@huawei.com,
+ zhengchuan@huawei.com, linuxarm@huawei.com, joey.gouly@arm.com,
+ kvmarm@lists.linux.dev, kvm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ suzuki.poulose@arm.com
+References: <20251121092342.3393318-1-zhengtian10@huawei.com>
+ <20251121092342.3393318-5-zhengtian10@huawei.com>
+Content-Language: en-US
+From: Robert Hoo <robert.hoo.linux@gmail.com>
+In-Reply-To: <20251121092342.3393318-5-zhengtian10@huawei.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_053540_868234_6AE7606C 
-X-CRM114-Status: GOOD (  48.17  )
+X-CRM114-CacheID: sfid-20251217_054000_907561_BFAC3847 
+X-CRM114-Status: GOOD (  37.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,327 +111,377 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed Dec 17, 2025 at 1:15 PM UTC, Vlastimil Babka wrote:
-> On 12/17/25 13:52, Yeoreum Yun wrote:
->>> On 17/12/2025 10:48, Yeoreum Yun wrote:
->>> > Hi Ryan,
->>> >
->>> >> On 16/12/2025 16:52, Yeoreum Yun wrote:
->>> >>> Hi Ryan,
->>> >>>
->>> >>>> On 12/12/2025 16:18, Yeoreum Yun wrote:
->>> >>>>> Some architectures invoke pagetable_alloc() or __get_free_pages()
->>> >>>>> with preemption disabled.
->>> >>>>> For example, in arm64, linear_map_split_to_ptes() calls pagetable=
-_alloc()
->>> >>>>> while spliting block entry to ptes and __kpti_install_ng_mappings=
-()
->>> >>>>> calls __get_free_pages() to create kpti pagetable.
->>> >>>>>
->>> >>>>> Under PREEMPT_RT, calling pagetable_alloc() with
->>> >>>>> preemption disabled is not allowed, because it may acquire
->>> >>>>> a spin lock that becomes sleepable on RT, potentially
->>> >>>>> causing a sleep during page allocation.
->>> >>>>>
->>> >>>>> Since above two functions is called as callback of stop_machine()
->>> >>>>> where its callback is called in preemption disabled,
->>> >>>>> They could make a potential problem. (sleeping in preemption disa=
-bled).
->>> >>>>>
->>> >>>>> To address this, introduce pagetable_alloc_nolock() API.
->>> >>>>
->>> >>>> I don't really understand what the problem is that you're trying t=
-o fix. As I
->>> >>>> see it, there are 2 call sites in arm64 arch code that are calling=
- into the page
->>> >>>> allocator from stop_machine() - one via via pagetable_alloc() and =
-another via
->>> >>>> __get_free_pages(). But both of those calls are passing in GFP_ATO=
-MIC. It was my
->>> >>>> understanding that the page allocator would ensure it never sleeps=
- when
->>> >>>> GFP_ATOMIC is passed in, (even for PREEMPT_RT)?
->>> >>>
->>> >>> Although GFP_ATOMIC is specify, it only affects of "water mark" of =
-the
->>> >>> page with __GFP_HIGH. and to get a page, it must grab the lock --
->>> >>> zone->lock or pcp_lock in the rmqueue().
->>> >>>
->>> >>> This zone->lock and pcp_lock is spin_lock and it's a sleepable in
->>> >>> PREEMPT_RT that's why the memory allocation/free using general API
->>> >>> except nolock() version couldn't be called since
->>> >>> if "contention" happens they'll sleep while waiting to get the lock=
-.
->>> >>>
->>> >>> The reason why "nolock()" can use, it always uses "trylock" with
->>> >>> ALLOC_TRYLOCK flags. otherwise GFP_ATOMIC also can be sleepable in
->>> >>> PREEMPT_RT.
->>> >>>
->>> >>>>
->>> >>>> What is the actual symptom you are seeing?
->>> >>>
->>> >>> Since the place where called while smp_cpus_done() and there seems =
-no
->>> >>> contention, there seems no problem. However as I mention in another
->>> >>> thread
->>> >>> (https://lore.kernel.org/all/aT%2FdrjN1BkvyAGoi@e129823.arm.com/),
->>> >>> This gives a the false impression --
->>> >>> GFP_ATOMIC are =E2=80=9Csafe to use in preemption disabled=E2=80=9D
->>> >>> even though they are not in PREEMPT_RT case, I've changed it.
->>> >>>
->>> >>>>
->>> >>>> If the page allocator is somehow ignoring the GFP_ATOMIC request f=
-or PREEMPT_RT,
->>> >>>> then isn't that a bug in the page allocator? I'm not sure why you =
-would change
->>> >>>> the callsites? Can't you just change the page allocator based on G=
-FP_ATOMIC?
->>> >>>
->>> >>> It doesn't ignore the GFP_ATOMIC feature:
->>> >>>   - __GFP_HIGH: use water mark till min reserved
->>> >>>   - __GFP_KSWAPD_RECLAIM: wake up kswapd if reclaim required.
->>> >>>
->>> >>> But, it's a restriction -- "page allocation / free" API cannot be c=
-alled
->>> >>> in preempt-disabled context at PREEMPT_RT.
->>> >>>
->>> >>> That's why I think it's wrong usage not a page allocator bug.
->>> >>
->>> >> I've taken a look at this and I agree with your analysis. Thanks for=
- explaining.
->>> >>
->>> >> Looking at other stop_machine() callbacks, there are some that call =
-printk() and
->>> >> I would assume that spinlocks could be taken there which may present=
- the same
->>> >> kind of issue or PREEMPT_RT? (I'm guessing). I don't see any others =
-that attempt
->>> >> to allocate memory though.
->>> >
->>> > IIRC, there was a problem related for printk while try to grab
->>> > pl011_console related lock (spin_lock) while holding
->>> > console_lock(raw_spin_lock) in v6.10.0-rc7 at rpi5:
->>> >
->>> >     [  230.381263] CPU: 2 PID: 5574 Comm: syz.4.1695 Not tainted 6.10=
-.0-rc7-01903-g52828ea60dfd #3
->>> >     [  230.381479] Hardware name: linux,dummy-virt (DT)
->>> >     [  230.381565] Call trace:
->>> >     [  230.381607]  dump_backtrace+0x318/0x348
->>> >     [  230.381727]  show_stack+0x4c/0x80
->>> >     [  230.381875]  dump_stack_lvl+0x214/0x328
->>> >     [  230.382159]  dump_stack+0x3c/0x58
->>> >     [  230.382456]  __lock_acquire+0x4398/0x4720
->>> >     [  230.382683]  lock_acquire+0x648/0xb70
->>> >     [  230.382928]  _raw_spin_lock_irqsave+0x138/0x240
->>> >     [  230.383121]  pl011_console_write+0x240/0x8a0
->>> >     [  230.383356]  console_flush_all+0x708/0x1368
->>> >     [  230.383571]  console_unlock+0x180/0x440
->>> >     [  230.383742]  vprintk_emit+0x1f8/0x9d0
->>> >     [  230.383832]  vprintk_default+0x64/0x90
->>> >     [  230.383914]  vprintk+0x2d0/0x400
->>> >     [  230.383971]  _printk+0xdc/0x128
->>> >     [  230.384229]  hrtimer_interrupt+0x8f0/0x920
->>> >     [  230.384414]  arch_timer_handler_virt+0xc0/0x100
->>> >     [  230.384812]  handle_percpu_devid_irq+0x20c/0x4e0
->>> >     [  230.385053]  generic_handle_domain_irq+0xc0/0x120
->>> >     [  230.385367]  gic_handle_irq+0x88/0x360
->>> >     [  230.385559]  call_on_irq_stack+0x24/0x70
->>> >     [  230.385801]  do_interrupt_handler+0xf8/0x200
->>> >     [  230.386092]  el1_interrupt+0x68/0xc0
->>> >     [  230.386434]  el1h_64_irq_handler+0x18/0x28
->>> >     [  230.386716]  el1h_64_irq+0x64/0x68
->>> >     [  230.386853]  __sanitizer_cov_trace_const_cmp2+0x30/0x68
->>> >     [  230.387026]  alloc_pages_mpol_noprof+0x170/0x698
->>> >     [  230.387309]  vma_alloc_folio_noprof+0x128/0x2a8
->>> >     [  230.387610]  vma_alloc_zeroed_movable_folio+0xa0/0xe0
->>> >     [  230.387822]  folio_prealloc+0x5c/0x280
->>> >     [  230.388008]  do_wp_page+0xc30/0x3bc0
->>> >     [  230.388206]  __handle_mm_fault+0xdb8/0x2ba0
->>> >     [  230.388448]  handle_mm_fault+0x194/0x8a8
->>> >     [  230.388676]  do_page_fault+0x6bc/0x1030
->>> >     [  230.388924]  do_mem_abort+0x8c/0x240
->>> >     [  230.389056]  el0_da+0xf0/0x3f8
->>> >     [  230.389178]  el0t_64_sync_handler+0xb4/0x130
->>> >     [  230.389452]  el0t_64_sync+0x190/0x198
->>> >
->>> > But this problem is gone when I try with some of patches in rt-tree
->>> > related for printk which are merged in current tree
->>> > (https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-rt-devel.gi=
-t/log/?h=3Dlinux-6.10.y-rt-rebase).
->>> >
->>> > So I think printk() wouldn't be a problem.
->>> >
->>> >>
->>> >> Anyway, to fix the 2 arm64 callsites, I see 2 possible approaches:
->>> >>
->>> >> - Call the nolock variant (as you are doing). But that would just co=
-nvert a
->>> >> deadlock to a panic; if the lock is held when stop_machine() runs, w=
-ithout your
->>> >> change, we now have a deadlock due to waiting on the lock inside sto=
-p_machine().
->>> >> With your change, we notice the lock is already taken and panic. I g=
-uess it is
->>> >> marginally better, but not by much. Certainly I would just _always_ =
-call the
->>> >> nolock variant regardless of PREEMPT_RT if we take this route; For !=
-PREEMPT_RT,
->>> >> the lock is guarranteed to be free so nolock will always succeed.
->>> >>
->>> >> - Preallocate the memory before entering stop_machine(). I think thi=
-s would be
->>> >> much more robust. For kpti_install_ng_mappings() I think you could h=
-oist the
->>> >> allocation/free out of stop_machine() and pass the pointer in pretty=
- easily. For
->>> >> linear_map_split_to_ptes() its a bit more complex; Perhaps, we need =
-to walk the
->>> >> pgtable to figure out how much to preallocate, allocate it, then set=
- it up as a
->>> >> special allocator, wrapped by an allocation function and modify the =
-callchain to
->>> >> take a callback function instead of gfp flags.
->>> >>
->>> >> What do you think?
->>> >
->>> > Definitely, second suggestoin is much better.
->>> > My question is whether *memory contention* really happen in the point
->>> > both functions are called.
->>>
->>> My guess would be that it's unlikely, but not impossible. The secondary=
- CPUs are
->>> up, and presumably running their idle thread. I think various power man=
-agement
->>> things can be plugged into the idle thread; if so, then I guess it's po=
-ssible
->>> that the CPU could be running some hook as part of a power state transi=
-tion, and
->>> that could be dynamically allocating memory? That's all just a guess th=
-ough; I
->>> don't know the details of that part of the system.
->>>
->>> >
->>> > Above two functions are called as last step of "smp_init()" -- smp_cp=
-us_done().
->>> > If we can be sure, I think we don't need to go to complex way and
->>> > I believe the reason why we couldn't find out this problem,
->>> > even using GFP_ATOMIC in PREEMPT_RT since there was *no contection*
->>> > in this time of both functions are called.
->>> > > That's why I first try with the "simple way".
->>> >
->>> > What do you think?
->>>
->>> As far as linear_map_split_to_ptes() is concerned, it was implemented u=
-nder the
->>> impression that doing allocation with GFP_ATOMIC was safe, even in
->>> stop_machine(). Given that's an incorrect assumption, I think we should=
- fix it
->>> to pre-allocate outside of stop_machine() regardless of the likelihood =
-of
->>> actually hitting the race.
->>>
->>=20
->> Yeap. It=E2=80=99s better to be certain than uncertain. Thanks for check=
-ing.
->> I'll repsin with the preallocate way.
->
-> Note this is explained in Documentation/core-api/real-time/differences.rs=
-t:
->
-> Memory allocation
-> -----------------
->
-> The memory allocation APIs, such as kmalloc() and alloc_pages(), require =
-a
-> gfp_t flag to indicate the allocation context. On non-PREEMPT_RT kernels,=
- it is
-> necessary to use GFP_ATOMIC when allocating memory from interrupt context=
- or
-> from sections where preemption is disabled. This is because the allocator=
- must
-> not sleep in these contexts waiting for memory to become available.
->
-> However, this approach does not work on PREEMPT_RT kernels. The memory
-> allocator in PREEMPT_RT uses sleeping locks internally, which cannot be
-> acquired when preemption is disabled. Fortunately, this is generally not =
-a
-> problem, because PREEMPT_RT moves most contexts that would traditionally =
-run
-> with preemption or interrupts disabled into threaded context, where sleep=
-ing is
-> allowed.
->
-> What remains problematic is code that explicitly disables preemption or
-> interrupts. In such cases, memory allocation must be performed outside th=
-e
-> critical section.
->
-> This restriction also applies to memory deallocation routines such as kfr=
-ee()
-> and free_pages(), which may also involve internal locking and must not be
-> called from non-preemptible contexts.
+On 11/21/2025 5:23 PM, Tian Zheng wrote:
+> From: eillon <yezhenyu2@huawei.com>
+> 
+> Implement the HDBSS enable/disable functionality using the
+> KVM_CAP_ARM_HW_DIRTY_STATE_TRACK ioctl.
+> 
+> Userspace (e.g., QEMU) can enable HDBSS by invoking the ioctl
+> at the start of live migration, configuring the buffer size.
+> The feature is disabled by invoking the ioctl again with size
+> set to 0 once migration completes.
+> 
+> Add support for updating the dirty bitmap based on the HDBSS
+> buffer. Similar to the x86 PML implementation, KVM flushes the
+> buffer on all VM-Exits, so running vCPUs only need to be kicked
+> to force a VM-Exit.
+> 
+> Signed-off-by: eillon <yezhenyu2@huawei.com>
+> Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
+> ---
+>   arch/arm64/include/asm/kvm_host.h |  10 +++
+>   arch/arm64/include/asm/kvm_mmu.h  |  17 +++++
+>   arch/arm64/kvm/arm.c              | 107 ++++++++++++++++++++++++++++++
+>   arch/arm64/kvm/handle_exit.c      |  45 +++++++++++++
+>   arch/arm64/kvm/hyp/vhe/switch.c   |   1 +
+>   arch/arm64/kvm/mmu.c              |  10 +++
+>   arch/arm64/kvm/reset.c            |   3 +
+>   include/linux/kvm_host.h          |   1 +
+>   8 files changed, 194 insertions(+)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index d962932f0e5f..408e4c2b3d1a 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -87,6 +87,7 @@ int __init kvm_arm_init_sve(void);
+>   u32 __attribute_const__ kvm_target_cpu(void);
+>   void kvm_reset_vcpu(struct kvm_vcpu *vcpu);
+>   void kvm_arm_vcpu_destroy(struct kvm_vcpu *vcpu);
+> +void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu);
+> 
+>   struct kvm_hyp_memcache {
+>   	phys_addr_t head;
+> @@ -793,6 +794,12 @@ struct vcpu_reset_state {
+>   	bool		reset;
+>   };
+> 
+> +struct vcpu_hdbss_state {
+> +	phys_addr_t base_phys;
+> +	u32 size;
+> +	u32 next_index;
+> +};
+> +
+>   struct vncr_tlb;
+> 
+>   struct kvm_vcpu_arch {
+> @@ -897,6 +904,9 @@ struct kvm_vcpu_arch {
+> 
+>   	/* Per-vcpu TLB for VNCR_EL2 -- NULL when !NV */
+>   	struct vncr_tlb	*vncr_tlb;
+> +
+> +	/* HDBSS registers info */
+> +	struct vcpu_hdbss_state hdbss;
+>   };
+> 
+>   /*
+> diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
+> index e4069f2ce642..6ace1080aed5 100644
+> --- a/arch/arm64/include/asm/kvm_mmu.h
+> +++ b/arch/arm64/include/asm/kvm_mmu.h
+> @@ -331,6 +331,23 @@ static __always_inline void __load_stage2(struct kvm_s2_mmu *mmu,
+>   	asm(ALTERNATIVE("nop", "isb", ARM64_WORKAROUND_SPECULATIVE_AT));
+>   }
+> 
+> +static __always_inline void __load_hdbss(struct kvm_vcpu *vcpu)
+> +{
+> +	struct kvm *kvm = vcpu->kvm;
+> +	u64 br_el2, prod_el2;
+> +
+> +	if (!kvm->enable_hdbss)
+> +		return;
+> +
+> +	br_el2 = HDBSSBR_EL2(vcpu->arch.hdbss.base_phys, vcpu->arch.hdbss.size);
+> +	prod_el2 = vcpu->arch.hdbss.next_index;
+> +
+> +	write_sysreg_s(br_el2, SYS_HDBSSBR_EL2);
+> +	write_sysreg_s(prod_el2, SYS_HDBSSPROD_EL2);
+> +
+> +	isb();
+> +}
+> +
+>   static inline struct kvm *kvm_s2_mmu_to_kvm(struct kvm_s2_mmu *mmu)
+>   {
+>   	return container_of(mmu->arch, struct kvm, arch);
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 870953b4a8a7..64f65e3c2a89 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -79,6 +79,92 @@ int kvm_arch_vcpu_should_kick(struct kvm_vcpu *vcpu)
+>   	return kvm_vcpu_exiting_guest_mode(vcpu) == IN_GUEST_MODE;
+>   }
+> 
+> +void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu)
+> +{
+> +	struct page *hdbss_pg = NULL;
+> +
+> +	hdbss_pg = phys_to_page(vcpu->arch.hdbss.base_phys);
+> +	if (hdbss_pg)
+> +		__free_pages(hdbss_pg, vcpu->arch.hdbss.size);
+> +
+> +	vcpu->arch.hdbss = (struct vcpu_hdbss_state) {
+> +		.base_phys = 0,
+> +		.size = 0,
+> +		.next_index = 0,
+> +	};
+> +}
+> +
+> +static int kvm_cap_arm_enable_hdbss(struct kvm *kvm,
+> +				    struct kvm_enable_cap *cap)
+> +{
+> +	unsigned long i;
+> +	struct kvm_vcpu *vcpu;
+> +	struct page *hdbss_pg = NULL;
+> +	int size = cap->args[0];
+> +	int ret = 0;
+> +
+> +	if (!system_supports_hdbss()) {
+> +		kvm_err("This system does not support HDBSS!\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	if (size < 0 || size > HDBSS_MAX_SIZE) {
+> +		kvm_err("Invalid HDBSS buffer size: %d!\n", size);
+> +		return -EINVAL;
+> +	}
+> +
 
-Oh, thanks for pointing to that, I had never read that before (oops).
+I think you should check if it's already enabled here. What if user space calls 
+this twice?
 
-Shall we point to this from the doc-comment? Something like the below.
+> +	/* Enable the HDBSS feature if size > 0, otherwise disable it. */
+> +	if (size) {
+> +		kvm_for_each_vcpu(i, vcpu, kvm) {
+> +			hdbss_pg = alloc_pages(GFP_KERNEL_ACCOUNT, size);
+> +			if (!hdbss_pg) {
+> +				kvm_err("Alloc HDBSS buffer failed!\n");
+> +				ret = -ENOMEM;
+> +				goto error_alloc;
+> +			}
+> +
+> +			vcpu->arch.hdbss = (struct vcpu_hdbss_state) {
+> +				.base_phys = page_to_phys(hdbss_pg),
+> +				.size = size,
+> +				.next_index = 0,
+> +			};
+> +		}
+> +
+> +		kvm->enable_hdbss = true;
+> +		kvm->arch.mmu.vtcr |= VTCR_EL2_HD | VTCR_EL2_HDBSS;
 
-BTW, Yeorum, assuming you care about PREEMPT_RT, maybe you can get
-Sparse to find some other bugs of this nature? Or if not, plain old
-Coccinelle would probably find a few.
+VTCR_EL2_HA is also a necessity for VTCR_EL2_HDBSS to take effect.
 
----
+> +
+> +		/*
+> +		 * We should kick vcpus out of guest mode here to load new
+> +		 * vtcr value to vtcr_el2 register when re-enter guest mode.
+> +		 */
+> +		kvm_for_each_vcpu(i, vcpu, kvm)
+> +			kvm_vcpu_kick(vcpu);
+> +	} else if (kvm->enable_hdbss) {
+> +		kvm->arch.mmu.vtcr &= ~(VTCR_EL2_HD | VTCR_EL2_HDBSS);
+> +
+> +		kvm_for_each_vcpu(i, vcpu, kvm) {
+> +			/* Kick vcpus to flush hdbss buffer. */
+> +			kvm_vcpu_kick(vcpu);
+> +
+> +			kvm_arm_vcpu_free_hdbss(vcpu);
+> +		}
+> +
+> +		kvm->enable_hdbss = false;
+> +	}
+> +
+> +	return ret;
+> +
+> +error_alloc:
+> +	kvm_for_each_vcpu(i, vcpu, kvm) {
+> +		if (!vcpu->arch.hdbss.base_phys && !vcpu->arch.hdbss.size)
+> +			continue;
+> +
+> +		kvm_arm_vcpu_free_hdbss(vcpu);
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+>   int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
+>   			    struct kvm_enable_cap *cap)
+>   {
+> @@ -132,6 +218,11 @@ int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
+>   		}
+>   		mutex_unlock(&kvm->lock);
+>   		break;
+> +	case KVM_CAP_ARM_HW_DIRTY_STATE_TRACK:
+> +		mutex_lock(&kvm->lock);
+> +		r = kvm_cap_arm_enable_hdbss(kvm, cap);
+> +		mutex_unlock(&kvm->lock);
+> +		break;
+>   	default:
+>   		break;
+>   	}
+> @@ -420,6 +511,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+>   			r = kvm_supports_cacheable_pfnmap();
+>   		break;
+> 
+> +	case KVM_CAP_ARM_HW_DIRTY_STATE_TRACK:
+> +		r = system_supports_hdbss();
+> +		break;
+>   	default:
+>   		r = 0;
+>   	}
+> @@ -1837,7 +1931,20 @@ long kvm_arch_vcpu_ioctl(struct file *filp,
+> 
+>   void kvm_arch_sync_dirty_log(struct kvm *kvm, struct kvm_memory_slot *memslot)
+>   {
+> +	/*
+> +	 * Flush all CPUs' dirty log buffers to the dirty_bitmap.  Called
+> +	 * before reporting dirty_bitmap to userspace.  KVM flushes the buffers
+> +	 * on all VM-Exits, thus we only need to kick running vCPUs to force a
+> +	 * VM-Exit.
+> +	 */
+> +	struct kvm_vcpu *vcpu;
+> +	unsigned long i;
+> 
+> +	if (!kvm->enable_hdbss)
+> +		return;
+> +
+> +	kvm_for_each_vcpu(i, vcpu, kvm)
+> +		kvm_vcpu_kick(vcpu);
+>   }
+> 
+>   static int kvm_vm_ioctl_set_device_addr(struct kvm *kvm,
+> diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
+> index cc7d5d1709cb..9ba0ea6305ef 100644
+> --- a/arch/arm64/kvm/handle_exit.c
+> +++ b/arch/arm64/kvm/handle_exit.c
+> @@ -412,6 +412,49 @@ static exit_handle_fn kvm_get_exit_handler(struct kvm_vcpu *vcpu)
+>   	return arm_exit_handlers[esr_ec];
+>   }
+> 
+> +static void kvm_flush_hdbss_buffer(struct kvm_vcpu *vcpu)
+> +{
+> +	int idx, curr_idx;
+> +	u64 *hdbss_buf;
+> +	struct kvm *kvm = vcpu->kvm;
+> +	u64 br_el2;
+> +
+> +	if (!kvm->enable_hdbss)
+> +		return;
+> +
+> +	dsb(sy);
+> +	isb();
+> +	curr_idx = HDBSSPROD_IDX(read_sysreg_s(SYS_HDBSSPROD_EL2));
+> +	br_el2 = HDBSSBR_EL2(vcpu->arch.hdbss.base_phys, vcpu->arch.hdbss.size);
+> +
+> +	/* Do nothing if HDBSS buffer is empty or br_el2 is NULL */
+> +	if (curr_idx == 0 || br_el2 == 0)
+> +		return;
+> +
+> +	hdbss_buf = page_address(phys_to_page(vcpu->arch.hdbss.base_phys));
+> +	if (!hdbss_buf) {
+> +		kvm_err("Enter flush hdbss buffer with buffer == NULL!");
+> +		return;
+> +	}
+> +
+> +	guard(write_lock_irqsave)(&vcpu->kvm->mmu_lock);
+> +	for (idx = 0; idx < curr_idx; idx++) {
+> +		u64 gpa;
+> +
+> +		gpa = hdbss_buf[idx];
+> +		if (!(gpa & HDBSS_ENTRY_VALID))
+> +			continue;
+> +
+> +		gpa &= HDBSS_ENTRY_IPA;
+> +		kvm_vcpu_mark_page_dirty(vcpu, gpa >> PAGE_SHIFT);
+> +	}
+> +
+> +	/* reset HDBSS index */
+> +	write_sysreg_s(0, SYS_HDBSSPROD_EL2);
+> +	vcpu->arch.hdbss.next_index = 0;
+> +	isb();
+> +}
+> +
+>   /*
+>    * We may be single-stepping an emulated instruction. If the emulation
+>    * has been completed in the kernel, we can return to userspace with a
+> @@ -447,6 +490,8 @@ int handle_exit(struct kvm_vcpu *vcpu, int exception_index)
+>   {
+>   	struct kvm_run *run = vcpu->run;
+> 
+> +	kvm_flush_hdbss_buffer(vcpu);
+> +
+>   	if (ARM_SERROR_PENDING(exception_index)) {
+>   		/*
+>   		 * The SError is handled by handle_exit_early(). If the guest
+> diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
+> index 9984c492305a..3787c9c5810d 100644
+> --- a/arch/arm64/kvm/hyp/vhe/switch.c
+> +++ b/arch/arm64/kvm/hyp/vhe/switch.c
+> @@ -220,6 +220,7 @@ void kvm_vcpu_load_vhe(struct kvm_vcpu *vcpu)
+>   	__vcpu_load_switch_sysregs(vcpu);
+>   	__vcpu_load_activate_traps(vcpu);
+>   	__load_stage2(vcpu->arch.hw_mmu, vcpu->arch.hw_mmu->arch);
+> +	__load_hdbss(vcpu);
+>   }
+> 
+>   void kvm_vcpu_put_vhe(struct kvm_vcpu *vcpu)
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index 7cc964af8d30..91a2f9dbb406 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1843,6 +1843,9 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+>   	if (writable)
+>   		prot |= KVM_PGTABLE_PROT_W;
+> 
+> +	if (writable && kvm->enable_hdbss && logging_active)
+> +		prot |= KVM_PGTABLE_PROT_DBM;
+> +
+>   	if (exec_fault)
+>   		prot |= KVM_PGTABLE_PROT_X;
+> 
+> @@ -1950,6 +1953,13 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+> 
+>   	is_iabt = kvm_vcpu_trap_is_iabt(vcpu);
+> 
+> +	/*
+> +	 * HDBSS buffer already flushed when enter handle_trap_exceptions().
+> +	 * Nothing to do here.
+> +	 */
+> +	if (ESR_ELx_ISS2(esr) & ESR_ELx_HDBSSF)
+> +		return 1;
+> +
+>   	if (esr_fsc_is_translation_fault(esr)) {
+>   		/* Beyond sanitised PARange (which is the IPA limit) */
+>   		if (fault_ipa >= BIT_ULL(get_kvm_ipa_limit())) {
+> diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
+> index 959532422d3a..65e8f890f863 100644
+> --- a/arch/arm64/kvm/reset.c
+> +++ b/arch/arm64/kvm/reset.c
+> @@ -161,6 +161,9 @@ void kvm_arm_vcpu_destroy(struct kvm_vcpu *vcpu)
+>   	free_page((unsigned long)vcpu->arch.ctxt.vncr_array);
+>   	kfree(vcpu->arch.vncr_tlb);
+>   	kfree(vcpu->arch.ccsidr);
+> +
+> +	if (vcpu->arch.hdbss.base_phys || vcpu->arch.hdbss.size)
+> +		kvm_arm_vcpu_free_hdbss(vcpu);
+>   }
+> 
+>   static void kvm_vcpu_reset_sve(struct kvm_vcpu *vcpu)
+> diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+> index 5bd76cf394fa..aa8138604b1e 100644
+> --- a/include/linux/kvm_host.h
+> +++ b/include/linux/kvm_host.h
+> @@ -876,6 +876,7 @@ struct kvm {
+>   	struct xarray mem_attr_array;
+>   #endif
+>   	char stats_id[KVM_STATS_NAME_SIZE];
+> +	bool enable_hdbss;
+>   };
+> 
+>   #define kvm_err(fmt, ...) \
+> --
+> 2.33.0
+> 
+> 
 
-From 4c6b4d4cb08aee9559d02a348b9ecf799142c96f Mon Sep 17 00:00:00 2001
-From: Brendan Jackman <jackmanb@google.com>
-Date: Wed, 17 Dec 2025 13:26:28 +0000
-Subject: [PATCH] mm: clarify GFP_ATOMIC/GFP_NOWAIT doc-comment
-
-The current description of contexts where it's invalid to make
-GFP_ATOMIC and GFP_NOWAIT calls is rather vague.
-
-Replace this with a direct description of the actual contexts of concern
-and refer to the RT docs where this is explained more discursively.
-
-While rejigging this prose, also move the documentation of GFP_NOWAIT to
-the GFP_NOWAIT section.
-
-Link: https://lore.kernel.org/all/d912480a-5229-4efe-9336-b31acded30f5@suse=
-.cz/
-Signed-off-by: Brendan Jackman <jackmanb@google.com>
----
- include/linux/gfp_types.h | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
-
-diff --git a/include/linux/gfp_types.h b/include/linux/gfp_types.h
-index 3de43b12209ee..07a378542caf2 100644
---- a/include/linux/gfp_types.h
-+++ b/include/linux/gfp_types.h
-@@ -309,8 +309,10 @@ enum {
-  *
-  * %GFP_ATOMIC users can not sleep and need the allocation to succeed. A l=
-ower
-  * watermark is applied to allow access to "atomic reserves".
-- * The current implementation doesn't support NMI and few other strict
-- * non-preemptive contexts (e.g. raw_spin_lock). The same applies to %GFP_=
-NOWAIT.
-+ * The current implementation doesn't support NMI, nor contexts that disab=
-le
-+ * preemption under PREEMPT_RT. This includes raw_spin_lock() and plain
-+ * preempt_disable() - see Documentation/core-api/real-time/differences.rs=
-t for
-+ * more info.
-  *
-  * %GFP_KERNEL is typical for kernel-internal allocations. The caller requ=
-ires
-  * %ZONE_NORMAL or a lower zone for direct access but can direct reclaim.
-@@ -321,6 +323,7 @@ enum {
-  * %GFP_NOWAIT is for kernel allocations that should not stall for direct
-  * reclaim, start physical IO or use any filesystem callback.  It is very
-  * likely to fail to allocate memory, even for very small allocations.
-+ * The same restrictions on calling contexts apply as for %GFP_ATOMIC.
-  *
-  * %GFP_NOIO will use direct reclaim to discard clean pages or slab pages
-  * that do not require the starting of any physical IO.
---
-2.50.1
 
