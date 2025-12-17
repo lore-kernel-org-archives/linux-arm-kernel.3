@@ -4,141 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E705D66BBB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 23:25:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A16D1D65C63
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 23:27:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rdTJgEx7rqVxMuIj0bXh2lvAZFcAiv5iBQg+n1jcwyA=; b=YktndUPU8nMldgLxKGzCnxji4h
-	NJGS1jZvforhwPaebk73fCY8jpXyoLj7lHLZrc7JN5u10rroav/oWV8GlZe4MJNv1s75ahUPQ7CT7
-	b7DYLaffRsMQh5X7UJH+IfSkjUXRV2vMy42CR6P/HV46xCu4hnpcQnyWL1q+z/nZE2suXIbekyP6+
-	ydjrhJ3aZrJXGwdKpoR0KZGSRTqpncicNC5YCPvdWeNRtSuaj8MZkPooCO8Eg58jj8dxpOQ/0OyR4
-	TJMoFuyc6E5bs1MLfbdBd/YfXtZPw9XGHWOMuiaB/s+sywQlbhE+c9XKwDkyueZB3XPHjzm1OzWeM
-	1fHfesrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D97LNM3xTPb3lu2pCUacaxqZ/Z7K+l0F92U+9biIWtM=; b=d83DKS5DzgjmBO22ydy/j0LT8W
+	wCla3e8fAaJdIU8sk8brLVverkWQXrrU/fsHRCDV0J79pixzabSo5uSG6G0yTUemsrXNy5EPel7wa
+	jZQyt4tCJA0HdiEKAOXv6LBqvNM1RYs6yfgYuB1kT1iS98quXM34FKlnsBKmtzRPPZ1YmwmcVoEAT
+	t20Z2U4lDNTtSgwmWZhjEhyNKKpyiyHNgJZuhjnaFwvWzPjAXuKaN7vDQIoWpjh7IxbBEpF8uRldI
+	Dp5VofZpUJfRnkoJS8df15UPOG38Y5AWwCYk1PDfD0NdOtikAPqGTyAU6fFwbIYwt/4sZ/3+LJQSp
+	JHK6dF/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vW0ta-00000007WxP-2Rpg;
-	Wed, 17 Dec 2025 23:25:26 +0000
-Received: from mail-westus2azon11012061.outbound.protection.outlook.com ([52.101.48.61] helo=MW6PR02CU001.outbound.protection.outlook.com)
+	id 1vW0vt-00000007Xcd-46yq;
+	Wed, 17 Dec 2025 23:27:50 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vW0tQ-00000007Wrz-3Xoh
+	id 1vW0vs-00000007Xc6-0Lou
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 23:25:18 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IQVZ/PpObc9DBgqKwva/Z+OvbdXu8Nu9dNhrsjNdHtMZbcHtG2KZzUncC/qqvV9if3uPtdkoJ7bgM83O2CHnTbanZU2L0R8s19N5PJSURaBGJFwEhXyI62cbeaS3UHVk0raR0RB+7dGaqsAlqiC1jJq0BIhGY8UVL2nadOBraIXzMj5N+4tyxe47qKezilc4ixmahsDeMLa0a3IROqzIdd0aFHVaLwhqS24coNgKQ/t0yeTSZThc7Ngws7qoTf9DBsId9PHePyMK8g1zIcnbA3hBDT0GrrPwNlbScmLe/Og8jnEP2vwXJOcXbdVNJwiU8z4pGxsXcEq1bioHixHaog==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rdTJgEx7rqVxMuIj0bXh2lvAZFcAiv5iBQg+n1jcwyA=;
- b=WsmWqfhsB9m8I6Pxk0L9LyPjQ96dBw+vMulGunYSIqxXHVFIWYYwVFlFTUMq84EDqWLuaHmustlE8qttP06aiFVHeKe4s6B4/YSL5ZYgaz4bYtK/i8dNKdJyw4b8P5CnnB9QUuWj4cl4EZj6NiZmpr3TQuxrnR0vbSwJ62s+0ZRB633H1tLFknji/l51dsv+5VVrbRI3RofA23sZP7QaO+a5+/W15DFJYPakBDGCJfRQXngtXnNxsWch+pYMYUsoCKO9OAqB1JGfvLL7aGkoJAUUrA7oS0Lm89vnVfXtKoc/GCELwgHiRNClt2iCIQZa9uN9z3SiyD5phfquVzJ7zg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rdTJgEx7rqVxMuIj0bXh2lvAZFcAiv5iBQg+n1jcwyA=;
- b=GYIlPRirOkE9dfvFpJcJEOAVGHoyjatEmfNqOv3CeRsoUP6nz0+FCH4Z/12bkcPR5jx6GLPbAeIUsrgruJhHWwCN2CxMwfhaqtM/65RejQwm5725lmBmGaooZRU4n436zOnbmNBTMA1bp2kdYKm421+fESBbUZJo52G6uIogOOywAFQf0hqZ30H+sS+M4M8k2NYAMOnTTAHdx1m+3tMVOo7t2Ckt1XOu5oigKopjfmpmIJbtZFRK9CzKxagVzkZ4GmHFnh+FEhTkNGvNPmYrvTXqXLwtPV+9HL4KT0K61BqlpdGnSTw9RQ8VxmCWgpeNATT5gm1KX6hySgH6CsUhTw==
-Received: from MN2PR04CA0030.namprd04.prod.outlook.com (2603:10b6:208:d4::43)
- by CY3PR12MB9656.namprd12.prod.outlook.com (2603:10b6:930:101::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.6; Wed, 17 Dec
- 2025 23:25:05 +0000
-Received: from BL6PEPF00020E61.namprd04.prod.outlook.com
- (2603:10b6:208:d4:cafe::7c) by MN2PR04CA0030.outlook.office365.com
- (2603:10b6:208:d4::43) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.6 via Frontend Transport; Wed,
- 17 Dec 2025 23:25:05 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- BL6PEPF00020E61.mail.protection.outlook.com (10.167.249.22) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9434.6 via Frontend Transport; Wed, 17 Dec 2025 23:25:04 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 17 Dec
- 2025 15:24:50 -0800
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 17 Dec
- 2025 15:24:49 -0800
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.13) by mail.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Wed, 17 Dec 2025 15:24:49 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <will@kernel.org>
-CC: <jean-philippe@linaro.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<jgg@nvidia.com>, <balbirs@nvidia.com>, <miko.lenczewski@arm.com>,
-	<peterz@infradead.org>, <kevin.tian@intel.com>, <praan@google.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH v8 5/7] iommu/arm-smmu-v3: Populate smmu_domain->invs when attaching masters
-Date: Wed, 17 Dec 2025 15:24:30 -0800
-Message-ID: <79cd18a1a959ee2e54683e8c465b799d49ec48b5.1766013662.git.nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1766013662.git.nicolinc@nvidia.com>
-References: <cover.1766013662.git.nicolinc@nvidia.com>
+	Wed, 17 Dec 2025 23:27:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1766014067;
+ bh=D97LNM3xTPb3lu2pCUacaxqZ/Z7K+l0F92U+9biIWtM=;
+ b=kkbHoIXt0XV8hF8tN8Mn0x3SqzF/n+jvGEA/n5Ld1+3onAtOX6YtQR7H+MTCqnwn4xYleOn3/
+ VSvmmpDbp2KNmbnMQ4zE0qfQm68BYq3VSCWb4nMVPwFrjOTb3z1o5BrYGPaWM6Sxq1Y7p2Vb964
+ COMrhWtE6FGPedjrr87p14isHXJToUfYSQDiXaMtmvwWu44HvMQL8C3xWOCRLNgeV5GfIJZMczI
+ /eP3Y98WBk301ub19hqJQJmLt57nvATYQIoP3uxTPEqj27gqD+7I3GlkQMR/sajB8/fV4c1VlbI
+ +SvyoCFRz93yY6qpfsmX4v+Q42NN9kuZZiGoQurV4RWQ==
+X-Forward-Email-ID: 69433c6947898a7fd2fef012
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 2.0.6
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <7431a691-64b3-4b03-85e3-a6162587f6c9@kwiboo.se>
+Date: Thu, 18 Dec 2025 00:27:32 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF00020E61:EE_|CY3PR12MB9656:EE_
-X-MS-Office365-Filtering-Correlation-Id: 53a4027f-7140-4caf-cc4f-08de3dc38234
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|1800799024|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?zaVtgJkhWZMvS54pHma1DZw+sh194RJE1JUEre5Uq4VrkGOv5x1CqZOI1mnx?=
- =?us-ascii?Q?BcjJIDOVmXaKmVq5HixxfVRVfJ2qBapCdIhjO2fmFXEjyqh2UC8sBfzZN0b8?=
- =?us-ascii?Q?HcsRGvqIS9xzQSfcG+1/euACcPy7NKKgAZonvYKmypxqpjX+XbTWRdp1JTY+?=
- =?us-ascii?Q?GlqbM9Or6olT6LQlxU+Atti+/XoRDNToy0GW8/B6Snmib9CysCJCp+6O9EsM?=
- =?us-ascii?Q?gfmwQCowbo6aoKCZJmjDDsUOexY+oyNWUgxut11no0RMD5pHScy+UySBZQLG?=
- =?us-ascii?Q?q/uXkZZVRq9yospmIOQDJpDpeMc2uuU4ADqU5/yuInyKkTAZDYaGwatyr+MU?=
- =?us-ascii?Q?+Kbv81Ib58XnRhXlzCmg2aqob1sryXN3FMfpm9kNXuyn9bPCv5aBZ0KnvLQm?=
- =?us-ascii?Q?qWy2Kdt7+YqNjLfR39FKi+e/5h7Vt4n5iMGnGrla7b6MSFlTYzisyOGXBc9c?=
- =?us-ascii?Q?/6UDyy068FXldnDaTcdeg29hZqnu3BYhYdmTTk0XbYdT9Rts5sY9gwYCEi3e?=
- =?us-ascii?Q?1cR9LTpyJiBMRAcMRjfr1xuw5ToU599KoyLsPw4TbI5Xy8OidEXnOgjmVlIN?=
- =?us-ascii?Q?TwEnX69gy9lr93ssPcO6nk9hj2usBLCF55QmLpJF1AUTymOQCoB6PlBjmbtO?=
- =?us-ascii?Q?5gNaIsfgVJ4v9ZotnCYH40symeAhWbaIFeKH98ejuiIff98U9gBoa4H1Lt4d?=
- =?us-ascii?Q?DrUhlQcvvL3HtUmdoVuCS+/jGllreWLS4WAIwZBMJd43ZEXXqCmZLd2dpx8Q?=
- =?us-ascii?Q?FsFZYwXQ+S/a/uzYTac5AsR4Yi8SGAdH33aceSkloTE/lPy5xRUa16rjU06p?=
- =?us-ascii?Q?plCUgoOfI4LOoe/f52v/djxUD4yCXnTT5ZF6E/v0O6aUOSPBbsNbzEE88LGY?=
- =?us-ascii?Q?aiCtqtUDcel0Maeue32HwwVW+KuV41nRB4qBi9soyw1DOh7MuH16o8luQHK7?=
- =?us-ascii?Q?SzfFH5ZEciu19d2aNFgXD4PKlb6NCs4/n+jEpUM23kGBnIR+UM3BCvCeH6iF?=
- =?us-ascii?Q?eo3d2eKjneI4purUWh7YcXVvCseTNOXI4zaRUMltWfMqzgRzPW71Q2d49BTj?=
- =?us-ascii?Q?e6xmYlgs/OpuoNTUx8bgGyMO0sKM+Dhu6jkt9hicdSlnKMY878yb27l0w1vs?=
- =?us-ascii?Q?kAAjx0qO7nXaiJYxPS4HXUsMHosIqVjW9Jx2CxRZyMx7AFzXuBrs0pEiQbnL?=
- =?us-ascii?Q?N2cP/14KSRCPdF+3zb6Fs37pF6IaiUxHzLxS59kOM3+aP4ms6bmC/xW6HAXA?=
- =?us-ascii?Q?5E2juW9nX9MRFfqhBhhPRplUUh4uZum3kiD5UGn6D4RsIUfXAYTfqsoTMrwS?=
- =?us-ascii?Q?QufP0udlxFy6Pf5jGPPyDE9TonOWWd8HlVfqqgS8LvWVh1qyigr9fX+Rflmo?=
- =?us-ascii?Q?iW7n+APox1tyrm8vgsz6/nIGANVwKNDyN3cDMfEOS1psVv23gYlfTCGN+F6p?=
- =?us-ascii?Q?/lw8/K/yFND75Ynqt7Kc2AehCILpMRYUXOt9WOisrDrETezKKHjTFzGGgRWo?=
- =?us-ascii?Q?MpEOZVLzOU82WNojV1lQlTL0H0DmNEnIxgm4zaG855lkGklV/g3+DuMWlprp?=
- =?us-ascii?Q?he9YEAG4cBBqZEWjRWc=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Dec 2025 23:25:04.3703
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 53a4027f-7140-4caf-cc4f-08de3dc38234
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF00020E61.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY3PR12MB9656
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 10/17] media: rkvdec: Add RCB and SRAM support
+To: Detlev Casanova <detlev.casanova@collabora.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Heiko Stuebner <heiko@sntech.de>,
+ Daniel Almeida <daniel.almeida@collabora.com>,
+ Jonathan Corbet <corbet@lwn.net>, Ricardo Ribalda <ribalda@chromium.org>,
+ Hans Verkuil <hverkuil@kernel.org>, Yunke Cao <yunkec@google.com>,
+ Hans de Goede <hansg@kernel.org>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Pavan Bobba <opensource206@gmail.com>,
+ James Cowgill <james.cowgill@blaize.com>, linux-media@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ kernel@collabora.com, Diederik de Haas <didi.debian@cknow.org>,
+ linux-kernel@vger.kernel.org
+References: <20251217174059.1341784-1-detlev.casanova@collabora.com>
+ <20251217174059.1341784-11-detlev.casanova@collabora.com>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <20251217174059.1341784-11-detlev.casanova@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_152516_911343_688671D1 
-X-CRM114-Status: GOOD (  26.13  )
+X-CRM114-CacheID: sfid-20251217_152748_123206_A51C561A 
+X-CRM114-Status: GOOD (  37.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,401 +90,432 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update the invs array with the invalidations required by each domain type
-during attachment operations.
+Hi Detlev,
 
-Only an SVA domain or a paging domain will have an invs array:
- a. SVA domain will add an INV_TYPE_S1_ASID per SMMU and an INV_TYPE_ATS
-    per SID
+On 12/17/2025 6:40 PM, Detlev Casanova wrote:
+> The RCB (Rows and Cols Buffers) are a set of buffers used by other
+> variations of the decoder to store temporary data.
+> 
+> Those variation come with a dedicated SRAM area used to store those
+> buffers for better performances.
+> 
+> The buffer sizes are either the width or height of the frame being
+> decoded multiplied by a documented factor and can be stored either
+> in SRAM or RAM.
+> A fallback to RAM is provided if the SRAM is full (e.g.: multiple
+> streams are being decoded at the same time).
+> 
+> To manage the different kind of allocation, an enum is added to the
+> rkvdec_aux_buf struct to specify how the buffer was allocated, and
+> so, how to free it.
+> 
+> This commit is in preparation of other variants support.
+> 
+> Tested-by: Diederik de Haas <didi.debian@cknow.org>  # Rock 5B
+> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+> ---
+>  .../media/platform/rockchip/rkvdec/Makefile   |   1 +
+>  .../platform/rockchip/rkvdec/rkvdec-rcb.c     | 178 ++++++++++++++++++
+>  .../platform/rockchip/rkvdec/rkvdec-rcb.h     |  29 +++
+>  .../media/platform/rockchip/rkvdec/rkvdec.c   |  27 ++-
+>  .../media/platform/rockchip/rkvdec/rkvdec.h   |  13 ++
+>  5 files changed, 246 insertions(+), 2 deletions(-)
+>  create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
+>  create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h
+> 
+> diff --git a/drivers/media/platform/rockchip/rkvdec/Makefile b/drivers/media/platform/rockchip/rkvdec/Makefile
+> index 1b4bc44be23e..3d75103e536d 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/Makefile
+> +++ b/drivers/media/platform/rockchip/rkvdec/Makefile
+> @@ -7,4 +7,5 @@ rockchip-vdec-y += \
+>  		   rkvdec-h264-common.o \
+>  		   rkvdec-hevc.o \
+>  		   rkvdec-hevc-common.o \
+> +		   rkvdec-rcb.o \
+>  		   rkvdec-vp9.o
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
+> new file mode 100644
+> index 000000000000..320998ed2c74
+> --- /dev/null
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
+> @@ -0,0 +1,178 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Rockchip video decoder Rows and Cols Buffers manager
+> + *
+> + * Copyright (C) 2025 Collabora, Ltd.
+> + *  Detlev Casanova <detlev.casanova@collabora.com>
+> + */
+> +
+> +#include "rkvdec.h"
+> +#include "rkvdec-rcb.h"
+> +
+> +#include <linux/types.h>
+> +#include <linux/iommu.h>
+> +#include <linux/genalloc.h>
+> +
+> +struct rkvdec_rcb_config {
+> +	struct rkvdec_aux_buf *rcb_bufs;
+> +	size_t rcb_count;
+> +};
+> +
+> +static size_t rkvdec_rcb_size(const struct rcb_size_info *size_info,
+> +			      unsigned int width, unsigned int height)
+> +{
+> +	return size_info->multiplier * (size_info->axis == PIC_HEIGHT ? height : width);
+> +}
+> +
+> +dma_addr_t rkvdec_rcb_buf_dma_addr(struct rkvdec_ctx *ctx, int id)
+> +{
+> +	return ctx->rcb_config->rcb_bufs[id].dma;
+> +}
+> +
+> +size_t rkvdec_rcb_buf_size(struct rkvdec_ctx *ctx, int id)
+> +{
+> +	return ctx->rcb_config->rcb_bufs[id].size;
+> +}
+> +
+> +int rkvdec_rcb_buf_count(struct rkvdec_ctx *ctx)
+> +{
+> +	return ctx->rcb_config->rcb_count;
+> +}
+> +
+> +void rkvdec_free_rcb(struct rkvdec_ctx *ctx)
+> +{
+> +	struct rkvdec_dev *dev = ctx->dev;
+> +	struct rkvdec_rcb_config *cfg = ctx->rcb_config;
+> +	unsigned long virt_addr;
+> +	int i;
+> +
+> +	if (!cfg)
+> +		return;
+> +
+> +	for (i = 0; i < cfg->rcb_count; i++) {
+> +		size_t rcb_size = cfg->rcb_bufs[i].size;
+> +
+> +		if (!cfg->rcb_bufs[i].cpu)
+> +			continue;
+> +
+> +		switch (cfg->rcb_bufs[i].type) {
+> +		case RKVDEC_ALLOC_SRAM:
+> +			virt_addr = (unsigned long)cfg->rcb_bufs[i].cpu;
+> +
+> +			if (dev->iommu_domain)
+> +				iommu_unmap(dev->iommu_domain, virt_addr, rcb_size);
+> +			gen_pool_free(dev->sram_pool, virt_addr, rcb_size);
+> +			break;
+> +		case RKVDEC_ALLOC_DMA:
+> +			dma_free_coherent(dev->dev,
+> +					  rcb_size,
+> +					  cfg->rcb_bufs[i].cpu,
+> +					  cfg->rcb_bufs[i].dma);
+> +			break;
+> +		}
+> +	}
+> +
+> +	if (cfg->rcb_bufs)
+> +		devm_kfree(dev->dev, cfg->rcb_bufs);
+> +
+> +	devm_kfree(dev->dev, cfg);
+> +}
+> +
+> +int rkvdec_allocate_rcb(struct rkvdec_ctx *ctx,
+> +			const struct rcb_size_info *size_info,
+> +			size_t rcb_count)
+> +{
+> +	int ret, i;
+> +	u32 width, height;
+> +	struct rkvdec_dev *rkvdec = ctx->dev;
+> +	struct rkvdec_rcb_config *cfg;
+> +
+> +	if (!size_info || !rcb_count) {
+> +		ctx->rcb_config = NULL;
+> +		return 0;
+> +	}
+> +
+> +	ctx->rcb_config = devm_kzalloc(rkvdec->dev, sizeof(*ctx->rcb_config), GFP_KERNEL);
+> +	if (!ctx->rcb_config)
+> +		return -ENOMEM;
+> +
+> +	cfg = ctx->rcb_config;
+> +
+> +	cfg->rcb_bufs = devm_kzalloc(rkvdec->dev, sizeof(*cfg->rcb_bufs) * rcb_count, GFP_KERNEL);
+> +	if (!cfg->rcb_bufs) {
+> +		ret = -ENOMEM;
+> +		goto err_alloc;
+> +	}
+> +
+> +	width = ctx->decoded_fmt.fmt.pix_mp.width;
+> +	height = ctx->decoded_fmt.fmt.pix_mp.height;
+> +
+> +	for (i = 0; i < rcb_count; i++) {
+> +		void *cpu = NULL;
+> +		dma_addr_t dma;
+> +		size_t rcb_size = rkvdec_rcb_size(&size_info[i], width, height);
+> +		enum rkvdec_alloc_type alloc_type = RKVDEC_ALLOC_SRAM;
+> +
+> +		/* Try allocating an SRAM buffer */
+> +		if (ctx->dev->sram_pool) {
+> +			if (rkvdec->iommu_domain)
+> +				rcb_size = ALIGN(rcb_size, 0x1000);
 
- b. Non-nesting-parent paging domain with no ATS-enabled master will add
-    a single INV_TYPE_S1_ASID or INV_TYPE_S2_VMID per SMMU
+Maybe SZ_4K instead of 0x1000 ?
 
- c. Non-nesting-parent paging domain with ATS-enabled master(s) will do
-    (b) and add an INV_TYPE_ATS per SID
+> +
+> +			cpu = gen_pool_dma_zalloc_align(ctx->dev->sram_pool,
+> +							rcb_size,
+> +							&dma,
+> +							0x1000);
 
- d. Nesting-parent paging domain will add an INV_TYPE_S2_VMID followed by
-    an INV_TYPE_S2_VMID_S1_CLEAR per vSMMU. For an ATS-enabled master, it
-    will add an INV_TYPE_ATS_FULL per SID
+Same here ?
 
- Note that case #d prepares for a future implementation of VMID allocation
- which requires a followup series for S2 domain sharing. So when a nesting
- parent domain is attached through a vSMMU instance using a nested domain.
- VMID will be allocated per vSMMU instance v.s. currectly per S2 domain.
+Regards,
+Jonas
 
-The per-domain invalidation is not needed until the domain is attached to
-a master (when it starts to possibly use TLB). This will make it possible
-to attach the domain to multiple SMMUs and avoid unnecessary invalidation
-overhead during teardown if no STEs/CDs refer to the domain. It also means
-that when the last device is detached, the old domain must flush its ASID
-or VMID, since any new iommu_unmap() call would not trigger invalidations
-given an empty domain->invs array.
-
-Introduce some arm_smmu_invs helper functions for building scratch arrays,
-preparing and installing old/new domain's invalidation arrays.
-
-Co-developed-by: Jason Gunthorpe <jgg@nvidia.com>
-Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  17 ++
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 253 +++++++++++++++++++-
- 2 files changed, 269 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index f98774962012..f8dc96476c43 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -1101,6 +1101,21 @@ static inline bool arm_smmu_master_canwbs(struct arm_smmu_master *master)
- 	       IOMMU_FWSPEC_PCI_RC_CANWBS;
- }
- 
-+/**
-+ * struct arm_smmu_inv_state - Per-domain invalidation array state
-+ * @invs_ptr: points to the domain->invs (unwinding nesting/etc.) or is NULL if
-+ *            no change should be made
-+ * @old_invs: the original invs array
-+ * @new_invs: for new domain, this is the new invs array to update domain->invs;
-+ *            for old domain, this is the master->build_invs to pass in as the
-+ *            to_unref argument to an arm_smmu_invs_unref() call
-+ */
-+struct arm_smmu_inv_state {
-+	struct arm_smmu_invs __rcu **invs_ptr;
-+	struct arm_smmu_invs *old_invs;
-+	struct arm_smmu_invs *new_invs;
-+};
-+
- struct arm_smmu_attach_state {
- 	/* Inputs */
- 	struct iommu_domain *old_domain;
-@@ -1110,6 +1125,8 @@ struct arm_smmu_attach_state {
- 	ioasid_t ssid;
- 	/* Resulting state */
- 	struct arm_smmu_vmaster *vmaster;
-+	struct arm_smmu_inv_state old_domain_invst;
-+	struct arm_smmu_inv_state new_domain_invst;
- 	bool ats_enabled;
- };
- 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index cc85e7a10ea8..9a2281b5d9da 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -3068,6 +3068,116 @@ static void arm_smmu_disable_iopf(struct arm_smmu_master *master,
- 		iopf_queue_remove_device(master->smmu->evtq.iopf, master->dev);
- }
- 
-+static struct arm_smmu_inv *
-+arm_smmu_master_build_inv(struct arm_smmu_master *master,
-+			  enum arm_smmu_inv_type type, u32 id, ioasid_t ssid,
-+			  size_t pgsize)
-+{
-+	struct arm_smmu_invs *build_invs = master->build_invs;
-+	struct arm_smmu_inv *cur, inv = {
-+		.smmu = master->smmu,
-+		.type = type,
-+		.id = id,
-+		.pgsize = pgsize,
-+	};
-+
-+	if (WARN_ON(build_invs->num_invs >= build_invs->max_invs))
-+		return NULL;
-+	cur = &build_invs->inv[build_invs->num_invs];
-+	build_invs->num_invs++;
-+
-+	*cur = inv;
-+	switch (type) {
-+	case INV_TYPE_S1_ASID:
-+		if (master->smmu->features & ARM_SMMU_FEAT_E2H) {
-+			cur->size_opcode = CMDQ_OP_TLBI_EL2_VA;
-+			cur->nsize_opcode = CMDQ_OP_TLBI_EL2_ASID;
-+		} else {
-+			cur->size_opcode = CMDQ_OP_TLBI_NH_VA;
-+			cur->nsize_opcode = CMDQ_OP_TLBI_NH_ASID;
-+		}
-+		break;
-+	case INV_TYPE_S2_VMID:
-+		cur->size_opcode = CMDQ_OP_TLBI_S2_IPA;
-+		cur->nsize_opcode = CMDQ_OP_TLBI_S12_VMALL;
-+		break;
-+	case INV_TYPE_S2_VMID_S1_CLEAR:
-+		cur->size_opcode = cur->nsize_opcode = CMDQ_OP_TLBI_NH_ALL;
-+		break;
-+	case INV_TYPE_ATS:
-+	case INV_TYPE_ATS_FULL:
-+		cur->size_opcode = cur->nsize_opcode = CMDQ_OP_ATC_INV;
-+		break;
-+	}
-+
-+	return cur;
-+}
-+
-+/*
-+ * Use the preallocated scratch array at master->build_invs, to build a to_merge
-+ * or to_unref array, to pass into a following arm_smmu_invs_merge/unref() call.
-+ *
-+ * Do not free the returned invs array. It is reused, and will be overwritten by
-+ * the next arm_smmu_master_build_invs() call.
-+ */
-+static struct arm_smmu_invs *
-+arm_smmu_master_build_invs(struct arm_smmu_master *master, bool ats_enabled,
-+			   ioasid_t ssid, struct arm_smmu_domain *smmu_domain)
-+{
-+	const bool nesting = smmu_domain->nest_parent;
-+	size_t pgsize = 0, i;
-+
-+	iommu_group_mutex_assert(master->dev);
-+
-+	master->build_invs->num_invs = 0;
-+
-+	/* Range-based invalidation requires the leaf pgsize for calculation */
-+	if (master->smmu->features & ARM_SMMU_FEAT_RANGE_INV)
-+		pgsize = __ffs(smmu_domain->domain.pgsize_bitmap);
-+
-+	switch (smmu_domain->stage) {
-+	case ARM_SMMU_DOMAIN_SVA:
-+	case ARM_SMMU_DOMAIN_S1:
-+		if (!arm_smmu_master_build_inv(master, INV_TYPE_S1_ASID,
-+					       smmu_domain->cd.asid,
-+					       IOMMU_NO_PASID, pgsize))
-+			return NULL;
-+		break;
-+	case ARM_SMMU_DOMAIN_S2:
-+		if (!arm_smmu_master_build_inv(master, INV_TYPE_S2_VMID,
-+					       smmu_domain->s2_cfg.vmid,
-+					       IOMMU_NO_PASID, pgsize))
-+			return NULL;
-+		break;
-+	default:
-+		WARN_ON(true);
-+		return NULL;
-+	}
-+
-+	/* All the nested S1 ASIDs have to be flushed when S2 parent changes */
-+	if (nesting) {
-+		if (!arm_smmu_master_build_inv(
-+			    master, INV_TYPE_S2_VMID_S1_CLEAR,
-+			    smmu_domain->s2_cfg.vmid, IOMMU_NO_PASID, 0))
-+			return NULL;
-+	}
-+
-+	for (i = 0; ats_enabled && i < master->num_streams; i++) {
-+		/*
-+		 * If an S2 used as a nesting parent is changed we have no
-+		 * option but to completely flush the ATC.
-+		 */
-+		if (!arm_smmu_master_build_inv(
-+			    master, nesting ? INV_TYPE_ATS_FULL : INV_TYPE_ATS,
-+			    master->streams[i].id, ssid, 0))
-+			return NULL;
-+	}
-+
-+	/* Note this build_invs must have been sorted */
-+
-+	return master->build_invs;
-+}
-+
- static void arm_smmu_remove_master_domain(struct arm_smmu_master *master,
- 					  struct iommu_domain *domain,
- 					  ioasid_t ssid)
-@@ -3097,6 +3207,131 @@ static void arm_smmu_remove_master_domain(struct arm_smmu_master *master,
- 	kfree(master_domain);
- }
- 
-+/*
-+ * During attachment, the updates of the two domain->invs arrays are sequenced:
-+ *  1. new domain updates its invs array, merging master->build_invs
-+ *  2. new domain starts to include the master during its invalidation
-+ *  3. master updates its STE switching from the old domain to the new domain
-+ *  4. old domain still includes the master during its invalidation
-+ *  5. old domain updates its invs array, unreferencing master->build_invs
-+ *
-+ * For 1 and 5, prepare the two updated arrays in advance, handling any changes
-+ * that can possibly failure. So the actual update of either 1 or 5 won't fail.
-+ * arm_smmu_asid_lock ensures that the old invs in the domains are intact while
-+ * we are sequencing to update them.
-+ */
-+static int arm_smmu_attach_prepare_invs(struct arm_smmu_attach_state *state,
-+					struct arm_smmu_domain *new_smmu_domain)
-+{
-+	struct arm_smmu_domain *old_smmu_domain =
-+		to_smmu_domain_devices(state->old_domain);
-+	struct arm_smmu_master *master = state->master;
-+	ioasid_t ssid = state->ssid;
-+
-+	/*
-+	 * At this point a NULL domain indicates the domain doesn't use the
-+	 * IOTLB, see to_smmu_domain_devices().
-+	 */
-+	if (new_smmu_domain) {
-+		struct arm_smmu_inv_state *invst = &state->new_domain_invst;
-+		struct arm_smmu_invs *build_invs;
-+
-+		invst->invs_ptr = &new_smmu_domain->invs;
-+		invst->old_invs = rcu_dereference_protected(
-+			new_smmu_domain->invs,
-+			lockdep_is_held(&arm_smmu_asid_lock));
-+		build_invs = arm_smmu_master_build_invs(
-+			master, state->ats_enabled, ssid, new_smmu_domain);
-+		if (!build_invs)
-+			return -EINVAL;
-+
-+		invst->new_invs =
-+			arm_smmu_invs_merge(invst->old_invs, build_invs);
-+		if (IS_ERR(invst->new_invs))
-+			return PTR_ERR(invst->new_invs);
-+	}
-+
-+	if (old_smmu_domain) {
-+		struct arm_smmu_inv_state *invst = &state->old_domain_invst;
-+
-+		invst->invs_ptr = &old_smmu_domain->invs;
-+		/* A re-attach case might have a different ats_enabled state */
-+		if (new_smmu_domain == old_smmu_domain)
-+			invst->old_invs = state->new_domain_invst.new_invs;
-+		else
-+			invst->old_invs = rcu_dereference_protected(
-+				old_smmu_domain->invs,
-+				lockdep_is_held(&arm_smmu_asid_lock));
-+		/* For old_smmu_domain, new_invs points to master->build_invs */
-+		invst->new_invs = arm_smmu_master_build_invs(
-+			master, master->ats_enabled, ssid, old_smmu_domain);
-+	}
-+
-+	return 0;
-+}
-+
-+/* Must be installed before arm_smmu_install_ste_for_dev() */
-+static void
-+arm_smmu_install_new_domain_invs(struct arm_smmu_attach_state *state)
-+{
-+	struct arm_smmu_inv_state *invst = &state->new_domain_invst;
-+
-+	if (!invst->invs_ptr)
-+		return;
-+
-+	rcu_assign_pointer(*invst->invs_ptr, invst->new_invs);
-+	kfree_rcu(invst->old_invs, rcu);
-+}
-+
-+/*
-+ * When an array entry's users count reaches zero, it means the ASID/VMID is no
-+ * longer being invalidated by map/unmap and must be cleaned. The rule is that
-+ * all ASIDs/VMIDs not in an invalidation array are left cleared in the IOTLB.
-+ */
-+static void arm_smmu_inv_flush_iotlb_tag(struct arm_smmu_inv *inv)
-+{
-+	struct arm_smmu_cmdq_ent cmd = {};
-+
-+	switch (inv->type) {
-+	case INV_TYPE_S1_ASID:
-+		cmd.tlbi.asid = inv->id;
-+		break;
-+	case INV_TYPE_S2_VMID:
-+		/* S2_VMID using nsize_opcode covers S2_VMID_S1_CLEAR */
-+		cmd.tlbi.vmid = inv->id;
-+		break;
-+	default:
-+		return;
-+	}
-+
-+	cmd.opcode = inv->nsize_opcode;
-+	arm_smmu_cmdq_issue_cmd_with_sync(inv->smmu, &cmd);
-+}
-+
-+/* Should be installed after arm_smmu_install_ste_for_dev() */
-+static void
-+arm_smmu_install_old_domain_invs(struct arm_smmu_attach_state *state)
-+{
-+	struct arm_smmu_inv_state *invst = &state->old_domain_invst;
-+	struct arm_smmu_invs *old_invs = invst->old_invs;
-+	struct arm_smmu_invs *new_invs;
-+
-+	lockdep_assert_held(&arm_smmu_asid_lock);
-+
-+	if (!invst->invs_ptr)
-+		return;
-+
-+	arm_smmu_invs_unref(old_invs, invst->new_invs,
-+			    arm_smmu_inv_flush_iotlb_tag);
-+
-+	new_invs = arm_smmu_invs_purge(old_invs);
-+	if (!new_invs)
-+		return;
-+
-+	rcu_assign_pointer(*invst->invs_ptr, new_invs);
-+	kfree_rcu(old_invs, rcu);
-+}
-+
- /*
-  * Start the sequence to attach a domain to a master. The sequence contains three
-  * steps:
-@@ -3154,12 +3389,16 @@ int arm_smmu_attach_prepare(struct arm_smmu_attach_state *state,
- 				     arm_smmu_ats_supported(master);
- 	}
- 
-+	ret = arm_smmu_attach_prepare_invs(state, smmu_domain);
-+	if (ret)
-+		return ret;
-+
- 	if (smmu_domain) {
- 		if (new_domain->type == IOMMU_DOMAIN_NESTED) {
- 			ret = arm_smmu_attach_prepare_vmaster(
- 				state, to_smmu_nested_domain(new_domain));
- 			if (ret)
--				return ret;
-+				goto err_unprepare_invs;
- 		}
- 
- 		master_domain = kzalloc(sizeof(*master_domain), GFP_KERNEL);
-@@ -3207,6 +3446,8 @@ int arm_smmu_attach_prepare(struct arm_smmu_attach_state *state,
- 			atomic_inc(&smmu_domain->nr_ats_masters);
- 		list_add(&master_domain->devices_elm, &smmu_domain->devices);
- 		spin_unlock_irqrestore(&smmu_domain->devices_lock, flags);
-+
-+		arm_smmu_install_new_domain_invs(state);
- 	}
- 
- 	if (!state->ats_enabled && master->ats_enabled) {
-@@ -3226,6 +3467,8 @@ int arm_smmu_attach_prepare(struct arm_smmu_attach_state *state,
- 	kfree(master_domain);
- err_free_vmaster:
- 	kfree(state->vmaster);
-+err_unprepare_invs:
-+	kfree(state->new_domain_invst.new_invs);
- 	return ret;
- }
- 
-@@ -3257,6 +3500,7 @@ void arm_smmu_attach_commit(struct arm_smmu_attach_state *state)
- 	}
- 
- 	arm_smmu_remove_master_domain(master, state->old_domain, state->ssid);
-+	arm_smmu_install_old_domain_invs(state);
- 	master->ats_enabled = state->ats_enabled;
- }
- 
-@@ -3438,12 +3682,19 @@ static int arm_smmu_blocking_set_dev_pasid(struct iommu_domain *new_domain,
- {
- 	struct arm_smmu_domain *smmu_domain = to_smmu_domain(old_domain);
- 	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
-+	struct arm_smmu_attach_state state = {
-+		.master = master,
-+		.old_domain = old_domain,
-+		.ssid = pasid,
-+	};
- 
- 	mutex_lock(&arm_smmu_asid_lock);
-+	arm_smmu_attach_prepare_invs(&state, NULL);
- 	arm_smmu_clear_cd(master, pasid);
- 	if (master->ats_enabled)
- 		arm_smmu_atc_inv_master(master, pasid);
- 	arm_smmu_remove_master_domain(master, &smmu_domain->domain, pasid);
-+	arm_smmu_install_old_domain_invs(&state);
- 	mutex_unlock(&arm_smmu_asid_lock);
- 
- 	/*
--- 
-2.43.0
+> +		}
+> +
+> +		/* If an IOMMU is used, map the SRAM address through it */
+> +		if (cpu && rkvdec->iommu_domain) {
+> +			unsigned long virt_addr = (unsigned long)cpu;
+> +			phys_addr_t phys_addr = dma;
+> +
+> +			ret = iommu_map(rkvdec->iommu_domain, virt_addr, phys_addr,
+> +					rcb_size, IOMMU_READ | IOMMU_WRITE, 0);
+> +			if (ret) {
+> +				gen_pool_free(ctx->dev->sram_pool,
+> +					      (unsigned long)cpu,
+> +					      rcb_size);
+> +				cpu = NULL;
+> +				goto ram_fallback;
+> +			}
+> +
+> +			/*
+> +			 * The registers will be configured with the virtual
+> +			 * address so that it goes through the IOMMU
+> +			 */
+> +			dma = virt_addr;
+> +		}
+> +
+> +ram_fallback:
+> +		/* Fallback to RAM */
+> +		if (!cpu) {
+> +			cpu = dma_alloc_coherent(ctx->dev->dev,
+> +						 rcb_size,
+> +						 &dma,
+> +						 GFP_KERNEL);
+> +			alloc_type = RKVDEC_ALLOC_DMA;
+> +		}
+> +
+> +		if (!cpu) {
+> +			ret = -ENOMEM;
+> +			goto err_alloc;
+> +		}
+> +
+> +		cfg->rcb_bufs[i].cpu = cpu;
+> +		cfg->rcb_bufs[i].dma = dma;
+> +		cfg->rcb_bufs[i].size = rcb_size;
+> +		cfg->rcb_bufs[i].type = alloc_type;
+> +
+> +		cfg->rcb_count += 1;
+> +	}
+> +
+> +	return 0;
+> +
+> +err_alloc:
+> +	rkvdec_free_rcb(ctx);
+> +
+> +	return ret;
+> +}
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h
+> new file mode 100644
+> index 000000000000..30e8002555c8
+> --- /dev/null
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h
+> @@ -0,0 +1,29 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Rockchip video decoder Rows and Cols Buffers manager
+> + *
+> + * Copyright (C) 2025 Collabora, Ltd.
+> + *  Detlev Casanova <detlev.casanova@collabora.com>
+> + */
+> +
+> +#include <linux/types.h>
+> +
+> +struct rkvdec_ctx;
+> +
+> +enum rcb_axis {
+> +	PIC_WIDTH = 0,
+> +	PIC_HEIGHT = 1
+> +};
+> +
+> +struct rcb_size_info {
+> +	u8 multiplier;
+> +	enum rcb_axis axis;
+> +};
+> +
+> +int rkvdec_allocate_rcb(struct rkvdec_ctx *ctx,
+> +			const struct rcb_size_info *size_info,
+> +			size_t rcb_count);
+> +dma_addr_t rkvdec_rcb_buf_dma_addr(struct rkvdec_ctx *ctx, int id);
+> +size_t rkvdec_rcb_buf_size(struct rkvdec_ctx *ctx, int id);
+> +int rkvdec_rcb_buf_count(struct rkvdec_ctx *ctx);
+> +void rkvdec_free_rcb(struct rkvdec_ctx *ctx);
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> index 968982f6e62c..028ce8e1c4ca 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> @@ -10,6 +10,7 @@
+>   */
+>  
+>  #include <linux/clk.h>
+> +#include <linux/genalloc.h>
+>  #include <linux/interrupt.h>
+>  #include <linux/iommu.h>
+>  #include <linux/module.h>
+> @@ -28,6 +29,7 @@
+>  
+>  #include "rkvdec.h"
+>  #include "rkvdec-regs.h"
+> +#include "rkvdec-rcb.h"
+>  
+>  static bool rkvdec_image_fmt_match(enum rkvdec_image_fmt fmt1,
+>  				   enum rkvdec_image_fmt fmt2)
+> @@ -771,6 +773,7 @@ static int rkvdec_start_streaming(struct vb2_queue *q, unsigned int count)
+>  {
+>  	struct rkvdec_ctx *ctx = vb2_get_drv_priv(q);
+>  	const struct rkvdec_coded_fmt_desc *desc;
+> +	const struct rkvdec_variant *variant = ctx->dev->variant;
+>  	int ret;
+>  
+>  	if (V4L2_TYPE_IS_CAPTURE(q->type))
+> @@ -780,13 +783,22 @@ static int rkvdec_start_streaming(struct vb2_queue *q, unsigned int count)
+>  	if (WARN_ON(!desc))
+>  		return -EINVAL;
+>  
+> +	ret = rkvdec_allocate_rcb(ctx, variant->rcb_sizes, variant->num_rcb_sizes);
+> +	if (ret)
+> +		return ret;
+> +
+>  	if (desc->ops->start) {
+>  		ret = desc->ops->start(ctx);
+>  		if (ret)
+> -			return ret;
+> +			goto err_ops_start;
+>  	}
+>  
+>  	return 0;
+> +
+> +err_ops_start:
+> +	rkvdec_free_rcb(ctx);
+> +
+> +	return ret;
+>  }
+>  
+>  static void rkvdec_queue_cleanup(struct vb2_queue *vq, u32 state)
+> @@ -822,6 +834,8 @@ static void rkvdec_stop_streaming(struct vb2_queue *q)
+>  
+>  		if (desc->ops->stop)
+>  			desc->ops->stop(ctx);
+> +
+> +		rkvdec_free_rcb(ctx);
+>  	}
+>  
+>  	rkvdec_queue_cleanup(q, VB2_BUF_STATE_ERROR);
+> @@ -1348,6 +1362,10 @@ static int rkvdec_probe(struct platform_device *pdev)
+>  		return ret;
+>  	}
+>  
+> +	rkvdec->sram_pool = of_gen_pool_get(pdev->dev.of_node, "sram", 0);
+> +	if (!rkvdec->sram_pool && rkvdec->variant->num_rcb_sizes > 0)
+> +		dev_info(&pdev->dev, "No sram node, RCB will be stored in RAM\n");
+> +
+>  	pm_runtime_set_autosuspend_delay(&pdev->dev, 100);
+>  	pm_runtime_use_autosuspend(&pdev->dev);
+>  	pm_runtime_enable(&pdev->dev);
+> @@ -1356,7 +1374,8 @@ static int rkvdec_probe(struct platform_device *pdev)
+>  	if (ret)
+>  		goto err_disable_runtime_pm;
+>  
+> -	if (iommu_get_domain_for_dev(&pdev->dev)) {
+> +	rkvdec->iommu_domain = iommu_get_domain_for_dev(&pdev->dev);
+> +	if (rkvdec->iommu_domain) {
+>  		rkvdec->empty_domain = iommu_paging_domain_alloc(rkvdec->dev);
+>  
+>  		if (IS_ERR(rkvdec->empty_domain)) {
+> @@ -1370,6 +1389,10 @@ static int rkvdec_probe(struct platform_device *pdev)
+>  err_disable_runtime_pm:
+>  	pm_runtime_dont_use_autosuspend(&pdev->dev);
+>  	pm_runtime_disable(&pdev->dev);
+> +
+> +	if (rkvdec->sram_pool)
+> +		gen_pool_destroy(rkvdec->sram_pool);
+> +
+>  	return ret;
+>  }
+>  
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+> index aac6cba4c623..77c0950a465d 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+> @@ -19,6 +19,7 @@
+>  #include <media/v4l2-ctrls.h>
+>  #include <media/v4l2-device.h>
+>  #include <media/v4l2-ioctl.h>
+> +#include <media/v4l2-mem2mem.h>
+>  #include <media/videobuf2-core.h>
+>  #include <media/videobuf2-dma-contig.h>
+>  
+> @@ -29,6 +30,7 @@
+>  #define RKVDEC_QUIRK_DISABLE_QOS	BIT(0)
+>  
+>  struct rkvdec_ctx;
+> +struct rkvdec_rcb_config;
+>  
+>  struct rkvdec_ctrl_desc {
+>  	struct v4l2_ctrl_config cfg;
+> @@ -73,6 +75,8 @@ struct rkvdec_variant {
+>  	unsigned int num_regs;
+>  	const struct rkvdec_coded_fmt_desc *coded_fmts;
+>  	size_t num_coded_fmts;
+> +	const struct rcb_size_info *rcb_sizes;
+> +	size_t num_rcb_sizes;
+>  	unsigned int capabilities;
+>  	unsigned int quirks;
+>  };
+> @@ -125,6 +129,8 @@ struct rkvdec_dev {
+>  	void __iomem *regs;
+>  	struct mutex vdev_lock; /* serializes ioctls */
+>  	struct delayed_work watchdog_work;
+> +	struct gen_pool *sram_pool;
+> +	struct iommu_domain *iommu_domain;
+>  	struct iommu_domain *empty_domain;
+>  	const struct rkvdec_variant *variant;
+>  };
+> @@ -137,6 +143,7 @@ struct rkvdec_ctx {
+>  	struct v4l2_ctrl_handler ctrl_hdl;
+>  	struct rkvdec_dev *dev;
+>  	enum rkvdec_image_fmt image_fmt;
+> +	struct rkvdec_rcb_config *rcb_config;
+>  	void *priv;
+>  };
+>  
+> @@ -145,10 +152,16 @@ static inline struct rkvdec_ctx *file_to_rkvdec_ctx(struct file *filp)
+>  	return container_of(file_to_v4l2_fh(filp), struct rkvdec_ctx, fh);
+>  }
+>  
+> +enum rkvdec_alloc_type {
+> +	RKVDEC_ALLOC_DMA  = 0,
+> +	RKVDEC_ALLOC_SRAM = 1,
+> +};
+> +
+>  struct rkvdec_aux_buf {
+>  	void *cpu;
+>  	dma_addr_t dma;
+>  	size_t size;
+> +	enum rkvdec_alloc_type type;
+>  };
+>  
+>  void rkvdec_run_preamble(struct rkvdec_ctx *ctx, struct rkvdec_run *run);
 
 
