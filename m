@@ -4,111 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFED7D64061
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 16 Dec 2025 23:59:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AACDD637DF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 00:03:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qTR8sWzuQg6qCv7sqYnowcXeRDt8t5dlxcGqTpMBq4g=; b=HhkThSyHoxdKu0YJIsX1tXSY5w
-	swknsn2Tm5/U9UsNHoU+Nj1HoEw7VUo/0n7qYqI4vMHE3vGYUpI4/AfkbuFzpbR2yKzCY4xf3CjAP
-	1VprsAhOfbD2JAqDNj0cB/jG2Ky8m/vDV/4oE+nH+OjNEzS480BrWQlZsZuyC5DOIdYYguvWd2p/N
-	MYcOrVgo7eadG/r7CMxQKgTZfKj1NKntP3kV+oWF2QWyBJRTnWqI1GbfxSxBH6cVNOAbbfDYB9l+F
-	1L2bC3WSOf8P+jjF0UoeAN49YyBzX1acPWTthPIoQn2rLTzncR9EzNbdD5H+3wN8gIzIO/GTlkevR
-	nzL5Y4WA==;
+	bh=Q8Y5Nly6/2QcuWXLw650vy+bFUZ3dsDuqEwgOZmk9iA=; b=ARDlLcRbr8m9ZnroSy7Srevful
+	2HK/ENNH/ehcyjv9zGNDf7qaumD3OYa/6+Ck9zg/MWPm11jNCExf/v88z3P2ln1GRXbrrUFmN74g3
+	RQmdcw+4GKB0VSX4OhlXUnWTAgAGdH6GMSXbmcCHjxseDbySpltPOYmkzD9AXbc2kKt2sdVZy+epC
+	vH47O3uXUSXDCJ8kVdSnJ0a+D6XwcWDZMVBd4frol1L1sZkFbBT+Wyf4JN7jqa0LHvgimKyPDBmY2
+	H3d3SylOt6hafWe4kx9Pf08K6kPGqoT9dmmHC/XBiYBwOMT+yZCQNZqfGpxTFLYh3MFs1Y7KWwCip
+	c0lktVLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVewi-00000005xyo-2uDk;
-	Tue, 16 Dec 2025 23:59:12 +0000
-Received: from mail-qv1-xf61.google.com ([2607:f8b0:4864:20::f61])
+	id 1vVf1E-00000005yIe-1myU;
+	Wed, 17 Dec 2025 00:03:52 +0000
+Received: from mail-pl1-x661.google.com ([2607:f8b0:4864:20::661])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVewg-00000005xy8-09OI
+	id 1vVf1A-00000005yIA-3H66
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 16 Dec 2025 23:59:11 +0000
-Received: by mail-qv1-xf61.google.com with SMTP id 6a1803df08f44-88267973e5cso28992246d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 15:59:09 -0800 (PST)
+	Wed, 17 Dec 2025 00:03:50 +0000
+Received: by mail-pl1-x661.google.com with SMTP id d9443c01a7336-2a0eaf55d58so269395ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 16:03:48 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765929549; x=1766534349;
+        d=1e100.net; s=20230601; t=1765929828; x=1766534628;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=qTR8sWzuQg6qCv7sqYnowcXeRDt8t5dlxcGqTpMBq4g=;
-        b=N9xvEcqIPgGOACzrmebv9gJEQ/YeFNlfK4w4yWH4+Crx3gORW7S7g81C+aNgUKfyOq
-         DaFs+mg2DHylsNsB/1eZHiJiw9ismiANv3mDBgLg747ZZ1dR8hNPT2tLXQ94WnshrPWj
-         gzyX9ewJJWsyZ3/ZzFmyAtV+KQtxY5C8zPniLeqW88zg4VdP/0KC91zMy1avBoS870wq
-         f6u7kKLJpXwNaE5Vjy2CjA7jUo8o3dmcGSF8IXH7is+4yAjLKzTXYWZliqy3wrvE+/2i
-         2VWP4ZfoH+2bSfXr4RrU1hja+FuSJ+EcckWJHFfZ7cq2iScqfV3xaI4m3TxD0ptWo1EF
-         oEGw==
-X-Forwarded-Encrypted: i=1; AJvYcCWeRE5ha+9MTPzHJYYtUJU+vocREIIB2MAkL7hd1Le/MLJ5DWmyhx/xMjDYudxpsFyIcojOfA9xUvIRXjw31WVr@lists.infradead.org
-X-Gm-Message-State: AOJu0YwtHV7q+eYt/Naguj9P54wMaRovNCXwdA/FemO1YZ/yi7sRMn5f
-	StYBQgsFf/srBqN2u5N7SOk37FNh3UIlJ3FPQU6JVEBH4mmCrneY0N8tNP6xUXtKua+omDlgMYO
-	gPEWJaLAKI47Hz15kYUHk41VpqEuBUj3DoQ/8W6/wIL3txzKLedd3d9kCZRGmfikeSq5cHOXLbU
-	GywWNWD1f5Z96O25LkztLhtzN5ZcF+v38fBLXOCjLL4/HGk/6TZbVxH4I+RZzSUW+crdulvTuip
-	8MTHhSR7Gnst+ISkAeJ1u+sY9vtFxHwtpg=
-X-Gm-Gg: AY/fxX6E4UNqEa/Ae/tdRGEXZxAhCnBZ5OlcjVmRsuyInEb7O7rOo6etTsSxM8EpNn0
-	KtR6cvXltthjO3Zx/myAiEzOAIH/6ssUS1+ivanCnQlhsaVcPWLdN1DPTzwuQ2np/j9K1niiIwr
-	s2cXfKK8AM9yVbMOWUBhrRcIYKHPS8ZE5fhqHX8R4XkyyZlDDQ7rYvJoR5NqimPnnVeWY+quEMz
-	/1l2E7vMeuOQsAq3wGGNpuwzDB/OUSvuntBy/zqwgNAPdc8W4ZKc0of7zN+pXeYEkeOpDg/onm4
-	8Rq/e8hE5ZljSRBYbwwZWdg9HTIJBPS+ZTIif//U248Y1XBbBbGNCyCxv4iuePvn51wWFPVzo2t
-	EGarA99UCX9l2jzWpB6sGfQ9QOVuOsZktPIRJ9K7v6OPfYaCJR9CDnHj0ZfdTV/BAKpouNabU8R
-	hqsXydgt+B0qnzNo0JyWASAWTENctPYhiccSHoB/XZs8mtgSFFuQ==
-X-Google-Smtp-Source: AGHT+IGj71uJG7ySIi/dZdQbWrY9w9UNOZJx/gvGqmwYXxhuVL3YEUpV7wFWH6h55TvQq/0Evxeto+I9v9xN
-X-Received: by 2002:a0c:f78b:0:b0:888:81bd:785e with SMTP id 6a1803df08f44-88881bd79ddmr171701716d6.50.1765929548559;
-        Tue, 16 Dec 2025 15:59:08 -0800 (PST)
+        bh=Q8Y5Nly6/2QcuWXLw650vy+bFUZ3dsDuqEwgOZmk9iA=;
+        b=GkylBh+NqBgHOgxMn/fyb+cMQmXqljxaX1gmyxPxdgUg/OIZ5hwf8ayfEYgN7Ym0Rl
+         kXpeWdseN+7zgQfkBkoxHrYf9yE0T9bZekS+OACwInMn1hAq1+QFE8q8uYo+Fz+nm2MK
+         4BC6gN2zuqebfWeDoJCV8R792Isy9GMWBIqz/ZYXNKXbgrCwO9bXIizLpndhnNV3KtF1
+         h6PKKUFYyARYmqXR6p/lBlSqH4EU3BriLpPG4Xzri/Lf+/o3lh1+ithiT8lsQpHMtRL0
+         qxLAjFuzd26tO8tUgVkovMLBESsBNbboi+N4yy6q1C35v/5oRlIkdsVsH8O0yA77hM2s
+         De7w==
+X-Forwarded-Encrypted: i=1; AJvYcCW8e6iYNvBonJKbDQfL8zviqxPeWRdA1sf+LIVmkv3extNSwruHceRSF0fynWYG5chBKrJWY1H4edGhk8ouqAd+@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy2KEYVgH9Xl8uRqAl9yuI9EwPoki5Zk5OTGMCyT/DogzttCRkq
+	klygTzwKp/dbb3uEEraJt6Qt8Pnyj7F5kWWFo6EmPP3GBD4qPuD+DwnjJErtRGYkueQwscKrbIK
+	QDm/pDgLQo6+eGa7XT1b6H3NX+xH26c5Z43IcirZlkZkWWcMZy32DSv3gWak7v/S5ELg9J4meS+
+	z19nCJ3/BLZgP96CW5/x2scs1l2I9rgYhJYZjqLKPJDtOWM90nQvdS/hLqYECQLgL8s04H2MWg7
+	hk+VkD6Q4p/7JKAxL+W/cUwjzpL4ukxiPM=
+X-Gm-Gg: AY/fxX70Ck9JdJ9Ll7aL0bEVvYN8StQm21iyE7j83yOYobYYDIiVWlLftFllLeeziad
+	pAEdkNhsEqFtHTcHtrrlEqYZph+GO6keF6QAQ31WB5RvYA2m4E/g22tO54GxOTRhpsylhmhPUNt
+	wlzOhkCJmS5kCNEaHNK3ssiI0YnAJ8VtxGo2ra+uo9cw3Hx2I4HlIDb58Ege6vqYGw0OwAEOhzF
+	cgVjgul4YL7gCKw6q61WhCvN//GzYSnTiWi62JURgIheV/NVER+3RjivzSogu5bNn9kE9dEFHj0
+	YcTrJXLgqJximRcvI0RjKaH03266XvtomGxwQYzJxHCq/AqcalsjasvoA/WRrz08ZNi5AbimGof
+	UDWwrK9kEQAxZHHBzL8HZPBw3c/pIowS02Quu9SnmpHkp0No/JlGInypUXmdSaltVGP2QxEwS0z
+	biJGhCyWZwAgNZ/n9taLLwKbFrVXbng8nHCyGKTEBzZMaHD+yIYQ==
+X-Google-Smtp-Source: AGHT+IHv5cJfj1sGqjVi99j8GcS8yOenfySAR+wJ3Y2ur8+JDuyyGDKukR8Y4GTR4tnfmoFzBFBDfEoSoUcL
+X-Received: by 2002:a17:903:24c:b0:2a1:5402:7617 with SMTP id d9443c01a7336-2a15402824bmr21730955ad.26.1765929827766;
+        Tue, 16 Dec 2025 16:03:47 -0800 (PST)
 Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-19.dlp.protect.broadcom.com. [144.49.247.19])
-        by smtp-relay.gmail.com with ESMTPS id 6a1803df08f44-88a525a8f2csm1549296d6.14.2025.12.16.15.59.08
+        by smtp-relay.gmail.com with ESMTPS id d9443c01a7336-2a1022dda47sm8587055ad.57.2025.12.16.16.03.47
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 16 Dec 2025 15:59:08 -0800 (PST)
+        Tue, 16 Dec 2025 16:03:47 -0800 (PST)
 X-Relaying-Domain: broadcom.com
 X-CFilter-Loop: Reflected
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-29f13989cd3so162624955ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 15:59:08 -0800 (PST)
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-2ac34c4b41fso53595eec.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 16 Dec 2025 16:03:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1765929547; x=1766534347; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1765929826; x=1766534626; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=qTR8sWzuQg6qCv7sqYnowcXeRDt8t5dlxcGqTpMBq4g=;
-        b=fYH7ELOJ8Ul6E4aGeT1iIMSbi+TyBaDglZsSCo6yZ96+IW+X1mK8Jt+OYjK23T0Qbh
-         lNuHY7bI+cSJg/ct5WTXMGr2jHzL+mFsY+g7R+99sCl9p+c9iyHsqd5zZ7fJxkkHsjf0
-         Y4U8e9i3n939mlR8qs11tamWDMBQrKNhwerRQ=
-X-Forwarded-Encrypted: i=1; AJvYcCWdKZzWM9czXTaDnlEFdQBBZfJGqkj/lqoEB+jnQb38drP2rP7ERDO4CJ4O0YkO/jS59kIWFpi7baZ8OFaaq1Js@lists.infradead.org
-X-Received: by 2002:a05:7022:ed05:b0:11d:f440:b743 with SMTP id a92af1059eb24-11f34ac5471mr8397466c88.7.1765929547282;
-        Tue, 16 Dec 2025 15:59:07 -0800 (PST)
-X-Received: by 2002:a05:7022:ed05:b0:11d:f440:b743 with SMTP id a92af1059eb24-11f34ac5471mr8397441c88.7.1765929546752;
-        Tue, 16 Dec 2025 15:59:06 -0800 (PST)
+        bh=Q8Y5Nly6/2QcuWXLw650vy+bFUZ3dsDuqEwgOZmk9iA=;
+        b=CM7uinUQfJvIBXeVY/Jw7pmtwyKg6JM7bhIcyEWUROy6dPbhAjYepuP2XblFeEBbme
+         RaOxhr72UIN76JVxVCi57Xrvo5+/pn+kB7/mwwg7MYq0Aem3w7gYtQGDvN+vlCbUvO8v
+         BUDNJfoOW2JBTqk+nIfYdhSxdKn3Q8D5JWdHg=
+X-Forwarded-Encrypted: i=1; AJvYcCX0/gs0HFGy6Zs/ZdEAlpnVwDLJi+r8ojaRC1oPHCi1dlja6lsBdoEFjFYm1xVahlNBWvZKuZfLI3DnIOexqtiJ@lists.infradead.org
+X-Received: by 2002:a05:693c:8006:b0:2ab:f74a:6a63 with SMTP id 5a478bee46e88-2ac3119e045mr8038586eec.16.1765929826007;
+        Tue, 16 Dec 2025 16:03:46 -0800 (PST)
+X-Received: by 2002:a05:693c:8006:b0:2ab:f74a:6a63 with SMTP id 5a478bee46e88-2ac3119e045mr8038570eec.16.1765929825269;
+        Tue, 16 Dec 2025 16:03:45 -0800 (PST)
 Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-11f2e1bb28dsm58042465c88.2.2025.12.16.15.59.05
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2ae4f0546a1sm1821021eec.29.2025.12.16.16.03.44
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 16 Dec 2025 15:59:06 -0800 (PST)
-Message-ID: <351d9321-e5e9-43cd-bd74-68aef80aa177@broadcom.com>
-Date: Tue, 16 Dec 2025 15:59:04 -0800
+        Tue, 16 Dec 2025 16:03:44 -0800 (PST)
+Message-ID: <822bdd19-276b-4868-b3e4-59a187bc7048@broadcom.com>
+Date: Tue, 16 Dec 2025 16:03:43 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/4] arm64: dts: broadcom: bcm2712: Add watchdog DT
- node
-To: Stanimir Varbanov <svarbanov@suse.de>,
- bcm-kernel-feedback-list@broadcom.com, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rpi-kernel@lists.infradead.org, linux-pm@vger.kernel.org
-Cc: Florian Fainelli <f.fainelli@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Ray Jui <rjui@broadcom.com>,
- Scott Branden <sbranden@broadcom.com>, Lee Jones <lee@kernel.org>,
- Ulf Hansson <ulf.hansson@linaro.org>,
- Willow Cunningham <willow.e.cunningham@gmail.com>,
- Stefan Wahren <wahrenst@gmx.net>, Saenz Julienne <nsaenz@kernel.org>,
- Andrea della Porta <andrea.porta@suse.com>,
- Phil Elwell <phil@raspberrypi.com>, Jonathan Bell
- <jonathan@raspberrypi.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>
-References: <20251031183309.1163384-1-svarbanov@suse.de>
- <20251031183309.1163384-5-svarbanov@suse.de>
- <20251105165553.3910996-1-florian.fainelli@broadcom.com>
- <189702e0-e6f0-44c5-bed6-eef058d90b76@suse.de>
+Subject: Re: [GIT PULL 1/1] Broadcom devicetree-arm64 changes for 6.19
+To: Florian Fainelli <florian.fainelli@broadcom.com>, soc@kernel.org
+Cc: Stanimir Varbanov <svarbanov@suse.de>,
+ Peter Robinson <pbrobinson@gmail.com>, Stefan Wahren <wahrenst@gmx.net>,
+ linux-arm-kernel@lists.infradead.org, arnd@arndb.de, khilman@kernel.org,
+ bcm-kernel-feedback-list@broadcom.com
+References: <20251216235649.633331-1-florian.fainelli@broadcom.com>
 Content-Language: en-US, fr-FR
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
@@ -143,13 +130,13 @@ Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
  MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
  7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
  95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <189702e0-e6f0-44c5-bed6-eef058d90b76@suse.de>
+In-Reply-To: <20251216235649.633331-1-florian.fainelli@broadcom.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_155910_118485_7EB1756F 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20251216_160348_831317_36C57071 
+X-CRM114-Status: GOOD (  13.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,24 +151,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/16/25 05:00, Stanimir Varbanov wrote:
-> Hi Florian,
+On 12/16/25 15:56, Florian Fainelli wrote:
+> The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df56787:
 > 
-> On 11/5/25 6:55 PM, Florian Fainelli wrote:
->> From: Florian Fainelli <f.fainelli@gmail.com>
->>
->> On Fri, 31 Oct 2025 20:33:09 +0200, Stanimir Varbanov <svarbanov@suse.de> wrote:
->>> Add watchdog device-tree node for bcm2712 SoC.
->>>
->>> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
->>> ---
->>
->> Applied to https://github.com/Broadcom/stblinux/commits/devicetree-arm64/next, thanks!
+>    Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
 > 
-> For some reason this is not part of v6.19-rc1.
+> are available in the Git repository at:
+> 
+>    https://github.com/Broadcom/stblinux.git tags/arm-soc/for-6.19/devicetree-arm64
+> 
+> for you to fetch changes up to 37c3a91e9730e274fe2eca9703033ae0f154cb62:
+> 
+>    arm64: dts: broadcom: bcm2712: Add watchdog DT node (2025-11-05 10:28:29 -0800)
+> 
+> ----------------------------------------------------------------
+> This pull request contains Broadcom ARM64-based SoCs Device Tre updates
+> for 6.19, please pull the following:
+> 
+> - Peter enables the random number generator on BCM2712
+> 
+> - Stanimir adds the watchdog Device Tree node for BCM2712
+> 
+> ----------------------------------------------------------------
+> Peter Robinson (1):
+>        arm64: dts: broadcom: bcm2712: Enable RNG
+> 
+> Stanimir Varbanov (1):
+>        arm64: dts: broadcom: bcm2712: Add watchdog DT node
+> 
+>   arch/arm64/boot/dts/broadcom/bcm2712.dtsi | 15 +++++++++++++++
+>   1 file changed, 15 insertions(+)
+> 
 
-I did not send out the pull request, sorry about that. Let's see if the 
-SoC maintainers can still take it, if not that will be v6.20 material.
+Apologies for sending this so late, after v6.19-rc1, these changes are 
+somewhat minor, so please let me know if they can be accepted as late 
+changes to the 6.19 merge window.
+
+Thank you!
 -- 
 Florian
+
 
