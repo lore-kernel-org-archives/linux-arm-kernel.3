@@ -4,222 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 272B3D65C43
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 12:53:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F09AD6407A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 12:55:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OWrf2JbbUB+q7BaW/1/eqQQbG980fw1DmQ42lcnBCms=; b=q4FSqaLO0dHnCUcsnpQvkmLZ9D
-	fKsnOIgBHTT5JylEDrm8w1jdndXE+5Hq49cUkmFUOQBOj6D+crpDbcp5PAonvcg75O6SV6un/bvo+
-	y9nxA76UwORJimW+GnEU6kvEz3KqRdcv5sy9Lv0T7XaCkhlKyXPcBxs8+jgCnDXgMAnYcRtLPaoSm
-	xcdwfaY14WeUeM6ey2uIlCmCFhWZOKegA+7gluBO35RhZNBIuWxloom8+2MxeATTVtRMzTEffCE79
-	PJBh8RrlH1jvU1sfrvta0cc3ZO3b1r8u1XKBKKnUMqQzq6XN95FMR84ADjfknIwRveVZUM6lkDgL+
-	tmwLOE2Q==;
+	bh=1WB9IDMyF7C6rUTb7bWFFG4m+8S18M2qqzE6q3X6CiU=; b=1FpLynWKRl3xo+wu/JDeoG3Bcu
+	3TaOV6jg07WSB4j2GypjIQaNJVuVUB4Q9yUJL1j8gjdGWu1NiSyzgn+2VDvPnpZSvCiT/VXpsKvSY
+	HhPAx/V7bk8OzP9fNwaY9AhcolVWWfK+Ws8fCv3NagK6XKbrypqHeElSaTvzkVcG5pq7jH8EmGBVd
+	GnzOPLi3NbACOUQG9f8vRcuYeIG1olsbjah2l+gmOeHEjkgKsxtB30bhs4waUcu26tV7hWJ9V2Qt8
+	enYVcFp4aVhTqn7LaPy/zIWywjKpCmsMXOAom2/wVwlSivvPelXp5l3aNnes5hvQusQLWFufpiBIp
+	r8UkqqyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVr27-00000006olW-3XSw;
-	Wed, 17 Dec 2025 12:53:35 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1vVr3S-00000006ovE-3XAW;
+	Wed, 17 Dec 2025 12:54:58 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVr23-00000006oko-36mW
+	id 1vVr3Q-00000006ouU-2NQj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 12:53:34 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=Mgmi/iKrKp7B+fSdmZvQmT5y0zxcoT4ShiZGmyn2da98FUM6+MERjnbY1J894PXWbkjt6dyyN5w256UJosX+1uY0W2SgnWxBgu1zue8Pp616rWln7HigTeEmeA/NKixp+zAdF312qe1P68lh4Uleurjrx4ztTFeo/8c+7YWs9DyS9Z+E8CsNRvTjQ3MtyNSpg/JWwdor+UEaInjxGCK5r4TmSsFLXj3jbTlvqrZS5lLybmxqnNs93drhFnNVti6SXw9geX7IeK6zlPHmGvUpGFEdmjxJza7EtK09SRELNSpcz3CQWiLs3ABjQ/R6T4lR9IyBTSjg7I5vsBhcmwASJQ==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OWrf2JbbUB+q7BaW/1/eqQQbG980fw1DmQ42lcnBCms=;
- b=dD5l9lHPCprLESCKuG6V83AcebasIzTodTzRb/ukjHllT3wu9dJUQKZbLbRtLPU34rjLUR6q93lxkqbECjeXPxQxC66rTQaubswyaukQL0SXUiobipm0s7Smq1gQxwAHbtjWQd8JbMYo05Ad2DScEDwFzECucShMdpiZ/kBE6y+BRXzyeAcbK7/7hZjPNPgJl7CRX04Ad865FUd0MSITJJkDR10ipoAbKaNCdCn4a4KH/22lEOi67rWLlsEV9L9Rn/YsR6aswtvq/DOCfKjAnygRjFGi1G4+sHWfcDKXVbPmC855tfCfXuW+jmEatXJMrOjTSQU4Mtlmzscz26QyFQ==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=linux-foundation.org smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OWrf2JbbUB+q7BaW/1/eqQQbG980fw1DmQ42lcnBCms=;
- b=j8M+dOwOHIEu8S2CD+c5EBPSWJTvv8Aqm03bQ4l/ZKavQ+PkYFxe+Pcbz33P7ARP/4g99j2wd0B7LmGdjN1xD70cm7nqK3i9inkORmUbSPAqNx1PAsWjFIXPYzOBHVLDBvbuR+M3efAAFmC44o8C4sTYfUn61GretsG1K0BRfik=
-Received: from CWLP265CA0346.GBRP265.PROD.OUTLOOK.COM (2603:10a6:401:5a::22)
- by GV1PR08MB10606.eurprd08.prod.outlook.com (2603:10a6:150:165::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.13; Wed, 17 Dec
- 2025 12:53:21 +0000
-Received: from AM4PEPF00027A69.eurprd04.prod.outlook.com
- (2603:10a6:401:5a:cafe::a3) by CWLP265CA0346.outlook.office365.com
- (2603:10a6:401:5a::22) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.6 via Frontend Transport; Wed,
- 17 Dec 2025 12:53:20 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AM4PEPF00027A69.mail.protection.outlook.com (10.167.16.87) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.6
- via Frontend Transport; Wed, 17 Dec 2025 12:53:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ra3XL+a9ux3yuQ9qoXdv1jR6pe+sChgA665LtzScm90ZqCn8lRUtZnA3ryy8kQjJJn86tiowMNpuRVbwKyDb8JQhwkd348XTFyiUBKV5LJ/d283e+neKAXnXvY/YukARLkIjcGb89kXzMEDlBOYB2AgyjEUlEWGhwKHyPtmIY0GxGBMHPH6AI2zfDzVNSmEcxxOiSmEzHWPfg6tVTzYfTYi0KpdjynePlOH3RfeR+9GtgF0UgDgY/7vunQWunjUGNUmlTSElLZryIuoeJcqqKFZFs6i4dl3z3HVms6cAllvayj5YYfqznSfywmk+xV9G6OV8toSmeNKajuEW8Q5Krg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OWrf2JbbUB+q7BaW/1/eqQQbG980fw1DmQ42lcnBCms=;
- b=mxcxDC4LPR7rTFtjb/uHOJo5Cs9qYVaLSCtBVNyoOB7SmEvGasMM74QKVYqfe/ofuwc3iAaUUU8vUbM15dgCDFhwDPH0dAAIGjtQ1mbi+R+Y5fXTAVY2mLtCw1ynM7/R3isNRBsgM5HH6Jid8rDtxjQraT2bZyvuormORoQfYhzrgSw7UwnHPOvGWpi4iANjB2XHGiPJzILI/VJSbG/NAR9Gp8nDwI155s7UmsbXH1t78I1RJkpZ59XPXnIZ54ATOfsYehy9Gtx3TTA5VTbuf1bGBB4n24ENlAK+FzM6beypoCnBhJxzzn/RhbxXUZJaOpSL+c+F5xX6hW0jlHNdSA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OWrf2JbbUB+q7BaW/1/eqQQbG980fw1DmQ42lcnBCms=;
- b=j8M+dOwOHIEu8S2CD+c5EBPSWJTvv8Aqm03bQ4l/ZKavQ+PkYFxe+Pcbz33P7ARP/4g99j2wd0B7LmGdjN1xD70cm7nqK3i9inkORmUbSPAqNx1PAsWjFIXPYzOBHVLDBvbuR+M3efAAFmC44o8C4sTYfUn61GretsG1K0BRfik=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by PA6PR08MB10441.eurprd08.prod.outlook.com
- (2603:10a6:102:3cb::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.13; Wed, 17 Dec
- 2025 12:52:17 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739%3]) with mapi id 15.20.9434.001; Wed, 17 Dec 2025
- 12:52:16 +0000
-Date: Wed, 17 Dec 2025 12:52:13 +0000
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: akpm@linux-foundation.org, david@kernel.org, lorenzo.stoakes@oracle.com,
-	Liam.Howlett@oracle.com, vbabka@suse.cz, rppt@kernel.org,
-	surenb@google.com, mhocko@suse.com, ast@kernel.org,
-	daniel@iogearbox.net, andrii@kernel.org, martin.lau@linux.dev,
-	eddyz87@gmail.com, song@kernel.org, yonghong.song@linux.dev,
-	john.fastabend@gmail.com, kpsingh@kernel.org, sdf@fomichev.me,
-	haoluo@google.com, jolsa@kernel.org, jackmanb@google.com,
-	hannes@cmpxchg.org, ziy@nvidia.com, bigeasy@linutronix.de,
-	clrkwllms@kernel.org, rostedt@goodmis.org, catalin.marinas@arm.com,
-	will@kernel.org, kevin.brodsky@arm.com, dev.jain@arm.com,
-	yang@os.amperecomputing.com, linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 0/2] introduce pagetable_alloc_nolock()
-Message-ID: <aUKnfU/3FREY13g1@e129823.arm.com>
-References: <20251212161832.2067134-1-yeoreum.yun@arm.com>
- <916c17ba-22b1-456e-a184-cb3f60249af7@arm.com>
- <aUGOPd7gNRf1xHEc@e129823.arm.com>
- <100cc8da-b826-4fc2-a624-746bf6fb049d@arm.com>
- <aUKKZR0u22KOPfd7@e129823.arm.com>
- <d96ac977-222e-4e8d-9487-da1306198419@arm.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <d96ac977-222e-4e8d-9487-da1306198419@arm.com>
-X-ClientProxiedBy: LO4P123CA0240.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:1a7::11) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
+	Wed, 17 Dec 2025 12:54:57 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-7b8bbf16b71so6125720b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 04:54:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1765976094; x=1766580894; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1WB9IDMyF7C6rUTb7bWFFG4m+8S18M2qqzE6q3X6CiU=;
+        b=LPsox6mSq99uOatfJUSD/4uQBuQTeDfzCT/MiouMjUMqLt8Y/UXwWXww+c6nFCervY
+         JNPgZyGIsosPEI5WVHM2QWxdxN9EBFYLeKlSqxecxzUrO60kzuR34/Elvb8XOg8qSRvW
+         C0Lh2NzUWssSYCmpaiGyFRtQ/Z98hml1cmTL2DtF/h47EiVDSPlGTo5ZbpWekx9rxGJR
+         6b1uSmRg2e/d6VMWRv3bjbtdm0GKGe88S5+pBEgaQOoWbyRteB95d8fCEKEAngPbM3tN
+         YwG+NNbzWXfSla0ZWi6kjMLcKItAzY0ApxD31qrAUIxpFRxMxe3HzHV+yvfJxI7RGqkl
+         U0/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765976094; x=1766580894;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=1WB9IDMyF7C6rUTb7bWFFG4m+8S18M2qqzE6q3X6CiU=;
+        b=HVnw+J5WUNkIo/zFnjr0qLMu47Zj5ZoocKqq5F9MKHA35QHeeriRY/4f55lAomuE1L
+         BTPfKV99wPxrOgEF9XWkr8ARlReuR6cHp4LPYpl9avjLUBrUOQq+DlYSD76OieOmXxeb
+         uVRmcE/7UPoWiBxL9eqXSX3+8nk6J9CDC0BGxAKZqaksSDo1xRWDKQ8gNQP49SSeKXxX
+         Hupx+5oqI8LRPpR3+QmpmqSF1PaCz4CwdapGEDQALNx/fGSrErpMBUAOAPR2p25bTYn9
+         DNqSDarGkppVVGTfrsf0OQI94mzMCoumk6VCBAMF2IW9/cCApdIWq9+WPC9kuTRbCZJ0
+         un0g==
+X-Forwarded-Encrypted: i=1; AJvYcCXtZyY5GrT5Kkiz/l6dh6hCbtDg/RggC7OmUBoJuIwug5//i0sO4NYsKVhx/R9ubhLmqt4RQAwRXZ/anmD0PKpw@lists.infradead.org
+X-Gm-Message-State: AOJu0YxYy2KAJWvGpW3wVRXXW3p1OtySdEO/Uh1ZTIStOjiRyJ0Qck9a
+	z5q5w5dyyQg8NgQxim15G5Xx+9QsC6P0bS3bp8bv6+eIzzdnyi3TBozK37nmrZvh8y9wEkSPsDW
+	vXfX+mqpUwHauy9cGzWY0+NfqL7PM1xkypplU
+X-Gm-Gg: AY/fxX6Hu4y4OUI+1KeOvgEg7yA2pQjlPpovNIzKDOIrPDC6ml2WXQlDsqmfC5bRilE
+	cqmo4RU5OXRaTZGIzIu9QYETi9jqaO7wbM0rJFG/f7lXB11fuqUO6+JnTimVtLofJ2KcA/madFT
+	D7CucNdCtJSiQtbe+SnhjvszS9Bp29jKd2qZWsx8vhDzAXCqUIh0rYYnmt6VYjFTl/QvoPHsIe8
+	9IBTpYBF6iXM1a1FR+4cRQDRjIdnGUNUDl4Tc5i9Vwj6fLUG4FoIOcDPGDWCDC2dv9DUAUrnOq5
+	5sr30PoDua2L5XDIRkHkJc9mFbegMEAqXmv+y7xvJ/1ARWRdnFDLxt5R2Y/wgiLtmN1YJ5B5W0t
+	IyJNsqT2/+w==
+X-Google-Smtp-Source: AGHT+IFCVxVZKfQazz0Hf+zlDf4DPsGc7oERAwp/C9jL/RfYpJUNkkyKQjqWAoT+yyXwjrVLjDdhD4cpWBi7QA+Z/RI=
+X-Received: by 2002:a05:7022:4393:b0:119:e569:fb96 with SMTP id
+ a92af1059eb24-11f354776a3mr16162731c88.5.1765976094025; Wed, 17 Dec 2025
+ 04:54:54 -0800 (PST)
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|PA6PR08MB10441:EE_|AM4PEPF00027A69:EE_|GV1PR08MB10606:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9aa460f7-2298-4244-eba9-08de3d6b4178
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|366016|7416014|1800799024;
-X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?QkZjM3hTZUxCTEdWVWVXY1NFU204Yi9WMkE3d1R6NkFXMGdDdTgwWXR3Vk03?=
- =?utf-8?B?b0NETkg0MlRXbWFudVY5SXBqclR4SmdZZit6SUMwT3N2RjVGUXpQQ3BQbUhT?=
- =?utf-8?B?ODAzVk1XM1JOSGRBclZwQXNQNkc2bFVqWDAxMllrL01yeUxuS0RLMnJPMUJx?=
- =?utf-8?B?elNvdWVRclQ0djRZN2NQZmhXYWMra1RtUDBwNzBaemlMQ1VMKytZN0QwTkVn?=
- =?utf-8?B?cXh2NytYdUVrZ1ZZbEh0VXMvMkVSV0lLRWlnbkJrYVdmQmEyWDZPREpwbnlV?=
- =?utf-8?B?TTUxT1B2Vk13dEdZeDhVWVR1cVl3ekhuSmZjT05wSXI0ZC9RSEsreUlCZWhy?=
- =?utf-8?B?bFVlM2JMWi9ob25QZTRiODlIL1JlY3RLVzlXODl4Sy9LNzBxcUtaOVg3QStv?=
- =?utf-8?B?Mkh0c2loaUlTTXEwSXNvNXcxRWFvbXUwbDBIT29kZEpZOTRGaG9saWRSbFRY?=
- =?utf-8?B?ZUFxYVRSZ1R5TEhNUXUrNGZ2ZmVTMkUvWk82cHRGSGREWms2NXZyais2eTRJ?=
- =?utf-8?B?bzFacWFZbU42V0RQYks4U0lkZGN6T0dFZFFEM21YR051d3U3eGl3R0FwNHRx?=
- =?utf-8?B?RmNRTExOQVN2RS80bVdMeVp4WG4yT1B4Rk1rQzVuOHJoc29zSllyRzRuaFM0?=
- =?utf-8?B?T0c0TGR0VDNrT0VNRWZKd09ZV1NwVktpOFZJc21TdWM0RThUcCtSR0oxRzlT?=
- =?utf-8?B?VXk3Wk4wa1BRRC9VbFdoVGZtRkJrZFlVWkkxOUZwT1U2WWd3NnIyV01JYUFj?=
- =?utf-8?B?NGJoVUh5VmJlRVkrQkQyYTlvKzBQOEd0Q3RNdkJBS0U3MFlEVU1LcktIK2Zr?=
- =?utf-8?B?a2daOW92Yk9KUFJnRlZlZGRndXl0TkM3MGVzaFdEWTVHQmwvSnE2TkgrU0hk?=
- =?utf-8?B?SVE1aGhFbTYwNWtHRGQxZ1B6ZzZXNk9CMnpoZHJleHZaVlNFcmJMbldGYkli?=
- =?utf-8?B?UmZ4M09ybHFyMkRBNndRamNoYVc5RkduWmN1MlJPRjIvamdwT1pFOUNDcndn?=
- =?utf-8?B?RjJyVUNGclNqYk4rWWdPOXIzM1BlY1ViRFdLNlFLTEt2QTFZRkZpZ1FvREFO?=
- =?utf-8?B?RHJUemFIdmdxa2c3L095RkEydU8rUVBYQkNsTFdEQ2d1ZjJmM3pDS0dDRnpU?=
- =?utf-8?B?ZTV6Vy9jVU9ncVJJVmNvV2VxdFRCVVowNFF5TWZPVVRLcjF2U1lVbDBQc1Yx?=
- =?utf-8?B?cEpKdTAwMTcydk1XazU5QkJWMTlJVFgvYkN4UWdZZFN0ZndkMEZRd0NHbFhG?=
- =?utf-8?B?NEJYcG9OVVNCYlhpdEl1dnlOaWx2R2RDOGVaSFRyQ1A0YmU5bDVQWDd4czJO?=
- =?utf-8?B?dGFzRXlzdm1lU2diNFZtRmhOZlBJOWo3QjUva0JpZjNRWTlKR1BpYTZqL1Zp?=
- =?utf-8?B?d1pjU3RmVC9Td0FabEx6aytRMWZveUU0NlhoazVWVFRUcG55QVdrZGdLeXVs?=
- =?utf-8?B?aktmT1ZXUlJINTQwb09QYU9yQk9qVWxTbTNoTkNtYTRVNGdNaFFsL3VKdDZk?=
- =?utf-8?B?M1FZZjVuTVB3WW5xNGltei9iWUdOM3ZFR1p0Vkt3ZTBVK0NPY2JUVytRS0d1?=
- =?utf-8?B?OXJ5bjRtYk1tQlVDZGdiYUhYUDE2L3doTWpGTzVPT2VDN2M0TUFzSWNLM0xG?=
- =?utf-8?B?aEYvckRhVFY1VXdwZlhid0p3bHljN2FxcWNBWnBXNlRFNC9RV3lEbWhlMkU1?=
- =?utf-8?B?TXEwRUh3VVM5Q1paUEhqOURoTVY3R21lZVE2RFFlbHl4V0Z5VlBNNFFzaEJJ?=
- =?utf-8?B?cFlWVVlBNXZUeVBNY0VkcSsrY2FtalpEc3NkZms0bEw3MmUyeHUvYzdkM3Fa?=
- =?utf-8?B?dVBUbUxiTXR2NEZZTS9EeXR2WWxaa1lIaHZNK2N5QmpJV0p6aDBvUmFBWHc0?=
- =?utf-8?B?bWVQL09SVys1U0cydG1NN2FBTDVtMm1sWnRLUTVWRUxSOUs4NjF1TGM2QnBW?=
- =?utf-8?B?U2tFcm9jQ0wwcjFkUDFVRG5SYVdWTE1DNGRDZkVrc1o2c2lsemovOXpUc3Na?=
- =?utf-8?B?Z2dTR3I4dVlBPT0=?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA6PR08MB10441
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM4PEPF00027A69.eurprd04.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: e6d28607-e089-46f3-a722-08de3d6b1b7b
-X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|7416014|82310400026|1800799024|376014|36860700013|35042699022|13003099007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZGIzTWd0WnRCUHZRQURvemNDU1k3L3ArMkwrTVp0Z083ZG9QRVhjWUdlTUkr?=
- =?utf-8?B?WVIxOFkxWWlsdWxPQW5OcGdjUW8xb21oUjNHaENuYW4vNEJ1clViK3ViUnRH?=
- =?utf-8?B?bG9EbktybVB3STZFSWxGZTd2SXViaTVSdXBSODRWd25rYk00Y2dtTURmUDZH?=
- =?utf-8?B?WGkvL2pYbEgvVE9Dd2VUdmRHRGZhcTUvVDVTcTRiK25oanBJbDE0NkEra2FC?=
- =?utf-8?B?emxpc1ZQdnNaVFA4a25NNXZiZnhyWlVaMmQ4dVlUb0ZrQ1lCMlN2eFNZVExm?=
- =?utf-8?B?YjN0TUg1NE5UNG1yMGRucmVtanVPQ2cxREhFdEdWVW10TDJodXdhSlB4RTF1?=
- =?utf-8?B?OXlFcUYwMTRNWjFNaHQ3MCt0RU1LL0dYcGdYU0hOOGpJcFFYa2FFY29qTTNK?=
- =?utf-8?B?cUs2WTBVZTExN2NrUzJyVUZOT2w5UXZhOUtya0p5NWk5R1ZKaFhpMTlsSUhZ?=
- =?utf-8?B?THp6RzljaitCL3lJbE82WjJUTkFlSk5Sb0g4K1FBcDhtOXVuN0J1aFJYVkcr?=
- =?utf-8?B?V1VCOE9WR1Nyc1AxeU9lNytkdTFscU8xSWhKdW1vcW9wZDhtTXQxNjVRUTdp?=
- =?utf-8?B?d0V0emplTDZjT3BUamVGbjJVaVVtSFhQOVNDSW9nV2RsY3ltQTNlSDhVT3cw?=
- =?utf-8?B?K2pPcnloMmV6ZjJjam9abVl5aE42b1MxTXQ5Z0lBb2FMQXJva0VDbGdPdW5z?=
- =?utf-8?B?YVI2dFFPeWt6U05RakxoZEJjUlJLYkZXVklBYnVNRlBEU1R6ZjU1UmNvYUVO?=
- =?utf-8?B?NFl6M01EbmVpbFRFZ1plV21RaThNdlpuT05MRXJmUkt4VEpVMTcxRUVlNWds?=
- =?utf-8?B?ak9WeUZ1RHQvYW5oTnZBaEY0WUtwQnA1TWZUZ2RGcHlHZEREdkc0NjJrNWN2?=
- =?utf-8?B?cEo1MkhsTWt2aFFPOUFEYkx1Wk1scE5hdGkwSFptOUlaaWZUQzdrZWlZYjk5?=
- =?utf-8?B?aFdYUmg4ZjNBVTdnaXRNRThTZTU1c0REV2d3SDA0ejJTZzBhTnpKSjVmcjcy?=
- =?utf-8?B?TkduazFDemJyUk95VmdLSERraDlDZ3p1a2JkZkdtU0lYYURqZnZJdytqQVVE?=
- =?utf-8?B?YkNmYTVwcnNMcFlnUjB5Q2doKzhnTnB3c2g2eUxlOE05M2hYM2U1dml2WHp6?=
- =?utf-8?B?alhqNnNiZ2VxVWxIZThONHBHNWhhNGYzK0dtYjhzU04xRC9mZlVGSHh1bDA4?=
- =?utf-8?B?a0pjK2lBWkU1Wmtsb2RtTHYvRkFleE80ZlNKR25GZEttZTQxalNzd3czTEpR?=
- =?utf-8?B?Uk5lMldVbFNpYW56NkJKakZieWsyRFR5R1hXSG1iL0xZd0NSU3dOQ0U0TWdU?=
- =?utf-8?B?UHdWd2ZYTzRvRTdaaHdIM3ZSYkpjc004Qk1BcW9FTFRnM1puaVBZSDRGZXIr?=
- =?utf-8?B?U2tkVk1sZ0oyNDNKWEtGTmdYTjJCMXZOVnZyYXhsbzhYckRpbyszZ3hVRXJp?=
- =?utf-8?B?MFh3OEJ4T25jRmxwUlk5cmIwZzlYd29ZdVo3SHpDRWw3U0ZjaHY2WDVJMVh2?=
- =?utf-8?B?U0RBYXlSd0ovNG0zc3pidkd0ZGVjQW9mbms2NkQ1eUJHRVk0RnNhdGh1Y0ZH?=
- =?utf-8?B?WDgrbXd1VEl6RE1VcTZWUEVDUGh5bEh6aittbUo1MnFWdm9pbTgzNUI1V0Uy?=
- =?utf-8?B?SUJ2a2lONUJMSTdMbTVIaEVSbUFSUUM1Y1R4ZlhkTTFaeFY2eS9CbzlGU1ht?=
- =?utf-8?B?MEEyQm96cVJid25KNWE4L2dXcE83b0ZRVGpYTnA5NHBWZGlLaXd1UzRablV4?=
- =?utf-8?B?Z21nSkhFUFBoNkNqZUpOSWpxa0R0SWdLU2hITEdlZC91TDBKTWFsdy9pZElH?=
- =?utf-8?B?QllTdTd1THUvRXA3VU8zUzNVcm5vdGNHZlBEV2VEUDJwUlcvajZRK3pBeUYw?=
- =?utf-8?B?VlhzM056YWRSeGlxUFpsSnJKdzhONTEzVks2Q1JYM0g1YmJmRWk0NEQwQ255?=
- =?utf-8?B?UWJ3bnRLUFIzeGJYbGFvenA4cHM5VzBNMkJIK29yR2hGM09BdnJld3lBMTRh?=
- =?utf-8?B?QU1RVVloQTZWWG5zU09tNDlvMXVxakpEKzlwOXdTMGlWSi9WQUR1c2djbjcx?=
- =?utf-8?B?Mm5CYk44SWVnSzFDUTFaYjdGU1lIdUh4L3g4am9QVnEwL2ptQ0ZQOHJmb2cx?=
- =?utf-8?Q?t5T8gV6V+DR3ZzYSyw7L/p3N7?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(14060799003)(7416014)(82310400026)(1800799024)(376014)(36860700013)(35042699022)(13003099007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Dec 2025 12:53:20.1738
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9aa460f7-2298-4244-eba9-08de3d6b4178
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00027A69.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR08MB10606
+References: <20251210154906.99210-1-daniel.baluta@nxp.com> <aUHZaapZ1IAs_mRE@p14s>
+In-Reply-To: <aUHZaapZ1IAs_mRE@p14s>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Wed, 17 Dec 2025 14:57:24 +0200
+X-Gm-Features: AQt7F2pCrjbzUdKtcqyy6UJ2W0Ki6ZTb9uglvOiXJFQ03JP1g08LOHMbnAHpvt0
+Message-ID: <CAEnQRZC0WU+MGfZ5z3yJCz==MBCcFG4BUwNs2v1ABOMkiRbPrw@mail.gmail.com>
+Subject: Re: [PATCH v2] remoteproc: imx_dsp_rproc: Fix multiple start/stop operations
+To: Mathieu Poirier <mathieu.poirier@linaro.org>
+Cc: Daniel Baluta <daniel.baluta@nxp.com>, andersson@kernel.org, m.szyprowski@samsung.com, 
+	shawnguo@kernel.org, kernel@pengutronix.de, festevam@gmail.com, 
+	arnaud.pouliquen@foss.st.com, robh@kernel.org, geert+renesas@glider.be, 
+	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	iuliana.prodan@nxp.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_045332_061027_BAD5A9E1 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20251217_045456_643963_9A815DF6 
+X-CRM114-Status: GOOD (  31.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -234,188 +101,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On 17/12/2025 10:48, Yeoreum Yun wrote:
-> > Hi Ryan,
-> >
-> >> On 16/12/2025 16:52, Yeoreum Yun wrote:
-> >>> Hi Ryan,
-> >>>
-> >>>> On 12/12/2025 16:18, Yeoreum Yun wrote:
-> >>>>> Some architectures invoke pagetable_alloc() or __get_free_pages()
-> >>>>> with preemption disabled.
-> >>>>> For example, in arm64, linear_map_split_to_ptes() calls pagetable_alloc()
-> >>>>> while spliting block entry to ptes and __kpti_install_ng_mappings()
-> >>>>> calls __get_free_pages() to create kpti pagetable.
-> >>>>>
-> >>>>> Under PREEMPT_RT, calling pagetable_alloc() with
-> >>>>> preemption disabled is not allowed, because it may acquire
-> >>>>> a spin lock that becomes sleepable on RT, potentially
-> >>>>> causing a sleep during page allocation.
-> >>>>>
-> >>>>> Since above two functions is called as callback of stop_machine()
-> >>>>> where its callback is called in preemption disabled,
-> >>>>> They could make a potential problem. (sleeping in preemption disabled).
-> >>>>>
-> >>>>> To address this, introduce pagetable_alloc_nolock() API.
-> >>>>
-> >>>> I don't really understand what the problem is that you're trying to fix. As I
-> >>>> see it, there are 2 call sites in arm64 arch code that are calling into the page
-> >>>> allocator from stop_machine() - one via via pagetable_alloc() and another via
-> >>>> __get_free_pages(). But both of those calls are passing in GFP_ATOMIC. It was my
-> >>>> understanding that the page allocator would ensure it never sleeps when
-> >>>> GFP_ATOMIC is passed in, (even for PREEMPT_RT)?
-> >>>
-> >>> Although GFP_ATOMIC is specify, it only affects of "water mark" of the
-> >>> page with __GFP_HIGH. and to get a page, it must grab the lock --
-> >>> zone->lock or pcp_lock in the rmqueue().
-> >>>
-> >>> This zone->lock and pcp_lock is spin_lock and it's a sleepable in
-> >>> PREEMPT_RT that's why the memory allocation/free using general API
-> >>> except nolock() version couldn't be called since
-> >>> if "contention" happens they'll sleep while waiting to get the lock.
-> >>>
-> >>> The reason why "nolock()" can use, it always uses "trylock" with
-> >>> ALLOC_TRYLOCK flags. otherwise GFP_ATOMIC also can be sleepable in
-> >>> PREEMPT_RT.
-> >>>
-> >>>>
-> >>>> What is the actual symptom you are seeing?
-> >>>
-> >>> Since the place where called while smp_cpus_done() and there seems no
-> >>> contention, there seems no problem. However as I mention in another
-> >>> thread
-> >>> (https://lore.kernel.org/all/aT%2FdrjN1BkvyAGoi@e129823.arm.com/),
-> >>> This gives a the false impression --
-> >>> GFP_ATOMIC are “safe to use in preemption disabled”
-> >>> even though they are not in PREEMPT_RT case, I've changed it.
-> >>>
-> >>>>
-> >>>> If the page allocator is somehow ignoring the GFP_ATOMIC request for PREEMPT_RT,
-> >>>> then isn't that a bug in the page allocator? I'm not sure why you would change
-> >>>> the callsites? Can't you just change the page allocator based on GFP_ATOMIC?
-> >>>
-> >>> It doesn't ignore the GFP_ATOMIC feature:
-> >>>   - __GFP_HIGH: use water mark till min reserved
-> >>>   - __GFP_KSWAPD_RECLAIM: wake up kswapd if reclaim required.
-> >>>
-> >>> But, it's a restriction -- "page allocation / free" API cannot be called
-> >>> in preempt-disabled context at PREEMPT_RT.
-> >>>
-> >>> That's why I think it's wrong usage not a page allocator bug.
-> >>
-> >> I've taken a look at this and I agree with your analysis. Thanks for explaining.
-> >>
-> >> Looking at other stop_machine() callbacks, there are some that call printk() and
-> >> I would assume that spinlocks could be taken there which may present the same
-> >> kind of issue or PREEMPT_RT? (I'm guessing). I don't see any others that attempt
-> >> to allocate memory though.
-> >
-> > IIRC, there was a problem related for printk while try to grab
-> > pl011_console related lock (spin_lock) while holding
-> > console_lock(raw_spin_lock) in v6.10.0-rc7 at rpi5:
-> >
-> >     [  230.381263] CPU: 2 PID: 5574 Comm: syz.4.1695 Not tainted 6.10.0-rc7-01903-g52828ea60dfd #3
-> >     [  230.381479] Hardware name: linux,dummy-virt (DT)
-> >     [  230.381565] Call trace:
-> >     [  230.381607]  dump_backtrace+0x318/0x348
-> >     [  230.381727]  show_stack+0x4c/0x80
-> >     [  230.381875]  dump_stack_lvl+0x214/0x328
-> >     [  230.382159]  dump_stack+0x3c/0x58
-> >     [  230.382456]  __lock_acquire+0x4398/0x4720
-> >     [  230.382683]  lock_acquire+0x648/0xb70
-> >     [  230.382928]  _raw_spin_lock_irqsave+0x138/0x240
-> >     [  230.383121]  pl011_console_write+0x240/0x8a0
-> >     [  230.383356]  console_flush_all+0x708/0x1368
-> >     [  230.383571]  console_unlock+0x180/0x440
-> >     [  230.383742]  vprintk_emit+0x1f8/0x9d0
-> >     [  230.383832]  vprintk_default+0x64/0x90
-> >     [  230.383914]  vprintk+0x2d0/0x400
-> >     [  230.383971]  _printk+0xdc/0x128
-> >     [  230.384229]  hrtimer_interrupt+0x8f0/0x920
-> >     [  230.384414]  arch_timer_handler_virt+0xc0/0x100
-> >     [  230.384812]  handle_percpu_devid_irq+0x20c/0x4e0
-> >     [  230.385053]  generic_handle_domain_irq+0xc0/0x120
-> >     [  230.385367]  gic_handle_irq+0x88/0x360
-> >     [  230.385559]  call_on_irq_stack+0x24/0x70
-> >     [  230.385801]  do_interrupt_handler+0xf8/0x200
-> >     [  230.386092]  el1_interrupt+0x68/0xc0
-> >     [  230.386434]  el1h_64_irq_handler+0x18/0x28
-> >     [  230.386716]  el1h_64_irq+0x64/0x68
-> >     [  230.386853]  __sanitizer_cov_trace_const_cmp2+0x30/0x68
-> >     [  230.387026]  alloc_pages_mpol_noprof+0x170/0x698
-> >     [  230.387309]  vma_alloc_folio_noprof+0x128/0x2a8
-> >     [  230.387610]  vma_alloc_zeroed_movable_folio+0xa0/0xe0
-> >     [  230.387822]  folio_prealloc+0x5c/0x280
-> >     [  230.388008]  do_wp_page+0xc30/0x3bc0
-> >     [  230.388206]  __handle_mm_fault+0xdb8/0x2ba0
-> >     [  230.388448]  handle_mm_fault+0x194/0x8a8
-> >     [  230.388676]  do_page_fault+0x6bc/0x1030
-> >     [  230.388924]  do_mem_abort+0x8c/0x240
-> >     [  230.389056]  el0_da+0xf0/0x3f8
-> >     [  230.389178]  el0t_64_sync_handler+0xb4/0x130
-> >     [  230.389452]  el0t_64_sync+0x190/0x198
-> >
-> > But this problem is gone when I try with some of patches in rt-tree
-> > related for printk which are merged in current tree
-> > (https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-rt-devel.git/log/?h=linux-6.10.y-rt-rebase).
-> >
-> > So I think printk() wouldn't be a problem.
-> >
-> >>
-> >> Anyway, to fix the 2 arm64 callsites, I see 2 possible approaches:
-> >>
-> >> - Call the nolock variant (as you are doing). But that would just convert a
-> >> deadlock to a panic; if the lock is held when stop_machine() runs, without your
-> >> change, we now have a deadlock due to waiting on the lock inside stop_machine().
-> >> With your change, we notice the lock is already taken and panic. I guess it is
-> >> marginally better, but not by much. Certainly I would just _always_ call the
-> >> nolock variant regardless of PREEMPT_RT if we take this route; For !PREEMPT_RT,
-> >> the lock is guarranteed to be free so nolock will always succeed.
-> >>
-> >> - Preallocate the memory before entering stop_machine(). I think this would be
-> >> much more robust. For kpti_install_ng_mappings() I think you could hoist the
-> >> allocation/free out of stop_machine() and pass the pointer in pretty easily. For
-> >> linear_map_split_to_ptes() its a bit more complex; Perhaps, we need to walk the
-> >> pgtable to figure out how much to preallocate, allocate it, then set it up as a
-> >> special allocator, wrapped by an allocation function and modify the callchain to
-> >> take a callback function instead of gfp flags.
-> >>
-> >> What do you think?
-> >
-> > Definitely, second suggestoin is much better.
-> > My question is whether *memory contention* really happen in the point
-> > both functions are called.
+On Wed, Dec 17, 2025 at 12:13=E2=80=AFAM Mathieu Poirier
+<mathieu.poirier@linaro.org> wrote:
 >
-> My guess would be that it's unlikely, but not impossible. The secondary CPUs are
-> up, and presumably running their idle thread. I think various power management
-> things can be plugged into the idle thread; if so, then I guess it's possible
-> that the CPU could be running some hook as part of a power state transition, and
-> that could be dynamically allocating memory? That's all just a guess though; I
-> don't know the details of that part of the system.
+> Good day,
 >
+> On Wed, Dec 10, 2025 at 05:49:06PM +0200, Daniel Baluta wrote:
+> > After commit 67a7bc7f0358 ("remoteproc: Use of reserved_mem_region_*
+> > functions for "memory-region"") following commands with
+> > imx-dsp-rproc started to fail:
 > >
-> > Above two functions are called as last step of "smp_init()" -- smp_cpus_done().
-> > If we can be sure, I think we don't need to go to complex way and
-> > I believe the reason why we couldn't find out this problem,
-> > even using GFP_ATOMIC in PREEMPT_RT since there was *no contection*
-> > in this time of both functions are called.
-> > > That's why I first try with the "simple way".
+> > $ echo zephyr.elf > /sys/class/remoteproc/remoteproc0/firmware
+> > $ echo start > /sys/class/remoteproc/remoteproc0/state
+> > $ echo stop > /sys/class/remoteproc/remoteproc0/state
+> > $ echo start > /sys/class/remoteproc/remoteproc0/state #! This fails
+> > -sh: echo: write error: Device or resource busy
 > >
-> > What do you think?
+> > This happens because aforementioned commit replaced devm_ioremap_wc wit=
+h
+> > devm_ioremap_resource_wc which will "reserve" the memory region with th=
+e
+> > first start and then will fail at the second start if the memory
+> > region is already reserved.
+> >
+> > Even partially reverting the faulty commit won't fix the
+> > underlying issue because we map the address in prepare() but we never
+> > unmap it at unprepare(), so we will keep leaking memory regions.
+> >
+> > So, lets use alloc() and release() callbacks for memory carveout
+> > handling. This will nicely map() the memory region at prepare() time
+> > and unmap() it at unprepare().
+> >
+> > Fixes: 67a7bc7f0358 ("remoteproc: Use of_reserved_mem_region_* function=
+s for "memory-region"")
+> > Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
+> > ---
+> > Changes since v1:
+> >  * https://lore.kernel.org/imx/091a4f29-5435-428a-9a1c-ef82465211cb@nxp=
+.com/T/#t
+> >  * took a different approach and instead of partially reverting the
+> >   faulty patch, used alloc() and release() callbacks to handle memory
+> >   region mapping.
+> >  drivers/remoteproc/imx_dsp_rproc.c | 50 ++++++++++++++++++++----------
+> >  1 file changed, 33 insertions(+), 17 deletions(-)
+> >
+> > diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/im=
+x_dsp_rproc.c
+> > index 5130a35214c9..83468558e634 100644
+> > --- a/drivers/remoteproc/imx_dsp_rproc.c
+> > +++ b/drivers/remoteproc/imx_dsp_rproc.c
+> > @@ -644,6 +644,32 @@ static void imx_dsp_rproc_free_mbox(struct imx_dsp=
+_rproc *priv)
+> >       mbox_free_channel(priv->rxdb_ch);
+> >  }
+> >
+> > +static int imx_dsp_rproc_mem_alloc(struct rproc *rproc,
+> > +                                struct rproc_mem_entry *mem)
+> > +{
+> > +     struct device *dev =3D rproc->dev.parent;
+> > +     void *va;
+> > +
+> > +     va =3D ioremap_wc(mem->dma, mem->len);
+> > +     if (!va) {
+> > +             dev_err(dev, "Unable to map memory region: %pa+%zx\n",
+> > +                     &mem->dma, mem->len);
+> > +             return -ENOMEM;
+> > +     }
+> > +
+> > +     mem->va =3D va;
+> > +
+> > +     return 0;
+> > +}
+> > +
+> > +static int imx_dsp_rproc_mem_release(struct rproc *rproc,
+> > +                                  struct rproc_mem_entry *mem)
+> > +{
+> > +     iounmap(mem->va);
+> > +
+> > +     return 0;
+> > +}
+> > +
+> >  /**
+> >   * imx_dsp_rproc_add_carveout() - request mailbox channels
+> >   * @priv: private data pointer
+> > @@ -659,7 +685,6 @@ static int imx_dsp_rproc_add_carveout(struct imx_ds=
+p_rproc *priv)
+> >       struct device *dev =3D rproc->dev.parent;
+> >       struct device_node *np =3D dev->of_node;
+> >       struct rproc_mem_entry *mem;
+> > -     void __iomem *cpu_addr;
+> >       int a, i =3D 0;
+> >       u64 da;
+> >
+> > @@ -673,15 +698,10 @@ static int imx_dsp_rproc_add_carveout(struct imx_=
+dsp_rproc *priv)
+> >               if (imx_dsp_rproc_sys_to_da(priv, att->sa, att->size, &da=
+))
+> >                       return -EINVAL;
+> >
+> > -             cpu_addr =3D devm_ioremap_wc(dev, att->sa, att->size);
+> > -             if (!cpu_addr) {
+> > -                     dev_err(dev, "failed to map memory %p\n", &att->s=
+a);
+> > -                     return -ENOMEM;
+> > -             }
+> > -
+> >               /* Register memory region */
+> > -             mem =3D rproc_mem_entry_init(dev, (void __force *)cpu_add=
+r, (dma_addr_t)att->sa,
+> > -                                        att->size, da, NULL, NULL, "ds=
+p_mem");
+> > +             mem =3D rproc_mem_entry_init(dev, NULL, (dma_addr_t)att->=
+sa,
+> > +                                        att->size, da, imx_dsp_rproc_m=
+em_alloc,
+> > +                                        imx_dsp_rproc_mem_release, "ds=
+p_mem");
 >
-> As far as linear_map_split_to_ptes() is concerned, it was implemented under the
-> impression that doing allocation with GFP_ATOMIC was safe, even in
-> stop_machine(). Given that's an incorrect assumption, I think we should fix it
-> to pre-allocate outside of stop_machine() regardless of the likelihood of
-> actually hitting the race.
->
+> Was there a reason you kept those here rather than moving them to probe()=
+ as
+> Iuliana suggested?  Note that I would be fine with this solution since th=
+is is
+> how it was before, but if we have to go through a refactoring we may as w=
+ell
+> take those things into account.
 
-Yeap. It’s better to be certain than uncertain. Thanks for checking.
-I'll repsin with the preallocate way.
+Tried moving imx_dsp_rproc_add_carveout at probe() time but it doesn't work
+because stop() will clean the carveout list and then the next start() will =
+fail.
 
-Thanks!
+at probe()
+imx_dsp_rproc_add_carveout
+-> rproc_add_carveout (adds allocated carveout to the list).
 
---
-Sincerely,
-Yeoreum Yun
+at start():
+   -> first start OK
+
+at stop()
+   -> rproc_shutdown
+       -> rproc_stop
+       -> rproc_resource_cleanup ;//cleans up careveout allocations
+
+at next start()
+     -> CRASH
 
