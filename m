@@ -4,83 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BC93D65C48
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 13:46:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DEF2D65C48
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 13:46:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dt0E/6+ejHTgo150Lc89xpPGXdsq1GIskbS+HNFqx4k=; b=D19JzsCsxUotsowdEkb+WIiCnG
-	rfo+w0K1W3nR4oZXHhpgfZlmDbOUXpJpG5BSuEZtf/Z2I40SJG/L22iEXaR/AbPPqKs6t9bdhjTof
-	uO/mVn8OlEdyapP3T8n8KfuPnYJ/ZrhCsHIj2CzzNhhLu+6qerj4DTQazswMQW1eMFkBd9IpM12Yt
-	MMBBwc6ZQ+KJzOXUN1lyYkqzmy5xJJE1kKnEWpa6Z82u+1DPn093AesKIVP1H4yJz3GzwotAKiZO1
-	uldm0c/pi/iMdWwtsJK2mHZVEHRvHYCQwcp7ewZVMwI2s04Ihs5BAN/qMNijHWxqv2nNsPCfbyzHZ
-	AduJ2jFA==;
+	bh=HeFvcwPuMBzJwPtY2IZ75UX9BR5Ij/OppFp2JBnCGZk=; b=Rnob1qWF48K34NdpJFEgGOMXsI
+	yF+IJZARa4MET2ax0PZNW7vlFZ8xJtanig4DhiuQlyzGWAED0Bcd3Q5itxtoup76yyDwxiFRri6BN
+	ZHi74v1/U23NwGdAWeFsb69qxLCrDAR0dW5fNJ2aYWuCKLlPrLLmJ/5VrXnJ25RN2qB4Db3yP43Xr
+	qsfSFOqd+YkwNWCqdOWgLWio3U5C4mn4IRCtacrQlXCWVkL+wEpT6uwHF+XNdQz7+UReYmYMJr0DH
+	ROWzJ6scobVMIIMJyl7+L9YSEGQfv0NxqsQwo6uocXvD/UrPY1kU+nvwlT/3uWGwYcLuHYOEG90W6
+	YkXMQxLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVrql-00000006sYI-3qQC;
-	Wed, 17 Dec 2025 13:45:55 +0000
-Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
+	id 1vVrqq-00000006sa1-0qzS;
+	Wed, 17 Dec 2025 13:46:00 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVrqg-00000006sXZ-39jx
+	id 1vVrqo-00000006sYi-1GDH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 13:45:54 +0000
-Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-37b96cbd875so48812051fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 05:45:50 -0800 (PST)
+	Wed, 17 Dec 2025 13:45:59 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-5957db5bdedso7183913e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 05:45:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1765979149; x=1766583949; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1765979156; x=1766583956; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=dt0E/6+ejHTgo150Lc89xpPGXdsq1GIskbS+HNFqx4k=;
-        b=S5rSX4A8Q9L6TrwuXg0tbjtOT2wDadHNefowREEQcOiOCr8PaXq36qMQDHA6GG8hxW
-         W3ClsSq+1bJLnXVc2ux3efmbGwBCJ5mTndM1r5b2lKQ1PO1Rkody1IFZeabdv+qaqaeY
-         bvWgmw9EYbBvZiuiwxtDnF8SgX1WFfzNaL3M4Oc6gCY92rABnyEofiGxbvVvv5lWkBr7
-         7zeb6nRynAohtm3THO8H+4ee+GwgNZKC1T3Fq+Ph9UP4GqPtnumV+UCMZRInndlHfb7l
-         jCzVZLGR9NDnS+PSaeQRcPHOxhCAqALkbUGGbacN1vV1wMJZvk7zucSNWNE7w1wSmI3d
-         VBHA==
+        bh=HeFvcwPuMBzJwPtY2IZ75UX9BR5Ij/OppFp2JBnCGZk=;
+        b=Y9INxEV++u+/d1qYmD0fAHouvAShOtGbzsb4qbtxALyi7D8sfMD3CrNz80RsnsKm59
+         FHbeNhiX21Ngk25ykJgNUdwx851CwQ7yuPE1xPquE9YsQxvzSJzTRBdt/QuIGcAlC7tR
+         YMTR+c/K5jSLdxljgJ0pFT6Mr05eVCG84+/z+qH/e48Q2QReAhTdL9uTS+bkDjl13aYv
+         uIc6AzSWnkjOL1N3PGCRRbvuQyg4t6bDqFUBoEYkJWpTa7Ww3Ju5R6FolRiA6osoX062
+         +653HTdXryyY4vFjSCiAqQR7cAhJr9DMvAaEjnOMqr7UQ44yO9xTUlMdBsAoI1xaqw6v
+         +PTg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765979149; x=1766583949;
+        d=1e100.net; s=20230601; t=1765979156; x=1766583956;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=dt0E/6+ejHTgo150Lc89xpPGXdsq1GIskbS+HNFqx4k=;
-        b=bV1dX9MYbg7O8KRpt1dAPOfdlVadRL55hbhcYiexf1bEZJCpRfQVBzuf2FCiA2ea80
-         zH6YOrzUlnxZ4NTGjzY7rBl1TxRI1NqZgj0soVpGL8TLWYeOhBG2vdDkVes4MqYOV7UD
-         +4GdvRp/QNflhvujysCjMNeEUylWqkj1G8mXBrseF3gnaPpSJ15wlF2Yj07CpoQLfPjK
-         If3InywGtsVZFDMRzdaIJFutT8MtMfznVeaLbDFaNrVUvVHt6F7tTQ2FT1uPlra0nB+L
-         8Z6lr/cMAHfcbj5ohoBrQK2l8mUnHo0YuKN45D5d870xA+75wxQb0Ppa0Alomq1ZQX9E
-         HKwA==
-X-Forwarded-Encrypted: i=1; AJvYcCVABy0sLEGYdDXW07a0qF6MZrAXYtDh4CcmTn3CNAFdnjUMbrbqI+dfQkcOYFULn7cTc3y01PDGPl51GZ967J02@lists.infradead.org
-X-Gm-Message-State: AOJu0YyFUs9d4FhW1B5KGMLwyi0SvCaqxRaZMddQTSv/Wf5jk8Qxzbwv
-	AZplJdUVYYSTVrNsVy5AuWcP3oJVEpJISAwem7O0/1y5vXcSTuVpPDWb2vjWCqdCJ1xQA7EZ+yh
-	yNsL8WpLT/3bK5Ccos5QuqhcrRaM6VOhMHwerThmq4Q==
-X-Gm-Gg: AY/fxX60zuUzS8U4TYioZ3+r/obbqUdtQIBnHx+jZCFVn2j5OccKu880xWeAlTBitUV
-	Gu4y8+ucjxvu1a5t6tlTDk5jdzcJBJD2LwiUIQEHmzPHVChGdb+WICgsVFyAejWhii0Coj+er5T
-	/lJpHC5Z1YobQ+VUuYMGsvKGrQTtXdrda0yTKKn6ihM7ropHVeJy6MtSXWmPDzn8/wSdyMDLEqe
-	yIlGCy9mie7b28IpT2HL06q8cqjferIRvbGZ3Q9Q7qkNEOEqMPKnTqmWLnH38q0E/LMPGpMwFH/
-	5cMjVw==
-X-Google-Smtp-Source: AGHT+IExF/Q8NXh7TlarsyYw/vHK3VsdDnOYQrrieIlb5+1W8/+jeDq8koqzdO4UxR+bIVmBM4kl/UassN9xjO2VbIQ=
-X-Received: by 2002:a05:651c:544:b0:37f:cb34:2141 with SMTP id
- 38308e7fff4ca-37fd08be88fmr52413341fa.31.1765979148511; Wed, 17 Dec 2025
- 05:45:48 -0800 (PST)
+        bh=HeFvcwPuMBzJwPtY2IZ75UX9BR5Ij/OppFp2JBnCGZk=;
+        b=t6P70Jb9tASNJYmVw3oMVA721zZne3D4JPsVoFdOXEPiG8PhVXt61XQwV5T0K7YpC5
+         Ey3ip4fLxmEdEt0l5S92F3f7dmMkB+HRWimVNWd/LAsBXUYAYypj+mI/zYQT0kzWVtTY
+         k9tZ28UQGD2qhpFetlijr5UEot1ZPSb/TVdiyvd1JfP2klz6UPVqM2Kiye7K5ON8cZCJ
+         E3XicgyBiCgMMLdt5xirkmiz6lH9/MLwDGlGi9BNSu2rAiKTB74cp1IkriKiFzA7dHzN
+         zEasdvS9We5nyr1rCaYjRqeoEdxpc6e34QMqGZLxOR9K86+UXawtbsnaHQ6EGNiV5XWw
+         wJxQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWxAAzgAz/kU3fXdmIlbb0Dmoq7NXhyU8j/Ho4QvU0Dvz2wa6d22ytneubb8aCqunH4KBpxNTyFOIH4t8/7Odd6@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLVHUf9RksFBzJvEZWm5c5cLCVZ5l3TTd4fSA6gTaZbhGiIf66
+	uS5e4x9Nm8LktZGhNTnPbXyh14UMx4hKWeKU5gvpjzw7bGzQuV9I2qspn2cy3FMargJeY1GYTtY
+	cafkeURBkfoGDPnHocSdmBJwS0q8K7Tr48CydZGbu3w==
+X-Gm-Gg: AY/fxX5eWHFz/7IF2gcsgk9yTnqvCAXfRLeWBVn0l8CITlZ1OXvJJ+P5+SydnUD6MX3
+	IiwiNts/Ss4HcCai3WzZNI+Kykj2dj531InB5dzx1xdZlNmq59RsO7YKWGeg9SDW2CDzX5umKfK
+	icw6ciOLm7ooMyUNmeED9mx2QO6hrC8Fa0+qE4aowQwEaF1RiXXWk2Y7WBkQtxjr3HGv+0XflMf
+	t3ytL8sIrtcbL5BP8+ytjzIR2yA7HvEDSobqyIyfOI5XFbvWMxmoqJ6YShFiQuV9XeXats=
+X-Google-Smtp-Source: AGHT+IF8DUR3iFEJEHIZVoppRZ2LJ1i16lHQ3Olhnesdn9YtIYVJQ/fNEdH4vIoS5b8Lw4dMFXsWFN+VTySF0wVdcVI=
+X-Received: by 2002:a05:6512:3b86:b0:597:d7dc:b7ce with SMTP id
+ 2adb3069b0e04-598faa3bd8amr6408543e87.30.1765979156040; Wed, 17 Dec 2025
+ 05:45:56 -0800 (PST)
 MIME-Version: 1.0
-References: <20251212063509.2002910-1-sai.krishna.potthuri@amd.com>
-In-Reply-To: <20251212063509.2002910-1-sai.krishna.potthuri@amd.com>
+References: <20251212-s32g-sdhci-kconfig-v1-1-8e278c8d7f78@redhat.com>
+In-Reply-To: <20251212-s32g-sdhci-kconfig-v1-1-8e278c8d7f78@redhat.com>
 From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Wed, 17 Dec 2025 14:45:11 +0100
-X-Gm-Features: AQt7F2pjYRm4v2emCNW0rzboNC08S4ZEgHkWublRSmLtXYtHl_cyJpaa9pQrJJA
-Message-ID: <CAPDyKFrA7TiqX26BrSKaKeNyq8TRSoMpxvChuE1AhdVShvspGg@mail.gmail.com>
-Subject: Re: [PATCH] mmc: sdhci-of-arasan: Increase CD stable timeout to 2 seconds
-To: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
-Cc: Adrian Hunter <adrian.hunter@intel.com>, Michal Simek <michal.simek@amd.com>, 
-	linux-mmc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, git@amd.com, saikrishna12468@gmail.com
+Date: Wed, 17 Dec 2025 14:45:17 +0100
+X-Gm-Features: AQt7F2p99M9efU4Kabtz6odZdNhny0sq2J-1crHyiipLb65xYIkOxCPnes_s36Q
+Message-ID: <CAPDyKFp++OQFxkY_zqkZSJz2R0sqxBnd-6U+VLsyZYDQ4H9MeA@mail.gmail.com>
+Subject: Re: [PATCH] mmc: sdhci-esdhc-imx: add alternate ARCH_S32 dependency
+ to Kconfig
+To: Jared Kangas <jkangas@redhat.com>
+Cc: Haibo Chen <haibo.chen@nxp.com>, Adrian Hunter <adrian.hunter@intel.com>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Chester Lin <chester62515@gmail.com>, linux-mmc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, s32@nxp.com, 
+	linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_054552_583923_D389BB71 
-X-CRM114-Status: GOOD (  14.55  )
+X-CRM114-CacheID: sfid-20251217_054558_361135_3B0AFFFA 
+X-CRM114-Status: GOOD (  19.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,17 +98,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 12 Dec 2025 at 07:36, Sai Krishna Potthuri
-<sai.krishna.potthuri@amd.com> wrote:
+On Fri, 12 Dec 2025 at 16:04, Jared Kangas <jkangas@redhat.com> wrote:
 >
-> On Xilinx/AMD platforms, the CD stable bit take slightly longer than
-> one second(about an additional 100ms) to assert after a host
-> controller reset. Although no functional failure observed with the
-> existing one second delay but to ensure reliable initialization, increase
-> the CD stable timeout to 2 seconds.
+> MMC_SDHCI_ESDHC_IMX requires ARCH_MXC despite also being used on
+> ARCH_S32, which results in unmet dependencies when compiling strictly
+> for ARCH_S32. Resolve this by adding ARCH_S32 as an alternative to
+> ARCH_MXC in the driver's dependencies.
 >
-> Fixes: e251709aaddb ("mmc: sdhci-of-arasan: Ensure CD logic stabilization before power-up")
-> Signed-off-by: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+> Fixes: 5c4f00627c9a ("mmc: sdhci-esdhc-imx: add NXP S32G2 support")
+> Signed-off-by: Jared Kangas <jkangas@redhat.com>
 
 Applied for fixes and by adding a stable-tag, thanks!
 
@@ -114,23 +115,37 @@ Uffe
 
 
 > ---
->  drivers/mmc/host/sdhci-of-arasan.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  drivers/mmc/host/Kconfig | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 >
-> diff --git a/drivers/mmc/host/sdhci-of-arasan.c b/drivers/mmc/host/sdhci-of-arasan.c
-> index b97d042897ad..ab7f0ffe7b4f 100644
-> --- a/drivers/mmc/host/sdhci-of-arasan.c
-> +++ b/drivers/mmc/host/sdhci-of-arasan.c
-> @@ -99,7 +99,7 @@
->  #define HIWORD_UPDATE(val, mask, shift) \
->                 ((val) << (shift) | (mask) << ((shift) + 16))
+> diff --git a/drivers/mmc/host/Kconfig b/drivers/mmc/host/Kconfig
+> index 10d0ef58ef493102d3586d7a31d755543297999a..c94ae4794545de1c818ad50be7f91331862b6acf 100644
+> --- a/drivers/mmc/host/Kconfig
+> +++ b/drivers/mmc/host/Kconfig
+> @@ -315,14 +315,14 @@ config MMC_SDHCI_ESDHC_MCF
 >
-> -#define CD_STABLE_TIMEOUT_US           1000000
-> +#define CD_STABLE_TIMEOUT_US           2000000
->  #define CD_STABLE_MAX_SLEEP_US         10
+>  config MMC_SDHCI_ESDHC_IMX
+>         tristate "SDHCI support for the Freescale eSDHC/uSDHC i.MX controller"
+> -       depends on ARCH_MXC || COMPILE_TEST
+> +       depends on ARCH_MXC || ARCH_S32 || COMPILE_TEST
+>         depends on MMC_SDHCI_PLTFM
+>         depends on OF
+>         select MMC_SDHCI_IO_ACCESSORS
+>         select MMC_CQHCI
+>         help
+>           This selects the Freescale eSDHC/uSDHC controller support
+> -         found on i.MX25, i.MX35 i.MX5x and i.MX6x.
+> +         found on i.MX25, i.MX35, i.MX5x, i.MX6x, and S32G.
 >
->  /**
+>           If you have a controller with this interface, say Y or M here.
+>
+>
+> ---
+> base-commit: 7d0a66e4bb9081d75c82ec4957c50034cb0ea449
+> change-id: 20251211-s32g-sdhci-kconfig-585b6909f7b4
+>
+> Best regards,
 > --
-> 2.25.1
+> Jared Kangas <jkangas@redhat.com>
 >
 
