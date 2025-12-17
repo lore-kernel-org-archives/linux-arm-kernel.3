@@ -4,163 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39145D66B85
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 19:45:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39478D66B85
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 19:45:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sfACWLHp3df4sJIZvQAd9/UNu9AkArwbM4B04f0+SxI=; b=Cj/v1bxylpEQH782W/ZGyLJN78
-	LVxa1hRxAHDV8LVW0Qwo7aZzKvXutduII6B79PZmCgMQynqxWcTlZrvAtmsVWsigb1lboqFqGdViv
-	nmXJumZvmICkp+yPcRHNfJp/hxvrsUDgPAa2YBEKfngl4QJfY2XkWgB7vVMhw0xOOpOGiz971nhTy
-	ihEaTVX5fzLfdsdWKy4i3KtO3Qh6jXSOiEIAMqG/xS0sBYjihDtkqAIb8xG24GvJ+nsrA9Yqp8s51
-	tw1138x3vPKXI6GjzrV4AddTB/4UvyamBaeNCh8Pxy1zOCLNr2FnKSUnk6QGSaEcLhes1g16Ops62
-	lxBcbPog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hjGwRrRHeV9FhtskgH+muWu/+jggYeeNnurTJDnS9vg=; b=Ge5DZqqx7kZNBDTl1O51fgIE6r
+	SkwdDwKqFtlNNIoLMlwcoGbB+bexSWAh9Nbb9Lhoc0eyUQyPjB70XfR8f+5bEaR7ZEzAOXTipKLuP
+	TxaU20rmhT7+vnJYawMHAXYhK2iWXXuT4oUlqFKATtVab3M5bp4iPs5q4hFOh0rUIchNlJhYOKAON
+	NCqmfhf4VKvbg6JgoVqp1EI84U7L3bozbxw6ZSLbYCCoZkem0j819hispamOxIh5RkLCEDaZkYvOg
+	TiBP4rLl47arVmcU2R2iZHnKgXydk3VRIw+pm0qXjgj+e50R4K5EkmfBkKJ1kf+fgbq78b9N1t2PI
+	dflcSfsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVxSd-00000007KkR-32mG;
-	Wed, 17 Dec 2025 19:45:23 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1vVxSt-00000007Klq-094M;
+	Wed, 17 Dec 2025 19:45:39 +0000
+Received: from out-188.mta0.migadu.com ([2001:41d0:1004:224b::bc])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVxSZ-00000007Kjw-2BvD
+	id 1vVxSo-00000007KlC-3FrL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 19:45:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aJYbeeu841DC8frGe+YvhdJ0xAnOMfsPYaGWyX6R0FuKbmnZbyKQbtOIIsAUPp4b1OLmKJFZgie5tDpFNqllBVor+JY5NY6i1P99UlSZ5szhwrI0aPJyF2xVS6JPYZ1W2JE9g7fEi5MkmM09c2ix4flLR6PORLbXUZGMfirMxTGwpj++wKoYnwR3NUziYxfGyJyUWPPcAOxedyUu0db5u5OrH90B0Kqw1vyzlAUfhokLlDJNieDWbWXJmD0h1QkCxODWOomjKj+U4PNaQFs2v5WJIupeNl6J12K4yoSBpEEIXxnjtD1LULF9R1aJGtdCoaGq3Oh1Gfe9tqaLUXPueA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sfACWLHp3df4sJIZvQAd9/UNu9AkArwbM4B04f0+SxI=;
- b=sF720XE4f/L7CYStIlCszjjhVyskaqdoDMkyy1DhcSipnWroUK1mY0xjnDR0PVXvZ2kx3vTBtuVkFMvyejMDbiuN64QQqtOsXi3CtCSzUrcD7JJH4OOfyww1hEZXOP0+gfP7OOXT1+SdBSuYx/WME1ETmx8QndGdmYZOIvP3BIJ2GDfdesU/9jdBrWkK3ZLdj81sV3cHmsD/xPY5Df4enP2FWSkIU04tsENNbNm22Uf6tnKVTTo0AkQYx1+s5w19Ao5anGt8dAqyZlXWpqnayS/2h8DxQLeAKk133IJQ9U+Wz8bQxFEpBEAp/EuxcB8vtSR+2aVMr5crtj4Uyj1flQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sfACWLHp3df4sJIZvQAd9/UNu9AkArwbM4B04f0+SxI=;
- b=eFAWShriqgmMYLa20gAHZ4i60xMVLN3iWgiFaxANBceDL912XE6p+2N4OiQrQ3l7YAhHMR9VGM9Wgvn2HYmzJT52vmIJqWS2+ChIoQC4cjJJS2dY3k+0SPQ04tKsKWAegSQHX6W1Vg9JKvUbuixSa8GyXjjJV1NubkobpPMGfPJvJ8HcSnmXh0bBr3YHKXDsyAYzH+ud8iAvPWhZJLoQVVHI+/U/tpjrclyZoDk380N0jMqSFmaFqpgtlAwRTxPwCrcY1EfAQs16QJJKIq+bqwPBe8xyqHi78Ragv+yh3ef8DuPAUMCsySC1jJgavmbV615hRaSj+NkeyzSyrAnW+A==
-Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
- by VE1PR04MB7344.eurprd04.prod.outlook.com (2603:10a6:800:1a1::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.7; Wed, 17 Dec
- 2025 19:45:11 +0000
-Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
- ([fe80::21bf:975e:f24d:1612]) by PAXPR04MB9185.eurprd04.prod.outlook.com
- ([fe80::21bf:975e:f24d:1612%5]) with mapi id 15.20.9434.001; Wed, 17 Dec 2025
- 19:45:10 +0000
-From: Shenwei Wang <shenwei.wang@nxp.com>
-To: Rob Herring <robh@kernel.org>
-CC: Linus Walleij <linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier
-	<mathieu.poirier@linaro.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
-	<s.hauer@pengutronix.de>, Jonathan Corbet <corbet@lwn.net>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng
- Fan <peng.fan@nxp.com>, "linux-gpio@vger.kernel.org"
-	<linux-gpio@vger.kernel.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-remoteproc@vger.kernel.org"
-	<linux-remoteproc@vger.kernel.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-doc@vger.kernel.org"
-	<linux-doc@vger.kernel.org>, dl-linux-imx <linux-imx@nxp.com>
-Subject: Re: [PATCH v6 1/5] dt-bindings: remoteproc: imx_rproc: Add "rpmsg"
- subnode support
-Thread-Topic: [PATCH v6 1/5] dt-bindings: remoteproc: imx_rproc: Add "rpmsg"
- subnode support
-Thread-Index: AQHcb42nD0vV/FZ/cEahrrMlv9mXGw==
-Date: Wed, 17 Dec 2025 19:45:10 +0000
-Message-ID: <PAXPR04MB9185E86CB81C111DAB5B329D89ABA@PAXPR04MB9185.eurprd04.prod.outlook.com>
-References: <20251212194341.966387-1-shenwei.wang@nxp.com>
- <20251212194341.966387-2-shenwei.wang@nxp.com>
- <20251217005758.GA3452672-robh@kernel.org>
-In-Reply-To: <20251217005758.GA3452672-robh@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB9185:EE_|VE1PR04MB7344:EE_
-x-ms-office365-filtering-correlation-id: c10af08c-1e1d-44a1-90b7-08de3da4ca1e
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|19092799006|376014|7416014|1800799024|38070700021;
-x-microsoft-antispam-message-info: =?us-ascii?Q?ASk2nHi1s63vFuGMc7ka9p+JaT+euGcfSH7YKkL3p44ALDawwX4+2quemlQd?=
- =?us-ascii?Q?QApxCDWVr8r8bhgEO5jTkdNCBTGIp+/Rh2a4SsM6ojXmpnvPy7ylCGGU3cL2?=
- =?us-ascii?Q?Y+GUYzZJT/FIElBtJKxbo4v2qGnvkFZgDBW1TTcdQLXqLhrn3qSyNhqep2kO?=
- =?us-ascii?Q?fspNxmPh8KzC6YxdW5KRfsEKvNMMoDMrUE8BWmaa5+w9r/Oih7NcwJW+id5n?=
- =?us-ascii?Q?r4botM7SuzmLwz9rBZ8k158jVjYvJD26ow+ysGz+hFr4M8D2WwFW/NsFdRUE?=
- =?us-ascii?Q?ATMFXOWMhNHKHfh5jW7LgWbXTebvgPBO73nWC6bQs/505IVje7kaN3BrwVg/?=
- =?us-ascii?Q?r9HsmZ163tT2/aJyt4FjcmCXTyQoagFtbz218M0rr7aBoMgjN44V5dXQ8ewT?=
- =?us-ascii?Q?jnW+nNZ0Ze5iSIJl5Tl3k0d9o2jPP3viEBjHo+EF0itoQHLdRUINswAFXfB/?=
- =?us-ascii?Q?oP8AtnKbdfvEpyLEnEQEQD9f1Zrb4TKOt5YGEDs7BLV8hw++45Z/Y64eT44M?=
- =?us-ascii?Q?eVMoEmcl5Pg8YQ6LIO2QoM/VNBqAeDrU2EaX0vD+4N3H9sIlnk1e+2LPmRH1?=
- =?us-ascii?Q?VTVTux3eEhfdoa6EkCw09OhpigRtib76Je2QZopa+2UgDHY/VOuMgacWR0Kz?=
- =?us-ascii?Q?6dpuQ98CWie04TorJ3ncuQ5iebMQS8/Nc+ZY/VknkfGNxSwRzlvzP131sm+Y?=
- =?us-ascii?Q?x9+U7WGlB+6C1spteYd/BY9e7BXLbmI9d8kIERIpy0aE8CZ5/SLxN74NN7R9?=
- =?us-ascii?Q?I4wXgmDwRkyWoocnmL4byccN6IYJTJpmAu3bEwQBeiy68tGUrMMXRUVKWPhz?=
- =?us-ascii?Q?+EalXGhy/UFbizQjrkNn7dN69n4uKDtSlQC8kihNpBizF9EHflcWVyFsikfy?=
- =?us-ascii?Q?Q7CrA3BJnHiNirzRs+Q/94cIzCulDFvtwTAaSzWNv5yU1K2Y7HcM9+iq2k3o?=
- =?us-ascii?Q?pGg4Sxgl5tNTcGDo5Xw1QA3Am8ECfWTCPLJ6fnz3aLgQG5sQ3MxxWsYjq1vz?=
- =?us-ascii?Q?Q9Bkl+Mrx/5a1+0TkQGuvUyT29muZ7CLlzBMzrEWKGwZkhLhmu8yQGAVNMQN?=
- =?us-ascii?Q?pM/2ucknebT2VlhNSeJ7VRAatqzLGN2pJ9b8MhC8V2gEqmDxIKfYAoAxlC6b?=
- =?us-ascii?Q?2+T/eZofWRNzN6Uxmi+jJIaq9+U4+x6GERBHDYTYTf3iSeW+j3MBwkKlNhJa?=
- =?us-ascii?Q?Q4AKc/UVlpyW58mXXIa/TX3f7i7UJYE9BoXo2CaPXDLuJ/fiTv6STe/vi689?=
- =?us-ascii?Q?GpjvozFKP0XLYKyOVinE1vpbr9zohkp0in7l+nkzy8foOgKuv6Xm1/oj8ikT?=
- =?us-ascii?Q?zDHN4v9+xb7jkH2CfJJVkyJNbiw6jKHiz+omuoB4MGmCMV1UxdKeOx2C9yEz?=
- =?us-ascii?Q?ZnIKHeonTPL5p3xC418HvQXsbE48gNrNYPTyh+0Y2Y3t94I4iG2IL12jEDiM?=
- =?us-ascii?Q?n/5EJm2qNSnpbwt+uSwddqOhGZkjtyOq0tr7Q8a3Lqm30nnSKQm4UKJObbR8?=
- =?us-ascii?Q?gaI1eKSXKC+ud1vdt3dXWOk01rybZmSLDlo6?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(376014)(7416014)(1800799024)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?rrLsLs+Qi1OCwP7DhBAWjKnBJMXbbSvytitYsGzC8PjymB5qZ50J2NfDhSec?=
- =?us-ascii?Q?wZb4HsGu4rmqbdFL1j4k8zKdBA+gvefUDM7VltgLlJgCeiatOvVdo8F9E1UK?=
- =?us-ascii?Q?HBuJUzuzNsjyzj2ucXcHd9O+XesUE6Hlz8eTjKFAfhL+A9q0Wt7qK+lPAZSO?=
- =?us-ascii?Q?nr5GDHkSn6o9p/OSK77D6LTEKp8f6sSsgIar1f0VghalqmBoyViMxvUO+wNJ?=
- =?us-ascii?Q?hQ6Ok9lLWmak9Yn+nmruvbEhkP7p3Cmuc8/s8XHIQTjtzeassP+2q7mtNUVF?=
- =?us-ascii?Q?gejNsLA89Qy6nztzRzEnQ9pVC9YhYXx99p94vS19Yx80YisVMimEuctSSPnA?=
- =?us-ascii?Q?1An56UTNkk0zZ53tGr6A6dQ3x2O1UPeCXpfvzz6avA0Ha9XHuMgWQ3Jr+KDT?=
- =?us-ascii?Q?DgUpqyaVnu6VBuhR6o95kiNNMelPtuoATcif1rHxb0tuS6R3YT73oas3bJaW?=
- =?us-ascii?Q?TFyvsTTCV7zOUyGNHwkswbGmnZD9kDTXZL+DsezCIV5E/OXLvr41pUIXOucj?=
- =?us-ascii?Q?52wvl3D0CU7vCtto2cIe3fsxqmr3lF9iVz+1Zxya9QCDPLjybeHUdKUG/BAY?=
- =?us-ascii?Q?oPflazdwq4O8fcM03vn0qaen2hq3Zy5szMFpgmpdGqb7j2cULyWe1HqxXeNl?=
- =?us-ascii?Q?o2g4gwxhWAKbK8FSwDmjcxwTtLwu4DaJQ/3AsWZ4Br+gMKReW0qwEBVpvQ3J?=
- =?us-ascii?Q?Cvzu2XCS6+yx+TX0igWkmIE/cWuRhAIewFlO3ANR7i3VLb0CASg3kOSWm5Ip?=
- =?us-ascii?Q?X5155fkl3HIGrOfDiRvd2l002xWdq2uMUJOqqDPlgcA5L0O2kfNHlGDAarC6?=
- =?us-ascii?Q?mclW0/2HDp8Ra771FIuzx7D4QGsqTbC0ho6nzROyoJ0aQobWly06HT1qr65C?=
- =?us-ascii?Q?YWNgRCRRIeSOb2Eaj56rDKJLPoFTDSRr3sV19Ta67Fr66Lg4NFj9BUtF0ECE?=
- =?us-ascii?Q?4/zf6xEQETb4P+Eu4sqG/jNpr9lHu4su5COJjfTLEszSThZ0fwqM0Z6UZ+AQ?=
- =?us-ascii?Q?RLiG6gQWLiKIZav3yGTp/hNVK3UTo4uvPWQzgFpnaOgaAkRcWpU6bbVth7Yg?=
- =?us-ascii?Q?u2t9LIHQZuLl1aWjgehHrdvsN55OCrVY76qlVJMy9c7laPJ14CG0azLP4Ytq?=
- =?us-ascii?Q?BpBTG19zXdTCEIsKgJ1eFDyGHLp8weAyzza33Js0PrS1HcfTN9HEpWYAjuBf?=
- =?us-ascii?Q?OnrSSWxzstFF68H/5hYkC0rXNNLVZSf3u2mcxiUqUvjlYfXoAEfdo8rFljeL?=
- =?us-ascii?Q?aeKrCePvO1ED5Wop6wewUDalGWTa60KZ9G4jLHEXfNnt1dYcjPWc7thL1XU0?=
- =?us-ascii?Q?7VdHwcM7WPBnCWAkjAYsDTy8tf9rhppcaPldn5r22oAIyKj8KAsFMufH6EFE?=
- =?us-ascii?Q?JqNqJk/qfSQhGMCcRwkbeA5/LgNce7bGEM7GPUMQ5TKz2Q6AEoE+fCiAo7Sd?=
- =?us-ascii?Q?AompyvA33FgA/OUt1iAvpxc3EUc6aAiFQQPBPNgVpTenGmbiON0JuQYiKAVw?=
- =?us-ascii?Q?01umVFQUw3jozLh/+t9sVwNslYcA5xlA52EbfVQ0AQC0Suin50gT6OOMyx7c?=
- =?us-ascii?Q?6Xq8RBt71d8SzJdQtgA=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 17 Dec 2025 19:45:37 +0000
+Message-ID: <26a8d10a-eede-4ebc-b51a-5c08ea02dda5@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1766000723;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=hjGwRrRHeV9FhtskgH+muWu/+jggYeeNnurTJDnS9vg=;
+	b=qUG314PwFgg2RdQNIFrCrdHqgfehWDIyEoqPBZ84evg+L/OJiFbWYwFwhXEOPtv40iv40j
+	rscC47bEdPu78Yi6I8Mvvpx+pxe/Q+Xg4pSaTBWplNAmgnf+ZB/ZgfWjWn2UA63TvQUHXk
+	oYX2AX4Xso4Wx/WXzA77PL1pL+GNrrM=
+Date: Wed, 17 Dec 2025 11:45:14 -0800
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c10af08c-1e1d-44a1-90b7-08de3da4ca1e
-X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Dec 2025 19:45:10.7995
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: keBMDMAVJ6m9P82fUO9jGGdoUMiih5PhnT59MTvQoq4EVDfTBseiir7F9WNTg8ickAbww24+Nf+7/mIudjTtgA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7344
+Subject: Re: [PATCH bpf-next 2/2] bpf: arm64: Optimize recursion detection by
+ not using atomics
+Content-Language: en-GB
+To: Puranjay Mohan <puranjay@kernel.org>
+Cc: bot+bpf-ci@kernel.org, bpf@vger.kernel.org, ast@kernel.org,
+ andrii@kernel.org, daniel@iogearbox.net, martin.lau@kernel.org,
+ eddyz87@gmail.com, memxor@gmail.com, kernel-team@meta.com,
+ catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
+ linux-arm-kernel@lists.infradead.org, clm@meta.com, ihor.solodrai@linux.dev
+References: <20251217162830.2597286-3-puranjay@kernel.org>
+ <f144fd46b602b74fc4c1c2664082fbe893e7ec9c274fcc5fdf13d65151749e9c@mail.kernel.org>
+ <51466fd3-c837-46a6-af50-28a8336fd8cd@linux.dev>
+ <CANk7y0irgYcHLH_e9ozjX3wTeDb3GH-PA+6UiLRSBFzpYs8eVQ@mail.gmail.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Yonghong Song <yonghong.song@linux.dev>
+In-Reply-To: <CANk7y0irgYcHLH_e9ozjX3wTeDb3GH-PA+6UiLRSBFzpYs8eVQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_114519_610903_AACC73A0 
-X-CRM114-Status: GOOD (  32.31  )
+X-CRM114-CacheID: sfid-20251217_114536_387288_8ED10F52 
+X-CRM114-Status: GOOD (  15.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -177,148 +78,98 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-> -----Original Message-----
-> Subject: [EXT] Re: [PATCH v6 1/5] dt-bindings: remoteproc: imx_rproc: Add
-> "rpmsg" subnode support
-> On Fri, Dec 12, 2025 at 01:43:37PM -0600, Shenwei Wang wrote:
-> > Remote processors may announce multiple devices (e.g., I2C, GPIO) over
-> > an RPMSG channel.
->=20
-> Which channel does that happen on?
+On 12/17/25 10:44 AM, Puranjay Mohan wrote:
+> On Wed, Dec 17, 2025 at 6:24 PM Yonghong Song <yonghong.song@linux.dev> wrote:
+>>
+>>
+>> On 12/17/25 8:56 AM, bot+bpf-ci@kernel.org wrote:
+>>>> diff --git a/include/linux/bpf.h b/include/linux/bpf.h
+>>>> index 2da986136d26..654fb94bf60c 100644
+>>>> --- a/include/linux/bpf.h
+>>>> +++ b/include/linux/bpf.h
+>>> [ ... ]
+>>>
+>>>> @@ -2006,12 +2009,32 @@ struct bpf_struct_ops_common_value {
+>>>>
+>>>>    static inline bool bpf_prog_get_recursion_context(struct bpf_prog *prog)
+>>>>    {
+>>>> +#ifdef CONFIG_ARM64
+>>>> +    u8 rctx = interrupt_context_level();
+>>>> +    u8 *active = this_cpu_ptr(prog->active);
+>>>> +
+>>>> +    active[rctx]++;
+>>>> +    barrier();
+>>>> +    if (get_unaligned_le32(active) != BIT(rctx * 8))
+>>>> +            return false;
+>>>> +
+>>>> +    return true;
+>>>> +#else
+>>>>       return this_cpu_inc_return(*(prog->active)) == 1;
+>>>> +#endif
+>>>>    }
+>>> Can preemption between the increment and check cause a counter leak on
+>>> CONFIG_PREEMPT_RCU systems? The trampoline calls this function under
+>>> rcu_read_lock_dont_migrate() which allows preemption on PREEMPT_RCU
+>>> (documented at include/linux/rcupdate.h:856).
+>>>
+>>> Consider this scenario on an ARM64 system with PREEMPT_RCU:
+>>>
+>>> 1. Thread A increments active[0] to 1
+>>> 2. Preemption occurs before Thread A reaches the check
+>>> 3. Thread B on same CPU increments active[0] to 2
+>>> 4. Thread B checks: sees 2 != BIT(0), returns false
+>>> 5. Thread A resumes, checks: sees 2 != BIT(0), returns false
+>>> 6. Both threads return false, neither runs BPF
+>>> 7. Neither calls bpf_prog_put_recursion_context() (see
+>>>      __bpf_prog_enter_recur() at kernel/bpf/trampoline.c:952)
+>>> 8. Counter permanently stuck at 2, all future BPF on this CPU fails
+>>>
+>>> The old atomic code handled this correctly because this_cpu_inc_return()
+>>> completes atomically, ensuring Thread A reads the value 1 before Thread B
+>>> can interfere. With non-atomic operations, Thread A increments but hasn't
+>>> read the value yet, allowing Thread B to interfere and cause both threads
+>>> to see the modified value.
+>>>
+>>> Is there a guarantee that same-context preemption cannot occur in the BPF
+>>> execution path on ARM64, or does this need additional synchronization?
+>> AI is correct here. See below for another thread:
+>>     https://lore.kernel.org/bpf/20251217093326.1745307-1-chen.dylane@linux.dev/T/#m906fd4502fbbedd4609c586122a393363003312a
+>> where preempt_disable is necessary to prevent the above scenario.
+> See my other reply, the above scenario presented by AI is wrong
+> because step 7 is wrong.
 
-It runs on the RPMSG  Control channel.
+Thanks for explanation. I missed the case that bpf_trampoline_exit()
+is always executed. In such cases, the active[rctx] counter will be
+always corrected.
 
->=20
-> > These devices may require corresponding device tree nodes, especially
-> > when acting as providers, to supply phandles for their consumers.
-> >
-> > Define an RPMSG node to work as a container for a group of RPMSG
-> > channels under the imx_rproc node.
-> >
-> > Each subnode within "rpmsg" represents an individual RPMSG channel.
-> > The name of each subnode corresponds to the channel name as defined by
-> > the remote processor.
-> >
-> > All remote devices associated with a given channel are defined as
-> > child nodes under the corresponding channel node.
-> >
-> > Signed-off-by: Shenwei Wang <shenwei.wang@nxp.com>
-> > ---
-> >  .../devicetree/bindings/gpio/gpio-rpmsg.yaml  | 49 +++++++++++++++++
-> >  .../bindings/remoteproc/fsl,imx-rproc.yaml    | 54 +++++++++++++++++++
-> >  2 files changed, 103 insertions(+)
-> >  create mode 100644
-> > Documentation/devicetree/bindings/gpio/gpio-rpmsg.yaml
-> >
-> > diff --git a/Documentation/devicetree/bindings/gpio/gpio-rpmsg.yaml
-> > b/Documentation/devicetree/bindings/gpio/gpio-rpmsg.yaml
-> > new file mode 100644
-> > index 000000000000..b3e1a5dbf731
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/gpio/gpio-rpmsg.yaml
-> > @@ -0,0 +1,49 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) %YAML 1.2
-> > +---
-> > +
-> > +title: Generic GPIO driver over RPMSG
->=20
-> The driver doesn't go over RPMSG. It's a GPIO provider or protocol.
->=20
+>
+>> But adding preempt_disable may impact the overall system-level performance.
+>>
+>> Does this patch can improve performance for *all* ARM64 cpu versions?
+>> Do you have numbers to show how much performance improvement?
+> This should improve performance on all arm64 CPUs because atomics are
+> expensive because they are atomic across all cpus.
 
-Yes, it might be clearer to phrase it as 'Generic RPMSG GPIO Controller,' s=
-ince this is=20
-a GPIO controller driver that operates over the RPMsg bus.
+Good to know. Thanks!
 
-> > +
-> > +maintainers:
-> > +  - Shenwei Wang <shenwei.wang@nxp.com>
-> > +
-> > +description:
-> > +  On an AMP platform, some GPIO controllers are exposed by the remote
-> > +processor
-> > +  through the RPMSG bus. The RPMSG GPIO transport protocol defines
-> > +the packet
-> > +  structure and communication flow between Linux and the remote
-> > +firmware. Those
-> > +  controllers are managed via this transport protocol.
->=20
-> Got a reference to where any of this is defined?
+>
+> I see a 33% improvement in the fentry trigger benchmark, but I can do
+> more benchmarking.
+>
+>>>> @@ -2006,12 +2009,32 @@ struct bpf_struct_ops_common_value {
+>>>>
+>>>>    static inline void bpf_prog_put_recursion_context(struct bpf_prog *prog)
+>>>>    {
+>>>> +#ifdef CONFIG_ARM64
+>>>> +    u8 rctx = interrupt_context_level();
+>>>> +    u8 *active = this_cpu_ptr(prog->active);
+>>>> +
+>>>> +    barrier();
+>>>> +    active[rctx]--;
+>>>> +#else
+>>>>       this_cpu_dec(*(prog->active));
+>>>> +#endif
+>>>>    }
+>> [...]
 
-Will add a ref to the gpio-rpmsg.rst doc.
-
->=20
-> > +
-> > +properties:
-> > +  compatible:
-> > +    oneOf:
-> > +      - items:
-> > +          - enum:
-> > +              - fsl,rpmsg-gpio
-> > +          - const: rpmsg-gpio
-> > +      - const: rpmsg-gpio
-> > +
-> > +  reg:
-> > +    maxItems: 1
->=20
-> I still don't understand how 'reg' is determined. You may have explained =
-it
-> previously, but *this* patch needs to make me understand.
->=20
-
-I see. Will add a description for this item.
-
-> > +
-> > +  "#gpio-cells":
-> > +    const: 2
-> > +
-> > +  gpio-controller: true
-> >        memory-region =3D <&vdev0buffer>, <&vdev0vring0>, <&vdev0vring1>=
-,
-> <&rsc_table>;
-> >        syscon =3D <&src>;
-> > +
-> > +      rpmsg {
->=20
-> What's the purpose of this node? Is it going to contain things other than=
- "rpmsg io
-> channels"?
-
-It represents the RPMSG bus between Linux and the remote processor, and wil=
-l eventually=20
-host additional channels such as rpmsg-i2c-channel and rpmsg-pwm-channel.
-
-Thanks,
-Shenwei
-
->=20
-> > +        rpmsg-io-channel {
-> > +          #address-cells =3D <1>;
-> > +          #size-cells =3D <0>;
-> > +
-> > +          gpio@0 {
-> > +            compatible =3D "rpmsg-gpio";
-> > +            reg =3D <0>;
-> > +            gpio-controller;
-> > +            #gpio-cells =3D <2>;
-> > +            #interrupt-cells =3D <2>;
-> > +            interrupt-controller;
-> > +            interrupt-parent =3D <&rpmsg_gpioa>;
-> > +          };
-> > +
-> > +          gpio@1 {
-> > +            compatible =3D "rpmsg-gpio";
-> > +            reg =3D <1>;
-> > +            gpio-controller;
-> > +            #gpio-cells =3D <2>;
-> > +            #interrupt-cells =3D <2>;
-> > +            interrupt-controller;
-> > +            interrupt-parent =3D <&rpmsg_gpiob>;
-> > +          };
-> > +        };
-> > +      };
-> >      };
-> >  ...
-> > --
-> > 2.43.0
-> >
 
