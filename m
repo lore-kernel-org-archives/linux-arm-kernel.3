@@ -4,70 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9CE1D68BC2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 23:36:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26514D68BC2
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 23:37:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8w959D1M9cthpUygaxLQIaryqTCHXBOADocwcCx/GMg=; b=PEZJJEGVGTzX6vYOcxT7eY9Pr+
-	uGsnw6LcrUJLiV7TuD9K+B/viqRHqXduDBqc91YMka1LQ40idsg+ooRqCaPeFoBckeg1dSMF4wuYK
-	t2b6HmHb7jR4tUI+cMld0PRDXPk0Bk5M8HGLwhAx0pMymYCi8bNloK9f1+xvWJiNmelbtzpM5kaA9
-	/RDP2rPY7zetg1XouVfJVYEchutfjcD+6Te0A0d3/8nUSwQD4O6r5LWSNk+R+CT7nb6kyPitO7nBR
-	/BY6Xv+RnYJrsUiDN/d0ak0tkC37wHF0FydPW9N2gne62/rLyfmTvqfMJsO7VmUKQ4jnFh1yP/XBe
-	r1LJQobA==;
+	bh=9V+YJ4gG6ljXsDx4ZRidny7LTj0Q5gQ27k2c7thZUTw=; b=C3CU+zqyON6U3h3O/3/L8wf25U
+	HVEHcLty08DGxQp1kbQRYM42IUNNu+hzTL2gYkZjpmneILzadi8RV/QuLyK8M19sBbD04W1b1z4B8
+	Erbq5EquKo1wL1vGunxmMnXjQgEZyQTI8CSqFDPVnJmEB7U+54lSMuDlgrXyg4yqGjU3Jmq1RLnZ+
+	mOf5U2DMp6quSnxPCe01RX36Mevk4autwAndFu6S9LJYEV8G05gQ/uGK4FUJNOsQHVs+smIckztJt
+	UlcFfMdc0fvT3pS7W6kE+/2E/sajarhoAFobmzzpVT87CbIIPUH2qAcx1wxWa0/KoavVSXUsm075y
+	RT4VRxWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vW14Q-00000007YHA-3aL7;
-	Wed, 17 Dec 2025 23:36:38 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vW15P-00000007YZM-0Pt0;
+	Wed, 17 Dec 2025 23:37:39 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vW14M-00000007YFm-2ROc
+	id 1vW15L-00000007YXN-3l5K
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 23:36:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4862F443D9;
-	Wed, 17 Dec 2025 23:36:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00987C4CEF5;
-	Wed, 17 Dec 2025 23:36:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766014594;
-	bh=5BKlIx1Q1LN/lVqkX6DbDb6UTMWGaR40UBh8Wa4lrKM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=E9n/SKUVtUECaK3/a87+ubRR6MBNF4eM8oyrkidCsc7saRlR5SpD6jqaydp8cr0H+
-	 Eiy1MZV/RQmNeRyabtU2HJa8crSvuIH/byAutOoTEiuzK0SdW7l9R0iTfGBmFnwD8J
-	 2nJBuHA96s2v8S6TabzDzTOYjLANE6Qye6os3wouzEzSTAnAo36z9TmA2G2hVTIypL
-	 E85eyvhi5DsdNH+w5vQiNr/1Z5aWYV4BrbHjqSooIxfPjNEMqpGob7ZPxpVWkx7mx2
-	 FaXzJikwAkuMWDLayTfHmDYt3IzjcKruInVATW5suaINFlrqm3gAhgt53r5iAw51dF
-	 9W9YKS8LVd1gw==
-From: Puranjay Mohan <puranjay@kernel.org>
-To: bpf@vger.kernel.org
-Cc: Puranjay Mohan <puranjay@kernel.org>,
-	Puranjay Mohan <puranjay12@gmail.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Martin KaFai Lau <martin.lau@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	kernel-team@meta.com,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH bpf-next v2 2/2] bpf: arm64: Optimize recursion detection by not using atomics
-Date: Wed, 17 Dec 2025 15:35:57 -0800
-Message-ID: <20251217233608.2374187-3-puranjay@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251217233608.2374187-1-puranjay@kernel.org>
-References: <20251217233608.2374187-1-puranjay@kernel.org>
+	Wed, 17 Dec 2025 23:37:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1766014655;
+ bh=9V+YJ4gG6ljXsDx4ZRidny7LTj0Q5gQ27k2c7thZUTw=;
+ b=wR3JirHK0McrpR0pys9L0/xmIq1ojlhFsDvt+nSQ9dFiEhW3cXqQMt+exMcToGhsQ9Tqy1HrT
+ EeuT7CXIKlo2UGnvN45EDeZGHH96QFIJnxYLkkT/0efC8bVfbR9UZr/zVYMce2qu/8qTFts9qa0
+ mpRlj6jA4DJweieGkrcnYgh9Ve1a7DJnDTZo1VVbAl9q/NIs3gFNuHqqw4bB812nCR1bpan86Ln
+ mHMr9fz+vTmesHzTvDwtnKg3S4G2TFBrQt4V/12gdM2f5+XKtaHvUW+Ce5tAmyT6knhAKHutSDN
+ 4u/islUtnHfv4obxNPXiHNKxbEy8duY3YaRqBf1oXKnw==
+X-Forward-Email-ID: 69433eb547898a7fd2fef4db
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 2.0.6
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <47729359-6eb4-494d-9e21-4a3c34cba324@kwiboo.se>
+Date: Thu, 18 Dec 2025 00:37:20 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 09/17] media: rkvdec: Add variant specific coded
+ formats list
+To: Detlev Casanova <detlev.casanova@collabora.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Heiko Stuebner <heiko@sntech.de>,
+ Daniel Almeida <daniel.almeida@collabora.com>,
+ Jonathan Corbet <corbet@lwn.net>, Ricardo Ribalda <ribalda@chromium.org>,
+ Hans Verkuil <hverkuil@kernel.org>, Yunke Cao <yunkec@google.com>,
+ Hans de Goede <hansg@kernel.org>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Pavan Bobba <opensource206@gmail.com>,
+ James Cowgill <james.cowgill@blaize.com>, linux-media@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ kernel@collabora.com, Diederik de Haas <didi.debian@cknow.org>,
+ linux-kernel@vger.kernel.org
+References: <20251217174059.1341784-1-detlev.casanova@collabora.com>
+ <20251217174059.1341784-10-detlev.casanova@collabora.com>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <20251217174059.1341784-10-detlev.casanova@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_153634_668648_165E9394 
-X-CRM114-Status: GOOD (  17.03  )
+X-CRM114-CacheID: sfid-20251217_153735_934194_DE2A554E 
+X-CRM114-Status: GOOD (  20.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,122 +91,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-BPF programs detect recursion using a per-CPU 'active' flag in struct
-bpf_prog. The trampoline currently sets/clears this flag with atomic
-operations.
+Hi Detlev,
 
-On some arm64 platforms (e.g., Neoverse V2 with LSE), per-CPU atomic
-operations are relatively slow. Unlike x86_64 - where per-CPU updates
-can avoid cross-core atomicity, arm64 LSE atomics are always atomic
-across all cores, which is unnecessary overhead for strictly per-CPU
-state.
+On 12/17/2025 6:40 PM, Detlev Casanova wrote:
+> Prepare for adding new variants of the decoder and support specific
+> formats and format ops per variant.
+> 
+> Tested-by: Diederik de Haas <didi.debian@cknow.org>  # Rock 5B
+> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+> ---
+>  .../media/platform/rockchip/rkvdec/rkvdec.c   | 35 ++++++++++++-------
+>  .../media/platform/rockchip/rkvdec/rkvdec.h   |  2 ++
+>  2 files changed, 24 insertions(+), 13 deletions(-)
+> 
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> index 776149f871b0..968982f6e62c 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> @@ -373,15 +373,16 @@ static bool rkvdec_is_capable(struct rkvdec_ctx *ctx, unsigned int capability)
+>  static const struct rkvdec_coded_fmt_desc *
+>  rkvdec_enum_coded_fmt_desc(struct rkvdec_ctx *ctx, int index)
+>  {
+> +	const struct rkvdec_variant *variant = ctx->dev->variant;
+>  	int fmt_idx = -1;
+>  	unsigned int i;
+>  
+> -	for (i = 0; i < ARRAY_SIZE(rkvdec_coded_fmts); i++) {
+> -		if (!rkvdec_is_capable(ctx, rkvdec_coded_fmts[i].capability))
+> +	for (i = 0; i < variant->num_coded_fmts; i++) {
+> +		if (!rkvdec_is_capable(ctx, variant->coded_fmts[i].capability))
+>  			continue;
+>  		fmt_idx++;
+>  		if (index == fmt_idx)
+> -			return &rkvdec_coded_fmts[i];
+> +			return &variant->coded_fmts[i];
+>  	}
+>  
+>  	return NULL;
+> @@ -390,12 +391,13 @@ rkvdec_enum_coded_fmt_desc(struct rkvdec_ctx *ctx, int index)
+>  static const struct rkvdec_coded_fmt_desc *
+>  rkvdec_find_coded_fmt_desc(struct rkvdec_ctx *ctx, u32 fourcc)
+>  {
+> +	const struct rkvdec_variant *variant = ctx->dev->variant;
+>  	unsigned int i;
+>  
+> -	for (i = 0; i < ARRAY_SIZE(rkvdec_coded_fmts); i++) {
+> -		if (rkvdec_is_capable(ctx, rkvdec_coded_fmts[i].capability) &&
+> -		    rkvdec_coded_fmts[i].fourcc == fourcc)
+> -			return &rkvdec_coded_fmts[i];
+> +	for (i = 0; i < variant->num_coded_fmts; i++) {
+> +		if (rkvdec_is_capable(ctx, variant->coded_fmts[i].capability) &&
+> +		    variant->coded_fmts[i].fourcc == fourcc)
+> +			return &variant->coded_fmts[i];
+>  	}
+>  
+>  	return NULL;
+> @@ -1014,18 +1016,19 @@ static int rkvdec_add_ctrls(struct rkvdec_ctx *ctx,
+>  
+>  static int rkvdec_init_ctrls(struct rkvdec_ctx *ctx)
+>  {
+> +	const struct rkvdec_variant *variant = ctx->dev->variant;
+>  	unsigned int i, nctrls = 0;
+>  	int ret;
+>  
+> -	for (i = 0; i < ARRAY_SIZE(rkvdec_coded_fmts); i++)
+> -		if (rkvdec_is_capable(ctx, rkvdec_coded_fmts[i].capability))
+> -			nctrls += rkvdec_coded_fmts[i].ctrls->num_ctrls;
+> +	for (i = 0; i < variant->num_coded_fmts; i++)
+> +		if (rkvdec_is_capable(ctx, variant->coded_fmts[i].capability))
+> +			nctrls += variant->coded_fmts[i].ctrls->num_ctrls;
+>  
+>  	v4l2_ctrl_handler_init(&ctx->ctrl_hdl, nctrls);
+>  
+> -	for (i = 0; i < ARRAY_SIZE(rkvdec_coded_fmts); i++) {
+> -		if (rkvdec_is_capable(ctx, rkvdec_coded_fmts[i].capability)) {
+> -			ret = rkvdec_add_ctrls(ctx, rkvdec_coded_fmts[i].ctrls);
+> +	for (i = 0; i < variant->num_coded_fmts; i++) {
+> +		if (rkvdec_is_capable(ctx, variant->coded_fmts[i].capability)) {
+> +			ret = rkvdec_add_ctrls(ctx, variant->coded_fmts[i].ctrls);
+>  			if (ret)
+>  				goto err_free_handler;
+>  		}
+> @@ -1242,11 +1245,15 @@ static void rkvdec_watchdog_func(struct work_struct *work)
+>  
+>  static const struct rkvdec_variant rk3288_rkvdec_variant = {
+>  	.num_regs = 68,
+> +	.coded_fmts = rkvdec_coded_fmts,
+> +	.num_coded_fmts = ARRAY_SIZE(rkvdec_coded_fmts),
+>  	.capabilities = RKVDEC_CAPABILITY_HEVC,
 
-This patch removes atomics from the recursion detection path on arm64 by
-changing 'active' to a per-CPU array of four u8 counters, one per
-context: {NMI, hard-irq, soft-irq, normal}. The running context uses a
-non-atomic increment/decrement on its element.  After increment,
-recursion is detected by reading the array as a u32 and verifying that
-only the expected element changed; any change in another element
-indicates inter-context recursion, and a value > 1 in the same element
-indicates same-context recursion.
+Looks like we could drop the capabilities flags handling now that we
+use a per variant coded_fmts ?
 
-For example, starting from {0,0,0,0}, a normal-context trigger changes
-the array to {0,0,0,1}.  If an NMI arrives on the same CPU and triggers
-the program, the array becomes {1,0,0,1}. When the NMI context checks
-the u32 against the expected mask for normal (0x00000001), it observes
-0x01000001 and correctly reports recursion. Same-context recursion is
-detected analogously.
+Maybe a rk3288_coded_fmts should be added and used here, or in a cleanup
+patch that drops the capabilities flag handling.
 
-Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
----
- include/linux/bpf.h | 33 ++++++++++++++++++++++++++++++---
- kernel/bpf/core.c   |  3 ++-
- 2 files changed, 32 insertions(+), 4 deletions(-)
+Regards,
+Jonas
 
-diff --git a/include/linux/bpf.h b/include/linux/bpf.h
-index 2da986136d26..5ca2a761d9a1 100644
---- a/include/linux/bpf.h
-+++ b/include/linux/bpf.h
-@@ -31,6 +31,7 @@
- #include <linux/static_call.h>
- #include <linux/memcontrol.h>
- #include <linux/cfi.h>
-+#include <linux/unaligned.h>
- #include <asm/rqspinlock.h>
- 
- struct bpf_verifier_env;
-@@ -1746,6 +1747,8 @@ struct bpf_prog_aux {
- 	struct bpf_map __rcu *st_ops_assoc;
- };
- 
-+#define BPF_NR_CONTEXTS        4       /* normal, softirq, hardirq, NMI */
-+
- struct bpf_prog {
- 	u16			pages;		/* Number of allocated pages */
- 	u16			jited:1,	/* Is our filter JIT'ed? */
-@@ -1772,7 +1775,7 @@ struct bpf_prog {
- 		u8 tag[BPF_TAG_SIZE];
- 	};
- 	struct bpf_prog_stats __percpu *stats;
--	int __percpu		*active;
-+	u8 __percpu		*active;	/* u8[BPF_NR_CONTEXTS] for rerecursion protection */
- 	unsigned int		(*bpf_func)(const void *ctx,
- 					    const struct bpf_insn *insn);
- 	struct bpf_prog_aux	*aux;		/* Auxiliary fields */
-@@ -2006,12 +2009,36 @@ struct bpf_struct_ops_common_value {
- 
- static inline bool bpf_prog_get_recursion_context(struct bpf_prog *prog)
- {
--	return this_cpu_inc_return(*(prog->active)) == 1;
-+#ifdef CONFIG_ARM64
-+	u8 rctx = interrupt_context_level();
-+	u8 *active = this_cpu_ptr(prog->active);
-+	u32 val;
-+
-+	preempt_disable();
-+	active[rctx]++;
-+	val = get_unaligned_le32(active);
-+	preempt_enable();
-+	if (val != BIT(rctx * 8))
-+		return false;
-+
-+	return true;
-+#else
-+	return this_cpu_inc_return(*(int __percpu *)(prog->active)) == 1;
-+#endif
- }
- 
- static inline void bpf_prog_put_recursion_context(struct bpf_prog *prog)
- {
--	this_cpu_dec(*(prog->active));
-+#ifdef CONFIG_ARM64
-+	u8 rctx = interrupt_context_level();
-+	u8 *active = this_cpu_ptr(prog->active);
-+
-+	preempt_disable();
-+	active[rctx]--;
-+	preempt_enable();
-+#else
-+	this_cpu_dec(*(int __percpu *)(prog->active));
-+#endif
- }
- 
- #if defined(CONFIG_BPF_JIT) && defined(CONFIG_BPF_SYSCALL)
-diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
-index c66316e32563..b5063acfcf92 100644
---- a/kernel/bpf/core.c
-+++ b/kernel/bpf/core.c
-@@ -112,7 +112,8 @@ struct bpf_prog *bpf_prog_alloc_no_stats(unsigned int size, gfp_t gfp_extra_flag
- 		vfree(fp);
- 		return NULL;
- 	}
--	fp->active = alloc_percpu_gfp(int, bpf_memcg_flags(GFP_KERNEL | gfp_extra_flags));
-+	fp->active = __alloc_percpu_gfp(sizeof(u8[BPF_NR_CONTEXTS]), 8,
-+					bpf_memcg_flags(GFP_KERNEL | gfp_extra_flags));
- 	if (!fp->active) {
- 		vfree(fp);
- 		kfree(aux);
--- 
-2.47.3
+>  };
+>  
+>  static const struct rkvdec_variant rk3328_rkvdec_variant = {
+>  	.num_regs = 109,
+> +	.coded_fmts = rkvdec_coded_fmts,
+> +	.num_coded_fmts = ARRAY_SIZE(rkvdec_coded_fmts),
+>  	.capabilities = RKVDEC_CAPABILITY_HEVC |
+>  			RKVDEC_CAPABILITY_H264 |
+>  			RKVDEC_CAPABILITY_VP9,
+> @@ -1255,6 +1262,8 @@ static const struct rkvdec_variant rk3328_rkvdec_variant = {
+>  
+>  static const struct rkvdec_variant rk3399_rkvdec_variant = {
+>  	.num_regs = 78,
+> +	.coded_fmts = rkvdec_coded_fmts,
+> +	.num_coded_fmts = ARRAY_SIZE(rkvdec_coded_fmts),
+>  	.capabilities = RKVDEC_CAPABILITY_HEVC |
+>  			RKVDEC_CAPABILITY_H264 |
+>  			RKVDEC_CAPABILITY_VP9,
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+> index f35f6e80ea2e..aac6cba4c623 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+> @@ -71,6 +71,8 @@ vb2_to_rkvdec_decoded_buf(struct vb2_buffer *buf)
+>  
+>  struct rkvdec_variant {
+>  	unsigned int num_regs;
+> +	const struct rkvdec_coded_fmt_desc *coded_fmts;
+> +	size_t num_coded_fmts;
+>  	unsigned int capabilities;
+>  	unsigned int quirks;
+>  };
 
 
