@@ -4,108 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA52CD6408B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 11:41:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65C5FD6554E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 11:49:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hDHQFBEScByy/IyKIAMp2rAO55xpOIkQBiSjfDRMvn0=; b=k0eHgnQyRgfF5BuyX9aBSSHSmB
-	dZIUG1GBGtkT8gWRI5j9KkwFU/nAvHxCIg5LRKtiDF3bufS1OqJ/43eumtVXM5ZPZB8X48mKXOVHz
-	QtzPCFa/LQV6VnoGeCXDPCFND8ZOn55sKaSSa1e199UQ21JLLfLggZjcphgQhHcBkkf1W3NY5Px5B
-	THtG7etZBQX6OWYopsdq6cVZO6WsjmgkE2530OxuoeqHi5dxY62aPEe1V8+j8A3mj03vdtJ/TnKV+
-	gJxd5zTWNLyt8DbgEz6A17WVphcVMes7hMsjnMuAnLfbFO+9+TT4BmhlZaucpr4uGml3hoAF546km
-	l8C0kmMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wga2G7vEvUnhQvXk0fzzJEMJ+JzaQfo7Zev7g481zco=; b=bBYQALXMIKTuU/C/BYcs8kOC+j
+	ZIw135sHqJYYSrrl3oP5loaQQykekHVtV4uGZIaRW3FCymRJ/f5kJW/7uAIrqSiKCRzOuLfjvt/4V
+	QtMGrgls7dG00tyQqdnfE0s9ePACabvV+qPc+Xc+YrVmf/cn4UhyYfsoN4IIjQPYmD2kPbZ92KvgO
+	FaZuAJaWp1HrWOp9bXydC6hMbx2ho4f0suSqPRLBU4Fgr+xi8mPZLdvKSI6F3+2g4w2JhBmSannrW
+	A5CwTRkAX4ONT8AFnE5DZj1rz1VPfxmlQG4F0nscXlL1EpZGeS70gOyLL1a5hS7lY+67OG32MxX+Y
+	isBftS5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVpuO-00000006k85-1Xz8;
-	Wed, 17 Dec 2025 11:41:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVpuL-00000006k7Q-3RNA
+	id 1vVq2L-00000006ka6-3zZt;
+	Wed, 17 Dec 2025 11:49:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vVq2I-00000006kZZ-3eFt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 11:41:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 695894365B;
-	Wed, 17 Dec 2025 11:41:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E161C4CEF5;
-	Wed, 17 Dec 2025 11:41:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765971689;
-	bh=QureFGhz+Rjaa7+iRO0a7okZDgRSIaqdEUA2PUeZ2+8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=rgkJUJJeavzzA6Zd4VIHKmnMsfK5r/NGqBnqhpFApPQXqcWT3yMqr8Cj3AIz6ge1Z
-	 0KSN1tj76FCMnrybq+qoTCQEbD9zLHhchKTW0qtyhfrN9plYZLACOBkVHIG6A0Agxg
-	 26bbp9klTjMvQq+88v+OfOMjeCqYCp5DrzbkrCovU2CV5Zlej+QFoRzgldbNYS0onp
-	 doDQpcDEmhmlN2StpdeGS+woTTldhTQjDKofpcibeATt/nP8Gfy/fiFWCTtHgAFp6t
-	 f3kujRaryd48v6qxdJxaWWuki1JRhcGoAsYbMUcz7OsGwAnLLvp8yyFQP0qX2SmUYl
-	 TIxsgbUX96jGg==
-Message-ID: <cd04e23a-9523-4d25-8240-29a0dffa0e75@kernel.org>
-Date: Wed, 17 Dec 2025 12:41:23 +0100
+	Wed, 17 Dec 2025 11:49:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9E56514BF;
+	Wed, 17 Dec 2025 03:49:32 -0800 (PST)
+Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BC8CF3F73B;
+	Wed, 17 Dec 2025 03:49:37 -0800 (PST)
+Date: Wed, 17 Dec 2025 11:49:32 +0000
+From: Joey Gouly <joey.gouly@arm.com>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>, nd <nd@arm.com>,
+	"maz@kernel.org" <maz@kernel.org>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>
+Subject: Re: [PATCH 18/32] KVM: arm64: gic-v5: Check for pending PPIs
+Message-ID: <20251217114932.GA1626516@e124191.cambridge.arm.com>
+References: <20251212152215.675767-1-sascha.bischoff@arm.com>
+ <20251212152215.675767-19-sascha.bischoff@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 10/12] dt-bindings: ras: document estatus provider
-To: Ahmed Tiba <ahmed.tiba@arm.com>, linux-acpi@vger.kernel.org,
- devicetree@vger.kernel.org
-Cc: tony.luck@intel.com, bp@alien8.de, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org,
- linux-arm-kernel@lists.infradead.org, rafael@kernel.org,
- linux-doc@vger.kernel.org, Dmitry.Lamerov@arm.com, Michael.Zhao2@arm.com
-References: <20251217112845.1814119-1-ahmed.tiba@arm.com>
- <20251217112845.1814119-11-ahmed.tiba@arm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251217112845.1814119-11-ahmed.tiba@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251212152215.675767-19-sascha.bischoff@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_034129_910251_3B421E51 
-X-CRM114-Status: GOOD (  24.66  )
+X-CRM114-CacheID: sfid-20251217_034943_019334_EA5F91C0 
+X-CRM114-Status: GOOD (  34.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,162 +71,220 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/12/2025 12:28, Ahmed Tiba wrote:
-> Add a binding for firmware-first CPER providers described via
-> DeviceTree. It covers the shared status block, optional acknowledgment
-> registers, interrupt versus polling modes and the SEA notification
-> flag so non-ACPI platforms can describe their error sources.
+Hi Sascha,
+
+On Fri, Dec 12, 2025 at 03:22:41PM +0000, Sascha Bischoff wrote:
+> This change allows KVM to check for pending PPI interrupts. This has
+> two main components:
 > 
-> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
+> First of all, the effective priority mask is calculated.  This is a
+> combination of the priority mask in the VPEs ICC_PCR_EL1.PRIORITY and
+> the currently running priority as determined from the VPE's
+> ICH_APR_EL1. If an interrupt's prioirity is greater than or equal to
+> the effective priority mask, it can be signalled. Otherwise, it
+> cannot.
+> 
+> Secondly, any Enabled and Pending PPIs must be checked against this
+> compound priority mask. The reqires the PPI priorities to by synced
+> back to the KVM shadow state - this is skipped in general operation as
+> it isn't required and is rather expensive. If any Enabled and Pending
+> PPIs are of sufficient priority to be signalled, then there are
+> pending PPIs. Else, there are not.  This ensures that a VPE is not
+> woken when it cannot actually process the pending interrupts.
+> 
+> Signed-off-by: Sascha Bischoff <sascha.bischoff@arm.com>
 > ---
->  .../devicetree/bindings/ras/arm,ras-ffh.yaml  | 95 +++++++++++++++++++
->  MAINTAINERS                                   |  1 +
->  2 files changed, 96 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/ras/arm,ras-ffh.yaml
+>  arch/arm64/kvm/vgic/vgic-v5.c | 123 ++++++++++++++++++++++++++++++++++
+>  arch/arm64/kvm/vgic/vgic.c    |  10 ++-
+>  arch/arm64/kvm/vgic/vgic.h    |   1 +
+>  3 files changed, 131 insertions(+), 3 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/ras/arm,ras-ffh.yaml b/Documentation/devicetree/bindings/ras/arm,ras-ffh.yaml
-> new file mode 100644
-> index 000000000000..0d2acbf8e8a8
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/ras/arm,ras-ffh.yaml
-
-What is ras? There is no such directory so some description would be
-useful. Usually you do not get your own directory per binding.
-
-> @@ -0,0 +1,95 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/ras/arm,ras-ffh.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> diff --git a/arch/arm64/kvm/vgic/vgic-v5.c b/arch/arm64/kvm/vgic/vgic-v5.c
+> index d54595fbf4586..35740e88b3591 100644
+> --- a/arch/arm64/kvm/vgic/vgic-v5.c
+> +++ b/arch/arm64/kvm/vgic/vgic-v5.c
+> @@ -54,6 +54,31 @@ int vgic_v5_probe(const struct gic_kvm_info *info)
+>  	return 0;
+>  }
+>  
+> +static u32 vgic_v5_get_effective_priority_mask(struct kvm_vcpu *vcpu)
+> +{
+> +	struct vgic_v5_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
+> +	unsigned highest_ap, priority_mask;
 > +
-> +title: Arm Firmware-First Handler (FFH) CPER provider
-> +
-> +maintainers:
-> +  - Ahmed Tiba <ahmed.tiba@arm.com>
-> +
-> +description: |
-> +  Some Arm platforms describe a firmware-first error handler that exposes a
-> +  Common Platform Error Record (CPER) buffer directly via DeviceTree. The OS
-> +  maps the buffer to consume the error records, and firmware signals that a new
-> +  record is ready either by asserting an interrupt or by relying on a periodic
-> +  poll. This binding describes the buffer and the associated notification
+> +	/*
+> +	 * Counting the number of trailing zeros gives the current
+> +	 * active priority. Explicitly use the 32-bit version here as
+> +	 * we have 32 priorities. 0x20 then means that there are no
+> +	 * active priorities.
+> +	 */
+> +	highest_ap = __builtin_ctz(cpu_if->vgic_apr);
 
-Do not describe what the binding does. Describe the hardware or firmware.
+__builtin_ctz(0) is undefined (https://gcc.gnu.org/onlinedocs/gcc/Bit-Operation-Builtins.html)
 
-> +  signal. If firmware delivers the error via Synchronous External Abort (SEA),
-> +  the optional sea-notify flag marks the source accordingly.
-> +
-> +properties:
-> +  compatible:
-> +    const: arm,ras-ffh
+Looking at __vgic_v3_clear_highest_active_priority(), it handles that like this:
 
-Again ras - what's that? Your patch or binding must explain that.
+	c0 = ap0 ? __ffs(ap0) : 32;
+
+Thanks,
+Joey
 
 > +
-> +  reg:
-> +    minItems: 1
-
-Why is this flexible?
-
-> +    items:
-> +      - description: CPER status block exposed by firmware
-> +      - description:
-> +          Optional 32- or 64-bit acknowledgment register. Firmware watches this
-> +          register and expects bit 0 to be written to 1 once the OS consumes the
-> +          status buffer so it can reuse the record.
+> +	/*
+> +	 * An interrupt is of sufficient priority if it is equal to or
+> +	 * greater than the priority mask. Add 1 to the priority mask
+> +	 * (i.e., lower priority) to match the APR logic before taking
+> +	 * the min. This gives us the lowest priority that is masked.
+> +	 */
+> +	priority_mask = FIELD_GET(FEAT_GCIE_ICH_VMCR_EL2_VPMR, cpu_if->vgic_vmcr);
+> +	priority_mask = min(highest_ap, priority_mask + 1);
 > +
-> +  reg-names:
-> +    items:
-> +      - const: status
-> +      - const: ack
-
-Does not match reg.
-
+> +	return priority_mask;
+> +}
 > +
-> +  interrupts:
-> +    maxItems: 1
-> +    description:
-> +      Optional interrupt used to signal that a new status record is ready. If
-> +      omitted, the OS relies on the polling interval property.
-
-What OS is doing should not really matter. Either you have the interrupt
-or not.
-
-
+>  static bool vgic_v5_ppi_set_pending_state(struct kvm_vcpu *vcpu,
+>  					  struct vgic_irq *irq)
+>  {
+> @@ -121,6 +146,104 @@ void vgic_v5_set_ppi_ops(struct vgic_irq *irq)
+>  	irq->ops = &vgic_v5_ppi_irq_ops;
+>  }
+>  
 > +
-> +  poll-interval:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    minimum: 1
-> +    description:
-> +      Optional polling interval, in milliseconds, for platforms that cannot
-> +      route an interrupt.
-
-That's OS policy, not suitable for binding.
-
+> +/*
+> + * Sync back the PPI priorities to the vgic_irq shadow state
+> + */
+> +static void vgic_v5_sync_ppi_priorities(struct kvm_vcpu *vcpu)
+> +{
+> +	struct vgic_v5_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
+> +	unsigned long flags;
+> +	int i, reg;
 > +
-> +  arm,sea-notify:
-> +    type: boolean
-> +    description:
-> +      Set if the platform delivers these errors as Synchronous External Aborts.
-
-This is implied by the compatible, no?
-
+> +	/* We have 16 PPI Priority regs */
+> +	for (reg = 0; reg < 16; reg++) {
+> +		const unsigned long priorityr = cpu_if->vgic_ppi_priorityr[reg];
 > +
-> +required:
-> +  - compatible
-> +  - reg
+> +		for (i = 0; i < 8; ++i) {
+> +			struct vgic_irq *irq;
+> +			u32 intid;
+> +			u8 priority;
 > +
-> +allOf:
-> +  - if:
-> +      properties:
-> +        poll-interval: false
-> +    then:
-> +      required:
-> +        - interrupts
-> +  - if:
-> +      properties:
-> +        interrupts: false
-> +    then:
-> +      required:
-> +        - poll-interval
-> +  - if:
-> +      properties:
-> +        reg:
-> +          minItems: 2
-> +    then:
-> +      required:
-> +        - reg-names
-
-Drop all this.
-
+> +			priority = (priorityr >> (i * 8)) & 0x1f;
 > +
-> +unevaluatedProperties: false
-
-I do not see any schema referenced.
-
+> +			intid = FIELD_PREP(GICV5_HWIRQ_TYPE, GICV5_HWIRQ_TYPE_PPI);
+> +			intid |= FIELD_PREP(GICV5_HWIRQ_ID, reg * 8 + i);
 > +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +			irq = vgic_get_vcpu_irq(vcpu, intid);
+> +			raw_spin_lock_irqsave(&irq->irq_lock, flags);
 > +
-> +    ras-ffh@fe800000 {
-
-Node names should be generic. See also an explanation and list of
-examples (not exhaustive) in DT specification:
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
-If you cannot find a name matching your device, please check in kernel
-sources for similar cases or you can grow the spec (via pull request to
-DT spec repo).
-
-> +        compatible = "arm,ras-ffh";
-> +        reg = <0xfe800000 0x1000>,
-> +              <0xfe810000 0x4>;
-> +        reg-names = "status", "ack";
-> +        interrupts = <0 32 IRQ_TYPE_LEVEL_HIGH>;
-
-Use proper defines.
-
-Best regards,
-Krzysztof
+> +			irq->priority = priority;
+> +
+> +			raw_spin_unlock_irqrestore(&irq->irq_lock, flags);
+> +			vgic_put_irq(vcpu->kvm, irq);
+> +		}
+> +	}
+> +}
+> +
+> +bool vgic_v5_has_pending_ppi(struct kvm_vcpu *vcpu)
+> +{
+> +	struct vgic_v5_cpu_if *cpu_if = &vcpu->arch.vgic_cpu.vgic_v5;
+> +	unsigned long flags;
+> +	int i, reg;
+> +	unsigned int priority_mask;
+> +
+> +	/* If no pending bits are set, exit early */
+> +	if (likely(!cpu_if->vgic_ppi_pendr[0] && !cpu_if->vgic_ppi_pendr[1]))
+> +		return false;
+> +
+> +	priority_mask = vgic_v5_get_effective_priority_mask(vcpu);
+> +
+> +	/* If the combined priority mask is 0, nothing can be signalled! */
+> +	if (!priority_mask)
+> +		return false;
+> +
+> +	/* The shadow priority is only updated on demand, sync it across first */
+> +	vgic_v5_sync_ppi_priorities(vcpu);
+> +
+> +	for (reg = 0; reg < 2; reg++) {
+> +		unsigned long possible_bits;
+> +		const unsigned long enabler = cpu_if->vgic_ich_ppi_enabler_exit[reg];
+> +		const unsigned long pendr = cpu_if->vgic_ppi_pendr_exit[reg];
+> +		bool has_pending = false;
+> +
+> +		/* Check all interrupts that are enabled and pending */
+> +		possible_bits = enabler & pendr;
+> +
+> +		/*
+> +		 * Optimisation: pending and enabled with no active priorities
+> +		 */
+> +		if (possible_bits && priority_mask > 0x1f)
+> +			return true;
+> +
+> +		for_each_set_bit(i, &possible_bits, 64) {
+> +			struct vgic_irq *irq;
+> +			u32 intid;
+> +
+> +			intid = FIELD_PREP(GICV5_HWIRQ_TYPE, GICV5_HWIRQ_TYPE_PPI);
+> +			intid |= FIELD_PREP(GICV5_HWIRQ_ID, reg * 64 + i);
+> +
+> +			irq = vgic_get_vcpu_irq(vcpu, intid);
+> +			raw_spin_lock_irqsave(&irq->irq_lock, flags);
+> +
+> +			/*
+> +			 * We know that the interrupt is enabled and pending, so
+> +			 * only check the priority.
+> +			 */
+> +			if (irq->priority <= priority_mask)
+> +				has_pending = true;
+> +
+> +			raw_spin_unlock_irqrestore(&irq->irq_lock, flags);
+> +			vgic_put_irq(vcpu->kvm, irq);
+> +
+> +			if (has_pending)
+> +				return true;
+> +		}
+> +	}
+> +
+> +	return false;
+> +}
+> +
+>  /*
+>   * Detect any PPIs state changes, and propagate the state with KVM's
+>   * shadow structures.
+> diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
+> index e534876656ca7..5d18a03cc11d5 100644
+> --- a/arch/arm64/kvm/vgic/vgic.c
+> +++ b/arch/arm64/kvm/vgic/vgic.c
+> @@ -1174,11 +1174,15 @@ int kvm_vgic_vcpu_pending_irq(struct kvm_vcpu *vcpu)
+>  	unsigned long flags;
+>  	struct vgic_vmcr vmcr;
+>  
+> -	if (!vcpu->kvm->arch.vgic.enabled)
+> +	if (!vcpu->kvm->arch.vgic.enabled && !vgic_is_v5(vcpu->kvm))
+>  		return false;
+>  
+> -	if (vcpu->arch.vgic_cpu.vgic_v3.its_vpe.pending_last)
+> -		return true;
+> +	if (vcpu->kvm->arch.vgic.vgic_model == KVM_DEV_TYPE_ARM_VGIC_V5) {
+> +		return vgic_v5_has_pending_ppi(vcpu);
+> +	} else {
+> +		if (vcpu->arch.vgic_cpu.vgic_v3.its_vpe.pending_last)
+> +			return true;
+> +	}
+>  
+>  	vgic_get_vmcr(vcpu, &vmcr);
+>  
+> diff --git a/arch/arm64/kvm/vgic/vgic.h b/arch/arm64/kvm/vgic/vgic.h
+> index 5a77318ddb87a..4b3a1e7ca3fb4 100644
+> --- a/arch/arm64/kvm/vgic/vgic.h
+> +++ b/arch/arm64/kvm/vgic/vgic.h
+> @@ -387,6 +387,7 @@ void vgic_debug_destroy(struct kvm *kvm);
+>  int vgic_v5_probe(const struct gic_kvm_info *info);
+>  void vgic_v5_set_ppi_ops(struct vgic_irq *irq);
+>  int vgic_v5_set_ppi_dvi(struct kvm_vcpu *vcpu, u32 irq, bool dvi);
+> +bool vgic_v5_has_pending_ppi(struct kvm_vcpu *vcpu);
+>  void vgic_v5_flush_ppi_state(struct kvm_vcpu *vcpu);
+>  void vgic_v5_fold_irq_state(struct kvm_vcpu *vcpu);
+>  void vgic_v5_load(struct kvm_vcpu *vcpu);
+> -- 
+> 2.34.1
 
