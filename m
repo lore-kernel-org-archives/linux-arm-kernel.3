@@ -4,141 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28E3ED6406C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 02:13:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC016D6406C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 02:13:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XR/W7tXQAtcldECyv3GNKnr5ePuL0RouJeBTmNE24KY=; b=UnxaQ/DWjrx7yPDwUazq2agUlP
-	erTLRPI/4vkpFfBYl8XNyAfKaUC8v3iA90Z3isaFR1oXys0ITWgyGqahD5KKqWukONMPgwLaJ6hbv
-	xZ0cvkfChWZyusdELjKxrlWi2HXi+fPNN6GGrxZw0FhyITt3+FQYGNrpRm0Shel9zKqx6v67bfA89
-	adeuFaXTXzMJPNrTnOornT8wNn33V1wsKzdin2zBjI+x+dEyyB3iuzFy7D31CvvtuDeb4K2j8g3fY
-	qc+C5B8iEb7A/CUQGrMZCVYDWRyNrkoJEsTY0js8g/EhZsDnOgvVnspaWcRxE0qzEOdUIkYZIMg1L
-	zxZMREUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Wa0xxFfQ3t8zO1ggW0WedCe90akKSAxQWKQ32p443kA=; b=ckNHO7WEtuuPZj8mogMg2eOQbB
+	lQxQyx+Si38dCmVTQNMunFC+11yl/hIxSlrpNx5AFKyCLcYDG0jbULSn/ZfrbV6VcAoxuh5WAL9Vh
+	FsnohIGkEWWacDkNkn8UKLeuoSHJH0JPYqO9S/GR3N8ysC9S9yHgPl5mZ99CDSHWgdGUypkLatV/I
+	iyRWTKiw4/9W+K/8hG3LuN7VSoTo/+K7AHGpaoCDRvM0taORIndKxJoKjh/M1pvq7gd53grQCgHuf
+	mY+qwRx4Pz1fPhoddp66E3lQeZnE7XLilPKEFYiCuYa4UNrc0MdIgPlorek0831dS/Si9P1I1f4Uk
+	J7CwBmeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVh2G-0000000632Q-00Np;
-	Wed, 17 Dec 2025 02:13:04 +0000
-Received: from mail-japaneastazon11022117.outbound.protection.outlook.com ([52.101.126.117] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	id 1vVh2j-00000006357-1TvS;
+	Wed, 17 Dec 2025 02:13:33 +0000
+Received: from mo-csw1121.securemx.jp ([210.130.202.132] helo=mo-csw.securemx.jp)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVh2C-00000006324-1kvf
+	id 1vVh2c-0000000634B-2vs5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 02:13:02 +0000
+	Wed, 17 Dec 2025 02:13:32 +0000
+DKIM-Signature: v=1;a=rsa-sha256;c=relaxed/simple;d=mail.toshiba;h=From:To:CC:
+	Subject:Date:Message-ID:References:In-Reply-To:Content-Type:
+	Content-Transfer-Encoding:MIME-Version;i=nobuhiro.iwamatsu.x90@mail.toshiba;
+	s=key1.smx;t=1765937586;x=1767147186;bh=VFmXqTSeUNSdIscNWy/JxVan+IE0NT4SNT3O2
+	enTIx8=;b=L1oqNXeG/66601K67WhUHB8IAixYpxI13DsrfmeXILaIeX7o2hNy5J6xDSuB1K9oK8G
+	ru+WGr6VuBycHuIA3ZLUDpju4QUj1Pz4JJfEHqYBdYlVCdNHyicJNKTe0jk26RZc7BQyyTPt9rXxM
+	TiAsUwPAcSBVbXasDZNyeO2y9dKsMpuGgUo+Fqmt1vorKEaMojcoXk50VCq6S6pOtgFc7/ShuED1Q
+	9uT9zs85Y70lLPmE+k++g7QXoAwHXwOkO1ETsnNANPuPf/MzRzqjpx+NS4kB9rvcc0U36KSpvPa4T
+	m/ih2QhfPFN8SfScWIxUaFrXk3eQ9hoR58EP5x9Pe9Jg==;
+Received: by mo-csw.securemx.jp (mx-mo-csw1121) id 5BH2D57h1067468; Wed, 17 Dec 2025 11:13:05 +0900
+X-Iguazu-Qid: 2rWgRWki9ldvmgDsgE
+X-Iguazu-QSIG: v=2; s=0; t=1765937584; q=2rWgRWki9ldvmgDsgE; m=1luXCkQYDzlh0JL4E+xOMG4BrGiklTOT6BP7VSeUYvw=
+Received: from imx12-a.toshiba.co.jp (unknown [38.106.60.135])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	 id 4dWHQ74nj0z1xnc; Wed, 17 Dec 2025 11:13:03 +0900 (JST)
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nWZGsdKbsOdAB0U031uvyt2G8gFkU3MMp86Uy1BQjiLTK3cY91kO1lJ7xDpW4UtIiLLSHXIumpWn1BvhvA8lxPl8nvJCxcTe2YEVFnYiFHTYvu7QFeCIzSFary1ekjL7vRtA7lP75e6i22UNFKaVoCJ6pjSDrJ3b9qIIRn+o13MYwO9vI71ZrosrqmRjKge0Kdt9we7PYoToQHVL90kkHuA81uNWljaYA7uiriaIU1Wt9k3pzmKPPXiILNBhgYLwcEIJArpL4GtQ4T3pL/cxOg05vWQ6VeENBqykG88jYvuAn2HMDmJUTaPZ/BXv+sbGQj+yP9k6dF748tirI+Dx8w==
+ b=v/qQretvXpL5lqlL1StVbf3jkvjMNE8+wVMXtezGglfMy0LdYRRJDHDoLeytDWDh+e915cabfECMBRJZ74AZAKZ+rJLh9/1zVQuo2AllbIz5/mRriZcayIAwtvQrPKaYT1qRKBN3AuG8Mos6cBD5iTrgUDFB9YrUXso++vEKJZeuAxYEP1friMMuvCrmb+10hnuQiyf/HEHAp9BEv4NT51rN/NZI2P2JJE9BCqhtHuu5QQ3sqhgMu5WwYmtALh0FHhpieRis8O6HXscu3VsdW0VI3Uz49qE2G6y04yU16oYQm9OU8LPFDCIHU5QgoavC1mY7IoMqOOTHslkyckSR7g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XR/W7tXQAtcldECyv3GNKnr5ePuL0RouJeBTmNE24KY=;
- b=XKczcbWnYTbHkiua1rQId3oXHhfbHVZL7v927GSEYrI/qXDYiD+bznWDwJTn+RmbYFwC2DQVtQDsuP2tgJ31B8b8sk8kE+PhxtAkfJZ6aVvrDj8XKZTjSC/C3sy5YNmHYtBdE0fEJWh33dXnttG8wLImGzXO215qiPyJJqhpY7I3EJQMk8Ef1erZ4rhmmQxUl2fgsvoCP438QzXryyAYDmcdR6vDyR77YhrcwPwP/AUbPwxGu2uzAac/XncaqD3K5itvF4l0D/4xYaJM3qKTM0DuN5q1ebqXwjgCjrktklGXJL7JkECEzeDkABk9Je8BgVq7E4V06KFeucyimE871Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from PS2PR02CA0039.apcprd02.prod.outlook.com (2603:1096:300:59::27)
- by TYZPR06MB5396.apcprd06.prod.outlook.com (2603:1096:400:200::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.13; Wed, 17 Dec
- 2025 02:12:54 +0000
-Received: from TY2PEPF0000AB8A.apcprd03.prod.outlook.com
- (2603:1096:300:59:cafe::da) by PS2PR02CA0039.outlook.office365.com
- (2603:1096:300:59::27) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.6 via Frontend Transport; Wed,
- 17 Dec 2025 02:12:53 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- TY2PEPF0000AB8A.mail.protection.outlook.com (10.167.253.8) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9434.6 via Frontend Transport; Wed, 17 Dec 2025 02:12:52 +0000
-Received: from [172.20.96.43] (unknown [172.20.96.43])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id 9C97840A5A13;
-	Wed, 17 Dec 2025 10:12:50 +0800 (CST)
-Message-ID: <87ad76b4-0141-46d9-81df-1e2948f46803@cixtech.com>
-Date: Wed, 17 Dec 2025 10:12:50 +0800
+ bh=Wa0xxFfQ3t8zO1ggW0WedCe90akKSAxQWKQ32p443kA=;
+ b=aexeu6iMHhtw486fhOK1Ovt3HmIA/FiVW/PO189E8oLwhy2TSl2AkylDv9JtcymS+2YJ5a2+uEvoxTlvO4tjaBXBvsAOWS9vILRQU6K1OQWtgRu1pD8TT1Eqa56Qdwh7KePm61Lh9Dutxh+rhXLd/RuFGu5e3b0pIIX8HiLf2GXLjAyAU8YTe3KW+oNNm+7yFOumuYJxPBZiPJMqxhUI/bL8zXZWLv2Qh99xomDPgqAtcHLYuKP1O13uaDZAYAh65u2MVPuZx6/RYyUAIfFd6UzDMoRIDcBeXKsByNSa8x1vgM3/5hVD749P6UeNJAzJ0h9oz7qbkBDm/rJcyLtJOg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mail.toshiba; dmarc=pass action=none header.from=mail.toshiba;
+ dkim=pass header.d=mail.toshiba; arc=none
+From: <nobuhiro.iwamatsu.x90@mail.toshiba>
+To: <robh@kernel.org>, <soc@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH] arm64: dts: toshiba: Use recommended node names
+Thread-Topic: [PATCH] arm64: dts: toshiba: Use recommended node names
+Thread-Index: AQHcbrYCCg0+xgdFxEqx6sSVCjAVubUlF4mA
+Date: Wed, 17 Dec 2025 02:13:00 +0000
+X-TSB-HOP2: ON
+Message-ID: <TY7PR01MB148187A7304501EA9EB3B2DFCCDABA@TY7PR01MB14818.jpnprd01.prod.outlook.com>
+References: <20251216180055.2793215-2-robh@kernel.org>
+In-Reply-To: <20251216180055.2793215-2-robh@kernel.org>
+Accept-Language: ja-JP, en-US
+Content-Language: ja-JP
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mail.toshiba;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: TY7PR01MB14818:EE_|TY4PR01MB17375:EE_
+x-ms-office365-filtering-correlation-id: a728cc93-7368-48a7-2470-08de3d11cddb
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|1800799024|38070700021;
+x-microsoft-antispam-message-info: =?iso-2022-jp?B?ZlcrSUxXd25hcWFXdFB5YlRBRG56ZDNsS0lHTzVzaWFNLzh5YkFTeXZq?=
+ =?iso-2022-jp?B?TjhQa1QzWWI0S1FUMjNlN3NDNUpuWE1wemYyVi9WY1doaEc4TWlIOGNx?=
+ =?iso-2022-jp?B?ODJQZnJTdjdsdFpMc3ZhQjVFOEpIbTNWa1FQVk9nNDZGaytkbXdlWUR4?=
+ =?iso-2022-jp?B?U0RIaGUrbXhEcExzTTBpU0ZCMXRXdTVIZkh3VWJRMC9RTEF4SDZNZS9a?=
+ =?iso-2022-jp?B?OVFTU01vdzBUc3JSSE5CaWp1RGdZbzBPamJuYUhGaVdITk45bytXRnhW?=
+ =?iso-2022-jp?B?di9ZWk8yUk9venI1U3RyUGlQdDdlZGRtMGE0dzByU2VVajQ3VWVmU0gw?=
+ =?iso-2022-jp?B?MWV0S3A2c3o1RklQNFVjOWRrN0JsWkJYaW96SkRnYUhrK21qclhNVzNV?=
+ =?iso-2022-jp?B?MTk2aWRPa2gzb0NScEJ4QldKVWthOU4zVGIvNGpwNmVMbUlxR1p4S2Yz?=
+ =?iso-2022-jp?B?a0x1d3JqV3BhWDlVWU9UdFRPODlwbVQ4ZDh3ZnhwT2FYems0STlTcndq?=
+ =?iso-2022-jp?B?K25UcFUzZHhqbkcySWhhYlRhcGgyQVFXenlUWmE5b3J5ei8zVlRzaDlq?=
+ =?iso-2022-jp?B?K01OYUlBdEZHRUVBeUZaY09KcXFscGRrM1k4b3AwZGMyeUV2RCtOc05o?=
+ =?iso-2022-jp?B?UkJTQ1VXUlRHK0d5NUdZUUhGUWtQWGFKc2V3VE9aRnV1b1N1alQ5YW1z?=
+ =?iso-2022-jp?B?ZjQrV3dpS0tubWx2VXUwcG9CM0RvVHdBK3hwOXNxaUhHT0M3WTh4alVC?=
+ =?iso-2022-jp?B?ZGpLOHhmLzVpZFIydUJqSjFnL2g4d2NEU1dKU25xdlNiUHk4ZzI1OVl4?=
+ =?iso-2022-jp?B?YWUrbFN4RUJDK2d0ZFRNdXN3dXh6UmRPZEk0Vm15YW5YaDlUQlFKcStk?=
+ =?iso-2022-jp?B?YTBCU1N4c2lBSDRrenUxZFZjWFA2czlKWDB6MHZuNEhKd1NoWS9CVFM0?=
+ =?iso-2022-jp?B?OXBKelJWbG4xSm5QM0xjUWVkd1Rtc1g1N2tIUGFUSmVKaktPVExjT3lj?=
+ =?iso-2022-jp?B?MHZDcVpDSER4MEFaSDBRUzhGVGhsRytwYTZRQjNSekU5ZCtnNUhLK1A5?=
+ =?iso-2022-jp?B?bWhBcUYvL3FIZkNJUC9LSytHamU2anQxQlZsUUFiUDlPSExySDU2eUt3?=
+ =?iso-2022-jp?B?VThrbHM3dlBDVjZDSUtYZ2lFT3ZvQ01XbVd0Mis4OHBNQ1FGM1hxMFpy?=
+ =?iso-2022-jp?B?ZnZqVUh1Rk0rbWhtVUp3aU41NmQwY2FKZUFXMklCczFOM0FGZzJCeDdV?=
+ =?iso-2022-jp?B?UU4yMGoyalFjYWxXdkVpZGxlTnQ2TEcydFVhMGlkdkIzSVZUTE0ybXhG?=
+ =?iso-2022-jp?B?STBGam5nZkF6MjlvVkRmVmhCeU9BS1ZZbjRSTzVweFdMS0tHRURsNFBK?=
+ =?iso-2022-jp?B?SGkrLzJ5cjV4RndsZjdiZ2hGc2NDdUFtNk9NQmtyRmdJYWZFVWdQWFJ1?=
+ =?iso-2022-jp?B?TjdZNThLVUZFdGV1d2RCdGNRQmhXaWgxRHA1SWs2ZG1kZXpVK2JrREZN?=
+ =?iso-2022-jp?B?WlNITXRldENSajVjOVpra09zREtOcGNvSVpSYlc4anoyZ1Y4emtKUHV6?=
+ =?iso-2022-jp?B?VjdyVkNpbGVXc09WRGlJaXZqTXpBdUwxdVQwbmhYNDdtR2dNS0RWaFA1?=
+ =?iso-2022-jp?B?dDNyUTZ0RE9ZUTU3SzNieEpIaXNUZ1drQWZMczRoVlZVbklGYit3NDlO?=
+ =?iso-2022-jp?B?V3dnSURQc2dtMlJTZ09WbVV3RENSc3lqaWllTStKek53R2ZDanB1WVdI?=
+ =?iso-2022-jp?B?alUxOEc2UXdEZGZyY2swTW1KSHZDcFpINzRGZ3VHV0xxbE1KNmxJNEdL?=
+ =?iso-2022-jp?B?YXRHUkc2K2U5ZE5nQzlEVnpwTzlwWXIzejhCbkF3SlZUSC8xK29pVmdI?=
+ =?iso-2022-jp?B?R0c1WDZadFVkVWkydXBpZ0lhdkovRjd1R25uSTNQcm1WVGljZXRUb0g1?=
+ =?iso-2022-jp?B?UTBQMUFJTTNOUEtsT2QrdFREeXl5MXVlMm52ZldlUWMrT0V3b3E2Ulk4?=
+ =?iso-2022-jp?B?UDJ0OEdra0xFcExxa082Q29aekl1T1RadFU2dXRadkxZSWJvTUUwZkdX?=
+ =?iso-2022-jp?B?a2Y1aHpOeXNaZHd2RUFzdTFsbUVSV1BRYXRwRHBDdlJuVnUxU0NCUDk3?=
+ =?iso-2022-jp?B?KzVMR2RWd0owb1pRYnlyendCTlhMM2pGeE04MmpxZnpnekhKUWYwdFYx?=
+ =?iso-2022-jp?B?N0Vid0dwdkgwdGN2R21kWk93YnEvNmtI?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:ja;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:TY7PR01MB14818.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-2022-jp?B?MW90bnZVZkRTUmJBNi9VK29PSzRVdTdRbzM2bEs5R2wwVXJGckJzaVVv?=
+ =?iso-2022-jp?B?UEYyVXgzYUdNSjl0RktDa3JWbzFOcllKeDFJSXhTTjN3VXdORExiS0sv?=
+ =?iso-2022-jp?B?K3ZGOVIrRjR0WFR2ZVQyeWp3L05rSXVIN2N1N3lySm1CMGl5L2tjeUFk?=
+ =?iso-2022-jp?B?OFRVZTBXTjA2MGRBc3JXL2lLaVdGOFhDcFFjNTd2LzJBbnVCTUJBNTE5?=
+ =?iso-2022-jp?B?VnY5MlgvRmg4M1VUOGFBc3lFTi9nMUNvZExKSnVEQVo0RE9mdWFiNGxv?=
+ =?iso-2022-jp?B?K2VKd3daRzB5RG9QdTVOU3kvOHhMd3ZvVm9ZZFhiUTR3Wk5jakNZUm4x?=
+ =?iso-2022-jp?B?cDJSQWpVYTZBZUJkVWJrbnpVQTQvbVVia0RUR0svN0Z4RWsyUWtnUkpz?=
+ =?iso-2022-jp?B?cXNLZTV1YU5OckdZTm0yUTNtUmVmVFhKUlAySnVtckc0Tkc5Y3paNDNI?=
+ =?iso-2022-jp?B?L1JWVWloRHRZWEdRZldWRW1ZS3JWNkVsMkxMMFdxaEpIYnYxMGMzcDFX?=
+ =?iso-2022-jp?B?QzhPSFpEUzlzTWZkZmlYRlBDaVgwR3c2NzN5d1ArK3hpK2YzUmkyTDZy?=
+ =?iso-2022-jp?B?NlljUzY1M09CTDJuNlJXMWhJQ1RDMVk2ODFRY0h0Mmx6MW0xcUVIZFQ5?=
+ =?iso-2022-jp?B?S2RkUWNKWTk5VmxBbzN2RDJ0VkR0R3FDRm5rWnNvSmRjeDVhRTg5WEtu?=
+ =?iso-2022-jp?B?Qmo5QTJKc1oyemNWQWZjUUVCdmRqMzEzZ01FdGkxNzd0ajZIZ1h3YXVH?=
+ =?iso-2022-jp?B?TUNkeDVnOVVxd24zMUQvcnRiRnNlMG1DdGNuenRNL3M2bG1rZnlhblRS?=
+ =?iso-2022-jp?B?N2ExNGFVMHYraVdMaERETG5lVk93SzdlK05aQXJnYU4yZ1gyVENYdFZZ?=
+ =?iso-2022-jp?B?K0tTcEpDOGd1KzJVajhuY0VPeEYwaVlpVjVtbUxtQUVjanhuSlVteWNa?=
+ =?iso-2022-jp?B?UUdWMEpJWWlxTjlFb3RFZ0RmTlhRL2JHenFLd29SWFcyVmtLWUZlKy9D?=
+ =?iso-2022-jp?B?dEN5NXlraENkN2ZiYjF4Z3p5ajg1NzVPYlRCQlBZQm1TMTR1NFBvWVBL?=
+ =?iso-2022-jp?B?Z2dXU0RoZXhxZkNQUWdsUjR2NU1DL1lsUlpDV09RZmRucW5WSTdFLytJ?=
+ =?iso-2022-jp?B?OWRPWThob1ZDUXAwcGxnWFlBOWE2OWZEUWRhcTk1NnpXcEVQNWQxUFhJ?=
+ =?iso-2022-jp?B?SmVCNHc3Lzd4NitscXhvSGczR1J1NHFBSDBQK1pxdjZrbVFUTzFxM3k5?=
+ =?iso-2022-jp?B?MlJMdzdKS3NUazhGL1pWZ2tDZXRlY0ZSWm5FQnQ1YkRaWWUxT2tMcVAy?=
+ =?iso-2022-jp?B?dk1zVUtYbU5tUjZpdUp1KzJIUU5nV0xXU09HcjloMkJ6WEVLYVJRUE1x?=
+ =?iso-2022-jp?B?aEZaaVFhZGxtR0pIeFMweTUyUGk2L0xGd1BkL0tHUFMwZlFUREFmOHNa?=
+ =?iso-2022-jp?B?ZGdudXo2aTJDSzlIK2YreldwdDR6YmtINHlua0MxVTZ4OG1oODJTK1U4?=
+ =?iso-2022-jp?B?OW1lOGlXd1dlQjYvNnhHVFEyR2wwSXRFRFVKZEpRYjZnWEZwRTdhd2VI?=
+ =?iso-2022-jp?B?NGNPaFpYaG1wWjcralBXR0d0dUlVaVhPdDR0TXVZMDNaS05tK0ZRcUpx?=
+ =?iso-2022-jp?B?R1NkY1BDSDhTQWNuTTRPdjZqNFVPdDBOZnBzWThyQzJ5QmxacmExUUdT?=
+ =?iso-2022-jp?B?c1M0Q1h2SHdZekNiRUtrbHYwMFVRWXNnaUx3UzA0M1dBYXUzRnlGcm50?=
+ =?iso-2022-jp?B?VWp0UDBIbjFqd2hoWnFqb2Y5M2ZrNEVFQ29aL2UrakI1UENvQVlOS3p4?=
+ =?iso-2022-jp?B?MFZGQkF2aWR3WVo2NmZVYm5LVllVWHlsWDJIVVkyTUFSRFdNMFpzOVVL?=
+ =?iso-2022-jp?B?L3pHUVdMNGpldXI2NjRLN0tudWY2M1Y0OWJNb0pvbGM4bW1rYUY3OFFm?=
+ =?iso-2022-jp?B?ZENmNG1VL2tEOGhUSnNCSlQwOTRjWmlsMVduVDBBL0hDenVLeHZUZEp4?=
+ =?iso-2022-jp?B?RnY1MlJGQlFvNHZRbmRTWmZhY2ladGxQTkNmVUh4a0JUSHl2Tk5DZ1c2?=
+ =?iso-2022-jp?B?V05lQXNmUlUyMDI5ekk0NExKRVQrdk1iSlRpVGVCQWVIMmZqZzNnVURS?=
+ =?iso-2022-jp?B?VHV3YWR5QWxhVnZHQUp6NHpNczNjS0hCVkNTK0pnUTUxRmU0Y3RieE1D?=
+ =?iso-2022-jp?B?aStvcXQzSW5mNjBKMmFsQjd2QS9HOHorZmNRSmlCZUw4WTZZY2lRVlZv?=
+ =?iso-2022-jp?B?eFE1Rmd4bS9GNktiM2xWd21uTHhhY2I1U3dyMmdzMWMxSVJ0bmdkYkl0?=
+ =?iso-2022-jp?B?SGwxWnZuMng3YkZZaytqTUpFVlZqSDhyQ2c9PQ==?=
+Content-Type: text/plain; charset="iso-2022-jp"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] dma: arm-dma350: add support for shared interrupt
- mode
-To: Robin Murphy <robin.murphy@arm.com>, peter.chen@cixtech.com,
- fugang.duan@cixtech.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, vkoul@kernel.org, ychuang3@nuvoton.com,
- schung@nuvoton.com
-Cc: dmaengine@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, cix-kernel-upstream@cixtech.com,
- linux-arm-kernel@lists.infradead.org, jelly.jia@cixtech.com
-References: <20251216123026.3519923-1-jun.guo@cixtech.com>
- <20251216123026.3519923-3-jun.guo@cixtech.com>
- <910e3db2-c4ef-4c21-9336-49469234b8e6@arm.com>
-Content-Language: en-US
-From: Jun Guo <jun.guo@cixtech.com>
-In-Reply-To: <910e3db2-c4ef-4c21-9336-49469234b8e6@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TY2PEPF0000AB8A:EE_|TYZPR06MB5396:EE_
-X-MS-Office365-Filtering-Correlation-Id: c4be0da1-19bc-4fd6-1f87-08de3d11c8a0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|376014|7416014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?VCs1SHU0blRzVHF2TTdCcDFXamVNaE5lTWM3UWdtM0JyUHQrTVZxK2VHYjkz?=
- =?utf-8?B?dk05ZjFnL3Z1U25UdkwzSGRUdFpRZVRscXYwNU5vV2NIWUhYOWVDWEwwakNy?=
- =?utf-8?B?a3RRRmhBRnFQVnY0azFmT2tOcEw4OENtNTlXYXp3M2tFVTV0MEVDaDM1NUNV?=
- =?utf-8?B?cUJ6Q0MwSmVXdW1maHA4RnkxQWVyRHY2aWhZeTgxSTlxd3JHMHpKMUFrUXYz?=
- =?utf-8?B?bDRqdVQ1ckdEdTVhTmhWc1dSQ1p5Y2RTQ1F2VmJJcTcvOWhWTFRQQzFPQW1T?=
- =?utf-8?B?SURlOC95V1dBclVEWFM5YlNQODFOOURrSDB0N0VnZWNLSE1lNTRlc3M4dHI1?=
- =?utf-8?B?SVNOSlhEZVJ2YzEvV1NHZkNzRmlaRmNjVFVaakMycUhCOTFOTDFoWllFWTNM?=
- =?utf-8?B?aWgxTFNGQjc1dHdWRFpOUDlTcVZZcWU3My8zVVJyek9JRGFJa3MxL21OazhW?=
- =?utf-8?B?Smx5MjJwN0VLc29sL2dWa3V3ZkxwWVExSHMvU0tEQmxzVlRVa25IdTlIcUFP?=
- =?utf-8?B?b3dmSk9Ldnp2SXRTdTZwSTZxcUhkcEZkOU1pSlJTUHVGQW5oc0h1OU9Ya0VL?=
- =?utf-8?B?NGtmL2xpY3c1UWF2ZGFsQjZOaE50bHVCc3huaG9LRXk3QjRzSFFZQVlyRFVr?=
- =?utf-8?B?ZmU2M1pFc1dzVXovZjU2U0tuVzF4VXZaSEJ4WTl3T1E0Yk1yWXhkMEVwb0Uw?=
- =?utf-8?B?di81REd4aVEwRmdxZGZTLzFTNVc4S0p0Ry9IVjJlOFlnUWxCMyt6YUFWN2p2?=
- =?utf-8?B?dmZjWFR4a2s5OEg5M21DclluZnM5SVUzckREcGlZS3FQVytScEF2bGdsdS9r?=
- =?utf-8?B?VTBDckJSUnI3TFlwV1hlVkp6Y2U1TS9OSytSaFEzTURGTWxxdzdKcUU0WUFv?=
- =?utf-8?B?YUtHYVBud2tuQ0hVZDB4amJodTRIcDJNdkNzbERMZzdmeU1hb1BMbVZ1R3pS?=
- =?utf-8?B?MEFwb1RVS1V2b1pCNUJwWUNnZHJQNzNCRlcyNXpiVXY1Nmd2a2dzNXYwT0RC?=
- =?utf-8?B?NnFtbjIzQ0tvSzdqeEpWajRTOU45eHF6R2hTMTQwdWxyRytvN3hmNmE2NFJl?=
- =?utf-8?B?OVExU1dacDFZdjRwWlRyOG1DWExsM2RsTjB0SUlVLzlPSzFDa2xFbTA0TEYx?=
- =?utf-8?B?eTlIanI2YU5MaTlncEdMV0xwSFZXREhCcndnZXYvNW9kYlFjdGZ1akx4WVJI?=
- =?utf-8?B?dTQ5QVdqR3VZSUJEMnR0b1RxSTVXbllQY3g3TExUMms0K2ZleWFYUkl5eElN?=
- =?utf-8?B?cFJsTTJmUk5WaytqM0paMEhhSlNZN3U3NFJFb2JHcXhiY3p5L2ZadDdIWmtX?=
- =?utf-8?B?WVFHYW0xdTFXeDYwT0g4SkM3ZmJDa21EVWd0Q3ZjQU9wT2RlUnBYbjFPN2VU?=
- =?utf-8?B?MFo1c2JvOVBSeHlIbnpmL0ltRTFMaDlQblN5alZESVJ1WE10VndCb3dZUFRJ?=
- =?utf-8?B?Z2sxUjIxMlN6Vk1jNi8wbXE1dS94MGlUZTZ3anpxMnNia01NbXFKc0pqZ0NW?=
- =?utf-8?B?c2FpY0UrMGd5SGFJbzRmakEwUzFDbW0yck0xY1JVVkp3RGNhQ3dXSHhycGxP?=
- =?utf-8?B?N3M0WDIyUlpVVW5KOXZRNitmakVXeGdwenR2bnBPOEJMUWFKeHBPcVZjVGox?=
- =?utf-8?B?RE5Qa2cvWTY5QkVkSE5yczNhUTBpc1VvZHpCa1hUdGlzemxKMFlFRy90RCtu?=
- =?utf-8?B?QU9ZTzRHRVRsYXhldTF4L0RkUlFYd2o5ekNadkpmRlRKN25OWSs5bUo4RFM0?=
- =?utf-8?B?WDluSXZQRHU3eGZuMkFjOVRkSjRKSWRMWGlVYjBWeHBXbWU4S1psRGdXb1hZ?=
- =?utf-8?B?Q0RCT2JZbUdQV1N3SE1rajdWSnUzZjRLZEpQdlRFUUdxZXZEN1R5WDZCMEZK?=
- =?utf-8?B?TXFYVlBPQ1FJL1ZFTDEySDJtMWk2S1lBQVRXT2JoY2haUEV5aTVFcjJQdDFv?=
- =?utf-8?B?c2FCbnZUWEhYblBrK3NjZDhsTktjV1NES0crU3RkMDZCQWxLTCt0czNka3Z0?=
- =?utf-8?B?YXdKSHViZ0dzc3hUQ3R1YnlvY0VISTFmVXdqcG5TVlVJcEI0VG9XKzcvQjRo?=
- =?utf-8?B?VGFvM3V1bnhQeklKR3l0d3NybjhMM0lZMjZ3SzhqbVBHejdXeEtvR0lSd1lJ?=
- =?utf-8?Q?EKjU=3D?=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(376014)(7416014)(1800799024);DIR:OUT;SFP:1102;
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Dec 2025 02:12:52.0418
+X-OriginatorOrg: mail.toshiba
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TY7PR01MB14818.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a728cc93-7368-48a7-2470-08de3d11cddb
+X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Dec 2025 02:13:01.0213
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c4be0da1-19bc-4fd6-1f87-08de3d11c8a0
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: TY2PEPF0000AB8A.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR06MB5396
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: f109924e-fb71-4ba0-b2cc-65dcdf6fbe4f
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: LV0LrsC2WwPN69PA6loQ+LwD4y3zFRtYugHtlveN7kFx80C8OGhGSKARCRrM6ultTc834AUMYr0PM6K4lLEjzv5zOJdxTE7cpJ6lsL8YejUbDRg7QAFxv8S4Wu09BH4/
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY4PR01MB17375
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_181300_571919_1FD670B8 
-X-CRM114-Status: GOOD (  22.16  )
+X-CRM114-CacheID: sfid-20251216_181327_357083_18A67AC1 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,213 +188,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Rob,
 
-On 12/16/2025 8:51 PM, Robin Murphy wrote:
-> On 2025-12-16 12:30 pm, Jun Guo wrote:
->> The arm dma350 controller's hardware implementation varies: some
->> designs dedicate a separate interrupt line for each channel, while
->> others have all channels sharing a single interrupt.This patch adds
->> support for the hardware design where all DMA channels share a
->> single interrupt.
->>
->> Signed-off-by: Jun Guo <jun.guo@cixtech.com>
->> ---
->>   drivers/dma/arm-dma350.c | 124 +++++++++++++++++++++++++++++++++++----
->>   1 file changed, 114 insertions(+), 10 deletions(-)
->>
->> diff --git a/drivers/dma/arm-dma350.c b/drivers/dma/arm-dma350.c
->> index 9efe2ca7d5ec..6bea18521edd 100644
->> --- a/drivers/dma/arm-dma350.c
->> +++ b/drivers/dma/arm-dma350.c
->> @@ -14,6 +14,7 @@
->>   #include "virt-dma.h"
->>
->>   #define DMAINFO                     0x0f00
->> +#define DRIVER_NAME          "arm-dma350"
->>
->>   #define DMA_BUILDCFG0               0xb0
->>   #define DMA_CFG_DATA_WIDTH  GENMASK(18, 16)
->> @@ -142,6 +143,9 @@
->>   #define LINK_LINKADDR               BIT(30)
->>   #define LINK_LINKADDRHI             BIT(31)
->>
->> +/* DMA NONSECURE CONTROL REGISTER */
->> +#define DMANSECCTRL          0x20c
->> +#define INTREN_ANYCHINTR_EN  BIT(0)
->>
->>   enum ch_ctrl_donetype {
->>       CH_CTRL_DONETYPE_NONE = 0,
->> @@ -192,11 +196,16 @@ struct d350_chan {
->>
->>   struct d350 {
->>       struct dma_device dma;
->> +     void __iomem *base;
->>       int nchan;
->>       int nreq;
->>       struct d350_chan channels[] __counted_by(nchan);
->>   };
->>
->> +struct d350_driver_data {
->> +     bool combined_irq;
->> +};
->> +
->>   static inline struct d350_chan *to_d350_chan(struct dma_chan *chan)
->>   {
->>       return container_of(chan, struct d350_chan, vc.chan);
->> @@ -461,7 +470,61 @@ static void d350_issue_pending(struct dma_chan 
->> *chan)
->>       spin_unlock_irqrestore(&dch->vc.lock, flags);
->>   }
->>
->> -static irqreturn_t d350_irq(int irq, void *data)
->> +static irqreturn_t d350_global_irq(int irq, void *data)
->> +{
->> +     struct d350 *dmac = (struct d350 *)data;
->> +     struct device *dev = dmac->dma.dev;
->> +     irqreturn_t ret = IRQ_NONE;
->> +     int i;
->> +
->> +     for (i = 0; i < dmac->nchan; i++) {
->> +             struct d350_chan *dch = &dmac->channels[i];
->> +             u32 ch_status;
->> +
->> +             ch_status = readl(dch->base + CH_STATUS);
->> +             if (!ch_status)
->> +                     continue;
->> +
->> +             ret = IRQ_HANDLED;
->> +
->> +             if (ch_status & CH_STAT_INTR_ERR) {
->> +                     struct virt_dma_desc *vd = &dch->desc->vd;
->> +                     u32 errinfo = readl_relaxed(dch->base + 
->> CH_ERRINFO);
->> +
->> +                     if (errinfo &
->> +                         (CH_ERRINFO_AXIRDPOISERR | 
->> CH_ERRINFO_AXIRDRESPERR))
->> +                             vd->tx_result.result = 
->> DMA_TRANS_READ_FAILED;
->> +                     else if (errinfo & CH_ERRINFO_AXIWRRESPERR)
->> +                             vd->tx_result.result = 
->> DMA_TRANS_WRITE_FAILED;
->> +                     else
->> +                             vd->tx_result.result = DMA_TRANS_ABORTED;
->> +
->> +                     vd->tx_result.residue = d350_get_residue(dch);
->> +             } else if (!(ch_status & CH_STAT_INTR_DONE)) {
->> +                     dev_warn(dev, "Channel %d unexpected IRQ: 
->> 0x%08x\n", i,
->> +                              ch_status);
->> +             }
->> +
->> +             writel_relaxed(ch_status, dch->base + CH_STATUS);
->> +
->> +             spin_lock(&dch->vc.lock);
->> +             if (ch_status & CH_STAT_INTR_DONE) {
->> +                     vchan_cookie_complete(&dch->desc->vd);
->> +                     dch->status = DMA_COMPLETE;
->> +                     dch->residue = 0;
->> +                     d350_start_next(dch);
->> +             } else if (ch_status & CH_STAT_INTR_ERR) {
->> +                     vchan_cookie_complete(&dch->desc->vd);
->> +                     dch->status = DMA_ERROR;
->> +                     dch->residue = dch->desc->vd.tx_result.residue;
->> +             }
->> +             spin_unlock(&dch->vc.lock);
->> +     }
->> +
->> +     return ret;
->> +}
->> +
->> +static irqreturn_t d350_channel_irq(int irq, void *data)
->>   {
->>       struct d350_chan *dch = data;
->>       struct device *dev = dch->vc.chan.device->dev;
->> @@ -506,10 +569,18 @@ static irqreturn_t d350_irq(int irq, void *data)
->>   static int d350_alloc_chan_resources(struct dma_chan *chan)
->>   {
->>       struct d350_chan *dch = to_d350_chan(chan);
->> -     int ret = request_irq(dch->irq, d350_irq, IRQF_SHARED,
->> -                           dev_name(&dch->vc.chan.dev->device), dch);
->> -     if (!ret)
->> -             writel_relaxed(CH_INTREN_DONE | CH_INTREN_ERR, dch->base 
->> + CH_INTREN);
->> +     int ret = 0;
->> +
->> +     if (dch->irq) {
->> +             ret = request_irq(dch->irq, d350_channel_irq, IRQF_SHARED,
->> +                               dev_name(&dch->vc.chan.dev->device), 
->> dch);
->> +             if (ret) {
->> +                     dev_err(chan->device->dev, "Failed to request 
->> IRQ %d\n", dch->irq);
->> +                     return ret;
->> +             }
->> +     }
->> +
->> +     writel_relaxed(CH_INTREN_DONE | CH_INTREN_ERR, dch->base + 
->> CH_INTREN);
->>
->>       return ret;
->>   }
->> @@ -526,7 +597,8 @@ static void d350_free_chan_resources(struct 
->> dma_chan *chan)
->>   static int d350_probe(struct platform_device *pdev)
->>   {
->>       struct device *dev = &pdev->dev;
->> -     struct d350 *dmac;
->> +     struct d350 *dmac = NULL;
->> +     const struct d350_driver_data *data;
->>       void __iomem *base;
->>       u32 reg;
->>       int ret, nchan, dw, aw, r, p;
->> @@ -556,6 +628,7 @@ static int d350_probe(struct platform_device *pdev)
->>               return -ENOMEM;
->>
->>       dmac->nchan = nchan;
->> +     dmac->base = base;
->>
->>       reg = readl_relaxed(base + DMAINFO + DMA_BUILDCFG1);
->>       dmac->nreq = FIELD_GET(DMA_CFG_NUM_TRIGGER_IN, reg);
->> @@ -582,6 +655,27 @@ static int d350_probe(struct platform_device *pdev)
->>       dmac->dma.device_issue_pending = d350_issue_pending;
->>       INIT_LIST_HEAD(&dmac->dma.channels);
->>
->> +     data = device_get_match_data(dev);
->> +     /* Cix Sky1 has a common host IRQ for all its channels. */
->> +     if (data && data->combined_irq) {
->> +             int host_irq = platform_get_irq(pdev, 0);
->> +
->> +             if (host_irq < 0)
->> +                     return dev_err_probe(dev, host_irq,
->> +                                          "Failed to get IRQ\n");
->> +
->> +             ret = devm_request_irq(&pdev->dev, host_irq, 
->> d350_global_irq,
->> +                                    IRQF_SHARED, DRIVER_NAME, dmac);
->> +             if (ret)
->> +                     return dev_err_probe(
->> +                             dev, ret,
->> +                             "Failed to request the combined IRQ %d\n",
->> +                             host_irq);
->> +     }
->> +
->> +     /* Combined Non-Secure Channel Interrupt Enable */
->> +     writel_relaxed(INTREN_ANYCHINTR_EN, dmac->base + DMANSECCTRL);
-> 
-> This one line is all that should be needed - all the rest is pointless
-> overcomplication and churn. And either way, copy-pasting the entire IRQ
-> handler is not OK.
-> 
-> Thanks,
-> Robin.
+> -----Original Message-----
+> From: Rob Herring (Arm) <robh@kernel.org>
+> Sent: Wednesday, December 17, 2025 3:01 AM
+> To: soc@kernel.org; iwamatsu nobuhiro(=1B$B4d>>=1B(B =1B$B?.MN=1B(B =1B$B=
+""#D#I#T#C!{#C#P#T=1B(B)
+> <nobuhiro.iwamatsu.x90@mail.toshiba>; Krzysztof Kozlowski
+> <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>
+> Cc: linux-arm-kernel@lists.infradead.org; devicetree@vger.kernel.org;
+> linux-kernel@vger.kernel.org
+> Subject: [PATCH] arm64: dts: toshiba: Use recommended node names
+>=20
+> Update Toshiba TMPV7708 node name to the recommended standard node
+> names. Generally, node names and paths aren't considered ABI, so it is sa=
+fe to
+> change them.
+>=20
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 
-If the design uses a single interrupt line for all channels, then I only 
-need to request one interrupt. When the interrupt occurs, I have to poll 
-within the interrupt handler to determine which channel triggered it. 
-Are you saying that just this one line is enough to achieve that? I 
-don't quite understand.
+Reviewed-by: Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>
 
-Best wishes,
-Jun Guo
+Best regards,
+  Nobuhiro
+> ---
+> SoC maintainers, Please take this directly.
+>=20
+>  arch/arm64/boot/dts/toshiba/tmpv7708-rm-mbrc.dts      | 2 +-
+>  arch/arm64/boot/dts/toshiba/tmpv7708-visrobo-vrb.dts  | 2 +-
+> arch/arm64/boot/dts/toshiba/tmpv7708-visrobo-vrc.dtsi | 2 +-
+>  arch/arm64/boot/dts/toshiba/tmpv7708.dtsi             | 4 ++--
+>  arch/arm64/boot/dts/toshiba/tmpv7708_pins.dtsi        | 2 +-
+>  5 files changed, 6 insertions(+), 6 deletions(-)
+>=20
+> diff --git a/arch/arm64/boot/dts/toshiba/tmpv7708-rm-mbrc.dts
+> b/arch/arm64/boot/dts/toshiba/tmpv7708-rm-mbrc.dts
+> index d209fdc98597..8d099b237025 100644
+> --- a/arch/arm64/boot/dts/toshiba/tmpv7708-rm-mbrc.dts
+> +++ b/arch/arm64/boot/dts/toshiba/tmpv7708-rm-mbrc.dts
+> @@ -43,7 +43,7 @@ &piether {
+>  	phy-handle =3D <&phy0>;
+>  	phy-mode =3D "rgmii-id";
+>=20
+> -	mdio0 {
+> +	mdio {
+>  		#address-cells =3D <1>;
+>  		#size-cells =3D <0>;
+>  		compatible =3D "snps,dwmac-mdio";
+> diff --git a/arch/arm64/boot/dts/toshiba/tmpv7708-visrobo-vrb.dts
+> b/arch/arm64/boot/dts/toshiba/tmpv7708-visrobo-vrb.dts
+> index ed7aa7e457b1..4439b3e8acbb 100644
+> --- a/arch/arm64/boot/dts/toshiba/tmpv7708-visrobo-vrb.dts
+> +++ b/arch/arm64/boot/dts/toshiba/tmpv7708-visrobo-vrb.dts
+> @@ -43,7 +43,7 @@ &piether {
+>  	phy-handle =3D <&phy0>;
+>  	phy-mode =3D "rgmii-id";
+>=20
+> -	mdio0 {
+> +	mdio {
+>  		#address-cells =3D <1>;
+>  		#size-cells =3D <0>;
+>  		compatible =3D "snps,dwmac-mdio";
+> diff --git a/arch/arm64/boot/dts/toshiba/tmpv7708-visrobo-vrc.dtsi
+> b/arch/arm64/boot/dts/toshiba/tmpv7708-visrobo-vrc.dtsi
+> index 0c8321022a73..af406f7285c4 100644
+> --- a/arch/arm64/boot/dts/toshiba/tmpv7708-visrobo-vrc.dtsi
+> +++ b/arch/arm64/boot/dts/toshiba/tmpv7708-visrobo-vrc.dtsi
+> @@ -26,7 +26,7 @@ &spi0_pins {
+>  &spi0 {
+>  	status =3D "okay";
+>=20
+> -	mmc-slot@0 {
+> +	mmc@0 {
+>  		compatible =3D "mmc-spi-slot";
+>  		reg =3D <0>;
+>  		gpios =3D <&gpio 15 GPIO_ACTIVE_LOW>;
+> diff --git a/arch/arm64/boot/dts/toshiba/tmpv7708.dtsi
+> b/arch/arm64/boot/dts/toshiba/tmpv7708.dtsi
+> index 9aa7b1872bd6..88e38d6efcaa 100644
+> --- a/arch/arm64/boot/dts/toshiba/tmpv7708.dtsi
+> +++ b/arch/arm64/boot/dts/toshiba/tmpv7708.dtsi
+> @@ -161,7 +161,7 @@ gic: interrupt-controller@24001000 {
+>  			      <0 0x24006000 0 0x2000>;
+>  		};
+>=20
+> -		pmux: pmux@24190000 {
+> +		pmux: pinctrl@24190000 {
+>  			compatible =3D "toshiba,tmpv7708-pinctrl";
+>  			reg =3D <0 0x24190000 0 0x10000>;
+>  		};
+> @@ -463,7 +463,7 @@ piether: ethernet@28000000 {
+>  			status =3D "disabled";
+>  		};
+>=20
+> -		wdt: wdt@28330000 {
+> +		wdt: watchdog@28330000 {
+>  			compatible =3D "toshiba,visconti-wdt";
+>  			reg =3D <0 0x28330000 0 0x1000>;
+>  			clocks =3D <&pismu TMPV770X_CLK_WDTCLK>; diff
+> --git a/arch/arm64/boot/dts/toshiba/tmpv7708_pins.dtsi
+> b/arch/arm64/boot/dts/toshiba/tmpv7708_pins.dtsi
+> index a480c6ba5f5d..5ea835fe08a8 100644
+> --- a/arch/arm64/boot/dts/toshiba/tmpv7708_pins.dtsi
+> +++ b/arch/arm64/boot/dts/toshiba/tmpv7708_pins.dtsi
+> @@ -91,7 +91,7 @@ i2c8_pins: i2c8-pins {
+>  		bias-pull-up;
+>  	};
+>=20
+> -	pwm_mux: pwm_mux {
+> +	pwm_mux: pwm-pins {
+>  		function =3D "pwm";
+>  	};
+>=20
+> --
+> 2.51.0
+
+
 
