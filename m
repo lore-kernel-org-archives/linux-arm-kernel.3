@@ -4,54 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE2E2D65C7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 16:56:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A686AD65C7B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 17:04:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
-	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cL6xmYF8tQVrhRymoFK6VXvkBLu6zyV+MTV94GwP+b8=; b=SRG81GOvuayCfmnZ42w20QA8NS
-	9JLAGiiiGXNr+nlGRnisBk+S3oTAm9wu5pFnUD8VXah1FxBRZOCkWGnXEYYSjdQEA7qtfeYynF+bv
-	7hevaZiWOrMNSVCLpWd9h1O9vDQz/283L/SAOiB+IhDkB7AOqZBIlIPjyGcn6ZTnmFD7zgszIM03u
-	0XRy6QK3SI7HUaYgTG2HWCsffM5cGCZuqRINmuaJGL7MGFoHoxEKMlXotxPQZnIDlHNUGDuBTwRpy
-	T7KEiaEJDzIghQV6mbOT4wgP5Iqwl55VyS4WFQNH77gSzM7esHTpN1U/pv55LFcu5FTL1S3+mBpZT
-	ae8YWPFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=gk8N5vqQY6cvukhg7xoBpaUYZclsUp62GPYaQQXQv/c=; b=INFOr94kJf0A+d
+	9K1aJ6d1dt/zBbvC6si9lsp6cq5mPVCR7RFGTMfVEBpKU47Ml0pQ7vjzJH2bFh8glSHi0akF2/76x
+	0h2X6rHBwgLQhyVR+jy7mOdCm4dmSXXVUfVpTYcJroYIuEBw00JN27CoCyNWuuB2ChqGfr2ttXtGl
+	lsMoTotzXty0GnY5ygnC8+bBMS6rKGOuqgk74urImuFfoGwhEDgSCNNQCa3Cll6blSoKoFmNxQs15
+	P7cAxPgnP20kHZDcbjRfZ9v/p32GsnL8mLUMETeDFIkvaDWUsgGhpG4/tAionOlWRs4/KEjoi3cQU
+	lHtKa6WskmJmAZ1GKHlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVupQ-000000078QW-1G2B;
-	Wed, 17 Dec 2025 16:56:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vVuwf-000000078si-32M6;
+	Wed, 17 Dec 2025 17:04:13 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVupO-000000078QG-26gV
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 16:56:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 767AF6057D;
-	Wed, 17 Dec 2025 16:56:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7A1CC4CEF5;
-	Wed, 17 Dec 2025 16:56:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765990601;
-	bh=SeqW/YfpnWDxPVNYtbqSKl0YWcrno/tyn+o7z5/WSxg=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date:From;
-	b=dziriS7FqYRr6/m+ST0K8exbrQChygstOz747HtpYvSUdHkYP2HAXMLeaY2zO/Y+D
-	 CaGU4WkQnd5e5IHRN9SifqLQWVHui3o/K1vdJzbpBsvOUofvD4sIm+7kVpe2xgNMo8
-	 ZxZlJdBU3N+7acmF0aqx7gf+dJ00Ab7elUxGXQf9GiHL2tI41MT9VclPeubO6adZvH
-	 vztDPI+fVfNB/zBrw84Bf0CyuN7mXzR0TwewI0DgPiR5wwN7mPcBoPp0u8c3fVKfoU
-	 4RhbTgfbWwXmiZOX2+bKhDU+HttJiigdcPdxlgceHbuHSKssEPqhmiA/eOjiVSvyGX
-	 mUo3UQFG0AN9w==
-Content-Type: multipart/mixed; boundary="===============9198593638191686786=="
+	id 1vVuwd-000000078rs-1B6A;
+	Wed, 17 Dec 2025 17:04:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1765991040; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=QQtrRqPJfkIzhiR99d1xVv8x5pTsrIGwCZinM1rQVj8uXhEkbZDdMP2WZ+AAZu/gkZlzt8P+W74puhPA5RnVtGFACRm9lzrfiefZARyCcxeKEn2anwkGXH83vdSycpMMp4Nfdr1ZcuAc30/53XVBZm+4aO7bkkUPS8lVoOKogb4=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1765991040; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=gk8N5vqQY6cvukhg7xoBpaUYZclsUp62GPYaQQXQv/c=; 
+	b=Q86VlC/LO65zATvVKUgOHaKbR+Vnifa0h/uScna5pVFDnTYZXnGd2Wf23d3znyKAibnOpkSODWQZjpFJUpz3iLW/2WKFbkymV1NQ5PKaEEVwEOviUVFDuSELtlXIkx6rgUVafyMX/3irYjIsb+nizobtFYjFHNsjhwPwbJdDmHA=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1765991040;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
+	bh=gk8N5vqQY6cvukhg7xoBpaUYZclsUp62GPYaQQXQv/c=;
+	b=j+BnazpPrwF27LpmCixibF9xPk1nIB9HozKnyES4WbkRZIkXYD2mB/kMFKlLf8KQ
+	dVS9JH1XsPPiqP6UG8enECMlY5iXJYUYuW2rZtJ+ozX2EvO/caFKbn82QrMhySWTjv6
+	pkGOjc5TFZX6cs29RahPde7O1U4dw9NdBCC0vL4g=
+Received: by mx.zohomail.com with SMTPS id 1765991038674334.3696027621247;
+	Wed, 17 Dec 2025 09:03:58 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Subject: [PATCH 0/4] Make MT8196 get its Mali GPU shader_present from nvmem
+Date: Wed, 17 Dec 2025 18:03:26 +0100
+Message-Id: <20251217-mt8196-shader-present-v1-0-f6f8f3aa1e93@collabora.com>
 MIME-Version: 1.0
-Message-Id: <f144fd46b602b74fc4c1c2664082fbe893e7ec9c274fcc5fdf13d65151749e9c@mail.kernel.org>
-In-Reply-To: <20251217162830.2597286-3-puranjay@kernel.org>
-References: <20251217162830.2597286-3-puranjay@kernel.org>
-Subject: Re: [PATCH bpf-next 2/2] bpf: arm64: Optimize recursion detection by not using atomics
-From: bot+bpf-ci@kernel.org
-To: puranjay@kernel.org,bpf@vger.kernel.org
-Cc: puranjay@kernel.org,puranjay12@gmail.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,memxor@gmail.com,kernel-team@meta.com,catalin.marinas@arm.com,will@kernel.org,mark.rutland@arm.com,linux-arm-kernel@lists.infradead.org,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
-Date: Wed, 17 Dec 2025 16:56:40 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAF7iQmkC/y2Myw7CIBBFf4XM2omCD2x/xXSBMNhZQCuDxqTpv
+ 0usq5tzknsWECpMAr1aoNCbhafcQO8U+NHlByGHxmAO5qyNtpjqVXcXlNEFKjgXEsoVyQR/jJ2
+ N3p6gfZuP/Pl1b8PGhZ6vlq+bhLsTQj+lxLVXoSSsPO//C8O6fgFNz9d3mgAAAA==
+X-Change-ID: 20251217-mt8196-shader-present-e2dc3f97fc74
+To: Boris Brezillon <boris.brezillon@collabora.com>, 
+ Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Chen-Yu Tsai <wenst@chromium.org>, Chia-I Wu <olvaffe@gmail.com>, 
+ kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-pm@vger.kernel.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+X-Mailer: b4 0.14.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251217_090411_383238_DAE9F5F9 
+X-CRM114-Status: GOOD (  14.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,110 +91,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---===============9198593638191686786==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+The MediaTek MT8196 SoC's Mali SHADER_PRESENT register does not list
+only functional shader cores, but also those that are fused off to
+improve yield.
 
-> diff --git a/include/linux/bpf.h b/include/linux/bpf.h
-> index 2da986136d26..654fb94bf60c 100644
-> --- a/include/linux/bpf.h
-> +++ b/include/linux/bpf.h
+The SHADER_PRESENT bitmask with the one fused off core omitted is to be
+found in an efuse. However, the efuse address is considered
+confidential, and is not public knowledge.
 
-[ ... ]
+The MT8196 GPUEB MCU, which does the power management for the Mali GPU
+on this SoC, knows and reads the efuse however, and exposes it in the
+shared memory intended to communicate state to the application
+processor. Reading the bitmask from this shared memory area is the
+vendor's intended solution.
 
-> @@ -2006,12 +2009,32 @@ struct bpf_struct_ops_common_value {
->
->  static inline bool bpf_prog_get_recursion_context(struct bpf_prog *prog)
->  {
-> +#ifdef CONFIG_ARM64
-> +	u8 rctx = interrupt_context_level();
-> +	u8 *active = this_cpu_ptr(prog->active);
-> +
-> +	active[rctx]++;
-> +	barrier();
-> +	if (get_unaligned_le32(active) != BIT(rctx * 8))
-> +		return false;
-> +
-> +	return true;
-> +#else
->  	return this_cpu_inc_return(*(prog->active)) == 1;
-> +#endif
->  }
+This series models this in the binding and implements it in the
+corresponding Linux drivers:
+- the mali-valhall-csf binding gets an nvmem-cells/nvmem-cell-names
+  property to declare that shader-present is in a different castle
+- the mt8196-gpufreq binding requires nodes to expose the shader-present
+  cell
+- panthor checks for the presence of the shader-present cell and uses it
+  as the shader-present value if it's found, instead of the Mali GPU
+  register contents
+- mtk-mfg-pmdomain becomes an nvmem provider and will happily serve
+  queries for the shader-present cell
 
-Can preemption between the increment and check cause a counter leak on
-CONFIG_PREEMPT_RCU systems? The trampoline calls this function under
-rcu_read_lock_dont_migrate() which allows preemption on PREEMPT_RCU
-(documented at include/linux/rcupdate.h:856).
+While it would be preferable if we could read the efuse directly, it's
+not possible as things stand, and insisting on it will just keep this
+hardware from working in mainline. Running a GPU workload with a
+SHADER_PRESENT bitmask that includes a faulty core results in corrupt
+GPU rendering output.
 
-Consider this scenario on an ARM64 system with PREEMPT_RCU:
+Modelling the mt8196-gpufreq device as a nvmem-cell provider however is
+not lying about the hardware's capabilities, as it truly does provide
+access to the nvmem-cell, even if it acts as a proxy.
 
-1. Thread A increments active[0] to 1
-2. Preemption occurs before Thread A reaches the check
-3. Thread B on same CPU increments active[0] to 2
-4. Thread B checks: sees 2 != BIT(0), returns false
-5. Thread A resumes, checks: sees 2 != BIT(0), returns false
-6. Both threads return false, neither runs BPF
-7. Neither calls bpf_prog_put_recursion_context() (see
-   __bpf_prog_enter_recur() at kernel/bpf/trampoline.c:952)
-8. Counter permanently stuck at 2, all future BPF on this CPU fails
+From a bindings and panthor perspective, this is also generic enough to
+where hypothetical other vendors doing the same thing (even with direct
+efuse access) can rely on the same cell name and implementation.
 
-The old atomic code handled this correctly because this_cpu_inc_return()
-completes atomically, ensuring Thread A reads the value 1 before Thread B
-can interfere. With non-atomic operations, Thread A increments but hasn't
-read the value yet, allowing Thread B to interfere and cause both threads
-to see the modified value.
-
-Is there a guarantee that same-context preemption cannot occur in the BPF
-execution path on ARM64, or does this need additional synchronization?
-
-> @@ -2006,12 +2009,32 @@ struct bpf_struct_ops_common_value {
->
->  static inline void bpf_prog_put_recursion_context(struct bpf_prog *prog)
->  {
-> +#ifdef CONFIG_ARM64
-> +	u8 rctx = interrupt_context_level();
-> +	u8 *active = this_cpu_ptr(prog->active);
-> +
-> +	barrier();
-> +	active[rctx]--;
-> +#else
->  	this_cpu_dec(*(prog->active));
-> +#endif
->  }
-
-The barrier() is placed before the decrement. Does this provide the needed
-ordering guarantee, or should there also be a barrier after the decrement
-to ensure visibility?
-
-> diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
-> index c66316e32563..b5063acfcf92 100644
-> --- a/kernel/bpf/core.c
-> +++ b/kernel/bpf/core.c
-
-[ ... ]
-
-> @@ -112,7 +112,8 @@ struct bpf_prog *bpf_prog_alloc_no_stats(unsigned int size, gfp_t gfp_extra_flag
->  		vfree(fp);
->  		return NULL;
->  	}
-> -	fp->active = alloc_percpu_gfp(int, bpf_memcg_flags(GFP_KERNEL | gfp_extra_flags));
-> +	fp->active = __alloc_percpu_gfp(sizeof(u8[BPF_NR_CONTEXTS]), 8,
-> +					bpf_memcg_flags(GFP_KERNEL | gfp_extra_flags));
-
-The allocation changes to u8[4] for all architectures, but the non-ARM64
-code path still uses *(prog->active) which now dereferences only the first
-byte. This changes the counter from int (typically 4 bytes, range ~2^31)
-to u8 (1 byte, range 256). While 256 recursion levels is sufficient in
-practice, is this intentional for non-ARM64 platforms, or should they
-continue using a full int-sized allocation?
-
-
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+Nicolas Frattaroli (4):
+      dt-bindings: gpu: mali-valhall-csf: Add shader-present nvmem cell
+      dt-bindings: power: mt8196-gpufreq: Describe nvmem provider ability
+      drm/panthor: Implement reading shader_present from nvmem
+      pmdomain: mediatek: mtk-mfg: Expose shader_present as nvmem cell
 
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/20310266487
+ .../bindings/gpu/arm,mali-valhall-csf.yaml         | 14 +++++
+ .../bindings/power/mediatek,mt8196-gpufreq.yaml    | 13 +++++
+ drivers/gpu/drm/panthor/panthor_hw.c               | 63 +++++++++++++++++++---
+ drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c       | 57 ++++++++++++++++++++
+ 4 files changed, 141 insertions(+), 6 deletions(-)
+---
+base-commit: 16f014a645fb35303b8fd3305f23f8ecd3f2f2a6
+change-id: 20251217-mt8196-shader-present-e2dc3f97fc74
 
---===============9198593638191686786==--
+Best regards,
+-- 
+Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+
 
