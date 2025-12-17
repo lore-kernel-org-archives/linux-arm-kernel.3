@@ -4,48 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92ACFD6408B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 11:41:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA52CD6408B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 11:41:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Content-type:To:From
-	:Message-ID:Date:Reply-To:Cc:MIME-Version:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jpgTdhRISdkMXYdSgVkMn1XgAd0iJiwBSYaxzPju3UA=; b=inPwlAL5QTzNUoxkEsT1LbCwBr
-	8UEE88f3XvJUYyB1cLjpoo8A2ZCScGsOgwa+VDl5wbsrs9I4vDZ0vOcjIkr6uMxlt36cfa5IomazJ
-	zyEnQoUWseqoYgOlpFhrBHau3iy0BrXnyTWk6QYLNoqmPwVUNlH/fwyIBOZuHaG7+838VNiR7Nz7B
-	QHinTzdL9X2PWRVsw+xu8FWC7myX/920zyBzcrds1E9CJgwxYwa5BqG0AdLYmgwra3q/QBqIdL7Tx
-	hBnVDdxXWSxIBxOUAZRZTXEBopybUccAuPgw5ajGi/AVVzAgfCmVNymS/fkSZ6Zh5JuZ8U0J6Qkdc
-	Wkxx59GQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hDHQFBEScByy/IyKIAMp2rAO55xpOIkQBiSjfDRMvn0=; b=k0eHgnQyRgfF5BuyX9aBSSHSmB
+	dZIUG1GBGtkT8gWRI5j9KkwFU/nAvHxCIg5LRKtiDF3bufS1OqJ/43eumtVXM5ZPZB8X48mKXOVHz
+	QtzPCFa/LQV6VnoGeCXDPCFND8ZOn55sKaSSa1e199UQ21JLLfLggZjcphgQhHcBkkf1W3NY5Px5B
+	THtG7etZBQX6OWYopsdq6cVZO6WsjmgkE2530OxuoeqHi5dxY62aPEe1V8+j8A3mj03vdtJ/TnKV+
+	gJxd5zTWNLyt8DbgEz6A17WVphcVMes7hMsjnMuAnLfbFO+9+TT4BmhlZaucpr4uGml3hoAF546km
+	l8C0kmMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVptq-00000006k1W-46Qb;
-	Wed, 17 Dec 2025 11:40:58 +0000
-Received: from 3.mo591.mail-out.ovh.net ([46.105.37.71])
+	id 1vVpuO-00000006k85-1Xz8;
+	Wed, 17 Dec 2025 11:41:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVptn-00000006jz5-2z69
+	id 1vVpuL-00000006k7Q-3RNA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 11:40:58 +0000
-Received: from mx1.ovh.net (unknown [10.110.178.94])
-	by mo591.mail-out.ovh.net (Postfix) with SMTP id 4dWX173N2yz5y9F
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 11:40:42 +0000 (UTC)
-Received: from localhost (HELO queueml) (127.0.0.1)
-	by localhost with SMTP; 17 Dec 2025 13:40:00 +0200
-Mailing-List: contact a06-help@20252027frontrepublicain.site; run by ezmlm
-Date: 17 Dec 2025 11:40:00 -0000
-Message-ID: <1765971600.26811.ezmlm-warn@20252027frontrepublicain.site>
-From: a06-help@20252027frontrepublicain.site
-To: linux-arm-kernel@lists.infradead.org
-Content-type: text/plain; charset=utf-8
-Subject: ezmlm warning
-X-Ovh-Tracer-Id: 10861274928440004888
-X-VR-SPAMSTATE: BOUNCE
-X-VR-SPAMSCORE: 10114
-X-VR-SPAMCAUSE: dmFkZTE60yNGdMYy8HVmfmAqCaE9czW9GJT84Pbqyz1wFQDnQfsEIbEc8vQlVb+8+o0DBGyYasKGspFiT9GI6eSjRKuDLYCN4dNY0LdHGrrn20eAwD7dip/XDUG7HXDiqJiwn3GMxTJbS75FGReT6ajxYFCc5JctKivx4lvx2sNuN+Au99XgssYIA9+ONHU4uDxsalRtTZ2VUp7AeCsIj0qktKMfreViOLxjKMslprk9JABJe4VXYkX3iHWg0p7CMWiSakvMinfhJPRaj3GFCmNdqeirBYK/o4hxnPhsPEYzPWW9R+eBaJng3Ts1XjnXcaTtr6jUNvFo6cdcxcl4hjAyF3UZadlYEw2Q4wZ7XChsWqVlFsRl56TmDJhOyNTlbgf5EwwjSdPqrFts82LYI07TFzYCK77SsJfHWE4ijGhha/OM7p+LPhGSBhOcVUo1uzHDo0iPhCoTaakgyLT98/plwL0H03V3zCxmqBQrFBJ5cqcra3yBXwo1OoVTQb9MxoS03eqWhvNvuqd8mgLetG4ugRBOmUwSxVoNjaKpmcm9Aj0q2KjjdkRRFlj0CteUZWS+N15pOrYyeuJPLQcTwNwrLsHcaQEKaxo9yAdZSQ4vpJnsKljzPHESPoWC2U4Vni4zbcYCKcCwioQjM07MSMFhCVxvsTyiCzY9RkaHE2BkEK0ryQ
+	Wed, 17 Dec 2025 11:41:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 695894365B;
+	Wed, 17 Dec 2025 11:41:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E161C4CEF5;
+	Wed, 17 Dec 2025 11:41:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765971689;
+	bh=QureFGhz+Rjaa7+iRO0a7okZDgRSIaqdEUA2PUeZ2+8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=rgkJUJJeavzzA6Zd4VIHKmnMsfK5r/NGqBnqhpFApPQXqcWT3yMqr8Cj3AIz6ge1Z
+	 0KSN1tj76FCMnrybq+qoTCQEbD9zLHhchKTW0qtyhfrN9plYZLACOBkVHIG6A0Agxg
+	 26bbp9klTjMvQq+88v+OfOMjeCqYCp5DrzbkrCovU2CV5Zlej+QFoRzgldbNYS0onp
+	 doDQpcDEmhmlN2StpdeGS+woTTldhTQjDKofpcibeATt/nP8Gfy/fiFWCTtHgAFp6t
+	 f3kujRaryd48v6qxdJxaWWuki1JRhcGoAsYbMUcz7OsGwAnLLvp8yyFQP0qX2SmUYl
+	 TIxsgbUX96jGg==
+Message-ID: <cd04e23a-9523-4d25-8240-29a0dffa0e75@kernel.org>
+Date: Wed, 17 Dec 2025 12:41:23 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 10/12] dt-bindings: ras: document estatus provider
+To: Ahmed Tiba <ahmed.tiba@arm.com>, linux-acpi@vger.kernel.org,
+ devicetree@vger.kernel.org
+Cc: tony.luck@intel.com, bp@alien8.de, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org,
+ linux-arm-kernel@lists.infradead.org, rafael@kernel.org,
+ linux-doc@vger.kernel.org, Dmitry.Lamerov@arm.com, Michael.Zhao2@arm.com
+References: <20251217112845.1814119-1-ahmed.tiba@arm.com>
+ <20251217112845.1814119-11-ahmed.tiba@arm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251217112845.1814119-11-ahmed.tiba@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_034056_072151_63EA510B 
-X-CRM114-Status: GOOD (  15.41  )
+X-CRM114-CacheID: sfid-20251217_034129_910251_3B421E51 
+X-CRM114-Status: GOOD (  24.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,236 +120,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Bonjour ! Je suis le programme ezmlm. Je m'occupe de la liste
-de diffusion a06@20252027frontrepublicain.site.
+On 17/12/2025 12:28, Ahmed Tiba wrote:
+> Add a binding for firmware-first CPER providers described via
+> DeviceTree. It covers the shared status block, optional acknowledgment
+> registers, interrupt versus polling modes and the SEA notification
+> flag so non-ACPI platforms can describe their error sources.
+> 
+> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
+> ---
+>  .../devicetree/bindings/ras/arm,ras-ffh.yaml  | 95 +++++++++++++++++++
+>  MAINTAINERS                                   |  1 +
+>  2 files changed, 96 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/ras/arm,ras-ffh.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/ras/arm,ras-ffh.yaml b/Documentation/devicetree/bindings/ras/arm,ras-ffh.yaml
+> new file mode 100644
+> index 000000000000..0d2acbf8e8a8
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/ras/arm,ras-ffh.yaml
 
-Un certain nombre de messages provenant de la liste de diffusion
-a06 n'ont pas pu vous etre remis correctement. En attachement, vous trouverez
-une copie du premier message de retour a l'envoyeur que j'ai recu.
+What is ras? There is no such directory so some description would be
+useful. Usually you do not get your own directory per binding.
 
-Si le message que vous lisez actuellement ne parvient pas non plus a
-destination, un dernier message vous sera envoye. Si celui-ci echoue aussi,
-votre adresse sera malheureusement retiree de la liste a06.
+> @@ -0,0 +1,95 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/ras/arm,ras-ffh.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Arm Firmware-First Handler (FFH) CPER provider
+> +
+> +maintainers:
+> +  - Ahmed Tiba <ahmed.tiba@arm.com>
+> +
+> +description: |
+> +  Some Arm platforms describe a firmware-first error handler that exposes a
+> +  Common Platform Error Record (CPER) buffer directly via DeviceTree. The OS
+> +  maps the buffer to consume the error records, and firmware signals that a new
+> +  record is ready either by asserting an interrupt or by relying on a periodic
+> +  poll. This binding describes the buffer and the associated notification
 
-J'ai conserve une liste des messages de la liste de diffusion a06 qui
-n'ont temporairement pas pu etre delivres a votre adresse.
+Do not describe what the binding does. Describe the hardware or firmware.
 
-Voici les numeros des messages en question :
-   1
-   2
+> +  signal. If firmware delivers the error via Synchronous External Abort (SEA),
+> +  the optional sea-notify flag marks the source accordingly.
+> +
+> +properties:
+> +  compatible:
+> +    const: arm,ras-ffh
 
---- Ci-dessous se trouve une copie du message problematique qui m'est revenu :
-Return-Path: <>
-Received: from localhost (HELO queue) (127.0.0.1)
-	by localhost with SMTP; 4 Dec 2025 12:07:21 +0200
-Received: from unknown (HELO output52.mail.ovh.net) (192.168.13.188)
-  by 192.168.9.18 with AES256-GCM-SHA384 encrypted SMTP; 4 Dec 2025 12:07:21 +0200
-Received: from vr39.mail.ovh.net (unknown [10.101.8.39])
-	by out52.mail.ovh.net (Postfix) with ESMTP id 4dMVYP0Mr1zBrS7
-	for <a06-return-1-linux-arm-kernel=lists.infradead.org@20252027frontrepublicain.site>; Thu,  4 Dec 2025 10:07:21 +0000 (UTC)
-Received: from in59.mail.ovh.net (unknown [10.101.4.59])
-	by vr39.mail.ovh.net (Postfix) with ESMTP id 4dMVYN6ffqz1N7QM
-	for <a06-return-1-linux-arm-kernel=lists.infradead.org@20252027frontrepublicain.site>; Thu,  4 Dec 2025 10:07:20 +0000 (UTC)
-Received: from 4.mo594.mail-out.ovh.net (4.mo594.mail-out.ovh.net [178.33.252.92])
-	by in59.mail.ovh.net (Postfix) with ESMTPS id 4dMVYN5m4jz3fjgh
-	for <a06-return-1-linux-arm-kernel=lists.infradead.org@20252027frontrepublicain.site>; Thu,  4 Dec 2025 10:07:20 +0000 (UTC)
-Authentication-Results: mx.mail.ovh.net;
-    arc=none (no signatures found);
-    dkim=none (no signatures found);
-    dmarc=fail policy.published-domain-policy=none policy.applied-disposition=none policy.evaluated-disposition=none (p=none,d=none,d.eval=none) policy.policy-from=p header.from=mo594.mail-out.ovh.net;
-    spf=none smtp.mailfrom="" smtp.helo=4.mo594.mail-out.ovh.net;
-    x-tls=pass smtp.version=TLSv1.3 smtp.cipher=TLS_AES_256_GCM_SHA384 smtp.bits=256
-Received-SPF: none
-    (4.mo594.mail-out.ovh.net: No applicable sender policy available)
-    receiver=in59.mail.ovh.net;
-    identity=helo;
-    helo=4.mo594.mail-out.ovh.net;
-    client-ip=178.33.252.92
-Received: by mo594.mail-out.ovh.net (Postfix)
-	id 4dMVYN4nrZz3xfD; Thu,  4 Dec 2025 10:07:20 +0000 (UTC)
-Date: Thu,  4 Dec 2025 10:07:20 +0000 (UTC)
-From: Mail Delivery System <MAILER-DAEMON@mo594.mail-out.ovh.net>
-Subject: Undelivered Mail Returned to Sender
-To: a06-return-1-linux-arm-kernel=lists.infradead.org@20252027frontrepublicain.site
-Auto-Submitted: auto-replied
-MIME-Version: 1.0
-Content-Type: multipart/report; report-type=delivery-status;
-	boundary="4dMVY307Hpz3wpC.1764842840/mo594.mail-out.ovh.net"
-Message-Id: <4dMVYN4nrZz3xfD@mo594.mail-out.ovh.net>
-X-OVH-Remote: 178.33.252.92 (4.mo594.mail-out.ovh.net)
-X-Ovh-Tracer-Id: 6726126047121343819
-X-VR-SPAMSTATE: BOUNCE
-X-VR-SPAMSCORE: 10000
-X-VR-SPAMCAUSE: dmFkZTFv+4gZ9uCcHicGZLIGHgED/wBEoXP9ZDyVd+itRoEPmNZ4R8b2MYlhQEh76b9ROLaWDmyGlj6ePMuUaOArPa0u2NkapTUtb/TF0mMOuEvGVdBOx8Q4XCfp9VkGSishkwxykuYqq5lGypRneKRGJm0zSU9P538yMg3kL7TaFko4T7F7eFc9CyHyrvjSWiA/YmcZEG3SVsphLGa0jVP2GJ0TKQ8k/ndexUDYIHTqzZ9DDNVV0tiG6+6rRsY6mMw8ZMNzT5uDPCdjKiUWQB3HdDzsVlddmQA+zDL1c7UD7iyVTvzdYC/Qv0LyE2sxv9S5pQwe325EPCD4IJN1SbwXdsD8Mzvc5KiVVKUCiPYTgkBr9H1IryYu+VLK7ZnsVQu6WZOLEBfsUdeA9cUUX+pcbUhzdesWayd7w9T+vUwfzsK5g2F6CsiL0S5Y/oghZyDbjsDZaSLRqzRnDggAYsrxNFIxYRDARdMWNoKCiFDUS9pjlNXNCt/nys1kTRpn+wZ4naFrbFFXTxFi6eo02iz3rZwdIrqjEDFdUKinf8ogzbfWAKf0UGbynLaO0au0AsgnfW7g2Bm2RJy4tpM3C8XEpTC81aDv9xKjl57kBZriWHmlvA5U/m2+ecKj66DjyrXSKoCs25pFCoH8fwU4n7vufvr4p95RD6K5w3H5aNzu213rNw
-X-Ovh-Spam-Status: OK
-X-Ovh-Spam-Reason: vr: BOUNCE; dkim: disabled; spf: disabled
-X-Ovh-Message-Type: BOUNCE
+Again ras - what's that? Your patch or binding must explain that.
 
-This is a MIME-encapsulated message.
+> +
+> +  reg:
+> +    minItems: 1
 
---4dMVY307Hpz3wpC.1764842840/mo594.mail-out.ovh.net
-Content-Description: Notification
-Content-Type: text/plain; charset=us-ascii
+Why is this flexible?
 
-This is the mail system at host mo594.mail-out.ovh.net.
+> +    items:
+> +      - description: CPER status block exposed by firmware
+> +      - description:
+> +          Optional 32- or 64-bit acknowledgment register. Firmware watches this
+> +          register and expects bit 0 to be written to 1 once the OS consumes the
+> +          status buffer so it can reuse the record.
+> +
+> +  reg-names:
+> +    items:
+> +      - const: status
+> +      - const: ack
 
-I'm sorry to have to inform you that your message could not
-be delivered to one or more recipients. It's attached below.
+Does not match reg.
 
-For further assistance, please send mail to postmaster.
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +    description:
+> +      Optional interrupt used to signal that a new status record is ready. If
+> +      omitted, the OS relies on the polling interval property.
 
-If you do so, please include this problem report. You can
-delete your own text from the attached returned message.
+What OS is doing should not really matter. Either you have the interrupt
+or not.
 
-                   The mail system
 
-<linux-arm-kernel@lists.infradead.org>: host
-    bombadil.infradead.org[198.137.202.133] said: 550-Mailing lists do not
-    accept HTML mail. See 550 http://david.woodhou.se/email.html (in reply to
-    end of DATA command)
+> +
+> +  poll-interval:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    minimum: 1
+> +    description:
+> +      Optional polling interval, in milliseconds, for platforms that cannot
+> +      route an interrupt.
 
---4dMVY307Hpz3wpC.1764842840/mo594.mail-out.ovh.net
-Content-Description: Delivery report
-Content-Type: message/delivery-status
+That's OS policy, not suitable for binding.
 
-Reporting-MTA: dns; mo594.mail-out.ovh.net
-X-Postfix-Queue-ID: 4dMVY307Hpz3wpC
-X-Postfix-Sender: rfc822; a06-return-1-linux-arm-kernel=lists.infradead.org@20252027frontrepublicain.site
-Arrival-Date: Thu,  4 Dec 2025 10:07:02 +0000 (UTC)
+> +
+> +  arm,sea-notify:
+> +    type: boolean
+> +    description:
+> +      Set if the platform delivers these errors as Synchronous External Aborts.
 
-Final-Recipient: rfc822; linux-arm-kernel@lists.infradead.org
-Original-Recipient: rfc822;linux-arm-kernel@lists.infradead.org
-Action: failed
-Status: 5.0.0
-Remote-MTA: dns; bombadil.infradead.org
-Diagnostic-Code: smtp; 550-Mailing lists do not accept HTML mail. See 550
-    http://david.woodhou.se/email.html
+This is implied by the compatible, no?
 
---4dMVY307Hpz3wpC.1764842840/mo594.mail-out.ovh.net
-Content-Description: Undelivered Message Headers
-Content-Type: text/rfc822-headers
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +
+> +allOf:
+> +  - if:
+> +      properties:
+> +        poll-interval: false
+> +    then:
+> +      required:
+> +        - interrupts
+> +  - if:
+> +      properties:
+> +        interrupts: false
+> +    then:
+> +      required:
+> +        - poll-interval
+> +  - if:
+> +      properties:
+> +        reg:
+> +          minItems: 2
+> +    then:
+> +      required:
+> +        - reg-names
 
-Return-Path: <a06-return-1-linux-arm-kernel=lists.infradead.org@20252027frontrepublicain.site>
-Received: from mx1.ovh.net (unknown [10.110.113.114])
-	by mo594.mail-out.ovh.net (Postfix) with SMTP id 4dMVY307Hpz3wpC
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  4 Dec 2025 10:07:02 +0000 (UTC)
-Received: from localhost (HELO queueml) (127.0.0.1)
-	by localhost with SMTP; 4 Dec 2025 11:58:37 +0200
-Mailing-List: contact a06-help@20252027frontrepublicain.site; run by ezmlm
-Precedence: bulk
-X-No-Archive: yes
-List-Post: <mailto:a06@20252027frontrepublicain.site>
-List-Help: <mailto:a06-help@20252027frontrepublicain.site>
-List-Unsubscribe: <mailto:a06-unsubscribe@20252027frontrepublicain.site>
-List-Subscribe: <mailto:a06-subscribe@20252027frontrepublicain.site>
-Reply-To: test@20252027frontrepublicain.site
-Delivered-To: mailing list a06@20252027frontrepublicain.site
-Delivered-To: moderator for a06@20252027frontrepublicain.site
-Received: from localhost (HELO queue) (127.0.0.1)
-	by localhost with SMTP; 3 Dec 2025 16:13:39 +0200
-Received: from unknown (HELO output43.mail.ovh.net) (192.168.13.173)
-  by 192.168.9.18 with AES256-GCM-SHA384 encrypted SMTP; 3 Dec 2025 16:13:39 +0200
-Received: from vr23.mail.ovh.net (unknown [10.101.8.23])
-	by out43.mail.ovh.net (Postfix) with ESMTP id 4dM0431YlPz2cMZF
-	for <a06@20252027frontrepublicain.site>; Wed,  3 Dec 2025 14:13:39 +0000 (UTC)
-Received: from in54.mail.ovh.net (unknown [10.101.4.54])
-	by vr23.mail.ovh.net (Postfix) with ESMTP id 4dM04260tbztQbb
-	for <a06@20252027frontrepublicain.site>; Wed,  3 Dec 2025 14:13:38 +0000 (UTC)
-Received: from mail-pl1-f170.google.com (mail-pl1-f170.google.com [209.85.214.170])
-	by in54.mail.ovh.net (Postfix) with ESMTPS id 4dM041322Qz2pFPl
-	for <a06@20252027frontrepublicain.site>; Wed,  3 Dec 2025 14:13:37 +0000 (UTC)
-Authentication-Results: mx.mail.ovh.net;
-    arc=none (no signatures found);
-    dkim=pass (2048-bit rsa key sha256) header.d=front-republicain-info.20230601.gappssmtp.com header.i=@front-republicain-info.20230601.gappssmtp.com header.b=M1IgvPom header.a=rsa-sha256 header.s=20230601;
-    dmarc=none policy.published-domain-policy=none policy.applied-disposition=none policy.evaluated-disposition=none (p=none,d=none,d.eval=none) policy.policy-from=p header.from=front-republicain.info;
-    spf=fail smtp.mailfrom=president@front-republicain.info smtp.helo=mail-pl1-f170.google.com;
-    x-tls=pass smtp.version=TLSv1.3 smtp.cipher=TLS_AES_256_GCM_SHA384 smtp.bits=256
-Received-SPF: fail
-    (front-republicain.info: Sender is not authorized by default to use 'president@front-republicain.info' in 'mfrom' identity (mechanism '-all' matched))
-    receiver=in54.mail.ovh.net;
-    identity=mailfrom;
-    envelope-from="president@front-republicain.info";
-    helo=mail-pl1-f170.google.com;
-    client-ip=209.85.214.170
-Received: by mail-pl1-f170.google.com with SMTP id d9443c01a7336-2955623e6faso75958165ad.1
-        for <a06@20252027frontrepublicain.site>; Wed, 03 Dec 2025 06:13:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=front-republicain-info.20230601.gappssmtp.com; s=20230601; t=1764771216; x=1765376016; darn=20252027frontrepublicain.site;
-        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=SZ7aZ9wD9cvgcu+Oy5QihJ9y566Bnppw39eAHA6L4Q0=;
-        b=M1IgvPomwBEeVyyGNYT1zPcXINGmjvb8P2I1OP7lSIlfFce4asqHeXcMkOrBXaA8oO
-         6QABEPUMfZGqvWdGikr3ji/epWQPpzlv188IgkYyzT0oEoHc6pqE3+5aBOjmgar93XHf
-         35kYZKoCeeWKNmOxRYoGg0DtF3TO1Qvw2E3nFBaCgPqxEA+MgP+NOYTcPV7mT+CWiqP/
-         bKrX5tJI5wszlB8kmnmjiNdsYMOodhv70BFn5twwoHfEWttEbh3bzr8q/BCECx9npNPQ
-         7y+ZJNrTjSdrGEIy/MgG28tpK3l8UtLVbxs1fXifCXqayrkIr5PAKJnXAV3lnrsan0G9
-         Caow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764771216; x=1765376016;
-        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=SZ7aZ9wD9cvgcu+Oy5QihJ9y566Bnppw39eAHA6L4Q0=;
-        b=dXv5HxI8o59vw99ViWS5ja2SNizJ72OCOw92xx8lElkDkSEhd4cSUjsge4X/Yw7w++
-         molCGC82jWZo4qshbuJMAIFT5vAkuwxRsIOe1b4GHU+wV2oG9V6/OcUC6HbYl9VBXz33
-         +NJwpGLdZ01wvQLsqjokmmr9aQ9ZzndSuATQtctwbuq/ur1k5c/eFA+/NnCuMCBrQ8KG
-         VRTfxe2dowMmzuDp636flCFOLmhIC+hrv2nuEoqBzdlzrLCRIA0Rxz1YcTxt1jnSjO2U
-         Z9QXZpSK86d8Dakn1VyuJleWcAVcpIKGC1ELkuiAbIPrAAS2iDtvyHk75MrZi1nhrgJj
-         WGuw==
-X-Forwarded-Encrypted: i=1; AJvYcCWIgxxK96ZoizYgOKx7eh2JxA3OoZobYHJ07BqlQXZORsYK5n+I0baPnnXL4Rvw19AgYTU=@20252027frontrepublicain.site
-X-Gm-Message-State: AOJu0YwvWFggBBj9FZLsot4PuWpavi1UZTpRcDxVE43vWAellVVgXWPV
-	rhzfvRKu4Cvu6beMPdJ0RG1vf7cN7/2SHQFLhHErwpzDtZWd366YGaV1oCnUnZNG6xAc+2W+dQA
-	mrYtQbVNqMRPGTz+aBnfG/YYuJGBOf0pHdz5bfyTAiJg=
-X-Gm-Gg: ASbGnctGEQaUcO3T/THdJzzwGquIYCD1qp/Fi2B12Ch6uWcLHjFURfoqpLfX6iQkNL4
-	PM+Dz0763rbLSlKvOsBj3zMclpve0WtvC2WTtzxbmmxpXBYY2iZFaf/+qzQM3HHZjN5yMYVLm5H
-	HuMny89QzUXqWb0eBqdcyVJ7BK2khLXxzWbvq/h+8+ip7tIGAUeE9+ofhLZlnjo07fKiHz8sW0C
-	NyayzSBotcB06bzPxdU4XJP61Rfek32D3Nc1vHT1thHQ7wSrcWhm5BCzHSjEYho8w7E+qw=
-X-Google-Smtp-Source: AGHT+IHEpX4tKWyjNOeKW8QpSd++zszEzleNYP7tdcuvFQDLFU0EkOOm32ot6RDG0fCFnzPkpWrWESu7Zn6hycktx6c=
-X-Received: by 2002:a17:903:b07:b0:296:4d61:6cd3 with SMTP id
- d9443c01a7336-29d68451d5emr29655375ad.40.1764771214171; Wed, 03 Dec 2025
- 06:13:34 -0800 (PST)
-MIME-Version: 1.0
-References: <CAL3Nd=-fPqV=dBMQCARopUhm+hBKgGoPWvrxAXZnzxc2kTe+Tg@mail.gmail.com>
- <CAL3Nd=-1fhSdsPmF-+UaAR9PpUxWnSoOxwwRyZZmL3P+AZpnAA@mail.gmail.com>
-In-Reply-To: <CAL3Nd=-1fhSdsPmF-+UaAR9PpUxWnSoOxwwRyZZmL3P+AZpnAA@mail.gmail.com>
-From: =?UTF-8?Q?FRONT_R=C3=A9publicain_=2D_S=C3=A9bastien_PERETTI?= <president@front-republicain.info>
-Date: Wed, 3 Dec 2025 15:13:16 +0100
-X-Gm-Features: AWmQ_blQYBeN7sSA7lJd_feBYs5cmC2PDtXB2aRBPQuibOd2vTebH4Q7CVzt5Nc
-Message-ID: <CAL3Nd=_2DHXHWSWKomNwD7bc5g+JEaOz4YamhsjJ+bvLUT-_MQ@mail.gmail.com>
-To: e01@frontrepublicain.blog, e02@frontrepublicain.blog, 
-	e03@frontrepublicain.blog, e04@frontrepublicain.blog, 
-	e05@frontrepublicain.blog, e06@frontrepublicain.blog, 
-	e07@frontrepublicain.blog, e08@frontrepublicain.blog, 
-	e09@frontrepublicain.blog, e10@frontrepublicain.blog, 
-	d01@front-republicain.store, d02@front-republicain.store, 
-	d03@front-republicain.store, d04@front-republicain.store, 
-	d05@front-republicain.store, d06@front-republicain.store, 
-	d07@front-republicain.store, d08@front-republicain.store, 
-	d09@front-republicain.store, d10@front-republicain.store, 
-	b01@front-republicain.eu, b02@front-republicain.eu, b03@front-republicain.eu, 
-	b04@front-republicain.eu, b05@front-republicain.eu, b06@front-republicain.eu, 
-	b07@front-republicain.eu, b08@front-republicain.eu, b09@front-republicain.eu, 
-	b10@front-republicain.eu, a01@20252027frontrepublicain.site, 
-	a02@20252027frontrepublicain.site, a03@20252027frontrepublicain.site, 
-	a04@20252027frontrepublicain.site, a05@20252027frontrepublicain.site, 
-	a06@20252027frontrepublicain.site, a07@20252027frontrepublicain.site, 
-	a08@20252027frontrepublicain.site, a09@20252027frontrepublicain.site, 
-	a10@20252027frontrepublicain.site
-Content-Type: multipart/mixed; boundary="00000000000054faf406450cd186"
-X-OVH-Remote: 209.85.214.170 (mail-pl1-f170.google.com)
-X-Ovh-Tracer-Id: 5013069337901664930
-X-VR-SPAMSTATE: OK
-X-VR-SPAMSCORE: 89
-X-VR-SPAMCAUSE: dmFkZTGYGxgXpWqc41oHwle/i2CjKcwJwlwFb8l7X/FrHrC4kfsM142vLfusLlF32u8AizbzZxrIOsLwOHZTPnnZeo/cGcq35LXrsN0ps+VPeO7Ml9A4mO8cLAyh6J0xCHUx+l3O9BcgyJdmS3Q1iafXsJnN23nhn4xqBB4qVPH328NDI9vaZZnDdt0BUr4IBvPF9UuEFe91ZcWtLy4biK6YgxAc8hz4PkfDIwulHC3cLv+a8KJVQGXspx+c4rNCMAeNjts2V1Eu7xrXlEzyusUzRYMWCr+N4vL+m8XYi6cLSeWwBuzx70oYQXBckIOcgFzd4aLhKN9c4DG5YFxITc3oSZQ9O+5EXRNJluuvpcNHgLNXS2NWEpgbDLXV37oxcsQt2L3wwV9csVq+JMgG7WQ57Lhfl36qL/zZi+okozRV3aprA0yAhhKg97iwclcy6Gb5BVoPN207r5RcuuJslIFDi7nG3nvh+wm7daoDPrKJKf08nKG5fHnCGFo+Yz2e8rHyd6eJIfnRwL6n67g31G21/IOUjyHn0RRS06tUw7nsNtzJHVq2wtAiTJI6Q9wnLBP8fRY0uWfmF5iu2KoSreLqvFeXArG0C6k1qRcdRTWs7CvjTMI/triWJ3ezjRYxlds2KuHyWjMJsPNM07re5PNz0Xdls843bsLgnUZt+H3aU2V8lA
-X-Ovh-Spam-Status: OK
-X-Ovh-Spam-Reason: vr: OK; dkim: disabled; spf: disabled
-X-Ovh-Message-Type: OK
-Subject: [a06] =?UTF-8?Q?Le_FRONT_R=C3=A9publicain=2C_=C3=A0_l=27attention_de_M=2E_le_Pr=C3=A9s?=
-	=?UTF-8?Q?ident_TRUMP_et_=C3=A0_tous_les_membres_du_Club_BILDERBERG_et_du_?=
-	=?UTF-8?Q?BOHEMIAN_Club_=2D_Communiqu=C3=A9_du_29=2F11=2F2025=2E?=
-X-VR-SPAMSTATE: OK
-X-VR-SPAMSCORE: 20
-X-VR-SPAMCAUSE: dmFkZTECw0Iyznt4Jzdf1oy1ysCjT94WljvLvhgOeS/Am3J9NMuFR497OlW0oIAsC9/aRxOAFvAUUQTdITeX5Y8jxyE2XcSly4seNh8cdJwyT6E577fF4ZhsVHYdeApcRJiUrSyD2KTj+tOFOpFty2VtSepeQHUkKiITlv9TM1BpVujAwvfw34Bp42RgO8lkJzKr49mORQJ4wec4psh6A/gyRHYVRGhBDJWbaIJhXUmJbZY6iXYa9v/k15Xy7iz4yIISRgW79WjUde55Cr4JS5tVtsH3ACWmSEsRkW0DZyz6ClDmaMJdupTNEGldPNSVq/QUkGJUI4YvEYrr/SqJtXNCce7JFrv2t0rHhshUmH/fmuNoQ7Ndh1ScVBC/sQQqpNrj2m8yfUK6L/CHd5u5OldO+vzzUMUoAWpqQBLSeinEgIEKVhmhpkoCDqPqk6VLEHNHAOhGmWwg2PgjcydwPdI24NOH7j/u8/yO0RLCpX2zpep4Ae00UwVKo77CupVpvyrdilZ5d/5JpjFDovBqrsTI+GGSv3+RgsjR1rB96nMqId+VAAzTVCxsh9RIIaUmYDxVbheqzI4hfRo8Tg7Vrjke1IPKS/KHvP2i92yAXHf6i4qogrYRhBWkz7j8WG+EImpu3w/9xcya0CkTfzUkaskEG3HHcE8JIYAQrxobybKfBsKn6Q
+Drop all this.
 
---4dMVY307Hpz3wpC.1764842840/mo594.mail-out.ovh.net--
+> +
+> +unevaluatedProperties: false
+
+I do not see any schema referenced.
+
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +
+> +    ras-ffh@fe800000 {
+
+Node names should be generic. See also an explanation and list of
+examples (not exhaustive) in DT specification:
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+If you cannot find a name matching your device, please check in kernel
+sources for similar cases or you can grow the spec (via pull request to
+DT spec repo).
+
+> +        compatible = "arm,ras-ffh";
+> +        reg = <0xfe800000 0x1000>,
+> +              <0xfe810000 0x4>;
+> +        reg-names = "status", "ack";
+> +        interrupts = <0 32 IRQ_TYPE_LEVEL_HIGH>;
+
+Use proper defines.
+
+Best regards,
+Krzysztof
 
