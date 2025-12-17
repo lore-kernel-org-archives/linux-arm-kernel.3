@@ -4,63 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA0B8D66BBB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 23:22:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7841FD68BC3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 23:25:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=An/dh+69Qe8AwBl8yL4PiDoDvRHbBVKuX7FThD3xgjQ=; b=ygVmoIzv2FgaNnqNT0efSc7nsX
-	dOHbXftuGAbx7Mt0hkr7wJakeyG/IhzoG0niZNaZGVKGTVBQZZDP0E2HhMojUjCYPO0UUQLylDKCP
-	AK37s91p+MKo8+exPtOB9s3IQpalu1CIF/4kN7AjDCIaQWT50AapvgY5z6umy4Gr+KnrWvSL0VMka
-	1v9KbEQAuZn3w05PJH3zs2NSE7sFNruRK5eaSiOB44NU+DkzlAtCZ9dkE5cUk+1hFRzwM+KVdY5UL
-	G6q5UdZGZWIDw9M+sMl2B4bzaTLG/4h0FU2362ei8B0z0RR+kj/q/b1ZI2JJGapWLw8o3TVgZnVvl
-	CL9Qxd6w==;
+	bh=bg12Yw8tY3diF76Z9B9BKu6uy1ZeELmLDqKgcSNmnuU=; b=aj4q9VLwA/Isx+KNBW+R1gXVo5
+	GWavuZFljHEWAvjhODIFqm03IgBRrM8Lxh7OceXnGXR2XFVJ81vMKjOkDRHbT0RmJ5EH0MaSN3rf4
+	YQojA6wcvJ6INe+XAGTgH2beYfIyNHOJOBp27YGwUmUop2XlCI8dTPCsOysTtQCgqCHzggMVGD/u4
+	pRKvy9PNvwU9UTWMRG6xuZmRHmXXodq9dFIhWK6XoBwgbyGHXkxibR6Ekh9INAMOxZ/oXdx9jgXbG
+	M8N2yx/5+swp+XADGbjfZyTJLXJVQFlgBhEgVbcuGsiy0yujdEa1qPHis4A0W4JKFHSQB8RWrcRvM
+	+09fsA6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vW0qf-00000007Wfg-11ZY;
-	Wed, 17 Dec 2025 23:22:25 +0000
-Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
+	id 1vW0tL-00000007Wpo-0w3z;
+	Wed, 17 Dec 2025 23:25:11 +0000
+Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vW0qc-00000007WfF-2ns7
+	id 1vW0tI-00000007Woj-2iZP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 23:22:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1766013738;
-	bh=An/dh+69Qe8AwBl8yL4PiDoDvRHbBVKuX7FThD3xgjQ=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=K7Y/10ajRzQlraz7ZqT1w/H9LjiCA+lN7D2OeigeMyRx/h9qWxYJ+t7Ga7sF6s6lE
-	 JuoqWMvhAtKETdchtH0uoqjp/xeYsIf8+wZd0Opf8yWW9L4x9T8FX2fnk/VOimrk2v
-	 P0nh3zB7Fqj2gWIpOo2T6krP8J/GeMDA4gMHceEQziJEreepd1Sd6SRPDxxwe2hliK
-	 wKaND46MneavZvLex98rDYA0vvTpTUhzHMkTIJlI53KI9V5J9sMukvsid/YNJmxqw7
-	 KVZ5Nnb/2vRR9lfvoK8zCSAZOFeeddl/4Y4UfoY6ojSRFqA9/wewBQ2YbSxzNY96hd
-	 0ZU6R2vEzO1qg==
-Received: from [192.168.68.115] (unknown [180.150.112.216])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 080947C1B2;
-	Thu, 18 Dec 2025 07:22:16 +0800 (AWST)
-Message-ID: <bc0904e4742cd04fb49b2d39ee2c0f72f28c1c4a.camel@codeconstruct.com.au>
-Subject: Re: [PATCH] arm: dts: aspeed: add an alt 128M flash layout
-From: Andrew Jeffery <andrew@codeconstruct.com.au>
-To: Marc Olberding <molberding@nvidia.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-  Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
- openbmc@lists.ozlabs.org, 	devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, 	linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org
-Date: Thu, 18 Dec 2025 09:52:16 +1030
-In-Reply-To: <aUM5HcEs0OVrDO1w@molberding.nvidia.com>
-References: <20251211-alt-128-layout-v1-1-100f57d2bc4a@nvidia.com>
-	 <61f561d95af86a46f1e1075df39e1ce0f1324098.camel@codeconstruct.com.au>
-	 <aUM5HcEs0OVrDO1w@molberding.nvidia.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	Wed, 17 Dec 2025 23:25:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=L7c1XLUmARMyP/GU73PkHDouOca91emXpEESpl+QBiLDp+a97hrQ22nOGj4l5gqwdkKD2QlIZP8P9kJr76sZCSLhjWp+UoM2Nng01uWcUNL4vsfs2cgzFqGTBSVqaR6a3PkSTTmNnfxfCG53a6h99/xrka1wF4YLiKT5UnsI2uytQcofehaQ/Mqy05cvJ95sQE2yX9kp+65u99dq5Osi0kgkxfMcDaviLR/R4rkL6/nNtOnXX5VE2/6z2ivBhty1siikB8WWtbZhqLTGG2QtoEk/87s/R8iYVTQ0FmSOd3x8Q10kFjrcOHbYQuUkJALI1k2SIr9qw1ZSjvh1wEZgjQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bg12Yw8tY3diF76Z9B9BKu6uy1ZeELmLDqKgcSNmnuU=;
+ b=QrTF0CoRbj1qlgn2v7+7CppYhmNqz2Pd93rF8memMh7mRa1Sgkfzi1QsUzjjC3m+cuR/C4Cj1BMR/DoLm36RUddn7M9G+/RnmZYVtxLeFcqEQ+mtjAOm9jcB96ooh5zLC3rv7fJLcLP1QWKJmF6sTON2iFKPKv2D9cN4gbhgF6FlIiL+FqiEdQjSEKMtmzI7zlLnkwUdFK7SzFeXc8SnL/a0vO+1sWvxIZZmK9qRWSLTrWB3DlTkC39KBDLl3Nx/NWVpbhpmWeEb6p+nzefDdPBQzDw+jcN6ua4wFBa5PGcFO94OWcmIyCRjd3so5AqB3JWmjHf5XXQPk3Ipt0ylpA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bg12Yw8tY3diF76Z9B9BKu6uy1ZeELmLDqKgcSNmnuU=;
+ b=E2QC+d1Dopz2oCmBlCU6kp+CHyM1/+ld3OLCNVT6la/Yan1OZOnL6zXQJVb0ly48+OmOyHXupmMpckYzFvz7IuGfjQryhtfjMtCyQV+HbBAvoxUEJ+8rYq0O+5rm73oo9LubMs90qemYUN4pSA1Yh04o6iEexlhBmTRK8PGuEWZgWfLvyBBwa56tbQDUy9nmPKeItWSGvLGK3W/s4AOPqEfKMl1smuY5f3BPSNEoo+5gXItEhhA7P4kxqcb94FHZQDDaNeyqFH6WcCxwGsoj6BBSxmXynLL9pR4eX/+XZpNDzdqe0b6QgC+qJ5N/zL1RKjbRZC4zOIobVC7m5T6lGA==
+Received: from MN2PR04CA0015.namprd04.prod.outlook.com (2603:10b6:208:d4::28)
+ by SN7PR12MB8769.namprd12.prod.outlook.com (2603:10b6:806:34b::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.6; Wed, 17 Dec
+ 2025 23:24:59 +0000
+Received: from BL6PEPF00020E61.namprd04.prod.outlook.com
+ (2603:10b6:208:d4:cafe::2c) by MN2PR04CA0015.outlook.office365.com
+ (2603:10b6:208:d4::28) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.6 via Frontend Transport; Wed,
+ 17 Dec 2025 23:24:59 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ BL6PEPF00020E61.mail.protection.outlook.com (10.167.249.22) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9434.6 via Frontend Transport; Wed, 17 Dec 2025 23:24:59 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 17 Dec
+ 2025 15:24:46 -0800
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 17 Dec
+ 2025 15:24:45 -0800
+Received: from Asurada-Nvidia.nvidia.com (10.127.8.13) by mail.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
+ Transport; Wed, 17 Dec 2025 15:24:45 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: <will@kernel.org>
+CC: <jean-philippe@linaro.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<jgg@nvidia.com>, <balbirs@nvidia.com>, <miko.lenczewski@arm.com>,
+	<peterz@infradead.org>, <kevin.tian@intel.com>, <praan@google.com>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>
+Subject: [PATCH v8 1/7] iommu/arm-smmu-v3: Explicitly set smmu_domain->stage for SVA
+Date: Wed, 17 Dec 2025 15:24:26 -0800
+Message-ID: <df4b8cbc0d67a0bfcccb09be868e0da5f0cbb743.1766013662.git.nicolinc@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1766013662.git.nicolinc@nvidia.com>
+References: <cover.1766013662.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL6PEPF00020E61:EE_|SN7PR12MB8769:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4eec842f-5c71-4938-837a-08de3dc37f5d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|82310400026|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?hj9/yq9TY7haNB6EiAO3PY1gDq3LB+qxoT+GK4cmmzqS3gM0dffg9G/NjMYP?=
+ =?us-ascii?Q?grmS3ha3ytshccTf3rbG1E/Aj5xrYKR5uuUqVJeIdcuotXyeObkVO0yoAPmI?=
+ =?us-ascii?Q?nGIMO5xitfKa7GJFjoyghj3DUezbqxwO2U9fHYOU6Go0h+E93lmKPFTTC0wU?=
+ =?us-ascii?Q?SHMQcCX8u+Wp6IyAWyWMRM1KxlLSQfFdFWalf0KMMZanZKVLbzwfL/vCraDg?=
+ =?us-ascii?Q?qLn8EQH6K/9DoT737SySfuxwk+KPTQQp1JwNl8RkuuIEWbJqongS/nowK7s0?=
+ =?us-ascii?Q?SDKsZU1n+xs/fb7MUu0OZafRrOXQXSBzcVFU6wyeoIjxMfK2h3Wj/PiPAmKR?=
+ =?us-ascii?Q?aB8yqAjmarVChSsbVgHlRJynkGMo5MSBoqDKZVDMxhlRxuODz79cAkyve0qW?=
+ =?us-ascii?Q?afC4Pd1j+WH46NpnLsK/DQetzcfOHeSOvVVlLB8uN2pQCBSfEH2WS1RQaqeg?=
+ =?us-ascii?Q?E6QRgb3PuaMWzjt4i0qcTcru8FmKEf+deeqUz4SkzlKAZWJ4NPw0RX1AbnB8?=
+ =?us-ascii?Q?ptFvpAaYgRwlXEsUy2F/eFc/xCrWVxSrdKz/YvrKMuvIGeFZp77qxxT/SXzI?=
+ =?us-ascii?Q?PIJBy831z38UmkI3oExiqCHjzdHD+bQTEcUPiFIAYSBVINOaNXSmUycP+VwB?=
+ =?us-ascii?Q?SW2DhxpvdKI/bOwFP4bn4691xJmSygXYwZyBvLs8kaOvbl+D23mM/6zHLP3H?=
+ =?us-ascii?Q?kdOkO+AVYuBkO5Gzs5vqZBXMJRlgVfEu1xBiM+s3LJGpJ7g6j5e6qh813g9R?=
+ =?us-ascii?Q?YzWQKfRsuno/zl9HBrAzllxEzoktxc2Lny/n7aIs8cAg5Bz6ySge336f3O5c?=
+ =?us-ascii?Q?YZmhFTAn5p/ZnJYhOx9GYqoKzaQ0tHstg+ouW2U73Or+DkwZW7V0dBzJB2i9?=
+ =?us-ascii?Q?wPrQfJolARX2WKzvycUzk098ajVeJBBYXMoG9sg77lTaMPcCbuOlYEgE4g1F?=
+ =?us-ascii?Q?iffel97kps20SHlpizYM7QXovjGwW0Cm4r9A5HMI1lgV+bDq8wWGGWUFCwR9?=
+ =?us-ascii?Q?RhzPKixGsqtgIKC8iegrsoNtGp3La0bGiH5OdqVtAbMpe/3xaopUuUUFjkcL?=
+ =?us-ascii?Q?Q0HCZBWZ3xzcX+CgTIujkT1iGrQoJlUyhLM5cpvP4TNbl+j8L4NKJPF7oi/T?=
+ =?us-ascii?Q?J4dz6aAZVUQWVUGj0rptEfS11V0pFDgXA3K+fTKol/md1fqroLXKGP9+CrEp?=
+ =?us-ascii?Q?j//jF9sBbdG/1wjS5Sl3sn5S+5WZe0Vj73GEuEzt+H6Jtd/CjbZinVmF9Lft?=
+ =?us-ascii?Q?zX7KMcN3GPOVuTG+sdqHr3+1lBsH8/Nurof7G0NI1wG6xKiDa7aF6wAtr96/?=
+ =?us-ascii?Q?31UiMvYpbDClGtEMp8ZRfVYeweLYCUP1OEgeUDjsxQhOKdyqZqfbl0cvwDqh?=
+ =?us-ascii?Q?cW+17AJjOWAptbgvV/QDKtFGOcSDTqh2hfClhsy5sXnae9EtfSS2bGTKWLe0?=
+ =?us-ascii?Q?TgvAuvKtpDUmAA/dreWP1PL3lALQCQvA2QngEuLRPK9l/PfYwEgFK4m4F/b+?=
+ =?us-ascii?Q?ye0JSlAoCK7jNhyUmqWgHbnEV+IMlVSAYu8ksh4NKCbz5v321IEBpFxnJzvc?=
+ =?us-ascii?Q?+eL3oVAKJX6FY1aVgz8=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(82310400026)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Dec 2025 23:24:59.5991
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4eec842f-5c71-4938-837a-08de3dc37f5d
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF00020E61.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB8769
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_152222_927523_CB067C13 
-X-CRM114-Status: GOOD (  19.20  )
+X-CRM114-CacheID: sfid-20251217_152508_685619_F3C402B7 
+X-CRM114-Status: GOOD (  10.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,41 +153,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2025-12-17 at 15:13 -0800, Marc Olberding wrote:
-> On Thu, Dec 18, 2025 at 09:29:44AM +1030, Andrew Jeffery wrote:
-> > On Thu, 2025-12-11 at 13:35 -0800, Marc Olberding wrote:
-> > > Add a 128M layout for the BMC flash chip we didn't boot from.
-> > > Including
-> > > this allows the user to write to each partition on the alternate spi
-> > > chip. This dtsi follows the existing standard of using the same
-> > > layout
-> > > as non alt version and prepending `alt` to each partition's name.
-> > >=20
-> ...=20
-> > This may be fine, but please add it in a series that also introduces a
-> > board that consumes it.
-> >=20
-> > Andrew
->=20
-> Ack, I wasn't sure how to handle this, since the MSX4 hasn't merged to
-> master for upstream yet, its just been merged into the openbmc tree.
+Both the ARM_SMMU_DOMAIN_S1 case and the SVA case use ASID, requiring ASID
+based invalidation commands to flush the TLB.
 
-I've applied it:
+Define an ARM_SMMU_DOMAIN_SVA to make the SVA case clear to share the same
+path with the ARM_SMMU_DOMAIN_S1 case, which will be a part of the routine
+to build a new per-domain invalidation array.
 
-https://git.kernel.org/pub/scm/linux/kernel/git/bmc/linux.git/commit/?h=3Da=
-speed/arm/dt&id=3Df28674fab34f07fff9612c3f390d3699bfe8ed90
+There is no function change.
 
-It will be part of v6.20 (via pull-request to the SoC tree).
+Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
+Acked-by: Balbir Singh <balbirs@nvidia.com>
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h     | 1 +
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c | 1 +
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c     | 3 +++
+ 3 files changed, 5 insertions(+)
 
-> I can either just hold off on this patch or update the msx4 series.
-> I'm assuming that including this in a patch targetted to the openbmc tree
-> is a nonstarter. Any thoughts here?
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+index ae23aacc3840..5c0b38595d20 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+@@ -858,6 +858,7 @@ struct arm_smmu_master {
+ enum arm_smmu_domain_stage {
+ 	ARM_SMMU_DOMAIN_S1 = 0,
+ 	ARM_SMMU_DOMAIN_S2,
++	ARM_SMMU_DOMAIN_SVA,
+ };
+ 
+ struct arm_smmu_domain {
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+index 59a480974d80..6097f1f540d8 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+@@ -346,6 +346,7 @@ struct iommu_domain *arm_smmu_sva_domain_alloc(struct device *dev,
+ 	 * ARM_SMMU_FEAT_RANGE_INV is present
+ 	 */
+ 	smmu_domain->domain.pgsize_bitmap = PAGE_SIZE;
++	smmu_domain->stage = ARM_SMMU_DOMAIN_SVA;
+ 	smmu_domain->smmu = smmu;
+ 
+ 	ret = xa_alloc(&arm_smmu_asid_xa, &asid, smmu_domain,
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index d16d35c78c06..9d9f24a08062 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -3065,6 +3065,9 @@ static int arm_smmu_attach_dev(struct iommu_domain *domain, struct device *dev,
+ 		arm_smmu_install_ste_for_dev(master, &target);
+ 		arm_smmu_clear_cd(master, IOMMU_NO_PASID);
+ 		break;
++	default:
++		WARN_ON(true);
++		break;
+ 	}
+ 
+ 	arm_smmu_attach_commit(&state);
+-- 
+2.43.0
 
-Send patches based on the bmc tree's aspeed/arm/dt branch (i.e. the
-branch containing the commit linked above). Your work is going to land
-there anyway, so no need to strictly base your work on Linus' master
-branch (though this is generally reasonable when there are no other
-dependencies).
-
-Andrew
 
