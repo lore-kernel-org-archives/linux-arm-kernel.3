@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8825ED65C7C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 16:28:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0427D65C7C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 16:28:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WExEFEZds9rx4cQqlYFHzK/BQsYOxkR/4dw8JRTgy9U=; b=d5qJFQsX95T0ZPWGBHKbhSOxCw
-	zXKlgG7ELmsbgLR0g6bLAO06wDbHy8QD8+C8BIqOjRixbxRZOqosQaLIZWcYW+bDaDrwQ0cTy2sqN
-	6ajkI7M+DPl25wGzb6ye6VKEnXBa8Wyi0X18yhnd5ky+v5RNN5kptgNqwcvMnA3HyVEIri21UXLVD
-	QPHxnVUPCeMT5qAj2JQNawy7p4FcwkoNv3atN8x2pC/48GJQaOPylZo32E2I3qmnnoFeA4rpL7BJz
-	ENh0nFBsTVm/ende0fi2W4pZ1vRYkYFXuA0ahGr5hrLWZjbYKfMOIGMnJBoKJfqCtiDimrxRCnYMX
-	nR0EzLkw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ow0LL48bVlDg9uMUmfgRO5F0UfCH0mX2oYMejcIY4z4=; b=Am9zJp+29jkPxayOEYZpcVIXdz
+	/QDxChDFcVO5N4aZ2RwNxxdH7uBaWX5sqOGWXNbWGLvN6+OlgEuXkSn9LnqTByowl7+6SCruomAYj
+	5B6584KxoExilHaEGa/LhJ/LzxViCBtMT9THWLuSLmkVmPL8URyMaogTvUEfmtOVApHRvhabjALXj
+	2IjMbZWEjeSVwxpMEMrPe2Wct0DhziSss21kLaLY7ImjXJBCqmLjtZi4Tz51mh2wi6xuvqmK0Zg1O
+	sRiJwTWPu79i20SGLzQkUpJDJiqYcvHRK6nV1Nb6ICDEC4a8aBiD2e0Lb2SxXUqHrNksmdkshtTI0
+	WTWGG7QA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVuOR-000000076pI-0CIf;
-	Wed, 17 Dec 2025 16:28:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vVuOV-000000076rG-3RHx;
+	Wed, 17 Dec 2025 16:28:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVuOP-000000076p3-24IL
+	id 1vVuOT-000000076ps-3GnA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 16:28:49 +0000
+	Wed, 17 Dec 2025 16:28:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8A6696055F;
-	Wed, 17 Dec 2025 16:28:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19034C4CEF5;
-	Wed, 17 Dec 2025 16:28:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B063741991;
+	Wed, 17 Dec 2025 16:28:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62535C116C6;
+	Wed, 17 Dec 2025 16:28:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765988928;
-	bh=wW2WX9bXMy21iLr94pepHPoiTdQS77qviWjUVKa89d8=;
-	h=From:To:Cc:Subject:Date:From;
-	b=K0kIgPqP3Uguea91P1XJVdtjDsuNURZSx4kUgWYhCOsx5yF9X5+11isYQrmfx1PPg
-	 Fh4llRDPvOxBUOyvkQut8q9WKOiSotqqAkW68/c9YbD6Wu8ujE+U6Vwjm5lhC19utL
-	 iMnyBEOjSxOjkWY7aoUv933Qk1s58OnjkWpflPbXe8jkRgYavjWRNnw7efK62R+apD
-	 udTOwURPmUN4EYDxbZ5I6lJwRqlmO62uRGKIcEdrnw+RuSWsJaCr/jG4sRIYhOh+2Q
-	 kiZvmDwNlh35dYgBmvnHYIHB6qjjEr7YN6ewPRvQla5M2hSlvQgjrE8RQ4jQgA+uzC
-	 /1V8G0MxndxvA==
+	s=k20201202; t=1765988932;
+	bh=rKOV9zyJXMZ/yYe4aPWF7ZuJKQBqItGT2/94wCSdR2A=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Es/fpxY5sJR1wB15XxI7CDVMr6kSu7EYLeZVx/AgIOJdN84Ldndm0SzX6i3KPqMXj
+	 hIk27mrHfGtLTLvLp5JuwTXGmIfopno4lLMLmH6k5Op2DR74Tv2hMqMZGbbGZPrERa
+	 vyE3eksEra9RSJJNZPVOgiGtVwTgc86f74/8oeauk8Xxc6R9hF9OyfTWEFMQkhqS+z
+	 XqjowhN3dHegk2gm22OLA52xFIdLGI+k8oPwLaSgx5HxQ6I8KL36pCixO6BWTLOF+Q
+	 +i/P+s5uD7FKzyoZ6vZqg5bbY5i+UCGB1Yz8FitTt8hEBS9rRCxzH84JuXqYDfH1aW
+	 tStpgnXJpNV3Q==
 From: Puranjay Mohan <puranjay@kernel.org>
 To: bpf@vger.kernel.org
 Cc: Puranjay Mohan <puranjay@kernel.org>,
@@ -57,13 +57,17 @@ Cc: Puranjay Mohan <puranjay@kernel.org>,
 	Will Deacon <will@kernel.org>,
 	Mark Rutland <mark.rutland@arm.com>,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH bpf-next 0/2] bpf: Optimize recursion detection on arm64
-Date: Wed, 17 Dec 2025 08:28:25 -0800
-Message-ID: <20251217162830.2597286-1-puranjay@kernel.org>
+Subject: [PATCH bpf-next 1/2] bpf: move recursion detection logic to helpers
+Date: Wed, 17 Dec 2025 08:28:26 -0800
+Message-ID: <20251217162830.2597286-2-puranjay@kernel.org>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20251217162830.2597286-1-puranjay@kernel.org>
+References: <20251217162830.2597286-1-puranjay@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251217_082853_868119_6EB245C2 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,61 +82,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-BPF programs detect recursion using a per-CPU 'active' flag in struct
-bpf_prog. The trampoline currently sets/clears this flag with atomic
-operations.
+BPF programs detect recursion by doing atomic inc/dec on a per-cpu
+active counter from the trampoline. Create two helpers for operations on
+this active counter, this makes it easy to changes the recursion
+detection logic in future.
 
-On some arm64 platforms (e.g., Neoverse V2 with LSE), per-CPU atomic
-operations are relatively slow. Unlike x86_64 - where per-CPU updates
-can avoid cross-core atomicity, arm64 LSE atomics are always atomic
-across all cores, which is unnecessary overhead for strictly per-CPU
-state.
+This change makes no functional changes.
 
-This patch removes atomics from the recursion detection path on arm64.
-
-It was discovered in [1] that per-CPU atomics that don't return a value
-were extremely slow on some arm64 platforms, Catalin added a fix in
-commit 535fdfc5a228 ("arm64: Use load LSE atomics for the non-return
-per-CPU atomic operations") to solve this issue, but it seems to have
-caused a regression on the fentry benchmark.
-
-Using the fentry benchmark from the bpf selftests shows the following:
-
-  ./tools/testing/selftests/bpf/bench trig-fentry
-
- +---------------------------------------------+------------------------+
- |               Configuration                 | Total Operations (M/s) |
- +---------------------------------------------+------------------------+
- | bpf-next/master with Catalin’s fix reverted |    40.033 ± 0.090      |
- |---------------------------------------------|------------------------|
- | bpf-next/master                             |    34.617 ± 0.018      |
- | bpf-next/master with this change            |    46.122 ± 0.020      |
- +---------------------------------------------+------------------------+
-
-All benchmarks were run on a KVM based vm with Neoverse-V2 and 8 cpus.
-
-This patch yields a 33% improvement in this benchmark compared to
-bpf-next. Notably, reverting Catalin's fix also results in a performance
-gain for this benchmark, which is interesting but expected.
-
-For completeness, this benchmark was also run with the change enabled on
-x86-64, which resulted in a 30% regression in the fentry benchmark. So,
-it is only enabled on arm64.
-
-[1] https://lore.kernel.org/all/e7d539ed-ced0-4b96-8ecd-048a5b803b85@paulmck-laptop/
-
-Puranjay Mohan (2):
-  bpf: move recursion detection logic to helpers
-  bpf: arm64: Optimize recursion detection by not using atomics
-
- include/linux/bpf.h      | 35 ++++++++++++++++++++++++++++++++++-
- kernel/bpf/core.c        |  3 ++-
+Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
+---
+ include/linux/bpf.h      | 10 ++++++++++
  kernel/bpf/trampoline.c  |  8 ++++----
  kernel/trace/bpf_trace.c |  4 ++--
- 4 files changed, 42 insertions(+), 8 deletions(-)
+ 3 files changed, 16 insertions(+), 6 deletions(-)
 
-
-base-commit: ec439c38013550420aecc15988ae6acb670838c1
+diff --git a/include/linux/bpf.h b/include/linux/bpf.h
+index bb3847caeae1..2da986136d26 100644
+--- a/include/linux/bpf.h
++++ b/include/linux/bpf.h
+@@ -2004,6 +2004,16 @@ struct bpf_struct_ops_common_value {
+ 	enum bpf_struct_ops_state state;
+ };
+ 
++static inline bool bpf_prog_get_recursion_context(struct bpf_prog *prog)
++{
++	return this_cpu_inc_return(*(prog->active)) == 1;
++}
++
++static inline void bpf_prog_put_recursion_context(struct bpf_prog *prog)
++{
++	this_cpu_dec(*(prog->active));
++}
++
+ #if defined(CONFIG_BPF_JIT) && defined(CONFIG_BPF_SYSCALL)
+ /* This macro helps developer to register a struct_ops type and generate
+  * type information correctly. Developers should use this macro to register
+diff --git a/kernel/bpf/trampoline.c b/kernel/bpf/trampoline.c
+index 976d89011b15..2a125d063e62 100644
+--- a/kernel/bpf/trampoline.c
++++ b/kernel/bpf/trampoline.c
+@@ -949,7 +949,7 @@ static u64 notrace __bpf_prog_enter_recur(struct bpf_prog *prog, struct bpf_tram
+ 
+ 	run_ctx->saved_run_ctx = bpf_set_run_ctx(&run_ctx->run_ctx);
+ 
+-	if (unlikely(this_cpu_inc_return(*(prog->active)) != 1)) {
++	if (unlikely(!bpf_prog_get_recursion_context(prog))) {
+ 		bpf_prog_inc_misses_counter(prog);
+ 		if (prog->aux->recursion_detected)
+ 			prog->aux->recursion_detected(prog);
+@@ -993,7 +993,7 @@ static void notrace __bpf_prog_exit_recur(struct bpf_prog *prog, u64 start,
+ 	bpf_reset_run_ctx(run_ctx->saved_run_ctx);
+ 
+ 	update_prog_stats(prog, start);
+-	this_cpu_dec(*(prog->active));
++	bpf_prog_put_recursion_context(prog);
+ 	rcu_read_unlock_migrate();
+ }
+ 
+@@ -1029,7 +1029,7 @@ u64 notrace __bpf_prog_enter_sleepable_recur(struct bpf_prog *prog,
+ 
+ 	run_ctx->saved_run_ctx = bpf_set_run_ctx(&run_ctx->run_ctx);
+ 
+-	if (unlikely(this_cpu_inc_return(*(prog->active)) != 1)) {
++	if (unlikely(!bpf_prog_get_recursion_context(prog))) {
+ 		bpf_prog_inc_misses_counter(prog);
+ 		if (prog->aux->recursion_detected)
+ 			prog->aux->recursion_detected(prog);
+@@ -1044,7 +1044,7 @@ void notrace __bpf_prog_exit_sleepable_recur(struct bpf_prog *prog, u64 start,
+ 	bpf_reset_run_ctx(run_ctx->saved_run_ctx);
+ 
+ 	update_prog_stats(prog, start);
+-	this_cpu_dec(*(prog->active));
++	bpf_prog_put_recursion_context(prog);
+ 	migrate_enable();
+ 	rcu_read_unlock_trace();
+ }
+diff --git a/kernel/trace/bpf_trace.c b/kernel/trace/bpf_trace.c
+index fe28d86f7c35..6e076485bf70 100644
+--- a/kernel/trace/bpf_trace.c
++++ b/kernel/trace/bpf_trace.c
+@@ -2063,7 +2063,7 @@ void __bpf_trace_run(struct bpf_raw_tp_link *link, u64 *args)
+ 	struct bpf_trace_run_ctx run_ctx;
+ 
+ 	cant_sleep();
+-	if (unlikely(this_cpu_inc_return(*(prog->active)) != 1)) {
++	if (unlikely(!bpf_prog_get_recursion_context(prog))) {
+ 		bpf_prog_inc_misses_counter(prog);
+ 		goto out;
+ 	}
+@@ -2077,7 +2077,7 @@ void __bpf_trace_run(struct bpf_raw_tp_link *link, u64 *args)
+ 
+ 	bpf_reset_run_ctx(old_run_ctx);
+ out:
+-	this_cpu_dec(*(prog->active));
++	bpf_prog_put_recursion_context(prog);
+ }
+ 
+ #define UNPACK(...)			__VA_ARGS__
 -- 
 2.47.3
 
