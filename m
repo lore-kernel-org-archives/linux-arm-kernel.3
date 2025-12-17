@@ -4,58 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0196CD64077
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 06:23:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CB0ED64077
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 06:27:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QJcGh/KleJuHsA1FtzekUTSI/9XQy5iwRCGyk6mN9x4=; b=cx9MqpJZbuDhd/FT1qkiSQBEng
-	SwrWb6q92GnjPNYdaHjdmQt6jM07xLYDvkIka4GIpe8mDRg+pfI97P/0Ai/hafcswxGiAeYRsE/6L
-	1xC1mPHCYlW58+CMwPd8Ar9K7O/vLhDr6Wym4d6M1kuWUrq8IMEtVx/pHszAQpj9qQ8fbdUrg20Ys
-	JrCfqEnv+p60SKc5gYxEuNCrSiUucz/L6HcTHUV3EsFZtTbfwONmdtzhhvFt0n2HWikkxtPEykV4X
-	kR8uAe39vJuXzmyt6V+97WwYOQGzYiX9GLgzIzph6vOzifRvIBU3pcpA04b1fTwG0Xs2myQOWls4V
-	Qi3vblOw==;
+	bh=ez0nHLABlSpx7Rb/r0QApb6GlbBm6ikKCkO3IHe+Yb4=; b=UC2RfJVEzI7DG76BYj4//GLF/H
+	WcjLLV4K3C1A0S7AHNB33HFT+MqNzix1Nwwz5Sr5UAChZFWL5eTGI2RvRMabesvAFIu2HHEwkONhz
+	W6cbiq70kzXUOMPOKmNH7yd45mr/ir5tGPoToEEhVStNoXSCs0OLXii2+4tDd1gviA5rB1zglKJVD
+	YqpEb2kHk0jaAtcdAR+9vavCxNH1UGlFLLxnL9qd2Cxpd3rfUaJ9NPTWsw7sEJzrseLpVEoxaINe1
+	f+YBZt+OFjdZ5cWuH0Vc+9WUxxNVYbytBioluAm6TMxlNVYoykf5qKfCXwgUGYxBLwQE3w/ojc0hS
+	Qhtpsngw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVkwm-00000006EeG-32Rd;
-	Wed, 17 Dec 2025 06:23:41 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVkwi-00000006Eds-31Vb
+	id 1vVl0k-00000006EqP-3Xfy;
+	Wed, 17 Dec 2025 06:27:46 +0000
+Received: from out-177.mta0.migadu.com ([91.218.175.177])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vVl0h-00000006Epe-3V8y
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 06:23:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3AD60FEC;
-	Tue, 16 Dec 2025 22:23:26 -0800 (PST)
-Received: from [10.164.18.63] (MacBook-Pro.blr.arm.com [10.164.18.63])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3EC193F762;
-	Tue, 16 Dec 2025 22:23:28 -0800 (PST)
-Message-ID: <17380b96-3a9e-46f9-b22b-0e770f7f1b4f@arm.com>
-Date: Wed, 17 Dec 2025 11:53:25 +0530
+	Wed, 17 Dec 2025 06:27:45 +0000
+Message-ID: <e216e4ae-b882-454d-be8f-24f21a3549d9@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1765952853;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ez0nHLABlSpx7Rb/r0QApb6GlbBm6ikKCkO3IHe+Yb4=;
+	b=LxtJ0pTVqGvPZgmeC1TJHmvRdOjJPydQH/ZuYGN5vS9AEJ1yRudY2aKmnm65bndCizYBFr
+	wbCt4ANc22ae9r0sHrKlxPzHL1bTNCWx3g9Q/XwJaZfHq2RdljwAERKr1w4+CaWeZneD8b
+	CcQbeyYVq+e6Rlx05SL/hDwP72PvgPo=
+Date: Wed, 17 Dec 2025 14:27:22 +0800
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] mm: rmap: support batched checks of the references
- for large folios
-To: Baolin Wang <baolin.wang@linux.alibaba.com>, akpm@linux-foundation.org,
- david@kernel.org, catalin.marinas@arm.com, will@kernel.org
-Cc: lorenzo.stoakes@oracle.com, ryan.roberts@arm.com,
- Liam.Howlett@oracle.com, vbabka@suse.cz, rppt@kernel.org, surenb@google.com,
- mhocko@suse.com, riel@surriel.com, harry.yoo@oracle.com, jannh@google.com,
- willy@infradead.org, baohua@kernel.org, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <cover.1765439380.git.baolin.wang@linux.alibaba.com>
- <545dba5e899634bc6c8ca782417d16fef3bd049f.1765439381.git.baolin.wang@linux.alibaba.com>
+Subject: Re: [PATCH] watchdog: softlockup: panic when lockup duration exceeds
+ N thresholds
 Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <545dba5e899634bc6c8ca782417d16fef3bd049f.1765439381.git.baolin.wang@linux.alibaba.com>
-Content-Type: text/plain; charset=UTF-8
+To: lirongqing <lirongqing@baidu.com>
+Cc: Nicholas Piggin <npiggin@gmail.com>, Christophe Leroy
+ <chleroy@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>,
+ Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>,
+ John Fastabend <john.fastabend@gmail.com>, KP Singh <kpsingh@kernel.org>,
+ Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>,
+ Jiri Olsa <jolsa@kernel.org>, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-aspeed@lists.ozlabs.org, linux-openrisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, dri-devel@lists.freedesktop.org,
+ bpf@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ wireguard@lists.zx2c4.com, netdev@vger.kernel.org,
+ Andrew Morton <akpm@linux-foundation.org>
+References: <20251216074521.2796-1-lirongqing@baidu.com>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Lance Yang <lance.yang@linux.dev>
+In-Reply-To: <20251216074521.2796-1-lirongqing@baidu.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251216_222336_880310_45A64158 
-X-CRM114-Status: GOOD (  27.04  )
+X-CRM114-CacheID: sfid-20251216_222744_326986_E4A7A264 
+X-CRM114-Status: GOOD (  30.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,186 +82,270 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On 11/12/25 1:46 pm, Baolin Wang wrote:
-> Currently, folio_referenced_one() always checks the young flag for each PTE
-> sequentially, which is inefficient for large folios. This inefficiency is
-> especially noticeable when reclaiming clean file-backed large folios, where
-> folio_referenced() is observed as a significant performance hotspot.
->
-> Moreover, on Arm architecture, which supports contiguous PTEs, there is already
-> an optimization to clear the young flags for PTEs within a contiguous range.
-> However, this is not sufficient. We can extend this to perform batched operations
-> for the entire large folio (which might exceed the contiguous range: CONT_PTE_SIZE).
->
-> Introduce a new API: clear_flush_young_ptes() to facilitate batched checking
-> of the young flags and flushing TLB entries, thereby improving performance
-> during large folio reclamation.
->
-> Performance testing:
-> Allocate 10G clean file-backed folios by mmap() in a memory cgroup, and try to
-> reclaim 8G file-backed folios via the memory.reclaim interface. I can observe
-> 33% performance improvement on my Arm64 32-core server (and 10%+ improvement
-> on my X86 machine). Meanwhile, the hotspot folio_check_references() dropped
-> from approximately 35% to around 5%.
->
-> W/o patchset:
-> real	0m1.518s
-> user	0m0.000s
-> sys	0m1.518s
->
-> W/ patchset:
-> real	0m1.018s
-> user	0m0.000s
-> sys	0m1.018s
->
-> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+
+On 2025/12/16 15:45, lirongqing wrote:
+> From: Li RongQing <lirongqing@baidu.com>
+> 
+> The softlockup_panic sysctl is currently a binary option: panic immediately
+> or never panic on soft lockups.
+> 
+> Panicking on any soft lockup, regardless of duration, can be overly
+> aggressive for brief stalls that may be caused by legitimate operations.
+> Conversely, never panicking may allow severe system hangs to persist
+> undetected.
+> 
+> Extend softlockup_panic to accept an integer threshold, allowing the kernel
+> to panic only when the normalized lockup duration exceeds N watchdog
+> threshold periods. This provides finer-grained control to distinguish
+> between transient delays and persistent system failures.
+> 
+> The accepted values are:
+> - 0: Don't panic (unchanged)
+> - 1: Panic when duration >= 1 * threshold (20s default, original behavior)
+> - N > 1: Panic when duration >= N * threshold (e.g., 2 = 40s, 3 = 60s.)
+> 
+> The original behavior is preserved for values 0 and 1, maintaining full
+> backward compatibility while allowing systems to tolerate brief lockups
+> while still catching severe, persistent hangs.
+
+Thanks! Just a couple of minor things below ;)
+
+> 
+> Signed-off-by: Li RongQing <lirongqing@baidu.com>
 > ---
->  arch/arm64/include/asm/pgtable.h | 11 +++++++++++
->  include/linux/mmu_notifier.h     |  9 +++++----
->  include/linux/pgtable.h          | 19 +++++++++++++++++++
->  mm/rmap.c                        | 22 ++++++++++++++++++++--
->  4 files changed, 55 insertions(+), 6 deletions(-)
->
-> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> index e03034683156..a865bd8c46a3 100644
-> --- a/arch/arm64/include/asm/pgtable.h
-> +++ b/arch/arm64/include/asm/pgtable.h
-> @@ -1869,6 +1869,17 @@ static inline int ptep_clear_flush_young(struct vm_area_struct *vma,
->  	return contpte_clear_flush_young_ptes(vma, addr, ptep, CONT_PTES);
->  }
->  
-> +#define clear_flush_young_ptes clear_flush_young_ptes
-> +static inline int clear_flush_young_ptes(struct vm_area_struct *vma,
-> +					unsigned long addr, pte_t *ptep,
-> +					unsigned int nr)
-> +{
-> +	if (likely(nr == 1))
-> +		return __ptep_clear_flush_young(vma, addr, ptep);
-> +
-> +	return contpte_clear_flush_young_ptes(vma, addr, ptep, nr);
-> +}
-> +
->  #define wrprotect_ptes wrprotect_ptes
->  static __always_inline void wrprotect_ptes(struct mm_struct *mm,
->  				unsigned long addr, pte_t *ptep, unsigned int nr)
-> diff --git a/include/linux/mmu_notifier.h b/include/linux/mmu_notifier.h
-> index d1094c2d5fb6..be594b274729 100644
-> --- a/include/linux/mmu_notifier.h
-> +++ b/include/linux/mmu_notifier.h
-> @@ -515,16 +515,17 @@ static inline void mmu_notifier_range_init_owner(
->  	range->owner = owner;
->  }
->  
-> -#define ptep_clear_flush_young_notify(__vma, __address, __ptep)		\
-> +#define ptep_clear_flush_young_notify(__vma, __address, __ptep, __nr)	\
->  ({									\
->  	int __young;							\
->  	struct vm_area_struct *___vma = __vma;				\
->  	unsigned long ___address = __address;				\
-> -	__young = ptep_clear_flush_young(___vma, ___address, __ptep);	\
-> +	unsigned int ___nr = __nr;					\
-> +	__young = clear_flush_young_ptes(___vma, ___address, __ptep, ___nr);	\
->  	__young |= mmu_notifier_clear_flush_young(___vma->vm_mm,	\
->  						  ___address,		\
->  						  ___address +		\
-> -							PAGE_SIZE);	\
-> +						nr * PAGE_SIZE);	\
->  	__young;							\
->  })
+>   Documentation/admin-guide/kernel-parameters.txt      | 10 +++++-----
+>   arch/arm/configs/aspeed_g5_defconfig                 |  2 +-
+>   arch/arm/configs/pxa3xx_defconfig                    |  2 +-
+>   arch/openrisc/configs/or1klitex_defconfig            |  2 +-
+>   arch/powerpc/configs/skiroot_defconfig               |  2 +-
+>   drivers/gpu/drm/ci/arm.config                        |  2 +-
+>   drivers/gpu/drm/ci/arm64.config                      |  2 +-
+>   drivers/gpu/drm/ci/x86_64.config                     |  2 +-
+>   kernel/watchdog.c                                    |  8 +++++---
+>   lib/Kconfig.debug                                    | 13 +++++++------
+>   tools/testing/selftests/bpf/config                   |  2 +-
+>   tools/testing/selftests/wireguard/qemu/kernel.config |  2 +-
+>   12 files changed, 26 insertions(+), 23 deletions(-)
+> 
+> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+> index a8d0afd..27c5f96 100644
+> --- a/Documentation/admin-guide/kernel-parameters.txt
+> +++ b/Documentation/admin-guide/kernel-parameters.txt
+> @@ -6934,12 +6934,12 @@ Kernel parameters
+>   
+>   	softlockup_panic=
+>   			[KNL] Should the soft-lockup detector generate panics.
+> -			Format: 0 | 1
+> +			Format: <int>
+>   
+> -			A value of 1 instructs the soft-lockup detector
+> -			to panic the machine when a soft-lockup occurs. It is
+> -			also controlled by the kernel.softlockup_panic sysctl
+> -			and CONFIG_BOOTPARAM_SOFTLOCKUP_PANIC, which is the
+> +			A value of non-zero instructs the soft-lockup detector
+> +			to panic the machine when a soft-lockup duration exceeds
+> +			N thresholds. It is also controlled by the kernel.softlockup_panic
+> +			sysctl and CONFIG_BOOTPARAM_SOFTLOCKUP_PANIC, which is the
+>   			respective build-time switch to that functionality.
 
-Do we have an existing bug here, in that mmu_notifier_clear_flush_young() should
-have been called for CONT_PTES length if the folio was contpte mapped?
+Seems like kernel/configs/debug.config still has the old format
+"# CONFIG_BOOTPARAM_SOFTLOCKUP_PANIC is not set" ...
 
->  
-> @@ -650,7 +651,7 @@ static inline void mmu_notifier_subscriptions_destroy(struct mm_struct *mm)
->  
->  #define mmu_notifier_range_update_to_read_only(r) false
->  
-> -#define ptep_clear_flush_young_notify ptep_clear_flush_young
-> +#define ptep_clear_flush_young_notify clear_flush_young_ptes
->  #define pmdp_clear_flush_young_notify pmdp_clear_flush_young
->  #define ptep_clear_young_notify ptep_test_and_clear_young
->  #define pmdp_clear_young_notify pmdp_test_and_clear_young
-> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-> index b13b6f42be3c..c7d0fd228cb7 100644
-> --- a/include/linux/pgtable.h
-> +++ b/include/linux/pgtable.h
-> @@ -947,6 +947,25 @@ static inline void wrprotect_ptes(struct mm_struct *mm, unsigned long addr,
->  }
->  #endif
->  
-> +#ifndef clear_flush_young_ptes
-> +static inline int clear_flush_young_ptes(struct vm_area_struct *vma,
-> +					 unsigned long addr, pte_t *ptep,
-> +					 unsigned int nr)
-> +{
-> +	int young = 0;
+Should be updated to "CONFIG_BOOTPARAM_SOFTLOCKUP_PANIC=0", right?
+
+>   
+>   	softlockup_all_cpu_backtrace=
+> diff --git a/arch/arm/configs/aspeed_g5_defconfig b/arch/arm/configs/aspeed_g5_defconfig
+> index 2e6ea13..ec558e5 100644
+> --- a/arch/arm/configs/aspeed_g5_defconfig
+> +++ b/arch/arm/configs/aspeed_g5_defconfig
+> @@ -306,7 +306,7 @@ CONFIG_SCHED_STACK_END_CHECK=y
+>   CONFIG_PANIC_ON_OOPS=y
+>   CONFIG_PANIC_TIMEOUT=-1
+>   CONFIG_SOFTLOCKUP_DETECTOR=y
+> -CONFIG_BOOTPARAM_SOFTLOCKUP_PANIC=y
+> +CONFIG_BOOTPARAM_SOFTLOCKUP_PANIC=1
+>   CONFIG_BOOTPARAM_HUNG_TASK_PANIC=1
+>   CONFIG_WQ_WATCHDOG=y
+>   # CONFIG_SCHED_DEBUG is not set
+> diff --git a/arch/arm/configs/pxa3xx_defconfig b/arch/arm/configs/pxa3xx_defconfig
+> index 07d422f..fb272e3 100644
+> --- a/arch/arm/configs/pxa3xx_defconfig
+> +++ b/arch/arm/configs/pxa3xx_defconfig
+> @@ -100,7 +100,7 @@ CONFIG_PRINTK_TIME=y
+>   CONFIG_DEBUG_KERNEL=y
+>   CONFIG_MAGIC_SYSRQ=y
+>   CONFIG_DEBUG_SHIRQ=y
+> -CONFIG_BOOTPARAM_SOFTLOCKUP_PANIC=y
+> +CONFIG_BOOTPARAM_SOFTLOCKUP_PANIC=1
+>   # CONFIG_SCHED_DEBUG is not set
+>   CONFIG_DEBUG_SPINLOCK=y
+>   CONFIG_DEBUG_SPINLOCK_SLEEP=y
+> diff --git a/arch/openrisc/configs/or1klitex_defconfig b/arch/openrisc/configs/or1klitex_defconfig
+> index fb1eb9a..984b0e3 100644
+> --- a/arch/openrisc/configs/or1klitex_defconfig
+> +++ b/arch/openrisc/configs/or1klitex_defconfig
+> @@ -52,5 +52,5 @@ CONFIG_LSM="lockdown,yama,loadpin,safesetid,integrity,bpf"
+>   CONFIG_PRINTK_TIME=y
+>   CONFIG_PANIC_ON_OOPS=y
+>   CONFIG_SOFTLOCKUP_DETECTOR=y
+> -CONFIG_BOOTPARAM_SOFTLOCKUP_PANIC=y
+> +CONFIG_BOOTPARAM_SOFTLOCKUP_PANIC=1
+>   CONFIG_BUG_ON_DATA_CORRUPTION=y
+> diff --git a/arch/powerpc/configs/skiroot_defconfig b/arch/powerpc/configs/skiroot_defconfig
+> index 2b71a6d..a4114fc 100644
+> --- a/arch/powerpc/configs/skiroot_defconfig
+> +++ b/arch/powerpc/configs/skiroot_defconfig
+> @@ -289,7 +289,7 @@ CONFIG_SCHED_STACK_END_CHECK=y
+>   CONFIG_DEBUG_STACKOVERFLOW=y
+>   CONFIG_PANIC_ON_OOPS=y
+>   CONFIG_SOFTLOCKUP_DETECTOR=y
+> -CONFIG_BOOTPARAM_SOFTLOCKUP_PANIC=y
+> +CONFIG_BOOTPARAM_SOFTLOCKUP_PANIC=1
+>   CONFIG_HARDLOCKUP_DETECTOR=y
+>   CONFIG_BOOTPARAM_HARDLOCKUP_PANIC=y
+>   CONFIG_WQ_WATCHDOG=y
+> diff --git a/drivers/gpu/drm/ci/arm.config b/drivers/gpu/drm/ci/arm.config
+> index 411e814..d7c5167 100644
+> --- a/drivers/gpu/drm/ci/arm.config
+> +++ b/drivers/gpu/drm/ci/arm.config
+> @@ -52,7 +52,7 @@ CONFIG_TMPFS=y
+>   CONFIG_PROVE_LOCKING=n
+>   CONFIG_DEBUG_LOCKDEP=n
+>   CONFIG_SOFTLOCKUP_DETECTOR=n
+> -CONFIG_BOOTPARAM_SOFTLOCKUP_PANIC=n
+> +CONFIG_BOOTPARAM_SOFTLOCKUP_PANIC=0
+>   
+>   CONFIG_FW_LOADER_COMPRESS=y
+>   
+> diff --git a/drivers/gpu/drm/ci/arm64.config b/drivers/gpu/drm/ci/arm64.config
+> index fddfbd4..ea0e307 100644
+> --- a/drivers/gpu/drm/ci/arm64.config
+> +++ b/drivers/gpu/drm/ci/arm64.config
+> @@ -161,7 +161,7 @@ CONFIG_TMPFS=y
+>   CONFIG_PROVE_LOCKING=n
+>   CONFIG_DEBUG_LOCKDEP=n
+>   CONFIG_SOFTLOCKUP_DETECTOR=y
+> -CONFIG_BOOTPARAM_SOFTLOCKUP_PANIC=y
+> +CONFIG_BOOTPARAM_SOFTLOCKUP_PANIC=1
+>   
+>   CONFIG_DETECT_HUNG_TASK=y
+>   
+> diff --git a/drivers/gpu/drm/ci/x86_64.config b/drivers/gpu/drm/ci/x86_64.config
+> index 8eaba388..7ac98a7 100644
+> --- a/drivers/gpu/drm/ci/x86_64.config
+> +++ b/drivers/gpu/drm/ci/x86_64.config
+> @@ -47,7 +47,7 @@ CONFIG_TMPFS=y
+>   CONFIG_PROVE_LOCKING=n
+>   CONFIG_DEBUG_LOCKDEP=n
+>   CONFIG_SOFTLOCKUP_DETECTOR=y
+> -CONFIG_BOOTPARAM_SOFTLOCKUP_PANIC=y
+> +CONFIG_BOOTPARAM_SOFTLOCKUP_PANIC=1
+>   
+>   CONFIG_DETECT_HUNG_TASK=y
+>   
+> diff --git a/kernel/watchdog.c b/kernel/watchdog.c
+> index 0685e3a..a5fa116 100644
+> --- a/kernel/watchdog.c
+> +++ b/kernel/watchdog.c
+> @@ -363,7 +363,7 @@ static struct cpumask watchdog_allowed_mask __read_mostly;
+>   
+>   /* Global variables, exported for sysctl */
+>   unsigned int __read_mostly softlockup_panic =
+> -			IS_ENABLED(CONFIG_BOOTPARAM_SOFTLOCKUP_PANIC);
+> +			CONFIG_BOOTPARAM_SOFTLOCKUP_PANIC;
+>   
+>   static bool softlockup_initialized __read_mostly;
+>   static u64 __read_mostly sample_period;
+> @@ -879,7 +879,9 @@ static enum hrtimer_restart watchdog_timer_fn(struct hrtimer *hrtimer)
+>   
+>   		add_taint(TAINT_SOFTLOCKUP, LOCKDEP_STILL_OK);
+>   		sys_info(softlockup_si_mask & ~SYS_INFO_ALL_BT);
+> -		if (softlockup_panic)
+> +		duration = duration / get_softlockup_thresh();
+
+Nit: reusing "duration" here makes things a bit confusing, maybe just
+use a temp variable?
+
+	thresh_count = duration / get_softlockup_thresh();
+
+	if (softlockup_panic && thresh_count >= softlockup_panic)
+		panic("softlockup: hung tasks");
+
+Cheers,
+Lance
+
 > +
-> +	for (;;) {
-> +		young |= ptep_clear_flush_young(vma, addr, ptep);
-> +		if (--nr == 0)
-> +			break;
-> +		ptep++;
-> +		addr += PAGE_SIZE;
-> +	}
-> +
-> +	return young;
-> +}
-> +#endif
-> +
->  /*
->   * On some architectures hardware does not set page access bit when accessing
->   * memory page, it is responsibility of software setting this bit. It brings
-> diff --git a/mm/rmap.c b/mm/rmap.c
-> index d6799afe1114..ec232165c47d 100644
-> --- a/mm/rmap.c
-> +++ b/mm/rmap.c
-> @@ -827,9 +827,11 @@ static bool folio_referenced_one(struct folio *folio,
->  	struct folio_referenced_arg *pra = arg;
->  	DEFINE_FOLIO_VMA_WALK(pvmw, folio, vma, address, 0);
->  	int ptes = 0, referenced = 0;
-> +	unsigned int nr;
->  
->  	while (page_vma_mapped_walk(&pvmw)) {
->  		address = pvmw.address;
-> +		nr = 1;
->  
->  		if (vma->vm_flags & VM_LOCKED) {
->  			ptes++;
-> @@ -874,9 +876,21 @@ static bool folio_referenced_one(struct folio *folio,
->  			if (lru_gen_look_around(&pvmw))
->  				referenced++;
->  		} else if (pvmw.pte) {
-> +			if (folio_test_large(folio)) {
-> +				unsigned long end_addr = pmd_addr_end(address, vma->vm_end);
-> +				unsigned int max_nr = (end_addr - address) >> PAGE_SHIFT;
-> +				pte_t pteval = ptep_get(pvmw.pte);
-> +
-> +				nr = folio_pte_batch(folio, pvmw.pte, pteval, max_nr);
-> +			}
-> +
-> +			ptes += nr;
->  			if (ptep_clear_flush_young_notify(vma, address,
-> -						pvmw.pte))
-> +						pvmw.pte, nr))
->  				referenced++;
-> +			/* Skip the batched PTEs */
-> +			pvmw.pte += nr - 1;
-> +			pvmw.address += (nr - 1) * PAGE_SIZE;
->  		} else if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE)) {
->  			if (pmdp_clear_flush_young_notify(vma, address,
->  						pvmw.pmd))
-> @@ -886,7 +900,11 @@ static bool folio_referenced_one(struct folio *folio,
->  			WARN_ON_ONCE(1);
->  		}
->  
-> -		pra->mapcount--;
-> +		pra->mapcount -= nr;
-> +		if (ptes == pvmw.nr_pages) {
-> +			page_vma_mapped_walk_done(&pvmw);
-> +			break;
-> +		}
->  	}
->  
->  	if (referenced)
+> +		if (softlockup_panic && duration >= softlockup_panic)
+>   			panic("softlockup: hung tasks");
+>   	}
+>   
+> @@ -1228,7 +1230,7 @@ static const struct ctl_table watchdog_sysctls[] = {
+>   		.mode		= 0644,
+>   		.proc_handler	= proc_dointvec_minmax,
+>   		.extra1		= SYSCTL_ZERO,
+> -		.extra2		= SYSCTL_ONE,
+> +		.extra2		= SYSCTL_INT_MAX,
+>   	},
+>   	{
+>   		.procname	= "softlockup_sys_info",
+> diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
+> index ba36939..17a7a77 100644
+> --- a/lib/Kconfig.debug
+> +++ b/lib/Kconfig.debug
+> @@ -1110,13 +1110,14 @@ config SOFTLOCKUP_DETECTOR_INTR_STORM
+>   	  the CPU stats and the interrupt counts during the "soft lockups".
+>   
+>   config BOOTPARAM_SOFTLOCKUP_PANIC
+> -	bool "Panic (Reboot) On Soft Lockups"
+> +	int "Panic (Reboot) On Soft Lockups"
+>   	depends on SOFTLOCKUP_DETECTOR
+> +	default 0
+>   	help
+> -	  Say Y here to enable the kernel to panic on "soft lockups",
+> -	  which are bugs that cause the kernel to loop in kernel
+> -	  mode for more than 20 seconds (configurable using the watchdog_thresh
+> -	  sysctl), without giving other tasks a chance to run.
+> +	  Set to a non-zero value N to enable the kernel to panic on "soft
+> +	  lockups", which are bugs that cause the kernel to loop in kernel
+> +	  mode for more than (N * 20 seconds) (configurable using the
+> +	  watchdog_thresh sysctl), without giving other tasks a chance to run.
+>   
+>   	  The panic can be used in combination with panic_timeout,
+>   	  to cause the system to reboot automatically after a
+> @@ -1124,7 +1125,7 @@ config BOOTPARAM_SOFTLOCKUP_PANIC
+>   	  high-availability systems that have uptime guarantees and
+>   	  where a lockup must be resolved ASAP.
+>   
+> -	  Say N if unsure.
+> +	  Say 0 if unsure.
+>   
+>   config HAVE_HARDLOCKUP_DETECTOR_BUDDY
+>   	bool
+> diff --git a/tools/testing/selftests/bpf/config b/tools/testing/selftests/bpf/config
+> index 558839e..2485538 100644
+> --- a/tools/testing/selftests/bpf/config
+> +++ b/tools/testing/selftests/bpf/config
+> @@ -1,6 +1,6 @@
+>   CONFIG_BLK_DEV_LOOP=y
+>   CONFIG_BOOTPARAM_HARDLOCKUP_PANIC=y
+> -CONFIG_BOOTPARAM_SOFTLOCKUP_PANIC=y
+> +CONFIG_BOOTPARAM_SOFTLOCKUP_PANIC=1
+>   CONFIG_BPF=y
+>   CONFIG_BPF_EVENTS=y
+>   CONFIG_BPF_JIT=y
+> diff --git a/tools/testing/selftests/wireguard/qemu/kernel.config b/tools/testing/selftests/wireguard/qemu/kernel.config
+> index 0504c11..bb89d2d 100644
+> --- a/tools/testing/selftests/wireguard/qemu/kernel.config
+> +++ b/tools/testing/selftests/wireguard/qemu/kernel.config
+> @@ -80,7 +80,7 @@ CONFIG_HARDLOCKUP_DETECTOR=y
+>   CONFIG_WQ_WATCHDOG=y
+>   CONFIG_DETECT_HUNG_TASK=y
+>   CONFIG_BOOTPARAM_HARDLOCKUP_PANIC=y
+> -CONFIG_BOOTPARAM_SOFTLOCKUP_PANIC=y
+> +CONFIG_BOOTPARAM_SOFTLOCKUP_PANIC=1
+>   CONFIG_BOOTPARAM_HUNG_TASK_PANIC=1
+>   CONFIG_PANIC_TIMEOUT=-1
+>   CONFIG_STACKTRACE=y
+
 
