@@ -4,82 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9075DD65C4F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 14:21:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA626D65C49
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 17 Dec 2025 14:23:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Cc
-	:Subject:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fzuwhM6lbndckRqp5riuGOoINfb0fnQbjhJBQ4T2P2Y=; b=jbmmyIYXwP4NUA1yUY+pVL4AqJ
-	lqOmcHe5NAuM9gRZPulyeukd1CSVAyERxLhzhkFLLz0Sn2ELiw/BWItvzr/VyZcb5vhWfrUNihLWV
-	qlisbLr1ScoGdrZRv4mLnGmzNGdVE5udDx7vQ50i8oWydadOjPyEQfBDvpD9eRK+zmToFXzgMf6jF
-	MEcC62ywDJN9gL7LPJbm926wSnco1FHtJ+53lkoXiepkZW9Gr3ew6O1gPqB+vqbCwWwlGmhNT2dUB
-	EZljAWdHzcxmPrtNmXWYBuBLpbLvS5HSrjdmlizAKTtwRIXMZonm/unSaJ0FQPqDkrUlUYxXtfwpc
-	tvmpHD1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GVOOD0oX6H5lnhqoOO9kSPnDHon5igPG7Kldg5a0Tug=; b=1zJi59dIMVrY2IHEWNRakRlU7w
+	2YB2+kzu3g7F2EExve6Uq9xPZqbBz+Kpxb+C/1R+dX/cfZ0vHezN+5yRR/OhHujC0Tz6Xcwgo0r8i
+	Mxd97fPJK8oZCAC1BFqhXjyGFZk87yr/UoG/B8gMpEesDazZskMk4VbWL7Zp4G3S3nD97a7fD+HX7
+	TJS+WY6/jB4OhmYy/YPlTZuXcl0YXVNodq/T1s55daKzhKrhlMXUhY4ZBuJB/Veft8TFtQPsmc7Bq
+	tBZdaPMfUuAA2MxAzA92O/CMicrvrjv3yPUpvJQquh1p9MQX9mYahZ5n7EGXzYbih23BffzHQZeA5
+	Vc4+PPuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVsOq-00000006uxi-0Wvw;
-	Wed, 17 Dec 2025 14:21:08 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVsOn-00000006uwD-1C7D
+	id 1vVsQa-00000006v9H-2cw7;
+	Wed, 17 Dec 2025 14:22:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vVsQY-00000006v8u-0hEl
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 17 Dec 2025 14:21:06 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id E9DC9C1A59E;
-	Wed, 17 Dec 2025 14:20:32 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 7856B6072F;
-	Wed, 17 Dec 2025 14:20:57 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 2AD0C102F0AE7;
-	Wed, 17 Dec 2025 15:20:50 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1765981256; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=fzuwhM6lbndckRqp5riuGOoINfb0fnQbjhJBQ4T2P2Y=;
-	b=uo/EpFVW114mOVRPBJ6qYD906sPlDPXN6KS04EyTCQk5y1TX+kbG/JzkDeugkXJ2ezYT8I
-	oxd6n6GjqVr7w5osstXPY1iHWlwu9tdSbCRbaQI9oU54oVAsYQD8nOzUchcVzDMn3q/O36
-	3iWM9AGXAJELmC0B3cYuHKVKoIfTVAs3ZPby1bZ4lLuvsxnOgNhGbzgChpU7CV2x1wrP6+
-	rkufEsTngy2GmQKMyl2Ea7odZkZqV8Eyrzn8PCApU94zRhA2LhHiGg1Rhahcp/YOWZu1Rh
-	DyaVdBflWfKg9JDLDyhcnxQgGy63jUuATOVpWltDbPwZXWFNXSZfuvojxc5LyA==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 17 Dec 2025 15:20:49 +0100
-Message-Id: <DF0K3U9DB08N.2LEUCUUQ7FN0L@bootlin.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v2 04/20] drm/tilcdc: Add support for DRM bus flags and
- simplify panel config
-Cc: "Markus Schneider-Pargmann" <msp@baylibre.com>, "Bajjuri Praneeth"
- <praneeth@ti.com>, "Louis Chauvet" <louis.chauvet@bootlin.com>, "Thomas
- Petazzoni" <thomas.petazzoni@bootlin.com>, "Miguel Gazquez"
- <miguel.gazquez@bootlin.com>, <dri-devel@lists.freedesktop.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-omap@vger.kernel.org>
-To: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>, "Jyri Sarha"
- <jyri.sarha@iki.fi>, "Tomi Valkeinen" <tomi.valkeinen@ideasonboard.com>,
- "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
- <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David
- Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Rob
- Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Russell King"
- <linux@armlinux.org.uk>, "Bartosz Golaszewski" <brgl@bgdev.pl>, "Tony
- Lindgren" <tony@atomide.com>, "Andrzej Hajda" <andrzej.hajda@intel.com>,
- "Neil Armstrong" <neil.armstrong@linaro.org>, "Robert Foss"
- <rfoss@kernel.org>, "Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>,
- "Jonas Karlman" <jonas@kwiboo.se>, "Jernej Skrabec"
- <jernej.skrabec@gmail.com>
-X-Mailer: aerc 0.20.1
-References: <20251211-feature_tilcdc-v2-0-f48bac3cd33e@bootlin.com>
- <20251211-feature_tilcdc-v2-4-f48bac3cd33e@bootlin.com>
-In-Reply-To: <20251211-feature_tilcdc-v2-4-f48bac3cd33e@bootlin.com>
-X-Last-TLS-Session-Version: TLSv1.3
+	Wed, 17 Dec 2025 14:22:55 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6DE84FEC
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 06:22:43 -0800 (PST)
+Received: from [192.168.0.1] (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 56F353F73B
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 06:22:50 -0800 (PST)
+Date: Wed, 17 Dec 2025 14:21:58 +0000
+From: Liviu Dudau <liviu.dudau@arm.com>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: soc@kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ARM: dts: vexpress/v2m-rs1: Use documented
+ arm,vexpress,config-bus child node names
+Message-ID: <aUK8hkoz0LmsIZXA@e142607>
+References: <20251216191212.2879226-2-robh@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20251216191212.2879226-2-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_062105_553255_F01912E9 
-X-CRM114-Status: UNSURE (   9.10  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251217_062254_275115_BF61A44B 
+X-CRM114-Status: GOOD (  15.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,34 +67,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu Dec 11, 2025 at 5:38 PM CET, Kory Maincent (TI.com) wrote:
-> Migrate CRTC mode configuration to use standard DRM bus flags in
-> preparation for removing the tilcdc_panel driver and its custom
-> tilcdc_panel_info structure.
->
-> Add support for DRM_BUS_FLAG_PIXDATA_DRIVE_NEGEDGE and
-> DRM_BUS_FLAG_SYNC_DRIVE_NEGEDGE flags to control pixel clock and sync
-> signal edge polarity, while maintaining backward compatibility with the
-> existing tilcdc panel info structure.
->
-> Simplify several hardware parameters by setting them to fixed defaults
-> based on common usage across existing device trees:
-> - DMA burst size: 16 (previously configurable via switch statement)
-> - AC bias frequency: 255 (previously panel-specific)
-> - FIFO DMA request delay: 128 (previously panel-specific)
->
-> These parameters show no variation in real-world usage, so hardcoding
-> them simplifies the driver without losing functionality.
->
-> Preserve FIFO threshold configurability by detecting the SoC type, as
-> this parameter varies between AM33xx (8) and DA850 (16) platforms.
->
-> Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
+On Tue, Dec 16, 2025 at 01:12:12PM -0600, Rob Herring (Arm) wrote:
+> Update the arm,vexpress,config-bus child node names to use the
+> documented ones. Most of these were updated a while back, but I missed
+> these.
+> 
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 
-Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Reviewed-by: Liviu Dudau <liviu.dudau@arm.com>
 
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Best regards,
+Liviu
+
+> ---
+> SoC maintainers may want to take this directly?
+> 
+>  arch/arm/boot/dts/arm/vexpress-v2m-rs1.dtsi | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm/boot/dts/arm/vexpress-v2m-rs1.dtsi b/arch/arm/boot/dts/arm/vexpress-v2m-rs1.dtsi
+> index 158b3923eae3..248b8e492d43 100644
+> --- a/arch/arm/boot/dts/arm/vexpress-v2m-rs1.dtsi
+> +++ b/arch/arm/boot/dts/arm/vexpress-v2m-rs1.dtsi
+> @@ -420,7 +420,7 @@ mcc {
+>  					compatible = "arm,vexpress,config-bus";
+>  					arm,vexpress,config-bridge = <&v2m_sysreg>;
+>  
+> -					oscclk0 {
+> +					clock-controller-0 {
+>  						/* MCC static memory clock */
+>  						compatible = "arm,vexpress-osc";
+>  						arm,vexpress-sysreg,func = <1 0>;
+> @@ -429,7 +429,7 @@ oscclk0 {
+>  						clock-output-names = "v2m:oscclk0";
+>  					};
+>  
+> -					v2m_oscclk1: oscclk1 {
+> +					v2m_oscclk1: clock-controller-1 {
+>  						/* CLCD clock */
+>  						compatible = "arm,vexpress-osc";
+>  						arm,vexpress-sysreg,func = <1 1>;
+> @@ -438,7 +438,7 @@ v2m_oscclk1: oscclk1 {
+>  						clock-output-names = "v2m:oscclk1";
+>  					};
+>  
+> -					v2m_oscclk2: oscclk2 {
+> +					v2m_oscclk2: clock-controller-2 {
+>  						/* IO FPGA peripheral clock */
+>  						compatible = "arm,vexpress-osc";
+>  						arm,vexpress-sysreg,func = <1 2>;
+> @@ -447,7 +447,7 @@ v2m_oscclk2: oscclk2 {
+>  						clock-output-names = "v2m:oscclk2";
+>  					};
+>  
+> -					volt-vio {
+> +					regulator-vio {
+>  						/* Logic level voltage */
+>  						compatible = "arm,vexpress-volt";
+>  						arm,vexpress-sysreg,func = <2 0>;
+> -- 
+> 2.51.0
+> 
 
