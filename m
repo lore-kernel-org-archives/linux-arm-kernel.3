@@ -4,74 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D410FD68BF6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 10:19:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 162E1D68BF6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 10:22:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aWdMku9LK5PFx1F1L2Z19osi5GnZTsR0+SmWdNSoHeY=; b=f9cQg89TIEUHblN2MoXSj42zrx
-	2tdjqqb1jKu1nVwTd7lH6c6/gZejn8xme6Z0FJ02fC4wtwe6FCrHNMGnBTIvQKA/5n3Da4ZL5lsGY
-	zycdJyGvOONHfJ6/i4KgdU92uTMIpW7aVzba0Gam91rpf4mRpt4IwqbOaHnAFgn6ZQiez1dzO1Ur2
-	0ZDOFuQQ6kNFQvjqv7Q5+jAF90Z8Y8iKZ8KFv85LBAWsG09kKyThfkesrjs3jPuAw1kHZjhkLs7a6
-	4tLqcPDftMGSVM9X3fUw/vmP54AyWsMZbUheK7o6hPbP4iRL7OHV07H/GOPoqMz/xcfRpDxmBgzQD
-	LDz0bz+A==;
+	bh=mFHiw7KS45+Y5Ey+urMC6Lnv/CqjydjTc7etoHKEfKU=; b=PAQhb5Xbk42ne2Z6Ti5bVuKWsU
+	thE8azCrZkzjVZTPJUt9umvWsgmYjzdrn96ZKGWLkc8jwQZroU9hCfbP898J5dLVZzCXxoO9eOGrx
+	e4u5O493/QrPh/sGN0adJvp6m1WtXPaXYnqIME4E/QYb2o6+PQhg43nWPU1NOzgrXsJqPI8BOgMg2
+	E9gSkx7wBdbGlfNyDe5tUJCh+3ZaU0Pw+F56WkmVwF+ODkvPmjqWGbfrAwuM4yOtkWl6W8ZDERiEF
+	gQ21wXF3WDMrWKZuppIdQIYX1MExdk3ZF+31dHywFg002E6cGeVLbT9yOEpOWXOn3TjOEdikujuM3
+	yzCw8TiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWB6t-00000008Dva-1Ua6;
-	Thu, 18 Dec 2025 10:19:51 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWB6q-00000008DvA-3fvn
+	id 1vWB9m-00000008E5r-43QN;
+	Thu, 18 Dec 2025 10:22:50 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vWB9j-00000008E5X-3faj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 10:19:50 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id A00BC1A22C0;
-	Thu, 18 Dec 2025 10:19:46 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 76546606B6;
-	Thu, 18 Dec 2025 10:19:46 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9BBCC102F0AE2;
-	Thu, 18 Dec 2025 11:19:39 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1766053181; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=aWdMku9LK5PFx1F1L2Z19osi5GnZTsR0+SmWdNSoHeY=;
-	b=dzXSoQqtVgMzu4RQ1UInBdB6ThGYAAG8CPz6Ms4jJHpK3wUVoG4UUr96ZEeGLEtMqB/6ME
-	7ccMp4X7w66U8kgoFUnwjK948/P+GhwE43xPtPzCEm5j2SiDSJlKrg+e5L+KXn7g+dzVXu
-	h23A9OjSGfRHl743SLDMt2qZIxSz7CmbzLc1ta4l5T6KYC5FNmvHCSjDeiDlmaZZSMgFlR
-	IpK/htyklTg0mYnPD6b8GZI+tb++AMlfgG2nlBK8hGspvMQOMS02Af2cIIwxG2KHR3fU8F
-	zBgSa4yrQhN4+zlpILc++fxww/xj/+5wf3rwXEYtPc7EKwa+uJA5+y+yltombg==
-Message-ID: <e8c4d832-3146-4fad-a0f6-0e2df77e83c0@bootlin.com>
-Date: Thu, 18 Dec 2025 11:19:39 +0100
+	Thu, 18 Dec 2025 10:22:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 963B7FEC;
+	Thu, 18 Dec 2025 02:22:38 -0800 (PST)
+Received: from e134710.manchester.arm.com (e134710.arm.com [10.33.10.82])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C6D4D3F73F;
+	Thu, 18 Dec 2025 02:22:43 -0800 (PST)
+From: Ahmed Tiba <ahmed.tiba@arm.com>
+To: krzk@kernel.org,
+	linux-acpi@vger.kernel.org,
+	devicetree@vger.kernel.org
+Cc: tony.luck@intel.com,
+	bp@alien8.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	rafael@kernel.org,
+	linux-doc@vger.kernel.org,
+	Dmitry.Lamerov@arm.com,
+	Michael.Zhao2@arm.com,
+	ahmed.tiba@arm.com
+Subject: Re: [PATCH 10/12] dt-bindings: ras: document estatus provider
+Date: Thu, 18 Dec 2025 10:22:36 +0000
+Message-ID: <20251218102238.2235329-1-ahmed.tiba@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <2a2baef6-c294-4c31-bec2-10fbaa3f7941@kernel.org>
+References: <2a2baef6-c294-4c31-bec2-10fbaa3f7941@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/4] firmware: ti_sci: restore clock context during
- resume in BOARDCFG_MANAGED mode
-To: Dhruva Gole <d-gole@ti.com>
-Cc: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
- Santosh Shilimkar <ssantosh@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Gregory CLEMENT <gregory.clement@bootlin.com>,
- richard.genoud@bootlin.com, Udit Kumar <u-kumar1@ti.com>,
- Prasanth Mantena <p-mantena@ti.com>, Abhash Kumar <a-kumar2@ti.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-clk@vger.kernel.org
-References: <20251205-ti-sci-jacinto-s2r-restore-irq-v3-0-d06963974ad4@bootlin.com>
- <20251205-ti-sci-jacinto-s2r-restore-irq-v3-4-d06963974ad4@bootlin.com>
- <20251217060727.idneboxj7kwslie2@lcpd911>
-Content-Language: en-US
-From: Thomas Richard <thomas.richard@bootlin.com>
-In-Reply-To: <20251217060727.idneboxj7kwslie2@lcpd911>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_021949_056464_CFE2B545 
-X-CRM114-Status: GOOD (  21.37  )
+X-CRM114-CacheID: sfid-20251218_022247_948957_F65F70EC 
+X-CRM114-Status: UNSURE (   5.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,64 +76,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/17/25 7:07 AM, Dhruva Gole wrote:
-> On Dec 05, 2025 at 15:28:26 +0100, Thomas Richard (TI.com) wrote:
->> In BOARDCFG_MANAGED mode, the firmware cannot restore the clock rates and
->> the clock parents. This responsibility is therefore delegated to the ti_sci
->> driver, which uses clk_restore_context() to trigger the context_restore()
->> operation for all registered clocks, including those managed by the sci-clk
->> driver. The sci-clk driver implements the context_restore() operation to
->> ensure rates and clock parents are correctly restored.
->>
->> Signed-off-by: Thomas Richard (TI.com) <thomas.richard@bootlin.com>
->> ---
->>  drivers/firmware/ti_sci.c | 3 +++
->>  1 file changed, 3 insertions(+)
->>
->> diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
->> index 8d94745376e2a..6ef687e481c49 100644
->> --- a/drivers/firmware/ti_sci.c
->> +++ b/drivers/firmware/ti_sci.c
->> @@ -9,6 +9,7 @@
->>  #define pr_fmt(fmt) "%s: " fmt, __func__
->>  
->>  #include <linux/bitmap.h>
->> +#include <linux/clk.h>
->>  #include <linux/cpu.h>
->>  #include <linux/debugfs.h>
->>  #include <linux/export.h>
->> @@ -3980,6 +3981,8 @@ static int ti_sci_resume_noirq(struct device *dev)
->>  				if (ret)
->>  					return ret;
->>  			}
->> +
->> +			clk_restore_context();
-> 
-> Here as well, make it conditional to only BOARDCFG_MANAGED. Other
-> platforms/ firmwares have lived without this for a while now, and it's
-> evident that we don't always need this.
+On 18/12/2025 07:48, Krzysztof Kozlowski wrote:
+> Please follow standard mailing list reply style. I am not reading the
+> rest and I still expect to implement my feedback fully.
 
-It is already conditionally done to only BOARDCFG_MANAGED.
+Apologies for the poor reply formatting.
 
-> 
-> Thinking more about this, I think we're over using this BOARDCFG_MANAGED
-> mode a bit much. We should really just come up with new FW caps for
-> this, one for clk_restore , other for the previous IRQ restore patch.
-> 
-> That's the only way I can see this scaling. In future if we ever need
-> more devices that may actually be BOARDCFG_MANAGED, but don't need the
-> IRQ or clock restoration then the current approach won't work.
-> 
-> MODE should only be passed in the prepare_sleep, where it makes sense.
-> Using it for anything else just does not feel clean to me.
+I will resend my reply with proper inline formatting and full
+context preserved, and follow up with a new revision implementing
+your feedback.
 
-Fair point. Restoring clocks and IRQs is more related to the fact that
-DM-Firmware on Jacinto platforms does not have suspend-resume support
-than the BOARDCFG_MANAGED mode. I guess we could imagine in the future
-having suspend-resume support in Jacinto DM-Firmware, so no need to
-restore clocks and IRQs anymore, but the mode remains BOARDCFG_MANAGED.
-
-Best Regards,
-Thomas
-
+Thanks.
+Ahmed
 
