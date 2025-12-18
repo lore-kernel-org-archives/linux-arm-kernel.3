@@ -4,85 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33CD8D6E2AD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 16:21:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D413D6E2AD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 16:21:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F5MqwZJqRk8YQwy0Ja58KfR5cn5zu1oyhzTuFI4Y998=; b=oTCdaPDhk8gfbkVmPDTHQyStlR
-	IfpqoGY+kRcB1Rmq50WSUclU90Z9B2xAWQ0QE58QknSwPmIvWLfYhy3JppvyoZWVa2jmyj8A34rIt
-	O8VLdW1GbwuAx8hhzhlPfo9XIpnG6vnJH0DetiQY/+LY3dFrKPNOAzIHezkRjiQY4NprTt+Xh2jUH
-	tsw4l35ed+sI7d3NBW+mTtWr3yHvqbKWaeHvHpYjQ+CgJ2cMhqW4876F8PETffQ4lE9flqq2vdXIk
-	yRJ8FSd+x0j2Niohs6cGvglOwVcTb6yozTC4cfnVm3BQoxODNK1kXxWe3iCKi/d05TVWxraZqWJL+
-	uBr08gpw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WKkqvBmkmvjthxMWv7j89hLdj0nj+Bs/PwYpek8ncWY=; b=xpCg36X4+D1Jz/pJqvzajvMnr3
+	mlMVq9462hX9e6rYrkp/0KSad2nF67pNbv9tfzHE9H5Xm7RMWyCqX9HROh2pxRWwiWAOyOF4A7XHN
+	puXV9NoCvZSCyruuNSSeBEdaBsIq/L87Wn0Y+4u/jN71TprfMTLiRYPfuI3xoSDngwZ2iR7LSq/0i
+	bb2TVSe2LyUT7NJwjkYP9QuAWw2sMcxOvZieg8BzYn9nDoaRwDYT4xQJdROh2sV905Bi33pRRnaBp
+	D8ZbLcHuBZ+8j/ckfDXLzHqmMvbHscGygBtlZK3ZWfoIhmQa8rbJGhyCNdg+FHMGAJwG8wurkcke8
+	jGy7i+Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWGkL-00000008nx5-0S6F;
-	Thu, 18 Dec 2025 16:20:57 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vWGkt-00000008o33-2Grf;
+	Thu, 18 Dec 2025 16:21:31 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWGkI-00000008nwN-0eZd
+	id 1vWGks-00000008o2i-3H5m
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 16:20:55 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vWGjK-0007oT-B8; Thu, 18 Dec 2025 17:19:54 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vWGjJ-006JcI-0d;
-	Thu, 18 Dec 2025 17:19:53 +0100
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vWGjJ-00EcBP-0A;
-	Thu, 18 Dec 2025 17:19:53 +0100
-Date: Thu, 18 Dec 2025 17:19:53 +0100
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Christoph Stoidner <C.Stoidner@phytec.de>
-Cc: Primoz Fiser <primoz.fiser@norik.com>, Abel Vesa <abelvesa@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrej Picej <andrej.picej@norik.com>,
-	Christian Hemp <C.Hemp@phytec.de>,
-	Stefan =?utf-8?Q?M=C3=BCller-Klieser?= <S.Mueller-Klieser@phytec.de>,
-	Norbert Wesp <N.Wesp@phytec.de>,
-	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
-Subject: Re: [PATCH 2/2] arm64: dts: imx93-phyboard-segin: Add peb-av-02
- overlay
-Message-ID: <20251218161953.wjiruxqmib7lchol@pengutronix.de>
-References: <20251202-v6-18-topic-imx93-phyboard-segin-av-02-display-v1-0-9c14be6c7478@pengutronix.de>
- <20251202-v6-18-topic-imx93-phyboard-segin-av-02-display-v1-2-9c14be6c7478@pengutronix.de>
- <15bb2331-713a-4b6a-ae9a-4870066e84dc@norik.com>
- <20251215170750.j2l6gnbocmhdloe6@pengutronix.de>
- <09a773bb51331940e76fbeb5e8128c183bf6d621.camel@phytec.de>
+	Thu, 18 Dec 2025 16:21:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DDE74600AC;
+	Thu, 18 Dec 2025 16:21:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E97FDC4CEFB;
+	Thu, 18 Dec 2025 16:21:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766074889;
+	bh=pxAsOeSjKJzBz8yijpcYLx5eGwyW2PxViPrSNgYgi/M=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=NoRsjsVz19FgfumHZPwAQ5nfDjIZ5uOYDZHIf0SjR+3rzWnSPmzq/D9Jxo9f5TIMk
+	 6Rq9310J+ibUlaiLG8DA1Nt4LxThZRtvrhRRdm5IBuBIDS6Slci/dcMBfd1Q0VRcK/
+	 Jf8aLbfB7xYJVug3SmXxtbwyRMx9dKSUUbZNCaUbgWtcyLcXXA4XWa5IgDWnp2PrxN
+	 k2tkWoUPvKs6eN3iw29MbqB1ny4H5c3cIw14WkgFZHobyBug8TRFyScCFDEdBnWqoa
+	 r6T0TJ1qmGV+EM+xCIKeXCj/BhIzdYVQITLsWBt9tYoXwORQz6sMzFYoy2h8rFDxD5
+	 /nQD+MmdGuAKg==
+Message-ID: <5aa36c56-798a-40cc-b0b8-be3f7c92136f@kernel.org>
+Date: Thu, 18 Dec 2025 17:21:22 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <09a773bb51331940e76fbeb5e8128c183bf6d621.camel@phytec.de>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_082054_192825_153279F9 
-X-CRM114-Status: GOOD (  17.79  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 1/2] dt-bindings: arm: aspeed: add ASRock Rack ALTRAD8
+ board
+To: Rebecca Cran <rebecca@bsdio.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Tan Siewert <tan.siewert@hetzner.com>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org
+Cc: Billy Tsai <billy_tsai@aspeedtech.com>,
+ Conor Dooley <conor.dooley@microchip.com>
+References: <20251218161816.38155-1-rebecca@bsdio.com>
+ <20251218161816.38155-2-rebecca@bsdio.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251218161816.38155-2-rebecca@bsdio.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,48 +121,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-12-16, Christoph Stoidner wrote:
-> Hi Marco,
+On 18/12/2025 17:18, Rebecca Cran wrote:
+> Document ASRock Rack ALTRAD8 (ALTRAD8UD-1L2T and ALTRAD8UD2-1L2Q)
+> compatibles.
 > 
-> On Mo, 2025-12-15 at 18:07 +0100, Marco Felsch wrote:
-> > Hi Primoz,
-> > 
-> > On 25-12-03, Primoz Fiser wrote:
+> Signed-off-by: Rebecca Cran <rebecca@bsdio.com>
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> Tested-by: Tan Siewert <tan.siewert@hetzner.com>
 
-...
+How was the binding tested?
 
-> > > > +	touchscreen@38 {
-> > > > +		compatible = "edt,edt-ft5406";
-> > > > +		reg = <0x38>;
-> > > > +		pinctrl-names = "default";
-> > > > +		pinctrl-0 = <&pinctrl_touchscreen>;
-> > > > +		interrupt-parent = <&gpio4>;
-> > > > +		interrupts = <12 IRQ_TYPE_EDGE_FALLING>;
-> > > > +		reset-gpios = <&gpio4 1 GPIO_ACTIVE_LOW>;
-> > > > +		touchscreen-size-x = <1792>;
-> > > > +		touchscreen-size-y = <1024>;
-> > > 
-> > > Please add "wakeup-source" property here like in the downstream
-> > > commit.
-> > > 
-> > > With this in place, panel touch can be used to wake up the board
-> > > from sleep.
-> > 
-> > Is this a required feature? Touchscreens with no certain
-> > low-power mode handlig (e.g. reduced scanning time) can draw much
-> > power
-> > in suspend.
-> > 
-> > I can add it if Phytec is aware of this fact and still wants to have
-> > thsi feature.
-> 
-> Yes, please add this "wakeup-source" property again. This feature 
-> shall work on our platform by default. And one who wants to avoid
-> touchscreen as wakeup-source can modify the device-tree or disable 
-> it for wakeup via policy/sysfs.
 
-Okay, I added the property for the v2.
-
-Regards,
-  Marco
+Best regards,
+Krzysztof
 
