@@ -4,195 +4,182 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6286D6D22E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 15:03:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E9E8D6D22E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 15:11:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KjF2R1RoaKIBiMeD86aWFYD7pEqTL1DfAH1vHGxmzP8=; b=zIXfkTY0jhmm9nn1y3meR9wbAy
-	R3ml9eSuMZA9g+x50Ivir5fYmws4Kuj/oy2cCihi+Av0AsJeC44eW6ZfFAFOFR7te709ORVD+mjTQ
-	l4MfdIvxVN57BIi5m2o0yM6HUhWv8zbq1dkYNWNF4rKArZcbd/TN91Nv5/Q0BaGUakFgoheFLT07a
-	5JxPmM1AURJ4gAkG4A6QL0YEMWfTmuCE9+BdBtRnerI54p4mSzjwwU7MrrVE/C5YyyD0s0s/zGeqv
-	fQfZF0Gc2FXWspcyEPq/YWcriEODA4nyeyTUj8jK+mNu+zWf4s4tTjU7OqwR9edq8/gYoEt0Gs2dg
-	YfVWEyPw==;
+	bh=F+SNzhALd0sgmbVrXMmJ2VqwwZmjrMe9qBqFAo0e1So=; b=2GuwNYyyjbVyG3AkcwF3qKjyun
+	QHtBT+2Wq3FLZ5BUHi4tBp/nCkJffHKyw7LDo9L/bjh9THtapGARk1OfsrzVWrd/fLX+OUsY5gcSt
+	PdE6mreIW9oIuBL+IahnqxHq0tsBx0r95tsxYk+KHjxfcFgltmk2tC3HzQRQXyP0YTbgjwijSsNT9
+	WD8KjW1sV6wKKSxzVGQdLog02ZQVC9ZbBMpVvlEzZNU8SFNjIMbp7E0jQQR6glGaA5Te5/U/IUn5Q
+	OYqFVOQSgZMKqOBqur5ltftGr2B/p2Qcp30CDmqAgVLh3mYLaU1r7zXONPHc97XnJeWJalXu5WPC+
+	1VfiVRiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWFXC-00000008eTd-1Fll;
-	Thu, 18 Dec 2025 15:03:18 +0000
-Received: from mail-swedencentralazon11013055.outbound.protection.outlook.com ([52.101.83.55] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vWFeu-00000008f3D-06Uz;
+	Thu, 18 Dec 2025 15:11:16 +0000
+Received: from mail-northeuropeazon11012025.outbound.protection.outlook.com ([52.101.66.25] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWFX8-00000008eT9-3jz6
+	id 1vWFer-00000008f2l-3Mwh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 15:03:16 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=uyD0ijqKkxWD+SLsfpqVqe7PNPVI4P33SwY4/6OLvrkOh0aZIsKb98N2rlVznO8Kq2crEvIyf+bxXgSmcWQZdX/q3P8/j8WnlOKjLw9g182iNIfOQCFow4NdL9zhrJzBwT40uR+ZVFDCAad5L+WnPLGq1x5rps1ljdFAc0mIbbk7X9mNSx4zpbxmeBQEhpfZSahbVPzXZTqZ9vXozeJuYw/8vSL93o4AbSNZAwZctGcLoP0Kt+LXRtdZL2ZO8ZxvndQ90O3S9Eoh8zEyKvvxxk605vpkfpCqsgYWpH8rrEMSmuu+JcseC+CP9N4rMEp2J3pkvcRDRdNfblgS5t3+qA==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KjF2R1RoaKIBiMeD86aWFYD7pEqTL1DfAH1vHGxmzP8=;
- b=Q2Wfe6ZWWO0ceqEGZuZ4HJhV85OqN0xW3irEmjU/kV1D/4E3W4L9uORmYNkmBWhl6N8rK53pE3x9fZULIjijfM2XKzFqkOpW+gVKXOjf+2ujvfOxDG+BUmN+xpRn+92F5Bq5huWoK2JV7AR4cfEsq0CiGvNM/HOJiPaQp+nRF9uHWNqj+sNLZ9Pr6QIJZfiqt4Ov6L7EiVrb9qywF8MVSxg59qO1WozI3B52Js6lwQPIBQxTdna0QqW0OTMk5aJIHxkcPiHOCpv4lvhd7p8+Y6xR6ShdNS8LdLhfRevCpi7qAO8EN3VlC788LvU6W5e3lpDy/S8ujKsVdYsu9eOHrw==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KjF2R1RoaKIBiMeD86aWFYD7pEqTL1DfAH1vHGxmzP8=;
- b=sB+uqlRPAqpUt79f451OVZRWM0W3dVYwQx7qylH/kfqWjCk3WynEZtd0rOEEO4eaZjtnuIbWrWEH5ZYxoy+Oq4y4nzu4cJJWfamwaNMdhwH8fL0XfYef0WMMGTR+2oFJtzNwGwXY27Gm6LyZ0qIvzARWkUJsFpWRdaF5BueFGo8=
-Received: from AM7PR04CA0005.eurprd04.prod.outlook.com (2603:10a6:20b:110::15)
- by DB4PR08MB7957.eurprd08.prod.outlook.com (2603:10a6:10:37a::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.6; Thu, 18 Dec
- 2025 15:02:33 +0000
-Received: from AM3PEPF00009B9C.eurprd04.prod.outlook.com
- (2603:10a6:20b:110:cafe::bf) by AM7PR04CA0005.outlook.office365.com
- (2603:10a6:20b:110::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.6 via Frontend Transport; Thu,
- 18 Dec 2025 15:02:32 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- AM3PEPF00009B9C.mail.protection.outlook.com (10.167.16.21) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.6
- via Frontend Transport; Thu, 18 Dec 2025 15:02:32 +0000
+	Thu, 18 Dec 2025 15:11:15 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=f4Ev7uFGX/3w7tRn5NCPdwyw/pGEYbMdwx/A3h39ezUxfsxT0U1XIxfa5h/yMP7lqk6wajRA4J1v5TUxOoQ76XgzvQvhY7pyf4NDQ9RYblbCWvRxRWA66gpIi4QYfxL4F8AiMinHonM5ccZKsHUJBlWWSW1QJ+JQifUfVJ7GMv5x/8Zzi+RuthhmZxNU2rvj5q2OyAf1OJZuwbuwKErOw8O6oFohg6nLmYEx/cXDIe30CTbNUTUTqeG2dFysW0IsuoLjTU3TsxdtJlbKXgXzO0Jw+LJSS3WuQpQXt5pOOThHkDm+oCgRyxbsYt47qOG/o1k/5xnQuWAM1pQbsfTXaA==
+ b=GyPFY85DE0CXZOUlNoUQcARfXjfH89FaEZ3L5H3/cHdgi3laYwcxQTEGdlBcgCwywx5m3QcqW9qPwxxsdpjAkRyMZy1e49xJ9+PLuI4OVJBIlfUIqVif8Z82PP4FymFueOUBpPQo4tOFi/te/bw5gb1LojuTZb2DWyjhcK5SRALdsu+J2k9tcvSwi1w8HAQ1s6ha80Brd9jB3gfVdGVzcu+4jl9/SRpcU6zBGBeJSuSksRO/P1mlHAVDdslunaZ1CFc99hhNol3/Pui439FBXaLHBeZXCDgWIrNM49fXxqdRXX/KvccK00WiS2RMMfSCJScBsJOwuwU3JA+gWvz3hw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KjF2R1RoaKIBiMeD86aWFYD7pEqTL1DfAH1vHGxmzP8=;
- b=bG1v0C5qUzedp1js8NoYCKlL/Fulj/kiTxhSK108iHyT6xpZg4T777NF46wETspdB3KuT/6FVfJtlOXewVbtNiZ20+3qDyg6P7SKsJ6dyeQz3HwTBVV0aHQkFry6eBVEMqlCKvqdQ4QT/kfFv/arPP9uNX9gcodwGCcdeHCbyZ480MJCatyPFWeiZbkf7Nwy15RA/b77xvHocPwE1Q2OSJa7xfHLcUYGjgNeWRw5wJq6SbUh5icAbY+593wval5e5JuZpZVtmFM1mzSyXX/QjIZRPLN7XurkPU4oxYhtWPuRsbpGthE0rYWoBPnm01Oy7sLjrplBvvxOHw5xD81ZMw==
+ bh=F+SNzhALd0sgmbVrXMmJ2VqwwZmjrMe9qBqFAo0e1So=;
+ b=HerDTuSS6zdoLLnq8Kpoj8Aoy7QqDbR73aI3dXux6KnVx5T7Tc+m/t2wJ/gd5BRYx6J8NhwonQv4b8ZYbkqqR0qRIr2Ka6B+CydDWA9tDrl9cj+x84MSQ6LPLV8smPSTLz7TpVnIMh4APZkB2LcsZOgHOxUk3UGooRMbYS5io6eZe0aqrchzdHqWdHwoHSTQ24pFHu7IZAsIpD+at5FtKMDOo8bVS26K+9Yx2r11hoSMWA18OwzALoU7mrcHCEa+ZbJV+m6bDR1i1lUKu4B8c8bitRqbDhKMq2oG8nPU1Xbi6SOEaQFLN7WLKyeGnTGTQhaJRR4FFlZ5r/nLIjL6zQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KjF2R1RoaKIBiMeD86aWFYD7pEqTL1DfAH1vHGxmzP8=;
- b=sB+uqlRPAqpUt79f451OVZRWM0W3dVYwQx7qylH/kfqWjCk3WynEZtd0rOEEO4eaZjtnuIbWrWEH5ZYxoy+Oq4y4nzu4cJJWfamwaNMdhwH8fL0XfYef0WMMGTR+2oFJtzNwGwXY27Gm6LyZ0qIvzARWkUJsFpWRdaF5BueFGo8=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by GV1PR08MB7314.eurprd08.prod.outlook.com
- (2603:10a6:150:1d::8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.7; Thu, 18 Dec
- 2025 15:01:30 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739%3]) with mapi id 15.20.9434.001; Thu, 18 Dec 2025
- 15:01:30 +0000
-Date: Thu, 18 Dec 2025 15:01:26 +0000
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org,
-	david@kernel.org, kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
-	dev.jain@arm.com, yang@os.amperecomputing.com,
-	chaitanyas.prakash@arm.com, bigeasy@linutronix.de,
-	clrkwllms@kernel.org, rostedt@goodmis.org,
-	lorenzo.stoakes@oracle.com, ardb@kernel.org, jackmanb@google.com,
-	vbabka@suse.cz, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev
-Subject: Re: [PATCH v2 1/2] arm64: mmu: don't allocate page while spliting
- linear mapping
-Message-ID: <aUQXRpLzKbl+I3Gu@e129823.arm.com>
-References: <20251217182007.2345700-1-yeoreum.yun@arm.com>
- <20251217182007.2345700-2-yeoreum.yun@arm.com>
- <73ced1db-a2e2-49ea-927e-9fc4a30e771e@arm.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <73ced1db-a2e2-49ea-927e-9fc4a30e771e@arm.com>
-X-ClientProxiedBy: LO6P123CA0023.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:313::9) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
+ bh=F+SNzhALd0sgmbVrXMmJ2VqwwZmjrMe9qBqFAo0e1So=;
+ b=YU2i/jC/G4ONIQw4ShpOoC0hWE56LbUk/2txdoXcC8RdE/wXRUjHeM774DEWBYsqIITpZf/znWo0AIDl2W/rkJFryhq4Jp+3Rn+rSevJWA0GBb8OxQ+YlVKEPbn8Xnq431qk8c/ghNqPp6/a+cKTdJ+wFuA6lkXYXE0zhyfSGliytlPqruKoSuCqwQVYUmK792H5r9ng0B+rz08zoF3zKXloxp8HpMLDuP42puA6kGAHjQGsjWiFZraehjcssxWk2ks8NSq1c7qJw9rw1Wdd0TspImEDo5K+X5Mb3Ya0u5AWkJRHAZzcsr/pLQNk7Y2y7Zj8kBTcRkRE/SQT4ZpHgQ==
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
+ by GVXPR04MB10520.eurprd04.prod.outlook.com (2603:10a6:150:1df::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.6; Thu, 18 Dec
+ 2025 15:11:08 +0000
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::21bf:975e:f24d:1612]) by PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::21bf:975e:f24d:1612%5]) with mapi id 15.20.9434.001; Thu, 18 Dec 2025
+ 15:11:08 +0000
+From: Shenwei Wang <shenwei.wang@nxp.com>
+To: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>, Linus Walleij
+	<linusw@kernel.org>, Bartosz Golaszewski <brgl@kernel.org>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>, Mathieu
+ Poirier <mathieu.poirier@linaro.org>, Shawn Guo <shawnguo@kernel.org>, Sascha
+ Hauer <s.hauer@pengutronix.de>, Jonathan Corbet <corbet@lwn.net>
+CC: Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
+	<festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-doc@vger.kernel.org"
+	<linux-doc@vger.kernel.org>, dl-linux-imx <linux-imx@nxp.com>
+Subject: Re: [PATCH v6 2/5] remoteproc: imx_rproc: Populate devices under
+ "rpmsg" subnode
+Thread-Topic: [PATCH v6 2/5] remoteproc: imx_rproc: Populate devices under
+ "rpmsg" subnode
+Thread-Index: AQHccDCJHcG0egnV0k+g5v+6Xq0Q2g==
+Date: Thu, 18 Dec 2025 15:11:08 +0000
+Message-ID: <PAXPR04MB91856F8FFE868B753A38326189A8A@PAXPR04MB9185.eurprd04.prod.outlook.com>
+References: <20251212194341.966387-1-shenwei.wang@nxp.com>
+ <20251212194341.966387-3-shenwei.wang@nxp.com>
+ <805c9dd5-50ca-4e2f-8fe8-b8a601fe4428@foss.st.com>
+In-Reply-To: <805c9dd5-50ca-4e2f-8fe8-b8a601fe4428@foss.st.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB9185:EE_|GVXPR04MB10520:EE_
+x-ms-office365-filtering-correlation-id: b0fb131b-f2a5-4e3b-f894-08de3e47ac3e
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|19092799006|7416014|366016|1800799024|921020|38070700021;
+x-microsoft-antispam-message-info: =?utf-8?B?YjZjN3RKeFR5NldQalk5cjRnWEI3SkQ2Z1dUUTh2TG1Wb0tyZlNlQUw2NzNt?=
+ =?utf-8?B?VFJ4aGNnOXFLWDBhWjNxMGloaEUrM2NmcElqbEc3Z09zVnFIeW1zWktLUkx3?=
+ =?utf-8?B?Y3hHSllLWlBMOHk0dkczVWpuSThkTC94enVYRCtwVFN1NFFtSVJickVqREZi?=
+ =?utf-8?B?TU1Yelp6MlIvL0NJcnkyYStXRTdVKzc1SEhmOEx1RGlVRkg0cHBUaG9LNERU?=
+ =?utf-8?B?QXhpcnpmQ1FyR2tVbmloQVZ4dGZWQkJYVGdSNVVHUzZUMXdRdFlFODJieFdz?=
+ =?utf-8?B?VWJQSDJTN2xFVkZGQjZGWks1SjZia05yb3krbGZOS0VIVGY5K2dwMHpzWVJN?=
+ =?utf-8?B?WXdrRTNsSG95alJBbnVvanhpQlIvbTdtejVvTHU2b3lsQ1Y5MUl6RllYSzFh?=
+ =?utf-8?B?RVZkMUpnSjlaNDgxcWpGMkVmSHlsR0ZvQmV6elVZMHJaTG5GVllQcmhHbEpI?=
+ =?utf-8?B?a1hsUld0aElhWFZ0WWEzWndXWU96T1ZyNnNSQ1o2bDNzQStnaTRaUHg2SmRP?=
+ =?utf-8?B?aWtGM1NOdjdFR1lNa1lzQVgzTEp4Y1V1V0s3bkpRYmlTWHh0eGpwcnFGSTJz?=
+ =?utf-8?B?cDU4NXhkb2dRc1E2RzQzYVRrQUtQcFRlUWJKdktCbk9IcDZvcm8yQmVOeVVx?=
+ =?utf-8?B?TFhBemZUdzZrMm9QR0dReGNWaVdsaVlsVkIyb3orZncza2tENjNoZkpPbU5R?=
+ =?utf-8?B?T3diWjhqZFIxeU5aVFpHWXA0NnBlTHBOL0swbWxHTTg5ZHJCNVMvK0N0UkxG?=
+ =?utf-8?B?WFRQQzhqRkNqaC9oMFRvOGJCNnJpM0t2VXZOcDFjNFd5UVNHVzh1WEhNTDlP?=
+ =?utf-8?B?K09uZ3JnSmJ5WUYvUHBHTkdEdHRQa3lCZUN4TFpMbGYxVEJyVDlCZWlPQmwz?=
+ =?utf-8?B?SzJwSTVEL0xVWFFya1RtNEpQMmJ6aHZBMjVzYjhzdEpwMDNnL2RQSUZ0TVlK?=
+ =?utf-8?B?Rkt6aDQ0WHVXYUlGRlI4Z0hGQnBRUGFoa3BTNDFTLzJXcWlWQlNVRHBZbVZt?=
+ =?utf-8?B?Q083bkQwR1R2MlViRTk3Q29kQzRXQ0srQm9LZGFCWTByZlc2bDFEbHpESVFE?=
+ =?utf-8?B?cTFNVHJBSUhycVVBb3EyeHc1Wm5xajNXazVrdGFKdWxSU3Q0Q1pyaDM5YkJp?=
+ =?utf-8?B?Sk41em5jTEhBbXlpa0RpT0JzQ1ZVbW1YclJKaFN1djNkQmZoSWdMOTFGZmRP?=
+ =?utf-8?B?VFJmUmo5YmhHek1Ka1RSdDBzOSsybHZiZmZIRTUyYmxod2ZXSnR4c3RHOGRz?=
+ =?utf-8?B?MW9OdUs0OUFqS1lSUFM0UjdHSDJ0VGREaStTUk9IYUpVMEVEZFA2TUR4Qmda?=
+ =?utf-8?B?eHR0dW1SQzBNZ2NPT0o2TEZlK2lhWjFvSUl0UUV3TEhObmZkVW9XZkRGSXJJ?=
+ =?utf-8?B?VTkrZzM3a3NVS0RKaE5zSC9KV1N0MWlCUUF5SXh3enFkWjFzejVtaUtWVHR2?=
+ =?utf-8?B?SHgwV1lPR1ovY2RIbTIzOHphNjBKbXZDang3dFN5SG40UXJYR2paUEpvQU9Q?=
+ =?utf-8?B?Q3ZjYk9acXFTRlFsd2ZQYmk4SjgvMzZMOVE2L0V5Q1JDQS9SVWhIcGxmWTNY?=
+ =?utf-8?B?c1RjTmZNMmdIMVp0TWNWUWM3S25obnZRS2ZyMCtzRHlpNjdCZ3pualdhTHhs?=
+ =?utf-8?B?UWQ5RjBlZ21qNkZLc3prODlteGRjQy8zdWQ4WVRMMzlwV2N4OGJTS0p2dXVC?=
+ =?utf-8?B?RXRZOWdhR0tYUy85eXJRYVl3SWdrY2FmNEdjY1hFM1dzcS94dlo5ZnlVNUEx?=
+ =?utf-8?B?N24zRE95V2ZmcXI0UFlVWTZvMUZBV1V2WEdwTFZ3RW0zUm1PbWhucTBjMEo1?=
+ =?utf-8?B?ZTBNb1ZFdDlXUEF0K2ZVbHZsMWcyeTVhUlEwN2JadHIvN1JDazFlRDlKNE9t?=
+ =?utf-8?B?VndtaVduZFIzSCtHYTAya0x3aXU1dFBhWWh3R2lUVEtsVlVzYU1ycDJ2NG1t?=
+ =?utf-8?B?enBEUlNZNHVXbVFjNGNFZlpVTFhXenR5RGlCTWZJc041MEFZZjhzUEt6L0k2?=
+ =?utf-8?B?aDN5UUYvTzdOS0d1UzJDSXZXN0dvZFRWVFpJd092cDZYQUd6SGF4L3NSVWlx?=
+ =?utf-8?B?Y2hQV3lUUlpwRlFOZW95bStRTStEMkNXWWNDZz09?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(19092799006)(7416014)(366016)(1800799024)(921020)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?dEtmVGZaSXRaL0ZXdHV1TkI2UWRURTJzOHg3OWFFSnh1ZTNDL09kRzF6dDJY?=
+ =?utf-8?B?U3pTdHFzN21Za05KSVV1RWt2R3ZsZ2wzTnBBREpyZWUvdnRGcEpMUjJ4WTc2?=
+ =?utf-8?B?blJWNGQvZzg3eitpV2QwRjdCdFpZMDk0cng2c0dlWVVMZG92aEpMaGpJQUVO?=
+ =?utf-8?B?T0pqRzR4ZjdLcUc4ems2REowQjdwTUEvNlBDOFZ3YUVqTGRZbFFHV3RrdGdJ?=
+ =?utf-8?B?OUJ3QUVHM2w5SzVsTnFzWEhUOUJodjJ6ZFJwcTdnUVJWV042SU1NVlkwcEIv?=
+ =?utf-8?B?dTVTazBSUk5Tc2tLYWE2RnI0QkowenlkQzRJVmdJV2xYTjRJYU95QzJoYUxw?=
+ =?utf-8?B?bmpveUh3ZkFLODI5MSsxZ0l0ZUpaNWxwNUM0SmlyTmc5T0ptYVFNRnNTOWhL?=
+ =?utf-8?B?OGRnSlI4cWthK2FtS21PT3J6aTBYcVJiV3FrS1Rsc0pZdjl0ZzFzdUg3WlR1?=
+ =?utf-8?B?MnIwcG94OUpyVHVTY2NLSHd4UmpDYnBvbkF5aGJ6aHg4dFJ3NzdBQlFWdWV3?=
+ =?utf-8?B?Q1VuZHhvM01uWi9jNE5WZjdWVGY0NkVlTitGK3pwakxMd2hUZ0xmNVN5UUFr?=
+ =?utf-8?B?cDJGOXgydmhZRGlFKzgyQ0NydnY4dS9zNXBSZUUxeVcxdHB5U1U1dnd1VVRE?=
+ =?utf-8?B?b3VXWndXK2lRdllkQTY0b2ZHV2ZpdGdvdUtTQmd4QUtyOENtbHNmN1Z0WjJC?=
+ =?utf-8?B?dXJYbU84VnI1UUgwWHpDNWRoZlN0bGN5QjEyaTBudk8reFlodjF0aXlTY2ZY?=
+ =?utf-8?B?NnlPTTFlajMyUXRRNlpEVi9CYWQyaktlVExYRjJEVzFqSDlkYmVMSUtzcWE1?=
+ =?utf-8?B?KzRBYjJXNGNxOWo3a0tqZVVsM3M1OEFsbUpUTExROE1EVVlTU1NYOWdzQUxr?=
+ =?utf-8?B?cDB0NmkwMGEwbXVROEtseWEwcGJDOEVuZzZPaXA5Y29NUDZQd29xK3ZwVXIx?=
+ =?utf-8?B?amxOYVVHMjd5OFl2bWxlbXlCOEVsa0svK2pRUGR1WEYyaElvdlFLdW5PNlox?=
+ =?utf-8?B?QXhBQ0VqWjFZUXZEYmFSeGJKSG9JMlJya1VYOVErcmJFY2JoSHlKU1BvcTlt?=
+ =?utf-8?B?NzFyZmQxWENkTHBaMnV1ZURvOVlLT1pzZHNUMGpzVWlZYy9LbjZhTFkvRFRh?=
+ =?utf-8?B?dHVxZTNPOGJUTkhINzIwTDN4bmN2bExpd2plRkdVdHZFZE5iWXdrcUR5bGxV?=
+ =?utf-8?B?UzRTa0V3Z1oyK2k2dVRQRzZyRmN4MUF4NFJQSHh5aGsyY2FNcC9jajdLU1hh?=
+ =?utf-8?B?TGRkMkVhTm1iaFBna3QvMkJLREFpWnJtdEVPamJaMHRDd2UwY211K0p3RGND?=
+ =?utf-8?B?b1RCenh6S2lTK24reW5jelJjNmZZYmFWRzkwQXNBL2J0bE5BajlRNWtxbjE5?=
+ =?utf-8?B?TjhJejRWYXVZZi9lN2ZPVWRXeGFtTWJkSFhLK0NRV0VpRFhtSGdxcVBwa2RK?=
+ =?utf-8?B?V1FGNVFjbGhFT3F4TXl4SGE2KzdjMWJRam42Wi9uQ3RWdnYyQkFZVlczc0sr?=
+ =?utf-8?B?L3Jsb2QvR0IzZ0IyWG9NZjBVaUFjVjlxNUtlTUxMbnUvMFM3d3FnWGVjdGlx?=
+ =?utf-8?B?MWsrZnVjbHh4dnkvdTk0YlducWdtMVpkUWtKaXl6U2NJYXBCSFJMZitPT1h5?=
+ =?utf-8?B?dGh0MHQ0anZNUVdSOEJCZnBnZWI0M2JzcEJtVzRWS1hUcjQzZEp4WlY3Njdh?=
+ =?utf-8?B?MklMQnRxdkM2WCtyQVhTZVhrdVNZR3J6Tk1WUXkybXdHNFhiMUVVR1ZvNG5k?=
+ =?utf-8?B?TEhYOUw3ZUlPOFhCaG55OE01cnpWc1hZYkhrL1oxK1BwMHF4K2xoSmZPdDVI?=
+ =?utf-8?B?ZVJNK3NHTkU0T0NoWWlRRzRpYmJJdWE0MWhMUXhvUzhRZWFSNTNkOFpIeDBH?=
+ =?utf-8?B?SDZBRUk0RGhzZlhkL01IUllHUHAvQ3ZPanVTQ0ZoVG1ZOGVta2g0cnJIQ1Z0?=
+ =?utf-8?B?NUw4dDNwR2hZTUF6a2dNNC9iR1JuTVUzNmtEMHpoV1JteVo4V0pTSXNISjBz?=
+ =?utf-8?B?YkpnQklhL1lXSjJWWittci9Ia21TQ2Y4Y1M3dHNsNFZRTnJ2M1BrK3ZocWxG?=
+ =?utf-8?B?ZnU1ZlA2dkNvSlpPK2sycmdXYWQ4TDM4MGtUOVFxUGVKZTRRUk1ER1ZNbVFI?=
+ =?utf-8?Q?hq+G8ijmvuLNh6Qm+9eAcjIpA?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|GV1PR08MB7314:EE_|AM3PEPF00009B9C:EE_|DB4PR08MB7957:EE_
-X-MS-Office365-Filtering-Correlation-Id: d75498c0-56d4-4dca-9e9e-08de3e4678ca
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?S14cGM5sOi/M0Fsnth/IC/bPqdlXrPLt4l8xLLR6f6pqKaWbejow16dHpdPP?=
- =?us-ascii?Q?7Ao7KMIF5wD1PT9kysZJ/+5CC3p0ES4XFzOZXyviIIT51WQzfa1u8rFMxlzI?=
- =?us-ascii?Q?pu1xbTKLxOuKf6MzFyaeKqjirzMD6uYLkorI9KYUl3g7B6dyRlRlM8ITRfzA?=
- =?us-ascii?Q?KjOsJqHOlA2bxYiBTX/KrFZ17Rt5BHF/+c6TpoO9iW+3Em6FPj12XeLnmLCI?=
- =?us-ascii?Q?6iB883KEQRR9WhbslsZ9y68N8zn8wcRTPfC8XNpVRlvA0dgsDDOVuI5dsvex?=
- =?us-ascii?Q?8pBBjzakLVqC7KgRiobY8py1NECJvMhBdp/gZ3VGjmUxEz/kIx5pa+VEOmD/?=
- =?us-ascii?Q?K9t994piuG2i8gcIKj6/OQNay6jLFPw6pkomcDjPWFx4bDCVfXspKXA8Og+t?=
- =?us-ascii?Q?qp6Uh3khXGPJgWgvJj6e9oZV0QoeEQUgciQ/AbloChTn8WutaOUo5Jrd5Oc1?=
- =?us-ascii?Q?K89c6y5uYnaLh7fHKHaOY+qe7F07xwTyPx0iZ2ugvI6f3+/3G3c0TbtAaKKo?=
- =?us-ascii?Q?OO1egU2Gr5rRFw8ZhZ2HvJBvZ+p29HCNqY3K97HCrUgUdyE6yme8kxu7RIWd?=
- =?us-ascii?Q?hDoV2OqgwhJqKvTzut2SHwlRyQQ+Ymqa87yurJgwVSoejKKd/ygUiNDlJf7t?=
- =?us-ascii?Q?tdG9e1EHWiwB+lhxy7fRAO87u+/qQwuIO8zQOP2vX03fKoZFg4X9p+m5X+Qo?=
- =?us-ascii?Q?cmVQUIt2RZRmiwlecBKFAO8GCVBh/insXIPZopXoRHyOPznQGAmk1RvZ0L4E?=
- =?us-ascii?Q?zbTwXmYCj7iICvNwn5YLQdMCWCLwjoaMMkkHr2XBwtO+dzyVGqrFP8Ob78ag?=
- =?us-ascii?Q?C2b3tlLUM9BsUCMeiyFzVmP3WlvS9DHP3A1YNlTx7P+5hIhLki9/TKQ+i0A5?=
- =?us-ascii?Q?UkNXXir/9XTd5zukU6ji2lQpRjXf+BXDqQ3qQ6YzMtP+G+nUVRAuyQcoMBho?=
- =?us-ascii?Q?76RaCuj1tbvBb4UggSkxpt3TuLrpmw4EaUAi0q5iR+CI7s1P0UWUB4mJMx8A?=
- =?us-ascii?Q?JXKhfrNiNPph3kyEHIvMxV0uiYpqjDjRlrjtn/I31fWrBNrRdNPus4MPxKsj?=
- =?us-ascii?Q?jORyq9ZrOE9wgRQYt998ScyniBWXe+iMtY5uCrBfEhvMpTosBSovUQRul5y9?=
- =?us-ascii?Q?wRezvsxwmP0Slh61MFu+aemXRExdYAFH8WWJXwaUVgZgQ5f3qw05TPo0S9dU?=
- =?us-ascii?Q?aIxAuPQnbZMpPT/bhnAb0U5yk4l1LD2zzA5Ho7xCKwTRB/C/XRQgwy/Cb4dr?=
- =?us-ascii?Q?3qGBTEwP4tb7wtu4kT5ZsAy3nfULx6ZgS9H2kJHG12TE4E7P5LPaNymBUbK+?=
- =?us-ascii?Q?N+t28fqqT1kwCyZUH/qp2HNEZVXW4vZGdrzTVZAvXxK5sCDB3kcFH0E4FaPK?=
- =?us-ascii?Q?rOwQ6WXBkzZDtjjYGGTYfP6B26xmyR7HLzkDzARd2khM2nSOYr4wp+xevLZw?=
- =?us-ascii?Q?DgjUjLTzXHLjAXtyTnMswaa6bJ50UCYX?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR08MB7314
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM3PEPF00009B9C.eurprd04.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: cc178d4c-a1d9-44e2-a070-08de3e46532a
-X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|7416014|35042699022|376014|82310400026|1800799024|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?050zvgj+FJCCkjM4LqIav77D68mokZCg+cepXNtlXAfis4MHPpdEN8Rowzzk?=
- =?us-ascii?Q?dhZimOQzmw40J5cN/Jbws6jY+8jfIMiGVN9siqIEQy0LH92k7OfGvpqIeB3T?=
- =?us-ascii?Q?b6nDIpIazY3JBTj+nVttreKc/za2zenk+80660PlmwGBeTKcK6trHWMPm38s?=
- =?us-ascii?Q?xDPtoes69TU3urEJljJc3b4KxHkdQYOxqOowzs1l7f3BAcAPqHi/PgkRfPMi?=
- =?us-ascii?Q?4tyjd3QJY74BaKyaZKK3jIKHWCRJWBvKRSZF0ZM5LqWzfpMBftUwXpK42hIC?=
- =?us-ascii?Q?lC4w7U/vKzxz+q/ZKmlXDUcrYY/EyBfIUrxrLByAHpTZ1SoaFgPJqD8E5OB1?=
- =?us-ascii?Q?JNURW5op/HlTny3/Lcqyy8cvebtdkXgDNQhmcQLnLvsCZA6bhp5OFu4hEHXM?=
- =?us-ascii?Q?aiDHmEvTAtmK1+zxcE4yhKppJ+cr4svynxzrzocR9GPg1f6jRsHiNo+BQBZl?=
- =?us-ascii?Q?eep3QvoC2EzZ20dOtvsaHWZrdWU8H20P8vjN7CHI5URoxOsTSvTZpd74/prx?=
- =?us-ascii?Q?Cb6B2clfIbjYbFXNCGbjybdTEG6pEesDjcOTwqU4Szqrvk++NWB0YaRy+ia0?=
- =?us-ascii?Q?25GXyXzW66SoYH9JE62sKZTm/7zHHfnmVD3dnPImIksp1lVW9whcJ6iq71s6?=
- =?us-ascii?Q?hxScjGiUxUp2kq9myfpK5lWQ1CKiwgqPCRjqy9y5t4qmAXkGUeOSa+EGnJ3h?=
- =?us-ascii?Q?ziAxbq66N9OvNLLZKLE40ZGBmcMEhheuJBWO3YXr3iHpVabgWRWwmy3vqKK7?=
- =?us-ascii?Q?THuYiLKTDrl5EoH9LlSTrOZ8m04/yiWnpEWzWOyoOLOag/1ApXYec0EEhclg?=
- =?us-ascii?Q?+QP8WJiFeAhoar5cNTHcNnwkiNzKElAGx9bZh/v+d58HoI1xJrBooDOtAb9f?=
- =?us-ascii?Q?xEWZ7AqJD3Cg0bOc+intyT3cDL+XkDacu8/NcjuLPN9ujX9gmlwXN042UMa5?=
- =?us-ascii?Q?vbRy2lW8Ig5lv1KEPo5J9ZuvNExKkUEKmfSY3dJ0wbh5m0r1H2CncYDa9Eos?=
- =?us-ascii?Q?+aJ3ps4pYWrf69FRMghf4ln3CSUqekLe+vT63cAwpGFdFVk20Cy9tloJRAwW?=
- =?us-ascii?Q?sw3INpz9Njj/rFTwRqakD4U2DvUS7ijA+2ceA+bmBkOra8r4VerLPkulYs9Z?=
- =?us-ascii?Q?aCjkluLXaVfvTHO4gmWDbVubdRRttTuz+hoL8rlYnmYlAt1SoPRKZR1opc16?=
- =?us-ascii?Q?mjmbOchO5hLFGKl0sS+Ug/weIS4Itu2AqM8Ce2f0lszWG7CFgqASKDP6Wqtl?=
- =?us-ascii?Q?JZpM2aVOAaHa14rk9kjSjVJ9VV2P9YzpsEXzY8JO53xgXo7C1wZ4v9NU2yy1?=
- =?us-ascii?Q?z7QK1BLMElrf7mU29+/V+NOmG/KBPeG6U9zENL3RZ/dwTOWIzagljGD3x68O?=
- =?us-ascii?Q?Voqzv7th9cWAwM0ymvRX25TMlruwTjyCKizdbAkNozugGy+YWfMWUqAsP+Zn?=
- =?us-ascii?Q?Y3r+6P4kaEuEV9hFB2HRfdWxlesXBDcHX1Qf5Q+7JjS+qor2H0dCQck6jbVB?=
- =?us-ascii?Q?s1/PeXkmQjpfFr+gzR9fSYPD7F1ezskIk+pKapR+NeuOnp6ktsniFs3hV9gr?=
- =?us-ascii?Q?AqGNks3+64IrI/6bl7w=3D?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(14060799003)(7416014)(35042699022)(376014)(82310400026)(1800799024)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Dec 2025 15:02:32.7253
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b0fb131b-f2a5-4e3b-f894-08de3e47ac3e
+X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Dec 2025 15:11:08.6387
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d75498c0-56d4-4dca-9e9e-08de3e4678ca
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF00009B9C.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB4PR08MB7957
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: qrAFz0T+drNSCC5z8hmrBx0Jo4LdntbO0WZkjYOTRzx0nKVmYh1aUfzBlgRvbM+Qf1NBIn2AKp9L132fxV7G7Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10520
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_070315_107307_B6AD9255 
-X-CRM114-Status: GOOD (  31.50  )
+X-CRM114-CacheID: sfid-20251218_071113_995035_C8780B47 
+X-CRM114-Status: GOOD (  23.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -207,478 +194,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ryan,
-
-> On 17/12/2025 18:20, Yeoreum Yun wrote:
-> > Current linear_map_split_to_ptes() allocate the pagetable
-> > while split linear mapping to ptes by stop_machine() with GFP_ATOMIC.
-> >
-> > This is fine for non-PREEMPR_RT case.
-> > However It's a problem in PREEMPR_RT case since
-> > generic memory allocation/free APIs (e.x) pgtable_alloc(), __get_free_pages and etc
-> > couldn't be called in non-preemptible context except _nolock() APIs
-> > since generic memory allocation/free APIs are *sleepable* for using *spin_lock()*
-> >
-> > IOW, calling a pgtable_alloc() even with GFP_ATOMIC
-> > doesn't allow in __linear_map_split_to_pte() executed by stopper thread
-> > where preemption is disabled in PREEMPR_RT.
-> >
-> > To address this, divide linear_map_maybe_split_ptes:
-> >   - collect number of pages to require for spliting.
-> >   - allocate the required number of pages for spliting.
-> >   - with pre-allocate page, split the linear map.
->
-> Thanks for working on this fix!
->
-> First some high level comments: I'm not a huge fan of the approach with the
-> different modes to modify behaviour.
->
-> For the first step of figuring out the number of pages required; there is no
-> need to be inside stop_machine() for that. Can should be able to just walk the
-> linear map without any locking since it is created once and remains static, with
-> the exception of hotplug, but that is not enabled yet.
->
-> I think it would be cleaner to just create separate walker callbacks rather than
-> repurpose the existing walker.
-
-Okay. I'll repsin with separate walker.
-
->
-> Then you could simply change the gfp flag to a callback function pointer and
-> pass the desired allocator as a function pointer. This would match the existing
-> patterns used in mmu.c today.
->
-> The preallocated page list could be stored in a global static variable and you
-> could create an allocation function that just strims a page from that list. See
-> kpti_ng_pgd_alloc() for an existing example. That assumes a contiguous block,
-> but you could generalize it to hold a list of struct pages and reuse it for both
-> cases?
-
-If we use walker callbacks, I think it not only pass the callback
-function, but it need to pass the gfp flag too since split_xxx() is
-called by another functions. (i.e) set_memory_xxx()
-
-I think I can remove the mode with the suggestion of @David
-but, I think it would be still use split_args with information of
-gfp and preallocate buffer.
->
-> >
-> > Fixes: 3df6979d222b ("arm64: mm: split linear mapping if BBML2 unsupported on secondary CPUs")
-> > Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> > ---
-> >  arch/arm64/mm/mmu.c | 213 +++++++++++++++++++++++++++++++++++---------
-> >  1 file changed, 170 insertions(+), 43 deletions(-)
-> >
-> > diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> > index 9ae7ce00a7ef..e4e6c7e0a016 100644
-> > --- a/arch/arm64/mm/mmu.c
-> > +++ b/arch/arm64/mm/mmu.c
-> > @@ -527,18 +527,28 @@ static void early_create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
-> >  		panic("Failed to create page tables\n");
-> >  }
-> >
-> > -static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm, gfp_t gfp,
-> > -				       enum pgtable_type pgtable_type)
-> > -{
-> > -	/* Page is zeroed by init_clear_pgtable() so don't duplicate effort. */
-> > -	struct ptdesc *ptdesc = pagetable_alloc(gfp & ~__GFP_ZERO, 0);
-> > -	phys_addr_t pa;
-> > -
-> > -	if (!ptdesc)
-> > -		return INVALID_PHYS_ADDR;
-> > +enum split_modes {
-> > +	SPLIT_ALLOC,
-> > +	SPLIT_PREALLOC,
-> > +	SPLIT_COLLECT,
-> > +};
-> >
-> > -	pa = page_to_phys(ptdesc_page(ptdesc));
-> > +struct split_args {
-> > +	enum split_modes mode;
-> > +	union {
-> > +		struct {
-> > +			unsigned long nr;
-> > +			unsigned long i;
-> > +			struct page **pages;
-> > +		};
-> > +		gfp_t gfp;
-> > +	};
-> > +};
-> >
-> > +static __always_inline void __pgd_pgtable_init(struct mm_struct *mm,
-> > +					       struct ptdesc *ptdesc,
-> > +					       enum pgtable_type pgtable_type)
-> > +{
-> >  	switch (pgtable_type) {
-> >  	case TABLE_PTE:
-> >  		BUG_ON(!pagetable_pte_ctor(mm, ptdesc));
-> > @@ -554,19 +564,56 @@ static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm, gfp_t gfp,
-> >  		break;
-> >  	}
-> >
-> > +}
-> > +
-> > +static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm, gfp_t gfp,
-> > +				       enum pgtable_type pgtable_type)
-> > +{
-> > +	/* Page is zeroed by init_clear_pgtable() so don't duplicate effort. */
-> > +	struct ptdesc *ptdesc = pagetable_alloc(gfp & ~__GFP_ZERO, 0);
-> > +	phys_addr_t pa;
-> > +
-> > +	if (!ptdesc)
-> > +		return INVALID_PHYS_ADDR;
-> > +
-> > +	pa = page_to_phys(ptdesc_page(ptdesc));
-> > +
-> > +	__pgd_pgtable_init(mm, ptdesc, pgtable_type);
-> > +
-> >  	return pa;
-> >  }
-> >
-> > +static phys_addr_t __pgd_pgtable_prealloc(struct mm_struct *mm,
-> > +					  struct split_args *split_args,
-> > +					  enum pgtable_type pgtable_type)
-> > +{
-> > +	struct page *page;
-> > +
-> > +	BUG_ON(split_args->i >= split_args->nr);
-> > +
-> > +	page = split_args->pages[split_args->i++];
-> > +	if (!page)
-> > +		return INVALID_PHYS_ADDR;
-> > +
-> > +	__pgd_pgtable_init(mm, page_ptdesc(page), pgtable_type);
-> > +
-> > +	return page_to_phys(page);
-> > +}
-> > +
-> >  static phys_addr_t
-> > -pgd_pgtable_alloc_init_mm_gfp(enum pgtable_type pgtable_type, gfp_t gfp)
-> > +pgd_pgtable_alloc_split(enum pgtable_type pgtable_type,
-> > +		        struct split_args *split_args)
-> >  {
-> > -	return __pgd_pgtable_alloc(&init_mm, gfp, pgtable_type);
-> > +	if (split_args->mode == SPLIT_ALLOC)
-> > +		return __pgd_pgtable_alloc(&init_mm, split_args->gfp, pgtable_type);
-> > +
-> > +	return __pgd_pgtable_prealloc(&init_mm, split_args, pgtable_type);
-> >  }
-> >
-> >  static phys_addr_t __maybe_unused
-> >  pgd_pgtable_alloc_init_mm(enum pgtable_type pgtable_type)
-> >  {
-> > -	return pgd_pgtable_alloc_init_mm_gfp(pgtable_type, GFP_PGTABLE_KERNEL);
-> > +	return __pgd_pgtable_alloc(&init_mm, GFP_PGTABLE_KERNEL, pgtable_type);
-> >  }
-> >
-> >  static phys_addr_t
-> > @@ -584,7 +631,9 @@ static void split_contpte(pte_t *ptep)
-> >  		__set_pte(ptep, pte_mknoncont(__ptep_get(ptep)));
-> >  }
-> >
-> > -static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp, bool to_cont)
-> > +static int split_pmd(pmd_t *pmdp, pmd_t pmd,
-> > +		     struct split_args *split_args,
-> > +		     bool to_cont)
-> >  {
-> >  	pmdval_t tableprot = PMD_TYPE_TABLE | PMD_TABLE_UXN | PMD_TABLE_AF;
-> >  	unsigned long pfn = pmd_pfn(pmd);
-> > @@ -593,7 +642,7 @@ static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp, bool to_cont)
-> >  	pte_t *ptep;
-> >  	int i;
-> >
-> > -	pte_phys = pgd_pgtable_alloc_init_mm_gfp(TABLE_PTE, gfp);
-> > +	pte_phys = pgd_pgtable_alloc_split(TABLE_PTE, split_args);
-> >  	if (pte_phys == INVALID_PHYS_ADDR)
-> >  		return -ENOMEM;
-> >  	ptep = (pte_t *)phys_to_virt(pte_phys);
-> > @@ -628,7 +677,9 @@ static void split_contpmd(pmd_t *pmdp)
-> >  		set_pmd(pmdp, pmd_mknoncont(pmdp_get(pmdp)));
-> >  }
-> >
-> > -static int split_pud(pud_t *pudp, pud_t pud, gfp_t gfp, bool to_cont)
-> > +static int split_pud(pud_t *pudp, pud_t pud,
-> > +		    struct split_args *split_args,
-> > +		    bool to_cont)
-> >  {
-> >  	pudval_t tableprot = PUD_TYPE_TABLE | PUD_TABLE_UXN | PUD_TABLE_AF;
-> >  	unsigned int step = PMD_SIZE >> PAGE_SHIFT;
-> > @@ -638,7 +689,7 @@ static int split_pud(pud_t *pudp, pud_t pud, gfp_t gfp, bool to_cont)
-> >  	pmd_t *pmdp;
-> >  	int i;
-> >
-> > -	pmd_phys = pgd_pgtable_alloc_init_mm_gfp(TABLE_PMD, gfp);
-> > +	pmd_phys = pgd_pgtable_alloc_split(TABLE_PMD, split_args);
-> >  	if (pmd_phys == INVALID_PHYS_ADDR)
-> >  		return -ENOMEM;
-> >  	pmdp = (pmd_t *)phys_to_virt(pmd_phys);
-> > @@ -672,6 +723,10 @@ static int split_kernel_leaf_mapping_locked(unsigned long addr)
-> >  	pmd_t *pmdp, pmd;
-> >  	pte_t *ptep, pte;
-> >  	int ret = 0;
-> > +	struct split_args split_args = {
-> > +		.mode = SPLIT_ALLOC,
-> > +		.gfp = GFP_PGTABLE_KERNEL,
-> > +	};
-> >
-> >  	/*
-> >  	 * PGD: If addr is PGD aligned then addr already describes a leaf
-> > @@ -707,7 +762,7 @@ static int split_kernel_leaf_mapping_locked(unsigned long addr)
-> >  	if (!pud_present(pud))
-> >  		goto out;
-> >  	if (pud_leaf(pud)) {
-> > -		ret = split_pud(pudp, pud, GFP_PGTABLE_KERNEL, true);
-> > +		ret = split_pud(pudp, pud, &split_args, true);
-> >  		if (ret)
-> >  			goto out;
-> >  	}
-> > @@ -732,7 +787,7 @@ static int split_kernel_leaf_mapping_locked(unsigned long addr)
-> >  		 */
-> >  		if (ALIGN_DOWN(addr, PMD_SIZE) == addr)
-> >  			goto out;
-> > -		ret = split_pmd(pmdp, pmd, GFP_PGTABLE_KERNEL, true);
-> > +		ret = split_pmd(pmdp, pmd, &split_args, true);
-> >  		if (ret)
-> >  			goto out;
-> >  	}
-> > @@ -831,12 +886,17 @@ int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
-> >  static int split_to_ptes_pud_entry(pud_t *pudp, unsigned long addr,
-> >  				   unsigned long next, struct mm_walk *walk)
-> >  {
-> > -	gfp_t gfp = *(gfp_t *)walk->private;
-> > +	struct split_args *split_args = (struct split_args *)walk->private;
->
-> no need for the casting here; it's a void *.
-
-Right. I'll remove it.
-
->
-> >  	pud_t pud = pudp_get(pudp);
-> >  	int ret = 0;
-> >
-> > -	if (pud_leaf(pud))
-> > -		ret = split_pud(pudp, pud, gfp, false);
-> > +	if (!pud_leaf(pud))
-> > +		return 0;
-> > +
-> > +	if (split_args->mode == SPLIT_COLLECT)
-> > +		split_args->nr++;
->
-> bug: you're incrementing this for the pmd table that you would have inserted,
-> but because you're not actually splitting, split_to_ptes_pmd_entry() will never
-> be called for the 512 pte tables you also need. So you need:
->
-> 		nr += 1 + PTRS_PER_PMD;
->
-> I'm guessing you didn't test this as the BUG would have triggered when you ran
-> out of preallocated memory?
->
-
-Good catch! Yes. This is definitely bug.
-The reason why I didn't hit the but there is no "block pud" in my enviroment.
-
-> > +	else
-> > +		ret = split_pud(pudp, pud, split_args, false);
-> >
-> >  	return ret;
-> >  }
-> > @@ -844,22 +904,29 @@ static int split_to_ptes_pud_entry(pud_t *pudp, unsigned long addr,
-> >  static int split_to_ptes_pmd_entry(pmd_t *pmdp, unsigned long addr,
-> >  				   unsigned long next, struct mm_walk *walk)
-> >  {
-> > -	gfp_t gfp = *(gfp_t *)walk->private;
-> > +	struct split_args *split_args = (struct split_args *)walk->private;
-> >  	pmd_t pmd = pmdp_get(pmdp);
-> > -	int ret = 0;
-> > +	int ret;
-> >
-> > -	if (pmd_leaf(pmd)) {
-> > -		if (pmd_cont(pmd))
-> > -			split_contpmd(pmdp);
-> > -		ret = split_pmd(pmdp, pmd, gfp, false);
-> > +	if (!pmd_leaf(pmd))
-> > +		return 0;
-> >
-> > -		/*
-> > -		 * We have split the pmd directly to ptes so there is no need to
-> > -		 * visit each pte to check if they are contpte.
-> > -		 */
-> > -		walk->action = ACTION_CONTINUE;
-> > +	if (split_args->mode == SPLIT_COLLECT) {
-> > +		split_args->nr++;
-> > +		return 0;
-> >  	}
-> >
-> > +	if (pmd_cont(pmd))
-> > +		split_contpmd(pmdp);
-> > +	ret = split_pmd(pmdp, pmd, split_args, false);
-> > +
-> > +	/*
-> > +	 * We have split the pmd directly to ptes so there is no need to
-> > +	 * visit each pte to check if they are contpte.
-> > +	 */
-> > +	walk->action = ACTION_CONTINUE;
-> > +
-> > +
-> >  	return ret;
-> >  }
-> >
-> > @@ -880,13 +947,15 @@ static const struct mm_walk_ops split_to_ptes_ops = {
-> >  	.pte_entry	= split_to_ptes_pte_entry,
-> >  };
-> >
-> > -static int range_split_to_ptes(unsigned long start, unsigned long end, gfp_t gfp)
-> > +static int range_split_to_ptes(unsigned long start, unsigned long end,
-> > +		 	       struct split_args *split_args)
-> >  {
-> >  	int ret;
-> >
-> >  	arch_enter_lazy_mmu_mode();
-> >  	ret = walk_kernel_page_table_range_lockless(start, end,
-> > -					&split_to_ptes_ops, NULL, &gfp);
-> > +						    &split_to_ptes_ops, NULL,
-> > +						    split_args);
-> >  	arch_leave_lazy_mmu_mode();
-> >
-> >  	return ret;
-> > @@ -903,7 +972,7 @@ static void __init init_idmap_kpti_bbml2_flag(void)
-> >  	smp_mb();
-> >  }
-> >
-> > -static int __init linear_map_split_to_ptes(void *__unused)
-> > +static int __init linear_map_split_to_ptes(void *data)
-> >  {
-> >  	/*
-> >  	 * Repainting the linear map must be done by CPU0 (the boot CPU) because
-> > @@ -911,6 +980,7 @@ static int __init linear_map_split_to_ptes(void *__unused)
-> >  	 * be held in a waiting area with the idmap active.
-> >  	 */
-> >  	if (!smp_processor_id()) {
-> > +		struct split_args *split_args = data;
-> >  		unsigned long lstart = _PAGE_OFFSET(vabits_actual);
-> >  		unsigned long lend = PAGE_END;
-> >  		unsigned long kstart = (unsigned long)lm_alias(_stext);
-> > @@ -928,12 +998,13 @@ static int __init linear_map_split_to_ptes(void *__unused)
-> >  		 * PTE. The kernel alias remains static throughout runtime so
-> >  		 * can continue to be safely mapped with large mappings.
-> >  		 */
-> > -		ret = range_split_to_ptes(lstart, kstart, GFP_ATOMIC);
-> > +		ret = range_split_to_ptes(lstart, lend, split_args);
-> >  		if (!ret)
-> > -			ret = range_split_to_ptes(kend, lend, GFP_ATOMIC);
-> > +			ret = range_split_to_ptes(kstart, kend, split_args);
-> >  		if (ret)
-> >  			panic("Failed to split linear map\n");
-> > -		flush_tlb_kernel_range(lstart, lend);
-> > +		if (split_args->mode != SPLIT_COLLECT)
-> > +			flush_tlb_kernel_range(lstart, lend);
-> >
-> >  		/*
-> >  		 * Relies on dsb in flush_tlb_kernel_range() to avoid reordering
-> > @@ -963,10 +1034,61 @@ static int __init linear_map_split_to_ptes(void *__unused)
-> >
-> >  void __init linear_map_maybe_split_to_ptes(void)
-> >  {
-> > -	if (linear_map_requires_bbml2 && !system_supports_bbml2_noabort()) {
-> > -		init_idmap_kpti_bbml2_flag();
-> > -		stop_machine(linear_map_split_to_ptes, NULL, cpu_online_mask);
-> > +	struct page **pages = NULL;
-> > +	struct split_args split_args;
-> > +	int order;
-> > +	int nr_populated;
-> > +	int err;
-> > +
-> > +	if (!linear_map_requires_bbml2 || system_supports_bbml2_noabort())
-> > +		return;
-> > +
-> > +	/*
-> > +	 * Phase 1: Collect required extra pages to split.
-> > +	 */
-> > +	split_args.mode = SPLIT_COLLECT;
-> > +	split_args.nr = 0;
-> > +
-> > +	init_idmap_kpti_bbml2_flag();
-> > +	stop_machine(linear_map_split_to_ptes, &split_args, cpu_online_mask);
->
-> This doesn't require stop_machine().
-
-Yes. I'll separate with new walker as you suggest.
-
->
-> > +
-> > +	/*
-> > +	 * Phase 2: Allocate necessary pages to split.
-> > +	 */
-> > +	if (split_args.nr == 0) {
-> > +		err = 0;
-> > +		split_args.mode = SPLIT_ALLOC;
->
-> How would we hit this condition? If everything is already split why not just
-> exit early?
-
-I'm thinking about if all of pages map with CONTPTE only then
-it need to be splited, but would you let me know whether It wouldn't be possible
-for cross checking?
-
->
-> > +	} else {
-> > +		err = -ENOMEM;
-> > +		order = order_base_2(PAGE_ALIGN(split_args.nr *
-> > +					sizeof(struct page *)) >> PAGE_SHIFT);
-> > +
-> > +		pages = (struct page **)__get_free_pages(GFP_ATOMIC | __GFP_ZERO, order);
->
-> As per the other patch, I'd prefer to see GFP_KERNEL | __GFP_ZERO here.
->
-> Let's make this a list of struct ptdesc * though.
-
-Agree. I'll change it.
-
->
-> > +		if (!pages)
-> > +			goto error;
-> > +
-> > +		nr_populated = alloc_pages_bulk(GFP_ATOMIC | __GFP_ZERO, split_args.nr, pages);
->
-> Just GFP_KERNEL. No need for __GFP_ZERO as they will all be fully overwritten
-> with PTEs.
->
-> I'd prefer to use pagetable_alloc(GFP_KERNEL, 0) in a loop since that will
-> return a proper ptdesc.
-
-Okay.
-
->
-> > +		if (nr_populated < split_args.nr)
-> > +			goto error;
-> > +
-> > +		err = 0;
-> > +		split_args.mode = SPLIT_PREALLOC;
-> > +		split_args.i = 0;
-> > +		split_args.pages = pages;
-> >  	}
-> > +
-> > +	/*
-> > +	 * Phase 3: Split linear map.
-> > +	 */
-> > +	init_idmap_kpti_bbml2_flag();
-> > +	stop_machine(linear_map_split_to_ptes, &split_args, cpu_online_mask);
-> > +
-> > +error:
-> > +	if (pages)
-> > +		free_pages((unsigned long)pages, order);
->
-> It's possible (but unlikely) that another CPU caused a split between figuring
-> out the required number of tables and actually doing the full split. In this
-> case, you would have preallocated pages left over that you will need to free here.
-
-You're right. I've overlooked this case.
-I'll handle it.
-
-
-Thanks for your review!
-
---
-Sincerely,
-Yeoreum Yun
+DQoNCj4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0NCj4gRnJvbTogQXJuYXVkIFBPVUxJUVVF
+TiA8YXJuYXVkLnBvdWxpcXVlbkBmb3NzLnN0LmNvbT4NCj4gU2VudDogVGh1cnNkYXksIERlY2Vt
+YmVyIDE4LCAyMDI1IDU6MDQgQU0NCj4gVG86IFNoZW53ZWkgV2FuZyA8c2hlbndlaS53YW5nQG54
+cC5jb20+OyBMaW51cyBXYWxsZWlqDQo+IDxsaW51c3dAa2VybmVsLm9yZz47IEJhcnRvc3ogR29s
+YXN6ZXdza2kgPGJyZ2xAa2VybmVsLm9yZz47IFJvYiBIZXJyaW5nDQo+IDxyb2JoQGtlcm5lbC5v
+cmc+OyBLcnp5c3p0b2YgS296bG93c2tpIDxrcnprK2R0QGtlcm5lbC5vcmc+OyBDb25vciBEb29s
+ZXkNCj4gPGNvbm9yK2R0QGtlcm5lbC5vcmc+OyBCam9ybiBBbmRlcnNzb24gPGFuZGVyc3NvbkBr
+ZXJuZWwub3JnPjsgTWF0aGlldQ0KPiBQb2lyaWVyIDxtYXRoaWV1LnBvaXJpZXJAbGluYXJvLm9y
+Zz47IFNoYXduIEd1byA8c2hhd25ndW9Aa2VybmVsLm9yZz47DQo+IFNhc2NoYSBIYXVlciA8cy5o
+YXVlckBwZW5ndXRyb25peC5kZT47IEpvbmF0aGFuIENvcmJldCA8Y29yYmV0QGx3bi5uZXQ+DQo+
+IENjOiBQZW5ndXRyb25peCBLZXJuZWwgVGVhbSA8a2VybmVsQHBlbmd1dHJvbml4LmRlPjsgRmFi
+aW8gRXN0ZXZhbQ0KPiA8ZmVzdGV2YW1AZ21haWwuY29tPjsgUGVuZyBGYW4gPHBlbmcuZmFuQG54
+cC5jb20+OyBsaW51eC0NCj4gZ3Bpb0B2Z2VyLmtlcm5lbC5vcmc7IGRldmljZXRyZWVAdmdlci5r
+ZXJuZWwub3JnOyBsaW51eC0NCj4ga2VybmVsQHZnZXIua2VybmVsLm9yZzsgbGludXgtcmVtb3Rl
+cHJvY0B2Z2VyLmtlcm5lbC5vcmc7IGlteEBsaXN0cy5saW51eC5kZXY7DQo+IGxpbnV4LWFybS1r
+ZXJuZWxAbGlzdHMuaW5mcmFkZWFkLm9yZzsgbGludXgtZG9jQHZnZXIua2VybmVsLm9yZzsgZGwt
+bGludXgtaW14DQo+IDxsaW51eC1pbXhAbnhwLmNvbT4NCj4gU3ViamVjdDogW0VYVF0gUmU6IFtQ
+QVRDSCB2NiAyLzVdIHJlbW90ZXByb2M6IGlteF9ycHJvYzogUG9wdWxhdGUgZGV2aWNlcw0KPiB1
+bmRlciAicnBtc2ciIHN1Ym5vZGUNCj4gDQo+ID4gKyAgICAgcnBfZHJpdmVyLT5ycGRydi5kcnYu
+bmFtZSA9IG5hbWU7DQo+ID4gKyAgICAgcnBfZHJpdmVyLT5ycGRydi5pZF90YWJsZSA9IHJwZGV2
+X2lkOw0KPiA+ICsgICAgIHJwX2RyaXZlci0+cnBkcnYucHJvYmUgPSBpbXhfcnBtc2dfZW5kcG9p
+bnRfcHJvYmU7DQo+ID4gKyAgICAgcnBfZHJpdmVyLT5ycGRydi5yZW1vdmUgPSBpbXhfcnBtc2df
+ZW5kcG9pbnRfcmVtb3ZlOw0KPiA+ICsgICAgIHJwX2RyaXZlci0+cnBkcnYuY2FsbGJhY2sgPSBp
+bXhfcnBtc2dfZW5kcG9pbnRfY2I7DQo+ID4gKyAgICAgcnBfZHJpdmVyLT5kcml2ZXJfZGF0YSA9
+IGRyaXZlcl9kYXRhOw0KPiA+ICsgICAgIHJwX2RyaXZlci0+Y29tcGF0ID0gY29tcGF0Ow0KPiA+
+ICsNCj4gPiArICAgICByZWdpc3Rlcl9ycG1zZ19kcml2ZXIoJnJwX2RyaXZlci0+cnBkcnYpOw0K
+PiANCj4gDQo+IEkgc3RpbGwgYmVsaWV2ZSB0aGF0IGNyZWF0aW5nIGEgZGVwZW5kZW5jeSBiZXR3
+ZWVuIHJlbW90ZXByb2MgYW5kIHJwbXNnIGlzIG5vdA0KPiBzdWl0YWJsZS4NCj4gDQo+IFBsZWFz
+ZSBjb3JyZWN0IG1lIGlmIEnigJltIHdyb25nLCBidXQgc2luY2UgeW91IGRlZmluZSBncGlvQDAg
+YW5kIGdwaW9AMSBpbiB5b3VyDQo+IGRldmljZSB0cmVlLCB5b3UgY2FsbCByZWdpc3Rlcl9ycG1z
+Z19kcml2ZXIoKSB0d2ljZSwgY3JlYXRpbmcgdHdvIGluc3RhbmNlcyBvZiB0aGUNCj4gc2FtZSBk
+cml2ZXIuIFRvIGRpZmZlcmVudGlhdGUgYm90aCwgeW91IGZpbGwgdGhlIHJwZHJ2LmlkX3RhYmxl
+IHdpdGggdGhlIG5vZGUNCj4gbmFtZXMgImdwaW9AMCIgYW5kICJncGlvQDEiLg0KPiANCg0KTm9w
+ZS4gVGhlIGZ1bmN0aW9uIG9mIHJlZ2lzdGVyX3JwbXNnX2RyaXZlciBpcyBpbnZva2VkIG9ubHkg
+b25jZSBwZXIgY2hhbm5lbC4NCg0KPiBJbiBhIHRvcG9sb2d5IHdpdGggdHdvIHJlbW90ZSBwcm9j
+ZXNzb3JzLCBlYWNoIG5lZWRpbmcgcnBtc2ctZ3BpbywgdGhlIHNhbWUNCj4gc2l0dWF0aW9uIHdv
+dWxkIG5vdCB3b3JrIGJlY2F1c2UgeW91IHdvdWxkIGhhdmUgdHdvICJncGlvQDAiIGVudHJpZXMu
+DQo+IA0KDQpObywgaXTigJlzIHdvcmtpbmcuIFRoZSBncGlvLXJwbXNnIGRyaXZlciBpcyBkZXNp
+Z25lZCB0byBzdXBwb3J0IG11bHRpcGxlIGluc3RhbmNlcy4gSW4gZmFjdCwgdGhhdOKAmXMgdGhl
+IHJlYXNvbiANCndlIGFkZGVkIHRoZSAicnBtc2ciIGJ1cyBub2RlIHVuZGVyIHRoZSBycHJvYyBu
+b2RlLiANClBsZWFzZSBub3RlIHRoYXQgeW91IGNhbm5vdCB1c2UgZHVwbGljYXRlIGxhYmVscyB3
+aXRoaW4gdGhlIHNhbWUgY2hhbm5lbC4gDQoNCj4gV2hhdCBhYm91dCB1c2luZyB0aGUgbnMtYW5u
+b3VuY2VtZW50IG1lY2hhbmlzbSBvbiB0aGUgcmVtb3RlIHNpZGUgdG8NCj4gYWRkcmVzcyBHUElP
+IHBvcnQvYmFuayBpbnN0YW5jZXM/DQo+IA0KPiBJbiB0aGUgcnBtc2ctZ3BpbyBkcml2ZXIsIHlv
+dSBjb3VsZCBkZWZpbmU6DQo+IA0KPiBzdGF0aWMgc3RydWN0IHJwbXNnX2RldmljZV9pZCBycG1z
+Z19ncGlvX2lkX3RhYmxlW10gPSB7DQo+ICAgICAgeyAubmFtZSA9ICJycG1zZy1ncGlvIiB9LA0K
+PiAgICAgIHsgLm5hbWUgPSAicnBtc2dfZ3Bpby0wIiB9LA0KPiAgICAgIHsgLm5hbWUgPSAicnBt
+c2dfZ3Bpby0xIiB9LA0KPiAgICAgIHsgLm5hbWUgPSAicnBtc2dfZ3Bpby0yIiB9LA0KPiAgICAg
+IHsgLm5hbWUgPSAicnBtc2dfZ3Bpby0zIiB9LA0KPiAgICAgIHsgfSwNCj4gfTsNCj4gDQoNClRo
+ZXNlIGRlZmluaXRpb25zIGFyZSByZWR1bmRhbnQuIA0KVGhlIGN1cnJlbnQgaW1wbGVtZW50YXRp
+b24gYWxyZWFkeSBzdXBwb3J0cyBtdWx0aXBsZSBpbnN0YW5jZXMgd2l0aG91dCByZXF1aXJpbmcg
+dGhpcyANCmluZm9ybWF0aW9uIHRvIGJlIGhhcmRjb2RlZCBpbnRvIHRoZSBkcml2ZXIgc291cmNl
+Lg0KDQpSZWdhcmRzLA0KU2hlbndlaQ0KDQo+IFRoZW4gdGhlIG1hdGNoIGJldHdlZW4gdGhlIGRl
+dmljZSB0cmVlIGFuZCB0aGUgcnBtc2cgYnVzIGNvdWxkIGJlIGRvbmUgaW4gdGhlDQo+IHJwbXNn
+LWdwaW8gZHJpdmVyIGJ5IG1hdGNoaW5nIHRoZSBycG1zZyBuYW1lIHdpdGggdGhlIGNvbXBhdGli
+bGUgcHJvcGVydHkgcGx1cw0KPiB0aGUgcmVnIHZhbHVlLg0KPiANCj4gRXhhbXBsZSBkZXZpY2Ug
+dHJlZSBzbmlwcGV0Og0KPiANCj4gY20zMzogcmVtb3RlcHJvYy1jbTMzIHsNCj4gICAgICBjb21w
+YXRpYmxlID0gImZzbCxpbXg4dWxwLWNtMzMiOw0KPiANCj4gICAgICBycG1zZyB7DQo+ICAgICAg
+ICAgIHJwbXNnLWlvLWNoYW5uZWwgew0KPiAgICAgICAgICAgICAgZ3Bpb0AwIHsNCj4gICAgICAg
+ICAgICAgICAgICBjb21wYXRpYmxlID0gInJwbXNnX2dwaW8iOw0KPiAgICAgICAgICAgICAgICAg
+IHJlZyA9IDwwPjsNCj4gICAgICAgICAgICAgIH07DQo+IA0KPiAgICAgICAgICAgICAgZ3Bpb0Ax
+IHsNCj4gICAgICAgICAgICAgICAgICBjb21wYXRpYmxlID0gInJwbXNnX2dwaW8iOw0KPiAgICAg
+ICAgICAgICAgICAgIHJlZyA9IDwxPjsNCj4gICAgICAgICAgICAgIH07DQo+IA0KPiAgICAgICAg
+ICAgICAgLi4uDQo+ICAgICAgICAgIH07DQo+IA0KPiAgICAgICAgICAuLi4NCj4gICAgICB9Ow0K
+PiB9Ow0KPiANCj4gV2l0aCB0aGlzIGFwcHJvYWNoLCBycG1zZyBtYW5hZ2VtZW50IGNvdWxkIGJl
+IGhhbmRsZWQgZW50aXJlbHkgd2l0aGluIHRoZQ0KPiBycG1zZy1ncGlvIGRyaXZlciwgYXZvaWRp
+bmcgdGhlIG5lZWQgdG8gcmVnaXN0ZXIgbXVsdGlwbGUgaW5zdGFuY2VzIG9mIHRoZQ0KPiBycG1z
+Z19ncGlvIGRyaXZlci4NCj4gDQo+IFJlZ2FyZHMsDQo+IEFybmF1ZA0KPiANCj4gPiArDQo+ID4g
+KyAgICAgcmV0dXJuIDA7DQo+ID4gK30NCj4gPiArDQo+ID4gK3N0YXRpYyBpbnQgcnByb2Nfb2Zf
+cnBtc2dfbm9kZV9pbml0KHN0cnVjdCBwbGF0Zm9ybV9kZXZpY2UgKnBkZXYpIHsNCj4gPiArICAg
+ICBzdHJ1Y3QgZGV2aWNlICpkZXYgPSAmcGRldi0+ZGV2Ow0KPiA+ICsgICAgIGNvbnN0IGNoYXIg
+KmNvbXBhdDsNCj4gPiArICAgICBpbnQgcmV0Ow0KPiA+ICsNCj4gPiArICAgICBzdHJ1Y3QgZGV2
+aWNlX25vZGUgKm5wIF9fZnJlZShkZXZpY2Vfbm9kZSkgPSBvZl9nZXRfY2hpbGRfYnlfbmFtZShk
+ZXYtDQo+ID5vZl9ub2RlLCAicnBtc2ciKTsNCj4gPiArICAgICBpZiAoIW5wKQ0KPiA+ICsgICAg
+ICAgICAgICAgcmV0dXJuIDA7DQo+ID4gKw0KPiA+ICsgICAgIGZvcl9lYWNoX2NoaWxkX29mX25v
+ZGVfc2NvcGVkKG5wLCBjaGlsZCkgew0KPiA+ICsgICAgICAgICAgICAgY29tcGF0ID0gaW14X29m
+X3JwbXNnX2lzX2luX21hcChjaGlsZC0+bmFtZSk7DQo+ID4gKyAgICAgICAgICAgICBpZiAoIWNv
+bXBhdCkNCj4gPiArICAgICAgICAgICAgICAgICAgICAgcmV0ID0gb2ZfcGxhdGZvcm1fZGVmYXVs
+dF9wb3B1bGF0ZShjaGlsZCwgTlVMTCwgZGV2KTsNCj4gPiArICAgICAgICAgICAgIGVsc2UNCj4g
+PiArICAgICAgICAgICAgICAgICAgICAgcmV0ID0gaW14X29mX3JwbXNnX3JlZ2lzdGVyX3JwZHJp
+dmVyKGNoaWxkLCBkZXYsDQo+ID4gKyBjaGlsZC0+bmFtZSwgY29tcGF0KTsNCj4gPiArDQo+ID4g
+KyAgICAgICAgICAgICBpZiAocmV0IDwgMCkNCj4gPiArICAgICAgICAgICAgICAgICAgICAgcmV0
+dXJuIHJldDsNCj4gPiArICAgICB9DQo+ID4gKw0KPiA+ICsgICAgIHJldHVybiAwOw0KPiA+ICt9
+DQo+ID4gKw0KPiA+ICAgc3RhdGljIGludCBpbXhfcnByb2NfcHJvYmUoc3RydWN0IHBsYXRmb3Jt
+X2RldmljZSAqcGRldikNCj4gPiAgIHsNCj4gPiAgICAgICBzdHJ1Y3QgZGV2aWNlICpkZXYgPSAm
+cGRldi0+ZGV2OyBAQCAtMTExNCw2ICsxMjUzLDEwIEBAIHN0YXRpYw0KPiA+IGludCBpbXhfcnBy
+b2NfcHJvYmUoc3RydWN0IHBsYXRmb3JtX2RldmljZSAqcGRldikNCj4gPiAgICAgICAgICAgICAg
+IGdvdG8gZXJyX3B1dF9wbTsNCj4gPiAgICAgICB9DQo+ID4NCj4gPiArICAgICByZXQgPSBycHJv
+Y19vZl9ycG1zZ19ub2RlX2luaXQocGRldik7DQo+ID4gKyAgICAgaWYgKHJldCA8IDApDQo+ID4g
+KyAgICAgICAgICAgICBkZXZfaW5mbyhkZXYsICJwb3B1bGF0aW5nICdycG1zZycgbm9kZSBmYWls
+ZWRcbiIpOw0KPiA+ICsNCj4gPiAgICAgICByZXR1cm4gMDsNCj4gPg0KPiA+ICAgZXJyX3B1dF9w
+bToNCj4gPiBkaWZmIC0tZ2l0IGEvaW5jbHVkZS9saW51eC9ycG1zZy9ycGRldl9pbmZvLmgNCj4g
+PiBiL2luY2x1ZGUvbGludXgvcnBtc2cvcnBkZXZfaW5mby5oDQo+ID4gbmV3IGZpbGUgbW9kZSAx
+MDA2NDQNCj4gPiBpbmRleCAwMDAwMDAwMDAwMDAuLjEzZTAyMGNkMDI4Yg0KPiA+IC0tLSAvZGV2
+L251bGwNCj4gPiArKysgYi9pbmNsdWRlL2xpbnV4L3JwbXNnL3JwZGV2X2luZm8uaA0KPiA+IEBA
+IC0wLDAgKzEsMzMgQEANCj4gPiArLyogU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAg
+Ki8NCj4gPiArLyogQ29weXJpZ2h0IDIwMjUgTlhQICovDQo+ID4gKw0KPiA+ICsvKg0KPiA+ICsg
+KiBAZmlsZSBsaW51eC9ycGRldl9pbmZvLmgNCj4gPiArICoNCj4gPiArICogQGJyaWVmIEdsb2Jh
+bCBoZWFkZXIgZmlsZSBmb3IgUlBERVYgSW5mbw0KPiA+ICsgKg0KPiA+ICsgKiBAaW5ncm91cCBS
+UE1TRw0KPiA+ICsgKi8NCj4gPiArI2lmbmRlZiBfX0xJTlVYX1JQREVWX0lORk9fSF9fDQo+ID4g
+KyNkZWZpbmUgX19MSU5VWF9SUERFVl9JTkZPX0hfXw0KPiA+ICsNCj4gPiArI2RlZmluZSBNQVhf
+REVWX1BFUl9DSEFOTkVMICAgIDEwDQo+ID4gKw0KPiA+ICsvKioNCj4gPiArICogcnBkZXZfcGxh
+dGZvcm1faW5mbyAtIHN0b3JlIHRoZSBwbGF0Zm9ybSBpbmZvcm1hdGlvbiBvZiBycGRldg0KPiA+
+ICsgKiBAcnByb2NfbmFtZTogdGhlIG5hbWUgb2YgdGhlIHJlbW90ZSBwcm9jLg0KPiA+ICsgKiBA
+cnBkZXY6IHJwbXNnIGNoYW5uZWwgZGV2aWNlDQo+ID4gKyAqIEBkZXZpY2Vfbm9kZTogcG9pbnRl
+ciB0byB0aGUgZGV2aWNlIG5vZGUgb2YgdGhlIHJwZGV2Lg0KPiA+ICsgKiBAcnhfY2FsbGJhY2s6
+IHJ4IGNhbGxiYWNrIGhhbmRsZXIgb2YgdGhlIHJwZGV2Lg0KPiA+ICsgKiBAY2hhbm5lbF9kZXZp
+Y2VzOiBhbiBhcnJheSBvZiB0aGUgZGV2aWNlcyByZWxhdGVkIHRvIHRoZSBycGRldi4NCj4gPiAr
+ICovDQo+ID4gK3N0cnVjdCBycGRldl9wbGF0Zm9ybV9pbmZvIHsNCj4gPiArICAgICBjb25zdCBj
+aGFyICpycHJvY19uYW1lOw0KPiA+ICsgICAgIHN0cnVjdCBycG1zZ19kZXZpY2UgKnJwZGV2Ow0K
+PiA+ICsgICAgIHN0cnVjdCBkZXZpY2Vfbm9kZSAqY2hhbm5lbF9ub2RlOw0KPiA+ICsgICAgIGlu
+dCAoKnJ4X2NhbGxiYWNrKShzdHJ1Y3QgcnBtc2dfZGV2aWNlICpycGRldiwgdm9pZCAqZGF0YSwN
+Cj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgaW50IGxlbiwgdm9pZCAqcHJpdiwgdTMyIHNy
+Yyk7DQo+ID4gKyAgICAgdm9pZCAqY2hhbm5lbF9kZXZpY2VzW01BWF9ERVZfUEVSX0NIQU5ORUxd
+Ow0KPiA+ICt9Ow0KPiA+ICsNCj4gPiArI2VuZGlmIC8qIF9fTElOVVhfUlBERVZfSU5GT19IX18g
+Ki8NCg0K
 
