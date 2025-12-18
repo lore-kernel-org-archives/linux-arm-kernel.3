@@ -4,70 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08FE2D6D226
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 13:50:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 548F4D6D226
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 13:53:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j3NR3D0pcqoKjUc5PYOsd4k3CDAuEeHXW3s7b2AXN5E=; b=ATEAS3WQ4yc8X+8JaYwEv5Kf7g
-	2IWUzpatb/2//wfG/MZ9IZnwhu0iIOac1wA5mlL3Zdt8lGe1ecpbFvMefgZ8Crfbh/ImS1CHkkS1Z
-	W3LaF6eGUbQzMgGqbz7RlZpjJF1DB0zjBFSBG2YqFX6IYYOAwzQprOvq40lRGVkD/n7XtZph0jVGc
-	suBlYK6XmNB9EYqBWJEdqp04QzCcyFb+Ja5aUGwn+76kT2Eon//PRGuuIxnaAhcl1kweLYVgOceBH
-	78rGvN19S4Ac6Yv/U42ddu4sWvYb8dSuZSs027e49mw2S7oo/6Qpt7fGpkOC19QWsNvvwG7Dsomlc
-	wC4E6Ruw==;
+	bh=S0E4Ojo5DrZYKX3AJHXN2KCdTQB5pjRx6eXL2M6sED0=; b=In1eRm3OmW4m2EenQF38qpodqI
+	NUGhtJxoQJuE67ztuQ8ryYuyJ4bTLHgvEDbnaiRqlkkcYcwErcVbZwnddzVgrfTKaOBxxi9ljndtd
+	NcskUkVoF00vmKyg3dKYSmX8K3bS4iPrWbJzLWGvAlUPakfAv1+iSl3uPHASH0azh2BHJd5Deso+i
+	VK9rOizsAi0mwL6jgm+HW70HTx2sSixBFG1dMU3IoK8r/vOw7wD16I82oheDpM2PfsaONisQOhSMT
+	SWX5WIicN4LVBcy/2tsm+w7LCvKYbh57lSlcikTddRYg9BBZT4UPUM8FjRaFIK5EnITJi58qHdxEO
+	QOC1BAmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWEOK-00000008ZAQ-3EyN;
-	Thu, 18 Dec 2025 13:50:04 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vWERa-00000008ZNd-3dPu;
+	Thu, 18 Dec 2025 13:53:26 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWEOH-00000008Z9c-15li
+	id 1vWERY-00000008ZMx-04hp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 13:50:03 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.150])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dXBqF1VwqzHnH2q;
-	Thu, 18 Dec 2025 21:49:29 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 71EAA4056A;
-	Thu, 18 Dec 2025 21:49:56 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Thu, 18 Dec
- 2025 13:49:55 +0000
-Date: Thu, 18 Dec 2025 13:49:53 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: James Morse <james.morse@arm.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, D
- Scott Phillips OS <scott@os.amperecomputing.com>,
-	<carl@os.amperecomputing.com>, <lcherian@marvell.com>,
-	<bobo.shaobowang@huawei.com>, <tan.shaopeng@fujitsu.com>,
-	<baolin.wang@linux.alibaba.com>, Jamie Iles <quic_jiles@quicinc.com>, "Xin
- Hao" <xhao@linux.alibaba.com>, <peternewman@google.com>,
-	<dfustini@baylibre.com>, <amitsinght@marvell.com>, David Hildenbrand
-	<david@kernel.org>, Dave Martin <dave.martin@arm.com>, Koba Ko
-	<kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
-	<fenghuay@nvidia.com>, <baisheng.gao@unisoc.com>, Gavin Shan
-	<gshan@redhat.com>, Ben Horgan <ben.horgan@arm.com>, <rohit.mathew@arm.com>,
-	<reinette.chatre@intel.com>, Punit Agrawal <punit.agrawal@oss.qualcomm.com>
-Subject: Re: [RFC PATCH 24/38] arm_mpam: resctrl: Allow resctrl to allocate
- monitors
-Message-ID: <20251218134953.000064b1@huawei.com>
-In-Reply-To: <20251205215901.17772-25-james.morse@arm.com>
-References: <20251205215901.17772-1-james.morse@arm.com>
-	<20251205215901.17772-25-james.morse@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Thu, 18 Dec 2025 13:53:25 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <a.fatoum@pengutronix.de>)
+	id 1vWERE-0008Rc-F2; Thu, 18 Dec 2025 14:53:04 +0100
+Message-ID: <5925c749-1288-4d61-b17f-ac2e1c6c463d@pengutronix.de>
+Date: Thu, 18 Dec 2025 14:53:02 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500011.china.huawei.com (7.191.174.215) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/2] Add devicetree for NXP i.MX93 FRDM board
+To: Fabian Pflug <f.pflug@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, Lei Xu <lei.xu@nxp.com>,
+ linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>,
+ Haidong Zheng <haidong.zheng@nxp.com>, Daniel Baluta
+ <daniel.baluta@nxp.com>, Danwei Luo <danwei.luo@nxp.com>,
+ linux-arm-kernel@lists.infradead.org
+References: <20251218-fpg-nxp-imx93-frdm-v4-0-cd3a9f6ac89a@pengutronix.de>
+ <9a96f664-00ba-4589-b3b8-a04355c0ad0b@pengutronix.de>
+ <e15437918fc2e162eec92985e8f11f8e0de91246.camel@pengutronix.de>
+From: Ahmad Fatoum <a.fatoum@pengutronix.de>
+Content-Language: en-US, de-DE, de-BE
+In-Reply-To: <e15437918fc2e162eec92985e8f11f8e0de91246.camel@pengutronix.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_055001_447620_3FD9DD2C 
-X-CRM114-Status: GOOD (  18.79  )
+X-CRM114-CacheID: sfid-20251218_055324_069795_D93F8D71 
+X-CRM114-Status: GOOD (  26.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,54 +76,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 5 Dec 2025 21:58:47 +0000
-James Morse <james.morse@arm.com> wrote:
+Hi,
 
-> When resctrl wants to read a domain's 'QOS_L3_OCCUP', it needs
-> to allocate a monitor on the corresponding resource. Monitors are
-> allocated by class instead of component.
+On 12/18/25 2:11 PM, Fabian Pflug wrote:
+> Hello Ahmad,
 > 
-> MBM monitors are much more complicated, if there are enough monitors,
-> they will be pre-allocated and free-running. If ABMC is in use instead
-> then 'some' are pre-allocated in a different way, and need assigning.
+> On Thu, 2025-12-18 at 13:52 +0100, Ahmad Fatoum wrote:
+>> Hello Fabian,
+>>
+>> On 12/18/25 12:39 PM, Fabian Pflug wrote:
+>>> Signed-off-by: Fabian Pflug <f.pflug@pengutronix.de>
+>>> ---
+>>> Changes in v4:
+>>> - remove it6263 block in i2c1, since it is not finished
+>>> - remove usdhc3 pwrsequence, since WLAN is not tested on my board
+>>> - remove eee-broken-1000t on phy2, since it is not broken
+>>> - update min/max-microvlt on buck converters
+>>
+>> I know you changed this due to reviewer feedback, but it was wrong
+>> advice. The Linux driver already has information about the minimum and
+>> maximum range support for the PMIC, what you need to write here is the
+>> actual board-level constraints.
 > 
-> Add helpers to allocate a CSU monitor. These helper return an out
-> of range value for MBM counters.
+> Yeah, I know, that why I only updated the other two rails and changed to minimum for CPU 0.64 to 0.61V for core.
+> And 1.06 to 1.14V for DRAM, as it is the settings allowed by the CPU.
 > 
-> Allocating a montitor context is expected to block until hardware
-> resources become available. This only makes sense for QOS_L3_OCCUP
-> as unallocated MBM counters are losing data.
+> VCC3.3 and VCC1.8 were not changed, due to them being connected to multiple devices and I did not want to make them
+> flexible, as it would be a hassle in the drivers.
+
+Ah, good. I read this change log here, checked v3 and then saw you
+applied the feedback on the first regulator and assumed you did so for
+the others mentioned there as well...
+
+0.61 is the minimum in suspend for VDD_SOC, so that's ok.
+For DRAM, that's minimum/maximum operating range so ok too.
+
+Thanks for the clarification,
+Ahmad
+
 > 
-> Signed-off-by: James Morse <james.morse@arm.com>
-> ---
-> Since ABMC got merged it may be possible to remove the monitor alloc
-> call for MBM counters from resctrl as this work is now done by ABMC's
-> assign call.
-> ---
->  drivers/resctrl/mpam_internal.h | 14 ++++++-
->  drivers/resctrl/mpam_resctrl.c  | 68 +++++++++++++++++++++++++++++++++
->  include/linux/arm_mpam.h        |  4 ++
->  3 files changed, 85 insertions(+), 1 deletion(-)
+> Kind regards
+> Fabian
+> 
+>>
+>> I don't think the board will like VDD_3V3 at 1.62V or VDD_1V8 at 3.4V.
+>> For the fixed voltage rails just set min = max = fixed voltage.
+>>
+>> Thanks,
+>> Ahmad
+>>
+>>> - Link to v3: https://lore.kernel.org/r/20251022-fpg-nxp-imx93-frdm-v3-0-03ec40a1ccc0@pengutronix.de
+>>>
+>>> Changes in v3:
+>>> - Add Signed-off for original NXP contributors.
+>>> - Fixed whitespace errors (Thanks Francesco Valla)
+>>> - Added mu1 with status okay (Thanks Francesco Valla)
+>>> - Removed address cells from lpi2c3 (Thanks Frank Li)
+>>> - Configure pin for watchdog (Thanks Peng Fan)
+>>> - Updated regulator config
+>>> - Configure i2c0
+>>> - Link to v2: https://lore.kernel.org/r/20250526-fpg-nxp-imx93-frdm-v2-0-e5ad0efaec33@pengutronix.de
+>>>
+>>> Changes in v2:
+>>> - 1/2: remove CAN node, as it has not been tested.
+>>> - 1/2: ran dt-format (Thanks Frank Li)
+>>> 	But also reordered some nodes afterwards again to have
+>>> 	regulator-min before regulator-max, have the pinmux at the end
+>>> 	of the file, and have the regulator-name as the first node
+>>> 	inside the regulators.
+>>> 	Re-added comments, that were deleted.
+>>> - 1/2: changes subjet to ar64:dts (Thanks Fabio Estevan)
+>>> - 1/2: removed reg_vdd_12v (Tanks Fabio Estevan)
+>>> - 1/2: added aliases for rtc, emmc, serial (Thanks Fabio Estevan)
+>>> - reordered the series to have documentation before dts. (Thanks
+>>>   Krzystof Kozlowski)
+>>> - Link to v1: https://lore.kernel.org/r/20250523-fpg-nxp-imx93-frdm-v1-0-546b2d342855@pengutronix.de
+>>>
+>>> ---
+>>> Fabian Pflug (2):
+>>>       dt-bindings: arm: fsl: add i.MX93 11x11 FRDM board
+>>>       arm64: dts: freescale: add support for NXP i.MX93 FRDM
+>>>
+>>>  Documentation/devicetree/bindings/arm/fsl.yaml     |   1 +
+>>>  arch/arm64/boot/dts/freescale/Makefile             |   1 +
+>>>  arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts | 620 +++++++++++++++++++++
+>>>  3 files changed, 622 insertions(+)
+>>> ---
+>>> base-commit: ea1013c1539270e372fc99854bc6e4d94eaeff66
+>>> change-id: 20250523-fpg-nxp-imx93-frdm-5cc180a1fda9
+>>>
+>>> Best regards,
 > 
 
-> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-> index 22ad5dd3c383..a2b238d47117 100644
-> --- a/drivers/resctrl/mpam_resctrl.c
-> +++ b/drivers/resctrl/mpam_resctrl.c
+-- 
+Pengutronix e.K.                  |                             |
+Steuerwalder Str. 21              | http://www.pengutronix.de/  |
+31137 Hildesheim, Germany         | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686  | Fax:   +49-5121-206917-5555 |
 
-> +
-> +void resctrl_arch_mon_ctx_free(struct rdt_resource *r,
-> +			       enum resctrl_event_id evtid, void *arch_mon_ctx)
-> +{
-> +	u32 mon_idx = *(u32 *)arch_mon_ctx;
-> +
-> +	kfree(arch_mon_ctx);
-> +	arch_mon_ctx = NULL;
-
-Why is this useful?  Updating the local pointer copy which is not
-used again. Maybe I need more coffee.
-
-> +
-> +	resctrl_arch_mon_ctx_free_no_wait(evtid, mon_idx);
-> +}
 
