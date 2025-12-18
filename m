@@ -4,68 +4,197 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46314D6E2AD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 15:55:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9B18D6D232
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 15:55:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TO0YeC3MQ8jVVgp5Z4xLEDyCJwX6jisSycJcBpMfzoY=; b=T69v2F9CX0u3aHcD7sys5U6fAb
-	wc9nyQ4riUoiyZ3JDSv7Fh3CyeGiWtppfVA5v7vrSQW1gRVLgOaH8ivs3nUz2gIMUhYJudbBEK1X/
-	Qe5kfRojrNOAlbHaqDAuiPNb3rc+4PhmVmVMMHtaKBfLy8ezLBoH+jPF0VtbtSAC1zcLZtJVUVgoG
-	bOzxb7oPtFRXQJAkNBhbUGFUcPlzgIU5/QYV46SqnmkQTmmfwKLg7uvh3H2nj3to9idIoIxdJSFR1
-	DCg9JP4aLoq9n3zXvIL5Wxe7Ns4fF32pIWAJ+basg7nc7LDxOzimpkVZJFd4/QxsxepdsBy65w+SY
-	2DSw56RA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PJQs9k4obSAH8/J5UDxSYVR3UStb9z+eWCYk17Z8zr4=; b=uI6B2q3ONDYDUa1Xi1NYlfRMoQ
+	u4XfF03uXv06zLVJbL5G9mucitEjhjWM2S045T1VTFxIRZNwtQmjO4KhEV/sn36bRjaMoClDaBue2
+	1+d3u8jeyZOSHlmFfkfqNid8QFQi2xqJmpcA6EIYC+5DenqEFEZsXFqExJKrq8ySpcra9tOrUp906
+	vpChEjpw4MGDXD3eaXTjadDioqsCajMSJDcdNpJkzxj37u/tejoOMSJLQYGPFCUzF7n+XR/THRJ7H
+	VKDRiKxCxkiBtBB5H/dagq9yU05F2ieMVUqKnEnczGZ+EBuiyQczbdFSSSwcxWKwW3WY3qGGu4XS4
+	elHpFxvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWGLB-00000008jnh-06Rj;
-	Thu, 18 Dec 2025 15:54:57 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWGL8-00000008jnL-2f0U
+	id 1vWGM6-00000008jtV-1WG0;
+	Thu, 18 Dec 2025 15:55:54 +0000
+Received: from mail-northeuropeazon11012021.outbound.protection.outlook.com ([52.101.66.21] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vWGM3-00000008jsv-3bDL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 15:54:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 33851FEC;
-	Thu, 18 Dec 2025 07:54:46 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 093573F762;
-	Thu, 18 Dec 2025 07:54:49 -0800 (PST)
-Message-ID: <ab557985-7c1d-4536-b7f7-fe7dba4f6ccc@arm.com>
-Date: Thu, 18 Dec 2025 15:54:48 +0000
+	Thu, 18 Dec 2025 15:55:53 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=g7Gofu6lp4ghdbrLG3uSAILFNWHUEruwbG9v5GWlXt8o5Y0dkJ6sQCxjrAHrAUZcD6tzGeND0mkfCrFffWL/WIClhCmCYy1TsKGd/cL+JW+ccOhYe7r5wpF6kRIKnxNnBe0DIxSZhuUjPyqvH171x3dUPYIktgw1lmfrR7Qb2vMwfuPFlL+RFaf0fYRkbN5h+t3ZMk6fVEI4PNZez3935XqUpd9PAs21wKuJGtSRnhaz6Bku0d/F04QhXQ/OpAIMwCLwbkvg12W2v+/x7Gc/k5itWeDEIR5FTUNit1nFV1XSu6U7JdepGrUuQ67irO1LILcOxcMl7VY/ZGhiHBCo5w==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PJQs9k4obSAH8/J5UDxSYVR3UStb9z+eWCYk17Z8zr4=;
+ b=igE2fWa18YOEzHxFiViaCBvHBdfNiGhIIfPa2oPAB7XZDkxhgQ7lKRFJlEzIYIFO6mP7Om25HrcPodz6pF6DhU0jwDJFvsW6lMUXuelFUJdjfKJUSsGSkvk+Plq4GrJBIne7yz6dSvtIsXgbDz69JZ3tn/t3Y9f26rnejihG87I7xBSvo8cP085yPPH0B5Zid3AWIqAaQO2y0eLaB89dKFQW1mF+Zgeo2UBhHcfmDZgCdbWfw+mLKO29yVrx9Jg9rl+ZqAlSgHSIA+W8n0eX3QGtaDKSXYsUHV2iw/70DGSSWuBSBmnmgvORp3ZEgxke/wqK01AIXNzezI1SsmX1zA==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=kernel.org smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PJQs9k4obSAH8/J5UDxSYVR3UStb9z+eWCYk17Z8zr4=;
+ b=fXx4KNoWIXxflC7+0UJeYBITBRnfvooGkTBlKpvpf5wriwAmuOIQMUaJQL73957pHCdlT4rWtyMsipGkTLYK/XHsmFjE6f+pAWR2gzIVVzgjgt11LAtEgNGJS/nW/iAB9wjlyhP0l8gHxghktsp9sTXOq/OmqWeAPFKLH+w++Qw=
+Received: from DU2P251CA0026.EURP251.PROD.OUTLOOK.COM (2603:10a6:10:230::28)
+ by DU0PR08MB7416.eurprd08.prod.outlook.com (2603:10a6:10:354::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.6; Thu, 18 Dec
+ 2025 15:55:46 +0000
+Received: from DU6PEPF0000A7DD.eurprd02.prod.outlook.com
+ (2603:10a6:10:230:cafe::59) by DU2P251CA0026.outlook.office365.com
+ (2603:10a6:10:230::28) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.8 via Frontend Transport; Thu,
+ 18 Dec 2025 15:55:46 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DU6PEPF0000A7DD.mail.protection.outlook.com (10.167.8.37) with Microsoft SMTP
+ Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.6 via
+ Frontend Transport; Thu, 18 Dec 2025 15:55:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wOGwjiTjpVBLB3wxXCbZSTl9pTFYM0JqkfjqcvJRT9ODvALG2psJ6y9YDlYrzBX0nuWuELsAWQ7vSaAhoMHOVAE7qodZbzr56230hnNy+I6yBc6b4dkQAxTuvJVJ+azx1s/lK5ZvfrNZ2b62WYEzLqFC5r6oJ3dklH4GI1eiemk6ZZ4CbDMGShyjZxYYgDQMZJt8VXFed2AGfH4fzvCFABgf0/ptOIOOHhBIUdPB6zdG5vyRtccfCndKBFZSfwGYr3+K7K4YfaBauxpIQeZvQyzpikJbNZcjVpuZqRJi5SbHIC3xSzqxGfE7SSTj1gOTwz+HeYuBnksUTwr0zukG0w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PJQs9k4obSAH8/J5UDxSYVR3UStb9z+eWCYk17Z8zr4=;
+ b=wpi8Tdt+D+WiLanaMAO9L9fF5dHWEx4+l8G1+xtZW/xPCN4VpCUSdq/j1ekSUIfJaKYflJ6+0ohkvjXvZYw7stSx3laWI38Rlxk04cbX2Kn19vTRKBJOw89kaoUPoU/82LA/ZtXVFD0UxUrg5L8SoGotAM/zQk2hf6QKoF0zJwwUpy5RaW7FwxmdcLYHLwXxTbjEUXFe+DyhpMMgIMhEVLXXtVjNip766J2N/LAjxRw6nAxMIeqW5PkODdfMQqdWpMTUfPKA9UX5pf3Adjjvwn5iQz1AYBsWYFCy1rriTenTXiUpNUHLxlcTZ3fSnCvEILpFO8/KBFJ5jAXM2zaAEw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PJQs9k4obSAH8/J5UDxSYVR3UStb9z+eWCYk17Z8zr4=;
+ b=fXx4KNoWIXxflC7+0UJeYBITBRnfvooGkTBlKpvpf5wriwAmuOIQMUaJQL73957pHCdlT4rWtyMsipGkTLYK/XHsmFjE6f+pAWR2gzIVVzgjgt11LAtEgNGJS/nW/iAB9wjlyhP0l8gHxghktsp9sTXOq/OmqWeAPFKLH+w++Qw=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20) by AM0PR08MB11756.eurprd08.prod.outlook.com
+ (2603:10a6:20b:745::6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.6; Thu, 18 Dec
+ 2025 15:54:43 +0000
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::d430:4ef9:b30b:c739%3]) with mapi id 15.20.9434.001; Thu, 18 Dec 2025
+ 15:54:43 +0000
+Date: Thu, 18 Dec 2025 15:54:40 +0000
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org,
+	david@kernel.org, kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
+	dev.jain@arm.com, yang@os.amperecomputing.com,
+	chaitanyas.prakash@arm.com, bigeasy@linutronix.de,
+	clrkwllms@kernel.org, rostedt@goodmis.org,
+	lorenzo.stoakes@oracle.com, ardb@kernel.org, jackmanb@google.com,
+	vbabka@suse.cz, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH v2 1/2] arm64: mmu: don't allocate page while spliting
+ linear mapping
+Message-ID: <aUQjwKClvatP7zFP@e129823.arm.com>
+References: <20251217182007.2345700-1-yeoreum.yun@arm.com>
+ <20251217182007.2345700-2-yeoreum.yun@arm.com>
+ <73ced1db-a2e2-49ea-927e-9fc4a30e771e@arm.com>
+ <aUQXRpLzKbl+I3Gu@e129823.arm.com>
+ <73644c65-57fd-4d0c-9179-167277214f26@arm.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <73644c65-57fd-4d0c-9179-167277214f26@arm.com>
+X-ClientProxiedBy: LO4P123CA0638.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:296::18) To GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 01/38] arm64: mpam: Context switch the MPAM registers
-To: Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@kernel.org>, Dave Martin <dave.martin@arm.com>,
- Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- fenghuay@nvidia.com, baisheng.gao@unisoc.com, Gavin Shan <gshan@redhat.com>,
- rohit.mathew@arm.com, reinette.chatre@intel.com,
- Punit Agrawal <punit.agrawal@oss.qualcomm.com>
-References: <20251205215901.17772-1-james.morse@arm.com>
- <20251205215901.17772-2-james.morse@arm.com>
- <20251218103546.000070fd@huawei.com>
- <a1786f34-66b8-4620-b619-79e6013882e4@arm.com>
- <c205297d-0f6e-4238-bd6a-3cab498c6a45@arm.com>
- <20251218153805.000073b9@huawei.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <20251218153805.000073b9@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|AM0PR08MB11756:EE_|DU6PEPF0000A7DD:EE_|DU0PR08MB7416:EE_
+X-MS-Office365-Filtering-Correlation-Id: b7571980-a0fd-4aec-22d1-08de3e4de7e5
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
+X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?CatGOoR2aJy4bMz4myRZryO80MAXe9N9loTtpB0ocZ5T1yXzymregbs3ZLig?=
+ =?us-ascii?Q?q4rTpru7WdU71f1F3WWob9LVu4Yx6KubgRJsrgUcSOAaWi4waIdb7VLNIYwV?=
+ =?us-ascii?Q?YCFlZKHxzZ0RBYQOxdMH5/3XoWRH4Q+cI1TYXvFdLCbhKcx/sURUwS3WxpKk?=
+ =?us-ascii?Q?yNRE3PhyX2j6nP7+T7ak9g4FSnPO+hl5xWpQARBZ9kgTq+VoieCen++3LjdU?=
+ =?us-ascii?Q?cxXut3N8L18i9P90sxsOrFZIoUn1qNHcjQqrDshN0i59hwsby+vRZIWMov+H?=
+ =?us-ascii?Q?z9gi13P8OStkSmIAo1dTVfxY89XB7Sml26vl14RHOYlGEiFnd3TC77ojauWG?=
+ =?us-ascii?Q?R1CR1YYgxFn875zVjG8aipkpDi6ek9ns83ZK8B3Gy4PDFX0LjUJz69fQ/P9B?=
+ =?us-ascii?Q?WiDp1gy8fQV+ngx++I9f6AZSj2OGlj6rs7L0lVxxWANJ6IjRTj3KMniE52tC?=
+ =?us-ascii?Q?owKu29BYeB9qnRO528NLVMJr3gMh3g/chcd4CHdBJZ0EpOIK2Jy4VrAL6wCF?=
+ =?us-ascii?Q?G9O9iXWNfN6sAiIf6/kjtkwWUXbytxGyRMz3RxWaf00uqHmV3IkuJe2zIMXl?=
+ =?us-ascii?Q?NjOrqxuBTs2UQ/vL1KPk2yNdLcUig+8TMWtNJwACa+u0WAhB0eJtA5U2sHWo?=
+ =?us-ascii?Q?0iSAEJnBOoyeau91V0iMn01IZhyZi7+/5RR3JZcfSzDz4jXI4xm3j8qMTrdL?=
+ =?us-ascii?Q?1449qYDJFv0MPriwkblqllXVcag77mKntKDLl6/LZak3wuTeRL1iqS7daszu?=
+ =?us-ascii?Q?mMMGIkw8+0fk7BbmZ476ojyFY2i59OCo9FjsriITxSp3z7lbyN57Y8WsY0sM?=
+ =?us-ascii?Q?ybpD/nZ5WomBLzaPE7DiZdgnzryzYWV5qXtOrKqitAzSsuB7TNUmOh9odeDX?=
+ =?us-ascii?Q?d8ecjAtEv2F/COOuFOMcl3Bh6by2DUA55h3qjsavFUou0OrO+b0Dbqa03kAT?=
+ =?us-ascii?Q?HnDEcj1c+0ZBcHCLPnNLzL4ErgWht7Pem9UV2+FYGeQ3m/gNa5Qc2VspXu3y?=
+ =?us-ascii?Q?I56L63K0FlkcJ/XofAvBikq0Vc0+1FwDMWyZaJNdYWI7rtV7BceSXMvxySq3?=
+ =?us-ascii?Q?a0jPveJOQcF41L9rElvTJgRNnGoPCW+EEZz4Zzs34r0LZLTp2KNOuRjPy5ft?=
+ =?us-ascii?Q?pxFmVc5u2ehOJBvp26pxX6wq0tmS98n0rOU7+0UcnCD/nAd9KzHMSAbiPQH0?=
+ =?us-ascii?Q?llgknONfvomob3uA6wBeZxErYBLCRmRhJV0Fft0NWNg/8oOVjkksjI/tsoy0?=
+ =?us-ascii?Q?n1GuktjVZg7I/oy9+MM00LrcA9q826Uz8pF5E/3zeMUI1SQWoJR9FrNuS03+?=
+ =?us-ascii?Q?z+CkkAx6jHRIZ/YmQp0EvxaPSyYb1QjIynSnonovJt4RVNwEEJUrY8tuoP2O?=
+ =?us-ascii?Q?iN+glNXp5WZjH6VCdj2XmtJAPycUq/rJzK9Pe7vQrUCPi8N8z/Z8tV3cctCb?=
+ =?us-ascii?Q?Sr+XY2QieQmaVfHNB4wxfDTLU0iQyxUt?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR08MB11756
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU6PEPF0000A7DD.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 8406f044-2ca8-44e4-5203-08de3e4dc297
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|35042699022|36860700013|14060799003|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?N0mmWN36VeobXROegPsRUQ3nAVOeII2yby1pdEJjbJI7sKH2HUgvpBUb11sm?=
+ =?us-ascii?Q?iH/S6t82MH1bTJvHc+u4Wa/qt2sZh3bkBxkjhEBBsrCY/RZmXH/YyaVPEn5i?=
+ =?us-ascii?Q?BSOKNUy9kicoiitesbV/0ousVbI+6vLTptNl8QUCEMkEs1hNq6jCuPLOVdA6?=
+ =?us-ascii?Q?u1wM6IJHNYogjbbvFfr9Qw00rDtBo8lsKgVA/pziunbpwHdF8GObhCCDSI27?=
+ =?us-ascii?Q?ZeVK28m8zuhV5k04/4HVKp5mFbUkf2n8sXBkzt/tUAxjRP+zm681vviZZrdm?=
+ =?us-ascii?Q?g4fsmQ+QdaDvaQQLQiXAO0xm9YYerwL6330Yl2xnjdIkzYsw4yAUt3Z2IAwy?=
+ =?us-ascii?Q?Ecza2pR4fnJ3uHvdA5pJCObF1hIYgadr/7OzWjt2QE9ylb1dJSMGEtxx76MX?=
+ =?us-ascii?Q?eZTV4DT5IMSdx/acnX3KPYR5k2PQNykn64YnXI8s8+EO+NcsnJ0XqoHtirg2?=
+ =?us-ascii?Q?BXNpSVaszeshrNYsM2oJryTsan1gr25u3ghy0/h7dQ8A7a/HyfW4erMROuax?=
+ =?us-ascii?Q?T3GWVL2cz0oqUz1aZYub9nsPw6QZTk9YIVuXJcahGQZIdwm+F33WAqn4JVND?=
+ =?us-ascii?Q?HFw+sf/YPnGUOdQubf8O53Bq7l8laP61qAaSFq/ejyE0KKglbNGUtW0Tj00r?=
+ =?us-ascii?Q?zVBKqvel3YLjeyZE21Gbf51SOBktO7dPAOzgWa8O/RXToyP4T4kUYRE6/ctX?=
+ =?us-ascii?Q?h4bmX6lqZeJrO2UFIgx1oZed19GX3FV6IwRBNxfyDD9NzANZmsSRpMjgUV/9?=
+ =?us-ascii?Q?5GHwNg/ujWG5PFVeLJ8JJibaEFuo5SfbL9fYSerWMOmgt67H8SZyxByRPcjZ?=
+ =?us-ascii?Q?ijoBa9OCB+C3bWNtYzTaZoY53y4EJgCiUTSNp301DF8hRFybS2Zz4+06Buei?=
+ =?us-ascii?Q?478dqAV4EWSaxtL4vTucdCbmCli7moW70mtZa5C2XTO/sRDgE0xI6KU08blO?=
+ =?us-ascii?Q?xeymmhukZkViJlGsPpfkMPsfTOC8JP5htbhpY6px5x5YZT6t1jNvOZ7y5N3U?=
+ =?us-ascii?Q?Wvb7Uk6BoK2r2WrkmBFxQQsXeeYiiivYt2znx0ltUzP0Xp5eqX+shkaRphw0?=
+ =?us-ascii?Q?6Her+osmKjTlQWfn+rq+MBgqZufUkz12DLjHCYudmiM32NMxg9Ify25DpN0A?=
+ =?us-ascii?Q?yqmyZ6E5Bmseb1mc3VTi8ulVinIO9QDFxd5rvG8OUPESTQyaacvm2k9K/8v1?=
+ =?us-ascii?Q?a0VoKKzXh0GQiMG6Vf3ZFx7DPuTnhFQa7XfoaNcF+8jM+V9akD3G70hXQpvg?=
+ =?us-ascii?Q?rNncAZS7jTXSjI/X4sTZXTcrNNd+SAbCzl1NZd1MjBsXAr49t6M//H6Tfx2k?=
+ =?us-ascii?Q?LCYmHVMpSx4aMu6Vh2xjZRcojCPNmxtsvB+VyJFjVF+qBrMQlYTfBevHnbbN?=
+ =?us-ascii?Q?roITo9cpC0/okPlD1B9r2oZvCXoWp4WtsNa2LUil/HXIV251hVaM6kauTY8U?=
+ =?us-ascii?Q?hua7k+fJV0niszmNEb3xpfem53IOeCih2IUWww3VxiShdyLNjWJfZzgSFU1i?=
+ =?us-ascii?Q?8kNOWbuW94VJNb4J5Tlwwq15O47w2FfmvVvcmcOK6BgN0vR4vLqeJ6n8vJ70?=
+ =?us-ascii?Q?vd1nX6Nua1i5+/slRLA=3D?=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(35042699022)(36860700013)(14060799003)(376014)(7416014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Dec 2025 15:55:45.6139
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b7571980-a0fd-4aec-22d1-08de3e4de7e5
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000A7DD.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB7416
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_075454_778818_CE80DE2C 
-X-CRM114-Status: GOOD (  35.90  )
+X-CRM114-CacheID: sfid-20251218_075552_040103_8884B860 
+X-CRM114-Status: GOOD (  30.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,154 +209,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> On 18/12/2025 15:01, Yeoreum Yun wrote:
+> > Hi Ryan,
+> >
+> >> On 17/12/2025 18:20, Yeoreum Yun wrote:
+> >>> Current linear_map_split_to_ptes() allocate the pagetable
+> >>> while split linear mapping to ptes by stop_machine() with GFP_ATOMIC.
+> >>>
+> >>> This is fine for non-PREEMPR_RT case.
+> >>> However It's a problem in PREEMPR_RT case since
+> >>> generic memory allocation/free APIs (e.x) pgtable_alloc(), __get_free_pages and etc
+> >>> couldn't be called in non-preemptible context except _nolock() APIs
+> >>> since generic memory allocation/free APIs are *sleepable* for using *spin_lock()*
+> >>>
+> >>> IOW, calling a pgtable_alloc() even with GFP_ATOMIC
+> >>> doesn't allow in __linear_map_split_to_pte() executed by stopper thread
+> >>> where preemption is disabled in PREEMPR_RT.
+> >>>
+> >>> To address this, divide linear_map_maybe_split_ptes:
+> >>>   - collect number of pages to require for spliting.
+> >>>   - allocate the required number of pages for spliting.
+> >>>   - with pre-allocate page, split the linear map.
+> >>
+> >> Thanks for working on this fix!
+> >>
+> >> First some high level comments: I'm not a huge fan of the approach with the
+> >> different modes to modify behaviour.
+> >>
+> >> For the first step of figuring out the number of pages required; there is no
+> >> need to be inside stop_machine() for that. Can should be able to just walk the
+> >> linear map without any locking since it is created once and remains static, with
+> >> the exception of hotplug, but that is not enabled yet.
+> >>
+> >> I think it would be cleaner to just create separate walker callbacks rather than
+> >> repurpose the existing walker.
+> >
+> > Okay. I'll repsin with separate walker.
+> >
+> >>
+> >> Then you could simply change the gfp flag to a callback function pointer and
+> >> pass the desired allocator as a function pointer. This would match the existing
+> >> patterns used in mmu.c today.
+> >>
+> >> The preallocated page list could be stored in a global static variable and you
+> >> could create an allocation function that just strims a page from that list. See
+> >> kpti_ng_pgd_alloc() for an existing example. That assumes a contiguous block,
+> >> but you could generalize it to hold a list of struct pages and reuse it for both
+> >> cases?
+> >
+> > If we use walker callbacks, I think it not only pass the callback
+> > function, but it need to pass the gfp flag too since split_xxx() is
+> > called by another functions. (i.e) set_memory_xxx()
+> >
+> > I think I can remove the mode with the suggestion of @David
+> > but, I think it would be still use split_args with information of
+> > gfp and preallocate buffer.
+>
+> I don't think that's necessary; all other users pass GFP_PGTABLE_KERNEL, so we
+> just need one allocator function that allocates with GFP_PGTABLE_KERNEL and
+> another allocator function that allocates from the prealloc'ed list. Then the
+> user passes the function they want to use.
+>
+> That would work, I think?
+
+True. I forgot I removed GFP_ATOMIC myself for pgtable alloc.
+Okay. then I'll move the preallocated buffer information to global
+and just pass function pointer then.
+
+Thanks
 
 
-On 12/18/25 15:38, Jonathan Cameron wrote:
-> On Thu, 18 Dec 2025 14:55:23 +0000
-> Ben Horgan <ben.horgan@arm.com> wrote:
-> 
->> On 12/18/25 14:52, Ben Horgan wrote:
->>> Hi Jonathan,
->>>
->>> On 12/18/25 10:35, Jonathan Cameron wrote:  
->>>> On Fri, 5 Dec 2025 21:58:24 +0000
->>>> James Morse <james.morse@arm.com> wrote:
->>>>  
->>>>> MPAM allows traffic in the SoC to be labeled by the OS, these labels
->>>>> are used to apply policy in caches and bandwidth regulators, and to
->>>>> monitor traffic in the SoC. The label is made up of a PARTID and PMG
->>>>> value. The x86 equivalent calls these CLOSID and RMID, but they don't
->>>>> map precisely.
->>>>>
->>>>> MPAM has two CPU system registers that is used to hold the PARTID and PMG
->>>>> values that traffic generated at each exception level will use. These can be
->>>>> set per-task by the resctrl file system. (resctrl is the defacto interface
->>>>> for controlling this stuff).
->>>>>
->>>>> Add a helper to switch this.
->>>>>
->>>>> struct task_struct's separate CLOSID and RMID fields are insufficient
->>>>> to implement resctrl using MPAM, as resctrl can change the PARTID (CLOSID)
->>>>> and PMG (sort of like the RMID) separately. On x86, the rmid is an
->>>>> independent number, so a race that writes a mismatched  closid and rmid
->>>>> into hardware is benign. On arm64, the pmg bits extend the partid.
->>>>> (i.e. partid-5 has a pmg-0 that is not the same as partid-6's pmg-0).
->>>>> In this case, mismatching the values will 'dirty' a pmg value that
->>>>> resctrl believes is clean, and is not tracking with its 'limbo' code.
->>>>>
->>>>> To avoid this, the partid and pmg are always read and written as a pair.
->>>>> Instead of making struct task_struct's closid and rmid fields an
->>>>> endian-unsafe union, add the value to struct thread_info and always use
->>>>> READ_ONCE()/WRITE_ONCE() when accessing this field.
->>>>>
->>>>> Resctrl allows a per-cpu 'default' value to be set, this overrides the
->>>>> values when scheduling a task in the default control-group, which has
->>>>> PARTID 0. The way 'code data prioritisation' gets emulated means the
->>>>> register value for the default group needs to be a variable.
->>>>>
->>>>> The current system register value is kept in a per-cpu variable to
->>>>> avoid writing to the system register if the value isn't going to change.
->>>>> Writes to this register may reset the hardware state for regulating
->>>>> bandwidth.
->>>>>
->>>>> Finally, there is no reason to context switch these registers unless
->>>>> there is a driver changing the values in struct task_struct. Hide
->>>>> the whole thing behind a static key. This also allows the driver to
->>>>> disable MPAM in response to errors reported by hardware. Move the
->>>>> existing static key to belong to the arch code, as in the future
->>>>> the MPAM driver may become a loadable module.
->>>>>
->>>>> All this should depend on whether there is an MPAM driver, hide
->>>>> it behind CONFIG_MPAM.
->>>>>
->>>>> CC: Amit Singh Tomar <amitsinght@marvell.com>
->>>>> Signed-off-by: James Morse <james.morse@arm.com>  
->>>>  
->>>>> diff --git a/arch/arm64/include/asm/mpam.h b/arch/arm64/include/asm/mpam.h
->>>>> new file mode 100644
->>>>> index 000000000000..86a55176f884
->>>>> --- /dev/null
->>>>> +++ b/arch/arm64/include/asm/mpam.h
->>>>> @@ -0,0 +1,74 @@  
->>>> ...
->>>>  
->>>>> +/*
->>>>> + * The resctrl filesystem writes to the partid/pmg values for threads and CPUs,
->>>>> + * which may race with reads in __mpam_sched_in(). Ensure only one of the old
->>>>> + * or new values are used. Particular care should be taken with the pmg field
->>>>> + * as __mpam_sched_in() may read a partid and pmg that don't match, causing
->>>>> + * this value to be stored with cache allocations, despite being considered
->>>>> + * 'free' by resctrl.
->>>>> + *
->>>>> + * A value in struct thread_info is used instead of struct task_struct as the
->>>>> + * cpu's u64 register format is used, but struct task_struct has two u32'.  
->>>>
->>>> This comment probably wants to provide a little more info if it is to be useful,
->>>>
->>>> Is it a reference to the closid and rmid fields under CONFIG_X86_CPU_RESCTRL?
->>>> I'm not immediately understanding why that matters given you could slap
->>>> a union on it without (I think) resulting in anything else moving.  
->>>
->>> Yes, the fields referred to are those closid and rmid. As James writes
->>> in the commit message a union is an alternative, but it would be endian
->>> unsafe. Unlikely to matter but lets not break things.  
->>
->> Meant to say... I'll add clarification in this vein to the comment.
-> 
-> Goes to show I didn't read the patch description.  Oops.
-> 
-> I'm probably just being slow today, but why would it be endian unsafe?
-> I didn't think the alternative would be to assume the two uses of the storage
-> were valid at the same time but rather just to reuse the space (which would
-> have 64bit alignment anyway).  For that matter we could just put a u64 in
-> under a separate ifdef CONFIG_...
-> 
-> Obviously if the code made use of the access to closid / rmid for arm64
-> systems it would be a problem.
-
-Yes, I think it would only be unsafe if closid / rmid were accessed, but
-if they're not, just reusing the spot is cleaner. I assume James' point
-is that as we can't use what we've already got it's ok just to do
-something new.
-
-> 
-> Anyway just expanding on the comment a bit should do the job with no
-> need for any other changes.
-> 
-> Thanks,
-> 
-> Jonathan
-> 
-> 
->>
->>>
->>> I'm replying for James as he is otherwise engaged. Thanks for the review
->>> of this series and all your review on the previous MPAM series.
->>>   
->>>>
->>>> Now having it in thread_info moves it into arch header territory so
->>>> might make sense for that reason.
->>>>  
->>>>> + */
->>>>> +static inline u64 mpam_get_regval(struct task_struct *tsk)
->>>>> +{
->>>>> +#ifdef CONFIG_ARM64_MPAM
->>>>> +	return READ_ONCE(task_thread_info(tsk)->mpam_partid_pmg);
->>>>> +#else
->>>>> +	return 0;
->>>>> +#endif
->>>>> +}  
->>>>  
->>>
->>> Thanks,
->>>
->>> Ben
->>>   
->>
-> 
-
-Thanks,
-
-Ben
-
+--
+Sincerely,
+Yeoreum Yun
 
