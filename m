@@ -4,60 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FCA7D68BE3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 07:15:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AA3DD68BE3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 07:18:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uauTuHRqpfPJlC4EeGuuyBYgKP0qHs1Wgk0vfO6QTvs=; b=bcv6EElnImgrnJsZMF9VBf9kiA
-	3PS4qqmD+pplb0CfuICF+u7fBznmgo3SufbgbZ8nAVeehpjaRM5IE4jiMmMYNiIMaOFQjvH9bGDms
-	qKvpfd9Ik/ph/AFmZfiGJdMAXNshW5bE39v31Q0m1LOoCa8DKb+o8BrXkl63RbMrhtF5ZC0nepio+
-	aAkGwAJ94NsrDA9n6uwv2jAJvhABDVUHrRxkQp7zlXilWAg9vdUUXyQvWeuL/6x7oCASoBKONgfjU
-	K3J9v0erXo0HqpaBO8ByW9fTFephmCssVGgf/wEqWwk92MkjgyTzRWPZ91Q/MuCOHT4qQ9TZQ8O2a
-	BpUTvvxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dlCdtJQ1anpazpKP4YhFIpG9WdHdsu82wr7xF3zq20I=; b=olbVPnW1gwv4F16JmnmG0SRwj8
+	9jl9Dl97q9TXDs0nG14blCD5QBWwjctpgyM0wcjo0dd0TEPOFobuVsVfCcnVkCO2vcQJxEvZtY6wI
+	YLH5MIUfYUdFthO7TyvKMhkFatncNZ1lr2Y/tuDkEoj5HfzAZ0ElKozcEQQHonUeyPEQZcEJAbGZe
+	X8jnCjxCb+gSbgQCJsA/xZ5lZSrbCPxxxYlyNc6xl+t1I4I60BTNQU0ydPZPdX7IIRrBqHck6hqaK
+	3guZiKRsRJiKD6X30jo5FgAPRYJBFMcbFbE22ahKVJVxp1RZktcMTf9yHwZVc4oh1XcI95T5/aCck
+	lYRxtP9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vW8EU-00000007wjO-2gjH;
-	Thu, 18 Dec 2025 07:15:30 +0000
-Received: from out30-110.freemail.mail.aliyun.com ([115.124.30.110])
+	id 1vW8HW-00000007wtu-0s6V;
+	Thu, 18 Dec 2025 07:18:38 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vW8EP-00000007whn-44Vc
+	id 1vW8HT-00000007wtV-3aAc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 07:15:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1766042119; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=uauTuHRqpfPJlC4EeGuuyBYgKP0qHs1Wgk0vfO6QTvs=;
-	b=Z5joIWriMfA9Ui9fXMNOJMahLeYJOE7gP7th9lIMnS+9lkzH9Ln1WX31a9pfg3/7oPlpwK/Of94jK1PNaCAGkMUxEFxAyL7DJtFyIMN5aE2R56F3kbtGaIM4jo4xruxdBcQqfAA10XrOwKX7qXoiNSxjFrI4zhqA+CIV/ClOA4w=
-Received: from 30.74.144.118(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0Wv7ehcK_1766042116 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 18 Dec 2025 15:15:17 +0800
-Message-ID: <96c0adcc-abfd-4a44-be93-1c6bd7942d6d@linux.alibaba.com>
-Date: Thu, 18 Dec 2025 15:15:16 +0800
+	Thu, 18 Dec 2025 07:18:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Ca4+G5kijFXBIjmkxVGHgkbtG4m8KPzKdnt+1rnco99JbhFBwFvVE4Jcevq98EGUuySHlTPOZ/S2pEARXbO5AO2kUSKiAJYSZgck4f512m7Jzqf31OANr62Cu4JmKbrbjLJLjdhKGKfpWbu+PFkE4c8Q1KqKIaSXLhOileKDKfHkBo2awR/iOFGddVy5A+ZevhYDb8q2DYoIZ5hrDNKOoEvvNS8ulSYVf6jLPb79+7HgMd6H/5GBLesHeGYO8svgx5/AhDFQFDah01USoasWHUF9jPC3XAWqbiROy0xBk44U21AlY+JynZfSLvN3OvnOxmxGWrdiqm78KEBgkibn1g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dlCdtJQ1anpazpKP4YhFIpG9WdHdsu82wr7xF3zq20I=;
+ b=jFaqWEHZmmWwj6oigEZaCcYnh/SBtW5dDepyPcnitOf2uZl4ClgBga2U+cuwBMVkLcy9lbFa0bPvl9uht4f2+niS4RCOa8Hz7hPEcoZkju6Y1AhFm/D8MLUX8tXtBn8oMv5YqGE6oK1beRBuvTwiKbQhUcdsoh879OqzblpYOigXIh+L29JVpnFI08iKRB2YOfoVTU3JJQfoBMvJdv2YxflP/o5fq4ir8cA8Z/JEHh89I9Y2Y2neXI6+6sJslypfwgH3XUW//3xetyqNCiBVwtdgY/Chm38bg+Jf0fm3MbFIiDAr4F2hn//9MLDkfuFhmRqQgI9DPdq1Wg11PXLaGw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dlCdtJQ1anpazpKP4YhFIpG9WdHdsu82wr7xF3zq20I=;
+ b=Fl/6EeMEi3lMiPHKywEkpM9coyZwOKzm0ZjFK5ZL4d+TI7TNRazyzboNcFC6DDyIuozzyoehqjclCMvywgC0Q0qf+VZHe8+ZM10UXgQ2XKd7j2oDaSMwR8Rr+5Ln9CeG7zOJXqeEoy5zzF6hZgVFyebC5iiGIL7L0t+OGogkORBElgok30K/RdkOvQamrGgcLtjcYlmbQMQ2wU+48HY7QduaLfQvAJfwonAFEFik869PI9mEtk9s4LkwsRo4GUJf1mh8BMx+efHt8blokvQY6qMmFDXQi9BpxgCQlTJrD62WlqLZwzcAdusrbUTPq/gX2OGp40jWNwindH2CGZAuVg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from VI1PR04MB7055.eurprd04.prod.outlook.com (2603:10a6:800:123::21)
+ by AS8PR04MB8231.eurprd04.prod.outlook.com (2603:10a6:20b:3ff::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.6; Thu, 18 Dec
+ 2025 07:18:29 +0000
+Received: from VI1PR04MB7055.eurprd04.prod.outlook.com
+ ([fe80::d6ab:1538:d868:bf8]) by VI1PR04MB7055.eurprd04.prod.outlook.com
+ ([fe80::d6ab:1538:d868:bf8%7]) with mapi id 15.20.9434.001; Thu, 18 Dec 2025
+ 07:18:29 +0000
+From: Shengjiu Wang <shengjiu.wang@nxp.com>
+To: andersson@kernel.org,
+	mathieu.poirier@linaro.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	daniel.baluta@nxp.com,
+	linux-remoteproc@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] remoteproc: imx_dsp_rproc: only reset carveout memory at RPROC_OFFLINE state
+Date: Thu, 18 Dec 2025 15:17:50 +0800
+Message-Id: <20251218071750.2692132-1-shengjiu.wang@nxp.com>
+X-Mailer: git-send-email 2.37.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SGXP274CA0004.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b8::16)
+ To VI1PR04MB7055.eurprd04.prod.outlook.com (2603:10a6:800:123::21)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] arm64: mm: support batch clearing of the young
- flag for large folios
-To: Ryan Roberts <ryan.roberts@arm.com>, akpm@linux-foundation.org,
- david@kernel.org, catalin.marinas@arm.com, will@kernel.org
-Cc: lorenzo.stoakes@oracle.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
- rppt@kernel.org, surenb@google.com, mhocko@suse.com, riel@surriel.com,
- harry.yoo@oracle.com, jannh@google.com, willy@infradead.org,
- baohua@kernel.org, linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <cover.1765439380.git.baolin.wang@linux.alibaba.com>
- <e10f876ce130134fa089befe83f30561b48b9889.1765439380.git.baolin.wang@linux.alibaba.com>
- <1beaa7de-4b31-4f19-abee-83872f868e28@arm.com>
-From: Baolin Wang <baolin.wang@linux.alibaba.com>
-In-Reply-To: <1beaa7de-4b31-4f19-abee-83872f868e28@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI1PR04MB7055:EE_|AS8PR04MB8231:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3915b8bd-e923-4640-58b6-08de3e05a45f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|1800799024|366016|19092799006|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?x49pFFAMqljMQobhLjoZ2VpJUYLJ6QZ3vkw8CHFJC2TDJOoMbhq1quQjfGBd?=
+ =?us-ascii?Q?LHU3hNUh/cBxNRYvE/AHSDFlthNJRs1Jdyq3gmRep4BDnFF/SzMKBRXJgXnc?=
+ =?us-ascii?Q?bEXMw5O+LjPkEqAY5fNmxEGyY8oqR9AUCSDSYbyvy6ocAlQLhyIel+WmZXau?=
+ =?us-ascii?Q?ADfb7kww9+wR9rWpfMdoc/aBBm7l9B23jJb5mrCoQK3jDyw+CAKy6FLgII/O?=
+ =?us-ascii?Q?ZCpmodfogjrTDuafjfXNvy27xZi5gfPGL8IXrk63GhUhfW1vhvyVxwp9+9oK?=
+ =?us-ascii?Q?tVoY9oKHD39vkPaEuZyOVLC6uGR1AsHOTZtEGPbXTBkE453z9zbpnExBhSFm?=
+ =?us-ascii?Q?zxVLsi+tnVLqmL8XxBR/J3StwfeRrCUKJ8+Zj6BRrSxi6JiCgO24Bf2CbN1G?=
+ =?us-ascii?Q?pTWoELvtxx+jMht3Q3FlYpjAjvd0wfjRSWjf/1Q8b+rGLGOiouTlHDszSBVc?=
+ =?us-ascii?Q?Y/IjMxh70rOm1lDsU2jnW/+4mb5As/Aj6oon2K97PSX6/OBvG9UHAUP8Rc0n?=
+ =?us-ascii?Q?1ITL+O+APM1mblDWJEjfvckKP4mLd1ndE2ACMHxnkcfGiMKDTDUnOZduRlKk?=
+ =?us-ascii?Q?n7/Ik56F+YeI5x77KJJHHhNoAoqIHNQN/yvFVpWXfI3NSRGKSd1H4YOSrKhR?=
+ =?us-ascii?Q?++E1QX80Bq+VOyZN8ZedkFPpCzOkwSNA4VCKcdwIMnjdD9LIOixCUvNJ1k34?=
+ =?us-ascii?Q?Ovx+XrVUEsF5tl+3uZxG2BllJ6+L5SLOcRdxp3exDI65ObiLn98dx1fpaokf?=
+ =?us-ascii?Q?cwlHvAC4L001CbMYWjqFaaDuK/xZkt3TWeV1T9AbeaPcW3C+nBlmEDkPb4MN?=
+ =?us-ascii?Q?dYGQrAqY80hpEzBQ3SELWeCttIzehj2+MH7ZYOwM8qGePHhXrIpHGOCotRfi?=
+ =?us-ascii?Q?zKDjtTpN/xnAea6etB+zLVQYnjL6/6hhwxh2EW/rQj5nqtHhJznX/tG3jrSa?=
+ =?us-ascii?Q?2ltoJk2JP7kuGWezu+Y7QntnGNWRhxRkOX765m4ie+tw+OSPllWlUsFt59D0?=
+ =?us-ascii?Q?4BmdBzzZ3gzmvyvIM7Kiq/ze4e7e1kbICZyxM6S1KqyUYwuJGwtxSg7AoZCp?=
+ =?us-ascii?Q?WbZVIjfSqRXWKOalWOQTfuM/BBhcf0mSJ5PPwlgevBd55F8KnGFIuAVwhtW/?=
+ =?us-ascii?Q?j3LTQFH7cKHH3Xj5MlJaVOZXAehWtMFvMg4skY/wLk3TA3yDnIrpH1oextFq?=
+ =?us-ascii?Q?yN1CtSOphSqpGNWIVWCNAUyIhDSxgd4RkZzjdVg5Ss0dGvwcsHJWQy4b2Dwx?=
+ =?us-ascii?Q?gcqPFzIJir/6V3FBrnvwu16TlQe6VW6yk7hnxBHFr0BWCSEdPz322F98WVl+?=
+ =?us-ascii?Q?7advQaE7XtypJcz7fbA5WOabtypVNkJbZKQENJ9nuz12VwUiK0KXsu5hepJ6?=
+ =?us-ascii?Q?b/bLBELAA6AW58rFp5Ztiogm4RK8U7e9ANa/8sQe3XW3EBvzfiNA+xfZwlPK?=
+ =?us-ascii?Q?St34A+aQ8c/0CuIX/Geg3ZzHkAs/Cr+ypZIkoqpbeHSwpNF852b1oNaTEWOB?=
+ =?us-ascii?Q?cKk2BLHUQb1JCf+eQLfGbgz4NuoH5a7GjsJ818ZDa8gWpB6L0TmETerndg?=
+ =?us-ascii?Q?=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI1PR04MB7055.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(1800799024)(366016)(19092799006)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+3g+x4tEzXKDzLhOJKaGlUGR6QE/AY+XvQx2iq/JZ7pAp4XiEFb7kHrLETHt?=
+ =?us-ascii?Q?UihtF0fV5C180aheWVoWpXwgfJXx9nz+LBwuA2c6QZNJhzmxAXLIok9T+H1G?=
+ =?us-ascii?Q?awdMmUeEtjUx2QLG3die90lKZIcBwAEmtO8RDOhUcD/XmgtbBVA/sPI/WpM3?=
+ =?us-ascii?Q?i4D2Z/L0euXNhChfa/8515b6nUYfL50xOP3CIsW3P3UUl4gks6Kz+WPYC3Dd?=
+ =?us-ascii?Q?1vMThYs+yh5NnbZxm3ZkVXTEll6aX56TFzSqUnJQyUlyEwzM+6ys9OBhvHdn?=
+ =?us-ascii?Q?CRv77Wy4jkb9YHkUpUOKndqkFevmsknjTq+ZYxIT9We22Jbvek77wi2YiV/1?=
+ =?us-ascii?Q?h84b7WV+zl1YD+XNsgIEmUWg86H7lgaFUHymViWZekZL86BiXreLAsibjffr?=
+ =?us-ascii?Q?ZKAMIitBXmdkZqvzjeZ574DACDT9JbFcwdoyNWZngE0N9Mus5GLVLLYfIml8?=
+ =?us-ascii?Q?DebrjH3OfQq7gPo2Nt8PRC+Kv1jCRpIryt36gniWIgtNXq4jSwqI6McI2l03?=
+ =?us-ascii?Q?aWmZ2l1Ax5VApmHP+ZBJ7m1Y8oI7jPcrxs4Sr2xTCDhQCUAeCWj5O7BoRMdl?=
+ =?us-ascii?Q?rK7bpf4sD3sv3+MGEQ4mWIIdQgaKGB4g2BgY7oULBUVAGcn0bt5qOVnZuLCp?=
+ =?us-ascii?Q?P1cf4f8glulfAMDxZRZsaX1gLtDjV+726Aw291bAsBoFhbgdWp+fF+szlRNt?=
+ =?us-ascii?Q?7ePaJzyUdhAne4RLD00cM0q3OLpvccVc+qCCTPht96xeqowSW0qJCVUv26iu?=
+ =?us-ascii?Q?4Qz35wogXktR2MMUXHkZUjImqsyhyZSY13D7+mhVctEJy3L7YfGkhSlqpbSC?=
+ =?us-ascii?Q?O8QrG8yN5CG/TjVEygmxfESPbXRdp14Spn1Ay2KbGIao5ccabiWyTbiNpsRT?=
+ =?us-ascii?Q?AGUo/sSoyNwV7SeHlEhqKFow2HUdOrsn5Vl5uqqraft3H0izNjxue5terq3L?=
+ =?us-ascii?Q?t1BLjcGAu/CkyxMKg7W0SQYzJQND0kaTzu5KyR5XVY2DBr/jBJTgwZUISDPY?=
+ =?us-ascii?Q?wN8ekdtEPH5S6qYo08AUpMP8a40v+/eKebF5/c2Gsy9cP7YqasSAod95hn/e?=
+ =?us-ascii?Q?H6KQp4FvBhUaeF01V7r/DFFzWz6u4UjQ8/Jd/QHhC8bz0yRU6DGNDpaKV62L?=
+ =?us-ascii?Q?XPOV0JOFs7HQvo6IWs+yT5JLY8hKm6lHJV1tNSPINkQw+7Ivu3BXA9Egczh6?=
+ =?us-ascii?Q?SD9rQXst8YAAuQT4E18J9783edsP1IzibhXGD6J9qQWfJVd2tDSA8023pZBJ?=
+ =?us-ascii?Q?wvCQQ7RPXUQmoadenSuzHLqeHVYQRxFhN5xI4fKxccP5E21Nq0YBimvSVGEk?=
+ =?us-ascii?Q?24Z8TFxsqFUl8pZ3kwIFCAcRd0bwRmTdjUrASkCU+GNK4WmAXN74Fo8hv11v?=
+ =?us-ascii?Q?YmOPxBhm52wqT+U+AxhRZCPNIIIMWxpqYH2JclmkVQMOBmaHUtB//gKtFby3?=
+ =?us-ascii?Q?qoEH+6Rn/g/iWy+6xxJe5ajvjsAwsg4VCfqpNEswvxOo8WRLtasag1vVj+ZI?=
+ =?us-ascii?Q?8+ISfIkbZnz56W1V1cWux4c31Dq8+I3+vdSPIyn/LfOuFahRBvBeYEAItshH?=
+ =?us-ascii?Q?KvGlpTtAIs/ZksPMIXEKSgSSXEQWqx5PePyJwDyc?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3915b8bd-e923-4640-58b6-08de3e05a45f
+X-MS-Exchange-CrossTenant-AuthSource: VI1PR04MB7055.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Dec 2025 07:18:28.9436
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Lt6jJxOGrCOxdYKA6aoJmTlLqds78p5mlXLtQirQMR07fjS+OWDe5EhDbD6ziqNUWhBpnAp5z8iit8W/MvgPVg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8231
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_231526_786936_8BAA255E 
-X-CRM114-Status: GOOD (  23.34  )
+X-CRM114-CacheID: sfid-20251217_231835_915850_27315528 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,176 +163,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Do not reset memory at suspend and resume stage, because some
+memory is used to save the software state for resume, if it is cleared,
+the resume operation can fail.
 
+Fixes: c4c432dfb00f ("remoteproc: imx_dsp_rproc: Add support of recovery and coredump process")
+Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
+Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+Reviewed-by: Iuliana Prodan <iuliana.prodan@nxp.com>
+---
+changes in v2:
+- refine commit message.
 
-On 2025/12/17 23:43, Ryan Roberts wrote:
-> Sorry I'm a bit late to the party...
+ drivers/remoteproc/imx_dsp_rproc.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
 
-Never mind. It's not late and comments are always welcome :)
+diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
+index d03017d6b214..ac8aa71aa56c 100644
+--- a/drivers/remoteproc/imx_dsp_rproc.c
++++ b/drivers/remoteproc/imx_dsp_rproc.c
+@@ -984,9 +984,11 @@ static int imx_dsp_rproc_load(struct rproc *rproc, const struct firmware *fw)
+ 	 * Clear buffers after pm rumtime for internal ocram is not
+ 	 * accessible if power and clock are not enabled.
+ 	 */
+-	list_for_each_entry(carveout, &rproc->carveouts, node) {
+-		if (carveout->va)
+-			memset(carveout->va, 0, carveout->len);
++	if (rproc->state == RPROC_OFFLINE) {
++		list_for_each_entry(carveout, &rproc->carveouts, node) {
++			if (carveout->va)
++				memset(carveout->va, 0, carveout->len);
++		}
+ 	}
+ 
+ 	ret = imx_dsp_rproc_elf_load_segments(rproc, fw);
+-- 
+2.34.1
 
-> On 11/12/2025 08:16, Baolin Wang wrote:
->> Currently, contpte_ptep_test_and_clear_young() and contpte_ptep_clear_flush_young()
->> only clear the young flag and flush TLBs for PTEs within the contiguous range.
->> To support batch PTE operations for other sized large folios in the following
->> patches, adding a new parameter to specify the number of PTEs.
->>
->> While we are at it, rename the functions to maintain consistency with other
->> contpte_*() functions.
->>
->> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
->> ---
->>   arch/arm64/include/asm/pgtable.h | 12 ++++-----
->>   arch/arm64/mm/contpte.c          | 44 ++++++++++++++++++++++----------
->>   2 files changed, 37 insertions(+), 19 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
->> index 0944e296dd4a..e03034683156 100644
->> --- a/arch/arm64/include/asm/pgtable.h
->> +++ b/arch/arm64/include/asm/pgtable.h
->> @@ -1679,10 +1679,10 @@ extern void contpte_clear_full_ptes(struct mm_struct *mm, unsigned long addr,
->>   extern pte_t contpte_get_and_clear_full_ptes(struct mm_struct *mm,
->>   				unsigned long addr, pte_t *ptep,
->>   				unsigned int nr, int full);
->> -extern int contpte_ptep_test_and_clear_young(struct vm_area_struct *vma,
->> -				unsigned long addr, pte_t *ptep);
->> -extern int contpte_ptep_clear_flush_young(struct vm_area_struct *vma,
->> -				unsigned long addr, pte_t *ptep);
->> +extern int contpte_test_and_clear_young_ptes(struct vm_area_struct *vma,
->> +				unsigned long addr, pte_t *ptep, unsigned int nr);
->> +extern int contpte_clear_flush_young_ptes(struct vm_area_struct *vma,
->> +				unsigned long addr, pte_t *ptep, unsigned int nr);
-> 
-> The "contpte_" functions are intended to be private to the arm64 arch and should
-> be exposed via the generic APIs. But I don't see any generic batched API for
-> this, so you're only actually able to pass CONT_PTES as nr. Perhaps you're
-> planning to define "test_and_clear_young_ptes()" and "clear_flush_young_ptes()"
-> in later patches?
-
-Right. This is a preparation patch, and will be used in patch 2.
-
->>   extern void contpte_wrprotect_ptes(struct mm_struct *mm, unsigned long addr,
->>   				pte_t *ptep, unsigned int nr);
->>   extern int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
->> @@ -1854,7 +1854,7 @@ static inline int ptep_test_and_clear_young(struct vm_area_struct *vma,
->>   	if (likely(!pte_valid_cont(orig_pte)))
->>   		return __ptep_test_and_clear_young(vma, addr, ptep);
->>   
->> -	return contpte_ptep_test_and_clear_young(vma, addr, ptep);
->> +	return contpte_test_and_clear_young_ptes(vma, addr, ptep, CONT_PTES);
->>   }
->>   
->>   #define __HAVE_ARCH_PTEP_CLEAR_YOUNG_FLUSH
->> @@ -1866,7 +1866,7 @@ static inline int ptep_clear_flush_young(struct vm_area_struct *vma,
->>   	if (likely(!pte_valid_cont(orig_pte)))
->>   		return __ptep_clear_flush_young(vma, addr, ptep);
->>   
->> -	return contpte_ptep_clear_flush_young(vma, addr, ptep);
->> +	return contpte_clear_flush_young_ptes(vma, addr, ptep, CONT_PTES);
->>   }
->>   
->>   #define wrprotect_ptes wrprotect_ptes
->> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
->> index c0557945939c..19b122441be3 100644
->> --- a/arch/arm64/mm/contpte.c
->> +++ b/arch/arm64/mm/contpte.c
->> @@ -488,8 +488,9 @@ pte_t contpte_get_and_clear_full_ptes(struct mm_struct *mm,
->>   }
->>   EXPORT_SYMBOL_GPL(contpte_get_and_clear_full_ptes);
->>   
->> -int contpte_ptep_test_and_clear_young(struct vm_area_struct *vma,
->> -					unsigned long addr, pte_t *ptep)
->> +int contpte_test_and_clear_young_ptes(struct vm_area_struct *vma,
->> +					unsigned long addr, pte_t *ptep,
->> +					unsigned int nr)
->>   {
->>   	/*
->>   	 * ptep_clear_flush_young() technically requires us to clear the access
->> @@ -500,39 +501,56 @@ int contpte_ptep_test_and_clear_young(struct vm_area_struct *vma,
->>   	 * having to unfold.
->>   	 */
->>   
->> +	unsigned long start = addr;
-> 
-> Personally I wouldn't bother defining start - just reuse addr. You're
-> incrementing start in the below loop, so it's more appropriate to call it addr
-> anyway.
-
-OK.
-
->> +	unsigned long end = start + nr * PAGE_SIZE;
->>   	int young = 0;
->>   	int i;
->>   
->> -	ptep = contpte_align_down(ptep);
->> -	addr = ALIGN_DOWN(addr, CONT_PTE_SIZE);
->> +	if (pte_cont(__ptep_get(ptep + nr - 1)))
->> +		end = ALIGN(end, CONT_PTE_SIZE);
->>   
->> -	for (i = 0; i < CONT_PTES; i++, ptep++, addr += PAGE_SIZE)
->> -		young |= __ptep_test_and_clear_young(vma, addr, ptep);
->> +	if (pte_cont(__ptep_get(ptep))) {
->> +		start = ALIGN_DOWN(start, CONT_PTE_SIZE);
->> +		ptep = contpte_align_down(ptep);
->> +	}
->> +
->> +	nr = (end - start) / PAGE_SIZE;
->> +	for (i = 0; i < nr; i++, ptep++, start += PAGE_SIZE)
-> 
-> Given you're now defining end, perhaps we don't need nr?
-> 
-> 	for (; addr != end; ptep++, addr += PAGE_SIZE)
-> 		young |= __ptep_test_and_clear_young(vma, addr, ptep);
-
-Yes, good point.
-
->> +		young |= __ptep_test_and_clear_young(vma, start, ptep);
->>   
->>   	return young;
->>   }
->> -EXPORT_SYMBOL_GPL(contpte_ptep_test_and_clear_young);
->> +EXPORT_SYMBOL_GPL(contpte_test_and_clear_young_ptes);
->>   
->> -int contpte_ptep_clear_flush_young(struct vm_area_struct *vma,
->> -					unsigned long addr, pte_t *ptep)
->> +int contpte_clear_flush_young_ptes(struct vm_area_struct *vma,
->> +				unsigned long addr, pte_t *ptep,
->> +				unsigned int nr)
->>   {
->>   	int young;
->>   
->> -	young = contpte_ptep_test_and_clear_young(vma, addr, ptep);
->> +	young = contpte_test_and_clear_young_ptes(vma, addr, ptep, nr);
->>   
->>   	if (young) {
->> +		unsigned long start = addr;
->> +		unsigned long end = start + nr * PAGE_SIZE;
->> +
->> +		if (pte_cont(__ptep_get(ptep + nr - 1)))
->> +			end = ALIGN(end, CONT_PTE_SIZE);
->> +
->> +		if (pte_cont(__ptep_get(ptep)))
->> +			start = ALIGN_DOWN(start, CONT_PTE_SIZE);
->> +
-> 
-> We now have this pattern of expanding contpte blocks up and down in 3 places.
-> Perhaps create a helper?
-
-Sounds reasonable. How about the following helper?
-
-static pte_t *contpte_align_addr_ptep(unsigned long *start, unsigned 
-long *end,
-                                         pte_t *ptep, unsigned int nr)
-{
-         unsigned long end_addr = *start + nr * PAGE_SIZE;
-
-         if (pte_cont(__ptep_get(ptep + nr - 1)))
-                 *end = ALIGN(end_addr, CONT_PTE_SIZE);
-
-         if (pte_cont(__ptep_get(ptep))) {
-                 *start = ALIGN_DOWN(*start, CONT_PTE_SIZE);
-                 ptep = contpte_align_down(ptep);
-         }
-
-         return ptep;
-}
 
