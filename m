@@ -4,64 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 548F4D6D226
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 13:53:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 433AED6D229
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 13:53:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S0E4Ojo5DrZYKX3AJHXN2KCdTQB5pjRx6eXL2M6sED0=; b=In1eRm3OmW4m2EenQF38qpodqI
-	NUGhtJxoQJuE67ztuQ8ryYuyJ4bTLHgvEDbnaiRqlkkcYcwErcVbZwnddzVgrfTKaOBxxi9ljndtd
-	NcskUkVoF00vmKyg3dKYSmX8K3bS4iPrWbJzLWGvAlUPakfAv1+iSl3uPHASH0azh2BHJd5Deso+i
-	VK9rOizsAi0mwL6jgm+HW70HTx2sSixBFG1dMU3IoK8r/vOw7wD16I82oheDpM2PfsaONisQOhSMT
-	SWX5WIicN4LVBcy/2tsm+w7LCvKYbh57lSlcikTddRYg9BBZT4UPUM8FjRaFIK5EnITJi58qHdxEO
-	QOC1BAmA==;
+	bh=OfAXsq0+zQ7R2M3GPntXZlpgd+xTHqIuu/wC3TWoI/c=; b=s261LBoS9Y00irGRl9k0gw1Ecb
+	ZZ3jZXtjQnrUoUgLSZXEwxzAClKl/pI0q6GSv+3LXqpMM4pwjv5xjS8YFpe8u84AePkoPdXaVMQWh
+	3G8r4NCvyD77L+k3rH0Ov13RL4xVKKSUi8JBR/jgAPUfBg3doXaH0BpOdNdq46YZp00NdK4IJDSzb
+	ZKA26qMowB6WPOh1fjonAMdfKtJMLHnWIdZ+d2Um+SIFoWCrtEIjfIRl8Eti3bh6UKYi/9vJkdvoA
+	Ip3kqwJ75p20054Wq91ptN9W3WCrcSlRFHzI7Uhaomjo7vZnReNJ+JcnGrHLhvmAnWdNuKG0Mr9+W
+	j9/ja0nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWERa-00000008ZNd-3dPu;
-	Thu, 18 Dec 2025 13:53:26 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vWERe-00000008ZOJ-0fsP;
+	Thu, 18 Dec 2025 13:53:30 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWERY-00000008ZMx-04hp
+	id 1vWERY-00000008ZMy-2dOO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 13:53:25 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1vWERE-0008Rc-F2; Thu, 18 Dec 2025 14:53:04 +0100
-Message-ID: <5925c749-1288-4d61-b17f-ac2e1c6c463d@pengutronix.de>
-Date: Thu, 18 Dec 2025 14:53:02 +0100
+	Thu, 18 Dec 2025 13:53:26 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.150])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dXBv430bRzJ46d3;
+	Thu, 18 Dec 2025 21:52:48 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id 761E240565;
+	Thu, 18 Dec 2025 21:53:19 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Thu, 18 Dec
+ 2025 13:53:18 +0000
+Date: Thu, 18 Dec 2025 13:53:17 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: James Morse <james.morse@arm.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, D
+ Scott Phillips OS <scott@os.amperecomputing.com>,
+	<carl@os.amperecomputing.com>, <lcherian@marvell.com>,
+	<bobo.shaobowang@huawei.com>, <tan.shaopeng@fujitsu.com>,
+	<baolin.wang@linux.alibaba.com>, Jamie Iles <quic_jiles@quicinc.com>, "Xin
+ Hao" <xhao@linux.alibaba.com>, <peternewman@google.com>,
+	<dfustini@baylibre.com>, <amitsinght@marvell.com>, David Hildenbrand
+	<david@kernel.org>, Dave Martin <dave.martin@arm.com>, Koba Ko
+	<kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+	<fenghuay@nvidia.com>, <baisheng.gao@unisoc.com>, Gavin Shan
+	<gshan@redhat.com>, Ben Horgan <ben.horgan@arm.com>, <rohit.mathew@arm.com>,
+	<reinette.chatre@intel.com>, Punit Agrawal <punit.agrawal@oss.qualcomm.com>
+Subject: Re: [RFC PATCH 25/38] arm_mpam: resctrl: Add
+ resctrl_arch_rmid_read() and resctrl_arch_reset_rmid()
+Message-ID: <20251218135317.000004ba@huawei.com>
+In-Reply-To: <20251205215901.17772-26-james.morse@arm.com>
+References: <20251205215901.17772-1-james.morse@arm.com>
+	<20251205215901.17772-26-james.morse@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/2] Add devicetree for NXP i.MX93 FRDM board
-To: Fabian Pflug <f.pflug@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, Lei Xu <lei.xu@nxp.com>,
- linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>,
- Haidong Zheng <haidong.zheng@nxp.com>, Daniel Baluta
- <daniel.baluta@nxp.com>, Danwei Luo <danwei.luo@nxp.com>,
- linux-arm-kernel@lists.infradead.org
-References: <20251218-fpg-nxp-imx93-frdm-v4-0-cd3a9f6ac89a@pengutronix.de>
- <9a96f664-00ba-4589-b3b8-a04355c0ad0b@pengutronix.de>
- <e15437918fc2e162eec92985e8f11f8e0de91246.camel@pengutronix.de>
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Content-Language: en-US, de-DE, de-BE
-In-Reply-To: <e15437918fc2e162eec92985e8f11f8e0de91246.camel@pengutronix.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml500011.china.huawei.com (7.191.174.215) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_055324_069795_D93F8D71 
-X-CRM114-Status: GOOD (  26.59  )
+X-CRM114-CacheID: sfid-20251218_055324_955264_8435D45E 
+X-CRM114-Status: GOOD (  20.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,102 +82,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Fri, 5 Dec 2025 21:58:48 +0000
+James Morse <james.morse@arm.com> wrote:
 
-On 12/18/25 2:11 PM, Fabian Pflug wrote:
-> Hello Ahmad,
+> resctrl uses resctrl_arch_rmid_read() to read counters. CDP emulation
+> means the counter may need reading in three different ways. The same
+> goes for reset.
 > 
-> On Thu, 2025-12-18 at 13:52 +0100, Ahmad Fatoum wrote:
->> Hello Fabian,
->>
->> On 12/18/25 12:39 PM, Fabian Pflug wrote:
->>> Signed-off-by: Fabian Pflug <f.pflug@pengutronix.de>
->>> ---
->>> Changes in v4:
->>> - remove it6263 block in i2c1, since it is not finished
->>> - remove usdhc3 pwrsequence, since WLAN is not tested on my board
->>> - remove eee-broken-1000t on phy2, since it is not broken
->>> - update min/max-microvlt on buck converters
->>
->> I know you changed this due to reviewer feedback, but it was wrong
->> advice. The Linux driver already has information about the minimum and
->> maximum range support for the PMIC, what you need to write here is the
->> actual board-level constraints.
+> The helpers behind the resctrl_arch_ functions will be re-used for the
+> ABMC equivalent functions.
 > 
-> Yeah, I know, that why I only updated the other two rails and changed to minimum for CPU 0.64 to 0.61V for core.
-> And 1.06 to 1.14V for DRAM, as it is the settings allowed by the CPU.
+> Add the rounding helper for checking monitor values while we're here.
 > 
-> VCC3.3 and VCC1.8 were not changed, due to them being connected to multiple devices and I did not want to make them
-> flexible, as it would be a hassle in the drivers.
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+>  drivers/resctrl/mpam_resctrl.c | 154 +++++++++++++++++++++++++++++++++
+>  include/linux/arm_mpam.h       |   5 ++
+>  2 files changed, 159 insertions(+)
+> 
+> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+> index a2b238d47117..dc8a819d0976 100644
+> --- a/drivers/resctrl/mpam_resctrl.c
+> +++ b/drivers/resctrl/mpam_resctrl.c
+> @@ -355,6 +355,160 @@ void resctrl_arch_mon_ctx_free(struct rdt_resource *r,
+>  	resctrl_arch_mon_ctx_free_no_wait(evtid, mon_idx);
+>  }
+>  
+> +static int
+> +__read_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
+> +	   enum mpam_device_features mon_type,
+> +	   int mon_idx,
+> +	   enum resctrl_conf_type cdp_type, u32 closid, u32 rmid, u64 *val)
+> +{
+> +	struct mon_cfg cfg = { };
+> +
+> +	if (!mpam_is_enabled())
+> +		return -EINVAL;
+> +
+> +	/* Shift closid to account for CDP */
+> +	closid = resctrl_get_config_index(closid, cdp_type);
+> +
+> +	if (mon_idx == USE_PRE_ALLOCATED) {
+> +		int mbwu_idx = resctrl_arch_rmid_idx_encode(closid, rmid);
+> +		mon_idx = mon->mbwu_idx_to_mon[mbwu_idx];
+> +		if (mon_idx == -1) {
+> +			if (mpam_resctrl_abmc_enabled()) {
+> +				/* Report Unassigned */
+> +				return -ENOENT;
+> +			}
+> +			/* Report Unavailable */
+> +			return -EINVAL;
+> +		}
+> +	}
+> +
+> +	cfg.mon = mon_idx;
+> +	cfg.match_pmg = true;
+> +	cfg.partid = closid;
+> +	cfg.pmg = rmid;
+Maybe use
+	cfg = (struct mon_cfg) {
+		.mon = ...
 
-Ah, good. I read this change log here, checked v3 and then saw you
-applied the feedback on the first regulator and assumed you did so for
-the others mentioned there as well...
+and drop the earlier initialization.
 
-0.61 is the minimum in suspend for VDD_SOC, so that's ok.
-For DRAM, that's minimum/maximum operating range so ok too.
+	};
+> +
+> +	if (irqs_disabled()) {
+> +		/* Check if we can access this domain without an IPI */
+> +		return -EIO;
+> +	}
+> +
+> +	return mpam_msmon_read(mon_comp, &cfg, mon_type, val);
+> +}
+> +
+> +static int read_mon_cdp_safe(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
+> +			     enum mpam_device_features mon_type,
+> +			     int mon_idx, u32 closid, u32 rmid, u64 *val)
+> +{
+> +	if (cdp_enabled) {
+> +		u64 code_val = 0, data_val = 0;
+> +		int err;
+> +
+> +		err = __read_mon(mon, mon_comp, mon_type, mon_idx,
+> +				 CDP_CODE, closid, rmid, &code_val);
+> +		if (err)
+> +			return err;
+> +
+> +		err = __read_mon(mon, mon_comp, mon_type, mon_idx,
+> +				 CDP_DATA, closid, rmid, &data_val);
+> +		if (!err)
+> +			*val += code_val + data_val;
 
-Thanks for the clarification,
-Ahmad
+I'd stick to out of line error handling and just spend a couple more lines
+for readability.
+		if (err)
+			return err;
 
-> 
-> Kind regards
-> Fabian
-> 
->>
->> I don't think the board will like VDD_3V3 at 1.62V or VDD_1V8 at 3.4V.
->> For the fixed voltage rails just set min = max = fixed voltage.
->>
->> Thanks,
->> Ahmad
->>
->>> - Link to v3: https://lore.kernel.org/r/20251022-fpg-nxp-imx93-frdm-v3-0-03ec40a1ccc0@pengutronix.de
->>>
->>> Changes in v3:
->>> - Add Signed-off for original NXP contributors.
->>> - Fixed whitespace errors (Thanks Francesco Valla)
->>> - Added mu1 with status okay (Thanks Francesco Valla)
->>> - Removed address cells from lpi2c3 (Thanks Frank Li)
->>> - Configure pin for watchdog (Thanks Peng Fan)
->>> - Updated regulator config
->>> - Configure i2c0
->>> - Link to v2: https://lore.kernel.org/r/20250526-fpg-nxp-imx93-frdm-v2-0-e5ad0efaec33@pengutronix.de
->>>
->>> Changes in v2:
->>> - 1/2: remove CAN node, as it has not been tested.
->>> - 1/2: ran dt-format (Thanks Frank Li)
->>> 	But also reordered some nodes afterwards again to have
->>> 	regulator-min before regulator-max, have the pinmux at the end
->>> 	of the file, and have the regulator-name as the first node
->>> 	inside the regulators.
->>> 	Re-added comments, that were deleted.
->>> - 1/2: changes subjet to ar64:dts (Thanks Fabio Estevan)
->>> - 1/2: removed reg_vdd_12v (Tanks Fabio Estevan)
->>> - 1/2: added aliases for rtc, emmc, serial (Thanks Fabio Estevan)
->>> - reordered the series to have documentation before dts. (Thanks
->>>   Krzystof Kozlowski)
->>> - Link to v1: https://lore.kernel.org/r/20250523-fpg-nxp-imx93-frdm-v1-0-546b2d342855@pengutronix.de
->>>
->>> ---
->>> Fabian Pflug (2):
->>>       dt-bindings: arm: fsl: add i.MX93 11x11 FRDM board
->>>       arm64: dts: freescale: add support for NXP i.MX93 FRDM
->>>
->>>  Documentation/devicetree/bindings/arm/fsl.yaml     |   1 +
->>>  arch/arm64/boot/dts/freescale/Makefile             |   1 +
->>>  arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts | 620 +++++++++++++++++++++
->>>  3 files changed, 622 insertions(+)
->>> ---
->>> base-commit: ea1013c1539270e372fc99854bc6e4d94eaeff66
->>> change-id: 20250523-fpg-nxp-imx93-frdm-5cc180a1fda9
->>>
->>> Best regards,
-> 
+		*val += ..
+		return 0;
 
--- 
-Pengutronix e.K.                  |                             |
-Steuerwalder Str. 21              | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany         | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686  | Fax:   +49-5121-206917-5555 |
+> +		return err;
+> +	}
+> +
+> +	return __read_mon(mon, mon_comp, mon_type, mon_idx,
+> +			  CDP_NONE, closid, rmid, val);
+> +}
+
 
 
