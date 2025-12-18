@@ -4,105 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D70FD6E2AF
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 16:29:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BF6AD6E2B0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 16:40:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zMSbry1+P/RNP4K+kKiw/SAaU8hSKKePZ7aYLlJ/2Ro=; b=onf5tm663teuWG+xVCuVKN+57F
-	FksY+ueM7n64AYBjO/VXPjdYuFXsvmAhRWJj7Oc0bfsd1vSX3MA39z2+84DNdpjaxt++NPBY+IvQC
-	bOisRzTm5pAJo+d3HFU+1rHasoHr7j6DqXrVRIpqhVBEfb7jbXIMu9+9E5Wi3uS8s+xTogCGlx2qX
-	fF/wfTfclBRkG2OhTG7XLyl5fW8kHwV3I4KLk0M0aJ+W73EcCfzYW5gkS9chz6KDuVus/bgkfYHHN
-	V/9J+N53uY8W4p4N0Owu9YXDp8FmCd+/8lVf7aQpZlsQ6kuO80TB3MfhXDH33cKsuNqopy7uJW/Hj
-	ociS9+DA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TRFRUlPQs8MYfoHIvjqzyVwd6BTDQoSUt9sR2u7yUCw=; b=CbzRVUUGgp/HjEIxeVvNt7/u2x
+	TSYyvemasgTFFydTVO3j9FTrv0NAVdSzCUs6xHN2R+q279/pQk/wcqdIucY9lGAARC3+yLEHxnuEf
+	R7xwA8Erom9JCeYV5FlCldRd5ucC2Yxbk+A8d1Co0gsAKaJUXvDGmyjl75Df8ko6oL6IArfW2an01
+	VT7lxH9uQI8fgzyEvR54zPx/5wFmn+WfaEK0vkhJG67kT/LJ8JRb1CPqy0AbiTVHnNcoyFelVZH9O
+	cB73Cn2djyhAsRkef5Pj4k0JB5fq7vMHIh8+2qwxqvd2nHFndgfaKt0X9IowTf3recjQ7C5n6nVT0
+	xfOey7zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWGsZ-00000008pb4-2MnF;
-	Thu, 18 Dec 2025 16:29:27 +0000
-Received: from mail-oo1-xc2b.google.com ([2607:f8b0:4864:20::c2b])
+	id 1vWH2x-00000008q78-1sjy;
+	Thu, 18 Dec 2025 16:40:11 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWGsX-00000008paW-0ANi
+	id 1vWH2u-00000008q6k-36R8
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 16:29:26 +0000
-Received: by mail-oo1-xc2b.google.com with SMTP id 006d021491bc7-657509d761dso431384eaf.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 08:29:24 -0800 (PST)
+	Thu, 18 Dec 2025 16:40:09 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4779a4fb9bfso65945e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 08:40:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1766075364; x=1766680164; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zMSbry1+P/RNP4K+kKiw/SAaU8hSKKePZ7aYLlJ/2Ro=;
-        b=MrZ3qz8BExMvYkS7g+7aa1HDdopfeqcW7Ky9OdasgCN85DXaHprNiVtCNjhGo6gh0A
-         fd++wbJuw4bXX2rtmLkASAl2/zx6x72Uo6kreAquyKFSGihPE8CpnB8qzK4YJANcbxM1
-         mg324PUpBb4uMkvwVIzB6gm82cYfvuQtXAvgBP1Y1SVNP39ayE1CcoHqBdRzhhuT3f8m
-         1UsEPLqII/gds4KdbPwKUtKY+3E3aOEhNq4JcYlF3P6igPYdsUXMPrPwX+74AV+LxFM9
-         MSIHRyjy9jJOQfdCasjACf1sL6m3wL/kpWmZSBNkccoamoDqZXwR319ywqzniTa0gLYz
-         /asg==
+        d=google.com; s=20230601; t=1766076006; x=1766680806; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=TRFRUlPQs8MYfoHIvjqzyVwd6BTDQoSUt9sR2u7yUCw=;
+        b=nECg1OE6gLuR76mquc3A4/xnkeB4D47OnKxjMIRbvrV+nXnNe/7DdaU6ZpMtO4ZPA6
+         KzuyrHlJPPylnZeboIREdzovYfaeYKyf0gMJqy10eHYYPpBo7BvENxSSJXcuHKzxRtT4
+         fVT53N56IWje1nwsD5QhGgm58hF+lTt+JtpLO/TBR0Ri//8eS3V0GGE7bj0L31rKli6O
+         06eb5sS8iuIn2aVLOIvbRSOR5paePSH93JuWvUmtDQqauZhtPKkWDZO2Yg3hcvmSJ9rG
+         vrK1HsvkoOysO4WWyEBqSJ/fcRV7vnRh7rlUXHR3J9i4W6dp5kQYM+xK3Mi3Gg+70wHB
+         agIA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766075364; x=1766680164;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=zMSbry1+P/RNP4K+kKiw/SAaU8hSKKePZ7aYLlJ/2Ro=;
-        b=IYfAnnAXp/gGvrTjSWVZhX7h5yImDoHKn3rBNL0RnfLkJxfKMC7kumI9aGeYEF1Lcj
-         5c/wxHAm0ue1SHMxNiDDGbASINs1To/w/mpeqjqQMCuFcmTXjpoUnQ4x/SP4J1RJ3+zw
-         xjUA7nSL+zwTRP+bKM3yYvm2EOVoElLzK5TxEWhoTAZ8pfz0X5BKbV2KOigTgstLQSOH
-         9PknOZZVqufOfYEmmPR4jebEWof7AiUZVEA1autNJKOGzWivT287YkvzpYDQhk/1FoYV
-         Y+lRq+vC4kxQaFv+7dtZJFznhe24e3kGyCbzdJHq1ss8cE8TQNPsiTI75DYRHUBo/wor
-         XwQQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVsC3GyEWW8TdcV03K3C3nrGBj/IsEM6M15PJ0XNZ+UL+46ZyFjvxHoLJ+YFa18CAcbnXVAdsxJVHxguM7NYd8q@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfslRyuwrGS8fiiZrKr51Z6aB2vVcn+9QBglcCQ2zpfLKnJIdb
-	8ylJsk6zINKMlnwvHvNN49KimmwjiX0NTrI9dBj8+vUY67EQTc0tTbxsIfWKkwDQACMribkKs1/
-	Z5YU03pQBKskuH7MWdEYh97woMYCbu2rIsMf2pPMMpw==
-X-Gm-Gg: AY/fxX6U5uU5mrdzV2Y4rLg/4QxIdajRvXZtPBTKerZZEwTNx8GznmAKWOeTeqRkfaE
-	WqRA3pmSBX1L5ZCBYnrKxYdQlDHCQ02vsSlk7Cyu2dBGGuQXu+rE32rPDJNUYklkErX62xtqYMA
-	AvJ8X2vI+hOUh5eMdXAwTSVklsZhwOu1t8c4/D69V+/uzss5mYJW5mm6t94pyuFwbUhJBmm+mvf
-	mDa9ccB77lY1FqQv8XwnHaEI6UPljae69lwlz8XELjy3QMaJOwpSW5eaVk7LBia6iIwXOfo4jy6
-	r33lvFFHMaT01weyN2uFDvHlww==
-X-Google-Smtp-Source: AGHT+IG4Ae8pfu7GZWy4M+xMepW+pZBXhOq0aMMfvpQMcwHosUK2iqdP0ZilC2IC9nPL0ue49M44wROrYBjFkfFnq4M=
-X-Received: by 2002:a05:6820:6389:b0:657:4e49:83b7 with SMTP id
- 006d021491bc7-65d0e9fe36fmr11432eaf.1.1766075363719; Thu, 18 Dec 2025
- 08:29:23 -0800 (PST)
+        d=1e100.net; s=20230601; t=1766076006; x=1766680806;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=TRFRUlPQs8MYfoHIvjqzyVwd6BTDQoSUt9sR2u7yUCw=;
+        b=fDrCeVCtLeIVd3jC5eH+2gK3XYenBEKkUmCGRYAU7+ZyzCFOAspW5CKn0vVriZEHgk
+         FgevlNPfiyrUcWQ/os7tHIRW+p5gE1mhxOHIl4LK8K4eMBlZTnkt3jzE7F3wFH22RXPO
+         jQQxejAsoERvkxs8ewaCY8BofVzT71ExwSi/dIJ5bZMX0qMvNIsUu8nTHk+Cy9l/HqOr
+         xP4R9wpU7mIaZD+vXY3JmYS+NG7YXyYsZgvsgGBpFHZMscFqg3AEkCn05myQKrMzkpt0
+         v1iVl9nzN88vMPTE7NVFuyzqInGS0Rgbl+PfLrNU98uNzohkS0SqaYxsrQvG/FASMm2g
+         Z39Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWV//Tx0BTdZxTM5GjijaXG0cNhWVzJkVFHjyK8IZZzRb0bt/ZSfJ/47N/Epglc2e+joQlZwn7FVi3/ZfLJetF6@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJse6zi7LKIOyPO1KQVl2YWA5tx/Z/6oOzzSzksOGSRK+wI+Do
+	gja9DDWSTDxTVHn1swEi5VKrIyFLPut44lXEl9fC+G9yIcbtOPMR825AX1GCoprJ1A==
+X-Gm-Gg: AY/fxX5ZjrExpApUwu6SLqR3Cg2Cp+B7AaIBfhCVppMVhf9d9/ZChSh0LnNWzNPViCM
+	fBeOGAn9s8lWElBXccTgjgx9D5ZNEGOj+n7qbyDs5WuoV8brYjwM3InFIx0BPNr89VbX2gyeKXZ
+	LqZxC/D0cr6CBNy5370oQICgAUovUll61bGxcql4wNH/oJYF3l0FcPM8zGHk2kdUc9LkbOdc7n7
+	4EemZrmvPw07H3bHdksOrJU78F0JnMA4AZiT6yQMrvZMAqPkpkhZAGpIG25AIAwWfmPtmuouFli
+	NcKBKMWBRnXTZzqhBkXINRvr4QD4B3SRQMtJIc3HWCb7rKaTaB/rCsxvSE/JrD16VqM8MSlM1C7
+	8+oRjBm/Lq5zpfSr528LJj3V1xeadorwu1uck2nZ4KPAo7ALrpE9OUBu0/Fu8VzqIqQU/26Yt42
+	/ZWwRp3GiVqViMO3wv004M+h/NWNSdef0wHJF1TIio/jPBkBGNy70SQq3LQGSsIoI=
+X-Google-Smtp-Source: AGHT+IEnzK0PXYLJ2CtrM/k+L6oaX+v8+Z0MPC6Rku7+YPKhOOkiOz08QlgBURzh2lCV3l64uptpTw==
+X-Received: by 2002:a05:600c:c0dc:b0:477:95a8:2565 with SMTP id 5b1f17b1804b1-47be3cb2944mr935195e9.16.1766076005857;
+        Thu, 18 Dec 2025 08:40:05 -0800 (PST)
+Received: from google.com (171.85.155.104.bc.googleusercontent.com. [104.155.85.171])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43244998ca0sm5816810f8f.32.2025.12.18.08.40.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 18 Dec 2025 08:40:05 -0800 (PST)
+Date: Thu, 18 Dec 2025 16:40:01 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: jgg@nvidia.com, will@kernel.org, robin.murphy@arm.com, joro@8bytes.org,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, skolothumtho@nvidia.com,
+	praan@google.com, xueshuai@linux.alibaba.com
+Subject: Re: [PATCH rc v4 1/4] iommu/arm-smmu-v3: Add update_safe bits to fix
+ STE update sequence
+Message-ID: <aUQuYdFKYlFeQGCg@google.com>
+References: <cover.1765945258.git.nicolinc@nvidia.com>
+ <58f5af553fa7c3b5fd16f1eb13a81ae428f85678.1765945258.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
-References: <cover.1765791463.git.u.kleine-koenig@baylibre.com>
- <CAHUa44FrDZbvRvfN8obf80_k=Eqxe9YxHpjaE5jU7nkxPUwfag@mail.gmail.com> <20251218135332f323fa91@mail.local>
-In-Reply-To: <20251218135332f323fa91@mail.local>
-From: Jens Wiklander <jens.wiklander@linaro.org>
-Date: Thu, 18 Dec 2025 17:29:11 +0100
-X-Gm-Features: AQt7F2pA2I_HJOEbadmjsOrYtjrxD8lxVlzGBd-sNqyaYCgybyYAHq_YVDlH-Pg
-Message-ID: <CAHUa44GpW5aO26GDyL9RZub9vVYvVcJ7etwO0yXBN_mUi0W4AA@mail.gmail.com>
-Subject: Re: [PATCH v2 00/17] tee: Use bus callbacks instead of driver callbacks
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>
-Cc: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
-	Jonathan Corbet <corbet@lwn.net>, Sumit Garg <sumit.garg@kernel.org>, 
-	Olivia Mackall <olivia@selenic.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	=?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <clement.leger@bootlin.com>, 
-	Ard Biesheuvel <ardb@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Sumit Garg <sumit.garg@oss.qualcomm.com>, 
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Jan Kiszka <jan.kiszka@siemens.com>, 
-	Sudeep Holla <sudeep.holla@arm.com>, Christophe JAILLET <christophe.jaillet@wanadoo.fr>, 
-	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>, 
-	Michael Chan <michael.chan@broadcom.com>, Pavan Chebbi <pavan.chebbi@broadcom.com>, 
-	James Bottomley <James.Bottomley@hansenpartnership.com>, Jarkko Sakkinen <jarkko@kernel.org>, 
-	Mimi Zohar <zohar@linux.ibm.com>, David Howells <dhowells@redhat.com>, 
-	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>, 
-	"Serge E. Hallyn" <serge@hallyn.com>, Peter Huewe <peterhuewe@gmx.de>, op-tee@lists.trustedfirmware.org, 
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-crypto@vger.kernel.org, linux-rtc@vger.kernel.org, 
-	linux-efi@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, 
-	Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org, 
-	linux-mips@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-integrity@vger.kernel.org, keyrings@vger.kernel.org, 
-	linux-security-module@vger.kernel.org, Jason Gunthorpe <jgg@ziepe.ca>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <58f5af553fa7c3b5fd16f1eb13a81ae428f85678.1765945258.git.nicolinc@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_082925_124820_88AA77A2 
-X-CRM114-Status: GOOD (  33.72  )
+X-CRM114-CacheID: sfid-20251218_084008_850569_53E14D84 
+X-CRM114-Status: GOOD (  40.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,107 +102,231 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 18, 2025 at 2:53=E2=80=AFPM Alexandre Belloni
-<alexandre.belloni@bootlin.com> wrote:
->
-> On 18/12/2025 08:21:27+0100, Jens Wiklander wrote:
-> > Hi,
-> >
-> > On Mon, Dec 15, 2025 at 3:17=E2=80=AFPM Uwe Kleine-K=C3=B6nig
-> > <u.kleine-koenig@baylibre.com> wrote:
-> > >
-> > > Hello,
-> > >
-> > > the objective of this series is to make tee driver stop using callbac=
-ks
-> > > in struct device_driver. These were superseded by bus methods in 2006
-> > > (commit 594c8281f905 ("[PATCH] Add bus_type probe, remove, shutdown
-> > > methods.")) but nobody cared to convert all subsystems accordingly.
-> > >
-> > > Here the tee drivers are converted. The first commit is somewhat
-> > > unrelated, but simplifies the conversion (and the drivers). It
-> > > introduces driver registration helpers that care about setting the bu=
-s
-> > > and owner. (The latter is missing in all drivers, so by using these
-> > > helpers the drivers become more correct.)
-> > >
-> > > v1 of this series is available at
-> > > https://lore.kernel.org/all/cover.1765472125.git.u.kleine-koenig@bayl=
-ibre.com
-> > >
-> > > Changes since v1:
-> > >
-> > >  - rebase to v6.19-rc1 (no conflicts)
-> > >  - add tags received so far
-> > >  - fix whitespace issues pointed out by Sumit Garg
-> > >  - fix shutdown callback to shutdown and not remove
-> > >
-> > > As already noted in v1's cover letter, this series should go in durin=
-g a
-> > > single merge window as there are runtime warnings when the series is
-> > > only applied partially. Sumit Garg suggested to apply the whole serie=
-s
-> > > via Jens Wiklander's tree.
-> > > If this is done the dependencies in this series are honored, in case =
-the
-> > > plan changes: Patches #4 - #17 depend on the first two.
-> > >
-> > > Note this series is only build tested.
-> > >
-> > > Uwe Kleine-K=C3=B6nig (17):
-> > >   tee: Add some helpers to reduce boilerplate for tee client drivers
-> > >   tee: Add probe, remove and shutdown bus callbacks to tee_client_dri=
-ver
-> > >   tee: Adapt documentation to cover recent additions
-> > >   hwrng: optee - Make use of module_tee_client_driver()
-> > >   hwrng: optee - Make use of tee bus methods
-> > >   rtc: optee: Migrate to use tee specific driver registration functio=
-n
-> > >   rtc: optee: Make use of tee bus methods
-> > >   efi: stmm: Make use of module_tee_client_driver()
-> > >   efi: stmm: Make use of tee bus methods
-> > >   firmware: arm_scmi: optee: Make use of module_tee_client_driver()
-> > >   firmware: arm_scmi: Make use of tee bus methods
-> > >   firmware: tee_bnxt: Make use of module_tee_client_driver()
-> > >   firmware: tee_bnxt: Make use of tee bus methods
-> > >   KEYS: trusted: Migrate to use tee specific driver registration
-> > >     function
-> > >   KEYS: trusted: Make use of tee bus methods
-> > >   tpm/tpm_ftpm_tee: Make use of tee specific driver registration
-> > >   tpm/tpm_ftpm_tee: Make use of tee bus methods
-> > >
-> > >  Documentation/driver-api/tee.rst             | 18 +----
-> > >  drivers/char/hw_random/optee-rng.c           | 26 ++----
-> > >  drivers/char/tpm/tpm_ftpm_tee.c              | 31 +++++---
-> > >  drivers/firmware/arm_scmi/transports/optee.c | 32 +++-----
-> > >  drivers/firmware/broadcom/tee_bnxt_fw.c      | 30 ++-----
-> > >  drivers/firmware/efi/stmm/tee_stmm_efi.c     | 25 ++----
-> > >  drivers/rtc/rtc-optee.c                      | 27 ++-----
-> > >  drivers/tee/tee_core.c                       | 84 ++++++++++++++++++=
-++
-> > >  include/linux/tee_drv.h                      | 12 +++
-> > >  security/keys/trusted-keys/trusted_tee.c     | 17 ++--
-> > >  10 files changed, 164 insertions(+), 138 deletions(-)
-> > >
-> > > base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-> > > --
-> > > 2.47.3
-> > >
-> >
-> > Thank you for the nice cleanup, Uwe.
-> >
-> > I've applied patch 1-3 to the branch tee_bus_callback_for_6.20 in my
-> > tree at https://git.kernel.org/pub/scm/linux/kernel/git/jenswi/linux-te=
-e.git/
-> >
-> > The branch is based on v6.19-rc1, and I'll try to keep it stable for
-> > others to depend on, if needed. Let's see if we can agree on taking
-> > the remaining patches via that branch.
->
-> 6 and 7 can go through your branch.
+On Tue, Dec 16, 2025 at 08:25:59PM -0800, Nicolin Chen wrote:
+> From: Jason Gunthorpe <jgg@nvidia.com>
+> 
+> C_BAD_STE was observed when updating nested STE from an S1-bypass mode to
+> an S1DSS-bypass mode. As both modes enabled S2, the used bit is slightly
+> different than the normal S1-bypass and S1DSS-bypass modes. As a result,
+> fields like MEV and EATS in S2's used list marked the word1 as a critical
+> word that requested a STE.V=0. This breaks a hitless update.
+> 
+> However, both MEV and EATS aren't critical in terms of STE update. One
+> controls the merge of the events and the other controls the ATS that is
+> managed by the driver at the same time via pci_enable_ats().
+> 
+> Add an arm_smmu_get_ste_update_safe() to allow STE update algorithm to
+> relax those fields, avoiding the STE update breakages.
+> 
+> After this change, entry_set has no caller checking its return value, so
+> change it to void.
+> 
+> Note that this change is required by both MEV and EATS fields, which were
+> introduced in different kernel versions. So add get_update_safe() first.
+> MEV and EATS will be added to arm_smmu_get_ste_update_safe() separately.
+> 
+> Fixes: 1e8be08d1c91 ("iommu/arm-smmu-v3: Support IOMMU_DOMAIN_NESTED")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> ---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  2 ++
+>  .../iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c  | 18 ++++++++++---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 27 ++++++++++++++-----
+>  3 files changed, 37 insertions(+), 10 deletions(-)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> index ae23aacc3840..a6c976fa9df2 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> @@ -900,6 +900,7 @@ struct arm_smmu_entry_writer {
+>  
+>  struct arm_smmu_entry_writer_ops {
+>  	void (*get_used)(const __le64 *entry, __le64 *used);
+> +	void (*get_update_safe)(__le64 *safe_bits);
+>  	void (*sync)(struct arm_smmu_entry_writer *writer);
+>  };
+>  
+> @@ -911,6 +912,7 @@ void arm_smmu_make_s2_domain_ste(struct arm_smmu_ste *target,
+>  
+>  #if IS_ENABLED(CONFIG_KUNIT)
+>  void arm_smmu_get_ste_used(const __le64 *ent, __le64 *used_bits);
+> +void arm_smmu_get_ste_update_safe(__le64 *safe_bits);
+>  void arm_smmu_write_entry(struct arm_smmu_entry_writer *writer, __le64 *cur,
+>  			  const __le64 *target);
+>  void arm_smmu_get_cd_used(const __le64 *ent, __le64 *used_bits);
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
+> index d2671bfd3798..5db14718fdd6 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
+> @@ -38,13 +38,16 @@ enum arm_smmu_test_master_feat {
+>  static bool arm_smmu_entry_differs_in_used_bits(const __le64 *entry,
+>  						const __le64 *used_bits,
+>  						const __le64 *target,
+> +						const __le64 *safe,
+>  						unsigned int length)
+>  {
+>  	bool differs = false;
+>  	unsigned int i;
+>  
+>  	for (i = 0; i < length; i++) {
+> -		if ((entry[i] & used_bits[i]) != target[i])
+> +		__le64 used = used_bits[i] & ~safe[i];
+> +
+> +		if ((entry[i] & used) != (target[i] & used))
+>  			differs = true;
 
-Good, I've added them to my branch now.
+I have been looking at this, as before, target was not masked at all, so
+I'd expect it would be only masked with (~safe[i]) and not used.
+
+But I think that is OK, as we only care about the used bits in the cur
+entry and how it's different from target, and target is either the
+acutal target or the initial STE so it musn't have any unused bits set.
+So that should be fine I believe,
+
+Reviewed-by: Mostafa Saleh <smostafa@google.com>
 
 Thanks,
-Jens
+Mostafa
+
+>  	}
+>  	return differs;
+> @@ -56,12 +59,17 @@ arm_smmu_test_writer_record_syncs(struct arm_smmu_entry_writer *writer)
+>  	struct arm_smmu_test_writer *test_writer =
+>  		container_of(writer, struct arm_smmu_test_writer, writer);
+>  	__le64 *entry_used_bits;
+> +	__le64 *safe;
+>  
+>  	entry_used_bits = kunit_kzalloc(
+>  		test_writer->test, sizeof(*entry_used_bits) * NUM_ENTRY_QWORDS,
+>  		GFP_KERNEL);
+>  	KUNIT_ASSERT_NOT_NULL(test_writer->test, entry_used_bits);
+>  
+> +	safe = kunit_kzalloc(test_writer->test,
+> +			     sizeof(*safe) * NUM_ENTRY_QWORDS, GFP_KERNEL);
+> +	KUNIT_ASSERT_NOT_NULL(test_writer->test, safe);
+> +
+>  	pr_debug("STE value is now set to: ");
+>  	print_hex_dump_debug("    ", DUMP_PREFIX_NONE, 16, 8,
+>  			     test_writer->entry,
+> @@ -79,14 +87,17 @@ arm_smmu_test_writer_record_syncs(struct arm_smmu_entry_writer *writer)
+>  		 * configuration.
+>  		 */
+>  		writer->ops->get_used(test_writer->entry, entry_used_bits);
+> +		if (writer->ops->get_update_safe)
+> +			writer->ops->get_update_safe(safe);
+>  		KUNIT_EXPECT_FALSE(
+>  			test_writer->test,
+>  			arm_smmu_entry_differs_in_used_bits(
+>  				test_writer->entry, entry_used_bits,
+> -				test_writer->init_entry, NUM_ENTRY_QWORDS) &&
+> +				test_writer->init_entry, safe,
+> +				NUM_ENTRY_QWORDS) &&
+>  				arm_smmu_entry_differs_in_used_bits(
+>  					test_writer->entry, entry_used_bits,
+> -					test_writer->target_entry,
+> +					test_writer->target_entry, safe,
+>  					NUM_ENTRY_QWORDS));
+>  	}
+>  }
+> @@ -106,6 +117,7 @@ arm_smmu_v3_test_debug_print_used_bits(struct arm_smmu_entry_writer *writer,
+>  static const struct arm_smmu_entry_writer_ops test_ste_ops = {
+>  	.sync = arm_smmu_test_writer_record_syncs,
+>  	.get_used = arm_smmu_get_ste_used,
+> +	.get_update_safe = arm_smmu_get_ste_update_safe,
+>  };
+>  
+>  static const struct arm_smmu_entry_writer_ops test_cd_ops = {
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index d16d35c78c06..8dbf4ad5b51e 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -1082,6 +1082,12 @@ void arm_smmu_get_ste_used(const __le64 *ent, __le64 *used_bits)
+>  }
+>  EXPORT_SYMBOL_IF_KUNIT(arm_smmu_get_ste_used);
+>  
+> +VISIBLE_IF_KUNIT
+> +void arm_smmu_get_ste_update_safe(__le64 *safe_bits)
+> +{
+> +}
+> +EXPORT_SYMBOL_IF_KUNIT(arm_smmu_get_ste_update_safe);
+> +
+>  /*
+>   * Figure out if we can do a hitless update of entry to become target. Returns a
+>   * bit mask where 1 indicates that qword needs to be set disruptively.
+> @@ -1094,13 +1100,22 @@ static u8 arm_smmu_entry_qword_diff(struct arm_smmu_entry_writer *writer,
+>  {
+>  	__le64 target_used[NUM_ENTRY_QWORDS] = {};
+>  	__le64 cur_used[NUM_ENTRY_QWORDS] = {};
+> +	__le64 safe[NUM_ENTRY_QWORDS] = {};
+>  	u8 used_qword_diff = 0;
+>  	unsigned int i;
+>  
+>  	writer->ops->get_used(entry, cur_used);
+>  	writer->ops->get_used(target, target_used);
+> +	if (writer->ops->get_update_safe)
+> +		writer->ops->get_update_safe(safe);
+>  
+>  	for (i = 0; i != NUM_ENTRY_QWORDS; i++) {
+> +		/*
+> +		 * Safe is only used for bits that are used by both entries,
+> +		 * otherwise it is sequenced according to the unused entry.
+> +		 */
+> +		safe[i] &= target_used[i] & cur_used[i];
+> +
+>  		/*
+>  		 * Check that masks are up to date, the make functions are not
+>  		 * allowed to set a bit to 1 if the used function doesn't say it
+> @@ -1109,6 +1124,7 @@ static u8 arm_smmu_entry_qword_diff(struct arm_smmu_entry_writer *writer,
+>  		WARN_ON_ONCE(target[i] & ~target_used[i]);
+>  
+>  		/* Bits can change because they are not currently being used */
+> +		cur_used[i] &= ~safe[i];
+>  		unused_update[i] = (entry[i] & cur_used[i]) |
+>  				   (target[i] & ~cur_used[i]);
+>  		/*
+> @@ -1121,7 +1137,7 @@ static u8 arm_smmu_entry_qword_diff(struct arm_smmu_entry_writer *writer,
+>  	return used_qword_diff;
+>  }
+>  
+> -static bool entry_set(struct arm_smmu_entry_writer *writer, __le64 *entry,
+> +static void entry_set(struct arm_smmu_entry_writer *writer, __le64 *entry,
+>  		      const __le64 *target, unsigned int start,
+>  		      unsigned int len)
+>  {
+> @@ -1137,7 +1153,6 @@ static bool entry_set(struct arm_smmu_entry_writer *writer, __le64 *entry,
+>  
+>  	if (changed)
+>  		writer->ops->sync(writer);
+> -	return changed;
+>  }
+>  
+>  /*
+> @@ -1207,12 +1222,9 @@ void arm_smmu_write_entry(struct arm_smmu_entry_writer *writer, __le64 *entry,
+>  		entry_set(writer, entry, target, 0, 1);
+>  	} else {
+>  		/*
+> -		 * No inuse bit changed. Sanity check that all unused bits are 0
+> -		 * in the entry. The target was already sanity checked by
+> -		 * compute_qword_diff().
+> +		 * No inuse bit changed, though safe bits may have changed.
+>  		 */
+> -		WARN_ON_ONCE(
+> -			entry_set(writer, entry, target, 0, NUM_ENTRY_QWORDS));
+> +		entry_set(writer, entry, target, 0, NUM_ENTRY_QWORDS);
+>  	}
+>  }
+>  EXPORT_SYMBOL_IF_KUNIT(arm_smmu_write_entry);
+> @@ -1543,6 +1555,7 @@ static void arm_smmu_ste_writer_sync_entry(struct arm_smmu_entry_writer *writer)
+>  static const struct arm_smmu_entry_writer_ops arm_smmu_ste_writer_ops = {
+>  	.sync = arm_smmu_ste_writer_sync_entry,
+>  	.get_used = arm_smmu_get_ste_used,
+> +	.get_update_safe = arm_smmu_get_ste_update_safe,
+>  };
+>  
+>  static void arm_smmu_write_ste(struct arm_smmu_master *master, u32 sid,
+> -- 
+> 2.43.0
+> 
 
