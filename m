@@ -4,121 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E371BD6E2BD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 17:11:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 282F1D6E2BD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 17:33:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1fwQvJyMZVAAv6HXYlWftzVRzf9OZH1VwH0xnBk8m+w=; b=Oivmj+dfPG6u0UCshhijvP6qbu
-	QkwFYZMfwDPwbK1uR+k9uxKisEn1cLHXs+/eMPj4SC+sQslLp9UIMvsrjA2hNOlwu7tJuYGb0DpP6
-	jczeoK1rSg2F/380LaklJyy6YP+XHxPdeJmsMLf0uPOXZ5RwPVMmImLAoblSFC4Hf5OYBIVJNhsQh
-	C/s+zxx/izs6tiDAZ4ZGe8/+tH756UPgV8pE86dYCEWBbRHdrB5xdyhrdLOnSWThvx8KoAQJER6Bl
-	C279X33q3WZlM2hFcydEegGbb+z6Df98C8eoAA49sb1Q5Cdw67ejAq8hNgFMQw6oxpohV2gPuXipC
-	qyeJccdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZFjn5UhHRG6VWHOViMfg46+8hCCuJpdB0JjceEp/C1g=; b=uU2mfp3hbt4bjGnjKHOGNCmrsR
+	4WJo/IAxxCOaR5lfYAcFufAikwuXAL4FCdjAwDI/NDdyFz6Uwb4+llepk+rwOPjszqKoDeaBl5cEm
+	TfCv0T/M97SiCMpnkmnprm5PxVh3mxYmX3VPYJyPH0yo6B74CGicUkeB0dCMoz+K084e5VKIP95io
+	Z5+mRKXQ4pImZhipyOnCQZQDc6xLLcsDd80EwoMRcdSlvBOfoFOz5H97k2iDBuYhBC8MrF2GrhW3W
+	UcXlCXPDCZjEgexyaq7rRoLWSJEs2QaCBiffXqfGjdG8JlVM7icVArJFeZ2LNk+eoPB/xmkM4QEDc
+	hZSvF+Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWHXM-00000008tsa-0VlX;
-	Thu, 18 Dec 2025 17:11:36 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1vWHsV-00000008vYX-3Vm5;
+	Thu, 18 Dec 2025 17:33:27 +0000
+Received: from mail-centralusazon11010006.outbound.protection.outlook.com ([52.101.61.6] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWHXJ-00000008toE-1vct;
-	Thu, 18 Dec 2025 17:11:34 +0000
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5BIA7MtS020716;
-	Thu, 18 Dec 2025 17:11:24 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=1fwQvJ
-	yMZVAAv6HXYlWftzVRzf9OZH1VwH0xnBk8m+w=; b=ZmfaEqiDN7uTmeEsaUs3S7
-	t7rTb8Rn17YMYf535VBOyGoCs+7CtBkEIctKm3xltPwz7LOq069J1Jmq6T8+rqmY
-	YrMq6PhS1kmEWqtN6JZJMbRS7ae8jY2my9n2PlBFTOSlMuX+cfiTqWaRsNZPciHb
-	zdzztlWhZJRCPBBPx32huP3AdOUbtjaGaHxKvcb6M4r3HGDu/W6qHxrlQkHoBzbH
-	kaFNzew8iN258HUpzXl+ohnDN2hH6851XsuPwYUi87YzjLxCVeAFdViNEblVS2yd
-	d4Dc5GEpFEIZA5zNxzILe4hGleIZHotLhOHN0hCMOVo83nyhVHU/4sumht0dXEoA
-	==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4b0xjmb1c8-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 18 Dec 2025 17:11:24 +0000 (GMT)
-Received: from m0353725.ppops.net (m0353725.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 5BIH6aG1005750;
-	Thu, 18 Dec 2025 17:11:23 GMT
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4b0xjmb1c4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 18 Dec 2025 17:11:23 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 5BIF0dWF014324;
-	Thu, 18 Dec 2025 17:11:22 GMT
-Received: from smtprelay02.wdc07v.mail.ibm.com ([172.16.1.69])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4b1mpk99ns-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 18 Dec 2025 17:11:22 +0000
-Received: from smtpav03.dal12v.mail.ibm.com (smtpav03.dal12v.mail.ibm.com [10.241.53.102])
-	by smtprelay02.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 5BIHBKhW32047852
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 18 Dec 2025 17:11:21 GMT
-Received: from smtpav03.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id A9DF25805A;
-	Thu, 18 Dec 2025 17:11:20 +0000 (GMT)
-Received: from smtpav03.dal12v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 4626D58056;
-	Thu, 18 Dec 2025 17:11:14 +0000 (GMT)
-Received: from jarvis.ozlabs.ibm.com (unknown [9.36.16.51])
-	by smtpav03.dal12v.mail.ibm.com (Postfix) with ESMTP;
-	Thu, 18 Dec 2025 17:11:13 +0000 (GMT)
-From: Andrew Donnellan <ajd@linux.ibm.com>
-Date: Fri, 19 Dec 2025 04:09:44 +1100
-Subject: [PATCH v18 12/12] powerpc/mm: Support page table check
+	id 1vWHsT-00000008vY4-2G0P
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 18 Dec 2025 17:33:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=O5fykLUJq/07GxxT1RqLcEZz8lzI8FD2qJmaEwsPFjzQNr+yqFwmRliXvbhMDo9cxGcUW0nPMbhGQjc2QLicJYqhSXtliCUeB5pIb5U3mMiaz5E4rwmI7jA7MgQRFE5LBJtz7sQRXa0xMn6WjaQ/uBHIbJG4xMrjPsRNeWUcgT5KRg34Q9ipQsyCTaOYjkNL1Iqo6v7rabUVrss2SVaPWisBtgueQAWIsLMsjdD6xy9/dF0c3D9mWBwcxmi/V1W62+gZvi0/3BnvqjJmex/9/+Kq4Wrz/N5Ok66co19dp5Asm47x9m4xZaKP//x8SeA4rpfqt/wtz97DdM1KPTTngQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZFjn5UhHRG6VWHOViMfg46+8hCCuJpdB0JjceEp/C1g=;
+ b=hZLE9sDSqhAWnG8u9ObwePIT58TW4C439Tg3912O+TjC4yqRuVGCojcWK9ZM+/dP7mlG96lFne6QKKtQ3PVY5iRYQn6xUBZ5Uq/YG+8XDyFS4ljr6YDB55Qzd6vdk0oa67wVwHQbTrN5GRcV8t//3+GjcNbag09iYNi4c5Cy3OX/2Bivr02tpHElpP0G/MbVy29GFOu0kqEgbfZw4raBV6T5otGKxHz86mdOc7SqQIDVMhRcNP/dp9+Kr60H+3r1DHm8zjvpnFU6tWRHcET4aDyw1PySKZyRTGlTOPlwjFRt81xPbWRoqS6C5a8PoN4nclrVWDOs8jI10WFLe2Wssg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZFjn5UhHRG6VWHOViMfg46+8hCCuJpdB0JjceEp/C1g=;
+ b=H65+TRTY4GM8C/mlopTjEh20CW/5HFqg3DJT/wYFS54LaoyZSKTR/30zkdp5yG7Ud5GsWVTTDSADhADJxrR2mvKWflQxHTYPEn/SfQtrEhpcwhnMMfw3ON3smlE3Y/zfXO+s/QtzFKy5OF2JRETKRi1+2IHS+gLxl7SIpFFN2gEbjoDfS7YhhWPVCMAxbz4JEEERPZsxtQbdku4Lyvn0TEczmZqQ8O7tXF0F1yma5sBgmGhn2oiPDgbVDJARQQWxQFL4sCKynl195gCwm7kU6HuArHZNzL+FI7AS6F7tBVjnSUhaXDvDVftN7rwhritOMvswejaSJROb3p610I45Pw==
+Received: from CYXPR02CA0082.namprd02.prod.outlook.com (2603:10b6:930:ce::29)
+ by IA1PR12MB7661.namprd12.prod.outlook.com (2603:10b6:208:426::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.6; Thu, 18 Dec
+ 2025 17:33:13 +0000
+Received: from CY4PEPF0000E9D8.namprd05.prod.outlook.com
+ (2603:10b6:930:ce:cafe::8c) by CYXPR02CA0082.outlook.office365.com
+ (2603:10b6:930:ce::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.8 via Frontend Transport; Thu,
+ 18 Dec 2025 17:33:11 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ CY4PEPF0000E9D8.mail.protection.outlook.com (10.167.241.71) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9434.6 via Frontend Transport; Thu, 18 Dec 2025 17:33:12 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 18 Dec
+ 2025 09:32:45 -0800
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 18 Dec
+ 2025 09:32:45 -0800
+Received: from Asurada-Nvidia (10.127.8.13) by mail.nvidia.com (10.129.68.7)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 18 Dec 2025 09:32:44 -0800
+Date: Thu, 18 Dec 2025 09:32:43 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Mostafa Saleh <smostafa@google.com>
+CC: <jgg@nvidia.com>, <will@kernel.org>, <robin.murphy@arm.com>,
+	<joro@8bytes.org>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<skolothumtho@nvidia.com>, <praan@google.com>, <xueshuai@linux.alibaba.com>
+Subject: Re: [PATCH rc v4 3/4] iommu/arm-smmu-v3: Mark STE EATS safe when
+ computing the update sequence
+Message-ID: <aUQ6u+s8YbPiLC8Z@Asurada-Nvidia>
+References: <cover.1765945258.git.nicolinc@nvidia.com>
+ <adf08c3b9f289188aca4fe80e506dca7aa48aa19.1765945258.git.nicolinc@nvidia.com>
+ <aUQvAKjVUT1L3N7j@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251219-pgtable_check_v18rebase-v18-12-755bc151a50b@linux.ibm.com>
-References: <20251219-pgtable_check_v18rebase-v18-0-755bc151a50b@linux.ibm.com>
-In-Reply-To: <20251219-pgtable_check_v18rebase-v18-0-755bc151a50b@linux.ibm.com>
-To: linux-mm@kvack.org, linuxppc-dev@lists.ozlabs.org,
-        Pasha Tatashin <pasha.tatashin@soleen.com>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Nicholas Piggin <npiggin@gmail.com>, Rohan McLure <rmclure@nvidia.com>,
-        Christophe Leroy <chleroy@kernel.org>
-Cc: Alexandre Ghiti <alex@ghiti.fr>, x86@kernel.org,
-        Nicholas Miehlbradt <nicholas@linux.ibm.com>,
-        Sweet Tea Dorminy <sweettea-kernel@dorminy.me>,
-        Andrew Donnellan <andrew+kernel@donnellan.id.au>,
-        Srish Srinivasan <ssrish@linux.ibm.com>,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-riscv@lists.infradead.org
-X-Mailer: b4 0.14.2
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: eNu2e127LIQy4aY2YrSIfr7iDjsVBUpr
-X-Authority-Analysis: v=2.4 cv=CLgnnBrD c=1 sm=1 tr=0 ts=694435bc cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=VkNPw1HP01LnGYTKEx00:22
- a=VnNF1IyMAAAA:8 a=1UX6Do5GAAAA:8 a=7ipKWUHlAAAA:8 a=4bd5X8VpKi2lnJFIGqUA:9
- a=QEXdDO2ut3YA:10 a=Et2XPkok5AAZYJIKzHr1:22 a=gpc5p9EgBqZVLdJeV_V1:22
-X-Proofpoint-GUID: XG2VG8GP17OvRjJpZ3lNl1K6nBOipRVT
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjEzMDAwOSBTYWx0ZWRfX3gv6siLY5ojd
- d3c8VhUgacjdKodkvhOIBFQmtPF6r4ub/+2R3HGWICHxXRs9PM0vcdalmUHtSKh/wR2QHL0owkM
- AWHUuUVMYs71Tf4T7Zr6Qkg7gQcbbE62Oc3RUImO5e294NdNxK4t+gHtbe6XlZFuifuzawt8Vwf
- TfBK9xn6OjnNPSnpsu0hmJ6oMpd4XJaJXEKM0CTtEpTXsE1PvW4Or7zmKnl5L3GXFfVX85KeiU2
- YhhYEH7NXmx6CN1AD08uWBJ9NaQLpNOgwFCPksUlhVhBd1unnaJ614GfUUrVITkqEiMDgf10GFi
- aqVqf0HBPSCKoZ/tuUFiyooLt3BigdE5dAR4hl3wYTmUJPUyZWVyZiBBSnRtpykxeyy4QPKUUgE
- dApJRaiL/sZR6knvtm3sCE/NNWrBCw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-12-18_02,2025-12-17_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 clxscore=1015 lowpriorityscore=0 malwarescore=0 suspectscore=0
- phishscore=0 priorityscore=1501 bulkscore=0 impostorscore=0 adultscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2510240000 definitions=main-2512130009
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aUQvAKjVUT1L3N7j@google.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000E9D8:EE_|IA1PR12MB7661:EE_
+X-MS-Office365-Filtering-Correlation-Id: b7825688-bc31-4d30-7886-08de3e5b84ce
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|82310400026|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?V0YzeFplSkFCdkt6U1ZJTFBYR0MvczEwL1lxbVY2RS9ORFVKZEJkUzZ1dVdy?=
+ =?utf-8?B?aGNYM2tDMElPVm1WQUVpWWNyYjQxSEV1MmJvMGZQaEMrbDhJcys0eC9ab2ZP?=
+ =?utf-8?B?S0NiRFpKOXVIUnFISUJFRHhCUU04a0xUbnFaOEFBeDloNTRxWDZGV3VhTjZ0?=
+ =?utf-8?B?WjFIQ1haZGRUaERFd2tCcmJ2WHRPQXJBR3FEa250N1RVWlAvRlJSeUt1UFZs?=
+ =?utf-8?B?NktjL3ZSTkU1TGpDV3Q4dmZhUmd2UXVRTkRFWGpDenBPN1JDbmNVeWxoU3Vl?=
+ =?utf-8?B?dTdUV2JQaC9HUzIzUkxHTFk1ZGgxQ3BFUWc3UHpNQ0c3aHRQKzdDdkNnY3NJ?=
+ =?utf-8?B?QUNlSk14bXoxWlJiS1U3WGhrcFZCRHB2ellmWXNlNVZVQVdaOEltUXM0ZTZh?=
+ =?utf-8?B?RmJYSXN5cWNrcXNUQWhBRHdWaHk1bklvMWdCZkZSQm5aL1lwWk9CSWdMS3N0?=
+ =?utf-8?B?UGc4WHZib2VXTGx5cGlWRDZFT3d2L3YwUEsyMEhFVmtHODV2Vko4M25NeVRq?=
+ =?utf-8?B?STJFcXY2SzA4VFkwMXpOWFdUNVdobjh6bWdKNEVMZzJwNUhMTTlVS29HcGQv?=
+ =?utf-8?B?eEkvNUt2RXBQN3p0QXVuMzZhZjlYMTRIeVQrWjl2WDVic04wS3Uva0tNamhY?=
+ =?utf-8?B?TkFaV09mazY0NUE4WUlGQmUvMjZ0TFg4SVJQT0txdndKTjQxdnJFdTYzR2hv?=
+ =?utf-8?B?L3VPLzVabXNuWDY4VVZ2WDhCdVpSK0VIR2dBam84ajZGM25odHJnZUNuOWxi?=
+ =?utf-8?B?VW94M3dEYmxDdEY3VkR3Tms3T2wrSEg0VkFaOUU2MDh0T2k2dlRkMk1aRW1z?=
+ =?utf-8?B?SG5kRS8ydUxieWo3UEtoQWRCMWtjYTRCZkNmQytybjh1elpPUy92c0IrN0t5?=
+ =?utf-8?B?aUNJUitPVWl3bTJSK0Z3SXplKzJJaWdhRzE1Nm1icmFvVE5ML3loNTNVT2Ji?=
+ =?utf-8?B?NCt4NGpHaFJpRjdGRXVHaldUZ0JJUGlKcndNeHU5UWNXUzZjUFE4V2YzSWJD?=
+ =?utf-8?B?TmliNlErcmNOeUJEUDBzNWpOM1R5TllEb1JhbmN1TGt4VWs0YlRZRTMrTHJ5?=
+ =?utf-8?B?dW5zYmc4YWR0c0tlZnQ1RVpIV2t4NTZKbjc1OFVWS1ZrMkdNR0hFYWVxb0pH?=
+ =?utf-8?B?Zm50R3d3VU9IcllmcTYvbkRQWThhc2YrMFQ3a2swR3Y0VzgzSlF1MzF6RVdz?=
+ =?utf-8?B?T0U1Wjh2c0pNaWNKYitRZmxjclQwTk1leTQyYXhseDdVd3hFZ044UHl1d1JU?=
+ =?utf-8?B?azkwd2JCTFhEUHJGYk82QkF1cjZ4R0tFUU4zbDZMVVI3MmFPNm82NE9GZDhz?=
+ =?utf-8?B?M1RWUEZNa2V2ODhUSzJzY1djSHhaVFdOQjIyWThzM3dSQk9ZWUdDZmxHSGRF?=
+ =?utf-8?B?ejQ3aGZBaDlHQkpxV3R1ZjIwbnJMU3Q2NVE2MUxEcFY1Rlh4dXN4RWkvTzcw?=
+ =?utf-8?B?ZGZENG5vWXZTT2VFbTYvZ01BRi9SOHVNbEdMZWFwSTd3RVZoOGQvZFcyUFB6?=
+ =?utf-8?B?YzFzZW1jV3UwZmVxOFFFM2FDREV0YVBISm83eklMaFVYK1JkNUlERi9jMjVr?=
+ =?utf-8?B?MFJ2U1g2eE5JRkc2YmhKeU5aVWNDS29XVFRjN0M0b1hzellwOEcvR0xpN2J6?=
+ =?utf-8?B?UEV3TWFzaEZ0WFU5TGw3UUlrcURWcDZuK2I0ckc3MXBaTUhRamc5OElUaFlG?=
+ =?utf-8?B?MEUvb0FVNk9KSjNTSTNTRmhPRmJQSHZIMUwxdTZHSUt3amtzamJ1c1NTRkls?=
+ =?utf-8?B?OGJJS1JYWTZpeFFEVWUwL0Zydkd1ZWVIYTNITkFGd2NBZGx2QmQ2NkQyemJV?=
+ =?utf-8?B?bVlqQUppMzNWMTBOSEFsaUxHSmlDQk9CODIzZEIvbEcveFdwM2xSVHlsU0Rl?=
+ =?utf-8?B?RVhDWmxPdzJGejdpeWk1OE1ReGs2OGFTSTZVaTJGdmxrZ3NhQ0NDWFc5NWt2?=
+ =?utf-8?B?YW05NTgvclY0bkxxTXpJTjJDdmlSVHdva1JOdnNjN0VucGxIUDVuQjF0eWlq?=
+ =?utf-8?B?ZlVHTWpDYVBxTms4aERYZkkyZktMMUh5R2l4YXdBaEwra0REWWs5NHZRMmQw?=
+ =?utf-8?B?Tm13bTZNbkZqZ3FXbmQ3Y0ZUY1Zpbnk3TVM2Q0oxeWJiQ2gra2QxQ0Jwc25O?=
+ =?utf-8?Q?G61U=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(376014)(82310400026)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Dec 2025 17:33:12.3165
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b7825688-bc31-4d30-7886-08de3e5b84ce
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000E9D8.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB7661
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_091133_652217_38237F4A 
-X-CRM114-Status: GOOD (  21.61  )
+X-CRM114-CacheID: sfid-20251218_093325_602644_035E1D06 
+X-CRM114-Status: GOOD (  32.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,326 +165,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Rohan McLure <rmclure@linux.ibm.com>
+On Thu, Dec 18, 2025 at 04:42:40PM +0000, Mostafa Saleh wrote:
+> On Tue, Dec 16, 2025 at 08:26:01PM -0800, Nicolin Chen wrote:
+> > From: Jason Gunthorpe <jgg@nvidia.com>
+> > 
+> > If a VM wants to toggle EATS off at the same time as changing the CFG, the
+> > hypervisor will see EATS change to 0 and insert a V=0 breaking update into
+> > the STE even though the VM did not ask for that.
+> > 
+> > In bare metal, EATS is ignored by CFG=ABORT/BYPASS, which is why this does
+> > not cause a problem until we have nested where CFG is always a variation of
+> > S2 trans that does use EATS.
+> > 
+> > Relax the rules for EATS sequencing, we don't need it to be exact because
+> > the enclosing code will always disable ATS at the PCI device if we are
+> > changing EATS. This ensures there are no ATS transactions that can race
+> > with an EATS change so we don't need to carefully sequence these bits.
+> > 
+> > Fixes: 1e8be08d1c91 ("iommu/arm-smmu-v3: Support IOMMU_DOMAIN_NESTED")
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> > Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
+> > Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> > ---
+> >  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 9 +++++++++
+> >  1 file changed, 9 insertions(+)
+> > 
+> > diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> > index 12a9669bcc83..a3b29ad20a82 100644
+> > --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> > +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> > @@ -1095,6 +1095,15 @@ void arm_smmu_get_ste_update_safe(__le64 *safe_bits)
+> >  	 *  fault records even when MEV == 0.
+> >  	 */
+> >  	safe_bits[1] |= cpu_to_le64(STRTAB_STE_1_MEV);
+> > +
+> > +	/*
+> > +	 * EATS is used to reject and control the ATS behavior of the device. If
+> > +	 * we are changing it away from 0 then we already trust the device to
+> > +	 * use ATS properly and we have sequenced the device's ATS enable in PCI
+> > +	 * config space to prevent it from issuing ATS while we are changing
+> > +	 * EATS.
+> > +	 */
+> 
+> I am not sure about this one, Is it only about trusting the device?
+>
+> I’d be worried about cases where we switch domains, that means that
+> briefly the HW observers EATS=1 while it was not intended, especially
+> that EATS is in a different DWORD from S2TTB and CDptr. With all the
+> IOMMUFD/VFIO stuff it makes it harder to reason about. But I can’t
+> come up with an example to break this.
 
-On creation and clearing of a page table mapping, instrument such calls
-by invoking page_table_check_pte_set and page_table_check_pte_clear
-respectively. These calls serve as a sanity check against illegal
-mappings.
+Hmm..
 
-Enable ARCH_SUPPORTS_PAGE_TABLE_CHECK on powerpc, except when HUGETLB_PAGE
-is enabled (powerpc has some weirdness in how it implements
-set_huge_pte_at(), which may require some further work).
+I think the last line that driver controls pci_enable/disable_ats()
+should justify the whole thing? Are you worried about device still
+doing ATS after pci_disable_ats()?
 
-See also:
-
-riscv support in commit 3fee229a8eb9 ("riscv/mm: enable
-ARCH_SUPPORTS_PAGE_TABLE_CHECK")
-arm64 in commit 42b2547137f5 ("arm64/mm: enable
-ARCH_SUPPORTS_PAGE_TABLE_CHECK")
-x86_64 in commit d283d422c6c4 ("x86: mm: add x86_64 support for page table
-check")
-
-[ajd@linux.ibm.com: rebase, add additional instrumentation, misc fixes]
-Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
-Signed-off-by: Rohan McLure <rmclure@linux.ibm.com>
-Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com>
-Signed-off-by: Andrew Donnellan <ajd@linux.ibm.com>
-Acked-by: Madhavan Srinivasan <maddy@linux.ibm.com>
----
-v18:
-- instrument the new pudp_invalidate()
-- don't allow with HUGETLB_PAGE, for now
----
- arch/powerpc/Kconfig                         |  1 +
- arch/powerpc/include/asm/book3s/32/pgtable.h |  7 ++++-
- arch/powerpc/include/asm/book3s/64/pgtable.h | 45 +++++++++++++++++++++-------
- arch/powerpc/include/asm/nohash/pgtable.h    |  8 ++++-
- arch/powerpc/mm/book3s64/hash_pgtable.c      |  4 +++
- arch/powerpc/mm/book3s64/pgtable.c           | 19 ++++++++----
- arch/powerpc/mm/book3s64/radix_pgtable.c     |  3 ++
- arch/powerpc/mm/pgtable.c                    |  4 +++
- 8 files changed, 73 insertions(+), 18 deletions(-)
-
-diff --git a/arch/powerpc/Kconfig b/arch/powerpc/Kconfig
-index 9537a61ebae02dbfe44918232eb6114c2b763387..271690445a454b642041e47b0d73cc3fe7d38ae5 100644
---- a/arch/powerpc/Kconfig
-+++ b/arch/powerpc/Kconfig
-@@ -172,6 +172,7 @@ config PPC
- 	select ARCH_STACKWALK
- 	select ARCH_SUPPORTS_ATOMIC_RMW
- 	select ARCH_SUPPORTS_DEBUG_PAGEALLOC	if PPC_BOOK3S || PPC_8xx
-+	select ARCH_SUPPORTS_PAGE_TABLE_CHECK	if !HUGETLB_PAGE
- 	select ARCH_SUPPORTS_SCHED_MC		if SMP
- 	select ARCH_SUPPORTS_SCHED_SMT		if PPC64 && SMP
- 	select SCHED_MC				if ARCH_SUPPORTS_SCHED_MC
-diff --git a/arch/powerpc/include/asm/book3s/32/pgtable.h b/arch/powerpc/include/asm/book3s/32/pgtable.h
-index 2edca1068b6f31e64ddc4f39f594bb3ac27a8435..dcbae85218304f9062e4414db17f589246733819 100644
---- a/arch/powerpc/include/asm/book3s/32/pgtable.h
-+++ b/arch/powerpc/include/asm/book3s/32/pgtable.h
-@@ -202,6 +202,7 @@ void unmap_kernel_page(unsigned long va);
- #ifndef __ASSEMBLER__
- #include <linux/sched.h>
- #include <linux/threads.h>
-+#include <linux/page_table_check.h>
- 
- /* Bits to mask out from a PGD to get to the PUD page */
- #define PGD_MASKED_BITS		0
-@@ -315,7 +316,11 @@ static inline int __ptep_test_and_clear_young(struct mm_struct *mm,
- static inline pte_t ptep_get_and_clear(struct mm_struct *mm, unsigned long addr,
- 				       pte_t *ptep)
- {
--	return __pte(pte_update(mm, addr, ptep, ~_PAGE_HASHPTE, 0, 0));
-+	pte_t old_pte = __pte(pte_update(mm, addr, ptep, ~_PAGE_HASHPTE, 0, 0));
-+
-+	page_table_check_pte_clear(mm, addr, old_pte);
-+
-+	return old_pte;
- }
- 
- #define __HAVE_ARCH_PTEP_SET_WRPROTECT
-diff --git a/arch/powerpc/include/asm/book3s/64/pgtable.h b/arch/powerpc/include/asm/book3s/64/pgtable.h
-index 2d69a827594f3c8593283fa11acd4750577e71a7..1a91762b455d9380481eef01f7f86ba5f856e375 100644
---- a/arch/powerpc/include/asm/book3s/64/pgtable.h
-+++ b/arch/powerpc/include/asm/book3s/64/pgtable.h
-@@ -144,6 +144,8 @@
- #define PAGE_KERNEL_ROX	__pgprot(_PAGE_BASE | _PAGE_KERNEL_ROX)
- 
- #ifndef __ASSEMBLER__
-+#include <linux/page_table_check.h>
-+
- /*
-  * page table defines
-  */
-@@ -416,8 +418,11 @@ static inline void huge_ptep_set_wrprotect(struct mm_struct *mm,
- static inline pte_t ptep_get_and_clear(struct mm_struct *mm,
- 				       unsigned long addr, pte_t *ptep)
- {
--	unsigned long old = pte_update(mm, addr, ptep, ~0UL, 0, 0);
--	return __pte(old);
-+	pte_t old_pte = __pte(pte_update(mm, addr, ptep, ~0UL, 0, 0));
-+
-+	page_table_check_pte_clear(mm, addr, old_pte);
-+
-+	return old_pte;
- }
- 
- #define __HAVE_ARCH_PTEP_GET_AND_CLEAR_FULL
-@@ -426,11 +431,16 @@ static inline pte_t ptep_get_and_clear_full(struct mm_struct *mm,
- 					    pte_t *ptep, int full)
- {
- 	if (full && radix_enabled()) {
-+		pte_t old_pte;
-+
- 		/*
- 		 * We know that this is a full mm pte clear and
- 		 * hence can be sure there is no parallel set_pte.
- 		 */
--		return radix__ptep_get_and_clear_full(mm, addr, ptep, full);
-+		old_pte = radix__ptep_get_and_clear_full(mm, addr, ptep, full);
-+		page_table_check_pte_clear(mm, addr, old_pte);
-+
-+		return old_pte;
- 	}
- 	return ptep_get_and_clear(mm, addr, ptep);
- }
-@@ -1301,19 +1311,34 @@ extern int pudp_test_and_clear_young(struct vm_area_struct *vma,
- static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
- 					    unsigned long addr, pmd_t *pmdp)
- {
--	if (radix_enabled())
--		return radix__pmdp_huge_get_and_clear(mm, addr, pmdp);
--	return hash__pmdp_huge_get_and_clear(mm, addr, pmdp);
-+	pmd_t old_pmd;
-+
-+	if (radix_enabled()) {
-+		old_pmd = radix__pmdp_huge_get_and_clear(mm, addr, pmdp);
-+	} else {
-+		old_pmd = hash__pmdp_huge_get_and_clear(mm, addr, pmdp);
-+	}
-+
-+	page_table_check_pmd_clear(mm, addr, old_pmd);
-+
-+	return old_pmd;
- }
- 
- #define __HAVE_ARCH_PUDP_HUGE_GET_AND_CLEAR
- static inline pud_t pudp_huge_get_and_clear(struct mm_struct *mm,
- 					    unsigned long addr, pud_t *pudp)
- {
--	if (radix_enabled())
--		return radix__pudp_huge_get_and_clear(mm, addr, pudp);
--	BUG();
--	return *pudp;
-+	pud_t old_pud;
-+
-+	if (radix_enabled()) {
-+		old_pud = radix__pudp_huge_get_and_clear(mm, addr, pudp);
-+	} else {
-+		BUG();
-+	}
-+
-+	page_table_check_pud_clear(mm, addr, old_pud);
-+
-+	return old_pud;
- }
- 
- static inline pmd_t pmdp_collapse_flush(struct vm_area_struct *vma,
-diff --git a/arch/powerpc/include/asm/nohash/pgtable.h b/arch/powerpc/include/asm/nohash/pgtable.h
-index 9bf3e40f27b645da660cbeeb561f08eeef180b1b..e6da5eaccff632a353139f27bf54472e716ac246 100644
---- a/arch/powerpc/include/asm/nohash/pgtable.h
-+++ b/arch/powerpc/include/asm/nohash/pgtable.h
-@@ -29,6 +29,8 @@ static inline pte_basic_t pte_update(struct mm_struct *mm, unsigned long addr, p
- 
- #ifndef __ASSEMBLER__
- 
-+#include <linux/page_table_check.h>
-+
- extern int icache_44x_need_flush;
- 
- #ifndef pte_huge_size
-@@ -122,7 +124,11 @@ static inline void ptep_set_wrprotect(struct mm_struct *mm, unsigned long addr,
- static inline pte_t ptep_get_and_clear(struct mm_struct *mm, unsigned long addr,
- 				       pte_t *ptep)
- {
--	return __pte(pte_update(mm, addr, ptep, ~0UL, 0, 0));
-+	pte_t old_pte = __pte(pte_update(mm, addr, ptep, ~0UL, 0, 0));
-+
-+	page_table_check_pte_clear(mm, addr, old_pte);
-+
-+	return old_pte;
- }
- #define __HAVE_ARCH_PTEP_GET_AND_CLEAR
- 
-diff --git a/arch/powerpc/mm/book3s64/hash_pgtable.c b/arch/powerpc/mm/book3s64/hash_pgtable.c
-index 82d31177630b810a70c9e7797f1f163fa97ccfaf..ac2a24d15d2e3733bd013eb168b2656ad61e7af7 100644
---- a/arch/powerpc/mm/book3s64/hash_pgtable.c
-+++ b/arch/powerpc/mm/book3s64/hash_pgtable.c
-@@ -8,6 +8,7 @@
- #include <linux/sched.h>
- #include <linux/mm_types.h>
- #include <linux/mm.h>
-+#include <linux/page_table_check.h>
- #include <linux/stop_machine.h>
- 
- #include <asm/sections.h>
-@@ -230,6 +231,9 @@ pmd_t hash__pmdp_collapse_flush(struct vm_area_struct *vma, unsigned long addres
- 
- 	pmd = *pmdp;
- 	pmd_clear(pmdp);
-+
-+	page_table_check_pmd_clear(vma->vm_mm, address, pmd);
-+
- 	/*
- 	 * Wait for all pending hash_page to finish. This is needed
- 	 * in case of subpage collapse. When we collapse normal pages
-diff --git a/arch/powerpc/mm/book3s64/pgtable.c b/arch/powerpc/mm/book3s64/pgtable.c
-index 97db2f42ea3d3bd476d0ef03da47ff325eb73db9..4b09c04654a8f26e84f811df61461d83ae71f299 100644
---- a/arch/powerpc/mm/book3s64/pgtable.c
-+++ b/arch/powerpc/mm/book3s64/pgtable.c
-@@ -10,6 +10,7 @@
- #include <linux/pkeys.h>
- #include <linux/debugfs.h>
- #include <linux/proc_fs.h>
-+#include <linux/page_table_check.h>
- 
- #include <asm/pgalloc.h>
- #include <asm/tlb.h>
-@@ -127,6 +128,7 @@ void set_pmd_at(struct mm_struct *mm, unsigned long addr,
- 	WARN_ON(!(pmd_leaf(pmd)));
- #endif
- 	trace_hugepage_set_pmd(addr, pmd_val(pmd));
-+	page_table_check_pmd_set(mm, addr, pmdp, pmd);
- 	return set_pte_at_unchecked(mm, addr, pmdp_ptep(pmdp), pmd_pte(pmd));
- }
- 
-@@ -144,6 +146,7 @@ void set_pud_at(struct mm_struct *mm, unsigned long addr,
- 	WARN_ON(!(pud_leaf(pud)));
- #endif
- 	trace_hugepage_set_pud(addr, pud_val(pud));
-+	page_table_check_pud_set(mm, addr, pudp, pud);
- 	return set_pte_at_unchecked(mm, addr, pudp_ptep(pudp), pud_pte(pud));
- }
- 
-@@ -179,23 +182,27 @@ void serialize_against_pte_lookup(struct mm_struct *mm)
- pmd_t pmdp_invalidate(struct vm_area_struct *vma, unsigned long address,
- 		     pmd_t *pmdp)
- {
--	unsigned long old_pmd;
-+	pmd_t old_pmd;
- 
- 	VM_WARN_ON_ONCE(!pmd_present(*pmdp));
--	old_pmd = pmd_hugepage_update(vma->vm_mm, address, pmdp, _PAGE_PRESENT, _PAGE_INVALID);
-+	old_pmd = __pmd(pmd_hugepage_update(vma->vm_mm, address, pmdp, _PAGE_PRESENT, _PAGE_INVALID));
- 	flush_pmd_tlb_range(vma, address, address + HPAGE_PMD_SIZE);
--	return __pmd(old_pmd);
-+	page_table_check_pmd_clear(vma->vm_mm, address, old_pmd);
-+
-+	return old_pmd;
- }
- 
- pud_t pudp_invalidate(struct vm_area_struct *vma, unsigned long address,
- 		      pud_t *pudp)
- {
--	unsigned long old_pud;
-+	pud_t old_pud;
- 
- 	VM_WARN_ON_ONCE(!pud_present(*pudp));
--	old_pud = pud_hugepage_update(vma->vm_mm, address, pudp, _PAGE_PRESENT, _PAGE_INVALID);
-+	old_pud = __pud(pud_hugepage_update(vma->vm_mm, address, pudp, _PAGE_PRESENT, _PAGE_INVALID));
- 	flush_pud_tlb_range(vma, address, address + HPAGE_PUD_SIZE);
--	return __pud(old_pud);
-+	page_table_check_pud_clear(vma->vm_mm, address, old_pud);
-+
-+	return old_pud;
- }
- 
- pmd_t pmdp_huge_get_and_clear_full(struct vm_area_struct *vma,
-diff --git a/arch/powerpc/mm/book3s64/radix_pgtable.c b/arch/powerpc/mm/book3s64/radix_pgtable.c
-index b2541bf33d01cbb59562866d844354b39b14a86c..10aced261cff4d39e64407e31ac05e9eb340007b 100644
---- a/arch/powerpc/mm/book3s64/radix_pgtable.c
-+++ b/arch/powerpc/mm/book3s64/radix_pgtable.c
-@@ -14,6 +14,7 @@
- #include <linux/of.h>
- #include <linux/of_fdt.h>
- #include <linux/mm.h>
-+#include <linux/page_table_check.h>
- #include <linux/hugetlb.h>
- #include <linux/string_helpers.h>
- #include <linux/memory.h>
-@@ -1474,6 +1475,8 @@ pmd_t radix__pmdp_collapse_flush(struct vm_area_struct *vma, unsigned long addre
- 	pmd = *pmdp;
- 	pmd_clear(pmdp);
- 
-+	page_table_check_pmd_clear(vma->vm_mm, address, pmd);
-+
- 	radix__flush_tlb_collapsed_pmd(vma->vm_mm, address);
- 
- 	return pmd;
-diff --git a/arch/powerpc/mm/pgtable.c b/arch/powerpc/mm/pgtable.c
-index 7b69cd16e011c31fffac2439a76ba20e00fc9a78..a9be337be3e461fdffa7181a87376cd8329aa9e0 100644
---- a/arch/powerpc/mm/pgtable.c
-+++ b/arch/powerpc/mm/pgtable.c
-@@ -22,6 +22,7 @@
- #include <linux/mm.h>
- #include <linux/percpu.h>
- #include <linux/hardirq.h>
-+#include <linux/page_table_check.h>
- #include <linux/hugetlb.h>
- #include <asm/tlbflush.h>
- #include <asm/tlb.h>
-@@ -206,6 +207,9 @@ void set_ptes(struct mm_struct *mm, unsigned long addr, pte_t *ptep,
- 	 * and not hw_valid ptes. Hence there is no translation cache flush
- 	 * involved that need to be batched.
- 	 */
-+
-+	page_table_check_ptes_set(mm, addr, ptep, pte, nr);
-+
- 	for (;;) {
- 
- 		/*
-
--- 
-2.52.0
-
+Thanks
+Nicolin
 
