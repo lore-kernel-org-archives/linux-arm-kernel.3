@@ -4,149 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4DD1D6E2DD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 18:58:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDC4ED6EC1C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 19:03:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n4f6h3iu2++3HtITPs9sAEquzV9zyoFIaZSrUu9dXT4=; b=FyBMLA/92V45AHzgaXUN0ZnPsh
-	n0vizoh1RbYw1yy89u52sHoeWfh/ZUDnSeaPU4KvuLckuQd6+g0xoW7NOQYjAYbQT2HVbiIN9FoXi
-	SJGDJCyaAS4q7MzKq5xu+2+33WrxsxhVi+QODYkuoD7XakRTeS9flmsIlfvF6c0MxXijQaVKKm0RF
-	IrNNEN6uc5kjszOupAPsV48AM2AB05p6UDOCNh9V+A5P9rVd6xhOQyRccc6ty/k5ZAF86e6IUPdGj
-	XEzP60w0Hhu9Hwh4dcDxUlSpDPMtGRdceCEj7VkeiS+hJXX3RUb9r6XXsjtxK2xY2g9Kdjf2HXhkc
-	MORLXoHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UZURydBRs6THPGEYtxtuXyqkrMfiNHxW6djvEvJyle0=; b=IF5TsrUj6WqSaNk7ZP6BXokyDR
+	dmUJe+eFCpKzgbB3m4+gkEjlv9ptCGwvJf0IFgmr7Q0hFlreIYdMt5ZpKLTzqZdoLxqhvpaQm6/xm
+	PJA10l6Cezpwwps6MwnCka8tD8+0TOYeaOj35z5hHBqmq+0YaXisU3fVnfwkaooYtszHlvyNyFEk0
+	ygdzSlWRyWaYAz5NvYsnoUyqWRcViQtv7ZVecASLiclnnETvxA3QRKkdQCoKKtzilmxVEXjqFpnE8
+	w7W1LHzXeAoW5dmgwlvgUv7eIgfLgKUgyTPWivVxIPFmJqWFczM3CrQwBDcIWUE6bgG/zohAe2gnO
+	m2PG+lCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWJCH-000000091wN-3gwc;
-	Thu, 18 Dec 2025 18:57:57 +0000
-Received: from mail-southcentralusazon11011068.outbound.protection.outlook.com ([40.93.194.68] helo=SN4PR0501CU005.outbound.protection.outlook.com)
+	id 1vWJHJ-000000092FU-2Yw1;
+	Thu, 18 Dec 2025 19:03:09 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWJCF-000000091vo-1kOX
+	id 1vWJHG-000000092F4-2B1u
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 18:57:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RMhMY4gE5fEE1/hnabxeqfAFXkxm1zjfoYyxGn/Qtydibyj1SgWllgzsaq5+3Uk8H/EfMym5+e0LH0cgH5Juhgl7N4+GwqG0LV15RdvEUu8wI/J6bCfBIAqKzLB1H3iAr2TvcvO3yYi1w/ocozcYlNvrrNM1C5/KMZrChpIClZd7W5EuMJTniM2yD/gOj9KRz6fxzhOUeQiDeWUlteiv6+HReTbTkzahtHEKtl6QQlu7QgNGVirBFnYiV+RqPA+6r1wQx9XLxS3HZ2EPNICz9c804GGndYuDzkgzebidoteUeahUPdqVPvQtC9UtO+/X1wn2ZZVa/pOYaTcLyFAYmg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0a2OU7VST/fh/UzhYLY7S97uKhKimFQrMkwq3OMYwzo=;
- b=mleFbxNjW/EekN29wP49g8yhcsGec1wI5xbKpENJIXjI2kEANdYIKSKm/ok2ayk7N59O8DMnWwDCrKt2KCS4cFfZd6a3yT7RriutYcqb+JVBN2j56OTslRdr+BFl3z6J1r/Jk4HbvGLOq+Ogo3H2bogBcI/8BZVo+LKn0KvN0G8Zry1R/4oEtykf0p65Aa7CxjGy1aPW4sYmHf/gShiWwg6WZSce3Benk2UXbvt2TdUQNRSmeXf1GMHfoiNeLx0UCcZY46LW6ulBdLK6ofi/ygkOKR1699aASGd8QKTOzbFdKeUZT13Aiw8CV+TEQ+c96HKtwg5zIE+4BM1bmVhL5Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0a2OU7VST/fh/UzhYLY7S97uKhKimFQrMkwq3OMYwzo=;
- b=Jl0ej5Gi5NIWrYt7XFJbJFwGqv7iP7tf1YVFZH449tPIyg25WGavNPWOmwGRIEoNbfqz2tMGcILWp8uSetPIlDh8G+tD2nYkRcdEwfxoEYVushMAhFQzUFl2rAeWibtzQlYPISQtJsxXXoYGhbnUhtRMa8cHY+tYCGWaWTe+Q2Uya2WZ7sVF+lIUffBXh1AH3fD4WdDje6qK0+Gi0iTG8DzUept5EPJA8P6TcAYHYhSusDeixsVtbMhNrctX0T/x3azntCYQKPgy9et+xEDk2EdQ7Ikrgz1Gg9y6RcK9nuRFg6RLZbhi+E8oEv9za7wdZb+JQs3y86JHXCPN1e3BBQ==
-Received: from BL1P221CA0004.NAMP221.PROD.OUTLOOK.COM (2603:10b6:208:2c5::15)
- by SJ2PR12MB9164.namprd12.prod.outlook.com (2603:10b6:a03:556::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.8; Thu, 18 Dec
- 2025 18:57:45 +0000
-Received: from BL02EPF0001A100.namprd03.prod.outlook.com
- (2603:10b6:208:2c5:cafe::92) by BL1P221CA0004.outlook.office365.com
- (2603:10b6:208:2c5::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.7 via Frontend Transport; Thu,
- 18 Dec 2025 18:57:38 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- BL02EPF0001A100.mail.protection.outlook.com (10.167.242.107) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9434.6 via Frontend Transport; Thu, 18 Dec 2025 18:57:44 +0000
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 18 Dec
- 2025 10:57:26 -0800
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail204.nvidia.com
- (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 18 Dec
- 2025 10:57:25 -0800
-Received: from Asurada-Nvidia (10.127.8.13) by mail.nvidia.com (10.129.68.7)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 18 Dec 2025 10:57:24 -0800
-Date: Thu, 18 Dec 2025 10:57:23 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jon Hunter <jonathanh@nvidia.com>
-CC: Ashish Mhetre <amhetre@nvidia.com>, <will@kernel.org>,
-	<robin.murphy@arm.com>, <joro@8bytes.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <thierry.reding@gmail.com>,
-	<vdumpa@nvidia.com>, <jgg@ziepe.ca>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-tegra@vger.kernel.org>
-Subject: Re: [PATCH V7 2/4] iommu/arm-smmu-v3: Add device-tree support for
- CMDQV driver
-Message-ID: <aUROk0jRQoLmBRo3@Asurada-Nvidia>
-References: <20251215064819.3345361-1-amhetre@nvidia.com>
- <20251215064819.3345361-3-amhetre@nvidia.com>
- <23df682e-6d08-4827-994e-1bbd89e5c903@nvidia.com>
- <5e9a0ce1-a0ba-4a31-be95-99f349ec6028@nvidia.com>
- <e7d3e95f-a885-4b13-ab4d-bc82793c5396@nvidia.com>
+	Thu, 18 Dec 2025 19:03:08 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2a0d06ffa2aso11300035ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 11:03:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1766084585; x=1766689385; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UZURydBRs6THPGEYtxtuXyqkrMfiNHxW6djvEvJyle0=;
+        b=O77c3+vn23TDwBM+B7uedLi6G+1Qy4Y9N/VKqMIUP2rRbrHJHh1vsS3htWtWWVFiP+
+         d7L5k+r0pgS2Gp8J2GIm2ZFhVqEgWSfjcp+KEk5p/sMlnv9RPSdPNhTaOVAGRLJYsrBG
+         /ov3mzcvnHhzFdmjplRkOtJhuEWYitd2EN2LR4XFvjAv1euHQgqqt0NJK9aEsQZf+bxY
+         cBGzFHquf6EY73qhIWv/qtDU2MSR2prAJRrTYdHbUJb8/QgrYvyFRhhhnDAUM0S6GhAD
+         bHtNtJMM4zRskSKLOQQGa1aTBeRsl3FBzCnjXm7kIsqSGggHi5dQ3UFzv+c9FF4xOCJM
+         8xIQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766084585; x=1766689385;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=UZURydBRs6THPGEYtxtuXyqkrMfiNHxW6djvEvJyle0=;
+        b=nbnDa7aohM3/VXuoW5inh53JtwKrXIcjgXOWyS9AwRu51o99aAIHGU+0GdUKw8EuGE
+         aL813vARiI2EWYY6TopwWH+K8avGbALexedlH1NFdK6BLnu5j7Pj90hoLuT4q4CM1w5b
+         2ngwUl4OlZ0/xhw/uc4MgQ+zqTKqZT2IgIXSo/Yg0PlEO3zyMZxGwasuUYcpyw4C2x3D
+         dnXIcghntCO/8nrqtr3ftriWYpWthFCTqhiCfh/ofN7vGx0TD4E1SyZxMLhtyo0jMc2Z
+         /NaY9m/4slcX6suA5ZEW26dipLLk7yiSJBd3tR5D3g4x8GTU/NMpqDnCyDnO/XlUcCJU
+         AoDw==
+X-Forwarded-Encrypted: i=1; AJvYcCXtMKpePNfyr58emidlPWIqY11E7sHOJ1lGFcuOgGjLQoFWpZApw6wQZwskZt7D0X0ao/6FD6bOmP1iKG1PxMnQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywd4XoEd0JR4l4IBWLZNIheY8wm3CP4+u4KfxCtu5pHLZ9BXoxE
+	D+RLWeHzpvA7PRRiYQKOCEV8j/DlcHepaXfCwgQKw7pkjZ/LAfcmlnJ5qWk1XHJjR5MevWN3Yoj
+	5ybMGob430Wu+R6f1u0W5VsMOQ2ROyb/B/dsDUNaZ
+X-Gm-Gg: AY/fxX72uUu574eoRkshi+mi/9Anh0uZKa/DUZyhvJ+jiE29v5htUI5j0f0XF68R616
+	BVExprqDjmruLmq1GTtoZHG5+LUHDFkoLhUowlQx6ixtFueJh3G800guIMYvmkKQIzjFOPmrts1
+	XSP+bcJ0fUYilXHBdbD5PqzShHFlDjbxLuZQsFavKsJHzXvdUr7xwi4ISVqUPTqHmIKAmItBYLe
+	V2tI0xSWeCAlCWvB54Ad/4Wjrp25CfNm8CPfD7U4PEywR/aw3BpGbFnb+Z0EwlKUuyg4V77Fanc
+	lmQwfSbaiJ6xA1/T1ywO3ghyDzorVjuiTYye
+X-Google-Smtp-Source: AGHT+IHjlHQlXH87LizBV98xCNNrE/r6NnWxVA8MyqbsxcZpdW5xdnwO9aFCs2usLY1INPEf7TlgBEyb3iR7vLbl1rw=
+X-Received: by 2002:a05:7022:2586:b0:11b:8278:9f3a with SMTP id
+ a92af1059eb24-121722a760fmr302395c88.8.1766084584998; Thu, 18 Dec 2025
+ 11:03:04 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <e7d3e95f-a885-4b13-ab4d-bc82793c5396@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL02EPF0001A100:EE_|SJ2PR12MB9164:EE_
-X-MS-Office365-Filtering-Correlation-Id: 898ce602-c41e-4e35-4029-08de3e675463
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|376014|7416014|82310400026;
-X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?9SIf1z0ctrHOUUEE+VMIn4KqXl1DA7bbEtWx83S/QC+0REiExjchzXAxck?=
- =?iso-8859-1?Q?qz8xwokEpg+mxpww64P+U2y9CNs//pdFT7v4X3fMeznFkm1TVmKlYoty5J?=
- =?iso-8859-1?Q?25zscQ499RedQgHBRWdH1OQ+xYuG8p8+GOkVp57fRdiiL1vnY6en7sjpu+?=
- =?iso-8859-1?Q?hT9B3MRdi62JmYMqD+51h2xdt7q4zt4zn9O6mn1K8VL2tJLdEBcpInQxaa?=
- =?iso-8859-1?Q?WoL/UkicAsdW9Q0smR5zQk1F2B/Po8QO7MDnn6uo50OS49bNdV9Ps6E0yr?=
- =?iso-8859-1?Q?zizJaF5q27WfCGBBdYWubDkT5h19fR6/CG/Ll4c3qJylLhxNGc6HDYRAys?=
- =?iso-8859-1?Q?iUh19PJqIOFybwwTesP3seoq350ZBRlZ71smAq6x88jZeKuaAXHUmijWI1?=
- =?iso-8859-1?Q?1hmFDujjbi+hpoGe1JWFGNATecNOuWK7c+q5UtaIt/i/qfsjv+x7kmMq7K?=
- =?iso-8859-1?Q?swXgRXYUXWlTgCfHhnJkuA+tTuAt9pJkkR+D5Zxq95Tvy+8lrLWKpXmHpp?=
- =?iso-8859-1?Q?vwQaNQVVl345sGvlhqLBl260zKFlSROoVBzgGiC/PnuPbb+5MJBoSrYHr9?=
- =?iso-8859-1?Q?8HYBODHfvFXT6Vk6VEItA5lplICE8hBk1C+H6hDj197o0XbgA0cGvtGCOb?=
- =?iso-8859-1?Q?KubbkGmPJ2ezbl65h7ZOqhC8v6U9TFiEsUfeKkRNvl21fgZVORmIuKGrfo?=
- =?iso-8859-1?Q?fSksYxCWJjOq1TexF2q0ntcnKglzYhT0brGDdhHS6Od9iAEWb78fmMOhek?=
- =?iso-8859-1?Q?Cdp0Vafg0Kig+H8uob8pccMjnyvI+5HiZ37Pm4ML4ks/QbeMFSPm2tcCLw?=
- =?iso-8859-1?Q?BmhCQ9FZEqIJbE6O0M9agFYgJpEnoaZtUHefkaPnDUeuKZEAoaOGirp6fc?=
- =?iso-8859-1?Q?4Xgr6ICfjvoSELqNjYnOSG8qV+MJNZwmudMq8Iq9aVxg+zfq7ExnNBDqwm?=
- =?iso-8859-1?Q?fhuNieiSagC4hItatM0IIC+T0HsnKjnq7YRTr77istDRhOmtrmz9kpW4hX?=
- =?iso-8859-1?Q?tTbspC9WCgYlv1XU798PUg/COtxA8riaG+UcVkZM0HPFT8fOMDAHrYey2m?=
- =?iso-8859-1?Q?dVbdSA66A3rIuLHATl1rYM2W9BxHqJEBWhKGIz5R7lyAse9Y4K8cPNE9QS?=
- =?iso-8859-1?Q?Q9sZcSmlhKTr8Vrvx7/65nes818XybqUhMrflPGDuEc7PiDpZBErUUMvJi?=
- =?iso-8859-1?Q?mwEc9dJuWjph6Muz56yKYzFRRSeskFsBwp/UN76UM04yRUXruiSYfYR8Fy?=
- =?iso-8859-1?Q?gImmRXyPD7ROJj3ciKn3ThBu/xOrVYlfjkJqW0+ir1UceMSNj61zTf2Z/d?=
- =?iso-8859-1?Q?CG3laOUx3KiM+0jS0HZQ1MhyD0ErN9ktSsiFmHqhHQgdZjTVQrjlh+55db?=
- =?iso-8859-1?Q?yD7ZfjSQfYibYm7do9zWaESXr0nhh/4PI2wB3cFEeIPUt5KYEsfDAzhROy?=
- =?iso-8859-1?Q?lDIbzcv2XM6b+TlX7VRcN7h76oeSnThkshz3MMIakp/2FVIG0Lg9hhuURk?=
- =?iso-8859-1?Q?8ufydm+Lkv3ICYBTSGcEtbTUG0OcC8zPmZ85lOExSQeff22PFSnJaS6GrE?=
- =?iso-8859-1?Q?FOr766bU4/YOXUNSs1CkMU6hmSl7lviyW9KUg9VaCRLLTdrcPN9U8YMY4e?=
- =?iso-8859-1?Q?44cVicjFqAl6w=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(376014)(7416014)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Dec 2025 18:57:44.9600
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 898ce602-c41e-4e35-4029-08de3e675463
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL02EPF0001A100.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB9164
+References: <20251205-controller-v9-0-9f158b18f979@google.com>
+ <20251205-controller-v9-2-9f158b18f979@google.com> <2025120553-suffrage-divisive-5890@gregkh>
+ <CA+zupgzL7v5MZDpxKDQQCqAZaqTdHbiG9-xTr+8RnigMFZJ_7Q@mail.gmail.com>
+ <2025121728-reliably-crabgrass-2601@gregkh> <CA+zupgxZCyNonfNPbGnFymGGOQuaWR1TsL+hujTbH4DEcfEt9Q@mail.gmail.com>
+ <CAD=FV=U63F-wxwKDo9be6_X2P2zp6aTBjNghZRbXX1rn4jFNyg@mail.gmail.com>
+ <CA+zupgyG4Nov0=jihSApp_3_0hy6YNZMkfOp6Q4-zmERFm10Ag@mail.gmail.com> <067e0b1f-ffb6-4f38-b4ac-8abdf46518ea@kernel.org>
+In-Reply-To: <067e0b1f-ffb6-4f38-b4ac-8abdf46518ea@kernel.org>
+From: Roy Luo <royluo@google.com>
+Date: Thu, 18 Dec 2025 11:02:28 -0800
+X-Gm-Features: AQt7F2rN06AK2QuvXUYDJOc3cWSY2JUStjC0ZUUhHBMZr4GDA95FFHyZwdmt4so
+Message-ID: <CA+zupgwgfKwPYqj8G2tNf4pEXNEWA+vL2WYJPhJ16xExgko7Dw@mail.gmail.com>
+Subject: Re: [PATCH v9 2/2] usb: dwc3: Add Google Tensor SoC DWC3 glue driver
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Doug Anderson <dianders@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Peter Griffin <peter.griffin@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Badhri Jagan Sridharan <badhri@google.com>, linux-usb@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_105755_466835_D6FAF0E8 
-X-CRM114-Status: GOOD (  14.27  )
+X-CRM114-CacheID: sfid-20251218_110306_567923_999FE6DB 
+X-CRM114-Status: GOOD (  36.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,27 +107,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 18, 2025 at 08:48:32AM +0000, Jon Hunter wrote:
-> On 18/12/2025 06:32, Ashish Mhetre wrote:
-> > On 12/18/2025 2:13 AM, Jon Hunter wrote:
-> > > > +    smmu->impl_dev = &pdev->dev;
-> > > > +    smmu->options |= ARM_SMMU_OPT_TEGRA241_CMDQV;
-> > > > +    dev_info(smmu->dev, "found companion CMDQV device: %s\n",
-> > > > +         dev_name(smmu->impl_dev));
-> > > 
-> > > This seems a bit noisy. dev_dbg?
-> > > 
-> > 
-> > This info print is similar to what is there in ACPI path as well.
-> > It's only a single print per SMMU at boot time. Should I still change
-> > it to dev_dbg?
-> 
-> Yes, I would.
+On Wed, Dec 17, 2025 at 11:06=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.o=
+rg> wrote:
+>
+> On 18/12/2025 02:34, Roy Luo wrote:
+> > On Wed, Dec 17, 2025 at 12:14=E2=80=AFPM Doug Anderson <dianders@google=
+.com> wrote:
+> >>
+> >> Hi,
+> >>
+> >> On Wed, Dec 17, 2025 at 11:18=E2=80=AFAM Roy Luo <royluo@google.com> w=
+rote:
+> >>>
+> >>> On Wed, Dec 17, 2025 at 5:24=E2=80=AFAM Greg Kroah-Hartman
+> >>> <gregkh@linuxfoundation.org> wrote:
+> >>>>
+> >>>> On Thu, Dec 04, 2025 at 11:14:39PM -0800, Roy Luo wrote:
+> >>>>> On Thu, Dec 4, 2025 at 10:05=E2=80=AFPM Greg Kroah-Hartman
+> >>>>> <gregkh@linuxfoundation.org> wrote:
+> >>>>>>
+> >>>>>> On Fri, Dec 05, 2025 at 02:26:38AM +0000, Roy Luo wrote:
+> >>>>>>> +config USB_DWC3_GOOGLE
+> >>>>>>> +     tristate "Google Platform"
+> >>>>>>> +     depends on ARCH_GOOGLE || COMPILE_TEST
+> >>>>>>
+> >>>>>> There is no ARCH_GOOGLE in the tree now, so how is this supposed t=
+o
+> >>>>>> work?  Shouldn't tools that check for "invalid config options" tri=
+gger
+> >>>>>> on this?
+> >>>>>>
+> >>>>>> thanks,
+> >>>>>>
+> >>>>>> greg k-h
+> >>>>>
+> >>>>> Hi Greg,
+> >>>>>
+> >>>>> The menuconfig looks like the following and it doesn't complain:
+> >>>>> | Symbol: ARCH_GOOGLE [=3DARCH_GOOGLE]
+> >>>>> | Type  : unknown
+> >>>>> |
+> >>>>> | Symbol: PHY_GOOGLE_USB [=3Dy]
+> >>>>> | Type  : tristate
+> >>>>> | Defined at drivers/phy/Kconfig:104
+> >>>>> |     Prompt: Google Tensor SoC USB PHY driver
+> >>>>> |     Depends on: ARCH_GOOGLE || COMPILE_TEST [=3Dy]
+> >>>>>
+> >>>>> According to Kconfig documentation [1], the unknown symbol
+> >>>>> would simply be evaluated as an "n", which is what we want.
+> >>>>> "Convert the symbol into an expression. Boolean and tristate
+> >>>>> symbols are simply converted into the respective expression
+> >>>>> values. All other symbol types result in =E2=80=98n=E2=80=99."
+> >>>>>
+> >>>>> In a different Kconfig documentation, an environment variable
+> >>>>> "KCONFIG_WARN_UNKNOWN_SYMBOLS" is there to detect
+> >>>>> undefined symbols in the "config input", but I can't find one that
+> >>>>> catches undefined symbols in the Kconfig tree itself.
+> >>>>>
+> >>>>> That is, the tool seems to allow this.
+> >>>>> However, if this turns out to be a major problem. I think we
+> >>>>> can either:
+> >>>>> - Remove ARCH_GOOGLE and leave COMPILE_TEST as
+> >>>>>   the only dependency. Then add ARCH_GOOGLE back
+> >>>>>   later once it's in the tree.
+> >>>>
+> >>>> Please do this.  I do not want to take patches that purposfully add
+> >>>> dependencies on config options that might, or might not, appear in t=
+he
+> >>>> future.  Please just remove all of the dependancies for now, as they=
+ are
+> >>>> not needed, right?
+> >>>>
+> >>>> thanks,
+> >>>>
+> >>>> greg k-h
+> >>>
+> >>> Greg,
+> >>>
+> >>> Yes, we can remove ARCH_GOOGLE for now.
+> >>> To clarify, we're not removing all of the dependencies, we still want
+> >>> to keep COMPILE_TEST for build tests, right?
+> >>> Please let me know if you think otherwise.
+> >>
+> >> I think you'd just remove all of them. Normally COMPILE_TEST just
+> >> allows folks to compile stuff even when they don't want the ARCH. We
+> >> can can add ARCH_GOOGLE back in later once the config exists.
+> >>
+> >> -Doug
+> >
+> > Doug,
+> >
+> > Thanks for chiming in. I'm hesitant to remove COMPILE_TEST
+> > because Greg specifically requested its inclusion in v7 [1].
+>
+>
+> What? No, that's not what Greg requested. Your COMPILE_TEST in current
+> form helps nothing in build testing. It makes absolutely no sense at all.
+>
+> > Also it seems beneficial to get some build coverage before
+> > ARCH_GOOGLE is officially added to the tree.
+>
+> And COMPILE_TEST like you wrote it does not give you that. Please first
+> read how this function works.
+>
+> > Greg, could you clarify?
+>
+> Can you first look at Linux kernel sources to see how this is properly
+> written?
+>
+> >
+> > [1] https://lore.kernel.org/linux-usb/2025112144-claw-recolor-49c3@greg=
+kh/
+> >
+> > Thanks,
+> > Roy
+>
+>
+> Best regards,
+> Krzysztof
 
-It's really not that bad IMHO, I am not against that though..
+Greg and Krzysztof,
 
-If we have to change that, we'd need another patch changing the
-one in the ACPI path as well to keep things aligned.
+Thanks for the clarification.
 
-Nicolin
+Regards,
+Roy
 
