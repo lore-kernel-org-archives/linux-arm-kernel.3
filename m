@@ -4,65 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20E1CD6E2D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 17:56:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D4F1D6E2D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 17:56:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I60R8WA4dxn2gytYZ6r7aYWz8herwWEhg7V+nluk9FU=; b=ZBh3xxrKXZVJrqxGcTjfvDBVR/
-	ry/ZxTT+YTb1JdcytirR4ozMEC25GOy3sLWzr8TmujCSLpDubSphpKO/Z4ceQB7opXfOi5WJRxeqH
-	9eKPMUU4Pfv9MbjUFabJMEg6DGZYox7eD6LSeBiq7e2GS/bjb1SizkTHRsexb33cfxeWhEV3rrsRE
-	/xKIlYFWD8Be3j2D8TaIBB1sSSS3PcNGRES3qYMDFETldDaPUNuWdPgG6Mz8bROEJ+VvLpqOMWLwI
-	+abrF9S4h0KVfaC0FBXAE0tmAJ6GaNkcw8HymDSNKPpLcWWfQORqCQEYDeWlQIKshgNyfM1j609Fo
-	mK6Qe3pQ==;
+	bh=r+6WN6/p1fp60hzkSr+llXdbvd+YBmTxfk1iXBMLJZA=; b=Mh5tunt/+msYvaU16akgw8ZC/R
+	OnZ/CCPj1Cfg/2ZmPEALf2bzMOTMngG1IOgD7504nEPLXJJtbZ9KF4/YCmP9Wcf92e88TrGWD0M7I
+	/UGoTMUlJ9lryI5UmhnnM0eWzegps/d8mb7zxDwKJGj9RNDCZ/mre13tlLaYc1QmdFJVNt9QqSVBp
+	j3MkViZB4EO8uRkTCDyqoHY2vgBISL6BVgKjjuFCnVdO192VhbdK8S7KstohrOw2nkfklXw1RpU8W
+	7g8i1ytwKL6c/FCGD8fxxnJNMAwq6l05faMIkGdJHs2iETe8nWIfDX3elP1Iy2JnzYf7hma/XXRVI
+	6bHXU+BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWIEX-00000008xSs-3MOu;
-	Thu, 18 Dec 2025 17:56:13 +0000
-Received: from out-188.mta0.migadu.com ([91.218.175.188])
+	id 1vWIEl-00000008xVL-0XrB;
+	Thu, 18 Dec 2025 17:56:27 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWIET-00000008xSN-2Hbv
+	id 1vWIEi-00000008xUP-0jPG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 17:56:11 +0000
-Message-ID: <1728d4e1-ce5c-476e-b057-b8a9a7621e1b@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1766080558;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=I60R8WA4dxn2gytYZ6r7aYWz8herwWEhg7V+nluk9FU=;
-	b=Xy7U9H8qHL77Fx0fPNGKUC/QY21WS3RBSaAH2MUdMGV42LvbEDLbSK8AdrcvH6zE37nbFR
-	bbJfYYpgSAxpZjP9D6ZdNRu07Z/3MP0etTvifnPuLjEOdgx6le0/VnD8kz8V21JJ5YTU1j
-	Z5eOcH9AzxCtpMjndlEC3UQj50OiS2k=
-Date: Thu, 18 Dec 2025 09:55:52 -0800
+	Thu, 18 Dec 2025 17:56:25 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-64175dfc338so1723663a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 09:56:23 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=soleen.com; s=google; t=1766080582; x=1766685382; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=r+6WN6/p1fp60hzkSr+llXdbvd+YBmTxfk1iXBMLJZA=;
+        b=OAMNaSR5+fXiVt3rQ/qEmP4SqerCNxvRKoeA1cqLpdLZAoRxxi8/7GtSYYuJQmDfBM
+         xmx/ODJRD2xUIxsP7JioIK3C2dx4OnDPhh2d71Oiyj9QMv2bIcknlMoInr9awrtXGYU0
+         3YDldOpZZGbB8DOtSFolwxWIHmtd8HARV9cxrKyaC9odrCf+DoeZ2j3eyiXsfn1GlBkD
+         4erHuQJvEjZmjNz1Ya/eWP3o7KUoJQ9+mm2kCGM6vWyPLttoAtjUk+jtRR/NRXVkoA9R
+         6Ui5SWuWuEzGAB81stVVVVL7mJslqWjaAk5lvA7q7UQEdbv6jjGjiFJ7U86G7HUP8qQ9
+         AiGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766080582; x=1766685382;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=r+6WN6/p1fp60hzkSr+llXdbvd+YBmTxfk1iXBMLJZA=;
+        b=YsKH9son/CmMIiAzZZFyifDcz3twpYQIQQ9NA9IDday3HcvPEQa/WLGPxZ23Gjih04
+         zeKklkvY2A15UPWobpVhHGryMRcuIgQ+ECJAyXM0ZcYmRS8300raJSPheNVZhNPiM7eX
+         4OoIp8uDwaUQwiQ+BAdi3aQpQihh6j/BFTtfCKZ6Sk34p3j410xwW0e6/PPr6SOTZjbN
+         9hcWYHwvmlx5LGoBi1BotWd21HGmh3HsqeFWbZK3Y9ICnBRm/77LieDyTnA+OWIXt1P5
+         T+iKmifq5J7SIH88Wn7av8RkgxiMUkSroGaY51oWWlS5z8pSZVNqHSnu4vl+WC7uz6KJ
+         YXfg==
+X-Forwarded-Encrypted: i=1; AJvYcCVrm9BJeASbxTwkCeRaeh+3Tdr744a1/3j/3cR8QsBcl4Euof0ImbyOhJNDWKmt2bFK/UP1uLm1Gr3W+OseFztV@lists.infradead.org
+X-Gm-Message-State: AOJu0YyU5YiLkPI7Kai9JC3Bnv1x0O4Q9gEIOU6hzQotXw9fzUxUdhFk
+	SflkIM3kR9BLfD3sLvl55jiwQfoFN5NlOEv+M8Qtix3eBlLwpAoe5KRxW1v3Zis1DCjYPMyZllJ
+	ikt83scWi6oWx4LU5oASa2i0KDIPodDm8OEaOUPTRVQ==
+X-Gm-Gg: AY/fxX69/1F20zOyDRuvGjagrwkMdGxa+O6kI0nslkkm5xV5FH/qfDb6KCRddLf3TKj
+	AO3uELTiWD9vEKjRuSL1Im+7dcJlZgBddzmUgZ8cehFhgo7fUePhwqw0ovJdtO6uEr2K8OMyqnd
+	nK+5QlTejcvUQLojpM+HHkBPFZH6f6Z2KtE8MSQ3+fLvAKEUPJkWyhBfa2TBXF0bZHClGxrCLgN
+	l4Bz49+Qdg0w4oSnhp5C5RFaKN8iz7LyIFFAgG7mmCT+cXZttQ3iEaaJ1vxsKsulUWk1RJ1hes5
+	CFYCosiuFKH/iYpJhAYQsnVd
+X-Google-Smtp-Source: AGHT+IFq7ELTQKzF/TRk0SfbylhiIq5ob7abkvIiaiZCwA97lZgHawIVNTbXj5kEfVQ3oQIcBivxjmxKv95IDYu+mh0=
+X-Received: by 2002:a05:6402:35c1:b0:649:e5be:1b4e with SMTP id
+ 4fb4d7f45d1cf-64b8e94d187mr222712a12.9.1766080582211; Thu, 18 Dec 2025
+ 09:56:22 -0800 (PST)
 MIME-Version: 1.0
-Subject: Re: [PATCH bpf-next v2 2/2] bpf: arm64: Optimize recursion detection
- by not using atomics
-Content-Language: en-GB
-To: Puranjay Mohan <puranjay@kernel.org>, bpf@vger.kernel.org
-Cc: Puranjay Mohan <puranjay12@gmail.com>, Alexei Starovoitov
- <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>,
- Martin KaFai Lau <martin.lau@kernel.org>,
- Eduard Zingerman <eddyz87@gmail.com>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>, kernel-team@meta.com,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org
-References: <20251217233608.2374187-1-puranjay@kernel.org>
- <20251217233608.2374187-3-puranjay@kernel.org>
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Yonghong Song <yonghong.song@linux.dev>
-In-Reply-To: <20251217233608.2374187-3-puranjay@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+References: <20251219-pgtable_check_v18rebase-v18-0-755bc151a50b@linux.ibm.com>
+In-Reply-To: <20251219-pgtable_check_v18rebase-v18-0-755bc151a50b@linux.ibm.com>
+From: Pasha Tatashin <pasha.tatashin@soleen.com>
+Date: Thu, 18 Dec 2025 12:55:45 -0500
+X-Gm-Features: AQt7F2qjqHZAYpNwxuF-SUIUKVwppChumOkUsgRootjGM8dZ2yshNK1pTfmluNo
+Message-ID: <CA+CK2bBjoQmheEstv1MacGev_srdx=m5v=hwxdyfAKogbpG3FA@mail.gmail.com>
+Subject: Re: [PATCH v18 00/12] Support page table check on PowerPC
+To: Andrew Donnellan <ajd@linux.ibm.com>
+Cc: linux-mm@kvack.org, linuxppc-dev@lists.ozlabs.org, 
+	Andrew Morton <akpm@linux-foundation.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
+	Nicholas Piggin <npiggin@gmail.com>, Rohan McLure <rmclure@nvidia.com>, 
+	Christophe Leroy <chleroy@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>, x86@kernel.org, 
+	Nicholas Miehlbradt <nicholas@linux.ibm.com>, Sweet Tea Dorminy <sweettea-kernel@dorminy.me>, 
+	Andrew Donnellan <andrew+kernel@donnellan.id.au>, Srish Srinivasan <ssrish@linux.ibm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_095610_191310_37166020 
-X-CRM114-Status: GOOD (  27.56  )
+X-CRM114-CacheID: sfid-20251218_095624_228968_BB32C45C 
+X-CRM114-Status: GOOD (  21.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,139 +102,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 12/17/25 3:35 PM, Puranjay Mohan wrote:
-> BPF programs detect recursion using a per-CPU 'active' flag in struct
-> bpf_prog. The trampoline currently sets/clears this flag with atomic
-> operations.
+On Thu, Dec 18, 2025 at 12:10=E2=80=AFPM Andrew Donnellan <ajd@linux.ibm.co=
+m> wrote:
 >
-> On some arm64 platforms (e.g., Neoverse V2 with LSE), per-CPU atomic
-> operations are relatively slow. Unlike x86_64 - where per-CPU updates
-> can avoid cross-core atomicity, arm64 LSE atomics are always atomic
-> across all cores, which is unnecessary overhead for strictly per-CPU
-> state.
+> [I will be leaving IBM in about a month from now, and will also be on lea=
+ve
+> for most of that time starting tomorrow. I've cc'd my personal email, whi=
+ch
+> I am going to use for any kernel development I do after I leave, and also
+> Srish Srinivasan, who will be taking over some of my work.]
 >
-> This patch removes atomics from the recursion detection path on arm64 by
-> changing 'active' to a per-CPU array of four u8 counters, one per
-> context: {NMI, hard-irq, soft-irq, normal}. The running context uses a
-> non-atomic increment/decrement on its element.  After increment,
-> recursion is detected by reading the array as a u32 and verifying that
-> only the expected element changed; any change in another element
-> indicates inter-context recursion, and a value > 1 in the same element
-> indicates same-context recursion.
+> Support page table check on PowerPC. Page table check tracks the usage of
+> of page table entries at each level to ensure that anonymous mappings hav=
+e
+> at most one writable consumer, and likewise that file-backed mappings are
+> not simultaneously also anonymous mappings.
 >
-> For example, starting from {0,0,0,0}, a normal-context trigger changes
-> the array to {0,0,0,1}.  If an NMI arrives on the same CPU and triggers
-> the program, the array becomes {1,0,0,1}. When the NMI context checks
-> the u32 against the expected mask for normal (0x00000001), it observes
-> 0x01000001 and correctly reports recursion. Same-context recursion is
-> detected analogously.
+> In order to support this infrastructure, a number of helpers or stubs mus=
+t be
+> defined or updated for all powerpc platforms. Additionally, we separate
+> set_pte_at() and set_pte_at_unchecked(), to allow for internal, uninstrum=
+ented
+> mappings.
 >
-> Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
-
-LGTM with a few nits below.
-
-Acked-by: Yonghong Song <yonghong.song@linux.dev>
-
-> ---
->   include/linux/bpf.h | 33 ++++++++++++++++++++++++++++++---
->   kernel/bpf/core.c   |  3 ++-
->   2 files changed, 32 insertions(+), 4 deletions(-)
+> On some PowerPC platforms, implementing {pte,pmd,pud}_user_accessible_pag=
+e()
+> requires the address. We revert previous changes that removed the address
+> parameter from various interfaces, and add it to some other interfaces,
+> in order to allow this.
 >
-> diff --git a/include/linux/bpf.h b/include/linux/bpf.h
-> index 2da986136d26..5ca2a761d9a1 100644
-> --- a/include/linux/bpf.h
-> +++ b/include/linux/bpf.h
-> @@ -31,6 +31,7 @@
->   #include <linux/static_call.h>
->   #include <linux/memcontrol.h>
->   #include <linux/cfi.h>
-> +#include <linux/unaligned.h>
->   #include <asm/rqspinlock.h>
->   
->   struct bpf_verifier_env;
-> @@ -1746,6 +1747,8 @@ struct bpf_prog_aux {
->   	struct bpf_map __rcu *st_ops_assoc;
->   };
->   
-> +#define BPF_NR_CONTEXTS        4       /* normal, softirq, hardirq, NMI */
-> +
->   struct bpf_prog {
->   	u16			pages;		/* Number of allocated pages */
->   	u16			jited:1,	/* Is our filter JIT'ed? */
-> @@ -1772,7 +1775,7 @@ struct bpf_prog {
->   		u8 tag[BPF_TAG_SIZE];
->   	};
->   	struct bpf_prog_stats __percpu *stats;
-> -	int __percpu		*active;
-> +	u8 __percpu		*active;	/* u8[BPF_NR_CONTEXTS] for rerecursion protection */
->   	unsigned int		(*bpf_func)(const void *ctx,
->   					    const struct bpf_insn *insn);
->   	struct bpf_prog_aux	*aux;		/* Auxiliary fields */
-> @@ -2006,12 +2009,36 @@ struct bpf_struct_ops_common_value {
->   
->   static inline bool bpf_prog_get_recursion_context(struct bpf_prog *prog)
->   {
-> -	return this_cpu_inc_return(*(prog->active)) == 1;
-> +#ifdef CONFIG_ARM64
-> +	u8 rctx = interrupt_context_level();
-> +	u8 *active = this_cpu_ptr(prog->active);
-> +	u32 val;
-> +
-> +	preempt_disable();
-> +	active[rctx]++;
-> +	val = get_unaligned_le32(active);
+> For now, we don't allow page table check alongside HUGETLB_PAGE, due to t=
+he
+> arch-specific complexity of set_huge_page_at(). (I'm sure I could figure
+> this out, but I have to get this version on this list before I leave my j=
+ob.)
+>
+> This series was initially written by Rohan McLure, who has left IBM and
+> is no longer working on powerpc.
+>
+> v18:
+>  * Rebase on mm-new
+>  * Add instrumentation for pudp_invalidate()
+>  * Add cleanup patch to use pte_advance_pfn()
+>  * Move p{m,u}d_user_accessible_page() to a more sensible place in the co=
+de
+>  * Disable when HUGETLB_PAGE is enabled
 
-The 'active' already aligned with 8 (or 4 with my below suggestion).
-The get_unaligned_le32() works, but maybe we could use le32_to_cpu()
-instead. Maybe there is no performance difference between
-get_unaligned_le32() and le32_to_cpu() so you pick get_unaligned_le32()?
-It would be good to clarify in commit message if get_unaligned_le32()
-is used.
+Thank you. This series looks good to me.
 
-> +	preempt_enable();
-> +	if (val != BIT(rctx * 8))
-> +		return false;
-> +
-> +	return true;
-> +#else
-> +	return this_cpu_inc_return(*(int __percpu *)(prog->active)) == 1;
-> +#endif
->   }
->   
->   static inline void bpf_prog_put_recursion_context(struct bpf_prog *prog)
->   {
-> -	this_cpu_dec(*(prog->active));
-> +#ifdef CONFIG_ARM64
-> +	u8 rctx = interrupt_context_level();
-> +	u8 *active = this_cpu_ptr(prog->active);
-> +
-> +	preempt_disable();
-> +	active[rctx]--;
-> +	preempt_enable();
-> +#else
-> +	this_cpu_dec(*(int __percpu *)(prog->active));
-> +#endif
->   }
->   
->   #if defined(CONFIG_BPF_JIT) && defined(CONFIG_BPF_SYSCALL)
-> diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
-> index c66316e32563..b5063acfcf92 100644
-> --- a/kernel/bpf/core.c
-> +++ b/kernel/bpf/core.c
-> @@ -112,7 +112,8 @@ struct bpf_prog *bpf_prog_alloc_no_stats(unsigned int size, gfp_t gfp_extra_flag
->   		vfree(fp);
->   		return NULL;
->   	}
-> -	fp->active = alloc_percpu_gfp(int, bpf_memcg_flags(GFP_KERNEL | gfp_extra_flags));
-> +	fp->active = __alloc_percpu_gfp(sizeof(u8[BPF_NR_CONTEXTS]), 8,
-> +					bpf_memcg_flags(GFP_KERNEL | gfp_extra_flags));
-
-Here, the alignment is 8. Can it be 4 since the above reads a 32bit value?
-
->   	if (!fp->active) {
->   		vfree(fp);
->   		kfree(aux);
-
+Pasha
 
