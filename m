@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91ED4D6ACE7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 11:33:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FDA8D6ACED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 11:38:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7GgEGNIgDPOJ8Rpf9B88k6d+kWmu+f9Lca07EFk6KFM=; b=nA2WXLyFYkBsxlnH7i+9PGjySe
-	xDN7iAUR1vK73TlgklfCNsAbyGNo1GPQwXQ2MQslD1brDAwRWf7VNpjTE+6NckuYvPh65y9WXoMhP
-	p7H2Fioe23eDdRBgtZy5LRWnN4WMTM4St8HDqWYIvNzHuC22Kus3ufErntCH5dC3WZjwfj7KF++4r
-	ai5ImpJqR4fUS9/vfNLs+jK/LN18EL3cVTs1nhABWhxu8pCw3xcOpCxJ6XLwUA+3xX1AiGulBYQwQ
-	a2Gfomxyl+euKQwMYoDAvP8rMltDIm74Cm2fRN++AHxRO3jI0TjIag72edt/ieyz45aZrERLhNTl9
-	qWJdUXSg==;
+	bh=IQiVTxf/UxO0RL9PaIKxyv0uTI1jtIF12yFkdyua/hw=; b=CptKF80D/7kevZ2S8r6dA+BJJA
+	03kPO4Qp+YRvQhdpUJAC3uG9ffpUMPjwygbJX3TIYGW+QjEhEYA3EnuYqqWipMX4iN55ol/sZBpo9
+	Xle/J2TG14tks4GrUSLKvpdg2c5oLxvWuUTiECr7lJVyYBXAb4DlLa2nmtNCoO8/NAbXpqwmVY3dx
+	T+odT1hZrDkpyZyQZ+f/POy/CGH2iauXATdiLgoGQ+oEUQXbX7IUg+5A4ieZk/RuBWcbQOOPmSPyH
+	Kc8uW4z05XEPMum1SwN0z0VEBHI/5piAlV3hMvWGorQwyOoNg4jypKrp46m4aO2weMLP9vk+a+U0X
+	S15Gd6Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWCFy-00000008Jz1-0G4Y;
-	Thu, 18 Dec 2025 11:33:18 +0000
+	id 1vWCKd-00000008LvA-3Ttu;
+	Thu, 18 Dec 2025 11:38:07 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWCFv-00000008JyS-0ym2
+	id 1vWCJq-00000008Kis-2WAz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 11:33:16 +0000
+	Thu, 18 Dec 2025 11:37:25 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D30C8FEC;
-	Thu, 18 Dec 2025 03:33:04 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9B0F3FEC;
+	Thu, 18 Dec 2025 03:37:09 -0800 (PST)
 Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9BAF13F73F;
-	Thu, 18 Dec 2025 03:33:08 -0800 (PST)
-Date: Thu, 18 Dec 2025 11:33:05 +0000
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 890373F73F;
+	Thu, 18 Dec 2025 03:37:13 -0800 (PST)
+Date: Thu, 18 Dec 2025 11:37:10 +0000
 From: Sudeep Holla <sudeep.holla@arm.com>
 To: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
 Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
@@ -49,19 +49,21 @@ Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Konrad Dybcio <konradybcio@kernel.org>, kernel@oss.qualcomm.com,
 	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, maulik.shah@oss.qualcomm.com,
-	Jie Gan <jie.gan@oss.qualcomm.com>
-Subject: Re: [PATCH v2 00/12] coresight: Add CPU cluster
- funnel/replicator/tmc support
-Message-ID: <20251218-careful-ruby-wildebeest-a8babd@sudeepholla>
+	linux-arm-msm@vger.kernel.org, maulik.shah@oss.qualcomm.com
+Subject: Re: [PATCH v2 01/12] dt-bindings: arm: coresight: Add
+ 'qcom,cpu-bound-components' property
+Message-ID: <20251218-silky-skylark-of-purring-20faa5@sudeepholla>
 References: <20251218-cpu_cluster_component_pm-v2-0-2335a6ae62a0@oss.qualcomm.com>
+ <20251218-cpu_cluster_component_pm-v2-1-2335a6ae62a0@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251218-cpu_cluster_component_pm-v2-0-2335a6ae62a0@oss.qualcomm.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251218-cpu_cluster_component_pm-v2-1-2335a6ae62a0@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_033315_316544_73D6E834 
-X-CRM114-Status: GOOD (  14.19  )
+X-CRM114-CacheID: sfid-20251218_033718_740119_A29C2CD4 
+X-CRM114-Status: UNSURE (   8.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,34 +78,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 18, 2025 at 12:09:40AM -0800, Yuanfang Zhang wrote:
-> This patch series adds support for CoreSight components local to CPU clusters,
-> including funnel, replicator, and TMC, which reside within CPU cluster power
-> domains. These components require special handling due to power domain
-> constraints.
+On Thu, Dec 18, 2025 at 12:09:41AM -0800, Yuanfang Zhang wrote:
+> Introduce the `qcom,cpu-bound-components` boolean property for CoreSight
+> components (TMC, Funnel, and Replicator).
+> 
+> This property indicates that the component is physically located within a
+> CPU cluster power domain. Such components share the power state of the
+> cluster and may require special handling (e.g., cross-CPU register
+> access) compared to system-wide components.
 > 
 
-Could you clarify why PSCI-based power domains associated with clusters in
-domain-idle-states cannot address these requirements, given that PSCI CPU-idle
-OSI mode was originally intended to support them? My understanding of this
-patch series is that OSI mode is unable to do so, which, if accurate, appears
-to be a flaw that should be corrected.
+NACK, and the rationale expressed as a question:
 
-> Unlike system-level CoreSight devices, these components share the CPU cluster's
-> power domain. When the cluster enters low-power mode (LPM), their registers
-> become inaccessible. Notably, `pm_runtime_get` alone cannot bring the cluster
-> out of LPM, making standard register access unreliable.
-> 
-
-Are these devices the only ones on the system that are uniquely bound to
-cluster-level power domains? If not, what additional devices share this
-dependency so that we can understand how they are managed in comparison?
-
-> To address this, the series introduces:
-> - Identifying cluster-bound devices via a new `qcom,cpu-bound-components`
->   device tree property.
-
-Really, no please.
+If unique compatibles were required to determine the power domains to which
+devices belong, we would have accumulated numerous additional compatibles for
+every IP block used on new systems with even slightly different power-domain
+configurations—a scenario that occurs frequently. Why, then, is such a
+requirement considered necessary in this case?
 
 -- 
 Regards,
