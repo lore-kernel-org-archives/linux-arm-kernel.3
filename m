@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DA6CD6ACDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 10:36:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F98DD6ACDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 10:38:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D/F0DPYThR2wAgukFUprgzs4JJyOWU2osyBdfC9F4kM=; b=qki+IB/D5RC5NKB+j4vFXjHXH2
-	TLqiz8qPZ4bhiM8aEP4mK+vBBJj4jRVes0aFIA9bv4Wvs+nXawUAAmEbaRbBWaON0ViHKJk8i8mk9
-	vxdjRJcJksri0jwcWKyZp0q7wEwhfTkLP8J9wMxS/XACF4V+ZaaFi2oyAIe+sdpaN+tcsNr8etDvm
-	ao1I+bk+nIgz0WLF1XRjPEhgwiisZX0x/9dvyT9rzIy+6PChy2hoLRPQkiHGVQ6g2JsEE0FQPUIAo
-	f5MmSTj4gg7MTYnOKhhm2SDJA5jCrTU/kG0ovTUapY3sK93h3UAm54l3ImpeU3ZFEy8eHd50kpl+f
-	lzsECQXg==;
+	bh=lZD14hx6Q84bvnu6zDw0ForMMp+V0B0wC7tel4GpwgA=; b=jqWNssmL8CMeSrp+SA3zrCTsyZ
+	Z6X7mRJ8Go0bEQOZtt73KAHGeNCHsFvVDqITR09tAtJBWsLsqAsxpZ4f7z3n6SeXiCS7TZRp9SM5S
+	QmeN8S5VinxJMgiiNd6u6/hbvSGX8eKAqYnUbqT1ISOQ5i77++enCmXJqtdZoywGmpbvJ77iQ9/x5
+	IPSj4aSC7ke04oFSczjv4uZ5TNcqeP8Bva/iMUaY9BXkDRWb0zV6iMYqN5GiY72I2vPYbMjsliu78
+	n3Hhqb3ZL3KfXYIWOIWopYMPbhSld9Asq15aLox+hoEdJU7NdGaiRn5EUk1ZfrXbNd8RcGY5Uy3MI
+	M+YE3caQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWBMk-00000008Eyh-3i3I;
-	Thu, 18 Dec 2025 10:36:16 +0000
+	id 1vWBPI-00000008FCJ-3sZu;
+	Thu, 18 Dec 2025 10:38:52 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWBMb-00000008EwZ-2pFx
+	id 1vWBPG-00000008FBt-1hlp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 10:36:13 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.107])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dX6WB4YVHzJ46F1;
-	Thu, 18 Dec 2025 18:35:18 +0800 (CST)
+	Thu, 18 Dec 2025 10:38:51 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.150])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dX6Zc758kzJ46CP;
+	Thu, 18 Dec 2025 18:38:16 +0800 (CST)
 Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 73AC140570;
-	Thu, 18 Dec 2025 18:35:49 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id CC6DC40539;
+	Thu, 18 Dec 2025 18:38:47 +0800 (CST)
 Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
  (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Thu, 18 Dec
- 2025 10:35:48 +0000
-Date: Thu, 18 Dec 2025 10:35:46 +0000
+ 2025 10:38:46 +0000
+Date: Thu, 18 Dec 2025 10:38:45 +0000
 From: Jonathan Cameron <jonathan.cameron@huawei.com>
 To: James Morse <james.morse@arm.com>
 CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, D
@@ -52,12 +52,12 @@ CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, D
 	<fenghuay@nvidia.com>, <baisheng.gao@unisoc.com>, Gavin Shan
 	<gshan@redhat.com>, Ben Horgan <ben.horgan@arm.com>, <rohit.mathew@arm.com>,
 	<reinette.chatre@intel.com>, Punit Agrawal <punit.agrawal@oss.qualcomm.com>
-Subject: Re: [RFC PATCH 01/38] arm64: mpam: Context switch the MPAM
- registers
-Message-ID: <20251218103546.000070fd@huawei.com>
-In-Reply-To: <20251205215901.17772-2-james.morse@arm.com>
+Subject: Re: [RFC PATCH 03/38] arm64: mpam: Advertise the CPUs MPAM limits
+ to the driver
+Message-ID: <20251218103845.000053b3@huawei.com>
+In-Reply-To: <20251205215901.17772-4-james.morse@arm.com>
 References: <20251205215901.17772-1-james.morse@arm.com>
-	<20251205215901.17772-2-james.morse@arm.com>
+	<20251205215901.17772-4-james.morse@arm.com>
 X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="US-ASCII"
@@ -66,8 +66,8 @@ X-Originating-IP: [10.203.177.15]
 X-ClientProxiedBy: lhrpeml100011.china.huawei.com (7.191.174.247) To
  dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_023606_002721_BFE8796B 
-X-CRM114-Status: GOOD (  36.49  )
+X-CRM114-CacheID: sfid-20251218_023850_612453_4DF8508F 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,95 +82,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 5 Dec 2025 21:58:24 +0000
+On Fri, 5 Dec 2025 21:58:26 +0000
 James Morse <james.morse@arm.com> wrote:
 
-> MPAM allows traffic in the SoC to be labeled by the OS, these labels
-> are used to apply policy in caches and bandwidth regulators, and to
-> monitor traffic in the SoC. The label is made up of a PARTID and PMG
-> value. The x86 equivalent calls these CLOSID and RMID, but they don't
-> map precisely.
+> Requestors need to populate the MPAM fields for any traffic they send
+> on the interconnect. For the CPUs these values are taken from the
+> corresponding MPAMy_ELx register. Each requestor may have a limit on
+> the largest PARTID or PMG value that can be used. The MPAM driver has
+> to determine the system-wide minimum supported PARTID and PMG values.
 > 
-> MPAM has two CPU system registers that is used to hold the PARTID and PMG
-> values that traffic generated at each exception level will use. These can be
-> set per-task by the resctrl file system. (resctrl is the defacto interface
-> for controlling this stuff).
+> To do this, the driver needs to be told what each requestor's
+> limit is.
+
+Trivial but this commit message line wrap isn't very consistent.
+
 > 
-> Add a helper to switch this.
+> CPUs are special, but this infrastructure is also needed for the
+> SMMU and GIC ITS. Call the helper to tell the MPAM driver what the
+> CPUs can do.
 > 
-> struct task_struct's separate CLOSID and RMID fields are insufficient
-> to implement resctrl using MPAM, as resctrl can change the PARTID (CLOSID)
-> and PMG (sort of like the RMID) separately. On x86, the rmid is an
-> independent number, so a race that writes a mismatched  closid and rmid
-> into hardware is benign. On arm64, the pmg bits extend the partid.
-> (i.e. partid-5 has a pmg-0 that is not the same as partid-6's pmg-0).
-> In this case, mismatching the values will 'dirty' a pmg value that
-> resctrl believes is clean, and is not tracking with its 'limbo' code.
+> The return value can be ignored by the arch code as it runs well
+> before the MPAM driver starts probing.
 > 
-> To avoid this, the partid and pmg are always read and written as a pair.
-> Instead of making struct task_struct's closid and rmid fields an
-> endian-unsafe union, add the value to struct thread_info and always use
-> READ_ONCE()/WRITE_ONCE() when accessing this field.
-> 
-> Resctrl allows a per-cpu 'default' value to be set, this overrides the
-> values when scheduling a task in the default control-group, which has
-> PARTID 0. The way 'code data prioritisation' gets emulated means the
-> register value for the default group needs to be a variable.
-> 
-> The current system register value is kept in a per-cpu variable to
-> avoid writing to the system register if the value isn't going to change.
-> Writes to this register may reset the hardware state for regulating
-> bandwidth.
-> 
-> Finally, there is no reason to context switch these registers unless
-> there is a driver changing the values in struct task_struct. Hide
-> the whole thing behind a static key. This also allows the driver to
-> disable MPAM in response to errors reported by hardware. Move the
-> existing static key to belong to the arch code, as in the future
-> the MPAM driver may become a loadable module.
-> 
-> All this should depend on whether there is an MPAM driver, hide
-> it behind CONFIG_MPAM.
-> 
-> CC: Amit Singh Tomar <amitsinght@marvell.com>
 > Signed-off-by: James Morse <james.morse@arm.com>
 
-> diff --git a/arch/arm64/include/asm/mpam.h b/arch/arm64/include/asm/mpam.h
-> new file mode 100644
-> index 000000000000..86a55176f884
-> --- /dev/null
-> +++ b/arch/arm64/include/asm/mpam.h
-> @@ -0,0 +1,74 @@
-...
-
-> +/*
-> + * The resctrl filesystem writes to the partid/pmg values for threads and CPUs,
-> + * which may race with reads in __mpam_sched_in(). Ensure only one of the old
-> + * or new values are used. Particular care should be taken with the pmg field
-> + * as __mpam_sched_in() may read a partid and pmg that don't match, causing
-> + * this value to be stored with cache allocations, despite being considered
-> + * 'free' by resctrl.
-> + *
-> + * A value in struct thread_info is used instead of struct task_struct as the
-> + * cpu's u64 register format is used, but struct task_struct has two u32'.
-
-This comment probably wants to provide a little more info if it is to be useful,
-
-Is it a reference to the closid and rmid fields under CONFIG_X86_CPU_RESCTRL?
-I'm not immediately understanding why that matters given you could slap
-a union on it without (I think) resulting in anything else moving.
-
-Now having it in thread_info moves it into arch header territory so
-might make sense for that reason.
-
-> + */
-> +static inline u64 mpam_get_regval(struct task_struct *tsk)
-> +{
-> +#ifdef CONFIG_ARM64_MPAM
-> +	return READ_ONCE(task_thread_info(tsk)->mpam_partid_pmg);
-> +#else
-> +	return 0;
-> +#endif
-> +}
 
 
