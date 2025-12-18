@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DB0DD6E2CA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 19:31:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56971D6E2DC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 19:32:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wXZ59zbGXuIZ0bKdNs8tPNB7wcdnwwc5SaFFZk2fpQ0=; b=woaYkjH8UCWOu/sHz+L+113qwb
-	sxTdGvt8FQmmKq2enqz2rIRin1yVfXr6AhdnyJegYNhK4K7C6t/fFm4EM87kTc3GZze82VPnqJCBI
-	+Vg5jcbPrp2sLLHByUPNxEg6bD8OpwuDFFtt6SwgYgNG9RRnirbsBTf03dAHIqUgM0VbLAR9ZZl5L
-	hYCBoPnx2v9EuhIC71DcFejjYplBL0SoRc4F6olnHOPBsXTrOjBAZynJ10AVQleoRb/EzciR3QcXP
-	o/Zy2yS3fin4oIST0YEf1U87WUzBQXeQDT4t1ASZaYR9s2WC2bevaSY+BiOnjIkRznhLjye+Pi9Zk
-	1QoPSKPA==;
+	bh=vfOd17sFvgXYzzmjEBB7MiCt2zpD3HP8yGYg31O0lAU=; b=F6hPubCpv6QIUrSI0wAwiyfgJN
+	oq5i4qo694JYJXqZTMh9yzracg/gKG+twuWJRUzOhBNb8E5j9QawEWznHySAzfx27kLjBSb1vrCXe
+	CE1HKfMTQ2QWTH4KHWRRLi9QKHTLRz0jpN3bRoVqVoC/im+4u+RwErLjMa0Kv1tnwp83uj48arvtA
+	DeGnyvC/xijcREyy1HaFy05IGLCnazI4maJexDF5xJVV/cgF+L+Nr9Bm4zKVYAA8q7rfRBT+X5bJW
+	Eoq6UKu077RqfTZ1MSlv7aMkUqvIt7yZWufqg4k9xwIylpoj1QatAYSe/1gTzLNo3RUc/9o5MlaaG
+	k5+zR9Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWJiw-0000000960R-297R;
-	Thu, 18 Dec 2025 19:31:42 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vWJjy-0000000969q-1min;
+	Thu, 18 Dec 2025 19:32:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWJiu-000000095zp-3QAt
+	id 1vWJjw-0000000969d-3yFA
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 19:31:40 +0000
+	Thu, 18 Dec 2025 19:32:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B954960149;
-	Thu, 18 Dec 2025 19:31:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76A0DC116D0;
-	Thu, 18 Dec 2025 19:31:34 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EFF00600AC;
+	Thu, 18 Dec 2025 19:32:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66EE9C4CEFB;
+	Thu, 18 Dec 2025 19:32:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766086299;
-	bh=QQuW2NMPKvO1lAvnMHe2NLJWr5l1I0xjIzysFFQlGNU=;
+	s=k20201202; t=1766086363;
+	bh=QTIvfgfNH8fNbeFqqyGQZweOXbmsPpkBY0B7Od463HA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=J3SJEGC7ccXV5DO4hAeyFNUD/AK/bOxOyoN82Umg48Nubb4mi54diBuiMHzLs7Nkm
-	 gqxQo92EkLrP/KNVK6nHK3a7hjDXDk0JOAxm2RwZaR5EAkNXVUufGV2acXDcb4we0v
-	 4LOAVU2YZK438vSz8ZGxoCY/2Xr0kIXJpePzQ/CglREcrrQZy9YaOAKW33WhGJJdBq
-	 2LHzegIoeZHtpjz+whqwV+d5Q3WRNCUxesMrSfix6mnwvV5/1/JWAaGYwswMUpUUuU
-	 fiUdeIulenx7h/MvIR6yxkSQrQcBhz3B5yLj4uiILawogEO07H7nFQknnYgyJrJ3c4
-	 MYxBUgFjclniA==
-Message-ID: <d215c5dd-b402-4cd2-b4c6-48358b5b2491@kernel.org>
-Date: Thu, 18 Dec 2025 20:31:31 +0100
+	b=DoSKR5QOawIWhGkEGLUXeyzKVnlzro8Mo2TckhJoQ9lfzH5cFIcj5cLKDBGdpFpYA
+	 P+fKsgU9Z930bLlOYjQsz6bV7h1y70cRnQWgZlRJGRWtC50wpu05r8crti+SrPITyL
+	 YObHL1MYdW5/0n/1MSlmu6l+Jwuc3fpAEkNaRmePcHANW3z7x+Cq1Vitbrnzhjsq/t
+	 QgehTfJu0AWtJH69B64RDTy8e1RtfLY1qyJkGesbrDdy5ICuXKQEUjxbNY7Is6QN35
+	 7A3oJuY8ui4G2Rk6uE3ExRv2DV6v2Iy9u3bOAN0mYFhX/RyfWZhPb0t4mpAeS8tQ4T
+	 yCGjMZ9MLf6wg==
+Message-ID: <4ca60f87-39dd-44d1-bce5-c6071f226210@kernel.org>
+Date: Thu, 18 Dec 2025 20:32:37 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v6 1/2] dt-bindings: arm: aspeed: add ASRock Rack ALTRAD8
  board
-To: Rebecca Cran <rebecca@bsdio.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>,
- Tan Siewert <tan.siewert@hetzner.com>, devicetree@vger.kernel.org,
+To: Tan Siewert <tan.siewert@hetzner.com>, Rebecca Cran <rebecca@bsdio.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
  linux-kernel@vger.kernel.org
 Cc: Billy Tsai <billy_tsai@aspeedtech.com>,
@@ -60,7 +59,7 @@ Cc: Billy Tsai <billy_tsai@aspeedtech.com>,
 References: <20251218161816.38155-1-rebecca@bsdio.com>
  <20251218161816.38155-2-rebecca@bsdio.com>
  <5aa36c56-798a-40cc-b0b8-be3f7c92136f@kernel.org>
- <4eff8506-8049-46e9-997e-a41edff32bbc@bsdio.com>
+ <b10a233e-02c3-4b02-8f11-098f6fb8197c@hetzner.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,7 +105,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <4eff8506-8049-46e9-997e-a41edff32bbc@bsdio.com>
+In-Reply-To: <b10a233e-02c3-4b02-8f11-098f6fb8197c@hetzner.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -123,8 +122,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/12/2025 19:34, Rebecca Cran wrote:
-> On 12/18/25 09:21, Krzysztof Kozlowski wrote:
+On 18/12/2025 17:44, Tan Siewert wrote:
+> On 18.12.25 17:21, Krzysztof Kozlowski wrote:
 >> On 18/12/2025 17:18, Rebecca Cran wrote:
 >>> Document ASRock Rack ALTRAD8 (ALTRAD8UD-1L2T and ALTRAD8UD2-1L2Q)
 >>> compatibles.
@@ -132,21 +131,16 @@ On 18/12/2025 19:34, Rebecca Cran wrote:
 >>> Signed-off-by: Rebecca Cran <rebecca@bsdio.com>
 >>> Acked-by: Conor Dooley <conor.dooley@microchip.com>
 >>> Tested-by: Tan Siewert <tan.siewert@hetzner.com>
+>>
 >> How was the binding tested?
 > 
-> I ran "make ARCH=arm CHECK_DTBS=y aspeed/aspeed-bmc-asrock-altrad8.dtb"
-> to check for errors
+> My bad for sending the wrong trailing header in v4. Tested-by should've 
+> been only on the dts instead of the dt-bindings+dts. Either way, `make 
+> dt_binding_check` was what I did to check if there are any errors 
+> produced for `asrock,altrad8-bmc`.
 
-That's a build check for DTS, not binding. I compiled this code - so it
-is also Tested-by?
-
-> 
-> and have used the dts file in an ASRock Rack ALTRAD8UD-1L2T system with
-> Linux 6.12.61 running OpenBMC.
-
-This does not test anything from the binding.
-
-Please don't add fake tests... Building instructions are not testing.
+Yeah, that's not testing. It's a build command and running build process
+is not a test. Otherwise why there is no Tested-by for Rob...
 
 Best regards,
 Krzysztof
