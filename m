@@ -4,88 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F6F8D6E2AE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 22:20:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84884D711C8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 22:26:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DHi2VHdVHFCMJr3d7N3lZkt4cAkpVU0QksLG1hGqfO8=; b=Zj353N9+uk7joyHS9rh6uN0vtv
-	Yf9y6UO75Fpw0EVdj85wjm9oxTGhVqrvsWGztiH04wq+2xz49RlWv8OTm2UmcvPFFDlXcWJYNaKjM
-	9CH3WJu4nSVgVTj+dEI/0elADGCuQ81F33at8g2FQ5vOa0L0ZyKrIqPY8/Gg5lHsYlrLiYYnStPtb
-	qYOHEJxpXWu2v9bJawCy5bfnMQkKYjYmPOtFMymFwz0CMQTAAa7boJeFmUxnE9bUVJ3xRVSbw423N
-	zme0z164uudrf0yVkg4B6zqisb4tfCSRolQiNx1kPcO+Y7Yjcsz5IEb7lCe59qXrGh7lNMJ/OAVUf
-	g/tvLwKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5vuIwrlfsuMjA+ArT+sGvLRH4JONxdjqmumQ0lvasns=; b=XQp8UVaPQww9QcjltHjRJtTMi2
+	wUR2AIJVF5ohdiEupS0LWUCnpI0ItbMP6lgBo4ZmX6dRunmDZ21I0JiXDOV4kkgpoQ5P+N+Z8zZe/
+	IQ9yt2p1Na62m2IktPBh46htlw9UVBWnCLpHTvNhlH9ugTpRXwv8ljnyLcE1nCAASt4kwocgDuFKa
+	ownVbWApe2la7TQK7QmnqEQWcwGklgftwQS7slbDhF401yZoy6d7xSPTqICxl9UExzNN9hzs6qgCj
+	S77LF+501UKIYAqKGvYcGrl4SyRjY0Wj2tDIlLBuGw5lxuwiIbxVV3tF68iwHrD0FnEuuqc09UsUv
+	qV4BRhwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWMLs-00000009FqW-1L4X;
-	Thu, 18 Dec 2025 22:20:04 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1vWMRy-00000009GbB-2mqn;
+	Thu, 18 Dec 2025 22:26:22 +0000
+Received: from fhigh-a2-smtp.messagingengine.com ([103.168.172.153])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWMLo-00000009Fps-3gP4
+	id 1vWMRv-00000009Gah-3XFu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 22:20:02 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-7b9215e55e6so769040b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 14:19:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1766096399; x=1766701199; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=DHi2VHdVHFCMJr3d7N3lZkt4cAkpVU0QksLG1hGqfO8=;
-        b=b4mZoZlYJdLoEKbh/RSvuY6Dbul01328qboJYVa3I3J1cnKgFAMY59AqiltPpiWjkS
-         IWrRjzcHaRpcih0/JVdwGWe1QDZBahZwNS7+M1wb+ayl6ZVhSTKa67faXd51qMQ1WHZo
-         h7mKGHJonaWVSv9fDCagYeVuuWZadEoNYUjLRRJIqWe6H5TY6218TmuWWJxust+rr1zE
-         O48XheGkYugKVRvagoXrTL/dQblVEGesWnDcfWAMtzyxCERLaHqTeFNiU6pp52iC3fK3
-         c8sUYjVkLpCOd0bOx/8ysAHCne8kjAz/vmQuvFjo43YPOUDrk4/kj3koym4eZDVPx6Le
-         6MMA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766096399; x=1766701199;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=DHi2VHdVHFCMJr3d7N3lZkt4cAkpVU0QksLG1hGqfO8=;
-        b=dE1p+S58h7mvQtdykaHL/WCgqSZqhUroaNK4MuZxHC9SkLXqSL+dECfMi+n4UhwtgL
-         ag++cKprKX6ZDAmkPWYnslfZ45KzOJelvq7/61W/7VbUtXVaSmO+3BIkQ/cFSYo2gjns
-         wl31Uo1t7sQHOJML9aCcbEyYuFjSjnwovISUUUyBapCsWxmMd1Qm9EC8/T3WKr7o60wG
-         l0o9xpIUA4IcGymDQbUam+tyLUe9k+rm5SqQv4fx+MbjGWMwKVaGQVbAxbXBeire7saT
-         xEz4/STWmIC1aQ/un5d1b40u8CvRgGgxEFrjhQPBhgmGX6h4eCtwon9oTvt3L7l9c8TG
-         IHxQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXl65M6rz6FwAIVdkRlafVjRxL1l6pLwO9NLTXjXavj3PmaMRG9SThnuYjxNIoVdTOZGgzQn4QL7KAj0nqG7SiW@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw4EYWwZEKY2Wtb7hWY1WPh2vWAySDo8ip4olpC9kjsuDw5nXLf
-	iYyFZ0IZ6a7Pa0yIYjeZjRQejrr3WSkkTtpTt5wANUNcRx/1y7jIt/yNz3Rhjg==
-X-Gm-Gg: AY/fxX6D4sBFG/vC00fLkBlhDB83zRN0CbFvmmaTQEncFoStIHZJ5vcGQxOfqZzs8Lg
-	XVDbZlq3k8znIknfxy7HRVNxOeQaQV6MhwpN5pixka2X/imZtDizpav9RANELNyeBAvf/YjOdqN
-	uSHjZR7BB+cH1TjNsWCRSWfBmcPdIXZ4m3iF3cG5NpUlRHGuOFRD61r2dIccd3GqsyBYC+8EhU+
-	O2pB+GyV5hvx1nCRMvCiWXRnqSAcPPSiHInPiYA8McU9/FvC7rfKuL7UD6hhN25RiU/y+fzmSCM
-	P4jFREpba7QVUA+Z/fx7hUn5H8XEt4KX40cgIgUU8GO/u/5zwVXn1y7QxQG3njkYCUp9ao8oPbj
-	5hqc7ea3oEiQJvZyiHzE7duOvqaIA3ftVKhbzC4BbI6irOVqwIkIfGKwVl6TESMh6A3/5uErWN1
-	o6LH+8SpQdjzaAvPhoDJfIxSEQW5ZJjSznwUx8aPzg+KvwLSO/A4U=
-X-Google-Smtp-Source: AGHT+IEJ6Dza5e+TAlnoSNxkhL516y4Cp3K+eoLm8K4vH3URG1EJpjMsZlCqp1ChQbxfdNHgZFOu0g==
-X-Received: by 2002:a05:7022:4190:b0:119:e56b:98b8 with SMTP id a92af1059eb24-121722ebb6cmr841995c88.31.1766096399117;
-        Thu, 18 Dec 2025 14:19:59 -0800 (PST)
-Received: from google.com ([2a00:79e0:2ebe:8:c00:cda0:e722:e1ee])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1217254c734sm1678256c88.13.2025.12.18.14.19.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 18 Dec 2025 14:19:58 -0800 (PST)
-Date: Thu, 18 Dec 2025 14:19:55 -0800
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: fnkl.kernel@gmail.com
-Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
-	Neal Gompa <neal@gompa.dev>, asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, pitust <piotr@stelmaszek.com>
-Subject: Re: [PATCH] Input: apple_z2: Fix reading incorrect reports after
- exiting sleep
-Message-ID: <snwkpf4esyxxhyo2yzq5xepgoh6nkvvqldbiqpj6zm3bbc43zn@gdsxdsza564a>
-References: <20251218-z2-init-fix-v1-1-48e3aa239caf@gmail.com>
+	Thu, 18 Dec 2025 22:26:21 +0000
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id ED39C1400083;
+	Thu, 18 Dec 2025 17:26:17 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-05.internal (MEProxy); Thu, 18 Dec 2025 17:26:17 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bsdio.com; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1766096777;
+	 x=1766183177; bh=5vuIwrlfsuMjA+ArT+sGvLRH4JONxdjqmumQ0lvasns=; b=
+	LAfWwuNpXY3C5lzzlrGbl+u+MB0r9A9UD+m29IOxHs910+C3Nh9wJU8fRDvsO1s4
+	hqYKq6vuuQCQV8fgWkXesEc+NyI6kzABjVINw3UTFCN/AAouNhbhyp0t4a1EobZd
+	msK4ZJeUHfexvH6F5CidgntcKvffabFJ7CmuX6Sir4xegDP6NIb7xSFokhQ9lo0U
+	PjWMUfSE8wZbXUM2ay204FU4BTOQWOI99PxxsCzLc13lEtjcukPCtNgNr4gZtM11
+	1F/xaGqW18L+kH3w9jOG4snRE8V+hRTnvfJATLwMXLDSEXHknav2FGqGaLfkoB1J
+	LkQXY4ua/awAClhWisWQsw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1766096777; x=
+	1766183177; bh=5vuIwrlfsuMjA+ArT+sGvLRH4JONxdjqmumQ0lvasns=; b=D
+	8KpQmX8+LJrvAvmBhY0vlBY0U4DUNws4f60fN4KTq5E0JA4edmz6lJmg8vlvLrZY
+	dGkCm/mRXmGG4CEdTBzh7HFcaIw24zc2jNinZhjTNOmc6EWSIVn/6K4e4CVLVmXZ
+	ZwT/Pii77NxRs3AGtEvd2vJJQlmCPbTIp+E0752ZMT4Esua2es7z4OUVODzYTVqH
+	CvrBGX8nM0cAVlUMq4C1njLvPJYyGy8Pjn4i9Ae9SeuXTjYLFcz67n+797rOvBVm
+	KVif7FiZ/Q9AO/4EAFpWY98ni/H+qvkGCWM6HtZxL9Y/U8PRpMXAZEJrDXm1wIAF
+	Vsk8Ak584PJpylJQgbc0Q==
+X-ME-Sender: <xms:iH9EaSjs0r_Hr6QzNZ5XtYZveLLRtqOpwY69EDLkAbdpfzaQE2CNvQ>
+    <xme:iH9EaSm8-C_QZCVcdQL5y1--oLM5Zs1ABboYTd5T-RofZRgLCqYvwizcKsnsJABLo
+    BsvXUjTc03PjdhQEF6f8FqTc8xEsb1pbAnAnT2ybrQVmf0mFORh6cSC>
+X-ME-Received: <xmr:iH9EaeaGPMzFfvOx6oddACuNs1lmN7F-EX-mw8zRgocK9D8mBuDpQfzTxnu7LsZankJj9aI>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdegieeivdcutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefkffggfgfuvfevfhfhjggtgfesthekredttddvjeenucfhrhhomheptfgvsggvtggt
+    rgcuvehrrghnuceorhgvsggvtggtrgessghsughiohdrtghomheqnecuggftrfgrthhtvg
+    hrnheplefhgeevleehieeuveduudfguedtieetteevhffgfffhhffhveffueegtdegkeek
+    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprhgvsg
+    gvtggtrgessghsughiohdrtghomhdpnhgspghrtghpthhtohepudefpdhmohguvgepshhm
+    thhpohhuthdprhgtphhtthhopehkrhiikheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoh
+    eprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghr
+    nhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpd
+    hrtghpthhtohepjhhovghlsehjmhhsrdhiugdrrghupdhrtghpthhtoheprghnughrvgif
+    segtohguvggtohhnshhtrhhutghtrdgtohhmrdgruhdprhgtphhtthhopehtrghnrdhsih
+    gvfigvrhhtsehhvghtiihnvghrrdgtohhmpdhrtghpthhtohepuggvvhhitggvthhrvggv
+    sehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkh
+    gvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhg
+X-ME-Proxy: <xmx:iH9EadyT4GekbfEVwMCEa95li0Wv9vjD610Hw1NmWL5vj3vGqL6NiA>
+    <xmx:iH9EadYtAlmM4kujKL0fOfXNfCk6jTqKvf8kRLlmfsY6MIlRYfhyuQ>
+    <xmx:iH9EaezcmDfqJ2xKGgV5BRzzgJ2BfRVygoLcHpGUgeh-rnk6kJ4Jlg>
+    <xmx:iH9EaWG46ABbTf4u40GaWM4XINTHk1J7Do6B2_1ls00nXRK9joclfw>
+    <xmx:iX9EaaSf-ARUTKFu2UbbNeAfwMNb_2yH0GUkE-PVxhlMsJawuuprZahw>
+Feedback-ID: i5b994698:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 18 Dec 2025 17:26:15 -0500 (EST)
+Message-ID: <b28d5c56-59ee-4723-b953-cca6629ef63f@bsdio.com>
+Date: Thu, 18 Dec 2025 15:26:14 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251218-z2-init-fix-v1-1-48e3aa239caf@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 1/2] dt-bindings: arm: aspeed: add ASRock Rack ALTRAD8
+ board
+To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Tan Siewert <tan.siewert@hetzner.com>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org
+Cc: Billy Tsai <billy_tsai@aspeedtech.com>,
+ Conor Dooley <conor.dooley@microchip.com>
+References: <20251218161816.38155-1-rebecca@bsdio.com>
+ <20251218161816.38155-2-rebecca@bsdio.com>
+ <5aa36c56-798a-40cc-b0b8-be3f7c92136f@kernel.org>
+ <4eff8506-8049-46e9-997e-a41edff32bbc@bsdio.com>
+ <d215c5dd-b402-4cd2-b4c6-48358b5b2491@kernel.org>
+From: Rebecca Cran <rebecca@bsdio.com>
+Content-Language: en-US
+In-Reply-To: <d215c5dd-b402-4cd2-b4c6-48358b5b2491@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_142000_929235_2FB2AA95 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20251218_142620_411527_7D05A435 
+X-CRM114-Status: UNSURE (   6.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,23 +127,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 18, 2025 at 09:11:26AM +0100, Sasha Finkelstein via B4 Relay wrote:
-> From: Sasha Finkelstein <fnkl.kernel@gmail.com>
-> 
-> Under certain conditions (more prevalent after a suspend/resume cycle),
-> the touchscreen controller can send the "boot complete" interrupt before
-> it actually finished booting. In those cases, attempting to read touch
-> data resuls in a stream of "not ready" messages being read and
-> interpreted as a touch report. Check that the response is in fact a
-> touch report and discard it otherwise.
-> 
-> Reported-by: pitust <piotr@stelmaszek.com>
-> Closes: https://oftc.catirclogs.org/asahi/2025-12-17#34878715;
-> Fixes: 471a92f8a21a ("Input: apple_z2 - add a driver for Apple Z2 touchscreens")
-> Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
+On 12/18/25 12:31, Krzysztof Kozlowski wrote:
+> This does not test anything from the binding.
+>
+> Please don't add fake tests... Building instructions are not testing.
 
-Applied, thank you.
+Sorry. In that case I don't know how to test the bindings.
 
--- 
-Dmitry
+
+-- 
+Rebecca Cran
+
+
 
