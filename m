@@ -4,63 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71C4DD6ACE2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 10:40:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8BC4D6ACE2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 10:41:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mB87ggdElwk/7BG+P3OrNy4lVCw8a5cZotqqSrMd6YY=; b=P2oP/YCOmsaV79LMUX9JfE8Wct
-	54R4NM0RFSb1bHJwicgmY4Jav3rvoAuPZaMEPgLZpOd3EClmWGQxnI3nRFQMvw/kBSSv1Fofd4Jy3
-	fT6M01EF+09c6UQhTLa2HDisPXDjXQvV+RBgVuLZkpiqLej5WfqTilfMpRgzCrG10S3DWssGSW378
-	4wKxpOvshse/a30HMa49EKY3GKPEj673ztizeRcxjjRkRvh3dzNgFl8aj3md0z7GQYoevW+PSm8Kj
-	WOWUyVom6gkzHjuYQdtraZEL1oXEXqJUBr/QeJEvtXpG3IOR0Ky/c4ZxOlg/eBMLx9ZA11vos1NvJ
-	MF88Ewhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xAfqh3tryZsL7bk4EO/IchLBlHkI/yv2iAw4kjviLco=; b=xpJePwwsF4E/bnh2F+gew2ij8z
+	MChHWYxaTnGkgBZuLFQTFVrVHujXRMM1BhaaY29VWc1IGE+gq0aqTZzxPk8rgOJbq6difa6TlJDaz
+	IbKeO1fx36cppOaO5LZBb1QZ7G6ArEetKkIk9rHbeTT0dsxNkQGymKYzxEbp/DxiAIp0IO214Kt9/
+	rYWsTyVAWMrIowAN5oHm7NCYYNsFsYM3kRSlhxlpdZNB5z+xGuOqJ5Jvy9vBoHvPsp2ClPlHW1VKz
+	q1jNZUJpRKNHqk1QcWHwp83yNAGDMt3j63QzQMV5mnMEThA/XpqUjIVyC2sSjwIlobd1BTNgxBZbn
+	2ir5F0/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWBQy-00000008FKe-1m7J;
-	Thu, 18 Dec 2025 10:40:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWBQv-00000008FKD-2cRt
+	id 1vWBRx-00000008FQt-3cc2;
+	Thu, 18 Dec 2025 10:41:37 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vWBRv-00000008FPq-0jvT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 10:40:34 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D1BBCFEC;
-	Thu, 18 Dec 2025 02:40:22 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 99EC63F73F;
-	Thu, 18 Dec 2025 02:40:29 -0800 (PST)
-Date: Thu, 18 Dec 2025 10:40:27 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Leo Yan <leo.yan@linux.dev>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>, kernel@oss.qualcomm.com,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, maulik.shah@oss.qualcomm.com,
-	Jie Gan <jie.gan@oss.qualcomm.com>
-Subject: Re: [PATCH v2 00/12] coresight: Add CPU cluster
- funnel/replicator/tmc support
-Message-ID: <20251218104027.GA1790402@e132581.arm.com>
-References: <20251218-cpu_cluster_component_pm-v2-0-2335a6ae62a0@oss.qualcomm.com>
+	Thu, 18 Dec 2025 10:41:36 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 9DD381A22C5;
+	Thu, 18 Dec 2025 10:41:31 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 70034606B6;
+	Thu, 18 Dec 2025 10:41:31 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CEC92102F0B4B;
+	Thu, 18 Dec 2025 11:41:23 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1766054488; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=xAfqh3tryZsL7bk4EO/IchLBlHkI/yv2iAw4kjviLco=;
+	b=YUCSxJdQfdTcB0M4Q9Hv6tJl6AQ1ImSO1TotM5jebpSsyOmRI2hKSuoTBpv+XERXFCat9P
+	n1ZC4D6kAiDsuwP+sSU4iL0N/PBYQ2W74Hcjw8C5wHYazjxsz431nDHeqWKpiLyv6JfoDp
+	uTy8LbrFnw+KMg0mWXzaZ8p4DF4dTcm5PAAFTNM+6aVQaIjgkPROu1N18Au7yqiwBX9GxY
+	TSe+HFDYkx+U5WuFvUisV+ob2uM0tds5w50w6SvmmJo5uKu/Iyu9JXIAb7binHgpYhC8CG
+	SkPc2TIJlSRohX2eDt9Mv7Zno5ODadXcXCNQl8rCd4YAVvG/E2qfoG4bARvung==
+Message-ID: <2a0f82e9-0a8b-45ec-9d8f-d4842ce120ad@bootlin.com>
+Date: Thu, 18 Dec 2025 11:41:23 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251218-cpu_cluster_component_pm-v2-0-2335a6ae62a0@oss.qualcomm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/4] dt-bindings: pwm: allwinner: add h616 pwm
+ compatible
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20251217082504.80226-1-richard.genoud@bootlin.com>
+ <20251217082504.80226-2-richard.genoud@bootlin.com>
+ <52ac76fc-4362-4b5a-ae28-29b874f78399@kernel.org>
+From: Richard GENOUD <richard.genoud@bootlin.com>
+Content-Language: en-US, fr
+Organization: Bootlin
+In-Reply-To: <52ac76fc-4362-4b5a-ae28-29b874f78399@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_024033_709579_DA4B9711 
-X-CRM114-Status: GOOD (  13.93  )
+X-CRM114-CacheID: sfid-20251218_024135_342659_77D6B90C 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,48 +87,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Le 18/12/2025 à 11:15, Krzysztof Kozlowski a écrit :
+> On 17/12/2025 09:25, Richard Genoud wrote:
+>> Allwinner H616 PWM block is quite different from the A10 or H6, but at
+>> the end, it uses the same clocks as the H6; so the sun4i pwm binding can
+>> be used.
+>> It has 6 channels than can generate PWM waveforms or clocks if bypass is
+>> enabled.
+>>
+>> Suggested-by: Krzysztof Kozlowski <krzk@kernel.org>
+> 
+> Hm? Where did I suggest anything about adding clock cells or documenting
+> this allwinner device?
+Hum, indeed.
+The suggestion, as I understood it, was to re-use the sun4i PWM binding, 
+which is why this patch exists now. But I agree, the suggestion wasn't 
+on the content itself.
+Sorry if it's misleading.
 
-On Thu, Dec 18, 2025 at 12:09:40AM -0800, Coresight ML wrote:
+> 
+> 
+> Best regards,
+> Krzysztof
 
-[...]
-
-> - Utilizing `smp_call_function_single()` to ensure register accesses
->   (initialization, enablement, sysfs reads) are always executed on a
->   powered CPU within the target cluster.
-
-This is concerned as Mike suggested earlier.
-
-Let me convert to a common question: how does the Linux kernel manage
-a power domain shared by multiple hardware modules?
-
-A general solution is to bind a power domain (let's say PD1) to both
-module A (MOD_A) and module B (MOD_B).  Each time before accessing MOD_A
-or MOD_B, PD1 must be powered on first via the pm_runtime APIs, with
-its refcount increased accordingly.
-
-My understanding is the problem in your case is that the driver fails to
-create a relationship between the funnel/replicator modules and the
-cluster power domain.  Instead, you are trying to use the CPUs in the
-same cluster as a delegate for power operations - when you want to
-access MOD_B, your wake up MOD_A which sharing the same power domain,
-only to turn on the PD_A in order to access MOD_B.
-
-Have you discussed with the firmware and hardware engineers whether it
-is feasible to provide explicit power and clock control interfaces for
-the funnel and replicator modules?  I can imagine the cluster power
-domain's design might differ from other device power domains, but
-should not the hardware provide a sane design that allows software to
-control power for the access logic within it?
-
-General speaking, using smp_call_function_single() makes sense if only
-when accessing logics within the CPU boundary.
-
-P.s., currently you can use "taskset" as a temporary solution without
-any code change, something like:
-
-  taskset -c 0 echo 1 > /sys/bus/coresight/devices/etm0/enable_source
-
-Thanks,
-Leo
+Regards,
+Richard
 
