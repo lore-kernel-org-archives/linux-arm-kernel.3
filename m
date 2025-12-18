@@ -4,64 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 162E1D68BF6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 10:22:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49C96D6ACDE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 10:28:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mFHiw7KS45+Y5Ey+urMC6Lnv/CqjydjTc7etoHKEfKU=; b=PAQhb5Xbk42ne2Z6Ti5bVuKWsU
-	thE8azCrZkzjVZTPJUt9umvWsgmYjzdrn96ZKGWLkc8jwQZroU9hCfbP898J5dLVZzCXxoO9eOGrx
-	e4u5O493/QrPh/sGN0adJvp6m1WtXPaXYnqIME4E/QYb2o6+PQhg43nWPU1NOzgrXsJqPI8BOgMg2
-	E9gSkx7wBdbGlfNyDe5tUJCh+3ZaU0Pw+F56WkmVwF+ODkvPmjqWGbfrAwuM4yOtkWl6W8ZDERiEF
-	gQ21wXF3WDMrWKZuppIdQIYX1MExdk3ZF+31dHywFg002E6cGeVLbT9yOEpOWXOn3TjOEdikujuM3
-	yzCw8TiA==;
+	bh=r86TATRmysieubH1rSMAx9qrNA8Ucf6GxV44Lmv4d30=; b=UGQZdTwkOoqQWrvUZe8xcI8Gkm
+	5HUZT4Ry7O4Sg5BgkIyPWfHN7bE5HetY/uKltJOQj/JOQa06RKhtzXL1VTbG6/kXoVZ14A8rbyCA+
+	MJ58NIeJrfxx5RRmmc+4LuN6Hw5PmMHfK3fGdbXQLm0CjQeXT7tRw3PplrVllR65jeqEPP+BJjxz3
+	15IsARwYUX3SKBu7V8NxHTF2hfAfb5pRZrAmUNDvyM26c6CJFKUuwaPpTrTgc7tln8QrI1NastzZU
+	xLpO6zyHhrfxuoaCdVLe8g/ohNfLRKISPRpv4i94z8kMXFksI5IpxqXjx/BW3vpo+aSJM6mlgL3bc
+	kj/fCgxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWB9m-00000008E5r-43QN;
-	Thu, 18 Dec 2025 10:22:50 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWB9j-00000008E5X-3faj
+	id 1vWBFQ-00000008ELh-30d1;
+	Thu, 18 Dec 2025 10:28:40 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vWBFN-00000008EKp-49B4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 10:22:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 963B7FEC;
-	Thu, 18 Dec 2025 02:22:38 -0800 (PST)
-Received: from e134710.manchester.arm.com (e134710.arm.com [10.33.10.82])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C6D4D3F73F;
-	Thu, 18 Dec 2025 02:22:43 -0800 (PST)
-From: Ahmed Tiba <ahmed.tiba@arm.com>
-To: krzk@kernel.org,
-	linux-acpi@vger.kernel.org,
-	devicetree@vger.kernel.org
-Cc: tony.luck@intel.com,
-	bp@alien8.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
+	Thu, 18 Dec 2025 10:28:39 +0000
+Received: from DESKTOP-L0HPE2S (unknown [124.16.141.245])
+	by APP-03 (Coremail) with SMTP id rQCowABnf9ZM10NpPH0YAQ--.22337S2;
+	Thu, 18 Dec 2025 18:28:30 +0800 (CST)
+From: Haotian Zhang <vulab@iscas.ac.cn>
+To: lpieralisi@kernel.org,
+	kwilczynski@kernel.org,
+	mani@kernel.org
+Cc: robh@kernel.org,
+	bhelgaas@google.com,
+	michal.simek@amd.com,
+	linux-pci@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	rafael@kernel.org,
-	linux-doc@vger.kernel.org,
-	Dmitry.Lamerov@arm.com,
-	Michael.Zhao2@arm.com,
-	ahmed.tiba@arm.com
-Subject: Re: [PATCH 10/12] dt-bindings: ras: document estatus provider
-Date: Thu, 18 Dec 2025 10:22:36 +0000
-Message-ID: <20251218102238.2235329-1-ahmed.tiba@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <2a2baef6-c294-4c31-bec2-10fbaa3f7941@kernel.org>
-References: <2a2baef6-c294-4c31-bec2-10fbaa3f7941@kernel.org>
+	linux-kernel@vger.kernel.org,
+	Haotian Zhang <vulab@iscas.ac.cn>
+Subject: [PATCH v2] PCI: xilinx: Fix INTx IRQ domain leak when MSI allocation fails
+Date: Thu, 18 Dec 2025 18:23:14 +0800
+Message-ID: <20251218102314.1474-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.50.1.windows.1
+In-Reply-To: <20251119033301.518-1-vulab@iscas.ac.cn>
+References: <20251119033301.518-1-vulab@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: rQCowABnf9ZM10NpPH0YAQ--.22337S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxJr4UXr17Cr4DAw4rGF1UAwb_yoW8XF1xpF
+	WUGw47uF4DJFWUWF4DC3W3ua43Wa9Fyryqyw4agwnrZF13C3yUCFyUKF9Y9F10vFW8JF1U
+	Zr18tF1ruF15CFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9j14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
+	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr
+	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
+	n2IY04v7MxkF7I0En4kS14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4
+	AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE
+	17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMI
+	IF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4l
+	IxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvf
+	C2KfnxnUUI43ZEXa7VUb8hL5UUUUU==
+X-Originating-IP: [124.16.141.245]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBwwAA2lDlnP7ogAAse
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_022247_948957_F65F70EC 
-X-CRM114-Status: UNSURE (   5.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251218_022838_397919_021AEC58 
+X-CRM114-Status: GOOD (  10.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,16 +85,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/12/2025 07:48, Krzysztof Kozlowski wrote:
-> Please follow standard mailing list reply style. I am not reading the
-> rest and I still expect to implement my feedback fully.
+In xilinx_pcie_init_irq_domain(), if xilinx_allocate_msi_domains()
+fails after pcie->leg_domain has been successfully created via
+irq_domain_create_linear(), the function returns directly without
+cleaning up the allocated IRQ domain, resulting in a resource leak.
 
-Apologies for the poor reply formatting.
+Add irq_domain_remove() call in the error path to properly release the
+IRQ domain before returning the error.
 
-I will resend my reply with proper inline formatting and full
-context preserved, and follow up with a new revision implementing
-your feedback.
+Fixes: 313b64c3ae52 ("PCI: xilinx: Convert to MSI domains")
+Suggested-by: Manivannan Sadhasivam <mani@kernel.org>
+Signed-off-by: Haotian Zhang <vulab@iscas.ac.cn>
+---
+Changes in v2:
+  - Correct the Fixes tag to point to the commit that introduced the
+    legacy IRQ domain leak on MSI allocation failure.
+---
+ drivers/pci/controller/pcie-xilinx.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-Thanks.
-Ahmed
+diff --git a/drivers/pci/controller/pcie-xilinx.c b/drivers/pci/controller/pcie-xilinx.c
+index 937ea6ae1ac4..e8cf320f3764 100644
+--- a/drivers/pci/controller/pcie-xilinx.c
++++ b/drivers/pci/controller/pcie-xilinx.c
+@@ -480,8 +480,10 @@ static int xilinx_pcie_init_irq_domain(struct xilinx_pcie *pcie)
+ 		phys_addr_t pa = ALIGN_DOWN(virt_to_phys(pcie), SZ_4K);
+ 
+ 		ret = xilinx_allocate_msi_domains(pcie);
+-		if (ret)
++		if (ret) {
++			irq_domain_remove(pcie->leg_domain);
+ 			return ret;
++		}
+ 
+ 		pcie_write(pcie, upper_32_bits(pa), XILINX_PCIE_REG_MSIBASE1);
+ 		pcie_write(pcie, lower_32_bits(pa), XILINX_PCIE_REG_MSIBASE2);
+-- 
+2.50.1.windows.1
+
 
