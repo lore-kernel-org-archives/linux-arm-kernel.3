@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E38F5D68BEE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 08:45:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFC95D68BF4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 08:46:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=g+bJVIpt0gfvrKpvvpbdhzaZrLDQ51BQvCd8rNT5zDA=; b=obFhqS3gkTSf02/Gyb5vx8723c
-	rUXmlYj1CXNGs2lHVWy6E6ROd1KHxqoEG2a6EXKovxidt93F3eWb4Kq4AgAn1Cv+y8H0+DKN9p99x
-	DNmuvtvbL07SqpGE9KKLE0OJSsdekRWRDQlwP4ywwN2DWAF4K249+QVNDXQnmSUa/AXvVm1ie5aHv
-	U4rhQJTOCzb3kp+VahE+GH/c3XSc8ViUZHq9RgCI5Q/nL+0CuDv9kLyH6OPD1ck9KUnJzSL3cAiOw
-	5yq+SsVCQgwBIZCwHDv7gG9iX/6wFpCQKPeFhsJN8g128MEYLYxpP/WaBbJvqf6jec4VaaV2D++vP
-	8oP+u29A==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ThPJJ3PWB4nMuEUAZp3uMrXMCEr8Wd3q7MPwDdpjFEg=; b=yALuWQS8bDdrZiUlD1bBpvo0HF
+	hf6y1hnjohMvW/Xx4/n3L0Omzj3y2UZIjPZjvKPCg7ae2AVO0dg/G2RywDSobofYxVM88IPfvZu5z
+	gm44w6c+OiTAFZlTI/QnFrgaeGPZjhsfozLywHq7RDB/QnQnXcCr15FOcYsP5KmDfFEgoA6TJtSQ5
+	sHp5zMblj7RC4jKWpMepoB2JY4mQsZmnTclW84F00KgLWQod3IPcSC4fX9FfniAHAW5mudXfx3IQZ
+	SD/s/dkHIu4wkuXqmTNkbUDnd/v3N+oDn+4BspfA+IUFrCPprkxqviPtzu4yDnslPl1k09fGjhxVT
+	rkQ4S8wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vW9dc-0000000856n-3pGU;
-	Thu, 18 Dec 2025 08:45:32 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vW9eN-000000085Jm-0CLe;
+	Thu, 18 Dec 2025 08:46:19 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vW9da-0000000856S-435V
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 18 Dec 2025 08:45:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Subject:To:From:Date:Message-ID:Sender:Reply-To:Cc:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=g+bJVIpt0gfvrKpvvpbdhzaZrLDQ51BQvCd8rNT5zDA=; b=iRDABKIVkQ+W5cF8rfW5xrhGBI
-	6dFtPiUselvl4YUTQ6Q0Otvf9cbWd3+Xg8vZDk0pWVLwut8MNGK7+iJefNy7g77TQoXcCPCXrL8DI
-	vXnglb401H+OfZt9j4PjZXvv8dF5ZyqP2gukjcfw+lygMkOZKobElximP1pNhStIi8MXwUz9e6Jxb
-	hSD/ZOm59o6UAHKhnhWs3F9C0Rj//YlvN+mSrBqa6dAGzOgDBi2MzCi4+x89XMPoXqSowPFuT6yWh
-	y52Xpgi21XJIzcWXY3T9XSrhzkBrEH2esA6XPLoYP6lVqs8IdIaQSPrFB19T8dpsnCT2Ptj5nZ1T8
-	dqvEHKrA==;
-Received: from mail.torqly.pl ([51.38.112.117])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vW8lx-00000008NqV-0B3p
+	id 1vW9eM-000000085In-1HCR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 07:50:08 +0000
-Received: by mail.torqly.pl (Postfix, from userid 1002)
-	id 08184AA73E; Thu, 18 Dec 2025 09:41:51 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=torqly.pl; s=mail;
-	t=1766047347; bh=g+bJVIpt0gfvrKpvvpbdhzaZrLDQ51BQvCd8rNT5zDA=;
-	h=Date:From:To:Subject:From;
-	b=lYGU91SRWiEGVI9nIPIuPOSrg/W5G4K8BIYPzsaDJnVHN47BcASJzKfR8i69pphcU
-	 i5R5dgRa3f8+JllEa9zzySvdUqqwHNA5HFSJ0Pg9J/bzjcP5ydK+v8/W9EzTPsy9zw
-	 ElxfySqh1x3u2zRE4UyinwZRGRPcKho5jo4MjfycBoSokF++vfMlsHIHIItI4S/lL2
-	 KMwm8qsO5yV5w7/N2M9Qay0OAeBePTwexADsAo/yjboDen5mUFiJMXUK4QCHU67kYq
-	 M42lTArnTt43LWEP4pJqIAJb9aok9Qc8jEHJQtB9DLxiX2HOOs7zA/hXAGUO3coplu
-	 ZcL3fRjAEfPgw==
-Received: by mail.torqly.pl for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 08:41:00 GMT
-Message-ID: <20251218084500-0.1.tu.d9iig.0.cnjfo24rna@torqly.pl>
-Date: Thu, 18 Dec 2025 08:41:00 GMT
-From: "Tomasz Jaworski" <tomasz.jaworski@torqly.pl>
-To: <linux-arm-kernel@lists.infradead.org>
-Subject: =?UTF-8?Q?Ulga_na_sk=C5=82adki_ZUS?=
-X-Mailer: mail.torqly.pl
+	Thu, 18 Dec 2025 08:46:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 75AA860123;
+	Thu, 18 Dec 2025 08:46:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE86EC4CEFB;
+	Thu, 18 Dec 2025 08:46:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766047577;
+	bh=UNiqzBeSI2nfMbOFOdv2ipLYyeTA+tVV2F6tqqzV0DQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Xd6Eedr4NTO1heTOZE9cI8yjjcd70DffYIFpvBE80ALbriM1qqCQSbY3inTwc8sKw
+	 XPwv3tIm3QAoVloPLZyvJJVrRHQLzIehb9emMiI9/JZQ9YmMfqkTrpgRLGkQeXy44l
+	 XUk1OsgjkUJ5DFjZt2Gi8s/ZVh2ETcPs7XW08g9eZXA7eeif7raLI9hxF+yn4Nv576
+	 LfOP8Gh4oYhYmdjMswqq7IXw42waNsBGy7vS8EuRXa834kfZ3nFFrdGOe44HYvfknz
+	 z+1LLQA4OL1+o9I6+uC+EVJHiGvsOdO2yE/zoao+3acy06Sk/UeUwJoNMNyAaUrxtE
+	 d3/McnCb0Hlrw==
+Message-ID: <201d0fa3-2ebe-4df2-926c-9e11607a6f07@kernel.org>
+Date: Thu, 18 Dec 2025 09:46:10 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_075006_146392_7909D226 
-X-CRM114-Status: UNSURE (   2.31  )
-X-CRM114-Notice: Please train this message.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] arm64: mmu: avoid allocating pages while
+ installing ng-mapping for KPTI
+To: Yeoreum Yun <yeoreum.yun@arm.com>, Ryan Roberts <ryan.roberts@arm.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org,
+ kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com, dev.jain@arm.com,
+ yang@os.amperecomputing.com, chaitanyas.prakash@arm.com,
+ bigeasy@linutronix.de, clrkwllms@kernel.org, rostedt@goodmis.org,
+ lorenzo.stoakes@oracle.com, ardb@kernel.org, jackmanb@google.com,
+ vbabka@suse.cz, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev
+References: <20251217182007.2345700-1-yeoreum.yun@arm.com>
+ <20251217182007.2345700-3-yeoreum.yun@arm.com>
+ <731e3f48-e0a3-4c89-a13a-65ef37faa443@arm.com>
+ <aUL/zJlJFRz2/Ybt@e129823.arm.com>
+ <72aaa252-6ee6-4353-84ee-b6e10e9920c6@arm.com>
+ <aUO9M/oN+nx3nfW+@e129823.arm.com>
+From: "David Hildenbrand (Red Hat)" <david@kernel.org>
+Content-Language: en-US
+In-Reply-To: <aUO9M/oN+nx3nfW+@e129823.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,25 +81,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dzie=C5=84 dobry,=20
+On 12/18/25 09:37, Yeoreum Yun wrote:
+> [...]
+>>> I think it would be better to use only __GFP_HIGH in here since
+>>> when kpti_install_ng_mappings() is called, "kswpd" doesn't created yet.
+>>> and to allocate page with assurance, It would be good to use
+>>> min_reserved to.
+>>>
+>>> Am I missing something?
+>>
+>> Personally I think we should just use "GFP_KERNEL | __GFP_ZERO". Anything else
+>> would make this allocation look special, which it is not. If we fail to allocate
+>> at this point in boot, we have bigger problems.
+> 
+> But I'm not sure *HOW effective* to use GFP_KERNEL in here.
+> Since it's before the any filesystem inited.
+> IOW, in this context, almost there would be no *page cache*
+> and I think it seems meaningless to use "GFP_KERNEL" and "direct
+> reclaim"
+> 
+> So to get success for allocation, __GFP_HIGH | _GFP_ZERO seems much
+> better.
 
-chcia=C5=82bym wskaza=C4=87 Pa=C5=84stwu mo=C5=BCliwo=C5=9B=C4=87 zarz=C4=
-=85dzania benefitami w =C5=82atwy spos=C3=B3b, poprzez nasze intuicyjne n=
-arz=C4=99dzie, jakim jest karta lunchowa.=20
+Unless there is a real reason to confuse readers why this is very 
+special, just go with "GFP_KERNEL | __GFP_ZERO", really.
 
-Nasze karty oferuj=C4=85 wygod=C4=99, oszcz=C4=99dno=C5=9Bci i zdrowe wyb=
-ory =C5=BCywieniowe. Dofinansowanie posi=C5=82k=C3=B3w jest korzystne dla=
- obu stron. Karty lunch to dla pracodawcy realne oszcz=C4=99dno=C5=9Bci w=
- postaci zwolnienia z ZUS do 450 z=C5=82 miesi=C4=99cznie na pracownika.=20
+In particular if it doesn't matter in practice? Or does it and we are 
+not getting your point?
 
-Kart=C4=99 mo=C5=BCna do=C5=82adowa=C4=87 dowoln=C4=85 kwot=C4=85, a niew=
-ykorzystane =C5=9Brodki nie przepadaj=C4=85, lecz przechodz=C4=85 na kole=
-jny miesi=C4=85c.=20
+-- 
+Cheers
 
-Mog=C4=99 przedstawi=C4=87 ofert=C4=99, kt=C3=B3ra pozwoli zoptymalizowa=C4=
-=87 koszty i zapewni=C4=87 pracownikom po=C5=BC=C4=85dany benefit?
-
-
-Pozdrawiam
-Tomasz Jaworski
+David
 
