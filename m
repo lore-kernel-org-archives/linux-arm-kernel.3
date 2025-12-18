@@ -4,85 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 699F5D6E2CA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 19:09:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C345D6E2CA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 19:11:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+DY93l6HmeKB968c1ARdljW1T3h0RdrHwhe2nmyVtdw=; b=4ugkhO0a4BZrkNBz5uxq947Qz+
-	MpnefoafuV9TPlxE0qLMbM5xFBTpZHWP+EX9ZxCDPhClVoYt2MaQIdbZNlDfHR82GBXrkXIDoENvS
-	oOQT/dCU2Y0mOP3WfmBrLw1cLJMDd+KkOPzFkoEy2uBF8W/fjrrefj8OyI5a096yMhp0NTfb5fFib
-	20KpHczJI9CX5cgeLtoWP9ncPX0XyaWDKjC400un7nMYc4Dk1EEtPeWIKpgxPEg84FWJ1Y/4V2QoY
-	hPlT3GqGkdV39bzePcSfYO6mBTOUyFpboRAt/Po5mT+HzDZ+TUxhWPeXqUW5HJ5PBIXVediKNqd95
-	y1musaQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2lZIhicnPF5MBd0IyD7v1HJ7vxFXx8XMZHv9zGSx26g=; b=e+YnT3zxB6wMQaCpiHjHLAsC+6
+	zRzXtB3dohr47x8Ds2+oQXv0dIcQS2IlTrgctInDyzgx39uCZEfMaqppHWJj1XbgXVhsKr+q72jWN
+	VnBDv1b7ug0gqLYrV0RUgpEz7Chc6tzrd1JMFztpbfYpMOgI/uB4Nb7Sl4zjgNuCssvbw3xlXNtQZ
+	pavEWH/mpynA1bAxKJAId8jrsyrc4sZgbPDsiP1uGbFKIEbf8XhY/KL0ac8NTs2oBPjw0BfViOjzJ
+	ls4c1aqusn60y7PVyuGGQO6hda7yh9hdZ8jnZzmDd6kSoTbRypgACU+TcmHuGI28XvOe6kOR+YjOR
+	qXcdGhnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWJNB-000000093eU-3QfV;
-	Thu, 18 Dec 2025 19:09:13 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vWJP5-000000093zn-1hOc;
+	Thu, 18 Dec 2025 19:11:11 +0000
+Received: from mail-qt1-x862.google.com ([2607:f8b0:4864:20::862])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWJN8-000000093dN-2DL7
+	id 1vWJP2-000000093xb-1DYO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 19:09:12 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vWJMh-0008WQ-7c; Thu, 18 Dec 2025 20:08:43 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vWJMf-006Kvz-12;
-	Thu, 18 Dec 2025 20:08:41 +0100
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vWJMf-00Ee3k-0T;
-	Thu, 18 Dec 2025 20:08:41 +0100
-Date: Thu, 18 Dec 2025 20:08:41 +0100
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Liu Ying <victor.liu@nxp.com>, dri-devel@lists.freedesktop.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 1/3] dt-bindings: soc: imx93-media-blk-ctrl: Add PDFC
- subnode to schema and example
-Message-ID: <20251218190841.pmn3kwghq6lxsfl4@pengutronix.de>
-References: <20251202-v6-18-topic-imx93-parallel-display-v7-0-2cce31d64608@pengutronix.de>
- <705773fc-5aba-4bff-b05e-272e1cd0262c@nxp.com>
- <20251215175436.wwlgzxionq55zu27@pengutronix.de>
- <3210190.mvXUDI8C0e@steina-w>
+	Thu, 18 Dec 2025 19:11:10 +0000
+Received: by mail-qt1-x862.google.com with SMTP id d75a77b69052e-4ed75832448so12294841cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 11:11:06 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766085066; x=1766689866;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:to:subject:user-agent:mime-version:date
+         :message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2lZIhicnPF5MBd0IyD7v1HJ7vxFXx8XMZHv9zGSx26g=;
+        b=cAIjCqACQURAsNpZHjvgKTs+/JXswiQ4NbEQa2tCh2B2TsYLiDP6heqh4O/eMJUJee
+         ZPE6B16WFckhGhn/QayvzkIHgQDLk1/XE4B3HwWiILR0QrLsQJ6rjaFoz5PJ/cTsWq5M
+         YGAJCIEVpBcz+H9hz447zP9WOmpSWMKDR7f77M91H5iMg0deMmg5lGUfqr4abKZvgubn
+         5Dk3fNRUKhI93dsM+TgtyxOOJPqJhuVUqCnkbir/UK2dU3I3vC4NBKs4zUvUHfygga+N
+         Ub5kQPDkGCAEPwRJsaxqIzu7sMZybWairk4z2M5VMfyUewhh+elq0LrbhDXXMZKU29bI
+         VMcw==
+X-Forwarded-Encrypted: i=1; AJvYcCUXdaVytk1fOam2ZF6ggK+llJqW0myXdO4ziSuKJzvzcjCyxwl6RVY0FtCe4rfNzOIM0mdxolCPjrzVDbU77uwi@lists.infradead.org
+X-Gm-Message-State: AOJu0YzFGE0SET10TvM8E13QniLVFUGzlQ91G8mVNtOf4ZOPonbOvoII
+	dtaQU1GQ/D6IZrfdhnE9GPkEKv5gMmNd1DVEpFfXfD4P0vNsLxpH9wD48JJAs8QLAmVNG5k8ZBB
+	HsYUGElvhv1uDDZ1ybgjIFKB/6Qod79zmgiqgGwtFI5qWpfAYvKU3YILTc2+1UqrYLFJ8b0P3od
+	rZCsUfqikxZdGhaK9JR7S/IqxCEgkdwXPe22i9Gbs2PzVDRHkdbDvY+UyFbuOeZap9bRnuroJDk
+	YMz7B718Wr+JIyBXP9levwxErezXStWE4I=
+X-Gm-Gg: AY/fxX7ldDl2CEAuH3v9P+fRIpXj90dz9sbYRECmCJ2wC0kLP0FApbR9ledQaH6lxkf
+	n0ViInCnXlaQN8w0PekR8sqGBvQ9xt1RwlgA311jc/s+8fBmNUAutXvFYoPBejMo36hbqvfq7bM
+	awZsuXR9f9xV1vJ77+e6ZljCZVxABSnVVtwDJfLXedpx5uKuALTCzDnNSAVmRzt9Qau+V2Js3hs
+	uiKetmZ89fQg6TKW8wDiGCz6yFnonkz5tAvggUvmEhHN6UGx/fI3iNncmT7CgThCgwInnxtGpuR
+	KHinSIJD7HZzSIvPqyo7TpUxqeuckv1HCgKavY9nGwzIXhC3BOkSsJzWaEwOBcfOdotVXvyuaB9
+	m1L+Fwl2QUYlGmKiVO5VCzzB8CUnFyFKkD02DLxzN/dPEOdFF8xiRPpUb3K2/DbzHsjm7ugCQ6V
+	5VXPD+jErjrfy1Wrvo5f/DSFdSOrUEAjr8Z84TDzmI03YENT9Ung==
+X-Google-Smtp-Source: AGHT+IHOCscGK02dOXzRYzUCSUJvi5l1sjLc6ga6wG+tCNEBgbAeQwGQUYDJ1A83djXR3JRTck6CDc6jvIvK
+X-Received: by 2002:a05:622a:1483:b0:4ee:56c0:712f with SMTP id d75a77b69052e-4f4abdc6508mr4314441cf.76.1766085065839;
+        Thu, 18 Dec 2025 11:11:05 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-19.dlp.protect.broadcom.com. [144.49.247.19])
+        by smtp-relay.gmail.com with ESMTPS id 6a1803df08f44-88d97a82ab2sm271736d6.19.2025.12.18.11.11.05
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 18 Dec 2025 11:11:05 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4ee0995fa85so24393381cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 11:11:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1766085065; x=1766689865; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=2lZIhicnPF5MBd0IyD7v1HJ7vxFXx8XMZHv9zGSx26g=;
+        b=CFqwHxR+ysbRucVEhT7FMLn2oDW6N0Z4wh3xHsgO7F90O836wr/n3Z3YsfYe1lT+TK
+         8xRNGRhk0P/2Dhl7nbGKHllxbW/VNohx2qCbs09iitY7/HlxOaAO5b1oiKjtbax7E02O
+         UneHfncdNUQnHgZ3s9sivyC4yffpxnARFMbiE=
+X-Forwarded-Encrypted: i=1; AJvYcCVWe5w6LmOyJTWVJc27qaeUXavRpZMfAAODCDED2uqqzGzonJVUt9kIGjMmbW8+/TGY2RKWR89gwi1zIKWtuUZK@lists.infradead.org
+X-Received: by 2002:a05:622a:4c0f:b0:4ee:2312:6059 with SMTP id d75a77b69052e-4f4abcd267cmr4668181cf.19.1766085065174;
+        Thu, 18 Dec 2025 11:11:05 -0800 (PST)
+X-Received: by 2002:a05:622a:4c0f:b0:4ee:2312:6059 with SMTP id d75a77b69052e-4f4abcd267cmr4667571cf.19.1766085064645;
+        Thu, 18 Dec 2025 11:11:04 -0800 (PST)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8c09678393bsm10407785a.6.2025.12.18.11.11.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 18 Dec 2025 11:11:04 -0800 (PST)
+Message-ID: <8cbf63d2-1510-4d58-b2ca-0fd23a476539@broadcom.com>
+Date: Thu, 18 Dec 2025 11:11:00 -0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <3210190.mvXUDI8C0e@steina-w>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/4] Fix RP1 DeviceTree hierarchy and drop overlay support
+To: Andrea della Porta <andrea.porta@suse.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Bjorn Helgaas
+ <bhelgaas@google.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
+ iivanov@suse.de, svarbanov@suse.de, mbrugger@suse.com,
+ Phil Elwell <phil@raspberrypi.com>
+References: <cover.1766077285.git.andrea.porta@suse.com>
+Content-Language: en-US, fr-FR
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <cover.1766077285.git.andrea.porta@suse.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_110910_718531_A2734351 
-X-CRM114-Status: GOOD (  40.53  )
+X-CRM114-CacheID: sfid-20251218_111108_338675_BE07D062 
+X-CRM114-Status: GOOD (  18.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,204 +156,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alexander,
-
-On 25-12-16, Alexander Stein wrote:
-> Hi,
+On 12/18/25 11:09, Andrea della Porta wrote:
+> The current RP1 implementation is plagued by several issues, as follows:
 > 
-> Am Montag, 15. Dezember 2025, 18:54:36 CET schrieb Marco Felsch:
-> > Hi Liu,
-> > 
-> > sorry I didn't fully answer you please see below.
-> > 
-> > On 25-12-08, Liu Ying wrote:
-> > > Hi Marco,
-> > > 
-> > > On 12/02/2025, Marco Felsch wrote:
-> > > > From: Liu Ying <victor.liu@nxp.com>
-> > > > 
-> > > > i.MX93 SoC mediamix blk-ctrl contains one DISPLAY_MUX register which
-> > > > configures parallel display format by using the "PARALLEL_DISP_FORMAT"
-> > > > field. Document the Parallel Display Format Configuration(PDFC) subnode
-> > > > and add the subnode to example.
-> > > > 
-> > > > Signed-off-by: Liu Ying <victor.liu@nxp.com>
-> > > > [m.felsch@pengutronix.de: port to v6.18-rc1]
-> > > > [m.felsch@pengutronix.de: add bus-width]
-> > > > Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
-> > > > ---
-> > > >  .../bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml | 92 ++++++++++++++++++++++
-> > > >  1 file changed, 92 insertions(+)
-> > > > 
-> > > > diff --git a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
-> > > > index 34aea58094e55365a2f9c86092f637e533f954ff..6e2d86d9341c75108b492bcbabc8a560d8e707cd 100644
-> > > > --- a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
-> > > > +++ b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
-> > > > @@ -26,6 +26,12 @@ properties:
-> > > >    reg:
-> > > >      maxItems: 1
-> > 
-> > ...
-> > 
-> > > > +            properties:
-> > > > +              endpoint:
-> > > > +                $ref: /schemas/graph.yaml#/$defs/endpoint-base
-> > > > +                unevaluatedProperties: false
-> > > > +
-> > > > +                properties:
-> > > > +                  bus-width:
-> > > 
-> > > In v1-v5, I thought the output bus format can be determined by the sink
-> > > device(a panel or a bridge) hence properties like bus-width were not needed.
-> > > But, if this property is really needed, then reference video-interfaces.yaml
-> > > since bus-width is documented there.  Should we reference bus-type defined
-> > > in video-interfaces.yaml too?
-> > 
-> > You're right, the bus-width should be determined by the connected panel.
-> > But there are cases where a 24-bit panel is connected but only the lower
-> > 18-bits are muxed. I added the bus-width property to handle this case.
-> > In the end most users don't have to specify this since the correct
-> > bus-width is coming from the panel bus-fmt.
-> > 
-> > > > +                    enum: [ 16, 18, 24 ]
-> > > 
-> > > The PARALLEL_DISP_FORMAT field of DISPLAY_MUX register says this IP supports
-> > > below formats.  It seems that the enum here may tell RGB888, RGB666 and RGB565.
-> > > How can we tell RGB555, YCbCr 24 bits and YUV444 then?
-> > > 
-> > > 000b RGB888 -> RGB888
-> > > 001b RGB888 -> RGB666
-> > > 010b RGB565 -> RGB565
-> > > 011b RGB555 -> RGB555
-> > > 100b YUV -> YCbCr 24 bits
-> > > 101b YUV -> YUV444
-> > 
-> > This enum is about the physical bus width. RGB565 == 16-bit, YUV ==
-> > 24-bit.
-> > 
-> > That said, I don't think that you need to specify the bus-fmt since this
-> > is coming from the panel. As said above, my itension with the bus-width
-> > property is to provide integrators (dts-writers) a possibility to limit
-> > the physical available bus width.
+> - the node name for RP1 is too specific and should be generic instead
+>    (see [1]).
 > 
-> Mh, isn't [1] exactly about this? Not sure about the outcome at that time.
-
-Thanks for the pointer, I wasn't aware of this discussion. I skimmed
-through the dt-bindings thread and I agree with Rob and Maxime.
-
-We do have the bus-width endpoint property already. This property is
-alredy used by media and drm bridge drivers. Why not making use of for
-this simple bridge driver too?
-
-Furthermore I doubt, that a simple drm-bridge MEDIA_BUS_FMT_* convert
-driver solves all the problem in a generic way for all platforms, all
-connectors, all routing options.
-
-If the i.MX93 NXP-EVKs in [1] would have connected the upper LCD_DAT*
-pads instead of the lower ones, there would be no conversion needed by
-the PDFC bridge driver, albeit the physical bus is cut to 18-bit width
-due to the RPi ext. header limit, which is expanded to 24-bit again later on
-via the Adafruit board panel FPC connector.
-
-In such scenario the output width of the PDFC has to be 24-bit else
-you would lose not only the two LSBs but also the two MSBs for each
-channel. I tried to visualize what I meant for the blue channel:
-
-                 24-bit PDFC bridge
-		 ------------------
-        +----+----+----+----+----+----+----+----+
- LCDIF  | B0 | B1 | B2 | B3 | B4 | B5 | B6 | B7 |
-        +----+----+----+----+----+----+----+----+
-          |    |    |    |    |    |    |    |
-        +----+----+----+----+----+----+----+----+
- PDFC   | B0 | B1 | B2 | B3 | B4 | B5 | B6 | B7 |
-        +----+----+----+----+----+----+----+----+
-                    |    |    |    |    |    |
-        +----+----+----+----+----+----+----+----+
-SOC_PAD | xx | xx | D2 | D3 | D4 | D5 | D6 | D7 |
-        +----+----+----+----+----+----+----+----+
-                    |    |    |    |    |    |
-        +----+----+----+----+----+----+----+----+
- ext.   | xx | xx | B2 | B3 | B4 | B5 | B6 | B7 |
- HDR    +----+----+----+----+----+----+----+----+
-                    |    |    |    |    |    |
-                    |    |    |    |    |    |
-                    |    |    |    |    |    |
-          +-----------------------------+    |
-          |    +-----------------------------+
-          |    |    |    |    |    |    |    |
-        +----+----+----+----+----+----+----+----+
- Ada.   | B0 | B1 | B2 | B3 | B4 | B5 | B6 | B7 |
- FPC    +----+----+----+----+----+----+----+----+
-
-                 18-bit PDFC bridge
-		 ------------------
-        +----+----+----+----+----+----+----+----+
- LCDIF  | B0 | B1 | B2 | B3 | B4 | B5 | B6 | B7 |
-        +----+----+----+----+----+----+----+----+
-          |    |    |    |    |    |    |    |
-        +----+----+----+----+----+----+----+----+
- PDFC   | B0 | B1 | B2 | B3 | B4 | B5 | B6 | B7 |
-        +----+----+----+----+----+----+----+----+
-                    |    |    |    |    |    |
-          +---------+    |    |    |    |    |
-          |    +---------+    |    |    |    |
-          |    |    +---------+    |    |    |
-          |    |    |    +---------+    |    |
-          |    |    |    |    +---------+    |
-          |    |    |    |    |    +---------+
-          |    |    |    |    |    |
-        +----+----+----+----+----+----+----+----+
-SOC_PAD | xx | xx | D2 | D3 | D4 | D5 | D6 | D7 |
-        +----+----+----+----+----+----+----+----+
-                    |    |    |    |    |    |
-        +----+----+----+----+----+----+----+----+
- ext.   | xx | xx | B2 | B3 | B4 | B5 | B6 | B7 |
- HDR    +----+----+----+----+----+----+----+----+
-                    |    |    |    |    |    |
-                    |    |    |    |    |    |
-                    |    |    |    |    |    |
-          +-----------------------------+    |
-          |    +-----------------------------+
-          |    |    |    |    |    |    |    |
-        +----+----+----+----+----+----+----+----+
- Ada.   | B0 | B1 | B2 | B3 | B4 | B5 | B6 | B7 |
- FPC    +----+----+----+----+----+----+----+----+
-
-
-The mapping can get quite difficult for a single SoC already, just by
-using a slighlty different HW routing (the upper D[ata] pads).
-
-Therefore I would keep it simple and device/ip specific (in this case
-PDFC specific) by making use of the bus-width. Specifying the bus-width
-property could be also wrong albeit it's the case physically, as you can
-see in my above example.
-
-Therefore the bus-width property must have a good description.
-
-Regards,
-  Marco
-
-> Best regards,
-> Alexander
+> - the fully defined DTS has its PCI hierarchy wrongly described. There
+>    should be a PCI root port between the root complex and the endpoint
+>    (see [1]).
 > 
-> [1] https://lore.kernel.org/all/20250304101530.969920-1-victor.liu@nxp.com/
+> - since CONFIG_PCI_DYNAMIC_OF_NODES can be dropped in the future
+>    becoming an automatically enabled feature, it would be wise to not
+>    depend on it (see [2]).
 > 
-> > [snip]
-> -- 
-> TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
-> Amtsgericht München, HRB 105018
-> Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
-> http://www.tq-group.com/
+> - overlay support has led to a lot of confusion. It's not really usable
+>    right now and users are not even used to it (see [3]).
+> 
+> This patch aims at solving the aforementioned problems by amending the
+> PCI topology as follows:
+> 
+>    ...
+>    pcie@1000120000 {
+>      ...
+> 
+>      pci@0,0 {
+>        device_type = "pci";
+>        reg = <0x00 0x00 0x00 0x00 0x00>;
+>        ...
+> 
+>        dev@0,0 {
+>          compatible = "pci1de4,1";
+>          reg = <0x10000 0x00 0x00 0x00 0x00>;
+>          ...
+> 
+>          pci-ep-bus@1 {
+>            compatible = "simple-bus";
+>            ...
+> 
+>            /* peripherals child nodes */
+>          };
+>        };
+>      };
+>    };
+> 
+> The reg property is important since it permits the binding the OF
+> device_node structure to the pci_dev, encoding the BDF in the upper
+> portion of the address.
+> 
+> This patch also drops the overlay support in favor of the fully
+> described DT while streamlining it as a result.
 
+Timing could not have been better as I was just going to apply Rob's patch:
 
+https://lore.kernel.org/all/20251211193854.1778221-1-robh@kernel.org
 
+Yours is definitively more complete. Rob, Krzysztof, can you review this 
+series and I will fast track it today.
+
+Thanks!
 -- 
-#gernperDu 
-#CallMeByMyFirstName
-
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
+Florian
 
