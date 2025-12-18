@@ -4,65 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB101D711CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 23:20:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD782D711CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 23:28:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ss7mw5h9tZHWb4vZVmqkxQf5bNHQT65yXMb2s9UJt2c=; b=2Mi8+jUAN4OQoSaCT/qCC/8hkk
-	PeOVnE1yWw72nYC4J12NGUZAJCZWsj5EEdEOY/vlPfuOrmJ7rNj9OQtQOhGaBnfRO+393sIn3Tvww
-	rhZE1982WoBqZLVtxt7d75Cy8W+070n4Y/0HQZDuN0L4EJ0O7xcyN41yo3lf5+Y9nXeJUh9q7Xdhi
-	gYincqUs94dsM0hF6cFw5On4tqpW+6qI/kh5CrixduvW3dYrz3LOmHxDiRs8XuTF7Y9c4v6bX/X2d
-	12r5BdOzCmutKcei+hJk/xSDUpXdBHI+e/ly92pIXNIbaDvOMw6KvhDB4HV8SEF5AGpdHnMOiMplf
-	d/dovWZQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IQ8M0hdxlQvF/7w/k0EpevWW15iOqFokJqHSOsC2c7g=; b=HPYg5yznNrUjSfBWOmAFtJZRKv
+	AQ5geaxTpxe7621YzFAUl7yNP10JpkiGcwik1O3paGUXBr7Yp/9brxO8r5RDyHBDfI8E06yPEgJCs
+	teWWqgP5mOu9SwzbkLXLe5uaqORetp5Zb4fjxp6BDDtx8cQqwk0P5mvUvOe/mk3Fc55ClpKZYulbA
+	GaMiUULL+GCMu62FVxc3bXFt0AJPTZz1gjeviJhzg5Zo3LyByw9lyqWwe/TIetcpqIG+FqoRDeHkl
+	sHBYQyp8e/TOzJ4DoQjGBjnjVw82BpFL9cqjpX8ln7pi35Mr+cU91Pg5TqIGHM4JHGKZlGBl8iO1r
+	74IDKjbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWNHo-00000009JKq-1dOl;
-	Thu, 18 Dec 2025 23:19:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWNHk-00000009JK7-3f2p
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 23:19:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F10FFFEC;
-	Thu, 18 Dec 2025 15:19:42 -0800 (PST)
-Received: from [10.57.74.203] (unknown [10.57.74.203])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1D3113F73F;
-	Thu, 18 Dec 2025 15:19:46 -0800 (PST)
-Message-ID: <2db74a3e-4aeb-4e87-9fe8-5c9693bfb67c@arm.com>
-Date: Thu, 18 Dec 2025 23:19:45 +0000
+	id 1vWNQH-00000009Jhu-1oK8;
+	Thu, 18 Dec 2025 23:28:41 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vWNQD-00000009Jgt-3dPg;
+	Thu, 18 Dec 2025 23:28:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1766100514;
+	bh=QAz1zIcyjXHBrwVCRlamgURA1cGxUXS5UptDm2nar4g=;
+	h=From:To:Cc:Subject:Date:From;
+	b=aiKpEHjDIVHISynVzlR0l10TtC1WEZQmYcJOZpOUYX9Kif/ZYWEJG2m5p7Z4ouZXW
+	 Qeuh3XD4gx35GgL2/xL0qesK/8zX8en82WvYWCRLhmDfQSq5lTKqJ6nfecT/yil4uW
+	 r392qcsq1cCPleh4WxSci5rdf6s2EQg484yXJ9ljixcIuoQQSrI5T6buS6bm+18Xlz
+	 lNoD0T8TUe8JioOZHszMH/WmkVIzUAAzMZsjfen67irtBLfFo1tPmo5ojXstOWtm6c
+	 6+yc3gPVceoMuuiWDIEsMFmfnvMXWyQ6WSMYZqMjuUhTvAockGugUKtHqgIHFT/BR2
+	 cZIJpyFDJNbaw==
+Received: from earth.mtl.collabora.ca (mtl.collabora.ca [66.171.169.34])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: detlev)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C76D217E110D;
+	Fri, 19 Dec 2025 00:28:31 +0100 (CET)
+From: Detlev Casanova <detlev.casanova@collabora.com>
+To: linux-kernel@vger.kernel.org
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Daniel Almeida <daniel.almeida@collabora.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Ricardo Ribalda <ribalda@chromium.org>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Yunke Cao <yunkec@google.com>,
+	Hans de Goede <hansg@kernel.org>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Pavan Bobba <opensource206@gmail.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	James Cowgill <james.cowgill@blaize.com>,
+	linux-media@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	kernel@collabora.com,
+	Jonas Karlman <jonas@kwiboo.se>
+Subject: [PATCH v7 00/17] media: rkvdec: Add support for VDPU381 and VDPU383
+Date: Thu, 18 Dec 2025 18:28:10 -0500
+Message-ID: <20251218232829.337811-1-detlev.casanova@collabora.com>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 5/8] dt-bindings: arm: add an interrupt property for
- Coresight CTCU
-Content-Language: en-GB
-To: Krzysztof Kozlowski <krzk@kernel.org>, Jie Gan
- <jie.gan@oss.qualcomm.com>, Rob Herring <robh@kernel.org>
-Cc: Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
- Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org
-References: <20251211-enable-byte-cntr-for-ctcu-v8-0-3e12ff313191@oss.qualcomm.com>
- <20251211-enable-byte-cntr-for-ctcu-v8-5-3e12ff313191@oss.qualcomm.com>
- <20251211133723.GA859302-robh@kernel.org>
- <dfa43a63-ca14-4dd7-a7ab-acd95748a8b9@oss.qualcomm.com>
- <a9537dc9-c767-4909-8b1c-6e939ce4f3fc@kernel.org>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <a9537dc9-c767-4909-8b1c-6e939ce4f3fc@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_151953_001300_A2B7D7EF 
-X-CRM114-Status: GOOD (  25.31  )
+X-CRM114-CacheID: sfid-20251218_152838_072211_E11777F6 
+X-CRM114-Status: GOOD (  20.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,102 +88,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/12/2025 10:17, Krzysztof Kozlowski wrote:
-> On 12/12/2025 02:12, Jie Gan wrote:
->>
->>
->> On 12/11/2025 9:37 PM, Rob Herring wrote:
->>> On Thu, Dec 11, 2025 at 02:10:44PM +0800, Jie Gan wrote:
->>>> Add an interrupt property to CTCU device. The interrupt will be triggered
->>>> when the data size in the ETR buffer exceeds the threshold of the
->>>> BYTECNTRVAL register. Programming a threshold in the BYTECNTRVAL register
->>>> of CTCU device will enable the interrupt.
->>>>
->>>> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->>>> Reviewed-by: Mike Leach <mike.leach@linaro.org>
->>>> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
->>>> ---
->>>>    .../devicetree/bindings/arm/qcom,coresight-ctcu.yaml    | 17 +++++++++++++++++
->>>>    1 file changed, 17 insertions(+)
->>>>
->>>> diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
->>>> index c969c16c21ef..90f88cc6cd3e 100644
->>>> --- a/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
->>>> +++ b/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
->>>> @@ -39,6 +39,16 @@ properties:
->>>>        items:
->>>>          - const: apb
->>>>    
->>>> +  interrupts:
->>>> +    items:
->>>> +      - description: Byte cntr interrupt for the first etr device
->>>> +      - description: Byte cntr interrupt for the second etr device
+These variants are found respectively in the RK3588 and RK3576 SoCs.
+This patch only adds support for H264 and H265 in both variants.
 
-This is really vague. How do you define first vs second ? Probe order ?
-No way. This must be the "port" number to which the ETR is connected
-to the CTCU. IIUC, there is a config area for each ETR (e.g., trace id
-filter) connected to the CTCU. I was under the assumption that they
-are identified as "ports" (input ports). I don't really understand how
-this interrupt mapping works now. Please explain it clearly.
+As there is a considerable part of the code that can be shared with the
+already supported rkvdec decoder driver, the support for these variants
+is added here rather than writing a new driver.
 
->>>> +
->>>> +  interrupt-names:
->>>> +    items:
->>>> +      - const: etrirq0
->>>> +      - const: etrirq1
->>>
->>> Names are kind of pointless when it is just foo<index>.
->>
->> Hi Rob,
->>
->> I was naming them as etr0/etr1. Are these names acceptable?
-> 
-> Obviously irq is redundant, but how does etr0 solves the problem of
-> calling it foo0?
-> 
-> I don't think you really read Rob's comment.
-> 
->> The interrupts are assigned exclusively to a specific ETR device.
->>
->> But Suzuki is concerned that this might cause confusion because the ETR
->> device is named randomly in the driver. Suzuki suggested using ‘port-0’
->> and ‘port-1’ and would also like to hear your feedback on these names.
-> 
-> There is no confusion here. Writing bindings luckily clarifies this what
-> the indices in the array mean.
+This patch set uses the newly introduced hevc_ext_sps_[ls]t_rps v4l2
+controls for HEVC.
+Therefore, a patched version of userpace tools is needed for HEVC
+support (added for GStreamer[1] and in an early stage for FFmpeg[2]).
 
-The point is there are "n" interrupts. Question is, could there be more
-devices(ETRs) connected to the CTCU than "n".
+The DTS changes can be found in another patch set: [3]
 
-e.g., Lets CTCU can control upto 4 ETRs and on a particular system, the
+[1]: https://gitlab.freedesktop.org/gstreamer/gstreamer/-/merge_requests/9355
+[2]: https://gitlab.collabora.com/detlev/ffmpeg
+[3]: https://lore.kernel.org/all/20251020212009.8852-1-detlev.casanova@collabora.com/
 
-TMC-ETR0 -> CTCU-Port0
+Changes since v6:
+ - Remove coded_fmts capabilities
+ - Remove inexistant V4L2_HEVC kconfig dependency
+ - Add missing rkvdec registers
+ - Fix memcpy sizes
+ - Remove non-necessary name and style changes
+ - Use common get_image_fmt
+ - Do not validate sps in start()
+ - Remove unused variable
+ - Change named_regs to has_single_reg_region
+ - Compared to v6, I didn't use a union for the ref addr and flags
+   registers, as I find the flat struct more readable.
 
-TMC-ETR1 -> CTCU-Port2
-TMC-ETR2 -> CTCU-Port3
+Changes since v5:
+- Extract multicore management in separate commit
+- Move variant specific functions to an ops struct
+- Fix a typo and "h264" -> "hevc" copy/paste mistakes
+- Move RKVDEC_*_PIXELS to rkvdec.h
+- Drop VDPU383_*_PIXELS, use the the RKVDEC ones instead
+- Change RKVDEC_1080P_PIXELS value to 1920 * 1088
+- Long and short term ref sets extend controls:
+  - Add them in visl traces
+  - Reword documentation to specify SPS extension and use
+  - Mention Vulkan Video API similarity
+  - Specify behavior for empty array values
+  - Reorder struct fields to ensure fixed compiled size
+  - Remove the mention of V4L2_CTRL_FLAG_DYNAMIC_ARRAY flag
 
-Now, how many interrupts are described in the DT ? How do we map which
-interrupts correspond to the CTCU-Portn. (Finding the TMC-ETRx back
-from the port is possible, with the topology).
+Changes since v4:
+ - Add basic ext_sps_[ls]t_rps validation (flags only)
+ - Add missing copyright in new common files
+ - Rename num_coded_fmts, rcb_num, clk_count
+ - Avoid allocating RCB config when not needed
+ - Merge rkvdec_config into rkvdec_variant
+ - Keep rkvdec_hevc_get_image_fmt per variant
 
-This is what I raised in the previous version. Again, happy to hear
-if there is a standard way to describe the interrupts.
+Changes since v3:
+ - Rebased on latest next (ea299a216426) + HEVC support for rk3399
 
-Suzuki
+Changes since v2:
+ - Rebased on Kwiboo's HEVC support for rk3399
+ - Include hevc_ext_sps_[ls]t_rps v4l2 controls commits
+ - Remove empty lines at end of files
+ - Rename RKVDEC2_ALLOC_* to RKVDEC_ALLOC_*
+ - Set min_with and min_height to 64
+ - Remove vdpu38x_fill_pixfmt_mp() function
+ - Handle userspace not supporting hevc_ext_sps_[ls]t_rps
+ - Make all config structs static const
 
+Changes since v1:
+ - Add parsing of the short and long term ref frame sets from the new v4l2
+   controls
+ - Add RPS cache to avoid parsing the same data again
+ - Fix HEVC pixel formats selection
+ - Fix multiple indentation errors
 
-> 
->>
->> Usually, the probe sequence follows the order of the addresses. In our
->> specification, ‘ETR0’ is always probed before ‘ETR1’ because its address
->> is lower.
-> 
-> How is this even relevant? You are answering to something completely
-> different, so I don't think you really tried to understand review.
-> 
-> 
-> 
-> Best regards,
-> Krzysztof
+Detlev Casanova (17):
+  media: uapi: HEVC: Add v4l2_ctrl_hevc_ext_sps_[ls]t_rps controls
+  media: v4l2-ctrls: Add hevc_ext_sps_[ls]t_rps controls
+  media: visl: Add HEVC short and long term RPS sets
+  media: rkvdec: Switch to using structs instead of writel
+  media: rkvdec: Move cabac tables to their own source file
+  media: rkvdec: Use structs to represent the HW RPS
+  media: rkvdec: Move h264 functions to common file
+  media: rkvdec: Move hevc functions to common file
+  media: rkvdec: Add variant specific coded formats list
+  media: rkvdec: Add RCB and SRAM support
+  media: rkvdec: Support per-variant interrupt handler
+  media: rkvdec: Enable all clocks without naming them
+  media: rkvdec: Disable multicore support
+  media: rkvdec: Add H264 support for the VDPU381 variant
+  media: rkvdec: Add H264 support for the VDPU383 variant
+  media: rkvdec: Add HEVC support for the VDPU381 variant
+  media: rkvdec: Add HEVC support for the VDPU383 variant
+
+ .../media/v4l/ext-ctrls-codec-stateless.rst   | 120 +++
+ .../media/v4l/videodev2.h.rst.exceptions      |   2 +
+ .../media/v4l/vidioc-queryctrl.rst            |  12 +
+ .../media/platform/rockchip/rkvdec/Makefile   |  14 +-
+ .../{rkvdec-hevc-data.c => rkvdec-cabac.c}    | 506 +++++++++-
+ .../rockchip/rkvdec/rkvdec-h264-common.c      | 258 +++++
+ .../rockchip/rkvdec/rkvdec-h264-common.h      |  89 ++
+ .../platform/rockchip/rkvdec/rkvdec-h264.c    | 892 ++----------------
+ .../rockchip/rkvdec/rkvdec-hevc-common.c      | 512 ++++++++++
+ .../rockchip/rkvdec/rkvdec-hevc-common.h      | 109 +++
+ .../platform/rockchip/rkvdec/rkvdec-hevc.c    | 281 +-----
+ .../platform/rockchip/rkvdec/rkvdec-rcb.c     | 179 ++++
+ .../platform/rockchip/rkvdec/rkvdec-rcb.h     |  29 +
+ .../platform/rockchip/rkvdec/rkvdec-regs.h    | 586 ++++++++----
+ .../rockchip/rkvdec/rkvdec-vdpu381-h264.c     | 465 +++++++++
+ .../rockchip/rkvdec/rkvdec-vdpu381-hevc.c     | 621 ++++++++++++
+ .../rockchip/rkvdec/rkvdec-vdpu381-regs.h     | 424 +++++++++
+ .../rockchip/rkvdec/rkvdec-vdpu383-h264.c     | 578 ++++++++++++
+ .../rockchip/rkvdec/rkvdec-vdpu383-hevc.c     | 720 ++++++++++++++
+ .../rockchip/rkvdec/rkvdec-vdpu383-regs.h     | 281 ++++++
+ .../platform/rockchip/rkvdec/rkvdec-vp9.c     | 232 ++---
+ .../media/platform/rockchip/rkvdec/rkvdec.c   | 572 +++++++++--
+ .../media/platform/rockchip/rkvdec/rkvdec.h   |  49 +-
+ drivers/media/test-drivers/visl/visl-dec.c    |   7 +
+ drivers/media/test-drivers/visl/visl-dec.h    |   3 +
+ .../media/test-drivers/visl/visl-trace-hevc.h |  59 ++
+ drivers/media/v4l2-core/v4l2-ctrls-core.c     |  28 +
+ drivers/media/v4l2-core/v4l2-ctrls-defs.c     |  10 +
+ include/uapi/linux/v4l2-controls.h            |  61 ++
+ include/uapi/linux/videodev2.h                |   2 +
+ 30 files changed, 6238 insertions(+), 1463 deletions(-)
+ rename drivers/media/platform/rockchip/rkvdec/{rkvdec-hevc-data.c => rkvdec-cabac.c} (86%)
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-h264-common.c
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-h264-common.h
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.h
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.c
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-rcb.h
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-h264.c
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-hevc.c
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-regs.h
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-h264.c
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-hevc.c
+ create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu383-regs.h
+
+-- 
+2.52.0
 
 
