@@ -4,67 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7052D6D237
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 15:42:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5D6CD6E2AC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 15:43:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sY30MdSekGwgF4CqtEgbt3HVJcFtTbvj4MQw7JOn8wk=; b=jDB2nVi1t3Ncoypymuv4w/DAjr
-	o5AXqCJJK9At6028TI48A5jURuNuFG7PfO/q5vhx5S5nMGcgKrTIKe/LeCi9XUVl006o+W/WwFyKR
-	CTuoBsAQvjjLukkiYp+zva5I4M2Ik07XFx615xDpdxo1H3ncZohcMOg69UPIhHL/VDjqN2yeggdO0
-	dMcnvbOtd+vQLYHs+PyisCjfrk0FOrWzCs4DKyw9nx11jcNZ4/ZHA127S1Jr1cB546sMXwmUBm3Zb
-	DLPM5g9voWB9exJ6zYuoBTMA6DB6FndIgpCfYo/LupEJV3Icq39mw7uTvZ90YOYPMwpKocpqNhWRM
-	Lys2KebQ==;
+	bh=PgnY2LDpwCEHVfHDzx6Mpz6oO/Y3tX9Qvr8TXBm5FVM=; b=K6pb47333vulbgB56zJYXIRYMn
+	2aWzxVo59YjdYsWLcTM83QJqUJXOcsS0mUJFgGOqAA97lWCunQ+BT6Qe53r7ZT8PZwwUaVTnE0ct6
+	8f2PCZw2hkXKfR4+bKhtH4GYCxke+Z9EXT/EAzmBpE8Y0a0nnNGTCXELN6J/8bmgGWvOSSipQskqi
+	xmp248I87rTFDQVfBFccsehyZc32QWm+ALCq1DMHs0uw5TltB/5ra7LQu3eWL8GZaXoKOR5q4TaNj
+	MjxWfmm3QiQxd0JpUN1HmfrxygNSZLZMnd2w/Z3xiLumgz5k/jhJpmdELIeVHZgzFlr5uHBLwGAeU
+	Qdp/mRQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWG9Q-00000008iQL-2ESv;
-	Thu, 18 Dec 2025 15:42:48 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vWGA2-00000008iYh-1uPF;
+	Thu, 18 Dec 2025 15:43:26 +0000
+Received: from mail-northeuropeazon11011000.outbound.protection.outlook.com ([52.101.65.0] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWG9N-00000008iPc-3DTe
+	id 1vWGA0-00000008iXM-08a0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 15:42:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1A7C1439BC;
-	Thu, 18 Dec 2025 15:42:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95098C4CEFB;
-	Thu, 18 Dec 2025 15:42:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766072565;
-	bh=u4pzgn19zzh6pk94f2B8qkZKBgBtmzCGKXUbNPKmdFo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EzBb8jG53DAfGL0PKssZWRI5h2nlwaTG3OUbgWFBHCxUG9EP0sW9nkxutFWT5jRZi
-	 pVqehyy1xZtzcdpj6/i93szAcdSBzesgEyUKXP3ICJFTw4xvg4wq089jlmWfr0U6Iw
-	 GCEkPDnAQymQL/j4BIWdRopx+mqipo9y3ronq3c+z1K8eykuy5pU72fwjnT15h1tz+
-	 t3Avqh1zmcaVQrLVxznfqo8T28l5wRKoXZSUy7KK160iY1pU/bs7+s0WSrx/bHuaiZ
-	 Hnd2GNNOY+oG1oJsiDYaQpGinpbNP59bOjUH0kZlnvKa/p1zlR/IGu8FwqTUrpdy+q
-	 VUW3Dv3tsW4vA==
-Received: from mchehab by mail.kernel.org with local (Exim 4.99)
-	(envelope-from <mchehab+huawei@kernel.org>)
-	id 1vWG9K-00000004fww-2h5U;
-	Thu, 18 Dec 2025 16:42:42 +0100
-Date: Thu, 18 Dec 2025 16:42:42 +0100
-From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-To: Ahmed Tiba <ahmed.tiba@arm.com>
-Cc: linux-acpi@vger.kernel.org, devicetree@vger.kernel.org, 
-	tony.luck@intel.com, bp@alien8.de, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, rafael@kernel.org, linux-doc@vger.kernel.org, 
-	Dmitry.Lamerov@arm.com, Michael.Zhao2@arm.com
-Subject: Re: [PATCH 02/12] ras: add estatus core implementation
-Message-ID: <6vlj35rmfm7dzjdngxibaygcgmcj3h2ibhuqnoeqqrsrxmsqbt@qpqnm5xndok6>
-References: <20251217112845.1814119-1-ahmed.tiba@arm.com>
- <20251217112845.1814119-3-ahmed.tiba@arm.com>
-MIME-Version: 1.0
+	Thu, 18 Dec 2025 15:43:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZiRiYnd7LwfL3+GR9BGAy517WyL7saDVPjHREPAhwRZ9bDwWLXum7w5G7wwZ6ViYsXz8PaUkV12zOswqciAN4i1BaP0s7CakfzzkCi9WPl3sJcncd/WmBNbC7tpHqE2BljLO4Ny2BrKbS4EOAHnOiWmTYD8T7bsbUeNDb+/aY3phhAGyrs2tFvDYWqdhTcVPqonhuQT0zT+dkJp38hCQxvTk7TZO1CySyfcWD+2t6hkIbr3J2zEK6CKuKNxq824huKw1zTikuvy0PYQKD+wFiE+toLdcRSvAiVKWWEcLcdPKr0NHSX+Q1lk6Tj3fkHBOfm7A9IzXWE8z1lQh/UDCcg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=PgnY2LDpwCEHVfHDzx6Mpz6oO/Y3tX9Qvr8TXBm5FVM=;
+ b=zOvG3gvteHwNQz9BbKhfgFSOIs/FuGkFoS4NGxVoZZuPvQzKmEpsqUQd27E41DAbNPLSzMlVN/E5OM71oYXPWOKFMKfY5+NgkCw5cHrWt7UfVrFDifMGLVGjBmmcXclgxTaat/Y9838rbbaw0g6G/wQVoXxGTYlpmnqWHZcJvYS0HoPRrtX5RpasqTZ8engdYF01M7H0O7clmeFckWebhaF0EAnTew4EbRiA7ayhZqZ+Ko7kFGa2/9PMb/cPAs/d1tnMLHeAnvzxOGnRIikBl2L7fnIrIlhhZ1UXKTntK3tlyCGmyl4BuM9p11eFpBvj8nuNVG0GaHMpKWvES7V23g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=PgnY2LDpwCEHVfHDzx6Mpz6oO/Y3tX9Qvr8TXBm5FVM=;
+ b=mHJrWKe+Nd3tocai3q8WPb8yS0N8BYEeAROBtSq7qsLvXOR1KO8NrEB5yqetY/KS9aI0P+3scSfkOBsrBxy70qyYeLX1mtsb0xoU2ZD8YKZi4BndNif0hnGjDm/Dcbym8dA/WnCmYEv21v8dklJvkuA70Vi5AY+8nCDZt4TFVc4tpaxLD0Fj+1Sr8riQ2LgYaI6sljNGeCkQIm+KjrvkuAFaIM3pTHeeZaX/hhy+kxmXmZ+GsObEyV2i6zezscfNjLic9oXKuN1O95ZwX86gh+FzFnKYHu5AQNFsQV55kvA7dWpJbRtSLW4e4RxcH7w/RoDSPcOWq1QoQPmyG/2QFw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
+ by VE1PR04MB7310.eurprd04.prod.outlook.com (2603:10a6:800:1a2::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.6; Thu, 18 Dec
+ 2025 15:43:19 +0000
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9434.001; Thu, 18 Dec 2025
+ 15:43:18 +0000
+Date: Thu, 18 Dec 2025 10:43:11 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH 2/3] soc: imx: Use dev_err_probe() for i.MX9
+Message-ID: <aUQhDwPP1nNAPG0b@lizhi-Precision-Tower-5810>
+References: <20251217-soc-imx9-fix-v1-0-0c763c2dbe29@nxp.com>
+ <20251217-soc-imx9-fix-v1-2-0c763c2dbe29@nxp.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251217112845.1814119-3-ahmed.tiba@arm.com>
+In-Reply-To: <20251217-soc-imx9-fix-v1-2-0c763c2dbe29@nxp.com>
+X-ClientProxiedBy: PH8PR20CA0005.namprd20.prod.outlook.com
+ (2603:10b6:510:23c::13) To DU2PR04MB8951.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e2::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|VE1PR04MB7310:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9d08f6be-49da-4218-ad40-08de3e4c2a9e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|376014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Si3PBiJiEJXMDNZZ2a3pP9LZfXmDP6TGWWychjoITCPxe0SvceBQXWBMkEFU?=
+ =?us-ascii?Q?u0LT8REPloCtJucikqD6+Y+65OnOs5M+3hkBw0fELgpH6NHd3ziWZtZ4RwPa?=
+ =?us-ascii?Q?/5p3RsACd3B0Es2pDxCGCez6pPcIwTt85OYQHa8cRInfVAlhZTxEIR6v8tUS?=
+ =?us-ascii?Q?iZ4ER9e+YTsD1KADl93Nxd1JC7lYyfZ/upaQsE64lYIEX4oBjVJMR+2minxp?=
+ =?us-ascii?Q?t3FnIzJTua12M7MKE9uxnNLHT5fBuhpzcK4r4Zj5gOqqYn+rES84+TYEdreP?=
+ =?us-ascii?Q?cbWf5zpPVVEhtoaG+lZXQEMN0Kt4WOAr+FASEwJI142h/vz3L1nh8IVseAel?=
+ =?us-ascii?Q?vq4vUBxJCWD5XtmUJnH6NBFdCQ6Bq2GK7koZCybJQNwLHA0ZKedXMAkxpvF1?=
+ =?us-ascii?Q?BjmxsHJwamzwcWON7VLcrJPryEzEeCJQgpi4eWntFtN1ff8tDLaby1dYteQ9?=
+ =?us-ascii?Q?gI5u63TNFUZixQo6aq5fFNx+LIbkTpbyl9UWMsL8LCLWTQ27UijITF/UtCcz?=
+ =?us-ascii?Q?Rn8W8qE5sruVk1GzDQLAa1Vw48oH6v2H/MRT3MeEOLeoipkr3BicCKWPvBsC?=
+ =?us-ascii?Q?sC/p873Y7Fh/JBKUDOVNN9oUXgba6vXzN0wIj5ZpAkZ0ewhBJRvBk+DPwypa?=
+ =?us-ascii?Q?CJQJkaUZJd4nDG/C2+fEROTkhjQy1TqEQPjBsPZSJJ9UNAkLOLSktterAyoP?=
+ =?us-ascii?Q?UFbXOUfg3zhmjUfx0O1WZJA9C0ukIEhN1XQtrRYO+fasm/dEud6mMXnosqiW?=
+ =?us-ascii?Q?OHJIZ4Ewl/sqmGXZq7WmxTQx0EnjALUHqjyEytt+SyVvpBqC/qQLfhHOrEka?=
+ =?us-ascii?Q?P3+FK9QqcMQlejyZhgQbqyopHkRkUDx1T7vyFK+yeVfoA9a2xiMm29nFG0JQ?=
+ =?us-ascii?Q?lwG2f8GUA2HMAakjJ9qT1TgcJA2HOZIVXmx4Ua3ku+zxfbCAHHb9EVXPoHFv?=
+ =?us-ascii?Q?0Nwql6k+EWlhz/QpeVIkMXbD78nGIEc9Iz7R9GKLy9r/PLAGqaRwU5IUfZv2?=
+ =?us-ascii?Q?j5g35WZEW+S4J3tmTHBuK/pYSRJ8W03SU75bxbCxCXQz42JTEf+YACMpzxdS?=
+ =?us-ascii?Q?yfMQPg7A4HPKoIIlN+eE8nKVxMTY2E+MGZXv6/2k2z8k0bYPLhYXPlW98qjg?=
+ =?us-ascii?Q?TcnL0bMcgFddk6n6x3KXS9eWHZjhKMds4YagXJNcJrrLEBHolCG04e6uODMt?=
+ =?us-ascii?Q?OWowzIHOnsJK5BGzmyfKDQj+5+oSdFlglgz6UsL3djkJ2i+SwTkFJQZv1T6K?=
+ =?us-ascii?Q?AMdy3FU3HvAZs0kwkCtE2tc7mlbZCukDgEygYZoHIJj5U+uDIq83plpGZDRz?=
+ =?us-ascii?Q?fwc+fC7Cfv6BF71H3GOpTbhTvy/Sj0S1+Y2EFFE4oSg/WmVSrQ03askvpQm+?=
+ =?us-ascii?Q?lBnHvGWYD31evOyQ4tFaRVl70A2sIXFlKfNZ+NJz2WN/nKtaraoMO09qOsrR?=
+ =?us-ascii?Q?TSTP8P83ctnIxuywybnrDGH0TdIqWxsV+d+oATpfKmcQu8hcaUyj2RxLpeXa?=
+ =?us-ascii?Q?F6EhEOPdhU2j87G2C9LujbDKSDY0r0ox5TEf?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(376014)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?OurBA984MGLO2/vzpLPnoCnenDoTNy/ztzChiSGvZ+Apo2PKPo5VpQ7bzj1y?=
+ =?us-ascii?Q?/HRQiqr8kGse8j1fp4lP6UeBLSIJvymbveCun+nJ2AIDrkqe4l82MQb/do24?=
+ =?us-ascii?Q?DrWSGGqHibdA+ycZHKWNl4GV6T6Re1lEHERuRb7Ez4X2t5mp0VtOGEQi+swp?=
+ =?us-ascii?Q?hvT5eZQOYWDqEd/7YFFMAXRHGTc1Mg1C/IpYkngZZfGU6ejPme26k6ChVPfq?=
+ =?us-ascii?Q?CNupjqsPspzATegwJ/qdLIakzslmuwl5XSZcyoVN3vT2msdKBNmsa0TROjjf?=
+ =?us-ascii?Q?6VuZPHmHJSMOtl+Agg10AFgM09bNv7mbUt3GEdxbtnI1WrkWcK55CqI35tnt?=
+ =?us-ascii?Q?rg3C5sx+I4UMsWOJaLB2CBLTH0ATXsVYYpWCvyefbwWC3HXvFk0LXiXHqWJI?=
+ =?us-ascii?Q?Fc/cWjmZq6Ho752pwV/D2LdbKJU3+zFnZjDzOJJz+OyR4tj8Z2zMFqGiH+37?=
+ =?us-ascii?Q?+nImBwY1u+GoG5JJymWcmXWSBOanEqGIE72mycXnqDTo8S0ou4s8MBstnVr3?=
+ =?us-ascii?Q?Qn08Sy6nyq1SSLcwzkQjQggwsTMle/Nhuym8ltwoKlmpPfruA1IiRe9U76Nv?=
+ =?us-ascii?Q?fIjdY4GbNEIQEKoOghGHP/qbkp5iUf0mVLXtKOz4He5D/0vjb/qkS7WU6+xg?=
+ =?us-ascii?Q?+5vdohvqv5AAJ3A8RnDJm1jTAQcMLrRVmbpwg4P9LNnzZoqBmF1SXnB8F+27?=
+ =?us-ascii?Q?dMbKUKvhEWUTmCFwznYZ+us21pW5G/CLtjXQWgx9H2Qy4/fY0UQLKR2UHi1Z?=
+ =?us-ascii?Q?Q3mG18ZihYjM7Ymy/Xt/0SCB53YYpnLuYkFbDIfdG2UwM/vFVZws9loeWz3L?=
+ =?us-ascii?Q?C/7OaVXwhShyheww2LhAu5Ph89qleBVm5kdWrobMymc5V1JAR4jfFBO3qdkA?=
+ =?us-ascii?Q?vapBeynDRaXJ/ZBW0TswCWufp5WAIYFlh4NA/AoBA2s7cZCikvhWsJMUKynh?=
+ =?us-ascii?Q?qB9Rwl8wO8cTki/uRuK0si/QWjnazNw7+rY0DQ4PDk7eodhv+KKJC7DsiFtK?=
+ =?us-ascii?Q?pUC0r6Rubc2W3SFMYUCKeKZzCDj6xiB3xLf8kIUBfqLX58gNQRJqcHtZp9Ue?=
+ =?us-ascii?Q?gsxNbwmYZlvzrCB4Uqg3r2sF6R/coAhC0h8DCNbYtC5oRORbyI9oaWuaxvQ2?=
+ =?us-ascii?Q?6ug5+SnjrWjoY0S4AUkH/GuWJG0gfs9QqUeihOYtl/qJNKjB/05jj9cjjsi+?=
+ =?us-ascii?Q?TP7a7fZ08OQQ5xZjVW4KXUMKcqRV/jrP+6K++kyRFshOgl1FP73czWkwtcTN?=
+ =?us-ascii?Q?BNL5lfA6XaTMvjPBc1CWpQb4O1IGT4xIrB7ui9d0jqAGXDr01MRE4C+dTt6I?=
+ =?us-ascii?Q?i9QPEsH4Z9LgFoXOGAobyvUgk3D55gUOFp/csY6xd2t0Ipzu0Ao4MoE0dbaf?=
+ =?us-ascii?Q?pNO/xuVGJ54vnwqHRtyAe6kG5yBXMkQpuazMxCLjCPqPQOWaq6ZMod0i57bu?=
+ =?us-ascii?Q?GiWNA9aBRTmxR0Sf2Mrol98wJO74nOpXeFAVcZ89mt/xJqNN4xER2AffTyXK?=
+ =?us-ascii?Q?FEOFL8LtXwQnABwkCy+VTwCRrmI0LAe1tjx3yCZFOXuu//adAQq17iF1YoIQ?=
+ =?us-ascii?Q?cmTDqOlKBW0vbsIH1wixT18QXbYspW+8wKFvBgd3?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9d08f6be-49da-4218-ad40-08de3e4c2a9e
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Dec 2025 15:43:18.8678
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZOKG9ftat9ZLGTmw24RtHe3y3rvEsszVb+X4TnePHaG2KHI9yhafhbRmE/Z1qOglnjWvXinHmLwl/sFD5g+p/A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR04MB7310
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_074245_863005_D7FDAF2F 
-X-CRM114-Status: GOOD (  32.68  )
+X-CRM114-CacheID: sfid-20251218_074324_085990_0DCC2C1C 
+X-CRM114-Status: GOOD (  17.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,641 +160,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 17, 2025 at 11:28:35AM +0000, Ahmed Tiba wrote:
-> Add estatus.c, hook it into the EFI Makefile, and register
-> the MAINTAINERS entry for the new code. The implementation provides the
-> memory-pool helpers, notifier plumbing, and utility functions that the
-> GHES and DeviceTree providers will reuse in later commits.
-> 
-> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
+On Wed, Dec 17, 2025 at 08:42:08PM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
+>
+> Use dev_err_probe() to simplify code. No functional changes.
+>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 > ---
->  MAINTAINERS                    |   1 +
->  drivers/firmware/efi/Makefile  |   1 +
->  drivers/firmware/efi/estatus.c | 560 +++++++++++++++++++++++++++++++++
 
-If I'm understanding this patch series, you will be basically moving more than
-half of the code from drivers/acpi/apei/ghes.c to drivers/firmware/efi/estatus.c:
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
- drivers/acpi/apei/ghes.c                   | 1292 ++-------------
- drivers/firmware/efi/estatus.c             | 1056 ++++++++++++
-
- $ wc drivers/acpi/apei/ghes.c drivers/firmware/efi/estatus.c -l
-  894 drivers/acpi/apei/ghes.c
- 1056 drivers/firmware/efi/estatus.c
- 1950 total
-
-The way you're doing of adding things first, and then removing on
-separate patches is error prone, makes it hard to review and 
-it becomes a lot harder to identify whose are the original authors
-of the code.
-
-This will cause undetected conflicts with already-submitted patches
-that are under review.
-
-You should instead be moving function per function as-is. Then,
-adjust the code to make it more generic.
-
-Regards,
-Mauro
-
->  3 files changed, 562 insertions(+)
->  create mode 100644 drivers/firmware/efi/estatus.c
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 501b6d300aa5..67d79d4e612d 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -21760,6 +21760,7 @@ F:	drivers/rapidio/
->  RAS ERROR STATUS
->  M:	Ahmed Tiba <ahmed.tiba@arm.com>
->  S:	Maintained
-> +F:	drivers/firmware/efi/estatus.c
->  F:	include/linux/estatus.h
->  
->  RAS INFRASTRUCTURE
-> diff --git a/drivers/firmware/efi/Makefile b/drivers/firmware/efi/Makefile
-> index 8efbcf699e4f..03708d915bcf 100644
-> --- a/drivers/firmware/efi/Makefile
-> +++ b/drivers/firmware/efi/Makefile
-> @@ -20,6 +20,7 @@ obj-$(CONFIG_EFI_PARAMS_FROM_FDT)	+= fdtparams.o
->  obj-$(CONFIG_EFI_ESRT)			+= esrt.o
->  obj-$(CONFIG_EFI_VARS_PSTORE)		+= efi-pstore.o
->  obj-$(CONFIG_UEFI_CPER)			+= cper.o cper_cxl.o
-> +obj-$(CONFIG_RAS_ESTATUS_CORE)		+= estatus.o
->  obj-$(CONFIG_EFI_RUNTIME_WRAPPERS)	+= runtime-wrappers.o
->  subdir-$(CONFIG_EFI_STUB)		+= libstub
->  obj-$(CONFIG_EFI_BOOTLOADER_CONTROL)	+= efibc.o
-> diff --git a/drivers/firmware/efi/estatus.c b/drivers/firmware/efi/estatus.c
-> new file mode 100644
-> index 000000000000..8dae5c73ce27
-> --- /dev/null
-> +++ b/drivers/firmware/efi/estatus.c
-> @@ -0,0 +1,560 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Firmware-first RAS: Generic Error Status Core
-> + *
-> + * Copyright (C) 2025 ARM Ltd.
-> + * Author: Ahmed Tiba <ahmed.tiba@arm.com>
-> + */
-> +
-> +#include <linux/kernel.h>
-> +#include <linux/cper.h>
-> +#include <linux/ratelimit.h>
-> +#include <linux/vmalloc.h>
-> +#include <linux/llist.h>
-> +#include <linux/genalloc.h>
-> +#include <linux/pci.h>
-> +#include <linux/pfn.h>
-> +#include <linux/aer.h>
-> +#include <linux/nmi.h>
-> +#include <linux/sched/clock.h>
-> +#include <linux/uuid.h>
-> +#include <linux/kconfig.h>
-> +#include <linux/ras.h>
-> +#include <linux/mutex.h>
-> +#include <linux/notifier.h>
-> +#include <linux/workqueue.h>
-> +#include <linux/task_work.h>
-> +#include <ras/ras_event.h>
-> +
-> +#include <linux/estatus.h>
-> +#include <asm/fixmap.h>
-> +
-> +void estatus_pool_region_free(unsigned long addr, u32 size);
-> +
-> +static void estatus_log_hw_error(char level, const char *seq_tag,
-> +				 const char *name)
-> +{
-> +	switch (level) {
-> +	case '0':
-> +		pr_emerg("%sHardware error from %s\n", seq_tag, name);
-> +		break;
-> +	case '1':
-> +		pr_alert("%sHardware error from %s\n", seq_tag, name);
-> +		break;
-> +	case '2':
-> +		pr_crit("%sHardware error from %s\n", seq_tag, name);
-> +		break;
-> +	case '3':
-> +		pr_err("%sHardware error from %s\n", seq_tag, name);
-> +		break;
-> +	case '4':
-> +		pr_warn("%sHardware error from %s\n", seq_tag, name);
-> +		break;
-> +	case '5':
-> +		pr_notice("%sHardware error from %s\n", seq_tag, name);
-> +		break;
-> +	case '6':
-> +		pr_info("%sHardware error from %s\n", seq_tag, name);
-> +		break;
-> +	default:
-> +		pr_debug("%sHardware error from %s\n", seq_tag, name);
-> +		break;
-> +	}
-> +}
-> +
-> +static inline u32 estatus_len(struct acpi_hest_generic_status *estatus)
-> +{
-> +	if (estatus->raw_data_length)
-> +		return estatus->raw_data_offset + estatus->raw_data_length;
-> +
-> +	return sizeof(*estatus) + estatus->data_length;
-> +}
-> +
-> +#define ESTATUS_PFX	"ESTATUS: "
-> +
-> +#define ESTATUS_ESOURCE_PREALLOC_MAX_SIZE_SIZE	65536
-> +
-> +#define ESTATUS_POOL_MIN_ALLOC_ORDER 3
-> +
-> +/* This is just an estimation for memory pool allocation */
-> +#define ESTATUS_CACHE_AVG_SIZE	512
-> +
-> +#define ESTATUS_CACHES_SIZE	4
-> +
-> +#define ESTATUS_IN_CACHE_MAX_NSEC	10000000000ULL
-> +/* Prevent too many caches are allocated because of RCU */
-> +#define ESTATUS_CACHE_ALLOCED_MAX	(ESTATUS_CACHES_SIZE * 3 / 2)
-> +
-> +#define ESTATUS_CACHE_LEN(estatus_len)			\
-> +	(sizeof(struct estatus_cache) + (estatus_len))
-> +#define ESTATUS_FROM_CACHE(cache)			\
-> +	((struct acpi_hest_generic_status *)		\
-> +	 ((struct estatus_cache *)(cache) + 1))
-> +
-> +#define ESTATUS_NODE_LEN(estatus_len)			\
-> +	(sizeof(struct estatus_node) + (estatus_len))
-> +#define ESTATUS_FROM_NODE(node)				\
-> +	((struct acpi_hest_generic_status *)		\
-> +	 ((struct estatus_node *)(node) + 1))
-> +
-> +#define ESTATUS_VENDOR_ENTRY_LEN(gdata_len)		\
-> +	(sizeof(struct estatus_vendor_record_entry) + (gdata_len))
-> +#define ESTATUS_GDATA_FROM_VENDOR_ENTRY(vendor_entry)	\
-> +	((struct acpi_hest_generic_data *)		\
-> +	((struct estatus_vendor_record_entry *)(vendor_entry) + 1))
-> +
-> +static ATOMIC_NOTIFIER_HEAD(estatus_report_chain);
-> +
-> +struct estatus_vendor_record_entry {
-> +	struct work_struct work;
-> +	int error_severity;
-> +	char vendor_record[];
-> +};
-> +
-> +static struct estatus_cache __rcu *estatus_caches[ESTATUS_CACHES_SIZE];
-> +static atomic_t estatus_cache_alloced;
-> +
-> +static int estatus_panic_timeout __read_mostly = 30;
-> +
-> +static struct gen_pool *estatus_pool;
-> +static DEFINE_MUTEX(estatus_pool_mutex);
-> +
-> +static inline const char *estatus_source_name(struct estatus_source *source)
-> +{
-> +	if (source->ops && source->ops->get_name)
-> +		return source->ops->get_name(source);
-> +
-> +	return "unknown";
-> +}
-> +
-> +static inline size_t estatus_source_max_len(struct estatus_source *source)
-> +{
-> +	if (source->ops && source->ops->get_max_len)
-> +		return source->ops->get_max_len(source);
-> +
-> +	return 0;
-> +}
-> +
-> +static inline enum estatus_notify_mode
-> +estatus_source_notify_mode(struct estatus_source *source)
-> +{
-> +	if (source->ops && source->ops->get_notify_mode)
-> +		return source->ops->get_notify_mode(source);
-> +
-> +	return ESTATUS_NOTIFY_ASYNC;
-> +}
-> +
-> +static inline int estatus_source_get_phys(struct estatus_source *source,
-> +					  phys_addr_t *addr)
-> +{
-> +	if (!source->ops || !source->ops->get_phys)
-> +		return -EOPNOTSUPP;
-> +
-> +	return source->ops->get_phys(source, addr);
-> +}
-> +
-> +static inline int estatus_source_read(struct estatus_source *source,
-> +				      phys_addr_t addr, void *buf, size_t len,
-> +				      enum fixed_addresses fixmap_idx)
-> +{
-> +	if (!source->ops || !source->ops->read)
-> +		return -EOPNOTSUPP;
-> +
-> +	return source->ops->read(source, addr, buf, len, fixmap_idx);
-> +}
-> +
-> +static inline int estatus_source_write(struct estatus_source *source,
-> +				       phys_addr_t addr, const void *buf,
-> +				       size_t len,
-> +				       enum fixed_addresses fixmap_idx)
-> +{
-> +	if (!source->ops || !source->ops->write)
-> +		return -EOPNOTSUPP;
-> +
-> +	return source->ops->write(source, addr, buf, len, fixmap_idx);
-> +}
-> +
-> +static inline void estatus_source_ack(struct estatus_source *source)
-> +{
-> +	if (source->ops && source->ops->ack)
-> +		source->ops->ack(source);
-> +}
-> +
-> +int estatus_pool_init(unsigned int num_ghes)
-> +{
-> +	unsigned long addr, len;
-> +	int rc = 0;
-> +
-> +	mutex_lock(&estatus_pool_mutex);
-> +	if (estatus_pool)
-> +		goto out_unlock;
-> +
-> +	estatus_pool = gen_pool_create(ESTATUS_POOL_MIN_ALLOC_ORDER, -1);
-> +	if (!estatus_pool) {
-> +		rc = -ENOMEM;
-> +		goto out_unlock;
-> +	}
-> +
-> +	if (!num_ghes)
-> +		num_ghes = 1;
-> +
-> +	len = ESTATUS_CACHE_AVG_SIZE * ESTATUS_CACHE_ALLOCED_MAX;
-> +	len += (num_ghes * ESTATUS_ESOURCE_PREALLOC_MAX_SIZE_SIZE);
-> +
-> +	addr = (unsigned long)vmalloc(PAGE_ALIGN(len));
-> +	if (!addr) {
-> +		rc = -ENOMEM;
-> +		goto err_pool_alloc;
-> +	}
-> +
-> +	rc = gen_pool_add(estatus_pool, addr, PAGE_ALIGN(len), -1);
-> +	if (rc)
-> +		goto err_pool_add;
-> +
-> +out_unlock:
-> +	mutex_unlock(&estatus_pool_mutex);
-> +	return rc;
-> +
-> +err_pool_add:
-> +	vfree((void *)addr);
-> +err_pool_alloc:
-> +	gen_pool_destroy(estatus_pool);
-> +	estatus_pool = NULL;
-> +	goto out_unlock;
-> +}
-> +
-> +/**
-> + * estatus_pool_region_free - free previously allocated memory
-> + *				   from the estatus_pool.
-> + * @addr: address of memory to free.
-> + * @size: size of memory to free.
-> + *
-> + * Returns none.
-> + */
-> +void estatus_pool_region_free(unsigned long addr, u32 size)
-> +{
-> +	gen_pool_free(estatus_pool, addr, size);
-> +}
-> +EXPORT_SYMBOL_GPL(estatus_pool_region_free);
-> +
-> +/* Check the top-level record header has an appropriate size. */
-> +static int __estatus_check_estatus(struct estatus_source *source,
-> +				   struct acpi_hest_generic_status *estatus)
-> +{
-> +	u32 len = estatus_len(estatus);
-> +	size_t max_len = estatus_source_max_len(source);
-> +
-> +	if (len < sizeof(*estatus)) {
-> +		pr_warn_ratelimited(FW_WARN ESTATUS_PFX "Truncated error status block!\n");
-> +		return -EIO;
-> +	}
-> +
-> +	if (max_len && len > max_len) {
-> +		pr_warn_ratelimited(FW_WARN ESTATUS_PFX "Invalid error status block length!\n");
-> +		return -EIO;
-> +	}
-> +
-> +	if (cper_estatus_check_header(estatus)) {
-> +		pr_warn_ratelimited(FW_WARN ESTATUS_PFX "Invalid CPER header!\n");
-> +		return -EIO;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +/* Read the CPER block, returning its address, and header in estatus. */
-> +static int __estatus_peek_estatus(struct estatus_source *source,
-> +				  struct acpi_hest_generic_status *estatus,
-> +				  phys_addr_t *buf_paddr,
-> +				  enum fixed_addresses fixmap_idx)
-> +{
-> +	int rc;
-> +
-> +	rc = estatus_source_get_phys(source, buf_paddr);
-> +	if (rc) {
-> +		*buf_paddr = 0;
-> +		pr_warn_ratelimited(FW_WARN ESTATUS_PFX
-> +				    "Failed to get error status block address for provider %s: %d\n",
-> +				    estatus_source_name(source), rc);
-> +		return rc;
-> +	}
-> +
-> +	if (!*buf_paddr)
-> +		return -ENOENT;
-> +
-> +	rc = estatus_source_read(source, *buf_paddr, estatus,
-> +				 sizeof(*estatus), fixmap_idx);
-> +	if (rc)
-> +		return rc;
-> +
-> +	if (!estatus->block_status) {
-> +		*buf_paddr = 0;
-> +		return -ENOENT;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int __estatus_read_estatus(struct estatus_source *source,
-> +				  struct acpi_hest_generic_status *estatus,
-> +				  phys_addr_t buf_paddr,
-> +				  enum fixed_addresses fixmap_idx,
-> +				  size_t buf_len)
-> +{
-> +	int rc;
-> +
-> +	rc = estatus_source_read(source, buf_paddr, estatus, buf_len,
-> +				 fixmap_idx);
-> +	if (rc)
-> +		return rc;
-> +
-> +	if (cper_estatus_check(estatus)) {
-> +		pr_warn_ratelimited(FW_WARN ESTATUS_PFX
-> +				    "Failed to read error status block for provider %s!\n",
-> +				    estatus_source_name(source));
-> +		return -EIO;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int estatus_read_estatus(struct estatus_source *source,
-> +				struct acpi_hest_generic_status *estatus,
-> +				phys_addr_t *buf_paddr,
-> +				enum fixed_addresses fixmap_idx)
-> +{
-> +	int rc;
-> +
-> +	rc = __estatus_peek_estatus(source, estatus, buf_paddr, fixmap_idx);
-> +	if (rc)
-> +		return rc;
-> +
-> +	rc = __estatus_check_estatus(source, estatus);
-> +	if (rc)
-> +		return rc;
-> +
-> +	return __estatus_read_estatus(source, estatus, *buf_paddr,
-> +				      fixmap_idx, estatus_len(estatus));
-> +}
-> +
-> +static void estatus_clear_estatus(struct estatus_source *source,
-> +				  struct acpi_hest_generic_status *estatus,
-> +				  phys_addr_t buf_paddr,
-> +				  enum fixed_addresses fixmap_idx)
-> +{
-> +	int rc;
-> +
-> +	estatus->block_status = 0;
-> +
-> +	if (!buf_paddr)
-> +		return;
-> +
-> +	rc = estatus_source_write(source, buf_paddr, estatus,
-> +				  sizeof(estatus->block_status), fixmap_idx);
-> +	if (rc)
-> +		pr_warn_ratelimited(FW_WARN ESTATUS_PFX
-> +				    "Failed to clear error status block for provider %s: %d\n",
-> +				    estatus_source_name(source), rc);
-> +
-> +	estatus_source_ack(source);
-> +}
-> +
-> +static inline int estatus_severity(int severity)
-> +{
-> +	switch (severity) {
-> +	case CPER_SEV_INFORMATIONAL:
-> +		return ESTATUS_SEV_NO;
-> +	case CPER_SEV_CORRECTED:
-> +		return ESTATUS_SEV_CORRECTED;
-> +	case CPER_SEV_RECOVERABLE:
-> +		return ESTATUS_SEV_RECOVERABLE;
-> +	case CPER_SEV_FATAL:
-> +		return ESTATUS_SEV_PANIC;
-> +	default:
-> +		/* Unknown, go panic */
-> +		return ESTATUS_SEV_PANIC;
-> +	}
-> +}
-> +
-> +static void __estatus_print_estatus(const char *pfx,
-> +				    struct estatus_source *source,
-> +				    const struct acpi_hest_generic_status *estatus)
-> +{
-> +	static atomic_t seqno;
-> +	unsigned int curr_seqno;
-> +	char pfx_seq[64];
-> +	char seq_tag[64];
-> +	const char *name = estatus_source_name(source);
-> +	const char *level = pfx;
-> +	char level_char = '4';
-> +
-> +	if (!level) {
-> +		if (estatus_severity(estatus->error_severity) <=
-> +		    ESTATUS_SEV_CORRECTED)
-> +			level = KERN_WARNING;
-> +		else
-> +			level = KERN_ERR;
-> +	}
-> +
-> +	if (level[0] == KERN_SOH_ASCII && level[1])
-> +		level_char = level[1];
-> +	else if (estatus_severity(estatus->error_severity) > ESTATUS_SEV_CORRECTED)
-> +		level_char = '3';
-> +
-> +	curr_seqno = atomic_inc_return(&seqno);
-> +	snprintf(seq_tag, sizeof(seq_tag), "{%u}" HW_ERR, curr_seqno);
-> +	snprintf(pfx_seq, sizeof(pfx_seq), "%s%s", level, seq_tag);
-> +	estatus_log_hw_error(level_char, seq_tag, name);
-> +	cper_estatus_print(pfx_seq, estatus);
-> +}
-> +
-> +static int estatus_print_estatus(const char *pfx,
-> +				 struct estatus_source *source,
-> +				 const struct acpi_hest_generic_status *estatus)
-> +{
-> +	/* Not more than 2 messages every 5 seconds */
-> +	static DEFINE_RATELIMIT_STATE(ratelimit_corrected, 5 * HZ, 2);
-> +	static DEFINE_RATELIMIT_STATE(ratelimit_uncorrected, 5 * HZ, 2);
-> +	struct ratelimit_state *ratelimit;
-> +
-> +	if (estatus_severity(estatus->error_severity) <= ESTATUS_SEV_CORRECTED)
-> +		ratelimit = &ratelimit_corrected;
-> +	else
-> +		ratelimit = &ratelimit_uncorrected;
-> +	if (__ratelimit(ratelimit)) {
-> +		__estatus_print_estatus(pfx, source, estatus);
-> +		return 1;
-> +	}
-> +	return 0;
-> +}
-> +
-> +/*
-> + * GHES error status reporting throttle, to report more kinds of
-> + * errors, instead of just most frequently occurred errors.
-> + */
-> +static int estatus_cached(struct acpi_hest_generic_status *estatus)
-> +{
-> +	u32 len;
-> +	int i, cached = 0;
-> +	unsigned long long now;
-> +	struct estatus_cache *cache;
-> +	struct acpi_hest_generic_status *cache_estatus;
-> +
-> +	len = estatus_len(estatus);
-> +	rcu_read_lock();
-> +	for (i = 0; i < ESTATUS_CACHES_SIZE; i++) {
-> +		cache = rcu_dereference(estatus_caches[i]);
-> +		if (!cache)
-> +			continue;
-> +		if (len != cache->estatus_len)
-> +			continue;
-> +		cache_estatus = ESTATUS_FROM_CACHE(cache);
-> +		if (memcmp(estatus, cache_estatus, len))
-> +			continue;
-> +		atomic_inc(&cache->count);
-> +		now = sched_clock();
-> +		if (now - cache->time_in < ESTATUS_IN_CACHE_MAX_NSEC)
-> +			cached = 1;
-> +		break;
-> +	}
-> +	rcu_read_unlock();
-> +	return cached;
-> +}
-> +
-> +static struct estatus_cache *estatus_cache_alloc(struct estatus_source *source,
-> +						 struct acpi_hest_generic_status *estatus)
-> +{
-> +	int alloced;
-> +	u32 len, cache_len;
-> +	struct estatus_cache *cache;
-> +	struct acpi_hest_generic_status *cache_estatus;
-> +
-> +	alloced = atomic_add_return(1, &estatus_cache_alloced);
-> +	if (alloced > ESTATUS_CACHE_ALLOCED_MAX) {
-> +		atomic_dec(&estatus_cache_alloced);
-> +		return NULL;
-> +	}
-> +	len = estatus_len(estatus);
-> +	cache_len = ESTATUS_CACHE_LEN(len);
-> +	cache = (void *)gen_pool_alloc(estatus_pool, cache_len);
-> +	if (!cache) {
-> +		atomic_dec(&estatus_cache_alloced);
-> +		return NULL;
-> +	}
-> +	cache_estatus = ESTATUS_FROM_CACHE(cache);
-> +	memcpy(cache_estatus, estatus, len);
-> +	cache->estatus_len = len;
-> +	atomic_set(&cache->count, 0);
-> +	cache->source = source;
-> +	cache->time_in = sched_clock();
-> +	return cache;
-> +}
-> +
-> +static void estatus_cache_rcu_free(struct rcu_head *head)
-> +{
-> +	struct estatus_cache *cache;
-> +	u32 len;
-> +
-> +	cache = container_of(head, struct estatus_cache, rcu);
-> +	len = estatus_len(ESTATUS_FROM_CACHE(cache));
-> +	len = ESTATUS_CACHE_LEN(len);
-> +	gen_pool_free(estatus_pool, (unsigned long)cache, len);
-> +	atomic_dec(&estatus_cache_alloced);
-> +}
-> +
-> +static void estatus_cache_add(struct estatus_source *source,
-> +			      struct acpi_hest_generic_status *estatus)
-> +{
-> +	unsigned long long now, duration, period, max_period = 0;
-> +	struct estatus_cache *cache, *new_cache;
-> +	struct estatus_cache __rcu *victim;
-> +	int i, slot = -1, count;
-> +
-> +	new_cache = estatus_cache_alloc(source, estatus);
-> +	if (!new_cache)
-> +		return;
-> +
-> +	rcu_read_lock();
-> +	now = sched_clock();
-> +	for (i = 0; i < ESTATUS_CACHES_SIZE; i++) {
-> +		cache = rcu_dereference(estatus_caches[i]);
-> +		if (!cache) {
-> +			slot = i;
-> +			break;
-> +		}
-> +		duration = now - cache->time_in;
-> +		if (duration >= ESTATUS_IN_CACHE_MAX_NSEC) {
-> +			slot = i;
-> +			break;
-> +		}
-> +		count = atomic_read(&cache->count);
-> +		period = duration;
-> +		do_div(period, (count + 1));
-> +		if (period > max_period) {
-> +			max_period = period;
-> +			slot = i;
-> +		}
-> +	}
-> +	rcu_read_unlock();
-> +
-> +	if (slot != -1) {
-> +		/*
-> +		 * Use release semantics to ensure that estatus_cached()
-> +		 * running on another CPU will see the updated cache fields if
-> +		 * it can see the new value of the pointer.
-> +		 */
-> +		victim = xchg_release(&estatus_caches[slot],
-> +				      RCU_INITIALIZER(new_cache));
-> +
-> +		/*
-> +		 * At this point, victim may point to a cached item different
-> +		 * from the one based on which we selected the slot. Instead of
-> +		 * going to the loop again to pick another slot, let's just
-> +		 * drop the other item anyway: this may cause a false cache
-> +		 * miss later on, but that won't cause any problems.
-> +		 */
-> +		if (victim)
-> +			call_rcu(&unrcu_pointer(victim)->rcu,
-> +				 estatus_cache_rcu_free);
-> +	}
-> +}
-> -- 
-> 2.43.0
-> 
-
--- 
-Thanks,
-Mauro
+>  drivers/soc/imx/soc-imx9.c | 20 +++++++-------------
+>  1 file changed, 7 insertions(+), 13 deletions(-)
+>
+> diff --git a/drivers/soc/imx/soc-imx9.c b/drivers/soc/imx/soc-imx9.c
+> index 0b1c59c7ddb244549bfeedc47ae6e8d83c20b39b..d9a686299c5f710bb9988c55ed601fc9d9f19229 100644
+> --- a/drivers/soc/imx/soc-imx9.c
+> +++ b/drivers/soc/imx/soc-imx9.c
+> @@ -31,10 +31,8 @@ static int imx9_soc_probe(struct platform_device *pdev)
+>  		return -ENOMEM;
+>
+>  	err = of_property_read_string(of_root, "model", &attr->machine);
+> -	if (err) {
+> -		pr_err("%s: missing model property: %d\n", __func__, err);
+> -		return err;
+> -	}
+> +	if (err)
+> +		return dev_err_probe(dev, err, "%s: missing model property\n", __func__);
+>
+>  	attr->family = devm_kasprintf(dev, GFP_KERNEL, "Freescale i.MX");
+>
+> @@ -46,10 +44,8 @@ static int imx9_soc_probe(struct platform_device *pdev)
+>  	 * res.a3: uid[63:0];
+>  	 */
+>  	arm_smccc_smc(IMX_SIP_GET_SOC_INFO, 0, 0, 0, 0, 0, 0, 0, &res);
+> -	if (res.a0 != SMCCC_RET_SUCCESS) {
+> -		pr_err("%s: SMC failed: 0x%lx\n", __func__, res.a0);
+> -		return -EINVAL;
+> -	}
+> +	if (res.a0 != SMCCC_RET_SUCCESS)
+> +		return dev_err_probe(dev, -EINVAL, "%s: SMC failed: 0x%lx\n", __func__, res.a0);
+>
+>  	soc_id = SOC_ID(res.a1);
+>  	rev_major = SOC_REV_MAJOR(res.a1);
+> @@ -63,11 +59,9 @@ static int imx9_soc_probe(struct platform_device *pdev)
+>  	attr->serial_number = devm_kasprintf(dev, GFP_KERNEL, "%016llx%016llx", uid127_64, uid63_0);
+>
+>  	sdev = soc_device_register(attr);
+> -	if (IS_ERR(sdev)) {
+> -		err = PTR_ERR(sdev);
+> -		pr_err("%s failed to register SoC as a device: %d\n", __func__, err);
+> -		return err;
+> -	}
+> +	if (IS_ERR(sdev))
+> +		return dev_err_probe(dev, PTR_ERR(sdev),
+> +				     "%s failed to register SoC as a device\n", __func__);
+>
+>  	return 0;
+>  }
+>
+> --
+> 2.37.1
+>
 
