@@ -4,113 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83542D6D232
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 16:06:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B70BD6ACDD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 16:10:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fx/7MnzKbr3YxeZnFGavJuld3/LW+80eTryiBnkHVWA=; b=xSQUgUNWSsA4q4AxN+hKjgPvHT
-	JJKkiB6rc0eC3xXf2PuRAbs72AbL2LVyp5MZboNMNxzgsRsrOs5vdDDiXzhsghwplKg41XbFtZZlc
-	QsT1vR+T+3EOWkbq2JaNX91EwU2msQlPe/AZctOuYEkHLVWsAiIiqv4pg4EjPOjW1gFYApN6cva9x
-	sCsQ0ldIvx4v7c+UfF1aMZmcBBHd9CzImjzZ5DykIS1eMYkLwnSnH4pJR5sX60G3hecZ8u2JfJDGO
-	KzaG2siD+obozCgUrllgAFUMx1AhmXppVfUme+bGTgDnd8ZrwjFpuZNjR3JsGpsTpmu1eqEeqEWH3
-	Y0rdH6oA==;
+	bh=WtbpbbpV9bUsJBGaPOSut2qlkR5Ouq49ldE2JFrXQNw=; b=Pvrws/irwRqLvoP3qlsI2vrIyr
+	VNQNWLCEhENUMacXWNeNJYoDL6zosT2XSFbAQ19SUl9xSEOqvjCMhEhzp7IWZT7XnSRbQMPBxVf0b
+	u+JfzlDmFHN+iGUdWUM5q2Ajt72dwrtBCSuNSWl48TKT8f4iekBAZXKi8/bRUy63IUbduT0xMYHEd
+	kXvtkb3yDU/aAAU6Ilgj6lcqdNNKLu4bswxhv8swe8c9ezX5kF2S70JtUQe3gnDTUuG28imJ+p48+
+	FP0FN3i0UGi6JSH+2esVEoVY1xx6ICufi5wdXjFm3FM+TE8Kq/og8oQAQxQE0ftElsYNNIk/7LUCH
+	PckK6vzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWGWF-00000008mhi-3nL8;
-	Thu, 18 Dec 2025 16:06:23 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vWGaa-00000008n3O-2P6Z;
+	Thu, 18 Dec 2025 16:10:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWGWE-00000008mha-0nX4
+	id 1vWGaY-00000008n2k-2fav
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 16:06:22 +0000
+	Thu, 18 Dec 2025 16:10:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8DFD560008;
-	Thu, 18 Dec 2025 16:06:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C20E9C4CEFB;
-	Thu, 18 Dec 2025 16:06:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id ADF6860008;
+	Thu, 18 Dec 2025 16:10:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3E74C4CEFB;
+	Thu, 18 Dec 2025 16:10:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766073981;
-	bh=7TABMIsCse42YAFaYw3ybzBIpztbXVRTGG/2bCRhS/w=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=F9Pm0Yv43VLDk/6u/2XG43NH9QCkfvmLQ7tWTg6OZHRq7g/DyXMsx6g0EMaBlN01I
-	 MY9AgKYj+gabkshxNgBsaBdfuRAAHTfx7fNYLWJl0d9lAfmt1vWSnKdvs2mfxYEfoy
-	 gE+bVnoNHfk/t0L+uwlA4bNXr5xhzUEu4lM3tTs+sVXoustmNarTG0kH9ZT6vUTPQr
-	 CVQ8dM5dJR560fzfsJDp6rj0wgeX8YYStXe2FLi3ZjLOLI8g51T5hDIWYb7f5zz5vA
-	 BL38WPo6s97h2TVXp6VDUo1OTLZAS+cccSOyAqfNA1MGiRYdmiD8NwtQQKBhx8Jjnl
-	 G/6LQbX1JB7+w==
-Message-ID: <e402ac33-c23a-46a1-b67e-097eb2ea7752@kernel.org>
-Date: Thu, 18 Dec 2025 17:06:11 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 3/4] clk: samsung: Implement automatic clock gating
- mode for CMUs
-To: Peter Griffin <peter.griffin@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Sam Protsenko <semen.protsenko@linaro.org>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>
-Cc: Will McVicker <willmcvicker@google.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
- kernel-team@android.com
-References: <20251114-automatic-clocks-v5-0-efb9202ffcd7@linaro.org>
- <20251114-automatic-clocks-v5-3-efb9202ffcd7@linaro.org>
+	s=k20201202; t=1766074249;
+	bh=zlgwqexkBMnoqotoasLnmEGnWT3Dr1HRS4BATSlZwKc=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=l7Y18yQiBkXWcWjcByBadrlPgG0wKuIGVGiFXaBgFzasOninl90Z26tTM9PRFrAi+
+	 vL50jYUJCyB5jQhgUYScc/yR3IVPB8H6dXspE68wvyOvADRxgKDJCwRkCwjKOzFZEi
+	 /H/HIgd6hGptTZBrN7T7AONbHF5T2ohjBwPBBqo6JGiwJaZuCnAypqxJ3CpkFIe/r3
+	 f3vzZtbjS1Kg6zFWoTXSDwFgPoGix+Z0Rz4ikqxVf7R74bWOgR/KoH3pXRvIy/gblI
+	 +pxPx4VojQ1z67lQi+1UlAbt6OW/z4Yc+KQmw/JmazkGiYCsdE5Q3+zrfm7l8eXZ58
+	 XrYW0t0PVNy0Q==
 From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251114-automatic-clocks-v5-3-efb9202ffcd7@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+To: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+ Julius Werner <jwerner@chromium.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, 
+ =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>
+In-Reply-To: <20251118-b4-ddr-bindings-v9-0-a033ac5144da@gmail.com>
+References: <20251118-b4-ddr-bindings-v9-0-a033ac5144da@gmail.com>
+Subject: Re: (subset) [PATCH v9 0/7] Add DDR4 memory-controller bindings
+ and factorise LPDDR and DDR bindings
+Message-Id: <176607424544.18448.1362838186917250806.b4-ty@kernel.org>
+Date: Thu, 18 Dec 2025 17:10:45 +0100
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.14.3
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,61 +78,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/11/2025 15:16, Peter Griffin wrote:
-> Update exynos_arm64_init_clocks() so that it enables the automatic clock
-> mode bits in the CMU option register if the auto_clock_gate flag and
-> option_offset fields are set for the CMU. To ensure compatibility with
-> older DTs (that specified an incorrect CMU reg size), detect this and
-> fallback to manual clock gate mode as the auto clock mode feature depends
-> on registers in this area.
-> 
-> The CMU option register bits are global and effect every clock component in
-> the CMU, as such clearing the GATE_ENABLE_HWACG bit and setting GATE_MANUAL
-> bit on every gate register is only required if auto_clock_gate is false.
-> 
-> Additionally if auto_clock_gate is enabled the dynamic root clock gating
-> and memclk registers will be configured in the corresponding CMUs sysreg
-> bank. These registers are exposed via syscon, so the register
-> samsung_clk_save/restore paths are updated to also take a regmap.
-> 
-> As many gates for various Samsung SoCs are already exposed in the Samsung
-> clock drivers a new samsung_auto_clk_gate_ops is implemented. This uses
-> some CMU debug registers to report whether clocks are enabled or disabled
-> when operating in automatic mode. This allows
-> /sys/kernel/debug/clk/clk_summary to still dump the entire clock tree and
-> correctly report the status of each clock in the system.
-> 
-> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
-> ---
-> Changes in v3:
-> - Add missing 'np' func param to kerneldoc in samsung_cmu_register_clocks
-> (0-DAY CI)
-> 
-> Changes in v2:
-> - Fallback to manual clock gate mode for old DTs with incorrect CMU size
-> (added samsung_is_auto_capable()) (Krzysztof)
-> - Rename OPT_UNKNOWN bit to OPT_EN_LAYER2_CTRL (Andre)
-> - Rename OPT_EN_MEM_PM_GATING to OPT_EN_MEM_PWR_GATING (Andre)
-> - Reverse Option bit definitions LSB -> MSB (Krzysztof)
-> - Update kerneldoc init_clk_regs comment (Andre)
-> - Fix space on various comments (Andre)
-> - Fix regmap typo on samsung_clk_save/restore calls (Andre)
-> - Include error code in pr_err message (Andre)
-> - Add macros for dcrg and memclk (Andre)
-> - Avoid confusing !IS_ERR_OR_NULL(ctx->sysreg) test (Krzysztof)
-> - Update kerneldoc to mention drcg_offset & memclk_offset are in sysreg (Andre)
-> - Fix 0-DAY CI randconfig warning (0-DAY CI)
-> - Update clk-s5pv210 and clk-s3c64xx.c samsung_clk_sleep_init call sites (Peter)
-> ---
 
-This does not apply, please rebase entire set:
+On Tue, 18 Nov 2025 16:07:56 +0100, Clément Le Goffic wrote:
+> Introduce DDR4 bindings, which is the first DDR type to be added.
+> As the DDR and LPDDR use the same properties, factorise them in a
+> sdram-props bindings file and rename lpddr-channel into sdram-channel.
+> 
+> Changes in v9:
+> - In the ddr4 compatible pattern :
+>     s/ddrX-YYYY,AAAA...,ZZ/ddrX-YYYY,AAAA...-ZZ/
+>     The comma before the "ZZ" part has been replaced with a minus.
+> - Add information about how the compatible is constructed in the patch 2:
+>   "dt-bindings: memory: introduce DDR4"
+> - Add Krzysztof Kozlowski's trailer on patch 1
+> - Link to v8: https://lore.kernel.org/r/20250930-b4-ddr-bindings-v8-0-fe4d8c015a50@gmail.com
+> 
+> [...]
 
-Patch failed at 0001 clk: samsung: Implement automatic clock gating mode
-for CMUs
-error: patch failed: drivers/clk/samsung/clk.c:289
-error: drivers/clk/samsung/clk.c: patch does not apply
+Applied, thanks!
 
+[1/7] dt-bindings: memory: factorise LPDDR props into SDRAM props
+      https://git.kernel.org/krzk/linux-mem-ctrl/c/dffaa1beea9e7a0d902fc4e25e137afcf1297267
+[2/7] dt-bindings: memory: introduce DDR4
+      https://git.kernel.org/krzk/linux-mem-ctrl/c/b5c1a217552c3513977a9f1138b05de0bada8a52
+[3/7] dt-bindings: memory: factorise LPDDR channel binding into SDRAM channel
+      https://git.kernel.org/krzk/linux-mem-ctrl/c/6ab3581ab19fa348b93c85a793e45cd8a80912a8
+[4/7] dt-binding: memory: add DDR4 channel compatible
+      https://git.kernel.org/krzk/linux-mem-ctrl/c/36ecc8346747b600892e3040e1d0ecb1e939c6e8
+[5/7] dt-bindings: memory: SDRAM channel: standardise node name
+      https://git.kernel.org/krzk/linux-mem-ctrl/c/9805f2cfc883018f7bf84c84e3af3786c37dac7b
 
 Best regards,
-Krzysztof
+-- 
+Krzysztof Kozlowski <krzk@kernel.org>
+
 
