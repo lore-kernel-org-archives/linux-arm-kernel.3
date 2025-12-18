@@ -4,151 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AA3DD68BE3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 07:18:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7939AD68BE6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 07:21:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:To:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dlCdtJQ1anpazpKP4YhFIpG9WdHdsu82wr7xF3zq20I=; b=olbVPnW1gwv4F16JmnmG0SRwj8
-	9jl9Dl97q9TXDs0nG14blCD5QBWwjctpgyM0wcjo0dd0TEPOFobuVsVfCcnVkCO2vcQJxEvZtY6wI
-	YLH5MIUfYUdFthO7TyvKMhkFatncNZ1lr2Y/tuDkEoj5HfzAZ0ElKozcEQQHonUeyPEQZcEJAbGZe
-	X8jnCjxCb+gSbgQCJsA/xZ5lZSrbCPxxxYlyNc6xl+t1I4I60BTNQU0ydPZPdX7IIRrBqHck6hqaK
-	3guZiKRsRJiKD6X30jo5FgAPRYJBFMcbFbE22ahKVJVxp1RZktcMTf9yHwZVc4oh1XcI95T5/aCck
-	lYRxtP9Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u95c9TyT1XdaOnIyGBwMeLSiKMNJeuqg+7XxBfANtKE=; b=EDhcXMdTIBi2HLi5+aRQ5e4EFH
+	jBfV+SQ40aeJAsMpUvXrNKvGbKxDn7K63gfdF+hhJXAvKFOi5xSrff46+cHJSMcoDJXV4eb8R6Ff2
+	0V6fBcdcetsCHAiFtVy7yRuoVCe2Jw6eidD6dgkg6zhrxVjNY72Hz3aRXLF4A8gqhlBJBxldarpxQ
+	ahM8pQqQ0ZI78BM9R27VHVe9jbrU3+FVeIRmLHrNrxca1sYFDtJAmJRnfmXL53qujRqagXSiM8Pzj
+	NeYTzFjAKRKDNIJrtcfAb3Oe2nnz7CtGsyNL3NSPcoSqY8ZclOQ0WgjVKaM2948YRugTYQyMEtQXE
+	6xMtI5JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vW8HW-00000007wtu-0s6V;
-	Thu, 18 Dec 2025 07:18:38 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1vW8KX-00000007x7A-1YGw;
+	Thu, 18 Dec 2025 07:21:45 +0000
+Received: from mail-oo1-xc29.google.com ([2607:f8b0:4864:20::c29])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vW8HT-00000007wtV-3aAc
+	id 1vW8KU-00000007x6K-1pjO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 07:18:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ca4+G5kijFXBIjmkxVGHgkbtG4m8KPzKdnt+1rnco99JbhFBwFvVE4Jcevq98EGUuySHlTPOZ/S2pEARXbO5AO2kUSKiAJYSZgck4f512m7Jzqf31OANr62Cu4JmKbrbjLJLjdhKGKfpWbu+PFkE4c8Q1KqKIaSXLhOileKDKfHkBo2awR/iOFGddVy5A+ZevhYDb8q2DYoIZ5hrDNKOoEvvNS8ulSYVf6jLPb79+7HgMd6H/5GBLesHeGYO8svgx5/AhDFQFDah01USoasWHUF9jPC3XAWqbiROy0xBk44U21AlY+JynZfSLvN3OvnOxmxGWrdiqm78KEBgkibn1g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dlCdtJQ1anpazpKP4YhFIpG9WdHdsu82wr7xF3zq20I=;
- b=jFaqWEHZmmWwj6oigEZaCcYnh/SBtW5dDepyPcnitOf2uZl4ClgBga2U+cuwBMVkLcy9lbFa0bPvl9uht4f2+niS4RCOa8Hz7hPEcoZkju6Y1AhFm/D8MLUX8tXtBn8oMv5YqGE6oK1beRBuvTwiKbQhUcdsoh879OqzblpYOigXIh+L29JVpnFI08iKRB2YOfoVTU3JJQfoBMvJdv2YxflP/o5fq4ir8cA8Z/JEHh89I9Y2Y2neXI6+6sJslypfwgH3XUW//3xetyqNCiBVwtdgY/Chm38bg+Jf0fm3MbFIiDAr4F2hn//9MLDkfuFhmRqQgI9DPdq1Wg11PXLaGw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dlCdtJQ1anpazpKP4YhFIpG9WdHdsu82wr7xF3zq20I=;
- b=Fl/6EeMEi3lMiPHKywEkpM9coyZwOKzm0ZjFK5ZL4d+TI7TNRazyzboNcFC6DDyIuozzyoehqjclCMvywgC0Q0qf+VZHe8+ZM10UXgQ2XKd7j2oDaSMwR8Rr+5Ln9CeG7zOJXqeEoy5zzF6hZgVFyebC5iiGIL7L0t+OGogkORBElgok30K/RdkOvQamrGgcLtjcYlmbQMQ2wU+48HY7QduaLfQvAJfwonAFEFik869PI9mEtk9s4LkwsRo4GUJf1mh8BMx+efHt8blokvQY6qMmFDXQi9BpxgCQlTJrD62WlqLZwzcAdusrbUTPq/gX2OGp40jWNwindH2CGZAuVg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from VI1PR04MB7055.eurprd04.prod.outlook.com (2603:10a6:800:123::21)
- by AS8PR04MB8231.eurprd04.prod.outlook.com (2603:10a6:20b:3ff::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.6; Thu, 18 Dec
- 2025 07:18:29 +0000
-Received: from VI1PR04MB7055.eurprd04.prod.outlook.com
- ([fe80::d6ab:1538:d868:bf8]) by VI1PR04MB7055.eurprd04.prod.outlook.com
- ([fe80::d6ab:1538:d868:bf8%7]) with mapi id 15.20.9434.001; Thu, 18 Dec 2025
- 07:18:29 +0000
-From: Shengjiu Wang <shengjiu.wang@nxp.com>
-To: andersson@kernel.org,
-	mathieu.poirier@linaro.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	daniel.baluta@nxp.com,
-	linux-remoteproc@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] remoteproc: imx_dsp_rproc: only reset carveout memory at RPROC_OFFLINE state
-Date: Thu, 18 Dec 2025 15:17:50 +0800
-Message-Id: <20251218071750.2692132-1-shengjiu.wang@nxp.com>
-X-Mailer: git-send-email 2.37.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SGXP274CA0004.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b8::16)
- To VI1PR04MB7055.eurprd04.prod.outlook.com (2603:10a6:800:123::21)
+	Thu, 18 Dec 2025 07:21:43 +0000
+Received: by mail-oo1-xc29.google.com with SMTP id 006d021491bc7-65b6b69baf8so68605eaf.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 17 Dec 2025 23:21:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1766042501; x=1766647301; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=u95c9TyT1XdaOnIyGBwMeLSiKMNJeuqg+7XxBfANtKE=;
+        b=xK6X8A8U0QCbATJ2jtN/HHBP6iBEq5stsaPhuwJf9+Sjosgr5O1cFogiETus1vHahc
+         6yw37gLAK8ikNkz7WzYrPh9o7AuB/0mVuzhv2J+JC2pGqJXcRsjv0P/Mws8mbm4Z2YlP
+         0szLYDhFZ87bdvv3vyFVFnpyLr4KvxGFTzc+QcM35Q1LxO6YBZ8hQjQYz1qMnxxDbSlK
+         crKP3bMLBFnJIh1YD9H1DQgxWVGSHMdwUji1erYG9aZqXFBG/TuQIvjDks1jT3IZ/3wG
+         gMMMa5J8Npg5GqmpByOu7wrzIJ4zUb7L5DY26j2AX4EfKvG0InaHCx+Tvia1wmeDHa9e
+         I95g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766042501; x=1766647301;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=u95c9TyT1XdaOnIyGBwMeLSiKMNJeuqg+7XxBfANtKE=;
+        b=Se8OA32W3ew/KAkYK7+BBslFZxrpFVpPTx4n9NExCvl6Wwp0QvK8dVgQJACdIMkUUs
+         NO3jnSy96zW8yVd5Yw5dDMzrnnpDjBAbbmhnSAMFZREQGnXuGG+VX4xuppdVCR5pgssR
+         NTaGNoCkBjYVlE3Tj2bpbckUM6E+iNVCSzaPAPXuVNIOwLsNK2TdbtKCQYX+w3REBAE/
+         lcKf0KBLjzTZ0aYii7mpCjbfMDWheucn7OOv/DtjiXqSr/DLgUBOFIS7d6/5oAgYWQ+p
+         o8/psW2c+1411+gH3vbCPF6hB1PMVQfeRmke26rHxvp47STnZFGF+8r48NmWZKyZmXgj
+         R50Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWJ9ge3YOZvI3mWyMF0FKXg/DL9cG0vrjtV/GPO/dH8w1CTRo+7ZBFvMao7yFPPajFwnYxMzI3XZXcfnnO+MT+G@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3IKTi93/xlHQfwP0Zb8/LKB6IPSMkQgH4bVAV2lqkHXBocIPB
+	bUPXOjOV1en6Yg7FrOgnyBvRKHzcnzz8r7aDtxm/5MEYjL0sDC+Si72udF3cbfc34K0p/EKBwKN
+	phQT6RyAG0+hQKr4tT2d1UQhfbQeEF0JxD+GpID0VrA==
+X-Gm-Gg: AY/fxX7EXkElR08U1p0Ltha0po8Rm9rk3zw/uxFrdm8O8N6IQzJjwXRXJ+maKJMRQ51
+	001cYhDkixAVDI0jL7Q7+z9VYjgvsybzYlVsoKrB+ZUXrBZlvYzHZJoqDdy9TDa7dkq1fjKqnSC
+	3s6ZheW/VCblofsn+cN7tkJjdSPnd2tE+R3/ycNnikOS/Iur9+/4VV5Wqg3NV1YWrG+t2U2dQGz
+	HKJXOBpiwwN2j1U0RxlaZglLcDequZiE208DfG+gLZE43aOhwV+B/ZckPiObG6UcwhCVMtNj0Ak
+	sH81yRtyqEQ3/+eZRMzGSTp0/A==
+X-Google-Smtp-Source: AGHT+IHdzsrnh67Z+uk7sg0iAMocZMySikku48EGz5g7L5MG+hq7iSRlseyY2l5vM8LHePwozU/hD6rMNUuAq73AgFc=
+X-Received: by 2002:a05:6820:828:b0:65c:f41b:7119 with SMTP id
+ 006d021491bc7-65cf41b750emr1784992eaf.5.1766042500598; Wed, 17 Dec 2025
+ 23:21:40 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: VI1PR04MB7055:EE_|AS8PR04MB8231:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3915b8bd-e923-4640-58b6-08de3e05a45f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|1800799024|366016|19092799006|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?x49pFFAMqljMQobhLjoZ2VpJUYLJ6QZ3vkw8CHFJC2TDJOoMbhq1quQjfGBd?=
- =?us-ascii?Q?LHU3hNUh/cBxNRYvE/AHSDFlthNJRs1Jdyq3gmRep4BDnFF/SzMKBRXJgXnc?=
- =?us-ascii?Q?bEXMw5O+LjPkEqAY5fNmxEGyY8oqR9AUCSDSYbyvy6ocAlQLhyIel+WmZXau?=
- =?us-ascii?Q?ADfb7kww9+wR9rWpfMdoc/aBBm7l9B23jJb5mrCoQK3jDyw+CAKy6FLgII/O?=
- =?us-ascii?Q?ZCpmodfogjrTDuafjfXNvy27xZi5gfPGL8IXrk63GhUhfW1vhvyVxwp9+9oK?=
- =?us-ascii?Q?tVoY9oKHD39vkPaEuZyOVLC6uGR1AsHOTZtEGPbXTBkE453z9zbpnExBhSFm?=
- =?us-ascii?Q?zxVLsi+tnVLqmL8XxBR/J3StwfeRrCUKJ8+Zj6BRrSxi6JiCgO24Bf2CbN1G?=
- =?us-ascii?Q?pTWoELvtxx+jMht3Q3FlYpjAjvd0wfjRSWjf/1Q8b+rGLGOiouTlHDszSBVc?=
- =?us-ascii?Q?Y/IjMxh70rOm1lDsU2jnW/+4mb5As/Aj6oon2K97PSX6/OBvG9UHAUP8Rc0n?=
- =?us-ascii?Q?1ITL+O+APM1mblDWJEjfvckKP4mLd1ndE2ACMHxnkcfGiMKDTDUnOZduRlKk?=
- =?us-ascii?Q?n7/Ik56F+YeI5x77KJJHHhNoAoqIHNQN/yvFVpWXfI3NSRGKSd1H4YOSrKhR?=
- =?us-ascii?Q?++E1QX80Bq+VOyZN8ZedkFPpCzOkwSNA4VCKcdwIMnjdD9LIOixCUvNJ1k34?=
- =?us-ascii?Q?Ovx+XrVUEsF5tl+3uZxG2BllJ6+L5SLOcRdxp3exDI65ObiLn98dx1fpaokf?=
- =?us-ascii?Q?cwlHvAC4L001CbMYWjqFaaDuK/xZkt3TWeV1T9AbeaPcW3C+nBlmEDkPb4MN?=
- =?us-ascii?Q?dYGQrAqY80hpEzBQ3SELWeCttIzehj2+MH7ZYOwM8qGePHhXrIpHGOCotRfi?=
- =?us-ascii?Q?zKDjtTpN/xnAea6etB+zLVQYnjL6/6hhwxh2EW/rQj5nqtHhJznX/tG3jrSa?=
- =?us-ascii?Q?2ltoJk2JP7kuGWezu+Y7QntnGNWRhxRkOX765m4ie+tw+OSPllWlUsFt59D0?=
- =?us-ascii?Q?4BmdBzzZ3gzmvyvIM7Kiq/ze4e7e1kbICZyxM6S1KqyUYwuJGwtxSg7AoZCp?=
- =?us-ascii?Q?WbZVIjfSqRXWKOalWOQTfuM/BBhcf0mSJ5PPwlgevBd55F8KnGFIuAVwhtW/?=
- =?us-ascii?Q?j3LTQFH7cKHH3Xj5MlJaVOZXAehWtMFvMg4skY/wLk3TA3yDnIrpH1oextFq?=
- =?us-ascii?Q?yN1CtSOphSqpGNWIVWCNAUyIhDSxgd4RkZzjdVg5Ss0dGvwcsHJWQy4b2Dwx?=
- =?us-ascii?Q?gcqPFzIJir/6V3FBrnvwu16TlQe6VW6yk7hnxBHFr0BWCSEdPz322F98WVl+?=
- =?us-ascii?Q?7advQaE7XtypJcz7fbA5WOabtypVNkJbZKQENJ9nuz12VwUiK0KXsu5hepJ6?=
- =?us-ascii?Q?b/bLBELAA6AW58rFp5Ztiogm4RK8U7e9ANa/8sQe3XW3EBvzfiNA+xfZwlPK?=
- =?us-ascii?Q?St34A+aQ8c/0CuIX/Geg3ZzHkAs/Cr+ypZIkoqpbeHSwpNF852b1oNaTEWOB?=
- =?us-ascii?Q?cKk2BLHUQb1JCf+eQLfGbgz4NuoH5a7GjsJ818ZDa8gWpB6L0TmETerndg?=
- =?us-ascii?Q?=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI1PR04MB7055.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(1800799024)(366016)(19092799006)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+3g+x4tEzXKDzLhOJKaGlUGR6QE/AY+XvQx2iq/JZ7pAp4XiEFb7kHrLETHt?=
- =?us-ascii?Q?UihtF0fV5C180aheWVoWpXwgfJXx9nz+LBwuA2c6QZNJhzmxAXLIok9T+H1G?=
- =?us-ascii?Q?awdMmUeEtjUx2QLG3die90lKZIcBwAEmtO8RDOhUcD/XmgtbBVA/sPI/WpM3?=
- =?us-ascii?Q?i4D2Z/L0euXNhChfa/8515b6nUYfL50xOP3CIsW3P3UUl4gks6Kz+WPYC3Dd?=
- =?us-ascii?Q?1vMThYs+yh5NnbZxm3ZkVXTEll6aX56TFzSqUnJQyUlyEwzM+6ys9OBhvHdn?=
- =?us-ascii?Q?CRv77Wy4jkb9YHkUpUOKndqkFevmsknjTq+ZYxIT9We22Jbvek77wi2YiV/1?=
- =?us-ascii?Q?h84b7WV+zl1YD+XNsgIEmUWg86H7lgaFUHymViWZekZL86BiXreLAsibjffr?=
- =?us-ascii?Q?ZKAMIitBXmdkZqvzjeZ574DACDT9JbFcwdoyNWZngE0N9Mus5GLVLLYfIml8?=
- =?us-ascii?Q?DebrjH3OfQq7gPo2Nt8PRC+Kv1jCRpIryt36gniWIgtNXq4jSwqI6McI2l03?=
- =?us-ascii?Q?aWmZ2l1Ax5VApmHP+ZBJ7m1Y8oI7jPcrxs4Sr2xTCDhQCUAeCWj5O7BoRMdl?=
- =?us-ascii?Q?rK7bpf4sD3sv3+MGEQ4mWIIdQgaKGB4g2BgY7oULBUVAGcn0bt5qOVnZuLCp?=
- =?us-ascii?Q?P1cf4f8glulfAMDxZRZsaX1gLtDjV+726Aw291bAsBoFhbgdWp+fF+szlRNt?=
- =?us-ascii?Q?7ePaJzyUdhAne4RLD00cM0q3OLpvccVc+qCCTPht96xeqowSW0qJCVUv26iu?=
- =?us-ascii?Q?4Qz35wogXktR2MMUXHkZUjImqsyhyZSY13D7+mhVctEJy3L7YfGkhSlqpbSC?=
- =?us-ascii?Q?O8QrG8yN5CG/TjVEygmxfESPbXRdp14Spn1Ay2KbGIao5ccabiWyTbiNpsRT?=
- =?us-ascii?Q?AGUo/sSoyNwV7SeHlEhqKFow2HUdOrsn5Vl5uqqraft3H0izNjxue5terq3L?=
- =?us-ascii?Q?t1BLjcGAu/CkyxMKg7W0SQYzJQND0kaTzu5KyR5XVY2DBr/jBJTgwZUISDPY?=
- =?us-ascii?Q?wN8ekdtEPH5S6qYo08AUpMP8a40v+/eKebF5/c2Gsy9cP7YqasSAod95hn/e?=
- =?us-ascii?Q?H6KQp4FvBhUaeF01V7r/DFFzWz6u4UjQ8/Jd/QHhC8bz0yRU6DGNDpaKV62L?=
- =?us-ascii?Q?XPOV0JOFs7HQvo6IWs+yT5JLY8hKm6lHJV1tNSPINkQw+7Ivu3BXA9Egczh6?=
- =?us-ascii?Q?SD9rQXst8YAAuQT4E18J9783edsP1IzibhXGD6J9qQWfJVd2tDSA8023pZBJ?=
- =?us-ascii?Q?wvCQQ7RPXUQmoadenSuzHLqeHVYQRxFhN5xI4fKxccP5E21Nq0YBimvSVGEk?=
- =?us-ascii?Q?24Z8TFxsqFUl8pZ3kwIFCAcRd0bwRmTdjUrASkCU+GNK4WmAXN74Fo8hv11v?=
- =?us-ascii?Q?YmOPxBhm52wqT+U+AxhRZCPNIIIMWxpqYH2JclmkVQMOBmaHUtB//gKtFby3?=
- =?us-ascii?Q?qoEH+6Rn/g/iWy+6xxJe5ajvjsAwsg4VCfqpNEswvxOo8WRLtasag1vVj+ZI?=
- =?us-ascii?Q?8+ISfIkbZnz56W1V1cWux4c31Dq8+I3+vdSPIyn/LfOuFahRBvBeYEAItshH?=
- =?us-ascii?Q?KvGlpTtAIs/ZksPMIXEKSgSSXEQWqx5PePyJwDyc?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3915b8bd-e923-4640-58b6-08de3e05a45f
-X-MS-Exchange-CrossTenant-AuthSource: VI1PR04MB7055.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Dec 2025 07:18:28.9436
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Lt6jJxOGrCOxdYKA6aoJmTlLqds78p5mlXLtQirQMR07fjS+OWDe5EhDbD6ziqNUWhBpnAp5z8iit8W/MvgPVg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8231
+References: <cover.1765791463.git.u.kleine-koenig@baylibre.com>
+In-Reply-To: <cover.1765791463.git.u.kleine-koenig@baylibre.com>
+From: Jens Wiklander <jens.wiklander@linaro.org>
+Date: Thu, 18 Dec 2025 08:21:27 +0100
+X-Gm-Features: AQt7F2r_j21Nqcv1IzhOT6jk9UPtvnwA1D3etXiTv5WveGJRYXXMC9qqoGF_Yc4
+Message-ID: <CAHUa44FrDZbvRvfN8obf80_k=Eqxe9YxHpjaE5jU7nkxPUwfag@mail.gmail.com>
+Subject: Re: [PATCH v2 00/17] tee: Use bus callbacks instead of driver callbacks
+To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Cc: Jonathan Corbet <corbet@lwn.net>, Sumit Garg <sumit.garg@kernel.org>, 
+	Olivia Mackall <olivia@selenic.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
+	=?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <clement.leger@bootlin.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Ard Biesheuvel <ardb@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Sumit Garg <sumit.garg@oss.qualcomm.com>, 
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Jan Kiszka <jan.kiszka@siemens.com>, 
+	Sudeep Holla <sudeep.holla@arm.com>, Christophe JAILLET <christophe.jaillet@wanadoo.fr>, 
+	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>, 
+	Michael Chan <michael.chan@broadcom.com>, Pavan Chebbi <pavan.chebbi@broadcom.com>, 
+	James Bottomley <James.Bottomley@hansenpartnership.com>, Jarkko Sakkinen <jarkko@kernel.org>, 
+	Mimi Zohar <zohar@linux.ibm.com>, David Howells <dhowells@redhat.com>, 
+	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>, 
+	"Serge E. Hallyn" <serge@hallyn.com>, Peter Huewe <peterhuewe@gmx.de>, op-tee@lists.trustedfirmware.org, 
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-crypto@vger.kernel.org, linux-rtc@vger.kernel.org, 
+	linux-efi@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, 
+	Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org, 
+	linux-mips@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-integrity@vger.kernel.org, keyrings@vger.kernel.org, 
+	linux-security-module@vger.kernel.org, Jason Gunthorpe <jgg@ziepe.ca>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_231835_915850_27315528 
-X-CRM114-Status: GOOD (  12.53  )
+X-CRM114-CacheID: sfid-20251217_232142_518976_1B24AE7C 
+X-CRM114-Status: GOOD (  26.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,41 +116,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Do not reset memory at suspend and resume stage, because some
-memory is used to save the software state for resume, if it is cleared,
-the resume operation can fail.
+Hi,
 
-Fixes: c4c432dfb00f ("remoteproc: imx_dsp_rproc: Add support of recovery and coredump process")
-Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
-Reviewed-by: Iuliana Prodan <iuliana.prodan@nxp.com>
----
-changes in v2:
-- refine commit message.
+On Mon, Dec 15, 2025 at 3:17=E2=80=AFPM Uwe Kleine-K=C3=B6nig
+<u.kleine-koenig@baylibre.com> wrote:
+>
+> Hello,
+>
+> the objective of this series is to make tee driver stop using callbacks
+> in struct device_driver. These were superseded by bus methods in 2006
+> (commit 594c8281f905 ("[PATCH] Add bus_type probe, remove, shutdown
+> methods.")) but nobody cared to convert all subsystems accordingly.
+>
+> Here the tee drivers are converted. The first commit is somewhat
+> unrelated, but simplifies the conversion (and the drivers). It
+> introduces driver registration helpers that care about setting the bus
+> and owner. (The latter is missing in all drivers, so by using these
+> helpers the drivers become more correct.)
+>
+> v1 of this series is available at
+> https://lore.kernel.org/all/cover.1765472125.git.u.kleine-koenig@baylibre=
+.com
+>
+> Changes since v1:
+>
+>  - rebase to v6.19-rc1 (no conflicts)
+>  - add tags received so far
+>  - fix whitespace issues pointed out by Sumit Garg
+>  - fix shutdown callback to shutdown and not remove
+>
+> As already noted in v1's cover letter, this series should go in during a
+> single merge window as there are runtime warnings when the series is
+> only applied partially. Sumit Garg suggested to apply the whole series
+> via Jens Wiklander's tree.
+> If this is done the dependencies in this series are honored, in case the
+> plan changes: Patches #4 - #17 depend on the first two.
+>
+> Note this series is only build tested.
+>
+> Uwe Kleine-K=C3=B6nig (17):
+>   tee: Add some helpers to reduce boilerplate for tee client drivers
+>   tee: Add probe, remove and shutdown bus callbacks to tee_client_driver
+>   tee: Adapt documentation to cover recent additions
+>   hwrng: optee - Make use of module_tee_client_driver()
+>   hwrng: optee - Make use of tee bus methods
+>   rtc: optee: Migrate to use tee specific driver registration function
+>   rtc: optee: Make use of tee bus methods
+>   efi: stmm: Make use of module_tee_client_driver()
+>   efi: stmm: Make use of tee bus methods
+>   firmware: arm_scmi: optee: Make use of module_tee_client_driver()
+>   firmware: arm_scmi: Make use of tee bus methods
+>   firmware: tee_bnxt: Make use of module_tee_client_driver()
+>   firmware: tee_bnxt: Make use of tee bus methods
+>   KEYS: trusted: Migrate to use tee specific driver registration
+>     function
+>   KEYS: trusted: Make use of tee bus methods
+>   tpm/tpm_ftpm_tee: Make use of tee specific driver registration
+>   tpm/tpm_ftpm_tee: Make use of tee bus methods
+>
+>  Documentation/driver-api/tee.rst             | 18 +----
+>  drivers/char/hw_random/optee-rng.c           | 26 ++----
+>  drivers/char/tpm/tpm_ftpm_tee.c              | 31 +++++---
+>  drivers/firmware/arm_scmi/transports/optee.c | 32 +++-----
+>  drivers/firmware/broadcom/tee_bnxt_fw.c      | 30 ++-----
+>  drivers/firmware/efi/stmm/tee_stmm_efi.c     | 25 ++----
+>  drivers/rtc/rtc-optee.c                      | 27 ++-----
+>  drivers/tee/tee_core.c                       | 84 ++++++++++++++++++++
+>  include/linux/tee_drv.h                      | 12 +++
+>  security/keys/trusted-keys/trusted_tee.c     | 17 ++--
+>  10 files changed, 164 insertions(+), 138 deletions(-)
+>
+> base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+> --
+> 2.47.3
+>
 
- drivers/remoteproc/imx_dsp_rproc.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+Thank you for the nice cleanup, Uwe.
 
-diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
-index d03017d6b214..ac8aa71aa56c 100644
---- a/drivers/remoteproc/imx_dsp_rproc.c
-+++ b/drivers/remoteproc/imx_dsp_rproc.c
-@@ -984,9 +984,11 @@ static int imx_dsp_rproc_load(struct rproc *rproc, const struct firmware *fw)
- 	 * Clear buffers after pm rumtime for internal ocram is not
- 	 * accessible if power and clock are not enabled.
- 	 */
--	list_for_each_entry(carveout, &rproc->carveouts, node) {
--		if (carveout->va)
--			memset(carveout->va, 0, carveout->len);
-+	if (rproc->state == RPROC_OFFLINE) {
-+		list_for_each_entry(carveout, &rproc->carveouts, node) {
-+			if (carveout->va)
-+				memset(carveout->va, 0, carveout->len);
-+		}
- 	}
- 
- 	ret = imx_dsp_rproc_elf_load_segments(rproc, fw);
--- 
-2.34.1
+I've applied patch 1-3 to the branch tee_bus_callback_for_6.20 in my
+tree at https://git.kernel.org/pub/scm/linux/kernel/git/jenswi/linux-tee.gi=
+t/
 
+The branch is based on v6.19-rc1, and I'll try to keep it stable for
+others to depend on, if needed. Let's see if we can agree on taking
+the remaining patches via that branch.
+
+Cheers,
+Jens
 
