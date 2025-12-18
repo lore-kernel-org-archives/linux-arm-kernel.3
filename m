@@ -4,111 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D211D6D232
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 15:22:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8545CD6D234
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 15:26:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7AMuBMEfhIQw9FVyiKx57RUqUljgR4wYmPvn8hqi5T4=; b=wxJu+CLsQtSzZcxyqZ4wr38/fc
-	G3sZQfz2nKu/bbVKR+d4MxuVkCHR/sj8d4PT+sTNoF3qcMW01SOh7ZSsYtsPHVhHjyp17Xjl+488l
-	fK4+iND3Qq7PNPPuRBHUrSmVeDiPBvP/k2o+sa/GUs6tz5/z9aHFZaHOwI1lPQhoHEDGgPMuO4UWy
-	Q/dQuxBYS+DmpjIhLP4QlpxemMc1vHlF9kWYshPMOJzrH0Qh+uEPPbG3AfszGOdzbBIUvLJN9TWj5
-	7HA14CktfbO1Dv30o5cI3GRn+t0btCRONrgO0kPqB2pj+MavjVNcfeEEMX4z6f1zxX2VSz2GQpQfV
-	YDtCQjsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0dY9hOfw+nsqpN2twCEfuG3WmlvEURTIXg7HZZOHeWk=; b=WCOAd81Kk2PMtwvcMIpkSTDrAl
+	rVvqXSS2cuU5cxWFdJaulP0/WxBOZM9XqIGw9tTX/hFDm/tZq166CszHQVFwmxp+rw3q9fbARE7PT
+	+WMfkLil7ShqGSD+BfJS2q1o7Z+e+nXgm3naFBaPHsG5XxvMPUotvalhhG1Bo+Xiyl8ZyEph/V/YK
+	/NKZ78sDwaAZ/kH3KuQ1iHTM7DDsL2dC+VMMoOxrSlK7qgMiF2acrb3vI7/V5ASUjPTtj/y1rLCcR
+	EGxE2x8xRnlCz8jSkHJeUNGS0gtEbr9D4JDkhu/i7JnX9pd7cMVoLGh/4ykPFhKjKXbtm5YL7CYew
+	6ACRWBlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWFpW-00000008gON-1RMv;
-	Thu, 18 Dec 2025 15:22:14 +0000
-Received: from mx-relay10-hz2.antispameurope.com ([83.246.65.96])
+	id 1vWFtb-00000008gyh-3uwB;
+	Thu, 18 Dec 2025 15:26:27 +0000
+Received: from mail-vk1-f179.google.com ([209.85.221.179])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWFpT-00000008gMU-3930
+	id 1vWFtZ-00000008gyK-2Leg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 15:22:13 +0000
-ARC-Authentication-Results: i=1; mx-gate10-hz2.hornetsecurity.com 1; spf=pass
- reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com
- smtp.helo=hmail-p-smtp01-out03-hz1.hornetsecurity.com; dmarc=pass
- header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=7AMuBMEfhIQw9FVyiKx57RUqUljgR4wYmPvn8hqi5T4=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1766071294;
- b=XO+g0XnAP5xgCLTe9Mg5TNz4QYAdtOvC+ZW17LmqFM0HRLT8ejr2ueBL3akXV3RHS3ven1tk
- dJg8Nh+53SE+8b9eqiLuzcSq/SitKuVTDFTqI+wQOwlCA8/zEvYM47NCoXZtH9b4X+E7y+tfXwf
- 5hHy+C88CAp/WNzpHoxbRI1V44iDFVNTVvG7d1HADbX6aLwv1ug0xd4PUX9wLASl15nvUSC1mLM
- eT3PHgNrCgR60r0q5RcW3RFWKe45gkT42/Wl9W2pnFU2OMNXhwZRi7GydVgmwc/HNm9MIzAQHCL
- mr4YxQ3g3P0WkdXAy7isgSie9Kv733hJqpiYsG6FUHInw==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1766071294;
- b=YSgc8feUme/g2++LOb/pAnU5fcNKxi2tNfo19ALI8hcoJPpbKlsGNiMOTE3dmD3d1HLUfGpc
- zn4MQgqHwk8DetS9CmtXx/Li+GQA0HjGUidVmGd21uR+Bosw716jX4ujxjxrD8P7RZWOgyW6Lrl
- AcWVSkpNouVCHyUG9JqESzpgy0EXskqpQhqpKgtrU9HKKImVjnLeENmnxbPPNdo7+taElEfSwtK
- Q0T+6Mnsh9buy9IJB5u2frnQY0oDbCxnjnaq3JQ3e3CNmdaLrzfqtLp9Yc0JceG5obUOJ4aRQDT
- G8bSqxYSGCoT8t+ddNkglUOklF1GI/iC7QWdd/K7BBBLw==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay10-hz2.antispameurope.com;
- Thu, 18 Dec 2025 16:21:34 +0100
-Received: from steina-w.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: alexander.stein@ew.tq-group.com)
-	by hmail-p-smtp01-out03-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 16D9ACC0D31;
-	Thu, 18 Dec 2025 16:21:04 +0100 (CET)
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Peter Chen <peter.chen@kernel.org>,
-	Pawel Laszczak <pawell@cadence.com>,
-	Roger Quadros <rogerq@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Marek Vasut <marex@denx.de>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	linux-usb@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux@ew.tq-group.com
-Subject: [PATCH 0/6] Support TQMa8QM
-Date: Thu, 18 Dec 2025 16:20:47 +0100
-Message-ID: <20251218152058.1521806-1-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.43.0
+	Thu, 18 Dec 2025 15:26:26 +0000
+Received: by mail-vk1-f179.google.com with SMTP id 71dfb90a1353d-55fe7eb1ad1so501005e0c.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 07:26:24 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766071583; x=1766676383;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=0dY9hOfw+nsqpN2twCEfuG3WmlvEURTIXg7HZZOHeWk=;
+        b=MMyH4OdLb4niFhL1hRsm4W66apBzuoJf2ag0sQ1zWVh1j8d1V9X4sxcPSXrynS3Z33
+         tnyhER/jFoDzguaniQO7vBluJUEeW9AGMf2JWAJ5ZUXCfyGWDjCl5xB6+qQTTV7KY/DP
+         MVYRX/ddZWf8UvgnvOE7m2+0quKfSRkvqROFJyyMeOBxFL3VrPtpRzvkPOdhzqo3lIrH
+         FhhWcueeekx+JLissbdAT7AIj+xoja+RR7K3MNrLh2gu/6ba0czRDdsCqfOEWmGZKh6G
+         d0YPEigbHu+wWyId09lq+PeAqtc6tjlPrgI9UDmiGQHSdVF739qXQAvHo8y3Mdt+xFZy
+         +sCA==
+X-Forwarded-Encrypted: i=1; AJvYcCX/FEGmi1SBzLn9G//fWVwFta5HlVw22CkqFbklS5nRQKXv7NGYpmD/DyPgL+np83kUOhlU0mBXmemOHtdgVPew@lists.infradead.org
+X-Gm-Message-State: AOJu0YxMJHqV0DyOLhRUnIyCpyEqEP/SDf++E53y8HRtwVgIJMg6tlrs
+	yrwgcZFBtKFBJaMRddr1PnsQorn1/ACLf+SBe8fmQZTEONEC+I7TAt+dvqwI7T0z
+X-Gm-Gg: AY/fxX5wP1fQ8HkgBwixZQgzegeSRsROb5HWgEcy5aVCKCVzyhf8H+6f5dTMuFfIIm7
+	R9ewCC659NG1l+BIsQN15uZeX3twbV2bYtr6EZeQfjONKSVaOi6m14KRDQtRSadVSYHjYK4QgKT
+	u4urobwv1NZ5leKhOORklrWeTW91SxvCjzt8Zt30SvlS+Dc/IZDu4QUQqInCgA9cwqBZPkltKsK
+	fpXXUydhgHNeiOs8tQSZfyeHdstFd5TcauELDiKcSIGDLdno8LALtXD1LcQv7BV8TjiqcQhH3Eo
+	pE2WaKAYAbFwE41C3HSGaUnY+Ooumht191QuRBXmsTyrwb2IXnWDd6Mtwoodq2t443sCO9trw1f
+	oNItIS7fUVzHLaQooFFNYeFCqVoCQMuAyYoXCU0Rr1gQdBhMnp6lRbaqLmaY/wK0T96JcDVaLXs
+	H2nbHDzQNtzTGUNM2RUn2AL3XJszohUREotD7bJa1UI9J5pros
+X-Google-Smtp-Source: AGHT+IEVqKLxm7j19dq1SlKmcFOoZidBjuv/8ORcWrr3m+7gY7O+GLkUk4qkn+4HzVznU55RAT1XAw==
+X-Received: by 2002:a05:6122:4591:b0:559:83be:69c5 with SMTP id 71dfb90a1353d-55fed6269e6mr7352492e0c.10.1766071583236;
+        Thu, 18 Dec 2025 07:26:23 -0800 (PST)
+Received: from mail-vs1-f49.google.com (mail-vs1-f49.google.com. [209.85.217.49])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5615107d88esm1078485e0c.20.2025.12.18.07.26.23
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 18 Dec 2025 07:26:23 -0800 (PST)
+Received: by mail-vs1-f49.google.com with SMTP id ada2fe7eead31-5e53441429fso496298137.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 07:26:23 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUh69UmHGdLSEjTBjcazfGieXuh8tORq5Dmka8gCDtEyUU1533mDkEnfHs9pf39gjd36LRcQAh8/4YKobhkbPsX@lists.infradead.org
+X-Received: by 2002:a05:6102:644a:b0:5db:f15a:539d with SMTP id
+ ada2fe7eead31-5e827475423mr7568578137.7.1766071582885; Thu, 18 Dec 2025
+ 07:26:22 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-cloud-security-sender: alexander.stein@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay10-hz2.antispameurope.com with 4dXDrx4SHSz4F929
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: 836eb70413c5acce62e457440dd9da8d
-X-cloud-security: scantime:4.420
-DKIM-Signature: a=rsa-sha256;
- bh=7AMuBMEfhIQw9FVyiKx57RUqUljgR4wYmPvn8hqi5T4=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1766071293; v=1;
- b=AuK7X6FLs/E9Y233uVpShgLrju/5wcSHqO3wFFl5PjKqt34wsVeUbrWVbzO+ia+ZRuu8gUHr
- Iken2KKE085IqqFmxNKemUp4/AbpmdyWliJyuOSSBvx3whvrkEkHzg2Yt5csKy5VTu+ePfy4GNB
- 8dqLQi0bDPHtgKfcX6KxpWmJqMY6jRf4OMSzpwl9pJP9qR0xu/MPrgN5LgAmQvQ/ziEXGq/8Uvj
- VCPet3+gJoI0T3lF0UA40nN9QrLRJehu6x8lMWi3UU8UuSKlrUkt2HJPkZFwYZOpbW5mMVptl/J
- /xAm8bMj3rfeVFHMVkTe8LacfrAhU3v9dYkTd3i+GAtUg==
+References: <20251218152058.1521806-1-alexander.stein@ew.tq-group.com> <20251218152058.1521806-2-alexander.stein@ew.tq-group.com>
+In-Reply-To: <20251218152058.1521806-2-alexander.stein@ew.tq-group.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 18 Dec 2025 16:26:10 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdWEJ-eYwUTnotsTVEtKrujYVsEB4kFVjRYh3wXZvyjfGQ@mail.gmail.com>
+X-Gm-Features: AQt7F2orA3yT0lOZg8JX_FxOJmakbvS5h-4BSNrnlwxZlZ9eRsbqovvybB3Xhko
+Message-ID: <CAMuHMdWEJ-eYwUTnotsTVEtKrujYVsEB4kFVjRYh3wXZvyjfGQ@mail.gmail.com>
+Subject: Re: [PATCH 1/6] dt-bindings: clk: rs9: add clock-output-names property
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Peter Chen <peter.chen@kernel.org>, Pawel Laszczak <pawell@cadence.com>, 
+	Roger Quadros <rogerq@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Magnus Damm <magnus.damm@gmail.com>, Marek Vasut <marex@denx.de>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org, 
+	linux-clk@vger.kernel.org, linux-usb@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux@ew.tq-group.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_072211_935579_80760212 
-X-CRM114-Status: GOOD (  13.86  )
+X-CRM114-CacheID: sfid-20251218_072625_598792_A2172CDA 
+X-CRM114-Status: GOOD (  16.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,51 +104,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Alexander,
 
-this series adds support for TQ's TQMa8QM. The first 3 patches are prepatory:
-1. Add support for clock-output-names for clk-renesas-pcie. This is necessary
-as clk-imx8qxp-lpcg.c (driver for phyx1 phyx2 clock gating) reqiures that
-property on the parent clock.
+On Thu, 18 Dec 2025 at 16:21, Alexander Stein
+<alexander.stein@ew.tq-group.com> wrote:
+> Add "clock-output-names" which is a standard property for clock
+> providers.
 
-2. Add support for USB devices in cdns USB3 host controller, namely
-onboard-devices as USB hubs. Implemented similarily to snps,dwc3-common.yaml.
+Why? Isn't that property sort of deprecated?
 
-3. Add DMA IRQ for PCIe controller. Similar to commit 0b4c46f9ad79c
-("arm64: dts: imx8qm-ss-hsio: Wire up DMA IRQ for PCIe") which was only tested
-on imx8qxp which just has one PCIe controller.
+Will be replying to the cover letter next...
 
-4 & 5. Device bindings and platform DT
+> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 
-6. Workaround for missing "ERR050104: Arm/A53: Cache coherency issue"
-workaround. See [1] for details. Split into separate commit for easy revert
-once an errata workaround has been integrated.
+Gr{oetje,eeting}s,
 
-Best regards,
-Alexander
-
-[1] https://lore.kernel.org/all/20230420112952.28340-1-iivanov@suse.de/
-
-Alexander Stein (6):
-  dt-bindings: clk: rs9: add clock-output-names property
-  dt-bindings: usb: cdns,usb3: support USB devices in DT
-  arm64: dts: imx8qm-ss-hsio: Wire up DMA IRQ for PCIe
-  dt-bindings: arm: fsl: add bindings for TQMa8x
-  arm64: dts: Add TQ imx8qm based board
-  arm64: dts: imx8qm-tqma8qm-mba8x: Disable Cortex-A72 cluster
-
- .../devicetree/bindings/arm/fsl.yaml          |  10 +
- .../bindings/clock/renesas,9series.yaml       |  37 +
- .../devicetree/bindings/usb/cdns,usb3.yaml    |  11 +
- arch/arm64/boot/dts/freescale/Makefile        |   1 +
- .../boot/dts/freescale/imx8qm-ss-hsio.dtsi    |   5 +-
- .../dts/freescale/imx8qm-tqma8qm-mba8x.dts    | 869 ++++++++++++++++++
- .../boot/dts/freescale/imx8qm-tqma8qm.dtsi    | 322 +++++++
- 7 files changed, 1253 insertions(+), 2 deletions(-)
- create mode 100644 arch/arm64/boot/dts/freescale/imx8qm-tqma8qm-mba8x.dts
- create mode 100644 arch/arm64/boot/dts/freescale/imx8qm-tqma8qm.dtsi
+                        Geert
 
 -- 
-2.43.0
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
