@@ -4,119 +4,176 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE51CD711C6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 21:30:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37D69D711C7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 21:41:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tpKlTYeTCs6R8eO95vUUpCyeGtT/lX8I/YjZJmafD90=; b=DuNDfnjfpHd2pU0q73FMr4VZ0t
-	qSdN5B4xvAobT6H80gxl89jkdZHSEQ1uL+A58AU34aY7OskNGkeGQSww2jHdcJ7PFFBVO/XL43Js2
-	sMh4EgwNt7gUHRV0009IRJaEtWg+KF//Xf47eWNoagV+T7/UzcU3VJxT/aA5WosMA2GOB93YcsQIr
-	8GF5UeMFWpKhw+CP1C9k596jkzN4OTZWL3yc46S9aZ/bl8z5DaHjECQMTf/Q4t639Am70J5v2KMcS
-	WkoiMzY1hHZ7k5HQFK64aTnkNT0MZtIMjX+IX6hV64o5bc0ol8CUD/bHi6KjYkFfH5CNW4iSWDlRq
-	GnMUJ3uQ==;
+	bh=yJovfciqZC4fnw2SQQvEi1NZ/2X8DS/IiFuMhq1iwVk=; b=vuoQNcdyFk3QeOROgbKcBd/yrt
+	1Nl/QsdLfd8zT0/s/dc0uorhaqTCSqst00lV8Xc08G6AwIq1qadau30v9FMfLskAeht7PeZPrGN7w
+	HCgaEsmCe3uoZjGUcEbfTDX/GwrxSD0l1FdWvC+ws+/HD1jsOSTD4RxcrcBR/GzW8G0UG5ctLIfrq
+	2noPOWo/HWEYpD2rOZzprAztB5aBRtAVU9RSD6TmMj16zTUF7Cz9ZBCheR1ZkxEyCBykx9vpZxAON
+	qGSW2M+bXBqHPEvXOU8urnTJ/Os0reU1pr+wuUH631R51FrqSi2snXqEnFxAVoplCk2lDQsAMQIEl
+	S0v7Tqpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWLZX-00000009D8r-24jc;
-	Thu, 18 Dec 2025 21:30:07 +0000
-Received: from delivery.antispam.mailspamprotection.com ([185.56.87.12])
+	id 1vWLk6-00000009Dmr-2T3u;
+	Thu, 18 Dec 2025 21:41:02 +0000
+Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWLZU-00000009D84-0TvJ
+	id 1vWLk4-00000009DmS-0VZz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 21:30:05 +0000
-ARC-Seal: i=1; cv=none; a=rsa-sha256; d=outgoing.instance-europe-west4-2f5w.prod.antispam.mailspamprotection.com; s=arckey; t=1766093404;
-	 b=uJ4zFUvgjVP5wuiMOU9nNm7rjR/cHrNOk80OUJy3O2PchPM6YFIyOZVjv7fUK2ZEi4COOwGLRo
-	  9+BpY1P7SyaHRAa7Wd/7DPzzg11FdRnXBHCwhd9ZWn2TiOyGcKXNEZbiJ3ZgSSoamZe6eHSB8/
-	  leVKZpK+30Diexq2YgVkSC4UETRXCaUT2BNEz/hqxstNyxskFweehuPieoesAHwzUDOixy309o
-	  /jf7GX0rsmEtGaXCq8DV5LSbbahLpQgjDJgksTgns3p75Gt5v85UAHZ1ahhXIssVVB7D+79KdT
-	  JCD+jtlGK5eF85gnYFfp51+o8d5K4F5dAew67EI0VRCBQQ==;
-ARC-Authentication-Results: i=1; outgoing.instance-europe-west4-2f5w.prod.antispam.mailspamprotection.com; smtp.remote-ip=35.214.173.214;
-	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
-	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
-	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
-	arc=none
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=outgoing.instance-europe-west4-2f5w.prod.antispam.mailspamprotection.com; s=arckey; t=1766093404;
-	bh=ZzvEed4sEkcv3SWvfOHQgv/2cRbBc1HpGi2Alr+EpL0=;
-	h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:
-	  From:Date:DKIM-Signature:DKIM-Signature;
-	b=uflKjwEnanom3KSLIW3s17kAHvIOUTfv91S5IZex9e1+xxQp73Moy6D99kVV2sXjfEi1z1MWtP
-	  OXt1Vy4gsFFXaEU56/9/vM92JelpgbrqG9ep/EYyfYoslB1gZV6AgOfA+zoQiBIP+/HElG1IEX
-	  UU99WUunZ2noKuKmQ1hfnu2IoWKvzROamSFZC097O/Jx15dJ/vOyQJZJgOVjThm22wM6SffsiX
-	  XokTC+fwrxwgJbERsMmaHTHe66+I8jIe9HtVGzqqhd9UD1fa1rX8ydztmEvwPzsCHYpwsmf3lo
-	  BMgZMmK17OoKv9hR6IrFACAoz6TNqT7gfdIHOFag48TdaA==;
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=antispam.mailspamprotection.com; s=default; h=CFBL-Feedback-ID:CFBL-Address
-	:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	List-Unsubscribe:Content-Transfer-Encoding;
-	bh=tpKlTYeTCs6R8eO95vUUpCyeGtT/lX8I/YjZJmafD90=; b=jfPdup9AIHVexzr6yuIMP2hkxd
-	nDJi5RW7HADal8gNNNBQxrC6Y4qVoZjDcGpcb49zO03H+QeAypR/kqrXT7sxKXt2Qz5a4ukEP3Jb5
-	KDHA85wLfuO3BKQ6SJICb+oLdKb5d76cL8qUlny2XIU6oWmBRuE5TFgYCH3Kp/jmJnJ4=;
-Received: from 214.173.214.35.bc.googleusercontent.com ([35.214.173.214] helo=esm19.siteground.biz)
-	by instance-europe-west4-2f5w.prod.antispam.mailspamprotection.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.98.1)
-	(envelope-from <francesco@valla.it>)
-	id 1vWLZL-00000003BSl-3AZL
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 21:29:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=valla.it;
-	s=default; h=Subject:Cc:To:From:Date:list-help:list-unsubscribe:
-	list-subscribe:list-post:list-owner:list-archive;
-	bh=tpKlTYeTCs6R8eO95vUUpCyeGtT/lX8I/YjZJmafD90=; b=NbLdgIkCc+yH/GfSisI0WY9P43
-	XnSIPYXmJf7kWE7vt8ZvjTnyLV9VgjFCywQfzLqCDigWle5tQll4SFHXwFfZQopdyB2NvDhZYZaHg
-	tBE0VeTFYoAD9uVxdZrSOqaRYhNmohIIjo7/Ywb+isipUJz5OngCp3HQXRRi7VRl8zUw=;
-Received: from [95.248.141.113] (port=61650 helo=bywater)
-	by esm19.siteground.biz with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.98.1)
-	(envelope-from <francesco@valla.it>)
-	id 1vWLZ5-00000000FX5-3itd;
-	Thu, 18 Dec 2025 21:29:39 +0000
-Date: Thu, 18 Dec 2025 22:29:38 +0100
-From: Francesco Valla <francesco@valla.it>
-To: Fabian Pflug <f.pflug@pengutronix.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Haidong Zheng <haidong.zheng@nxp.com>,
-	Danwei Luo <danwei.luo@nxp.com>, Lei Xu <lei.xu@nxp.com>
-Subject: Re: [PATCH v4 2/2] arm64: dts: freescale: add support for NXP i.MX93
- FRDM
-Message-ID: <aURyQsjf7AY09n41@bywater>
-References: <20251218-fpg-nxp-imx93-frdm-v4-0-cd3a9f6ac89a@pengutronix.de>
- <20251218-fpg-nxp-imx93-frdm-v4-2-cd3a9f6ac89a@pengutronix.de>
+	Thu, 18 Dec 2025 21:41:01 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=L7xeH+Ub4EBDk3ETEGDas9VzqW5sYR66Z3Z1SJKPprHOM3Cswi4Nhx/NsXAKsE8BBABdq7/+KY7uBZMmpDdgUVuEqEGvmPrY4ivCzLJPb//bALQNI+2HkaX/h8zG4UNv3LBgDThT2jXWE/dQFsu3vc1TW70ZcOTHOZjTmntp7WAcA3PdtQXzLb7HlApXApiJOlscihS1aVDgO/yZBEJC4R11n7Q/hcNXLFF+pHYLrHHM0HywCcifmAiYlKaq0s3tX3i1WGwg5ZlGRSCkWWHCYZwQ/T5dBmnW7kbMx2LWnyA3bMy0e0mLQAyaQWuHlpUcHtqNSmf4bycNMpE1IQuQRA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yJovfciqZC4fnw2SQQvEi1NZ/2X8DS/IiFuMhq1iwVk=;
+ b=DLGDPI3eBhu8/cmS+rm0tOyIiQZyYST6tMoT0o+vkj2tax6tITvv8ZJIc59RSkci1zAb9lO8Wd1gYtULK9bujQ3U8qyAsXwwvAJbNRsTezyDRZs4ysHsvwoT9FHwor7zTCttZ/gv47mo/WO8X6EPMQH3XBjQ341m9tmg1IzQwZpG4+0zySqdLeDrfD2f51m0NYJrsaOO0niyVQZlEGZx5cVr07IFp2GtgMUI5vkAOnjZduzIBAdrMtwllTX9IVMo6CgMFGjlu53sLNLH0jw0zNP/5HPy9Oo0z1UT8OdpEmSVbx8nmQka7+yt8lukwAWt8VfiRf+Wla+pRpI5bsxnwA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yJovfciqZC4fnw2SQQvEi1NZ/2X8DS/IiFuMhq1iwVk=;
+ b=QaJswe7ZlKt2g61PsNXuxLETWioq8OsW7lqO63qPPtfuVSrhmpVatcG/pn/YnzuMQzuJ3v4YnPJeahWwsPErSuraYwjY03TSowQqSakKBFtNuPCP9RLDjiUVWAKB6tUHVWpfXEtDQJ1/8mw7OHESDcVdWuh9yk6A4dP5P6rnWaB4ja8xxUGG41siQZ3QAbo2ZQfxTP1B4eUhk9AGfSBDki5c+QaIDjx0IEjkzlJ7AuBXqHsr14nR8rgFA39LdmnVITFmR+dHSp1RRYXR7nH1v6xJ6aaQSgW4dkoZHmLXxT6jj2KI6k52x2pS1GpxsF0k3iOHpeWbbeCBAQ8Hl4kmiA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS4PR12MB9660.namprd12.prod.outlook.com (2603:10b6:8:281::6) by
+ DM4PR12MB7504.namprd12.prod.outlook.com (2603:10b6:8:110::6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9434.8; Thu, 18 Dec 2025 21:40:54 +0000
+Received: from DS4PR12MB9660.namprd12.prod.outlook.com
+ ([fe80::f962:80d7:e25:bf3f]) by DS4PR12MB9660.namprd12.prod.outlook.com
+ ([fe80::f962:80d7:e25:bf3f%3]) with mapi id 15.20.9434.001; Thu, 18 Dec 2025
+ 21:40:54 +0000
+Message-ID: <850dc718-0268-43e5-81cd-2d9d2ec77327@nvidia.com>
+Date: Thu, 18 Dec 2025 13:40:50 -0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 5/5] firmware: smccc: lfa: refresh fw details
+To: Matt Ochs <mochs@nvidia.com>
+Cc: "salman.nabi@arm.com" <salman.nabi@arm.com>,
+ "sudeep.holla@arm.com" <sudeep.holla@arm.com>,
+ "andre.przywara@arm.com" <andre.przywara@arm.com>,
+ "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+ "mark.rutland@arm.com" <mark.rutland@arm.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Varun Wadekar <vwadekar@nvidia.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Vikram Sethi
+ <vsethi@nvidia.com>, "linux-coco@lists.linux.dev"
+ <linux-coco@lists.linux.dev>, "ardb@kernel.org" <ardb@kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "chao.gao@intel.com" <chao.gao@intel.com>
+References: <20251208221319.1524888-1-vvidwans@nvidia.com>
+ <20251208221319.1524888-6-vvidwans@nvidia.com>
+ <44635975-326C-4DD2-BCEC-EB04188E954A@nvidia.com>
+Content-Language: en-US
+From: Vedashree Vidwans <vvidwans@nvidia.com>
+In-Reply-To: <44635975-326C-4DD2-BCEC-EB04188E954A@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: BL1PR13CA0077.namprd13.prod.outlook.com
+ (2603:10b6:208:2b8::22) To DS4PR12MB9660.namprd12.prod.outlook.com
+ (2603:10b6:8:281::6)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251218-fpg-nxp-imx93-frdm-v4-2-cd3a9f6ac89a@pengutronix.de>
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - esm19.siteground.biz
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - valla.it
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-SGantispam-id: 425843a665eec383b63e3b2734be73a7
-AntiSpam-DLS: false
-AntiSpam-DLSP: 
-AntiSpam-DLSRS: 
-AntiSpam-TS: 1.0
-CFBL-Address: feedback@antispam.mailspamprotection.com; report=arf
-CFBL-Feedback-ID: 1vWLZL-00000003BSl-3AZL-feedback@antispam.mailspamprotection.com
-Authentication-Results: outgoing.instance-europe-west4-2f5w.prod.antispam.mailspamprotection.com;
-	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
-	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
-	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
-	arc=none
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS4PR12MB9660:EE_|DM4PR12MB7504:EE_
+X-MS-Office365-Filtering-Correlation-Id: 754684ca-12b7-431b-4e48-08de3e7e1ecb
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?YU9STG5YTUl4T2hGcVNFb2NtVlRybG8xS3FnVkxUZFQ4Z1dscXUwVWkxajRN?=
+ =?utf-8?B?MUlnOEVxeWN3RTNjL2VpMFpiZmxOdFF3R3hqcDBQNUZLbDJRVVJMRDlBSzZ4?=
+ =?utf-8?B?ZjBkc2QrZW16L015TVFGNS8rWUpQZ01GVUpsVDhUTE1tY2Q2cWtHOUtkT3pw?=
+ =?utf-8?B?VjY0UWZXeUl3NlhqTkEwaUJuNER0b3hPMW1pQlh3SW91R1R5bVVBV1c3WWgw?=
+ =?utf-8?B?WHFhU2p6MjVDKzY4bTBUTVh6V0lMVG81cW84QitsWWNZWTd5dHc3QzFhM3Zj?=
+ =?utf-8?B?OVpUdHdPZXVKZW1FYjM0TnM0TDVvL1NEajR6Y3pKRXJTMkxRWU04TTRtRzRD?=
+ =?utf-8?B?Q28yVGsvN0h6dDMzNTA2d0ZlajcxRVNtWFgzNnpqNE40Rm9PcnRQWVFaU2dv?=
+ =?utf-8?B?aHdJY2RPQmJzTXdHS1hsUEtDZ2t3bkhJSGZMbEk4Z2FPVlpzYlB6UHpwanJD?=
+ =?utf-8?B?bkxPOTJPM1ZXVHZ1SUE1T2FMYzhHVGlBV3B4QnJ2bUExdGpXQ25jTHFpNlY0?=
+ =?utf-8?B?TldFTzlsaG1pRHFyeTNuaUpFVzBxR2xpcW9reXlocnpiNDl2QmM4UHhabklE?=
+ =?utf-8?B?eG9jL0JSS3k4aGNkOVluMGJrd1lTYkx2NG8yODI4a2Z6OE95TjZCV3RqZkZI?=
+ =?utf-8?B?OFJXMnV6cGpwZFEzdG9pRHlJNmt4TmFFTUhPMkR0dEFIUE1TN0NVU0FLaU0z?=
+ =?utf-8?B?UTRQWFZZUXNmbHB4TnE4WXZJSWh2YVRabDcrM1FIbjNwcDF2SENKRzRaSTg0?=
+ =?utf-8?B?R1ZvdWtNQzBrWld4U2tIek5YN1lLcnphRytkRElJMUY1SlJiMzgzZTZsZnJn?=
+ =?utf-8?B?TTg0RmM3VkdtN0o5T1dxdDlTSG9tZEZka3FGajhYUGJIM2hFYVpFRWZIVVJS?=
+ =?utf-8?B?MVZ2b1RnYTJKQVdvOGtJenVTMU4wbjRGaExCQ05WcVQzaVZWMjBhV1czSHBK?=
+ =?utf-8?B?K01HZkFKSmZhR1k4c05HRjMxa0krVVRXZlNUVmhtMzVWYTN5ajhCWk9GLzRk?=
+ =?utf-8?B?UU1YZnJYSURwVElsUUs3WTQzZ1o1UkhhSlprL3V6R1hFRXhpTkFOanhQOWtI?=
+ =?utf-8?B?T3lLMG1udkpiN0pLZlkvY2k4NEFLOGU1NjU5d0x1REpoSCtSTHEva0xLZmFN?=
+ =?utf-8?B?My9XcUVZa25raXY2bmJoY2VQUzRMWkErVGQyUy9NclFXNklITnhiK2szcFIv?=
+ =?utf-8?B?UlZBUXJxbzBTMG1rMlhOd2JhbHdmaXpHNm50Y1djeWtLUUJINmw5R3orS0Z1?=
+ =?utf-8?B?Q3lPZDdNM1VVbWhKVHAvNUo5NStpTGR6YjBMTVUzVGNlcDFwNWxwbFN5NFZ0?=
+ =?utf-8?B?NlhMVDdBSW93VU1wSnFZdFpvRVA2SnNnV0h0dDUyN1BYR1VwaURmeDE1Y21l?=
+ =?utf-8?B?UnBTLzU0U0QwWGF0MlZLc0ZuOEZFa2txSXFPRHNJdE9qYlp4MDhXSjNNOWFW?=
+ =?utf-8?B?VXRwK2s4L2kxaGZRUzYxajBuOUhTSlBqTHA1NHFlNFFXVGZqaXJQeGxsZ2pR?=
+ =?utf-8?B?RERoYWlWc3RQMVA5WHMzcW5iYmd3V0tYbG5VRUMzQUpHK1NOaER4QzA0TWYy?=
+ =?utf-8?B?cVF5UWF0ZWQ1SUJwcjBQVzFjSkFGcnNUZkJ0KysyTDJHNUNTWjhXV2NpVU1W?=
+ =?utf-8?B?bkI2RTM3MHdydWl6YW9OZkxhaHVlTVRqVDB3a2hmMzR4eVNUOXY4Tm1Tb1VE?=
+ =?utf-8?B?Yk5PMHpaUVUrNUdOdldyNm43TklZbmkwSVYrOG8wemFKQStXWjhVUDVFck50?=
+ =?utf-8?B?aGxUSWhBeG9MaU1mYzYzUDhoeXJnUE4zSmxpT1JZb211MmkvVUp5bkJ5SmNs?=
+ =?utf-8?B?bThQcU05NzNmdDRIUGJEMW15d3h4VnNWQWp5OVFCZXhtbm9OTkc4SFd6LzNa?=
+ =?utf-8?B?Y0dUaDFvKzhNc010ZXpubUhsa0hybGhLUWpJbnhnemF6MmlrSzd2MDE4cCtG?=
+ =?utf-8?Q?3E7t5YCLZVALh4mTp2XW2Fjr21MsfUQx?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS4PR12MB9660.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WFRDSWNuVUxKQ3lvTjBHVDRDOG4wa0hsZkZqcDlsRTVqQUZockZhTUFMeHUy?=
+ =?utf-8?B?MFl0aTFHOGVoazZXczUzc0xwWEVOZWhWZ0gxdTRheVFGM1RCZG1ZcDgzbVFK?=
+ =?utf-8?B?TTlaQWI4KzUxVEorNHgyZTF1L3dIZkN6NW9oNnhHdTcyc3RCSHhJazBpM3ZC?=
+ =?utf-8?B?cHRWdjlxUTRSUkU3bkh6TzFKQ2YreW10SzZRNi9NNUFuNGJpd0tzMm05TDc0?=
+ =?utf-8?B?ODRQRndrTC9Lb0gvU3h5eERhSXVnQUZ6cFpVQ2d0Q0EzNDA0QVNoTkpGU3JD?=
+ =?utf-8?B?a1ZiYUM3VFdxTDZ5YXpOMzZSd0R0UkIybjhUQlN2cCthZHZSUWtqMnNPa1JE?=
+ =?utf-8?B?MXJJd3htQjBHWWUwUXJzbzVicEVyNTNFbGhFSnJYNnhWaFFsNHZWUnlnTFhK?=
+ =?utf-8?B?cEZxdDlKRFlsY2tvSWZta3V6V1BFYzVwNGwxUWJ2ZDVHOVRNL0xaSFFFdCta?=
+ =?utf-8?B?dzgxbXlFWFMyR1dRS3I2VEtEU0lXWW5YQWpqNm02ZWxxMjRoMzdpQzJsdll0?=
+ =?utf-8?B?ejNKRjVLMW9FelhXSnR3bFE0L1MwUEtZbWw4aGExMVl6UTJHZ05BKzZsS2pY?=
+ =?utf-8?B?QUdnVUZnaENzVkhSL0djdk1hWDBUSkl4WkRZTC9PYUNkamRzK1NPaFdTcmtP?=
+ =?utf-8?B?NnVwd1ppRFF6NEwyajVuZGNnL0xjbWxLTmxMZktoUlI4am1PSGxOTkFnY0hx?=
+ =?utf-8?B?b2xmQWVpTkU3ei9qWThJUGlrU1Y5ekdCajNqUW9ZbzZQM0p4STdZZllVeFNT?=
+ =?utf-8?B?bElQZnNnNUtWNjFoVDNwVHdQaExGR2s3YWZRa3FFL3E3S3YxUFRCVWw2NW1t?=
+ =?utf-8?B?ZzhZVGphTXY2bWlBeFlzTXlLT0JPZSt3WWRpVTFWR1YwSjVtTThXV1dldkRw?=
+ =?utf-8?B?SG9wTFoycCtuZUpWYWhzSjBzR01DRmh3WGlVdTMyRlRQd1JsdlRVTFlUMHhC?=
+ =?utf-8?B?L3pUTzVzdmkxNHN0WnB2YjBkaFA2ZEpDdk9HcTNTREhRakh0RGJBdWFFS1Ay?=
+ =?utf-8?B?ZHZTWStUbzZrVG1hZ3RvUkw2L1RXeGMyQitscW1GMGRmQlJXTlZ2dXk5YVdY?=
+ =?utf-8?B?YVplVWNVcFdNZXZOS3d6aURLT1BNeklabjVCOUlQTnY1N0oxeTZmaDhNT25U?=
+ =?utf-8?B?YWdjeGk4OXN4VE80dkIxdkpwais4cVhTV0Jnd2ZtYTcyV1JmSWZ1TTJRdmhD?=
+ =?utf-8?B?SlZXTGJjbThETGJWY0RUYzRrNEFUTUNweXExVVhIcit0RWJaZXBDV2dNRE1i?=
+ =?utf-8?B?N2RDaVFrb0hMQUNOcHdUbTJRSldXTlFyM2VGZUhhbDVuSDRjL25GYzZRZVdz?=
+ =?utf-8?B?aUExQnV5NXY0eEJ6YXN0Ujk0dG1CTldrRGJpdzNRV1F2U0VaaGJiT2xZQmtz?=
+ =?utf-8?B?ZTFkQWhrTmNDNjV0UkZwanB3VDFudzhxRmYrWVRrb2E2T0xuRFNxODNOTitn?=
+ =?utf-8?B?Q1FNQ3lKc2RDSGdoKzB5TnE2Zjg2akdsbmdPVkxYa2ppQzFJdmgvOUR4YXQ4?=
+ =?utf-8?B?QVI2Z0hOWitZVVpqTkUxZWkvWnVMLzhvb2prbHY4bWRaMENneEZIelVqbDRV?=
+ =?utf-8?B?SmJsRjR0a0xzc1dtVE5mdjk3RXdyZER0cjc1OE1OL0Ntc2xDa2NXVkFteFIy?=
+ =?utf-8?B?WVZjc2tpOVFqUjNrL1YzTFd6Z1hMeXQwQVJKYkZMV2xDZW1KNjAyMXFLSHhw?=
+ =?utf-8?B?Yk1FT2ttUzFiaFQ0UFZ3TTZwU2JSaGpYQXZTM0JNVTFSQkdBWW5zTTlTcXhz?=
+ =?utf-8?B?dEhRWEtROXRRTTEzNytIQ3p6ME94WHdNaEZrUGJTeEdmL1Q3ZDhvN3Z2VlA0?=
+ =?utf-8?B?OUVzZVVvUmJiZUE4WGJXTmduVDlGUzlmUS9nL3VueTVyUnRnUnZKZ1d0UVcx?=
+ =?utf-8?B?UU9qRGtiQlg4ckNXRnBSNTFZTkNTdlFYdWY0bHMxRXY2QnBud3p6dkNDM0Jj?=
+ =?utf-8?B?RDZqb0szeXJpM0lTbWdRblNJL0YwSzZVa2MwR1VRdW9jVmdMa2tCMTMzS2FQ?=
+ =?utf-8?B?UU5wTU1ZZWpuT3o3NUE2QzJsN2RSdkM2Y28zQllSbXRMR3JyWU5qVHptSHFO?=
+ =?utf-8?B?bjFZdDRVSTRxS1NwZ0pIVnlFV0NNWkN2NXdyQVBFTm5zTzlUYnNTRmZUNnFI?=
+ =?utf-8?Q?VbTUnCasqCr88fB4AeG5nPXAt?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 754684ca-12b7-431b-4e48-08de3e7e1ecb
+X-MS-Exchange-CrossTenant-AuthSource: DS4PR12MB9660.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Dec 2025 21:40:53.9873
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: q21IHNJR1zbYHx6KUMRRWvDG9X6akPGFaAXDTTDGae+LRb7fVg0yLL7EECN0Xd+66ep7he5IJUUzguHlwBkSIg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB7504
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_133004_346564_7F6AC864 
-X-CRM114-Status: GOOD (  10.49  )
+X-CRM114-CacheID: sfid-20251218_134100_187263_71732971 
+X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,38 +188,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 18, 2025 at 12:39:22PM +0100, Fabian Pflug wrote:
-> The FRDM i.MX 93 development board is a low-cost and compact development
-> board featuring the i.MX93 applications processor.
+
+
+On 12/12/25 07:37, Matt Ochs wrote:
+>> On Dec 8, 2025, at 16:13, Vedashree Vidwans <vvidwans@nvidia.com> wrote:
+>>
+>> diff --git a/drivers/firmware/smccc/lfa_fw.c b/drivers/firmware/smccc/lfa_fw.c
+>> index 24916fc53420..334090708405 100644
+>> --- a/drivers/firmware/smccc/lfa_fw.c
+>> +++ b/drivers/firmware/smccc/lfa_fw.c
+> ...
+>> + /*
+>> + * Pass 2:
+>> + *    If current FW components number is more than previous list, add new component nodes.
+>> + */
+>> + for (node_idx; node_idx < num_of_components; node_idx++) {
 > 
-> It features:
-> - Dual Cortex-A55
-> - 2 GB LPDDR4X / LPDDR4
-> - 32 GB eMMC5.1
-> - MicroSD slot
-> - GbE RJ45 x 2
-> - USB2.0 1x Type C, 1x Type A
+> drivers/firmware/smccc/lfa_fw.c: In function ‘update_fw_images_tree’:
+> drivers/firmware/smccc/lfa_fw.c:554:9: warning: statement with no effect [-Wunused-value]
+>    554 |         for (node_idx; node_idx < num_of_components; node_idx++) {
+>        |         ^~~
 > 
-> This file is based upon the one provided by nxp in their own kernel and
-> yocto meta layer for the device, but adapted for mainline.
+> Please drop “node_idx” from the initializer statement.
 > 
-> Signed-off-by: Haidong Zheng <haidong.zheng@nxp.com>
-> Signed-off-by: Danwei Luo <danwei.luo@nxp.com>
-> Signed-off-by: Lei Xu <lei.xu@nxp.com>
-> Signed-off-by: Fabian Pflug <f.pflug@pengutronix.de>
-> ---
->  arch/arm64/boot/dts/freescale/Makefile             |   1 +
->  arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts | 620 +++++++++++++++++++++
->  2 files changed, 621 insertions(+)
->
+Thank you, I will include this change in next update.
 
-Reviewed-by: Francesco Valla <francesco@valla.it>
-Tested-by: Francesco Valla <francesco@valla.it>
-
-
-Thank you!
-
-Regards,
-Francesco
-
+Veda
 
