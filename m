@@ -4,92 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E553D6E2B0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 16:42:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33C09D6E2B1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 16:44:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+IFgshQmWOBMUvxTwruPAcrC79l+n1VOqPFKCVMtLyY=; b=VSdJUkJKWzvci9I7x1wa2xFJW5
-	rDLa8DHcQsOQEVZ+MLBrYuOVFUxT8FXbyG5rPOplcWDEyNCSgGFq0hMFUBke9YKXD0p/fZL1GPBMK
-	yo3n2mvImTAuuRh6qCgT5Q0DNDbS8meiNqqYMAOdtDdVgtxviWssOkQol9slvQNXWrV5t+L9konJU
-	fhWYSrlVBPFQCmO3Cln1Mx9UqpaYMwyt9aI7wxtagi0gBmMGTeGFbOYfNu7EjfsytTI/g9L0gUqXZ
-	HqmI6a2kIFlhSAFaQYI7sizDBDo/+biJcOwqyyK+EcCxLG2KNYaGe8kxkgLQ2kjkKkAFbuvSHJ+ky
-	yC2+iOTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Fpfs5Yw14x8Q64EiuaznPYbDXviY+y9LVMU8kmcpM2o=; b=qXJRHIzi4RssOFIcFZ/Uc+GsnM
+	cKmKQ1tYbxL5ty+MdlCkkMorEbhXQPkmpvslUJHdnlyMkbsoG9HF1kBOXhdcjN5i6/+ZRCcezz9BY
+	ptZ+Pl4dPINxH5r2ij/ezmD4/56mdin4XwfRuvwmYO+uDOz00RzdWaKY6d/Z+hDxxNgPPJK1XRlWq
+	c4CvNeaZuXRIe7WibqjyT9K7mieHgK7iC2TcykY+qcp2TG9soClubWaW1ZiUzrK4ziS/WHQecOVSF
+	K6oo/U7N4SVjsjLHPsEJKsNFaD69wHLCIOhy2bvKPCovPTDeuWGkpoL/IukO0pYqlg0MhzQOFF4Uy
+	HS+wwY5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWH5W-00000008qXO-04vw;
-	Thu, 18 Dec 2025 16:42:50 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1vWH7K-00000008ql7-1rVv;
+	Thu, 18 Dec 2025 16:44:42 +0000
+Received: from mail.hetzner.company ([2a01:4f8:d0a:203a::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWH5S-00000008qVv-0oEE
+	id 1vWH7H-00000008qkg-2csc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 16:42:48 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4779e2ac121so73445e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 08:42:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1766076164; x=1766680964; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=+IFgshQmWOBMUvxTwruPAcrC79l+n1VOqPFKCVMtLyY=;
-        b=Ja7dgroZlNBPlUS1/W57vW2SEQTa1uuVUF3jZCrWkmwCqr1Wc0dd5pOLTyfYqsRhwa
-         /iZ+OKY3avTRl98hOe3wHvU3uFhyd35zivoaDHd1uBsJVdBbnGXXOF0S5IbgXiRUkPSr
-         YvUTQqNWn9pJVV/2mxrsbaGX8FzC23ODbIyxrZXyWd+7ljBg6d1Lcb/uUQ2qMyK4Z9cS
-         i+ZOdo8D5W3C9T9Khz5dKUMON7AS4XiAq3htrgN71D/FohuUEXqF5/+smVtfP/GewQtD
-         xcx519Pt5aYoTOW/jZeft9wmdkOyM0IFehNJyGa14VqVJK+9CZQRUfmOAb1XQ3Lat53Y
-         03Ww==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766076164; x=1766680964;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+IFgshQmWOBMUvxTwruPAcrC79l+n1VOqPFKCVMtLyY=;
-        b=eyAEDWRjMHJda5ZIS5g2OJDhv34FAG/AF5ffmWLuzWEudpuLErwElqTwZqborrHnDZ
-         Lc/KpAVSeJSeCybeqkYAFAb+rsGXgcbukvzTYhSeBGj0XtBwLuIVJEyY2BDOX1KYi8oW
-         byZkJaiKt6FC5N32VAIt7UbeADrHeqm10095GZsc8GUZyGthp52wZ3qLRoTIZu/nfS16
-         cB+FFbyDjXTHr5g8F/6JNcm/TRppLfINo9HNKYEAL4X1exyBVUeekJ47ZB1YtNg4EPCs
-         cqRW0sDLKWRSxElUPE/4jvD0Q+/BStCQKwXjM3f7r9vRBdFKSvpvTLNQN7oCSuDfkya1
-         6o6Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXuzgVskSd6oOS16TKXks4Bln3RIRxPRAs+xFIIheJfqvbEzMuI4MvoGQ/hipDIhL5Dt8rZ0DPVB2JZx+jvBh/Y@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNSeisPRsjJ0nflYxQO0NS5BWRFbCujI3N6NtRZEpm3PmH8y4O
-	UbMDBD9DTg7kseIobUJz4wqFQ2eCclCbozVrIeDchq0TGlERcUpVskJQw6nhH3Q1vw==
-X-Gm-Gg: AY/fxX7rSG+VwxMGpfS50otgQfnS23QhkXNlpbBINOZ2wSS2Eakzb9JhGgRPDFXmQIu
-	31B4u5q8JlW1X5mvNimV3aOw7OvocLh4pjGqpPgmaDgu61CNgwJyWkIejg50pCFkbiUuEB5yVrM
-	mwuCFAnuX+kcDDbWu6KxUVbaoL8LkrNxFhay1AlZcpKexeDkWRljB8idZ1YLO/aAF2pR13oJY2k
-	6ZSWuKZ/XXZ0N0rVMI0kmPVtblXzU2WoSZAOF+ED41FEoZ3oJweuL5v9EfroQvlyIa+E4RwKrwI
-	rXzFkpL8MDfmUXt4l4xhmOutmuXDicsp+Lx78ZWgHP3PTiG0RxN+zFmgL689j1Qs9G7a1gwF2Si
-	sSXZHATwT4513wjvYLe6ZcJZTpVbmXjhAEpFimZgKnASzO7KLMN2CEM+faioSGs2cc7Ey7ndnHK
-	QZMFuAiSpScXABlZZCDWYc7GktIqPBxRxHeewYvzvks8+NVeYNMkRSgOaBTA69M6o=
-X-Google-Smtp-Source: AGHT+IHHeIFx2+0vxOZyFtZ+vCiLpMtmd8EAFHGp/iCDxGY1OQ+0R1arRjVNTaj9Hz0mThE+88JGgw==
-X-Received: by 2002:a05:600c:574b:b0:47a:8a6d:f4f0 with SMTP id 5b1f17b1804b1-47bf6b69182mr447195e9.1.1766076164138;
-        Thu, 18 Dec 2025 08:42:44 -0800 (PST)
-Received: from google.com (171.85.155.104.bc.googleusercontent.com. [104.155.85.171])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432449adac0sm6085692f8f.42.2025.12.18.08.42.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 18 Dec 2025 08:42:43 -0800 (PST)
-Date: Thu, 18 Dec 2025 16:42:40 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: jgg@nvidia.com, will@kernel.org, robin.murphy@arm.com, joro@8bytes.org,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, skolothumtho@nvidia.com,
-	praan@google.com, xueshuai@linux.alibaba.com
-Subject: Re: [PATCH rc v4 3/4] iommu/arm-smmu-v3: Mark STE EATS safe when
- computing the update sequence
-Message-ID: <aUQvAKjVUT1L3N7j@google.com>
-References: <cover.1765945258.git.nicolinc@nvidia.com>
- <adf08c3b9f289188aca4fe80e506dca7aa48aa19.1765945258.git.nicolinc@nvidia.com>
+	Thu, 18 Dec 2025 16:44:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hetzner.com
+	; s=lms2212; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=Fpfs5Yw14x8Q64EiuaznPYbDXviY+y9LVMU8kmcpM2o=; b=TIvIl8Vye4if2Ep+wXRRuhl8gR
+	WLUGm3b4XGDOiVIJAzNDQ36RYVc0PIMcGtm+vUMYeU/BLo7ux1uEnpR+QYNgxOjqyMZi9k/2ie+X5
+	6Wt2xx4S3KLgbhHU053QLxSOXsaLXm2yEdk8tuLoY1ptfkmIfvoA3QHTPKbjyC8JQYKYHl6o7WuWN
+	9H1uH3ptIGkM3VAbbKwZs/rcmoXTxUFdvVt5/1V+niTaVwGxrAnMeXyC9vA2KT4AH6vbKZkXXsUQJ
+	tLcgexQZwbXIJFwEft0vqfXUfjUNfZEdWmTJWiuvfM73Jce7kZHmM1UCW/4kj/a07g/KAncJeNHzx
+	aZtKwvpw==;
+Received: from nbg1-vpn1-entry1.hetzner.company ([78.47.119.212] helo=[10.1.220.249])
+	by mail.hetzner.company with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	(Exim 4.94.2)
+	(envelope-from <tan.siewert@hetzner.com>)
+	id 1vWH6o-00FlwY-9i; Thu, 18 Dec 2025 17:44:09 +0100
+Message-ID: <b10a233e-02c3-4b02-8f11-098f6fb8197c@hetzner.com>
+Date: Thu, 18 Dec 2025 17:44:05 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <adf08c3b9f289188aca4fe80e506dca7aa48aa19.1765945258.git.nicolinc@nvidia.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 1/2] dt-bindings: arm: aspeed: add ASRock Rack ALTRAD8
+ board
+Content-Language: en-GB
+To: Krzysztof Kozlowski <krzk@kernel.org>, Rebecca Cran <rebecca@bsdio.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org
+Cc: Billy Tsai <billy_tsai@aspeedtech.com>,
+ Conor Dooley <conor.dooley@microchip.com>
+References: <20251218161816.38155-1-rebecca@bsdio.com>
+ <20251218161816.38155-2-rebecca@bsdio.com>
+ <5aa36c56-798a-40cc-b0b8-be3f7c92136f@kernel.org>
+From: Tan Siewert <tan.siewert@hetzner.com>
+Autocrypt: addr=tan.siewert@hetzner.com; keydata=
+ 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
+Organization: Hetzner Cloud GmbH
+In-Reply-To: <5aa36c56-798a-40cc-b0b8-be3f7c92136f@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Authenticated-Sender: tan.siewert@hetzner.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_084246_250091_A66DD134 
-X-CRM114-Status: GOOD (  27.82  )
+X-CRM114-CacheID: sfid-20251218_084439_957312_5568CB00 
+X-CRM114-Status: UNSURE (   9.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,64 +128,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 16, 2025 at 08:26:01PM -0800, Nicolin Chen wrote:
-> From: Jason Gunthorpe <jgg@nvidia.com>
+On 18.12.25 17:21, Krzysztof Kozlowski wrote:
+> On 18/12/2025 17:18, Rebecca Cran wrote:
+>> Document ASRock Rack ALTRAD8 (ALTRAD8UD-1L2T and ALTRAD8UD2-1L2Q)
+>> compatibles.
+>>
+>> Signed-off-by: Rebecca Cran <rebecca@bsdio.com>
+>> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+>> Tested-by: Tan Siewert <tan.siewert@hetzner.com>
 > 
-> If a VM wants to toggle EATS off at the same time as changing the CFG, the
-> hypervisor will see EATS change to 0 and insert a V=0 breaking update into
-> the STE even though the VM did not ask for that.
-> 
-> In bare metal, EATS is ignored by CFG=ABORT/BYPASS, which is why this does
-> not cause a problem until we have nested where CFG is always a variation of
-> S2 trans that does use EATS.
-> 
-> Relax the rules for EATS sequencing, we don't need it to be exact because
-> the enclosing code will always disable ATS at the PCI device if we are
-> changing EATS. This ensures there are no ATS transactions that can race
-> with an EATS change so we don't need to carefully sequence these bits.
-> 
-> Fixes: 1e8be08d1c91 ("iommu/arm-smmu-v3: Support IOMMU_DOMAIN_NESTED")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-> Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 9 +++++++++
->  1 file changed, 9 insertions(+)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index 12a9669bcc83..a3b29ad20a82 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -1095,6 +1095,15 @@ void arm_smmu_get_ste_update_safe(__le64 *safe_bits)
->  	 *  fault records even when MEV == 0.
->  	 */
->  	safe_bits[1] |= cpu_to_le64(STRTAB_STE_1_MEV);
-> +
-> +	/*
-> +	 * EATS is used to reject and control the ATS behavior of the device. If
-> +	 * we are changing it away from 0 then we already trust the device to
-> +	 * use ATS properly and we have sequenced the device's ATS enable in PCI
-> +	 * config space to prevent it from issuing ATS while we are changing
-> +	 * EATS.
-> +	 */
+> How was the binding tested?
 
-I am not sure about this one, Is it only about trusting the device?
+My bad for sending the wrong trailing header in v4. Tested-by should've 
+been only on the dts instead of the dt-bindings+dts. Either way, `make 
+dt_binding_check` was what I did to check if there are any errors 
+produced for `asrock,altrad8-bmc`.
 
-I’d be worried about cases where we switch domains, that means that
-briefly the HW observers EATS=1 while it was not intended, especially
-that EATS is in a different DWORD from S2TTB and CDptr. With all the
-IOMMUFD/VFIO stuff it makes it harder to reason about. But I can’t
-come up with an example to break this.
+-- Tan
 
-Thanks,
-Mostafa
-
-> +	safe_bits[1] |= cpu_to_le64(STRTAB_STE_1_EATS);
->  }
->  EXPORT_SYMBOL_IF_KUNIT(arm_smmu_get_ste_update_safe);
->  
-> -- 
-> 2.43.0
+> 
+> 
+> Best regards,
+> Krzysztof
 > 
 
