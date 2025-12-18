@@ -4,70 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66EAFD6ACFB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 13:21:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF152D6ACFB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 13:23:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PNHoAzpjRtp8xwOAT6uiR+lgYpZ4BjqylPskH2NGDl0=; b=uplNLEnWib8FS8MuCbRcucSOXT
-	oZYAdIvxqSnhC3d1ITKzYyGdQolfEvN/wZkvxWRLZXplfD6k6+tnLfEhVGB/LiiPdTVg5y+hECwG4
-	txoPVQyIgUfesE9MBeo1Ieq9kyLXzGjQ97FUWf8+BXvs/8ZiXs3HZVaLH+jZVZFc2Sdpcr3weJ3aR
-	aaaMOVd2z47NeOIohhk7RN4hTu1N2h3nps+C3mkAtVkX95Q559LyMwmdvp+evlyflSN2HpnS6OKLC
-	XqKDP6I12krAhVzfzssqYv983cjZS8+2qmMBTPWS4ZaMKqoOF4U0aFVpJf5/LTedYLqINVh6UdMy5
-	nDrQ8nyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oCudBcw5akO4madupDYz73GUtrdMHgyCBVg+ab8JlvI=; b=tFcaPVt0YEOjebwMpx0icEPFJa
+	SlcKR5kQ6EuBUzkEH7Q58YLB0v92LfJ7YUX2I0I7qkde+aZSLn6naiB1osA4ZusGowisVQdgdzTlS
+	flNk3nCYfhCxg/45VvVEFbliH31Jt8JOqYUj8GUscRBJoYDbH1b99XPvu6xbQk+EgMRbYS2gpNfiU
+	fB2MVLEUs1P/CsmXHPXraPx4NiujFv7/kS+be7tRtjbbYth4gnZkyQ41Cx46cvcSWNmGBNapRNRfB
+	x+c1Ky5MMbcNgX7CPtoIj39sr8wsRcMsSYrQd9IJIx/j4ZZWE5a+R1kQcfjCp1/OntrQqUi4nWVf8
+	6rvIfUIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWDwQ-00000008Vze-2t6f;
-	Thu, 18 Dec 2025 13:21:14 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vWDyc-00000008WCz-0bCr;
+	Thu, 18 Dec 2025 13:23:30 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWDwN-00000008VyV-1B5N
+	id 1vWDyY-00000008WCC-3UQo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 13:21:13 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.83])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dXB9q5XDxzJ468x;
-	Thu, 18 Dec 2025 21:20:31 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id C374940565;
-	Thu, 18 Dec 2025 21:21:02 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Thu, 18 Dec
- 2025 13:21:01 +0000
-Date: Thu, 18 Dec 2025 13:20:59 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: James Morse <james.morse@arm.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, D
- Scott Phillips OS <scott@os.amperecomputing.com>,
-	<carl@os.amperecomputing.com>, <lcherian@marvell.com>,
-	<bobo.shaobowang@huawei.com>, <tan.shaopeng@fujitsu.com>,
-	<baolin.wang@linux.alibaba.com>, Jamie Iles <quic_jiles@quicinc.com>, "Xin
- Hao" <xhao@linux.alibaba.com>, <peternewman@google.com>,
-	<dfustini@baylibre.com>, <amitsinght@marvell.com>, David Hildenbrand
-	<david@kernel.org>, Dave Martin <dave.martin@arm.com>, Koba Ko
-	<kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
-	<fenghuay@nvidia.com>, <baisheng.gao@unisoc.com>, Gavin Shan
-	<gshan@redhat.com>, Ben Horgan <ben.horgan@arm.com>, <rohit.mathew@arm.com>,
-	<reinette.chatre@intel.com>, Punit Agrawal <punit.agrawal@oss.qualcomm.com>
-Subject: Re: [RFC PATCH 18/38] arm_mpam: resctrl: Add support for csu
- counters
-Message-ID: <20251218132059.00001a0d@huawei.com>
-In-Reply-To: <20251205215901.17772-19-james.morse@arm.com>
-References: <20251205215901.17772-1-james.morse@arm.com>
-	<20251205215901.17772-19-james.morse@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Thu, 18 Dec 2025 13:23:27 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-64b791b5584so542974a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 05:23:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1766064204; x=1766669004; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=oCudBcw5akO4madupDYz73GUtrdMHgyCBVg+ab8JlvI=;
+        b=WdnejxEoKyskfeH0mrm16inza74sMqi9B6SWxGxT0tWFK9IKDh3ThzUqHYEk4GspZQ
+         +rA1hlJea1Dp0aGHBuP6VJXZ5sDdXCN5IbN23FNvfuxY5ZqarI3//EgU8yI6OtOI/smn
+         gDQnaLtTajEPKGFDq/CJf+6+3FnIC3OoLoD/FhboCTgZhivvlzyp0YDbpkhYKTildsRc
+         /GzaNFqGm7C0iIfrOS24e2gn6wByEo7tpgxHZRSHxfvVJARWUkd3ujIoJJNGPbjLY84L
+         IZNsie9p0sJfqZnrFOzKPxKlSuyZB3BtIzcPFTnZEIBilQvbBzDXXFCv5l2Q5b/46guQ
+         6/3Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766064204; x=1766669004;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=oCudBcw5akO4madupDYz73GUtrdMHgyCBVg+ab8JlvI=;
+        b=TLU7A6/2hch7mxQB9Y7hi/ZK7OWNLmm1f3CNfH0Rv6z24Tf6XxEUYvylNJYnfdb2yk
+         E9DWXI/wZPvErt+sXkSh6ApBzZC4I8yNTWVqGAFgbOkWIhHDKZZA7HAepcwjFqgxRFCF
+         i2rb+t3ArVNAue3qTc5qBRpR7lmi6DLA/S+I4tyBW1jJBD2B9CP6fWNTt/8ksPRmF0vL
+         0YD/QRyER8rjMj0bStFFeisCywmRHxaks8ztiO9wX28RYvHvImsp5WRpIrSpVumnZsQW
+         uhqetkmM7iN7HbTmiXuVf9fCX02V6kp0jnyjLPNl27rJBUl59YKv47JTlMT7JE1jopDj
+         n5fQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVfJ23DOIoJmU2IUiGaw3SPdTQ7PheKbyNaN2ZzMfIYfgvBdqgxtmeGs1Z2Z0U4YxiPHi02q5guPHFODMeMSxXh@lists.infradead.org
+X-Gm-Message-State: AOJu0YywNCW0vH021VwJZVZq+eeJCMFfP0uBnF9hOM+PjBVl1hMuAN6j
+	pZnnOPAh7FD49EfdHePrFsWQfs4ELzjqJ+XeDbYao/VZ7XugAAp/re0hIg1apZvhmY8=
+X-Gm-Gg: AY/fxX7QnvRvF82TSFJEYdjRJ9mZZcTzV2t551du6qrleCVqlpId+8FnovndeUO9MFo
+	KmrYekEGjJPltvf0+NdRiQ72hljvgKbDVBvoY3rRjpmEimutjS8Wk7DlMTv4e9YBn4cjvPRIBwQ
+	TWSQJ3wyPQpxplLcOlo1F44bZtIZHWZX7hiajYUSXb5askyg+XFI9TT7J3jxBjQboGRs+tt3Mw2
+	ZWWB38199nhWl60qj3rPpZpyNtFyYHi6YN89PzNWA9qKSIdxQ0JVv77LKYIYCKh6EJkJjvAFIxy
+	dqFPHlHDb+vr9b5liCh46uYRU3E1e4IaQN2JPR2gCaNVt0owBejVACd2Jh+KR+RhP1ErECiVw7j
+	trYBdZwCwUWkOUJjIRYC/0zjSMny9FkefFaVmcxBfztKCipgYZMn3d7DtagFVrGfHBCR5BYSdw8
+	RmmK0UnJzxRR6/B1HX4a/3sgnQMmrXr8p8nEx3Q5cEXLYHTJoKDLdIcA==
+X-Google-Smtp-Source: AGHT+IGEffrc7V99LBQekNjWi+jayFMaj4hzdwzei25erTP3Kr8QQXDpgbnbFwV3ifqZ4Xi+QZCiww==
+X-Received: by 2002:a17:907:d15:b0:b75:8b9f:de3a with SMTP id a640c23a62f3a-b7d23b4d6cdmr2285321666b.59.1766064204083;
+        Thu, 18 Dec 2025 05:23:24 -0800 (PST)
+Received: from localhost (host-79-37-15-246.retail.telecomitalia.it. [79.37.15.246])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b80234a2786sm232719666b.49.2025.12.18.05.23.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 18 Dec 2025 05:23:23 -0800 (PST)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Thu, 18 Dec 2025 14:25:56 +0100
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+	bcm-kernel-feedback-list@broadcom.com,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, andrea.porta@suse.com
+Subject: Re: [PATCH v2] arm64: broadcom: bcm2712: Drop rp1 overlay
+Message-ID: <aUQA5IKqqsrElzKP@apocalypse>
+References: <20251211193854.1778221-1-robh@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500009.china.huawei.com (7.191.174.84) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251211193854.1778221-1-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_052111_633133_A3513DDC 
-X-CRM114-Status: GOOD (  19.86  )
+X-CRM114-CacheID: sfid-20251218_052326_882965_6AF83520 
+X-CRM114-Status: GOOD (  21.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,64 +104,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 5 Dec 2025 21:58:41 +0000
-James Morse <james.morse@arm.com> wrote:
+Hi Rob,
 
-> resctrl exposes a counter via a file named llc_occupancy. This isn't really
-> a counter as its value goes up and down, this is a snapshot of the cache
-> storage usage monitor.
+On 13:38 Thu 11 Dec     , Rob Herring (Arm) wrote:
+> It's a requirement that DT overlays be applied at build time in order to
+> validate them as overlays are not validated on their own, but the
+> rp1.dtbo is not applied to anything. The rp1.dtso overlay doesn't work
+> on its own as there are additional settings needed as seen in
+> bcm2712-rpi-5-b.dts. In addition, the 'rp1_nexus' node is applied to the
+> wrong place in the DT as it should be under a PCIe root port rather than
+> the host bridge. There's also a duplicate overlay in drivers/misc/rp1/.
 > 
-> Add some picking code to find a cache as close as possible to the L3 that
-> supports the CSU monitor.
+> For these reasons, just drop the overlay to fix the warning until all
+> these issues can be fixed.
 > 
-> If there is an L3, but it doesn't have any controls, force the L3 resource
-> to exist. The existing topology_matches_l3() and
-> mpam_resctrl_domain_hdr_init() code will ensure this looks like the L3,
-> even if the class belongs to a later cache.
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+> The missing applying of rp1.dtbo is now a warning in v6.19-rc1. This
+> should be sent to Linus ASAP.
 > 
-> Signed-off-by: James Morse <james.morse@arm.com>
+> v2:
+>  - Drop the overlay instead of trying to rework. The addition of
+>    ethernet0 alias complicates that.
+> ---
+>  arch/arm64/boot/dts/broadcom/Makefile | 3 +--
+>  1 file changed, 1 insertion(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/broadcom/Makefile b/arch/arm64/boot/dts/broadcom/Makefile
+> index 83d45afc6588..031875a277d7 100644
+> --- a/arch/arm64/boot/dts/broadcom/Makefile
+> +++ b/arch/arm64/boot/dts/broadcom/Makefile
+> @@ -14,8 +14,7 @@ dtb-$(CONFIG_ARCH_BCM2835) += bcm2711-rpi-400.dtb \
+>  			      bcm2837-rpi-3-b.dtb \
+>  			      bcm2837-rpi-3-b-plus.dtb \
+>  			      bcm2837-rpi-cm3-io3.dtb \
+> -			      bcm2837-rpi-zero-2-w.dtb \
+> -			      rp1.dtbo
+> +			      bcm2837-rpi-zero-2-w.dtb
 
-More triviality from me.  I'll take a separate look at whether this actually
-works for all the systems we care about.  It feels like maybe a top level
-MPAM to resctl mapping document might be useful as people are going to fall
-into traps around these various heuristics, particularly as more exciting
-topologies arrive in the future. 
+I'm preparing a rework patch that drops the overlay too, it will fix this warning
+and the other concerns about RP1 DT hierarchy. Anyway, since this warning seems
+to annoy a lot of people, feel free to apply it in the meantime and I'll adapt
+accordingly, hence:
 
+Reviewed-by: Andrea della Porta <andrea.porta@suse.com>
 
-> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-> index fe830524639e..fc1f054f187e 100644
-> --- a/drivers/resctrl/mpam_resctrl.c
-> +++ b/drivers/resctrl/mpam_resctrl.c
+Thanks,
+Andrea
 
->  /*
->   * Calculate the worst-case percentage change from each implemented step
->   * in the control.
-> @@ -499,6 +531,64 @@ static void mpam_resctrl_pick_mba(void)
->  	}
->  }
 >  
-> +static void counter_update_class(enum resctrl_event_id evt_id,
-> +				 struct mpam_class *class)
-> +{
-> +	struct mpam_class *existing_class = mpam_resctrl_counters[evt_id].class;
-> +
-> +	if (existing_class) {
-> +		if (class->level == 3) {
-> +			pr_debug("Existing class is L3 - L3 wins\n");
-> +			return;
-
-As returned the else isn't adding anything much.
-
-> +		} else if (existing_class->level < class->level) {
-> +			pr_debug("Existing class is closer to L3, %u versus %u - closer is better\n",
-> +				 existing_class->level, class->level);
-> +			return;
-> +		}
-> +	}
-> +
-> +	mpam_resctrl_counters[evt_id].class = class;
-> +	exposed_mon_capable = true;
-> +}
-
-
+>  subdir-y	+= bcmbca
+>  subdir-y	+= northstar2
+> -- 
+> 2.51.0
+> 
 
