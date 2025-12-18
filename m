@@ -4,143 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4087D6D220
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 13:39:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AAA3D6D220
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 13:40:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iXBjavAzr+b344rqXrPUfRCnf/+ZQMxOzlCBRlY9bI4=; b=ae9nkcHwvFtI9HTRXgifzSlNEt
-	6cArEW3LpjXdf9rflXuGkUOIUARmB/B71DIl0MUbpS3/HPlpinstdeBsMDWZayyW/ezFRtCwwIL58
-	hCGsRO5OPipg9MNtWtP1fvWa3YasJeK0es8g3uzyvjZSaJe/rQGlumQoOs2mzFip/KR/F04wMlrQb
-	zxBm/X7k3vPqTjJ6EWZcCFSLw1/Pj5g75/vIBpZAKGm+8/uHdp3w39u6D79GwremCWX1vLtDnr0QY
-	1kGLSccocirfAEHmXcX8bClbC8OihiVgawc7hI32buKm6L6BesOWN44Vi/bz4BmLVDeGrYw8vzX7A
-	wqdbCdJQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3LSAT77K70NGSM9Qz0SJWa7kxo2rFXyPcHQVzVB1tZg=; b=mUgxhxX4R92IfJtBIhuYlMMPKs
+	wc+mnQdDnI1ZpgdldcJOUfoNqJroCapzObOVPH1E8IP4s4qsLp/ta7Bj7sydGxHT9gl8Z24ONkHA/
+	VXPnD4IqsCsboDLXkFbPQusJ+IFYzEZtVor86BfXRavAzKRV1RAHMOyut3X7+RZk9OwH5VzE/5xsm
+	jC9KTLXAG31o+PlwFmzLnU8EQBXZv+YuWlZmulXaKO8kSBXJ9Rc2ZHRBvqe5Fp9+fGDR8m+Hs1MUh
+	uAsUvEAa7Yi18S8X7wFI0HYCdQkXg3JqdL0WpoB9QGYFs7Na0giOZ5DzGWuKTC6C1YAGQ/+Oxlvmo
+	WCnVo0EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWEEL-00000008YDA-09V9;
-	Thu, 18 Dec 2025 13:39:45 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vWEFF-00000008YPb-1QgC;
+	Thu, 18 Dec 2025 13:40:41 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWEEI-00000008YCZ-3frE
+	id 1vWEFB-00000008YNv-29CG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 13:39:44 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BI9PelW4191394
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 13:39:40 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	iXBjavAzr+b344rqXrPUfRCnf/+ZQMxOzlCBRlY9bI4=; b=ceZazrGplkJgGn4k
-	g7hXFkAeQ2jBeSnDxZEy1vQTHBTxuhby02BQuDiGOOKJkqVXe5E6Maqz7D213Gum
-	ocnw+GOeTQTGwuLcbDoULUp8HN+F/CoSpKwXrdYF3zYJxE9yHP2kW16wHcxVHktv
-	a7b5jrTRQ/hIAssAo/XIKj48VfLJMx8YQQKcxA+IimfpTi9uBRyIziKFses9TDN+
-	hXGhsEZ6ZigaV8KDeDo+Wi7ZDzUZpvUsl2HZ3xarAqxAVQ+a1rPTsRsFa1lyeXLd
-	N6riFxSR0MacQFGBpdnQ43dF4+wBU6YyEYGUWygtjj1ioOKk1puQRlgv0Gz2jXQK
-	I+Tz5g==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4b47pkj57j-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 13:39:39 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4f3564e2321so414821cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 05:39:39 -0800 (PST)
+	Thu, 18 Dec 2025 13:40:40 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-b7697e8b01aso109485166b.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 05:40:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1766065179; x=1766669979; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=iXBjavAzr+b344rqXrPUfRCnf/+ZQMxOzlCBRlY9bI4=;
-        b=KpvGX/TchBEU5JlFDsgYqaiDx7jnICdG/7c+rKdNXvh14S9Pr8hXcNqgxvaA8KMwE/
-         OMTa8EHI11Pxs8Yrl2K0p+6saXKM+SDJt+i75y0JU+VtbjaM+A1SFQdpjXEsLKReyMV1
-         2waMM1ejghDTgPOkLhq/C2KBRgq4AxM8dOZ+PHdcwyrNVDTC+Eio9sxXRFCKmvATo7Tk
-         FNQmoVMv+Zpkd/p7bQu0LAKzdLLUFA3LTbVgR1RuyEnNv9L5cTIO94K1c9wwhsF+JAH3
-         DGoXzlDYl5gCAUq5HvWVdh7/6j4mo7HFWbs5xSUE6x7QrHfsnkOP9Cwvbr/hIZpGCBZZ
-         ZdIg==
+        d=suse.com; s=google; t=1766065235; x=1766670035; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=3LSAT77K70NGSM9Qz0SJWa7kxo2rFXyPcHQVzVB1tZg=;
+        b=OzmPBbDdQBFlzRKmb3DdivSiYhGcEBxhlN+EblRz8sD3WpTD9EXCUKQw6BktuCCrUy
+         Eq0EB7W+jIVLdfb9obS1UnyE0sX30T3TpxtSvE9JhzEzvZBOtBoNkzLEMUJ/V6tml1Cc
+         EpG2ddS0v1Z5VTQtcvIQGfOCTkRCNzQbyF7BqhWimNHSVu9nKof5Ka4M1i+rYNJHckmx
+         acEQI+nPIOA/rQkUYl85/ae7ZqWQ5M+MwCFUPCPq8A74Q+H/PpAYKujaHYpr7yfESJJx
+         KLTEQFQyNkPE0gvCcOz4Urz8vdY1rYX+grHTjIppsy8isW+0WAzhgz99kKsMKrbr2ZHy
+         k1Rg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766065179; x=1766669979;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=iXBjavAzr+b344rqXrPUfRCnf/+ZQMxOzlCBRlY9bI4=;
-        b=Gd4kId4efdRd+0DByjRuVz5A4RqO/D8TZdV4q+mh0stYLDB66qQ4OGe+fKRJqpImTb
-         mGUXbt0R/pLd8V6hS9TsoVzcpBKD2c76N9HNQ47g9sPb3SxBzDOeGS4k6DifPOdM+DBc
-         i95gByADPfz3ijBCSyOQxrR9Gd8PvknsI04TRhgln1zdvezAkxWj6ZbK7JMYAy28jpcX
-         Nc6LQAAADOmbePv34koCHvzWgXZsPilURaVsMvBoRf3w7VVcpcgeECYYHTNyEfub7BJt
-         yx/BZ+Q0FWkOKyyunzZHa1Sl05e2nkKy4fcoUfmz2l+srbV5b9rKaqjn059+5yfsIrF7
-         v86w==
-X-Gm-Message-State: AOJu0YwGBGASVui6ssznbsiI7TOUxh2sC52Ag6aCndEe5MoLBmJzwdSi
-	skzftcKjYGVhz7xGUw5/r28sjmFTw5v3GjhbnXUXPg/JiTBnpS47kfsTgTwFnJY9saiPT3Pl9px
-	AWYN2uG8C2OQMfceKv2vCEf5Z3nA6yI3ZL2wgIQM/0D3zREAF78FsL4SVr1rne+ZyRXZemfKc2t
-	A1p0eE+xGfeA==
-X-Gm-Gg: AY/fxX6zo3dLteeoDv72oYQOBT5uILqBe7CilxwwCa2fC70VIMugzqk5+k2bwerRVMa
-	YyI2rP6c982ycd7yogR6cdWgH2tJZWhymTnfQG3krjSadpWwz4fgVqsUnf2z2qFmTkvM6jPf3Td
-	H8GXMlGzD2HmRRNAbeItWIaa4Z0Rk8i9v5mB/heobTEFoyFNQK8RLVdx1ghg34QklN3zC+HFCIZ
-	qSBR7ndDVo88g2E9Mcfc0GvPmao5KbKnKa3HJ4WlsHsPqpE4GegBk2L9rqF1v9txinbHd8MAtA2
-	STCZOfs6yeqmdxRTJFfsCSWgpbM5yh76MhlBw8cVb8KpFMC1RGBCGKMMiFNk8085MvilqTPvWqX
-	nmjPokaiQJlWbksLkd0XRjFfrHcB7cFoIbhr5TzGh6RvuIqBlHHPg0EUKoGcMO/YTPQ==
-X-Received: by 2002:a05:622a:43:b0:4f1:b3c1:20f8 with SMTP id d75a77b69052e-4f3610818f0mr19712311cf.4.1766065178768;
-        Thu, 18 Dec 2025 05:39:38 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHTeIvy/NjnisAiBdGVDUI2R7PT5nt+0PAwtdl6wvnjsNYp+nDPPgKkDdnegJEkAxI51ztlow==
-X-Received: by 2002:a05:622a:43:b0:4f1:b3c1:20f8 with SMTP id d75a77b69052e-4f3610818f0mr19711931cf.4.1766065178347;
-        Thu, 18 Dec 2025 05:39:38 -0800 (PST)
-Received: from [192.168.119.72] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-64b5887d4a0sm2459517a12.23.2025.12.18.05.39.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 18 Dec 2025 05:39:37 -0800 (PST)
-Message-ID: <9964bf4b-a6ed-4429-8c70-520cd19781e9@oss.qualcomm.com>
-Date: Thu, 18 Dec 2025 14:39:34 +0100
+        d=1e100.net; s=20230601; t=1766065235; x=1766670035;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=3LSAT77K70NGSM9Qz0SJWa7kxo2rFXyPcHQVzVB1tZg=;
+        b=d03VJN9dMJgqHJwY1XJr0ouMLxo6MnJxp57r/bijyTdEe3bVKk2z7PY02zTKqG7By7
+         piwq4iNsfyGJxE7rbOgbz9TEn2CiYPESL5ojoOlPB5LV9DLJi7eGM2lJ58HHhLpejVMh
+         VnQLuhcSwHqohJykvmYGVr6be5zz6rs2MRSiDwkfEzc0qV+6lHaqkpbO0AsXXoFFd6XJ
+         m4LKG3XxULk6wMBjGTOk0zlmB6ZivGLdz7m+LQ8jUyBZ2mPxooMMMtNdwkS9/3ZT1y8T
+         2jol7qs666GwqMGLqF1lTshgAKyNx4HctJvMqr8bCFBm0mDan6OSe1vk3vb6X2J45tIH
+         YUAQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW24y41TCzb6eoRdO8b5XQ3ynxPQ+0Pva8zomN9Cl2bUvx63k51RMmJpJxxqUeY2MMcMB5nUT6SQsfxz1edw2Qv@lists.infradead.org
+X-Gm-Message-State: AOJu0YyMRNJpE64uQljZOP49sIsL3ByDZSrdzhBqCN318N2BINgLqYom
+	MZTWiz9D86LErQYHYmgAvpGkJPGMA2pTB29wrEe4256l8+qAyR+BoWd11axUtQNZtVU=
+X-Gm-Gg: AY/fxX7YgBu5Fg/2NZDl54q0ACn/syf/PJp+Mrul1wOaUsa9IhEvSHxdW47nyUP4Oak
+	1wICjvRAYxNaMsM6pC49hNuDkgSDutptbPmT5Jtu1VAxIjqtiMYYpP/Bq4EFOA463OGVl/1yC9y
+	qi2VoAqTOjSW8q38N7ffSinws4tVQ6eL3yhWrpNoZBKk5Xk6xFBYc4kZtZEBpS3ExELHu2UXgry
+	OqdgL14fooNFbYEeBot2a6N3qrG7NT1rQxlYFwxsB87OOlPEsKITan7aheWpxSoS9wn4I/rFKP8
+	Si86F1meARkG4CioO7lB8IBFuW7XadOkmKt4PggEFLG39w/Ww0fRx1ujh5E471n+V8XpmPhyO3N
+	9M+Pk+JvqAIG07uPw7QIGCnE1QTssv4LbL9PhGD3YsE2PD/LZIVUEk6XwL4EvLsRkrz9yzRZ4xX
+	F2N6gBYR5Ohk7AhLP9BlA8z4Xo3xmzlhx54YulUnfeO5vNl6EZ9YZYlA==
+X-Google-Smtp-Source: AGHT+IHubB2aqzYVB60sOrvL9H+YVC9aXHA+OCCZ5f3rKFv1VGMlaYPyOqYSATywdoLRGkGi9cjK8g==
+X-Received: by 2002:a17:907:3c90:b0:b70:af3d:e97b with SMTP id a640c23a62f3a-b7d23a425a9mr2129392766b.17.1766065235495;
+        Thu, 18 Dec 2025 05:40:35 -0800 (PST)
+Received: from localhost (host-79-37-15-246.retail.telecomitalia.it. [79.37.15.246])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b802351a335sm236652066b.66.2025.12.18.05.40.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 18 Dec 2025 05:40:35 -0800 (PST)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Thu, 18 Dec 2025 14:43:08 +0100
+To: Andrea della Porta <andrea.porta@suse.com>
+Cc: "Rob Herring (Arm)" <robh@kernel.org>,
+	Phil Elwell <phil@raspberrypi.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [RFC PATCH] arm64: broadcom: bcm2712: Rework rp1 overlay handling
+Message-ID: <aUQE7NbplmY_Qtp6@apocalypse>
+References: <20251117211503.728354-2-robh@kernel.org>
+ <aTgrHEoxl7J8_BuU@apocalypse>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 5/5] arm64: dts: qcom: monaco-evk-camera: Add DT
- overlay
-To: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-        Nihal Kumar Gupta <quic_nihalkum@quicinc.com>,
-        bryan.odonoghue@linaro.org, mchehab@kernel.org, robh@kernel.org,
-        krzk+dt@kernel.org, conor+dt@kernel.org, andersson@kernel.org,
-        konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
-        cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com,
-        will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, quic_svankada@quicinc.com,
-        linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        Ravi Shankar <quic_rshankar@quicinc.com>,
-        Vishal Verma <quic_vishverm@quicinc.com>
-References: <20251216062223.2474216-1-quic_nihalkum@quicinc.com>
- <20251216062223.2474216-6-quic_nihalkum@quicinc.com>
- <5bd29b5f-6fcf-428d-b451-698d92f0883e@linaro.org>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <5bd29b5f-6fcf-428d-b451-698d92f0883e@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: H2NRIb-LVaGNt4v3q5Hn9Zb4VXs0UATS
-X-Authority-Analysis: v=2.4 cv=Md9hep/f c=1 sm=1 tr=0 ts=6944041b cx=c_pps
- a=JbAStetqSzwMeJznSMzCyw==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=lOoz2d9cngm9sXlBlawA:9 a=QEXdDO2ut3YA:10
- a=uxP6HrT_eTzRwkO_Te1X:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjE4MDExMyBTYWx0ZWRfXxpcG17u3zkkk
- 032IX7tRDInELS3VSOkUsqUS2O1as6bnBhYrZ93dOovsIFDEho5wcAEq/T+7AUS1x/7rGx5COIY
- p7U+GMXfAuidM3BcrEVnA/OtZ8SHsdV0QxLqjUc+5yW7k5nt5uOdvetgTRSGUK19ItrBoewq/dW
- PujkJ21Rhf47gmQMcY8uqF49excxI8aFl4n4XZ6ku+wFCDwv+zcwlAEsnKfAeEI6LYdbVDRgANb
- r4r1mfITspnVg7dU80qWwwu1Gqn4K2/xGzGKjRR0/OnatCbMhrhx3/wP9HCslmRh9hUZWjC/hRi
- 0n3HLin16nQHEW4jJ21KRD6vSudtGFwaN/QpcxS6BCL3nV9/p+n6zosrHxc4xCsY+/QwkyHb5jj
- P8Gzq/ZNfKKzjB2tn1sblvOULXwg3A==
-X-Proofpoint-GUID: H2NRIb-LVaGNt4v3q5Hn9Zb4VXs0UATS
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-12-18_02,2025-12-17_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 clxscore=1015 adultscore=0 spamscore=0 lowpriorityscore=0
- priorityscore=1501 suspectscore=0 impostorscore=0 phishscore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2512180113
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aTgrHEoxl7J8_BuU@apocalypse>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_053942_925171_89C87715 
-X-CRM114-Status: GOOD (  10.99  )
+X-CRM114-CacheID: sfid-20251218_054037_579712_824DAA12 
+X-CRM114-Status: GOOD (  27.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,24 +107,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/16/25 8:35 AM, Vladimir Zapolskiy wrote:
-> On 12/16/25 08:22, Nihal Kumar Gupta wrote:
->> Monaco EVK board does not include a camera sensor in its default hardware
->> configuration. Introducing a device tree overlay to support optional
->> integration of the IMX577 sensor via CSIPHY1.
->>
->> Camera reset is handled through an I2C expander, and power is enabled
->> via TLMM GPIO74.
->>
->> An example media-ctl pipeline for the imx577 is:
+Hi Rob,
 
-[...]
+On 14:58 Tue 09 Dec     , Andrea della Porta wrote:
+> Hi Rob,
+> sorry for the delay...
+> 
+> On 15:15 Mon 17 Nov     , Rob Herring (Arm) wrote:
+> > It's a requirement that DT overlays be applied at build time in order to
+> > validate them as overlays are not validated on their own.
+> > 
+> > Simply adding a build time target is possible, but it's also not desirable
+> > to have targets which include the overlay contents and apply the same
+> > overlay.
+> > 
+> > Rework the targets such that there are 2 overlays: the existing RP1 overlay
+> > and the board specific configuration of the RP1 (bcm2712-rpi-5-b.dtso).
+> > 
+> > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> > ---
+> > The missing applying of rp1.dtbo will soon be a warning[1].
+> > 
+> > The comment in bcm2712-rpi-5-b.dts(o) needs updating or removing. The RP1
+> > driver or userspace handling of the overlay probably needs updating to
+> > handle the 2 overlays. IIRC, I think we can apply overlays to overlays
+> > which may be useful here. If not, adding that to the tools should be
+> > possible.
+> > 
+> > [1] https://lore.kernel.org/all/20251114222759.4181152-1-robh@kernel.org/
+> > ---
+> >  arch/arm64/boot/dts/broadcom/Makefile                 | 10 ++++++++--
+> >  ...m2712-d-rpi-5-b.dts => bcm2712-d-rpi-5-b-base.dts} |  2 +-
+> >  .../{bcm2712-rpi-5-b.dts => bcm2712-rpi-5-b.dtso}     | 11 +++++------
+> >  3 files changed, 14 insertions(+), 9 deletions(-)
+> >  rename arch/arm64/boot/dts/broadcom/{bcm2712-d-rpi-5-b.dts => bcm2712-d-rpi-5-b-base.dts} (95%)
+> >  rename arch/arm64/boot/dts/broadcom/{bcm2712-rpi-5-b.dts => bcm2712-rpi-5-b.dtso} (92%)
+> > 
+> > diff --git a/arch/arm64/boot/dts/broadcom/Makefile b/arch/arm64/boot/dts/broadcom/Makefile
+> > index 83d45afc6588..4957edec9d9f 100644
+> > --- a/arch/arm64/boot/dts/broadcom/Makefile
+> > +++ b/arch/arm64/boot/dts/broadcom/Makefile
+> > @@ -6,9 +6,9 @@ DTC_FLAGS := -@
+> >  dtb-$(CONFIG_ARCH_BCM2835) += bcm2711-rpi-400.dtb \
+> >  			      bcm2711-rpi-4-b.dtb \
+> >  			      bcm2711-rpi-cm4-io.dtb \
+> > -			      bcm2712-rpi-5-b.dtb \
+> > +			      bcm2712-rpi-5-b.dtbo \
+> >  			      bcm2712-rpi-5-b-ovl-rp1.dtb \
+> > -			      bcm2712-d-rpi-5-b.dtb \
+> > +			      bcm2712-d-rpi-5-b-base.dtb \
+> >  			      bcm2837-rpi-2-b.dtb \
+> >  			      bcm2837-rpi-3-a-plus.dtb \
+> >  			      bcm2837-rpi-3-b.dtb \
+> > @@ -17,6 +17,12 @@ dtb-$(CONFIG_ARCH_BCM2835) += bcm2711-rpi-400.dtb \
+> >  			      bcm2837-rpi-zero-2-w.dtb \
+> >  			      rp1.dtbo
+> >  
+> > +bcm2712-rpi-5-b-dtbs := bcm2712-rpi-5-b-ovl-rp1.dtb rp1.dtbo bcm2712-rpi-5-b.dtbo
+> > +dtb-$(CONFIG_ARCH_BCM2835) += bcm2712-rpi-5-b.dtb
+> > +
+> > +bcm2712-d-rpi-5-b-dtbs := bcm2712-d-rpi-5-b-base.dtb rp1.dtbo bcm2712-rpi-5-b.dtbo
+> > +dtb-$(CONFIG_ARCH_BCM2835) += bcm2712-d-rpi-5-b.dtb
+> > +
+> >  subdir-y	+= bcmbca
+> >  subdir-y	+= northstar2
+> >  subdir-y	+= stingray
+> > diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b-base.dts
+> > similarity index 95%
+> > rename from arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
+> > rename to arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b-base.dts
+> > index 7de24d60bcd1..48a0ae118839 100644
+> > --- a/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
+> > +++ b/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b-base.dts
+> > @@ -1,7 +1,7 @@
+> >  // SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> >  /dts-v1/;
+> >  
+> > -#include "bcm2712-rpi-5-b.dts"
+> > +#include "bcm2712-rpi-5-b-ovl-rp1.dts"
+> >  
+> >  &gio_aon {
+> >  	brcm,gpio-bank-widths = <15 6>;
+> > diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dtso
+> > similarity index 92%
+> > rename from arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
+> > rename to arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dtso
+> > index b8f256545022..89d099c00035 100644
+> > --- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
+> > +++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dtso
+> > @@ -15,19 +15,18 @@
+> >   */
+> >  
+> >  /dts-v1/;
+> > +/plugin/;
+> >  
+> > -#include "bcm2712-rpi-5-b-ovl-rp1.dts"
+> > -
+> > -&pcie2 {
+> > -	#include "rp1-nexus.dtsi"
+> > -};
+> > +#include <dt-bindings/gpio/gpio.h>
+> 
+> Sounds reasonable to me, please let me have a full round of tests to check for
+> any issue with the driver and I'll come back with feedback.
 
-> If only one of 3 defined from 4/5 regulators is used, do you really wish
-> to describle all 3 in advance? You may consider to remove 2 currently unused
-> GPIO controlled regulator descriptions, and squash this change with 4/5.
+Just a heads up, since you've posted this new revision [1] and that I'm currently
+reworking RP1 overlay (in order to drop it), I assume that this patch is no longer
+relevant and I'll avoid testing it.
 
-This is useful, if only to surely park them when unused.
+Thanks,
+Andrea
 
-Konrad
+[1] - https://lore.kernel.org/all/aUQA5IKqqsrElzKP@apocalypse/
+
+> 
+> >  
+> >  &rp1_eth {
+> >  	status = "okay";
+> >  	phy-mode = "rgmii-id";
+> >  	phy-handle = <&phy1>;
+> > +        #address-cells = <1>;
+> > +        #size-cells = <0>;
+> 
+> I think this should go in a separate patch.
+> 
+> >  
+> > -	mdio {
+> > +	mdio@1 {
+> 
+> Ditto.
+> 
+> Many thanks,
+> Andrea
+> 
+> >  		reg = <0x1>;
+> >  		reset-gpios = <&rp1_gpio 32 GPIO_ACTIVE_LOW>;
+> >  		reset-delay-us = <5000>;
+> > -- 
+> > 2.51.0
+> > 
 
