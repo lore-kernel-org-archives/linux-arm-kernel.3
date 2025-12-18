@@ -4,100 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07220D68BF0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 08:11:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9981BD68BED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 08:11:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6gTdyh4ezqxD0vBFXnAxPCcE/QYPv9tIPmuui16gpC4=; b=LzRCWyvhciyPcA72gGcfXHwNfc
-	sX9zLO7aMwGVQ8ACZESimqDTjGuz1hyLOd0fQMbAaUgEm6VZuIFen2LlXUAwLN/m1sHT5gkpvHTPC
-	Ym7+4unlqZZ/aZhxrFI56Kykn28TTjiWk8aW1ejKKB/gmwJyXA7NAvg7D5OtR6pz2hrS4Yh+lh+8X
-	0Sd7fF+f1kEMe9CsGNmRO+UdMGuloNhb4pCHBV7fg2e/sCMP5nTWAa3IapfgPhtyxusrjmwfuWSNC
-	ZPNKzXVoxr1QbKRnUu/4ruCF+HnnpniMz085n8JsmLyKzO2euSdSIOixB3gpWUeBcuzCV6egO/IYm
-	XJZ5FecA==;
+	bh=xua7CIpsfwXMGEG0aRsvIhJpXzyieh8r6ETzlhoAhW0=; b=F55aI5GjxGaCEJtKYoG5H2+UKw
+	WH8QmR3zYpiRbYx8xJQxE82363qBFME0eoywOHmki3HkQz7YpKQuG20bPwYckr0GzojOSmE4TusB4
+	NFA8xG0vJN/AOZvfr06SS8QsVOvhpeY2ArytWjfZ7kAggxHMURW0qbRfKmOAY72LpdDbQXeOX1+B0
+	e+FdjAUSE3N6D9HndwfBWf2pSqdAY4Wt0M6pobEbOAIS867WONeDA2Z08QtjJW9cgISurligF/2ws
+	CKgQ4kAO9pGpsaxVo7L+/jSlvD1scHRYjaTL3Ogd9POp5q0O47U711llXkJf7rPTKH5EVGM2kO2jG
+	U2+H28/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vW96M-0000000812u-0X2G;
-	Thu, 18 Dec 2025 08:11:10 +0000
+	id 1vW96M-00000008142-4Ac5;
+	Thu, 18 Dec 2025 08:11:11 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vW966-000000080qe-2TUv
+	id 1vW968-000000080s8-31Yh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 08:10:57 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BI1YUY34057273
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 08:10:53 GMT
+	Thu, 18 Dec 2025 08:11:00 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BI1Ykod680787
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 08:10:55 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	6gTdyh4ezqxD0vBFXnAxPCcE/QYPv9tIPmuui16gpC4=; b=VpV6A/revRiIIl+/
-	NQ/DxaoinM/GeEKH76trAlesoPufJxG20NH8PHvoFAr01peVL6A6vZViW4rnU+Bp
-	9+0O6eybI1zCh01DREQoCJH2lfUyZjV0MwNTHuP+F0WtDWiHgrf1mENatvllDMk7
-	3lmbxLpJcSv7N+/RN4f/sQAb5J3qFvhKZqJGFMWQ8aPDJdb4KZfzcjiJn0RzvCbB
-	lnOHg2WUtFZ8xvhf91fpcof1KGBRHXtB6F6TqcMAdIzGoU2vhG7irGHhySr+TbWp
-	ygSS5Rf2lBreAx4domOaYm8ng3pYyTLZTihqOeZlpeRhROzXTbeuOjY5+UipJx3m
-	4CPYTA==
-Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4b3xr5ap8h-1
+	xua7CIpsfwXMGEG0aRsvIhJpXzyieh8r6ETzlhoAhW0=; b=muXZr8P+BJD1vjec
+	BrEryU0X1Vu5m9Tau/J5PBxykaYOoV6x8FmVXWFIAZkfa7dh4fpM6GZaGgzunGWR
+	CkEP+NxCKTuG+w3C3dGMXOm0Z/FOREDuDz0yVbW4CoheKJ7kymMusWpaAWza35Br
+	bZErVuCdQ9WIwcOxD31psCSvn99tRCVsrwflmYAVtDNaWEq0KbsmqhCcWKORUtIM
+	sryuEcgWbSayA4FH57+9Lg2B8U7rw8GVIFgcfrTBMgIAyUQ/UuiwsXFZI31TIis1
+	yKUizWCPgYYOAsCwH8oIMCaKjyIBQ//lpc3ll4wTbdsKDnj9ZfZfMu1e9lfECbwv
+	LJkZyg==
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4b45bhhcer-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 08:10:53 +0000 (GMT)
-Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-b471737e673so512589a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 00:10:53 -0800 (PST)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 08:10:55 +0000 (GMT)
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-bc0de474d4eso855662a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 00:10:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=oss.qualcomm.com; s=google; t=1766045453; x=1766650253; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=6gTdyh4ezqxD0vBFXnAxPCcE/QYPv9tIPmuui16gpC4=;
-        b=jmcOIVFDX2/r3t5alUUdMomtv51WaN5wMsRsq87PTbMIQ6EvOUjm3iFdap1uWzSOF/
-         w0GnstBsc3fwaJAC7acBv6TqnWVOVApFXIZpsGe8IZZ5ZeUAWdbpp6z3xsmQWgYMC4kt
-         ZJru9KOCvES/AspAkNX4k9bkbMcP2KcSETXIgY6p/XNtgfzg8WnRMA/RPc6T85Yx2JyA
-         43cOsIwGfkPf5AYEIUAyCgk7vMW02ZzTdZrh6mgUnH4u8hrdf0+ArRpuFuTmNP0oqSb0
-         Q7Tr/+ouk839pIcnRytCES3PqGPLDB391ysH3ha2reoq5bAgPjClxyPyNj4FJ1PDn3dX
-         o09w==
+        bh=xua7CIpsfwXMGEG0aRsvIhJpXzyieh8r6ETzlhoAhW0=;
+        b=cgs3kiI30+5psX5JIodKoUHnvUoioIbHY6/p/2YuPMWuDOrmQZmo4ukPDI1zgmJgkF
+         m6ayOpYYQieRFi29pjsllrL0XFgBMsrv+hbv7NjwhmqA/zA9CwqxHergAvAac3ycgz+F
+         P/8A4nbma4uAv2X99HUD7mr27s21/GYO99zP8u2U2Is0/G0mrJVGAQ0C3QJVYNamiuG3
+         oAeewIqyn6ORznAxrKhwxBObXRrTzVX6mp41GTgu/SqwYGiKDvzKjQZU4JsGbRnBdXbw
+         dNRh/B0YY26P5rtGRapNZTfP1HV6TzSUV87hFOn6YHkgbbh+encJ8jdbiV5fiWeWoi6x
+         RILg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20230601; t=1766045453; x=1766650253;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=6gTdyh4ezqxD0vBFXnAxPCcE/QYPv9tIPmuui16gpC4=;
-        b=Kuec08xoJsFOwVtbbgJyzXz9aDAqREOf7VwNkdwCk9E1DSDQqMO3TeDKZWePy/WB3R
-         MY9XweP+L8eC/7rZ7a4lNjQ1OnWUzHN/VyR/GXKn4EttnXaD9NzcCL/rkh7dRdRPJ3ZH
-         3tQW0s2o/DZhgOEj0L2zPW/uv0NKHh89niwScZKscO/fknVnDeFTbW3TFFplT1Z6YAj/
-         +g8qt5bF8AGtmsdqCI1smNkfY4M5pv83R/c5kMUh7rdJN6uJlkNp33LPWlw1CnJF+xy9
-         Cp24WCvDbb9Of8Os/B4Fq9xOL7qpRZXlvK9raFmv9KHO43k8VC4n2QkjNsdSZQNOZBbq
-         wbxw==
-X-Forwarded-Encrypted: i=1; AJvYcCWTlGmya4VDNKaZ+zQW6VsqOfuqCXKQyt6HSCwIG8XUDgS5EypPIhSd0GtbzI8Xma5wdVVbwTxmZesOhM/FHJLv@lists.infradead.org
-X-Gm-Message-State: AOJu0YyMvQptuOmfZkk06Uo9HN4dFLRldUEo85oLLbWpG8JRRc4gL+EV
-	FmYDWsH3TZh6eZccDyh2fCFnZTfva1OylD9Ei4FAcB7nu12E3bEjcc1zPG5T46/pl0GXVt2giyc
-	Iakk2LW9b5W5KO8AR8Jp+L+b8qkFf92SawJM5PH3QuEPZ8EsTzQxDm++8m4Uug4QBWBPOpLqPFh
-	RHUg==
-X-Gm-Gg: AY/fxX4U79lvcRdJ2GzXnPdJFkvzgBCq+8QyQBzzySlNR4Fi4jL8gbp3nthejagFWoV
-	98ZBmsdqS9Y+dSwLYEW3zwOmrGUx3ToBdSLypscEJfJxjUExaMiQtPCalDH8Jx53UiqUxU+7NTn
-	kFq/hZSwlpTYsUKa1UadUioUswGCCSpwliSoCeTCgvZxgJJ5OH64PVXvThzoPSWEzSrVzcLFVWw
-	FiA2h6Ejc1vhV1+anC4zC9R2i/bHgcRUqrPgR6d1Wyt6cmBOIYp7pJ0SsD71tyc/Ddy0EU5GT7Q
-	pGufp5+ZNIPQnaMEouZ16R4ySp7Q/RDlWE/F93VoSLYW+jkv/3gDY4uZ1YOxhbp7+VzX8RbzmjO
-	V6wpwq/l3wU8OxT9YXB0PUiwlGfK/IREnrjM3F7jivbNp8IF62JwCN8/GegVY+NE6AiQ=
-X-Received: by 2002:a05:7300:d216:b0:2af:fbb:97d6 with SMTP id 5a478bee46e88-2af0fbb9db4mr3375385eec.42.1766045452460;
+        bh=xua7CIpsfwXMGEG0aRsvIhJpXzyieh8r6ETzlhoAhW0=;
+        b=ZuZb/3oJAg6rEzvIsHV6o6lEybPcKfRCHWSPqlpLm6DrldawsMcLkXGDwpr5YKaOLf
+         /zTy2cZ5sgYspgNno1da7NSiPus9zJUsd9k8WcPdbwNmMCOtPOkgJrOBroc+jNNnfHl8
+         6O0fkCG9oFvcdTMeM8pocOgw4rFMUMC9Ba5/H1U0zjfhkb3IpvDmfv4v3aPFBAFN5mB0
+         7XE7jTMPVWx+KHpULxBQpV+XzEy8bxsAwZ8qH/qFP5MQ87tjeH4YyWnF4ZMr1MJzI2eZ
+         QSyIxfin6e42SG9PPHiN3F7bPoyESDdgfYZqKPN2a7Auj97lrp7crWDCSM1eVrvNo9wY
+         TVfg==
+X-Forwarded-Encrypted: i=1; AJvYcCVqK+5z00gkQDNcq1NIjHPyFbgwMCFMGq3E7O54/DMwEN2IcDpLyzFClYYfXSZlJnVq86M4YlBJ9FT/bZrIZmYI@lists.infradead.org
+X-Gm-Message-State: AOJu0YxXLs+IJbG9FD7spCj2NZaV8otcJL2AHJUcHOuOnMERL6KXYZ26
+	arFKdb7U8L0DR7k+Cieoy7prOEPT5sDCipfGntqXrtlDRvesmFhEs6aRzumn/PO9RMwSEwe4kWv
+	jJNpD3WtkWlcZBY/9Rsn8vt+pDI0cHxkZZa13oBnyG+gGSZZk3ZhMkK3BMtWlRD8lVHNyyFre4p
+	SzZw==
+X-Gm-Gg: AY/fxX7saH3Oq/Ays03CRwFe1EQ0DV8+CcQtUCOUSxquz+G+nkn83pMwY/HKxuhA1j+
+	WU25/PzpLX8cqIAyf4bCan4x1IjIhOpD8mpr8dDxbwP8Pz4HUd52bqrYbpdmUfvGTZbH0338UIh
+	F4OMJY6qqqEZvKx0/SWLhfoFIMLXbWCsNo0u6HxIpncInn+++b2cKH8OiQd8KvY8WtpU/0zmuVZ
+	IAYZjuIFpCOW8HJVT5ey7wqxCFzwtdTaJn4qes+7fJLkO0IAFFkfzbpbF3T0YZH74eoLCrTZLHv
+	O27cI9Pa1GbGIG/Q/3qqNPaL+EmLkOJ10yPiKF2vnj6b0chHN5DXcdaCluuWG45Q9gGgz3V7RhB
+	t2mb8VPpHSI8TFpJZFeIdfv2dq+ZPQbCrK0fBnbsCwU73qxcBwNacQfUUAEb5A9MTKlU=
+X-Received: by 2002:a05:7300:dc05:b0:2ac:2c08:9017 with SMTP id 5a478bee46e88-2ac3025c46bmr16758027eec.28.1766045453398;
+        Thu, 18 Dec 2025 00:10:53 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFzIYOYrzKJNgMYGQeIIPo2edSaN7oTEFR/z/hQnoML6t+W4zedgaa76+05Aio82gg6/tgrTA==
+X-Received: by 2002:a05:7300:dc05:b0:2ac:2c08:9017 with SMTP id 5a478bee46e88-2ac3025c46bmr16758006eec.28.1766045452887;
         Thu, 18 Dec 2025 00:10:52 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGy6O37P7HcdZeyhdXCt5nCSuOfsjpbYAlMSKZnHn47tlAEdu/BEZdw077Uc0D8iY6mjzDk0w==
-X-Received: by 2002:a05:7300:d216:b0:2af:fbb:97d6 with SMTP id 5a478bee46e88-2af0fbb9db4mr3375353eec.42.1766045451916;
-        Thu, 18 Dec 2025 00:10:51 -0800 (PST)
 Received: from hu-yuanfang-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b04e58d423sm2564824eec.6.2025.12.18.00.10.51
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b04e58d423sm2564824eec.6.2025.12.18.00.10.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 18 Dec 2025 00:10:51 -0800 (PST)
+        Thu, 18 Dec 2025 00:10:52 -0800 (PST)
 From: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
-Date: Thu, 18 Dec 2025 00:09:50 -0800
-Subject: [PATCH v2 10/12] coresight-tmc: Defer probe when associated CPUs
- are offline
+Date: Thu, 18 Dec 2025 00:09:51 -0800
+Subject: [PATCH v2 11/12] coresight: Pass trace mode to link enable
+ callback
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251218-cpu_cluster_component_pm-v2-10-2335a6ae62a0@oss.qualcomm.com>
+Message-Id: <20251218-cpu_cluster_component_pm-v2-11-2335a6ae62a0@oss.qualcomm.com>
 References: <20251218-cpu_cluster_component_pm-v2-0-2335a6ae62a0@oss.qualcomm.com>
 In-Reply-To: <20251218-cpu_cluster_component_pm-v2-0-2335a6ae62a0@oss.qualcomm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>,
@@ -116,38 +116,39 @@ Cc: kernel@oss.qualcomm.com, coresight@lists.linaro.org,
         Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
         maulik.shah@oss.qualcomm.com
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1766045439; l=4877;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1766045439; l=9596;
  i=yuanfang.zhang@oss.qualcomm.com; s=20250814; h=from:subject:message-id;
- bh=IB9YQIjoTl8ZOJK7bPPU9ZsiC7//VeDVaYjoFiQJcPE=;
- b=UImHFUGLEN5dtzF1iBXsV0IkphcLBAir0d5O1DosY6wiCmPvKT6KcI1es7/TAxBzlwuv7XkaG
- R94jgxoUDKfDMBnuRFGitFAmzSSyqiGLo7ujkx1OpONeUaniOhZUYMz
+ bh=ZizRFuPaK/LitwSdLNplW7Ev2jbzENlbotIRtyE7yN8=;
+ b=DvqIqB9difxf+/WNfzFJe9N1imzh6BaFyNq7kAFHLDqhsY5fPBidwE1QfWrPkOYyWGR1N6cRo
+ d8tKIhkyqE/DoVZXOYngviSgeIOuKSuS9KNpN6JPBrG7YgwGpi32Fhr
 X-Developer-Key: i=yuanfang.zhang@oss.qualcomm.com; a=ed25519;
  pk=9oS/FoPW5k0CsqSDDrPlnV+kVIOUaAe0O5pr4M1wHgY=
-X-Proofpoint-GUID: ituq4Hmzz5fRKdRB5XZ6S1m-pR59F-Gh
-X-Authority-Analysis: v=2.4 cv=DsBbOW/+ c=1 sm=1 tr=0 ts=6943b70d cx=c_pps
- a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+X-Proofpoint-GUID: YdkCQtgh1rFpIaXPSz55WdelMNb5bLtG
+X-Proofpoint-ORIG-GUID: YdkCQtgh1rFpIaXPSz55WdelMNb5bLtG
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjE4MDA2NiBTYWx0ZWRfX3geqrrV7PqSD
+ q+O/wF9aHj2fYUXywjkaZyI6ELgY8WU7uWHqK159SLAT61s+uh6yy6Ckl8B8NZxydmqEzrXNOQA
+ 8MVvSVXBdCTljdUjWcDqkHtbRfjaOkqRKRt2FTcBtwMAu8vJVRx1gfSbIt1D+9SIc9E1Z1XsF+q
+ QlBURHDwbdxSguHX2I/3lwN9PvYETV5+ZKjXoKb4itbFrtE9pDiYZ1agoR7Q2ZRKAMEWBEOkOoO
+ gkBa7kvbJ9gC0rPmsne0xat4lH1jxDOaTO7zsr6UfXmeKOA4slTC4Nx3+rQdB2hC0Vsx7Xjc9PV
+ ZBBSGFWF5XLOLyOBPjypDtTluKQrxf1AGHxpdgINaftcV5N7lniVb7hD+P90WdcU47duCG8RjAY
+ cnUeWz0+ArMVa/NiMXWJX82vr9srWA==
+X-Authority-Analysis: v=2.4 cv=SZr6t/Ru c=1 sm=1 tr=0 ts=6943b70f cx=c_pps
+ a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
  a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=fD5cxDGOUVrWaoTO3WMA:9
- a=QEXdDO2ut3YA:10 a=_Vgx9l1VpLgwpw_dHYaR:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjE4MDA2NiBTYWx0ZWRfX6+q9lFpi3jZo
- CKiDFmgs8FRhRZFTPxwamgCrFnDz/yEHRfZKfori/c14NHYOJevpXBKea1V09/aRBkXU3OucJy7
- oMMuVzqY+6h0uECMUHPhiesTIBNiTOUsmdhxeaiTQcF5WnmigyjpnXLR3d/0r3ZNXTJNIdswNHN
- BEQmNGdeP/QRGiQ0Djoe6OJ6Puqwb5a4RHdaS62gPq87jxUxV4KJ4qhzDBM2yKUI4QeSQ1qbUlx
- gvIB0cAc9ciXUY/ZbfvLCkgTCTJ++wKjs5MD/MKcSk2u7LjndbbhQ75j4HbWyWOch9XMsrRakBM
- satPrVI+/wQpU/kypF6VN0eH8HV59Z9xRsntuedEwrgX9QnHajfVV94mhd3okNsfcughz1vUXWA
- Lw1dKHtL7sQA4MrVs8Wzr+r80mvyew==
-X-Proofpoint-ORIG-GUID: ituq4Hmzz5fRKdRB5XZ6S1m-pR59F-Gh
+ a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=_ycWAoKx6aYVZ7XB0rUA:9
+ a=QEXdDO2ut3YA:10 a=3WC7DwWrALyhR5TkjVHa:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
  definitions=2025-12-18_01,2025-12-17_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 priorityscore=1501 impostorscore=0 spamscore=0 adultscore=0
- clxscore=1015 bulkscore=0 malwarescore=0 phishscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2512180066
+ bulkscore=0 malwarescore=0 suspectscore=0 spamscore=0 phishscore=0
+ clxscore=1015 adultscore=0 priorityscore=1501 impostorscore=0
+ lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510240001
+ definitions=main-2512180066
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_001055_746466_791D3CA5 
-X-CRM114-Status: GOOD (  23.56  )
+X-CRM114-CacheID: sfid-20251218_001056_986912_52141EAA 
+X-CRM114-Status: GOOD (  19.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,158 +163,236 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On some platforms, the TMC driver may probe before the associated CPUs
-are online. This prevents the driver from securely accessing the
-hardware or configuring it via smp_call_function_single(), which
-requires the target CPU to be available.
+Currently, the link enable callback does not receive the CoreSight mode
+(enum cs_mode). This prevents link drivers from knowing whether they are
+being enabled for SysFS or Perf.
 
-To address this, defer the hardware initialization if the associated
-CPUs are offline:
-1. Track such deferred devices in a global list.
-2. Register a CPU hotplug callback (`tmc_online_cpu`) to detect when
-   a relevant CPU comes online.
-3. Upon CPU online, retry the hardware initialization and registration
-   for the waiting TMC devices.
+This distinction is crucial because Perf mode runs in atomic context,
+where certain operations (like smp_call_function_single()) are unsafe.
+Without knowing the mode, drivers cannot conditionally avoid these
+unsafe calls.
+
+Update the `enable` callback in `struct coresight_ops_link` to accept
+`enum cs_mode`. This allows drivers to implement mode-specific logic,
+such as using atomic-safe enablement sequences when running in Perf
+mode. Update all call sites and driver implementations accordingly.
 
 Signed-off-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
 ---
- drivers/hwtracing/coresight/coresight-tmc-core.c | 59 +++++++++++++++++++++++-
- drivers/hwtracing/coresight/coresight-tmc.h      |  4 ++
- 2 files changed, 61 insertions(+), 2 deletions(-)
+ drivers/hwtracing/coresight/coresight-core.c       |  7 ++++---
+ drivers/hwtracing/coresight/coresight-funnel.c     | 21 +++++++++++++++++++-
+ drivers/hwtracing/coresight/coresight-replicator.c | 23 +++++++++++++++++++++-
+ drivers/hwtracing/coresight/coresight-tmc-etf.c    | 19 +++++++++++++++++-
+ drivers/hwtracing/coresight/coresight-tnoc.c       |  3 ++-
+ drivers/hwtracing/coresight/coresight-tpda.c       |  3 ++-
+ include/linux/coresight.h                          |  3 ++-
+ 7 files changed, 70 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-tmc-core.c b/drivers/hwtracing/coresight/coresight-tmc-core.c
-index 5b9f2e57c78f42f0f1460d8a8dcbac72b5f6085e..9182fa8e4074a7c9739494b2f5d59be2e96f1d3d 100644
---- a/drivers/hwtracing/coresight/coresight-tmc-core.c
-+++ b/drivers/hwtracing/coresight/coresight-tmc-core.c
-@@ -36,6 +36,9 @@
- DEFINE_CORESIGHT_DEVLIST(etb_devs, "tmc_etb");
- DEFINE_CORESIGHT_DEVLIST(etf_devs, "tmc_etf");
- DEFINE_CORESIGHT_DEVLIST(etr_devs, "tmc_etr");
-+static LIST_HEAD(tmc_delay_probe);
-+static enum cpuhp_state hp_online;
-+static DEFINE_SPINLOCK(delay_lock);
- 
- int tmc_wait_for_tmcready(struct tmc_drvdata *drvdata)
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index c660cf8adb1c7cafff8f85e501f056e4e151e372..1863bdb57281b4fd405cf966d565c581506ea270 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -314,7 +314,8 @@ static void coresight_disable_sink(struct coresight_device *csdev)
+ static int coresight_enable_link(struct coresight_device *csdev,
+ 				 struct coresight_device *parent,
+ 				 struct coresight_device *child,
+-				 struct coresight_device *source)
++				 struct coresight_device *source,
++				 enum cs_mode mode)
  {
-@@ -1027,6 +1030,8 @@ static int __tmc_probe(struct device *dev, struct resource *res)
- 		if (!drvdata->supported_cpus)
- 			return -EINVAL;
+ 	int link_subtype;
+ 	struct coresight_connection *inconn, *outconn;
+@@ -331,7 +332,7 @@ static int coresight_enable_link(struct coresight_device *csdev,
+ 	if (link_subtype == CORESIGHT_DEV_SUBTYPE_LINK_SPLIT && IS_ERR(outconn))
+ 		return PTR_ERR(outconn);
  
-+		drvdata->dev = dev;
-+
- 		cpus_read_lock();
- 		for_each_cpu(cpu, drvdata->supported_cpus) {
- 			ret = smp_call_function_single(cpu,
-@@ -1034,11 +1039,16 @@ static int __tmc_probe(struct device *dev, struct resource *res)
- 			if (!ret)
- 				break;
- 		}
--		cpus_read_unlock();
-+
- 		if (ret) {
-+			scoped_guard(spinlock,  &delay_lock)
-+				list_add(&drvdata->link, &tmc_delay_probe);
-+			cpus_read_unlock();
- 			ret = 0;
- 			goto out;
- 		}
-+
-+		cpus_read_unlock();
- 	} else {
- 		tmc_init_hw_config(drvdata);
- 	}
-@@ -1103,8 +1113,12 @@ static void __tmc_remove(struct device *dev)
- 		misc_deregister(&drvdata->miscdev);
- 	if (drvdata->crashdev.fops)
- 		misc_deregister(&drvdata->crashdev);
--	if (drvdata->csdev)
-+	if (drvdata->csdev) {
- 		coresight_unregister(drvdata->csdev);
-+	} else {
-+		scoped_guard(spinlock,  &delay_lock)
-+			list_del(&drvdata->link);
-+	}
+-	return link_ops(csdev)->enable(csdev, inconn, outconn);
++	return link_ops(csdev)->enable(csdev, inconn, outconn, mode);
  }
  
- static void tmc_remove(struct amba_device *adev)
-@@ -1215,14 +1229,55 @@ static struct platform_driver tmc_platform_driver = {
- 	},
- };
+ static void coresight_disable_link(struct coresight_device *csdev,
+@@ -550,7 +551,7 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode)
+ 		case CORESIGHT_DEV_TYPE_LINK:
+ 			parent = list_prev_entry(nd, link)->csdev;
+ 			child = list_next_entry(nd, link)->csdev;
+-			ret = coresight_enable_link(csdev, parent, child, source);
++			ret = coresight_enable_link(csdev, parent, child, source, mode);
+ 			if (ret)
+ 				goto err_disable_helpers;
+ 			break;
+diff --git a/drivers/hwtracing/coresight/coresight-funnel.c b/drivers/hwtracing/coresight/coresight-funnel.c
+index 5d114ce1109f4f9a8b108110bdae258f216881d8..c50522c2854c7193a8c30b1a603abe566a1c1ccf 100644
+--- a/drivers/hwtracing/coresight/coresight-funnel.c
++++ b/drivers/hwtracing/coresight/coresight-funnel.c
+@@ -121,7 +121,8 @@ static int funnel_enable_hw(struct funnel_drvdata *drvdata, int port)
  
-+static int tmc_online_cpu(unsigned int cpu)
-+{
-+	struct tmc_drvdata *drvdata, *tmp;
-+	int ret;
+ static int funnel_enable(struct coresight_device *csdev,
+ 			 struct coresight_connection *in,
+-			 struct coresight_connection *out)
++			 struct coresight_connection *out,
++			 enum cs_mode mode)
+ {
+ 	int rc = 0;
+ 	struct funnel_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+@@ -135,6 +136,23 @@ static int funnel_enable(struct coresight_device *csdev,
+ 	else
+ 		in->dest_refcnt++;
+ 
++	if (mode == CS_MODE_PERF) {
++		if (first_enable) {
++			if (drvdata->supported_cpus &&
++			    !cpumask_test_cpu(smp_processor_id(), drvdata->supported_cpus)) {
++				raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
++				return -EINVAL;
++			}
 +
-+	spin_lock(&delay_lock);
-+	list_for_each_entry_safe(drvdata, tmp, &tmc_delay_probe, link) {
-+		if (cpumask_test_cpu(cpu, drvdata->supported_cpus)) {
-+			list_del(&drvdata->link);
-+
-+			spin_unlock(&delay_lock);
-+			ret = pm_runtime_resume_and_get(drvdata->dev);
-+			if (ret < 0)
-+				return 0;
-+
-+			tmc_init_hw_config(drvdata);
-+			tmc_clear_self_claim_tag(drvdata);
-+			tmc_add_coresight_dev(drvdata->dev);
-+			pm_runtime_put(drvdata->dev);
-+			spin_lock(&delay_lock);
++			if (drvdata->base)
++				rc = dynamic_funnel_enable_hw(drvdata, in->dest_port);
++			if (!rc)
++				in->dest_refcnt++;
 +		}
++		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
++		return rc;
 +	}
-+	spin_unlock(&delay_lock);
-+	return 0;
-+}
 +
- static int __init tmc_init(void)
+ 	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 
+ 	if (first_enable) {
+@@ -183,6 +201,7 @@ static void funnel_disable(struct coresight_device *csdev,
+ 			dynamic_funnel_disable_hw(drvdata, in->dest_port);
+ 		last_disable = true;
+ 	}
++
+ 	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 
+ 	if (last_disable)
+diff --git a/drivers/hwtracing/coresight/coresight-replicator.c b/drivers/hwtracing/coresight/coresight-replicator.c
+index a9f22d0e15de21aa06c8d1e193e5db06091efd75..cc7d3916b8b9d5d342d6cde0487722eeb8dee78b 100644
+--- a/drivers/hwtracing/coresight/coresight-replicator.c
++++ b/drivers/hwtracing/coresight/coresight-replicator.c
+@@ -199,7 +199,8 @@ static int replicator_enable_hw(struct replicator_drvdata *drvdata,
+ 
+ static int replicator_enable(struct coresight_device *csdev,
+ 			     struct coresight_connection *in,
+-			     struct coresight_connection *out)
++			     struct coresight_connection *out,
++			     enum cs_mode mode)
  {
-+	int ret;
+ 	int rc = 0;
+ 	struct replicator_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+@@ -212,6 +213,25 @@ static int replicator_enable(struct coresight_device *csdev,
+ 		first_enable = true;
+ 	else
+ 		out->src_refcnt++;
 +
-+	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN,
-+					"arm/coresight-tmc:online",
-+					tmc_online_cpu, NULL);
++	if (mode == CS_MODE_PERF) {
++		if (first_enable) {
++			if (drvdata->supported_cpus &&
++			    !cpumask_test_cpu(smp_processor_id(), drvdata->supported_cpus)) {
++				raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
++				return -EINVAL;
++			}
 +
-+	if (ret > 0)
-+		hp_online = ret;
-+	else
++			if (drvdata->base)
++				rc = dynamic_replicator_enable(drvdata, in->dest_port,
++							       out->src_port);
++			if (!rc)
++				out->src_refcnt++;
++		}
++		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
++		return rc;
++	}
++
+ 	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 
+ 	if (first_enable) {
+@@ -272,6 +292,7 @@ static void replicator_disable(struct coresight_device *csdev,
+ 						   out->src_port);
+ 		last_disable = true;
+ 	}
++
+ 	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 
+ 	if (last_disable)
+diff --git a/drivers/hwtracing/coresight/coresight-tmc-etf.c b/drivers/hwtracing/coresight/coresight-tmc-etf.c
+index 11357788e9d93c53980e99e0ef78450e393f4059..f1b8264b4e5c8a8d38778c25515cbf557c0993b7 100644
+--- a/drivers/hwtracing/coresight/coresight-tmc-etf.c
++++ b/drivers/hwtracing/coresight/coresight-tmc-etf.c
+@@ -427,7 +427,8 @@ static int tmc_disable_etf_sink(struct coresight_device *csdev)
+ 
+ static int tmc_enable_etf_link(struct coresight_device *csdev,
+ 			       struct coresight_connection *in,
+-			       struct coresight_connection *out)
++			       struct coresight_connection *out,
++			       enum cs_mode mode)
+ {
+ 	int ret = 0;
+ 	unsigned long flags;
+@@ -446,6 +447,22 @@ static int tmc_enable_etf_link(struct coresight_device *csdev,
+ 	if (!first_enable)
+ 		csdev->refcnt++;
+ 
++	if (mode == CS_MODE_PERF) {
++		if (first_enable) {
++			if (drvdata->supported_cpus &&
++			    !cpumask_test_cpu(smp_processor_id(), drvdata->supported_cpus)) {
++				raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
++				return -EINVAL;
++			}
++
++			ret = tmc_etf_enable_hw_local(drvdata);
++			if (!ret)
++				csdev->refcnt++;
++		}
++		raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
 +		return ret;
-+
- 	return coresight_init_driver("tmc", &tmc_driver, &tmc_platform_driver, THIS_MODULE);
- }
- 
- static void __exit tmc_exit(void)
- {
- 	coresight_remove_driver(&tmc_driver, &tmc_platform_driver);
-+	if (hp_online) {
-+		cpuhp_remove_state_nocalls(hp_online);
-+		hp_online = 0;
 +	}
++
+ 	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 	if (first_enable) {
+ 		ret = tmc_etf_enable_hw(drvdata);
+diff --git a/drivers/hwtracing/coresight/coresight-tnoc.c b/drivers/hwtracing/coresight/coresight-tnoc.c
+index ff9a0a9cfe96e5f5e3077c750ea2f890cdd50d94..48e9e685b9439d92bdaae9e40d3b3bc2d1ac1cd2 100644
+--- a/drivers/hwtracing/coresight/coresight-tnoc.c
++++ b/drivers/hwtracing/coresight/coresight-tnoc.c
+@@ -73,7 +73,8 @@ static void trace_noc_enable_hw(struct trace_noc_drvdata *drvdata)
  }
- module_init(tmc_init);
- module_exit(tmc_exit);
-diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
-index b104b7bf82d2a7a99382636e41d3718cf258d820..2583bc4f556195cd814e674dc66f08909dea61b2 100644
---- a/drivers/hwtracing/coresight/coresight-tmc.h
-+++ b/drivers/hwtracing/coresight/coresight-tmc.h
-@@ -246,6 +246,8 @@ struct tmc_resrv_buf {
-  * @supported_cpus:	Represent the CPUs related to this TMC.
-  * @devid:	TMC variant ID inferred from the device configuration register.
-  * @desc_name:	Name to be used while creating crash interface.
-+ * @dev:	pointer to the device associated with this TMC.
-+ * @link:	link to the delay_probed list.
-  */
- struct tmc_drvdata {
- 	struct clk		*atclk;
-@@ -279,6 +281,8 @@ struct tmc_drvdata {
- 	struct cpumask		*supported_cpus;
- 	u32			devid;
- 	const char		*desc_name;
-+	struct device		*dev;
-+	struct list_head	link;
- };
  
- struct etr_buf_operations {
+ static int trace_noc_enable(struct coresight_device *csdev, struct coresight_connection *inport,
+-			    struct coresight_connection *outport)
++			    struct coresight_connection *outport,
++			    enum cs_mode mode)
+ {
+ 	struct trace_noc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+ 
+diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/hwtracing/coresight/coresight-tpda.c
+index 3a3825d27f861585ca1d847929747f8096004089..e6f52abc5b023a997c36d74c0e3b1a3de8236ba2 100644
+--- a/drivers/hwtracing/coresight/coresight-tpda.c
++++ b/drivers/hwtracing/coresight/coresight-tpda.c
+@@ -190,7 +190,8 @@ static int __tpda_enable(struct tpda_drvdata *drvdata, int port)
+ 
+ static int tpda_enable(struct coresight_device *csdev,
+ 		       struct coresight_connection *in,
+-		       struct coresight_connection *out)
++		       struct coresight_connection *out,
++		       enum cs_mode mode)
+ {
+ 	struct tpda_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+ 	int ret = 0;
+diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+index 2b48be97fcd0d7ea2692206692bd33f35ba4ec79..218eb1d1dcef61f5d98ebbfff38370192b8a6e45 100644
+--- a/include/linux/coresight.h
++++ b/include/linux/coresight.h
+@@ -383,7 +383,8 @@ struct coresight_ops_sink {
+ struct coresight_ops_link {
+ 	int (*enable)(struct coresight_device *csdev,
+ 		      struct coresight_connection *in,
+-		      struct coresight_connection *out);
++		      struct coresight_connection *out,
++		      enum cs_mode mode);
+ 	void (*disable)(struct coresight_device *csdev,
+ 			struct coresight_connection *in,
+ 			struct coresight_connection *out);
 
 -- 
 2.34.1
