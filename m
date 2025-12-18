@@ -4,65 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CDCED6ACE2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 10:35:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DA6CD6ACDC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 10:36:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xwoeNAAbHD7xUl98UjGIXtUUJrSnY8KTjPcajcsfzDk=; b=i2y3/b65nPO3A7+u0QcPkuEliq
-	Ck2EVeq0B6tZ5SoBHs2E5uFw6sgn6aVcTAWA3ySTlo8XZFk9SAT6sZRAOvoBbH04RN8klmh0Is22J
-	TzHpbdBHRnMUx512b6TYCdap+SEpiT5QYMn5JYENUjFO3NjlwFTtjiAG+AsKm34lSkX3zd5aQHjTJ
-	gWm7Idc2OCqVv2vySA4k8LMZ2BlB+lyu6kSd4vfYbg7VPfci3hpZvlwoduoayARZ8aDtS3YFdo+As
-	j/VgVP87OkQC4DamgQLaurOBEFkoYL88+3UsSr6O6Is4WCB0GhRzkqp31CWR+1XcI7FSJ1cSZwxox
-	h35bzHRw==;
+	bh=D/F0DPYThR2wAgukFUprgzs4JJyOWU2osyBdfC9F4kM=; b=qki+IB/D5RC5NKB+j4vFXjHXH2
+	TLqiz8qPZ4bhiM8aEP4mK+vBBJj4jRVes0aFIA9bv4Wvs+nXawUAAmEbaRbBWaON0ViHKJk8i8mk9
+	vxdjRJcJksri0jwcWKyZp0q7wEwhfTkLP8J9wMxS/XACF4V+ZaaFi2oyAIe+sdpaN+tcsNr8etDvm
+	ao1I+bk+nIgz0WLF1XRjPEhgwiisZX0x/9dvyT9rzIy+6PChy2hoLRPQkiHGVQ6g2JsEE0FQPUIAo
+	f5MmSTj4gg7MTYnOKhhm2SDJA5jCrTU/kG0ovTUapY3sK93h3UAm54l3ImpeU3ZFEy8eHd50kpl+f
+	lzsECQXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWBME-00000008Ev7-2Or4;
-	Thu, 18 Dec 2025 10:35:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWBMB-00000008EuL-1QaH
+	id 1vWBMk-00000008Eyh-3i3I;
+	Thu, 18 Dec 2025 10:36:16 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vWBMb-00000008EwZ-2pFx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 10:35:41 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 61EBAFEC;
-	Thu, 18 Dec 2025 02:35:30 -0800 (PST)
-Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 962393F73F;
-	Thu, 18 Dec 2025 02:35:35 -0800 (PST)
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-	Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
-	Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
-	Tao Zhang <tao.zhang@oss.qualcomm.com>,
-	Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH v1] dt-binding: Update oss email address for Coresight documents
-Date: Thu, 18 Dec 2025 10:35:21 +0000
-Message-ID: <176605409291.630972.15776682739253158062.b4-ty@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250902042143.1010-1-jie.gan@oss.qualcomm.com>
-References: <20250902042143.1010-1-jie.gan@oss.qualcomm.com>
+	Thu, 18 Dec 2025 10:36:13 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.107])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dX6WB4YVHzJ46F1;
+	Thu, 18 Dec 2025 18:35:18 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id 73AC140570;
+	Thu, 18 Dec 2025 18:35:49 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Thu, 18 Dec
+ 2025 10:35:48 +0000
+Date: Thu, 18 Dec 2025 10:35:46 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: James Morse <james.morse@arm.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, D
+ Scott Phillips OS <scott@os.amperecomputing.com>,
+	<carl@os.amperecomputing.com>, <lcherian@marvell.com>,
+	<bobo.shaobowang@huawei.com>, <tan.shaopeng@fujitsu.com>,
+	<baolin.wang@linux.alibaba.com>, Jamie Iles <quic_jiles@quicinc.com>, "Xin
+ Hao" <xhao@linux.alibaba.com>, <peternewman@google.com>,
+	<dfustini@baylibre.com>, <amitsinght@marvell.com>, David Hildenbrand
+	<david@kernel.org>, Dave Martin <dave.martin@arm.com>, Koba Ko
+	<kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+	<fenghuay@nvidia.com>, <baisheng.gao@unisoc.com>, Gavin Shan
+	<gshan@redhat.com>, Ben Horgan <ben.horgan@arm.com>, <rohit.mathew@arm.com>,
+	<reinette.chatre@intel.com>, Punit Agrawal <punit.agrawal@oss.qualcomm.com>
+Subject: Re: [RFC PATCH 01/38] arm64: mpam: Context switch the MPAM
+ registers
+Message-ID: <20251218103546.000070fd@huawei.com>
+In-Reply-To: <20251205215901.17772-2-james.morse@arm.com>
+References: <20251205215901.17772-1-james.morse@arm.com>
+	<20251205215901.17772-2-james.morse@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml100011.china.huawei.com (7.191.174.247) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_023540_038412_EA4BFCE2 
-X-CRM114-Status: UNSURE (   6.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251218_023606_002721_BFE8796B 
+X-CRM114-Status: GOOD (  36.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,19 +82,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, 5 Dec 2025 21:58:24 +0000
+James Morse <james.morse@arm.com> wrote:
 
-On Tue, 02 Sep 2025 12:21:43 +0800, Jie Gan wrote:
-> Update the OSS email addresses across all Coresight documents, as the
-> previous addresses have been deprecated.
+> MPAM allows traffic in the SoC to be labeled by the OS, these labels
+> are used to apply policy in caches and bandwidth regulators, and to
+> monitor traffic in the SoC. The label is made up of a PARTID and PMG
+> value. The x86 equivalent calls these CLOSID and RMID, but they don't
+> map precisely.
 > 
+> MPAM has two CPU system registers that is used to hold the PARTID and PMG
+> values that traffic generated at each exception level will use. These can be
+> set per-task by the resctrl file system. (resctrl is the defacto interface
+> for controlling this stuff).
 > 
+> Add a helper to switch this.
+> 
+> struct task_struct's separate CLOSID and RMID fields are insufficient
+> to implement resctrl using MPAM, as resctrl can change the PARTID (CLOSID)
+> and PMG (sort of like the RMID) separately. On x86, the rmid is an
+> independent number, so a race that writes a mismatched  closid and rmid
+> into hardware is benign. On arm64, the pmg bits extend the partid.
+> (i.e. partid-5 has a pmg-0 that is not the same as partid-6's pmg-0).
+> In this case, mismatching the values will 'dirty' a pmg value that
+> resctrl believes is clean, and is not tracking with its 'limbo' code.
+> 
+> To avoid this, the partid and pmg are always read and written as a pair.
+> Instead of making struct task_struct's closid and rmid fields an
+> endian-unsafe union, add the value to struct thread_info and always use
+> READ_ONCE()/WRITE_ONCE() when accessing this field.
+> 
+> Resctrl allows a per-cpu 'default' value to be set, this overrides the
+> values when scheduling a task in the default control-group, which has
+> PARTID 0. The way 'code data prioritisation' gets emulated means the
+> register value for the default group needs to be a variable.
+> 
+> The current system register value is kept in a per-cpu variable to
+> avoid writing to the system register if the value isn't going to change.
+> Writes to this register may reset the hardware state for regulating
+> bandwidth.
+> 
+> Finally, there is no reason to context switch these registers unless
+> there is a driver changing the values in struct task_struct. Hide
+> the whole thing behind a static key. This also allows the driver to
+> disable MPAM in response to errors reported by hardware. Move the
+> existing static key to belong to the arch code, as in the future
+> the MPAM driver may become a loadable module.
+> 
+> All this should depend on whether there is an MPAM driver, hide
+> it behind CONFIG_MPAM.
+> 
+> CC: Amit Singh Tomar <amitsinght@marvell.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
 
-Applied, thanks!
+> diff --git a/arch/arm64/include/asm/mpam.h b/arch/arm64/include/asm/mpam.h
+> new file mode 100644
+> index 000000000000..86a55176f884
+> --- /dev/null
+> +++ b/arch/arm64/include/asm/mpam.h
+> @@ -0,0 +1,74 @@
+...
 
-[1/1] dt-binding: Update oss email address for Coresight documents
-      https://git.kernel.org/coresight/c/7009646d937f
+> +/*
+> + * The resctrl filesystem writes to the partid/pmg values for threads and CPUs,
+> + * which may race with reads in __mpam_sched_in(). Ensure only one of the old
+> + * or new values are used. Particular care should be taken with the pmg field
+> + * as __mpam_sched_in() may read a partid and pmg that don't match, causing
+> + * this value to be stored with cache allocations, despite being considered
+> + * 'free' by resctrl.
+> + *
+> + * A value in struct thread_info is used instead of struct task_struct as the
+> + * cpu's u64 register format is used, but struct task_struct has two u32'.
 
-Best regards,
--- 
-Suzuki K Poulose <suzuki.poulose@arm.com>
+This comment probably wants to provide a little more info if it is to be useful,
+
+Is it a reference to the closid and rmid fields under CONFIG_X86_CPU_RESCTRL?
+I'm not immediately understanding why that matters given you could slap
+a union on it without (I think) resulting in anything else moving.
+
+Now having it in thread_info moves it into arch header territory so
+might make sense for that reason.
+
+> + */
+> +static inline u64 mpam_get_regval(struct task_struct *tsk)
+> +{
+> +#ifdef CONFIG_ARM64_MPAM
+> +	return READ_ONCE(task_thread_info(tsk)->mpam_partid_pmg);
+> +#else
+> +	return 0;
+> +#endif
+> +}
+
 
