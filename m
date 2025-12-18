@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F98DD6ACDC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 10:38:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71C4DD6ACE2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 10:40:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lZD14hx6Q84bvnu6zDw0ForMMp+V0B0wC7tel4GpwgA=; b=jqWNssmL8CMeSrp+SA3zrCTsyZ
-	Z6X7mRJ8Go0bEQOZtt73KAHGeNCHsFvVDqITR09tAtJBWsLsqAsxpZ4f7z3n6SeXiCS7TZRp9SM5S
-	QmeN8S5VinxJMgiiNd6u6/hbvSGX8eKAqYnUbqT1ISOQ5i77++enCmXJqtdZoywGmpbvJ77iQ9/x5
-	IPSj4aSC7ke04oFSczjv4uZ5TNcqeP8Bva/iMUaY9BXkDRWb0zV6iMYqN5GiY72I2vPYbMjsliu78
-	n3Hhqb3ZL3KfXYIWOIWopYMPbhSld9Asq15aLox+hoEdJU7NdGaiRn5EUk1ZfrXbNd8RcGY5Uy3MI
-	M+YE3caQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mB87ggdElwk/7BG+P3OrNy4lVCw8a5cZotqqSrMd6YY=; b=P2oP/YCOmsaV79LMUX9JfE8Wct
+	54R4NM0RFSb1bHJwicgmY4Jav3rvoAuPZaMEPgLZpOd3EClmWGQxnI3nRFQMvw/kBSSv1Fofd4Jy3
+	fT6M01EF+09c6UQhTLa2HDisPXDjXQvV+RBgVuLZkpiqLej5WfqTilfMpRgzCrG10S3DWssGSW378
+	4wKxpOvshse/a30HMa49EKY3GKPEj673ztizeRcxjjRkRvh3dzNgFl8aj3md0z7GQYoevW+PSm8Kj
+	WOWUyVom6gkzHjuYQdtraZEL1oXEXqJUBr/QeJEvtXpG3IOR0Ky/c4ZxOlg/eBMLx9ZA11vos1NvJ
+	MF88Ewhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWBPI-00000008FCJ-3sZu;
-	Thu, 18 Dec 2025 10:38:52 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWBPG-00000008FBt-1hlp
+	id 1vWBQy-00000008FKe-1m7J;
+	Thu, 18 Dec 2025 10:40:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vWBQv-00000008FKD-2cRt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 10:38:51 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.150])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dX6Zc758kzJ46CP;
-	Thu, 18 Dec 2025 18:38:16 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id CC6DC40539;
-	Thu, 18 Dec 2025 18:38:47 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Thu, 18 Dec
- 2025 10:38:46 +0000
-Date: Thu, 18 Dec 2025 10:38:45 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: James Morse <james.morse@arm.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, D
- Scott Phillips OS <scott@os.amperecomputing.com>,
-	<carl@os.amperecomputing.com>, <lcherian@marvell.com>,
-	<bobo.shaobowang@huawei.com>, <tan.shaopeng@fujitsu.com>,
-	<baolin.wang@linux.alibaba.com>, Jamie Iles <quic_jiles@quicinc.com>, "Xin
- Hao" <xhao@linux.alibaba.com>, <peternewman@google.com>,
-	<dfustini@baylibre.com>, <amitsinght@marvell.com>, David Hildenbrand
-	<david@kernel.org>, Dave Martin <dave.martin@arm.com>, Koba Ko
-	<kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
-	<fenghuay@nvidia.com>, <baisheng.gao@unisoc.com>, Gavin Shan
-	<gshan@redhat.com>, Ben Horgan <ben.horgan@arm.com>, <rohit.mathew@arm.com>,
-	<reinette.chatre@intel.com>, Punit Agrawal <punit.agrawal@oss.qualcomm.com>
-Subject: Re: [RFC PATCH 03/38] arm64: mpam: Advertise the CPUs MPAM limits
- to the driver
-Message-ID: <20251218103845.000053b3@huawei.com>
-In-Reply-To: <20251205215901.17772-4-james.morse@arm.com>
-References: <20251205215901.17772-1-james.morse@arm.com>
-	<20251205215901.17772-4-james.morse@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Thu, 18 Dec 2025 10:40:34 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D1BBCFEC;
+	Thu, 18 Dec 2025 02:40:22 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 99EC63F73F;
+	Thu, 18 Dec 2025 02:40:29 -0800 (PST)
+Date: Thu, 18 Dec 2025 10:40:27 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Leo Yan <leo.yan@linux.dev>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>, kernel@oss.qualcomm.com,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, maulik.shah@oss.qualcomm.com,
+	Jie Gan <jie.gan@oss.qualcomm.com>
+Subject: Re: [PATCH v2 00/12] coresight: Add CPU cluster
+ funnel/replicator/tmc support
+Message-ID: <20251218104027.GA1790402@e132581.arm.com>
+References: <20251218-cpu_cluster_component_pm-v2-0-2335a6ae62a0@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml100011.china.huawei.com (7.191.174.247) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251218-cpu_cluster_component_pm-v2-0-2335a6ae62a0@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_023850_612453_4DF8508F 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20251218_024033_709579_DA4B9711 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,29 +75,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 5 Dec 2025 21:58:26 +0000
-James Morse <james.morse@arm.com> wrote:
+Hi,
 
-> Requestors need to populate the MPAM fields for any traffic they send
-> on the interconnect. For the CPUs these values are taken from the
-> corresponding MPAMy_ELx register. Each requestor may have a limit on
-> the largest PARTID or PMG value that can be used. The MPAM driver has
-> to determine the system-wide minimum supported PARTID and PMG values.
-> 
-> To do this, the driver needs to be told what each requestor's
-> limit is.
+On Thu, Dec 18, 2025 at 12:09:40AM -0800, Coresight ML wrote:
 
-Trivial but this commit message line wrap isn't very consistent.
+[...]
 
-> 
-> CPUs are special, but this infrastructure is also needed for the
-> SMMU and GIC ITS. Call the helper to tell the MPAM driver what the
-> CPUs can do.
-> 
-> The return value can be ignored by the arch code as it runs well
-> before the MPAM driver starts probing.
-> 
-> Signed-off-by: James Morse <james.morse@arm.com>
+> - Utilizing `smp_call_function_single()` to ensure register accesses
+>   (initialization, enablement, sysfs reads) are always executed on a
+>   powered CPU within the target cluster.
 
+This is concerned as Mike suggested earlier.
 
+Let me convert to a common question: how does the Linux kernel manage
+a power domain shared by multiple hardware modules?
+
+A general solution is to bind a power domain (let's say PD1) to both
+module A (MOD_A) and module B (MOD_B).  Each time before accessing MOD_A
+or MOD_B, PD1 must be powered on first via the pm_runtime APIs, with
+its refcount increased accordingly.
+
+My understanding is the problem in your case is that the driver fails to
+create a relationship between the funnel/replicator modules and the
+cluster power domain.  Instead, you are trying to use the CPUs in the
+same cluster as a delegate for power operations - when you want to
+access MOD_B, your wake up MOD_A which sharing the same power domain,
+only to turn on the PD_A in order to access MOD_B.
+
+Have you discussed with the firmware and hardware engineers whether it
+is feasible to provide explicit power and clock control interfaces for
+the funnel and replicator modules?  I can imagine the cluster power
+domain's design might differ from other device power domains, but
+should not the hardware provide a sane design that allows software to
+control power for the access logic within it?
+
+General speaking, using smp_call_function_single() makes sense if only
+when accessing logics within the CPU boundary.
+
+P.s., currently you can use "taskset" as a temporary solution without
+any code change, something like:
+
+  taskset -c 0 echo 1 > /sys/bus/coresight/devices/etm0/enable_source
+
+Thanks,
+Leo
 
