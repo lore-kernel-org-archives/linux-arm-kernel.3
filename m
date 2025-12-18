@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1E7DD6ACD7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 09:32:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5133D6ACD4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 09:32:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G2G+/x3jtQrXMi/svP6iEzjO6ovvdc59qY/88LJBgKg=; b=qi0FZJyOnT7Q2S5Fq5mRh/K6FC
-	b2Mw9CYbi7SUZTN9LBIy4gCuIwD1SG0DdPoXvk3toGLL3iPo1FezQnWZ8GRLUWTyVcbaC1FR2s+A2
-	l1V42DQ5lg9BaXTewGz+W1Gj/Z3RxRTSy4gSsrKacT3daYpQsc3CB72PgSi5GJ34ogEMJR+iyLmtl
-	DEPjzwDbl/Y3U9TIHrWDjrzuMEvbgLU7axJuW5mmwgTFeCXqW86ALCWN5FIPVV0N0X3y/jkfgo9hg
-	D5ZKiXHzV9s1+OjQF8zvHJXmN104tzfwgP5PbrwCcw73ucHAgqoHYrWLM7oj7gT25GMwW5vgC9elR
-	mGspHYxw==;
+	bh=/rwkgH0df4xaqo5yuZWdnYvQ1Ko8f/MsSqOkeihtOYU=; b=mM45kHr69fWY3VFNI5mF6mBIdx
+	XFs/L3pMyubtZi4RnM2tB5RpqlVLOWshP8CQAY5qQus8eaZ6ViWpZinXk5b946O+bxhPF2p2jcRVH
+	YYKgrMoCaZ2UK2ytwSkijQ/ifwzNUadxCGODBDR33CCNW/rxfD3U90cMbnuEUF+MdZuGopy5rXrtH
+	MYhNZ8GNBYhqa9hnvA2un8Pyf9l8YAzbGq13JsJa2OgThl32QwJlQvz0b/Nuum+aNyuiwAdi9qav/
+	JWe+jt8ELZp5BqmeVWT/6FS6XYmwWpWyWK7DKk0+eHsjAP7/CYObCVjxKnmOC2PGiQ+o3eWvHX0/a
+	cxeg49Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWANK-000000089UJ-2YCt;
-	Thu, 18 Dec 2025 09:32:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vWANP-000000089Wv-1dko;
+	Thu, 18 Dec 2025 09:32:51 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWANI-000000089TU-3LvB
+	id 1vWANO-000000089WJ-2Id3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 09:32:46 +0000
+	Thu, 18 Dec 2025 09:32:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0B3F043B07;
-	Thu, 18 Dec 2025 09:32:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0578FC4CEFB;
-	Thu, 18 Dec 2025 09:32:40 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 945F460133;
+	Thu, 18 Dec 2025 09:32:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86B31C4CEFB;
+	Thu, 18 Dec 2025 09:32:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766050363;
-	bh=TvHwwQh6QW4aMRcWQ0xejXsyZkwHJK10UZAYUX2ZWVU=;
+	s=k20201202; t=1766050369;
+	bh=81UJb/tDyeaP+qvZ6Zz59Q3gkULX3YPSvT8fk2ia0Pc=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=ZLIEAvyPipdJbsBGy8cdMYXrr+LjCydIMGF+AMTjoGbum7dacm37sXvo0MiE0x3Z3
-	 PBIlaWia7FRplfd3b5HxBmewAdyFUzXy8AWbkl+4W7twqaPpvjEmZ29TbAZilzjdtC
-	 YOSeb7v6uBbZPf5bV5FYctGUc1awZIGNbf4yRT6wY/FrNPvj3yKprzwIZPQdOFzbss
-	 9JDjzAy0xQA/lUPScQ7p09LgHPAoJBP5iGCexexKYmjKftsz0W+3Olkkx9322L6M46
-	 xmCRPp783WICs2aGFINFPH6AadisFLEEEYbB1DmcMtOKHUin0Eo0tflH6su3VK2WlM
-	 qclOYFuoZeeig==
+	b=aKwYji/f8E+1YmeQiWeg2bkwx1HWEbIxjhnET+XKiEKP4jdCqXokC70raZmnFfEAU
+	 Fn936QbztgdaopG6l0bdvRHiPJaPIeYOylJtVwjNR0S/xWy+G9lRTQ9N+J9haW0P6P
+	 q3VrmZWidEbQTZaA3wNmY6oX/fYl8si2eANWlxC/7ioY6gyvYmzTBWDldmq7D1vi17
+	 GaoxQSt49+pR4GFUxUkZZF/tZbOcW0QOsfj1Gnrbusxsjkp4c6Ek8w/2JdxqO5ARTc
+	 cMM6nTSB8OVyOPq5f6R7J5+0WyLfZkK1to9XAcjKbylBC8y9gUUmtCaQeeSg/wzQlo
+	 jPQ6JqY/1JfiQ==
 From: Mark Brown <broonie@kernel.org>
 To: Han Xu <han.xu@nxp.com>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -51,20 +51,17 @@ To: Han Xu <han.xu@nxp.com>, Rob Herring <robh@kernel.org>,
  Fabio Estevam <festevam@gmail.com>, Haibo Chen <haibo.chen@nxp.com>
 Cc: linux-spi@vger.kernel.org, imx@lists.linux.dev, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, frank.li@nxp.com, 
- Krzysztof Kozlowski <krzk@kernel.org>
-In-Reply-To: <20251125-xspi-v6-0-22b22de50cda@nxp.com>
-References: <20251125-xspi-v6-0-22b22de50cda@nxp.com>
-Subject: Re: [PATCH v6 0/2] Add support for NXP XSPI
-Message-Id: <176605036072.87569.17728068603081639345.b4-ty@kernel.org>
-Date: Thu, 18 Dec 2025 09:32:40 +0000
+ linux-arm-kernel@lists.infradead.org, Krzysztof Kozlowski <krzk@kernel.org>, 
+ Frank Li <Frank.Li@nxp.com>
+In-Reply-To: <20251216-xspi-v7-0-282525220979@nxp.com>
+References: <20251216-xspi-v7-0-282525220979@nxp.com>
+Subject: Re: [PATCH v7 0/2] Add support for NXP XSPI
+Message-Id: <176605036628.87569.2326741752652519619.b4-ty@kernel.org>
+Date: Thu, 18 Dec 2025 09:32:46 +0000
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.15-dev-47773
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_013244_867087_A73CAC55 
-X-CRM114-Status: GOOD (  16.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,7 +76,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 25 Nov 2025 15:42:17 +0800, Haibo Chen wrote:
+On Tue, 16 Dec 2025 11:20:12 +0800, Haibo Chen wrote:
 > XSPI is a flexible SPI host controller which supports up to
 > 2 external devices (2 CS). It support Single/Dual/Quad/Octal
 > mode data transfer.
@@ -103,8 +100,8 @@ Applied to
 
 Thanks!
 
-[1/2] dt-bindings: spi: Document imx94 xspi
-      (no commit info)
+[1/2] spi: dt-bindings: nxp,imx94-xspi: Document imx94 xspi
+      commit: 64ba616741bcfc4c7ef1ed856179328300ca0422
 [2/2] spi: add driver for NXP XSPI controller
       commit: 29c8c00d9f9db5fb659b6f05f9e8964afc13f3e2
 
