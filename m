@@ -4,87 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0026D68BF0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 08:40:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E38F5D68BEE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 08:45:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4mxIe2RWCdQyoniiqHbqT+fSW/1ncegpctg5OKn3wFA=; b=4Kypgl9UJxtaiFSUD4em7GOYXI
-	SsFqK6QBNprjg8RLrdxBtEkd9n19YTenOllF+jaDYnAt9e0SlI4VUcUbxcVWsYRHoucRlStobKzcO
-	g9MsKVGTOTR/Ru/UPg5uN7Vu4IjZSImknDqZFhCWRjcho4GynCFG1LB8RMUg+WC/z0kcRJn2MtBVU
-	IH+kmK+xVCBDIIX5dS1xjXtl4ALnBbwvzJD5tiUgjEUmn9+YPMn3XUtau688nMmmeHyHSEJLCBI9C
-	JC1WXCyQCdUhKKm9wNnNTahNuv3NCQ3c3mWrV27vLP5XjCsLJQ4rn6HbHxY7QEDD+fPVkAn+ZiUSF
-	NleKPXig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=g+bJVIpt0gfvrKpvvpbdhzaZrLDQ51BQvCd8rNT5zDA=; b=obFhqS3gkTSf02/Gyb5vx8723c
+	rUXmlYj1CXNGs2lHVWy6E6ROd1KHxqoEG2a6EXKovxidt93F3eWb4Kq4AgAn1Cv+y8H0+DKN9p99x
+	DNmuvtvbL07SqpGE9KKLE0OJSsdekRWRDQlwP4ywwN2DWAF4K249+QVNDXQnmSUa/AXvVm1ie5aHv
+	U4rhQJTOCzb3kp+VahE+GH/c3XSc8ViUZHq9RgCI5Q/nL+0CuDv9kLyH6OPD1ck9KUnJzSL3cAiOw
+	5yq+SsVCQgwBIZCwHDv7gG9iX/6wFpCQKPeFhsJN8g128MEYLYxpP/WaBbJvqf6jec4VaaV2D++vP
+	8oP+u29A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vW9YQ-000000084d4-35Jm;
-	Thu, 18 Dec 2025 08:40:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vW9dc-0000000856n-3pGU;
+	Thu, 18 Dec 2025 08:45:32 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vW9YO-000000084c6-1VqT
+	id 1vW9da-0000000856S-435V
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 18 Dec 2025 08:45:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Subject:To:From:Date:Message-ID:Sender:Reply-To:Cc:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=g+bJVIpt0gfvrKpvvpbdhzaZrLDQ51BQvCd8rNT5zDA=; b=iRDABKIVkQ+W5cF8rfW5xrhGBI
+	6dFtPiUselvl4YUTQ6Q0Otvf9cbWd3+Xg8vZDk0pWVLwut8MNGK7+iJefNy7g77TQoXcCPCXrL8DI
+	vXnglb401H+OfZt9j4PjZXvv8dF5ZyqP2gukjcfw+lygMkOZKobElximP1pNhStIi8MXwUz9e6Jxb
+	hSD/ZOm59o6UAHKhnhWs3F9C0Rj//YlvN+mSrBqa6dAGzOgDBi2MzCi4+x89XMPoXqSowPFuT6yWh
+	y52Xpgi21XJIzcWXY3T9XSrhzkBrEH2esA6XPLoYP6lVqs8IdIaQSPrFB19T8dpsnCT2Ptj5nZ1T8
+	dqvEHKrA==;
+Received: from mail.torqly.pl ([51.38.112.117])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vW8lx-00000008NqV-0B3p
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 08:40:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9D01A4405A;
-	Thu, 18 Dec 2025 08:40:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD4B5C4CEFB;
-	Thu, 18 Dec 2025 08:40:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766047207;
-	bh=ofPz3WZxF0qhrxc5N6KO0WklVZWUMGP/4at4uzuCx5s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rmVVJePJGXR+kQkm3+r1Kbt0GyikF3QfUnymI7CCZrHKsRgARfO2o2ba2kB+bpPCT
-	 UHrvTWZoxuQAIRQXxc9I5NeoAcCrZBmmcrAlJnug5BaQTQvVwVqvaJjDuY33ZMzoy6
-	 BAr6jLOIpi2I8WC82e6kp81I8nrCa8WqCHQlSBTqZwv7g1LhXawg+JG4WGZSyz9t7l
-	 lUOt/NCn0KCw0dStvCGVQTawL+HWAy5Lrwn0Gx39IwmYRZLbytZdLLUDYSPzigtubq
-	 ZxR25apmkkEWekeoA8W1U6GFN06j4Og1ARDAkIDWxQbraNlGOfxULa77Gl1qMs8cke
-	 OZqPmHVBTqbAw==
-Date: Thu, 18 Dec 2025 10:40:02 +0200
-From: Leon Romanovsky <leon@kernel.org>
-To: Guenter Roeck <linux@roeck-us.net>
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Juergen Gross <jgross@suse.com>,
-	Stefano Stabellini <sstabellini@kernel.org>,
-	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
-	Richard Henderson <richard.henderson@linaro.org>,
-	Matt Turner <mattst88@gmail.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	Helge Deller <deller@gmx.de>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Geoff Levand <geoff@infradead.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	xen-devel@lists.xenproject.org, linux-alpha@vger.kernel.org,
-	linux-mips@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
-	Jason Gunthorpe <jgg@ziepe.ca>, Jason Gunthorpe <jgg@nvidia.com>
-Subject: Re: [PATCH v5 09/14] parisc: Convert DMA map_page to map_phys
- interface [qemu test failure]
-Message-ID: <20251218084002.GD39046@unreal>
-References: <20251015-remove-map-page-v5-0-3bbfe3a25cdf@kernel.org>
- <20251015-remove-map-page-v5-9-3bbfe3a25cdf@kernel.org>
- <b184f1bf-96dc-4546-8512-9cba5ecb58f7@roeck-us.net>
+	Thu, 18 Dec 2025 07:50:08 +0000
+Received: by mail.torqly.pl (Postfix, from userid 1002)
+	id 08184AA73E; Thu, 18 Dec 2025 09:41:51 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=torqly.pl; s=mail;
+	t=1766047347; bh=g+bJVIpt0gfvrKpvvpbdhzaZrLDQ51BQvCd8rNT5zDA=;
+	h=Date:From:To:Subject:From;
+	b=lYGU91SRWiEGVI9nIPIuPOSrg/W5G4K8BIYPzsaDJnVHN47BcASJzKfR8i69pphcU
+	 i5R5dgRa3f8+JllEa9zzySvdUqqwHNA5HFSJ0Pg9J/bzjcP5ydK+v8/W9EzTPsy9zw
+	 ElxfySqh1x3u2zRE4UyinwZRGRPcKho5jo4MjfycBoSokF++vfMlsHIHIItI4S/lL2
+	 KMwm8qsO5yV5w7/N2M9Qay0OAeBePTwexADsAo/yjboDen5mUFiJMXUK4QCHU67kYq
+	 M42lTArnTt43LWEP4pJqIAJb9aok9Qc8jEHJQtB9DLxiX2HOOs7zA/hXAGUO3coplu
+	 ZcL3fRjAEfPgw==
+Received: by mail.torqly.pl for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 08:41:00 GMT
+Message-ID: <20251218084500-0.1.tu.d9iig.0.cnjfo24rna@torqly.pl>
+Date: Thu, 18 Dec 2025 08:41:00 GMT
+From: "Tomasz Jaworski" <tomasz.jaworski@torqly.pl>
+To: <linux-arm-kernel@lists.infradead.org>
+Subject: =?UTF-8?Q?Ulga_na_sk=C5=82adki_ZUS?=
+X-Mailer: mail.torqly.pl
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b184f1bf-96dc-4546-8512-9cba5ecb58f7@roeck-us.net>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_004008_441496_1038AB6A 
-X-CRM114-Status: GOOD (  12.93  )
+X-CRM114-CacheID: sfid-20251218_075006_146392_7909D226 
+X-CRM114-Status: UNSURE (   2.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,24 +81,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 17, 2025 at 04:17:38AM -0800, Guenter Roeck wrote:
-> Hi,
-> 
-> On Wed, Oct 15, 2025 at 12:12:55PM +0300, Leon Romanovsky wrote:
-> > From: Leon Romanovsky <leonro@nvidia.com>
-> > 
-> > Perform mechanical conversion from .map_page to .map_phys callback.
-> > 
-> > Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> > Signed-off-by: Leon Romanovsky <leonro@nvidia.com>
-> 
-> This patch causes all my 32-bit parisc qemu tests with C3700 machine
-> to fail. Network interface tests fail, and all boot attempts from
-> any kind of hard drive (scsi, usb) fail with this patch in the tree.
+Dzie=C5=84 dobry,=20
 
-Thanks for the report. I have a fix ready; I'll clean it up and send it out
-by EOD.
+chcia=C5=82bym wskaza=C4=87 Pa=C5=84stwu mo=C5=BCliwo=C5=9B=C4=87 zarz=C4=
+=85dzania benefitami w =C5=82atwy spos=C3=B3b, poprzez nasze intuicyjne n=
+arz=C4=99dzie, jakim jest karta lunchowa.=20
 
-> 
-> Guenter
+Nasze karty oferuj=C4=85 wygod=C4=99, oszcz=C4=99dno=C5=9Bci i zdrowe wyb=
+ory =C5=BCywieniowe. Dofinansowanie posi=C5=82k=C3=B3w jest korzystne dla=
+ obu stron. Karty lunch to dla pracodawcy realne oszcz=C4=99dno=C5=9Bci w=
+ postaci zwolnienia z ZUS do 450 z=C5=82 miesi=C4=99cznie na pracownika.=20
+
+Kart=C4=99 mo=C5=BCna do=C5=82adowa=C4=87 dowoln=C4=85 kwot=C4=85, a niew=
+ykorzystane =C5=9Brodki nie przepadaj=C4=85, lecz przechodz=C4=85 na kole=
+jny miesi=C4=85c.=20
+
+Mog=C4=99 przedstawi=C4=87 ofert=C4=99, kt=C3=B3ra pozwoli zoptymalizowa=C4=
+=87 koszty i zapewni=C4=87 pracownikom po=C5=BC=C4=85dany benefit?
+
+
+Pozdrawiam
+Tomasz Jaworski
 
