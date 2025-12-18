@@ -4,61 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89114D6D232
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 15:19:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAD76D6D234
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 15:22:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V16wrQoy/SPknd18yKhva6XGrcKslPDmZcjw2iC4VIc=; b=Bg3hoIF39g+yO79yI+ruKyi0Eo
-	8vxHEWq6VRLdVIHPEJe/VuQ7sf7EgbuxiFn2iCBMVJQOXJlXPafI7RDMsd39Otez+F/zJVoyNNZdg
-	E2Bw4vCFemgR3TCr4gtd+eK0dEJhrWgkvgHPZDCGBzmwwI8t9uLSpUPx44bey/lcOINvF4A/yVCWD
-	4vTHgUCYP+khawiG4SyBR1cAf6Mf1xzH+fx1jOtM2WL72vztPXSyBiN8v0E4z9Q9Qkc0+eFaLZtfN
-	pHfEc9dfas/C0qsPTutxtibfi6aHoIW3CcYjDHb5F7DPe9hHjh/8np+czXz32VfNw2YUM+Oc1ld1H
-	+JF8wXpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=718S0BdFz8xiVCzU8aXFCL2DNXNEbKnbIjEDDeQ51yA=; b=T5B60fxocc/jcOuXEFWmcoRZYh
+	4PIukrv8ac+RdItXf4nALphmYR1NNDZ8weYEe/v1T45Hcp4PkrLboUZCzXH5QDLEKdvYLxYGzPR9Y
+	JIO5doARE/IcKOKBjlKFyCeGtpqV4o1nAw1Q1vd767dotFZw/JxquvVzl/rCWvUX1ap/alC7RQLi1
+	nDmOrGZoeuhhSp6w3ghg83vZEEjI8T6OtKtiPmTmiK52fVYbS/kc6SF3Amf8ek31ypnQnCNyUkxTX
+	VBVosayIFOoiVozRm/2KHm6vL38YOVow59udAG61eWSUlMvrPxPHoizvnVd8gkdyCPetBRHBmPo76
+	cWZkFLiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWFmo-00000008g5K-0UPu;
-	Thu, 18 Dec 2025 15:19:26 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vWFpE-00000008gGf-2RHB;
+	Thu, 18 Dec 2025 15:21:56 +0000
+Received: from mx-relay49-hz3.antispameurope.com ([94.100.134.238])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWFmm-00000008g4w-3hu9
+	id 1vWFpA-00000008gFP-0ct7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 15:19:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6B2F96012A;
-	Thu, 18 Dec 2025 15:19:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7037CC4CEFB;
-	Thu, 18 Dec 2025 15:19:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766071163;
-	bh=lNs6h/Tn6npet126alMraOzQWAdHEXctBs9xqAtaI9M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Mh9vl8cO8g3zNkwI0qQEywi4S51l7RjjDFD+/NdoNaLkGqyRx/m6rMMWhNUAe/f7p
-	 ayNsqjF0dga4H1hM0eBbT33xWsC3nBBDkCMb7NkPrqoSg4v74duc9/Q2XD17wHljdm
-	 yojfvvwp03tfkXiwRvLb2udPhmZpeXD5MFNHzWHzDxSj0GvUIms23wcwgZC2ISjAcM
-	 k1paKBb6BaFYcG4p5jQMYoICzy5HtZwhZLJ07d6szQNEo9aHjh1dO3uVvrc+DZy+9Z
-	 SPQMmbht7uYv8YsFigMu2U/9a4X5PAY02AWgZ98AhbxtK9EMCcOShNkr0uzeJPImFd
-	 MlBo/i78fGf2Q==
-Date: Thu, 18 Dec 2025 15:19:17 +0000
-From: Will Deacon <will@kernel.org>
-To: Ahmed Tiba <ahmed.tiba@arm.com>
-Cc: linux-acpi@vger.kernel.org, devicetree@vger.kernel.org,
-	tony.luck@intel.com, bp@alien8.de, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, catalin.marinas@arm.com,
-	linux-arm-kernel@lists.infradead.org, rafael@kernel.org,
-	linux-doc@vger.kernel.org, Dmitry.Lamerov@arm.com,
-	Michael.Zhao2@arm.com
-Subject: Re: [PATCH 11/12] ras: add DeviceTree estatus provider driver
-Message-ID: <aUQbdZHkzumTnwVP@willie-the-truck>
-References: <aUPv5UfBByVoLbRV@willie-the-truck>
- <20251218134311.2309421-1-ahmed.tiba@arm.com>
+	Thu, 18 Dec 2025 15:21:54 +0000
+ARC-Authentication-Results: i=1; mx-gate49-hz3.hornetsecurity.com 1; spf=pass
+ reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ smtp.mailfrom=ew.tq-group.com
+ smtp.helo=hmail-p-smtp01-out03-hz1.hornetsecurity.com; dmarc=pass
+ header.from=ew.tq-group.com orig.disposition=pass
+ARC-Message-Signature: a=rsa-sha256;
+ bh=718S0BdFz8xiVCzU8aXFCL2DNXNEbKnbIjEDDeQ51yA=; c=relaxed/relaxed;
+ d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
+ t=1766071287;
+ b=eX+DQ4VkpQL7VPOP5yRIQeyN3/wmgPmxngROqC+I4F8fVQIHouNFiYJ3q+YaVXrcBSphuUEU
+ bv3naVIwLOXhE0KIp+D5yRH7qcxp4jW+9H7bZAJhWqhXGYGaU5k3sXyWyPCQQYfgUR8iQAoY2/N
+ oK1KobI2eHEm1HfBtcJbVIqO77zNZ1m07tD4NihomY5umgT9Fuu/raj8utu81R26NLGJq3zveaa
+ hYJBfg7FcxA63FPRwanEbzZ+uxtNX/JIXAv37BsHKQXWfQSe/2rE68xcwnLwWXRuVvseP1o23Ku
+ KMfJ8W/+6NwqykItxcT/1lG8QM94Om0l6jb6RhIaBU2Tg==
+ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
+ t=1766071287;
+ b=jypQ6a//RKIdEXKmKbScIn6c6xYi9HLsxiWtvOweEfA1PwLszPav0NtmZbtHqY+6ngbatRIp
+ ty5zycKbmLBinw8cQ2kFDXfehHp23ih5hosSG2Ry4sXZWxzmeRd9Dz3I6/V0hC7MOoEesp1L3uI
+ YOpbUqJCkxUqSWW6/Z64fa/VFP73LqH9rczGRXgSuGofFPaLwP27Qq8k9ON5oepWHr5qpTr2KAk
+ xSJAdE79HzUTnmBPRyk+uK7ZdWwLVDmj6LRBKDEknwLT8OMlmd1xB/mBGmYrjS2G5jYZu5lN2uF
+ 6twedPUTBh9XJLm9TJ4BUwqUvuLLkECV4yaUTaKbejlww==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay49-hz3.antispameurope.com;
+ Thu, 18 Dec 2025 16:21:27 +0100
+Received: from steina-w.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
+	(Authenticated sender: alexander.stein@ew.tq-group.com)
+	by hmail-p-smtp01-out03-hz1.hornetsecurity.com (Postfix) with ESMTPSA id DC1C2CC0D53;
+	Thu, 18 Dec 2025 16:21:08 +0100 (CET)
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Peter Chen <peter.chen@kernel.org>,
+	Pawel Laszczak <pawell@cadence.com>,
+	Roger Quadros <rogerq@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Marek Vasut <marex@denx.de>
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-usb@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux@ew.tq-group.com
+Subject: [PATCH 3/6] arm64: dts: imx8qm-ss-hsio: Wire up DMA IRQ for PCIe
+Date: Thu, 18 Dec 2025 16:20:50 +0100
+Message-ID: <20251218152058.1521806-4-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251218152058.1521806-1-alexander.stein@ew.tq-group.com>
+References: <20251218152058.1521806-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251218134311.2309421-1-ahmed.tiba@arm.com>
+Content-Transfer-Encoding: 8bit
+X-cloud-security-sender: alexander.stein@ew.tq-group.com
+X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
+X-cloud-security-crypt: load encryption module
+X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
+X-cloud-security-Mailarchivtype: outbound
+X-cloud-security-Virusscan: CLEAN
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay49-hz3.antispameurope.com with 4dXDs20KQZz3yY5w
+X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
+X-cloud-security-Digest: af1e11a75574753d5df662a88887dfc6
+X-cloud-security: scantime:1.983
+DKIM-Signature: a=rsa-sha256;
+ bh=718S0BdFz8xiVCzU8aXFCL2DNXNEbKnbIjEDDeQ51yA=; c=relaxed/relaxed;
+ d=ew.tq-group.com;
+ h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
+ t=1766071286; v=1;
+ b=bcM9bwKJGyL+9HnLGi5UxqKvBltDkMHNbjIi0qd0w2OYI+2yyweiioCkyCgbkdpKe8pjujh+
+ OKFH6YmZkEPqQypMY/828bGfRLeUinJNfZn1E/bLjAe+Ms/Np0j19iuswmWVYg9Dd8ncsZ3zup9
+ fQNGnMLW88Hi1gOtqs1wKNQqToXiL3XA9K2jlOol3hQ0AmWZ9uCP9j37xuZym1OuIwHt+0bmYrR
+ ndUtUd0p+saLH2rHiFgVeFcPzZOfVEzGbhMUsa2D3g8TQkkW0odqZv+vIcttGCQ3BbCLNQrKjey
+ WUUMXM3vPNmgQpnqC1cbnq5JssQN6zaESH8Q4ULiBxvvQ==
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251218_072152_327741_C67E612C 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,67 +125,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 18, 2025 at 01:42:47PM +0000, Ahmed Tiba wrote:
-> On Thu, 18 Dec 2025 12:13:25PM +0000, Will Deacon wrote:
-> >> Introduce a platform driver that maps the CPER status block described
-> >> in DeviceTree, feeds it into the estatus core and handles either IRQ- or
-> >> poll-driven notifications. Arm64 gains a FIX_ESTATUS_IRQ slot so the
-> >> driver can safely map the shared buffer while copying records.
-> >>
-> >> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
-> >> ---
-> >>  MAINTAINERS                     |   1 +
-> >>  arch/arm64/include/asm/fixmap.h |   5 +
-> >>  drivers/ras/Kconfig             |  14 ++
-> >>  drivers/ras/Makefile            |   1 +
-> >>  drivers/ras/estatus-dt.c        | 318 ++++++++++++++++++++++++++++++++
-> >>  include/linux/estatus.h         |   3 +-
-> >>  6 files changed, 341 insertions(+), 1 deletion(-)
-> >>  create mode 100644 drivers/ras/estatus-dt.c
-> >>
-> >> diff --git a/MAINTAINERS b/MAINTAINERS
-> >> index 6b2ef2ddc0c7..5567d5e82053 100644
-> >> --- a/MAINTAINERS
-> >> +++ b/MAINTAINERS
-> >> @@ -21761,6 +21761,7 @@ RAS ERROR STATUS
-> >>  M:   Ahmed Tiba <ahmed.tiba@arm.com>
-> >>  S:   Maintained
-> >>  F:   Documentation/devicetree/bindings/ras/arm,ras-ffh.yaml
-> >> +F:   drivers/ras/estatus-dt.c
-> >>  F:   drivers/firmware/efi/estatus.c
-> >>  F:   include/linux/estatus.h
-> >> 
-> >> diff --git a/arch/arm64/include/asm/fixmap.h b/arch/arm64/include/asm/fixmap.h
-> >> index 65555284446e..85ffba87bab9 100644
-> >> --- a/arch/arm64/include/asm/fixmap.h
-> >> +++ b/arch/arm64/include/asm/fixmap.h
-> >> @@ -64,6 +64,11 @@ enum fixed_addresses {
-> >>  #endif
-> >>  #endif /* CONFIG_ACPI_APEI_GHES */
-> >> 
-> >> +#ifdef CONFIG_RAS_ESTATUS_DT
-> >> +     /* Used for ESTATUS mapping from assorted contexts */
-> >> +     FIX_ESTATUS_IRQ,
-> >> +#endif /* CONFIG_RAS_ESTATUS_DT */
-> >
-> > Why do we need this in addition to the four existing GHES slots? The DT
-> > code doesn't use it and I was assuming that the ACPI code would continue
-> > to use the existing irq; is that not the case?
-> 
-> 
-> We still need a dedicated slot when only the DT provider is built.
-> All four GHES slots are defined as part of the ACPI implementation,
-> so they are not present in a DT-only configuration.
-> 
-> The estatus core always requests a fixmap index from each provider
-> before copying a CPER record. As a result, the DT driver must supply
-> its own slot to return a valid enum value to satisfy the common code.
+IRQ mapping is already present. Add the missing DMA interrupt. This is
+similar to commit 0b4c46f9ad79c ("arm64: dts: imx8qm-ss-hsio: Wire up
+DMA IRQ for PCIe")
 
-Sorry, but I still don't follow this. The DT code doesn't use the fixmap,
-does it? It looks like it maps the buffer ahead of time using
-devm_ioremap_resource() and then the accessors don't use the fixmap
-index at all, hence the horrible '(void)fixmap_idx;' cast which presumably
-stops the compiler from complaining about an unused variable.
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+---
+ arch/arm64/boot/dts/freescale/imx8qm-ss-hsio.dtsi | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-Will
+diff --git a/arch/arm64/boot/dts/freescale/imx8qm-ss-hsio.dtsi b/arch/arm64/boot/dts/freescale/imx8qm-ss-hsio.dtsi
+index bd6e0aa27efe9..f2c94cdb682b9 100644
+--- a/arch/arm64/boot/dts/freescale/imx8qm-ss-hsio.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8qm-ss-hsio.dtsi
+@@ -20,8 +20,9 @@ pcie0: pciea: pcie@5f000000 {
+ 		ranges = <0x81000000 0 0x00000000 0x4ff80000 0 0x00010000>,
+ 			 <0x82000000 0 0x40000000 0x40000000 0 0x0ff00000>;
+ 		#interrupt-cells = <1>;
+-		interrupts = <GIC_SPI 70 IRQ_TYPE_LEVEL_HIGH>;
+-		interrupt-names = "msi";
++		interrupts = <GIC_SPI 70 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 72 IRQ_TYPE_LEVEL_HIGH>;
++		interrupt-names = "msi", "dma";
+ 		#address-cells = <3>;
+ 		#size-cells = <2>;
+ 		clocks = <&pciea_lpcg IMX_LPCG_CLK_6>,
+-- 
+2.43.0
+
 
