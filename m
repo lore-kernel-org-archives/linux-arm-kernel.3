@@ -4,144 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF7D8D6E2CA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 19:08:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 699F5D6E2CA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 19:09:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qy+0DLYMcxeelzv9B/nBdXEFo64pf4KBhuTSjbRVVNc=; b=Hh/6Xulq8423oXIeC3jy7mQkFt
-	AkZtD53tiXQB2/aqVOtfmcWNODN+/ui5WJZHOl0rlR5Uf1hgLihFsX1yOq7n2ddhxh39xewLvKeZp
-	NGHFB6l7MYq69dT+dMhx5D9A6jxlo70gBpWCi30tffBG4ivalz8BZ0OuL0XDewgiWFNwn11f99ePc
-	5c4Vur4G/I5LYl14p7H53QdfLU3UK42mg7TJfK1uUxZWQvimXge4K3JuA2MwVa11UP9mEllql+0am
-	W9O26TwTeaxw+TfpgJmbzoMYxzxfKJKkFEymFleW59f4+EPONSYGpBfhxM2ajJ45fpl0Hltu4lbAD
-	mvwE2jGA==;
+	bh=+DY93l6HmeKB968c1ARdljW1T3h0RdrHwhe2nmyVtdw=; b=4ugkhO0a4BZrkNBz5uxq947Qz+
+	MpnefoafuV9TPlxE0qLMbM5xFBTpZHWP+EX9ZxCDPhClVoYt2MaQIdbZNlDfHR82GBXrkXIDoENvS
+	oOQT/dCU2Y0mOP3WfmBrLw1cLJMDd+KkOPzFkoEy2uBF8W/fjrrefj8OyI5a096yMhp0NTfb5fFib
+	20KpHczJI9CX5cgeLtoWP9ncPX0XyaWDKjC400un7nMYc4Dk1EEtPeWIKpgxPEg84FWJ1Y/4V2QoY
+	hPlT3GqGkdV39bzePcSfYO6mBTOUyFpboRAt/Po5mT+HzDZ+TUxhWPeXqUW5HJ5PBIXVediKNqd95
+	y1musaQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWJMd-000000093Y5-3hc5;
-	Thu, 18 Dec 2025 19:08:39 +0000
-Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1vWJNB-000000093eU-3QfV;
+	Thu, 18 Dec 2025 19:09:13 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWJMb-000000093Xe-1grK
+	id 1vWJN8-000000093dN-2DL7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 19:08:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FmXao6FCxf+OjupOh6YiP723xaD3LHoxUfeThDJBZP8mtGNyrY1u9CyGCbi3JjyE3t7rMPe0AorVg5tYieLJJPZYf3FEgbeMbwc6Ogr1cwaAJ6DRqAOcuWXlHGobpgEmpOAZBveqKUk0bwtdn3QpNiOiyC8UpwpPCc+0YZ9JvkwVi//j5wdlsXAnY3SBG6Fp53vXYu652kpK4M4dHBu5/e9v7rBex+XStNIN9HM+3Uvki4Ek6ePDEFHAxu3x7cSenZLb1QYKeCbeUlw5Jhr/W9ocsOURBQ7/C8CmqWaXRUwn2hHhXjBR91MrSQoUKai1wxshLXGu60FmDsq35FoGnA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=qy+0DLYMcxeelzv9B/nBdXEFo64pf4KBhuTSjbRVVNc=;
- b=eYzwyZw5oB8gRupsvFVwNQz7TJWtponmvbh5/a6+0ijQ5bpiP7QNqFqLajKVSLupY5dwvUa6yBheBSHqWUpjpRFdCAbsGrjchjeSqLVP4Mc3vXb1G26UA9YkUFPlwMQpRyJ55bGIlT0admWAFFQaQ8WRa/C1mjG4TQY3jaK3XhSW3Ntipr1SX7NvcldPvjMqUiQ9VODmdcWSkCwiPXYQZYTW6sOvID0viOvXo6a7DhCgFsdeOCsZsTFM7Pr5CfmY/L9inwKWfAGakFr8rEGhqDQieno5VfzGghxWOk1V5N+hhfW/VqOphaSISJqiDrvSACSsuki/qptILPzKQ+jzUg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=kernel.org smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=qy+0DLYMcxeelzv9B/nBdXEFo64pf4KBhuTSjbRVVNc=;
- b=nbqjjhJzb6U6p2fPOxmIASzcAR9Q+VeG1PCmBxlEBUg00U9jCLmZ9yTyeUhvkGlKOJB2cXnequpFohTKU6QY66aVNqHL2XidB3mxPQmtT23ASAqwz5femWJBvwW3tK3tx6NaB9S6dbAtOLI0pXJhxGNAgj6wuWzUIRkYnRE0SyA=
-Received: from SA9PR10CA0012.namprd10.prod.outlook.com (2603:10b6:806:a7::17)
- by DS0PR10MB7296.namprd10.prod.outlook.com (2603:10b6:8:f8::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.8; Thu, 18 Dec
- 2025 19:08:33 +0000
-Received: from SA2PEPF00003F61.namprd04.prod.outlook.com
- (2603:10b6:806:a7:cafe::5b) by SA9PR10CA0012.outlook.office365.com
- (2603:10b6:806:a7::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.6 via Frontend Transport; Thu,
- 18 Dec 2025 19:08:32 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- SA2PEPF00003F61.mail.protection.outlook.com (10.167.248.36) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9434.6 via Frontend Transport; Thu, 18 Dec 2025 19:08:31 +0000
-Received: from DFLE215.ent.ti.com (10.64.6.73) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 18 Dec
- 2025 13:08:25 -0600
-Received: from DFLE206.ent.ti.com (10.64.6.64) by DFLE215.ent.ti.com
- (10.64.6.73) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 18 Dec
- 2025 13:08:25 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE206.ent.ti.com
- (10.64.6.64) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 18 Dec 2025 13:08:25 -0600
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5BIJ8Pua3863343;
-	Thu, 18 Dec 2025 13:08:25 -0600
-Date: Thu, 18 Dec 2025 13:08:25 -0600
-From: Nishanth Menon <nm@ti.com>
-To: "He, Guocai (CN)" <Guocai.He.CN@windriver.com>
-CC: "linux-spi@vger.kernel.org" <linux-spi@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "broonie@kernel.org"
-	<broonie@kernel.org>, "afd@ti.com" <afd@ti.com>
-Subject: Re: [BUG][RT][ti-j72xx] spi: cadence-quadspi: boot failed with
- rtmutex deadlock detected
-Message-ID: <20251218190825.oeucrspxenta2oix@steadfast>
-References: <CO6PR11MB558695EFB87C578370014430CDABA@CO6PR11MB5586.namprd11.prod.outlook.com>
+	Thu, 18 Dec 2025 19:09:12 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vWJMh-0008WQ-7c; Thu, 18 Dec 2025 20:08:43 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vWJMf-006Kvz-12;
+	Thu, 18 Dec 2025 20:08:41 +0100
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vWJMf-00Ee3k-0T;
+	Thu, 18 Dec 2025 20:08:41 +0100
+Date: Thu, 18 Dec 2025 20:08:41 +0100
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Liu Ying <victor.liu@nxp.com>, dri-devel@lists.freedesktop.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7 1/3] dt-bindings: soc: imx93-media-blk-ctrl: Add PDFC
+ subnode to schema and example
+Message-ID: <20251218190841.pmn3kwghq6lxsfl4@pengutronix.de>
+References: <20251202-v6-18-topic-imx93-parallel-display-v7-0-2cce31d64608@pengutronix.de>
+ <705773fc-5aba-4bff-b05e-272e1cd0262c@nxp.com>
+ <20251215175436.wwlgzxionq55zu27@pengutronix.de>
+ <3210190.mvXUDI8C0e@steina-w>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <CO6PR11MB558695EFB87C578370014430CDABA@CO6PR11MB5586.namprd11.prod.outlook.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00003F61:EE_|DS0PR10MB7296:EE_
-X-MS-Office365-Filtering-Correlation-Id: a6e49f69-a143-412b-c732-08de3e68d562
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|376014|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5GeSfWeezU+co4FHCy+Tp+NQXrEIxYzdHhe9O5Ok5i5xMYNT70cphEQ5C/MI?=
- =?us-ascii?Q?cwo6M1os7y2vWj4ojesidFhwDhRmkxCD0nIzjKEyODt+vmDF+bwoZZ1RuO1B?=
- =?us-ascii?Q?wHloGDnaGTl4JkyTpgQ93cucSbf9N2Zw6Ygh+btcQOZACaQ0jnHaVoCd+Awb?=
- =?us-ascii?Q?KzndkC8rJYvi3LAhryyWQ3BwuujLNRYqnveL6WIE/9vwrrUu0AFWgonWyouj?=
- =?us-ascii?Q?PzSnTUEiXHwOAmhcUwW9A7msGLOkGcMcLxIeem37XKEzMGgE77n9P5ubSAH5?=
- =?us-ascii?Q?lN/lSUi//aBJpYh6u8X5kGJh5dt6obYXBFBE74eOzkTfpdVOmsHozGF4oRrd?=
- =?us-ascii?Q?2ZP197KKVeTSnEsi5Pt3YXjShjh6dbi2aw9A5EDb0ZQ5Gd42e6JfRM1DeMLh?=
- =?us-ascii?Q?KstrBhXSrVtRtcpYd4lDJb/69P89p3M3Grv4h9kMfZ0uTZHO8a4kQAoz5hMC?=
- =?us-ascii?Q?/Fc02X4+g8ldzfuoo7B366Xdsl3dAx+9kkr5hH/3Zp3pwIKYdxA8UXCJaneb?=
- =?us-ascii?Q?hKt0LLQFKHCDoQzBcFS+6Qh4nkiNhEeBLjTJzgDXIAobGdM1JYwhlWgSjwGh?=
- =?us-ascii?Q?mJCaNerRjdFkAhEQpSFD/lR9/4aAtVosRZUuJGL7SH7GeiVk2oV6yYatHjFM?=
- =?us-ascii?Q?OyYGhaY9ydImj+ArSCB3wq2kqOdmvex4k/rDAI+L4PD+UM1T8+3voqxn8kEj?=
- =?us-ascii?Q?8uDySmMHj81kR1pbWykRXmNmhxdmse3b7z3e+EzXtRm+5Y8290G7OCqCNP6K?=
- =?us-ascii?Q?gQOQq7v2yAS2mK7q5xlRdRIDz2SnY9mQuTFH7vho9vyKeno1wOiwFvxw6m5a?=
- =?us-ascii?Q?mUJKitNOBCArDrtSRlLbZCtf+qPiKyZIhfUandfFXPCdIQ0PVX949Rsho7x6?=
- =?us-ascii?Q?O7iwZGRaQImOXVn2z1Mrt5jjFySsaiE7wBP+ySAB/JqsfejtXdh82wkQCuJi?=
- =?us-ascii?Q?aRt6qq5yAqhr7RLDk6X03ikNlxfTrfjg4baMvFhbHUUZsb/s+2aHkBgIP5vO?=
- =?us-ascii?Q?216d97NC6Rv3WZY2IDlb+kdwVEQPWZA1JZZTuctAhx3dUU+mRz0pBavVCZgY?=
- =?us-ascii?Q?ZHk+dtYE9TZKqqrWebKnDMXdunMNjx82bmA8V5QRKsZ686O4uQDMlcIMh/KH?=
- =?us-ascii?Q?hQx9hi5O8G6KYJrN7bie1/5y23Ehwh8b6ZQpJIsxy1Ux45DrMUtXZcC86WsJ?=
- =?us-ascii?Q?p1zk4OHR5fJQeO6ee9dhBJTFHm5iUljlxatKKhzspNp0nkNzftF0CQJh4qG0?=
- =?us-ascii?Q?6qn51W9UrrFktp4O5pBHcvo76pDU5L6gQ79XK9M3EmidLEzr9iceoRizbI5Z?=
- =?us-ascii?Q?PakRKVnhNKdjB4ALkrl8eqZcfxNrtaNAKGcmXssgg0MiCKzp3WaIBdP5As6Q?=
- =?us-ascii?Q?XSfmRXpjWItY91TDWxBhXzuwzGVum7A7ZkSzxKt3bGN5+lH84ik2N3JE1N/y?=
- =?us-ascii?Q?J7Qs8IfU6UDLtV9ywiYBeGum1/ltlmD4nCGsaiAQopGA251zHzHFOmvy1LiI?=
- =?us-ascii?Q?4+W+YNejY0tdrU0MmZaiC+AEG+SRD6++ZU78jNm8cdB/uNsOLJQf649JWm9v?=
- =?us-ascii?Q?ktrPI7JiziOoAa6hpN4=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(376014)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Dec 2025 19:08:31.0461
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a6e49f69-a143-412b-c732-08de3e68d562
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003F61.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB7296
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <3210190.mvXUDI8C0e@steina-w>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_110837_445069_756FA3C6 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251218_110910_718531_A2734351 
+X-CRM114-Status: GOOD (  40.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,31 +97,204 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08:21-20251217, He, Guocai (CN) wrote:
-> Hi all,
-> 
-> I am seeing an reproducible issue in
-> drivers/spi/spi-cadence-quadspi.c on TI J72xx platform.
-> 
-> Kernel:
->   v6.1/standard/preempt-rt/ti-sdk-6.1/ti-j7xxx
->   (based on Linux v6.1.159 PREEMPT_RT)
+Hi Alexander,
 
-^^ sounds like TI vendor kernel?
-
+On 25-12-16, Alexander Stein wrote:
+> Hi,
 > 
-> Platform:
->   TI J72xx
->   QSPI controller: Cadence QuadSPI
+> Am Montag, 15. Dezember 2025, 18:54:36 CET schrieb Marco Felsch:
+> > Hi Liu,
+> > 
+> > sorry I didn't fully answer you please see below.
+> > 
+> > On 25-12-08, Liu Ying wrote:
+> > > Hi Marco,
+> > > 
+> > > On 12/02/2025, Marco Felsch wrote:
+> > > > From: Liu Ying <victor.liu@nxp.com>
+> > > > 
+> > > > i.MX93 SoC mediamix blk-ctrl contains one DISPLAY_MUX register which
+> > > > configures parallel display format by using the "PARALLEL_DISP_FORMAT"
+> > > > field. Document the Parallel Display Format Configuration(PDFC) subnode
+> > > > and add the subnode to example.
+> > > > 
+> > > > Signed-off-by: Liu Ying <victor.liu@nxp.com>
+> > > > [m.felsch@pengutronix.de: port to v6.18-rc1]
+> > > > [m.felsch@pengutronix.de: add bus-width]
+> > > > Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+> > > > ---
+> > > >  .../bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml | 92 ++++++++++++++++++++++
+> > > >  1 file changed, 92 insertions(+)
+> > > > 
+> > > > diff --git a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
+> > > > index 34aea58094e55365a2f9c86092f637e533f954ff..6e2d86d9341c75108b492bcbabc8a560d8e707cd 100644
+> > > > --- a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
+> > > > +++ b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
+> > > > @@ -26,6 +26,12 @@ properties:
+> > > >    reg:
+> > > >      maxItems: 1
+> > 
+> > ...
+> > 
+> > > > +            properties:
+> > > > +              endpoint:
+> > > > +                $ref: /schemas/graph.yaml#/$defs/endpoint-base
+> > > > +                unevaluatedProperties: false
+> > > > +
+> > > > +                properties:
+> > > > +                  bus-width:
+> > > 
+> > > In v1-v5, I thought the output bus format can be determined by the sink
+> > > device(a panel or a bridge) hence properties like bus-width were not needed.
+> > > But, if this property is really needed, then reference video-interfaces.yaml
+> > > since bus-width is documented there.  Should we reference bus-type defined
+> > > in video-interfaces.yaml too?
+> > 
+> > You're right, the bus-width should be determined by the connected panel.
+> > But there are cases where a 24-bit panel is connected but only the lower
+> > 18-bits are muxed. I added the bus-width property to handle this case.
+> > In the end most users don't have to specify this since the correct
+> > bus-width is coming from the panel bus-fmt.
+> > 
+> > > > +                    enum: [ 16, 18, 24 ]
+> > > 
+> > > The PARALLEL_DISP_FORMAT field of DISPLAY_MUX register says this IP supports
+> > > below formats.  It seems that the enum here may tell RGB888, RGB666 and RGB565.
+> > > How can we tell RGB555, YCbCr 24 bits and YUV444 then?
+> > > 
+> > > 000b RGB888 -> RGB888
+> > > 001b RGB888 -> RGB666
+> > > 010b RGB565 -> RGB565
+> > > 011b RGB555 -> RGB555
+> > > 100b YUV -> YCbCr 24 bits
+> > > 101b YUV -> YUV444
+> > 
+> > This enum is about the physical bus width. RGB565 == 16-bit, YUV ==
+> > 24-bit.
+> > 
+> > That said, I don't think that you need to specify the bus-fmt since this
+> > is coming from the panel. As said above, my itension with the bus-width
+> > property is to provide integrators (dts-writers) a possibility to limit
+> > the physical available bus width.
 > 
+> Mh, isn't [1] exactly about this? Not sure about the outcome at that time.
 
-Will be good to discuss vendor kernel issues in e2e.ti.com please.
-unless you can reproduce this issue on upstream stable or mainline, this
-might be the wrong forum for discussion.
+Thanks for the pointer, I wasn't aware of this discussion. I skimmed
+through the dt-bindings thread and I agree with Rob and Maxime.
+
+We do have the bus-width endpoint property already. This property is
+alredy used by media and drm bridge drivers. Why not making use of for
+this simple bridge driver too?
+
+Furthermore I doubt, that a simple drm-bridge MEDIA_BUS_FMT_* convert
+driver solves all the problem in a generic way for all platforms, all
+connectors, all routing options.
+
+If the i.MX93 NXP-EVKs in [1] would have connected the upper LCD_DAT*
+pads instead of the lower ones, there would be no conversion needed by
+the PDFC bridge driver, albeit the physical bus is cut to 18-bit width
+due to the RPi ext. header limit, which is expanded to 24-bit again later on
+via the Adafruit board panel FPC connector.
+
+In such scenario the output width of the PDFC has to be 24-bit else
+you would lose not only the two LSBs but also the two MSBs for each
+channel. I tried to visualize what I meant for the blue channel:
+
+                 24-bit PDFC bridge
+		 ------------------
+        +----+----+----+----+----+----+----+----+
+ LCDIF  | B0 | B1 | B2 | B3 | B4 | B5 | B6 | B7 |
+        +----+----+----+----+----+----+----+----+
+          |    |    |    |    |    |    |    |
+        +----+----+----+----+----+----+----+----+
+ PDFC   | B0 | B1 | B2 | B3 | B4 | B5 | B6 | B7 |
+        +----+----+----+----+----+----+----+----+
+                    |    |    |    |    |    |
+        +----+----+----+----+----+----+----+----+
+SOC_PAD | xx | xx | D2 | D3 | D4 | D5 | D6 | D7 |
+        +----+----+----+----+----+----+----+----+
+                    |    |    |    |    |    |
+        +----+----+----+----+----+----+----+----+
+ ext.   | xx | xx | B2 | B3 | B4 | B5 | B6 | B7 |
+ HDR    +----+----+----+----+----+----+----+----+
+                    |    |    |    |    |    |
+                    |    |    |    |    |    |
+                    |    |    |    |    |    |
+          +-----------------------------+    |
+          |    +-----------------------------+
+          |    |    |    |    |    |    |    |
+        +----+----+----+----+----+----+----+----+
+ Ada.   | B0 | B1 | B2 | B3 | B4 | B5 | B6 | B7 |
+ FPC    +----+----+----+----+----+----+----+----+
+
+                 18-bit PDFC bridge
+		 ------------------
+        +----+----+----+----+----+----+----+----+
+ LCDIF  | B0 | B1 | B2 | B3 | B4 | B5 | B6 | B7 |
+        +----+----+----+----+----+----+----+----+
+          |    |    |    |    |    |    |    |
+        +----+----+----+----+----+----+----+----+
+ PDFC   | B0 | B1 | B2 | B3 | B4 | B5 | B6 | B7 |
+        +----+----+----+----+----+----+----+----+
+                    |    |    |    |    |    |
+          +---------+    |    |    |    |    |
+          |    +---------+    |    |    |    |
+          |    |    +---------+    |    |    |
+          |    |    |    +---------+    |    |
+          |    |    |    |    +---------+    |
+          |    |    |    |    |    +---------+
+          |    |    |    |    |    |
+        +----+----+----+----+----+----+----+----+
+SOC_PAD | xx | xx | D2 | D3 | D4 | D5 | D6 | D7 |
+        +----+----+----+----+----+----+----+----+
+                    |    |    |    |    |    |
+        +----+----+----+----+----+----+----+----+
+ ext.   | xx | xx | B2 | B3 | B4 | B5 | B6 | B7 |
+ HDR    +----+----+----+----+----+----+----+----+
+                    |    |    |    |    |    |
+                    |    |    |    |    |    |
+                    |    |    |    |    |    |
+          +-----------------------------+    |
+          |    +-----------------------------+
+          |    |    |    |    |    |    |    |
+        +----+----+----+----+----+----+----+----+
+ Ada.   | B0 | B1 | B2 | B3 | B4 | B5 | B6 | B7 |
+ FPC    +----+----+----+----+----+----+----+----+
+
+
+The mapping can get quite difficult for a single SoC already, just by
+using a slighlty different HW routing (the upper D[ata] pads).
+
+Therefore I would keep it simple and device/ip specific (in this case
+PDFC specific) by making use of the bus-width. Specifying the bus-width
+property could be also wrong albeit it's the case physically, as you can
+see in my above example.
+
+Therefore the bus-width property must have a good description.
+
+Regards,
+  Marco
+
+> Best regards,
+> Alexander
+> 
+> [1] https://lore.kernel.org/all/20250304101530.969920-1-victor.liu@nxp.com/
+> 
+> > [snip]
+> -- 
+> TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
+> Amtsgericht München, HRB 105018
+> Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
+> http://www.tq-group.com/
+
+
 
 -- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+#gernperDu 
+#CallMeByMyFirstName
+
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
 
