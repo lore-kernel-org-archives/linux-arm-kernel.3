@@ -4,69 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE318D6D22A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 14:04:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83DD1D6D22A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 14:06:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AmFATop4bVM5apN0tr5DzFV+iocSpIPIn9XyuuhFxbs=; b=ckpTQh+BFzVSrBaJKKrwP9pr9m
-	ipLu9pzXPx8lgrJojGslc1OafCMIzEfapjno/Bv547EXdydV23TA4+R9AuJdqGfNCX3yM/RK9qCqT
-	GMrWbey+jGYGgBxaGusdBy9PeEHM+EG0EaNIZfnf25VhOnwmRRyzGYvcU0Q1JPjtxuO9lXNw6OO2O
-	erLOUwndHSBC4esX77BD51Nqede1PTTgoGk1yzzWmfZYi3q5AzSJllso04mcs4UKFLZWIofY/tsRx
-	8Qb02wGuSBpcipFSZzKiUNZ4EHHl13tNRnt/QdYVV8PNSMgimhsprrdLSPOqc+MmiqgUc/SPttyqS
-	r9BtYweg==;
+	bh=ltmK9xpXSaIRz3pvhRTJSdN7AZMXyRyfcfKgFOhGZkg=; b=JQwr4TX4xpDdr8K1oJjZfpkTsC
+	FRvWw81e/SOHBLur9nsmjLCxW5UmzWcCn9OJcfCEbl5D3QEEj5+DBXVz8iOgty6LhHtBoeCmzBi8y
+	ap9z2TvdYJllTrMKixWJz5zbZz5QJXpeEJY/6HNjlp6HJtazK6xwSzkPfgzAblZi8uXOxEotaj9SC
+	XmbxWyRghsDqi2oNdoPMcRwEwTavM5lajAkIN3IMWk1ItDWBFAGqrfHs9nEdo0KBd5k7tZbbOdfxe
+	BZihmThSetHuAsuxkbcY9paVbfkMY7ujVtV36lIxB/bfrBK0fIpClCtMhtpFnP0063+jLDZaT9oMF
+	4w+jRLlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWEc5-00000008aHh-3pLv;
-	Thu, 18 Dec 2025 14:04:17 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vWEdh-00000008aUQ-2NSZ;
+	Thu, 18 Dec 2025 14:05:57 +0000
+Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWEc3-00000008aGl-0Fyr
+	id 1vWEdd-00000008aTP-3bZk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 14:04:17 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.83])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dXC7X5stWzHnH4q;
-	Thu, 18 Dec 2025 22:03:36 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 17A4B40569;
-	Thu, 18 Dec 2025 22:04:04 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Thu, 18 Dec
- 2025 14:04:02 +0000
-Date: Thu, 18 Dec 2025 14:04:01 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: James Morse <james.morse@arm.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, D
- Scott Phillips OS <scott@os.amperecomputing.com>,
-	<carl@os.amperecomputing.com>, <lcherian@marvell.com>,
-	<bobo.shaobowang@huawei.com>, <tan.shaopeng@fujitsu.com>,
-	<baolin.wang@linux.alibaba.com>, Jamie Iles <quic_jiles@quicinc.com>, "Xin
- Hao" <xhao@linux.alibaba.com>, <peternewman@google.com>,
-	<dfustini@baylibre.com>, <amitsinght@marvell.com>, David Hildenbrand
-	<david@kernel.org>, Dave Martin <dave.martin@arm.com>, Koba Ko
-	<kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
-	<fenghuay@nvidia.com>, <baisheng.gao@unisoc.com>, Gavin Shan
-	<gshan@redhat.com>, Ben Horgan <ben.horgan@arm.com>, <rohit.mathew@arm.com>,
-	<reinette.chatre@intel.com>, Punit Agrawal <punit.agrawal@oss.qualcomm.com>
-Subject: Re: [RFC PATCH 34/38] arm_mpam: Add quirk framework
-Message-ID: <20251218140401.000062ce@huawei.com>
-In-Reply-To: <20251205215901.17772-35-james.morse@arm.com>
-References: <20251205215901.17772-1-james.morse@arm.com>
-	<20251205215901.17772-35-james.morse@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Thu, 18 Dec 2025 14:05:55 +0000
+Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-4f1899960f0so7074761cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 06:05:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1766066752; x=1766671552; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ltmK9xpXSaIRz3pvhRTJSdN7AZMXyRyfcfKgFOhGZkg=;
+        b=Y6PvpVpo978FQmBDQkKYR8dcplI5UboYJSpFXy2OBk0Dalf9Vb7DPpowHEoilBJpnp
+         ivhZ+7nkDGoNmZZpkKvmo2gqLErtsEoQT3Q2e8l1J//5eKXlz04b6axOlMiwAanCInPX
+         4xxezqpjAwnIX/4Fwms3aSGW9Y0E9ilxHM3TDStdXOtq8tglYxXKKz0ao70zelkulBxv
+         pIEjgKBskJdPst/ks3syARN8/v0n7BxL2pGlPyqBWbkntmxsZ6oOeyiFdQ0ebCx80StS
+         vUVo0qtPz7D35a4cBels3DzJqTLWZNkazSr2CzDOkT0zDh7L3/QvNKK2b0aGyZizuBY1
+         i/cw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766066752; x=1766671552;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=ltmK9xpXSaIRz3pvhRTJSdN7AZMXyRyfcfKgFOhGZkg=;
+        b=HuxRpuYViedHykur01X7zl7+UmEnvaUxcHBkzM+R5w2Tzvtl+vHOtmgXRTZDCjBi1+
+         wTYWaRZ0MdKUXIF43snEPSnJJgfeDTj6uOLeNHqXl6S+bJ5JuJZVuWws6rBHL6rr7WM4
+         oFPdMsH/l9jZEkLzgGTdvblWR/K/rUgLoV5ycQiUD3Nj1PVuh+GN9RzOWz08WnRdJY6N
+         RF+DMcSKRrhylwill/eDcqefEh8r5XjrLA78zpYgrkAeZNKSrDLi6xhCmoFy9tPU9bdI
+         m5H5r+lszlSeRUQaeOe+cfhAgV9EkvkvAroa1kOaD12ka6qLk4FonVLVJ7wFHBvzUj4E
+         miuw==
+X-Forwarded-Encrypted: i=1; AJvYcCUvorzu8zdsfSu15//TLXng+qA/X1KWQPMfGdyxW1yAe4qnwfiamyUzsZtf7RSnxBAfaINL9L9IpMf9vT18mIf7@lists.infradead.org
+X-Gm-Message-State: AOJu0YxFYtsVyNhSDYIbHPODL6vHc3aHIa96cJaGpBjbS1BPBRgvitw9
+	e50/csc2xQYNsbInBtGf1ZNV/5kDPQIbVjPRmuGxYxh7yVBHumZjIHvNbbcH3E/JbqZcDNUXwGR
+	DL1u59PaWPbDkOGt/H5C0seYlgGlNjuQ=
+X-Gm-Gg: AY/fxX410xvZ+l1iCQAb8/rfINFxJJTe88VlJkOLGv/DoBwllmdup//Bic+qLSkPild
+	Y+xMGD6McQQPRYA5yPlpfbXtaLTt+0hf55hKRVU7OViTbKNt05X/gh3u7PxLYlD9JuX5wnPDX+C
+	JvOW30YT8mVGZxLNmTLFZl/nrX1dZlapLqXFqTIGlpxgQ8KulU3mFcQLFCI5Czb7rmrksPIjfbC
+	INJtL1oHy+tyFKbBynGt86qer1U9aNxpBTDgM8Y6QsWTRrYA6xZrnA41AjUFgKztETY1IxtviLT
+	r9O4A+BBGKmbVRoU+3AsrG30aaw=
+X-Google-Smtp-Source: AGHT+IEHaG4sTwzH22c/ZckVsDWqoLw43GJHfQ60VdybglqFIrU9y64fZ28TTU627IQMx5MWOzC0Peqta/5kUNVhrBM=
+X-Received: by 2002:a05:622a:24e:b0:4f3:565b:c52c with SMTP id
+ d75a77b69052e-4f4a68998f7mr11781131cf.39.1766066751883; Thu, 18 Dec 2025
+ 06:05:51 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500011.china.huawei.com (7.191.174.215) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+References: <20251201-nanopi-m5-ufs-v2-1-ece9c0ee17c4@gmail.com>
+In-Reply-To: <20251201-nanopi-m5-ufs-v2-1-ece9c0ee17c4@gmail.com>
+From: Alexey Charkov <alchark@gmail.com>
+Date: Thu, 18 Dec 2025 18:05:39 +0400
+X-Gm-Features: AQt7F2qXR-Ldb2gzOSYhMd9ao4yiFrifIbHOf6R3C3iyK7IWZa4Dc1eeoJgW3oo
+Message-ID: <CABjd4Ywc-L0jvXwk253MDZwgN3srY6WQ5EhoKZ6wb+Hae376_A@mail.gmail.com>
+Subject: Re: [PATCH v2] arm64: dts: rockchip: enable UFS controller on
+ FriendlyElec NanoPi M5
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_060415_414151_4A628E8D 
-X-CRM114-Status: GOOD (  23.11  )
+X-CRM114-CacheID: sfid-20251218_060553_899191_A946A4DE 
+X-CRM114-Status: GOOD (  12.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,87 +98,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 5 Dec 2025 21:58:57 +0000
-James Morse <james.morse@arm.com> wrote:
+Hi Heiko,
 
-> From: Shanker Donthineni <sdonthineni@nvidia.com>
-> 
-> The MPAM specification includes the MPAMF_IIDR, which serves to
-> uniquely identify the MSC implementation through a combination of
-> implementer details, product ID, variant, and revision. Certain
-> hardware issues/errata can be resolved using software workarounds.
-> 
-> Introduce a quirk framework to allow workarounds to be enabled based
-> on the MPAMF_IIDR value.
-> 
-> Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
-> [ morse: Stash the IIDR so this doesn't need an IPI, enable quirks only
->   once, move the description to the callback so it can be pr_once()d, add
->   an enum of workarounds for popular errata. Add macros for making lists
->   of product/revision/vendor half readable ]
-> Signed-off-by: James Morse <james.morse@arm.com>
+On Mon, Dec 1, 2025 at 3:35=E2=80=AFPM Alexey Charkov <alchark@gmail.com> w=
+rote:
+>
+> The NanoPi M5 board supports pluggable UFS modules using the UFSHC
+> inside its Rockchip RK3576 SoC.
+>
+> Enable the respective devicetree node and add its supply regulators.
+>
+> Link: https://wiki.friendlyelec.com/wiki/images/9/97/NanoPi_M5_LP5_2411_S=
+CH.pdf
+> Signed-off-by: Alexey Charkov <alchark@gmail.com>
 > ---
->  drivers/resctrl/mpam_devices.c  | 27 +++++++++++++++++++++++++++
->  drivers/resctrl/mpam_internal.h | 26 ++++++++++++++++++++++++++
->  2 files changed, 53 insertions(+)
-> 
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> index 741e14e1e6cf..f0f6f9b55ad4 100644
-> --- a/drivers/resctrl/mpam_devices.c
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -630,6 +630,25 @@ static struct mpam_msc_ris *mpam_get_or_create_ris(struct mpam_msc *msc,
->  	return ERR_PTR(-ENOENT);
->  }
->  
-> +static const struct mpam_quirk mpam_quirks[] = {
-> +	{ NULL }, /* Sentinel */
+> Changes in v2:
+> - Describe UFS supply regulators
+> - Add link to schematic
+> - Link to v1: https://lore.kernel.org/r/20251127-nanopi-m5-ufs-v1-1-0d28d=
+157712c@gmail.com
+> ---
+>  arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts | 27 +++++++++++++++++=
+++++++
+>  1 file changed, 27 insertions(+)
 
-Drop the trailing , given I assume whole point is nothing after this?
+Would you mind pulling this one, or do you have any reservations?
+There hasn't been any discussion, but it looks like a pretty simple
+change, runtime tested and schema-tested.
 
-> +};
-> +
-> +static void mpam_enable_quirks(struct mpam_msc *msc)
-> +{
-> +	const struct mpam_quirk *quirk;
-> +
-> +	for (quirk = &mpam_quirks[0]; quirk->iidr_mask; quirk++) {
-> +		if (quirk->iidr != (msc->iidr & quirk->iidr_mask))
-> +			continue;
-> +
-> +		if (quirk->init)
-> +			quirk->init(msc, quirk);
-
-I'm curious why you don't return a bool from this and call
-mpam_set_quirk() if that's not indicating it should not be set.
-Seems a bit odd to push the tracking that is relevant to the generic
-framework (mpam_set_quirk) down into the particular quirk inits.
-
-> +		else
-> +			mpam_set_quirk(quirk->workaround, msc);
-> +	}
-> +}
-
-> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> index d381906545ed..de3e5faa12b2 100644
-> --- a/drivers/resctrl/mpam_internal.h
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -88,6 +88,8 @@ struct mpam_msc {
->  	u8			pmg_max;
->  	unsigned long		ris_idxs;
->  	u32			ris_max;
-> +	u32			iidr;
-> +	u16			quirks;
->  
->  	/*
->  	 * error_irq_lock is taken when registering/unregistering the error
-> @@ -215,6 +217,29 @@ struct mpam_props {
->  #define mpam_set_feature(_feat, x)	set_bit(_feat, (x)->features)
->  #define mpam_clear_feature(_feat, x)	clear_bit(_feat, (x)->features)
->  
-> +/* Workaround bits for msc->quirks */
-> +enum mpam_device_quirks {
-> +	MPAM_QUIRK_LAST,
-
-Dropping this comma should make it harder for anyone to stick an entry
-after this.
+Best regards,
+Alexey
 
