@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCBB5D711CD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 23:29:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D568ED711CD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 23:29:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FqTVqM+bEfzKuiDbG5CUlwW1YTf4gkuWAKzcmbBDFbA=; b=uewlOWAB58zN7YV/RMBfU7vxDB
-	z0oWtnffnn/dEnfOyXgYr79kd+s6plirzoYKksirm3fAg7jZOj8Evi2iOhCH3mS2q80OgIMeo8y0W
-	V0UFjUR2NRvGC/TkmL0BOak9ErvyHeWtc6gmJXu5eWl6lalZ5zMuMsilRkq0oxvPvJ49OosFp3zDh
-	T8xi8UV9gmbP2iOuEKmG03SgBaz32I9bqKpdFCkZ+bAhnnzgmRUoeoyZuY1sv0q5NYm/IsaSMTIC6
-	5RF7/tbqfFN9O9BN9u80Jyy//ut1cQvcWbXg7op1U3u7tEm7dUg6tbtSujlxD8HIpPHvo6LpD3ihz
-	9TdKN+IA==;
+	bh=t+ISi2S7RwqxbUaDHqPWBUZfjJ3W56ZDP1NZDBfkJfM=; b=Gh+A6swBAkI+TDvvFri8/K09Zh
+	CV9NlBSXg6KEHWRLaO+sbchauahkfQXIaU+2vE+E4pZF0+Ryh0dqNYUyboBm+rGzGsmQclrnVb4nU
+	HCS6kdnrloCFL5hNQVS98pbUCYkaX60SLtITySVSoyHvelFdyX6gqIEse5a4PsxPYHTD11ajmjXSn
+	kOflSt07uxSprF8qhh7fWcofJnrNorbddlQlSAqoucBldjiQUIzt8fENWuahoPznPJkb0nXb9W780
+	nVgPufL+sARTauac8NXXOls7E5i/Cw+ixUffjnP9a/IRLqeyiqbc7lHZ8QXvcSMCBzjZfpkibulK2
+	evi0pRDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWNQe-00000009K2h-0GFG;
-	Thu, 18 Dec 2025 23:29:05 +0000
+	id 1vWNQp-00000009KEO-1lVB;
+	Thu, 18 Dec 2025 23:29:15 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWNQX-00000009JtF-2etA;
-	Thu, 18 Dec 2025 23:29:00 +0000
+	id 1vWNQi-00000009K5O-1gH6;
+	Thu, 18 Dec 2025 23:29:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1766100535;
-	bh=CBWACUaja3Rmfd7Ucv0xM+IAeSe4majq/0lp56NIRZQ=;
+	s=mail; t=1766100546;
+	bh=DI87bIxkXahIW/0Dwt8uA9SVyJRKiXbphnxwImkvZMQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=G1WTFJq0yosyKbk3AAtwNzRm2Jew3o9CUvi4T42YI2CMN6Ty3oldLQvZ11QjTzoQR
-	 J8mFASvtXknM+UPf8vG5oj+A458Xcei91LetPotaOQKG0vrsVQoZcHqRbv7Y4uR0/7
-	 2/1RkcSvUKCZigQJp668QTO66w/nymIC60UIqxr7GDak2mDOU8kEqLzVee07rg+zV2
-	 HQppA4GuJVubj37QmOiYd6w2oxwc1Zm11jQ872Rt8TG2m4FmHTOijMFtinTq1TbOC3
-	 aNBK7FCP/eb6K2z59gl+ql2mvMojnmnZgNUr0XJ7RR1ewD2lzI10Zbo2bbYWXk6fRK
-	 +9Pnjg0wrZlPw==
+	b=h12XFL5fgMJsVq4UXFNraWXNrWq07vx0PVFlPsy+MTNCnJEarMFRrRPTXJD/lycWC
+	 O4ypFUiLhhTFMldFAUKnlftrRLLVHNQcQmOWsbP8drAXG2UuArAM32WN7QJ2rMG9bN
+	 HK8tyuXcCHsSQXgjbyplOwBd6rt8puDAezfmucYOf7s1swS7moJBYDv4kBo7maZ06z
+	 kAUWFXJoQGdJuJ1GlWILOdGTd6QYZJ8qoguxwasB/0kMWCV8nzCN6VB6hlZ23tlsat
+	 RslsEDahc9dXpJMsahbanxkHMVENBkjRjOp/waos98zVaMIHheTPOEWoRwnyxhs6nM
+	 /PUDfz3xic7/A==
 Received: from earth.mtl.collabora.ca (mtl.collabora.ca [66.171.169.34])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: detlev)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 02E4A17E13F9;
-	Fri, 19 Dec 2025 00:28:52 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id BF0AB17E1543;
+	Fri, 19 Dec 2025 00:29:03 +0100 (CET)
 From: Detlev Casanova <detlev.casanova@collabora.com>
 To: linux-kernel@vger.kernel.org
 Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
@@ -66,17 +66,17 @@ Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
 	kernel@collabora.com,
 	Jonas Karlman <jonas@kwiboo.se>,
 	Diederik de Haas <didi.debian@cknow.org>
-Subject: [PATCH v7 08/17] media: rkvdec: Move hevc functions to common file
-Date: Thu, 18 Dec 2025 18:28:18 -0500
-Message-ID: <20251218232829.337811-9-detlev.casanova@collabora.com>
+Subject: [PATCH v7 12/17] media: rkvdec: Enable all clocks without naming them
+Date: Thu, 18 Dec 2025 18:28:22 -0500
+Message-ID: <20251218232829.337811-13-detlev.casanova@collabora.com>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20251218232829.337811-1-detlev.casanova@collabora.com>
 References: <20251218232829.337811-1-detlev.casanova@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_152857_991468_623BDC0A 
-X-CRM114-Status: GOOD (  27.45  )
+X-CRM114-CacheID: sfid-20251218_152909_845851_CF24D8E1 
+X-CRM114-Status: GOOD (  17.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,589 +91,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is a preparation commit to add support for new variants of the
-decoder.
+For other variants, the clock names and number will differ.
 
-The functions will later be shared with vdpu381 (rk3588) and vdpu383
-(rk3576).
+There is no need to keep track of the clock names in the driver so drop
+them to avoid having a list for each variant.
 
 Tested-by: Diederik de Haas <didi.debian@cknow.org>  # Rock 5B
 Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
 ---
- .../media/platform/rockchip/rkvdec/Makefile   |   1 +
- .../rockchip/rkvdec/rkvdec-hevc-common.c      | 206 +++++++++++++++++
- .../rockchip/rkvdec/rkvdec-hevc-common.h      |  49 ++++
- .../platform/rockchip/rkvdec/rkvdec-hevc.c    | 217 +-----------------
- 4 files changed, 263 insertions(+), 210 deletions(-)
- create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c
- create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.h
+ .../media/platform/rockchip/rkvdec/rkvdec.c   | 26 +++++--------------
+ .../media/platform/rockchip/rkvdec/rkvdec.h   |  1 +
+ 2 files changed, 7 insertions(+), 20 deletions(-)
 
-diff --git a/drivers/media/platform/rockchip/rkvdec/Makefile b/drivers/media/platform/rockchip/rkvdec/Makefile
-index d2ba7a7c15e59..1b4bc44be23ee 100644
---- a/drivers/media/platform/rockchip/rkvdec/Makefile
-+++ b/drivers/media/platform/rockchip/rkvdec/Makefile
-@@ -6,4 +6,5 @@ rockchip-vdec-y += \
- 		   rkvdec-h264.o \
- 		   rkvdec-h264-common.o \
- 		   rkvdec-hevc.o \
-+		   rkvdec-hevc-common.o \
- 		   rkvdec-vp9.o
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c
-new file mode 100644
-index 0000000000000..cb56a9a243927
---- /dev/null
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c
-@@ -0,0 +1,206 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Rockchip video decoder hevc common functions
-+ *
-+ * Copyright (C) 2025 Collabora, Ltd.
-+ *      Detlev Casanova <detlev.casanova@collabora.com>
-+ *
-+ * Copyright (C) 2023 Collabora, Ltd.
-+ *      Sebastian Fricke <sebastian.fricke@collabora.com>
-+ *
-+ * Copyright (C) 2019 Collabora, Ltd.
-+ *	Boris Brezillon <boris.brezillon@collabora.com>
-+ *
-+ * Copyright (C) 2016 Rockchip Electronics Co., Ltd.
-+ *	Jeffy Chen <jeffy.chen@rock-chips.com>
-+ */
-+
-+#include <linux/v4l2-common.h>
-+#include <media/v4l2-mem2mem.h>
-+
-+#include "rkvdec.h"
-+#include "rkvdec-hevc-common.h"
-+
-+/*
-+ * Flip one or more matrices along their main diagonal and flatten them
-+ * before writing it to the memory.
-+ * Convert:
-+ * ABCD         AEIM
-+ * EFGH     =>  BFJN     =>     AEIMBFJNCGKODHLP
-+ * IJKL         CGKO
-+ * MNOP         DHLP
-+ */
-+static void transpose_and_flatten_matrices(u8 *output, const u8 *input,
-+					   int matrices, int row_length)
-+{
-+	int i, j, row, x_offset, matrix_offset, rot_index, y_offset, matrix_size, new_value;
-+
-+	matrix_size = row_length * row_length;
-+	for (i = 0; i < matrices; i++) {
-+		row = 0;
-+		x_offset = 0;
-+		matrix_offset = i * matrix_size;
-+		for (j = 0; j < matrix_size; j++) {
-+			y_offset = j - (row * row_length);
-+			rot_index = y_offset * row_length + x_offset;
-+			new_value = *(input + i * matrix_size + j);
-+			output[matrix_offset + rot_index] = new_value;
-+			if ((j + 1) % row_length == 0) {
-+				row += 1;
-+				x_offset += 1;
-+			}
-+		}
-+	}
-+}
-+
-+static void assemble_scalingfactor0(u8 *output, const struct v4l2_ctrl_hevc_scaling_matrix *input)
-+{
-+	int offset = 0;
-+
-+	transpose_and_flatten_matrices(output, (const u8 *)input->scaling_list_4x4, 6, 4);
-+	offset = 6 * 16 * sizeof(u8);
-+	transpose_and_flatten_matrices(output + offset, (const u8 *)input->scaling_list_8x8, 6, 8);
-+	offset += 6 * 64 * sizeof(u8);
-+	transpose_and_flatten_matrices(output + offset,
-+				       (const u8 *)input->scaling_list_16x16, 6, 8);
-+	offset += 6 * 64 * sizeof(u8);
-+	/* Add a 128 byte padding with 0s between the two 32x32 matrices */
-+	transpose_and_flatten_matrices(output + offset,
-+				       (const u8 *)input->scaling_list_32x32, 1, 8);
-+	offset += 64 * sizeof(u8);
-+	memset(output + offset, 0, 128);
-+	offset += 128 * sizeof(u8);
-+	transpose_and_flatten_matrices(output + offset,
-+				       (const u8 *)input->scaling_list_32x32 + (64 * sizeof(u8)),
-+				       1, 8);
-+	offset += 64 * sizeof(u8);
-+	memset(output + offset, 0, 128);
-+}
-+
-+/*
-+ * Required layout:
-+ * A = scaling_list_dc_coef_16x16
-+ * B = scaling_list_dc_coef_32x32
-+ * 0 = Padding
-+ *
-+ * A, A, A, A, A, A, B, 0, 0, B, 0, 0
-+ */
-+static void assemble_scalingdc(u8 *output, const struct v4l2_ctrl_hevc_scaling_matrix *input)
-+{
-+	u8 list_32x32[6] = {0};
-+
-+	memcpy(output, input->scaling_list_dc_coef_16x16, 6 * sizeof(u8));
-+	list_32x32[0] = input->scaling_list_dc_coef_32x32[0];
-+	list_32x32[3] = input->scaling_list_dc_coef_32x32[1];
-+	memcpy(output + 6 * sizeof(u8), list_32x32, 6 * sizeof(u8));
-+}
-+
-+static void translate_scaling_list(struct scaling_factor *output,
-+				   const struct v4l2_ctrl_hevc_scaling_matrix *input)
-+{
-+	assemble_scalingfactor0(output->scalingfactor0, input);
-+	memcpy(output->scalingfactor1, (const u8 *)input->scaling_list_4x4, 96);
-+	assemble_scalingdc(output->scalingdc, input);
-+	memset(output->reserved, 0, 4 * sizeof(u8));
-+}
-+
-+void rkvdec_hevc_assemble_hw_scaling_list(struct rkvdec_hevc_run *run,
-+					  struct scaling_factor *scaling_factor,
-+					  struct v4l2_ctrl_hevc_scaling_matrix *cache)
-+{
-+	const struct v4l2_ctrl_hevc_scaling_matrix *scaling = run->scaling_matrix;
-+
-+	if (!memcmp(cache, scaling,
-+		    sizeof(struct v4l2_ctrl_hevc_scaling_matrix)))
-+		return;
-+
-+	translate_scaling_list(scaling_factor, scaling);
-+
-+	memcpy(cache, scaling,
-+	       sizeof(struct v4l2_ctrl_hevc_scaling_matrix));
-+}
-+
-+struct vb2_buffer *
-+get_ref_buf(struct rkvdec_ctx *ctx, struct rkvdec_hevc_run *run,
-+	    unsigned int dpb_idx)
-+{
-+	struct v4l2_m2m_ctx *m2m_ctx = ctx->fh.m2m_ctx;
-+	const struct v4l2_ctrl_hevc_decode_params *decode_params = run->decode_params;
-+	const struct v4l2_hevc_dpb_entry *dpb = decode_params->dpb;
-+	struct vb2_queue *cap_q = &m2m_ctx->cap_q_ctx.q;
-+	struct vb2_buffer *buf = NULL;
-+
-+	if (dpb_idx < decode_params->num_active_dpb_entries)
-+		buf = vb2_find_buffer(cap_q, dpb[dpb_idx].timestamp);
-+
-+	/*
-+	 * If a DPB entry is unused or invalid, the address of current destination
-+	 * buffer is returned.
-+	 */
-+	if (!buf)
-+		return &run->base.bufs.dst->vb2_buf;
-+
-+	return buf;
-+}
-+
-+#define RKVDEC_HEVC_MAX_DEPTH_IN_BYTES		2
-+
-+int rkvdec_hevc_adjust_fmt(struct rkvdec_ctx *ctx, struct v4l2_format *f)
-+{
-+	struct v4l2_pix_format_mplane *fmt = &f->fmt.pix_mp;
-+
-+	fmt->num_planes = 1;
-+	if (!fmt->plane_fmt[0].sizeimage)
-+		fmt->plane_fmt[0].sizeimage = fmt->width * fmt->height *
-+					      RKVDEC_HEVC_MAX_DEPTH_IN_BYTES;
-+	return 0;
-+}
-+
-+enum rkvdec_image_fmt rkvdec_hevc_get_image_fmt(struct rkvdec_ctx *ctx,
-+						struct v4l2_ctrl *ctrl)
-+{
-+	const struct v4l2_ctrl_hevc_sps *sps = ctrl->p_new.p_hevc_sps;
-+
-+	if (ctrl->id != V4L2_CID_STATELESS_HEVC_SPS)
-+		return RKVDEC_IMG_FMT_ANY;
-+
-+	if (sps->bit_depth_luma_minus8 == 0) {
-+		if (sps->chroma_format_idc == 2)
-+			return RKVDEC_IMG_FMT_422_8BIT;
-+		else
-+			return RKVDEC_IMG_FMT_420_8BIT;
-+	} else if (sps->bit_depth_luma_minus8 == 2) {
-+		if (sps->chroma_format_idc == 2)
-+			return RKVDEC_IMG_FMT_422_10BIT;
-+		else
-+			return RKVDEC_IMG_FMT_420_10BIT;
-+	}
-+
-+	return RKVDEC_IMG_FMT_ANY;
-+}
-+
-+
-+void rkvdec_hevc_run_preamble(struct rkvdec_ctx *ctx,
-+			      struct rkvdec_hevc_run *run)
-+{
-+	struct v4l2_ctrl *ctrl;
-+
-+	ctrl = v4l2_ctrl_find(&ctx->ctrl_hdl,
-+			      V4L2_CID_STATELESS_HEVC_DECODE_PARAMS);
-+	run->decode_params = ctrl ? ctrl->p_cur.p : NULL;
-+	ctrl = v4l2_ctrl_find(&ctx->ctrl_hdl,
-+			      V4L2_CID_STATELESS_HEVC_SLICE_PARAMS);
-+	run->slices_params = ctrl ? ctrl->p_cur.p : NULL;
-+	run->num_slices = ctrl ? ctrl->new_elems : 0;
-+	ctrl = v4l2_ctrl_find(&ctx->ctrl_hdl,
-+			      V4L2_CID_STATELESS_HEVC_SPS);
-+	run->sps = ctrl ? ctrl->p_cur.p : NULL;
-+	ctrl = v4l2_ctrl_find(&ctx->ctrl_hdl,
-+			      V4L2_CID_STATELESS_HEVC_PPS);
-+	run->pps = ctrl ? ctrl->p_cur.p : NULL;
-+	ctrl = v4l2_ctrl_find(&ctx->ctrl_hdl,
-+			      V4L2_CID_STATELESS_HEVC_SCALING_MATRIX);
-+	run->scaling_matrix = ctrl ? ctrl->p_cur.p : NULL;
-+
-+	rkvdec_run_preamble(ctx, &run->base);
-+}
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.h b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.h
-new file mode 100644
-index 0000000000000..e3099fdd784b1
---- /dev/null
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.h
-@@ -0,0 +1,49 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Rockchip video decoder hevc common functions
-+ *
-+ * Copyright (C) 2025 Collabora, Ltd.
-+ *      Detlev Casanova <detlev.casanova@collabora.com>
-+ *
-+ * Copyright (C) 2023 Collabora, Ltd.
-+ *      Sebastian Fricke <sebastian.fricke@collabora.com>
-+ *
-+ * Copyright (C) 2019 Collabora, Ltd.
-+ *	Boris Brezillon <boris.brezillon@collabora.com>
-+ *
-+ * Copyright (C) 2016 Rockchip Electronics Co., Ltd.
-+ *	Jeffy Chen <jeffy.chen@rock-chips.com>
-+ */
-+
-+#include <media/v4l2-mem2mem.h>
-+#include "rkvdec.h"
-+
-+#define RKV_HEVC_CABAC_TABLE_SIZE		27456
-+extern const u8 rkvdec_hevc_cabac_table[RKV_HEVC_CABAC_TABLE_SIZE];
-+
-+struct rkvdec_hevc_run {
-+	struct rkvdec_run base;
-+	const struct v4l2_ctrl_hevc_slice_params *slices_params;
-+	const struct v4l2_ctrl_hevc_decode_params *decode_params;
-+	const struct v4l2_ctrl_hevc_sps *sps;
-+	const struct v4l2_ctrl_hevc_pps *pps;
-+	const struct v4l2_ctrl_hevc_scaling_matrix *scaling_matrix;
-+	int num_slices;
-+};
-+
-+struct scaling_factor {
-+	u8 scalingfactor0[1248];
-+	u8 scalingfactor1[96];	/*4X4 TU Rotate, total 16X4*/
-+	u8 scalingdc[12];	/*N1005 Vienna Meeting*/
-+	u8 reserved[4];		/*16Bytes align*/
-+};
-+
-+void rkvdec_hevc_assemble_hw_scaling_list(struct rkvdec_hevc_run *run,
-+					  struct scaling_factor *scaling_factor,
-+					  struct v4l2_ctrl_hevc_scaling_matrix *cache);
-+struct vb2_buffer *get_ref_buf(struct rkvdec_ctx *ctx,
-+			       struct rkvdec_hevc_run *run,
-+			       unsigned int dpb_idx);
-+int rkvdec_hevc_adjust_fmt(struct rkvdec_ctx *ctx, struct v4l2_format *f);
-+enum rkvdec_image_fmt rkvdec_hevc_get_image_fmt(struct rkvdec_ctx *ctx, struct v4l2_ctrl *ctrl);
-+void rkvdec_hevc_run_preamble(struct rkvdec_ctx *ctx, struct rkvdec_hevc_run *run);
-diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
-index dfadb9a13c9a8..156ce381f0680 100644
---- a/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
-+++ b/drivers/media/platform/rockchip/rkvdec/rkvdec-hevc.c
-@@ -16,6 +16,7 @@
- 
- #include "rkvdec.h"
- #include "rkvdec-regs.h"
-+#include "rkvdec-hevc-common.h"
- 
- /* Size in u8/u32 units. */
- #define RKV_SCALING_LIST_SIZE		1360
-@@ -24,9 +25,6 @@
- #define RKV_RPS_SIZE			(32 / 4)
- #define RKV_RPS_LEN			600
- 
--#define RKV_HEVC_CABAC_TABLE_SIZE		27456
--extern const u8 rkvdec_hevc_cabac_table[RKV_HEVC_CABAC_TABLE_SIZE];
--
- struct rkvdec_sps_pps_packet {
- 	u32 info[RKV_PPS_SIZE];
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+index 174536ebdcc7c..ce96a0470d4d9 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+@@ -1312,15 +1312,10 @@ static const struct of_device_id of_rkvdec_match[] = {
  };
-@@ -113,34 +111,17 @@ struct rkvdec_ps_field {
- /* Data structure describing auxiliary buffer format. */
- struct rkvdec_hevc_priv_tbl {
- 	u8 cabac_table[RKV_HEVC_CABAC_TABLE_SIZE];
--	u8 scaling_list[RKV_SCALING_LIST_SIZE];
-+	struct scaling_factor scaling_list;
- 	struct rkvdec_sps_pps_packet param_set[RKV_PPS_LEN];
- 	struct rkvdec_rps_packet rps[RKV_RPS_LEN];
- };
+ MODULE_DEVICE_TABLE(of, of_rkvdec_match);
  
--struct rkvdec_hevc_run {
--	struct rkvdec_run base;
--	const struct v4l2_ctrl_hevc_slice_params *slices_params;
--	const struct v4l2_ctrl_hevc_decode_params *decode_params;
--	const struct v4l2_ctrl_hevc_sps *sps;
--	const struct v4l2_ctrl_hevc_pps *pps;
--	const struct v4l2_ctrl_hevc_scaling_matrix *scaling_matrix;
--	int num_slices;
+-static const char * const rkvdec_clk_names[] = {
+-	"axi", "ahb", "cabac", "core"
 -};
 -
- struct rkvdec_hevc_ctx {
- 	struct rkvdec_aux_buf priv_tbl;
- 	struct v4l2_ctrl_hevc_scaling_matrix scaling_matrix_cache;
- 	struct rkvdec_regs regs;
- };
- 
--struct scaling_factor {
--	u8 scalingfactor0[1248];
--	u8 scalingfactor1[96];		/*4X4 TU Rotate, total 16X4*/
--	u8 scalingdc[12];		/*N1005 Vienna Meeting*/
--	u8 reserved[4];		/*16Bytes align*/
--};
--
- static void set_ps_field(u32 *buf, struct rkvdec_ps_field field, u32 value)
+ static int rkvdec_probe(struct platform_device *pdev)
  {
- 	u8 bit = field.offset % 32, word = field.offset / 32;
-@@ -417,131 +398,6 @@ static void assemble_sw_rps(struct rkvdec_ctx *ctx,
- 	}
+ 	const struct rkvdec_variant *variant;
+ 	struct rkvdec_dev *rkvdec;
+-	unsigned int i;
+ 	int ret, irq;
+ 
+ 	variant = of_device_get_match_data(&pdev->dev);
+@@ -1337,19 +1332,12 @@ static int rkvdec_probe(struct platform_device *pdev)
+ 	mutex_init(&rkvdec->vdev_lock);
+ 	INIT_DELAYED_WORK(&rkvdec->watchdog_work, rkvdec_watchdog_func);
+ 
+-	rkvdec->clocks = devm_kcalloc(&pdev->dev, ARRAY_SIZE(rkvdec_clk_names),
+-				      sizeof(*rkvdec->clocks), GFP_KERNEL);
+-	if (!rkvdec->clocks)
+-		return -ENOMEM;
+-
+-	for (i = 0; i < ARRAY_SIZE(rkvdec_clk_names); i++)
+-		rkvdec->clocks[i].id = rkvdec_clk_names[i];
+-
+-	ret = devm_clk_bulk_get(&pdev->dev, ARRAY_SIZE(rkvdec_clk_names),
+-				rkvdec->clocks);
+-	if (ret)
++	ret = devm_clk_bulk_get_all_enabled(&pdev->dev, &rkvdec->clocks);
++	if (ret < 0)
+ 		return ret;
+ 
++	rkvdec->num_clocks = ret;
++
+ 	rkvdec->regs = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(rkvdec->regs))
+ 		return PTR_ERR(rkvdec->regs);
+@@ -1427,16 +1415,14 @@ static int rkvdec_runtime_resume(struct device *dev)
+ {
+ 	struct rkvdec_dev *rkvdec = dev_get_drvdata(dev);
+ 
+-	return clk_bulk_prepare_enable(ARRAY_SIZE(rkvdec_clk_names),
+-				       rkvdec->clocks);
++	return clk_bulk_prepare_enable(rkvdec->num_clocks, rkvdec->clocks);
  }
  
--/*
-- * Flip one or more matrices along their main diagonal and flatten them
-- * before writing it to the memory.
-- * Convert:
-- * ABCD         AEIM
-- * EFGH     =>  BFJN     =>     AEIMBFJNCGKODHLP
-- * IJKL         CGKO
-- * MNOP         DHLP
-- */
--static void transpose_and_flatten_matrices(u8 *output, const u8 *input,
--					   int matrices, int row_length)
--{
--	int i, j, row, x_offset, matrix_offset, rot_index, y_offset, matrix_size, new_value;
--
--	matrix_size = row_length * row_length;
--	for (i = 0; i < matrices; i++) {
--		row = 0;
--		x_offset = 0;
--		matrix_offset = i * matrix_size;
--		for (j = 0; j < matrix_size; j++) {
--			y_offset = j - (row * row_length);
--			rot_index = y_offset * row_length + x_offset;
--			new_value = *(input + i * matrix_size + j);
--			output[matrix_offset + rot_index] = new_value;
--			if ((j + 1) % row_length == 0) {
--				row += 1;
--				x_offset += 1;
--			}
--		}
--	}
--}
--
--static void assemble_scalingfactor0(u8 *output, const struct v4l2_ctrl_hevc_scaling_matrix *input)
--{
--	int offset = 0;
--
--	transpose_and_flatten_matrices(output, (const u8 *)input->scaling_list_4x4, 6, 4);
--	offset = 6 * 16 * sizeof(u8);
--	transpose_and_flatten_matrices(output + offset, (const u8 *)input->scaling_list_8x8, 6, 8);
--	offset += 6 * 64 * sizeof(u8);
--	transpose_and_flatten_matrices(output + offset,
--				       (const u8 *)input->scaling_list_16x16, 6, 8);
--	offset += 6 * 64 * sizeof(u8);
--	/* Add a 128 byte padding with 0s between the two 32x32 matrices */
--	transpose_and_flatten_matrices(output + offset,
--				       (const u8 *)input->scaling_list_32x32, 1, 8);
--	offset += 64 * sizeof(u8);
--	memset(output + offset, 0, 128);
--	offset += 128 * sizeof(u8);
--	transpose_and_flatten_matrices(output + offset,
--				       (const u8 *)input->scaling_list_32x32 + (64 * sizeof(u8)),
--				       1, 8);
--	offset += 64 * sizeof(u8);
--	memset(output + offset, 0, 128);
--}
--
--/*
-- * Required layout:
-- * A = scaling_list_dc_coef_16x16
-- * B = scaling_list_dc_coef_32x32
-- * 0 = Padding
-- *
-- * A, A, A, A, A, A, B, 0, 0, B, 0, 0
-- */
--static void assemble_scalingdc(u8 *output, const struct v4l2_ctrl_hevc_scaling_matrix *input)
--{
--	u8 list_32x32[6] = {0};
--
--	memcpy(output, input->scaling_list_dc_coef_16x16, 6 * sizeof(u8));
--	list_32x32[0] = input->scaling_list_dc_coef_32x32[0];
--	list_32x32[3] = input->scaling_list_dc_coef_32x32[1];
--	memcpy(output + 6 * sizeof(u8), list_32x32, 6 * sizeof(u8));
--}
--
--static void translate_scaling_list(struct scaling_factor *output,
--				   const struct v4l2_ctrl_hevc_scaling_matrix *input)
--{
--	assemble_scalingfactor0(output->scalingfactor0, input);
--	memcpy(output->scalingfactor1, (const u8 *)input->scaling_list_4x4, 96);
--	assemble_scalingdc(output->scalingdc, input);
--	memset(output->reserved, 0, 4 * sizeof(u8));
--}
--
--static void assemble_hw_scaling_list(struct rkvdec_ctx *ctx,
--				     struct rkvdec_hevc_run *run)
--{
--	const struct v4l2_ctrl_hevc_scaling_matrix *scaling = run->scaling_matrix;
--	struct rkvdec_hevc_ctx *hevc_ctx = ctx->priv;
--	struct rkvdec_hevc_priv_tbl *tbl = hevc_ctx->priv_tbl.cpu;
--	u8 *dst;
--
--	if (!memcmp((void *)&hevc_ctx->scaling_matrix_cache, scaling,
--		    sizeof(struct v4l2_ctrl_hevc_scaling_matrix)))
--		return;
--
--	dst = tbl->scaling_list;
--	translate_scaling_list((struct scaling_factor *)dst, scaling);
--
--	memcpy((void *)&hevc_ctx->scaling_matrix_cache, scaling,
--	       sizeof(struct v4l2_ctrl_hevc_scaling_matrix));
--}
--
--static struct vb2_buffer *
--get_ref_buf(struct rkvdec_ctx *ctx, struct rkvdec_hevc_run *run,
--	    unsigned int dpb_idx)
--{
--	struct v4l2_m2m_ctx *m2m_ctx = ctx->fh.m2m_ctx;
--	const struct v4l2_ctrl_hevc_decode_params *decode_params = run->decode_params;
--	const struct v4l2_hevc_dpb_entry *dpb = decode_params->dpb;
--	struct vb2_queue *cap_q = &m2m_ctx->cap_q_ctx.q;
--	struct vb2_buffer *buf = NULL;
--
--	if (dpb_idx < decode_params->num_active_dpb_entries)
--		buf = vb2_find_buffer(cap_q, dpb[dpb_idx].timestamp);
--
--	/*
--	 * If a DPB entry is unused or invalid, the address of current destination
--	 * buffer is returned.
--	 */
--	if (!buf)
--		return &run->base.bufs.dst->vb2_buf;
--
--	return buf;
--}
--
- static void config_registers(struct rkvdec_ctx *ctx,
- 			     struct rkvdec_hevc_run *run)
+ static int rkvdec_runtime_suspend(struct device *dev)
  {
-@@ -645,43 +501,6 @@ static void config_registers(struct rkvdec_ctx *ctx,
- 			   MIN(sizeof(*regs), sizeof(u32) * rkvdec->variant->num_regs));
+ 	struct rkvdec_dev *rkvdec = dev_get_drvdata(dev);
+ 
+-	clk_bulk_disable_unprepare(ARRAY_SIZE(rkvdec_clk_names),
+-				   rkvdec->clocks);
++	clk_bulk_disable_unprepare(rkvdec->num_clocks, rkvdec->clocks);
+ 	return 0;
  }
- 
--#define RKVDEC_HEVC_MAX_DEPTH_IN_BYTES		2
--
--static int rkvdec_hevc_adjust_fmt(struct rkvdec_ctx *ctx,
--				  struct v4l2_format *f)
--{
--	struct v4l2_pix_format_mplane *fmt = &f->fmt.pix_mp;
--
--	fmt->num_planes = 1;
--	if (!fmt->plane_fmt[0].sizeimage)
--		fmt->plane_fmt[0].sizeimage = fmt->width * fmt->height *
--					      RKVDEC_HEVC_MAX_DEPTH_IN_BYTES;
--	return 0;
--}
--
--static enum rkvdec_image_fmt rkvdec_hevc_get_image_fmt(struct rkvdec_ctx *ctx,
--						       struct v4l2_ctrl *ctrl)
--{
--	const struct v4l2_ctrl_hevc_sps *sps = ctrl->p_new.p_hevc_sps;
--
--	if (ctrl->id != V4L2_CID_STATELESS_HEVC_SPS)
--		return RKVDEC_IMG_FMT_ANY;
--
--	if (sps->bit_depth_luma_minus8 == 0) {
--		if (sps->chroma_format_idc == 2)
--			return RKVDEC_IMG_FMT_422_8BIT;
--		else
--			return RKVDEC_IMG_FMT_420_8BIT;
--	} else if (sps->bit_depth_luma_minus8 == 2) {
--		if (sps->chroma_format_idc == 2)
--			return RKVDEC_IMG_FMT_422_10BIT;
--		else
--			return RKVDEC_IMG_FMT_420_10BIT;
--	}
--
--	return RKVDEC_IMG_FMT_ANY;
--}
--
- static int rkvdec_hevc_validate_sps(struct rkvdec_ctx *ctx,
- 				    const struct v4l2_ctrl_hevc_sps *sps)
- {
-@@ -692,7 +511,7 @@ static int rkvdec_hevc_validate_sps(struct rkvdec_ctx *ctx,
- 		/* Luma and chroma bit depth mismatch */
- 		return -EINVAL;
- 	if (sps->bit_depth_luma_minus8 != 0 && sps->bit_depth_luma_minus8 != 2)
--		/* Only 8-bit and 10-bit is supported */
-+		/* Only 8-bit and 10-bit are supported */
- 		return -EINVAL;
- 
- 	if (sps->pic_width_in_luma_samples > ctx->coded_fmt.fmt.pix_mp.width ||
-@@ -738,40 +557,18 @@ static void rkvdec_hevc_stop(struct rkvdec_ctx *ctx)
- 	kfree(hevc_ctx);
- }
- 
--static void rkvdec_hevc_run_preamble(struct rkvdec_ctx *ctx,
--				     struct rkvdec_hevc_run *run)
--{
--	struct v4l2_ctrl *ctrl;
--
--	ctrl = v4l2_ctrl_find(&ctx->ctrl_hdl,
--			      V4L2_CID_STATELESS_HEVC_DECODE_PARAMS);
--	run->decode_params = ctrl ? ctrl->p_cur.p : NULL;
--	ctrl = v4l2_ctrl_find(&ctx->ctrl_hdl,
--			      V4L2_CID_STATELESS_HEVC_SLICE_PARAMS);
--	run->slices_params = ctrl ? ctrl->p_cur.p : NULL;
--	run->num_slices = ctrl ? ctrl->new_elems : 0;
--	ctrl = v4l2_ctrl_find(&ctx->ctrl_hdl,
--			      V4L2_CID_STATELESS_HEVC_SPS);
--	run->sps = ctrl ? ctrl->p_cur.p : NULL;
--	ctrl = v4l2_ctrl_find(&ctx->ctrl_hdl,
--			      V4L2_CID_STATELESS_HEVC_PPS);
--	run->pps = ctrl ? ctrl->p_cur.p : NULL;
--	ctrl = v4l2_ctrl_find(&ctx->ctrl_hdl,
--			      V4L2_CID_STATELESS_HEVC_SCALING_MATRIX);
--	run->scaling_matrix = ctrl ? ctrl->p_cur.p : NULL;
--
--	rkvdec_run_preamble(ctx, &run->base);
--}
--
- static int rkvdec_hevc_run(struct rkvdec_ctx *ctx)
- {
- 	struct rkvdec_dev *rkvdec = ctx->dev;
- 	struct rkvdec_hevc_run run;
-+	struct rkvdec_hevc_ctx *hevc_ctx = ctx->priv;
-+	struct rkvdec_hevc_priv_tbl *tbl = hevc_ctx->priv_tbl.cpu;
- 	u32 reg;
- 
- 	rkvdec_hevc_run_preamble(ctx, &run);
- 
--	assemble_hw_scaling_list(ctx, &run);
-+	rkvdec_hevc_assemble_hw_scaling_list(&run, &tbl->scaling_list,
-+					     &hevc_ctx->scaling_matrix_cache);
- 	assemble_hw_pps(ctx, &run);
- 	assemble_sw_rps(ctx, &run);
- 	config_registers(ctx, &run);
+ #endif
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+index faabedd2b9d88..7766a79caf68b 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+@@ -125,6 +125,7 @@ struct rkvdec_dev {
+ 	struct v4l2_m2m_dev *m2m_dev;
+ 	struct device *dev;
+ 	struct clk_bulk_data *clocks;
++	unsigned int num_clocks;
+ 	void __iomem *regs;
+ 	struct mutex vdev_lock; /* serializes ioctls */
+ 	struct delayed_work watchdog_work;
 -- 
 2.52.0
 
