@@ -4,61 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 795BBD6ACFB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 12:55:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E30C5D6ACFE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 12:56:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=7YJ6dz4Hw0tD7YG2PkHL0J4dcF+GCySKLkS5AibXnLU=; b=z2qvYLclT65wRh
-	vj3VEUUEQbiesddlCSkFg1euvDo41jE7aczAfEaECaxmF3m8vDFoFtYDNpSwPP61kC8C5GZ2HtbE0
-	8tHiBoBGw7y5IlPyAm2t3JddOfYRMpoHHxNpowO+wN1XAR7FIHyQagDYOUe7WMEjiGARACEErEmtK
-	V4zpdGwnb6pp1PE8nVHqWCUzkUG7RsfNTv2/PYgjN1tR+HKYRsloMhKe6LxRr54aQfIVbN7d715hw
-	yrhvYQUvYN9OMnuyDp9CL9GrowubARLzymIU+XCJeiitdntlY2ErjrDiaE/zLtG+XlG+NWoBcQj5o
-	eCn6LF/6QCj+OVUo46VQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nwDtj3mgeOi3Ut4IR/lqkpMxNliSZQOF+Un/kvU4JKI=; b=ZsYEmKStsGtZlLoBcAPvSrTugp
+	jOTdfh47zLURyVlScS9Q2aWFPDAmzP+6ry652KJaQH7ejn1PGJBCyK2YjP0pyLM6F/ljaE5FSft8j
+	9mSTve6IYaZleVBDNXABmsfv5EcZmMnIiTj+u2Rus7Ub6h7FTWXCLpnEt/MO8kwsEBFsLAQIfWqzw
+	Yqb+L1bWVi5kcXiS1oA0oXXE/3KsVjIS+QcAX37CfO05bI1Yd1t5z7ZEnMFkO/U79bRNGbxyxHZyx
+	JoroMsh248Ts/ejIgxnROFfd2EmGPJbJHErwTyxDM81OZ+laS/U89DPVllmKBTcvvdvKI3ntz1vBm
+	yvB+lfDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWDXl-00000008RZi-3EDt;
-	Thu, 18 Dec 2025 12:55:45 +0000
+	id 1vWDXt-00000008Rcy-0FSc;
+	Thu, 18 Dec 2025 12:55:53 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWDXj-00000008RZA-2cs6;
-	Thu, 18 Dec 2025 12:55:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1766062532; cv=none; 
+	id 1vWDXo-00000008Ran-2447;
+	Thu, 18 Dec 2025 12:55:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1766062538; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=XIHIYXnuAZoWqAGgkBn1wN3mchg5tiF/c+VWKyX45cdAkBheDS/ZWCD8ZhO1z6TWQnH4z+eCsNud0OqTPXT622/tnEbcVTIog6yG7xbxeZNtwfHB6ff3EEI+T7gm7tj4YIysdfXZjjm4yu2Zd/KzjlGf2CStVE55KVG1rUTOhv8=
+	b=YZh6BlOvMVwTgvWFQqHW0RShnEDk4hjc1h5VIC2bgJDWXuD+ibFDhOPgr7YnLsP4ECHzL6N1857W4sGK09+R3QAsXzS51iqb8fgSW2DOwk1WwNaT6wtAbctcw/7vmpIrU7/amA+oYgwIr5DO6h102929u0+8Wdo5LYi+skFRYyA=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1766062532; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=7YJ6dz4Hw0tD7YG2PkHL0J4dcF+GCySKLkS5AibXnLU=; 
-	b=Bcg7FBAM54hNcFtZpsVfuhktA8QkDXJnaAx+0Ikfg3y6HtiWRHSxQrKCDv2lhtJB4vARFbFSYKEOlqyMt2vQtLd+qm8WheU29bq6lAk2sVzcknzqcwhBT/77wAyflI5H18ylnMCs9EzZXFOMEepezKjNLK32ZTwAMvbNzZj+zes=
+	t=1766062538; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=nwDtj3mgeOi3Ut4IR/lqkpMxNliSZQOF+Un/kvU4JKI=; 
+	b=jTL2SNAm23g9d4Wr+X8iSd/RYQC9e3x6UWMe7SuZCEOvc9JIENWC61DeF868iBGG5krZNg7E3LlvxeQk6uJ6QLHReLbBPS8wT3LhEk54tcIq3I46ahmw12t1HCGpL/EWHHZhUfGR+c0fUWckiXy0DmfE1d6txPkJ6QP9IEniGIE=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1766062532;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1766062538;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
-	bh=7YJ6dz4Hw0tD7YG2PkHL0J4dcF+GCySKLkS5AibXnLU=;
-	b=HztBAZc2fzdxPI9fDAKuZj6V1TKw5uic3ihASrM0/Zep4dd3H4EJYilReUNmcpfI
-	rAimDfDovwvAK1Cl0nOAH3aQY+IwTbahDNZOJOqnR6YOLF3PhIr7ATWxKDCBET5RSYW
-	T8cJzapJvwQFnzc9hbus8yyo0JnxcVVnWXI+TwXE=
-Received: by mx.zohomail.com with SMTPS id 176606253044531.604761712468644;
-	Thu, 18 Dec 2025 04:55:30 -0800 (PST)
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=nwDtj3mgeOi3Ut4IR/lqkpMxNliSZQOF+Un/kvU4JKI=;
+	b=V36Nliu43NOfCbknY3dKq9fa9yotq2ipkj+Wu4mZZKP61C5bAiKVTCxRUdPtK9XS
+	KgkV/OxebOkmUFQbBfLx6zkN3NQ6ANCppYNSudGIzIc4p2njSbyBjuW6/cHy9zIO42N
+	v+2AKszj2atl6qU/dgo/h5Z/T6oo090fOmiEoBJk=
+Received: by mx.zohomail.com with SMTPS id 1766062537022265.975502593526;
+	Thu, 18 Dec 2025 04:55:37 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Subject: [PATCH v4 00/25] MediaTek UFS Cleanup and MT8196 Enablement
-Date: Thu, 18 Dec 2025 13:54:50 +0100
-Message-Id: <20251218-mt8196-ufs-v4-0-ddec7a369dd2@collabora.com>
+Date: Thu, 18 Dec 2025 13:54:51 +0100
+Subject: [PATCH v4 01/25] dt-bindings: phy: Add mediatek,mt8196-ufsphy
+ variant
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAJv5Q2kC/23Oyw7CIBAF0F9pWEvDqw9c+R/GBUwHJbGiUInG9
- N/FulHj8k7m3JkHSRg9JrKuHiRi9smHUwlqVRE4mNMeqR9KJoKJhjOu6Dj1XLf06hIFBGW10R0
- 2khRwjuj8bSnb7t454uVaOqf3kFiTkEIYRz+tq9zWXNMInLyWDz5NId6XRzJftv/dzJwyynUzA
- NpeWug3EI5HY0M0dSleqrL45O0XF4WD7GQvFSjszD8uP7iQX1wWzhxTVplON8798nmenzhngtJ
- TAQAA
-X-Change-ID: 20251014-mt8196-ufs-cec4b9a97e53
+Message-Id: <20251218-mt8196-ufs-v4-1-ddec7a369dd2@collabora.com>
+References: <20251218-mt8196-ufs-v4-0-ddec7a369dd2@collabora.com>
+In-Reply-To: <20251218-mt8196-ufs-v4-0-ddec7a369dd2@collabora.com>
 To: Alim Akhtar <alim.akhtar@samsung.com>, 
  Avri Altman <avri.altman@wdc.com>, Bart Van Assche <bvanassche@acm.org>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -81,8 +78,9 @@ Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_045543_705748_D74821F6 
-X-CRM114-Status: GOOD (  18.43  )
+X-CRM114-CacheID: sfid-20251218_045550_564537_F5481C89 
+X-CRM114-Status: UNSURE (   9.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,107 +95,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In this series, the existing MediaTek UFS binding is expanded and
-completed to correctly describe not just the existing compatibles, but
-also to introduce a new compatible in the from of the MT8196 SoC.
+The MediaTek MT8196 SoC includes an M-PHY compatible with the already
+existing mt8183 binding.
 
-The resets, which until now were completely absent from both the UFS
-host controller binding and the UFS PHY binding, are introduced to both.
-This also means the driver's undocumented and, in mainline, unused reset
-logic is reworked. In particular, the PHY reset is no longer a reset of
-the host controller node, but of the PHY node.
+However, one omission from the original binding was that all of these
+variants may have an optional reset.
 
-This means the host controller can reset the PHY through the common PHY
-framework.
+Add the new compatible, and also the resets property, with an example.
 
-The resets remain optional.
-
-Additionally, a massive number of driver cleanups are introduced. These
-were prompted by me inspecting the driver more closely as I was
-adjusting it to correspond to the binding.
-
-The driver still implements vendor properties that are undocumented in
-the binding. I did not touch most of those, as I neither want to
-convince the bindings maintainers that they are needed without knowing
-precisely what they're for, nor do I want to argue with the driver
-authors when removing them.
-
-Due to the "Marie Kondo with a chainsaw" nature of the driver cleanup
-patches, I humbly request that reviewers do not comment on displeasing
-code they see in the context portion of a patch before they've read the
-whole patch series, as that displeasing code may in fact be reworked in
-a subsequent patch of this series. Please keep comments focused on the
-changed lines of the diff; I know there's more that can be done, but it
-doesn't necessarily need to be part of this series.
-
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Reviewed-by: Peter Wang <peter.wang@mediatek.com>
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
-Changes in v4:
-- bindings: Redo the supply situation, as the avdd pins don't describe
-  the vcc(q2) card supplies.
-- bindings: format clock in mt8196 example more tersely.
-- phy: use devm_reset_control_get_optional_exclusive directly
-- driver: get and enable/disable the aforementioned avdd supplies.
-- Link to v3: https://lore.kernel.org/r/20251023-mt8196-ufs-v3-0-0f04b4a795ff@collabora.com
+ .../devicetree/bindings/phy/mediatek,ufs-phy.yaml        | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-Changes in v3:
-- Split mediatek,ufs bindings change into two patches, one for
-  completing the existing binding, one for the MT8196
-- Add over a dozen driver cleanup patches
-- Add explicit support for the MT8196 compatible to the driver
-- Note: next-20251023, on which I based this, currently has a broken
-  build due to an unrelated OPP core change that was merged with no
-  build testing. I can't use next-20251022 either, as that lacks the
-  recent mediatek UFS changes. It is what it is.
-- Link to v2: https://lore.kernel.org/r/20251016-mt8196-ufs-v2-0-c373834c4e7a@collabora.com
+diff --git a/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml b/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml
+index 6e2edd43fc2a..ee71dfa4e0c0 100644
+--- a/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml
++++ b/Documentation/devicetree/bindings/phy/mediatek,ufs-phy.yaml
+@@ -27,6 +27,7 @@ properties:
+       - items:
+           - enum:
+               - mediatek,mt8195-ufsphy
++              - mediatek,mt8196-ufsphy
+           - const: mediatek,mt8183-ufsphy
+       - const: mediatek,mt8183-ufsphy
+ 
+@@ -43,6 +44,10 @@ properties:
+       - const: unipro
+       - const: mp
+ 
++  resets:
++    items:
++      - description: Optional UFS M-PHY reset.
++
+   "#phy-cells":
+     const: 0
+ 
+@@ -66,5 +71,16 @@ examples:
+         clock-names = "unipro", "mp";
+         #phy-cells = <0>;
+     };
++  - |
++    #include <dt-bindings/reset/mediatek,mt8196-resets.h>
++    ufs-phy@16800000 {
++        compatible = "mediatek,mt8196-ufsphy", "mediatek,mt8183-ufsphy";
++        reg = <0x16800000 0x10000>;
++        clocks = <&ufs_ao_clk 3>,
++                 <&ufs_ao_clk 5>;
++        clock-names = "unipro", "mp";
++        resets = <&ufs_ao_clk MT8196_UFSAO_RST0_UFS_MPHY>;
++        #phy-cells = <0>;
++    };
+ 
+ ...
 
-Changes in v2:
-- Reorder define in mtk_sip_svc.h
-- Use bulk reset APIs in UFS host driver
-- Link to v1: https://lore.kernel.org/r/20251014-mt8196-ufs-v1-0-195dceb83bc8@collabora.com
-
----
-Nicolas Frattaroli (25):
-      dt-bindings: phy: Add mediatek,mt8196-ufsphy variant
-      dt-bindings: ufs: mediatek,ufs: Complete the binding
-      dt-bindings: ufs: mediatek,ufs: Add mt8196 variant
-      scsi: ufs: mediatek: Move MTK_SIP_UFS_CONTROL to mtk_sip_svc.h
-      phy: mediatek: ufs: Add support for resets
-      scsi: ufs: mediatek: Rework resets
-      scsi: ufs: mediatek: Rework 0.9V regulator
-      scsi: ufs: mediatek: Rework init function
-      scsi: ufs: mediatek: Rework the crypt-boost stuff
-      scsi: ufs: mediatek: Handle misc host voltage regulators
-      scsi: ufs: mediatek: Rework probe function
-      scsi: ufs: mediatek: Remove vendor kernel quirks cruft
-      scsi: ufs: mediatek: Use the common PHY framework
-      scsi: ufs: mediatek: Switch to newer PM ops helpers
-      scsi: ufs: mediatek: Remove mediatek,ufs-broken-rtc property
-      scsi: ufs: mediatek: Rework _ufs_mtk_clk_scale error paths
-      scsi: ufs: mediatek: Add vendor prefix to clk-scale-up-vcore-min
-      scsi: ufs: mediatek: Clean up logging prints
-      scsi: ufs: mediatek: Rework ufs_mtk_wait_idle_state
-      scsi: ufs: mediatek: Don't acquire dvfsrc-vcore twice
-      scsi: ufs: mediatek: Rework hardware version reading
-      scsi: ufs: mediatek: Back up idle timer in per-instance struct
-      scsi: ufs: mediatek: Make scale_us in setup_clk_gating const
-      scsi: ufs: mediatek: Remove ret local from link_startup_notify
-      scsi: ufs: mediatek: Add MT8196 compatible, update copyright
-
- .../devicetree/bindings/phy/mediatek,ufs-phy.yaml  |  16 +
- .../devicetree/bindings/ufs/mediatek,ufs.yaml      | 173 +++-
- drivers/phy/mediatek/phy-mtk-ufs.c                 |  71 ++
- drivers/ufs/host/ufs-mediatek-sip.h                |   9 -
- drivers/ufs/host/ufs-mediatek.c                    | 996 +++++++++------------
- drivers/ufs/host/ufs-mediatek.h                    |  19 +-
- include/linux/soc/mediatek/mtk_sip_svc.h           |   3 +
- 7 files changed, 690 insertions(+), 597 deletions(-)
----
-base-commit: 3e7f562e20ee87a25e104ef4fce557d39d62fa85
-change-id: 20251014-mt8196-ufs-cec4b9a97e53
-
-Best regards,
 -- 
-Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+2.52.0
 
 
