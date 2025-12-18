@@ -4,156 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EAF4D6ACD5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 09:20:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F500D6ACD5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 09:20:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OqMOpAN9R5MslrgIqeQxp1PVShpqEea3zlFkjgV7CRw=; b=QFJRlN1UGXypoqFjxOdaRM5erq
-	tpjzWx2m5QexVw9kxfulWrVWczkghHyzgKGPMX2cNGsh8/14051O8VU9vXK3z8iObFEw5E2ejX8jN
-	tuJjgNEedSnjRPTtBLk/Xagh515Y0+ScHh1QQvwJ4Wk8yT8RW7jMqXCzHXF2TWplc7dT92CXAz1Tj
-	HmE06KwmRMrS1QvUHzGKI2q4nlrB9lba8+D9CxXN2omFichkhJQ51bcsETriIikI9GsrQobXk5kCo
-	N5eKqyucH0wyisyVZJY/tdsSVKectUxnVZfLPl96+Ni8M3MgcAdO+4YbC0DgRitg6KuDM0bAI38Bf
-	lLK3/WVA==;
+	bh=evLqch5hNu1iwEnFgKksHFJgUrKxQo7SaheteQpajG0=; b=0pU2vl29e6f1sBgTVEwG9KcmzD
+	J4fGVuzd4daFAradNq/WIcj7mQVqfZc3gOiVaBI+HhlX+pwAnoqjWYlAsRdW6qAgZUe+csq3uD/kK
+	Y5svTJw9DMR7GFZ8IGbLz0CNBBGiil3mizwjlECjLcCU2FTCGdK2eHtNgM5tvxNxmpwX0lJCVVCG9
+	I5tJKYZ6euUjvQYm5GigifueCnrR3nI/Dn2VTziWMAMhPKkceEA4EwmhRzZCUfjUvEjBqSUjxXJO+
+	hpr+iKiFMKAbQFlHKj3qCiNrkgWQxfttoOoEAF6WaknyLp3QTCsGkWhjyuTwBa6tynD9vsIofJ7Tw
+	ZxOIQGvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWAAu-0000000887E-283F;
-	Thu, 18 Dec 2025 09:19:56 +0000
-Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWAAr-0000000886D-0RI7;
-	Thu, 18 Dec 2025 09:19:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ObSM2vFi2L84I782WDo3/oqfIAZOO/FEW/IZVO7Z0BrzGODJ3zZXj35hH3m0Q5eDLgrYajmxgnTlp/mnYa3LRAnhj3gMidJafFN2f19oz0BXGVM6uk9bhkZN+T/7DUKrT+NW1uNt87YhJ0QVFnyxI8UvEO0PyFn26jco2lc/vXITI7/wg2Yq0ZaHBVbpmjp9mcbsMS7+BYUV7Mmd6TcQ/BL1MJQhDubunTB8wAq6cDky/b5ct7YsO2/mPqp77diLj42QrfnGHR5XuHxF1Xi83TUUPzfhyyXWycNdqGt8Qc0qpFlEbg4368OLYJ0pNITk38qtqh9tbI/vazIlpmPLHA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OqMOpAN9R5MslrgIqeQxp1PVShpqEea3zlFkjgV7CRw=;
- b=KKm78j/aICLbDwzsLmtvOQmDWfBKhGCFly9KhL82JAvGWfI0c8do6201FBBHN8vjabTlfUipzD/iTOO0XzgO59w/9h3Xog5F2HRCZWObRj+XWq1IhwIfYppGuO/BnJ6jzMvNPq7s21cvx4NIDltrYelJMeTYE/TNgu3hmLvImlk72d+MjuXrRrNQNTOvJHYHDYj2E51VNY5iiYhD+B5g+BKxe1vIWEGFD8aIOpDsU68UkTeGqqOcNepCVQrSFKcShlzRLDTKWmQ+axTN9sdt9fLyak0W400HUU/oUkSSCa4oClYOxPiXDDvLdV8T6ezhOTDdHaTGuHw+5FUAiaUt8w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=infradead.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OqMOpAN9R5MslrgIqeQxp1PVShpqEea3zlFkjgV7CRw=;
- b=Hfca2GaE2BibD/dqKPoeJNWHS/QK3M0fLjsWgl8E6Dzmo+k7x8CZ8F94nitFi2mEPOYi5DzFGvry3y4egJh8Th+VRUVDDWn2HdZTbu3NfxP7rIW3bZYWQqnm6dJeUAeB5OgI5e+rVNNg24bK1T+7pnDhhofggZ8KkUyMatmjfjs=
-Received: from BLAPR03CA0011.namprd03.prod.outlook.com (2603:10b6:208:32b::16)
- by DS7PR12MB8371.namprd12.prod.outlook.com (2603:10b6:8:e9::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.6; Thu, 18 Dec
- 2025 09:19:45 +0000
-Received: from BL6PEPF0001AB72.namprd02.prod.outlook.com
- (2603:10b6:208:32b:cafe::95) by BLAPR03CA0011.outlook.office365.com
- (2603:10b6:208:32b::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.6 via Frontend Transport; Thu,
- 18 Dec 2025 09:19:34 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- BL6PEPF0001AB72.mail.protection.outlook.com (10.167.242.165) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9412.4 via Frontend Transport; Thu, 18 Dec 2025 09:19:45 +0000
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Thu, 18 Dec
- 2025 03:19:42 -0600
-Received: from [10.252.198.192] (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Thu, 18 Dec 2025 03:19:35 -0600
-Message-ID: <f6408786-8b40-4ded-8a20-307fe0133e98@amd.com>
-Date: Thu, 18 Dec 2025 14:49:34 +0530
+	id 1vWAB3-000000088AB-1VO2;
+	Thu, 18 Dec 2025 09:20:05 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vWAAv-0000000887Y-2pyM
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 18 Dec 2025 09:20:01 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BFBA7FEC;
+	Thu, 18 Dec 2025 01:19:48 -0800 (PST)
+Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B99273F762;
+	Thu, 18 Dec 2025 01:19:54 -0800 (PST)
+Message-ID: <0ac7f4e3-fec2-4554-99e7-53cf015febbe@arm.com>
+Date: Thu, 18 Dec 2025 09:19:53 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 00/44] KVM: x86: Add support for mediated vPMUs
-To: Peter Zijlstra <peterz@infradead.org>, Sean Christopherson
-	<seanjc@google.com>
-CC: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, "Tianrui
- Zhao" <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, Huacai Chen
-	<chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, Paul Walmsley
-	<pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Xin Li <xin@zytor.com>, "H. Peter Anvin"
-	<hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, Ingo Molnar
-	<mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim
-	<namhyung@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
-	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<kvm@vger.kernel.org>, <loongarch@lists.linux.dev>,
-	<kvm-riscv@lists.infradead.org>, <linux-riscv@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-perf-users@vger.kernel.org>, "Mingwei
- Zhang" <mizhang@google.com>, Xudong Hao <xudong.hao@intel.com>, Sandipan Das
-	<sandipan.das@amd.com>, Dapeng Mi <dapeng1.mi@linux.intel.com>, Xiong Zhang
-	<xiong.y.zhang@linux.intel.com>, Jim Mattson <jmattson@google.com>
-References: <20251206001720.468579-1-seanjc@google.com>
- <20251208153738.GC3707837@noisy.programming.kicks-ass.net>
+Subject: Re: [PATCH v4 1/3] coresight: tpda: add sysfs nodes for tpda
+ cross-trigger configuration
+To: Jie Gan <jie.gan@oss.qualcomm.com>, Mike Leach <mike.leach@linaro.org>,
+ James Clark <james.clark@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Tao Zhang <tao.zhang@oss.qualcomm.com>
+References: <20251028-configure_tpda_reg-v4-0-23000805d21d@oss.qualcomm.com>
+ <20251028-configure_tpda_reg-v4-1-23000805d21d@oss.qualcomm.com>
+ <ea84b279-8d55-4707-b6cf-85006da27456@oss.qualcomm.com>
 Content-Language: en-US
-From: Manali Shukla <manali.shukla@amd.com>
-In-Reply-To: <20251208153738.GC3707837@noisy.programming.kicks-ass.net>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB72:EE_|DS7PR12MB8371:EE_
-X-MS-Office365-Filtering-Correlation-Id: d67c9980-5904-4dbe-4d1a-08de3e16957a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|82310400026|1800799024|36860700013;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?QzlMeThiMnRmb2k1VE13NWtoR2ZsaThSaENWdkpMWHNmd1FuTnNJYWYxY1RM?=
- =?utf-8?B?b2kxbGxTRWZhMnh6U01EN05TbVRjeXphWERrbEJTbHhmbHhkNitzazJZS2dZ?=
- =?utf-8?B?NmtzeXRYY0g0T1VZNVBZanJ2NUllSVRNcUp0ZXNtTTRJVHcyblJLUUthK1Rw?=
- =?utf-8?B?bHZ4ejhkdzU5SGtUeUVtTkViQjV6bVYxaitqK2JRNXlweW1sUW42OEp4RlUz?=
- =?utf-8?B?UHJMeEN1NmxZTk9Qem9oNEY5TnRTL0ZJSVM2NXdzcVBPSW43VDFlMkdxQm5i?=
- =?utf-8?B?ck9Qc1pLOEJ4MEljRnI4VERuNmh2TjI0WmZiaGZPQUJaWVdRNlE4cmdpNjlp?=
- =?utf-8?B?cFZRNWZHQW5jcDRZN1FmRVBSMlY3QmVlRmloWHp2K0F5YmJsRHF5amxWVjRj?=
- =?utf-8?B?eHM2YTBxWDMwSmRlYVRRaW9BSDkyazlpaFZ1b3h6L1hJbks4MklnaDhZZWxS?=
- =?utf-8?B?UGlZaUFCbUJHZEpUSERCM1lJdXR0eElwWE1xSDhkR3J6Z1pqM3JwQytkS2JE?=
- =?utf-8?B?WGU5dmFvMTFWVmJ1aGRGSFRZdnJZaGdNelpUSDQyUW5BK09UODErN3JUNzk2?=
- =?utf-8?B?dlFaTDcvUHBMQi9aZ1Q0citQSk9SYVhOZG1zRk10V1o2WGZ5U3p0SUFhejQ4?=
- =?utf-8?B?OVFtT292TFdLZUxrQTU1eU9Sc1ZTdHdUSkNFbndwQ3FKR3h2WUkyTlZQdnI5?=
- =?utf-8?B?ZHZJSVBNTTRncWZPNFJBUC9LNUprdVR0c1ptWW9BTExlMEgzZU52MTJuRmpD?=
- =?utf-8?B?SjZ4VGVGT2hPdktXZ1pIc2VVVTlJZjUxWlBRWWhiSlNIVDE1ZG9RRm92Tytz?=
- =?utf-8?B?L0h1QXNtdjhoc2JIMHZwcXZkM1FtbndSMWpBcnEzVHMrY1dybnowcFNuT285?=
- =?utf-8?B?NHVpcUgvSWVrTEhrcE95c1Z2ZWt6SWhCUFdIYi90cVFCTHVtaHhlR1I3a1kx?=
- =?utf-8?B?ODI4MCtzWWtaTWdxMzV3QXRZOHFYbW5mT1haM3RLUkdUUlFiclpkaVcxUG56?=
- =?utf-8?B?TzFWN0I5UFdXMld4N3NkdXkrc1Q3QkxtTjBydUZ6MzhacTdRMnhuTHlEN1M2?=
- =?utf-8?B?eWtnV3AzVG40ODJrYlc2L1V1TkNPNEhSSy9QazRhU1VFRHdFT2hEUHRXVEJH?=
- =?utf-8?B?UWFpWE5ZenB0WW9aMkZ4ZFNFeFJ6QW5uSUt4aFBuVzRPelEvR2NYc0FDUXMx?=
- =?utf-8?B?b25jbXl2OEloaWpUNlVoNUZFUkxNaFllQzlKbXQ4WUo4bFo1eG83VEtIb1JF?=
- =?utf-8?B?RElDWmtUalZjRENjcDd4ZU9iR0hnMytySnMwUVk1Z2JqdEhZVVRLbk5YaDVx?=
- =?utf-8?B?WWNiMUNvN1k5OGlnMGk0MGdFSGxEVnpoZzBSWHN3UFNWbTg4V2ErYVRyQTVx?=
- =?utf-8?B?dFhkYmE3c0RTTkVtUXBjREpWMCs0cFVlanNwQjlGb3h3NzNjaGV2YWhHRWJi?=
- =?utf-8?B?U0NFcVdNcGUxQUhDeXZZR3BUS0J4MDJhK0pVbVlvOWU2dXJQWXJTRm1BbXV1?=
- =?utf-8?B?RlgvbFptSzJsMWU3SndUZm5MczZ0QUxWNVBqQndHVFM2YjhlaVlPZHcrcFBU?=
- =?utf-8?B?MnRjV3M0MjZjd2l1Q0FtTUppRXBob0Q2dXQ3a3hhS1g5WC9wV3hVZjJ5T1R0?=
- =?utf-8?B?NVVQcHRmUmFkQ0xsRWN1MjVjckpJbEZ4TUJoNEl3aUM3bURwR2JHTDlWOGx3?=
- =?utf-8?B?Q1gxaitqV2E1eWR0L3docnZmK0x3cHgwQm1pOVkwS1NWQ2VHcFc3bUk0cGo5?=
- =?utf-8?B?dXNDcmRNOFVBcjlVVmhoNjZoZENtMjdkdmIzb2sxdFJKVUc3UDlUclpFQlhz?=
- =?utf-8?B?R0hab1dsbGhWMkkyWFZhWXFUMHJ5dTZWdjl0OGllTXBkeUpHaUxVYVBHK0d6?=
- =?utf-8?B?ekhoTUFFNStSZkF2aTNSQ2ViK2gvcWZMYjVkQTQwdGZrUSt3cFBpaUdHVDBK?=
- =?utf-8?B?cnhJVnFvUGUyT0NQL2RhNFFaalJkSS8zTHNGc2ZGOE1ONThaandGSERYUzJS?=
- =?utf-8?B?WGJMQXNqNnZHdXJyejNTU1J6ZVBMc2NmNE1xZUwxQ3haNGpaNmdvSHZpbElX?=
- =?utf-8?B?SDVPRFRibkRpWGRVWDJmUVMwcnB6M2lWNUlIVjRFaWt4aEFaY3dzZWZNWWxq?=
- =?utf-8?Q?ZL6E=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(82310400026)(1800799024)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Dec 2025 09:19:45.0846
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d67c9980-5904-4dbe-4d1a-08de3e16957a
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB72.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB8371
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <ea84b279-8d55-4707-b6cf-85006da27456@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_011953_574063_16B0D414 
-X-CRM114-Status: GOOD (  14.93  )
+X-CRM114-CacheID: sfid-20251218_012000_252896_12899C1D 
+X-CRM114-Status: GOOD (  20.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,90 +70,433 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/8/2025 9:07 PM, Peter Zijlstra wrote:
-> On Fri, Dec 05, 2025 at 04:16:36PM -0800, Sean Christopherson wrote:
->> My hope/plan is that the perf changes will go through the tip tree with a
->> stable tag/branch, and the KVM changes will go the kvm-x86 tree.
+On 18/12/2025 06:22, Jie Gan wrote:
 > 
->> Kan Liang (7):
->>   perf: Skip pmu_ctx based on event_type
->>   perf: Add generic exclude_guest support
->>   perf: Add APIs to create/release mediated guest vPMUs
->>   perf: Clean up perf ctx time
->>   perf: Add a EVENT_GUEST flag
->>   perf: Add APIs to load/put guest mediated PMU context
->>   perf/x86/intel: Support PERF_PMU_CAP_MEDIATED_VPMU
->>
->> Mingwei Zhang (3):
->>   perf/x86/core: Plumb mediated PMU capability from x86_pmu to
->>     x86_pmu_cap
->>
->> Sandipan Das (3):
->>   perf/x86/core: Do not set bit width for unavailable counters
->>   perf/x86/amd: Support PERF_PMU_CAP_MEDIATED_VPMU for AMD host
->>
->> Sean Christopherson (19):
->>   perf: Move security_perf_event_free() call to __free_event()
->>   perf/x86/core: Register a new vector for handling mediated guest PMIs
->>   perf/x86/core: Add APIs to switch to/from mediated PMI vector (for
->>     KVM)
 > 
-> That all looks to be in decent shape; lets go get this merged. There is
-> the nit on patch 4 and I think a number of the exports want to be
-> EXPORT_SYMBOL_FOR_KVM() instead, but we can do that on top.
+> On 10/28/2025 10:02 AM, Jie Gan wrote:
+>> From: Tao Zhang <tao.zhang@oss.qualcomm.com>
+>>
+>> Introduce sysfs nodes to configure cross-trigger parameters for TPDA.
+>> These registers define the characteristics of cross-trigger packets,
+>> including generation frequency and flag values.
+>>
+>> Signed-off-by: Tao Zhang <tao.zhang@oss.qualcomm.com>
+>> Reviewed-by: James Clark <james.clark@linaro.org>
+>> Co-developed-by: Jie Gan <jie.gan@oss.qualcomm.com>
+>> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+>> ---
+>>   .../ABI/testing/sysfs-bus-coresight-devices-tpda   |  43 ++++
+>>   drivers/hwtracing/coresight/coresight-tpda.c       | 230 +++++++++++ 
+>> ++++++++++
+>>   drivers/hwtracing/coresight/coresight-tpda.h       |  27 ++-
+>>   3 files changed, 299 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices- 
+>> tpda b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
+>> new file mode 100644
+>> index 000000000000..80e4b05a1ab4
+>> --- /dev/null
+>> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
 > 
-> I'll queue these patches after rc1.
+> Gentle reminder.
+> 
+> Do I need update the date and the kernelVersion of the sysfs node? 
+> (target 7.0?)
 
-I have tested this series on AMD EPYC 9745 (Turin, 128-Core Processor)
-with 12 hours of perf_fuzzer runs across multiple configurations. No new
-failures were observed.
+Leave it with me, I can fix it up. Apologies for missing this out.
 
-Test Platform:
---------------
-Hardware: AMD EPYC 9745 128-Core Processor (Turin)
-Test Duration: 12 hours of perf_fuzzer per configuration
+Suzuki
 
-Configuration 1: enable_mediated_pmu=Y
----------------------------------------
-SVM guests:
-  -cpu host
-  -cpu host,-perfmon-v2
-  -cpu host,-perfctr-core
 
-SEV-ES guest:
-  -cpu host
-
-SEV-SNP guest:
-  -cpu host
-
-Configuration 2: enable_mediated_pmu=N
----------------------------------------
-SVM guest:
-  -cpu EPYC-Genoa-v2,+pmu
-  -cpu EPYC-Genoa-v2,+pmu,-perfmon-v2
-  -cpu EPYC-Genoa-v2,+pmu,-perfctr-core
-
-SEV-ES guest:
-  -cpu EPYC-Genoa-v2,+pmu
-
-SEV-SNP guest:
-  -cpu EPYC-Genoa-v2,+pmu
-
-KVM Unit Tests (KUT):
----------------------
-Tested all combinations of:
-  - enable_mediated_pmu={0,1}
-  - force_emulation_prefix={0,1}
-
-CPU configurations tested:
-  -cpu host
-  -cpu host,-perfmon-v2
-  -cpu host,-perfctr-core
-
-All KUT tests passed as expected across all combinations.
-
-Tested-by: Manali Shukla <manali.shukla@amd.com>
-
--Manali
+> 
+> Thanks,
+> Jie
+> 
+> 
+>> @@ -0,0 +1,43 @@
+>> +What:        /sys/bus/coresight/devices/<tpda-name>/trig_async_enable
+>> +Date:        October 2025
+>> +KernelVersion:    6.19
+>> +Contact:    Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang 
+>> <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+>> +Description:
+>> +        (RW) Enable/disable cross trigger synchronization sequence 
+>> interface.
+>> +
+>> +What:        /sys/bus/coresight/devices/<tpda-name>/trig_flag_ts_enable
+>> +Date:        October 2025
+>> +KernelVersion:    6.19
+>> +Contact:    Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang 
+>> <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+>> +Description:
+>> +        (RW) Enable/disable cross trigger FLAG packet request interface.
+>> +
+>> +What:        /sys/bus/coresight/devices/<tpda-name>/trig_freq_enable
+>> +Date:        October 2025
+>> +KernelVersion:    6.19
+>> +Contact:    Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang 
+>> <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+>> +Description:
+>> +        (RW) Enable/disable cross trigger FREQ packet request interface.
+>> +
+>> +What:        /sys/bus/coresight/devices/<tpda-name>/freq_ts_enable
+>> +Date:        October 2025
+>> +KernelVersion:    6.19
+>> +Contact:    Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang 
+>> <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+>> +Description:
+>> +        (RW) Enable/disable the timestamp for all FREQ packets.
+>> +
+>> +What:        /sys/bus/coresight/devices/<tpda-name>/global_flush_req
+>> +Date:        October 2025
+>> +KernelVersion:    6.19
+>> +Contact:    Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang 
+>> <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+>> +Description:
+>> +        (RW) Set global (all ports) flush request bit. The bit 
+>> remains set until a
+>> +        global flush request sequence completes.
+>> +
+>> +What:        /sys/bus/coresight/devices/<tpda-name>/cmbchan_mode
+>> +Date:        October 2025
+>> +KernelVersion:    6.19
+>> +Contact:    Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang 
+>> <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+>> +Description:
+>> +        (RW) Configure the CMB/MCMB channel mode for all enabled ports.
+>> +        Value 0 means raw channel mapping mode. Value 1 means channel 
+>> pair marking mode.
+>> diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/ 
+>> hwtracing/coresight/coresight-tpda.c
+>> index 333b3cb23685..a9a27bcc65a1 100644
+>> --- a/drivers/hwtracing/coresight/coresight-tpda.c
+>> +++ b/drivers/hwtracing/coresight/coresight-tpda.c
+>> @@ -147,9 +147,37 @@ static void tpda_enable_pre_port(struct 
+>> tpda_drvdata *drvdata)
+>>       u32 val;
+>>       val = readl_relaxed(drvdata->base + TPDA_CR);
+>> +    val &= ~TPDA_CR_MID;
+>>       val &= ~TPDA_CR_ATID;
+>>       val |= FIELD_PREP(TPDA_CR_ATID, drvdata->atid);
+>> +    if (drvdata->trig_async)
+>> +        val |= TPDA_CR_SRIE;
+>> +    else
+>> +        val &= ~TPDA_CR_SRIE;
+>> +    if (drvdata->trig_flag_ts)
+>> +        val |= TPDA_CR_FLRIE;
+>> +    else
+>> +        val &= ~TPDA_CR_FLRIE;
+>> +    if (drvdata->trig_freq)
+>> +        val |= TPDA_CR_FRIE;
+>> +    else
+>> +        val &= ~TPDA_CR_FRIE;
+>> +    if (drvdata->freq_ts)
+>> +        val |= TPDA_CR_FREQTS;
+>> +    else
+>> +        val &= ~TPDA_CR_FREQTS;
+>> +    if (drvdata->cmbchan_mode)
+>> +        val |= TPDA_CR_CMBCHANMODE;
+>> +    else
+>> +        val &= ~TPDA_CR_CMBCHANMODE;
+>>       writel_relaxed(val, drvdata->base + TPDA_CR);
+>> +
+>> +    /*
+>> +     * If FLRIE bit is set, set the master and channel
+>> +     * id as zero
+>> +     */
+>> +    if (drvdata->trig_flag_ts)
+>> +        writel_relaxed(0x0, drvdata->base + TPDA_FPID_CR);
+>>   }
+>>   static int tpda_enable_port(struct tpda_drvdata *drvdata, int port)
+>> @@ -265,6 +293,206 @@ static const struct coresight_ops tpda_cs_ops = {
+>>       .link_ops    = &tpda_link_ops,
+>>   };
+>> +static ssize_t trig_async_enable_show(struct device *dev,
+>> +                      struct device_attribute *attr,
+>> +                      char *buf)
+>> +{
+>> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>> +
+>> +    return sysfs_emit(buf, "%u\n", (unsigned int)drvdata->trig_async);
+>> +}
+>> +
+>> +static ssize_t trig_async_enable_store(struct device *dev,
+>> +                       struct device_attribute *attr,
+>> +                       const char *buf,
+>> +                       size_t size)
+>> +{
+>> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>> +    unsigned long val;
+>> +
+>> +    if (kstrtoul(buf, 0, &val))
+>> +        return -EINVAL;
+>> +
+>> +    guard(spinlock)(&drvdata->spinlock);
+>> +    drvdata->trig_async = !!val;
+>> +
+>> +    return size;
+>> +}
+>> +static DEVICE_ATTR_RW(trig_async_enable);
+>> +
+>> +static ssize_t trig_flag_ts_enable_show(struct device *dev,
+>> +                    struct device_attribute *attr,
+>> +                    char *buf)
+>> +{
+>> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>> +
+>> +    return sysfs_emit(buf, "%u\n", (unsigned int)drvdata->trig_flag_ts);
+>> +}
+>> +
+>> +static ssize_t trig_flag_ts_enable_store(struct device *dev,
+>> +                     struct device_attribute *attr,
+>> +                     const char *buf,
+>> +                     size_t size)
+>> +{
+>> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>> +    unsigned long val;
+>> +
+>> +    if (kstrtoul(buf, 0, &val))
+>> +        return -EINVAL;
+>> +
+>> +    guard(spinlock)(&drvdata->spinlock);
+>> +    drvdata->trig_flag_ts = !!val;
+>> +
+>> +    return size;
+>> +}
+>> +static DEVICE_ATTR_RW(trig_flag_ts_enable);
+>> +
+>> +static ssize_t trig_freq_enable_show(struct device *dev,
+>> +                     struct device_attribute *attr,
+>> +                     char *buf)
+>> +{
+>> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>> +
+>> +    return sysfs_emit(buf, "%u\n", (unsigned int)drvdata->trig_freq);
+>> +}
+>> +
+>> +static ssize_t trig_freq_enable_store(struct device *dev,
+>> +                      struct device_attribute *attr,
+>> +                      const char *buf,
+>> +                      size_t size)
+>> +{
+>> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>> +    unsigned long val;
+>> +
+>> +    if (kstrtoul(buf, 0, &val))
+>> +        return -EINVAL;
+>> +
+>> +    guard(spinlock)(&drvdata->spinlock);
+>> +    drvdata->trig_freq = !!val;
+>> +
+>> +    return size;
+>> +}
+>> +static DEVICE_ATTR_RW(trig_freq_enable);
+>> +
+>> +static ssize_t freq_ts_enable_show(struct device *dev,
+>> +                   struct device_attribute *attr,
+>> +                   char *buf)
+>> +{
+>> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>> +
+>> +    return sysfs_emit(buf, "%u\n", (unsigned int)drvdata->freq_ts);
+>> +}
+>> +
+>> +static ssize_t freq_ts_enable_store(struct device *dev,
+>> +                    struct device_attribute *attr,
+>> +                    const char *buf,
+>> +                    size_t size)
+>> +{
+>> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>> +    unsigned long val;
+>> +
+>> +    if (kstrtoul(buf, 0, &val))
+>> +        return -EINVAL;
+>> +
+>> +    guard(spinlock)(&drvdata->spinlock);
+>> +    drvdata->freq_ts = !!val;
+>> +
+>> +    return size;
+>> +}
+>> +static DEVICE_ATTR_RW(freq_ts_enable);
+>> +
+>> +static ssize_t global_flush_req_show(struct device *dev,
+>> +                     struct device_attribute *attr,
+>> +                     char *buf)
+>> +{
+>> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>> +    unsigned long val;
+>> +
+>> +    if (!drvdata->csdev->refcnt)
+>> +        return -EINVAL;
+>> +
+>> +    guard(spinlock)(&drvdata->spinlock);
+>> +    CS_UNLOCK(drvdata->base);
+>> +    val = readl_relaxed(drvdata->base + TPDA_CR);
+>> +    CS_LOCK(drvdata->base);
+>> +    /* Only read value for bit 0 */
+>> +    val &= BIT(0);
+>> +
+>> +    return sysfs_emit(buf, "%lu\n", val);
+>> +}
+>> +
+>> +static ssize_t global_flush_req_store(struct device *dev,
+>> +                      struct device_attribute *attr,
+>> +                      const char *buf,
+>> +                      size_t size)
+>> +{
+>> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>> +    unsigned long val;
+>> +
+>> +    if (kstrtoul(buf, 0, &val))
+>> +        return -EINVAL;
+>> +
+>> +    if (!drvdata->csdev->refcnt || !val)
+>> +        return -EINVAL;
+>> +
+>> +    guard(spinlock)(&drvdata->spinlock);
+>> +    CS_UNLOCK(drvdata->base);
+>> +    val = readl_relaxed(drvdata->base + TPDA_CR);
+>> +    /* Only set bit 0 */
+>> +    val |= BIT(0);
+>> +    writel_relaxed(val, drvdata->base + TPDA_CR);
+>> +    CS_LOCK(drvdata->base);
+>> +
+>> +    return size;
+>> +}
+>> +static DEVICE_ATTR_RW(global_flush_req);
+>> +
+>> +static ssize_t cmbchan_mode_show(struct device *dev,
+>> +                 struct device_attribute *attr,
+>> +                 char *buf)
+>> +{
+>> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>> +
+>> +    return sysfs_emit(buf, "%u\n", (unsigned int)drvdata->cmbchan_mode);
+>> +}
+>> +
+>> +static ssize_t cmbchan_mode_store(struct device *dev,
+>> +                  struct device_attribute *attr,
+>> +                  const char *buf,
+>> +                  size_t size)
+>> +{
+>> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>> +    unsigned long val;
+>> +
+>> +    if (kstrtoul(buf, 0, &val))
+>> +        return -EINVAL;
+>> +
+>> +    guard(spinlock)(&drvdata->spinlock);
+>> +    drvdata->cmbchan_mode = !!val;
+>> +
+>> +    return size;
+>> +}
+>> +static DEVICE_ATTR_RW(cmbchan_mode);
+>> +
+>> +static struct attribute *tpda_attrs[] = {
+>> +    &dev_attr_trig_async_enable.attr,
+>> +    &dev_attr_trig_flag_ts_enable.attr,
+>> +    &dev_attr_trig_freq_enable.attr,
+>> +    &dev_attr_freq_ts_enable.attr,
+>> +    &dev_attr_global_flush_req.attr,
+>> +    &dev_attr_cmbchan_mode.attr,
+>> +    NULL,
+>> +};
+>> +
+>> +static struct attribute_group tpda_attr_grp = {
+>> +    .attrs = tpda_attrs,
+>> +};
+>> +
+>> +static const struct attribute_group *tpda_attr_grps[] = {
+>> +    &tpda_attr_grp,
+>> +    NULL,
+>> +};
+>> +
+>>   static int tpda_init_default_data(struct tpda_drvdata *drvdata)
+>>   {
+>>       int atid;
+>> @@ -280,6 +508,7 @@ static int tpda_init_default_data(struct 
+>> tpda_drvdata *drvdata)
+>>           return atid;
+>>       drvdata->atid = atid;
+>> +    drvdata->freq_ts = true;
+>>       return 0;
+>>   }
+>> @@ -323,6 +552,7 @@ static int tpda_probe(struct amba_device *adev, 
+>> const struct amba_id *id)
+>>       desc.ops = &tpda_cs_ops;
+>>       desc.pdata = adev->dev.platform_data;
+>>       desc.dev = &adev->dev;
+>> +    desc.groups = tpda_attr_grps;
+>>       desc.access = CSDEV_ACCESS_IOMEM(base);
+>>       drvdata->csdev = coresight_register(&desc);
+>>       if (IS_ERR(drvdata->csdev))
+>> diff --git a/drivers/hwtracing/coresight/coresight-tpda.h b/drivers/ 
+>> hwtracing/coresight/coresight-tpda.h
+>> index c6af3d2da3ef..0be625fb52fd 100644
+>> --- a/drivers/hwtracing/coresight/coresight-tpda.h
+>> +++ b/drivers/hwtracing/coresight/coresight-tpda.h
+>> @@ -1,6 +1,6 @@
+>>   /* SPDX-License-Identifier: GPL-2.0 */
+>>   /*
+>> - * Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights 
+>> reserved.
+>> + * Copyright (c) 2023,2025 Qualcomm Innovation Center, Inc. All 
+>> rights reserved.
+>>    */
+>>   #ifndef _CORESIGHT_CORESIGHT_TPDA_H
+>> @@ -8,6 +8,19 @@
+>>   #define TPDA_CR            (0x000)
+>>   #define TPDA_Pn_CR(n)        (0x004 + (n * 4))
+>> +#define TPDA_FPID_CR        (0x084)
+>> +
+>> +/* Cross trigger FREQ packets timestamp bit */
+>> +#define TPDA_CR_FREQTS        BIT(2)
+>> +/* Cross trigger FREQ packet request bit */
+>> +#define TPDA_CR_FRIE        BIT(3)
+>> +/* Cross trigger FLAG packet request interface bit */
+>> +#define TPDA_CR_FLRIE        BIT(4)
+>> +/* Cross trigger synchronization bit */
+>> +#define TPDA_CR_SRIE        BIT(5)
+>> +/* Packetize CMB/MCMB traffic bit */
+>> +#define TPDA_CR_CMBCHANMODE    BIT(20)
+>> +
+>>   /* Aggregator port enable bit */
+>>   #define TPDA_Pn_CR_ENA        BIT(0)
+>>   /* Aggregator port CMB data set element size bit */
+>> @@ -19,6 +32,8 @@
+>>   /* Bits 6 ~ 12 is for atid value */
+>>   #define TPDA_CR_ATID        GENMASK(12, 6)
+>> +/* Bits 13 ~ 19 is for mid value */
+>> +#define TPDA_CR_MID        GENMASK(19, 13)
+>>   /**
+>>    * struct tpda_drvdata - specifics associated to an TPDA component
+>> @@ -29,6 +44,11 @@
+>>    * @enable:     enable status of the component.
+>>    * @dsb_esize   Record the DSB element size.
+>>    * @cmb_esize   Record the CMB element size.
+>> + * @trig_async:    Enable/disable cross trigger synchronization 
+>> sequence interface.
+>> + * @trig_flag_ts: Enable/disable cross trigger FLAG packet request 
+>> interface.
+>> + * @trig_freq:    Enable/disable cross trigger FREQ packet request 
+>> interface.
+>> + * @freq_ts:    Enable/disable the timestamp for all FREQ packets.
+>> + * @cmbchan_mode: Configure the CMB/MCMB channel mode.
+>>    */
+>>   struct tpda_drvdata {
+>>       void __iomem        *base;
+>> @@ -38,6 +58,11 @@ struct tpda_drvdata {
+>>       u8            atid;
+>>       u32            dsb_esize;
+>>       u32            cmb_esize;
+>> +    bool            trig_async;
+>> +    bool            trig_flag_ts;
+>> +    bool            trig_freq;
+>> +    bool            freq_ts;
+>> +    bool            cmbchan_mode;
+>>   };
+>>   #endif  /* _CORESIGHT_CORESIGHT_TPDA_H */
+>>
+> 
 
 
