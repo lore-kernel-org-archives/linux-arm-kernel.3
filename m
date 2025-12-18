@@ -4,62 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 294E5D6ACFE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 12:53:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 795BBD6ACFB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 12:55:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xWMcyaheYqIM6z+xZHf2Vr6SY8h1s2RBptf/pYqTYjE=; b=xl6m2qHtu58uUU9ikvHMubGlpX
-	MPax3hkAny1miyY1a76X5BebKzaYinOT1Jlx5GHiMZGl31g/tWcHTpjaVhi+1cBWO9On2DjnE1Gbc
-	RnfomP08MDId7aZ2uBkO0chDygU4/+B7savt/BhX7e0a6s3AcmLTI2tagnW5F3M+SXUi4JNdXqcSX
-	4NrMtIMC9iNHt+BYF0xYvBAPR6a5HbcZ2M6hPzVWNKfv6nm4qpLvM5qPykF96tQOsdlTjMt8qNJUi
-	8rwRr5t9OKbkTwQxkcCMNcftAsgfKv9a4Or/rf4e21dq8FcEsQ/2QtD7DdakAgCRZe8GLsgMRsO45
-	EqWT7umg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=7YJ6dz4Hw0tD7YG2PkHL0J4dcF+GCySKLkS5AibXnLU=; b=z2qvYLclT65wRh
+	vj3VEUUEQbiesddlCSkFg1euvDo41jE7aczAfEaECaxmF3m8vDFoFtYDNpSwPP61kC8C5GZ2HtbE0
+	8tHiBoBGw7y5IlPyAm2t3JddOfYRMpoHHxNpowO+wN1XAR7FIHyQagDYOUe7WMEjiGARACEErEmtK
+	V4zpdGwnb6pp1PE8nVHqWCUzkUG7RsfNTv2/PYgjN1tR+HKYRsloMhKe6LxRr54aQfIVbN7d715hw
+	yrhvYQUvYN9OMnuyDp9CL9GrowubARLzymIU+XCJeiitdntlY2ErjrDiaE/zLtG+XlG+NWoBcQj5o
+	eCn6LF/6QCj+OVUo46VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWDV4-00000008ROS-0etP;
-	Thu, 18 Dec 2025 12:52:58 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vWDXl-00000008RZi-3EDt;
+	Thu, 18 Dec 2025 12:55:45 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWDV2-00000008RO5-1M31
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 12:52:57 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1vWDUl-0001ct-92; Thu, 18 Dec 2025 13:52:39 +0100
-Message-ID: <9a96f664-00ba-4589-b3b8-a04355c0ad0b@pengutronix.de>
-Date: Thu, 18 Dec 2025 13:52:37 +0100
+	id 1vWDXj-00000008RZA-2cs6;
+	Thu, 18 Dec 2025 12:55:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1766062532; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=XIHIYXnuAZoWqAGgkBn1wN3mchg5tiF/c+VWKyX45cdAkBheDS/ZWCD8ZhO1z6TWQnH4z+eCsNud0OqTPXT622/tnEbcVTIog6yG7xbxeZNtwfHB6ff3EEI+T7gm7tj4YIysdfXZjjm4yu2Zd/KzjlGf2CStVE55KVG1rUTOhv8=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1766062532; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=7YJ6dz4Hw0tD7YG2PkHL0J4dcF+GCySKLkS5AibXnLU=; 
+	b=Bcg7FBAM54hNcFtZpsVfuhktA8QkDXJnaAx+0Ikfg3y6HtiWRHSxQrKCDv2lhtJB4vARFbFSYKEOlqyMt2vQtLd+qm8WheU29bq6lAk2sVzcknzqcwhBT/77wAyflI5H18ylnMCs9EzZXFOMEepezKjNLK32ZTwAMvbNzZj+zes=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1766062532;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
+	bh=7YJ6dz4Hw0tD7YG2PkHL0J4dcF+GCySKLkS5AibXnLU=;
+	b=HztBAZc2fzdxPI9fDAKuZj6V1TKw5uic3ihASrM0/Zep4dd3H4EJYilReUNmcpfI
+	rAimDfDovwvAK1Cl0nOAH3aQY+IwTbahDNZOJOqnR6YOLF3PhIr7ATWxKDCBET5RSYW
+	T8cJzapJvwQFnzc9hbus8yyo0JnxcVVnWXI+TwXE=
+Received: by mx.zohomail.com with SMTPS id 176606253044531.604761712468644;
+	Thu, 18 Dec 2025 04:55:30 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Subject: [PATCH v4 00/25] MediaTek UFS Cleanup and MT8196 Enablement
+Date: Thu, 18 Dec 2025 13:54:50 +0100
+Message-Id: <20251218-mt8196-ufs-v4-0-ddec7a369dd2@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/2] Add devicetree for NXP i.MX93 FRDM board
-To: Fabian Pflug <f.pflug@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, Lei Xu <lei.xu@nxp.com>,
- linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk@kernel.org>,
- Haidong Zheng <haidong.zheng@nxp.com>, Daniel Baluta
- <daniel.baluta@nxp.com>, Danwei Luo <danwei.luo@nxp.com>,
- linux-arm-kernel@lists.infradead.org
-References: <20251218-fpg-nxp-imx93-frdm-v4-0-cd3a9f6ac89a@pengutronix.de>
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Content-Language: en-US, de-DE, de-BE
-In-Reply-To: <20251218-fpg-nxp-imx93-frdm-v4-0-cd3a9f6ac89a@pengutronix.de>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-B4-Tracking: v=1; b=H4sIAJv5Q2kC/23Oyw7CIBAF0F9pWEvDqw9c+R/GBUwHJbGiUInG9
+ N/FulHj8k7m3JkHSRg9JrKuHiRi9smHUwlqVRE4mNMeqR9KJoKJhjOu6Dj1XLf06hIFBGW10R0
+ 2khRwjuj8bSnb7t454uVaOqf3kFiTkEIYRz+tq9zWXNMInLyWDz5NId6XRzJftv/dzJwyynUzA
+ NpeWug3EI5HY0M0dSleqrL45O0XF4WD7GQvFSjszD8uP7iQX1wWzhxTVplON8798nmenzhngtJ
+ TAQAA
+X-Change-ID: 20251014-mt8196-ufs-cec4b9a97e53
+To: Alim Akhtar <alim.akhtar@samsung.com>, 
+ Avri Altman <avri.altman@wdc.com>, Bart Van Assche <bvanassche@acm.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Peter Wang <peter.wang@mediatek.com>, Stanley Jhu <chu.stanley@gmail.com>, 
+ "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, 
+ "Martin K. Petersen" <martin.petersen@oracle.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Mark Brown <broonie@kernel.org>, Chaotian Jing <Chaotian.Jing@mediatek.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>
+Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, 
+ kernel@collabora.com, linux-scsi@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-phy@lists.infradead.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_045256_392093_C9D5C4AA 
-X-CRM114-Status: GOOD (  23.36  )
+X-CRM114-CacheID: sfid-20251218_045543_705748_D74821F6 
+X-CRM114-Status: GOOD (  18.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,74 +97,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Fabian,
+In this series, the existing MediaTek UFS binding is expanded and
+completed to correctly describe not just the existing compatibles, but
+also to introduce a new compatible in the from of the MT8196 SoC.
 
-On 12/18/25 12:39 PM, Fabian Pflug wrote:
-> Signed-off-by: Fabian Pflug <f.pflug@pengutronix.de>
-> ---
-> Changes in v4:
-> - remove it6263 block in i2c1, since it is not finished
-> - remove usdhc3 pwrsequence, since WLAN is not tested on my board
-> - remove eee-broken-1000t on phy2, since it is not broken
-> - update min/max-microvlt on buck converters
+The resets, which until now were completely absent from both the UFS
+host controller binding and the UFS PHY binding, are introduced to both.
+This also means the driver's undocumented and, in mainline, unused reset
+logic is reworked. In particular, the PHY reset is no longer a reset of
+the host controller node, but of the PHY node.
 
-I know you changed this due to reviewer feedback, but it was wrong
-advice. The Linux driver already has information about the minimum and
-maximum range support for the PMIC, what you need to write here is the
-actual board-level constraints.
+This means the host controller can reset the PHY through the common PHY
+framework.
 
-I don't think the board will like VDD_3V3 at 1.62V or VDD_1V8 at 3.4V.
-For the fixed voltage rails just set min = max = fixed voltage.
+The resets remain optional.
 
-Thanks,
-Ahmad
+Additionally, a massive number of driver cleanups are introduced. These
+were prompted by me inspecting the driver more closely as I was
+adjusting it to correspond to the binding.
 
-> - Link to v3: https://lore.kernel.org/r/20251022-fpg-nxp-imx93-frdm-v3-0-03ec40a1ccc0@pengutronix.de
-> 
-> Changes in v3:
-> - Add Signed-off for original NXP contributors.
-> - Fixed whitespace errors (Thanks Francesco Valla)
-> - Added mu1 with status okay (Thanks Francesco Valla)
-> - Removed address cells from lpi2c3 (Thanks Frank Li)
-> - Configure pin for watchdog (Thanks Peng Fan)
-> - Updated regulator config
-> - Configure i2c0
-> - Link to v2: https://lore.kernel.org/r/20250526-fpg-nxp-imx93-frdm-v2-0-e5ad0efaec33@pengutronix.de
-> 
-> Changes in v2:
-> - 1/2: remove CAN node, as it has not been tested.
-> - 1/2: ran dt-format (Thanks Frank Li)
-> 	But also reordered some nodes afterwards again to have
-> 	regulator-min before regulator-max, have the pinmux at the end
-> 	of the file, and have the regulator-name as the first node
-> 	inside the regulators.
-> 	Re-added comments, that were deleted.
-> - 1/2: changes subjet to ar64:dts (Thanks Fabio Estevan)
-> - 1/2: removed reg_vdd_12v (Tanks Fabio Estevan)
-> - 1/2: added aliases for rtc, emmc, serial (Thanks Fabio Estevan)
-> - reordered the series to have documentation before dts. (Thanks
->   Krzystof Kozlowski)
-> - Link to v1: https://lore.kernel.org/r/20250523-fpg-nxp-imx93-frdm-v1-0-546b2d342855@pengutronix.de
-> 
-> ---
-> Fabian Pflug (2):
->       dt-bindings: arm: fsl: add i.MX93 11x11 FRDM board
->       arm64: dts: freescale: add support for NXP i.MX93 FRDM
-> 
->  Documentation/devicetree/bindings/arm/fsl.yaml     |   1 +
->  arch/arm64/boot/dts/freescale/Makefile             |   1 +
->  arch/arm64/boot/dts/freescale/imx93-11x11-frdm.dts | 620 +++++++++++++++++++++
->  3 files changed, 622 insertions(+)
-> ---
-> base-commit: ea1013c1539270e372fc99854bc6e4d94eaeff66
-> change-id: 20250523-fpg-nxp-imx93-frdm-5cc180a1fda9
-> 
-> Best regards,
+The driver still implements vendor properties that are undocumented in
+the binding. I did not touch most of those, as I neither want to
+convince the bindings maintainers that they are needed without knowing
+precisely what they're for, nor do I want to argue with the driver
+authors when removing them.
 
+Due to the "Marie Kondo with a chainsaw" nature of the driver cleanup
+patches, I humbly request that reviewers do not comment on displeasing
+code they see in the context portion of a patch before they've read the
+whole patch series, as that displeasing code may in fact be reworked in
+a subsequent patch of this series. Please keep comments focused on the
+changed lines of the diff; I know there's more that can be done, but it
+doesn't necessarily need to be part of this series.
+
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+---
+Changes in v4:
+- bindings: Redo the supply situation, as the avdd pins don't describe
+  the vcc(q2) card supplies.
+- bindings: format clock in mt8196 example more tersely.
+- phy: use devm_reset_control_get_optional_exclusive directly
+- driver: get and enable/disable the aforementioned avdd supplies.
+- Link to v3: https://lore.kernel.org/r/20251023-mt8196-ufs-v3-0-0f04b4a795ff@collabora.com
+
+Changes in v3:
+- Split mediatek,ufs bindings change into two patches, one for
+  completing the existing binding, one for the MT8196
+- Add over a dozen driver cleanup patches
+- Add explicit support for the MT8196 compatible to the driver
+- Note: next-20251023, on which I based this, currently has a broken
+  build due to an unrelated OPP core change that was merged with no
+  build testing. I can't use next-20251022 either, as that lacks the
+  recent mediatek UFS changes. It is what it is.
+- Link to v2: https://lore.kernel.org/r/20251016-mt8196-ufs-v2-0-c373834c4e7a@collabora.com
+
+Changes in v2:
+- Reorder define in mtk_sip_svc.h
+- Use bulk reset APIs in UFS host driver
+- Link to v1: https://lore.kernel.org/r/20251014-mt8196-ufs-v1-0-195dceb83bc8@collabora.com
+
+---
+Nicolas Frattaroli (25):
+      dt-bindings: phy: Add mediatek,mt8196-ufsphy variant
+      dt-bindings: ufs: mediatek,ufs: Complete the binding
+      dt-bindings: ufs: mediatek,ufs: Add mt8196 variant
+      scsi: ufs: mediatek: Move MTK_SIP_UFS_CONTROL to mtk_sip_svc.h
+      phy: mediatek: ufs: Add support for resets
+      scsi: ufs: mediatek: Rework resets
+      scsi: ufs: mediatek: Rework 0.9V regulator
+      scsi: ufs: mediatek: Rework init function
+      scsi: ufs: mediatek: Rework the crypt-boost stuff
+      scsi: ufs: mediatek: Handle misc host voltage regulators
+      scsi: ufs: mediatek: Rework probe function
+      scsi: ufs: mediatek: Remove vendor kernel quirks cruft
+      scsi: ufs: mediatek: Use the common PHY framework
+      scsi: ufs: mediatek: Switch to newer PM ops helpers
+      scsi: ufs: mediatek: Remove mediatek,ufs-broken-rtc property
+      scsi: ufs: mediatek: Rework _ufs_mtk_clk_scale error paths
+      scsi: ufs: mediatek: Add vendor prefix to clk-scale-up-vcore-min
+      scsi: ufs: mediatek: Clean up logging prints
+      scsi: ufs: mediatek: Rework ufs_mtk_wait_idle_state
+      scsi: ufs: mediatek: Don't acquire dvfsrc-vcore twice
+      scsi: ufs: mediatek: Rework hardware version reading
+      scsi: ufs: mediatek: Back up idle timer in per-instance struct
+      scsi: ufs: mediatek: Make scale_us in setup_clk_gating const
+      scsi: ufs: mediatek: Remove ret local from link_startup_notify
+      scsi: ufs: mediatek: Add MT8196 compatible, update copyright
+
+ .../devicetree/bindings/phy/mediatek,ufs-phy.yaml  |  16 +
+ .../devicetree/bindings/ufs/mediatek,ufs.yaml      | 173 +++-
+ drivers/phy/mediatek/phy-mtk-ufs.c                 |  71 ++
+ drivers/ufs/host/ufs-mediatek-sip.h                |   9 -
+ drivers/ufs/host/ufs-mediatek.c                    | 996 +++++++++------------
+ drivers/ufs/host/ufs-mediatek.h                    |  19 +-
+ include/linux/soc/mediatek/mtk_sip_svc.h           |   3 +
+ 7 files changed, 690 insertions(+), 597 deletions(-)
+---
+base-commit: 3e7f562e20ee87a25e104ef4fce557d39d62fa85
+change-id: 20251014-mt8196-ufs-cec4b9a97e53
+
+Best regards,
 -- 
-Pengutronix e.K.                  |                             |
-Steuerwalder Str. 21              | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany         | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686  | Fax:   +49-5121-206917-5555 |
+Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
 
