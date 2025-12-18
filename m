@@ -4,61 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DAAAD6E2AA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 15:42:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7052D6D237
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 15:42:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Nndn6lYOF+ra4t05zRjIXUTU4dSOPX3SZIK8502I1s=; b=ZWJu54LEad3904y+zvu2p3qeY2
-	eyr5e/vUvzEyq0+QFKI7slbHoKIFbBzf0pFYRptIcInF1pPWEzaYAfH168fsamdWWHYl7Zu2rt36W
-	4UlsnsaxDkaiY0VRs4RQMTy5YfmRzqdFc6Hrm5lztCm9hCpFowOxlzncgixoYP+MeTiJW3sYI+azx
-	TrUqPmEPG+Efb9gqliJXSqv8NzaJT6HmlM18oVlFB3cPEsJXgWM9AKK1RcgeP6TiSJMI1RMFaHuto
-	5l1B30tREX72SzMAdsO+6/P0qyamAQxjzsmsLr5yhsykL+KR/wOViwyBWW+ow8hoJrTA4rASgSNlI
-	x7yyKKhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sY30MdSekGwgF4CqtEgbt3HVJcFtTbvj4MQw7JOn8wk=; b=jDB2nVi1t3Ncoypymuv4w/DAjr
+	o5AXqCJJK9At6028TI48A5jURuNuFG7PfO/q5vhx5S5nMGcgKrTIKe/LeCi9XUVl006o+W/WwFyKR
+	CTuoBsAQvjjLukkiYp+zva5I4M2Ik07XFx615xDpdxo1H3ncZohcMOg69UPIhHL/VDjqN2yeggdO0
+	dMcnvbOtd+vQLYHs+PyisCjfrk0FOrWzCs4DKyw9nx11jcNZ4/ZHA127S1Jr1cB546sMXwmUBm3Zb
+	DLPM5g9voWB9exJ6zYuoBTMA6DB6FndIgpCfYo/LupEJV3Icq39mw7uTvZ90YOYPMwpKocpqNhWRM
+	Lys2KebQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWG9I-00000008iOZ-0qE4;
-	Thu, 18 Dec 2025 15:42:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWG9D-00000008iNr-413r
+	id 1vWG9Q-00000008iQL-2ESv;
+	Thu, 18 Dec 2025 15:42:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vWG9N-00000008iPc-3DTe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 15:42:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1F586FEC;
-	Thu, 18 Dec 2025 07:42:27 -0800 (PST)
-Received: from [10.1.39.180] (unknown [10.1.39.180])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 591053F73F;
-	Thu, 18 Dec 2025 07:42:31 -0800 (PST)
-Message-ID: <73644c65-57fd-4d0c-9179-167277214f26@arm.com>
-Date: Thu, 18 Dec 2025 15:42:29 +0000
+	Thu, 18 Dec 2025 15:42:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1A7C1439BC;
+	Thu, 18 Dec 2025 15:42:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95098C4CEFB;
+	Thu, 18 Dec 2025 15:42:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766072565;
+	bh=u4pzgn19zzh6pk94f2B8qkZKBgBtmzCGKXUbNPKmdFo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EzBb8jG53DAfGL0PKssZWRI5h2nlwaTG3OUbgWFBHCxUG9EP0sW9nkxutFWT5jRZi
+	 pVqehyy1xZtzcdpj6/i93szAcdSBzesgEyUKXP3ICJFTw4xvg4wq089jlmWfr0U6Iw
+	 GCEkPDnAQymQL/j4BIWdRopx+mqipo9y3ronq3c+z1K8eykuy5pU72fwjnT15h1tz+
+	 t3Avqh1zmcaVQrLVxznfqo8T28l5wRKoXZSUy7KK160iY1pU/bs7+s0WSrx/bHuaiZ
+	 Hnd2GNNOY+oG1oJsiDYaQpGinpbNP59bOjUH0kZlnvKa/p1zlR/IGu8FwqTUrpdy+q
+	 VUW3Dv3tsW4vA==
+Received: from mchehab by mail.kernel.org with local (Exim 4.99)
+	(envelope-from <mchehab+huawei@kernel.org>)
+	id 1vWG9K-00000004fww-2h5U;
+	Thu, 18 Dec 2025 16:42:42 +0100
+Date: Thu, 18 Dec 2025 16:42:42 +0100
+From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+To: Ahmed Tiba <ahmed.tiba@arm.com>
+Cc: linux-acpi@vger.kernel.org, devicetree@vger.kernel.org, 
+	tony.luck@intel.com, bp@alien8.de, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, rafael@kernel.org, linux-doc@vger.kernel.org, 
+	Dmitry.Lamerov@arm.com, Michael.Zhao2@arm.com
+Subject: Re: [PATCH 02/12] ras: add estatus core implementation
+Message-ID: <6vlj35rmfm7dzjdngxibaygcgmcj3h2ibhuqnoeqqrsrxmsqbt@qpqnm5xndok6>
+References: <20251217112845.1814119-1-ahmed.tiba@arm.com>
+ <20251217112845.1814119-3-ahmed.tiba@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] arm64: mmu: don't allocate page while spliting
- linear mapping
-Content-Language: en-GB
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org,
- david@kernel.org, kevin.brodsky@arm.com, quic_zhenhuah@quicinc.com,
- dev.jain@arm.com, yang@os.amperecomputing.com, chaitanyas.prakash@arm.com,
- bigeasy@linutronix.de, clrkwllms@kernel.org, rostedt@goodmis.org,
- lorenzo.stoakes@oracle.com, ardb@kernel.org, jackmanb@google.com,
- vbabka@suse.cz, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev
-References: <20251217182007.2345700-1-yeoreum.yun@arm.com>
- <20251217182007.2345700-2-yeoreum.yun@arm.com>
- <73ced1db-a2e2-49ea-927e-9fc4a30e771e@arm.com>
- <aUQXRpLzKbl+I3Gu@e129823.arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <aUQXRpLzKbl+I3Gu@e129823.arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251217112845.1814119-3-ahmed.tiba@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_074236_084578_1F6527AD 
-X-CRM114-Status: GOOD (  38.35  )
+X-CRM114-CacheID: sfid-20251218_074245_863005_D7FDAF2F 
+X-CRM114-Status: GOOD (  32.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,491 +79,641 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/12/2025 15:01, Yeoreum Yun wrote:
-> Hi Ryan,
+On Wed, Dec 17, 2025 at 11:28:35AM +0000, Ahmed Tiba wrote:
+> Add estatus.c, hook it into the EFI Makefile, and register
+> the MAINTAINERS entry for the new code. The implementation provides the
+> memory-pool helpers, notifier plumbing, and utility functions that the
+> GHES and DeviceTree providers will reuse in later commits.
 > 
->> On 17/12/2025 18:20, Yeoreum Yun wrote:
->>> Current linear_map_split_to_ptes() allocate the pagetable
->>> while split linear mapping to ptes by stop_machine() with GFP_ATOMIC.
->>>
->>> This is fine for non-PREEMPR_RT case.
->>> However It's a problem in PREEMPR_RT case since
->>> generic memory allocation/free APIs (e.x) pgtable_alloc(), __get_free_pages and etc
->>> couldn't be called in non-preemptible context except _nolock() APIs
->>> since generic memory allocation/free APIs are *sleepable* for using *spin_lock()*
->>>
->>> IOW, calling a pgtable_alloc() even with GFP_ATOMIC
->>> doesn't allow in __linear_map_split_to_pte() executed by stopper thread
->>> where preemption is disabled in PREEMPR_RT.
->>>
->>> To address this, divide linear_map_maybe_split_ptes:
->>>   - collect number of pages to require for spliting.
->>>   - allocate the required number of pages for spliting.
->>>   - with pre-allocate page, split the linear map.
->>
->> Thanks for working on this fix!
->>
->> First some high level comments: I'm not a huge fan of the approach with the
->> different modes to modify behaviour.
->>
->> For the first step of figuring out the number of pages required; there is no
->> need to be inside stop_machine() for that. Can should be able to just walk the
->> linear map without any locking since it is created once and remains static, with
->> the exception of hotplug, but that is not enabled yet.
->>
->> I think it would be cleaner to just create separate walker callbacks rather than
->> repurpose the existing walker.
-> 
-> Okay. I'll repsin with separate walker.
-> 
->>
->> Then you could simply change the gfp flag to a callback function pointer and
->> pass the desired allocator as a function pointer. This would match the existing
->> patterns used in mmu.c today.
->>
->> The preallocated page list could be stored in a global static variable and you
->> could create an allocation function that just strims a page from that list. See
->> kpti_ng_pgd_alloc() for an existing example. That assumes a contiguous block,
->> but you could generalize it to hold a list of struct pages and reuse it for both
->> cases?
-> 
-> If we use walker callbacks, I think it not only pass the callback
-> function, but it need to pass the gfp flag too since split_xxx() is
-> called by another functions. (i.e) set_memory_xxx()
-> 
-> I think I can remove the mode with the suggestion of @David
-> but, I think it would be still use split_args with information of
-> gfp and preallocate buffer.
+> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
+> ---
+>  MAINTAINERS                    |   1 +
+>  drivers/firmware/efi/Makefile  |   1 +
+>  drivers/firmware/efi/estatus.c | 560 +++++++++++++++++++++++++++++++++
 
-I don't think that's necessary; all other users pass GFP_PGTABLE_KERNEL, so we
-just need one allocator function that allocates with GFP_PGTABLE_KERNEL and
-another allocator function that allocates from the prealloc'ed list. Then the
-user passes the function they want to use.
+If I'm understanding this patch series, you will be basically moving more than
+half of the code from drivers/acpi/apei/ghes.c to drivers/firmware/efi/estatus.c:
 
-That would work, I think?
+ drivers/acpi/apei/ghes.c                   | 1292 ++-------------
+ drivers/firmware/efi/estatus.c             | 1056 ++++++++++++
 
->>
->>>
->>> Fixes: 3df6979d222b ("arm64: mm: split linear mapping if BBML2 unsupported on secondary CPUs")
->>> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
->>> ---
->>>  arch/arm64/mm/mmu.c | 213 +++++++++++++++++++++++++++++++++++---------
->>>  1 file changed, 170 insertions(+), 43 deletions(-)
->>>
->>> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
->>> index 9ae7ce00a7ef..e4e6c7e0a016 100644
->>> --- a/arch/arm64/mm/mmu.c
->>> +++ b/arch/arm64/mm/mmu.c
->>> @@ -527,18 +527,28 @@ static void early_create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
->>>  		panic("Failed to create page tables\n");
->>>  }
->>>
->>> -static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm, gfp_t gfp,
->>> -				       enum pgtable_type pgtable_type)
->>> -{
->>> -	/* Page is zeroed by init_clear_pgtable() so don't duplicate effort. */
->>> -	struct ptdesc *ptdesc = pagetable_alloc(gfp & ~__GFP_ZERO, 0);
->>> -	phys_addr_t pa;
->>> -
->>> -	if (!ptdesc)
->>> -		return INVALID_PHYS_ADDR;
->>> +enum split_modes {
->>> +	SPLIT_ALLOC,
->>> +	SPLIT_PREALLOC,
->>> +	SPLIT_COLLECT,
->>> +};
->>>
->>> -	pa = page_to_phys(ptdesc_page(ptdesc));
->>> +struct split_args {
->>> +	enum split_modes mode;
->>> +	union {
->>> +		struct {
->>> +			unsigned long nr;
->>> +			unsigned long i;
->>> +			struct page **pages;
->>> +		};
->>> +		gfp_t gfp;
->>> +	};
->>> +};
->>>
->>> +static __always_inline void __pgd_pgtable_init(struct mm_struct *mm,
->>> +					       struct ptdesc *ptdesc,
->>> +					       enum pgtable_type pgtable_type)
->>> +{
->>>  	switch (pgtable_type) {
->>>  	case TABLE_PTE:
->>>  		BUG_ON(!pagetable_pte_ctor(mm, ptdesc));
->>> @@ -554,19 +564,56 @@ static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm, gfp_t gfp,
->>>  		break;
->>>  	}
->>>
->>> +}
->>> +
->>> +static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm, gfp_t gfp,
->>> +				       enum pgtable_type pgtable_type)
->>> +{
->>> +	/* Page is zeroed by init_clear_pgtable() so don't duplicate effort. */
->>> +	struct ptdesc *ptdesc = pagetable_alloc(gfp & ~__GFP_ZERO, 0);
->>> +	phys_addr_t pa;
->>> +
->>> +	if (!ptdesc)
->>> +		return INVALID_PHYS_ADDR;
->>> +
->>> +	pa = page_to_phys(ptdesc_page(ptdesc));
->>> +
->>> +	__pgd_pgtable_init(mm, ptdesc, pgtable_type);
->>> +
->>>  	return pa;
->>>  }
->>>
->>> +static phys_addr_t __pgd_pgtable_prealloc(struct mm_struct *mm,
->>> +					  struct split_args *split_args,
->>> +					  enum pgtable_type pgtable_type)
->>> +{
->>> +	struct page *page;
->>> +
->>> +	BUG_ON(split_args->i >= split_args->nr);
->>> +
->>> +	page = split_args->pages[split_args->i++];
->>> +	if (!page)
->>> +		return INVALID_PHYS_ADDR;
->>> +
->>> +	__pgd_pgtable_init(mm, page_ptdesc(page), pgtable_type);
->>> +
->>> +	return page_to_phys(page);
->>> +}
->>> +
->>>  static phys_addr_t
->>> -pgd_pgtable_alloc_init_mm_gfp(enum pgtable_type pgtable_type, gfp_t gfp)
->>> +pgd_pgtable_alloc_split(enum pgtable_type pgtable_type,
->>> +		        struct split_args *split_args)
->>>  {
->>> -	return __pgd_pgtable_alloc(&init_mm, gfp, pgtable_type);
->>> +	if (split_args->mode == SPLIT_ALLOC)
->>> +		return __pgd_pgtable_alloc(&init_mm, split_args->gfp, pgtable_type);
->>> +
->>> +	return __pgd_pgtable_prealloc(&init_mm, split_args, pgtable_type);
->>>  }
->>>
->>>  static phys_addr_t __maybe_unused
->>>  pgd_pgtable_alloc_init_mm(enum pgtable_type pgtable_type)
->>>  {
->>> -	return pgd_pgtable_alloc_init_mm_gfp(pgtable_type, GFP_PGTABLE_KERNEL);
->>> +	return __pgd_pgtable_alloc(&init_mm, GFP_PGTABLE_KERNEL, pgtable_type);
->>>  }
->>>
->>>  static phys_addr_t
->>> @@ -584,7 +631,9 @@ static void split_contpte(pte_t *ptep)
->>>  		__set_pte(ptep, pte_mknoncont(__ptep_get(ptep)));
->>>  }
->>>
->>> -static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp, bool to_cont)
->>> +static int split_pmd(pmd_t *pmdp, pmd_t pmd,
->>> +		     struct split_args *split_args,
->>> +		     bool to_cont)
->>>  {
->>>  	pmdval_t tableprot = PMD_TYPE_TABLE | PMD_TABLE_UXN | PMD_TABLE_AF;
->>>  	unsigned long pfn = pmd_pfn(pmd);
->>> @@ -593,7 +642,7 @@ static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp, bool to_cont)
->>>  	pte_t *ptep;
->>>  	int i;
->>>
->>> -	pte_phys = pgd_pgtable_alloc_init_mm_gfp(TABLE_PTE, gfp);
->>> +	pte_phys = pgd_pgtable_alloc_split(TABLE_PTE, split_args);
->>>  	if (pte_phys == INVALID_PHYS_ADDR)
->>>  		return -ENOMEM;
->>>  	ptep = (pte_t *)phys_to_virt(pte_phys);
->>> @@ -628,7 +677,9 @@ static void split_contpmd(pmd_t *pmdp)
->>>  		set_pmd(pmdp, pmd_mknoncont(pmdp_get(pmdp)));
->>>  }
->>>
->>> -static int split_pud(pud_t *pudp, pud_t pud, gfp_t gfp, bool to_cont)
->>> +static int split_pud(pud_t *pudp, pud_t pud,
->>> +		    struct split_args *split_args,
->>> +		    bool to_cont)
->>>  {
->>>  	pudval_t tableprot = PUD_TYPE_TABLE | PUD_TABLE_UXN | PUD_TABLE_AF;
->>>  	unsigned int step = PMD_SIZE >> PAGE_SHIFT;
->>> @@ -638,7 +689,7 @@ static int split_pud(pud_t *pudp, pud_t pud, gfp_t gfp, bool to_cont)
->>>  	pmd_t *pmdp;
->>>  	int i;
->>>
->>> -	pmd_phys = pgd_pgtable_alloc_init_mm_gfp(TABLE_PMD, gfp);
->>> +	pmd_phys = pgd_pgtable_alloc_split(TABLE_PMD, split_args);
->>>  	if (pmd_phys == INVALID_PHYS_ADDR)
->>>  		return -ENOMEM;
->>>  	pmdp = (pmd_t *)phys_to_virt(pmd_phys);
->>> @@ -672,6 +723,10 @@ static int split_kernel_leaf_mapping_locked(unsigned long addr)
->>>  	pmd_t *pmdp, pmd;
->>>  	pte_t *ptep, pte;
->>>  	int ret = 0;
->>> +	struct split_args split_args = {
->>> +		.mode = SPLIT_ALLOC,
->>> +		.gfp = GFP_PGTABLE_KERNEL,
->>> +	};
->>>
->>>  	/*
->>>  	 * PGD: If addr is PGD aligned then addr already describes a leaf
->>> @@ -707,7 +762,7 @@ static int split_kernel_leaf_mapping_locked(unsigned long addr)
->>>  	if (!pud_present(pud))
->>>  		goto out;
->>>  	if (pud_leaf(pud)) {
->>> -		ret = split_pud(pudp, pud, GFP_PGTABLE_KERNEL, true);
->>> +		ret = split_pud(pudp, pud, &split_args, true);
->>>  		if (ret)
->>>  			goto out;
->>>  	}
->>> @@ -732,7 +787,7 @@ static int split_kernel_leaf_mapping_locked(unsigned long addr)
->>>  		 */
->>>  		if (ALIGN_DOWN(addr, PMD_SIZE) == addr)
->>>  			goto out;
->>> -		ret = split_pmd(pmdp, pmd, GFP_PGTABLE_KERNEL, true);
->>> +		ret = split_pmd(pmdp, pmd, &split_args, true);
->>>  		if (ret)
->>>  			goto out;
->>>  	}
->>> @@ -831,12 +886,17 @@ int split_kernel_leaf_mapping(unsigned long start, unsigned long end)
->>>  static int split_to_ptes_pud_entry(pud_t *pudp, unsigned long addr,
->>>  				   unsigned long next, struct mm_walk *walk)
->>>  {
->>> -	gfp_t gfp = *(gfp_t *)walk->private;
->>> +	struct split_args *split_args = (struct split_args *)walk->private;
->>
->> no need for the casting here; it's a void *.
-> 
-> Right. I'll remove it.
-> 
->>
->>>  	pud_t pud = pudp_get(pudp);
->>>  	int ret = 0;
->>>
->>> -	if (pud_leaf(pud))
->>> -		ret = split_pud(pudp, pud, gfp, false);
->>> +	if (!pud_leaf(pud))
->>> +		return 0;
->>> +
->>> +	if (split_args->mode == SPLIT_COLLECT)
->>> +		split_args->nr++;
->>
->> bug: you're incrementing this for the pmd table that you would have inserted,
->> but because you're not actually splitting, split_to_ptes_pmd_entry() will never
->> be called for the 512 pte tables you also need. So you need:
->>
->> 		nr += 1 + PTRS_PER_PMD;
->>
->> I'm guessing you didn't test this as the BUG would have triggered when you ran
->> out of preallocated memory?
->>
-> 
-> Good catch! Yes. This is definitely bug.
-> The reason why I didn't hit the but there is no "block pud" in my enviroment.
-> 
->>> +	else
->>> +		ret = split_pud(pudp, pud, split_args, false);
->>>
->>>  	return ret;
->>>  }
->>> @@ -844,22 +904,29 @@ static int split_to_ptes_pud_entry(pud_t *pudp, unsigned long addr,
->>>  static int split_to_ptes_pmd_entry(pmd_t *pmdp, unsigned long addr,
->>>  				   unsigned long next, struct mm_walk *walk)
->>>  {
->>> -	gfp_t gfp = *(gfp_t *)walk->private;
->>> +	struct split_args *split_args = (struct split_args *)walk->private;
->>>  	pmd_t pmd = pmdp_get(pmdp);
->>> -	int ret = 0;
->>> +	int ret;
->>>
->>> -	if (pmd_leaf(pmd)) {
->>> -		if (pmd_cont(pmd))
->>> -			split_contpmd(pmdp);
->>> -		ret = split_pmd(pmdp, pmd, gfp, false);
->>> +	if (!pmd_leaf(pmd))
->>> +		return 0;
->>>
->>> -		/*
->>> -		 * We have split the pmd directly to ptes so there is no need to
->>> -		 * visit each pte to check if they are contpte.
->>> -		 */
->>> -		walk->action = ACTION_CONTINUE;
->>> +	if (split_args->mode == SPLIT_COLLECT) {
->>> +		split_args->nr++;
->>> +		return 0;
->>>  	}
->>>
->>> +	if (pmd_cont(pmd))
->>> +		split_contpmd(pmdp);
->>> +	ret = split_pmd(pmdp, pmd, split_args, false);
->>> +
->>> +	/*
->>> +	 * We have split the pmd directly to ptes so there is no need to
->>> +	 * visit each pte to check if they are contpte.
->>> +	 */
->>> +	walk->action = ACTION_CONTINUE;
->>> +
->>> +
->>>  	return ret;
->>>  }
->>>
->>> @@ -880,13 +947,15 @@ static const struct mm_walk_ops split_to_ptes_ops = {
->>>  	.pte_entry	= split_to_ptes_pte_entry,
->>>  };
->>>
->>> -static int range_split_to_ptes(unsigned long start, unsigned long end, gfp_t gfp)
->>> +static int range_split_to_ptes(unsigned long start, unsigned long end,
->>> +		 	       struct split_args *split_args)
->>>  {
->>>  	int ret;
->>>
->>>  	arch_enter_lazy_mmu_mode();
->>>  	ret = walk_kernel_page_table_range_lockless(start, end,
->>> -					&split_to_ptes_ops, NULL, &gfp);
->>> +						    &split_to_ptes_ops, NULL,
->>> +						    split_args);
->>>  	arch_leave_lazy_mmu_mode();
->>>
->>>  	return ret;
->>> @@ -903,7 +972,7 @@ static void __init init_idmap_kpti_bbml2_flag(void)
->>>  	smp_mb();
->>>  }
->>>
->>> -static int __init linear_map_split_to_ptes(void *__unused)
->>> +static int __init linear_map_split_to_ptes(void *data)
->>>  {
->>>  	/*
->>>  	 * Repainting the linear map must be done by CPU0 (the boot CPU) because
->>> @@ -911,6 +980,7 @@ static int __init linear_map_split_to_ptes(void *__unused)
->>>  	 * be held in a waiting area with the idmap active.
->>>  	 */
->>>  	if (!smp_processor_id()) {
->>> +		struct split_args *split_args = data;
->>>  		unsigned long lstart = _PAGE_OFFSET(vabits_actual);
->>>  		unsigned long lend = PAGE_END;
->>>  		unsigned long kstart = (unsigned long)lm_alias(_stext);
->>> @@ -928,12 +998,13 @@ static int __init linear_map_split_to_ptes(void *__unused)
->>>  		 * PTE. The kernel alias remains static throughout runtime so
->>>  		 * can continue to be safely mapped with large mappings.
->>>  		 */
->>> -		ret = range_split_to_ptes(lstart, kstart, GFP_ATOMIC);
->>> +		ret = range_split_to_ptes(lstart, lend, split_args);
->>>  		if (!ret)
->>> -			ret = range_split_to_ptes(kend, lend, GFP_ATOMIC);
->>> +			ret = range_split_to_ptes(kstart, kend, split_args);
->>>  		if (ret)
->>>  			panic("Failed to split linear map\n");
->>> -		flush_tlb_kernel_range(lstart, lend);
->>> +		if (split_args->mode != SPLIT_COLLECT)
->>> +			flush_tlb_kernel_range(lstart, lend);
->>>
->>>  		/*
->>>  		 * Relies on dsb in flush_tlb_kernel_range() to avoid reordering
->>> @@ -963,10 +1034,61 @@ static int __init linear_map_split_to_ptes(void *__unused)
->>>
->>>  void __init linear_map_maybe_split_to_ptes(void)
->>>  {
->>> -	if (linear_map_requires_bbml2 && !system_supports_bbml2_noabort()) {
->>> -		init_idmap_kpti_bbml2_flag();
->>> -		stop_machine(linear_map_split_to_ptes, NULL, cpu_online_mask);
->>> +	struct page **pages = NULL;
->>> +	struct split_args split_args;
->>> +	int order;
->>> +	int nr_populated;
->>> +	int err;
->>> +
->>> +	if (!linear_map_requires_bbml2 || system_supports_bbml2_noabort())
->>> +		return;
->>> +
->>> +	/*
->>> +	 * Phase 1: Collect required extra pages to split.
->>> +	 */
->>> +	split_args.mode = SPLIT_COLLECT;
->>> +	split_args.nr = 0;
->>> +
->>> +	init_idmap_kpti_bbml2_flag();
->>> +	stop_machine(linear_map_split_to_ptes, &split_args, cpu_online_mask);
->>
->> This doesn't require stop_machine().
-> 
-> Yes. I'll separate with new walker as you suggest.
-> 
->>
->>> +
->>> +	/*
->>> +	 * Phase 2: Allocate necessary pages to split.
->>> +	 */
->>> +	if (split_args.nr == 0) {
->>> +		err = 0;
->>> +		split_args.mode = SPLIT_ALLOC;
->>
->> How would we hit this condition? If everything is already split why not just
->> exit early?
-> 
-> I'm thinking about if all of pages map with CONTPTE only then
-> it need to be splited, but would you let me know whether It wouldn't be possible
-> for cross checking?
+ $ wc drivers/acpi/apei/ghes.c drivers/firmware/efi/estatus.c -l
+  894 drivers/acpi/apei/ghes.c
+ 1056 drivers/firmware/efi/estatus.c
+ 1950 total
 
-Ahh, yes good point!
+The way you're doing of adding things first, and then removing on
+separate patches is error prone, makes it hard to review and 
+it becomes a lot harder to identify whose are the original authors
+of the code.
 
-> 
->>
->>> +	} else {
->>> +		err = -ENOMEM;
->>> +		order = order_base_2(PAGE_ALIGN(split_args.nr *
->>> +					sizeof(struct page *)) >> PAGE_SHIFT);
->>> +
->>> +		pages = (struct page **)__get_free_pages(GFP_ATOMIC | __GFP_ZERO, order);
->>
->> As per the other patch, I'd prefer to see GFP_KERNEL | __GFP_ZERO here.
->>
->> Let's make this a list of struct ptdesc * though.
-> 
-> Agree. I'll change it.
-> 
->>
->>> +		if (!pages)
->>> +			goto error;
->>> +
->>> +		nr_populated = alloc_pages_bulk(GFP_ATOMIC | __GFP_ZERO, split_args.nr, pages);
->>
->> Just GFP_KERNEL. No need for __GFP_ZERO as they will all be fully overwritten
->> with PTEs.
->>
->> I'd prefer to use pagetable_alloc(GFP_KERNEL, 0) in a loop since that will
->> return a proper ptdesc.
-> 
-> Okay.
-> 
->>
->>> +		if (nr_populated < split_args.nr)
->>> +			goto error;
->>> +
->>> +		err = 0;
->>> +		split_args.mode = SPLIT_PREALLOC;
->>> +		split_args.i = 0;
->>> +		split_args.pages = pages;
->>>  	}
->>> +
->>> +	/*
->>> +	 * Phase 3: Split linear map.
->>> +	 */
->>> +	init_idmap_kpti_bbml2_flag();
->>> +	stop_machine(linear_map_split_to_ptes, &split_args, cpu_online_mask);
->>> +
->>> +error:
->>> +	if (pages)
->>> +		free_pages((unsigned long)pages, order);
->>
->> It's possible (but unlikely) that another CPU caused a split between figuring
->> out the required number of tables and actually doing the full split. In this
->> case, you would have preallocated pages left over that you will need to free here.
-> 
-> You're right. I've overlooked this case.
-> I'll handle it.
-> 
-> 
-> Thanks for your review!
-> 
-> --
-> Sincerely,
-> Yeoreum Yun
+This will cause undetected conflicts with already-submitted patches
+that are under review.
 
+You should instead be moving function per function as-is. Then,
+adjust the code to make it more generic.
+
+Regards,
+Mauro
+
+>  3 files changed, 562 insertions(+)
+>  create mode 100644 drivers/firmware/efi/estatus.c
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 501b6d300aa5..67d79d4e612d 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -21760,6 +21760,7 @@ F:	drivers/rapidio/
+>  RAS ERROR STATUS
+>  M:	Ahmed Tiba <ahmed.tiba@arm.com>
+>  S:	Maintained
+> +F:	drivers/firmware/efi/estatus.c
+>  F:	include/linux/estatus.h
+>  
+>  RAS INFRASTRUCTURE
+> diff --git a/drivers/firmware/efi/Makefile b/drivers/firmware/efi/Makefile
+> index 8efbcf699e4f..03708d915bcf 100644
+> --- a/drivers/firmware/efi/Makefile
+> +++ b/drivers/firmware/efi/Makefile
+> @@ -20,6 +20,7 @@ obj-$(CONFIG_EFI_PARAMS_FROM_FDT)	+= fdtparams.o
+>  obj-$(CONFIG_EFI_ESRT)			+= esrt.o
+>  obj-$(CONFIG_EFI_VARS_PSTORE)		+= efi-pstore.o
+>  obj-$(CONFIG_UEFI_CPER)			+= cper.o cper_cxl.o
+> +obj-$(CONFIG_RAS_ESTATUS_CORE)		+= estatus.o
+>  obj-$(CONFIG_EFI_RUNTIME_WRAPPERS)	+= runtime-wrappers.o
+>  subdir-$(CONFIG_EFI_STUB)		+= libstub
+>  obj-$(CONFIG_EFI_BOOTLOADER_CONTROL)	+= efibc.o
+> diff --git a/drivers/firmware/efi/estatus.c b/drivers/firmware/efi/estatus.c
+> new file mode 100644
+> index 000000000000..8dae5c73ce27
+> --- /dev/null
+> +++ b/drivers/firmware/efi/estatus.c
+> @@ -0,0 +1,560 @@
+> +// SPDX-License-Identifier: GPL-2.0-only
+> +/*
+> + * Firmware-first RAS: Generic Error Status Core
+> + *
+> + * Copyright (C) 2025 ARM Ltd.
+> + * Author: Ahmed Tiba <ahmed.tiba@arm.com>
+> + */
+> +
+> +#include <linux/kernel.h>
+> +#include <linux/cper.h>
+> +#include <linux/ratelimit.h>
+> +#include <linux/vmalloc.h>
+> +#include <linux/llist.h>
+> +#include <linux/genalloc.h>
+> +#include <linux/pci.h>
+> +#include <linux/pfn.h>
+> +#include <linux/aer.h>
+> +#include <linux/nmi.h>
+> +#include <linux/sched/clock.h>
+> +#include <linux/uuid.h>
+> +#include <linux/kconfig.h>
+> +#include <linux/ras.h>
+> +#include <linux/mutex.h>
+> +#include <linux/notifier.h>
+> +#include <linux/workqueue.h>
+> +#include <linux/task_work.h>
+> +#include <ras/ras_event.h>
+> +
+> +#include <linux/estatus.h>
+> +#include <asm/fixmap.h>
+> +
+> +void estatus_pool_region_free(unsigned long addr, u32 size);
+> +
+> +static void estatus_log_hw_error(char level, const char *seq_tag,
+> +				 const char *name)
+> +{
+> +	switch (level) {
+> +	case '0':
+> +		pr_emerg("%sHardware error from %s\n", seq_tag, name);
+> +		break;
+> +	case '1':
+> +		pr_alert("%sHardware error from %s\n", seq_tag, name);
+> +		break;
+> +	case '2':
+> +		pr_crit("%sHardware error from %s\n", seq_tag, name);
+> +		break;
+> +	case '3':
+> +		pr_err("%sHardware error from %s\n", seq_tag, name);
+> +		break;
+> +	case '4':
+> +		pr_warn("%sHardware error from %s\n", seq_tag, name);
+> +		break;
+> +	case '5':
+> +		pr_notice("%sHardware error from %s\n", seq_tag, name);
+> +		break;
+> +	case '6':
+> +		pr_info("%sHardware error from %s\n", seq_tag, name);
+> +		break;
+> +	default:
+> +		pr_debug("%sHardware error from %s\n", seq_tag, name);
+> +		break;
+> +	}
+> +}
+> +
+> +static inline u32 estatus_len(struct acpi_hest_generic_status *estatus)
+> +{
+> +	if (estatus->raw_data_length)
+> +		return estatus->raw_data_offset + estatus->raw_data_length;
+> +
+> +	return sizeof(*estatus) + estatus->data_length;
+> +}
+> +
+> +#define ESTATUS_PFX	"ESTATUS: "
+> +
+> +#define ESTATUS_ESOURCE_PREALLOC_MAX_SIZE_SIZE	65536
+> +
+> +#define ESTATUS_POOL_MIN_ALLOC_ORDER 3
+> +
+> +/* This is just an estimation for memory pool allocation */
+> +#define ESTATUS_CACHE_AVG_SIZE	512
+> +
+> +#define ESTATUS_CACHES_SIZE	4
+> +
+> +#define ESTATUS_IN_CACHE_MAX_NSEC	10000000000ULL
+> +/* Prevent too many caches are allocated because of RCU */
+> +#define ESTATUS_CACHE_ALLOCED_MAX	(ESTATUS_CACHES_SIZE * 3 / 2)
+> +
+> +#define ESTATUS_CACHE_LEN(estatus_len)			\
+> +	(sizeof(struct estatus_cache) + (estatus_len))
+> +#define ESTATUS_FROM_CACHE(cache)			\
+> +	((struct acpi_hest_generic_status *)		\
+> +	 ((struct estatus_cache *)(cache) + 1))
+> +
+> +#define ESTATUS_NODE_LEN(estatus_len)			\
+> +	(sizeof(struct estatus_node) + (estatus_len))
+> +#define ESTATUS_FROM_NODE(node)				\
+> +	((struct acpi_hest_generic_status *)		\
+> +	 ((struct estatus_node *)(node) + 1))
+> +
+> +#define ESTATUS_VENDOR_ENTRY_LEN(gdata_len)		\
+> +	(sizeof(struct estatus_vendor_record_entry) + (gdata_len))
+> +#define ESTATUS_GDATA_FROM_VENDOR_ENTRY(vendor_entry)	\
+> +	((struct acpi_hest_generic_data *)		\
+> +	((struct estatus_vendor_record_entry *)(vendor_entry) + 1))
+> +
+> +static ATOMIC_NOTIFIER_HEAD(estatus_report_chain);
+> +
+> +struct estatus_vendor_record_entry {
+> +	struct work_struct work;
+> +	int error_severity;
+> +	char vendor_record[];
+> +};
+> +
+> +static struct estatus_cache __rcu *estatus_caches[ESTATUS_CACHES_SIZE];
+> +static atomic_t estatus_cache_alloced;
+> +
+> +static int estatus_panic_timeout __read_mostly = 30;
+> +
+> +static struct gen_pool *estatus_pool;
+> +static DEFINE_MUTEX(estatus_pool_mutex);
+> +
+> +static inline const char *estatus_source_name(struct estatus_source *source)
+> +{
+> +	if (source->ops && source->ops->get_name)
+> +		return source->ops->get_name(source);
+> +
+> +	return "unknown";
+> +}
+> +
+> +static inline size_t estatus_source_max_len(struct estatus_source *source)
+> +{
+> +	if (source->ops && source->ops->get_max_len)
+> +		return source->ops->get_max_len(source);
+> +
+> +	return 0;
+> +}
+> +
+> +static inline enum estatus_notify_mode
+> +estatus_source_notify_mode(struct estatus_source *source)
+> +{
+> +	if (source->ops && source->ops->get_notify_mode)
+> +		return source->ops->get_notify_mode(source);
+> +
+> +	return ESTATUS_NOTIFY_ASYNC;
+> +}
+> +
+> +static inline int estatus_source_get_phys(struct estatus_source *source,
+> +					  phys_addr_t *addr)
+> +{
+> +	if (!source->ops || !source->ops->get_phys)
+> +		return -EOPNOTSUPP;
+> +
+> +	return source->ops->get_phys(source, addr);
+> +}
+> +
+> +static inline int estatus_source_read(struct estatus_source *source,
+> +				      phys_addr_t addr, void *buf, size_t len,
+> +				      enum fixed_addresses fixmap_idx)
+> +{
+> +	if (!source->ops || !source->ops->read)
+> +		return -EOPNOTSUPP;
+> +
+> +	return source->ops->read(source, addr, buf, len, fixmap_idx);
+> +}
+> +
+> +static inline int estatus_source_write(struct estatus_source *source,
+> +				       phys_addr_t addr, const void *buf,
+> +				       size_t len,
+> +				       enum fixed_addresses fixmap_idx)
+> +{
+> +	if (!source->ops || !source->ops->write)
+> +		return -EOPNOTSUPP;
+> +
+> +	return source->ops->write(source, addr, buf, len, fixmap_idx);
+> +}
+> +
+> +static inline void estatus_source_ack(struct estatus_source *source)
+> +{
+> +	if (source->ops && source->ops->ack)
+> +		source->ops->ack(source);
+> +}
+> +
+> +int estatus_pool_init(unsigned int num_ghes)
+> +{
+> +	unsigned long addr, len;
+> +	int rc = 0;
+> +
+> +	mutex_lock(&estatus_pool_mutex);
+> +	if (estatus_pool)
+> +		goto out_unlock;
+> +
+> +	estatus_pool = gen_pool_create(ESTATUS_POOL_MIN_ALLOC_ORDER, -1);
+> +	if (!estatus_pool) {
+> +		rc = -ENOMEM;
+> +		goto out_unlock;
+> +	}
+> +
+> +	if (!num_ghes)
+> +		num_ghes = 1;
+> +
+> +	len = ESTATUS_CACHE_AVG_SIZE * ESTATUS_CACHE_ALLOCED_MAX;
+> +	len += (num_ghes * ESTATUS_ESOURCE_PREALLOC_MAX_SIZE_SIZE);
+> +
+> +	addr = (unsigned long)vmalloc(PAGE_ALIGN(len));
+> +	if (!addr) {
+> +		rc = -ENOMEM;
+> +		goto err_pool_alloc;
+> +	}
+> +
+> +	rc = gen_pool_add(estatus_pool, addr, PAGE_ALIGN(len), -1);
+> +	if (rc)
+> +		goto err_pool_add;
+> +
+> +out_unlock:
+> +	mutex_unlock(&estatus_pool_mutex);
+> +	return rc;
+> +
+> +err_pool_add:
+> +	vfree((void *)addr);
+> +err_pool_alloc:
+> +	gen_pool_destroy(estatus_pool);
+> +	estatus_pool = NULL;
+> +	goto out_unlock;
+> +}
+> +
+> +/**
+> + * estatus_pool_region_free - free previously allocated memory
+> + *				   from the estatus_pool.
+> + * @addr: address of memory to free.
+> + * @size: size of memory to free.
+> + *
+> + * Returns none.
+> + */
+> +void estatus_pool_region_free(unsigned long addr, u32 size)
+> +{
+> +	gen_pool_free(estatus_pool, addr, size);
+> +}
+> +EXPORT_SYMBOL_GPL(estatus_pool_region_free);
+> +
+> +/* Check the top-level record header has an appropriate size. */
+> +static int __estatus_check_estatus(struct estatus_source *source,
+> +				   struct acpi_hest_generic_status *estatus)
+> +{
+> +	u32 len = estatus_len(estatus);
+> +	size_t max_len = estatus_source_max_len(source);
+> +
+> +	if (len < sizeof(*estatus)) {
+> +		pr_warn_ratelimited(FW_WARN ESTATUS_PFX "Truncated error status block!\n");
+> +		return -EIO;
+> +	}
+> +
+> +	if (max_len && len > max_len) {
+> +		pr_warn_ratelimited(FW_WARN ESTATUS_PFX "Invalid error status block length!\n");
+> +		return -EIO;
+> +	}
+> +
+> +	if (cper_estatus_check_header(estatus)) {
+> +		pr_warn_ratelimited(FW_WARN ESTATUS_PFX "Invalid CPER header!\n");
+> +		return -EIO;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +/* Read the CPER block, returning its address, and header in estatus. */
+> +static int __estatus_peek_estatus(struct estatus_source *source,
+> +				  struct acpi_hest_generic_status *estatus,
+> +				  phys_addr_t *buf_paddr,
+> +				  enum fixed_addresses fixmap_idx)
+> +{
+> +	int rc;
+> +
+> +	rc = estatus_source_get_phys(source, buf_paddr);
+> +	if (rc) {
+> +		*buf_paddr = 0;
+> +		pr_warn_ratelimited(FW_WARN ESTATUS_PFX
+> +				    "Failed to get error status block address for provider %s: %d\n",
+> +				    estatus_source_name(source), rc);
+> +		return rc;
+> +	}
+> +
+> +	if (!*buf_paddr)
+> +		return -ENOENT;
+> +
+> +	rc = estatus_source_read(source, *buf_paddr, estatus,
+> +				 sizeof(*estatus), fixmap_idx);
+> +	if (rc)
+> +		return rc;
+> +
+> +	if (!estatus->block_status) {
+> +		*buf_paddr = 0;
+> +		return -ENOENT;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int __estatus_read_estatus(struct estatus_source *source,
+> +				  struct acpi_hest_generic_status *estatus,
+> +				  phys_addr_t buf_paddr,
+> +				  enum fixed_addresses fixmap_idx,
+> +				  size_t buf_len)
+> +{
+> +	int rc;
+> +
+> +	rc = estatus_source_read(source, buf_paddr, estatus, buf_len,
+> +				 fixmap_idx);
+> +	if (rc)
+> +		return rc;
+> +
+> +	if (cper_estatus_check(estatus)) {
+> +		pr_warn_ratelimited(FW_WARN ESTATUS_PFX
+> +				    "Failed to read error status block for provider %s!\n",
+> +				    estatus_source_name(source));
+> +		return -EIO;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int estatus_read_estatus(struct estatus_source *source,
+> +				struct acpi_hest_generic_status *estatus,
+> +				phys_addr_t *buf_paddr,
+> +				enum fixed_addresses fixmap_idx)
+> +{
+> +	int rc;
+> +
+> +	rc = __estatus_peek_estatus(source, estatus, buf_paddr, fixmap_idx);
+> +	if (rc)
+> +		return rc;
+> +
+> +	rc = __estatus_check_estatus(source, estatus);
+> +	if (rc)
+> +		return rc;
+> +
+> +	return __estatus_read_estatus(source, estatus, *buf_paddr,
+> +				      fixmap_idx, estatus_len(estatus));
+> +}
+> +
+> +static void estatus_clear_estatus(struct estatus_source *source,
+> +				  struct acpi_hest_generic_status *estatus,
+> +				  phys_addr_t buf_paddr,
+> +				  enum fixed_addresses fixmap_idx)
+> +{
+> +	int rc;
+> +
+> +	estatus->block_status = 0;
+> +
+> +	if (!buf_paddr)
+> +		return;
+> +
+> +	rc = estatus_source_write(source, buf_paddr, estatus,
+> +				  sizeof(estatus->block_status), fixmap_idx);
+> +	if (rc)
+> +		pr_warn_ratelimited(FW_WARN ESTATUS_PFX
+> +				    "Failed to clear error status block for provider %s: %d\n",
+> +				    estatus_source_name(source), rc);
+> +
+> +	estatus_source_ack(source);
+> +}
+> +
+> +static inline int estatus_severity(int severity)
+> +{
+> +	switch (severity) {
+> +	case CPER_SEV_INFORMATIONAL:
+> +		return ESTATUS_SEV_NO;
+> +	case CPER_SEV_CORRECTED:
+> +		return ESTATUS_SEV_CORRECTED;
+> +	case CPER_SEV_RECOVERABLE:
+> +		return ESTATUS_SEV_RECOVERABLE;
+> +	case CPER_SEV_FATAL:
+> +		return ESTATUS_SEV_PANIC;
+> +	default:
+> +		/* Unknown, go panic */
+> +		return ESTATUS_SEV_PANIC;
+> +	}
+> +}
+> +
+> +static void __estatus_print_estatus(const char *pfx,
+> +				    struct estatus_source *source,
+> +				    const struct acpi_hest_generic_status *estatus)
+> +{
+> +	static atomic_t seqno;
+> +	unsigned int curr_seqno;
+> +	char pfx_seq[64];
+> +	char seq_tag[64];
+> +	const char *name = estatus_source_name(source);
+> +	const char *level = pfx;
+> +	char level_char = '4';
+> +
+> +	if (!level) {
+> +		if (estatus_severity(estatus->error_severity) <=
+> +		    ESTATUS_SEV_CORRECTED)
+> +			level = KERN_WARNING;
+> +		else
+> +			level = KERN_ERR;
+> +	}
+> +
+> +	if (level[0] == KERN_SOH_ASCII && level[1])
+> +		level_char = level[1];
+> +	else if (estatus_severity(estatus->error_severity) > ESTATUS_SEV_CORRECTED)
+> +		level_char = '3';
+> +
+> +	curr_seqno = atomic_inc_return(&seqno);
+> +	snprintf(seq_tag, sizeof(seq_tag), "{%u}" HW_ERR, curr_seqno);
+> +	snprintf(pfx_seq, sizeof(pfx_seq), "%s%s", level, seq_tag);
+> +	estatus_log_hw_error(level_char, seq_tag, name);
+> +	cper_estatus_print(pfx_seq, estatus);
+> +}
+> +
+> +static int estatus_print_estatus(const char *pfx,
+> +				 struct estatus_source *source,
+> +				 const struct acpi_hest_generic_status *estatus)
+> +{
+> +	/* Not more than 2 messages every 5 seconds */
+> +	static DEFINE_RATELIMIT_STATE(ratelimit_corrected, 5 * HZ, 2);
+> +	static DEFINE_RATELIMIT_STATE(ratelimit_uncorrected, 5 * HZ, 2);
+> +	struct ratelimit_state *ratelimit;
+> +
+> +	if (estatus_severity(estatus->error_severity) <= ESTATUS_SEV_CORRECTED)
+> +		ratelimit = &ratelimit_corrected;
+> +	else
+> +		ratelimit = &ratelimit_uncorrected;
+> +	if (__ratelimit(ratelimit)) {
+> +		__estatus_print_estatus(pfx, source, estatus);
+> +		return 1;
+> +	}
+> +	return 0;
+> +}
+> +
+> +/*
+> + * GHES error status reporting throttle, to report more kinds of
+> + * errors, instead of just most frequently occurred errors.
+> + */
+> +static int estatus_cached(struct acpi_hest_generic_status *estatus)
+> +{
+> +	u32 len;
+> +	int i, cached = 0;
+> +	unsigned long long now;
+> +	struct estatus_cache *cache;
+> +	struct acpi_hest_generic_status *cache_estatus;
+> +
+> +	len = estatus_len(estatus);
+> +	rcu_read_lock();
+> +	for (i = 0; i < ESTATUS_CACHES_SIZE; i++) {
+> +		cache = rcu_dereference(estatus_caches[i]);
+> +		if (!cache)
+> +			continue;
+> +		if (len != cache->estatus_len)
+> +			continue;
+> +		cache_estatus = ESTATUS_FROM_CACHE(cache);
+> +		if (memcmp(estatus, cache_estatus, len))
+> +			continue;
+> +		atomic_inc(&cache->count);
+> +		now = sched_clock();
+> +		if (now - cache->time_in < ESTATUS_IN_CACHE_MAX_NSEC)
+> +			cached = 1;
+> +		break;
+> +	}
+> +	rcu_read_unlock();
+> +	return cached;
+> +}
+> +
+> +static struct estatus_cache *estatus_cache_alloc(struct estatus_source *source,
+> +						 struct acpi_hest_generic_status *estatus)
+> +{
+> +	int alloced;
+> +	u32 len, cache_len;
+> +	struct estatus_cache *cache;
+> +	struct acpi_hest_generic_status *cache_estatus;
+> +
+> +	alloced = atomic_add_return(1, &estatus_cache_alloced);
+> +	if (alloced > ESTATUS_CACHE_ALLOCED_MAX) {
+> +		atomic_dec(&estatus_cache_alloced);
+> +		return NULL;
+> +	}
+> +	len = estatus_len(estatus);
+> +	cache_len = ESTATUS_CACHE_LEN(len);
+> +	cache = (void *)gen_pool_alloc(estatus_pool, cache_len);
+> +	if (!cache) {
+> +		atomic_dec(&estatus_cache_alloced);
+> +		return NULL;
+> +	}
+> +	cache_estatus = ESTATUS_FROM_CACHE(cache);
+> +	memcpy(cache_estatus, estatus, len);
+> +	cache->estatus_len = len;
+> +	atomic_set(&cache->count, 0);
+> +	cache->source = source;
+> +	cache->time_in = sched_clock();
+> +	return cache;
+> +}
+> +
+> +static void estatus_cache_rcu_free(struct rcu_head *head)
+> +{
+> +	struct estatus_cache *cache;
+> +	u32 len;
+> +
+> +	cache = container_of(head, struct estatus_cache, rcu);
+> +	len = estatus_len(ESTATUS_FROM_CACHE(cache));
+> +	len = ESTATUS_CACHE_LEN(len);
+> +	gen_pool_free(estatus_pool, (unsigned long)cache, len);
+> +	atomic_dec(&estatus_cache_alloced);
+> +}
+> +
+> +static void estatus_cache_add(struct estatus_source *source,
+> +			      struct acpi_hest_generic_status *estatus)
+> +{
+> +	unsigned long long now, duration, period, max_period = 0;
+> +	struct estatus_cache *cache, *new_cache;
+> +	struct estatus_cache __rcu *victim;
+> +	int i, slot = -1, count;
+> +
+> +	new_cache = estatus_cache_alloc(source, estatus);
+> +	if (!new_cache)
+> +		return;
+> +
+> +	rcu_read_lock();
+> +	now = sched_clock();
+> +	for (i = 0; i < ESTATUS_CACHES_SIZE; i++) {
+> +		cache = rcu_dereference(estatus_caches[i]);
+> +		if (!cache) {
+> +			slot = i;
+> +			break;
+> +		}
+> +		duration = now - cache->time_in;
+> +		if (duration >= ESTATUS_IN_CACHE_MAX_NSEC) {
+> +			slot = i;
+> +			break;
+> +		}
+> +		count = atomic_read(&cache->count);
+> +		period = duration;
+> +		do_div(period, (count + 1));
+> +		if (period > max_period) {
+> +			max_period = period;
+> +			slot = i;
+> +		}
+> +	}
+> +	rcu_read_unlock();
+> +
+> +	if (slot != -1) {
+> +		/*
+> +		 * Use release semantics to ensure that estatus_cached()
+> +		 * running on another CPU will see the updated cache fields if
+> +		 * it can see the new value of the pointer.
+> +		 */
+> +		victim = xchg_release(&estatus_caches[slot],
+> +				      RCU_INITIALIZER(new_cache));
+> +
+> +		/*
+> +		 * At this point, victim may point to a cached item different
+> +		 * from the one based on which we selected the slot. Instead of
+> +		 * going to the loop again to pick another slot, let's just
+> +		 * drop the other item anyway: this may cause a false cache
+> +		 * miss later on, but that won't cause any problems.
+> +		 */
+> +		if (victim)
+> +			call_rcu(&unrcu_pointer(victim)->rcu,
+> +				 estatus_cache_rcu_free);
+> +	}
+> +}
+> -- 
+> 2.43.0
+> 
+
+-- 
+Thanks,
+Mauro
 
