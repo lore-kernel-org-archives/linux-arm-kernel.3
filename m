@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15EDFD6ACFE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 12:58:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3303D6ACFE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 12:58:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zjz39YGRx977pthRCrruwQeYKyCWBvSxk/yhQcEE+2o=; b=KQLSvVNUrbN+GLxpxXA6FCwYOR
-	2TNo2usWMqNuHDQtWd/4H4RZIdx1KASOqXUu8+1GfhTWu7E6rp+91JEAgPSaNFA2emrvyyIJvHVaG
-	vAvuB5CFo6TW7AY7vOqDKIl454qI2q44s/UDroA9raJGrnr0FVb21Y3VwlN2dKWKY6DfN5n2GVMjI
-	RMpYbSVlMnECXMG4S62m2Qo4Kaz2bTGZQlXpNSIlQb+LBfDgjWWa0kECPMJXbjepG9unmLVbMmYYF
-	Wax7pGDz/rFLgxBmYDTXOvMhWD2QITYx3WD75+X1xddTi9yjKiV3E2xnb3vuSHSquEgrEbaIPzYb4
-	kGS/zIVg==;
+	bh=PwRQjIGkhjDWwlzr0m8u9shXY9S6IfLiEtsbgCw2Q40=; b=WBXqWHhN72IE0srycO59L/wY7a
+	du29swyil2ljHygMPE2cf8L+g+qwTobDySi4rUWyPuTDPTFlimECtI4Dfq5Zxw2YIhoiTBpl3cLZs
+	U5XZZunVwm2/87dLWYQzafdkuynuEUdae3Rx6GKGuqFq10iML4V2L6EEQewnlm7kzFMebdV88w6mm
+	jXdSbM5L1ypb59F6zpMGjaYV8plvWjdeGJUg1h5npyK1A5jwcpmxngsrYuleMP8/+hO/D6ooYv9gO
+	Vx/BauiD92loCvB0J5wsMSAIbCKCcHnxbDFHUMIzw+nxT0atBw28dqx4JcK4Zp88V6tq+fZ6jrNQF
+	9uQy8LuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWDa6-00000008TsR-3KX9;
-	Thu, 18 Dec 2025 12:58:10 +0000
+	id 1vWDaG-00000008U1Y-21Dt;
+	Thu, 18 Dec 2025 12:58:20 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWDZx-00000008TgK-0Co7;
-	Thu, 18 Dec 2025 12:58:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1766062672; cv=none; 
+	id 1vWDa6-00000008Tqv-2LYJ;
+	Thu, 18 Dec 2025 12:58:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1766062680; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=GdHzPKu9i9wip+UiV+cFv3i7a/sQtvxTgBSXFvvEtXmKmKUyQlvgR/KCOnveGaXnYl5vdsLUXtdkEb7+FyjHCPL8chQwySGsH+vdky6Kx1vjrvO8bYKl+xGadHmRK/+E5xh9C7q/uxMEf41xjtkJWScftXe2Lt3unI24ppIEg4A=
+	b=JvEh5IYt51YcfOnUcSMdrLkoaEMYgUKu125daH6xH2alpVTUNJvyzJUgGDuoIOk5TT7t+rGFlYDlOZ91EuRez+qbVD7HLN9o9n5s3YepnFD+Qeo8YpB/B18f+4u6MhSLtxNliR8yCXvuCDM+YXp4yLJfmOdagSEur96TXk/S2qQ=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1766062672; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=zjz39YGRx977pthRCrruwQeYKyCWBvSxk/yhQcEE+2o=; 
-	b=RQE3/Oz8m6YSvAkrQ7n0ZZhfO0dpfdOLevMioOGxOG1Ynjour5eJzQdoJKq7PSFTaKVP6frB8cPwDzUCB5qtVwOwD8E61Q+Rj1iNs/qOdu7hVZGKyn4SNtpEv6+eWaK+TJ/1drdVkwF/zqq/8K2b+A8G/LtQ3jPhzSXutMtYqKY=
+	t=1766062680; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=PwRQjIGkhjDWwlzr0m8u9shXY9S6IfLiEtsbgCw2Q40=; 
+	b=QnRj6pZVM0VfzandcLt0O9DbAriFldqNoApNir02fXKWVhcPVUVpTYTVKEdJe6BP+NlbPl+cvEfklnCct7qA5XM4Rxqyfmw0fY9vXh7NJkMRFIlpL2JNxA5+7eMa1jGqot2gcj4AvPW+M6E6hjT6Bb5hYMxtM+yX2AMOSlRqBjA=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1766062672;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1766062680;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=zjz39YGRx977pthRCrruwQeYKyCWBvSxk/yhQcEE+2o=;
-	b=Je4+786pevpxLbMQVNNXrfjw2mBZOIlsjPu9eTEyYfg4SP/UhBiGeNBjPJViV9es
-	ZJ5iDpSrhkYwfDUGmq5+oRUdjH9TAA5x6kdmMCrXSKCbHOxPP/ovXVlTNSWe3XVMaN6
-	S7BGahYJBdkE1cSLN6DurGEZnSudH+J+16TfmbqE=
-Received: by mx.zohomail.com with SMTPS id 1766062671625400.16637177596033;
-	Thu, 18 Dec 2025 04:57:51 -0800 (PST)
+	bh=PwRQjIGkhjDWwlzr0m8u9shXY9S6IfLiEtsbgCw2Q40=;
+	b=cfEBC9wD74zkqgD3C+yK0zvONOfkNv8MIekt5xe1lZrrHwbjZisKIe/dCU0X2U0G
+	svqJ2jI0ihKuyfZTsn0KItSqUYC04ie10IOdobnKDHrN3KYveoCa2lOF9lmJBgqa76u
+	jjpPKObwjzwJdOlF4Qt+SbIJk2vZDhLb/uquzAyQ=
+Received: by mx.zohomail.com with SMTPS id 1766062678850418.2281420795334;
+	Thu, 18 Dec 2025 04:57:58 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Thu, 18 Dec 2025 13:55:12 +0100
-Subject: [PATCH v4 22/25] scsi: ufs: mediatek: Back up idle timer in
- per-instance struct
+Date: Thu, 18 Dec 2025 13:55:13 +0100
+Subject: [PATCH v4 23/25] scsi: ufs: mediatek: Make scale_us in
+ setup_clk_gating const
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251218-mt8196-ufs-v4-22-ddec7a369dd2@collabora.com>
+Message-Id: <20251218-mt8196-ufs-v4-23-ddec7a369dd2@collabora.com>
 References: <20251218-mt8196-ufs-v4-0-ddec7a369dd2@collabora.com>
 In-Reply-To: <20251218-mt8196-ufs-v4-0-ddec7a369dd2@collabora.com>
 To: Alim Akhtar <alim.akhtar@samsung.com>, 
@@ -78,8 +78,8 @@ Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_045801_173492_05C7756F 
-X-CRM114-Status: GOOD (  15.55  )
+X-CRM114-CacheID: sfid-20251218_045810_732271_2F3176B2 
+X-CRM114-Status: GOOD (  12.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,77 +94,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MediaTek UFS driver uses a function-scope static variable to back up
-a hardware register across a power change in the
-ufs_mtk_pwr_change_notify function. This is dangerous, as it's only
-correct if only ever one instance of the driver is loaded, which isn't
-true if there's more than one device on a SoC that needs it, or it
-otherwise gets loaded a second time.
+The scale_us values are constant, and should be declared as such. Do
+this, and use ARRAY_SIZE instead of a fixed <= comparison before
+accessing members of the array, to avoid possible future mistakes.
 
-Back it up into a member of the host struct instead, as this struct is
-per-instance. Rework the function to not use a pointless "ret" local as
-well.
+This results in the same assembly with clang, so there is no functional
+change, but it makes me feel better.
 
-Fixes: f5ca8d0c7a63 ("scsi: ufs: host: mediatek: Disable auto-hibern8 during power mode changes")
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/ufs/host/ufs-mediatek.c | 20 ++++++++------------
- drivers/ufs/host/ufs-mediatek.h |  1 +
- 2 files changed, 9 insertions(+), 12 deletions(-)
+ drivers/ufs/host/ufs-mediatek.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
-index 4e545cc414ac..147beb46a447 100644
+index 147beb46a447..7c5d30a79456 100644
 --- a/drivers/ufs/host/ufs-mediatek.c
 +++ b/drivers/ufs/host/ufs-mediatek.c
-@@ -1416,28 +1416,24 @@ static int ufs_mtk_pwr_change_notify(struct ufs_hba *hba,
- 				const struct ufs_pa_layer_attr *dev_max_params,
- 				struct ufs_pa_layer_attr *dev_req_params)
+@@ -942,10 +942,10 @@ static void ufs_mtk_init_clocks(struct ufs_hba *hba)
+ 
+ static void ufs_mtk_setup_clk_gating(struct ufs_hba *hba)
  {
--	int ret = 0;
--	static u32 reg;
-+	struct ufs_mtk_host *host = ufshcd_get_variant(hba);
++	const u32 scale_us[] = {1, 10, 100, 1000, 10000, 100000};
+ 	unsigned long flags;
+ 	u32 ah_ms = 10;
+ 	u32 ah_scale, ah_timer;
+-	u32 scale_us[] = {1, 10, 100, 1000, 10000, 100000};
  
- 	switch (stage) {
- 	case PRE_CHANGE:
- 		if (ufshcd_is_auto_hibern8_supported(hba)) {
--			reg = ufshcd_readl(hba, REG_AUTO_HIBERNATE_IDLE_TIMER);
-+			host->hibernate_idle_timer = ufshcd_readl(
-+				hba, REG_AUTO_HIBERNATE_IDLE_TIMER);
- 			ufs_mtk_auto_hibern8_disable(hba);
+ 	if (ufshcd_is_clkgating_allowed(hba)) {
+ 		if (ufshcd_is_auto_hibern8_supported(hba) && hba->ahit) {
+@@ -953,7 +953,7 @@ static void ufs_mtk_setup_clk_gating(struct ufs_hba *hba)
+ 					  hba->ahit);
+ 			ah_timer = FIELD_GET(UFSHCI_AHIBERN8_TIMER_MASK,
+ 					  hba->ahit);
+-			if (ah_scale <= 5)
++			if (ah_scale < ARRAY_SIZE(scale_us))
+ 				ah_ms = ah_timer * scale_us[ah_scale] / 1000;
  		}
--		ret = ufs_mtk_pre_pwr_change(hba, dev_max_params,
--					     dev_req_params);
--		break;
-+		return ufs_mtk_pre_pwr_change(hba, dev_max_params, dev_req_params);
- 	case POST_CHANGE:
- 		if (ufshcd_is_auto_hibern8_supported(hba))
--			ufshcd_writel(hba, reg, REG_AUTO_HIBERNATE_IDLE_TIMER);
--		break;
--	default:
--		ret = -EINVAL;
--		break;
-+			ufshcd_writel(hba, host->hibernate_idle_timer,
-+				      REG_AUTO_HIBERNATE_IDLE_TIMER);
-+		return 0;
- 	}
  
--	return ret;
-+	return -EINVAL;
- }
- 
- static int ufs_mtk_unipro_set_lpm(struct ufs_hba *hba, bool lpm)
-diff --git a/drivers/ufs/host/ufs-mediatek.h b/drivers/ufs/host/ufs-mediatek.h
-index 9586fe9c0441..59fc432c84b5 100644
---- a/drivers/ufs/host/ufs-mediatek.h
-+++ b/drivers/ufs/host/ufs-mediatek.h
-@@ -189,6 +189,7 @@ struct ufs_mtk_host {
- 	u16 ref_clk_gating_wait_us;
- 	u32 ip_ver;
- 	bool legacy_ip_ver;
-+	u32 hibernate_idle_timer;
- 
- 	bool mcq_set_intr;
- 	bool is_mcq_intr_enabled;
 
 -- 
 2.52.0
