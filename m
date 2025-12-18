@@ -4,60 +4,205 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4A98D6ACF1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 12:20:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E990CD6ACF5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 12:26:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8gCsoRPXq8HBtgip3JToLrUCxpLycBpcDqFKAnkAsok=; b=3hTSgg6155EzCoCRMC9mP5stBi
-	NIObnUDEpz576VxpVWWYeSCVAIZWRjkXfsPDPvxQUQMRZfY/OlHfE3quH4TgoTaBZc+dReRFsOG5X
-	KfqOH7kZ0PWP9D3+lU48Qsu85f501apuGckL07+PuZuCyzRJw2uwCGjLKIxOKLrEVKRPiZuMIVzoD
-	4UF4xmGFIUE4XMg3dTlkndPN1n1hYNc1T6GPEyaUtyqGgogYIF8/uwCtAuX8xskB0h7C69PnNKdC4
-	ZwEaXMmjTnWbY6iqn3pgV17oDgyeifXM66yApbXiL1bQoRDVbGBwMSfI3lPemOAmuYFuy3C0L9/L5
-	67tzvT1A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ys9hWX3h7L0VUT9cVw2f9M2ONefcE+XaONp+HdKO+8A=; b=iy6fWmQQVttfP5RpH1YDUQIUzY
+	+3KR3G7ClJzNjlV/wYud9oV2HZoP0oWyJPnii8jjUeOqj9+JCrr58DYklLQu7oSBhOrNySLxsWiWZ
+	Hu3j2GPZ2c03TpG2MXqRC07sQu6YB80k+iZJAXQejS1UuTWqXFEVJejmF9pTsME6bhFfwjShEkeHl
+	WgTW8fTqogNADD38G19ew/fbMNi0tkMbV1HwVXRNt8PPY0bHhpRAZwjDXSfhdt4b5Uq2enXyOzGVn
+	+Skwsy+03hBzJ0CD8DZYlJ9TAJ9W9P1AI1gVJCCYJBzVoXMYjQflMTnbZj3XFLyI0O/5SIIdb7qLU
+	yOYdjnXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWCzW-00000008PxG-3Hy6;
-	Thu, 18 Dec 2025 12:20:22 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWCzS-00000008Pwh-3qaF
+	id 1vWD5E-00000008QDI-2cmE;
+	Thu, 18 Dec 2025 12:26:16 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vWD5B-00000008QCU-2dUr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 12:20:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3F75EFEC;
-	Thu, 18 Dec 2025 04:20:10 -0800 (PST)
-Received: from [10.1.39.180] (unknown [10.1.39.180])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 929F73F762;
-	Thu, 18 Dec 2025 04:20:14 -0800 (PST)
-Message-ID: <d3b40df8-e5cf-42aa-8205-de624024fad1@arm.com>
-Date: Thu, 18 Dec 2025 12:20:13 +0000
+	Thu, 18 Dec 2025 12:26:15 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=kmCccT0+GcqDGzMMbenuyg9DU4w6OfNnwqH8+vnT4/4yOk78WTABjvDQHCmgJ+5MBtJrqDkM7XRrTrelybYTmNm47oPs2c8PwOjW35ZcFVRUBlZHKlnoSQNq6sgwFRmEmG0p+VD50w+i0ggQ0Dn2HiH+CDHnbjJh1FIJK4PokUSblbwb7K+sUwF5nz4voo48ESs6Kkkn4rx3jJlzP0X5fhnZfym3pfTH3eAV2ZxxfZVWaUUsebbt9K6N6OV0yK/jOrpt8c1qUNbVecSR0hPX3yJwD7y38bALjbPrTUh024vY1cKe/9v1jHm0KcSNcaHfR9iosFICud8u8oomStvUkQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ys9hWX3h7L0VUT9cVw2f9M2ONefcE+XaONp+HdKO+8A=;
+ b=rnUq3Rs36vV4NzERW7MM4H+IPK5dAzMaXw0YNGoUGhkGIdcjSacQMqID6kHtZ41322Eoe7SgdSuHjhJ1Au5b/Sb6EAcva5ztUgUhPb6n8d8dqEGMzLoPO3UWpfbr6QQHQV9fnqwkpm5/RHifPvoAjDuopv7WH5/085s/5ozPlg4HqceBigT8g9yfg9UwFwlXbTxdf5QjQhlcuCf03vLMiO5LapjSrRDiQVDli8o5JyF4zMThLkA5+J0MCVaM6RM497tXbY0M4Zz335NuU8qvHVUI4zA8ELIKDDsVf/0LlUkM0b2u5owu/r6dh9Hjq8yaoqtZEjWr+flYgQszboGUkg==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=suse.com smtp.mailfrom=arm.com; dmarc=pass
+ (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
+ (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ys9hWX3h7L0VUT9cVw2f9M2ONefcE+XaONp+HdKO+8A=;
+ b=fZGYZoxqJCdarZ4hsW/J9AVkyT7pM0JElMVO/YW+VsxSbwS/jTkJe6tPEFLUJLJ2KhPvQepRxX3dMvqFKkVXTANopUnhiNpBbwCSIf9R0qp14U2aSllcYPcJIxd/Lmx35dQPpXVWvIAjTiXaCH7pfnGNPy8xgxz5+/onuaCR95Q=
+Received: from AS4P190CA0021.EURP190.PROD.OUTLOOK.COM (2603:10a6:20b:5d0::6)
+ by GV2PR08MB11348.eurprd08.prod.outlook.com (2603:10a6:150:2a6::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.8; Thu, 18 Dec
+ 2025 12:26:02 +0000
+Received: from AMS0EPF000001A3.eurprd05.prod.outlook.com
+ (2603:10a6:20b:5d0:cafe::30) by AS4P190CA0021.outlook.office365.com
+ (2603:10a6:20b:5d0::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.7 via Frontend Transport; Thu,
+ 18 Dec 2025 12:25:58 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AMS0EPF000001A3.mail.protection.outlook.com (10.167.16.228) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.6
+ via Frontend Transport; Thu, 18 Dec 2025 12:26:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KRGL2VfmIfEA0jrVIy9GUAFWIUyGtI1yQKVhvdS24pSOU1bN5/c8B9JCyz1wX1FdtCSdoCUFMXkPa0h0R5OlCBSeqPc4OJybKpX7lvwGjvCTKJtz9UldWuWyByPavoWiVA+rPcqehsd1VZo+En0QKAQXhOJS4/BZz3gUKu+At/482eNstJ+NtGcK3fdSl24cvUuVVbBXJJMwq7rxwz734KwXAvdcr8IuYaEw1mcyCnc+tI98BiaWMbnlcOi9SUhWbht7HeFAOMpAfkmdULBN7U4HNJ5V/3BpybyQZJtnjX/eOl2EqZ8190n/FDj6iKWcV1mywUuhzNFgn3la/uBAeQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ys9hWX3h7L0VUT9cVw2f9M2ONefcE+XaONp+HdKO+8A=;
+ b=t4ZosobpbJjnt4Zy2R1Bm8SzV/8GYnHKaGZxNnZXhZpMCkzKWr1AvE683vtxvcT5AUdWDXOHVnrqtSJJ3zs8vBkQG6C5vNYepdRjn9zHxX7EnOXfHeG5tqRu/tBuzsWStDDZTv4lvuZtOf4mwwgnzu8dkkn0JX+iYP8dJpsHrJoC6Ns9nqXnVXctmKlYBmfq4PpJ6Zz+Aj1aXAZN9PAXhgGEwGORU6WB9FlctLR4652icRvoD4eZBGLf1cyxdk2p1IkMuXsiGE4aUZDEfSFjqhSyZdLau5G14T7Wa7y78w9XHFp+Onz+CGu8d3JGyY4p8/QsbQrrrVieiUMgGWsmHQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ys9hWX3h7L0VUT9cVw2f9M2ONefcE+XaONp+HdKO+8A=;
+ b=fZGYZoxqJCdarZ4hsW/J9AVkyT7pM0JElMVO/YW+VsxSbwS/jTkJe6tPEFLUJLJ2KhPvQepRxX3dMvqFKkVXTANopUnhiNpBbwCSIf9R0qp14U2aSllcYPcJIxd/Lmx35dQPpXVWvIAjTiXaCH7pfnGNPy8xgxz5+/onuaCR95Q=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20) by AS8PR08MB5912.eurprd08.prod.outlook.com
+ (2603:10a6:20b:29f::12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.6; Thu, 18 Dec
+ 2025 12:24:58 +0000
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::d430:4ef9:b30b:c739%3]) with mapi id 15.20.9434.001; Thu, 18 Dec 2025
+ 12:24:58 +0000
+Date: Thu, 18 Dec 2025 12:24:54 +0000
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Michal Hocko <mhocko@suse.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>, akpm@linux-foundation.org,
+	david@kernel.org, lorenzo.stoakes@oracle.com,
+	Liam.Howlett@oracle.com, vbabka@suse.cz, rppt@kernel.org,
+	surenb@google.com, ast@kernel.org, daniel@iogearbox.net,
+	andrii@kernel.org, martin.lau@linux.dev, eddyz87@gmail.com,
+	song@kernel.org, yonghong.song@linux.dev, john.fastabend@gmail.com,
+	kpsingh@kernel.org, sdf@fomichev.me, haoluo@google.com,
+	jolsa@kernel.org, jackmanb@google.com, hannes@cmpxchg.org,
+	ziy@nvidia.com, bigeasy@linutronix.de, clrkwllms@kernel.org,
+	rostedt@goodmis.org, catalin.marinas@arm.com, will@kernel.org,
+	kevin.brodsky@arm.com, dev.jain@arm.com,
+	yang@os.amperecomputing.com, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/2] arm64: mmu: use pagetable_alloc_nolock() while
+ stop_machine()
+Message-ID: <aUPyllWslvMakLMx@e129823.arm.com>
+References: <20251212161832.2067134-1-yeoreum.yun@arm.com>
+ <20251212161832.2067134-3-yeoreum.yun@arm.com>
+ <aUPJuZINNuNxddRX@tiehlicka>
+ <aUPLCPAyxkPeBaoD@e129823.arm.com>
+ <0d08b4bf-35c5-4c63-964b-ef886b8262d9@arm.com>
+ <aUPw1YFNLf7ONqe9@tiehlicka>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aUPw1YFNLf7ONqe9@tiehlicka>
+X-ClientProxiedBy: LO4P265CA0156.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:2c7::18) To GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] arm64: mm: support batch clearing of the young
- flag for large folios
-Content-Language: en-GB
-To: Baolin Wang <baolin.wang@linux.alibaba.com>, akpm@linux-foundation.org,
- david@kernel.org, catalin.marinas@arm.com, will@kernel.org
-Cc: lorenzo.stoakes@oracle.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
- rppt@kernel.org, surenb@google.com, mhocko@suse.com, riel@surriel.com,
- harry.yoo@oracle.com, jannh@google.com, willy@infradead.org,
- baohua@kernel.org, linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <cover.1765439380.git.baolin.wang@linux.alibaba.com>
- <e10f876ce130134fa089befe83f30561b48b9889.1765439380.git.baolin.wang@linux.alibaba.com>
- <1beaa7de-4b31-4f19-abee-83872f868e28@arm.com>
- <96c0adcc-abfd-4a44-be93-1c6bd7942d6d@linux.alibaba.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <96c0adcc-abfd-4a44-be93-1c6bd7942d6d@linux.alibaba.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|AS8PR08MB5912:EE_|AMS0EPF000001A3:EE_|GV2PR08MB11348:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8a05b1ae-7124-45ae-fb3e-08de3e309b86
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?RSPsB59X+PF3sMX1/h64jk2xT9cb4dBN4aMP7D9GYCTVFcW9ZaRG29FeROvb?=
+ =?us-ascii?Q?ebMN66LtKJTTVx1DrtO55qvBaTGiDQOpqn1I/lMVig439AZT9gWHYNpxn1bF?=
+ =?us-ascii?Q?YSd3bU1UiSDc33FtCq7l7KbYO8mJZF9fCSYx/y7nsGHynwRo4WhRmeyZJdUz?=
+ =?us-ascii?Q?iiZTgg67JyVvTR4V6bIIULNbHW6h5E1TzMv0SvIqx85D5+mZY21SnK6G9o8c?=
+ =?us-ascii?Q?NaBApfHgFu927blueJgQB5iV/YzVtrMtOPfN8/jew1oNXdeJy6pwP02s+r9c?=
+ =?us-ascii?Q?afHa7oXwq6cQr5CHFmGps2INGBBDqGqOtSizsZ6THuqrbHzuDyvnRkfUCNnf?=
+ =?us-ascii?Q?qeOzcp4O11atwn+2qiw5Wd2NaFPEnJowRO7vNQiJx6+GbT1vJYA4r/YqTMjR?=
+ =?us-ascii?Q?qSe3GJVo2TBAeDlDRcu6vjfcKYNAnrydO7turVMXrZfIEOSNIXDXi7yvysRd?=
+ =?us-ascii?Q?+1neqq1YbUIUViTn+Iw8HVe5MDr1lObbGlOSQN+QryGdaG0vBTgK/Gn8UiZp?=
+ =?us-ascii?Q?x+99dx61pXvGf1kJtKyMfQY/pxbJdv9NadLqp2HNQEVGDQuf0yMRogJ2JweM?=
+ =?us-ascii?Q?6CWB2MYcQDlbsQ6zhmO0Mqj+mefRusLUAkErg3v+4sbkhPgo8bmqqFY5FWAp?=
+ =?us-ascii?Q?aadbtZ4j5280Ozc4b/zRyMuLc/M/x4OhWj+v5i0hqrX1TXtuhLrQ2q8+wKZR?=
+ =?us-ascii?Q?qAiklux18CDbwzy7Vdcz8Psz2v44wVktzcikfYHrM9ZsuECZwioyUFtFMZAt?=
+ =?us-ascii?Q?277XS7hqlRO70EGtCE7Xw0wABWO7p2yltoR2dJvlt1DQVXxAIyaacDZHynFE?=
+ =?us-ascii?Q?3k2eW1thCcj0KFti6XjqqcXkgq0dyWrPM8hK9mnr7/8U52sD/lubbXf/F7KW?=
+ =?us-ascii?Q?LMqPMYXdivxOV9tRUMx5s9gYli0QukyBa9cTIzSzNwr2bauexCW9NOfBnu3U?=
+ =?us-ascii?Q?XyaSSeoDWYfUPLHJzQ/BzUrTbwqeQDaOCtbHODrcumh8Bjz0G7FkrXljEElF?=
+ =?us-ascii?Q?pj/3ecWWY1/vTWrhC4ClNavPVCDDOg1WTAM3RTmoplUgxx1WS8NKa+HeL+uo?=
+ =?us-ascii?Q?LeCIPkjBZ1eR+cswNuy4+GRdpaUwmAza4SdJ4RFjzgbF0mX6UZ8PmBOo8J8q?=
+ =?us-ascii?Q?yDxjokDED8N/AMpYb0UvyiKZOGJgeqpf07viUTv8tctfczY9qXLySblH497F?=
+ =?us-ascii?Q?nWupSDIVpbH9q2f5RK+XCruQ2B+ZBSXlveffaYcgAl7xAI/wOjJ55vUZPrGC?=
+ =?us-ascii?Q?xR5felRwne5STNJ/lyuSeeD6MCGwnFDAU2z9id8Hw2XqUJJm43+nFcsXLC5C?=
+ =?us-ascii?Q?S4qVJpmPKt/fUArw1L3Lej7iKJvxErdwUvfaQWwP6H5wyJCBc3Cgw3ulLCgq?=
+ =?us-ascii?Q?QDCxuzVrfV+4lAiUR/hI0mFjaVwTzG8/0wVRGgsBD43p7/Y2UmdEra3TiTlD?=
+ =?us-ascii?Q?u4obtKt8NJGoRiPIY99zvqh5SR/K25IfSeomDodXDMJCE5b78gTeOQ=3D=3D?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB5912
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS0EPF000001A3.eurprd05.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 40ca2d27-c175-4e1e-b660-08de3e307558
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|14060799003|35042699022|36860700013|7416014|376014|13003099007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?cVIWGui3MkyPeELeUCByxQEwKo7It2OY4Jfa9TXkauR9OxgXMu+uJZi47+FM?=
+ =?us-ascii?Q?ZSrAsBfm4sDs29WAJT4bhkd3jjYnqw3gbyj7AnE1wx2SqRrrCjwVTAPiW7TX?=
+ =?us-ascii?Q?it4fUym5kolo8aXme6bWI2Si4rUCvzZJIGSm3moA9Wx/U15pqFaIrHq/quXk?=
+ =?us-ascii?Q?BFjUIVbF3j6cdR6WFmfQ4E/WBMgiV2ef4YyzI1KmnnC/c9B0+sDpCmvSmMRm?=
+ =?us-ascii?Q?nyMmETb2kfqChwzkpqvwHwHu0udVz1KRcVZmXm5qnviebdARvBqNIVJCcLYD?=
+ =?us-ascii?Q?jIUGmZx32jxa5OpRxg3k3AH1d2M9TA18Fkkk3KlLQlszMMvtL+Hgxy/SCX3t?=
+ =?us-ascii?Q?LXWhFu5tIt5duXU6+7nuAq3Qqf7lccndF66IHisJsRDvRrHA3M6AC+3E26Wp?=
+ =?us-ascii?Q?WgNeLSXL5pcuxLjb5hg6F3weyBsKZVwIqJHWeAX4KlC/+nhcdMR8XNSwEO6R?=
+ =?us-ascii?Q?Sxvmg5GkgeBaJhKRki4ygI+GiOjkS006niFRFk4X2ra5KYPKmO9WclibUjFD?=
+ =?us-ascii?Q?ik5+RVSOFYqOpVmZib71sle/dwvxKpd8Xm9Hh7sVGYm7HCfIzHnYxH/qvHNw?=
+ =?us-ascii?Q?l8VvMmjCopzZuxgIY81AmKr8OYfDSD6VdnbzrMsKWkNx5k5U04tE0h1oDGe1?=
+ =?us-ascii?Q?MxfalxyJGT4DLG/yIh7LWvn+pF1GU4A7riCkpKZv/fCCLsyk7835HxoT+NNt?=
+ =?us-ascii?Q?seiZS+BE1XcbzzY8OAC8L/hGc4sRAK3qxGa6Up+8KCC0xnh1qJliVGllwa7i?=
+ =?us-ascii?Q?NytRb/f0pW30+oNqgovDwXBdZMF0ar2pvwayj0JD9Z620MgVI8mSJ5bUA3LO?=
+ =?us-ascii?Q?hYHahqtxLpLK9oiKcpOLe0ZvXNUZljziUwzOBv7Rf+XnXzzAVeiHN7lst4kw?=
+ =?us-ascii?Q?ArwrZstJtwPDsvOrHA1JUA5NDNpVWgCofh0bgA7PrnDggNDoed9CgtHM+MLU?=
+ =?us-ascii?Q?ZY+rksg95YPVNATytw+WMa4jyh6Wc4+Fmp7FWjdzzz/4COSiGsefosP8CR1r?=
+ =?us-ascii?Q?HzeQen+gubg5pCkL/BvyvMYCYVYveXKvTEs9w84K7larcQZXfBSRb2dBxD+C?=
+ =?us-ascii?Q?4oOiTsBFvUgwzLfQm8TBxG4cPjR6/0qjXptYUg4/qaQI8/jmUmtcVX8TA1Lb?=
+ =?us-ascii?Q?/QV3BvC89JPwtXrIyvOaA1VC1SpXTJ5Qh4lezRTrhMf09ayeh0NqDixmJyT+?=
+ =?us-ascii?Q?IF7r5jtDNu8vvB7WzZCbeixV6HX7RgYnYOqK56H9uwp/y/QD7/4XqIllFLJd?=
+ =?us-ascii?Q?HnfBX3FM/LjNcnhdeeNvMbDXRr1jAqx2885h5Zb1/axKkVEggPsVeKoBtoWO?=
+ =?us-ascii?Q?DCxJkDcko/gcv0dWJQazOFutAqKhPzPoIiQekniuwOE1qRfPXljSjbpzdsCF?=
+ =?us-ascii?Q?kPsw8OoLxRdw80CM4/IBpaw+P0CcftVFqaLTA2s349pBMVdvlP7xqn5yQpC0?=
+ =?us-ascii?Q?zjvF2+1Mwq1RMD6ZMla3/w20toxNIlz4lDdk/681FYOo9Fd8rYP5IzCcAqZv?=
+ =?us-ascii?Q?J5EZdtRBNX7stoL5oUvTFgK0yNe3btZ+Uswg/HtD+KHZWIXd/qRwMDCoqDeN?=
+ =?us-ascii?Q?5cWAZ1YhcSsu0vn1FBGw2q3jyt5dbPTT/eYBWQQs?=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(14060799003)(35042699022)(36860700013)(7416014)(376014)(13003099007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Dec 2025 12:26:02.1326
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8a05b1ae-7124-45ae-fb3e-08de3e309b86
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001A3.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB11348
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_042019_046941_4C748263 
-X-CRM114-Status: GOOD (  25.00  )
+X-CRM114-CacheID: sfid-20251218_042614_339316_E2A2F88A 
+X-CRM114-Status: GOOD (  20.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,180 +217,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/12/2025 07:15, Baolin Wang wrote:
-> 
-> 
-> On 2025/12/17 23:43, Ryan Roberts wrote:
->> Sorry I'm a bit late to the party...
-> 
-> Never mind. It's not late and comments are always welcome :)
-> 
->> On 11/12/2025 08:16, Baolin Wang wrote:
->>> Currently, contpte_ptep_test_and_clear_young() and
->>> contpte_ptep_clear_flush_young()
->>> only clear the young flag and flush TLBs for PTEs within the contiguous range.
->>> To support batch PTE operations for other sized large folios in the following
->>> patches, adding a new parameter to specify the number of PTEs.
->>>
->>> While we are at it, rename the functions to maintain consistency with other
->>> contpte_*() functions.
->>>
->>> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
->>> ---
->>>   arch/arm64/include/asm/pgtable.h | 12 ++++-----
->>>   arch/arm64/mm/contpte.c          | 44 ++++++++++++++++++++++----------
->>>   2 files changed, 37 insertions(+), 19 deletions(-)
->>>
->>> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
->>> index 0944e296dd4a..e03034683156 100644
->>> --- a/arch/arm64/include/asm/pgtable.h
->>> +++ b/arch/arm64/include/asm/pgtable.h
->>> @@ -1679,10 +1679,10 @@ extern void contpte_clear_full_ptes(struct mm_struct
->>> *mm, unsigned long addr,
->>>   extern pte_t contpte_get_and_clear_full_ptes(struct mm_struct *mm,
->>>                   unsigned long addr, pte_t *ptep,
->>>                   unsigned int nr, int full);
->>> -extern int contpte_ptep_test_and_clear_young(struct vm_area_struct *vma,
->>> -                unsigned long addr, pte_t *ptep);
->>> -extern int contpte_ptep_clear_flush_young(struct vm_area_struct *vma,
->>> -                unsigned long addr, pte_t *ptep);
->>> +extern int contpte_test_and_clear_young_ptes(struct vm_area_struct *vma,
->>> +                unsigned long addr, pte_t *ptep, unsigned int nr);
->>> +extern int contpte_clear_flush_young_ptes(struct vm_area_struct *vma,
->>> +                unsigned long addr, pte_t *ptep, unsigned int nr);
->>
->> The "contpte_" functions are intended to be private to the arm64 arch and should
->> be exposed via the generic APIs. But I don't see any generic batched API for
->> this, so you're only actually able to pass CONT_PTES as nr. Perhaps you're
->> planning to define "test_and_clear_young_ptes()" and "clear_flush_young_ptes()"
->> in later patches?
-> 
-> Right. This is a preparation patch, and will be used in patch 2.
-> 
->>>   extern void contpte_wrprotect_ptes(struct mm_struct *mm, unsigned long addr,
->>>                   pte_t *ptep, unsigned int nr);
->>>   extern int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
->>> @@ -1854,7 +1854,7 @@ static inline int ptep_test_and_clear_young(struct
->>> vm_area_struct *vma,
->>>       if (likely(!pte_valid_cont(orig_pte)))
->>>           return __ptep_test_and_clear_young(vma, addr, ptep);
->>>   -    return contpte_ptep_test_and_clear_young(vma, addr, ptep);
->>> +    return contpte_test_and_clear_young_ptes(vma, addr, ptep, CONT_PTES);
->>>   }
->>>     #define __HAVE_ARCH_PTEP_CLEAR_YOUNG_FLUSH
->>> @@ -1866,7 +1866,7 @@ static inline int ptep_clear_flush_young(struct
->>> vm_area_struct *vma,
->>>       if (likely(!pte_valid_cont(orig_pte)))
->>>           return __ptep_clear_flush_young(vma, addr, ptep);
->>>   -    return contpte_ptep_clear_flush_young(vma, addr, ptep);
->>> +    return contpte_clear_flush_young_ptes(vma, addr, ptep, CONT_PTES);
->>>   }
->>>     #define wrprotect_ptes wrprotect_ptes
->>> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
->>> index c0557945939c..19b122441be3 100644
->>> --- a/arch/arm64/mm/contpte.c
->>> +++ b/arch/arm64/mm/contpte.c
->>> @@ -488,8 +488,9 @@ pte_t contpte_get_and_clear_full_ptes(struct mm_struct *mm,
->>>   }
->>>   EXPORT_SYMBOL_GPL(contpte_get_and_clear_full_ptes);
->>>   -int contpte_ptep_test_and_clear_young(struct vm_area_struct *vma,
->>> -                    unsigned long addr, pte_t *ptep)
->>> +int contpte_test_and_clear_young_ptes(struct vm_area_struct *vma,
->>> +                    unsigned long addr, pte_t *ptep,
->>> +                    unsigned int nr)
->>>   {
->>>       /*
->>>        * ptep_clear_flush_young() technically requires us to clear the access
->>> @@ -500,39 +501,56 @@ int contpte_ptep_test_and_clear_young(struct
->>> vm_area_struct *vma,
->>>        * having to unfold.
->>>        */
->>>   +    unsigned long start = addr;
->>
->> Personally I wouldn't bother defining start - just reuse addr. You're
->> incrementing start in the below loop, so it's more appropriate to call it addr
->> anyway.
-> 
-> OK.
-> 
->>> +    unsigned long end = start + nr * PAGE_SIZE;
->>>       int young = 0;
->>>       int i;
->>>   -    ptep = contpte_align_down(ptep);
->>> -    addr = ALIGN_DOWN(addr, CONT_PTE_SIZE);
->>> +    if (pte_cont(__ptep_get(ptep + nr - 1)))
->>> +        end = ALIGN(end, CONT_PTE_SIZE);
->>>   -    for (i = 0; i < CONT_PTES; i++, ptep++, addr += PAGE_SIZE)
->>> -        young |= __ptep_test_and_clear_young(vma, addr, ptep);
->>> +    if (pte_cont(__ptep_get(ptep))) {
->>> +        start = ALIGN_DOWN(start, CONT_PTE_SIZE);
->>> +        ptep = contpte_align_down(ptep);
->>> +    }
->>> +
->>> +    nr = (end - start) / PAGE_SIZE;
->>> +    for (i = 0; i < nr; i++, ptep++, start += PAGE_SIZE)
->>
->> Given you're now defining end, perhaps we don't need nr?
->>
->>     for (; addr != end; ptep++, addr += PAGE_SIZE)
->>         young |= __ptep_test_and_clear_young(vma, addr, ptep);
-> 
-> Yes, good point.
-> 
->>> +        young |= __ptep_test_and_clear_young(vma, start, ptep);
->>>         return young;
->>>   }
->>> -EXPORT_SYMBOL_GPL(contpte_ptep_test_and_clear_young);
->>> +EXPORT_SYMBOL_GPL(contpte_test_and_clear_young_ptes);
->>>   -int contpte_ptep_clear_flush_young(struct vm_area_struct *vma,
->>> -                    unsigned long addr, pte_t *ptep)
->>> +int contpte_clear_flush_young_ptes(struct vm_area_struct *vma,
->>> +                unsigned long addr, pte_t *ptep,
->>> +                unsigned int nr)
->>>   {
->>>       int young;
->>>   -    young = contpte_ptep_test_and_clear_young(vma, addr, ptep);
->>> +    young = contpte_test_and_clear_young_ptes(vma, addr, ptep, nr);
->>>         if (young) {
->>> +        unsigned long start = addr;
->>> +        unsigned long end = start + nr * PAGE_SIZE;
->>> +
->>> +        if (pte_cont(__ptep_get(ptep + nr - 1)))
->>> +            end = ALIGN(end, CONT_PTE_SIZE);
->>> +
->>> +        if (pte_cont(__ptep_get(ptep)))
->>> +            start = ALIGN_DOWN(start, CONT_PTE_SIZE);
->>> +
->>
->> We now have this pattern of expanding contpte blocks up and down in 3 places.
->> Perhaps create a helper?
-> 
-> Sounds reasonable. How about the following helper?
-> 
-> static pte_t *contpte_align_addr_ptep(unsigned long *start, unsigned long *end,
->                                         pte_t *ptep, unsigned int nr)
-> {
->         unsigned long end_addr = *start + nr * PAGE_SIZE;
-> 
->         if (pte_cont(__ptep_get(ptep + nr - 1)))
+> On Thu 18-12-25 12:02:14, Ryan Roberts wrote:
+> > On 18/12/2025 09:36, Yeoreum Yun wrote:
+> > > Hi,
+> > >> On Fri 12-12-25 16:18:32, Yeoreum Yun wrote:
+> > >>> linear_map_split_to_ptes() and __kpti_install_ng_mappings()
+> > >>> are called as callback of stop_machine().
+> > >>> That means these functions context are preemption disabled.
+> > >>>
+> > >>> Unfortunately, under PREEMPT_RT, the pagetable_alloc() or
+> > >>> __get_free_pages() couldn't be called in this context
+> > >>> since spin lock that becomes sleepable on RT,
+> > >>> potentially causing a sleep during page allocation.
+> > >>>
+> > >>> To address this, pagetable_alloc_nolock().
+> > >>
+> > >> As you cannot tolerate allocation failure and this is pretty much
+> > >> permanent allocation (AFAIU) why don't you use a static allocation?
+> > >
+> > > Because of when bbl2_noabort is supported, that pages doesn't need to.
+> > > If static alloc, that would be a waste in the system where bbl2_noabort
+> > > is supported.
+> > >
+> > > When I tested, these extra pages are more than 40 in my FVP.
+> > > So, it would be better dynamic allocation and I think since it's quite a
+> > > early time, it's probably not failed that's why former code runs as it
+> > > is.
+> >
+> > The required allocation size is also a function of the size of the installed RAM
+> > so a static worst case allocation would consume all the RAM on small systems.
+>
+> Understood. But is it possible to pre-allocate early on so that the
+> allocation itself doesn't have to happen from a constrained context.
 
-I think this is safe but calling it out to check; you're not checking that the
-pte is valid, so theoretically you could have a swap-entry here with whatever
-overlays the contiguous bit set. So then you would incorrectly extend.
+That's the same suggestion from Ryan
+(https://lore.kernel.org/all/100cc8da-b826-4fc2-a624-746bf6fb049d@arm.com/)
 
-But I think it is safe because the expectation is that core-mm has already
-checked that the whole range is present?
+And here is the v2 which have accepted his suggestion :)
+(But soon respin):
+https://lore.kernel.org/all/20251217182007.2345700-1-yeoreum.yun@arm.com/
 
->                 *end = ALIGN(end_addr, CONT_PTE_SIZE);
-> 
->         if (pte_cont(__ptep_get(ptep))) {
->                 *start = ALIGN_DOWN(*start, CONT_PTE_SIZE);
->                 ptep = contpte_align_down(ptep);
->         }
-> 
->         return ptep;
-> }
+Thanks ;)
 
-Looks good.
-
+--
+Sincerely,
+Yeoreum Yun
 
