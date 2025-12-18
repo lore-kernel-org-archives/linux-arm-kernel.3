@@ -4,113 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EAE5D68BF6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 10:18:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D410FD68BF6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 10:19:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k8P3dSNFA/GhK8GEMybLTUOwLzFl/O2mwjKhekloCEM=; b=myC8tlVUC5Sp0atsAyABJdfMom
-	OTCagEMoxugI0M0k8EVvojN9/M6pSufFOTpxHMlJSPMWNLmcaDUN8+Z3Cwt9itvLMIKj9QTnc6Kk1
-	Rytd9I0ARp7UeCJ69h12Gro2BPiLM5oTKK0dfSVF3JptaM8q3rDgvWuGA7dcLCdifHhhwyenmDnSM
-	lOuiQEqY1lErC63IJiic2LuI2FLW7lWRS+Wa58j3CJOgrvo/UYOgcivz83Zt6kR+3rZmWc8779Wtl
-	fn54q7sfvy8kSi+3yjSEinkqpIK6eVy9A7g6naf0snSH93HrqJ79MPrOVdSJRIbjULyU8tPCA37s2
-	ijpaQvcw==;
+	bh=aWdMku9LK5PFx1F1L2Z19osi5GnZTsR0+SmWdNSoHeY=; b=f9cQg89TIEUHblN2MoXSj42zrx
+	2tdjqqb1jKu1nVwTd7lH6c6/gZejn8xme6Z0FJ02fC4wtwe6FCrHNMGnBTIvQKA/5n3Da4ZL5lsGY
+	zycdJyGvOONHfJ6/i4KgdU92uTMIpW7aVzba0Gam91rpf4mRpt4IwqbOaHnAFgn6ZQiez1dzO1Ur2
+	0ZDOFuQQ6kNFQvjqv7Q5+jAF90Z8Y8iKZ8KFv85LBAWsG09kKyThfkesrjs3jPuAw1kHZjhkLs7a6
+	4tLqcPDftMGSVM9X3fUw/vmP54AyWsMZbUheK7o6hPbP4iRL7OHV07H/GOPoqMz/xcfRpDxmBgzQD
+	LDz0bz+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWB5B-00000008DlM-3sDj;
-	Thu, 18 Dec 2025 10:18:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vWB6t-00000008Dva-1Ua6;
+	Thu, 18 Dec 2025 10:19:51 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWB59-00000008Dl9-3wtK
+	id 1vWB6q-00000008DvA-3fvn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 10:18:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3EA4F600AE;
-	Thu, 18 Dec 2025 10:18:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15B25C4CEFB;
-	Thu, 18 Dec 2025 10:17:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766053082;
-	bh=bxrqB9iSN80kbhnaAWO3v0ub+BG8cV05W//Bp9WiPh0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jc1gq3brsBpzaQ7E4X3Ecd7VjX24JIW1WvIk1E0wQV2wYhF8nyJVte9F2SBYWDQJh
-	 A2ofSAaYE6Gf5VTYW0L60wcEg/z0f0RgNHKMpoN77FcZXFKLLlv2ql42kYbDd6fFSV
-	 Siz6bNPNjoIdKSTbms8QjpH6pVcyVhN7q5S1OpQt8aw1SQzVoky+Qwu23w/WWgq9DU
-	 72sSy6AYocZEJpDZEYG5ehzoA3oUiTPG/MFdaCirlhU/+ZPqz93EM2/KhR56ir6x4Z
-	 OhvUKtWu4N9LYealnEyH+nWEjvXQaBkWRp7GrBUgWXIY6dzHwIbLs95Kujo85Q3B+p
-	 fr5CxSedtIsmg==
-Message-ID: <a9537dc9-c767-4909-8b1c-6e939ce4f3fc@kernel.org>
-Date: Thu, 18 Dec 2025 11:17:57 +0100
+	Thu, 18 Dec 2025 10:19:50 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id A00BC1A22C0;
+	Thu, 18 Dec 2025 10:19:46 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 76546606B6;
+	Thu, 18 Dec 2025 10:19:46 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9BBCC102F0AE2;
+	Thu, 18 Dec 2025 11:19:39 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1766053181; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=aWdMku9LK5PFx1F1L2Z19osi5GnZTsR0+SmWdNSoHeY=;
+	b=dzXSoQqtVgMzu4RQ1UInBdB6ThGYAAG8CPz6Ms4jJHpK3wUVoG4UUr96ZEeGLEtMqB/6ME
+	7ccMp4X7w66U8kgoFUnwjK948/P+GhwE43xPtPzCEm5j2SiDSJlKrg+e5L+KXn7g+dzVXu
+	h23A9OjSGfRHl743SLDMt2qZIxSz7CmbzLc1ta4l5T6KYC5FNmvHCSjDeiDlmaZZSMgFlR
+	IpK/htyklTg0mYnPD6b8GZI+tb++AMlfgG2nlBK8hGspvMQOMS02Af2cIIwxG2KHR3fU8F
+	zBgSa4yrQhN4+zlpILc++fxww/xj/+5wf3rwXEYtPc7EKwa+uJA5+y+yltombg==
+Message-ID: <e8c4d832-3146-4fad-a0f6-0e2df77e83c0@bootlin.com>
+Date: Thu, 18 Dec 2025 11:19:39 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 5/8] dt-bindings: arm: add an interrupt property for
- Coresight CTCU
-To: Jie Gan <jie.gan@oss.qualcomm.com>, Rob Herring <robh@kernel.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
- Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, coresight@lists.linaro.org,
+Subject: Re: [PATCH v3 4/4] firmware: ti_sci: restore clock context during
+ resume in BOARDCFG_MANAGED mode
+To: Dhruva Gole <d-gole@ti.com>
+Cc: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>,
+ Santosh Shilimkar <ssantosh@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Gregory CLEMENT <gregory.clement@bootlin.com>,
+ richard.genoud@bootlin.com, Udit Kumar <u-kumar1@ti.com>,
+ Prasanth Mantena <p-mantena@ti.com>, Abhash Kumar <a-kumar2@ti.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org
-References: <20251211-enable-byte-cntr-for-ctcu-v8-0-3e12ff313191@oss.qualcomm.com>
- <20251211-enable-byte-cntr-for-ctcu-v8-5-3e12ff313191@oss.qualcomm.com>
- <20251211133723.GA859302-robh@kernel.org>
- <dfa43a63-ca14-4dd7-a7ab-acd95748a8b9@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ linux-clk@vger.kernel.org
+References: <20251205-ti-sci-jacinto-s2r-restore-irq-v3-0-d06963974ad4@bootlin.com>
+ <20251205-ti-sci-jacinto-s2r-restore-irq-v3-4-d06963974ad4@bootlin.com>
+ <20251217060727.idneboxj7kwslie2@lcpd911>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <dfa43a63-ca14-4dd7-a7ab-acd95748a8b9@oss.qualcomm.com>
+From: Thomas Richard <thomas.richard@bootlin.com>
+In-Reply-To: <20251217060727.idneboxj7kwslie2@lcpd911>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251218_021949_056464_CFE2B545 
+X-CRM114-Status: GOOD (  21.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,71 +86,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/12/2025 02:12, Jie Gan wrote:
-> 
-> 
-> On 12/11/2025 9:37 PM, Rob Herring wrote:
->> On Thu, Dec 11, 2025 at 02:10:44PM +0800, Jie Gan wrote:
->>> Add an interrupt property to CTCU device. The interrupt will be triggered
->>> when the data size in the ETR buffer exceeds the threshold of the
->>> BYTECNTRVAL register. Programming a threshold in the BYTECNTRVAL register
->>> of CTCU device will enable the interrupt.
->>>
->>> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
->>> Reviewed-by: Mike Leach <mike.leach@linaro.org>
->>> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
->>> ---
->>>   .../devicetree/bindings/arm/qcom,coresight-ctcu.yaml    | 17 +++++++++++++++++
->>>   1 file changed, 17 insertions(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
->>> index c969c16c21ef..90f88cc6cd3e 100644
->>> --- a/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
->>> +++ b/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
->>> @@ -39,6 +39,16 @@ properties:
->>>       items:
->>>         - const: apb
->>>   
->>> +  interrupts:
->>> +    items:
->>> +      - description: Byte cntr interrupt for the first etr device
->>> +      - description: Byte cntr interrupt for the second etr device
->>> +
->>> +  interrupt-names:
->>> +    items:
->>> +      - const: etrirq0
->>> +      - const: etrirq1
+On 12/17/25 7:07 AM, Dhruva Gole wrote:
+> On Dec 05, 2025 at 15:28:26 +0100, Thomas Richard (TI.com) wrote:
+>> In BOARDCFG_MANAGED mode, the firmware cannot restore the clock rates and
+>> the clock parents. This responsibility is therefore delegated to the ti_sci
+>> driver, which uses clk_restore_context() to trigger the context_restore()
+>> operation for all registered clocks, including those managed by the sci-clk
+>> driver. The sci-clk driver implements the context_restore() operation to
+>> ensure rates and clock parents are correctly restored.
 >>
->> Names are kind of pointless when it is just foo<index>.
+>> Signed-off-by: Thomas Richard (TI.com) <thomas.richard@bootlin.com>
+>> ---
+>>  drivers/firmware/ti_sci.c | 3 +++
+>>  1 file changed, 3 insertions(+)
+>>
+>> diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
+>> index 8d94745376e2a..6ef687e481c49 100644
+>> --- a/drivers/firmware/ti_sci.c
+>> +++ b/drivers/firmware/ti_sci.c
+>> @@ -9,6 +9,7 @@
+>>  #define pr_fmt(fmt) "%s: " fmt, __func__
+>>  
+>>  #include <linux/bitmap.h>
+>> +#include <linux/clk.h>
+>>  #include <linux/cpu.h>
+>>  #include <linux/debugfs.h>
+>>  #include <linux/export.h>
+>> @@ -3980,6 +3981,8 @@ static int ti_sci_resume_noirq(struct device *dev)
+>>  				if (ret)
+>>  					return ret;
+>>  			}
+>> +
+>> +			clk_restore_context();
 > 
-> Hi Rob,
-> 
-> I was naming them as etr0/etr1. Are these names acceptable?
+> Here as well, make it conditional to only BOARDCFG_MANAGED. Other
+> platforms/ firmwares have lived without this for a while now, and it's
+> evident that we don't always need this.
 
-Obviously irq is redundant, but how does etr0 solves the problem of
-calling it foo0?
-
-I don't think you really read Rob's comment.
-
-> The interrupts are assigned exclusively to a specific ETR device.
-> 
-> But Suzuki is concerned that this might cause confusion because the ETR 
-> device is named randomly in the driver. Suzuki suggested using ‘port-0’ 
-> and ‘port-1’ and would also like to hear your feedback on these names.
-
-There is no confusion here. Writing bindings luckily clarifies this what
-the indices in the array mean.
+It is already conditionally done to only BOARDCFG_MANAGED.
 
 > 
-> Usually, the probe sequence follows the order of the addresses. In our 
-> specification, ‘ETR0’ is always probed before ‘ETR1’ because its address 
-> is lower.
+> Thinking more about this, I think we're over using this BOARDCFG_MANAGED
+> mode a bit much. We should really just come up with new FW caps for
+> this, one for clk_restore , other for the previous IRQ restore patch.
+> 
+> That's the only way I can see this scaling. In future if we ever need
+> more devices that may actually be BOARDCFG_MANAGED, but don't need the
+> IRQ or clock restoration then the current approach won't work.
+> 
+> MODE should only be passed in the prepare_sleep, where it makes sense.
+> Using it for anything else just does not feel clean to me.
 
-How is this even relevant? You are answering to something completely
-different, so I don't think you really tried to understand review.
+Fair point. Restoring clocks and IRQs is more related to the fact that
+DM-Firmware on Jacinto platforms does not have suspend-resume support
+than the BOARDCFG_MANAGED mode. I guess we could imagine in the future
+having suspend-resume support in Jacinto DM-Firmware, so no need to
+restore clocks and IRQs anymore, but the mode remains BOARDCFG_MANAGED.
 
+Best Regards,
+Thomas
 
-
-Best regards,
-Krzysztof
 
