@@ -4,103 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B272D68BEB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 08:11:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08B5FD68BED
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 08:11:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=TCHXjv2VZsMwfFYNwJEOShlKvgPdJRBzvcTy9Q4p/48=; b=edf3fYb16cYtVD
-	4Jf+zpsoUiLnfaxa/h+AiYVQr6CzvgQ3I/lJLDPBrn5+OM4dAjL4tu26ut4/1zn646zOj8pqH6/F5
-	rXVENPCHRHkmMBUmxZqm0RQGvtJbrikkOClnIiS/psWLwuTzLirMaaUsl3UuGvSrGats0MwFDv2hb
-	yP/PFFx8gcV0Fs9iVmeZq8Fi0nmLVfMvHa2frGojcydxTD9dvkHWwn4iWp3Mv+fkLngnYkd9LmaIc
-	0zLinfnBKIuBCP0P3y3+AkOCngJ8y0HhLQZH0gAXjcSlOrRKge5XjOx2uRSaJLc7y68r8SkLYYzM/
-	qdFTaHyn4PLlv3lD8I5g==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cNH63exyhTmIcemy4/YjTfy8jDYpUWUjpvcUJrfWdgU=; b=fY466ozKM8TiVasUAigrRIiX1W
+	TbZQPKnsSSpZWgepy8XmOjJtnbZfFWNSV/iZ4wqrLAnlOiY6DfuHJDe1HqjFxBK9jbBWcHpGNaKVa
+	5U13Im3ZQaE4WqsPt1eSlCdbnQ7upSslYgoBIHOFLP0Wpb2YQ/acojeYpApv/5A4q7ihVVLn2I80S
+	NTXv9loszHmLMpxdBDjwWk1/jQhyx53LiWgQmjTDEzstR+MDjAB29PJUqJ/wAnCp2rBxy0QNjvlM/
+	/K9KuczEsFRsvdx+P4N/dFv0RdjTJEA03fv/FhmcwIG8GPSjgda9/Kck7k5D6o+GEq3oFfEHXK7WM
+	+nCphNNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vW95z-000000080n8-0h2q;
+	id 1vW95z-000000080nO-23Cq;
 	Thu, 18 Dec 2025 08:10:47 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vW95w-000000080lr-2ZiO
+	id 1vW95w-000000080lt-3gO9
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 18 Dec 2025 08:10:46 +0000
 Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BI1YVpJ4057299
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 08:10:42 GMT
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BI1YU1I4057276
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 08:10:44 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=TCHXjv2VZsMwfFYNwJEOSh
-	lKvgPdJRBzvcTy9Q4p/48=; b=gtifw28wKHhjmAbOFS666sg0d5Bpp1uSh2lNJD
-	KMO5vt5rl9ugqqMhvXO08Cft9Hpcf6FRaY14u9xDXuc+zEY6hBJ/BDJyoHn1p4NL
-	j71Iam1DysGrw1oqXDjGn+PH0VpKkMkY1Z90lTyBcxgm3zNqV7UglTyytZIWInwj
-	2FpcLSt+t1ADTohBsxnaehtpLPhesLYGmMvpcm4cevt4YOZdSRqZJLOJfEM9ghpw
-	fCbOMiN+pkmm1hlWLdDk3ct/7L0VnkdIWf0khexKtePrlU/XQHiARZeT4rvULpUT
-	/i7KtxRz6bQaC74kH9T0HZEkizyuQ5wFms2wX/LqFzCI9PdQ==
-Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4b3xr5ap6w-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	cNH63exyhTmIcemy4/YjTfy8jDYpUWUjpvcUJrfWdgU=; b=R0LckyiQx7Vz5Glw
+	JUHIvlCeO86pmxbCF3yddwHW4f2haJktLClGqNcYiXVxUeBuvkaFCdrYbveMMhed
+	Ox7aXp8aVx8UQWbazOMGOQgLZucJiMoGI9YtOZw7J/EwrlWhIORdezkvIOPG6cRp
+	edBqAeAeNxAo+KQ0P3iqtA1Us/xY2ZMKuZIDt++/DxSNCiyY1k9onhICdZGbzRAT
+	NDa6huCwKOU5TVjPyxtDOqoegf67GcZ+9gdx8SR+RmzlYeYnAe9DPxckoXTATaPM
+	RBzk6XmgYs1OGzIRkNLGkP1gCnut8q0mDAk/J80kihZSAttr+H8PApI3TTEWEbjX
+	d+VbCQ==
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4b3xr5ap72-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 08:10:42 +0000 (GMT)
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-34ac814f308so865046a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 00:10:42 -0800 (PST)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 08:10:43 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2a0bb1192cbso8679795ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 00:10:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1766045441; x=1766650241; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=TCHXjv2VZsMwfFYNwJEOShlKvgPdJRBzvcTy9Q4p/48=;
-        b=dNdH6tHl0NA5aR7C6SP6EWPR/1DijBAaApf1EIPGyEasoAqtSIBLqj6lJqO9l0JylH
-         QZ/FsMulMFahl1EasuldSNpzWlYRQmHbvaK/BokO2g0c1iiQ2AkLHQaJ7+VHyruytA0B
-         9w0p3yDDvn6VmHzfjhD61eQ5JroI3jwkzj/CHNV5+DOVjM48hn5Jtki7TTa73btCuSoX
-         jvkUuAWwXW4WSEikUBM1Vi9syt+wGuXWsBjia/96cSwRVUaJPCI15++RJQAUcNQxHkdJ
-         Ck025/sMu1gmnkXdOxhomQSRKyd+5funm4rZQ3sAJpqqvQwC4UUkZkk097iBjQXrw4Qv
-         IChA==
+        d=oss.qualcomm.com; s=google; t=1766045443; x=1766650243; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=cNH63exyhTmIcemy4/YjTfy8jDYpUWUjpvcUJrfWdgU=;
+        b=eRT9vgQJdOIodS3Fp0aKCOMG5os3fSEG1FueZX7lzE9K/G0H/uD/AZ2O9keTPrYqXq
+         rWvYYjFquDrL/jVUlEUjs8McYi9Vnqonefhi57TLaM+EepFm8jFFvBnu6tsUcYYWt4GB
+         YW9DD54MmgNRzRADuM+PoLOwZU50lzLI+TXze4E9Sc5CMpIzaQfOk5F9zeTklX1jbFpg
+         lJvNx37/4RXmpCTeATtEUdAti8x2hmq3jNb4Tix+nMamCnVtpq2h93ttVBhBFvzf6oUJ
+         A4J+qCAE1XidKP+Eu9BrNlW7RK0d71psrCVLAvodcaamvoL09jVmDsF4zhCzamXjmUOP
+         X+IA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766045441; x=1766650241;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TCHXjv2VZsMwfFYNwJEOShlKvgPdJRBzvcTy9Q4p/48=;
-        b=P4vlVmGbVdIGJo5enMr4NnV/LImP3jYWQv8ytNVApooz1QzskDvgYyIzne71D0nVUn
-         Y+ob+ojItCTTwagPSoVttITVN9++GmzsfzlYROkLCiRmT7ANpsf4WOZmKA8sgKm2y3Oj
-         qyCNetTOFM1s/WKY7tVOHU2yUmtFiWFZY0qtqkWaLZYFWg8P9rtpkC3Hr4iZnFll5Sy+
-         mspydy1+7iyX8IgCs0n1hNlMJV+c1bC+4imclMkQGSWJE1wxphS7jgVPa91E8OmEHU8t
-         H1liftCQnJ375cVZbtHMe++ywrzouba409GZnvV+PQsPsdbHchwGSMs42nNWZ8RXlFuz
-         scVA==
-X-Forwarded-Encrypted: i=1; AJvYcCXPX+10OxVNu8pJG/FwNzq1m4dogXXn/bjkS6eVpdQKKKFG7ICrn7qcqgqyL40VR+207NC57E/LqxmvhNuE2M9o@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw8/Cwwrn+q4kijBNOX/Yg+J6jQ/jB3BNmzicQc3Jjw1YCVxTLS
-	rZQD1ghz7ky5M2/kx3X+EDSxSVI8/Lnq2bVg5sJhqCDkApvKlb95Y5irW3GaB3gpsWM+aGloNcD
-	pXcw0oWn1uqBwCycfiyFQ6IACnelzHNEM77OJ2A1/so3EClc9rqzpiSnmuMzhocMTloIGt+rUHX
-	S49Q==
-X-Gm-Gg: AY/fxX74s9b1HD/YkkDghPYfnM7lOXpCPzCpPxhVZG/wJqbNQuxWvht6NLa8SdLdjz8
-	sitMRmjYCqz7KnJR65DAJhcke2I/cYZhk8IZ6LRunubkGrvI4f1mrRQQfB1JPQbJ8S5pEdkWj6u
-	JZqGw7X1P8jso/R0CxRnLwgEC9R3WRjqV7/yH+jNT4FQJKLjQiCjS/OXdhPm0OEoRuZpQoqODoB
-	Jc/adpDnzhXGXh95v+NDpISbWwg12gWfcRvw4fcD+nDbPb4+k4DLhS72YaoBKRlhAq7OOQEZWME
-	ILLQEBxcRoB37b8KqymRhTn6U4PPyHk7pZ+jZdJHKdsmoxTQiN6KMZ0lpsAWgO5GRH+jYsnNJkT
-	COnRJESQmYC2dyfRLoroWWmxJ4CTJoOHJFHyaLnfMcLtFv/Ta/7+Ge46OztypjGnkdfk=
-X-Received: by 2002:a05:7022:4581:b0:119:e56b:c762 with SMTP id a92af1059eb24-11f34c435c7mr17362392c88.39.1766045441093;
-        Thu, 18 Dec 2025 00:10:41 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEuYMGTp81NLT+B4cET/exVbTTF3Y5dVTJDSM1G5/qDqcjwsi88g0t8I+546Kb64PBfRSO7jw==
-X-Received: by 2002:a05:7022:4581:b0:119:e56b:c762 with SMTP id a92af1059eb24-11f34c435c7mr17362354c88.39.1766045440454;
-        Thu, 18 Dec 2025 00:10:40 -0800 (PST)
+        d=1e100.net; s=20230601; t=1766045443; x=1766650243;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=cNH63exyhTmIcemy4/YjTfy8jDYpUWUjpvcUJrfWdgU=;
+        b=ACberdtpZ6I6d9ZP6t7rXzRovqQXpJ+t4/AheE7pax8lRUe8tthC3DCuf9X/N6Wwp9
+         keFo+vKmV6XK6IrWFXRa737NU6pKzMR4hdl/l4hRuWSXlwMF03qmG06n7Jw7cW5XKyoz
+         qdPAHtN+Ya9BO70tJis2fnMPV/LNVtUEskoNMUCt78vbtTTBlWGciBXZQClckBw63iXQ
+         IfrYJqIGhCF3ULw2Vfr+V9924NwtAtbSzLsuN9M7Qkfq0PrnPUvS1HTvfhTiSUy24Wib
+         nif7XCDeHDheJpKm4Z5Eoeq8ashCKi4/QT7ciS6yBCRoPEl9bn4Ey2E/Tcx3zgqM2lbe
+         pQVw==
+X-Forwarded-Encrypted: i=1; AJvYcCVUDp6TpyewAOTDEg9Oi+RyYinksfRF/ImedN58CueSeLiXdgmVXGAlItECaXSKpM1kmat0srYkStWffUOHX3Ja@lists.infradead.org
+X-Gm-Message-State: AOJu0YxUPL4IqrqFkhNYkPU86h/nFrEg8FyR7QcjcjGN43VTXJ0xGy75
+	vAt9RD656bZN+r+0ELdOfuGrybT0pEN6HVhtySdhfix70zWRN9k/+z5fykmf1X4MtwOxRSPti3V
+	afHLoqUVFZ7feH2Ufs0w4thNT9cY4M8Z3o+XqfFts9bPo7MnK6Z6bgS96qlb5dlj5PYd1If8psF
+	NvJw==
+X-Gm-Gg: AY/fxX4SQ0E582qJZLsqDr37j9EtmOzdDPNdmnI7OtGz6o96dKNjC39sm4/eso+8xP4
+	/H+JALCB1y+oLEQX2go9M4kPbF7UDn2o/v46jvQkHc6fcaD/eh8kyghUEMICkpKvUCPZ/xlrbRU
+	6Z+NmRruvNpX03CVhPfPxaEdNvhIhWBhCmvvStVDwAw3N5Yd0aeVN3uFdrlsZCBTgqEa0zbTm8d
+	8bjp+Atn0+Ko1NuhZLfKzDtEESSkeaqZ/G8nWKPGSDwLS0ekhZwnaLlmcdus/VI3NWb4jUOOk/n
+	zBHRjsvgziXYELE89LEhC+GCljB+MksH5rQlp1E1cFiQW9bArBSyJ1sHXvBZoIJ1trLvORprgk4
+	SN4yMG3XHXueKplhijtoxu/ZH8+u2EWQuYEVwN3gubD0H9h4xFuobOd+Mk9HZndk1Rqg=
+X-Received: by 2002:a05:7022:f686:b0:119:e569:fba9 with SMTP id a92af1059eb24-11f354cc907mr18256791c88.24.1766045442786;
+        Thu, 18 Dec 2025 00:10:42 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IF3Pquf355K3Y1FFskaQnCkkuyO/O4usAru27v+VGDNITq7dta4Vgx4zQjMo851Kc2edI937w==
+X-Received: by 2002:a05:7022:f686:b0:119:e569:fba9 with SMTP id a92af1059eb24-11f354cc907mr18256751c88.24.1766045442231;
+        Thu, 18 Dec 2025 00:10:42 -0800 (PST)
 Received: from hu-yuanfang-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b04e58d423sm2564824eec.6.2025.12.18.00.10.39
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b04e58d423sm2564824eec.6.2025.12.18.00.10.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 18 Dec 2025 00:10:40 -0800 (PST)
+        Thu, 18 Dec 2025 00:10:41 -0800 (PST)
 From: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
-Subject: [PATCH v2 00/12] coresight: Add CPU cluster funnel/replicator/tmc
- support
-Date: Thu, 18 Dec 2025 00:09:40 -0800
-Message-Id: <20251218-cpu_cluster_component_pm-v2-0-2335a6ae62a0@oss.qualcomm.com>
+Date: Thu, 18 Dec 2025 00:09:42 -0800
+Subject: [PATCH v2 02/12] coresight-funnel: Support CPU cluster funnel
+ initialization
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAMS2Q2kC/3WNQQqDMBBFryJZN2KSppWueo8iItOxBjRJM0Zax
- Lt3Kt12M/A+/79ZBWFySOJSrCLh4sgFz6APhYCh8w+U7s4sdKWtqtRJQswtjJlmTC2EKQaPfm7
- jJAGtqnsuHY0RPI8Je/fa1beGeXA0h/TePy3qm/6k+vxfuihZSaOMtR3YugZ9DUTlM3cj16aSj
- 2i2bfsA4vEq/ccAAAA=
-X-Change-ID: 20251016-cpu_cluster_component_pm-ce518f510433
+Message-Id: <20251218-cpu_cluster_component_pm-v2-2-2335a6ae62a0@oss.qualcomm.com>
+References: <20251218-cpu_cluster_component_pm-v2-0-2335a6ae62a0@oss.qualcomm.com>
+In-Reply-To: <20251218-cpu_cluster_component_pm-v2-0-2335a6ae62a0@oss.qualcomm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>,
         Mike Leach <mike.leach@linaro.org>,
         James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
@@ -115,29 +114,29 @@ Cc: kernel@oss.qualcomm.com, coresight@lists.linaro.org,
         linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
         linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
         Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
-        maulik.shah@oss.qualcomm.com, Jie Gan <jie.gan@oss.qualcomm.com>
+        maulik.shah@oss.qualcomm.com
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1766045439; l=5996;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1766045439; l=9011;
  i=yuanfang.zhang@oss.qualcomm.com; s=20250814; h=from:subject:message-id;
- bh=ejOs6bkbsY8Vz8EZH6d+LncDHIbxehlNOId5lq1k/tU=;
- b=A2enXks82ZeVTKrJJRlTtv7jUD0gAgfNpcuVx2nZoiIaCK4V2y2M5wmxQDrVaMQjFy5ydmz0i
- ixR/yLK/uwkBgdL4n5CJJ/RblbW1X6439cLS6Yun0gtR13fA95nrPbO
+ bh=Fpp/5eQxMyG5rpvoNvxSYiDKJ7rnTCbi3mj2igPMxLU=;
+ b=BavpAy9r7xKAgf/EbkDhLS/jCe/ZLPOLxE+sU7ckt40H3lLyYD/fFw77y3H7DyHloXrCfJK9C
+ K6Bc7EKVjfMD71KSm5dlRQXRyjiuhr6czi4m3WboiAsLxZvj4T1Jz6e
 X-Developer-Key: i=yuanfang.zhang@oss.qualcomm.com; a=ed25519;
  pk=9oS/FoPW5k0CsqSDDrPlnV+kVIOUaAe0O5pr4M1wHgY=
-X-Proofpoint-GUID: D9KTliNBHaENkZ8EQGGcmlfh-sg_t3iT
-X-Authority-Analysis: v=2.4 cv=DsBbOW/+ c=1 sm=1 tr=0 ts=6943b702 cx=c_pps
- a=0uOsjrqzRL749jD1oC5vDA==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+X-Proofpoint-GUID: L5Fi--w-pCcWVtmS7a7mO1FJm2h6ngQC
+X-Authority-Analysis: v=2.4 cv=DsBbOW/+ c=1 sm=1 tr=0 ts=6943b703 cx=c_pps
+ a=IZJwPbhc+fLeJZngyXXI0A==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
  a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
- a=5LP_gHFhwREuHdR0VuEA:9 a=QEXdDO2ut3YA:10 a=mQ_c8vxmzFEMiUWkPHU9:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjE4MDA2NiBTYWx0ZWRfXycsB9k3x77XB
- RWd/6LtcNhhvNcmn4kd2yRn0R8lARRuq07jynQhaLZzn4/Kqab+tjIx6/v/D9O8OJfPHI6TITg2
- Vg4qj04hdbFnetPS2vrmTsougXvabwdcXMVYnMpaT2hysZgWS8vZeZYjMxtnrkRZVtC0QTwOFdo
- Oyw1UuNofzRU+VpiUpLaQXL2I8BSwaGH3D0N/zqfNUtA0kn/4ugCYQCmOOLaIrznUmsEJrwM0Kf
- ikcKEq6rUh19N0LSML2atjgc0ADmWYm9AqkQUfpYyFcxVkZi7hGeJ5Yn6GaLQt4mTyxXSed/0qL
- 1UtQuhwc8qP56AsRoJNZGi0HC2LzMzxl361OR0nw7EEhi9htK7ay1FzWI3ojLAfZNJJF6yJiiqt
- QBCPY5wK2nUdF0uF+BBOmryBRDh5mQ==
-X-Proofpoint-ORIG-GUID: D9KTliNBHaENkZ8EQGGcmlfh-sg_t3iT
+ a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=ntKk2pyKPOpeOXeRekoA:9
+ a=QEXdDO2ut3YA:10 a=uG9DUKGECoFWVXl0Dc02:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjE4MDA2NiBTYWx0ZWRfX5LsiidX4VQWU
+ z7OqD8+UR1M/HBeatkuYe0MsOPfRxGwu9MGPl4U0cmQ/ayLAMjhq6zCL3n9YdmG60QtKAPFpdro
+ hKyuTAlUBq9cl+aUkwGygGeD35KSOm/SpHq8DD5XdY/mOUxH7APhExt8LfLxjOv2Sz89FXRYrNV
+ 1dyYviRMRCUQ0T49BsBcBckYFDQEOCvWzw1guw2agfthojNAgJh97OVJSv+3y8G314yy1rJxgUN
+ SRhYD4kNLOXw5qZmrq1k/ZYS0vq17+7vHANYMy9Sm7OdWHBYT24Ez6MdptwYZMriH45UViLL6im
+ ZhZER6QZZiK+S8PPGd071IdJgZBMArYmFQstjQd3Mo8bNO37D8cX7YDLrvl9diVqeeW94TYmn90
+ pacwdmfTNyCnYMKGdrUa3LRxGAZzPQ==
+X-Proofpoint-ORIG-GUID: L5Fi--w-pCcWVtmS7a7mO1FJm2h6ngQC
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
  definitions=2025-12-18_01,2025-12-17_02,2025-10-01_01
@@ -147,8 +146,8 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2512180066
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_001044_779589_301CB648 
-X-CRM114-Status: GOOD (  17.11  )
+X-CRM114-CacheID: sfid-20251218_001045_053428_006C369B 
+X-CRM114-Status: GOOD (  24.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,136 +162,316 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series adds support for CoreSight components local to CPU clusters,
-including funnel, replicator, and TMC, which reside within CPU cluster power
-domains. These components require special handling due to power domain
-constraints.
+Funnels associated with CPU clusters reside in the cluster's power domain.
+Unlike dynamic funnels (which are typically system-wide), these per-cluster
+funnels are only accessible when the cluster is powered on. Standard
+runtime PM may not suffice to wake up a cluster from low-power states,
+making direct register access unreliable.
 
-Unlike system-level CoreSight devices, these components share the CPU cluster's
-power domain. When the cluster enters low-power mode (LPM), their registers
-become inaccessible. Notably, `pm_runtime_get` alone cannot bring the cluster
-out of LPM, making standard register access unreliable.
+Enhance the funnel driver to support these per-cluster devices:
 
-To address this, the series introduces:
-- Identifying cluster-bound devices via a new `qcom,cpu-bound-components`
-  device tree property.
-- Implementing deferred probing: if associated CPUs are offline during
-  probe, initialization is deferred until a CPU hotplug notifier detects
-  the CPU coming online.
-- Utilizing `smp_call_function_single()` to ensure register accesses
-  (initialization, enablement, sysfs reads) are always executed on a
-  powered CPU within the target cluster.
-- Extending the CoreSight link `enable` callback to pass the `cs_mode`.
-  This allows drivers to distinguish between SysFS and Perf modes and
-  apply mode-specific logic.
+1. Safe Initialization:
+   - Identify CPU cluster funnels via "qcom,cpu-bound-components".
+   - Use smp_call_function_single() to perform hardware initialization
+     (claim tag clearing) on a CPU within the cluster.
+   - Refactor the probe flow to encapsulate device registration in
+     funnel_add_coresight_dev().
 
-Jie Gan (1):
-  arm64: dts: qcom: hamoa: add Coresight nodes for APSS debug block
+2. Cross-CPU Enablement:
+   - Update funnel_enable() to use smp_call_function_single() when
+     enabling the hardware on a cluster-bound funnel.
 
-Yuanfang Zhang (11):
-  dt-bindings: arm: coresight: Add 'qcom,cpu-bound-components' property
-  coresight: Pass trace mode to link enable callback
-  coresight-funnel: Support CPU cluster funnel initialization
-  coresight-funnel: Defer probe when associated CPUs are offline
-  coresight-replicator: Support CPU cluster replicator initialization
-  coresight-replicator: Defer probe when associated CPUs are offline
-  coresight-replicator: Update management interface for CPU-bound devices
-  coresight-tmc: Support probe and initialization for CPU cluster TMCs
-  coresight-tmc-etf: Refactor enable function for CPU cluster ETF support
-  coresight-tmc: Update management interface for CPU-bound TMCs
-  coresight-tmc: Defer probe when associated CPUs are offline
+3. Debug Interface Support:
+   - Update funnel_ctrl_show() to safely read the control register via
+     cross-CPU calls when necessary.
 
-Verification:
-
-This series has been verified on sm8750.
-
-Test steps for delay probe:
-
-1. limit the system to enable at most 6 CPU cores during boot.
-2. echo 1 >/sys/bus/cpu/devices/cpu6/online.
-3. check whether ETM6 and ETM7 have been probed.
-
-Test steps for sysfs mode:
-
-echo 1 >/sys/bus/coresight/devices/tmc_etf0/enable_sink
-echo 1 >/sys/bus/coresight/devices/etm0/enable_source
-echo 1 >/sys/bus/coresight/devices/etm6/enable_source
-echo 0 >/sys/bus/coresight/devices/etm0/enable_source
-echo 0 >/sys/bus/coresight/devicse/etm6/enable_source
-echo 0 >/sys/bus/coresight/devices/tmc_etf0/enable_sink
-
-echo 1 >/sys/bus/coresight/devices/tmc_etf1/enable_sink
-echo 1 >/sys/bus/coresight/devcies/etm0/enable_source
-cat /dev/tmc_etf1 >/tmp/etf1.bin
-echo 0 >/sys/bus/coresight/devices/etm0/enable_source
-echo 0 >/sys/bus/coresight/devices/tmc_etf1/enable_sink
-
-echo 1 >/sys/bus/coresight/devices/tmc_etf2/enable_sink
-echo 1 >/sys/bus/coresight/devices/etm6/enable_source
-cat /dev/tmc_etf2 >/tmp/etf2.bin
-echo 0 >/sys/bus/coresight/devices/etm6/enable_source
-echo 0 >/sys/bus/coresight/devices/tmc_etf2/enable_sink
-
-Test steps for sysfs node:
-
-cat /sys/bus/coresight/devices/tmc_etf*/mgmt/*
-
-cat /sys/bus/coresight/devices/funnel*/funnel_ctrl
-
-cat /sys/bus/coresight/devices/replicator*/mgmt/*
-
-Test steps for perf mode:
-
-perf record -a -e cs_etm//k -- sleep 5
+This ensures that funnel operations remain safe and functional even when
+the associated CPU cluster is in aggressive low-power states.
 
 Signed-off-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
 ---
-Changes in v2:
-- Use the qcom,cpu-bound-components device tree property to identify devices
-  bound to a cluster.
-- Refactor commit message.
-- Introduce a supported_cpus field in the drvdata structure to record the CPUs
-  that belong to the cluster where the local component resides.
-- Link to v1: https://lore.kernel.org/r/20251027-cpu_cluster_component_pm-v1-0-31355ac588c2@oss.qualcomm.com
+ drivers/hwtracing/coresight/coresight-funnel.c | 183 ++++++++++++++++++++-----
+ 1 file changed, 152 insertions(+), 31 deletions(-)
 
----
-Jie Gan (1):
-      arm64: dts: qcom: hamoa: Add CoreSight nodes for APSS debug block
+diff --git a/drivers/hwtracing/coresight/coresight-funnel.c b/drivers/hwtracing/coresight/coresight-funnel.c
+index 3b248e54471a38f501777fe162fea850d1c851b3..a1264df84ab4c625c63dfbb9b7710b983a10c6b4 100644
+--- a/drivers/hwtracing/coresight/coresight-funnel.c
++++ b/drivers/hwtracing/coresight/coresight-funnel.c
+@@ -15,6 +15,7 @@
+ #include <linux/slab.h>
+ #include <linux/of.h>
+ #include <linux/platform_device.h>
++#include <linux/pm_domain.h>
+ #include <linux/pm_runtime.h>
+ #include <linux/coresight.h>
+ #include <linux/amba/bus.h>
+@@ -40,6 +41,7 @@ DEFINE_CORESIGHT_DEVLIST(funnel_devs, "funnel");
+  * @csdev:	component vitals needed by the framework.
+  * @priority:	port selection order.
+  * @spinlock:	serialize enable/disable operations.
++ * @supported_cpus:	Represent the CPUs related to this funnel.
+  */
+ struct funnel_drvdata {
+ 	void __iomem		*base;
+@@ -48,6 +50,13 @@ struct funnel_drvdata {
+ 	struct coresight_device	*csdev;
+ 	unsigned long		priority;
+ 	raw_spinlock_t		spinlock;
++	struct cpumask		*supported_cpus;
++};
++
++struct funnel_smp_arg {
++	struct funnel_drvdata *drvdata;
++	int port;
++	int rc;
+ };
+ 
+ static int dynamic_funnel_enable_hw(struct funnel_drvdata *drvdata, int port)
+@@ -76,6 +85,33 @@ static int dynamic_funnel_enable_hw(struct funnel_drvdata *drvdata, int port)
+ 	return rc;
+ }
+ 
++static void funnel_enable_hw_smp_call(void *info)
++{
++	struct funnel_smp_arg *arg = info;
++
++	arg->rc = dynamic_funnel_enable_hw(arg->drvdata, arg->port);
++}
++
++static int funnel_enable_hw(struct funnel_drvdata *drvdata, int port)
++{
++	int cpu, ret;
++	struct funnel_smp_arg arg = { 0 };
++
++	if (!drvdata->supported_cpus)
++		return dynamic_funnel_enable_hw(drvdata, port);
++
++	arg.drvdata = drvdata;
++	arg.port = port;
++
++	for_each_cpu(cpu, drvdata->supported_cpus) {
++		ret = smp_call_function_single(cpu,
++					       funnel_enable_hw_smp_call, &arg, 1);
++		if (!ret)
++			return arg.rc;
++	}
++	return ret;
++}
++
+ static int funnel_enable(struct coresight_device *csdev,
+ 			 struct coresight_connection *in,
+ 			 struct coresight_connection *out)
+@@ -86,19 +122,24 @@ static int funnel_enable(struct coresight_device *csdev,
+ 	bool first_enable = false;
+ 
+ 	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+-	if (in->dest_refcnt == 0) {
+-		if (drvdata->base)
+-			rc = dynamic_funnel_enable_hw(drvdata, in->dest_port);
+-		if (!rc)
+-			first_enable = true;
+-	}
+-	if (!rc)
++
++	if (in->dest_refcnt == 0)
++		first_enable = true;
++	else
+ 		in->dest_refcnt++;
++
+ 	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
+ 
+-	if (first_enable)
+-		dev_dbg(&csdev->dev, "FUNNEL inport %d enabled\n",
+-			in->dest_port);
++	if (first_enable) {
++		if (drvdata->base)
++			rc = funnel_enable_hw(drvdata, in->dest_port);
++		if (!rc) {
++			in->dest_refcnt++;
++			dev_dbg(&csdev->dev, "FUNNEL inport %d enabled\n",
++				in->dest_port);
++		}
++	}
++
+ 	return rc;
+ }
+ 
+@@ -188,15 +229,39 @@ static u32 get_funnel_ctrl_hw(struct funnel_drvdata *drvdata)
+ 	return functl;
+ }
+ 
++static void get_funnel_ctrl_smp_call(void *info)
++{
++	struct funnel_smp_arg *arg = info;
++
++	arg->rc = get_funnel_ctrl_hw(arg->drvdata);
++}
++
+ static ssize_t funnel_ctrl_show(struct device *dev,
+ 			     struct device_attribute *attr, char *buf)
+ {
+ 	u32 val;
++	int cpu, ret;
+ 	struct funnel_drvdata *drvdata = dev_get_drvdata(dev->parent);
++	struct funnel_smp_arg arg = { 0 };
+ 
+ 	pm_runtime_get_sync(dev->parent);
+-
+-	val = get_funnel_ctrl_hw(drvdata);
++	if (!drvdata->supported_cpus) {
++		val = get_funnel_ctrl_hw(drvdata);
++	} else {
++		arg.drvdata = drvdata;
++		for_each_cpu(cpu, drvdata->supported_cpus) {
++			ret = smp_call_function_single(cpu,
++						       get_funnel_ctrl_smp_call, &arg, 1);
++			if (!ret)
++				break;
++		}
++		if (!ret) {
++			val =  arg.rc;
++		} else {
++			pm_runtime_put(dev->parent);
++			return ret;
++		}
++	}
+ 
+ 	pm_runtime_put(dev->parent);
+ 
+@@ -211,22 +276,68 @@ static struct attribute *coresight_funnel_attrs[] = {
+ };
+ ATTRIBUTE_GROUPS(coresight_funnel);
+ 
++static void funnel_clear_self_claim_tag(struct funnel_drvdata *drvdata)
++{
++	struct csdev_access access = CSDEV_ACCESS_IOMEM(drvdata->base);
++
++	coresight_clear_self_claim_tag(&access);
++}
++
++static void funnel_init_on_cpu(void *info)
++{
++	struct funnel_drvdata *drvdata = info;
++
++	funnel_clear_self_claim_tag(drvdata);
++}
++
++static int funnel_add_coresight_dev(struct device *dev)
++{
++	struct coresight_desc desc = { 0 };
++	struct funnel_drvdata *drvdata = dev_get_drvdata(dev);
++
++	if (drvdata->base) {
++		desc.groups = coresight_funnel_groups;
++		desc.access = CSDEV_ACCESS_IOMEM(drvdata->base);
++	}
++
++	desc.name = coresight_alloc_device_name(&funnel_devs, dev);
++	if (!desc.name)
++		return -ENOMEM;
++
++	desc.type = CORESIGHT_DEV_TYPE_LINK;
++	desc.subtype.link_subtype = CORESIGHT_DEV_SUBTYPE_LINK_MERG;
++	desc.ops = &funnel_cs_ops;
++	desc.pdata = dev->platform_data;
++	desc.dev = dev;
++
++	drvdata->csdev = coresight_register(&desc);
++	if (IS_ERR(drvdata->csdev))
++		return PTR_ERR(drvdata->csdev);
++	return 0;
++}
++
++static struct cpumask *funnel_get_supported_cpus(struct device *dev)
++{
++	struct generic_pm_domain *pd;
++
++	pd = pd_to_genpd(dev->pm_domain);
++	if (pd)
++		return pd->cpus;
++
++	return NULL;
++}
++
+ static int funnel_probe(struct device *dev, struct resource *res)
+ {
+ 	void __iomem *base;
+ 	struct coresight_platform_data *pdata = NULL;
+ 	struct funnel_drvdata *drvdata;
+-	struct coresight_desc desc = { 0 };
+-	int ret;
++	int cpu, ret;
+ 
+ 	if (is_of_node(dev_fwnode(dev)) &&
+ 	    of_device_is_compatible(dev->of_node, "arm,coresight-funnel"))
+ 		dev_warn_once(dev, "Uses OBSOLETE CoreSight funnel binding\n");
+ 
+-	desc.name = coresight_alloc_device_name(&funnel_devs, dev);
+-	if (!desc.name)
+-		return -ENOMEM;
+-
+ 	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
+ 	if (!drvdata)
+ 		return -ENOMEM;
+@@ -244,9 +355,6 @@ static int funnel_probe(struct device *dev, struct resource *res)
+ 		if (IS_ERR(base))
+ 			return PTR_ERR(base);
+ 		drvdata->base = base;
+-		desc.groups = coresight_funnel_groups;
+-		desc.access = CSDEV_ACCESS_IOMEM(base);
+-		coresight_clear_self_claim_tag(&desc.access);
+ 	}
+ 
+ 	dev_set_drvdata(dev, drvdata);
+@@ -258,23 +366,36 @@ static int funnel_probe(struct device *dev, struct resource *res)
+ 	dev->platform_data = pdata;
+ 
+ 	raw_spin_lock_init(&drvdata->spinlock);
+-	desc.type = CORESIGHT_DEV_TYPE_LINK;
+-	desc.subtype.link_subtype = CORESIGHT_DEV_SUBTYPE_LINK_MERG;
+-	desc.ops = &funnel_cs_ops;
+-	desc.pdata = pdata;
+-	desc.dev = dev;
+-	drvdata->csdev = coresight_register(&desc);
+-	if (IS_ERR(drvdata->csdev))
+-		return PTR_ERR(drvdata->csdev);
+ 
+-	return 0;
++	if (fwnode_property_present(dev_fwnode(dev), "qcom,cpu-bound-components")) {
++		drvdata->supported_cpus = funnel_get_supported_cpus(dev);
++		if (!drvdata->supported_cpus)
++			return -EINVAL;
++
++		cpus_read_lock();
++		for_each_cpu(cpu, drvdata->supported_cpus) {
++			ret = smp_call_function_single(cpu,
++						       funnel_init_on_cpu, drvdata, 1);
++			if (!ret)
++				break;
++		}
++		cpus_read_unlock();
++
++		if (ret)
++			return 0;
++	} else if (res) {
++		funnel_clear_self_claim_tag(drvdata);
++	}
++
++	return funnel_add_coresight_dev(dev);
+ }
+ 
+ static int funnel_remove(struct device *dev)
+ {
+ 	struct funnel_drvdata *drvdata = dev_get_drvdata(dev);
+ 
+-	coresight_unregister(drvdata->csdev);
++	if (drvdata->csdev)
++		coresight_unregister(drvdata->csdev);
+ 
+ 	return 0;
+ }
 
-Yuanfang Zhang (11):
-      dt-bindings: arm: coresight: Add 'qcom,cpu-bound-components' property
-      coresight-funnel: Support CPU cluster funnel initialization
-      coresight-funnel: Defer probe when associated CPUs are offline
-      coresight-replicator: Support CPU cluster replicator initialization
-      coresight-replicator: Defer probe when associated CPUs are offline
-      coresight-replicator: Update management interface for CPU-bound devices
-      coresight-tmc: Support probe and initialization for CPU cluster TMCs
-      coresight-tmc-etf: Refactor enable function for CPU cluster ETF support
-      coresight-tmc: Update management interface for CPU-bound TMCs
-      coresight-tmc: Defer probe when associated CPUs are offline
-      coresight: Pass trace mode to link enable callback
-
- .../bindings/arm/arm,coresight-dynamic-funnel.yaml |   5 +
- .../arm/arm,coresight-dynamic-replicator.yaml      |   5 +
- .../devicetree/bindings/arm/arm,coresight-tmc.yaml |   5 +
- arch/arm64/boot/dts/qcom/hamoa.dtsi                | 926 +++++++++++++++++++++
- arch/arm64/boot/dts/qcom/purwa.dtsi                |  12 +
- drivers/hwtracing/coresight/coresight-core.c       |   7 +-
- drivers/hwtracing/coresight/coresight-funnel.c     | 258 +++++-
- drivers/hwtracing/coresight/coresight-replicator.c | 341 +++++++-
- drivers/hwtracing/coresight/coresight-tmc-core.c   | 387 +++++++--
- drivers/hwtracing/coresight/coresight-tmc-etf.c    | 106 ++-
- drivers/hwtracing/coresight/coresight-tmc.h        |  10 +
- drivers/hwtracing/coresight/coresight-tnoc.c       |   3 +-
- drivers/hwtracing/coresight/coresight-tpda.c       |   3 +-
- include/linux/coresight.h                          |   3 +-
- 14 files changed, 1902 insertions(+), 169 deletions(-)
----
-base-commit: 008d3547aae5bc86fac3eda317489169c3fda112
-change-id: 20251016-cpu_cluster_component_pm-ce518f510433
-
-Best regards,
 -- 
-Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
+2.34.1
 
 
