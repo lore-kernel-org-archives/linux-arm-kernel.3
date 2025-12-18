@@ -4,120 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4CE7D68BDD
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 07:07:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FCA7D68BE3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 07:15:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qE8cQXT3AcuvrwPzQedODaQR10NksvyUGVJ9e6MgtAw=; b=E1QitAnsp1IJA1HJxypwK3ssHe
-	3QRCBxnOi3YFIFCxDapojSCSwAASUfs0WeWJ/Qd78xB8PA802Q1Lh16S0hqrIFkJShjBlYwzhsYnZ
-	988uiygzyWJA5ImZL1cHxdPledNkfJLGrQ0yt2OrPPlqIWHoEBjl6bNreRYGLwbP12dykgmrYc8/8
-	SUpff8sZ8D7LfLHb0WAfbUun7ieJEMeeFx2SqTMleLPVZlEqRZ9HSYHmjCs4PJJ9SeM/QQ4VlaZwt
-	SglLzMEuSZX0u1tTCrF42en2/0bfI8lZT8PTbu5jzTZiaW88WCA1vlMuC3albWOVNP0c8aUPm3D51
-	YdQxCjWQ==;
+	bh=uauTuHRqpfPJlC4EeGuuyBYgKP0qHs1Wgk0vfO6QTvs=; b=bcv6EElnImgrnJsZMF9VBf9kiA
+	3PS4qqmD+pplb0CfuICF+u7fBznmgo3SufbgbZ8nAVeehpjaRM5IE4jiMmMYNiIMaOFQjvH9bGDms
+	qKvpfd9Ik/ph/AFmZfiGJdMAXNshW5bE39v31Q0m1LOoCa8DKb+o8BrXkl63RbMrhtF5ZC0nepio+
+	aAkGwAJ94NsrDA9n6uwv2jAJvhABDVUHrRxkQp7zlXilWAg9vdUUXyQvWeuL/6x7oCASoBKONgfjU
+	K3J9v0erXo0HqpaBO8ByW9fTFephmCssVGgf/wEqWwk92MkjgyTzRWPZ91Q/MuCOHT4qQ9TZQ8O2a
+	BpUTvvxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vW86K-00000007wLu-214T;
-	Thu, 18 Dec 2025 07:07:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vW8EU-00000007wjO-2gjH;
+	Thu, 18 Dec 2025 07:15:30 +0000
+Received: from out30-110.freemail.mail.aliyun.com ([115.124.30.110])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vW86H-00000007wLO-2WXz
+	id 1vW8EP-00000007whn-44Vc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 07:07:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 928F244493;
-	Thu, 18 Dec 2025 07:06:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AAE2C4CEFB;
-	Thu, 18 Dec 2025 07:06:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766041618;
-	bh=YFYxvtMZpBX6TwONToUJkBc+KEjZD1S1p7Ryp5dzo4Y=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WFSusGx6O4HEvKZ26Mlj4SLrZlWjn6yHEd1AWqZHw8uJp6cRIPZACM5s8dGBMTe2t
-	 Fztj9FwbcxEZmjpf6G/6ICKo8UpjBmN2R3i1H1m7OMk7l7LJ0DvwDlPn8geNsWFL+G
-	 HNHzQssnUnPCYXKKoeQTIVmEtqDBUnMOdz/VdscEkIKXErdPEO/9N2OGhBTTCYWYP+
-	 kjVLjc5RanVKOmKSfF/8pGK9WnpVTZ5UmrUUCnfqkAlYuQl8ltIODcM6hscCaubO6t
-	 AlSNrzCzr3Oqc2GNFPqYpHgpU8ITqvh3VFf9xftShNeCuEDduFIhiwnZT1K1ofE3Mb
-	 f6CdgeuPZNcqw==
-Message-ID: <067e0b1f-ffb6-4f38-b4ac-8abdf46518ea@kernel.org>
-Date: Thu, 18 Dec 2025 08:06:52 +0100
+	Thu, 18 Dec 2025 07:15:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1766042119; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=uauTuHRqpfPJlC4EeGuuyBYgKP0qHs1Wgk0vfO6QTvs=;
+	b=Z5joIWriMfA9Ui9fXMNOJMahLeYJOE7gP7th9lIMnS+9lkzH9Ln1WX31a9pfg3/7oPlpwK/Of94jK1PNaCAGkMUxEFxAyL7DJtFyIMN5aE2R56F3kbtGaIM4jo4xruxdBcQqfAA10XrOwKX7qXoiNSxjFrI4zhqA+CIV/ClOA4w=
+Received: from 30.74.144.118(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0Wv7ehcK_1766042116 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Thu, 18 Dec 2025 15:15:17 +0800
+Message-ID: <96c0adcc-abfd-4a44-be93-1c6bd7942d6d@linux.alibaba.com>
+Date: Thu, 18 Dec 2025 15:15:16 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 2/2] usb: dwc3: Add Google Tensor SoC DWC3 glue driver
-To: Roy Luo <royluo@google.com>, Doug Anderson <dianders@google.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Peter Griffin
- <peter.griffin@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
- <andre.draszik@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>,
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Badhri Jagan Sridharan <badhri@google.com>, linux-usb@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>
-References: <20251205-controller-v9-0-9f158b18f979@google.com>
- <20251205-controller-v9-2-9f158b18f979@google.com>
- <2025120553-suffrage-divisive-5890@gregkh>
- <CA+zupgzL7v5MZDpxKDQQCqAZaqTdHbiG9-xTr+8RnigMFZJ_7Q@mail.gmail.com>
- <2025121728-reliably-crabgrass-2601@gregkh>
- <CA+zupgxZCyNonfNPbGnFymGGOQuaWR1TsL+hujTbH4DEcfEt9Q@mail.gmail.com>
- <CAD=FV=U63F-wxwKDo9be6_X2P2zp6aTBjNghZRbXX1rn4jFNyg@mail.gmail.com>
- <CA+zupgyG4Nov0=jihSApp_3_0hy6YNZMkfOp6Q4-zmERFm10Ag@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <CA+zupgyG4Nov0=jihSApp_3_0hy6YNZMkfOp6Q4-zmERFm10Ag@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v2 1/3] arm64: mm: support batch clearing of the young
+ flag for large folios
+To: Ryan Roberts <ryan.roberts@arm.com>, akpm@linux-foundation.org,
+ david@kernel.org, catalin.marinas@arm.com, will@kernel.org
+Cc: lorenzo.stoakes@oracle.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
+ rppt@kernel.org, surenb@google.com, mhocko@suse.com, riel@surriel.com,
+ harry.yoo@oracle.com, jannh@google.com, willy@infradead.org,
+ baohua@kernel.org, linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1765439380.git.baolin.wang@linux.alibaba.com>
+ <e10f876ce130134fa089befe83f30561b48b9889.1765439380.git.baolin.wang@linux.alibaba.com>
+ <1beaa7de-4b31-4f19-abee-83872f868e28@arm.com>
+From: Baolin Wang <baolin.wang@linux.alibaba.com>
+In-Reply-To: <1beaa7de-4b31-4f19-abee-83872f868e28@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251217_230701_679933_45166BEF 
-X-CRM114-Status: GOOD (  24.39  )
+X-CRM114-CacheID: sfid-20251217_231526_786936_8BAA255E 
+X-CRM114-Status: GOOD (  23.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,112 +72,176 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/12/2025 02:34, Roy Luo wrote:
-> On Wed, Dec 17, 2025 at 12:14 PM Doug Anderson <dianders@google.com> wrote:
+
+
+On 2025/12/17 23:43, Ryan Roberts wrote:
+> Sorry I'm a bit late to the party...
+
+Never mind. It's not late and comments are always welcome :)
+
+> On 11/12/2025 08:16, Baolin Wang wrote:
+>> Currently, contpte_ptep_test_and_clear_young() and contpte_ptep_clear_flush_young()
+>> only clear the young flag and flush TLBs for PTEs within the contiguous range.
+>> To support batch PTE operations for other sized large folios in the following
+>> patches, adding a new parameter to specify the number of PTEs.
 >>
->> Hi,
+>> While we are at it, rename the functions to maintain consistency with other
+>> contpte_*() functions.
 >>
->> On Wed, Dec 17, 2025 at 11:18 AM Roy Luo <royluo@google.com> wrote:
->>>
->>> On Wed, Dec 17, 2025 at 5:24 AM Greg Kroah-Hartman
->>> <gregkh@linuxfoundation.org> wrote:
->>>>
->>>> On Thu, Dec 04, 2025 at 11:14:39PM -0800, Roy Luo wrote:
->>>>> On Thu, Dec 4, 2025 at 10:05 PM Greg Kroah-Hartman
->>>>> <gregkh@linuxfoundation.org> wrote:
->>>>>>
->>>>>> On Fri, Dec 05, 2025 at 02:26:38AM +0000, Roy Luo wrote:
->>>>>>> +config USB_DWC3_GOOGLE
->>>>>>> +     tristate "Google Platform"
->>>>>>> +     depends on ARCH_GOOGLE || COMPILE_TEST
->>>>>>
->>>>>> There is no ARCH_GOOGLE in the tree now, so how is this supposed to
->>>>>> work?  Shouldn't tools that check for "invalid config options" trigger
->>>>>> on this?
->>>>>>
->>>>>> thanks,
->>>>>>
->>>>>> greg k-h
->>>>>
->>>>> Hi Greg,
->>>>>
->>>>> The menuconfig looks like the following and it doesn't complain:
->>>>> | Symbol: ARCH_GOOGLE [=ARCH_GOOGLE]
->>>>> | Type  : unknown
->>>>> |
->>>>> | Symbol: PHY_GOOGLE_USB [=y]
->>>>> | Type  : tristate
->>>>> | Defined at drivers/phy/Kconfig:104
->>>>> |     Prompt: Google Tensor SoC USB PHY driver
->>>>> |     Depends on: ARCH_GOOGLE || COMPILE_TEST [=y]
->>>>>
->>>>> According to Kconfig documentation [1], the unknown symbol
->>>>> would simply be evaluated as an "n", which is what we want.
->>>>> "Convert the symbol into an expression. Boolean and tristate
->>>>> symbols are simply converted into the respective expression
->>>>> values. All other symbol types result in ‘n’."
->>>>>
->>>>> In a different Kconfig documentation, an environment variable
->>>>> "KCONFIG_WARN_UNKNOWN_SYMBOLS" is there to detect
->>>>> undefined symbols in the "config input", but I can't find one that
->>>>> catches undefined symbols in the Kconfig tree itself.
->>>>>
->>>>> That is, the tool seems to allow this.
->>>>> However, if this turns out to be a major problem. I think we
->>>>> can either:
->>>>> - Remove ARCH_GOOGLE and leave COMPILE_TEST as
->>>>>   the only dependency. Then add ARCH_GOOGLE back
->>>>>   later once it's in the tree.
->>>>
->>>> Please do this.  I do not want to take patches that purposfully add
->>>> dependencies on config options that might, or might not, appear in the
->>>> future.  Please just remove all of the dependancies for now, as they are
->>>> not needed, right?
->>>>
->>>> thanks,
->>>>
->>>> greg k-h
->>>
->>> Greg,
->>>
->>> Yes, we can remove ARCH_GOOGLE for now.
->>> To clarify, we're not removing all of the dependencies, we still want
->>> to keep COMPILE_TEST for build tests, right?
->>> Please let me know if you think otherwise.
+>> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+>> ---
+>>   arch/arm64/include/asm/pgtable.h | 12 ++++-----
+>>   arch/arm64/mm/contpte.c          | 44 ++++++++++++++++++++++----------
+>>   2 files changed, 37 insertions(+), 19 deletions(-)
 >>
->> I think you'd just remove all of them. Normally COMPILE_TEST just
->> allows folks to compile stuff even when they don't want the ARCH. We
->> can can add ARCH_GOOGLE back in later once the config exists.
->>
->> -Doug
+>> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+>> index 0944e296dd4a..e03034683156 100644
+>> --- a/arch/arm64/include/asm/pgtable.h
+>> +++ b/arch/arm64/include/asm/pgtable.h
+>> @@ -1679,10 +1679,10 @@ extern void contpte_clear_full_ptes(struct mm_struct *mm, unsigned long addr,
+>>   extern pte_t contpte_get_and_clear_full_ptes(struct mm_struct *mm,
+>>   				unsigned long addr, pte_t *ptep,
+>>   				unsigned int nr, int full);
+>> -extern int contpte_ptep_test_and_clear_young(struct vm_area_struct *vma,
+>> -				unsigned long addr, pte_t *ptep);
+>> -extern int contpte_ptep_clear_flush_young(struct vm_area_struct *vma,
+>> -				unsigned long addr, pte_t *ptep);
+>> +extern int contpte_test_and_clear_young_ptes(struct vm_area_struct *vma,
+>> +				unsigned long addr, pte_t *ptep, unsigned int nr);
+>> +extern int contpte_clear_flush_young_ptes(struct vm_area_struct *vma,
+>> +				unsigned long addr, pte_t *ptep, unsigned int nr);
 > 
-> Doug,
+> The "contpte_" functions are intended to be private to the arm64 arch and should
+> be exposed via the generic APIs. But I don't see any generic batched API for
+> this, so you're only actually able to pass CONT_PTES as nr. Perhaps you're
+> planning to define "test_and_clear_young_ptes()" and "clear_flush_young_ptes()"
+> in later patches?
+
+Right. This is a preparation patch, and will be used in patch 2.
+
+>>   extern void contpte_wrprotect_ptes(struct mm_struct *mm, unsigned long addr,
+>>   				pte_t *ptep, unsigned int nr);
+>>   extern int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
+>> @@ -1854,7 +1854,7 @@ static inline int ptep_test_and_clear_young(struct vm_area_struct *vma,
+>>   	if (likely(!pte_valid_cont(orig_pte)))
+>>   		return __ptep_test_and_clear_young(vma, addr, ptep);
+>>   
+>> -	return contpte_ptep_test_and_clear_young(vma, addr, ptep);
+>> +	return contpte_test_and_clear_young_ptes(vma, addr, ptep, CONT_PTES);
+>>   }
+>>   
+>>   #define __HAVE_ARCH_PTEP_CLEAR_YOUNG_FLUSH
+>> @@ -1866,7 +1866,7 @@ static inline int ptep_clear_flush_young(struct vm_area_struct *vma,
+>>   	if (likely(!pte_valid_cont(orig_pte)))
+>>   		return __ptep_clear_flush_young(vma, addr, ptep);
+>>   
+>> -	return contpte_ptep_clear_flush_young(vma, addr, ptep);
+>> +	return contpte_clear_flush_young_ptes(vma, addr, ptep, CONT_PTES);
+>>   }
+>>   
+>>   #define wrprotect_ptes wrprotect_ptes
+>> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
+>> index c0557945939c..19b122441be3 100644
+>> --- a/arch/arm64/mm/contpte.c
+>> +++ b/arch/arm64/mm/contpte.c
+>> @@ -488,8 +488,9 @@ pte_t contpte_get_and_clear_full_ptes(struct mm_struct *mm,
+>>   }
+>>   EXPORT_SYMBOL_GPL(contpte_get_and_clear_full_ptes);
+>>   
+>> -int contpte_ptep_test_and_clear_young(struct vm_area_struct *vma,
+>> -					unsigned long addr, pte_t *ptep)
+>> +int contpte_test_and_clear_young_ptes(struct vm_area_struct *vma,
+>> +					unsigned long addr, pte_t *ptep,
+>> +					unsigned int nr)
+>>   {
+>>   	/*
+>>   	 * ptep_clear_flush_young() technically requires us to clear the access
+>> @@ -500,39 +501,56 @@ int contpte_ptep_test_and_clear_young(struct vm_area_struct *vma,
+>>   	 * having to unfold.
+>>   	 */
+>>   
+>> +	unsigned long start = addr;
 > 
-> Thanks for chiming in. I'm hesitant to remove COMPILE_TEST
-> because Greg specifically requested its inclusion in v7 [1].
+> Personally I wouldn't bother defining start - just reuse addr. You're
+> incrementing start in the below loop, so it's more appropriate to call it addr
+> anyway.
 
+OK.
 
-What? No, that's not what Greg requested. Your COMPILE_TEST in current
-form helps nothing in build testing. It makes absolutely no sense at all.
-
-> Also it seems beneficial to get some build coverage before
-> ARCH_GOOGLE is officially added to the tree.
-
-And COMPILE_TEST like you wrote it does not give you that. Please first
-read how this function works.
-
-> Greg, could you clarify?
-
-Can you first look at Linux kernel sources to see how this is properly
-written?
-
+>> +	unsigned long end = start + nr * PAGE_SIZE;
+>>   	int young = 0;
+>>   	int i;
+>>   
+>> -	ptep = contpte_align_down(ptep);
+>> -	addr = ALIGN_DOWN(addr, CONT_PTE_SIZE);
+>> +	if (pte_cont(__ptep_get(ptep + nr - 1)))
+>> +		end = ALIGN(end, CONT_PTE_SIZE);
+>>   
+>> -	for (i = 0; i < CONT_PTES; i++, ptep++, addr += PAGE_SIZE)
+>> -		young |= __ptep_test_and_clear_young(vma, addr, ptep);
+>> +	if (pte_cont(__ptep_get(ptep))) {
+>> +		start = ALIGN_DOWN(start, CONT_PTE_SIZE);
+>> +		ptep = contpte_align_down(ptep);
+>> +	}
+>> +
+>> +	nr = (end - start) / PAGE_SIZE;
+>> +	for (i = 0; i < nr; i++, ptep++, start += PAGE_SIZE)
 > 
-> [1] https://lore.kernel.org/linux-usb/2025112144-claw-recolor-49c3@gregkh/
+> Given you're now defining end, perhaps we don't need nr?
 > 
-> Thanks,
-> Roy
+> 	for (; addr != end; ptep++, addr += PAGE_SIZE)
+> 		young |= __ptep_test_and_clear_young(vma, addr, ptep);
 
+Yes, good point.
 
-Best regards,
-Krzysztof
+>> +		young |= __ptep_test_and_clear_young(vma, start, ptep);
+>>   
+>>   	return young;
+>>   }
+>> -EXPORT_SYMBOL_GPL(contpte_ptep_test_and_clear_young);
+>> +EXPORT_SYMBOL_GPL(contpte_test_and_clear_young_ptes);
+>>   
+>> -int contpte_ptep_clear_flush_young(struct vm_area_struct *vma,
+>> -					unsigned long addr, pte_t *ptep)
+>> +int contpte_clear_flush_young_ptes(struct vm_area_struct *vma,
+>> +				unsigned long addr, pte_t *ptep,
+>> +				unsigned int nr)
+>>   {
+>>   	int young;
+>>   
+>> -	young = contpte_ptep_test_and_clear_young(vma, addr, ptep);
+>> +	young = contpte_test_and_clear_young_ptes(vma, addr, ptep, nr);
+>>   
+>>   	if (young) {
+>> +		unsigned long start = addr;
+>> +		unsigned long end = start + nr * PAGE_SIZE;
+>> +
+>> +		if (pte_cont(__ptep_get(ptep + nr - 1)))
+>> +			end = ALIGN(end, CONT_PTE_SIZE);
+>> +
+>> +		if (pte_cont(__ptep_get(ptep)))
+>> +			start = ALIGN_DOWN(start, CONT_PTE_SIZE);
+>> +
+> 
+> We now have this pattern of expanding contpte blocks up and down in 3 places.
+> Perhaps create a helper?
+
+Sounds reasonable. How about the following helper?
+
+static pte_t *contpte_align_addr_ptep(unsigned long *start, unsigned 
+long *end,
+                                         pte_t *ptep, unsigned int nr)
+{
+         unsigned long end_addr = *start + nr * PAGE_SIZE;
+
+         if (pte_cont(__ptep_get(ptep + nr - 1)))
+                 *end = ALIGN(end_addr, CONT_PTE_SIZE);
+
+         if (pte_cont(__ptep_get(ptep))) {
+                 *start = ALIGN_DOWN(*start, CONT_PTE_SIZE);
+                 ptep = contpte_align_down(ptep);
+         }
+
+         return ptep;
+}
 
