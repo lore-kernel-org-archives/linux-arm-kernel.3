@@ -4,60 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36CB0D6ACD7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 09:24:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C6AED6ACD4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 09:30:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6thN3SqE2bed/eUAcAfihLt8qrRQNEFInnRAGouUYsI=; b=EDAgn7yR/1LubwSu6dt9YBotAG
-	w+SqCxtL0cin7S5LZ3+NEjfuUHDoonWAcXrYutdKBxIXxHoLp4bcTaZVsc7fQvAjz9UXt13JErx4/
-	XkNMekBBkeTCb0FoNYLuVS7K6bWpZ1xXCFN7kI73XX79ouho2hsjpapJYE+IAcC/EpZXpGyQ6ywMz
-	GCG5fskXNA/VCLevERcvbIouGYE2uwhwDeMubNLvAPylUoe5ktUgJvxiYk3iCSxcoRILQ6JgbIceu
-	crt5fb7KLRuP1ShJeb3lzpxw//YnUB3dZGLq6wbXPe4dC9ZYBO+bPwBvjPTWYyxznKL+iWxNtd3dd
-	c/+VhrIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=auj72bQKfXEBr2u68dWzZijoBsCuhcqMu/4EXNR4iyc=; b=Pl66lrZR8Ae98Se766ZQdGA/JE
+	NuOZ+cu01+lfg692TAk1UTfICA1RAX8UQHSayHNojA3UnVxES4YUf63/GvDE0mG+yvYSpjVJGWv1C
+	KyrTlvdPIDUJzPMQeFTkiAh7z1cdBguvJoBAUOUV33JGiwf9908gYi+kPHInGWVPrors8NvYTduPU
+	+zh1Xb6yqNtl22MRfKkpkQli2EsqD2ICJUtSaz142VDv4sV6/zPWK3FV7DZj3CvSeQPgs/d/gu41O
+	w9vLvFy/VzczhmRsN7yGbYWAS9RMqpPSNAG+v1+2auj8+p8NHo1NfKFupSUmEUCk1zHOGotKtUspt
+	5/prFoCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWAF5-000000088dm-0b7T;
-	Thu, 18 Dec 2025 09:24:15 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vWALK-000000089B0-2sB4;
+	Thu, 18 Dec 2025 09:30:42 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWAEv-000000088aT-3cBQ
+	id 1vWALH-000000089AO-2dyr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 09:24:08 +0000
-Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <m.tretter@pengutronix.de>)
-	id 1vWAEo-0002J4-Gp; Thu, 18 Dec 2025 10:23:58 +0100
-From: Michael Tretter <m.tretter@pengutronix.de>
-Date: Thu, 18 Dec 2025 10:23:49 +0100
-Subject: [PATCH v2 1/3] media: imx-csi: move media_pipeline to video device
+	Thu, 18 Dec 2025 09:30:40 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-430ff148844so618497f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 01:30:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1766050235; x=1766655035; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=auj72bQKfXEBr2u68dWzZijoBsCuhcqMu/4EXNR4iyc=;
+        b=cz764STQTQI3yj4Jl8WXUg+DY0w/EJQ5kelVmndWIUpsx6QlmyxBbdwd0ZlVP+/WZj
+         9wDOcdU7WmGnNvSGDFrcq3pSG2CLKY4ftnvaUpOdvUS1ZBInG3ICktCrVpqfCtpvAChi
+         YqxCV0V3T/mq/8UnEaOY5/w/i+e50xmyC2MOjeYoLI09R4Ln9RrAj5GA+qQZODxrlqcw
+         nHVVMql4IHdMNek0iN5U9aovaT0ndMDBI6frVW3hEUSA3D+/ktLY1MeRZZALZhb8PgsY
+         qYLk+bf87URowBKWGs84JsZQnScUFmX8m7RDrYIvhVYUkEugmol1iIG+gLK/4Ad7t8Cu
+         yKJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766050235; x=1766655035;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=auj72bQKfXEBr2u68dWzZijoBsCuhcqMu/4EXNR4iyc=;
+        b=IUflaseTevy7dhoszfVJY4weujrK4BSf/z0WKiAiJxVBbZqKlgsOMF7XrPafVSrTVD
+         N+ZOtkgW0b6cD3QIlGQWiUgYGCgiSd/XAAMC03CDflYAz4eDIje5JS/wCs6vOZ5tPeLy
+         8cK6GrTneFuuCqgNvKTpO//OTQ3lHGT1v2Xmq613fZCvoHD6jAvQz0dQKRZABOUqSV2M
+         qk73RU2KCbh1xT/t0JLk8T5OHEXbw4y/4sO1L6sngy1u+HU5SEb3aydVb9uSMUbNKD6F
+         NjywrsJ/bSTxEDvAC9iDiNR1om/7elry9T8GQFPMHx0T3LD9vR0zxs6G66qRovbijqFq
+         GVvg==
+X-Forwarded-Encrypted: i=1; AJvYcCWDsnHmUKnN3bVabeSopQFUDqALJGkAJ7t4+ulbK5Ly3Xr/PWxtaplGGtKeQfiNfvMGh3o0Fu89BxWkVKiHt4w0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz7PJkRXVpX4nQnMOmw0FPe+ReHZO+Dhiffk5IEgCC66f/FqJWM
+	VbHH0i9Qw+daqaa67C8yzhhtbnjuA7/PHFxY1aGpOUaOt1LbSZAvzIorStul05AscUc=
+X-Gm-Gg: AY/fxX56UBjx6yLzuCCRrrZJZDCzq/wujZJTPLinyxRCEA0Uxm7esdyq6so8rdhEbQB
+	Jcg+l3nbOfUsFxDnnJ9RnVsjCJmjGGCPrJOrjz3JwBDmW+O6POPJyfZk9YSYQq84pHYJMONN/A7
+	VyX4BRTV3HBd4GpcvjaBMAu0N7cjvBUjwFygFjlMHA2QUXYeYL5vupKlcXqcCtOuqeoNiSCjZVd
+	XX45VYu5fQwMSpZ5lBPvDx6ZEBr/wKgloKvLimjh4GDdf8R/fcZ3QylU8awpiHgO35yxv4xSVJS
+	JYD27vI6ltIxfwFjjnlmfQtKHRlUNv1ylTRCmsOXsCiaeKDUMKF9kqfV30YPXdf4DiXObGnFgzf
+	p6b8wNWiW26QGmIuxwk91v/ITWAq7qVHmC2y5ccWj/vLygnsxBMNCF1viH8ijlsIllkb2198Yd+
+	qUQoWp29eqwbB0bm65vD9cuX3o
+X-Google-Smtp-Source: AGHT+IHyh7gnIimLVB/hVii5bUcInWlX+sJTJLBC1+RURn9zto3ffEvz7ijXdEVgop3qQY9DVJKifQ==
+X-Received: by 2002:a05:6000:2407:b0:430:a803:e49f with SMTP id ffacd0b85a97d-432448b7f43mr2778068f8f.15.1766050235424;
+        Thu, 18 Dec 2025 01:30:35 -0800 (PST)
+Received: from localhost (109-81-80-251.rct.o2.cz. [109.81.80.251])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4324493fe32sm4092572f8f.14.2025.12.18.01.30.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 18 Dec 2025 01:30:34 -0800 (PST)
+Date: Thu, 18 Dec 2025 10:30:33 +0100
+From: Michal Hocko <mhocko@suse.com>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: akpm@linux-foundation.org, david@kernel.org, lorenzo.stoakes@oracle.com,
+	Liam.Howlett@oracle.com, vbabka@suse.cz, rppt@kernel.org,
+	surenb@google.com, ast@kernel.org, daniel@iogearbox.net,
+	andrii@kernel.org, martin.lau@linux.dev, eddyz87@gmail.com,
+	song@kernel.org, yonghong.song@linux.dev, john.fastabend@gmail.com,
+	kpsingh@kernel.org, sdf@fomichev.me, haoluo@google.com,
+	jolsa@kernel.org, jackmanb@google.com, hannes@cmpxchg.org,
+	ziy@nvidia.com, bigeasy@linutronix.de, clrkwllms@kernel.org,
+	rostedt@goodmis.org, catalin.marinas@arm.com, will@kernel.org,
+	ryan.roberts@arm.com, kevin.brodsky@arm.com, dev.jain@arm.com,
+	yang@os.amperecomputing.com, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/2] arm64: mmu: use pagetable_alloc_nolock() while
+ stop_machine()
+Message-ID: <aUPJuZINNuNxddRX@tiehlicka>
+References: <20251212161832.2067134-1-yeoreum.yun@arm.com>
+ <20251212161832.2067134-3-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251218-media-imx-cleanup-v2-1-9e3e3c269f7f@pengutronix.de>
-References: <20251218-media-imx-cleanup-v2-0-9e3e3c269f7f@pengutronix.de>
-In-Reply-To: <20251218-media-imx-cleanup-v2-0-9e3e3c269f7f@pengutronix.de>
-To: Steve Longerbeam <slongerbeam@gmail.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, Frank Li <Frank.Li@nxp.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Fabio Estevam <festevam@gmail.com>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>
-Cc: linux-media@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- linux-staging@lists.linux.dev, Michael Tretter <m.tretter@pengutronix.de>
-X-Mailer: b4 0.14.3
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::54
-X-SA-Exim-Mail-From: m.tretter@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251212161832.2067134-3-yeoreum.yun@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_012405_932644_F962F3F1 
-X-CRM114-Status: GOOD (  15.75  )
+X-CRM114-CacheID: sfid-20251218_013039_676121_5E5965BE 
+X-CRM114-Status: UNSURE (   8.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,112 +113,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The imx-media driver has a single imx_media_device. Attaching the
-media_pipeline to the imx_media_device prevents the execution of
-multiple media pipelines on the device. This should be possible as long
-as the media_pipelines don't use the same pads or pads that be
-configured while the other media pipeline is streaming.
+On Fri 12-12-25 16:18:32, Yeoreum Yun wrote:
+> linear_map_split_to_ptes() and __kpti_install_ng_mappings()
+> are called as callback of stop_machine().
+> That means these functions context are preemption disabled.
+> 
+> Unfortunately, under PREEMPT_RT, the pagetable_alloc() or
+> __get_free_pages() couldn't be called in this context
+> since spin lock that becomes sleepable on RT,
+> potentially causing a sleep during page allocation.
+> 
+> To address this, pagetable_alloc_nolock().
 
-Move the media_pipeline to the imx_media_video_dev to be able to
-construct media pipelines per imx capture device.
-
-If different media pipelines in the media device conflict, the
-validation will fail. Thus, the pipeline will fail to start and signal
-an error to user space.
-
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
-Signed-off-by: Michael Tretter <m.tretter@pengutronix.de>
----
-Changes in v2:
-- none
----
- drivers/staging/media/imx/imx-media-capture.c | 8 ++++----
- drivers/staging/media/imx/imx-media-utils.c   | 3 ++-
- drivers/staging/media/imx/imx-media.h         | 7 ++++---
- 3 files changed, 10 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/staging/media/imx/imx-media-capture.c b/drivers/staging/media/imx/imx-media-capture.c
-index e9cef7af000a..bfd71d25facc 100644
---- a/drivers/staging/media/imx/imx-media-capture.c
-+++ b/drivers/staging/media/imx/imx-media-capture.c
-@@ -722,8 +722,8 @@ static int capture_start_streaming(struct vb2_queue *vq, unsigned int count)
- 		goto return_bufs;
- 	}
- 
--	ret = imx_media_pipeline_set_stream(priv->md, &priv->src_sd->entity,
--					    true);
-+	ret = imx_media_pipeline_set_stream(priv->md, &priv->vdev,
-+					    &priv->src_sd->entity, true);
- 	if (ret) {
- 		dev_err(priv->dev, "pipeline start failed with %d\n", ret);
- 		goto return_bufs;
-@@ -749,8 +749,8 @@ static void capture_stop_streaming(struct vb2_queue *vq)
- 	unsigned long flags;
- 	int ret;
- 
--	ret = imx_media_pipeline_set_stream(priv->md, &priv->src_sd->entity,
--					    false);
-+	ret = imx_media_pipeline_set_stream(priv->md, &priv->vdev,
-+					    &priv->src_sd->entity, false);
- 	if (ret)
- 		dev_warn(priv->dev, "pipeline stop failed with %d\n", ret);
- 
-diff --git a/drivers/staging/media/imx/imx-media-utils.c b/drivers/staging/media/imx/imx-media-utils.c
-index 1b5af8945e6b..f520529a7cfe 100644
---- a/drivers/staging/media/imx/imx-media-utils.c
-+++ b/drivers/staging/media/imx/imx-media-utils.c
-@@ -749,6 +749,7 @@ EXPORT_SYMBOL_GPL(imx_media_pipeline_subdev);
-  * Turn current pipeline streaming on/off starting from entity.
-  */
- int imx_media_pipeline_set_stream(struct imx_media_dev *imxmd,
-+				  struct imx_media_video_dev *vdev,
- 				  struct media_entity *entity,
- 				  bool on)
- {
-@@ -762,7 +763,7 @@ int imx_media_pipeline_set_stream(struct imx_media_dev *imxmd,
- 	mutex_lock(&imxmd->md.graph_mutex);
- 
- 	if (on) {
--		ret = __media_pipeline_start(entity->pads, &imxmd->pipe);
-+		ret = __media_pipeline_start(entity->pads, &vdev->pipe);
- 		if (ret)
- 			goto out;
- 		ret = v4l2_subdev_call(sd, video, s_stream, 1);
-diff --git a/drivers/staging/media/imx/imx-media.h b/drivers/staging/media/imx/imx-media.h
-index f095d9134fee..8b65f79b125f 100644
---- a/drivers/staging/media/imx/imx-media.h
-+++ b/drivers/staging/media/imx/imx-media.h
-@@ -104,6 +104,9 @@ struct imx_media_buffer {
- struct imx_media_video_dev {
- 	struct video_device *vfd;
- 
-+	/* the pipeline object */
-+	struct media_pipeline pipe;
-+
- 	/* the user format */
- 	struct v4l2_pix_format fmt;
- 	/* the compose rectangle */
-@@ -145,9 +148,6 @@ struct imx_media_dev {
- 	struct media_device md;
- 	struct v4l2_device  v4l2_dev;
- 
--	/* the pipeline object */
--	struct media_pipeline pipe;
--
- 	struct mutex mutex; /* protect elements below */
- 
- 	/* master video device list */
-@@ -223,6 +223,7 @@ int imx_media_alloc_dma_buf(struct device *dev,
- 			    int size);
- 
- int imx_media_pipeline_set_stream(struct imx_media_dev *imxmd,
-+				  struct imx_media_video_dev *vdev,
- 				  struct media_entity *entity,
- 				  bool on);
- 
+As you cannot tolerate allocation failure and this is pretty much
+permanent allocation (AFAIU) why don't you use a static allocation?
 
 -- 
-2.47.3
-
+Michal Hocko
+SUSE Labs
 
