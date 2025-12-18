@@ -4,70 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D58AD6E2DC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 19:26:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DB0DD6E2CA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 19:31:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z+um81ffqtqu2bO6NKnenUAL5qzxt7UW8iSuLBJx+ZU=; b=3jEXlQhtjK28S+C4KYdebQwdQV
-	daA2AcADjX/EFjRINzS27PfxQdrCgvegoE58Mys5upWvz5+ot7NBhyYO2rUAnwVaOs5wN93g4cCym
-	9y0d7GnukW7tFZYrZLHB2r6SMnvI6dZBk7JlD5RZil9HGDG9ggD5kDaQb9spYJANGgqd/j9R4Z2n+
-	p0lS0mFNbaFeosHu+XRnqeSbd94xGelVlpyoFwY1fZ5AYO30wHMpzOt/1QOkvO7q85alZrZT9mKpz
-	LRUSpLbXkCxrydOvLEMd41+7bLzgiYTPeW92mT4Zv2bHiA35JR8o9ZIiVPv6Pwlvsdi6/iaT03cD1
-	edicU7Eg==;
+	bh=wXZ59zbGXuIZ0bKdNs8tPNB7wcdnwwc5SaFFZk2fpQ0=; b=woaYkjH8UCWOu/sHz+L+113qwb
+	sxTdGvt8FQmmKq2enqz2rIRin1yVfXr6AhdnyJegYNhK4K7C6t/fFm4EM87kTc3GZze82VPnqJCBI
+	+Vg5jcbPrp2sLLHByUPNxEg6bD8OpwuDFFtt6SwgYgNG9RRnirbsBTf03dAHIqUgM0VbLAR9ZZl5L
+	hYCBoPnx2v9EuhIC71DcFejjYplBL0SoRc4F6olnHOPBsXTrOjBAZynJ10AVQleoRb/EzciR3QcXP
+	o/Zy2yS3fin4oIST0YEf1U87WUzBQXeQDT4t1ASZaYR9s2WC2bevaSY+BiOnjIkRznhLjye+Pi9Zk
+	1QoPSKPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWJeB-000000095bZ-1oww;
-	Thu, 18 Dec 2025 19:26:47 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vWJiw-0000000960R-297R;
+	Thu, 18 Dec 2025 19:31:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWJeA-000000095bE-3yP9
+	id 1vWJiu-000000095zp-3QAt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 19:26:47 +0000
+	Thu, 18 Dec 2025 19:31:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 15F016013B;
-	Thu, 18 Dec 2025 19:26:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90DE2C116D0;
-	Thu, 18 Dec 2025 19:26:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B954960149;
+	Thu, 18 Dec 2025 19:31:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76A0DC116D0;
+	Thu, 18 Dec 2025 19:31:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766086005;
-	bh=8ougrI2F0o6tZCTw9ybr+PvkeZpYBrHjnd8HgfDiNkE=;
+	s=k20201202; t=1766086299;
+	bh=QQuW2NMPKvO1lAvnMHe2NLJWr5l1I0xjIzysFFQlGNU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=uTapCRAELi9WA5wcbSRhHNKgOTwYApwQOZnW+kab86opSG+800gSNesmWBJ7cngW6
-	 roMgUOp1Wtk6giYTh0cyLo6GvFm/apnGGMG/JTDwVhw9ZS+eYvQLmU2SZan8fu0oJo
-	 mJtdMe8GwYSXPfBaoN/sa/44o6rCWZ9koR6f6SG2NKXE+VhyJrrGxTkLrTdmdtoGOr
-	 GHQWZO4OmYlQGngMGtXfXvVm2+N8pKqeRhhhtnqOPJfQLMDl0HvYJiQRUjni3rGG00
-	 6CJD9JwZLxMBqha5fiM5fKEIIje/1aKleeFnKiQPnqK5GZWAHQrjqFYzusF6kSvnCl
-	 +cT7i34KoL2Ug==
-Message-ID: <7127040f-55ab-4bfa-8795-1df76085470c@kernel.org>
-Date: Thu, 18 Dec 2025 20:26:35 +0100
+	b=J3SJEGC7ccXV5DO4hAeyFNUD/AK/bOxOyoN82Umg48Nubb4mi54diBuiMHzLs7Nkm
+	 gqxQo92EkLrP/KNVK6nHK3a7hjDXDk0JOAxm2RwZaR5EAkNXVUufGV2acXDcb4we0v
+	 4LOAVU2YZK438vSz8ZGxoCY/2Xr0kIXJpePzQ/CglREcrrQZy9YaOAKW33WhGJJdBq
+	 2LHzegIoeZHtpjz+whqwV+d5Q3WRNCUxesMrSfix6mnwvV5/1/JWAaGYwswMUpUUuU
+	 fiUdeIulenx7h/MvIR6yxkSQrQcBhz3B5yLj4uiILawogEO07H7nFQknnYgyJrJ3c4
+	 MYxBUgFjclniA==
+Message-ID: <d215c5dd-b402-4cd2-b4c6-48358b5b2491@kernel.org>
+Date: Thu, 18 Dec 2025 20:31:31 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 1/3] dt-bindings: soc: imx93-media-blk-ctrl: Add PDFC
- subnode to schema and example
-To: Marco Felsch <m.felsch@pengutronix.de>, Liu Ying <victor.liu@nxp.com>,
- krzk+dt@kernel.org
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org
-References: <20251202-v6-18-topic-imx93-parallel-display-v7-0-2cce31d64608@pengutronix.de>
- <20251202-v6-18-topic-imx93-parallel-display-v7-1-2cce31d64608@pengutronix.de>
- <705773fc-5aba-4bff-b05e-272e1cd0262c@nxp.com>
- <20251215161706.2ea3wtu3xlwcxxar@pengutronix.de>
+Subject: Re: [PATCH v6 1/2] dt-bindings: arm: aspeed: add ASRock Rack ALTRAD8
+ board
+To: Rebecca Cran <rebecca@bsdio.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Tan Siewert <tan.siewert@hetzner.com>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org
+Cc: Billy Tsai <billy_tsai@aspeedtech.com>,
+ Conor Dooley <conor.dooley@microchip.com>
+References: <20251218161816.38155-1-rebecca@bsdio.com>
+ <20251218161816.38155-2-rebecca@bsdio.com>
+ <5aa36c56-798a-40cc-b0b8-be3f7c92136f@kernel.org>
+ <4eff8506-8049-46e9-997e-a41edff32bbc@bsdio.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -113,7 +106,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251215161706.2ea3wtu3xlwcxxar@pengutronix.de>
+In-Reply-To: <4eff8506-8049-46e9-997e-a41edff32bbc@bsdio.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -130,73 +123,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 15/12/2025 17:17, Marco Felsch wrote:
-> Hi Liu,
-> 
-> On 25-12-08, Liu Ying wrote:
->> Hi Marco,
->>
->> On 12/02/2025, Marco Felsch wrote:
->>> From: Liu Ying <victor.liu@nxp.com>
+On 18/12/2025 19:34, Rebecca Cran wrote:
+> On 12/18/25 09:21, Krzysztof Kozlowski wrote:
+>> On 18/12/2025 17:18, Rebecca Cran wrote:
+>>> Document ASRock Rack ALTRAD8 (ALTRAD8UD-1L2T and ALTRAD8UD2-1L2Q)
+>>> compatibles.
 >>>
->>> i.MX93 SoC mediamix blk-ctrl contains one DISPLAY_MUX register which
->>> configures parallel display format by using the "PARALLEL_DISP_FORMAT"
->>> field. Document the Parallel Display Format Configuration(PDFC) subnode
->>> and add the subnode to example.
->>>
->>> Signed-off-by: Liu Ying <victor.liu@nxp.com>
->>> [m.felsch@pengutronix.de: port to v6.18-rc1]
->>> [m.felsch@pengutronix.de: add bus-width]
->>> Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
->>> ---
->>>  .../bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml | 92 ++++++++++++++++++++++
->>>  1 file changed, 92 insertions(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
->>> index 34aea58094e55365a2f9c86092f637e533f954ff..6e2d86d9341c75108b492bcbabc8a560d8e707cd 100644
->>> --- a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
->>> +++ b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
->>> @@ -26,6 +26,12 @@ properties:
->>>    reg:
->>>      maxItems: 1
->>>  
->>> +  '#address-cells':
->>> +    const: 1
->>> +
->>> +  '#size-cells':
->>> +    const: 1
->>> +
->>>    '#power-domain-cells':
->>>      const: 1
->>>  
->>> @@ -40,6 +46,60 @@ properties:
->>>      minItems: 8
->>>      maxItems: 10
->>>  
->>> +  bridge@60:
->>
->> The dependency patch series mentioned in cover letter has two links in it's
->> cover letter.  Reading the patch sets pointed by the two links, we may find
->> Krzysztof's comments - the child nodes of the blk-ctrl should be completely
->> documented.
+>>> Signed-off-by: Rebecca Cran <rebecca@bsdio.com>
+>>> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+>>> Tested-by: Tan Siewert <tan.siewert@hetzner.com>
+>> How was the binding tested?
 > 
-> Thanks for pointing this out.
+> I ran "make ARCH=arm CHECK_DTBS=y aspeed/aspeed-bmc-asrock-altrad8.dtb"
+> to check for errors
+
+That's a build check for DTS, not binding. I compiled this code - so it
+is also Tested-by?
+
 > 
-> @Krzysztof
-> Requesting to add everything seems not feasible if everything added
-> should be tested too.
-> I don't see why everything should be added in one step, since the base
-> .dtsi isn't added in one step too.
+> and have used the dts file in an ASRock Rack ALTRAD8UD-1L2T system with
+> Linux 6.12.61 running OpenBMC.
 
-Because otherwise we do not see entire picture and people post incorrect
-bindings, claiming they are complete picture, like messing nodes with
-addressing and nodes without. So sure, if you do not want to post
-complete picture, we cannot review that complete picture, therefore YOU
-MUST POST CORRECT CODE.
+This does not test anything from the binding.
 
-I will not be taking excuses later "we did not know that such code is
-not allowed". You must know all rules.
-
+Please don't add fake tests... Building instructions are not testing.
 
 Best regards,
 Krzysztof
