@@ -4,83 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF2EBD6ACD4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 09:06:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59423D6ACD4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 09:09:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EOmshKDUDvVNH4QiayacMf8uIhPEsQBSAOnp31qS5y4=; b=BwpZbLwjHkXdQ55uxksACw4XN5
-	KVgNswXC87P1BZ72sb0U9DmzCU5LOPexKVH2ieChIhTIC6SNplZXSIAlYpEaazidbzOMqGeNLkb8R
-	EnOcOzqb5PhGl/uiNV9B96S/H3tNA9yFNSVLi5SNjhWMeIhwpdNNILnMQ/F+I1ukXAIO+oTsjTIhS
-	rz0B3OlIIy57a+bBitqoNENhcLwgorI6v75FH61pVte8BqFPtMptSjHqJV1FfBss4n1zboZlrjLaE
-	BoH88rBg/L4cNresMlQOCBo0BOmpjU4pA1y1VowYQ0/V9OjzOy0OqT3BbGbENz7MgsevgkOj8yADI
-	gKLjsf3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eIkJKJ52ISK1XSyElgoQQvt41nWa/8DG8BntQE59pR4=; b=X+OSSXtqLdUlUQflQFUGtH1Gg3
+	K1kuo4GUnPQ5chPznUJIPpZksyZUTAmU8C+tZYIEc9TAem1phZveyJF5GtwPlTfjwIK1lZpBSIRBg
+	t3KFzMZaGGM1OkMV9SIo2PNNrLOA2lhxcNbB4zpi4wplP677H5dG7YQ1KUFhg8tZZDRi1WyRzfZPZ
+	DBZCwc333YswfpM3b16Iw51cn/Sr2ewSDK+2O3QlIoQLmSs0K8ZF0bSE3fdonbFQH7xowD1eBoZa3
+	5iWuJmrusHA3a+MvCMFiPc2f0SzRSVE1ds+G3F7cMx/ZDMXyJwNhmRptxlyiqDyTa6YDWLQp+qdDt
+	l82VNx1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vW9yA-00000008741-1OPQ;
-	Thu, 18 Dec 2025 09:06:46 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1vWA0j-000000087U0-0Jaw;
+	Thu, 18 Dec 2025 09:09:25 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vW9y7-0000000873i-3lX2
+	id 1vWA0f-000000087TQ-4BtU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 09:06:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1766048803; x=1797584803;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=2FxCS2v8ys6Z9v1YP9ReHVNMpOtfhfAq24bTG/5GKBY=;
-  b=2M0D7f9AQ6dyUx9i5iNhBIrsOPsg5NQpzsy0r5eEU0cQF4YezcEVRKuu
-   hfaJzQLmqa4ovO6xSp4fKvLDeJlLqYOwNd+/afJUb3Q6b0ysAAjtj2WEj
-   NGiBiFV8QiWgcrl3Os5P/nfHXef5kn1rmm2PhqAshdYGDxIYEqhtfFoRT
-   HBP00KINTZGIo81wRd3yPeAVyFV8VBQZK+kdUPvFni0YbHQ+mueomFsWr
-   N18kjasnSbBBYxAz158zP2pYCVFyLxyirdCivD9UwS4DwJblHLBIw4ED8
-   mtlFtmO6A8WK3deZyJ5yj+SLfa58ZikDCb0k4kSPJKrQ4ap8QLxUKr/VL
-   Q==;
-X-CSE-ConnectionGUID: 3TswuhhSR4iw3eoTfkehJA==
-X-CSE-MsgGUID: ypYW0R9OQBqxqqnx5ZMI6w==
-X-IronPort-AV: E=Sophos;i="6.21,158,1763449200"; 
-   d="scan'208";a="218042574"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Dec 2025 02:06:42 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.29; Thu, 18 Dec 2025 02:06:18 -0700
-Received: from [10.171.248.75] (10.10.85.11) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Thu, 18 Dec 2025 02:06:14 -0700
-Message-ID: <83faf871-0e54-4ea1-9490-e27026211eac@microchip.com>
-Date: Thu, 18 Dec 2025 10:06:13 +0100
+	Thu, 18 Dec 2025 09:09:23 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <m.tretter@pengutronix.de>)
+	id 1vWA0S-0000bE-Cz; Thu, 18 Dec 2025 10:09:08 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <m.tretter@pengutronix.de>)
+	id 1vWA0R-006FaQ-1N;
+	Thu, 18 Dec 2025 10:09:07 +0100
+Received: from mtr by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <m.tretter@pengutronix.de>)
+	id 1vWA0R-00EXba-0t;
+	Thu, 18 Dec 2025 10:09:07 +0100
+Date: Thu, 18 Dec 2025 10:09:07 +0100
+From: Michael Tretter <m.tretter@pengutronix.de>
+To: Steve Longerbeam <slongerbeam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Hans Verkuil <hans.verkuil@cisco.com>
+Cc: linux-media@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org,
+	Michael Tretter <michael.tretter@pengutronix.de>,
+	Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH v2 0/2] media: staging: imx: fix multiple video input
+Message-ID: <aUPEs4wUHgAyMrPX@pengutronix.de>
+Mail-Followup-To: Michael Tretter <m.tretter@pengutronix.de>,
+	Steve Longerbeam <slongerbeam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Hans Verkuil <hans.verkuil@cisco.com>, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	stable@vger.kernel.org,
+	Michael Tretter <michael.tretter@pengutronix.de>,
+	Frank Li <Frank.Li@nxp.com>
+References: <20251107-media-imx-fixes-v2-0-07d949964194@pengutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/3] drm: atmel-hlcdc: add LCD controller layer
- definition for sama7d65
-To: Manikandan Muralidharan <manikandan.m@microchip.com>, <lee@kernel.org>,
-	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>,
-	<dharma.b@microchip.com>, <maarten.lankhorst@linux.intel.com>,
-	<mripard@kernel.org>, <tzimmermann@suse.de>, <airlied@gmail.com>,
-	<simona@ffwll.ch>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<dri-devel@lists.freedesktop.org>
-CC: Ryan Wanner <Ryan.Wanner@microchip.com>
-References: <20251218040521.463937-1-manikandan.m@microchip.com>
- <20251218040521.463937-3-manikandan.m@microchip.com>
-From: Nicolas Ferre <nicolas.ferre@microchip.com>
-Content-Language: en-US, fr
-Organization: microchip
-In-Reply-To: <20251218040521.463937-3-manikandan.m@microchip.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20251107-media-imx-fixes-v2-0-07d949964194@pengutronix.de>
+X-Sent-From: Pengutronix Hildesheim
+X-URL: http://www.pengutronix.de/
+X-Accept-Language: de,en
+X-Accept-Content-Type: text/plain
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: m.tretter@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_010644_004393_FCFB46B2 
-X-CRM114-Status: UNSURE (   6.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251218_010922_034844_5579310E 
+X-CRM114-Status: GOOD (  19.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,17 +97,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/12/2025 at 05:05, Manikandan Muralidharan wrote:
-> From: Ryan Wanner <Ryan.Wanner@microchip.com>
+On Fri, 07 Nov 2025 11:34:32 +0100, Michael Tretter wrote:
+> If the IMX media pipeline is configured to receive multiple video
+> inputs, the second input stream may be broken on start. This happens if
+> the IMX CSI hardware has to be reconfigured for the second stream, while
+> the first stream is already running.
 > 
-> Add the LCD controller layer definition and atmel_hlcdc_of_match
-> entry for sama7d65.
+> The IMX CSI driver configures the IMX CSI in the link_validate callback.
+> The media pipeline is only validated on the first start. Thus, any later
+> start of the media pipeline skips the validation and directly starts
+> streaming. This may leave the hardware in an inconsistent state compared
+> to the driver configuration. Moving the hardware configuration to the
+> stream start to make sure that the hardware is configured correctly.
 > 
-> Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
-> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+> Patch 1 removes the caching of the upstream mbus_config in
+> csi_link_validate and explicitly request the mbus_config in csi_start,
+> to get rid of this implicit dependency.
+> 
+> Patch 2 actually moves the hardware register setting from
+> csi_link_validate to csi_start to fix the skipped hardware
+> reconfiguration.
 
-Acked-by: Nicolas Ferre <nicolas.ferre@microchip.com>
-Thanks Ryan and Manikandan! Best regards,
-   Nicolas
+Gentle ping.
 
+Michael
+
+> 
+> Signed-off-by: Michael Tretter <michael.tretter@pengutronix.de>
+> ---
+> Changes in v2:
+> - Document changed locking in commit message
+> - Link to v1: https://lore.kernel.org/r/20251105-media-imx-fixes-v1-0-99e48b4f5cbc@pengutronix.de
+> 
+> ---
+> Michael Tretter (2):
+>       media: staging: imx: request mbus_config in csi_start
+>       media: staging: imx: configure src_mux in csi_start
+> 
+>  drivers/staging/media/imx/imx-media-csi.c | 84 ++++++++++++++++++-------------
+>  1 file changed, 48 insertions(+), 36 deletions(-)
+> ---
+> base-commit: 27afd6e066cfd80ddbe22a4a11b99174ac89cced
+> change-id: 20251105-media-imx-fixes-acef77c7ba12
 
