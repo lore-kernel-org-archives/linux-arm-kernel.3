@@ -4,70 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15DABD68BE4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 13:36:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4087D6D220
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 13:39:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OZ2bFU04bfp53cT83OkWMoYLR5vqsZ4FHveM+5HVPQ8=; b=wptFsM7ApZXD15Ui6Aixr2A86n
-	z2uRT/MXakF+vIz0+uXU4lzi53UNSnOmrLEw0lVKhLmy1kxiAC7jJVw2p6WOCl5SPThhVuXtDmEti
-	Z9FehSfwow3CS9K85O/nZC+uf7D0fVGDow/3h1SQPeTddRjzKAxWhii58GUmhB3fCSxUIIEnVewv2
-	QBMQlxCHVCHkJQ33ECAa+cVUYeU0R0q3LBhq/0o0XzjHJTSb/LFztSoFnRnARytT0mWnoXxYSQejo
-	HO4cytf2EkRV6xu7zmcMi/XEWp6VEyeM+6VYSAwlH2X+GNGMi1GUPpSGTfUwCVSsXYaMhSvCXBBiE
-	u5ceRtZQ==;
+	bh=iXBjavAzr+b344rqXrPUfRCnf/+ZQMxOzlCBRlY9bI4=; b=ae9nkcHwvFtI9HTRXgifzSlNEt
+	6cArEW3LpjXdf9rflXuGkUOIUARmB/B71DIl0MUbpS3/HPlpinstdeBsMDWZayyW/ezFRtCwwIL58
+	hCGsRO5OPipg9MNtWtP1fvWa3YasJeK0es8g3uzyvjZSaJe/rQGlumQoOs2mzFip/KR/F04wMlrQb
+	zxBm/X7k3vPqTjJ6EWZcCFSLw1/Pj5g75/vIBpZAKGm+8/uHdp3w39u6D79GwremCWX1vLtDnr0QY
+	1kGLSccocirfAEHmXcX8bClbC8OihiVgawc7hI32buKm6L6BesOWN44Vi/bz4BmLVDeGrYw8vzX7A
+	wqdbCdJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWEB7-00000008Xwh-0G7R;
-	Thu, 18 Dec 2025 13:36:25 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vWEEL-00000008YDA-09V9;
+	Thu, 18 Dec 2025 13:39:45 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWEB3-00000008Xvw-3sCO
+	id 1vWEEI-00000008YCZ-3frE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 13:36:23 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.83])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dXBWM3S9YzJ46bj;
-	Thu, 18 Dec 2025 21:35:43 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 818F340565;
-	Thu, 18 Dec 2025 21:36:14 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Thu, 18 Dec
- 2025 13:36:13 +0000
-Date: Thu, 18 Dec 2025 13:36:11 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: James Morse <james.morse@arm.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, D
- Scott Phillips OS <scott@os.amperecomputing.com>,
-	<carl@os.amperecomputing.com>, <lcherian@marvell.com>,
-	<bobo.shaobowang@huawei.com>, <tan.shaopeng@fujitsu.com>,
-	<baolin.wang@linux.alibaba.com>, Jamie Iles <quic_jiles@quicinc.com>, "Xin
- Hao" <xhao@linux.alibaba.com>, <peternewman@google.com>,
-	<dfustini@baylibre.com>, <amitsinght@marvell.com>, David Hildenbrand
-	<david@kernel.org>, Dave Martin <dave.martin@arm.com>, Koba Ko
-	<kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
-	<fenghuay@nvidia.com>, <baisheng.gao@unisoc.com>, Gavin Shan
-	<gshan@redhat.com>, Ben Horgan <ben.horgan@arm.com>, <rohit.mathew@arm.com>,
-	<reinette.chatre@intel.com>, Punit Agrawal <punit.agrawal@oss.qualcomm.com>
-Subject: Re: [RFC PATCH 19/38] arm_mpam: resctrl: pick classes for use as
- mbm counters
-Message-ID: <20251218133611.00000a3c@huawei.com>
-In-Reply-To: <20251205215901.17772-20-james.morse@arm.com>
-References: <20251205215901.17772-1-james.morse@arm.com>
-	<20251205215901.17772-20-james.morse@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Thu, 18 Dec 2025 13:39:44 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BI9PelW4191394
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 13:39:40 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	iXBjavAzr+b344rqXrPUfRCnf/+ZQMxOzlCBRlY9bI4=; b=ceZazrGplkJgGn4k
+	g7hXFkAeQ2jBeSnDxZEy1vQTHBTxuhby02BQuDiGOOKJkqVXe5E6Maqz7D213Gum
+	ocnw+GOeTQTGwuLcbDoULUp8HN+F/CoSpKwXrdYF3zYJxE9yHP2kW16wHcxVHktv
+	a7b5jrTRQ/hIAssAo/XIKj48VfLJMx8YQQKcxA+IimfpTi9uBRyIziKFses9TDN+
+	hXGhsEZ6ZigaV8KDeDo+Wi7ZDzUZpvUsl2HZ3xarAqxAVQ+a1rPTsRsFa1lyeXLd
+	N6riFxSR0MacQFGBpdnQ43dF4+wBU6YyEYGUWygtjj1ioOKk1puQRlgv0Gz2jXQK
+	I+Tz5g==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4b47pkj57j-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 13:39:39 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4f3564e2321so414821cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 05:39:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1766065179; x=1766669979; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=iXBjavAzr+b344rqXrPUfRCnf/+ZQMxOzlCBRlY9bI4=;
+        b=KpvGX/TchBEU5JlFDsgYqaiDx7jnICdG/7c+rKdNXvh14S9Pr8hXcNqgxvaA8KMwE/
+         OMTa8EHI11Pxs8Yrl2K0p+6saXKM+SDJt+i75y0JU+VtbjaM+A1SFQdpjXEsLKReyMV1
+         2waMM1ejghDTgPOkLhq/C2KBRgq4AxM8dOZ+PHdcwyrNVDTC+Eio9sxXRFCKmvATo7Tk
+         FNQmoVMv+Zpkd/p7bQu0LAKzdLLUFA3LTbVgR1RuyEnNv9L5cTIO94K1c9wwhsF+JAH3
+         DGoXzlDYl5gCAUq5HvWVdh7/6j4mo7HFWbs5xSUE6x7QrHfsnkOP9Cwvbr/hIZpGCBZZ
+         ZdIg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766065179; x=1766669979;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=iXBjavAzr+b344rqXrPUfRCnf/+ZQMxOzlCBRlY9bI4=;
+        b=Gd4kId4efdRd+0DByjRuVz5A4RqO/D8TZdV4q+mh0stYLDB66qQ4OGe+fKRJqpImTb
+         mGUXbt0R/pLd8V6hS9TsoVzcpBKD2c76N9HNQ47g9sPb3SxBzDOeGS4k6DifPOdM+DBc
+         i95gByADPfz3ijBCSyOQxrR9Gd8PvknsI04TRhgln1zdvezAkxWj6ZbK7JMYAy28jpcX
+         Nc6LQAAADOmbePv34koCHvzWgXZsPilURaVsMvBoRf3w7VVcpcgeECYYHTNyEfub7BJt
+         yx/BZ+Q0FWkOKyyunzZHa1Sl05e2nkKy4fcoUfmz2l+srbV5b9rKaqjn059+5yfsIrF7
+         v86w==
+X-Gm-Message-State: AOJu0YwGBGASVui6ssznbsiI7TOUxh2sC52Ag6aCndEe5MoLBmJzwdSi
+	skzftcKjYGVhz7xGUw5/r28sjmFTw5v3GjhbnXUXPg/JiTBnpS47kfsTgTwFnJY9saiPT3Pl9px
+	AWYN2uG8C2OQMfceKv2vCEf5Z3nA6yI3ZL2wgIQM/0D3zREAF78FsL4SVr1rne+ZyRXZemfKc2t
+	A1p0eE+xGfeA==
+X-Gm-Gg: AY/fxX6zo3dLteeoDv72oYQOBT5uILqBe7CilxwwCa2fC70VIMugzqk5+k2bwerRVMa
+	YyI2rP6c982ycd7yogR6cdWgH2tJZWhymTnfQG3krjSadpWwz4fgVqsUnf2z2qFmTkvM6jPf3Td
+	H8GXMlGzD2HmRRNAbeItWIaa4Z0Rk8i9v5mB/heobTEFoyFNQK8RLVdx1ghg34QklN3zC+HFCIZ
+	qSBR7ndDVo88g2E9Mcfc0GvPmao5KbKnKa3HJ4WlsHsPqpE4GegBk2L9rqF1v9txinbHd8MAtA2
+	STCZOfs6yeqmdxRTJFfsCSWgpbM5yh76MhlBw8cVb8KpFMC1RGBCGKMMiFNk8085MvilqTPvWqX
+	nmjPokaiQJlWbksLkd0XRjFfrHcB7cFoIbhr5TzGh6RvuIqBlHHPg0EUKoGcMO/YTPQ==
+X-Received: by 2002:a05:622a:43:b0:4f1:b3c1:20f8 with SMTP id d75a77b69052e-4f3610818f0mr19712311cf.4.1766065178768;
+        Thu, 18 Dec 2025 05:39:38 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHTeIvy/NjnisAiBdGVDUI2R7PT5nt+0PAwtdl6wvnjsNYp+nDPPgKkDdnegJEkAxI51ztlow==
+X-Received: by 2002:a05:622a:43:b0:4f1:b3c1:20f8 with SMTP id d75a77b69052e-4f3610818f0mr19711931cf.4.1766065178347;
+        Thu, 18 Dec 2025 05:39:38 -0800 (PST)
+Received: from [192.168.119.72] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-64b5887d4a0sm2459517a12.23.2025.12.18.05.39.35
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 18 Dec 2025 05:39:37 -0800 (PST)
+Message-ID: <9964bf4b-a6ed-4429-8c70-520cd19781e9@oss.qualcomm.com>
+Date: Thu, 18 Dec 2025 14:39:34 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 5/5] arm64: dts: qcom: monaco-evk-camera: Add DT
+ overlay
+To: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+        Nihal Kumar Gupta <quic_nihalkum@quicinc.com>,
+        bryan.odonoghue@linaro.org, mchehab@kernel.org, robh@kernel.org,
+        krzk+dt@kernel.org, conor+dt@kernel.org, andersson@kernel.org,
+        konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
+        cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com,
+        will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, quic_svankada@quicinc.com,
+        linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        Ravi Shankar <quic_rshankar@quicinc.com>,
+        Vishal Verma <quic_vishverm@quicinc.com>
+References: <20251216062223.2474216-1-quic_nihalkum@quicinc.com>
+ <20251216062223.2474216-6-quic_nihalkum@quicinc.com>
+ <5bd29b5f-6fcf-428d-b451-698d92f0883e@linaro.org>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <5bd29b5f-6fcf-428d-b451-698d92f0883e@linaro.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500011.china.huawei.com (7.191.174.215) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+X-Proofpoint-ORIG-GUID: H2NRIb-LVaGNt4v3q5Hn9Zb4VXs0UATS
+X-Authority-Analysis: v=2.4 cv=Md9hep/f c=1 sm=1 tr=0 ts=6944041b cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
+ a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=lOoz2d9cngm9sXlBlawA:9 a=QEXdDO2ut3YA:10
+ a=uxP6HrT_eTzRwkO_Te1X:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjE4MDExMyBTYWx0ZWRfXxpcG17u3zkkk
+ 032IX7tRDInELS3VSOkUsqUS2O1as6bnBhYrZ93dOovsIFDEho5wcAEq/T+7AUS1x/7rGx5COIY
+ p7U+GMXfAuidM3BcrEVnA/OtZ8SHsdV0QxLqjUc+5yW7k5nt5uOdvetgTRSGUK19ItrBoewq/dW
+ PujkJ21Rhf47gmQMcY8uqF49excxI8aFl4n4XZ6ku+wFCDwv+zcwlAEsnKfAeEI6LYdbVDRgANb
+ r4r1mfITspnVg7dU80qWwwu1Gqn4K2/xGzGKjRR0/OnatCbMhrhx3/wP9HCslmRh9hUZWjC/hRi
+ 0n3HLin16nQHEW4jJ21KRD6vSudtGFwaN/QpcxS6BCL3nV9/p+n6zosrHxc4xCsY+/QwkyHb5jj
+ P8Gzq/ZNfKKzjB2tn1sblvOULXwg3A==
+X-Proofpoint-GUID: H2NRIb-LVaGNt4v3q5Hn9Zb4VXs0UATS
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-12-18_02,2025-12-17_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 clxscore=1015 adultscore=0 spamscore=0 lowpriorityscore=0
+ priorityscore=1501 suspectscore=0 impostorscore=0 phishscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2512180113
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_053622_278591_4714E63E 
-X-CRM114-Status: GOOD (  31.30  )
+X-CRM114-CacheID: sfid-20251218_053942_925171_89C87715 
+X-CRM114-Status: GOOD (  10.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,136 +155,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 5 Dec 2025 21:58:42 +0000
-James Morse <james.morse@arm.com> wrote:
+On 12/16/25 8:35 AM, Vladimir Zapolskiy wrote:
+> On 12/16/25 08:22, Nihal Kumar Gupta wrote:
+>> Monaco EVK board does not include a camera sensor in its default hardware
+>> configuration. Introducing a device tree overlay to support optional
+>> integration of the IMX577 sensor via CSIPHY1.
+>>
+>> Camera reset is handled through an I2C expander, and power is enabled
+>> via TLMM GPIO74.
+>>
+>> An example media-ctl pipeline for the imx577 is:
 
-> resctrl has two types of counters, NUMA-local and global. MPAM has only
-> bandwidth counters, but the position of the MSC may mean it counts
-> NUMA-local, or global traffic.
-> 
-> But the topology information is not available.
-> 
-> Apply a heuristic: the L2 or L3 supports bandwidth monitors, these are
-> probably NUMA-local. If the memory controller supports bandwidth
-> monitors, they are probably global.
-> 
-> This also allows us to assert that we don't have the same class
-> backing two different resctrl events.
-> 
-> Because the class or component backing the event may not be 'the L3',
-> it is necessary for mpam_resctrl_get_domain_from_cpu() to search
-> the monitor domains too. This matters the most for 'monitor only'
-> systems, where 'the L3' control domains may be empty, and the
-> ctrl_comp pointer NULL.
-> 
-> resctrl expects there to be enough monitors for every possible control
-> and monitor group to have one. Such a system gets called 'free running'
-> as the monitors can be programmed once and left running.
-> Any other platform will need to emulate ABMC.
-> 
-> Signed-off-by: James Morse <james.morse@arm.com>
-> ---
+[...]
 
-> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-> index fc1f054f187e..9978eb48c1f4 100644
-> --- a/drivers/resctrl/mpam_resctrl.c
-> +++ b/drivers/resctrl/mpam_resctrl.c
+> If only one of 3 defined from 4/5 regulators is used, do you really wish
+> to describle all 3 in advance? You may consider to remove 2 currently unused
+> GPIO controlled regulator descriptions, and squash this change with 4/5.
 
-> @@ -586,7 +614,37 @@ static void mpam_resctrl_pick_counters(void)
->  				return;
->  			}
->  		}
-> +
-> +		has_mbwu = class_has_usable_mbwu(class);
-> +		if (has_mbwu && topology_matches_l3(class)) {
+This is useful, if only to surely park them when unused.
 
-Might get reused in later patches. If not
-		if (class_has_usable_mbwu(class) && topology_matches_l3(class))
-
-> +			pr_debug("class %u has usable MBWU, and matches L3 topology",
-> +				 class->level);
-> +
-> +			/*
-> +			 * MBWU counters may be 'local' or 'total' depending on
-> +			 * where they are in the topology. Counters on caches
-> +			 * are assumed to be local. If it's on the memory
-> +			 * controller, its assumed to be global.
-> +			 */
-> +			switch (class->type) {
-> +			case MPAM_CLASS_CACHE:
-> +				counter_update_class(QOS_L3_MBM_LOCAL_EVENT_ID,
-> +						     class);
-> +				break;
-> +			case MPAM_CLASS_MEMORY:
-> +				counter_update_class(QOS_L3_MBM_TOTAL_EVENT_ID,
-> +						     class);
-> +				break;
-> +			default:
-> +				break;
-> +			}
-> +		}
->  	}
-> +
-> +	/* Allocation of MBWU monitors assumes that the class is unique... */
-> +	if (mpam_resctrl_counters[QOS_L3_MBM_LOCAL_EVENT_ID].class)
-> +		WARN_ON_ONCE(mpam_resctrl_counters[QOS_L3_MBM_LOCAL_EVENT_ID].class ==
-> +			     mpam_resctrl_counters[QOS_L3_MBM_TOTAL_EVENT_ID].class);
->  }
-
->  
-> +/*
-> + * We know all the monitors are associated with the L3, even if there are no
-> + * controls and therefore no control component. Find the cache-id for the CPU
-> + * and use that to search for existing resctrl domains.
-> + * This relies on mpam_resctrl_pick_domain_id() using the L3 cache-id
-> + * for anything that is not a cache.
-> + */
-> +static struct mpam_resctrl_dom *mpam_resctrl_get_mon_domain_from_cpu(int cpu)
-> +{
-> +	u32 cache_id;
-> +	struct rdt_mon_domain *mon_d;
-> +	struct mpam_resctrl_dom *dom;
-> +	struct mpam_resctrl_res *l3 = &mpam_resctrl_controls[RDT_RESOURCE_L3];
-> +
-> +	if (!l3->class)
-> +		return NULL;
-> +	/* TODO: how does this order with cacheinfo updates under cpuhp? */
-> +	cache_id = get_cpu_cacheinfo_id(cpu, 3);
-> +	if (cache_id == ~0)
-> +		return NULL;
-> +
-> +	list_for_each_entry(mon_d, &l3->resctrl_res.mon_domains, hdr.list) {
-> +		dom = container_of(mon_d, struct mpam_resctrl_dom, resctrl_mon_dom);
-
-Similar comment to one on earlier patch. Can make the list iterator directly
-provide dom as that's what it's actually a list of, not rdt_mon_domain structures.
-
-> +
-> +		if (mon_d->hdr.id == cache_id)
-> +			return dom;
-> +	}
-> +
-> +	return NULL;
-> +}
-> +
->  static struct mpam_resctrl_dom *
->  mpam_resctrl_get_domain_from_cpu(int cpu, struct mpam_resctrl_res *res)
->  {
->  	struct mpam_resctrl_dom *dom;
->  	struct rdt_ctrl_domain *ctrl_d;
-> +	struct rdt_resource *r = &res->resctrl_res;
-
-Push back to original patch.   
-
->  
->  	lockdep_assert_cpus_held();
->  
-> -	list_for_each_entry_rcu(ctrl_d, &res->resctrl_res.ctrl_domains,
-> -				hdr.list) {
-> +	list_for_each_entry_rcu(ctrl_d, &r->ctrl_domains, hdr.list) {
->  		dom = container_of(ctrl_d, struct mpam_resctrl_dom,
->  				   resctrl_ctrl_dom);
->  
-
-
+Konrad
 
