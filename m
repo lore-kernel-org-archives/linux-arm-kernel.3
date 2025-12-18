@@ -4,100 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4856DD6E2CA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 19:06:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AD67D6E2DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 19:06:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=chaucy1e8lWQfwVdexQ24C/rG8+K3TB71NB1amH2+HE=; b=3r3VKZ802I7azztgN32saijlrl
-	hR9jKV93J6esMg+XJ1PrOebzkSjskPn0Ft8q5uOPG1b0K2yI1KoaXqfnjNgYFZKowQMle6BSgRD7e
-	pIkFPPV3ZaqtplnkOOQxp8+gxHhLKNy/bVM6sRHkF9PWHj86J+FSu7FPwMdnwMEnT7AKUzhAFsIof
-	P1LKEirC6rnDh3A05DPCVkPsmQSSnTSlliNzl+XTAkA0lqJ/j8EKb1++mZt3nT1gLq1vJJGI0HMdL
-	S3PMCXlLp0elob/wPW59b1za/e5sjZgXypZsyjHDWZ2uYluxrhmHRP/MoLhZjsY/zlaR2X+CwXBco
-	h8CsqIlQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y4ZWrplrKjhn1wiOYK1o6hkrsh+RZtZMd0Vjrhy0H+U=; b=gC/6uoJ94Q9I3gGzlz/ksSRyXv
+	Pd8fDBJPUmJtVX16kHseQmKUEVuHw9UQIKoy0vsbhyrI7TVKZqduTF92pQ8k3x4GKn0PIk8sBiSpu
+	qwXFX5Wvi8+Wpy6NeFfie7Hy/RHl7X1MJCDMG8m79+W65ldkKZQkbimV3limkK+DKWhkzpwWsISY/
+	wwVOQ8p6gcRYJW1FWPTG1LmnB5uVqB8fqP3qHfJdiU1jHmUiRln2zvub2EpvH/Tjo50CpuvOP2O6q
+	GJbv9eADaH5LFww5ChVWi4RxMh7hdxQO6FhBuUGGCptJTVNvSd2MCqswBfig91Hm1OqCsFUy3lVO+
+	zaebjwzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWJKp-000000092pT-0buh;
-	Thu, 18 Dec 2025 19:06:47 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1vWJKq-000000092qf-0eK3;
+	Thu, 18 Dec 2025 19:06:48 +0000
+Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWJKk-000000092kG-2I7k
+	id 1vWJKj-000000092kB-2J9Y
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 18 Dec 2025 19:06:44 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-b7633027cb2so166566666b.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 11:06:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1766084801; x=1766689601; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=chaucy1e8lWQfwVdexQ24C/rG8+K3TB71NB1amH2+HE=;
-        b=KqJ8QTNa/8gljUIy0YSIvI8vyoPkZdUOsMsffNAPbQzz7IHPrHHVwwct2i5KXPzsD6
-         P1h4Shqsf+jR9oGbWSu8mUrJTAxG6LVxSfSElXCr3jGXd71+wGolpCrFvwF8drHYIpOG
-         chUsqb5/wcmYk3uurKgW0l0MEJ9IVx1Nq7+n9tL0r+QG+ssrFY9R5TiM38MIUkI70VcJ
-         21BDD2gPSRex7Ti/gOfmCN0bF8gqXMm3T75qrvaJvt4ky+Yl+CTiysfWbVjXjEJR8/Sq
-         cBeFUso7/DQdXozzbwb4BtfYlzGOMQTdwU8CoXemfuSQN29fWB0MMEL1pvwvdanNTLGA
-         mNWA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766084801; x=1766689601;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=chaucy1e8lWQfwVdexQ24C/rG8+K3TB71NB1amH2+HE=;
-        b=bKSi5u+CDF9qBqAxvX82BYOn5ngP/Ycyfio0gnF/EI7bizozzCeQg9JN4mU313fVtc
-         V6v8CeeZ3C+4XYe98oFyW96qkoKwTGIaiOxy/DIlvX+hUh00PxoFoc7JMAFtuSiJB71X
-         rOeKYkN/gGQTvTHWz1WJysk8Ko59KK2qXNiZXyeKlCce0e2tm8CVcbKHxOdLEb3KHxyn
-         DMnSst3et7qbXlUb9d8Ihg7uql9RNGTFsK2Jbngu7wgFXiznevWvdFyc3kaP5blws6e2
-         RXvo8rU2dKAXpxSubnntY27VBkZi7xj2CVULup9tt/phLrskPSf1L/20C+PnY5rRlUxn
-         ATPA==
-X-Forwarded-Encrypted: i=1; AJvYcCVVszdRfxaJhrSHJfcA5GiGqoy1CnNSObHQewKCq1Aaan3R+2wOrB++jEYHfJ+Mqay3Tjy13+H6h3GGxzePWjRK@lists.infradead.org
-X-Gm-Message-State: AOJu0YxBWwpb6wSMvbio6mJ+3U5BTEtIyIQnXAnkOeUJkcVXxB7kRTq0
-	7npfQfeCCEIcbSaKEjMJLlI86xCo8Cje7PhusWmpIWWO3DdLS+TzYhbSLn1K1TyNAmI=
-X-Gm-Gg: AY/fxX4HDq/SOQVv48Ki4WQgoAa6Q2VTH4yCsArxFv6FalqMGhd6nE+rtQyAHKiF+Ck
-	cyVQjxVrPbbb7Gg+5NfwrQDQsLcfX9P98WRQAvnzDgcBH+BjcYySvuBHf8ZTGDFxNTb9o/cYH/h
-	6jbEzE/sQnIkeyASFuHgIPzynLH5L1zogtA7WJBf0L/YQhq5E3gOuP9YS2xtZywX+1nNSja6ywh
-	UqAVpFZhZd1wxfROQ0A0Vhq1FQLY1nvaFMRSns+vCl5vgcPwkg2g7YGgmhDQDX2xwQhEp9F/vad
-	WQWqZYsHpHgIKEiNMRqwT519SWWLf1TZ7XA8dECoez1guOsFI6QM2KgAQK2AZHM7/8H1niwAB53
-	QxRULF9/Jb3JNyyPHoV2Abzz/vzEeCuFa8kv+2d5Tj0ioN3207S6QhMjldBXWotteWDxBenAIwT
-	6IIC9vRFRAIUpXiH2kctdNeAeZPSdOYmWJIevbzbWq406+Fy2wZd+z2q/f7lzPHIR8
-X-Google-Smtp-Source: AGHT+IGJ7OubBdUcx7Liyf+zesKkie0GYHAOmU4YtaOMc800CNMruH3bkATR+xrHJMNRK5MvnKCc8Q==
-X-Received: by 2002:a17:907:72c8:b0:b73:6d56:7459 with SMTP id a640c23a62f3a-b803717a112mr37909566b.38.1766084800505;
-        Thu, 18 Dec 2025 11:06:40 -0800 (PST)
-Received: from localhost (host-79-37-15-246.retail.telecomitalia.it. [79.37.15.246])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8037a5bdf3sm18392666b.12.2025.12.18.11.06.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 18 Dec 2025 11:06:40 -0800 (PST)
-From: Andrea della Porta <andrea.porta@suse.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Andrea della Porta <andrea.porta@suse.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-pci@vger.kernel.org,
-	iivanov@suse.de,
-	svarbanov@suse.de,
-	mbrugger@suse.com,
-	Phil Elwell <phil@raspberrypi.com>
-Subject: [PATCH 1/4] dt-bindings: misc: pci1de4,1: add required reg property for endpoint
-Date: Thu, 18 Dec 2025 20:09:06 +0100
-Message-ID: <b58bfcd957b2270fcf932d463f2db534b2ae1a6d.1766077285.git.andrea.porta@suse.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <cover.1766077285.git.andrea.porta@suse.com>
-References: <cover.1766077285.git.andrea.porta@suse.com>
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Zgl4X1XUS77ZiFAThMu9FD6tenU0Ou/oPNoKpaWaLIns6kRqk7H2ymKWj4kM6xQ7xMrZVFq+Cb2nbPv7WcxCHorZCZOpKnF8sRv5ow/y8k//R0UaKXxJYfBbcjI1/4qu2b1GeaQHgQHsiHfOWW1OGFX/55ws2K4/BGzOru6aXTSSzuNTv9eQlEpjTmlL91K9ED/3sscAv5Uiv9DdSPSt0y9Fu4lPCngRwlSuzdEGcxIreu+Ya08yKgg/4ljTAVNQcFZKMjmcQ73K/CAZH9TEJRGs4A9z5MUS1pBOlC1kiaKoTpU6ce6bjhHN3hyMhaj7RJ2/0VrJEWx3QZGIJxeLCA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Y4ZWrplrKjhn1wiOYK1o6hkrsh+RZtZMd0Vjrhy0H+U=;
+ b=FK6KPl4njxjpRP4DG3Mf5K/ubTd5sDNr2Fwy6Nn4Br9WzMtwgGGZ57HmvwSTsk/7NZ3ft8f2D+APiD8j1Ws4kMNv34IRA6kHRx95fi/BjreNz3QG3rouYBFae//vxzsmnnmwEXZv8yeD+/mJukw3xJpzQWVfEDwuRtib25ye0gfwFVXUsa7uHlYxiwR3i5kKUH/R0Im/qUq3OSAhwXxdAhUDkKFBqnQGE75fusDDM2YsGSWAwJ1d/ILZUHbWZCbfZvKvhgrstTMAuXVwpG+ZPzzLmxpngF0p8ArUJllmaqRAlFpF5tQoJ/mDMePEWywAbY5/C7pfqPkxCF+AFxCk5w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=kernel.org smtp.mailfrom=ti.com; dmarc=pass
+ (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
+ (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Y4ZWrplrKjhn1wiOYK1o6hkrsh+RZtZMd0Vjrhy0H+U=;
+ b=rW1NzNKD3/gHU2Mxx3e/uEej1hpFloCrxP00T2ATUzQTmMSS0tTErF/3YTZRGoBrqdYyCdxzKbRJFncvuZIQXGslG92T2VptoPmiZgIVo/KfA4jTXvYnzk1KJHawL4CKnk4u2jPtfOrEqh2OZaVIIEQBRzvAEYY2Pt9sEOhfG20=
+Received: from BN0PR02CA0057.namprd02.prod.outlook.com (2603:10b6:408:e5::32)
+ by DS0PR10MB7512.namprd10.prod.outlook.com (2603:10b6:8:165::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.8; Thu, 18 Dec
+ 2025 19:06:33 +0000
+Received: from BN1PEPF00006003.namprd05.prod.outlook.com
+ (2603:10b6:408:e5:cafe::ab) by BN0PR02CA0057.outlook.office365.com
+ (2603:10b6:408:e5::32) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.8 via Frontend Transport; Thu,
+ 18 Dec 2025 19:06:27 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ BN1PEPF00006003.mail.protection.outlook.com (10.167.243.235) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9434.6 via Frontend Transport; Thu, 18 Dec 2025 19:06:32 +0000
+Received: from DFLE202.ent.ti.com (10.64.6.60) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 18 Dec
+ 2025 13:06:27 -0600
+Received: from DFLE212.ent.ti.com (10.64.6.70) by DFLE202.ent.ti.com
+ (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 18 Dec
+ 2025 13:06:27 -0600
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE212.ent.ti.com
+ (10.64.6.70) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Thu, 18 Dec 2025 13:06:27 -0600
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5BIJ6RIw3861637;
+	Thu, 18 Dec 2025 13:06:27 -0600
+Date: Thu, 18 Dec 2025 13:06:27 -0600
+From: Nishanth Menon <nm@ti.com>
+To: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+CC: Vignesh Raghavendra <vigneshr@ti.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, "Guilherme G.
+ Piccoli" <gpiccoli@igalia.com>, Andrew Lunn <andrew@lunn.ch>,
+	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-hardening@vger.kernel.org>,
+	<linux@ew.tq-group.com>, Tero Kristo <kristo@kernel.org>
+Subject: Re: [PATCH v4 2/2] arm64: dts: ti: Add TQ-Systems TQMa62xx SoM and
+ MBa62xx carrier board Device Trees
+Message-ID: <20251218190627.4nun3fduu6z6yyl3@tingly>
+References: <cover.1762775119.git.matthias.schiffer@ew.tq-group.com>
+ <0079cc291c78b94068f3d8c59df103e951247acc.1762775119.git.matthias.schiffer@ew.tq-group.com>
+ <d13a95659bdd1c840dfaa46afd6d8583f1b7c88f.camel@ew.tq-group.com>
+ <671625aa-f5da-4e34-9c8c-7a1da282aa5e@ti.com>
+ <637f14d1c77c2a1d19f7ea221addbbea51392bd9.camel@ew.tq-group.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <637f14d1c77c2a1d19f7ea221addbbea51392bd9.camel@ew.tq-group.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN1PEPF00006003:EE_|DS0PR10MB7512:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4efbd111-8d0f-4345-2b09-08de3e688e84
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|7416014|82310400026|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ygfnB3FR0ekFDbCrMFZrI46Q/AvEgqcUGEKQWurVcGqRFDa12lqfeUt1C+ru?=
+ =?us-ascii?Q?oZdH0ngxtDQ1EXjeCjN74oK49Cg8xTdVIt4s42Q0J+hxH21FqH36F44xTFFF?=
+ =?us-ascii?Q?sgrVBwOXRqxMdW8eHm/2GFZKOf6MLNg1u/4JqnhGvzGFsZHCgB5OTbZFlbD/?=
+ =?us-ascii?Q?3rv4P0F6v0paCb1tYF/QWA7dHYG/JFy/hPC+GFeWwmRDyAYx+OoMQTIJ3SEr?=
+ =?us-ascii?Q?KeHNz3r16POPBmkkFpkmgba3yM1hF3cV18flHyie6+gzyyOYMgLPqWd5cY10?=
+ =?us-ascii?Q?5ocJpfScy3O24J9V4jAOfM0RuCSDyLxXNFTUAjuEV6hgOXKfTuK9DJ1gVWcM?=
+ =?us-ascii?Q?DSx6kdiC6Ojn7ydCHJr73uAMDmTJ6Ak6WykRIo/8ZCaeobnpyqnhEOSY0gOu?=
+ =?us-ascii?Q?9TH2zGmEbr4fOiS/9F04rIxG9vpZZ7OVoPFIxoAYUOJA0eHe//7PvM4VDUep?=
+ =?us-ascii?Q?rZN9owEZKchL2oNN58WFuYUKmP4eWgGG9bWU3/kIx0s254xVcXnwuUxK15pz?=
+ =?us-ascii?Q?v5zU5zjng/VPL2mA12D/JZXUR4U/dmU1XnLjlKp5OrS/ETWuWfz726Eqnbfd?=
+ =?us-ascii?Q?l0j+b9cHtSCWnV3zT6h7U09bHyWKwPtSwuT+7hUDa70sAgdc09s/dokGy8ft?=
+ =?us-ascii?Q?PmqMV1kpOOt7iKRVOb+t2H7EKRuKgSR8zfGBa6mu+0vCdbS+aLiu+m/9gWsm?=
+ =?us-ascii?Q?yvYOaRyHsCfIy7/+XTufwRPy0llW/dcZd8RE2CrOB1jFOnubelQ+nwuh76Jc?=
+ =?us-ascii?Q?tbp67+jt0Oy6TER7nBV4SeoUWZluZAyvHNnFUwXVkUjALqX8dtcHXkPAAM2w?=
+ =?us-ascii?Q?djkFsJVX+fATcfo3aMRWByrqpu1037MB5xEfpWaihh/Y5shLJOQ3uuy5Bo17?=
+ =?us-ascii?Q?vIEiAMCcF5zSMH6aCQZ8hTCyc0+Grwh3b0R8R+AkENLjJQEVZ5J3WOGyx+vN?=
+ =?us-ascii?Q?DCBMnQnqX9Tt1k5UWZd3mi/FfGaKfki4rj40N6QI8SwMGI+/0J5U+KYgoN1s?=
+ =?us-ascii?Q?9Cjgr6xIHU/qhvUqqaKQAvYw+4oTIKT/FCawjDh0SvBPV5Z2vLNYoWgqfCnu?=
+ =?us-ascii?Q?V+0D7FOzew/mZvomE7kg4CV/Jb6s7kajERmbktiahaS5M35PskKkZZWV+hWh?=
+ =?us-ascii?Q?ZptN/eBrCYxuEBR6+LsRLzQfo4exLQskk9gtAtMeL5ObrDLW6VRD39Wy9jGU?=
+ =?us-ascii?Q?U2Ne+AcZId5iafJ5Dy0FjqVEaPzhtZyIlkvrOzIcXG1pEwGojb6cdwEsMtWC?=
+ =?us-ascii?Q?WeqifYD/yBIzJQXx/rQObheDTrdhwiqgnWJFhmht7sBRO0Rb94kwI1hQRUpb?=
+ =?us-ascii?Q?jlVk5XKYDnZgMcqeBrLI7IxbrSe84IWGarM1BiU1wV+7+AwA94BycyK+M9Wv?=
+ =?us-ascii?Q?OCmyvLoR4AOOr4ClFGsmqCoUn5nbHXMz5A3qc9Jd1aUnn78dsY7s0rJRzh1r?=
+ =?us-ascii?Q?gvThkHFgtjwuzIqrte2AnSMGHLK1XExmU6d14wJ0K95mIAp9IhrfNbwQ2fC8?=
+ =?us-ascii?Q?zyLhVHaZe8Cct1awMyA5HCt2UX+mUTnFeiVmsPFRcGtzlq00K2z4XLpV4IGo?=
+ =?us-ascii?Q?JypOrBNbaRQIM7miuMg=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700013)(376014)(7416014)(82310400026)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Dec 2025 19:06:32.0625
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4efbd111-8d0f-4345-2b09-08de3e688e84
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00006003.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB7512
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_110642_598843_EA3C1A54 
-X-CRM114-Status: GOOD (  11.12  )
+X-CRM114-CacheID: sfid-20251218_110641_598722_892F9932 
+X-CRM114-Status: GOOD (  17.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,55 +162,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PCI subsystem links an endpoint Device Tree node to its corresponding
-pci_dev structure only if the Bus/Device/Function (BDF) encoded in the
-'reg' property matches the actual hardware topology.
+On 10:10-20251217, Matthias Schiffer wrote:
+> On Wed, 2025-11-26 at 10:47 +0530, Vignesh Raghavendra wrote:
+> > Hi Matthias,
+> > 
+> > On 25/11/25 15:32, Matthias Schiffer wrote:
+> > > On Mon, 2025-11-10 at 12:49 +0100, Matthias Schiffer wrote:
+> > > > The TQMa62xx is a SoM family with a pluggable board connector based on the
+> > > > TI AM62x SoCs. Add DTS(I) for the AM625 (2x Cortex-A53) variant and its
+> > > > combination with our MBa62xx carrier board.
+> > > 
+> > > Hi Vignesh,
+> > > 
+> > > do you have any further comments? Can we get this in for 6.19?
+> > > 
+> > 
+> > Oops, this somehow fell through the crack, my apologies!
+> > 
+> > I have already sent out the PRs for v6.19. Sorry, this would need to
+> > wait for v6.20 cycle.
+> > 
+> > [...]
+> > 
+> > 
+> 
+> Hi Vignesh,
+> 
+> will these patches by applied for v6.20 (if there aren't any more review
+> comments)? Should I resend them?
 
-Add the 'reg' property and mark it as required to ensure proper binding
-between the device_node and the pci_dev.
+Yes please, Please resend after rebasing to latest next. Vignesh and I
+switch picking patches, so the v6.20 window, i am picking them up, will
+be good  to repost them so they appear in my private patchworks for me
+to track.
 
-Update the example to reflect this requirement.
+Please note that there are additional checks in place so, will be good
+to rerun dtbs_check prior to posting.
 
-Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
----
- Documentation/devicetree/bindings/misc/pci1de4,1.yaml | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
-
-diff --git a/Documentation/devicetree/bindings/misc/pci1de4,1.yaml b/Documentation/devicetree/bindings/misc/pci1de4,1.yaml
-index 2f9a7a554ed8a..17a8c19af8cc2 100644
---- a/Documentation/devicetree/bindings/misc/pci1de4,1.yaml
-+++ b/Documentation/devicetree/bindings/misc/pci1de4,1.yaml
-@@ -25,6 +25,10 @@ properties:
-     items:
-       - const: pci1de4,1
- 
-+  reg:
-+    maxItems: 1
-+    description: The PCI Bus-Device-Function address.
-+
-   '#interrupt-cells':
-     const: 2
-     description: |
-@@ -101,6 +105,7 @@ unevaluatedProperties: false
- 
- required:
-   - compatible
-+  - reg
-   - '#interrupt-cells'
-   - interrupt-controller
-   - pci-ep-bus@1
-@@ -111,8 +116,9 @@ examples:
-         #address-cells = <3>;
-         #size-cells = <2>;
- 
--        rp1@0,0 {
-+        dev@0,0 {
-             compatible = "pci1de4,1";
-+            reg = <0x10000 0x0 0x0 0x0 0x0>;
-             ranges = <0x01 0x00 0x00000000  0x82010000 0x00 0x00  0x00 0x400000>;
-             #address-cells = <3>;
-             #size-cells = <2>;
 -- 
-2.35.3
-
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
+https://ti.com/opensource
 
