@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ECF3D6E2CA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 19:26:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B81DDD70E0C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 19:26:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VmqIvCaDEBfkl1zQLnJDo+nqogSVFDTwXWujErxqEy0=; b=tw9Zs5H7xQ8OthGDTID+t4LRof
-	oB0mYACWm6nnuuGgjjv70hYfWPogYv/f/BGMds5uGNVEJtcYjiGWCTMZ/+SOAiHDWz8MGfSudLTNy
-	7/BhQIQv6HqX6vQ0cWqr5jw7i1xjUm+o2fDBSm3KCR8GM5ldLTXaQfiZUTwG+b1kVh9CkQGnbw/T4
-	YkqjaCz06IScv1atbNPOeiQ3vRGJFmkz3CYzf5xGnytR8DWaO44hMHz+eONU1xspfvqUKKRURltcJ
-	OZwFM0Qhyq6lkugNOjMkmcXtz8tULaHtWAMXaCF8DdKL4ph/ygge1yaZ7KJ6UEqMpLjvSwZhnDxfl
-	Gc/fmPAA==;
+	bh=ck6JnuZO2IHf4mFhwwyyGq/NgmnS+f2cFjCiZKFJGss=; b=Q687H8a7WR1wkcILxIK3yde7za
+	0KKEv6sEEk7HvTjdUy1hllARM9JBJUH4cLzOcOd3jKMhXBpn8NysBXNARrwPiwDMs0p2fHgPdE88L
+	+Kudgf085WP9piGBoAJNWuILAlw1njdn7hDYJo3ut80WaoK2OYySVE9z+w2h50VuYXU1WFKulGCOg
+	WvypCvlXLqvfdzhfFFjsch7PaeWtPVH1G4sc0Op5p3ahcsD1skJwmtVSgAS5kV/i9/BryEmfO2pLu
+	W00bgPKghhlgxJHLsNhozvX2OciLl/lT9lqdES5/hfwMPwsuYroRdhLgj/ohRGNerQawUfMKiGfna
+	aZpQQEZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWJdT-000000095Q7-0N6p;
-	Thu, 18 Dec 2025 19:26:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vWJe0-000000095Xk-2Kvz;
+	Thu, 18 Dec 2025 19:26:36 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWJdQ-000000095PD-1uI3;
-	Thu, 18 Dec 2025 19:26:01 +0000
+	id 1vWJdy-000000095Wo-2CKL;
+	Thu, 18 Dec 2025 19:26:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id ADC0641E5B;
-	Thu, 18 Dec 2025 19:25:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7647FC4CEFB;
-	Thu, 18 Dec 2025 19:25:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0E991418D9;
+	Thu, 18 Dec 2025 19:26:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C4D66C4CEFB;
+	Thu, 18 Dec 2025 19:26:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766085959;
-	bh=VmqIvCaDEBfkl1zQLnJDo+nqogSVFDTwXWujErxqEy0=;
+	s=k20201202; t=1766085993;
+	bh=ck6JnuZO2IHf4mFhwwyyGq/NgmnS+f2cFjCiZKFJGss=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GyHdh7l/mAyTrZcfR6f5ePTnC2/YvWmX0fLaG9QC1apjSTXILEXTadVu5Cull2JKc
-	 Bn71LQj6X3St+RrBoU5xVoeSWG9Gn80BZPd+pk23ZRE4xjxNmtB08hjPHTf3/aFojw
-	 85HAaptSMNMk8il8yuXg0TQUBUruC+917wy/N8avbmWjb4716gbTN3xA12AYP9DEdo
-	 OnKz71JEWAl6M34mgQBFtsjwUJcbDVZr9IUomuMpS5OAKuc9MgaqQbPztY9FK0ugIl
-	 4u1sCV5QdDCvNg7q0kmKibaGPtWSb9RFuJFhsbleHuy0bsL7+Q51BNd5n26EoRe94Y
-	 23bAJsDBQD3pQ==
-Date: Thu, 18 Dec 2025 19:25:52 +0000
+	b=KfS6HBdHt82WZwMLQLjJSUWAg/kz84o620inHVuyW+kQLja133R76s5UaYNz7Guo2
+	 UfuR5OCd5BqyHI2gUdpmdmLXnCY4ZSjZHEY2iARR9+keZ2OH5wpP6Gjlpu8i5LpAVI
+	 2bbGNlKkQe1CSj6yaAXViHEQduSLsyAa1pFpc3EPXrw1/Jck6HmO4pyNVKTSUUb01a
+	 nHL1TFX48SKvOTR1X743RTsS0EZpuvoKFEw/Gjit23U/hLxv8n1nOXjuRP2eE53SxD
+	 2yk8pZoQPwRQFLA4k7E3IY2ITqakRrzzfWc88p67gEdWtth4yy693BUCU4ZsdOqEN5
+	 PGlGoJhnGFRkg==
+Date: Thu, 18 Dec 2025 19:26:26 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 Cc: Alim Akhtar <alim.akhtar@samsung.com>,
@@ -68,20 +68,19 @@ Cc: Alim Akhtar <alim.akhtar@samsung.com>,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org, linux-phy@lists.infradead.org
-Subject: Re: [PATCH v4 01/25] dt-bindings: phy: Add mediatek,mt8196-ufsphy
+Subject: Re: [PATCH v4 03/25] dt-bindings: ufs: mediatek,ufs: Add mt8196
  variant
-Message-ID: <20251218-spur-uncover-04320ae6df16@spud>
+Message-ID: <20251218-crib-mutilated-0fad21809466@spud>
 References: <20251218-mt8196-ufs-v4-0-ddec7a369dd2@collabora.com>
- <20251218-mt8196-ufs-v4-1-ddec7a369dd2@collabora.com>
+ <20251218-mt8196-ufs-v4-3-ddec7a369dd2@collabora.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="+6lhiMDFrFVfpZtN"
+	protocol="application/pgp-signature"; boundary="QtbfyB59VQR63T5H"
 Content-Disposition: inline
-In-Reply-To: <20251218-mt8196-ufs-v4-1-ddec7a369dd2@collabora.com>
+In-Reply-To: <20251218-mt8196-ufs-v4-3-ddec7a369dd2@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_112600_514476_6B8C9D47 
-X-CRM114-Status: UNSURE (   7.26  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251218_112634_580224_47503084 
+X-CRM114-Status: GOOD (  15.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,23 +96,38 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---+6lhiMDFrFVfpZtN
+--QtbfyB59VQR63T5H
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Thu, Dec 18, 2025 at 01:54:53PM +0100, Nicolas Frattaroli wrote:
+> The MediaTek MT8196 SoC's UFS controller uses three additional clocks
+> compared to the MT8195, and a different set of supplies. It is therefore
+> not compatible with the MT8195.
+>=20
+> While it does have a AVDD09_UFS_1 pin in addition to the AVDD09_UFS pin,
+> it appears that these two pins are commoned together, as the board
+> schematic I have access to uses the same supply for both, and the
+> downstream driver does not distinguish between the two supplies either.
+>=20
+> Add a compatible for it, and modify the binding correspondingly.
+>=20
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 pw-bot: not-applicable
 
---+6lhiMDFrFVfpZtN
+--QtbfyB59VQR63T5H
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaURVNwAKCRB4tDGHoIJi
-0vlsAQDH8HhrkWqkKxEwnqwdVW1PUodcKR+KR0Tt8dUe0temKQD9HWA715OQFthv
-nNC+30DA7E44y9cBr7tuFNHkhhGcvg8=
-=Rc5D
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaURVYgAKCRB4tDGHoIJi
+0qxYAQD7Sv8qLHWhH0i1qWr84q/8ta4jRgBqJn9ugDnf6JCr7gEAn23RjYh3TAP0
+FZSkIbg5O3vu/QV6XTlDz72GWCkj5Q0=
+=Gykq
 -----END PGP SIGNATURE-----
 
---+6lhiMDFrFVfpZtN--
+--QtbfyB59VQR63T5H--
 
