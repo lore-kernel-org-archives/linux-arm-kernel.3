@@ -4,150 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AD67D6E2DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 19:06:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15E73D6E2DD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 19:06:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y4ZWrplrKjhn1wiOYK1o6hkrsh+RZtZMd0Vjrhy0H+U=; b=gC/6uoJ94Q9I3gGzlz/ksSRyXv
-	Pd8fDBJPUmJtVX16kHseQmKUEVuHw9UQIKoy0vsbhyrI7TVKZqduTF92pQ8k3x4GKn0PIk8sBiSpu
-	qwXFX5Wvi8+Wpy6NeFfie7Hy/RHl7X1MJCDMG8m79+W65ldkKZQkbimV3limkK+DKWhkzpwWsISY/
-	wwVOQ8p6gcRYJW1FWPTG1LmnB5uVqB8fqP3qHfJdiU1jHmUiRln2zvub2EpvH/Tjo50CpuvOP2O6q
-	GJbv9eADaH5LFww5ChVWi4RxMh7hdxQO6FhBuUGGCptJTVNvSd2MCqswBfig91Hm1OqCsFUy3lVO+
-	zaebjwzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zx79JY8qDg1xmaSwg2kQCiQZA4ov318HoPLNBWo/G6k=; b=cRIJw65rh0G1grP22hZQb+f4F/
+	jmQxRL3Kg462rGG3CXQEgTp5kyKp/uMVxoTH1qDrRJ+XOPV8gn7TEJ5ESCJgSDFsbP/XoEJrLzxki
+	OV3lsnE1rDCZHVbvk8i6BO5uF2VqYNu6CUcxcWRQE82IEyngOuHYOC9Cf9bjpJFihuql5XccL8Qyt
+	F2dVxUkZN/ZOneizDDQUlmeT5X0BnWpDkckYH3/TCCSYWJvltC6SQARzwhqwzN1q5ZF/AZVv3frRz
+	g16XKV4brK8CqcjrMJ9/NqUA3ClbLQkPi1HP1XFUCvcRJEvQBMWx9tXAFSP/oTWiIBe8DCV7EUKFA
+	+BR6fjhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWJKq-000000092qf-0eK3;
+	id 1vWJKq-000000092rB-2Pac;
 	Thu, 18 Dec 2025 19:06:48 +0000
-Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWJKj-000000092kB-2J9Y
+	id 1vWJKl-000000092lj-3KxJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 19:06:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Zgl4X1XUS77ZiFAThMu9FD6tenU0Ou/oPNoKpaWaLIns6kRqk7H2ymKWj4kM6xQ7xMrZVFq+Cb2nbPv7WcxCHorZCZOpKnF8sRv5ow/y8k//R0UaKXxJYfBbcjI1/4qu2b1GeaQHgQHsiHfOWW1OGFX/55ws2K4/BGzOru6aXTSSzuNTv9eQlEpjTmlL91K9ED/3sscAv5Uiv9DdSPSt0y9Fu4lPCngRwlSuzdEGcxIreu+Ya08yKgg/4ljTAVNQcFZKMjmcQ73K/CAZH9TEJRGs4A9z5MUS1pBOlC1kiaKoTpU6ce6bjhHN3hyMhaj7RJ2/0VrJEWx3QZGIJxeLCA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Y4ZWrplrKjhn1wiOYK1o6hkrsh+RZtZMd0Vjrhy0H+U=;
- b=FK6KPl4njxjpRP4DG3Mf5K/ubTd5sDNr2Fwy6Nn4Br9WzMtwgGGZ57HmvwSTsk/7NZ3ft8f2D+APiD8j1Ws4kMNv34IRA6kHRx95fi/BjreNz3QG3rouYBFae//vxzsmnnmwEXZv8yeD+/mJukw3xJpzQWVfEDwuRtib25ye0gfwFVXUsa7uHlYxiwR3i5kKUH/R0Im/qUq3OSAhwXxdAhUDkKFBqnQGE75fusDDM2YsGSWAwJ1d/ILZUHbWZCbfZvKvhgrstTMAuXVwpG+ZPzzLmxpngF0p8ArUJllmaqRAlFpF5tQoJ/mDMePEWywAbY5/C7pfqPkxCF+AFxCk5w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=kernel.org smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Y4ZWrplrKjhn1wiOYK1o6hkrsh+RZtZMd0Vjrhy0H+U=;
- b=rW1NzNKD3/gHU2Mxx3e/uEej1hpFloCrxP00T2ATUzQTmMSS0tTErF/3YTZRGoBrqdYyCdxzKbRJFncvuZIQXGslG92T2VptoPmiZgIVo/KfA4jTXvYnzk1KJHawL4CKnk4u2jPtfOrEqh2OZaVIIEQBRzvAEYY2Pt9sEOhfG20=
-Received: from BN0PR02CA0057.namprd02.prod.outlook.com (2603:10b6:408:e5::32)
- by DS0PR10MB7512.namprd10.prod.outlook.com (2603:10b6:8:165::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.8; Thu, 18 Dec
- 2025 19:06:33 +0000
-Received: from BN1PEPF00006003.namprd05.prod.outlook.com
- (2603:10b6:408:e5:cafe::ab) by BN0PR02CA0057.outlook.office365.com
- (2603:10b6:408:e5::32) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.8 via Frontend Transport; Thu,
- 18 Dec 2025 19:06:27 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- BN1PEPF00006003.mail.protection.outlook.com (10.167.243.235) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9434.6 via Frontend Transport; Thu, 18 Dec 2025 19:06:32 +0000
-Received: from DFLE202.ent.ti.com (10.64.6.60) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 18 Dec
- 2025 13:06:27 -0600
-Received: from DFLE212.ent.ti.com (10.64.6.70) by DFLE202.ent.ti.com
- (10.64.6.60) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 18 Dec
- 2025 13:06:27 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE212.ent.ti.com
- (10.64.6.70) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 18 Dec 2025 13:06:27 -0600
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5BIJ6RIw3861637;
-	Thu, 18 Dec 2025 13:06:27 -0600
-Date: Thu, 18 Dec 2025 13:06:27 -0600
-From: Nishanth Menon <nm@ti.com>
-To: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-CC: Vignesh Raghavendra <vigneshr@ti.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>, "Guilherme G.
- Piccoli" <gpiccoli@igalia.com>, Andrew Lunn <andrew@lunn.ch>,
-	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-hardening@vger.kernel.org>,
-	<linux@ew.tq-group.com>, Tero Kristo <kristo@kernel.org>
-Subject: Re: [PATCH v4 2/2] arm64: dts: ti: Add TQ-Systems TQMa62xx SoM and
- MBa62xx carrier board Device Trees
-Message-ID: <20251218190627.4nun3fduu6z6yyl3@tingly>
-References: <cover.1762775119.git.matthias.schiffer@ew.tq-group.com>
- <0079cc291c78b94068f3d8c59df103e951247acc.1762775119.git.matthias.schiffer@ew.tq-group.com>
- <d13a95659bdd1c840dfaa46afd6d8583f1b7c88f.camel@ew.tq-group.com>
- <671625aa-f5da-4e34-9c8c-7a1da282aa5e@ti.com>
- <637f14d1c77c2a1d19f7ea221addbbea51392bd9.camel@ew.tq-group.com>
+	Thu, 18 Dec 2025 19:06:45 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-b7cf4a975d2so139083466b.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 11:06:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1766084802; x=1766689602; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=zx79JY8qDg1xmaSwg2kQCiQZA4ov318HoPLNBWo/G6k=;
+        b=TF5aPkbRovhvEYLinogkgejN9vMeuwa9R7AEiNdG9G9mOnDSkkU9Y1wKmKWaoMEqhD
+         1VHE57CmqB6q2r4S0iCnDEgrNIYUA1AX5nlRUDRcwl3ud5+cgHkVMeNDPm93cyc+/IsZ
+         J4wFbHa2WCZWIwFrx8vKeHj0BDnK5P0vF+9DkAx2RxvBKV5Iq+zz5OCzzryfNWRkqoqg
+         zKFOu+88Y5DD2SGTCp7wd13h6guoo3r/ruDsPmVgCfBmn4FN2O2R9FIlA1wZ0tsc/Gnx
+         TVqAtn2m6iCEg3Ry4gkpxELyF6cLqfCrP2rvkvDYc6KAlJTBnzMCXg4BrK8/xaniYdvs
+         JNaA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766084802; x=1766689602;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=zx79JY8qDg1xmaSwg2kQCiQZA4ov318HoPLNBWo/G6k=;
+        b=md84fbDqscdwo11aNqn1c9Ja+ZE9Bjxb/Jtfs3xbraPCIROk0NFHn44IR2ZEhOF8lF
+         w0lLrUWy7UFDF6zgWOydqX5ae6ydAe7A5bLqEkZc2c/nXJemg7mBtBsRFT2Xc8x92Nrw
+         jAwLI+kzHfKzUmzXHic3pwKjLhJOKKyLHPtzFBF7U4FMAerSXlc2T9KnnZTbPDpWCNHN
+         eamUDOJYvlhQAlY/HIAWkkNfeT7eZhR0vpWIjYo5Dk0jqCwsKnkMxXBwcynOw5/i7tKW
+         lJkzQJiUh5MzcAmDwLxIEmfi8Ohf9VddoJa1NcCXl0/eqbBpORk8SFY4VTYDDMTvO+ie
+         CnQw==
+X-Forwarded-Encrypted: i=1; AJvYcCUJJeMx8yZr4AHTdqEH/iLiZ/GGm4muFkAl1IkWlXwHrzAWkGZUpqNVNWJbk9ZOqhYjFszny5glp1PR4KCFgZSG@lists.infradead.org
+X-Gm-Message-State: AOJu0YzVDxbSk6m/LhO77XSlAuV/1Bk8fx8luD1vFQPE71hGgFssOZ5X
+	S4s8oREGK9Ug1z0wqGrVV7s+jHAFpPX7GLG6KnRLsFIUHvGWGgBkJAThtQlIP4SUzIA=
+X-Gm-Gg: AY/fxX7BJ+wqQO2l+OZyelEb8O51S9OTzEJvNbWdpaCpCsKAOq2SKFJGG/245Em6Rn+
+	P1MscbXlAV//K3QbDkdYelLNP0Uht1hu1imQuTcT7uzTZX9HU8fOR01XANeRwM55njRTJ1t65W/
+	+TJRtipN6VNdjDXV/+evGHoLgmuQ56/NqpqdG3cQkpmbLOj4RB+H550exd+Ah2Yyino3Pc/z01o
+	B2BYLK2xayuTSMZ944PHJ5S2yRJzVsReBIrpDhMocNSmFIxcYTYsyPHpE6eB2LGE0uauOZcM02+
+	AI/7ZMR5tk4LsOjxzb6rSkEiZ/xAe+aapxPDgzFjJayOue7NXKS00ejCmg0KgbKwJYdWxyHt697
+	RTtPzISOK5OQeZ7OFtJFrl161i4FQvArBuui5oXI2wLjeDK1rFF4bfqQXWwMgPbCbzhDEN7X3eO
+	ZcVw/VQLwfJWAYuW8dLsW1GRH18FIg5CzY3mYo4ohHIUJzrebz80v3fg==
+X-Google-Smtp-Source: AGHT+IGz/hwriZCabz4pyg0PAJ/ezKOQ6S+SFGdp1KobFV5gJSyL5vIdIRhrdzKTifgKNcjBLVlatg==
+X-Received: by 2002:a17:907:72c1:b0:b80:1d4b:bddc with SMTP id a640c23a62f3a-b803694fe6cmr39099266b.0.1766084801609;
+        Thu, 18 Dec 2025 11:06:41 -0800 (PST)
+Received: from localhost (host-79-37-15-246.retail.telecomitalia.it. [79.37.15.246])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-64b91494b94sm155859a12.22.2025.12.18.11.06.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 18 Dec 2025 11:06:41 -0800 (PST)
+From: Andrea della Porta <andrea.porta@suse.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Andrea della Porta <andrea.porta@suse.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-pci@vger.kernel.org,
+	iivanov@suse.de,
+	svarbanov@suse.de,
+	mbrugger@suse.com,
+	Phil Elwell <phil@raspberrypi.com>
+Subject: [PATCH 2/4] misc: rp1: drop overlay support
+Date: Thu, 18 Dec 2025 20:09:07 +0100
+Message-ID: <4b0aa7160877cf128b9bc713776bcac73c46eb24.1766077285.git.andrea.porta@suse.com>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <cover.1766077285.git.andrea.porta@suse.com>
+References: <cover.1766077285.git.andrea.porta@suse.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <637f14d1c77c2a1d19f7ea221addbbea51392bd9.camel@ew.tq-group.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN1PEPF00006003:EE_|DS0PR10MB7512:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4efbd111-8d0f-4345-2b09-08de3e688e84
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|7416014|82310400026|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ygfnB3FR0ekFDbCrMFZrI46Q/AvEgqcUGEKQWurVcGqRFDa12lqfeUt1C+ru?=
- =?us-ascii?Q?oZdH0ngxtDQ1EXjeCjN74oK49Cg8xTdVIt4s42Q0J+hxH21FqH36F44xTFFF?=
- =?us-ascii?Q?sgrVBwOXRqxMdW8eHm/2GFZKOf6MLNg1u/4JqnhGvzGFsZHCgB5OTbZFlbD/?=
- =?us-ascii?Q?3rv4P0F6v0paCb1tYF/QWA7dHYG/JFy/hPC+GFeWwmRDyAYx+OoMQTIJ3SEr?=
- =?us-ascii?Q?KeHNz3r16POPBmkkFpkmgba3yM1hF3cV18flHyie6+gzyyOYMgLPqWd5cY10?=
- =?us-ascii?Q?5ocJpfScy3O24J9V4jAOfM0RuCSDyLxXNFTUAjuEV6hgOXKfTuK9DJ1gVWcM?=
- =?us-ascii?Q?DSx6kdiC6Ojn7ydCHJr73uAMDmTJ6Ak6WykRIo/8ZCaeobnpyqnhEOSY0gOu?=
- =?us-ascii?Q?9TH2zGmEbr4fOiS/9F04rIxG9vpZZ7OVoPFIxoAYUOJA0eHe//7PvM4VDUep?=
- =?us-ascii?Q?rZN9owEZKchL2oNN58WFuYUKmP4eWgGG9bWU3/kIx0s254xVcXnwuUxK15pz?=
- =?us-ascii?Q?v5zU5zjng/VPL2mA12D/JZXUR4U/dmU1XnLjlKp5OrS/ETWuWfz726Eqnbfd?=
- =?us-ascii?Q?l0j+b9cHtSCWnV3zT6h7U09bHyWKwPtSwuT+7hUDa70sAgdc09s/dokGy8ft?=
- =?us-ascii?Q?PmqMV1kpOOt7iKRVOb+t2H7EKRuKgSR8zfGBa6mu+0vCdbS+aLiu+m/9gWsm?=
- =?us-ascii?Q?yvYOaRyHsCfIy7/+XTufwRPy0llW/dcZd8RE2CrOB1jFOnubelQ+nwuh76Jc?=
- =?us-ascii?Q?tbp67+jt0Oy6TER7nBV4SeoUWZluZAyvHNnFUwXVkUjALqX8dtcHXkPAAM2w?=
- =?us-ascii?Q?djkFsJVX+fATcfo3aMRWByrqpu1037MB5xEfpWaihh/Y5shLJOQ3uuy5Bo17?=
- =?us-ascii?Q?vIEiAMCcF5zSMH6aCQZ8hTCyc0+Grwh3b0R8R+AkENLjJQEVZ5J3WOGyx+vN?=
- =?us-ascii?Q?DCBMnQnqX9Tt1k5UWZd3mi/FfGaKfki4rj40N6QI8SwMGI+/0J5U+KYgoN1s?=
- =?us-ascii?Q?9Cjgr6xIHU/qhvUqqaKQAvYw+4oTIKT/FCawjDh0SvBPV5Z2vLNYoWgqfCnu?=
- =?us-ascii?Q?V+0D7FOzew/mZvomE7kg4CV/Jb6s7kajERmbktiahaS5M35PskKkZZWV+hWh?=
- =?us-ascii?Q?ZptN/eBrCYxuEBR6+LsRLzQfo4exLQskk9gtAtMeL5ObrDLW6VRD39Wy9jGU?=
- =?us-ascii?Q?U2Ne+AcZId5iafJ5Dy0FjqVEaPzhtZyIlkvrOzIcXG1pEwGojb6cdwEsMtWC?=
- =?us-ascii?Q?WeqifYD/yBIzJQXx/rQObheDTrdhwiqgnWJFhmht7sBRO0Rb94kwI1hQRUpb?=
- =?us-ascii?Q?jlVk5XKYDnZgMcqeBrLI7IxbrSe84IWGarM1BiU1wV+7+AwA94BycyK+M9Wv?=
- =?us-ascii?Q?OCmyvLoR4AOOr4ClFGsmqCoUn5nbHXMz5A3qc9Jd1aUnn78dsY7s0rJRzh1r?=
- =?us-ascii?Q?gvThkHFgtjwuzIqrte2AnSMGHLK1XExmU6d14wJ0K95mIAp9IhrfNbwQ2fC8?=
- =?us-ascii?Q?zyLhVHaZe8Cct1awMyA5HCt2UX+mUTnFeiVmsPFRcGtzlq00K2z4XLpV4IGo?=
- =?us-ascii?Q?JypOrBNbaRQIM7miuMg=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700013)(376014)(7416014)(82310400026)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Dec 2025 19:06:32.0625
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4efbd111-8d0f-4345-2b09-08de3e688e84
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN1PEPF00006003.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB7512
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_110641_598722_892F9932 
-X-CRM114-Status: GOOD (  17.05  )
+X-CRM114-CacheID: sfid-20251218_110643_877713_6D20F623 
+X-CRM114-Status: GOOD (  24.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,46 +112,194 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10:10-20251217, Matthias Schiffer wrote:
-> On Wed, 2025-11-26 at 10:47 +0530, Vignesh Raghavendra wrote:
-> > Hi Matthias,
-> > 
-> > On 25/11/25 15:32, Matthias Schiffer wrote:
-> > > On Mon, 2025-11-10 at 12:49 +0100, Matthias Schiffer wrote:
-> > > > The TQMa62xx is a SoM family with a pluggable board connector based on the
-> > > > TI AM62x SoCs. Add DTS(I) for the AM625 (2x Cortex-A53) variant and its
-> > > > combination with our MBa62xx carrier board.
-> > > 
-> > > Hi Vignesh,
-> > > 
-> > > do you have any further comments? Can we get this in for 6.19?
-> > > 
-> > 
-> > Oops, this somehow fell through the crack, my apologies!
-> > 
-> > I have already sent out the PRs for v6.19. Sorry, this would need to
-> > wait for v6.20 cycle.
-> > 
-> > [...]
-> > 
-> > 
-> 
-> Hi Vignesh,
-> 
-> will these patches by applied for v6.20 (if there aren't any more review
-> comments)? Should I resend them?
+The RP1 driver can load an overlay at runtime to describe the inner
+peripherals. This has led to a lot of confusion regarding the naming
+of nodes, their topology and the reclaiming of related node resources.
 
-Yes please, Please resend after rebasing to latest next. Vignesh and I
-switch picking patches, so the v6.20 window, i am picking them up, will
-be good  to repost them so they appear in my private patchworks for me
-to track.
+Since the overlay is currently not fully functional, drop its support
+in the driver in favor of the fully described static DT.
 
-Please note that there are additional checks in place so, will be good
-to rerun dtbs_check prior to posting.
+This also means that this driver does not depend on CONFIG_PCI_DYNAMIC_OF_NODES
+and no longer requires PCI quirks to dynamically create the intermediate
+PCI nodes.
 
+Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+---
+ drivers/misc/rp1/Kconfig      |  6 +-----
+ drivers/misc/rp1/Makefile     |  3 +--
+ drivers/misc/rp1/rp1-pci.dtso | 25 -----------------------
+ drivers/misc/rp1/rp1_pci.c    | 37 ++++-------------------------------
+ drivers/pci/quirks.c          |  1 -
+ 5 files changed, 6 insertions(+), 66 deletions(-)
+ delete mode 100644 drivers/misc/rp1/rp1-pci.dtso
+
+diff --git a/drivers/misc/rp1/Kconfig b/drivers/misc/rp1/Kconfig
+index 5232e70d3079b..2c13b3968b011 100644
+--- a/drivers/misc/rp1/Kconfig
++++ b/drivers/misc/rp1/Kconfig
+@@ -5,8 +5,7 @@
+ 
+ config MISC_RP1
+ 	tristate "RaspberryPi RP1 misc device"
+-	depends on OF_IRQ && OF_OVERLAY && PCI_MSI && PCI_QUIRKS
+-	select PCI_DYNAMIC_OF_NODES
++	depends on OF_IRQ && PCI_MSI
+ 	help
+ 	  Support the RP1 peripheral chip found on Raspberry Pi 5 board.
+ 
+@@ -15,6 +14,3 @@ config MISC_RP1
+ 
+ 	  The driver is responsible for enabling the DT node once the PCIe
+ 	  endpoint has been configured, and handling interrupts.
+-
+-	  This driver uses an overlay to load other drivers to support for
+-	  RP1 internal sub-devices.
+diff --git a/drivers/misc/rp1/Makefile b/drivers/misc/rp1/Makefile
+index 508b4cb056277..ab32b433d7ede 100644
+--- a/drivers/misc/rp1/Makefile
++++ b/drivers/misc/rp1/Makefile
+@@ -1,3 +1,2 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+-obj-$(CONFIG_MISC_RP1)		+= rp1-pci.o
+-rp1-pci-objs			:= rp1_pci.o rp1-pci.dtbo.o
++obj-$(CONFIG_MISC_RP1)		+= rp1_pci.o
+diff --git a/drivers/misc/rp1/rp1-pci.dtso b/drivers/misc/rp1/rp1-pci.dtso
+deleted file mode 100644
+index eea826b36e029..0000000000000
+--- a/drivers/misc/rp1/rp1-pci.dtso
++++ /dev/null
+@@ -1,25 +0,0 @@
+-// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+-
+-/*
+- * The dts overlay is included from the dts directory so
+- * it can be possible to check it with CHECK_DTBS while
+- * also compile it from the driver source directory.
+- */
+-
+-/dts-v1/;
+-/plugin/;
+-
+-/ {
+-	fragment@0 {
+-		target-path="";
+-		__overlay__ {
+-			compatible = "pci1de4,1";
+-			#address-cells = <3>;
+-			#size-cells = <2>;
+-			interrupt-controller;
+-			#interrupt-cells = <2>;
+-
+-			#include "arm64/broadcom/rp1-common.dtsi"
+-		};
+-	};
+-};
+diff --git a/drivers/misc/rp1/rp1_pci.c b/drivers/misc/rp1/rp1_pci.c
+index a342bcc6164bb..d210da84c30a2 100644
+--- a/drivers/misc/rp1/rp1_pci.c
++++ b/drivers/misc/rp1/rp1_pci.c
+@@ -34,16 +34,11 @@
+ /* Interrupts */
+ #define RP1_INT_END		61
+ 
+-/* Embedded dtbo symbols created by cmd_wrap_S_dtb in scripts/Makefile.lib */
+-extern char __dtbo_rp1_pci_begin[];
+-extern char __dtbo_rp1_pci_end[];
+-
+ struct rp1_dev {
+ 	struct pci_dev *pdev;
+ 	struct irq_domain *domain;
+ 	struct irq_data *pcie_irqds[64];
+ 	void __iomem *bar1;
+-	int ovcs_id;	/* overlay changeset id */
+ 	bool level_triggered_irq[RP1_INT_END];
+ };
+ 
+@@ -184,24 +179,13 @@ static void rp1_unregister_interrupts(struct pci_dev *pdev)
+ 
+ static int rp1_probe(struct pci_dev *pdev, const struct pci_device_id *id)
+ {
+-	u32 dtbo_size = __dtbo_rp1_pci_end - __dtbo_rp1_pci_begin;
+-	void *dtbo_start = __dtbo_rp1_pci_begin;
+ 	struct device *dev = &pdev->dev;
+ 	struct device_node *rp1_node;
+-	bool skip_ovl = true;
+ 	struct rp1_dev *rp1;
+ 	int err = 0;
+ 	int i;
+ 
+-	/*
+-	 * Either use rp1_nexus node if already present in DT, or
+-	 * set a flag to load it from overlay at runtime
+-	 */
+-	rp1_node = of_find_node_by_name(NULL, "rp1_nexus");
+-	if (!rp1_node) {
+-		rp1_node = dev_of_node(dev);
+-		skip_ovl = false;
+-	}
++	rp1_node = dev_of_node(dev);
+ 
+ 	if (!rp1_node) {
+ 		dev_err(dev, "Missing of_node for device\n");
+@@ -276,42 +260,29 @@ static int rp1_probe(struct pci_dev *pdev, const struct pci_device_id *id)
+ 						 rp1_chained_handle_irq, rp1);
+ 	}
+ 
+-	if (!skip_ovl) {
+-		err = of_overlay_fdt_apply(dtbo_start, dtbo_size, &rp1->ovcs_id,
+-					   rp1_node);
+-		if (err)
+-			goto err_unregister_interrupts;
+-	}
+-
+ 	err = of_platform_default_populate(rp1_node, NULL, dev);
+ 	if (err) {
+ 		dev_err_probe(&pdev->dev, err, "Error populating devicetree\n");
+-		goto err_unload_overlay;
++		goto err_unregister_interrupts;
+ 	}
+ 
+-	if (skip_ovl)
+-		of_node_put(rp1_node);
++	of_node_put(rp1_node);
+ 
+ 	return 0;
+ 
+-err_unload_overlay:
+-	of_overlay_remove(&rp1->ovcs_id);
+ err_unregister_interrupts:
+ 	rp1_unregister_interrupts(pdev);
+ err_put_node:
+-	if (skip_ovl)
+-		of_node_put(rp1_node);
++	of_node_put(rp1_node);
+ 
+ 	return err;
+ }
+ 
+ static void rp1_remove(struct pci_dev *pdev)
+ {
+-	struct rp1_dev *rp1 = pci_get_drvdata(pdev);
+ 	struct device *dev = &pdev->dev;
+ 
+ 	of_platform_depopulate(dev);
+-	of_overlay_remove(&rp1->ovcs_id);
+ 	rp1_unregister_interrupts(pdev);
+ }
+ 
+diff --git a/drivers/pci/quirks.c b/drivers/pci/quirks.c
+index b9c252aa6fe08..280cd50d693bd 100644
+--- a/drivers/pci/quirks.c
++++ b/drivers/pci/quirks.c
+@@ -6308,7 +6308,6 @@ DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_XILINX, 0x5020, of_pci_make_dev_node);
+ DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_XILINX, 0x5021, of_pci_make_dev_node);
+ DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_REDHAT, 0x0005, of_pci_make_dev_node);
+ DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_EFAR, 0x9660, of_pci_make_dev_node);
+-DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_RPI, PCI_DEVICE_ID_RPI_RP1_C0, of_pci_make_dev_node);
+ 
+ /*
+  * Devices known to require a longer delay before first config space access
 -- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+2.35.3
+
 
