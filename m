@@ -4,97 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 801FED6ACF5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 13:27:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15DABD68BE4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 13:36:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Lcd65qdK3N3Syg4ISpKIf2L7mbIn3FDiBZgbtG7nCY=; b=pIB7GDoJWI+bX0S5y1ZBDCAxUZ
-	1Kp3iJQ35Ao/dBrSLu0qm7VSXNxxUWESJSQGVwY2htlz8UAWQ+dPmvAT61ehXYP1QtK2zrKk25oj8
-	IGRypFyxX4A4VP+RG5seRqRlBOSg3fb4UkDqPzFQ1O8HwIQojFwafVrNyd1xHv8nYA1/U3qXb1C5n
-	hk8pmKJmaeOoL85a3gN60qHvIwK9kYb2BgJJ86aoetOPNIAO8tXrPISLS3L9Hnxf4VSVC0MGRwLB2
-	f7z2fTIfLOMqcR/qz7X0h0wGkheGnXEP1mMbHja501Z2T8kWjgI/Ia7mOJ/lXjomHLH7g3Ax8OcTs
-	cUjlSw9g==;
+	bh=OZ2bFU04bfp53cT83OkWMoYLR5vqsZ4FHveM+5HVPQ8=; b=wptFsM7ApZXD15Ui6Aixr2A86n
+	z2uRT/MXakF+vIz0+uXU4lzi53UNSnOmrLEw0lVKhLmy1kxiAC7jJVw2p6WOCl5SPThhVuXtDmEti
+	Z9FehSfwow3CS9K85O/nZC+uf7D0fVGDow/3h1SQPeTddRjzKAxWhii58GUmhB3fCSxUIIEnVewv2
+	QBMQlxCHVCHkJQ33ECAa+cVUYeU0R0q3LBhq/0o0XzjHJTSb/LFztSoFnRnARytT0mWnoXxYSQejo
+	HO4cytf2EkRV6xu7zmcMi/XEWp6VEyeM+6VYSAwlH2X+GNGMi1GUPpSGTfUwCVSsXYaMhSvCXBBiE
+	u5ceRtZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWE2R-00000008WqC-1llR;
-	Thu, 18 Dec 2025 13:27:28 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1vWEB7-00000008Xwh-0G7R;
+	Thu, 18 Dec 2025 13:36:25 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWE2N-00000008Wng-3oz5
+	id 1vWEB3-00000008Xvw-3sCO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 13:27:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1766064443; x=1797600443;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=//80TLvazu3o6H3NRSjGjho+1pdoyVKmxiXPeB2mjFI=;
-  b=LtHtJ79llHYAwkL0UXf93+BUIvn9vjSQdS72QsSBG/YzfnKoc3LrbI9T
-   cVJhOvwxsfE0tarMTY3lfreSs4PL7OU1Ztd4BQA1+6V68onUw6GCry2ca
-   YdVUNhqleOJCIaXRzeaQpBz2i7vXddjLE/KLbKOoReglPasd5Za+lvx0r
-   i0IFZLPy/N/osDd+PXORQ9ssmKFZHaeoe4FTSu0yuToDVKZa9Q+Nj9EV8
-   MwmCXCIEIf5oKee6BnNbq6KBMXFyjJPyCsxPZNrhBlpadiAfSplcFh4Kx
-   s+a3s/4kBzCAHMiLIX44LErbCns1NLL0pr4hKsxOpVc3zyXFzlklTkxOk
-   g==;
-X-CSE-ConnectionGUID: ZrngCm+8QkagMlXA0BcJtA==
-X-CSE-MsgGUID: NfJ73+JFTSCS7Ii8TwWKFQ==
-X-IronPort-AV: E=Sophos;i="6.21,158,1763449200"; 
-   d="scan'208";a="57519366"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 18 Dec 2025 06:27:22 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Thu, 18 Dec 2025 06:26:21 -0700
-Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Thu, 18 Dec 2025 06:26:17 -0700
-From: Ludovic Desroches <ludovic.desroches@microchip.com>
-Date: Thu, 18 Dec 2025 14:26:00 +0100
-Subject: [PATCH v2 2/8] drm/atmel-hlcdc: add support for the nomodeset
- kernel parameter
+	Thu, 18 Dec 2025 13:36:23 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.83])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dXBWM3S9YzJ46bj;
+	Thu, 18 Dec 2025 21:35:43 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id 818F340565;
+	Thu, 18 Dec 2025 21:36:14 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Thu, 18 Dec
+ 2025 13:36:13 +0000
+Date: Thu, 18 Dec 2025 13:36:11 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: James Morse <james.morse@arm.com>
+CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, D
+ Scott Phillips OS <scott@os.amperecomputing.com>,
+	<carl@os.amperecomputing.com>, <lcherian@marvell.com>,
+	<bobo.shaobowang@huawei.com>, <tan.shaopeng@fujitsu.com>,
+	<baolin.wang@linux.alibaba.com>, Jamie Iles <quic_jiles@quicinc.com>, "Xin
+ Hao" <xhao@linux.alibaba.com>, <peternewman@google.com>,
+	<dfustini@baylibre.com>, <amitsinght@marvell.com>, David Hildenbrand
+	<david@kernel.org>, Dave Martin <dave.martin@arm.com>, Koba Ko
+	<kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+	<fenghuay@nvidia.com>, <baisheng.gao@unisoc.com>, Gavin Shan
+	<gshan@redhat.com>, Ben Horgan <ben.horgan@arm.com>, <rohit.mathew@arm.com>,
+	<reinette.chatre@intel.com>, Punit Agrawal <punit.agrawal@oss.qualcomm.com>
+Subject: Re: [RFC PATCH 19/38] arm_mpam: resctrl: pick classes for use as
+ mbm counters
+Message-ID: <20251218133611.00000a3c@huawei.com>
+In-Reply-To: <20251205215901.17772-20-james.morse@arm.com>
+References: <20251205215901.17772-1-james.morse@arm.com>
+	<20251205215901.17772-20-james.morse@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset="US-ASCII"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20251218-lcd_cleanup_mainline-v2-2-df837aba878f@microchip.com>
-References: <20251218-lcd_cleanup_mainline-v2-0-df837aba878f@microchip.com>
-In-Reply-To: <20251218-lcd_cleanup_mainline-v2-0-df837aba878f@microchip.com>
-To: Manikandan Muralidharan <manikandan.m@microchip.com>, "Dharma
- Balasubiramani" <dharma.b@microchip.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
-	<claudiu.beznea@tuxon.dev>
-CC: <dri-devel@lists.freedesktop.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Ludovic Desroches
-	<ludovic.desroches@microchip.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1062;
- i=ludovic.desroches@microchip.com; h=from:subject:message-id;
- bh=//80TLvazu3o6H3NRSjGjho+1pdoyVKmxiXPeB2mjFI=;
- b=kA0DAAoBPjnmE/d7ZC0ByyZiAGlEAPGgGn6eB10WHDtRUFszqHw8/L0r3xDXailGOZkWprGei
- YkCMwQAAQoAHRYhBAAwS8mJaaxbjW01TT455hP3e2QtBQJpRADxAAoJED455hP3e2QtTuEQAJYE
- WKxffO38DFMiYrdrgl7i7+s2unwYb3nx0CppcWNmGqFVtAAqWDr4845SSZxF+cxWGJLYhtyLQq9
- stvbbzJpxU8JFbmEwzvKGUtjsIa0ZsST0/tbYtTDakbg6Sxo4AZeydzWFGDeXw8uLSQI0OmTsRe
- ykahy6/Q0jhRxmJE6U0d2XF6NapTjVyVUGXMKxWv04jmJ1ArT8O7wLmPG3JmlhbLgPNKajCEugb
- wAwi6wVX33IjNIxoKOm/drsgTBgQZmi1DPv/92ZMn7SC/Xqe9spgSNKi25Fo/7OZwWejYLKmMxQ
- mh0BZWFDzSWhJOexfpoHtc9I7ne7QeKhLS0cOFxfavCkyCRWMyBDdkenFXVTw31IfMcvL0zEuCa
- 5Z1aUMXk1kveJtXlIfZANsEETLYpYyhMqvU+bz4f+nYGW89Hjzk9XIrHndoI9+42tv3Mt7foqTz
- WJmTs1ViDMP/Ca/MmUM/AU6Jc4cZXZ63e1WhPZ166Dz4MO36bxOXM9bXnMhtQ6UJptrCOSFSPrG
- zjTwnOZ0OtG/wAqAjVY19QZCQoZcthWOmI9BYqmvN89TOGtX2Ehr3Vi2pVIuNOaJGGaM/uW2lJi
- MiVlX21RQOI/LK0OW6cgHi94BqUQ5hEJ+Tr50hRp6IXRegsPFbD4ODXP/S2pWIWSM5zulrWuxph
- PBR5Z
-X-Developer-Key: i=ludovic.desroches@microchip.com; a=openpgp;
- fpr=665BAA7297BE089A28B77696E332995F09DCC11A
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml500011.china.huawei.com (7.191.174.215) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_052724_000245_3F0A4BDC 
-X-CRM114-Status: GOOD (  11.23  )
+X-CRM114-CacheID: sfid-20251218_053622_278591_4714E63E 
+X-CRM114-Status: GOOD (  31.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,32 +82,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-According to Documentation/admin-guide/kernel-parameters.txt, this
-parameter can be used to disable kernel modesetting.
+On Fri, 5 Dec 2025 21:58:42 +0000
+James Morse <james.morse@arm.com> wrote:
 
-Signed-off-by: Ludovic Desroches <ludovic.desroches@microchip.com>
-Reviewed-by: Dharma Balasubiramani <dharma.b@microchip.com>
-Reviewed-by: Manikandan Muralidharan <manikandan.m@microchip.com>
----
- drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c | 3 +++
- 1 file changed, 3 insertions(+)
+> resctrl has two types of counters, NUMA-local and global. MPAM has only
+> bandwidth counters, but the position of the MSC may mean it counts
+> NUMA-local, or global traffic.
+> 
+> But the topology information is not available.
+> 
+> Apply a heuristic: the L2 or L3 supports bandwidth monitors, these are
+> probably NUMA-local. If the memory controller supports bandwidth
+> monitors, they are probably global.
+> 
+> This also allows us to assert that we don't have the same class
+> backing two different resctrl events.
+> 
+> Because the class or component backing the event may not be 'the L3',
+> it is necessary for mpam_resctrl_get_domain_from_cpu() to search
+> the monitor domains too. This matters the most for 'monitor only'
+> systems, where 'the L3' control domains may be empty, and the
+> ctrl_comp pointer NULL.
+> 
+> resctrl expects there to be enough monitors for every possible control
+> and monitor group to have one. Such a system gets called 'free running'
+> as the monitors can be programmed once and left running.
+> Any other platform will need to emulate ABMC.
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
 
-diff --git a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c
-index 8ed029381c555db10d596efc8d52753c47767633..8ff582a394794aacf84f9e23fd59f123445926a3 100644
---- a/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c
-+++ b/drivers/gpu/drm/atmel-hlcdc/atmel_hlcdc_dc.c
-@@ -858,6 +858,9 @@ static int atmel_hlcdc_dc_drm_probe(struct platform_device *pdev)
- 	struct drm_device *ddev;
- 	int ret;
- 
-+	if (drm_firmware_drivers_only())
-+		return -ENODEV;
-+
- 	dc = devm_drm_dev_alloc(&pdev->dev, &atmel_hlcdc_dc_driver, struct atmel_hlcdc_dc, dev);
- 	if (IS_ERR(dc))
- 		return PTR_ERR(dc);
+> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+> index fc1f054f187e..9978eb48c1f4 100644
+> --- a/drivers/resctrl/mpam_resctrl.c
+> +++ b/drivers/resctrl/mpam_resctrl.c
 
--- 
-2.51.0
+> @@ -586,7 +614,37 @@ static void mpam_resctrl_pick_counters(void)
+>  				return;
+>  			}
+>  		}
+> +
+> +		has_mbwu = class_has_usable_mbwu(class);
+> +		if (has_mbwu && topology_matches_l3(class)) {
+
+Might get reused in later patches. If not
+		if (class_has_usable_mbwu(class) && topology_matches_l3(class))
+
+> +			pr_debug("class %u has usable MBWU, and matches L3 topology",
+> +				 class->level);
+> +
+> +			/*
+> +			 * MBWU counters may be 'local' or 'total' depending on
+> +			 * where they are in the topology. Counters on caches
+> +			 * are assumed to be local. If it's on the memory
+> +			 * controller, its assumed to be global.
+> +			 */
+> +			switch (class->type) {
+> +			case MPAM_CLASS_CACHE:
+> +				counter_update_class(QOS_L3_MBM_LOCAL_EVENT_ID,
+> +						     class);
+> +				break;
+> +			case MPAM_CLASS_MEMORY:
+> +				counter_update_class(QOS_L3_MBM_TOTAL_EVENT_ID,
+> +						     class);
+> +				break;
+> +			default:
+> +				break;
+> +			}
+> +		}
+>  	}
+> +
+> +	/* Allocation of MBWU monitors assumes that the class is unique... */
+> +	if (mpam_resctrl_counters[QOS_L3_MBM_LOCAL_EVENT_ID].class)
+> +		WARN_ON_ONCE(mpam_resctrl_counters[QOS_L3_MBM_LOCAL_EVENT_ID].class ==
+> +			     mpam_resctrl_counters[QOS_L3_MBM_TOTAL_EVENT_ID].class);
+>  }
+
+>  
+> +/*
+> + * We know all the monitors are associated with the L3, even if there are no
+> + * controls and therefore no control component. Find the cache-id for the CPU
+> + * and use that to search for existing resctrl domains.
+> + * This relies on mpam_resctrl_pick_domain_id() using the L3 cache-id
+> + * for anything that is not a cache.
+> + */
+> +static struct mpam_resctrl_dom *mpam_resctrl_get_mon_domain_from_cpu(int cpu)
+> +{
+> +	u32 cache_id;
+> +	struct rdt_mon_domain *mon_d;
+> +	struct mpam_resctrl_dom *dom;
+> +	struct mpam_resctrl_res *l3 = &mpam_resctrl_controls[RDT_RESOURCE_L3];
+> +
+> +	if (!l3->class)
+> +		return NULL;
+> +	/* TODO: how does this order with cacheinfo updates under cpuhp? */
+> +	cache_id = get_cpu_cacheinfo_id(cpu, 3);
+> +	if (cache_id == ~0)
+> +		return NULL;
+> +
+> +	list_for_each_entry(mon_d, &l3->resctrl_res.mon_domains, hdr.list) {
+> +		dom = container_of(mon_d, struct mpam_resctrl_dom, resctrl_mon_dom);
+
+Similar comment to one on earlier patch. Can make the list iterator directly
+provide dom as that's what it's actually a list of, not rdt_mon_domain structures.
+
+> +
+> +		if (mon_d->hdr.id == cache_id)
+> +			return dom;
+> +	}
+> +
+> +	return NULL;
+> +}
+> +
+>  static struct mpam_resctrl_dom *
+>  mpam_resctrl_get_domain_from_cpu(int cpu, struct mpam_resctrl_res *res)
+>  {
+>  	struct mpam_resctrl_dom *dom;
+>  	struct rdt_ctrl_domain *ctrl_d;
+> +	struct rdt_resource *r = &res->resctrl_res;
+
+Push back to original patch.   
+
+>  
+>  	lockdep_assert_cpus_held();
+>  
+> -	list_for_each_entry_rcu(ctrl_d, &res->resctrl_res.ctrl_domains,
+> -				hdr.list) {
+> +	list_for_each_entry_rcu(ctrl_d, &r->ctrl_domains, hdr.list) {
+>  		dom = container_of(ctrl_d, struct mpam_resctrl_dom,
+>  				   resctrl_ctrl_dom);
+>  
+
 
 
