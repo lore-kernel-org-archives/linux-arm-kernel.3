@@ -4,70 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 433AED6D229
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 13:53:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1332CD6D229
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 13:54:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OfAXsq0+zQ7R2M3GPntXZlpgd+xTHqIuu/wC3TWoI/c=; b=s261LBoS9Y00irGRl9k0gw1Ecb
-	ZZ3jZXtjQnrUoUgLSZXEwxzAClKl/pI0q6GSv+3LXqpMM4pwjv5xjS8YFpe8u84AePkoPdXaVMQWh
-	3G8r4NCvyD77L+k3rH0Ov13RL4xVKKSUi8JBR/jgAPUfBg3doXaH0BpOdNdq46YZp00NdK4IJDSzb
-	ZKA26qMowB6WPOh1fjonAMdfKtJMLHnWIdZ+d2Um+SIFoWCrtEIjfIRl8Eti3bh6UKYi/9vJkdvoA
-	Ip3kqwJ75p20054Wq91ptN9W3WCrcSlRFHzI7Uhaomjo7vZnReNJ+JcnGrHLhvmAnWdNuKG0Mr9+W
-	j9/ja0nA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RhgSGQYStNGcdPoB3dTlM/CB5TE2tva/NS/z3ptd3wM=; b=Fs5z/lwURhR9SMw4hTMjn4Zjx/
+	2rekEiUIXGoBnA1jTugaXfp9x9yYQMFk2Dlpc5JbTCgOxRiRr5N6EgZUeyAMgdncKSV4x/BrHh1kb
+	GwcP1LPEYdH5hC3ycDuEBhsJZZLC5GCN1NwHPrG2UMEja2e+386jmVJUaiKFvA37HVP7hm3bP+ikJ
+	ld/Qlwec2MnIhCNXdA6i/6IjFfV1NXlxeCpyKpLXMxK2EoI7SfpkMlZaKVdSJ2fLe/ouxbTGVflGj
+	H4J9BOPmabdICNHmdX64jsoyu4jQVeWDUOpVaQxm8KkZzneg98FkAHxktNeeGtLNJnizYRCqnoqEt
+	4gCHCm0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWERe-00000008ZOJ-0fsP;
-	Thu, 18 Dec 2025 13:53:30 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vWES3-00000008ZTr-3nf9;
+	Thu, 18 Dec 2025 13:53:55 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWERY-00000008ZMy-2dOO
+	id 1vWERz-00000008ZSC-3M7e
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 13:53:26 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.150])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dXBv430bRzJ46d3;
-	Thu, 18 Dec 2025 21:52:48 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 761E240565;
-	Thu, 18 Dec 2025 21:53:19 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Thu, 18 Dec
- 2025 13:53:18 +0000
-Date: Thu, 18 Dec 2025 13:53:17 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: James Morse <james.morse@arm.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, D
- Scott Phillips OS <scott@os.amperecomputing.com>,
-	<carl@os.amperecomputing.com>, <lcherian@marvell.com>,
-	<bobo.shaobowang@huawei.com>, <tan.shaopeng@fujitsu.com>,
-	<baolin.wang@linux.alibaba.com>, Jamie Iles <quic_jiles@quicinc.com>, "Xin
- Hao" <xhao@linux.alibaba.com>, <peternewman@google.com>,
-	<dfustini@baylibre.com>, <amitsinght@marvell.com>, David Hildenbrand
-	<david@kernel.org>, Dave Martin <dave.martin@arm.com>, Koba Ko
-	<kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
-	<fenghuay@nvidia.com>, <baisheng.gao@unisoc.com>, Gavin Shan
-	<gshan@redhat.com>, Ben Horgan <ben.horgan@arm.com>, <rohit.mathew@arm.com>,
-	<reinette.chatre@intel.com>, Punit Agrawal <punit.agrawal@oss.qualcomm.com>
-Subject: Re: [RFC PATCH 25/38] arm_mpam: resctrl: Add
- resctrl_arch_rmid_read() and resctrl_arch_reset_rmid()
-Message-ID: <20251218135317.000004ba@huawei.com>
-In-Reply-To: <20251205215901.17772-26-james.morse@arm.com>
-References: <20251205215901.17772-1-james.morse@arm.com>
-	<20251205215901.17772-26-james.morse@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Thu, 18 Dec 2025 13:53:54 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 1EC57C1A5AF;
+	Thu, 18 Dec 2025 13:53:24 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id A4BEE606B6;
+	Thu, 18 Dec 2025 13:53:48 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 66249102F0B2D;
+	Thu, 18 Dec 2025 14:53:33 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1766066026; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=RhgSGQYStNGcdPoB3dTlM/CB5TE2tva/NS/z3ptd3wM=;
+	b=qFohZZY8adtmwbRo28+tcgXOIuD5T9ZV6GmStiiS0ZAEXQPvVe9Zcnoe53YsCQv7j9c1kT
+	pTrvVf3pcUkunP7HW/oQvdBg/Lk3nsGsCiYCx3SHIHn49cINe+SDypYYTUNdpwsJxK0JVh
+	ocSroqcU2Nk7str55AMgKkPgbWDRxk2+yhvbttnAqOzQlGRqdP2i4+xde+ODjyK3Zpm5be
+	ZSBh2N3dOdtUob6QOjlSHuVExl0oaNjoD8HBgFGaCPqRDPAFBwnRVvZxfM0UXeEISM/0Op
+	YG/ULfUWn7tCLkV8LWmaP9dHfiDTFdsnlQ2sM6hNfJi3OczZvwptkZvMOkvVJQ==
+Date: Thu, 18 Dec 2025 14:53:32 +0100
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Jens Wiklander <jens.wiklander@linaro.org>
+Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Sumit Garg <sumit.garg@kernel.org>,
+	Olivia Mackall <olivia@selenic.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <clement.leger@bootlin.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Sumit Garg <sumit.garg@oss.qualcomm.com>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	Jan Kiszka <jan.kiszka@siemens.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
+	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>,
+	Michael Chan <michael.chan@broadcom.com>,
+	Pavan Chebbi <pavan.chebbi@broadcom.com>,
+	James Bottomley <James.Bottomley@hansenpartnership.com>,
+	Jarkko Sakkinen <jarkko@kernel.org>,
+	Mimi Zohar <zohar@linux.ibm.com>,
+	David Howells <dhowells@redhat.com>,
+	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
+	"Serge E. Hallyn" <serge@hallyn.com>,
+	Peter Huewe <peterhuewe@gmx.de>, op-tee@lists.trustedfirmware.org,
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-crypto@vger.kernel.org, linux-rtc@vger.kernel.org,
+	linux-efi@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	arm-scmi@vger.kernel.org, linux-mips@vger.kernel.org,
+	netdev@vger.kernel.org, linux-integrity@vger.kernel.org,
+	keyrings@vger.kernel.org, linux-security-module@vger.kernel.org,
+	Jason Gunthorpe <jgg@ziepe.ca>
+Subject: Re: [PATCH v2 00/17] tee: Use bus callbacks instead of driver
+ callbacks
+Message-ID: <20251218135332f323fa91@mail.local>
+References: <cover.1765791463.git.u.kleine-koenig@baylibre.com>
+ <CAHUa44FrDZbvRvfN8obf80_k=Eqxe9YxHpjaE5jU7nkxPUwfag@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500011.china.huawei.com (7.191.174.215) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAHUa44FrDZbvRvfN8obf80_k=Eqxe9YxHpjaE5jU7nkxPUwfag@mail.gmail.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_055324_955264_8435D45E 
-X-CRM114-Status: GOOD (  20.39  )
+X-CRM114-CacheID: sfid-20251218_055352_332022_264213BA 
+X-CRM114-Status: GOOD (  31.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,111 +108,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 5 Dec 2025 21:58:48 +0000
-James Morse <james.morse@arm.com> wrote:
-
-> resctrl uses resctrl_arch_rmid_read() to read counters. CDP emulation
-> means the counter may need reading in three different ways. The same
-> goes for reset.
+On 18/12/2025 08:21:27+0100, Jens Wiklander wrote:
+> Hi,
 > 
-> The helpers behind the resctrl_arch_ functions will be re-used for the
-> ABMC equivalent functions.
+> On Mon, Dec 15, 2025 at 3:17 PM Uwe Kleine-König
+> <u.kleine-koenig@baylibre.com> wrote:
+> >
+> > Hello,
+> >
+> > the objective of this series is to make tee driver stop using callbacks
+> > in struct device_driver. These were superseded by bus methods in 2006
+> > (commit 594c8281f905 ("[PATCH] Add bus_type probe, remove, shutdown
+> > methods.")) but nobody cared to convert all subsystems accordingly.
+> >
+> > Here the tee drivers are converted. The first commit is somewhat
+> > unrelated, but simplifies the conversion (and the drivers). It
+> > introduces driver registration helpers that care about setting the bus
+> > and owner. (The latter is missing in all drivers, so by using these
+> > helpers the drivers become more correct.)
+> >
+> > v1 of this series is available at
+> > https://lore.kernel.org/all/cover.1765472125.git.u.kleine-koenig@baylibre.com
+> >
+> > Changes since v1:
+> >
+> >  - rebase to v6.19-rc1 (no conflicts)
+> >  - add tags received so far
+> >  - fix whitespace issues pointed out by Sumit Garg
+> >  - fix shutdown callback to shutdown and not remove
+> >
+> > As already noted in v1's cover letter, this series should go in during a
+> > single merge window as there are runtime warnings when the series is
+> > only applied partially. Sumit Garg suggested to apply the whole series
+> > via Jens Wiklander's tree.
+> > If this is done the dependencies in this series are honored, in case the
+> > plan changes: Patches #4 - #17 depend on the first two.
+> >
+> > Note this series is only build tested.
+> >
+> > Uwe Kleine-König (17):
+> >   tee: Add some helpers to reduce boilerplate for tee client drivers
+> >   tee: Add probe, remove and shutdown bus callbacks to tee_client_driver
+> >   tee: Adapt documentation to cover recent additions
+> >   hwrng: optee - Make use of module_tee_client_driver()
+> >   hwrng: optee - Make use of tee bus methods
+> >   rtc: optee: Migrate to use tee specific driver registration function
+> >   rtc: optee: Make use of tee bus methods
+> >   efi: stmm: Make use of module_tee_client_driver()
+> >   efi: stmm: Make use of tee bus methods
+> >   firmware: arm_scmi: optee: Make use of module_tee_client_driver()
+> >   firmware: arm_scmi: Make use of tee bus methods
+> >   firmware: tee_bnxt: Make use of module_tee_client_driver()
+> >   firmware: tee_bnxt: Make use of tee bus methods
+> >   KEYS: trusted: Migrate to use tee specific driver registration
+> >     function
+> >   KEYS: trusted: Make use of tee bus methods
+> >   tpm/tpm_ftpm_tee: Make use of tee specific driver registration
+> >   tpm/tpm_ftpm_tee: Make use of tee bus methods
+> >
+> >  Documentation/driver-api/tee.rst             | 18 +----
+> >  drivers/char/hw_random/optee-rng.c           | 26 ++----
+> >  drivers/char/tpm/tpm_ftpm_tee.c              | 31 +++++---
+> >  drivers/firmware/arm_scmi/transports/optee.c | 32 +++-----
+> >  drivers/firmware/broadcom/tee_bnxt_fw.c      | 30 ++-----
+> >  drivers/firmware/efi/stmm/tee_stmm_efi.c     | 25 ++----
+> >  drivers/rtc/rtc-optee.c                      | 27 ++-----
+> >  drivers/tee/tee_core.c                       | 84 ++++++++++++++++++++
+> >  include/linux/tee_drv.h                      | 12 +++
+> >  security/keys/trusted-keys/trusted_tee.c     | 17 ++--
+> >  10 files changed, 164 insertions(+), 138 deletions(-)
+> >
+> > base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+> > --
+> > 2.47.3
+> >
 > 
-> Add the rounding helper for checking monitor values while we're here.
+> Thank you for the nice cleanup, Uwe.
 > 
-> Signed-off-by: James Morse <james.morse@arm.com>
-> ---
->  drivers/resctrl/mpam_resctrl.c | 154 +++++++++++++++++++++++++++++++++
->  include/linux/arm_mpam.h       |   5 ++
->  2 files changed, 159 insertions(+)
+> I've applied patch 1-3 to the branch tee_bus_callback_for_6.20 in my
+> tree at https://git.kernel.org/pub/scm/linux/kernel/git/jenswi/linux-tee.git/
 > 
-> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-> index a2b238d47117..dc8a819d0976 100644
-> --- a/drivers/resctrl/mpam_resctrl.c
-> +++ b/drivers/resctrl/mpam_resctrl.c
-> @@ -355,6 +355,160 @@ void resctrl_arch_mon_ctx_free(struct rdt_resource *r,
->  	resctrl_arch_mon_ctx_free_no_wait(evtid, mon_idx);
->  }
->  
-> +static int
-> +__read_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
-> +	   enum mpam_device_features mon_type,
-> +	   int mon_idx,
-> +	   enum resctrl_conf_type cdp_type, u32 closid, u32 rmid, u64 *val)
-> +{
-> +	struct mon_cfg cfg = { };
-> +
-> +	if (!mpam_is_enabled())
-> +		return -EINVAL;
-> +
-> +	/* Shift closid to account for CDP */
-> +	closid = resctrl_get_config_index(closid, cdp_type);
-> +
-> +	if (mon_idx == USE_PRE_ALLOCATED) {
-> +		int mbwu_idx = resctrl_arch_rmid_idx_encode(closid, rmid);
-> +		mon_idx = mon->mbwu_idx_to_mon[mbwu_idx];
-> +		if (mon_idx == -1) {
-> +			if (mpam_resctrl_abmc_enabled()) {
-> +				/* Report Unassigned */
-> +				return -ENOENT;
-> +			}
-> +			/* Report Unavailable */
-> +			return -EINVAL;
-> +		}
-> +	}
-> +
-> +	cfg.mon = mon_idx;
-> +	cfg.match_pmg = true;
-> +	cfg.partid = closid;
-> +	cfg.pmg = rmid;
-Maybe use
-	cfg = (struct mon_cfg) {
-		.mon = ...
+> The branch is based on v6.19-rc1, and I'll try to keep it stable for
+> others to depend on, if needed. Let's see if we can agree on taking
+> the remaining patches via that branch.
 
-and drop the earlier initialization.
+6 and 7 can go through your branch.
 
-	};
-> +
-> +	if (irqs_disabled()) {
-> +		/* Check if we can access this domain without an IPI */
-> +		return -EIO;
-> +	}
-> +
-> +	return mpam_msmon_read(mon_comp, &cfg, mon_type, val);
-> +}
-> +
-> +static int read_mon_cdp_safe(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
-> +			     enum mpam_device_features mon_type,
-> +			     int mon_idx, u32 closid, u32 rmid, u64 *val)
-> +{
-> +	if (cdp_enabled) {
-> +		u64 code_val = 0, data_val = 0;
-> +		int err;
-> +
-> +		err = __read_mon(mon, mon_comp, mon_type, mon_idx,
-> +				 CDP_CODE, closid, rmid, &code_val);
-> +		if (err)
-> +			return err;
-> +
-> +		err = __read_mon(mon, mon_comp, mon_type, mon_idx,
-> +				 CDP_DATA, closid, rmid, &data_val);
-> +		if (!err)
-> +			*val += code_val + data_val;
-
-I'd stick to out of line error handling and just spend a couple more lines
-for readability.
-		if (err)
-			return err;
-
-		*val += ..
-		return 0;
-
-> +		return err;
-> +	}
-> +
-> +	return __read_mon(mon, mon_comp, mon_type, mon_idx,
-> +			  CDP_NONE, closid, rmid, val);
-> +}
-
-
+-- 
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
