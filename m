@@ -4,176 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73702D711C7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 21:41:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E13E1D711C8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 21:41:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gEdYwEjfzpfXzs3FUg42tVaj7c9yX73T7Y3gBYu6/wE=; b=jK2zu7A4jYb4ADKq7zC5ut8Fp2
-	rbL+PZYjiRpfQjlP8Fw+ig/5QsURurC1hALvh6l73dmCT2XB+A19grpUrYits0diNgoMzAAetN06p
-	y7bimGelb1llSe4nLeYmUAI6FluoUNczhEsPJnqAcjupLvre5fQqm+iAiiguLCr6x54IfsmQ5fWlR
-	tezpkE7JyOlepxmWJPQMO/8s4q2nkAfd0rH3+oKqcVlpGAHhuHj8GEsg2/5okAydBw68TACajYLiv
-	PnZ1F5wM7t1Xe6NZmh5RXfoz6AGoMuuoo7eRuUZc8E83Q+QM9VKROOYoghRObwMBFniDUH96dOivi
-	wNv/9kEg==;
+	bh=TXv2BXvuq5uQ7aJw/56Ls+xkygXpK1J1yRqrTVKoH+E=; b=xoJ2uJryE9/ck4SvmW8Gz7JGhZ
+	cNl3uPf6Ix7R0pC0oJ1ReKqNgvAzgTFGf5i4N6vf3pVdnyoXhz50s+r1oLdY2kcksqTijm08y6Zkb
+	CAPVhe5kxxCxZdyhFKXZRGqDdRJnC8S1AXpdUW0OX+zjpXAup1JHBf0Xef56u8w2cIVGTk9YCDkhi
+	dmNUDN8yXX41SiWnOR0psp3BrzbonPS0rFenndqJyTVlT7OCdoofV8zgayCW21s8Ww8z75cn1Y0kA
+	hLpNuYZQ0t6RJXLFITsQslkjIJkQ56Vca/90QNLh+oLwXElMeN+ebIW/CQKweymcm2nKDqDSlzhEd
+	RYuOQRwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWLkY-00000009Dq5-0Y5z;
-	Thu, 18 Dec 2025 21:41:30 +0000
-Received: from mail-westcentralusazon11010015.outbound.protection.outlook.com ([40.93.198.15] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1vWLkf-00000009Dsz-0kN0;
+	Thu, 18 Dec 2025 21:41:37 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWLkV-00000009DpR-1tDl
+	id 1vWLkZ-00000009Dq7-1yN5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 21:41:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qGTryWxJwJYhpG+sN+jd7qUDVqn27Mvtyr9lENrQYNSL8+kstvArYmuSu8CToV7b69FlqHjwNA51gbNDs0HdUvOGYuLWKpwAWSpsZtkPPQSL59zj931pZbvyhdn+717Qb+Mtc6TqJooFg/U0sa4WgvO6kzE2IaUjXY0LWxigZ1XSRyLQfM6Eb4Hy6yQSTsPMd3eIpsoBNMdo/ZMI0THoUv38um3yDv1od98l25ALF+mUzm5CGrtxlRKzEnH9ADc/d9TeZOBeXBoBa5PsIIiITFoXR1WzCyNV5pKB8k1sh38ckvjnhwbKu4F7/XOl6kjsyjVQzblkm0x8mYnUhhbIHg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gEdYwEjfzpfXzs3FUg42tVaj7c9yX73T7Y3gBYu6/wE=;
- b=sjSDETqf7Gksyn2YdeeTK1MCRDp+QhPqs4rueaypRLll4eqe6G8ErCAc5ReDVct2nVv2kA39yZtK/bxIuW5thKGQ2LF3weVp42gn04mR1Z8u9fXknbSPYWQJGf0A+kLm8y1po9qvlgdjdMWFgDTqr8wLdnbG8yDCjTkjvILWZN560T36qmv87OG55JwRUgdTIf1vsib/JaTxWotNcvW3suHm06ZsrZjq0ZLmZjIa+tvnZXGILYc17wYFB/FjsKGuuBonNmD23T+UZsCbXaLB9ro1SQcRXHh+sX0tTvP49wD4e79OQCzwAlUf46L4Xl49ZoRwmHt61lrLgEid1I9wjQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gEdYwEjfzpfXzs3FUg42tVaj7c9yX73T7Y3gBYu6/wE=;
- b=cxwuCUHJeotGFsCbjzUTGdW79b1zyN1WLvnhvDhabo/BqgEvFHFBHnqxltiYkF4tAH7P+I98Q05FQZL2BDVhZl35TFfCs/DQwgZ6VYPvO/WOs5JonPkvv8kJf3FRsIG6W0Zt5AJsXxpKWjhitphvApZZFlywpWo5Hqajefq2B1kbmvBPCZAIWoFhmYZ5C4B0qMGykNAEhyspq886ErXfLpc8Y0U72YOitTNLwrZpNPNpxkBx+S4C1z/qZEwhGqolir0mBTGmCNluQueuVyt47g62ChNxU3hOPZ7JkuzWVxBOSFXaXEeVIqH+GIu8ShHPgM754wc4c8LdmlZxXBEKHw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DS4PR12MB9660.namprd12.prod.outlook.com (2603:10b6:8:281::6) by
- DM4PR12MB7504.namprd12.prod.outlook.com (2603:10b6:8:110::6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9434.8; Thu, 18 Dec 2025 21:41:21 +0000
-Received: from DS4PR12MB9660.namprd12.prod.outlook.com
- ([fe80::f962:80d7:e25:bf3f]) by DS4PR12MB9660.namprd12.prod.outlook.com
- ([fe80::f962:80d7:e25:bf3f%3]) with mapi id 15.20.9434.001; Thu, 18 Dec 2025
- 21:41:21 +0000
-Message-ID: <3fc13634-43d1-4447-be38-73e68fe7f36c@nvidia.com>
-Date: Thu, 18 Dec 2025 13:41:16 -0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 4/5] firmware: smccc: register as platform driver
-Content-Language: en-US
-To: Matt Ochs <mochs@nvidia.com>
-Cc: "salman.nabi@arm.com" <salman.nabi@arm.com>,
- "sudeep.holla@arm.com" <sudeep.holla@arm.com>,
- "andre.przywara@arm.com" <andre.przywara@arm.com>,
- "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
- "mark.rutland@arm.com" <mark.rutland@arm.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Varun Wadekar <vwadekar@nvidia.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Vikram Sethi
- <vsethi@nvidia.com>, "linux-coco@lists.linux.dev"
- <linux-coco@lists.linux.dev>, "ardb@kernel.org" <ardb@kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "chao.gao@intel.com" <chao.gao@intel.com>
-References: <20251208221319.1524888-1-vvidwans@nvidia.com>
- <20251208221319.1524888-5-vvidwans@nvidia.com>
- <7E7A2433-67DC-4AED-94E0-E096DA9CF3EB@nvidia.com>
-From: Vedashree Vidwans <vvidwans@nvidia.com>
-In-Reply-To: <7E7A2433-67DC-4AED-94E0-E096DA9CF3EB@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: BL1PR13CA0061.namprd13.prod.outlook.com
- (2603:10b6:208:2b8::6) To DS4PR12MB9660.namprd12.prod.outlook.com
- (2603:10b6:8:281::6)
+	Thu, 18 Dec 2025 21:41:32 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vWLk8-0004dr-Cf; Thu, 18 Dec 2025 22:41:04 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vWLk6-006Lsm-1S;
+	Thu, 18 Dec 2025 22:41:02 +0100
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1vWLk6-00EfK3-0v;
+	Thu, 18 Dec 2025 22:41:02 +0100
+Date: Thu, 18 Dec 2025 22:41:02 +0100
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Liu Ying <victor.liu@nxp.com>, krzk+dt@kernel.org,
+	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH v7 1/3] dt-bindings: soc: imx93-media-blk-ctrl: Add PDFC
+ subnode to schema and example
+Message-ID: <20251218214102.zfv35d2fryz333gl@pengutronix.de>
+References: <20251202-v6-18-topic-imx93-parallel-display-v7-0-2cce31d64608@pengutronix.de>
+ <20251202-v6-18-topic-imx93-parallel-display-v7-1-2cce31d64608@pengutronix.de>
+ <705773fc-5aba-4bff-b05e-272e1cd0262c@nxp.com>
+ <20251215161706.2ea3wtu3xlwcxxar@pengutronix.de>
+ <7127040f-55ab-4bfa-8795-1df76085470c@kernel.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS4PR12MB9660:EE_|DM4PR12MB7504:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9df76dc7-80c5-4600-17ee-08de3e7e2f25
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?amZISUlGeWFraGQybEplQWxkWlRjcWFDRkVoeHVGd1FoVDZRL1BNMERNc3Zw?=
- =?utf-8?B?TTR0ejROY2lPUXMyUnZLREZxWDhWbEtRZkd5T1l2bnZJcDVTMXhqVVV6TTFB?=
- =?utf-8?B?V3BNOXM2dWVENWdESVlacWZHR0pCZUZ5c00zVmN3Uk5BR1h4ZktPMGVhQ2Uw?=
- =?utf-8?B?MzJsemV6SHpEZTA5RFBRai9nM0ZucDdMMjR2TVJRNDlFcDJxK040Y1FtelZY?=
- =?utf-8?B?TDRjdmRET2ZQL2tIVG1oM2xHOXIySndZajU3cnYwalpwRlBjbTNrYlJPZEVE?=
- =?utf-8?B?R2IrRUxJVGNrdE5vVkdXbDZXL2JscE9jUEJDNjAyckFxZERlOHpUNTN0cXhG?=
- =?utf-8?B?am1zaUdZNUgwczlLTDJ6L2QxNUIwTktkQWlJSXZNNDdYV0FqVTFRSXlSWFZH?=
- =?utf-8?B?dmxrUXlCNnBsL2tMakdjK0FyYTNLOFhoSTZUT01FOElPbXBkcTh6MmFQeUJi?=
- =?utf-8?B?SWVhV2ZMakhLOXlUK2VjbUNBc0NwSTllL2lYRmZiNDRUclZSa0NubW9EbDBW?=
- =?utf-8?B?eS9xc0FISWJmQ3RYUVpwdk9vRzFiQUYra3pzakxaREc2Y0JFOEt0c0Q4NTFM?=
- =?utf-8?B?Y3c4MFkxaHVIV2Zpb0RYZG0xOFRTQndWb3liRWtZSVdXUW9FWTJ4anRZMkwy?=
- =?utf-8?B?Wk5uZnFTSDhlOWtrbjMyMmZvdjBDQ292RFZnYUY5USt1OFFnNm1CUUJNV1g3?=
- =?utf-8?B?NjBYclpYOU8rcVUvTmpBT3kxdEE5MVI5SFNkcWlGcE1UejVQcEZyOUZTa1dM?=
- =?utf-8?B?U0ExNDA0ZXU0WW1mRk9pTm9RRkFVcEp4aTcrVHk5SHFVb2cwdE13V0lmZHdp?=
- =?utf-8?B?K3BUdVJ6L2Q2bU5VU09hemFrSURYZ1lMSkJ4WmZRdG5nNG1udnlIZUVOdGlW?=
- =?utf-8?B?VUJ0am1hSTFWSlpwejNmZ2VyQzhnd01LUHNoVDA4RG1Db05DcXF3RFNzVmN2?=
- =?utf-8?B?NmZXWE0vbnVBNFJya1ZMamU0eUcxVnhWSEtLOHBRdG93Y2tZWlQwVW5pUlky?=
- =?utf-8?B?dXhEcHhhMGtFL1hvNExnY0svVzFJM3NDVUU1UUJQcEdBbUx5RzFiYU04WUNM?=
- =?utf-8?B?ZFA1dDh5UncybS9tMUV4eTZEbm56UWRzR2kycE9lNlU5OHZtalVuZ2dTQkNN?=
- =?utf-8?B?TzNlU29kZk9iMzFQYndGV2w3WXpkR0FHdEF0VzUrQnZEY1VOUnFqQmw5SXdB?=
- =?utf-8?B?dktRdW13WTMwUzdnRnB3QjdyQ3dkaGlnRER2VS9WSUV4ZUxXMVFwT2d1ckNa?=
- =?utf-8?B?RlVNSSs2QVRpUitUa3ZDWkhJMlpMTVE1Si85dlRhQnMydGtycURsSUp0RVhK?=
- =?utf-8?B?TU0yajZrc3M0VEJvNmkwSU5pL1ZJTmpxWHlCdmZ3MnYwWjB6dTA1TWRsK2k1?=
- =?utf-8?B?U3B2TmdQeCtRMUNGQ2dWQnBheHZNTThSUWIvSUhJbHhGSTJvV1E5SkdxRzJx?=
- =?utf-8?B?U0pwZjNGelliZnR6dStOYmY2Q2dkNkp2MEpyVVJXNWp1WlV3MEVxcFZjTEU0?=
- =?utf-8?B?YWNRVzlWU1pZZjU4S1l1aGRrTzdQRm82cEg0bjVsSHA5T0ErdS9idEVqbXFn?=
- =?utf-8?B?a3lmdzRHWXZ1OFcra3dYalR0VHgyMTNXbG9jNkd1ZHNpMk4zOHgrQTIya0pC?=
- =?utf-8?B?eEk3TWozeWZ4MndaNXA1U3VhS1ZLejdMRmUxREhXdEJTRzhxRFFVVkQ0Z3Ux?=
- =?utf-8?B?Zi84d1hoRU5Ddk1CUzRjbGVReXo0a3lJZmVBeEF4NVpXOVFiNHIwRDRweW1x?=
- =?utf-8?B?KzM5cEIwK0l4QWVyZ3I3aDRKc1hTYnh5NEtZeG5iUnJoeEZMdytPd2RhVndI?=
- =?utf-8?B?cHhPK1pVeWNBZS9rbUJ0aDFlUFJyMVRxYW9RVllaTnRGUFNkNWg3TFh3aWZa?=
- =?utf-8?B?Zm1ZcEZIR2xaS1dOajc3bk96TXBPN2h5TG95NTFySnIzNVRucjc3UDVlQmdJ?=
- =?utf-8?Q?95shDgXdX3WZ35Cni5z93rBqL6oa5m3Z?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS4PR12MB9660.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?L21INTIyOTc0dno4TGM2YjdaSW9RRUNLdWp6Ym9DY3h0dlVtdSt1ZzQ4U0Q4?=
- =?utf-8?B?SGtuZ21hVUdkQS9TRVE1OTV6V012L1BiZEpvK1BoNG1NckFtV1pzTDhUOXk2?=
- =?utf-8?B?Z1VWcEtvZkhpalk1THJTWHhzRlRDLzZLUmNBaGdoRzJZYThEamtmQU93bWxa?=
- =?utf-8?B?TE1qY29OM0FWY0pvcVI0NHNCaWVwOFZKMHQzTllNY3FxSlpNLzVkckZYQ25Z?=
- =?utf-8?B?aEpFR2JtSkR4SmhHZ1IxUm16TzVxUlh6NWtXcmgzaWZDd0J5bmlFR3JIZ2wr?=
- =?utf-8?B?QXZ2OWRydi9IVWlZUEpFQW1tMmt5N3ZxYTUzeWM2cE9TdVptNUhNWFZtcVQ0?=
- =?utf-8?B?REU1ZW1ZcWJEUjM4cnlhSFFScUM1WVNHMldkelZEVlp6clFwMHY1WlBORjRn?=
- =?utf-8?B?ZWlYam1oNnFsSU82SGhMeVk5bko0UElvQkt2K2FvY1RtckNUb1paU3RZSzBB?=
- =?utf-8?B?bGE0aEd0SC8vZVdQNVpkeVRFamZrWnlFN0RuR0hZR2F6bG41enVDZmdPaW5w?=
- =?utf-8?B?bFhKMVdPTkRSV3AwTUxQOVpNUXB0b3lKczFCL2hoSERlc09RSjN2a3FkaFRn?=
- =?utf-8?B?SVp4dGc1M1dkcHF3UUplc004eG5oUVR5dldYVzJpVU0vbmlBVEFHV3NYZllQ?=
- =?utf-8?B?Z012MmZaOFk3SnNVSlFMYThjM1Q5QjE4eDlackxMdkFRL2swV0owT0VndWZC?=
- =?utf-8?B?SVJwdVRNOWduQWNnSTBETU0yQy9JV3RiMDlPNUtkRmFMZlR0K0l4U1VYWnRm?=
- =?utf-8?B?OVRwT1JrTXlwazNvQUo2dFFJL29XbkdRT080REQ3dSttMys3eitOSlQ0RklC?=
- =?utf-8?B?SzQwT0xLY2paVyt5U3RUb094L0xkV0s3Z1VvRDAvUHMrQ2V3SDk0N1ZQVXRM?=
- =?utf-8?B?cmJLSWgrNVcreWdpSExUdS9PekhsMGZrZHNEWW1tMzlDcGQ1WEYxbkNKdzVS?=
- =?utf-8?B?cW1saUN0V0VKc3RHaFRpQmEvdVh6emE1TG4ralBqRVREYWZKNUtzM01IVmZr?=
- =?utf-8?B?WERLSUlFbU5FbTdkWHNTNnBGVDc1NGlYaHpiM3dHWFdaQlBReVBUZXlkQ1du?=
- =?utf-8?B?Rjl6aGMvYXRQeDh5OHU2K1o2bmtmUzJDU3ZsYzRCUGdOR0RwVEN6ZnA4bml4?=
- =?utf-8?B?bTMvMk13WksxbFZrWnU1b0xyWC9uNmVsQkEyY2Y0SHVCRTVoeEwycjg2eWhB?=
- =?utf-8?B?UkgzL2svcldWaDFJUVFqMHhSL0JLMXpyVy8xOHh1RFpTeHYyY05WcU5qVGdS?=
- =?utf-8?B?TDl5SnVYSlRNUmRISGdtR0ZSSGdRU3gxQTdrYUR6Z2oxcVdURGdCMGwzeGE1?=
- =?utf-8?B?ajFRZ3orSDFHMDF2bThoaGhEY2VETkVLQ0N6VnhWR3JIczZRTjFwakR6SVZE?=
- =?utf-8?B?VEJpOGUxL1ZQdkVtNWpMcHVWQ2NUV1VaS0F2U29GZDk0QnNXVnh2SE04UExB?=
- =?utf-8?B?anM4eXQxNnZucmR0QVhVU0dHcU9hTmsrUGRUcENFaVlSTE5MTm82V0E3REs1?=
- =?utf-8?B?cU4vMVdoanlrUEpoSklyWURDVTdKSTk1N21PaXlNTmN1L2NZcG1SVnViY09x?=
- =?utf-8?B?RnlreUZJSjB2eEswbjV4SjYrYmgyQnVRcXlpb0FPZlUyY1ZwVTZoekUyTlNI?=
- =?utf-8?B?M3g1eGFOYjc0Q2t4MFRQWGJodFZPdHJJWm9GMXFTTGhrREdmVzB4TEpIN2VN?=
- =?utf-8?B?bFFBL3lNakZpbE9BRkVPSDRjSWVwSFlVQUVyUW4vTjIwRDJSbDZVa1BGdFIy?=
- =?utf-8?B?MjJBZTVqMjUwTExxVlhRRTlQZXlNdjNvdlhrN1k3NTJ0UEMwMUZweDVZZXJ0?=
- =?utf-8?B?RmJVenlOc2p0cldjQ1N3RUgvRHRFeFo1ZGdVYnYzT0NWcjk4UFhHYjNDYzNW?=
- =?utf-8?B?SFJtRWRxRm0vc0lpbzhKZjlrUUJuZG9tUlUxL3FNcnMveU9BWVFReVZXKzVz?=
- =?utf-8?B?QlNncTM5WXAySmxyOHdJOVZKNFhXTmZVeGIvbkdZTWZzRnFtQktVMkxPMEJY?=
- =?utf-8?B?SmJNN01ZM1cvVjZrdG15ZGsrZSsyODVXMVg3K0dFaTNGREZiT3dwODBncGVy?=
- =?utf-8?B?cmpTUTE5NU5MR0ZERlRVRkVEQVdjVERsMDJTdkdYdm1Nckc3aHRidGpncEIx?=
- =?utf-8?Q?7Dzq/MQux+QQ/etQPZVkGcV3V?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9df76dc7-80c5-4600-17ee-08de3e7e2f25
-X-MS-Exchange-CrossTenant-AuthSource: DS4PR12MB9660.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Dec 2025 21:41:21.2566
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: RdAfb3NybmPZoAZLvS/HEffpUPChiPrWaN86wDFambywwTpyeu4v/Xn7IYx22mH/aqZAj+SYmV/OMARgEb/yVQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR12MB7504
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <7127040f-55ab-4bfa-8795-1df76085470c@kernel.org>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_134127_503705_D45F2064 
-X-CRM114-Status: UNSURE (   7.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251218_134131_536056_3FB7384C 
+X-CRM114-Status: GOOD (  31.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,25 +97,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 12/12/25 07:31, Matt Ochs wrote:
->> On Dec 8, 2025, at 16:13, Vedashree Vidwans <vvidwans@nvidia.com> wrote:
->>
->> diff --git a/drivers/firmware/smccc/lfa_fw.c b/drivers/firmware/smccc/lfa_fw.c
->> index 0e420cefa260..24916fc53420 100644
->> --- a/drivers/firmware/smccc/lfa_fw.c
->> +++ b/drivers/firmware/smccc/lfa_fw.c
-> ...
->> +
->> +static int __init lfa_probe(struct platform_device *pdev)
->> +{
+On 25-12-18, Krzysztof Kozlowski wrote:
+> On 15/12/2025 17:17, Marco Felsch wrote:
+> > Hi Liu,
+> > 
+> > On 25-12-08, Liu Ying wrote:
+> >> Hi Marco,
+> >>
+> >> On 12/02/2025, Marco Felsch wrote:
+> >>> From: Liu Ying <victor.liu@nxp.com>
+> >>>
+> >>> i.MX93 SoC mediamix blk-ctrl contains one DISPLAY_MUX register which
+> >>> configures parallel display format by using the "PARALLEL_DISP_FORMAT"
+> >>> field. Document the Parallel Display Format Configuration(PDFC) subnode
+> >>> and add the subnode to example.
+> >>>
+> >>> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+> >>> [m.felsch@pengutronix.de: port to v6.18-rc1]
+> >>> [m.felsch@pengutronix.de: add bus-width]
+> >>> Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+> >>> ---
+> >>>  .../bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml | 92 ++++++++++++++++++++++
+> >>>  1 file changed, 92 insertions(+)
+> >>>
+> >>> diff --git a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
+> >>> index 34aea58094e55365a2f9c86092f637e533f954ff..6e2d86d9341c75108b492bcbabc8a560d8e707cd 100644
+> >>> --- a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
+> >>> +++ b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
+> >>> @@ -26,6 +26,12 @@ properties:
+> >>>    reg:
+> >>>      maxItems: 1
+> >>>  
+> >>> +  '#address-cells':
+> >>> +    const: 1
+> >>> +
+> >>> +  '#size-cells':
+> >>> +    const: 1
+> >>> +
+> >>>    '#power-domain-cells':
+> >>>      const: 1
+> >>>  
+> >>> @@ -40,6 +46,60 @@ properties:
+> >>>      minItems: 8
+> >>>      maxItems: 10
+> >>>  
+> >>> +  bridge@60:
+> >>
+> >> The dependency patch series mentioned in cover letter has two links in it's
+> >> cover letter.  Reading the patch sets pointed by the two links, we may find
+> >> Krzysztof's comments - the child nodes of the blk-ctrl should be completely
+> >> documented.
+> > 
+> > Thanks for pointing this out.
+> > 
+> > @Krzysztof
+> > Requesting to add everything seems not feasible if everything added
+> > should be tested too.
+> > I don't see why everything should be added in one step, since the base
+> > .dtsi isn't added in one step too.
 > 
-> WARNING: modpost: vmlinux: section mismatch in reference: lfa_driver+0x0 (section: .data) -> lfa_probe (section: .init.text)
+> Because otherwise we do not see entire picture and people post incorrect
+> bindings, claiming they are complete picture, like messing nodes with
+> addressing and nodes without. So sure, if you do not want to post
+> complete picture, we cannot review that complete picture, therefore YOU
+> MUST POST CORRECT CODE.
+
+It's not that we don't want to post the complete code, it's rather that
+we don't have the projects to cover the complete MEDIA_MIX blk-ctrl.
+Albeit it's a very simple IP with just a few (25) registers, all of them
+do have a complete different purpose:
+
+- control the AXI QoS and IP Cache
+- control the bus NIC settings
+- control the camera parallel-input setup
+- control the LVDS bridge (LDB) setup
+- control the parallel-output (DPI) setup + the MIPI DSI input setup
+- control the MIPI DSI PLL Setup
+
+> I will not be taking excuses later "we did not know that such code is
+> not allowed". You must know all rules.
+
+I get your point and there are only two options IMHO:
+ 1st) Step-by-step
+ 2nd) Big-Bang
+
+Step-by-step:
+------------
++ Mainline support as fast as possible for each component
++/- Contributors must be trusted that everything is communicated openly
+- Unforeseen issues which may require DT adaptions
+
+Big-Bang
+--------
++ Everything bindings + code can be checked by the maintainers
++/- Less trust required, since everything is added but still min. trust
+    required
+- Unforeseen issues which may require DT adaptions
+- No mainline support at all or very late
+
+I can only speak for myself, I don't want to hide anything from you or
+other maintainers. But I can't guarantee that everything is 100% correct
+and bug-free. I'm quite sure that no one can make such promises.
+E.g. I didn't test the simultaneous DPI + DSI + LVDS output. It would be
+part of this patchset, if I would have tested this.
+
+Regards,
+  Marco
+
+> Best regards,
+> Krzysztof
 > 
-> __init is not needed here, please remove.
 
-Thank you, I will include this change in next update.
+-- 
+#gernperDu 
+#CallMeByMyFirstName
 
-Veda
+Pengutronix e.K.                           |                             |
+Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
+31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
 
