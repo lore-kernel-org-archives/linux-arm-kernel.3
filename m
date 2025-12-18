@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 152D8D711CC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 400C3D711C8
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 22:49:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,47 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KO7I+9aisDYZJ/Ue+ItKbaaEPdXZSdxob5lLTapawIs=; b=rfe/B7tpJGJmLsTWUY1WTRkplP
-	jcBYAnD7Kn4SgCcVrs87dMKyJjQ1xFefEHIyAAMmTGGflGzEbco+7uDlEtqmk5KoDFlAiCgQVAKau
-	uBSF2aMncEYejJwNnAiyZQ0fH3uvhI9F6jfEP6gnW1Hu3L5+hBC6b9yaT6S1RnD1Sn95GPPUxSRvU
-	6TMqY/J80+T/A84TAZnC02q7+8u66cDZhthRtwpwQ0ZvLoKJZ9jpeOIB+tyn74u+uy9EvIBeaOqP3
-	zECoKPokaOw3SoTYIIBP6q7almM41IFIcE+P0kAC/Xy+O5VNgAakHLlNoxc4cTAjsGAcYBlpFsEXJ
-	zx9o8kdA==;
+	bh=zwkSUf1QvLLcJU9mPvH8pFnBrytT0Sq1HnqcCTtXD8w=; b=3Zvkm8P5TJxXMLdacVu7C12Gl7
+	OPj7xmcRTizJUOWnVGYjIyJY6KQIBwV235r0TJSndlxbA60ao5iAw2EVk5iMoKpTPLsLJbXoLC4KY
+	7ws4lxYWjM5uj+k/aODZZ0f2rNWHPQQ8swSeHYW3Gtu232c3NdyTMH0cWVkUARY1tQ7kMj7pKwz5t
+	dCe78gvMuO3AXRo5mbYD2YSudt1nTw7Lxm2wQJWwT5xbD8ubQuejZLHuo1l9+dhGCusVhC+Nxbqz7
+	0Bo7BVDTFKYH9ZvPp7VACKg4hRfv7XF/bm3vubiVItE0qjwZivp1y7ieXh9jh/SDpSnZPz6Z5uUzQ
+	VjvQEDmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWMoh-00000009HaV-0dFS;
-	Thu, 18 Dec 2025 22:49:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vWMog-00000009HZg-0txu;
+	Thu, 18 Dec 2025 22:49:50 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWMoa-00000009HXG-0YEQ
+	id 1vWMoa-00000009HXB-0M01
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 22:49:46 +0000
+	Thu, 18 Dec 2025 22:49:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 10C8344595;
-	Thu, 18 Dec 2025 22:49:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id BB84BC19421;
+	by sea.source.kernel.org (Postfix) with ESMTP id BD6E44432E;
+	Thu, 18 Dec 2025 22:49:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 7CC41C116B1;
 	Thu, 18 Dec 2025 22:49:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1766098182;
-	bh=cbYokUWG51PHQiOYxo6A9jbxM0wUUj7QvzYOjr2XC9Y=;
+	bh=etnOPKtYKB3s4gRzuPiCpjilG+Q6bKbMiIq4AECF5d4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=d6rVgpCrc2jwOmAAEhYTUYL5sZ72EwrwoQXXxa5F0+o52ck1wHmc7WOYANBVTmCKx
-	 IQuQqV0abYyi3dT9W0o6mlSMZiYUzfschg5NcuQWwxtEfHmd+XkvzVqf1UWRUAKJ0c
-	 3LYsPLwGHFYMKNcNpZQAdlMpQMLw0+FQ+lJFN9Ift/8BJrA3/YKYgeUH8AzRVozVBe
-	 E+hp/zRHIN/hz4Wn37bUyE5qhP8iperUsEbQAXnaujnPT7gHdv4JqDKyRK5X8LlpMj
-	 wK5s0W+sF6L3CkbW2AKTY0dsUrIBL8dmG7VcSWSWoUACr4rUC9JVA9MyKjhh91cpCi
-	 IOr/vMF4SVbqA==
+	b=WB+P3KriD02CQyZ3xQ+z/IYgOHp0OjXpDcMNW3ItY/xa8YklEV63y8ojDVvtQBET/
+	 8fpQwsY6JKr22OsLlhmFJz3dubNS05DHJyocErhY9NyswSWRcrX9AZs2HZZUlMX46B
+	 LrY1KQXz61P303X5lV8gzdzj+ZYi86PySmwHEAp9ep6N52tsdE6x57N8HDgSc4hOTn
+	 dGBcjSVv/0RZ4gbV4cYrAnyMkF9A0pX8uUcMOz74liesIvlf43d+r4d8gr8OrQWICZ
+	 KkKA85uHrIeY55pl+X2xz+elbxCwwre3EQantL5t+SyOOY+MuEWElsXXdWbQMA7j+9
+	 wmxjQlZIG7kFA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id B18A2D711C8;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 6C74DD711C8;
 	Thu, 18 Dec 2025 22:49:42 +0000 (UTC)
 From: Amit Sunil Dhamne via B4 Relay <devnull+amitsd.google.com@kernel.org>
-Date: Thu, 18 Dec 2025 22:49:10 +0000
-Subject: [PATCH v2 5/5] usb: typec: tcpm/tcpci_maxim: deprecate WAR for
- setting charger mode
+Date: Thu, 18 Dec 2025 22:49:06 +0000
+Subject: [PATCH v2 1/5] dt-bindings: mfd: maxim,max77759: add charger child
+ node
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251218-max77759-charger-v2-5-2b259980a686@google.com>
+Message-Id: <20251218-max77759-charger-v2-1-2b259980a686@google.com>
 References: <20251218-max77759-charger-v2-0-2b259980a686@google.com>
 In-Reply-To: <20251218-max77759-charger-v2-0-2b259980a686@google.com>
 To: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -71,19 +71,20 @@ Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
  RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>, 
  Amit Sunil Dhamne <amitsd@google.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1766098181; l=3811;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1766098181; l=1858;
  i=amitsd@google.com; s=20241031; h=from:subject:message-id;
- bh=gODgDpQP/9bgrSDj+3qpZEOJ9al88puNi8UVNNHTxA4=;
- b=9MSDXOs4k4y2oWzxnwY8o5xcKCJYuzU6LqXWDkM/sOMLSHqHoXC0AqJNwHsmknYJe3fKoebC4
- OxiV8Ryv1u0DDUAQKEcVY0mFBh7SEGZx7MtAXgwI4Gd/EWcpIIBWFUZ
+ bh=7Z+OfAwjbAkzdqPSTAxyljLhXicf0T4G1279sUdm3LY=;
+ b=NYQG8juDPo2XeqgvzUfn+5NDPn30xfqT6cDA5knYDKoPM7jhRybeGeNk7u4BE08n2rSr/z1BA
+ laoPDdVtOFZDPHqk+OpHYd57jiWUyBcj9PxmtevU7BhZHCTP3QVMoJF
 X-Developer-Key: i=amitsd@google.com; a=ed25519;
  pk=wD+XZSST4dmnNZf62/lqJpLm7fiyT8iv462zmQ3H6bI=
 X-Endpoint-Received: by B4 Relay for amitsd@google.com/20241031 with
  auth_id=262
 X-Original-From: Amit Sunil Dhamne <amitsd@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_144944_232355_0D444FED 
-X-CRM114-Status: GOOD (  17.47  )
+X-CRM114-CacheID: sfid-20251218_144944_181665_F364B005 
+X-CRM114-Status: UNSURE (   9.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,122 +102,65 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Amit Sunil Dhamne <amitsd@google.com>
 
-TCPCI maxim driver directly writes to the charger's register space to
-set charger mode depending on the power role. As MAX77759 chg driver
-exists, this WAR is not required.
-
-Instead, use a regulator interface to source vbus when typec is in
-source power mode. In other power modes, this regulator will be turned
-off if active.
+The Maxim MAX77759 MFD includes a charger function. Extend the max77759
+binding to include the charger. Also, update the example to include
+charger.
 
 Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
 ---
- drivers/usb/typec/tcpm/tcpci_maxim.h      |  1 +
- drivers/usb/typec/tcpm/tcpci_maxim_core.c | 54 +++++++++++++++++++------------
- 2 files changed, 34 insertions(+), 21 deletions(-)
+ .../devicetree/bindings/mfd/maxim,max77759.yaml    | 33 ++++++++++++++++++++++
+ 1 file changed, 33 insertions(+)
 
-diff --git a/drivers/usb/typec/tcpm/tcpci_maxim.h b/drivers/usb/typec/tcpm/tcpci_maxim.h
-index b33540a42a95..b314606eb0f6 100644
---- a/drivers/usb/typec/tcpm/tcpci_maxim.h
-+++ b/drivers/usb/typec/tcpm/tcpci_maxim.h
-@@ -60,6 +60,7 @@ struct max_tcpci_chip {
- 	struct tcpm_port *port;
- 	enum contamiant_state contaminant_state;
- 	bool veto_vconn_swap;
-+	struct regulator *vbus_reg;
- };
+diff --git a/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml b/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml
+index 525de9ab3c2b..1cffdf2e5776 100644
+--- a/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml
++++ b/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml
+@@ -37,6 +37,30 @@ properties:
+   nvmem-0:
+     $ref: /schemas/nvmem/maxim,max77759-nvmem.yaml
  
- static inline int max_tcpci_read16(struct max_tcpci_chip *chip, unsigned int reg, u16 *val)
-diff --git a/drivers/usb/typec/tcpm/tcpci_maxim_core.c b/drivers/usb/typec/tcpm/tcpci_maxim_core.c
-index 19f638650796..e9e2405c5ca0 100644
---- a/drivers/usb/typec/tcpm/tcpci_maxim_core.c
-+++ b/drivers/usb/typec/tcpm/tcpci_maxim_core.c
-@@ -10,6 +10,7 @@
- #include <linux/kernel.h>
- #include <linux/module.h>
- #include <linux/regmap.h>
-+#include <linux/regulator/consumer.h>
- #include <linux/usb/pd.h>
- #include <linux/usb/tcpci.h>
- #include <linux/usb/tcpm.h>
-@@ -35,12 +36,6 @@
-  */
- #define TCPC_RECEIVE_BUFFER_LEN				32
- 
--#define MAX_BUCK_BOOST_SID				0x69
--#define MAX_BUCK_BOOST_OP				0xb9
--#define MAX_BUCK_BOOST_OFF				0
--#define MAX_BUCK_BOOST_SOURCE				0xa
--#define MAX_BUCK_BOOST_SINK				0x5
--
- static const struct regmap_range max_tcpci_tcpci_range[] = {
- 	regmap_reg_range(0x00, 0x95)
- };
-@@ -202,32 +197,49 @@ static void process_rx(struct max_tcpci_chip *chip, u16 status)
- 	tcpm_pd_receive(chip->port, &msg, rx_type);
- }
- 
-+static int get_vbus_regulator_handle(struct max_tcpci_chip *chip)
-+{
-+	if (IS_ERR_OR_NULL(chip->vbus_reg)) {
-+		chip->vbus_reg = devm_regulator_get_exclusive(chip->dev,
-+							      "vbus");
-+		if (IS_ERR_OR_NULL(chip->vbus_reg)) {
-+			dev_err(chip->dev,
-+				"Failed to get vbus regulator handle");
-+			return -ENODEV;
-+		}
-+	}
++  charger:
++    type: object
++    description: This is a dual input switch mode battery charger for portable
++      applications. It supports wired and wireless charging and can operate in
++      buck and boost mode.
 +
-+	return 0;
-+}
++    allOf:
++      - $ref: /schemas/power/supply/power-supply.yaml#
 +
- static int max_tcpci_set_vbus(struct tcpci *tcpci, struct tcpci_data *tdata, bool source, bool sink)
- {
- 	struct max_tcpci_chip *chip = tdata_to_max_tcpci(tdata);
--	u8 buffer_source[2] = {MAX_BUCK_BOOST_OP, MAX_BUCK_BOOST_SOURCE};
--	u8 buffer_sink[2] = {MAX_BUCK_BOOST_OP, MAX_BUCK_BOOST_SINK};
--	u8 buffer_none[2] = {MAX_BUCK_BOOST_OP, MAX_BUCK_BOOST_OFF};
--	struct i2c_client *i2c = chip->client;
- 	int ret;
- 
--	struct i2c_msg msgs[] = {
--		{
--			.addr = MAX_BUCK_BOOST_SID,
--			.flags = i2c->flags & I2C_M_TEN,
--			.len = 2,
--			.buf = source ? buffer_source : sink ? buffer_sink : buffer_none,
--		},
--	};
--
- 	if (source && sink) {
- 		dev_err(chip->dev, "Both source and sink set\n");
- 		return -EINVAL;
- 	}
- 
--	ret = i2c_transfer(i2c->adapter, msgs, 1);
-+	ret = get_vbus_regulator_handle(chip);
-+	if (ret) {
-+		/*
-+		 * Regulator is not necessary for sink only applications. Return
-+		 * success in cases where sink mode is being modified.
-+		 */
-+		return source ? ret : 1;
-+	}
++    properties:
++      compatible:
++        const: maxim,max77759-charger
 +
-+	if (source) {
-+		if (!regulator_is_enabled(chip->vbus_reg))
-+			ret = regulator_enable(chip->vbus_reg);
-+	} else {
-+		if (regulator_is_enabled(chip->vbus_reg))
-+			ret = regulator_disable(chip->vbus_reg);
-+	}
- 
--	return  ret < 0 ? ret : 1;
-+	return ret < 0 ? ret : 1;
- }
- 
- static void process_power_status(struct max_tcpci_chip *chip)
++      chgin-otg-regulator:
++        type: object
++        description: Provides Boost for sourcing VBUS.
++        $ref: /schemas/regulator/regulator.yaml#
++        unevaluatedProperties: false
++
++    required:
++      - compatible
++
++    unevaluatedProperties: false
++
+ required:
+   - compatible
+   - interrupts
+@@ -95,5 +119,14 @@ examples:
+                     };
+                 };
+             };
++
++            charger {
++                compatible = "maxim,max77759-charger";
++                power-supplies = <&maxtcpci>;
++
++                chgin-otg-regulator {
++                    regulator-name = "chgin-otg";
++                };
++            };
+         };
+     };
 
 -- 
 2.52.0.322.g1dd061c0dc-goog
