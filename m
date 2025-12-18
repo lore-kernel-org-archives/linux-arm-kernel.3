@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAD76D6D234
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 15:22:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71A04D6D232
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 15:22:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=718S0BdFz8xiVCzU8aXFCL2DNXNEbKnbIjEDDeQ51yA=; b=T5B60fxocc/jcOuXEFWmcoRZYh
-	4PIukrv8ac+RdItXf4nALphmYR1NNDZ8weYEe/v1T45Hcp4PkrLboUZCzXH5QDLEKdvYLxYGzPR9Y
-	JIO5doARE/IcKOKBjlKFyCeGtpqV4o1nAw1Q1vd767dotFZw/JxquvVzl/rCWvUX1ap/alC7RQLi1
-	nDmOrGZoeuhhSp6w3ghg83vZEEjI8T6OtKtiPmTmiK52fVYbS/kc6SF3Amf8ek31ypnQnCNyUkxTX
-	VBVosayIFOoiVozRm/2KHm6vL38YOVow59udAG61eWSUlMvrPxPHoizvnVd8gkdyCPetBRHBmPo76
-	cWZkFLiA==;
+	bh=FI7PYyPGdjJp1gXUMedmlj7NmwLyvXozNGGHThu/Auc=; b=mBYbPrIugYSLoGvBOzLUhfjUCV
+	Q9Li/dug2FQdYipiLfE2z6JJ7gfN8H4w1C2hr9gmp/wDUV38TLOpcBvy5LeQEU7DxsMvcgSMgEXPV
+	1yX55aVD55Glk9h+AIRbWApyZ9Se2oOUGvf5BD6rygqppwKCgTHrwHV9u/kAljlUOsew9LVicplm3
+	bm8C3d4K2ZFHDBEUK4/BTV45SUpfpnI4/FBCxim9KqfM2x3n2DjZT0U8t7izbjQSI6xYKcD9hSzpV
+	+gQoTGeKPCxvvGE7GfPnFOijaBe1EjyqYoJNPDbG/GYT/nJtr7XxHOzy73W8tnKr9B+NIocbecH+0
+	7ycatDgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWFpE-00000008gGf-2RHB;
-	Thu, 18 Dec 2025 15:21:56 +0000
-Received: from mx-relay49-hz3.antispameurope.com ([94.100.134.238])
+	id 1vWFpH-00000008gHO-3kBJ;
+	Thu, 18 Dec 2025 15:21:59 +0000
+Received: from mx-relay31-hz1.antispameurope.com ([94.100.133.207])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWFpA-00000008gFP-0ct7
+	id 1vWFp9-00000008gFJ-1kGe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 15:21:54 +0000
-ARC-Authentication-Results: i=1; mx-gate49-hz3.hornetsecurity.com 1; spf=pass
+	Thu, 18 Dec 2025 15:21:55 +0000
+ARC-Authentication-Results: i=1; mx-gate31-hz1.hornetsecurity.com 1; spf=pass
  reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
  smtp.mailfrom=ew.tq-group.com
  smtp.helo=hmail-p-smtp01-out03-hz1.hornetsecurity.com; dmarc=pass
  header.from=ew.tq-group.com orig.disposition=pass
 ARC-Message-Signature: a=rsa-sha256;
- bh=718S0BdFz8xiVCzU8aXFCL2DNXNEbKnbIjEDDeQ51yA=; c=relaxed/relaxed;
+ bh=FI7PYyPGdjJp1gXUMedmlj7NmwLyvXozNGGHThu/Auc=; c=relaxed/relaxed;
  d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1766071287;
- b=eX+DQ4VkpQL7VPOP5yRIQeyN3/wmgPmxngROqC+I4F8fVQIHouNFiYJ3q+YaVXrcBSphuUEU
- bv3naVIwLOXhE0KIp+D5yRH7qcxp4jW+9H7bZAJhWqhXGYGaU5k3sXyWyPCQQYfgUR8iQAoY2/N
- oK1KobI2eHEm1HfBtcJbVIqO77zNZ1m07tD4NihomY5umgT9Fuu/raj8utu81R26NLGJq3zveaa
- hYJBfg7FcxA63FPRwanEbzZ+uxtNX/JIXAv37BsHKQXWfQSe/2rE68xcwnLwWXRuVvseP1o23Ku
- KMfJ8W/+6NwqykItxcT/1lG8QM94Om0l6jb6RhIaBU2Tg==
+ t=1766071284;
+ b=avC9BfRLqIxMb96oNDkPJPYcPQ3g0YslXPbsvs+bVJ1wPNNv97MzTCCPpmM6IJU4GLSlcfBt
+ X5Rslw8BU7AWgVbog5LUhFE+G9y/ROysDIrwhSM5Kqx6UlQLzJQL/uRd/PSSrWPjQc4vQxQeUdf
+ DdtZEtPLhudNhFqsfWw+dnj2VSnL/d7tfELO+mnQmBqL69HxPvZNuQ4iBfPQ1VTM+4KeKeARokM
+ 9YDyzahxjD8/2jpiGCkowzYFACdX5FaLZlRIWvhrvJDmtSnUN3Tvn7zm2M9NtWQdA9qzgI3OmhT
+ EkQfih8TZt2mhs5vajVdlK9+zX3hHwkSvtXSg3linlutg==
 ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1766071287;
- b=jypQ6a//RKIdEXKmKbScIn6c6xYi9HLsxiWtvOweEfA1PwLszPav0NtmZbtHqY+6ngbatRIp
- ty5zycKbmLBinw8cQ2kFDXfehHp23ih5hosSG2Ry4sXZWxzmeRd9Dz3I6/V0hC7MOoEesp1L3uI
- YOpbUqJCkxUqSWW6/Z64fa/VFP73LqH9rczGRXgSuGofFPaLwP27Qq8k9ON5oepWHr5qpTr2KAk
- xSJAdE79HzUTnmBPRyk+uK7ZdWwLVDmj6LRBKDEknwLT8OMlmd1xB/mBGmYrjS2G5jYZu5lN2uF
- 6twedPUTBh9XJLm9TJ4BUwqUvuLLkECV4yaUTaKbejlww==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay49-hz3.antispameurope.com;
- Thu, 18 Dec 2025 16:21:27 +0100
+ t=1766071284;
+ b=hP4ifQ8oMnpukoupmSoF0VXtMz0sHAmMLhKMSRoo4ybUlUmul4etAOZPsvXORcenI8bD5fSn
+ A8UccIitXQJocjLaWttUEg3wfJofW5VJR5EoMJCXoE1VuwJ27iU9o9mI/0x/E6RyqMzmzer5sQg
+ BNygHwcwWqW0ScdeJeZ0mssknoVSe4fO5jCxnKbQ3/6DT9e5yVRylHpwBG5ZGfw7+tEtJ8SfpMm
+ U666ZRRNgxR9FKFpMIEjkFN6WtRMFwjUlTJe3Jsl6oSxU1Dji9qpmPK29NYHlkHmfpOJT21c3VP
+ 3uIZYkvNWnM4iMLpDpOcLNgb8uHiK2VXbFtEddwHavUGQ==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay31-hz1.antispameurope.com;
+ Thu, 18 Dec 2025 16:21:24 +0100
 Received: from steina-w.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
 	(Authenticated sender: alexander.stein@ew.tq-group.com)
-	by hmail-p-smtp01-out03-hz1.hornetsecurity.com (Postfix) with ESMTPSA id DC1C2CC0D53;
-	Thu, 18 Dec 2025 16:21:08 +0100 (CET)
+	by hmail-p-smtp01-out03-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 54C12CC0D30;
+	Thu, 18 Dec 2025 16:21:07 +0100 (CET)
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -80,9 +80,9 @@ Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux@ew.tq-group.com
-Subject: [PATCH 3/6] arm64: dts: imx8qm-ss-hsio: Wire up DMA IRQ for PCIe
-Date: Thu, 18 Dec 2025 16:20:50 +0100
-Message-ID: <20251218152058.1521806-4-alexander.stein@ew.tq-group.com>
+Subject: [PATCH 2/6] dt-bindings: usb: cdns,usb3: support USB devices in DT
+Date: Thu, 18 Dec 2025 16:20:49 +0100
+Message-ID: <20251218152058.1521806-3-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251218152058.1521806-1-alexander.stein@ew.tq-group.com>
 References: <20251218152058.1521806-1-alexander.stein@ew.tq-group.com>
@@ -94,23 +94,23 @@ X-cloud-security-crypt: load encryption module
 X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
 X-cloud-security-Mailarchivtype: outbound
 X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay49-hz3.antispameurope.com with 4dXDs20KQZz3yY5w
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay31-hz1.antispameurope.com with 4dXDs03JbGz4HPhR
 X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: af1e11a75574753d5df662a88887dfc6
-X-cloud-security: scantime:1.983
+X-cloud-security-Digest: 4d69e4e769c0d457f96290f5ace7a8c2
+X-cloud-security: scantime:1.856
 DKIM-Signature: a=rsa-sha256;
- bh=718S0BdFz8xiVCzU8aXFCL2DNXNEbKnbIjEDDeQ51yA=; c=relaxed/relaxed;
+ bh=FI7PYyPGdjJp1gXUMedmlj7NmwLyvXozNGGHThu/Auc=; c=relaxed/relaxed;
  d=ew.tq-group.com;
  h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1766071286; v=1;
- b=bcM9bwKJGyL+9HnLGi5UxqKvBltDkMHNbjIi0qd0w2OYI+2yyweiioCkyCgbkdpKe8pjujh+
- OKFH6YmZkEPqQypMY/828bGfRLeUinJNfZn1E/bLjAe+Ms/Np0j19iuswmWVYg9Dd8ncsZ3zup9
- fQNGnMLW88Hi1gOtqs1wKNQqToXiL3XA9K2jlOol3hQ0AmWZ9uCP9j37xuZym1OuIwHt+0bmYrR
- ndUtUd0p+saLH2rHiFgVeFcPzZOfVEzGbhMUsa2D3g8TQkkW0odqZv+vIcttGCQ3BbCLNQrKjey
- WUUMXM3vPNmgQpnqC1cbnq5JssQN6zaESH8Q4ULiBxvvQ==
+ t=1766071284; v=1;
+ b=rh6Bnxlx/XgcTbZcNnOWyYJb7ul5fQrWaGbbcv4JGhPGGrFrkUqFPXONc9o4WYN4sdKZIupI
+ htP3VAAhAiqOqH5Swo6CLWozD32Vx/wf1YJokKHc2Bm4rAbKBe82CXvTal14USD9NAJZoKDFXqY
+ 92AoCNHFEH9lMs3+zcYXrcdjUg6j3XMz0QDzYrDfMEHTxmcfKlF8mWMEE8crjD5lNxDIo1Z02zC
+ 1zGQfV6ol4QI6qik7Tv/sLOqmmzFihBu3w2PLwYmIdCOBAIM3YeJ/UFOwQXMQG0Zthhk0aCHRVu
+ Qip8cnJDCaU4IPhSEH748p636/Wb6ow9+RF1UMz9p4ECQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_072152_327741_C67E612C 
-X-CRM114-Status: GOOD (  12.27  )
+X-CRM114-CacheID: sfid-20251218_072151_711690_C7EAC31F 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,31 +125,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-IRQ mapping is already present. Add the missing DMA interrupt. This is
-similar to commit 0b4c46f9ad79c ("arm64: dts: imx8qm-ss-hsio: Wire up
-DMA IRQ for PCIe")
+Reference usb-hxci.yaml in host mode in order to support on-board USB
+hubs.
 
 Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 ---
- arch/arm64/boot/dts/freescale/imx8qm-ss-hsio.dtsi | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+ Documentation/devicetree/bindings/usb/cdns,usb3.yaml | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8qm-ss-hsio.dtsi b/arch/arm64/boot/dts/freescale/imx8qm-ss-hsio.dtsi
-index bd6e0aa27efe9..f2c94cdb682b9 100644
---- a/arch/arm64/boot/dts/freescale/imx8qm-ss-hsio.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8qm-ss-hsio.dtsi
-@@ -20,8 +20,9 @@ pcie0: pciea: pcie@5f000000 {
- 		ranges = <0x81000000 0 0x00000000 0x4ff80000 0 0x00010000>,
- 			 <0x82000000 0 0x40000000 0x40000000 0 0x0ff00000>;
- 		#interrupt-cells = <1>;
--		interrupts = <GIC_SPI 70 IRQ_TYPE_LEVEL_HIGH>;
--		interrupt-names = "msi";
-+		interrupts = <GIC_SPI 70 IRQ_TYPE_LEVEL_HIGH>,
-+			     <GIC_SPI 72 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-names = "msi", "dma";
- 		#address-cells = <3>;
- 		#size-cells = <2>;
- 		clocks = <&pciea_lpcg IMX_LPCG_CLK_6>,
+diff --git a/Documentation/devicetree/bindings/usb/cdns,usb3.yaml b/Documentation/devicetree/bindings/usb/cdns,usb3.yaml
+index f454ddd9bbaa6..1f7f0adc3b1ed 100644
+--- a/Documentation/devicetree/bindings/usb/cdns,usb3.yaml
++++ b/Documentation/devicetree/bindings/usb/cdns,usb3.yaml
+@@ -85,6 +85,17 @@ required:
+ 
+ allOf:
+   - $ref: usb-drd.yaml#
++  - if:
++      properties:
++        dr_mode:
++          const: peripheral
++
++      required:
++        - dr_mode
++    then:
++      $ref: usb.yaml#
++    else:
++      $ref: usb-xhci.yaml#
+ 
+ unevaluatedProperties: false
+ 
 -- 
 2.43.0
 
