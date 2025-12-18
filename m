@@ -4,62 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 652ADD6ACD8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 09:32:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1E7DD6ACD7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 09:32:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rbDyD80GkMI8DmQBg2L5rFdxyKcBKOzMUiCMt5iyKQc=; b=Gmw4HtrWZeZJpYacIwtZyku6X8
-	2ABc6fwifRKm/69Gn2CPMOkD8QbNu/Z9hb/IYHqbgPYA1DnC9aCmcAO7azKXLl6/8hcTvMK0REu4v
-	GWPvQP6++vPWVCE42a3bW3bCQpAjr6M7HZqSpgvwGnknr3VpLFcZhxXHkJ1WT4536psbvN5n4Jujq
-	V0wp4eei34d0mteTkY8BsfikhEXoXXXKb34O0GjgojZpj1Hl38c6ErkTG8tZ16wXxwgHKZoYtGjbZ
-	IsY/KrkpN7IUi2ZcKAvoEwqlfgfj48Ntp7BXBodwWKXo9fCU/uY5fo6b9Rkfzccl8wp/OD+mrbSjQ
-	xKCPy3wQ==;
+	bh=G2G+/x3jtQrXMi/svP6iEzjO6ovvdc59qY/88LJBgKg=; b=qi0FZJyOnT7Q2S5Fq5mRh/K6FC
+	b2Mw9CYbi7SUZTN9LBIy4gCuIwD1SG0DdPoXvk3toGLL3iPo1FezQnWZ8GRLUWTyVcbaC1FR2s+A2
+	l1V42DQ5lg9BaXTewGz+W1Gj/Z3RxRTSy4gSsrKacT3daYpQsc3CB72PgSi5GJ34ogEMJR+iyLmtl
+	DEPjzwDbl/Y3U9TIHrWDjrzuMEvbgLU7axJuW5mmwgTFeCXqW86ALCWN5FIPVV0N0X3y/jkfgo9hg
+	D5ZKiXHzV9s1+OjQF8zvHJXmN104tzfwgP5PbrwCcw73ucHAgqoHYrWLM7oj7gT25GMwW5vgC9elR
+	mGspHYxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWAMz-000000089QH-0lWf;
-	Thu, 18 Dec 2025 09:32:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWAMs-000000089OW-3DCK
+	id 1vWANK-000000089UJ-2YCt;
+	Thu, 18 Dec 2025 09:32:46 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vWANI-000000089TU-3LvB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 09:32:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5E1B6FEC;
-	Thu, 18 Dec 2025 01:32:09 -0800 (PST)
-Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D542A3F762;
-	Thu, 18 Dec 2025 01:32:13 -0800 (PST)
-Message-ID: <47191600-260a-46aa-9af8-dff2b08dc2e8@arm.com>
-Date: Thu, 18 Dec 2025 09:32:12 +0000
+	Thu, 18 Dec 2025 09:32:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0B3F043B07;
+	Thu, 18 Dec 2025 09:32:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0578FC4CEFB;
+	Thu, 18 Dec 2025 09:32:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766050363;
+	bh=TvHwwQh6QW4aMRcWQ0xejXsyZkwHJK10UZAYUX2ZWVU=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=ZLIEAvyPipdJbsBGy8cdMYXrr+LjCydIMGF+AMTjoGbum7dacm37sXvo0MiE0x3Z3
+	 PBIlaWia7FRplfd3b5HxBmewAdyFUzXy8AWbkl+4W7twqaPpvjEmZ29TbAZilzjdtC
+	 YOSeb7v6uBbZPf5bV5FYctGUc1awZIGNbf4yRT6wY/FrNPvj3yKprzwIZPQdOFzbss
+	 9JDjzAy0xQA/lUPScQ7p09LgHPAoJBP5iGCexexKYmjKftsz0W+3Olkkx9322L6M46
+	 xmCRPp783WICs2aGFINFPH6AadisFLEEEYbB1DmcMtOKHUin0Eo0tflH6su3VK2WlM
+	 qclOYFuoZeeig==
+From: Mark Brown <broonie@kernel.org>
+To: Han Xu <han.xu@nxp.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Haibo Chen <haibo.chen@nxp.com>
+Cc: linux-spi@vger.kernel.org, imx@lists.linux.dev, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, frank.li@nxp.com, 
+ Krzysztof Kozlowski <krzk@kernel.org>
+In-Reply-To: <20251125-xspi-v6-0-22b22de50cda@nxp.com>
+References: <20251125-xspi-v6-0-22b22de50cda@nxp.com>
+Subject: Re: [PATCH v6 0/2] Add support for NXP XSPI
+Message-Id: <176605036072.87569.17728068603081639345.b4-ty@kernel.org>
+Date: Thu, 18 Dec 2025 09:32:40 +0000
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 00/12] coresight: Add CPU cluster funnel/replicator/tmc
- support
-To: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Mathieu Poirier <mathieu.poirier@linaro.org>, Leo Yan <leo.yan@linux.dev>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>
-Cc: kernel@oss.qualcomm.com, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- maulik.shah@oss.qualcomm.com, Jie Gan <jie.gan@oss.qualcomm.com>
-References: <20251218-cpu_cluster_component_pm-v2-0-2335a6ae62a0@oss.qualcomm.com>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20251218-cpu_cluster_component_pm-v2-0-2335a6ae62a0@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-47773
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_013218_887035_DD8C3E66 
-X-CRM114-Status: GOOD (  19.47  )
+X-CRM114-CacheID: sfid-20251218_013244_867087_A73CAC55 
+X-CRM114-Status: GOOD (  16.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,145 +79,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Cc: Sudeep
+On Tue, 25 Nov 2025 15:42:17 +0800, Haibo Chen wrote:
+> XSPI is a flexible SPI host controller which supports up to
+> 2 external devices (2 CS). It support Single/Dual/Quad/Octal
+> mode data transfer.
+> 
+> The difference between XSPI and Flexspi is XSPI support
+> multiple independent execution environments (EENVs) for HW
+> virtualization with some limitations. Each EENV has its own
+> interrupt and its own set of programming registers that exists
+> in a specific offset range in the XSPI memory map.
+> The main environment (EENV0) address space contains all of the
+> registers for controlling EENV0 plus all of the general XSPI
+> control and programming registers. The register mnemonics for
+> the user environments (EENV1 to EENV4) have "_SUB_n" appended
+> to the mnemonic for the corresponding main-environment register.
+> 
+> [...]
 
-On 18/12/2025 08:09, Yuanfang Zhang wrote:
-> This patch series adds support for CoreSight components local to CPU clusters,
-> including funnel, replicator, and TMC, which reside within CPU cluster power
-> domains. These components require special handling due to power domain
-> constraints.
-> 
-> Unlike system-level CoreSight devices, these components share the CPU cluster's
-> power domain. When the cluster enters low-power mode (LPM), their registers
-> become inaccessible. Notably, `pm_runtime_get` alone cannot bring the cluster
-> out of LPM, making standard register access unreliable.
+Applied to
 
-Why ? AFAIU, we have ways to tie the power-domain to that of the cluster
-and that can auto-magically keep the cluster power ON as long as you
-want to use them.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
 
-Suzuki
+Thanks!
 
+[1/2] dt-bindings: spi: Document imx94 xspi
+      (no commit info)
+[2/2] spi: add driver for NXP XSPI controller
+      commit: 29c8c00d9f9db5fb659b6f05f9e8964afc13f3e2
 
-> 
-> To address this, the series introduces:
-> - Identifying cluster-bound devices via a new `qcom,cpu-bound-components`
->    device tree property.
-> - Implementing deferred probing: if associated CPUs are offline during
->    probe, initialization is deferred until a CPU hotplug notifier detects
->    the CPU coming online.
-> - Utilizing `smp_call_function_single()` to ensure register accesses
->    (initialization, enablement, sysfs reads) are always executed on a
->    powered CPU within the target cluster.
-> - Extending the CoreSight link `enable` callback to pass the `cs_mode`.
->    This allows drivers to distinguish between SysFS and Perf modes and
->    apply mode-specific logic.
-> 
-> Jie Gan (1):
->    arm64: dts: qcom: hamoa: add Coresight nodes for APSS debug block
-> 
-> Yuanfang Zhang (11):
->    dt-bindings: arm: coresight: Add 'qcom,cpu-bound-components' property
->    coresight: Pass trace mode to link enable callback
->    coresight-funnel: Support CPU cluster funnel initialization
->    coresight-funnel: Defer probe when associated CPUs are offline
->    coresight-replicator: Support CPU cluster replicator initialization
->    coresight-replicator: Defer probe when associated CPUs are offline
->    coresight-replicator: Update management interface for CPU-bound devices
->    coresight-tmc: Support probe and initialization for CPU cluster TMCs
->    coresight-tmc-etf: Refactor enable function for CPU cluster ETF support
->    coresight-tmc: Update management interface for CPU-bound TMCs
->    coresight-tmc: Defer probe when associated CPUs are offline
-> 
-> Verification:
-> 
-> This series has been verified on sm8750.
-> 
-> Test steps for delay probe:
-> 
-> 1. limit the system to enable at most 6 CPU cores during boot.
-> 2. echo 1 >/sys/bus/cpu/devices/cpu6/online.
-> 3. check whether ETM6 and ETM7 have been probed.
-> 
-> Test steps for sysfs mode:
-> 
-> echo 1 >/sys/bus/coresight/devices/tmc_etf0/enable_sink
-> echo 1 >/sys/bus/coresight/devices/etm0/enable_source
-> echo 1 >/sys/bus/coresight/devices/etm6/enable_source
-> echo 0 >/sys/bus/coresight/devices/etm0/enable_source
-> echo 0 >/sys/bus/coresight/devicse/etm6/enable_source
-> echo 0 >/sys/bus/coresight/devices/tmc_etf0/enable_sink
-> 
-> echo 1 >/sys/bus/coresight/devices/tmc_etf1/enable_sink
-> echo 1 >/sys/bus/coresight/devcies/etm0/enable_source
-> cat /dev/tmc_etf1 >/tmp/etf1.bin
-> echo 0 >/sys/bus/coresight/devices/etm0/enable_source
-> echo 0 >/sys/bus/coresight/devices/tmc_etf1/enable_sink
-> 
-> echo 1 >/sys/bus/coresight/devices/tmc_etf2/enable_sink
-> echo 1 >/sys/bus/coresight/devices/etm6/enable_source
-> cat /dev/tmc_etf2 >/tmp/etf2.bin
-> echo 0 >/sys/bus/coresight/devices/etm6/enable_source
-> echo 0 >/sys/bus/coresight/devices/tmc_etf2/enable_sink
-> 
-> Test steps for sysfs node:
-> 
-> cat /sys/bus/coresight/devices/tmc_etf*/mgmt/*
-> 
-> cat /sys/bus/coresight/devices/funnel*/funnel_ctrl
-> 
-> cat /sys/bus/coresight/devices/replicator*/mgmt/*
-> 
-> Test steps for perf mode:
-> 
-> perf record -a -e cs_etm//k -- sleep 5
-> 
-> Signed-off-by: Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>
-> ---
-> Changes in v2:
-> - Use the qcom,cpu-bound-components device tree property to identify devices
->    bound to a cluster.
-> - Refactor commit message.
-> - Introduce a supported_cpus field in the drvdata structure to record the CPUs
->    that belong to the cluster where the local component resides.
-> - Link to v1: https://lore.kernel.org/r/20251027-cpu_cluster_component_pm-v1-0-31355ac588c2@oss.qualcomm.com
-> 
-> ---
-> Jie Gan (1):
->        arm64: dts: qcom: hamoa: Add CoreSight nodes for APSS debug block
-> 
-> Yuanfang Zhang (11):
->        dt-bindings: arm: coresight: Add 'qcom,cpu-bound-components' property
->        coresight-funnel: Support CPU cluster funnel initialization
->        coresight-funnel: Defer probe when associated CPUs are offline
->        coresight-replicator: Support CPU cluster replicator initialization
->        coresight-replicator: Defer probe when associated CPUs are offline
->        coresight-replicator: Update management interface for CPU-bound devices
->        coresight-tmc: Support probe and initialization for CPU cluster TMCs
->        coresight-tmc-etf: Refactor enable function for CPU cluster ETF support
->        coresight-tmc: Update management interface for CPU-bound TMCs
->        coresight-tmc: Defer probe when associated CPUs are offline
->        coresight: Pass trace mode to link enable callback
-> 
->   .../bindings/arm/arm,coresight-dynamic-funnel.yaml |   5 +
->   .../arm/arm,coresight-dynamic-replicator.yaml      |   5 +
->   .../devicetree/bindings/arm/arm,coresight-tmc.yaml |   5 +
->   arch/arm64/boot/dts/qcom/hamoa.dtsi                | 926 +++++++++++++++++++++
->   arch/arm64/boot/dts/qcom/purwa.dtsi                |  12 +
->   drivers/hwtracing/coresight/coresight-core.c       |   7 +-
->   drivers/hwtracing/coresight/coresight-funnel.c     | 258 +++++-
->   drivers/hwtracing/coresight/coresight-replicator.c | 341 +++++++-
->   drivers/hwtracing/coresight/coresight-tmc-core.c   | 387 +++++++--
->   drivers/hwtracing/coresight/coresight-tmc-etf.c    | 106 ++-
->   drivers/hwtracing/coresight/coresight-tmc.h        |  10 +
->   drivers/hwtracing/coresight/coresight-tnoc.c       |   3 +-
->   drivers/hwtracing/coresight/coresight-tpda.c       |   3 +-
->   include/linux/coresight.h                          |   3 +-
->   14 files changed, 1902 insertions(+), 169 deletions(-)
-> ---
-> base-commit: 008d3547aae5bc86fac3eda317489169c3fda112
-> change-id: 20251016-cpu_cluster_component_pm-ce518f510433
-> 
-> Best regards,
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
 
 
