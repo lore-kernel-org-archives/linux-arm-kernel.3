@@ -4,70 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3AA8D6D220
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 13:42:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50C2ED6D220
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 18 Dec 2025 13:43:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C2fubwmjnCd+xxEpXO//Qor30liBM/QpkqxXgI8/MGo=; b=sPjTbNcxiPKkom4QLuZt5qiArW
-	+R+Pz1RZq5pq+Oigtxc8FeizlgVqB5bP+bkglj8DckTTN76QIswfyKaCYOpyGBuuxA/bsiC47fw5q
-	r8M+A+DNq1tTaviK32WUcmVtPqnBmcOc5FSBwvd/zNl7HApvdkrFhV59GUw1ZMVu0RHIGvV0pzfdL
-	Y6U7cmN95Hj2jgk7CvKndclEMxIZqpPYSXAXyvur4wnSBVM0f2pRfCnWYMOQU+GtZs99Z11eRNheC
-	FqBZlgbgSmfJnhJEz6fBaSqMB0BOz73eIpgkkJbA8NrAazehw1zNNdQZc/I90AYY5b7tfANu0AOgx
-	L6VXF+QA==;
+	bh=t0gZD58BAbqyaA/YEMGcDBCApArJPWDZA2VgRvtsllg=; b=d32EPezEhVQHpseogztSUv4ckp
+	ixWHaM/eEtj7+wuIdvr5Op4iq7flkDYQamQTMJFZDepAwrMuy/VCREItOQiAGBJy6S7ToO/kKTbmb
+	Fhl+3uAcLymK5nqpVm/xv5ZdkOP/C2DGAgm518JcHYJHW5B+/UL5w/zXjVoMOTZcXVrysRsHs9h3R
+	HtzYW9YFwDElT0IJX4l3BYCbAEMPTKy5Em+n43/fj+/mMEpDURvwI8UbzBrokicSwflmJS0UyFoqB
+	w+3xPgEr2lgWbwd3eXCaDlo/Ca7ggPsU3zoOz3EzP6Wm6AjIZ1+D/CRSmd9YRqnpxnFIUw+CwH6K/
+	3/lyU04A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWEHJ-00000008YeF-0bHJ;
-	Thu, 18 Dec 2025 13:42:49 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWEHG-00000008Ydk-1euL
+	id 1vWEI0-00000008Yk9-219R;
+	Thu, 18 Dec 2025 13:43:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vWEHx-00000008YjI-3Zqf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 18 Dec 2025 13:42:47 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.107])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dXBfr4r26zJ46Zm;
-	Thu, 18 Dec 2025 21:42:12 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id B04C540576;
-	Thu, 18 Dec 2025 21:42:43 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Thu, 18 Dec
- 2025 13:42:42 +0000
-Date: Thu, 18 Dec 2025 13:42:40 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: James Morse <james.morse@arm.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, D
- Scott Phillips OS <scott@os.amperecomputing.com>,
-	<carl@os.amperecomputing.com>, <lcherian@marvell.com>,
-	<bobo.shaobowang@huawei.com>, <tan.shaopeng@fujitsu.com>,
-	<baolin.wang@linux.alibaba.com>, Jamie Iles <quic_jiles@quicinc.com>, "Xin
- Hao" <xhao@linux.alibaba.com>, <peternewman@google.com>,
-	<dfustini@baylibre.com>, <amitsinght@marvell.com>, David Hildenbrand
-	<david@kernel.org>, Dave Martin <dave.martin@arm.com>, Koba Ko
-	<kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
-	<fenghuay@nvidia.com>, <baisheng.gao@unisoc.com>, Gavin Shan
-	<gshan@redhat.com>, Ben Horgan <ben.horgan@arm.com>, <rohit.mathew@arm.com>,
-	<reinette.chatre@intel.com>, Punit Agrawal <punit.agrawal@oss.qualcomm.com>
-Subject: Re: [RFC PATCH 21/38] arm_mpam: resctrl: Pre-allocate assignable
- monitors
-Message-ID: <20251218134240.00000a96@huawei.com>
-In-Reply-To: <20251205215901.17772-22-james.morse@arm.com>
-References: <20251205215901.17772-1-james.morse@arm.com>
-	<20251205215901.17772-22-james.morse@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Thu, 18 Dec 2025 13:43:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 71BD6FEC;
+	Thu, 18 Dec 2025 05:43:19 -0800 (PST)
+Received: from e134710.manchester.arm.com (e134710.arm.com [10.33.10.82])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A45493F73F;
+	Thu, 18 Dec 2025 05:43:24 -0800 (PST)
+From: Ahmed Tiba <ahmed.tiba@arm.com>
+To: will@kernel.org
+Cc: linux-acpi@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	tony.luck@intel.com,
+	bp@alien8.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	catalin.marinas@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	rafael@kernel.org,
+	linux-doc@vger.kernel.org,
+	Dmitry.Lamerov@arm.com,
+	Michael.Zhao2@arm.com,
+	Ahmed.Tiba@arm.com
+Subject: Re: [PATCH 11/12] ras: add DeviceTree estatus provider driver
+Date: Thu, 18 Dec 2025 13:42:47 +0000
+Message-ID: <20251218134311.2309421-1-ahmed.tiba@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <aUPv5UfBByVoLbRV@willie-the-truck>
+References: <aUPv5UfBByVoLbRV@willie-the-truck>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500011.china.huawei.com (7.191.174.215) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_054246_729711_6BE6C82D 
-X-CRM114-Status: GOOD (  21.30  )
+X-CRM114-CacheID: sfid-20251218_054329_935513_C47E132A 
+X-CRM114-Status: GOOD (  18.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,96 +74,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 5 Dec 2025 21:58:44 +0000
-James Morse <james.morse@arm.com> wrote:
+On Thu, 18 Dec 2025 12:13:25PM +0000, Will Deacon wrote:
+>> Introduce a platform driver that maps the CPER status block described
+>> in DeviceTree, feeds it into the estatus core and handles either IRQ- or
+>> poll-driven notifications. Arm64 gains a FIX_ESTATUS_IRQ slot so the
+>> driver can safely map the shared buffer while copying records.
+>>
+>> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
+>> ---
+>>  MAINTAINERS                     |   1 +
+>>  arch/arm64/include/asm/fixmap.h |   5 +
+>>  drivers/ras/Kconfig             |  14 ++
+>>  drivers/ras/Makefile            |   1 +
+>>  drivers/ras/estatus-dt.c        | 318 ++++++++++++++++++++++++++++++++
+>>  include/linux/estatus.h         |   3 +-
+>>  6 files changed, 341 insertions(+), 1 deletion(-)
+>>  create mode 100644 drivers/ras/estatus-dt.c
+>>
+>> diff --git a/MAINTAINERS b/MAINTAINERS
+>> index 6b2ef2ddc0c7..5567d5e82053 100644
+>> --- a/MAINTAINERS
+>> +++ b/MAINTAINERS
+>> @@ -21761,6 +21761,7 @@ RAS ERROR STATUS
+>>  M:   Ahmed Tiba <ahmed.tiba@arm.com>
+>>  S:   Maintained
+>>  F:   Documentation/devicetree/bindings/ras/arm,ras-ffh.yaml
+>> +F:   drivers/ras/estatus-dt.c
+>>  F:   drivers/firmware/efi/estatus.c
+>>  F:   include/linux/estatus.h
+>> 
+>> diff --git a/arch/arm64/include/asm/fixmap.h b/arch/arm64/include/asm/fixmap.h
+>> index 65555284446e..85ffba87bab9 100644
+>> --- a/arch/arm64/include/asm/fixmap.h
+>> +++ b/arch/arm64/include/asm/fixmap.h
+>> @@ -64,6 +64,11 @@ enum fixed_addresses {
+>>  #endif
+>>  #endif /* CONFIG_ACPI_APEI_GHES */
+>> 
+>> +#ifdef CONFIG_RAS_ESTATUS_DT
+>> +     /* Used for ESTATUS mapping from assorted contexts */
+>> +     FIX_ESTATUS_IRQ,
+>> +#endif /* CONFIG_RAS_ESTATUS_DT */
+>
+> Why do we need this in addition to the four existing GHES slots? The DT
+> code doesn't use it and I was assuming that the ACPI code would continue
+> to use the existing irq; is that not the case?
 
-> When there are not enough monitors, MPAM is able to emulate ABMC by making
-> a smaller number of monitors assignable. These monitors still need to be
-> allocated from the driver, and mapped to whichever control/monitor group
-> resctrl wants to use them with.
-> 
-> Add a second array to hold the monitor values indexed by resctrl's
-> cntr_id.
-> 
-> When CDP is in use, two monitors are needed so the available number of
-> counters halves. Platforms with one monitor will have zero monitors
-> when CDP is in use.
-> 
-> Signed-off-by: James Morse <james.morse@arm.com>
 
-> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-> index de5220fed97d..f607feaf0126 100644
-> --- a/drivers/resctrl/mpam_resctrl.c
-> +++ b/drivers/resctrl/mpam_resctrl.c
+We still need a dedicated slot when only the DT provider is built.
+All four GHES slots are defined as part of the ACPI implementation,
+so they are not present in a DT-only configuration.
 
-> @@ -806,6 +863,41 @@ static int mpam_resctrl_pick_domain_id(int cpu, struct mpam_component *comp)
->  	return comp->comp_id;
->  }
->  
-> +/*
-> + * This must run after all event counters have been picked so that any free
-> + * running counters have already been allocated.
-> + */
-> +static int mpam_resctrl_monitor_init_abmc(struct mpam_resctrl_mon *mon)
-> +{
-> +	struct mpam_resctrl_res *res = &mpam_resctrl_controls[RDT_RESOURCE_L3];
-> +	size_t array_size = resctrl_arch_system_num_rmid_idx() * sizeof(int);
-> +	int *rmid_array __free(kfree) = kmalloc(array_size, GFP_KERNEL);
+The estatus core always requests a fixmap index from each provider
+before copying a CPER record. As a result, the DT driver must supply
+its own slot to return a valid enum value to satisfy the common code.
 
-kcalloc?  Given you call it an array I assume it is one.  Will zero though
-and if you really care about optimizing that out add a comment.
+The ACPI/GHES path continues to use the existing four slots exactly as
+before. This change simply ensures that the DT provider does not depend
+on ACPI being enabled solely to satisfy the estatus core interface.
 
-Move this...
-
-> +	struct rdt_resource *l3 = &res->resctrl_res;
-> +	struct mpam_class *class = mon->class;
-> +	u16 num_mbwu_mon;
-> +
-> +	if (mon->mbwu_idx_to_mon) {
-> +		pr_debug("monitors free running\n");
-> +		return 0;
-> +	}
-
-Down to here.  See cleanup.h notes that summarize how much Linus doesn't want
-people not declaring these inline because of how much it hurts readability.
-
-> +
-> +	if (!rmid_array) {
-> +		pr_debug("Failed to allocate RMID array\n");
-> +		return -ENOMEM;
-> +	}
-> +	memset(rmid_array, -1, array_size);
-> +
-> +	num_mbwu_mon = class->props.num_mbwu_mon;
-> +	mon->assigned_counters = __alloc_mbwu_array(mon->class, num_mbwu_mon);
-> +	if (IS_ERR(mon->assigned_counters))
-> +		return PTR_ERR(mon->assigned_counters);
-> +	mon->mbwu_idx_to_mon = no_free_ptr(rmid_array);
-> +
-> +	mpam_resctrl_monitor_sync_abmc_vals(l3);
-> +
-> +	return 0;
-> +}
-> +
->  static void mpam_resctrl_monitor_init(struct mpam_resctrl_mon *mon,
->  				      enum resctrl_event_id type)
->  {
-> @@ -847,6 +939,16 @@ static void mpam_resctrl_monitor_init(struct mpam_resctrl_mon *mon,
->  		 * space.
->  		 */
->  		l3->mon.num_rmid = 1;
-> +
-> +		switch (type) {
-> +		case QOS_L3_MBM_LOCAL_EVENT_ID:
-> +		case QOS_L3_MBM_TOTAL_EVENT_ID:
-> +			mpam_resctrl_monitor_init_abmc(mon);
-> +
-> +			return;
-> +		default:
-> +			return;
-> +		}
->  	}
->  }
->  
-
+Best regards,
+Ahmed
 
