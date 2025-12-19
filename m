@@ -4,66 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8052D7879C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 16:24:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9645AD7497F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 16:31:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CaYSjgT0lDbAY2f6B/wf7GzmRJ5mX+6QMzRNy9kv7KE=; b=0TfwmUNb1SRj4to2UMPrSwhr8d
-	c3BowkRIiZnQOxhH2WCz5PhqjyvpiBL9p6bX2YgLhM2kycEAgJO7RG7/bUFbMGVxWwRrkAbQbyQ4/
-	oE6KPh0hrOQZKjg4J2oBZ+SIgb9TX7rdz6vaeWanVZXOulo+jh6JGD8ljzKETOhMhCkhIttWxdO5U
-	GXrzXY4+CcqOWSJg/a5BwffHNeJX89PQQB86vE8LG8lWQKr3pxW6KcFH23uFrn7BjjCcgHPli9ynB
-	StM1HV/hxyKfn3zl/r+M4tDUUl2kUhf+SMMGFxtIuI11j9+mu4EKWGwKxrBNU6pILCwgy4h/x2oMU
-	L+lHHlGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=laLeW5RlJ1kKx/l/jyFWcmhc/iGFxbD57cIMt493Qr8=; b=O13JZzwPpcERuyDPeifIdABPQ2
+	xZAV4Ef1AP4pONwHwP0XdjVwQsrewyF0GwbW9ECxNfIpBRCNZCnawVBbTykL56c5UczmcOYqJ11+/
+	phjT6w1nkoV8nCA5pIHQbVm0Q/9eVHwba4umJ0/Xvi73HxzIdJFx36ziHQNe6hoPYOa1VoMyQVW6C
+	YflAlCeLcV+AAPSto6a9VeyAB+VEelMVZGVSq4qjA+W4cHSfpQl3tjn5EIW42VOkkj+tMNRts8Suc
+	bNPSyaP8smZVCFg7zpQ4Su8uE3olFmQnJ8EDE8BAh32OHEKJUL1TRFDja8RaSfTv+cR00r+VC6JhH
+	ZYVhcqog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWdHV-0000000AdzS-3rHS;
-	Fri, 19 Dec 2025 16:24:42 +0000
-Received: from dilbert.mork.no ([2a01:4f9:c010:a439::d])
+	id 1vWdNb-0000000AeQu-1lj6;
+	Fri, 19 Dec 2025 16:30:59 +0000
+Received: from mail-westus3azon11011056.outbound.protection.outlook.com ([40.107.208.56] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWdHQ-0000000Adyw-0QAX;
-	Fri, 19 Dec 2025 16:24:38 +0000
-Received: from canardo.dyn.mork.no ([IPv6:2a01:799:10e2:d900:0:0:0:1])
-	(authenticated bits=0)
-	by dilbert.mork.no (8.18.1/8.18.1) with ESMTPSA id 5BJGNl07348315
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=OK);
-	Fri, 19 Dec 2025 16:23:49 GMT
-Received: from miraculix.mork.no ([IPv6:2a01:799:10e2:d90a:6f50:7559:681d:630c])
-	(authenticated bits=0)
-	by canardo.dyn.mork.no (8.18.1/8.18.1) with ESMTPSA id 5BJGNl1O3709595
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=OK);
-	Fri, 19 Dec 2025 17:23:47 +0100
-Received: (nullmailer pid 631960 invoked by uid 1000);
-	Fri, 19 Dec 2025 16:23:47 -0000
-From: =?utf-8?Q?Bj=C3=B8rn_Mork?= <bmork@telenor.net>
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>,
-        Sean Wang <sean.wang@mediatek.com>,
-        Shayne Chen <shayne.chen@mediatek.com>,
-        Lorenzo Bianconi <lorenzo@kernel.org>,
-        linux-arm-kernel@lists.infradead.org,
-        linux-mediatek@lists.infradead.org, linux-wireless@vger.kernel.org,
-        linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/1] wifi: mt76: mt7996: fix mixed FEM check of mt7996
- chipset
-In-Reply-To: <20251110120110.193562-1-amadeus@jmu.edu.cn> (Chukun Pan's
-	message of "Mon, 10 Nov 2025 20:01:10 +0800")
-Organization: Telenor
-References: <20251110120110.193562-1-amadeus@jmu.edu.cn>
-Date: Fri, 19 Dec 2025 17:23:47 +0100
-Message-ID: <87fr96tp7w.fsf@miraculix.mork.no>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	id 1vWdNX-0000000AeQY-1YZz
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 19 Dec 2025 16:30:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yDC/YIwNIK4HGHzGCI9r3q/Eq+D0F5KSvt24iQqKUaLQzZuZI+GmcdrPaprmjZ6o6r/9U1c7mwoctuNY6WEStIKvoGSoPLXvjUQ4/eJiTcIRFa6x49Brx2zwg9G8ahO1868ps7u5rRhF6FOT0PKRtFHTJmeWgM//TBNwoHXtFN/SPNo9cQJEdcWn9U0dkNF1qcMVJMOjh8SxQouPQVN93qkNUGcv5ooKr3lL5Cak/utwl83DHHdn5LnDTuMR+epJHZ1smc8PJ/OhcMpaece+BQa/HmOb5bHuwzJr974S5dNx8nqyE0fOPr9Ll81sjxVwaB0bV7/zvmEejNEUcreuXg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=laLeW5RlJ1kKx/l/jyFWcmhc/iGFxbD57cIMt493Qr8=;
+ b=WgH5mwTwLroPIZ57KfWrOcXE0oup2lzzehd4VOckM4k/RZwdyXjxZZzJB7HcEzyCZueF25cwIvW6V/H9D7hD2VVU/JHCGa/v9spQ18WwbF3zAhBe9N7TdqUacwyeaIi62CXNq/I2z1eRPTOaCvE0C1aZShWSpNZgy39wIpN+0Y0Q81kUsNdPWIR9FJEhoXMi32I4NeLT3goJKIYQfe9VnFinBaTtyern7esVUb028fMPDmuJzM3uXw/Pm1nGWTTtCcjq1JmPZ/VRBUAgljF7jvlK443mxP+tvSjbIL8qi22BxpIO+f+Tw52cG+fEuphvGC6IFVC1OvHvL6DAS2aBwA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=laLeW5RlJ1kKx/l/jyFWcmhc/iGFxbD57cIMt493Qr8=;
+ b=MtwUIcGYAjmJfUlNI4YfNe8ki+L/Gitm92al7750EkNCvzZlo0Vquaxew6PgXt6PIRZyZp4iyIOuxgHz3agMTboeFYQrvx9NK+bFwWXeCbv/LNZcveUN0yjvuI+caiDDMHsOyaICpSWhzo5UFEE6tWckiaHyjuLHuuTsOggQqAkmRsnXKHXr1zQxycQ1D1dc0RIVbBBB8HvIGKkdoCZ5oX9Xp/cA68UkLlxApThCUsglO4sTIeIalngbNhzC8Hg+/njSi7M0LgjemrTdR3MqnM1wfvW28tsNqY/84YYErrcglW7SFrda6txTVt0VS5vHEFj6SJ3AfF4C918hXDFlcw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by PH8PR12MB6844.namprd12.prod.outlook.com (2603:10b6:510:1cb::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.9; Fri, 19 Dec
+ 2025 16:30:48 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::1b59:c8a2:4c00:8a2c]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::1b59:c8a2:4c00:8a2c%3]) with mapi id 15.20.9434.009; Fri, 19 Dec 2025
+ 16:30:48 +0000
+Date: Fri, 19 Dec 2025 12:30:47 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: will@kernel.org, jean-philippe@linaro.org, robin.murphy@arm.com,
+	joro@8bytes.org, balbirs@nvidia.com, miko.lenczewski@arm.com,
+	peterz@infradead.org, kevin.tian@intel.com, praan@google.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v8 5/7] iommu/arm-smmu-v3: Populate smmu_domain->invs
+ when attaching masters
+Message-ID: <20251219163047.GA376568@nvidia.com>
+References: <cover.1766013662.git.nicolinc@nvidia.com>
+ <79cd18a1a959ee2e54683e8c465b799d49ec48b5.1766013662.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <79cd18a1a959ee2e54683e8c465b799d49ec48b5.1766013662.git.nicolinc@nvidia.com>
+X-ClientProxiedBy: BL1PR13CA0438.namprd13.prod.outlook.com
+ (2603:10b6:208:2c3::23) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Virus-Scanned: clamav-milter 1.4.3 at canardo.mork.no
-X-Virus-Status: Clean
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|PH8PR12MB6844:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9c79c4c6-c790-49f0-0a30-08de3f1bf7b1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?1wgblWxI76V6VuWF0oS9M8fvp56ltA/gIKGtMypwxuxSWQTdeyWSPVj1ef+5?=
+ =?us-ascii?Q?P4PizvoDijziyBboiswgiPGHKOIh4lKd3zxLs/AN9jTuK2oZLM1aCzdK1mlY?=
+ =?us-ascii?Q?Me/qfKg0iwyZhwX5nCnp3J44opHUT9lf4DjsxDXuuQeIofyDTSRzB20n1oMY?=
+ =?us-ascii?Q?8Gsbsbg/sL/b44UM9cRzULfeQLWfhuyTB850AG8Y9gLNBNfLSI2dqbG5XmQ9?=
+ =?us-ascii?Q?eOzFIfC7lY0FMR9W7Rl3seGl4advB3z55DqbBs6Q2InemSxeTbn4jwlGCYDL?=
+ =?us-ascii?Q?xfgMIzAjiYOUxMPCs1VVM3gCilbGb1RKAhx9yuk89PES7rToBjt9x9Ciz+ZT?=
+ =?us-ascii?Q?kQbL9WEab9LcZ/brBXCzh5EYuv/50Dq9aIJI7ZzxcRPxao6/Yrj+bpnT7NKM?=
+ =?us-ascii?Q?nEe0Ns996amOJVPTStEckDvv8Hr3gOqiKEwS7dO+ZxitdZW+W+eA6BG3UY3g?=
+ =?us-ascii?Q?Jh76wSVZ6oIrsiQrOT/XNTSSOTpHaIK7cK6r0YQZ7boHvDHIDjy129LpXX4T?=
+ =?us-ascii?Q?uDEBnQyZOEOgMlbSxDlrCga0f7d9gAWp/Y0nZDSzlA8rGDUNMhZGDhuMGbqU?=
+ =?us-ascii?Q?ineiZlkmFCPQ0uXNe1DBFi117lRBnrZIsEE9gShKOEcsc+tvoeunMZM51hU0?=
+ =?us-ascii?Q?DL8Gk9hLTTAr7TaxdhkYjwWYfYmFXCnYZvGwkLgNclEAyElBiz1iSQgtDrDY?=
+ =?us-ascii?Q?MZJzBefzeDRt3PODu70GisA7I9OfHrpJXxZIGuQUu8jW9QyRiSjoRu0MXsdA?=
+ =?us-ascii?Q?D3IEN2Hw4Aih8zfx8th8VxRk3DUlfU4bv8CGJ9W7K0R1tP5zHrHGUwAr6q48?=
+ =?us-ascii?Q?uxa/JXskKwMMMAHekhwVsYpzRE4Omo278F41mMqPzgwFUWApVS0P3UrMwGNq?=
+ =?us-ascii?Q?o8M1EGEuTSKni7G3hKowylu+L3kdn5oCMqKKU/Ti/ebHKK8pQBS3oO7i7vzj?=
+ =?us-ascii?Q?juqKM4hf0t+VHJG8tW4YqldoJlYMr0RnvRkitPVn3K5qwzzbOXq2zjCVwBPN?=
+ =?us-ascii?Q?UvqlpEyXpkdRHlrXGVvbRm1UJ7dHAPLyKIxsBua6quzRKtecblmdRxW2I5o4?=
+ =?us-ascii?Q?VqR4lcx5GvwqWavWrZZB/8gRVwvC0X1x6TPAgns+KlTfHgf0YGqmsteG/0dO?=
+ =?us-ascii?Q?U8OGeXAgTxeojX9M1zGDdduXVSkzIf5Ho/kWvsxVgiEYT0XpAEJM/rSK2Dun?=
+ =?us-ascii?Q?SQ5xFm1608e/xHsutmg3b22RQLWDsbC+XjdXFjF3ilr0TO5dEVvUpvwNAliE?=
+ =?us-ascii?Q?ym5fc9j8SZJYhwCAeJndPs5bh+XiwIDR6rUUdKxcsdn2kDeqCIE8CEJ9Owaj?=
+ =?us-ascii?Q?FpvMnbTYcty9aQ9tc9StkOBJhimith96b36ZhftfEkY87c3BzTGYZmKtlAMm?=
+ =?us-ascii?Q?l5WHrvbpQsq4nXhxEqgXErxqzAWoJVPTEZxc1s6GyjXQAmVO+aNd2coZAQZy?=
+ =?us-ascii?Q?0gUpzfhn/vny1mI9Qhn/1zy1fBcFC9EJ?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?N7GKEmiEqk7jxG88KCAax3NiefM9x9Dz9+IWdatEjz7+YKQcsQ1o40FGxU7I?=
+ =?us-ascii?Q?bkPBAinX+aWJ2gUoergNwxrzM4VcuiHnXEeo0nkcz9s4YjM4N8nvjoHrWxkR?=
+ =?us-ascii?Q?kXGBbCQBorRqaBdREUjMCR6P8rUC2voOa2WweLkb3ElyrJtR/fqTIykNOqPQ?=
+ =?us-ascii?Q?0V5SyzA7dhQAbqa90b5a0n/GfO48UDMAG3h+Sb6b6MmGQLpFNxEq39Si39y8?=
+ =?us-ascii?Q?r4t6qiNqOAu58B25wO3AvN0WlTMBezbQfDyQeent102whbMmGMFL457lWPLF?=
+ =?us-ascii?Q?zOxskDMkUcf3QaG34cHY2iNe6nGJTg+fnTRxkYF9oGItwpvatJsacU6vjVmt?=
+ =?us-ascii?Q?AEsFBIdE3vkhAbo0GkxS1iW8TjLBmJaJ/XM1ANTznS8QQpwYxoaUotTxYOYz?=
+ =?us-ascii?Q?oZriTjYXvj9ifEPvc1UowIhDIgbhhOHLr0rF/2dfpxK2jJlq4/xgVd/8RuFo?=
+ =?us-ascii?Q?CskIkXCR3mS0Jxt7lyq9/gFKY4QZ0NsMITk6fzU4ONVJEcT5gZmO/sh881FV?=
+ =?us-ascii?Q?euh4f6yRnCDutHDRTma3QWtrKAsRxzak4MfJFkHKU0zidII8Ek6+6nyY5G1o?=
+ =?us-ascii?Q?8u8aGLhL7CDf5f+LEVmbynZeqv6v0KiOxMFtfB57d/9QiIBq2N3bR2WW+vRE?=
+ =?us-ascii?Q?LB5VXG3YXOeu+WSegoI47UN+nKNW1lRYXn1yx7bvCIlMgM41S/8d+X4JZbZn?=
+ =?us-ascii?Q?+PknhZ55pbfre3mAi5LfxL3MKDzPEt0Kh/q+LD5ZlyFtggvxKIISpZaYZqiW?=
+ =?us-ascii?Q?1TFHasXcGlHSEzxHAkEg6Rkrsum22f5hYxBAXqKaQ/WBjpogHpqneznCv1Vb?=
+ =?us-ascii?Q?XdYyXp1yaWQ2FX/yyfzNvjiBzf6XlmFG7rlEbHifunPR0mAccwosgxVMnbgK?=
+ =?us-ascii?Q?K+b065Qx9arp7sDhQIcFU3oz5SaCsB683eksfvTrn6l9LR/Y8hkuN5UkMO+L?=
+ =?us-ascii?Q?6AFdSNQPmn3d6sg9q02RS9pfuxekJx/Be8OHJLvUWZv0yVEXYbT/qCawDg+M?=
+ =?us-ascii?Q?N2nFEIBoKqiGTnrPmfSshZAYxT2EzGtODDve3l1Uf71FCKoa/Ahz83MLlh4u?=
+ =?us-ascii?Q?RQJnO+IfUjfYAtfyJcfNmIaQeb4l6Nw70a3z+ue1wGUPnWerg+pk//mM7j4J?=
+ =?us-ascii?Q?4WzoYZ+Tfqb8kwl0+3BTOfJIJTh1cbMZQ9ehjWVHxWr2bmPk/hrF/Tl2FVT4?=
+ =?us-ascii?Q?DH6fx5OXg959rH9+pdfb+nY4NOlDAJgNkcTFxIsLLkXFzESVBQL8KU+OTlAf?=
+ =?us-ascii?Q?GyFbrRAs4rZ8TK1UUka9Er/FWVrRV7i7jngAGkjfko7kATsF6AC2LfPVQiBt?=
+ =?us-ascii?Q?RDV3CWO36Fsc4xoBtYVwix2hXqce5Z5rYGVVzzR7lXkK/+5mRAGG6oITjPEf?=
+ =?us-ascii?Q?KB2lCKkSEfh8gPRKn2fI7oCRagsmfzhRur0NDVvpID0W5YCTQXhQHAzKQ4wc?=
+ =?us-ascii?Q?XxNnKRcdjXaOuQlCXHwVFoYgVxd7Rrxn1sucWOZ/FMkqCetqMBcJR8QAFb9F?=
+ =?us-ascii?Q?zkC0g+2ZHvlvq72k991OnSfJMgsv32wHsIpNDfdVbEcSsg8s2C51l9aW7L0I?=
+ =?us-ascii?Q?YSGDSFVkjWVpnerDrPfYBqvpm4arH8da4f4OT9eVRR7+Wz4PJGq12Q/GMVD3?=
+ =?us-ascii?Q?IDSPYwmXksViRtGrKz/xQENvtOpJ19VycPJT4JYuFvLs9NEB+RO/EPJU3HMK?=
+ =?us-ascii?Q?cFoWCXUVfW8/f3sKVNvrSyeiSBCwaTbJXNDH9iYKaBAU8keA?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9c79c4c6-c790-49f0-0a30-08de3f1bf7b1
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Dec 2025 16:30:48.7387
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: miAbCRtRVQ832ZX4GlPf9OA4rHUQMlOsbLvETACYqLqEggy0gUKXh/lBRb3e4kea
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB6844
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_082436_481434_8EDAE531 
-X-CRM114-Status: GOOD (  27.50  )
+X-CRM114-CacheID: sfid-20251219_083056_525202_198A23EA 
+X-CRM114-Status: UNSURE (   6.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,93 +164,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Chukun Pan <amadeus@jmu.edu.cn> writes:
+On Wed, Dec 17, 2025 at 03:24:30PM -0800, Nicolin Chen wrote:
+> +static struct arm_smmu_inv *
+> +arm_smmu_master_build_inv(struct arm_smmu_master *master,
+> +			  enum arm_smmu_inv_type type, u32 id, ioasid_t ssid,
+> +			  size_t pgsize)
+> +{
 
-> To support the following varaint of the mt7996 chipset:
-> - tri-band: band0 iFEM and band1/band2 eFEM
->
-> We should read band1 for the determination, using band0
-> will incorrectly identify it as iFEM.
-> This is also the judgment logic of the mt7992 chipset.
->
-> This fixes the load error on the Quantum Fiber W1701K:
-> mt7996e 0000:01:00.0: eeprom load fail, use default bin
-> mt7996e 0000:01:00.0: Message 0012002d (seq 5) timeout
->
-> Fixes: e8cb33ad546a ("wifi: mt76: mt7996: add support for more variants")
-> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
-> ---
->  drivers/net/wireless/mediatek/mt76/mt7996/init.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/init.c b/drivers/n=
-et/wireless/mediatek/mt76/mt7996/init.c
-> index 5e95a36b42d1..143400541746 100644
-> --- a/drivers/net/wireless/mediatek/mt76/mt7996/init.c
-> +++ b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
-> @@ -1137,7 +1137,7 @@ static int mt7996_variant_fem_init(struct mt7996_de=
-v *dev)
->  		adie_idx =3D (val & MT_PAD_GPIO_ADIE_SINGLE) ? 0 : 1;
->  		adie_comb =3D u32_get_bits(val, MT_PAD_GPIO_ADIE_COMB_7992);
->  	} else {
-> -		adie_idx =3D 0;
-> +		adie_idx =3D 1;
->  		adie_comb =3D u32_get_bits(val, MT_PAD_GPIO_ADIE_COMB);
->  	}
+ssid is not used in this function
 
-Thanks for this.  It solves half the puzzle I have.  But unfortunately
-it adds new questions too.
-
-I have two closely related devices from Zyxel, where one is supposed to
-be iFEM and the other eFEM.  Looking at the eeprom data provided by
-Zyxel, it seems that the eFEM device is actually mixed like your
-example.  And indeed - your patch makes that device work properly.
-
-The problem is that the patch breaks the other device variant, which
-used to work before.  If we assume the eeprom data from Zyxel is
-correct, then this variant is iFEM.
-
-I added some debug printk's to mt7996_variant_fem_init() so I could see
-what detection data we have.  I read both MT_ADIE_CHIP_ID(0) and
-MT_ADIE_CHIP_ID(1) to be able to compare logic input before and after
-your patch.
-
-The two devices are almost identical, except for BIT(0) of
-MT_ADIE_CHIP_ID(1).
-
-iFEM device, working before, broken after this patch:
-
- mt7996e 0000:01:00.0: MT_PAD_GPIO=3D0x00008400, adie_comb=3D1
- mt7996e 0000:01:00.0: MT_ADIE_CHIP_ID(0)=3D0x79758a02
- mt7996e 0000:01:00.0: MT_ADIE_CHIP_ID(adie_idx)=3D0x79778a11, adie_idx=3D1
-
-Mixed iFEM/eFEM device, broken before, working after this patch:
-
- mt7996e 0000:01:00.0: MT_PAD_GPIO=3D0x00008400, adie_comb=3D1
- mt7996e 0000:01:00.0: MT_ADIE_CHIP_ID(0)=3D0x79758a02
- mt7996e 0000:01:00.0: MT_ADIE_CHIP_ID(adie_idx)=3D0x79778a10, adie_idx=3D1
-
-Looking at mt7996_eeprom_variant_valid() I understand that the
-MT_EE_WIFI_PA_LNA_CONFIG is given by the two lowest bits of bytes 0x196
-and 0x197 for band0 and band1/band2 respectively. 0 for iFEM and 3 for
-eFEM.
-
-And the Zyxel provided eeprom on my iFEM device has indeed 0 in the
-MT_EE_WIFI_PA_LNA_CONFIG field of both bytes:
-
- 00000190  11 23 24 24 25 24 08 a0  e0 0c 08 08 00 00 00 38
-
-While the mixed iFEM/eFEM device has 0 for band0 and 3 for band1/band2:
-
- 00000190  11 23 24 24 25 24 08 0b  4b 0c 22 22 00 00 80 38
-
-
-Any idea how this should be fixed?  Is there still something missing in
-mt7996_variant_fem_init()? Is the ADIE chip id difference significant
-here?  Or is there something wrong with the devices/eeproms I have?
-
-
-
-Bj=C3=B8rn
-
+Jason
 
