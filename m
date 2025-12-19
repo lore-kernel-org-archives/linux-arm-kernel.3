@@ -4,74 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7CD7D767CC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 10:35:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5E1AD767CB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 10:38:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zml1RKu4Q/PZeCUlbWwAa0TNlAZAaUFJhiOXtPhBaIM=; b=10oRD5WDCkQmHtuoeWo+8uUNhu
-	Fg+XX1nhbpFpyAjQcoj/aBwDwniCOndJ+vmJCN73zUiQqTrRgQ6HrO11VKbFBOYG0l/AilXzB8ruY
-	LAVhLShyTXDw6P4j/FwieG6ULtswF+/aHUAd0o/JLbYZAtVCb9XA0rCrKgHzsory95kuQvStst3cU
-	7sykDiYvPQ7lIA9SrQ5B7fVC8AoJG9qXahWIL8ALMncr2nqUn9KkZ9uMNHHJgSLKQtmHfamFjGpmX
-	v1Q+9HfACNipIl9Jf2ndxMKxHU4ZrAUwZuHnBql7i6xwy0psV8C/nmlOL47NEJkbMO+3TUTal6mIG
-	F+w7LX2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hdm6H2YQYEZzrlujZzzvcFEFCw8dy3ybIssjYR1jN9Q=; b=d5U8UbCqqp8SPsBlBSLfdy1QML
+	61gwtlG2ct1FTiQBjV1Eh5lVSrUvQkMKfLDDcVLEir5QWFWJjs2tQV/alTXdNXuOLsWN2VaVHKmJg
+	8RaoHjVOaEQ7jn+Nfg0sKIxdq5zcQX5i/u288md0AwIyyNuybK0uEX+gEhaWE3ioJDv4sHjeUa2Hu
+	y+FajPMH7O8r7ZVMMLjcaPu1mzco13N2iZiAlMcwsPIjHYosbNPzJ5TYaCzNev9cbpi+hkjL57BKu
+	RpwyX3nPvQjAWd8aquPbD0BL2iGFzHhadNlCNt3fi7SLHQg0cirgerzFOnBjg2wmzvc7VN9hfZpYY
+	ISBQTkUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWXpY-0000000A5e4-3qrU;
-	Fri, 19 Dec 2025 10:35:28 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWXpY-0000000A5dT-1ILZ;
-	Fri, 19 Dec 2025 10:35:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 71F8660008;
-	Fri, 19 Dec 2025 10:35:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1EBB9C4CEF1;
-	Fri, 19 Dec 2025 10:35:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766140527;
-	bh=42xsPFIBt7s6uJmGcvjTi6dEM713cKqiD0X2WgnoWSo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=iQe/v+sRIsVtiWEaDXcR0GAO8tWvy6YrF1JcUtjLroBXKbQsoQPU/WCnvDBoHZDdW
-	 QBBDHo4ycl7vrOsym9hKeSK1/b5kWZYMDXzZJGlyn0+NA+0TJYpe3nrKikMtuH1LEf
-	 Sf8nresz9hWF8dv0+wdtI5SmSMyZJZck8It3Q7OSm1SUcY7Vp3xJvIreNEWiLc1fuE
-	 moU3Rz2gqS70gfaZF1Ry3pi3qHv3irZNH07CLqixX7AKla+PZS0qjeLwGxCpcE8rJG
-	 D5JBTpAw937t3JorQBFiSwTfqNLsxLjItDldlV4mXGMgUi/sG2dPQBp9Hngma8es15
-	 P29peXidh5bVw==
-Message-ID: <69a9daf3-0439-4b6c-bc12-1b0ea7f01fba@kernel.org>
-Date: Fri, 19 Dec 2025 19:35:22 +0900
+	id 1vWXrx-0000000A7WX-0a52;
+	Fri, 19 Dec 2025 10:37:59 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vWXrv-0000000A7Te-0xXK
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 19 Dec 2025 10:37:56 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B8B24FEC;
+	Fri, 19 Dec 2025 02:37:46 -0800 (PST)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7617C3F5CA;
+	Fri, 19 Dec 2025 02:37:51 -0800 (PST)
+Date: Fri, 19 Dec 2025 10:37:48 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Vedashree Vidwans <vvidwans@nvidia.com>
+Cc: <salman.nabi@arm.com>, <andre.przywara@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>, <lpieralisi@kernel.org>,
+	<mark.rutland@arm.com>, <ardb@kernel.org>, <chao.gao@intel.com>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-coco@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<sdonthineni@nvidia.com>, <vsethi@nvidia.com>,
+	<vwadekar@nvidia.com>
+Subject: Re: [RFC PATCH 1/5] firmware: smccc: LFA: use smcc 1.2
+Message-ID: <20251219-thundering-striped-nightingale-db4ecf@sudeepholla>
+References: <20251208221319.1524888-1-vvidwans@nvidia.com>
+ <20251208221319.1524888-2-vvidwans@nvidia.com>
+ <20251209-curvy-walrus-of-wonder-dbb178@sudeepholla>
+ <b8fdec67-584f-492e-b2a7-8c932871f459@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/8] dmaengine: dw-edma: Use new
- .device_prep_config_sg() callback
-To: Frank Li <Frank.Li@nxp.com>, Vinod Koul <vkoul@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Christoph Hellwig <hch@lst.de>,
- Sagi Grimberg <sagi@grimberg.me>, Chaitanya Kulkarni <kch@nvidia.com>,
- Herbert Xu <herbert@gondor.apana.org.au>,
- "David S. Miller" <davem@davemloft.net>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, Koichiro Den <den@valinux.co.jp>,
- Niklas Cassel <cassel@kernel.org>
-Cc: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-pci@vger.kernel.org, linux-nvme@lists.infradead.org,
- mhi@lists.linux.dev, linux-arm-msm@vger.kernel.org,
- linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev
-References: <20251218-dma_prep_config-v2-0-c07079836128@nxp.com>
- <20251218-dma_prep_config-v2-3-c07079836128@nxp.com>
-Content-Language: en-US
-From: Damien Le Moal <dlemoal@kernel.org>
-Organization: Western Digital Research
-In-Reply-To: <20251218-dma_prep_config-v2-3-c07079836128@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <b8fdec67-584f-492e-b2a7-8c932871f459@nvidia.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251219_023755_311214_70107515 
+X-CRM114-Status: GOOD (  23.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,20 +70,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/19/25 00:56, Frank Li wrote:
-> Use the new .device_prep_config_sg() callback to combine configuration and
-> descriptor preparation.
+On Fri, Dec 19, 2025 at 12:47:52AM -0800, Vedashree Vidwans wrote:
 > 
-> No functional changes.
 > 
-> Tested-by: Niklas Cassel <cassel@kernel.org>
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> On 12/9/25 03:42, Sudeep Holla wrote:
+> > On Mon, Dec 08, 2025 at 10:13:11PM +0000, Vedashree Vidwans wrote:
+> > > Update driver to use SMCCC 1.2+ version as mentioned in the LFA spec.
+> > > 
+> > 
+> > I would prefer if you work with Salman Nabi and get this incorporated
+> > in the original patch by providing this as a review feedback.
+> > 
+> > There is no point in having this independent of the original patch as it
+> > is not yet merged.
+> > 
+> > -- 
+> > Regards,
+> > Sudeep
+> 
+> Thank you for the suggestion.
+> 
+> Hi Salman,
+> Could we come up with a strategy to combine the LFA driver patches? I have
+> been working on this recently and I would be happy to revise all the patches
+> so that we are followiing the specification from the start.
+> 
+> Please let me know if you think of any other approach.
+> 
 
-Looks good.
-
-Reviewed-by: Damien Le Moal <dlemoal@kernel.org>
+Ideally, you should comment directly on the original submission, outlining the
+specific changes you would like to see - just as you would when reviewing a
+patch. This helps document your requests clearly and allows the author to
+address them and post a revised version, ensuring that all changes are
+properly tracked on the mailing list.
 
 -- 
-Damien Le Moal
-Western Digital Research
+Regards,
+Sudeep
 
