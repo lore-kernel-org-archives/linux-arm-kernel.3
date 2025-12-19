@@ -4,66 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3836D767C3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 10:28:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A024D767C8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 10:32:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jWzAK4DRMOzi/z58HnevXQUOYdKr+tJ7WarNZsTc1VE=; b=x9B+dLea50Vo9BkZHh467RcCIc
-	fnKcA7Ibs5mxUzC/6wHOA5Cn2fIQdVN7FGQMkPW5pLWvqN9hm3tO4ssKR8dWvqQaanx6CJic0iEe9
-	NYDPfmQ/m3/o9KZxQpiW3UPg+lMhmfpf7bfTsouIuzl4nmCta4cA0qgDSB2MUSUhvze/P5+hN0EiI
-	FiyrD5ZK+gGItmZzc9anj1ZvCx/hcKlJVHK7DVC6pn0pYVHYY9u/jNZIrI+/+GF5cGfjLc4J4+VBr
-	+xxlzc6t/4JVKpUfyC/hDuuMcVBGYmXvWc/D2MrBeuVRB32VNWkwdVdAd/9rysMLAE4WvH0AoKDas
-	2ojxoG9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hc4cCfvyZ8lzU3yVWHZtcS4GsHL+KhTlZbsRHodaNG0=; b=oGvkKNP00HwAS8vHjyz6fDUUkf
+	/bogM0E4WrZgi5DcTk4x18zrlwGJFd9w+Kc/mPWFMeGFg28d3ItZ6t2pUD098z0ms412oc1ksOexA
+	6mOrcxEBWM34qqrYeEn7LuyYPQAZbun/0zBwE1IptZcz4gQHBlmdAA5WloxU7D/IHie4wGIlBUK0k
+	bDO2C0b09UgssJFqKHOnEGFcXDAYDFINiNk3aRM3G76A3oFRYD1tRjuy0LAaYRBL6iqhQ8h947w4Y
+	PsvI7gHaJKvBD2AbCujZbT+pd1G8hPEMbfON7AgSVc1y/BwSMO0fuCynoUQHNKe43iFJDpOjUC9wl
+	HAETsQow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWXiT-0000000A4V7-1nJK;
-	Fri, 19 Dec 2025 10:28:09 +0000
+	id 1vWXmu-0000000A4v7-3HDH;
+	Fri, 19 Dec 2025 10:32:44 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWXiQ-0000000A4UX-3OHT
+	id 1vWXms-0000000A4u8-0rk6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Dec 2025 10:28:07 +0000
+	Fri, 19 Dec 2025 10:32:43 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 61753106F;
-	Fri, 19 Dec 2025 02:27:58 -0800 (PST)
-Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 34BA43F5CA;
-	Fri, 19 Dec 2025 02:28:03 -0800 (PST)
-Message-ID: <e9df1140-989f-46e3-8edc-2013e520bfed@arm.com>
-Date: Fri, 19 Dec 2025 10:28:01 +0000
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4B34AFEC;
+	Fri, 19 Dec 2025 02:32:34 -0800 (PST)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 14C353F5CA;
+	Fri, 19 Dec 2025 02:32:38 -0800 (PST)
+Date: Fri, 19 Dec 2025 10:32:36 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Vedashree Vidwans <vvidwans@nvidia.com>
+Cc: <salman.nabi@arm.com>, <andre.przywara@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>, <lpieralisi@kernel.org>,
+	<mark.rutland@arm.com>, <ardb@kernel.org>, <chao.gao@intel.com>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-coco@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<sdonthineni@nvidia.com>, <vsethi@nvidia.com>,
+	<vwadekar@nvidia.com>
+Subject: Re: [RFC PATCH 0/5] Arm LFA: Improvements and interrupt support
+Message-ID: <20251219-visionary-hissing-sidewinder-5e95c5@sudeepholla>
+References: <20251208221319.1524888-1-vvidwans@nvidia.com>
+ <20251209-miniature-curassow-of-energy-b6a303@sudeepholla>
+ <8bca8c4b-52b8-4a1d-9f21-176c994a58bb@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 00/12] coresight: Add CPU cluster funnel/replicator/tmc
- support
-To: Sudeep Holla <sudeep.holla@arm.com>,
- yuanfang zhang <yuanfang.zhang@oss.qualcomm.com>
-Cc: Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Mathieu Poirier <mathieu.poirier@linaro.org>, Leo Yan <leo.yan@linux.dev>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, kernel@oss.qualcomm.com,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, maulik.shah@oss.qualcomm.com,
- Jie Gan <jie.gan@oss.qualcomm.com>
-References: <20251218-cpu_cluster_component_pm-v2-0-2335a6ae62a0@oss.qualcomm.com>
- <20251218-careful-ruby-wildebeest-a8babd@sudeepholla>
- <d0ce8306-84e0-4940-98aa-dbc356d87593@oss.qualcomm.com>
- <20251219-hysterical-sparkling-meerkat-59c5eb@sudeepholla>
-Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20251219-hysterical-sparkling-meerkat-59c5eb@sudeepholla>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <8bca8c4b-52b8-4a1d-9f21-176c994a58bb@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_022806_889460_D5621462 
-X-CRM114-Status: GOOD (  20.01  )
+X-CRM114-CacheID: sfid-20251219_023242_368012_71DCA106 
+X-CRM114-Status: GOOD (  30.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,50 +70,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/12/2025 10:21, Sudeep Holla wrote:
-> On Fri, Dec 19, 2025 at 10:13:14AM +0800, yuanfang zhang wrote:
->>
->>
->> On 12/18/2025 7:33 PM, Sudeep Holla wrote:
->>> On Thu, Dec 18, 2025 at 12:09:40AM -0800, Yuanfang Zhang wrote:
->>>> This patch series adds support for CoreSight components local to CPU clusters,
->>>> including funnel, replicator, and TMC, which reside within CPU cluster power
->>>> domains. These components require special handling due to power domain
->>>> constraints.
->>>>
->>>
->>> Could you clarify why PSCI-based power domains associated with clusters in
->>> domain-idle-states cannot address these requirements, given that PSCI CPU-idle
->>> OSI mode was originally intended to support them? My understanding of this
->>> patch series is that OSI mode is unable to do so, which, if accurate, appears
->>> to be a flaw that should be corrected.
->>
->> It is due to the particular characteristics of the CPU cluster power
->> domain.Runtime PM for CPU devices works little different, it is mostly used
->> to manage hierarchicalCPU topology (PSCI OSI mode) to talk with genpd
->> framework to manage the last CPU handling in cluster.
+On Fri, Dec 19, 2025 at 12:38:39AM -0800, Vedashree Vidwans wrote:
 > 
-> That is indeed the intended design. Could you clarify which specific
-> characteristics differentiate it here?
 > 
->> It doesn’t really send IPI to wakeup CPU device (It don’t have
->> .power_on/.power_off) callback implemented which gets invoked from
->> .runtime_resume callback. This behavior is aligned with the upstream Kernel.
->>
+> On 12/9/25 03:39, Sudeep Holla wrote:
+> > On Mon, Dec 08, 2025 at 10:13:10PM +0000, Vedashree Vidwans wrote:
+> > > Hello,
+> > > 
+> > > The patches update the proposed Arm Live Firmware Activation (LFA)
+> > > kernel driver [1] to incorporate review feedback [2] and refine the
+> > > activation flow while remaining aligned with the LFA specification
+> > > DEN0147 [3] and the SMCCC 1.2 calling convention. The series keeps
+> > > the existing functionality but restructures and extends it to improve
+> > > robustness, reviewability, and future extensibility.​
+> > > 
+> > > The SMCCC usage in the driver is updated to consistently use the
+> > > SMCCC 1.2 register-based calling convention, consolidating arguments
+> > > and results into a single struct to reduce stack usage and simplify
+> > > the SMC interface. The patches also split the original changes into
+> > > focused pieces and document the device node bindings in the commit
+> > > messages, making it easier to follow and validate the implementation
+> > > against the specification.​
+> > > 
+> > > The kernel driver is registered as a platform driver in accordence to
+> > > the LFA device defined by the specification [3]. The driver now extends
+> > > interface for interrupt-based enablement of LFA. During LFA, the
+> > > interrupt
+> > > thread refreshes firmware component details after each activation step
+> > > and iterates over all activable components until no further activation
+> > > is pending, matching the spec’s allowance for component detail changes
+> > > after activation. This ensures that sysfs exposure of LFA components
+> > > remains consistent with the authoritative information provided by the
+> > > secure firmware.​
+> > > 
+> > > The handling of CPU rendezvous is adjusted so that the kernel now
+> > > honors the rendezvous policy chosen by the firmware, instead of
+> > > unconditionally forcing a rendezvous. This reflects experience with
+> > > existing firmware deployments where mandatory rendezvous is not
+> > > required, while still allowing the firmware to request it when
+> > > needed.​
+> > > 
+> > > Thank you,
+> > > Veda
+> > > 
+> > > [1] https://lore.kernel.org/lkml/20250926123145.268728-1-salman.nabi@arm.com/
+> > > [2] https://lkml.org/lkml/2025/10/8/980
+> > > [3] https://developer.arm.com/documentation/den0147/latest/
+> > > 
+> > > Vedashree Vidwans (5):
+> > >    firmware: smccc: LFA: use smcc 1.2
+> > >    firmware: smccc: LFA: refactor
+> > >    firmware: smccc: add timeout, touch wdt
+> > >    firmware: smccc: register as platform driver
+> > >    firmware: smccc: lfa: refresh fw details
+> > > 
+> > >   drivers/firmware/smccc/Kconfig  |   3 +-
+> > >   drivers/firmware/smccc/lfa_fw.c | 478 +++++++++++++++++++++++++-------
+> > 
+> > Same comment as before[1], looks like the feedback got ignored or missed.
+> > 
+> > -- 
+> > Regards,
+> > Sudeep
+> > 
+> > [1]https://lore.kernel.org/all/20251009-calculating-glorious-oriole-ceccf6@sudeepholla
 > 
-> I am quite lost here. Why is it necessary to wake up the CPU? If I understand
-> correctly, all of this complexity is meant to ensure that the cluster power
-> domain is enabled before any of the funnel registers are accessed. Is that
-> correct?
+> Thank you for your comment.
+> I did include DT binding in commit message of the patch. Please let me know
+> if there's anything else I can elaborate.
 > 
-> If so, and if the cluster domains are already defined as the power domains for
-> these funnel devices, then they should be requested to power on automatically
-> before any register access occurs. Is that not the case?
-> 
-> What am I missing in this reasoning?
 
-Exactly, this is what I am too. But then you get the "pre-formated 
-standard response" without answering our questions.
+Sure. I meant I don't see any patch titled "dt-bindings: firmware: Add LFA...."
+or something similar. I also checked the delta for the files under
+Documentation/devicetree/bindings/ to rule out the possibility that the
+patch title may not be following the DT binding upstreaming process.
 
-Suzuki
+-- 
+Regards,
+Sudeep
 
