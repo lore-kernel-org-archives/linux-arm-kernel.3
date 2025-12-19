@@ -4,110 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F756E66884
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 20:36:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D000E6688C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 20:41:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3d9fLzjQ/AZqtv2ZVueKEFb1bGfJIO9edpVZ3H1jqFw=; b=s8wRcYji3kXlYkMaJnuZ4BXU20
-	Y7PdFGWmQle/8w2POb1WL6YnOgnX+kOyAGWlt702YeAXztKNou7TLd1L6taaUpDmF6lcjdJANcyWK
-	QO2m5rRchb6BxU1/OVOO8au6pKtdTagqOM7Zuq2uFYiCjbr16H6TUzz/U1Y0ZqrMVDUf35srRTQoo
-	YfXUKSfbhKaJFJIpSUZaVJ7uuTUG22D9EJBTHAXySqChE+jQS9N2sbwWqtQYUWsprp9TM7Aj8hVIN
-	SsRibRMZ5m2ToRoH5bML+8G0qDHZxg6PjfJrP6dXd+vP5271xke6eHk1p8W1rjAgChWxkzAG6uZmM
-	GNN2LgDA==;
+	bh=lwyEdu6XbgiSsGtQ4IbkpbtgmNyvAZ5gzOV5F+MzB9s=; b=gpU5SUgET3YEsZ3NaJSHiXfpwa
+	X7r5ArQ1HodB3Y4Fj0rdP4sHAHAK5/wzhZVa+c2OPjrRSYpTsB1k0WbUBSNgRkfEN/09EL6sa6q3f
+	b1zuUg2XZ3nsNl4tEoIoqF5wKnRwsVPY6PqzL0ON4MVkw94TPlpVb72TATPEY1uDHK9Mfom5SSc/K
+	KxZMPbzIyFcv6QXZrSrCwoFrK+KUhtwpPEp8teOHzP/ZAAe5P2HTPdPL/cRjJlrmbHqh7gHGScgP9
+	nN+EnvwLS1KvXecOh94CPAHDPRuAhHKIXvJKszRxJxtecGu2zSVhz3UWfHohzeL7i2zMl28YYjtxp
+	GOzQVg+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWhCl-0000000AxA1-3FHb;
-	Fri, 19 Dec 2025 20:36:03 +0000
-Received: from fout-b6-smtp.messagingengine.com ([202.12.124.149])
+	id 1vWhHq-0000000AxOp-2Jlk;
+	Fri, 19 Dec 2025 20:41:20 +0000
+Received: from relay.smtp-ext.broadcom.com ([192.19.144.205])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWhCL-0000000Ax8m-2dD9
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Dec 2025 20:36:03 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.stl.internal (Postfix) with ESMTP id 29D571D000A9;
-	Fri, 19 Dec 2025 15:35:36 -0500 (EST)
-Received: from phl-imap-17 ([10.202.2.105])
-  by phl-compute-04.internal (MEProxy); Fri, 19 Dec 2025 15:35:36 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1766176536;
-	 x=1766262936; bh=3d9fLzjQ/AZqtv2ZVueKEFb1bGfJIO9edpVZ3H1jqFw=; b=
-	kYZHsUm3yqBHaQvpro/+WVGIWBVYSVMFfzAK54GcyEOPEhFKvEFuAPrGR+cJTmUh
-	WuqFNjPxZvQkkBDtAeuRT4Y6eEryMc/WKH8n1pZWJH0y0k42xCztHwa4qzaYSulv
-	c8fjOxu/1OEcujcVhSJRl1VueSwH7a0Ugi7lgTQ5pJVnjDFeQ+QadG4vzWSUDkJf
-	Gl2ii6dZ4T7T5QD5RZhU72HA+grnsmxMyM4UoZW8OJbUnvEkKRNTYf6Dyx7OFD1c
-	z/BtnKw4w6z4ekb5gkp4VO5JU4ctwu672Z8pByzhuSQ+RGzGy4TN2hQsMMQkhZp4
-	yDjEpWPhj/OnA/BzylISAA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1766176536; x=
-	1766262936; bh=3d9fLzjQ/AZqtv2ZVueKEFb1bGfJIO9edpVZ3H1jqFw=; b=R
-	g/gGMV6hGJSilE/ezNtky0vmAjZSzpFmvQe4yQSfpUOWkGu4+khqfe+CKsUsbbH/
-	NWhG+aLxCk7W9xlqRRomISPzMad0RNuBJ4JzW8+tV77CvLOrZwYZpBfBxOSSIz9v
-	cJinNF6Ej5OguuUgo8Ffg2liakO4Iuak9WNah7aNB2NdDJH+Agy4cPQGpoTO0R1I
-	E50NjYk69gfh6dHUbDP691rKb0j1Kwmm+hQck5oLYemr4vJt5HIyG0JkVIr8FnPc
-	MEIR7CnWx/AMfasIuVZN8J6smZ16rnvAZK0DfZAWUSQvK/TV++Mw9B67WJ7GlM/n
-	iHzqzayWG1vya99RM3gvg==
-X-ME-Sender: <xms:F7dFaetfjsH_R0FrwIjtYohr1MfQyeE2o_Kf225FkyDcAyfvlGgXag>
-    <xme:F7dFaeTM_mVgkLqy_zis7ZjunWXe23L2cRxu6fojMT-CUeK-upeQDeRRCMxTOLG3t
-    PM_he3EDc61UZJY2PHV6HnMgC-TNEEwy52aM303P8LlBxIBV9FxxI4>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdegledvkecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
-    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
-    hnpefhtdfhvddtfeehudekteeggffghfejgeegteefgffgvedugeduveelvdekhfdvieen
-    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
-    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopeduhedpmhhouggvpehsmhhtphhouhht
-    pdhrtghpthhtoheplhhinhhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtth
-    hopegrnhgurhgvrghssehgrghishhlvghrrdgtohhmpdhrtghpthhtohepfihilhhlhies
-    ihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopegrrhhnugeskhgvrhhnvghlrdhorh
-    hgpdhrtghpthhtoheptghhlhgvrhhohieskhgvrhhnvghlrdhorhhgpdhrtghpthhtohep
-    giekieeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqmhhmsehkvhgrtg
-    hkrdhorhhgpdhrtghpthhtoheplhhinhhushdrfigrlhhlvghijheslhhinhgrrhhordho
-    rhhgpdhrtghpthhtoheprghkphhmsehlihhnuhigqdhfohhunhgurghtihhonhdrohhrgh
-X-ME-Proxy: <xmx:F7dFabR9fuVGLS8b2nH0EJEL7gMeVQyE2RmW6pjAmP-j5ztg66sWYA>
-    <xmx:F7dFaSWdbgkitKG_ozO6MG4TRqQ12N7HBRnMw8O3mjcTSiNw9HFycw>
-    <xmx:F7dFaaautW2GXmPM0khIdUKFWjjMT3nNkDSx5fj18akTdZS3YoKf0g>
-    <xmx:F7dFab6-0sXi3QVEQ4kxkCC7Ickcc4xkhCmDssD-fi6cLmyMFZeyFA>
-    <xmx:GLdFaZ8lTCnaSOSLz8dsTEi9P5rYOub2PGkiNAXcyFkNFyLQKKniTZRF>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 3E0EFC40054; Fri, 19 Dec 2025 15:35:35 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1vWhHn-0000000AxOR-3YBF;
+	Fri, 19 Dec 2025 20:41:17 +0000
+Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 432FFC0003E5;
+	Fri, 19 Dec 2025 12:41:12 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 432FFC0003E5
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
+	s=dkimrelay; t=1766176872;
+	bh=eXvglLzfTlazaDlfmtpwIdLoXBeMFW1gMdms6uDntaE=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=v5PLJgwOS7xl1UTelwOsDq1oICX6raWwQjUTgxmYoTR3rdvdE8k1MqSvnpVhDXlIk
+	 RyhwpyGRwHc2u27NpwjlMzskhNnM/gfCwp4XLb1lUmmxJoBIs3QtS9y6D/1ODleI1y
+	 tikhcDN+q4G8eU7ZOQa26+AFr0WzYLVxTA6cjToI=
+Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id CB517867F;
+	Fri, 19 Dec 2025 12:41:11 -0800 (PST)
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+To: bcm-kernel-feedback-list@broadcom.com,
+	Andrea della Porta <andrea.porta@suse.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-pci@vger.kernel.org,
+	iivanov@suse.de,
+	svarbanov@suse.de,
+	mbrugger@suse.com,
+	Phil Elwell <phil@raspberrypi.com>
+Cc: Florian Fainelli <f.fainelli@gmail.com>
+Subject: Re: [PATCH 1/4] dt-bindings: misc: pci1de4,1: add required reg property for endpoint
+Date: Fri, 19 Dec 2025 12:41:11 -0800
+Message-ID: <20251219204111.1015295-1-florian.fainelli@broadcom.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <b58bfcd957b2270fcf932d463f2db534b2ae1a6d.1766077285.git.andrea.porta@suse.com>
+References: <cover.1766077285.git.andrea.porta@suse.com> <b58bfcd957b2270fcf932d463f2db534b2ae1a6d.1766077285.git.andrea.porta@suse.com>
 MIME-Version: 1.0
-X-ThreadId: AQxZfb8dcq5J
-Date: Fri, 19 Dec 2025 21:34:33 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Jason Gunthorpe" <jgg@nvidia.com>, "Arnd Bergmann" <arnd@kernel.org>
-Cc: linux-mm@kvack.org, "Andrew Morton" <akpm@linux-foundation.org>,
- "Andreas Larsson" <andreas@gaisler.com>,
- "Christophe Leroy" <chleroy@kernel.org>,
- "Dave Hansen" <dave.hansen@linux.intel.com>,
- "Linus Walleij" <linus.walleij@linaro.org>,
- "Matthew Wilcox" <willy@infradead.org>,
- "Richard Weinberger" <richard@nod.at>,
- "Russell King" <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org,
- linux-fsdevel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, x86@kernel.org
-Message-Id: <513078d3-976a-4e6d-b311-dcfcfea99238@app.fastmail.com>
-In-Reply-To: <20251219171412.GG254720@nvidia.com>
-References: <20251219161559.556737-1-arnd@kernel.org>
- <20251219161559.556737-4-arnd@kernel.org>
- <20251219171412.GG254720@nvidia.com>
-Subject: Re: [PATCH 3/4] ARM: remove support for highmem on VIVT
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_123537_743717_2ACB327F 
-X-CRM114-Status: GOOD (  13.00  )
+X-CRM114-CacheID: sfid-20251219_124115_997190_EFD28A19 
+X-CRM114-Status: UNSURE (   9.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,32 +87,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 19, 2025, at 18:14, Jason Gunthorpe wrote:
-> On Fri, Dec 19, 2025 at 05:15:58PM +0100, Arnd Bergmann wrote:
->>  arch/arm/Kconfig                    |  1 +
->>  arch/arm/configs/gemini_defconfig   |  1 -
->>  arch/arm/configs/multi_v5_defconfig |  1 -
->>  arch/arm/configs/mvebu_v5_defconfig |  1 -
->>  arch/arm/include/asm/highmem.h      | 56 ++---------------------------
->>  arch/arm/mm/cache-feroceon-l2.c     | 31 ++--------------
->>  arch/arm/mm/cache-xsc3l2.c          | 47 +++---------------------
->>  arch/arm/mm/dma-mapping.c           | 12 ++-----
->>  arch/arm/mm/flush.c                 | 19 +++-------
->>  9 files changed, 16 insertions(+), 153 deletions(-)
->
-> This looks great, but do you think there should be a boot time crash
-> if a VIVT and HIGHMEM are enabled, just incase?
+From: Florian Fainelli <f.fainelli@gmail.com>
 
-Do you mean in the common code or just for Arm?
+On Thu, 18 Dec 2025 20:09:06 +0100, Andrea della Porta <andrea.porta@suse.com> wrote:
+> The PCI subsystem links an endpoint Device Tree node to its corresponding
+> pci_dev structure only if the Bus/Device/Function (BDF) encoded in the
+> 'reg' property matches the actual hardware topology.
+> 
+> Add the 'reg' property and mark it as required to ensure proper binding
+> between the device_node and the pci_dev.
+> 
+> Update the example to reflect this requirement.
+> 
+> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> ---
 
-We could use the Arm specific cache_is_vivt() macro, but it feels like
-the 'dpends on !CPU_CACHE_VIVT' Kconfig check I added is both
-safer and simpler.
-
-In common code I don't see a way to detect vivt caches. There is
-cpu_dcache_is_aliasing(), but that also seems to cover ARM11
-processors with aliasing VIPT caches, which are otherwise fine
-here.
-
-     Arnd
+Applied to https://github.com/Broadcom/stblinux/commits/devicetree-arm64/fixes, thanks!
+--
+Florian
 
