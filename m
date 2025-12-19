@@ -4,80 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0DE4D74976
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 09:55:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A20DD74976
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 09:56:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lLAToM4vXYl2Fk0i65uKXkKio3mzy30inkIA9FUKzC8=; b=aDNLi+JarTLHwyMnlh27xTrSOn
-	tzgyGxf3nkxrQjb01lEKtUEfCk+hND13m4Ba8zyCX10Y8GukVZJkHMTAabGRDerPBFdnHk1TyYhl1
-	HX7hor4xela9/BceIdG78GsmSPMbJhD02j+rMpS12V1vMYf3Ur6f75qjy2ILJA+cleabh1XjWlWyR
-	wVuKfurWQlqaUdgc5oG8lIbODo2ZozeYsTgHqlc6Z0X1rJp0p45hA5+zLAta9PwsYSKHtWXAdX/T0
-	SfRKsbsDTCLGw3FUTIImW/KLDXRNP7WfOPbj9D4D5R6lqXqobe14FER5C65NlqycAHLAWKn/sxCgb
-	nS5hP24g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RtfAnpagQOlaK6gn2io6XkRtMeyxoT56ZghAqIKWn70=; b=dJnDnSZW5j8IxZO96jSzLF/uUJ
+	ruVtNSuOauHHyA4PBW1EQrh2wctIt+MUOodDWztBxaPkgJXHzdUDwCNk9y4aTwHIi5GDEdMpRN2/z
+	nr4ugNL6Wx/ZPNsdllnfLmkiKKV2v6d6F/lCJi6/idDcemMTW4Fbbj2QS/F1qPgbYAd36tKwe5K5i
+	y4nOG0SDySjQPedr79tvB+DVBdBIdU/VxV8wfuQ+ec9qkqiKVIAQ0UkUcvYRloI7kwXbCJ86LqLSX
+	cgaTB1+oNClLW4xR7Ih6sisbyBPgYDfz7M0uHXi7W/coNWfRSnTXD49jpNbBDU+SfpbOTOxOCWtiD
+	nZnwFtqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWXCM-00000009zUG-2qdm;
-	Fri, 19 Dec 2025 09:54:58 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vWXDn-00000009zme-01KH;
+	Fri, 19 Dec 2025 09:56:27 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWXCL-00000009zTR-2lqB;
-	Fri, 19 Dec 2025 09:54:57 +0000
+	id 1vWXDk-00000009zmA-07L1
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 19 Dec 2025 09:56:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 40C4F60052;
-	Fri, 19 Dec 2025 09:54:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D23DC4CEF1;
-	Fri, 19 Dec 2025 09:54:55 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7011D404C5;
+	Fri, 19 Dec 2025 09:56:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1AE26C4CEF1;
+	Fri, 19 Dec 2025 09:56:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766138095;
-	bh=lLAToM4vXYl2Fk0i65uKXkKio3mzy30inkIA9FUKzC8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=teXlBuee2SGaO5gKVF903njhhJJyujvg1pKd00OAnL4abuUsJGZgjZ/0ok7vhvth2
-	 bcU+XqvTdsUyWpkZpecWy100vQ079+cxQeWRi+28eSuxcQrmBsLYtlz8WUeWJfVcUq
-	 +RSFqfo+R8zPY9wxRSVJOku2ErSx+BR2ZCiVm+A8ItqaKkKKlUy9gBMgtux8Nv7KL2
-	 36u+gOWyi0sgXtCiS2eR5uhq+yjpSWREwBllUfGexMuL23TknUzZrPf8XTKmynGAA8
-	 1YQnPj5YlHg8F3o877ew2QqD0hGZ++OqK+GF6FOX8VBhoy97Wb2Ohwj90JxEb6WA+M
-	 rkKF3JhaRlT8A==
-Date: Fri, 19 Dec 2025 10:54:53 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Daniel Stone <daniel@fooishbar.org>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Sandy Huang <hjc@rock-chips.com>, Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, 
-	Andy Yan <andy.yan@rock-chips.com>, Chen-Yu Tsai <wens@csie.org>, 
-	Samuel Holland <samuel@sholland.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
-	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
-	Liu Ying <victor.liu@nxp.com>, Rob Clark <robin.clark@oss.qualcomm.com>, 
-	Dmitry Baryshkov <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>, 
-	Jessica Zhang <jessica.zhang@oss.qualcomm.com>, Sean Paul <sean@poorly.run>, 
-	Marijn Suijten <marijn.suijten@somainline.org>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org
-Subject: Re: [PATCH v3 00/11] drm/connector: hdmi: limit infoframes per
- driver capabilities
-Message-ID: <20251219-honest-slim-crab-02e932@houat>
-References: <20250929-gregarious-worm-of-memory-c5354d@houat>
- <itgffxygopi7etkt7xhvmyuvyl5ad3k43nsxvjzw3ubtwiikn7@ocugfdaigtu7>
- <20251003-uptight-echidna-of-stamina-815305@houat>
- <zpygq4kapil3swsmhhqkdwny4ry2dznnzixsw5rkza5p2kqnvp@abvf2vxlbwif>
- <2a5fitdzr2bz235fj6rvqzxr6ckszkjbazjfszlvnizdh2cvbt@w3ypjo7vahhs>
- <pibxhl5hlcpuk3zsgyienfdlda5cwuxrnofwlw356scuzzplqy@zw3ofelgvwik>
- <bsoqyzxi45i67jpzhwr2d4illufa5ghqf25z6flbp67lsbvh22@rrlcihp2oxea>
- <cgzclxjubj5oca3rdnv44qwrkmpddxve4tlz76cc6p3b4hz3oc@3l7mt5ha7do6>
- <20251201-enlightened-zebu-from-asgard-5a20be@houat>
- <5dyhjur3hkhvtlwrl4h2m342byor7f3ssvkunj4cggnhbhlmnb@l2mfz7ypjj37>
+	s=k20201202; t=1766138183;
+	bh=i0NTZxd+UQIUcdGygNsRJLwiYUjySuhsZdtovFsiQog=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Jv0yRFOHZJVb8qcfh8w3MuPxnmfvzhRSCiUQySKFy6Pp6lYPqwVgzYTPi5c6NWgbU
+	 n2xYTyasWxmCXY37GFMaOx0xcLKizWBmEJo1Ek8MHGUGkOI++Fcwu3mkDVG60e8aLn
+	 ECQ/G8EKT4pFy8A8ELG9MT1DxqmUwOgqcymNGK6w99mu1251CcDZZWG529QsxJg8Q7
+	 W7hECX6ulz8uhtjRszMC33wRgoAlQ9dV860uGsnU6BEDF/Wj9UEy5xLdfOpchvKJ4a
+	 KzcXLVRLLSYbMVa5qaE3ZW5SoIi+NuliN61j4CJ0E3rFtqAK/fHgbn0TR5XmvpsIyh
+	 j513z4BlLEuPA==
+Message-ID: <b83d45c4-eeea-4c0f-9395-6d6483c278f7@kernel.org>
+Date: Fri, 19 Dec 2025 10:56:17 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="pxgyrzpu3xrfoz5s"
-Content-Disposition: inline
-In-Reply-To: <5dyhjur3hkhvtlwrl4h2m342byor7f3ssvkunj4cggnhbhlmnb@l2mfz7ypjj37>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 1/2] dt-bindings: arm: cix: add OrangePi 6 Plus board
+To: Gary Yang <gary.yang@cixtech.com>, peter.chen@cixtech.com,
+ fugang.duan@cixtech.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org
+Cc: linux-cix-kernel-upstream@cixtech.com,
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20251219095409.1395587-1-gary.yang@cixtech.com>
+ <20251219095409.1395587-2-gary.yang@cixtech.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251219095409.1395587-2-gary.yang@cixtech.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251219_015624_111889_D0B027B0 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,87 +120,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 19/12/2025 10:54, Gary Yang wrote:
+> OrangePi 6 Plus adopts CIX CD8180/CD8160 SoC,
+> built-in 12-core 64-bit processor + NPU processor,
+> integrated graphics processor, equipped with 16GB/32GB/64GB
+> LPDDR5, and provides two M.2 KEY-M interfaces 2280 for NVMe SSD,
+> as well as SPI FLASH and TF slots to meet the needs of fast
+> read/write and high-capacity storage;
+> 
+> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
+> ---
+>  Documentation/devicetree/bindings/arm/cix.yaml | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/arm/cix.yaml b/Documentation/devicetree/bindings/arm/cix.yaml
+> index 114dab4bc4d2..92fb4ad7b5d8 100644
+> --- a/Documentation/devicetree/bindings/arm/cix.yaml
+> +++ b/Documentation/devicetree/bindings/arm/cix.yaml
+> @@ -21,6 +21,11 @@ properties:
+>            - const: radxa,orion-o6
+>            - const: cix,sky1
+>  
+> +      - description: OrangePi 6 Plus
+> +        items:
+> +          - const: OrangePi,6p
 
---pxgyrzpu3xrfoz5s
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v3 00/11] drm/connector: hdmi: limit infoframes per
- driver capabilities
-MIME-Version: 1.0
+That's not a valid prefix. Where is it documented and how it looks there?
 
-On Sat, Dec 06, 2025 at 01:28:14PM +0200, Dmitry Baryshkov wrote:
-> On Mon, Dec 01, 2025 at 06:01:56PM +0100, Maxime Ripard wrote:
-> > On Fri, Nov 21, 2025 at 07:09:01PM +0200, Dmitry Baryshkov wrote:
-> > > > So it's not really impossible, you just need some hardware and a da=
-y's
-> > > > worth of work.
-> > > >=20
-> > > > There's no reason these should get a pass, it's breaking the spec f=
-or no
-> > > > reason.
-> > > >=20
-> > > > > > For SPD, It's really not clear to me why atomic_check should do=
- that in
-> > > > > > the first place. Your initial concern was about exposing infofr=
-ames in
-> > > > > > debugfs that wouldn't be used by the driver.
-> > > > > >=20
-> > > > > > If the driver doesn't register a debugfs file for SPD, and igno=
-res
-> > > > > > whatever is in the atomic state, what's should we force drivers=
- to do
-> > > > > > that?
-> > > > >=20
-> > > > > I really don't think that drivers should mess up with debugfs on =
-their
-> > > > > own. Making atomic_check() disable the unsupported InfoFrames mak=
-es the
-> > > > > picture perfect: the DRM no longer tries to program them to the
-> > > > > hardware, DebugFS files stay empty, so the whole state becomes
-> > > > > consistent.
-> > > >=20
-> > > > In the "bridge has no access to infoframes" case, there's really no
-> > > > infoframe. An empty file is "the infoframe can be there but isn't u=
-sed",
-> > > > not "we don't have access to it and can't report them". Only drivers
-> > > > have those infos.
-> > > >=20
-> > > > If we do split up write_infoframe into multiple functions though, I
-> > > > guess we could create the debugfs file only if the function pointer=
- is
-> > > > set, which removes drivers' involvement if you don't like that.
-> > >=20
-> > > I'm fine with not using HDMI connector framework for lt9611uxc.
-> > > Likewise, I think, it's fine to have empty files for the infoframes
-> > > which are not being sent over the wire for any reason (hw not support=
-ing
-> > > it is one of the reasons).
-> >=20
-> > I can't think of any other example in the kernel where an empty file
-> > means that the driver doesn't support something.
->=20
-> Okay. So we need to sort out implementing the split write_infoframes in
-> drm_bridge_connector. Any suggestions there? I'm asking, because I don't
-> want to end up exploding it.
+Why this cannot be part of enum with the first device? Creating a list
+per device scales poorly.
 
-I guess it's only really a problem if we want to make it const, but we
-don't have to? We could just as well allocate the structure directly at
-probe with a drmm helper and fill it as we need to.
+> +          - const: cix,sky1
+> +
+>  additionalProperties: true
+>  
+>  ...
 
-Maxime
 
---pxgyrzpu3xrfoz5s
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaUUg7AAKCRAnX84Zoj2+
-dvkCAYDaU48ga79KBvkIgWW7cnrj0Ae2GfJE5Y2GVVoq0UjRWC1zmLdmNFkjoQil
-PD3wip4BgKf036443KTFOFktbqXWVW+vD37BVUvEwYqWrRwP+AK/8QBWIjjg9BKx
-PWhjchksXg==
-=penr
------END PGP SIGNATURE-----
-
---pxgyrzpu3xrfoz5s--
+Best regards,
+Krzysztof
 
