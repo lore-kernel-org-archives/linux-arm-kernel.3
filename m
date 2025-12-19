@@ -4,64 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DBCDD78783
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 14:36:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85307D78783
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 14:36:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9FF2UmlZVZ4sMaDZIAPjK+3k8DRpN0zvXYe6KrU5HU4=; b=U1phgmcHAr+I+1WnyDEmaSiCpB
-	AUwQAlAy9bN3oqk6gojSYcZ8JlIqbtlUdgKVR9LJFPTGfpg7XLfGNN7Lux+J1s2PTGvFVpggazsDz
-	h01l2tUuYZo2ZS94X3xhM5kaOgS49JFx7tqScF7p7wZjTb9oBAfDDF1OAdEAAMvFpQ/m8hkg7xaEm
-	FZY+SjQxywruAw0Z2ccezCS9NMS3gcpeOn2jNAp3uyIoCoZFdSbzxpXz6FsgdbsuNyErwcuu4tvaO
-	/+Z17hgxo4O8dIMtdgxMiATGiZ/eLrI31LDL+QVvUy34agRWk0fc2e2AD2Ku7K682EM1yr3rBiTJy
-	euweLSpw==;
+	bh=xV7Sj1lP+ipO/vMdQQDAnXh1FyZ9JEzti6vulzMdahc=; b=lY9vmy4Rw+nuvHy7xdSxHwJJeq
+	OJLIluV0ia8Ezm/2TDXeJSHUiRTW7VHUHdXdI2VILt/4gfBpILzzmxGrULYQDzh2a5VmAD100qNO5
+	6nVJSZvLesEMfyWT6wkTS2qIa9sVllg2iulYSZRUaOzk0i/YbZhFscttAM0QZc84mmTkfP7toETBL
+	FQAQAN9d7vwn5Tgm53CJxx97Y6E+QtG6rO2U98KWvduOtGJhnlJ0egcrAk+iP2H1YA4VpjfY+VS3L
+	yn3tyiRsCW+fu6aye01XbAkeCXlTsXLkvQStzTddASiNCtcYcsXXFiNmk8mGVh/qsCsaNbmkrGTcH
+	BSbPm5gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWbaJ-0000000APok-3hdv;
-	Fri, 19 Dec 2025 14:35:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWbaG-0000000APmw-0u0V
+	id 1vWbaQ-0000000APtk-3JWa;
+	Fri, 19 Dec 2025 14:36:06 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vWbaI-0000000APnI-2hJk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Dec 2025 14:35:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 06F3EFEC;
-	Fri, 19 Dec 2025 06:35:46 -0800 (PST)
-Received: from e134710.manchester.arm.com (e134710.arm.com [10.33.10.82])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0C3733F5CA;
-	Fri, 19 Dec 2025 06:35:50 -0800 (PST)
-From: Ahmed Tiba <ahmed.tiba@arm.com>
-To: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-Cc: linux-acpi@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	tony.luck@intel.com,
-	bp@alien8.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	rafael@kernel.org,
-	linux-doc@vger.kernel.org,
-	Dmitry.Lamerov@arm.com,
-	Michael.Zhao2@arm.com,
-	Ahmed.Tiba@arm.com
-Subject: Re: [PATCH 02/12] ras: add estatus core implementation
-Date: Fri, 19 Dec 2025 14:35:42 +0000
-Message-ID: <20251219143545.2792858-1-ahmed.tiba@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <6vlj35rmfm7dzjdngxibaygcgmcj3h2ibhuqnoeqqrsrxmsqbt@qpqnm5xndok6>
-References: 
+	Fri, 19 Dec 2025 14:36:03 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BJBla013700746
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Dec 2025 14:35:57 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	xV7Sj1lP+ipO/vMdQQDAnXh1FyZ9JEzti6vulzMdahc=; b=aAO6xiK7B2Ahpu0Q
+	tStX64yB/Oyj6iYNxsdek7WORUjXVMmB1EL6+Wo81vsth5sEsUNHmvEBxPaakkiT
+	3WXMe9musPUKGR66HMiUIVPfcEIYimPkz8v+nn5K5fZ/ot581KTdLa2XOFf9SC3G
+	yKvrcxcYJxj5Zm2LKOXeDZS61VYFmeBQk4w+V48PN/LZSjl4Hvuyy9Rak2s+wL9V
+	GRCZXgEVJ5hMXictveqt3ggt1808OhVYh55oeeXcA4/BqHqX8Qj8pBVlO07OmyJI
+	tUd5Qv3CNWYPQZF0FaRzPBUdlbC7lgYYqyx6sA3bQ0YIuCRo22y6rQg+MYvAEJOf
+	t2aX0A==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4b4r2ejw0c-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Dec 2025 14:35:57 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4ee0193a239so18270891cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Dec 2025 06:35:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1766154957; x=1766759757; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=xV7Sj1lP+ipO/vMdQQDAnXh1FyZ9JEzti6vulzMdahc=;
+        b=O9nzCb6aRP6LXv3DeCPW2Kh4r9QS3JzaDlqMMx4D9UGngp4hWLOJY19lASZ2wVASCJ
+         Ul2Fn9lsKE7F7HZ+npL+OtcUggJjPPQ9xU6a98Dz8Wyh6VtgrenCM4xNLvQAj+BVMIvM
+         YILNvBKUxEG0VyPAt9Tm+2q8WlXTpoRXjzGdO8XwTjr1cRJe9H6Vx7wdfX94MHTxITmH
+         IsfIMV0IEu6wFffdC1mJi8zA9007Upx8iSXP7zIKR9e0SJ2emf80kZJVd2RjWnCacWjZ
+         GcztAVbpjGsqx9yJVgjfJcD4Xb2RIEZR/t8o1HmPiYFxQDOBToSqw3sj88io/ECbdql1
+         dbqg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766154957; x=1766759757;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=xV7Sj1lP+ipO/vMdQQDAnXh1FyZ9JEzti6vulzMdahc=;
+        b=cZpnrOuRGRxtrAjAeT6XURS9npKNmIYSQOkcdKH+ErjfRMo0Ux8t1j8ZWoFbtP4C64
+         DAvLI6J/Xh4acVbBTE6FzXLNH+6vAuS3LrAuFeRRrYeGfl6iXCoLSIplStNj8q+yVzUb
+         BC9/hz/261D9r1vx06bzjUblG8wqimTuZVuPDcyujSFBAXu5FS5Ael1MxFhJe+2Zg24r
+         pa7sNItKyV1S1/SI1TYe+Mj5OykhCcNfZCGELgD21qWf40s6qDdmLGLylxQGsFoiMcRD
+         vMT88bF9FrPPncDjxBvjgc+SYBP+jOSagLsfWPxTvJE2ukv5bB+XS9+8giar7UtS+C/x
+         1SEQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWhE2y6ifGimf1ZBTFc51HDDI6rTH/S2HTFoVm3EDXO7TSo9KUzERAQJfR0iaDV1b+t6vBUfP1z/KTzAFtyqHRU@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywagh6lBJIW/ixoG3vhwCsX8rHLtOqEr0DklIST3Upcpw8I2HAE
+	UMopQ2gxglXT+YKnKh2trhTItmKAy0MgTq2CfmnJw+bnFwyJwCnzyqqsHlIdZIFE0RpWysq79XF
+	gMWkdFcMLsNJr0yKiyYzrgXrG8GxpA3GdN5wTljqv4o3Qwqtq0kWmLd521aEBUARY+QaLlBEwVz
+	XJ/g==
+X-Gm-Gg: AY/fxX6vEgOf5Jpf8ZqfM/g7RJu53yTxa2Day3C09rwM43iIM+xWw4V4y1UXaJhMMxo
+	oJXnDB5RTD/vwvsj30mCjmYVg2NgD7RIfGpAY+sZRFK9KfIK4Wpvxly1oLJ7POEANKmBUj8D1eM
+	CrY0HytbTgGIDzFccnre8I7D5qEwtgHUwRE8YZ9G8wZ8vTgkQbY8u6VCk2qhGiF1ehXYlEI0s8Q
+	E5jeyGyDVVimFw6GV6dAJhLbC2N5PquXNHxSOCU+Sw3iqQ8biNEvzpUESBhTaHfMUlrHCAK+oMd
+	QuJ2Aw6TZeio3eQqXqcqcrvcbo1IQzlN0HOH5Wf8ixnAh8gVJHNXfM1RpP3ebxaCNDFbVgNIJYG
+	1yjcvSvocDVia5G4F9EEQDhRjYa4x89JKIldtctoiPk7dzuSHol+swWHHHHisdqiiPOtr
+X-Received: by 2002:a05:622a:4c15:b0:4ec:fdaa:b31e with SMTP id d75a77b69052e-4f4abce094cmr43174071cf.32.1766154957156;
+        Fri, 19 Dec 2025 06:35:57 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGpXU5pTYf8IAIDbE0Sqzc6Vk3SDvjFDfm4RPQu+aDyXRPlzu/xbQTB4M/gboaQR6K2hZYIIA==
+X-Received: by 2002:a05:622a:4c15:b0:4ec:fdaa:b31e with SMTP id d75a77b69052e-4f4abce094cmr43173611cf.32.1766154956699;
+        Fri, 19 Dec 2025 06:35:56 -0800 (PST)
+Received: from [127.0.1.1] (83.31.98.88.ipv4.supernova.orange.pl. [83.31.98.88])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8037ab7f86sm245145966b.17.2025.12.19.06.35.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 19 Dec 2025 06:35:56 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Date: Fri, 19 Dec 2025 15:31:50 +0100
+Subject: [PATCH 1/5] iio: adc: aspeed: Simplify with dev_err_probe
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251219-iio-dev-err-probe-v1-1-bd0fbc83c8a0@oss.qualcomm.com>
+References: <20251219-iio-dev-err-probe-v1-0-bd0fbc83c8a0@oss.qualcomm.com>
+In-Reply-To: <20251219-iio-dev-err-probe-v1-0-bd0fbc83c8a0@oss.qualcomm.com>
+To: Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>,
+        =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
+        Andy Shevchenko <andy@kernel.org>, Joel Stanley <joel@jms.id.au>,
+        Andrew Jeffery <andrew@codeconstruct.com.au>,
+        Krzysztof Kozlowski <krzk@kernel.org>,
+        Alim Akhtar <alim.akhtar@samsung.com>,
+        Heiko Stuebner <heiko@sntech.de>, Orson Zhai <orsonzhai@gmail.com>,
+        Baolin Wang <baolin.wang@linux.alibaba.com>,
+        Chunyan Zhang <zhang.lyra@gmail.com>
+Cc: linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+        linux-samsung-soc@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-rockchip@lists.infradead.org,
+        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1098;
+ i=krzysztof.kozlowski@oss.qualcomm.com; h=from:subject:message-id;
+ bh=z3gIGj1oIvvmH82pocqz/4k2PQOnpGa3jr5JHcWhyj8=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpRWLEcsg/U41BoWF/u0CzNiG+xeoGWVjGVoXoT
+ NfSmwwYEgaJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaUVixAAKCRDBN2bmhouD
+ 17LSD/9ruRFSUuxVXUPfzteRn2rDyimSpK7gTLu+xZB/8ccc5jh3NFxaTc82kprKc9KeXopFpk7
+ sxqJAClDY/CkpObXefij8urEBNLvrMDnI2eShXdGAumF4Re2rxTN2eN4fpTrEsHeVCeRn/GUiTm
+ aqd8AWv2WVpUQocZdUlWsHte9x4AyuaQiclWlO2P/+ESmUygqA526P77fL+zqusY8dl1Qx/mLZl
+ 0Fj9c5zLge/Pdq6xHeypu8XYSNPOeFtFIu4bjKsusMTEzUmFcfEs4PcejG89bsqU21BGciXyuCj
+ VDozY6YnIFEx8SvMmhcSZeXZ1hH9yn6PHBevAuaxu4jdUVVhe7WFjiKht6Q/J1KECutkpfaQ7Ut
+ /CZjinA1SFtrdElPEAfnk5RXoXjxH8VdVzcEFz/hbgzOR0pDj81MJnNJYyX0wBCFZ6uqWFfQfxw
+ foCaRbwDfrobfvdERQQb8brmubRaYWsJPduVobsoGGGm9GCqzCFf8QoqtaWV0vG55G6vnuLCktx
+ jK8PiB2fsLJ6Tf8T938FxIEAkBGN799ClXQq6w07f+8xN1d6kqIGHE3RDvu8eVdfqEvu9PEeyKm
+ oUutIFIRV+Ua5vv9o5gi4gWG3SfHKRQq+UEMXE1nm7Z8KS7cy4Kymsd/ds1yZD71QXN8clXwwKl
+ b/wRwDEQRYvMMdA==
+X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp;
+ fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+X-Proofpoint-GUID: qBCiF4o91a8nVP-RH_0MipkepvJVvsuH
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjE5MDEyMiBTYWx0ZWRfX0fUZ4ZI5fpht
+ cjhlgtBJ0q9hUNAZraY3sjIlWOoXFTyMYy7kDvUP8PzpTWZiUnnizViEtJCewwC4z1ZfaEN98pJ
+ 8Dq9tT/C8FjvFqHhFrGtS8OpTlFQS4OqTnvOaDfLIm66dujeggYPpjNA6FlkxvdvjgA8/uHy1Ry
+ SYon/QY/OExCz7hdDachDnFlBodT1gi1g4OruOOto94lH5ktbr7UV4EjcCs3vWxyPX79RBKlBU1
+ CR6Jn2vr3QDQjdPDH8llixY7jvEG6x869ICuy/mmaSGsr0nPFQNZHHBu9mYgb7X3wq1Jy0/VHWB
+ p1/H+ssOGW4wstxGXeql+foc03ILBiCTl1XpRt5ic4/iMk4eXA7fu6POPe7tPNYsFsXPfDKju1m
+ ZBBHQTu2UOPxq5prkyXFIehBBEB/nHGpEgV2+z6UqLXhUBi2BFLtaR8YNS3cp1DaerqqRG6QOJb
+ hCBnSAOIEaUs1bhiVZw==
+X-Proofpoint-ORIG-GUID: qBCiF4o91a8nVP-RH_0MipkepvJVvsuH
+X-Authority-Analysis: v=2.4 cv=EabFgfmC c=1 sm=1 tr=0 ts=694562cd cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=qe4J/qXhiWkb1JZGYKbLYA==:17
+ a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=dK7io7gEiNwTpUlzFjcA:9
+ a=QEXdDO2ut3YA:10 a=a_PwQJl-kcHnX1M80qC6:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-12-19_05,2025-12-17_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 phishscore=0 malwarescore=0 lowpriorityscore=0 clxscore=1015
+ bulkscore=0 suspectscore=0 priorityscore=1501 adultscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2512190122
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_063556_351343_5F3C3201 
-X-CRM114-Status: GOOD (  33.15  )
+X-CRM114-CacheID: sfid-20251219_063558_831365_F478F480 
+X-CRM114-Status: GOOD (  15.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,649 +171,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 18, 2025 at 04:42:42PM +0100, Mauro Carvalho Chehab wrote:
->> Add estatus.c, hook it into the EFI Makefile, and register
->> the MAINTAINERS entry for the new code. The implementation provides the
->> memory-pool helpers, notifier plumbing, and utility functions that the
->> GHES and DeviceTree providers will reuse in later commits.
->>
->> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
->> ---
->>  MAINTAINERS                    |   1 +
->>  drivers/firmware/efi/Makefile  |   1 +
->>  drivers/firmware/efi/estatus.c | 560 +++++++++++++++++++++++++++++++++
+Use dev_err_probe() to make error code handling simpler and handle
+deferred probe nicely (avoid spamming logs).
 
-> If I'm understanding this patch series, you will be basically moving more than
-> half of the code from drivers/acpi/apei/ghes.c to drivers/firmware/efi/estatus.c:
-> 
->  drivers/acpi/apei/ghes.c                   | 1292 ++-------------
->  drivers/firmware/efi/estatus.c             | 1056 ++++++++++++
-> 
->  $ wc drivers/acpi/apei/ghes.c drivers/firmware/efi/estatus.c -l
->   894 drivers/acpi/apei/ghes.c
->  1056 drivers/firmware/efi/estatus.c
->  1950 total
-> 
-> The way you're doing of adding things first, and then removing on
-> separate patches is error prone, makes it hard to review and
-> it becomes a lot harder to identify whose are the original authors
-> of the code.
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+---
+ drivers/iio/adc/aspeed_adc.c | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
 
-I see your point. I tried staging the additions ahead of the removals so the new helpers
-were readable, but I can see that makes review and authorship tracking painful.
+diff --git a/drivers/iio/adc/aspeed_adc.c b/drivers/iio/adc/aspeed_adc.c
+index bf2bfd6bdc41..1ae45fe90e6c 100644
+--- a/drivers/iio/adc/aspeed_adc.c
++++ b/drivers/iio/adc/aspeed_adc.c
+@@ -535,11 +535,10 @@ static int aspeed_adc_probe(struct platform_device *pdev)
+ 		return PTR_ERR(data->clk_scaler);
+ 
+ 	data->rst = devm_reset_control_get_shared(&pdev->dev, NULL);
+-	if (IS_ERR(data->rst)) {
+-		dev_err(&pdev->dev,
+-			"invalid or missing reset controller device tree entry");
+-		return PTR_ERR(data->rst);
+-	}
++	if (IS_ERR(data->rst))
++		return dev_err_probe(&pdev->dev, PTR_ERR(data->rst),
++				     "invalid or missing reset controller device tree entry");
++
+ 	reset_control_deassert(data->rst);
+ 
+ 	ret = devm_add_action_or_reset(data->dev, aspeed_adc_reset_assert,
 
-> This will cause undetected conflicts with already-submitted patches
-> that are under review.
-> 
-> You should instead be moving function per function as-is. Then,
-> adjust the code to make it more generic.
+-- 
+2.51.0
 
-I did try moving each helper first and doing the cleanup afterwards,
-but the series quickly ballooned and the ordering became confusing
-once later patches started depending on code that was still in transit.
-
-I’m happy to try again, though I expect to run into the same issue
-unless there’s a known pattern to follow. If you have a reference series or a preferred ordering
-that you’d recommend, please point me to it so I can align with that approach.
-
-
->>  3 files changed, 562 insertions(+)
->>  create mode 100644 drivers/firmware/efi/estatus.c
->>
->> diff --git a/MAINTAINERS b/MAINTAINERS
->> index 501b6d300aa5..67d79d4e612d 100644
->> --- a/MAINTAINERS
->> +++ b/MAINTAINERS
->> @@ -21760,6 +21760,7 @@ F:    drivers/rapidio/
->>  RAS ERROR STATUS
->>  M:   Ahmed Tiba <ahmed.tiba@arm.com>
->>  S:   Maintained
->> +F:   drivers/firmware/efi/estatus.c
->>  F:   include/linux/estatus.h
->> 
->>  RAS INFRASTRUCTURE
->> diff --git a/drivers/firmware/efi/Makefile b/drivers/firmware/efi/Makefile
->> index 8efbcf699e4f..03708d915bcf 100644
->> --- a/drivers/firmware/efi/Makefile
->> +++ b/drivers/firmware/efi/Makefile
->> @@ -20,6 +20,7 @@ obj-$(CONFIG_EFI_PARAMS_FROM_FDT)   += fdtparams.o
->>  obj-$(CONFIG_EFI_ESRT)                       += esrt.o
->>  obj-$(CONFIG_EFI_VARS_PSTORE)                += efi-pstore.o
->>  obj-$(CONFIG_UEFI_CPER)                      += cper.o cper_cxl.o
->> +obj-$(CONFIG_RAS_ESTATUS_CORE)               += estatus.o
->>  obj-$(CONFIG_EFI_RUNTIME_WRAPPERS)   += runtime-wrappers.o
->>  subdir-$(CONFIG_EFI_STUB)            += libstub
->>  obj-$(CONFIG_EFI_BOOTLOADER_CONTROL) += efibc.o
->> diff --git a/drivers/firmware/efi/estatus.c b/drivers/firmware/efi/estatus.c
->> new file mode 100644
->> index 000000000000..8dae5c73ce27
->> --- /dev/null
->> +++ b/drivers/firmware/efi/estatus.c
->> @@ -0,0 +1,560 @@
->> +// SPDX-License-Identifier: GPL-2.0-only
->> +/*
->> + * Firmware-first RAS: Generic Error Status Core
->> + *
->> + * Copyright (C) 2025 ARM Ltd.
->> + * Author: Ahmed Tiba <ahmed.tiba@arm.com>
->> + */
->> +
->> +#include <linux/kernel.h>
->> +#include <linux/cper.h>
->> +#include <linux/ratelimit.h>
->> +#include <linux/vmalloc.h>
->> +#include <linux/llist.h>
->> +#include <linux/genalloc.h>
->> +#include <linux/pci.h>
->> +#include <linux/pfn.h>
->> +#include <linux/aer.h>
->> +#include <linux/nmi.h>
->> +#include <linux/sched/clock.h>
->> +#include <linux/uuid.h>
->> +#include <linux/kconfig.h>
->> +#include <linux/ras.h>
->> +#include <linux/mutex.h>
->> +#include <linux/notifier.h>
->> +#include <linux/workqueue.h>
->> +#include <linux/task_work.h>
->> +#include <ras/ras_event.h>
->> +
->> +#include <linux/estatus.h>
->> +#include <asm/fixmap.h>
->> +
->> +void estatus_pool_region_free(unsigned long addr, u32 size);
->> +
->> +static void estatus_log_hw_error(char level, const char *seq_tag,
->> +                              const char *name)
->> +{
->> +     switch (level) {
->> +     case '0':
->> +             pr_emerg("%sHardware error from %s\n", seq_tag, name);
->> +             break;
->> +     case '1':
->> +             pr_alert("%sHardware error from %s\n", seq_tag, name);
->> +             break;
->> +     case '2':
->> +             pr_crit("%sHardware error from %s\n", seq_tag, name);
->> +             break;
->> +     case '3':
->> +             pr_err("%sHardware error from %s\n", seq_tag, name);
->> +             break;
->> +     case '4':
->> +             pr_warn("%sHardware error from %s\n", seq_tag, name);
->> +             break;
->> +     case '5':
->> +             pr_notice("%sHardware error from %s\n", seq_tag, name);
->> +             break;
->> +     case '6':
->> +             pr_info("%sHardware error from %s\n", seq_tag, name);
->> +             break;
->> +     default:
->> +             pr_debug("%sHardware error from %s\n", seq_tag, name);
->> +             break;
->> +     }
->> +}
->> +
->> +static inline u32 estatus_len(struct acpi_hest_generic_status *estatus)
->> +{
->> +     if (estatus->raw_data_length)
->> +             return estatus->raw_data_offset + estatus->raw_data_length;
->> +
->> +     return sizeof(*estatus) + estatus->data_length;
->> +}
->> +
->> +#define ESTATUS_PFX  "ESTATUS: "
->> +
->> +#define ESTATUS_ESOURCE_PREALLOC_MAX_SIZE_SIZE       65536
->> +
->> +#define ESTATUS_POOL_MIN_ALLOC_ORDER 3
->> +
->> +/* This is just an estimation for memory pool allocation */
->> +#define ESTATUS_CACHE_AVG_SIZE       512
->> +
->> +#define ESTATUS_CACHES_SIZE  4
->> +
->> +#define ESTATUS_IN_CACHE_MAX_NSEC    10000000000ULL
->> +/* Prevent too many caches are allocated because of RCU */
->> +#define ESTATUS_CACHE_ALLOCED_MAX    (ESTATUS_CACHES_SIZE * 3 / 2)
->> +
->> +#define ESTATUS_CACHE_LEN(estatus_len)                       \
->> +     (sizeof(struct estatus_cache) + (estatus_len))
->> +#define ESTATUS_FROM_CACHE(cache)                    \
->> +     ((struct acpi_hest_generic_status *)            \
->> +      ((struct estatus_cache *)(cache) + 1))
->> +
->> +#define ESTATUS_NODE_LEN(estatus_len)                        \
->> +     (sizeof(struct estatus_node) + (estatus_len))
->> +#define ESTATUS_FROM_NODE(node)                              \
->> +     ((struct acpi_hest_generic_status *)            \
->> +      ((struct estatus_node *)(node) + 1))
->> +
->> +#define ESTATUS_VENDOR_ENTRY_LEN(gdata_len)          \
->> +     (sizeof(struct estatus_vendor_record_entry) + (gdata_len))
->> +#define ESTATUS_GDATA_FROM_VENDOR_ENTRY(vendor_entry)        \
->> +     ((struct acpi_hest_generic_data *)              \
->> +     ((struct estatus_vendor_record_entry *)(vendor_entry) + 1))
->> +
->> +static ATOMIC_NOTIFIER_HEAD(estatus_report_chain);
->> +
->> +struct estatus_vendor_record_entry {
->> +     struct work_struct work;
->> +     int error_severity;
->> +     char vendor_record[];
->> +};
->> +
->> +static struct estatus_cache __rcu *estatus_caches[ESTATUS_CACHES_SIZE];
->> +static atomic_t estatus_cache_alloced;
->> +
->> +static int estatus_panic_timeout __read_mostly = 30;
->> +
->> +static struct gen_pool *estatus_pool;
->> +static DEFINE_MUTEX(estatus_pool_mutex);
->> +
->> +static inline const char *estatus_source_name(struct estatus_source *source)
->> +{
->> +     if (source->ops && source->ops->get_name)
->> +             return source->ops->get_name(source);
->> +
->> +     return "unknown";
->> +}
->> +
->> +static inline size_t estatus_source_max_len(struct estatus_source *source)
->> +{
->> +     if (source->ops && source->ops->get_max_len)
->> +             return source->ops->get_max_len(source);
->> +
->> +     return 0;
->> +}
->> +
->> +static inline enum estatus_notify_mode
->> +estatus_source_notify_mode(struct estatus_source *source)
->> +{
->> +     if (source->ops && source->ops->get_notify_mode)
->> +             return source->ops->get_notify_mode(source);
->> +
->> +     return ESTATUS_NOTIFY_ASYNC;
->> +}
->> +
->> +static inline int estatus_source_get_phys(struct estatus_source *source,
->> +                                       phys_addr_t *addr)
->> +{
->> +     if (!source->ops || !source->ops->get_phys)
->> +             return -EOPNOTSUPP;
->> +
->> +     return source->ops->get_phys(source, addr);
->> +}
->> +
->> +static inline int estatus_source_read(struct estatus_source *source,
->> +                                   phys_addr_t addr, void *buf, size_t len,
->> +                                   enum fixed_addresses fixmap_idx)
->> +{
->> +     if (!source->ops || !source->ops->read)
->> +             return -EOPNOTSUPP;
->> +
->> +     return source->ops->read(source, addr, buf, len, fixmap_idx);
->> +}
->> +
->> +static inline int estatus_source_write(struct estatus_source *source,
->> +                                    phys_addr_t addr, const void *buf,
->> +                                    size_t len,
->> +                                    enum fixed_addresses fixmap_idx)
->> +{
->> +     if (!source->ops || !source->ops->write)
->> +             return -EOPNOTSUPP;
->> +
->> +     return source->ops->write(source, addr, buf, len, fixmap_idx);
->> +}
->> +
->> +static inline void estatus_source_ack(struct estatus_source *source)
->> +{
->> +     if (source->ops && source->ops->ack)
->> +             source->ops->ack(source);
->> +}
->> +
->> +int estatus_pool_init(unsigned int num_ghes)
->> +{
->> +     unsigned long addr, len;
->> +     int rc = 0;
->> +
->> +     mutex_lock(&estatus_pool_mutex);
->> +     if (estatus_pool)
->> +             goto out_unlock;
->> +
->> +     estatus_pool = gen_pool_create(ESTATUS_POOL_MIN_ALLOC_ORDER, -1);
->> +     if (!estatus_pool) {
->> +             rc = -ENOMEM;
->> +             goto out_unlock;
->> +     }
->> +
->> +     if (!num_ghes)
->> +             num_ghes = 1;
->> +
->> +     len = ESTATUS_CACHE_AVG_SIZE * ESTATUS_CACHE_ALLOCED_MAX;
->> +     len += (num_ghes * ESTATUS_ESOURCE_PREALLOC_MAX_SIZE_SIZE);
->> +
->> +     addr = (unsigned long)vmalloc(PAGE_ALIGN(len));
->> +     if (!addr) {
->> +             rc = -ENOMEM;
->> +             goto err_pool_alloc;
->> +     }
->> +
->> +     rc = gen_pool_add(estatus_pool, addr, PAGE_ALIGN(len), -1);
->> +     if (rc)
->> +             goto err_pool_add;
->> +
->> +out_unlock:
->> +     mutex_unlock(&estatus_pool_mutex);
->> +     return rc;
->> +
->> +err_pool_add:
->> +     vfree((void *)addr);
->> +err_pool_alloc:
->> +     gen_pool_destroy(estatus_pool);
->> +     estatus_pool = NULL;
->> +     goto out_unlock;
->> +}
->> +
->> +/**
->> + * estatus_pool_region_free - free previously allocated memory
->> + *                              from the estatus_pool.
->> + * @addr: address of memory to free.
->> + * @size: size of memory to free.
->> + *
->> + * Returns none.
->> + */
->> +void estatus_pool_region_free(unsigned long addr, u32 size)
->> +{
->> +     gen_pool_free(estatus_pool, addr, size);
->> +}
->> +EXPORT_SYMBOL_GPL(estatus_pool_region_free);
->> +
->> +/* Check the top-level record header has an appropriate size. */
->> +static int __estatus_check_estatus(struct estatus_source *source,
->> +                                struct acpi_hest_generic_status *estatus)
->> +{
->> +     u32 len = estatus_len(estatus);
->> +     size_t max_len = estatus_source_max_len(source);
->> +
->> +     if (len < sizeof(*estatus)) {
->> +             pr_warn_ratelimited(FW_WARN ESTATUS_PFX "Truncated error status block!\n");
->> +             return -EIO;
->> +     }
->> +
->> +     if (max_len && len > max_len) {
->> +             pr_warn_ratelimited(FW_WARN ESTATUS_PFX "Invalid error status block length!\n");
->> +             return -EIO;
->> +     }
->> +
->> +     if (cper_estatus_check_header(estatus)) {
->> +             pr_warn_ratelimited(FW_WARN ESTATUS_PFX "Invalid CPER header!\n");
->> +             return -EIO;
->> +     }
->> +
->> +     return 0;
->> +}
->> +
->> +/* Read the CPER block, returning its address, and header in estatus. */
->> +static int __estatus_peek_estatus(struct estatus_source *source,
->> +                               struct acpi_hest_generic_status *estatus,
->> +                               phys_addr_t *buf_paddr,
->> +                               enum fixed_addresses fixmap_idx)
->> +{
->> +     int rc;
->> +
->> +     rc = estatus_source_get_phys(source, buf_paddr);
->> +     if (rc) {
->> +             *buf_paddr = 0;
->> +             pr_warn_ratelimited(FW_WARN ESTATUS_PFX
->> +                                 "Failed to get error status block address for provider %s: %d\n",
->> +                                 estatus_source_name(source), rc);
->> +             return rc;
->> +     }
->> +
->> +     if (!*buf_paddr)
->> +             return -ENOENT;
->> +
->> +     rc = estatus_source_read(source, *buf_paddr, estatus,
->> +                              sizeof(*estatus), fixmap_idx);
->> +     if (rc)
->> +             return rc;
->> +
->> +     if (!estatus->block_status) {
->> +             *buf_paddr = 0;
->> +             return -ENOENT;
->> +     }
->> +
->> +     return 0;
->> +}
->> +
->> +static int __estatus_read_estatus(struct estatus_source *source,
->> +                               struct acpi_hest_generic_status *estatus,
->> +                               phys_addr_t buf_paddr,
->> +                               enum fixed_addresses fixmap_idx,
->> +                               size_t buf_len)
->> +{
->> +     int rc;
->> +
->> +     rc = estatus_source_read(source, buf_paddr, estatus, buf_len,
->> +                              fixmap_idx);
->> +     if (rc)
->> +             return rc;
->> +
->> +     if (cper_estatus_check(estatus)) {
->> +             pr_warn_ratelimited(FW_WARN ESTATUS_PFX
->> +                                 "Failed to read error status block for provider %s!\n",
->> +                                 estatus_source_name(source));
->> +             return -EIO;
->> +     }
->> +
->> +     return 0;
->> +}
->> +
->> +static int estatus_read_estatus(struct estatus_source *source,
->> +                             struct acpi_hest_generic_status *estatus,
->> +                             phys_addr_t *buf_paddr,
->> +                             enum fixed_addresses fixmap_idx)
->> +{
->> +     int rc;
->> +
->> +     rc = __estatus_peek_estatus(source, estatus, buf_paddr, fixmap_idx);
->> +     if (rc)
->> +             return rc;
->> +
->> +     rc = __estatus_check_estatus(source, estatus);
->> +     if (rc)
->> +             return rc;
->> +
->> +     return __estatus_read_estatus(source, estatus, *buf_paddr,
->> +                                   fixmap_idx, estatus_len(estatus));
->> +}
->> +
->> +static void estatus_clear_estatus(struct estatus_source *source,
->> +                               struct acpi_hest_generic_status *estatus,
->> +                               phys_addr_t buf_paddr,
->> +                               enum fixed_addresses fixmap_idx)
->> +{
->> +     int rc;
->> +
->> +     estatus->block_status = 0;
->> +
->> +     if (!buf_paddr)
->> +             return;
->> +
->> +     rc = estatus_source_write(source, buf_paddr, estatus,
->> +                               sizeof(estatus->block_status), fixmap_idx);
->> +     if (rc)
->> +             pr_warn_ratelimited(FW_WARN ESTATUS_PFX
->> +                                 "Failed to clear error status block for provider %s: %d\n",
->> +                                 estatus_source_name(source), rc);
->> +
->> +     estatus_source_ack(source);
->> +}
->> +
->> +static inline int estatus_severity(int severity)
->> +{
->> +     switch (severity) {
->> +     case CPER_SEV_INFORMATIONAL:
->> +             return ESTATUS_SEV_NO;
->> +     case CPER_SEV_CORRECTED:
->> +             return ESTATUS_SEV_CORRECTED;
->> +     case CPER_SEV_RECOVERABLE:
->> +             return ESTATUS_SEV_RECOVERABLE;
->> +     case CPER_SEV_FATAL:
->> +             return ESTATUS_SEV_PANIC;
->> +     default:
->> +             /* Unknown, go panic */
->> +             return ESTATUS_SEV_PANIC;
->> +     }
->> +}
->> +
->> +static void __estatus_print_estatus(const char *pfx,
->> +                                 struct estatus_source *source,
->> +                                 const struct acpi_hest_generic_status *estatus)
->> +{
->> +     static atomic_t seqno;
->> +     unsigned int curr_seqno;
->> +     char pfx_seq[64];
->> +     char seq_tag[64];
->> +     const char *name = estatus_source_name(source);
->> +     const char *level = pfx;
->> +     char level_char = '4';
->> +
->> +     if (!level) {
->> +             if (estatus_severity(estatus->error_severity) <=
->> +                 ESTATUS_SEV_CORRECTED)
->> +                     level = KERN_WARNING;
->> +             else
->> +                     level = KERN_ERR;
->> +     }
->> +
->> +     if (level[0] == KERN_SOH_ASCII && level[1])
->> +             level_char = level[1];
->> +     else if (estatus_severity(estatus->error_severity) > ESTATUS_SEV_CORRECTED)
->> +             level_char = '3';
->> +
->> +     curr_seqno = atomic_inc_return(&seqno);
->> +     snprintf(seq_tag, sizeof(seq_tag), "{%u}" HW_ERR, curr_seqno);
->> +     snprintf(pfx_seq, sizeof(pfx_seq), "%s%s", level, seq_tag);
->> +     estatus_log_hw_error(level_char, seq_tag, name);
->> +     cper_estatus_print(pfx_seq, estatus);
->> +}
->> +
->> +static int estatus_print_estatus(const char *pfx,
->> +                              struct estatus_source *source,
->> +                              const struct acpi_hest_generic_status *estatus)
->> +{
->> +     /* Not more than 2 messages every 5 seconds */
->> +     static DEFINE_RATELIMIT_STATE(ratelimit_corrected, 5 * HZ, 2);
->> +     static DEFINE_RATELIMIT_STATE(ratelimit_uncorrected, 5 * HZ, 2);
->> +     struct ratelimit_state *ratelimit;
->> +
->> +     if (estatus_severity(estatus->error_severity) <= ESTATUS_SEV_CORRECTED)
->> +             ratelimit = &ratelimit_corrected;
->> +     else
->> +             ratelimit = &ratelimit_uncorrected;
->> +     if (__ratelimit(ratelimit)) {
->> +             __estatus_print_estatus(pfx, source, estatus);
->> +             return 1;
->> +     }
->> +     return 0;
->> +}
->> +
->> +/*
->> + * GHES error status reporting throttle, to report more kinds of
->> + * errors, instead of just most frequently occurred errors.
->> + */
->> +static int estatus_cached(struct acpi_hest_generic_status *estatus)
->> +{
->> +     u32 len;
->> +     int i, cached = 0;
->> +     unsigned long long now;
->> +     struct estatus_cache *cache;
->> +     struct acpi_hest_generic_status *cache_estatus;
->> +
->> +     len = estatus_len(estatus);
->> +     rcu_read_lock();
->> +     for (i = 0; i < ESTATUS_CACHES_SIZE; i++) {
->> +             cache = rcu_dereference(estatus_caches[i]);
->> +             if (!cache)
->> +                     continue;
->> +             if (len != cache->estatus_len)
->> +                     continue;
->> +             cache_estatus = ESTATUS_FROM_CACHE(cache);
->> +             if (memcmp(estatus, cache_estatus, len))
->> +                     continue;
->> +             atomic_inc(&cache->count);
->> +             now = sched_clock();
->> +             if (now - cache->time_in < ESTATUS_IN_CACHE_MAX_NSEC)
->> +                     cached = 1;
->> +             break;
->> +     }
->> +     rcu_read_unlock();
->> +     return cached;
->> +}
->> +
->> +static struct estatus_cache *estatus_cache_alloc(struct estatus_source *source,
->> +                                              struct acpi_hest_generic_status *estatus)
->> +{
->> +     int alloced;
->> +     u32 len, cache_len;
->> +     struct estatus_cache *cache;
->> +     struct acpi_hest_generic_status *cache_estatus;
->> +
->> +     alloced = atomic_add_return(1, &estatus_cache_alloced);
->> +     if (alloced > ESTATUS_CACHE_ALLOCED_MAX) {
->> +             atomic_dec(&estatus_cache_alloced);
->> +             return NULL;
->> +     }
->> +     len = estatus_len(estatus);
->> +     cache_len = ESTATUS_CACHE_LEN(len);
->> +     cache = (void *)gen_pool_alloc(estatus_pool, cache_len);
->> +     if (!cache) {
->> +             atomic_dec(&estatus_cache_alloced);
->> +             return NULL;
->> +     }
->> +     cache_estatus = ESTATUS_FROM_CACHE(cache);
->> +     memcpy(cache_estatus, estatus, len);
->> +     cache->estatus_len = len;
->> +     atomic_set(&cache->count, 0);
->> +     cache->source = source;
->> +     cache->time_in = sched_clock();
->> +     return cache;
->> +}
->> +
->> +static void estatus_cache_rcu_free(struct rcu_head *head)
->> +{
->> +     struct estatus_cache *cache;
->> +     u32 len;
->> +
->> +     cache = container_of(head, struct estatus_cache, rcu);
->> +     len = estatus_len(ESTATUS_FROM_CACHE(cache));
->> +     len = ESTATUS_CACHE_LEN(len);
->> +     gen_pool_free(estatus_pool, (unsigned long)cache, len);
->> +     atomic_dec(&estatus_cache_alloced);
->> +}
->> +
->> +static void estatus_cache_add(struct estatus_source *source,
->> +                           struct acpi_hest_generic_status *estatus)
->> +{
->> +     unsigned long long now, duration, period, max_period = 0;
->> +     struct estatus_cache *cache, *new_cache;
->> +     struct estatus_cache __rcu *victim;
->> +     int i, slot = -1, count;
->> +
->> +     new_cache = estatus_cache_alloc(source, estatus);
->> +     if (!new_cache)
->> +             return;
->> +
->> +     rcu_read_lock();
->> +     now = sched_clock();
->> +     for (i = 0; i < ESTATUS_CACHES_SIZE; i++) {
->> +             cache = rcu_dereference(estatus_caches[i]);
->> +             if (!cache) {
->> +                     slot = i;
->> +                     break;
->> +             }
->> +             duration = now - cache->time_in;
->> +             if (duration >= ESTATUS_IN_CACHE_MAX_NSEC) {
->> +                     slot = i;
->> +                     break;
->> +             }
->> +             count = atomic_read(&cache->count);
->> +             period = duration;
->> +             do_div(period, (count + 1));
->> +             if (period > max_period) {
->> +                     max_period = period;
->> +                     slot = i;
->> +             }
->> +     }
->> +     rcu_read_unlock();
->> +
->> +     if (slot != -1) {
->> +             /*
->> +              * Use release semantics to ensure that estatus_cached()
->> +              * running on another CPU will see the updated cache fields if
->> +              * it can see the new value of the pointer.
->> +              */
->> +             victim = xchg_release(&estatus_caches[slot],
->> +                                   RCU_INITIALIZER(new_cache));
->> +
->> +             /*
->> +              * At this point, victim may point to a cached item different
->> +              * from the one based on which we selected the slot. Instead of
->> +              * going to the loop again to pick another slot, let's just
->> +              * drop the other item anyway: this may cause a false cache
->> +              * miss later on, but that won't cause any problems.
->> +              */
->> +             if (victim)
->> +                     call_rcu(&unrcu_pointer(victim)->rcu,
->> +                              estatus_cache_rcu_free);
->> +     }
->> +}
->> --
->> 2.43.0
->>
-
-Thanks,
-Ahmed
 
