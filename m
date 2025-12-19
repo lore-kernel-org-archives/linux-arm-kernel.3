@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EF4AD74970
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 09:34:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1039BD7496F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 09:34:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CsstEA46zKV1wNVzxkf3V07JtHmGKihsOIZECd1KNS0=; b=HHpW/ekGFO1cyliTzCP4SYt/Pz
-	uIX6LWNKhWTOWJCVLjvg7vv52dc2w64Ww+yEDKKZEZqAaOOQv+ladMzk1kvdp+GhGT1Q3v4rLWlyM
-	vCVw0TVndhyNTzWGl1yiwaopqjwRYhNNUKgTGmXX/LWcLGDKfuWqPQSROysgeybY3K70C9+IiTs9n
-	5OflSHJgd5RIWKuih+3k3kEbWpy2rjCUelHVW4TX8Y7XwFf+rIqZgMBTWhvAZken2Q4PGyHvwIh5f
-	VBYb7Pu1aDB4VdfPfIglJs/kUX2pJU9VvvO8Y/p/EcMucyWMT34RoDWDorNpMfHqabwBebQGSpDeZ
-	622OJUww==;
+	bh=UDF4h3Jh9GgHGMLVFPx83dqWDttLVLJuGGw2qG0PEFE=; b=apUErVimGsB7TP0gZIrdeYduto
+	LOBy7WjfP6YNa0tsMdijoZOkzyTn/1zCpSl5bJeSyxNAEYTS5ddaGFNpJob3LD861nObdch8G0lHz
+	ggVRfX/G1hhc/xhRydtsSfR2qkabU5v/mx+jc96i3UQ+ADea3Oz2mNAOfMQXwgIXfeOEw1MT9Dx7o
+	h8j87yXh7bzjiX7fIDQFXm09uJRpXrEcwTlcrlDnaxuqFnm+2jL9KfPvcWtHJrRdO9EcHGqdrEH/S
+	PcW/uCMGQBevkYPAtdiNCOJpsJcRXVlkG/bZtDBitlssbkAuIXUMqihWhmwkKuM4DzeyJ8UO5UTS5
+	xoelkJHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWWsX-00000009xjD-2mZx;
-	Fri, 19 Dec 2025 09:34:29 +0000
-Received: from smtpbgsg2.qq.com ([54.254.200.128])
+	id 1vWWsl-00000009xru-3Krm;
+	Fri, 19 Dec 2025 09:34:43 +0000
+Received: from smtpbgeu2.qq.com ([18.194.254.142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWWsU-00000009xcE-2U3a;
-	Fri, 19 Dec 2025 09:34:28 +0000
+	id 1vWWsd-00000009xeQ-3Uh3;
+	Fri, 19 Dec 2025 09:34:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1766136812;
-	bh=CsstEA46zKV1wNVzxkf3V07JtHmGKihsOIZECd1KNS0=;
+	s=onoh2408; t=1766136816;
+	bh=UDF4h3Jh9GgHGMLVFPx83dqWDttLVLJuGGw2qG0PEFE=;
 	h=From:To:Subject:Date:Message-Id:MIME-Version;
-	b=OsCMpu25IiKRs9xt6ZuPcjF2ZNBOIfhxgSmv+W/gxSlvd1SCy0Pw5x9814HSOosyK
-	 0Fg8wcmWeANKTBPCWbqkRZ4iMbBSvGlFnDNCwZrmaaZLYeizaee33BwmcnsQdJVt8b
-	 XGj3TEVdm4pZ+PJIHBv0Y8vq9Wh9j0EpFOBSFIvM=
-X-QQ-mid: zesmtpsz5t1766136793t8812160a
-X-QQ-Originating-IP: XII8C5yfw3W2vrob4u8AIAwNm0u3w/1PmsfPNU5Tfsg=
+	b=pdJp5wN7z4eFeVowqCWVpB/vKYmjXGxHpgxzUwQrHm6pc6wTZH/8WsR/gtDxfUqq4
+	 kimGm/kk69stHppXjFLHlHZIrF7fVFges+AuXiGEzmBG+q1FqxafPD9mIQXjhERn27
+	 Y2nHGOZw4TL+oNugQ+xSIjzqkUue63ywDbrL1Tlg=
+X-QQ-mid: zesmtpsz5t1766136798t48f4f980
+X-QQ-Originating-IP: FPwl8qTGfn+61UlViOYpcJHqZAzjuxj54MRGHmXIgaE=
 Received: from localhost.localdomain ( [123.114.60.34])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 19 Dec 2025 17:33:10 +0800 (CST)
+	id ; Fri, 19 Dec 2025 17:33:15 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 16146975386883553815
+X-BIZMAIL-ID: 3273388139071314314
 EX-QQ-RecipientCnt: 8
 From: Qiang Ma <maqianga@uniontech.com>
 To: akpm@linux-foundation.org,
@@ -51,9 +51,9 @@ Cc: kexec@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Qiang Ma <maqianga@uniontech.com>
-Subject: [PATCH v2 3/4] kexec: print out debugging message if required for kexec_load
-Date: Fri, 19 Dec 2025 17:31:33 +0800
-Message-Id: <20251219093134.2268620-4-maqianga@uniontech.com>
+Subject: [PATCH v2 4/4] arm64: kexec: Adjust the debug print of kexec_image_info
+Date: Fri, 19 Dec 2025 17:31:34 +0800
+Message-Id: <20251219093134.2268620-5-maqianga@uniontech.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20251219093134.2268620-1-maqianga@uniontech.com>
 References: <20251219093134.2268620-1-maqianga@uniontech.com>
@@ -61,28 +61,29 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-QQ-SENDSIZE: 520
 Feedback-ID: zesmtpsz:uniontech.com:qybglogicsvrsz:qybglogicsvrsz3b-0
-X-QQ-XMAILINFO: OWDXxJVoAuOzf0LbSbzR5ZQ5RYkMP14fzhkTBSzkKYCXd0ON5obD8yOq
-	i+Ju/Swj0tr4QNvWj6t1zkReeHQJFm45GseeBqN3gBjXC7o5frSCtDdq7qTAi7f3cSKBped
-	YiIPuh8c60653I+zKgqVHE70rcofj2wkXWKTZR83bWg3rOukORTp7ZV3v+GE8A2trwjP1gx
-	kgn4MfRqCG8tHpwgMebCFSgFElbn+8qrwi4BWLYe9UdZmM69iy8DsfmN/uG2LIc4lwW6+If
-	hSWAVdAFY9mjkxx5CeA9sz0CmvqVxVK4RK5JpqIZ4TdQ5OfsT43TDbxNwfQBYK5AovAfg8p
-	EMjuOW8jX6zD1dRsco4Zmnsz8oG4uc57NLsxHZfM3837ppDx7lzKMmzLpdl3wqBnp6TsWtH
-	0g9nIrcYAwxE/WP1a9lBM392zDQWj2uzwj01YI9FI8ULpx8wEv8np4FM4CFfgoBGXVkWPX7
-	40qX1Af5OpEmDb2hxWg8LqC1QYOqVLPSd9PNUw34FBqz9sd3M3xJ6n08JBRZjKN5fYnetb2
-	bMOPNtu5uztC8+W6I3HIXyWsJ4eetHyT15zZfIBi0gC6YKLQvhKzgzg0sdQSWNjSnMWloul
-	bwRuyWBAJ7tV6gTB/M8ZXG5gdNfT914sXYt2eUhBhqr1oQuQ6T5n73ITh7AX3h9Zukll+ca
-	qtgScEqfnrdQCTQXt1O9271/rtamfb7utKs3cerlBa3ttC6lsM8Eo1S75PpTZ6hLY3SNm6t
-	Jh9EKtLF7JBFG5uOuRk7o1NpIGgupmmxYytFq9hLsH9M++57JERk0L0t7usCsiVaVsl99kt
-	AtBEIi7TmDMGKxdyFTNXKxwDCowC4d6Ye06Xp5Z9U8C7RJJmdMx514m3SJ7n2BT/F7XJ2uB
-	KssyVpvrFld235D7pLpJ4eHJeO+ZXL9yR342NbMoMBfRmB+zc/U+k+0XbL653fxi9dc774U
-	4C6btp75a+QMdQ9nZM0iwW3TUfbNxRpUw5I352OZ8LAxb2NdFBt8DBl2gzSnoufisOZhLiM
-	rj5KzFEu9i4EFW6hYlrYFI8C4KasLeumOhS0qLkYk87i1CHpV1PNcnIx8IGalRTEv+wDsPM
-	ucxHIFw2/mLS24CJ2OXlOY=
-X-QQ-XMRINFO: OD9hHCdaPRBwq3WW+NvGbIU=
+X-QQ-XMAILINFO: NSukcgWmJNd8BYYCvQ+Z4AU7BbL32JoK30KTc31XPVU0YecuYp1Bd/jk
+	ZBRDoGHjHhW/kjmhyvQ7ynPo8q3YEeua5oNtbzpUhiyHzbaK1r/o5b8IN87GcozGeXWQh28
+	gvVIcV/HNYp1OXDrskrPffUB+EdlY2nJPw4sElaEQY6qrjPCOKnK15bp22IADHOHeNv8Rp8
+	xXf28bA5sCcHz9RbIq8okKg6VtP5dxhOz0xoI9BVrIEeCxKQQNdkLMFxZVKvxYUtYoTIDzs
+	+1OUOAEjABcXIPooQoJ7B234gBceh8TELNwAnAAdi/jnkOW/UFn5fBGycffY3J8OnUtzIF+
+	eMh2/Mbv7Qkw8ZLD5qfPct+28WiD+D4KYiDkhSd6eni6Pp3xTDeZz19NNeCny/K7ly67HZ3
+	GYtTR42uM+y/iKdOzl0POxSPr3z4oTgq/+X4QVwr7vfq+kPdFa8q353l/p5psRweuUHmqvN
+	y4NiZvZpmzb3zCizfyW8SaGadAtdSpkzYLQVEN24VTqAMnXy3udf2ACwBFiWLJXmj+1lyTI
+	qJ9SGsn3E3R920QoA+EET0lD1w5nE7nimnWkEcPZkbG0DNIsjGPBq9tBu3dHzX2I+PPKccI
+	hv/X/D09vgSe2b+rqLJe6dlj6HaQN4OJLN5uB/SOEICHRoJ30t3r4VMTSehQwnbZuAPzMga
+	wjI2o4+FgZFZ3dJuj9vtRhyzeUpZOe7EeJ6PDn1WlL9M7Ce4IQXYqy8eW5UyDAsbgBI6zUU
+	n0fA8KYmMMokSh99d744QhUWUJa/2SRFmBJQUOXAy/AOngWSzc9UevWMu4GDXrdVm2H6/Nz
+	jKj0LuRp+Jw6TUWbZ4qRDCLvNU6bqoQY98KQ8VHzcAtrYS4QEQM0s7gaqn99rS5fpOXEGVq
+	tqTeY9iksJQGSOKHvJFmAZY6RxFChEZxqoHV2I9SKLKfvx7lE5ktW3m9+1JYfwtsmJYcA6p
+	Dew55sT1KvaLrHrx2CjoTlLdPBwh4Q1fj6pG5LRLpnRddfAtWTNEEWGeik5D0B+0OFU0/CQ
+	AiKnPNE3wBltG7241CAFtYVje6ezFCydGWD/Eb0Pxj+DQk6zoJ5HtfFvTFoFnylnZk9blUl
+	w==
+X-QQ-XMRINFO: OWPUhxQsoeAVDbp3OJHYyFg=
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_013426_982479_7F834D9D 
-X-CRM114-Status: GOOD (  10.86  )
+X-CRM114-CacheID: sfid-20251219_013436_328189_462FB8A7 
+X-CRM114-Status: UNSURE (   7.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,38 +98,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The commit a85ee18c7900 ("kexec_file: print out debugging message
-if required") has added general code printing in kexec_file_load(),
-but not in kexec_load().
-
-As a result, when using '-d' for the kexec_load interface,
-print nothing in the kernel space.
-
-Since the segments debugging message has already been printed by the
-user-space tool kexec-tools, it will not be printed here in the
-kernel space.
-
-And print out type/start/head of kimage and flags to help debug.
+In the previous patch, we move start/head of kimage to the
+generic code, so, we remove them to avoid duplicate printing.
 
 Signed-off-by: Qiang Ma <maqianga@uniontech.com>
 ---
- kernel/kexec.c | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/arm64/kernel/machine_kexec.c | 2 --
+ 1 file changed, 2 deletions(-)
 
-diff --git a/kernel/kexec.c b/kernel/kexec.c
-index f6c58c767eb0..37e4ac8af9f3 100644
---- a/kernel/kexec.c
-+++ b/kernel/kexec.c
-@@ -166,6 +166,9 @@ static int do_kexec_load(unsigned long entry, unsigned long nr_segments,
- 	if (ret)
- 		goto out;
- 
-+	kexec_dprintk("kexec_load: type:%u, start:0x%lx head:0x%lx flags:0x%lx\n",
-+		      image->type, image->start, image->head, flags);
-+
- 	/* Install the new kernel and uninstall the old */
- 	image = xchg(dest_image, image);
- 
+diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
+index 239c16e3d02f..0896e3e6a811 100644
+--- a/arch/arm64/kernel/machine_kexec.c
++++ b/arch/arm64/kernel/machine_kexec.c
+@@ -34,8 +34,6 @@ static void _kexec_image_info(const char *func, int line,
+ {
+ 	kexec_dprintk("%s:%d:\n", func, line);
+ 	kexec_dprintk("  kexec kimage info:\n");
+-	kexec_dprintk("    type:        %d\n", kimage->type);
+-	kexec_dprintk("    head:        %lx\n", kimage->head);
+ 	kexec_dprintk("    kern_reloc: %pa\n", &kimage->arch.kern_reloc);
+ 	kexec_dprintk("    el2_vectors: %pa\n", &kimage->arch.el2_vectors);
+ }
 -- 
 2.20.1
 
