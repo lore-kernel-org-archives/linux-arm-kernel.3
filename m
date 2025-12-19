@@ -4,159 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF0A0D78788
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 14:36:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96111D78787
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 14:45:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QO7v3mInpyxqmqngfzK6cMArjVhYiK5JPVpSUzcyyGQ=; b=gOPxLJM87IecTZqvlS8RSunQtN
-	u1VJjgPGLTS5p1pGgtZ+0ODfYSQvucDx8OAx6WmF5tozalY8s9z9veb3PQfhcjkBuDoDMRHscLUGl
-	lAOFjGsIFAsfnTZ+TI1kxB1M++viPlpW8m0XqcBcFM19ZQfT7H8cTXkIqEkCEZQHlqb1TUiy6A9v2
-	akyQAYgP3t4NWBCxCkUbamhPyZW1RYWofs/BafsoOtuI+9h0DxFjqdQ/7Y+SwP9UFGoPclIzHg5HR
-	iqf6Liw9Rsm5HW1bG9CXzLZ7p50bsQKYnPRzb5k4StESZXeX7duysMRvhdnu+qf95Y6fVKfE+7DQG
-	A+Gs6zWg==;
+	bh=L3QC9hx0gb6+4kf/Z/ME4xCxzzX6T1MXdK0zpxzXR2M=; b=L7ODuA+tm1w8ljcJYzjZaIB5qB
+	6PvczZwJ9cTEXplSNkG0QEXWexLzorWwpoiWD+GuPOapMJU30otJ3fl72Rx9ww+jAKaR9FGQJqK5n
+	JnOqHPKRh5bTz4TbR1fU+z9Lg7l5jTqAEQzGTq6DsZtyNDnM2RgwIq47ILJU6+SIu6uiu1EFBLzH0
+	oqOHzEQKlNJ3Dd/2RoMlobzazDm84Z187TUb9Unf2yYECd7k/zhtzzExhv/Dn35teSbMld30ixcW8
+	cck5eEGFgZxIZ4Ku6OdtlAFIcPZmn5mkC+HlOK7rvfFqZ42yIanRbxUMWY1SjJk/9NRegKEWwds7o
+	Q1KlKiMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWbae-0000000AQ4X-0xNP;
-	Fri, 19 Dec 2025 14:36:21 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vWbjq-0000000ARLU-0eAC;
+	Fri, 19 Dec 2025 14:45:50 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWbaP-0000000APsF-3AAM
+	id 1vWbjp-0000000ARLL-1NNs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Dec 2025 14:36:07 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BJBdDMA3700752
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Dec 2025 14:36:04 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	QO7v3mInpyxqmqngfzK6cMArjVhYiK5JPVpSUzcyyGQ=; b=WAIpjOpQ+PoNwSKf
-	y6JtoIF7TqlCyNrzHYGE+yWtSdWoOyxksM5aRSYFA8xjuacFCIiBdanU0xMirIwc
-	HvvXytN5sQL9MThx09ocL96j496Kwdh1HT/ShkbLg+avvHcZOQyP0aQcLTJjdjNS
-	plwyUlhPM5DGO7yfqsRg7kNjM3mghrWuzrUg4NZSiwgykJ0l3J1XJiVeohj5EvBg
-	ZwM7Hk4vg/6y/A39PL5MEv/AFz7koX2K9SDHVI/Su1KtYGcY+uEGI6Nx5NjVhRjX
-	TOpKAI0d9aANoZ5kav6OUUVD8dNycvwl6xva9HaolBGgAafQsUkpDV4jOb5etk2Q
-	ME8/Dw==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4b4r2ejw1f-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Dec 2025 14:36:04 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4ee09693109so33642451cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Dec 2025 06:36:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1766154964; x=1766759764; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=QO7v3mInpyxqmqngfzK6cMArjVhYiK5JPVpSUzcyyGQ=;
-        b=C5UndrmOQkha7iO4GLGQ4/Fk6eW39CXUeesohaH74j13Tptg8Ol2ehdQ4T+5wWWia3
-         mdsYFGYexA/b0NmRDXNpng+nG33f8HPZj/wlHtXBvLrxPWyUqykPDjNRY2JFfwEgc3vX
-         4mR8uleiyRCSkMULhtiW45nyiPqCtpJBdf8NSockm1NGR41YtBBigFxv1s/KvudWORlq
-         75fRpKnzSokrOla/zGGINLYZYNTQZ46vzu4W2R5rhyAuo0o7FJVAE+f+RgjX5KO3CQ/0
-         ZvSSUjX5KuNFb/XMBUgB/1+iDGfJhthVmxI3WKlX7YaU7wMafQ8RTno3f7LQgmg9Z3MB
-         FMrg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766154964; x=1766759764;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=QO7v3mInpyxqmqngfzK6cMArjVhYiK5JPVpSUzcyyGQ=;
-        b=VouTgifRikLrt+9OHcEYC1K/2kddMhCEdOYfpvwM7WdBS9+yTuHKKVKN2qnW7AK+ta
-         YXf6Fr95Rxb3b27UCXEf0T+i/99cmXO68JAjsQitzEp0piwRjG9XEa74xwvt20vNJnd2
-         1UpTrlYaRVz0XaFFAbQQHPv/lE004k1tTwBEYFZT4a9nriq35vg31Bd6L/q3C1whOO/X
-         aHvWLVjuIuJwsdqtSdapq8v7GixTdkAq1YgN7l/Hnpn1fnaAMzlC06dG6my9JU6PdZCv
-         s3MY9bi18094XO/fuLkOn6/GxntHchfx4fuZ4ubG+EHTUQpkF/R6CK5Hn7Tdg50ooWRj
-         +aMA==
-X-Forwarded-Encrypted: i=1; AJvYcCW0WCExRVUDq9JEmYsQUdasN9DdDVPKrkSyxL5pDJj+JF8Lt0rTthbRpmBi5n3oYZjsL+RUHoipY48IG8pzJaJN@lists.infradead.org
-X-Gm-Message-State: AOJu0YzlgsjOhxnFyI5+SY8glx6FSFLs0RNFzO5vNpgg2JS4AMnbw22a
-	BtJEzSzhJ5IAORbv/W94wz6P2FvwUo9QDMr0H3HvzM3qb3JemcldrzYA3RekvSer63g+WsJaFvU
-	KYc+estnQfrf5PBGHDeOTN6jDaMgp0XrxWMKFwtVjaLyoX3Xzr4HknMEHMGUamgS5PCdoK53Hw5
-	cX/w==
-X-Gm-Gg: AY/fxX7sw7xE0ZShoXcd5VWGImJNZxeC25Sn61pOMXijnuUVT5t2iXyydL/YGfn8fcm
-	EuS0wH7g7im9reKbIw1Bji6rMQ2q7KWw9OEK2fGVQeI10tilldFK/HLtz01UFr2z8sEig+q0JsF
-	O7pmWDwTql/89p/guI8An728nIKAKp/JcO5I29JcYoZHr3EpJGt5AwVgUBIiVq+zlXPVP5Nu3Co
-	osatGrSOHmvRTluICbI9BRTDeZDmV/sXqqSXAS+UNCKVSxP7ohS/nzesJwpgLNrtY5+xtdjMSIg
-	Z93JzZy24XPHmzNq9545Dkh3eUXEz2/mo3mupbo4ZD7CmyFyNian6FboDk2MtqbWG6CRh9mHK01
-	8d+4/3j6VgqqU40Fa9M3bJbVayZn6SN1TMVsIVVoGbtQXaJJhIWiqDdM+k0QODWHIG1XB
-X-Received: by 2002:a05:622a:11cb:b0:4ed:a6b0:5c39 with SMTP id d75a77b69052e-4f4abdc6a4dmr43263551cf.63.1766154964141;
-        Fri, 19 Dec 2025 06:36:04 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEYupEl3gYLzDt53suprXOO0WmjuzlD6rknnropJD9KMCWfnffglHqPJoWvFjr/nYkg2I6ZFg==
-X-Received: by 2002:a05:622a:11cb:b0:4ed:a6b0:5c39 with SMTP id d75a77b69052e-4f4abdc6a4dmr43262891cf.63.1766154963604;
-        Fri, 19 Dec 2025 06:36:03 -0800 (PST)
-Received: from [127.0.1.1] (83.31.98.88.ipv4.supernova.orange.pl. [83.31.98.88])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8037ab7f86sm245145966b.17.2025.12.19.06.36.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Dec 2025 06:36:03 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Date: Fri, 19 Dec 2025 15:31:54 +0100
-Subject: [PATCH 5/5] iio: adc: sc27xx: Simplify with dev_err_probe
+	Fri, 19 Dec 2025 14:45:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3001C60173;
+	Fri, 19 Dec 2025 14:45:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5570BC4CEF1;
+	Fri, 19 Dec 2025 14:45:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766155547;
+	bh=d50zXHYIy6jkS+c4gT20arQdpw4ULCpfc7xYqfNXMyc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=KB+t549p/iNbqJwWXAuDSJGT9QH66eSc+r5tbJcl3tZHDHtUKZdJrZbVhOsV0BEPD
+	 MXphn0HH7CgS+Ct3pM5kasdrdjn+M566XlD8F5R11GqNMUg2eY614x66oImrulrx2i
+	 aCtN5VbW8a0yDHqpBBx+HYj0KVLOU0o2m7pwzaJGlYd/wN+z7zwBaXpnqlGPLV0+kq
+	 q/U2KWE9u8EFlRyCEf1X9a1VtCkeEZjzGJxFR3pfPigcOVmov4OXcxemR/O9M+c/P+
+	 eLK1xeM+4gwl7Wn6jQoHTYC6roYABuDoojj+FRsZBeq+IkpPzfI92aEGnFEwZ0exGs
+	 5CBJR+Edbrm3w==
+Message-ID: <65e5459b-7509-47db-9089-6efecead3f44@kernel.org>
+Date: Fri, 19 Dec 2025 15:45:37 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 07/11] dt-bindings: clock: qcom: document the Kaanapali
+ GPU Clock Controller
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+ Taniya Das <taniya.das@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+ Konrad Dybcio <konradybcio@kernel.org>,
+ Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
+ Imran Shaik <imran.shaik@oss.qualcomm.com>,
+ Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
+ linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org,
+ Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
+ Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+References: <20251125-kaanapali-mmcc-v2-v2-0-fb44e78f300b@oss.qualcomm.com>
+ <20251125-kaanapali-mmcc-v2-v2-7-fb44e78f300b@oss.qualcomm.com>
+ <20251126-elated-stoic-scorpion-25b630@kuoka>
+ <de44560d-4ed8-41fe-be7b-56412b933a8c@oss.qualcomm.com>
+ <fbe39eac-7c92-4a08-bafb-31e5c51a0613@kernel.org>
+ <503f445e-0d12-407d-bc77-f48ad335639b@oss.qualcomm.com>
+ <e8bdb176-b6fb-4dd2-8b5b-9da8073fa915@kernel.org>
+ <ca118faf-3451-4b83-9074-82bc5e1f731e@oss.qualcomm.com>
+ <3e8128f4-3cba-4c13-a846-e5f1638a1e0f@kernel.org>
+ <701a7b2f-848a-4cc0-8924-ec72155d93a7@oss.qualcomm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <701a7b2f-848a-4cc0-8924-ec72155d93a7@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251219-iio-dev-err-probe-v1-5-bd0fbc83c8a0@oss.qualcomm.com>
-References: <20251219-iio-dev-err-probe-v1-0-bd0fbc83c8a0@oss.qualcomm.com>
-In-Reply-To: <20251219-iio-dev-err-probe-v1-0-bd0fbc83c8a0@oss.qualcomm.com>
-To: Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>,
-        =?utf-8?q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
-        Andy Shevchenko <andy@kernel.org>, Joel Stanley <joel@jms.id.au>,
-        Andrew Jeffery <andrew@codeconstruct.com.au>,
-        Krzysztof Kozlowski <krzk@kernel.org>,
-        Alim Akhtar <alim.akhtar@samsung.com>,
-        Heiko Stuebner <heiko@sntech.de>, Orson Zhai <orsonzhai@gmail.com>,
-        Baolin Wang <baolin.wang@linux.alibaba.com>,
-        Chunyan Zhang <zhang.lyra@gmail.com>
-Cc: linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-        linux-samsung-soc@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        linux-rockchip@lists.infradead.org,
-        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3222;
- i=krzysztof.kozlowski@oss.qualcomm.com; h=from:subject:message-id;
- bh=FwErtDRj45YR9+G3sGWpElTdT9H2524MS3PEIg8X+gs=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpRWLIBxhyFmOssOsCYuSdWCS+KQ38MQOZRW/DR
- UUjiKlsTFiJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaUViyAAKCRDBN2bmhouD
- 14EwD/9O5g0sKxohmlPbWRb5GCF+Zyv/zhIM4UOKtjqVRmXpwhQlQ5PPhdnKhun24YiM5mVrrTJ
- jazVQ0q7AS3Pd2nhNF4aEli4cGK6v+5tsbY+W+Z0S4brTp60yR3kHRWKRCH1obXF5k//KG88vDI
- utRrA3kUsFGOuVY7/mGT6u70Y3vLUHvpOIePcaw7yO9ZGQDh1fhrk3V3xE726Y05GFCMAGboP75
- e5VMg8CddWKpb7pPw6KRXj6vMp3stkIQKd2FwIKY+ZVmeuk/WbgJCkyb7JgtONVtYQ7HhS5kv5V
- quVBHJXrbe7XoEpzecJg2KoIlIGSd1hkMo3M3rO6eKwxyyDiwo+IbO+1tAiGJ6z94+0rB3TWS0z
- JCwZsFz7fcLYl/27TiOCXPxoBnkGkpvwMCilqcQ0wuG8Na42nRitMIu5+E2veKtiSHsZkYBaOyR
- qHojscW3lXvVSO1PfjMjpFwqaB3byNdUl96aEpaSezOibzXovGjyYtcrkVErlwWYnUUgSm7JDfd
- SuH2bGvlkFDQDgaR7/uudIXSCccjtRXp+GjB0rZJLAgTtoPW+LIukSddD2zmR6Pz+gV0UFqZSMK
- mAbcTZA4Xd+e1kCf+Aey0jp6AP4Fkt9KxCEvNYvSGtubZ60ve7d5mAoLFT1jAeudBulbCHSu47V
- dnwL6XXYday0k5w==
-X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp;
- fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-X-Proofpoint-GUID: k9FJlRMsB81aIAM-OGmrL5J3q6LmGGvl
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjE5MDEyMiBTYWx0ZWRfX5UwiP/KKinkP
- fKTwy1Ojh3RhAKHDYBSdykAHsxLv8gXUbYvNomG+wbW4qzazI2lCvMWCuIWnN/x146rfgVLv1s6
- AVNUi1Clk2nCotyj7cwhIeheLoy66aIvAmBQJIjk8bUrzZMlMRj6jdSJh2TL5YKDfxOPXPJ4QB3
- 7UjYEaWnaSmJj6OQR/nBJYWqCaV2iqm/R3BltmLzsMjEQQlITxlfjr1p3H3tQwvggsDiZKUkZKw
- eKBkYGlpMiDkxBpP9Ad9kBpTAAMOyaw1rWULWSBurFlGbVnfmJnNkqwRknQaedZPzf1Da9ht0dN
- kVeeMwFeRnW9TSgF12PzErcr2svnnIagRpCKPMC6mhZdIldgIIl8ID+9NiTUPVGEV/zdzAaaFWl
- eyM6egqWkm1bqKTMqF58TOzD29LVbZJPqdBr+G+U7es9JG6+XVejIlrWDhrJ03rOlDqJE2oVD6G
- V7uIhR8Z1sgZzAZE2HQ==
-X-Proofpoint-ORIG-GUID: k9FJlRMsB81aIAM-OGmrL5J3q6LmGGvl
-X-Authority-Analysis: v=2.4 cv=EabFgfmC c=1 sm=1 tr=0 ts=694562d4 cx=c_pps
- a=JbAStetqSzwMeJznSMzCyw==:117 a=qe4J/qXhiWkb1JZGYKbLYA==:17
- a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=cWTT0jPcX04evTyD5nUA:9
- a=QEXdDO2ut3YA:10 a=uxP6HrT_eTzRwkO_Te1X:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-12-19_05,2025-12-17_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 phishscore=0 malwarescore=0 lowpriorityscore=0 clxscore=1015
- bulkscore=0 suspectscore=0 priorityscore=1501 adultscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2512190122
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_063605_921996_1112A70B 
-X-CRM114-Status: GOOD (  16.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,105 +140,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use dev_err_probe() to make error code handling simpler and handle
-deferred probe nicely (avoid spamming logs).
+On 19/12/2025 14:02, Konrad Dybcio wrote:
+> On 12/17/25 2:54 PM, Krzysztof Kozlowski wrote:
+>> On 17/12/2025 14:21, Konrad Dybcio wrote:
+>>> On 12/17/25 11:09 AM, Krzysztof Kozlowski wrote:
+>>>> On 17/12/2025 10:32, Taniya Das wrote:
+>>>>>>>
+>>>>>>> We would like to leverage the existing common clock driver(GDSC) code to
+>>>>>>
+>>>>>> Fix the driver code if it cannot handle other cells. Your drivers do not
+>>>>>> matter for choices made in bindings.
+>>>>>>
+>>>>>
+>>>>> As it is still a clock controller from hardware design and in SW I will
+>>>>> be map the entire hardware region and this way this clock controller
+>>>>> will also be aligned to the existing clock controllers and keep the
+>>>>> #power-domain-cells = <1> as other CCs.
+>>>>
+>>>> I don't see how this resolves my comment.
+>>>
+>>> Spanning the entire 0x6000-long block will remove your worry about this
+>>> description only being 2-register-wide
+>>
+>> But that was not the comment here. Taniya replied under comment about
+>> cells. We are not discussing here some other things...
+> 
+> Right, you omitted the part where I answered your comment from the
+> context, so I'll re-add it:
+> 
+> """
+> This block provides more than one GDSC - although again, not all of them
+> need/should be accessed by Linux. I suppose just enumerating the "extra"
+> ones in bindings will be a good enough compromise?
+> """
+> 
+> TLDR: cells=1 makes sense as per usual
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
----
- drivers/iio/adc/sc27xx_adc.c | 49 +++++++++++++++-----------------------------
- 1 file changed, 17 insertions(+), 32 deletions(-)
+Either list them in headers or at least explain that in the binding.
 
-diff --git a/drivers/iio/adc/sc27xx_adc.c b/drivers/iio/adc/sc27xx_adc.c
-index 2535c2c3e60b..6209499c5c37 100644
---- a/drivers/iio/adc/sc27xx_adc.c
-+++ b/drivers/iio/adc/sc27xx_adc.c
-@@ -867,10 +867,8 @@ static int sc27xx_adc_probe(struct platform_device *pdev)
- 	int ret;
- 
- 	pdata = of_device_get_match_data(dev);
--	if (!pdata) {
--		dev_err(dev, "No matching driver data found\n");
--		return -EINVAL;
--	}
-+	if (!pdata)
-+		return dev_err_probe(dev, -EINVAL, "No matching driver data found\n");
- 
- 	indio_dev = devm_iio_device_alloc(dev, sizeof(*sc27xx_data));
- 	if (!indio_dev)
-@@ -879,56 +877,43 @@ static int sc27xx_adc_probe(struct platform_device *pdev)
- 	sc27xx_data = iio_priv(indio_dev);
- 
- 	sc27xx_data->regmap = dev_get_regmap(dev->parent, NULL);
--	if (!sc27xx_data->regmap) {
--		dev_err(dev, "failed to get ADC regmap\n");
--		return -ENODEV;
--	}
-+	if (!sc27xx_data->regmap)
-+		return dev_err_probe(dev, -ENODEV, "failed to get ADC regmap\n");
- 
- 	ret = of_property_read_u32(np, "reg", &sc27xx_data->base);
--	if (ret) {
--		dev_err(dev, "failed to get ADC base address\n");
--		return ret;
--	}
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to get ADC base address\n");
- 
- 	sc27xx_data->irq = platform_get_irq(pdev, 0);
- 	if (sc27xx_data->irq < 0)
- 		return sc27xx_data->irq;
- 
- 	ret = of_hwspin_lock_get_id(np, 0);
--	if (ret < 0) {
--		dev_err(dev, "failed to get hwspinlock id\n");
--		return ret;
--	}
-+	if (ret < 0)
-+		return dev_err_probe(dev, ret, "failed to get hwspinlock id\n");
- 
- 	sc27xx_data->hwlock = devm_hwspin_lock_request_specific(dev, ret);
--	if (!sc27xx_data->hwlock) {
--		dev_err(dev, "failed to request hwspinlock\n");
--		return -ENXIO;
--	}
-+	if (!sc27xx_data->hwlock)
-+		return dev_err_probe(dev, -ENXIO, "failed to request hwspinlock\n");
- 
- 	sc27xx_data->dev = dev;
- 	if (pdata->set_volref) {
- 		sc27xx_data->volref = devm_regulator_get(dev, "vref");
--		if (IS_ERR(sc27xx_data->volref)) {
--			ret = PTR_ERR(sc27xx_data->volref);
--			return dev_err_probe(dev, ret, "failed to get ADC volref\n");
--		}
-+		if (IS_ERR(sc27xx_data->volref))
-+			return dev_err_probe(dev, PTR_ERR(sc27xx_data->volref),
-+					     "failed to get ADC volref\n");
- 	}
- 
- 	sc27xx_data->var_data = pdata;
- 	sc27xx_data->var_data->init_scale(sc27xx_data);
- 
- 	ret = sc27xx_adc_enable(sc27xx_data);
--	if (ret) {
--		dev_err(dev, "failed to enable ADC module\n");
--		return ret;
--	}
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to enable ADC module\n");
- 
- 	ret = devm_add_action_or_reset(dev, sc27xx_adc_disable, sc27xx_data);
--	if (ret) {
--		dev_err(dev, "failed to add ADC disable action\n");
--		return ret;
--	}
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to add ADC disable action\n");
- 
- 	indio_dev->name = dev_name(dev);
- 	indio_dev->modes = INDIO_DIRECT_MODE;
-
--- 
-2.51.0
-
+Best regards,
+Krzysztof
 
