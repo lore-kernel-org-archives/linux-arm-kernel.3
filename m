@@ -4,93 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D924D7494F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 03:53:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D085AD7494F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 04:54:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0lUyL1UCQm8GpXarPgPZME+r7IT5Tq9McCg9JzwT0XA=; b=GZX5taVrutIiNHc1dk5WGZUmYa
-	BBjMZbrc6SzVy0lLkAtZx3Xd/HWZvy96lnhQ2DK+ck5+d3qdtc3ZawI4iLV7EhdfudsdBzMc1NPQA
-	8m8EdarcxHRbFH45YH43D8XulN88Ibgg5kA7U5fqRXl6MWDmYyovi/ICgRwuX31TEL8fLB6ryuGMg
-	enIqJzt9KcfQHGzHLmioq38BZzHk1F1psqwHukmNSnHsJUhhzMIG6It9iWyU7ZPVGnlF2zmC5C4u7
-	B3liHlwE6Puyiekbl+Y6+qMBggp1eMMfaCe4/X+p+d10SZE4Pji5AjxEObwAOdBL+x6tVOvz3sKdp
-	gDnG3xoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n8CrdePke6nxgLLIV4YdooH1qhgfdhRfmGtb1gQBJnE=; b=Ni+fSkLxfWxZ7k4AWWZyJ4I/no
+	6t8I92hN70HXaaNfFM2YFSCPgkHYSpL+kQ5+vn4aYgj5TgA4jNjE/xuPBkX8TEFvA/OF1CduvwRV3
+	prC/nWzLtaRxX0HGpIeA94XVOkoOpYQ9tLHtR6hHfJpztToc5mKKTBOp6+zuc+AhxAGNqfmKOI+G+
+	FYq1IYbGAfBctPIGG6YDaLSjUGcHk601H/B27DtpkwvUqfzLeVqasboA0llrKOuPEupV4m1k2lYwo
+	dUfJU5r/r0tY5etXAXEBtuP/BeymuAlPp+bPS6KNZh/IdBNcEBmCtRe/CkYR4NTURvjQPiJWEcs6x
+	VnEY4/4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWRYf-00000009Zqc-2b9v;
-	Fri, 19 Dec 2025 03:53:37 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1vWSV7-00000009c0j-05ni;
+	Fri, 19 Dec 2025 04:54:01 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWRYd-00000009ZqF-2An7
+	id 1vWSV4-00000009c0F-1LA2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Dec 2025 03:53:36 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-477a1c28778so13496715e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 19:53:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1766116413; x=1766721213; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0lUyL1UCQm8GpXarPgPZME+r7IT5Tq9McCg9JzwT0XA=;
-        b=Ng6DGnl9dD9Yfqi+NZgp4biYL8OWxpKBy6JcjA/z75fZ08mwtgdHKXECwBeWAuCWaa
-         Urnjcx15qJIv6uJq09tqzpeJYLKuzJyo1rrHjB+ksAbLucFPfr+cVZCV6SvZ3yw3QdUt
-         UPXw1aUkA8f8AMRw0uCcLTdhncr7pcXVoCvd8A9tvGUL+UD8UYYbtUft3+EUaROESpjN
-         df7ngcb9JBzq6AtzTVAQS1jsIs3tqnb4q3R6pMI2lZggVJN19bPHBjlY0lcKJxvPylfZ
-         LNMIT5I+YLR+aOuxXDqGJO/l1CRr28kbA4loy/urw6fU9iPKmlQ4iR2EHUufL98XmN9i
-         b1Ew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766116413; x=1766721213;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=0lUyL1UCQm8GpXarPgPZME+r7IT5Tq9McCg9JzwT0XA=;
-        b=mfiJgS6eTYggEdC91I2DBjvA69pF+LzZlBeBNW4XK+KQmjYaj8nT/cvKSVVddxrTM7
-         RgJe/hYjTFoMPrdOdScTORlJrA7pLw0o6HT7R58YUpnjd3DP1E7Vj0VlBSIEduWHuK7b
-         72HcKNw8vj/XCKU5y8SHtno42O5Iik18g3wTHhiJ1TX6z/URAV2FbGay7vMZYdlGSOiJ
-         9Mq7DvJXRb9vpULtMWfDbvX1DJVL4pbVx7Icg1kZP0UbQCjm4hhI3eKL6nmZ/Cw9aIme
-         /WTmY7LFApjqhyN5sZvcRtqQhJVYj5wa5Ro4SCNguRQwcMoWg4rvPW4QxB30P3F5SzUr
-         4X+g==
-X-Forwarded-Encrypted: i=1; AJvYcCWWraz0QCZx6IUF80yFSpaWo5Rjjy9bknj23XcdBzJ84WYlHEsREoRcc1YGUo93YtkLqXt7bkg/iuzs57csB5oi@lists.infradead.org
-X-Gm-Message-State: AOJu0YxKqLt4roYia0M7OsTdwP9RBkn9NU2rfYDwXSzbnlmadZr3gRXI
-	YUBHLBnjxkUbBgXrC2ykZkNGTi1Y39E+kvffHQlNLNAv4BUaT5+MPAYGKdsegrHRcomVTCSJ+Xp
-	cO+T0FKbQaQtPt4N8rm8bbATNbO1eTuG9hr/tN749
-X-Gm-Gg: AY/fxX5wNvh7XeOWAtYu3YfN9ZixzyAkIe451Vf5yLuSmxn/1nZHXi5WH27lzHcrKxE
-	BVBa1/tKVFy1Iob1ijW1ZWqnJ5jiUPKkOsJ02+WA0UbWWItm8mcegGftR9o3LpZ+YBjIhNQSGff
-	X2/ySamdxm9d7Ux3XqcBIa3Geyth4XnSaVKTHvDsw2P8yHAhjDNSA6sALcvSYpDY3uUD5T9Srqs
-	Ik9kIpftRJ92hCtjLTLIXPQBGHSo+UUO4w+x9D9g6BU2FbDPjVXS6aGlqdERPHXipWxDpCYOr2l
-	AYQdF49z4eYPwpKQsESLkhgvjQ==
-X-Google-Smtp-Source: AGHT+IHIoRhAHsJljmUD61AePjzLVFwj3QhjnhhL+UNfjxtXlU0R+Mcoh6Zz1m9uhNQfkadim1hYkHd1OiRbICHRCl4=
-X-Received: by 2002:a05:6000:1865:b0:430:fd69:9920 with SMTP id
- ffacd0b85a97d-4324e4cb8fcmr1372653f8f.16.1766116413242; Thu, 18 Dec 2025
- 19:53:33 -0800 (PST)
+	Fri, 19 Dec 2025 04:53:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1766120038; x=1797656038;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=hE9E3Ug+7uhFPPxWAz/WZoEyJgKJTbWKXQ+/RMI7KXU=;
+  b=Nr1OFW7mHZDq74wHDNj937ABQMVUYPLbMheujroRNR0fpMOyaoXWBsrf
+   4R20Mwj5WblYd6Hopnk98rAcfjYt2nfJdsqzSSeObXqxWcqhq+vKGkEhi
+   W13q0SwGZbCz5EwxSIpjibNWp5OZ/aI26TSr6NUETWBP1PcC1lZdNKJR6
+   kniop9sHb8VEU12cet5BLOXrFh3kS/LfKFwixnuAh+oZ+uhQfLVfqi4F5
+   gq/+cvGP5zrG6insMFLO48roxc/po3KebaU8NmGR04yqdP/cXcekvYmn4
+   TjPQda2diRFOa4nRNZ14BczMHD0YmIu9YhVJuknlbGuspC++gwwLh1wyz
+   w==;
+X-CSE-ConnectionGUID: 7U39FNT7RWiHtujaZZwD+A==
+X-CSE-MsgGUID: aAdM2YokSAS0X8XX6NZYhQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11646"; a="68157672"
+X-IronPort-AV: E=Sophos;i="6.21,159,1763452800"; 
+   d="scan'208";a="68157672"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Dec 2025 20:53:55 -0800
+X-CSE-ConnectionGUID: 8Bsyd2beRLaaC8ATL7Mnmg==
+X-CSE-MsgGUID: zYXGz6aXQsKbYaNPzWnQsQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,159,1763452800"; 
+   d="scan'208";a="198680831"
+Received: from lkp-server01.sh.intel.com (HELO 0d09efa1b85f) ([10.239.97.150])
+  by fmviesa006.fm.intel.com with ESMTP; 18 Dec 2025 20:53:49 -0800
+Received: from kbuild by 0d09efa1b85f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vWSUs-0000000031h-3wlH;
+	Fri, 19 Dec 2025 04:53:46 +0000
+Date: Fri, 19 Dec 2025 12:52:55 +0800
+From: kernel test robot <lkp@intel.com>
+To: Ankur Arora <ankur.a.arora@oracle.com>, linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org, bpf@vger.kernel.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev, arnd@arndb.de,
+	catalin.marinas@arm.com, will@kernel.org, peterz@infradead.org,
+	akpm@linux-foundation.org, mark.rutland@arm.com,
+	harisokn@amazon.com, cl@gentwo.org, ast@kernel.org,
+	rafael@kernel.org, daniel.lezcano@linaro.org, memxor@gmail.com,
+	zhenglifeng1@huawei.com, xueshuai@linux.alibaba.com,
+	joao.m.martins@oracle.com, boris.ostrovsky@oracle.com,
+	konrad.wilk@oracle.com, Ankur Arora <ankur.a.arora@oracle.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Christoph Lameter <cl@linux-foundation.org>
+Subject: Re: [PATCH v8 03/12] arm64/delay: move some constants out to a
+ separate header
+Message-ID: <202512191227.TXFkHrQf-lkp@intel.com>
+References: <20251215044919.460086-4-ankur.a.arora@oracle.com>
 MIME-Version: 1.0
-References: <CAD=FV=W+jE_L_LLgAhD8K_4+CtivSD9-9t7Xe63XuKrKjfyfeQ@mail.gmail.com>
- <qjpukes4etbgh4ncapec4v6okkiohlcqqdfvjfinyrj6olaryc@l3vspbwze7ri>
-In-Reply-To: <qjpukes4etbgh4ncapec4v6okkiohlcqqdfvjfinyrj6olaryc@l3vspbwze7ri>
-From: Doug Anderson <dianders@google.com>
-Date: Thu, 18 Dec 2025 19:53:21 -0800
-X-Gm-Features: AQt7F2p2onmGGluMChpUPnX2EJ52kg3U4wzxf-6WTNWJ3ZgZKq0PFDzSaO68z8M
-Message-ID: <CAD=FV=VmzcsauPM3WuJhc9=_+qa+Tvmtqdhz0eDXz5TF-fHaKA@mail.gmail.com>
-Subject: Re: Proposal: document where SoC info belongs
-To: Bjorn Andersson <andersson@kernel.org>
-Cc: devicetree-spec@vger.kernel.org, 
-	"Russell King (Oracle)" <linux@armlinux.org.uk>, boot-architecture@lists.linaro.org, 
-	Chen-Yu Tsai <wenst@chromium.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	William McVicker <willmcvicker@google.com>, Julius Werner <jwerner@chromium.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Geert Uytterhoeven <geert@linux-m68k.org>, Simon Glass <sjg@chromium.org>, Rob Herring <robh@kernel.org>, 
-	Stephen Boyd <sboyd@kernel.org>, Linus Walleij <linusw@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251215044919.460086-4-ankur.a.arora@oracle.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_195335_617678_6FDA954B 
-X-CRM114-Status: GOOD (  57.17  )
+X-CRM114-CacheID: sfid-20251218_205358_377624_C2FBA983 
+X-CRM114-Status: GOOD (  11.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,174 +99,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Ankur,
 
-On Thu, Dec 18, 2025 at 6:39=E2=80=AFPM Bjorn Andersson <andersson@kernel.o=
-rg> wrote:
->
-> On Thu, Dec 18, 2025 at 02:56:03PM -0800, Doug Anderson wrote:
-> > Hi,
-> >
-> > To try to move things along, I'm picking a small piece out of my
-> > previous discussion [1] to see if we can make some progress.
-> >
-> > Right now, the top-level "compatible" string in a dts file usually
-> > contains one or more strings to represent the SoC. Examples chosen
-> > semi-randomly:
-> >
-> > exynos5250-snow.dts:
-> > - compatible: "google,snow-rev4", "google,snow", "samsung,exynos5250",
-> > "samsung,exynos5"
-> > - SoC: "samsung,exynos5250", "samsung,exynos5"
-> >
-> > sun20i-d1-clockworkpi-v3.14.dts:
-> > - compatible: "clockwork,r-01-clockworkpi-v3.14", "allwinner,sun20i-d1"
-> > - SoC: "allwinner,sun20i-d1"
-> >
-> > sdm845-db845c.dts:
-> > - compatible: "thundercomm,db845c", "qcom,sdm845"
-> > - SoC: "qcom,sdm845"
-> >
-> > I propose that we DEPRECATE including SoC information in the top-level
-> > compatible string and move it elsewhere. I propose these top-level
-> > properties that should be used instead:
-> >
-> > soc-family-compatible =3D "vendor,family";
-> > soc-product-id =3D <0x1234>;
-> > soc-product-variant =3D <0x1234>;
-> > soc-product-description =3D "Something";
-> > soc-major-rev =3D <0x1234>;
-> > soc-minor-rev =3D <0x1234>;
-> > soc-sub-rev =3D <0x1234>;
->
-> So these 6 properties defines the soc itself? And the rules for how a
-> bootloader matches against these 6 properties is defined elsewhere?
+kernel test robot noticed the following build errors:
 
-Right. See below, but I think a bootloader would need to know how
-important a mismatched minor-rev or sub-rev is. I guess we could come
-up with a rule and hope it works for everyone, though...
+[auto build test ERROR on bpf-next/master]
+[also build test ERROR on bpf/master linus/master arnd-asm-generic/master v6.19-rc1 next-20251218]
+[cannot apply to arm64/for-next/core bpf-next/net]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Ankur-Arora/asm-generic-barrier-Add-smp_cond_load_relaxed_timeout/20251215-130116
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git master
+patch link:    https://lore.kernel.org/r/20251215044919.460086-4-ankur.a.arora%40oracle.com
+patch subject: [PATCH v8 03/12] arm64/delay: move some constants out to a separate header
+config: x86_64-buildonly-randconfig-004-20251215 (https://download.01.org/0day-ci/archive/20251219/202512191227.TXFkHrQf-lkp@intel.com/config)
+compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251219/202512191227.TXFkHrQf-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202512191227.TXFkHrQf-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> drivers/soc/qcom/rpmh-rsc.c:29:10: fatal error: 'asm/delay-const.h' file not found
+      29 | #include <asm/delay-const.h>
+         |          ^~~~~~~~~~~~~~~~~~~
+   1 error generated.
 
 
-> What about "PCB" name and version?
->
-> How about the case where my product has 5 different components that
-> might come from a second source?
+vim +29 drivers/soc/qcom/rpmh-rsc.c
 
-This _only_ covers SoC with the goal of getting the SoC out of the
-top-level compatible string. The SoC tends to be a lot easier to deal
-with. It doesn't try to solve the board problem. I was hoping to bite
-off something small that we could agree upon and I'm worried that if
-we try to tackle the board problem at the same time we'll just get
-deadlocked.
+     8	
+     9	#include <linux/atomic.h>
+    10	#include <linux/cpu_pm.h>
+    11	#include <linux/delay.h>
+    12	#include <linux/interrupt.h>
+    13	#include <linux/io.h>
+    14	#include <linux/iopoll.h>
+    15	#include <linux/kernel.h>
+    16	#include <linux/ktime.h>
+    17	#include <linux/list.h>
+    18	#include <linux/module.h>
+    19	#include <linux/notifier.h>
+    20	#include <linux/of.h>
+    21	#include <linux/of_irq.h>
+    22	#include <linux/of_platform.h>
+    23	#include <linux/platform_device.h>
+    24	#include <linux/pm_domain.h>
+    25	#include <linux/pm_runtime.h>
+    26	#include <linux/slab.h>
+    27	#include <linux/spinlock.h>
+    28	#include <linux/wait.h>
+  > 29	#include <asm/delay-const.h>
+    30	
 
-IMO different families of boards will have different ways of
-identifying different SKUs or boards with different 2nd source
-components. Thus, IMO, for describing that type of thing we need to
-allow different "loaders" to specify different types of properties.
-...but I guess this is controversial and folks would like to identify
-some sort of "universal" system that everyone can agree upon. While
-that seems like it could be doable for SoC, I don't see it working for
-boards. Maybe I'm just wrongheaded.
-
-
-> Are you proposing that we allow adding arbitrary properties matching
-> some pattern in the top-level node to facilitate matching? Presumably
-> defined in some combination of vendor bindings?
->
-> >
-> > The family-compatible would be VERY high-level and is not intended to
-> > be a marketing name. It would be something like "samsung,exynos",
-> > "nvidia,tegra" or "google,google-silicon". The ONLY goal for this
-> > string is that within a family, the other properties uniquely identify
-> > a given SoC. This is a SINGLE string, NOT a list of strings. There is
-> > no concept of being part of multiple families.
-> >
-> > All the other numbers are hopefully self-explanatory. These values
-> > could be absent (assumed 0) if they don't make sense for a given SoC.
-> >
-> > The soc-product-description is designed to be some nice name that
-> > represents the family, product-id, and product-variant but _not_ the
-> > rev (since that's easy for anyone who cares to represent it as "rev
-> > X.Y.Z")
-> >
-> >
-> > The goals here are:
-> > * Stop trying to jam so much into the top-level "compatible".
-> > * Make it one step easier for bootloaders (or code packaging device
-> > trees for bootloaders) to differentiate device trees / overlays. This
-> > isn't _enough_ since this proposal doesn't include board info, but
-> > it's a place to start.
-> > * Make it easier to deal with "socketed" boards where the SoC can be re=
-placed.
-> >
-> > NOTE: if a set of devicetrees is provided to a bootloader, it could
-> > not just look at these properties to help it pick a devicetree but it
-> > could also change the properties to be more detailed (it could fill in
-> > some of the minor/sub-revs, for instance).
-> >
-> >
-> > I think this is a positive change for everyone and a cleaner way to
-> > represent things even if you aren't dealing with the above problems.
-> >
-> > What I'm looking for from people is some responses. Folks could choose:
-> >
-> > A) Yes, this is great. We already have something like this and we'd
-> > switch to your properties if it became a standard.
-> >
->
-> We have qcom,msm-id; qcom,board-id; qcom,pmic-id; these have met the
-> needs of some, but generally it lacks multiple axis.
->
-> > B) I like the idea, but I need an extra property to represent my SoC
-> > and then I'd use it.
-> >
->
-> s/an/several/
-
-Aside from helping to deal with boards / second sources, what is missing?
-
-
-> > C) I like the idea and I'd use it, but with some changes.
-> >
-> > D) We don't have anything like this today, but it sounds useful.
-> >
-> > E) Why are you wasting my time? This isn't a useful problem. The SoC
-> > belongs in the top-level compatible string, period.
-> >
->
-> We do have functionality that relates to the generic soc name,
-> (qcom,sdm845 in your example above). Extracting it into something else
-> would imply that we need to check against soc-family-compatible?
->
-> But when it comes to bootloaders picking the appropriate compatible,
-> I've seen plenty of cases where basing it on compatible would be nasty.
->
-> E.g. how do you write your string matching routine such that it allows
-> all the different axis, where some are optional, some allows fallback to
-> previous minor revisions of the chip etc.
-
-If we're _just_ worrying about the SoC, I think we don't need to do
-any string parsing. In the case of Qualcomm, I'd imagine that you'd
-have _just one_ "soc-family-compatible" for all Qualcomm SoCs. Perhaps
-"qcom,msm". This is because I believe all Qualcomm chips have a global
-"product ID". So for "sdm845", you'd have:
-
-soc-family-compatible =3D "qcom,msm";
-soc-product-id =3D <0xSDM845_PRODUCT_ID>;
-soc-product-variant =3D <0xIF_THERE_ARE_SKUS_OF_SDM845_PUT_HERE>;
-soc-product-description =3D "Qualcomm SDM845";
-soc-major-rev =3D <...>;
-soc-minor-rev =3D <...>;
-soc-sub-rev =3D <...>;
-
-So no string matching. The bootloader would have to have knowledge of
-whether it would pick a device tree where a sub-rev, minor-rev,
-major-rev, or variant doesn't quite match.
-
-With that explanation, does it sound better? ...or maybe it's just not
-useful to you because moving the SoC out of the compatible isn't
-useful to you without also handling the different SKUs and second
-source components?
-
--Doug
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
