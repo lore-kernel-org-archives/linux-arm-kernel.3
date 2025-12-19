@@ -4,181 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EB23D7496F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 09:29:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9A2BD74971
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 09:34:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gQO8w8AHTkUMR2NwVJDb+ldM23mQYGpCJ1mpj+GiF14=; b=S4FuGijqpQleA1JgteF0dBsn9A
-	gV9iLA6KjHzb46jLSnNbDZlyxtFHRmBrXz+nJzhJ14E4vd0ejC7oIMUB5wTuU8KWIS+dl2NZLj9A9
-	D0Gb0YcjjoQ5R/GUEytvEPlps+a5hsIjAVgDKpl+45WyJWEP5IkhrLgm3mTVnCTDjiHGZ7xbRW4ve
-	7x/889v/BZzlMOsDw0k6zXLJWjSs6xh2dJ7nV+GBV0civGQTe11FoPiqHUC6mT57fL+LJo/XdtwK8
-	rapUtEGLSXhh4afYHGKCFiyEVLraqr5xoQLn56ySdPIc0DSQaDrXX3X42bFz1HybOj6f/2ZDnC35S
-	aI0LsC4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xThT3ZAnzHU5Zu6pI/yzmNv7BBJH0PKrMFuW9mjkr08=; b=TPVeOVndq4MusYBHqzbqfvowIW
+	Xc+3c9LBdy6TjuzaWz+2iF0fWJ6RCohh7p+qNTGTM1qYMJUFWrTjb3zSY5N4864KQSzj6kzCwFY6e
+	AVVJa9hdBI9bbtatfhCp3+JPUS6emIbQ2Isq7nhWaABxDxoO755ZgPeF2Jd3L4MOGInQ9GhY7V+qN
+	d0aWpKRFhEFT247MSF4uNOzYbLfDaci6AoeCpY15yWrsPCD1Yyw/V+aPsOlvRliJYMouD+FEt2LJ5
+	TU934Xq1SYrjRyeT/qbKgOB/jESSwQNhN7R+0PAeK0if3V1AbBt0OPYQxqDyrYmHcKrV7LyO9SnHV
+	5EDhBA+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWWnI-00000009xAL-2MOp;
-	Fri, 19 Dec 2025 09:29:04 +0000
-Received: from mail-francecentralazon11023100.outbound.protection.outlook.com ([40.107.162.100] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1vWWs4-00000009xa9-2zSI;
+	Fri, 19 Dec 2025 09:34:00 +0000
+Received: from smtpbgjp3.qq.com ([54.92.39.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWWnE-00000009x8N-2ac3
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Dec 2025 09:29:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bDN3AWJU5gHN6vUSmt3bC13R1gUDjHPL2ZtAK9jT6HK0UqgF/Eyy6TXn1hF7jSXMjca0xSrFMbbEco5OpiVzlzFG99a4XaHz9UwmwILvn6PlH4E8mSlx1/MKHJc/fcu0k8Rs8IGNRePIaPB42gpfkkybtZZKIYgqzIUFb9EyhByXBQAAebGg49K6WuSIFyvS19Y3vmap+8NBioyE4p4AtiYfEo9TDA4rhzc1un7UB73HZeyZGo16XVge+84axOefM/hAcfBkFL5MEKc8Na+dQ7q5clMw6JSPxl+E8qYxMuPudG8P1A1p3dr95cn3WzoG3QaG/vAKePxiQ909OgtNPQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gQO8w8AHTkUMR2NwVJDb+ldM23mQYGpCJ1mpj+GiF14=;
- b=bQvmnvUxnZ37nZE0MtkJuXFLAfvTE512G6QMEGeozec9CpLEqA1RbEV/qr16WClelY60vuDiDChp3PWnzATj67c4SMYoJP1XDN17r4CxnjTkbZvUbdKJ/zG2btG2btiIGgBv5eqFOx+a7K6NatdRzQbVICNQK/1TphVBrB6ABpdgh+Mjn//+N3f7vPt4IjWtoid84Nj1mMzcosIN9S1jCGQ5XTWHWOySCO9gPAeSkAZ41tEOeh6CqZOXUpdu0OSZOgHiGfz77YoCwbSYrIxHvHdVOOOI6KrDHGpP55t8LLYUuAAXH3HWjEbrGFpYYbeORMJAFCBQabaHkPEK1W3WqQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=phytec.fr; dmarc=pass action=none header.from=phytec.fr;
- dkim=pass header.d=phytec.fr; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=phytecmesstechnikgmbh.onmicrosoft.com;
- s=selector1-phytecmesstechnikgmbh-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gQO8w8AHTkUMR2NwVJDb+ldM23mQYGpCJ1mpj+GiF14=;
- b=Q4sNUR86zMGtR4E3mZaYHK4Jfoke2QTswTEI+Ns9iaiyd7ZjCi5q6Nhnp5fWrqtxVsZkIhy9gL9FyRs/AGCYhwl58B3wps4+wbvyWFJbJjxgU1fymGpMyBi7JLbDZ4W+0EKfUTppMUISqytzn4BzeQfRlnWRjC8Hpu2ZubdAVHU=
-Received: from DU0P195MB2197.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:472::20)
- by PA2P195MB2494.EURP195.PROD.OUTLOOK.COM (2603:10a6:102:40b::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.6; Fri, 19 Dec
- 2025 09:28:52 +0000
-Received: from DU0P195MB2197.EURP195.PROD.OUTLOOK.COM
- ([fe80::6f68:e880:a341:452f]) by DU0P195MB2197.EURP195.PROD.OUTLOOK.COM
- ([fe80::6f68:e880:a341:452f%7]) with mapi id 15.20.9434.001; Fri, 19 Dec 2025
- 09:28:51 +0000
-From: Christophe Parant <c.parant@phytec.fr>
-To: "robh@kernel.org" <robh@kernel.org>
-CC: "alexandre.torgue@foss.st.com" <alexandre.torgue@foss.st.com>,
-	"linux-stm32@st-md-mailman.stormreply.com"
-	<linux-stm32@st-md-mailman.stormreply.com>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, "upstream@lists.phytec.de"
-	<upstream@lists.phytec.de>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "mcoquelin.stm32@gmail.com"
-	<mcoquelin.stm32@gmail.com>
-Subject: Re: [PATCH RESEND v2 03/11] dt-bindings: arm: stm32: Modify
- STM32MP15x Phytec board items types
-Thread-Topic: [PATCH RESEND v2 03/11] dt-bindings: arm: stm32: Modify
- STM32MP15x Phytec board items types
-Thread-Index: AQHcardCA4jkgqRtikGcfueWeIeu/7UovleA
-Date: Fri, 19 Dec 2025 09:28:51 +0000
-Message-ID: <0ad7413a5252633b2a820db1cf2a10f7d658f6c6.camel@phytec.fr>
-References: <20251210101611.27008-1-c.parant@phytec.fr>
-	 <20251210101611.27008-4-c.parant@phytec.fr>
-	 <20251211160013.GA1485420-robh@kernel.org>
-In-Reply-To: <20251211160013.GA1485420-robh@kernel.org>
-Accept-Language: fr-FR, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=phytec.fr;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DU0P195MB2197:EE_|PA2P195MB2494:EE_
-x-ms-office365-filtering-correlation-id: 644e919c-ed7b-45b7-97b7-08de3ee105cf
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|10070799003|1800799024|376014|38070700021;
-x-microsoft-antispam-message-info: =?utf-8?B?bnNxVkNaaFJydWFxeklPR0ZVS1FZR2JoYnZUeGcxbWRyQUcxOTdsblNlbTV5?=
- =?utf-8?B?UUZzMmwxblhwMTZhb0NiSVp3aEg3SlZKREpPZ1RHV003akg4WGtsSkh1UjJ1?=
- =?utf-8?B?NmVWSVhvRzBVVngzSjRTY1lMTWg1V2liV3I4VE9rSWVyNjJkQlJiRDNUSE5i?=
- =?utf-8?B?WDJaYmx0eitobi9YTjdEdUNEVHVzNG0yRE8rM1B1aGlVb213Z2hVYk11Q2FS?=
- =?utf-8?B?NW04R1UvdHQvU2haNUVnYmhmTXNHS0FwaVBmeXUrWnlVaGowUmlpSTNscUkr?=
- =?utf-8?B?VzdxcDFWQ2VwYmVkR1FFRU9TbEVmZU1WZGwyYkpzQjZQUGFTbThNTzZ3M1Nm?=
- =?utf-8?B?SDVVcmxJZ0NTMVNEL25iSmRQQnk2cUZ0ek1lL2w1eXB1MC9HeU1YRzV3Z2Vs?=
- =?utf-8?B?MkFqOU1OOEN1NndscHV0ai9obzZhd3Z3T3NsbHJkZ0hLd01PMUN3UkZpeDZz?=
- =?utf-8?B?eWtOS3FkbEdFdEs3cXg1UE12alVteElhOFVrd0ZNSGZLVHU4YUNGVU85ZzFr?=
- =?utf-8?B?cW9RMUluZ2RMUHlGV0xoS2hDMjM0MThnNGNXTlZ3K1R3eE9RWDRnVVZNTE1W?=
- =?utf-8?B?YzJodU5kb2NSaEZvQjlycmYxVUJkVUZCL240dUJtbnhoUDZXNmNQSE01a3Er?=
- =?utf-8?B?UW0zMVBwM0NPRkpYU0pkeEhQMXp1S3cyYitFaWJ3SGVVejl0Sm5nN2d6bU9N?=
- =?utf-8?B?ajJvTER0cHNncmtNNDc1MUI0OU56ZHJXRERzcW5pbmVTTW9wRnQ3QTQ0aXF1?=
- =?utf-8?B?TVNmcnZEMXZxUHJrYUdhNHFnaHJaMElNZm9lOGZKOW9hUERqc0pJOHZhVlFt?=
- =?utf-8?B?OWFadFJneXpnTFVBZVhpc2ZyVVRueFphckdrak5NeStndkV4SzJsd0FhMmcx?=
- =?utf-8?B?VEJXWjVPZGgxVHdLTmtneVdxWEw2d1o0cHFPREl0OVp3NFRialBHdFVJQVpp?=
- =?utf-8?B?WGlnb3JLdjVMYzhoNHFkNDlGUlBsaHNxMlpnNUF4OFlMc2UyZU5qMnQ2SW1x?=
- =?utf-8?B?K01PaDM0K2o1NUVWak90RlVuSzhUZWNacDB1UE5RRlUxMHordlJaK3ByTlZI?=
- =?utf-8?B?TGVGY3NaNHE5VllMS0R0Z0Z5d3ZYeUgyd1ZjcjRoVENFbTVtTWt5MVhKdVA3?=
- =?utf-8?B?SW5pM3dhS2JQNnpmRktlRXRISk9wbWhOUW9Yem1aOEsvcENOOEZCRjIvOWRL?=
- =?utf-8?B?YkpNOGcxdzQ2cVF0TjVCSjRNbVRvOWVIdWVhdjJ1ZXRnUjRrOEgrWkFvQUpW?=
- =?utf-8?B?dlp6WEo5bEs2aFk1dUdpK0JiYlFya1QvVDNhYmFybmdySTQ2N202cGd3OHdB?=
- =?utf-8?B?eXQzcFdOUXVaQjdKMmxGOTZuYnA5TERmNGx4Titqc3BRYXFDcVdBbTVPV3g1?=
- =?utf-8?B?M3Yrb2JJYkszTk1SY2p1QVZ3cmQ3cjhXdU92T0N3S0I1c29GemRZSGRDdnJz?=
- =?utf-8?B?Qnc5MGlTOWRqQVlsL1ZMSXVJZDNITXRqdXA3K0VBcnd3Wi81YnlHRjVYSEhl?=
- =?utf-8?B?RnZaS3dtZ0RVYjVxdWNHb2dCMVBLSitJS1d6V1h6MWo0NmNaOW1mUjBiclhy?=
- =?utf-8?B?bzBBTjVBZ3pZVlhVQVM4aGlOVE9aa0ZyVGtlYkJoUjE0R2x3R1FrRGNTbTQr?=
- =?utf-8?B?UTJ1SVRwQlRqdkx5VkxwcTVXUHcyejN0dFN4K3FJMEZmNjFDdGc2WnFtK2FN?=
- =?utf-8?B?bzBOSWFyYitjRzdzYXVKUFFZM3lqVUhaaURxVEgwWEtsTlg5WTc2N296SUxi?=
- =?utf-8?B?R2M4a2RzU0k1Tjhwc3ExMmRDSlRLSEJ6NnlUNDE0RndWV1hxc21iekNEY2hh?=
- =?utf-8?B?UnhFQXZKYU5HR1NMNkRmUnZKMm1md2JKZTQyWjUxd05lTk1zSjdSa3ZYWHd3?=
- =?utf-8?B?Nm5NeTZCQ3FOQURVcVlDeVMxeS9jVWk5WjhsZjN4Qi9pZFVRNXRNQ3lJZXNu?=
- =?utf-8?B?TDI4QzZUQnpqWHZqK0g1WTJ0NmNWYXdqWDVvRCtheWY2TmxkVWZzV0JJQWlR?=
- =?utf-8?B?K20ycGFUbExwc0g0MThhQ0VYWW9ETEVnYUxrRGc2Yk9SS2E4TnE3QnNUUGVW?=
- =?utf-8?Q?4vUNrT?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0P195MB2197.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(10070799003)(1800799024)(376014)(38070700021);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?ZjRMaEtEaHhuby9kUGNISGxPd3JpUEltamlVUXI2NDN5ZU1VRnpvdFY3dGtp?=
- =?utf-8?B?T2ZGYWltVjlpUXlyL0JmcFA1ajRpSndhRnE0WjRFVE9PdElicmhPazJNbWhZ?=
- =?utf-8?B?REkrdWhmMWhjbDVwSzFDN0JkcU5ZZVFTejhOL3JNR2NwNzhuRnYvQVRkbXNm?=
- =?utf-8?B?aVpQNDVoS3EyRVNkamh1SlZHcnE4b3FQZVNZUVFsYTVXOUNYSE16U2ExTEJy?=
- =?utf-8?B?VDQ0bEMydlhZQkFpMVM2NXpXN3FFY1lxc2QrZFhyRmZCQysyVzZBNFJranJP?=
- =?utf-8?B?OXZQWEtpdklIRWlnams4VzFEeFlqbEFtWWFVakFwTWFrSlh0WlM1eUxKZjFQ?=
- =?utf-8?B?T1NPbHRSQjFYRjRuZERLVDNZbHJiZFl4a29meDBZN0twTGhib2pnYlJGMjJu?=
- =?utf-8?B?eFdMSmZveU01QTBhS1RVQVlvc0tkdGowVzB5L3pWS2VuQXRwUExCQk9SQ1Bw?=
- =?utf-8?B?RkFsMHBKZ3ZsY21PRHZ5ZW85Nk1UQTl1a041cXhsSWJFVFlUeUh2aDlDZlNG?=
- =?utf-8?B?NTY1cFAxMUhJNG8zTGV2YWc2ZEhWZEJjWVdyOU1xZGFHVnFEYXRTdjBkUEh5?=
- =?utf-8?B?bTdSbWx3OWcwMXBjS0RyVFcwanAzcWl2RlRrWSthYlpGcGxVaVlJSmM2UXU0?=
- =?utf-8?B?cVRURmZnckF0Q285dmRUUjBDOFkrRzd1blJjQlpLMjYwOG11cVRMRVZWQlk3?=
- =?utf-8?B?VzlPYUVTblg4TFlSNXVtaXk0bkw3TUxjNzhVR2RvK1hYbjRkZldUdlRhUTlp?=
- =?utf-8?B?VCtmTEJWS1Z6TzRZUWxiRFVxcldGSTl0Q1Q4cG5wWTFlWjFqbVE2MU1yZmxy?=
- =?utf-8?B?aEhlaTE2d0VVVW5pWWo3UmFzWVhoYjBsSlpnUUxmR3VXS3NRKytOSWJteGY5?=
- =?utf-8?B?WnZtUnQvSWFKWFdBNFhCb1lwN01MdHZjRW42S1RHTFg2MGpsVkxuelNyblYr?=
- =?utf-8?B?ZW9aZThJbzVSMlZjWElTZElvNXI3V3pTd3I3RXd4THBDaUdBYW0xZ0tEaU5C?=
- =?utf-8?B?a3hHNXV1WmN2YWpwU1ZUQzZ0TjBENDh6eGRyUE9TT0dHT3I1NEV0R0plM3hu?=
- =?utf-8?B?N0VPNlE2OW9UWUdDcXFvelNYalpwVUNsdC82S3djTGdta2RFZGRZMVNQVE9G?=
- =?utf-8?B?LzVZc0plYmdpRGtpd0dEYndXR20zODRJY0ZJTFhxTDJxK25DblZSS0duUlJO?=
- =?utf-8?B?Ky9mbWF4N29zTUozTjBKcWNQcFJvaFVkNXhlbnBTeVpvbDJ0enJqQUxtZnBY?=
- =?utf-8?B?VEE1bEYrQXB0Zm1EZHE5T2FwZXRxYU50U0pnaGYzamliRGgwR3p2VlZjSjNz?=
- =?utf-8?B?Q1FUcjJYNUc0Yjl6NVV6L0p3dHpYdHNudjVJbHVoUTZTZk9Ld1BBbjk2clY5?=
- =?utf-8?B?ZkFuYmxjaWwzN2t1UDB5N1FQWVJiN1N3U2doUkV2QWFRbHI1VDU1YkxvdjJM?=
- =?utf-8?B?R3lCcGpTUjYwK3VQK1NxazROd3lOWE9pZmdKdmc0TUNxYkJIeHVKcjZXTEEz?=
- =?utf-8?B?djNYWDNPNFlIN0xvcjY3UktjdmtqODczTXBzeUNtUGh6ZEk2RjA0dHFTM0cw?=
- =?utf-8?B?dk5FSVcvWmdnRnJVaVZsNlprWFFWcUxCZENTWC9BWUVHTSt6YTd6aitHa051?=
- =?utf-8?B?aVRGeSs3WlQ1YmVEemlOKzJ2aUU5QWJOUWJjUk5PSGlrUjExeTc0a0hMMklM?=
- =?utf-8?B?Mk95WW9tMGxvU1dWVzgzU2hEbTFPY2RSRjMrSllMZDdWNWhDMGJYVFE3Tklw?=
- =?utf-8?B?M2RLckQwbjUxS3dlS0ErRGNYbTE5SEpWaGxLWlF1VzBwVG1yano2OUlrYWVs?=
- =?utf-8?B?b0tIa3prMWlZSkpkWG1jeUJvamEwNjNHbGdrenpqNm1lMmc5OGpwTFMzVis3?=
- =?utf-8?B?RUZmMlNOSlBqYnFzZzVWQmh4OGFVeER1U3ZrQ3FaTXMxdFR1QzQvdHBvcnR5?=
- =?utf-8?B?RERjcWpaSXNmdGNJcXlIMFZDWmtRU1RtcDVHazJ3ZzFJTStDOW1QNndEVUlM?=
- =?utf-8?B?MU1hWUZiUHlVcmFTSzloaXU2OXJBZ2tsUHVyU011VmluQ1VWUFJZU3Y0WURx?=
- =?utf-8?B?cktQc3RCclROMUFpUE9iVjhvWS82cnlNUjF4dnEwVUR1dFJlODN1d1U5L3BN?=
- =?utf-8?B?aVVXSlM4S3V3V2NoZEpMRnpWeTNWZURZbWsyUlZrWFppTnBUWE50cU5YdkQx?=
- =?utf-8?Q?jkNQ6AEFnF0kEeA7oqc3MePKHJmEpgPS8Fbh9gHAv5nr?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <2338067C98F7EB4A8F97069D41F0FCF7@EURP195.PROD.OUTLOOK.COM>
-Content-Transfer-Encoding: base64
+	id 1vWWs0-00000009xXc-3UGx;
+	Fri, 19 Dec 2025 09:33:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1766136786;
+	bh=xThT3ZAnzHU5Zu6pI/yzmNv7BBJH0PKrMFuW9mjkr08=;
+	h=From:To:Subject:Date:Message-Id:MIME-Version;
+	b=btztKtTYKP3rhnhuHs8jDT5YJZPRJ1HGD+qR0+u2G4awnOVGHo2R/FyV20TkemvZL
+	 xxm4DFpeR/hSwskJ3OsI0Xx4SO9GhznB7dj+mtEpvGHIzQbgRrRPfCOQbPMSj/Ue+P
+	 nrKNMiMVzJb/J1o4SsLZboC6xH9X49ibfsA7dSbg=
+X-QQ-mid: zesmtpsz5t1766136768t2a5a7b80
+X-QQ-Originating-IP: BofTwxD2mGpxJbUqngowvcbVd665A4aUXpCTG2nV5AI=
+Received: from localhost.localdomain ( [123.114.60.34])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 19 Dec 2025 17:32:46 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 1616808465904202712
+EX-QQ-RecipientCnt: 8
+From: Qiang Ma <maqianga@uniontech.com>
+To: akpm@linux-foundation.org,
+	bhe@redhat.com,
+	catalin.marinas@arm.com,
+	will@kernel.org
+Cc: kexec@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Qiang Ma <maqianga@uniontech.com>
+Subject: [PATCH v2 0/4] kexec: add kexec flag to control debug printing
+Date: Fri, 19 Dec 2025 17:31:30 +0800
+Message-Id: <20251219093134.2268620-1-maqianga@uniontech.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-X-OriginatorOrg: phytec.fr
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DU0P195MB2197.EURP195.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-Network-Message-Id: 644e919c-ed7b-45b7-97b7-08de3ee105cf
-X-MS-Exchange-CrossTenant-originalarrivaltime: 19 Dec 2025 09:28:51.9022
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 1UVswPYpa+6DODuN+tlDbhjv5Siqb/5e4y7KSclwDr3eJMXXUsNrNJjE6KB2wgXcRP1+wqupJc4tD5uVmBc+5Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2P195MB2494
+Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:uniontech.com:qybglogicsvrsz:qybglogicsvrsz3b-0
+X-QQ-XMAILINFO: MIEPJtBPGxyLy6vdcbEheffAgHGaqcMgngR306b8hwY1SHErHjMRJrV9
+	5YcC1dShIcoA1q2twsjeZMty0oXAko6Xp2ihf5bglrpBv0/LXK5hhFZBh/H33vAaqvhFA/d
+	/2I2koLsBL5PXdNrSeCaVGIryAUfzVKHtZAYJcgjEAMVdgAuTLTkbbZtIq+9ASNVOVCb/WQ
+	c/HlA5o0dq4bg6Pkwv0iJ7k8Ry3ZAJuVJUS+c5KT3LKRnUyfzYe/SijUjb8NA8my1/1wpw0
+	ZLu3u6p/yKappDv3kpY/AboOBMYS6cxfSOQ7YZuf6IhskBDsPyskwMRPnBuqVPznjOmn4s0
+	rWVtGZ9FqSmAxngdqxG0tzz1MhHD5yI+KuPEZpec8qe0BIk/s9tzf6BaulFE32lypn9aPyp
+	GAo63eV2kAi4UR/41isGmUny7gIiprvnUZcvEciMCtqr/ITrOsF+DxiSQwBSm8Wl/Urz8GZ
+	moG02ytGYb92XKzkx3ChOWKnwZzitzjg+rRtrrhbEFCwDp2v/1zWwV3aLf+ulYtPwrDIshY
+	uglDLKMIU+T1+SqIP7v+FL7ct1uaxLQNzL0ID8VJjVB9q57qePihANVK73gwWzZ0yvucKOq
+	RafLNZEkvR2NsRWPra3kiZOI5neVaO3+7FfFzr5fef7gZlQK/7FCpa4S+DkXFkcsJTGxVKc
+	ENTcH5C/bVqXxUpY6clIX35rMQgV/B2wbzc1msm9aOXJRuMqSC4qwAumapSYl3doQlvR33S
+	CRHc7Q/In0/cNesmid0AW0OFSz+kgV2Cv+oZ6u+EX0bgmgN0Eny8dehekT7rs6JKRi2I3JS
+	JAfNTThsgX39e87u5xKAcxhdo+2aoDXWfHRr2yFlsQli0D+ftBG+BagZ9AR5ZGwx5qglPsG
+	5qL7d33etF24ZiS6CE9FahLo2NJ5xd1+gqxG/fQulzZpNLylI+l02W6WSF6f13AEZs40stp
+	w4RwPHnNE/6vBaZt/USRb/6/Pe+ySfwnIV8zZQw4x4EqiL+Ea//IG96h7dNc9DC0yVNvawJ
+	IbwY7FesqmWXHBmdLGbc+mWm2uSAMrdADABy1MTmRZBdR+5adTs5PaIb+K6CWJnMjIhUUFU
+	g==
+X-QQ-XMRINFO: NyFYKkN4Ny6FSmKK/uo/jdU=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_012900_662120_BD6DE98E 
-X-CRM114-Status: GOOD (  24.39  )
+X-CRM114-CacheID: sfid-20251219_013357_558865_F66FA779 
+X-CRM114-Status: GOOD (  13.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -193,56 +95,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SGkgUm9iLA0KDQpMZSBqZXVkaSAxMSBkw6ljZW1icmUgMjAyNSDDoCAxMDowMCAtMDYwMCwgUm9i
-IEhlcnJpbmcgYSDDqWNyaXTCoDoNCj4gT24gV2VkLCBEZWMgMTAsIDIwMjUgYXQgMTE6MTY6MDNB
-TSArMDEwMCwgQ2hyaXN0b3BoZSBQYXJhbnQgd3JvdGU6DQo+ID4gQXMgUGh5dGVjIG1hbmFnZXMg
-ZGlmZmVyZW50IFNvTSBjb25maWd1cmF0aW9ucyB3aXRoIGRpZmZlcmVudA0KPiA+IFNUTTMyTVAx
-NQ0KPiA+IFNvQyB2ZXJzaW9ucywgbW9kaWZ5IHRoZSBwaHlCT0FSRCBhbmQgU29NIGNvbXBhdGli
-bGUgaXRlbXMgdG8NCj4gPiAiZW51bSINCj4gPiBpbnN0ZWFkIG9mICJjb25zdCIuDQo+IA0KPiBD
-aGFuZ2UgdG8gZW51bSB3aGVuIHlvdSBhZGQgYSAybmQgc3RyaW5nLiBJIGRvbid0IGZvbGxvdyB3
-aHkgeW91DQo+IHdvdWxkIA0KT2ssIEkgdGhvdWdodCBpdCB3YXMgcG9zc2libGUgdG8gdXNlIGVu
-dW0gaGVyZSAoa2luZCBvZiBpbmZvcm1hdGlvbg0KdGhhdCBvdGhlcnMgYm9hcmQgdmVyc2lvbnMg
-YXJlIGF2YWlsYWJsZSBidXQgbm90IHVwc3RyZWFtIHlldCkuDQpBcyBJIHNhdyBleGFtcGxlcyBp
-biB0aGUgc2FtZSBmaWxlIHdoZXJlIGVudW0gaXMgdXNlZCB3aXRoIG9ubHkgb25lDQpzdHJpbmcu
-IEZvciBleGFtcGxlOiAic2VlZWQsc3RtMzJtcDE1N2Mtb2R5c3NleSIgb3IgInN0LHN0bTMybXAy
-MzVmLQ0KZGsiLg0KQnV0IEkgY291bGQgY2hhbmdlIHRvIGNvbnN0IGlmIHRoaXMgaXMgYW4gaXNz
-dWUsIG5vIHByb2JsZW0uDQoNCj4gZG8gdGhhdCBlaXRoZXIuIFlvdSBoYXZlIG1vcmUgdGhhbiAx
-IFNvTSBmb3Igc3RtMzJtcDE1Nz8NClllcyB3ZSBoYXZlIHNldmVyYWwgdmVyc2lvbnMuIEhlcmUs
-IHdlIHdvdWxkIGFsc28gbGlrZSB0byBhZGQgb3VyDQoicGh5Y29yZS1zdG0zMm1wMS00IiB3aGlj
-aCBpcyBlcXVpcHBlZCB3aXRoIHRoZSAiRiIgdmVyc2lvbiBvZg0Kc3RtMzJtcDE1NzogInN0bTMy
-bXAxNTdmIiAod2hpY2ggaXMNCmFub3RoZXIgYm9hcmQgZGV2aWNlIHRyZWUpLg0KQnV0IGRpZG4n
-dCB3YW50IHRvIGFkZCBpdCBub3cgaW4gdGhpcyBwYXRjaCBzZXJpZXMuDQpXZSBhbHNvIGhhdmUg
-InBoeWNvcmUtc3RtMzJtcDEtNiIgd2hpY2ggaXMgZXF1aXBwZWQgd2l0aCAic3RtMzJtcDE1M2Ei
-Lg0KVGhlIGlkZWEgd2FzIHRvIGtlZXAgdGhpcyBEZXNjcmlwdGlvbiBzZWN0aW9uIGZvciB0aGUg
-InN0LHN0bTMybXAxNTciDQooY29uc3QgaXRlbXMpIGFuZCB3b3VsZCBuZWVkIGFub3RoZXIgc2Vj
-dGlvbiBmb3IgdGhlICJzdCxzdG0zMm1wMTNhIi4NCj4gDQo+ID4gVGhlIGRlc2NyaXB0aW9uIGNv
-bmNlcm5zIFBIWVRFQyBTb00gZXF1aXBwZWQgd2l0aCBTVE0zMk1QMTU3DQo+ID4gKCJzdCxzdG0z
-Mm1wMTU3IiBpcyAiY29uc3QiKS4NCj4gPiBBbHNvIGFkZCBjb21tZW50cyBpbiBmcm9udCBvZiB0
-aGUgZW51bSBpdGVtcyB0byBiZSBhYmxlIHRvIGlkZW50aWZ5DQo+ID4gdGhlDQo+ID4gY29tcGF0
-aWJsZSBzdHJpbmcgd2l0aCB0aGUgcGh5Qk9BUkQvcGh5Q09SRSBuYW1lcy4NCj4gPiANCj4gPiBT
-aWduZWQtb2ZmLWJ5OiBDaHJpc3RvcGhlIFBhcmFudCA8Yy5wYXJhbnRAcGh5dGVjLmZyPg0KPiA+
-IC0tLQ0KPiA+IMKgRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2FybS9zdG0zMi9z
-dG0zMi55YW1sIHwgOCArKysrKy0tDQo+ID4gLQ0KPiA+IMKgMSBmaWxlIGNoYW5nZWQsIDUgaW5z
-ZXJ0aW9ucygrKSwgMyBkZWxldGlvbnMoLSkNCj4gPiANCj4gPiBkaWZmIC0tZ2l0IGEvRG9jdW1l
-bnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2FybS9zdG0zMi9zdG0zMi55YW1sDQo+ID4gYi9E
-b2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvYXJtL3N0bTMyL3N0bTMyLnlhbWwNCj4g
-PiBpbmRleCA0MDg1MzI1MDRhMjQuLmZiZDNkMzY0YzFmNyAxMDA2NDQNCj4gPiAtLS0gYS9Eb2N1
-bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvYXJtL3N0bTMyL3N0bTMyLnlhbWwNCj4gPiAr
-KysgYi9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvYXJtL3N0bTMyL3N0bTMyLnlh
-bWwNCj4gPiBAQCAtMTgyLDEwICsxODIsMTIgQEAgcHJvcGVydGllczoNCj4gPiDCoMKgwqDCoMKg
-wqDCoMKgwqDCoCAtIGNvbnN0OiBzZWVlZCxzdG0zMm1wMTU3Yy1vZHlzc2V5LXNvbQ0KPiA+IMKg
-wqDCoMKgwqDCoMKgwqDCoMKgIC0gY29uc3Q6IHN0LHN0bTMybXAxNTcNCj4gPiDCoA0KPiA+IC3C
-oMKgwqDCoMKgIC0gZGVzY3JpcHRpb246IFBoeXRlYyBTVE0zMk1QMSBTb00gYmFzZWQgQm9hcmRz
-DQo+ID4gK8KgwqDCoMKgwqAgLSBkZXNjcmlwdGlvbjogUGh5dGVjIFNUTTMyTVAxNTcgU29NIGJh
-c2VkIEJvYXJkcw0KPiA+IMKgwqDCoMKgwqDCoMKgwqAgaXRlbXM6DQo+ID4gLcKgwqDCoMKgwqDC
-oMKgwqDCoCAtIGNvbnN0OiBwaHl0ZWMscGh5Y29yZS1zdG0zMm1wMS0zDQo+ID4gLcKgwqDCoMKg
-wqDCoMKgwqDCoCAtIGNvbnN0OiBwaHl0ZWMscGh5Y29yZS1zdG0zMm1wMTU3Yy1zb20NCj4gPiAr
-wqDCoMKgwqDCoMKgwqDCoMKgIC0gZW51bToNCj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqAgLSBwaHl0ZWMscGh5Y29yZS1zdG0zMm1wMS0zICMgcGh5Qk9BUkQtU2FyZ2FzIHdpdGgNCj4g
-PiBwaHlDT1JFLVNUTTMyTVAxNTdDIFNvTQ0KPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqAgLSBlbnVt
-Og0KPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAtIHBoeXRlYyxwaHljb3JlLXN0bTMy
-bXAxNTdjLXNvbSAjIHBoeUNPUkUtDQo+ID4gU1RNMzJNUDE1N0MgU29NDQo+ID4gwqDCoMKgwqDC
-oMKgwqDCoMKgwqAgLSBjb25zdDogc3Qsc3RtMzJtcDE1Nw0KPiA+IMKgDQo+ID4gwqDCoMKgwqDC
-oMKgIC0gZGVzY3JpcHRpb246IFVsdHJhdHJvbmlrIFNUTTMyTVAxIFNCQyBiYXNlZCBCb2FyZHMN
-Cj4gPiAtLSANCj4gPiAyLjM0LjENCj4gPiANCg==
+Overview:
+=========
+The commit cbc2fe9d9cb2 ("kexec_file: add kexec_file flag to control
+debug printing") added the kexec_file flag to control debug printing.
+However, for arm64, after commit 6f8c1da071a4 ("kexec_file, arm64: print
+out debugging message if required"), when using the kexec_load interface,
+the kexec_image_info function is called to print debug message, but
+it uses kexec_dprintk, which is only available under kexec_file,
+then when specifying 'kexec -d', kexec_load interface will print nothing.
+
+For riscv, commit eb7622d908a09 ("kexec_file, riscv: print out debugging
+message if required") remove kexec_image_info(), because the content has
+been printed out in generic code in kexec_file_load, but not in kexec_load.
+
+Therefore, in order to solve the two problems mentioned above, for this
+patchset, several things need to be done:
+
+1. Enabling kexec_dprintk is available for kexec_load.
+2. Add some debugging message of the deleted kexec_image_info
+   to generic code.
+3. Remove duplicate debugging prints for arm64.
+
+Since kexec_load and kexec_file_load are not triggered simultaneously,
+we can unify the debug flag of kexec and kexec_file as kexec_dbg_print.
+
+In this way, kexec_dprintk is available for kexec_load and kexec_file_load.
+
+Then when specifying 'kexec -d', the debugging message using kexec_dprintk
+in kexec_image_info can be printed normally.
+
+The following are the key points of the specific changes:
+
+1. rename kexec_file_dbg_print to kexec_dbg_print
+2. Add KEXEC_DEBUG
+3. Initialize kexec_dbg_print for kexec
+4. Set the reset of kexec_dbg_print to kimage_free
+
+Testing:
+=========
+I did testing on x86_64, arm64 and loongarch. On x86_64, the printed
+messages look like below:
+
+Unset CONFIG_KEXEC_FILE:
+[   36.774228] kexec_file: kernel: 0000000066c386c8 kernel_size: 0xd78400
+[   36.821814] kexec-bzImage64: Loaded purgatory at 0x23fffb000
+[   36.821826] kexec-bzImage64: Loaded boot_param, command line and misc at 0x23fff9000 bufsz=0x12d0 memsz=0x2000
+[   36.821829] kexec-bzImage64: Loaded 64bit kernel at 0x23d400000 bufsz=0xd73400 memsz=0x2ab7000
+[   36.821918] kexec-bzImage64: Loaded initrd at 0x23bd0b000 bufsz=0x16f40a8 memsz=0x16f40a8
+[   36.821920] kexec-bzImage64: Final command line is: root=/dev/mapper/test-root crashkernel=auto rd.lvm.lv=test/root
+[   36.821925] kexec-bzImage64: E820 memmap:
+[   36.821926] kexec-bzImage64: 0000000000000000-000000000009ffff (1)
+[   36.821928] kexec-bzImage64: 0000000000100000-0000000000811fff (1)
+[   36.821930] kexec-bzImage64: 0000000000812000-0000000000812fff (2)
+[   36.821931] kexec-bzImage64: 0000000000813000-00000000bee38fff (1)
+[   36.821933] kexec-bzImage64: 00000000bee39000-00000000beec2fff (2)
+[   36.821934] kexec-bzImage64: 00000000beec3000-00000000bf8ecfff (1)
+[   36.821935] kexec-bzImage64: 00000000bf8ed000-00000000bfb6cfff (2)
+[   36.821936] kexec-bzImage64: 00000000bfb6d000-00000000bfb7efff (3)
+[   36.821937] kexec-bzImage64: 00000000bfb7f000-00000000bfbfefff (4)
+[   36.821938] kexec-bzImage64: 00000000bfbff000-00000000bff7bfff (1)
+[   36.821939] kexec-bzImage64: 00000000bff7c000-00000000bfffffff (2)
+[   36.821940] kexec-bzImage64: 00000000feffc000-00000000feffffff (2)
+[   36.821941] kexec-bzImage64: 00000000ffc00000-00000000ffffffff (2)
+[   36.821942] kexec-bzImage64: 0000000100000000-000000023fffffff (1)
+[   36.872348] kexec_file: nr_segments = 4
+[   36.872356] kexec_file: segment[0]: buf=0x000000005314ece7 bufsz=0x4000 mem=0x23fffb000 memsz=0x5000
+[   36.872370] kexec_file: segment[1]: buf=0x000000006e59b143 bufsz=0x12d0 mem=0x23fff9000 memsz=0x2000
+[   36.872374] kexec_file: segment[2]: buf=0x00000000eb7b1fc3 bufsz=0xd73400 mem=0x23d400000 memsz=0x2ab7000
+[   36.882172] kexec_file: segment[3]: buf=0x000000006af76441 bufsz=0x16f40a8 mem=0x23bd0b000 memsz=0x16f5000
+[   36.889113] kexec_file: kexec_file_load: type:0, start:0x23fffb150 head:0x101a2e002 flags:0x8
+
+On aarch64, the printed messages look like below:
+
+Set CONFIG_KEXEC_FILE
+[   39.033203] kexec_file: kernel: 0000000073414684 kernel_size: 0x3123a00
+[   39.047010] kexec_file: Loaded initrd at 0x43cf0000 bufsz=0x17e0e19 memsz=0x17e1000
+[   39.047054] kexec_file: Loaded dtb at 0x23ec00000 bufsz=0x386 memsz=0x1000
+[   39.047056] kexec_file(Image): Loaded kernel at 0x40000000 bufsz=0x3123a00 memsz=0x3cf0000
+[   39.047063] kexec_file: nr_segments = 3
+[   39.047064] kexec_file: segment[0]: buf=0x0000000073414684 bufsz=0x3123a00 mem=0x40000000 memsz=0x3cf0000
+[   39.073612] kexec_file: segment[1]: buf=0x000000005cd5746b bufsz=0x17e0e19 mem=0x43cf0000 memsz=0x17e1000
+[   39.085309] kexec_file: segment[2]: buf=0x0000000084c4a0f1 bufsz=0x386 mem=0x23ec00000 memsz=0x1000
+[   39.085459] machine_kexec_post_load:155:
+[   39.085463]   kexec kimage info:
+[   39.085467]     kern_reloc: 0x00000001620e2000
+[   39.085468]     el2_vectors: 0x0000000000000000
+[   39.085470] kexec_file: kexec_file_load: type:0, start:0x40000000 head:0x1620e4002 flags:0x8
+
+Unset CONFIG_KEXEC_FILE:
+
+With this patch:
+[   35.156088] machine_kexec_post_load:155:
+[   35.156097]   kexec kimage info:
+[   35.156101]     kern_reloc: 0x000000011c134000
+[   35.156102]     el2_vectors: 0x0000000000000000
+[   35.156104] kexec: kexec_load: type:0, start:0x454d26b0 head:0x105c14002 flags:0xb70010
+
+Without this patch:
+There is no kexec print in dmesg.
+
+Previous posts:
+Link: https://lore.kernel.org/all/aTdxEvqY6Bcy7Wa1@MiWiFi-R3L-srv/
+
+Changes in v2:
+==========
+- Remove the Reported-by record of patch "kexec: print out debugging
+  message if required for kexec_load"
+- Move patch "kexec: Replace the goto out_unlock with out" to this patchset
+
+Qiang Ma (4):
+  kexec: Replace the goto out_unlock with out
+  kexec: add kexec flag to control debug printing
+  kexec: print out debugging message if required for kexec_load
+  arm64: kexec: Adjust the debug print of kexec_image_info
+
+ arch/arm64/kernel/machine_kexec.c | 2 --
+ include/linux/kexec.h             | 9 +++++----
+ include/uapi/linux/kexec.h        | 1 +
+ kernel/kexec.c                    | 8 +++++++-
+ kernel/kexec_core.c               | 4 +++-
+ kernel/kexec_file.c               | 4 +---
+ 6 files changed, 17 insertions(+), 11 deletions(-)
+
+-- 
+2.20.1
+
 
