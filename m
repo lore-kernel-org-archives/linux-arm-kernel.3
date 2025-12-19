@@ -4,130 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 509B1D74975
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 09:54:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0DE4D74976
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 09:55:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XEQR79OAwvFfUOePSO8oy7r28vkjGbvJ/ons0ia5KWw=; b=qVyR+BfsOouSmyX4wf674r4Yw7
-	egxQhwpdDE5inQj/RyXqU0OQfcFB3dysvCAg+n4xwKYrHBAqqFJV8jBUZ8B/cRpgD8jMVDXqp7rHH
-	HDG6wcCtCvAuSAGghYIY1Ld0I1yFXj+S3dEvCidMS8N9PIsIgADznOq4dCpCcmVcttGlKigS9Hb4V
-	qWJEnAaYVRI3FK3QHQvRCsRaZx5siB44vECcuUqxghkjXYKZR+6qO2uC0aavmaokw4eJ2D9Gm9Tqo
-	ljcaY6DvG2H2eCmVCM7fI4gCBFZwMqaI0o5hknN2kfOqjlCbg4fgU07Yr0EMJMFlfBPx5hXdga8VP
-	hwYrJO/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lLAToM4vXYl2Fk0i65uKXkKio3mzy30inkIA9FUKzC8=; b=aDNLi+JarTLHwyMnlh27xTrSOn
+	tzgyGxf3nkxrQjb01lEKtUEfCk+hND13m4Ba8zyCX10Y8GukVZJkHMTAabGRDerPBFdnHk1TyYhl1
+	HX7hor4xela9/BceIdG78GsmSPMbJhD02j+rMpS12V1vMYf3Ur6f75qjy2ILJA+cleabh1XjWlWyR
+	wVuKfurWQlqaUdgc5oG8lIbODo2ZozeYsTgHqlc6Z0X1rJp0p45hA5+zLAta9PwsYSKHtWXAdX/T0
+	SfRKsbsDTCLGw3FUTIImW/KLDXRNP7WfOPbj9D4D5R6lqXqobe14FER5C65NlqycAHLAWKn/sxCgb
+	nS5hP24g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWXBt-00000009zG3-0mH9;
-	Fri, 19 Dec 2025 09:54:30 +0000
-Received: from mail-japanwestazon11022090.outbound.protection.outlook.com ([40.107.75.90] helo=OS8PR02CU002.outbound.protection.outlook.com)
+	id 1vWXCM-00000009zUG-2qdm;
+	Fri, 19 Dec 2025 09:54:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWXBp-00000009zDu-3Y4Q
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Dec 2025 09:54:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=OdEgajpOaqYI/1Xv7Pu1dfOCMsqER4EriNmvnxZGy0WPxYz2iEnbJcATVCJ5sLpZgl4pv7HQr5IcXC8w02lrArdscqGIghzUUMSght3IiPrVckh4ZJqb1dbWwxTo4bxZ6hFlcJClldywJDSXfUlx3pcEw8g33wtrDDZoNJJKnEiP2/NrXoxExbtFTjbYQslAOtlpWmJJmLo3HzMSiuMlC/sZFRPrQ3u94EwyvqSvHciOlAqHZeAKeJevP0BjeHu3Ie74fd8fbJv1R9858h3qjWWrxpSfI2bv46B5dBc/BW6L8xqTItfvE++5zB8vhSGfPBE8uLNYTSy3jfLKmFmnCw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XEQR79OAwvFfUOePSO8oy7r28vkjGbvJ/ons0ia5KWw=;
- b=PnF5+H2k/cRzhxNXx9O6iQ4Sm/S6bCv3WgsnYO5xRJisTSoGfFHpwUQeL3BaNTq/7OMOVx7mvXXzQbolhu6cIu9lSS+dtOQ2uTGQk+fwwelIYcf4BkeK5YFhs923xBpBSVFnkevODSxGn8ZM2a6TmDz3gTxeWrAYidPnS3LrtPBmiR2Fx0g19f6caSOjHPbfyIvauZFmFFBkX1XgYpZCUosc0ngTevUDke3PDK+XNMG+pigJFJIU5zeZfSCK+oPZoOUL20r14ifm7CacCztMROYX0UZ5xu6u093vFCqbJHUhApccrqZMw/lZJ9Kw1d+x0YpIvHvt0NV4rt8Otpwsrg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from PS2PR03CA0011.apcprd03.prod.outlook.com (2603:1096:300:5b::23)
- by TY2PPFDFFF87E9A.apcprd06.prod.outlook.com (2603:1096:408::7af) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.7; Fri, 19 Dec
- 2025 09:54:12 +0000
-Received: from OSA0EPF000000C9.apcprd02.prod.outlook.com
- (2603:1096:300:5b:cafe::5c) by PS2PR03CA0011.outlook.office365.com
- (2603:1096:300:5b::23) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9456.6 via Frontend Transport; Fri,
- 19 Dec 2025 09:54:11 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- OSA0EPF000000C9.mail.protection.outlook.com (10.167.240.55) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9434.6 via Frontend Transport; Fri, 19 Dec 2025 09:54:10 +0000
-Received: from localhost.localdomain (unknown [172.16.64.196])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id AA3D841C0A00;
-	Fri, 19 Dec 2025 17:54:09 +0800 (CST)
-From: Gary Yang <gary.yang@cixtech.com>
-To: peter.chen@cixtech.com,
-	fugang.duan@cixtech.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org
-Cc: linux-cix-kernel-upstream@cixtech.com,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Gary Yang <gary.yang@cixtech.com>
-Subject: [PATCH v1 0/2] Add OrangePi 6 Plus board
-Date: Fri, 19 Dec 2025 17:54:07 +0800
-Message-ID: <20251219095409.1395587-1-gary.yang@cixtech.com>
-X-Mailer: git-send-email 2.49.0
+	id 1vWXCL-00000009zTR-2lqB;
+	Fri, 19 Dec 2025 09:54:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 40C4F60052;
+	Fri, 19 Dec 2025 09:54:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D23DC4CEF1;
+	Fri, 19 Dec 2025 09:54:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766138095;
+	bh=lLAToM4vXYl2Fk0i65uKXkKio3mzy30inkIA9FUKzC8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=teXlBuee2SGaO5gKVF903njhhJJyujvg1pKd00OAnL4abuUsJGZgjZ/0ok7vhvth2
+	 bcU+XqvTdsUyWpkZpecWy100vQ079+cxQeWRi+28eSuxcQrmBsLYtlz8WUeWJfVcUq
+	 +RSFqfo+R8zPY9wxRSVJOku2ErSx+BR2ZCiVm+A8ItqaKkKKlUy9gBMgtux8Nv7KL2
+	 36u+gOWyi0sgXtCiS2eR5uhq+yjpSWREwBllUfGexMuL23TknUzZrPf8XTKmynGAA8
+	 1YQnPj5YlHg8F3o877ew2QqD0hGZ++OqK+GF6FOX8VBhoy97Wb2Ohwj90JxEb6WA+M
+	 rkKF3JhaRlT8A==
+Date: Fri, 19 Dec 2025 10:54:53 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Daniel Stone <daniel@fooishbar.org>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Sandy Huang <hjc@rock-chips.com>, Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, 
+	Andy Yan <andy.yan@rock-chips.com>, Chen-Yu Tsai <wens@csie.org>, 
+	Samuel Holland <samuel@sholland.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+	Liu Ying <victor.liu@nxp.com>, Rob Clark <robin.clark@oss.qualcomm.com>, 
+	Dmitry Baryshkov <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>, 
+	Jessica Zhang <jessica.zhang@oss.qualcomm.com>, Sean Paul <sean@poorly.run>, 
+	Marijn Suijten <marijn.suijten@somainline.org>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org
+Subject: Re: [PATCH v3 00/11] drm/connector: hdmi: limit infoframes per
+ driver capabilities
+Message-ID: <20251219-honest-slim-crab-02e932@houat>
+References: <20250929-gregarious-worm-of-memory-c5354d@houat>
+ <itgffxygopi7etkt7xhvmyuvyl5ad3k43nsxvjzw3ubtwiikn7@ocugfdaigtu7>
+ <20251003-uptight-echidna-of-stamina-815305@houat>
+ <zpygq4kapil3swsmhhqkdwny4ry2dznnzixsw5rkza5p2kqnvp@abvf2vxlbwif>
+ <2a5fitdzr2bz235fj6rvqzxr6ckszkjbazjfszlvnizdh2cvbt@w3ypjo7vahhs>
+ <pibxhl5hlcpuk3zsgyienfdlda5cwuxrnofwlw356scuzzplqy@zw3ofelgvwik>
+ <bsoqyzxi45i67jpzhwr2d4illufa5ghqf25z6flbp67lsbvh22@rrlcihp2oxea>
+ <cgzclxjubj5oca3rdnv44qwrkmpddxve4tlz76cc6p3b4hz3oc@3l7mt5ha7do6>
+ <20251201-enlightened-zebu-from-asgard-5a20be@houat>
+ <5dyhjur3hkhvtlwrl4h2m342byor7f3ssvkunj4cggnhbhlmnb@l2mfz7ypjj37>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: OSA0EPF000000C9:EE_|TY2PPFDFFF87E9A:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 0475e3df-3f71-4297-a832-08de3ee48f50
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?IWubSTXGdNFGYlueLll6Lr3XqbdpC9nQMABx6ALs/+gt7Nw3b20BWyi6jlY/?=
- =?us-ascii?Q?pGnwfKtc9rB0KCEJys6GtkoBobSwSXvYAs88lGbHgXgIvbjUMkSN3+diggyZ?=
- =?us-ascii?Q?9yPLTZhEcnl8txv8zZjJZ9/3nFmxpnZw6TEb5k6uID/4MjCN2Ti7vFgJhOju?=
- =?us-ascii?Q?gptE3wPNEEmgBSppOiJO+VUM/sqzx7Nc6XIqnWaxhG852t2uZlBIoU1OOKMH?=
- =?us-ascii?Q?AmXMFJ5a1VXsUMT3SLQAf5YrAKMfggETj20VDu989M4UOP6hPfqN0YPRaVfb?=
- =?us-ascii?Q?nrOrcP0BwOyO/15GlnJRVyYLmihmT2Z3WTZqyCW65Li+zgIcQlUU4oEROtMH?=
- =?us-ascii?Q?l1vJm1p76HQ9Bb8KrMQP6fH1fOaFud69kqFQqYkWv2AFKRYz7lHQTxtdrZ1N?=
- =?us-ascii?Q?OG9w8cScC5ug5Z8aN6+vqOhemjUb21vY1QQQo1wh5s+nKD12l98ToBYvuacf?=
- =?us-ascii?Q?05In9StTTB9/OezXKqnvu6mDC6m6GJRI0wUpgA+xjEsl0cEJk+9+NggbGE5b?=
- =?us-ascii?Q?XeMzETVl24139Eil931dlA+upQUFS4xpcgl+kxu9HHQZP4G+T5HtIZePTpnU?=
- =?us-ascii?Q?OCgaTes575Qhl5QJZAxv2j36XaUT6fV85KwDexaHq9xA89Lq5xC9ZQ14UXLs?=
- =?us-ascii?Q?iST29eRanMpK4KiwI8+hwhWEqU6IaX0icG/RayN+bR4FZW3Bvzc54Ekk8Au8?=
- =?us-ascii?Q?Ox/vJj9wtxAkqtlslOjTGpHyD3oeTZmKIHjwx2Gh/TfwxqpQW3bSrI+ljiAg?=
- =?us-ascii?Q?XXjMlH/WTzmXYU/Rr0Xln35feQm9z3adMyH2/dAl5H6gEOx6wnRediai1mou?=
- =?us-ascii?Q?uPUOUuehQn36W8HNQ1Jgzhrxi6zuVY5Vv4mzDnBgJH1pm1t/g6sFEY3pPS1a?=
- =?us-ascii?Q?IknB/QkwdlD11B23ojLyIxXygeXJ9R3e2uqHevIg14ujGxRAgjO5HHNRzB4X?=
- =?us-ascii?Q?bfksQKT7SGb7j87IPgE070Mh/ttmnpF6RLku67xdrqZvKvDyvnHG/75Z/WR/?=
- =?us-ascii?Q?GPhnd5RlhxxDJEJ6IRhH8+vmbMoQ8R+xQYXq33cLK4EtHC4iQj9gIGbErXY9?=
- =?us-ascii?Q?029v6VDX/ulH9wCs6UTP03WSytk/FfuBq1K7PgzNDCiZedfyeXE6BuEgiI74?=
- =?us-ascii?Q?O0JNeVraOvexhrEtD91mq9RjqtkCkLZPDpxo7DefRx8ecSFNqns2zc6fQCPo?=
- =?us-ascii?Q?RyTWmBREH7r0uWb40rUF5O5XRD2iYIcf6zi6Y0zNiC/rE+WPMbs54RFrsFFs?=
- =?us-ascii?Q?WP/qeUC+iSbm9Z3WEwm8Ob1tTAYfeulSfpZZy90rsCva4C5bStPr5wd+u1is?=
- =?us-ascii?Q?GQ3QNlgXXfSu0y034rOfjZYjeKh8FDxe8cU+5v2Xhmau+fUbctdG1LKqDkVi?=
- =?us-ascii?Q?aRrOEtVX2jw8b5VY2AvfUp0dksMOzLuzniYiTmJXHpaypU9vc0g4jCqGORlH?=
- =?us-ascii?Q?Wljjwg+Fm9F3eKlQ4KibSn3aPaZ9wbB0BUUtznY0VjP/IlxF0GQmU36wufbP?=
- =?us-ascii?Q?AM53UzL2rJojWN0j+5meQDfYnQVsLXJ/GhXhwCx5GkyDrJyNbLc4now9q6Ue?=
- =?us-ascii?Q?YHC3h7GkDCM0/pqpdIM=3D?=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(376014);DIR:OUT;SFP:1102;
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Dec 2025 09:54:10.8827
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0475e3df-3f71-4297-a832-08de3ee48f50
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: OSA0EPF000000C9.apcprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY2PPFDFFF87E9A
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_015425_900315_560084EB 
-X-CRM114-Status: UNSURE (   8.30  )
-X-CRM114-Notice: Please train this message.
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="pxgyrzpu3xrfoz5s"
+Content-Disposition: inline
+In-Reply-To: <5dyhjur3hkhvtlwrl4h2m342byor7f3ssvkunj4cggnhbhlmnb@l2mfz7ypjj37>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,28 +92,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Patch 1: add compatible strings for OrangePi 6 Plus board
-Patch 2: add dts file for OrangePi 6 Plus board
 
-OrangePi 6 Plus board is powered by Cix Sky1. You could find brief
-introduction for SoC and related boards at:
-http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-6-Plus.html
+--pxgyrzpu3xrfoz5s
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 00/11] drm/connector: hdmi: limit infoframes per
+ driver capabilities
+MIME-Version: 1.0
 
-Currently, to run upstream kernel at OrangePi 6 Plus board, you need to
-use BIOS released by OrangePi, and add "clk_ignore_unused=1" at bootargs.
-http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/service-and-support/Orange-Pi-6-Plus.html
+On Sat, Dec 06, 2025 at 01:28:14PM +0200, Dmitry Baryshkov wrote:
+> On Mon, Dec 01, 2025 at 06:01:56PM +0100, Maxime Ripard wrote:
+> > On Fri, Nov 21, 2025 at 07:09:01PM +0200, Dmitry Baryshkov wrote:
+> > > > So it's not really impossible, you just need some hardware and a da=
+y's
+> > > > worth of work.
+> > > >=20
+> > > > There's no reason these should get a pass, it's breaking the spec f=
+or no
+> > > > reason.
+> > > >=20
+> > > > > > For SPD, It's really not clear to me why atomic_check should do=
+ that in
+> > > > > > the first place. Your initial concern was about exposing infofr=
+ames in
+> > > > > > debugfs that wouldn't be used by the driver.
+> > > > > >=20
+> > > > > > If the driver doesn't register a debugfs file for SPD, and igno=
+res
+> > > > > > whatever is in the atomic state, what's should we force drivers=
+ to do
+> > > > > > that?
+> > > > >=20
+> > > > > I really don't think that drivers should mess up with debugfs on =
+their
+> > > > > own. Making atomic_check() disable the unsupported InfoFrames mak=
+es the
+> > > > > picture perfect: the DRM no longer tries to program them to the
+> > > > > hardware, DebugFS files stay empty, so the whole state becomes
+> > > > > consistent.
+> > > >=20
+> > > > In the "bridge has no access to infoframes" case, there's really no
+> > > > infoframe. An empty file is "the infoframe can be there but isn't u=
+sed",
+> > > > not "we don't have access to it and can't report them". Only drivers
+> > > > have those infos.
+> > > >=20
+> > > > If we do split up write_infoframe into multiple functions though, I
+> > > > guess we could create the debugfs file only if the function pointer=
+ is
+> > > > set, which removes drivers' involvement if you don't like that.
+> > >=20
+> > > I'm fine with not using HDMI connector framework for lt9611uxc.
+> > > Likewise, I think, it's fine to have empty files for the infoframes
+> > > which are not being sent over the wire for any reason (hw not support=
+ing
+> > > it is one of the reasons).
+> >=20
+> > I can't think of any other example in the kernel where an empty file
+> > means that the driver doesn't support something.
+>=20
+> Okay. So we need to sort out implementing the split write_infoframes in
+> drm_bridge_connector. Any suggestions there? I'm asking, because I don't
+> want to end up exploding it.
 
-Gary Yang (2):
-  dt-bindings: arm: cix: add OrangePi 6 Plus board
-  arm64: dts: cix: Add OrangePi 6 Plus board support
+I guess it's only really a problem if we want to make it const, but we
+don't have to? We could just as well allocate the structure directly at
+probe with a drmm helper and fill it as we need to.
 
- .../devicetree/bindings/arm/cix.yaml          |  5 ++
- arch/arm64/boot/dts/cix/Makefile              |  1 +
- arch/arm64/boot/dts/cix/sky1-xcp.dts          | 83 +++++++++++++++++++
- 3 files changed, 89 insertions(+)
- create mode 100644 arch/arm64/boot/dts/cix/sky1-xcp.dts
+Maxime
 
--- 
-2.49.0
+--pxgyrzpu3xrfoz5s
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaUUg7AAKCRAnX84Zoj2+
+dvkCAYDaU48ga79KBvkIgWW7cnrj0Ae2GfJE5Y2GVVoq0UjRWC1zmLdmNFkjoQil
+PD3wip4BgKf036443KTFOFktbqXWVW+vD37BVUvEwYqWrRwP+AK/8QBWIjjg9BKx
+PWhjchksXg==
+=penr
+-----END PGP SIGNATURE-----
+
+--pxgyrzpu3xrfoz5s--
 
