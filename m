@@ -4,62 +4,182 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F02FD711CE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 01:00:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 094CCD711D3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 01:50:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IVOeY+3SuOrvYNqzmFJNbA4A4ujnPrtjXb52VW//WT8=; b=a2B/A5rt2zsoyJDfIIvzTY5QGr
-	iiqqtxZIU/9cBbYO7bNb3h/BS032Xj5UriffH7NDEwY+Kc+0VM+89JfFr6vbIh78mWD23GY/u6onf
-	Ox8BXMnKlfe/RZzXJY/54ZATAo0T9Vz+8HeK0XvZTunxx6dmBz1Q54YzXBpyijcAha1x0HbkJqZT1
-	He7UU5HgfpBKsAMG+C1W7PQXvkTyU9SpgpE5JVHzq5m3JSjVgvgZgj5QGpxU2XRi7GtXq0drbzWsG
-	6xEE9qA60qUyQqeYMvc201hCGOzBCOq70f+xicl7ygY9izLG5DiZj1gimK/dTzBaNKib6vo8hWdSN
-	rqNvXomw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Nx4PQA9x1vAA6HYIOulX6LyWf51tcujbzfM3HrVDTL0=; b=KuTQnACTl2+x26Xg7S+CGtw8ig
+	dbGBxWFUP8srAhnk9x9qiMdv8qJJEmRGsOYQYLJqSrEgF50WJw0OmHXrDV0eiAjGs7+6yJSJf/vDa
+	ne+asXHsrKWAbX6FFaGm6lxBkGFhehr2yUcPtrBSAj3m4g0cPBWmoW7gEJ4ojMwPYlugwTkYvZUw5
+	IlOW3l9zXZmbrUnFTnefQuDzeK8XmYJBqir6YSLd6iwE7zrEVGziEVhTTB9POJ/AoZMIifM/D1deQ
+	ml5u1pU7p3+d82+/Ifrvf+6fYJjCSTv8zYHqaxvqFe8iZaH+92OR/cI6RlQlPxdIsD3rU12BfZfKp
+	geRojEsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWOrJ-00000009PbS-33Ir;
-	Fri, 19 Dec 2025 01:00:41 +0000
-Received: from out30-99.freemail.mail.aliyun.com ([115.124.30.99])
+	id 1vWPd2-00000009S3q-056H;
+	Fri, 19 Dec 2025 01:50:00 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWOrH-00000009Pb1-2z1C
+	id 1vWPcy-00000009S2e-32R6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Dec 2025 01:00:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1766106037; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=IVOeY+3SuOrvYNqzmFJNbA4A4ujnPrtjXb52VW//WT8=;
-	b=tAgeRCYGGrMA5AyQtCnmYCjWQB5FidkPEJA02w8/OBD3ooicZSdL2ycpvSlmYlLvghEHD1GRqb5GeOcoNwseAw7RKlHVzvLmq/3ca69lGDwvicAPwPl3ZAiizxYs5UuP9RtQJDgpouH0UaLfSlE6qZuXg2GNm39h99vzW5VsXfs=
-Received: from 30.74.144.116(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0WvARIF8_1766106034 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Fri, 19 Dec 2025 09:00:34 +0800
-Message-ID: <9c6393e1-fc88-46bf-9a3e-b28b8cda1c75@linux.alibaba.com>
-Date: Fri, 19 Dec 2025 09:00:34 +0800
+	Fri, 19 Dec 2025 01:49:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QM93vVz6g3pAhbRD3j7flhwWptmtDWnHXGgw2ZVfi6S7jeuUMb0ICezh59vGSxOvCfE4iimUPlRcpqWUHKypvbpVwC19QHWGF9rsQpcpLh9XhHkscijUSBsIodx8AHJpnBKkm4534sgM1hZxSLd2NYV6KdcU7tLiivfKgqMiYAyJTkekwFk7ekk16KV7NjJq4YZax4+PwbKAUSP6NUpBDlv7Ut/sAfkIjmLLDJG8p1j2pFiVNZkWCpIKZy3/ITKUoE0Xdmw6kdjXqO+MlI5uUWNSVh+ztpunVtLyLsROvpxB88aR1LMlLaYCUBdXiXf7jOaaQxNjSOBi4h91RB4RrA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Nx4PQA9x1vAA6HYIOulX6LyWf51tcujbzfM3HrVDTL0=;
+ b=aqGEVDo3DpVB4dXRoj7E7qB4TaHZiBOPhfwoHjZbHxZGx+f/6xjWgbB59cASrHO65EyNzUOx0JcrEO+pPlQEYqKl2uLvePJ4koB9V7lOULnOOGoGMurS2E99jHp5eIhx+KbzLIxlb2i0YFWO8HDoUrN6fgspnz0wK4f7lenlhStoMqbe54g5J9IErWGC3ox5qwMc52mgrEVZemIZqNFqXOs7fZXXEshtWV2owSgb8LWn/jE6AKyPy9zwyd3FdfCdtIoDi834eS0LKhmc+HtUNFl0YQR7tusSMS+mZPh3wxLmwe8Xw7HwrFy+LcrBn1o+Iye4mcA2pIkuSppCzPo3Nw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Nx4PQA9x1vAA6HYIOulX6LyWf51tcujbzfM3HrVDTL0=;
+ b=KWhzvEzJ7WSkBBhx3rvnOAGC8V7F4uFN/goiw+qlmtlZZxuauBWUTo/0dHyMowEYeGpLJB0HuMB5EIDrtaUCIpUV1xVfXzvlqXsbmRq3Bw1v/JQUJUMYq9KkIHb3ay2azeQxmzQ07qoV7XGrRIeYJ+FTaSl7nBIvFL2p9KkfAjMEro0URbQq/Wlbk/sBzuqX+JNoDhjhAtvKPp/3SmBigMJQijQSAhNoRopuCIw7NzxB/zYtlfgSCxMiugbBbN9+Qdq8B+P7ciix7SF7OnE4FXPSSXqdiVUaAiOrT4C3NTkFL2zQncbeZfyNUGaY6Ri6lBLG9FQRTg3/tzLCCh3eUw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AS8PR04MB9080.eurprd04.prod.outlook.com (2603:10a6:20b:447::16)
+ by DU0PR04MB9495.eurprd04.prod.outlook.com (2603:10a6:10:32f::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.8; Fri, 19 Dec
+ 2025 01:49:52 +0000
+Received: from AS8PR04MB9080.eurprd04.prod.outlook.com
+ ([fe80::92c2:2e03:bf99:68eb]) by AS8PR04MB9080.eurprd04.prod.outlook.com
+ ([fe80::92c2:2e03:bf99:68eb%6]) with mapi id 15.20.9434.001; Fri, 19 Dec 2025
+ 01:49:52 +0000
+From: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Date: Fri, 19 Dec 2025 09:50:57 +0800
+Subject: [PATCH v3 1/2] media: dt-bindings: Add CSI Pixel Formatter DT
+ bindings
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251219-csi_formatter-v3-1-8680d6d87091@nxp.com>
+References: <20251219-csi_formatter-v3-0-8680d6d87091@nxp.com>
+In-Reply-To: <20251219-csi_formatter-v3-0-8680d6d87091@nxp.com>
+To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Frank Li <frank.li@nxp.com>
+Cc: imx@lists.linux.dev, linux-media@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1766109067; l=2769;
+ i=guoniu.zhou@nxp.com; s=20250815; h=from:subject:message-id;
+ bh=qR92AX7S1XwKJWCSNwngN3OoE8dUE6EtEzdaIP87AWs=;
+ b=46dknBXqSDYzhJYtWRtSz9KuQt0o/GIlJTz8tvULpzy6jThjAnkTpSNd5r59Oo5HoPKByQwnU
+ aeslTYpJ9KtDnkAKO1mzRN+0z/B5lyyOCMSxfqWUSfIhgWASEIVgsWP
+X-Developer-Key: i=guoniu.zhou@nxp.com; a=ed25519;
+ pk=MM+/XICg5S78/gs+f9wtGP6yIvkyjTdZwfaxXeu5rlo=
+X-ClientProxiedBy: SI2P153CA0010.APCP153.PROD.OUTLOOK.COM
+ (2603:1096:4:140::13) To AS8PR04MB9080.eurprd04.prod.outlook.com
+ (2603:10a6:20b:447::16)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] arm64: mm: support batch clearing of the young
- flag for large folios
-To: Ryan Roberts <ryan.roberts@arm.com>, akpm@linux-foundation.org,
- david@kernel.org, catalin.marinas@arm.com, will@kernel.org
-Cc: lorenzo.stoakes@oracle.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
- rppt@kernel.org, surenb@google.com, mhocko@suse.com, riel@surriel.com,
- harry.yoo@oracle.com, jannh@google.com, willy@infradead.org,
- baohua@kernel.org, linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <cover.1765439380.git.baolin.wang@linux.alibaba.com>
- <e10f876ce130134fa089befe83f30561b48b9889.1765439380.git.baolin.wang@linux.alibaba.com>
- <1beaa7de-4b31-4f19-abee-83872f868e28@arm.com>
- <96c0adcc-abfd-4a44-be93-1c6bd7942d6d@linux.alibaba.com>
- <d3b40df8-e5cf-42aa-8205-de624024fad1@arm.com>
-From: Baolin Wang <baolin.wang@linux.alibaba.com>
-In-Reply-To: <d3b40df8-e5cf-42aa-8205-de624024fad1@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB9080:EE_|DU0PR04MB9495:EE_
+X-MS-Office365-Filtering-Correlation-Id: 04bc3ca2-fa14-446e-b1b3-08de3ea0e6e2
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|19092799006|7416014|1800799024|52116014|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?K0Z6L2hocDlIRDU0ZW9Lb2o4V0ZKd2RwMmEzTkYzTDJQRkZFekJkQ2Z6Z0Qz?=
+ =?utf-8?B?Q2FkUzlqYjhVYUF1UFR0aUMvQndRemZCZE5WMGlqUmJURlNIZURzUHpYelhF?=
+ =?utf-8?B?WHVWaGRVZUlhRGhNb2p6L3JqQlBEcXVMZ0NyQ3czUktwOTViblJ0UDRLK2ox?=
+ =?utf-8?B?R0gzem5kM3FFUlFQNGtLU3MyWHpWRXNlMVNDczBLOHI3dllKZ3g4b1FDcWs2?=
+ =?utf-8?B?N1VUS1dVUDdJRmIydjVKL1NnSFBTNk9tV05qSEQ4cHJYYzFHVURDOFM4aDh0?=
+ =?utf-8?B?NnNSZWh2eGtyQkYzZHNOU2doS2E2d0o5SFNDZzRaTlpzWTZvaHVqTHRBOUtQ?=
+ =?utf-8?B?aXVBQXA3cHhTOFhXSTR0ZUQ1cTB6YitsS3B6UVZjUHNCUFNOcWhjYTVLQ1ND?=
+ =?utf-8?B?REZ3TmJwWVRTY3EyaU55N2tUWitqWVpOazRmZ2s2MENXdXJoeUtrNUUwUWxr?=
+ =?utf-8?B?T1RxbkRDVjE5OFQ3bW9wNXhlVU1RQ3BFOThDc1FNSHdIVzFUZkM2OUxVU2dh?=
+ =?utf-8?B?Z012WTRJSHBsanN1SVBUaFI0NkJ3aVZzVGUwNVhMb1hVK3kyS0JvTEJuNTl6?=
+ =?utf-8?B?ZWVCcThnVDhlQnlHTUhUU1ZJcENQLzlKOXVGT3Q4elpJbDZrVU5Ma042c0ZC?=
+ =?utf-8?B?TkZ0VmU3bEJTWkpaU1l5SmZXVDV1UDczV3hNMXc2YjAxOWZQS2txcWlBUFFJ?=
+ =?utf-8?B?Vk41M3IwNFhwSFA0dllrdXlJQmxENWlnS1E1TGtScUs5TDA0bk9NQVU3WjlZ?=
+ =?utf-8?B?MmR3TTVoeEVKN0lId0pYTE53dHF2SmNteC9VWGF4VXZabGxMWUFpZUpNUGZB?=
+ =?utf-8?B?NXVGNGM0SVNOWG5zWmNSTnljL2FvM2xtSzNaL0tCZ3VuR1NtSXYwS2huWEVw?=
+ =?utf-8?B?WVl5ZUQyV0ROZWxVa1ZuU2RrSVBuK1Zmam93bEh5cUJuY2I3N2lGYm9KWXdk?=
+ =?utf-8?B?eGF0VkF1VWNBbktFMkZUVXJjODNpU01SdDhJMFE5VW5DZHV0UEpPSUdkeEpp?=
+ =?utf-8?B?VnR1K1plQXRFeDhYaE5ldzZTYXU2TmtNYTVwYzYwN3JoSFVNblV3dWpseUJY?=
+ =?utf-8?B?UnhHaGVKdVQvRTd3eHAzRldDa3NrR1ZDWmJvV09ZMGpsU2JkbG4wVnhmVVF3?=
+ =?utf-8?B?L3laN3QrTFg3VTJJYzBkaEN3bE11TE5OVUhiRHQ2MU5GQy9FaWNCdTJyWmdB?=
+ =?utf-8?B?azFVMG4wY292VXVnc3UwQUovc2hxYVptaFBWRFY3a1FGUU1uT3FNTmlIUzNF?=
+ =?utf-8?B?dy9vZVZWNnpsRWd5VVg3cDRhangyOEtyZ2FkeGdsQ1RuZFFRYXV6U2JLb2g4?=
+ =?utf-8?B?ZXdxSG1jbDlpR1ZGTnFqRlhMdHF3Y0phVFhuR3dvNzFrdHFGSVFKRU9vY2tz?=
+ =?utf-8?B?TlhGdWdma0dKNmJmcWlWdHRWN0U4eHJnT2Q5aklXZis4RWpxaWxnUC9rcC96?=
+ =?utf-8?B?ajdiUiswd29Nd1pXUGVGaTN4SU4zV0dRc0dDZS9KV2lGcnNTbFpHOVpwck55?=
+ =?utf-8?B?VDRUWTBJU21CNS82UC9PbEgwbXh4L0ZIcG5WbEd0UmFESVJWSU1TbUwxM3hp?=
+ =?utf-8?B?amNIajNTZWdXalJjTFFsL2p4MjJZWVZXanFHOG9oV2dKNSs1Z0gweG1BQm5j?=
+ =?utf-8?B?WWZyWTJadTI5Q0wvZjhnMnEvdVFIMENWUDgzV3IwNXdjMW9wUzlqQUtWNm11?=
+ =?utf-8?B?c1RGNU90SzBCZkpvVmN2WGNtbjhHQzZjL3JrU01XbUJoakVVUzdudkIxem1x?=
+ =?utf-8?B?V2NDUVBoMXNOVzRqamRoSXl3SWFzck5mM3A4aGtYcTZ3TTZrYUZFV3VFVEwz?=
+ =?utf-8?B?SXdZUUc2Y0JRZkZLb21zZEtSK3NldFZONkpISzU2bGRmVklqWEo0ZEVCTUxn?=
+ =?utf-8?B?VmpaUnlSWEZLZEJvaXJZR09XR0c1bS9MNnFERmxVaGxaWVpJeFhLd3B1L0Rz?=
+ =?utf-8?B?OHprN2s4anZXTHloQzNWQzB5NGhPTWdzM0cwL1N5ek5sTTMrRzdvODAzU3FO?=
+ =?utf-8?B?UWNZZUhRSUZRPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB9080.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(19092799006)(7416014)(1800799024)(52116014)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dmoyVldpNEZvcjlrL2dBRm00Z0FaT3BMMTlobGJFaDAwNEZKOTFEdm44YUw1?=
+ =?utf-8?B?cE1SK1N0NHoyc0FvYlBIV1BIR2dUMEJEUndDdjMzRm1QNEQ4UGZMVzQ2cDlo?=
+ =?utf-8?B?S2E3eXVYUG5aR2tyNVZxcVFWMENkcUpUZ1dnN1VMbjlBME1LTnBNdWNHQUtX?=
+ =?utf-8?B?OGhsV0IybElDY0tkejIyTGdlVXhnQUFvYU13QWV6MDBsSzhXcWk3bWpvSkdk?=
+ =?utf-8?B?Sno0N0Q4YmhPSWZ3eXpxaVY0MWZYcXIxcXpKMTBKWFpEeHFqcFBqTEd6NHNO?=
+ =?utf-8?B?ZlFBUHQvRm91RGJLVGM2MVIrM1kyODBqcFU5ejlYSGlxK3BTSGlyQmVHVkla?=
+ =?utf-8?B?U0UxVWVQbCtVWS9sUS83N2lsNGRTZ1kvaFNSRytVRXFMZUs0Z1NqQndTWVJk?=
+ =?utf-8?B?cmFUdGw2R0wrQlJWQnBOQ2wwWXVqakNVN1pRdm9FeXpwZUxnazhjeHQrSDNr?=
+ =?utf-8?B?ZDY4S08zUEN5OHRIRkswSFpNNzduc01nZWQ1YWV3d01RWEI0MWFzYm43dE04?=
+ =?utf-8?B?RzgySFFaeW5qdS9WTjQ1eUk5ZUlmb2dSV255WnpXZ2VIY0FuOVFHZXN6dkpr?=
+ =?utf-8?B?WHlYMU5rY0FKRlg3STE2Z2NpYXJsRFptS0NBaHVsUG11d1RCeTkrNjNQdlI5?=
+ =?utf-8?B?b3ZNTEw0V3BseWxvZnl3NTBRUVhXMmo3ZG9YQzQzYnlFNGV5TkdKTjZWK2Ez?=
+ =?utf-8?B?T25EZmRsZ2lkNWZ3azNhTVNialBNNENibVkrSHRSdDhPUmI3VlZqMDA0N21y?=
+ =?utf-8?B?SUZNNGpNMVh6VzRGRHpUczlnYStMOSt1MERWOXpCT2c4VXdSMnJNUStuMUJW?=
+ =?utf-8?B?K01OMHplSlNUVWVsL3cxVGtpNkc5L2YvV20rSXRWWWNXR0NsTWJHRzJCY1FR?=
+ =?utf-8?B?bGZGeW4xeCt2ODI4WVROVTZwNEo5RkNqYyt0UEdNNGNnSWRZdmM0eXQ1UHVt?=
+ =?utf-8?B?MGcwRnArVnRWTW03enpBeUk3WGpRMllaTU5rbFVVR2pCT3BQZSt2aDRIV0pV?=
+ =?utf-8?B?ODM0L2tPc2dLeU1pRVZvSU8waHRVOG9oZ1Y2eW1YQjlmSkFleDNCY29SNXVm?=
+ =?utf-8?B?VW5LRW41ZWhDdjROSFluell1WjNrRXhnZ2krd2FkbU1ZTTVVNnBZTnZQWWtQ?=
+ =?utf-8?B?UlJTQm1ZQUxjakNtTTFnbEtla016QWFUNEE5K1ZuNHRNOWxmRUxnZ09XWjNX?=
+ =?utf-8?B?QXpjaXBTNG1EdGg3OWlMTEtMY2RPL0Jhd0R2WHpjbjByRTR4TVBoYllaMlNU?=
+ =?utf-8?B?RVdEZ0Z5U3B6NHljeW9aNGx1cWdoNHlFelJZaGVUZGN3cVhNODN4UWJmYUxJ?=
+ =?utf-8?B?OWxEbWhXQmdMa25BeXhiNXR4eTRRTFpvNTk0TE5vU0ZaNkZpbXFHbjN1Z2Vm?=
+ =?utf-8?B?d25udkRZYnpLZDRDb0I2L08vYkhDYy9OYUc3ZzQ5dllpYko1L2JwalRXMzhS?=
+ =?utf-8?B?VlF6eWQ3eG1tTjFRalRVQWt1ck5nVHJtdUtwa2RWNDRHRWo3dkRrekh5eUlk?=
+ =?utf-8?B?RTRLUEswZkhuSUZjTXNPSmlxZ2ZGOWsvQ1FhWXFRellaT1hYdUh4NnFoMlZu?=
+ =?utf-8?B?cCtYN1piRitlSUR6VHQyVTVaUk5iV1hidm9OUVBkVDVFRnNyUUFEcDJuQU5j?=
+ =?utf-8?B?SlNOL0k1bDZ2V291QTJLanA1cVpURmxYTG53R2NIQzNwYjV4bk5NSjFJRUwz?=
+ =?utf-8?B?S29uTisrSDl5SjR0K3NvUnZrNFU3djBhNUFaSXhRdUV1ZVRwdXkyc1hEUGZx?=
+ =?utf-8?B?OEZKSTNsWUx4STczaW9OdWFCVmw4RzFrV25WSWRMczBQZ0toTFR5Rk92bjFZ?=
+ =?utf-8?B?Z2k5N3NJTlZMcTlVdUhzaWV6V1JXMWRncUZ4elZWUGljNyszSHp6M2ZBc1M4?=
+ =?utf-8?B?UVhOM0tCd0lrbm1mU0xoaVRJWWFjb0NIRGovMkRObTMvRkNWUXRla3JaRm44?=
+ =?utf-8?B?YWx4TW1MZXdzRWJOUE5JZUVlQzdrbEhkaStjcWZvNEF1VTVaR245WUo3NWlo?=
+ =?utf-8?B?TG00THR4TkdGSVZ6TVZCZ1lQcEU2ZitEYnNzZHNiUXRBK2JSNkFBUUliQTUw?=
+ =?utf-8?B?VElSTUEzTHorVXg5TFAyMWhuZHJRMURsa3QrQUM3MEtKcVJPRGFUbVZWVndJ?=
+ =?utf-8?Q?iJRJcwFY9pDFoYumXuwtJ9HEh?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 04bc3ca2-fa14-446e-b1b3-08de3ea0e6e2
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB9080.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Dec 2025 01:49:52.4833
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 8BaBT4QISXf2/HGFdp83McOqr7uc3pHwN0u613YQCQfhz1Fx/76Rizguix46u6/qHxKT6RHpv1PzUL7hp62g7w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9495
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_170039_931162_51DA51AB 
-X-CRM114-Status: GOOD (  24.59  )
+X-CRM114-CacheID: sfid-20251218_174956_771741_9CAB49D9 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,188 +194,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Guoniu Zhou <guoniu.zhou@nxp.com>
 
+The i.MX9 CSI pixel formatting module uses packet info, pixel and
+non-pixel data from the CSI-2 host controller and reformat them to
+match Pixel Link(PL) definition.
 
-On 2025/12/18 20:20, Ryan Roberts wrote:
-> On 18/12/2025 07:15, Baolin Wang wrote:
->>
->>
->> On 2025/12/17 23:43, Ryan Roberts wrote:
->>> Sorry I'm a bit late to the party...
->>
->> Never mind. It's not late and comments are always welcome :)
->>
->>> On 11/12/2025 08:16, Baolin Wang wrote:
->>>> Currently, contpte_ptep_test_and_clear_young() and
->>>> contpte_ptep_clear_flush_young()
->>>> only clear the young flag and flush TLBs for PTEs within the contiguous range.
->>>> To support batch PTE operations for other sized large folios in the following
->>>> patches, adding a new parameter to specify the number of PTEs.
->>>>
->>>> While we are at it, rename the functions to maintain consistency with other
->>>> contpte_*() functions.
->>>>
->>>> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
->>>> ---
->>>>    arch/arm64/include/asm/pgtable.h | 12 ++++-----
->>>>    arch/arm64/mm/contpte.c          | 44 ++++++++++++++++++++++----------
->>>>    2 files changed, 37 insertions(+), 19 deletions(-)
->>>>
->>>> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
->>>> index 0944e296dd4a..e03034683156 100644
->>>> --- a/arch/arm64/include/asm/pgtable.h
->>>> +++ b/arch/arm64/include/asm/pgtable.h
->>>> @@ -1679,10 +1679,10 @@ extern void contpte_clear_full_ptes(struct mm_struct
->>>> *mm, unsigned long addr,
->>>>    extern pte_t contpte_get_and_clear_full_ptes(struct mm_struct *mm,
->>>>                    unsigned long addr, pte_t *ptep,
->>>>                    unsigned int nr, int full);
->>>> -extern int contpte_ptep_test_and_clear_young(struct vm_area_struct *vma,
->>>> -                unsigned long addr, pte_t *ptep);
->>>> -extern int contpte_ptep_clear_flush_young(struct vm_area_struct *vma,
->>>> -                unsigned long addr, pte_t *ptep);
->>>> +extern int contpte_test_and_clear_young_ptes(struct vm_area_struct *vma,
->>>> +                unsigned long addr, pte_t *ptep, unsigned int nr);
->>>> +extern int contpte_clear_flush_young_ptes(struct vm_area_struct *vma,
->>>> +                unsigned long addr, pte_t *ptep, unsigned int nr);
->>>
->>> The "contpte_" functions are intended to be private to the arm64 arch and should
->>> be exposed via the generic APIs. But I don't see any generic batched API for
->>> this, so you're only actually able to pass CONT_PTES as nr. Perhaps you're
->>> planning to define "test_and_clear_young_ptes()" and "clear_flush_young_ptes()"
->>> in later patches?
->>
->> Right. This is a preparation patch, and will be used in patch 2.
->>
->>>>    extern void contpte_wrprotect_ptes(struct mm_struct *mm, unsigned long addr,
->>>>                    pte_t *ptep, unsigned int nr);
->>>>    extern int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
->>>> @@ -1854,7 +1854,7 @@ static inline int ptep_test_and_clear_young(struct
->>>> vm_area_struct *vma,
->>>>        if (likely(!pte_valid_cont(orig_pte)))
->>>>            return __ptep_test_and_clear_young(vma, addr, ptep);
->>>>    -    return contpte_ptep_test_and_clear_young(vma, addr, ptep);
->>>> +    return contpte_test_and_clear_young_ptes(vma, addr, ptep, CONT_PTES);
->>>>    }
->>>>      #define __HAVE_ARCH_PTEP_CLEAR_YOUNG_FLUSH
->>>> @@ -1866,7 +1866,7 @@ static inline int ptep_clear_flush_young(struct
->>>> vm_area_struct *vma,
->>>>        if (likely(!pte_valid_cont(orig_pte)))
->>>>            return __ptep_clear_flush_young(vma, addr, ptep);
->>>>    -    return contpte_ptep_clear_flush_young(vma, addr, ptep);
->>>> +    return contpte_clear_flush_young_ptes(vma, addr, ptep, CONT_PTES);
->>>>    }
->>>>      #define wrprotect_ptes wrprotect_ptes
->>>> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
->>>> index c0557945939c..19b122441be3 100644
->>>> --- a/arch/arm64/mm/contpte.c
->>>> +++ b/arch/arm64/mm/contpte.c
->>>> @@ -488,8 +488,9 @@ pte_t contpte_get_and_clear_full_ptes(struct mm_struct *mm,
->>>>    }
->>>>    EXPORT_SYMBOL_GPL(contpte_get_and_clear_full_ptes);
->>>>    -int contpte_ptep_test_and_clear_young(struct vm_area_struct *vma,
->>>> -                    unsigned long addr, pte_t *ptep)
->>>> +int contpte_test_and_clear_young_ptes(struct vm_area_struct *vma,
->>>> +                    unsigned long addr, pte_t *ptep,
->>>> +                    unsigned int nr)
->>>>    {
->>>>        /*
->>>>         * ptep_clear_flush_young() technically requires us to clear the access
->>>> @@ -500,39 +501,56 @@ int contpte_ptep_test_and_clear_young(struct
->>>> vm_area_struct *vma,
->>>>         * having to unfold.
->>>>         */
->>>>    +    unsigned long start = addr;
->>>
->>> Personally I wouldn't bother defining start - just reuse addr. You're
->>> incrementing start in the below loop, so it's more appropriate to call it addr
->>> anyway.
->>
->> OK.
->>
->>>> +    unsigned long end = start + nr * PAGE_SIZE;
->>>>        int young = 0;
->>>>        int i;
->>>>    -    ptep = contpte_align_down(ptep);
->>>> -    addr = ALIGN_DOWN(addr, CONT_PTE_SIZE);
->>>> +    if (pte_cont(__ptep_get(ptep + nr - 1)))
->>>> +        end = ALIGN(end, CONT_PTE_SIZE);
->>>>    -    for (i = 0; i < CONT_PTES; i++, ptep++, addr += PAGE_SIZE)
->>>> -        young |= __ptep_test_and_clear_young(vma, addr, ptep);
->>>> +    if (pte_cont(__ptep_get(ptep))) {
->>>> +        start = ALIGN_DOWN(start, CONT_PTE_SIZE);
->>>> +        ptep = contpte_align_down(ptep);
->>>> +    }
->>>> +
->>>> +    nr = (end - start) / PAGE_SIZE;
->>>> +    for (i = 0; i < nr; i++, ptep++, start += PAGE_SIZE)
->>>
->>> Given you're now defining end, perhaps we don't need nr?
->>>
->>>      for (; addr != end; ptep++, addr += PAGE_SIZE)
->>>          young |= __ptep_test_and_clear_young(vma, addr, ptep);
->>
->> Yes, good point.
->>
->>>> +        young |= __ptep_test_and_clear_young(vma, start, ptep);
->>>>          return young;
->>>>    }
->>>> -EXPORT_SYMBOL_GPL(contpte_ptep_test_and_clear_young);
->>>> +EXPORT_SYMBOL_GPL(contpte_test_and_clear_young_ptes);
->>>>    -int contpte_ptep_clear_flush_young(struct vm_area_struct *vma,
->>>> -                    unsigned long addr, pte_t *ptep)
->>>> +int contpte_clear_flush_young_ptes(struct vm_area_struct *vma,
->>>> +                unsigned long addr, pte_t *ptep,
->>>> +                unsigned int nr)
->>>>    {
->>>>        int young;
->>>>    -    young = contpte_ptep_test_and_clear_young(vma, addr, ptep);
->>>> +    young = contpte_test_and_clear_young_ptes(vma, addr, ptep, nr);
->>>>          if (young) {
->>>> +        unsigned long start = addr;
->>>> +        unsigned long end = start + nr * PAGE_SIZE;
->>>> +
->>>> +        if (pte_cont(__ptep_get(ptep + nr - 1)))
->>>> +            end = ALIGN(end, CONT_PTE_SIZE);
->>>> +
->>>> +        if (pte_cont(__ptep_get(ptep)))
->>>> +            start = ALIGN_DOWN(start, CONT_PTE_SIZE);
->>>> +
->>>
->>> We now have this pattern of expanding contpte blocks up and down in 3 places.
->>> Perhaps create a helper?
->>
->> Sounds reasonable. How about the following helper?
->>
->> static pte_t *contpte_align_addr_ptep(unsigned long *start, unsigned long *end,
->>                                          pte_t *ptep, unsigned int nr)
->> {
->>          unsigned long end_addr = *start + nr * PAGE_SIZE;
->>
->>          if (pte_cont(__ptep_get(ptep + nr - 1)))
-> 
-> I think this is safe but calling it out to check; you're not checking that the
-> pte is valid, so theoretically you could have a swap-entry here with whatever
-> overlays the contiguous bit set. So then you would incorrectly extend.
-> 
-> But I think it is safe because the expectation is that core-mm has already
-> checked that the whole range is present?
+Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
+---
+ .../bindings/media/fsl,imx9-csi-formatter.yaml     | 87 ++++++++++++++++++++++
+ 1 file changed, 87 insertions(+)
 
-Yes. They must be present PTEs that map consecutive pages of the same 
-large folio within a single VMA and a single page table. I will add some 
-comments to make this clear.
+diff --git a/Documentation/devicetree/bindings/media/fsl,imx9-csi-formatter.yaml b/Documentation/devicetree/bindings/media/fsl,imx9-csi-formatter.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..774d37d2b987a679f0bb6378897a6dd196ea4f13
+--- /dev/null
++++ b/Documentation/devicetree/bindings/media/fsl,imx9-csi-formatter.yaml
+@@ -0,0 +1,87 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/media/fsl,imx9-csi-formatter.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: i.MX9 CSI Pixel Formatter
++
++maintainers:
++  - Guoniu Zhou <guoniu.zhou@nxp.com>
++
++description:
++  The CSI pixel formatting module uses packet info, pixel and non-pixel
++  data from the CSI-2 host controller and reformat them to match Pixel
++  Link(PL) definition.
++
++properties:
++  compatible:
++    const: fsl,imx9-csi-formatter
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  power-domains:
++    maxItems: 1
++
++  ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++
++    properties:
++      port@0:
++        $ref: /schemas/graph.yaml#/$defs/port-base
++        unevaluatedProperties: false
++        description: MIPI CSI-2 RX IDI interface
++
++        properties:
++          endpoint:
++            $ref: video-interfaces.yaml#
++            unevaluatedProperties: false
++
++      port@1:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: Pixel Link Interface
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - power-domains
++  - ports
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/nxp,imx95-clock.h>
++
++    formatter@20 {
++        compatible = "fsl,imx9-csi-formatter";
++        reg = <0x20 0x100>;
++        clocks = <&cameramix_csr IMX95_CLK_CAMBLK_CSI2_FOR0>;
++        power-domains = <&scmi_devpd 3>;
++
++        ports {
++            #address-cells = <1>;
++            #size-cells = <0>;
++
++            port@0 {
++                reg = <0>;
++
++                endpoint {
++                    remote-endpoint = <&mipi_csi_0_out>;
++                };
++            };
++
++            port@1 {
++                reg = <1>;
++
++                endpoint {
++                    remote-endpoint = <&isi_in_2>;
++                };
++            };
++        };
++    };
 
->>                  *end = ALIGN(end_addr, CONT_PTE_SIZE);
->>
->>          if (pte_cont(__ptep_get(ptep))) {
->>                  *start = ALIGN_DOWN(*start, CONT_PTE_SIZE);
->>                  ptep = contpte_align_down(ptep);
->>          }
->>
->>          return ptep;
->> }
-> 
-> Looks good.
+-- 
+2.34.1
 
-Thanks for reviewing.
 
