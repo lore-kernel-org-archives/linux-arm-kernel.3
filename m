@@ -4,65 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1BFFE66882
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 20:46:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAD62E6688C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 20:52:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Q51fm52oajOFRP5XFtODag3lpI4GTfTXB1z2+yA+Y1g=; b=nps+XTmTIboI6Co8e4BIDDY641
-	+lq2bsb0i3N7UraiXXTut3nOqdcTdjtqyOMN8Eg98+lCtG/n89yl1ohT5xBHEAz87etRHXJFhmf8T
-	ldLLSs5COahE9ZfZkk6KxAiNJDE1WyePfvrNVESakrOGR9Hu8hzpnMVgBQdXqMNc81XIzVkR1nGq3
-	cgShqEs4nxz0zikJyMjIroRG9IVW82elzsiu+OJbyAN4y4jNsZxpHj1ERdVbo/2X6diyCnTUV42Nr
-	nxHK19J8IMbRyNjhpDkVq1Xl6Qp96rrQjZficwIpbDKdlQSHrBthP7YlkLUjDgW3RLnZqiktfMip7
-	jZJDOlMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YbeFMOrTNRZw+sXivUqYIrL8vhKl30EHMobzjJSF+zo=; b=yi3C2xTHtZjCzB9WpgKLdcWzZV
+	6AAMYk9r2wfpF9JyOfzMgH598W5DC/Qch0tnxP/KcuWg7GbDZlZJ9AQo4p8j4IY9ytEGOh8Dgb0wy
+	KSCGBLxQ//r3jz5Bsc977BXUexUrMoLQP6OGgq6kmrg2PYkfqBbhjRQc6yjQQlXllteYvDCCLXtWI
+	3DxaMTr08rCZMs0KEIbAAI0zqpsrcx6DTnjkq35pBxa3+jsZEWfrrbMppdVNUmV53hp6zyS2jKAhF
+	YAQEjpw0a1a7plq2bmIhwUoL82texA9lf+6ClT5s9IISxJJiig6czxx8gWAhiW6V5wnX4h0A7y2qD
+	vUrsaZLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWhMY-0000000Axvf-3vxG;
-	Fri, 19 Dec 2025 20:46:10 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.144.205])
+	id 1vWhSP-0000000AyJx-0lWr;
+	Fri, 19 Dec 2025 20:52:13 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWhMW-0000000AxvH-2zFg
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Dec 2025 20:46:10 +0000
-Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 7D89FC0005DE;
-	Fri, 19 Dec 2025 12:46:07 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 7D89FC0005DE
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1766177167;
-	bh=uFoiAnmfkJdBKjec/SKY3O4A9OIGwgwAd5zYY2hU5Mc=;
-	h=From:To:Cc:Subject:Date:From;
-	b=ZFS//D1I/a0QX+ABNCQJZtABaTiQ6RWS0MyTmE20f9Y8DgfjATxiaNTmLRJdPpQhw
-	 z9ssngQr1ueVBA6UTzcNbWwuCcUn0pWJcSKEvbB5ofwjz7Pev9Gdplno+UoUnRmsWc
-	 iLN39h4srKBJ0lhyvdeBrdY/jDDTKpfgmxeJv0U4=
-Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 302D9A340;
-	Fri, 19 Dec 2025 12:46:07 -0800 (PST)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: soc@kernel.org
-Cc: Andrea della Porta <andrea.porta@suse.com>,
-	Rob Herring <robh@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	linux-arm-kernel@lists.infradead.org,
-	arnd@arndb.de,
-	khilman@kernel.org,
-	bcm-kernel-feedback-list@broadcom.com
-Subject: [GIT PULL 1/1] Broadcom devicetree-arm64 fixes for 6.19
-Date: Fri, 19 Dec 2025 12:46:03 -0800
-Message-ID: <20251219204603.1016528-1-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.43.0
+	id 1vWhSO-0000000AyJc-1wkD;
+	Fri, 19 Dec 2025 20:52:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4D45860008;
+	Fri, 19 Dec 2025 20:52:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7098C4CEF1;
+	Fri, 19 Dec 2025 20:52:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766177531;
+	bh=IfN5Dcnu7w/fq70aai0mm7T/3vR0HXA+EKmz+kfT6XU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jq1tQtSS/JSCOocX/vIVsiOD5D9gS1yjIp+Grqn/3RTPO307bYj+41/DcUdH6/GRe
+	 YIVF7sjtezyVdaSW1ztPfWvX2kXCnfnd7QwoimHJGaZDeVUDmBvd0TE2jCCoqPY3Q0
+	 Y5GeDEipTvoQOAzB3uRM81xTft9LfvBxybKkCteBjB1woJ47kbihrI8NJ+mql6jQX0
+	 3kYNT8JCuQ0aKutiRFVaZkfXGnRMPBrwXF36aNPqxNyQZqoeEf78p0WVaK2C7YKc7f
+	 uuoa294UBUMFCp9e+GdvHgPulI5N1UmQY9BJG24oJgTMlixqXdN14Bp8KGSpd6XLLv
+	 D3vyQsVNbdGsg==
+Date: Fri, 19 Dec 2025 14:52:08 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+	Guillaume Ranquet <granquet@baylibre.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-mediatek@lists.infradead.org,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Vinod Koul <vkoul@kernel.org>,
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	Chunfeng Yun <chunfeng.yun@mediatek.com>, kernel@collabora.com,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 02/12] dt-bindings: phy: mediatek,hdmi-phy: Add
+ support for MT8188 SoC
+Message-ID: <176617752769.3912550.11182398487708653155.robh@kernel.org>
+References: <20251217-mtk-genio-evk-hdmi-support-v2-0-a994976bb39a@collabora.com>
+ <20251217-mtk-genio-evk-hdmi-support-v2-2-a994976bb39a@collabora.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_124608_826551_6358F6B9 
-X-CRM114-Status: UNSURE (   9.71  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251217-mtk-genio-evk-hdmi-support-v2-2-a994976bb39a@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,46 +82,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8:
 
-  Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
+On Wed, 17 Dec 2025 11:19:01 +0100, Louis-Alexis Eyraud wrote:
+> Add compatible string for the HDMI PHY IP on MT8188 SoC, that is
+> compatible with the one found on MT8195 SoC.
+> 
+> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> ---
+>  Documentation/devicetree/bindings/phy/mediatek,hdmi-phy.yaml | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
 
-are available in the Git repository at:
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-  https://github.com/Broadcom/stblinux.git tags/arm-soc/for-6.19/devicetree-arm64-fixes
-
-for you to fetch changes up to 9a96cc8bbeefbc64654ac9c3da619443c22f6d32:
-
-  arm64: dts: broadcom: rp1: drop RP1 overlay (2025-12-19 12:42:36 -0800)
-
-----------------------------------------------------------------
-This pull request contains Broadcom ARM64-SoC Device Tree fixes for
-6.19, please pull the following:
-
-- Andrea fixes the RP1 DeviceTree hierarchy and drop overlay support,
-  this resolves a number of DTC warnings and other issues
-
-----------------------------------------------------------------
-Andrea della Porta (4):
-      dt-bindings: misc: pci1de4,1: add required reg property for endpoint
-      misc: rp1: drop overlay support
-      arm64: dts: broadcom: bcm2712: fix RP1 endpoint PCI topology
-      arm64: dts: broadcom: rp1: drop RP1 overlay
-
- .../devicetree/bindings/misc/pci1de4,1.yaml        |  8 ++++-
- arch/arm64/boot/dts/broadcom/Makefile              |  4 +--
- ...i-5-b-ovl-rp1.dts => bcm2712-rpi-5-b-base.dtsi} |  0
- arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts   | 39 ++++++++++++++--------
- arch/arm64/boot/dts/broadcom/rp1-nexus.dtsi        | 14 --------
- arch/arm64/boot/dts/broadcom/rp1.dtso              | 11 ------
- drivers/misc/rp1/Kconfig                           |  6 +---
- drivers/misc/rp1/Makefile                          |  3 +-
- drivers/misc/rp1/rp1-pci.dtso                      | 25 --------------
- drivers/misc/rp1/rp1_pci.c                         | 37 +++-----------------
- drivers/pci/quirks.c                               |  1 -
- 11 files changed, 40 insertions(+), 108 deletions(-)
- rename arch/arm64/boot/dts/broadcom/{bcm2712-rpi-5-b-ovl-rp1.dts => bcm2712-rpi-5-b-base.dtsi} (100%)
- delete mode 100644 arch/arm64/boot/dts/broadcom/rp1-nexus.dtsi
- delete mode 100644 arch/arm64/boot/dts/broadcom/rp1.dtso
- delete mode 100644 drivers/misc/rp1/rp1-pci.dtso
 
