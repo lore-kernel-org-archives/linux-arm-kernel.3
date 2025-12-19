@@ -4,86 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1039BD7496F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 09:34:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8F97D7496F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 09:35:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UDF4h3Jh9GgHGMLVFPx83dqWDttLVLJuGGw2qG0PEFE=; b=apUErVimGsB7TP0gZIrdeYduto
-	LOBy7WjfP6YNa0tsMdijoZOkzyTn/1zCpSl5bJeSyxNAEYTS5ddaGFNpJob3LD861nObdch8G0lHz
-	ggVRfX/G1hhc/xhRydtsSfR2qkabU5v/mx+jc96i3UQ+ADea3Oz2mNAOfMQXwgIXfeOEw1MT9Dx7o
-	h8j87yXh7bzjiX7fIDQFXm09uJRpXrEcwTlcrlDnaxuqFnm+2jL9KfPvcWtHJrRdO9EcHGqdrEH/S
-	PcW/uCMGQBevkYPAtdiNCOJpsJcRXVlkG/bZtDBitlssbkAuIXUMqihWhmwkKuM4DzeyJ8UO5UTS5
-	xoelkJHQ==;
+	bh=AyAGCUlm+brXr7pmh+HChqf8cAz1yyIjxqldlF7yhcs=; b=n341TdrfpImFDszmdRyQ0UsgIe
+	59U9dUPgvmmz2YJ5AnC38upOefP/oW64ZvKHtmQhNIPtF+uQawqOoCsAciUiXR3NzFWNsmtnW6W4B
+	Z2TVENg2Nmhe+RJHhacs9CuhjU4hz0AzNjLrZohEKdIYwE8VnfSI9d95k8OYGS7lpo1B2Sh7I488G
+	6QKkKZA+Xa4PAMXkvwH2YYpsF2fX+QpIzzkYWSmzuDrbkKQNAVKcRXMUy+Cn4l3nB0zMvoUpkPwcc
+	G+B/U/ptozcaPDuviCOhm7JTnnHJ4meNmNCdguZD1LH2MXu1pwHaitzjmfzdEQyy7yHrDk73G96F3
+	HhcXDhxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWWsl-00000009xru-3Krm;
-	Fri, 19 Dec 2025 09:34:43 +0000
-Received: from smtpbgeu2.qq.com ([18.194.254.142])
+	id 1vWWtG-00000009y78-2pS0;
+	Fri, 19 Dec 2025 09:35:14 +0000
+Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWWsd-00000009xeQ-3Uh3;
-	Fri, 19 Dec 2025 09:34:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1766136816;
-	bh=UDF4h3Jh9GgHGMLVFPx83dqWDttLVLJuGGw2qG0PEFE=;
-	h=From:To:Subject:Date:Message-Id:MIME-Version;
-	b=pdJp5wN7z4eFeVowqCWVpB/vKYmjXGxHpgxzUwQrHm6pc6wTZH/8WsR/gtDxfUqq4
-	 kimGm/kk69stHppXjFLHlHZIrF7fVFges+AuXiGEzmBG+q1FqxafPD9mIQXjhERn27
-	 Y2nHGOZw4TL+oNugQ+xSIjzqkUue63ywDbrL1Tlg=
-X-QQ-mid: zesmtpsz5t1766136798t48f4f980
-X-QQ-Originating-IP: FPwl8qTGfn+61UlViOYpcJHqZAzjuxj54MRGHmXIgaE=
-Received: from localhost.localdomain ( [123.114.60.34])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 19 Dec 2025 17:33:15 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 3273388139071314314
-EX-QQ-RecipientCnt: 8
-From: Qiang Ma <maqianga@uniontech.com>
-To: akpm@linux-foundation.org,
-	bhe@redhat.com,
-	catalin.marinas@arm.com,
-	will@kernel.org
-Cc: kexec@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Qiang Ma <maqianga@uniontech.com>
-Subject: [PATCH v2 4/4] arm64: kexec: Adjust the debug print of kexec_image_info
-Date: Fri, 19 Dec 2025 17:31:34 +0800
-Message-Id: <20251219093134.2268620-5-maqianga@uniontech.com>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20251219093134.2268620-1-maqianga@uniontech.com>
-References: <20251219093134.2268620-1-maqianga@uniontech.com>
+	id 1vWWtD-00000009y4v-1inV
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 19 Dec 2025 09:35:12 +0000
+Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-bf1b402fa3cso1580284a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Dec 2025 01:35:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1766136910; x=1766741710; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AyAGCUlm+brXr7pmh+HChqf8cAz1yyIjxqldlF7yhcs=;
+        b=AoSJUMAmel4EMq/oeNKbgfZsf0cVsu7p0QxZfghKPfpQ5nmSFJO9wXlfqtBdHOsumW
+         hVQgD+l6aLoWu/T2qYMWbQbex+IATCfgsuvJABynsebpfOQyM/4iuieGankEdO42RdzD
+         nw5Z4BHOPXe0FPfiNBhCVZHO1zTinMC+l1o9C3Bnaeow5FBci4xoBlqyeBprX8ylO9xy
+         9QUjuugcqquQnpcsPjV0ChfF+Lu7UWG4JyOzM9f6ujEQ1aWa1/GZ1LbGmW4Vi81ms2sk
+         03A5/o19JfD2+nGKwlQPi7pcKJRkJQXcAVFd26Joj0e/j2+8H+1KL7ELkZYBqGp57nuD
+         7WDA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766136910; x=1766741710;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=AyAGCUlm+brXr7pmh+HChqf8cAz1yyIjxqldlF7yhcs=;
+        b=RYR1JdXhRDc7DECEOuTtmmpUoV+lnk40YGpz8PgFTEF7AsBGcW+JvB0BUoREh63xQj
+         fRHlN14tXXNdWNGz9R5PRL8kycKumWHZ66qO30neHxtpqCEdjjfCYLq+5oEa+LqS4msP
+         TymBjFXZSApt51YhqWL/8b0VTUwZQo6SRuZ4l1tId8cf/XQisPRxkuOnStOsKjoJeasH
+         3eqxH1rc+3wWQxGLN5f99qSjCEOhgp6doizaPI7eM+fXMgv/Tybk0ZUNc8g2YoVGWZid
+         pwerAjFe0y1miRoEZIqZC49QJkWQHtz64FcesOiUh1tMTt0QhfZLy6X7e6fIY35pPjO7
+         /MPw==
+X-Forwarded-Encrypted: i=1; AJvYcCU4wtvDwwUn+jMr7fv8lcphHuU0pZsDw9y5Nb/0kX34N8ngV+fzCXNpjaJKB0a0m7fSdpIA64Qr16GvkU/U5BM6@lists.infradead.org
+X-Gm-Message-State: AOJu0YymnRJ91dAo6QDf/TCFeg/sKbLYvzbyc5fAEosK5ftAU4nXqqIq
+	H6n7E/NFGs8gjgEQ+IPfl7RRoYwn6N7hD3Hfzfl5zMdAW8Y0bG8xkpqKd0X79E+JtsXAdK4xQTU
+	VuTF1jJ6GQhXDRi7TqwVnoNgiFzsx+TU=
+X-Gm-Gg: AY/fxX7uXmaBbMoeiCTdsP6w942R4lc5lGPfa2ZL+zke7TXnR+8VXZFiDHwAJnW4SHu
+	Wl2OfGz+1F6hN5Rg0L6cOhLYXDZltjyqzKw30e8+R8ayRyjgUWKie1dK7SfiNmV0G8jKLjGD9h6
+	U38mhRinFRAFO9dFSooaWMjuYm93KxhTrPxcHVdGXAhMO/jXPbeNBPbqWFl1fgIFst3UZMlWI5J
+	uoTXclHpQscLZ9lrgwaIQH6uzFcZvNfhqmmzmnKe9zDkI9H53wYznUM3yXxj/C7T4EJETzjkDKC
+	dKaVTW3/Y0z2QSI3D+ZwlpmO6Us+WpBi9X3mQvmtxMUKEf46/Xu5bd2US1Mne/eIpmRUCuwawHb
+	qcgIaKdWNXQ==
+X-Google-Smtp-Source: AGHT+IEC+GRfBHy/wKtqpZsBBkP6Qw8fpQs3utuiawRsmustP1cLTt5mwJXD98PkDBYzd2Voi6o2nfAACcKqpL0sZnw=
+X-Received: by 2002:a05:7022:2586:b0:119:e56c:18a7 with SMTP id
+ a92af1059eb24-121722b4e90mr2430820c88.15.1766136910154; Fri, 19 Dec 2025
+ 01:35:10 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:uniontech.com:qybglogicsvrsz:qybglogicsvrsz3b-0
-X-QQ-XMAILINFO: NSukcgWmJNd8BYYCvQ+Z4AU7BbL32JoK30KTc31XPVU0YecuYp1Bd/jk
-	ZBRDoGHjHhW/kjmhyvQ7ynPo8q3YEeua5oNtbzpUhiyHzbaK1r/o5b8IN87GcozGeXWQh28
-	gvVIcV/HNYp1OXDrskrPffUB+EdlY2nJPw4sElaEQY6qrjPCOKnK15bp22IADHOHeNv8Rp8
-	xXf28bA5sCcHz9RbIq8okKg6VtP5dxhOz0xoI9BVrIEeCxKQQNdkLMFxZVKvxYUtYoTIDzs
-	+1OUOAEjABcXIPooQoJ7B234gBceh8TELNwAnAAdi/jnkOW/UFn5fBGycffY3J8OnUtzIF+
-	eMh2/Mbv7Qkw8ZLD5qfPct+28WiD+D4KYiDkhSd6eni6Pp3xTDeZz19NNeCny/K7ly67HZ3
-	GYtTR42uM+y/iKdOzl0POxSPr3z4oTgq/+X4QVwr7vfq+kPdFa8q353l/p5psRweuUHmqvN
-	y4NiZvZpmzb3zCizfyW8SaGadAtdSpkzYLQVEN24VTqAMnXy3udf2ACwBFiWLJXmj+1lyTI
-	qJ9SGsn3E3R920QoA+EET0lD1w5nE7nimnWkEcPZkbG0DNIsjGPBq9tBu3dHzX2I+PPKccI
-	hv/X/D09vgSe2b+rqLJe6dlj6HaQN4OJLN5uB/SOEICHRoJ30t3r4VMTSehQwnbZuAPzMga
-	wjI2o4+FgZFZ3dJuj9vtRhyzeUpZOe7EeJ6PDn1WlL9M7Ce4IQXYqy8eW5UyDAsbgBI6zUU
-	n0fA8KYmMMokSh99d744QhUWUJa/2SRFmBJQUOXAy/AOngWSzc9UevWMu4GDXrdVm2H6/Nz
-	jKj0LuRp+Jw6TUWbZ4qRDCLvNU6bqoQY98KQ8VHzcAtrYS4QEQM0s7gaqn99rS5fpOXEGVq
-	tqTeY9iksJQGSOKHvJFmAZY6RxFChEZxqoHV2I9SKLKfvx7lE5ktW3m9+1JYfwtsmJYcA6p
-	Dew55sT1KvaLrHrx2CjoTlLdPBwh4Q1fj6pG5LRLpnRddfAtWTNEEWGeik5D0B+0OFU0/CQ
-	AiKnPNE3wBltG7241CAFtYVje6ezFCydGWD/Eb0Pxj+DQk6zoJ5HtfFvTFoFnylnZk9blUl
-	w==
-X-QQ-XMRINFO: OWPUhxQsoeAVDbp3OJHYyFg=
-X-QQ-RECHKSPAM: 0
+References: <20251219075447.3672833-1-xu.yang_2@nxp.com>
+In-Reply-To: <20251219075447.3672833-1-xu.yang_2@nxp.com>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Fri, 19 Dec 2025 11:34:56 +0200
+X-Gm-Features: AQt7F2qZpM6npqbvUvhl8gYuuDP4SgIr_o7BiZ-Bvy86V9dJT-iXFljB710VpjI
+Message-ID: <CAEnQRZCZJnkXCM2ACf3dXQ-ZynRB1q2zcarWLAZO_1TsL-1GcA@mail.gmail.com>
+Subject: Re: [PATCH] phy: fsl-imx8mq-usb: add debugfs to access control register
+To: Xu Yang <xu.yang_2@nxp.com>
+Cc: vkoul@kernel.org, neil.armstrong@linaro.org, shawnguo@kernel.org, 
+	kernel@pengutronix.de, festevam@gmail.com, jun.li@nxp.com, Frank.Li@nxp.com, 
+	linux-phy@lists.infradead.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_013436_328189_462FB8A7 
-X-CRM114-Status: UNSURE (   7.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251219_013511_457954_AEA8A186 
+X-CRM114-Status: GOOD (  21.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,28 +99,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the previous patch, we move start/head of kimage to the
-generic code, so, we remove them to avoid duplicate printing.
+On Fri, Dec 19, 2025 at 9:56=E2=80=AFAM Xu Yang <xu.yang_2@nxp.com> wrote:
+>
+> The CR port is a simple 16-bit data/address parallel port that is
+> provided for on-chip access to the control registers inside the
+> USB 3.0 femtoPHY. While access to these registers is not required
+> for normal PHY operation, this interface enables you to access
+> some of the PHY=E2=80=99s diagnostic features during normal operation or
+> to override some basic PHY control signals.
+>
+> 3 debugfs files are created to read and write control registers,
+> all use hexadecimal format:
+> ctrl_reg_base: the register offset to write, or the start offset
+>                to read.
+> ctrl_reg_count: how many continuous registers to be read.
+> ctrl_reg_value: read to show the continuous registers value from
+>                 the offset in ctrl_reg_base, to ctrl_reg_base
+>                 + ctrl_reg_count - 1, one line for one register.
+>                 when write, override the register at ctrl_reg_base,
+>                 one time can only change one 16bits register.
+>
+> Signed-off-by: Li Jun <jun.li@nxp.com>
+> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+> ---
+>  drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 221 ++++++++++++++++++++-
+>  1 file changed, 220 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c b/drivers/phy/fre=
+escale/phy-fsl-imx8mq-usb.c
+> index ad8a55012e42..cb2392008ad2 100644
+> --- a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+> +++ b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+> @@ -1,8 +1,9 @@
+>  // SPDX-License-Identifier: GPL-2.0+
+> -/* Copyright (c) 2017 NXP. */
+> +/* Copyright (c) 2017-2025 NXP. */
 
-Signed-off-by: Qiang Ma <maqianga@uniontech.com>
----
- arch/arm64/kernel/machine_kexec.c | 2 --
- 1 file changed, 2 deletions(-)
+While you are at it can you remove the (c). New policy
+from NXP is to use directly:
 
-diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
-index 239c16e3d02f..0896e3e6a811 100644
---- a/arch/arm64/kernel/machine_kexec.c
-+++ b/arch/arm64/kernel/machine_kexec.c
-@@ -34,8 +34,6 @@ static void _kexec_image_info(const char *func, int line,
- {
- 	kexec_dprintk("%s:%d:\n", func, line);
- 	kexec_dprintk("  kexec kimage info:\n");
--	kexec_dprintk("    type:        %d\n", kimage->type);
--	kexec_dprintk("    head:        %lx\n", kimage->head);
- 	kexec_dprintk("    kern_reloc: %pa\n", &kimage->arch.kern_reloc);
- 	kexec_dprintk("    el2_vectors: %pa\n", &kimage->arch.el2_vectors);
- }
--- 
-2.20.1
+Copyright 2017-2025 NXP.
 
+thanks,
+Daniel.
 
