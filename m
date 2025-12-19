@@ -4,68 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87717D78776
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 14:02:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AD4FD78780
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 14:13:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z4dqupdFg8BGF1u0Mf6CtSRiCMjelfEW0wXsSW0JgjQ=; b=MEOQntQE34XNbqnftuTouQncv8
-	NJTBfuIb8GUUXvFA79ggmDDd7pzHGIvKBNAZoFN8F+awpG1pnyVLZqS04fFUVQqgw27NTUDIs2mGf
-	PsT1PEZhkpFwR1Zes9leahaMeeIHWA5ctS6ETN1pWTQOgX59FG304ws8hBFNY7mzk/zdrb0lGB6Xl
-	iJV6/Qzp3mq90IN50zau6hMHhJhNZ3V+uQoh5HeOlhCamXH25SsTii+TQ29XNY/4YFy6+39GvlECc
-	cv77Y7bAtHSRkoGHbPB1vsY/Kr4HpVBvHtzERLjRK340kdDpWPZqlCbMzKwlVE5/lGOHPXfZcnCie
-	RwjSN2Eg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OPTYcn3rdX/oYzG3X3tuO3QcIpqolzHTYRmBa1FAkhM=; b=B4hjfeBaKGSbIz5K+BuJ5I9OgU
+	6y3aPLvBffkOyqm6sesE/7hC3e5SKm4L5GRBTj+earDEf8vetE3KvOVII1el1GQauaxOG+KiRSm+a
+	ww0e3FFZU3Uvg5JjSPHMSgizbde10GlPPGPv9pmfqJVLs2m3/ppf1H0M1vqU5eDw7DIiSB8Z75uox
+	TN1ib45rmcb99kKbCoDEPcXrefhHFH1mx4j/SE+t4Z7Nj67IeB/alf5flawNjFf3h6fV4sL4IvozJ
+	pfoa0ZKf2csAgCtH7aObt/N4uG5q4OMnCvL4WLxOCN/Ke2YRLx7Hr6efZvLAVX7SjxUEoAcP8QgnE
+	ESs1T0kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWb3Y-0000000ANoO-2DQT;
-	Fri, 19 Dec 2025 14:02:08 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWb3V-0000000ANo1-0Scz
+	id 1vWbEn-0000000AOP6-0YtL;
+	Fri, 19 Dec 2025 14:13:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vWbEl-0000000AOOx-2UtO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Dec 2025 14:02:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 15437FEC;
-	Fri, 19 Dec 2025 06:01:56 -0800 (PST)
-Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id DFB2F3F5CA;
-	Fri, 19 Dec 2025 06:02:00 -0800 (PST)
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-	Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
-	Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	linux-arm-msm@vger.kernel.org,
-	coresight@lists.linaro.org,
+	Fri, 19 Dec 2025 14:13:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B58BE6017F;
+	Fri, 19 Dec 2025 14:13:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56EA2C4CEF1;
+	Fri, 19 Dec 2025 14:13:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766153622;
+	bh=YGYfUTiPbDylJp07ot7ovJ+uF65gEdyPkYPgBvgr4Y0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ttgxp3vHi7niD4DYgc4rr4A2aiHchheYflsFW3+fmwJzVXJGqoW3gQX5yo+uNI2gq
+	 Ylsid/pI5hbOQYJTfhin7AyiVyfoLW5SgI1WLEn7r4mR7He84GarpcwHCS7KrARkyn
+	 S9VErJF6RL9rmVPfzAsYxd5kH4TeJbGVc1g6fFwfv+tcfdHmvy/k0wItmYsbSvTcX4
+	 V9j+pPLQVbOdGq/OcjbBAH97+98QTDaz0ynpyQB6VdNAAY4H27taxUpxjzA5j+EB31
+	 arvZf4LVVCiwEmPGX7Ggda2Dn1vEMAdY8I0VzJ8gIwqg8LZHdy90AiPCFjpEqxQkS5
+	 EXs5GFmXgnkiw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vWbEh-0000000DyXf-3enC;
+	Fri, 19 Dec 2025 14:13:39 +0000
+Date: Fri, 19 Dec 2025 14:13:39 +0000
+Message-ID: <86qzsqmuek.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Leonardo Bras <leo.bras@arm.com>
+Cc: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>
-Subject: Re: (subset) [PATCH v4 0/2] Enable CTCU device for QCS8300
-Date: Fri, 19 Dec 2025 14:01:53 +0000
-Message-ID: <176615287813.688536.723538049922655005.b4-ty@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251103-enable-ctcu-for-monaco-v4-0-92ff83201584@oss.qualcomm.com>
-References: <20251103-enable-ctcu-for-monaco-v4-0-92ff83201584@oss.qualcomm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_060205_215928_03F6B571 
-X-CRM114-Status: UNSURE (   7.92  )
-X-CRM114-Notice: Please train this message.
+	kvm@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	Quentin Perret <qperret@google.com>,
+	Fuad Tabba <tabba@google.com>,
+	Sebastian Ene <sebastianene@google.com>
+Subject: Re: [PATCH v2 1/6] KVM: arm64: Fix EL2 S1 XN handling for hVHE setups
+In-Reply-To: <aURFlcm6szeSfLmH@devkitleo>
+References: <20251210173024.561160-1-maz@kernel.org>
+	<20251210173024.561160-2-maz@kernel.org>
+	<aURFlcm6szeSfLmH@devkitleo>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: leo.bras@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, alexandru.elisei@arm.com, Sascha.Bischoff@arm.com, qperret@google.com, tabba@google.com, sebastianene@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,24 +92,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Mon, 03 Nov 2025 15:06:20 +0800, Jie Gan wrote:
-> Enable CTCU device for QCS8300 platform. Add a fallback mechnasim in binding to utilize
-> the compitable of the SA8775p platform becuase the CTCU for QCS8300 shares same
-> configurations as SA8775p platform.
+On Fri, 19 Dec 2025 13:38:50 +0000,
+Leonardo Bras <leo.bras@arm.com> wrote:
 > 
-> Changes in V4:
-> 1. dtsi file has been renamed from qcs8300.dtsi -> monaco.dtsi
-> Link to V3 - https://lore.kernel.org/all/20251013-enable-ctcu-for-qcs8300-v3-0-611e6e0d3085@oss.qualcomm.com/
+> On Wed, Dec 10, 2025 at 05:30:19PM +0000, Marc Zyngier wrote:
+> > The current XN implementation is tied to the EL2 translation regime,
+> > and fall flat on its face with the EL2&0 one that is used for hVHE,
+> > as the permission bit for privileged execution is a different one.
+> > 
+> > Fixes: 6537565fd9b7f ("KVM: arm64: Adjust EL2 stage-1 leaf AP bits when ARM64_KVM_HVHE is set")
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  arch/arm64/include/asm/kvm_pgtable.h | 10 +++++++++-
+> >  1 file changed, 9 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+> > index fc02de43c68dd..be68b89692065 100644
+> > --- a/arch/arm64/include/asm/kvm_pgtable.h
+> > +++ b/arch/arm64/include/asm/kvm_pgtable.h
+> > @@ -87,7 +87,15 @@ typedef u64 kvm_pte_t;
+> >  
+> >  #define KVM_PTE_LEAF_ATTR_HI_SW		GENMASK(58, 55)
+> >  
+> > -#define KVM_PTE_LEAF_ATTR_HI_S1_XN	BIT(54)
+> > +#define __KVM_PTE_LEAF_ATTR_HI_S1_XN	BIT(54)
+> > +#define __KVM_PTE_LEAF_ATTR_HI_S1_UXN	BIT(54)
+> > +#define __KVM_PTE_LEAF_ATTR_HI_S1_PXN	BIT(53)
+> > +
+> > +#define KVM_PTE_LEAF_ATTR_HI_S1_XN					\
+> > +	({ cpus_have_final_cap(ARM64_KVM_HVHE) ?			\
+> > +			(__KVM_PTE_LEAF_ATTR_HI_S1_UXN |		\
+> > +			 __KVM_PTE_LEAF_ATTR_HI_S1_PXN) :		\
+> > +			__KVM_PTE_LEAF_ATTR_HI_S1_XN; })
+> >  
+> >  #define KVM_PTE_LEAF_ATTR_HI_S2_XN	GENMASK(54, 53)
+> >  
+> > -- 
+> > 2.47.3
+> > 
 > 
-> [...]
+> Cool,
+> Is this according to the following in Arm ARM?
+> 
+> Figure D8-16
+> Stage 1 attribute fields in VMSAv8-64 Block and Page descriptors
 
-Applied, thanks!
+In M.a (or M.a.a, as it is now called), this is all part of
+I_GLMLD. But R_JJNHR is a much more interesting source of information,
+as it clearly outlines in which conditions XN, UXN and PXN are all
+sharing the same two bits in funky ways...
 
-[1/2] dt-bindings: arm: add CTCU device for monaco
-      https://git.kernel.org/coresight/c/51cd1fb70e08
+Thanks,
 
-Best regards,
+	M.
+
 -- 
-Suzuki K Poulose <suzuki.poulose@arm.com>
+Without deviation from the norm, progress is not possible.
 
