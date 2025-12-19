@@ -4,93 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD958D74951
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 05:47:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67CDCD74956
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 06:03:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WPO0eCOfjOBuPv078w1rY+GCMFEF0wn5Tdnt1BmaNcQ=; b=SUA+AWhA8M/PYBrCJ3yXDK2ZVc
-	tH3+FALp9e29bjw8TtvOezuBG4NgVF4XGK1pC1gIFD2Wj3tG5Rq769OEwX9BVwS3zF2IXgZGTquSh
-	uLRQ4pBy8tTDcLvRo8eHNg16m40YhNsSR/uY9EA9iWUdc7kr8c3TfNwcD+EmsumtD33DeDlxRXGw7
-	AeUsa64i6SqrC5f+owHEBmrLfjJBKcE1qIXG0uxGex4ZfgGeaxrGVz0i16FxezyavQSTyaGr3U5Rg
-	LDOXrkFwPK4EhKgDwI8X/lfBCAOBO+gi34Pwb9rDW3Hn9TQ01om3mNGtYSXEJ8oFG1Qrc5FXq297H
-	z0HhNYgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q9nk8p1gEgDEfDsl6eOexaGSc82IGm5TOYQhnxb8huI=; b=RhPG+b3mdF502M23iL7dZc4zdp
+	pcTeHBI9vhNLwGHkb1dqdXtPBS0GsV4GGlTuORPZ65bjPln/h0DVlxc8+m+w3MCcSXNwl3nN7x/g9
+	xHomL+RUqrnjo08mdq+/qWl0/tcgcpPYrBeIE8luu5p3WnJPeNcM+kXyDsbcpj9w1FiVc0Hxm4/cn
+	/f8jXJAKtkLIu3D7qhX4E5rVI38pyE2tDscwq90dRrlPR+8V18IVkCUecKT3jqHacqSjKRN0sys78
+	h/WmEgMb9eiYJWr05hsMIXB/NvkSbgnwWObXt4JPPL0VLFdf6xnOHPfFl1FKfWPEJn0Ne8QFZCoFl
+	OHq8W6kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWTL9-00000009ffm-3oEf;
-	Fri, 19 Dec 2025 05:47:47 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1vWTa4-00000009gGk-0M69;
+	Fri, 19 Dec 2025 06:03:12 +0000
+Received: from out30-124.freemail.mail.aliyun.com ([115.124.30.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWTL7-00000009ffN-1udt
+	id 1vWTa0-00000009gFE-3hw5
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Dec 2025 05:47:46 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-34a4078f669so1410458a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 21:47:45 -0800 (PST)
+	Fri, 19 Dec 2025 06:03:10 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1766123264; x=1766728064; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=WPO0eCOfjOBuPv078w1rY+GCMFEF0wn5Tdnt1BmaNcQ=;
-        b=WB+WGvwxXZgFJeIkUIyMlNaWNEKrNq8W8x96pC4Qt93AI4uLZnefVgd85hQEcpQ3Zz
-         6tMycCbjSwb/VKOsEdNEAXab3NG8bhMeyLUARxg6PH6EobyN7KAAAZGaUDiT5wPFDME1
-         bsJznNH6vhCTwsZwrBYgHmMRlW6rplqlM3zvcRIKK65znosZvZxktqs3e3OxntCZW/9F
-         CVx0qWmNnjbRC+uCicf/ut0jzNkvr/2npr+6T9QSJBexYwSqJQZyyNImL7zgPpK0SW+Q
-         o/GZPlBGddPplkwFYdELxokLuUGtR0m6Scatk7Kf/woi7GK3rILfMzVdOtW4+FN2Bg2J
-         EX5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766123264; x=1766728064;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=WPO0eCOfjOBuPv078w1rY+GCMFEF0wn5Tdnt1BmaNcQ=;
-        b=tzEvbV1bZzqN/Gu8OwXLAyjuKuYbKYMDY87dyJ6IVfLWCXhXGgwMC25hCVGYuIyNnk
-         z+Zh5C409V3wnll6/2T4Qm+VYfAWCAJOY6XkDOLjIpF6BqbMsCABbF2cMF6fE97saxhN
-         ZqPMnmc3aBBvG/w+qhEZ8jv5tcIm+Q8n0ptMlZiiN8yzKq91vn2TInS3ag1fn/T5Ff5G
-         PrrecERd8SOvIxBSgN1l7/TgF/cBYi+trFOfuFsXriAMOnEAmIQ5qoz+8j7SSiPw8/m4
-         9a+14XmuPBjReUlCA4ziSvCsteLJZyPu3ddiTiFo2nUzFViphAYPS+/jMk81M10GLh1b
-         hJPQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWbAAvkvHtxsJp3LKneygKXhZMpxKVFsCBDoxjEw562JHqIsARMMMfEQ26wkCENhYGT0V/o+qUeLS9xwfCd4gUu@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz88DCIwwUjQDtsyLASHLnQioD+aPyhiOUkVPgWsMe4l6mXyumQ
-	SZvZVUBuZLL9t295JM8r9oKG62sSvbK7ksTaWpL0AvPq6wfH/Vjh2X0B
-X-Gm-Gg: AY/fxX7fW7mSYJ/tiUTTUBxWmPohCtV37piOPwc1HEzoZeB0LR5Gpd0ZiKyWAUxGrWZ
-	sI0SFzOwTelPb+HgVW/35H5qaN3v+cIYiS8Gvo/08D4XV6fS8sBZxUWbS/eOgucsW+xPyrbERci
-	I33kNReuyW4fmTDZNRGY/SPXab6N+27IPfwrzhSh6wfbCdS2ViQ7ZQNACdluY13RU2OzxmF6NhV
-	Zjz8NBpJy7mueN5vgaITmOn/UE8bnmcUyp1tKZla49a88HllsArOx9SMKLMXjzUCBzwiGlFXJn+
-	VdcXORrWH7vTslrZ7+dfZ5GC/PYhBxHtnwie0LfwA0m2ZUBuMOdahf24n37WIs4s65o1L/lbf/E
-	cCytpeC90aTHJ84lX+G3TZf8FzdhM+uEDq2ah8QC461qtxUWbI8U+PaRZqa27be3ulI3qSH3yux
-	Jrv8Yi+k7WEfIMDFrbgC+rT9WFBtg9GprhE3p+v+oRigtKcdf22S50QuRvy5/Bp9E=
-X-Google-Smtp-Source: AGHT+IFVBwDVTaEx5xp3GqAkaC1oC6P66f5ES/MfkM7Xqee++lMNo0SereuLr6hl3BVB30yHpD8ptQ==
-X-Received: by 2002:a05:701b:2615:b0:11e:354:32cb with SMTP id a92af1059eb24-12172300658mr1959588c88.49.1766123264305;
-        Thu, 18 Dec 2025 21:47:44 -0800 (PST)
-Received: from google.com ([2a00:79e0:2ebe:8:c932:b7cf:9dde:f662])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1217254ce49sm4895244c88.15.2025.12.18.21.47.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 18 Dec 2025 21:47:43 -0800 (PST)
-Date: Thu, 18 Dec 2025 21:47:41 -0800
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Josua Mayer <josua@solid-run.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Jon Nettleton <jon@solid-run.com>, Mikhail Anikin <mikhail.anikin@solid-run.com>, 
-	Yazan Shhady <yazan.shhady@solid-run.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-input@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 2/8] Input: ilitek_ts_i2c: fix warning with gpio
- controllers that sleep
-Message-ID: <6bbjei3z3arl2t2alkyl6gzok3yanzbni63q5z53mbcabb3za5@2ot3tcfkld6g>
-References: <20251201-imx8mp-hb-iiot-v4-0-53a4cd6c21bf@solid-run.com>
- <20251201-imx8mp-hb-iiot-v4-2-53a4cd6c21bf@solid-run.com>
+	d=linux.alibaba.com; s=default;
+	t=1766124187; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=q9nk8p1gEgDEfDsl6eOexaGSc82IGm5TOYQhnxb8huI=;
+	b=rs4hKCocKSCC+lomZp7dUJmTlMqfmkjmcT5F4PIECbcwurpM2CVY9LeCgW+65kyem8dCTbvQxPBKx18Wrxx6ypeQols9pREfk+9In42OxEER1GNEZo7FXJY/2QvupinZ/nrUiETX/ZrnLMNwd8QtDC7ywkst9oONxaada+ATLc0=
+Received: from localhost(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0WvBZ2GG_1766124182 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Fri, 19 Dec 2025 14:03:03 +0800
+From: Baolin Wang <baolin.wang@linux.alibaba.com>
+To: akpm@linux-foundation.org,
+	david@kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org
+Cc: lorenzo.stoakes@oracle.com,
+	ryan.roberts@arm.com,
+	Liam.Howlett@oracle.com,
+	vbabka@suse.cz,
+	rppt@kernel.org,
+	surenb@google.com,
+	mhocko@suse.com,
+	riel@surriel.com,
+	harry.yoo@oracle.com,
+	jannh@google.com,
+	willy@infradead.org,
+	baohua@kernel.org,
+	dev.jain@arm.com,
+	baolin.wang@linux.alibaba.com,
+	linux-mm@kvack.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 1/5] mm: rmap: support batched checks of the references for large folios
+Date: Fri, 19 Dec 2025 14:02:51 +0800
+Message-ID: <24b9d33acad627997febe9b61d398fc53739a333.1766121341.git.baolin.wang@linux.alibaba.com>
+X-Mailer: git-send-email 2.43.7
+In-Reply-To: <cover.1766121341.git.baolin.wang@linux.alibaba.com>
+References: <cover.1766121341.git.baolin.wang@linux.alibaba.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251201-imx8mp-hb-iiot-v4-2-53a4cd6c21bf@solid-run.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_214745_519635_F6CCD552 
-X-CRM114-Status: GOOD (  13.35  )
+X-CRM114-CacheID: sfid-20251218_220309_219827_DA7E8B7C 
+X-CRM114-Status: GOOD (  18.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,23 +82,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 01, 2025 at 02:07:21PM +0100, Josua Mayer wrote:
-> The ilitek touchscreen driver uses the non-sleeping gpiod_set_value
-> function for reset.
-> 
-> Switch to using gpiod_set_value_cansleep() when controlling reset_gpio to
-> support GPIO providers that may sleep, such as I2C GPIO expanders.
-> 
-> Further switch the mdelay calls on the reset path to fsleep (preferred
-> in non-atomic contexts).
-> 
-> This fixes noisy complaints in kernel log for gpio providers that do
-> sleep.
-> 
-> Signed-off-by: Josua Mayer <josua@solid-run.com>
+Currently, folio_referenced_one() always checks the young flag for each PTE
+sequentially, which is inefficient for large folios. This inefficiency is
+especially noticeable when reclaiming clean file-backed large folios, where
+folio_referenced() is observed as a significant performance hotspot.
 
-Applied, thank you.
+Moreover, on Arm64 architecture, which supports contiguous PTEs, there is already
+an optimization to clear the young flags for PTEs within a contiguous range.
+However, this is not sufficient. We can extend this to perform batched operations
+for the entire large folio (which might exceed the contiguous range: CONT_PTE_SIZE).
 
+Introduce a new API: clear_flush_young_ptes() to facilitate batched checking
+of the young flags and flushing TLB entries, thereby improving performance
+during large folio reclamation. And it will be overridden by the architecture
+that implements a more efficient batch operation in the following patches.
+
+Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+---
+ include/linux/mmu_notifier.h |  9 +++++----
+ include/linux/pgtable.h      | 35 +++++++++++++++++++++++++++++++++++
+ mm/rmap.c                    | 29 +++++++++++++++++++++++++++--
+ 3 files changed, 67 insertions(+), 6 deletions(-)
+
+diff --git a/include/linux/mmu_notifier.h b/include/linux/mmu_notifier.h
+index d1094c2d5fb6..be594b274729 100644
+--- a/include/linux/mmu_notifier.h
++++ b/include/linux/mmu_notifier.h
+@@ -515,16 +515,17 @@ static inline void mmu_notifier_range_init_owner(
+ 	range->owner = owner;
+ }
+ 
+-#define ptep_clear_flush_young_notify(__vma, __address, __ptep)		\
++#define ptep_clear_flush_young_notify(__vma, __address, __ptep, __nr)	\
+ ({									\
+ 	int __young;							\
+ 	struct vm_area_struct *___vma = __vma;				\
+ 	unsigned long ___address = __address;				\
+-	__young = ptep_clear_flush_young(___vma, ___address, __ptep);	\
++	unsigned int ___nr = __nr;					\
++	__young = clear_flush_young_ptes(___vma, ___address, __ptep, ___nr);	\
+ 	__young |= mmu_notifier_clear_flush_young(___vma->vm_mm,	\
+ 						  ___address,		\
+ 						  ___address +		\
+-							PAGE_SIZE);	\
++						nr * PAGE_SIZE);	\
+ 	__young;							\
+ })
+ 
+@@ -650,7 +651,7 @@ static inline void mmu_notifier_subscriptions_destroy(struct mm_struct *mm)
+ 
+ #define mmu_notifier_range_update_to_read_only(r) false
+ 
+-#define ptep_clear_flush_young_notify ptep_clear_flush_young
++#define ptep_clear_flush_young_notify clear_flush_young_ptes
+ #define pmdp_clear_flush_young_notify pmdp_clear_flush_young
+ #define ptep_clear_young_notify ptep_test_and_clear_young
+ #define pmdp_clear_young_notify pmdp_test_and_clear_young
+diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+index b13b6f42be3c..7e659f4171e2 100644
+--- a/include/linux/pgtable.h
++++ b/include/linux/pgtable.h
+@@ -947,6 +947,41 @@ static inline void wrprotect_ptes(struct mm_struct *mm, unsigned long addr,
+ }
+ #endif
+ 
++#ifndef clear_flush_young_ptes
++/**
++ * clear_flush_young_ptes - Clear the access bit and perform a TLB flush for PTEs
++ *			    that map consecutive pages of the same folio.
++ * @vma: The virtual memory area the pages are mapped into.
++ * @addr: Address the first page is mapped at.
++ * @ptep: Page table pointer for the first entry.
++ * @nr: Number of entries to clear access bit.
++ *
++ * May be overridden by the architecture; otherwise, implemented as a simple
++ * loop over ptep_clear_flush_young().
++ *
++ * Note that PTE bits in the PTE range besides the PFN can differ. For example,
++ * some PTEs might be write-protected.
++ *
++ * Context: The caller holds the page table lock.  The PTEs map consecutive
++ * pages that belong to the same folio.  The PTEs are all in the same PMD.
++ */
++static inline int clear_flush_young_ptes(struct vm_area_struct *vma,
++					 unsigned long addr, pte_t *ptep,
++					 unsigned int nr)
++{
++	int young;
++
++	young = ptep_clear_flush_young(vma, addr, ptep);
++	while (--nr) {
++		ptep++;
++		addr += PAGE_SIZE;
++		young |= ptep_clear_flush_young(vma, addr, ptep);
++	}
++
++	return young;
++}
++#endif
++
+ /*
+  * On some architectures hardware does not set page access bit when accessing
+  * memory page, it is responsibility of software setting this bit. It brings
+diff --git a/mm/rmap.c b/mm/rmap.c
+index d6799afe1114..a0fc05f5966f 100644
+--- a/mm/rmap.c
++++ b/mm/rmap.c
+@@ -827,9 +827,11 @@ static bool folio_referenced_one(struct folio *folio,
+ 	struct folio_referenced_arg *pra = arg;
+ 	DEFINE_FOLIO_VMA_WALK(pvmw, folio, vma, address, 0);
+ 	int ptes = 0, referenced = 0;
++	unsigned int nr;
+ 
+ 	while (page_vma_mapped_walk(&pvmw)) {
+ 		address = pvmw.address;
++		nr = 1;
+ 
+ 		if (vma->vm_flags & VM_LOCKED) {
+ 			ptes++;
+@@ -874,9 +876,24 @@ static bool folio_referenced_one(struct folio *folio,
+ 			if (lru_gen_look_around(&pvmw))
+ 				referenced++;
+ 		} else if (pvmw.pte) {
++			if (folio_test_large(folio)) {
++				unsigned long end_addr =
++					pmd_addr_end(address, vma->vm_end);
++				unsigned int max_nr =
++					(end_addr - address) >> PAGE_SHIFT;
++				pte_t pteval = ptep_get(pvmw.pte);
++
++				nr = folio_pte_batch(folio, pvmw.pte,
++						     pteval, max_nr);
++			}
++
++			ptes += nr;
+ 			if (ptep_clear_flush_young_notify(vma, address,
+-						pvmw.pte))
++						pvmw.pte, nr))
+ 				referenced++;
++			/* Skip the batched PTEs */
++			pvmw.pte += nr - 1;
++			pvmw.address += (nr - 1) * PAGE_SIZE;
+ 		} else if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE)) {
+ 			if (pmdp_clear_flush_young_notify(vma, address,
+ 						pvmw.pmd))
+@@ -886,7 +903,15 @@ static bool folio_referenced_one(struct folio *folio,
+ 			WARN_ON_ONCE(1);
+ 		}
+ 
+-		pra->mapcount--;
++		pra->mapcount -= nr;
++		/*
++		 * If we are sure that we batched the entire folio,
++		 * we can just optimize and stop right here.
++		 */
++		if (ptes == pvmw.nr_pages) {
++			page_vma_mapped_walk_done(&pvmw);
++			break;
++		}
+ 	}
+ 
+ 	if (referenced)
 -- 
-Dmitry
+2.47.3
+
 
