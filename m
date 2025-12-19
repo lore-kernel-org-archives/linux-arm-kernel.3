@@ -4,94 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAD23E66891
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 21:45:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34627E66891
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 21:47:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZV5l3aK94WjBMd234KR2t67rjid2aTdUenY4d4w/l6o=; b=ZY7SJ4hzUo+YrUyuujuyqT5dde
-	B3mLB1cYfu8SzYV/2MkZlmYOcNSy0XS9rtcBQRS6RXK1sMbdsTgZqctlh0ZgbyifV1rBB7Cg0j/y5
-	TfVcXCJfXS+tyEodW+8FBSAAPxmvoG2gZU0uGipzXRV8A9JPayZcYie/6UcmbraazLQK0cr337zuP
-	mMYYoMttFNZK1QT0YC9dbG8xcBmIjDr0hAiQ1MG50GpVSMXRPdjiuPkIeneOdlnxtH2gG1jFQaAsF
-	PZickRB97VP/VJdhQ1avjlpKYPKd4BdryXBF8LvVHehEbL8K0cbP3yescgQojrwoU2f/KeN5vEHwW
-	k+02KCVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dujOI2TT6e3gi1lU7A039EXgDE+5/C7cKeGjiT8Q7MQ=; b=JrW1A4qzDF4hHwXK+xA+xw+R86
+	pnN96QxdKzoXDoO1q7fxZauE1EYjklSD4TD1ZttETh5dkjeIeVXFKDbw3YseEEg2lASAdJW02/lPp
+	SI9rSrDgCcZKl/jyyqto0iYmdSQQxl1il9VsD0eAh8kpEgd62GicZFTQaUbaV5DvHPuRZZs6vkTUA
+	zVS6Sqe/Q2TFzIDrXEW4b6Lo3S6rJU3I2PIEvBQ1jfpVOS3OiZtjfgQmYAzfLZjAU7kou1t5Qnk7q
+	k+ACYqrkEGy45+ymUGqANYE6i2bMbu2W76Vi2V+UFQCEMYGiJGIVTzZbilxCTGai+Hj3dwkENM0NG
+	vgjPJgXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWiI1-0000000B0z8-49W0;
-	Fri, 19 Dec 2025 21:45:34 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1vWiJy-0000000B1AF-2qx4;
+	Fri, 19 Dec 2025 21:47:34 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWiHx-0000000B0yF-3fep
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Dec 2025 21:45:30 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-430f57cd471so1269030f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Dec 2025 13:45:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1766180727; x=1766785527; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZV5l3aK94WjBMd234KR2t67rjid2aTdUenY4d4w/l6o=;
-        b=KBMxzYNlyvZbsX32nCLlHOFWHo8x18C3p0ilunV0n4FWrJU0gTh5c5USS1ZDSZzXU+
-         +CxZ//w6x1+1mGfesoIlAo8a85EXIJbkpTWy4RTDicZtwPhndJbB+k1lyrU7MAGNs/mN
-         kUdwy0i36J/dMe5O2BRQ0nOLXO/6Z/4pXvmUbdzDxz4ol2qYLYgYphvhcWKXecRRu2sH
-         fXryuABWu1UloHNFI1DlBuj4QozX/yRgpWDky4wuU5jpRPd5Dm9l4AEqLlq0HRgfXSBA
-         v4+k5GF076xb3LBH4QcfCt++6eGWiW8yRZuNXwkkjlMF1vxt8HGmV3J3uH3e/VGspdj6
-         vXOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766180727; x=1766785527;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZV5l3aK94WjBMd234KR2t67rjid2aTdUenY4d4w/l6o=;
-        b=T3vZPCvytdvOJvPU+x0yKQJiiqQy2k0aJw+Zb3vUAHCRU/5CmBS1snT7cOrtAd7dDZ
-         csAxb7njevAPmXlt/QaIWS1QXdt89FaVjiZnBq7p+GPRvfU/SOlv/Zx3bRbwfErSYzeT
-         e3QLcZB1clhK3GZ9+SFL+RiJ2KwN0cZ27BhigcPt3xk+YtmwDx3c8428Rp9HhIf+b9Wt
-         8WA8+1fbvvQ9laM3/lEiEnuSF4gyYrMQ10UXS2v4VL7hfwibf/I5NC+O7QT1dTFZwBoD
-         PzGvrC3g4bDynN/XklBzKfCyVBQxVK+rll3tqM+v+nBmH1g6z6RreqES3N+6hkZgspbF
-         qOEw==
-X-Forwarded-Encrypted: i=1; AJvYcCUp3oekOkDxXt8HtZufF0e22fB+rZj6DESXv183oPe3h73NVsxmaGaRJVaRSV8TGKzD5d4ZeRGqDDHz5vCccckI@lists.infradead.org
-X-Gm-Message-State: AOJu0YwbfbZh4FHo7ZvFIjWP6LqnCo6DPwUceewm1j57w08FGA+5136c
-	MFYeNluIKGdDXM2ehZQrMMFk529phzl/kATnuOH8pqKDPXXAd+TEJVht
-X-Gm-Gg: AY/fxX7ZjjOhzt+b6Chbz/5PAYiTrhjzuTFPcTeSXrUGbpcLtuC26zgoTsAbYr127Bg
-	+Rj7GUba2CPRrTSETO3SlAa/2xr36pxVzWA8gPXwN406ZdW54OHQWlnERwfj/GVTMDByeUO8axr
-	KUuzYZG3O9GO4pUQHXr1s1jIhNvGwQzWCcHs1TWeZFH1EmE9wwtlnQXK1r4/eHt94SVfqCxty8t
-	bLxLbbAf6MIqPDL3jCJbIWzg5N7Y4Hz2wHFFvzygbqGdhDvA1UkCnd813QGYjkrpJH34H1CyeCD
-	I1G9PGSWkAk0bO+prMcoVQ5hPcHq3SIcxJDGxCJ6RY4owqXE1Q9U6JEdxkABwrV8F6C+51xY9Vk
-	dbcNEhQPCjI3VNdyNxyuhFKOiKCVKrfyK42k7uksBiaxwlVoS3XTcbInn4VNBMuYNorF4Gw1N9w
-	PAAGWo7prkP7SRAQO52Ppi
-X-Google-Smtp-Source: AGHT+IH6/ztrcn+SlJfyVJT63am/rH1xZvx6X/K4m0kF1MT0B91G4kSCAcxAARG8TFZiP/ksh381nw==
-X-Received: by 2002:a05:6000:2211:b0:42f:bbc6:edab with SMTP id ffacd0b85a97d-4324e4fb405mr5082384f8f.29.1766180727224;
-        Fri, 19 Dec 2025 13:45:27 -0800 (PST)
-Received: from localhost ([87.254.0.133])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4324e9ba877sm7013078f8f.0.2025.12.19.13.45.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Dec 2025 13:45:26 -0800 (PST)
-From: Colin Ian King <colin.i.king@gmail.com>
-To: Peter Wang <peter.wang@mediatek.com>,
-	Chaotian Jing <chaotian.jing@mediatek.com>,
-	Stanley Jhu <chu.stanley@gmail.com>,
-	"James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
-	"Martin K . Petersen" <martin.petersen@oracle.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-scsi@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: kernel-janitors@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH][next] scsi: ufs: host: mediatek: make read-only array scale_us static const
-Date: Fri, 19 Dec 2025 21:44:28 +0000
-Message-ID: <20251219214428.492744-1-colin.i.king@gmail.com>
-X-Mailer: git-send-email 2.51.0
+	id 1vWiJv-0000000B18P-2rS7;
+	Fri, 19 Dec 2025 21:47:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1766180849;
+	bh=J0JZN9btX5IntQvXc3g0n63OJUhRt99u/M67OILxuGw=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=LZiRjbAO701Rrvy5fiSovth0XMG/INbBQfH4WlR99AdYtPf5gufJXvBQJzICIrFOD
+	 88oSywnRjtECCYbSMIJ8JIyJf8qsY82kemu1ggrkwvBf/mjarh5A1gfqFieWMXDdQM
+	 It8gVYNviIe1/37z/7OlnfYVbzTJl1Qil0MrmIjZ7BgfFMfg3DrZH7/50aWE1kFXqY
+	 qZmtFygLCrv/sQvkzw+d9+MiJiSGiMbRo1xuzF5nBxgRAmZCxDYig2fJrV2eOe94E9
+	 1Pohpz2bMRrf5VudQ7rLkNUMyRGUUUSahu4zmWmPNiYI7FspJeUJDVUa4lEfsfaMnb
+	 4DFOgSGwBqJzw==
+Received: from localhost (unknown [82.79.138.145])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D01C117E10DC;
+	Fri, 19 Dec 2025 22:47:28 +0100 (CET)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Fri, 19 Dec 2025 23:46:58 +0200
+Subject: [PATCH v4 1/4] uapi: Provide DIV_ROUND_CLOSEST()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251219-rk3588-bgcolor-v4-1-2ff1127ea757@collabora.com>
+References: <20251219-rk3588-bgcolor-v4-0-2ff1127ea757@collabora.com>
+In-Reply-To: <20251219-rk3588-bgcolor-v4-0-2ff1127ea757@collabora.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Louis Chauvet <louis.chauvet@bootlin.com>, 
+ Haneen Mohammed <hamohammed.sa@gmail.com>, 
+ Melissa Wen <melissa.srw@gmail.com>
+Cc: Robert Mader <robert.mader@collabora.com>, kernel@collabora.com, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_134529_921632_1E6366C2 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20251219_134731_883501_12143454 
+X-CRM114-Status: GOOD (  11.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,28 +82,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Don't populate the read-only array scale_us on the stack at run time,
-instead make it static const.
+Currently DIV_ROUND_CLOSEST() is only available for the kernel via
+include/linux/math.h.
 
-Signed-off-by: Colin Ian King <colin.i.king@gmail.com>
+Expose it to userland as well by adding __KERNEL_DIV_ROUND_CLOSEST() as
+a common definition in uapi.
+
+Additionally, ensure it allows building ISO C applications by switching
+from the 'typeof' GNU extension to the ISO-friendly __typeof__.
+
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/ufs/host/ufs-mediatek.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ include/linux/math.h       | 18 +-----------------
+ include/uapi/linux/const.h | 17 +++++++++++++++++
+ 2 files changed, 18 insertions(+), 17 deletions(-)
 
-diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
-index ecbbf52bf734..66b11cc0703b 100644
---- a/drivers/ufs/host/ufs-mediatek.c
-+++ b/drivers/ufs/host/ufs-mediatek.c
-@@ -1112,7 +1112,7 @@ static void ufs_mtk_setup_clk_gating(struct ufs_hba *hba)
- 	unsigned long flags;
- 	u32 ah_ms = 10;
- 	u32 ah_scale, ah_timer;
--	u32 scale_us[] = {1, 10, 100, 1000, 10000, 100000};
-+	static const u32 scale_us[] = {1, 10, 100, 1000, 10000, 100000};
+diff --git a/include/linux/math.h b/include/linux/math.h
+index 6dc1d1d32fbc..1e8fb3efbc8c 100644
+--- a/include/linux/math.h
++++ b/include/linux/math.h
+@@ -89,23 +89,7 @@
+ }							\
+ )
  
- 	if (ufshcd_is_clkgating_allowed(hba)) {
- 		if (ufshcd_is_auto_hibern8_supported(hba) && hba->ahit) {
+-/*
+- * Divide positive or negative dividend by positive or negative divisor
+- * and round to closest integer. Result is undefined for negative
+- * divisors if the dividend variable type is unsigned and for negative
+- * dividends if the divisor variable type is unsigned.
+- */
+-#define DIV_ROUND_CLOSEST(x, divisor)(			\
+-{							\
+-	typeof(x) __x = x;				\
+-	typeof(divisor) __d = divisor;			\
+-	(((typeof(x))-1) > 0 ||				\
+-	 ((typeof(divisor))-1) > 0 ||			\
+-	 (((__x) > 0) == ((__d) > 0))) ?		\
+-		(((__x) + ((__d) / 2)) / (__d)) :	\
+-		(((__x) - ((__d) / 2)) / (__d));	\
+-}							\
+-)
++#define DIV_ROUND_CLOSEST __KERNEL_DIV_ROUND_CLOSEST
+ /*
+  * Same as above but for u64 dividends. divisor must be a 32-bit
+  * number.
+diff --git a/include/uapi/linux/const.h b/include/uapi/linux/const.h
+index b8f629ef135f..471877322f47 100644
+--- a/include/uapi/linux/const.h
++++ b/include/uapi/linux/const.h
+@@ -50,4 +50,21 @@
+ 
+ #define __KERNEL_DIV_ROUND_UP(n, d) (((n) + (d) - 1) / (d))
+ 
++/*
++ * Divide positive or negative dividend by positive or negative divisor
++ * and round to closest integer. Result is undefined for negative
++ * divisors if the dividend variable type is unsigned and for negative
++ * dividends if the divisor variable type is unsigned.
++ */
++#define __KERNEL_DIV_ROUND_CLOSEST(x, divisor)(		\
++{							\
++	__typeof__(x) __x = x;				\
++	__typeof__(divisor) __d = divisor;		\
++	(((__typeof__(x))-1) > 0 ||			\
++	 ((__typeof__(divisor))-1) > 0 ||		\
++	 (((__x) > 0) == ((__d) > 0))) ?		\
++		(((__x) + ((__d) / 2)) / (__d)) :	\
++		(((__x) - ((__d) / 2)) / (__d));	\
++}							\
++)
+ #endif /* _UAPI_LINUX_CONST_H */
+
 -- 
-2.51.0
+2.51.2
 
 
