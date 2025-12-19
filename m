@@ -4,142 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58B05D711CA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 06:05:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE37CD74956
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 06:12:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MmqaC9l265thfLLg91l3FG4Zbz8enI0eVe3hhMTG5/A=; b=NeA3mWAdo41XyzPDhar6Zue5Iv
-	9KEBvgAUtaXUS1BBhPIIHProVxL25nz4ep/NHbazdXQ2W60eBP9Saug3YK4tIIFu4f085+Lu/9lB+
-	lIlwHaV3JDsceu5evVNiCkGjXcshNYfAn/xexD0r9uCDqqj+qP1udG/eau2B4sPj8HRBIGJfAPNRP
-	D9V+zwR6lkwXHbSDgIAF3iTADCLdXgvAGKQoP2FQ0ncySXQssZZzZRxngmWTYholUBaVG9SqBuuET
-	dWYDVi4y/hDpGuFN4Rl3IcW7kZDodV+l540YQDJ61y3BPwHrbYh/T0UvN2StlFGdSBOWp53AgwL0a
-	PE8Mwuiw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Seqw1pj+s32EzkTxSRr1lPFhSWcfs+qzm8EZKw7fxvk=; b=wroP+JxBsqWSWn
+	GL2Q0ULo+S84Xza48mOzwcSC1anGGO8VsZivTWhuoRWY0+H/mGKUZ2BcALq68t71gY6KnuA+oeZX/
+	1C3IVeu8QnsYcMJ+yIWbiHZd3OCNFN3k4+QYaKEmhaWtmBHLUacfpO2B/C7MAjCGs82R/r2LFQsUp
+	GutURsEpjzM5GkOHYO4ztVXW39dVERX94wwYeS9P0c9dE/lb8pJ21aVXjrDrMzz2e66fDT9XKvO0o
+	oCAeSdmQMI0ARSrjNuOkybKAr5ltvrJteY8nOz6QrWQr0xjQM1i22o6T/U+b9vRp7JOd7EnB5wKXa
+	GRvyOC9644qNJ8p03ndA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWTcM-00000009gy7-1WTi;
-	Fri, 19 Dec 2025 06:05:34 +0000
-Received: from mail-westus3azon11011056.outbound.protection.outlook.com ([40.107.208.56] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1vWTjI-00000009hGm-17ZI;
+	Fri, 19 Dec 2025 06:12:44 +0000
+Received: from mail-ua1-x932.google.com ([2607:f8b0:4864:20::932])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWTcK-00000009gxk-20w2
+	id 1vWTjF-00000009hGN-3JJv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Dec 2025 06:05:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TlJ/TchCQXNr3cYnQGbxbRj3jpH8p/9kN2uzrLiuuRa7CMQFbAJr4MmFOio/5UOcd9tpHnVnDAQxEoM3ui1z99Bd+4o85dMBgZCBCq1yNViLq9rFmrC0d4NB2DU5i23Xx59JTapnz57nKE2IKV2xvpf0tHEmme8CbvPSfs7K5RxGIRFev17+rq9ErQFG+Ya5RHmJMGzgpsE0/mfwzChCGT55tHWSNO7mQFl7vpWkR3/adaJ1V2Tec5ppyliw5nKTVXS45Dc0A/kHgN5SebJdg98i5uBuqmqap3QjzEVK/7uXm4P/gLfxRlXhKGoii+3ZAeoL6sIz/EjxdyhfMi1KGw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MmqaC9l265thfLLg91l3FG4Zbz8enI0eVe3hhMTG5/A=;
- b=R7faEMkN2O3GY3UBnkXWxpl8Q03R1ZvfTMgiKqCk5gQEp8444dz3x9s2BpDygOrLvoziztFl0IiiRZpxqoL9xPIzSXGk0eilR9JAvBvwYomyUzENSoJhYxl6MjVYo5kJGDTWLfl9EErDV98F6n0Q3NTV97Pb2jwu3GVrvVKH/gnOEoOQ67x3ls9X26RlkwFE647G+KnV0mtSD+axnc333jsdpTL5mTqvIYBuHE91zJURpUqPbo5h9xjtthr+U/Yr5/de6sj8V/mvV/BhFw34VNJU98plmunEw7q34/h3gls02VZsQz69NU9FxEs1OFrccXlCE9z/0exRi20a4JZ53A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=google.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MmqaC9l265thfLLg91l3FG4Zbz8enI0eVe3hhMTG5/A=;
- b=D2UZ/rGODRsBABU7PL3hGLTkaCFF6ZxTWIxNuCzjNTnmBnRD7NyWTmDIsRdLT5oFMRi05B1G3deOFEUZY7Dv8SxQyjv+4XW7epQIMCh+24Fe7EpUG+udLQ7eAAsbzuKu+ukhi4BNNRsl8RXQJCu1RKWNqmUK2aDjktEcwI76fzYSBSKHs0htSmmi/sQqEpBXpPYc6r8xz8MBblFVV+D289kfEZsYL9rF/BMCZ0qIXFRRi64dsSZvUHqr376xvIeOL/F1PMoZMvqo8XzNnN0OyLZKW1V2VnXV8NhAOhCkMjcI+72NVCYP5eEHFcqstrCdt+u5Ea79cpLfc7Fqdyz1NQ==
-Received: from BYAPR01CA0068.prod.exchangelabs.com (2603:10b6:a03:94::45) by
- CYXPR12MB9386.namprd12.prod.outlook.com (2603:10b6:930:de::20) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9434.6; Fri, 19 Dec 2025 06:05:26 +0000
-Received: from SJ1PEPF00001CDC.namprd05.prod.outlook.com
- (2603:10b6:a03:94:cafe::f6) by BYAPR01CA0068.outlook.office365.com
- (2603:10b6:a03:94::45) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.8 via Frontend Transport; Fri,
- 19 Dec 2025 06:06:49 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- SJ1PEPF00001CDC.mail.protection.outlook.com (10.167.242.4) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9434.6 via Frontend Transport; Fri, 19 Dec 2025 06:05:25 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 18 Dec
- 2025 22:05:21 -0800
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Thu, 18 Dec 2025 22:05:21 -0800
-Received: from Asurada-Nvidia (10.127.8.13) by mail.nvidia.com
- (10.126.190.182) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Thu, 18 Dec 2025 22:05:20 -0800
-Date: Thu, 18 Dec 2025 22:05:19 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Mostafa Saleh <smostafa@google.com>
-CC: <jgg@nvidia.com>, <will@kernel.org>, <robin.murphy@arm.com>,
-	<joro@8bytes.org>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<skolothumtho@nvidia.com>, <praan@google.com>, <xueshuai@linux.alibaba.com>
-Subject: Re: [PATCH rc v4 1/4] iommu/arm-smmu-v3: Add update_safe bits to fix
- STE update sequence
-Message-ID: <aUTrHxXHfx0bMqZ5@Asurada-Nvidia>
-References: <cover.1765945258.git.nicolinc@nvidia.com>
- <58f5af553fa7c3b5fd16f1eb13a81ae428f85678.1765945258.git.nicolinc@nvidia.com>
- <aUQuYdFKYlFeQGCg@google.com>
+	Fri, 19 Dec 2025 06:12:43 +0000
+Received: by mail-ua1-x932.google.com with SMTP id a1e0cc1a2514c-9371f6f2813so396387241.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 22:12:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1766124760; x=1766729560; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Seqw1pj+s32EzkTxSRr1lPFhSWcfs+qzm8EZKw7fxvk=;
+        b=SjP/5uFNXiZSR1v/Z5WtiJAkC3qvvawPK0nTBY422tW+usjtGtJi15xQntpbNm3q+L
+         MYqtPdclgl21ornIw/p9GLcuRkk5Wwzbw3NoyYx1VwqGbYDiilvzMjuFE3LXMYKYZAeM
+         AQo6rmQ/F5ItOcBHJbq2hmAxbPFiOCa6xAn7hE04RkWFMxTdNEAgW6CJp+bzc2jRc+sz
+         YzSKl0gMqjHxc6IuhLzPScPUnzEAOREyz9KnYfixsgcpmySHLYeZGY6KhE/lV31sVi1T
+         H37uyC2GCWJYqkdgv1rXvHLnEkKEMJBVOrY6Jon53vNs5q1pDKiLy/3HEXoomM03wRs3
+         QTAA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766124760; x=1766729560;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Seqw1pj+s32EzkTxSRr1lPFhSWcfs+qzm8EZKw7fxvk=;
+        b=T1CPSuSH9iyy89g0WUYGgjHCX43XPlPj9NfNgk//bjGzcMCI8Xw7NLlbU/w8t5t9IC
+         ++rIA4nbXF0dDWNMcjZzGCikb9MTiryrnTS1bJG52djozW8m0XogMpkzVj3rdy3ayjFj
+         5yubJ9K+9+brFEjNdFbFukR1SqRV2fdtuAdynmnH9IlnX8W2DFwAFDguEbfdfhN6/WaO
+         UWzRmIM/+gcDkN/yifGsHriiH0OknTX+AZVx72jI+dIH2OwQzXTqZuVUjv1MdQUfM8/a
+         iW9mQ0VaZNtEaSIXH76b2czBtP8mlmT6+zDaO6+4To5Id/rT8GomUDQJbkvYN10VMT3T
+         zWgw==
+X-Forwarded-Encrypted: i=1; AJvYcCUQ47j7tGpfApvsBjVNn6Xf4BfRWqfCBHMWzCwjf1utjsvI2uP18iqwjAvcYqPSlNZF18X+IrOMhh9uSPo2GuOR@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzv/DpZtrP9AoPVEFENfjh+Xn8+cVScaYUbWIKtXhIa7RWctJlk
+	D2Ri8lamYusIbCADh7O50onQNUAk1sjNhoD6C5EMUqY521jDogG2H4Y79rGxfTXhHmoO51Xtnl9
+	UcIg0+7igXKLHnV/TjwQD+j9MMF7KUYM=
+X-Gm-Gg: AY/fxX4zRMQ77tEt+dsxD9RJjm2UEhH6xtJ2yYpm9DIHZQ9TrNJIZpI8fY7XEow/XYp
+	jU5hAnyUYi5TAsakd5ACWNRR0a2ZYCA+aYWgnB+BUL4E7JO0e8KeQRiQoioNDgbyxJ3/1RTrLOj
+	DZNObRXaxxNxm9OkcRdolzRLOjy/Bpq7wPY7WP7ktAAsR0Li/fp5IYdsX7aHF5a88e9E+IyDy/j
+	FWya1t29FGjYLxFq1pX3fgNfYtEcZpPo5dPXzUxhN6WUqk8v+4+CIuHLKKBocp+0wwsUQ==
+X-Google-Smtp-Source: AGHT+IHVAIB9EXt8ze8fpRH7DuJvrst/8Jm6U+PV/YkYRLVhKzfveCY9N+lLA5aRRN4x+/psgM/S/yxWdRr7JEYae2U=
+X-Received: by 2002:a05:6102:32d6:b0:5df:c1f6:be44 with SMTP id
+ ada2fe7eead31-5eb1a616edfmr463311137.5.1766124759992; Thu, 18 Dec 2025
+ 22:12:39 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <aUQuYdFKYlFeQGCg@google.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CDC:EE_|CYXPR12MB9386:EE_
-X-MS-Office365-Filtering-Correlation-Id: f26f6474-3402-4f59-9bfb-08de3ec49a86
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|82310400026|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Fw35e8iJT3evFCQg8s22cieR6CNgOANZjPEIaGxOtjFRnDuTd0IUTe8DZPxC?=
- =?us-ascii?Q?Ho/aYv2FoEyl0mTOphdBmNwf2dWLNxVB9tKnvVObmeGlDNAyFw4KKtS6vFrv?=
- =?us-ascii?Q?RnXy1yispuaCamE+BXlIEBVOyuiv7pSHeipsli6Oqg2fc+eaSLKiXC6Y+6wP?=
- =?us-ascii?Q?LrqFhjYfp25spGmTGT71bN0CSo6PPpRZwXXaqNz3j5TTpLo91kg4LyzEDku9?=
- =?us-ascii?Q?x8adhAoExu512V59mGN4vmccEMuragbQEgXj91Xl6eZYDvsERyhNOSxG1+qN?=
- =?us-ascii?Q?wZtv4yvMCxgO1Z/LpefOSC05cgZ7QgXQxy7P+DfuGttrVawg+XMAMeZxSz8d?=
- =?us-ascii?Q?fjNvjXgv0mfpPJN1KcTnmL/42arr4FbOx6zUYq2esO17/oDZh6mUB5zQEKd1?=
- =?us-ascii?Q?wZfSC2uL5pZj9J+GWvU9oi5LXxT/MlBJrRLOfLoGSY1ZVSW9qh3HaYTaVqg1?=
- =?us-ascii?Q?a8R7jJ+Luf3VVl9L7EQV+tvWPP8vvMJINf4fvfJ/xhjU8Y0euTaJbKsDr8pi?=
- =?us-ascii?Q?e+XQhlSlhJcI+CYPy67iorzODGr17oYtIsdxt40Icw9F8ROx9rdeCyI3yyTu?=
- =?us-ascii?Q?ZQlVShzPNDYUsRUCh/4xNtXotHzDCBQU+VIbGMJZe+UH3qbRKySo2nZhKgUi?=
- =?us-ascii?Q?Hq/0BclkWLmKeEGQ7nuQ33Imr6/SJtCF0KBxLonkAAbIqERk9tqGD8xqNgfL?=
- =?us-ascii?Q?ssIUUfq1ar7CfnHXe0PKJDMvsT9NpqT3Wd8EQX9MHZR5zNVeMuiqBnQmlgZO?=
- =?us-ascii?Q?vpvbU/PBHkBggXiqV8M2Fj962ExZTtXL/JglL9SRL2zOtkhsqJcezphiTaHO?=
- =?us-ascii?Q?8HSLWCxztLpe/xGnOSrTjT6WnpAWs1b0VYJFb4sSyjf7v6srB7A6x88nzGQr?=
- =?us-ascii?Q?GWswIVzBaoH6OSsLvBOwhkvjLcXlEJ3dQhTCqTIbBqYVUfdhjE2Kd+g+O/F9?=
- =?us-ascii?Q?BciTzfXMeFHPKDYh4eHR+mE40dL72M56jJWdFsMQbPPxad+YN+8PRTGRzhNe?=
- =?us-ascii?Q?O1oOWjUga4bjc7NZ7IHaTKurbm2pKEX6HY1NkJtT0cz3TWfylJZHqtvprcdl?=
- =?us-ascii?Q?woAB4U6HKLQPhCZxNXUHqFwkkfgWXyinsRoeACMCE9Nuf7Tyg5dmqNqCpzjJ?=
- =?us-ascii?Q?PqwOJBI+lUDts27QoJKwC+sZx6Wt+UvCMuMT0nXy5PqnUY8P68K1Ho/iEGx1?=
- =?us-ascii?Q?yexZNVtDrUPcey0bqr12Z6LEXpv4bL3ejjUSMtTNWyR93v1f7SWc4hB9TdM6?=
- =?us-ascii?Q?AGq/W1WOELoRJLAKaB4Le8dyZgUyBEZsKclB2DLJ2GoImGpfJTAHSbpeGXdg?=
- =?us-ascii?Q?31j9HvU7jwzHkwi+R2JMtwceuwB327C04hQkRiOhMqqG2i/NwQVUFGzBRLgy?=
- =?us-ascii?Q?s9vz9aZOw9oxZVai+uSuN+OytcMg7827QznhL/QdJQJrOAYUOXKqt1G6ZbbO?=
- =?us-ascii?Q?rv3eLSEo9XfjsNz/4mmBK4lIi6x6H8i7amoUgnGgCxiLc2oexaF+H/hSb04q?=
- =?us-ascii?Q?686MVXGIGCfW83CxrnFRmM6QI+VLc8LbWleDUszVH8iCLgKxCtbXloEokhxF?=
- =?us-ascii?Q?MFxHIV6PMDwquz1YiBU=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(376014)(82310400026)(1800799024)(7053199007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Dec 2025 06:05:25.9981
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f26f6474-3402-4f59-9bfb-08de3ec49a86
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CDC.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CYXPR12MB9386
+References: <20251219053658.84978-1-21cnbao@gmail.com>
+In-Reply-To: <20251219053658.84978-1-21cnbao@gmail.com>
+From: Barry Song <21cnbao@gmail.com>
+Date: Fri, 19 Dec 2025 14:12:28 +0800
+X-Gm-Features: AQt7F2ocTD4IJSx97glcMfCOzOn9j6QaEk9Mmx1rXjj179nhPKrWDK_ik_o0Wu0
+Message-ID: <CAGsJ_4yKeUHgxRJJHiOcdaVcV1pjeHRjbybvEs5YLm=AJoe-Dw@mail.gmail.com>
+Subject: Re: [PATCH 0/6] dma-mapping: arm64: support batched cache sync
+To: catalin.marinas@arm.com, m.szyprowski@samsung.com, robin.murphy@arm.com, 
+	will@kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_220532_520721_B2273AB2 
-X-CRM114-Status: GOOD (  18.10  )
+X-CRM114-CacheID: sfid-20251218_221241_874054_585C09A7 
+X-CRM114-Status: GOOD (  19.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,48 +91,79 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: v-songbaohua@oppo.com, zhengtangquan@oppo.com, ryan.roberts@arm.com, anshuman.khandual@arm.com, maz@kernel.org, linux-kernel@vger.kernel.org, iommu@lists.linux.dev, surenb@google.com, ardb@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mostafa,
+It is unclear why, but the cover letter was missed in the
+initial posting, even though Gmail shows it as sent. I am
+resending it here as a reply to check whether it appears on
+the mailing list. Apologies for the inconvenience.
 
-On Thu, Dec 18, 2025 at 04:40:01PM +0000, Mostafa Saleh wrote:
-> On Tue, Dec 16, 2025 at 08:25:59PM -0800, Nicolin Chen wrote:
-> > From: Jason Gunthorpe <jgg@nvidia.com>
-> > 
-> > C_BAD_STE was observed when updating nested STE from an S1-bypass mode to
-> > an S1DSS-bypass mode. As both modes enabled S2, the used bit is slightly
-> > different than the normal S1-bypass and S1DSS-bypass modes. As a result,
-> > fields like MEV and EATS in S2's used list marked the word1 as a critical
-> > word that requested a STE.V=0. This breaks a hitless update.
-> > 
-> > However, both MEV and EATS aren't critical in terms of STE update. One
-> > controls the merge of the events and the other controls the ATS that is
-> > managed by the driver at the same time via pci_enable_ats().
-> > 
-> > Add an arm_smmu_get_ste_update_safe() to allow STE update algorithm to
-> > relax those fields, avoiding the STE update breakages.
-> > 
-> > After this change, entry_set has no caller checking its return value, so
-> > change it to void.
-> > 
-> > Note that this change is required by both MEV and EATS fields, which were
-> > introduced in different kernel versions. So add get_update_safe() first.
-> > MEV and EATS will be added to arm_smmu_get_ste_update_safe() separately.
-> > 
-> > Fixes: 1e8be08d1c91 ("iommu/arm-smmu-v3: Support IOMMU_DOMAIN_NESTED")
-> > Cc: stable@vger.kernel.org
-> > Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-> > Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
-> > Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
- 
-> Reviewed-by: Mostafa Saleh <smostafa@google.com>
-
-I failed to add the two review tags of yours into the v5..
-
-Would you mind replying with your tags once again to v5?
-
-Sorry for the inconvenience!
-
-Nicolin
+On Fri, Dec 19, 2025 at 1:37=E2=80=AFPM Barry Song <21cnbao@gmail.com> wrot=
+e:
+>
+> From: Barry Song <v-songbaohua@oppo.com>
+>
+> Many embedded ARM64 SoCs still lack hardware cache coherency support, whi=
+ch
+> causes DMA mapping operations to appear as hotspots in on-CPU flame graph=
+s.
+>
+> For an SG list with *nents* entries, the current dma_map/unmap_sg() and D=
+MA
+> sync APIs perform cache maintenance one entry at a time. After each entry=
+,
+> the implementation synchronously waits for the corresponding region=E2=80=
+=99s
+> D-cache operations to complete. On architectures like arm64, efficiency c=
+an
+> be improved by issuing all entries=E2=80=99 operations first and then per=
+forming a
+> single batched wait for completion.
+>
+> Tangquan's results show that batched synchronization can reduce
+> dma_map_sg() time by 64.61% and dma_unmap_sg() time by 66.60% on an MTK
+> phone platform (MediaTek Dimensity 9500). The tests were performed by
+> pinning the task to CPU7 and fixing the CPU frequency at 2.6 GHz,
+> running dma_map_sg() and dma_unmap_sg() on 10 MB buffers (10 MB / 4 KB
+> sg entries per buffer) for 200 iterations and then averaging the
+> results.
+>
+> I also ran this patch set on an RK3588 Rock5B+ board and
+> observed that millions of DMA sync operations were batched.
+>
+> diff with RFC:
+>  * Dropped lots of #ifdef/#else/#endif according to Catalin and Marek,
+>   thanks!
+>  * Also add iova link/unlink batches, which is marked as RFC as i lack
+>    hardware. This is suggested by Marek, thanks!
+>
+> RFC link:
+>  https://lore.kernel.org/lkml/20251029023115.22809-1-21cnbao@gmail.com/
+>
+> Barry Song (6):
+>   arm64: Provide dcache_by_myline_op_nosync helper
+>   arm64: Provide dcache_clean_poc_nosync helper
+>   arm64: Provide dcache_inval_poc_nosync helper
+>   arm64: Provide arch_sync_dma_ batched helpers
+>   dma-mapping: Allow batched DMA sync operations if supported by the
+>     arch
+>   dma-iommu: Allow DMA sync batching for IOVA link/unlink
+>
+>  arch/arm64/Kconfig                  |  1 +
+>  arch/arm64/include/asm/assembler.h  | 79 +++++++++++++++++++-------
+>  arch/arm64/include/asm/cacheflush.h |  2 +
+>  arch/arm64/mm/cache.S               | 58 +++++++++++++++----
+>  arch/arm64/mm/dma-mapping.c         | 24 ++++++++
+>  drivers/iommu/dma-iommu.c           | 12 +++-
+>  include/linux/dma-map-ops.h         | 22 ++++++++
+>  kernel/dma/Kconfig                  |  3 +
+>  kernel/dma/direct.c                 | 28 +++++++---
+>  kernel/dma/direct.h                 | 86 +++++++++++++++++++++++++----
+>  10 files changed, 262 insertions(+), 53 deletions(-)
+>
+> --
+> 2.39.3 (Apple Git-146)
+>
 
