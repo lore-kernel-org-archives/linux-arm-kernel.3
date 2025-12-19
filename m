@@ -4,78 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A1E0D767F7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 11:49:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCF1DD767F9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 11:56:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hOpYl0LfA7bo1KbM/NIBBwUpBaJ7uesB4UvPkEViU2E=; b=gwr4vvQvKTDuDY/kHua13zZ1cQ
-	IjTO4QkTW2RmC5wjZbW1QxcRFEhZYjkpT4KPPwQo3jd/A0WSCzcUoJvyeiIAuwooomyS9sgcyBQXn
-	03OlB50tsZW+go/LUvkcgD+Z1ewmJXlKa6gUXLq3qA5iF9f/RKWRTXi/0Zt3ghHjycSztJ86KoDSi
-	QBGhdJsnRSsaTTqAWAcZYrCL5sGKuG+GqjeW33GvHSVEuWdeLwaJcWvuIh9kkQFQFyFHHbeYm5QWT
-	OxUsebyhyJqYDcA32DntGkceYaUkLc+ReHfIIJXW+pwLH2oS2OP7VzAJeaewSVwsGAyKD+oPXadk0
-	uBOSxrfQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d6PIJZh6N53zRAMro/3rimhFFkoWc3aNrISldLR6J/0=; b=3MeCA4j0GsdD2p5bWsKQprdijG
+	vwTBUi6RCY/V49DWvYBz6zUtOe+GHTxGM09KLB0qZn9yz+QCkYvUIYpJ4pl5cB9W+LLnUJtn+/JVW
+	gd2hUEVTvFucQOOGEHC/BzxDCMWqYtPBakmkBphtvfWX2ETReShMqiFMMnyVPHCIrhgbKlYNaLsbP
+	6kRGRQV4u9YtUsWDxKYTHuQd9LJryXHo56sB/j4i9MlaFGthY4iRvdb7GadJNGLbk3HUVhw5YrkBg
+	ESb36R4eBzN/6mIXzMS1t1CTcesy+Nuc5wX4Q33X1j3M6MMa4BSmK6qq86pOl7/m/PjnhSVU4m4mm
+	FQsb+SiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWYyp-0000000AEcP-07yh;
-	Fri, 19 Dec 2025 11:49:07 +0000
-Received: from mail.elsta.tech ([194.150.96.10])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWYyl-0000000AEag-2FH9
+	id 1vWZ5v-0000000AF1S-1mvB;
+	Fri, 19 Dec 2025 11:56:27 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vWZ5s-0000000AF16-0m0P
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Dec 2025 11:49:05 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by mail.elsta.tech (Postfix) with ESMTP id A4AAA8C00C4;
-	Fri, 19 Dec 2025 12:48:49 +0100 (CET)
-Received: from mail.elsta.tech ([127.0.0.1])
- by localhost (mail.elsta.tech [127.0.0.1]) (amavis, port 10032) with ESMTP
- id DEvcV_dUNv5h; Fri, 19 Dec 2025 12:48:49 +0100 (CET)
-Received: from localhost (localhost [127.0.0.1])
-	by mail.elsta.tech (Postfix) with ESMTP id 6B7308C00E1;
-	Fri, 19 Dec 2025 12:48:49 +0100 (CET)
-DKIM-Filter: OpenDKIM Filter v2.10.3 mail.elsta.tech 6B7308C00E1
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=elsta.tech;
-	s=0883730E-C77C-11E9-9DA4-0BE9876769AA; t=1766144929;
-	bh=hOpYl0LfA7bo1KbM/NIBBwUpBaJ7uesB4UvPkEViU2E=;
-	h=From:To:Date:Message-Id:MIME-Version;
-	b=iILWY+BhjMKoV1KRmRYyIjX0AbkZtBhm34NMkFotbKlq9yJu7miFUTNwJWJbkLUbK
-	 kuFzh2OgTZkcTx+qCYyrbMCMlyGELH8kPoUAxCTXEL8J1IROKwGT0BLu9am9Dv/sQ9
-	 qcjdrSBjkLkusEuSZO2ATP+TSJPRDQWvWIZg+fwP52Jw5KtVPqHcMKTD6Fi9/91BM3
-	 K+1aPZdGa7zFW5S895wkX7ExH497qyBw/jng2y17G2mqxCKnn0TajS4v5KZJRnnDmy
-	 a9RfVTg8lVbRDW7vyzs4QBXsK82I0DJsWvOq8RtkHLOT6uSOMHQh1MkXT9mPjLKuLm
-	 pRU8NSwcz2tsw==
-X-Virus-Scanned: amavis at elsta.tech
-Received: from mail.elsta.tech ([127.0.0.1])
- by localhost (mail.elsta.tech [127.0.0.1]) (amavis, port 10026) with ESMTP
- id KQat8c1F5THC; Fri, 19 Dec 2025 12:48:49 +0100 (CET)
-Received: from dev-VirtualBox.elsta-tech.lan (unknown [172.31.0.125])
-	by mail.elsta.tech (Postfix) with ESMTPSA id 430E88C00C4;
-	Fri, 19 Dec 2025 12:48:49 +0100 (CET)
-From: "j.turek" <jakub.turek@elsta.tech>
-To: gregkh@linuxfoundation.org,
-	jirislaby@kernel.org
-Cc: michal.simek@amd.com,
-	namcao@linutronix.de,
-	tglx@linutronix.de,
-	zack.rusin@broadcom.com,
-	sean.anderson@linux.dev,
-	hshah@axiado.com,
-	linux-serial@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	"j.turek" <jakub.turek@elsta.tech>
-Subject: [PATCH] serial: xilinx_uartps: fix rs485 delay_rts_after_send
-Date: Fri, 19 Dec 2025 12:48:26 +0100
-Message-Id: <20251219114826.135017-1-jakub.turek@elsta.tech>
-X-Mailer: git-send-email 2.34.1
+	Fri, 19 Dec 2025 11:56:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1D44DFEC;
+	Fri, 19 Dec 2025 03:56:15 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DF2FC3F5CA;
+	Fri, 19 Dec 2025 03:56:18 -0800 (PST)
+Message-ID: <e959f679-9c3c-41d9-b607-ba2e59ed37ee@arm.com>
+Date: Fri, 19 Dec 2025 11:56:17 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 05/38] arm64: mpam: Add helpers to change a task or
+ cpu's MPAM PARTID/PMG values
+To: Jonathan Cameron <jonathan.cameron@huawei.com>,
+ James Morse <james.morse@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@kernel.org>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com, Gavin Shan <gshan@redhat.com>,
+ rohit.mathew@arm.com, reinette.chatre@intel.com,
+ Punit Agrawal <punit.agrawal@oss.qualcomm.com>
+References: <20251205215901.17772-1-james.morse@arm.com>
+ <20251205215901.17772-6-james.morse@arm.com>
+ <20251218104433.00002196@huawei.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20251218104433.00002196@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_034904_045929_97BAAE39 
-X-CRM114-Status: GOOD (  10.20  )
+X-CRM114-CacheID: sfid-20251219_035624_370932_3110AF74 
+X-CRM114-Status: GOOD (  18.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,58 +78,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-RTS line control with delay should be triggered when there is no more byt=
-es
-in kfifo and hardware buffer is empty. Without this patch RTS control is
-scheduled right after feeding hardware buffer and this is too early.
-RTS line may change state before hardware buffer is empty.
-With this patch delayed RTS state change is triggered when function
-cdns_uart_handle_tx is called from cdns_uart_isr on CDNS_UART_IXR_TXEMPTY
-exactly when hardware completed transmission
+Hi Jonathan,
 
-Signed-off-by: Jakub Turek  <jakub.turek@elsta.tech>
+On 12/18/25 10:44, Jonathan Cameron wrote:
+> On Fri, 5 Dec 2025 21:58:28 +0000
+> James Morse <james.morse@arm.com> wrote:
+> 
+>> Care must be taken when modifying the PARTID and PMG of a task in any
+>> per-task structure as writing these values may race with the task being
+>> scheduled in, and reading the modified values.
+>>
+>> Add helpers to set the task properties, and the CPU default value.
+>> These use WRITE_ONCE() that pairs with the READ_ONCE() in mpam_get_regval()
+>> to avoid causing torn values.
+>>
+>> CC: Dave Martin <Dave.Martin@arm.com>
+>> CC: Ben Horgan <ben.horgan@arm.com>
+>> Signed-off-by: James Morse <james.morse@arm.com>
+>> ---
+>>  arch/arm64/include/asm/mpam.h | 30 ++++++++++++++++++++++++++++++
+>>  1 file changed, 30 insertions(+)
+>>
+>> diff --git a/arch/arm64/include/asm/mpam.h b/arch/arm64/include/asm/mpam.h
+>> index 86a55176f884..2960ffaf6574 100644
+>> --- a/arch/arm64/include/asm/mpam.h
+>> +++ b/arch/arm64/include/asm/mpam.h
+>> @@ -5,6 +5,7 @@
+>>  #define __ASM__MPAM_H
+>>  
+>>  #include <linux/bitops.h>
+>> +#include <linux/bitfield.h>
+>>  #include <linux/init.h>
+>>  #include <linux/jump_label.h>
+>>  #include <linux/percpu.h>
+>> @@ -37,6 +38,35 @@ extern u64 arm64_mpam_global_default;
+>>   * A value in struct thread_info is used instead of struct task_struct as the
+>>   * cpu's u64 register format is used, but struct task_struct has two u32'.
+>>   */
+> I'd be tempted to reorder this so the comment ends up near at least
+> one use of task_thread_info(tsk)->mpam_partid_pmg. Otherwise it is even
+> less obvious what it is referring to.
+> 
+> Easiest might be to put the mpam_get_regval() before the mpam_set_task_partid_pmg()
 
-Fixes: fccc9d9233f9 ("tty: serial: uartps: Add rs485 support to uartps dr=
-iver")
----
- drivers/tty/serial/xilinx_uartps.c | 13 ++++++-------
- 1 file changed, 6 insertions(+), 7 deletions(-)
+Yes, this comment positioning was confusing.
 
-diff --git a/drivers/tty/serial/xilinx_uartps.c b/drivers/tty/serial/xili=
-nx_uartps.c
-index 1e4d54fd5762..923a8b57ec82 100644
---- a/drivers/tty/serial/xilinx_uartps.c
-+++ b/drivers/tty/serial/xilinx_uartps.c
-@@ -432,6 +432,12 @@ static void cdns_uart_handle_tx(void *dev_id)
- 	if (kfifo_is_empty(&tport->xmit_fifo) || uart_tx_stopped(port)) {
- 		/* Disable the TX Empty interrupt */
- 		writel(CDNS_UART_IXR_TXEMPTY, port->membase + CDNS_UART_IDR);
-+		/* Set RTS line after delay */
-+		if (cdns_uart->port->rs485.flags & SER_RS485_ENABLED) {
-+			cdns_uart->tx_timer.function =3D &cdns_rs485_rx_callback;
-+			rts_delay =3D ns_to_ktime(cdns_calc_after_tx_delay(cdns_uart));
-+			hrtimer_start(&cdns_uart->tx_timer, rts_delay, HRTIMER_MODE_REL);
-+		}
- 		return;
- 	}
-=20
-@@ -448,13 +454,6 @@ static void cdns_uart_handle_tx(void *dev_id)
-=20
- 	/* Enable the TX Empty interrupt */
- 	writel(CDNS_UART_IXR_TXEMPTY, cdns_uart->port->membase + CDNS_UART_IER)=
-;
--
--	if (cdns_uart->port->rs485.flags & SER_RS485_ENABLED &&
--	    (kfifo_is_empty(&tport->xmit_fifo) || uart_tx_stopped(port))) {
--		hrtimer_update_function(&cdns_uart->tx_timer, cdns_rs485_rx_callback);
--		hrtimer_start(&cdns_uart->tx_timer,
--			      ns_to_ktime(cdns_calc_after_tx_delay(cdns_uart)), HRTIMER_MODE_=
-REL);
--	}
- }
-=20
- /**
---=20
-2.34.1
+> 
+> 
+>> +static inline void mpam_set_cpu_defaults(int cpu, u16 partid_d, u16 partid_i,
+>> +					 u8 pmg_d, u8 pmg_i)
+>> +{
+>> +	u64 default_val;
+>> +
+>> +	default_val = FIELD_PREP(MPAM0_EL1_PARTID_D, partid_d);
+>> +	default_val |= FIELD_PREP(MPAM0_EL1_PARTID_I, partid_i);
+>> +	default_val |= FIELD_PREP(MPAM0_EL1_PMG_D, pmg_d);
+>> +	default_val |= FIELD_PREP(MPAM0_EL1_PMG_I, pmg_i);
+>> +
+>> +	WRITE_ONCE(per_cpu(arm64_mpam_default, cpu), default_val);
+>> +}
+>> +
+>> +static inline void mpam_set_task_partid_pmg(struct task_struct *tsk,
+>> +					    u16 partid_d, u16 partid_i,
+>> +					    u8 pmg_d, u8 pmg_i)
+>> +{
+>> +#ifdef CONFIG_ARM64_MPAM
+>> +	u64 regval;
+>> +
+>> +	regval = FIELD_PREP(MPAM0_EL1_PARTID_D, partid_d);
+>> +	regval |= FIELD_PREP(MPAM0_EL1_PARTID_I, partid_i);
+>> +	regval |= FIELD_PREP(MPAM0_EL1_PMG_D, pmg_d);
+>> +	regval |= FIELD_PREP(MPAM0_EL1_PMG_I, pmg_i);
+> 
+> Maybe a macro or helper to build regval given this replicates the block in
+> mpam_set_cpu_defaults.  Obviously ignore if this changes in later patches!
+
+I've added a helper.
+
+> 
+>> +
+>> +	WRITE_ONCE(task_thread_info(tsk)->mpam_partid_pmg, regval);
+>> +#endif
+>> +}
+>> +
+>>  static inline u64 mpam_get_regval(struct task_struct *tsk)
+>>  {
+>>  #ifdef CONFIG_ARM64_MPAM
+> 
+
+Thanks,
+
+Ben
 
 
