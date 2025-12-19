@@ -4,114 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1265D711D6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 08:19:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52723D711D6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 08:26:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jhe7yb6BvdxB5AiS8mP0mwX0echOFj8I+JwBw0PnNJM=; b=izWp+AgOxBB8Nga81n/4FAgcy0
-	AmldZfdDGgU4xiWXDDP3+qDy92OZNVUGIXv7f9GGFlzqlXaTMCVWIOM0uIvdHEX5PpfN9I3mouZRF
-	ALKZ8VKtOmlUW0TSZMWbq1EWs3dZCOJBtw1jITHO4n5BgsKIhFABPBqEaWnHTMvBBcuYKnKICwfxf
-	TgmOB1tnVDLMCn/jLsJzWhhKZwIoWktGluwi4Q/iTzGfo/RR6TkqAbGrgua5AEBFtS1YvFbSnLPB5
-	AR5XIWFZgHn5j3PLiRBMbVBNMDZoSy/dwZClkZiKoK6lfDnG7gB88OpeORowCh6I5bh1BLPyp+VLM
-	5ija7ybw==;
+	bh=m5VbsO8NOFBu8cM3PiLkWiMooEcKpbjdJrZHI4GhWGY=; b=KtrhvZn0eLQ/253tcRbid6Cc1G
+	cCOFSIZa2f/NiUidazhZX6oFqtlhxpcThQ+T2MaG7xZNQ2g4TD1CdWFzy0NX81+1chQiIM/H8jeDI
+	5Cac5crzXeK0o/1GOdHJPzyb2jxvWxCJqk49mawdLwkxgfpuAA1MkTJqha+D3l4hgWNczebHWZ8na
+	bVyQeHgeiyipJ+rjTlkYAhMT39tP2hK25lr3RY+ybLQOg5uBnapdPwUJb0CrMb7b2V0A/OJA+v3yH
+	4OnntwmTH7vDH4V7xt0MWQo7ThghMFxLL9TwOmyn4tRWTfFR1DGYYvxyj5J9jRQF0JXHpnrsCPFCq
+	hVUNUxeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWVhm-00000009rMk-1yzG;
-	Fri, 19 Dec 2025 08:19:18 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vWVoY-00000009rl4-3GHD;
+	Fri, 19 Dec 2025 08:26:18 +0000
+Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWVhl-00000009rMe-1Dxi
+	id 1vWVoV-00000009rkf-27s6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Dec 2025 08:19:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7908B60008;
-	Fri, 19 Dec 2025 08:19:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29C79C4CEF1;
-	Fri, 19 Dec 2025 08:19:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766132356;
-	bh=tm6PhD1Tgv4dvgUGUt7t+Wem6rV6UJT3zbZeA09Cmh0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=iisKiilHuun461TBZX9FlSuK58CW8xbUm7pFDUCKV5EhK4WRFpAZAOkbSENnh494R
-	 StqfwmXQgS+OaCRFTCkEqHs/oOxxt65w4QSHZIMNGL613a9oo7CNa4QfmSo0Q8o/LU
-	 WwEm8nwG4vq1uiRDqwJa7zy4mCSDGELMilx4LNqbSZQQMEpGb25paSxCVWyJ3VQoKw
-	 kc/YeFOQcozwUJz4jm+gCKtbrcdZWcmymAqs+hn5y5d+Jkzc/5yW4ME+NNhrqp5ogZ
-	 sCxw7hRieDhlbbCihW7ox5Nyl4F9tuzTOp8hBgxDjZNYXq6Eq/4uqdeSxl/wUWeSIL
-	 vmPpnx10oRVSQ==
-Message-ID: <90c00d57-3737-4631-a2e9-8ff2e315db14@kernel.org>
-Date: Fri, 19 Dec 2025 09:19:06 +0100
+	Fri, 19 Dec 2025 08:26:16 +0000
+Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-34c93e0269cso1368437a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Dec 2025 00:26:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1766132774; x=1766737574; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=m5VbsO8NOFBu8cM3PiLkWiMooEcKpbjdJrZHI4GhWGY=;
+        b=VSIjvqHZ/jwEYtyuqISnTKJx0cENrAcej84tZ+mdO+NtZO4GcWFhHGkL3WcEjjpvQM
+         OZlKDvw5UeN/g4hNshso9J5p/atJBNiYKEV02LeGkOWv/G9Vk+5B2zkmSmTE0nNBtQr9
+         Tt1D1NE2XOL5I/Zo48ukCdZwiuoOaRLyUyJsN/d4ePFMfh4o6ePaAdmDZxh7+unjorG1
+         4J1HrtyFiXO+oPEJcVeqyu7K9C3E5EGsNZvuE/5n9HZcjvuineB3H+nZ56hL8judmFqR
+         vPUFuHEWGagG+kb2GthpLP4LfYF7GWrR3JoNMn88qSCnaSHCopj9y3Fux9v23oMakPqn
+         CyVA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766132774; x=1766737574;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=m5VbsO8NOFBu8cM3PiLkWiMooEcKpbjdJrZHI4GhWGY=;
+        b=BOPg9d0i8B5TuZFSSivDpkPhOiV+Q9fWvYuy8DN1HzZjdMRhesYW0Oc7zjrf+tIxJa
+         AWSRtTYrXqJ1u44h3Pk7u2ywbt8jSBWvEqj+B7OamXfDOTjDLT5Rp57yjKxSEN5R9fzB
+         50GNxk7iXmQIRe0qxhVW4m3qOhtiGGLyIHqIZ+eAjWjGkgIwaWxbgDX/KtGgYBZE1FJ8
+         gRe8zVcmH2ipX1WAUhhlXgej0rVX6EKDHCmr0a95bEOJP+ZiKZ0knkPafjFXxEXAmyG1
+         eOKKCBOOd4YcmDmkFjMhoBOyJkSMgbU42+fa3jZ1YifODgYq3yb+ig/uAg8od63N5gYz
+         b0dA==
+X-Forwarded-Encrypted: i=1; AJvYcCUKOFIDUw8OwVsdjgv/PGwCM4TiiiZyZFhXx+v867JRmo91OAUKdto5zSbrW4xZOxFm+qTXrI/7vAEyzwimoDly@lists.infradead.org
+X-Gm-Message-State: AOJu0YwPST03Jpw4vOVNfquf3bgUpvo2MkZBckG40rihe4HH1vphN3VD
+	QjGkpR+Y3lEhTmj21GM/E5w516m6GTmKXXZjIL5JdIjFfyalIL6HQdrPtO9jJLvrxOkrjj2wRha
+	CPiNV4vOXIy/zcb2eY/5QNM3cCuERzmM=
+X-Gm-Gg: AY/fxX5KTgSfgQz3NtGAQb4hRCG2jNVgNULSwBkoAEKVNmFizd2p79+/3LcohgW7nGD
+	36fhMYRbBG/ThraKmL6ULnle6LSObVvU236tnPBq+KG6Zo72n0gTPqNshpsGIaQIAaiblp+Cd8D
+	s/YTRRksJhFIpVWDTlzzHgx61+2G+ehLj7eND5RaomxWYi6BWJeHSn2z0beKlHVBuxw5uIXRzvu
+	3n1u6oqLprFOy/10bq7fuLOrl9YBFkeSG6t8Jt3wNZ1jgJAknof0oSYS5wj4xOxlNkNWvu4
+X-Google-Smtp-Source: AGHT+IGPmADYM3+zkhv22FUUPyuAnnylSRC8nYRgd73Eur0wmU9zUYCJLT1U5U5sFLrEIkHvrknhCBn+vQ2wRGMXl9c=
+X-Received: by 2002:a17:90b:1348:b0:34c:ab9b:837c with SMTP id
+ 98e67ed59e1d1-34e7151d99bmr5127645a91.0.1766132774402; Fri, 19 Dec 2025
+ 00:26:14 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/5] dt-bindings: usb: maxim,max33359: Add supply
- property for vbus
-To: amitsd@google.com, Sebastian Reichel <sre@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
- <andre.draszik@linaro.org>, Lee Jones <lee@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Badhri Jagan Sridharan <badhri@google.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-usb@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
-References: <20251218-max77759-charger-v2-0-2b259980a686@google.com>
- <20251218-max77759-charger-v2-2-2b259980a686@google.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251218-max77759-charger-v2-2-2b259980a686@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20251118-yv5_revise_dts-v1-0-fcd6b44b4497@gmail.com>
+ <20251118-yv5_revise_dts-v1-3-fcd6b44b4497@gmail.com> <74b9c09cebac1de0e6e2e712a1374ab5294f61d8.camel@codeconstruct.com.au>
+In-Reply-To: <74b9c09cebac1de0e6e2e712a1374ab5294f61d8.camel@codeconstruct.com.au>
+From: Kevin Tung <kevin.tung.openbmc@gmail.com>
+Date: Fri, 19 Dec 2025 16:26:02 +0800
+X-Gm-Features: AQt7F2rMlRqPGBwtEiOBW-nH3v4LXxnrzuVjolj7vO7f61ahRRx-VbiavMDcxf8
+Message-ID: <CABh9gBd8Mvpyv5WmFMQ7T4uDirxjprKpnq90+if11UOKZ4CN_Q@mail.gmail.com>
+Subject: Re: [PATCH 3/3] ARM: dts: aspeed: yosemite5: Rename sgpio P0_I3C_APML_ALERT_L
+To: Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+	Amithash Prasasd <amithash@meta.com>, Kevin Tung <Kevin.Tung@quantatw.com>, 
+	Ken Chen <Ken.Chen@quantatw.com>, Leo Yang <Leo-Yang@quantatw.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Joel Stanley <joel@jms.id.au>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251219_002615_589916_90871297 
+X-CRM114-Status: GOOD (  19.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,22 +100,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/12/2025 23:49, Amit Sunil Dhamne via B4 Relay wrote:
-> From: Amit Sunil Dhamne <amitsd@google.com>
-> 
-> Add a regulator supply property for vbus. This notifies the regulator
-> provider to source vbus when Type-C operates in Source power mode,
-> while turn off sourcing vbus when operating in Sink mode or
-> disconnected.
-> 
-> Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
-> ---
->  Documentation/devicetree/bindings/usb/maxim,max33359.yaml | 4 ++++
->  1 file changed, 4 insertions(+)
+Hi Andrew,
 
+I=E2=80=99ve sent v3 of this series to address these concerns.
+The signal rename has been reverted to avoid breaking any existing
+user space dependencies. In addition, a new patch has been added to
+introduce additional SGPIO line names and a more detailed
+discussion in the commit message.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+BR,
+Kevin
 
-Best regards,
-Krzysztof
+On Mon, Nov 24, 2025 at 12:44=E2=80=AFPM Andrew Jeffery
+<andrew@codeconstruct.com.au> wrote:
+>
+> On Tue, 2025-11-18 at 18:53 +0800, Kevin Tung wrote:
+> > Rename P0_I3C_APML_ALERT_L to FM_APML_CPU_ALERT_N for clarity.
+>
+> Are user space components looking for these names? Will updating the
+> devicetree break older applications? I'd like to see more discussion of
+> these problems in the commit message.
+>
+> Cheers,
+>
+> Andrew
+>
+> >
+> > Signed-off-by: Kevin Tung <kevin.tung.openbmc@gmail.com>
+> > ---
+> >  arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts=
+ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts
+> > index 45b8ac2e8c65a4f672e64571631b7f6944f26213..060757b7211a6da777c51d9=
+f0c886796cf2450a4 100644
+> > --- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts
+> > +++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts
+> > @@ -964,7 +964,7 @@ &sgpiom0 {
+> >       "FAULT_P3V3_NIC_N","",
+> >       "FAULT_P12V_NIC_N","",
+> >       "FAULT_P12V_SCM_N","",
+> > -     "P0_I3C_APML_ALERT_L","",
+> > +     "FM_APML_CPU_ALERT_N","",
+> >       "ALERT_INLET_TEMP_N","",
+> >       "FM_CPU_PROCHOT_R_N","",
+> >       "FM_CPU_THERMTRIP_N","",
 
