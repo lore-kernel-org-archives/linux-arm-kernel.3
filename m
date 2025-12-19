@@ -4,106 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56BACD74961
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CC34D74960
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 08:10:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9ZkmG5LDdBWcr5F9UYs40lXE33P3xPwDRyGsRHQ2ZJw=; b=EDJ0N3Y21RRLNgTKTnfy5Al/Zb
-	3pLytR/Vuglyf1AE6fFvxaJRcDW6sT4LgTUg5GRJOBQTwVTa6PE4c11k7gGHPdIFr5Ae5edn+YOis
-	TK4jjP0ZE7I98Q0mMyAdtdIIHwGaEa+PFOiF4QNccwA4ETBR/ocerlQ8klf+Fuqfk+TP5X0xrdmZG
-	8UY1XreHD03RnDF+vVbTq9zcMNZLdS5XK5CnphVe+AgCgzjVQjhaVxWWm4/wNlUOrnieN1eDOT7UW
-	YCZMs2EqrSUdbe4qr8qV8eQJNUg3JeI2uEoPQ6xQf+KzKsEoS22ff2m2DrZunTKiyeGTKFb0iyn0Q
-	bW4z9NjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qEEqxDFM2yhPiyFjlnl8LZDAP48x695zaYDrn7lQEUY=; b=kMWOZYlaFBt8GKVvL3pL9gooET
+	feZDMNWkElgBTTs2reYUuAVBFxqL3ScVfHbaG8FHsc8uwNTx3TReqF4sqJ+iKoIijo3xBas4KrEs/
+	I4DTVQGLlAGQOBrG0UAgDBTw/QSnAAMOq55YcTKFzRHbO7CRITd1TkvfAX41SZhqwnVbhnUh0Q2R8
+	UDl1KQUl74d9iWEgtM7jR9Hs0D3jGH76nFDqz41puSgQRChWkCgd12kMnFWmsNdiPKwkvoQ87s3HJ
+	BzyPQI4PTebYtnRA5SJ4m68dgxnbJd4axAdBw1ia5ANnrjeVpE6NcWKYkNcL3J6el8SC37U7cgVJn
+	qFa6NtpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWVZ0-00000009oBW-3Geh;
+	id 1vWVZ0-00000009oAp-1yJ1;
 	Fri, 19 Dec 2025 08:10:14 +0000
-Received: from mx-relay49-hz3.antispameurope.com ([94.100.134.238])
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWVYv-00000009o7G-0o1v
+	id 1vWVYv-00000009o7V-0MAl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Dec 2025 08:10:12 +0000
-ARC-Authentication-Results: i=1; mx-gate49-hz3.hornetsecurity.com 1; spf=pass
- reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com
- smtp.helo=hmail-p-smtp01-out03-hz1.hornetsecurity.com; dmarc=pass
- header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=9ZkmG5LDdBWcr5F9UYs40lXE33P3xPwDRyGsRHQ2ZJw=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1766131782;
- b=X4mI4VHaBxE0/+ehtN9i+VE8VPCvSqSAm3BJrM1n1YP2CCwEAJheNlFPK+WMqK5HL6fMHgPT
- ByjrSxUOv/FxL8yueqtlBFill3DVRNBsLjStXrSPGQMeU2MR/OzsJVW3qbLWXmUyu+jbqxcyjk7
- qJlPTidBXec4iDCduUnaQ0np/hWXLaj9tRd8NLkmSbbS0c/2K9/1s1kOZR8WwkmnBJaga5R76/2
- C19Bl7jyBnAl90YDiBvyoePPSsd2Vy9QY5jtFZy8xkSQudXd5AUiPCQC8wzByIrxJy9uVDZrlU+
- S/93sufcBEAOCz5ye/deith7IMMwL9fwu5sLSPGhnlfEQ==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1766131782;
- b=tB0uwzvCPaIELBOjqEXzBTPzlFRFWWt8AZI8n6AdZ7IMisxNd0DOe9hHFMTuY/zpXWgfV4sN
- dP3+9qaD8YUxNyNH41ub9SOMHBvAsnM1bO0mE6NKtKZSHqTULOBtFSw+HQhF+6RvvHCVrm5XCKf
- kOCEBC6GPt8ED4ez8D+oToPiqNN6+X3yd+t3rvv/OD+aIKfyX39QT1n742opBIq6iJim/qSIpBv
- 0/1GO/IVEOPpyIEjjRknb17tDzQgACvsPWk7cWajIA2t1gJRRr9sgp3TNIU44iuDOaFD2N8ubZ0
- +0fj5Jywj1peEHAFdP+m4I11FKyATcLP5cqyJAJiusAOA==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay49-hz3.antispameurope.com;
- Fri, 19 Dec 2025 09:09:42 +0100
-Received: from steina-w.localnet (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: alexander.stein@ew.tq-group.com)
-	by hmail-p-smtp01-out03-hz1.hornetsecurity.com (Postfix) with ESMTPSA id AC51CCC0DAC;
-	Fri, 19 Dec 2025 09:09:23 +0100 (CET)
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Geert Uytterhoeven <geert+renesas@glider.be>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
- Peter Chen <peter.chen@kernel.org>, Pawel Laszczak <pawell@cadence.com>,
- Roger Quadros <rogerq@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Magnus Damm <magnus.damm@gmail.com>,
- Marek Vasut <marex@denx.de>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
- linux-clk@vger.kernel.org, linux-usb@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux@ew.tq-group.com
-Subject: Re: [PATCH 1/6] dt-bindings: clk: rs9: add clock-output-names property
-Date: Fri, 19 Dec 2025 09:09:23 +0100
-Message-ID: <3357591.tdWV9SEqCh@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <CAMuHMdWEJ-eYwUTnotsTVEtKrujYVsEB4kFVjRYh3wXZvyjfGQ@mail.gmail.com>
-References: <20251218152058.1521806-1-alexander.stein@ew.tq-group.com>
- <20251218152058.1521806-2-alexander.stein@ew.tq-group.com>
- <CAMuHMdWEJ-eYwUTnotsTVEtKrujYVsEB4kFVjRYh3wXZvyjfGQ@mail.gmail.com>
+	Fri, 19 Dec 2025 08:10:11 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-7a9c64dfa8aso1223559b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Dec 2025 00:10:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1766131808; x=1766736608; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=qEEqxDFM2yhPiyFjlnl8LZDAP48x695zaYDrn7lQEUY=;
+        b=MCC/ClGJ6UN1akK0OqCQL3FiZQpr3ZwrNPc1vfzYWZ4pROjSJpE30V+2GNw0hLB+WF
+         0EijFvNscHl/ndy3PQyPO9xxHMusOrqyl4SLiAUR9Sy9UwXXB0FdYGgxmz22EwJRP3ug
+         tumklaVc0MUl//24IuCOivFRDuVYfu9PWXkH64kIXeYaUuGh3qOnkv5JSLHjjSqgsq/1
+         KfPU9m/uvL4jydHzzEgCvuFAzWC+oKBang4upW5rIiIRMJdxh5aym+Qgar3U2NwLlojx
+         Xqf3wGHillFfKOd8iqDzFizHTpKdHElApszfIdq8i7BOUqGY+LnlOUCQz6h8gz7HQBpq
+         Yk+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766131808; x=1766736608;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=qEEqxDFM2yhPiyFjlnl8LZDAP48x695zaYDrn7lQEUY=;
+        b=AmGrTHv5XR+vqTtjgPDZT9eQzyf8sPJ1tZ2DfO33bZupjVRnoQD8XOHFNYn4W7Goop
+         KWCDDVb394x3js7MYUcQA76mSZFU2lHQKJSLVPJ8EcUohiATFxheSxA2CIar5IcQklYQ
+         3Kz+Zb7RAHCSyBHal0ZmxpER9+UQXlHisZdW1/mgAeXO/jDzFT3hkY95ZxUnGcjQq22P
+         3Kh0EJ3gQbhGevCeeGiLvF/cgaUpd9GamJb1apYol/RCLyx2m0T7LFXCyOrX/IqHb9Yg
+         HFXcHVXYH+yubL2pRjgm3CYVJ1GqDRzUL1LipMNVRMr/Z6q3MZqZP3pQzyctzGe+m9nk
+         o+pg==
+X-Forwarded-Encrypted: i=1; AJvYcCW37EWo4wLLWQQTd25DS1Q3Kk42zSHF9cmC2yNc6HfE+rmQcW0FEC91XLl6Z1Dwc1bPq+Zz35q4sQmAcHpVAGyV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyctnvm0AAg2TcbHxl4M4YZjNCZUoDOYPBtLrKLoNyCQ4uWhKGi
+	aoWB1oxmQ4VwcHzqrFDceOWW8h65WB9uC8x98AOuoHW7Ge+VUK2vNB8B
+X-Gm-Gg: AY/fxX5DyleI09sARDYpFq7ut0DqGHUBLYQopbWCA4zVZzg+Xm7Yja2s7r+xhO5wB8q
+	3e/rPNIJJR5VTXRmV1m4BnHHKAcUVlHdC4rZY6ussdMm5Alyd1aJc28jcnjotLvD/c/vpiQHFrr
+	ZvPNCKu2Y3Gc7Mi4VemwmS2EFlehIlU3Wb+h0FQNxW3bF2iDDQm4eq/84XpSKo0hpCQGiPdaTXo
+	Rln8SRVhus0Xlb18WmRA88WKjJGovq0/9Ay0o+RbOsTBb8Zbv2PdfgfdHZqcLs/7C8uijSs4gmz
+	OJaceo+OaiTuCOILub3XdEoPmZXE3TtY5xdR20NzOvP46npaCJ6dK+QE706UZ8SV0LRhWlpdZoh
+	udydmoMlirq6dZ9myouV10jmtbKP6iFMZwiwuX38KYnkEbS3JDy6w2q94g9sS01HmynAs5pJCA8
+	JUCAh4AoVknjYtQhX930ZTkVoLPNk2TOhM8fatyZoih1J9DqbORM/WWJrbMdI5mTXftIBOUzOZe
+	a2jCXvdn+wDLQt5HI4M6wZqzqvzs7JsylKz/hNeNQPLEFld6SsW32dMJm2l6H0eatYWgfjdIkWd
+	HViO3i61CXc=
+X-Google-Smtp-Source: AGHT+IH03b4+jSie1GtQ8+ubGota0N33xeJ3WXg3aVbp8UHxbGm9Xls37ao3K2cBu2+EzsJRbtyMVg==
+X-Received: by 2002:a05:6a00:3409:b0:7e8:43f5:bd47 with SMTP id d2e1a72fcca58-7ff6725978fmr2012408b3a.51.1766131808131;
+        Fri, 19 Dec 2025 00:10:08 -0800 (PST)
+Received: from 2001-b400-e3ff-afb4-41b8-b31c-89b3-0a14.emome-ip6.hinet.net (2001-b400-e3ff-afb4-41b8-b31c-89b3-0a14.emome-ip6.hinet.net. [2001:b400:e3ff:afb4:41b8:b31c:89b3:a14])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7ff7b423d86sm1597274b3a.26.2025.12.19.00.10.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 19 Dec 2025 00:10:07 -0800 (PST)
+From: Kevin Tung <kevin.tung.openbmc@gmail.com>
+Date: Fri, 19 Dec 2025 16:09:56 +0800
+Subject: [PATCH v3 3/5] ARM: dts: aspeed: yosemite5: Add new SGPIO line
+ names and rename signal
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-cloud-security-sender: alexander.stein@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay49-hz3.antispameurope.com with 4dXgDN6fwtz3yb91
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: 5b88bc5d9b014baba218eed2fec8b5d2
-X-cloud-security: scantime:2.167
-DKIM-Signature: a=rsa-sha256;
- bh=9ZkmG5LDdBWcr5F9UYs40lXE33P3xPwDRyGsRHQ2ZJw=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1766131781; v=1;
- b=sUOax3OHuP0Rc/DYC7B3YC22/lEa7q8muFhN368aAo+wsLqYCAbXtxjzzh3HdhQktHypc93I
- 19DjsUmYO/So8h1A+hMhanRXvpAztX3DhVgyDn2fxSCgXi4Yzh2J1+wRCbVkdZhwy6gty/b9zYK
- tzNWUxEriscwbiWfouzrrkZJPc+aUTpNhmbcVsBF9nVn8JcIU4EhjcnuQsdbPmLDhdHEJDbqXCE
- T5WGg6APhX48Q7x5/PMVLzIwZmdZ8PqV93daAZUgMiDA+d+xTxe27Uq2wgeQ7OD0TiZu4Kj3GAu
- lhQKuQT6ixW6R7EFJpTi/eakwWVsRy2tbdT/VbMBcvkPA==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251219-yv5_revise_dts-v3-3-ca1d5a382013@gmail.com>
+References: <20251219-yv5_revise_dts-v3-0-ca1d5a382013@gmail.com>
+In-Reply-To: <20251219-yv5_revise_dts-v3-0-ca1d5a382013@gmail.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ Amithash Prasasd <amithash@meta.com>, Kevin Tung <Kevin.Tung@quantatw.com>, 
+ Ken Chen <Ken.Chen@quantatw.com>, Leo Yang <Leo-Yang@quantatw.com>, 
+ Kevin Tung <kevin.tung.openbmc@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1766131796; l=1856;
+ i=kevin.tung.openbmc@gmail.com; s=20250924; h=from:subject:message-id;
+ bh=bf8xEERmNoQu6JKiJbQyzBDcSJlpDrQjBle4TDLj5zE=;
+ b=8pOWULTXthC45NBzVPT2fNC0LDr1UhXhIrPRavW4GSG7+HeWQ1n1MkgrFLQ3L4agx/PncSGEF
+ D1a1C0Hpo4vD8qtIs2BisigZk1w2BTXDMGc5g2JLrjPaXrKDbyVd0Dz
+X-Developer-Key: i=kevin.tung.openbmc@gmail.com; a=ed25519;
+ pk=PjAss0agA0hiuLfIBlA9j/qBmJaPCDP+jmQIUB6SE7g=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_001009_691455_2CE1E262 
-X-CRM114-Status: GOOD (  11.92  )
+X-CRM114-CacheID: sfid-20251219_001009_130853_E91D4B9A 
+X-CRM114-Status: GOOD (  11.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,39 +115,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Donnerstag, 18. Dezember 2025, 16:26:10 CET schrieb Geert Uytterhoeven:
-> Hi Alexander,
->=20
-> On Thu, 18 Dec 2025 at 16:21, Alexander Stein
-> <alexander.stein@ew.tq-group.com> wrote:
-> > Add "clock-output-names" which is a standard property for clock
-> > providers.
->=20
-> Why? Isn't that property sort of deprecated?
+Add new SGPIO line names for user space monitoring and event logging.
 
-It is? Oh, I wasn't aware of that. Maybe the property should be
-marked deprecated in dt schema then.
+Also rename PADDLE_BD_IOEXP_INT to ALERT_IRQ_PMBUS_PWR2_N to match
+hardware naming. The original PADDLE_BD_IOEXP_INT is unused, so this
+change does not affect current system functionality.
 
-Thanks and best regards,
-Alexander
+Signed-off-by: Kevin Tung <kevin.tung.openbmc@gmail.com>
+---
+ .../dts/aspeed/aspeed-bmc-facebook-yosemite5.dts   | 31 ++++++++++++++++++----
+ 1 file changed, 26 insertions(+), 5 deletions(-)
 
->=20
-> Will be replying to the cover letter next...
->=20
-> > Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
->=20
-> Gr{oetje,eeting}s,
->=20
->                         Geert
->=20
->=20
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts
+index 45b8ac2e8c65a4f672e64571631b7f6944f26213..983aebc394d9159c7e3db2e7c39e963f7b64c855 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts
+@@ -978,7 +978,7 @@ &sgpiom0 {
+ 	"E1S_0_BD_IOEXP","",
+ 	"E1S_1_BD_IOEXP","",
+ 	/*bit88-bit95*/
+-	"PADDLE_BD_IOEXP_INT","",
++	"ALERT_IRQ_PMBUS_PWR2_N","",
+ 	"FM_BOARD_REV_ID0","",
+ 	"FM_BOARD_REV_ID1","",
+ 	"FM_BOARD_REV_ID2","",
+@@ -991,16 +991,37 @@ &sgpiom0 {
+ 	"PRSNT_BOOT_N_FF","",
+ 	"PRSNT_MCIO1A_N_FF","",
+ 	"NIC_PRSNT_N","",
+-	"","",
++	"FM_CPU_BMC_RST_N","",
+ 	"","",
+ 	"","",
+ 	"","",
+ 	/*bit104-bit111*/
+-	"","","","","","","","","","","","","","","","",
++	"MASTER_PWR_EN","",
++	"MASTER_PWR2_EN","",
++	"PRSNT_MCIO0A_E1S0_N","",
++	"","",
++	"PRSNT_MCIO0A_E1S1_N","",
++	"","",
++	"","",
++	"Fault","",
+ 	/*bit112-bit119*/
+-	"","","","","","","","","","","","","","","","",
++	"FM_CPLD_RSVD_MCIO0A_SB1","",
++	"FM_CPLD_RSVD_MCIO0A_SB2","",
++	"","",
++	"","",
++	"","",
++	"","",
++	"","",
++	"","",
+ 	/*bit120-bit127*/
+-	"","","","","","","","","","","","","","","","";
++	"","",
++	"","",
++	"","",
++	"","",
++	"","",
++	"","",
++	"","",
++	"","";
+ 	status = "okay";
+ };
+ 
 
-
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
-
+-- 
+2.52.0
 
 
