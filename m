@@ -4,124 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE800D74970
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 09:53:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACD01D74970
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 09:54:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y0qfvbV+Uaz2OJUKiuzPoEpE3UbmnhdtS0hkyJ1N8KQ=; b=0Kjpv2y/Oxn5r/N3D053qMwf+v
-	RDThw+xCEyUzFqdd1mrM/KiedV+U8OgM44W+AoFC4AcQYZEIOWX44zUf7Zu7QZPR1mzZz42/DYpAT
-	0bIwCZ7no8MIFtkr706KM3c7sxdnfK2RrLjONSwHefb43fKqatM0TcM6CzKcwwOk8o/OzT62SS/ZA
-	2mqrZNbkU4l1S/vRx1t+VKyJcNwLQ1xbfTw4dgyQ4+C2W8hgEAv/eLYGsDLUNNyhzemB+WjnQJ8aE
-	2yfAPAsJoiHFvToHFIDXiLm0tKRuJhSyEglHHfizxqYgD0u1dfHdQnl+YldeStswbqCuNSirk4J53
-	KxyE2YYQ==;
+	bh=XCFIhXb9cE4PEsvSu1CxzrDqIHcoV70s7iOKTmVZZYY=; b=K1UpLN+t6DJ/LovOTtJzdMF2PY
+	+U9GAwjpCSmZKGyaxtGCWw5qLPGfoKTKuDRSIhD4Mx7wrVIvrFzhtC/BQQh7e1mRGgala2Ii3EiRS
+	FtsyGDj0xGu80RldFaV6Eeau1TWPOMV0B4u/fDMqzqhbpv7GpjCac2zS2wWNm4WVV4YQG/ISeZQgI
+	mbeuiE9uNwQoQm4nY3rHkADXkkQhEUw50XxBR3ZfI0IckL1YJSlr+s2oLijgKjQ6zOoWuQn54NsFt
+	KFy6rxRN6RgTu6uaMmpvMrMphOxmNFDqNg+2dsvovUiqfTEuca7mVq7ZNVmYbxL9YHnPqXcg/n2Me
+	tnranFRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWXB3-00000009z5x-2QQj;
-	Fri, 19 Dec 2025 09:53:37 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWXB2-00000009z5q-1bVr
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 19 Dec 2025 09:53:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=y0qfvbV+Uaz2OJUKiuzPoEpE3UbmnhdtS0hkyJ1N8KQ=; b=Iy9Dvy5pfr0wfAGg7JirJXTRa0
-	nyRW5LJNTzka99L9Vd7Wv2OWK7NaRPIrSf3jKruZp7mTHhqP6zFGYhQqLWBjztC0d+87TrMIFbTX8
-	LtPHhVIBD3GbRq5ncY+QqUvct4dnTfDj3qnis3ebGWZ1x0ChlZOVbe6Deo8t8cV0FYAT/UBoirIcA
-	/taimTUppegWAxNRirx2rxA1BIX3aKWOx0cOkwlATwG4gpNYcXKBc2QK0kBl5x62TD0t/t5pvj86L
-	DWZMn/sLoiWoQRYQopKzAMiWRAFAbUV8Ud8u+Rwuz7XYk8QkanFL902FS313MYD2pj7Mtb51cfgyJ
-	kYhMp3GA==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWWJW-0000000AWMJ-4B48
+	id 1vWXBm-00000009zCd-1FEr;
+	Fri, 19 Dec 2025 09:54:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vWXBj-00000009zBX-3hFq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Dec 2025 08:58:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8855143238;
-	Fri, 19 Dec 2025 09:53:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D6E0C4CEF1;
-	Fri, 19 Dec 2025 09:53:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766138011;
-	bh=sl0ToJdj8GtY2WKfJtUDvAjMTXApJ1WA925UTLERc+0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qAlUgOY2vxgJpx/AXLk17UkZ0pVIiYuRAg4S6R5WQY1oXyYOLvM/SIE99bqpT01it
-	 dnt04FuRlps70Cbt24VyWckXVPrbQJjuELRBimp+SnTfIvtwoZHkP5dP1TIjna9uR1
-	 tghyz8i1lz51LjSwmV25PArwtrZvkHww39oWVv5zRK5wdHmIKPgpEdHFk30xrAtoGh
-	 0f4eBRD73iX5dj26UynZ0LPj5V6DNx9w23grJSdhwSP/3X/Kqs9sd3NHQanQtpAWxt
-	 R/fCm/KjBnJ7Ni+nos4ScQYZ0Jzc1BwtQ4t8Nc5tBC5C7tWXfIuhBlnIvkbHlpQ0zU
-	 DtMqsYNaNPIgg==
-Message-ID: <57772b40-e4d9-4152-9709-04ba897608d0@kernel.org>
-Date: Fri, 19 Dec 2025 10:53:23 +0100
+	Fri, 19 Dec 2025 09:54:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 149E4FEC;
+	Fri, 19 Dec 2025 01:54:11 -0800 (PST)
+Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3A7443F5CA;
+	Fri, 19 Dec 2025 01:54:16 -0800 (PST)
+Message-ID: <95ac571a-1c8f-45d9-9874-648d4123ce18@arm.com>
+Date: Fri, 19 Dec 2025 09:54:14 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 10/12] dt-bindings: ras: document estatus provider
-To: Ahmed Tiba <ahmed.tiba@arm.com>, linux-acpi@vger.kernel.org,
- devicetree@vger.kernel.org
-Cc: tony.luck@intel.com, bp@alien8.de, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org,
- linux-arm-kernel@lists.infradead.org, rafael@kernel.org,
- linux-doc@vger.kernel.org, Dmitry.Lamerov@arm.com, Michael.Zhao2@arm.com
-References: <2a2baef6-c294-4c31-bec2-10fbaa3f7941@kernel.org>
- <20251218103139.2238844-1-ahmed.tiba@arm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v8 5/8] dt-bindings: arm: add an interrupt property for
+ Coresight CTCU
+To: Jie Gan <jie.gan@oss.qualcomm.com>, Krzysztof Kozlowski
+ <krzk@kernel.org>, Rob Herring <robh@kernel.org>
+Cc: Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+ Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org
+References: <20251211-enable-byte-cntr-for-ctcu-v8-0-3e12ff313191@oss.qualcomm.com>
+ <20251211-enable-byte-cntr-for-ctcu-v8-5-3e12ff313191@oss.qualcomm.com>
+ <20251211133723.GA859302-robh@kernel.org>
+ <dfa43a63-ca14-4dd7-a7ab-acd95748a8b9@oss.qualcomm.com>
+ <a9537dc9-c767-4909-8b1c-6e939ce4f3fc@kernel.org>
+ <2db74a3e-4aeb-4e87-9fe8-5c9693bfb67c@arm.com>
+ <46afd4f6-f287-4d19-bc68-f2f6eac36e6a@oss.qualcomm.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251218103139.2238844-1-ahmed.tiba@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <46afd4f6-f287-4d19-bc68-f2f6eac36e6a@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_085819_534390_582E950C 
-X-CRM114-Status: UNSURE (   9.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251219_015420_089942_09CD9E4F 
+X-CRM114-Status: GOOD (  32.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,40 +79,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/12/2025 11:31, Ahmed Tiba wrote:
-> On 17/12/2025 12:41, Krzysztof Kozlowski wrote:
->>> +properties:
->>> +  compatible:
->>> +    const: arm,ras-ffh
+On 19/12/2025 02:05, Jie Gan wrote:
+> 
+> 
+> On 12/19/2025 7:19 AM, Suzuki K Poulose wrote:
+>> On 18/12/2025 10:17, Krzysztof Kozlowski wrote:
+>>> On 12/12/2025 02:12, Jie Gan wrote:
+>>>>
+>>>>
+>>>> On 12/11/2025 9:37 PM, Rob Herring wrote:
+>>>>> On Thu, Dec 11, 2025 at 02:10:44PM +0800, Jie Gan wrote:
+>>>>>> Add an interrupt property to CTCU device. The interrupt will be 
+>>>>>> triggered
+>>>>>> when the data size in the ETR buffer exceeds the threshold of the
+>>>>>> BYTECNTRVAL register. Programming a threshold in the BYTECNTRVAL 
+>>>>>> register
+>>>>>> of CTCU device will enable the interrupt.
+>>>>>>
+>>>>>> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>>>>>> Reviewed-by: Mike Leach <mike.leach@linaro.org>
+>>>>>> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+>>>>>> ---
+>>>>>>    .../devicetree/bindings/arm/qcom,coresight-ctcu.yaml    | 17 ++ 
+>>>>>> + ++++++++++++++
+>>>>>>    1 file changed, 17 insertions(+)
+>>>>>>
+>>>>>> diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight- 
+>>>>>> ctcu.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight- 
+>>>>>> ctcu.yaml
+>>>>>> index c969c16c21ef..90f88cc6cd3e 100644
+>>>>>> --- a/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
+>>>>>> +++ b/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
+>>>>>> @@ -39,6 +39,16 @@ properties:
+>>>>>>        items:
+>>>>>>          - const: apb
+>>>>>> +  interrupts:
+>>>>>> +    items:
+>>>>>> +      - description: Byte cntr interrupt for the first etr device
+>>>>>> +      - description: Byte cntr interrupt for the second etr device
 >>
->> Again ras - what's that? Your patch or binding must explain that.
-> 
-> That updated description will explicitly expand the Arm RAS acronym so the
-> compatible string is self-explanatory.
-> 
->>> +
->>> +  reg:
->>> +    minItems: 1
+>> This is really vague. How do you define first vs second ? Probe order ?
+>> No way. This must be the "port" number to which the ETR is connected
+>> to the CTCU. IIUC, there is a config area for each ETR (e.g., trace id
+>> filter) connected to the CTCU. I was under the assumption that they
+>> are identified as "ports" (input ports). I don't really understand how
+>> this interrupt mapping works now. Please explain it clearly.
 >>
->> Why is this flexible?
 > 
-> I'll keep `reg` describing the CPER status buffer, cap it at two entries, and
-> document the second entry as the optional doorbell register that some firmware
-> requires before reusing the buffer.
+> Sorry for the misunderstanding.
+> 
+> Each ETR device should have its own interrupt line and an IRQ register 
+> within the CTCU device, as defined by the specification. In existing 
+> projects, the maximum supported number of ETR devices is 2.
+> 
+> Each interrupt is directly mapped to a specific ETR device, for example:
+> tmc@1000 → interrupt line 0
+> tmc@1001 → interrupt line 1
+> 
+> The suggestion to identify devices by ‘ports’ is much clearer than my 
+> previous explanation, as it explicitly shows which device is connected 
+> to which port.
 
-I still do not understand why this is flexible or in other words - why
-second address space appears and disappears.
+Thanks for confirming.
 
 > 
->>> +    items:
->>> +      - description: CPER status block exposed by firmware
->>> +      - description:
->>> +          Optional 32- or 64-bit acknowledgment register. Firmware watches this
->>> +          register and expects bit 0 to be written to 1 once the OS consumes the
->>> +          status buffer so it can reuse the record.
->>> +
+>>>>>> +
+>>>>>> +  interrupt-names:
+>>>>>> +    items:
+>>>>>> +      - const: etrirq0
+>>>>>> +      - const: etrirq1
+>>>>>
+>>>>> Names are kind of pointless when it is just foo<index>.
+>>>>
+>>>> Hi Rob,
+>>>>
+>>>> I was naming them as etr0/etr1. Are these names acceptable?
+>>>
+>>> Obviously irq is redundant, but how does etr0 solves the problem of
+>>> calling it foo0?
+>>>
+>>> I don't think you really read Rob's comment.
+>>>
+>>>> The interrupts are assigned exclusively to a specific ETR device.
+>>>>
+>>>> But Suzuki is concerned that this might cause confusion because the ETR
+>>>> device is named randomly in the driver. Suzuki suggested using ‘port-0’
+>>>> and ‘port-1’ and would also like to hear your feedback on these names.
+>>>
+>>> There is no confusion here. Writing bindings luckily clarifies this what
+>>> the indices in the array mean.
+>>
+>> The point is there are "n" interrupts. Question is, could there be more
+>> devices(ETRs) connected to the CTCU than "n".
+>>
+>> e.g., Lets CTCU can control upto 4 ETRs and on a particular system, the
+>>
+>> TMC-ETR0 -> CTCU-Port0
+>>
+>> TMC-ETR1 -> CTCU-Port2
+>> TMC-ETR2 -> CTCU-Port3
+>>
+>> Now, how many interrupts are described in the DT ? How do we map which
+>> interrupts correspond to the CTCU-Portn. (Finding the TMC-ETRx back
+>> from the port is possible, with the topology).
+>>
+> 
+> Got your point and it's much clearer.
+> 
+>> This is what I raised in the previous version. Again, happy to hear
+>> if there is a standard way to describe the interrupts.
+>>
+>> Suzuki
+>>
+>>
+>>>
+>>>>
+>>>> Usually, the probe sequence follows the order of the addresses. In our
+>>>> specification, ‘ETR0’ is always probed before ‘ETR1’ because its 
+>>>> address
+>>>> is lower.
+>>>
+>>> How is this even relevant? You are answering to something completely
+>>> different, so I don't think you really tried to understand review.
+>>>
+> 
+> My previous explanation was definitely unclear. As Suzuki suggested, 
+> mapping the interrupt to the port number (to identify the relevant 
+> device based on topology) makes sense and provides a much easier way to 
+> understand the relationship between the interrupt and the ETR device.
+> 
+> So with the suggestion, here is the new description about the interrupts:
+> 
+>    interrupts:
+>      items:
+>        - description: Interrupt for the ETR device connected to in-port0.
+>        - description: Interrupt for the ETR device connected to in-port1.
+> 
+>   interrupt-names:
+>      items:
+>       - const: port0
+>       - const: port1
+
+Which brings us back to the question I posted in the previous version. 
+Do we really need a "name" or are there other ways to define, a sparse
+list of interrupts ?
+
+Suzuki
 
 
-Best regards,
-Krzysztof
+> 
+> Thanks,
+> Jie
+> 
+>>>
+>>>
+>>> Best regards,
+>>> Krzysztof
+>>
+> 
+
 
