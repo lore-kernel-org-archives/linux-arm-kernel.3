@@ -4,171 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D7A5D711D4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 02:46:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35BE2D74951
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 03:32:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bpln2QNkvWJ5sCp9o6bclgrPsXPl6nuXdWNtqGeUArg=; b=g6rwCZdXARxVL4vfGakuzMBeKS
-	ni1JmmDcmQVEWEVfrtcAh16HgJqW6hyyDPdaHE/S6iqn8PudVht98GtmPdOuSikVu6TUyeIrKqlZa
-	cnwq3ZB/U8ayCrLY1uL3p+C6nd5tLVfo6f5FA7vWTUJrDQlnuXXH01kPqqW22g05l87T1kXXctF79
-	x5jp0teYvzCBia3xfc1avEQ7cOhvsPX0sXY3LcU3DP4PRV2chg4+oQqek+/8wyZPs2PXNqUTomfdQ
-	RP4zUnDkm6VjFCyTYn5QuMhmZ6LvN9kYgU4j5rdN/ObRP56Qn04XUnS2fYzEWrcvVHoTIPK/rI2xz
-	IqdYXvpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x56mI00illQfl6akd6y5SiCn/TcBzWlA1UnduG5C/0I=; b=Epm7dr+DaAHHpQPirq+cOwQ8mo
+	IQEPVWG9qM8rm6oFrXQaQdXyKfMKi8Em34yl08qHZVEX4N8RJBgkswTnQveuaFHXAOqyhlfXlRMVc
+	0HkyNlhBdrq2p0+aDhvafJ2FVD8Wqc+1l3OmYuVNGtX4yK0S5jUQ2W2AKED69vVTPyQ977Roe/mAO
+	UaQOB6LcZGk+h2K56ChJY3q2+eM5VXwd3EMK6zpZCa1gK74fFPNduz7fMfJqUs83lDPpazyZE1Gvp
+	hNNfm59BOUPEPsI8b1o38mcIKhulSi4zTRxNP/XhEXtDmXfMfssXca2zbzzQ8JrzEq+YHNummCxCF
+	xYWSQ+ZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWQVi-00000009Vll-1gr7;
-	Fri, 19 Dec 2025 02:46:30 +0000
-Received: from mail-japaneastazon11022108.outbound.protection.outlook.com ([52.101.126.108] helo=TYPPR03CU001.outbound.protection.outlook.com)
+	id 1vWRDn-00000009YB8-2U8U;
+	Fri, 19 Dec 2025 03:32:03 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWQVe-00000009VlK-0kHd;
-	Fri, 19 Dec 2025 02:46:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iv4dCIn3bsPYCG9I3GobUJw9eQDKcaNflX7Inf8zen462Rclwf/3JMejVOZ2iebZqHhg0y4YlXgiVsCcRq6XQukeJvqbPB1U26bX0pyNLFtrR8m1kYmVuFNyGbvkrK06BtjGYHCvONuQwfwnnbM0yfm2Wlj5Dl5/7TQmcSY9WCSax9GV/gbzEksSOohnjJJUnns0CrSjcezmx37u3aPl5W7XxJoceZcmz5F0vYf3TnsF/iRh/9o6rtd0fW12KzAfmMdUGkkTxhGc2yF9JE5pNaHOdalQ+R7mXMoOBMXk07RdNVvkGOZssfFLldJeK/2uKHIBEwDOhmD+QuhWGbZkmg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bpln2QNkvWJ5sCp9o6bclgrPsXPl6nuXdWNtqGeUArg=;
- b=cp0JweqAICJyx9gkg7P9IBflL0/2Yp80mmnsLVS/E1U8Dhy0s38ZmPi5jlx22jQQ8M0mkBnTqkxcsEVkhGV3DM/GrYKt927nPLscwvYXroYtQj9LntatvNoSvVJVAmvRJ6Mye1FIU0yBnSFtevdE4Z/71q6Oj8DlEeRCmfiZNfVAuEk0FQV7v/BMULVKJ4aSIWE3ulA4P0jQ3JgBE3Fj2RYjV+0F0XfrdY/0Yg8jQYD7mftFa+42r79lYKPt/Ia5NMsQ0N/NTBSsVePtoXHxy7cwv7Hjf1dJlnJZyAtgOHJUcocOLbboldqlyJlyI9BbAwNL5gkGckbodOeru80ruA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bpln2QNkvWJ5sCp9o6bclgrPsXPl6nuXdWNtqGeUArg=;
- b=sJsQpPziobd8DJ+9i+MN1DrQfk7dItzccKa2c6ElmZSVL+o4UfH+C961fPmeBJe1YUon5zCHz3t34BNVN5gqy45joXSLtVuAoGs3NI/toA5401u3meHC8fj/bkcIPQMULxOtXArWxoCHsvTdB096Hxm41507Ne9xubljp2I/JB6UH3PGRkhDZk5tEQulpDd1Aasy3/8U4q9Kc+w1GM4cTDU9MfyjePL6Gm2gefqYpqOfakZpPMvCunqQHO07e+LnPvXPwNYabfYeHN0EpGyXjsmJvZdi9EIelTX9hVvqtUN+Vi4CJXF4ZsXPF02UG2aFDJ0+PO6LW6NGcUt1oC0Q6A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from PUZPR03MB6888.apcprd03.prod.outlook.com (2603:1096:301:100::7)
- by TYPPR03MB9419.apcprd03.prod.outlook.com (2603:1096:405:317::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.8; Fri, 19 Dec
- 2025 02:46:21 +0000
-Received: from PUZPR03MB6888.apcprd03.prod.outlook.com
- ([fe80::5fc1:b7a:831:340f]) by PUZPR03MB6888.apcprd03.prod.outlook.com
- ([fe80::5fc1:b7a:831:340f%3]) with mapi id 15.20.9434.009; Fri, 19 Dec 2025
- 02:46:21 +0000
-Message-ID: <7d6084d2-3c56-43b8-8337-0b696614e4fb@amlogic.com>
-Date: Fri, 19 Dec 2025 10:46:16 +0800
+	id 1vWRDl-00000009YAY-1Edq
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 19 Dec 2025 03:32:02 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BJ2O1GD3858024
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Dec 2025 03:31:59 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	x56mI00illQfl6akd6y5SiCn/TcBzWlA1UnduG5C/0I=; b=SiAmNsNo2l8e5oCT
+	BefH1n4w1tDlpfDUu2PyKVNGGlhNMP7CesegN4NZhBMfqteTbURIkoYxxhp4oUWo
+	yuahr3gBmtzCY1Nv8DYLigBDRAMOElcHdnp3Owc3/a+3v6voNSJNW3OYzXHN0jgu
+	ltRYR72xMiJDYE9okt+buUu16ekLEwWEZVVOocX2iaMegRG8cOhD7PZDITAAitz7
+	M6PwLuJfRfJ0uWJQhMyl6sn8eIWEibX31ZlJosg4ApyIvHeUZ2B7dLQbODwtspno
+	ELpnWtFMKSeoIJZwQIzUUMOPUP8tJFkZ7FBNPVbtkqXV7itA6SZvOYXuU6QC2Swa
+	86CnZg==
+Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4b4r2ds1y9-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Dec 2025 03:31:59 +0000 (GMT)
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2a0dabc192eso25443895ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 19:31:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1766115119; x=1766719919; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=x56mI00illQfl6akd6y5SiCn/TcBzWlA1UnduG5C/0I=;
+        b=Sj7lUO8Xph9PHFKFc2K1WNUVMM0Z0GY4aK+eTaclxRD8CRMgFivXX0sdKSyGcsA1BG
+         yV0/IPcERbojq1xCfRIk3teIDmuOsVt/poXYsP+BDaPYy3Xo/7KhZAE1jRggACYN2OMW
+         DtXe0VylYv7/KF1OPLMZ4DDCraaIs7iRIXWnJFXyOBJAF/A6yJuEK2kC4LEGo30hS+Rd
+         stLVeNb9ttG9KRNL7D+FQ4UU3/IC2hUvtLsMyLaIJasoG3qsqRiYKUNiph9heUjlq19M
+         fID7oDdnwZIWTKZGK8NmdqT8G9tvfokBjQQWH1qL8bJEjBFh2PYl9XINMTYovlWXPMf5
+         pHBQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766115119; x=1766719919;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=x56mI00illQfl6akd6y5SiCn/TcBzWlA1UnduG5C/0I=;
+        b=f11Ph374BTTsql9E67IsQ2XPGKgo43joy0Ls+BltzjfmISSLpaAZ4jN2czX3Hy4116
+         O5KBh1i2Yu/3YemdZDOuoz7U5dxyfcIc1CylTT8QmYJkY5r0xQNBGN8VgG+bhiidR/mk
+         bfTaNiE0CorG5yVod0SYMe9mloZYsuS/dB4a/LbE7bApQtn4VDlukVyd7fNp4J+lEYS+
+         g0Dz//3bN7fgWEpnsxzSRQqbwS0VUeiFCyHukjSkKE/AuEc4WvKztpsYKa0dvdtyfida
+         Z7/fDuiDYTZ5EjeqObAdycgpyS6wMNwzZsMrAR0gEeEo7WHeK/LkNsFNBevHnX4zpu80
+         QAOQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXDNzv35HltADOlSZyPeqBglzIN4WBqcvZZA/rQ6IR8mv0j+pU95LENdgQfGd3Ffx8PSf6h0rS/zSoAOubC2jxf@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/XfZzhrcl/N/kunMcR+MkbUZnpsQ+fsinUydSMUAZ0dss8+ZL
+	/pV6dnlFG2ysLb4kXABYilne4TWpcp5q4g6SNglG3yeNKQHvKBulF6bgrq1CNGe0xVI7IpPyCJI
+	6lBcIeK5Jnd8rAbdvbh7yA0IA68drK+esKGxhgfH6nmsSZz7WWAPlr+6zLG+6eg2SDfM+hUU7uy
+	kF4w==
+X-Gm-Gg: AY/fxX7ae/EggkBWPsjz7Y2EDK9wKsXr23Ixc5y0k6cLCseDrWDke/EIr0eeNWiAlKh
+	vaE4n24Q9u3hiO2qnj+3SedZS9ZvpRTcBRWFUN1NL3JCw0TA13OEPGwgGyO+TBQH1gBOORylths
+	v/iz6y2/KhOaQwfJsNhxZ3zFvLcpYH/ddrcKWIKtDF1T4bkyPYfnMxquXzadWjGJzuWfDNc/9l9
+	pAh+37EPXMShVtu6nHo5CcEbXL5p7WkKbvY8mhka2lSv22spBSQd+L8+B5kuxhpFyErTVZvstWl
+	323D2WW//hA904d5ZQ0UKNpCHTCRnL+2/CmicDeZgOXQVSIEifAYEkLq2C/tLHjdPh8Z+erYKEO
+	cpn9zlNnJ726s9gBVrGc+AWzQbbk4pauRgI1PyUveyxirGLQSyvnJ3WCQyhUUfJSfMCrDJJ/FlE
+	s=
+X-Received: by 2002:a17:902:e808:b0:2a0:9d0f:b1ed with SMTP id d9443c01a7336-2a2f23277f6mr12926535ad.24.1766115118404;
+        Thu, 18 Dec 2025 19:31:58 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHjXE0gcT+I/3vqOt36tBsA13k0DFicCrebhOEGFHe67ozPzsjJOg7E/124merh6ZejBtJKhg==
+X-Received: by 2002:a17:902:e808:b0:2a0:9d0f:b1ed with SMTP id d9443c01a7336-2a2f23277f6mr12926245ad.24.1766115117770;
+        Thu, 18 Dec 2025 19:31:57 -0800 (PST)
+Received: from [10.133.33.174] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a2f3d5d20dsm6838525ad.67.2025.12.18.19.31.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 18 Dec 2025 19:31:57 -0800 (PST)
+Message-ID: <f049f546-5df0-4d17-a025-e1a46eb035fc@oss.qualcomm.com>
+Date: Fri, 19 Dec 2025 11:31:49 +0800
+MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/4] arm64: dts: amlogic: Add S6 Reset Controller
+Subject: Re: [PATCH v4 1/3] coresight: tpda: add sysfs nodes for tpda
+ cross-trigger configuration
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, Tao Zhang <tao.zhang@oss.qualcomm.com>
+References: <20251028-configure_tpda_reg-v4-0-23000805d21d@oss.qualcomm.com>
+ <20251028-configure_tpda_reg-v4-1-23000805d21d@oss.qualcomm.com>
+ <a785ced7-95ae-444b-b8ca-b40aecb35230@arm.com>
 Content-Language: en-US
-To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251127-reset-s6-s7-s7d-v1-0-879099ad90d3@amlogic.com>
- <20251127-reset-s6-s7-s7d-v1-2-879099ad90d3@amlogic.com>
- <CAFBinCA19ws1OmfZLh+OSmiEuvY4owOKyzFpaz5KO6E8HaKmmg@mail.gmail.com>
-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
-In-Reply-To: <CAFBinCA19ws1OmfZLh+OSmiEuvY4owOKyzFpaz5KO6E8HaKmmg@mail.gmail.com>
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <a785ced7-95ae-444b-b8ca-b40aecb35230@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: TPYP295CA0017.TWNP295.PROD.OUTLOOK.COM (2603:1096:7d0:a::9)
- To PUZPR03MB6888.apcprd03.prod.outlook.com (2603:1096:301:100::7)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PUZPR03MB6888:EE_|TYPPR03MB9419:EE_
-X-MS-Office365-Filtering-Correlation-Id: 70afa902-b5ef-48db-ab51-08de3ea8caa6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?d1ZBTUE3cWk4TkNJYlo1NWpFMGJuTjVEaXNQOTgxRTJ4TFRZSTUzbmw4V2ND?=
- =?utf-8?B?TU5hMk9DWWYzanNjUmNQejRMM2UyNGNGb2lGd0JWWmlPKzVxeUp0akNvRGI3?=
- =?utf-8?B?UDF1TmFlaTV6aWRHZjF2dGVXSzQwUnRnS0xlRjlxdmJtdGtrSnFHWXlraENB?=
- =?utf-8?B?bmFxditOTVE5SW9uU0FYNzMzTUs0M0xJbWNSTWNlV01acVA1dGhMdGhyQ0Nv?=
- =?utf-8?B?NTB6MUFObmdDTlV0K0I1T2xsbDFNQ2l2SjVvZVFZcFpwcVFycmNxbEgyYVVQ?=
- =?utf-8?B?U3ByRHlJVldkSXF3a1hLamc3a2xWd3R3MmtzUi95L0ZhamdiVHN3UHlvMTA0?=
- =?utf-8?B?QVB0aXZRWkJXalZ0S1YvZE1wQ0VscHFRTWpuczFKbG5UdkNENmYvcmFDOXQ4?=
- =?utf-8?B?ejZBd1VSWVQ0RkljdDlKdVhyZ29IUTFlR2lHZHNtOTRteFdPRjZqK1prYjRX?=
- =?utf-8?B?YktIWGNVTFVIUm1QUEN6ZUo1Q2FOejl0OEhFNzQ5VldJY2V1bW84aWpxakF6?=
- =?utf-8?B?NWoxMEFLMU50R09EY1FFaXdhdU14ZkFONTBldklBMUFIZFVFczNmdjhxY2lr?=
- =?utf-8?B?Y055dDZJTVNPVVNBMjVlNTdTa05GSUwxYit5ZzhmZHFZd01QYWthbkpTQnpl?=
- =?utf-8?B?RnJ5eUxaRmtCWEZPQkRKTzFvOVhQTW9VUFlpdk9ON0V0Nk9WbG1yb01VaXBh?=
- =?utf-8?B?cjlIMjBmdVB2TEFuMk1SSTRBdlZ6WG5oVHd4Q25sMDl0WjJLL0p4MFE0ZHYz?=
- =?utf-8?B?WTB4TjVrYlB5aVpzNCsrTE1yR2FuRStCU2p3Z0RSN3FzMlNtQzVDZHB6Y2Nm?=
- =?utf-8?B?MFZubm4vcUVCcGNldEFmWEpzaXlLOWJHb0daNlJJQ2g5SERJeXdGR2RSTUhm?=
- =?utf-8?B?MXhNNW9LdkZ6WWxSc2k0MWtvS0FJdVNzakFFOHMxWXN3bDV3cHRDTktMcUxI?=
- =?utf-8?B?ZTk3K1dTRHFEWXI2Qk5qRi9mTXZwd3EyMXB4dmljV0h4Nmc3UTBQb1VLNHFh?=
- =?utf-8?B?VmVCVThtZ09CcHRwVzlseFZocUhLZEJaYlFMMFBERmRZYWNPaStBc1k0Z3Ry?=
- =?utf-8?B?ZTVmZ2dqQ3h3MUhYcmRFbDlMQkd0OUtYeTRVUVVyWnE5RjREaklkOTJ4Q2Nv?=
- =?utf-8?B?NU4xVFR6RVlUbG5TSTVuUlJzTklqbW4xQWVBTVFVQjJDZGE3R0Y3TjNzelMz?=
- =?utf-8?B?MHFCSWIySURJbHJpaU1CanpyMnNoVW9yWFlaelVnTWFJSitFT1RWMlhoZzQy?=
- =?utf-8?B?ZGg3M0xhTVBjeGNrL0ZzMG1oQ3JUL2xBdmp2QzNKaGp0M2NsN3VLZlZ6ZlBY?=
- =?utf-8?B?V3VjQ013bTJ5SmNscjJ3R0dpdm5XTFZacWJ3ZFU1ZnYxRnlwWE94NXhRQmpO?=
- =?utf-8?B?MEUyUGFjWnB6dlRCZjFXcnplRXZkdGY5Yll2Q0xXR2QyWEh0eUdxcW5rZW9w?=
- =?utf-8?B?U044QzhtUlZFNFpvdTFXSC9LdmQ0YjNWL21HbHp2VmFablF2ak5YZUw5WllU?=
- =?utf-8?B?azBuaUNRZklzUElzQ2lRckdlRU9EaTZibWFvTHpjY1g5NktnZzRxUld1YjNX?=
- =?utf-8?B?NVR0dURlRXo0ZUQ1RFdjekhSTGZicWE1K2dSNFFyVGVQRThQY1lubzlycVdK?=
- =?utf-8?B?NmpmejQzNi9qSnZ3L3kvaUxrd3dGVmNPWmRtZldCNFIvZGU0bE1FVXpWb0dD?=
- =?utf-8?B?ckFlbXdXL0JFQ21hMUZxNktQTHFzVWhOWmt5Y0lNelVFSm40TVVJSkwva2Fy?=
- =?utf-8?B?b0V0YzJ4bm9tNUg0YzQxQXZnblVhT3NPd2ZLNFp1bHREM0xyT2VqeUt1YjQ3?=
- =?utf-8?B?aThTWi9mK252c1VzRk5Md3lnK2p4TnFpQms5aStKdG1TUE5uUkp1STNRWlAv?=
- =?utf-8?B?SVR0a1V1cWZaVlg1MVlTWFVZV2Y3OVNISDQrZnFKODVucnFVZk93RmRLbUFQ?=
- =?utf-8?Q?2eLp9pk0r+uyXThKfgc5nFkIxT29E4w7?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PUZPR03MB6888.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?K2xUaUtsNWVHTm84aUtaUmdmbm05YmlDSThzSHdURlkwaTJNL0tzT0lNQjdV?=
- =?utf-8?B?OElUcDZKMkwzU01VcTlRT2dzaGRLc1NKTnhVdG8zZ3E5bTQzSHVZVzY2ZG9H?=
- =?utf-8?B?U1ZMOEhzVit3RW5wUDlabW9sR1g3RUpaMDR5d3lHU3A3MVROaXZLbEJnOTh5?=
- =?utf-8?B?UXdGV29keGNicjJSNmVVK3JSVE5yY2QvbU15eTI3c0IxYUJqQ1Y3VHQrelUr?=
- =?utf-8?B?Z09xUXcva3V5WXY1RmlwdkpkOS9JOFJWalJxcnIyZExOMnVLZDBZaXJvNE9N?=
- =?utf-8?B?RTA4TWMzWHIzL3BxdU4xZVdEUTA2anBrS1dQY1lHTnBGVzlmODhvQTNDQjB4?=
- =?utf-8?B?SlkxMko5Z2p0clIzRlh4ZWt3UGpVUkI0UVFWUzcvdlUzUGsvMkgxT082aSts?=
- =?utf-8?B?ekZFcCsrclo0UjBlZnVWcjlSbUNKbVVBQlByZzNQZFp0TlBaR2g1SmorbTVm?=
- =?utf-8?B?MnpQczhYdENudWlacEU3M0NWNVZnb2VuQ3pibDVIZHBhdlhKNHBqaEhCS2c0?=
- =?utf-8?B?QVEweDBseE9UbFdpcDczcFplRzJwTkQ5ZjJFYTNoYnRDOS8xaHFmYkFRQ3Z6?=
- =?utf-8?B?cW9iS0U4QTdkeFQvNzdLVTNkV3lCeXE4NElqbzdyMUNXL3h1SGEvQnhTYWhY?=
- =?utf-8?B?ejhGc0xYVkNIK1JndWx6MjVHazNseVZYaVJoMU9TUnBacHpjaDhMb2dQVDFv?=
- =?utf-8?B?ZGIrVlFMbTh1TTl0cXcrS0tVOEprTCtFVjRLZHRSY0dkT2NHbVRKSDZ4VHpq?=
- =?utf-8?B?NndvQVk2dDBjY1hJZFp1UzY5cXZvbitDOENSdlZHOXhWYk5BaFN1aE5EenZC?=
- =?utf-8?B?a0FFdGNCWkxtdURjT01rOXpOUFZuWHFDSDBxRFA0QXQ2Y2tEY1hmU3NYaWN5?=
- =?utf-8?B?b1FtMjZRZUxhU0JLYXB1c0V0MEhuZjU0akhJcHduaWhqZ2FnUnMyYlpGUXZ6?=
- =?utf-8?B?RUJKaVFkYkw4di9ZWjQ0Y0hHRVBHd0lWYk01Q2ZjbDFhRTM4NmNqZVBqcjZ1?=
- =?utf-8?B?NG9RZ25Ed1VVSU5TdVZheVJSa3hCTjRqWTFwV1ZrQWdBOVlBMG5BL21VaTlR?=
- =?utf-8?B?L1pUK0ZTZEJhdDRmMHFzZ3BVcVppTEdSU2E4dzk2cFV2NlBjQ3dNV2NJemxI?=
- =?utf-8?B?Yms2SFIzRlNxNXZ3aUl1OElQbVpjK2ZzZ3hLM0krNmFmTmt4TExMMk9mNUZs?=
- =?utf-8?B?RERST0ZuODRUQ2U4VUVNRHl0TXFUbmEvQmtneDFwZEhBQW90WHZZeU9JdEQ4?=
- =?utf-8?B?L0loOFY4UVMvRWxvMnJoVCthT0tOdzJmTWZGM3M2SkpOd1AvNUtCbG1GRkNN?=
- =?utf-8?B?TmdGVzR4Y21vdU9ENGMxUTBmcEdGdzJkSGtzN0l0S3NNc2NuWTdLUi8yemFi?=
- =?utf-8?B?RGs3d3Z4UkJSanB1Q3drL0VXVTR4cXhhSTJQSEdsWWRuWW1tZE10SmtROUtj?=
- =?utf-8?B?K0lTUU5WTElDc1BESURjTjBya05IcUZEaWhub1B4U0MyQi92cGpLK2d6Z2hM?=
- =?utf-8?B?L2VudGhJQnRPcEpoSGxQY1d4MFNjL0cwblpPcFlRa3Q5UGVzYlpERmlObGt1?=
- =?utf-8?B?RDhBR3FLbHVyYXVvR3QzTnc4S1M1VGpJVW5DaXNCTjBYM2pjd3BLWXNuR3Fa?=
- =?utf-8?B?SytHeFpKYVlaai9SY3MvY3B4VE15b05JZlJDdWtjM1lRZ2h5MUlKMm9PaW5W?=
- =?utf-8?B?UE8vbTB5OFd4RUowbExWd3pJUXQyMmdndlJ0UzBKQWo4OWFKSXhiUFZEaGdw?=
- =?utf-8?B?S1AxdWdKSTV0R0RBcDNFVkZsQkRucDBvSlJnc2M3OUI1dk9SYTltY3oyOXFK?=
- =?utf-8?B?K3h4c0htbmNib3NIQk80NDNwb016TUVGU1RWVG9IaStsYmdKM1E2anRveG5z?=
- =?utf-8?B?UGpjL2RsM1EvU3JiRFE3R01TNldCYUE2b3E2VThScitlUjdTbmd3SnZJN214?=
- =?utf-8?B?MDBKK2trV0lHM0x1UTRZTXc5UlhtZDU5TWtDMnF2WWNrMHFYTy8yMnpQcVJB?=
- =?utf-8?B?ME5wdzRvTTBxZ3hnbXJ3SkJGSUhmTTh4OUJ4bUw0WU45NW96cFpqREhDYk1z?=
- =?utf-8?B?dU1VVk5NSlduNkpvZFU1RHNsaFRvMUxTakhHV3NCK2FEV3F3WjlpYnZKRGpi?=
- =?utf-8?B?MGlnV0pLdG1DYldReHBpcWZsZmZFY1NWbGJTOEw4NzJZcWF4YVprQllBVzN0?=
- =?utf-8?B?Z2VQVS9BZ0dmRFhidXcwblkxaHlKV2FjUmh5aFVjK2xQZkRjN1I1bzMvSzI1?=
- =?utf-8?B?cjY3UXdGSjZmYVJUai8zdExNUXBzOG5uQlhaRnVSMjZmVHhmSkNjTWU1VGI5?=
- =?utf-8?B?Zkl5Vm8zckNQYldSdnBkaUNXVEFCeTN4aVJZL1JxNWJLUm1SL21vdz09?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 70afa902-b5ef-48db-ab51-08de3ea8caa6
-X-MS-Exchange-CrossTenant-AuthSource: PUZPR03MB6888.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Dec 2025 02:46:21.0755
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: lePp7u71yXUljzIyJDo26hk9bS4YKrjdMtG2b0bAQogxDqJGHNbXn6kSP36Z9bTvPF8tRXQSDuPAJdPdXRdqsND07OvILyZZR8Vx3ETuGwA=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYPPR03MB9419
+X-Proofpoint-ORIG-GUID: 6AHfUi6vj5OrIdjqLDSVIyE_yWGYB7T4
+X-Authority-Analysis: v=2.4 cv=A7ph/qWG c=1 sm=1 tr=0 ts=6944c72f cx=c_pps
+ a=cmESyDAEBpBGqyK7t0alAg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=KKAkSRfTAAAA:8
+ a=CvuRUKyVQJBZ2Q8Vu1IA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=1OuFwYUASf3TG4hYMiVC:22 a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-GUID: 6AHfUi6vj5OrIdjqLDSVIyE_yWGYB7T4
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjE5MDAyOCBTYWx0ZWRfX16Pb69RKBvSJ
+ ThHpTYqPpvGNEtlUQ3Bdgv6Kz5rKIGk9D+ZyHFqTYMjxWaap4ThRhJYfHxwSBId30PK36sP5R23
+ M/4ajf7bkNkQ5B8fB+epr+x7erz7/CcjB6y/7yT2zouRsl3soB2Fb9DjGACeOwk7WDQH1uayCG7
+ 4JJhMkbcMoWT3PIrXSob3soEgfcg5iL7lvZotyztyrE68Q733EDqQ7lNEKqANJIcE+xHpHpGFHj
+ KqiEVPoLnFN0rsoJ6EaHpN+vFigrMY0ilciIsDTV9HYDjtkCHpa9HfLYy298h8Yx+/5AI9hc7gG
+ b3ztA4NpB74DnY/9S2vnhCnVp5fIrIRuJCahxZOJSx6IjCh2+wSZMGD6QCrVlyS1ZKore7qz0V/
+ nHKb62YKxUjjwbWovfNvLOB+DlbrwsLSAGGxJp+qW7V41AKzUdJPn7+nacn/Kgf69sfc+dxnJ5z
+ LlzplYfcEQJNcLerKQA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-12-19_01,2025-12-17_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 priorityscore=1501 lowpriorityscore=0 impostorscore=0 spamscore=0
+ phishscore=0 suspectscore=0 malwarescore=0 clxscore=1015 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2512190028
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_184626_224856_49481668 
-X-CRM114-Status: UNSURE (   8.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251218_193201_479653_A68CCE8B 
+X-CRM114-Status: GOOD (  29.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,21 +154,402 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Martin,
-    Thanks for your reply.
 
-On 2025/12/17 23:51, Martin Blumenstingl wrote:
-> [ EXTERNAL EMAIL ]
+
+On 12/18/2025 7:10 PM, Suzuki K Poulose wrote:
+> On 28/10/2025 02:02, Jie Gan wrote:
+>> From: Tao Zhang <tao.zhang@oss.qualcomm.com>
+>>
+>> Introduce sysfs nodes to configure cross-trigger parameters for TPDA.
+>> These registers define the characteristics of cross-trigger packets,
+>> including generation frequency and flag values.
+>>
+>> Signed-off-by: Tao Zhang <tao.zhang@oss.qualcomm.com>
+>> Reviewed-by: James Clark <james.clark@linaro.org>
+>> Co-developed-by: Jie Gan <jie.gan@oss.qualcomm.com>
+>> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+>> ---
+>>   .../ABI/testing/sysfs-bus-coresight-devices-tpda   |  43 ++++
+>>   drivers/hwtracing/coresight/coresight-tpda.c       | 230 +++++++++++ 
+>> ++++++++++
+>>   drivers/hwtracing/coresight/coresight-tpda.h       |  27 ++-
+>>   3 files changed, 299 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices- 
+>> tpda b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
+>> new file mode 100644
+>> index 000000000000..80e4b05a1ab4
+>> --- /dev/null
+>> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
+>> @@ -0,0 +1,43 @@
+>> +What:        /sys/bus/coresight/devices/<tpda-name>/trig_async_enable
+>> +Date:        October 2025
+>> +KernelVersion:    6.19
+>> +Contact:    Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang 
+>> <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+>> +Description:
+>> +        (RW) Enable/disable cross trigger synchronization sequence 
+>> interface.
+>> +
+>> +What:        /sys/bus/coresight/devices/<tpda-name>/trig_flag_ts_enable
+>> +Date:        October 2025
+>> +KernelVersion:    6.19
+>> +Contact:    Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang 
+>> <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+>> +Description:
+>> +        (RW) Enable/disable cross trigger FLAG packet request interface.
+>> +
+>> +What:        /sys/bus/coresight/devices/<tpda-name>/trig_freq_enable
+>> +Date:        October 2025
+>> +KernelVersion:    6.19
+>> +Contact:    Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang 
+>> <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+>> +Description:
+>> +        (RW) Enable/disable cross trigger FREQ packet request interface.
+>> +
+>> +What:        /sys/bus/coresight/devices/<tpda-name>/freq_ts_enable
+>> +Date:        October 2025
+>> +KernelVersion:    6.19
+>> +Contact:    Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang 
+>> <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+>> +Description:
+>> +        (RW) Enable/disable the timestamp for all FREQ packets.
+>> +
+>> +What:        /sys/bus/coresight/devices/<tpda-name>/global_flush_req
+>> +Date:        October 2025
+>> +KernelVersion:    6.19
+>> +Contact:    Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang 
+>> <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+>> +Description:
+>> +        (RW) Set global (all ports) flush request bit. The bit 
+>> remains set until a
+>> +        global flush request sequence completes.
+>> +
+>> +What:        /sys/bus/coresight/devices/<tpda-name>/cmbchan_mode
+>> +Date:        October 2025
+>> +KernelVersion:    6.19
+>> +Contact:    Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang 
+>> <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+>> +Description:
+>> +        (RW) Configure the CMB/MCMB channel mode for all enabled ports.
+>> +        Value 0 means raw channel mapping mode. Value 1 means channel 
+>> pair marking mode.
+>> diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/ 
+>> hwtracing/coresight/coresight-tpda.c
+>> index 333b3cb23685..a9a27bcc65a1 100644
+>> --- a/drivers/hwtracing/coresight/coresight-tpda.c
+>> +++ b/drivers/hwtracing/coresight/coresight-tpda.c
+>> @@ -147,9 +147,37 @@ static void tpda_enable_pre_port(struct 
+>> tpda_drvdata *drvdata)
+>>       u32 val;
+>>       val = readl_relaxed(drvdata->base + TPDA_CR);
+>> +    val &= ~TPDA_CR_MID;
+>>       val &= ~TPDA_CR_ATID;
 > 
-> On Thu, Nov 27, 2025 at 8:30 AM Xianwei Zhao via B4 Relay
-> <devnull+xianwei.zhao.amlogic.com@kernel.org> wrote:
-> [...]
->> +#define RESET_BRG_MAIL_DMC_PIPEL       167
-> On the S7 SoC this reset line is called RESET_BRG_MALI_PIPL0:
-> - is MAIL <> MALI a typo (seems like it should be MALI)?
-Yes. I will fix it.
-> - and is PIPEL <> PIPL also a typo (I don't know which one is "correct")?
-PIPEL is PIPE , I will fix it.
+> See, below.
+> 
+>>       val |= FIELD_PREP(TPDA_CR_ATID, drvdata->atid);
+>> +    if (drvdata->trig_async)
+>> +        val |= TPDA_CR_SRIE;
+>> +    else
+>> +        val &= ~TPDA_CR_SRIE;
+>> +    if (drvdata->trig_flag_ts)
+>> +        val |= TPDA_CR_FLRIE;
+>> +    else
+>> +        val &= ~TPDA_CR_FLRIE;
+>> +    if (drvdata->trig_freq)
+>> +        val |= TPDA_CR_FRIE;
+>> +    else
+>> +        val &= ~TPDA_CR_FRIE;
+>> +    if (drvdata->freq_ts)
+>> +        val |= TPDA_CR_FREQTS;
+>> +    else
+>> +        val &= ~TPDA_CR_FREQTS;
+>> +    if (drvdata->cmbchan_mode)
+>> +        val |= TPDA_CR_CMBCHANMODE;
+>> +    else
+>> +        val &= ~TPDA_CR_CMBCHANMODE;
+> 
+> Could we clear all of the bits that are configurable in one go in the
+> beginning and set the appropriate ones based on the setting ? i.e.:
+> 
+> Do we really need to retain any values ? And if not, why not start
+> with a fresh set of values and avoid the read ?
 
+Got it. We can start with a clean value and set the required bits, 
+without needing to read the register once.
+
+> 
+>>       writel_relaxed(val, drvdata->base + TPDA_CR);
+>> +
+>> +    /*
+>> +     * If FLRIE bit is set, set the master and channel
+>> +     * id as zero
+>> +     */
+>> +    if (drvdata->trig_flag_ts)
+>> +        writel_relaxed(0x0, drvdata->base + TPDA_FPID_CR);
+>>   }
+>>   static int tpda_enable_port(struct tpda_drvdata *drvdata, int port)
+>> @@ -265,6 +293,206 @@ static const struct coresight_ops tpda_cs_ops = {
+>>       .link_ops    = &tpda_link_ops,
+>>   };
+>> +static ssize_t trig_async_enable_show(struct device *dev,
+>> +                      struct device_attribute *attr,
+>> +                      char *buf)
+>> +{
+>> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>> +
+>> +    return sysfs_emit(buf, "%u\n", (unsigned int)drvdata->trig_async);
+>> +}
+>> +
+>> +static ssize_t trig_async_enable_store(struct device *dev,
+>> +                       struct device_attribute *attr,
+>> +                       const char *buf,
+>> +                       size_t size)
+>> +{
+>> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>> +    unsigned long val;
+>> +
+>> +    if (kstrtoul(buf, 0, &val))
+>> +        return -EINVAL;
+>> +
+>> +    guard(spinlock)(&drvdata->spinlock);
+>> +    drvdata->trig_async = !!val;
+>> +
+> 
+> 
+> 
+>> +    return size;
+>> +}
+>> +static DEVICE_ATTR_RW(trig_async_enable);
+> 
+> ...
+> 
+>> +static DEVICE_ATTR_RW(trig_flag_ts_enable);
+> 
+> ...
+> 
+>> +static DEVICE_ATTR_RW(trig_freq_enable);
+> 
+> ...
+>> +static DEVICE_ATTR_RW(freq_ts_enable);
+> 
+> These attribute are boolean and looks like we could save some space on
+> code by using dev_ext_attribute.
+> see tpdm_simple_dataset_rw()/tpdm_simple_dataset_ro() . You could
+> 
+> #define TPDA_TRIG_ASYNC        0
+> #define TPDA_TRIG_FLAG_TS     1
+> #define TPDA_TRIG_FREQ        2
+> 
+> 
+> tpda_trig_sysfs_show/store()
+> 
+>   bool *ptr;
+>   switch (eattr->var) {
+>   case TPDA_TRIG_ASYNC:
+>      ptr = &drvdata->trig_async;
+>      break;
+>   case TPDA_TRIG_FLAG_TS:
+>      ptr = &drvdata->trig_flag_ts;
+>      break;
+> ...
+> 
+>   }
+> 
+
+Will wrap in tpda_trig_sysfs_show/store().
+
+> 
+> 
+>> +
+>> +static ssize_t global_flush_req_show(struct device *dev,
+>> +                     struct device_attribute *attr,
+>> +                     char *buf)
+>> +{
+>> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>> +    unsigned long val;
+>> +
+>> +    if (!drvdata->csdev->refcnt)
+>> +        return -EINVAL;
+>> +
+>> +    guard(spinlock)(&drvdata->spinlock);
+>> +    CS_UNLOCK(drvdata->base);
+>> +    val = readl_relaxed(drvdata->base + TPDA_CR);
+>> +    CS_LOCK(drvdata->base);
+>> +    /* Only read value for bit 0 */
+>> +    val &= BIT(0);
+>> +
+>> +    return sysfs_emit(buf, "%lu\n", val);
+>> +}
+>> +
+>> +static ssize_t global_flush_req_store(struct device *dev,
+>> +                      struct device_attribute *attr,
+>> +                      const char *buf,
+>> +                      size_t size)
+>> +{
+>> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>> +    unsigned long val;
+>> +
+>> +    if (kstrtoul(buf, 0, &val))
+>> +        return -EINVAL;
+>> +
+>> +    if (!drvdata->csdev->refcnt || !val)
+>> +        return -EINVAL;
+>> +
+>> +    guard(spinlock)(&drvdata->spinlock);
+>> +    CS_UNLOCK(drvdata->base);
+>> +    val = readl_relaxed(drvdata->base + TPDA_CR);
+>> +    /* Only set bit 0 */
+>> +    val |= BIT(0);
+> 
+> What is BIT 0 ? Please document it
+
+will document it.
+
+Bit0 is Global (all ports) flush request bit.
+Set 1 means a flush request is made for all ports.
+
+> 
+>> +    writel_relaxed(val, drvdata->base + TPDA_CR);
+>> +    CS_LOCK(drvdata->base);
+>> +
+>> +    return size;
+>> +}
+>> +static DEVICE_ATTR_RW(global_flush_req);
+> 
+> 
+> 
+>> +
+>> +static ssize_t cmbchan_mode_show(struct device *dev,
+>> +                 struct device_attribute *attr,
+>> +                 char *buf)
+>> +{
+>> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>> +
+>> +    return sysfs_emit(buf, "%u\n", (unsigned int)drvdata->cmbchan_mode);
+>> +}
+>> +
+>> +static ssize_t cmbchan_mode_store(struct device *dev,
+>> +                  struct device_attribute *attr,
+>> +                  const char *buf,
+>> +                  size_t size)
+>> +{
+>> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>> +    unsigned long val;
+>> +
+>> +    if (kstrtoul(buf, 0, &val))
+>> +        return -EINVAL;
+>> +
+>> +    guard(spinlock)(&drvdata->spinlock);
+>> +    drvdata->cmbchan_mode = !!val;
+>> +
+>> +    return size;
+>> +}
+>> +static DEVICE_ATTR_RW(cmbchan_mode);
+> 
+> Even this could go to the dev_ext_attribute magic and reuse a single 
+> show/store.
+
+Got it.
+
+> 
+>> +
+>> +static struct attribute *tpda_attrs[] = {
+>> +    &dev_attr_trig_async_enable.attr,
+>> +    &dev_attr_trig_flag_ts_enable.attr,
+>> +    &dev_attr_trig_freq_enable.attr,
+>> +    &dev_attr_freq_ts_enable.attr,
+>> +    &dev_attr_global_flush_req.attr,
+>> +    &dev_attr_cmbchan_mode.attr,
+>> +    NULL,
+>> +};
+> 
+>> diff --git a/drivers/hwtracing/coresight/coresight-tpda.h b/drivers/ 
+>> hwtracing/coresight/coresight-tpda.h
+>> index c6af3d2da3ef..0be625fb52fd 100644
+>> --- a/drivers/hwtracing/coresight/coresight-tpda.h
+>> +++ b/drivers/hwtracing/coresight/coresight-tpda.h
+>> @@ -1,6 +1,6 @@
+>>   /* SPDX-License-Identifier: GPL-2.0 */
+>>   /*
+>> - * Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights 
+>> reserved.
+>> + * Copyright (c) 2023,2025 Qualcomm Innovation Center, Inc. All 
+>> rights reserved.
+>>    */
+>>   #ifndef _CORESIGHT_CORESIGHT_TPDA_H
+>> @@ -8,6 +8,19 @@
+>>   #define TPDA_CR            (0x000)
+>>   #define TPDA_Pn_CR(n)        (0x004 + (n * 4))
+>> +#define TPDA_FPID_CR        (0x084)
+>> +
+>> +/* Cross trigger FREQ packets timestamp bit */
+>> +#define TPDA_CR_FREQTS        BIT(2)
+>> +/* Cross trigger FREQ packet request bit */
+>> +#define TPDA_CR_FRIE        BIT(3)
+>> +/* Cross trigger FLAG packet request interface bit */
+>> +#define TPDA_CR_FLRIE        BIT(4)
+>> +/* Cross trigger synchronization bit */
+>> +#define TPDA_CR_SRIE        BIT(5)
+>> +/* Packetize CMB/MCMB traffic bit */
+>> +#define TPDA_CR_CMBCHANMODE    BIT(20)
+>> +
+> 
+> Why are these not clubbed with the other TPDA_CR_ defintions ?
+
+I should put this bit after:
+
+    /* Bits 6 ~ 12 is for atid value */
+    #define TPDA_CR_ATID        GENMASK(12, 6)
+  +/* Bits 13 ~ 19 is for mid value */
+  +#define TPDA_CR_MID        GENMASK(19, 13)
+
+MID here is the master ID which is used to identify the TPDA device 
+itself in received packets when multiple tpda devices are enabled.
+
+Thanks,
+Jie
+
+> 
+>>   /* Aggregator port enable bit */
+>>   #define TPDA_Pn_CR_ENA        BIT(0)
+>>   /* Aggregator port CMB data set element size bit */
+>> @@ -19,6 +32,8 @@
+>>   /* Bits 6 ~ 12 is for atid value */
+>>   #define TPDA_CR_ATID        GENMASK(12, 6)
+>> +/* Bits 13 ~ 19 is for mid value */
+>> +#define TPDA_CR_MID        GENMASK(19, 13)
+>>   /**
+>>    * struct tpda_drvdata - specifics associated to an TPDA component
+>> @@ -29,6 +44,11 @@
+>>    * @enable:     enable status of the component.
+>>    * @dsb_esize   Record the DSB element size.
+>>    * @cmb_esize   Record the CMB element size.
+>> + * @trig_async:    Enable/disable cross trigger synchronization 
+>> sequence interface.
+>> + * @trig_flag_ts: Enable/disable cross trigger FLAG packet request 
+>> interface.
+>> + * @trig_freq:    Enable/disable cross trigger FREQ packet request 
+>> interface.
+>> + * @freq_ts:    Enable/disable the timestamp for all FREQ packets.
+>> + * @cmbchan_mode: Configure the CMB/MCMB channel mode.
+>>    */
+>>   struct tpda_drvdata {
+>>       void __iomem        *base;
+>> @@ -38,6 +58,11 @@ struct tpda_drvdata {
+>>       u8            atid;
+>>       u32            dsb_esize;
+>>       u32            cmb_esize;
+>> +    bool            trig_async;
+>> +    bool            trig_flag_ts;
+>> +    bool            trig_freq;
+>> +    bool            freq_ts;
+>> +    bool            cmbchan_mode;
+>>   };
+>>   #endif  /* _CORESIGHT_CORESIGHT_TPDA_H */
+> 
+> Suzuki
+> 
 
 
