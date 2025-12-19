@@ -4,50 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF976D7879F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 18:14:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BFC0D7879F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 18:14:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5P+lHJlh2YqBaN28FVj08CbEbQlF05nDw6s4LqLyLJQ=; b=YEXujz52c0Bs/6JRx9y8bZrmvF
-	ioyTdY8QEsAopF0t7cNSU4IYPCm8zrQlj8Fp1qnsdyWb1gQC/c00peMc2ISyVZFY1R28GbQstfLlK
-	T9Ex04xxtJvsQDSCE9z7TiTzeDH9ZFYF2u2VfkGLZ6MGdLV8DFzmmeUw2hI2Tg9zV4mUt0V6zxQux
-	+b4JEaja65J3+lJH4Vh8T34YJ1sciUY8yEmpQII8Be+CL4DxwhEN9iZI+8RqX6JM/fNUPeKzR2UC0
-	W9ZCCMisSg+hHvLV4I4xVtwwsgH8nNhMkpNWxbPmtnZAGJcWW4EcXbPic/p/rBi1O6AHsoJCsaEkI
-	uMXFLlhw==;
+	bh=U/hUQFcxrscL0AIX48DsbACw4v4Yi7nKTtSDgrIRLNU=; b=OlluGDP9y+u6XVldIjoqIVkqP1
+	NzIPcAjXevaFyaa1F7u8U30N3dviKKpkK0YJWJ8+IJwQ6f5q4SWSFjKPt43yatIXjXNRaMc1m9fZK
+	N/aKZM3MuH9YxepvCmtYlwS78mNxfvB70VFeP+/xYW0L+f+iwj6PcF8pI8gCTH05AH4tI9lrJuze3
+	8+bzUZBd5vJioOmNMs/ljdWxB7y2u1I05Yt/+AK9rfjK6NU+wU6MVF+636ngUoDDqTofLa6YJPbgf
+	EQgI5NUyzBedXi6ohiivlkDVVflOV/EsKuDuJtmD5hTtPenboO+nfMfQR5AEV6L1AhlStRIUCuziW
+	D2/A50cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWezT-0000000Amh0-1CmR;
-	Fri, 19 Dec 2025 18:14:11 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWezO-0000000Ambb-3pKM
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 19 Dec 2025 18:14:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=5P+lHJlh2YqBaN28FVj08CbEbQlF05nDw6s4LqLyLJQ=; b=LggXP0icRvxq8w3O8nOnU/q5aS
-	0YrErgiM+Qh0Yzofv35mbgrfNwevyMrUsHZKofXZC9jCjOakQGZYBnKH+lMiCwId0z69kFrJvusSD
-	3FtleMZulu9/ZTQBGiEhjewzrj4pFuCaSXs4pHHFFY9gkdBYT72eq9CB6TUlLX7WtKk/7Kg24PeYs
-	4gaOQUxYskKF3rehsqOIa6WoxJohQ+BiLYNNJ4ZotKkvlxHuueCgfW+rtoDYgGXxEqYo7HYomYwQ7
-	7z/6/k7QL40ABx+eRvky/JzH0AUfIlAmyGhQkUG212FZ3yV7W7pjddUs1dkuJQgB3PB2tdagBPyBn
-	6q4zeCeg==;
+	id 1vWezZ-0000000Amok-3YCb;
+	Fri, 19 Dec 2025 18:14:17 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWe7t-0000000BPpi-1zu6
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vWezP-0000000Amdi-3Y3G
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Dec 2025 17:18:51 +0000
+	Fri, 19 Dec 2025 18:14:16 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 412AF106F;
-	Fri, 19 Dec 2025 10:13:55 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1CB78FEC;
+	Fri, 19 Dec 2025 10:14:00 -0800 (PST)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A9F4E3F5CA;
-	Fri, 19 Dec 2025 10:13:57 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A30EE3F5CA;
+	Fri, 19 Dec 2025 10:14:02 -0800 (PST)
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com
 Cc: amitsinght@marvell.com,
@@ -82,19 +67,18 @@ Cc: amitsinght@marvell.com,
 	joey.gouly@arm.com,
 	suzuki.poulose@arm.com,
 	kvmarm@lists.linux.dev,
-	Zeng Heng <zengheng4@huawei.com>,
 	Dave Martin <Dave.Martin@arm.com>
-Subject: [PATCH v2 25/45] arm_mpam: resctrl: Add support for 'MB' resource
-Date: Fri, 19 Dec 2025 18:11:27 +0000
-Message-ID: <20251219181147.3404071-26-ben.horgan@arm.com>
+Subject: [PATCH v2 26/45] arm_mpam: resctrl: Add kunit test for control format conversions
+Date: Fri, 19 Dec 2025 18:11:28 +0000
+Message-ID: <20251219181147.3404071-27-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251219181147.3404071-1-ben.horgan@arm.com>
 References: <20251219181147.3404071-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_171849_895813_065B73D4 
-X-CRM114-Status: GOOD (  30.25  )
+X-CRM114-CacheID: sfid-20251219_101409_855017_A458B092 
+X-CRM114-Status: GOOD (  25.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,309 +93,353 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: James Morse <james.morse@arm.com>
+From: Dave Martin <Dave.Martin@arm.com>
 
-resctrl supports 'MB', as a percentage throttling of traffic somewhere
-after the L3. This is the control that mba_sc uses, so ideally the class
-chosen should be as close as possible to the counters used for mba_local.
+resctrl specifies the format of the control schemes, and these don't match
+the hardware.
 
-MB's percentage control should be backed either with the fixed point
-fraction MBW_MAX. The bandwidth portion bitmaps is not used as its tricky
-to pick which bits to use to avoid contention, and may be possible to
-expose this as something other than a percentage in the future.
+Some of the conversions are a bit hairy - add some kunit tests.
 
-CC: Zeng Heng <zengheng4@huawei.com>
-Co-developed-by: Dave Martin <Dave.Martin@arm.com>
 Signed-off-by: Dave Martin <Dave.Martin@arm.com>
-Signed-off-by: James Morse <james.morse@arm.com>>
+[morse: squashed enough of Dave's fixes in here that it's his patch now!]
+Signed-off-by: James Morse <james.morse@arm.com>
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
- drivers/resctrl/mpam_resctrl.c | 212 ++++++++++++++++++++++++++++++++-
- 1 file changed, 211 insertions(+), 1 deletion(-)
+ drivers/resctrl/mpam_resctrl.c      |   4 +
+ drivers/resctrl/test_mpam_resctrl.c | 312 ++++++++++++++++++++++++++++
+ 2 files changed, 316 insertions(+)
+ create mode 100644 drivers/resctrl/test_mpam_resctrl.c
 
 diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index a20656e49edc..e376841c5596 100644
+index e376841c5596..f8d8c241797a 100644
 --- a/drivers/resctrl/mpam_resctrl.c
 +++ b/drivers/resctrl/mpam_resctrl.c
-@@ -247,6 +247,33 @@ static bool cache_has_usable_cpor(struct mpam_class *class)
- 	return class->props.cpbm_wd <= 32;
- }
+@@ -1003,3 +1003,7 @@ int mpam_resctrl_setup(void)
  
-+static bool mba_class_use_mbw_max(struct mpam_props *cprops)
-+{
-+	return (mpam_has_feature(mpam_feat_mbw_max, cprops) &&
-+		cprops->bwa_wd);
-+}
+ 	return err;
+ }
 +
-+static bool class_has_usable_mba(struct mpam_props *cprops)
-+{
-+	return mba_class_use_mbw_max(cprops);
-+}
++#ifdef CONFIG_MPAM_KUNIT_TEST
++#include "test_mpam_resctrl.c"
++#endif
+diff --git a/drivers/resctrl/test_mpam_resctrl.c b/drivers/resctrl/test_mpam_resctrl.c
+new file mode 100644
+index 000000000000..d0615aa7671c
+--- /dev/null
++++ b/drivers/resctrl/test_mpam_resctrl.c
+@@ -0,0 +1,312 @@
++// SPDX-License-Identifier: GPL-2.0
++// Copyright (C) 2025 Arm Ltd.
++/* This file is intended to be included into mpam_resctrl.c */
++
++#include <kunit/test.h>
++#include <linux/array_size.h>
++#include <linux/bits.h>
++#include <linux/math.h>
++#include <linux/sprintf.h>
++
++struct percent_value_case {
++	u8	pc;
++	u8	width;
++	u16	value;
++};
 +
 +/*
-+ * Calculate the worst-case percentage change from each implemented step
-+ * in the control.
++ * Mysterious inscriptions taken from ARM DDI 0598D.b,
++ * "Arm Architecture Reference Manual Supplement - Memory System
++ * Resource Partitioning and Monitoring (MPAM), for A-profile
++ * architecture", Section 9.8, "About the fixed-point fractional
++ * format" (exact percentage entries only):
 + */
-+static u32 get_mba_granularity(struct mpam_props *cprops)
++static const struct percent_value_case percent_value_cases[] = {
++	/* Architectural cases: */
++	{   1,  8,    1 },	{   1, 12,  0x27 },	{   1, 16,  0x28e },
++	{  25,  8, 0x3f },	{  25, 12, 0x3ff },	{  25, 16, 0x3fff },
++	{  35,  8, 0x58 },	{  35, 12, 0x598 },	{  35, 16, 0x5998 },
++	{  45,  8, 0x72 },	{  45, 12, 0x732 },	{  45, 16, 0x7332 },
++	{  50,  8, 0x7f },	{  50, 12, 0x7ff },	{  50, 16, 0x7fff },
++	{  52,  8, 0x84 },	{  52, 12, 0x850 },	{  52, 16, 0x851d },
++	{  55,  8, 0x8b },	{  55, 12, 0x8cb },	{  55, 16, 0x8ccb },
++	{  58,  8, 0x93 },	{  58, 12, 0x946 },	{  58, 16, 0x9479 },
++	{  75,  8, 0xbf },	{  75, 12, 0xbff },	{  75, 16, 0xbfff },
++	{  88,  8, 0xe0 },	{  88, 12, 0xe13 },	{  88, 16, 0xe146 },
++	{  95,  8, 0xf2 },	{  95, 12, 0xf32 },	{  95, 16, 0xf332 },
++	{ 100,  8, 0xff },	{ 100, 12, 0xfff },	{ 100, 16, 0xffff },
++
++};
++
++static void test_percent_value_desc(const struct percent_value_case *param,
++				    char *desc)
 +{
-+	if (!mba_class_use_mbw_max(cprops))
-+		return 0;
++	snprintf(desc, KUNIT_PARAM_DESC_SIZE,
++		 "pc=%d, width=%d, value=0x%.*x\n",
++		 param->pc, param->width,
++		 DIV_ROUND_UP(param->width, 4), param->value);
++}
++
++KUNIT_ARRAY_PARAM(test_percent_value, percent_value_cases,
++		  test_percent_value_desc);
++
++struct percent_value_test_info {
++	u32 pc;			/* result of value-to-percent conversion */
++	u32 value;		/* result of percent-to-value conversion */
++	u32 max_value;		/* maximum raw value allowed by test params */
++	unsigned int shift;	/* promotes raw testcase value to 16 bits */
++};
++
++/*
++ * Convert a reference percentage to a fixed-point MAX value and
++ * vice-versa, based on param (not test->param_value!)
++ */
++static void __prepare_percent_value_test(struct kunit *test,
++					 struct percent_value_test_info *res,
++					 const struct percent_value_case *param)
++{
++	struct mpam_props fake_props = { };
++
++	/* Reject bogus test parameters that would break the tests: */
++	KUNIT_ASSERT_GE(test, param->width, 1);
++	KUNIT_ASSERT_LE(test, param->width, 16);
++	KUNIT_ASSERT_LT(test, param->value, 1 << param->width);
++
++	mpam_set_feature(mpam_feat_mbw_max, &fake_props);
++	fake_props.bwa_wd = param->width;
++
++	res->shift = 16 - param->width;
++	res->max_value = GENMASK_U32(param->width - 1, 0);
++	res->value = percent_to_mbw_max(param->pc, &fake_props);
++	res->pc = mbw_max_to_percent(param->value << res->shift, &fake_props);
++}
++
++static void test_get_mba_granularity(struct kunit *test)
++{
++	int ret;
++	struct mpam_props fake_props = { };
++
++	/* Use MBW_MAX */
++	mpam_set_feature(mpam_feat_mbw_max, &fake_props);
++
++	fake_props.bwa_wd = 0;
++	KUNIT_EXPECT_FALSE(test, mba_class_use_mbw_max(&fake_props));
++
++	fake_props.bwa_wd = 1;
++	KUNIT_EXPECT_TRUE(test, mba_class_use_mbw_max(&fake_props));
++
++	/* Architectural maximum: */
++	fake_props.bwa_wd = 16;
++	KUNIT_EXPECT_TRUE(test, mba_class_use_mbw_max(&fake_props));
++
++	/* No usable control... */
++	fake_props.bwa_wd = 0;
++	ret = get_mba_granularity(&fake_props);
++	KUNIT_EXPECT_EQ(test, ret, 0);
++
++	fake_props.bwa_wd = 1;
++	ret = get_mba_granularity(&fake_props);
++	KUNIT_EXPECT_EQ(test, ret, 50);	/* DIV_ROUND_UP(100, 1 << 1)% = 50% */
++
++	fake_props.bwa_wd = 2;
++	ret = get_mba_granularity(&fake_props);
++	KUNIT_EXPECT_EQ(test, ret, 25);	/* DIV_ROUND_UP(100, 1 << 2)% = 25% */
++
++	fake_props.bwa_wd = 3;
++	ret = get_mba_granularity(&fake_props);
++	KUNIT_EXPECT_EQ(test, ret, 13);	/* DIV_ROUND_UP(100, 1 << 3)% = 13% */
++
++	fake_props.bwa_wd = 6;
++	ret = get_mba_granularity(&fake_props);
++	KUNIT_EXPECT_EQ(test, ret, 2);	/* DIV_ROUND_UP(100, 1 << 6)% = 2% */
++
++	fake_props.bwa_wd = 7;
++	ret = get_mba_granularity(&fake_props);
++	KUNIT_EXPECT_EQ(test, ret, 1);	/* DIV_ROUND_UP(100, 1 << 7)% = 1% */
++
++	/* Granularity saturates at 1% */
++	fake_props.bwa_wd = 16; /* architectural maximum */
++	ret = get_mba_granularity(&fake_props);
++	KUNIT_EXPECT_EQ(test, ret, 1);	/* DIV_ROUND_UP(100, 1 << 16)% = 1% */
++}
++
++static void test_mbw_max_to_percent(struct kunit *test)
++{
++	const struct percent_value_case *param = test->param_value;
++	struct percent_value_test_info res;
 +
 +	/*
-+	 * bwa_wd is the number of bits implemented in the 0.xxx
-+	 * fixed point fraction. 1 bit is 50%, 2 is 25% etc.
++	 * Since the reference values in percent_value_cases[] all
++	 * correspond to exact percentages, round-to-nearest will
++	 * always give the exact percentage back when the MPAM max
++	 * value has precision of 0.5% or finer.  (Always true for the
++	 * reference data, since they all specify 8 bits or more of
++	 * precision.
++	 *
++	 * So, keep it simple and demand an exact match:
 +	 */
-+	return DIV_ROUND_UP(MAX_MBA_BW, 1 << cprops->bwa_wd);
++	__prepare_percent_value_test(test, &res, param);
++	KUNIT_EXPECT_EQ(test, res.pc, param->pc);
 +}
 +
- /*
-  * Each fixed-point hardware value architecturally represents a range
-  * of values: the full range 0% - 100% is split contiguously into
-@@ -287,6 +314,96 @@ static u16 percent_to_mbw_max(u8 pc, struct mpam_props *cprops)
- 	return val;
- }
- 
-+static u32 get_mba_min(struct mpam_props *cprops)
++static void test_percent_to_mbw_max(struct kunit *test)
 +{
-+	u32 val = 0;
++	const struct percent_value_case *param = test->param_value;
++	struct percent_value_test_info res;
 +
-+	if (mba_class_use_mbw_max(cprops))
-+		val = mbw_max_to_percent(val, cprops);
-+	else
-+		WARN_ON_ONCE(1);
++	__prepare_percent_value_test(test, &res, param);
 +
-+	return val;
++	KUNIT_EXPECT_GE(test, res.value, param->value << res.shift);
++	KUNIT_EXPECT_LE(test, res.value, (param->value + 1) << res.shift);
++	KUNIT_EXPECT_LE(test, res.value, res.max_value << res.shift);
++
++	/* No flexibility allowed for 0% and 100%! */
++
++	if (param->pc == 0)
++		KUNIT_EXPECT_EQ(test, res.value, 0);
++
++	if (param->pc == 100)
++		KUNIT_EXPECT_EQ(test, res.value, res.max_value << res.shift);
 +}
 +
-+/* Find the L3 cache that has affinity with this CPU */
-+static int find_l3_equivalent_bitmask(int cpu, cpumask_var_t tmp_cpumask)
++static const void *test_all_bwa_wd_gen_params(struct kunit *test, const void *prev,
++					      char *desc)
 +{
-+	u32 cache_id = get_cpu_cacheinfo_id(cpu, 3);
++	uintptr_t param = (uintptr_t)prev;
 +
-+	lockdep_assert_cpus_held();
++	if (param > 15)
++		return NULL;
 +
-+	return mpam_get_cpumask_from_cache_id(cache_id, 3, tmp_cpumask);
++	param++;
++
++	snprintf(desc, KUNIT_PARAM_DESC_SIZE, "wd=%u\n", (unsigned int)param);
++
++	return (void *)param;
++}
++
++static unsigned int test_get_bwa_wd(struct kunit *test)
++{
++	uintptr_t param = (uintptr_t)test->param_value;
++
++	KUNIT_ASSERT_GE(test, param, 1);
++	KUNIT_ASSERT_LE(test, param, 16);
++
++	return param;
++}
++
++static void test_mbw_max_to_percent_limits(struct kunit *test)
++{
++	struct mpam_props fake_props = {0};
++	u32 max_value;
++
++	mpam_set_feature(mpam_feat_mbw_max, &fake_props);
++	fake_props.bwa_wd = test_get_bwa_wd(test);
++	max_value = GENMASK(15, 16 - fake_props.bwa_wd);
++
++	KUNIT_EXPECT_EQ(test, mbw_max_to_percent(max_value, &fake_props),
++			MAX_MBA_BW);
++	KUNIT_EXPECT_EQ(test, mbw_max_to_percent(0, &fake_props),
++			get_mba_min(&fake_props));
++
++	/*
++	 * Rounding policy dependent 0% sanity-check:
++	 * With round-to-nearest, the minimum mbw_max value really
++	 * should map to 0% if there are at least 200 steps.
++	 * (100 steps may be enough for some other rounding policies.)
++	 */
++	if (fake_props.bwa_wd >= 8)
++		KUNIT_EXPECT_EQ(test, mbw_max_to_percent(0, &fake_props), 0);
++
++	if (fake_props.bwa_wd < 8 &&
++	    mbw_max_to_percent(0, &fake_props) == 0)
++		kunit_warn(test, "wd=%d: Testsuite/driver Rounding policy mismatch?",
++			   fake_props.bwa_wd);
 +}
 +
 +/*
-+ * topology_matches_l3() - Is the provided class the same shape as L3
-+ * @victim:		The class we'd like to pretend is L3.
-+ *
-+ * resctrl expects all the world's a Xeon, and all counters are on the
-+ * L3. We play fast and loose with this, mapping counters on other
-+ * classes - provided the CPU->domain mapping is the same kind of shape.
-+ *
-+ * Using cacheinfo directly would make this work even if resctrl can't
-+ * use the L3 - but cacheinfo can't tell us anything about offline CPUs.
-+ * Using the L3 resctrl domain list also depends on CPUs being online.
-+ * Using the mpam_class we picked for L3 so we can use its domain list
-+ * assumes that there are MPAM controls on the L3.
-+ * Instead, this path eventually uses the mpam_get_cpumask_from_cache_id()
-+ * helper which can tell us about offline CPUs ... but getting the cache_id
-+ * to start with relies on at least one CPU per L3 cache being online at
-+ * boot.
-+ *
-+ * Walk the victim component list and compare the affinity mask with the
-+ * corresponding L3. The topology matches if each victim:component's affinity
-+ * mask is the same as the CPU's corresponding L3's. These lists/masks are
-+ * computed from firmware tables so don't change at runtime.
++ * Check that converting a percentage to mbw_max and back again (or, as
++ * appropriate, vice-versa) always restores the original value:
 + */
-+static bool topology_matches_l3(struct mpam_class *victim)
++static void test_percent_max_roundtrip_stability(struct kunit *test)
 +{
-+	int cpu, err;
-+	struct mpam_component *victim_iter;
-+	cpumask_var_t __free(free_cpumask_var) tmp_cpumask;
++	struct mpam_props fake_props = {0};
++	unsigned int shift;
++	u32 pc, max, pc2, max2;
 +
-+	if (!alloc_cpumask_var(&tmp_cpumask, GFP_KERNEL))
-+		return false;
++	mpam_set_feature(mpam_feat_mbw_max, &fake_props);
++	fake_props.bwa_wd = test_get_bwa_wd(test);
++	shift = 16 - fake_props.bwa_wd;
 +
-+	guard(srcu)(&mpam_srcu);
-+	list_for_each_entry_srcu(victim_iter, &victim->components, class_list,
-+				 srcu_read_lock_held(&mpam_srcu)) {
-+		if (cpumask_empty(&victim_iter->affinity)) {
-+			pr_debug("class %u has CPU-less component %u - can't match L3!\n",
-+				 victim->level, victim_iter->comp_id);
-+			return false;
++	/*
++	 * Converting a valid value from the coarser scale to the finer
++	 * scale and back again must yield the original value:
++	 */
++	if (fake_props.bwa_wd >= 7) {
++		/* More than 100 steps: only test exact pc values: */
++		for (pc = get_mba_min(&fake_props); pc <= MAX_MBA_BW; pc++) {
++			max = percent_to_mbw_max(pc, &fake_props);
++			pc2 = mbw_max_to_percent(max, &fake_props);
++			KUNIT_EXPECT_EQ(test, pc2, pc);
 +		}
-+
-+		cpu = cpumask_any(&victim_iter->affinity);
-+		if (WARN_ON_ONCE(cpu >= nr_cpu_ids))
-+			return false;
-+
-+		cpumask_clear(tmp_cpumask);
-+		err = find_l3_equivalent_bitmask(cpu, tmp_cpumask);
-+		if (err) {
-+			pr_debug("Failed to find L3's equivalent component to class %u component %u\n",
-+				 victim->level, victim_iter->comp_id);
-+			return false;
++	} else {
++		/* Fewer than 100 steps: only test exact mbw_max values: */
++		for (max = 0; max < 1 << 16; max += 1 << shift) {
++			pc = mbw_max_to_percent(max, &fake_props);
++			max2 = percent_to_mbw_max(pc, &fake_props);
++			KUNIT_EXPECT_EQ(test, max2, max);
 +		}
-+
-+		/* Any differing bits in the affinity mask? */
-+		if (!cpumask_equal(tmp_cpumask, &victim_iter->affinity)) {
-+			pr_debug("class %u component %u has Mismatched CPU mask with L3 equivalent\n"
-+				 "L3:%*pbl != victim:%*pbl\n",
-+				 victim->level, victim_iter->comp_id,
-+				 cpumask_pr_args(tmp_cpumask),
-+				 cpumask_pr_args(&victim_iter->affinity));
-+
-+			return false;
-+		}
-+	}
-+
-+	return true;
-+}
-+
- /* Test whether we can export MPAM_CLASS_CACHE:{2,3}? */
- static void mpam_resctrl_pick_caches(void)
- {
-@@ -329,10 +446,63 @@ static void mpam_resctrl_pick_caches(void)
- 	}
- }
- 
-+static void mpam_resctrl_pick_mba(void)
-+{
-+	struct mpam_class *class, *candidate_class = NULL;
-+	struct mpam_resctrl_res *res;
-+
-+	lockdep_assert_cpus_held();
-+
-+	guard(srcu)(&mpam_srcu);
-+	list_for_each_entry_srcu(class, &mpam_classes, classes_list,
-+				 srcu_read_lock_held(&mpam_srcu)) {
-+		struct mpam_props *cprops = &class->props;
-+
-+		if (class->level < 3) {
-+			pr_debug("class %u is before L3\n", class->level);
-+			continue;
-+		}
-+
-+		if (!class_has_usable_mba(cprops)) {
-+			pr_debug("class %u has no bandwidth control\n",
-+				 class->level);
-+			continue;
-+		}
-+
-+		if (!cpumask_equal(&class->affinity, cpu_possible_mask)) {
-+			pr_debug("class %u has missing CPUs\n", class->level);
-+			continue;
-+		}
-+
-+		if (!topology_matches_l3(class)) {
-+			pr_debug("class %u topology doesn't match L3\n",
-+				 class->level);
-+			continue;
-+		}
-+
-+		/*
-+		 * mba_sc reads the mbm_local counter, and waggles the MBA
-+		 * controls. mbm_local is implicitly part of the L3, pick a
-+		 * resource to be MBA that as close as possible to the L3.
-+		 */
-+		if (!candidate_class || class->level < candidate_class->level)
-+			candidate_class = class;
-+	}
-+
-+	if (candidate_class) {
-+		pr_debug("selected class %u to back MBA\n",
-+			 candidate_class->level);
-+		res = &mpam_resctrl_controls[RDT_RESOURCE_MBA];
-+		res->class = candidate_class;
-+		exposed_alloc_capable = true;
 +	}
 +}
 +
- static int mpam_resctrl_control_init(struct mpam_resctrl_res *res,
- 				     enum resctrl_res_level type)
- {
- 	struct mpam_class *class = res->class;
-+	struct mpam_props *cprops = &class->props;
- 	struct rdt_resource *r = &res->resctrl_res;
- 
- 	switch (r->rid) {
-@@ -361,6 +531,20 @@ static int mpam_resctrl_control_init(struct mpam_resctrl_res *res,
- 		 * 'all the bits' is the correct answer here.
- 		 */
- 		r->cache.shareable_bits = resctrl_get_default_ctrl(r);
-+		break;
-+	case RDT_RESOURCE_MBA:
-+		r->alloc_capable = true;
-+		r->schema_fmt = RESCTRL_SCHEMA_RANGE;
-+		r->ctrl_scope = RESCTRL_L3_CACHE;
++static void test_percent_to_max_rounding(struct kunit *test)
++{
++	const struct percent_value_case *param = test->param_value;
++	unsigned int num_rounded_up = 0, total = 0;
++	struct percent_value_test_info res;
 +
-+		r->membw.delay_linear = true;
-+		r->membw.throttle_mode = THREAD_THROTTLE_UNDEFINED;
-+		r->membw.min_bw = get_mba_min(cprops);
-+		r->membw.max_bw = MAX_MBA_BW;
-+		r->membw.bw_gran = get_mba_granularity(cprops);
-+
-+		r->name = "MB";
-+
- 		break;
- 	default:
- 		break;
-@@ -376,7 +560,17 @@ static int mpam_resctrl_pick_domain_id(int cpu, struct mpam_component *comp)
- 	if (class->type == MPAM_CLASS_CACHE)
- 		return comp->comp_id;
- 
--	/* TODO: repaint domain ids to match the L3 domain ids */
-+	if (topology_matches_l3(class)) {
-+		/* Use the corresponding L3 component ID as the domain ID */
-+		int id = get_cpu_cacheinfo_id(cpu, 3);
-+
-+		/* Implies topology_matches_l3() made a mistake */
-+		if (WARN_ON_ONCE(id == -1))
-+			return comp->comp_id;
-+
-+		return id;
++	for (param = percent_value_cases, total = 0;
++	     param < &percent_value_cases[ARRAY_SIZE(percent_value_cases)];
++	     param++, total++) {
++		__prepare_percent_value_test(test, &res, param);
++		if (res.value > param->value << res.shift)
++			num_rounded_up++;
 +	}
 +
- 	/*
- 	 * Otherwise, expose the ID used by the firmware table code.
- 	 */
-@@ -418,6 +612,12 @@ u32 resctrl_arch_get_config(struct rdt_resource *r, struct rdt_ctrl_domain *d,
- 	case RDT_RESOURCE_L3:
- 		configured_by = mpam_feat_cpor_part;
- 		break;
-+	case RDT_RESOURCE_MBA:
-+		if (mpam_has_feature(mpam_feat_mbw_max, cprops)) {
-+			configured_by = mpam_feat_mbw_max;
-+			break;
-+		}
-+		fallthrough;
- 	default:
- 		return resctrl_get_default_ctrl(r);
- 	}
-@@ -429,6 +629,8 @@ u32 resctrl_arch_get_config(struct rdt_resource *r, struct rdt_ctrl_domain *d,
- 	switch (configured_by) {
- 	case mpam_feat_cpor_part:
- 		return cfg->cpbm;
-+	case mpam_feat_mbw_max:
-+		return mbw_max_to_percent(cfg->mbw_max, cprops);
- 	default:
- 		return resctrl_get_default_ctrl(r);
- 	}
-@@ -473,6 +675,13 @@ int resctrl_arch_update_one(struct rdt_resource *r, struct rdt_ctrl_domain *d,
- 		cfg.cpbm = cfg_val;
- 		mpam_set_feature(mpam_feat_cpor_part, &cfg);
- 		break;
-+	case RDT_RESOURCE_MBA:
-+		if (mpam_has_feature(mpam_feat_mbw_max, cprops)) {
-+			cfg.mbw_max = percent_to_mbw_max(cfg_val, cprops);
-+			mpam_set_feature(mpam_feat_mbw_max, &cfg);
-+			break;
-+		}
-+		fallthrough;
- 	default:
- 		return -EINVAL;
- 	}
-@@ -754,6 +963,7 @@ int mpam_resctrl_setup(void)
- 
- 	/* Find some classes to use for controls */
- 	mpam_resctrl_pick_caches();
-+	mpam_resctrl_pick_mba();
- 
- 	/* Initialise the resctrl structures from the classes */
- 	for (enum resctrl_res_level i = 0; i < RDT_NUM_RESOURCES; i++) {
++	/*
++	 * The MPAM driver applies a round-to-nearest policy, whereas a
++	 * round-down policy seems to have been applied in the
++	 * reference table from which the test vectors were selected.
++	 *
++	 * For a large and well-distributed suite of test vectors,
++	 * about half should be rounded up and half down compared with
++	 * the reference table.  The actual test vectors are few in
++	 * number and probably not very well distributed however, so
++	 * tolerate a round-up rate of between 1/4 and 3/4 before
++	 * crying foul:
++	 */
++
++	kunit_info(test, "Round-up rate: %u%% (%u/%u)\n",
++		   DIV_ROUND_CLOSEST(num_rounded_up * 100, total),
++		   num_rounded_up, total);
++
++	KUNIT_EXPECT_GE(test, 4 * num_rounded_up, 1 * total);
++	KUNIT_EXPECT_LE(test, 4 * num_rounded_up, 3 * total);
++}
++
++static struct kunit_case mpam_resctrl_test_cases[] = {
++	KUNIT_CASE(test_get_mba_granularity),
++	KUNIT_CASE_PARAM(test_mbw_max_to_percent, test_percent_value_gen_params),
++	KUNIT_CASE_PARAM(test_percent_to_mbw_max, test_percent_value_gen_params),
++	KUNIT_CASE_PARAM(test_mbw_max_to_percent_limits, test_all_bwa_wd_gen_params),
++	KUNIT_CASE(test_percent_to_max_rounding),
++	KUNIT_CASE_PARAM(test_percent_max_roundtrip_stability,
++			 test_all_bwa_wd_gen_params),
++	{}
++};
++
++static struct kunit_suite mpam_resctrl_test_suite = {
++	.name = "mpam_resctrl_test_suite",
++	.test_cases = mpam_resctrl_test_cases,
++};
++
++kunit_test_suites(&mpam_resctrl_test_suite);
 -- 
 2.43.0
 
