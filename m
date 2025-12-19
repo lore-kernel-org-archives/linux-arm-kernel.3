@@ -4,74 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABA7ED767CB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 10:43:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60D64D767CB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 10:48:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1FgO2pL15PsScy8aQL3Xjbk032xA+KBbUo274204kdU=; b=x70WJintHIDJLES6LFcgt0tf25
-	rwMfu1cZtSyUa83A5Z1fEGCoJ2iey2URsOZBkwA1qi33hOViRA6tfCn5UINJfWKs03LAiLX6o0s/X
-	O07NxRpVBJKAiChMxOjKYxUjfBuSfWxz/ubC7CPJtn92VT7oGVqVo8AZLwqvhjFbIT8AMK1HOpyOv
-	PLTO4VX3avyjUl8x54Cd6AvvYMpNjUrGCiuRkiOzoozpxg7W3XuRVllaNvMmvhUQFhe3ph6LxTJJj
-	8VxdQW6KsmLao0Xl2golRvo3D0X0QbhfstCawjfkvV+h8NZIKhWpwVRDq4Cy0qO+cIbbEmlsuhZUM
-	sIKweU3A==;
+	bh=YPmigkvND1M65bM7eLtB8Efz6RO6LivRSWldgQpo5aw=; b=wvufoasztw/JS+PJXjfgg7mPon
+	rkTaMaa/2sv8D7odaYd5O61iZ9sUo4YejvKWsvNsCmESF7D1w4KCqa1PnXZs3vzxwiCnhN+HclU+g
+	yBpigiQXBr5S5F8FiDbsJFPFiAkz05hMg2TxK1C0KqaWrJEq+CysjS4TdsgFHUOj1KePA+Sn1EOP8
+	lGUcj9NY3x1pPotwGirmqNap8/DuTJ/7IW3Gk8AFeeYTln9IIOXdBeCtToi+BxRlUFa59Bg+9RtaV
+	wAS5bugSmOkSJf4zrpGrk9/cyBBEbda9RXq2ZhBMJcANnOOITCY9KVrKw/lP6d9DRxbpx+i2BTh/W
+	rvkt17lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWXww-0000000A8wD-3EQJ;
-	Fri, 19 Dec 2025 10:43:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWXwt-0000000A8vn-1CpH;
-	Fri, 19 Dec 2025 10:43:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5B3BE60018;
-	Fri, 19 Dec 2025 10:43:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFA22C116B1;
-	Fri, 19 Dec 2025 10:42:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766140982;
-	bh=xkz5LUlBElFB9CvO+KaW9xJq6o3zkwL/JUJof/pyJKA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=IoSCk23sz5zIAMhhpVSs+yWPq39dQ9XP469p2h5DRvRKuQSWJCW2G3aAoGFxmnsjR
-	 Y32S/nKLSMqJ8XvXJKKPt1Pzpofi4UzTmoFWnZQTyGWFQz4ePg61LHGxoS+EcGC+NQ
-	 rfPbh8jYbxXKaB/AGYclGcYhStpeiAoJ/12kcGwbssjeStmDEloHn/SePTEosz4mwy
-	 G+vuPh2d0k95qzFbVEsc/KQWud+YIsUIaPB8UK+YQUGKiFYja2/8mIkLB/xrgH7i4X
-	 V+i7y2DKw0yuhlxec2sGVW+fAC912w7KlOivIwf7iRrBCC+ahIV3bcQIFwCrmc/BQQ
-	 Lj3bhY4plfj4w==
-Message-ID: <0fa95ea2-4539-472b-adae-300e46a78f20@kernel.org>
-Date: Fri, 19 Dec 2025 19:42:57 +0900
+	id 1vWY1u-0000000A9Q2-1Xur;
+	Fri, 19 Dec 2025 10:48:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vWY1r-0000000A9P3-2gwU
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 19 Dec 2025 10:48:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9B75DFEC;
+	Fri, 19 Dec 2025 02:48:03 -0800 (PST)
+Received: from e134710.manchester.arm.com (e134710.arm.com [10.33.10.82])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BD0803F5CA;
+	Fri, 19 Dec 2025 02:48:08 -0800 (PST)
+From: Ahmed Tiba <ahmed.tiba@arm.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-acpi@vger.kernel.org,
+	devicetree@vger.kernel.org
+Cc: tony.luck@intel.com,
+	bp@alien8.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	rafael@kernel.org,
+	linux-doc@vger.kernel.org,
+	Dmitry.Lamerov@arm.com,
+	Michael.Zhao2@arm.com,
+	Ahmed.Tiba@arm.com
+Subject: Re: [PATCH 10/12] dt-bindings: ras: document estatus provider
+Date: Fri, 19 Dec 2025 10:47:53 +0000
+Message-ID: <20251219104759.2726164-1-ahmed.tiba@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <57772b40-e4d9-4152-9709-04ba897608d0@kernel.org>
+References: 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 6/8] nvmet: pci-epf: Use
- dmaengine_prep_config_single_safe() API
-To: Frank Li <Frank.Li@nxp.com>, Vinod Koul <vkoul@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Christoph Hellwig <hch@lst.de>,
- Sagi Grimberg <sagi@grimberg.me>, Chaitanya Kulkarni <kch@nvidia.com>,
- Herbert Xu <herbert@gondor.apana.org.au>,
- "David S. Miller" <davem@davemloft.net>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, Koichiro Den <den@valinux.co.jp>,
- Niklas Cassel <cassel@kernel.org>
-Cc: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-pci@vger.kernel.org, linux-nvme@lists.infradead.org,
- mhi@lists.linux.dev, linux-arm-msm@vger.kernel.org,
- linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev
-References: <20251218-dma_prep_config-v2-0-c07079836128@nxp.com>
- <20251218-dma_prep_config-v2-6-c07079836128@nxp.com>
-Content-Language: en-US
-From: Damien Le Moal <dlemoal@kernel.org>
-Organization: Western Digital Research
-In-Reply-To: <20251218-dma_prep_config-v2-6-c07079836128@nxp.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251219_024811_714677_86B640F2 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,79 +77,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/19/25 00:56, Frank Li wrote:
-> Use the new dmaengine_prep_config_single_safe() API to combine the
-> configuration and descriptor preparation into a single call.
-> 
-> Since dmaengine_prep_config_single_safe() performs the configuration and
-> preparation atomically and dw edma driver implement prep_config_sg() call
-> back, so dmaengine_prep_config_single() is reentriable, the mutex can be
-> removed.
 
-What about for platforms other than DesignWare EDMA ?
-This is a generic endpoint driver that can work on any platform that is endpoint
-capable and that has a DMA channel for the PCI endpoint.
+On 19/12/2025 10:53, Krzysztof Kozlowski wrote:
+>> On 17/12/2025 12:41, Krzysztof Kozlowski wrote:
+>>>> +properties:
+>>>> +  compatible:
+>>>> +    const: arm,ras-ffh
+>>>
+>>> Again ras - what's that? Your patch or binding must explain that.
+>>
+>> That updated description will explicitly expand the Arm RAS acronym so the
+>> compatible string is self-explanatory.
+>>
+>>>> +
+>>>> +  reg:
+>>>> +    minItems: 1
+>>>
+>>> Why is this flexible?
+>>
+>> I'll keep `reg` describing the CPER status buffer, cap it at two entries, and
+>> document the second entry as the optional doorbell register that some firmware
+>> requires before reusing the buffer.
+>
+> I still do not understand why this is flexible or in other words - why
+> second address space appears and disappears.
 
-The dmaengine_prep_config_single_safe() API should be handling everything
-transparently for any platform, regardless of the DMA channel driver
-implementing or not the prep_config_sg() callback.
+The second address space is only present for firmware that exposes an ACK register.
+Not all platforms require this extra handshake so that address shows up only
+when the extra handshake exists. I’ll say that clearly in the binding
+so it’s obvious the region is optional.
 
-For platforms that do not implement it, I suspect that the mutex will still be
-needed here. So how to we resolve this ? Ideally, all of that should be hidden
-by the DMA API. The endpoint driver should not need to deal with these differences.
-
-> 
-> Tested-by: Niklas Cassel <cassel@kernel.org>
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> ---
->  drivers/nvme/target/pci-epf.c | 18 ++++--------------
->  1 file changed, 4 insertions(+), 14 deletions(-)
-> 
-> diff --git a/drivers/nvme/target/pci-epf.c b/drivers/nvme/target/pci-epf.c
-> index 56b1c6a7706a9e2dd9d8aaf17b440129b948486c..8b5ea5d4c79dfd461b767cfd4033a9e4604c94b1 100644
-> --- a/drivers/nvme/target/pci-epf.c
-> +++ b/drivers/nvme/target/pci-epf.c
-> @@ -388,22 +388,15 @@ static int nvmet_pci_epf_dma_transfer(struct nvmet_pci_epf *nvme_epf,
->  		return -EINVAL;
->  	}
->  
-> -	mutex_lock(lock);
-> -
->  	dma_dev = dmaengine_get_dma_device(chan);
->  	dma_addr = dma_map_single(dma_dev, seg->buf, seg->length, dir);
->  	ret = dma_mapping_error(dma_dev, dma_addr);
->  	if (ret)
-> -		goto unlock;
-> -
-> -	ret = dmaengine_slave_config(chan, &sconf);
-> -	if (ret) {
-> -		dev_err(dev, "Failed to configure DMA channel\n");
-> -		goto unmap;
-> -	}
-> +		return ret;
->  
-> -	desc = dmaengine_prep_slave_single(chan, dma_addr, seg->length,
-> -					   sconf.direction, DMA_CTRL_ACK);
-> +	desc = dmaengine_prep_config_single_safe(chan, dma_addr, seg->length,
-> +						 sconf.direction,
-> +						 DMA_CTRL_ACK, &sconf);
->  	if (!desc) {
->  		dev_err(dev, "Failed to prepare DMA\n");
->  		ret = -EIO;
-> @@ -426,9 +419,6 @@ static int nvmet_pci_epf_dma_transfer(struct nvmet_pci_epf *nvme_epf,
->  unmap:
->  	dma_unmap_single(dma_dev, dma_addr, seg->length, dir);
->  
-> -unlock:
-> -	mutex_unlock(lock);
-> -
->  	return ret;
->  }
->  
-> 
+>>
+>>>> +    items:
+>>>> +      - description: CPER status block exposed by firmware
+>>>> +      - description:
+>>>> +          Optional 32- or 64-bit acknowledgment register. Firmware watches this
+>>>> +          register and expects bit 0 to be written to 1 once the OS consumes the
+>>>> +          status buffer so it can reuse the record.
+>>>> +
 
 
--- 
-Damien Le Moal
-Western Digital Research
+Best regards,
+Ahmed
 
