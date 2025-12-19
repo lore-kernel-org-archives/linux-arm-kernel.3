@@ -4,57 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 932F0D767C8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 10:33:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E77CD767C8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 10:33:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4J/DpaLX8WmdM2/iv9qNg2caaybbc7EvAWnkhplHjnE=; b=aCuYKDOQ/MDAqXyllMBlYzRPyq
-	gGAemqMjaywkkfGtuSNfVZahmWss8mwN3qPGC/hjR7WLuI2/QcIq9tEmUDZnSgzShvTJpaAc3+Sdx
-	Ql1wApt7AbSJKgVJ8wPTQI1vIKxJDaRl7UPYlRyce17poVYQrX3H6464BugH5pCyHF8dwCR4ok13Q
-	KRqkFZB/FWDRgaCck1cEzeemd9cA3geKRaxFsT7lMy0cl2fGrkxKV8N4DSIumJvx05xJ+uxt2dlw/
-	dDbQuYvxGx7dguYoKD02idM0ZimbiaMDezpOWnOn+PzK/l+A6l6bNmZGzYSOLotT0vWqGKFhCx53A
-	TlCjrbuQ==;
+	bh=bVToKlo2g/yaVVoCzSHX1c5j9FWAt/41cjRQRap5AXs=; b=sZGnX1DpFRBaOTB/CjiYD/loUf
+	+5rn+iHHnuj3DIxu6eCKtTsu4pJve3JLamvb80ypbKC1txmscEC/jGZ2Di9E1JIHShrotchEjCK5h
+	quG660KQMacWOBqq/jB14mFC0WM1+UhR0I7ciGKq+fMSFD35VNZ0fir/h8GMXH+jbE2lhTZXjzJsU
+	76kWsYh6cuYOsBqX4SRnh7KUO/m2RkHhVKww3ImgMXLqzYTW0n57SWlgBQyAZQUR2o6jNwz52X01a
+	liMPX9uFHobWDWhF0/rMbVaXefkE5HtqdlpedIl0c82btTIypwMYmQzyhDFDpPH17CwdzcuFdMhBP
+	H8eVUiIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWXnZ-0000000A546-0tcn;
-	Fri, 19 Dec 2025 10:33:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWXnX-0000000A53M-00sz
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Dec 2025 10:33:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AB5F8FEC;
-	Fri, 19 Dec 2025 02:33:14 -0800 (PST)
-Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id ABD953F5CA;
-	Fri, 19 Dec 2025 02:33:20 -0800 (PST)
-Message-ID: <ec3804b5-30a1-404b-ae82-0b606a8b5d6a@arm.com>
-Date: Fri, 19 Dec 2025 10:33:19 +0000
+	id 1vWXnx-0000000A59N-2IiO;
+	Fri, 19 Dec 2025 10:33:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vWXnw-0000000A58i-0uMd;
+	Fri, 19 Dec 2025 10:33:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id C2DC6442EB;
+	Fri, 19 Dec 2025 10:33:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96CA0C4CEF1;
+	Fri, 19 Dec 2025 10:33:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766140426;
+	bh=dtZQq9Tz8X9IApzFIIAr/KFy4FgR9nC4AkGBbD+ruV4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=dvhFZA9mSqbLJ4yx1jwkajLjdYyJpg/f+9SuszQZkDtJpoVGrKr+VuyI2UpSTAk63
+	 TbgkCcHbt6vnU8Dl3ct5fdt4iBv5tNkB3tpX0Ymis8/x5zv4SfOtQfEcVOrNwoPr9d
+	 o/TqZs5FaoTMNrlNnl00Lylv9lHjgr2455clLXs9cY+cW7ut5VonZQRs2WBZw5JhQN
+	 qr7EiJyCLb8rxiesfFq0oCoVFmMig7iSpgXbkpL+6dL9bdP2ZAwrUZLFqsJjtL4uF8
+	 Cq4Odqpe3E285Sx/9maLb8nrVVpavMQg9va7oh7H1FeAJgKgnoLQPS5eiDC9K7Z9/y
+	 a8J56MSdiktog==
+Message-ID: <b081d13b-4af2-4b60-83e5-3553939c1749@kernel.org>
+Date: Fri, 19 Dec 2025 19:33:42 +0900
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 3/3] coresight: tpda: add sysfs node to flush specific
- port
-To: Jie Gan <jie.gan@oss.qualcomm.com>, Mike Leach <mike.leach@linaro.org>,
- James Clark <james.clark@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Tao Zhang <tao.zhang@oss.qualcomm.com>
-References: <20251219-add_sysfs_nodes_to_configure_tpda-v5-0-ca93ddfe9d30@oss.qualcomm.com>
- <20251219-add_sysfs_nodes_to_configure_tpda-v5-3-ca93ddfe9d30@oss.qualcomm.com>
+Subject: Re: [PATCH v2 1/8] dmaengine: Add API to combine configuration and
+ preparation (sg and single)
+To: Frank Li <Frank.Li@nxp.com>, Vinod Koul <vkoul@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>, Christoph Hellwig <hch@lst.de>,
+ Sagi Grimberg <sagi@grimberg.me>, Chaitanya Kulkarni <kch@nvidia.com>,
+ Herbert Xu <herbert@gondor.apana.org.au>,
+ "David S. Miller" <davem@davemloft.net>,
+ Nicolas Ferre <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, Koichiro Den <den@valinux.co.jp>,
+ Niklas Cassel <cassel@kernel.org>
+Cc: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-pci@vger.kernel.org, linux-nvme@lists.infradead.org,
+ mhi@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+ linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ imx@lists.linux.dev
+References: <20251218-dma_prep_config-v2-0-c07079836128@nxp.com>
+ <20251218-dma_prep_config-v2-1-c07079836128@nxp.com>
 Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20251219-add_sysfs_nodes_to_configure_tpda-v5-3-ca93ddfe9d30@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Damien Le Moal <dlemoal@kernel.org>
+Organization: Western Digital Research
+In-Reply-To: <20251218-dma_prep_config-v2-1-c07079836128@nxp.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_023323_121783_91A8CA9E 
-X-CRM114-Status: GOOD (  19.63  )
+X-CRM114-CacheID: sfid-20251219_023348_298296_BC4731E2 
+X-CRM114-Status: GOOD (  27.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,131 +89,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/12/2025 10:04, Jie Gan wrote:
-> From: Tao Zhang <tao.zhang@oss.qualcomm.com>
+On 12/19/25 00:56, Frank Li wrote:
+> Previously, configuration and preparation required two separate calls. This
+> works well when configuration is done only once during initialization.
 > 
-> Setting bit i in the TPDA_FLUSH_CR register initiates a flush request
-> for port i, forcing the data to synchronize and be transmitted to the
-> sink device.
+> However, in cases where the burst length or source/destination address must
+> be adjusted for each transfer, calling two functions is verbose and
+> requires additional locking to ensure both steps complete atomically.
 > 
-> Signed-off-by: Tao Zhang <tao.zhang@oss.qualcomm.com>
-> Reviewed-by: James Clark <james.clark@linaro.org>
-> Co-developed-by: Jie Gan <jie.gan@oss.qualcomm.com>
-> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+> Add a new API dmaengine_prep_config_single() and dmaengine_prep_config_sg()
+> and callback device_prep_config_sg() that combines configuration and
+> preparation into a single operation. If the configuration argument is
+> passed as NULL, fall back to the existing implementation.
+> 
+> Add a new API dmaengine_prep_config_single_safe() and
+> dmaengine_prep_config_sg_safe() for re-entrancy, which require driver
+> implement callback device_prep_config_sg().
+> 
+> Tested-by: Niklas Cassel <cassel@kernel.org>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 > ---
->   .../ABI/testing/sysfs-bus-coresight-devices-tpda   |  7 ++++
->   drivers/hwtracing/coresight/coresight-tpda.c       | 49 ++++++++++++++++++++++
->   drivers/hwtracing/coresight/coresight-tpda.h       |  1 +
->   3 files changed, 57 insertions(+)
+> change in v2
+> - add () for function
+> - use short name device_prep_sg(), remove "slave" and "config". the 'slave'
+> is reduntant. after remove slave, the function name is difference existed
+> one, so remove _config suffix.
+> ---
+>  Documentation/driver-api/dmaengine/client.rst |   9 +++
+>  include/linux/dmaengine.h                     | 103 ++++++++++++++++++++++++--
+>  2 files changed, 105 insertions(+), 7 deletions(-)
 > 
-> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
-> index a7855922328e..ef2804f87d1e 100644
-> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
-> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
-> @@ -41,3 +41,10 @@ Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qu
->   Description:
->   		(RW) Configure the CMB/MCMB channel mode for all enabled ports.
->   		Value 0 means raw channel mapping mode. Value 1 means channel pair marking mode.
+> diff --git a/Documentation/driver-api/dmaengine/client.rst b/Documentation/driver-api/dmaengine/client.rst
+> index d491e385d61a98b8a804cd823caf254a2dc62cf4..02c45b7d7a779421411eb9c68325cdedafcfe3b1 100644
+> --- a/Documentation/driver-api/dmaengine/client.rst
+> +++ b/Documentation/driver-api/dmaengine/client.rst
+> @@ -80,6 +80,10 @@ The details of these operations are:
+>  
+>    - slave_sg: DMA a list of scatter gather buffers from/to a peripheral
+>  
+> +  - config_sg: Similar with slave_sg, just pass down dma_slave_config
+> +    struct to avoid call dmaengine_slave_config() every time if need
+
+...struct to avoid calling dmaengine_slave_config() every time adjusting the
+burst length or the FIFO address is needed.
+
+> +    adjust burst length or FIFO address.
 > +
-> +What:		/sys/bus/coresight/devices/<tpda-name>/port_flush_req
-> +Date:		December 2025
-> +KernelVersion:	6.19
-> +Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
-> +Description:
-> +		(RW) Configure the bit i to requests a flush operation of port i on the TPDA.
-> diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/hwtracing/coresight/coresight-tpda.c
-> index d378ff8ad77d..5b4a9e41b067 100644
-> --- a/drivers/hwtracing/coresight/coresight-tpda.c
-> +++ b/drivers/hwtracing/coresight/coresight-tpda.c
-> @@ -375,6 +375,45 @@ static ssize_t tpda_trig_sysfs_store(struct device *dev,
->   	return ret;
->   }
->   
-> +static ssize_t port_flush_req_show(struct device *dev,
-> +				   struct device_attribute *attr,
-> +				   char *buf)
-> +{
-> +	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> +	unsigned long val;
+
+> +static inline struct dma_async_tx_descriptor *
+> +dmaengine_prep_config_single_safe(struct dma_chan *chan, dma_addr_t buf,
+> +	size_t len, enum dma_transfer_direction dir, unsigned long flags,
+> +	struct dma_slave_config *config)
+>  {
+>  	struct scatterlist sg;
 > +
-> +	if (!drvdata->csdev->refcnt)
-> +		return -EINVAL;
+>  	sg_init_table(&sg, 1);
+>  	sg_dma_address(&sg) = buf;
+>  	sg_dma_len(&sg) = len;
+>  
+> -	if (!chan || !chan->device || !chan->device->device_prep_slave_sg)
+> +	if (!chan || !chan->device || !chan->device->device_prep_config_sg)
+> +		return NULL;
+
+While at it, please move this arguments check before the sg initialization.
+Otherwise, this is a little odd (argument checks generally are done first).
+
 > +
-> +	guard(spinlock)(&drvdata->spinlock);
-> +	val = readl_relaxed(drvdata->base + TPDA_FLUSH_CR);
-> +
-> +	return sysfs_emit(buf, "0x%lx\n", val);
+> +	return chan->device->device_prep_config_sg(chan, &sg, 1, dir,
+> +						   flags, config, NULL);
 > +}
 > +
-> +static ssize_t port_flush_req_store(struct device *dev,
-> +				    struct device_attribute *attr,
-> +				    const char *buf,
-> +				    size_t size)
+> +static inline struct dma_async_tx_descriptor *
+> +dmaengine_prep_config_single(struct dma_chan *chan, dma_addr_t buf, size_t len,
+> +	enum dma_transfer_direction dir, unsigned long flags,
+> +	struct dma_slave_config *config)
 > +{
-> +	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> +	u32 val;
+> +	struct scatterlist sg;
 > +
-> +	if (kstrtou32(buf, 0, &val))
-> +		return -EINVAL;
+> +	sg_init_table(&sg, 1);
+> +	sg_dma_address(&sg) = buf;
+> +	sg_dma_len(&sg) = len;
 > +
-> +	if (!drvdata->csdev->refcnt || !val)
-> +		return -EINVAL;
+> +	if (!chan || !chan->device)
+> +		return NULL;
+
+Same here. Check these before initializing sg.
+
 > +
-> +	guard(spinlock)(&drvdata->spinlock);
-> +	CS_UNLOCK(drvdata->base);
-> +	writel_relaxed(val, drvdata->base + TPDA_FLUSH_CR);
-> +	CS_LOCK(drvdata->base);
+> +	if (chan->device->device_prep_config_sg)
+> +		return dmaengine_prep_config_sg_safe(chan, &sg, 1, dir,
+> +						     flags, config);
 > +
-> +	return size;
+> +	if (config)
+> +		if (dmaengine_slave_config(chan, config))
+> +			return NULL;
+> +
+> +	if (!chan->device->device_prep_slave_sg)
+>  		return NULL;
+>  
+>  	return chan->device->device_prep_slave_sg(chan, &sg, 1,
+>  						  dir, flags, NULL);
+>  }
+>  
+> +static inline struct dma_async_tx_descriptor *
+> +dmaengine_prep_slave_single(struct dma_chan *chan, dma_addr_t buf, size_t len,
+> +			    enum dma_transfer_direction dir,
+> +			    unsigned long flags)
+> +{
+> +	return dmaengine_prep_config_single(chan, buf, len, dir, flags, NULL);
 > +}
-> +static DEVICE_ATTR_RW(port_flush_req);
 > +
->   static struct attribute *tpda_global_cr_attrs[] = {
->   	tpda_trig_sysfs_rw(global_flush_req, FLREQ),
->   	tpda_trig_sysfs_rw(freq_ts_enable, FREQTS),
-> @@ -385,13 +424,23 @@ static struct attribute *tpda_global_cr_attrs[] = {
->   	NULL,
->   };
->   
-> +static struct attribute *tpda_attrs[] = {
-> +	&dev_attr_port_flush_req.attr,
-> +	NULL,
-> +};
+>  /**
+>   * dmaengine_prep_peripheral_dma_vec() - Prepare a DMA scatter-gather descriptor
+>   * @chan: The channel to be used for this descriptor
+> @@ -1009,17 +1079,36 @@ static inline struct dma_async_tx_descriptor *dmaengine_prep_peripheral_dma_vec(
+>  							    dir, flags);
+>  }
+>  
+> -static inline struct dma_async_tx_descriptor *dmaengine_prep_slave_sg(
+> +static inline struct dma_async_tx_descriptor *dmaengine_prep_config_sg(
+
+Very odd line split. Please split this after the "*" of the return type.
+
+>  	struct dma_chan *chan, struct scatterlist *sgl,	unsigned int sg_len,
+> -	enum dma_transfer_direction dir, unsigned long flags)
+> +	enum dma_transfer_direction dir, unsigned long flags,
+> +	struct dma_slave_config *config)
+>  {
+> -	if (!chan || !chan->device || !chan->device->device_prep_slave_sg)
+> +	if (!chan || !chan->device)
+> +		return NULL;
 > +
-
-But why ? Why can't this be a part of the tpda_global_cr_attrs[] ?
-For that matter, why is tpda_global_cr_attrs named as such and why not
-tpda_attrs ?
-
-Suzuki
-
->   static struct attribute_group tpda_global_cr_attr_grp = {
->   	.attrs	= tpda_global_cr_attrs,
->   	.name	= "global_cr",
->   };
->   
-> +static struct attribute_group tpda_attr_grp = {
-> +	.attrs	= tpda_attrs,
-> +};
+> +	if (chan->device->device_prep_config_sg)
+> +		return dmaengine_prep_config_sg_safe(chan, sgl, sg_len,
+> +					dir, flags, config);
 > +
->   static const struct attribute_group *tpda_attr_grps[] = {
->   	&tpda_global_cr_attr_grp,
-> +	&tpda_attr_grp,
->   	NULL,
->   };
->   
-> diff --git a/drivers/hwtracing/coresight/coresight-tpda.h b/drivers/hwtracing/coresight/coresight-tpda.h
-> index 97e2729c15c9..ec93f9cb9648 100644
-> --- a/drivers/hwtracing/coresight/coresight-tpda.h
-> +++ b/drivers/hwtracing/coresight/coresight-tpda.h
-> @@ -10,6 +10,7 @@
->   #define TPDA_Pn_CR(n)		(0x004 + (n * 4))
->   #define TPDA_FPID_CR		(0x084)
->   #define TPDA_SYNCR		(0x08C)
-> +#define TPDA_FLUSH_CR		(0x090)
->   
->   /* Cross trigger Global (all ports) flush request bit */
->   #define TPDA_CR_FLREQ		BIT(0)
+> +	if (config)
+> +		if (dmaengine_slave_config(chan, config))
+> +			return NULL;
+> +
+> +	if (!chan->device->device_prep_slave_sg)
+>  		return NULL;
+>  
+>  	return chan->device->device_prep_slave_sg(chan, sgl, sg_len,
+>  						  dir, flags, NULL);
+>  }
+>  
+> +static inline struct dma_async_tx_descriptor *dmaengine_prep_slave_sg(
+
+Same comment here.
+
+> +	struct dma_chan *chan, struct scatterlist *sgl, unsigned int sg_len,
+> +	enum dma_transfer_direction dir, unsigned long flags)
+> +{
+> +	return dmaengine_prep_config_sg(chan, sgl, sg_len, dir, flags, NULL);
+> +}
+> +
+>  #ifdef CONFIG_RAPIDIO_DMA_ENGINE
+>  struct rio_dma_ext;
+>  static inline struct dma_async_tx_descriptor *dmaengine_prep_rio_sg(
 > 
 
+
+-- 
+Damien Le Moal
+Western Digital Research
 
