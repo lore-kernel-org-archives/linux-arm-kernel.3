@@ -4,74 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E3B8D767D1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 10:39:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96D52D767D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 10:39:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HZUv6PVQX03BQcCMuDJZjgSOx0iTY7jH1mAWIXCBM/4=; b=MTZR+LN4ojuzN0cGGQAW6GwlqZ
-	jRdBbnt/irgMiFcgivy+TqHBSCljMnYuNo4YsxdVyUoqS8/4qmI8zTboWspX8MUalQIDyLfx2T8Ok
-	NWn/8uuOw6URNM9/HqhWAy5IqEwI1vm5vqOFRfTBamCicN7rHGmZAbk/Gl9lqZCnAmTPcSmup4J8G
-	6l8R7HA+Q4ypMgi4Ok4/KHK49lEqnqfCf/EP7tDCn3XilKvJsD449kPYtvgSx6gveV8pOePXVZauw
-	MDmM3wgRKVxuVmUZ2ydBq6CS6OTeHKNMJyCakbgrMXdXEDhiFjmSplMdpPc16NvJ2UOkl/bHLpM1v
-	p8SnDtog==;
+	bh=YPmigkvND1M65bM7eLtB8Efz6RO6LivRSWldgQpo5aw=; b=3ZFgWIOpjkjMH3lIBqaPLki2zm
+	ZgYpNk4AUGcb1pLOm2ofoGOwNMJ+nyvnBXoK8/AebSxXR+mcYSj1LJGEKlq1yc70kDHQUTjjqKQUY
+	vEWcpX/VDUZpi5SSWCSHT/JUiV7UfERKqoYPQ3nh4x7rsXzC9LAksbeMjXC9rqTz9lJed1RE7c/6c
+	bzLdYIJlQjs1UuJP9f70x8SIFozRME9W3VkBZ8ujn+/A0Stiask8k5FLdTpUh0/twfxwnDam7IVSv
+	VOIw+PGbztnn+VpNSM8HgLu7EAJwERFuoB9Wud3Uz77P2q7eiJ6Rc/9LML4Ur2fXnSpOBsGpbpe0P
+	eqv93ZKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWXsy-0000000A8Cm-0Ix8;
-	Fri, 19 Dec 2025 10:39:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWXsx-0000000A8CE-0kMZ;
-	Fri, 19 Dec 2025 10:38:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8AC6960052;
-	Fri, 19 Dec 2025 10:38:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28A87C4CEF1;
-	Fri, 19 Dec 2025 10:38:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766140738;
-	bh=JojbryuXzuZwBViUbKuSYpD99u7Ev05B8Sqdbjq3JeA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RTyqXLh+pnMEDRL7QCn4ZVL5I48+KSFBkbfWLELWPIeGp5NlOGtMixn93HSyIUib1
-	 VsXEFv6pp43x4ac+Ik1lR16wRZoTgERZyNybDBDrEdsksBKON8ZwHK+UjmvsqQ25Up
-	 NicNvwtPw0uXTVVnF0tvXLWxU5N3EIikmt2XlOs9WCGgKeBy8C+XM1a4f21WmaW1HL
-	 kzCa3N6gEjcuqriwV5jf2V1IrftSL6eodz2qshTNJlzsNkvBQ5/UsbP/PLEv2/8tA7
-	 EOzMcZBtd8f5GjqLWa87NigJQdEnNa79jA6TIcgqP3qKIinOEECXzZvvyhNjrmtPrq
-	 cgX4J/3C22GhA==
-Message-ID: <8d4ae6b3-096a-4e12-8fa8-abaad2e953ad@kernel.org>
-Date: Fri, 19 Dec 2025 19:38:53 +0900
+	id 1vWXtO-0000000A8Q6-2ynl;
+	Fri, 19 Dec 2025 10:39:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vWXtM-0000000A8Oa-1bRD
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 19 Dec 2025 10:39:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 47CEAFEC;
+	Fri, 19 Dec 2025 02:39:16 -0800 (PST)
+Received: from e134710.manchester.arm.com (e134710.arm.com [10.33.10.82])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9AF7B3F5CA;
+	Fri, 19 Dec 2025 02:39:21 -0800 (PST)
+From: Ahmed Tiba <ahmed.tiba@arm.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: tony.luck@intel.com,
+	bp@alien8.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	rafael@kernel.org,
+	linux-doc@vger.kernel.org,
+	Dmitry.Lamerov@arm.com,
+	Michael.Zhao2@arm.com,
+	Ahmed.Tiba@arm.com
+Subject: Re: [PATCH 10/12] dt-bindings: ras: document estatus provider
+Date: Fri, 19 Dec 2025 10:37:57 +0000
+Message-ID: <20251219103850.2722580-1-ahmed.tiba@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <57772b40-e4d9-4152-9709-04ba897608d0@kernel.org>
+References: 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 5/8] nvmet: pci-epf: Remove unnecessary
- dmaengine_terminate_sync() on each DMA transfer
-To: Frank Li <Frank.Li@nxp.com>, Vinod Koul <vkoul@kernel.org>,
- Manivannan Sadhasivam <mani@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>,
- Bjorn Helgaas <bhelgaas@google.com>, Christoph Hellwig <hch@lst.de>,
- Sagi Grimberg <sagi@grimberg.me>, Chaitanya Kulkarni <kch@nvidia.com>,
- Herbert Xu <herbert@gondor.apana.org.au>,
- "David S. Miller" <davem@davemloft.net>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, Koichiro Den <den@valinux.co.jp>,
- Niklas Cassel <cassel@kernel.org>
-Cc: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-pci@vger.kernel.org, linux-nvme@lists.infradead.org,
- mhi@lists.linux.dev, linux-arm-msm@vger.kernel.org,
- linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- imx@lists.linux.dev
-References: <20251218-dma_prep_config-v2-0-c07079836128@nxp.com>
- <20251218-dma_prep_config-v2-5-c07079836128@nxp.com>
-Content-Language: en-US
-From: Damien Le Moal <dlemoal@kernel.org>
-Organization: Western Digital Research
-In-Reply-To: <20251218-dma_prep_config-v2-5-c07079836128@nxp.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251219_023924_458423_14216A8F 
+X-CRM114-Status: UNSURE (   9.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,22 +75,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/19/25 00:56, Frank Li wrote:
-> dmaengine_terminate_sync() cancels all pending requests. Calling it for
-> every DMA transfer is unnecessary and counterproductive. This function is
-> generally intended for cleanup paths such as module removal, device close,
-> or unbind operations.
-> 
-> Remove the redundant calls for success path and keep it only at error path.
-> 
-> Tested-by: Niklas Cassel <cassel@kernel.org>
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
-Looks good.
+On 19/12/2025 10:53, Krzysztof Kozlowski wrote:
+>> On 17/12/2025 12:41, Krzysztof Kozlowski wrote:
+>>>> +properties:
+>>>> +  compatible:
+>>>> +    const: arm,ras-ffh
+>>>
+>>> Again ras - what's that? Your patch or binding must explain that.
+>>
+>> That updated description will explicitly expand the Arm RAS acronym so the
+>> compatible string is self-explanatory.
+>>
+>>>> +
+>>>> +  reg:
+>>>> +    minItems: 1
+>>>
+>>> Why is this flexible?
+>>
+>> I'll keep `reg` describing the CPER status buffer, cap it at two entries, and
+>> document the second entry as the optional doorbell register that some firmware
+>> requires before reusing the buffer.
+>
+> I still do not understand why this is flexible or in other words - why
+> second address space appears and disappears.
 
-Reviewed-by: Damien Le Moal <dlemoal@kernel.org>
+The second address space is only present for firmware that exposes an ACK register.
+Not all platforms require this extra handshake so that address shows up only
+when the extra handshake exists. I’ll say that clearly in the binding
+so it’s obvious the region is optional.
 
--- 
-Damien Le Moal
-Western Digital Research
+>>
+>>>> +    items:
+>>>> +      - description: CPER status block exposed by firmware
+>>>> +      - description:
+>>>> +          Optional 32- or 64-bit acknowledgment register. Firmware watches this
+>>>> +          register and expects bit 0 to be written to 1 once the OS consumes the
+>>>> +          status buffer so it can reuse the record.
+>>>> +
+
+
+Best regards,
+Ahmed
 
