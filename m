@@ -4,105 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E62BD767F9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 11:59:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1BB3D767F5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 12:02:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aUDQ4cXgoVjsgzBqAE2oGmQrnOXxfDyTFwKh0pVjMBA=; b=1MgmWQ34q6yucHs1Cna6B16omA
-	4tY1bZ7S9pFvsJWH9hFXI2aki4bHz/wh/acGaTDQpi1Yr5o+w8WuPX359hX3LyDDgk2+w40hyTfX+
-	PHLWbh8oCx97/Fwi9tzb78KpoJScIfT+Ry0HqVqY2ixf8ARgWWB+S8gZcF8axrDYFzRxcs29+Jsez
-	dNNOjQKSUnXp7tbNRErJ8jUrgX5B6fkVvXOglkKlO3CcrXfWWlI3n8t9k8HAcY0E5bJzW4v0wQH+P
-	OUlexA+x3QHFArmxg1GcL2333NSy8Vhk8ld9BXKpV+Gp0BQysutXP6hP4Li7HDPlMCD/QIApEn1wf
-	BimNV36w==;
+	bh=qivI3jnB6Rzc0WHPpPv75hO+hD1MmHg3smn9U4L9sv8=; b=tl3H743XySGnkhNAEd0IGUhAU7
+	WXG+8w4c+4Q81GJgAHfW4yEhbth/V6fN7jZnvRe9zzNwzqk3sUAU+nLZoJ9P09pNFM6lJ9F4PtQok
+	86HwHwykv7yipN7sxB0ALNWOn+vIp5pc2m7Wm9FsIRHXtkA8kUaT/MEfSZSFX5eiSrPDwnJKzggmI
+	TktDYh17GwskF0wB26ovQVJW5NsqZadJrZnF7pY16bVop93hWD6M/GEoqigY46e9Emsa7q3vIXR2H
+	EpN+IjUh1xyH2j0QUecuLRomwy/Zh3i9hbgk5wfy3myge3Sq/EBpB6oL8GJPwTGsMx7tMYJ0wbNua
+	eq3djtsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWZ8p-0000000AFCN-41Zo;
-	Fri, 19 Dec 2025 11:59:27 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vWZC8-0000000AFPv-2Z0u;
+	Fri, 19 Dec 2025 12:02:52 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWZ8n-0000000AFBt-0SHj
+	id 1vWZC7-0000000AFPp-2XHV
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 19 Dec 2025 12:02:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=qivI3jnB6Rzc0WHPpPv75hO+hD1MmHg3smn9U4L9sv8=; b=WT5KKnGnxOr1xvZ7vlSSHzGE4Z
+	lQAcyqYnehgGuKjoxUvROn3ZTUL83p+EIgpKeEqG52WxcCsFEUIzzTkeb+hXCBnWQgXZUiXqMHk6s
+	UDiRZomw0TxWzT0rwKD+LnfPxvKhFmoz7V3gEfHRitjnu4BEfp2gmDquIyKevMDZYqTtWlTQW/zpI
+	WhsHFk2EUXtU/I6z2H5g+Gi5Xmo5HruhGFRwgoGZMSdKX/lKc/uafY/oTRMEuxZ4jzgOjC1yT7aZq
+	yU0ui2VHKbW4Y/i8jp05/XF2g7vC3dzdvseKiSQxqiT+t/9yf5gA7wwORp4wbNkDg5XT0l+ujWOUe
+	YOwDvg0A==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vWYKb-0000000Ak5a-3t8l
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Dec 2025 11:59:26 +0000
-Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 7678A596;
-	Fri, 19 Dec 2025 12:59:10 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1766145551;
-	bh=xwKyTfZVChmPPjGFKCt9DR8NIFdSEGTSKXbGAjKrg70=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hVT9nyXlFSrB1voaKEPxuUaIIEsajM+Dng/rYmOtYGC6k0zm3+NH6Hrc0nVv6H6a7
-	 2WpCL6iyY/sb9bB8fZzrdchwJOggc7JpLi74wwgf4XXG/0a5Q+xBiifeMsF3faEbmf
-	 HV3jBktbGK/lg56zq9mM+pZiEOIUcgY7dMAWXOK4=
-Message-ID: <533168f1-1655-4947-9032-b08463f502d7@ideasonboard.com>
-Date: Fri, 19 Dec 2025 13:59:14 +0200
+	Fri, 19 Dec 2025 11:07:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 284D5FEC;
+	Fri, 19 Dec 2025 04:02:39 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7FF953F5CA;
+	Fri, 19 Dec 2025 04:02:42 -0800 (PST)
+Message-ID: <4495db3f-cfb8-4571-b83a-10a24f7b73a9@arm.com>
+Date: Fri, 19 Dec 2025 12:02:41 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/2] drm: xlnx: zynqmp_kms: 16 bpp fixes for Xorg startup
- on AMD KV260
-To: Mikko Rapeli <mikko.rapeli@linaro.org>, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Michal Simek <michal.simek@amd.com>, Bill Mills <bill.mills@linaro.org>,
- Ilias Apalodimas <ilias.apalodimas@linaro.org>
-References: <20251205123751.2257694-1-mikko.rapeli@linaro.org>
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Subject: Re: [RFC PATCH 07/38] arm_mpam: resctrl: Add boilerplate cpuhp and
+ domain allocation
+To: Jonathan Cameron <jonathan.cameron@huawei.com>,
+ James Morse <james.morse@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@kernel.org>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com, Gavin Shan <gshan@redhat.com>,
+ rohit.mathew@arm.com, reinette.chatre@intel.com,
+ Punit Agrawal <punit.agrawal@oss.qualcomm.com>
+References: <20251205215901.17772-1-james.morse@arm.com>
+ <20251205215901.17772-8-james.morse@arm.com>
+ <20251218113014.00002691@huawei.com>
+From: Ben Horgan <ben.horgan@arm.com>
 Content-Language: en-US
-Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
- 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
-In-Reply-To: <20251205123751.2257694-1-mikko.rapeli@linaro.org>
+In-Reply-To: <20251218113014.00002691@huawei.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_035925_599187_31D29D2E 
-X-CRM114-Status: GOOD (  11.85  )
+X-CRM114-CacheID: sfid-20251219_110734_481445_64C3F7FC 
+X-CRM114-Status: GOOD (  40.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,36 +93,329 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mikko,
+Hi Jonathan,
 
-On 05/12/2025 14:37, Mikko Rapeli wrote:
+On 12/18/25 11:30, Jonathan Cameron wrote:
+> On Fri, 5 Dec 2025 21:58:30 +0000
+> James Morse <james.morse@arm.com> wrote:
+> 
+>> resctrl has its own data structures to describe its resources. We
+>> can't use these directly as we play tricks with the 'MBA' resource,
+>> picking the MPAM controls or monitors that best apply. We may export
+>> the same component as both L3 and MBA.
+>>
+>> Add mpam_resctrl_exports[] as the array of class->resctrl mappings we
+>> are exporting, and add the cpuhp hooks that allocated and free the
+>> resctrl domain structures.
+>>
+>> While we're here, plumb in a few other obvious things.
+>>
+>> CONFIG_ARM_CPU_RESCTRL is used to allow this code to be built
+>> even though it can't yet be linked against resctrl.
+>>
+>> Signed-off-by: James Morse <james.morse@arm.com>
 > Hi,
 > 
-> Currently on default yocto images Xorg fails to start on AMD KV260
-> because 24/32 color depth gets detected but does not actually work.
+> A few code flow related comments. Fairly trivial stuff but I think
+> some parts of this can be made more readable / maintainable with
+> minor reorganization.
 > 
-> These two patches fix the issue and now 16 bpp gets detected
-> and Xorg starts and draws on external HDMI display using
-> kernel.org based linux-yocto kernel.
+> Jonathan
 > 
-> Anatoliy Klymenko (1):
->   drm: xlnx: zynqmp_kms: Init fbdev with 16 bit color
 > 
-> Mikko Rapeli (1):
->   drm: xlnx: zynqmp_kms: set preferred_depth to 16 bpp
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>> index 2996ad93fc3e..efaf7633bc35 100644
+>> --- a/drivers/resctrl/mpam_devices.c
+>> +++ b/drivers/resctrl/mpam_devices.c
+> ...
 > 
->  drivers/gpu/drm/xlnx/zynqmp_kms.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
+>> @@ -2516,6 +2522,12 @@ static void mpam_enable_once(void)
+>>  	mutex_unlock(&mpam_list_lock);
+>>  	cpus_read_unlock();
+>>  
+>> +	if (!err) {
+>> +		err = mpam_resctrl_setup();
+>> +		if (err)
+>> +			pr_err("Failed to initialise resctrl: %d\n", err);
+>> +	}
+>> +
+>>  	if (err) {
+>>  		mpam_disable_reason = "Failed to enable.";
+>>  		schedule_work(&mpam_broken_work);
 > 
+> I'd be tempted to move this to an error handling block via a goto
+> making this bit
+> 	if (err)
+> 		goto err_disable_mpam;
+> 
+> 	err = mpam_resctrl_setup();
+> 	if (err) {
+> 		pr_err();
+> 		goto err_dsiable_mpam;
+> 	}
+> 
+> Up to you though. Personally I like all my good paths as straight line
+> code with the errors handled in if (err) as that consistency really helps
+> readability.  
+> 
+>> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+>> new file mode 100644
+>> index 000000000000..320cebbd37ce
+>> --- /dev/null
+>> +++ b/drivers/resctrl/mpam_resctrl.c
+>> @@ -0,0 +1,329 @@
+>> +// SPDX-License-Identifier: GPL-2.0
+>> +// Copyright (C) 2025 Arm Ltd.
+>> +
+>> +#define pr_fmt(fmt) "%s:%s: " fmt, KBUILD_MODNAME, __func__
+>> +
+>> +#include <linux/arm_mpam.h>
+>> +#include <linux/cacheinfo.h>
+>> +#include <linux/cpu.h>
+>> +#include <linux/cpumask.h>
+>> +#include <linux/errno.h>
+>> +#include <linux/list.h>
+>> +#include <linux/printk.h>
+>> +#include <linux/rculist.h>
+>> +#include <linux/resctrl.h>
+>> +#include <linux/slab.h>
+>> +#include <linux/types.h>
+>> +
+>> +#include <asm/mpam.h>
+>> +
+>> +#include "mpam_internal.h"
+> 
+> 
+>> +static struct mpam_resctrl_dom *
+>> +mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
+>> +{
+>> +	int err;
+>> +	struct mpam_resctrl_dom *dom;
+>> +	struct rdt_mon_domain *mon_d;
+>> +	struct rdt_ctrl_domain *ctrl_d;
+>> +	struct mpam_class *class = res->class;
+>> +	struct mpam_component *comp_iter, *ctrl_comp;
+>> +	struct rdt_resource *r = &res->resctrl_res;
+>> +
+>> +	lockdep_assert_held(&domain_list_lock);
+>> +
+>> +	ctrl_comp = NULL;
+>> +	guard(srcu)(&mpam_srcu);
+>> +	list_for_each_entry_srcu(comp_iter, &class->components, class_list,
+>> +				 srcu_read_lock_held(&mpam_srcu)) {
+>> +		if (cpumask_test_cpu(cpu, &comp_iter->affinity)) {
+>> +			ctrl_comp = comp_iter;
+>> +			break;
+>> +		}
+>> +	}
+>> +
+>> +	/* class has no component for this CPU */
+>> +	if (WARN_ON_ONCE(!ctrl_comp))
+>> +		return ERR_PTR(-EINVAL);
+>> +
+>> +	dom = kzalloc_node(sizeof(*dom), GFP_KERNEL, cpu_to_node(cpu));
+>> +	if (!dom)
+>> +		return ERR_PTR(-ENOMEM);
+>> +
+>> +	if (exposed_alloc_capable) {
+>> +		dom->ctrl_comp = ctrl_comp;
+>> +
+>> +		ctrl_d = &dom->resctrl_ctrl_dom;
+>> +		mpam_resctrl_domain_hdr_init(cpu, ctrl_comp, &ctrl_d->hdr);
+>> +		ctrl_d->hdr.type = RESCTRL_CTRL_DOMAIN;
+>> +		/* TODO: this list should be sorted */
+>> +		list_add_tail_rcu(&ctrl_d->hdr.list, &r->ctrl_domains);
+>> +		err = resctrl_online_ctrl_domain(r, ctrl_d);
+>> +		if (err) {
+>> +			dom = ERR_PTR(err);
+>> +			goto offline_ctrl_domain;
+>> +		}
+>> +	} else {
+>> +		pr_debug("Skipped control domain online - no controls\n");
+>> +	}
+>> +
+>> +	if (exposed_mon_capable) {
+>> +		mon_d = &dom->resctrl_mon_dom;
+>> +		mpam_resctrl_domain_hdr_init(cpu, ctrl_comp, &mon_d->hdr);
+>> +		mon_d->hdr.type = RESCTRL_MON_DOMAIN;
+>> +		/* TODO: this list should be sorted */
+>> +		list_add_tail_rcu(&mon_d->hdr.list, &r->mon_domains);
+>> +		err = resctrl_online_mon_domain(r, mon_d);
+>> +		if (err) {
+>> +			dom = ERR_PTR(err);
+>> +			goto offline_mon_hdr;
+>> +		}
+>> +	} else {
+>> +		pr_debug("Skipped monitor domain online - no monitors\n");
+>> +	}
+>> +	goto out;
+> 
+> To keep flow simple, return here.  I thought maybe there was more stuff
+> that was always done (added in later patches) but not seeing that.
+> If there were then it would be a fairly strong indicator that a different
+> code structure makes more sense - probably with some helper functions.
 
-Did you notice the few already sent serieses on the list where the topic
-has been discussed?
+Makes sense.
 
-[PATCH] drm: xlnx: zynqmp_dp: Support DRM_FORMAT_XRGB8888
-[PATCH 0/3] drm: zynqmp: Make the video plane primary
+> 
+>> +
+>> +offline_mon_hdr:
+>> +	mpam_resctrl_offline_domain_hdr(cpu, &mon_d->hdr);
+>> +offline_ctrl_domain:
+>> +	resctrl_offline_ctrl_domain(r, ctrl_d);
+>> +out:
+>> +	return dom;
+>> +}
+>> +
+>> +static struct mpam_resctrl_dom *
+>> +mpam_resctrl_get_domain_from_cpu(int cpu, struct mpam_resctrl_res *res)
+>> +{
+>> +	struct mpam_resctrl_dom *dom;
+>> +	struct rdt_ctrl_domain *ctrl_d;
+>> +
+>> +	lockdep_assert_cpus_held();
+>> +
+>> +	list_for_each_entry_rcu(ctrl_d, &res->resctrl_res.ctrl_domains,
+>> +				hdr.list) {
+>> +		dom = container_of(ctrl_d, struct mpam_resctrl_dom,
+>> +				   resctrl_ctrl_dom);
+> 
+> I'm lazy so haven't checked for more code here in later patches, but
+> if not, why not iterate the list to access the domain directly rather
+> than jumping through the rdt_ctrl_domain?
+> 
+> Something along lines of:
+> 	
+> 	list_for_each_entry_rcu(dom, &res->resctrl_res.ctrl_domains,
+> 				resctrl_ctrl_dom.hdr.list) {
+> 	}
+>
 
-Or is there something else on KV260 that messes up the 24 bit color?
+Unless I've misunderstood I don't think this works because it's not what
+the fs/resctrl code expects.
 
- Tomi
+
+>> +
+>> +		if (cpumask_test_cpu(cpu, &dom->ctrl_comp->affinity))
+>> +			return dom;
+>> +	}
+>> +
+>> +	return NULL;
+>> +}
+>> +
+>> +int mpam_resctrl_online_cpu(unsigned int cpu)
+>> +{
+>> +	int i;
+>> +	struct mpam_resctrl_dom *dom;
+>> +	struct mpam_resctrl_res *res;
+>> +
+>> +	guard(mutex)(&domain_list_lock);
+>> +	for (i = 0; i < RDT_NUM_RESOURCES; i++) {
+> 
+> I'd narrow the scope for dom and res to inside the loop.
+> Maybe put the iterator in the for loop init (now considered
+> acceptable in kernel code)
+> 
+> Similar applies in various other places.  No that important
+> for functions that more or less just consist of a loop though.
+
+I've done a bit of scope reducing here and in some other places.
+
+> 
+>> +		res = &mpam_resctrl_controls[i];
+>> +		if (!res->class)
+>> +			continue;	// dummy_resource;
+>> +
+>> +		dom = mpam_resctrl_get_domain_from_cpu(cpu, res);
+>> +		if (!dom)
+>> +			dom = mpam_resctrl_alloc_domain(cpu, res);
+>> +		if (IS_ERR(dom))
+>> +			return PTR_ERR(dom);
+>> +	}
+>> +
+>> +	resctrl_online_cpu(cpu);
+>> +
+>> +	return 0;
+>> +}
+> 
+>> +int mpam_resctrl_setup(void)
+>> +{
+>> +	int err = 0;
+>> +	enum resctrl_res_level i;
+>> +	struct mpam_resctrl_res *res;
+>> +
+>> +	cpus_read_lock();
+>> +	for (i = 0; i < RDT_NUM_RESOURCES; i++) {
+>> +		res = &mpam_resctrl_controls[i];
+>> +		INIT_LIST_HEAD_RCU(&res->resctrl_res.ctrl_domains);
+>> +		INIT_LIST_HEAD_RCU(&res->resctrl_res.mon_domains);
+>> +		res->resctrl_res.rid = i;
+>> +	}
+>> +
+>> +	/* TODO: pick MPAM classes to map to resctrl resources */
+>> +
+>> +	/* Initialise the resctrl structures from the classes */
+>> +	for (i = 0; i < RDT_NUM_RESOURCES; i++) {
+>> +		res = &mpam_resctrl_controls[i];
+>> +		if (!res->class)
+>> +			continue;	// dummy resource
+>> +
+>> +		err = mpam_resctrl_control_init(res, i);
+>> +		if (err) {
+>> +			pr_debug("Failed to initialise rid %u\n", i);
+>> +			break;
+>> +		}
+>> +	}
+>> +	cpus_read_unlock();
+>> +
+>> +	if (err || (!exposed_alloc_capable && !exposed_mon_capable)) {
+>> +		if (err)
+>> +			pr_debug("Internal error %d - resctrl not supported\n",
+>> +				 err);
+>> +		else
+>> +			pr_debug("No alloc(%u) or monitor(%u) found - resctrl not supported\n",
+>> +				 exposed_alloc_capable, exposed_mon_capable);
+>> +		err = -EOPNOTSUPP;
+> 
+> return -EOPNOTSUPP; here to make the code flow simpler.
+> Mind you nice to avoid eating err if it is set and the sharing here doesn't seem
+> all that useful so perhaps just make this:
+> 
+> 	if (err) {
+> 		pr_debug("Internal error %d - resctrl not supported\n", err);
+> 		return err;
+> 	}
+> 
+> 	if (!exposed_alloc_capable && !exposed_mon_capable) {
+> 		pr_debug("No alloc(%u) or monitor(%u) found - resctrl not supported\n",
+> 			 exposed_alloc_capable, exposed_mon_capable);
+> 		return -EOPNOTSUPP;
+> 	}
+
+I've gone for the second option.
+
+> 
+> 
+>> +	}
+>> +
+>> +	if (!err) {
+>> +		if (!is_power_of_2(mpam_pmg_max + 1)) {
+>> +			/*
+>> +			 * If not all the partid*pmg values are valid indexes,
+>> +			 * resctrl may allocate pmg that don't exist. This
+>> +			 * should cause an error interrupt.
+>> +			 */
+>> +			pr_warn("Number of PMG is not a power of 2! resctrl may misbehave");
+>> +		}
+>> +
+>> +		/* TODO: call resctrl_init() */
+>> +	}
+>> +
+>> +	return err;
+>> +}
+
+Thanks,
+
+Ben
 
 
