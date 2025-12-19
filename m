@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8861CD7879F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 18:12:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8439D7879F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 18:12:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kUu7QMwBz4Zc/M/k/oBT2y0cRg9hqYXU7+WtYJB70T8=; b=RFLNl43BIPNAfnsPbPJGxno5QN
-	puoq7QDk9UvEehC8QjaQwZ3bF0y4XoKu5tltiVezSDGlzwiskg9VrFYrOiwKaJgaMnJo5qIqpkwuL
-	ugt1bX2qz7yAhvMVfhrUw9Z8h89TF+5lzDH4S+ZD2G/EZ8oRMYGgROsqMI0mfd9EZHfQlXB4BD2jK
-	8xJwMv7bwYzD7XDXGC+/klYwLJaA1udy4I2/lUk6txOyjxcuNR3qgezdgCeZu6PRNSNAkAzSk13P0
-	Jnq2pM80vNklrD9ziGvIWXjpS6+6KzO9fSKfwWeN3mb9FPq9qqsklLagcd1dwnYxBMxj/VO25u2O0
-	56k6vv6g==;
+	bh=XTvUps+yvMyxXMIn0RAseuc/JDlJ4G0SBqIViHbgYE8=; b=TLAgwTh6OzR8Y5DP8SBCHxxBu7
+	EcdkD1/Pt5lrWWhSLC6PkLMxWfjjwYs0N9lWqwq/O518NzQfFnL0EDoQEzrO6hFbxwxewPbl6/iF9
+	vU9v3cyJhGXV3dIBG7EsKZkVqMskUGbeOAzaNB2seeHIUeuRgfZiJfZ+NC9UGLChUQqq89ZUSART6
+	PA2qwER25NRo3NR9e/1Y2lVFXMpemIHVs0cqdKhHLmxKFChrBq/rLo3K34jiGl5Y5cgIER5KqVDJN
+	QHhr2g72xqVbzJor0BI6nzw/girrKXhN6OqbsfFUn2RBta0Ata5Tr/CowaDGuWFwxkAP4TLZY58id
+	ZVkpr/VQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWexg-0000000Akua-2dpS;
-	Fri, 19 Dec 2025 18:12:20 +0000
+	id 1vWexj-0000000Akwe-3sFI;
+	Fri, 19 Dec 2025 18:12:23 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWexd-0000000AktX-2klQ
+	id 1vWexi-0000000AkvU-0dYf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Dec 2025 18:12:18 +0000
+	Fri, 19 Dec 2025 18:12:23 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 60426106F;
-	Fri, 19 Dec 2025 10:12:09 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 23BD215A1;
+	Fri, 19 Dec 2025 10:12:14 -0800 (PST)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 08C563F5CA;
-	Fri, 19 Dec 2025 10:12:11 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C23253F5CA;
+	Fri, 19 Dec 2025 10:12:16 -0800 (PST)
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com
 Cc: amitsinght@marvell.com,
@@ -67,17 +67,18 @@ Cc: amitsinght@marvell.com,
 	joey.gouly@arm.com,
 	suzuki.poulose@arm.com,
 	kvmarm@lists.linux.dev
-Subject: [PATCH v2 03/45] arm_mpam: Use non-atomic bitops when modifying feature bitmap
-Date: Fri, 19 Dec 2025 18:11:05 +0000
-Message-ID: <20251219181147.3404071-4-ben.horgan@arm.com>
+Subject: [PATCH v2 04/45] arm64/sysreg: Add MPAMSM_EL1 register
+Date: Fri, 19 Dec 2025 18:11:06 +0000
+Message-ID: <20251219181147.3404071-5-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251219181147.3404071-1-ben.horgan@arm.com>
 References: <20251219181147.3404071-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_101217_742007_5B64977D 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20251219_101222_239307_14CD4C56 
+X-CRM114-Status: UNSURE (   7.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,32 +93,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the test__props_mismatch() kunit test we rely on the struct mpam_props
-being packed to ensure memcmp doesn't consider packing. Making it packed
-reduces the alignment of the features bitmap and so breaks a requirement
-for the use of atomics. As we don't rely on the set/clear of these bits
-being atomic, just make them non-atomic.
+The MPAMSM_EL1 register determines the MPAM configuration for an SMCU. Add
+the register definition.
 
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
- drivers/resctrl/mpam_internal.h | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/arm64/tools/sysreg | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index 17cdc3080d58..aaaf31ca9210 100644
---- a/drivers/resctrl/mpam_internal.h
-+++ b/drivers/resctrl/mpam_internal.h
-@@ -200,8 +200,8 @@ struct mpam_props {
- } PACKED_FOR_KUNIT;
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index 8921b51866d6..afbb55c9b038 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -5052,6 +5052,14 @@ Field	31:16	PARTID_D
+ Field	15:0	PARTID_I
+ EndSysreg
  
- #define mpam_has_feature(_feat, x)	test_bit(_feat, (x)->features)
--#define mpam_set_feature(_feat, x)	set_bit(_feat, (x)->features)
--#define mpam_clear_feature(_feat, x)	clear_bit(_feat, (x)->features)
-+#define mpam_set_feature(_feat, x)	__set_bit(_feat, (x)->features)
-+#define mpam_clear_feature(_feat, x)	__clear_bit(_feat, (x)->features)
- 
- /* The values for MSMON_CFG_MBWU_FLT.RWBW */
- enum mon_filter_options {
++Sysreg	MPAMSM_EL1	3	0	10	5	3
++Res0	63:48
++Field	47:40	PMG_D
++Res0	39:32
++Field	31:16	PARTID_D
++Res0	15:0
++EndSysreg
++
+ Sysreg	ISR_EL1	3	0	12	1	0
+ Res0	63:11
+ Field	10	IS
 -- 
 2.43.0
 
