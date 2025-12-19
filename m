@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5C36E66882
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 18:45:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14D7EE66882
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 18:45:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tcfebk5iP5j1Cwl6jjCe81RG5LoJuzRf81oBe64mXwI=; b=Bp6FIU+85PaI2gv3+Uh2Ps03UJ
-	M6OPeXUiGbpXUhKdaHd3/OULeMvcGiX91I2D2ykAtTZLS0G066Ius9nyTh8PN4yVqFelVm+s4qC+z
-	hyD16qW7oJoTkhFCQszAhrau5QY3Te6V/ZrdBhHUoaxhiVV89uHMncOyI4E2gQGnFTnjn55cp6Evf
-	NkZfA3nYxGCogizfXXbePTGKrV9eZF2PAfe87sQe9mMXmXsNhO2xtwMj5gM4//fvyEdnWA06c1AiN
-	qiyhR9HuYLzjgjEryn3dIqN3b8E/p716dq+cYfYug0kE2RBw9/Z9JkKZWNxHBBHszEuD1wp/U3zqC
-	6T6uZyXA==;
+	bh=u9PRprhdjt8BgM+xQSSecAqGabC+ERisq33Mj/7pKBI=; b=iKe9zsrA6DyfTXKwQn0vW+LVoA
+	fhxacp1zK7ricYLcucSz1ZwFTejx+8xVs3iNXye6DjTALEPVs6vJX9aaEWEjP+wUFHMi3a6U/Gebl
+	dYyDXbA+8zZ65boCvamob37QnM6rAFljwladahRmQXwz/OgxD70Dk5u38TZ4Vh/k7rGW5uJ7+K4dF
+	ZUmeBFx1DxiKpn0Lt+zId5ORQFcyFCIpOXWGT2Rh+2UKNVIEISb/0kIT1kXKswcn4d3APwvOR15i5
+	z0840C1gmYgmX2IJtK2+XywOW69fj9ayLoFNC9g3MBl+Fx7XKBW1x75ETOYxR5mepHn36qf17/Hl2
+	ly7BGNLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWfTe-0000000AqTA-0Ljv;
-	Fri, 19 Dec 2025 18:45:22 +0000
+	id 1vWfTj-0000000AqUX-1aI9;
+	Fri, 19 Dec 2025 18:45:27 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWfTb-0000000AqSi-46ly
+	id 1vWfTi-0000000AqUK-1uJt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Dec 2025 18:45:20 +0000
+	Fri, 19 Dec 2025 18:45:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 178B860018;
-	Fri, 19 Dec 2025 18:45:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BB2CC16AAE;
-	Fri, 19 Dec 2025 18:45:18 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E21CB6001D;
+	Fri, 19 Dec 2025 18:45:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73704C4CEF1;
+	Fri, 19 Dec 2025 18:45:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766169918;
-	bh=0JaE8pvqqdiKhvz4LZK6ONzKwPuiNY6tUt4e8f/EZrc=;
+	s=k20201202; t=1766169925;
+	bh=MX7u6YCAf8ISSlBSjmO63NiEj72J0NgYtomqNWx848Q=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=DVE9d3vQj4W4nzVp1Q6Xy3tYBaTcAwctf7q6Nxnw2KfjxwCglcoFBSjMW3L5Qut5Z
-	 +Y+mOwCrXfiiO9H9soGIMP+Ms+mBzmP5sVSCOU3Z3hNHuRytuP0CIO4wCsq7L9LrYs
-	 47Am1CfIRTsmtBf3MoImISrb1tDlUsI/lQBhzkMcvlv7mGC80wVNwYgKM8ujE5aPzY
-	 426pTd1ebyl6jhQkx20na76mbMIzdCKG6RiZwqBEqGDCYmBhYH/Nkm66ohfvHPR/JO
-	 oqyJSbx0BbJ8lNHDh/CjIYLXAXS2IJw2o/GRI5YLLo8s/XDYl94aJO9ZR18Zg7xn4B
-	 1DnFkWelhywvw==
+	b=nDW6/vgKTnJzLQNhfd/FgWJBM6F7bnYDZ7fWbB/Lq4456mxPv4v/tZKKPyhYmzhD0
+	 mG32Jh7mT8vqC8XrthShEjEwQloJo1NKBd5qfUCZMGT2iFQt66cPH5eJtGWAdrSAIm
+	 yPMkS6Ogp6J7o06tRP/BrTj3MvWSRUMQSawtD5byKMOlyrLl0aAyCYG2iP6rzYoKDY
+	 MRMObERDYUbya6zAsXWX8HwNxRObnQtkCu3bDs8CtpsygQBSu96v6XdP7/KDFAj7/k
+	 lmsSfq/PWDa+wkxOGRUbPD0YKqZ8+VYFZpK9Kl7bzuqkEO/krJQwGO80ZDRkzA8YrL
+	 YcF7p3Wwb7gEg==
 From: Puranjay Mohan <puranjay@kernel.org>
 To: bpf@vger.kernel.org
 Cc: Puranjay Mohan <puranjay@kernel.org>,
@@ -58,9 +58,9 @@ Cc: Puranjay Mohan <puranjay@kernel.org>,
 	Mark Rutland <mark.rutland@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
 	Yonghong Song <yonghong.song@linux.dev>
-Subject: [PATCH bpf-next v3 1/2] bpf: move recursion detection logic to helpers
-Date: Fri, 19 Dec 2025 10:44:17 -0800
-Message-ID: <20251219184422.2899902-2-puranjay@kernel.org>
+Subject: [PATCH bpf-next v3 2/2] bpf: arm64: Optimize recursion detection by not using atomics
+Date: Fri, 19 Dec 2025 10:44:18 -0800
+Message-ID: <20251219184422.2899902-3-puranjay@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251219184422.2899902-1-puranjay@kernel.org>
 References: <20251219184422.2899902-1-puranjay@kernel.org>
@@ -80,104 +80,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-BPF programs detect recursion by doing atomic inc/dec on a per-cpu
-active counter from the trampoline. Create two helpers for operations on
-this active counter, this makes it easy to changes the recursion
-detection logic in future.
+BPF programs detect recursion using a per-CPU 'active' flag in struct
+bpf_prog. The trampoline currently sets/clears this flag with atomic
+operations.
 
-This commit makes no functional changes.
+On some arm64 platforms (e.g., Neoverse V2 with LSE), per-CPU atomic
+operations are relatively slow. Unlike x86_64 - where per-CPU updates
+can avoid cross-core atomicity, arm64 LSE atomics are always atomic
+across all cores, which is unnecessary overhead for strictly per-CPU
+state.
+
+This patch removes atomics from the recursion detection path on arm64 by
+changing 'active' to a per-CPU array of four u8 counters, one per
+context: {NMI, hard-irq, soft-irq, normal}. The running context uses a
+non-atomic increment/decrement on its element.  After increment,
+recursion is detected by reading the array as a u32 and verifying that
+only the expected element changed; any change in another element
+indicates inter-context recursion, and a value > 1 in the same element
+indicates same-context recursion.
+
+For example, starting from {0,0,0,0}, a normal-context trigger changes
+the array to {0,0,0,1}.  If an NMI arrives on the same CPU and triggers
+the program, the array becomes {1,0,0,1}. When the NMI context checks
+the u32 against the expected mask for normal (0x00000001), it observes
+0x01000001 and correctly reports recursion. Same-context recursion is
+detected analogously.
 
 Acked-by: Yonghong Song <yonghong.song@linux.dev>
 Signed-off-by: Puranjay Mohan <puranjay@kernel.org>
 ---
- include/linux/bpf.h      | 10 ++++++++++
- kernel/bpf/trampoline.c  |  8 ++++----
- kernel/trace/bpf_trace.c |  4 ++--
- 3 files changed, 16 insertions(+), 6 deletions(-)
+ include/linux/bpf.h | 32 +++++++++++++++++++++++++++++---
+ kernel/bpf/core.c   |  3 ++-
+ 2 files changed, 31 insertions(+), 4 deletions(-)
 
 diff --git a/include/linux/bpf.h b/include/linux/bpf.h
-index bb3847caeae1..2da986136d26 100644
+index 2da986136d26..da6a00dd313f 100644
 --- a/include/linux/bpf.h
 +++ b/include/linux/bpf.h
-@@ -2004,6 +2004,16 @@ struct bpf_struct_ops_common_value {
- 	enum bpf_struct_ops_state state;
+@@ -1746,6 +1746,8 @@ struct bpf_prog_aux {
+ 	struct bpf_map __rcu *st_ops_assoc;
  };
  
-+static inline bool bpf_prog_get_recursion_context(struct bpf_prog *prog)
-+{
-+	return this_cpu_inc_return(*(prog->active)) == 1;
-+}
++#define BPF_NR_CONTEXTS        4       /* normal, softirq, hardirq, NMI */
 +
-+static inline void bpf_prog_put_recursion_context(struct bpf_prog *prog)
-+{
-+	this_cpu_dec(*(prog->active));
-+}
+ struct bpf_prog {
+ 	u16			pages;		/* Number of allocated pages */
+ 	u16			jited:1,	/* Is our filter JIT'ed? */
+@@ -1772,7 +1774,7 @@ struct bpf_prog {
+ 		u8 tag[BPF_TAG_SIZE];
+ 	};
+ 	struct bpf_prog_stats __percpu *stats;
+-	int __percpu		*active;
++	u8 __percpu		*active;	/* u8[BPF_NR_CONTEXTS] for recursion protection */
+ 	unsigned int		(*bpf_func)(const void *ctx,
+ 					    const struct bpf_insn *insn);
+ 	struct bpf_prog_aux	*aux;		/* Auxiliary fields */
+@@ -2006,12 +2008,36 @@ struct bpf_struct_ops_common_value {
+ 
+ static inline bool bpf_prog_get_recursion_context(struct bpf_prog *prog)
+ {
+-	return this_cpu_inc_return(*(prog->active)) == 1;
++#ifdef CONFIG_ARM64
++	u8 rctx = interrupt_context_level();
++	u8 *active = this_cpu_ptr(prog->active);
++	u32 val;
 +
++	preempt_disable();
++	active[rctx]++;
++	val = le32_to_cpu(*(__le32 *)active);
++	preempt_enable();
++	if (val != BIT(rctx * 8))
++		return false;
++
++	return true;
++#else
++	return this_cpu_inc_return(*(int __percpu *)(prog->active)) == 1;
++#endif
+ }
+ 
+ static inline void bpf_prog_put_recursion_context(struct bpf_prog *prog)
+ {
+-	this_cpu_dec(*(prog->active));
++#ifdef CONFIG_ARM64
++	u8 rctx = interrupt_context_level();
++	u8 *active = this_cpu_ptr(prog->active);
++
++	preempt_disable();
++	active[rctx]--;
++	preempt_enable();
++#else
++	this_cpu_dec(*(int __percpu *)(prog->active));
++#endif
+ }
+ 
  #if defined(CONFIG_BPF_JIT) && defined(CONFIG_BPF_SYSCALL)
- /* This macro helps developer to register a struct_ops type and generate
-  * type information correctly. Developers should use this macro to register
-diff --git a/kernel/bpf/trampoline.c b/kernel/bpf/trampoline.c
-index 976d89011b15..2a125d063e62 100644
---- a/kernel/bpf/trampoline.c
-+++ b/kernel/bpf/trampoline.c
-@@ -949,7 +949,7 @@ static u64 notrace __bpf_prog_enter_recur(struct bpf_prog *prog, struct bpf_tram
- 
- 	run_ctx->saved_run_ctx = bpf_set_run_ctx(&run_ctx->run_ctx);
- 
--	if (unlikely(this_cpu_inc_return(*(prog->active)) != 1)) {
-+	if (unlikely(!bpf_prog_get_recursion_context(prog))) {
- 		bpf_prog_inc_misses_counter(prog);
- 		if (prog->aux->recursion_detected)
- 			prog->aux->recursion_detected(prog);
-@@ -993,7 +993,7 @@ static void notrace __bpf_prog_exit_recur(struct bpf_prog *prog, u64 start,
- 	bpf_reset_run_ctx(run_ctx->saved_run_ctx);
- 
- 	update_prog_stats(prog, start);
--	this_cpu_dec(*(prog->active));
-+	bpf_prog_put_recursion_context(prog);
- 	rcu_read_unlock_migrate();
- }
- 
-@@ -1029,7 +1029,7 @@ u64 notrace __bpf_prog_enter_sleepable_recur(struct bpf_prog *prog,
- 
- 	run_ctx->saved_run_ctx = bpf_set_run_ctx(&run_ctx->run_ctx);
- 
--	if (unlikely(this_cpu_inc_return(*(prog->active)) != 1)) {
-+	if (unlikely(!bpf_prog_get_recursion_context(prog))) {
- 		bpf_prog_inc_misses_counter(prog);
- 		if (prog->aux->recursion_detected)
- 			prog->aux->recursion_detected(prog);
-@@ -1044,7 +1044,7 @@ void notrace __bpf_prog_exit_sleepable_recur(struct bpf_prog *prog, u64 start,
- 	bpf_reset_run_ctx(run_ctx->saved_run_ctx);
- 
- 	update_prog_stats(prog, start);
--	this_cpu_dec(*(prog->active));
-+	bpf_prog_put_recursion_context(prog);
- 	migrate_enable();
- 	rcu_read_unlock_trace();
- }
-diff --git a/kernel/trace/bpf_trace.c b/kernel/trace/bpf_trace.c
-index fe28d86f7c35..6e076485bf70 100644
---- a/kernel/trace/bpf_trace.c
-+++ b/kernel/trace/bpf_trace.c
-@@ -2063,7 +2063,7 @@ void __bpf_trace_run(struct bpf_raw_tp_link *link, u64 *args)
- 	struct bpf_trace_run_ctx run_ctx;
- 
- 	cant_sleep();
--	if (unlikely(this_cpu_inc_return(*(prog->active)) != 1)) {
-+	if (unlikely(!bpf_prog_get_recursion_context(prog))) {
- 		bpf_prog_inc_misses_counter(prog);
- 		goto out;
+diff --git a/kernel/bpf/core.c b/kernel/bpf/core.c
+index c66316e32563..e0b8a8a5aaa9 100644
+--- a/kernel/bpf/core.c
++++ b/kernel/bpf/core.c
+@@ -112,7 +112,8 @@ struct bpf_prog *bpf_prog_alloc_no_stats(unsigned int size, gfp_t gfp_extra_flag
+ 		vfree(fp);
+ 		return NULL;
  	}
-@@ -2077,7 +2077,7 @@ void __bpf_trace_run(struct bpf_raw_tp_link *link, u64 *args)
- 
- 	bpf_reset_run_ctx(old_run_ctx);
- out:
--	this_cpu_dec(*(prog->active));
-+	bpf_prog_put_recursion_context(prog);
- }
- 
- #define UNPACK(...)			__VA_ARGS__
+-	fp->active = alloc_percpu_gfp(int, bpf_memcg_flags(GFP_KERNEL | gfp_extra_flags));
++	fp->active = __alloc_percpu_gfp(sizeof(u8[BPF_NR_CONTEXTS]), 4,
++					bpf_memcg_flags(GFP_KERNEL | gfp_extra_flags));
+ 	if (!fp->active) {
+ 		vfree(fp);
+ 		kfree(aux);
 -- 
 2.47.3
 
