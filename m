@@ -4,86 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0943D74960
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 07:18:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D8E1D74961
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 07:35:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=1IrJKg16n0r0CIEBnXbT8hq0ulnTBn4qAKgmCelXFeU=; b=CT1k+1JtjC/bEb
-	XutaJ70gXiAjDsYZexFAJkNdrKBJ0vLAVJ4ShJdlmT76e9nC0N1PYkQeIf6Bmu4ENummaC0vKTz53
-	rc3OzY1cC5ASg2k8xJy8OL6hJ1md+vhPYqZ18fxvTf3Xi1DGMaRDAReCU3bi9L3XPH3nvNX/qfepZ
-	/wxYnS54CFgkKfeBE407geKHq7OMXqZJmhWxcuk0oa0jn90BciQEjvy8i+z6At3FNRA9UEcdpFPRN
-	3XzrPfbsX1nZ3LeAwMheNuOwR/AS6joP5PkEsaMzfOLXWox9aIyv8goX3HhPJOhuPrtXEjP1k7pR1
-	U+BKZUbmJeUou0VPWH7g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UjCyWH/Za62AxtAdaWZAqn4it1Ao4OfYF5Sw/Ds01Ss=; b=YAZKP1IFo6SckIlS58iWKythKj
+	mrmfVvv/XHLRGpLm2ia4qQWNa6pOBTkxdsHXRqU4tuI+buU3V7HjEh6U8lbTV32ftczvftW2aEtiN
+	rxkYMbH+g90JNSWDZBcZPLLZtFcoykHkE7BPPlyVyZgAz+PEYaoI2RALkkbriViR83ApphqkmM6g4
+	PWbjCyZe/Sf87/AbNvSWszpDirGg5Bh+PmM5C7qWf+LHvyq6WZiHnfgcc9weQO6y3GHckTC+jQjxR
+	mVpZsP2PW3rE5Pucu3BUfh7t6uCu0mFh8n7A+agLVYAPYXVXmbnBqwCQgV+CqTSpZBnNfTLhn2IZW
+	HznXGO5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWUl4-00000009kkA-3bZX;
-	Fri, 19 Dec 2025 07:18:40 +0000
-Received: from mail-vk1-xa2d.google.com ([2607:f8b0:4864:20::a2d])
+	id 1vWV15-00000009lFy-2RyQ;
+	Fri, 19 Dec 2025 07:35:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWUl2-00000009kj8-1zNO
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Dec 2025 07:18:37 +0000
-Received: by mail-vk1-xa2d.google.com with SMTP id 71dfb90a1353d-55b4dafb425so1614393e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 23:18:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1766128715; x=1766733515; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=1IrJKg16n0r0CIEBnXbT8hq0ulnTBn4qAKgmCelXFeU=;
-        b=E7j6yuLBjvHuZQgsE5Ofm/dbxBTh/EcZWWlJpcOP2RZ5Fsdihy2QeB9/upXNBROTMc
-         HfEPJ/dHnvCTbjCDXnK4Lt145tGBHCjNVfCDVylpOLdAk88q8C09Uvfdq5ysjz59WVm1
-         rAh/C+14dsExRYxfyvusf+JwOPtBVZxmdcZvc6HRi2omjI0KRJQ+sGAQ2x5h9NRUNQn0
-         Lulb/vDqhICNJR7NiTgDhGDJ8sDrtOEatx5I7ESNzByTsZ5yZLf+nUKX1u4KcpTjucD7
-         RdLroiwCEJCPCoZ6fXdS7i7Yu/aj4DdTepFLkFMbsGxT7bn9LQh4BZXTfC7aZxD7Yl7u
-         NG7A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766128715; x=1766733515;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1IrJKg16n0r0CIEBnXbT8hq0ulnTBn4qAKgmCelXFeU=;
-        b=ltP47PU8xViwiMMzxRe4JQ12A5FLLCFcKtvxwI3V/hQk4D2xqyELywna479XM5vIO5
-         6cxe1/oSEuQxseOp6z0smC/mtRaSU2CCmW2LxK4CpzyKviZV2nX95a+RYBHzwba/hv/j
-         0AVGDZDG0UPD3UmQpw4rP3GxsxXLCw7IXRtFK9e+AYR3Wg3e9KALnYFKlE/v6zqSpqHl
-         zt4znJKS5auRhltMC1bDA8eHW5qk5ASiReaBXSsYPWbJQ7KNmiroRd+DvVQmUFccU7Fx
-         xo2fDlLk/gRaUSX84pOzFn4GHXnpUeb4xvUa2qKsntrA40iGCXnfeR9h2z3xgmzb+D+v
-         IzbA==
-X-Forwarded-Encrypted: i=1; AJvYcCWMX4JmdKPtJ559QSkP/7tpc96WoUSzxWpMAbP2w6Lxji5r9USitoNaUAAEexu8Fwe46McZISj2nI1R1qKD0S0u@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwaL7SUySXCoQC+ooV4KYqRtM4OxVl7Ian4uKecRWSF8Rhlahh
-	Wwjp5Woho4ZGzg6PEl5855n/zoGk+XBugBL/KDySQqnMqdS8lEroTlssACxzYQ==
-X-Gm-Gg: AY/fxX6N43bsz8d6B33WkQhNeJ3ZjroLn6+tfM10ZYHYDQMu1/s6mJmr4f+HSps/6A2
-	LnfgtgITQeDyyI9ZWQsgQDBL8lhRyrNL/hJnO4eU/uHItUfEJND523F99dUoBzZcz0XZZBfufHb
-	eYcHPywASYSADz1dTAOghKzFFlVKcD2FyPbJ4OeSLHkGFdFrxjHXTdaWJAVEq9mZMrmoRXUHUXB
-	bHSBYXZtVI+TOiVoaYs7cmScWv7hVYLv/4iZrTuCaiQ/xWrgXwS7CSNlGfa38CKbRoY48vxlopo
-	XRUJlugtkgW50HBAycWOJm9T+I9+i0En01iV8acNRfF5HOWygXHzptXSwEBXcUlATaYHkDNC5ay
-	uRDKruguzh6aVi3xAN6FtriQXMA9G/GnT0Q1tL+5XhZqN3vvPeJYtXv+3E6vcssYQxWtrlSV+vz
-	1SUd70ViDOJ6yOGzH2PPunL7jHgxJWEQ==
-X-Google-Smtp-Source: AGHT+IEkWsdLvc7hzxOYBMMAqCPp3sEUnqVWT1X9Dvfup3Q7yPR3CDi//lUU3Iv0eyLEQk9EdacVTg==
-X-Received: by 2002:a17:902:cccd:b0:2a0:9238:881d with SMTP id d9443c01a7336-2a2cab15ebdmr56821655ad.15.1766122630230;
-        Thu, 18 Dec 2025 21:37:10 -0800 (PST)
-Received: from Barrys-MBP.hub ([47.72.129.29])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a2f3d4d895sm9930215ad.54.2025.12.18.21.37.03
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 18 Dec 2025 21:37:09 -0800 (PST)
-From: Barry Song <21cnbao@gmail.com>
-To: catalin.marinas@arm.com,
-	m.szyprowski@samsung.com,
-	robin.murphy@arm.com,
-	will@kernel.org
-Subject: [PATCH 0/6] dma-mapping: arm64: support batched cache sync
-Date: Fri, 19 Dec 2025 13:36:52 +0800
-Message-Id: <20251219053658.84978-1-21cnbao@gmail.com>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+	id 1vWV13-00000009lFn-3pHA;
+	Fri, 19 Dec 2025 07:35:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B672160008;
+	Fri, 19 Dec 2025 07:35:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5800CC4CEF1;
+	Fri, 19 Dec 2025 07:35:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766129708;
+	bh=UFYiLPoUdNxWhfMRrjS7vxL4zRDLpmZgX5Xj7zFgNLo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rGSzWIMd8xMiGfVw7DbXCqdns9/DzqDprIJx3lPoRaPgJqhu4HEoT2aucmpYhs7+b
+	 iqTj/tPAF+otAIvi6IYCynmAtqmU5VErvdG4XsHn8igDq+hNBnoqsPY7CB1yicq7fp
+	 /VEjfJIRZqTkmcycmss/3BHRCHVomYi1UCi8xgp2ZRPwTyJ89tHFJVHM256nLF/aGl
+	 Zv+n0QmpF+SUFMr0wnqZu5cqZ///KZwqYx6OV+jzxcDYZT6xYbrF+emteN5VV5ezN8
+	 wW4vQwYwZm00PzuKwM9zN76kC9r+9o/RdWgGcYKNHA4hD9YvweTojXFkoLivFxTcEI
+	 KEyVvlZiTY7gA==
+Date: Fri, 19 Dec 2025 08:35:04 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: "irving.ch.lin" <irving-ch.lin@mediatek.com>
+Cc: Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Ulf Hansson <ulf.hansson@linaro.org>, 
+	Richard Cochran <richardcochran@gmail.com>, Qiqi Wang <qiqi.wang@mediatek.com>, linux-clk@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org, 
+	netdev@vger.kernel.org, Project_Global_Chrome_Upstream_Group@mediatek.com, 
+	sirius.wang@mediatek.com, vince-wl.liu@mediatek.com, jh.hsu@mediatek.com
+Subject: Re: [PATCH v4 01/21] dt-bindings: clock: mediatek: Add MT8189 clock
+ definitions
+Message-ID: <20251219-venomous-ninja-uakari-bf8d1a@quoll>
+References: <20251215034944.2973003-1-irving-ch.lin@mediatek.com>
+ <20251215034944.2973003-2-irving-ch.lin@mediatek.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_231836_539194_77F7AADE 
-X-CRM114-Status: GOOD (  11.15  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20251215034944.2973003-2-irving-ch.lin@mediatek.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,64 +74,192 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: v-songbaohua@oppo.com, zhengtangquan@oppo.com, ryan.roberts@arm.com, anshuman.khandual@arm.com, maz@kernel.org, linux-kernel@vger.kernel.org, iommu@lists.linux.dev, surenb@google.com, ardb@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Barry Song <v-songbaohua@oppo.com>
+On Mon, Dec 15, 2025 at 11:49:10AM +0800, irving.ch.lin wrote:
+> From: Irving-CH Lin <irving-ch.lin@mediatek.com>
+> 
+> Add device tree bindings for the clock of MediaTek MT8189 SoC.
 
-Many embedded ARM64 SoCs still lack hardware cache coherency support, which
-causes DMA mapping operations to appear as hotspots in on-CPU flame graphs.
+You in different patchset already received that comment:
 
-For an SG list with *nents* entries, the current dma_map/unmap_sg() and DMA
-sync APIs perform cache maintenance one entry at a time. After each entry,
-the implementation synchronously waits for the corresponding region’s
-D-cache operations to complete. On architectures like arm64, efficiency can
-be improved by issuing all entries’ operations first and then performing a
-single batched wait for completion.
+A nit, subject: drop second/last, redundant "bindings" or "definitions"
+or whatever you keep adding here redundantly. The
+"dt-bindings" prefix is already stating that these are bindings.
+See also:
+https://elixir.bootlin.com/linux/v6.17-rc3/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
 
-Tangquan's results show that batched synchronization can reduce
-dma_map_sg() time by 64.61% and dma_unmap_sg() time by 66.60% on an MTK
-phone platform (MediaTek Dimensity 9500). The tests were performed by
-pinning the task to CPU7 and fixing the CPU frequency at 2.6 GHz,
-running dma_map_sg() and dma_unmap_sg() on 10 MB buffers (10 MB / 4 KB
-sg entries per buffer) for 200 iterations and then averaging the
-results.
+Can you finally read the docs?
 
-I also ran this patch set on an RK3588 Rock5B+ board and
-observed that millions of DMA sync operations were batched.
+> 
+> Signed-off-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
+> ---
+>  .../bindings/clock/mediatek,mt8189-clock.yaml |  90 +++
+>  .../clock/mediatek,mt8189-sys-clock.yaml      |  58 ++
+>  .../dt-bindings/clock/mediatek,mt8189-clk.h   | 580 ++++++++++++++++++
+>  3 files changed, 728 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/clock/mediatek,mt8189-clock.yaml
+>  create mode 100644 Documentation/devicetree/bindings/clock/mediatek,mt8189-sys-clock.yaml
+>  create mode 100644 include/dt-bindings/clock/mediatek,mt8189-clk.h
+> 
+> diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt8189-clock.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt8189-clock.yaml
+> new file mode 100644
+> index 000000000000..d21e02df36a1
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/clock/mediatek,mt8189-clock.yaml
+> @@ -0,0 +1,90 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/clock/mediatek,mt8189-clock.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: MediaTek Functional Clock Controller for MT8189
+> +
+> +maintainers:
+> +  - Qiqi Wang <qiqi.wang@mediatek.com>
 
-diff with RFC:
- * Dropped lots of #ifdef/#else/#endif according to Catalin and Marek,
-  thanks!
- * Also add iova link/unlink batches, which is marked as RFC as i lack
-   hardware. This is suggested by Marek, thanks!
+Why there is n ack for this? Is above person going to provide any
+reviews? Why didn't this person review this binding, already at v4.
 
-RFC link:
- https://lore.kernel.org/lkml/20251029023115.22809-1-21cnbao@gmail.com/
+> +
+> +description: |
+> +  The clock architecture in MediaTek like below
+> +  PLLs -->
+> +          dividers -->
+> +                      muxes -->
+> +                               clock gate
+> +
+> +  The devices provide clock gate control in different IP blocks.
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - mediatek,mt8189-camsys-main
+> +          - mediatek,mt8189-camsys-rawa
+> +          - mediatek,mt8189-camsys-rawb
+> +          - mediatek,mt8189-dbg-ao
+> +          - mediatek,mt8189-dem
+> +          - mediatek,mt8189-dispsys
+> +          - mediatek,mt8189-dvfsrc-top
+> +          - mediatek,mt8189-gce-d
+> +          - mediatek,mt8189-gce-m
+> +          - mediatek,mt8189-iic-wrap-e
+> +          - mediatek,mt8189-iic-wrap-en
+> +          - mediatek,mt8189-iic-wrap-s
+> +          - mediatek,mt8189-iic-wrap-ws
+> +          - mediatek,mt8189-imgsys1
+> +          - mediatek,mt8189-imgsys2
+> +          - mediatek,mt8189-infra-ao
+> +          - mediatek,mt8189-ipesys
+> +          - mediatek,mt8189-mdpsys
+> +          - mediatek,mt8189-mfgcfg
+> +          - mediatek,mt8189-mm-infra
+> +          - mediatek,mt8189-peri-ao
+> +          - mediatek,mt8189-scp-clk
+> +          - mediatek,mt8189-scp-i2c-clk
+> +          - mediatek,mt8189-ufscfg-ao
+> +          - mediatek,mt8189-ufscfg-pdn
+> +          - mediatek,mt8189-vdec-core
+> +          - mediatek,mt8189-venc
+> +      - const: syscon
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  '#clock-cells':
+> +    const: 1
+> +
+> +  '#reset-cells':
+> +    const: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - '#clock-cells'
+> +
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - mediatek,mt8189-peri-ao
+> +              - mediatek,mt8189-ufscfg-ao
+> +              - mediatek,mt8189-ufscfg-pdn
+> +
+> +    then:
+> +      required:
+> +        - '#reset-cells'
 
-Barry Song (6):
-  arm64: Provide dcache_by_myline_op_nosync helper
-  arm64: Provide dcache_clean_poc_nosync helper
-  arm64: Provide dcache_inval_poc_nosync helper
-  arm64: Provide arch_sync_dma_ batched helpers
-  dma-mapping: Allow batched DMA sync operations if supported by the
-    arch
-  dma-iommu: Allow DMA sync batching for IOVA link/unlink
+else:
+  properties:
+    reset-cells: false
 
- arch/arm64/Kconfig                  |  1 +
- arch/arm64/include/asm/assembler.h  | 79 +++++++++++++++++++-------
- arch/arm64/include/asm/cacheflush.h |  2 +
- arch/arm64/mm/cache.S               | 58 +++++++++++++++----
- arch/arm64/mm/dma-mapping.c         | 24 ++++++++
- drivers/iommu/dma-iommu.c           | 12 +++-
- include/linux/dma-map-ops.h         | 22 ++++++++
- kernel/dma/Kconfig                  |  3 +
- kernel/dma/direct.c                 | 28 +++++++---
- kernel/dma/direct.h                 | 86 +++++++++++++++++++++++++----
- 10 files changed, 262 insertions(+), 53 deletions(-)
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    clock-controller@11b21000 {
+> +        compatible = "mediatek,mt8189-iic-wrap-ws", "syscon";
+> +        reg = <0x11b21000 0x1000>;
+> +        #clock-cells = <1>;
+> +    };
+> diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt8189-sys-clock.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt8189-sys-clock.yaml
+> new file mode 100644
+> index 000000000000..c94de207e289
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/clock/mediatek,mt8189-sys-clock.yaml
+> @@ -0,0 +1,58 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/clock/mediatek,mt8189-sys-clock.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: MediaTek System Clock Controller for MT8189
+> +
+> +maintainers:
+> +  - Qiqi Wang <qiqi.wang@mediatek.com>
 
--- 
-2.39.3 (Apple Git-146)
+Same problem. We are at v4 and maintainer did not bother to review it in
+public. What sort of maintenance is this?
+
+> +
+> +description: |
+> +  The clock architecture in MediaTek like below
+> +  PLLs -->
+> +          dividers -->
+> +                      muxes -->
+> +                               clock gate
+
+Pretty obvious, no? Is there a clock topology which is different?
+
+> +
+> +  The apmixedsys provides most of PLLs which generated from SoC 26m.
+> +  The topckgen provides dividers and muxes which provide the clock source to other IP blocks.
+> +  The infracfg_ao provides clock gate in peripheral and infrastructure IP blocks.
+> +  The mcusys provides mux control to select the clock source in AP MCU.
+> +  The device nodes also provide the system control capacity for configuration.
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - mediatek,mt8189-apmixedsys
+> +          - mediatek,mt8189-topckgen
+> +          - mediatek,mt8189-vlpckgen
+> +          - mediatek,mt8189-vlp-ao
+> +          - mediatek,mt8189-vlpcfg-ao
+> +      - const: syscon
+
+I do not understand why this is separate from the previous binding. It's
+exactly the same, even description is the same.
+
+Best regards,
+Krzysztof
 
 
