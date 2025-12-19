@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66F18D7879F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 18:14:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4227DD7879F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 18:14:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MiJKwPrWZpj3Hu8w+HxyH779DZCPRK8+Wnx7kGGJHXU=; b=UVvQpYIwB/kX8fN52XQbMj62OY
-	rAVWSbICa/nkt3gttd/2aKygSgaAL3RGo+lFw4xDPZh0bO84iEmm2C7Iz6L47h9bgabkmUEU7koHn
-	kEzMLyV2O5WNX7ZXlB77QVccqGUHULjIDxcyacvbsSGFI8r6FhIUvGsPXLbM8tc45zGx6z9d39SYk
-	+CgdGb4iiUpV8zYUNngel66hYnBAM5/GEFZQ6EtWXOTPRykkpMmpdGYNtnu5yqlanWO200Ooira8f
-	cX9mQHkCtVsBM7DiHXP5gGJOOWsBEFt3ZwCGkK+P3uebXG7eZ5nlbywyEr2/Nh3xZs7Og8u8iqPrX
-	4wF7V1gg==;
+	bh=nehXzU1OllPQQqSUDLqLLDudknONjBNvdno81CjnBDU=; b=GbxGwr7ZfVi41+NB7mI0J70i/M
+	NFWdeiuUbGUVLF1djwoLr2lUzw720GIzWh638HM2dfLD4XULbri4sSkaJRyj8rguR91Auk6UBFDJI
+	+ir3ZSkHWPU/LPPF1AZrDwU8j+vDeWp3zA7WPhlCbeHFSLpHPLw+Xjx4rS9RWlujFquA4vxqgK/Nu
+	kviI7TXwuUgdDaQsh0rowpxOWL5JHzsNy0Fe87ZQZX/WyRKss9S3DX9ZaegeKdiqawVSGMVso+ypF
+	q/6CDfw7nmlhGRt5qzhdoH4fdjAjyrsf8xLZLjgSky2pvjTHEuF7VT2xU1jFyUmtEhw2ONG6tWd2C
+	m1Z3JzCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWezJ-0000000AmW2-1PRo;
-	Fri, 19 Dec 2025 18:14:01 +0000
+	id 1vWezN-0000000AmbE-3d3Y;
+	Fri, 19 Dec 2025 18:14:05 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWezB-0000000AmM5-0RIY
+	id 1vWezG-0000000AmSa-35So
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Dec 2025 18:13:58 +0000
+	Fri, 19 Dec 2025 18:14:04 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6FE29106F;
-	Fri, 19 Dec 2025 10:13:45 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4AA4AFEC;
+	Fri, 19 Dec 2025 10:13:50 -0800 (PST)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 1E9123F5CA;
-	Fri, 19 Dec 2025 10:13:47 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id CF8E23F5CA;
+	Fri, 19 Dec 2025 10:13:52 -0800 (PST)
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com
 Cc: amitsinght@marvell.com,
@@ -66,19 +66,19 @@ Cc: amitsinght@marvell.com,
 	oupton@kernel.org,
 	joey.gouly@arm.com,
 	suzuki.poulose@arm.com,
-	kvmarm@lists.linux.dev
-Subject: [PATCH v2 23/45] arm_mpam: resctrl: Add rmid index helpers
-Date: Fri, 19 Dec 2025 18:11:25 +0000
-Message-ID: <20251219181147.3404071-24-ben.horgan@arm.com>
+	kvmarm@lists.linux.dev,
+	Dave Martin <Dave.Martin@arm.com>
+Subject: [PATCH v2 24/45] arm_mpam: resctrl: Convert to/from MPAMs fixed-point formats
+Date: Fri, 19 Dec 2025 18:11:26 +0000
+Message-ID: <20251219181147.3404071-25-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251219181147.3404071-1-ben.horgan@arm.com>
 References: <20251219181147.3404071-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_101353_213265_4F240C73 
-X-CRM114-Status: UNSURE (   9.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251219_101358_878690_68E9020E 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,77 +93,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: James Morse <james.morse@arm.com>
+From: Dave Martin <Dave.Martin@arm.com>
 
-Because MPAM's pmg aren't identical to RDT's rmid, resctrl handles some
-data structures by index. This allows x86 to map indexes to RMID, and MPAM
-to map them to partid-and-pmg.
+MPAM uses a fixed-point formats for some hardware controls.  Resctrl
+provides the bandwidth controls as a percentage. Add helpers to convert
+between these.
 
-Add the helpers to do this.
-
+Signed-off-by: Dave Martin <Dave.Martin@arm.com>
 Signed-off-by: James Morse <james.morse@arm.com>
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
-Changes since rfc:
-Use ~0U instead of ~0 in lhs of left shift
----
- drivers/resctrl/mpam_resctrl.c | 28 ++++++++++++++++++++++++++++
- include/linux/arm_mpam.h       |  3 +++
- 2 files changed, 31 insertions(+)
+ drivers/resctrl/mpam_resctrl.c | 41 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 41 insertions(+)
 
 diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index 4275b1a85887..bdbc5504964b 100644
+index bdbc5504964b..a20656e49edc 100644
 --- a/drivers/resctrl/mpam_resctrl.c
 +++ b/drivers/resctrl/mpam_resctrl.c
-@@ -120,6 +120,34 @@ u32 resctrl_arch_get_num_closid(struct rdt_resource *ignored)
- 	return mpam_partid_max + 1;
+@@ -10,6 +10,7 @@
+ #include <linux/errno.h>
+ #include <linux/limits.h>
+ #include <linux/list.h>
++#include <linux/math.h>
+ #include <linux/printk.h>
+ #include <linux/rculist.h>
+ #include <linux/resctrl.h>
+@@ -246,6 +247,46 @@ static bool cache_has_usable_cpor(struct mpam_class *class)
+ 	return class->props.cpbm_wd <= 32;
  }
  
-+u32 resctrl_arch_system_num_rmid_idx(void)
++/*
++ * Each fixed-point hardware value architecturally represents a range
++ * of values: the full range 0% - 100% is split contiguously into
++ * (1 << cprops->bwa_wd) equal bands.
++ * Find the nearest percentage value to the upper bound of the selected band:
++ */
++static u32 mbw_max_to_percent(u16 mbw_max, struct mpam_props *cprops)
 +{
-+	u8 closid_shift = fls(mpam_pmg_max);
-+	u32 num_partid = resctrl_arch_get_num_closid(NULL);
++	u32 val = mbw_max;
 +
-+	return num_partid << closid_shift;
++	val >>= 16 - cprops->bwa_wd;
++	val += 1;
++	val *= MAX_MBA_BW;
++	val = DIV_ROUND_CLOSEST(val, 1 << cprops->bwa_wd);
++
++	return val;
 +}
 +
-+u32 resctrl_arch_rmid_idx_encode(u32 closid, u32 rmid)
++/*
++ * Find the band whose upper bound is closest to the specified percentage.
++ *
++ * A round-to-nearest policy is followed here as a balanced compromise
++ * between unexpected under-commit of the resource (where the total of
++ * a set of resource allocations after conversion is less than the
++ * expected total, due to rounding of the individual converted
++ * percentages) and over-commit (where the total of the converted
++ * allocations is greater than expected).
++ */
++static u16 percent_to_mbw_max(u8 pc, struct mpam_props *cprops)
 +{
-+	u8 closid_shift = fls(mpam_pmg_max);
++	u32 val = pc;
 +
-+	WARN_ON_ONCE(closid_shift > 8);
++	val <<= cprops->bwa_wd;
++	val = DIV_ROUND_CLOSEST(val, MAX_MBA_BW);
++	val = max(val, 1) - 1;
++	val <<= 16 - cprops->bwa_wd;
 +
-+	return (closid << closid_shift) | rmid;
++	return val;
 +}
 +
-+void resctrl_arch_rmid_idx_decode(u32 idx, u32 *closid, u32 *rmid)
-+{
-+	u8 closid_shift = fls(mpam_pmg_max);
-+	u32 pmg_mask = ~(~0U << closid_shift);
-+
-+	WARN_ON_ONCE(closid_shift > 8);
-+
-+	*closid = idx >> closid_shift;
-+	*rmid = idx & pmg_mask;
-+}
-+
- void resctrl_arch_sched_in(struct task_struct *tsk)
+ /* Test whether we can export MPAM_CLASS_CACHE:{2,3}? */
+ static void mpam_resctrl_pick_caches(void)
  {
- 	lockdep_assert_preemption_disabled();
-diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
-index ba0312b55d9f..385554ceb452 100644
---- a/include/linux/arm_mpam.h
-+++ b/include/linux/arm_mpam.h
-@@ -59,6 +59,9 @@ void resctrl_arch_set_cpu_default_closid_rmid(int cpu, u32 closid, u32 rmid);
- void resctrl_arch_sched_in(struct task_struct *tsk);
- bool resctrl_arch_match_closid(struct task_struct *tsk, u32 closid);
- bool resctrl_arch_match_rmid(struct task_struct *tsk, u32 closid, u32 rmid);
-+u32 resctrl_arch_rmid_idx_encode(u32 closid, u32 rmid);
-+void resctrl_arch_rmid_idx_decode(u32 idx, u32 *closid, u32 *rmid);
-+u32 resctrl_arch_system_num_rmid_idx(void);
- 
- /**
-  * mpam_register_requestor() - Register a requestor with the MPAM driver
 -- 
 2.43.0
 
