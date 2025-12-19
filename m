@@ -4,62 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D687D7878A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 15:25:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CA7BD7878F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 15:27:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oYvv94Zsk3x17wcAmOB8XNIIZZOimm0gG0SNyPnA8+I=; b=z6cfzVwBXMSNwKwYSysQVpG05G
-	eKk+SLUzNR+r7ExtGEOi6yVw8r16KyPakjScrGPeOCgmKWazdmOL/WluhTQ8iRMLzYz0vY9vdqd07
-	Qemp0JSQB6nEE0TCCq7XCdICMvXcuUs2JLYE0KERPeqj/824GOp1Cs+AAMSoW7tZjqb0hU5iIJZ4I
-	boP7eRWulTQyIyIDgwiU+zhJbA9alqVubQx2b5eO0j1HzUxkSlSSc3k1IRO2FwXpxdlCKKWDbluhW
-	VRnBsVOEcC5Fe4E6BTK8mCaNJ/EA6IU3jQ80eRS4ak6m2w+X8+S46gjEm7vVWvFOMe0DaTxLFU7CY
-	V3yAlIpA==;
+	bh=2jTYiglxStDtXsSEnUykLvaztp4zFR1IyBOZjWnkqBQ=; b=QAmcRoMS8QOy4FPKx0OTYjTSFD
+	bczEuULT1/im1CBEn+oUBsRkUw4zRKtRmLtXSyuqGipw/QgVXVsmMfFQDRShcu0Z87AJw/Mc28FO3
+	xChkF2rJwIfmh4fQap/MDR4q+sQdVnCjuynuCxY72dJwnVjvxlZ38zhXl+Pb8kJzcHu5LtfaydbGE
+	XrRZu0gqGZrl3iLRox0Hmh4AR1IxHaM0iJrUN4EkFWpIloOD/QE3D+qGYhOo2zdoUXWvTFypmO12a
+	w2E2GfM7wxDvPCT2BUNRzLfy5Z226Tvnbj+XIZgH0XuA6VytYYu4HJe2szuriDbHwBmdjSIH3UzET
+	24WzjTYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWcMF-0000000AVTf-3KkK;
-	Fri, 19 Dec 2025 15:25:31 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vWcOT-0000000AVcz-00MH;
+	Fri, 19 Dec 2025 15:27:49 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWcME-0000000AVTW-2Mnx;
-	Fri, 19 Dec 2025 15:25:30 +0000
+	id 1vWcOR-0000000AVcq-1Qbl;
+	Fri, 19 Dec 2025 15:27:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AEFE460008;
-	Fri, 19 Dec 2025 15:25:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CBE9C4CEF1;
-	Fri, 19 Dec 2025 15:25:29 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7433E60177;
+	Fri, 19 Dec 2025 15:27:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 053CCC113D0;
+	Fri, 19 Dec 2025 15:27:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766157929;
-	bh=b7ZQFUmybQOKOhzGs8UkdT5AC/ICY2hLdh/vjkXWyaA=;
+	s=k20201202; t=1766158066;
+	bh=vQauREzCyjgGY9d4eFEp7tYVqXhmLb3hWwe5rJcduI4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RXdQBjNeX/Bqk7SOAQ72GTn3XZquDe5oklsreC30NWFztnWgXtzQSwF9jGWbVn/I6
-	 7Hh5EkuMS+vQpFwkPmzBV/PNP+2hu1UlCpDlwGni6IP1a56PJCHV4xFHtj3ahvfIPl
-	 thEwGdmZNBh1oXSr5lMQeVpJy3763/VIA8VtKdQQYSItwyL6JJd0fit0SKrAXZkszI
-	 +i1AuoFPa1FaJ+F0MC/l1g+D3pUXdm6rUK2dpjyBfkbSVaE82+H+ffmY3Gg6Jf7Oev
-	 suyBS6/QJH9dyyTzLZVYVOZ9EKRUdjCiGXTKGj6PKIQja/M15mChjIqq5EYrn79+V/
-	 SL75hkgARsRQg==
-Date: Fri, 19 Dec 2025 09:25:26 -0600
+	b=M+gjTr59eWJ38omM1OBz1Aw3Z7BgGjrTF7L2zoReMfykc2mprtIUIxC2MrLS59UHz
+	 BXIBUYW1nkC/gCxC1SpLaywXJqzVf7xPY1AKkZdnGfgp/SwlRdPdG+k4EfFcq3wmcP
+	 9ndPN66aiP5VhnCvhvn5le22dEfUkiTRdtlUh0eWB3s8my10jGljuPyxNlrgO7waH0
+	 GVU0D3pJAOv4bh6NccjiQAagkn9IfWygDqiWBvvuJJrFeIb9/4MhQmpgBau2/+kJ0F
+	 BKKPfpgghVFJ3AHPkneiOaWNqqPm5bcPqpc694BUuaYjkD4ZZt8MQ3J6I2/FO9Jpni
+	 ABGjKE404Gk4Q==
+Date: Fri, 19 Dec 2025 09:27:43 -0600
 From: Rob Herring <robh@kernel.org>
-To: Andrea della Porta <andrea.porta@suse.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+To: Frank Wunderlich <linux@fw-web.de>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Bjorn Helgaas <bhelgaas@google.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
-	iivanov@suse.de, svarbanov@suse.de, mbrugger@suse.com,
-	Phil Elwell <phil@raspberrypi.com>
-Subject: Re: [PATCH 0/4] Fix RP1 DeviceTree hierarchy and drop overlay support
-Message-ID: <20251219152526.GA3333129-robh@kernel.org>
-References: <cover.1766077285.git.andrea.porta@suse.com>
+	Frank Wunderlich <frank-w@public-files.de>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v1 0/2] build full dtbs for BananaPi R3/R4(Pro)
+Message-ID: <20251219152743.GA3410594-robh@kernel.org>
+References: <20251119175124.48947-1-linux@fw-web.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <cover.1766077285.git.andrea.porta@suse.com>
+In-Reply-To: <20251119175124.48947-1-linux@fw-web.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,69 +72,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 18, 2025 at 08:09:05PM +0100, Andrea della Porta wrote:
-> The current RP1 implementation is plagued by several issues, as follows:
+On Wed, Nov 19, 2025 at 06:51:21PM +0100, Frank Wunderlich wrote:
+> From: Frank Wunderlich <frank-w@public-files.de>
 > 
-> - the node name for RP1 is too specific and should be generic instead
->   (see [1]).
+> Build devicetree binaries for testing overlays and providing users
+> full dtb without using overlays for Bananapi R4 (pro) variants.
 > 
-> - the fully defined DTS has its PCI hierarchy wrongly described. There
->   should be a PCI root port between the root complex and the endpoint
->   (see [1]).
+> It is not required to build all possible combinations, only for
+> common usecases and to test if all overlays can be applied.
 > 
-> - since CONFIG_PCI_DYNAMIC_OF_NODES can be dropped in the future
->   becoming an automatically enabled feature, it would be wise to not
->   depend on it (see [2]).
+> This series is based on
+> https://git.kernel.org/pub/scm/linux/kernel/git/mediatek/linux.git/log/?h=v6.18-next/dts64
 > 
-> - overlay support has led to a lot of confusion. It's not really usable 
->   right now and users are not even used to it (see [3]).
-> 
-> This patch aims at solving the aforementioned problems by amending the
-> PCI topology as follows:
-> 
->   ...
->   pcie@1000120000 {
->     ...
-> 
->     pci@0,0 {
->       device_type = "pci";
->       reg = <0x00 0x00 0x00 0x00 0x00>;
->       ...
-> 
->       dev@0,0 {
->         compatible = "pci1de4,1";
->         reg = <0x10000 0x00 0x00 0x00 0x00>;
->         ...
-> 
->         pci-ep-bus@1 {
->           compatible = "simple-bus";
->           ...
-> 
->           /* peripherals child nodes */
->         }; 
->       }; 
->     }; 
->   }; 
-> 
-> The reg property is important since it permits the binding the OF
-> device_node structure to the pci_dev, encoding the BDF in the upper
-> portion of the address.
-> 
-> This patch also drops the overlay support in favor of the fully
-> described DT while streamlining it as a result.
-> 
-> Links:
-> [1] - https://lore.kernel.org/all/aTvz_OeVnciiqATz@apocalypse/
-> [2] - https://lore.kernel.org/all/CAL_JsqJUzB71QdMcxJtNZ7raoPcK+SfTh7EVzGmk=syo8xLKQw@mail.gmail.com/
-> [3] - https://lore.kernel.org/all/CAL_JsqJUzB71QdMcxJtNZ7raoPcK+SfTh7EVzGmk=syo8xLKQw@mail.gmail.com/
-> 
-> Andrea della Porta (4):
->   dt-bindings: misc: pci1de4,1: add required reg property for endpoint
->   misc: rp1: drop overlay support
->   arm64: dts: broadcom: bcm2712: fix RP1 endpoint PCI topology
->   arm64: dts: broadcom: rp1: drop RP1 overlay
+> Frank Wunderlich (2):
+>   arm64: dts: mediatek: mt7986: add dtbs with applied overlays for
+>     bpi-r3
+>   arm64: dts: mediatek: mt7988: add dtbs with applied overlays for
+>     bpi-r4 (pro)
 
-Thanks for doing this.
+Since there's been no movement on this, I've applied this series and the 
+other patch and will send to Linus today.
 
-Reviewed-by: Rob Herring <robh@kernel.org>
+Rob
 
