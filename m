@@ -4,94 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1F44D7496D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 09:26:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7806D7496D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 09:26:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sMnbsBDys3Q5ALCY69G8Tp1FxSfr5hlJBitMcGmH9sY=; b=TK5sd6R4gNvSs2CQXRuGiWVjQh
-	pSkT6JTg/yzlKpv+WaYI20+oO3Uw4M3aZiKst6el5AWwS6Pnk4ga27hb+AswmTaW+q3IjimrbDX1f
-	4GQx87LoNo6RBo2KvTQFEq/MTlkgYfctfSfHIJtlSeBEP7tNmk8o+K92m+y49K63JefpVsRui/CNi
-	36g28fzJj4T0QAAqRKm61p933ty35Motf758Mnr5QM1woBJ+aPRdr+5/YcJzgkFpfA9oZ5p7mFvGo
-	CtbmB0Gmjo7wSfY2q0JUmzj20mxBBg5LwbPuwCXORpqKywVEOzJmkHepOIe7DiQJG9n3eHhFJKyhQ
-	ncubSczQ==;
+	bh=e/mp1cXdFClVmFyKeKpkTnCOC7fFOUEAMCCmxVP0ZFE=; b=mldhfhNf36hbqIIcvwQaK9yk7v
+	bzqptQY4BDVloHre34JTPUqEiHT+niKvMG9oEDk8NAnvyBACjqnwz7gFgCTX2Q89cGhy++mBNS5wQ
+	ZNu7jwQqHjDmPutM6LDNLiC5A/Dv0As+q0BGVnWKA/ETJb8FacVqHK6Wt8HZA8IRPPM+yPhcbaya+
+	XoJv41/ZLZLhPm6KVfVJQjzH67knsZ5tHa6WOwDsHtxpJoBEEFW7wDrpuPXEivAPn9KI9P7OQv0Tr
+	nbx++SCEV4EwCf6Q2AEm/cwzskP1pIGltqGYQRM9ofc0cAj2H76QqTK3yKjyy9lm0Flu8A2XGsoNQ
+	PRmqKFrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWWka-00000009wJU-0TpR;
-	Fri, 19 Dec 2025 09:26:16 +0000
+	id 1vWWki-00000009wNB-3UzR;
+	Fri, 19 Dec 2025 09:26:24 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWWkU-00000009wEn-1Upb
+	id 1vWWkY-00000009wI6-2aBW
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 19 Dec 2025 09:26:10 +0000
+	Fri, 19 Dec 2025 09:26:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=sMnbsBDys3Q5ALCY69G8Tp1FxSfr5hlJBitMcGmH9sY=; b=g6+3H2QzYNjayqSpfKd6rrYKGX
-	e2b+c8clyJyPhnWJ8A9NKbw2g4rVzJFKqHp2vF4VTaX1phx9HKw45VyecAZ4A5+XyU+rAqNvjNh41
-	GNo/1mq+0bgrdP6XsuAugFhmcuGXQp+jJ52GbWGpuYhGInMT42zZ0jSRZx5YcFqL2QEhT5KIuoNBD
-	+ld9RJrG9pgo4cVm3Z29lz72sWIfE1sSEL1ll5ecGwzJoNdfjmojW8QFTIuwkBGG6VxzmrGBj+HeN
-	Ej0EWLgwl1MLLWOwOIDTRogsnJX3xKqKiQuLSUDjbIytc2vWwePkPY2wBMdlyH6bYkeXGnXcK8ehv
-	QrRKaivQ==;
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	bh=e/mp1cXdFClVmFyKeKpkTnCOC7fFOUEAMCCmxVP0ZFE=; b=rO6SuNGbSmLcq6Vo9cFKKzYTrq
+	wv+4LMb4LMFhdlA3Td89oH19UF8CsoBd4X7EZLaurFifu28ccbroqMTJVBCaRz5LZvgABlrfT2j7N
+	esYKSjM6QPfHWgtpRJOCmjpBOLTDif+rpUJ1arxzqD9PgNUcppA/UVfNyqYusXFE9YjuuRDdjwVIt
+	rrdoJjC5nc5nDDg3kH4gWG6vE+td/MwEv6zRx6wC9MTUINl1Xlvt7fQjZbec2MUiILrHHZfXkZmHN
+	3xBFe+IR0KtIS8WaeQB1zlsXvJ4opcuZSoBLn0M6ya5Xj6DarE5hO1S0koKviQKnKSAnLGzMkObFi
+	bH1Os1+w==;
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWVsy-0000000ATWA-0aLN
+	id 1vWVt3-0000000ATYj-1HqK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Dec 2025 08:30:54 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4779cc419b2so10519485e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Dec 2025 01:26:04 -0800 (PST)
+	Fri, 19 Dec 2025 08:30:59 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-47d182a8c6cso3486985e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Dec 2025 01:26:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1766136363; x=1766741163; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1766136370; x=1766741170; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=sMnbsBDys3Q5ALCY69G8Tp1FxSfr5hlJBitMcGmH9sY=;
-        b=shViOWkhjVuDFDXS2fSQfv5d9Xtn+NqY1tVYXorxtkAoESqv4bi8G9l5/zVR1Hv8Fj
-         GxJqqhy7FBt1rfhM16pDQzAdJ4ne23jozypxp/4WcUVo4be7J9V9zw5i1Ng70jiP6HBy
-         0rdPPrsk+bTdRmT/uFvHW0Mwcjxp8m+GGTH1Zz4/7yuUXGpgpNRRGD2Hi0N/o3Mp/24C
-         ej2AYmxvcbw40J7CfL9ztGfWyrFmUfBq2we+WD3Mnil4RgnI83ldggrbsVCgcjKcOeCj
-         jls7aCiGosOd2U60ldOQ2+kJvliwpHaoK7Qss7nGpZHiiXLn8c+NmNiitLs7SUCa6uFo
-         Sqpg==
+        bh=e/mp1cXdFClVmFyKeKpkTnCOC7fFOUEAMCCmxVP0ZFE=;
+        b=OrP41L4awWlY4DM6xKn2cGglGe+yWzmCdoWEWu6sUUE+ciK/vZm8yxZvSenwUBeYd7
+         PJVCqn0xJ1ZhrLHa7DSAWzNtNWFVTBcXU9M/ae1vyzf5YWKKNaXprU/El22qmM6F+HT3
+         l37JikFRKr6lnrM2Zbd+ucJ8TujAE1mudcFmDCITS+FrdkT+dw95lAewFjgi+OqBhCF9
+         yLIE+zkkd39VVVB5lrFCYxXZ/cR4iByi8oX0ZhYnJsKFIYmq5bNijAS7eZ641sicl6bX
+         3OtTC3SIXV/Qe828aOH7sU7Az6a2aI+gIPv+uaQ81dw7sCz1a48I+49DwbF2YXALXskT
+         5rVw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766136363; x=1766741163;
+        d=1e100.net; s=20230601; t=1766136370; x=1766741170;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=sMnbsBDys3Q5ALCY69G8Tp1FxSfr5hlJBitMcGmH9sY=;
-        b=HbujiCHQiEhyFjH2okQsabjSKiv/6+DtTXlX5AMjNhwePnN1pKBQKCHJ9/10EVpEsl
-         BF/Jt9zXA3OjwNq2uxN+/JkufR4cgck6gxiL+nRzMLJuM8Pxp007oNPWq1ka4Ib/ZMzy
-         aK8xEqo3LBK1qy1d/b1OHIFBkFmxXP4cV/J6YpL0/doXYbJlb+iW7OdR02vCsgbmb5ne
-         ivr0/J1AyreTMrUTIsgrwnYPCngGYxcaC8Fsv224qlMyUjXsFFluVn55qK6UdKTYC576
-         xz0qNCOFGOWN/FCBPMTt+l3tlsNYo/im+i3J3PNzg4D92dUYoTE3BcmFp3o5ft92HMGN
-         zOCA==
-X-Forwarded-Encrypted: i=1; AJvYcCUimnW4bDdFdZ3uGCVAlxtmnaIlT6RMfXpWfaUXywnEKouNZqqHDUoYd1GUGiOBSprbzX9aYrVoGSIYsnm6hxiY@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJrkkVSxDQ5hqwC3i83WPASJVtVrmA3iqgfuvLj73bMYg4t46x
-	u+OXKUT3nbg5ncy6xtKzcn9WDaL8GN6hmmMd9NcRvOHd4QzFzY/1c9TdOdjshu5F8PQ=
-X-Gm-Gg: AY/fxX4k1Sub9fA7I3Tw2dtH1/xEvrjGvGDlJVKJW20ALj4X8Te3Pn3XKiUDc3Btorw
-	mdstPY4yPP8QAhuuozx6LcgBJrMaXKnHcjbEwVROOnBItQPoS3HEGFGO1J/cyG69D5TwQ0DMCs2
-	mEz/hMIU1GlSJ7Tdvof/bkYVzBUlK1Fxv0h5eQP+RkqOMcLsMKWbW9q+C8sgBwNYdil5e6yRv9D
-	DP+C2h4oCdLCPTJfIyuT8uDJIBalSqxQedZVZwL3X7RT4d0LZbm/i5E8jmbM+3khdsIPPZ9VOhO
-	7Lzpihw+YF3rmFu7Xjdms9sNqTbSby65xBbXQX1gHuhicDZkv4ePuI8FXwgwKDhBEqqKjBFZ8/h
-	aWKMAR+M4O3H9+/hWuQZTVPiunpPWxVl/XyClXYlXhNDnuc/BzED1XPKtioXr770aFM7FJFes23
-	unU4ARBQ4h6OGFgSBzD+EtF/sxx72aFCK49cAPgb4lf8uzI5hL/ZhwjQVewvOyt2/phCPn9Ppr8
-	KY=
-X-Google-Smtp-Source: AGHT+IFmYQWz6L1SzUM2nXiY7KJqgf22XIvvvf4Np23ibdDNNhvtpV68GA/JG623TG5sdemIb6dcqw==
-X-Received: by 2002:a05:600c:3486:b0:477:54cd:200a with SMTP id 5b1f17b1804b1-47d19549631mr17568935e9.6.1766136363134;
-        Fri, 19 Dec 2025 01:26:03 -0800 (PST)
+        bh=e/mp1cXdFClVmFyKeKpkTnCOC7fFOUEAMCCmxVP0ZFE=;
+        b=aSihC1Sk/GiJbr8j0YUzecERfUT6Sp1FUaW9aGaLuj2nB/EUVBeVHwsf9JWYVLOzCl
+         bqWMnMhZF2BXvmBLinH/h96lI5uf2KS6tJmfrPCY87hlEFc4V44XjCJL9FYSbehIiqfZ
+         xN66fGiF8DKsbMSVk0zqQsyFRtTAyK3ZlIQRrb+0Lec385rakQaiLpkHH7i/t4os1csN
+         mIjqqc9nJA4dgKDr2IDjrw3mK9SwfNZ3JeRQg2jpGNSl3kjChpHRQXlsoyZWRhojXPFv
+         y4cVdA0Jxdih/OuKWMMbKi4RNUxwS8bEVszg3Oi22QFZcSUFt9gjia4YppgBpcOWv9pr
+         gIgw==
+X-Forwarded-Encrypted: i=1; AJvYcCXEPuF98+BH0EzuSQjGHOf9uy+gMsL1F7PJWyA2oz5UPwrAg8gkazP+If5uX4HM3yTsTrAPi0vEDdCk1A0c8Ovc@lists.infradead.org
+X-Gm-Message-State: AOJu0YwZ6ealvTCQhWONEaGUHkzxMwH2Y+LdmvjODRk99JFMCzsnOxDD
+	UMU2u9U688I+8BrQfzdDt7bFkByhB+YYfo7xSY3qRXJbFBaShA1SVW+sfTBmSJmpFe8=
+X-Gm-Gg: AY/fxX4Vf5cFotZ9I0eK0Q1XPAZxFCozTQ3sGHHcN87ggs1kDpyUy+Aki2nXPmXGsuV
+	WlLl5QbLKH/Z+a5bc6WYxQ4KEQH4suB0S2VCNN3u9l3F2tTVmPKw1u0KO+CeFsdi8F7H3fi/ZWi
+	GPNqx9YLFhDkoWYlB90fzcvE7fvABrYCHQeYd3qfAXO2XXs4g+vQTkAOSa1Zs+CXQMAhUi0voSu
+	rsKNz3x9eQUkiKNrr4eUFlIeWXM4z24jw+RnaCMZ5k2D53jDMkycIZEYRWdIsky514lJ6mH6k2h
+	qx04fJa5LBjkBb92yQoqwBP274T/ElON3rnzSpgXgB6CN+bIfOobRpL478Rm3c76k0f+8U+OxDS
+	iiTn1XLcjA0/RknM9rL9P7QkCeqq8xb4cWd1Wu5SOcCjG8JGt2Jw2oKCXm6sBKbw/MH3lsa12D7
+	dB7SCxD+Dl6pOhTbQAzQssBJYhimzKVZ0s5xrKszZJC5M8AtAb8XuKosuiIOFFRvIz5TcT1LKMN
+	wg=
+X-Google-Smtp-Source: AGHT+IFEGjvrlWAs0NpG2elZsaHgNsCZyVGl9rExLbOyNOaoYdDfMM8vBeF0ffSfqRLAATFuQzu3Vg==
+X-Received: by 2002:a05:600c:1d0b:b0:479:2a0b:180d with SMTP id 5b1f17b1804b1-47d1954a5f7mr18629415e9.11.1766136369925;
+        Fri, 19 Dec 2025 01:26:09 -0800 (PST)
 Received: from localhost (p200300f65f0066087cf387e078e1a5dc.dip0.t-ipconnect.de. [2003:f6:5f00:6608:7cf3:87e0:78e1:a5dc])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-47d19352306sm34503295e9.5.2025.12.19.01.26.02
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-47be3a2b419sm32705035e9.1.2025.12.19.01.26.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Dec 2025 01:26:02 -0800 (PST)
+        Fri, 19 Dec 2025 01:26:09 -0800 (PST)
 From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
 To: "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
-	"Martin K. Petersen" <martin.petersen@oracle.com>,
-	=?utf-8?q?Kai_M=C3=A4kisara?= <Kai.Makisara@kolumbus.fi>
-Cc: linux-scsi@vger.kernel.org,
-	Alim Akhtar <alim.akhtar@samsung.com>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>,
 	Avri Altman <avri.altman@wdc.com>,
 	Bart Van Assche <bvanassche@acm.org>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
@@ -100,22 +98,23 @@ Cc: linux-scsi@vger.kernel.org,
 	Bean Huo <beanhuo@micron.com>,
 	Adrian Hunter <adrian.hunter@intel.com>,
 	"Bao D. Nguyen" <quic_nguyenb@quicinc.com>,
+	linux-scsi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH v2 2/8] scsi: Make use of bus callbacks
-Date: Fri, 19 Dec 2025 10:25:31 +0100
-Message-ID: <a54e363a3fd2054fb924afd7df44bca7f444b5f1.1766133330.git.u.kleine-koenig@baylibre.com>
+Subject: [PATCH v2 8/8] scsi: ufs: Convert to scsi bus methods
+Date: Fri, 19 Dec 2025 10:25:37 +0100
+Message-ID: <69f17c7d4f8f587e2a56e3ea268d441d98a6a895.1766133330.git.u.kleine-koenig@baylibre.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <cover.1766133330.git.u.kleine-koenig@baylibre.com>
 References: <cover.1766133330.git.u.kleine-koenig@baylibre.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4030; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=AHT26kUpMF4b7G1QPxCgxDWPcHR2tE/G5ZSM+TI0a0M=; b=owEBbQGS/pANAwAKAY+A+1h9Ev5OAcsmYgBpRRoTuOkvwoPMSOYtESOOgiv6oZfT0xdqbse/N jAOhYZgWmmJATMEAAEKAB0WIQQ/gaxpOnoeWYmt/tOPgPtYfRL+TgUCaUUaEwAKCRCPgPtYfRL+ TrsfCACNqbNGpjownpLGZtSSMrJmbFfGRDYqSoEmO49EXbu2sgihlNoaZAk5hoSKoiUC1r9Ch1n 3ADQ+ZxDYAl97Af3cII2dD+Z7pDDr32KbMx4btjW9SPY1Cjlptm520rdW1/dCseaJawHYvq5dAS mqRlv7yYybysepVq2up6L92cVk3BDUbbqcgmf4dvYJabdhhjQy2dDUEB3QPpSr24oG4ow7ymGRs 5i/0X5x8SkT2jbWs91x+wH9Olj0QgUATt2P/bgJDCHVhswi7HoM8zmB5JlsMCifEk3mmX1r4m5j VVfOj+epeU2jDE4CcL8/G2j7zSF70I3dNhkdE4I8g4+BROFe
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2170; i=u.kleine-koenig@baylibre.com; h=from:subject:message-id; bh=JFJvLGnyaHaCV/eJzejgi5pSvHr6D8xakNdWbDoTCoQ=; b=kA0DAAoBj4D7WH0S/k4ByyZiAGlFGiGjjk6qc0RvRyJZG5ixc8Wz+NTnF0Cizh6nRvjrn03iE 4kBMwQAAQoAHRYhBD+BrGk6eh5Zia3+04+A+1h9Ev5OBQJpRRohAAoJEI+A+1h9Ev5Ov6MH/jlY GNzBxxjQ/8nlY7aC9rclIr1Lin6LyW5AQ18LOuo0fVz3sG8R3ZFEKxjSgJeIMXKXO8nP9NCVvQr TUPIpYMAUlkYaMsrnD61k+Xqver+dgeMYDw4FC64WIuD2/DQjl/gg5d8OB/KKKCN1Qr1sNhNb/R nKRnwHJkzdfscRfMOPZviEplerBOt/hwrbVwnpSDdokMqZfZDI2OR1gP1+HsVT3JDJrj71gFBLl /LnuX6EB0ADIkKNSzywAiVQqiHSjGZVjCYl7zi+RNSdS/QZ4IHFnMT8nvWK+2GcTo5KX9i8eIxj TopuKY6AKRdIz1k5qDtUXiNO97+TxTahd1eMKyk=
 X-Developer-Key: i=u.kleine-koenig@baylibre.com; a=openpgp; fpr=0D2511F322BFAB1C1580266BE2DCDD9132669BD6
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_083052_299367_15004234 
-X-CRM114-Status: GOOD (  20.03  )
+X-CRM114-CacheID: sfid-20251219_083057_566002_C0B6CE15 
+X-CRM114-Status: GOOD (  15.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,138 +129,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce a bus specific probe, remove and shutdown function. For now
-this only allows to get rid of a cast of the generic device to an scsi
-device in the drivers and changes the remove prototype to return
-void---a non-zero return value is ignored anyhow.
+The scsi subsystem has implemented dedicated callbacks for probe, remove
+and shutdown. Make use of them. This fixes a runtime warning about the
+driver needing to be converted to the bus probe method.
 
-The objective is to get rid of users of struct device_driver callbacks
-.probe(), .remove() and .shutdown() to eventually remove these. Until
-all scsi drivers are converted this results in a runtime warning about
-the drivers needing an update because there is a bus probe function and
-a driver probe function. The in-tree drivers are fixed by the following
-commits.
-
+Reviewed-by: Peter Wang <peter.wang@mediatek.com>
 Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
 ---
- drivers/scsi/scsi_sysfs.c  | 73 ++++++++++++++++++++++++++++++++++++--
- include/scsi/scsi_driver.h |  3 ++
- 2 files changed, 74 insertions(+), 2 deletions(-)
+ drivers/ufs/core/ufshcd.c | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/scsi/scsi_sysfs.c b/drivers/scsi/scsi_sysfs.c
-index db0ba68f2e6e..6b8c5c05f294 100644
---- a/drivers/scsi/scsi_sysfs.c
-+++ b/drivers/scsi/scsi_sysfs.c
-@@ -554,10 +554,48 @@ static int scsi_bus_uevent(const struct device *dev, struct kobj_uevent_env *env
- 	return 0;
- }
+diff --git a/drivers/ufs/core/ufshcd.c b/drivers/ufs/core/ufshcd.c
+index da1e89e95d07..78669c205568 100644
+--- a/drivers/ufs/core/ufshcd.c
++++ b/drivers/ufs/core/ufshcd.c
+@@ -10525,9 +10525,8 @@ int ufshcd_runtime_resume(struct device *dev)
+ EXPORT_SYMBOL(ufshcd_runtime_resume);
+ #endif /* CONFIG_PM */
  
-+static int scsi_bus_probe(struct device *dev)
-+{
-+	struct scsi_device *sdp = to_scsi_device(dev);
-+	struct scsi_driver *drv = to_scsi_driver(dev->driver);
-+
-+	if (drv->probe)
-+		return drv->probe(sdp);
-+	else
-+		return 0;
-+}
-+
-+static void scsi_bus_remove(struct device *dev)
-+{
-+	struct scsi_device *sdp = to_scsi_device(dev);
-+	struct scsi_driver *drv = to_scsi_driver(dev->driver);
-+
-+	if (drv->remove)
-+		drv->remove(sdp);
-+}
-+
-+static void scsi_bus_shutdown(struct device *dev)
-+{
-+	struct scsi_device *sdp = to_scsi_device(dev);
-+	struct scsi_driver *drv;
-+
-+	if (!dev->driver)
-+		return;
-+
-+	drv = to_scsi_driver(dev->driver);
-+
-+	if (drv->shutdown)
-+		drv->shutdown(sdp);
-+}
-+
-+
- const struct bus_type scsi_bus_type = {
--        .name		= "scsi",
--        .match		= scsi_bus_match,
-+	.name		= "scsi",
-+	.match		= scsi_bus_match,
- 	.uevent		= scsi_bus_uevent,
-+	.probe		= scsi_bus_probe,
-+	.remove		= scsi_bus_remove,
-+	.shutdown	= scsi_bus_shutdown,
- #ifdef CONFIG_PM
- 	.pm		= &scsi_bus_pm_ops,
- #endif
-@@ -1554,6 +1592,30 @@ void scsi_remove_target(struct device *dev)
- }
- EXPORT_SYMBOL(scsi_remove_target);
- 
-+static int scsi_legacy_probe(struct scsi_device *sdp)
-+{
-+	struct device *dev = &sdp->sdev_gendev;
-+	struct device_driver *driver = dev->driver;
-+
-+	return driver->probe(dev);
-+}
-+
-+static void scsi_legacy_remove(struct scsi_device *sdp)
-+{
-+	struct device *dev = &sdp->sdev_gendev;
-+	struct device_driver *driver = dev->driver;
-+
-+	driver->remove(dev);
-+}
-+
-+static void scsi_legacy_shutdown(struct scsi_device *sdp)
-+{
-+	struct device *dev = &sdp->sdev_gendev;
-+	struct device_driver *driver = dev->driver;
-+
-+	driver->shutdown(dev);
-+}
-+
- int __scsi_register_driver(struct scsi_driver *sdrv, struct module *owner)
+-static void ufshcd_wl_shutdown(struct device *dev)
++static void ufshcd_wl_shutdown(struct scsi_device *sdev)
  {
- 	struct device_driver *drv = &sdrv->gendrv;
-@@ -1561,6 +1623,13 @@ int __scsi_register_driver(struct scsi_driver *sdrv, struct module *owner)
- 	drv->bus = &scsi_bus_type;
- 	drv->owner = owner;
+-	struct scsi_device *sdev = to_scsi_device(dev);
+ 	struct ufs_hba *hba = shost_priv(sdev->host);
  
-+	if (!sdrv->probe && drv->probe)
-+		sdrv->probe = scsi_legacy_probe;
-+	if (!sdrv->remove && drv->remove)
-+		sdrv->remove = scsi_legacy_remove;
-+	if (!sdrv->shutdown && drv->shutdown)
-+		sdrv->shutdown = scsi_legacy_shutdown;
-+
- 	return driver_register(drv);
+ 	down(&hba->host_sem);
+@@ -11133,9 +11132,9 @@ static int ufshcd_wl_poweroff(struct device *dev)
  }
- EXPORT_SYMBOL(__scsi_register_driver);
-diff --git a/include/scsi/scsi_driver.h b/include/scsi/scsi_driver.h
-index 40aba9a9349a..249cea724abd 100644
---- a/include/scsi/scsi_driver.h
-+++ b/include/scsi/scsi_driver.h
-@@ -12,6 +12,9 @@ struct request;
- struct scsi_driver {
- 	struct device_driver	gendrv;
+ #endif
  
-+	int (*probe)(struct scsi_device *);
-+	void (*remove)(struct scsi_device *);
-+	void (*shutdown)(struct scsi_device *);
- 	int (*resume)(struct device *);
- 	void (*rescan)(struct device *);
- 	blk_status_t (*init_command)(struct scsi_cmnd *);
+-static int ufshcd_wl_probe(struct device *dev)
++static int ufshcd_wl_probe(struct scsi_device *sdev)
+ {
+-	struct scsi_device *sdev = to_scsi_device(dev);
++	struct device *dev = &sdev->sdev_gendev;
+ 
+ 	if (!is_device_wlun(sdev))
+ 		return -ENODEV;
+@@ -11147,10 +11146,11 @@ static int ufshcd_wl_probe(struct device *dev)
+ 	return  0;
+ }
+ 
+-static int ufshcd_wl_remove(struct device *dev)
++static void ufshcd_wl_remove(struct scsi_device *sdev)
+ {
++	struct device *dev = &sdev->sdev_gendev;
++
+ 	pm_runtime_forbid(dev);
+-	return 0;
+ }
+ 
+ static const struct dev_pm_ops ufshcd_wl_pm_ops = {
+@@ -11223,12 +11223,12 @@ static void ufshcd_check_header_layout(void)
+  * Hence register a scsi driver for ufs wluns only.
+  */
+ static struct scsi_driver ufs_dev_wlun_template = {
++	.probe = ufshcd_wl_probe,
++	.remove = ufshcd_wl_remove,
++	.shutdown = ufshcd_wl_shutdown,
+ 	.gendrv = {
+ 		.name = "ufs_device_wlun",
+-		.probe = ufshcd_wl_probe,
+-		.remove = ufshcd_wl_remove,
+ 		.pm = &ufshcd_wl_pm_ops,
+-		.shutdown = ufshcd_wl_shutdown,
+ 	},
+ };
+ 
 -- 
 2.47.3
 
