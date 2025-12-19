@@ -4,177 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 009CAD7494F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 05:22:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA620D74951
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 05:37:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=twxCJtmU2KZ98rqCXb/Uh81mNSAdCjdLoHTNJdLz9Gg=; b=wL3irW7868u6x42oygDivYXLfq
-	n+ZGNWsxW32vRXl0Nkkams+PQpCt+z76azbXKz7EabwMIoFFWEwlB2DtSl8NFbC2BviQx4OFskH1i
-	ES19oQaJ9ZRa29GHJrfqnPFHiByzcloz/Av075NLFRfj5fksJ3GZxQuy0qagucWLEMszYngvTNjtN
-	04Wwwcp5ryUrSaX36vHgvlv4ADyJ4087DFPyRNdB0ByrxTrifc0HDLES0ZOSZhoZwkvG17upNEWfA
-	qn0O4rZI4dELNsBXIV70n9PwJvrChwuWmZPTlWTw5mI28uQN5cKZ1rTt2NUm/WjG/7Wq4VGl8m2si
-	lexjYAbg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/NkbhnSjmQqWyentKViHSvnUd2t4Anb4J6Vl3+26IzI=; b=0/J6kL64Gfpt+4
+	tToXt2UGZsF8JQoNppC2iCUJhwmXkGJ/zSAg9eTIaAnD8XK1pHR9xF6/kp67TrtkdCGieC3KcwWj6
+	zvZUJOHt0PnBhenlPZmC7AlB9CEbnJ7Md4tdclqwtQUmDVHOeR5jEtJb1GDtpbi0/8+B2SX859pqr
+	KkMfcrQiaK+7DNxr/gWQDvgp+jBgcaCv8ifiq5B0rmEnCsu/o5ZM9zKauaUU4sHvgMgLu743rH7GT
+	5XZraZDBxWwdKmDvQ5cHWgRfgcHBeqwqW9LSp04rKc5A+pGBNgYgwOZT7JJNlIs0EojArFKs48Diz
+	MIyzH0OUE8D9rSnykckA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWSwc-00000009dXd-1t2o;
-	Fri, 19 Dec 2025 05:22:26 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1vWTB2-00000009eaT-1jqA;
+	Fri, 19 Dec 2025 05:37:20 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWSwX-00000009dSs-48VF
+	id 1vWTAz-00000009ea1-45Af
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Dec 2025 05:22:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IMkU6qsSKSW4LtrvJGC4QzGA953FZw3sKHVPz+CBysNaF2sEOf4fsl4CwyKw/BeGMyrmMiafIWbkhw/JyfHd3HjwVvl6wRr168hJfjh7XEQT04Wsww5t2YWRtemAkZ1q4Mf4rmcbIPYuNOM7CPfaJTHcw8OnlIkXDqfleu139eyweFQkxLboivhOcwFbN44uTzFEscM3h375I2s6R/azq6jVArT1cjt+dpVmPFi0sV6YwJ16xSBTZ2Ql+WDz8XIpLP23wZDlFerT2DHUJnb/FxGbM7LlWPRiipAJAWNYTBG/jRP9M5S4AL1HcYp5pWu+QcVYYkH75zgl7YZvFT/ebQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=twxCJtmU2KZ98rqCXb/Uh81mNSAdCjdLoHTNJdLz9Gg=;
- b=pdjdKvZbMM86TaOpH03/3REns7Zg9Z6AGMr0Z6sQ2VzqPCxfbSn8N10VWhdSiN3y0sfirJWC1mSsHS5SOYSJnHMq4drQSvZ4xD3m7ja3AjgDWuuVlhQpFl+ZwZLdtqxr63nbir6dOJHqYKDAyTyhDDSJA/XXo9qJALIfsGPGGC8OBLLrnitUwx6Sc6yrNcwoYB2sa2hvRpQl7klncJ0j+//r41WZLR5TImhp+8QACzHY9PlOx2IEX+vHntOqc/uCxsztqxn5OUCf6a2KQ2BvBe/IWKC54sTRxw1AVy/3Of8+95pe6/ncds7l6stRhZH05AWta3tBs9c3uih08mLT0g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=twxCJtmU2KZ98rqCXb/Uh81mNSAdCjdLoHTNJdLz9Gg=;
- b=NwZai6P2Tz5L2n8CIgkbGkg1VzgzMYoV8Rrgdyy4GQk68Ialnupb9OR1yZNI35kDk5fVdCaob3y7dFf8lUhMndzZzB5UnCKVmFLFPuUdiyu5lDqFBeIZSp+pLZelksFXvOSeXxQLOiWaCi+l+kOfT1J4AHDN78SfCcq1GpLd4cWUgcsLX5dK1GsADlakrjvzuc+l4iggrZT0J7NjKEU43kOQv1bwdc9zb6ef+EuJP9y+oLTlAcrmObfJI71K8m3WlcvspKgUOjwSLrpbVSonfDjEMyG0pANCmcIeOm0Wk2W5YUU0K+N8gG9TilbXghw+5A13PZ7tSz6JIgjwDmfuLg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM9PR04MB8604.eurprd04.prod.outlook.com (2603:10a6:20b:43b::21)
- by AS8PR04MB9062.eurprd04.prod.outlook.com (2603:10a6:20b:445::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.7; Fri, 19 Dec
- 2025 05:22:17 +0000
-Received: from AM9PR04MB8604.eurprd04.prod.outlook.com
- ([fe80::e751:223e:aa3d:5827]) by AM9PR04MB8604.eurprd04.prod.outlook.com
- ([fe80::e751:223e:aa3d:5827%3]) with mapi id 15.20.9434.001; Fri, 19 Dec 2025
- 05:22:17 +0000
-From: Pankaj Gupta <pankaj.gupta@nxp.com>
-Date: Fri, 19 Dec 2025 10:50:45 +0530
-Subject: [PATCH v23 7/7] arm64: dts: imx8ulp-evk: add reserved memory
- property
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251219-imx-se-if-v23-7-5c6773d00318@nxp.com>
-References: <20251219-imx-se-if-v23-0-5c6773d00318@nxp.com>
-In-Reply-To: <20251219-imx-se-if-v23-0-5c6773d00318@nxp.com>
-To: Jonathan Corbet <corbet@lwn.net>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Pankaj Gupta <pankaj.gupta@nxp.com>
-Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1766121652; l=1279;
- i=pankaj.gupta@nxp.com; s=20240523; h=from:subject:message-id;
- bh=C+/byolstUK3qbG2fKo1MZ04D0IETXzzliSh+5Ny0lw=;
- b=0yz+PK4g7vw0/pdErklxn8H5vWgpJKIjec4rzNNQKUR3fpMHxxjv8KE5IAcCk9cIRTq+bSCcm
- 4tWTfMb7hnABMFzrW+DKw+1j3lUbwhJHRjv13wZBMxN0c4BjI7nIXDW
-X-Developer-Key: i=pankaj.gupta@nxp.com; a=ed25519;
- pk=OA0pBQoupy5lV0XfKzD8B0OOBVB6tpAoIf+0x1bYGRg=
-X-ClientProxiedBy: SG2PR04CA0200.apcprd04.prod.outlook.com
- (2603:1096:4:187::15) To AM9PR04MB8604.eurprd04.prod.outlook.com
- (2603:10a6:20b:43b::21)
+	Fri, 19 Dec 2025 05:37:19 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-29f30233d8aso18453945ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 18 Dec 2025 21:37:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1766122636; x=1766727436; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/NkbhnSjmQqWyentKViHSvnUd2t4Anb4J6Vl3+26IzI=;
+        b=M5KXDpGKDaUEj0J0BI0g6c/LruYhZgU45E3tlZAj9dxBoidPo7j8jcA/U5GpUmRflW
+         iKN1bl/snmSn6Yfu4sLgLG0RtmUFkXuORvn678VcfRaBmopGAqhU6ChG+C5nFzTGrQPg
+         zmf2YTwluvHHRdSfQREn7fQ1qXct6xGM2g2TukuXW4Gs2TwZk65SZTqmL4nd5g9qCRNu
+         M4ZOvoxqYZ8j6DBmSXQkEQdygXvF+j0aI30fb2m1VaTqdBYtFjsYQTjqSsOoeRR8IpA+
+         arEjC4OUmpMA0mJedP3Pkfjw17FOrZQNGlmHTOFSvjeyleranCxQEuWXGiErCdIQCULl
+         W1wQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766122636; x=1766727436;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=/NkbhnSjmQqWyentKViHSvnUd2t4Anb4J6Vl3+26IzI=;
+        b=pklWczL88H8BNylcJFrfkT9XWRCBdd+GMow2UKSmpNz9VsKPJWafi5UTHxdgwEeiIs
+         N5SahtbyGgCkTaQTWmz9X+18EEIMWSMpl+u6dNWVEyljVNtl6VsHPHkoy9YBNPmCbRMt
+         lPCMkJZKiJZK0gjzkwQPw4I7QgARlqptolsRwkNbklPxXyTp87eltR0K7iFaRhDf/ypi
+         bkmx/1l6hradodAMxTBSwjjIAayy4zpEM1nEFkCoSP55ke6vw1zf0J78UFudifi280iF
+         XdO09Ua8VSVdhZcIEm/zUSK285dkX+EGh/377zYqwWfeO/1sEzKs3IxsLtC8k78mbIeo
+         yxLA==
+X-Forwarded-Encrypted: i=1; AJvYcCXpARgfxEAZekvIHS+on9ba3tLtyqNEy7MaygQCiL4I3DXWNhOQrQxDdpElca7mYSMbxVLA/cZGwEFx4+LGQHk9@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz8vZ9jEReep6StqFvsRYPq2JZdamsLzuhh1UNHWr4edvskuGPE
+	b2m8YOGbD2kXbAmzIFnIsVBKi5NB9NHaSYUidaMhR7pZVvUqpHVJNN4e
+X-Gm-Gg: AY/fxX7Xs+uVUBtn6PhW3WDaoMKTzbMOZvc93826Xl6/eLmOX79rHUF2mvlK616LRGz
+	HnCn7wuPSfEUIqKXYDHluCsa8K7tR89NgNGMAqBiqQ5fDT9ctEQmJdliqGDk/nX/lX8AdEr4v8p
+	rY5rokWDMyfDwkPLzbnNvcV3EN8CCYx+Qntc8//SIc5lYkhKJytqwwdAMYNCT8N4CaJq8fp6ksJ
+	4tq+HvvXgg5fWcw5eP6i6gOOb4ELQRuvQ9iKskqSmxQpQElfOvp5vHLQGysW7MtU7mszIlOcc8p
+	GIxYqdIhneskguu4YZap9kQmKpfNa2qDPEaFjJc8moVomPcfDqkqG0KZpKA0wuIZZH15Qc5XhDw
+	wS+/tZgiJAowj/a7/W0s+v7GiNkDao9+Kgc/ZEyaIgZT2N83aaDEBRSwyXPbU9ORlXUdKK7Hnec
+	9KSaBBmxfU9Kia+X6QtcjqblwZ+M1JuA==
+X-Google-Smtp-Source: AGHT+IFcyO2/N6WJqTTUC8Xpz+F+HK73QiRxiWGBBRL+WIr6e3loB6zfy831gEjAtlMYHTHv9HUDPQ==
+X-Received: by 2002:a17:903:2290:b0:2a1:3cd9:a739 with SMTP id d9443c01a7336-2a2f2830ba1mr17129295ad.43.1766122636315;
+        Thu, 18 Dec 2025 21:37:16 -0800 (PST)
+Received: from Barrys-MBP.hub ([47.72.129.29])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a2f3d4d895sm9930215ad.54.2025.12.18.21.37.10
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 18 Dec 2025 21:37:15 -0800 (PST)
+From: Barry Song <21cnbao@gmail.com>
+To: catalin.marinas@arm.com,
+	m.szyprowski@samsung.com,
+	robin.murphy@arm.com,
+	will@kernel.org
+Subject: [PATCH 1/6] arm64: Provide dcache_by_myline_op_nosync helper
+Date: Fri, 19 Dec 2025 13:36:53 +0800
+Message-Id: <20251219053658.84978-2-21cnbao@gmail.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <20251219053658.84978-1-21cnbao@gmail.com>
+References: <20251219053658.84978-1-21cnbao@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8604:EE_|AS8PR04MB9062:EE_
-X-MS-Office365-Filtering-Correlation-Id: 84d03bb6-b6b2-440d-5075-08de3ebe93b8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|1800799024|7416014|366016|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?WHNuQUtCZ3ZuV1pERm96d3hWNWNJT3ducmtaeW5VVmlDM01KZW42WVp1cVlk?=
- =?utf-8?B?Z1RUYkVVMHhLa0FOSi9SZEJaempaQjNEaEtVL1FEa1FNbEoyc016Vy9QVXBz?=
- =?utf-8?B?bDhPM0Ezei9IZldyVHNTU2ttNytOS1hmM2xxN0F1Nlg1QWtwS3JPZHZGOVBG?=
- =?utf-8?B?eEZQcHpSclRHZlF6WXUvS1Zza2FqWEYrd0RtVmdiQmJUdmZqSHcvRjlTMGdu?=
- =?utf-8?B?T1pCUGJBZFZtcWxXb0gwNDA5eWZiODlUMURtaVdpYko4VUZZempRMUtHSGpO?=
- =?utf-8?B?bzU3UUYwdUZqR1BhS2Y4bHJucjF4aEFIdVRxSStyazB4YzkvQ1pOeXptckJa?=
- =?utf-8?B?VXkvbmJ5RzBBOFJqb1ZnZzBrZ3hpNnZ2dVRSajJnRHNWTkwrRzdVTXFpVDdv?=
- =?utf-8?B?NTV5SXZaM0gyeGtBd1BvUkZDV2VDNzBlT1FKTHM2Tmh6Qk9sYjdEdFNUZkdu?=
- =?utf-8?B?RGtiSlpjc3h1NHlqSHlScUwya1VTbWNKSE01Tk8xT2JBcXFPOEVTVjVsY08w?=
- =?utf-8?B?MUtxQXcrK2hvS2ZmRXRibFJDajdHZGovc0FtVTZBS1JIYzYxUEFqb2VXZXF3?=
- =?utf-8?B?MWozTzZLK3JBaFZ2UVliVzljNC9xUXRucjEvaTF0ODZiclMxMmtqYXdNQkdQ?=
- =?utf-8?B?dWVTNEZyR2tGUjl5K0krRlVYMnVtbkxjTFloRzNlb0ZPQlFuVFdsRUVIUWlN?=
- =?utf-8?B?dnE2QVpKMTA2NFdvK3dRbG1NOVBSOHF4eGVUeGlFcHp3TjlXYVNJNElYTlZx?=
- =?utf-8?B?NzZ5L0RZUTBtdHRxQ3BoSG9hMjdPZzVnWGE4bm1GV01JeU9uajAvS3VweVZG?=
- =?utf-8?B?QUFyNHpZTGhQT3YyWU1wQzE5TTlKNGxTNlBtdkIrc2VoVnBUZ3p6cW1VOWRy?=
- =?utf-8?B?dmc1TWZoZUF6WlJnVlNhOXdyNlFUcFVCNzlEMnlFK08rUUJHZnFMZm5FdmRj?=
- =?utf-8?B?WS8yY1FicFUzK01SaUZ3b2RjY3RxZ2JWNFB2bUlWQXVCWkV0aTUrWnduMWVv?=
- =?utf-8?B?aUp2T2ptYU1NK0xDd1V5M1lNd1NCaTA4Q3RWS1RlTDA3ejVOYWk3Vno2MTRP?=
- =?utf-8?B?K0hJNkY4YkJJZFMwZVBPQ3pkazA1QkZscDBPWUp2SXpLQWxaaXRMR0hTZm9w?=
- =?utf-8?B?NlZVbk4ydmw1RUdFanhZRzlteE5rZTVRaHYvb0JDcnQ2bFNUSEFReWJUWjdN?=
- =?utf-8?B?RnNNVmVObElxc1ArUW00ZklQQ24wSXFRdDRWZE1uWDN5U0xGdVdEaGdFQ1pn?=
- =?utf-8?B?OEJDQmk4cFhtWkRzdWNXdEhUb21CTHFZL0w0TEtwcXQ3OXR6V1N5UHhTKzFk?=
- =?utf-8?B?VUpuc0FpaUJZaWxyK3hTcWRoZDhodjR4dFdTMDVRTDd6bDhyOHZNeGhOZ0Jh?=
- =?utf-8?B?UUpIamdqZWRZVXIzZWFkODlOZk1QUFhTS3kzcHZkNVNFWjZwT0JDZzVtbkN4?=
- =?utf-8?B?cHRGQmtHSjQ5cHIyajFXY2R5aUUxMnNqcGxUNnIxSEJKaGFkZXRCTloyc2R5?=
- =?utf-8?B?NWFpVVJOVVZBOGdCc1EyL0pQdzVYK05DeHUrRXBGSGdJa3FEc3JCUWp5UU9O?=
- =?utf-8?B?emRHeDFkRFBaVzFrL215THM1UzlRUklmSkhaa3ZYMEIvVWE1aXphNDJPa0lO?=
- =?utf-8?B?RWpuTlFqZGk1TkZ1b3NnSXFzQTBETG8yY3hxUk1YalNXSnlKZDNVYUN6Y2Y1?=
- =?utf-8?B?UkFnbFk2S3hCVmdrSHR3aDlDQnVIdDRnTHNyTzhyY09qY3dxTFI1dXM3elI5?=
- =?utf-8?B?WUxOdkZrQUhYb1pJVkZ5Uy9EcnN5YUdqT1FjRTFiVEtBSEtXTzJxZUd1VXhG?=
- =?utf-8?B?WW1qVWk2SGdZSUNKRlYwMFRkU3pxdkphWFRFN25ZQXBjOTM4QVlybUVjbTd2?=
- =?utf-8?B?WXljSExGbDFWRFpISmlmM2kxZEVidDIrY0RBUnV5NE5SOFZYOU5FOGF1a0Z4?=
- =?utf-8?B?UkhzekVpT2Y5czZtdzlDa3J6U3R6S1IxUldPTzJyL3F1NXR3MDU0eFIvL2kv?=
- =?utf-8?B?RjJxZmN6My9UcW5BbUx5amxJTVh5cWRkKzlkT3BmekZPUUxGUndhbVFZRXBO?=
- =?utf-8?Q?aXguvq?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8604.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(1800799024)(7416014)(366016)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Uk12MSt4UDhKWTBOMkg5TzdHVk1nUFpUbHByUTU0YkdVMHdpWkNRYWd1QXNy?=
- =?utf-8?B?TVZJekhab0hOSHdjSStPQklyZ0hYczY0bDhDRVhGKzZuMU5NVWdhZWM5TnEv?=
- =?utf-8?B?UEJxMEU1Y3I4dWxyZ2RkMlBsWE1PZFkrMUNjVUxkV1ljODM5a3VucldBS1FR?=
- =?utf-8?B?emE2dnhycDVneXM0WTcyL1FtU2ZKKzVodnF5SS9nSE5GQzZiRW1qckthWisr?=
- =?utf-8?B?VDg3ZmlwWlBLaWZlemk2ODNTRm9EU3dTWEJyOEtiaEs1aHBWY1lqbU9HWktU?=
- =?utf-8?B?SnlEQVN2NHhXcDluS2ZCQXIyc1BKRlpNTC9HMFo5MkFzZWFGQ3BNVU5vckl5?=
- =?utf-8?B?UXdHYVo1bkI3eDZQMVZrSUFrbTRqSDg0YVNiaWtwc3JzOUw0VitmOHFhaGRW?=
- =?utf-8?B?TzF5eER1aVJyTTRTeFArZzVXc3l5cXlhZCs4Qm1wTVUrMDFOTXo0aW5FUzJU?=
- =?utf-8?B?TkMrYkhsS2RwTmFBQml2THQvVmdKN2VuNHEwZ3dBREQreHcrTzJ2MkdBWE5B?=
- =?utf-8?B?bU81SCtnVVlMUm9JaU1sWXhiRTFwTWJBZ1lJQXg4eHh5ZjFZYmp1NjJKKyt1?=
- =?utf-8?B?NmUxSVFRSTZuTXM5L3M1ZksxQnFYRE5rdVpSU0dMWjhoZDZsMXJxVFJnbnl4?=
- =?utf-8?B?ZEhZcWxNUnFGU1F5MTZWQ0hKdG0vWEtuS0Z5dzAvdmUwZDk5NmRpZU9NNW5G?=
- =?utf-8?B?d2xad3kzR2RoRVBzRUF5cmxoZU9KN3hlWUlsWm42Y2xSUzBoMEwvWDN2ZWVS?=
- =?utf-8?B?UVZGaDJtZ3RhcXdvT2dpOVV5WEN3cXRObUpjQjArdmVBVjBHRjBCbDMzd2lS?=
- =?utf-8?B?dVJ3VFJlWE9BTnJVKzlTM05paElvSlNNQzhWQkM1VnVRNm9pOTY4Rm9rMGN5?=
- =?utf-8?B?WE5oVHcvbkFVUi9yczVrZXIydC81LytybmYwOXRDL3k2YUh3cFI2R3hRWTMy?=
- =?utf-8?B?L0NKUkJaN0xHVlBjWGlYSkkyOTg3ekFQcmtkbjNKWjZjVUJ3T242RmlrTSt5?=
- =?utf-8?B?bDZFTytwMHpCS2NuYnZab0VtRFVsTTZ4bm5hdXNzK3cwRUNsWVlUc0YreWZ5?=
- =?utf-8?B?bUo5ME1IVmxPM21SNEFhdUJ4UTY4dVFWSVMvZEdTd2Nvdm9OOTNiazlIOEFR?=
- =?utf-8?B?MzVZbWwzbGlzekV3Nnk3RkFva0Mzdk5ONytxMSsxZGlPRmxCQzJNakhoVGlN?=
- =?utf-8?B?TlRNRTZqL3FOUzRCUFZIM0NZWUI1WXBrSWJYYmRQWXovSFlaNm4vTFdXOEZW?=
- =?utf-8?B?c3hXWlZJeStrNk04RW9yZCs0S0VuTU1zajZJcTl4MU54Wlh2c3BVazFhdE5X?=
- =?utf-8?B?ZGtvaE0vM0JqSlNmQ1l3WW51YUpzcWRzck13RWdwWUlGQ2QzekphdFZWaDRV?=
- =?utf-8?B?UkgzOUsvcGNoeWoyNlR1SFpPUU5MVnU0VTFFRXNLcjVWL0NCSTE2MWlPcUhD?=
- =?utf-8?B?dWRiS3dZWnJLK1ZEL2Q2M2Z2c0s2NDRCeC93OGFSc0VPdms5WURxbVoxOEp6?=
- =?utf-8?B?cUMvMTJSSi9KZjI5UnFyU2I5UWtjWE9uSFpJUW5oZ3BYRFJzMW1HZ1E4NkFZ?=
- =?utf-8?B?TXFjdU83amlGQ3F0aE1BaW0rT2p4MmxoTXRRdDBlVitHUlpnV1RCcGxTbXFl?=
- =?utf-8?B?OWNiQnRMTTcyWnVKdEYvaXZ4WXBCQXpXWTJLQ3I0ZFVUYTdCeURScy85Tmpl?=
- =?utf-8?B?eVMrZGh0UGZLRndTOHZ3UVJ2MDQrZkdzempwV252STJrSjViSDUyZmF5WFkv?=
- =?utf-8?B?bjBJOTQwdWs1VFp5QUx3RlNvNElXc2FFLzJEcWhMMnJnTGlBb09ZL0ZtSm5y?=
- =?utf-8?B?STlNQ2hNS2dENnA1c1NYeWRWMnRXRzBocER4aTBERHRVVHFBRnBna1JZVmoz?=
- =?utf-8?B?akYxdngwUGkvNlpaRGx4cE9iRDEzSVQ3RnFZZk5Qa1B2U2NBYnNRUGQyUWxF?=
- =?utf-8?B?RGpTMC92TEN4NzRQQmEvamhOajJkc2R5WHpkR2M0cGFIVUJVSUxLMlBoYlVz?=
- =?utf-8?B?ZTRSbm9WOW8xRHNkbVdTYnVvenNmdytrZS8wbEw2TUtyYTR2dzBqRHBwSUNn?=
- =?utf-8?B?R2dwNStMOEFZZytmRTdXSmZVMWtYUmtaaWMvOUtGME5ReHN2OWFob3lVT1gz?=
- =?utf-8?Q?qN9yxUvD8elzzC+dR5vCasQtQ?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 84d03bb6-b6b2-440d-5075-08de3ebe93b8
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8604.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Dec 2025 05:22:17.7684
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: HWVZ/w4t9IODgc+glJfDboqgAjJOYYE4OUEUuGVZSx3V9L5UikjqKNyLEWQUuItcELzfXFb2+TmbK7Zi62EBSQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9062
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_212222_042155_5ABAE97B 
-X-CRM114-Status: GOOD (  11.23  )
+X-CRM114-CacheID: sfid-20251218_213718_021751_D7519916 
+X-CRM114-Status: GOOD (  12.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,57 +98,142 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: v-songbaohua@oppo.com, zhengtangquan@oppo.com, ryan.roberts@arm.com, anshuman.khandual@arm.com, maz@kernel.org, linux-kernel@vger.kernel.org, iommu@lists.linux.dev, surenb@google.com, ardb@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reserve 1MB of DDR memory region due to EdgeLock Enclave's hardware
-limitation restricting access to DDR addresses from 0x80000000
-to 0xafffffff.
+From: Barry Song <v-songbaohua@oppo.com>
 
-Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+dcache_by_myline_op ensures completion of the data cache operations for a
+region, while dcache_by_myline_op_nosync only issues them without waiting.
+This enables deferred synchronization so completion for multiple regions
+can be handled together later.
+
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: Robin Murphy <robin.murphy@arm.com>
+Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Suren Baghdasaryan <surenb@google.com>
+Cc: Tangquan Zheng <zhengtangquan@oppo.com>
+Signed-off-by: Barry Song <v-songbaohua@oppo.com>
 ---
- arch/arm64/boot/dts/freescale/imx8ulp-evk.dts | 12 +++++++++++-
- 1 file changed, 11 insertions(+), 1 deletion(-)
+ arch/arm64/include/asm/assembler.h | 79 ++++++++++++++++++++++--------
+ 1 file changed, 59 insertions(+), 20 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts b/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-index 290a49bea2f7..10aaf02f8ea7 100644
---- a/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8ulp-evk.dts
-@@ -1,6 +1,6 @@
- // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
+index f0ca7196f6fa..7d84a9ca7880 100644
+--- a/arch/arm64/include/asm/assembler.h
++++ b/arch/arm64/include/asm/assembler.h
+@@ -366,22 +366,7 @@ alternative_else
+ alternative_endif
+ 	.endm
+ 
+-/*
+- * Macro to perform a data cache maintenance for the interval
+- * [start, end) with dcache line size explicitly provided.
+- *
+- * 	op:		operation passed to dc instruction
+- * 	domain:		domain used in dsb instruction
+- * 	start:          starting virtual address of the region
+- * 	end:            end virtual address of the region
+- *	linesz:		dcache line size
+- * 	fixup:		optional label to branch to on user fault
+- * 	Corrupts:       start, end, tmp
+- */
+-	.macro dcache_by_myline_op op, domain, start, end, linesz, tmp, fixup
+-	sub	\tmp, \linesz, #1
+-	bic	\start, \start, \tmp
+-.Ldcache_op\@:
++	.macro __dcache_op_line op, start
+ 	.ifc	\op, cvau
+ 	__dcache_op_workaround_clean_cache \op, \start
+ 	.else
+@@ -399,14 +384,54 @@ alternative_endif
+ 	.endif
+ 	.endif
+ 	.endif
+-	add	\start, \start, \linesz
+-	cmp	\start, \end
+-	b.lo	.Ldcache_op\@
+-	dsb	\domain
++	.endm
++
++/*
++ * Macro to perform a data cache maintenance for the interval
++ * [start, end) with dcache line size explicitly provided.
++ *
++ * 	op:		operation passed to dc instruction
++ * 	domain:		domain used in dsb instruction
++ * 	start:          starting virtual address of the region
++ * 	end:            end virtual address of the region
++ *	linesz:		dcache line size
++ * 	fixup:		optional label to branch to on user fault
++ * 	Corrupts:       start, end, tmp
++ */
++	.macro dcache_by_myline_op op, domain, start, end, linesz, tmp, fixup
++	sub	\tmp, \linesz, #1
++	bic	\start, \start, \tmp
++.Ldcache_op\@:
++	__dcache_op_line \op, \start
++	add     \start, \start, \linesz
++	cmp     \start, \end
++	b.lo    .Ldcache_op\@
+ 
++	dsb	\domain
+ 	_cond_uaccess_extable .Ldcache_op\@, \fixup
+ 	.endm
+ 
++/*
++ * Macro to perform a data cache maintenance for the interval
++ * [start, end) with dcache line size explicitly provided.
++ * It won't wait for the completion of the dc operation.
++ *
++ * 	op:		operation passed to dc instruction
++ * 	start:          starting virtual address of the region
++ * 	end:            end virtual address of the region
++ *	linesz:		dcache line size
++ * 	Corrupts:       start, end, tmp
++ */
++	.macro dcache_by_myline_op_nosync op, start, end, linesz, tmp
++	sub	\tmp, \linesz, #1
++	bic	\start, \start, \tmp
++.Ldcache_op\@:
++	__dcache_op_line \op, \start
++	add     \start, \start, \linesz
++	cmp     \start, \end
++	b.lo    .Ldcache_op\@
++	.endm
++
  /*
-- * Copyright 2021 NXP
-+ * Copyright 2021, 2025 NXP
-  */
+  * Macro to perform a data cache maintenance for the interval
+  * [start, end)
+@@ -423,6 +448,20 @@ alternative_endif
+ 	dcache_by_myline_op \op, \domain, \start, \end, \tmp1, \tmp2, \fixup
+ 	.endm
  
- /dts-v1/;
-@@ -37,6 +37,12 @@ linux,cma {
- 			linux,cma-default;
- 		};
- 
-+		ele_reserved: memory@90000000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0 0x90000000 0 0x100000>;
-+			no-map;
-+		};
++/*
++ * Macro to perform a data cache maintenance for the interval
++ * [start, end). It won’t wait for the dc operation to complete.
++ *
++ * 	op:		operation passed to dc instruction
++ * 	start:          starting virtual address of the region
++ * 	end:            end virtual address of the region
++ * 	Corrupts:       start, end, tmp1, tmp2
++ */
++	.macro dcache_by_line_op_nosync op, start, end, tmp1, tmp2
++	dcache_line_size \tmp1, \tmp2
++	dcache_by_myline_op_nosync \op, \start, \end, \tmp1, \tmp2
++	.endm
 +
- 		m33_reserved: noncacheable-section@a8600000 {
- 			reg = <0 0xa8600000 0 0x1000000>;
- 			no-map;
-@@ -259,6 +265,10 @@ &usdhc0 {
- 	status = "okay";
- };
- 
-+&hsm0 {
-+	memory-region = <&ele_reserved>;
-+};
-+
- &fec {
- 	pinctrl-names = "default", "sleep";
- 	pinctrl-0 = <&pinctrl_enet>;
-
+ /*
+  * Macro to perform an instruction cache maintenance for the interval
+  * [start, end)
 -- 
-2.43.0
+2.39.3 (Apple Git-146)
 
 
