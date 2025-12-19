@@ -4,128 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06963D78769
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 12:56:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A314BD767FF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 13:00:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LzTTPqRfx1Q4RyPcp7Ow+BdICgY0xPii9Gzglm7OgbA=; b=XTx6LYa4s4ODNkFh2+L3zhCiKv
-	XXS4hUiUeAf19wMtZsvP0iLuG0VrnGQ68ysCZqYKLDDvqk7dROoLCUgl2jg8CU8fSoXCBm5eoJyu/
-	c7rM4bydS371fnV55vibEpDG6y4PZus9ry71JXiZprDVh8IYw9hIMxc8yD8kHEk07qqUuGctlj9ym
-	TSyPbZYK3Az+oSsUeTUcYfXKa7oF4OerXzGzPBzd5c+e+mBB2DE+5JocfK9vFcW9lLlIpxOMSSiNM
-	zBg9uz7dL5Jb60rL3Gmd/6iDlF4UYWDgSsY13pjnESH21dCFtZoLKhFwZaTc4GC+m6B7N4IMdvcKb
-	eOCZXG7g==;
+	bh=u1r5FLJ2l7P+rOCCZhhwhgFsdX/h2QCBnQmP2O7LLYA=; b=3qPT4lQ5dVr1cnuWQl8BS9/SU3
+	kbcmA+CZaaAxCETjlapRo6Dcqdwl6VyTxDZEzBZXc/Im5Y5S+IuFcEA5WD5C1Ez3C8uJtnH+KH+dL
+	mK7oveEZQen7ppidPt5MuS0owxu3Eu6FgKfPumdd9ztdtoIb6PWcpFf2YcTqkStV/X7PUHtXJXcGj
+	lQs5AJcqu4bFJsdM27PkLC58NzHWSlgRF/kRCgl2Jyrwsnh3olt+JLmsGJYcCkuCeRvxebDqtyX/8
+	XmpND+0aGvWNvJGfYTjm507OJ6iNvPAM6SQu5twDz/Os4gH97USjyRecTsM6DgngNgliwfDJuAhim
+	mbeoVSeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWa1n-0000000AJja-2jxM;
-	Fri, 19 Dec 2025 12:56:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vWa5i-0000000AK1v-1aWk;
+	Fri, 19 Dec 2025 13:00:18 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWa1m-0000000AJjU-0mk2
+	id 1vWa5f-0000000AK0p-1Xwf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Dec 2025 12:56:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 447596001D;
-	Fri, 19 Dec 2025 12:56:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76105C4CEF1;
-	Fri, 19 Dec 2025 12:56:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766148973;
-	bh=tKHyoPcqHO2MUgvZQBKiovkJt+tJh80vJvzQGB3Yrus=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=C0lnkwallTZKjBt4GyRjCCGQIULpAEbKpA+7OJS0yV2TNPbGZET7zOjlHPnooSlRO
-	 yjVVC5YmTBY3ogjOM0P9lEZQAMSN5DvM3RbFPrCe9awkoglOtpaA1kLZugI9B2pIKB
-	 JERdw8PpESN0EJAW115hmNumMRBdsDO6wcyQSz1vUzXgV+6PeM9B6KtqCaOs2vvFm9
-	 TSO21y4u/bfycn+Q7M65Jrv7CIYhGnEL2Tuzz3Q3mFGllmIztoKPGfYUODhos+WnfN
-	 TM+8kALjvS2AB6CbJYZ2Lm6qlRY1vNcWXe5vRdlAB+S5k8sTzMIODWP8N5au8wDs1p
-	 8ps6P0cOKe1Vw==
-Message-ID: <8b02a404-8c5a-4c0d-a80c-63fa401514b2@kernel.org>
-Date: Fri, 19 Dec 2025 13:56:02 +0100
+	Fri, 19 Dec 2025 13:00:16 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BJBbIM91771762
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Dec 2025 13:00:14 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	u1r5FLJ2l7P+rOCCZhhwhgFsdX/h2QCBnQmP2O7LLYA=; b=iabjbzaPg+kZbwhk
+	bF/kj0GLjIsp77eQ3I8MW3OOGT5DaqIrdWAFCwA6xIMJjICRHN7MalavQhxUlGY1
+	DBv30ZZwJXsPlx6wo1bzYseNUh83jM8AdKAFTwXpSAsF+qRNS8su3wrkqz//3MUB
+	FXcp5q8tutcFQt7NNl+eJTd+JMlWHMY4xRPmZgvaAhgVilOTuG9vuCuRdmIf36P5
+	ym73i2uUmf3nJSCAlOXSE3g1GYRmiqsjbf2wqI56faV0i6pmD1bW4oKGRaZ7yGd7
+	LvnCGiSrag3mBCov4YSJr8OevnrYBxpxHqriCWJiGcg9wC9qOfy3Ti7tomjtkEf6
+	tiyd3Q==
+Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4b4r2bjptp-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Dec 2025 13:00:14 +0000 (GMT)
+Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-34c66cb671fso2729812a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Dec 2025 05:00:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1766149214; x=1766754014; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=u1r5FLJ2l7P+rOCCZhhwhgFsdX/h2QCBnQmP2O7LLYA=;
+        b=SCQIZ1lzdgKEJJrCqse3AetliN+QX4eSMr7k6T+EPi7bosncFvhAdgxewgRQQrI3mE
+         OuW9ExtLbeaz+K8gnYG4mv347bfXj0gIZ9hu572Uzlu8p84NpSPuejhQTkUZBceUENNM
+         xZw6JWnsT6ajDG04TW+sLaLdY82m48NmdSz2YeQRoaKy8kvatItkGnVn3pZS6IkNff/Z
+         AD6ceyCH5FvwtCxZ4JViFHCJYBraK+e1t6x/Df/aiIB3Yi4Zgi1TRMmQAtN2NIlfeL0H
+         joSFL6iDz/m1RJjoWfy2IfJix4u+G3BRvwtwwuxWhIEX3nLIZ4FIAUNPhStyWxhinDb3
+         nsGQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766149214; x=1766754014;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=u1r5FLJ2l7P+rOCCZhhwhgFsdX/h2QCBnQmP2O7LLYA=;
+        b=e8LU0b9TGnvtJM2upH5bTJahDmyjGEkTMbKXQVzWQjAqYZ75nlR878NjTI5WOIKT1b
+         YiWMBcVcyPhKpCXi9/AsI+HFKcx6I1bDcQctaGsjSwUVCQCWFZFL6Zl4Ri3tsfi7EjwG
+         pLPCHmbow2sSvwS977PcPqmKeMFxmdsC2CEcZ2GnV/QyB+rXhnLI4MQ3dBsGdaqqD6Ua
+         gnxeZKjYlWeaBhS9SxnerO0nb9yRK7k6yEobY4oDCkfO3hy90G3/RH3w93i+JTmsUipD
+         +60KzWV3xsrq1qFUdQAaX0Xx/ZjWgFDJ4jLfz6mW4pePrV7VpWJQVhHKLXk3eAMo9AVF
+         6RxA==
+X-Forwarded-Encrypted: i=1; AJvYcCXhh7fHERRMll//Ji1i4kuMu5L0kOYrEGl5v7+hpZP/UFcr97BZJ4b5JQlXjxQX4TMI1oobcLrFPWZgwEh5rcdS@lists.infradead.org
+X-Gm-Message-State: AOJu0YxP8msjWvDgtDtvKB9RugbQYHD1FdPESHQqJ0dO6gs/4W3bc2x1
+	rUHdfTbYXEbF1avfLqH3naxEGfskI5rSBye6xLT1PcYATpMdyDKUiTkYakMZ81RoaF9YMSZfZcb
+	bXuGEphmQhJoyIyS9EQwoG04ivupHA49YfWGlbmJYtl16uwnCTX0DscoY2G1xxb88/HfuJe+WNW
+	fiDw==
+X-Gm-Gg: AY/fxX609F58/PisgHJhn9quvT/Zxs8nnnylwhSQi+V7MBzzzA+fE5Yhz1eDrM9uMoR
+	IJSY8JmtWFYRbg3nXi0FGJ0MR5JRPXUAgBVBbvEDZRKRyEFeNJWutDM9hjHSuzonMFR/9iuTVpf
+	kElEUSQu6Zu+y0ofvORShS9P5h29KcCNH/sDfb42772DVAJNCWCHHBwiPI4ZsnxABSHrYIOhS/h
+	2voDECgdHxlGFFOmR0/TicGl49hUQoa+qe0ZlF3W1xIWGLRnGTpZ5hjMvnDsMUvS/9/jp/OUKnj
+	1muCe4BbCiRdTr+QjExsoLiAwJKxO2YQ1v4IGVVI8H00vY6EAyZyGkFhb+dUp5t7AFtnRJ97wDa
+	5ygCvTEgFPey8snzD/6bV+ySIyCg4OKbHtvNMvS5gpjatisiwDOBPxuO0ol1+DuGpNectuhwi+5
+	U=
+X-Received: by 2002:a17:90b:3d8b:b0:33d:a0fd:257b with SMTP id 98e67ed59e1d1-34e921f0b38mr2016986a91.36.1766149213720;
+        Fri, 19 Dec 2025 05:00:13 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHEumvKlgL4z4nT80FDoF0uxD2kSGaeoprq+N7i8LpYdvtRqWgsyaGXqXuRn3i9Drjzyjsm/A==
+X-Received: by 2002:a17:90b:3d8b:b0:33d:a0fd:257b with SMTP id 98e67ed59e1d1-34e921f0b38mr2016937a91.36.1766149212725;
+        Fri, 19 Dec 2025 05:00:12 -0800 (PST)
+Received: from [10.133.33.111] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-34e70d676b8sm5247864a91.8.2025.12.19.05.00.08
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 19 Dec 2025 05:00:12 -0800 (PST)
+Message-ID: <9eaf823b-d18e-4067-8843-0c03530485a9@oss.qualcomm.com>
+Date: Fri, 19 Dec 2025 21:00:03 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 07/11] dt-bindings: clock: qcom: document the Kaanapali
- GPU Clock Controller
-To: Taniya Das <taniya.das@oss.qualcomm.com>,
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
- Konrad Dybcio <konradybcio@kernel.org>,
- Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
- Imran Shaik <imran.shaik@oss.qualcomm.com>,
- Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
- linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org,
- Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
- Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-References: <20251125-kaanapali-mmcc-v2-v2-0-fb44e78f300b@oss.qualcomm.com>
- <20251125-kaanapali-mmcc-v2-v2-7-fb44e78f300b@oss.qualcomm.com>
- <20251126-elated-stoic-scorpion-25b630@kuoka>
- <de44560d-4ed8-41fe-be7b-56412b933a8c@oss.qualcomm.com>
- <fbe39eac-7c92-4a08-bafb-31e5c51a0613@kernel.org>
- <503f445e-0d12-407d-bc77-f48ad335639b@oss.qualcomm.com>
- <e8bdb176-b6fb-4dd2-8b5b-9da8073fa915@kernel.org>
- <ca118faf-3451-4b83-9074-82bc5e1f731e@oss.qualcomm.com>
- <3e8128f4-3cba-4c13-a846-e5f1638a1e0f@kernel.org>
- <57ab2d5d-5aaa-4f9c-83ae-0f7ebc1e648b@oss.qualcomm.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v5 2/3] coresight: tpda: add logic to configure TPDA_SYNCR
+ register
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, Tao Zhang <tao.zhang@oss.qualcomm.com>
+References: <20251219-add_sysfs_nodes_to_configure_tpda-v5-0-ca93ddfe9d30@oss.qualcomm.com>
+ <20251219-add_sysfs_nodes_to_configure_tpda-v5-2-ca93ddfe9d30@oss.qualcomm.com>
+ <38dc6948-6233-4b0a-a769-538939abe345@arm.com>
+ <fb8084b1-858d-4942-9580-9a5f3016b7c0@oss.qualcomm.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <57ab2d5d-5aaa-4f9c-83ae-0f7ebc1e648b@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+In-Reply-To: <fb8084b1-858d-4942-9580-9a5f3016b7c0@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-GUID: upb2MLN8OMWadl4cookt2NVOvrCoJcEI
+X-Proofpoint-ORIG-GUID: upb2MLN8OMWadl4cookt2NVOvrCoJcEI
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjE5MDEwNiBTYWx0ZWRfX4Eiz4mUCR0jW
+ u5CHbtYORkeft9UYIP17QeZH1lktM6MDKJGW9UXEw2oFL6GerWb1ybA/Vb1OJcs9SfGyZ0Gz7mt
+ 29S3mrFd2rtz9gXADgGhree4Ck/upJI66iTicmzWSHYFe2bRvMrruUdtCYCpod11WJzK0cgdloo
+ C4EqlHrAAObdZjpp9mUdJfSjNJ8T8B9BjK+x4weMMPd+HdhXTJd9vaKJcsm3eqSCjkWYGOioSwg
+ xC0sh+W8Fj4r9PzulUCozkWKJL6y7Ig2wQ7GrEo9Xe3S07TUSiqpLQBxfIRstR9XDMAQwfOYh55
+ PdrZStwxlSjVzbLVMii2CK/taM66Se+4+jdVIVOwXKfGbWiUmEaoOvr3B3AJ60yy0RfUeBgGBNK
+ jzGe7+1l1wgFjPGqO6oSo98bOqOc5eGz/lzgCaBYAhid6Me2w9xCcBMt7qBNZV8i721aBVnNlOk
+ x0il9wtB5oXRdvZjfFw==
+X-Authority-Analysis: v=2.4 cv=WYwBqkhX c=1 sm=1 tr=0 ts=69454c5e cx=c_pps
+ a=RP+M6JBNLl+fLTcSJhASfg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=KKAkSRfTAAAA:8
+ a=8heJ_ZlZk143kZje2o0A:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=iS9zxrgQBfv6-_F4QbHw:22 a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-12-19_04,2025-12-17_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 bulkscore=0 impostorscore=0 priorityscore=1501
+ clxscore=1015 phishscore=0 adultscore=0 suspectscore=0 spamscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2512120000
+ definitions=main-2512190106
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251219_050015_422141_BE5991F4 
+X-CRM114-Status: GOOD (  26.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,45 +155,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/12/2025 11:39, Taniya Das wrote:
+
+
+On 12/19/2025 8:31 PM, Jie Gan wrote:
 > 
 > 
-> On 12/17/2025 7:24 PM, Krzysztof Kozlowski wrote:
->> On 17/12/2025 14:21, Konrad Dybcio wrote:
->>> On 12/17/25 11:09 AM, Krzysztof Kozlowski wrote:
->>>> On 17/12/2025 10:32, Taniya Das wrote:
->>>>>>>
->>>>>>> We would like to leverage the existing common clock driver(GDSC) code to
->>>>>>
->>>>>> Fix the driver code if it cannot handle other cells. Your drivers do not
->>>>>> matter for choices made in bindings.
->>>>>>
->>>>>
->>>>> As it is still a clock controller from hardware design and in SW I will
->>>>> be map the entire hardware region and this way this clock controller
->>>>> will also be aligned to the existing clock controllers and keep the
->>>>> #power-domain-cells = <1> as other CCs.
->>>>
->>>> I don't see how this resolves my comment.
+> On 12/19/2025 6:24 PM, Suzuki K Poulose wrote:
+>> On 19/12/2025 10:04, Jie Gan wrote:
+>>> From: Tao Zhang <tao.zhang@oss.qualcomm.com>
 >>>
->>> Spanning the entire 0x6000-long block will remove your worry about this
->>> description only being 2-register-wide
+>>> The TPDA_SYNC counter tracks the number of bytes transferred from the
+>>> aggregator. When this count reaches the value programmed in the
+>>> TPDA_SYNCR register, an ASYNC request is triggered, allowing userspace
+>>> tools to accurately parse each valid packet.
+>>>
+>>> Signed-off-by: Tao Zhang <tao.zhang@oss.qualcomm.com>
+>>> Reviewed-by: James Clark <james.clark@linaro.org>
+>>> Co-developed-by: Jie Gan <jie.gan@oss.qualcomm.com>
+>>> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+>>> ---
+>>>   drivers/hwtracing/coresight/coresight-tpda.c | 7 +++++++
+>>>   drivers/hwtracing/coresight/coresight-tpda.h | 5 +++++
+>>>   2 files changed, 12 insertions(+)
+>>>
+>>> diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/ 
+>>> hwtracing/coresight/coresight-tpda.c
+>>> index d25a8bcfb3d4..d378ff8ad77d 100644
+>>> --- a/drivers/hwtracing/coresight/coresight-tpda.c
+>>> +++ b/drivers/hwtracing/coresight/coresight-tpda.c
+>>> @@ -163,6 +163,13 @@ static void tpda_enable_pre_port(struct 
+>>> tpda_drvdata *drvdata)
+>>>        */
+>>>       if (drvdata->trig_flag_ts)
+>>>           writel_relaxed(0x0, drvdata->base + TPDA_FPID_CR);
+>>> +
+>>> +    val = readl_relaxed(drvdata->base + TPDA_SYNCR);
+>>> +    /* Reset the mode ctrl */
+>>> +    val &= ~TPDA_SYNCR_MODE_CTRL;
+>>> +    /* Program the counter value for TPDA_SYNCR */
+>>> +    val |= TPDA_SYNCR_COUNTER_MASK;
 >>
->> But that was not the comment here. Taniya replied under comment about
->> cells. We are not discussing here some other things...
+>> Do we plan to change this value via sysfs ? If not whats the point of
+>> clearing the field. Why not simply set it (as it is all 1s anyways).
+> 
+> We configure the value only once during enablement and do not intend to 
+> modify it through sysfs. The mode_ctrl is reset to reinitialize the 
+> counter.
+> For example, if the TPDA device has been enabled and then disabled, the 
+> counter may have already counted some packets. This could result in an 
+> async packet being triggered with an unexpected data size.
+> 
+
+Missed for explaining the mode_ctrl bit. Set value 0 to the mode_ctrl 
+means reset the counter and set the mode to 0.
+
+We have two modes:
+
+mode = 0:
+COUNT[11:0] value represents the approximate number of bytes moved 
+between two ASYNC packet requests
+
+mode = 1:
+the bits COUNT[11:7] are used as a power of 2. for example, we could 
+insert an async packet every 8K data by writing a value 13 to the 
+COUNT[11:7] field.
+
+Thanks,
+Jie
+
+>>
+>>> +    writel_relaxed(val, drvdata->base + TPDA_SYNCR);
+>>>   }
+>>>   static int tpda_enable_port(struct tpda_drvdata *drvdata, int port)
+>>> diff --git a/drivers/hwtracing/coresight/coresight-tpda.h b/drivers/ 
+>>> hwtracing/coresight/coresight-tpda.h
+>>> index 8a075cfbc3cc..97e2729c15c9 100644
+>>> --- a/drivers/hwtracing/coresight/coresight-tpda.h
+>>> +++ b/drivers/hwtracing/coresight/coresight-tpda.h
+>>> @@ -9,6 +9,7 @@
+>>>   #define TPDA_CR            (0x000)
+>>>   #define TPDA_Pn_CR(n)        (0x004 + (n * 4))
+>>>   #define TPDA_FPID_CR        (0x084)
+>>> +#define TPDA_SYNCR        (0x08C)
+>>>   /* Cross trigger Global (all ports) flush request bit */
+>>>   #define TPDA_CR_FLREQ        BIT(0)
+>>> @@ -38,6 +39,10 @@
+>>>   #define TPDA_Pn_CR_CMBSIZE        GENMASK(7, 6)
+>>>   /* Aggregator port DSB data set element size bit */
+>>>   #define TPDA_Pn_CR_DSBSIZE        BIT(8)
+>>
+>> Newline to separate the defintions of different registers, please.
+> 
+> will fix it.
+> 
+> Thanks,
+> Jie
+> 
+>>
+>>> +/* TPDA_SYNCR mode control bit */
+>>> +#define TPDA_SYNCR_MODE_CTRL        BIT(12)
+>>> +/* TPDA_SYNCR counter mask */
+>>> +#define TPDA_SYNCR_COUNTER_MASK        GENMASK(11, 0)
+>>>   #define TPDA_MAX_INPORTS    32
+>>
+>> Suzuki
+>>
+>>
+>>>
 >>
 > 
-> I will review and add support for handling #power-domain-cells = <0> in
-> our common code of clock & gdsc. However, the initial intent was to keep
-> the GDSC phandle uniform across chipsets as this is a clock controller
-> by hardware design, which is why #power-domain-cells was originally set
-> to <1>.
 
-Having cells=0 or =2 or =3 does not change "as this is a clock
-controller by hardware design" at all.
-
-I do not see any of these arguments relevant to discussion.
-
-Best regards,
-Krzysztof
 
