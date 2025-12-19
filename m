@@ -4,73 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D546AD711CC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 02:16:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07A90D711CC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 02:23:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bVkW/oOJ3zyOi4kAr1KcE1pFjF8ucick+T1vwSZi274=; b=lhyaOE6Qq5yhDFDWQIFjjioD+v
-	1qkgCQ/03IZ2aCVVeDWLnqrSA+Rfcz1/YTLLMPojBDGshwm+5NfjIAdD+ytcYGIjHPlu9RGHyDxCO
-	JeBUdt8G1z4zIhH79KGMA5DmyWR8f2U6y0W2FP7GgUlyWFj0JI+k8kX7frQtQkfE5LAb5OEwmXWTk
-	ZzSzsjVTyrChV6Vfs+MymS5IJBXYZYgjWJhqIuXtgbC9hOYyxKXBPowGjTvGJRJO1jwMzT4EXM5DS
-	/MBwN7j2i3HrD7E6/D66+qqRRHUHe5m2LNcgGttJBUY6cB/j7W5jdbIMPlCkpNGyc0GciSV6D4vWS
-	UjGkiO0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zCSzHpKiXbb2bBkOT8GyK4MZaq/I5AYsXDZPsc1qwlU=; b=uN/XEDG9Kb1FO8y5MgSlEqCurS
+	9ElY+Oe4ZowSvtxwSK4NvpDC/3n2hLt11uTUdMaiOw6+sM73d8X5ey8NbgSRvdjD84Gs76DPRMYO7
+	cwwaqcDOqMw9UKzyriuShOp4n1d2BjaN6QGOjyvmktDTERLXFzKXblEWhrtneGmX0uoyhAIDMOpL0
+	nc8rvdb9qi2gTpzR9RQW9SqOPOsBeZDTlvZxzCpuV6V3FcEGnj+IOlIcWzYSm53Z3l/If7AhnNmgU
+	eEtlAIla3NtbPgRMEEvJ7bHPlPflF7/T9KxFp+DWgX/ZGaxeVs+nORQZIkdleva+AOi70SdBdhGGU
+	0ZhGd6Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWQ32-00000009U6y-2Trc;
-	Fri, 19 Dec 2025 02:16:52 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1vWQ9g-00000009UYf-0ctx;
+	Fri, 19 Dec 2025 02:23:44 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWQ2z-00000009U65-0dnb
+	id 1vWQ9f-00000009UYT-01TI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Dec 2025 02:16:51 +0000
-Received: from DESKTOP-L0HPE2S (unknown [124.16.141.245])
-	by APP-05 (Coremail) with SMTP id zQCowACHGAyFtURp2kMjAQ--.22672S2;
-	Fri, 19 Dec 2025 10:16:39 +0800 (CST)
-From: Haotian Zhang <vulab@iscas.ac.cn>
-To: lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org
-Cc: robh@kernel.org,
-	bhelgaas@google.com,
-	michal.simek@amd.com,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Haotian Zhang <vulab@iscas.ac.cn>
-Subject: [PATCH v3] PCI: xilinx: Fix INTx IRQ domain leak in error paths
-Date: Fri, 19 Dec 2025 10:16:15 +0800
-Message-ID: <20251219021615.965-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1.windows.1
-In-Reply-To: <20251119033301.518-1-vulab@iscas.ac.cn>
-References: <20251119033301.518-1-vulab@iscas.ac.cn>
+	Fri, 19 Dec 2025 02:23:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 78A6160008;
+	Fri, 19 Dec 2025 02:23:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6943C4CEFB;
+	Fri, 19 Dec 2025 02:23:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766111021;
+	bh=YMn92YFjibQFd4uQy8lgsIn/VXdzKH6AJxzu5Y6ObH8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=VpPnThretZotbcBVMPQW1t9O7+Yh/m7F7TEud1XO6zPSgmQrGnfoLLmJPoBxjgFdZ
+	 wJcAT9UzJa9fqzIdZv4+InwvAKn9pGPK59sravitKlsrA/otSAMb3IDQtcQpn3GMhC
+	 ex73Lv/P+MF2opYHp8Gl5AiCCV5FR3ncfhwNZSiUwBDQHLqhat8uGL3ZguHSj7dM1i
+	 tVBSTOqLVpVmTt/pVpjq+3L3qgMoX81X6r1eJeotieyqDaLHUgf2FmAGXqBpsoN4t9
+	 c0O3J1ykDnWmzn0wq8IFYnNyQ4vYoX6EZijQafNUgnSkjHpDYSXI1tDAnqg4yMuXpF
+	 yjVAckNDSA+iA==
+Date: Thu, 18 Dec 2025 20:23:37 -0600
+From: Bjorn Andersson <andersson@kernel.org>
+To: Shenwei Wang <shenwei.wang@nxp.com>
+Cc: Linus Walleij <linusw@kernel.org>, 
+	Bartosz Golaszewski <brgl@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Mathieu Poirier <mathieu.poirier@linaro.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Jonathan Corbet <corbet@lwn.net>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, 
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-doc@vger.kernel.org, linux-imx@nxp.com
+Subject: Re: [PATCH v6 2/5] remoteproc: imx_rproc: Populate devices under
+ "rpmsg" subnode
+Message-ID: <3bbemd2vbsfss3sqpjpokytvvzweoqrtiqygffj5vqazqk3jyq@eobv6ruriiwb>
+References: <20251212194341.966387-1-shenwei.wang@nxp.com>
+ <20251212194341.966387-3-shenwei.wang@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowACHGAyFtURp2kMjAQ--.22672S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxJr4UXr17CrWxtr4xuryrCrg_yoW5JF1rpF
-	4DCw47uF4UJFWUuF47G3W5uFy3Wa9Fk34qy3yYgwnrZr13CrWDCF10qFnakF4FvFW8Jr18
-	Ar1xt3Wruw47CFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr
-	0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2
-	Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x
-	0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2
-	zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF
-	4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWU
-	CwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r1j6r4UYxBIda
-	VFxhVjvjDU0xZFpf9x0JUd-B_UUUUU=
-X-Originating-IP: [124.16.141.245]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiCREAA2lEGBxvagABs2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251218_181649_548169_FDC5E134 
-X-CRM114-Status: GOOD (  12.76  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251212194341.966387-3-shenwei.wang@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,71 +77,299 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In xilinx_pcie_init_irq_domain(), if xilinx_allocate_msi_domains()
-fails after pcie->leg_domain has been successfully created via
-irq_domain_create_linear(), the function returns directly without
-cleaning up the allocated IRQ domain, resulting in a resource leak.
-In xilinx_free_msi_domains(), pcie->leg_domain is also neglected.
+On Fri, Dec 12, 2025 at 01:43:38PM -0600, Shenwei Wang wrote:
+> Register the RPMsg channel driver and populate remote devices defined
+> under the "rpmsg" subnode upon receiving their notification messages.
 
-Add irq_domain_remove() call in the error path to properly release the
-IRQ domain before returning the error. Rename xilinx_free_msi_domains()
-to xilinx_free_irq_domains() and add the release of pcie->leg_domain
-in the function.
+Please provide a proper description of what "problem" this patch solves.
 
-Fixes: 313b64c3ae52 ("PCI: xilinx: Convert to MSI domains")
-Suggested-by: Manivannan Sadhasivam <mani@kernel.org>
-Signed-off-by: Haotian Zhang <vulab@iscas.ac.cn>
----
-Changes in v3:
-  - Rename xilinx_free_msi_domains() to xilinx_free_irq_domains()
-    and add the release of pcie->leg_domain in the function as
-    suggested by Manivannan Sadhasivam.
----
-Changes in v2:
-  - Correct the Fixes tag to point to the commit that introduced the
-    legacy IRQ domain leak on MSI allocation failure.
----
- drivers/pci/controller/pcie-xilinx.c | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
+> 
+> The following illustrates the expected DTS layout structure:
+> 
+> 	cm33: remoteproc-cm33 {
+> 		compatible = "fsl,imx8ulp-cm33";
+> 
+> 		rpmsg {
+> 			rpmsg-io-channel {
+> 				gpio@0 {
+> 					compatible = "fsl,imx-rpmsg-gpio";
+> 					reg = <0>;
 
-diff --git a/drivers/pci/controller/pcie-xilinx.c b/drivers/pci/controller/pcie-xilinx.c
-index 937ea6ae1ac4..4aa139abac16 100644
---- a/drivers/pci/controller/pcie-xilinx.c
-+++ b/drivers/pci/controller/pcie-xilinx.c
-@@ -302,9 +302,10 @@ static int xilinx_allocate_msi_domains(struct xilinx_pcie *pcie)
- 	return 0;
- }
- 
--static void xilinx_free_msi_domains(struct xilinx_pcie *pcie)
-+static void xilinx_free_irq_domains(struct xilinx_pcie *pcie)
- {
- 	irq_domain_remove(pcie->msi_domain);
-+	irq_domain_remove(pcie->leg_domain);
- }
- 
- /* INTx Functions */
-@@ -480,8 +481,10 @@ static int xilinx_pcie_init_irq_domain(struct xilinx_pcie *pcie)
- 		phys_addr_t pa = ALIGN_DOWN(virt_to_phys(pcie), SZ_4K);
- 
- 		ret = xilinx_allocate_msi_domains(pcie);
--		if (ret)
-+		if (ret) {
-+			irq_domain_remove(pcie->leg_domain);
- 			return ret;
-+		}
- 
- 		pcie_write(pcie, upper_32_bits(pa), XILINX_PCIE_REG_MSIBASE1);
- 		pcie_write(pcie, lower_32_bits(pa), XILINX_PCIE_REG_MSIBASE2);
-@@ -600,7 +603,7 @@ static int xilinx_pcie_probe(struct platform_device *pdev)
- 
- 	err = pci_host_probe(bridge);
- 	if (err)
--		xilinx_free_msi_domains(pcie);
-+		xilinx_free_irq_domains(pcie);
- 
- 	return err;
- }
--- 
-2.50.1.windows.1
+Surely there needs to be some "gpio-controller" and "#gpio-cells" here?
+Would be useful if the example is somewhat complete, to give a picture
+of what's actually going on.
 
+> 				};
+> 
+> 				gpio@1 {
+> 					compatible = "fsl,imx-rpmsg-gpio";
+> 					reg = <1>;
+> 				};
+> 
+> 				...
+> 			};
+> 
+> 			...
+> 		};
+> 	};
+> 
+> Signed-off-by: Shenwei Wang <shenwei.wang@nxp.com>
+> ---
+>  drivers/remoteproc/imx_rproc.c   | 143 +++++++++++++++++++++++++++++++
+>  include/linux/rpmsg/rpdev_info.h |  33 +++++++
+>  2 files changed, 176 insertions(+)
+>  create mode 100644 include/linux/rpmsg/rpdev_info.h
+> 
+> diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+> index 33f21ab24c92..65ee16fd66d1 100644
+> --- a/drivers/remoteproc/imx_rproc.c
+> +++ b/drivers/remoteproc/imx_rproc.c
+> @@ -15,6 +15,8 @@
+>  #include <linux/module.h>
+>  #include <linux/of.h>
+>  #include <linux/of_address.h>
+> +#include <linux/of_irq.h>
+> +#include <linux/of_platform.h>
+>  #include <linux/of_reserved_mem.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/pm_domain.h>
+> @@ -22,6 +24,8 @@
+>  #include <linux/reboot.h>
+>  #include <linux/regmap.h>
+>  #include <linux/remoteproc.h>
+> +#include <linux/rpmsg.h>
+> +#include <linux/rpmsg/rpdev_info.h>
+>  #include <linux/workqueue.h>
+>  
+>  #include "imx_rproc.h"
+> @@ -1016,6 +1020,141 @@ static void imx_rproc_destroy_workqueue(void *data)
+>  	destroy_workqueue(workqueue);
+>  }
+>  
+> +struct imx_rpmsg_driver {
+> +	struct rpmsg_driver rpdrv;
+> +	const char *compat;
+> +	void *driver_data;
+> +};
+> +
+> +static const char *channel_device_map[][2] = {
+> +	{"rpmsg-io-channel", "rpmsg-gpio"},
+> +};
+> +
+> +static int imx_rpmsg_endpoint_cb(struct rpmsg_device *rpdev, void *data,
+> +				 int len, void *priv, u32 src)
+> +{
+> +	struct rpdev_platform_info *drvdata;
+> +
+> +	drvdata = dev_get_drvdata(&rpdev->dev);
+> +	if (drvdata && drvdata->rx_callback)
+> +		return drvdata->rx_callback(rpdev, data, len, priv, src);
+> +
+> +	return 0;
+> +}
+> +
+> +static void imx_rpmsg_endpoint_remove(struct rpmsg_device *rpdev)
+> +{
+> +	of_platform_depopulate(&rpdev->dev);
+> +}
+> +
+> +static int imx_rpmsg_endpoint_probe(struct rpmsg_device *rpdev)
+> +{
+> +	struct rpdev_platform_info *drvdata;
+> +	struct imx_rpmsg_driver *imx_rpdrv;
+> +	struct device *dev = &rpdev->dev;
+> +	struct of_dev_auxdata *auxdata;
+> +	struct rpmsg_driver *rpdrv;
+> +
+> +	rpdrv = container_of(dev->driver, struct rpmsg_driver, drv);
+> +	imx_rpdrv = container_of(rpdrv, struct imx_rpmsg_driver, rpdrv);
+> +
+> +	if (!imx_rpdrv->driver_data)
+> +		return -EINVAL;
+> +
+> +	drvdata = devm_kmemdup(dev, imx_rpdrv->driver_data, sizeof(*drvdata), GFP_KERNEL);
+> +	if (!drvdata)
+> +		return -ENOMEM;
+> +
+> +	auxdata = devm_kzalloc(dev, sizeof(*auxdata) * 2, GFP_KERNEL);
+> +	if (!auxdata)
+> +		return -ENOMEM;
+> +
+> +	drvdata->rpdev = rpdev;
+> +	auxdata[0].compatible = devm_kstrdup(dev, imx_rpdrv->compat, GFP_KERNEL);
+> +	auxdata[0].platform_data = drvdata;
+> +	dev_set_drvdata(dev, drvdata);
+> +
+> +	of_platform_populate(drvdata->channel_node, NULL, auxdata, dev);
+
+auxiliary_bus would be a better choice, but I don't understand why you
+probe a rpmsg_device for each "gpio channel" and then from that create a
+platform_device.
+
+Why don't you just make the rpmsg_device register the gpio controller
+directly?
+
+> +
+> +	return 0;
+> +}
+> +
+> +static const char *imx_of_rpmsg_is_in_map(const char *name)
+> +{
+> +	int i;
+> +
+> +	for (i = 0; i < ARRAY_SIZE(channel_device_map); i++) {
+> +		if (strcmp(name, channel_device_map[i][0]) == 0)
+> +			return channel_device_map[i][1];
+> +	}
+> +
+> +	return NULL;
+> +}
+> +
+> +static int imx_of_rpmsg_register_rpdriver(struct device_node *channel,
+> +					  struct device *dev,
+> +					  const char *name,
+> +					  const char *compat)
+> +{
+> +	struct rpdev_platform_info *driver_data;
+> +	struct imx_rpmsg_driver *rp_driver;
+> +	struct rpmsg_device_id *rpdev_id;
+> +
+> +	/* rpmsg_device_id is a NULL terminated array */
+> +	rpdev_id = devm_kzalloc(dev, sizeof(*rpdev_id) * 2, GFP_KERNEL);
+> +	if (!rpdev_id)
+> +		return -ENOMEM;
+> +
+> +	strscpy(rpdev_id[0].name, name, RPMSG_NAME_SIZE);
+> +
+> +	rp_driver = devm_kzalloc(dev, sizeof(*rp_driver), GFP_KERNEL);
+> +	if (!rp_driver)
+> +		return -ENOMEM;
+> +
+> +	driver_data = devm_kzalloc(dev, sizeof(*driver_data), GFP_KERNEL);
+> +	if (!driver_data)
+> +		return -ENOMEM;
+> +
+> +	driver_data->rproc_name = dev->of_node->name;
+> +	driver_data->channel_node = channel;
+> +
+> +	rp_driver->rpdrv.drv.name = name;
+> +	rp_driver->rpdrv.id_table = rpdev_id;
+> +	rp_driver->rpdrv.probe = imx_rpmsg_endpoint_probe;
+> +	rp_driver->rpdrv.remove = imx_rpmsg_endpoint_remove;
+> +	rp_driver->rpdrv.callback = imx_rpmsg_endpoint_cb;
+> +	rp_driver->driver_data = driver_data;
+> +	rp_driver->compat = compat;
+> +
+> +	register_rpmsg_driver(&rp_driver->rpdrv);
+
+This would then also imply that it's the gpio driver that registers the
+rpmsg_driver.
+
+> +
+> +	return 0;
+> +}
+> +
+> +static int rproc_of_rpmsg_node_init(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	const char *compat;
+> +	int ret;
+> +
+> +	struct device_node *np __free(device_node) = of_get_child_by_name(dev->of_node, "rpmsg");
+> +	if (!np)
+> +		return 0;
+> +
+> +	for_each_child_of_node_scoped(np, child) {
+> +		compat = imx_of_rpmsg_is_in_map(child->name);
+> +		if (!compat)
+> +			ret = of_platform_default_populate(child, NULL, dev);
+
+So if you don't recognize the child device node name you just register
+platform_devices for each of the children?
+
+> +		else
+> +			ret = imx_of_rpmsg_register_rpdriver(child, dev, child->name, compat);
+> +
+> +		if (ret < 0)
+> +			return ret;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  static int imx_rproc_probe(struct platform_device *pdev)
+>  {
+>  	struct device *dev = &pdev->dev;
+> @@ -1114,6 +1253,10 @@ static int imx_rproc_probe(struct platform_device *pdev)
+>  		goto err_put_pm;
+>  	}
+>  
+> +	ret = rproc_of_rpmsg_node_init(pdev);
+> +	if (ret < 0)
+> +		dev_info(dev, "populating 'rpmsg' node failed\n");
+> +
+>  	return 0;
+>  
+>  err_put_pm:
+> diff --git a/include/linux/rpmsg/rpdev_info.h b/include/linux/rpmsg/rpdev_info.h
+> new file mode 100644
+> index 000000000000..13e020cd028b
+> --- /dev/null
+> +++ b/include/linux/rpmsg/rpdev_info.h
+> @@ -0,0 +1,33 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/* Copyright 2025 NXP */
+> +
+> +/*
+> + * @file linux/rpdev_info.h
+> + *
+> + * @brief Global header file for RPDEV Info
+> + *
+> + * @ingroup RPMSG
+> + */
+> +#ifndef __LINUX_RPDEV_INFO_H__
+> +#define __LINUX_RPDEV_INFO_H__
+> +
+> +#define MAX_DEV_PER_CHANNEL    10
+> +
+> +/**
+> + * rpdev_platform_info - store the platform information of rpdev
+> + * @rproc_name: the name of the remote proc.
+> + * @rpdev: rpmsg channel device
+> + * @device_node: pointer to the device node of the rpdev.
+> + * @rx_callback: rx callback handler of the rpdev.
+> + * @channel_devices: an array of the devices related to the rpdev.
+> + */
+> +struct rpdev_platform_info {
+
+I don't understand what this structure represents. Why is this glue
+between the rpmsg_device and a made up platform_device needed?
+
+> +	const char *rproc_name;
+
+You don't need this, because you can rproc_get_by_child(&self) and then
+get the remoteproc name from that.
+
+> +	struct rpmsg_device *rpdev;
+> +	struct device_node *channel_node;
+> +	int (*rx_callback)(struct rpmsg_device *rpdev, void *data,
+> +			   int len, void *priv, u32 src);
+> +	void *channel_devices[MAX_DEV_PER_CHANNEL];
+
+Why 10? What does it mean?
+
+I think this becomes the list of the 10 grandchildren of the remoteproc
+(per child node). So what happens if those matches against two different
+drivers, what will rx_callback point to?
+
+> +};
+
+Regards,
+Bjorn
+
+> +
+> +#endif /* __LINUX_RPDEV_INFO_H__ */
+> -- 
+> 2.43.0
+> 
 
