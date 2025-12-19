@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50591D7495D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 08:17:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1265D711D6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 08:19:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I6otzXpiLhRkQYB0ABWeO802tfQiS/RwbNjgk+5APqw=; b=hRmUx7BxlaxA1ezHMGjShd3VhG
-	ubeliNdBrn+Pwi+jV9rvDRQLOHjHAzNapQGuIpi3AAyXF4x/gGwMux6HBprIiaSztrS4IOEzJOebW
-	W03OE+8TPvar0azVUfVMEFWPA/QtqrcwCFdqydd6dPFa/EYpFxD1B0aGd4LdnlrL3pXZBTjwrTyqO
-	CIDp4fvrN7gHBQi5c/1wa4Iu2yKszJY5/C7IwwDwAhf/JUxUoEidawWVYybiPF5w0ZUIfbQolw0An
-	S/e5BGQK0R7dABvrvZ14K4vpqrRJ2iWewmUrVHGDW2DuBgNywmfWlwdvH1QOF1LDX/3smdXCimJ3R
-	iW1bh35A==;
+	bh=Jhe7yb6BvdxB5AiS8mP0mwX0echOFj8I+JwBw0PnNJM=; b=izWp+AgOxBB8Nga81n/4FAgcy0
+	AmldZfdDGgU4xiWXDDP3+qDy92OZNVUGIXv7f9GGFlzqlXaTMCVWIOM0uIvdHEX5PpfN9I3mouZRF
+	ALKZ8VKtOmlUW0TSZMWbq1EWs3dZCOJBtw1jITHO4n5BgsKIhFABPBqEaWnHTMvBBcuYKnKICwfxf
+	TgmOB1tnVDLMCn/jLsJzWhhKZwIoWktGluwi4Q/iTzGfo/RR6TkqAbGrgua5AEBFtS1YvFbSnLPB5
+	AR5XIWFZgHn5j3PLiRBMbVBNMDZoSy/dwZClkZiKoK6lfDnG7gB88OpeORowCh6I5bh1BLPyp+VLM
+	5ija7ybw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWVgR-00000009rEx-3vfJ;
-	Fri, 19 Dec 2025 08:17:55 +0000
+	id 1vWVhm-00000009rMk-1yzG;
+	Fri, 19 Dec 2025 08:19:18 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWVgP-00000009rEn-3s9p
+	id 1vWVhl-00000009rMe-1Dxi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Dec 2025 08:17:54 +0000
+	Fri, 19 Dec 2025 08:19:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3E25160051;
-	Fri, 19 Dec 2025 08:17:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C06FC4CEF1;
-	Fri, 19 Dec 2025 08:17:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7908B60008;
+	Fri, 19 Dec 2025 08:19:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29C79C4CEF1;
+	Fri, 19 Dec 2025 08:19:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766132272;
-	bh=Iqk/M9Co/YKAnwZryRQErxxsPqA/ewpz3JzOLw4fFqU=;
+	s=k20201202; t=1766132356;
+	bh=tm6PhD1Tgv4dvgUGUt7t+Wem6rV6UJT3zbZeA09Cmh0=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=aSYKo/wAIEqbFmOcL46QP9MR0KNdwq4lYug5aMHF/R9os70B0asi1hpQdOmBYGBpz
-	 ooIK7TXlma0tqRrSs/ivjghMcXo6+LoMkDkALWk2bzqcdevKGxH6D0fwIQ/WG/pxQD
-	 G0CMpzKv9R9f6Pmdl2SA8RNumRwvOW+TmVMGW+P6InyIFll0QCiPiuxuea5yiF9jlN
-	 QKNknAt6hQxosC7XfFUrA6E+krT1Vqzt+Ge0zx1UXpKN7sCDu4mZtl3/asHMhd0ip0
-	 fPffRhPXnLAihctwLXznl+n82xjQp2gaKxdNviHSnLf2SZfTMaFLFpa6CrYaoBFhq0
-	 v69/df9fpJ46A==
-Message-ID: <411802b6-517d-497e-bf7b-183e6e6d7a64@kernel.org>
-Date: Fri, 19 Dec 2025 09:17:44 +0100
+	b=iisKiilHuun461TBZX9FlSuK58CW8xbUm7pFDUCKV5EhK4WRFpAZAOkbSENnh494R
+	 StqfwmXQgS+OaCRFTCkEqHs/oOxxt65w4QSHZIMNGL613a9oo7CNa4QfmSo0Q8o/LU
+	 WwEm8nwG4vq1uiRDqwJa7zy4mCSDGELMilx4LNqbSZQQMEpGb25paSxCVWyJ3VQoKw
+	 kc/YeFOQcozwUJz4jm+gCKtbrcdZWcmymAqs+hn5y5d+Jkzc/5yW4ME+NNhrqp5ogZ
+	 sCxw7hRieDhlbbCihW7ox5Nyl4F9tuzTOp8hBgxDjZNYXq6Eq/4uqdeSxl/wUWeSIL
+	 vmPpnx10oRVSQ==
+Message-ID: <90c00d57-3737-4631-a2e9-8ff2e315db14@kernel.org>
+Date: Fri, 19 Dec 2025 09:19:06 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/5] dt-bindings: mfd: maxim,max77759: add charger
- child node
+Subject: Re: [PATCH v2 2/5] dt-bindings: usb: maxim,max33359: Add supply
+ property for vbus
 To: amitsd@google.com, Sebastian Reichel <sre@kernel.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
@@ -63,7 +63,7 @@ Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
  RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
 References: <20251218-max77759-charger-v2-0-2b259980a686@google.com>
- <20251218-max77759-charger-v2-1-2b259980a686@google.com>
+ <20251218-max77759-charger-v2-2-2b259980a686@google.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -109,7 +109,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251218-max77759-charger-v2-1-2b259980a686@google.com>
+In-Reply-To: <20251218-max77759-charger-v2-2-2b259980a686@google.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -129,35 +129,18 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 18/12/2025 23:49, Amit Sunil Dhamne via B4 Relay wrote:
 > From: Amit Sunil Dhamne <amitsd@google.com>
 > 
-> The Maxim MAX77759 MFD includes a charger function. Extend the max77759
-> binding to include the charger. Also, update the example to include
-> charger.
+> Add a regulator supply property for vbus. This notifies the regulator
+> provider to source vbus when Type-C operates in Source power mode,
+> while turn off sourcing vbus when operating in Sink mode or
+> disconnected.
 > 
 > Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
 > ---
->  .../devicetree/bindings/mfd/maxim,max77759.yaml    | 33 ++++++++++++++++++++++
->  1 file changed, 33 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml b/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml
-> index 525de9ab3c2b..1cffdf2e5776 100644
-> --- a/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml
-> +++ b/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml
-> @@ -37,6 +37,30 @@ properties:
->    nvmem-0:
->      $ref: /schemas/nvmem/maxim,max77759-nvmem.yaml
->  
-> +  charger:
-> +    type: object
-> +    description: This is a dual input switch mode battery charger for portable
-> +      applications. It supports wired and wireless charging and can operate in
-> +      buck and boost mode.
-> +
+>  Documentation/devicetree/bindings/usb/maxim,max33359.yaml | 4 ++++
+>  1 file changed, 4 insertions(+)
 
 
-I do not see any improvements, so same comment: this should be folded
-into the parent.
-
-Please read DTS 101 slides or writing bindings or any other talks...
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Best regards,
 Krzysztof
