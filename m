@@ -4,82 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38B95D767C3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 10:21:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26373D767C3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 10:23:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xs5RDT2yd8o6b47ThvW6mbwdxHHDocyNiDIU/w2rxTQ=; b=MOhSy0nlFFKEL34L3R3+Y9Ki2w
-	VXVmk/DIMjFzt6iJEbe37N4t1X8ivH47tT9utMyHcswO/L5NXPtL6HvnFjVrHfpQzCfPwQPMcTUCY
-	QiMfGjYYnHrVWhUPpr3LXrWX/U2l0tmcUrloUmwQb4PWeJD6MgyZsFSD2jO/aWEh80YUFvLmjvC6S
-	7GvEp5BjrBv3+p6CpEhtX2EnEVDuGqadmWP9NbdRscVFFt+ciW4bhSVEVNGx045f2O9rTIBNl75Db
-	kAUcM6pAMeIdw1RqqBFxq2BQmfaN80GhQmF90MyQWucdkE0Qudef48SZRWcqhNykzh5lyEbtH3iSL
-	Pej/6b1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vwYIvKAIcSKMxHZJ9znZVnNg22zfHHuj2tx849lmBJw=; b=kGBz0NkbfLQXqIjfdI0pT+/LKu
+	2X7PYKZjYBGydckux2nnVWyxzglcYerRGnZrxlImcUiM/bavdQkMU0AG7X6H8P+mwn1pX5wIbYqbx
+	NnNpshbaVqK/PaiW51ubgr/5LUGHvwehJtaLAsB74U20bjF1YkcKSzdeY0w4ZmehOcTtRV1mIYp6u
+	yFx9wrSgWJRm9v3wMShSccSwGUE5izr7UzLpI/0NvZ8YvZW89BbzqDTAxxdegEEAsvZGbPBbQQiJc
+	yRoTwoEkWbqPRu7YW+aa2pr7WYUGUiEv2sOhEaYrGdLLWE6bnL0wuRysdmPB5Ortv3bSpuLtZhEAh
+	NWeVXdjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWXcC-0000000A3t8-3tx8;
-	Fri, 19 Dec 2025 10:21:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWXcB-0000000A3t1-3gI0
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 19 Dec 2025 10:21:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=xs5RDT2yd8o6b47ThvW6mbwdxHHDocyNiDIU/w2rxTQ=; b=BS223jir1/pPBmiHS6ggIn+RCp
-	6f9GLZyQBmS8mzAS1QIUaWvriEyTxT0RJotu4R+DkG/eY9KA3kbW3D1QCLE9okEDhI+5tBF4xNpjf
-	TQFLdnUaMNwAW6rRFZ4SdypYapvtkkYy/wswlFwjUqVOWeBXaVBtAdQDvqN4+YpRGlOilR2wBxzyH
-	ZOXqJkMSAv1QPXBWpTrGzyXPfsn6W4JPNwDQZ2d+D98aJjwmrgHEicp0yxEW0P/XHmXzsb82HqUHz
-	SRnsFDAnpIG3y8xDzcsKby+734N+ws/XuNzSiNUHS/Qotuq7R38bSkzk8K2KpKwOZXcA+WrCzlgVG
-	v+mootEQ==;
+	id 1vWXdZ-0000000A42t-3a16;
+	Fri, 19 Dec 2025 10:23:05 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWWkf-0000000AZgO-3Ntd
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vWXdX-0000000A42E-2FTO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Dec 2025 09:26:24 +0000
+	Fri, 19 Dec 2025 10:23:04 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EF53DFEC;
-	Fri, 19 Dec 2025 02:21:23 -0800 (PST)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 55BAD3F5CA;
-	Fri, 19 Dec 2025 02:21:27 -0800 (PST)
-Date: Fri, 19 Dec 2025 10:21:24 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: yuanfang zhang <yuanfang.zhang@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Leo Yan <leo.yan@linux.dev>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>, kernel@oss.qualcomm.com,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, maulik.shah@oss.qualcomm.com,
-	Jie Gan <jie.gan@oss.qualcomm.com>
-Subject: Re: [PATCH v2 00/12] coresight: Add CPU cluster
- funnel/replicator/tmc support
-Message-ID: <20251219-hysterical-sparkling-meerkat-59c5eb@sudeepholla>
-References: <20251218-cpu_cluster_component_pm-v2-0-2335a6ae62a0@oss.qualcomm.com>
- <20251218-careful-ruby-wildebeest-a8babd@sudeepholla>
- <d0ce8306-84e0-4940-98aa-dbc356d87593@oss.qualcomm.com>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 76211FEC;
+	Fri, 19 Dec 2025 02:22:55 -0800 (PST)
+Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 590413F5CA;
+	Fri, 19 Dec 2025 02:23:00 -0800 (PST)
+Message-ID: <afc078d5-5855-4439-98ac-c132a2588627@arm.com>
+Date: Fri, 19 Dec 2025 10:22:59 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <d0ce8306-84e0-4940-98aa-dbc356d87593@oss.qualcomm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/3] coresight: tpda: add sysfs nodes for tpda
+ cross-trigger configuration
+To: Jie Gan <jie.gan@oss.qualcomm.com>, Mike Leach <mike.leach@linaro.org>,
+ James Clark <james.clark@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Tao Zhang <tao.zhang@oss.qualcomm.com>
+References: <20251219-add_sysfs_nodes_to_configure_tpda-v5-0-ca93ddfe9d30@oss.qualcomm.com>
+ <20251219-add_sysfs_nodes_to_configure_tpda-v5-1-ca93ddfe9d30@oss.qualcomm.com>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20251219-add_sysfs_nodes_to_configure_tpda-v5-1-ca93ddfe9d30@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_092622_400320_68DC4C9F 
-X-CRM114-Status: GOOD (  36.20  )
+X-CRM114-CacheID: sfid-20251219_022303_676297_4867C633 
+X-CRM114-Status: GOOD (  33.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,100 +69,379 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 19, 2025 at 10:13:14AM +0800, yuanfang zhang wrote:
+On 19/12/2025 10:04, Jie Gan wrote:
+> From: Tao Zhang <tao.zhang@oss.qualcomm.com>
 > 
+> Introduce sysfs nodes to configure cross-trigger parameters for TPDA.
+> These registers define the characteristics of cross-trigger packets,
+> including generation frequency and flag values.
 > 
-> On 12/18/2025 7:33 PM, Sudeep Holla wrote:
-> > On Thu, Dec 18, 2025 at 12:09:40AM -0800, Yuanfang Zhang wrote:
-> >> This patch series adds support for CoreSight components local to CPU clusters,
-> >> including funnel, replicator, and TMC, which reside within CPU cluster power
-> >> domains. These components require special handling due to power domain
-> >> constraints.
-> >>
-> > 
-> > Could you clarify why PSCI-based power domains associated with clusters in
-> > domain-idle-states cannot address these requirements, given that PSCI CPU-idle
-> > OSI mode was originally intended to support them? My understanding of this
-> > patch series is that OSI mode is unable to do so, which, if accurate, appears
-> > to be a flaw that should be corrected.
+> Signed-off-by: Tao Zhang <tao.zhang@oss.qualcomm.com>
+> Reviewed-by: James Clark <james.clark@linaro.org>
+> Co-developed-by: Jie Gan <jie.gan@oss.qualcomm.com>
+> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+> ---
+>   .../ABI/testing/sysfs-bus-coresight-devices-tpda   |  43 +++++++
+>   drivers/hwtracing/coresight/coresight-tpda.c       | 138 ++++++++++++++++++++-
+>   drivers/hwtracing/coresight/coresight-tpda.h       |  69 ++++++++++-
+>   3 files changed, 243 insertions(+), 7 deletions(-)
 > 
-> It is due to the particular characteristics of the CPU cluster power
-> domain.Runtime PM for CPU devices works little different, it is mostly used
-> to manage hierarchicalCPU topology (PSCI OSI mode) to talk with genpd
-> framework to manage the last CPU handling in cluster.
+> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
+> new file mode 100644
+> index 000000000000..a7855922328e
+> --- /dev/null
+> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
+> @@ -0,0 +1,43 @@
+> +What:		/sys/bus/coresight/devices/<tpda-name>/global_cr/trig_async_enable
+> +Date:		December 2025
+> +KernelVersion:	6.19
+> +Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+> +Description:
+> +		(RW) Enable/disable cross trigger synchronization sequence interface.
+> +
+> +What:		/sys/bus/coresight/devices/<tpda-name>/global_cr/trig_flag_ts_enable
+> +Date:		December 2025
+> +KernelVersion:	6.19
+> +Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+> +Description:
+> +		(RW) Enable/disable cross trigger FLAG packet request interface.
+> +
+> +What:		/sys/bus/coresight/devices/<tpda-name>/global_cr/trig_freq_enable
+> +Date:		December 2025
+> +KernelVersion:	6.19
+> +Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+> +Description:
+> +		(RW) Enable/disable cross trigger FREQ packet request interface.
+> +
+> +What:		/sys/bus/coresight/devices/<tpda-name>/global_cr/freq_ts_enable
+> +Date:		December 2025
+> +KernelVersion:	6.19
+> +Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+> +Description:
+> +		(RW) Enable/disable the timestamp for all FREQ packets.
+> +
+> +What:		/sys/bus/coresight/devices/<tpda-name>/global_cr/global_flush_req
+> +Date:		December 2025
+> +KernelVersion:	6.19
+> +Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+> +Description:
+> +		(RW) Set global (all ports) flush request bit. The bit remains set until a
+> +		global flush request sequence completes.
+> +
+> +What:		/sys/bus/coresight/devices/<tpda-name>/global_cr/cmbchan_mode
+> +Date:		December 2025
+> +KernelVersion:	6.19
+> +Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+> +Description:
+> +		(RW) Configure the CMB/MCMB channel mode for all enabled ports.
+> +		Value 0 means raw channel mapping mode. Value 1 means channel pair marking mode.
+> diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/hwtracing/coresight/coresight-tpda.c
+> index 3a3825d27f86..d25a8bcfb3d4 100644
+> --- a/drivers/hwtracing/coresight/coresight-tpda.c
+> +++ b/drivers/hwtracing/coresight/coresight-tpda.c
+> @@ -137,12 +137,32 @@ static int tpda_get_element_size(struct tpda_drvdata *drvdata,
+>   /* Settings pre enabling port control register */
+>   static void tpda_enable_pre_port(struct tpda_drvdata *drvdata)
+>   {
+> -	u32 val;
+> +	u32 val = 0;
+>   
+> -	val = readl_relaxed(drvdata->base + TPDA_CR);
+> -	val &= ~TPDA_CR_ATID;
+>   	val |= FIELD_PREP(TPDA_CR_ATID, drvdata->atid);
+> +	if (drvdata->trig_async)
+> +		val |= TPDA_CR_SRIE;
+> +
+> +	if (drvdata->trig_flag_ts)
+> +		val |= TPDA_CR_FLRIE;
+> +
+> +	if (drvdata->trig_freq)
+> +		val |= TPDA_CR_FRIE;
+> +
+> +	if (drvdata->freq_ts)
+> +		val |= TPDA_CR_FREQTS;
+> +
+> +	if (drvdata->cmbchan_mode)
+> +		val |= TPDA_CR_CMBCHANMODE;
+> +
+>   	writel_relaxed(val, drvdata->base + TPDA_CR);
+> +
+> +	/*
+> +	 * If FLRIE bit is set, set the master and channel
+> +	 * id as zero
+> +	 */
+> +	if (drvdata->trig_flag_ts)
+> +		writel_relaxed(0x0, drvdata->base + TPDA_FPID_CR);
+>   }
+>   
+>   static int tpda_enable_port(struct tpda_drvdata *drvdata, int port)
+> @@ -258,6 +278,116 @@ static const struct coresight_ops tpda_cs_ops = {
+>   	.link_ops	= &tpda_link_ops,
+>   };
+>   
+> +/* Read cross-trigger register member */
+> +static ssize_t tpda_trig_sysfs_show(struct device *dev,
+> +				    struct device_attribute *attr,
+> +				    char *buf)
+> +{
+> +	struct tpda_trig_sysfs_attribute *tpda_attr =
+> +		container_of(attr, struct tpda_trig_sysfs_attribute, attr);
+> +	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+> +	unsigned long val;
+> +
+> +	guard(spinlock)(&drvdata->spinlock);
+> +	switch (tpda_attr->mem) {
+> +	case FLREQ:
+> +		if (!drvdata->csdev->refcnt)
+> +			return -EINVAL;
+> +
+> +		val = readl_relaxed(drvdata->base + TPDA_CR);
+> +		/* read global flush request bit only */
+> +		val &= TPDA_CR_FLREQ;
+> +		return sysfs_emit(buf, "%lu\n", val);
+> +	case FREQTS:
+> +		return sysfs_emit(buf, "%u\n", (unsigned int)drvdata->freq_ts);
+> +	case FRIE:
+> +		return sysfs_emit(buf, "%u\n", (unsigned int)drvdata->trig_freq);
+> +	case FLRIE:
+> +		return sysfs_emit(buf, "%u\n", (unsigned int)drvdata->trig_flag_ts);
+> +	case SRIE:
+> +		return sysfs_emit(buf, "%u\n", (unsigned int)drvdata->trig_async);
+> +	case CMBCHANMODE:
+> +		return sysfs_emit(buf, "%u\n", (unsigned int)drvdata->cmbchan_mode);
+> +
+> +	}
+> +	return -EINVAL;
+> +}
+> +
+> +static ssize_t tpda_trig_sysfs_store(struct device *dev,
+> +				     struct device_attribute *attr,
+> +				     const char *buf,
+> +				     size_t size)
+> +{
+> +	struct tpda_trig_sysfs_attribute *tpda_attr =
+> +		container_of(attr, struct tpda_trig_sysfs_attribute, attr);
+> +	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+> +	ssize_t ret = -EINVAL;
+   +	unsigned long val;
+> +
+> +	if (kstrtoul(buf, 0, &val))
+> +		return ret;
 
-That is indeed the intended design. Could you clarify which specific
-characteristics differentiate it here?
+		return -EINVAL;
 
-> It doesn’t really send IPI to wakeup CPU device (It don’t have
-> .power_on/.power_off) callback implemented which gets invoked from
-> .runtime_resume callback. This behavior is aligned with the upstream Kernel.
+> +
+> +	guard(spinlock)(&drvdata->spinlock);
+> +	switch (tpda_attr->mem) {
+> +	case FLREQ:
+> +		if (!drvdata->csdev->refcnt || !val)
+> +			return ret;
+			return -EINVAL;
+
+> +
+> +		val = readl_relaxed(drvdata->base + TPDA_CR);
+
+CS_UNLOCK before readl ? I didn't mean the global_flush_req to be
+unified with the rest. Obviously it has different access semantics.
+
+
+> +		/* set global flush request bit */
+> +		val |= TPDA_CR_FLREQ;
+> +		CS_UNLOCK(drvdata->base);
+> +		writel_relaxed(val, drvdata->base + TPDA_CR);
+> +		CS_LOCK(drvdata->base);
+> +		ret = size;
+
+Please remove this from all the cases and explicitly return -EINVAL in
+the error cases.
+
+> +		break;
+> +	case FREQTS:
+> +		drvdata->freq_ts = !!val;
+> +		ret = size;
+> +		break;
+> +	case FRIE:
+> +		drvdata->trig_freq = !!val;
+> +		ret = size;
+> +		break;
+> +	case FLRIE:
+> +		drvdata->trig_flag_ts = !!val;
+> +		ret = size;
+> +		break;
+> +	case SRIE:
+> +		drvdata->trig_async = !!val;
+> +		ret = size;
+> +		break;
+> +	case CMBCHANMODE:
+> +		drvdata->cmbchan_mode = !!val;
+> +		ret = size;
+> +		break;
+> +	default:
+		return -EINVAL;
+
+> +		break;
+> +	}
+> +
+
+
+> +	return ret;
+
+	return size;
+
+> +}
+> +
+> +static struct attribute *tpda_global_cr_attrs[] = {
+> +	tpda_trig_sysfs_rw(global_flush_req, FLREQ),
+> +	tpda_trig_sysfs_rw(freq_ts_enable, FREQTS),
+> +	tpda_trig_sysfs_rw(trig_freq_enable, FRIE),
+> +	tpda_trig_sysfs_rw(trig_flag_ts_enable, FLRIE),
+> +	tpda_trig_sysfs_rw(trig_async_enable, SRIE),
+> +	tpda_trig_sysfs_rw(cmbchan_mode, CMBCHANMODE),
+> +	NULL,
+> +};
+> +
+> +static struct attribute_group tpda_global_cr_attr_grp = {
+> +	.attrs	= tpda_global_cr_attrs,
+> +	.name	= "global_cr",
+> +};
+> +
+> +static const struct attribute_group *tpda_attr_grps[] = {
+> +	&tpda_global_cr_attr_grp,
+> +	NULL,
+> +};
+> +
+>   static int tpda_init_default_data(struct tpda_drvdata *drvdata)
+>   {
+>   	int atid;
+> @@ -273,6 +403,7 @@ static int tpda_init_default_data(struct tpda_drvdata *drvdata)
+>   		return atid;
+>   
+>   	drvdata->atid = atid;
+> +	drvdata->freq_ts = true;
+>   	return 0;
+>   }
+>   
+> @@ -316,6 +447,7 @@ static int tpda_probe(struct amba_device *adev, const struct amba_id *id)
+>   	desc.ops = &tpda_cs_ops;
+>   	desc.pdata = adev->dev.platform_data;
+>   	desc.dev = &adev->dev;
+> +	desc.groups = tpda_attr_grps;
+>   	desc.access = CSDEV_ACCESS_IOMEM(base);
+>   	drvdata->csdev = coresight_register(&desc);
+>   	if (IS_ERR(drvdata->csdev))
+> diff --git a/drivers/hwtracing/coresight/coresight-tpda.h b/drivers/hwtracing/coresight/coresight-tpda.h
+> index c6af3d2da3ef..8a075cfbc3cc 100644
+> --- a/drivers/hwtracing/coresight/coresight-tpda.h
+> +++ b/drivers/hwtracing/coresight/coresight-tpda.h
+> @@ -1,6 +1,6 @@
+>   /* SPDX-License-Identifier: GPL-2.0 */
+>   /*
+> - * Copyright (c) 2023 Qualcomm Innovation Center, Inc. All rights reserved.
+> + * Copyright (c) 2023,2025 Qualcomm Innovation Center, Inc. All rights reserved.
+>    */
+>   
+>   #ifndef _CORESIGHT_CORESIGHT_TPDA_H
+> @@ -8,6 +8,30 @@
+>   
+>   #define TPDA_CR			(0x000)
+>   #define TPDA_Pn_CR(n)		(0x004 + (n * 4))
+> +#define TPDA_FPID_CR		(0x084)
+> +
+> +/* Cross trigger Global (all ports) flush request bit */
+> +#define TPDA_CR_FLREQ		BIT(0)
+> +/* Cross trigger FREQ packets timestamp bit */
+> +#define TPDA_CR_FREQTS		BIT(2)
+> +/* Cross trigger FREQ packet request bit */
+> +#define TPDA_CR_FRIE		BIT(3)
+> +/* Cross trigger FLAG packet request interface bit */
+> +#define TPDA_CR_FLRIE		BIT(4)
+> +/* Cross trigger synchronization bit */
+> +#define TPDA_CR_SRIE		BIT(5)
+> +/* Bits 6 ~ 12 is for atid value */
+> +#define TPDA_CR_ATID		GENMASK(12, 6)
+> +/* Bits 13 ~ 19 is for mid value */
+> +/* Assign a unique master ID to identify the TPDA device */
+> +#define TPDA_CR_MID		GENMASK(19, 13)
+
+Where do we use this ? Does this need to be preserved ?
+Is this programmable ?
+
+Suzuki
+
+> +/*
+> + * Channel mode bit of the packetization of CMB/MCB traffic
+> + * 0 - raw channel mapping mode
+> + * 1 - channel pair marking mode
+> + */
+> +#define TPDA_CR_CMBCHANMODE	BIT(20)
+> +
+>   /* Aggregator port enable bit */
+>   #define TPDA_Pn_CR_ENA		BIT(0)
+>   /* Aggregator port CMB data set element size bit */
+> @@ -17,9 +41,6 @@
+>   
+>   #define TPDA_MAX_INPORTS	32
+>   
+> -/* Bits 6 ~ 12 is for atid value */
+> -#define TPDA_CR_ATID		GENMASK(12, 6)
+> -
+>   /**
+>    * struct tpda_drvdata - specifics associated to an TPDA component
+>    * @base:       memory mapped base address for this component.
+> @@ -29,6 +50,11 @@
+>    * @enable:     enable status of the component.
+>    * @dsb_esize   Record the DSB element size.
+>    * @cmb_esize   Record the CMB element size.
+> + * @trig_async:	Enable/disable cross trigger synchronization sequence interface.
+> + * @trig_flag_ts: Enable/disable cross trigger FLAG packet request interface.
+> + * @trig_freq:	Enable/disable cross trigger FREQ packet request interface.
+> + * @freq_ts:	Enable/disable the timestamp for all FREQ packets.
+> + * @cmbchan_mode: Configure the CMB/MCMB channel mode.
+>    */
+>   struct tpda_drvdata {
+>   	void __iomem		*base;
+> @@ -38,6 +64,41 @@ struct tpda_drvdata {
+>   	u8			atid;
+>   	u32			dsb_esize;
+>   	u32			cmb_esize;
+> +	bool			trig_async;
+> +	bool			trig_flag_ts;
+> +	bool			trig_freq;
+> +	bool			freq_ts;
+> +	bool			cmbchan_mode;
+> +};
+> +
+> +/* Enumerate members of global control register(cr) */
+> +enum tpda_cr_mem {
+> +	FLREQ,
+> +	FREQTS,
+> +	FRIE,
+> +	FLRIE,
+> +	SRIE,
+> +	CMBCHANMODE
+> +};
+> +
+> +/**
+> + * struct tpda_trig_sysfs_attribute - Record the member variables of cross
+> + * trigger register that need to be operated by sysfs file
+> + * @attr:	The device attribute
+> + * @mem:	The member in the control register data structure
+> + */
+> +struct tpda_trig_sysfs_attribute {
+> +	struct device_attribute attr;
+> +	enum tpda_cr_mem mem;
+>   };
+>   
+> +#define tpda_trig_sysfs_rw(name, mem)				\
+> +	(&((struct tpda_trig_sysfs_attribute[]) {		\
+> +	   {							\
+> +		__ATTR(name, 0644, tpda_trig_sysfs_show,	\
+> +		tpda_trig_sysfs_store),				\
+> +		mem,						\
+> +	   }							\
+> +	   })[0].attr.attr)
+> +
+>   #endif  /* _CORESIGHT_CORESIGHT_TPDA_H */
 > 
 
-I am quite lost here. Why is it necessary to wake up the CPU? If I understand
-correctly, all of this complexity is meant to ensure that the cluster power
-domain is enabled before any of the funnel registers are accessed. Is that
-correct?
-
-If so, and if the cluster domains are already defined as the power domains for
-these funnel devices, then they should be requested to power on automatically
-before any register access occurs. Is that not the case?
-
-What am I missing in this reasoning?
-
-The only explanation I can see is that the firmware does not properly honor
-power-domain requests coming directly from the OS. I believe that may be the
-case, but I would be glad to be proven wrong.
-
-> > 
-> >> Unlike system-level CoreSight devices, these components share the CPU cluster's
-> >> power domain. When the cluster enters low-power mode (LPM), their registers
-> >> become inaccessible. Notably, `pm_runtime_get` alone cannot bring the cluster
-> >> out of LPM, making standard register access unreliable.
-> >>
-> > 
-> > Are these devices the only ones on the system that are uniquely bound to
-> > cluster-level power domains? If not, what additional devices share this
-> > dependency so that we can understand how they are managed in comparison?
-> > 
-> 
-> Yes, devices like ETM and TRBE also share this power domain and access constraint.
-> Their drivers naturally handle enablement/disablement on the specific CPU they
-> belong to (e.g., via hotplug callbacks or existing smp_call_function paths).
-
-I understand many things are possible to implement, but the key question
-remains: why doesn’t the existing OSI mechanism - added specifically to cover
-cases like this solve the problem today?
-
-Especially on platforms with OSI enabled, what concrete limitation forces us
-into this additional “wake-up” path instead of relying on OSI to manage the
-dependency/power sequencing?
-
-> >> To address this, the series introduces:
-> >> - Identifying cluster-bound devices via a new `qcom,cpu-bound-components`
-> >>   device tree property.
-> > 
-> > Really, no please.
-> > 
-> 
-> Our objective is to determine which CoreSight components are physically locate
-> within the CPU cluster power domain.
->
-> Would it be acceptable to derive this relationship from the existing
-> power-domains binding?
-
-In my opinion, this is not merely a possibility but an explicit expectation.
-
-> For example, if a Funnel or Replicator node is linked to a power-domains
-> entry that specifies a cpumask, the driver could recognize this shared
-> dependency and automatically apply the appropriate cluster-aware behavior.
-> 
-
-Sure, but for the driver to use that information, we need clear explanation
-for all the questions above. In short, why it is not working with the existing
-PSCI domain idle support.
-
--- 
-Regards,
-Sudeep
 
