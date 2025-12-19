@@ -4,35 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B591D7879F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 18:15:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD41EE66882
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 18:15:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fWglBAwSieVLOE5VzyuknvCKUkO01lGH3lHMlBpVAag=; b=ahJ5fPUgd72ZyaZXNcsllKN8LQ
-	ujsWFZaH8AtPzQFfY0tA1HZHBITVELMrDNyfHwuu76zCMMUG0b7uOouhymkrBPLiuOH2N5uJbD/nH
-	oTsKZMPFSXtm3qjgxSjHG3dKqBfAv1Ip12CK4Bab16xV7mkTS/Vz5nlm4LyBhb0BlI5Z9QKUR/twR
-	MXtTlr+asGx5f1Qow0Ym3RaGaCu1jwtApOacCMw4V3Lt/IHxUHxjFpafJhQ41xjJyEkeTQZweNs7s
-	FLgzvACrqQjKeCiUKBTrfxnqkmCgLWJwPKEey3Zf1+lGvkIe0cJsqDCwFe0LsGfcUP+UROUI8MU8W
-	fBQBgOdw==;
+	bh=qagaFeUURYPvRuQJo9OdJs2t1avLyzX10RFR+4VV1MQ=; b=nwqCa4zbTmwlcKAW0nBeoUSxAw
+	Q5+LbcjY3ui8cwd9EQ6yqxnEnFHj/Ycjx+BoGqJ1ItKnLHJ6py72mN5MhUSvqq6ApjMWF7CWlRqaT
+	lutkuPlSKQdbdnCvfZmEAgBi+jaiIFTYUddlDFDeRxsXqZWzF4I0mjHieWwBG1QpzwwHPqh8cnyQn
+	wg+GoVqjVFrDRjVlNFStlqPWpcVR7tJ5r7GGhgljsBQQ/jQwUH3xUTG+fyqVwuhx0C8ggMAk4mCG6
+	fz/jb4rGHwIVan8YIEjZjVp7PZ2eKV4gW++SkF7xKjKFPDJwQZr8f+htZG3qbfzq0+TFhd4S4pdoK
+	XsPh+Uig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWf0U-0000000AnqO-3vGq;
+	id 1vWf0U-0000000AnpO-17RR;
 	Fri, 19 Dec 2025 18:15:14 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWf0K-0000000AneS-2Zbo
-	for linux-arm-kernel@lists.infradead.org;
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vWf0S-0000000Anms-1mdP
+	for linux-arm-kernel@bombadil.infradead.org;
 	Fri, 19 Dec 2025 18:15:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=qagaFeUURYPvRuQJo9OdJs2t1avLyzX10RFR+4VV1MQ=; b=E407LqOUxG5BppSqE+/nyxtoJg
+	mKntYFbs1z24ArvLKKyKBwK73TQr4mq/AtoIgl0oGZoKaUceKon7s7K24imjam0Zw4hRBWavNiBkI
+	HW649pxQG3drltYlLJXeWiTJ01JdTQEtORkxh/fTZqLyuPIQhCeNHxWWz1VGr9cYe1mno290j6beP
+	GssdtKMEaB1O4ouZIYhqka9Uhz8nx5GA92hyHzug/ZkOQ1k6RsDpM1lOV31ZQu6FFolPoueMo/5Wq
+	1maSh9pPFxcUCOUSL92U1GaPUlRtTqeukGiD4+Fnve3ZPTpKoOX0iV2HD6vKCgJWdnrzyG3Qiij79
+	QgsH4DDg==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vWe8x-0000000BQ2S-19RB
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 19 Dec 2025 17:19:57 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A35F1169C;
-	Fri, 19 Dec 2025 10:14:56 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5FFF8169E;
+	Fri, 19 Dec 2025 10:15:01 -0800 (PST)
 Received: from e134344.cambridge.arm.com (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 591903F5CA;
-	Fri, 19 Dec 2025 10:14:59 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 113123F5CA;
+	Fri, 19 Dec 2025 10:15:03 -0800 (PST)
 From: Ben Horgan <ben.horgan@arm.com>
 To: ben.horgan@arm.com
 Cc: amitsinght@marvell.com,
@@ -67,17 +82,17 @@ Cc: amitsinght@marvell.com,
 	joey.gouly@arm.com,
 	suzuki.poulose@arm.com,
 	kvmarm@lists.linux.dev
-Subject: [PATCH v2 38/45] arm64: mpam: Select ARCH_HAS_CPU_RESCTRL
-Date: Fri, 19 Dec 2025 18:11:40 +0000
-Message-ID: <20251219181147.3404071-39-ben.horgan@arm.com>
+Subject: [PATCH v2 39/45] arm_mpam: resctrl: Call resctrl_init() on platforms that can support resctrl
+Date: Fri, 19 Dec 2025 18:11:41 +0000
+Message-ID: <20251219181147.3404071-40-ben.horgan@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251219181147.3404071-1-ben.horgan@arm.com>
 References: <20251219181147.3404071-1-ben.horgan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_101504_803151_F643A60E 
-X-CRM114-Status: GOOD (  15.16  )
+X-CRM114-CacheID: sfid-20251219_171955_670604_0BD6530B 
+X-CRM114-Status: GOOD (  22.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,84 +109,264 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: James Morse <james.morse@arm.com>
 
-Enough MPAM support is present to enable ARCH_HAS_CPU_RESCTRL.  Let it
-rip^Wlink!
-
-ARCH_HAS_CPU_RESCTRL indicates resctrl can be enabled. It is enabled by the
-arch code simply because it has 'arch' in its name.
-
-This removes ARM_CPU_RESCTRL as a mimic of X86_CPU_RESCTRL.  While here,
-move the ACPI dependency to the driver's Kconfig file.
-
-In anticipation of MPAM being useful remove the CONFIG_EXPERT restriction.
+Now that MPAM links against resctrl, call resctrl_init() to register the
+filesystem and setup resctrl's structures.
 
 Signed-off-by: James Morse <james.morse@arm.com>
 Signed-off-by: Ben Horgan <ben.horgan@arm.com>
 ---
- arch/arm64/Kconfig               | 4 ++--
- arch/arm64/include/asm/resctrl.h | 2 ++
- drivers/resctrl/Kconfig          | 9 ++++++++-
- drivers/resctrl/Makefile         | 2 +-
- 4 files changed, 13 insertions(+), 4 deletions(-)
- create mode 100644 arch/arm64/include/asm/resctrl.h
+ drivers/resctrl/mpam_devices.c  | 32 +++++++++++--
+ drivers/resctrl/mpam_internal.h |  4 ++
+ drivers/resctrl/mpam_resctrl.c  | 82 ++++++++++++++++++++++++++++++++-
+ 3 files changed, 113 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index cdcc5b76a110..baeecb88771d 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -2026,8 +2026,8 @@ config ARM64_TLB_RANGE
+diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+index 4f5d908d02a9..c20b2757b86b 100644
+--- a/drivers/resctrl/mpam_devices.c
++++ b/drivers/resctrl/mpam_devices.c
+@@ -73,6 +73,14 @@ static DECLARE_WORK(mpam_broken_work, &mpam_disable);
+ /* When mpam is disabled, the printed reason to aid debugging */
+ static char *mpam_disable_reason;
  
- config ARM64_MPAM
- 	bool "Enable support for MPAM"
--	select ARM64_MPAM_DRIVER if EXPERT	# does nothing yet
--	select ACPI_MPAM if ACPI
-+	select ARM64_MPAM_DRIVER
-+	select ARCH_HAS_CPU_RESCTRL
- 	help
- 	  Memory System Resource Partitioning and Monitoring (MPAM) is an
- 	  optional extension to the Arm architecture that allows each
-diff --git a/arch/arm64/include/asm/resctrl.h b/arch/arm64/include/asm/resctrl.h
-new file mode 100644
-index 000000000000..b506e95cf6e3
---- /dev/null
-+++ b/arch/arm64/include/asm/resctrl.h
-@@ -0,0 +1,2 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#include <linux/arm_mpam.h>
-diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
-index c808e0470394..672abea3b03c 100644
---- a/drivers/resctrl/Kconfig
-+++ b/drivers/resctrl/Kconfig
-@@ -1,6 +1,7 @@
- menuconfig ARM64_MPAM_DRIVER
- 	bool "MPAM driver"
--	depends on ARM64 && ARM64_MPAM && EXPERT
-+	depends on ARM64 && ARM64_MPAM
-+	select ACPI_MPAM if ACPI
- 	help
- 	  Memory System Resource Partitioning and Monitoring (MPAM) driver for
- 	  System IP, e.g. caches and memory controllers.
-@@ -22,3 +23,9 @@ config MPAM_KUNIT_TEST
- 	  If unsure, say N.
- 
- endif
++/*
++ * Whether resctrl has been setup. Used by cpuhp in preference to
++ * mpam_is_enabled(). The disable call after an error interrupt makes
++ * mpam_is_enabled() false before the cpuhp callbacks are made.
++ * Reads/writes should hold mpam_cpuhp_state_lock, (or be cpuhp callbacks).
++ */
++static bool mpam_resctrl_enabled;
 +
-+config ARM64_MPAM_RESCTRL_FS
-+	bool
-+	default y if ARM64_MPAM_DRIVER && RESCTRL_FS
-+	select RESCTRL_RMID_DEPENDS_ON_CLOSID
-+	select RESCTRL_ASSIGN_FIXED
-diff --git a/drivers/resctrl/Makefile b/drivers/resctrl/Makefile
-index 40beaf999582..4f6d0e81f9b8 100644
---- a/drivers/resctrl/Makefile
-+++ b/drivers/resctrl/Makefile
-@@ -1,5 +1,5 @@
- obj-$(CONFIG_ARM64_MPAM_DRIVER)			+= mpam.o
- mpam-y						+= mpam_devices.o
--mpam-$(CONFIG_ARM_CPU_RESCTRL)			+= mpam_resctrl.o
-+mpam-$(CONFIG_ARM64_MPAM_RESCTRL_FS)		+= mpam_resctrl.o
+ /*
+  * An MSC is a physical container for controls and monitors, each identified by
+  * their RIS index. These share a base-address, interrupts and some MMIO
+@@ -1628,7 +1636,7 @@ static int mpam_cpu_online(unsigned int cpu)
+ 			mpam_reprogram_msc(msc);
+ 	}
  
- ccflags-$(CONFIG_ARM64_MPAM_DRIVER_DEBUG)	+= -DDEBUG
+-	if (mpam_is_enabled())
++	if (mpam_resctrl_enabled)
+ 		mpam_resctrl_online_cpu(cpu);
+ 
+ 	return 0;
+@@ -1674,7 +1682,7 @@ static int mpam_cpu_offline(unsigned int cpu)
+ {
+ 	struct mpam_msc *msc;
+ 
+-	if (mpam_is_enabled())
++	if (mpam_resctrl_enabled)
+ 		mpam_resctrl_offline_cpu(cpu);
+ 
+ 	guard(srcu)(&mpam_srcu);
+@@ -2536,6 +2544,7 @@ static void mpam_enable_once(void)
+ 	}
+ 
+ 	static_branch_enable(&mpam_enabled);
++	mpam_resctrl_enabled = true;
+ 	mpam_register_cpuhp_callbacks(mpam_cpu_online, mpam_cpu_offline,
+ 				      "mpam:online");
+ 
+@@ -2595,24 +2604,39 @@ void mpam_reset_class(struct mpam_class *class)
+ void mpam_disable(struct work_struct *ignored)
+ {
+ 	int idx;
++	bool do_resctrl_exit;
+ 	struct mpam_class *class;
+ 	struct mpam_msc *msc, *tmp;
+ 
++	if (mpam_is_enabled())
++		static_branch_disable(&mpam_enabled);
++
+ 	mutex_lock(&mpam_cpuhp_state_lock);
+ 	if (mpam_cpuhp_state) {
+ 		cpuhp_remove_state(mpam_cpuhp_state);
+ 		mpam_cpuhp_state = 0;
+ 	}
++
++	/*
++	 * Removing the cpuhp state called mpam_cpu_offline() and told resctrl
++	 * all the CPUs are offline.
++	 */
++	do_resctrl_exit = mpam_resctrl_enabled;
++	mpam_resctrl_enabled = false;
+ 	mutex_unlock(&mpam_cpuhp_state_lock);
+ 
+-	static_branch_disable(&mpam_enabled);
++	if (do_resctrl_exit)
++		mpam_resctrl_exit();
+ 
+ 	mpam_unregister_irqs();
+ 
+ 	idx = srcu_read_lock(&mpam_srcu);
+ 	list_for_each_entry_srcu(class, &mpam_classes, classes_list,
+-				 srcu_read_lock_held(&mpam_srcu))
++				 srcu_read_lock_held(&mpam_srcu)) {
+ 		mpam_reset_class(class);
++		if (do_resctrl_exit)
++			mpam_resctrl_teardown_class(class);
++	}
+ 	srcu_read_unlock(&mpam_srcu, idx);
+ 
+ 	mutex_lock(&mpam_list_lock);
+diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+index b907bec96ba5..9a3996decda5 100644
+--- a/drivers/resctrl/mpam_internal.h
++++ b/drivers/resctrl/mpam_internal.h
+@@ -447,12 +447,16 @@ int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32 cache_level,
+ 
+ #ifdef CONFIG_RESCTRL_FS
+ int mpam_resctrl_setup(void);
++void mpam_resctrl_exit(void);
+ int mpam_resctrl_online_cpu(unsigned int cpu);
+ void mpam_resctrl_offline_cpu(unsigned int cpu);
++void mpam_resctrl_teardown_class(struct mpam_class *class);
+ #else
+ static inline int mpam_resctrl_setup(void) { return 0; }
++static inline void mpam_resctrl_exit(void) { }
+ static inline int mpam_resctrl_online_cpu(unsigned int cpu) { return 0; }
+ static inline void mpam_resctrl_offline_cpu(unsigned int cpu) { }
++static inline void mpam_resctrl_teardown_class(struct mpam_class *class) { }
+ #endif /* CONFIG_RESCTRL_FS */
+ 
+ /*
+diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+index 059148c38a38..bbb12b5dfd8c 100644
+--- a/drivers/resctrl/mpam_resctrl.c
++++ b/drivers/resctrl/mpam_resctrl.c
+@@ -53,6 +53,12 @@ static bool exposed_mon_capable;
+  */
+ static bool cdp_enabled;
+ 
++/*
++ * If resctrl_init() succeeded, resctrl_exit() can be used to remove support
++ * for the filesystem in the event of an error.
++ */
++static bool resctrl_enabled;
++
+ /*
+  * mpam_resctrl_pick_caches() needs to know the size of the caches. cacheinfo
+  * populates this from a device_initcall(). mpam_resctrl_setup() must wait.
+@@ -318,6 +324,9 @@ static int resctrl_arch_mon_ctx_alloc_no_wait(enum resctrl_event_id evtid)
+ {
+ 	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[evtid];
+ 
++	if (!mpam_is_enabled())
++		return -EINVAL;
++
+ 	if (!mon->class)
+ 		return -EINVAL;
+ 
+@@ -360,6 +369,9 @@ static void resctrl_arch_mon_ctx_free_no_wait(enum resctrl_event_id evtid,
+ {
+ 	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[evtid];
+ 
++	if (!mpam_is_enabled())
++		return;
++
+ 	if (!mon->class)
+ 		return;
+ 
+@@ -461,6 +473,9 @@ int resctrl_arch_rmid_read(struct rdt_resource	*r, struct rdt_mon_domain *d,
+ 
+ 	resctrl_arch_rmid_read_context_check();
+ 
++	if (!mpam_is_enabled())
++		return -EINVAL;
++
+ 	if (eventid >= QOS_NUM_EVENTS || !mon->class)
+ 		return -EINVAL;
+ 
+@@ -1399,6 +1414,9 @@ int resctrl_arch_update_one(struct rdt_resource *r, struct rdt_ctrl_domain *d,
+ 	lockdep_assert_cpus_held();
+ 	lockdep_assert_irqs_enabled();
+ 
++	if (!mpam_is_enabled())
++		return -EINVAL;
++
+ 	/*
+ 	 * No need to check the CPU as mpam_apply_config() doesn't care, and
+ 	 * resctrl_arch_update_domains() relies on this.
+@@ -1461,6 +1479,9 @@ int resctrl_arch_update_domains(struct rdt_resource *r, u32 closid)
+ 	lockdep_assert_cpus_held();
+ 	lockdep_assert_irqs_enabled();
+ 
++	if (!mpam_is_enabled())
++		return -EINVAL;
++
+ 	list_for_each_entry_rcu(d, &r->ctrl_domains, hdr.list) {
+ 		for (enum resctrl_conf_type t = 0; t < CDP_NUM_TYPES; t++) {
+ 			struct resctrl_staged_config *cfg = &d->staged_config[t];
+@@ -1840,11 +1861,70 @@ int mpam_resctrl_setup(void)
+ 		pr_warn("Number of PMG is not a power of 2! resctrl may misbehave");
+ 	}
+ 
+-	/* TODO: call resctrl_init() */
++	err = resctrl_init();
++	if (!err)
++		WRITE_ONCE(resctrl_enabled, true);
+ 
+ 	return err;
+ }
+ 
++void mpam_resctrl_exit(void)
++{
++	if (!READ_ONCE(resctrl_enabled))
++		return;
++
++	WRITE_ONCE(resctrl_enabled, false);
++	resctrl_exit();
++}
++
++static void mpam_resctrl_teardown_mon(struct mpam_resctrl_mon *mon, struct mpam_class *class)
++{
++	u32 num_mbwu_mon = l3_num_allocated_mbwu;
++
++	if (!mon->mbwu_idx_to_mon)
++		return;
++
++	if (mon->assigned_counters) {
++		__free_mbwu_mon(class, mon->assigned_counters, num_mbwu_mon);
++		mon->assigned_counters = NULL;
++		kfree(mon->mbwu_idx_to_mon);
++	} else {
++		__free_mbwu_mon(class, mon->mbwu_idx_to_mon, num_mbwu_mon);
++	}
++	mon->mbwu_idx_to_mon = NULL;
++}
++
++/*
++ * The driver is detaching an MSC from this class, if resctrl was using it,
++ * pull on resctrl_exit().
++ */
++void mpam_resctrl_teardown_class(struct mpam_class *class)
++{
++	int i;
++	struct mpam_resctrl_res *res;
++	struct mpam_resctrl_mon *mon;
++
++	might_sleep();
++
++	for (i = 0; i < RDT_NUM_RESOURCES; i++) {
++		res = &mpam_resctrl_controls[i];
++		if (res->class == class) {
++			res->class = NULL;
++			break;
++		}
++	}
++	for (i = 0; i < QOS_NUM_EVENTS; i++) {
++		mon = &mpam_resctrl_counters[i];
++		if (mon->class == class) {
++			mon->class = NULL;
++
++			mpam_resctrl_teardown_mon(mon, class);
++
++			break;
++		}
++	}
++}
++
+ static int __init __cacheinfo_ready(void)
+ {
+ 	cacheinfo_ready = true;
 -- 
 2.43.0
 
