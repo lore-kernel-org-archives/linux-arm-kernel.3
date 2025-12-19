@@ -4,107 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A441D78770
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 19:49:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61758D7879F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 19 Dec 2025 20:01:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7QHParoqmwM/fv693piLNFSOhOcM5vYfUKurXmOY6eg=; b=mGOt0rtKBLNfdhOaOQzhDpocU2
-	7hfH4XdV/eOlgqaiRuiffCI6OiIrZbKdtwge/ra7YCJHCUxlurBc4cVemozpcNJ4jVDQqhjbA3IHU
-	qfYyymnvRfaD0hP6ayrELTidafP448mWynrMyzD0zP7gzl0yxbpPnJ94EOHTykYlfZtsuL9b4GeCS
-	yp11+1EZ5NNnMWtLeROSYmbH3ZKcD+yx8IOeeQoMmTjc/k4Fpep+FuPDnzyHePcw+BRxPuYKytb2x
-	//xdiXluYaLXPSZJh3M+vslrbF7rJikRYIvvAeF/gupI7aDQaD/PGN2nR4ay3wI6wmYduISVc9Jqf
-	HBfh6gXw==;
+	bh=N5FEnGY1NKX/wN6LU/aVpAgILvYaWYtgK6g5vpLHPRQ=; b=wPvpUjwu+lIYeSDMZWYBF47VWi
+	QH3wbQyOGdaxQIrsugeIoF4l573DwtxxsQiRWRZQmZQWs0AToKq2u45MrCPEhAb117r26LxDMeX/w
+	RjSLm16NFZM3FDC2A5f6kZpL9SotamMTUYigHsOr7La7g0HwRLR6oufpbHZLkcgaVURNYxRlBvbFr
+	b0faGFudzz1ZnhAtDN0PdOKnPR+qZw9Bf1xnk2tdKyjQCwIPVS324ZdVXgR5WHgzhuy2R817ORMGm
+	7xD9vZtY9A73etu1MXEGNmWxVWEBJL2UNRvg+YNQZwiRycYSpyMNPBpRIhVZAY0JjncRXEfC+j5b6
+	lJ3sy41w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWgTM-0000000Au3o-1Ons;
-	Fri, 19 Dec 2025 19:49:08 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vWgfQ-0000000Auu3-1cm7;
+	Fri, 19 Dec 2025 20:01:36 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWgTJ-0000000Au3J-1bjq
+	id 1vWgfO-0000000Autu-16HR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 19 Dec 2025 19:49:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1766173743;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=7QHParoqmwM/fv693piLNFSOhOcM5vYfUKurXmOY6eg=;
-	b=KAqaGfMJVNLAaVtN0ua6ijH2K2pMSy+o3HSVnerXsRxOt0HNrTupBwCJgJdXloFPznD20s
-	qevHKGSwJBJXo6LZUi3wlHpfBXRTCMI2knSsYSuWLK5MuJsZzU9ZgOYXOfsTdTbNbdIJ7U
-	3ajFEcTtRgljnso56mrpH234CUvWLT4=
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com
- [209.85.222.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-210-fQvoalByOS2U2GCeKE0mYQ-1; Fri, 19 Dec 2025 14:49:02 -0500
-X-MC-Unique: fQvoalByOS2U2GCeKE0mYQ-1
-X-Mimecast-MFC-AGG-ID: fQvoalByOS2U2GCeKE0mYQ_1766173741
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-8bb6a7fea4dso485639785a.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Dec 2025 11:49:02 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766173741; x=1766778541;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=7QHParoqmwM/fv693piLNFSOhOcM5vYfUKurXmOY6eg=;
-        b=gTOEGjS3tDwFR7RZRwOKccFZS05hS4m5xk5H1UqmzrBRXtE1w7HHXjYETyTAWKGBib
-         IxrlWiXOWGrfdsQ2TG7eZ2cw0nURhlMP2E3Tn97HYmpUPCKglw3nvvSb9/i1BgVlSDDn
-         ULZoZI+z6zWSfC61jdG0TzT9W0bC0yPzPbKLmxFUaXYLBRU5WhdDQXf+Or2BsZ40zfYZ
-         WOpNXXbo1Vsgj8UIb4NpeYPsJYydG++KFRrWphMPzFmymtCwf8UkReKsv1qI6d69i4BP
-         YFoHBKtnI6ij1mSrazG9PM/gbTiZ9cFEzBme4/bUblvKL3XNbWCJxAfR56V0zqV31J0b
-         5ZwQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXXuDNhdSjIcZ3W9kGNh0Jfa7/iNW1kdbST11g5oYrzgTfmNeqNfelm2JBtolz6ZAIBCtz8tPb3RW8yjB1mn6l3@lists.infradead.org
-X-Gm-Message-State: AOJu0YxeB/PmqplmmtgEvzVT87tdtHWre6vx2YQygqSaoP0axq6aiWlT
-	qpOnYTtJmVEaazDO5xoFZ4PFbvW9pAISt1+I50NtGx1VwZwfkHpMTv4Urk1gZ1REaqVwe7h/f3C
-	Z1uswWG93hKMUJw4n7s0yh3pw7fDm2pAeybnknSiFCsLA0C+/pJAr1J1mVNqU0e+AWZHO9SeYno
-	kG
-X-Gm-Gg: AY/fxX6mFhQvoj4apydseOvChc7frTVlH7Y7sd0QapV7uuCz7qp1K8K6vrW5Nlr5zLl
-	3HM2Pw4D2DCD55Gp9GBQdbfQAfixp5oPfvZYXaPXUmpHsnsTIZurFlG5b4CxwJ3oDF48eycJdaN
-	z501kWM2xvmBOXRRhyMld4HniTNyrm4h5+UUQ33WzK5spR+MqysPUmEzHDlkDqlWffIKhx7813m
-	3pqafraiNCMWZkgHSQZtqmoJomQDEnXr2j3lBwbCFe8fTqU/dmvfAqAxTBJZl+/0xHM1KysdUbw
-	XKNAxK91pzCZes0d//9RaTT7MmHvKq4/a68QdZyQbfgV3ZEP28AmD3LfF0dof5tH3yQNOjAY9AY
-	FJj0pkvqy
-X-Received: by 2002:a05:620a:2915:b0:8b2:e922:5282 with SMTP id af79cd13be357-8c08fbde546mr650956785a.26.1766173741570;
-        Fri, 19 Dec 2025 11:49:01 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEhmkU84dkGCcwT8u/xbGrBML5VLUNpWzlUIRhCANoKaN5hf3mFDRW42eqFLJM185p9R9rh3A==
-X-Received: by 2002:a05:620a:2915:b0:8b2:e922:5282 with SMTP id af79cd13be357-8c08fbde546mr650953885a.26.1766173741234;
-        Fri, 19 Dec 2025 11:49:01 -0800 (PST)
-Received: from redhat.com ([2600:382:8519:53fe:9d9a:13fe:abf1:fb80])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8c096783a81sm248019585a.9.2025.12.19.11.48.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 19 Dec 2025 11:49:00 -0800 (PST)
-Date: Fri, 19 Dec 2025 14:48:56 -0500
-From: Brian Masney <bmasney@redhat.com>
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Sebin Francis <sebin.francis@ti.com>, linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH v6 0/6] clk: Support spread spectrum and use it in
- clk-scmi
-Message-ID: <aUWsKAMDm9_5jxsg@redhat.com>
-References: <20251128-clk-ssc-v6-2-v6-0-cfafdb5d6811@nxp.com>
- <aTvpmQAPE6HfIy+r@shlinux89>
+	Fri, 19 Dec 2025 20:01:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1441E60008;
+	Fri, 19 Dec 2025 20:01:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C417C4CEF1;
+	Fri, 19 Dec 2025 20:01:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766174492;
+	bh=8pUZmGCDJ1FRjMBboLacZFWGbm4ILMwIQXmKN3FO6Ao=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=r0sXO6BT/vcNQGDrlB9yBfVJqM3igby0cJbL1l7VI6hqkx+rcosg37YWD5nBa4oXk
+	 jL5voRf92E0kYiIhGXQkB01F/PuPRT2zQDHjK3pP6M2K77IDVHr5xgx6Wb8/a17QeS
+	 YpO3PZTSpa0drljnYZdeZW/9kGCqacQxrr0WtKv0OFK2CB4C1dddB0lqZ1GIVed3nW
+	 2r4LMfMJvdTEoy6+/azwDLAiv3VhYTMro/lg8Cs8Qtaa34pLaYGtSADdrp42wTmMbp
+	 KC96hXht+fPuZju0WMp4q4QLqRlbSxkowxodLa3gF39b1I6DsTOFSuXZkNvFfEJn9N
+	 OJYwXBH/I5URA==
+Date: Fri, 19 Dec 2025 12:01:30 -0800
+From: Oliver Upton <oupton@kernel.org>
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+	baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
+	dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
+	fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
+	jonathan.cameron@huawei.com, kobak@nvidia.com, lcherian@marvell.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	peternewman@google.com, punit.agrawal@oss.qualcomm.com,
+	quic_jiles@quicinc.com, reinette.chatre@intel.com,
+	rohit.mathew@arm.com, scott@os.amperecomputing.com,
+	sdonthineni@nvidia.com, tan.shaopeng@fujitsu.com,
+	xhao@linux.alibaba.com, catalin.marinas@arm.com, will@kernel.org,
+	corbet@lwn.net, maz@kernel.org, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, kvmarm@lists.linux.dev
+Subject: Re: [PATCH v2 05/45] KVM: arm64: Preserve host MPAM configuration
+ when changing traps
+Message-ID: <aUWvGjGyU7DUW8MI@kernel.org>
+References: <20251219181147.3404071-1-ben.horgan@arm.com>
+ <20251219181147.3404071-6-ben.horgan@arm.com>
 MIME-Version: 1.0
-In-Reply-To: <aTvpmQAPE6HfIy+r@shlinux89>
-User-Agent: Mutt/2.2.14 (2025-02-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: lrqwo48WjwlCqk4I_Jil-JHNNN5EeuHze6iLmMdil9Y_1766173741
-X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_114905_493316_38597519 
-X-CRM114-Status: GOOD (  11.25  )
+In-Reply-To: <20251219181147.3404071-6-ben.horgan@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,15 +81,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 12, 2025 at 06:08:25PM +0800, Peng Fan wrote:
-> Sorry for top-posting. There is only one comment from Krzysztof regarding
-> cleanup API usage. Since 6.19 rc1 still not out, I will wait two more weeks
-> to collect comments, then post v7. Hopefully, you are ok with current
-> clk-scmi-oem stuff.
+Hi Ben,
 
-I can't speak to the SCMI OEM extensions, however the other clk patches
-look good to me FWIW. My Reviewed-by tags still apply.
+On Fri, Dec 19, 2025 at 06:11:07PM +0000, Ben Horgan wrote:
+> When kvm enables or disables MPAM traps to EL2 it clears all other bits in
+> MPAM2_EL2.  Notably, it clears the partition ids (PARTIDs) and performance
+> monitoring groups (PMGs). Avoid changing these bits in anticipation of
+> adding support for MPAM in the kernel. Otherwise, on a VHE system with the
+> host running at EL2 where MPAM2_EL2 and MPAM1_EL1 access the same register,
+> any attempt to use MPAM to monitor or partition resources for kernel space
+> would be foiled by running a KVM guest. Additionally, MPAM2_EL2.EnMPAMSM is
+> always set to 0 which causes MPAMSM_EL1 to always trap. Keep EnMPAMSM set
+> to 1 when not in a guest so that the kernel can use MPAMSM_EL1.
+> 
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> ---
+>  arch/arm64/kvm/hyp/include/hyp/switch.h | 12 ++++++++----
+>  1 file changed, 8 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> index c5d5e5b86eaf..63195275a8b8 100644
+> --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
+> +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> @@ -269,7 +269,8 @@ static inline void __deactivate_traps_hfgxtr(struct kvm_vcpu *vcpu)
+>  
+>  static inline void  __activate_traps_mpam(struct kvm_vcpu *vcpu)
+>  {
+> -	u64 r = MPAM2_EL2_TRAPMPAM0EL1 | MPAM2_EL2_TRAPMPAM1EL1;
+> +	u64 clr = MPAM2_EL2_EnMPAMSM;
+> +	u64 set = MPAM2_EL2_TRAPMPAM0EL1 | MPAM2_EL2_TRAPMPAM1EL1;
+>  
+>  	if (!system_supports_mpam())
+>  		return;
+> @@ -279,18 +280,21 @@ static inline void  __activate_traps_mpam(struct kvm_vcpu *vcpu)
+>  		write_sysreg_s(MPAMHCR_EL2_TRAP_MPAMIDR_EL1, SYS_MPAMHCR_EL2);
+>  	} else {
+>  		/* From v1.1 TIDR can trap MPAMIDR, set it unconditionally */
+> -		r |= MPAM2_EL2_TIDR;
+> +		set |= MPAM2_EL2_TIDR;
+>  	}
+>  
+> -	write_sysreg_s(r, SYS_MPAM2_EL2);
+> +	sysreg_clear_set_s(SYS_MPAM2_EL2, clr, set);
 
-Brian
+I'd recommend documenting that writes to MPAM1_EL1 are followed by an
+ISB. Otherwise it isn't obvious here where context synchronization is
+happening (if at all).
 
+Thanks,
+Oliver
 
