@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5994CE668B4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79126E67480
 	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Dec 2025 18:51:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,48 +12,48 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8IbRY714eO2zGl6q64FE7lg6CXtlWXzXvxXQfYH5rwI=; b=Yil75tuOplrOn9/Ijw344hKp7h
-	7unUW8ElTmgxSxCrbQDk/C6FVNPKYqCN/j8dDN/UTSACDH9FxN4lce8Z0vuTzIclJIZ6WctqucJrk
-	pxFTZ/lSyhXXTnKU7avzmtUIFrE3rwA0Ty4K7QAUrWVWJgZIBgg4XOw0y7nW9yoS6xa9cGr/xekMn
-	S6H2VdS+rvdHeRaUHmJ62Tn0MtveVs44yLHKT34gUnYaQ5iDE9ORfXqzIkTWxyNKodm4NbLTyB1uc
-	4Vj5zljPjHLgEooFaVPk0yioIFaSnw3ow6cTY7JTV8AErmCc9lRT15aPSRyXjq8lYitLpjmmA9Y+1
-	gKQtaFAg==;
+	bh=5j17v1GY5ZUui5Rtx97+9pI639Hi6bT0WnwCtzvrtAQ=; b=xSIOkzjsXkkepBBvS8yW9hnflG
+	f6+o2sk01VJ9g06SJZUoLG8LsIT3FInrLlq9dcjOHeotb3BzgimlNIM6wvbK59RSU3xVkcRAjInhU
+	hWhoOdFV63MAlTc3tmQBn9ZzDi4DQe//xBpyD0mJlAUq87OMuiQLh5PdcujwXRPgFnTu3JGJc2l5u
+	e2WxGhypkTfzc3i0MzoKj+n9zGoXAM0DV6AGviwv5jhEQYgj9iEP9rZ+LtSqcQxqy/rbuWAaCDUny
+	JBZzNkKZrZa0DumMatFhKPIfElFLTakn9sMiJ096nlEvSrlEw2gEeMQILUf3SqtMrTj41y3vIHHzo
+	VMmAY53Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vX235-0000000BozK-1y5h;
-	Sat, 20 Dec 2025 18:51:27 +0000
+	id 1vX234-0000000BoyO-3bdp;
+	Sat, 20 Dec 2025 18:51:26 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vX22u-0000000Bot0-04ZN;
+	id 1vX22u-0000000Bot2-0jXD;
 	Sat, 20 Dec 2025 18:51:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1766256629; cv=none; 
+ARC-Seal: i=1; a=rsa-sha256; t=1766256646; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=G8xgTZWTJjB4ImOOXFRogkyAppca3TcwYZiVjfFeoWw4cnf3J6yz1l0TmFFFM69NVBZKqPXvn9qVxy8axHJzrAjdanOreLGymgDlXr19Y7ud5gjoh2mrcYVQCCz+DN4sKfQKMUF7CBihUxC0XwKABVYfHrqRvrjJR46bDyrf8vw=
+	b=k+ps33RBoTWzNAlrymFBqhrJ55XvdVPAT3xq+aTba7zUdV7Z+/k3sFXbqkjStnwU3fKC4DLCfbfstyss83JbuvavywOY0EcDg3VIAPGHH3hBOKeMPjfB6xGPa73x19e+tvR3/xrJ+igMvn99fS524VdlG+VU1mvIh/aMxVQmBqA=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1766256629; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=8IbRY714eO2zGl6q64FE7lg6CXtlWXzXvxXQfYH5rwI=; 
-	b=kyZmEgzFo3uCZqEt92Fqf1irIMioiyGvG4VCWM0XG6OY1+lX1o6vtUu9yFuocGMKQrBoM8gmxJc4Qk57fsYGruRAVHkLTy5x7LTZ9A1WgvOc+3Jovg7Bsf/zfk5g43lC+OivDYF4gltniOLqdMvn6Sn8r+TyP5acGEdedyGK7Cc=
+	t=1766256646; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=5j17v1GY5ZUui5Rtx97+9pI639Hi6bT0WnwCtzvrtAQ=; 
+	b=DXXW5zq0m7GofuoNuxOsUEqA1LuHa4dN/fLdZPkE1PXL79G/77pNl7LEZ5RoXzPQJ6ptLSf8TVX25ws6N8kMHKFepV2GWyZw0sMPwxApZhcmIXUVM2QWGhKoHoqgbAMoxlBJw+mQ0RebKzWb9RnkajGbAmGyL4unhOdY/vuyfHU=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1766256629;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1766256646;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=8IbRY714eO2zGl6q64FE7lg6CXtlWXzXvxXQfYH5rwI=;
-	b=jEa18x1NgxTIWetBz2e1aTELkeupFac1ViPHoq7QhKZkaVQrtk55dqLMOL0RR9hZ
-	b8KoIp+hlNHz9aVpsO0h+1GKcn9zR0Ai4Px2QJm5PBEz3xdUYuBTqMexCkgRUYF/pEU
-	8FII1oDeCA1XiYsC9keOrmMm7hYhBu7JiR2iX/jE=
-Received: by mx.zohomail.com with SMTPS id 1766256628125717.7120182725639;
-	Sat, 20 Dec 2025 10:50:28 -0800 (PST)
+	bh=5j17v1GY5ZUui5Rtx97+9pI639Hi6bT0WnwCtzvrtAQ=;
+	b=YxRCapuLlpcgveZ8ge+9Vt9yL4zoF7BeXltj21O4pBcGxMmo4PKr67dZOWJgacT9
+	4LGATQCtFbN3QrbIoPAc5Wyk8dy9fLAHt1gHOZDn198/kWRImzStGT7ic1eIp2BDdU8
+	EIaJSJZXXNJaG07RIi1ArCYZ4JYC0mCUo1E3Vuf4=
+Received: by mx.zohomail.com with SMTPS id 1766256644626461.8229840632764;
+	Sat, 20 Dec 2025 10:50:44 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Sat, 20 Dec 2025 19:49:52 +0100
-Subject: [PATCH v2 1/4] dt-bindings: gpu: mali-valhall-csf: Add
- shader-present nvmem cell
+Date: Sat, 20 Dec 2025 19:49:55 +0100
+Subject: [PATCH v2 4/4] pmdomain: mediatek: mtk-mfg: Expose shader_present
+ as nvmem cell
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251220-mt8196-shader-present-v2-1-45b1ff1dfab0@collabora.com>
+Message-Id: <20251220-mt8196-shader-present-v2-4-45b1ff1dfab0@collabora.com>
 References: <20251220-mt8196-shader-present-v2-0-45b1ff1dfab0@collabora.com>
 In-Reply-To: <20251220-mt8196-shader-present-v2-0-45b1ff1dfab0@collabora.com>
 To: Boris Brezillon <boris.brezillon@collabora.com>, 
@@ -74,9 +74,8 @@ Cc: Chen-Yu Tsai <wenst@chromium.org>, Chia-I Wu <olvaffe@gmail.com>,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251220_105118_766113_EE06DC8B 
-X-CRM114-Status: UNSURE (   9.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251220_105118_730370_45764D42 
+X-CRM114-Status: GOOD (  14.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,65 +90,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On the MediaTek MT8196 SoC, the bitmask for which shader cores are
-present and functional is not the one in the Mali GPU's registers, but
-in an external efuse.
+Implement nvmem-provider functionality in mtk-mfg-pmdomain, such that it
+can expose its GF_REG_SHADER_PRESENT value in the shared memory as an
+nvmem cell for panthor.
 
-Add the nvmem cell properties to describe such a setup, and make them
-required on MT8196.
-
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- .../devicetree/bindings/gpu/arm,mali-valhall-csf.yaml      | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+ drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c | 59 ++++++++++++++++++++++++++++
+ 1 file changed, 59 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
-index bee9faf1d3f8..8eccd4338a2b 100644
---- a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
-+++ b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
-@@ -51,6 +51,14 @@ properties:
-           - stacks
-       - const: stacks
+diff --git a/drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c b/drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c
+index 9bad577b3ae4..3ce6fb74dd53 100644
+--- a/drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c
++++ b/drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c
+@@ -10,6 +10,7 @@
+ #include <linux/clk-provider.h>
+ #include <linux/container_of.h>
+ #include <linux/iopoll.h>
++#include <linux/nvmem-provider.h>
+ #include <linux/mailbox_client.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
+@@ -872,6 +873,60 @@ static int mtk_mfg_init_clk_provider(struct mtk_mfg *mfg)
+ 	return 0;
+ }
  
-+  nvmem-cells:
-+    items:
-+      - description: bitmask of functional shader cores
++static int mtk_mfg_read_nvmem(void *priv, unsigned int offset, void *val, size_t bytes)
++{
++	struct mtk_mfg *mfg = priv;
++	u32 *buf = val;
 +
-+  nvmem-cell-names:
-+    items:
-+      - const: shader-present
++	if (bytes != 4)
++		return -EINVAL;
 +
-   mali-supply: true
++	if (!mfg->shared_mem)
++		return -ENODEV;
++
++	if (offset + bytes >= mfg->shared_mem_size)
++		return -EINVAL;
++
++	*buf = readl(mfg->shared_mem + offset);
++
++	return 0;
++}
++
++static int mtk_mfg_init_nvmem_provider(struct mtk_mfg *mfg)
++{
++	struct device *dev = &mfg->pdev->dev;
++	struct nvmem_cell_info cell = {};
++	struct nvmem_config config = {};
++	struct nvmem_device *nvdev;
++	int ret;
++
++	config.reg_read = mtk_mfg_read_nvmem;
++	config.dev = dev;
++	config.read_only = true;
++	config.priv = mfg;
++	config.size = 4;
++	config.word_size = 4;
++
++	nvdev = devm_nvmem_register(dev, &config);
++	if (IS_ERR(nvdev))
++		return dev_err_probe(dev, PTR_ERR(nvdev), "Couldn't register nvmem provider\n");
++
++	cell.name = "shader-present";
++	cell.offset = GF_REG_SHADER_PRESENT;
++	cell.bytes = 4;
++	cell.np = of_get_child_by_name(dev->of_node, cell.name);
++
++	ret = nvmem_add_one_cell(nvdev, &cell);
++	if (ret) {
++		of_node_put(cell.np);
++		return dev_err_probe(dev, ret, "Couldn't add cell %s\n", cell.name);
++	}
++
++	/* cell.np purposefully not put as nvmem_add_one_cell does not increase refcount */
++
++	return 0;
++}
++
+ static int mtk_mfg_probe(struct platform_device *pdev)
+ {
+ 	struct mtk_mfg *mfg;
+@@ -984,6 +1039,10 @@ static int mtk_mfg_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		goto err_power_off;
  
-   operating-points-v2: true
-@@ -108,6 +116,8 @@ allOf:
-       properties:
-         clocks:
-           minItems: 3
-+        nvmem-cells: false
-+        nvmem-cell-names: false
-         power-domains:
-           maxItems: 1
-         power-domain-names: false
-@@ -133,6 +143,8 @@ allOf:
-             - const: core
-             - const: stacks
-       required:
-+        - nvmem-cells
-+        - nvmem-cell-names
-         - power-domains
- 
- examples:
-@@ -179,6 +191,8 @@ examples:
-                      <GIC_SPI 605 IRQ_TYPE_LEVEL_HIGH 0>,
-                      <GIC_SPI 604 IRQ_TYPE_LEVEL_HIGH 0>;
-         interrupt-names = "job", "mmu", "gpu";
-+        nvmem-cells = <&shader_present>;
-+        nvmem-cell-names = "shader-present";
-         power-domains = <&gpufreq>;
-     };
- 
++	ret = mtk_mfg_init_nvmem_provider(mfg);
++	if (ret)
++		goto err_power_off;
++
+ 	ret = of_genpd_add_provider_simple(dev->of_node, &mfg->pd);
+ 	if (ret) {
+ 		dev_err_probe(dev, ret, "Failed to add pmdomain provider\n");
 
 -- 
 2.52.0
