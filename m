@@ -4,61 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02339E668BC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Dec 2025 18:50:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78AB4E67481
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Dec 2025 18:51:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=8ZSVY3KLNoEae4fCTRliOjZfdWRvSMnTf7vfGcKNjSI=; b=CfHG5gT6MvUsVK
-	SjHdMuvxOS/TztJWwgAjLeydF/fyMYM7t2rFlwweEqdYCqRz847c+uLTsiCN4KgTUYKgUF2eh9SM9
-	hgrtwUYnh0DJ85MTwZgMVfYyuiCBPXBNfcBYcZXKuI97yx0BWZN730fNAhGxvDZJeMVnmVeK3SR2Q
-	kEbgxcEidpdZQSqjfk0/bslEYnIPsk3XiPdjt49BpVNDeGh2BlahI1znYPCNBLHGizNb6ubtcRTeu
-	jxfAw8NCQU74aRiXm64Zc7iQpPVY6d7xYw4MovXHH6MsHkWF8T04VpIqEI77PtekbKMK2/Vi9vQYh
-	LaTiFTbtDecWydH++/+w==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8rRlnY9LZnCWGx1zTU/aPAeZJrjVXsHfEKZP3E41uXI=; b=bEabA7ZIZ4HtjacoE+p30RSaED
+	cSUlrugSBbn9d0oCl+DENrzj98dxFVRlRJOASpqdC9cd3jkWXDgiTmeRqVq5vN3C4hcRBu1MAnNOn
+	sHVHyBnLh0OvcRj4+5XIdsc6i46Nng0XlEmpyWbQanjh0W2L+6bL2eURpNwkhmhD2lA3woa+DFVcd
+	KWR1ELoGNqbo5nmx3MjwnYGeQzZUBrShXnlckYtsxPJ0rmHlUn98fl45yrQoyKBBLPpxazHGD/2Rh
+	tpiDaJgdt62uTHKkHb/KSpcjrHCa5GrfI1WaAvl6UBnSX3vFIskRYUpgHWOWsRq1l4HADmzeY6sf9
+	kAoMSJGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vX22Q-0000000Bonq-1AxP;
-	Sat, 20 Dec 2025 18:50:46 +0000
+	id 1vX230-0000000Bouz-2caT;
+	Sat, 20 Dec 2025 18:51:22 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vX22L-0000000BonI-0LG3;
-	Sat, 20 Dec 2025 18:50:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1766256623; cv=none; 
+	id 1vX22r-0000000Bosq-2MSs;
+	Sat, 20 Dec 2025 18:51:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1766256639; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=nc+bpHUqO3akszbIQOAVQ2c/UgKIF9WoiM0TygwVRmiF7sOdpWY29x+6qzu5f/eqUVNXmb0yKISnbFku9l4p6Iv/eiReb5NBVCpLhsWbNOU4WtFm8HZhB+3ozUw5S3x12XP3wBokkMeltCTduI37yVyS2eZinfd1PPC4a6cw/8U=
+	b=MsNirVtsBPgMUKM4LqhhRrIx3Ur9lC+OTQZL6dxKUkOHuy7b35NUfB2b7cqxe9PvBxP7l3ay09KENoO/mdpARgxTHZHbWNjfDnV2vMob/1yuPzI1NHDoYQj9D1WG/O+De7riAcPU2bqNFSyfzpGrKBHiA0rsko8FJvZenAs4pN4=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1766256623; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=8ZSVY3KLNoEae4fCTRliOjZfdWRvSMnTf7vfGcKNjSI=; 
-	b=XTxnaUoeL4NU2j1FibI5tJAlERx/F05peZ3di8KRZp07pg5Pd1Kjy6OE14Ad04PVmoQg0ZkXXEZKxSpFDV/0lVAL0CM3WFa+qlXBjyDlr2O02aNhssZBqoiUTO4KUgzzFNQnGpn/bQxDGAew1hh2uSOeInXHlaV1fy5Xt0g4/0c=
+	t=1766256639; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=8rRlnY9LZnCWGx1zTU/aPAeZJrjVXsHfEKZP3E41uXI=; 
+	b=XzZkCm2B7Gaihpm0ONGK0/VfiawLu4hI2foGyi5f8mnjmm7CDjoTaLwQvQKm7OPmWR0dH1ZrSuMjRjvweFQtXW66sP/clPFzq9qH97Y7LqN4x8TLKbr7RMBcu4Jo4zod6c9xCbNjmimj8ca1lkagYNxCEfSxgrNL2ee0ZANVLao=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1766256623;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1766256639;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
-	bh=8ZSVY3KLNoEae4fCTRliOjZfdWRvSMnTf7vfGcKNjSI=;
-	b=Z/HN/UekzVsb0dBD5AKn00716tT6o8BCVCucj9qrnh7yOM7EConle4Xaygfq4lkD
-	tRszBJGUFpF9Yje3ysbfQp5rFZatnhMUVQiSxyxNcYG9/eeYu0K8hTZzE+/0id0B2p8
-	gxn9o0i7E2m+LFYApbzfLbwQTFEXFVvHLpGDU6qM=
-Received: by mx.zohomail.com with SMTPS id 1766256622429134.8394294983167;
-	Sat, 20 Dec 2025 10:50:22 -0800 (PST)
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=8rRlnY9LZnCWGx1zTU/aPAeZJrjVXsHfEKZP3E41uXI=;
+	b=MJepbfoSqB0kxqG/gC3DSa4eX2BPv0L6tb4Ksi3eTDBPWdgarkE4y5lgUiEOrw9o
+	02rsAe65LLLwrZw0tO8R9NnCgAg/uVes1yHeW/WpR0oZ6ihyoAdyxykoCkYQH9Bkn99
+	/yuJbYxKLcX/ZVA0Fp+Io9anLVWWACLlojAsSm9E=
+Received: by mx.zohomail.com with SMTPS id 1766256639151549.0735477560279;
+	Sat, 20 Dec 2025 10:50:39 -0800 (PST)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Subject: [PATCH v2 0/4] Make MT8196 get its Mali GPU shader_present from
+Date: Sat, 20 Dec 2025 19:49:54 +0100
+Subject: [PATCH v2 3/4] drm/panthor: Implement reading shader_present from
  nvmem
-Date: Sat, 20 Dec 2025 19:49:51 +0100
-Message-Id: <20251220-mt8196-shader-present-v2-0-45b1ff1dfab0@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAM/vRmkC/4WOyw6CMBBFf4XM2lFalNfK/zAsSjuVJkCxrURD+
- HcruHc1OTc5d+4CnpwhD3WygKPZeGPHCPyQgOzEeCc0KjLwlF8YZwUOoWRVjr4TihxOjjyNAYk
- rmemq0LI4Q3Rjrs1r6701Ozt6PGN92ENohSeUdhhMqBPlBgxmOv0ufJXO+GDde1s2s835M2Jmm
- KLOdakzIRhV2VXavhetdeIYP0GzrusH68ZF0fEAAAA=
-X-Change-ID: 20251217-mt8196-shader-present-e2dc3f97fc74
+Message-Id: <20251220-mt8196-shader-present-v2-3-45b1ff1dfab0@collabora.com>
+References: <20251220-mt8196-shader-present-v2-0-45b1ff1dfab0@collabora.com>
+In-Reply-To: <20251220-mt8196-shader-present-v2-0-45b1ff1dfab0@collabora.com>
 To: Boris Brezillon <boris.brezillon@collabora.com>, 
  Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>, 
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -77,8 +74,8 @@ Cc: Chen-Yu Tsai <wenst@chromium.org>, Chia-I Wu <olvaffe@gmail.com>,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251220_105041_189135_AA4D0580 
-X-CRM114-Status: GOOD (  14.81  )
+X-CRM114-CacheID: sfid-20251220_105115_999301_16748F1A 
+X-CRM114-Status: GOOD (  14.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,72 +90,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MediaTek MT8196 SoC's Mali SHADER_PRESENT register does not list
-only functional shader cores, but also those that are fused off to
-improve yield.
+On some platforms, notably MediaTek MT8196, the shader_present bitmask
+in the Mali GPU register for it has cores enabled that may be faulty.
+The true shader_present bitmask is found in an efuse instead.
 
-The SHADER_PRESENT bitmask with the one fused off core omitted is to be
-found in an efuse. However, the efuse address is considered
-confidential, and is not public knowledge.
-
-The MT8196 GPUEB MCU, which does the power management for the Mali GPU
-on this SoC, knows and reads the efuse however, and exposes it in the
-shared memory intended to communicate state to the application
-processor. Reading the bitmask from this shared memory area is the
-vendor's intended solution.
-
-This series models this in the binding and implements it in the
-corresponding Linux drivers:
-- the mali-valhall-csf binding gets an nvmem-cells/nvmem-cell-names
-  property to declare that shader-present is in a different castle
-- the mt8196-gpufreq binding requires nodes to expose the shader-present
-  cell
-- panthor checks for the presence of the shader-present cell and uses it
-  as the shader-present value if it's found, instead of the Mali GPU
-  register contents
-- mtk-mfg-pmdomain becomes an nvmem provider and will happily serve
-  queries for the shader-present cell
-
-While it would be preferable if we could read the efuse directly, it's
-not possible as things stand, and insisting on it will just keep this
-hardware from working in mainline. Running a GPU workload with a
-SHADER_PRESENT bitmask that includes a faulty core results in corrupt
-GPU rendering output.
-
-Modelling the mt8196-gpufreq device as a nvmem-cell provider however is
-not lying about the hardware's capabilities, as it truly does provide
-access to the nvmem-cell, even if it acts as a proxy.
-
-From a bindings and panthor perspective, this is also generic enough to
-where hypothetical other vendors doing the same thing (even with direct
-efuse access) can rely on the same cell name and implementation.
+Implement reading shader_present from an nvmem cell if one is present,
+falling back to the Mali register if it's absent. The error codes are
+trickled up through to the probe function so that probe deferral works.
 
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
-Changes in v2:
-- panthor: move to nvmem_cell_read_variable_le_u64
-- mtk-mfg-pmdomain: put of_node in error path
-- mtk-mfg-pmdomain: remove leftover stray of_node_put on NULL
-- Link to v1: https://lore.kernel.org/r/20251217-mt8196-shader-present-v1-0-f6f8f3aa1e93@collabora.com
+ drivers/gpu/drm/panthor/panthor_hw.c | 36 ++++++++++++++++++++++++++++++------
+ 1 file changed, 30 insertions(+), 6 deletions(-)
 
----
-Nicolas Frattaroli (4):
-      dt-bindings: gpu: mali-valhall-csf: Add shader-present nvmem cell
-      dt-bindings: power: mt8196-gpufreq: Describe nvmem provider ability
-      drm/panthor: Implement reading shader_present from nvmem
-      pmdomain: mediatek: mtk-mfg: Expose shader_present as nvmem cell
+diff --git a/drivers/gpu/drm/panthor/panthor_hw.c b/drivers/gpu/drm/panthor/panthor_hw.c
+index 87ebb7ae42c4..80c521784cd3 100644
+--- a/drivers/gpu/drm/panthor/panthor_hw.c
++++ b/drivers/gpu/drm/panthor/panthor_hw.c
+@@ -1,6 +1,7 @@
+ // SPDX-License-Identifier: GPL-2.0 or MIT
+ /* Copyright 2025 ARM Limited. All rights reserved. */
+ 
++#include <linux/nvmem-consumer.h>
+ #include <drm/drm_print.h>
+ 
+ #include "panthor_device.h"
+@@ -109,7 +110,25 @@ static char *get_gpu_model_name(struct panthor_device *ptdev)
+ 	return "(Unknown Mali GPU)";
+ }
+ 
+-static void panthor_gpu_info_init(struct panthor_device *ptdev)
++static int overload_shader_present(struct panthor_device *ptdev)
++{
++	u64 contents;
++	int ret;
++
++	ret = nvmem_cell_read_variable_le_u64(ptdev->base.dev, "shader-present",
++					      &contents);
++	if (!ret)
++		ptdev->gpu_info.shader_present = contents;
++	else if (ret == -ENOENT)
++		return 0;
++	else
++		return dev_err_probe(ptdev->base.dev, ret,
++				     "Failed to read shader-present nvmem cell\n");
++
++	return 0;
++}
++
++static int panthor_gpu_info_init(struct panthor_device *ptdev)
+ {
+ 	unsigned int i;
+ 
+@@ -143,13 +162,18 @@ static void panthor_gpu_info_init(struct panthor_device *ptdev)
+ 		ptdev->gpu_info.tiler_present = gpu_read64(ptdev, GPU_TILER_PRESENT);
+ 		ptdev->gpu_info.l2_present = gpu_read64(ptdev, GPU_L2_PRESENT);
+ 	}
++
++	return overload_shader_present(ptdev);
+ }
+ 
+-static void panthor_hw_info_init(struct panthor_device *ptdev)
++static int panthor_hw_info_init(struct panthor_device *ptdev)
+ {
+ 	u32 major, minor, status;
++	int ret;
+ 
+-	panthor_gpu_info_init(ptdev);
++	ret = panthor_gpu_info_init(ptdev);
++	if (ret)
++		return ret;
+ 
+ 	major = GPU_VER_MAJOR(ptdev->gpu_info.gpu_id);
+ 	minor = GPU_VER_MINOR(ptdev->gpu_info.gpu_id);
+@@ -172,6 +196,8 @@ static void panthor_hw_info_init(struct panthor_device *ptdev)
+ 		 "shader_present=0x%0llx l2_present=0x%0llx tiler_present=0x%0llx",
+ 		 ptdev->gpu_info.shader_present, ptdev->gpu_info.l2_present,
+ 		 ptdev->gpu_info.tiler_present);
++
++	return 0;
+ }
+ 
+ static int panthor_hw_bind_device(struct panthor_device *ptdev)
+@@ -218,7 +244,5 @@ int panthor_hw_init(struct panthor_device *ptdev)
+ 	if (ret)
+ 		return ret;
+ 
+-	panthor_hw_info_init(ptdev);
+-
+-	return 0;
++	return panthor_hw_info_init(ptdev);
+ }
 
- .../bindings/gpu/arm,mali-valhall-csf.yaml         | 14 +++++
- .../bindings/power/mediatek,mt8196-gpufreq.yaml    | 13 +++++
- drivers/gpu/drm/panthor/panthor_hw.c               | 36 ++++++++++---
- drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c       | 59 ++++++++++++++++++++++
- 4 files changed, 116 insertions(+), 6 deletions(-)
----
-base-commit: 638148c6ffa31d2e4958d51708ff3675221e2da7
-change-id: 20251217-mt8196-shader-present-e2dc3f97fc74
-
-Best regards,
 -- 
-Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+2.52.0
 
 
