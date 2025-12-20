@@ -4,92 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94DFAE668AA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Dec 2025 02:07:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59BB4E668AF
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Dec 2025 04:29:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TQzVZFVJ1ygwoAgm8WNTLMxDGxREtxfVMJzFVIdTl0s=; b=F1WPPtvRuVpEhBpdQSDIfji9NQ
-	q2s/jDg2RrPusaUyUkusrb/yb2k2La4e9RtA/YNcEt3GZsmjBxMJ2RfDxJK62VPctXNjsoOxwM+iy
-	lE2SBNlhF+6cY9zGP6z20/Z8fpv4wZqIrOarU6AKPmC/B5lG3SogveWI3ExYYs4MHxiZh8GmUwQte
-	ddgjB2IN71XnuXL9aws2Q9AlgBNyDlKAkKiN9qKmYXIUzasLYoZ01Ut/2un4MLotwHMg/3O9AfeF1
-	C+8zGuZSv6Z8bQYBx+MlBnw2jmeleDSP0+0DYJiuz7zRgFB+86+vTufId3MnGv9g2dj04JUYMDd07
-	gQ//jXwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cO8WtEaXesAo47SuaG+o4/YJs4sol1oYaZp1SwxhQ0k=; b=O9yoO5YE5kGoy5z7GU5kop4ukT
+	az2n4wB5xYwpsBb65b3b0EmQ93PPMTpFyejFyL+2/uhqD1YkyL3OJZlSj25mHi6nQ7dJEKn0pfZ3U
+	D0qYBOibskXAInD5hExwPtgZdTBpq7nri8UKk0DMiQ41luFKV27VwR8w+p1FT+A82tAzlfzsqR/v4
+	+uCCO/wQUt+TxCUNdf/kPHY5FE456fPEcX7As9mda9dU3k4SyCG+Xv+Fy9zqmJ0vmXUF2BzM8DTOK
+	f3rYLJCpFSV+wC9Ouc/Gk4yPgw7nJSJHTDJQ7fKgTNBcHpIUre0jfz0imZqz9nYj5+RcHNHYhj5g0
+	uMzF6PZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWmNE-0000000BCTx-2jXX;
-	Sat, 20 Dec 2025 02:07:12 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vWoaq-0000000BIN4-0Fuo;
+	Sat, 20 Dec 2025 04:29:24 +0000
+Received: from out30-112.freemail.mail.aliyun.com ([115.124.30.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWmND-0000000BCTr-3DqN
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sat, 20 Dec 2025 02:07:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=TQzVZFVJ1ygwoAgm8WNTLMxDGxREtxfVMJzFVIdTl0s=; b=DP503VIGuvYRCAEsNV3KK21xci
-	3px0Ljl8tudoQFmA9fMqVAFdz7eH+wKQnr8UiBdG9eq+mAu0NUNq8BWufYSOVJJen2N4z5VB8bJf6
-	+7mx2fkh+fMaUZ9Kvp/gpz9XA9i9bDKpzecxMpqUJy0JxFlaMj1oZds0YaNzubDEtG/FLqDPp53lm
-	2XNf2UE0b6GwSCrOvK5ROUm2u9O2rKt5KjZ4fHC1dgDHkOzc8akVXsrXgRXvazQmTJW1CGvTHUciB
-	S3BrDO3S64vvRfaecOcvRc7YX1c7KHyP3VZ+RjbuX6Ew2XHNZ1WCZ4IHAc6rF6aKW/1yhWTZD8i6s
-	V2DKRVJg==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWlVi-0000000Bvjk-09Ek
+	id 1vWoan-0000000BIMX-0mNm
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 20 Dec 2025 01:11:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6B29D40A64;
-	Sat, 20 Dec 2025 02:07:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11690C4CEF1;
-	Sat, 20 Dec 2025 02:07:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766196421;
-	bh=wEXvmEKyIFrnHKRquW8HLOdmbtTIV8EBnBes5n6SzFI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Pu1atnqPB+6Plnmla0u814Vr+bOstL6yGKPEBrVZReTYp0Sfg/2484wUdqfAeV+Zn
-	 tNn3ftAEz3VwF/xX/KBdb2OZLjOZKZMaMajFcQEgy2AMROFRwIzXAoWOGcY8MSUZ6T
-	 p3Up0w2hYUmqT0Sz9/OJHdJ0nfyb5cLIpfIDedJAwdpZf2CbM4+DURHn46yzdZZkCk
-	 cb1rg6YdJUp3FRZvC5dwuB//UFZ9m3+YybaHpUFvxKHE3CXQWL6zQnUo0xR9o64aW1
-	 GBbfs/ekwST6PPVlZ5r1x03UzcjM6WhV49J2VVjGfwO+DEKVx11Xk5WQhYDvDXvCOm
-	 EBzeDyA1rjEuQ==
-Date: Fri, 19 Dec 2025 20:06:59 -0600
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: linux@ew.tq-group.com, Peter Chen <peter.chen@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
-	linux-usb@vger.kernel.org, Marek Vasut <marex@denx.de>,
-	Markus Niebel <Markus.Niebel@tq-group.com>,
-	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	linux-arm-kernel@lists.infradead.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Pawel Laszczak <pawell@cadence.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>, imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Roger Quadros <rogerq@kernel.org>, linux-clk@vger.kernel.org,
-	Magnus Damm <magnus.damm@gmail.com>
-Subject: Re: [PATCH 4/6] dt-bindings: arm: fsl: add bindings for TQMa8x
-Message-ID: <176619641876.374149.1170239999077862047.robh@kernel.org>
-References: <20251218152058.1521806-1-alexander.stein@ew.tq-group.com>
- <20251218152058.1521806-5-alexander.stein@ew.tq-group.com>
+	Sat, 20 Dec 2025 04:29:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1766204955; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=cO8WtEaXesAo47SuaG+o4/YJs4sol1oYaZp1SwxhQ0k=;
+	b=woWtFC8DFaElUqBMdx6sb+qbrhswM5mFwAtjHxVfPA4Jti/ao60IsV+XS+Pd/xQ9ee/3WxdzeqqVNR/Rfa4V93Gx7OlIukWy+4gJf9ApQBzNJL6hRKuBpcgbj3+mpLMM616+CexNi+wCH8lEcdXcJMTJ90pFUnjI5fvbW5/zgvY=
+Received: from 30.170.69.111(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0WvF13NW_1766204952 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Sat, 20 Dec 2025 12:29:13 +0800
+Message-ID: <17b923c4-48cc-45f0-93fe-84a13568c1bf@linux.alibaba.com>
+Date: Sat, 20 Dec 2025 12:29:11 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251218152058.1521806-5-alexander.stein@ew.tq-group.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/5] mm: rmap: support batched checks of the references
+ for large folios
+To: Matthew Wilcox <willy@infradead.org>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, akpm@linux-foundation.org,
+ david@kernel.org, catalin.marinas@arm.com, will@kernel.org,
+ lorenzo.stoakes@oracle.com, ryan.roberts@arm.com, vbabka@suse.cz,
+ rppt@kernel.org, surenb@google.com, mhocko@suse.com, riel@surriel.com,
+ harry.yoo@oracle.com, jannh@google.com, baohua@kernel.org, dev.jain@arm.com,
+ linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1766121341.git.baolin.wang@linux.alibaba.com>
+ <24b9d33acad627997febe9b61d398fc53739a333.1766121341.git.baolin.wang@linux.alibaba.com>
+ <x2s3l56rqwgcpkhpu77pjt65tfwgmchuy4fuyrj7h7uag5gja3@c3jbws4quxrd>
+ <aUV4u9pOHxvQiDcP@casper.infradead.org>
+From: Baolin Wang <baolin.wang@linux.alibaba.com>
+In-Reply-To: <aUV4u9pOHxvQiDcP@casper.infradead.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251220_011154_450222_DF857D3E 
-X-CRM114-Status: UNSURE (   9.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251219_202922_013077_1F9D0CA2 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,17 +75,48 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 18 Dec 2025 16:20:51 +0100, Alexander Stein wrote:
-> TQMa8x is a SOM family using NXP i.MX8QM CPU family
-> MBa8x is an evaluation mainboard for this SOM.
-> 
-> Signed-off-by: Markus Niebel <Markus.Niebel@tq-group.com>
-> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> ---
->  Documentation/devicetree/bindings/arm/fsl.yaml | 10 ++++++++++
->  1 file changed, 10 insertions(+)
-> 
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+On 2025/12/20 00:09, Matthew Wilcox wrote:
+> On Fri, Dec 19, 2025 at 10:47:52AM -0500, Liam R. Howlett wrote:
+>>> -#define ptep_clear_flush_young_notify(__vma, __address, __ptep)		\
+>>> +#define ptep_clear_flush_young_notify(__vma, __address, __ptep, __nr)	\
+>>>   ({									\
+>>>   	int __young;							\
+>>>   	struct vm_area_struct *___vma = __vma;				\
+>>>   	unsigned long ___address = __address;				\
+>>> -	__young = ptep_clear_flush_young(___vma, ___address, __ptep);	\
+>>> +	unsigned int ___nr = __nr;					\
+>>> +	__young = clear_flush_young_ptes(___vma, ___address, __ptep, ___nr);	\
+>>>   	__young |= mmu_notifier_clear_flush_young(___vma->vm_mm,	\
+>>>   						  ___address,		\
+>>>   						  ___address +		\
+>>> -							PAGE_SIZE);	\
+>>> +						nr * PAGE_SIZE);	\
+>>
+>> Did you mean nr * PAGE_SIZE here?  I think it should be __nr or ___nr?
+>> I think this nr variable works because it exists where this macro is
+>> expanded?
+> 
+> Yes, this should clearly be ___nr.
 
+Ah, yes, my mistake. Thanks for pointing it out. Will fix.
+
+> 
+>> I am also not sure why you have ___nr  at all?
+> 
+> It's a macro cleanliness thing.  Imagine that we have a caller:
+> 
+> 	a = ptep_clear_flush_young_notify(vma, addr, ptep, nr++);
+> 
+> If you have two references to the __nr macro argument, then you end up
+> incrementing nr twice.  Assigning __nr to ___nr and then referring to
+> ___nr within the macro prevents this.
+
+Yes.
+
+> That said, I'm not sure why ptep_clear_flush_young_notify() needs
+> to be a macro instead of a static inline?
+
+Lorenzo also mentioned this. I'll clean up these macros in a follow-up 
+after this patchset. Thanks.
 
