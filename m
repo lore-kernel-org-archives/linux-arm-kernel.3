@@ -4,65 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E41EDE668B4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Dec 2025 14:18:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B490E668AE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Dec 2025 14:35:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YRBt34GRGMTtz8xrxdG3h7BK5bfJ6LWyQ06KfAkuEoE=; b=EHe2J6PPfqDGVO8tA9xNn5fNTc
-	4kqJQM9CJBCHjE5AUTg55Zvk4RrjVZjs5L0+0jT6Ih02cEuM9QpJ3C+AjonZLI9jOJ/Cf/lHjMrAR
-	m09M10twLFZ5b3s55fUsBWbTRdBVlkxkYUa1zUpErZok8OHAd+0eGDVcQ77/1BBXdfBsAOLxET6iP
-	T48J05VDQUt3BVKrMZrpWPyFCMiazv+m7bQEOulXRKDhttJUvcdEVfLJn9Eev/eZGY4CTGfpoFK2g
-	IXeMSdqzw3gKGvj+ZjvCeJH5ZC51PiRppf9P3c8sKYOmBESW2VYrXf8fM7Ng0CZmKrVRszqYbmDKi
-	EQvz2S7g==;
+	bh=Zb6i1bFVR9o3KBp2Gh4Qv1ZIT9AK9xPJtSBthwihUvg=; b=ddNMHT5PGHUqnsS3lwvsO8gjFp
+	mWOLO+9Pu0hSicm73LGpGJ08WxJA7puhJOA9XMkiQCN+Kk6yRgbK6T5KjxYDSZPlhSQUDsLhOfDZi
+	mx9fCKPSMgyhZSf23PIFFRUbOtlhwuYE8ELwvq8DsM4FLtLnohgw8d1tZj/4+xD9GnYBntuCzT4Na
+	urhFhBQyd3bxiFQF7pxW+Gwzu/rTb0EkJ0Opv/DeyWVMbtALlwWQCa6bX7BdppgnOyT3tOiqb1h2t
+	EB7soMwB/vhfFgU9PN+jtRpsvpmD1tc+CxR9++F/0fkv8gFh3WFafvPl6nN3nvcH/H9ZfiiywjYss
+	tVCUmtHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWxnG-0000000BeNl-2xF6;
-	Sat, 20 Dec 2025 14:18:50 +0000
+	id 1vWy39-0000000Bem2-2n3l;
+	Sat, 20 Dec 2025 14:35:15 +0000
 Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWxnD-0000000BeNQ-3wET
+	id 1vWy37-0000000BelQ-0wSj
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 20 Dec 2025 14:18:49 +0000
+	Sat, 20 Dec 2025 14:35:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1766240328; x=1797776328;
+  t=1766241313; x=1797777313;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=IlFgiyLO8O26Ptr6Yel73607DUKyQzNFhwrReyq53qY=;
-  b=FvfP4fVYitCOOOq7rPvRVZqAX5fSvja6fBWvzUYPiHiCEso8URMzGKJV
-   Z24hHh0RN6NSZ3nV2/NMI2nJ6WBD3HUK86uwbvFX1srwsE6+WqB8PDMDj
-   iohkA1t18ovuuLjZJusa4H8zcxrzQDFXJwTy0AMr2EN1BCOyZJ8tHEDQz
-   JUfYv1BGDxzqLLbveAdqYDNqd1iRlqgSfIpdTeg1NWJFt9fX+1vPlZTbv
-   shxVILZdQFbkoED5VHTyDu3RpUU1fBy8OBZ54dSRf5RlMG6LHb7cdf692
-   lQ2L2FlmGiwR5p24A+GcgxYofAwVkYuhtOyNmb34ZNlYmzn+szvB+EOao
-   Q==;
-X-CSE-ConnectionGUID: VMLZWoBOTl27Rd/KSWCPwg==
-X-CSE-MsgGUID: abkSk4sCT+WTJmVJRdD5pg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11648"; a="93649026"
+  bh=9gOKI4ydE/etDrXVJz8yRHpBpx0bgUzny4+FMywWXSY=;
+  b=ZnsD/Rf8BAxlNK0P5NG9i2gHWiuvm9WGjR8wU7ObMVp8Q+5rpHoYnuMY
+   xMxjBSydF1NCoVhSNRZ4MyazByVB+xpYpFAE10xHLZdVP+MTjnbET6hrk
+   eQycZlL2mTLG4zBg/IgWstiHnN11Qjsssbday91nd0SZQbuXqyRyi2cFe
+   6J5dUIAs6Ixj1M0XN+PO0mtv8Lx7p6crbLlVllWSxv8OOjOA/E9um/mDi
+   ZLu+Uj/M+5yFKpiZ0DjfqTs/IWPBiS6jBDUe6kKgEnvR9q9Ozs1+XcBLe
+   vkSHG2pVNdKAgYAZ50lP0baMT3EQSwCPN4w99pBWB9Mlf6c+7se8Z23F1
+   A==;
+X-CSE-ConnectionGUID: Ou2Idj0RQt6oWVgB7kg3Ow==
+X-CSE-MsgGUID: b8Z5NsTcRoiG0sDuvfw4mA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11648"; a="93650059"
 X-IronPort-AV: E=Sophos;i="6.21,164,1763452800"; 
-   d="scan'208";a="93649026"
+   d="scan'208";a="93650059"
 Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Dec 2025 06:18:45 -0800
-X-CSE-ConnectionGUID: WYX4smkkRf+9uiPCatM6Tg==
-X-CSE-MsgGUID: GvLJtsJsTAGDc5ftWSQ93w==
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Dec 2025 06:35:12 -0800
+X-CSE-ConnectionGUID: N++nUyL/R02YBkaHhtghhA==
+X-CSE-MsgGUID: F/GGCguNQ5ye63EfybK99w==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.21,164,1763452800"; 
-   d="scan'208";a="199022075"
-Received: from igk-lkp-server01.igk.intel.com (HELO 8a0c053bdd2a) ([10.211.93.152])
-  by fmviesa006.fm.intel.com with ESMTP; 20 Dec 2025 06:18:41 -0800
-Received: from kbuild by 8a0c053bdd2a with local (Exim 4.98.2)
+   d="scan'208";a="199023543"
+Received: from lkp-server01.sh.intel.com (HELO 0d09efa1b85f) ([10.239.97.150])
+  by fmviesa006.fm.intel.com with ESMTP; 20 Dec 2025 06:35:07 -0800
+Received: from kbuild by 0d09efa1b85f with local (Exim 4.98.2)
 	(envelope-from <lkp@intel.com>)
-	id 1vWxn4-000000004e4-2aKD;
-	Sat, 20 Dec 2025 14:18:38 +0000
-Date: Sat, 20 Dec 2025 15:18:35 +0100
+	id 1vWy2z-000000004eI-0SXZ;
+	Sat, 20 Dec 2025 14:35:05 +0000
+Date: Sat, 20 Dec 2025 22:34:50 +0800
 From: kernel test robot <lkp@intel.com>
 To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
-Cc: oe-kbuild-all@lists.linux.dev, Steven Price <steven.price@arm.com>,
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Steven Price <steven.price@arm.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
 	James Morse <james.morse@arm.com>,
@@ -81,16 +82,16 @@ Cc: oe-kbuild-all@lists.linux.dev, Steven Price <steven.price@arm.com>,
 	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
 	Emi Kisanuki <fj0570is@fujitsu.com>,
 	Vishal Annapurve <vannapurve@google.com>
-Subject: Re: [PATCH v12 19/46] KVM: arm64: Expose support for private memory
-Message-ID: <202512201539.ZhAox5t9-lkp@intel.com>
-References: <20251217101125.91098-20-steven.price@arm.com>
+Subject: Re: [PATCH v12 20/46] arm64: RMI: Allow populating initial contents
+Message-ID: <202512202203.1g4jywFB-lkp@intel.com>
+References: <20251217101125.91098-21-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251217101125.91098-20-steven.price@arm.com>
+In-Reply-To: <20251217101125.91098-21-steven.price@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251220_061848_022841_177E148F 
-X-CRM114-Status: GOOD (  10.29  )
+X-CRM114-CacheID: sfid-20251220_063513_328754_26E645F0 
+X-CRM114-Status: GOOD (  11.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,65 +108,70 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Steven,
 
-kernel test robot noticed the following build errors:
+kernel test robot noticed the following build warnings:
 
-[auto build test ERROR on linus/master]
-[also build test ERROR on next-20251219]
-[cannot apply to kvmarm/next kvm/queue kvm/next arm64/for-next/core kvm/linux-next v6.16-rc1]
+[auto build test WARNING on linus/master]
+[also build test WARNING on v6.19-rc1 next-20251219]
+[cannot apply to kvmarm/next kvm/queue kvm/next arm64/for-next/core kvm/linux-next]
 [If your patch is applied to the wrong git tree, kindly drop us a note.
 And when submitting patch, we suggest to use '--base' as documented in
 https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Steven-Price/kvm-arm64-Include-kvm_emulate-h-in-kvm-arm_psci-h/20251217-224409
+url:    https://github.com/intel-lab-lkp/linux/commits/Steven-Price/kvm-arm64-Include-kvm_emulate-h-in-kvm-arm_psci-h/20251218-030351
 base:   linus/master
-patch link:    https://lore.kernel.org/r/20251217101125.91098-20-steven.price%40arm.com
-patch subject: [PATCH v12 19/46] KVM: arm64: Expose support for private memory
-config: arm64-allnoconfig-bpf (https://download.01.org/0day-ci/archive/20251220/202512201539.ZhAox5t9-lkp@intel.com/config)
-compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project ecaf673850beb241957352bd61e95ed34256635f)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251220/202512201539.ZhAox5t9-lkp@intel.com/reproduce)
+patch link:    https://lore.kernel.org/r/20251217101125.91098-21-steven.price%40arm.com
+patch subject: [PATCH v12 20/46] arm64: RMI: Allow populating initial contents
+config: arm64-allmodconfig (https://download.01.org/0day-ci/archive/20251220/202512202203.1g4jywFB-lkp@intel.com/config)
+compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251220/202512202203.1g4jywFB-lkp@intel.com/reproduce)
 
 If you fix the issue in a separate patch/commit (i.e. not just a new version of
 the same patch/commit), kindly add following tags
 | Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202512201539.ZhAox5t9-lkp@intel.com/
+| Closes: https://lore.kernel.org/oe-kbuild-all/202512202203.1g4jywFB-lkp@intel.com/
 
-All errors (new ones prefixed by >>):
+All warnings (new ones prefixed by >>):
 
-   In file included from arch/arm64/kernel/asm-offsets.c:16:
->> ./include/linux/kvm_host.h:725:45: error: expected identifier or '('
-     725 | static inline bool kvm_arch_has_private_mem(struct kvm *kvm)
-         |                                             ^
->> ./include/linux/kvm_host.h:725:45: error: expected ')'
-   ./include/linux/kvm_host.h:725:20: note: to match this '('
-     725 | static inline bool kvm_arch_has_private_mem(struct kvm *kvm)
-         |                    ^
-   ./arch/arm64/include/asm/kvm_host.h:1465:40: note: expanded from macro 'kvm_arch_has_private_mem'
-    1465 | #define kvm_arch_has_private_mem(kvm) ((kvm)->arch.is_realm)
-         |                                        ^
-   In file included from arch/arm64/kernel/asm-offsets.c:16:
-   ./include/linux/kvm_host.h:725:20: error: expected ')'
-     725 | static inline bool kvm_arch_has_private_mem(struct kvm *kvm)
-         |                    ^
-   ./arch/arm64/include/asm/kvm_host.h:1465:45: note: expanded from macro 'kvm_arch_has_private_mem'
-    1465 | #define kvm_arch_has_private_mem(kvm) ((kvm)->arch.is_realm)
-         |                                             ^
-   ./include/linux/kvm_host.h:725:20: note: to match this '('
-   ./arch/arm64/include/asm/kvm_host.h:1465:39: note: expanded from macro 'kvm_arch_has_private_mem'
-    1465 | #define kvm_arch_has_private_mem(kvm) ((kvm)->arch.is_realm)
-         |                                       ^
-   3 errors generated.
+>> arch/arm64/kvm/rmi.c:805:16: warning: variable 'data_flags' set but not used [-Wunused-but-set-variable]
+     805 |         unsigned long data_flags = 0;
+         |                       ^
+   1 warning generated.
 
 
-vim +725 ./include/linux/kvm_host.h
+vim +/data_flags +805 arch/arm64/kvm/rmi.c
 
-f481b069e67437 Paolo Bonzini       2015-05-17  723  
-d1e54dd08f163a Fuad Tabba          2025-07-29  724  #ifndef CONFIG_KVM_GENERIC_MEMORY_ATTRIBUTES
-a7800aa80ea4d5 Sean Christopherson 2023-11-13 @725  static inline bool kvm_arch_has_private_mem(struct kvm *kvm)
-a7800aa80ea4d5 Sean Christopherson 2023-11-13  726  {
-a7800aa80ea4d5 Sean Christopherson 2023-11-13  727  	return false;
-a7800aa80ea4d5 Sean Christopherson 2023-11-13  728  }
-a7800aa80ea4d5 Sean Christopherson 2023-11-13  729  #endif
-a7800aa80ea4d5 Sean Christopherson 2023-11-13  730  
+   801	
+   802	int kvm_arm_rmi_populate(struct kvm *kvm,
+   803				 struct kvm_arm_rmi_populate *args)
+   804	{
+ > 805		unsigned long data_flags = 0;
+   806		unsigned long ipa_start = args->base;
+   807		unsigned long ipa_end = ipa_start + args->size;
+   808		int ret;
+   809	
+   810		if (args->reserved ||
+   811		    (args->flags & ~KVM_ARM_RMI_POPULATE_FLAGS_MEASURE) ||
+   812		    !IS_ALIGNED(ipa_start, PAGE_SIZE) ||
+   813		    !IS_ALIGNED(ipa_end, PAGE_SIZE))
+   814			return -EINVAL;
+   815	
+   816		ret = realm_ensure_created(kvm);
+   817		if (ret)
+   818			return ret;
+   819	
+   820		if (args->flags & KVM_ARM_RMI_POPULATE_FLAGS_MEASURE)
+   821			data_flags |= RMI_MEASURE_CONTENT;
+   822	
+   823		ret = populate_region(kvm, gpa_to_gfn(ipa_start),
+   824				      args->size >> PAGE_SHIFT,
+   825				      args->source_uaddr, args->flags);
+   826	
+   827		if (ret < 0)
+   828			return ret;
+   829	
+   830		return ret * PAGE_SIZE;
+   831	}
+   832	
 
 -- 
 0-DAY CI Kernel Test Service
