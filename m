@@ -4,91 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FB81E668AE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Dec 2025 09:14:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56E89D637B2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Dec 2025 09:27:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/inw8Dh0i7lSvgEv+rdg7GhciJ8+cE9trn51HAd7CVg=; b=gjyEdhtz4p8CyEXtVCnIKkxu8g
-	m6AYL+o6o6+SPjjWMV7I4kWo7PpRlF87Ft2sSVUMVCiTEW20Q/jvmN46lmcNgK0OXoRprNnEiavAK
-	4a3LIH0FNCigun7moDchnEUO253whssB1AZWMPy/U1dipDkFsG1vb+UCHh4IVJG5Ls8KNNeonCRe0
-	W8zef8yI0aqt1bpFOFAjbx/tuL+xjJrAMzIyC2V1+ofY+nq2O8A4eeUaPF2pC4gnAcIMNwLxLr5z3
-	MLPpQs7IHAJrImaGdRUDDZgyAlDGJTjiW8IrW0Vo8AdBd0DlmMh5ccGfVLjiMTd3RbFnfDzDEfhPD
-	LAVNZuRQ==;
+	bh=IUOOIHxrHLjMfv+UKj+m+q5rjq10R5GlmYvvP2VlrCs=; b=t935d3hm3ntH+v00cBS65EpHw3
+	MwCX58WC0ROF4ElDRDaTaK4L0D+GS4Z8oyHEtglAqGGuDQXp+ttudDSPA0Fvqule04lR3FeBmV/MY
+	XCOvc+TE9G4L4afKjbNfLPe3DALRNL3iWS6w0mUgSYS8NMkcxv+hEYl+Xkfj8Ax9u8f3zUnjYfBPc
+	wueb4kiZ+JPuej8c3pOcKy05H7JJNfmG3REXMnCwaoWQX4BfUYvlAsQMb/ussj5nAQKR5j0Gyz9sK
+	6Tncewt/YNzyVMR+6LXtSCORghIbO0pJohUJjvMYl+jJF5VyHvF3JQ1TxfAZ/0eIFUUOeA4gdsECW
+	hRuuoMBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWt2Y-0000000BSWT-0TIB;
-	Sat, 20 Dec 2025 09:14:18 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1vWtF0-0000000BSzL-3QMo;
+	Sat, 20 Dec 2025 09:27:10 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWt2U-0000000BSW6-3V9H
+	id 1vWtEz-0000000BSzB-01BQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 20 Dec 2025 09:14:16 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-64b9cb94ff5so1809622a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 20 Dec 2025 01:14:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1766222053; x=1766826853; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=/inw8Dh0i7lSvgEv+rdg7GhciJ8+cE9trn51HAd7CVg=;
-        b=MrbOl1WEzrTkTjMv50/qEOBF+M/HL5fsLD4cYdR0N5EngCbUbURWcQCl1NIdtaV6TK
-         FKj03UgAlDI6oFtF/t7o05Z9zcD4ADBTC4cdgtN7nsBIYXLrLmxwLgmjqTDKHwVqaL1l
-         oC9WGudreY5qJM2ZvglEjlVvfUGz3p9Lb9tv3fdYcOUYGzi8BryIJtrluKcyDIHCxexD
-         gN0dMZeF2i7YzPXIhz83GXpLm3J8XedAZcRM8EUfpEs5vTAFKsNvk9cR0LaZW3icJl0R
-         jEZetCGfnTLxh9pfzf/1gNLiPpwlaxojf2o0LyN8mbYatOVNIUMmThx4XC7HmNlxGL9m
-         4mjA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766222053; x=1766826853;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/inw8Dh0i7lSvgEv+rdg7GhciJ8+cE9trn51HAd7CVg=;
-        b=UvoDhreP9yZQvU4EBw8Kd8SHvMnBEmYhJgI7K7hQt3iCv4B47f7GdB0FKDrDvbn38L
-         5pOh+CIfDGEV0crqA7uvKLQPR1wJAlxVFXEEeiZ51E+R/DENwPsZYlGnZInohz+5fLp7
-         1Bij/NOJvlGUweLI2QTqxtBmV/htlHzZqVClP/P2kVQBUCtdH1l37cyuESVydRG2kUkY
-         /c1doJ5UOZQdJyM7cRZVHVi9Lff9FNBDj5Ixv/djapFCOn+DB+hiclEm7btwiB9Ex+ku
-         1FBJ2CjMEABJGoR6tZTCgcyWwmSdJU83HdF+FG6mQMR6u2+wo3mA/eZtklS39Fb2dnMW
-         qrbg==
-X-Forwarded-Encrypted: i=1; AJvYcCU5I/SwjMwjND6rtrhGNBKvBWOpE8oEWFI8aHlzMRspWMRjGDulEVUSpw8vTQ6GUTpcmoCGBoeUKVfqKeYs3mZ3@lists.infradead.org
-X-Gm-Message-State: AOJu0YzigmGpWTKI3gjMzsyFM7oCfiPcS2bZ1qvI2VCfOG5n/Zktv344
-	36yHJKf3qWtJ9l9wd5CgNMASPeZWAwbGzCW1t/hQDUx1qorQmGN13+M9zbd3dGBN9ILPY53J3QL
-	k9cB8f1uzpS1QUfxMuS0ni+Rp6MfQiNB1kn8HW0rhJw==
-X-Gm-Gg: AY/fxX4o/xL+sDcxSgeCKNNq2+JQD88E52BbgVCv2ti7IFCBB1pcyjuGbYqYc9JOWgL
-	Qox8kXW6av5Pw/W0/4jGemeUTNi7+KNDH+9Gch+qFEYAykpTUBNEvc7hJNPgcmCIcw7YxVSA+kQ
-	gibCfrJqwKyg385STlsV3K2b+/pLidJZE9/uqFh4KcNN0qMIR0HHuIuVTsRmRXk2H8cVx1Nkz2n
-	SkEYi0714gwSU1yuvak9JcjZq1uiyNA+477s4d05MuyLl0YfyuIFZSo6ReKq6+658kN3w==
-X-Google-Smtp-Source: AGHT+IEi2oGHsGZXR7le6EPGgQR/lFz5KV5KMMycyOqdS3p5vqm96+TwVWyXCuuGX8CGH2LK41tImG4vOGHehFDZu9k=
-X-Received: by 2002:a05:6402:2806:b0:649:9159:243d with SMTP id
- 4fb4d7f45d1cf-64b8ec9cf53mr5203694a12.22.1766222052663; Sat, 20 Dec 2025
- 01:14:12 -0800 (PST)
+	Sat, 20 Dec 2025 09:27:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B518B6001A;
+	Sat, 20 Dec 2025 09:27:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEE08C4CEF5;
+	Sat, 20 Dec 2025 09:27:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766222827;
+	bh=9F4vNpz8QF6B9155Cl+o04y6MMtbYNo5s3R/QFrFxhg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=TT08D7lqfPv7Y1C3ZRe1m/jF5GZsivrY0CuWGAROs7tRhKtL90El/DlnVYuqEgzel
+	 Wfu/h5HhMVYJNM2fH0jNNllZByXSfNlvF0XlqMqqLjfl72EbtDX1rzFU6K+qY2wJzQ
+	 KNIaq3WXm8KF6RA80XtoI4vf5TBBvTqPn64EuRfChBwPY2ijIP5qMXiBusXIi1yinb
+	 5ObCCPSlzyv8pINU8SJVl36On3RHylgYZREnrLHpWs+49HkHlyQldRdmRpLH5pgkgS
+	 0GHowk+QXi6VIs3RlkUp6I6gk0CxOlzHwlfzpyHr8uiUlV51Y+wGKqgMd/FV2//dTH
+	 FlB6mlNS9hcDQ==
+Date: Sat, 20 Dec 2025 10:27:04 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Alain Volmat <alain.volmat@foss.st.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Hugues Fruchet <hugues.fruchet@foss.st.com>, 
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/6] dt-bindings: media: st: csi: add 'power-domains'
+ property
+Message-ID: <20251220-impartial-stereotyped-horse-70999f@quoll>
+References: <20251219-stm32-mp2x-dcmipp-csi-power-domain-v1-0-a6edb2aa8154@foss.st.com>
+ <20251219-stm32-mp2x-dcmipp-csi-power-domain-v1-1-a6edb2aa8154@foss.st.com>
 MIME-Version: 1.0
-References: <20251114-automatic-clocks-v5-0-efb9202ffcd7@linaro.org>
- <20251114-automatic-clocks-v5-3-efb9202ffcd7@linaro.org> <e402ac33-c23a-46a1-b67e-097eb2ea7752@kernel.org>
-In-Reply-To: <e402ac33-c23a-46a1-b67e-097eb2ea7752@kernel.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Sat, 20 Dec 2025 09:14:01 +0000
-X-Gm-Features: AQt7F2q9EnqLES2x3fb7MS0OWHPiCmq_EbCvY_7B7i_Ph5AvJoB7PQVDPtGa-S0
-Message-ID: <CADrjBPq2oTz=PomQ08rWgYiQ40ResAUiKg4QVGoYCTYX20dKNA@mail.gmail.com>
-Subject: Re: [PATCH v5 3/4] clk: samsung: Implement automatic clock gating
- mode for CMUs
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Sam Protsenko <semen.protsenko@linaro.org>, 
-	Sylwester Nawrocki <s.nawrocki@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, 
-	Will McVicker <willmcvicker@google.com>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
-	kernel-team@android.com
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251220_011414_910957_79FFD913 
-X-CRM114-Status: GOOD (  24.26  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20251219-stm32-mp2x-dcmipp-csi-power-domain-v1-1-a6edb2aa8154@foss.st.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,70 +75,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On Fri, Dec 19, 2025 at 04:58:03PM +0100, Alain Volmat wrote:
+> STM32 CSI may be in a power domain which is the case for the STM32MP2x
+> based boards. Allow a single 'power-domains' entry for STM32 CSI.
+> 
+> Signed-off-by: Alain Volmat <alain.volmat@foss.st.com>
+> ---
+>  Documentation/devicetree/bindings/media/st,stm32mp25-csi.yaml | 3 +++
+>  1 file changed, 3 insertions(+)
 
-On Thu, 18 Dec 2025 at 16:06, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->
-> On 14/11/2025 15:16, Peter Griffin wrote:
-> > Update exynos_arm64_init_clocks() so that it enables the automatic clock
-> > mode bits in the CMU option register if the auto_clock_gate flag and
-> > option_offset fields are set for the CMU. To ensure compatibility with
-> > older DTs (that specified an incorrect CMU reg size), detect this and
-> > fallback to manual clock gate mode as the auto clock mode feature depends
-> > on registers in this area.
-> >
-> > The CMU option register bits are global and effect every clock component in
-> > the CMU, as such clearing the GATE_ENABLE_HWACG bit and setting GATE_MANUAL
-> > bit on every gate register is only required if auto_clock_gate is false.
-> >
-> > Additionally if auto_clock_gate is enabled the dynamic root clock gating
-> > and memclk registers will be configured in the corresponding CMUs sysreg
-> > bank. These registers are exposed via syscon, so the register
-> > samsung_clk_save/restore paths are updated to also take a regmap.
-> >
-> > As many gates for various Samsung SoCs are already exposed in the Samsung
-> > clock drivers a new samsung_auto_clk_gate_ops is implemented. This uses
-> > some CMU debug registers to report whether clocks are enabled or disabled
-> > when operating in automatic mode. This allows
-> > /sys/kernel/debug/clk/clk_summary to still dump the entire clock tree and
-> > correctly report the status of each clock in the system.
-> >
-> > Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
-> > ---
-> > Changes in v3:
-> > - Add missing 'np' func param to kerneldoc in samsung_cmu_register_clocks
-> > (0-DAY CI)
-> >
-> > Changes in v2:
-> > - Fallback to manual clock gate mode for old DTs with incorrect CMU size
-> > (added samsung_is_auto_capable()) (Krzysztof)
-> > - Rename OPT_UNKNOWN bit to OPT_EN_LAYER2_CTRL (Andre)
-> > - Rename OPT_EN_MEM_PM_GATING to OPT_EN_MEM_PWR_GATING (Andre)
-> > - Reverse Option bit definitions LSB -> MSB (Krzysztof)
-> > - Update kerneldoc init_clk_regs comment (Andre)
-> > - Fix space on various comments (Andre)
-> > - Fix regmap typo on samsung_clk_save/restore calls (Andre)
-> > - Include error code in pr_err message (Andre)
-> > - Add macros for dcrg and memclk (Andre)
-> > - Avoid confusing !IS_ERR_OR_NULL(ctx->sysreg) test (Krzysztof)
-> > - Update kerneldoc to mention drcg_offset & memclk_offset are in sysreg (Andre)
-> > - Fix 0-DAY CI randconfig warning (0-DAY CI)
-> > - Update clk-s5pv210 and clk-s3c64xx.c samsung_clk_sleep_init call sites (Peter)
-> > ---
->
-> This does not apply, please rebase entire set:
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Sure thing, I just sent a v6 rebased onto next-20251219
+Best regards,
+Krzysztof
 
-Just a heads up I hit a regression in serial on linux-next that I bisected to
-24ec03cc5512 ("serial: core: Restore sysfs fwnode information")
-
-It is unrelated to this series, but I guess you may also see this in
-your exynos board farm. Now I have identified the culprit commit I see
-others are also hitting it as well
-https://lore.kernel.org/linux-serial/713aa37f-161d-4f08-9417-d7d2abdcdfd9@sirena.org.uk/
-
-Thanks,
-
-Peter
 
