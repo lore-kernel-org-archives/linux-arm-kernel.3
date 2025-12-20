@@ -4,57 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46C68E668AE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Dec 2025 09:49:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3158E6689E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Dec 2025 10:00:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=to9kdjlnae5iAnTqPuA1zzcz+DuxQGrAZC/0io6YsCw=; b=d53+mBwrJkd3RKVzQXdmn6cJxo
-	B3Ja01zkbyBjNZnWyJwqp+aOgnEEX9irU2o196EWiV0qbmuz4jABoDPOff5NlUq+imB3XD6yM24eE
-	SRQuGhkpXNHOBiByO6F7KM6N6qP4VE+WmHyuo0Qan/BUln4fvUoykPaOqD+LTL/yHkoE+1oflFDA1
-	NbZDl6o8boaWl8JebUGGKREgVVNvJ9/tbIwP736Fb1PLIvCcfcc42G/bu5Q0T7iuZG5rpO8oJX43U
-	LbxAOSf581rSULawhzGy6Enybd4KEcn/BNeXliSP1b6xC54hsgvioq2eSpvLUKPwPFGfZ/rGMoWHk
-	NzJF2ChA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eN2Y2+KvFkLTxaf64qaPTBc+vWbfb5IjEjX2d71MOfk=; b=DAwSTOmzHPmDtrTJy9GeOHsCkO
+	idJSCLpFTeudPgy+2NFhZ+cxNX6ykDdpZroYLj0wskbwMGHL/mQGpun9jrR+38fsARKf/iYPwQPql
+	V6tFImAPmIkViL9le9Ke+os3Kiea7HCLnVx0ggbPrbzwH+ZEMnJrTMKsLom87QErjKgZQUtL5wCD7
+	PuklffIqW9iU0Ca3b3zH5+nTCIOK+kYFVaNWh3IWE8MW7ro9zVnMg0tpYSFF9uMWSXXim/a7jydiZ
+	dyJrIjLQiMHoMvOX/SpmmVTpGUezlrbGaN5y7uFqHSu+7lBYbKXmegO23sDDEFLyUzz3mIZlPUpXl
+	m+lyrAiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWtaO-0000000BTWa-1MMN;
-	Sat, 20 Dec 2025 09:49:16 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vWtlM-0000000BTqJ-2r2p;
+	Sat, 20 Dec 2025 10:00:36 +0000
+Received: from mail-m49198.qiye.163.com ([45.254.49.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWtaL-0000000BTWF-2jOI
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 20 Dec 2025 09:49:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E999B41820;
-	Sat, 20 Dec 2025 09:49:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C837EC4CEF5;
-	Sat, 20 Dec 2025 09:49:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766224151;
-	bh=pYj2OlcustQY/pV1CgTXZnP5ez3Vh8eJUCsV2AF86uc=;
-	h=Date:From:To:Cc:Subject:From;
-	b=DYjkoiK9+1EibEhm1DINiEFIOtsQjtFHd6+IJR6rF3noB3yoXK+J+cbGfCGDtdTZi
-	 /AYMhuZmRRKzymA22AVS26z1zXV66qNBEYrloJnT8pjBHNgd3taV2IHt3cQkw9lB4J
-	 2cqkTBP4vDKgI7lt9ANtAyaG+OS8aOFWYpRGZRMGtciZ4w/NrrLEJ+L53kkthNtQKo
-	 Yte1+Rsx63rKRqXaRlh0ZDrU2P5Wnf2lqJqHY44x58XUyDhpjUxdGWG8NYXx3nz8SR
-	 YrbRdGvcMuZifd3FoTYN7anLt1LmtjTK+KmvgUv/0UU2LpGQPewFrYPmE8YqRcTQT/
-	 6LtaILdktgB3A==
-Date: Sat, 20 Dec 2025 09:49:08 +0000
-From: Catalin Marinas <cmarinas@kernel.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [GIT PULL] arm64 updates/fixes for 6.19-rc2
-Message-ID: <aUZxFI1CtSF2R5HX@arm.com>
+	id 1vWtlI-0000000BTp5-2Xbi;
+	Sat, 20 Dec 2025 10:00:34 +0000
+Received: from localhost.localdomain (unknown [119.122.214.229])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 2df715fa0;
+	Sat, 20 Dec 2025 18:00:21 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Rob Herring <robh@kernel.org>,
+	Chukun Pan <amadeus@jmu.edu.cn>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: [PATCH 2/3] arm64: dts: rockchip: fix hp-det pin for ArmSoM Sige5
+Date: Sat, 20 Dec 2025 18:00:09 +0800
+Message-Id: <20251220100010.26643-2-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20251220100010.26643-1-amadeus@jmu.edu.cn>
+References: <20251220100010.26643-1-amadeus@jmu.edu.cn>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9b3b33fc1703a2kunmb12117682b909b
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkaTRpMVh5DGB9CTRkaQklPTVYeHw5VEwETFhoSFy
+	QUDg9ZV1kYEgtZQVlKSkJVSklJVUlKT1VJSUJZV1kWGg8SFR0UWUFZT0tIVUpLSUJDQ0xVSktLVU
+	tZBg++
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251220_014913_713146_ECE4CFF5 
-X-CRM114-Status: GOOD (  11.80  )
+X-CRM114-CacheID: sfid-20251220_020032_822264_E77250F0 
+X-CRM114-Status: UNSURE (   8.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,67 +71,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
+Although the hp_det pin is not used, according to the schematic,
+the headphone detection pin is GPIO4_B0. Fix the incorrect pin.
 
-Please pull the arm64 updates below. There are two cleanups that I did
-not push during the merging window because of conflicts with other
-series going in via the tip and crypto trees. The other is a GCS fix.
+Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+---
+ arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Thanks.
-
-The following changes since commit 8f0b4cce4481fb22653697cced8d0d04027cb1e8:
-
-  Linux 6.19-rc1 (2025-12-14 16:05:07 +1200)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux tags/arm64-fixes
-
-for you to fetch changes up to f4ea8e05f2a857d5447c25f7daf00807d38b307d:
-
-  lkdtm/bugs: Do not confuse the clang/objtool with busy wait loop (2025-12-19 15:09:09 +0000)
-
-----------------------------------------------------------------
-Two left-over updates that could not go into -rc1 due to conflicts with
-other series:
-
- - Simplify checks in arch_kfence_init_pool() since force_pte_mapping()
-   already takes BBML2-noabort (break-before-make Level 2 with no aborts
-   generated) into account
-
- - Remove unneeded SVE/SME fallback preserve/store handling in the arm64
-   EFI. With the recent updates, the fallback path is only taken for EFI
-   runtime calls from hardirq or NMI contexts. In practice, this only
-   happens under panic/oops/emergency_restart() and no restoring of the
-   user state expected. There's a corresponding lkdtm update to trigger
-   a BUG() or panic() from hardirq context together with a fixup not to
-   confuse clang/objtool about the control flow
-
-GCS (guarded control stacks) fix: flush the GCS locking state on exec,
-otherwise the new task will not be able to enable GCS (locked as
-disabled).
-
-----------------------------------------------------------------
-Ard Biesheuvel (2):
-      lkdtm/bugs: Add cases for BUG and PANIC occurring in hardirq context
-      arm64/efi: Remove unneeded SVE/SME fallback preserve/store handling
-
-Catalin Marinas (1):
-      lkdtm/bugs: Do not confuse the clang/objtool with busy wait loop
-
-Kevin Brodsky (1):
-      arm64: mm: Simplify check in arch_kfence_init_pool()
-
-Mark Brown (1):
-      arm64/gcs: Flush the GCS locking state on exec
-
- arch/arm64/kernel/fpsimd.c              | 130 +++++---------------------------
- arch/arm64/kernel/process.c             |   1 +
- arch/arm64/mm/mmu.c                     |  33 ++++----
- drivers/misc/lkdtm/bugs.c               |  53 +++++++++++++
- tools/testing/selftests/lkdtm/tests.txt |   2 +
- 5 files changed, 92 insertions(+), 127 deletions(-)
-
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+index 392ba83ab05a..a0d8f52a706f 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+@@ -812,8 +812,8 @@ gmac1_rst: gmac1-rst {
+ 	};
+ 
+ 	headphone {
+-		hp_det: hp-det {
+-			rockchip,pins = <0 RK_PD3 RK_FUNC_GPIO &pcfg_pull_up>;
++		hp_det_l: hp-det-l {
++			rockchip,pins = <4 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
+ 		};
+ 	};
+ 
 -- 
-Catalin
+2.25.1
+
 
