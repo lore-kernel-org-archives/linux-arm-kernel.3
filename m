@@ -4,94 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62085E668AA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Dec 2025 01:04:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12360E668AA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Dec 2025 01:19:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uvfEcA4ngmwX8Z/ReyrjfSyYYOfbBzOa2QWavuhPe1g=; b=dnbpJwdXL+y9fS7muXdMaNynC1
-	mndkKNXzLePAs0F1qdgq0SvtjWD2QXninVb/e/PBIa3/seZR6BPt7ngsJqfdZrogCNiJu5/ckSUIf
-	//VEA6vNdBE6VMxIab4YE4fYjZtALlcbJWD9omAFDxY86d3+f5cGSfHN/BMxYYMxLpmJIdcozbO92
-	LVtF9Xyk/3NG06VInn5uS6JKOcUTtIYDfURYLT+iWpuW/3Usg76qAg/Chxz+0ukb+FSjb3An9Z5Fy
-	XCeVCTSEIN/C8HFl7UsICrArKcGaBhqokpVJMHi2vvz9ga6GtK7D6jDxkygLClY5H2e/3YtqypIGl
-	gx/zSQng==;
+	bh=zK22OFLvaJjEwSRzCjqir8eHtku5CMTMzFAHnPXvPsE=; b=HMaHrVbzqj8UEDvuoIKgbOpxM4
+	AD/g3fRHbemDAo3hw+wWWSG3b69KzEiD0oZgrYIFYEzCTJg/zH4I1wsU+9rxJxyvEgyoGxf7VPaeZ
+	IofxYlfbp0t8/XJDX/LDh+sgClDCWbfDjFWHrvorU89HAeara2fUsBfkAByUKAMu7ngPz5Txrncwt
+	cdrVpUIbzm7k6Ktp02uMwmJ/wzqBgrTA9sIF+s8uG0TfM9gao3Ceu/8ByqoTdKx8V3j4CfnZw1Ilp
+	B5ch0/icbKrNeYarMfYsX/i/Rc5ODOjJg5dykeYl1DeTnMmbrl/ZLHuRFQfwnmkgP7Z4S7ihTw4u2
+	W+eTqN+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWlOg-0000000B9Tq-2LFx;
-	Sat, 20 Dec 2025 01:04:38 +0000
-Received: from mail-yx1-xb12c.google.com ([2607:f8b0:4864:20::b12c])
+	id 1vWldK-0000000BADY-4ACJ;
+	Sat, 20 Dec 2025 01:19:46 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWlOc-0000000B9T3-4BuS
+	id 1vWldH-0000000BACo-19Jc
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 20 Dec 2025 01:04:36 +0000
-Received: by mail-yx1-xb12c.google.com with SMTP id 956f58d0204a3-64472121ad5so1653515d50.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Dec 2025 17:04:34 -0800 (PST)
+	Sat, 20 Dec 2025 01:19:46 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-477a219dbcaso20478285e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 19 Dec 2025 17:19:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1766192673; x=1766797473; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=uvfEcA4ngmwX8Z/ReyrjfSyYYOfbBzOa2QWavuhPe1g=;
-        b=WnysS1FN0KRNayr7jH7iqY/URVydj/pNCXY3vYnErlEBNK7byhjI4QxHsh6Vkb53Mj
-         x0njkr0cM4CrogeikJLrj7COd6xDydHxU1k6X4BRaX3s12Xw++Fon10O4yMfDqmSzSyV
-         8OPd09eYkqb6b0bIPXijjnDZmmkOX+RdbwJ4gfvN05GgXOQ08modGzaqbirrFuYKdEXo
-         DwA6RahIAQDoWz2SXH/eerrKOlblwlPcYDl0LK8BqikIEdA1caQyNIJSVTBpYeB0YTY8
-         8is+nrXgpFupkjULh9EX9x4L/k4oF1wfssOFKVOkA6C857Olt+SOiYCFgE1cE52rDbhm
-         yDEw==
+        d=gmail.com; s=20230601; t=1766193581; x=1766798381; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=zK22OFLvaJjEwSRzCjqir8eHtku5CMTMzFAHnPXvPsE=;
+        b=QDmfTBYZgc9OolnAboAk1jnyudho1MfpdEFCDAOe9bmlyMkBaoL4Qd+GynHNSa3TrK
+         KB4qdUJ4rMSK9BXa+kfvZQPC6T5VzNMzt9EsWGk1zVcNfv9aUoPzoxQGgaYRKdWNDUFO
+         JMhsblTXZ0rRqi/1rrOCoZomoEcwX2BjA4wc4I7GKATc8xKLxlOzeA1ygHXZlvDi0CBk
+         9MCNXWzYTyQZfTKkH77q7UPzH7POzez57DxIBE6z5a1yvR5Wrzs7zcYpTTozE80spmvE
+         QTgFvyRfR4mtGb3XbDs+f3r0LBy5gDwXVSoBcmv/3UW4ld1R+56NF7ciQVQvaW+jo+Ye
+         lrjw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766192673; x=1766797473;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=uvfEcA4ngmwX8Z/ReyrjfSyYYOfbBzOa2QWavuhPe1g=;
-        b=UhFgdemRLlsfaHSyoQSiUEYl9YdWyIeqlTyA7dsUnObTxkWTXGVriwBTVABFQfniDJ
-         7GtWwHoT2mLJpiSKCNOfSJUG2BqhjMU4lbCaPu3bo79OaUolrOdooTiRL75a/wAbtMhP
-         isAEdYqwasslaU/s+AY03dRoCrNJZkDqQzfbli+NvYY6icLrkI5N47pRbDigWtZKvqcu
-         Vg5HkFmE7uL+2yGla3G0OjZBeyL/2g1YLUTDQg/kwQtRLJRFHBTvzNOeD4pn9ZCHZlg9
-         G8eDggJUBNO0GMmozqF3k+SsTjUr79FKx4lRSzx3AxDJ7YqblP6qGjq3uD75rrsOGGhR
-         36GQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXdWerHpd/Kgubk+3QmaiHbZ/M2DSTUlQuelpshHyb6B8CzSpzE6qcmiURlCuQQoA4eVUTTWBHdpA+ANebhC+kr@lists.infradead.org
-X-Gm-Message-State: AOJu0YygvVb9TyY7Dn2CrWhbk9bRM7Dv8VdiJpSW5f4wshd+QZgwlNOd
-	LYTaSqQk8CjfJ4IG7YX0ApLL90hNg6gRgno9m9QXLPGQsyxTSGXGyvJkO5Ss309CzRHk+H/AIKV
-	dCbTw7CxUlBq+Iu+zcimmXWi2xkJNQFA=
-X-Gm-Gg: AY/fxX6qRL5xzZtlZCoMJiQOecqci0XdUdmnh/PCO4petGLArZXghk4+D12+m30PtHX
-	C1H8Aqf5ebCXqwBEr8+GRWX6MqYt1kBF7WnHL7fnYHbboyKzW7PvuZgPoXcamoERoDK0w1WjfTy
-	zWBiqJO9nRYs35iJL1s/xCbg+2IsS7SB0xSV1C18ZOYtzmEJPuQacV00xrswKW+9VIByyYKhifl
-	BUJ9SN28bxGyyZ1EFepfbXaUG9oZ/2bIuaTUyNXuV5Wh7ThrP4QVxIi4l+DmHEcgmME6x54Dxq+
-	HmO9PUNlBmRvR9mj80PYGiunfKra
-X-Google-Smtp-Source: AGHT+IEnRAac6u07uzA3LUk5jCrz4OGRvCsnGojqOSsZK7RLqvjo5JYP+wh5edVRUn03IOrbdzCAkAqdhNZxSYFsGbc=
-X-Received: by 2002:a05:690e:3c9:b0:645:5467:29f3 with SMTP id
- 956f58d0204a3-6466a859780mr2828699d50.39.1766192673550; Fri, 19 Dec 2025
- 17:04:33 -0800 (PST)
+        d=1e100.net; s=20230601; t=1766193581; x=1766798381;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=zK22OFLvaJjEwSRzCjqir8eHtku5CMTMzFAHnPXvPsE=;
+        b=Df+XxBrQuyKE/jmtsWYAxjXbKCD3oJ8ClIuKh96FK5vaUK4tkjsUJ+vzraLaokUbuP
+         TaVVNd2eQX+jqnXnY3h5ftfsMMny6rzqkGYPUJa57LgvJxyLzT5Gy+oqPN9GgpkWYrwX
+         fAlGPSdQ8gSP4vyDsffN6VXRjQwDi8uj71qiPXXmjzXCtDNYejCRlqeW16rKoBtCAtYB
+         Qcl+Efhdlpgd9qEC178v4B4gXJPuoZr4tkG5Ewyp7A4af3jXHRvlMqaB4yWPxC4lQGQE
+         QhsQn6S3wNj+xWpgjIrvHC+QEoDIsbyDzzMa1u9GQZN1exQeah3foTl8Fe331EHtA6K/
+         qPEg==
+X-Forwarded-Encrypted: i=1; AJvYcCUbpTSU7YG5WNFyvj+eZqzKcZT3lP7sxt1+O3AJOW3FogIOO71DnlvSryV5jNmKO3PyIR/DaQoBaxdI8T8K2ePl@lists.infradead.org
+X-Gm-Message-State: AOJu0YwhgLSwnEcHu5VydRqh1p6kFF9UYec0u1GaD4oBCCghWkD5YNA+
+	XkMjzXKgHcJQYsjjVWVDsTTkPxRheEhdFvo0fMXew+tFMJJhl2WMQ5++
+X-Gm-Gg: AY/fxX44l8Wwwe7AUDtPuVI9btusL+ID2wcfybS63Kf5WquoZ16ookJp5t1MyXUyZ7q
+	dneHrbpSj41ANTvgFt5+CBsrPqxH2Z5Kn9gHORUY34FE3t+ieKNPd0tQehsh1npQ++WcRPAm8uy
+	7kky0Q378ThaGcbYDM5CcHGyfa4M/Z9xvaXz5I5Mtw7TZiLIcN19EG8MmBlnxwP4qtl3VzbeDXB
+	fkHtZdBK3zNB/G5RA8mMJ6ySly1jEnoHpNNjm/iF1s1hLlZ5dHxU8iSeEoGlMogTiURUcyesIy8
+	pSPlWRRCRy75smLbe60ayGhhfwQCUpPrqsEWJuntaLX5iUqnck8n/kdEjq4yj5Ls0XAp0DXgPe+
+	11pgqcSbTGWlLTG/F555tRx4ldlfeLfFxdgu2DfGp2e7PYfuk4ZejHmFbZEyIKFW1b1A4V8vzwb
+	YIMiHVTnRJQGj6vesbJk4UgXwrHxTDopinbI0=
+X-Google-Smtp-Source: AGHT+IF0wGcWgILC9H3tfPesbVD2VmsjrslWPh0/J9HlYlPO8n11RyhVH5Pxz5vhOfwwh8J55YseTQ==
+X-Received: by 2002:a05:600c:4f09:b0:477:7bca:8b2b with SMTP id 5b1f17b1804b1-47d195672d1mr43896195e9.15.1766193580895;
+        Fri, 19 Dec 2025 17:19:40 -0800 (PST)
+Received: from ?IPV6:2001:871:22a:3342::171c? ([2001:871:22a:3342::171c])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47be2723d19sm135576055e9.2.2025.12.19.17.19.39
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 19 Dec 2025 17:19:40 -0800 (PST)
+Message-ID: <0169d4f7-1a31-4ec6-a456-a6dfe2d99886@gmail.com>
+Date: Sat, 20 Dec 2025 02:19:38 +0100
 MIME-Version: 1.0
-References: <20251217-mt8196-shader-present-v1-0-f6f8f3aa1e93@collabora.com> <20251217-mt8196-shader-present-v1-4-f6f8f3aa1e93@collabora.com>
-In-Reply-To: <20251217-mt8196-shader-present-v1-4-f6f8f3aa1e93@collabora.com>
-From: Chia-I Wu <olvaffe@gmail.com>
-Date: Fri, 19 Dec 2025 17:04:22 -0800
-X-Gm-Features: AQt7F2pOYJ6wtBd4hNgFJlclGwmWabkkUpx6tjcAEWdTtCs7JRe062F7FH3q2go
-Message-ID: <CAPaKu7TVeaEFRWBt7rF_uVUyYO72GHqFwKi7D52juPTRAk7URw@mail.gmail.com>
-Subject: Re: [PATCH 4/4] pmdomain: mediatek: mtk-mfg: Expose shader_present as
- nvmem cell
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Boris Brezillon <boris.brezillon@collabora.com>, Steven Price <steven.price@arm.com>, 
-	Liviu Dudau <liviu.dudau@arm.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Ulf Hansson <ulf.hansson@linaro.org>, Chen-Yu Tsai <wenst@chromium.org>, kernel@collabora.com, 
-	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: ARMv7 Linux + Rust doesn't boot when compiling with only LLVM=1
+To: Nathan Chancellor <nathan@kernel.org>,
+ Rudraksha Gupta <guptarud@gmail.com>
+Cc: stable@vger.kernel.org, regressions@lists.linux.dev,
+ rust-for-linux@vger.kernel.org, Miguel Ojeda <ojeda@kernel.org>,
+ llvm@lists.linux.dev, Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,
+ Alex Gaynor <alex.gaynor@gmail.com>, Boqun Feng <boqun.feng@gmail.com>,
+ Gary Guo <gary@garyguo.net>, Andreas Hindborg <a.hindborg@kernel.org>,
+ Alice Ryhl <aliceryhl@google.com>, Danilo Krummrich <dakr@kernel.org>,
+ Trevor Gross <tmgross@umich.edu>, Benno Lossin <lossin@kernel.org>
+References: <1286af8e-f908-45db-af7c-d9c5d592abfd@gmail.com>
+ <0705db10-3cbb-4958-a116-112457f9af6c@gmail.com>
+ <1910f4b6-db74-4c86-9010-28ab4462c5a7@gmail.com>
+ <20251219211147.GA1407372@ax162>
+Content-Language: en-US, de-DE
+From: Christian Schrefl <chrisi.schrefl@gmail.com>
+In-Reply-To: <20251219211147.GA1407372@ax162>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251219_170435_145329_E5D4BCA5 
-X-CRM114-Status: GOOD (  23.10  )
+X-CRM114-CacheID: sfid-20251219_171943_368656_AEC2FBDE 
+X-CRM114-Status: GOOD (  37.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,113 +112,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 17, 2025 at 9:04=E2=80=AFAM Nicolas Frattaroli
-<nicolas.frattaroli@collabora.com> wrote:
+On 12/19/25 10:11 PM, Nathan Chancellor wrote:
+> Hi Rudraksha,
+> 
+> On Wed, Dec 17, 2025 at 02:21:11AM -0800, Rudraksha Gupta wrote:
+>> On 12/16/25 06:41, Christian Schrefl wrote:
+>>> On 12/14/25 12:54 AM, Rudraksha Gupta wrote:
+>>>> Hello all,
+>>>>
+>>>>
+>>>> I have the following problem: https://gitlab.postmarketos.org/postmarketOS/pmbootstrap/-/issues/2635
+>>>>
+>>>>
+>>>> In short, what is happening is the following:
+>>>>
+>>>>
+>>>> - The kernel boots and outputs via UART when I build the kernel with the following:
+>>>>
+>>>> make LLVM=1 ARCH="$arm" CC="${CC:-gcc}"
+>>>>
+>>>>
+>>>> - The kernel doesn't boot and there is no output via UART when I build the kernel with the following:
+>>>>
+>>>> make LLVM=1 ARCH="$arm"
+>>>>
+>>>>
+>>>> The only difference being: CC="${CC:-gcc}". Is this expected? I think this was present in the Linux kernel ever since Rust was enabled for ARMv7, and I never encountered it because postmarketOS was originally building the first way.
+>>>
+>>> I've managed to the get the build setup for qemu-armv7. For some reason
+>>> I could not get past the initrd even on kernels that are supposed to work,
+>>> but I think that is unrelated (and not a kernel issue).
+>>
+>> Yep, I just got qemu-arm working to drop into a debug shell for now. I have
+>> to look into why other things aren't behaving nicely (but that's a problem
+>> for later me :P). For now, it seems to demonstrate the problem nicely:
+>>
+>> https://gitlab.postmarketos.org/postmarketOS/pmbootstrap/-/issues/2635#note_521740
+>>
+>>
+>>> On the linux-next kernel I didn't get any output on the console from qemu so I
+>>> think I've reproduced the issue. Changing CONFIG_RUST=n did not change the behavior.
+>>>
+>>> So I this is almost certainly a LLVM/clang issue and not a Rust issue. I'll try to
+>>> do a bit more digging, but I'm not sure how much I'll get done.
+>>
+>> Did a little more testing in addition to the testing in the gitlab issue
+>> mentioned above:
+>>
+>> - Removed Rust configs from linux-next/pmos.config -> didn't boot on
+>> qemu-arm and my phone
+>>
+>> - Then I removed Rust dependencies from linux-next/APKBUILD -> didn't boot
+>> on qemu-arm and my phone
+>>
+>> - used linux-stable instead of linux-next -> booted on qemu-arm to a debug
+>> shell
+>>
+>> linux-stable is built via gcc:
+>> https://gitlab.alpinelinux.org/alpine/aports/-/blob/master/community/linux-stable/APKBUILD#L179
+>>
+>> linux-next is built via clang:
+>> https://gitlab.postmarketos.org/postmarketOS/pmaports/-/blob/master/device/testing/linux-next/APKBUILD#L68
+> 
+> It certainly seems like LLVM / clang is a factor here based on the fact
+> that LLVM binutils were being used with GCC based on the original report
+> using 'LLVM=1 CC=gcc'. A few additional ideas for narrowing this down:
+> 
+>   * Does this reproduce with GNU binutils + clang (i.e.,
+>     CROSS_COMPILE=... CC=clang)? This would further confirm that clang
+>     is the cuplrit since GNU binutils and GCC are confirmed working with
+>     linux-stable, correct?
+> 
+>   * Does this reproduce when linux-stable is built with clang / LLVM=1?
+>     This would rule out a -next specific regression as well as allow
+>     diffing the linux-stable GCC configuration with the clang
+>     configuration to see if there are any configurations that get
+>     enabled only with clang, which could be another reason no issue is
+>     seen with GCC.
+> 
+>   * Our continuous integration boot tests several ARM configurations in
+>     QEMU, including Alpine Linux's:
+> 
+>     https://github.com/ClangBuiltLinux/continuous-integration2/actions/runs/20379046102/job/58575229973
+> 
+>     So it is possible that a postmarketOS configuration option
+>     introduces this?
+> 
+> The results of that testing might give us a more obvious direction to go
+> for troubleshooting, especially since this appears to reproduce in QEMU,
+> which should make debugging in gdb possible.
+
+I've found the issue (at least on qemu), it was just that the driver for
+the PL011 serial was not included in the config.
+
+I don't know why Rudraksha would have observed any difference disabling
+Rust or clang though.
+Maybe it's an entirely different issue on Hardware?
+
+> 
+> Also, what version of clang is this?
 >
-> Implement nvmem-provider functionality in mtk-mfg-pmdomain, such that it
-> can expose its GF_REG_SHADER_PRESENT value in the shared memory as an
-> nvmem cell for panthor.
->
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> ---
->  drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c | 57 ++++++++++++++++++++++=
-++++++
->  1 file changed, 57 insertions(+)
->
-> diff --git a/drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c b/drivers/pmdom=
-ain/mediatek/mtk-mfg-pmdomain.c
-> index 9bad577b3ae4..725ebc678f1b 100644
-> --- a/drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c
-> +++ b/drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c
-> @@ -10,6 +10,7 @@
->  #include <linux/clk-provider.h>
->  #include <linux/container_of.h>
->  #include <linux/iopoll.h>
-> +#include <linux/nvmem-provider.h>
->  #include <linux/mailbox_client.h>
->  #include <linux/module.h>
->  #include <linux/of.h>
-> @@ -872,6 +873,58 @@ static int mtk_mfg_init_clk_provider(struct mtk_mfg =
-*mfg)
->         return 0;
->  }
->
-> +static int mtk_mfg_read_nvmem(void *priv, unsigned int offset, void *val=
-, size_t bytes)
-> +{
-> +       struct mtk_mfg *mfg =3D priv;
-> +       u32 *buf =3D val;
-> +
-> +       if (bytes !=3D 4)
-> +               return -EINVAL;
-> +
-> +       if (!mfg->shared_mem)
-> +               return -ENODEV;
-> +
-> +       if (offset + bytes >=3D mfg->shared_mem_size)
-> +               return -EINVAL;
-> +
-> +       *buf =3D readl(mfg->shared_mem + offset);
-> +
-> +       return 0;
-> +}
-> +
-> +static int mtk_mfg_init_nvmem_provider(struct mtk_mfg *mfg)
-> +{
-> +       struct device *dev =3D &mfg->pdev->dev;
-> +       struct nvmem_cell_info cell =3D {};
-> +       struct nvmem_config config =3D {};
-> +       struct nvmem_device *nvdev;
-> +       int ret;
-> +
-> +       config.reg_read =3D mtk_mfg_read_nvmem;
-> +       config.dev =3D dev;
-> +       config.read_only =3D true;
-> +       config.priv =3D mfg;
-> +       config.size =3D 4;
-> +       config.word_size =3D 4;
-> +
-> +       nvdev =3D devm_nvmem_register(dev, &config);
-> +       of_node_put(config.of_node);
-This looks like a dead line.
-> +       if (IS_ERR(nvdev))
-> +               return dev_err_probe(dev, PTR_ERR(nvdev), "Couldn't regis=
-ter nvmem provider\n");
-> +
-> +       cell.name =3D "shader-present";
-> +       cell.offset =3D GF_REG_SHADER_PRESENT;
-> +       cell.bytes =3D 4;
-> +       cell.np =3D of_get_child_by_name(dev->of_node, cell.name);
-> +
-> +       ret =3D nvmem_add_one_cell(nvdev, &cell);
-> +       /* cell.np purposefully not put as nvmem_add_one_cell does not in=
-crease refcount */
-I think you still need to of_node_put on errors.
-> +       if (ret)
-> +               return dev_err_probe(dev, ret, "Couldn't add cell %s\n", =
-cell.name);
-> +
-> +       return 0;
-> +}
-> +
->  static int mtk_mfg_probe(struct platform_device *pdev)
->  {
->         struct mtk_mfg *mfg;
-> @@ -984,6 +1037,10 @@ static int mtk_mfg_probe(struct platform_device *pd=
-ev)
->         if (ret)
->                 goto err_power_off;
->
-> +       ret =3D mtk_mfg_init_nvmem_provider(mfg);
-> +       if (ret)
-> +               goto err_power_off;
-> +
->         ret =3D of_genpd_add_provider_simple(dev->of_node, &mfg->pd);
->         if (ret) {
->                 dev_err_probe(dev, ret, "Failed to add pmdomain provider\=
-n");
->
-> --
-> 2.52.0
->
+
+Alpine clang version 21.1.8
+
+Cheers,
+Christian
+
 
