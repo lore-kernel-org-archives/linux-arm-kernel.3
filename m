@@ -4,107 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F261E668B1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Dec 2025 16:46:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F8F8E668B4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Dec 2025 17:15:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c7EP/tpx9GWxii+AYAC7WJOYO3DbJ6aXW68IWJvk5iw=; b=de3wrpKmjsUsN/Tb9hCJi2Ppi8
-	G4y8bYPqrye8Hha1Yg2S9gUxil3q0e4+CCLBfjKS/pja/qYvIW5To0raWkSaCz/PWhsToSoGLxUaT
-	34fuJkZl2QcsRbpUSQGT3M+GKon5S2pnaZgy8idgKE5sqHfQ+9+K7jIG60yQOEeuAWpRG294Sqeg4
-	GrldMBtvG1fLg4So2vEkta0ek4O6KFYZB1mUVBiMUCug5ZY1S5Ixu4CsldAgIXEzoTwnU00Iv526x
-	F5RhgLkgf1l+QxQaxHDaaB2dAwNgmbbrwNvlVsXMZO6F/x1PlxnerKbvH8riNlOAKw9xxKwBFLd1E
-	sR3Bg+3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lzSJWm5izWCrO11sMgHpPdDIC3n2gLW0RftWAKtpbzc=; b=dAQsgyAGuL2SoPnw/mm76DVX/J
+	aag5kuh3jJ1AXxAFTzi8GqpiibbVf3yFRI/r9oj3n2JVwwicDANk+1Hb5p7swZi/V6Q/ZKeNfDL6s
+	vJZ3DPwx2Gk5QTokpu4EkaWRnOAyFSyF11rDOBSpCbgK9/qWLG8gmuJ8zRbG0+RxMtcwwJpb2jHl5
+	n37v4+odiDtq51e6llhGN4gjZSTydOfcoA9Dnaqq+g7gP7TMmnmewd3UcVEtedUi0haLeVYZjtk9x
+	y35G6IFdjfdzXLlF6+TGGja+BxI/tl2mV/QU7Q4kWdW8vuraHO7DPAZMGrSOa3mHFzXcE+7reLvV7
+	q2h1VM7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vX06G-0000000Bl6s-1JGD;
-	Sat, 20 Dec 2025 16:46:36 +0000
-Received: from mail-pg1-x532.google.com ([2607:f8b0:4864:20::532])
+	id 1vX0YN-0000000Bm8Y-0aXr;
+	Sat, 20 Dec 2025 17:15:39 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vX06D-0000000Bl6B-03wq
+	id 1vX0YI-0000000Bm8C-3FoM
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 20 Dec 2025 16:46:34 +0000
-Received: by mail-pg1-x532.google.com with SMTP id 41be03b00d2f7-c03ea3b9603so150841a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 20 Dec 2025 08:46:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1766249190; x=1766853990; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=c7EP/tpx9GWxii+AYAC7WJOYO3DbJ6aXW68IWJvk5iw=;
-        b=boRNm4DeHiOkRSUASk3dJqek6+qzmWie768/gr9+FzEwQPo2SZwmq0+xitskup+u+M
-         xeEqNXJsQyNZjber3T68eMmqzzjgugsaQdJBNwwcKOxhuOLYRjeME6R4vNzYEhLpew6q
-         9EbCgJ65zpCrw+b/ti9VnOo1NE3k15DRZZE0TXTlgFRZrl2WsDTDSv/XVipfw6+crNrX
-         VCTbPWoEd4yIuXZmdvmjZCawEYbuNyMY7LttejNPy+DFBzYCNX9VFTTe+wAdLyIZzYRe
-         D0m3hiyjhxoj39s3dlhXdhx7url6Eo5zzICcccWWWEW9XJ4z/LxsfIobLR1DgIPegHRQ
-         Uraw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766249190; x=1766853990;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=c7EP/tpx9GWxii+AYAC7WJOYO3DbJ6aXW68IWJvk5iw=;
-        b=Ki4tp2jXpMeLFZT1lEv9tLpQoxwXxMwPwNx/fQXCbFe1d9L/S6Ud/sfv03zAWZ13ij
-         7RkQ5a8IESbaW8ck50P4VmihsCkz2WQGIC817NTaC3bebC9uWwaU9ODBptrS33kka/Gd
-         KX5U4TJSKsp2qRKheSwHCoEOnexG1jYQqIGGV3V7eAqKCHdl8ZtSJhaMsOx1MffJOU+0
-         c4gLKlKH7iLEDGl1rXj1wK3SuErPeBufcmd22hQfLnwXFISEteKOzAyHT7CkRxZ4sJVA
-         8iESLjmVH5ABiGaLKZSj01oiFw2ebNlu8BmPKv3bW3Kzw77dautKLSwVF7Kw0cR+YdYe
-         3Xaw==
-X-Forwarded-Encrypted: i=1; AJvYcCWazBWOWljVEn60vMV3Gq6U7jtl/xlP4FVSU6uevuqNmR4nwm9PK1bMi9PDXqkch5RJrbfcB2L6IbagzFo31rUb@lists.infradead.org
-X-Gm-Message-State: AOJu0YyNJ3HmfXT/1TXyMKQqwexQVGejATgdRyy79yEEuajFoMxPoSkJ
-	ooVLCvMRfJbczGZCNwY+OhboBKTAg/XXXH65z8MsgE6RFLj4dnjHoOou
-X-Gm-Gg: AY/fxX5lRpeO9iEj50UFT2XDPt25D/+bOJwDGdNavxX21cQgMzJWjQGnL+KJ6CLJCCC
-	koQXbU5h8nqN+QBP7e5UvF3TrcYTQInrT4sPkqE7OPPpmIvQLdF2JQxNDwxWyOekIr18MDi3M4R
-	n7vKIu2BDpk/tnl1/INAvqSfe2Z8XT+XY+GyfJeuyE3qzgTRIjcm4wXnPImdI5Q/6uCrksVIcZO
-	smpwLCRZIkUOTQyEdH6ThX04iQaQ+p1rwNyoxhUglWXKugAX7ecpBBlutFGovPCWEmrbSiMUwq0
-	6Q9S0Bqff8B9iOnQGMj7QzstAj5PL17D78nLSLc10vbjdiWKaz6EivrDI4hpJQ4+eH78yFnM3vL
-	F/7NEVlCgJwqi/nXxHIehImvCY5oiyfNa5I7szvivBa/QKs3CYnaWk3/N7RDFJgemhR2yGjT3Fb
-	fFtYN4gZqAJbQ=
-X-Google-Smtp-Source: AGHT+IGdbB/Ckh95eIe2oO+uZBQ1VnyCdlca/UmZcXPpvQIRCA3Pnsjbf93FSIDDgBGYnoV1NiUdeg==
-X-Received: by 2002:a05:6a00:a89:b0:776:19f6:5d3d with SMTP id d2e1a72fcca58-7ff6430c36bmr4406942b3a.2.1766249189699;
-        Sat, 20 Dec 2025 08:46:29 -0800 (PST)
-Received: from rock-5b.. ([45.32.55.39])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7ff7dfab841sm5623899b3a.35.2025.12.20.08.46.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 20 Dec 2025 08:46:29 -0800 (PST)
-From: Jianfeng Liu <liujianfeng1994@gmail.com>
-To: detlev.casanova@collabora.com
-Cc: corbet@lwn.net,
-	daniel.almeida@collabora.com,
-	didi.debian@cknow.org,
-	ezequiel@vanguardiasur.com.ar,
-	hansg@kernel.org,
-	heiko@sntech.de,
-	hverkuil@kernel.org,
-	james.cowgill@blaize.com,
-	jonas@kwiboo.se,
-	kernel@collabora.com,
-	laurent.pinchart@ideasonboard.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	mchehab@kernel.org,
-	nicolas.dufresne@collabora.com,
-	opensource206@gmail.com,
-	ribalda@chromium.org,
-	sakari.ailus@linux.intel.com,
-	yunkec@google.com
-Subject: Re: [PATCH v7 14/17] media: rkvdec: Add H264 support for the VDPU381 variant
-Date: Sun, 21 Dec 2025 00:46:04 +0800
-Message-ID: <20251220164604.10052-1-liujianfeng1994@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251218232829.337811-15-detlev.casanova@collabora.com>
-References: <20251218232829.337811-15-detlev.casanova@collabora.com>
+	Sat, 20 Dec 2025 17:15:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1766250934; x=1797786934;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Hcqx9K9e2DdZM+fc4kG1hUDJm+AVPCZc+SF3IRp/b7A=;
+  b=Ar1IZ9oosIkjf9zXWs530UDURTyZ8JdB3/nqNJmhI3rYo1ResbZcMrRf
+   2a7KgQRwvGKOIjxq0DGP3h4Cjfxv9Dfrbq7VNCJS/4d0I7JcrXtemf990
+   HZalWeY+dCXorxtXGldr88FE5/BtETog2FJGNbRicKId0bD+QLqxX9jpC
+   D0y0US3YUibSpeW9W4FMwiNpCRAz/HEpcmC0KtiCKrzZhZEo/6oURBIC1
+   s4Ht/A/Jcbylu3KbBm0eMZ4eAzMKTYS7Rb61cHxecsOeAocY18/6ZON66
+   Sf1siF9fiDXJj1PuThGnZMMsQQmLl8HIj6tnGvBA1mj9afvsnhM+YNkpo
+   g==;
+X-CSE-ConnectionGUID: Nf4DTv4kQYudY5c9NuV0uA==
+X-CSE-MsgGUID: PS3YV6dXQtCQ131TRGI8IA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11648"; a="67931012"
+X-IronPort-AV: E=Sophos;i="6.21,164,1763452800"; 
+   d="scan'208";a="67931012"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Dec 2025 09:15:34 -0800
+X-CSE-ConnectionGUID: xj9DdeaKSq6vz1gN+HADYg==
+X-CSE-MsgGUID: upGwtnYiSQCeULUBwleOSQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,164,1763452800"; 
+   d="scan'208";a="199046442"
+Received: from lkp-server01.sh.intel.com (HELO 0d09efa1b85f) ([10.239.97.150])
+  by fmviesa006.fm.intel.com with ESMTP; 20 Dec 2025 09:15:30 -0800
+Received: from kbuild by 0d09efa1b85f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vX0YB-000000004vl-3lXj;
+	Sat, 20 Dec 2025 17:15:27 +0000
+Date: Sun, 21 Dec 2025 01:15:12 +0800
+From: kernel test robot <lkp@intel.com>
+To: Alain Volmat <alain.volmat@foss.st.com>,
+	Hugues Fruchet <hugues.fruchet@foss.st.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>
+Cc: oe-kbuild-all@lists.linux.dev, linux-media@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	linaro-mm-sig@lists.linaro.org,
+	Alain Volmat <alain.volmat@foss.st.com>
+Subject: Re: [PATCH 01/12] media: stm32: dcmi: Switch from __maybe_unused to
+ pm_sleep_ptr()
+Message-ID: <202512210044.xNNW6QJZ-lkp@intel.com>
+References: <20251218-stm32-dcmi-dma-chaining-v1-1-39948ca6cbf6@foss.st.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251218-stm32-dcmi-dma-chaining-v1-1-39948ca6cbf6@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251220_084633_074978_F07FE788 
-X-CRM114-Status: UNSURE (   8.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251220_091534_909113_64FFAFD1 
+X-CRM114-Status: GOOD (  11.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,41 +101,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Alain,
 
-On Thu, 18 Dec 2025 18:28:24 -0500, Detlev Casanova wrote:
->+static int rkvdec_h264_start(struct rkvdec_ctx *ctx)
->+{
->+	struct rkvdec_dev *rkvdec = ctx->dev;
->+	struct rkvdec_h264_priv_tbl *priv_tbl;
->+	struct rkvdec_h264_ctx *h264_ctx;
->+	struct v4l2_ctrl *ctrl;
->+	int ret;
->+
->+	ctrl = v4l2_ctrl_find(&ctx->ctrl_hdl,
->+			      V4L2_CID_STATELESS_H264_SPS);
->+	if (!ctrl)
->+		return -EINVAL;
->+
->+	h264_ctx = kzalloc(sizeof(*h264_ctx), GFP_KERNEL);
->+	if (!h264_ctx)
->+		return -ENOMEM;
+kernel test robot noticed the following build warnings:
 
-I can see the sps validation is removed:
+[auto build test WARNING on atorgue-stm32/stm32-next]
+[also build test WARNING on robh/for-next linus/master v6.19-rc1 next-20251219]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-	ret = rkvdec_h264_validate_sps(ctx, ctrl->p_new.p_h264_sps);
-	if (ret)
-		return ret;
+url:    https://github.com/intel-lab-lkp/linux/commits/Alain-Volmat/media-stm32-dcmi-Switch-from-__maybe_unused-to-pm_sleep_ptr/20251219-024836
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/atorgue/stm32.git stm32-next
+patch link:    https://lore.kernel.org/r/20251218-stm32-dcmi-dma-chaining-v1-1-39948ca6cbf6%40foss.st.com
+patch subject: [PATCH 01/12] media: stm32: dcmi: Switch from __maybe_unused to pm_sleep_ptr()
+config: arc-allyesconfig (https://download.01.org/0day-ci/archive/20251221/202512210044.xNNW6QJZ-lkp@intel.com/config)
+compiler: arc-linux-gcc (GCC) 15.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251221/202512210044.xNNW6QJZ-lkp@intel.com/reproduce)
 
-This should fix decoding issue with chromium when minimum size of h264
-decoder is lower than 32. While I find this issue is caused by chromium
-not following v4l2 stateless spec, and I think checking sps at start
-should be still necessary.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202512210044.xNNW6QJZ-lkp@intel.com/
 
-I have sent a fix to chromium[1] and it should get merged later.
+All warnings (new ones prefixed by >>):
 
-[1] https://chromium-review.googlesource.com/c/chromium/src/+/7274555
+>> drivers/media/platform/st/stm32/stm32-dcmi.c:2127:12: warning: 'dcmi_resume' defined but not used [-Wunused-function]
+    2127 | static int dcmi_resume(struct device *dev)
+         |            ^~~~~~~~~~~
+>> drivers/media/platform/st/stm32/stm32-dcmi.c:2116:12: warning: 'dcmi_suspend' defined but not used [-Wunused-function]
+    2116 | static int dcmi_suspend(struct device *dev)
+         |            ^~~~~~~~~~~~
 
-Best regards,
-Jianfeng
+
+vim +/dcmi_resume +2127 drivers/media/platform/st/stm32/stm32-dcmi.c
+
+  2115	
+> 2116	static int dcmi_suspend(struct device *dev)
+  2117	{
+  2118		/* disable clock */
+  2119		pm_runtime_force_suspend(dev);
+  2120	
+  2121		/* change pinctrl state */
+  2122		pinctrl_pm_select_sleep_state(dev);
+  2123	
+  2124		return 0;
+  2125	}
+  2126	
+> 2127	static int dcmi_resume(struct device *dev)
+  2128	{
+  2129		/* restore pinctl default state */
+  2130		pinctrl_pm_select_default_state(dev);
+  2131	
+  2132		/* clock enable */
+  2133		pm_runtime_force_resume(dev);
+  2134	
+  2135		return 0;
+  2136	}
+  2137	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
