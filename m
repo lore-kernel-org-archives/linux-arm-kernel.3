@@ -4,79 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07C50E668B8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Dec 2025 15:23:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF62EE668B1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Dec 2025 15:59:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IXQZTNLiitXDuoFJ13jkuYbn1DUqWCHTuOmDDvtLCU0=; b=un0QxA2pEybUHw7qdHTve3bmcA
-	SDC3k0p6E3vsA0xYLb3X/iH2Wp5VLyY9GsguM84R/gZ3Bb7yFHzuuwm3nMPUwIZzbGagJybyYv/O5
-	496HORSjxsXXKVf9RyC4RwrR17M4tDlO0LH4Lp9q0GDUymIWiuvCbK8CRgiDEd76Xlm6+tiYqDtIg
-	B/QE1b6NZSLs6Gpzy66yLZAhfrmxjjCuKiJ8F2AncusAGbEr+QvHHiGgmc/k8uZ3+Khh0gxPLeITW
-	X7RYish3vGUaiTAaBwJIcyd6nh50U9m7WaKNimqoLdK0cSUSEOrSkdxjAuTqxUbgl5wBjBxpQG2Yu
-	TNW7E0Vw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mWSzc/mHPZj5DuRwUNdilm65qtiu1HZEvCeMuUq1YUQ=; b=b313gMJtZBxsvbHcAJT//nf02g
+	IQOQ8Zw47tz4yp8WxmL4502z74fIUkAbgDhXG5lzZSiquQogL+8ZWgC/T8HNUEOetdplInOC2u/nF
+	Bpr6odn1uzMJHlEUkFoQkRm5z2UCaFL8Ofd/WCK+DgQjT6g9TFMyyoBqo5NJaGF28b0fkkZ854762
+	ruSTfFFnlEFtL3ZBhEStjEd848GgHkhghuubYjLKCoqkOyVgBR8uGY6cFtQG7CtNoSWV1PBYfY7Ov
+	GBJIRI+GM9t5zPD6/1xvvFM7HHdY2QoaqTq6+gYar4HnjIepi8EE+bXiuF1/yATRkMohpvswo5agP
+	8AIo8U9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWynj-0000000Bgcg-2OJ5;
-	Sat, 20 Dec 2025 15:23:23 +0000
-Received: from mgamail.intel.com ([198.175.65.11])
+	id 1vWzMg-0000000Bi1W-3BXU;
+	Sat, 20 Dec 2025 15:59:30 +0000
+Received: from mail-eastusazon11011056.outbound.protection.outlook.com ([52.101.52.56] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWyng-0000000BgcC-1X32
+	id 1vWzMd-0000000Bi0K-3aWq
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 20 Dec 2025 15:23:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1766244200; x=1797780200;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=a7aA/V9EvvL+19B0Kkb8JqjoPHRuFbxxgE9bFYw1JrM=;
-  b=kHWavxlBL8/ochUdH7J9ypse6/RwtuiTUqCPSYN83qlSSa/nlUgJ9Yo8
-   9acG89d1sxdSHmfAwiQLcjjhFxTAirqHKEsxBuoRrIFrehJD+nu2KOPgF
-   uZt+fh7mdet0MtmQIIcPfjS80+QlbCv1EaU3hII1FWnJiuW0mxPkQvMDF
-   008wB6Af/N+PDi6WCA+F8UFKiAR7/iX2izgMNzIEvZZEaRCX/cXKdHD11
-   M/0owh4Gm8cm2DkPZyPtb/ICCZ5kWAuukpbc3IVog2Ua4FNsCLKAZLJdy
-   47O/fJ8UlTgNFCLIL9/F6rd/d3HcloEzV+MveG97qq7dDZYz/TQWUoVdC
-   w==;
-X-CSE-ConnectionGUID: yAlKAN+cRiSnecIG7Vmj0w==
-X-CSE-MsgGUID: 0NS0mZ46REakGdKtvL5zHw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11648"; a="78494901"
-X-IronPort-AV: E=Sophos;i="6.21,164,1763452800"; 
-   d="scan'208";a="78494901"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Dec 2025 07:23:19 -0800
-X-CSE-ConnectionGUID: YHhaTyrKTBel+oEgLWblGQ==
-X-CSE-MsgGUID: byjzN7fXRuW8Bpbc4O1sNg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,164,1763452800"; 
-   d="scan'208";a="203642738"
-Received: from lkp-server01.sh.intel.com (HELO 0d09efa1b85f) ([10.239.97.150])
-  by orviesa004.jf.intel.com with ESMTP; 20 Dec 2025 07:23:15 -0800
-Received: from kbuild by 0d09efa1b85f with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vWynZ-000000004jx-01ea;
-	Sat, 20 Dec 2025 15:23:13 +0000
-Date: Sat, 20 Dec 2025 23:22:25 +0800
-From: kernel test robot <lkp@intel.com>
-To: "j.turek" <jakub.turek@elsta.tech>, gregkh@linuxfoundation.org,
-	jirislaby@kernel.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	michal.simek@amd.com, namcao@linutronix.de, tglx@linutronix.de,
-	zack.rusin@broadcom.com, sean.anderson@linux.dev, hshah@axiado.com,
-	linux-serial@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, "j.turek" <jakub.turek@elsta.tech>
-Subject: Re: [PATCH] serial: xilinx_uartps: fix rs485 delay_rts_after_send
-Message-ID: <202512202351.ovK2vDUR-lkp@intel.com>
-References: <20251219114826.135017-1-jakub.turek@elsta.tech>
+	Sat, 20 Dec 2025 15:59:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=h7VIduN5KK7yLQDRPkGlGn63jPWQZ5Zm8TeFGGbpIRbLUvEtK9UkcD99mlPsv7Y9grs0TG9cWRkY9osJbd3yszCSKShPJsiKELdXGGcpt6Td31D309BbqMiMX/lHoeo5x1PZLjjgpveF8lJrRiLRbsCbaP5O0fcRSrBNL0mGJmTeP1gTESHH+TGuqQt56mcHrMeE1+ybbvmREZdTVCOQhC28HuCBQCpyLNFQ8Oj49Ex2tSNjmCP+16OUEv1Ja5YziKpJMLwXglLcw6LrSDXQ5JFL6Tm6hhLkpJEM+lB39Z1pYN2/OhWn/8uIfzbOMgE1SOgLwbuGk3EYsMIMh7SbmQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mWSzc/mHPZj5DuRwUNdilm65qtiu1HZEvCeMuUq1YUQ=;
+ b=oosu0ymfxtpYS9zl4H34u95OMPX76DXAXRoq5/KxXvVhYYdpE584UDH6b4PKt75Z9l5Qt7vlxh8gcwdl/vHKL4aWBjPqrDI3DCeGzv09goL3Oa2jAj8pFiuMF4leZn6tIvCmWpjOFz6IuMslk+xQEkrUNVT06sckK9/taXTlazEZtiaT2emT1XntxXaB+zVyfkpiE8fSw0sivm1PZOtGeRkLlp8Pd03+bCPs8DH0OfL9DZyNz1E2Kkl5WR3DL0u0Y7UzQKu/NyQcpBxLhBxSzGJQ9JWdhzLJdtnPqhXZxFi0GuNiXvckssRMkGDJ5Do/wAeVsOarmAPW7OIAiSAUKQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=gondor.apana.org.au smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mWSzc/mHPZj5DuRwUNdilm65qtiu1HZEvCeMuUq1YUQ=;
+ b=dvIWGiPzzZvlTWleCTlKocuh8soa+bsRB3c4YntikXCz7gbVSbsSsP2zO26etPF50avFjIjnVN14GiYJsAn8aouxbL/o6o8M/BHsSKd0bTqLZbaV/stLTnJLg7bILL2Pna+Pemg5mSlJXCfKZ4IHlBhadmVyd4my4EPjrdXTSfc=
+Received: from PH5P220CA0008.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:34a::6)
+ by CH2PR12MB4134.namprd12.prod.outlook.com (2603:10b6:610:a7::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.10; Sat, 20 Dec
+ 2025 15:59:19 +0000
+Received: from CY4PEPF0000EE32.namprd05.prod.outlook.com
+ (2603:10b6:510:34a:cafe::a7) by PH5P220CA0008.outlook.office365.com
+ (2603:10b6:510:34a::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.10 via Frontend Transport; Sat,
+ 20 Dec 2025 15:59:19 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ CY4PEPF0000EE32.mail.protection.outlook.com (10.167.242.38) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9434.6 via Frontend Transport; Sat, 20 Dec 2025 15:59:18 +0000
+Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Sat, 20 Dec
+ 2025 09:59:17 -0600
+Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb09.amd.com
+ (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Sat, 20 Dec
+ 2025 07:59:17 -0800
+Received: from xhdharshj40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Sat, 20 Dec 2025 07:59:14 -0800
+From: Harsh Jain <h.jain@amd.com>
+To: <herbert@gondor.apana.org.au>, <davem@davemloft.net>,
+	<linux-crypto@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<mounika.botcha@amd.com>, <sarat.chand.savitala@amd.com>,
+	<michal.simek@amd.com>, <linux-arm-kernel@lists.infradead.org>,
+	<jay.buddhabhatti@amd.com>
+CC: Harsh Jain <h.jain@amd.com>
+Subject: [PATCH v2 00/14] crypto: zynqmp-aes-gcm: Bug fixes and aes-gcm support for Versal
+Date: Sat, 20 Dec 2025 21:28:51 +0530
+Message-ID: <20251220155905.346790-1-h.jain@amd.com>
+X-Mailer: git-send-email 2.49.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251219114826.135017-1-jakub.turek@elsta.tech>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE32:EE_|CH2PR12MB4134:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1e11b62d-2376-4465-42dd-08de3fe0bb79
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700013|376014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?knTRxUvcOnrcbmqX9xcdr+myuRC1XeW0YqUZvEMgFzuYSC/X/E3RMWlwZ7+W?=
+ =?us-ascii?Q?3ob7ZcYUpdmNNYfeTrzTJhACiXJ0B42QoEY1CHPpnDggTD+hJJVXl7o+Cl+F?=
+ =?us-ascii?Q?cdxyhB7q3hsxKM5IPb8UiGkfvo2E/kkb7D7hM0j3o2yeIplmMUsZTXRRKPo6?=
+ =?us-ascii?Q?D5vVKnIM204Na0gSIcCyUkSc8FEU+Fe10K8HMWI8kDFftWzymtkIw82i/Xso?=
+ =?us-ascii?Q?o+fqiEnx9bxnpJX9LmIqAjZ2GcS0Et2KeBIXFPmFRsNvInwLPricPaguvzz/?=
+ =?us-ascii?Q?h3BlDIfOiLz4v2ce6c5yA4WR3kwKBw1nyst+2JFvUWzNzxeWQF0F6xzK9n+7?=
+ =?us-ascii?Q?V9pmNZfNEgKzzr6J6OpLSZKw2qttyoDhZXunlnKKgTSg7vB7/zt7RGrJ7s1B?=
+ =?us-ascii?Q?Di6EHkprr+uN0mANyWBH3lH7kM7xTOnr5GRv7gjCNQKLV+v24kY+bWLQccXU?=
+ =?us-ascii?Q?3I5ZvFOaBws/REK4xk0EQ+/WrsJhQybQ0tF5h8lGqwiad7IK/O2fX2SWGFbk?=
+ =?us-ascii?Q?KMuVxYHLwvfDWa0rhfFhOoJtE5/19/+tJuIAGC4C4oNZX3aspE1zUlY0+nGD?=
+ =?us-ascii?Q?OUyUtNy+93XvR7OqfOzCq9uOc17bLQA4ia7Iww27KaUQEltUnne5uGzgN3Hy?=
+ =?us-ascii?Q?edwiml24mouds7jyJqYgQlXsaEVPtjB/ZxpgoKS5U3XOqirN+1GbO8DnEtoo?=
+ =?us-ascii?Q?Ba/y2TAC5fOKtr+2DnXDth2sGGd/kQXs+Kwnw3sz7nfT5vg/3veLYHnyTm27?=
+ =?us-ascii?Q?Ojh34t0rEfs258NE4UdFYDt7TdfEwrGn3KFQjkxVYg1pATiWEomIsUKT9Jbe?=
+ =?us-ascii?Q?7xbR+hGbDfGcpLfr/J1lCGlu8nK7sAk+715P6+hYoCuC4Ed8A3U7EuOoK0g+?=
+ =?us-ascii?Q?ErCiahnUTePHUflTCJxuaWU+mukf7wgJgEABaJkK0BDXQGV6yFQNj3kruJCW?=
+ =?us-ascii?Q?Dyx7xMOewxcIoLPnCYr7k4xSN8tnhdUMVDQet8AbF/w8OJOsz1wLIM3U85Iw?=
+ =?us-ascii?Q?3mi9xTY3JN16mMwIxhOijwXfQ7sB5NrTNRQuO0YRp+olQj1TqTLGvURNAiEh?=
+ =?us-ascii?Q?qEJXZKQdNyEEO16m3rHCQClJD4gmLyxW8iZ/Useu5EgtwlkX8DeC5351c66X?=
+ =?us-ascii?Q?FSzG9e1zpeHCQxtE9XchLQwrYtHMfD3qCjkupOB7GZfhpaKoMDjyxwHYQLbc?=
+ =?us-ascii?Q?CWhlvZmkJspkZD4mp1j6wvnALFALzBjlBKfld8XqX6qSTxmO8OHDGBW1tezU?=
+ =?us-ascii?Q?fUHddaIisoyl2T1ueFqEPzJ/pejfTVW+nLobN8AQsWHQDq7yXPZvoJnm3BVP?=
+ =?us-ascii?Q?ZBChyu6ESERZInSSOfZ1sqSiMDRvCGGJhkmimD15TnRjVDcqjSLanTJntWhE?=
+ =?us-ascii?Q?naYMPxzEAY0yWawl66PSEzapZ3Oo0Xnv8jmy/uRGc+qpJNDrJSCjhE4Z0Uth?=
+ =?us-ascii?Q?+A3alzwHufsA0YG0m2pyYx1fS4kYU71Ly/nEOSSqjj+bXAwr3i5qB8rSvgsf?=
+ =?us-ascii?Q?/g0MOHEdWR3G3+RDKEzifeAZrAKf9tDLtebHEKjJNsVQ/VaX8V7vjgzyMu1N?=
+ =?us-ascii?Q?VoGW8KejilraXu33rTGBHF84eR6kZ7Y0D8+N9Li6?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700013)(376014)(921020);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Dec 2025 15:59:18.2801
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1e11b62d-2376-4465-42dd-08de3fe0bb79
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE32.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4134
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251220_072320_441162_4770E90C 
-X-CRM114-Status: GOOD (  12.26  )
+X-CRM114-CacheID: sfid-20251220_075928_206006_B3213A94 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,89 +150,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi j.turek,
+This series includes bug fixes and adds aes-gcm support for Versal device.
+It is based on cryptodev-2.6 tree.
 
-kernel test robot noticed the following build errors:
+Changes in V2:
+- Rebase series to cryptodev-2.6
+- Register H/W keys with gcm(paes) 
 
-[auto build test ERROR on tty/tty-testing]
-[also build test ERROR on tty/tty-next tty/tty-linus usb/usb-testing usb/usb-next usb/usb-linus linus/master v6.19-rc1 next-20251219]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Harsh Jain (14):
+  firmware: zynqmp: Move crypto API's to separate file
+  crypto: zynqmp-aes-gcm: cleanup: Remove union from zynqmp_aead_drv_ctx
+  firmware: zynqmp: Add helper API to self discovery the device
+  dt-bindings: crypto: Mark zynqmp-aes as Deprecated
+  crypto: zynqmp-aes-gcm: Update probe to self discover the device
+  crypto: zynqmp-aes-gcm: Return linux error code instead of firmware
+    error code
+  crypto: zynqmp-aes-gcm: Avoid Encrypt request to fallback for authsize
+    < 16
+  crypto: zynqmp-aes-gcm: Avoid submitting fallback requests to engine
+  crypto: zynqmp-aes-gcm: Register H/W key support with paes
+  crypto: xilinx: Replace zynqmp prefix with xilinx
+  crypto: zynqmp-aes-gcm: Change coherent DMA to streaming DMA API
+  firmware: xilinx: Add firmware API's to support aes-gcm in Versal
+    device
+  crypto: xilinx: cleanup: Remove un-necessary typecast operation
+  crypto: xilinx: Add gcm(aes) support for AMD/Xilinx Versal device
 
-url:    https://github.com/intel-lab-lkp/linux/commits/j-turek/serial-xilinx_uartps-fix-rs485-delay_rts_after_send/20251219-203016
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/tty.git tty-testing
-patch link:    https://lore.kernel.org/r/20251219114826.135017-1-jakub.turek%40elsta.tech
-patch subject: [PATCH] serial: xilinx_uartps: fix rs485 delay_rts_after_send
-config: hexagon-allmodconfig (https://download.01.org/0day-ci/archive/20251220/202512202351.ovK2vDUR-lkp@intel.com/config)
-compiler: clang version 17.0.6 (https://github.com/llvm/llvm-project 6009708b4367171ccdbf4b5905cb6a803753fe18)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251220/202512202351.ovK2vDUR-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202512202351.ovK2vDUR-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> drivers/tty/serial/xilinx_uartps.c:438:4: error: use of undeclared identifier 'rts_delay'
-     438 |                         rts_delay = ns_to_ktime(cdns_calc_after_tx_delay(cdns_uart));
-         |                         ^
-   drivers/tty/serial/xilinx_uartps.c:439:40: error: use of undeclared identifier 'rts_delay'; did you mean '__delay'?
-     439 |                         hrtimer_start(&cdns_uart->tx_timer, rts_delay, HRTIMER_MODE_REL);
-         |                                                             ^~~~~~~~~
-         |                                                             __delay
-   arch/hexagon/include/asm/delay.h:11:13: note: '__delay' declared here
-      11 | extern void __delay(unsigned long cycles);
-         |             ^
-   2 errors generated.
-
-
-vim +/rts_delay +438 drivers/tty/serial/xilinx_uartps.c
-
-   418	
-   419	/**
-   420	 * cdns_uart_handle_tx - Handle the bytes to be transmitted.
-   421	 * @dev_id: Id of the UART port
-   422	 * Return: None
-   423	 */
-   424	static void cdns_uart_handle_tx(void *dev_id)
-   425	{
-   426		struct uart_port *port = (struct uart_port *)dev_id;
-   427		struct cdns_uart *cdns_uart = port->private_data;
-   428		struct tty_port *tport = &port->state->port;
-   429		unsigned int numbytes;
-   430		unsigned char ch;
-   431	
-   432		if (kfifo_is_empty(&tport->xmit_fifo) || uart_tx_stopped(port)) {
-   433			/* Disable the TX Empty interrupt */
-   434			writel(CDNS_UART_IXR_TXEMPTY, port->membase + CDNS_UART_IDR);
-   435			/* Set RTS line after delay */
-   436			if (cdns_uart->port->rs485.flags & SER_RS485_ENABLED) {
-   437				cdns_uart->tx_timer.function = &cdns_rs485_rx_callback;
- > 438				rts_delay = ns_to_ktime(cdns_calc_after_tx_delay(cdns_uart));
-   439				hrtimer_start(&cdns_uart->tx_timer, rts_delay, HRTIMER_MODE_REL);
-   440			}
-   441			return;
-   442		}
-   443	
-   444		numbytes = port->fifosize;
-   445		while (numbytes &&
-   446		       !(readl(port->membase + CDNS_UART_SR) & CDNS_UART_SR_TXFULL) &&
-   447		       uart_fifo_get(port, &ch)) {
-   448			writel(ch, port->membase + CDNS_UART_FIFO);
-   449			numbytes--;
-   450		}
-   451	
-   452		if (kfifo_len(&tport->xmit_fifo) < WAKEUP_CHARS)
-   453			uart_write_wakeup(port);
-   454	
-   455		/* Enable the TX Empty interrupt */
-   456		writel(CDNS_UART_IXR_TXEMPTY, cdns_uart->port->membase + CDNS_UART_IER);
-   457	}
-   458	
+ .../bindings/crypto/xlnx,zynqmp-aes.yaml      |    2 +
+ .../firmware/xilinx/xlnx,zynqmp-firmware.yaml |    1 +
+ drivers/crypto/xilinx/zynqmp-aes-gcm.c        | 1007 +++++++++++++----
+ drivers/firmware/xilinx/Makefile              |    2 +-
+ drivers/firmware/xilinx/zynqmp-crypto.c       |  239 ++++
+ drivers/firmware/xilinx/zynqmp.c              |   49 -
+ include/linux/firmware/xlnx-zynqmp-crypto.h   |  119 ++
+ include/linux/firmware/xlnx-zynqmp.h          |   14 +-
+ 8 files changed, 1155 insertions(+), 278 deletions(-)
+ create mode 100644 drivers/firmware/xilinx/zynqmp-crypto.c
+ create mode 100644 include/linux/firmware/xlnx-zynqmp-crypto.h
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.49.1
+
 
