@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 587D8E668B4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Dec 2025 15:59:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0FF6E668B4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 20 Dec 2025 15:59:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VDf3+YrhuaH11ecdncpLhjNVVUkZnRp+UyPB+75BHpY=; b=Pag+fUt8HOjeZR4gIN6IuchSEn
-	ZSeCxxCxcLxk64Lc1yEcjPk2vIXImyVDRYTVHMCgxyy6Gna4Ob2WN+76CaqINq7zUwdXmMLdhfNHf
-	LkESBrkkwVG5oGeYOzvDxQRP+oL2rEo81gh8AfgkNfNfXTdLJD64YbSN4zOdtvDrBfcmFJPNSzxe4
-	L6l9HN/ZXCT/zAqA9ofh3DmaCx9GvoTjor9DPQm9WImM6CVhm5BYqdfN5msfmA6YBM0XNSltvWgdw
-	Qcts/ebrW/TYJmE4dkdmC4esmeYzrsA0+1FF6sAzM/HbETpcAcAN+6oDzKEPrBKggGYKx5HThVa21
-	5s4C/Nzg==;
+	bh=QSGMAmRKX+TVoKxri6llQq8l7QLjdPa6WW2JOzwouCY=; b=tyDljkDj7HfuxZbRLY+SMX3+Kx
+	a91Kpx0PcHBkk2/4wt5YeEnnpRTQ9CZPr4xISWj/mmGBH0f9pV8hOO560OAP3xncMDykp4XcaTdM0
+	EubZgGvab6rgygLXZXc1ULP4kKYBBGptKdXg5Td/SXvT4DvSzvqIRVTKWqChfM4ZkciUSNK2vtDXf
+	3xNy/n3mnHuuxvrE1gWDCXsEJIZnYXLaoG6fHB7c0hdiueZssOc9lGjuCmLgivRzBjEcNpRTqgWNT
+	+AxcLRHPa29YEzeELu6Wv5GYz2s8M62rV2pN/Iiy2Apxtc7i3hq5IjtyHiu1wwx8f8xazkqkiX4FQ
+	wFFBVItQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWzMk-0000000Bi29-0QPm;
-	Sat, 20 Dec 2025 15:59:34 +0000
-Received: from mail-westus2azon11010068.outbound.protection.outlook.com ([52.101.46.68] helo=CO1PR03CU002.outbound.protection.outlook.com)
+	id 1vWzMp-0000000Bi48-440b;
+	Sat, 20 Dec 2025 15:59:39 +0000
+Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vWzMe-0000000Bi0Q-2c1z
+	id 1vWzMn-0000000Bi2y-12Zz
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 20 Dec 2025 15:59:30 +0000
+	Sat, 20 Dec 2025 15:59:38 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=D9Hc3uqCThS5EDgcmFpi+URXuHyvkjaCw2KR/0w+WNaIMkTIX90s3qk6R6A42b43LeriY9a/Yf+pX3gz7aOkrD7Wr1BwigZZ/Otx3vFJz+CDZ6p3xoR2QgRjyViQ1kgnni5fIHBkQItQJeE+3aqfdm0Ev1nVL5AgU5JbOTYU7n9dr02HQP7Ke1j3cAhS1+ytiK3LDf+bSf74nHy6FSNdbyen/NxTbsNvrSRp0rK3C8Z3JFgykLvJaJrodzzU35F9I4Vwsdccyd03IW/6iOjsp/wrv/tIjCDLzcQVOpQco7MAg2sdCKQpcSajM9rr13i5GCUnaoK8pNyVSmI0OWEzFg==
+ b=bEZYtzTT3+HSrAEVGGwkrUWA1RLeqK7NiIRgwwcpV0aB863XfdWzkEiMGsgROw0yKebkXeyiUZq69+xEKoTUYETnd9/jPahVQ77cppO1dDJIpDKiCFbyRQgZeo2TWEgT3EChOeGjQany7X+M9Mr0Sl8uBA5EBVblcofkhG81ML//LhaOJTnmPeCPxGRizuwueNWZxpTkF4ZRb/GzWgYnQib/lzrRc0u5IqtGP+5ZZd7X9L5KiNAsSkfFdbgSu5DhuX0onHyeT8Hvi4TsNPIgVcIujGGnuRPP/XbpHMjeetk3f+37xuRQHHBddBuAPzAlA6C5a8hbmnb+ZgrJ0MhgYA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VDf3+YrhuaH11ecdncpLhjNVVUkZnRp+UyPB+75BHpY=;
- b=rPGmkbAxNnGm73zuPA2+ZIGGIh75TQAayyAYB6Zuk/V65Dj4nGD/Xhu92yiBXY0hMUfUWlS8oGaGIznp2g6vODnFGgIl82QFgRAz9E8P2TgxYZxRd3wuqRT4vg2tXYV9jSu8dRCNdPtV9fgQpFERUs/BK0jRZ/JTN1Ojc0uIXkxJoJP7Intzfj9dlSjgDFOZEcXq6CHnGji3oXZsk1t9h+kQaqx12tG23BLEqSZofroK4VhBhx09wSDnn92aU64LcEKI30G1uZFitlbdCHRGKWZ4GhuBMUastV1LfSvc+NM9E7UV/WkTVnaSDJlRYa5+AjyjZ3UBo4ivSkU8WXtLQg==
+ bh=QSGMAmRKX+TVoKxri6llQq8l7QLjdPa6WW2JOzwouCY=;
+ b=S4cwDTbOGTnSYxM1KVuyxSZlzbZKECWLN46sYj5WmVNpkmYsqOJNW36EgDvOJjp1UmIAwqNWJuDcLn3JM+yo9zbQJ5H5ZwzFLsN0OT9ArCN9gFaU7q0R/K+bp6zsBQuj9I+i402JyerRxHV7aihnTSPnsYkZFsKcWSwQX3uGy35kk+yM3iry0yJA6DXmPx0fQyFMU1z2tc+eapZ15LrPlW3yYG+XOmq1Qz1Nyt/b0qEQg8XXR00PoyWHcn2qTEJiSUA50ki4p7NmndKPCClAOH35C08lx8kFkWue7TIg/pQdNG5uvJnXYjMB2zpyl6NC4tRqBK/RhoiUPJ2IOGxnXA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=gondor.apana.org.au smtp.mailfrom=amd.com;
  dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
  header.from=amd.com; dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VDf3+YrhuaH11ecdncpLhjNVVUkZnRp+UyPB+75BHpY=;
- b=MAlJfblGj8U09BZfGWWcinpINVISYzjZ9q62Crh1Np8Xzr+dDxMSOhM+jRBGg58xNAM5Vsfgxek2s88XGzMERmfLsHLK2Qr8IPpSwyvU6Z5+uXazGvWEgQ30HwEOGEWoCXEiDu2VZgze+0u7CKufRCmcN4ZInk+wYo9uJ7HbxzE=
-Received: from SA0PR13CA0002.namprd13.prod.outlook.com (2603:10b6:806:130::7)
- by CH8PR12MB9768.namprd12.prod.outlook.com (2603:10b6:610:260::9) with
+ bh=QSGMAmRKX+TVoKxri6llQq8l7QLjdPa6WW2JOzwouCY=;
+ b=vYorhRZiDykeH9VsZrAp5g9S8JlX/RFIgO3hT1jTlHlvmPhwB9+pNmKwILlTpWzTkf8SfYjwiPQRAfOQRzZkWLF2dWRNYLZWFvve3pyqO4TQ531+3k8FpSqs/swMdQXmI5IbZ4iz9VFrwm/ccEmSkCgxjKAu75pAOoY9jnsOX1g=
+Received: from SA9P221CA0008.NAMP221.PROD.OUTLOOK.COM (2603:10b6:806:25::13)
+ by SJ2PR12MB9210.namprd12.prod.outlook.com (2603:10b6:a03:561::11) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.10; Sat, 20 Dec
- 2025 15:59:23 +0000
-Received: from SA2PEPF00003F61.namprd04.prod.outlook.com
- (2603:10b6:806:130:cafe::ec) by SA0PR13CA0002.outlook.office365.com
- (2603:10b6:806:130::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9456.5 via Frontend Transport; Sat,
- 20 Dec 2025 15:59:18 +0000
+ 2025 15:59:30 +0000
+Received: from SA2PEPF00003F64.namprd04.prod.outlook.com
+ (2603:10b6:806:25:cafe::7b) by SA9P221CA0008.outlook.office365.com
+ (2603:10b6:806:25::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.9 via Frontend Transport; Sat,
+ 20 Dec 2025 15:59:29 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
  smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
@@ -59,20 +59,20 @@ Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
  client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
 Received: from satlexmb07.amd.com (165.204.84.17) by
- SA2PEPF00003F61.mail.protection.outlook.com (10.167.248.36) with Microsoft
+ SA2PEPF00003F64.mail.protection.outlook.com (10.167.248.39) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9434.6 via Frontend Transport; Sat, 20 Dec 2025 15:59:21 +0000
+ 15.20.9434.6 via Frontend Transport; Sat, 20 Dec 2025 15:59:29 +0000
 Received: from satlexmb10.amd.com (10.181.42.219) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Sat, 20 Dec
- 2025 09:59:21 -0600
+ 2025 09:59:28 -0600
 Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb10.amd.com
  (10.181.42.219) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Sat, 20 Dec
- 2025 09:59:21 -0600
+ 2025 09:59:28 -0600
 Received: from xhdharshj40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Sat, 20 Dec 2025 07:59:18 -0800
+ Transport; Sat, 20 Dec 2025 07:59:25 -0800
 From: Harsh Jain <h.jain@amd.com>
 To: <herbert@gondor.apana.org.au>, <davem@davemloft.net>,
 	<linux-crypto@vger.kernel.org>, <devicetree@vger.kernel.org>,
@@ -81,9 +81,9 @@ To: <herbert@gondor.apana.org.au>, <davem@davemloft.net>,
 	<michal.simek@amd.com>, <linux-arm-kernel@lists.infradead.org>,
 	<jay.buddhabhatti@amd.com>
 CC: Harsh Jain <h.jain@amd.com>
-Subject: [PATCH v2 01/14] firmware: zynqmp: Move crypto API's to separate file
-Date: Sat, 20 Dec 2025 21:28:52 +0530
-Message-ID: <20251220155905.346790-2-h.jain@amd.com>
+Subject: [PATCH v2 03/14] firmware: zynqmp: Add helper API to self discovery the device
+Date: Sat, 20 Dec 2025 21:28:54 +0530
+Message-ID: <20251220155905.346790-4-h.jain@amd.com>
 X-Mailer: git-send-email 2.49.1
 In-Reply-To: <20251220155905.346790-1-h.jain@amd.com>
 References: <20251220155905.346790-1-h.jain@amd.com>
@@ -92,52 +92,52 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA2PEPF00003F61:EE_|CH8PR12MB9768:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1caf6406-2a18-4f3f-30a8-08de3fe0bd9c
+X-MS-TrafficTypeDiagnostic: SA2PEPF00003F64:EE_|SJ2PR12MB9210:EE_
+X-MS-Office365-Filtering-Correlation-Id: a1739c37-e9de-4ef8-85be-08de3fe0c1e7
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|82310400026|376014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?v+2/njAc8Oo+fG0TYIrse2hOs7i0ArWSMzhMGs4OwlOT/S/eoAui6idn22k8?=
- =?us-ascii?Q?DlLG7wKRA/xMxbGXJxJTKJVnfm7/c/Z0bvfRPPjUJHfNymoD3pl4TAb5nyjP?=
- =?us-ascii?Q?vQVM5olsDzcr2woYUqjE+4dKDAqZEhKqI7Ilm9TxKKbacDXDKaHBoLySiXi7?=
- =?us-ascii?Q?ywC90CpR6u4YLHLzzgzxPrvu8I+tKIlnWyZwsmRVR+Cq94t7zm+nF8KmbVWB?=
- =?us-ascii?Q?72vLwvXfprJTvbbYJA8so2y5hxEbUHU9hz0rzJih/n9UAFUJedPwh42I0KNU?=
- =?us-ascii?Q?yNgdA/I3/nHoqWbkX+R3+CrZTAIOaoNgzY6D6hvkB6O7ZhQaUtmJLiNo4Ant?=
- =?us-ascii?Q?FxCnOR4ojL4e1ljPeYHcNovsSJowSbCak6Lj+feyVT0d2KBBdW6fgG3qg3Rs?=
- =?us-ascii?Q?J40atFQV4i2wEKrRNIuTW7VRcEBvi9zqJwzQeCMPgW35yTnPHpAw+xIT1D0t?=
- =?us-ascii?Q?G289Plim2fZ2p+W/MWSr6EVowsw6e6XR+g3Sr0UL03HKVOfmxp+RRXW1Z5p6?=
- =?us-ascii?Q?F7F3LnReyEjJslhl7oejMFD9fryrbG5vM9sspd1OGgDWS+bL7O11iSV+icCh?=
- =?us-ascii?Q?oa46aLdT0uRdh5t3H9Jk0ZIFyeeWO1V//nOtKtCu/l9Z2BOdK/GbCJ+qBZG+?=
- =?us-ascii?Q?6OWKdJjS4gzZxHI/W6d7+SxMSqcqusiMS5NmVzbdZYgHrSYlrtElgbz18GqL?=
- =?us-ascii?Q?lzg6Ewq0ZKC0U1GvWbAq5Sb/sxl1X/mH5ldsKe4zT9GNMvRlWBulLFnmcvR8?=
- =?us-ascii?Q?v2ieGuu9IXsc4o3eVlvTKKfQR98yjYHnNk7eiodA9MvVVSFm7kwWmwL0VTIC?=
- =?us-ascii?Q?9WEP++vdASHulUjDctKJTRPQy8BegLMhX5XWDztV0lXjwImfdRluqx5fsV7O?=
- =?us-ascii?Q?2B5nIf9L7etTmlyicycZ1Gfg/tO1+8yTqj22dONwGtbA3Mg5F73QlmkWQUJY?=
- =?us-ascii?Q?vfkVd4GUlibZ0w+CIqCOGCzCtuOqH4ljgISyqNDedHc/t68fCJzkvvIQIiJH?=
- =?us-ascii?Q?wOerT7U5BPqb0eUKB7rw82PwWZMvwPifGKNDndE0+HT+PrbgjxNvoJ+GXIc6?=
- =?us-ascii?Q?XAw9Oue1jzbfbHFipNeP/Uo60Eu+KRUD4tDb+jrQox92eylTDA3vDNdTlOG5?=
- =?us-ascii?Q?Ml1rFhkpsPpGj/pJ9JkFmnweWHsxYqwEVAc9gRM5KSg0Zq53S9V7fDZ/HDmV?=
- =?us-ascii?Q?Ef9BQqRSaCbCB0ZoT70eMYVnpGk5K62+BwZb/1px6xtBJxLY61aTQj95MbjO?=
- =?us-ascii?Q?27kma5BC0ybCL33RWOKa66bZ8L1/EjWosqZnud7ssP5/bU6tvfrZSbGHHuyo?=
- =?us-ascii?Q?SY19ZLlRu68TZhPb78Y+gPGoit78HVgrH7zA1KW+voccNkTLNUAFdg6Zs3AK?=
- =?us-ascii?Q?VWg+xwOzZ5vcI+hse/+PAsvkcPEe/V9l06yNzG9Wdj1ka8Glv+vLN71JuAmg?=
- =?us-ascii?Q?fDbbWxEEsTOB9MNurzBzDW2yVRWbax9A7KEY1vMhsxwAXWQ32rhG3zAkTs/x?=
- =?us-ascii?Q?JfLv7HkEFDAu7pVh52he7Ww0UExAGqlbkKgSBwE1Sgvmf0koRAlpUZLgOv5P?=
- =?us-ascii?Q?UuXyhNNpOxccWq/NvNw=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(82310400026)(376014)(921020);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|36860700013|82310400026|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?HSE+WscVxbB8oAt1KUsLn5EqU/Lv7PV7MOST5oJlB7nx3r+ELiF1htspsxLL?=
+ =?us-ascii?Q?vv177JNLPeq0lrGlo++D0q99326IpDU24mqo4WzRv4pmu/iTHNeZc6igaGNO?=
+ =?us-ascii?Q?V9YaTdlZKFJ2pJOyJvyViIKT9LqJXU53mLm76C2oariNnOkmRFJTo80IkIpp?=
+ =?us-ascii?Q?9nCjspWvFD1yA4W4MkqfHZVAArHbHh7owZQjU2S+U3VYPWbb9PwgxVChLm3m?=
+ =?us-ascii?Q?dx+4Co/F2bAnXKwARjmFpvvh+cTybPqr1+VHbL+4W9iibqLO7Rp44LGmPAoq?=
+ =?us-ascii?Q?tO6WJNqRyp7SzZOfvRSh2CWpqA5utnWXGp95ZssdVU7s36bcjFmXYe9s0T14?=
+ =?us-ascii?Q?exNnmZd6k/Gk1yJjevNtBSN43dchnEYffxz/0EclI6aIIOd4tKYqfRYzneUQ?=
+ =?us-ascii?Q?HcisjKszZi78Zvvlv8rGSdn5VYY1XU5ds027jCY/mRQmHK1MS/Dz0SwL3bV2?=
+ =?us-ascii?Q?Xv3qhMgfsgg5QbH7lOpDyEBOq2In0GHNktwO1srbCY8/GTgWzXwajL8cZmAn?=
+ =?us-ascii?Q?MZ/LVI+q+/EX33bUjSyOIGHrmMyDtw0FVUyr5712VaewIhyfzB1ZHSW6OtOD?=
+ =?us-ascii?Q?BAJUE10YhO3gu++F2PX1CkVQbUKMk/xbGU/wTmC9m1mU6LejOUIRV8IlCC6S?=
+ =?us-ascii?Q?1aXjECmtKeE4+JGHroF2R9WvUS+mjc2W14nr9AYFy3uPEgLEl48KZ391XvT7?=
+ =?us-ascii?Q?hpFf2cvTf0KeP1bYETIO5WjRZjQG4cDJvUnsumXxR5vIgTVzLG9TTP47uI6+?=
+ =?us-ascii?Q?/3Am1qNXuu+ymrJRo4AwT+OEwfd3YcSB5LViOU/U53rSvVBJO09LvabpwE6m?=
+ =?us-ascii?Q?yvwGd+v72ANIvhFZ9blq+eJ45hLZ0NLtEkskoy/fmRPYFYjqGeDr5SmDyWSU?=
+ =?us-ascii?Q?jM0vwKKMFNzfE5WEkWBT7LxuiJdgRRnAdVOdJM7Pb8oP6ijXl1ePtdk9jdC4?=
+ =?us-ascii?Q?5UJBxFMdTHcPnSYKnAVd6bQoof8tvjVJJhe/dhyphOcdww3iEVkPLWT68DFD?=
+ =?us-ascii?Q?rB36fQgnPkLr8u0qfqCItWrKIcDMVHD3lTV5BYPi9EydWxWXyUwAT6Lu7Z+A?=
+ =?us-ascii?Q?1WbTKBAscts9zlSjMI1fGXf/r+6Htc0mR5r7/QRxp7uppq8QNhLUgQMyHsIk?=
+ =?us-ascii?Q?rPJK/8B/1QoV4jTE2wGtGAgv/26/ILP/sWdMXabBfyBfTb1Y6kLSg7mahfQI?=
+ =?us-ascii?Q?5Oo3T53fVf8RkSj8H7BIrDHUmfbhvgXCPpBa7wxQAopOE5+MSoPQlTQrk4ho?=
+ =?us-ascii?Q?rBtwYwNDqTQg1HVfOOgigDAYj5xcq9Pjn4piTN2WBz6cL0N8S/ZiUm5T+LG8?=
+ =?us-ascii?Q?Sdi113jHXaBSeQ3fTH5uCGx67HxEIImQ9Af4kcfVfvs6j102niAFgahKCpQb?=
+ =?us-ascii?Q?viFn9FGu7LBpcVNs6AjzFUhSknhRzTHyvW6QY0DqHErwWqg5sGZQV6J/rxHG?=
+ =?us-ascii?Q?O5xuJhNGa3AUmZznWcTAjZxkwuz97DSPOhaFSOGDE7R9LMaN3C4EhrDrE0FA?=
+ =?us-ascii?Q?HHHD3qhEQG//hU9voGOTKFhhzbb9ehorVw4EHxzuJt50HoYcFOpvTnMiBLVb?=
+ =?us-ascii?Q?YdosF3quvI7k/UhD2r2UJBvtBR/FL9gWAi6fC1qM?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(36860700013)(82310400026)(921020);DIR:OUT;SFP:1101;
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Dec 2025 15:59:21.8905
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 20 Dec 2025 15:59:29.0941
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1caf6406-2a18-4f3f-30a8-08de3fe0bd9c
+X-MS-Exchange-CrossTenant-Network-Message-Id: a1739c37-e9de-4ef8-85be-08de3fe0c1e7
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003F61.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: SA2PEPF00003F64.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH8PR12MB9768
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB9210
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251220_075929_454050_85D194D5 
-X-CRM114-Status: GOOD (  19.26  )
+X-CRM114-CacheID: sfid-20251220_075937_294017_B63A9F1A 
+X-CRM114-Status: GOOD (  12.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,242 +152,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For better maintainability move crypto related API's to
-new zynqmp-crypto.c file.
+Add API to get SoC version and family info.
 
 Signed-off-by: Harsh Jain <h.jain@amd.com>
 ---
- drivers/firmware/xilinx/Makefile            |  2 +-
- drivers/firmware/xilinx/zynqmp-crypto.c     | 59 +++++++++++++++++++++
- drivers/firmware/xilinx/zynqmp.c            | 49 -----------------
- include/linux/firmware/xlnx-zynqmp-crypto.h | 28 ++++++++++
- include/linux/firmware/xlnx-zynqmp.h        | 14 +----
- 5 files changed, 89 insertions(+), 63 deletions(-)
- create mode 100644 drivers/firmware/xilinx/zynqmp-crypto.c
- create mode 100644 include/linux/firmware/xlnx-zynqmp-crypto.h
+ drivers/firmware/xilinx/zynqmp-crypto.c     | 31 +++++++++++++++++++++
+ include/linux/firmware/xlnx-zynqmp-crypto.h | 19 +++++++++++++
+ 2 files changed, 50 insertions(+)
 
-diff --git a/drivers/firmware/xilinx/Makefile b/drivers/firmware/xilinx/Makefile
-index 70f8f02f14a3..8db0e66b6b7e 100644
---- a/drivers/firmware/xilinx/Makefile
-+++ b/drivers/firmware/xilinx/Makefile
-@@ -1,5 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0
- # Makefile for Xilinx firmwares
- 
--obj-$(CONFIG_ZYNQMP_FIRMWARE) += zynqmp.o zynqmp-ufs.o
-+obj-$(CONFIG_ZYNQMP_FIRMWARE) += zynqmp.o zynqmp-ufs.o zynqmp-crypto.o
- obj-$(CONFIG_ZYNQMP_FIRMWARE_DEBUG) += zynqmp-debug.o
 diff --git a/drivers/firmware/xilinx/zynqmp-crypto.c b/drivers/firmware/xilinx/zynqmp-crypto.c
-new file mode 100644
-index 000000000000..ea9cac6a1052
---- /dev/null
+index ea9cac6a1052..6d17cb8b27b3 100644
+--- a/drivers/firmware/xilinx/zynqmp-crypto.c
 +++ b/drivers/firmware/xilinx/zynqmp-crypto.c
-@@ -0,0 +1,59 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Firmware layer for XilSecure APIs.
-+ *
-+ * Copyright (C) 2014-2022 Xilinx, Inc.
-+ * Copyright (C) 2022-2025 Advanced Micro Devices, Inc.
-+ */
-+
-+#include <linux/firmware/xlnx-zynqmp.h>
-+#include <linux/module.h>
+@@ -57,3 +57,34 @@ int zynqmp_pm_sha_hash(const u64 address, const u32 size, const u32 flags)
+ 	return zynqmp_pm_invoke_fn(PM_SECURE_SHA, NULL, 4, upper_addr, lower_addr, size, flags);
+ }
+ EXPORT_SYMBOL_GPL(zynqmp_pm_sha_hash);
 +
 +/**
-+ * zynqmp_pm_aes_engine - Access AES hardware to encrypt/decrypt the data using
-+ * AES-GCM core.
-+ * @address:	Address of the AesParams structure.
-+ * @out:	Returned output value
++ * xlnx_get_crypto_dev_data() - Get crypto dev data of platform
++ * @feature_map:       List of available feature map of all platform
 + *
-+ * Return:	Returns status, either success or error code.
++ * Return: Returns crypto dev data, either address crypto dev or ERR PTR
 + */
-+int zynqmp_pm_aes_engine(const u64 address, u32 *out)
++void *xlnx_get_crypto_dev_data(struct xlnx_feature *feature_map)
 +{
-+	u32 ret_payload[PAYLOAD_ARG_CNT];
++	struct xlnx_feature *feature;
++	u32 pm_family_code;
 +	int ret;
 +
-+	if (!out)
-+		return -EINVAL;
++	/* Get the Family code and sub family code of platform */
++	ret = zynqmp_pm_get_family_info(&pm_family_code);
++	if (ret < 0)
++		return ERR_PTR(ret);
 +
-+	ret = zynqmp_pm_invoke_fn(PM_SECURE_AES, ret_payload, 2, upper_32_bits(address),
-+				  lower_32_bits(address));
-+	*out = ret_payload[1];
++	feature = feature_map;
++	for (; feature->family; feature++) {
++		if (feature->family == pm_family_code) {
++			ret = zynqmp_pm_feature(feature->feature_id);
++			if (ret < 0)
++				return ERR_PTR(ret);
 +
-+	return ret;
++			return feature->data;
++		}
++	}
++	return ERR_PTR(-ENODEV);
 +}
-+EXPORT_SYMBOL_GPL(zynqmp_pm_aes_engine);
-+
-+/**
-+ * zynqmp_pm_sha_hash - Access the SHA engine to calculate the hash
-+ * @address:	Address of the data/ Address of output buffer where
-+ *		hash should be stored.
-+ * @size:	Size of the data.
-+ * @flags:
-+ *		BIT(0) - for initializing csudma driver and SHA3(Here address
-+ *		and size inputs can be NULL).
-+ *		BIT(1) - to call Sha3_Update API which can be called multiple
-+ *		times when data is not contiguous.
-+ *		BIT(2) - to get final hash of the whole updated data.
-+ *		Hash will be overwritten at provided address with
-+ *		48 bytes.
-+ *
-+ * Return:	Returns status, either success or error code.
-+ */
-+int zynqmp_pm_sha_hash(const u64 address, const u32 size, const u32 flags)
-+{
-+	u32 lower_addr = lower_32_bits(address);
-+	u32 upper_addr = upper_32_bits(address);
-+
-+	return zynqmp_pm_invoke_fn(PM_SECURE_SHA, NULL, 4, upper_addr, lower_addr, size, flags);
-+}
-+EXPORT_SYMBOL_GPL(zynqmp_pm_sha_hash);
-diff --git a/drivers/firmware/xilinx/zynqmp.c b/drivers/firmware/xilinx/zynqmp.c
-index ad811f40e059..f15db1a818dc 100644
---- a/drivers/firmware/xilinx/zynqmp.c
-+++ b/drivers/firmware/xilinx/zynqmp.c
-@@ -1521,30 +1521,6 @@ int zynqmp_pm_load_pdi(const u32 src, const u64 address)
- }
- EXPORT_SYMBOL_GPL(zynqmp_pm_load_pdi);
- 
--/**
-- * zynqmp_pm_aes_engine - Access AES hardware to encrypt/decrypt the data using
-- * AES-GCM core.
-- * @address:	Address of the AesParams structure.
-- * @out:	Returned output value
-- *
-- * Return:	Returns status, either success or error code.
-- */
--int zynqmp_pm_aes_engine(const u64 address, u32 *out)
--{
--	u32 ret_payload[PAYLOAD_ARG_CNT];
--	int ret;
--
--	if (!out)
--		return -EINVAL;
--
--	ret = zynqmp_pm_invoke_fn(PM_SECURE_AES, ret_payload, 2, upper_32_bits(address),
--				  lower_32_bits(address));
--	*out = ret_payload[1];
--
--	return ret;
--}
--EXPORT_SYMBOL_GPL(zynqmp_pm_aes_engine);
--
- /**
-  * zynqmp_pm_efuse_access - Provides access to efuse memory.
-  * @address:	Address of the efuse params structure
-@@ -1569,31 +1545,6 @@ int zynqmp_pm_efuse_access(const u64 address, u32 *out)
- }
- EXPORT_SYMBOL_GPL(zynqmp_pm_efuse_access);
- 
--/**
-- * zynqmp_pm_sha_hash - Access the SHA engine to calculate the hash
-- * @address:	Address of the data/ Address of output buffer where
-- *		hash should be stored.
-- * @size:	Size of the data.
-- * @flags:
-- *	BIT(0) - for initializing csudma driver and SHA3(Here address
-- *		 and size inputs can be NULL).
-- *	BIT(1) - to call Sha3_Update API which can be called multiple
-- *		 times when data is not contiguous.
-- *	BIT(2) - to get final hash of the whole updated data.
-- *		 Hash will be overwritten at provided address with
-- *		 48 bytes.
-- *
-- * Return:	Returns status, either success or error code.
-- */
--int zynqmp_pm_sha_hash(const u64 address, const u32 size, const u32 flags)
--{
--	u32 lower_addr = lower_32_bits(address);
--	u32 upper_addr = upper_32_bits(address);
--
--	return zynqmp_pm_invoke_fn(PM_SECURE_SHA, NULL, 4, upper_addr, lower_addr, size, flags);
--}
--EXPORT_SYMBOL_GPL(zynqmp_pm_sha_hash);
--
- /**
-  * zynqmp_pm_register_notifier() - PM API for register a subsystem
-  *                                to be notified about specific
++EXPORT_SYMBOL_GPL(xlnx_get_crypto_dev_data);
 diff --git a/include/linux/firmware/xlnx-zynqmp-crypto.h b/include/linux/firmware/xlnx-zynqmp-crypto.h
-new file mode 100644
-index 000000000000..f9eb523ba6a0
---- /dev/null
+index f9eb523ba6a0..cb08f412e931 100644
+--- a/include/linux/firmware/xlnx-zynqmp-crypto.h
 +++ b/include/linux/firmware/xlnx-zynqmp-crypto.h
-@@ -0,0 +1,28 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Firmware layer for XilSECURE APIs.
-+ *
-+ *  Copyright (C) 2014-2022 Xilinx, Inc.
-+ *  Copyright (C) 2022-2025 Advanced Micro Devices, Inc.
+@@ -9,9 +9,23 @@
+ #ifndef __FIRMWARE_XLNX_ZYNQMP_CRYPTO_H__
+ #define __FIRMWARE_XLNX_ZYNQMP_CRYPTO_H__
+ 
++/**
++ * struct xlnx_feature - Feature data
++ * @family:	Family code of platform
++ * @subfamily:	Subfamily code of platform
++ * @feature_id:	Feature id of module
++ * @data:	Collection of all supported platform data
 + */
++struct xlnx_feature {
++	u32 family;
++	u32 feature_id;
++	void *data;
++};
 +
-+#ifndef __FIRMWARE_XLNX_ZYNQMP_CRYPTO_H__
-+#define __FIRMWARE_XLNX_ZYNQMP_CRYPTO_H__
-+
-+#if IS_REACHABLE(CONFIG_ZYNQMP_FIRMWARE)
-+int zynqmp_pm_aes_engine(const u64 address, u32 *out);
-+int zynqmp_pm_sha_hash(const u64 address, const u32 size, const u32 flags);
-+#else
-+static inline int zynqmp_pm_aes_engine(const u64 address, u32 *out)
-+{
-+	return -ENODEV;
-+}
-+
-+static inline int zynqmp_pm_sha_hash(const u64 address, const u32 size,
-+				     const u32 flags)
-+{
-+	return -ENODEV;
-+}
-+#endif
-+
-+#endif /* __FIRMWARE_XLNX_ZYNQMP_CRYPTO_H__ */
-diff --git a/include/linux/firmware/xlnx-zynqmp.h b/include/linux/firmware/xlnx-zynqmp.h
-index 15fdbd089bbf..d70dcd462b44 100644
---- a/include/linux/firmware/xlnx-zynqmp.h
-+++ b/include/linux/firmware/xlnx-zynqmp.h
-@@ -17,6 +17,7 @@
- 
- #include <linux/err.h>
- #include <linux/firmware/xlnx-zynqmp-ufs.h>
-+#include <linux/firmware/xlnx-zynqmp-crypto.h>
- 
- #define ZYNQMP_PM_VERSION_MAJOR	1
- #define ZYNQMP_PM_VERSION_MINOR	0
-@@ -589,9 +590,7 @@ int zynqmp_pm_release_node(const u32 node);
- int zynqmp_pm_set_requirement(const u32 node, const u32 capabilities,
- 			      const u32 qos,
- 			      const enum zynqmp_pm_request_ack ack);
--int zynqmp_pm_aes_engine(const u64 address, u32 *out);
- int zynqmp_pm_efuse_access(const u64 address, u32 *out);
--int zynqmp_pm_sha_hash(const u64 address, const u32 size, const u32 flags);
- int zynqmp_pm_fpga_load(const u64 address, const u32 size, const u32 flags);
- int zynqmp_pm_fpga_get_status(u32 *value);
- int zynqmp_pm_fpga_get_config_status(u32 *value);
-@@ -772,22 +771,11 @@ static inline int zynqmp_pm_set_requirement(const u32 node,
- 	return -ENODEV;
- }
- 
--static inline int zynqmp_pm_aes_engine(const u64 address, u32 *out)
--{
--	return -ENODEV;
--}
--
- static inline int zynqmp_pm_efuse_access(const u64 address, u32 *out)
+ #if IS_REACHABLE(CONFIG_ZYNQMP_FIRMWARE)
+ int zynqmp_pm_aes_engine(const u64 address, u32 *out);
+ int zynqmp_pm_sha_hash(const u64 address, const u32 size, const u32 flags);
++void *xlnx_get_crypto_dev_data(struct xlnx_feature *feature_map);
+ #else
+ static inline int zynqmp_pm_aes_engine(const u64 address, u32 *out)
+ {
+@@ -23,6 +37,11 @@ static inline int zynqmp_pm_sha_hash(const u64 address, const u32 size,
  {
  	return -ENODEV;
  }
++
++static inline void *xlnx_get_crypto_dev_data(struct xlnx_feature *feature_map)
++{
++	return ERR_PTR(-ENODEV);
++}
+ #endif
  
--static inline int zynqmp_pm_sha_hash(const u64 address, const u32 size,
--				     const u32 flags)
--{
--	return -ENODEV;
--}
--
- static inline int zynqmp_pm_fpga_load(const u64 address, const u32 size,
- 				      const u32 flags)
- {
+ #endif /* __FIRMWARE_XLNX_ZYNQMP_CRYPTO_H__ */
 -- 
 2.49.1
 
