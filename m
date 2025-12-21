@@ -4,108 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE396E67482
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Dec 2025 21:50:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57560E67482
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Dec 2025 21:50:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1+IMBLM4U41kKgRvFiSq4x/aDvCnzjCMF1l8hqPeff0=; b=cDU1RGT0D+ZsT7x0ydhwmdG+gS
-	fmCOL8Nl0qZdsG1kKkZv+esTE66Y1sKvxnqJi1anO6M3x4lS6qCz3Kkap470uRhI4EhdWI8q2KD1P
-	DGnAeqX7dZY/N+gZW3b9ZnfY7yWAzrNufvfboxx9PkgWIu9ZhQNfhzgCy0rl2co9ogL4K0bylk67Y
-	RC2gzn6W8n1yQtk7uDbxXd3EDdeTLmyeGm+OvzcEjo+Loz94+LiaxGhicMftOmsnFhbLJC+OFVzKA
-	DdQQmajvqw08Ltl3kLwgPehMh4LPhyTLfve8mnyqNqGWyljZP+Jl5dxFWu9YFtDb35da1TuiSXnPb
-	SNNzmFrw==;
+	bh=I8ESPuhbHJz02YptQK1tw7Lrl7Cucbn6A3EDj5euzbk=; b=cPQCuZRDJ6Jsnwe78J9U8Luy7C
+	BBUTKEg0XfX5WG9sjE8KmmMB475AUSAPXYZuTdLf8N5Ro/B2bB0Ea88/lsroXXyNk4PEDi2K0LxW3
+	+HGR70RdcPNB2zoQnxRFx9Lk8IMYsd5vpZa+Lq7kogivIBQoSG+O9/0kziGa38I18g0NfKQxBZTlK
+	q7sT5juNIrdPN4qIifCafm43luDLWt6AR4f7BOM81KVrMDRI3vIj1QDzEyKtaaxyvGodQ1qKrQI7J
+	ezGJw0supChYK2Hx9+z8OOWK0zsVKhXlIXZDMBd5a+7vvyMmwHqoiCFzUO3IUS/gN/wi5r9jjzWUL
+	eK/6U6sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXRJF-0000000CnS1-3caD;
-	Sun, 21 Dec 2025 21:49:49 +0000
-Received: from fhigh-b4-smtp.messagingengine.com ([202.12.124.155])
+	id 1vXRK3-0000000CnXY-0xjD;
+	Sun, 21 Dec 2025 21:50:39 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXRJD-0000000CnRS-2SSw
+	id 1vXRK0-0000000CnWm-4C37
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Dec 2025 21:49:49 +0000
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id ABB2A7A0070;
-	Sun, 21 Dec 2025 16:49:43 -0500 (EST)
-Received: from phl-imap-18 ([10.202.2.89])
-  by phl-compute-01.internal (MEProxy); Sun, 21 Dec 2025 16:49:43 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jmay.us; h=cc:cc
-	:content-transfer-encoding:content-type:content-type:date:date
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1766353783;
-	 x=1766440183; bh=1+IMBLM4U41kKgRvFiSq4x/aDvCnzjCMF1l8hqPeff0=; b=
-	idmkJZpw99YFCVVnJ4jojUegdS9blxxGYtD+rLNYGwkRPDUm4t3U2NsBKpZUElLa
-	+w6NkOxv7lmFZsfdXoJJBW+NqoW2CeVTRfnhetqUCcrMzqRbLCSPqhSTSNEnsGJX
-	qDo1qT3v0ewHzHUeTbQ6dFUZfeQfPaLRmNGlJMcD5RZqNjGt/0Oz8pm/xESBCwbi
-	3aGcKU5SgMlOwuXXaIKyRHoUjSuGObwCptCmgAUtq4EBGro9rh9QjhGcYcduvGqi
-	sr9FFCv4P5R6ikv9YbuLjeS/AN6gVHe2Vhp/oadYMWTdCtMXmEnN9s93GXibv0j3
-	lQAaqZuOTNanpnCWR3BPlQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1766353783; x=
-	1766440183; bh=1+IMBLM4U41kKgRvFiSq4x/aDvCnzjCMF1l8hqPeff0=; b=c
-	N3Gf7XFkjmtgLgky447e/pxXedMFKDFSpSsTa+55yvYD0dUvvdhfdhZMNB8JC1hm
-	HE1Zh9w7DrZbLuLOS0/STVwtYphtIcTar/91CnWuRXV+vbZjIrE8fj1ZaF4zgKw0
-	8umn5MU/JWS31+3Yo4ctR6XcQXKeGstia0GNEoTQreT8n+/zUPoQGu7+twaJXwyH
-	utwMJtLaBGpir5bc5wdadJSh73m+6aD1NloDmQGJsUUY5+4Wl8wQhpkOBr15NcQe
-	0HrtLCV4j/7+NidiQqa29P0Gsb+Sn/8bktWnE/OkUeXgwIghCcX5TLI6VTrrkVbL
-	N7AT1huQcaY503d483EOw==
-X-ME-Sender: <xms:d2tIaVewh-o9TgVESZQvK4028DpLjoicHCuvfQjiwpT-8Ojzk00LcA>
-    <xme:d2tIaeAS96ElWzkrCMZKtLVQq9abm6iV1mcTNZQlmHicm28BwMJ6D6fJuwyADXNa5
-    1Rf3mkYZNA01JdDM1tkr_VgQHXBSvQCEvbHS-V2O9qstI15LQn3cEo>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdehhedulecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdflohgvlhcu
-    ofgrhidfuceojhhovghlqdhlihhnuhigsehjmhgrhidruhhsqeenucggtffrrghtthgvrh
-    hnpeevleehvdeiheffudekffejtdeffeeghffggedvteevffdtvddvffevvdetgfffhfen
-    ucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivgeptdenuc
-    frrghrrghmpehmrghilhhfrhhomhepjhhovghlqdhlihhnuhigsehjmhgrhidruhhspdhn
-    sggprhgtphhtthhopeekpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegtrghtrg
-    hlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtoheplhgvohdrhigrnhes
-    rghrmhdrtghomhdprhgtphhtthhopegrrhhnugesrghrnhgusgdruggvpdhrtghpthhtoh
-    epihhrohhgvghrshesghhoohhglhgvrdgtohhmpdhrtghpthhtohepfihilhhlsehkvghr
-    nhgvlhdrohhrghdprhgtphhtthhopehjrghmvghsrdgtlhgrrhhksehlihhnrghrohdroh
-    hrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhn
-    fhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhpvghrfhdquhhsvghrsh
-    esvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:d2tIaa-2XMguZXZw0ohNW9OyR8ERMCpIGdIyH-S4oXfMExaaxnirXw>
-    <xmx:d2tIaWsAp6e1IWIPG3xpiMOiK2xWLho5auDRTH6ouyhPUo-CDcSNew>
-    <xmx:d2tIaSOg4huBcvhAQdTF-DaFHo_eWKUo2ekmYzq_CNOPXTl9VyBQrw>
-    <xmx:d2tIaTiBVajAxzRPrZkfFh6iieaE3bJIb4too7lEo74Dlp4H-naItg>
-    <xmx:d2tIaWby7W6ntYRgE6y2s-AvvFjRR-7ZAZWsiF_n-35H3TXBwhEJ2QLa>
-Feedback-ID: i86164869:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 34BFE15C008C; Sun, 21 Dec 2025 16:49:43 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Sun, 21 Dec 2025 21:50:38 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-2a07f8dd9cdso35881415ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 21 Dec 2025 13:50:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlemail.com; s=20230601; t=1766353836; x=1766958636; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=I8ESPuhbHJz02YptQK1tw7Lrl7Cucbn6A3EDj5euzbk=;
+        b=R8diVP2UnJvaJRud5OWcUmknmUFQ5bXSpp/FJ9NbimiaLORYKy85A6YpMQgwBFnmeu
+         GaWQiWpjpm9taiLT+wbC9csKmDGICYU+R9mZ6pjD7Fc6xsNkBMW1rN2KFCrsJxZOPVTE
+         6InrPqROscqqorM4spjtLRhg2MDteooFJlgqJ4Xyr6QVJlWvDZs0ekTXHsDpg1eGA3Sg
+         iNFSUKxlSXU4SMy1NV9Ge5FOF3oMZp/PMEaIpZaKtxr5iGHVrlJtOTQ6YE73B902y5yn
+         3x0IQnAOoUHsH+TNDGWuLAdLqUDTLkjLT+tJEiPB0Tu47Kq816JFnvJ8WbV+t9ZlAWwR
+         K7vg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766353836; x=1766958636;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=I8ESPuhbHJz02YptQK1tw7Lrl7Cucbn6A3EDj5euzbk=;
+        b=lwqU9vbxcbB0fpvqsxh/gwfNEEUITVtZFOkYhTOhufkTAloFD1VtcgDBEz3tH28RB3
+         0rWbeOsRB2SH2iQ4IsmxcuQcXfc9qXFnErkncY9H1Kr5WUOjI4B70BG2C40763Q4uEZY
+         Jyfb/MFgbYbKUgPLF39w+4tMpIjTfYCPKQ7EEzw9xgFHtXkfFxd+4sMFJRQ6vfTBPDzM
+         mbonqfyholBmLXuVPulQlKG8AbUpwBd3lOUvzEwrT70mILMdJkd5GZJojEtB60JEQoc5
+         FiPVq4QodDzTEZbAFUftC6StFSuivoZ3xTPJG59aznzpBPUuC21QqGZXyXHB2au1Ejuk
+         sXnw==
+X-Forwarded-Encrypted: i=1; AJvYcCXYIZPbclsCj4XGZoayjtWX06r7+mtCyzHFvWd3Y80zFgwTw+8UCDw7XhIE810N2wEaI5ZaTsNgBvXcJZoHxf1x@lists.infradead.org
+X-Gm-Message-State: AOJu0YwMT8taBGWUvOZmY/hzC0Ww4ejAjH2Qax2BEBFmuirMEbTv8xaN
+	as3mNzmd/61lBV5PPbnSHcy12iz/VFRIa7dDApqLeXvZFLofZSdSsR2uUsymfE4Zews9ZU1HYuP
+	uyewH8DTjA8KAiWH9WEf6kTZsTkacsX8=
+X-Gm-Gg: AY/fxX7ktiNPTCcGmmST4uHhewy4Xs+tWwlU1fTW5WhNISKWeU7Dz0s96lSrHYbgt8e
+	AXuEpvTUGb7F+bGaemUTd1zyncyL4tsAV+OER7RRurmxQYZO+IvNaFXPTIEbkiWobE0GIYyL3GN
+	Q1Zblv6BuZfzmtVo8neltfvvAdUkrQ8X1YukRSBIWU0cIJYk/2i13Qu7VX0FFn7kxFeWzuQVJaI
+	D6jXeXATW2SzANxNBu8sDrWTdX4pOnYCZW+T12D+ZbpQRITc4ZdZoiCTxRCX6K5+7GuRuffjphd
+	Xzkmgk4yKc9nexeN7Q9DN0x0oowv
+X-Google-Smtp-Source: AGHT+IGw0n+Vw3mSNWIuK6jiR5TwNM1Orq2NMptHhH0WFtIprggK0653bvytXvjKFmmgd9+xofkm/n3sIE9SOEugciA=
+X-Received: by 2002:a17:903:b83:b0:2a1:388d:8ef3 with SMTP id
+ d9443c01a7336-2a2f222bc6amr92154845ad.18.1766353835637; Sun, 21 Dec 2025
+ 13:50:35 -0800 (PST)
 MIME-Version: 1.0
-X-ThreadId: AvQW3Rw2Mc4g
-Date: Sun, 21 Dec 2025 13:48:56 -0800
-From: "Joel May" <joel-linux@jmay.us>
-To: "Leo Yan" <leo.yan@arm.com>, "James Clark" <james.clark@linaro.org>
-Cc: "Arnd Bergmann" <arnd@arndb.de>, "Ian Rogers" <irogers@google.com>,
- linux-arm-kernel@lists.infradead.org,
- "Linux perf Profiling" <linux-perf-users@vger.kernel.org>,
- "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>
-Message-Id: <c8161700-ad9d-43d3-8c45-cfc110ebcd49@app.fastmail.com>
-In-Reply-To: <20251215112818.GB681384@e132581.arm.com>
-References: <b2651f20-6f3a-49f5-9cd8-3fb028b2cab5@app.fastmail.com>
- <fcefc3c0-541d-40cc-84e3-9c2460308bdb@linaro.org>
- <23c07ac4-ff13-47a5-824a-e7af1d1847a3@app.fastmail.com>
- <bda366b4-fa53-4feb-a7ce-ee47cfc404b5@linaro.org>
- <20251215112818.GB681384@e132581.arm.com>
-Subject: Re: [PATCH] arm64: perf: fix syscalltbl path base
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+References: <20251216-drm-bridge-alloc-getput-drm_of_find_bridge-v3-0-b5165fab8058@bootlin.com>
+ <20251216-drm-bridge-alloc-getput-drm_of_find_bridge-v3-10-b5165fab8058@bootlin.com>
+In-Reply-To: <20251216-drm-bridge-alloc-getput-drm_of_find_bridge-v3-10-b5165fab8058@bootlin.com>
+From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Date: Sun, 21 Dec 2025 22:50:23 +0100
+X-Gm-Features: AQt7F2repQdtBoV8d-ez3LVKkRTtOC5SATWZ81V_d9C-sFP5czyoEjd7MirbIfc
+Message-ID: <CAFBinCDt=9H1ccXatr8JYA=atG+vDCBX9x0xor9kibUfo1NKpA@mail.gmail.com>
+Subject: Re: [PATCH v3 10/22] drm/meson: encoder_cvbs: get/put the next bridge
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Jonathan Corbet <corbet@lwn.net>, Alexey Brodkin <abrodkin@synopsys.com>, Phong LE <ple@baylibre.com>, 
+	Liu Ying <victor.liu@nxp.com>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Kevin Hilman <khilman@baylibre.com>, 
+	Jerome Brunet <jbrunet@baylibre.com>, Hui Pu <Hui.Pu@gehealthcare.com>, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251221_134947_999187_4C18D8B7 
-X-CRM114-Status: GOOD (  16.39  )
+X-CRM114-CacheID: sfid-20251221_135037_043521_69BB56B6 
+X-CRM114-Status: UNSURE (   9.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,40 +109,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 15, 2025, at 03:28, Leo Yan wrote:
-> On Mon, Dec 15, 2025 at 12:52:24PM +0200, James Clark wrote:
-> > On 15/12/2025 11:33, Arnd Bergmann wrote:
-> > > On Mon, Dec 15, 2025, at 09:47, James Clark wrote:
-> > > > On 15/12/2025 00:12, Joel May wrote:
-> > > > 
-> > > > Hi Joel,
-> > > > 
-> > > > There is a similar fix on the list here:
-> > > > 
-> > > > https://lore.kernel.org/linux-perf-users/20251204-perf_fix_syscall_header-v1-1-b8e27f74ed6a@arm.com/
-> > > > 
-> > > > I'm not sure if commit 1 alone will also fix your issue, or we'd need to
-> > > > collapse both of the commits in that set.
-> 
-> We need to apply both patches in the share link - we need to apply the
-> second patch to revert generating unistd_64.h in libperf.
-
-Yes, applying both of those patches will mitigate my problem.
-
-Neither of those patches update syscalltbl in
-arm/arm64/kernel/Makefile.syscalls though.  Based on the context in
-scripts/Makefile.asm-headers, it looks like syscalltbl is always intended
-to be relative to srctree.  So, my patch increases consistency, even if
-it's not fixing any known problem (after the other patches are applied).
-
-Whether headers are dynamically generated or not, it seems like this is
-something that can be improved anyway.
-
-This is my first time contributing to the Linux kernel, so please bare with
-my ignorance.  I don't know whether it's acceptable to consider patches
-that conceptually improve something without an actual problem they're
-solving.
-
-Thanks,
---Joel
+On Tue, Dec 16, 2025 at 7:00=E2=80=AFPM Luca Ceresoli <luca.ceresoli@bootli=
+n.com> wrote:
+>
+> This driver obtains a bridge pointer from of_drm_find_bridge() in the pro=
+be
+> function and stores it until driver removal. of_drm_find_bridge() is
+> deprecated. Move to of_drm_find_and_get_bridge() for the bridge to be
+> refcounted and use bridge->next_bridge to put the reference on
+> deallocation.
+>
+> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
 
