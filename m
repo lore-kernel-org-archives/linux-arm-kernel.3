@@ -4,80 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE630E66886
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Dec 2025 19:32:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE396E67482
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Dec 2025 21:50:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z8KubohRsho3VqSDncD7kfclGNc+12HXc+ripJT2XBI=; b=ZJP+6Kkz6e0PgYAfg9gw/vXuzc
-	9IogYgOaot7FwCrQX6Ly4Rp/wZjZ469ZCHHt0P8JxocRycsuYEvQ4DNtT/zcksFP08D4/LNHgwARu
-	wGVCaWOJDoVawwI1wXk5OrvUw+t3dcIyCP+HBVBHapVhNang5gCQvVRqXpGoge+9rqhzBHSCKsplx
-	BO2SqFh5KIJX5pyAXUgXxeu83ZTkyO1m/GggHqYa/XEs8B4Od+XcDrocPDn4Ij5snr9hMHCMm5xUY
-	p86S2DcxeIhUPZzFh7IoSTlxUAUCSk5uUvnQ67mBC7iWIN7WIGDhlMMYf/Lt6wMUpAhWr/i/Br0qz
-	BknM0/jg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1+IMBLM4U41kKgRvFiSq4x/aDvCnzjCMF1l8hqPeff0=; b=cDU1RGT0D+ZsT7x0ydhwmdG+gS
+	fmCOL8Nl0qZdsG1kKkZv+esTE66Y1sKvxnqJi1anO6M3x4lS6qCz3Kkap470uRhI4EhdWI8q2KD1P
+	DGnAeqX7dZY/N+gZW3b9ZnfY7yWAzrNufvfboxx9PkgWIu9ZhQNfhzgCy0rl2co9ogL4K0bylk67Y
+	RC2gzn6W8n1yQtk7uDbxXd3EDdeTLmyeGm+OvzcEjo+Loz94+LiaxGhicMftOmsnFhbLJC+OFVzKA
+	DdQQmajvqw08Ltl3kLwgPehMh4LPhyTLfve8mnyqNqGWyljZP+Jl5dxFWu9YFtDb35da1TuiSXnPb
+	SNNzmFrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXPA7-0000000Cgpu-2cUL;
-	Sun, 21 Dec 2025 19:32:15 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1vXRJF-0000000CnS1-3caD;
+	Sun, 21 Dec 2025 21:49:49 +0000
+Received: from fhigh-b4-smtp.messagingengine.com ([202.12.124.155])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXPA4-0000000CgpQ-3Y5q
+	id 1vXRJD-0000000CnRS-2SSw
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Dec 2025 19:32:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1766345533; x=1797881533;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=b9Nwd9sXKSYEQNfuaVJPScUfQ1fvQxMuXpR46Wa/4LM=;
-  b=AjWNE27/rvz+U/gah9w4cXEvjwgNOmZnvvLRJYyOXSHHTuivYwCZyh86
-   PDZxkoLv+pOeZhRsCHTn8GNnmbNfjz2nx2aE23BxsRHXOjZ3yXDs/39n/
-   3M27I4mRpaRdB6K45avoYpa0yH96YCiuhznqQaIditZSBaRO6njnQW2Tm
-   9vifrq0YIFV+fScXxwuI9Pi0IGrmYBsJVJouiscPErkOLwt/CHw7Ntgm9
-   rpJTTfcJ6XWXZdifynOfeDC0EnsF2C6v1WhbdDhoonNFzxCeT6SILzr3n
-   dtuIgbn4LqjN8vfIIQI/Wxzn31dqqpx0QSTLQ8k6kVgROesNQ5jMacn4n
-   w==;
-X-CSE-ConnectionGUID: efeHF+0hS3uK7rF4r6h55g==
-X-CSE-MsgGUID: 3V/onbQgR6uYoqfeLX4wmw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11649"; a="79582781"
-X-IronPort-AV: E=Sophos;i="6.21,166,1763452800"; 
-   d="scan'208";a="79582781"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Dec 2025 11:32:11 -0800
-X-CSE-ConnectionGUID: ZAYyN8XSTVSW1Pl8TDrcXg==
-X-CSE-MsgGUID: k5+MMjNURX+fVBoDoahJDQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,166,1763452800"; 
-   d="scan'208";a="236766300"
-Received: from igk-lkp-server01.igk.intel.com (HELO 8a0c053bdd2a) ([10.211.93.152])
-  by orviesa001.jf.intel.com with ESMTP; 21 Dec 2025 11:32:07 -0800
-Received: from kbuild by 8a0c053bdd2a with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vXP9w-000000005DA-2giu;
-	Sun, 21 Dec 2025 19:32:04 +0000
-Date: Sun, 21 Dec 2025 20:31:25 +0100
-From: kernel test robot <lkp@intel.com>
-To: Ahmed Tiba <ahmed.tiba@arm.com>, linux-acpi@vger.kernel.org,
-	devicetree@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, tony.luck@intel.com, bp@alien8.de,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	catalin.marinas@arm.com, will@kernel.org,
-	linux-arm-kernel@lists.infradead.org, rafael@kernel.org,
-	linux-doc@vger.kernel.org, Dmitry.Lamerov@arm.com,
-	Michael.Zhao2@arm.com, ahmed.tiba@arm.com
-Subject: Re: [PATCH 02/12] ras: add estatus core implementation
-Message-ID: <202512212012.arq4zqYv-lkp@intel.com>
-References: <20251217112845.1814119-3-ahmed.tiba@arm.com>
+	Sun, 21 Dec 2025 21:49:49 +0000
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id ABB2A7A0070;
+	Sun, 21 Dec 2025 16:49:43 -0500 (EST)
+Received: from phl-imap-18 ([10.202.2.89])
+  by phl-compute-01.internal (MEProxy); Sun, 21 Dec 2025 16:49:43 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jmay.us; h=cc:cc
+	:content-transfer-encoding:content-type:content-type:date:date
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1766353783;
+	 x=1766440183; bh=1+IMBLM4U41kKgRvFiSq4x/aDvCnzjCMF1l8hqPeff0=; b=
+	idmkJZpw99YFCVVnJ4jojUegdS9blxxGYtD+rLNYGwkRPDUm4t3U2NsBKpZUElLa
+	+w6NkOxv7lmFZsfdXoJJBW+NqoW2CeVTRfnhetqUCcrMzqRbLCSPqhSTSNEnsGJX
+	qDo1qT3v0ewHzHUeTbQ6dFUZfeQfPaLRmNGlJMcD5RZqNjGt/0Oz8pm/xESBCwbi
+	3aGcKU5SgMlOwuXXaIKyRHoUjSuGObwCptCmgAUtq4EBGro9rh9QjhGcYcduvGqi
+	sr9FFCv4P5R6ikv9YbuLjeS/AN6gVHe2Vhp/oadYMWTdCtMXmEnN9s93GXibv0j3
+	lQAaqZuOTNanpnCWR3BPlQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1766353783; x=
+	1766440183; bh=1+IMBLM4U41kKgRvFiSq4x/aDvCnzjCMF1l8hqPeff0=; b=c
+	N3Gf7XFkjmtgLgky447e/pxXedMFKDFSpSsTa+55yvYD0dUvvdhfdhZMNB8JC1hm
+	HE1Zh9w7DrZbLuLOS0/STVwtYphtIcTar/91CnWuRXV+vbZjIrE8fj1ZaF4zgKw0
+	8umn5MU/JWS31+3Yo4ctR6XcQXKeGstia0GNEoTQreT8n+/zUPoQGu7+twaJXwyH
+	utwMJtLaBGpir5bc5wdadJSh73m+6aD1NloDmQGJsUUY5+4Wl8wQhpkOBr15NcQe
+	0HrtLCV4j/7+NidiQqa29P0Gsb+Sn/8bktWnE/OkUeXgwIghCcX5TLI6VTrrkVbL
+	N7AT1huQcaY503d483EOw==
+X-ME-Sender: <xms:d2tIaVewh-o9TgVESZQvK4028DpLjoicHCuvfQjiwpT-8Ojzk00LcA>
+    <xme:d2tIaeAS96ElWzkrCMZKtLVQq9abm6iV1mcTNZQlmHicm28BwMJ6D6fJuwyADXNa5
+    1Rf3mkYZNA01JdDM1tkr_VgQHXBSvQCEvbHS-V2O9qstI15LQn3cEo>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdehhedulecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdflohgvlhcu
+    ofgrhidfuceojhhovghlqdhlihhnuhigsehjmhgrhidruhhsqeenucggtffrrghtthgvrh
+    hnpeevleehvdeiheffudekffejtdeffeeghffggedvteevffdtvddvffevvdetgfffhfen
+    ucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivgeptdenuc
+    frrghrrghmpehmrghilhhfrhhomhepjhhovghlqdhlihhnuhigsehjmhgrhidruhhspdhn
+    sggprhgtphhtthhopeekpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegtrghtrg
+    hlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtoheplhgvohdrhigrnhes
+    rghrmhdrtghomhdprhgtphhtthhopegrrhhnugesrghrnhgusgdruggvpdhrtghpthhtoh
+    epihhrohhgvghrshesghhoohhglhgvrdgtohhmpdhrtghpthhtohepfihilhhlsehkvghr
+    nhgvlhdrohhrghdprhgtphhtthhopehjrghmvghsrdgtlhgrrhhksehlihhnrghrohdroh
+    hrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhn
+    fhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhpvghrfhdquhhsvghrsh
+    esvhhgvghrrdhkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:d2tIaa-2XMguZXZw0ohNW9OyR8ERMCpIGdIyH-S4oXfMExaaxnirXw>
+    <xmx:d2tIaWsAp6e1IWIPG3xpiMOiK2xWLho5auDRTH6ouyhPUo-CDcSNew>
+    <xmx:d2tIaSOg4huBcvhAQdTF-DaFHo_eWKUo2ekmYzq_CNOPXTl9VyBQrw>
+    <xmx:d2tIaTiBVajAxzRPrZkfFh6iieaE3bJIb4too7lEo74Dlp4H-naItg>
+    <xmx:d2tIaWby7W6ntYRgE6y2s-AvvFjRR-7ZAZWsiF_n-35H3TXBwhEJ2QLa>
+Feedback-ID: i86164869:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 34BFE15C008C; Sun, 21 Dec 2025 16:49:43 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251217112845.1814119-3-ahmed.tiba@arm.com>
+X-ThreadId: AvQW3Rw2Mc4g
+Date: Sun, 21 Dec 2025 13:48:56 -0800
+From: "Joel May" <joel-linux@jmay.us>
+To: "Leo Yan" <leo.yan@arm.com>, "James Clark" <james.clark@linaro.org>
+Cc: "Arnd Bergmann" <arnd@arndb.de>, "Ian Rogers" <irogers@google.com>,
+ linux-arm-kernel@lists.infradead.org,
+ "Linux perf Profiling" <linux-perf-users@vger.kernel.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>, "Will Deacon" <will@kernel.org>
+Message-Id: <c8161700-ad9d-43d3-8c45-cfc110ebcd49@app.fastmail.com>
+In-Reply-To: <20251215112818.GB681384@e132581.arm.com>
+References: <b2651f20-6f3a-49f5-9cd8-3fb028b2cab5@app.fastmail.com>
+ <fcefc3c0-541d-40cc-84e3-9c2460308bdb@linaro.org>
+ <23c07ac4-ff13-47a5-824a-e7af1d1847a3@app.fastmail.com>
+ <bda366b4-fa53-4feb-a7ce-ee47cfc404b5@linaro.org>
+ <20251215112818.GB681384@e132581.arm.com>
+Subject: Re: [PATCH] arm64: perf: fix syscalltbl path base
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251221_113212_935167_2B74E5D3 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20251221_134947_999187_4C18D8B7 
+X-CRM114-Status: GOOD (  16.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,79 +120,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ahmed,
+On Mon, Dec 15, 2025, at 03:28, Leo Yan wrote:
+> On Mon, Dec 15, 2025 at 12:52:24PM +0200, James Clark wrote:
+> > On 15/12/2025 11:33, Arnd Bergmann wrote:
+> > > On Mon, Dec 15, 2025, at 09:47, James Clark wrote:
+> > > > On 15/12/2025 00:12, Joel May wrote:
+> > > > 
+> > > > Hi Joel,
+> > > > 
+> > > > There is a similar fix on the list here:
+> > > > 
+> > > > https://lore.kernel.org/linux-perf-users/20251204-perf_fix_syscall_header-v1-1-b8e27f74ed6a@arm.com/
+> > > > 
+> > > > I'm not sure if commit 1 alone will also fix your issue, or we'd need to
+> > > > collapse both of the commits in that set.
+> 
+> We need to apply both patches in the share link - we need to apply the
+> second patch to revert generating unistd_64.h in libperf.
 
-kernel test robot noticed the following build warnings:
+Yes, applying both of those patches will mitigate my problem.
 
-[auto build test WARNING on efi/next]
-[also build test WARNING on rafael-pm/linux-next rafael-pm/bleeding-edge robh/for-next linus/master v6.19-rc1 next-20251219]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Neither of those patches update syscalltbl in
+arm/arm64/kernel/Makefile.syscalls though.  Based on the context in
+scripts/Makefile.asm-headers, it looks like syscalltbl is always intended
+to be relative to srctree.  So, my patch increases consistency, even if
+it's not fixing any known problem (after the other patches are applied).
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Ahmed-Tiba/ras-add-estatus-core-interfaces/20251217-200718
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/efi/efi.git next
-patch link:    https://lore.kernel.org/r/20251217112845.1814119-3-ahmed.tiba%40arm.com
-patch subject: [PATCH 02/12] ras: add estatus core implementation
-config: x86_64-rhel-9.4 (https://download.01.org/0day-ci/archive/20251221/202512212012.arq4zqYv-lkp@intel.com/config)
-compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251221/202512212012.arq4zqYv-lkp@intel.com/reproduce)
+Whether headers are dynamically generated or not, it seems like this is
+something that can be improved anyway.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202512212012.arq4zqYv-lkp@intel.com/
+This is my first time contributing to the Linux kernel, so please bare with
+my ignorance.  I don't know whether it's acceptable to consider patches
+that conceptually improve something without an actual problem they're
+solving.
 
-All warnings (new ones prefixed by >>):
-
-   drivers/firmware/efi/estatus.c:505:13: warning: 'estatus_cache_add' defined but not used [-Wunused-function]
-     505 | static void estatus_cache_add(struct estatus_source *source,
-         |             ^~~~~~~~~~~~~~~~~
-   drivers/firmware/efi/estatus.c:435:12: warning: 'estatus_cached' defined but not used [-Wunused-function]
-     435 | static int estatus_cached(struct acpi_hest_generic_status *estatus)
-         |            ^~~~~~~~~~~~~~
-   drivers/firmware/efi/estatus.c:411:12: warning: 'estatus_print_estatus' defined but not used [-Wunused-function]
-     411 | static int estatus_print_estatus(const char *pfx,
-         |            ^~~~~~~~~~~~~~~~~~~~~
-   drivers/firmware/efi/estatus.c:340:13: warning: 'estatus_clear_estatus' defined but not used [-Wunused-function]
-     340 | static void estatus_clear_estatus(struct estatus_source *source,
-         |             ^~~~~~~~~~~~~~~~~~~~~
-   drivers/firmware/efi/estatus.c:321:12: warning: 'estatus_read_estatus' defined but not used [-Wunused-function]
-     321 | static int estatus_read_estatus(struct estatus_source *source,
-         |            ^~~~~~~~~~~~~~~~~~~~
->> drivers/firmware/efi/estatus.c:117:12: warning: 'estatus_panic_timeout' defined but not used [-Wunused-variable]
-     117 | static int estatus_panic_timeout __read_mostly = 30;
-         |            ^~~~~~~~~~~~~~~~~~~~~
-   In file included from arch/x86/include/asm/uprobes.h:13,
-                    from include/linux/uprobes.h:66,
-                    from include/linux/mm_types.h:16,
-                    from include/linux/mmzone.h:22,
-                    from include/linux/gfp.h:7,
-                    from include/linux/xarray.h:16,
-                    from include/linux/list_lru.h:14,
-                    from include/linux/fs/super_types.h:7,
-                    from include/linux/fs/super.h:5,
-                    from include/linux/fs.h:5,
-                    from include/linux/seq_file.h:11,
-                    from include/linux/seq_buf.h:7,
-                    from include/linux/trace_seq.h:5,
-                    from include/linux/cper.h:13,
-                    from drivers/firmware/efi/estatus.c:10:
-   drivers/firmware/efi/estatus.c:106:29: warning: 'estatus_report_chain' defined but not used [-Wunused-variable]
-     106 | static ATOMIC_NOTIFIER_HEAD(estatus_report_chain);
-         |                             ^~~~~~~~~~~~~~~~~~~~
-   include/linux/notifier.h:116:37: note: in definition of macro 'ATOMIC_NOTIFIER_HEAD'
-     116 |         struct atomic_notifier_head name =                      \
-         |                                     ^~~~
-
-
-vim +/estatus_panic_timeout +117 drivers/firmware/efi/estatus.c
-
-   116	
- > 117	static int estatus_panic_timeout __read_mostly = 30;
-   118	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Thanks,
+--Joel
 
