@@ -4,65 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFCBFE66886
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Dec 2025 15:10:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49E44E67482
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Dec 2025 15:27:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SSXrG9xttNpPnTPixtXLrS+ulAo+g6huuvRwK/d+lac=; b=M9HeMv8iw+JnQRHPtpe7n3zvKQ
-	A0Ny/OOuWQ7xLSal5rjMCZZlLdfndirMkpZNJX6O9VExITFWYkG1rZ2CT5E+Mxi/re82ldhBuZEVC
-	/yE3mY/s/vYMcSFXjDAQKbY3oxHhPZq0cZFUAPEQmTZ/wCNsB8hpNsx2rxSa3POQ+zvJEb82fJ05u
-	Y9jnTgU7cbQmYbRwC2T0asqjJNp52cdJZazgyTyIRwd+O0vqMVJNCa4qcUJ/0HlxWUW2FMXgmD4pu
-	Ncm4Erc+vDOF0Lk4OVPsoogLy5e3wwN9N2TkF9aseKTR0rUuyPd+CahDUc7wRQTbJhxGKgavXFZf+
-	fy+zehAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jlKsAFeaIV2hMkoHG30hkHGQj8Sy9Pccwd7CmoKW274=; b=I/u2Ifs+OdBKDFSjXUfvJTErWZ
+	5D4uYGnpSoz3m1OIu/h+ILCOVIqowx172muUQdamaF++ddCfUXHUfVhbXuXMeTT4lKXFVyEl2t28A
+	W++eD51926kZOI63hmVrquNpBsx9nxyqbakFX1+luBrJLd/7lSL1NyCNmairxpNv5iSEYpO6JxtNM
+	onjSe1EK4nFTiq6QFLvQuc/TSf3FWSkhhc5+iBvI97StVxlNe/IZU64mXCK2gYlxfqQJjAGsOE7Ri
+	DByHuNBh9ydvNkU7GjzcXqLhDhA2PsY7xC2WHG9Z/fu/k0xGSYbe8WZ7tRBUCQ5tGqMAFdWRRo8e3
+	WIzfAz2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXL59-0000000CXUG-1v8G;
-	Sun, 21 Dec 2025 15:10:51 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vXLLK-0000000CXyH-07i1;
+	Sun, 21 Dec 2025 15:27:34 +0000
+Received: from terminus.zytor.com ([2607:7c80:54:3::136] helo=mail.zytor.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXL56-0000000CXTg-2Isq
+	id 1vXLLI-0000000CXxw-07KT
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Dec 2025 15:10:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 32F6D40C11;
-	Sun, 21 Dec 2025 15:10:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 814F4C4CEFB;
-	Sun, 21 Dec 2025 15:10:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766329848;
-	bh=wqazjEUfhNgRi4xDXNm830yr+KxJQkTCkXxzr4Piqy4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Z+U+PK0oznX66bMrSrirIwA2bNDNTWhEx3AjQ9eOpUwquC6fFMr9bLy0JXYII+aeB
-	 zgDJJ59bjJpKg11XxsWaPmtBDDwXhkOQmGyURkJUxUhHuvaZEmd1rJ3wfbDY0sMU6G
-	 5037UhP86ccwFU6hAqV9SKMPA1Y8kdxOcAL7SQhUVrknWrBgwDLsyJvv85s/3dM1k6
-	 UP0WqDrhFMsoCqZZ2+vioKhy/rNz+cFeYW+mfaZoaVZP5SyPQB45mlGmHEG3hmSuWv
-	 KSJ+BKuHJR+epfuZ5pokz798brKVABpph//Fx6wyarz67c1xunRE3bROBxdiUEccJp
-	 ETXaEs8cFB2ug==
-Date: Sun, 21 Dec 2025 16:10:44 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Chen-Yu Tsai <wens@kernel.org>
-Cc: Jernej Skrabec <jernej@kernel.org>, 
-	Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Mark Brown <broonie@kernel.org>, Andre Przywara <andre.przywara@arm.com>, 
-	linux-spi@vger.kernel.org, devicetree@vger.kernel.org, linux-sunxi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/4] spi: dt-bindings: sun6i: Add compatibles for A523's
- SPI controllers
-Message-ID: <20251221-tunneling-intelligent-dogfish-d44a01@quoll>
-References: <20251221110513.1850535-1-wens@kernel.org>
- <20251221110513.1850535-2-wens@kernel.org>
+	Sun, 21 Dec 2025 15:27:33 +0000
+Received: from ehlo.thunderbird.net (c-76-133-66-138.hsd1.ca.comcast.net [76.133.66.138])
+	(authenticated bits=0)
+	by mail.zytor.com (8.18.1/8.17.1) with ESMTPSA id 5BLFQAQb2906325
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NO);
+	Sun, 21 Dec 2025 07:26:11 -0800
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.zytor.com 5BLFQAQb2906325
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zytor.com;
+	s=2025112201; t=1766330779;
+	bh=jlKsAFeaIV2hMkoHG30hkHGQj8Sy9Pccwd7CmoKW274=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+	b=d4LBr66A/lMYsQQUrfpraHzgjeSyK6794g+KDFvXyLiRZzLUKCZVKw68GdUqnufZZ
+	 +NAvFJ1Tc1JY5HEDmF0egLxtTnk8IAec4qisamrjj52wF9Zyd4QozYprO+iiGUZQJU
+	 c2fm+Em7HTcQi1P/wvEzvyQwP9GZuEEsuyscS4GLVm8IDRc8zdqM36lHHl3R5uLzaZ
+	 l6bZyDuDsP+7ONg1mrdK0BrGIdBfrsgOE07sYDDOHVvHchBTA+qa7DJxFrF2DMYbxm
+	 Nho6yO0DvkfLBbFDJfdtimxRjHn09lg7IcBD3DPpHB3/L17Ujb74vSiGQta0IdSzu5
+	 LQhxq3/8OdW4Q==
+Date: Sun, 21 Dec 2025 07:26:10 -0800
+From: "H. Peter Anvin" <hpa@zytor.com>
+To: "David Hildenbrand (Red Hat)" <david@kernel.org>,
+        Dave Hansen <dave.hansen@intel.com>, Arnd Bergmann <arnd@arndb.de>,
+        Arnd Bergmann <arnd@kernel.org>, linux-mm@kvack.org
+CC: Andrew Morton <akpm@linux-foundation.org>,
+        Andreas Larsson <andreas@gaisler.com>,
+        Christophe Leroy <chleroy@kernel.org>,
+        Dave Hansen <dave.hansen@linux.intel.com>,
+        Jason Gunthorpe <jgg@nvidia.com>,
+        Linus Walleij <linus.walleij@linaro.org>,
+        Matthew Wilcox <willy@infradead.org>,
+        Richard Weinberger <richard@nod.at>,
+        Russell King <linux@armlinux.org.uk>,
+        linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+        linuxppc-dev@lists.ozlabs.org, x86@kernel.org,
+        Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+        Borislav Petkov <bp@alien8.de>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>, Michal Simek <monstr@monstr.eu>,
+        Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+        "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+        Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
+        Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+        Nishanth Menon <nm@ti.com>, Lucas Stach <l.stach@pengutronix.de>
+Subject: Re: [PATCH 1/4] arch/*: increase lowmem size to avoid highmem use
+User-Agent: K-9 Mail for Android
+In-Reply-To: <4aecb94f-e283-4720-96e5-1837352c3329@kernel.org>
+References: <20251219161559.556737-1-arnd@kernel.org> <20251219161559.556737-2-arnd@kernel.org> <a3f22579-13ee-4479-a5fd-81c29145c3f3@intel.com> <bad18ad8-93e8-4150-a85e-a2852e243363@app.fastmail.com> <a2ce2849-e572-404c-9713-9283a43c09fe@intel.com> <4aecb94f-e283-4720-96e5-1837352c3329@kernel.org>
+Message-ID: <D1726374-3075-47CF-B2FF-FBAC11BC962C@zytor.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20251221110513.1850535-2-wens@kernel.org>
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251221_071048_606970_F14C68A7 
-X-CRM114-Status: GOOD (  15.47  )
+X-CRM114-CacheID: sfid-20251221_072732_098726_7FBC65A5 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,31 +95,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Dec 21, 2025 at 07:05:08PM +0800, Chen-Yu Tsai wrote:
-> The A523 has four SPI controllers. One of them supports MIPI DBI mode
-> in addition to standard SPI.
-> 
-> Compared to older generations, this newer controller now has a combined
-> counter for the RX FIFO ad buffer levels. In older generations, the
-> RX buffer level was a separate bitfield in the FIFO status register.
-> 
-> In practice this difference is negligible. The buffer is mostly
-> invisible to the implementation. If programmed I/O transfers are limited
-> to the FIFO size, then the contents of the buffer seem to always be
-> flushed over to the FIFO. For DMA, the DRQ trigger levels are only tied
-> to the FIFO levels. In all other aspects, the controller is the same as
-> the one in the R329.
-> 
-> Add new compatible strings for the new controllers.
-> 
-> Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
-> ---
->  .../devicetree/bindings/spi/allwinner,sun6i-a31-spi.yaml      | 4 ++++
->  1 file changed, 4 insertions(+)
+On December 21, 2025 1:30:15 AM PST, "David Hildenbrand (Red Hat)" <david@k=
+ernel=2Eorg> wrote:
+>On 12/19/25 21:52, Dave Hansen wrote:
+>> On 12/19/25 12:20, Arnd Bergmann wrote:
+>>>> For simplicity, I think this can just be:
+>>>>=20
+>>>> -	default VMSPLIT_3G
+>>>> +	default VMSPLIT_2G
+>>>>=20
+>>>> I doubt the 2G vs=2E 2G_OPT matters in very many cases=2E If it does,=
+ folks
+>>>> can just set it in their config manually=2E
+>>>>=20
+>>>> But, in the end, I don't this this matters all that much=2E If you th=
+ink
+>>>> having x86 be consistent with ARM, for example, is more important and
+>>>> ARM really wants this complexity, I can live with it=2E
+>>> Yes, I think we do want the default of VMSPLIT_3G_OPT for
+>>> configs that have neither highmem nor lpae, otherwise the most
+>>> common embedded configs go from 3072 MiB to 1792 MiB of virtual
+>>> addressing, and that is much more likely to cause regressions
+>>> than the 2816 MiB default=2E
+>>>=20
+>>> It would be nice to not need the VMSPLIT_2G default for PAE/LPAE,
+>>> but that seems like a larger change=2E
+>>=20
+>> The only thing we'd "regress" would be someone who is repeatedly
+>> starting from scratch with a defconfig and expecting defconfig to be th=
+e
+>> same all the time=2E I honestly think that's highly unlikely=2E
+>>=20
+>> If folks are upgrading and _actually_ exposed to regressions, they've
+>> got an existing config and won't be hit by these defaults at *all*=2E T=
+hey
+>> won't actually regress=2E
+>>=20
+>> In other words, I think we can be a lot more aggressive about defaults
+>> than with the feature set we support=2E I'd much rather add complexity =
+in
+>> here for solving a real problem, like if we have armies of 32-bit x86
+>> users constantly starting new projects from scratch and using defconfig=
+s=2E
+>>=20
+>> I'd _really_ like to keep the defaults as simple as possible=2E
+>
+>I agree with that=2E In particular in areas where there is the chance tha=
+t we could count the number of people that actually care about that with on=
+e hand (in binary ;) )=2E
+>
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-
-Best regards,
-Krzysztof
-
+So, maximum 31? ;)
 
