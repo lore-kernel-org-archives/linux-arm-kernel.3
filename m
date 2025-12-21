@@ -4,159 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B69F9E66886
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Dec 2025 16:18:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D93DE66886
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Dec 2025 18:53:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Yj5PCkcX3NpOx0MVubHGjm/vyE75Or7OKm5HcbRRAM=; b=YvO56Z9dp8/6s8i9cPeZ+J8CPM
-	liPTTIXp7xa7O3KGRUw9X3h6Fnbke2brJ12kPoQXkniGD5gDLom0OAJDr2hCXdQjA2z05YYKKC+tj
-	yNaxBqeNrS0xLItEfJ2I+mTvaGeaofo0KUoXDdoKUwF43eJPgaAIzbLXMJZJW7/NARtkz+/4OjmPR
-	EjL+8y3uKSWzsb7kSF4lU44aOBVh3k0qonBXxrH50CTgutW+YUlrhONQAq19zQRDiRFEfbx7+k8RY
-	/STrNCLvv8UTjw0NasEG/DvbD4Anz66kG4gHxlnvUyH+mQiGsJmaadh6G8cp3FDqbPmEvL5EChlnw
-	iOFvfVIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EkFUuskD3aXQcMoKgf00kBQMcF6mPoLg5bi7MGfjH3A=; b=oribPKH8vHoHx4fi0WmWXJbFlw
+	9octEQ69+PhLMq2ZFVJ31b18Womrjz/eI9/1oVKYRosYdn+/KXF39EZfI09vYnIrVzYVEOC832Oru
+	rKu1jEaWBd23zkIH1YAUDt25+of2Muf0FhCFB/Pvh+gY/GvmGuDaXBCy0kHon++JUT+5fSNGbe8L6
+	8KF8bgX1+PJDpcsh7tre8+E4U1fO0SOCs6nezAJWi8xPr9lQl60OWFzgNOWAXs3zWRKQ+oeATQyha
+	sqcoSi7L5SGUoROOJOQG83gHkB/jfq9LVYZo2XP9W3MHP7RHpTyANCGjmtP7QXndb3R0uEe6b2jvl
+	tNi3dTDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXM8l-0000000CaOg-3ekh;
-	Sun, 21 Dec 2025 16:18:39 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1vXOY5-0000000Ceph-00Rs;
+	Sun, 21 Dec 2025 18:52:57 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXM8j-0000000CaNx-1F00
+	id 1vXOY2-0000000CepK-0Du2
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Dec 2025 16:18:38 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 653C35BCC2;
-	Sun, 21 Dec 2025 16:18:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1766333910; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=3Yj5PCkcX3NpOx0MVubHGjm/vyE75Or7OKm5HcbRRAM=;
-	b=mCnt4Y8g9wsGeC8a71YqMV35vOzr1m0HM69UW17UulhUuwVG0ydF3uuvzeXLa4GIvslZ7S
-	QYQc3/3AA/mLmpp+EtuVSWHSFyj2qHFq13+nY3F0Sz2QLUSg458KpQloTphi22MZ5Meq/4
-	GIRIQkIUdIRy7RQxjyXcgjxIfnpljRA=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1766333910;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=3Yj5PCkcX3NpOx0MVubHGjm/vyE75Or7OKm5HcbRRAM=;
-	b=+fysO4lT9QRvCJD4KFhF25SM1m1m/VNA80U1DScLwbWpQQYgUEyHmTeDGtG7rBrqQV+M1F
-	6h3OrRzIQ6Ob+kBA==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b="SK/TpTNu";
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=JK9Vnvs5
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1766333909; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=3Yj5PCkcX3NpOx0MVubHGjm/vyE75Or7OKm5HcbRRAM=;
-	b=SK/TpTNuD9iwQ9XXcNlTwGcmiWFxH31bYOz2qi35e3x4fDRgAsvNA+ZhUzRPxq2nzxPFHF
-	RvhyFdO8JkbXaUmVNgZ58vW8x0HCHKwcOGRGsaidcJfg1bVOfg3aVOEyZwSXTlFJXdYsPb
-	LNIrSYQRjUUWwcmwLqIn/6OIXHPU5xM=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1766333909;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=3Yj5PCkcX3NpOx0MVubHGjm/vyE75Or7OKm5HcbRRAM=;
-	b=JK9Vnvs5Ps/AD+vFcl47c3Ac/ds9F0AXi/mGl57Rxm+IAa4aNyMKLohCuHyatBPjX+BmXa
-	jJVUd9ZB1w6TZPCw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id E8B7513A54;
-	Sun, 21 Dec 2025 16:18:28 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id oHBlN9QdSGnANgAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Sun, 21 Dec 2025 16:18:28 +0000
-Message-ID: <0204b4f2-98b3-4463-9ae7-fc3657ce2fc1@suse.de>
-Date: Sun, 21 Dec 2025 17:18:28 +0100
+	Sun, 21 Dec 2025 18:52:55 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-42fbad1fa90so2718054f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 21 Dec 2025 10:52:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1766343172; x=1766947972; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=EkFUuskD3aXQcMoKgf00kBQMcF6mPoLg5bi7MGfjH3A=;
+        b=B+6y6uSnqfA6cP7rAmIRu1o4EXUB+Nor1tug1ZvfemrbPrA6O/ffZ8QrGA7Pizf8OX
+         4DFh+/OV7riFQ0+ownnVcGTWD2Q6fauTyRf927Luzs/LK7D6sBxvR5bUOxLlAg42oXmj
+         tyR9QvWbP8Rv0Pa21sckLtFZfB/ysPpFn2bZ1PA8/jOiS4H5Ysc4SsNGMkdBzNEf8/Q0
+         tTSUNoWcvfekS9FubtbFUnAd67smA5X8Mo77AeyuKSo/kDJ7Tpp1gXuvFu1KAbkfMBFl
+         5UmyLBL2ZcQsQHEqEQ/E1HbJHDMNgt9gWOJ0FKe5bUpN8+nQZ3Nn7ZbEr80G3oa1pKbI
+         YJoA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766343172; x=1766947972;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=EkFUuskD3aXQcMoKgf00kBQMcF6mPoLg5bi7MGfjH3A=;
+        b=H+hHxqhZ5vXQRPQrVXTz0RuWK/aD2AvAEP3G0xVg6bBoenyJWp0i4z0tMWLFamkvIV
+         wwnSLDuwYKzGbTdk3/c3cbZug6PYEizEjSSORDfiMLWT8p1FnGr5llpQ921YWp1KoDbA
+         rqLGo91vgunmM2RaR93AVyHqtOwtKlOJIypqujyaavMQJidtQc+Iv+B1En+uLi+0SsZH
+         IECL3Xb8eH4LYv39/j12aZkq7kGM0GSECVjMjPoh7aUm1abbbIBROsgyoBl1iBC7wdu+
+         7erLrDc/m7gqanLkU7pWmK62c8Pnmx67OheZH3QPvjdzKbTgxAq27QdutS2IQh6sLAq8
+         Qy9w==
+X-Forwarded-Encrypted: i=1; AJvYcCWLh6EJ0DAlyiOrIWNx3PYFBzvrqqactHqSO0280JNwYpY2inl7UNkYTzD5Otv+ZGiqcGQIa4gswxl69RjBd2Er@lists.infradead.org
+X-Gm-Message-State: AOJu0YxMLykDxyzCVPD7FfRD4a2SAdbF5FoniY9sAqsSr5ueGzFwfBtK
+	Cie9T9U494YCSEwm5fpfEfC0odeJaGL/ShjoFjFK332XbXYgxMNj48aw
+X-Gm-Gg: AY/fxX4eMmzjGquIq91lKKfvvDOSBGtBC7bJZGHoOSYYgWsqQSjFpN2uThV1QVGjyzW
+	HjYMEZ9rhwZCMrkIiikaTAeJmfOvw/BcpP+SBRlR7U0eZNXZnGpWNyimISvwap+qY2lr9Rd8cSu
+	IDIcHhp1bCBxYQ1oS180IvRKXdxZrcNtRelkVk2RfoR9iGMiqbvlwY9oJWM2u37dU+6xaZusGqx
+	KEyhmxjj0EfyxUKJK1UTBnx9qaNrC8jVAqSOtqTs/OuRp7Hyae/+ORDBvLXBYFcu23sAxFsqF9Q
+	xxulI7Nm95UADy5+vc+EIW90nd8rg4XU1KJfUZmoJ/rWvLprVy+VdxXbUHSDrLzAAlUvcTaJ3rA
+	7/H4rEalYtonDgnlnluOb39Oc7J8ES25GJIVqOUmy4HxSf2oVP+wCHLRaCQT4SiiPopKxesMHhK
+	TUJTx6JeTmttM0XvTw7HR6V5Hi8QIjkxjgItar0lGyfBdKrIKyqwNQnFZMOBbpaAxx1NMX
+X-Google-Smtp-Source: AGHT+IEkkDr9J9+zdibSJ3aQ9iWL0xgIJ5GrJUheHH61EjSouzXE+O5/goeHQ+aazrE5IYrzxVO9HA==
+X-Received: by 2002:a05:6000:4008:b0:430:f241:a11f with SMTP id ffacd0b85a97d-4324e4fa8a7mr8787306f8f.30.1766343171984;
+        Sun, 21 Dec 2025 10:52:51 -0800 (PST)
+Received: from jernej-laptop.localnet (82-192-45-213.dynamic.telemach.net. [82.192.45.213])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4325d10cc48sm7775667f8f.16.2025.12.21.10.52.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 21 Dec 2025 10:52:51 -0800 (PST)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <u.kleine-koenig@baylibre.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Samuel Holland <samuel@sholland.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Richard Genoud <richard.genoud@bootlin.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Richard Genoud <richard.genoud@bootlin.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v2 1/4] dt-bindings: pwm: allwinner: add h616 pwm compatible
+Date: Sun, 21 Dec 2025 19:52:50 +0100
+Message-ID: <10771871.nUPlyArG6x@jernej-laptop>
+In-Reply-To: <20251217082504.80226-2-richard.genoud@bootlin.com>
+References: <20251217082504.80226-1-richard.genoud@bootlin.com>
+ <20251217082504.80226-2-richard.genoud@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 9/9] efi: libstub: Simplify interfaces for
- primary_display
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: javierm@redhat.com, arnd@arndb.de, richard.lyu@suse.com,
- helgaas@kernel.org, x86@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-efi@vger.kernel.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
- dri-devel@lists.freedesktop.org, linux-hyperv@vger.kernel.org,
- linux-pci@vger.kernel.org, linux-fbdev@vger.kernel.org
-References: <20251126160854.553077-1-tzimmermann@suse.de>
- <20251126160854.553077-10-tzimmermann@suse.de>
- <CAMj1kXFeBS7O5A-CPds3UfFnjegGTpVsuF7VznBc-zZ+gjygtw@mail.gmail.com>
-Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <CAMj1kXFeBS7O5A-CPds3UfFnjegGTpVsuF7VznBc-zZ+gjygtw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 653C35BCC2
-X-Spamd-Result: default: False [-4.51 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[15];
-	MID_RHS_MATCH_FROM(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.com:url,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.de:mid,suse.de:dkim,suse.de:email];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	DKIM_TRACE(0.00)[suse.de:+]
-X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
-X-Rspamd-Action: no action
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251221_081837_622445_0A021C2D 
-X-CRM114-Status: GOOD (  31.20  )
+X-CRM114-CacheID: sfid-20251221_105254_114776_365D829E 
+X-CRM114-Status: GOOD (  15.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,241 +107,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+Dne sreda, 17. december 2025 ob 09:25:01 Srednjeevropski standardni =C4=8Da=
+s je Richard Genoud napisal(a):
+> Allwinner H616 PWM block is quite different from the A10 or H6, but at
+> the end, it uses the same clocks as the H6; so the sun4i pwm binding can
+> be used.
+> It has 6 channels than can generate PWM waveforms or clocks if bypass is
+> enabled.
+>=20
+> Suggested-by: Krzysztof Kozlowski <krzk@kernel.org>
+> Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
+> ---
+>  .../bindings/pwm/allwinner,sun4i-a10-pwm.yaml | 19 ++++++++++++++++++-
+>  1 file changed, 18 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/pwm/allwinner,sun4i-a10-pw=
+m.yaml b/Documentation/devicetree/bindings/pwm/allwinner,sun4i-a10-pwm.yaml
+> index 1197858e431f..4f58110ec98f 100644
+> --- a/Documentation/devicetree/bindings/pwm/allwinner,sun4i-a10-pwm.yaml
+> +++ b/Documentation/devicetree/bindings/pwm/allwinner,sun4i-a10-pwm.yaml
+> @@ -14,6 +14,9 @@ properties:
+>    "#pwm-cells":
+>      const: 3
+> =20
+> +  "#clock-cells":
+> +    const: 1
 
-Am 16.12.25 um 14:23 schrieb Ard Biesheuvel:
-> Hi Thomas
->
-> On Wed, 26 Nov 2025 at 17:09, Thomas Zimmermann <tzimmermann@suse.de> wrote:
->> Rename alloc_primary_display() and __alloc_primary_display(), clarify
->> free semantics to make interfaces easier to understand.
->>
->> Rename alloc_primary_display() to lookup_primary_display() as it
->> does not necessarily allocate. Then rename __alloc_primary_display()
->> to the new alloc_primary_display(). The helper belongs to
->> free_primary_display), so it should be named without underscores.
->>
->> The lookup helper does not necessarily allocate, so the output
->> parameter needs_free to indicate when free should be called.
-> I don't understand why we need this. Whether or not the helper
-> allocates is a compile time decision, and in builds where it doesn't,
-> the free helper doesn't do anything.
->
-> I'm all for making things simpler, but I don't think this patch
-> achieves that tbh.
->
-> I've queued up this series now up until this patch - once we converge
-> on the simplification, I'm happy to apply it on top.
+Why #clock-cells? I don't see any reason to add it.
 
-If you don't want this patch, just leave it out then. Coming from 
-another subsystem, I found the current logic and naming confusing THB.
+Other properties seem fine.
 
-Best regards
-Thomas
+Best regards,
+Jernej
+
+> +
+>    compatible:
+>      oneOf:
+>        - const: allwinner,sun4i-a10-pwm
+> @@ -36,6 +39,7 @@ properties:
+>            - const: allwinner,sun50i-h5-pwm
+>            - const: allwinner,sun5i-a13-pwm
+>        - const: allwinner,sun50i-h6-pwm
+> +      - const: allwinner,sun50i-h616-pwm
+> =20
+>    reg:
+>      maxItems: 1
+> @@ -62,7 +66,9 @@ allOf:
+>        properties:
+>          compatible:
+>            contains:
+> -            const: allwinner,sun50i-h6-pwm
+> +            enum:
+> +              - allwinner,sun50i-h6-pwm
+> +              - allwinner,sun50i-h616-pwm
+> =20
+>      then:
+>        properties:
+> @@ -83,6 +89,17 @@ allOf:
+>          clocks:
+>            maxItems: 1
+> =20
+> +  - if:
+> +      not:
+> +        properties:
+> +          compatible:
+> +            contains:
+> +              const: allwinner,sun50i-h616-pwm
+> +
+> +    then:
+> +      properties:
+> +        "#clock-cells": false
+> +
+>  required:
+>    - compatible
+>    - reg
+>=20
 
 
->
-> Thanks,
->
->
->
->> Pass
->> an argument through the calls to track this state. Put the free
->> handling into release_primary_display() for simplificy.
->>
->> Also move the comment fro primary_display.c to efi-stub-entry.c,
->> where it now describes lookup_primary_display().
->>
->> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
->> ---
->>   drivers/firmware/efi/libstub/efi-stub-entry.c | 23 +++++++++++++++++--
->>   drivers/firmware/efi/libstub/efi-stub.c       | 22 ++++++++++++------
->>   drivers/firmware/efi/libstub/efistub.h        |  2 +-
->>   .../firmware/efi/libstub/primary_display.c    | 17 +-------------
->>   drivers/firmware/efi/libstub/zboot.c          |  6 +++--
->>   5 files changed, 42 insertions(+), 28 deletions(-)
->>
->> diff --git a/drivers/firmware/efi/libstub/efi-stub-entry.c b/drivers/firmware/efi/libstub/efi-stub-entry.c
->> index aa85e910fe59..3077b51fe0b2 100644
->> --- a/drivers/firmware/efi/libstub/efi-stub-entry.c
->> +++ b/drivers/firmware/efi/libstub/efi-stub-entry.c
->> @@ -14,10 +14,29 @@ static void *kernel_image_addr(void *addr)
->>          return addr + kernel_image_offset;
->>   }
->>
->> -struct sysfb_display_info *alloc_primary_display(void)
->> +/*
->> + * There are two ways of populating the core kernel's sysfb_primary_display
->> + * via the stub:
->> + *
->> + *   - using a configuration table, which relies on the EFI init code to
->> + *     locate the table and copy the contents; or
->> + *
->> + *   - by linking directly to the core kernel's copy of the global symbol.
->> + *
->> + * The latter is preferred because it makes the EFIFB earlycon available very
->> + * early, but it only works if the EFI stub is part of the core kernel image
->> + * itself. The zboot decompressor can only use the configuration table
->> + * approach.
->> + */
->> +
->> +struct sysfb_display_info *lookup_primary_display(bool *needs_free)
->>   {
->> +       *needs_free = true;
->> +
->>          if (IS_ENABLED(CONFIG_ARM))
->> -               return __alloc_primary_display();
->> +               return alloc_primary_display();
->> +
->> +       *needs_free = false;
->>
->>          if (IS_ENABLED(CONFIG_X86) ||
->>              IS_ENABLED(CONFIG_EFI_EARLYCON) ||
->> diff --git a/drivers/firmware/efi/libstub/efi-stub.c b/drivers/firmware/efi/libstub/efi-stub.c
->> index 42d6073bcd06..dc545f62c62b 100644
->> --- a/drivers/firmware/efi/libstub/efi-stub.c
->> +++ b/drivers/firmware/efi/libstub/efi-stub.c
->> @@ -51,14 +51,14 @@ static bool flat_va_mapping = (EFI_RT_VIRTUAL_OFFSET != 0);
->>   void __weak free_primary_display(struct sysfb_display_info *dpy)
->>   { }
->>
->> -static struct sysfb_display_info *setup_primary_display(void)
->> +static struct sysfb_display_info *setup_primary_display(bool *dpy_needs_free)
->>   {
->>          struct sysfb_display_info *dpy;
->>          struct screen_info *screen = NULL;
->>          struct edid_info *edid = NULL;
->>          efi_status_t status;
->>
->> -       dpy = alloc_primary_display();
->> +       dpy = lookup_primary_display(dpy_needs_free);
->>          if (!dpy)
->>                  return NULL;
->>          screen = &dpy->screen;
->> @@ -68,15 +68,22 @@ static struct sysfb_display_info *setup_primary_display(void)
->>
->>          status = efi_setup_graphics(screen, edid);
->>          if (status != EFI_SUCCESS)
->> -               goto err_free_primary_display;
->> +               goto err___free_primary_display;
->>
->>          return dpy;
->>
->> -err_free_primary_display:
->> -       free_primary_display(dpy);
->> +err___free_primary_display:
->> +       if (*dpy_needs_free)
->> +               free_primary_display(dpy);
->>          return NULL;
->>   }
->>
->> +static void release_primary_display(struct sysfb_display_info *dpy, bool dpy_needs_free)
->> +{
->> +       if (dpy && dpy_needs_free)
->> +               free_primary_display(dpy);
->> +}
->> +
->>   static void install_memreserve_table(void)
->>   {
->>          struct linux_efi_memreserve *rsv;
->> @@ -156,13 +163,14 @@ efi_status_t efi_stub_common(efi_handle_t handle,
->>                               char *cmdline_ptr)
->>   {
->>          struct sysfb_display_info *dpy;
->> +       bool dpy_needs_free;
->>          efi_status_t status;
->>
->>          status = check_platform_features();
->>          if (status != EFI_SUCCESS)
->>                  return status;
->>
->> -       dpy = setup_primary_display();
->> +       dpy = setup_primary_display(&dpy_needs_free);
->>
->>          efi_retrieve_eventlog();
->>
->> @@ -182,7 +190,7 @@ efi_status_t efi_stub_common(efi_handle_t handle,
->>
->>          status = efi_boot_kernel(handle, image, image_addr, cmdline_ptr);
->>
->> -       free_primary_display(dpy);
->> +       release_primary_display(dpy, dpy_needs_free);
->>
->>          return status;
->>   }
->> diff --git a/drivers/firmware/efi/libstub/efistub.h b/drivers/firmware/efi/libstub/efistub.h
->> index 979a21818cc1..1503ffb82903 100644
->> --- a/drivers/firmware/efi/libstub/efistub.h
->> +++ b/drivers/firmware/efi/libstub/efistub.h
->> @@ -1176,8 +1176,8 @@ efi_enable_reset_attack_mitigation(void) { }
->>
->>   void efi_retrieve_eventlog(void);
->>
->> +struct sysfb_display_info *lookup_primary_display(bool *needs_free);
->>   struct sysfb_display_info *alloc_primary_display(void);
->> -struct sysfb_display_info *__alloc_primary_display(void);
->>   void free_primary_display(struct sysfb_display_info *dpy);
->>
->>   void efi_cache_sync_image(unsigned long image_base,
->> diff --git a/drivers/firmware/efi/libstub/primary_display.c b/drivers/firmware/efi/libstub/primary_display.c
->> index cdaebab26514..34c54ac1e02a 100644
->> --- a/drivers/firmware/efi/libstub/primary_display.c
->> +++ b/drivers/firmware/efi/libstub/primary_display.c
->> @@ -7,24 +7,9 @@
->>
->>   #include "efistub.h"
->>
->> -/*
->> - * There are two ways of populating the core kernel's sysfb_primary_display
->> - * via the stub:
->> - *
->> - *   - using a configuration table, which relies on the EFI init code to
->> - *     locate the table and copy the contents; or
->> - *
->> - *   - by linking directly to the core kernel's copy of the global symbol.
->> - *
->> - * The latter is preferred because it makes the EFIFB earlycon available very
->> - * early, but it only works if the EFI stub is part of the core kernel image
->> - * itself. The zboot decompressor can only use the configuration table
->> - * approach.
->> - */
->> -
->>   static efi_guid_t primary_display_guid = LINUX_EFI_PRIMARY_DISPLAY_TABLE_GUID;
->>
->> -struct sysfb_display_info *__alloc_primary_display(void)
->> +struct sysfb_display_info *alloc_primary_display(void)
->>   {
->>          struct sysfb_display_info *dpy;
->>          efi_status_t status;
->> diff --git a/drivers/firmware/efi/libstub/zboot.c b/drivers/firmware/efi/libstub/zboot.c
->> index 4b76f74c56da..c1fd1fdbcb08 100644
->> --- a/drivers/firmware/efi/libstub/zboot.c
->> +++ b/drivers/firmware/efi/libstub/zboot.c
->> @@ -26,9 +26,11 @@ void __weak efi_cache_sync_image(unsigned long image_base,
->>          // executable code loaded into memory to be safe for execution.
->>   }
->>
->> -struct sysfb_display_info *alloc_primary_display(void)
->> +struct sysfb_display_info *lookup_primary_display(bool *needs_free)
->>   {
->> -       return __alloc_primary_display();
->> +       *needs_free = true;
->> +
->> +       return alloc_primary_display();
->>   }
->>
->>   asmlinkage efi_status_t __efiapi
->> --
->> 2.51.1
->>
-
--- 
---
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
-GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
 
 
 
