@@ -4,83 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E495D68BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Dec 2025 07:22:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2ED3D68BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Dec 2025 07:33:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tl4mkGbQLsnipS5FyUPdNmw6cyVPTQR2eYfkSIQkcNA=; b=wkGxQNUQ9/93G1
-	TUKW5C+Hn7H/RErtpqxkDbhP1KRn1W80kghxAhOn9wNa3ysn25T3wySk/kgX73eSp+LKc4X328Ldv
-	lsY7JgmEGNmS6+3aSngMP0ppj+GBweEbqkXdw/AqDULKGCevldRJk2lfYAoL0QoZZTWw7cF80Cibd
-	hNzdGCviFUdywOjIV6Ik9CEc9Ax5D5nrpelGqXgsJSZZh8+xBvZOqg7aJehyoCzXGjVRHlSnHHk2l
-	CmV5qXf2KNBG39hgdrDCoPy7elSQiLvbe+yed5NcVwSrdjsb4+ULj696KIMH6KoC9mFOQ3GemQLce
-	4PcNV6vQVlwdqMqWgX/A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kv0RZUZUD/7eGDNAUz1N+trczdwSsFw0LoBnw39J6SA=; b=NnTzza+o46ifuyb9ucqBRWMeTg
+	I4CqFAUHaLFJ+QpJl+ID/tK/JRyxamUjXQ3v5qhoF7UrhcbF0JsyTirMDdhnBHYIvKxtrsuh58OO7
+	do7E9xpHbKfOD3ABHAjJCN962w2Y9feFMH/4eeHxUMHr3MVS1cnFrvy1Q22C6O2TAnPJ741JpUQ94
+	vI/XqUWffh7lHv5w3Ptw480V8PFVizeQhm18VwoKhA49J6us0jYkfmDjEYK1EuCmSr51gMYGA1Nte
+	cyz6C+XrswtrFmYMMbx78Ag9PaNtu/+6v8nwOhH2b/n03utd2mcLE6eL+oaM2dX4QcSjomF52NUG1
+	44LnSVFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXDli-0000000CD0L-1kLQ;
-	Sun, 21 Dec 2025 07:22:18 +0000
-Received: from mail-qv1-xf2a.google.com ([2607:f8b0:4864:20::f2a])
+	id 1vXDw8-0000000CDOb-3eOQ;
+	Sun, 21 Dec 2025 07:33:04 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXDlg-0000000CCzx-1Y1Q
+	id 1vXDw5-0000000CDOC-3fb4
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Dec 2025 07:22:17 +0000
-Received: by mail-qv1-xf2a.google.com with SMTP id 6a1803df08f44-88a288811a4so34894276d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 20 Dec 2025 23:22:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1766301735; x=1766906535; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tl4mkGbQLsnipS5FyUPdNmw6cyVPTQR2eYfkSIQkcNA=;
-        b=jhr2NOO3rE8fPI8DJcwyg+gHmnL09HJ7yuJPodxqa4BVNdsN9pFEUK9VYATzTkNwxg
-         QOGb/YvUHy56CNfb79xT9bN4OKRM9N9PUjIlcSMZrVkH86B+j9zYYZD5toZDDAVGM+yb
-         1vwkZivN7LmrB60g44ESZtq9gAOZn/i3MB41TdwEZa5AA1gYCaJdPe6XYBFscqS9EWyJ
-         OKeC8+w2jRyDyd4orfGQ90lkpN+aIZB+jWkHOOU6XBc7P07781QXsdVws6rH724TSD38
-         tA45/MA5NFCwYB7anT6xDIND3we1L1bds8hgsNGtAZLfjZ98CXhkw+64uSQnF58mRogZ
-         dISQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766301735; x=1766906535;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=tl4mkGbQLsnipS5FyUPdNmw6cyVPTQR2eYfkSIQkcNA=;
-        b=oVxUZfPj5ljy7PaXHF3D9gISuPFay7irXh/jGB8nH9wqTg9SAtyIsgphJlM7eUeNNd
-         P/Kep2hycgLOywW6nGK6O+H3K6g+fx+kwq8SQIEQF4AuxoZHMpOSWASXlr2EhYpT0joK
-         ItFnpWPjErk17Mh4plgIo5f0akRSYXF3sD+2YPMEItzRXgcNidzoXfKWKzwrU9/tMNdr
-         VWtt3u1RpWemkCSZ2d6jAthvjTk5FYxWeEd034WBwmL+Xrvu838Az28elCr8FgveOuja
-         dEf+mWmQj4Xs5/aGI6kJUuKHSN8ROEvtNLfBmlmmc6VlUxqZs33nNioCBegRRsQxc4LR
-         XMIg==
-X-Forwarded-Encrypted: i=1; AJvYcCWQtKwnIyKyoXPpfrizepj1VQoFYEXVEHlgpukpl4HSf3JTcodba4XP3V671kwfECOI/MHgJv8obGZ6Jkog8jP9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz31lAcdKP7yPmpnqgbx+Rp6w5VE5DeAJn6NHMiKUYGFI58Gd+u
-	nILKcqxa1ZgbIThZ3kdzk1tUmkw+PiksRM46bIlZLzfzoH0G1lPkoE5i+U/vWgJBblBzf9k0vGF
-	eos+vz+h1xJBRXUd1Jmgv25tp1pMIFOM=
-X-Gm-Gg: AY/fxX4VJvokT60iZG5tzag5uRSatzHC9prPBwtLd9mkXDBxL7rZANCi/4pfYG+dNZV
-	HtjvZiDweQKmmiOLmSRormOSq2vuyt1ialpCSDw5f3jeC4E2G7HtHRr39F/K6VC10dyCsEhBAuu
-	SMGYqxoJIxTSI2p62ImyUhR1v7hE0YmXHZBOavkNknOkK+KCHKU4xLKZLQryYGu5EXwSb9w6kLV
-	3Oc7OAgzKQidSJSB5Lw0J0SaTpQjGgQ2KxRoGWN2InlTcqlHDN3Htmw9CFcg+BLNicQSTPfw3Z4
-	/8yr
-X-Google-Smtp-Source: AGHT+IF5k8r/mShv/0migvR7/wlLppEjH9Dd7nKs+LQlOF6mkB6DvnezWl4bJLuuz9SFUgw2YrS3VPtDITiGCTNjb6w=
-X-Received: by 2002:a05:6214:20c1:b0:882:5078:8da1 with SMTP id
- 6a1803df08f44-88d8442fe3bmr128194326d6.64.1766301734461; Sat, 20 Dec 2025
- 23:22:14 -0800 (PST)
+	Sun, 21 Dec 2025 07:33:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1766302382; x=1797838382;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=acLNH9XZUwJ+/RUGFg15css9I9hbu1oRWu7mAn9c4XA=;
+  b=RPk2S39raFefSgmMNL0y5LirZF3+SeuONNQCzGK4byi/x1LEx9q474cj
+   iW56eXHfAY9AN2Bpk3B8Jw+dT2jY0FxpX9yRi8naVqlpP7FNberdU6jTi
+   FiThVkaBTMVrtAbVi7MuR/IVn4OStNVjPHUm4d6jmx/Yad0/9FFK4+ICE
+   BdaSrVKSy0OLdogdqjxiZMKjuddRQWt3d4L2zlvTSG0WZ+Yam4A2wOe+c
+   +Pmbsh/xUgYzfA3+lLMMmlUJ5OKj4XClExenhPxPyI9Fwl2a+GR61QBxk
+   UV78boy3OrzOrkyeVF0hYFeYz3YWumxzfxT1Y7h5KBN6WtyEmFuW87zpE
+   g==;
+X-CSE-ConnectionGUID: dXxct6QXQICJyfCIJjYJOQ==
+X-CSE-MsgGUID: 1Be6MiMBRfmGhoDmmbpkNg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11648"; a="72044554"
+X-IronPort-AV: E=Sophos;i="6.21,164,1763452800"; 
+   d="scan'208";a="72044554"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Dec 2025 23:33:01 -0800
+X-CSE-ConnectionGUID: WhT26M+xQ7i3MqpLrDYIvA==
+X-CSE-MsgGUID: /f0OMu86QL+ajuC4w0edDw==
+X-ExtLoop1: 1
+Received: from igk-lkp-server01.igk.intel.com (HELO 8a0c053bdd2a) ([10.211.93.152])
+  by fmviesa003.fm.intel.com with ESMTP; 20 Dec 2025 23:32:56 -0800
+Received: from kbuild by 8a0c053bdd2a with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vXDvx-000000004y0-3IUv;
+	Sun, 21 Dec 2025 07:32:53 +0000
+Date: Sun, 21 Dec 2025 08:31:59 +0100
+From: kernel test robot <lkp@intel.com>
+To: Amit Sunil Dhamne via B4 Relay <devnull+amitsd.google.com@kernel.org>,
+	Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Lee Jones <lee@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Badhri Jagan Sridharan <badhri@google.com>,
+	Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>
+Cc: oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>,
+	Amit Sunil Dhamne <amitsd@google.com>
+Subject: Re: [PATCH v2 4/5] power: supply: max77759: add charger driver
+Message-ID: <202512210844.O8gAG2p9-lkp@intel.com>
+References: <20251218-max77759-charger-v2-4-2b259980a686@google.com>
 MIME-Version: 1.0
-References: <20251219053658.84978-1-21cnbao@gmail.com> <20251219053658.84978-2-21cnbao@gmail.com>
- <f43286ef-3dea-4637-a34e-b9b70d2741bf@arm.com>
-In-Reply-To: <f43286ef-3dea-4637-a34e-b9b70d2741bf@arm.com>
-From: Barry Song <21cnbao@gmail.com>
-Date: Sun, 21 Dec 2025 15:22:03 +0800
-X-Gm-Features: AQt7F2qjYoKebl5Qs_kCNYwvrfXsZT3gRENKM98Dct0ak1uw7wvLRqtXCYWtXmM
-Message-ID: <CAGsJ_4wRcz7NFw2PiBCb54gmJwTt7=UG1fn2UEJ9_gR687Y4Uw@mail.gmail.com>
-Subject: Re: [PATCH 1/6] arm64: Provide dcache_by_myline_op_nosync helper
-To: Robin Murphy <robin.murphy@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251218-max77759-charger-v2-4-2b259980a686@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251220_232216_427835_C1FC5030 
-X-CRM114-Status: GOOD (  15.11  )
+X-CRM114-CacheID: sfid-20251220_233301_998322_C330386E 
+X-CRM114-Status: GOOD (  10.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,118 +97,45 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: v-songbaohua@oppo.com, zhengtangquan@oppo.com, ryan.roberts@arm.com, anshuman.khandual@arm.com, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, surenb@google.com, iommu@lists.linux.dev, maz@kernel.org, will@kernel.org, ardb@kernel.org, linux-arm-kernel@lists.infradead.org, m.szyprowski@samsung.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 19, 2025 at 8:20=E2=80=AFPM Robin Murphy <robin.murphy@arm.com>=
- wrote:
->
-> On 2025-12-19 5:36 am, Barry Song wrote:
-> > From: Barry Song <v-songbaohua@oppo.com>
-> >
-> > dcache_by_myline_op ensures completion of the data cache operations for=
- a
-> > region, while dcache_by_myline_op_nosync only issues them without waiti=
-ng.
-> > This enables deferred synchronization so completion for multiple region=
-s
-> > can be handled together later.
->
-> This is a super-low-level internal macro with only two users... Frankly I=
-'d
-> just do as below.
->
-> Thanks,
-> Robin.
->
-> ----->8-----
->
-> diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/=
-assembler.h
-> index f0ca7196f6fa..26e983c331c5 100644
-> --- a/arch/arm64/include/asm/assembler.h
-> +++ b/arch/arm64/include/asm/assembler.h
-> @@ -367,18 +367,17 @@ alternative_endif
->         .endm
->
->   /*
-> - * Macro to perform a data cache maintenance for the interval
-> - * [start, end) with dcache line size explicitly provided.
-> + * Main loop for a data cache maintenance operation. Caller to provide t=
-he
-> + * dcache line size and take care of relevant synchronisation afterwards=
-.
->    *
->    *    op:             operation passed to dc instruction
-> - *     domain:         domain used in dsb instruction
->    *    start:          starting virtual address of the region
->    *    end:            end virtual address of the region
->    *    linesz:         dcache line size
->    *    fixup:          optional label to branch to on user fault
->    *    Corrupts:       start, end, tmp
->    */
-> -       .macro dcache_by_myline_op op, domain, start, end, linesz, tmp, f=
-ixup
-> +       .macro raw_dcache_by_line_op op, start, end, linesz, tmp, fixup
->         sub     \tmp, \linesz, #1
->         bic     \start, \start, \tmp
->   .Ldcache_op\@:
-> @@ -402,7 +401,6 @@ alternative_endif
->         add     \start, \start, \linesz
->         cmp     \start, \end
->         b.lo    .Ldcache_op\@
-> -       dsb     \domain
->
->         _cond_uaccess_extable .Ldcache_op\@, \fixup
->         .endm
-> @@ -420,7 +418,8 @@ alternative_endif
->    */
->         .macro dcache_by_line_op op, domain, start, end, tmp1, tmp2, fixu=
-p
->         dcache_line_size \tmp1, \tmp2
-> -       dcache_by_myline_op \op, \domain, \start, \end, \tmp1, \tmp2, \fi=
-xup
-> +       raw_dcache_by_line_op \op, \start, \end, \tmp1, \tmp2, \fixup
-> +       dsb \domain
->         .endm
->
->   /*
-> diff --git a/arch/arm64/kernel/relocate_kernel.S b/arch/arm64/kernel/relo=
-cate_kernel.S
-> index 413f899e4ac6..efdb6884058e 100644
-> --- a/arch/arm64/kernel/relocate_kernel.S
-> +++ b/arch/arm64/kernel/relocate_kernel.S
-> @@ -64,7 +64,8 @@ SYM_CODE_START(arm64_relocate_new_kernel)
->         mov     x19, x13
->         copy_page x13, x12, x1, x2, x3, x4, x5, x6, x7, x8
->         add     x1, x19, #PAGE_SIZE
-> -       dcache_by_myline_op civac, sy, x19, x1, x15, x20
-> +       raw_dcache_by_line_op civac, x19, x1, x15, x20
-> +       dsb     sy
->         b       .Lnext
->   .Ltest_indirection:
->         tbz     x16, IND_INDIRECTION_BIT, .Ltest_destination
->
+Hi Amit,
 
-Thanks, Robin.  Really much better!
-dcache_by_line_op_nosync could be:
+kernel test robot noticed the following build warnings:
 
-/*
- * Macro to perform a data cache maintenance for the interval
- * [start, end) without waiting for completion
- *
- *      op:             operation passed to dc instruction
- *      start:          starting virtual address of the region
- *      end:            end virtual address of the region
- *      fixup:          optional label to branch to on user fault
- *      Corrupts:       start, end, tmp1, tmp2
- */
-        .macro dcache_by_line_op_nosync op, start, end, tmp1, tmp2, fixup
-        dcache_line_size \tmp1, \tmp2
-        raw_dcache_by_myline_op \op, \start, \end, \tmp1, \tmp2, \fixup
-        .endm
+[auto build test WARNING on lee-mfd/for-mfd-fixes]
+[also build test WARNING on sre-power-supply/for-next usb/usb-testing usb/usb-next usb/usb-linus v6.16-rc1 next-20251219]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Thanks
-Barry
+url:    https://github.com/intel-lab-lkp/linux/commits/Amit-Sunil-Dhamne-via-B4-Relay/dt-bindings-mfd-maxim-max77759-add-charger-child-node/20251219-065531
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/lee/mfd.git for-mfd-fixes
+patch link:    https://lore.kernel.org/r/20251218-max77759-charger-v2-4-2b259980a686%40google.com
+patch subject: [PATCH v2 4/5] power: supply: max77759: add charger driver
+reproduce: (https://download.01.org/0day-ci/archive/20251221/202512210844.O8gAG2p9-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202512210844.O8gAG2p9-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   Warning: Documentation/translations/zh_CN/admin-guide/README.rst references a file that doesn't exist: Documentation/dev-tools/kgdb.rst
+   Warning: Documentation/translations/zh_CN/dev-tools/gdb-kernel-debugging.rst references a file that doesn't exist: Documentation/dev-tools/gdb-kernel-debugging.rst
+   Warning: Documentation/translations/zh_CN/how-to.rst references a file that doesn't exist: Documentation/xxx/xxx.rst
+   Warning: Documentation/translations/zh_TW/admin-guide/README.rst references a file that doesn't exist: Documentation/dev-tools/kgdb.rst
+   Warning: Documentation/translations/zh_TW/dev-tools/gdb-kernel-debugging.rst references a file that doesn't exist: Documentation/dev-tools/gdb-kernel-debugging.rst
+>> Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/power/supply/maxim,max77759-charger.yaml
+   Warning: arch/riscv/kernel/kexec_image.c references a file that doesn't exist: Documentation/riscv/boot-image-header.rst
+   Warning: drivers/clocksource/timer-armada-370-xp.c references a file that doesn't exist: Documentation/devicetree/bindings/timer/marvell,armada-370-xp-timer.txt
+   Warning: include/rv/da_monitor.h references a file that doesn't exist: Documentation/trace/rv/da_monitor_synthesis.rst
+   Using alabaster theme
+   ERROR: Cannot find file ./include/linux/pci.h
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
