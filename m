@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9862BD68BD5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Dec 2025 10:47:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0812E67497
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Dec 2025 10:47:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1FbfOrniaAgzElduPJuT/N7fhN7qa98NogjwvIVsOXE=; b=TSUMzlIGRqStzhhQ3vrkwbKP21
-	8T/x3t/9JrqXsjEscD3T3xvOxX0pY7AdVOpDxul0+HobHyBF5S9ALazpKbFs879z2v9xa+W3iRj6X
-	KjS4s7jvzzwQEZOnxj8NSfMVI/ZsODm/VSLEbSKIl8W6RMPN9VVg5BUXNq/++LquFiUEKX42WkpBp
-	SHBFOZvEAjtchE2QIC2jBS2PRIaw3WxLxhcC/stJqcgwcIyOvMTNPi/efE3HDzbQKIvwWwcqfeZMo
-	BZpGpFK6BrlD8aP8k8T1UVzc2gwOppdgUJS90iW0Oh06qGLV+h+YHWH1ACkTt/C2Mim0E9kx7rj1j
-	WPc6LYVA==;
+	bh=c0qfZmChcFhn/rY+iK2JbMQP10SWsbcz++1MWsReaaU=; b=UVy45QdM0Zb9BsSVotxiBxyh12
+	0g6SG0jhpbEGvWl4RhTHKMOZAzVsR6g5SjjXBJ1HDOaSJ4P+Em3M8R97Yj7J3wNC8/k8jtSAe8Z+Q
+	6Btihkh4OGoVUICq/1Dq7b4nuz0Q+FLpOuDyP22dCT7P9Z84cNGCY8nkGhgAnXeB5Ubv07lvEaKV+
+	tLdi+a8GxyznhWvIRlJkJKdpjjerAbkcY0s5rws3IuLqqamN1V6O+jL7weDfRV022UaD9v48r+oH1
+	IKOrppRgJj0rw8R789ATzdpYmMHTijnBx3+M3mQeemlbd+s8GAfWxcWr6FsC0LMGEpYNoi3gdPUvQ
+	af0G5SEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXGyF-0000000CLJc-3dhD;
+	id 1vXGyF-0000000CLIG-0Mhl;
 	Sun, 21 Dec 2025 10:47:27 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXGy0-0000000CKxM-0xdL;
+	id 1vXGxz-0000000CKxI-42rZ;
 	Sun, 21 Dec 2025 10:47:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1766314030;
-	bh=ty7rHkOBss4XtGNZPB+rY4ONc7mJMM6L//EU0KH5icE=;
+	s=mail; t=1766314029;
+	bh=A+uwENkGHcgMbTr9ZKV4OLhPhNTxapb5MY4SXE73Flg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=f2gwIOkIjo4DegkSbebeUFtOHMsrE0GnwQpcszgkRBexSxKXpqKMkubIsP5nf3yxT
-	 h1EvKVj/E46H8sa/da0tMljbN3K6fQ3bKTFM62Inyfk6aLibHxb/cmV79YscRfsHIh
-	 vci6pD2mwkuxZXJENidUJ4W8hyxmV6+mxhQm4K+YQxzRtzkPNDkWC+FmBbWaOgb+uf
-	 RguynmVAq6oliRB4BKg4dE9VfC12V6KeemhENpBRTTBhx05BTZd+72CfphMP/YkBWu
-	 ceoUnVZ2jGJ+dsnb6v6ofa+4owXSHO85WhUpxoZty4ed+94W8C/t46XUdjt5wiAu7w
-	 i0Q5OG8+Fdm8g==
+	b=KJx3pzuW+epPA/n6tgZ5VVad7p0Lkm5UL3NsAn6Fq0N6byq7rPakeWp7fZK9WcZVB
+	 6RmCMP7bbn+jh0X5olQAIM0g56G7INTdA0b3hupyQh3YN3de4W1PyOBrwnjvWceIE6
+	 slQsJIkUazgxvfU3iX20WcRYdiawTrLMotk7+Qtcw0FQU/PgCfo+MKT5O0iVKvr378
+	 3NqsOQNNfWAUln68zwoobVilklihuQziD68lRlecPrRCRK2Q0c2ioVzr+K7tpR/vV/
+	 Lu75NTmIZB27c6NXcJDYZXtMjNE+9ICGC8z7O3kn3tZIc6cM+Jf40g3KQYd6bTJuo1
+	 ImgSXHjUKMpUA==
 Received: from localhost (unknown [82.79.138.145])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 17ACC17E1517;
-	Sun, 21 Dec 2025 11:47:10 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4169E17E1513;
+	Sun, 21 Dec 2025 11:47:09 +0100 (CET)
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Sun, 21 Dec 2025 12:46:57 +0200
-Subject: [PATCH v5 10/11] phy: rockchip: samsung-hdptx: Extend
- rk_hdptx_phy_verify_hdmi_config() helper
+Date: Sun, 21 Dec 2025 12:46:56 +0200
+Subject: [PATCH v5 09/11] phy: rockchip: samsung-hdptx: Switch to driver
+ specific HDMI config
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251221-phy-hdptx-frl-v5-10-dac390a780be@collabora.com>
+Message-Id: <20251221-phy-hdptx-frl-v5-9-dac390a780be@collabora.com>
 References: <20251221-phy-hdptx-frl-v5-0-dac390a780be@collabora.com>
 In-Reply-To: <20251221-phy-hdptx-frl-v5-0-dac390a780be@collabora.com>
 To: Vinod Koul <vkoul@kernel.org>, 
@@ -63,8 +63,8 @@ Cc: kernel@collabora.com, linux-phy@lists.infradead.org,
  linux-rockchip@lists.infradead.org
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251221_024712_472213_94B913C9 
-X-CRM114-Status: GOOD (  13.06  )
+X-CRM114-CacheID: sfid-20251221_024712_253028_68F5EEEA 
+X-CRM114-Status: GOOD (  17.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,110 +79,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In order to facilitate introduction of HDMI 2.1 FRL support and to avoid
-recomputing the link rate after verifying the HDMI configuration given
-as input, extend rk_hdptx_phy_verify_hdmi_config() by providing an
-optional output parameter to store the validated configuration.
+In preparation to support the FRL operation mode which gets configured
+via the lanes and rate per lane tuple, switch to a driver specific
+struct for configuring the link rate and bpc.
 
-For improved code readability, also rename the existing hdmi input
-parameter.
+This simplifies and optimizes the implementation by allowing implicit
+switches between TMDS and FRL rates, without requiring additional checks
+of the active PHY mode followed by recalculations of the link rate when
+operating in FRL mode.
 
 Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 ---
- drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 35 ++++++++++++-----------
- 1 file changed, 18 insertions(+), 17 deletions(-)
+ drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 44 +++++++++++++----------
+ 1 file changed, 25 insertions(+), 19 deletions(-)
 
 diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index 3bec69058f7b..ecf024b5414f 100644
+index 5a534c53a52d..3bec69058f7b 100644
 --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
 +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-@@ -1439,25 +1439,24 @@ static int rk_hdptx_phy_power_off(struct phy *phy)
- }
+@@ -373,6 +373,11 @@ struct rk_hdptx_phy_cfg {
+ 	unsigned int phy_ids[MAX_HDPTX_PHY_NUM];
+ };
  
- static int rk_hdptx_phy_verify_hdmi_config(struct rk_hdptx_phy *hdptx,
--					   struct phy_configure_opts_hdmi *hdmi)
-+					   struct phy_configure_opts_hdmi *hdmi_in,
-+					   struct rk_hdptx_hdmi_cfg *hdmi_out)
- {
++struct rk_hdptx_hdmi_cfg {
++	unsigned long long rate;
++	unsigned int bpc;
++};
++
+ struct rk_hdptx_phy {
+ 	struct device *dev;
+ 	struct regmap *regmap;
+@@ -380,7 +385,7 @@ struct rk_hdptx_phy {
+ 
+ 	int phy_id;
+ 	struct phy *phy;
+-	struct phy_configure_opts_hdmi hdmi_cfg;
++	struct rk_hdptx_hdmi_cfg hdmi_cfg;
+ 	struct clk_bulk_data *clks;
+ 	int nr_clks;
+ 	struct reset_control_bulk_data rsts[RST_MAX];
+@@ -932,19 +937,19 @@ static int rk_hdptx_tmds_ropll_cmn_config(struct rk_hdptx_phy *hdptx)
+ 	struct ropll_config rc = {0};
  	int i;
  
--	if (!hdmi->tmds_char_rate || hdmi->tmds_char_rate > HDMI20_MAX_RATE)
-+	if (!hdmi_in->tmds_char_rate || hdmi_in->tmds_char_rate > HDMI20_MAX_RATE)
- 		return -EINVAL;
+-	if (!hdptx->hdmi_cfg.tmds_char_rate)
++	if (!hdptx->hdmi_cfg.rate)
+ 		return 0;
  
  	for (i = 0; i < ARRAY_SIZE(rk_hdptx_tmds_ropll_cfg); i++)
--		if (hdmi->tmds_char_rate == rk_hdptx_tmds_ropll_cfg[i].rate)
-+		if (hdmi_in->tmds_char_rate == rk_hdptx_tmds_ropll_cfg[i].rate)
+-		if (hdptx->hdmi_cfg.tmds_char_rate == rk_hdptx_tmds_ropll_cfg[i].rate) {
++		if (hdptx->hdmi_cfg.rate == rk_hdptx_tmds_ropll_cfg[i].rate) {
+ 			cfg = &rk_hdptx_tmds_ropll_cfg[i];
  			break;
+ 		}
  
- 	if (i == ARRAY_SIZE(rk_hdptx_tmds_ropll_cfg) &&
--	    !rk_hdptx_phy_clk_pll_calc(hdmi->tmds_char_rate, NULL))
-+	    !rk_hdptx_phy_clk_pll_calc(hdmi_in->tmds_char_rate, NULL))
- 		return -EINVAL;
+ 	if (!cfg) {
+-		if (!rk_hdptx_phy_clk_pll_calc(hdptx->hdmi_cfg.tmds_char_rate, &rc)) {
++		if (!rk_hdptx_phy_clk_pll_calc(hdptx->hdmi_cfg.rate, &rc)) {
+ 			dev_err(hdptx->dev, "%s cannot find pll cfg for rate=%llu\n",
+-				__func__, hdptx->hdmi_cfg.tmds_char_rate);
++				__func__, hdptx->hdmi_cfg.rate);
+ 			return -EINVAL;
+ 		}
  
--	if (!hdmi->bpc)
--		hdmi->bpc = 8;
--
--	switch (hdmi->bpc) {
-+	switch (hdmi_in->bpc) {
-+	case 0:
- 	case 8:
- 	case 10:
- 	case 12:
-@@ -1467,6 +1466,11 @@ static int rk_hdptx_phy_verify_hdmi_config(struct rk_hdptx_phy *hdptx,
- 		return -EINVAL;
+@@ -952,7 +957,7 @@ static int rk_hdptx_tmds_ropll_cmn_config(struct rk_hdptx_phy *hdptx)
  	}
  
-+	if (hdmi_out) {
-+		hdmi_out->rate = hdmi_in->tmds_char_rate;
-+		hdmi_out->bpc = hdmi_in->bpc ?: 8;
-+	}
-+
- 	return 0;
- }
+ 	dev_dbg(hdptx->dev, "%s rate=%llu mdiv=%u sdiv=%u sdm_en=%u k_sign=%u k=%u lc=%u\n",
+-		__func__, hdptx->hdmi_cfg.tmds_char_rate, cfg->pms_mdiv, cfg->pms_sdiv + 1,
++		__func__, hdptx->hdmi_cfg.rate, cfg->pms_mdiv, cfg->pms_sdiv + 1,
+ 		cfg->sdm_en, cfg->sdm_num_sign, cfg->sdm_num, cfg->sdm_deno);
  
-@@ -1732,17 +1736,15 @@ static int rk_hdptx_phy_configure(struct phy *phy, union phy_configure_opts *opt
- 	int ret;
+ 	rk_hdptx_pre_power_up(hdptx);
+@@ -1001,7 +1006,7 @@ static int rk_hdptx_tmds_ropll_mode_config(struct rk_hdptx_phy *hdptx)
+ 
+ 	regmap_write(hdptx->regmap, LNTOP_REG(0200), 0x06);
+ 
+-	if (hdptx->hdmi_cfg.tmds_char_rate > HDMI14_MAX_RATE) {
++	if (hdptx->hdmi_cfg.rate > HDMI14_MAX_RATE) {
+ 		/* For 1/40 bitrate clk */
+ 		rk_hdptx_multi_reg_write(hdptx, rk_hdptx_tmds_lntop_highbr_seq);
+ 	} else {
+@@ -1372,19 +1377,19 @@ static int rk_hdptx_phy_power_on(struct phy *phy)
+ 	int ret, lane;
  
  	if (mode != PHY_MODE_DP) {
--		ret = rk_hdptx_phy_verify_hdmi_config(hdptx, &opts->hdmi);
-+		ret = rk_hdptx_phy_verify_hdmi_config(hdptx, &opts->hdmi, &hdptx->hdmi_cfg);
+-		if (!hdptx->hdmi_cfg.tmds_char_rate) {
++		if (!hdptx->hdmi_cfg.rate) {
+ 			/*
+ 			 * FIXME: Temporary workaround to setup TMDS char rate
+ 			 * from the RK DW HDMI QP bridge driver.
+ 			 * Will be removed as soon the switch to the HDMI PHY
+ 			 * configuration API has been completed on both ends.
+ 			 */
+-			hdptx->hdmi_cfg.tmds_char_rate = phy_get_bus_width(hdptx->phy) & 0xfffffff;
+-			hdptx->hdmi_cfg.tmds_char_rate *= 100;
++			hdptx->hdmi_cfg.rate = phy_get_bus_width(hdptx->phy) & 0xfffffff;
++			hdptx->hdmi_cfg.rate *= 100;
+ 		}
+ 
+ 		dev_dbg(hdptx->dev, "%s rate=%llu bpc=%u\n", __func__,
+-			hdptx->hdmi_cfg.tmds_char_rate, hdptx->hdmi_cfg.bpc);
++			hdptx->hdmi_cfg.rate, hdptx->hdmi_cfg.bpc);
+ 	}
+ 
+ 	ret = rk_hdptx_phy_consumer_get(hdptx);
+@@ -1731,12 +1736,13 @@ static int rk_hdptx_phy_configure(struct phy *phy, union phy_configure_opts *opt
  		if (ret) {
  			dev_err(hdptx->dev, "invalid hdmi params for phy configure\n");
  		} else {
--			hdptx->hdmi_cfg.rate = opts->hdmi.tmds_char_rate;
--			hdptx->hdmi_cfg.bpc = opts->hdmi.bpc;
+-			hdptx->hdmi_cfg = opts->hdmi;
++			hdptx->hdmi_cfg.rate = opts->hdmi.tmds_char_rate;
++			hdptx->hdmi_cfg.bpc = opts->hdmi.bpc;
  			hdptx->restrict_rate_change = true;
-+			dev_dbg(hdptx->dev, "%s rate=%llu bpc=%u\n", __func__,
-+				hdptx->hdmi_cfg.rate, hdptx->hdmi_cfg.bpc);
  		}
  
--		dev_dbg(hdptx->dev, "%s rate=%llu bpc=%u\n", __func__,
--			hdptx->hdmi_cfg.rate, hdptx->hdmi_cfg.bpc);
+ 		dev_dbg(hdptx->dev, "%s rate=%llu bpc=%u\n", __func__,
+-			hdptx->hdmi_cfg.tmds_char_rate, hdptx->hdmi_cfg.bpc);
++			hdptx->hdmi_cfg.rate, hdptx->hdmi_cfg.bpc);
  		return ret;
  	}
  
-@@ -1786,7 +1788,7 @@ static int rk_hdptx_phy_validate(struct phy *phy, enum phy_mode mode,
- 	struct rk_hdptx_phy *hdptx = phy_get_drvdata(phy);
- 
- 	if (mode != PHY_MODE_DP)
--		return rk_hdptx_phy_verify_hdmi_config(hdptx, &opts->hdmi);
-+		return rk_hdptx_phy_verify_hdmi_config(hdptx, &opts->hdmi, NULL);
- 
- 	return rk_hdptx_phy_verify_dp_config(hdptx, &opts->dp);
- }
-@@ -1926,12 +1928,11 @@ static long rk_hdptx_phy_clk_round_rate(struct clk_hw *hw, unsigned long rate,
+@@ -1916,7 +1922,7 @@ static long rk_hdptx_phy_clk_round_rate(struct clk_hw *hw, unsigned long rate,
+ 	 * To be dropped as soon as the RK DW HDMI QP bridge driver
+ 	 * switches to make use of phy_configure().
+ 	 */
+-	if (!hdptx->restrict_rate_change && rate != hdptx->hdmi_cfg.tmds_char_rate) {
++	if (!hdptx->restrict_rate_change && rate != hdptx->hdmi_cfg.rate) {
  		struct phy_configure_opts_hdmi hdmi = {
  			.tmds_char_rate = rate,
  		};
--		int ret = rk_hdptx_phy_verify_hdmi_config(hdptx, &hdmi);
-+
-+		int ret = rk_hdptx_phy_verify_hdmi_config(hdptx, &hdmi, &hdptx->hdmi_cfg);
- 
+@@ -1925,7 +1931,7 @@ static long rk_hdptx_phy_clk_round_rate(struct clk_hw *hw, unsigned long rate,
  		if (ret)
  			return ret;
--
--		hdptx->hdmi_cfg.rate = rate;
+ 
+-		hdptx->hdmi_cfg = hdmi;
++		hdptx->hdmi_cfg.rate = rate;
+ 	}
+ 
+ 	/*
+@@ -1933,7 +1939,7 @@ static long rk_hdptx_phy_clk_round_rate(struct clk_hw *hw, unsigned long rate,
+ 	 * hence ensure rk_hdptx_phy_clk_set_rate() won't be invoked with
+ 	 * a different rate argument.
+ 	 */
+-	return DIV_ROUND_CLOSEST_ULL(hdptx->hdmi_cfg.tmds_char_rate * 8, hdptx->hdmi_cfg.bpc);
++	return DIV_ROUND_CLOSEST_ULL(hdptx->hdmi_cfg.rate * 8, hdptx->hdmi_cfg.bpc);
+ }
+ 
+ static int rk_hdptx_phy_clk_set_rate(struct clk_hw *hw, unsigned long rate,
+@@ -1943,10 +1949,10 @@ static int rk_hdptx_phy_clk_set_rate(struct clk_hw *hw, unsigned long rate,
+ 	unsigned long long tmds_rate = DIV_ROUND_CLOSEST_ULL(rate * hdptx->hdmi_cfg.bpc, 8);
+ 
+ 	/* Revert any unlikely TMDS char rate change since round_rate() */
+-	if (hdptx->hdmi_cfg.tmds_char_rate != tmds_rate) {
++	if (hdptx->hdmi_cfg.rate != tmds_rate) {
+ 		dev_warn(hdptx->dev, "Reverting unexpected rate change from %llu to %llu\n",
+-			 tmds_rate, hdptx->hdmi_cfg.tmds_char_rate);
+-		hdptx->hdmi_cfg.tmds_char_rate = tmds_rate;
++			 tmds_rate, hdptx->hdmi_cfg.rate);
++		hdptx->hdmi_cfg.rate = tmds_rate;
  	}
  
  	/*
