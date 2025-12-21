@@ -4,71 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BDB4E6748D
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Dec 2025 11:05:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC8F6D68BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Dec 2025 11:10:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3Zsb+LuDfJOZ78erN+btF5sPaQasHp9zoDJkLMgAVLk=; b=1HlCgDtjlhr4no3nweHbcWviJd
-	0r+9l6ck87RfXsCdbVRm32PDixDWiMDc0sHMKRa0O1VBOkvyKKcyOXKYyvEmGWyQ4LCdhZSXgL4aO
-	271Lt7orv3rO69caPdFi3osXtail14hkLRbMHJJfvEeSxe5TUoqDaevcLppJqixcAmHvAGyCndv36
-	2TdLDAzahulzM7rLToxNggGtTMI6Eaoq1pavnzt66VP+0mauo+c/ntfbFFUuS0bm2Gc+9qjejtWkc
-	W1tpq2QvFblh/7qSpvwmegN75Qc4r3wLGVdooW4QIuU8qk5RSShRBCWr8Ek9bL/kxYmLTRwwqW7uX
-	cwQ5Bj1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2+TqO1PApOkcJAk4gfvO0uroOEOi82W6D0HT/iBhJkE=; b=LwJoV1Usm9b8tsVPoa5XmUL5az
+	I8U8/Outyk+xKDpCNr19R0QTAHvnv9eZKxyvKtf0I6Ri27wCoMF1kvVEWpb/VjBjeibZDuCRfoyVb
+	Pmd54hH+5GY/Sw6aHipz3BrGSOTKJcOLOLRJi6Q8/BvSb7TFhezwfKow0PndlEEF74h7yBhsNhNE2
+	l+I902N0xQI2vpKndHT4DBZnpe0oNBLyyn6NEq4w0b2C2ewpD8DTpXUtGFzmkO9lXTvl/bjNnW2Sm
+	17c5Cpd1hp6ZvB09X8hCCRf/mNBxH8YcF0NzZ5fNwJ7lJzmre17vHo+L1ehFsIFtD/2/oWzo+c1Td
+	QVNjidEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXHFi-0000000CMux-0tSu;
-	Sun, 21 Dec 2025 11:05:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vXHKM-0000000CNZs-2nJd;
+	Sun, 21 Dec 2025 11:10:18 +0000
+Received: from mgamail.intel.com ([192.198.163.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXHFY-0000000CMrL-2hxK
+	id 1vXHKJ-0000000CNZX-3EQ3
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Dec 2025 11:05:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D5B6644454;
-	Sun, 21 Dec 2025 11:05:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7923DC4AF09;
-	Sun, 21 Dec 2025 11:05:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766315119;
-	bh=joZzWHXLoIhSZSiC6PmIQjU/PLkF4PjJcggDkdZtN40=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bMDfzdUMDd8YZFaRd6nmWU7dO9ubP94Fa17VDRxyQXqErYCpZ1Gg8tYHRsuW78KqP
-	 Zr7feOzSgZw55W++OE67S2M0W7sjy+GxWn7gthlSXGrTLQrRIfKPtOsu5ZFOLhvNz1
-	 Pzgx07Mjf2Mcchs2iTg+8sQKGw/8AYC04XqyFu4iLdkKr9R19anbE9K6LLiJngO0YC
-	 T0pBTC80+OSO81tlvZeWCnChl9eO08P6W1WdPvHW333s8v7xrdM5cCsKlEPzYARb7v
-	 vJ+OD3OVJ5GBCqKxDo3Vr2/hl6+G39HtmkBzP3QLB9gNNURGnLJDm7erzfRb26PW9I
-	 ZE6aOVybSofVQ==
-Received: by wens.tw (Postfix, from userid 1000)
-	id 5273E5FE35; Sun, 21 Dec 2025 19:05:17 +0800 (CST)
-From: Chen-Yu Tsai <wens@kernel.org>
-To: Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Mark Brown <broonie@kernel.org>
-Cc: Andre Przywara <andre.przywara@arm.com>,
-	linux-spi@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
+	Sun, 21 Dec 2025 11:10:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1766315416; x=1797851416;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=+NPJn+Uf5wC2z6UBaOnYqECBNjAFZPmQkyUZemGCPe0=;
+  b=lx/bjnNNVeXuWVmwxIbqo5eA2Z9DLT43Beis5nWJdrMBBdXDh1MRm8ui
+   QGZF8fa0UlVuEV7WKj7wF0/vbz3SpMNL2SC4JSvAYloFalAjly7lN3xR8
+   XyWYHI9Nk+BdixOoAkfMFmV1+tjEe62UtU7n1SByJYI67RFyFRJg+aUDj
+   rrCil3M8CJJG413YI1ScKHzOt694cmz+BigBnutihgqzd59lj2LzMCkDm
+   i/nL/5yBKY7m89yskhkxkY84fSUlptHNxYn3j+yLgDvrH2nU2lKXOJQd9
+   YZat3MDjYyod0ChMnyC7dTif09VnXYvbAOxrx5A5eOSQK2DbpQx/MKEHy
+   g==;
+X-CSE-ConnectionGUID: x307Nho0Q4yKUaRxPYtbtg==
+X-CSE-MsgGUID: EFqslQRFSKe5lUi8x966Xw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11648"; a="70775860"
+X-IronPort-AV: E=Sophos;i="6.21,164,1763452800"; 
+   d="scan'208";a="70775860"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Dec 2025 03:10:13 -0800
+X-CSE-ConnectionGUID: ybjirWJBTPmBN9WhcoaNmQ==
+X-CSE-MsgGUID: ucpH1pf2T8KJGgjLFu6D+w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,164,1763452800"; 
+   d="scan'208";a="198916761"
+Received: from lkp-server01.sh.intel.com (HELO 0d09efa1b85f) ([10.239.97.150])
+  by fmviesa007.fm.intel.com with ESMTP; 21 Dec 2025 03:10:09 -0800
+Received: from kbuild by 0d09efa1b85f with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vXHKB-000000005aj-1NhU;
+	Sun, 21 Dec 2025 11:10:07 +0000
+Date: Sun, 21 Dec 2025 19:09:48 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jiri Olsa <jolsa@kernel.org>, Steven Rostedt <rostedt@goodmis.org>,
+	Florent Revest <revest@google.com>,
+	Mark Rutland <mark.rutland@arm.com>
+Cc: oe-kbuild-all@lists.linux.dev, bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 3/4] arm64: dts: allwinner: sun55i: Add SPI controllers
-Date: Sun, 21 Dec 2025 19:05:10 +0800
-Message-ID: <20251221110513.1850535-4-wens@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251221110513.1850535-1-wens@kernel.org>
-References: <20251221110513.1850535-1-wens@kernel.org>
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Menglong Dong <menglong8.dong@gmail.com>,
+	Song Liu <song@kernel.org>
+Subject: Re: [PATCHv5 bpf-next 9/9] bpf,x86: Use single ftrace_ops for direct
+ calls
+Message-ID: <202512211826.gtdm52TX-lkp@intel.com>
+References: <20251215211402.353056-10-jolsa@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251215211402.353056-10-jolsa@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251221_030520_742045_7B6A8766 
-X-CRM114-Status: GOOD (  10.20  )
+X-CRM114-CacheID: sfid-20251221_031015_857279_44A9D819 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,137 +97,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The A523 family SoCs have four SPI controllers. One of them also
-supports DBI mode.
+Hi Jiri,
 
-Add device nodes for all of them. Also add pinmux nodes for spi0 on the
-PC pins, which is commonly used for SPI-NOR boot flash.
+kernel test robot noticed the following build errors:
 
-Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
----
- .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 94 +++++++++++++++++++
- 1 file changed, 94 insertions(+)
+[auto build test ERROR on bpf-next/master]
 
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-index 42dab01e3f56..9335977751e2 100644
---- a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-@@ -214,6 +214,43 @@ spdif_out_pi_pin: spdif-pi-pin {
- 				allwinner,pinmux = <2>;
- 			};
- 
-+			/omit-if-no-ref/
-+			spi0_pc_pins: spi0-pc-pins {
-+				pins = "PC2", "PC4", "PC12";
-+				function = "spi0";
-+				allwinner,pinmux = <4>;
-+			};
-+
-+			/omit-if-no-ref/
-+			spi0_cs0_pc_pin: spi0-cs0-pc-pin {
-+				pins = "PC3";
-+				function = "spi0";
-+				allwinner,pinmux = <4>;
-+			};
-+
-+			/omit-if-no-ref/
-+			spi0_cs1_pc_pin: spi0-cs1-pc-pin {
-+				pins = "PC7";
-+				function = "spi0";
-+				allwinner,pinmux = <4>;
-+			};
-+
-+			/omit-if-no-ref/
-+			spi0_hold_pc_pin: spi0-hold-pc-pin {
-+				/* conflicts with eMMC D7 */
-+				pins = "PC16";
-+				function = "spi0";
-+				allwinner,pinmux = <4>;
-+			};
-+
-+			/omit-if-no-ref/
-+			spi0_wp_pc_pin: spi0-wp-pc-pin {
-+				/* conflicts with eMMC D2 */
-+				pins = "PC15";
-+				function = "spi0";
-+				allwinner,pinmux = <4>;
-+			};
-+
- 			uart0_pb_pins: uart0-pb-pins {
- 				pins = "PB9", "PB10";
- 				allwinner,pinmux = <2>;
-@@ -563,6 +600,49 @@ mmc2: mmc@4022000 {
- 			#size-cells = <0>;
- 		};
- 
-+		spi0: spi@4025000 {
-+			compatible = "allwinner,sun55i-a523-spi";
-+			reg = <0x04025000 0x1000>;
-+			interrupts = <GIC_SPI 16 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_SPI0>, <&ccu CLK_SPI0>;
-+			clock-names = "ahb", "mod";
-+			dmas = <&dma 22>, <&dma 22>;
-+			dma-names = "rx", "tx";
-+			resets = <&ccu RST_BUS_SPI0>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		spi1: spi@4026000 {
-+			compatible = "allwinner,sun55i-a523-spi-dbi",
-+				     "allwinner,sun55i-a523-spi";
-+			reg = <0x04026000 0x1000>;
-+			interrupts = <GIC_SPI 17 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_SPI1>, <&ccu CLK_SPI1>;
-+			clock-names = "ahb", "mod";
-+			dmas = <&dma 23>, <&dma 23>;
-+			dma-names = "rx", "tx";
-+			resets = <&ccu RST_BUS_SPI1>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		spi2: spi@4027000 {
-+			compatible = "allwinner,sun55i-a523-spi";
-+			reg = <0x04027000 0x1000>;
-+			interrupts = <GIC_SPI 18 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&ccu CLK_BUS_SPI2>, <&ccu CLK_SPI2>;
-+			clock-names = "ahb", "mod";
-+			dmas = <&dma 24>, <&dma 24>;
-+			dma-names = "rx", "tx";
-+			resets = <&ccu RST_BUS_SPI2>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
- 		usb_otg: usb@4100000 {
- 			compatible = "allwinner,sun55i-a523-musb",
- 				     "allwinner,sun8i-a33-musb";
-@@ -815,6 +895,20 @@ rtc: rtc@7090000 {
- 			#clock-cells = <1>;
- 		};
- 
-+		r_spi0: spi@7092000 {
-+			compatible = "allwinner,sun55i-a523-spi";
-+			reg = <0x07092000 0x1000>;
-+			interrupts = <GIC_SPI 172 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&r_ccu CLK_BUS_R_SPI>, <&r_ccu CLK_R_SPI>;
-+			clock-names = "ahb", "mod";
-+			dmas = <&dma 53>, <&dma 53>;
-+			dma-names = "rx", "tx";
-+			resets = <&r_ccu RST_BUS_R_SPI>;
-+			status = "disabled";
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
- 		mcu_ccu: clock-controller@7102000 {
- 			compatible = "allwinner,sun55i-a523-mcu-ccu";
- 			reg = <0x7102000 0x200>;
+url:    https://github.com/intel-lab-lkp/linux/commits/Jiri-Olsa/ftrace-bpf-Remove-FTRACE_OPS_FL_JMP-ftrace_ops-flag/20251216-052916
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git master
+patch link:    https://lore.kernel.org/r/20251215211402.353056-10-jolsa%40kernel.org
+patch subject: [PATCHv5 bpf-next 9/9] bpf,x86: Use single ftrace_ops for direct calls
+config: arc-allyesconfig (https://download.01.org/0day-ci/archive/20251221/202512211826.gtdm52TX-lkp@intel.com/config)
+compiler: arc-linux-gcc (GCC) 15.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251221/202512211826.gtdm52TX-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202512211826.gtdm52TX-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   kernel/bpf/trampoline.c: In function 'unregister_fentry':
+>> kernel/bpf/trampoline.c:367:23: error: implicit declaration of function 'direct_ops_del'; did you mean 'direct_ops_free'? [-Wimplicit-function-declaration]
+     367 |                 ret = direct_ops_del(tr, old_addr);
+         |                       ^~~~~~~~~~~~~~
+         |                       direct_ops_free
+   kernel/bpf/trampoline.c: In function 'modify_fentry':
+>> kernel/bpf/trampoline.c:381:23: error: implicit declaration of function 'direct_ops_mod'; did you mean 'direct_ops_free'? [-Wimplicit-function-declaration]
+     381 |                 ret = direct_ops_mod(tr, new_addr, lock_direct_mutex);
+         |                       ^~~~~~~~~~~~~~
+         |                       direct_ops_free
+   kernel/bpf/trampoline.c: In function 'register_fentry':
+>> kernel/bpf/trampoline.c:404:23: error: implicit declaration of function 'direct_ops_add'; did you mean 'direct_ops_free'? [-Wimplicit-function-declaration]
+     404 |                 ret = direct_ops_add(tr, new_addr);
+         |                       ^~~~~~~~~~~~~~
+         |                       direct_ops_free
+
+
+vim +367 kernel/bpf/trampoline.c
+
+   360	
+   361	static int unregister_fentry(struct bpf_trampoline *tr, u32 orig_flags,
+   362				     void *old_addr)
+   363	{
+   364		int ret;
+   365	
+   366		if (tr->func.ftrace_managed)
+ > 367			ret = direct_ops_del(tr, old_addr);
+   368		else
+   369			ret = bpf_trampoline_update_fentry(tr, orig_flags, old_addr, NULL);
+   370	
+   371		return ret;
+   372	}
+   373	
+   374	static int modify_fentry(struct bpf_trampoline *tr, u32 orig_flags,
+   375				 void *old_addr, void *new_addr,
+   376				 bool lock_direct_mutex)
+   377	{
+   378		int ret;
+   379	
+   380		if (tr->func.ftrace_managed) {
+ > 381			ret = direct_ops_mod(tr, new_addr, lock_direct_mutex);
+   382		} else {
+   383			ret = bpf_trampoline_update_fentry(tr, orig_flags, old_addr,
+   384							   new_addr);
+   385		}
+   386		return ret;
+   387	}
+   388	
+   389	/* first time registering */
+   390	static int register_fentry(struct bpf_trampoline *tr, void *new_addr)
+   391	{
+   392		void *ip = tr->func.addr;
+   393		unsigned long faddr;
+   394		int ret;
+   395	
+   396		faddr = ftrace_location((unsigned long)ip);
+   397		if (faddr) {
+   398			if (!tr->fops)
+   399				return -ENOTSUPP;
+   400			tr->func.ftrace_managed = true;
+   401		}
+   402	
+   403		if (tr->func.ftrace_managed) {
+ > 404			ret = direct_ops_add(tr, new_addr);
+   405		} else {
+   406			ret = bpf_trampoline_update_fentry(tr, 0, NULL, new_addr);
+   407		}
+   408	
+   409		return ret;
+   410	}
+   411	
+
 -- 
-2.47.3
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
