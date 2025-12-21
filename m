@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA61FE67482
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Dec 2025 12:04:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2B3EE67482
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Dec 2025 12:05:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MBRUg+4Qb7okmxOYh3kLMzKaVVwRJ/8o83coAVZieEg=; b=lgJK67UubFGmjEk198YO0CJWXp
-	VU6YS57oq52d80O/3Znc2JlhEBFc8QA62669z8jIVbRSjv3R5ea9JW7qHWpXbnVeb2+pa7o3ZLD8d
-	nyIbB7E/POLNHJqsGan5mzQiUbu8nh/xyPeZkeN44brZUOsKFOo6NfYPg7QENosqM218Yw0B2h3hU
-	F/1hGBKUP1kr7uETXt3ggpip51pvBuG8rpyNoXYLG7qfStXu5TwGyEw++NGXEWeODYrGWrpexljjN
-	XoU08GLal6Cc2qfDRJlPsw3Qf4jFz+SV1AJmqxej9lVLK14RQTGkXAwE268yIXdqrWm0ZguNS11zB
-	6Wcpcr/Q==;
+	bh=thuT7JPzP6ijGee2PwFI/Fkh7CU0FprxFiOeg3tcdUM=; b=P1LoZLeFoSjE1AMJssvsjZAta4
+	M+X0hHLbY4ImFiXsG1FuZZEQulUwO80jTa+vnk1EC2xvUMguF9PDgVPfHpnFA9F+b+RL08gWJ/fyY
+	148uVNyxIpZoYhSag14oDKr7NSGIeYpZ/Wv8p9sBnjkDLQ4xW2vXnX5+xYtYq0mkygU1sE7bMKCVm
+	clvJHmA/h70hQpmvzTqsu5vduG/+QfvK91TelVGVqhBWK9qHPQwuSZtC5gs4mREy9HQv7b8P5asnV
+	L1ccxHjkb6BmCYhXGbBfxY1BsCl2D2NTwykL4i/tH3Reu3XF/cyshoIJ0H+WTnCr6AIE0CXxM4vz1
+	Zr4v8fdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXIAm-0000000CQ0c-2jmp;
-	Sun, 21 Dec 2025 12:04:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vXIBD-0000000CQ8p-12TR;
+	Sun, 21 Dec 2025 12:04:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXIAl-0000000CPyx-0z73;
-	Sun, 21 Dec 2025 12:04:27 +0000
+	id 1vXIBA-0000000CQ7U-1djV;
+	Sun, 21 Dec 2025 12:04:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C31A060007;
-	Sun, 21 Dec 2025 12:04:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BBF7C4CEFB;
-	Sun, 21 Dec 2025 12:04:18 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3FD3942B10;
+	Sun, 21 Dec 2025 12:04:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22B2BC4CEFB;
+	Sun, 21 Dec 2025 12:04:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766318665;
-	bh=vYJHXTF57S2uWIWZSnj37Cbd8d3rIPZwHikEoAhE4qM=;
+	s=k20201202; t=1766318690;
+	bh=7LVQ8OFSH90aBTKeJHbT6h52O5X5Gibty3PLGF89PDw=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=kSjOlOk3h9BEnPlVU+aF/hIoaQV4c+oE2pmS+dEjUHl1yr+qW1KFlR8WM8sJ2bVd4
-	 qG9vydCViH89KPRGzVk6N89j4gByJknCPPjmfXkB/xfnei0gPVtOQLaxmc2CEMYYAW
-	 4cO6SbQTlo0TdXY/UrnfGdQ/rPWYIR9bfyysAGRF8P8CKYk+83V7PnQN5jvsJZorgO
-	 gcY2l+ehX46+G4byGX25XLKjXZhj9K+AiEiiV7IJCP3myCkXSVy4Z4uhTxvXMDcOB3
-	 3hmzaUdRhhnfbZzIM5IbaNdiEk6GEPy41lgxBviQenD55MuAM07dW2xJJNV66itTvr
-	 GH0Ltqv4LgQ7A==
-Date: Sun, 21 Dec 2025 12:04:13 +0000
+	b=oqDNeUcywridYkQcEhbD4MFn2rDVLVbge9+UENfHQXADzdMeBATSju97wySENj2Pz
+	 d+tUuRRLIJykix21Wv9ZJG0k4s53SmnsutnxtFtp0VFZIs5vft8m2o/J1L5aEvtaOF
+	 aFA5GwrQ6lJTn3IS1Top2ShQDW/vlOEBj+NbCfUDh9HUhPwrlkU346ODM9jUH4+sXx
+	 6jt72+9OwPTJh3U4HXnoQvVIFc27XFg8FaOeG1A5s9L3t+2fR6KVzhYlVTA+fz/Zkc
+	 /tGUuMTQf8qyeR4Jbar9BIkUSnemwSK+KZxq6Dj4Z1zc9YfGxCL7wvZNh8yb+MWc7m
+	 p8kgIzemsGaAA==
+Date: Sun, 21 Dec 2025 12:04:39 +0000
 From: Jonathan Cameron <jic23@kernel.org>
 To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
@@ -54,15 +54,18 @@ Cc: David Lechner <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=
  linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
  linux-samsung-soc@vger.kernel.org, linux-arm-msm@vger.kernel.org,
  linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 1/5] iio: adc: aspeed: Simplify with dev_err_probe
-Message-ID: <20251221120413.7f1fa877@jic23-huawei>
-In-Reply-To: <20251219-iio-dev-err-probe-v1-1-bd0fbc83c8a0@oss.qualcomm.com>
+Subject: Re: [PATCH 0/5] iio: adc: Simplify with dev_err_probe
+Message-ID: <20251221120439.3aa841ca@jic23-huawei>
+In-Reply-To: <20251219-iio-dev-err-probe-v1-0-bd0fbc83c8a0@oss.qualcomm.com>
 References: <20251219-iio-dev-err-probe-v1-0-bd0fbc83c8a0@oss.qualcomm.com>
-	<20251219-iio-dev-err-probe-v1-1-bd0fbc83c8a0@oss.qualcomm.com>
 X-Mailer: Claws Mail 4.3.1 (GTK 3.24.51; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251221_040452_466698_1978D7E4 
+X-CRM114-Status: UNSURE (   9.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,41 +80,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 19 Dec 2025 15:31:50 +0100
+On Fri, 19 Dec 2025 15:31:49 +0100
 Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com> wrote:
 
 > Use dev_err_probe() to make error code handling simpler and handle
 > deferred probe nicely (avoid spamming logs).
 > 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Not a comment on this patch as such, but this would benefit from a local
-struct device *dev
+> Best regards,
+> Krzysztof
+Thanks. Series applied.
 
+Jonathan
 
+> 
 > ---
->  drivers/iio/adc/aspeed_adc.c | 9 ++++-----
->  1 file changed, 4 insertions(+), 5 deletions(-)
+> Krzysztof Kozlowski (5):
+>       iio: adc: aspeed: Simplify with dev_err_probe
+>       iio: adc: exynos: Simplify with dev_err_probe
+>       iio: adc: qcom-spmi-rradc: Simplify with dev_err_probe
+>       iio: adc: rockchip: Simplify with dev_err_probe
+>       iio: adc: sc27xx: Simplify with dev_err_probe
 > 
-> diff --git a/drivers/iio/adc/aspeed_adc.c b/drivers/iio/adc/aspeed_adc.c
-> index bf2bfd6bdc41..1ae45fe90e6c 100644
-> --- a/drivers/iio/adc/aspeed_adc.c
-> +++ b/drivers/iio/adc/aspeed_adc.c
-> @@ -535,11 +535,10 @@ static int aspeed_adc_probe(struct platform_device *pdev)
->  		return PTR_ERR(data->clk_scaler);
->  
->  	data->rst = devm_reset_control_get_shared(&pdev->dev, NULL);
-> -	if (IS_ERR(data->rst)) {
-> -		dev_err(&pdev->dev,
-> -			"invalid or missing reset controller device tree entry");
-> -		return PTR_ERR(data->rst);
-> -	}
-> +	if (IS_ERR(data->rst))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(data->rst),
-> +				     "invalid or missing reset controller device tree entry");
-> +
->  	reset_control_deassert(data->rst);
->  
->  	ret = devm_add_action_or_reset(data->dev, aspeed_adc_reset_assert,
+>  drivers/iio/adc/aspeed_adc.c      |  9 ++++---
+>  drivers/iio/adc/exynos_adc.c      | 29 ++++++++---------------
+>  drivers/iio/adc/qcom-spmi-rradc.c | 20 ++++++----------
+>  drivers/iio/adc/rockchip_saradc.c | 13 ++++-------
+>  drivers/iio/adc/sc27xx_adc.c      | 49 ++++++++++++++-------------------------
+>  5 files changed, 43 insertions(+), 77 deletions(-)
+> ---
+> base-commit: cc3aa43b44bdb43dfbac0fcb51c56594a11338a8
+> change-id: 20251219-iio-dev-err-probe-59b3104c8d4b
 > 
+> Best regards,
 
 
