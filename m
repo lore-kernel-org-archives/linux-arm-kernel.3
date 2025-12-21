@@ -4,94 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E244E67482
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Dec 2025 15:52:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84BDAE66886
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 21 Dec 2025 15:57:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ktfr7SJQpTbgMhZZT/6XJflt14sbq+igmEnRrXK6oIQ=; b=i+1uQDDm7PDDr633mUi2ACkWUv
-	81qtpRvK14dvcJeGRAOa6wY3yR7Vc6XTNhI6BNGwAwCuOdkeObvTO0yFkNgdH7flR4g1AY1teLAIE
-	OY0VZoj/AFF9FO4d/2bszp3Tzx6Tvf3IXPSXlEegFpuIoXQnASKlqqzALRj5h1OnDK06a51pClfRF
-	N7+k63F9NyVAPd2Jt0ZrrMzu1B6nGGXoZPIKxk4lgxgXNmYIPuznfaN7/CcpnUv4nyypPijy4AnDx
-	fM6kSnJfamZqoWU7dV4JTWjcOwM2Ir7lUKMKYI3af2mbdgq+DnB1E3+Rm6adbOJSqKYNqkktWoEC3
-	IiPYa+eQ==;
+	bh=mrMOQdDsAyBJL5Fgn/G2OhbffuTYYry72mzdpWhvbCI=; b=OmAR6VvRQ2bjYq3h0fDAl9XfZ6
+	inpVWVxq/o/qxSsOOB9r/O/9J7LRx4J4UqEnSZtWShg6Xpmk1Sd6ti6xlEzYmCnv+2wd5ShUx4njx
+	S2+9zvB4hTjWgQ0tFPhhjCyHW1KihT5Eyz9Twp5vS/8t2SeFKygdQjXeGj6LiUHFeH3EqxK6PiG23
+	XZzvufVtXqbwHv3xB16uB5L26s0GIit3xLGg9N/uJNfoOdtjJl/fcSm2J8sGEKg8MkaKg+Es+PYrr
+	flkQ+ZZ0woEyBMG9iAAa6DZCx6FP4G9IDs1npHBGM7VFKIuIMEsj0dBRVqh3Pse38IBt7kl/qr7iv
+	9Zako3gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXLjq-0000000CYzL-2imw;
-	Sun, 21 Dec 2025 15:52:54 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1vXLo1-0000000CZEm-1Ohv;
+	Sun, 21 Dec 2025 15:57:13 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXLjp-0000000CYys-0T2r
+	id 1vXLny-0000000CZEN-2u6c
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 21 Dec 2025 15:52:54 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4779cc419b2so23942995e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 21 Dec 2025 07:52:52 -0800 (PST)
+	Sun, 21 Dec 2025 15:57:11 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-47789cd2083so17067855e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 21 Dec 2025 07:57:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1766332371; x=1766937171; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1766332629; x=1766937429; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Ktfr7SJQpTbgMhZZT/6XJflt14sbq+igmEnRrXK6oIQ=;
-        b=LhTI7t4AwTZUOyho3AzwIDhzCeKEqCBI9RUqMipiG4/wqvQxwcul45Q90cgDTddlQY
-         u3NsDcBWwvV8+bl/p/misY2/nAovd3rlqrYlJWew91RIZjmE/3ZRZ2WrNLmzzGrkD3qL
-         VcW4iJ+j8u/XZOByBFY0UhT5mBGk3zw9kg2TyWXn55405mMytiY66fDM5nwqy/zCqXlJ
-         tQTx4iapFIMjvWUttqNZvTTiZ18rTYBd72DY2Shdiz6x4La0hlqL6WXuUhf4VSr/Yk96
-         vNnZ0svCDIvkp5KuKr46NUybnINTR2PlwAbuqq3FRrNAadBmpJFmLfs3JlbCTI0s/8ec
-         KXCg==
+        bh=mrMOQdDsAyBJL5Fgn/G2OhbffuTYYry72mzdpWhvbCI=;
+        b=AtQYjB1IcgaU0p2B8Zq1634GGCgLWgoaDav9xrKyhq/1WzjZKmvoEVwxvTbJozJORA
+         hbUP4RIameyd50aXtoYnNneQSN+6J5zOzztBIhrxSftOo1mcmlzx5qR4IRET0Pr45zrU
+         YsdmYcLrEtNGLZR+p1E09iBxF4ZZv3uXUTcGbTyXU3zua6KOtXcnNRaO0pMKa7rhraqj
+         LKnvVOvHWJ5HdkyBb0fClZD+9dWHQsomekJzeWI/5bHd438bgTq4x9UUag6YOGLVsRdA
+         hms3x/RGbBCnONcBZHZzvWLHv/QxJxD/m+mqOso5o6zoVOPDuIY/BG+b6/a0lOfNtrvR
+         dEzg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766332371; x=1766937171;
+        d=1e100.net; s=20230601; t=1766332629; x=1766937429;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=Ktfr7SJQpTbgMhZZT/6XJflt14sbq+igmEnRrXK6oIQ=;
-        b=bMTxKPDkysyuNye11S2ZiOphkJOGzbd2xRzzlg5lXSroWnEl7Ouby9SMnjAhBiiryu
-         jrEMhxIvGf04MSlrkgFXSkEBAazICM4FJNol+lASgZH0oAPyodb07veNsQdfbFaa2ZyW
-         HS2XcXufbHHAcHYHD2Eeu1mXVkyRIRkdaYmArBuXdfDkLaIiPwpQyXYf/XXQ6beJP4iS
-         WwpFigt3UAy8CCb9oa9AbqkE9agt0WlkBBOKWT0OJ2Pd2S03CB2YGKZpoczhuz56TiTz
-         unI01Hb/DWHGnaw+UpQK+OrJ4Yt6DX69lox29JKE5DV2PxdZEl5Gxo6c736omh6OHO1a
-         KgoQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXfZxUDKgBENILEtV+83vDM7pE0Q8kHxQTNmvKJ1I5VL79HsLmC1hXbDZZ0LDrOFLOMn1PgOG7+8URfxBMbnGU/@lists.infradead.org
-X-Gm-Message-State: AOJu0YxIk4L/GDwlbImG36Fp5l9BiHYN27IaABH0f4LeYUJwOaf/7M7Q
-	8w4lbOGT/bdnJJfWsP7mzSsFe5Sq4E6IQH6QGlycna/F5Lkbj2q8nVTR
-X-Gm-Gg: AY/fxX4lD0S0aQzrsyjBPoN70/oJ4//kJVHbhksEt7jgxqWRFvB7cL3YjC6asdX4V+2
-	mZISg62NlLlbOlQEXSB0rGAfZ/FOFPqiTrAnAveKbak5dsxHexu+HHxOJZifRTtBuhx8YPCsHva
-	Gj1v1D1Md7fMC/B4g72Z5LGhjPFza0M8OrYAEpy7+Jjh3XMFJX2Bb18nVqcpWZQWy3V745QeuvL
-	e0I+L/nZ9MjW6HOXQFDTjM97U+mW3KTJn5HH21Gon/FiDbkXkpMaF0/7QJFattDVXruMEaGS4yL
-	h8zUQCadEd4QgyKZe/GnvkxHlcI5hv93CeD511KKjH3+lp1z2JOcxROyo+ahV7wJwRevHgNnYbu
-	Ho4SDqe6QShZ9v/0piVMqZAFbaFYMDCuJBRoSndcriESivxEWRQ/fhao7EQ82XTKaHQGWdgh20L
-	qUNKRKN5qaP643+E2ZnxY3Wbnm5Tg/j+//YuXescRBbNZhlb5g7RZP5a13aYgGqWzsI0kb
-X-Google-Smtp-Source: AGHT+IEbJh6QEEBqVoiA8uGAKHnpKaENlX2JGObti1D5zf3tJMVvd1glLOCkUq93fMJj0p1hdC0a4g==
-X-Received: by 2002:a05:600c:45c8:b0:477:8a2a:1244 with SMTP id 5b1f17b1804b1-47d195558bemr85515255e9.11.1766332371058;
-        Sun, 21 Dec 2025 07:52:51 -0800 (PST)
+        bh=mrMOQdDsAyBJL5Fgn/G2OhbffuTYYry72mzdpWhvbCI=;
+        b=aq9ZGXhXjLIoS0U/nu9ltHvXY3SSDNF/QUKFt9ITSygKysKARvHGpx0YBYUcWxSCEK
+         D965IvBxcUaMVQfYJ0aM7DWvBGJmhTjHDQJgssiyyEslix953OiB0Yy6vG2oTxBRFr5w
+         qUokIn+lybEecMxp6NA5wDUbYKwPbEYeeBN3qOdl792e/uf8SH74ZsrFSVTAk1d10OzH
+         MU41noJRVmPCiaAM9hh6UyjffZWHpbfYjSq4WkYbsF5byAIuLH0sJgd+F4NUb4CO7qoE
+         2414bACGlyzZCd6fNRYza2kyQTuwf+Cvr8qTNSKL1PDrdBvc5n7LAdYpDVMhCyMYIDZv
+         rqkQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV5jd0DbXXF7WIcOIyFKy4nJW1Xsq624hmEIxYJ7vXAinEtrvuamYVkLEbbTcMrgJ/4eMHeAUwAsJOm3fzcOk6v@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQyA/2k0joTLF4YG3yHBQw8rLslEhny7JEl43yWksOR6ptLbRL
+	22h41KRZK6gCGx+wuOtUsrNQxD/wKX4k/+H95Qa5egbJW/U3PAeVcwFC
+X-Gm-Gg: AY/fxX4tXdjQSEzNK7P2KH+yZOJ5g5hSSkF466mrXd/HFYB+2Su7cga2UEglhbKL1MK
+	sL3wdpT2evkEpHmrDMBDkJ8+xHclVTHYlOr4YCC6kt43dE0iXnjvXiTsdpQz5iNDeY7L34gfsxT
+	+ttSKetu3uicQdQtXETga2Q65C6ajght8JziHezMwds2Zz0MIkbYAmArjY4bbYDNO0USLdV+x2Q
+	636PrQML6ySX7jLq7KdnBEzWnW2RmmJwhjPsoORpGVizk6DcNNjX5JutDZpK4Mi+NyRQlfbNJmd
+	J51v7l9mm3bB6H5aCoBmol14bq2aRa1G/Y85cvWImitK/K0zJdwBKra3a+3kM93RxGhMDdwf5tP
+	X2wr+dO67U4L6BlxJReH3wsYroOmIFBFe+166pWj8m+alNCqjbetI9pMcYeF4dIzHpvFNcTwDa4
+	TGo752qtLm4S9qS+1kEBWjU4NUdOd4uTo5DhUu9wW6vdYJC5KvNGsdKnClZORt3v16fDg8
+X-Google-Smtp-Source: AGHT+IExEA0mdDUqUtqXOeUL++O53ldVOc/C42cZHo7ZCg0+/iRgPqjs3JCL6tqxJgQuhZDXsn6nRw==
+X-Received: by 2002:a05:600c:6388:b0:477:63db:c718 with SMTP id 5b1f17b1804b1-47d19557cd2mr82943635e9.16.1766332628749;
+        Sun, 21 Dec 2025 07:57:08 -0800 (PST)
 Received: from jernej-laptop.localnet (82-192-45-213.dynamic.telemach.net. [82.192.45.213])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47be3a0fb9asm81695155e9.2.2025.12.21.07.52.50
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47be3ac5409sm75866275e9.15.2025.12.21.07.57.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 21 Dec 2025 07:52:50 -0800 (PST)
+        Sun, 21 Dec 2025 07:57:08 -0800 (PST)
 From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej@kernel.org>,
- Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Mark Brown <broonie@kernel.org>, Chen-Yu Tsai <wens@kernel.org>
-Cc: Andre Przywara <andre.przywara@arm.com>, linux-spi@vger.kernel.org,
- devicetree@vger.kernel.org, linux-sunxi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 4/4] arm64: dts: allwinner: t527: orangepi-4a: Enable SPI-NOR
- flash
-Date: Sun, 21 Dec 2025 16:52:49 +0100
-Message-ID: <13909614.uLZWGnKmhe@jernej-laptop>
-In-Reply-To: <20251221110513.1850535-5-wens@kernel.org>
-References: <20251221110513.1850535-1-wens@kernel.org>
- <20251221110513.1850535-5-wens@kernel.org>
+To: Vinod Koul <vkoul@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+ Jernej Skrabec <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>,
+ Chen-Yu Tsai <wens@kernel.org>
+Cc: Andre Przywara <andre.przywara@arm.com>, dmaengine@vger.kernel.org,
+ linux-sunxi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] dmaengine: sun6i: Choose appropriate burst length under maxburst
+Date: Sun, 21 Dec 2025 16:57:07 +0100
+Message-ID: <3385264.aeNJFYEL58@jernej-laptop>
+In-Reply-To: <20251221080450.1813479-1-wens@kernel.org>
+References: <20251221080450.1813479-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251221_075253_154327_88A8D8DE 
-X-CRM114-Status: UNSURE (   8.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251221_075710_760028_CED11F9A 
+X-CRM114-Status: GOOD (  11.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,17 +102,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne nedelja, 21. december 2025 ob 12:05:11 Srednjeevropski standardni =C4=
+Dne nedelja, 21. december 2025 ob 09:04:48 Srednjeevropski standardni =C4=
 =8Das je Chen-Yu Tsai napisal(a):
-> The Orangepi 4A has a SPI-NOR flash connected to spi0 on the PC pins.
-> The HOLD and WP pins are not connected, and are instead pulled up by the
-> supply rail.
+> maxburst, as provided by the client, specifies the largest amount of
+> data that is allowed to be transferred in one burst. This limit is
+> normally provided to avoid a data burst overflowing the target FIFO.
+> It does not mean that the DMA engine can only do bursts in that size.
 >=20
-> Enable spi0 and add a device node for the SPI-NOR flash.
+> Let the driver pick the largest supported burst length within the
+> given limit. This lets the driver work correctly with some clients that
+> give a large maxburst value. In particular, the 8250_dw driver will give
+> a quarter of the UART's FIFO size as maxburst. On some systems the FIFO
+> size is 256 bytes, giving a maxburst of 64 bytes, while the hardware
+> only supports bursts of up to 16 bytes.
 >=20
 > Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
 
-Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
 Best regards,
 Jernej
