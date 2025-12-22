@@ -4,211 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 663DCD711D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 08:28:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF244E6748D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 08:29:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d6mTZ3KfaYHHDtOF/exusqHByYhcNBQiWItkfF4F+UQ=; b=jjA1kFE1la++6SIQ86uYXhKnls
-	rwnfNXHGNU35PE0hwVn7HMcTnKyaQABJ4QS8xJcQvU+++hslT7kldP46dqH8a7Yh5iwGP/9JqYS0y
-	LYNs2ZZhpqhla//ZUOsy5Wxq0s8KuwZpsn9u06a3NyA6T42gay61qgevb3Ps8rC3vP5jcJaOo+i1E
-	SK+ecbgRzdv4Y8EtnY0lFNV/5k7+hGgdz2opJeUoP3A2edQyFuckz7F28cX6dVi7IUCUt4Jvm2HMy
-	+b4+5H8U5+RG0cV3IUEGRuWPSEPrhHT8IxGSuiFuemoTHRX9PrRh1hJn3zFhyi2057k75K+A5vyAC
-	0wtrjblw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UJ0Fy32CNz68gAtuvvvAIFbPIlI5INll01DQrP39TKA=; b=j2NAamCdfmeatS/SFeElGXPp9/
+	1DPj1E4orc+i6bA7JCxMd+JKC3LHrrY6nsczrREn4X4Fg9yPrSpBaUj6dq3lMcxQcpBdrvXM7nEgH
+	4/vl+gN+jQ9j9SoiHnKIwrQ/ddATcOLHnCGZWy/OwwlBB8CwElgxok9mnU8jEKeHJxJ/zXJDo1PSs
+	K1a/YzrxeyDQbiL8XKg4axouD9ZHwp0LRhM39uewgn3FEILqXwdCHVtqlRJm8D5ySCBjrafdNQ3nu
+	7ys7SFOphZieAfDcR0qN1zlXxOzFAQu3RzXc/9B3vAnOvbdM6VMcaPlMutbmHQCPrCwYkrBuIRhsa
+	KD8Wpp9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXbHd-0000000DRP1-40Fu;
-	Mon, 22 Dec 2025 08:28:49 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1vXbI6-0000000DRau-0kMO;
+	Mon, 22 Dec 2025 08:29:18 +0000
+Received: from mail-pf1-x443.google.com ([2607:f8b0:4864:20::443])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXbHb-0000000DRNQ-0Yhl;
-	Mon, 22 Dec 2025 08:28:48 +0000
-X-UUID: 3a43945cdf1011f09f706fa2197c6ceb-20251222
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=d6mTZ3KfaYHHDtOF/exusqHByYhcNBQiWItkfF4F+UQ=;
-	b=u2Xgm8tH96XnEIY/xornBZqiNT8IVRYy0g3hrCpIDlDeeEzU+mYtEhtXhrhOWGkfCb7j57m8y+iiW0kdyf09mnDgyR/j+5pn6d53oY2JrauyiEI30fIfUhO4v7BPonY7QyPYHfCC4oHF3IU6DL2iXwfUk60nrc7tCXKnVkIzBUI=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.9,REQID:bb431d39-eee9-48ba-85f4-e3dc7a56b546,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:5047765,CLOUDID:c4600903-1fa9-44eb-b231-4afc61466396,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|888|898,
-	TC:-5,Content:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BE
-	C:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 3a43945cdf1011f09f706fa2197c6ceb-20251222
-Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
-	(envelope-from <peter.wang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 126979080; Mon, 22 Dec 2025 01:28:43 -0700
-Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
- MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.26; Mon, 22 Dec 2025 16:28:40 +0800
-Received: from SG2PR04CU009.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Mon, 22 Dec 2025 16:28:40 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=O0HjLIOXqWSFhnsOWRpGeQhJ7c4wff8FqJ3gHqjvJI/ih19hss2MzUlp+ekck65BNYOfw7pi7PJg0TBGhg1p4MtjTEHmSUZtCXGwWlVMQtBNKOZ14GnMHQO5rq9m37hJmsBxR3StDdcmN1uEyl/IFJKkCLZg0+ZfCStsKVjf5YdkI4cagylsA6CHxfXfnEgLErJd2iNw//Ef4y2nua2+Cne7bkuyaUiUndZfJvsLjmmE8dHm8VCiYnnBhtwTHFfkOxnW8kLfUOvxIQ1UF6DaxrvO+1vtMUhUlAe7QiabyYvPlQfadC13QHFfC97+gnV39P46ZZ3CYsFcv4cWtIvQAA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=d6mTZ3KfaYHHDtOF/exusqHByYhcNBQiWItkfF4F+UQ=;
- b=PW0kRHjoBkPTIamU6RG5zNsUoZkHNqRddtDh2eJ+F4CmT4JnDsmPOY41A8RzAhW2PYA8ES1iHuTN24b822Z7inAloq9cnjRSP32Im4V8S7+jcYsa0wPFGmm5CRu4xKKtnEceenw16FIWhB32IUmj8MNcXpFAlh63K7k31QgEfty/mTuKnQj1r3oIEcqEyVddWjc/0uDn5fqYcYOC3JFDy2+tsTGFZlCGD978TCapwg58U+e2XE0Wl/TGkj7sgingwYMUD4F9LjAWBpeQFmGCf6SNuI9cNf0HyKBE2HugZ/GBrKXtBx90MlOkX3eFz6dt2wCjxrTeaNLQe0KtRQKU/A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
+	id 1vXbI2-0000000DRZ8-2G7u
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 22 Dec 2025 08:29:15 +0000
+Received: by mail-pf1-x443.google.com with SMTP id d2e1a72fcca58-7baf61be569so4011550b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 00:29:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=d6mTZ3KfaYHHDtOF/exusqHByYhcNBQiWItkfF4F+UQ=;
- b=MkfVC7Hctdmg3w6BJNKIfcFhbBbS5XDzLPixAfuidtLfM+qXtRzhiT2vtbMdFP4WlRWycFvLOC1iyJhh0jgBFOlJBjdTXgLC/O4AJOXtB6JwQQVSPi5sQfrbLHnJaZtiT8iP6BYDIUH1lAS6QgBuly4xkVTn/Dm1FC5ZZ5FwkW4=
-Received: from PSAPR03MB5605.apcprd03.prod.outlook.com (2603:1096:301:66::6)
- by TY0PR03MB8200.apcprd03.prod.outlook.com (2603:1096:405:d::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.11; Mon, 22 Dec
- 2025 08:28:38 +0000
-Received: from PSAPR03MB5605.apcprd03.prod.outlook.com
- ([fe80::165:d36a:3f76:2925]) by PSAPR03MB5605.apcprd03.prod.outlook.com
- ([fe80::165:d36a:3f76:2925%4]) with mapi id 15.20.9434.009; Mon, 22 Dec 2025
- 08:28:38 +0000
-From: =?utf-8?B?UGV0ZXIgV2FuZyAo546L5L+h5Y+LKQ==?= <peter.wang@mediatek.com>
-To: Uwe Kleine <u.kleine-koenig@baylibre.com>,
-	"James.Bottomley@HansenPartnership.com"
-	<James.Bottomley@HansenPartnership.com>, "martin.petersen@oracle.com"
-	<martin.petersen@oracle.com>, "Kai.Makisara@kolumbus.fi"
-	<Kai.Makisara@kolumbus.fi>
-CC: "avri.altman@wdc.com" <avri.altman@wdc.com>, "beanhuo@micron.com"
-	<beanhuo@micron.com>, "quic_nguyenb@quicinc.com" <quic_nguyenb@quicinc.com>,
-	"linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>, "AngeloGioacchino
- Del Regno" <angelogioacchino.delregno@collabora.com>, "bvanassche@acm.org"
-	<bvanassche@acm.org>, "adrian.hunter@intel.com" <adrian.hunter@intel.com>,
-	"alim.akhtar@samsung.com" <alim.akhtar@samsung.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>
-Subject: Re: [PATCH v2 2/8] scsi: Make use of bus callbacks
-Thread-Topic: [PATCH v2 2/8] scsi: Make use of bus callbacks
-Thread-Index: AQHccMmTK/May6aVp0qM7Ut1RH2lvbUtWFyA
-Date: Mon, 22 Dec 2025 08:28:37 +0000
-Message-ID: <ba48917452f4bb168a2b76deb64d2edeace2c836.camel@mediatek.com>
-References: <cover.1766133330.git.u.kleine-koenig@baylibre.com>
-	 <a54e363a3fd2054fb924afd7df44bca7f444b5f1.1766133330.git.u.kleine-koenig@baylibre.com>
-In-Reply-To: <a54e363a3fd2054fb924afd7df44bca7f444b5f1.1766133330.git.u.kleine-koenig@baylibre.com>
-Accept-Language: zh-TW, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PSAPR03MB5605:EE_|TY0PR03MB8200:EE_
-x-ms-office365-filtering-correlation-id: ac5d5b28-bd7f-419e-60d0-08de41341aec
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016|38070700021;
-x-microsoft-antispam-message-info: =?utf-8?B?OU1PYXVCMFBIS1NPZGxKNXVpb1VnSDYyL3hTOWxqSWVnN0NTOGs2YkZuRUxz?=
- =?utf-8?B?bjJadzluY1BLRTJmRUhYNTlyWStMeG8yb2Q4ZlpaeGdjZnFDMTJ0Q2M2SmdI?=
- =?utf-8?B?RWJubFJURkdnWWh6LzVaM0J5Zld6OTllTmwwTVNhbFpveTBDaHd3WHUzT2hh?=
- =?utf-8?B?MnFxT3dvSDg4NEFTR2RDZW1KeGFFSFJ3WGh6UVdJQ3pqbnErdkZnbVZYNlRz?=
- =?utf-8?B?enNJazloQTlFRjBHeXY1NitNckd2YzhmWW5nN25MeFBIbkVmNGdMaVlBalN5?=
- =?utf-8?B?eTFCMnN3cDN0dHIvL1NzejhMYzBKNWZ1S1N2QVFTcTVjWndWUk8zdGFXcVpK?=
- =?utf-8?B?M1NENkJGY3U5NC91UHIzaUVwdjFhRExZeldFVmhLV2t4RnFSbnBhZER6dW9z?=
- =?utf-8?B?MFVGbVgydlFkblYrbkJMSmhtTHlGbmwzTHRwZm1qaXdRQTA4cWduMmVZTmlD?=
- =?utf-8?B?OHNnU2ZPMDZWRmx6UkdUN0Rwcmtpb3BMRTBHVkdITW5SOFdWMU80YWVYZ3Ar?=
- =?utf-8?B?dUx1QVpLU2NPMnBmVE5sMy8yd2JpUU5yTlVrSWsycERUK1ZybHVOSmkrS1dF?=
- =?utf-8?B?WW1UbXpQS3lJRGdDbkhDdkhPTjViL1ljVHc4aDNDV0xDQnZobWYrbGVWbWZU?=
- =?utf-8?B?YmxGcWlMMGIwY09qZ0QyQVJHTlI5N3YwMEsrS2hCNi9tcE5XVW5Vb2FkdXlp?=
- =?utf-8?B?SUptYTdjemRrRHdtNkVLSWh4dmdnMWFvTldYSlZnNGdYaFVBQmQwcC81M3Ny?=
- =?utf-8?B?SjJKbW5BK2tWdmZUVytZczFhQm1kYjM3OUlPaTVZL21vUEJ0YzJWMXFxeG5W?=
- =?utf-8?B?U2J4QlZCL1ZiTFhhYlZ6ZzYyQXlPQ2xjelpHQ2RJVW5SdnFETjdRMjdVcjFs?=
- =?utf-8?B?M0NGTTV5cjhBN1Z2MUFBa01xOEpBV2VnL0VBUE95MURCYkV0WGFhSWdIMmgv?=
- =?utf-8?B?NFU5MVZ2R2lrQWVKWTM1M05qT1UwQk9PM29Ub1NLRGhPOTNPYXhGcGJBblo4?=
- =?utf-8?B?MHluSmhNVjFhUW1rU1oxN2IzSUI1S1FZclYxNHFaZzg4VUJTRXlMOE9iN2I4?=
- =?utf-8?B?emEzL2VWZ2drK0Nzdit6dEMyeUMvbWNVLzNDREY2MCthWTV5czlJQ0FQRk5P?=
- =?utf-8?B?MHJPVjlxcGNZVWhjeFdmWW1TMEpiUlRUVTZKRGJEVU5SYXN3RHNnbWtLOVky?=
- =?utf-8?B?eUdScWl3ZTNZamswZHRiMWhoV25kM091NFYzZXdLNTYxdEltbzlGWG1hWXZO?=
- =?utf-8?B?ay94cFAzUHA1dlQ0QjUwSFAvTVdrTFFnOVBuTjdoVE00MXhpMktyMWRXck9r?=
- =?utf-8?B?ZzFFeHEzYkpzUmYrMEJlWnJhaEZjTHpqeDcydTJVNTkrUE9LeEZkeGRYbW1k?=
- =?utf-8?B?NnBtL3AzTXM2TWpxVlUvWE4xWjBJcjMxREhueWVyUmJaWkRJTHVqZ0krY2FV?=
- =?utf-8?B?QkFlUlNZb1B2SGZtYVNHQ1RRZWpwOGltVXliYVVSVHZZNjdxb1NRK2w2RGxr?=
- =?utf-8?B?MkR0OTFZQjNodWdKdXpFVFJ3RkdncmZJcXplRG91d2xwaHNnZzltQ2VTdW9s?=
- =?utf-8?B?dDY5VmRZUmltRkE2MUpDY2NYWmtlaFFNTVJLZ2VDaENrWVR1amo4K05peFdF?=
- =?utf-8?B?VnEyaTRsdE1OTUQzTWxMbGVMKzJ3ZlZ3S0dpeVYrVjRNby9FaFdVNENNbE9m?=
- =?utf-8?B?OWsyQzE4U1pRUzB2dDBLMmJPTWw4aFFZU0R5bUVPTWU4Q0U4eUZFOUttT1JB?=
- =?utf-8?B?Si9mRUxZZkcrcE04SVZiNjRVYk5nell1aGxxZHRMVlF0dmNCVGlpTWVZQnRG?=
- =?utf-8?B?NUNmOW50aXh0NmZmblg4eEhDQzRjNE1BcGJGUmFNYUMwV2JzNzBTWDVCWHBV?=
- =?utf-8?B?VjJROStQQmNGNFE4bmwvbUYwY0loMkNZSlRLbmY1WDZEUzhuR2xnekFZV0hO?=
- =?utf-8?B?Nks4NXU5OU93U0hjM0ZKdEJFNzhYOW4vV2xVaXFwUTdOSnlqWDV1TFpnTVVi?=
- =?utf-8?B?b1o3NVRyZmh6Qm1xR3M5OEtSY0llYnBoSmdhMCtZMVVPeVFjT1EwMk5oK2U5?=
- =?utf-8?Q?wp7Qly?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PSAPR03MB5605.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?T0xLaXN2TmR5UUV4QWtlL2ZVaVp5UldaZDZkNmFVcmhhVGY2WjJIMW82NnBw?=
- =?utf-8?B?K1lCYWtmZVpoL0FpNzdXdmdCSUQ3aUVHM09ydEVVcC9IeVdPRTZ4c3hrWUhU?=
- =?utf-8?B?OE16UCtVbnMrWEhmNjlLd1ZNOTRHMUZTdUN5QUExbkUycUg4OWhpd05JRHBM?=
- =?utf-8?B?cndhN3o5S0E3TzJkUFRYcmQ1blNGMGtKenU0bWtYR3g0UUlwalJSVDlPSmxM?=
- =?utf-8?B?UkhLb3VUcXU2Q2N5N3VLeG1EZ3ZVRG02YThiN3pZaUtPMUk5MkIwWTBIcWZY?=
- =?utf-8?B?UW9DU0NTZnlGcTc1dVJiRjlQVzZLZGgwbitVMjNXWjZmNW9jMDJOQmF4anRZ?=
- =?utf-8?B?ZFNHREtaazNHSTBpQVBxRzAyOVN3bEM3c3N0dEdGdjVLYlJya2dXWFQvcUpk?=
- =?utf-8?B?SGErWlp4MzJKZVNYQU9ETk53OVlWY3FzazJhTGhUdm9GT1ZRVjZxNzJDYkp6?=
- =?utf-8?B?aENEY3oxSTRJRzk0WTFUY0lsUzZhbFZ2Qzk5QWM1L1AxUElJeGM0a0cwb1kx?=
- =?utf-8?B?Z2JScmNvMG4wTW1TSTZPcTYxTFJpNHNsTklzN3FSTmVqTVRwMHhkVTdrcDdB?=
- =?utf-8?B?YWFQbSt0WnN6aTh3L0VnUk9FUFVqZkp1KzBhMGJpODF4bHgzVTVVWXRFUzdv?=
- =?utf-8?B?UGx3dlN0TldSYlQ4b0kxanBZSHBoYWNpTnYrdGgrVjNVTEZiVkVzTDVqS0d2?=
- =?utf-8?B?eFo0NGdRYzVzd1N4eEZCN0gyRXI4Z1pab0tYV2kwRmZvcWtxYzFzT1lGUFJr?=
- =?utf-8?B?UEE0ZHFMU3NlKzhMWHdNcTNoaDg4VEtna2F4dUFyL25jdzVNN0E2U3dnZVJo?=
- =?utf-8?B?SWZEYVRKOURQTUN6VmpYczRtb3BRK1ZiZTBKL2VJUjBWVFpaVXM3Z0JndCt2?=
- =?utf-8?B?aHhNK0hZM1MwQS9oK2h1TitCMVFZa3NlWVNqeWs5aXdUZGRYdTgvbWZhTFc0?=
- =?utf-8?B?SkhJMHhLUjZnY3pRUytzZHpjcCszM2kyNnZYdnd5bjIxYkNod3QwellBMTl3?=
- =?utf-8?B?N1hIRTh6QzFNbWpYMnZoZjhBekJmZlFHTjVkQnFUcTFObWxsOGhubmIxVktQ?=
- =?utf-8?B?TFpQVFFoWnQvU3hKeE84NGZ1bFdNNHNrS2JvQ3pTZ1A4aWRWcUNMellIeEps?=
- =?utf-8?B?aEtQU0M3aU12U1p1SXlLeENKY1UvVnlKVlFzbnB1NXdWNURJMVV1SndKQXRy?=
- =?utf-8?B?emtHU05ZRGVtZUl4aVpBcXRINlBTRHpBdUFJbmFZd1BCa3lDYWFQVVdzK1M3?=
- =?utf-8?B?RTk0Y3BMZDVIUkZjRlNFMWFxWEtsdzIzOWUxaGRSK1NXN2ZmZWJhcFYyU0h5?=
- =?utf-8?B?N3FIaDRGRjQ1ZXQ1cWVsSjkremxVUGw2RkdVb2d4LzVCVVQwdVFrVzVGWFV1?=
- =?utf-8?B?SFVENVJNeVR1UUhHTEd3U2w2ZzcwWUx6SlErbFVRL0xhajhyYmRBcHlRN0ha?=
- =?utf-8?B?ZXJYTVlnVjBXam90V085Y2owbCtjVjBzT0FtZldqNTBuTUZaNitBMVpyYnJj?=
- =?utf-8?B?Y09ickF3VlpnU0RqMHNrN1pnSzYyUlJQQ05GSFdFdUljeUlxUmJuMXp0Z2h3?=
- =?utf-8?B?aEsrWHgrZU5EOEZaNkxBa0ZibnJXNjVXcUY0bk1TdkwyM20xd2ZCc2lRaDJa?=
- =?utf-8?B?dGNROGRwN0hmV1ZibksxYkR3RHQxVzN5RFFQZ2RTaDBsUTVoOFo4MjZsRVdm?=
- =?utf-8?B?T0prSVp0NGNLc0hoeHVmUFZFd3ByZDNvbnRTNjFtbXNaV280YndhQ0dWaDA5?=
- =?utf-8?B?TGtja0ZYZ3I3U3BMaFhiYm5NZENhRC84bEt4SFMybm9oOS85ZFZNNWRQUTVN?=
- =?utf-8?B?Yk5tME1KLzFHQy85YTM0bC96b1ZzS1dQWFh0V3kreGE0VnNycGJsK3RxY3My?=
- =?utf-8?B?elMvYXNWSmIxaFRmSmFnMjEyR2NSMmpiRy9hZzBlVXpBN1ZXRUN3YW13RU1G?=
- =?utf-8?B?M1hZYU9XanNCRThXRWlrS2FvQWJPRTRXOGt5ODRFckJmV1UyU1Azc2FCa3c1?=
- =?utf-8?B?ektFejdGKzBTdFFRcjRoeCtHZDlqcWwyUmVMTHpPeDF5dnpoK1BPMDRtSXRG?=
- =?utf-8?B?MGJDZ05EM3NiWlVhVXk2RjI3QWVNMnIyRzdyYS9LbCtnMDlBK1ZCQkF1VlRI?=
- =?utf-8?B?TnFXZWtOY0pHWmtJWDBZajA5eTRnUkJ3cWVrUjNZalNsek9waWJXeUFqYzh4?=
- =?utf-8?B?ZUM0RXBnMDllUnBYVzFlenYzMzZYNytFdEFqUDZUUXRvSENycjNUbnorQitZ?=
- =?utf-8?B?Q1VEZzh6NmV5bTVXV0Zib3MrZ2JCSmw5KzFNUk1VRFZDL0IyUzZIS05lRG9K?=
- =?utf-8?B?bkJNK3A5Vy9oUkdmYzIxZXpEcTdYRGFLM25ZTEdZQnYxc3Jobm1aWjZYMURR?=
- =?utf-8?Q?SWPXRg1mYmFtdsoA=3D?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <E4DCEA881F01BF40ABF08FDCB6C90805@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+        d=gmail.com; s=20230601; t=1766392154; x=1766996954; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=UJ0Fy32CNz68gAtuvvvAIFbPIlI5INll01DQrP39TKA=;
+        b=NAeBOTaKIeKi9Q+G3GERJtx1skzrP1rI/RmLJpb2DmmfBm+4HELncV9N9IrTqRFVev
+         md9s+AFtvxAqT85KG8nLpJrpHmH2Tm6fUgnlsHrP6EfMOBtlmDgXwCmMSemT1ILe6xgV
+         xTopQXa2LF5z4djwacIJY+eb60HD3kvXiGxh8zEWJ9t8jHXJkgB8Bk0B868MmQiN+QXw
+         kOdVSVUYMed67iQNrPLpR8YhIfyuAuweoYhee7eTRcnC7/TpGC14UH49WtgMs3Oo0TNS
+         F1TCMJDMq9DZjQD2lcub6U5jFCgS9++Of9B3Lo9k9Bfc3Py3DMrr7QCxfkKFBxivOW8b
+         pYdg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766392154; x=1766996954;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UJ0Fy32CNz68gAtuvvvAIFbPIlI5INll01DQrP39TKA=;
+        b=DpbH3UA+KqYKxTEhjs2P68w+gmOReDaTRgBXd7e86cTUidafxwWkOxqJfdB1peiBr4
+         rhAWn9ldH1KOaONQQqZcltEml+ioLbQ7Zi3G2iB641Vk0gJ6U4qXCHci1o9O9nRoiACg
+         j2KMPYMgOGuflVGmbRiiJndxj2vas42B9RSE6P3QoM0jyrg3RHHGjN9qDu97dl8f1tBh
+         PTtHyrC0qT+TuVIxEu1bT/54psSlR+qsApgELF1yKMNBlIZzSxSgilkc06KbR0UYJFHy
+         sd+3tN5TMz/exr4bok1qku8r2r6N901YAzJ7VVx8HBAxLbHKlGjjLy0LaeFM6a3CoBZg
+         JznQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWwtVdbxuurpTYDElvY9y0UhvLCi6SG2G0Lwq2XAvcoRMQXAn5Ueh6cDThCLfAgx61FeBxruKQmamMfsRpSV1L2@lists.infradead.org
+X-Gm-Message-State: AOJu0YwmObvHGcVWPvAl4d1kMb5kRxY3IxY0JA1sng18JEbMBZs3UaWs
+	PHXxRON7VLZA5WC9Ph/SSeOMbHjswD5Lcejtwo5TK0+vO4VeDO6FVwuI
+X-Gm-Gg: AY/fxX6OT+PxI1DJmAvDCnxbHA/lGd5g8fmvNfI1eB5Atbb/k7p7NMTPdq6q2fSTtnC
+	PkxHcUW+LdTjXsVnwXC7XMv8H5EHBO71lKwDjZpCNCy1T/9MSzxboMyNxr2IykaYnTulvcLvuxt
+	xofRRhgVRD8buRnFNWal5k4dWONTRfFAYNW1eXojINCN3dCfc5Fmm+aCyMamFIKADpiK4hwaMqs
+	3zhXbOfTiUczLDVxqwmt3Z1RNdDJqCcyWd00jTHfsV2QBDzaMFH4ODgSx0pG3nXZbjNpMTIMiwo
+	whgIL50yqDgMXTwlUJEhqq5VJ8xPo7rfHlSPJRVSvdjo/PpihboY9lNyhc/cMkoIplVYcxuV9II
+	pKSZe8zHquovYnPjSRo8Ax40e7ysAAD98rvg+7/PwC3xRiIOOBw6fgLAgkqnjSH4IiyuvUU553r
+	FCxhF6QzsK
+X-Google-Smtp-Source: AGHT+IH91xYoqgoO/9cTyIkcwq8ylRSPWssYXk7Ak1UGNvKWMh8b4fE0tkVyhdkLY2d/CPzf+gHPIA==
+X-Received: by 2002:a05:6a00:1f17:b0:7f1:fad7:2ce with SMTP id d2e1a72fcca58-7ff679669d1mr11073286b3a.48.1766392153873;
+        Mon, 22 Dec 2025 00:29:13 -0800 (PST)
+Received: from frodo ([2404:4400:417e:3d00:8b90:7f55:1261:772f])
+        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-7ff7af29dcfsm9640064b3a.17.2025.12.22.00.29.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 22 Dec 2025 00:29:13 -0800 (PST)
+From: Jim Cromie <jim.cromie@gmail.com>
+To: linux-kernel@vger.kernel.org,
+	jbaron@akamai.com,
+	gregkh@linuxfoundation.org,
+	ukaszb@chromium.org,
+	louis.chauvet@bootlin.com
+Cc: dri-devel@lists.freedesktop.org,
+	amd-gfx@lists.freedesktop.org,
+	intel-gvt-dev@lists.freedesktop.org,
+	intel-gfx@lists.freedesktop.org,
+	daniel.vetter@ffwll.ch,
+	tvrtko.ursulin@linux.intel.com,
+	jani.nikula@intel.com,
+	ville.syrjala@linux.intel.com,
+	seanpaul@chromium.org,
+	robdclark@gmail.com,
+	groeck@google.com,
+	yanivt@google.com,
+	bleung@google.com,
+	quic_saipraka@quicinc.com,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	quic_psodagud@quicinc.com,
+	maz@kernel.org,
+	arnd@arndb.de,
+	linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	mingo@redhat.com,
+	jim.cromie@gmail.com
+Subject: [PATCH v7 00/31] drm/dyndbg: Fix dynamic debug classmap regression
+Date: Mon, 22 Dec 2025 21:28:12 +1300
+Message-ID: <20251222082843.1816701-1-jim.cromie@gmail.com>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PSAPR03MB5605.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ac5d5b28-bd7f-419e-60d0-08de41341aec
-X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Dec 2025 08:28:37.8524
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: zjTKPw8u+Nhe3LSisLwxJPtDr5JH7j9dGkmuA8WCXqmlQuk2Rdu3ZM2Ch03fVBs85Azvm5FQYQ0uKzX12QYZyA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR03MB8200
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_002847_194932_A8338782 
-X-CRM114-Status: GOOD (  14.11  )
+X-CRM114-CacheID: sfid-20251222_002914_595189_C4AD8D06 
+X-CRM114-Status: GOOD (  14.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -223,20 +122,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCAyMDI1LTEyLTE5IGF0IDEwOjI1ICswMTAwLCBVd2UgS2xlaW5lLUvDtm5pZyB3cm90
-ZToNCj4gSW50cm9kdWNlIGEgYnVzIHNwZWNpZmljIHByb2JlLCByZW1vdmUgYW5kIHNodXRkb3du
-IGZ1bmN0aW9uLiBGb3Igbm93DQo+IHRoaXMgb25seSBhbGxvd3MgdG8gZ2V0IHJpZCBvZiBhIGNh
-c3Qgb2YgdGhlIGdlbmVyaWMgZGV2aWNlIHRvIGFuDQo+IHNjc2kNCj4gZGV2aWNlIGluIHRoZSBk
-cml2ZXJzIGFuZCBjaGFuZ2VzIHRoZSByZW1vdmUgcHJvdG90eXBlIHRvIHJldHVybg0KPiB2b2lk
-LS0tYSBub24temVybyByZXR1cm4gdmFsdWUgaXMgaWdub3JlZCBhbnlob3cuDQo+IA0KPiBUaGUg
-b2JqZWN0aXZlIGlzIHRvIGdldCByaWQgb2YgdXNlcnMgb2Ygc3RydWN0IGRldmljZV9kcml2ZXIN
-Cj4gY2FsbGJhY2tzDQo+IC5wcm9iZSgpLCAucmVtb3ZlKCkgYW5kIC5zaHV0ZG93bigpIHRvIGV2
-ZW50dWFsbHkgcmVtb3ZlIHRoZXNlLiBVbnRpbA0KPiBhbGwgc2NzaSBkcml2ZXJzIGFyZSBjb252
-ZXJ0ZWQgdGhpcyByZXN1bHRzIGluIGEgcnVudGltZSB3YXJuaW5nDQo+IGFib3V0DQo+IHRoZSBk
-cml2ZXJzIG5lZWRpbmcgYW4gdXBkYXRlIGJlY2F1c2UgdGhlcmUgaXMgYSBidXMgcHJvYmUgZnVu
-Y3Rpb24NCj4gYW5kDQo+IGEgZHJpdmVyIHByb2JlIGZ1bmN0aW9uLiBUaGUgaW4tdHJlZSBkcml2
-ZXJzIGFyZSBmaXhlZCBieSB0aGUNCj4gZm9sbG93aW5nDQo+IGNvbW1pdHMuDQo+IA0KPiBTaWdu
-ZWQtb2ZmLWJ5OiBVd2UgS2xlaW5lLUvDtm5pZyA8dS5rbGVpbmUta29lbmlnQGJheWxpYnJlLmNv
-bT4NCg0KUmV2aWV3ZWQtYnk6IFBldGVyIFdhbmcgPHBldGVyLndhbmdAbWVkaWF0ZWsuY29tPg0K
-DQo=
+hello all,
+
+commit aad0214f3026 ("dyndbg: add DECLARE_DYNDBG_CLASSMAP macro")
+
+added dyndbg's "classmaps" feature, which brought dyndbg's 0-off-cost
+debug to DRM.  Dyndbg wired to /sys/module/drm/parameters/debug,
+mapped its bits to classes named "DRM_UT_*", and effected the callsite
+enablements only on updates to the sys-node (and underlying >control).
+
+Sadly, it hit a CI failure, resulting in:
+commit bb2ff6c27bc9 ("drm: Disable dynamic debug as broken")
+
+The regression was that drivers, when modprobed, did not get the
+drm.debug=0xff turn-on action, because that had already been done for
+drm.ko itself.
+
+The core design bug is in the DECLARE_DYNDBG_CLASSMAP macro.  Its use
+in both drm.ko (ie core) and all drivers.ko meant that they couldn't
+fundamentally distinguish their respective roles.  They each
+"re-defined" the classmap separately, breaking K&R-101.
+
+My ad-hoc test scripting helped to hide the error from me, by 1st
+testing various combos of boot-time module.dyndbg=... and
+drm.debug=... configurations, and then inadvertently relying upon
+those initializations.
+
+This series addresses both failings:
+
+It replaces DECLARE_DYNDBG_CLASSMAP with
+
+- `DYNAMIC_DEBUG_CLASSMAP_DEFINE`: Used by core modules (e.g.,
+  `drm.ko`) to define their classmaps.  Based upon DECLARE, it exports
+  the classmap so USE can use it.
+
+- `DYNAMIC_DEBUG_CLASSMAP_USE`: this lets other "subsystem" users
+  create a linkage to the classmap defined elsewhere (ie drm.ko).
+  These users can then find their "parent" and apply its settings.
+
+It adds a selftest script, and a 2nd "sub-module" to recapitulate
+DRM's multi-module "subsystem" use-case, including the specific
+failure scenario.
+
+It also adds minor parsing enhancements, allowing easier construction
+of multi-part debug configurations.  These enhancements are used to
+test classmaps in particular, but are not otherwize required.
+
+v7 adds:
+. WARN_ONCE when classmap isnt found for a class'd callsite, JBaron
+. reorder macro args to match kdoc, JBaron
+. Doc formatting fixes, by Bagas
+
+Thank you for your review.
+
+P.S. Id also like to "tease" some other work:
+
+1. patchset to send pr_debugs to tracefs on +T flag
+
+   allows 63 "private" tracebufs, 1 "common" one (at 0)
+   "drm.debug_2trace=0x1ff" is possible
+   from Lukas Bartoski
+
+2. patchset to save 40% of DATA_DATA footprint
+
+   move (modname,filename,function) to struct _ddebug_site
+   save their descriptor intervals to 3 maple-trees
+   3 accessors fetch on descriptor, from trees
+   move __dyndbg_sites __section to INIT_DATA
+
+3. patchset to cache dynamic-prefixes
+   should hide 2.s cost increase.
+
+
+Jim Cromie (31):
+
+fixes, cleanups, simple stuff::
+
+Jim Cromie (31):
+  dyndbg: factor ddebug_match_desc out from ddebug_change
+  dyndbg: add stub macro for DECLARE_DYNDBG_CLASSMAP
+  docs/dyndbg: update examples \012 to \n
+  docs/dyndbg: explain flags parse 1st
+  test-dyndbg: fixup CLASSMAP usage error
+  dyndbg: reword "class unknown," to "class:_UNKNOWN_"
+  dyndbg: make ddebug_class_param union members same size
+  dyndbg: drop NUM_TYPE_ARRAY
+  dyndbg: tweak pr_fmt to avoid expansion conflicts
+  dyndbg: reduce verbose/debug clutter
+
+callchain grooming, re-structs, code simplify/dedup by macros::
+
+  dyndbg: refactor param_set_dyndbg_classes and below
+  dyndbg: tighten fn-sig of ddebug_apply_class_bitmap
+  dyndbg: replace classmap list with a vector
+  dyndbg: macrofy a 2-index for-loop pattern
+  dyndbg,module: make proper substructs in _ddebug_info
+  dyndbg: hoist classmap-filter-by-modname up to ddebug_add_module
+  dyndbg: move mod_name down from struct ddebug_table to _ddebug_info
+  dyndbg-API: remove DD_CLASS_TYPE_(DISJOINT|LEVEL)_NAMES and code
+  selftests-dyndbg: add a dynamic_debug run_tests target
+  dyndbg: change __dynamic_func_call_cls* macros into expressions
+
+core fix, detect api misuse errors, etc::
+
+  dyndbg-API: replace DECLARE_DYNDBG_CLASSMAP
+  dyndbg: detect class_id reservation conflicts
+  dyndbg: check DYNAMIC_DEBUG_CLASSMAP_DEFINE args at compile-time
+  dyndbg-test: change do_prints testpoint to accept a loopct
+  dyndbg-API: promote DYNAMIC_DEBUG_CLASSMAP_PARAM to API
+  dyndbg: treat comma as a token separator
+  dyndbg: split multi-query strings with %
+  selftests-dyndbg: add test_mod_submod
+  dyndbg: resolve "protection" of class'd pr_debug
+  dyndbg: add DYNAMIC_DEBUG_CLASSMAP_USE_(dd_class_name, offset)
+  docs/dyndbg: add classmap info to howto
+
+ .../admin-guide/dynamic-debug-howto.rst       | 187 ++++-
+ MAINTAINERS                                   |   3 +-
+ include/asm-generic/vmlinux.lds.h             |   5 +-
+ include/linux/dynamic_debug.h                 | 302 +++++--
+ kernel/module/main.c                          |  15 +-
+ lib/Kconfig.debug                             |  24 +-
+ lib/Makefile                                  |   5 +
+ lib/dynamic_debug.c                           | 776 +++++++++++-------
+ lib/test_dynamic_debug.c                      | 198 +++--
+ lib/test_dynamic_debug_submod.c               |  21 +
+ tools/testing/selftests/Makefile              |   1 +
+ .../testing/selftests/dynamic_debug/Makefile  |   9 +
+ tools/testing/selftests/dynamic_debug/config  |   7 +
+ .../dynamic_debug/dyndbg_selftest.sh          | 373 +++++++++
+ 14 files changed, 1465 insertions(+), 461 deletions(-)
+ create mode 100644 lib/test_dynamic_debug_submod.c
+ create mode 100644 tools/testing/selftests/dynamic_debug/Makefile
+ create mode 100644 tools/testing/selftests/dynamic_debug/config
+ create mode 100755 tools/testing/selftests/dynamic_debug/dyndbg_selftest.sh
+
+-- 
+2.52.0
+
 
