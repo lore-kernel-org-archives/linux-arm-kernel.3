@@ -4,97 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04D81D711D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 10:38:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35D43E6748D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 10:43:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RtYAJjQTwxOFdnR190NRlUogWwYsXWlIsU8SdM1astc=; b=2HgHhqPAeN/O38tjxtEIKWNKpJ
-	HcHbbfkNiPxCcWt59ycsuuOXOlcM6ceXj1GqOzDpOkosdWdsKsXNqwNm5F8gvVB47T/D6ToRhOlYa
-	I/xmhalDi7t+suLJmPtTc5kycKjWXo7GSLixTh13gjJ25g0u5P5L1gc7adZUVVkleepAqz8AFj4Kr
-	jVIhBkHNg/TrthBsQLvCzzX1hDa9A41QkNDZhLVO4Yp5bTvtyq3fWuEdkacOT21+TyGTxKhmaEQK0
-	vrXnJu4dR9uj1bODzpim9RQAHrpUhHDg4VPPcKVR3/ESo7VUHtWgAsghYC63+li1a4/rD9PFyGX43
-	0QUnWZRg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8y64/929jBnqnQF42dNmNKf1CZW1XBcok/sp4/XUxJs=; b=RSq4l8mGaOs/QnnP1jKZqKvI5T
+	Efs2OiAFqE1TiJIh8gD9KEiDvKUdUEfPjxbOI5ctZt4N0G5dvVbVXqheK1i1iY/1fZj0PJt15c0nS
+	KafEeuqktZS1zBjcCGe+iymBt2Lot4pQYRbQVsCy9FLAmdunQZ+gtLE5S2q5j+siVatd/e5G9suj0
+	K4kqvr2FrTv4UgIOpYRU7PC2wTAGy30WLWDTEnK6cF8OzvwFZxEq0qm1MlPQdB62F/EzD7W+LW7uJ
+	4q8VM9UG5AioX+f+O6HdxghSRawnmgNq7pIlFNuro3jfo02CedwO6gMr02fifQodhptnyiai3WUeH
+	l6AhY9hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXdJB-0000000DdKW-38V2;
-	Mon, 22 Dec 2025 10:38:33 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1vXdNQ-0000000Dde3-3M2V;
+	Mon, 22 Dec 2025 10:42:56 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXdJ9-0000000DdJP-16lh
+	id 1vXdNP-0000000Dddt-1dLf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Dec 2025 10:38:32 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-29f0f875bc5so55017415ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 02:38:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20230601; t=1766399910; x=1767004710; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RtYAJjQTwxOFdnR190NRlUogWwYsXWlIsU8SdM1astc=;
-        b=Vf6W+zd9Rylp9bo/e4btQ44sFwrKsd5cloPVLmnkMdoS3595atFPn7xMGXnk7HPDbm
-         pyOITX4WAGcuX1eD+3hMcK3EIW0ufqGByrJ8b6HYesWEzr0oQOfRTdoXuwL65B6yOv1H
-         +oNbnGCuYUGANwkEE8/4Qmqyg+RI9IyOTsVp9kxVNeNNHaRgK7a0KsISg6h071vkDYXr
-         YKIOAgqAS6B6MPBEc6qtVlh7YphTOmTq6/8HMm1RtsSj1vgm6bjVxzw/eJ+Zbbf9CJq/
-         se66cypkl6RYrnPGFGWWOTM+RPvhPs3TitpNOx9dymZPdPLJHw4kyMiVojnzr3guIWih
-         k9Ag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766399910; x=1767004710;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=RtYAJjQTwxOFdnR190NRlUogWwYsXWlIsU8SdM1astc=;
-        b=BDKLypdKyuqE+mMU2i8qEo3AUorPPUwFPNKs0SKVCL3Y9Ptz+G7I/VvPeY/TjpK+Gl
-         +rgIuLHERsSwgXFPCC+p4dLrV5v3t9+PmDsRFKSxRK1CixBLoCJ7xfN5OuIi1Qdngt7Z
-         vLNRHs19fopQGnkazhm0Bv2plZHn8vWiHv6CgBzliVAK7EF9rw4SJ2zI1f7OjrlOvfg8
-         S6TygjOW0XNH/UCXTeYKO/WQTRsQVzq2PfkhVxBzs3tkgDYQTg5uxqMUwTR09kSlNJ0n
-         4hrhclu/nzVcXphy5GLfHrNTs7Ufuj7yRP0pGfIBFFvcoWEusxvGcxPMwPrRdykKrzxb
-         sm8w==
-X-Forwarded-Encrypted: i=1; AJvYcCWukOCDB6k0c+ZoZix8i6a6J6LzdC1ZM6vuftlAEZO8dttWZaGCP1ufL1zlXRA8cM4w2CMip+RKm1NMwX2Ugcsc@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXe37p+nVwaM8VqRRLqhyBHD8ESaS6WxMY+2KbZVsZZk+j6Lxi
-	sD+PaHOW+yDcQCj4RHpgF4sGJxb0gHIYtyCFjBs9rYekea3YEczz9dtnl8lByOxYaKwzb+JUT0y
-	3kaWJLjpW/GbktpAOt0lFnYn+HH2dEYQ=
-X-Gm-Gg: AY/fxX7LmcUsB4MyumUyAcDimWAnpHstx1GOqSSWe6atm9XgvvulVMvkoblNaCDJ+9B
-	FrU9/Mg/3HQGmM1RVGv0ukM2D/AmN54+o68YyvLbuuYCvE19TcOFj9NvlSDSFiztMVsT16v2FqT
-	Kl2nNcWrXN0/FevKU4Oah4srBw1fG+PcNunurRGsaM1r2gKhJV89rvaqvMWnt2c3Wt74EoXkDlu
-	HLHEOqXY3HCh0G44tlSoV9jtTBlNU8iv9ovDKcMOIfFSCVHbWeCbXnTme6SdfwtAiDa4wd9QExz
-	4/D+eII6B4xssAlikccTDHUlKPuI
-X-Google-Smtp-Source: AGHT+IEO/ZgFQp5AyfAAtwrHxXoiHa/X/03D0WDYxc4kBLqyULymzY/eR1r0RM8KzOikMvm9YYXtJ3AkgKqBI277jTk=
-X-Received: by 2002:a17:902:f552:b0:297:c71d:851c with SMTP id
- d9443c01a7336-2a2f2736bc0mr91265875ad.36.1766399910127; Mon, 22 Dec 2025
- 02:38:30 -0800 (PST)
-MIME-Version: 1.0
-References: <20251216-drm-bridge-alloc-getput-drm_of_find_bridge-v3-0-b5165fab8058@bootlin.com>
- <20251216-drm-bridge-alloc-getput-drm_of_find_bridge-v3-12-b5165fab8058@bootlin.com>
- <CAFBinCCUVOYsiwwVmyGtxN=MdqYatAaj-piVO9_E_iZX9gwiMQ@mail.gmail.com> <DF4KIOREQYK3.2JEGF51OECQCE@bootlin.com>
-In-Reply-To: <DF4KIOREQYK3.2JEGF51OECQCE@bootlin.com>
-From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Mon, 22 Dec 2025 11:38:19 +0100
-X-Gm-Features: AQt7F2oefOvD1VauOsJ6RYNy_cI4jR0Cqg9gQFauSbHiZ7j1ecdJHG9Us9r2rRA
-Message-ID: <CAFBinCBX+DA71OA79SqrE20Nd=QUrU86SmYGXu0dAYG-R5nZ4Q@mail.gmail.com>
-Subject: Re: [PATCH v3 12/22] drm/meson: encoder_hdmi: get/put the next bridge
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Jonathan Corbet <corbet@lwn.net>, Alexey Brodkin <abrodkin@synopsys.com>, Phong LE <ple@baylibre.com>, 
-	Liu Ying <victor.liu@nxp.com>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, Hui Pu <Hui.Pu@gehealthcare.com>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_023831_306395_BA20666B 
-X-CRM114-Status: GOOD (  17.64  )
+	Mon, 22 Dec 2025 10:42:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5FD6860127;
+	Mon, 22 Dec 2025 10:42:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14D9AC4CEF1;
+	Mon, 22 Dec 2025 10:42:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766400174;
+	bh=6vlXMU6z6K0HMeJhIapE1dXR5B/JRvOFa2zKw8jicRI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=N4y3DLU2kLFkglkNvZYbupCB8kOP9fo5Tl73biAXdGhRFfBYaIzH/HxNadBiZvuzU
+	 o7UUgb9FiNREbhD5+OJzxBibq4Cg73B/Gu8TY4gfCxar6JXmgSE6KhV0le4IrK9sDX
+	 c3n8PnOrP54gUYRbnLMCkO3/h50yrDP/UmIkO2eX7jkSAfl+J8NERHhDCMNw+LlfsJ
+	 x5GhKiF5PwKho3V30fDAJ+ie5CXeBvZafLF8OvbbX1nFoA5qv9v8Ezehv5kuYGFug9
+	 exdZz4pQsJSCXAzI/goHQ0PjqjpIfo12qJB/Fi6l4SMFKfN5pzy46ugmu6/drVlJUh
+	 qVndqSTM3hbfA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vXdNL-0000000EVeo-2ZmQ;
+	Mon, 22 Dec 2025 10:42:51 +0000
+Date: Mon, 22 Dec 2025 10:42:51 +0000
+Message-ID: <86o6nqn6fo.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kernel test robot <lkp@intel.com>,
+	Thomas Gleixner <tglx@linutronix.de>
+Subject: Re: [PATCH] irqchip/gic-v5: Fix gicv5_its_map_event() ITTE read endianness
+In-Reply-To: <20251222102250.435460-1-lpieralisi@kernel.org>
+References: <20251222102250.435460-1-lpieralisi@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: lpieralisi@kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, lkp@intel.com, tglx@linutronix.de
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,39 +82,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Luca,
+On Mon, 22 Dec 2025 10:22:50 +0000,
+Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
+> 
+> Kbuild bot (through sparse) reported that the ITTE read to carry out
+> a valid check in gicv5_its_map_event() lacks proper endianness handling.
+> 
+> Fix it.
+> 
+> Fixes: 57d72196dfc8 ("irqchip/gic-v5: Add GICv5 ITS support")
+> Reported-by: kernel test robot <lkp@intel.com>
+> Closes: https://lore.kernel.org/oe-kbuild-all/202512131849.30ZRTBeR-lkp@intel.com/
+> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Marc Zyngier <maz@kernel.org>
+> ---
+>  drivers/irqchip/irq-gic-v5-its.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/irqchip/irq-gic-v5-its.c b/drivers/irqchip/irq-gic-v5-its.c
+> index 554485f0be1f..8e22134b9f48 100644
+> --- a/drivers/irqchip/irq-gic-v5-its.c
+> +++ b/drivers/irqchip/irq-gic-v5-its.c
+> @@ -849,7 +849,7 @@ static int gicv5_its_map_event(struct gicv5_its_dev *its_dev, u16 event_id, u32
+>  
+>  	itte = gicv5_its_device_get_itte_ref(its_dev, event_id);
+>  
+> -	if (FIELD_GET(GICV5_ITTL2E_VALID, *itte))
+> +	if (FIELD_GET(GICV5_ITTL2E_VALID, le64_to_cpu(*itte)))
+>  		return -EEXIST;
+>  
+>  	itt_entry = FIELD_PREP(GICV5_ITTL2E_LPI_ID, lpi) |
 
-On Mon, Dec 22, 2025 at 8:31=E2=80=AFAM Luca Ceresoli <luca.ceresoli@bootli=
-n.com> wrote:
->
-> Hello Martin,
->
-> On Sun Dec 21, 2025 at 10:51 PM CET, Martin Blumenstingl wrote:
-> > On Tue, Dec 16, 2025 at 7:00=E2=80=AFPM Luca Ceresoli <luca.ceresoli@bo=
-otlin.com> wrote:
-> >>
-> >> This driver obtains a bridge pointer from of_drm_find_bridge() in the =
-probe
-> >> function and stores it until driver removal. of_drm_find_bridge() is
-> >> deprecated. Move to of_drm_find_and_get_bridge() for the bridge to be
-> >> refcounted and use bridge->next_bridge to put the reference on
-> >> deallocation.
-> >>
-> >> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-> > Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-> > And additionally I runtime tested this on meson-gxl-s905x-libretech-cc
-> > where I still have HDMI output, so:
-> > Tested-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
->
-> Thank you for the quick testing!
-Thank you for doing the hard work ;-)
+Acked-by: Marc Zyngier <maz@kernel.org>
 
-> I think I can append '# meson-gxl-s905x-libretech-cc' to your 'Tested-by:=
-'
-> line when I'll apply the patch, to make it more informative.
-Sure, please go ahead with that!
+	M.
 
-
-Best regards,
-Martin
+-- 
+Without deviation from the norm, progress is not possible.
 
