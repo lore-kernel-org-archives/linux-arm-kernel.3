@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 992B3E67498
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 09:44:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE67AE6748D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 09:44:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=72cxXQagokwmA/cZnex2Pm94HvbMxhBEqjUGllZTVzo=; b=GKv6cL4ljWiQvWFZW24U/H+jeb
-	a34coU+JhqXnAEWhP733FzrnkvgWUWFSuhUyqJ0mCo4a2BHmXEIKNPxWERRLfsu8fnK58BQ043yOE
-	qtprbR44QbEKegZ09+71DDM+9KYc7ffQ/0i+A28SolQkLV6w3inwkme0boseHVaqlPmONSPUziCFL
-	s2ZuNXVqRCKX5UA27PC0vViYRjrEhWzZZgnelbclcQ4tvGyVmSx06DkHARSZ8DVhklhxwE/75mnTu
-	ywdGnoS12Lx48zVrnDxZ3WdTBJRY6/AL8lf+dFMLgO8sqEyFvTJDOvyw8fi+6DtJtp1RsMIorKekP
-	FXvDaDQA==;
+	bh=DnOhC3gDzjPKL1u8Gf/D8zWgsYNDRy9TN8Idu01s0JM=; b=FbnE0EvTrN9cvqofmc4PwefcfD
+	RrasMtLeanLRRL3DuswyD4l+LDMvhDyZI7vi0Njmou7HK5SkOLrYZoYL9K0aQ7v6d4KadM1xO3/an
+	/kiBncqJgCxDKVopaAPHBa8oRf1ZWRzk3Hko6NUGvAO4I2sq9Tk/1ZATeN1A0aOECIxlgAAkC49ox
+	jrHthH0q691J69mFJmfzdZoVBjRjNllNzfThm3RyF9au0oqDJjKTnpUdiLKSLC+6EeI5te1UwLwCx
+	iicXoIsyjy/h9KMcTcErm3YGS8cFv2r+jJBowXH2TWeAjgy056qT4meTxdTgfqsEKSImckrKb+N1x
+	9wtzL/tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXcSw-0000000DXdQ-2OVs;
-	Mon, 22 Dec 2025 09:44:34 +0000
-Received: from out30-132.freemail.mail.aliyun.com ([115.124.30.132])
+	id 1vXcTA-0000000DXsO-2MJi;
+	Mon, 22 Dec 2025 09:44:48 +0000
+Received: from out30-110.freemail.mail.aliyun.com ([115.124.30.110])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXcSp-0000000DXVd-16DO
+	id 1vXcT2-0000000DXii-1htS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Dec 2025 09:44:28 +0000
+	Mon, 22 Dec 2025 09:44:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1766396665; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=72cxXQagokwmA/cZnex2Pm94HvbMxhBEqjUGllZTVzo=;
-	b=iIA2kEZfqEB0N+vusbQqkBnO5BonRWHtz21fniMNqnd7PHuOdYjLTnoYYM7X2dsue7coqtgu7uJVo3N//aZA08uE5OspyPN/ENLQnyFu9tIzGptB2tTuwz612a/rRyEbI73tXs4lctwBmtgsEr83lVgzOIJ0nmbJtScjl/Kc2iY=
-Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0WvOT.TX_1766396662 cluster:ay36)
+	t=1766396678; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=DnOhC3gDzjPKL1u8Gf/D8zWgsYNDRy9TN8Idu01s0JM=;
+	b=vEiurCNNtobkHQG2qhfJdjf1bNHNZMUaV9WbJFQlFBdBwqOKr+nh4c0LWbegbvF/LUqIMHA98PPTKReVSRMRrI1TaR7yVa9/5k/GvlSaOjNtYGQOwpLHUGYLr/Ow8WoCF1b/yQmpyzjXEMQOemf10W5Bkh+V+jNTOIc9HvR2cu8=
+Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0WvOT.WZ_1766396671 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Mon, 22 Dec 2025 17:44:24 +0800
+          Mon, 22 Dec 2025 17:44:33 +0800
 From: Ruidong Tian <tianruidong@linux.alibaba.com>
 To: catalin.marinas@arm.com,
 	will@kernel.org,
@@ -52,17 +52,18 @@ To: catalin.marinas@arm.com,
 	yazen.ghannam@amd.com,
 	misono.tomohiro@fujitsu.com
 Cc: tianruidong@linux.alibaba.com
-Subject: [PATCH v4 09/17] ras: AEST: Add cpuhp callback
-Date: Mon, 22 Dec 2025 17:43:42 +0800
-Message-Id: <20251222094351.38792-10-tianruidong@linux.alibaba.com>
+Subject: [PATCH v4 12/17] ras: AEST: Allow configuring CE threshold via debugfs
+Date: Mon, 22 Dec 2025 17:43:45 +0800
+Message-Id: <20251222094351.38792-13-tianruidong@linux.alibaba.com>
 X-Mailer: git-send-email 2.33.1
 In-Reply-To: <20251222094351.38792-1-tianruidong@linux.alibaba.com>
 References: <20251222094351.38792-1-tianruidong@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_014427_630702_6F1E15F5 
-X-CRM114-Status: GOOD (  15.90  )
+X-CRM114-CacheID: sfid-20251222_014440_651185_2A576EE9 
+X-CRM114-Status: UNSURE (   9.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,201 +78,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the configuration of interrupts and CE thresholds
-into the CPU hotplug callbacks for the per-CPU AEST node.
+This commit introduces the ability to configure the Corrected Error (CE)
+threshold for AEST records through debugfs. This allows administrators to
+dynamically adjust the CE threshold for error reporting.
 
 Signed-off-by: Ruidong Tian <tianruidong@linux.alibaba.com>
 ---
- drivers/ras/aest/aest-core.c | 118 ++++++++++++++++++++++++++++++++++-
- drivers/ras/aest/aest.h      |   5 ++
- include/linux/cpuhotplug.h   |   1 +
- 3 files changed, 121 insertions(+), 3 deletions(-)
+ Documentation/ABI/testing/debugfs-aest | 16 ++++++++++
+ drivers/ras/aest/aest-sysfs.c          | 42 ++++++++++++++++++++++++++
+ 2 files changed, 58 insertions(+)
 
-diff --git a/drivers/ras/aest/aest-core.c b/drivers/ras/aest/aest-core.c
-index 5ec0ba38f51b..686dde6f2e68 100644
---- a/drivers/ras/aest/aest-core.c
-+++ b/drivers/ras/aest/aest-core.c
-@@ -5,6 +5,7 @@
-  * Copyright (c) 2025, Alibaba Group.
-  */
+diff --git a/Documentation/ABI/testing/debugfs-aest b/Documentation/ABI/testing/debugfs-aest
+index a984fcedede2..76ba1b77b274 100644
+--- a/Documentation/ABI/testing/debugfs-aest
++++ b/Documentation/ABI/testing/debugfs-aest
+@@ -23,6 +23,14 @@ Description:
+ 		See more at:
+ 			https://developer.arm.com/documentation/den0085/latest/
  
-+#include <linux/cpu.h>
- #include <linux/interrupt.h>
- #include <linux/panic.h>
- #include <linux/platform_device.h>
-@@ -563,8 +564,6 @@ static int aest_init_record(struct aest_record *record, int i,
- 	record->addressing_mode = test_bit(i, node->info->addressing_mode);
- 	record->index = i;
- 	record->node = node;
--	aest_set_ce_threshold(record);
--	aest_enable_irq(record);
++What:		/sys/kernel/debug/aest/<name>.<id>/<node_name>/ce_threshold
++Date:		Dec 2025
++KernelVersion	6.19
++Contact:	Ruidong Tian <tianruidong@linux.alibaba.com>
++Description:
++		(WO) Write the ce threshold to all records of this node. Failed
++		if input exceeded the maximum threshold
++
+ What:		/sys/kernel/debug/aest/<name>.<id>/<node_name>/err_count
+ Date:		Dec 2025
+ KernelVersion	6.19
+@@ -37,6 +45,14 @@ Contact:	Ruidong Tian <tianruidong@linux.alibaba.com>
+ Description:
+ 		(RO) Read err_* register and return val.
  
- 	aest_record_dbg(record, "base: %p, index: %d, address mode: %x\n",
- 			record->regs_base, record->index,
-@@ -572,9 +571,113 @@ static int aest_init_record(struct aest_record *record, int i,
- 	return 0;
- }
++What:		/sys/kernel/debug/aest/<name>.<id>/<node_name>/record<index>/ce_threshold
++Date:		Dec 2025
++KernelVersion	6.19
++Contact:	Ruidong Tian <tianruidong@linux.alibaba.com>
++Description:
++		(RW) Read and write the ce threshold to this record. Failed
++		if input exceeded the maximum threshold
++
+ What:		/sys/kernel/debug/aest/<name>.<id>/<node_name>/record<index>/err_count
+ Date:		Dec 2025
+ KernelVersion	6.19
+diff --git a/drivers/ras/aest/aest-sysfs.c b/drivers/ras/aest/aest-sysfs.c
+index b54e879506aa..392e7ad8328e 100644
+--- a/drivers/ras/aest/aest-sysfs.c
++++ b/drivers/ras/aest/aest-sysfs.c
+@@ -7,6 +7,25 @@
  
-+static void aest_online_record(struct aest_record *record, void *data)
+ #include "aest.h"
+ 
++static void
++aest_store_threshold(struct aest_record *record, void *data)
 +{
-+	if (record_read(record, ERXFR) & ERR_FR_CE)
-+		aest_set_ce_threshold(record);
++	u64 err_misc0, *threshold = data;
++	struct ce_threshold *ce = &record->ce;
 +
-+	aest_enable_irq(record);
-+}
-+
-+static void aest_online_oncore_node(struct aest_node *node)
-+{
-+	int count;
-+
-+	count = aest_proc(node);
-+	aest_node_dbg(node, "Find %d error on CPU%d before AEST probe\n", count,
-+		      smp_processor_id());
-+
-+	aest_node_foreach_record(aest_online_record, node, NULL,
-+				 node->record_implemented);
-+
-+	aest_node_foreach_record(aest_online_record, node, NULL,
-+				 node->status_reporting);
-+}
-+
-+static void aest_online_oncore_dev(void *data)
-+{
-+	int fhi_irq, eri_irq, i;
-+	struct aest_device *adev = this_cpu_ptr(data);
-+
-+	for (i = 0; i < adev->node_cnt; i++)
-+		aest_online_oncore_node(&adev->nodes[i]);
-+
-+	fhi_irq = adev->irq[ACPI_AEST_NODE_FAULT_HANDLING];
-+	if (fhi_irq > 0)
-+		enable_percpu_irq(fhi_irq, IRQ_TYPE_NONE);
-+	eri_irq = adev->irq[ACPI_AEST_NODE_ERROR_RECOVERY];
-+	if (eri_irq > 0)
-+		enable_percpu_irq(eri_irq, IRQ_TYPE_NONE);
-+}
-+
-+static void aest_offline_oncore_dev(void *data)
-+{
-+	int fhi_irq, eri_irq;
-+	struct aest_device *adev = this_cpu_ptr(data);
-+
-+	fhi_irq = adev->irq[ACPI_AEST_NODE_FAULT_HANDLING];
-+	if (fhi_irq > 0)
-+		disable_percpu_irq(fhi_irq);
-+	eri_irq = adev->irq[ACPI_AEST_NODE_ERROR_RECOVERY];
-+	if (eri_irq > 0)
-+		disable_percpu_irq(eri_irq);
-+}
-+
-+static void aest_online_dev(struct aest_device *adev)
-+{
-+	int count, i;
-+	struct aest_node *node;
-+
-+	for (i = 0; i < adev->node_cnt; i++) {
-+		node = &adev->nodes[i];
-+
-+		if (!node->name)
-+			continue;
-+
-+		count = aest_proc(node);
-+		aest_node_dbg(node, "Find %d error before AEST probe\n", count);
-+
-+		aest_config_irq(node);
-+
-+		aest_node_foreach_record(aest_online_record, node, NULL,
-+					 node->record_implemented);
-+		aest_node_foreach_record(aest_online_record, node, NULL,
-+					 node->status_reporting);
-+	}
-+}
-+
-+static int aest_starting_cpu(unsigned int cpu)
-+{
-+	pr_debug("CPU%d starting\n", cpu);
-+	aest_online_oncore_dev(&percpu_adev);
-+
-+	return 0;
-+}
-+
-+static int aest_dying_cpu(unsigned int cpu)
-+{
-+	pr_debug("CPU%d dying\n", cpu);
-+	aest_offline_oncore_dev(&percpu_adev);
-+
-+	return 0;
-+}
-+
- static void aest_device_remove(struct platform_device *pdev)
- {
-+	struct aest_device *adev = platform_get_drvdata(pdev);
-+	int i;
-+
- 	platform_set_drvdata(pdev, NULL);
-+
-+	if (adev->type != ACPI_AEST_PROCESSOR_ERROR_NODE)
++	if (*threshold > ce->info->max_count)
 +		return;
 +
-+	on_each_cpu(aest_offline_oncore_dev, adev->adev_oncore, 1);
++	ce->threshold = *threshold;
++	ce->count = ce->info->max_count - ce->threshold + 1;
 +
-+	for (i = 0; i < MAX_GSI_PER_NODE; i++) {
-+		if (adev->irq[i])
-+			free_percpu_irq(adev->irq[i], adev->adev_oncore);
-+	}
- }
- 
- static char *alloc_aest_node_name(struct aest_node *node)
-@@ -682,7 +785,6 @@ static int aest_init_node(struct aest_device *adev, struct aest_node *node,
- 				return -ENOMEM;
- 		}
- 	}
--	aest_config_irq(node);
- 
- 	ret = aest_node_set_errgsr(adev, node);
- 	if (ret)
-@@ -826,6 +928,16 @@ static int aest_device_probe(struct platform_device *pdev)
- 		aest_dev_err(adev, "register irq failed\n");
- 		return ret;
- 	}
++	err_misc0 = record_read(record, ERXMISC0);
++	ce->reg_val = (err_misc0 & ~ce->info->mask) |
++			(ce->count << ce->info->shift);
 +
-+	if (aest_dev_is_oncore(adev))
-+		ret = cpuhp_setup_state(CPUHP_AP_ARM_AEST_STARTING,
-+					"drivers/acpi/arm64/aest:starting",
-+					aest_starting_cpu, aest_dying_cpu);
-+	else
-+		aest_online_dev(adev);
-+	if (ret)
-+		return ret;
-+
- 	platform_set_drvdata(pdev, adev);
- 
- 	aest_dev_dbg(adev, "Node cnt: %x, id: %x\n", adev->node_cnt, adev->id);
-diff --git a/drivers/ras/aest/aest.h b/drivers/ras/aest/aest.h
-index a5e43b2a2e90..f85e81ff35a6 100644
---- a/drivers/ras/aest/aest.h
-+++ b/drivers/ras/aest/aest.h
-@@ -339,3 +339,8 @@ static inline void aest_sync(struct aest_node *node)
- 	if (node->type == ACPI_AEST_PROCESSOR_ERROR_NODE)
- 		isb();
- }
-+
-+static inline bool aest_dev_is_oncore(struct aest_device *adev)
-+{
-+	return adev->type == ACPI_AEST_PROCESSOR_ERROR_NODE;
++	record_write(record, ERXMISC0, ce->reg_val);
 +}
-diff --git a/include/linux/cpuhotplug.h b/include/linux/cpuhotplug.h
-index 62cd7b35a29c..831fe9011943 100644
---- a/include/linux/cpuhotplug.h
-+++ b/include/linux/cpuhotplug.h
-@@ -179,6 +179,7 @@ enum cpuhp_state {
- 	CPUHP_AP_HYPERV_TIMER_STARTING,
- 	/* Must be the last timer callback */
- 	CPUHP_AP_DUMMY_TIMER_STARTING,
-+	CPUHP_AP_ARM_AEST_STARTING,
- 	CPUHP_AP_ARM_XEN_STARTING,
- 	CPUHP_AP_ARM_XEN_RUNSTATE_STARTING,
- 	CPUHP_AP_ARM_CORESIGHT_STARTING,
++
+ static void
+ aest_error_count(struct aest_record *record, void *data)
+ {
+@@ -77,6 +96,27 @@ DEFINE_AEST_DEBUGFS_ATTR(err_misc1, ERXMISC1);
+ DEFINE_AEST_DEBUGFS_ATTR(err_misc2, ERXMISC2);
+ DEFINE_AEST_DEBUGFS_ATTR(err_misc3, ERXMISC3);
+ 
++static int record_ce_threshold_get(void *data, u64 *val)
++{
++	struct aest_record *record = data;
++
++	*val = record->ce.threshold;
++	return 0;
++}
++
++static int record_ce_threshold_set(void *data, u64 val)
++{
++	u64 threshold = val;
++	struct aest_record *record = data;
++
++	aest_store_threshold(record, &threshold);
++
++	return 0;
++}
++
++DEFINE_DEBUGFS_ATTRIBUTE(record_ce_threshold_ops, record_ce_threshold_get,
++					record_ce_threshold_set, "%llu\n");
++
+ static int aest_record_err_count_show(struct seq_file *m, void *data)
+ {
+ 	struct aest_record *record = m->private;
+@@ -116,6 +156,8 @@ static void aest_record_init_debugfs(struct aest_record *record)
+ 								&err_misc3_ops);
+ 	debugfs_create_file("err_count", 0400, record->debugfs, record,
+ 						&aest_record_err_count_fops);
++	debugfs_create_file("ce_threshold", 0600, record->debugfs, record,
++						&record_ce_threshold_ops);
+ }
+ 
+ static void
 -- 
 2.51.2.612.gdc70283dfc
 
