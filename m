@@ -4,69 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69CB4E6748D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 06:42:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AEFBE6748D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 06:54:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2UG92ehWSE/yhy9dfz10RcqU8/jaNxsLN5LjPiIx3+8=; b=y4vw9+o/JoHGnyjW7zcjIuCsOA
-	H9sIos2isGfEJInslB5rE+4zRTLZn7RcrrzBBamEJWeLnhhFLTcctEsIdGaAvdH2omAkgdTA1l/OI
-	saaz+QlLF7WQzmbTIJB+oZt4SOqEV9xfHma5Yz3kg41ayhPm2hImLomgb1qHNdLkb59SaOQmDYyVp
-	qJtYzC+/vJyTCyuwJWitT/0xVqCbbiWVVYqOhd0ni6JAqWDXV5pTAdfqI2PAhsct2PfL+BwDthx6R
-	ZSdYAdwSxUxSYKIqgJYfky5dMx5LxJOvHfkymzbBIBAgR87Q9MM//PCM6nnU+6sI1U5PaMrYnDu7F
-	AAtXmvkw==;
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qwO5Fz2vHqn7n0eKcYvf4GfayL/tTmLm6RSqBxdZk1Y=; b=rcbeEVMOTf+AUXH2REsFcBJHeX
+	tpdhZNEz3q7kesrLGh5Dm7deOuXHs7zkkz6H2gSoPfx/AlPUySXXzFfeXiIFzYYw6tgEU253CnPkF
+	AwQ9qEywDPmYc+RZcHGEIa9Rb4IEG8fewBbVWkP6zUaPFOwuARWg0IWokfZHkV8VScmKZo4TVC+pJ
+	jpSYMGSH+cwg9/dHlo/jf1A0TR2fMax7gY4PW96F9VTvG/HThW5oP63zNNA4tptyW1sRb5SqmccdJ
+	8FSP8urWL3SSeJ7zroHJ+J1iDSAN8XPuDS1qaaC4caV+dP2FX0Vt9xF9slMqORKg1kSk7y92Y0TGt
+	Xdh42RlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXZct-0000000DK0J-1Pg1;
-	Mon, 22 Dec 2025 06:42:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vXZoO-0000000DKel-11Xf;
+	Mon, 22 Dec 2025 06:54:35 +0000
+Received: from esa2.hc1455-7.c3s2.iphmx.com ([207.54.90.48])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXZcn-0000000DJxs-2Ceh;
-	Mon, 22 Dec 2025 06:42:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8AD016001D;
-	Mon, 22 Dec 2025 06:42:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4245CC4CEF1;
-	Mon, 22 Dec 2025 06:42:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766385752;
-	bh=e0/niKpB0Lap+DhZVLSOS8gW0I1Z3rhogP6i1jO9zTU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=KiKiI1QZedlTbBXaF79j9zJC0VpwLwRc60fYkZOew0t058sp5hxbAwWFBMN7P18fJ
-	 5UgFA5hVqEzll+yqsmP7o1yUOphIP7fyH3KgpgI59Z0Z4xLyFgtM5J2TBuJ6Osu1TN
-	 WxMpjgUYuPt38ulUr7MBhs82+JnrCuMISoE2qV595ks+C1+vOsZyvjsaa8Kg7Nn1gD
-	 Iho77d4XX0owKf6Z+CTo8WR8mTuj+MrLW4nseWQp//4gCyqN4fnk1cW6m/NUfDerlt
-	 A9VPWordUXl6ZIxjwFQB73sd/HawNekacQFA+mQXm7uM3zAWb1KkM/dk+pf3QaE6IF
-	 Xm5eBn07ing4Q==
-From: Niklas Cassel <cassel@kernel.org>
+	id 1vXZoG-0000000DKeA-0xgE
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 22 Dec 2025 06:54:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
+  d=fujitsu.com; i=@fujitsu.com; q=dns/txt; s=fj2;
+  t=1766386464; x=1797922464;
+  h=from:to:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=bTaSSWqtn98z2Qj6qEHjHoQ1Z9LeLdTFS9bX5rBwXd4=;
+  b=R8Ig6QxCc0Blbfu/tQ6Hf/GfuBpAW+JPREiiQHxLqXh9WwaLhmFB/8ql
+   Z1JC9GfIGyrY28b1aXXKdrlytz8LpUg/T7Z2GlwEuufSNDo2CXp5ev9CS
+   RmWFP7X9JFefBdvz1ZB4dBkp0MAQ+tZoxN2hEIM1wiXfybOAuUOwhG1Z+
+   S4evX9vs+XXfrvfBebuqsGsuwehfTB/uDwpu+SaG1/Q903q3zrpjP9kh4
+   PrxJVAJIFhe6Oaw5ovg0Blm0aMe1Gz+YyrkesEK1AyuyMB7FT6vlX9lDD
+   b2jv2RwZ03n2yfKU48am9714cjSwv8Sc6uSrQtw414OzCJ7ni5JDXf2Rz
+   Q==;
+X-CSE-ConnectionGUID: SlXMmxvFQQGOu61w2ZAC8g==
+X-CSE-MsgGUID: 4vXtGpXuSZGlCgXE8MTdpg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11649"; a="223435988"
+X-IronPort-AV: E=Sophos;i="6.21,167,1763391600"; 
+   d="scan'208";a="223435988"
+Received: from unknown (HELO az2uksmgr1.o.css.fujitsu.com) ([52.151.125.128])
+  by esa2.hc1455-7.c3s2.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Dec 2025 15:54:16 +0900
+Received: from az2uksmgm3.o.css.fujitsu.com (unknown [10.151.22.200])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmgr1.o.css.fujitsu.com (Postfix) with ESMTPS id 51F141C1C70F
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 06:54:16 +0000 (UTC)
+Received: from az2uksmom4.o.css.fujitsu.com (az2uksmom4.o.css.fujitsu.com [10.151.22.204])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by az2uksmgm3.o.css.fujitsu.com (Postfix) with ESMTPS id 0FFBDC00205
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 06:54:16 +0000 (UTC)
+Received: from sm-arm-grace07.ssoft.mng.com (sm-x86-stp01.soft.fujitsu.com [10.124.178.20])
+	by az2uksmom4.o.css.fujitsu.com (Postfix) with ESMTP id 2D0A34046BC;
+	Mon, 22 Dec 2025 06:54:10 +0000 (UTC)
+From: Kazuhiro Abe <fj1078ii@aa.jp.fujitsu.com>
 To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Shawn Lin <shawn.lin@rock-chips.com>,
-	FUKAUMI Naoki <naoki@radxa.com>,
-	Krishna chaitanya chundru <quic_krichai@quicinc.com>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Niklas Cassel <cassel@kernel.org>,
-	stable@vger.kernel.org,
-	linux-pci@vger.kernel.org,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>,
+	Ilkka Koskinen <ilkka@os.amperecomputing.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-acpi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: [PATCH v2 2/6] Revert "PCI: dw-rockchip: Enumerate endpoints based on dll_link_up IRQ"
-Date: Mon, 22 Dec 2025 07:42:09 +0100
-Message-ID: <20251222064207.3246632-10-cassel@kernel.org>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20251222064207.3246632-8-cassel@kernel.org>
-References: <20251222064207.3246632-8-cassel@kernel.org>
+	linux-kernel@vger.kernel.org,
+	Kazuhiro Abe <fj1078ii@aa.jp.fujitsu.com>,
+	Koichi Okuno <fj2767dz@aa.jp.fujitsu.com>
+Subject: [PATCH v5] ACPI: AGDI: Add interrupt signaling mode support
+Date: Mon, 22 Dec 2025 15:53:34 +0900
+Message-ID: <20251222065359.27330-1-fj1078ii@aa.jp.fujitsu.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6396; i=cassel@kernel.org; h=from:subject; bh=e0/niKpB0Lap+DhZVLSOS8gW0I1Z3rhogP6i1jO9zTU=; b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGDI9XrgJvNo3WXzeSeaJMZf/XgxjO7/si/D9rbtjHwg8n 1xZxBH8vKOUhUGMi0FWTJHF94fL/uJu9ynHFe/YwMxhZQIZwsDFKQATuTSZ4X+ileWW5E+93Pm7 131a92jOxoXcs9jnS1UfvHqqfcXihqWiDP9s9pyotTOYLie/Tq3p3/q9a47+kzWf/Xhv9P/FMbZ b09IYAQ==
-X-Developer-Key: i=cassel@kernel.org; a=openpgp; fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251221_225424_866071_5080479B 
+X-CRM114-Status: GOOD (  28.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,154 +99,232 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This reverts commit 0e0b45ab5d770a748487ba0ae8f77d1fb0f0de3e.
+AGDI has two types of signaling modes: SDEI and interrupt.
+Currently, the AGDI driver only supports SDEI.
+Therefore, add support for interrupt signaling mode.
+The interrupt vector is retrieved from the AGDI table, and call panic
+function when an interrupt occurs.
 
-While this fake hotplugging was a nice idea, it has shown that this feature
-does not handle PCIe switches correctly:
-pci_bus 0004:43: busn_res: can not insert [bus 43-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
-pci_bus 0004:43: busn_res: [bus 43-41] end is updated to 43
-pci_bus 0004:43: busn_res: can not insert [bus 43] under [bus 42-41] (conflicts with (null) [bus 42-41])
-pci 0004:42:00.0: devices behind bridge are unusable because [bus 43] cannot be assigned for them
-pci_bus 0004:44: busn_res: can not insert [bus 44-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
-pci_bus 0004:44: busn_res: [bus 44-41] end is updated to 44
-pci_bus 0004:44: busn_res: can not insert [bus 44] under [bus 42-41] (conflicts with (null) [bus 42-41])
-pci 0004:42:02.0: devices behind bridge are unusable because [bus 44] cannot be assigned for them
-pci_bus 0004:45: busn_res: can not insert [bus 45-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
-pci_bus 0004:45: busn_res: [bus 45-41] end is updated to 45
-pci_bus 0004:45: busn_res: can not insert [bus 45] under [bus 42-41] (conflicts with (null) [bus 42-41])
-pci 0004:42:06.0: devices behind bridge are unusable because [bus 45] cannot be assigned for them
-pci_bus 0004:46: busn_res: can not insert [bus 46-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
-pci_bus 0004:46: busn_res: [bus 46-41] end is updated to 46
-pci_bus 0004:46: busn_res: can not insert [bus 46] under [bus 42-41] (conflicts with (null) [bus 42-41])
-pci 0004:42:0e.0: devices behind bridge are unusable because [bus 46] cannot be assigned for them
-pci_bus 0004:42: busn_res: [bus 42-41] end is updated to 46
-pci_bus 0004:42: busn_res: can not insert [bus 42-46] under [bus 41] (conflicts with (null) [bus 41])
-pci 0004:41:00.0: devices behind bridge are unusable because [bus 42-46] cannot be assigned for them
-pcieport 0004:40:00.0: bridge has subordinate 41 but max busn 46
+Acked-by: Hanjun Guo <guohanjun@huawei.com>
+Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
+Signed-off-by: Kazuhiro Abe <fj1078ii@aa.jp.fujitsu.com>
 
-During the initial scan, PCI core doesn't see the switch and since the Root
-Port is not hot plug capable, the secondary bus number gets assigned as the
-subordinate bus number. This means, the PCI core assumes that only one bus
-will appear behind the Root Port since the Root Port is not hot plug
-capable.
-
-This works perfectly fine for PCIe endpoints connected to the Root Port,
-since they don't extend the bus. However, if a PCIe switch is connected,
-then there is a problem when the downstream busses starts showing up and
-the PCI core doesn't extend the subordinate bus number after initial scan
-during boot.
-
-The long term plan is to migrate this driver to the pwrctrl framework,
-once it adds proper support for powering up and enumerating PCIe switches.
-
-Cc: stable@vger.kernel.org
-Suggested-by: Manivannan Sadhasivam <mani@kernel.org>
-Acked-by: Shawn Lin <shawn.lin@rock-chips.com>
-Tested-by: Shawn Lin <shawn.lin@rock-chips.com>
-Signed-off-by: Niklas Cassel <cassel@kernel.org>
 ---
- drivers/pci/controller/dwc/pcie-dw-rockchip.c | 59 +------------------
- 1 file changed, 3 insertions(+), 56 deletions(-)
+This patch (v5) has been rebased to align with the 6.19-rc1 release.
+There are no functional changes since v4.
+The IRQF_NO_AUTOEN flag discussed in the v4 patch review was ultimately left unchanged.
+It has been tested and confirmed to work without issues.
+Please let us know if you have any questions or concerns.
 
-diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index ca808d8f7975..352f513ebf03 100644
---- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-+++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-@@ -508,34 +508,6 @@ static const struct dw_pcie_ops dw_pcie_ops = {
- 	.get_ltssm = rockchip_pcie_get_ltssm,
+v4->v5
+ - Rebase to 6.19-rc1.
+ - Add acked-by from Hanjun Guo.
+
+v4: https://lore.kernel.org/all/20251017073935.1746365-1-fj1078ii@aa.jp.fujitsu.com/
+v3->v4
+ - Add a comment to the flags member.
+ - Fix agdi_interrupt_probe.
+ - Fix agdi_interrupt_remove.
+ - Add space in struct initializsation.
+ - Delete curly braces.
+
+v3: https://lore.kernel.org/all/20250905042751.945616-1-fj1078ii@aa.jp.fujitsu.com/
+v2->v3
+ - Fix bug in the return value of agdi_probe function.
+ - Remove unnecessary curly braces in the agdi_remove function.
+
+v2: https://lore.kernel.org/all/20250829101154.2377800-1-fj1078ii@aa.jp.fujitsu.com/
+v1->v2
+ - Remove acpica update since there is no need to update define value
+   for this patch.
+---
+ drivers/acpi/arm64/agdi.c | 114 +++++++++++++++++++++++++++++++++++---
+ include/acpi/actbl2.h     |   4 +-
+ 2 files changed, 110 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/acpi/arm64/agdi.c b/drivers/acpi/arm64/agdi.c
+index e0df3daa4abf..c514bb874c5d 100644
+--- a/drivers/acpi/arm64/agdi.c
++++ b/drivers/acpi/arm64/agdi.c
+@@ -16,7 +16,11 @@
+ #include "init.h"
+ 
+ struct agdi_data {
++	unsigned char flags;
+ 	int sdei_event;
++	unsigned int gsiv;
++	bool use_nmi;
++	int irq;
  };
  
--static irqreturn_t rockchip_pcie_rc_sys_irq_thread(int irq, void *arg)
--{
--	struct rockchip_pcie *rockchip = arg;
--	struct dw_pcie *pci = &rockchip->pci;
--	struct dw_pcie_rp *pp = &pci->pp;
--	struct device *dev = pci->dev;
--	u32 reg;
--
--	reg = rockchip_pcie_readl_apb(rockchip, PCIE_CLIENT_INTR_STATUS_MISC);
--	rockchip_pcie_writel_apb(rockchip, reg, PCIE_CLIENT_INTR_STATUS_MISC);
--
--	dev_dbg(dev, "PCIE_CLIENT_INTR_STATUS_MISC: %#x\n", reg);
--	dev_dbg(dev, "LTSSM_STATUS: %#x\n", rockchip_pcie_get_ltssm_reg(rockchip));
--
--	if (reg & PCIE_RDLH_LINK_UP_CHGED) {
--		if (rockchip_pcie_link_up(pci)) {
--			msleep(PCIE_RESET_CONFIG_WAIT_MS);
--			dev_dbg(dev, "Received Link up event. Starting enumeration!\n");
--			/* Rescan the bus to enumerate endpoint devices */
--			pci_lock_rescan_remove();
--			pci_rescan_bus(pp->bridge->bus);
--			pci_unlock_rescan_remove();
--		}
--	}
--
--	return IRQ_HANDLED;
--}
--
- static irqreturn_t rockchip_pcie_ep_sys_irq_thread(int irq, void *arg)
- {
- 	struct rockchip_pcie *rockchip = arg;
-@@ -568,29 +540,14 @@ static irqreturn_t rockchip_pcie_ep_sys_irq_thread(int irq, void *arg)
- 	return IRQ_HANDLED;
+ static int agdi_sdei_handler(u32 sdei_event, struct pt_regs *regs, void *arg)
+@@ -48,6 +52,55 @@ static int agdi_sdei_probe(struct platform_device *pdev,
+ 	return 0;
  }
  
--static int rockchip_pcie_configure_rc(struct platform_device *pdev,
--				      struct rockchip_pcie *rockchip)
-+static int rockchip_pcie_configure_rc(struct rockchip_pcie *rockchip)
++static irqreturn_t agdi_interrupt_handler_nmi(int irq, void *dev_id)
++{
++	nmi_panic(NULL, "Arm Generic Diagnostic Dump and Reset NMI Interrupt event issued\n");
++	return IRQ_HANDLED;
++}
++
++static irqreturn_t agdi_interrupt_handler_irq(int irq, void *dev_id)
++{
++	panic("Arm Generic Diagnostic Dump and Reset Interrupt event issued\n");
++	return IRQ_HANDLED;
++}
++
++static int agdi_interrupt_probe(struct platform_device *pdev,
++				struct agdi_data *adata)
++{
++	unsigned long irq_flags;
++	int ret;
++	int irq;
++
++	irq = acpi_register_gsi(NULL, adata->gsiv, ACPI_EDGE_SENSITIVE, ACPI_ACTIVE_HIGH);
++	if (irq < 0) {
++		dev_err(&pdev->dev, "cannot register GSI#%d (%d)\n", adata->gsiv, irq);
++		return irq;
++	}
++
++	irq_flags = IRQF_PERCPU | IRQF_NOBALANCING | IRQF_NO_AUTOEN |
++		    IRQF_NO_THREAD;
++	/* try NMI first */
++	ret = request_nmi(irq, &agdi_interrupt_handler_nmi, irq_flags,
++			  "agdi_interrupt_nmi", NULL);
++	if (ret) {
++		ret = request_irq(irq, &agdi_interrupt_handler_irq,
++				  irq_flags, "agdi_interrupt_irq", NULL);
++		if (ret) {
++			dev_err(&pdev->dev, "cannot register IRQ %d\n", ret);
++			acpi_unregister_gsi(adata->gsiv);
++			return ret;
++		}
++		enable_irq(irq);
++		adata->irq = irq;
++	} else {
++		enable_nmi(irq);
++		adata->irq = irq;
++		adata->use_nmi = true;
++	}
++
++	return 0;
++}
++
+ static int agdi_probe(struct platform_device *pdev)
  {
--	struct device *dev = &pdev->dev;
- 	struct dw_pcie_rp *pp;
--	int irq, ret;
- 	u32 val;
+ 	struct agdi_data *adata = dev_get_platdata(&pdev->dev);
+@@ -55,12 +108,20 @@ static int agdi_probe(struct platform_device *pdev)
+ 	if (!adata)
+ 		return -EINVAL;
  
- 	if (!IS_ENABLED(CONFIG_PCIE_ROCKCHIP_DW_HOST))
- 		return -ENODEV;
- 
--	irq = platform_get_irq_byname(pdev, "sys");
--	if (irq < 0)
--		return irq;
--
--	ret = devm_request_threaded_irq(dev, irq, NULL,
--					rockchip_pcie_rc_sys_irq_thread,
--					IRQF_ONESHOT, "pcie-sys-rc", rockchip);
--	if (ret) {
--		dev_err(dev, "failed to request PCIe sys IRQ\n");
--		return ret;
--	}
--
- 	/* LTSSM enable control mode */
- 	val = FIELD_PREP_WM16(PCIE_LTSSM_ENABLE_ENHANCE, 1);
- 	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_HOT_RESET_CTRL);
-@@ -602,17 +559,7 @@ static int rockchip_pcie_configure_rc(struct platform_device *pdev,
- 	pp = &rockchip->pci.pp;
- 	pp->ops = &rockchip_pcie_host_ops;
- 
--	ret = dw_pcie_host_init(pp);
--	if (ret) {
--		dev_err(dev, "failed to initialize host\n");
--		return ret;
--	}
--
--	/* unmask DLL up/down indicator */
--	val = FIELD_PREP_WM16(PCIE_RDLH_LINK_UP_CHGED, 0);
--	rockchip_pcie_writel_apb(rockchip, val, PCIE_CLIENT_INTR_MASK_MISC);
--
--	return ret;
-+	return dw_pcie_host_init(pp);
+-	return agdi_sdei_probe(pdev, adata);
++	switch (adata->flags & ACPI_AGDI_SIGNALING_MODE_MASK) {
++	case ACPI_AGDI_SIGNALING_MODE_SDEI:
++		return agdi_sdei_probe(pdev, adata);
++
++	case ACPI_AGDI_SIGNALING_MODE_INTERRUPT:
++		return agdi_interrupt_probe(pdev, adata);
++	}
++
++	return 0;
  }
  
- static int rockchip_pcie_configure_ep(struct platform_device *pdev,
-@@ -731,7 +678,7 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
+-static void agdi_remove(struct platform_device *pdev)
++static void agdi_sdei_remove(struct platform_device *pdev,
++			     struct agdi_data *adata)
+ {
+-	struct agdi_data *adata = dev_get_platdata(&pdev->dev);
+ 	int err, i;
  
- 	switch (data->mode) {
- 	case DW_PCIE_RC_TYPE:
--		ret = rockchip_pcie_configure_rc(pdev, rockchip);
-+		ret = rockchip_pcie_configure_rc(rockchip);
- 		if (ret)
- 			goto deinit_clk;
- 		break;
+ 	err = sdei_event_disable(adata->sdei_event);
+@@ -83,6 +144,34 @@ static void agdi_remove(struct platform_device *pdev)
+ 			adata->sdei_event, ERR_PTR(err));
+ }
+ 
++static void agdi_interrupt_remove(struct platform_device *pdev,
++				  struct agdi_data *adata)
++{
++	if (adata->irq != -1) {
++		if (adata->use_nmi)
++			free_nmi(adata->irq, NULL);
++		else
++			free_irq(adata->irq, NULL);
++
++		acpi_unregister_gsi(adata->gsiv);
++	}
++}
++
++static void agdi_remove(struct platform_device *pdev)
++{
++	struct agdi_data *adata = dev_get_platdata(&pdev->dev);
++
++	switch (adata->flags & ACPI_AGDI_SIGNALING_MODE_MASK) {
++	case ACPI_AGDI_SIGNALING_MODE_SDEI:
++		agdi_sdei_remove(pdev, adata);
++		break;
++
++	case ACPI_AGDI_SIGNALING_MODE_INTERRUPT:
++		agdi_interrupt_remove(pdev, adata);
++		break;
++	}
++}
++
+ static struct platform_driver agdi_driver = {
+ 	.driver = {
+ 		.name = "agdi",
+@@ -94,7 +183,7 @@ static struct platform_driver agdi_driver = {
+ void __init acpi_agdi_init(void)
+ {
+ 	struct acpi_table_agdi *agdi_table;
+-	struct agdi_data pdata;
++	struct agdi_data pdata = {0};
+ 	struct platform_device *pdev;
+ 	acpi_status status;
+ 
+@@ -103,12 +192,23 @@ void __init acpi_agdi_init(void)
+ 	if (ACPI_FAILURE(status))
+ 		return;
+ 
+-	if (agdi_table->flags & ACPI_AGDI_SIGNALING_MODE) {
+-		pr_warn("Interrupt signaling is not supported");
++	switch (agdi_table->flags & ACPI_AGDI_SIGNALING_MODE_MASK) {
++	case ACPI_AGDI_SIGNALING_MODE_SDEI:
++		pdata.sdei_event = agdi_table->sdei_event;
++		break;
++
++	case ACPI_AGDI_SIGNALING_MODE_INTERRUPT:
++		pdata.gsiv = agdi_table->gsiv;
++		break;
++
++	default:
++		pr_warn("Signaling mode(%d) is not supported",
++			agdi_table->flags & ACPI_AGDI_SIGNALING_MODE_MASK);
+ 		goto err_put_table;
+ 	}
+ 
+-	pdata.sdei_event = agdi_table->sdei_event;
++	pdata.irq = -1;
++	pdata.flags = agdi_table->flags;
+ 
+ 	pdev = platform_device_register_data(NULL, "agdi", 0, &pdata, sizeof(pdata));
+ 	if (IS_ERR(pdev))
+diff --git a/include/acpi/actbl2.h b/include/acpi/actbl2.h
+index f726bce3eb84..706699f3f294 100644
+--- a/include/acpi/actbl2.h
++++ b/include/acpi/actbl2.h
+@@ -340,7 +340,9 @@ struct acpi_table_agdi {
+ 
+ /* Mask for Flags field above */
+ 
+-#define ACPI_AGDI_SIGNALING_MODE (1)
++#define ACPI_AGDI_SIGNALING_MODE_MASK (3)
++#define ACPI_AGDI_SIGNALING_MODE_SDEI (0)
++#define ACPI_AGDI_SIGNALING_MODE_INTERRUPT (1)
+ 
+ /*******************************************************************************
+  *
 -- 
-2.52.0
+2.43.0
 
 
