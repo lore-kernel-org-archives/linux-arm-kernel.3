@@ -4,209 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 165C0D711D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 08:13:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EC64D711D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 08:13:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DCyUbJXjnvl1W6fm2uAUvmFY8croY+DdkD07b60y2kY=; b=kweeD6g9xsPbzkvbOKcHCklQPx
-	wCTgpIV4BXWV+Qn9r2EQi5dPXw3I7lgs/02hWmIa6rspJvc8TXFb5DdMBfqLFIBdsipws2hm+qGZQ
-	pQRWBBLxDt30sc/7h+0rLJTz/JyewgRCKxeEyeWxNJlxXmsqpHS2BKCP/tuoJbLFG8bz+fMHR7u7P
-	XsTJuPpEZitZDTjXGPTtyiuhJ99A6r7UknOPwPEbwILU5BF2ExS36wCPWCgLqtbe1pMHAA9fdcLnK
-	PJ2YCwSosSHw7KXquqUkvLgA2cSAWEb9kcA4V8zyK2WdVZfOyBXU/N6e435twyrsLzZx1pfkXVFKy
-	7b9fp8Bg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0AttElqDSZFZ5tiQne+CS8FPfox8VRFUC9LsQjy4H18=; b=QeO6g/XaNzhPrj0UPWOX6ikcSQ
+	unCY9HnW1VpwzeteQgbPrc0U/TOAmxBsJ0fFg4iFceeEYNNQvzEbcfa88NACIBZMEBB9q7G0mNmX4
+	VzYpaxOhcdBMWYtpHk1aO4ou7q1O/W8Jvu9cSY6S3lZqYFV3jcLFx5rJwYPdbH3w5pnJh62ZIX1eF
+	TeU86WsD3uHcMQPNKMPNuVNhkv/GrrIT7qQvyLEECjpMfYC88AbWWxiJFhB4O2o2BvYNcPD6TidWm
+	Ru5DCco+NtujyvVsWwCGKNi8sSi9eLpFp+a7zZtSEyKohkI4pSmq6lEkZtjOnh9Qbz+c7ooWPxD7f
+	N7E20grw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXb2Z-0000000DNxl-38lY;
-	Mon, 22 Dec 2025 08:13:15 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1vXb34-0000000DO1X-0KBK;
+	Mon, 22 Dec 2025 08:13:46 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXb2W-0000000DNx5-1pCd;
-	Mon, 22 Dec 2025 08:13:13 +0000
-X-UUID: 0bd0c0cedf0e11f09f706fa2197c6ceb-20251222
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=DCyUbJXjnvl1W6fm2uAUvmFY8croY+DdkD07b60y2kY=;
-	b=popok5twDUq9iCEPKwHhuzVbh7I7lDMrI+vYVHS5SRbzTMz3TiW2jW3bGhL/g+GKg2c528aC//EPzklnzOE8HOnB9EtnAPLF36+ROAl9m/E2K4gFnHvR4QnO0iBBc7lZRaCGSO5cqMFRs9hcLMOqlmeBkTKHAR+zgT2OLajiago=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.9,REQID:24709463-967f-42b7-afe4-75e920711113,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:5047765,CLOUDID:992e0903-1fa9-44eb-b231-4afc61466396,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|888|898,
-	TC:-5,Content:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BE
-	C:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 0bd0c0cedf0e11f09f706fa2197c6ceb-20251222
-Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw01.mediatek.com
-	(envelope-from <peter.wang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1106274957; Mon, 22 Dec 2025 01:13:06 -0700
-Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Mon, 22 Dec 2025 16:13:03 +0800
-Received: from SI4PR04CU002.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Mon, 22 Dec 2025 16:13:03 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yqZPvlyE3dvGrTZ355xvECIR/GvSwmYMasVDxeMNmOy33D7VGv2VcBlk2UQPpwgrpO72YBv0msPuXX+LGfgkcvATaG+Pukkw/s24G1FccJKLcX6qskOTfSG/wzMkD/YTYXu5X2u+itMnW6z1ky3f83iQycRmZYBaoWYQOAZ0xn+rGo2Y+YD/eviI2GBf/QFjP+OeeS0z9LrIL+SSvcQRjI+4+ATB1J51OxHlZdt6xUNx0oTORsr42C/D4yl/ixNSw7e7u/38Fjd8JWu3qUiEXNG/mTMtKsfqwgWPLSenuNCEV4j28CRG2xTFFG7MUW2pW5O8TOPQxjcXHZeFTef70A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DCyUbJXjnvl1W6fm2uAUvmFY8croY+DdkD07b60y2kY=;
- b=BftdKGqvvRmBIWVO05waV9Zf0410TspITZaE/ZtFuDYXRDK4s3PMZBkLlJB5ySZGl4uwSP/RIRHg/qo3vFB7A6iW0Mg0wcav6/Axsm4Ab4py3etZ07q2pRTGVA0PngiDzw1goY1WzsJ8uEujbEMhhRuVHC+EmMB+WTOGqADDqcrTGDwA5maU16PCGDjjr2wO0baLj++6RkTshc+yNbBdQWZSz1lIooasf3W5Vr64CvHe1TH1oAoPiSXrTZbm1Y2tNLQvruW9J+VerKTK4rzO/NR0WCifC2SYvRJe6JIxRStk+tjEHlgXOZteDohPLV+03XXaOwlQ4B9FQHTz5jjf0A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DCyUbJXjnvl1W6fm2uAUvmFY8croY+DdkD07b60y2kY=;
- b=H4dQCB9tgXPg7AomHcHoSJcVjo5Y07BKTHb385y9f0NmOPyQ57JP5m9eKqk6LlUgxfp5CxQjUzdyZlTjLZwk5nI1n13evEJsiIH2RzLlwHu+WLImi/wEBCxbrWCo/MmD2R//00diPKK3T3AqxfmGNoga3wql+QrxsLURz9CHkKM=
-Received: from PSAPR03MB5605.apcprd03.prod.outlook.com (2603:1096:301:66::6)
- by TYZPR03MB7243.apcprd03.prod.outlook.com (2603:1096:400:28f::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.6; Mon, 22 Dec
- 2025 08:13:00 +0000
-Received: from PSAPR03MB5605.apcprd03.prod.outlook.com
- ([fe80::165:d36a:3f76:2925]) by PSAPR03MB5605.apcprd03.prod.outlook.com
- ([fe80::165:d36a:3f76:2925%4]) with mapi id 15.20.9434.009; Mon, 22 Dec 2025
- 08:13:00 +0000
-From: =?utf-8?B?UGV0ZXIgV2FuZyAo546L5L+h5Y+LKQ==?= <peter.wang@mediatek.com>
-To: "chu.stanley@gmail.com" <chu.stanley@gmail.com>, "AngeloGioacchino Del
- Regno" <angelogioacchino.delregno@collabora.com>, "colin.i.king@gmail.com"
-	<colin.i.king@gmail.com>, =?utf-8?B?Q2hhb3RpYW4gSmluZyAo5LqV5pyd5aSpKQ==?=
-	<Chaotian.Jing@mediatek.com>, "linux-scsi@vger.kernel.org"
-	<linux-scsi@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>, "martin.petersen@oracle.com"
-	<martin.petersen@oracle.com>, "James.Bottomley@HansenPartnership.com"
-	<James.Bottomley@HansenPartnership.com>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>
-CC: "kernel-janitors@vger.kernel.org" <kernel-janitors@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH][next] scsi: ufs: host: mediatek: make read-only array
- scale_us static const
-Thread-Topic: [PATCH][next] scsi: ufs: host: mediatek: make read-only array
- scale_us static const
-Thread-Index: AQHccTDbKK/WL0d1mU2bb+E6AJLCNbUtUy+A
-Date: Mon, 22 Dec 2025 08:13:00 +0000
-Message-ID: <65daa0cefe5c09d138bdc545be23be9e58d7e762.camel@mediatek.com>
-References: <20251219214428.492744-1-colin.i.king@gmail.com>
-In-Reply-To: <20251219214428.492744-1-colin.i.king@gmail.com>
-Accept-Language: zh-TW, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PSAPR03MB5605:EE_|TYZPR03MB7243:EE_
-x-ms-office365-filtering-correlation-id: ce3f5b1c-efe6-45ee-607c-08de4131ec38
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|38070700021|921020;
-x-microsoft-antispam-message-info: =?utf-8?B?Wm8vNC9SbjgxTjBnMVh1YTYwTmtCcmRRUkw0cm5JTE9ENk1nekp0NVcxcjB3?=
- =?utf-8?B?VWRiT3FtME9wMWlIV0FjTmRXWGNyVDVwb0tva1RSODVHVkZ5T0phenVYaG1i?=
- =?utf-8?B?ZVBvRzdKYnNaZG1aejI5ckFWeWg2U0I3K0ZZVmhySTBraDdrQUpxUVA2L1Bv?=
- =?utf-8?B?VGxrSVhsRTJXaW5BZ0htV2ZkV1dTT2NqZDZXWHNLRXgxNVY2c3BrVllzU3Fu?=
- =?utf-8?B?Z3NDMi9vNjlFL3NLZ3gyQnJROGlDVkpJaGpaVG1EMzN2Mk45SUVsbWcvd2JS?=
- =?utf-8?B?Z2gwcFMyU3ZMWVZsR1hjbGM1ZTY0MkkrT3dNZUl3U1JYYnZtazlwaTlySkxw?=
- =?utf-8?B?RTIzQm5VUllLVFNPSGtjQzVLRmw5NXBDNDV2b2dOMkxSaTNoR2toYTEzSmtG?=
- =?utf-8?B?aEhueUFTWVpuR1BOWnRmUWF0bWxYc05rdWNncG5SRURBcmtMU25oMFBuYmMr?=
- =?utf-8?B?RFlFTDNETFpLV3QydkxZTVFHNGJIdkhpOHRrQnFJWHMwYnZoamd0NEE0SDFG?=
- =?utf-8?B?V2ZVUFh3SytYWm4zcktGT1FxYUhRNldUN0JGNm9NYVJXeThxT0dTeEM1WXJs?=
- =?utf-8?B?Z1pRQjlLWVVpODVQNXlsbkh1Y2dMVVFZaHJTOXdCTXQyQVdsT292N00ybkJR?=
- =?utf-8?B?cmRiNXZDVnVIZC9MQ0FITXVPOFd3MVpvT1RCdjI5S1Q3eW1DWkcxOFBrMGEy?=
- =?utf-8?B?aytQL2Q4L3FBUkoxZm9PRzMxUTFiV2wrRk10U0NsNTBROFNQMFdGUS92Ni9y?=
- =?utf-8?B?eFhMTlBjV29HRnVVYnVHZWt0SEJKM2RtSDU3R1ZyQ2E3VzZMQW96YklWVlVz?=
- =?utf-8?B?anpqYVZaekpQbTB1dzcyRTBEWnJlRjFwTThheDhsZUpxRHVJMnFHUWNPMy82?=
- =?utf-8?B?SDU3NVBvWGFCVW82aloyY0EweGNES3FCY1JEd05VNGhtaHdJVk9FYkhLaEor?=
- =?utf-8?B?enZKWDRidVJIZkZjSlMwYzJFMGYwbnNzcTlDb2ZtQXpvYkN3RDkzWFRSUUpU?=
- =?utf-8?B?MkhVajhIVkEzZmRpK2JCK3VsajNFeTBRYmFyOVQvM1NoTEhpaTRuM0NWQjlJ?=
- =?utf-8?B?cWhIY1pLQzBWUWFwY1llMG94U3dQU1N1Mi9ONGVuSTY0UzQ4aWM2ZUc5Q014?=
- =?utf-8?B?WVZCMXdSU2syTThKQ2IyYVBzT0I1aTJCNGhyeCs3WjdONzByNkIxT1VhOHkr?=
- =?utf-8?B?dmFralRQLzhFRUt4RU0xWUpkTHhiNVpiN0dxQ0dZK3F3UEo4Y2tZWHpLZFhu?=
- =?utf-8?B?R01tdVZSeUlsTFd4Z2pEU0U0KzMvTUxZQmx6d2tNdzZNb3R1RCtuRmczM3Bq?=
- =?utf-8?B?RDJFKzVnbGRQdUhudk9qR09zZkpWZGhKUG1MOUdjSEwvOGpDMjNtTk8wcWJV?=
- =?utf-8?B?MTl6dmdkM2gvMHRObElVMnFYbXNsZSt0MjlGNzNYTjl0YXpBblNlQldQcmJx?=
- =?utf-8?B?MFZOMmpjR3FRK3lpdENLNDVPM0R0UG9qUUVvUkdWdjFRTjQ2aFgvVG4zZ3ZK?=
- =?utf-8?B?T29SK0hFN0ZlbGFnZHg0VkJXWjdhb3hENFFHcXRZWWtWb25aVGVJSlFNQVd3?=
- =?utf-8?B?b2Q3ZkZFMmtFN3NzNlJtTUtJbVZpd2NxRnBpSUxoNDRvM3ZjUjEzRjRKYlNU?=
- =?utf-8?B?NWVFZG5yTWl1MmJjNGU5SW5qUTM5VXhRaFpaYkt5QndoclJTd1RmVHNqbGto?=
- =?utf-8?B?dmUxYXhaME13SmhLU1dHVkNDWEp5RGQxRi9ocmFvalVDbm9Ocm52SW9ieURK?=
- =?utf-8?B?UkpMN2VYa0hMMnUxdkFzZysyU1dSa0RuckEzOFIrU2xQZFdkcjFhWkd5YWY2?=
- =?utf-8?B?NDhmOEdwSXlvOXBjYmY3dW82Z0tPVlYzVE95R0c5YXFCdVF6RnAvL2o3S2lp?=
- =?utf-8?B?aGtDQ2o1a0c0NXZaYnY0bytwckZHTEErV0VwNERpZ3JLTEprT3VEMWRTVFpU?=
- =?utf-8?B?MDQyQ3B6SWJOdDZKRUNkSkMxNnVwaEQweHRzdlZWSlB0SHNaUmViRFJsTS80?=
- =?utf-8?B?bzdkUkVoYVFMUWRLT2NoUE1lZUk3c1JMS1lvQ0tWdlNxRzdBaldtZmtVUWFM?=
- =?utf-8?B?WnVCaTA3Q2FGL0FZR2IwZUZpdUlSOXZQbTdoUT09?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PSAPR03MB5605.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(38070700021)(921020);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?QWJwdmpNWHVEekx6b3k1TlQ5ZWhnU0V1dVF4Q1o2cVNDTmxnK292aFJxZW9l?=
- =?utf-8?B?RmxBVzN0VFpSQ0UyRDhzYXI4dmN6akgyRGVDbGtMbnVhQjZIbERBTlN2NE1B?=
- =?utf-8?B?Y1J3T2dKL0NDMGdKb3NWakcreWgzczk2YTRacU1xT2pKSURiblVqd0gwV1pP?=
- =?utf-8?B?aWhGMXVxakNFVEhaM3VDa2xVa0xFc2VTT0FPNTVQd3BXb2NyRjU1R3hSMExY?=
- =?utf-8?B?TGxPd3AyTHdYMGZEeUlJUGVxUSszaWFCQ2dxMnZTV00xM2o0c1dIditPcExr?=
- =?utf-8?B?NmJZSkdBWXZqeUEwQVZ5aFFERDFtNzYySll5Z1pSMitrNVpZU3M4aU5Qa1VI?=
- =?utf-8?B?TjF2d2NZVGVqbHVoWFppZ3U4bmRUbStFTkpXa3VaVkFWSEp5eEFwS1phYm5m?=
- =?utf-8?B?bjB0ZVFXMTBoM3BoUGEwMHJ2eFl5Z1B0YkUxOXpNUWw1R2FYcW1qL1pnWEM2?=
- =?utf-8?B?YnJkNGR2NXEycHRtN3NHbHUyZU13K3ZKZS9lTEZ3UjV2MnNOZjFwcWVNQWl5?=
- =?utf-8?B?QzY2d0tneC9qUDdZaCsrT04rMXJuVVdINC8zQzZnWGl3dkUvUkF6OGgvTFRW?=
- =?utf-8?B?ZVFNWFIrRDdqRjZFS0EvUUNiQkEyN2dOQk5BVVIvdnZLSTFXL1lodGJGV2xP?=
- =?utf-8?B?Q05keUtaa0MvdTBJU1N3MXc4K3N6eklsV0g0TVdPMU1ObGpsWHNEZm5iZWxn?=
- =?utf-8?B?VVZhV3ZLVVhXenZ1dFZOMnZqd0ROVTRuRWZUYlI4L2h5RzJaK1o0NytyUFZB?=
- =?utf-8?B?YkRod1RBRUJ1TkpkMjErNVhkZzNKdjcvN3R0OEQxbVF5Qm5ZMFZsbmcwMm1s?=
- =?utf-8?B?OFliOG45bzNmNlhKazJXQXJhY1dpNWRHaWdxN1N0KzFoQndRcllMTGtIdTkv?=
- =?utf-8?B?VlNyUndVMmh4ZXpUMDdjRnIwSE1yQjk1L2J6QTdBVzJHTm95aU1qR3NPcGt2?=
- =?utf-8?B?M1U1MUtPZjNZQXRHaTZ3N3NYcHdqYUxTbHV5OWY4d0U1d09KYU5jRmJzeEIr?=
- =?utf-8?B?UEY0aldVZkdncTVyNlI5M3RCdjFUemllKytnN0RyOUhteDl1Sm5lMXI3NFRa?=
- =?utf-8?B?ZUc5ZG9OMGJQTTJZbUEvVnMxMnR4ekNsMzdGbkMvR1ZuU2xMV3kwY1dHa0Vk?=
- =?utf-8?B?aHAvN1gvVVhERVFBTXgrVEc0MlNZeWpRcWNkK1lMYzRwYnJBM01QTGZvRS9v?=
- =?utf-8?B?dDhxL2tEZGpGcHNCdmhBL3plNGtNYnY1NnVsUlovMEZWTUR4dnZsd2duVzNO?=
- =?utf-8?B?S082N0hmSWorV0VwV3g3SUo4UXkxWnJMK29RYWFDVU5adTdCUHpzajZnTlZF?=
- =?utf-8?B?dGRobzRHUGppMzZ0L0F3WmdqVHZ1OWNhM1E3aUs0Y1RhTkQ1OWdNekpVSEVY?=
- =?utf-8?B?Y3pHS3IvV00zY1VRWjl3RXUzQXAzemNUamxncHQveGdMOGlhL1dBQnpRbTZr?=
- =?utf-8?B?NmFmdS9IZnlURUU0VkVFbHJEdC9kT1IvWWJzZi9YQ0RPTTlteDRBeUQwUjRJ?=
- =?utf-8?B?RTVqSkEyVUEyS1M5SkpGYlFMNjUvTVR2UEo5eE9tRjRuNitweENUNEw3WFZL?=
- =?utf-8?B?TkhvS2hoS1RDTWhEMXpLMHlXMm0yMGhSMzQ0K1VjclBWSVlZQ2QxcU85cUZm?=
- =?utf-8?B?WXltNkRGS0YwZTlscXVxaEh6enNvSGYzMnZyZlRzYXhEa2ZiNS9kdUlsbTBP?=
- =?utf-8?B?SkQ2Y2hXMTFRMXRmNXpySkJndXVlSElidmNNOVpSYWFRS2YrU1Z1RDl0NEk4?=
- =?utf-8?B?Ni82bmdPUVhPZDRsM1JzUHY5QXlWR3M4M2ozNmhBSUtxNFUyOVFQTUdiTVdk?=
- =?utf-8?B?YTVtQzhsV2Rkem5TZHVuL1FabDNQK3hLdkJMVlJiL0I4OU5oVFRFZE15M2xZ?=
- =?utf-8?B?Yk9RQVVVS3k5b2haSXhPdGtRWk8wTTdKTFRkWTdQN3lMV2ZvcnVPUG5yNURV?=
- =?utf-8?B?M3N5QlpnT2p6Y3dRUFA3UDJsVXl6YmQ5MkdkeU93TWpWT3p4M0tqZmxjazBE?=
- =?utf-8?B?UlczU29lOGZpdGE0SENDQ2NvUEwvNFRrWWxNY1lJTHFKTVlkdmM3YmRzbkly?=
- =?utf-8?B?anh3eVJ1ZlhvelFmV1RqT3g1blMxcm9iOUpPTW82YnZrUUF2ci9QeGx5c2Vr?=
- =?utf-8?B?RzNsSHVjbzBFeUtCejI4Nm9OMXU4K0VpWmYvMU9yMDdtNlI1TWw0cmVjZGZp?=
- =?utf-8?B?VnRzOEV1TktLNVFRWU5Ham9BSnVCUjg3eUdnazcwelphMVdTVisveklnSUwx?=
- =?utf-8?B?aUs3NkI0MDBDMnZLMk9odjBybVNhNVRLdHI3TlIzS2p0V2hLYVp6Qlkzc2Z1?=
- =?utf-8?B?eHpVc2p0TWRPeWJOczdPTjZESzRhLzFFNkdJU0dsNE8yRWdBVmZMNnNyckJI?=
- =?utf-8?Q?O6Q7cWMKJANX0U44=3D?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <A39D77D1E516E8408F0FF378BB1493CA@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1vXb30-0000000DO0t-2r6W
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 22 Dec 2025 08:13:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1812743E82;
+	Mon, 22 Dec 2025 08:13:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD91EC4CEF1;
+	Mon, 22 Dec 2025 08:13:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766391220;
+	bh=+LZc9sH1FCeBixh1w4vXv6wQcF1lRDxb/ilDg7ghLhQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=R+xFP6nK0qe53POnY7jjyszn3iOUZuinw6ZqS6AJsoqWcuZII35RkzQ7YGVYI1xeK
+	 LQE264oNB8kS+JJ5I3UO561Y3JAxbMY/Zf5Vi3PjC7YxsXnP/dPk+0tWsSiMPcd732
+	 /olnqcnrwQ6tECTPRewTAgLaNLMGayFaJi8zIzSAmQAG8ZzZuW+5VQmFraNq2XDYE/
+	 oHRotrUO1oKqgjF1gSLrHo2x7YcBsUUyGzXES/pEXpIT/lxGg6TJ2AStLzGOzjSvRE
+	 0JTBn7ixNl1imKBUIDCPicOnAe5qbaF4/hzD6C1QAZidh6OB6uCAWY6P8ZjyYQddYh
+	 oX2BxKQQyK2+g==
+Date: Mon, 22 Dec 2025 09:13:34 +0100
+From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
+To: Ahmed Tiba <ahmed.tiba@arm.com>
+Cc: linux-acpi@vger.kernel.org, devicetree@vger.kernel.org,
+ tony.luck@intel.com, bp@alien8.de, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org,
+ linux-arm-kernel@lists.infradead.org, rafael@kernel.org,
+ linux-doc@vger.kernel.org, Dmitry.Lamerov@arm.com, Michael.Zhao2@arm.com,
+ linux-efi@vger.kernel.org
+Subject: Re: [PATCH 03/12] ras: add estatus vendor handling and processing
+Message-ID: <20251222091334.5cb8465f@foz.lan>
+In-Reply-To: <20251219181226.2859763-1-ahmed.tiba@arm.com>
+References: <euhams5heiuaawxq4e5ty7iijuvwt5gvdx3flsm4npligjeulq@lv3cwekyb2o2>
+	<20251219181226.2859763-1-ahmed.tiba@arm.com>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.51; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PSAPR03MB5605.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ce3f5b1c-efe6-45ee-607c-08de4131ec38
-X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Dec 2025 08:13:00.4868
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: YXB7tiYx4yfynPI07kewFzvmZNWsTnqRV8YtWNGgIo7mUDHbit5W5gBR+SZaZNMgX6FPKEl5Fz1odF6UcOMwkw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYZPR03MB7243
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_001312_495486_31561068 
-X-CRM114-Status: GOOD (  14.17  )
+X-CRM114-CacheID: sfid-20251222_001342_790403_3519BBEF 
+X-CRM114-Status: GOOD (  36.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -221,21 +77,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCAyMDI1LTEyLTE5IGF0IDIxOjQ0ICswMDAwLCBDb2xpbiBJYW4gS2luZyB3cm90ZToN
-Cj4gRG9uJ3QgcG9wdWxhdGUgdGhlIHJlYWQtb25seSBhcnJheSBzY2FsZV91cyBvbiB0aGUgc3Rh
-Y2sgYXQgcnVuIHRpbWUsDQo+IGluc3RlYWQgbWFrZSBpdCBzdGF0aWMgY29uc3QuDQo+IA0KPiBT
-aWduZWQtb2ZmLWJ5OiBDb2xpbiBJYW4gS2luZyA8Y29saW4uaS5raW5nQGdtYWlsLmNvbT4NCj4g
-LS0tDQo+IMKgZHJpdmVycy91ZnMvaG9zdC91ZnMtbWVkaWF0ZWsuYyB8IDIgKy0NCj4gwqAxIGZp
-bGUgY2hhbmdlZCwgMSBpbnNlcnRpb24oKyksIDEgZGVsZXRpb24oLSkNCj4gDQo+IGRpZmYgLS1n
-aXQgYS9kcml2ZXJzL3Vmcy9ob3N0L3Vmcy1tZWRpYXRlay5jIGIvZHJpdmVycy91ZnMvaG9zdC91
-ZnMtDQo+IG1lZGlhdGVrLmMNCj4gaW5kZXggZWNiYmY1MmJmNzM0Li42NmIxMWNjMDcwM2IgMTAw
-NjQ0DQo+IC0tLSBhL2RyaXZlcnMvdWZzL2hvc3QvdWZzLW1lZGlhdGVrLmMNCj4gKysrIGIvZHJp
-dmVycy91ZnMvaG9zdC91ZnMtbWVkaWF0ZWsuYw0KPiBAQCAtMTExMiw3ICsxMTEyLDcgQEAgc3Rh
-dGljIHZvaWQgdWZzX210a19zZXR1cF9jbGtfZ2F0aW5nKHN0cnVjdA0KPiB1ZnNfaGJhICpoYmEp
-DQo+IMKgwqDCoMKgwqDCoMKgIHVuc2lnbmVkIGxvbmcgZmxhZ3M7DQo+IMKgwqDCoMKgwqDCoMKg
-IHUzMiBhaF9tcyA9IDEwOw0KPiDCoMKgwqDCoMKgwqDCoCB1MzIgYWhfc2NhbGUsIGFoX3RpbWVy
-Ow0KPiAtwqDCoMKgwqDCoMKgIHUzMiBzY2FsZV91c1tdID0gezEsIDEwLCAxMDAsIDEwMDAsIDEw
-MDAwLCAxMDAwMDB9Ow0KPiArwqDCoMKgwqDCoMKgIHN0YXRpYyBjb25zdCB1MzIgc2NhbGVfdXNb
-XSA9IHsxLCAxMCwgMTAwLCAxMDAwLCAxMDAwMCwNCj4gMTAwMDAwfTsNCj4gDQoNClJldmlld2Vk
-LWJ5OiBQZXRlciBXYW5nIDxwZXRlci53YW5nQG1lZGlhdGVrLmNvbT4NCg0KDQo=
+Em Fri, 19 Dec 2025 18:11:54 +0000
+Ahmed Tiba <ahmed.tiba@arm.com> escreveu:
+
+> On Fri, Dec 19, 2025 at 04:30:40PM +0100, Mauro Carvalho Chehab wrote:
+> >On Fri, Dec 19, 2025 at 02:49:02PM +0000, Ahmed Tiba wrote: =20
+> >>
+> >> On Wed, Dec 18, 2025 at 05:04:53PM +0100, Mauro Carvalho Chehab wrote:
+> >> =20
+> >> >> Teach the estatus core how to walk CPER records and expose the vend=
+or
+> >> >> record notification path. This adds the section iteration helpers,
+> >> >> the logging helpers that mirror the GHES behaviour, and the deferred
+> >> >> work used to hand vendor GUIDs to interested drivers. No users swit=
+ch
+> >> >> over yet; this simply moves the common logic out of GHES so the next
+> >> >> patches can wire it up.
+> >> >>
+> >> >> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com> =20
+> >> >
+> >> >...
+> >> > =20
+> >> >> +static bool estatus_handle_arm_hw_error(estatus_generic_data *gdat=
+a, int sev, bool sync) =20
+> >> >
+> >> > Huh?
+> >> >
+> >> > This is a CPER record from GHES. Why are you moving CPER code out
+> >> > of ghes.c, placing in a file named estatus.c? Doesn't make much
+> >> > sense on my eyes...
+> >> >
+> >> > Same applies to to other GHES CPER record types. =20
+> >>
+> >> GHES still fills in the CPER record, but the parsing and logging logic=
+ is
+> >> shared with the new DeviceTree provider so I pulled those helpers into=
+ the
+> >> estatus core. =20
+> >
+> > I see, but this is not really estatus core. Instead, it is part of GHES=
+ CPER
+> > handling logic, which is defined at ACPI and UEFI specs. moving it to e=
+status
+> > sounds odd, at least on my eyes.
+> >=20
+> > Perhaps I'm failing to see where at ACPI/UEFI specs how CPER would be
+> > integrated with an OpenFirmware approach to handle CPER without GHES.
+> > Care to point to the relevant specs, if any? =20
+>=20
+> ACPI/APEI (via GHES) defines how CPER records are discovered and notified=
+ on ACPI systems,
+> but there is no ACPI or UEFI-defined equivalent for OpenFirmware/DeviceTr=
+ee platforms.
+> UEFI standardises the CPER record format itself, not the transport or dis=
+covery mechanism.
+>=20
+> On non-ACPI systems we still receive the same UEFI-defined CPER payload
+> from firmware, but Linux needs a different, platform-specific contract
+> to locate and acknowledge it. The DT binding is a Linux-side description
+> of that contract rather than something defined by ACPI/UEFI.
+
+That's where I'm failing to understand: CPER is part of UEFI spec, and
+the only deliverable mechanism I'm aware of for CPER is via GHES or
+GHESv2 - e.g. via ACPI.
+
+Within the scope of https://uefi.org/specifications, I'm failing
+to see any other deliverable mechanism.
+=20
+> >> Both providers already call into the same notifier chain and
+> >> memory-pool helpers; this patch just moves the generic CPER walking ro=
+utines
+> >> next to the rest of the common code so the DT path doesn=E2=80=99t hav=
+e to grow its
+> >> own copy. If you=E2=80=99d prefer a different file layout or naming to=
+ make that
+> >> intent clearer, I=E2=80=99m happy to adjust. =20
+>=20
+> > Moving the code from ghes.c to estatus.c or to elsewhere shouldn't make=
+ any
+> > difference, as the DT handling logic could simply be calling the functi=
+ons
+> > from ghes.c (or estatus.c). I fail to see why they need to be moved. =20
+>=20
+> The motivation is to provide a shared implementation for non-ACPI provide=
+rs,
+> so that the DT path does not depend on ACPI/APEI.
+>=20
+> While the helpers currently live in ghes.c, they are CPER-specific and do=
+ not rely on ACPI tables,
+> APEI infrastructure, or GHES notification semantics. Keeping them there e=
+ffectively makes GHES
+> the only place those helpers can live, even though the logic itself is pr=
+ovider-agnostic.
+
+The logic is related to GHES, as this seems to be the only standardized
+mechanism to report CPER records. As it is part of APEI, get_maintainers
+points to the people that have been maintaining it as:
+
+	$ ./scripts/get_maintainer.pl -f ./drivers/acpi/apei/ghes.c
+	"Rafael J. Wysocki" <rafael@kernel.org> (maintainer:ACPI APEI,commit_signe=
+r:6/13=3D46%)
+	Tony Luck <tony.luck@intel.com> (reviewer:ACPI APEI,commit_signer:3/13=3D2=
+3%)
+	Borislav Petkov <bp@alien8.de> (reviewer:ACPI APEI,removed_lines:5/62=3D8%)
+	Hanjun Guo <guohanjun@huawei.com> (reviewer:ACPI APEI,commit_signer:4/13=
+=3D31%)
+	Mauro Carvalho Chehab <mchehab@kernel.org> (reviewer:ACPI APEI,authored:1/=
+13=3D8%,removed_lines:6/62=3D10%)
+	Shuai Xue <xueshuai@linux.alibaba.com> (reviewer:ACPI APEI,commit_signer:5=
+/13=3D38%,authored:2/13=3D15%,added_lines:56/218=3D26%,removed_lines:34/62=
+=3D55%)
+	Len Brown <lenb@kernel.org> (reviewer:ACPI)
+	Jonathan Cameron <Jonathan.Cameron@huawei.com> (commit_signer:5/13=3D38%)
+	Breno Leitao <leitao@debian.org> (authored:2/13=3D15%,added_lines:38/218=
+=3D17%)
+	Smita Koralahalli <Smita.KoralahalliChannabasappa@amd.com> (authored:2/13=
+=3D15%,added_lines:103/218=3D47%)
+	Ankit Agrawal <ankita@nvidia.com> (authored:1/13=3D8%,removed_lines:6/62=
+=3D10%)
+	Jason Tian <jason@os.amperecomputing.com> (removed_lines:7/62=3D11%)
+	linux-acpi@vger.kernel.org (open list:ACPI APEI)
+	linux-kernel@vger.kernel.org (open list)
+
+Moving it elsewhere would make it confusing, as the expected deliverable
+mechanism for CPER is via GHES - as this is the only one defined at the
+uefi.org specs.
+
+While it might be moved to EFI and placed under cper.c,=20
+get_maintainers.pl would point to:
+
+	$ ./scripts/get_maintainer.pl -f ./drivers/firmware/efi/cper.c
+	Ard Biesheuvel <ardb@kernel.org> (maintainer:EXTENSIBLE FIRMWARE INTERFACE=
+ (EFI))
+	linux-efi@vger.kernel.org (open list:EXTENSIBLE FIRMWARE INTERFACE (EFI))
+	linux-kernel@vger.kernel.org (open list)
+
+which is not the people that have been maintaining RAS.
+
+Placing it under a "estatus.c" file would make it completely
+dissociated with UEFI/ACPI specs, as this name means nothing at
+the specs.
+
+Also, adding a new maintainer's entry won't make any sense, as the
+people that currently reviews and maintains GHES/CPER records
+should be kept.
+
+> By moving the CPER parsing and logging pieces into a common location,
+> both GHES and the DT provider can reuse the same implementation,
+> while the ACPI-specific discovery and notification code remains under dri=
+vers/acpi/apei/.
+> This avoids having the DT provider reach into GHES internals or duplicate=
+ CPER handling code.
+
+As Boris mentioned on patch 00/12, we need to better understand
+the high level scenario, as it is still not clear to me how a
+firmware-first notification would happen without ACPI.
+
+> If the current naming or file layout makes that separation unclear, I=E2=
+=80=99m happy to adjust it.
+
+Thanks,
+Mauro
 
