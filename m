@@ -4,100 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2A62D711D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 06:03:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF0DBD711D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 06:03:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Et0BqRDEb3FWb91DYGPH0rIORWl6LBer6lByJmNNNSk=; b=VqEgThK4dlSKS0ueDHuaNVBsN3
-	+TxSq6Bxp3UFCCXTc2S/JApdy654noWNVKYfz5iKpWe9Oc89rAMUfcSSh1/C0mL8VSak94nYkWlXj
-	4SWZvRSuRWjd7XivpgL7v5HQR3QhvMgQc+OEIYJFQTQhO8YXCY+IuOar/WJkvuGWld7Dzl9o6L015
-	XHdHXGV37orDWGHtj2aZxRkBPL3KkwtsIPOT+GL2lZ14Wgz+/JIsP9bZvooA67DUF/k8gL+FsN+j+
-	Hxq6pAHdIgy9+hu5sUxL9x+uubdR1kLNHjt6r06tW8jNTxp3AFJmzA2i9hQV2yaCAr5DoCXmXgntw
-	z9ReXEYA==;
+	bh=8xxkcmDzu5hNC+bNsNeDVmosOSvJVWOHZ9pkhH+Ry/g=; b=BiKiAbS+cBhqnEWzz0k271Nvmb
+	EIiJG5TQd8NX7pH/xGW8ergNKBLVR40XLnVGB6B6lXlnTtSpw5l9lrAufuWnjvptvwokC9yi9gB1q
+	cGbF0zfzKM2mF6ih1BSBEHB9O5tZ/0DVs8Ud191t8kct2YUsuVbvbz/iRYjaz0zFbjkNotoOgqiH6
+	m0fbQ9cKMm1JsYOq6pW22x56S3mpp1JcLuePtz5Eo4aqoNrq4x+bD4U/WegroMoHfhTPQg8nIb95U
+	S9nUJhsZ/UmQjBpWpLgV7r2UvBe5PpLMN3L2OoNf02Y46EWIUKQ5Hh+1QndimtigSbB2PUYDiVU3m
+	lYscywGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXZ0g-0000000DEMH-2t9q;
-	Mon, 22 Dec 2025 06:03:10 +0000
+	id 1vXZ0v-0000000DEVx-24Sz;
+	Mon, 22 Dec 2025 06:03:25 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXZ0c-0000000DEJL-2ktV
+	id 1vXZ0t-0000000DETg-2DTb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Dec 2025 06:03:09 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BM00UiD208636
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 06:03:05 GMT
+	Mon, 22 Dec 2025 06:03:24 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BLLF4hj3917609
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 06:03:22 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Et0BqRDEb3FWb91DYGPH0rIORWl6LBer6lByJmNNNSk=; b=eA8Bc5YQ/sRaY+/R
-	OTgYCtw7/LvfcneNz/Gqp2j3PzxNJYYG78GXOY7LtMxw46V9Cpm6FfR9uR1ID1VG
-	VzPm8cGqSvxLXx79v/SvBEnfzGh59bjto88c76/uNuisibbqktJbnSM3Lc1Ufd+R
-	/rz9qep5eF4In6YH0kJFJpBQbPiIDHEdVTXNgV4SEw60SuEwaE5PRH/0r4RqnZzy
-	qgsMFdjkRKC4xlTAh0mli/HLJ4F7huFv12xuvcIeJjS/FSKLLgs+1K58zXWF7rYd
-	zTEZE1b3YisnkuyMc8pEmK62KlrTioib4oFv2c3kGDU7L1A1GtjIrDM6JJPZ+KsG
-	KxxNlA==
-Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com [209.85.210.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4b5mrabudd-1
+	8xxkcmDzu5hNC+bNsNeDVmosOSvJVWOHZ9pkhH+Ry/g=; b=lnd8E+mwn3ZYUEX1
+	9WrobIvVMxOHtYz+TTqezKje+zg9CrrOkl9OBxMqFEq1iEKu/tshO6aJGDMwxnLz
+	TRfOSLeIuPQY1mc+ybUmAFZ1eYbIEZ/OHRtStX/jkaq2kWxzeZey8gQvkVM5hgTQ
+	Fr8OwdDovRiNq9kA6IlwrmeLsmIRMcNOE68PA1qNe54AE/QxMFHeIO2zR7aMCiua
+	hPSFW1QR8iHdTjHJXBEZyYZ5TDVSw3FUZpXBmMAsSfiQehmuxfBxyhryoRhtIOj+
+	LcXlmQPtFjIjIYr8YE6M+qxNTNE+YXCGABoCXip695WxGaCcR2KlpwahBfuUSlGZ
+	Iclwag==
+Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4b5mux3uj3-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 06:03:05 +0000 (GMT)
-Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-7b89c1ce9cfso4445839b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 21 Dec 2025 22:03:05 -0800 (PST)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 06:03:22 +0000 (GMT)
+Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-7b9c91b814cso5682947b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 21 Dec 2025 22:03:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1766383384; x=1766988184; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1766383388; x=1766988188; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Et0BqRDEb3FWb91DYGPH0rIORWl6LBer6lByJmNNNSk=;
-        b=d9SyfdQM08NuiljvdNUmvbC1mVjzt0BobyW5QZz1ZlMy/nB/TX9by/Kp419TVy1Uq9
-         347jYLnEInjOpL6FkWNW53Hq/UNuHxYd/4DCDgQqIzUFl4toePwsredQN5XFrUUfbL3f
-         c4oPNZIDK+lZfunen/hCQyNDAe/4CeU8MUuyHaRFw/f6ODH2A7wbBkytP1jMuG+wokvr
-         ye+pLOucuj83Q5+ctNsYaMkLTxzmFpNEaaWVpvXBit+ZLHTqu3LrFqEFjzI3FdR8PXK5
-         SMOPg/2ll5D0jcKt4upGp0Q0nc2XXjr5fEc0lWKra0G0T8naSt6RUkdG9+U2f467H9of
-         7E0g==
+        bh=8xxkcmDzu5hNC+bNsNeDVmosOSvJVWOHZ9pkhH+Ry/g=;
+        b=U0i6LDWc7cZVhoAqb20U97MeA1TKOqmIjHfnkFjNtjAIVSbsvGl5564kS2byWxu0a/
+         +UT221JCorWzSbYl42zYVspDJTY67AzUBi5/YMdNvhnhw17UqBl8/g1pZt0Be6dB3l41
+         eE2kX6zwdUnNYoZDpNFgh/UEqCKurngw91Xta6ZrTJ2IBGoZUB3Y+vDwLh8usP5704LG
+         +c9zA6O5SlTI6iq/IEWhrJvss2K6Sa28DHLZmfhDJ6bv0RPQCSkXd+TWM35GDOSxH9Kd
+         bUJ1qPyXYQBnRGApelexfoVR4JAllbfJBY0GMtNjx4gARBamOGNU6ThrC9vYs1UaETGO
+         E3Nw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766383384; x=1766988184;
+        d=1e100.net; s=20230601; t=1766383388; x=1766988188;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=Et0BqRDEb3FWb91DYGPH0rIORWl6LBer6lByJmNNNSk=;
-        b=fYBYkoMzDMGKs+0FsZzmrH0tf2I7gsrO2f7tu+1HA/YHRSc64jkvBOa5y15DwNd310
-         NUFuaB6pMfhgOFbCjIxcxQKmAwxXBID4xmwINMne8sgrCDBFKBNLFVsVoAD/4UYNpZqC
-         45HKo9YhX/+JTz7BeIQYU3T6qaKBq258wl5dcizgrGBIaSgq+d7FomMuzLFjSS87W5KZ
-         VQTMMc4bvH5GKEDhoa04nVDsNu/fTKSnS9TrDCtv139cdJhr7Qd+axKITY6hZ6htXwxS
-         gMdwoPy5DiWpqwA7ZhRBhz9MVxpHGDp2DM9x/Ecz7DA5oGvcmlxsCFw0EhAZzqprUUzR
-         PuaA==
-X-Forwarded-Encrypted: i=1; AJvYcCWVaU8w5xBAfZ0y0VvItAiWBpO/8h1WCXAvoe0AgnwwRbaOgKeVv9mu5C015e/Pvc6iJok8CBNng4ER87XIXeDN@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/TY2JbfiKT3nhJje/IvAj+gN2WmoPxQQtUgBTKS4jc67wpMKd
-	VBRmFTRgMbDS2xRegRLGkjZ2PUaa38o1d9+863juv6xM5l5vWgNls2AKv4wP/zC+HjkrXnzGT8j
-	YD08Fofybtw/XPy0n8qmM9oUn66qvAMnYSCBuJJXmFBw8l4DZxG4by7qaSI2cJwM0zOzmw24pdS
-	ctYA==
-X-Gm-Gg: AY/fxX6rbaIg3IALhe2TP4Z8FsY5IL76vmQryGLFUsZF8QJCjdmR2OTCNtzHi8pHj5/
-	hOUA40vTJ0VnWcxnc7uR/WivBGXABvCoKUcseETQ0vHFuM10ftOkbotAco09TJtFWbmp5wDp9aG
-	ZlPGBK8tj2jmv1XrwKQQRCACD+eaS02pKv2UIYI7AG+cJz2SzdLp3OdHsfWyAb1LE9FlFemFjF/
-	ezCxJpLNWpy7bCwJyF21GTDQyLCyUJ9rVWo6JMqQ33YhJVAmOQE3hF2HZCvENCJTJH3w28rmH0s
-	0/5rURlBQgCXc4SKv7g13V3mNATtKWMJOZ1JB7wcI7UaiCKrFjuVgZxgBp6fcLFHUPoP1qSLA/D
-	yf1dd4QnhH1wSl6UfbNdg51YfekQDSfB4dXcKLQIjHq7DXiZHLMDBBb2IOu09Z5fRpe1ft4AI
-X-Received: by 2002:a05:6a00:2f8b:b0:801:f1a4:6dc with SMTP id d2e1a72fcca58-801f1a407bcmr4492176b3a.15.1766383384320;
-        Sun, 21 Dec 2025 22:03:04 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IH6oMvcA3ywnzVp6HijnT60dFLWESeiLW1WZcM5afrmr85QyxW7KTnTNt1I02ag5b6IkaXMTw==
-X-Received: by 2002:a05:6a00:2f8b:b0:801:f1a4:6dc with SMTP id d2e1a72fcca58-801f1a407bcmr4492158b3a.15.1766383383766;
-        Sun, 21 Dec 2025 22:03:03 -0800 (PST)
+        bh=8xxkcmDzu5hNC+bNsNeDVmosOSvJVWOHZ9pkhH+Ry/g=;
+        b=FZx0iXW4ua4/J66WmBHT22vRL1+eOezPE87WejZq02HUtfzffqM81pzn2IaM0SZBd5
+         6qOXO2Y4pFuJGcQqEOh7X45iY8BjYfYCVR9e4HZgtGxHnP/k94MzQeLy0vkq6s9GlMZh
+         DJ/qUzjUOngHQpZo7g4QXMQqZO2Y8uSR1/YzlOGOQcCzHggtD9AdaxGFryqG7GAqLDsl
+         psi2d51nORXYETDyc1z3GZ2CJYpG8ctFF7VFyOwk0nvTW74mEWtd89HnedrGDUR/8vWb
+         tp6t23S/iQ4Yu0rq7d9c59x7zpv1JylhxjHjYcPDha6HQoB/Q2yao7MnmqGzhuAhDc3C
+         26qw==
+X-Forwarded-Encrypted: i=1; AJvYcCVdleIiJGU+ECvDcYkOm/n64HuKZ27epRjB6PUpBxeesf61sJWnYFuDqok8zNPXk7UKX1AQsOZtpZionvluTU+D@lists.infradead.org
+X-Gm-Message-State: AOJu0YxsEPxxjTkgBm/g9921sxLC4+ArX8zXx+cc9jeQl27bRz/AnTqT
+	gZICWSIgVQBKTIElrLBNbLvG03bCfmIDK0hWNcMGox1BlnZgcTUU7ZgapkyEWC3Fo6lzk+cZ922
+	isOjmN6PIaNak593GENMIHw08teFdUz3zGoD/RO45HeMGxBT4eUfZUTmvLEMuPF5XS7gDdEbRzX
+	Z8sQ==
+X-Gm-Gg: AY/fxX6WKp8438fXOGDAKPPzUrw33yJPJZeAD43MSoHxmCqe7XjUE2SSctG76DL01G/
+	Oc/nSZS9dFDAPbXMaGMUM1umgIjUEyuDia8Mu13MAflTYXOHxsb3iMKwe+XNFSQsM9dJ7SD9G1t
+	ADC6Vd6SViiTHyFiBIYFtVNeJhkGEXdgg77zD5osnfX4bxwxYhbHBA/fj6indpf8FpXRt02vF4j
+	/hgtmrff0McZ/umcf387rbT2RPNvqF94G687oQ73A+y9zYQvuIl5gsYxUdHP7mBEAvtWJsWtt6s
+	mqdauBXqTiltDlI6Hm6l6wl/w0Z5Cm1FFJwpV8/2grq9YQ2gA1bkvBFVEDsuijkMALfym3biUER
+	qZz05TGrPA0gP1UG2QzpuSUsJBfjFN5SdwZlhceVJJHlGnA39Ovwk6jNEHDabvvfwc/ranFOW
+X-Received: by 2002:a05:6a00:420f:b0:7ac:1444:6777 with SMTP id d2e1a72fcca58-7ff646f9380mr9193342b3a.12.1766383387714;
+        Sun, 21 Dec 2025 22:03:07 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGelIbl8UPQw5CQS7wicZ3KHbIyIwAWm9ywp2f3HNYxGAhfjpZFry+SLWCOvwZjNo6zXhnt0g==
+X-Received: by 2002:a05:6a00:420f:b0:7ac:1444:6777 with SMTP id d2e1a72fcca58-7ff646f9380mr9193324b3a.12.1766383387236;
+        Sun, 21 Dec 2025 22:03:07 -0800 (PST)
 Received: from jiegan-gv.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7ff7e892926sm9070130b3a.66.2025.12.21.22.03.00
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7ff7e892926sm9070130b3a.66.2025.12.21.22.03.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 21 Dec 2025 22:03:03 -0800 (PST)
+        Sun, 21 Dec 2025 22:03:06 -0800 (PST)
 From: Jie Gan <jie.gan@oss.qualcomm.com>
-Date: Mon, 22 Dec 2025 14:02:23 +0800
-Subject: [PATCH v6 3/4] coresight: tpda: add logic to configure TPDA_SYNCR
- register
+Date: Mon, 22 Dec 2025 14:02:24 +0800
+Subject: [PATCH v6 4/4] coresight: tpda: add sysfs node to flush specific
+ port
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251222-add_sysfs_nodes_to_configure_tpda-v6-3-b27143d45c86@oss.qualcomm.com>
+Message-Id: <20251222-add_sysfs_nodes_to_configure_tpda-v6-4-b27143d45c86@oss.qualcomm.com>
 References: <20251222-add_sysfs_nodes_to_configure_tpda-v6-0-b27143d45c86@oss.qualcomm.com>
 In-Reply-To: <20251222-add_sysfs_nodes_to_configure_tpda-v6-0-b27143d45c86@oss.qualcomm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>,
@@ -109,40 +109,41 @@ Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
         linux-kernel@vger.kernel.org, Jie Gan <jie.gan@oss.qualcomm.com>,
         Tao Zhang <tao.zhang@oss.qualcomm.com>
 X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1766383369; l=5323;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1766383370; l=3743;
  i=jie.gan@oss.qualcomm.com; s=20250909; h=from:subject:message-id;
- bh=a3nnThULr7oV9TDmuW/OSuwqdlkJ14YmI+sHJq21AiY=;
- b=ndpVPu7Zd6YlW43+s07whWbRTEWZF+CoDPzG92PQb0mu7Inp2bmCKUlI33aURc/3CCiHJTUAX
- vpwUfCu7VTvD28boN1VUpV2kG8c/YM6QVBMm9nex1SCICZppYKuSzTQ
+ bh=YhrWWZcvphBxdWQngeTl1wZUK9CcQMLSULdlcXKLSig=;
+ b=z+7ls+Ln1AZ8pgGq238ifoMXP/lvdihUzoNmklNPO93d8QMf67oRGQxs3bUS4uonJ/700+ula
+ prTaWG3mgWLDGME3NlEWanU59KBrzbtPEWfhJW9ps3gMfEmJEVnSTZt
 X-Developer-Key: i=jie.gan@oss.qualcomm.com; a=ed25519;
  pk=3LxxUZRPCNkvPDlWOvXfJNqNO4SfGdy3eghMb8puHuk=
-X-Proofpoint-ORIG-GUID: -bOOLrVEaaPLsJGqVFgRr4ouuXlSmvux
-X-Proofpoint-GUID: -bOOLrVEaaPLsJGqVFgRr4ouuXlSmvux
-X-Authority-Analysis: v=2.4 cv=e9wLiKp/ c=1 sm=1 tr=0 ts=6948df19 cx=c_pps
- a=rEQLjTOiSrHUhVqRoksmgQ==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+X-Proofpoint-ORIG-GUID: zDCbwrysy3dKbGvqLVDtpXrZF5AAKF9O
+X-Authority-Analysis: v=2.4 cv=EvnfbCcA c=1 sm=1 tr=0 ts=6948df2a cx=c_pps
+ a=WW5sKcV1LcKqjgzy2JUPuA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
  a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10
  a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=KKAkSRfTAAAA:8
- a=BPbcchGvNsiIBzbuidUA:9 a=QEXdDO2ut3YA:10 a=2VI0MkxyNR6bbpdq8BZq:22
+ a=Uaz1Er67hVaxBR8z2rIA:9 a=QEXdDO2ut3YA:10 a=OpyuDcXvxspvyRM73sMx:22
  a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjIyMDA1MiBTYWx0ZWRfX3QGU+VUmfRkU
- COHYM/TTor6SsB8TvZaURcl2NG62fShTo/ZVzP2U2cd5D9w8+Aruf20xp54gyiiwutMDz9NgNP+
- Ukxm1AdCFmsw5iD9IuCXsPftW0rEzDYto+6i8siYzN/KzuR49ENI3W44gVFF0TY7pV2Sueh4WQ0
- ZFLipkTj4swi6cvmU+gpAb9ErL95u5INjdCZS6H6OFdy7sDWB3JafJMGWpXUjw+5p6Kqjverk83
- wDWlZ8wwCGTTPlfKUPY7Vf7On8spHF/8iY2m9NY9IU7HLvat+Qjvv0QQUlnlT9zaJdl8rGV2IzP
- TWoHq4NTvX7bAhxGcAfLmX0Sh+l8T7mfNd7+eWnjiGZjdsshgOkxga6zrytHAJeM9bflRnWdvvj
- W5DGdR534Aj6E7MpTzkEHr4Ci0rT0oq7CiRWQpaEqzGRa4draZdlviuC2FuOGjTPSrZcrzgi285
- Yp0IcHvIWafA4YYijbg==
+X-Proofpoint-GUID: zDCbwrysy3dKbGvqLVDtpXrZF5AAKF9O
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjIyMDA1MiBTYWx0ZWRfX1HaNi3aBrcJv
+ a+/yenv+O7s+ELcW9Rbwr5uPNbZST/VMXRLpLD3cW6HQ4rr3pGX78FJ0q4IYOgMq4VrakwlboB7
+ zbGJuNYpzAP+B5WTZVkeBiElGCGM/M3t/LA6CGMxnrnxF4NCjU50EU48l+D7CabmYSRTyFXinC0
+ unPQtbdKjpObEsQcAS3ahdzN9Yui8KPzkOxp7WBX9rrwaSYORmu57LygdQudihvUIvZCXE/tl/k
+ 76Mg3NrogXnhb1UCfVEl6NvFdwiTPDkgyGSH2nQoZtwZ9pY4cyahMLrD81qyC/emvqvDt6nvO24
+ o50hFl4oiLq3XLUV1In6ot2Euc5cnB+scXebUpQyHnBY1zFN1749u5f8z8NqmDwbtGEi0XdfzUG
+ wrBDIUyI6DA2Q3f5RoabP0nY0io8nGUG9os8CFbeSWN+1tSHrg2O69wmoi/Z4aEnoHSDdB8V9j/
+ 0LUcGJ1GLiX3G/3izCw==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
  definitions=2025-12-21_05,2025-12-19_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 malwarescore=0 impostorscore=0 clxscore=1015 phishscore=0
- adultscore=0 spamscore=0 priorityscore=1501 bulkscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2512220052
+ bulkscore=0 suspectscore=0 phishscore=0 adultscore=0 clxscore=1015
+ priorityscore=1501 spamscore=0 impostorscore=0 lowpriorityscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2512120000
+ definitions=main-2512220052
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251221_220308_836353_9F65B607 
-X-CRM114-Status: GOOD (  21.82  )
+X-CRM114-CacheID: sfid-20251221_220323_700416_EA0AD145 
+X-CRM114-Status: GOOD (  17.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,145 +160,101 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Tao Zhang <tao.zhang@oss.qualcomm.com>
 
-The TPDA_SYNC counter tracks the number of bytes transferred from the
-aggregator. When this count reaches the value programmed in the
-TPDA_SYNCR register, an ASYNC request is triggered, allowing userspace
-tools to accurately parse each valid packet.
+Setting bit i in the TPDA_FLUSH_CR register initiates a flush request
+for port i, forcing the data to synchronize and be transmitted to the
+sink device.
 
 Signed-off-by: Tao Zhang <tao.zhang@oss.qualcomm.com>
 Reviewed-by: James Clark <james.clark@linaro.org>
 Co-developed-by: Jie Gan <jie.gan@oss.qualcomm.com>
 Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
 ---
- .../ABI/testing/sysfs-bus-coresight-devices-tpda   | 10 +++++
- drivers/hwtracing/coresight/coresight-tpda.c       | 46 ++++++++++++++++++++++
- drivers/hwtracing/coresight/coresight-tpda.h       |  8 ++++
- 3 files changed, 64 insertions(+)
+ .../ABI/testing/sysfs-bus-coresight-devices-tpda   |  7 ++++
+ drivers/hwtracing/coresight/coresight-tpda.c       | 40 ++++++++++++++++++++++
+ drivers/hwtracing/coresight/coresight-tpda.h       |  1 +
+ 3 files changed, 48 insertions(+)
 
 diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
-index c8bc7b19ab25..d359d90dca72 100644
+index d359d90dca72..df8f03d4b573 100644
 --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
 +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
-@@ -41,3 +41,13 @@ Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qu
- Description:
- 		(RW) Set global (all ports) flush request bit. The bit remains set until a
- 		global flush request sequence completes.
+@@ -51,3 +51,10 @@ Description:
+ 		mode 0 - COUNT[11:0] value represents the approximate number of bytes moved between two ASYNC packet requests
+ 		mode 1 - the bits COUNT[11:7] are used as a power of 2. for example, we could insert an async packet every 8K
+ 		         data by writing a value 13 to the COUNT[11:7] field.
 +
-+What:		/sys/bus/coresight/devices/<tpda-name>/syncr_mode
++What:		/sys/bus/coresight/devices/<tpda-name>/port_flush_req
 +Date:		December 2025
 +KernelVersion:	6.19
 +Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
 +Description:
-+		(RW) Set mode the of the syncr counter.
-+		mode 0 - COUNT[11:0] value represents the approximate number of bytes moved between two ASYNC packet requests
-+		mode 1 - the bits COUNT[11:7] are used as a power of 2. for example, we could insert an async packet every 8K
-+		         data by writing a value 13 to the COUNT[11:7] field.
++		(RW) Configure the bit i to requests a flush operation of port i on the TPDA.
 diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/hwtracing/coresight/coresight-tpda.c
-index d24a9098f1b1..7baa8a0965d3 100644
+index 7baa8a0965d3..f79fea4fbb2c 100644
 --- a/drivers/hwtracing/coresight/coresight-tpda.c
 +++ b/drivers/hwtracing/coresight/coresight-tpda.c
-@@ -163,6 +163,15 @@ static void tpda_enable_pre_port(struct tpda_drvdata *drvdata)
- 	 */
- 	if (drvdata->trig_flag_ts)
- 		writel_relaxed(0x0, drvdata->base + TPDA_FPID_CR);
-+
-+	/* Initialize with a value of 0 */
-+	val = 0;
-+	if (drvdata->syncr_mode)
-+		val |= TPDA_SYNCR_MODE_CTRL_MASK;
-+
-+	/* Program the counter to its MAX value by default */
-+	val |= TPDA_SYNCR_COUNTER_MASK;
-+	writel_relaxed(val, drvdata->base + TPDA_SYNCR);
+@@ -430,9 +430,49 @@ static ssize_t syncr_mode_store(struct device *dev,
  }
+ static DEVICE_ATTR_RW(syncr_mode);
  
- static int tpda_enable_port(struct tpda_drvdata *drvdata, int port)
-@@ -385,8 +394,45 @@ static ssize_t global_flush_req_store(struct device *dev,
- }
- static DEVICE_ATTR_RW(global_flush_req);
- 
-+static ssize_t syncr_mode_show(struct device *dev,
-+			       struct device_attribute *attr,
-+			       char *buf)
++static ssize_t port_flush_req_show(struct device *dev,
++				   struct device_attribute *attr,
++				   char *buf)
 +{
 +	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	unsigned long val, syncr_val;
++	unsigned long val;
 +
 +	if (!drvdata->csdev->refcnt)
 +		return -EINVAL;
 +
 +	guard(spinlock)(&drvdata->spinlock);
-+	syncr_val = readl_relaxed(drvdata->base + TPDA_SYNCR);
-+	val = FIELD_GET(TPDA_SYNCR_MODE_CTRL_MASK, syncr_val);
++	val = readl_relaxed(drvdata->base + TPDA_FLUSH_CR);
 +
-+	return sysfs_emit(buf, "%lu\n", val);
++	return sysfs_emit(buf, "0x%lx\n", val);
 +}
 +
-+static ssize_t syncr_mode_store(struct device *dev,
-+				struct device_attribute *attr,
-+				const char *buf,
-+				size_t size)
++static ssize_t port_flush_req_store(struct device *dev,
++				    struct device_attribute *attr,
++				    const char *buf,
++				    size_t size)
 +{
 +	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	unsigned long val;
++	u32 val;
 +
-+	if (kstrtoul(buf, 0, &val))
++	if (kstrtou32(buf, 0, &val))
++		return -EINVAL;
++
++	if (!drvdata->csdev->refcnt || !val)
 +		return -EINVAL;
 +
 +	guard(spinlock)(&drvdata->spinlock);
-+	/* set the mode when first enabling the device */
-+	drvdata->syncr_mode = !!val;
++	CS_UNLOCK(drvdata->base);
++	writel_relaxed(val, drvdata->base + TPDA_FLUSH_CR);
++	CS_LOCK(drvdata->base);
 +
 +	return size;
 +}
-+static DEVICE_ATTR_RW(syncr_mode);
++static DEVICE_ATTR_RW(port_flush_req);
 +
  static struct attribute *tpda_attrs[] = {
  	&dev_attr_global_flush_req.attr,
-+	&dev_attr_syncr_mode.attr,
+ 	&dev_attr_syncr_mode.attr,
++	&dev_attr_port_flush_req.attr,
  	tpda_trig_sysfs_rw(freq_ts_enable, FREQTS),
  	tpda_trig_sysfs_rw(trig_freq_enable, FRIE),
  	tpda_trig_sysfs_rw(trig_flag_ts_enable, FLRIE),
 diff --git a/drivers/hwtracing/coresight/coresight-tpda.h b/drivers/hwtracing/coresight/coresight-tpda.h
-index 1cc9253293ec..1d2de50bb9f9 100644
+index 1d2de50bb9f9..ef1ce2ce36a9 100644
 --- a/drivers/hwtracing/coresight/coresight-tpda.h
 +++ b/drivers/hwtracing/coresight/coresight-tpda.h
-@@ -9,6 +9,7 @@
- #define TPDA_CR			(0x000)
+@@ -10,6 +10,7 @@
  #define TPDA_Pn_CR(n)		(0x004 + (n * 4))
  #define TPDA_FPID_CR		(0x084)
-+#define TPDA_SYNCR		(0x08C)
+ #define TPDA_SYNCR		(0x08C)
++#define TPDA_FLUSH_CR		(0x090)
  
  /* Cross trigger global (all ports) flush request bit */
  #define TPDA_CR_FLREQ		BIT(0)
-@@ -36,6 +37,11 @@
- /* Aggregator port DSB data set element size bit */
- #define TPDA_Pn_CR_DSBSIZE		BIT(8)
- 
-+/* TPDA_SYNCR counter mask */
-+#define TPDA_SYNCR_COUNTER_MASK		GENMASK(11, 0)
-+/* TPDA_SYNCR mode control bit */
-+#define TPDA_SYNCR_MODE_CTRL_MASK	GENMASK(12, 12)
-+
- #define TPDA_MAX_INPORTS	32
- 
- /**
-@@ -52,6 +58,7 @@
-  * @trig_freq:	Enable/disable cross trigger FREQ packet request interface.
-  * @freq_ts:	Enable/disable the timestamp for all FREQ packets.
-  * @cmbchan_mode: Configure the CMB/MCMB channel mode.
-+ * @syncr_mode:	Configure the mode for counting packets.
-  */
- struct tpda_drvdata {
- 	void __iomem		*base;
-@@ -66,6 +73,7 @@ struct tpda_drvdata {
- 	bool			trig_freq;
- 	bool			freq_ts;
- 	bool			cmbchan_mode;
-+	bool			syncr_mode;
- };
- 
- /* Enumerate members of global control register(cr) */
 
 -- 
 2.34.1
