@@ -4,66 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89AEBE674B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 13:38:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D86CE674B1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 13:38:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IgEuAcD0+6Ay73Edf5LnTItfyQ/3fcSTfEnINuf0TSQ=; b=ip1s1cp3gaxaEp1ChM+NFiHP7G
-	EvBwI4pugL2cSv1IZYrFcka8utLvR0rjosj3spS/PwsDXbPcNU3bfSS3lWwV2PmFlIzFgRH00+Oxp
-	q2bJryN/l//9I+qLwnpKtDQRsUNqbWdlH2J3rREurHpTYOLYMc/hUPSUntfY060ntWPBKvdXIVz0t
-	LaP/UVGl9rbhADm/TrhYnNpnhUdLavYX2Wjz3ncYx+unFO6h1TcpLZpRVrQwVNxjI3Afn19uXc/zG
-	hueF1HGwJPfgoon5qKzh4phPZQkMOdCbHONMiP5cnyw2WeNA6tN04cLZXtDKPp6kTJuzFv9f1phJM
-	hLzOT5Dg==;
+	bh=HoYxV+zXHdjx75Q4JXjcDA7Kc8dxz5Omy/iV5ZA3rIg=; b=SV7TI/cK5jiAFE9pruLALdFoBp
+	yA78TfXrTK3qbni7m9lNO03ESAwPHc7M7ImBv0nxsnMSq/1iqdY8E5uQSXUItG/bqvNbceMDKwflA
+	3co7bOp3Br6N1vD2MupuG9/YoOGUx+ZQTATl99zGTRvk6fLzJG3IV1Tizr7bzCHBeNz9lIeSQ4sL/
+	cWC+YpV1A2lPSO/P1Yp5zjpfvTqyLfshdv6w2FkjB83JlE8kyu9EX0BUzCy0ZdqN4aPnCl+LqB0SG
+	3fl/ja+at3qjzCb6L/mCYG6LfCpZ4fRrEtQ+MuponT64ViPW3BXWhO+GPyrda1GhUVdi+zS2A8d62
+	QslycqjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXg7U-0000000DouA-1REz;
-	Mon, 22 Dec 2025 13:38:40 +0000
+	id 1vXg7Z-0000000DoxS-3oD2;
+	Mon, 22 Dec 2025 13:38:45 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXg7Q-0000000Dosk-14ld;
-	Mon, 22 Dec 2025 13:38:37 +0000
+	id 1vXg7Q-0000000Dosl-16nk;
+	Mon, 22 Dec 2025 13:38:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=IgEuAcD0+6Ay73Edf5LnTItfyQ/3fcSTfEnINuf0TSQ=; b=M68rJ7N3PNDLHySBpxN5PAQvoH
-	cm+wfEmR8nF7mjoRJ9gboUkBPAosc6YOaICBLYaIXn/S75VAnUtKLlHaUDMbNjr91JVkCpKVLW/1o
-	oMj3K0Ay4aCHr6UsjOX5oI3iMa1ndrugdOD/S7VhhDwBxQrxdvE0E5oSt+/GaJBAkwoaTTL29y/b9
-	s/YSzgOWWRWHn9WwPRJjQ9v2b/FvKQk4L5TuKVERJ2jjqjKw23CFfdpBaxZ3KII4fkniwVusTl38D
-	JFc7rMD3RryDFr2iT43ewOMQuxiZL7MoYUG5oBZTs8crvLTit48sLY0dlxiUTQH6O2RXyLfCXPyqs
-	XUqPogMw==;
+	bh=HoYxV+zXHdjx75Q4JXjcDA7Kc8dxz5Omy/iV5ZA3rIg=; b=V+Us1nENppsFP8DjeU7zR9HX+c
+	dA81FE0TPgbx81C+jqK6AtS0CRTvA/BEZ9TX43OOmmwTLXvyk+MxWNreCJpqSLWcJlhenwn7GAyZz
+	nyDvl3soKpHAQP+JqfC7BiFvTRoRjJ4KhKG2DVeaxzxsIl8jdoeGtUBrue5ONxGRXHnEBc0g8pBls
+	BFw2L7VkAKih5Se0J8mEyUTdljEdB4oDLPsxCDdCy4Qz4s0KUCxBefw7jzxPND6L5zYeJ6fpJULz8
+	GO9Se/MYQwr0W/MtcR5NyxRgA4xqblN5vZMJr4L0Cpjmtw9zwUbGM/Gz+QSiYv0PS+77u25VwUJ8R
+	3PICEp0g==;
 Received: from [194.95.143.137] (helo=phil.dip.tu-dresden.de)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1vXg7L-0005s2-GI; Mon, 22 Dec 2025 14:38:31 +0100
+	id 1vXg7K-0005s2-Q4; Mon, 22 Dec 2025 14:38:30 +0100
 From: Heiko Stuebner <heiko@sntech.de>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Hsun Lai <i@chainsx.cn>,
+	Tomeu Vizoso <tomeu@tomeuvizoso.net>,
+	Quentin Schulz <foss+kernel@0leil.net>
+Cc: Heiko Stuebner <heiko@sntech.de>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	stable+noautosel@kernel.org
-Subject: Re: [PATCH RESEND] arm64: dts: rockchip: Fix wifi interrupts flag on Sakura Pi RK3308B
-Date: Mon, 22 Dec 2025 14:38:25 +0100
-Message-ID: <176641067335.1648325.10724252333112097745.b4-ty@sntech.de>
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: rockchip: fix unit-address for RK3588 NPU's core1 and core2's IOMMU
+Date: Mon, 22 Dec 2025 14:38:23 +0100
+Message-ID: <176641067338.1648325.5634476513505380555.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20251217091808.38253-2-krzysztof.kozlowski@oss.qualcomm.com>
-References: <20251217091808.38253-2-krzysztof.kozlowski@oss.qualcomm.com>
+In-Reply-To: <20251215-npu-dt-node-address-v1-1-840093e8a2bf@cherry.de>
+References: <20251215-npu-dt-node-address-v1-1-840093e8a2bf@cherry.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_053836_541769_6B27C515 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20251222_053836_543888_BB0E9423 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,21 +80,24 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 17 Dec 2025 10:18:08 +0100, Krzysztof Kozlowski wrote:
-> GPIO_ACTIVE_x flags are not correct in the context of interrupt flags.
-> These are simple defines so they could be used in DTS but they will not
-> have the same meaning: GPIO_ACTIVE_HIGH = 0 = IRQ_TYPE_NONE.
+On Mon, 15 Dec 2025 17:45:56 +0100, Quentin Schulz wrote:
+> The Device Tree specification specifies[1] that
 > 
-> Correct the interrupt flags, assuming the author of the code wanted same
-> logical behavior behind the name "ACTIVE_xxx", this is:
->   ACTIVE_HIGH  => IRQ_TYPE_LEVEL_HIGH
+> """
+> Each node in the devicetree is named according to the following
+> convention:
+> 	node-name@unit-address
+> [...]
+> The unit-address must match the first address specified in the reg
+> property of the node.
+> """
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] arm64: dts: rockchip: Fix wifi interrupts flag on Sakura Pi RK3308B
-      commit: 7c6bbcb010b1b8e4e6452de109f0506bb05d6efb
+[1/1] arm64: dts: rockchip: fix unit-address for RK3588 NPU's core1 and core2's IOMMU
+      commit: cd8967ea3105d30adb878a9fea0e34a9378df610
 
 Best regards,
 -- 
