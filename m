@@ -4,65 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EC64D711D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 08:13:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2057E6748D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 08:18:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0AttElqDSZFZ5tiQne+CS8FPfox8VRFUC9LsQjy4H18=; b=QeO6g/XaNzhPrj0UPWOX6ikcSQ
-	unCY9HnW1VpwzeteQgbPrc0U/TOAmxBsJ0fFg4iFceeEYNNQvzEbcfa88NACIBZMEBB9q7G0mNmX4
-	VzYpaxOhcdBMWYtpHk1aO4ou7q1O/W8Jvu9cSY6S3lZqYFV3jcLFx5rJwYPdbH3w5pnJh62ZIX1eF
-	TeU86WsD3uHcMQPNKMPNuVNhkv/GrrIT7qQvyLEECjpMfYC88AbWWxiJFhB4O2o2BvYNcPD6TidWm
-	Ru5DCco+NtujyvVsWwCGKNi8sSi9eLpFp+a7zZtSEyKohkI4pSmq6lEkZtjOnh9Qbz+c7ooWPxD7f
-	N7E20grw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kABrYCRuxfjnmNnzzhb9u7inWlE7qpx9z7CqlAxlLjA=; b=Xz5q8hrnvZm6bhMwjbqugFGt/x
+	770aopIjLKyEOZe/4bF5E2aEE1tcro1VIsd4Sbfihdz1fZVN3irJvs5hHQemxglazHcXy20M7SB8w
+	rushZJPZTMFQ9TmuXgtTWxwCQen3IbpzsRf3lzH3lKSD0NvUAgg+jwqyxces7Wa3pJ4jVEqAzdN//
+	5WTO8dX0D1ywqY6iZTrJcZfLbQ0M7okhtSYT55WnASDDmV1/YhrO3kzscn1O8lR0ecr+mEQ70ne9i
+	fJ4VaF+vI8SUrUa9Fi8aDRDJtPpj49OXRaaA4vXyMftDeE6/Smx4GA8reXNGB+paLKxveqsKlwc1m
+	TfNLLC/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXb34-0000000DO1X-0KBK;
-	Mon, 22 Dec 2025 08:13:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vXb7v-0000000DOOn-104q;
+	Mon, 22 Dec 2025 08:18:47 +0000
+Received: from mx-relay37-hz1.antispameurope.com ([94.100.133.213])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXb30-0000000DO0t-2r6W
+	id 1vXb7q-0000000DOOA-2cBH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Dec 2025 08:13:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1812743E82;
-	Mon, 22 Dec 2025 08:13:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD91EC4CEF1;
-	Mon, 22 Dec 2025 08:13:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766391220;
-	bh=+LZc9sH1FCeBixh1w4vXv6wQcF1lRDxb/ilDg7ghLhQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=R+xFP6nK0qe53POnY7jjyszn3iOUZuinw6ZqS6AJsoqWcuZII35RkzQ7YGVYI1xeK
-	 LQE264oNB8kS+JJ5I3UO561Y3JAxbMY/Zf5Vi3PjC7YxsXnP/dPk+0tWsSiMPcd732
-	 /olnqcnrwQ6tECTPRewTAgLaNLMGayFaJi8zIzSAmQAG8ZzZuW+5VQmFraNq2XDYE/
-	 oHRotrUO1oKqgjF1gSLrHo2x7YcBsUUyGzXES/pEXpIT/lxGg6TJ2AStLzGOzjSvRE
-	 0JTBn7ixNl1imKBUIDCPicOnAe5qbaF4/hzD6C1QAZidh6OB6uCAWY6P8ZjyYQddYh
-	 oX2BxKQQyK2+g==
-Date: Mon, 22 Dec 2025 09:13:34 +0100
-From: Mauro Carvalho Chehab <mchehab+huawei@kernel.org>
-To: Ahmed Tiba <ahmed.tiba@arm.com>
-Cc: linux-acpi@vger.kernel.org, devicetree@vger.kernel.org,
- tony.luck@intel.com, bp@alien8.de, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, catalin.marinas@arm.com, will@kernel.org,
- linux-arm-kernel@lists.infradead.org, rafael@kernel.org,
- linux-doc@vger.kernel.org, Dmitry.Lamerov@arm.com, Michael.Zhao2@arm.com,
- linux-efi@vger.kernel.org
-Subject: Re: [PATCH 03/12] ras: add estatus vendor handling and processing
-Message-ID: <20251222091334.5cb8465f@foz.lan>
-In-Reply-To: <20251219181226.2859763-1-ahmed.tiba@arm.com>
-References: <euhams5heiuaawxq4e5ty7iijuvwt5gvdx3flsm4npligjeulq@lv3cwekyb2o2>
-	<20251219181226.2859763-1-ahmed.tiba@arm.com>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.51; x86_64-redhat-linux-gnu)
+	Mon, 22 Dec 2025 08:18:45 +0000
+ARC-Authentication-Results: i=1; mx-gate37-hz1.hornetsecurity.com 1; spf=pass
+ reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ smtp.mailfrom=ew.tq-group.com
+ smtp.helo=hmail-p-smtp01-out04-hz1.hornetsecurity.com; dmarc=pass
+ header.from=ew.tq-group.com orig.disposition=pass
+ARC-Message-Signature: a=rsa-sha256;
+ bh=kABrYCRuxfjnmNnzzhb9u7inWlE7qpx9z7CqlAxlLjA=; c=relaxed/relaxed;
+ d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
+ t=1766391510;
+ b=mmCEmkdBnNYFFt+2dui+HQ1tdGCrDseLONz6yN6pMnAaYgyy8D5IFRKYW/QgXW3nopJpBBqu
+ aeF14I8bSE3yaCx2oJll1+tIZj3Ah4PPDfknhP+VTYnZS4CVoNS32rk4GImMX8SO7UyOCzOL/+G
+ hvkh4VQ8D8Mc2vfqCSREsMxSJF5Rb8MnMMgA5rwim13/BxG+5XLdOWxe7qZqUo35fpI76vg9CXJ
+ aVo75iFRRF8e7neAWasixiozkfqogwB5PM6lsHyPVWJEvcdp35EN+nLaLEXeXfMAIFXswkCQlKW
+ bWy7/8B7r98k2QF8IE6/JCBgkhVzqzaHX/Wgi6Q14nLbw==
+ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
+ t=1766391510;
+ b=qJDr9S2PDQ2cdPyZZXIU1qq+Oc9A7nFeYeYxf7G9Zlf9YN6k3y8XPA8gBqQyitQV0oWrUB9f
+ S/s7UwObioSxZuGCTXjebEQrAjXfH/KoCcUsnAh2kFjkQzxs1owH14bLyHd8kFbQw7Kd7mLB8Y7
+ GMpr/R1hlwxJBOaaToj1rrm0/YhbLhdSbuEHJv+F9B/ghG3+g3AFDV2lWz4zkJT/CzQF6mv7QUh
+ ykS9OQV/fJYZ4yhWp7SzH5sued3HD8n/atDmaiA/FIGsa+ulbYmJ7fh29M9yOUokCqi5KX/2l/j
+ X9htTszGcFzDcXb3DM3FJEwVphu1GzGrZYFYe65uhXEyQ==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay37-hz1.antispameurope.com;
+ Mon, 22 Dec 2025 09:18:30 +0100
+Received: from steina-w.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
+	(Authenticated sender: alexander.stein@ew.tq-group.com)
+	by hmail-p-smtp01-out04-hz1.hornetsecurity.com (Postfix) with ESMTPSA id C8BC2220C57;
+	Mon, 22 Dec 2025 09:18:16 +0100 (CET)
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+	linux@ew.tq-group.com,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 1/2] arm64: dts: tqma8mpql-mba8mpxl: Configure multiple queues on eqos
+Date: Mon, 22 Dec 2025 09:18:08 +0100
+Message-ID: <20251222081812.1120998-1-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-cloud-security-sender: alexander.stein@ew.tq-group.com
+X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
+X-cloud-security-crypt: load encryption module
+X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
+X-cloud-security-Mailarchivtype: outbound
+X-cloud-security-Virusscan: CLEAN
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay37-hz1.antispameurope.com with 4dZWHF30qtz2YfPq
+X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
+X-cloud-security-Digest: 3b6200eff25a10e53cebf53f6f11a937
+X-cloud-security: scantime:1.715
+DKIM-Signature: a=rsa-sha256;
+ bh=kABrYCRuxfjnmNnzzhb9u7inWlE7qpx9z7CqlAxlLjA=; c=relaxed/relaxed;
+ d=ew.tq-group.com;
+ h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
+ t=1766391509; v=1;
+ b=laQjBUY0+50eXpEhfuIRxrSMTEW1Ow5O6AI0Fg9x56TEEhFxIb/TGXzaBuIgqh7ZkbASb/1X
+ 0BaDli5zl0CgzAbkPMqT64qSptXI7ucMQc8gIgDlANl4KDlllG2SI1PRofs5f23YCnRYbX5/Hey
+ yPBAfrcFFGJpneuTFzooI3LuRR5pSHJ1o9uTyxtY7mUrDuNFUunWax6JanAbQzKVVoU0M7UTx7T
+ v1PjJ9Rsy+BfsbdnHmDs8X0ljPVGhi3D0dwEn/RS/phGsLGHHxYJUmBqFOymE+EIZzv/cPbJ9J7
+ dsijqkb9I4AXGxNpIFdaivWfZtCw++fVJjmGW+z1B933w==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_001342_790403_3519BBEF 
-X-CRM114-Status: GOOD (  36.89  )
+X-CRM114-CacheID: sfid-20251222_001843_133144_157F6872 
+X-CRM114-Status: GOOD (  11.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,165 +111,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Em Fri, 19 Dec 2025 18:11:54 +0000
-Ahmed Tiba <ahmed.tiba@arm.com> escreveu:
+The MBa8MPxL mainboard has an integrated PHY connected to the EQOS
+ethernet controller which can support up to five queues. Configure
+these queues in the same manor as done on the imx8mp-evk.
+Setting DMA to threas mode is necessary to prevent FIFO overflows, see
+commit 0bc3e333a0c82 ("arm64: dts: imx8mp-evk: configure multiple queues
+on eqos")
 
-> On Fri, Dec 19, 2025 at 04:30:40PM +0100, Mauro Carvalho Chehab wrote:
-> >On Fri, Dec 19, 2025 at 02:49:02PM +0000, Ahmed Tiba wrote: =20
-> >>
-> >> On Wed, Dec 18, 2025 at 05:04:53PM +0100, Mauro Carvalho Chehab wrote:
-> >> =20
-> >> >> Teach the estatus core how to walk CPER records and expose the vend=
-or
-> >> >> record notification path. This adds the section iteration helpers,
-> >> >> the logging helpers that mirror the GHES behaviour, and the deferred
-> >> >> work used to hand vendor GUIDs to interested drivers. No users swit=
-ch
-> >> >> over yet; this simply moves the common logic out of GHES so the next
-> >> >> patches can wire it up.
-> >> >>
-> >> >> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com> =20
-> >> >
-> >> >...
-> >> > =20
-> >> >> +static bool estatus_handle_arm_hw_error(estatus_generic_data *gdat=
-a, int sev, bool sync) =20
-> >> >
-> >> > Huh?
-> >> >
-> >> > This is a CPER record from GHES. Why are you moving CPER code out
-> >> > of ghes.c, placing in a file named estatus.c? Doesn't make much
-> >> > sense on my eyes...
-> >> >
-> >> > Same applies to to other GHES CPER record types. =20
-> >>
-> >> GHES still fills in the CPER record, but the parsing and logging logic=
- is
-> >> shared with the new DeviceTree provider so I pulled those helpers into=
- the
-> >> estatus core. =20
-> >
-> > I see, but this is not really estatus core. Instead, it is part of GHES=
- CPER
-> > handling logic, which is defined at ACPI and UEFI specs. moving it to e=
-status
-> > sounds odd, at least on my eyes.
-> >=20
-> > Perhaps I'm failing to see where at ACPI/UEFI specs how CPER would be
-> > integrated with an OpenFirmware approach to handle CPER without GHES.
-> > Care to point to the relevant specs, if any? =20
->=20
-> ACPI/APEI (via GHES) defines how CPER records are discovered and notified=
- on ACPI systems,
-> but there is no ACPI or UEFI-defined equivalent for OpenFirmware/DeviceTr=
-ee platforms.
-> UEFI standardises the CPER record format itself, not the transport or dis=
-covery mechanism.
->=20
-> On non-ACPI systems we still receive the same UEFI-defined CPER payload
-> from firmware, but Linux needs a different, platform-specific contract
-> to locate and acknowledge it. The DT binding is a Linux-side description
-> of that contract rather than something defined by ACPI/UEFI.
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+---
+ .../freescale/imx8mp-tqma8mpql-mba8mpxl.dts   | 67 +++++++++++++++++++
+ 1 file changed, 67 insertions(+)
 
-That's where I'm failing to understand: CPER is part of UEFI spec, and
-the only deliverable mechanism I'm aware of for CPER is via GHES or
-GHESv2 - e.g. via ACPI.
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
+index 68cecb0987b6b..eb25828f3b26d 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
+@@ -360,6 +360,9 @@ &eqos {
+ 	pinctrl-0 = <&pinctrl_eqos>, <&pinctrl_eqos_phy>;
+ 	phy-mode = "rgmii-id";
+ 	phy-handle = <&ethphy3>;
++	snps,force_thresh_dma_mode;
++	snps,mtl-tx-config = <&mtl_tx_setup>;
++	snps,mtl-rx-config = <&mtl_rx_setup>;
+ 	status = "okay";
+ 
+ 	mdio {
+@@ -404,6 +407,70 @@ led@2 {
+ 			};
+ 		};
+ 	};
++
++	mtl_tx_setup: tx-queues-config {
++		snps,tx-queues-to-use = <5>;
++
++		queue0 {
++			snps,dcb-algorithm;
++			snps,priority = <0x1>;
++		};
++
++		queue1 {
++			snps,dcb-algorithm;
++			snps,priority = <0x2>;
++		};
++
++		queue2 {
++			snps,dcb-algorithm;
++			snps,priority = <0x4>;
++		};
++
++		queue3 {
++			snps,dcb-algorithm;
++			snps,priority = <0x8>;
++		};
++
++		queue4 {
++			snps,dcb-algorithm;
++			snps,priority = <0xf0>;
++		};
++	};
++
++	mtl_rx_setup: rx-queues-config {
++		snps,rx-queues-to-use = <5>;
++		snps,rx-sched-sp;
++
++		queue0 {
++			snps,dcb-algorithm;
++			snps,priority = <0x1>;
++			snps,map-to-dma-channel = <0>;
++		};
++
++		queue1 {
++			snps,dcb-algorithm;
++			snps,priority = <0x2>;
++			snps,map-to-dma-channel = <1>;
++		};
++
++		queue2 {
++			snps,dcb-algorithm;
++			snps,priority = <0x4>;
++			snps,map-to-dma-channel = <2>;
++		};
++
++		queue3 {
++			snps,dcb-algorithm;
++			snps,priority = <0x8>;
++			snps,map-to-dma-channel = <3>;
++		};
++
++		queue4 {
++			snps,dcb-algorithm;
++			snps,priority = <0xf0>;
++			snps,map-to-dma-channel = <4>;
++		};
++	};
+ };
+ 
+ &fec {
+-- 
+2.43.0
 
-Within the scope of https://uefi.org/specifications, I'm failing
-to see any other deliverable mechanism.
-=20
-> >> Both providers already call into the same notifier chain and
-> >> memory-pool helpers; this patch just moves the generic CPER walking ro=
-utines
-> >> next to the rest of the common code so the DT path doesn=E2=80=99t hav=
-e to grow its
-> >> own copy. If you=E2=80=99d prefer a different file layout or naming to=
- make that
-> >> intent clearer, I=E2=80=99m happy to adjust. =20
->=20
-> > Moving the code from ghes.c to estatus.c or to elsewhere shouldn't make=
- any
-> > difference, as the DT handling logic could simply be calling the functi=
-ons
-> > from ghes.c (or estatus.c). I fail to see why they need to be moved. =20
->=20
-> The motivation is to provide a shared implementation for non-ACPI provide=
-rs,
-> so that the DT path does not depend on ACPI/APEI.
->=20
-> While the helpers currently live in ghes.c, they are CPER-specific and do=
- not rely on ACPI tables,
-> APEI infrastructure, or GHES notification semantics. Keeping them there e=
-ffectively makes GHES
-> the only place those helpers can live, even though the logic itself is pr=
-ovider-agnostic.
-
-The logic is related to GHES, as this seems to be the only standardized
-mechanism to report CPER records. As it is part of APEI, get_maintainers
-points to the people that have been maintaining it as:
-
-	$ ./scripts/get_maintainer.pl -f ./drivers/acpi/apei/ghes.c
-	"Rafael J. Wysocki" <rafael@kernel.org> (maintainer:ACPI APEI,commit_signe=
-r:6/13=3D46%)
-	Tony Luck <tony.luck@intel.com> (reviewer:ACPI APEI,commit_signer:3/13=3D2=
-3%)
-	Borislav Petkov <bp@alien8.de> (reviewer:ACPI APEI,removed_lines:5/62=3D8%)
-	Hanjun Guo <guohanjun@huawei.com> (reviewer:ACPI APEI,commit_signer:4/13=
-=3D31%)
-	Mauro Carvalho Chehab <mchehab@kernel.org> (reviewer:ACPI APEI,authored:1/=
-13=3D8%,removed_lines:6/62=3D10%)
-	Shuai Xue <xueshuai@linux.alibaba.com> (reviewer:ACPI APEI,commit_signer:5=
-/13=3D38%,authored:2/13=3D15%,added_lines:56/218=3D26%,removed_lines:34/62=
-=3D55%)
-	Len Brown <lenb@kernel.org> (reviewer:ACPI)
-	Jonathan Cameron <Jonathan.Cameron@huawei.com> (commit_signer:5/13=3D38%)
-	Breno Leitao <leitao@debian.org> (authored:2/13=3D15%,added_lines:38/218=
-=3D17%)
-	Smita Koralahalli <Smita.KoralahalliChannabasappa@amd.com> (authored:2/13=
-=3D15%,added_lines:103/218=3D47%)
-	Ankit Agrawal <ankita@nvidia.com> (authored:1/13=3D8%,removed_lines:6/62=
-=3D10%)
-	Jason Tian <jason@os.amperecomputing.com> (removed_lines:7/62=3D11%)
-	linux-acpi@vger.kernel.org (open list:ACPI APEI)
-	linux-kernel@vger.kernel.org (open list)
-
-Moving it elsewhere would make it confusing, as the expected deliverable
-mechanism for CPER is via GHES - as this is the only one defined at the
-uefi.org specs.
-
-While it might be moved to EFI and placed under cper.c,=20
-get_maintainers.pl would point to:
-
-	$ ./scripts/get_maintainer.pl -f ./drivers/firmware/efi/cper.c
-	Ard Biesheuvel <ardb@kernel.org> (maintainer:EXTENSIBLE FIRMWARE INTERFACE=
- (EFI))
-	linux-efi@vger.kernel.org (open list:EXTENSIBLE FIRMWARE INTERFACE (EFI))
-	linux-kernel@vger.kernel.org (open list)
-
-which is not the people that have been maintaining RAS.
-
-Placing it under a "estatus.c" file would make it completely
-dissociated with UEFI/ACPI specs, as this name means nothing at
-the specs.
-
-Also, adding a new maintainer's entry won't make any sense, as the
-people that currently reviews and maintains GHES/CPER records
-should be kept.
-
-> By moving the CPER parsing and logging pieces into a common location,
-> both GHES and the DT provider can reuse the same implementation,
-> while the ACPI-specific discovery and notification code remains under dri=
-vers/acpi/apei/.
-> This avoids having the DT provider reach into GHES internals or duplicate=
- CPER handling code.
-
-As Boris mentioned on patch 00/12, we need to better understand
-the high level scenario, as it is still not clear to me how a
-firmware-first notification would happen without ACPI.
-
-> If the current naming or file layout makes that separation unclear, I=E2=
-=80=99m happy to adjust it.
-
-Thanks,
-Mauro
 
