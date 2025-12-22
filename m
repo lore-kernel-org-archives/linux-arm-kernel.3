@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0F79D711D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 09:44:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94548E67498
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 09:44:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=N6md+MTP/OxPWxc+hx3M3zlvBANPxgUZT+MUvmFAID0=; b=AHL7eN+As/7QVgxxq2QG+J7atW
-	aFnua+t7I5xLUYXFYG8kzw5jXxgcRMXIep5GquWfVVFbxvkR/HZQrPlbEc7curiizcmv0TgvUCK0Z
-	p5AcLjj2u39h31QB3ct0N+6BRrkINozL9gtaLUeXpkzz38nlEzjrnQMP/tLRZNUtnoS7BzI2b79kh
-	veBJDsLucIP01eARLPXfJtGABG+Hbe3d5ZAY4HJRauiZRZcXKIcYLzRinC+xkh4z/jQ28uuwsn+po
-	Qp90oxwDmo8MQwHepD8JTmCK4+rGaodFOjQB9GAAjXkee9Q1MOvsKA/fVnqk2yjfMOgk7DxozYfFw
-	VMmlLpjA==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jREerp1UUtlvwq6DucOPbqJRI1tz6hZrq/qDog8bRt8=; b=5GihWh5sBt24/xRz4HhqfzSo15
+	06I5MiHrhcPlhMI0XAKv4BcQ1mzd5atM4ek3gGy+f3BxHxTB3/h2DksM4BDCxyt5Pr2XAnqHBsYal
+	u0vGPdU0ko8A+20l1QTyZHX5NQSI5Szj8uK6+W6QNrzayAYhz0lm/z1kKoS24u5DX9r49tgnzfyyP
+	AN5SL87Jh1t2zQIeM8WEGGFUtHlP6crb448Klk0OZB9Pf+Xorx589jF1ObgrAbsZmaWSmBacOfgNF
+	gYzMVS/VTyiekqr7fZLKGFmqBSN09GYtqTvWQPSJ8pwvixQmG4wKNSRTyh5JP9YpsJWOgu6i2w7ys
+	m/R4hyCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXcSh-0000000DXQy-13Z7;
+	id 1vXcSh-0000000DXS5-49VM;
 	Mon, 22 Dec 2025 09:44:19 +0000
-Received: from out30-118.freemail.mail.aliyun.com ([115.124.30.118])
+Received: from out30-113.freemail.mail.aliyun.com ([115.124.30.113])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXcSY-0000000DXMS-1vUA
+	id 1vXcSd-0000000DXO3-2BqD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Dec 2025 09:44:14 +0000
+	Mon, 22 Dec 2025 09:44:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1766396643; h=From:To:Subject:Date:Message-Id:MIME-Version:Content-Type;
-	bh=N6md+MTP/OxPWxc+hx3M3zlvBANPxgUZT+MUvmFAID0=;
-	b=hyH8r7QYKMtdU0AdmFONPaw1oJDz6MzruaU22rj5rGlKye15l/KZkTEf/X2f1nVptL5Pj4V5rVfMUEl61YZ5ydgN7+892lMXIX0Xt7IFRZlUqCTT4FLtAYoMvkXo4Nesb3AVnlciyKYsAdkDzxktRva/YvPfm6OXARf2qLJ9MkE=
-Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0WvOT.Jw_1766396636 cluster:ay36)
+	t=1766396653; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=jREerp1UUtlvwq6DucOPbqJRI1tz6hZrq/qDog8bRt8=;
+	b=fgO09HRI7XkSlkXsbj2uJzx2mwj2DkDxeFnNl/OlMeqcC/85bIje4+LScNww/JPjZ5whu+ph9ed36QCvEvSdIon94MBJd4hnNK0OA6KSj1Es28rKkcvFg4DOBzARHa8/8SCdRKc0bJ6HSBm42GEUotb3AweM+7H/8OV1KPSLM44=
+Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0WvORvOX_1766396649 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Mon, 22 Dec 2025 17:43:59 +0800
+          Mon, 22 Dec 2025 17:44:10 +0800
 From: Ruidong Tian <tianruidong@linux.alibaba.com>
 To: catalin.marinas@arm.com,
 	will@kernel.org,
@@ -52,16 +52,17 @@ To: catalin.marinas@arm.com,
 	yazen.ghannam@amd.com,
 	misono.tomohiro@fujitsu.com
 Cc: tianruidong@linux.alibaba.com
-Subject: [PATCH v4 00/17] ARM Error Source Table V2 Support
-Date: Mon, 22 Dec 2025 17:43:33 +0800
-Message-Id: <20251222094351.38792-1-tianruidong@linux.alibaba.com>
+Subject: [PATCH v4 04/17] ras: AEST: Unify the read/write interface for system and MMIO register
+Date: Mon, 22 Dec 2025 17:43:37 +0800
+Message-Id: <20251222094351.38792-5-tianruidong@linux.alibaba.com>
 X-Mailer: git-send-email 2.33.1
+In-Reply-To: <20251222094351.38792-1-tianruidong@linux.alibaba.com>
+References: <20251222094351.38792-1-tianruidong@linux.alibaba.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_014411_144584_5F1DCAB6 
-X-CRM114-Status: GOOD (  18.75  )
+X-CRM114-CacheID: sfid-20251222_014415_738010_E3C8E9BF 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,215 +77,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series introduces support for the ARM Error Source Table (AEST), aligning
-with version 2.0 of ACPI for Armv8 RAS Extensions [0].
+Use record_read/write to simultaneously read and write system registers and
+MMIO registers while maintaining code conciseness.
 
-AEST provides a critical mechanism for hardware to directly notify the
-operating system kernel about RAS errors via interrupts, a concept known as
-Kernel-first error handling. Compared to firmware-first error handling
-(e.g., GHES), AEST offers a more lightweight approach. This efficiency allows
-the OS to potentially report every Corrected Error (CE), enabling upper-layer
-applications to leverage CE information for error prediction[1][2].
+Signed-off-by: Ruidong Tian <tianruidong@linux.alibaba.com>
+---
+ drivers/ras/aest/aest-core.c |  1 +
+ drivers/ras/aest/aest.h      | 94 ++++++++++++++++++++++++++++++++++++
+ 2 files changed, 95 insertions(+)
 
-This series is based on Tyler Baicar's preliminary patches [3], which have not
-yet been sent to the mailing list as v2.
-
-AEST Driver Architecture
-========================
-
-The AEST driver is structured into three primary components:
-  - AEST device: Responsible for handling interrupts, managing the lifecycle
-                 of AEST nodes, and processing error records.
-  - AEST node: Corresponds directly to a RAS node in the hardware
-  - AEST record: Represents a set of RAS registers associated with a specific
-                 error source.
-
-These components are organized hierarchically as follows:
-
- ┌──────────────────────────────────────────────────┐
- │             AEST Driver Device Management        │
- │┌─────────────┐    ┌──────────┐     ┌───────────┐ │
- ││ AEST Device ├─┬─►│AEST Node ├──┬─►│AEST Record│ │
- │└─────────────┘ │  └──────────┘  │  └───────────┘ │
- │                │       .        │  ┌───────────┐ │
- │                │       .        ├─►│AEST Record│ │
- │                │       .        │  └───────────┘ │
- │                │  ┌──────────┐  │        .       │
- │                ├─►│AEST Node │  │        .       │
- │                │  └──────────┘  │        .       │
- │                │                │  ┌───────────┐ │
- │                │  ┌──────────┐  └─►│AEST Record│ │
- │                └─►│AEST Node │     └───────────┘ │
- │                   └──────────┘                   │
- └──────────────────────────────────────────────────┘
-
-AEST Interrupt Handle
-=====================
-
-Upon an AEST interrupt, the driver performs the following sequence:
-1. The AEST device iterates through all registered AEST nodes to identify the
-   specific node(s) and record(s) that reported an error.
-2. Each node typically contains two types of records:
-      - report record: Errors can be located efficiently through a bitmap
-                       in the `ERRGSR` register.
-      - poll record: The node must individually poll all records to determine
-                     if an error has occurred.
-3. process record:
-      - if error is corrected, The CE threshold is reset, and the error event
-        is logged.
-      - if error is defered, Relevant registers are dumped, and
-        `memory_failure()` is invoked.
-      - if error is uncorrected, panic, While UEs typically trigger an
-        exception rather than an interrupt, if detected, the system will panic.
-4. decode record: The AEST driver notifies other relevant drivers, such as
-   EDAC, to further decode the reported RAS register information.
-
-Address Translation
-===================
-
-As described in section 2.2 [0], error addresses reported by AEST records
-may be "node-specific Logical Addresses" rather than the "System Physical
-Addresses" (SPA) used by the kernel. Therefore, the driver needs to translate
-these Logical Addresses (LA) to SPA. This translation mechanism is conceptually
-similar to AMD's Address Translation Logic (ATL) [4], leading patch 0014 to
-introduce a common translation function for both AMD and ARM architectures.
-
-Testing
-===================
-I have tested this series on THead Yitian710 SOC with customized BIOS. Someone
-can also use QEMU[5] for preliminary driver testing.
-
-1. Boot Qemu
-
-qemu-system-aarch64 -smp 4 -m 32G \
-  -cpu host --enable-kvm -machine virt,gic-version=3 \
-  -kernel Image -initrd initrd.cpio.gz \
-  -device virtio-net-pci,netdev=t0 -netdev user,id=t0 \
-  -bios /usr/share/edk2/aarch64/QEMU_EFI.fd  \
-  -append "rdinit=/sbin/init earlycon verbose debug console=ttyAMA0 aest.dyndbg='+pt'" \
-  -nographic -d guest_errors -D qemu.log
-
-2. inject error
-devmem 0x90d0808 l 0xc4800390
-
-2.1 Memory error
-[   64.959849] AEST: {1}[Hardware Error]: Hardware error from AEST memory.90d0000
-[   64.959852] AEST: {1}[Hardware Error]:  Error from memory at SRAT proximity domain 0x0
-[   64.959855] AEST: {1}[Hardware Error]:   ERR0FR: 0x40000080044081
-[   64.959858] AEST: {1}[Hardware Error]:   ERR0CTRL: 0x108
-[   64.959859] AEST: {1}[Hardware Error]:   ERR0STATUS: 0xc4800390
-[   64.959860] AEST: {1}[Hardware Error]:   ERR0ADDR: 0x8400000043344521
-[   64.959861] AEST: {1}[Hardware Error]:   ERR0MISC0: 0x7fff00000000
-[   64.959861] AEST: {1}[Hardware Error]:   ERR0MISC1: 0x0
-[   64.959862] AEST: {1}[Hardware Error]:   ERR0MISC2: 0x0
-[   64.959863] AEST: {1}[Hardware Error]:   ERR0MISC3: 0x0
-[   64.959873] Memory failure: 0x43344: recovery action for free buddy page: Recovered
-
-2.2 CMN error
-[  132.044283] AEST: {2}[Hardware Error]: Hardware error from AEST XP
-[  132.044286] AEST: {2}[Hardware Error]:  Error from vendor hid ARMHC700 uid 0x0
-[  132.044288] AEST: {2}[Hardware Error]:   ERR0FR: 0x48a5
-[  132.044290] AEST: {2}[Hardware Error]:   ERR0CTRL: 0x108
-[  132.044292] AEST: {2}[Hardware Error]:   ERR0STATUS: 0xc4800390
-[  132.044293] AEST: {2}[Hardware Error]:   ERR0ADDR: 0x8400000043344521
-[  132.044295] AEST: {2}[Hardware Error]:   ERR0MISC0: 0x0
-[  132.044296] AEST: {2}[Hardware Error]:   ERR0MISC1: 0x0
-[  132.044298] AEST: {2}[Hardware Error]:   ERR0MISC2: 0x0
-[  132.044299] AEST: {2}[Hardware Error]:   ERR0MISC3: 0x0
-[  132.044302] Memory failure: 0x43344: recovery action for already poisoned page: Failed
-
-[0]: https://developer.arm.com/documentation/den0085/0101/
-[1]: Intel: Predicting Uncorrectable Memory Errors from the Correctable Error History
-[2]: Alibaba. Predicting DRAM-Caused Risky VMs in Large-Scale Clouds. Published in HPCA2025
-[3]: https://lore.kernel.org/all/20211124170708.3874-1-baicar@os.amperecomputing.com/
-[4]: https://lore.kernel.org/all/20240123041401.79812-2-yazen.ghannam@amd.com/
-[5]: https://github.com/winterddd/qemu/tree/error_record
-
-Change from V3:
-https://lore.kernel.org/all/20250115084228.107573-1-tianruidong@linux.alibaba.com/
-1. Add vendor AEST node framework and support CMN700
-2. Borislav Petkov
-    - Split into multiple smaller patches for easier review.
-    - refined the English in the cover letter for better flow.
-3. Accept Tomohiro Misono's comment
-
-Change from V2:
-https://lore.kernel.org/all/20240321025317.114621-1-tianruidong@linux.alibaba.com/
-1. Tomohiro Misono
-    - dump register before panic
-2. Baolin Wang & Shuai Xue: accept all comment.
-3. Support AEST V2.
-
-Change from V1:
-https://lore.kernel.org/all/20240304111517.33001-1-tianruidong@linux.alibaba.com/
-1. Marc Zyngier
-  - Use readq/writeq_relaxed instead of readq/writeq for MMIO address.
-  - Add sync for system register operation.
-  - Use irq_is_percpu_devid() helper to identify a per-CPU interrupt.
-  - Other fix.
-2. Set RAS CE threshold in AEST driver.
-3. Enable RAS interrupt explicitly in driver.
-4. UER and UEO trigger memory_failure other than panic.
-
-Ruidong Tian (17):
-  ACPI/AEST: Parse the AEST table
-  ras: AEST: Add probe/remove for AEST driver
-  ras: AEST: support different group format
-  ras: AEST: Unify the read/write interface for system and MMIO register
-  ras: AEST: Probe RAS system architecture version
-  ras: AEST: Support RAS Common Fault Injection Model Extension
-  ras: AEST: Support CE threshold of error record
-  ras: AEST: Enable and register IRQs
-  ras: AEST: Add cpuhp callback
-  ras: AEST: Introduce AEST driver sysfs interface
-  ras: AEST: Add error count tracking and debugfs interface
-  ras: AEST: Allow configuring CE threshold via debugfs
-  ras: AEST: Introduce AEST inject interface to test AEST driver
-  ras: ATL: Unify ATL interface for ARM64 and AMD
-  ras: AEST: Add framework to process AEST vendor node
-  ras: AEST: support vendor node CMN700
-  trace, ras: add ARM RAS extension trace event
-
- Documentation/ABI/testing/debugfs-aest |   98 +++
- MAINTAINERS                            |   11 +
- arch/arm64/include/asm/arm-cmn.h       |   47 ++
- arch/arm64/include/asm/ras.h           |   95 +++
- drivers/acpi/arm64/Kconfig             |   11 +
- drivers/acpi/arm64/Makefile            |    1 +
- drivers/acpi/arm64/aest.c              |  311 +++++++
- drivers/edac/amd64_edac.c              |    2 +-
- drivers/perf/arm-cmn.c                 |   37 +-
- drivers/ras/Kconfig                    |    1 +
- drivers/ras/Makefile                   |    1 +
- drivers/ras/aest/Kconfig               |   17 +
- drivers/ras/aest/Makefile              |    8 +
- drivers/ras/aest/aest-cmn.c            |  332 ++++++++
- drivers/ras/aest/aest-core.c           | 1057 ++++++++++++++++++++++++
- drivers/ras/aest/aest-inject.c         |  131 +++
- drivers/ras/aest/aest-sysfs.c          |  228 +++++
- drivers/ras/aest/aest.h                |  410 +++++++++
- drivers/ras/amd/atl/core.c             |    4 +-
- drivers/ras/amd/atl/internal.h         |    2 +-
- drivers/ras/amd/atl/umc.c              |    3 +-
- drivers/ras/ras.c                      |   27 +-
- include/linux/acpi_aest.h              |   75 ++
- include/linux/cpuhotplug.h             |    1 +
- include/linux/ras.h                    |   17 +-
- include/ras/ras_event.h                |   71 ++
- 26 files changed, 2939 insertions(+), 59 deletions(-)
- create mode 100644 Documentation/ABI/testing/debugfs-aest
- create mode 100644 arch/arm64/include/asm/arm-cmn.h
- create mode 100644 arch/arm64/include/asm/ras.h
- create mode 100644 drivers/acpi/arm64/aest.c
- create mode 100644 drivers/ras/aest/Kconfig
- create mode 100644 drivers/ras/aest/Makefile
- create mode 100644 drivers/ras/aest/aest-cmn.c
- create mode 100644 drivers/ras/aest/aest-core.c
- create mode 100644 drivers/ras/aest/aest-inject.c
- create mode 100644 drivers/ras/aest/aest-sysfs.c
- create mode 100644 drivers/ras/aest/aest.h
- create mode 100644 include/linux/acpi_aest.h
-
+diff --git a/drivers/ras/aest/aest-core.c b/drivers/ras/aest/aest-core.c
+index acebb293ac75..f4a5119dc513 100644
+--- a/drivers/ras/aest/aest-core.c
++++ b/drivers/ras/aest/aest-core.c
+@@ -29,6 +29,7 @@ static int aest_init_record(struct aest_record *record, int i,
+ 		record->regs_base =
+ 			node->base + sizeof(struct ras_ext_regs) * i;
+ 
++	record->access = &aest_access[node->info->interface_hdr->type];
+ 	record->addressing_mode = test_bit(i, node->info->addressing_mode);
+ 	record->index = i;
+ 	record->node = node;
+diff --git a/drivers/ras/aest/aest.h b/drivers/ras/aest/aest.h
+index 3250675e99b7..31131cce9928 100644
+--- a/drivers/ras/aest/aest.h
++++ b/drivers/ras/aest/aest.h
+@@ -10,6 +10,11 @@
+ 
+ #define MAX_GSI_PER_NODE 2
+ 
++#define record_read(record, offset) \
++	record->access->read(record->regs_base, offset)
++#define record_write(record, offset, val) \
++	record->access->write(record->regs_base, offset, val)
++
+ #define aest_dev_err(__adev, format, ...) \
+ 	dev_err((__adev)->dev, format, ##__VA_ARGS__)
+ #define aest_dev_info(__adev, format, ...) \
+@@ -47,6 +52,20 @@
+ #define ERXGROUP_16K_ERRGSR_NUM 4
+ #define ERXGROUP_64K_ERRGSR_NUM 14
+ 
++#define ERXFR 0x0
++#define ERXCTLR 0x8
++#define ERXSTATUS 0x10
++#define ERXADDR 0x18
++#define ERXMISC0 0x20
++#define ERXMISC1 0x28
++#define ERXMISC2 0x30
++#define ERXMISC3 0x38
++
++struct aest_access {
++	u64 (*read)(void *base, u32 offset);
++	void (*write)(void *base, u32 offset, u64 val);
++};
++
+ struct aest_record {
+ 	char *name;
+ 	int index;
+@@ -63,6 +82,7 @@ struct aest_record {
+ 	 */
+ 	int addressing_mode;
+ 	struct aest_node *node;
++	const struct aest_access *access;
+ };
+ 
+ struct aest_group {
+@@ -159,3 +179,77 @@ static inline int aest_set_name(struct aest_device *adev,
+ 
+ 	return 0;
+ }
++
++#define CASE_READ(res, x)                           \
++	case (x): {                                 \
++		res = read_sysreg_s(SYS_##x##_EL1); \
++		break;                              \
++	}
++
++#define CASE_WRITE(val, x)                            \
++	case (x): {                                   \
++		write_sysreg_s((val), SYS_##x##_EL1); \
++		break;                                \
++	}
++
++static inline u64 aest_sysreg_read(void *__unused, u32 offset)
++{
++	u64 res;
++
++	switch (offset) {
++		CASE_READ(res, ERXFR)
++		CASE_READ(res, ERXCTLR)
++		CASE_READ(res, ERXSTATUS)
++		CASE_READ(res, ERXADDR)
++		CASE_READ(res, ERXMISC0)
++		CASE_READ(res, ERXMISC1)
++		CASE_READ(res, ERXMISC2)
++		CASE_READ(res, ERXMISC3)
++	default :
++		res = 0;
++	}
++	return res;
++}
++
++static inline void aest_sysreg_write(void *base, u32 offset, u64 val)
++{
++	switch (offset) {
++		CASE_WRITE(val, ERXFR)
++		CASE_WRITE(val, ERXCTLR)
++		CASE_WRITE(val, ERXSTATUS)
++		CASE_WRITE(val, ERXADDR)
++		CASE_WRITE(val, ERXMISC0)
++		CASE_WRITE(val, ERXMISC1)
++		CASE_WRITE(val, ERXMISC2)
++		CASE_WRITE(val, ERXMISC3)
++	default :
++		return;
++	}
++}
++
++static inline u64 aest_iomem_read(void *base, u32 offset)
++{
++	return readq_relaxed(base + offset);
++}
++
++static inline void aest_iomem_write(void *base, u32 offset, u64 val)
++{
++	writeq_relaxed(val, base + offset);
++}
++
++/* access type is decided by AEST interface type. */
++static const struct aest_access aest_access[] = {
++	[ACPI_AEST_NODE_SYSTEM_REGISTER] = {
++		.read = aest_sysreg_read,
++		.write = aest_sysreg_write,
++	},
++	[ACPI_AEST_NODE_MEMORY_MAPPED] = {
++		.read = aest_iomem_read,
++		.write = aest_iomem_write,
++	},
++	[ACPI_AEST_NODE_SINGLE_RECORD_MEMORY_MAPPED] = {
++		.read = aest_iomem_read,
++		.write = aest_iomem_write,
++	},
++	{ }
++};
 -- 
 2.51.2.612.gdc70283dfc
 
