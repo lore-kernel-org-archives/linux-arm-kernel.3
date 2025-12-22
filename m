@@ -4,96 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04F80D711D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 09:42:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EF18E6748D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 09:44:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4v+w9CPYJEPXs3YxAAuS8q/mpHCHhgqqzQWL+Q2HXy8=; b=wwKPQAtvujkdDvktzyjG461Btr
-	lV1RHG5FYfNzbttqx2iHA1QWIFjEqjX7oSkU3rpzZ+U7chTd8+DzL9nPNCMqI0MxvFzq6nXVDYodL
-	30ACklbh9j2PfF9XyGpzXWE2dXOBoFIgh3Xyf240gqOw/wKnwsjJr0SQhUcbi/qDZC9JKBwVY/B/T
-	APMEI1NUDBnAQw4MBpckvdILLQPzuOM3ulQN5ATHhwz7y9eFz3fHi8ZHvpeU3Nl1nyqfb+2kMzj5j
-	sNseD8F80DXpO4u4zkus36j4kGoyqYGVbsNQ87lnJwAOGaWUCyTFYFH4KgXbh7UDMb93IjGOGArf+
-	NZ91vYeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HDLtWkIJ9AxTY4JYA+weEEOegp743uw0gPJ0pp4hN4o=; b=0h+jizwTeh3hmv2e5RQbFeNEhp
+	BTCDxthP1ytW4oT/GE7FBBB1ZgjQ1V8XrocueGViYP5pfalXAkuOwqFRn9st4DfdYqtPV6hybRGvk
+	MTrJkdXnNK9hQxK94QPA9ulBhp/2S5ai7EQ0YSbUX7xOXXmf8MuJ+L6KzRI4GDg4h9KODpwaMcRuz
+	MRTshSBu7/zrkMd7W38iCcXhEB33gCZY8CM5R9t6HOU5rPtS+CWRTkptAildKdkOkgzBS5qqvEAfd
+	7PIcjOSVrD7C6P0dZzT7Pj/vXxiZ26L+wdbDIQr8ZfA2XJnECZLP4rJ/oDSJp8Ln+NsTBxkKt+OaQ
+	4K/ftStw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXcQj-0000000DXAG-2pnO;
-	Mon, 22 Dec 2025 09:42:17 +0000
-Received: from mail-lf1-x142.google.com ([2a00:1450:4864:20::142])
+	id 1vXcSd-0000000DXOX-0dqR;
+	Mon, 22 Dec 2025 09:44:15 +0000
+Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXcQg-0000000DX9T-2nZ6
+	id 1vXcSZ-0000000DXMs-1d9n
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Dec 2025 09:42:15 +0000
-Received: by mail-lf1-x142.google.com with SMTP id 2adb3069b0e04-594330147efso4466603e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 01:42:13 -0800 (PST)
+	Mon, 22 Dec 2025 09:44:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1766396532; x=1767001332; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=4v+w9CPYJEPXs3YxAAuS8q/mpHCHhgqqzQWL+Q2HXy8=;
-        b=WMXq6DxdtT8nobi1eQal9oJGVDcXwPoW3QJHQ2HS3Px0nwWxgApE0a2tQyqe5xiLYc
-         lV+Nt1KHxfoot339yVNYqda8sATOiAGbJ1J3e+S8riZy6WpIOnwr/z9QEOI0PFBQzmpO
-         xD+vBzHDl970rNJRNTrqLnV0/yhSx/BN/Nxn2GAGydD9usOflRx/5Pkh4GJ0x+4pDI7I
-         RBk7wwiFoKeGmFoYdc6Sup1myR8xIUd+F1mtX3wDSxV/aQgwo/5yfY9ye38JDonlF8ud
-         xuMjjjdX3kCwSw2wiXkuRN+kBSIcm1N/W+in/La8L72XsEz/emOCKtFCPavKgpE1RaDJ
-         uo3Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766396532; x=1767001332;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=4v+w9CPYJEPXs3YxAAuS8q/mpHCHhgqqzQWL+Q2HXy8=;
-        b=QMQDqv3PmMBFuTBM+l0Mn74nh1aQf+QsVOtqXa0fjCCHDtuC2qBu8x6gn7gmU91t+s
-         tdsN5bIfq+fKpACUKEbR/GzMgC890Ykg9Sr4zoPzh06y0gM+E/cPxnIEZ2rbEQIVFQsY
-         9LfSDsGD6TKXX9fcUeMlw9Nu0tCpY50+K3fYkECUJ/kMMRkAOw+5q/b8WbuUYVEvkl/S
-         caf0qDv6tpLMaIeT014Fq940Iw9lW29M18/IuuIq9XsEGOADDna+O9Yf+psU3XFV9Jpy
-         p1UZBjsjqnXZwOtYc4vulVwstkW/4cbS0hGE0ppQaqXd+ICedTNkFjfx8obvK1NWZSwu
-         QzdQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXks5NgDrc1PjweLzVVCI3ElQWiB+YCvZjx+XHqTkSIJQ7z4mRMWAJ6Z5oaCuIUNmrxmaW4ei/ypqUDwTQpIrSY@lists.infradead.org
-X-Gm-Message-State: AOJu0YwpPU6RBxmb9H1qVGvMh/SwTkh4q5HznKvslTBe/NDbYfsi3DeC
-	rpj4UiRlNYa7O0wQ7jcx9xUkkV6m4MH8XGndd9CX4mp7dN9VADBIt6/NW0dqI7YPjCs=
-X-Gm-Gg: AY/fxX7wb8pq5Ucdd3N26yKlisHmUnEK6AKn+e+mZnx7KPUsscgHmbPnP7mrMyp4KaX
-	P9kczrODuBgdWj/gykwmTjN4s3gUjzTR51Sz1GsZVlfWwtg8hEJQ3gWEsQzcdMhkGdnvd/Xtbi7
-	K6/crhwgwSAs/vD0soHaWe6sSW7qARU7yrY9y/giS6SMC5tm0RihYGHbGDOUWQBhlRbC4fynSuN
-	WynwGCp+cyczmPb+AB0kR0NyL9twTDDCPYWsQxyvf1QVTG4pupoY+kZl870UNQnNKiiM2c5RQQg
-	r7jR+MCW+LRhFchlzmB/mYJTET7gGHylXN3SWdXBRJQkcYK92Q0LUzo18fm2Ky3wp8LB+7iMzKN
-	pact8DwKWrJdj5s9TfEx1NzxXgYT3RmUqF7YfexkRsIosKGiEUv/PckaLN7b9qWDALpjEAguqLC
-	X0Ba5k4zNM9j5mbW/Rtm2oSD0gSfgGcqClPa2rPlzlECrtAyMltxdatxg=
-X-Google-Smtp-Source: AGHT+IGro+wwQsR/NYh1lOG3a8YsY1zVzwtGWwXW0iRMHe8R+JAt821t5/4DYVjAoWTd+d+cAOY8xA==
-X-Received: by 2002:ac2:4e08:0:b0:594:93b8:88b6 with SMTP id 2adb3069b0e04-59a17db705bmr2948525e87.38.1766396532340;
-        Mon, 22 Dec 2025 01:42:12 -0800 (PST)
-Received: from nuoska (87-100-249-247.bb.dnainternet.fi. [87.100.249.247])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59a185d5e32sm2958869e87.8.2025.12.22.01.42.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 22 Dec 2025 01:42:11 -0800 (PST)
-Date: Mon, 22 Dec 2025 11:42:10 +0200
-From: Mikko Rapeli <mikko.rapeli@linaro.org>
-To: Sean Anderson <sean.anderson@linux.dev>
-Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-	Mike Looijmans <mike.looijmans@topic.nl>,
-	David Airlie <airlied@gmail.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Anatoliy Klymenko <anatoliy.klymenko@amd.com>,
-	Maxime Ripard <mripard@kernel.org>,
+	d=linux.alibaba.com; s=default;
+	t=1766396649; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=HDLtWkIJ9AxTY4JYA+weEEOegp743uw0gPJ0pp4hN4o=;
+	b=dP6B8cjvdkCODJTr3TQGwClZ7B7P1NJKPz4iy17+UkSqVow6OSHLkCx3Ajr8eLfxdRN9YdjDKNyHTA9vJmx1/S7JvVbmdKKxa+S973JpQm0lUv08/emSjjZL0r0EdMf/w7HyDB0/4lRinLkqllCaGhJp6gHqv3OxMA/Ru6zWDO8=
+Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0WvOl8.4_1766396644 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Mon, 22 Dec 2025 17:44:05 +0800
+From: Ruidong Tian <tianruidong@linux.alibaba.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org,
+	lpieralisi@kernel.org,
+	guohanjun@huawei.com,
+	sudeep.holla@arm.com,
+	xueshuai@linux.alibaba.com,
+	linux-kernel@vger.kernel.org,
+	linux-acpi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Simona Vetter <simona@ffwll.ch>,
-	Michal Simek <michal.simek@amd.com>
-Subject: Re: [PATCH 0/3] drm: zynqmp: Make the video plane primary
-Message-ID: <aUkSclVzlRCXDdug@nuoska>
-References: <20251113203715.2768107-1-sean.anderson@linux.dev>
+	rafael@kernel.org,
+	lenb@kernel.org,
+	tony.luck@intel.com,
+	bp@alien8.de,
+	yazen.ghannam@amd.com,
+	misono.tomohiro@fujitsu.com
+Cc: tianruidong@linux.alibaba.com
+Subject: [PATCH v4 02/17] ras: AEST: Add probe/remove for AEST driver
+Date: Mon, 22 Dec 2025 17:43:35 +0800
+Message-Id: <20251222094351.38792-3-tianruidong@linux.alibaba.com>
+X-Mailer: git-send-email 2.33.1
+In-Reply-To: <20251222094351.38792-1-tianruidong@linux.alibaba.com>
+References: <20251222094351.38792-1-tianruidong@linux.alibaba.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251113203715.2768107-1-sean.anderson@linux.dev>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_014214_755696_8AF8C8CF 
-X-CRM114-Status: GOOD (  16.61  )
+X-CRM114-CacheID: sfid-20251222_014411_730919_38047990 
+X-CRM114-Status: GOOD (  25.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,43 +77,468 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Parse register information from the AEST table in the probe function,
+create corresponding structures, and mappings AEST record.
 
-On Thu, Nov 13, 2025 at 03:37:11PM -0500, Sean Anderson wrote:
-> The graphics plane does not support XRGB8888, which is the default mode
-> X uses for 24-bit color. Because of this, X must be set to use 16-bit
-> color, which has a measurable performance penalty. Make the video plane
-> the primary plane as it natively supports XRGB8888. An alternative
-> approach to add XRGB8888 to the graphics plane is discussed in [1], as
-> well as in patch 2.
-> 
-> [1] https://lore.kernel.org/dri-devel/20250627145058.6880-1-mike.looijmans@topic.nl/
+Signed-off-by: Ruidong Tian <tianruidong@linux.alibaba.com>
+---
+ MAINTAINERS                  |   2 +
+ drivers/ras/Kconfig          |   1 +
+ drivers/ras/Makefile         |   1 +
+ drivers/ras/aest/Kconfig     |  17 +++
+ drivers/ras/aest/Makefile    |   5 +
+ drivers/ras/aest/aest-core.c | 217 +++++++++++++++++++++++++++++++++++
+ drivers/ras/aest/aest.h      | 124 ++++++++++++++++++++
+ include/linux/acpi_aest.h    |   9 ++
+ 8 files changed, 376 insertions(+)
+ create mode 100644 drivers/ras/aest/Kconfig
+ create mode 100644 drivers/ras/aest/Makefile
+ create mode 100644 drivers/ras/aest/aest-core.c
+ create mode 100644 drivers/ras/aest/aest.h
 
-I've tested this series on AMD KV260 running Yocto genericarm64 machine config and
-core-image-sato with Xorg. This series fixes HDMI output using X11, no need to
-configure Xorg to 16bpp as workaround.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index d14e16c3a93b..fd4c40c4607c 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -346,7 +346,9 @@ M:	Ruidong Tian <tianruidond@linux.alibaba.com>
+ L:	linux-acpi@vger.kernel.org
+ L:	linux-arm-kernel@lists.infradead.org
+ S:	Supported
++F:	arch/arm64/include/asm/ras.h
+ F:	drivers/acpi/arm64/aest.c
++F:	drivers/ras/aest/
+ F:	include/linux/acpi_aest.h
+ 
+ ACPI FOR RISC-V (ACPI/riscv)
+diff --git a/drivers/ras/Kconfig b/drivers/ras/Kconfig
+index fc4f4bb94a4c..61a2a05d9c94 100644
+--- a/drivers/ras/Kconfig
++++ b/drivers/ras/Kconfig
+@@ -33,6 +33,7 @@ if RAS
+ 
+ source "arch/x86/ras/Kconfig"
+ source "drivers/ras/amd/atl/Kconfig"
++source "drivers/ras/aest/Kconfig"
+ 
+ config RAS_FMPM
+ 	tristate "FRU Memory Poison Manager"
+diff --git a/drivers/ras/Makefile b/drivers/ras/Makefile
+index 11f95d59d397..72411ee9deaf 100644
+--- a/drivers/ras/Makefile
++++ b/drivers/ras/Makefile
+@@ -5,3 +5,4 @@ obj-$(CONFIG_RAS_CEC)	+= cec.o
+ 
+ obj-$(CONFIG_RAS_FMPM)	+= amd/fmpm.o
+ obj-y			+= amd/atl/
++obj-y 			+= aest/
+diff --git a/drivers/ras/aest/Kconfig b/drivers/ras/aest/Kconfig
+new file mode 100644
+index 000000000000..0b09a5d5acce
+--- /dev/null
++++ b/drivers/ras/aest/Kconfig
+@@ -0,0 +1,17 @@
++# SPDX-License-Identifier: GPL-2.0
++#
++# ARM Error Source Table Support
++#
++# Copyright (c) 2025, Alibaba Group.
++#
++
++config AEST
++	tristate "ARM AEST Driver"
++	depends on ACPI_AEST && RAS
++
++	help
++	  The Arm Error Source Table (AEST) provides details on ACPI
++	  extensions that enable kernel-first handling of errors in a
++	  system that supports the Armv8 RAS extensions.
++
++	  If set, the kernel will report and log hardware errors.
+diff --git a/drivers/ras/aest/Makefile b/drivers/ras/aest/Makefile
+new file mode 100644
+index 000000000000..a6ba7e36fb43
+--- /dev/null
++++ b/drivers/ras/aest/Makefile
+@@ -0,0 +1,5 @@
++# SPDX-License-Identifier: GPL-2.0-only
++
++obj-$(CONFIG_AEST) 	+= aest.o
++
++aest-y		:= aest-core.o
+diff --git a/drivers/ras/aest/aest-core.c b/drivers/ras/aest/aest-core.c
+new file mode 100644
+index 000000000000..c7ef6c13fd44
+--- /dev/null
++++ b/drivers/ras/aest/aest-core.c
+@@ -0,0 +1,217 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * ARM Error Source Table Support
++ *
++ * Copyright (c) 2025, Alibaba Group.
++ */
++
++#include <linux/platform_device.h>
++#include <linux/xarray.h>
++#include <linux/ras.h>
++
++#include "aest.h"
++
++DEFINE_PER_CPU(struct aest_device, percpu_adev);
++
++#undef pr_fmt
++#define pr_fmt(fmt) "AEST: " fmt
++
++static int aest_init_record(struct aest_record *record, int i,
++			    struct aest_node *node)
++{
++	struct device *dev = node->adev->dev;
++
++	record->name = devm_kasprintf(dev, GFP_KERNEL, "record%d", i);
++	if (!record->name)
++		return -ENOMEM;
++
++	if (node->base)
++		record->regs_base =
++			node->base + sizeof(struct ras_ext_regs) * i;
++
++	record->addressing_mode = test_bit(i, node->info->addressing_mode);
++	record->index = i;
++	record->node = node;
++
++	aest_record_dbg(record, "base: %p, index: %d, address mode: %x\n",
++			record->regs_base, record->index,
++			record->addressing_mode);
++	return 0;
++}
++
++static void aest_device_remove(struct platform_device *pdev)
++{
++	platform_set_drvdata(pdev, NULL);
++}
++
++static char *alloc_aest_node_name(struct aest_node *node)
++{
++	char *name;
++
++	switch (node->type) {
++	case ACPI_AEST_PROCESSOR_ERROR_NODE:
++		name = devm_kasprintf(node->adev->dev, GFP_KERNEL, "%s.%d",
++				      aest_node_name[node->type],
++				      node->info->processor->processor_id);
++		break;
++	case ACPI_AEST_MEMORY_ERROR_NODE:
++	case ACPI_AEST_SMMU_ERROR_NODE:
++	case ACPI_AEST_VENDOR_ERROR_NODE:
++	case ACPI_AEST_GIC_ERROR_NODE:
++	case ACPI_AEST_PCIE_ERROR_NODE:
++	case ACPI_AEST_PROXY_ERROR_NODE:
++		name = devm_kasprintf(node->adev->dev, GFP_KERNEL, "%s.%llx",
++				      aest_node_name[node->type],
++				      node->info->interface_hdr->address);
++		break;
++	default:
++		name = devm_kasprintf(node->adev->dev, GFP_KERNEL, "Unknown");
++	}
++
++	return name;
++}
++
++static int aest_node_set_errgsr(struct aest_device *adev,
++				struct aest_node *node)
++{
++	struct acpi_aest_node *anode = node->info;
++	u64 errgsr_base = anode->common->error_group_register_base;
++
++	if (anode->interface_hdr->type != ACPI_AEST_NODE_MEMORY_MAPPED)
++		return 0;
++
++	if (!node->base)
++		return 0;
++
++	if (!(anode->interface_hdr->flags & AEST_XFACE_FLAG_ERROR_GROUP)) {
++		node->errgsr = node->base + ERXGROUP;
++		return 0;
++	}
++
++	if (!errgsr_base)
++		return -EINVAL;
++
++	node->errgsr = devm_ioremap(adev->dev, errgsr_base, PAGE_SIZE);
++	if (!node->errgsr)
++		return -ENOMEM;
++
++	return 0;
++}
++
++static int aest_init_node(struct aest_device *adev, struct aest_node *node,
++			  struct acpi_aest_node *anode)
++{
++	int i, ret;
++	u64 address;
++
++	node->adev = adev;
++	node->info = anode;
++	node->type = anode->type;
++	node->name = alloc_aest_node_name(node);
++	if (!node->name)
++		return -ENOMEM;
++	node->record_implemented = anode->record_implemented;
++	node->status_reporting = anode->status_reporting;
++
++	address = anode->interface_hdr->address;
++	if (address) {
++		node->base = devm_ioremap(adev->dev, address, PAGE_SIZE);
++		if (!node->base)
++			return -ENOMEM;
++	}
++
++	ret = aest_node_set_errgsr(adev, node);
++	if (ret)
++		return ret;
++
++	node->record_count = anode->interface_hdr->error_record_count;
++	node->records = devm_kcalloc(adev->dev, node->record_count,
++				     sizeof(struct aest_record), GFP_KERNEL);
++	if (!node->records)
++		return -ENOMEM;
++
++	for (i = 0; i < node->record_count; i++) {
++		ret = aest_init_record(&node->records[i], i, node);
++		if (ret)
++			return ret;
++	}
++	aest_node_dbg(node, "%d records, base: %llx, errgsr: %llx\n",
++		      node->record_count, (u64)node->base, (u64)node->errgsr);
++	return 0;
++}
++
++static int aest_init_nodes(struct aest_device *adev, struct aest_hnode *ahnode)
++{
++	struct acpi_aest_node *anode;
++	struct aest_node *node;
++	int ret, i = 0;
++
++	adev->node_cnt = ahnode->count;
++	adev->nodes = devm_kcalloc(adev->dev, adev->node_cnt,
++				   sizeof(struct aest_node), GFP_KERNEL);
++	if (!adev->nodes)
++		return -ENOMEM;
++
++	list_for_each_entry(anode, &ahnode->list, list) {
++		adev->type = anode->type;
++
++		node = &adev->nodes[i++];
++		ret = aest_init_node(adev, node, anode);
++		if (ret)
++			return ret;
++	}
++
++	return 0;
++}
++
++static int aest_device_probe(struct platform_device *pdev)
++{
++	int ret;
++	struct aest_device *adev;
++	struct aest_hnode *ahnode;
++
++	ahnode = *((struct aest_hnode **)pdev->dev.platform_data);
++	if (!ahnode)
++		return -ENODEV;
++
++	adev = devm_kzalloc(&pdev->dev, sizeof(*adev), GFP_KERNEL);
++	if (!adev)
++		return -ENOMEM;
++
++	adev->dev = &pdev->dev;
++	adev->id = pdev->id;
++	aest_set_name(adev, ahnode);
++	ret = aest_init_nodes(adev, ahnode);
++	if (ret)
++		return ret;
++
++	platform_set_drvdata(pdev, adev);
++
++	aest_dev_dbg(adev, "Node cnt: %x, id: %x\n", adev->node_cnt, adev->id);
++
++	return 0;
++}
++
++static struct platform_driver aest_driver = {
++	.driver	= {
++		.name	= "AEST",
++	},
++	.probe	= aest_device_probe,
++	.remove = aest_device_remove,
++};
++
++static int __init aest_init(void)
++{
++	return platform_driver_register(&aest_driver);
++}
++module_init(aest_init);
++
++static void __exit aest_exit(void)
++{
++	platform_driver_unregister(&aest_driver);
++}
++module_exit(aest_exit);
++
++MODULE_DESCRIPTION("ARM AEST Driver");
++MODULE_AUTHOR("Ruidong Tian <tianruidong@linux.alibaba.com>");
++MODULE_LICENSE("GPL");
+diff --git a/drivers/ras/aest/aest.h b/drivers/ras/aest/aest.h
+new file mode 100644
+index 000000000000..d918240c3f57
+--- /dev/null
++++ b/drivers/ras/aest/aest.h
+@@ -0,0 +1,124 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * ARM Error Source Table Support
++ *
++ * Copyright (c) 2025, Alibaba Group.
++ */
++
++#include <linux/acpi_aest.h>
++#include <asm/ras.h>
++
++#define MAX_GSI_PER_NODE 2
++
++#define aest_dev_err(__adev, format, ...) \
++	dev_err((__adev)->dev, format, ##__VA_ARGS__)
++#define aest_dev_info(__adev, format, ...) \
++	dev_info((__adev)->dev, format, ##__VA_ARGS__)
++#define aest_dev_dbg(__adev, format, ...) \
++	dev_dbg((__adev)->dev, format, ##__VA_ARGS__)
++
++#define aest_node_err(__node, format, ...)                          \
++	dev_err((__node)->adev->dev, "%s: " format, (__node)->name, \
++		##__VA_ARGS__)
++#define aest_node_info(__node, format, ...)                          \
++	dev_info((__node)->adev->dev, "%s: " format, (__node)->name, \
++		 ##__VA_ARGS__)
++#define aest_node_dbg(__node, format, ...)                          \
++	dev_dbg((__node)->adev->dev, "%s: " format, (__node)->name, \
++		##__VA_ARGS__)
++
++#define aest_record_err(__record, format, ...)                  \
++	dev_err((__record)->node->adev->dev, "%s: %s: " format, \
++		(__record)->node->name, (__record)->name, ##__VA_ARGS__)
++#define aest_record_info(__record, format, ...)                  \
++	dev_info((__record)->node->adev->dev, "%s: %s: " format, \
++		 (__record)->node->name, (__record)->name, ##__VA_ARGS__)
++#define aest_record_dbg(__record, format, ...)                  \
++	dev_dbg((__record)->node->adev->dev, "%s: %s: " format, \
++		(__record)->node->name, (__record)->name, ##__VA_ARGS__)
++
++#define ERXGROUP 0xE00
++
++struct aest_record {
++	char *name;
++	int index;
++	void __iomem *regs_base;
++
++	/*
++	 * This bit specifies the addressing mode  to populate the ERR_ADDR
++	 * register:
++	 *   0b: Error record reports System Physical Addresses (SPA) in
++	 *       the ERR_ADDR register.
++	 *   1b: Error record reports error node-specific Logical Addresses(LA)
++	 *       in the ERR_ADD register. OS must use other means to translate
++	 *       the reported LA into SPA
++	 */
++	int addressing_mode;
++	struct aest_node *node;
++};
++
++struct aest_node {
++	char *name;
++	u8 type;
++	void *errgsr;
++	void *base;
++
++	/*
++	 * This bitmap indicates which of the error records within this error
++	 * node must be polled for error status.
++	 * Bit[n] of this field pertains to error record corresponding to
++	 * index n in this error group.
++	 * Bit[n] = 0b: Error record at index n needs to be polled.
++	 * Bit[n] = 1b: Error record at index n do not needs to be polled.
++	 */
++	unsigned long *record_implemented;
++	/*
++	 * This bitmap indicates which of the error records within this error
++	 * node support error status reporting using ERRGSR register.
++	 * Bit[n] of this field pertains to error record corresponding to
++	 * index n in this error group.
++	 * Bit[n] = 0b: Error record at index n supports error status reporting
++	 *              through ERRGSR.S.
++	 * Bit[n] = 1b: Error record at index n does not support error reporting
++	 *              through the ERRGSR.S bit If this error record is
++	 *              implemented, then it must be polled explicitly for
++	 *              error events.
++	 */
++	unsigned long *status_reporting;
++
++	struct aest_device *adev;
++	struct acpi_aest_node *info;
++
++	int record_count;
++	struct aest_record *records;
++};
++
++struct aest_device {
++	struct device *dev;
++	u32 type;
++	int node_cnt;
++	struct aest_node *nodes;
++	u32 id;
++};
++
++static const char *const aest_node_name[] = {
++	[ACPI_AEST_PROCESSOR_ERROR_NODE] = "processor",
++	[ACPI_AEST_MEMORY_ERROR_NODE] = "memory",
++	[ACPI_AEST_SMMU_ERROR_NODE] = "smmu",
++	[ACPI_AEST_VENDOR_ERROR_NODE] = "vendor",
++	[ACPI_AEST_GIC_ERROR_NODE] = "gic",
++	[ACPI_AEST_PCIE_ERROR_NODE] = "pcie",
++	[ACPI_AEST_PROXY_ERROR_NODE] = "proxy",
++};
++
++static inline int aest_set_name(struct aest_device *adev,
++				struct aest_hnode *ahnode)
++{
++	adev->dev->init_name = devm_kasprintf(adev->dev, GFP_KERNEL, "%s%d",
++					      aest_node_name[ahnode->type],
++					      adev->id);
++	if (!adev->dev->init_name)
++		return -ENOMEM;
++
++	return 0;
++}
+diff --git a/include/linux/acpi_aest.h b/include/linux/acpi_aest.h
+index 53c1970e7583..77187ce43d44 100644
+--- a/include/linux/acpi_aest.h
++++ b/include/linux/acpi_aest.h
+@@ -15,6 +15,15 @@
+ 
+ #define AEST_MAX_INTERRUPT_PER_NODE 2
+ 
++/* AEST interface */
++#define AEST_XFACE_FLAG_SHARED (1 << 0)
++#define AEST_XFACE_FLAG_CLEAR_MISC (1 << 1)
++#define AEST_XFACE_FLAG_ERROR_DEVICE (1 << 2)
++#define AEST_XFACE_FLAG_AFFINITY (1 << 3)
++#define AEST_XFACE_FLAG_ERROR_GROUP (1 << 4)
++#define AEST_XFACE_FLAG_FAULT_INJECT (1 << 5)
++#define AEST_XFACE_FLAG_INT_CONFIG (1 << 6)
++
+ #define KB 1024
+ #define MB (1024 * KB)
+ #define GB (1024 * MB)
+-- 
+2.51.2.612.gdc70283dfc
 
-Tested-by: Mikko Rapeli <mikko.rapeli@linaro.org>
-
-That said, I also tested
-https://lore.kernel.org/dri-devel/20250627145058.6880-1-mike.looijmans@topic.nl/
-and it works.
-
-And I tested and submitted the patch for zynqmp framebuffer to prefer 16bpp
-until different modes are actually support, which fixes Xorg startup and
-the depth detection logic used there:
-
-https://lore.kernel.org/dri-devel/20251205123751.2257694-3-mikko.rapeli@linaro.org/
-
-This series and Mike's patches enable 24bpp mode to work, which I guess is the long
-term path, but it is not clear to me what is still missing.
-
-The patch from me fixes the current situtation where only 16bpp works but framebuffer
-driver does not prefer that and thus userspace X11 uses the default 24bpp
-which then fails. My patch could be merged right now until the XRGB8888 support
-is finalized.
-
-Cheers,
-
--Mikko
 
