@@ -4,67 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0799D711D5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 06:15:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A73FAE6748D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 06:17:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vpLJzdSHfbhVJyXyxwWml/Q2dMXJXDsf4LoaUgvXmf0=; b=eqRY7i3WR+kGRVaV67U9EZhyVn
-	MuX4KDGHwP6Sb0wOdzyEuwzWvG/Q25X52VSqIDWx5UKhsxw6G1p23mDgIadaYrWvkRGN/Z4A1U0BA
-	xag0cAzmq7KpPz/i0wdcqV6yVMIg00gbSRhWZuJGjqTiDK7N+GZzfdH2ki8KwY0OInWzwvbEg2GIM
-	AelYJnd0iz++g48Kxcml2fJ1XrCx4BFNpHUtB6BMUwtHNCSdO1vu8FzsktySnwV1+k6xdTPEBkXNr
-	dvNoDHKvX9EfltALkkQ6dCZrTYjOlT68YOJ1Kn4du0iLLA4ozWZ7ZG/D2LI/sP+oYta97tPeZ2xMJ
-	+a1hzZXA==;
+	bh=7BUxOaSmk6cq1cipFEMyq/6uEqj9whr01OXMDUao7OU=; b=bs9RbKEyd99TV84/HDynFMzId1
+	dpszNbBOYAsxBYG/sPebmO6jzn6/eDIpM6TvFDWeKpKrKgZ6KRXRee4eJB+3IeqZxGy4QUIB2VpBd
+	iEENllm6+3lKWixO1BXudFjVk8r3ivZivkDS/WrHjTJfX0rmUaR+5UOcgKHY9K2WL8RZYENO5yJi+
+	q+saayUGIYmw+0/Btz+cimfkUksyGFq+HE2ci2ZlZuIH6y7aoJUZm8hUeS9KG3rHDOnIBzd/Zwlj/
+	ihTufxiP9jy824tFAC+IJYF8Y7wtu0cgzXsGMd/CQcQF7YcKhA1UN878Z0keDglf/Lpo4a3URP5bG
+	NV62rsWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXZCa-0000000DGrf-3CHf;
-	Mon, 22 Dec 2025 06:15:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vXZEJ-0000000DHEy-1tIR;
+	Mon, 22 Dec 2025 06:17:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXZCZ-0000000DGrD-0kWq;
-	Mon, 22 Dec 2025 06:15:27 +0000
+	id 1vXZEI-0000000DHEZ-2YCD;
+	Mon, 22 Dec 2025 06:17:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2A0436001D;
-	Mon, 22 Dec 2025 06:15:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BAFAC4CEF1;
-	Mon, 22 Dec 2025 06:15:19 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D7B6F6001D;
+	Mon, 22 Dec 2025 06:17:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C65A7C4CEF1;
+	Mon, 22 Dec 2025 06:17:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766384123;
-	bh=GXEtZp4QRQx0hcOsDqW5Mo0KVr1eWC8Jjb7PsD5/6AY=;
+	s=k20201202; t=1766384232;
+	bh=+PJJrLUZuuvwo/YknxXQIYCxBgkPwh5ViNEYKOPqGLk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ua+tOSC3ui9atQi4EUgmggjiDNruCiGJkW5003dHm3u9C6zi/6Roi2qB7xStYF5q8
-	 1LL4VQDcurSMdJwPlF9oli/tvKNTbe0bO3KAtNEIDnT5z7eZ2rRB7l4CuHWrUnomLx
-	 SIp++9sGYj8AWWYm0Clftu55di+RJ5/SmMAl6/AN68UENro2APxOFaKp42pQjGbeyQ
-	 1UUY1LkKCsBoS+zUjh8gZFMHH9BIz+Lxpk3Y4DqZJNa39b9Yw+UGoyuBgaM1g+J6bE
-	 SefjlR34LQ/kzlaoqJR6UMJQxa/0XDjQ9a6w7ZzD01OMfvy7KDxMeXx9xvVvjC6dxu
-	 W8xHzJyBxOuRA==
-Date: Mon, 22 Dec 2025 11:45:09 +0530
+	b=QUOZEoyJQstFde3gfBLzzzrHX16nHgjhjNRxUJoGVckt+cwXYFKX/8s0ahpHkJUJ0
+	 wIvfxGJHOOxDkc7YqDXyD+Strd6UBqCkUddyT1eRF9MDsQGkSFjaY4wARRp1BKuM+Y
+	 0EdF87kTzSxmv8tWQr9bc5VWFdr8qyflO/sqUUm8+FAmm6eH4McKZHH/C5IstKkLlL
+	 jWj9I2HXicWC4Wv7JAk3x1wrwNA482sN7AZFQaYXm0R9aCkl7rzb7HHYzscZMTMSda
+	 RWKysMjOX0UO+6Z4iku0esn/gWAH/turVg2PCS10ycK93qiTQ5g1bBAhwezZ6NmrJ5
+	 Xt5Oz4xn7AbJw==
+Date: Mon, 22 Dec 2025 11:46:57 +0530
 From: Manivannan Sadhasivam <mani@kernel.org>
 To: Niklas Cassel <cassel@kernel.org>
-Cc: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
-	Jingoo Han <jingoohan1@gmail.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
-	FUKAUMI Naoki <naoki@radxa.com>, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+Cc: Jingoo Han <jingoohan1@gmail.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Shawn Lin <shawn.lin@rock-chips.com>, 
+	FUKAUMI Naoki <naoki@radxa.com>, Krishna chaitanya chundru <quic_krichai@quicinc.com>, 
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	linux-rockchip@lists.infradead.org, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH v2] PCI: dwc: Make Link Up IRQ logic handle already
- powered on PCIe switches
-Message-ID: <fle74skju2rorxmfdvosmeyrx3g75rysuszov5ofvde2exj4ir@3kfjyfyhczmn>
-References: <20251201063634.4115762-2-cassel@kernel.org>
- <f1059d5d-3fa5-423a-8093-0e99b65d5f4c@oss.qualcomm.com>
- <aTev28wihes6iJqs@dhcp-10-89-81-223>
- <dad4957c-ca13-4742-b46d-03f0478911d5@oss.qualcomm.com>
- <aTe1bA7lcVzFD5L7@dhcp-10-89-81-223>
- <pjn2gs43rqbe3odh6zvh4qaftxxl6qvdzpm6pgpadxeeid42ko@4a2qradscaqd>
- <aTu4JgDcfb_58qBK@fedora>
+Subject: Re: [PATCH 0/6] PCI: dwc: Revert Link Up IRQ support
+Message-ID: <cngg5kifjqmrmb5ufyrv4k6dwo5tgatqssaeoog5aqpe7m253c@krov7axlplkw>
+References: <20251111105100.869997-8-cassel@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <aTu4JgDcfb_58qBK@fedora>
+In-Reply-To: <20251111105100.869997-8-cassel@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,48 +73,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 12, 2025 at 03:37:26PM +0900, Niklas Cassel wrote:
-> Hello Mani,
+On Tue, Nov 11, 2025 at 11:51:00AM +0100, Niklas Cassel wrote:
+> Revert all patches related to pcie-designware Root Complex Link Up IRQ
+> support.
 > 
-> On Fri, Dec 12, 2025 at 12:52:35PM +0900, Manivannan Sadhasivam wrote:
-> > > This patch missed the v6.19 merge window (and so did the pwrctrl rework
-> > > series), so as long as Mani queues up both for v6.20 (with the pwrctrl
-> > > rework series getting applied first), I think we are good.
-> > > 
-> > 
-> > The plan is to merge pwrctrl series to v6.20 (unless we get strong objections),
-> > but once that happens, Qcom doesn't need this patch.
-> > 
-> > So it'd be good if you can just limit this patch to just Rockchip. Then once the
-> > Rockchip also moves to pwrctrl, we can revert this patch (also the whole IRQ
-> > based link up since the Root Port is not hotplug capable).
+> While this fake hotplugging was a nice idea, it has shown that this feature
+> does not handle PCIe switches correctly:
+> pci_bus 0004:43: busn_res: can not insert [bus 43-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
+> pci_bus 0004:43: busn_res: [bus 43-41] end is updated to 43
+> pci_bus 0004:43: busn_res: can not insert [bus 43] under [bus 42-41] (conflicts with (null) [bus 42-41])
+> pci 0004:42:00.0: devices behind bridge are unusable because [bus 43] cannot be assigned for them
+> pci_bus 0004:44: busn_res: can not insert [bus 44-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
+> pci_bus 0004:44: busn_res: [bus 44-41] end is updated to 44
+> pci_bus 0004:44: busn_res: can not insert [bus 44] under [bus 42-41] (conflicts with (null) [bus 42-41])
+> pci 0004:42:02.0: devices behind bridge are unusable because [bus 44] cannot be assigned for them
+> pci_bus 0004:45: busn_res: can not insert [bus 45-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
+> pci_bus 0004:45: busn_res: [bus 45-41] end is updated to 45
+> pci_bus 0004:45: busn_res: can not insert [bus 45] under [bus 42-41] (conflicts with (null) [bus 42-41])
+> pci 0004:42:06.0: devices behind bridge are unusable because [bus 45] cannot be assigned for them
+> pci_bus 0004:46: busn_res: can not insert [bus 46-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
+> pci_bus 0004:46: busn_res: [bus 46-41] end is updated to 46
+> pci_bus 0004:46: busn_res: can not insert [bus 46] under [bus 42-41] (conflicts with (null) [bus 42-41])
+> pci 0004:42:0e.0: devices behind bridge are unusable because [bus 46] cannot be assigned for them
+> pci_bus 0004:42: busn_res: [bus 42-41] end is updated to 46
+> pci_bus 0004:42: busn_res: can not insert [bus 42-46] under [bus 41] (conflicts with (null) [bus 41])
+> pci 0004:41:00.0: devices behind bridge are unusable because [bus 42-46] cannot be assigned for them
+> pcieport 0004:40:00.0: bridge has subordinate 41 but max busn 46
 > 
-> The main reason why I did not like a revert, was because it would remove
-> the nice feature where the bus is enumerated automatically on link up.
+> During the initial scan, PCI core doesn't see the switch and since the Root
+> Port is not hot plug capable, the secondary bus number gets assigned as the
+> subordinate bus number. This means, the PCI core assumes that only one bus
+> will appear behind the Root Port since the Root Port is not hot plug
+> capable.
 > 
-> I assumed that the plan was to add Link Up IRQ support in pwrctrl in the
-> future.
+> This works perfectly fine for PCIe endpoints connected to the Root Port,
+> since they don't extend the bus. However, if a PCIe switch is connected,
+> then there is a problem when the downstream busses starts showing up and
+> the PCI core doesn't extend the subordinate bus number after initial scan
+> during boot.
+> 
+> The long term plan is to migrate this driver to the pwrctrl framework,
+> once it adds proper support for powering up and enumerating PCIe switches.
 > 
 
-As I dig more and more into pwrctrl, it becomes clear to me that emulating
-hotplug on non-hotplug capable hw is a bad idea. Though it gives a nice user
-experience in majority of the cases, it also gives issue in some cases like
-switch. So pwrctrl will just power on all devices/slots before initial bus scan
-and will not do any link up based enumeration later. And neither the controller
-driver.
-
-> If that is not the case, and the plan is instead to eventually remove the
-> existing Link Up IRQ support, then perhaps you could simply apply patches
-> from:
-> https://lore.kernel.org/linux-pci/20251111105100.869997-8-cassel@kernel.org/
-> 
-> Either the whole series or just patch 1 and 2, maintainer's choice :)
-> 
-
-I tried applying the whole series, but it fails at patch 2. Could you please
-rebase against, pci/controller/dwc and repost?
+Could you please rebase this series on top of pci/controller/dwc branch and
+repost?
 
 - Mani
+
+> Niklas Cassel (6):
+>   Revert "PCI: dw-rockchip: Don't wait for link since we can detect Link
+>     Up"
+>   Revert "PCI: dw-rockchip: Enumerate endpoints based on dll_link_up
+>     IRQ"
+>   Revert "PCI: qcom: Don't wait for link if we can detect Link Up"
+>   Revert "PCI: qcom: Enable MSI interrupts together with Link up if
+>     'Global IRQ' is supported"
+>   Revert "PCI: qcom: Enumerate endpoints based on Link up event in
+>     'global_irq' interrupt"
+>   Revert "PCI: dwc: Don't wait for link up if driver can detect Link Up
+>     event"
+> 
+>  .../pci/controller/dwc/pcie-designware-host.c | 10 +--
+>  drivers/pci/controller/dwc/pcie-designware.h  |  1 -
+>  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 60 +-----------------
+>  drivers/pci/controller/dwc/pcie-qcom.c        | 63 +------------------
+>  4 files changed, 6 insertions(+), 128 deletions(-)
+> 
+> -- 
+> 2.51.1
+> 
 
 -- 
 மணிவண்ணன் சதாசிவம்
