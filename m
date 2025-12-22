@@ -4,72 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78309E67810
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 18:30:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A289FE674B9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 19:34:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=54cDYhVLZTQmg67XefimqPrB68TEDWGqX3xVSGdbfcg=; b=zAx9p127hAFycd0qXnONC0K/SF
-	aj5pLh/CtphV1Y4rjSBoBNWeeuRcmd52me4xH8sbBGgX5rXQ0qBrRfFxvb3nTkoFxZNpYvx2yc+ZT
-	WZaWoskmnJ2UILzdNOwX29MEsZDT3/TlEODrY2wiOzzjA1PG9VIx3FwppyYWRu7V1hbfKsFZ85EfG
-	LqgVI0t6uClPvPJDEpV7vDhofg/zQxvRNsccPEsXlYmcKh0PRnkk5Dm17wA6z3MrfMG3csW4To2bx
-	F/A7CbIitce6dNs5bJg3S/JnlSIS8F3udu4/Ac1o1bxPwyCk+lQggqxulu7Otqu/Nn7pRtVv9ziV+
-	QRo4qe+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AlYkI48R8rDAa0y9XkKvIFrYmbYd8scK8QFFTtIvgyc=; b=vVL3HT3cyZw83kzarhkLdcXPGv
+	U3N0WBfnCSopyyuoj7HXInFwcTd8z8BxGv4fPgUN4MjvN9pU3QnXZcfBR1ghDtDGjnGAnOXsE9n3E
+	sRfXxvnLQqaoHs4Nb0ZXFWgSNjBx862Bh1r3OSXuANa0mAcBziQh+kTJODr8mRYmmCw77OXxRvFw8
+	Idj0UzIaO4PPlPkf1tOtfie5OY1GqwswtBVyK9/xA8FAnI758e4YjLG0NBfNxjzhx9nihpaKqshoj
+	X/aKmsHSNv75x8HomNrr8XRyo925vnkpU0Y9YUKTefScxmmEA2p8lMnMZerthoUNNQXka2N3fgJY0
+	V7BtiRCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXkfW-0000000E4KP-17rt;
-	Mon, 22 Dec 2025 18:30:06 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1vXlfy-0000000E6LO-2B9X;
+	Mon, 22 Dec 2025 19:34:38 +0000
+Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXkfT-0000000E4Jz-0Rku
+	id 1vXlfw-0000000E6L3-0I6y
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Dec 2025 18:30:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1766428203; x=1797964203;
-  h=date:from:to:cc:subject:message-id;
-  bh=IXyWRuiMr9qA1yl9TXWOW3DoyRAwFq/Bx6+HLVZcBf4=;
-  b=gQtwrQQPhj1E2IiSKh1N1KP58am8736t07vsoxk+vcEGlbDfXNJJKEv2
-   5zTfcKc3+etmevrERnWXG4TFQnk03zLZgXbQejbUGqAJ1H8Ct8pzb/KLd
-   hNql7nqmBjsyQcTcUlXyqkC/kGMOokmQPjXTHWT/y/T1OoOem8+oCpLBA
-   MtDzMKaYBuBGFNJfLxV5uIErZR64bdnw80RrMwIEbvMArMIiONviJTINy
-   ZH2sjXoUnvufxWnrqSVWqSTYUwxLZI0/5u0iQjGaxXYCVUx8M528Lx4tQ
-   J5OA1j5M5rQZbBU9bQ7gHUIXra/oCwK26sHx43k7CXdqdmhKQ2XMPBJU4
-   Q==;
-X-CSE-ConnectionGUID: fkUBVOxzS2iLfIV57zdQvg==
-X-CSE-MsgGUID: NLn3+sIOT/mRnejkJQqReg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11650"; a="68178220"
-X-IronPort-AV: E=Sophos;i="6.21,168,1763452800"; 
-   d="scan'208";a="68178220"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Dec 2025 10:29:59 -0800
-X-CSE-ConnectionGUID: 3CQkKCnmSnGBvTxv3knFqQ==
-X-CSE-MsgGUID: mhH7lhXnRI65HrlLWEl/Og==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,168,1763452800"; 
-   d="scan'208";a="198825842"
-Received: from lkp-server02.sh.intel.com (HELO dd3453e2b682) ([10.239.97.151])
-  by orviesa010.jf.intel.com with ESMTP; 22 Dec 2025 10:29:56 -0800
-Received: from kbuild by dd3453e2b682 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vXkey-000000000yv-3SPl;
-	Mon, 22 Dec 2025 18:29:35 +0000
-Date: Tue, 23 Dec 2025 02:29:18 +0800
-From: kernel test robot <lkp@intel.com>
-To: Sascha Bischoff <sascha.bischoff@arm.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: [arm-platforms:kvm-arm64/gicv5-full 78/82]
- arch/arm64/kvm/vgic/vgic-v5-tables.c:1186:44: warning: variable 'host_l2sz'
- set but not used
-Message-ID: <202512230249.PtF5RcJh-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	Mon, 22 Dec 2025 19:34:37 +0000
+Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-7f66686710fso7580311b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 11:34:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1766432074; x=1767036874; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=AlYkI48R8rDAa0y9XkKvIFrYmbYd8scK8QFFTtIvgyc=;
+        b=FCSJmXx+19z7UC9DFvspcv0/mNWLPwObhjHCOlsaxeZeDbadxVyTI/VcjCvwVxxqgf
+         MdRZ6C5zw9EjQiw8V8afOSz6gkNlzDMbfNVVyiR6mG5YE2xpgeTI6uLPsttlyRLlFLnB
+         rxPc8u8AOU4qIgjZmOr91SDNqUvr8MWK/+eh81FYFvCd66A96X+xJCdQ0brdGQYqrd2A
+         2PYYTRsUZIHYnNzSWG0newLzWY7X2K9svdMe+xXrelYs3UcBMmXSONttRLf8MHGvuCNi
+         L8w97xQYgprDz1C60cQ1T5NINUqYFSZVcvybhMbcGP7dbcOCRO8PV/AdPA4RWm2TeMeQ
+         kpCw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766432074; x=1767036874;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=AlYkI48R8rDAa0y9XkKvIFrYmbYd8scK8QFFTtIvgyc=;
+        b=GQZVDUSVWqQ2GRLW5+R0dZ/+/ZuC3+Vpzzorc4YAcRxqFO/eGsSfRQWcpkwWmzWsdy
+         wO0M/du8x4YgBKTv8ZhQeieYJjBlfRs9dmaYtk/pWipIHTCAp+nsfQuYANfS5j1wCUdA
+         B+goQVN8+O48sicZ/hM767cjVu9OOIRydGvhUPH4KxPlKoT5z7+TNFNfzifZDOpL4zFI
+         f//mxHtdhG/E/nJOyKdvrE7wSMkoCFgfhAFQsd8bbxs6CLcsXRazABnJL4aUNX10hOiZ
+         lscYXdz8jVRI6wD8uFz4F/qPmeFSerdrOZtCL7dS3Yxglk4VfakMKgRY++ShK/+oW6gq
+         Eebw==
+X-Forwarded-Encrypted: i=1; AJvYcCVPFaDa8IUcvOC2585jpWKjJjMqHYTdEvmP2A5cej/8qyI0T9k7dHBcmn46RaF1jtIziqR58oxymegjbKGaxMAL@lists.infradead.org
+X-Gm-Message-State: AOJu0YwP7UE5d6PNjAILPcnpHe63hSd9t91DaVPec4fItkK3hU2ptcwX
+	6tXl5nIVYnDYnE3uBvhUQT1p0BF4ShqtWWxNWSKNNWLQlmocJZEKjceNNX0AKtaYuGiyJlcKAnt
+	GYpP7nA==
+X-Google-Smtp-Source: AGHT+IFQJqAuyHxNAigny9/MSevy2mpYeUMro9jWgsV9+9vQmlzsPQ5Fm6pbN/pdGRzYpAvVJGojsJA2mQE=
+X-Received: from pjboa3.prod.google.com ([2002:a17:90b:1bc3:b0:34c:2f02:7f5d])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:7f93:b0:366:14b0:1a31
+ with SMTP id adf61e73a8af0-376aaefd515mr11821081637.63.1766432074363; Mon, 22
+ Dec 2025 11:34:34 -0800 (PST)
+Date: Mon, 22 Dec 2025 11:34:33 -0800
+In-Reply-To: <42513cb3-3c2e-4aa8-b748-23b6656a5096@redhat.com>
+Mime-Version: 1.0
+References: <20250611224604.313496-2-seanjc@google.com> <20250611224604.313496-40-seanjc@google.com>
+ <njhjud3e6wbdftzr3ziyuh5bhyvc5ndt5qvmg7rlvh5isoop2l@f2uxctws2c7d> <42513cb3-3c2e-4aa8-b748-23b6656a5096@redhat.com>
+Message-ID: <aUmdSb3d7Z5REMLk@google.com>
+Subject: Re: possible deadlock due to irq_set_thread_affinity() calling into
+ the scheduler (was Re: [PATCH v3 38/62] KVM: SVM: Take and hold ir_list_lock
+ across IRTE updates in IOMMU)
+From: Sean Christopherson <seanjc@google.com>
+To: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Ankit Soni <Ankit.Soni@amd.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Joerg Roedel <joro@8bytes.org>, 
+	David Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, iommu@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	Sairaj Kodilkar <sarunkod@amd.com>, Vasant Hegde <vasant.hegde@amd.com>, 
+	Maxim Levitsky <mlevitsk@redhat.com>, Joao Martins <joao.m.martins@oracle.com>, 
+	Francesco Lavra <francescolavra.fl@gmail.com>, David Matlack <dmatlack@google.com>, 
+	Naveen Rao <Naveen.Rao@amd.com>
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_103003_750136_B3D0B020 
-X-CRM114-Status: UNSURE (   8.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251222_113436_143759_0A669CC2 
+X-CRM114-Status: GOOD (  38.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,82 +98,257 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git kvm-arm64/gicv5-full
-head:   1426b88096b597395df4c82f089b87c62bab45da
-commit: ba5d2e0b287e57a009751d6a993a4b31206fd97b [78/82] KVM: arm64: gic-v5: Implement Save/Restore for ISTs
-config: arm64-randconfig-003-20251222 (https://download.01.org/0day-ci/archive/20251223/202512230249.PtF5RcJh-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 11.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251223/202512230249.PtF5RcJh-lkp@intel.com/reproduce)
+On Mon, Dec 22, 2025, Paolo Bonzini wrote:
+> On 12/22/25 10:16, Ankit Soni wrote:
+> >    ======================================================
+> >    WARNING: possible circular locking dependency detected
+> >    6.19.0-rc2 #20 Tainted: G            E
+> >    ------------------------------------------------------
+> >    CPU 58/KVM/28597 is trying to acquire lock:
+> >      ff12c47d4b1f34c0 (&irq_desc_lock_class){-.-.}-{2:2}, at: __irq_get_desc_lock+0x58/0xa0
+> > 
+> >      but task is already holding lock:
+> >      ff12c49b28552110 (&svm->ir_list_lock){....}-{2:2}, at: avic_pi_update_irte+0x147/0x270 [kvm_amd]
+> > 
+> >      which lock already depends on the new lock.
+> > 
+> >    Chain exists of:
+> >      &irq_desc_lock_class --> &rq->__lock --> &svm->ir_list_lock
+> > 
+> >    Possible unsafe locking scenario:
+> > 
+> >          CPU0                            CPU1
+> >          ----                            ----
+> >     lock(&svm->ir_list_lock);
+> >                                        lock(&rq->__lock);
+> >                                        lock(&svm->ir_list_lock);
+> >     lock(&irq_desc_lock_class);
+> > 
+> >          *** DEADLOCK ***
+> > 
+> > So lockdep sees:
+> > 
+> >    &irq_desc_lock_class -> &rq->__lock -> &svm->ir_list_lock
+> > 
+> > while avic_pi_update_irte() currently holds svm->ir_list_lock and then
+> > takes irq_desc_lock via irq_set_vcpu_affinity(), which creates the
+> > potential inversion.
+> > 
+> >    - Is this lockdep warning expected/benign in this code path, or does it
+> >      indicate a real potential deadlock between svm->ir_list_lock and
+> >      irq_desc_lock with AVIC + irq_bypass + VFIO?
+> 
+> I'd treat it as a potential (if unlikely) deadlock:
+> 
+> (a) irq_set_thread_affinity triggers the scheduler via wake_up_process,
+> while irq_desc->lock is taken
+> 
+> (b) the scheduler calls into KVM with rq_lock taken, and KVM uses
+> ir_list_lock within __avic_vcpu_load/__avic_vcpu_put
+> 
+> (c) KVM wants to block scheduling for a while and uses ir_list_lock for
+> that purpose, but then takes irq_set_vcpu_affinity takes irq_desc->lock.
+> 
+> I don't think there's an alternative choice of lock for (c); and there's
+> no easy way to pull the irq_desc->lock out of the IRQ subsystem--in fact
+> the stickiness of the situation comes from rq->rq_lock and
+> irq_desc->lock being both internal and not leaf.
+> 
+> Of the three, the most sketchy is (a);
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202512230249.PtF5RcJh-lkp@intel.com/
+Maybe the most unnecessary, but I think there's a pretty strong argument that
+(d) is the most sketchy:
 
-All warnings (new ones prefixed by >>):
+  (d) KVM takes svm->ir_list_lock around the call to irq_set_vcpu_affinity()
 
-   arch/arm64/kvm/vgic/vgic-v5-tables.c: In function 'vgic_v5_save_spi_ist':
->> arch/arm64/kvm/vgic/vgic-v5-tables.c:1186:44: warning: variable 'host_l2sz' set but not used [-Wunused-but-set-variable]
-    1186 |         unsigned host_id_bits, host_istsz, host_l2sz;
-         |                                            ^~~~~~~~~
-   arch/arm64/kvm/vgic/vgic-v5-tables.c: In function 'vgic_v5_restore_spi_ist':
-   arch/arm64/kvm/vgic/vgic-v5-tables.c:1380:44: warning: variable 'host_l2sz' set but not used [-Wunused-but-set-variable]
-    1380 |         unsigned host_id_bits, host_istsz, host_l2sz;
-         |                                            ^~~~~~~~~
+> notably, __setup_irq() calls wake_up_process outside desc->lock.  Therefore
+> I'd like so much to treat it as a kernel/irq/ bug; and the simplest (perhaps
+> too simple...) fix is to drop the wake_up_process().  The only cost is extra
+> latency on the next interrupt after an affinity change.
 
+Alternatively, what if we rework the KVM<=>IOMMU exchange to decouple updating
+the IRTE from binding the metadata to the vCPU?  KVM already has the necessary
+exports to do "out-of-band" updates due to the AVIC architecture requiring IRTE
+updates on scheduling changes.
 
-vim +/host_l2sz +1186 arch/arm64/kvm/vgic/vgic-v5-tables.c
+It's a bit wonky (and not yet tested), but I like the idea of making
+svm->ir_list_lock a leaf lock so that we don't end up with a game of whack-a-mole,
+e.g. if something in the IRQ subsystem changes in the future.
 
-  1179	
-  1180	int vgic_v5_save_spi_ist(struct kvm *kvm, struct kvm_device_attr *attr)
-  1181	{
-  1182		u16 vm_id = vgic_v5_vm_id(kvm);
-  1183		u32 __user *uaddr = (u32 __user *)(unsigned long)attr->addr;
-  1184		int ret = 0;
-  1185		__le32 h_iste;
-> 1186		unsigned host_id_bits, host_istsz, host_l2sz;
-  1187		volatile void *host_ist_base;
-  1188		struct vmtl2_entry *vmte;
-  1189		gicv5_vm_info *vmi;
-  1190	
-  1191		ret = vgic_v5_check_vm_id(vm_id);
-  1192		if (ret)
-  1193			return ret;
-  1194	
-  1195		vmi = xa_load(&vm_info, vm_id);
-  1196		if (WARN_ON_ONCE(!vmi))
-  1197			return -EINVAL;
-  1198	
-  1199		ret = vgic_v5_get_l2_vmte(vm_id, &vmte);
-  1200		if (ret)
-  1201			return ret;
-  1202	
-  1203		host_ist_base = vmi->h_spi_ist;
-  1204		if (!host_ist_base && attr)
-  1205			return -ENOENT;
-  1206		else if (host_ist_base && !attr)
-  1207			return -EINVAL;
-  1208	
-  1209		host_id_bits = FIELD_GET(GICV5_VMTEL2E_IST_ID_BITS, vmte->val[3]);
-  1210		host_istsz = FIELD_GET(GICV5_VMTEL2E_IST_ISTSZ, vmte->val[3]);
-  1211		host_l2sz = FIELD_GET(GICV5_VMTEL2E_IST_L2SZ, vmte->val[3]);
-  1212	
-  1213		for (int i = 0; i < BIT(host_id_bits); ++i) {
-  1214			volatile void *h_iste_addr = host_ist_base + i * BIT(host_istsz + 2);
-  1215			h_iste = *((__le32*)h_iste_addr);
-  1216	
-  1217			ret = put_user(h_iste, uaddr);
-  1218			if (ret)
-  1219				return ret;
-  1220	
-  1221			uaddr++;
-  1222		}
-  1223	
-  1224		return ret;
-  1225	}
-  1226	
+---
+ arch/x86/include/asm/irq_remapping.h |  3 --
+ arch/x86/kvm/svm/avic.c              | 78 ++++++++++++++++++----------
+ drivers/iommu/amd/iommu.c            | 24 +++------
+ 3 files changed, 57 insertions(+), 48 deletions(-)
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+diff --git a/arch/x86/include/asm/irq_remapping.h b/arch/x86/include/asm/irq_remapping.h
+index 4e55d1755846..1426ecd09943 100644
+--- a/arch/x86/include/asm/irq_remapping.h
++++ b/arch/x86/include/asm/irq_remapping.h
+@@ -35,9 +35,6 @@ struct amd_iommu_pi_data {
+ 	u64 vapic_addr;		/* Physical address of the vCPU's vAPIC. */
+ 	u32 ga_tag;
+ 	u32 vector;		/* Guest vector of the interrupt */
+-	int cpu;
+-	bool ga_log_intr;
+-	bool is_guest_mode;
+ 	void *ir_data;
+ };
+ 
+diff --git a/arch/x86/kvm/svm/avic.c b/arch/x86/kvm/svm/avic.c
+index 6b77b2033208..0f4f353c7db6 100644
+--- a/arch/x86/kvm/svm/avic.c
++++ b/arch/x86/kvm/svm/avic.c
+@@ -868,6 +868,51 @@ static void svm_ir_list_del(struct kvm_kernel_irqfd *irqfd)
+ 	raw_spin_unlock_irqrestore(&to_svm(vcpu)->ir_list_lock, flags);
+ }
+ 
++static int avic_pi_add_irte(struct kvm_kernel_irqfd *irqfd, void *ir_data,
++			    struct kvm_vcpu *vcpu)
++{
++	struct vcpu_svm *svm = to_svm(vcpu);
++	int r;
++
++	/*
++	 * Prevent the vCPU from being scheduled out or migrated until the IRTE
++	 * is updated and its metadata has been added to the list of IRQs being
++	 * posted to the vCPU, to ensure the IRTE isn't programmed with stale
++	 * pCPU/IsRunning information.
++	 */
++	guard(raw_spinlock_irqsave)(&svm->ir_list_lock);
++
++	if (kvm_vcpu_apicv_active(vcpu)) {
++		u64 entry = svm->avic_physical_id_entry;
++		bool ga_log_intr;
++		int cpu;
++
++		/*
++		 * Update the target pCPU for IOMMU doorbells if the vCPU is
++		 * running.  If the vCPU is NOT running, i.e. is blocking or
++		 * scheduled out, KVM will update the pCPU info when the vCPU
++		 * is awakened and/or scheduled in.  See also avic_vcpu_load().
++		 */
++		if (entry & AVIC_PHYSICAL_ID_ENTRY_IS_RUNNING_MASK) {
++			cpu = entry & AVIC_PHYSICAL_ID_ENTRY_HOST_PHYSICAL_ID_MASK;
++			ga_log_intr = false;
++		} else {
++			cpu = -1;
++			ga_log_intr = entry & AVIC_PHYSICAL_ID_ENTRY_GA_LOG_INTR;
++		}
++		r = amd_iommu_activate_guest_mode(ir_data, cpu, ga_log_intr);
++	} else {
++		r = amd_iommu_deactivate_guest_mode(ir_data);
++	}
++
++	if (r)
++		return r;
++
++	irqfd->irq_bypass_data = ir_data;
++	list_add(&irqfd->vcpu_list, &svm->ir_list);
++	return 0;
++}
++
+ int avic_pi_update_irte(struct kvm_kernel_irqfd *irqfd, struct kvm *kvm,
+ 			unsigned int host_irq, uint32_t guest_irq,
+ 			struct kvm_vcpu *vcpu, u32 vector)
+@@ -888,36 +933,11 @@ int avic_pi_update_irte(struct kvm_kernel_irqfd *irqfd, struct kvm *kvm,
+ 		struct amd_iommu_pi_data pi_data = {
+ 			.ga_tag = AVIC_GATAG(to_kvm_svm(kvm)->avic_vm_id,
+ 					     vcpu->vcpu_idx),
+-			.is_guest_mode = kvm_vcpu_apicv_active(vcpu),
+ 			.vapic_addr = avic_get_backing_page_address(to_svm(vcpu)),
+ 			.vector = vector,
+ 		};
+-		struct vcpu_svm *svm = to_svm(vcpu);
+-		u64 entry;
+ 		int ret;
+ 
+-		/*
+-		 * Prevent the vCPU from being scheduled out or migrated until
+-		 * the IRTE is updated and its metadata has been added to the
+-		 * list of IRQs being posted to the vCPU, to ensure the IRTE
+-		 * isn't programmed with stale pCPU/IsRunning information.
+-		 */
+-		guard(raw_spinlock_irqsave)(&svm->ir_list_lock);
+-
+-		/*
+-		 * Update the target pCPU for IOMMU doorbells if the vCPU is
+-		 * running.  If the vCPU is NOT running, i.e. is blocking or
+-		 * scheduled out, KVM will update the pCPU info when the vCPU
+-		 * is awakened and/or scheduled in.  See also avic_vcpu_load().
+-		 */
+-		entry = svm->avic_physical_id_entry;
+-		if (entry & AVIC_PHYSICAL_ID_ENTRY_IS_RUNNING_MASK) {
+-			pi_data.cpu = entry & AVIC_PHYSICAL_ID_ENTRY_HOST_PHYSICAL_ID_MASK;
+-		} else {
+-			pi_data.cpu = -1;
+-			pi_data.ga_log_intr = entry & AVIC_PHYSICAL_ID_ENTRY_GA_LOG_INTR;
+-		}
+-
+ 		ret = irq_set_vcpu_affinity(host_irq, &pi_data);
+ 		if (ret)
+ 			return ret;
+@@ -932,9 +952,11 @@ int avic_pi_update_irte(struct kvm_kernel_irqfd *irqfd, struct kvm *kvm,
+ 			return -EIO;
+ 		}
+ 
+-		irqfd->irq_bypass_data = pi_data.ir_data;
+-		list_add(&irqfd->vcpu_list, &svm->ir_list);
+-		return 0;
++		ret = avic_pi_add_irte(irqfd, pi_data.ir_data, vcpu);
++		if (WARN_ON_ONCE(ret))
++			irq_set_vcpu_affinity(host_irq, NULL);
++
++		return ret;
+ 	}
+ 	return irq_set_vcpu_affinity(host_irq, NULL);
+ }
+diff --git a/drivers/iommu/amd/iommu.c b/drivers/iommu/amd/iommu.c
+index 5d45795c367a..855c6309900c 100644
+--- a/drivers/iommu/amd/iommu.c
++++ b/drivers/iommu/amd/iommu.c
+@@ -3970,7 +3970,6 @@ EXPORT_SYMBOL(amd_iommu_deactivate_guest_mode);
+ 
+ static int amd_ir_set_vcpu_affinity(struct irq_data *data, void *info)
+ {
+-	int ret;
+ 	struct amd_iommu_pi_data *pi_data = info;
+ 	struct amd_ir_data *ir_data = data->chip_data;
+ 	struct irq_2_irte *irte_info = &ir_data->irq_2_irte;
+@@ -3993,25 +3992,16 @@ static int amd_ir_set_vcpu_affinity(struct irq_data *data, void *info)
+ 
+ 	ir_data->cfg = irqd_cfg(data);
+ 
+-	if (pi_data) {
+-		pi_data->ir_data = ir_data;
++	if (!pi_data)
++		return amd_iommu_deactivate_guest_mode(ir_data);
+ 
+-		ir_data->ga_root_ptr = (pi_data->vapic_addr >> 12);
+-		ir_data->ga_vector = pi_data->vector;
+-		ir_data->ga_tag = pi_data->ga_tag;
+-		if (pi_data->is_guest_mode)
+-			ret = amd_iommu_activate_guest_mode(ir_data, pi_data->cpu,
+-							    pi_data->ga_log_intr);
+-		else
+-			ret = amd_iommu_deactivate_guest_mode(ir_data);
+-	} else {
+-		ret = amd_iommu_deactivate_guest_mode(ir_data);
+-	}
+-
+-	return ret;
++	pi_data->ir_data = ir_data;
++	ir_data->ga_root_ptr = (pi_data->vapic_addr >> 12);
++	ir_data->ga_vector = pi_data->vector;
++	ir_data->ga_tag = pi_data->ga_tag;
++	return 0;
+ }
+ 
+-
+ static void amd_ir_update_irte(struct irq_data *irqd, struct amd_iommu *iommu,
+ 			       struct amd_ir_data *ir_data,
+ 			       struct irq_2_irte *irte_info,
+
+base-commit: 9448598b22c50c8a5bb77a9103e2d49f134c9578
+--
 
