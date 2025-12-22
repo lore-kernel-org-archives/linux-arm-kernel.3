@@ -4,84 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAE7CE66886
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 02:06:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A05ED68BD5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 02:07:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T4b0AVWqU2i8eA5vP8y1GXsxHHkwJ90eXPFBqwdIcpo=; b=ye8rV9Ab/bFnC3+P3Seqyy9sH8
-	QYwhxIUdDKrLhKHTeoM4ygC8yVy4YPXmplFyv36uv+0Np9sF1yXzkgR4dzYd8G8lmT/P5i87oYMiP
-	OqMBfg9v+XP5Y38Pb6w1Gr6YkvHy1kbZTV6Jb1xpzQWs5yWLEl1bqlL8DIjQ4JNKRDG3PDVaR6j+D
-	RW2Cpn3S7dS4FRIyeR5FY+iEbbfWnwDolN77j+MQzD9Daa/Cw4EUPD0jJtrE8THT8WaSEYNDA1Uld
-	l3WtXtwdTyevf7m9KJD22OF1bHHHFN3YRLChSnyLxzMqyJ83Pq88SpFEq1vWqG+n4aOFfvASNK1pb
-	i0QiOGUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UFWqxMWqijEyANpTG/Dze+PIH48mfYfp/YR6eZtBL6I=; b=QhQ/2ggx94sFJYprGMVt7MdXjX
+	b15wj2y8KPJvYOxy+/D7PXmlQWTM8nd+STOveiewBsaRdp6uumX3J9OaDDHOtveHfuxOQr34fjp0P
+	JzWmM0xLnrKYlrfcFJ51TNUR/Kps7Be7TKZQsdy59I7X9Nz1TN2NqMvlMESRPoMCRpllCZJ4MId15
+	1rQV7rTki9vB7vJqzTeQhP4GCfF6SsWXxda4l4xa1R1r4nHqzJyrixN4r77ueNUbIF5VOg0ui7Fhw
+	p7rpXoocOa3oMkJFCu/cwD110OsRh0S/sqkw4IoHsye1SiqFsJl/x4BhoZhitlg8QBNzjg51A/FLr
+	Xtsrmdkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXVJE-0000000CyNp-2cX7;
-	Mon, 22 Dec 2025 02:06:04 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1vXVK5-0000000CyT2-0x0w;
+	Mon, 22 Dec 2025 02:06:57 +0000
+Received: from mail-northeuropeazon11012032.outbound.protection.outlook.com ([52.101.66.32] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXVJ7-0000000CyNH-3oIS
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Dec 2025 02:06:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1766369158; x=1797905158;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=74Ut1XHK0Vm4PFNeT//uEB30ynxJ0edLsHANsPIf0HY=;
-  b=bWmCM/e2Uj8Ij/Xe0o5DjYMfROnOTNgNi9CCTd/4dCy48D1h2CY8EvP0
-   QUJWx3t8LHQKwE8aVv4oqWkDHlDGkBdLvtzg2Ykr9qWUENpcmYyVpJVZT
-   wXusbEN2aC/7O+R3JY6fV0Lf4cyP2gbFugKSM31aDtwjiSJG+az5GvC1t
-   W1pRA65OWaqBoHqQYYsSGJ3Tl2UfnNSNeUOcgGjtVhis42+6x5mdcmnSK
-   rZUWD4RwbIlaN6Pcx1ZU3QV/rlhkL4sanEotb1hQmStENkEkQUQhGU7Mt
-   5MWotenA0C4qvcxUI2PN4/XscmxdVhzcInMCGXYjBtOfTrjBZCQFhZGgH
-   w==;
-X-CSE-ConnectionGUID: Lw3ETrtKTRWqayMUvzqPWA==
-X-CSE-MsgGUID: Ari+sJZERuOyoZltIMGEzw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11649"; a="68380072"
-X-IronPort-AV: E=Sophos;i="6.21,167,1763452800"; 
-   d="scan'208";a="68380072"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Dec 2025 18:05:55 -0800
-X-CSE-ConnectionGUID: yyog3z2hQm6/itLrAJirFQ==
-X-CSE-MsgGUID: G27CFI2eSW6N9+rNHGbJrw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,167,1763452800"; 
-   d="scan'208";a="203873738"
-Received: from lkp-server02.sh.intel.com (HELO 9d662e18a02b) ([10.239.97.151])
-  by fmviesa005.fm.intel.com with ESMTP; 21 Dec 2025 18:05:52 -0800
-Received: from kbuild by 9d662e18a02b with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vXVIY-0000000003B-2U6u;
-	Mon, 22 Dec 2025 02:05:35 +0000
-Date: Mon, 22 Dec 2025 10:03:00 +0800
-From: kernel test robot <lkp@intel.com>
-To: Pankaj Gupta <pankaj.gupta@nxp.com>, Jonathan Corbet <corbet@lwn.net>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH v23 3/7] firmware: imx: add driver for NXP EdgeLock
- Enclave
-Message-ID: <202512220932.Gu4LnMge-lkp@intel.com>
-References: <20251219-imx-se-if-v23-3-5c6773d00318@nxp.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+	id 1vXVK2-0000000CySB-0RrX;
+	Mon, 22 Dec 2025 02:06:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jdqrqMkEbhpRa/KePIjbuaHZ2pwTuIpuxMutmY5YqmlyS9UflEnMzzbo8ZMZXe6iFiDLlaRk4jT2Nca3iJJ9ZsYeEjcjWdC2EY/uP+m7Lhm43FQgDAa960MOZPZ1JMv/kpLjEJ7ZEz9Tn1PJyEinsKcfhNM0oA4SUvzJX0SLSPVt4+3EY1tKxWHaIbR343KrdXUHmi5B+reW+645vEUSCpXDYbwgKHPAtKU3eqcSfUekc3Fjf527WRwv087pji+EvezYiBYJt+E7AtZVpwtZQYliUJr2LPXRvu6PsrR380TKi1h4bn+VkY2rIMrh6o2cLC6cjprbthtJtHAVdq4V9g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=UFWqxMWqijEyANpTG/Dze+PIH48mfYfp/YR6eZtBL6I=;
+ b=fvUwL6fy6bVaFHpDKPnZlA9vvz1enadYcJO32OoWIJeSLWSxw+lhTifWcnlhe5Pogl4a5bOPyuBfBCmLjpbkpl//5LOi2a7UuqLcXiERdVw3g7spJXxW9kSJSCb1KkufSt1UgqpjYjGkv3QqpKsd23YlsfzG1ayW+ypZB+qZyoeCMcw/cDlkSnazjdzFGlQc6Xii2iQOYYDUkFUq3AD6pkKKmoC2LfZILIT+wVtB1xB+XAy5bSpUNrGzxJdpABINopqhw2ZYQ7Vv0x/iYRZfHmC4I8IxXRwDjmG03l+VOCJ3+OOsm3Niy/JDFZQR62EwlVQYmEno8YbcvkI7OYXAug==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=UFWqxMWqijEyANpTG/Dze+PIH48mfYfp/YR6eZtBL6I=;
+ b=emDVHT/jV6Ryia4+ZqAtpBOdOoJm0F8lzicrPa3UL9nEeIOIamRrAlzKEAWBpdP9twRDwVIXLDKg0PykrXpn5506h/Z9g/hg+pxcmD0mxIkmvf1a0uMeRRBKtHqfY/wy2bGmvPq35PYpa3XRqXVYKdg9AVBJQaperngfqz0U+lXXhTOmEei15zl9LDaqNaN4xP71Dk4VyTiUgjB4RLCb+KpNo9zukEJo1/y8La3eHkZTsAfbAHQcYuGxXMyZp40vOMs1uLjiYAZnl1v/jih/BQD7/yzk+GZyDnDR9EojdkOAqZYai35r2SlaKG1byCY/4KMMIqtfbpKKkd8eI8cyYA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
+ by GV1PR04MB10583.eurprd04.prod.outlook.com (2603:10a6:150:203::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.11; Mon, 22 Dec
+ 2025 02:06:48 +0000
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::c67b:71cd:6338:9dce]) by DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::c67b:71cd:6338:9dce%5]) with mapi id 15.20.9434.009; Mon, 22 Dec 2025
+ 02:06:48 +0000
+Date: Mon, 22 Dec 2025 09:59:43 +0800
+From: Xu Yang <xu.yang_2@nxp.com>
+To: Daniel Baluta <daniel.baluta@gmail.com>
+Cc: vkoul@kernel.org, neil.armstrong@linaro.org, shawnguo@kernel.org, 
+	kernel@pengutronix.de, festevam@gmail.com, jun.li@nxp.com, Frank.Li@nxp.com, 
+	linux-phy@lists.infradead.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] phy: fsl-imx8mq-usb: add debugfs to access control
+ register
+Message-ID: <6aj4j6sh2rystvtup7wmte557nhknwqs6n5qsa5lbd44sn3km7@ktkxzugnv777>
+References: <20251219075447.3672833-1-xu.yang_2@nxp.com>
+ <CAEnQRZCZJnkXCM2ACf3dXQ-ZynRB1q2zcarWLAZO_1TsL-1GcA@mail.gmail.com>
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251219-imx-se-if-v23-3-5c6773d00318@nxp.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAEnQRZCZJnkXCM2ACf3dXQ-ZynRB1q2zcarWLAZO_1TsL-1GcA@mail.gmail.com>
+X-ClientProxiedBy: AM0PR02CA0185.eurprd02.prod.outlook.com
+ (2603:10a6:20b:28e::22) To DU2PR04MB8822.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e1::11)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|GV1PR04MB10583:EE_
+X-MS-Office365-Filtering-Correlation-Id: b449b8af-bf94-4a4b-6884-08de40fec378
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|52116014|366016|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?d0pIZStBRmhnd0JRdmVYVjlhYVA3VUsrZUFYdlp1NjlNdlBiU3hFR0VJUWZt?=
+ =?utf-8?B?SDBmWnhqanhuRU5DN2VTWDZSYk1Dcmx0dFQzVVhwVFdDNUxBdW4zTmVhbmhO?=
+ =?utf-8?B?M2xUU3lhSWliNXUwTlJoR1VIS0tIUGdPNk1QcXZjdlZlVXdhdmliVkF0ZTlF?=
+ =?utf-8?B?LzkxS0M3Mi9IK0M3YmFKWGZhZzhQRDcwWmFad2pzSW1jUWs1QWt1NlFFQTMr?=
+ =?utf-8?B?QXFCb2tJQWRSSklHUFk1NlRDNUprQXVCcFkvWTVrTkw3blBkQnhrbzFQdCtH?=
+ =?utf-8?B?TlNnNWxlcjFWN3kxangzNHZpTGJOTWwyamxCTStNdzFhMWsxaE9oREludzg5?=
+ =?utf-8?B?Z29HUkNyYmlJUkFzUVBDWi92OE9RT1ZKdTBEKzlOazY1THdqVEw2NlpVK3FN?=
+ =?utf-8?B?ODVQK0ZLME50Zi9tc3RxWENGRCs3WEhvanRaUEV1SG9zelg4UldXamhZTjdF?=
+ =?utf-8?B?Tll4czMramFoMTVoOUIwY3JkS1YyS09Fakp6SUFDbk81U28vWkoxNjVYRjRx?=
+ =?utf-8?B?QmI3cEoydTg2T0pEckpJTkd5TURoSmdZWUpOcU40cWdZcU93amdKYWJMcndB?=
+ =?utf-8?B?THRqZWx2YmdyNlpMVGVkcy8veE9JWmMrajZkUXd1TXJVRlhCK0pSSjZzbFB1?=
+ =?utf-8?B?cVdFUXM2UUFiOGpGOUtxTzNZem9RWDd2ZVZ0NXZtWFRUcENYNEZWM2xhQTFs?=
+ =?utf-8?B?RFAyVkdrQk5iSFhDUXpONzA4RWJDTFNoTkNUOWJZckw1cjhiaENsR09FVG14?=
+ =?utf-8?B?Z3RuaVdLUjdvN1FHVkJ1cko3MWNvRmFwbFlWdFVjMGp3MEY0RXJIRjMya0hW?=
+ =?utf-8?B?WEVGMWJLdnV5bExCVG1CVExYRFlDTkVqWFNDb1NUOWRQcjFHdHVqbklrN2kz?=
+ =?utf-8?B?TE9MMW5BVzdQWC9vYVJCTjVsU0svMktsMGREbEhxMWRCWXhLcDlEbGtRdkZy?=
+ =?utf-8?B?a3VuYXpPYXlJWGJSd1c3R2hncWgyWWpUay9vOWxCYWNDcm1JVjNpK211WGVC?=
+ =?utf-8?B?aGJSNzhabVpZT01kZEVMMDlXUWRXSGNDSkc0MTNCUFFvUmV2RFNGNjFKWkFX?=
+ =?utf-8?B?dGVFcEYxMVpGZGZUWmhMM2QwVmEyZldoeTBJaVNjQm5BMzNoeVBvVU0zZElG?=
+ =?utf-8?B?ekUvdnAzVG9YRytmTXhrd0U3N1ZEMGs4cUxueFdFc3h1V29Ud0F2N21VbHh2?=
+ =?utf-8?B?ZWpFcFpyY0pWblVoaHIwM0dZMUhOY3BFNGlDV1oza3VYZkV3YUg2WnI2cDhx?=
+ =?utf-8?B?Z3QwTzVsOG1xZndPdlhOL3psVUo5VGVkanA1NHorbkt0YU5DVXltMld1bnJt?=
+ =?utf-8?B?UUtuWDBzWHJYd1RNQXAxanp1ZUZlc1N0L3VscG4wK3dlakRrRFFlUE9xSmVl?=
+ =?utf-8?B?MHNFT1daeVdQcWhXb0dhMUdNWDBNYjA0SDZodEg4V0xtRDFLT1NvVjluekM5?=
+ =?utf-8?B?eVM3OEUvV0JuRC9KSmwrZDY3WXdCRi9jWHhrQUlaeUxCbUJHUE5TMEJHdHla?=
+ =?utf-8?B?UjYyMXoxSWN1OEtFa2pRaFRqL1VMdTdNcW9xVCt4ZVBOelNPSnJaVGZ3OGFU?=
+ =?utf-8?B?YWR1NHlFVmxPSE9HWlZkUlhxVWJ3cjNqSEZZNlJrTklHNzhORThqTWE5bWhV?=
+ =?utf-8?B?VnpFSnJwdCtMOVpDMGxHOGZtYzZ2MDZ6eWZGL210TDJwVk1adXYwNUNLaHNV?=
+ =?utf-8?B?WnNQdWsySytCWFJaOXcwVjZuQTg0UnlaTVZIeC9sUE9lUWVaUkdiOS9MS08r?=
+ =?utf-8?B?YThtU3lyVDZpV3pvSEpJYStQWFpYUmhlbkNLUm1GQ0hJZUFWN3UzUXZxZFhE?=
+ =?utf-8?B?WjBrTVphcFpyT1ZtQnU3aVJXOS9IdHc4b3dMV3c2WVVlZ2JtakV1bmhXNFpS?=
+ =?utf-8?B?M2RUcnBCRTU2bEhZWWNLQS9jeTRtQW5HcWZLUHBtc1U0NmFWTnAySUVORlkw?=
+ =?utf-8?B?T2prNFlzZmYvMUpIN2huL2JWRlpxMWJqb2JWanB3QkFzNzZDZXhKd3d6VG0y?=
+ =?utf-8?B?UFJwQ0x3QzV1WmpGd1I0aG8ySTBRSFBPT0lRKzRvaDBiakhtWUVDOVFKV2VO?=
+ =?utf-8?Q?wWh14f?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(52116014)(366016)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NVhWYjlmNENnQkFyUy9OQk50Zy9pMnVvZkY5SksraU9lQjJSTzBhMU9SN2Fn?=
+ =?utf-8?B?ejRLZTFZa05VSmVodFV4aEthWUlBKyt4R0lUcDNYbnhMbWprbW1TbGtQcEZH?=
+ =?utf-8?B?c3lmN3ZUMUV0amNvMVdWRW9zQ0xhb2k1U0xDYiswTTJCRXh0bUE1SjhIRzd3?=
+ =?utf-8?B?SzNVaDB6OE5oRHNFTlNVY085UXhyUVNEa0JmRUhqaUlJUUFna1ROV09pK21L?=
+ =?utf-8?B?TE1iYzVCeFc2eGwvOS9GZmtiY0NlcU84dlRTWU83cGtEa1BXWnhvZWwyenA4?=
+ =?utf-8?B?Z0ROUEFSTVBFK3U0U2xTZ2pyTVlWRElJb1NKNUpBWWJYTzZiSXZqNTVSMnlJ?=
+ =?utf-8?B?R3JNbmVGVXVxbkgwMWl3WmswalNzOUovVWMvN2duOTNqbmZCMEI2K0ZGWEhU?=
+ =?utf-8?B?d291dlY1dEN0MGJuTHFCOTkyT0FLSitQaUVsemZqOHpEVXdsZjlOTVVQR2Q4?=
+ =?utf-8?B?RFdNdGxIeU0xVWhCSTFrVnV0VVV4aTJaazlpZmJ2MmY2bGQ1NXk4L2hncFFW?=
+ =?utf-8?B?YlA4NkZ6QUpoWkdWMUdudUFKbURFZHRQSlduN2hhK3BFNUJCUHBxTzRtOWZU?=
+ =?utf-8?B?SUVTOERsUmtDdGNYNWZSSEZVL0ErYkR0LzBUNWlnMjIrbzMwSFRZYnJ5R0Jp?=
+ =?utf-8?B?b0VyVUc2ajYrZjBDeU13S3BtbDZUSVY0cHNrbHhGc2NsQVlvVzc3LzVsNWxE?=
+ =?utf-8?B?dFJNMWZzUTZUZFVRQXFKUExIM0tsOGtXWHc4SW1MdFA0M3ZBa3hucG0veExj?=
+ =?utf-8?B?S0ladTlpWFdNTEw2Q3BoaERKM3c1ZVcwYTFjZG9GZlNlUUxHd3FMWHU2UjV0?=
+ =?utf-8?B?WXpJUGJiQTFKT0ZEMjdGNFRkOFJPQkkwejhCSnRiTXhZanJ3Mm9YVjZrK2lk?=
+ =?utf-8?B?ZUUxNFI4NFFuNm84L3hRZkRsR2RZSVNLMWJlTXM5aml0ZXRyeDA2VFpJWElI?=
+ =?utf-8?B?cW5FSUtuZjdHMjJMbXpXaU9obnhYVEU4OGFpT25oRGFxemd4MEVPZ1EvVUor?=
+ =?utf-8?B?RGFzRHJ0dXVOWVdWMUM0NzlGQ1YxRERaanVmdS9QSnppcHRWc2t0L1duVkZF?=
+ =?utf-8?B?WENuZjBTQ250QTZBQjcxSHJ6WTJPdUhHckhxZVA0ZUt4U2tsdW02WXArd290?=
+ =?utf-8?B?OHNPaGMxMExSS1BPNGs4VnZ0aWQvM0hWS0xXcXpueE5VV0pmV0VabTMxT2Mr?=
+ =?utf-8?B?NHBIR0NBRHE2ZE4zY05UenlvdEpGcEFDdnRITCtTQ0YrN2h0NEF6QXV1S3E5?=
+ =?utf-8?B?TTh3NHZQemRCd1NXN0ZrRTNEazVzTXhPV2NERkVZdHF4UEdVYzZsZkZ3Sklo?=
+ =?utf-8?B?b0dmMlZjeXVpejNBUGlPZ2ZzSVNzZjlyZXZXODJMbnlnak1GMGlZRTRBLzQ5?=
+ =?utf-8?B?ekFXZEVCcExnYVRZNEtFMDg4S1dNY3NscXcwK0c2cGNPZTd2U1VWVTZKcGdU?=
+ =?utf-8?B?V2I1ZGFqOGp5VmxaMlZ2MTZLek1kMGdJTkdWUTYvSVZwRm84RmhFQ3Azellm?=
+ =?utf-8?B?a1M4RmRYZWdFZXp2a3ZJTnVzUmF2TWRIYWRTMGV6L09mYkliUlFORDFUU1Vx?=
+ =?utf-8?B?V2FDVU95ejNsYVBHVDFPVFpsN2xlQlh1ME82NFhtUDBsMmpRc0g0dGUrLzlI?=
+ =?utf-8?B?Mm9YSUNkbG9SV1dwcWxYTVFGT1V5c3NEVk9aMVl2UjF4YWkwaU5YYWswN3BR?=
+ =?utf-8?B?ditERGk2d1hkWStHOHVEd1RpWEdUZjJGSU84clg3Wi9aM2d4RW15ZVExWjFJ?=
+ =?utf-8?B?dUw1TkVLTWtVcWVJUE5DL2diajREMmFNWnRNT2VjMzlKRzdLcHlWQUswRGtI?=
+ =?utf-8?B?MzRmTVNsZ2ZzSnZWS1FrMW1mSzZNSXZoKy85ZlJTYjNXL1hIUVV3MkM4ZGVr?=
+ =?utf-8?B?RFdUTDFQdG12QiszQWhETkdzc2V3c1BzalFPaGR4TEZWUkhpVzlodVhoT3FH?=
+ =?utf-8?B?d3BzNFVzb29IM2hxUi9INTVSSzZWUFFIRlp1UExMZDYwUXFnZkoyd2RtaHp2?=
+ =?utf-8?B?Y3JiT1JBbEhyYTNZclFoSG9KYTVsYU16ZmVrbkVJU1FmcWJXV2lwY1hXblNT?=
+ =?utf-8?B?U2xINXNZQzlzMjNDR0ppYmowNFBROFR2dk5mSGN0Y0V5SGtZVDhKWitTdHp5?=
+ =?utf-8?B?azNzVm9qN1FzNzJDR3ZaaFRmYVNLV29DZTNpOEx5YzBZMFBXeEhsYTBXMlRP?=
+ =?utf-8?B?TE8rL21VY3B0TE1xRXZKSjVvR3J0UmpQZVBPWGFUWmxsUVZTREs3akwvOGsw?=
+ =?utf-8?B?cUMwR1MwT2xIaVovTG8xZEpkVE1ZTFRBSHpjRXd1N0FwSjJoN3VMZFg4SG1n?=
+ =?utf-8?B?Mm56RzBPczczRE53ejQ3WGhCaGxDb0k0OHpvYWhqbzNZY2xQSFhXUT09?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b449b8af-bf94-4a4b-6884-08de40fec378
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Dec 2025 02:06:48.0167
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: gAE6xKG+D9mcaJsozOEGQve8YRQUBY7ajy70Z6dfrQbvwouAmOiWQXGqpyhIu93Y66dK/7FtbgN2T6hSZsYScQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10583
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251221_180559_751904_9C21BE02 
-X-CRM114-Status: GOOD (  12.38  )
+X-CRM114-CacheID: sfid-20251221_180654_157046_4F48FB54 
+X-CRM114-Status: GOOD (  26.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,62 +181,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Pankaj,
-
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on 4a26e7032d7d57c998598c08a034872d6f0d3945]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Pankaj-Gupta/Documentation-firmware-add-imx-se-to-other_interfaces/20251219-132830
-base:   4a26e7032d7d57c998598c08a034872d6f0d3945
-patch link:    https://lore.kernel.org/r/20251219-imx-se-if-v23-3-5c6773d00318%40nxp.com
-patch subject: [PATCH v23 3/7] firmware: imx: add driver for NXP EdgeLock Enclave
-config: xtensa-randconfig-001-20251221 (https://download.01.org/0day-ci/archive/20251222/202512220932.Gu4LnMge-lkp@intel.com/config)
-compiler: xtensa-linux-gcc (GCC) 8.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251222/202512220932.Gu4LnMge-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202512220932.Gu4LnMge-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from drivers/firmware/imx/ele_base_msg.h:14,
-                    from drivers/firmware/imx/ele_common.c:6:
-   drivers/firmware/imx/ele_common.c: In function 'se_val_rsp_hdr_n_status':
->> drivers/firmware/imx/se_ctrl.h:16:25: error: implicit declaration of function 'FIELD_GET' [-Werror=implicit-function-declaration]
-    #define RES_STATUS(x)   FIELD_GET(0x000000ff, x)
-                            ^~~~~~~~~
-   drivers/firmware/imx/ele_common.c:241:11: note: in expansion of macro 'RES_STATUS'
-     status = RES_STATUS(msg->data[0]);
-              ^~~~~~~~~~
-   cc1: some warnings being treated as errors
---
-   drivers/firmware/imx/se_ctrl.c: In function 'get_se_soc_info':
->> drivers/firmware/imx/se_ctrl.c:168:6: error: implicit declaration of function 'FIELD_GET' [-Werror=implicit-function-declaration]
-     if (FIELD_GET(DEV_GETINFO_MIN_VER_MASK, var_se_info.soc_rev))
-         ^~~~~~~~~
-   At top level:
-   drivers/firmware/imx/se_ctrl.c:374:12: warning: 'se_resume' defined but not used [-Wunused-function]
-    static int se_resume(struct device *dev)
-               ^~~~~~~~~
-   drivers/firmware/imx/se_ctrl.c:357:12: warning: 'se_suspend' defined but not used [-Wunused-function]
-    static int se_suspend(struct device *dev)
-               ^~~~~~~~~~
-   cc1: some warnings being treated as errors
+On Fri, Dec 19, 2025 at 11:34:56AM +0200, Daniel Baluta wrote:
+> On Fri, Dec 19, 2025 at 9:56 AM Xu Yang <xu.yang_2@nxp.com> wrote:
+> >
+> > The CR port is a simple 16-bit data/address parallel port that is
+> > provided for on-chip access to the control registers inside the
+> > USB 3.0 femtoPHY. While access to these registers is not required
+> > for normal PHY operation, this interface enables you to access
+> > some of the PHY’s diagnostic features during normal operation or
+> > to override some basic PHY control signals.
+> >
+> > 3 debugfs files are created to read and write control registers,
+> > all use hexadecimal format:
+> > ctrl_reg_base: the register offset to write, or the start offset
+> >                to read.
+> > ctrl_reg_count: how many continuous registers to be read.
+> > ctrl_reg_value: read to show the continuous registers value from
+> >                 the offset in ctrl_reg_base, to ctrl_reg_base
+> >                 + ctrl_reg_count - 1, one line for one register.
+> >                 when write, override the register at ctrl_reg_base,
+> >                 one time can only change one 16bits register.
+> >
+> > Signed-off-by: Li Jun <jun.li@nxp.com>
+> > Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+> > ---
+> >  drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 221 ++++++++++++++++++++-
+> >  1 file changed, 220 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+> > index ad8a55012e42..cb2392008ad2 100644
+> > --- a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+> > +++ b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+> > @@ -1,8 +1,9 @@
+> >  // SPDX-License-Identifier: GPL-2.0+
+> > -/* Copyright (c) 2017 NXP. */
+> > +/* Copyright (c) 2017-2025 NXP. */
+> 
+> While you are at it can you remove the (c). New policy
+> from NXP is to use directly:
+> 
+> Copyright 2017-2025 NXP.
 
 
-vim +/FIELD_GET +16 drivers/firmware/imx/se_ctrl.h
+Sure. Will do.
 
-    15	
-  > 16	#define RES_STATUS(x)			FIELD_GET(0x000000ff, x)
-    17	#define MAX_NVM_MSG_LEN			(256)
-    18	#define MESSAGING_VERSION_6		0x6
-    19	#define MESSAGING_VERSION_7		0x7
-    20	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Thanks,
+Xu Yang
 
