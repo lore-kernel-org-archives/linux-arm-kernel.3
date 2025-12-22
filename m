@@ -4,101 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6EA4E6748D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 08:19:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50B76D711D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 08:21:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=80hdS/w+v0x8DWisrHsGxaZlP+KSYRcYUlXhBDOL7cg=; b=1COFKCOwfsSxsbUJqlN/4pwvRC
-	rc92IFe4EJcCV8juyqQ1pkTgD9Gas5t/VsMKXXa2G8rcmj9sC3AfY1p/GtlDPySDSbzDN0OwBiZEF
-	+jANlvGH6793zxvstgQpfUXCATVoEH7QUaZogXrtcLpdRTEpdBFN4I70YlwbEBnHR54h2IkCqLRD/
-	wDmmdASmj6HIW3pvHjXit4JEkgQ6BNLrXW/1lxISHu3QR7XfFmO5IIJCuuct69UXCHR5ulygwN/vy
-	zKa4/ICB3emtUbKr5vtHPRG4laqYpeZqkkk4WiMqPrElEBrJQ5R/O/4F1s+Ki2t27up3td31bmOGa
-	MFPqFb3w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8i2B8ufAHD9sSahBAZkEx2yO1Ly/YjHLa83EmimubvQ=; b=uPEAkHCRDQFJR3bMqI4J95xCqb
+	8qIfpoLWheRwYVpwCOpeAAmR1uWTXuxm4ETICSSmLFiNUp4G5CZSnv2fIRDiuAbdTn+Z6/gPkhhlV
+	W/xx0SONtE+fFnt5nSyCJ6ALMMXSopvKG8Bp5MRbVXZJiX31fAfTGEu8DYiZYnD85fwPtfzHvclnD
+	gDCQJZXtKdH2MP0C7ynytAJRjGh1r1qd1f7wXguNcRBvfw6CHHmze0qTKQ5Vw4c5aXCILMiOd4XzR
+	1Pw8gZwzVDBqyYe8Cn0kt1vTTG1Ln1wRcysc0GjbnGq9hN9XrLh6qetBCUD76I/nTzJosJ8J2cQOp
+	q8yOvbVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXb82-0000000DOQh-2wM4;
-	Mon, 22 Dec 2025 08:18:54 +0000
-Received: from mx-relay36-hz2.antispameurope.com ([94.100.136.236])
+	id 1vXbAS-0000000DOfp-1Twv;
+	Mon, 22 Dec 2025 08:21:24 +0000
+Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXb7z-0000000DOPI-1xDf
+	id 1vXbAP-0000000DOfT-1YUK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Dec 2025 08:18:52 +0000
-ARC-Authentication-Results: i=1; mx-gate36-hz2.hornetsecurity.com 1; spf=pass
- reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com
- smtp.helo=hmail-p-smtp01-out04-hz1.hornetsecurity.com; dmarc=pass
- header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=80hdS/w+v0x8DWisrHsGxaZlP+KSYRcYUlXhBDOL7cg=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1766391517;
- b=IO6xoyMqeZFvH5TKu520EpnBkwCDbbjJzEmLsA7ilk5f4oE+kUWLgZ+aLQyZTLLwSabpMj8m
- A1fmo6WDnY1OXH14pND+OT2/NhydZ/dPdL2l9+nTaY0CuMSWmdN1LjFcTFCE/OIfHnsOqubw6dY
- QohxhVnNBQt8ZxEEXSbxzjlPbTqd3Z7XiljvPlfPOb7KMAMSp2a68xfY6g5Xu4WQhKNwVFVGVfY
- 9kPTS3RMPU2MBsQjRc0hlBr0zNnGG96smAGXTkdAzSOn+6gDbqBnvtG6jSVh1keMLG+lzEBuf71
- D5a6d3/2I9edpfMGhmHe7pnc/IXPgwLJV9Pe/J3nVfHFg==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1766391517;
- b=ecTupXhkolYKj0AKQwqyV3ZNwGYOlk65xTl8iqzXuiMc8O80yj+Ghm/f4CPLVduRz6dxoWIM
- WdgP9dL57O1A9xx0FBteq3nqgnUrVBDDsYxONCAs9qOTCCQIWyQKRcMVWcceY8gYCr1+iW7HFza
- 3zcO9oIwsParuQRKCxmO4SIadEAUrdDUdIN+GCYmb3TGt8hS279qvmshoom9EUNMAXhUYixzH2P
- yOH0UmSG2bxYqXNi6CFJ0N7ui01k4EOmUd7zJ8hxRYtpMSGP68VJz0rLAzwa2SRVOFxaoWrYpVD
- a+fhwYcPPZByvmHt+pbn2N5i5FOczkxN166nr6TlGnskw==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay36-hz2.antispameurope.com;
- Mon, 22 Dec 2025 09:18:37 +0100
-Received: from steina-w.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: alexander.stein@ew.tq-group.com)
-	by hmail-p-smtp01-out04-hz1.hornetsecurity.com (Postfix) with ESMTPSA id A8402220D99;
-	Mon, 22 Dec 2025 09:18:18 +0100 (CET)
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	linux@ew.tq-group.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
+	Mon, 22 Dec 2025 08:21:22 +0000
+Received: by mail-pf1-x442.google.com with SMTP id d2e1a72fcca58-7b7828bf7bcso4175402b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 00:21:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1766391680; x=1766996480; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=8i2B8ufAHD9sSahBAZkEx2yO1Ly/YjHLa83EmimubvQ=;
+        b=cnte+zd7VtrmCiq/5kcl5QecGUj1gU5QiG0gu6UN2U98PHmAeUbyEBrUIiApjiZmo+
+         r1cdri+Wve1k4Azzu8YrLZebc6N2lMaCpEffiHEjXL13qfrtomyYAXdWwMIaX4MyOw+K
+         GjaulXs+K2Um0vo9EBPlTcX2e0izr4vicPLQfIr6M95EJfWVnMuLhpkvO7+6K9En5Wpe
+         itvpIu5R8z+EqgfNZppeLsWOw+tG5V2G8Z70A4ZOszXj96hoYYJSCVxUG7vC88x+T1ME
+         4+Y+mrIUxVxPVPtR5FVm+3bSORhYW9sEk72zPzJgQD8qyms5MoLH5ecaGnXHt1KkieGo
+         +Utw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766391680; x=1766996480;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8i2B8ufAHD9sSahBAZkEx2yO1Ly/YjHLa83EmimubvQ=;
+        b=JumJugY4hDADPAzH50gxP2kQ2mFVlSBi554gQrYDCNcik/KXTbRzSX/cw70XW76dp2
+         ixyzYV0N+756qd9iNEM46U8W3NKQ9jX97pxkoM96U0d0gN/Jiqz35SMF1F7uECTAtJpt
+         uPDuuWlVSZO0ljbjB7FKRhUviGIjMR3YUCYnuchrdrnMsa2liq0SCJ5mbO1SNmNA3uvs
+         fAqKbkyTOFs085t4FeFVByEEz38gsxav1hUQRl6VNYW6kymYZ3XRNhMfXox3L3u52qj0
+         kYphkqaionvkJgEFg+FTWtA6oDEGQ62rWf0BO/g4iUcifa+JpREUd0dxV8Aemyf9YsTK
+         wbRQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUGK0/1uaFkIKZZQGQlE3ASmRYS3OOWjzktnU1RD6bFeELFMIZzm+OTCVEoQ400SKbVi8BTABkrVha0MTgoHz1s@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXXeUXWnq7ODUEp8GNgWIddsLV5Xdw1zLUEEokt8h4SwdqOKk3
+	9UJzzBO0qWn/ARnnNDzZA45x6RVrrBqdIoAfwGE9otQjq5AJH6O9DvtU
+X-Gm-Gg: AY/fxX5NjbzYEe9AlhQSOrYioJnokMzhulNRu+2n+z66C1emAW+JlUSrUCdIopvsstD
+	SH2dc4mnMUD4n3+CktoXuYrOGyG5+t7s9gNRE9fwJnwj9tApPtxV5gsu7CFSrZPx+qUxn1IIV/4
+	eJg7TWIo/MJwT2L+j2nIEbkrqNJF4fiX9gBkKhY/gMRwDvThCOSsd/cD0aAMFZOUhbooP4JdTdf
+	Rd3c3xsBEkdlWJaWy+XceQRnhmFJu7D5Nw2Ureyc7qdZyb/MVyvCM35GB69RQ5QwMKxNjgZEzyK
+	9K7TSZk1RQDUNzh3tVf6pbMFG4RtgQXB/mnzARZ+aDmzFqVcDV39Ao3cKDDsYMG0wkPrsnvfQtY
+	nN2nzIetqsG+a/XrxzEze44ozJXP1nbGk4XqnzkGH/Qs33xyqTgzZXnWFxbLZSDsmWDcCz1UYnw
+	UDsrabZOYTIf4nw5oxxY4=
+X-Google-Smtp-Source: AGHT+IG7yTX9GcAzuJxjdZol8GNeVjpWx8TpHrMGtTszznm0lKmDxk6yQdOE7nvJLCN2Ii7oDSHoog==
+X-Received: by 2002:a05:6a00:4295:b0:781:17fb:d3ca with SMTP id d2e1a72fcca58-7ff648e71c8mr8607801b3a.15.1766391679935;
+        Mon, 22 Dec 2025 00:21:19 -0800 (PST)
+Received: from frodo ([2404:4400:417e:3d00:8b90:7f55:1261:772f])
+        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-7ff7e493123sm9540699b3a.50.2025.12.22.00.21.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 22 Dec 2025 00:21:19 -0800 (PST)
+From: Jim Cromie <jim.cromie@gmail.com>
+To: linux-kernel@vger.kernel.org,
+	jbaron@akamai.com,
+	gregkh@linuxfoundation.org,
+	ukaszb@chromium.org,
+	louis.chauvet@bootlin.com
+Cc: dri-devel@lists.freedesktop.org,
+	amd-gfx@lists.freedesktop.org,
+	intel-gvt-dev@lists.freedesktop.org,
+	intel-gfx@lists.freedesktop.org,
+	daniel.vetter@ffwll.ch,
+	tvrtko.ursulin@linux.intel.com,
+	jani.nikula@intel.com,
+	ville.syrjala@linux.intel.com,
+	seanpaul@chromium.org,
+	robdclark@gmail.com,
+	groeck@google.com,
+	yanivt@google.com,
+	bleung@google.com,
+	quic_saipraka@quicinc.com,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	quic_psodagud@quicinc.com,
+	maz@kernel.org,
+	arnd@arndb.de,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] arm64: dts: tqma8mpql-mba8mp-ras314: Configure multiple queues on eqos
-Date: Mon, 22 Dec 2025 09:18:09 +0100
-Message-ID: <20251222081812.1120998-2-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251222081812.1120998-1-alexander.stein@ew.tq-group.com>
-References: <20251222081812.1120998-1-alexander.stein@ew.tq-group.com>
+	linux-arm-msm@vger.kernel.org,
+	mingo@redhat.com,
+	jim.cromie@gmail.com
+Subject: [PATCH v7 02/31] dyndbg: add stub macro for DECLARE_DYNDBG_CLASSMAP
+Date: Mon, 22 Dec 2025 21:20:19 +1300
+Message-ID: <20251222082049.1782440-3-jim.cromie@gmail.com>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-cloud-security-sender: alexander.stein@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay36-hz2.antispameurope.com with 4dZWHK4xCLz1S5Vj
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: 99bff2056c426201606ecfd6bb8a64f5
-X-cloud-security: scantime:2.201
-DKIM-Signature: a=rsa-sha256;
- bh=80hdS/w+v0x8DWisrHsGxaZlP+KSYRcYUlXhBDOL7cg=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1766391516; v=1;
- b=ofm0wXrcemlaP3PuTPoQkkVcV/6RXZZaOt5RbBkqo6J/Npt+FncDehgy0u1EnT9VDg7+W1uf
- iwgCvVpYalW5PMBAtGadCilmqEtPJGPTTPsHtjBEbXcRJFseF9nAFETkjQr3VbvD00Xwerhp3iw
- JY0mwOvA+JbT2B1bF959CSA91H6zaf4XGD3E82f1qgnAXNR9yG4dbcMaLB/N/WGs2BTEBImm3JT
- eq9WNsSskeO9z034KV+Rxk04sYdwnuRTKZ7ue67cOFquZfiS5tqiJvESVoHWZmMaKyzuy6JXWOg
- 7QOjMcjt4a9urpr8WbqoIKt6qQNtMUaKdaG85HI/m9gNw==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_001851_660650_F9CDF709 
-X-CRM114-Status: GOOD (  11.57  )
+X-CRM114-CacheID: sfid-20251222_002121_815284_7114B4A5 
+X-CRM114-Status: GOOD (  12.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,104 +121,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MBa8MP-RAS314 mainboard has an integrated PHY connected to the EQOS
-ethernet controller which can support up to five queues. Configure
-these queues in the same manor as done on the imx8mp-evk.
-Setting DMA to threas mode is necessary to prevent FIFO overflows, see
-commit 0bc3e333a0c82 ("arm64: dts: imx8mp-evk: configure multiple queues
-on eqos")
+Add the stub macro for !DYNAMIC_DEBUG builds, after moving the
+original macro-defn down under the big ifdef.  Do it now so future
+changes have a cleaner starting point.
 
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+Signed-off-by: Jim Cromie <jim.cromie@gmail.com>
 ---
- .../imx8mp-tqma8mpql-mba8mp-ras314.dts        | 67 +++++++++++++++++++
- 1 file changed, 67 insertions(+)
+ include/linux/dynamic_debug.h | 43 ++++++++++++++++++-----------------
+ 1 file changed, 22 insertions(+), 21 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
-index 204bbf0719890..b0d058833fbbb 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
-@@ -184,6 +184,9 @@ &eqos {
- 	pinctrl-0 = <&pinctrl_eqos>;
- 	phy-mode = "rgmii-id";
- 	phy-handle = <&ethphy3>;
-+	snps,force_thresh_dma_mode;
-+	snps,mtl-tx-config = <&mtl_tx_setup>;
-+	snps,mtl-rx-config = <&mtl_rx_setup>;
- 	status = "okay";
- 
- 	mdio {
-@@ -209,6 +212,70 @@ ethphy3: ethernet-phy@3 {
- 			ti,clk-output-sel = <DP83867_CLK_O_SEL_OFF>;
- 		};
- 	};
-+
-+	mtl_tx_setup: tx-queues-config {
-+		snps,tx-queues-to-use = <5>;
-+
-+		queue0 {
-+			snps,dcb-algorithm;
-+			snps,priority = <0x1>;
-+		};
-+
-+		queue1 {
-+			snps,dcb-algorithm;
-+			snps,priority = <0x2>;
-+		};
-+
-+		queue2 {
-+			snps,dcb-algorithm;
-+			snps,priority = <0x4>;
-+		};
-+
-+		queue3 {
-+			snps,dcb-algorithm;
-+			snps,priority = <0x8>;
-+		};
-+
-+		queue4 {
-+			snps,dcb-algorithm;
-+			snps,priority = <0xf0>;
-+		};
-+	};
-+
-+	mtl_rx_setup: rx-queues-config {
-+		snps,rx-queues-to-use = <5>;
-+		snps,rx-sched-sp;
-+
-+		queue0 {
-+			snps,dcb-algorithm;
-+			snps,priority = <0x1>;
-+			snps,map-to-dma-channel = <0>;
-+		};
-+
-+		queue1 {
-+			snps,dcb-algorithm;
-+			snps,priority = <0x2>;
-+			snps,map-to-dma-channel = <1>;
-+		};
-+
-+		queue2 {
-+			snps,dcb-algorithm;
-+			snps,priority = <0x4>;
-+			snps,map-to-dma-channel = <2>;
-+		};
-+
-+		queue3 {
-+			snps,dcb-algorithm;
-+			snps,priority = <0x8>;
-+			snps,map-to-dma-channel = <3>;
-+		};
-+
-+		queue4 {
-+			snps,dcb-algorithm;
-+			snps,priority = <0xf0>;
-+			snps,map-to-dma-channel = <4>;
-+		};
-+	};
+diff --git a/include/linux/dynamic_debug.h b/include/linux/dynamic_debug.h
+index ff44ec346162..98a36e2f94b6 100644
+--- a/include/linux/dynamic_debug.h
++++ b/include/linux/dynamic_debug.h
+@@ -92,27 +92,6 @@ struct ddebug_class_map {
+ 	enum class_map_type map_type;
  };
  
- &fec {
+-/**
+- * DECLARE_DYNDBG_CLASSMAP - declare classnames known by a module
+- * @_var:   a struct ddebug_class_map, passed to module_param_cb
+- * @_type:  enum class_map_type, chooses bits/verbose, numeric/symbolic
+- * @_base:  offset of 1st class-name. splits .class_id space
+- * @classes: class-names used to control class'd prdbgs
+- */
+-#define DECLARE_DYNDBG_CLASSMAP(_var, _maptype, _base, ...)		\
+-	static const char *_var##_classnames[] = { __VA_ARGS__ };	\
+-	static struct ddebug_class_map __aligned(8) __used		\
+-		__section("__dyndbg_classes") _var = {			\
+-		.mod = THIS_MODULE,					\
+-		.mod_name = KBUILD_MODNAME,				\
+-		.base = _base,						\
+-		.map_type = _maptype,					\
+-		.length = NUM_TYPE_ARGS(char*, __VA_ARGS__),		\
+-		.class_names = _var##_classnames,			\
+-	}
+-#define NUM_TYPE_ARGS(eltype, ...)				\
+-        (sizeof((eltype[]){__VA_ARGS__}) / sizeof(eltype))
+-
+ /* encapsulate linker provided built-in (or module) dyndbg data */
+ struct _ddebug_info {
+ 	struct _ddebug *descs;
+@@ -137,6 +116,27 @@ struct ddebug_class_param {
+ #if defined(CONFIG_DYNAMIC_DEBUG) || \
+ 	(defined(CONFIG_DYNAMIC_DEBUG_CORE) && defined(DYNAMIC_DEBUG_MODULE))
+ 
++/**
++ * DECLARE_DYNDBG_CLASSMAP - declare classnames known by a module
++ * @_var:   a struct ddebug_class_map, passed to module_param_cb
++ * @_type:  enum class_map_type, chooses bits/verbose, numeric/symbolic
++ * @_base:  offset of 1st class-name. splits .class_id space
++ * @classes: class-names used to control class'd prdbgs
++ */
++#define DECLARE_DYNDBG_CLASSMAP(_var, _maptype, _base, ...)		\
++	static const char *_var##_classnames[] = { __VA_ARGS__ };	\
++	static struct ddebug_class_map __aligned(8) __used		\
++		__section("__dyndbg_classes") _var = {			\
++		.mod = THIS_MODULE,					\
++		.mod_name = KBUILD_MODNAME,				\
++		.base = _base,						\
++		.map_type = _maptype,					\
++		.length = NUM_TYPE_ARGS(char*, __VA_ARGS__),		\
++		.class_names = _var##_classnames,			\
++	}
++#define NUM_TYPE_ARGS(eltype, ...)				\
++	(sizeof((eltype[]) {__VA_ARGS__}) / sizeof(eltype))
++
+ extern __printf(2, 3)
+ void __dynamic_pr_debug(struct _ddebug *descriptor, const char *fmt, ...);
+ 
+@@ -303,6 +303,7 @@ void __dynamic_ibdev_dbg(struct _ddebug *descriptor,
+ 
+ #define DEFINE_DYNAMIC_DEBUG_METADATA(name, fmt)
+ #define DYNAMIC_DEBUG_BRANCH(descriptor) false
++#define DECLARE_DYNDBG_CLASSMAP(...)
+ 
+ #define dynamic_pr_debug(fmt, ...)					\
+ 	no_printk(KERN_DEBUG pr_fmt(fmt), ##__VA_ARGS__)
 -- 
-2.43.0
+2.52.0
 
 
