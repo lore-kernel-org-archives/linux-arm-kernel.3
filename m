@@ -4,80 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E482E67808
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 23:34:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49E98E6B260
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 23:58:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0913uVD1Ar86P47r8xG/QbA0jjERzwgssVNW8A0PWl0=; b=3JBD0UKyMoJuWutBvMBIqjUVNn
-	nbFSEYL6o5KGH1+6BDdRN6+fXerqXNaFKs3N25mtP2A6qdA9IbG+XT0w5jB8TJB0WtATU5nAKICHR
-	aOKkXpCreprvBcaw6Iw/kAjr0oRhvoZpNv+O40gFcwIBBil5vgAVVrxNo+t5XAD2rxCpZbzoD/Qaq
-	VAp5AgkhfSg7xRWCn2yycJSPPsik9XaF2PRgkp5Ezhnv97FDcPYo/IqtvDN7Sp8odqVzWz6y5l6Ge
-	7GkWe4B+5pjp+7+H708bX3Qr6JxqAN6s2FqsS0la8aSKgF3zfC++mVzs9nfBfFDFVjc9hzViEsGFr
-	4ArkRlBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VZgemvbq2UPsthBmuzg1RXjIe3SH9WUJ3i0KwNEIJ+Q=; b=10Yy6FvfROFeQ+gEJLDs/JxQ5l
+	+CJL5XC2I1VrRXL+3/+jg36zNtIuPAncf/Ui0GF/1WQ+XvxEcDXd5ZhBmwk89N32aQxZPMrkhOs7/
+	kWeHjOXI4a5bnt3huRyTk4YQGcWdYhBieI9VO+YFqyw6LkYycv9pyEuSPSuP+JTyJHhNjA9xRt4dH
+	or/wbJ7v7JMTqbGKXsHhiZy+kHxMYOVMY4rngg/5GbBMLVivnjbGRVMPO6KEm1ex+P888G+MJQzxx
+	3uFPLcOICbmtAmqx+nMzhS0vrj8ZrqKXCWKlPHE1kAZidJh89YbZlBI32vW2wtnGc2ilG5huBSTkZ
+	AdMGoJjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXpQC-0000000EGjZ-3CKY;
-	Mon, 22 Dec 2025 23:34:36 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1vXpng-0000000EHTz-3Tsx;
+	Mon, 22 Dec 2025 23:58:52 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXpQ9-0000000EGjC-2yWs
+	id 1vXpnd-0000000EHTb-1UAX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Dec 2025 23:34:35 +0000
+	Mon, 22 Dec 2025 23:58:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1766446474; x=1797982474;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=rsVXZf5HCfD/6XyIRrhSxqfkKef54C0oJ3OxPaZqzQg=;
-  b=jOZaL5gL85a5+BDFfhH7Nn8pOLUnRJWMSyz6GRhqSYSLo+OMidA1gHWK
-   0LZGKqneLs3hjmZ019Ue6cQ7o4lmqglbg1WkcDJy5SBos98t6Wtca5jRs
-   r7RhAPnQrSuGLDlt37Jwaf4F6T0hZ908Fp1TFo/C97a9oQs/Q2/y1uHo0
-   C9x7iMJeWUGiSKTtYNF9i1PjW7JC+HGbtTSpHXnZL1TMFErsXRFYLE+1+
-   f6cWBWfUQx+fBez/QF7yYdOCQcuA4gXhwQz/dBmUBlz5FvMQotz/U2Dg/
-   BPf5yeLo5+6jV3zIhZ6BfpL7/5dXZC0RzEWWAPS7fzJcdQG7YE7N/Cu5u
-   Q==;
-X-CSE-ConnectionGUID: /cYDtLKCSW6Iot6a5A/0tA==
-X-CSE-MsgGUID: 4b+OAf6VSpa+E42cEwcI4g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11650"; a="68285409"
+  t=1766447930; x=1797983930;
+  h=date:from:to:cc:subject:message-id;
+  bh=KzVR2g280YZkfI3eeA+zGnqzICxm4EfKBt86UW+btdY=;
+  b=oHW76vqSA24GoleWJ8B+rqRuQ5b74ev4jgVjQtW4GWhdfQAyJJeELPnp
+   NUddkOyOIInH4E1k3qDheaLOhh25tXelWtyjOXH5r01/qzEQ1ve+5xXq8
+   Se2u75KKRWdC5hwZEy7U1PuKszRtvux7JFt06G2ZltrlgYzijkN9N1KUy
+   023Xhi3EfKzUvwYkwlT9gJvjSqIc25VaneVVu8/OBH9/6z+rrOiVW+rNk
+   l8HojKZVgf8l2gd3hI2u30duALaQ21snNJm22VFmd3gaxT3Ydz/eRkdPh
+   KK/VdmfD9MRAEdX/ad+7osUMupHdrinYpwqxd0YSVNbHhEm9t+FfGOLz4
+   g==;
+X-CSE-ConnectionGUID: y0tjlTyvRNSst2v7pDHZXg==
+X-CSE-MsgGUID: M03keSWVQyGtqvspbGEelg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11650"; a="79420824"
 X-IronPort-AV: E=Sophos;i="6.21,169,1763452800"; 
-   d="scan'208";a="68285409"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Dec 2025 15:34:31 -0800
-X-CSE-ConnectionGUID: 87TMfIpKRPaZoBYu7cvMtA==
-X-CSE-MsgGUID: wkAk98NKRvq/e5JI8YBASA==
+   d="scan'208";a="79420824"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Dec 2025 15:58:47 -0800
+X-CSE-ConnectionGUID: zO7L59eUTEKGxkmCH/oSKQ==
+X-CSE-MsgGUID: oHt/qga/SjKgHYs/SK6j3w==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.21,169,1763452800"; 
-   d="scan'208";a="199945400"
-Received: from igk-lkp-server01.igk.intel.com (HELO 8a0c053bdd2a) ([10.211.93.152])
-  by fmviesa008.fm.intel.com with ESMTP; 22 Dec 2025 15:34:28 -0800
-Received: from kbuild by 8a0c053bdd2a with local (Exim 4.98.2)
+   d="scan'208";a="237048305"
+Received: from lkp-server02.sh.intel.com (HELO dd3453e2b682) ([10.239.97.151])
+  by orviesa001.jf.intel.com with ESMTP; 22 Dec 2025 15:58:45 -0800
+Received: from kbuild by dd3453e2b682 with local (Exim 4.98.2)
 	(envelope-from <lkp@intel.com>)
-	id 1vXpQ1-000000005f2-19it;
-	Mon, 22 Dec 2025 23:34:25 +0000
-Date: Tue, 23 Dec 2025 00:34:06 +0100
+	id 1vXpnW-000000001F0-3tht;
+	Mon, 22 Dec 2025 23:58:42 +0000
+Date: Tue, 23 Dec 2025 07:58:22 +0800
 From: kernel test robot <lkp@intel.com>
-To: Ruidong Tian <tianruidong@linux.alibaba.com>, catalin.marinas@arm.com,
-	will@kernel.org, lpieralisi@kernel.org, guohanjun@huawei.com,
-	sudeep.holla@arm.com, xueshuai@linux.alibaba.com,
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, rafael@kernel.org,
-	lenb@kernel.org, tony.luck@intel.com, bp@alien8.de,
-	yazen.ghannam@amd.com, misono.tomohiro@fujitsu.com
-Cc: oe-kbuild-all@lists.linux.dev, tianruidong@linux.alibaba.com
-Subject: Re: [PATCH v4 14/17] ras: ATL: Unify ATL interface for ARM64 and AMD
-Message-ID: <202512230007.Vs6IvFVD-lkp@intel.com>
-References: <20251222094351.38792-16-tianruidong@linux.alibaba.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251222094351.38792-16-tianruidong@linux.alibaba.com>
+To: Sascha Bischoff <sascha.bischoff@arm.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+Subject: [arm-platforms:kvm-arm64/gicv5-full 42/82]
+ arch/arm64/kvm/vgic/vgic-v5-tables.c:385:6: warning: variable 'vmi' is used
+ uninitialized whenever 'if' condition is true
+Message-ID: <202512230706.u4lubWCl-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_153433_830831_DF18F143 
-X-CRM114-Status: GOOD (  13.12  )
+X-CRM114-CacheID: sfid-20251222_155849_476912_524616E1 
+X-CRM114-Status: GOOD (  14.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,96 +84,204 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ruidong,
-
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on rafael-pm/linux-next]
-[also build test ERROR on rafael-pm/bleeding-edge ras/edac-for-next linus/master v6.19-rc2 next-20251219]
-[cannot apply to arm64/for-next/core tip/smp/core]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Ruidong-Tian/ACPI-AEST-Parse-the-AEST-table/20251222-175211
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git linux-next
-patch link:    https://lore.kernel.org/r/20251222094351.38792-16-tianruidong%40linux.alibaba.com
-patch subject: [PATCH v4 14/17] ras: ATL: Unify ATL interface for ARM64 and AMD
-config: x86_64-rhel-9.4 (https://download.01.org/0day-ci/archive/20251223/202512230007.Vs6IvFVD-lkp@intel.com/config)
-compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251223/202512230007.Vs6IvFVD-lkp@intel.com/reproduce)
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git kvm-arm64/gicv5-full
+head:   1426b88096b597395df4c82f089b87c62bab45da
+commit: a994bc0447523a526e17ae0a62024bf8ef371ce6 [42/82] KVM: arm64: gic-v5: Create, manage, and teardown VMT & VPETs
+config: arm64-allmodconfig (https://download.01.org/0day-ci/archive/20251223/202512230706.u4lubWCl-lkp@intel.com/config)
+compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251223/202512230706.u4lubWCl-lkp@intel.com/reproduce)
 
 If you fix the issue in a separate patch/commit (i.e. not just a new version of
 the same patch/commit), kindly add following tags
 | Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202512230007.Vs6IvFVD-lkp@intel.com/
+| Closes: https://lore.kernel.org/oe-kbuild-all/202512230706.u4lubWCl-lkp@intel.com/
 
-All errors (new ones prefixed by >>):
+All warnings (new ones prefixed by >>):
 
-   drivers/ras/amd/fmpm.c: In function 'save_spa':
->> drivers/ras/amd/fmpm.c:336:15: error: implicit declaration of function 'amd_convert_umc_mca_addr_to_sys_addr'; did you mean 'convert_umc_mca_addr_to_sys_addr'? [-Wimplicit-function-declaration]
-     336 |         spa = amd_convert_umc_mca_addr_to_sys_addr(&a_err);
-         |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-         |               convert_umc_mca_addr_to_sys_addr
---
-   drivers/ras/amd/atl/umc.c: In function '_retire_row_mi300':
->> drivers/ras/amd/atl/umc.c:321:24: error: implicit declaration of function 'amd_convert_umc_mca_addr_to_sys_addr'; did you mean 'convert_umc_mca_addr_to_sys_addr'? [-Wimplicit-function-declaration]
-     321 |                 addr = amd_convert_umc_mca_addr_to_sys_addr(a_err);
-         |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-         |                        convert_umc_mca_addr_to_sys_addr
+>> arch/arm64/kvm/vgic/vgic-v5-tables.c:385:6: warning: variable 'vmi' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
+     385 |         if (!vgic_v5_vmt_allocated()) {
+         |             ^~~~~~~~~~~~~~~~~~~~~~~~
+   arch/arm64/kvm/vgic/vgic-v5-tables.c:507:6: note: uninitialized use occurs here
+     507 |         if (vmi)
+         |             ^~~
+   arch/arm64/kvm/vgic/vgic-v5-tables.c:385:2: note: remove the 'if' if its condition is always false
+     385 |         if (!vgic_v5_vmt_allocated()) {
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     386 |                 kvm_err("VMT is not allocated; cannot populate\n");
+         |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     387 |                 ret = -EINVAL;
+         |                 ~~~~~~~~~~~~~~
+     388 |                 goto out_fail;
+         |                 ~~~~~~~~~~~~~~
+     389 |         }
+         |         ~
+   arch/arm64/kvm/vgic/vgic-v5-tables.c:377:20: note: initialize the variable 'vmi' to silence this warning
+     377 |         gicv5_vm_info *vmi;
+         |                           ^
+         |                            = NULL
+   1 warning generated.
 
 
-vim +336 drivers/ras/amd/fmpm.c
+vim +385 arch/arm64/kvm/vgic/vgic-v5-tables.c
 
-6f15e617cc9932 Yazen Ghannam 2024-02-13  298  
-838850c50884cd Yazen Ghannam 2024-03-01  299  static void save_spa(struct fru_rec *rec, unsigned int entry,
-838850c50884cd Yazen Ghannam 2024-03-01  300  		     u64 addr, u64 id, unsigned int cpu)
-838850c50884cd Yazen Ghannam 2024-03-01  301  {
-838850c50884cd Yazen Ghannam 2024-03-01  302  	unsigned int i, fru_idx, spa_entry;
-838850c50884cd Yazen Ghannam 2024-03-01  303  	struct atl_err a_err;
-838850c50884cd Yazen Ghannam 2024-03-01  304  	unsigned long spa;
-838850c50884cd Yazen Ghannam 2024-03-01  305  
-838850c50884cd Yazen Ghannam 2024-03-01  306  	if (entry >= max_nr_entries) {
-838850c50884cd Yazen Ghannam 2024-03-01  307  		pr_warn_once("FRU descriptor entry %d out-of-bounds (max: %d)\n",
-838850c50884cd Yazen Ghannam 2024-03-01  308  			     entry, max_nr_entries);
-838850c50884cd Yazen Ghannam 2024-03-01  309  		return;
-838850c50884cd Yazen Ghannam 2024-03-01  310  	}
-838850c50884cd Yazen Ghannam 2024-03-01  311  
-838850c50884cd Yazen Ghannam 2024-03-01  312  	/* spa_nr_entries is always multiple of max_nr_entries */
-838850c50884cd Yazen Ghannam 2024-03-01  313  	for (i = 0; i < spa_nr_entries; i += max_nr_entries) {
-838850c50884cd Yazen Ghannam 2024-03-01  314  		fru_idx = i / max_nr_entries;
-838850c50884cd Yazen Ghannam 2024-03-01  315  		if (fru_records[fru_idx] == rec)
-838850c50884cd Yazen Ghannam 2024-03-01  316  			break;
-838850c50884cd Yazen Ghannam 2024-03-01  317  	}
-838850c50884cd Yazen Ghannam 2024-03-01  318  
-838850c50884cd Yazen Ghannam 2024-03-01  319  	if (i >= spa_nr_entries) {
-838850c50884cd Yazen Ghannam 2024-03-01  320  		pr_warn_once("FRU record %d not found\n", i);
-838850c50884cd Yazen Ghannam 2024-03-01  321  		return;
-838850c50884cd Yazen Ghannam 2024-03-01  322  	}
-838850c50884cd Yazen Ghannam 2024-03-01  323  
-838850c50884cd Yazen Ghannam 2024-03-01  324  	spa_entry = i + entry;
-838850c50884cd Yazen Ghannam 2024-03-01  325  	if (spa_entry >= spa_nr_entries) {
-838850c50884cd Yazen Ghannam 2024-03-01  326  		pr_warn_once("spa_entries[] index out-of-bounds\n");
-838850c50884cd Yazen Ghannam 2024-03-01  327  		return;
-838850c50884cd Yazen Ghannam 2024-03-01  328  	}
-838850c50884cd Yazen Ghannam 2024-03-01  329  
-838850c50884cd Yazen Ghannam 2024-03-01  330  	memset(&a_err, 0, sizeof(struct atl_err));
-838850c50884cd Yazen Ghannam 2024-03-01  331  
-838850c50884cd Yazen Ghannam 2024-03-01  332  	a_err.addr = addr;
-838850c50884cd Yazen Ghannam 2024-03-01  333  	a_err.ipid = id;
-838850c50884cd Yazen Ghannam 2024-03-01  334  	a_err.cpu  = cpu;
-838850c50884cd Yazen Ghannam 2024-03-01  335  
-838850c50884cd Yazen Ghannam 2024-03-01 @336  	spa = amd_convert_umc_mca_addr_to_sys_addr(&a_err);
-838850c50884cd Yazen Ghannam 2024-03-01  337  	if (IS_ERR_VALUE(spa)) {
-838850c50884cd Yazen Ghannam 2024-03-01  338  		pr_debug("Failed to get system address\n");
-838850c50884cd Yazen Ghannam 2024-03-01  339  		return;
-838850c50884cd Yazen Ghannam 2024-03-01  340  	}
-838850c50884cd Yazen Ghannam 2024-03-01  341  
-838850c50884cd Yazen Ghannam 2024-03-01  342  	spa_entries[spa_entry] = spa;
-838850c50884cd Yazen Ghannam 2024-03-01  343  	pr_debug("fru_idx: %u, entry: %u, spa_entry: %u, spa: 0x%016llx\n",
-838850c50884cd Yazen Ghannam 2024-03-01  344  		 fru_idx, entry, spa_entry, spa_entries[spa_entry]);
-838850c50884cd Yazen Ghannam 2024-03-01  345  }
-838850c50884cd Yazen Ghannam 2024-03-01  346  
+   357	
+   358	/*
+   359	 * Initialise an entry in the VMT based on the index of the VM. We
+   360	 * make the assumption that our VM ID is zero based, and that we can
+   361	 * use it to index into the VMT. We check that the index is in the
+   362	 * allowed range, just in case.
+   363	 *
+   364	 * We allocate:
+   365	 *     * The VM Descriptor
+   366	 *     * The VPE Table
+   367	 *
+   368	 * We set:
+   369	 *     * The VPE ID Bits
+   370	 *
+   371	 * Note: We don't mark the VMTE as valid as this needs to be done by
+   372	 * the hardware..
+   373	 */
+   374	int vgic_v5_vmte_init(struct kvm *kvm)
+   375	{
+   376		struct vmtl2_entry *vmte;
+   377		gicv5_vm_info *vmi;
+   378		void *vmd = NULL, *vpet = NULL;
+   379		void **vped_ptrs = NULL;
+   380		size_t vpet_alloc_size;
+   381		int ret;
+   382		u64 tmp;
+   383		u16 vm_id = vgic_v5_vm_id(kvm);
+   384	
+ > 385		if (!vgic_v5_vmt_allocated()) {
+   386			kvm_err("VMT is not allocated; cannot populate\n");
+   387			ret = -EINVAL;
+   388			goto out_fail;
+   389		}
+   390	
+   391		if (vm_id < 0) {
+   392			kvm_err("Failed to find free vm_id\n");
+   393			return vm_id;
+   394		}
+   395	
+   396		if (vgic_v5_alloc_l2_vmt(kvm)) {
+   397			kvm_err("Failed to make the L2 VMTE valid!\n");
+   398			return -EIO;
+   399		}
+   400	
+   401		ret = vgic_v5_get_l2_vmte(vm_id, &vmte);
+   402		if (ret) {
+   403			kvm_err("Failed to look up VMTE\n");
+   404			return ret;
+   405		}
+   406	
+   407		if (FIELD_GET(GICV5_VMTEL2E_VALID, vmte->val[0])) {
+   408			kvm_err("Attempt to initialize a valid VMTE (0x%x)!\n", vm_id);
+   409			return -EINVAL;
+   410		}
+   411	
+   412		ret = vgic_v5_reset_vmte(vm_id);
+   413		if (ret) {
+   414			kvm_err("Failed to reset VMTE\n");
+   415			return ret;
+   416		}
+   417	
+   418		vmi = kzalloc(sizeof(gicv5_vm_info), GFP_KERNEL);
+   419		if (vmi == NULL) {
+   420			ret = -ENOMEM;
+   421			goto out_fail;
+   422		}
+   423	
+   424		/* Allocate and assign the VM Descriptor, if requested. */
+   425		if (vmt_info->vmd_size != 0) {
+   426			vmd = kzalloc(vmt_info->vmd_size, GFP_KERNEL);
+   427			if (vmd == NULL) {
+   428				kvm_err("Failed to allocate memory for VM Descriptor\n");
+   429				ret = -ENOMEM;
+   430				goto out_fail;
+   431			}
+   432	
+   433			if (!IS_ALIGNED((u64)vmd, vmt_info->vmd_size)) {
+   434				kvm_err("VMD is incorrectly aligned\n");
+   435				ret = -EFAULT;
+   436				goto out_fail;
+   437			}
+   438	
+   439			/* Stash the VA so we can free it later */
+   440			vmi->vmd_base = vmd;
+   441	
+   442			tmp = FIELD_PREP(GICV5_VMTEL2E_VMD_ADDR,
+   443					virt_to_phys(vmd) >>
+   444					GICV5_VMTEL2E_VMD_ADDR_SHIFT);
+   445			WRITE_ONCE(vmte->val[0], cpu_to_le64(tmp));
+   446		}
+   447	
+   448		/*
+   449		 * Allocate and assign the VPE Table.
+   450		 */
+   451		vpet_alloc_size = sizeof(vpe_entry) * vmt_info->max_vpes;
+   452		vpet = kzalloc(vpet_alloc_size, GFP_KERNEL);
+   453		if (vpet == NULL) {
+   454			kvm_err("Failed to allocate memory for VPE Table\n");
+   455			ret = -ENOMEM;
+   456			goto out_fail;
+   457		}
+   458	
+   459		if (!IS_ALIGNED((u64)vpet, vpet_alloc_size)) {
+   460			kvm_err("VPET is incorrectly aligned\n");
+   461			ret = -EFAULT;
+   462			goto out_fail;
+   463		}
+   464	
+   465		/* Stash the VA so we can free it later */
+   466		vmi->vpet_base = vpet;
+   467	
+   468		tmp = FIELD_PREP(GICV5_VMTEL2E_VPET_ADDR,
+   469				virt_to_phys(vpet) >> GICV5_VMTEL2E_VPET_ADDR_SHIFT);
+   470		tmp |= FIELD_PREP(GICV5_VMTEL2E_VPE_ID_BITS, fls(vmt_info->max_vpes) - 1);
+   471		WRITE_ONCE(vmte->val[1], cpu_to_le64(tmp));
+   472	
+   473		vped_ptrs = kzalloc(vmt_info->max_vpes * sizeof(vped_ptrs), GFP_KERNEL);
+   474		if (vped_ptrs == NULL) {
+   475			kvm_err("Failed to allocate memory for VPED tracking\n");
+   476			ret = -ENOMEM;
+   477			goto out_fail;
+   478		}
+   479		vmi->vped_ptrs = vped_ptrs;
+   480	
+   481		if (gicv5_host_ist_caps.irs_non_coherent) {
+   482			if (vmd)
+   483				dcache_clean_inval_poc((unsigned long)vmd,
+   484						       (unsigned long)vmd + vmt_info->vmd_size);
+   485			if (vpet)
+   486				dcache_clean_inval_poc((unsigned long)vpet,
+   487						       (unsigned long)vpet + vpet_alloc_size);
+   488			dcache_clean_poc((unsigned long)vmte,
+   489					 (unsigned long)vmte + sizeof(*vmte));
+   490		} else {
+   491			dsb(ishst);
+   492		}
+   493	
+   494		ret = xa_insert(&vm_info, vm_id, vmi, GFP_KERNEL);
+   495		if (ret)
+   496			goto out_fail;
+   497	
+   498		return 0;
+   499	
+   500	out_fail:
+   501		if (vmd)
+   502			kfree(vmd);
+   503		if (vpet)
+   504			kfree(vpet);
+   505		if (vped_ptrs)
+   506			kfree(vped_ptrs);
+   507		if (vmi)
+   508			kfree(vmi);
+   509	
+   510		vgic_v5_reset_vmte(vm_id);
+   511	
+   512		return ret;
+   513	}
+   514	
 
 -- 
 0-DAY CI Kernel Test Service
