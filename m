@@ -4,75 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37961E674A4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 12:44:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C965DE674AF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 13:10:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mR3UxF22IV84PqKGtTidKFjfqN5cDsG1B8+d2UhQLvg=; b=HcGEuxAHA6QCUCbGex2dlEA1ZF
-	yeiw55QS9H3EJT9eA2ZzsEpTMV5jiM872e4mB2GI9mfkTen5fJiN4Oy6yRmmn9L0UcDQTzedOvs2n
-	+v5Lw8Jcczkud8hSk3Eg5jq9XVMgvYgT2pIKAjd+QZGDm9R/qbgnIZWTWcorqTGqU9VRqxhzQjcS7
-	1hhSPHXtDc6NP9CxQnzVVL1EkdMtQySqX10yNaUYgyJwmMJ7Us1LlFn23czHQP1cHJU0xnrnqP0ps
-	pihIvfwXnK5Vq+nsHr8r2FE7l4tDXqhivJnnqy0Bo1b2yMiAjLIfB+54zQwETccV9dEmP4vLZubYQ
-	jhU+cKew==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=olw9iO/vTGxue0AJRrkD2MIii1BGv6tej+NH1XUETHE=; b=Bv7+EIZ563+wQUGN/Px96VoTHZ
+	xRCH5Knsq5RIBbyW5DOfShpqPsKLqzBe6Cm2N6YOvhEsPpzANgdA5rr0HbsL0tzsp4sAux6M9J3B9
+	JCvNPUbwzofJpB0rBqoqoBcYD4zRKTmUlmazGidaOrxToE2E3PS5e4WGUFzfxvA5YIl9MYjkbfXqn
+	alpAl9mFA3jS0fk/qs9yuvl1JQWxMxcmvOxi8wxA4JaEjjAszPrVrU7dnO176G5HrnV5dw0XqCh0Z
+	6EKQW0Vf4tIXMKmTNg0d2t0rfHZFKv/KfQCDU/onuqThonu2xtKDogLZZHoe2ICbHsZt+PjUGn5Nc
+	0Z3azdGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXfGZ-0000000Dl1u-10S5;
-	Mon, 22 Dec 2025 12:43:59 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXfGV-0000000Dl1T-1NOP
+	id 1vXfg2-0000000DnNz-3cql;
+	Mon, 22 Dec 2025 13:10:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vXffz-0000000DnNX-2bj3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Dec 2025 12:43:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1766407435; x=1797943435;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=TVTiqEhNLbSr7eIJZANPXzjzTaIA/EUuM3L2baWqaEE=;
-  b=nCCAY8bekRi8+TRECM6YnOGyl4gZm1njh1/A5ZcG6iExgSSd9E4zoHuE
-   G9yYjlSvYlI3nY4SV+Wj6isgVMdvvBIh3aY33wwy6xp+xvrPo3AA2ONoI
-   8DN8ij+UUtkVOn0TPdIF+FmjTGEWMw2Qj6epScyGeQaTGlVKOfBZIaRAB
-   8qdYDpgGEU1Tv57oaB85SOALkpmnWXSjuLBRvSCSWFcR8SbUHnJqXfyAU
-   n62nUNlrk0O31n5SYxADEw7AphywWO2cz/fXM0ixP9pcnXHyXSa1om5zO
-   /rEA1nqu8d/ZtdqYeWFhGbTI3bRSWkuzdydrnIUDh/qW51NB+jx+jqfH5
-   g==;
-X-CSE-ConnectionGUID: dwesHJ7DT9OeAezvqQ/Gew==
-X-CSE-MsgGUID: GQVYSM4nQWuOEGmDOXnV8A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11649"; a="72122694"
-X-IronPort-AV: E=Sophos;i="6.21,168,1763452800"; 
-   d="scan'208";a="72122694"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Dec 2025 04:43:54 -0800
-X-CSE-ConnectionGUID: H6BU1IhTTNKKLUFCQPYXrw==
-X-CSE-MsgGUID: iAvp99FRR4eUbI/njFg6aA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,168,1763452800"; 
-   d="scan'208";a="199492274"
-Received: from lkp-server02.sh.intel.com (HELO dd3453e2b682) ([10.239.97.151])
-  by orviesa007.jf.intel.com with ESMTP; 22 Dec 2025 04:43:49 -0800
-Received: from kbuild by dd3453e2b682 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vXfGM-000000000aH-32aX;
-	Mon, 22 Dec 2025 12:43:46 +0000
-Date: Mon, 22 Dec 2025 20:43:24 +0800
-From: kernel test robot <lkp@intel.com>
-To: Barry Song <21cnbao@gmail.com>, catalin.marinas@arm.com,
-	m.szyprowski@samsung.com, robin.murphy@arm.com, will@kernel.org
-Subject: Re: [PATCH 5/6] dma-mapping: Allow batched DMA sync operations if
- supported by the arch
-Message-ID: <202512222029.Dd6Vs1Eg-lkp@intel.com>
-References: <20251219053658.84978-6-21cnbao@gmail.com>
+	Mon, 22 Dec 2025 13:10:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 481A8497;
+	Mon, 22 Dec 2025 05:10:03 -0800 (PST)
+Received: from [10.57.78.114] (unknown [10.57.78.114])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A26683F778;
+	Mon, 22 Dec 2025 05:10:08 -0800 (PST)
+Message-ID: <684e06d2-1d90-4b89-96d8-7458f79e3cc9@arm.com>
+Date: Mon, 22 Dec 2025 13:10:06 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251219053658.84978-6-21cnbao@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 3/4] coresight: tpda: add logic to configure TPDA_SYNCR
+ register
+Content-Language: en-GB
+To: Jie Gan <jie.gan@oss.qualcomm.com>, Mike Leach <mike.leach@linaro.org>,
+ James Clark <james.clark@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Tao Zhang <tao.zhang@oss.qualcomm.com>
+References: <20251222-add_sysfs_nodes_to_configure_tpda-v6-0-b27143d45c86@oss.qualcomm.com>
+ <20251222-add_sysfs_nodes_to_configure_tpda-v6-3-b27143d45c86@oss.qualcomm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20251222-add_sysfs_nodes_to_configure_tpda-v6-3-b27143d45c86@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_044355_747494_EB4BBAC4 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20251222_051015_809586_F9D99925 
+X-CRM114-Status: GOOD (  27.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,127 +66,161 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: v-songbaohua@oppo.com, zhengtangquan@oppo.com, ryan.roberts@arm.com, anshuman.khandual@arm.com, maz@kernel.org, llvm@lists.linux.dev, linux-kernel@vger.kernel.org, iommu@lists.linux.dev, oe-kbuild-all@lists.linux.dev, surenb@google.com, ardb@kernel.org, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Barry,
+On 22/12/2025 06:02, Jie Gan wrote:
+> From: Tao Zhang <tao.zhang@oss.qualcomm.com>
+> 
+> The TPDA_SYNC counter tracks the number of bytes transferred from the
+> aggregator. When this count reaches the value programmed in the
+> TPDA_SYNCR register, an ASYNC request is triggered, allowing userspace
+> tools to accurately parse each valid packet.
+> 
+> Signed-off-by: Tao Zhang <tao.zhang@oss.qualcomm.com>
+> Reviewed-by: James Clark <james.clark@linaro.org>
+> Co-developed-by: Jie Gan <jie.gan@oss.qualcomm.com>
+> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+> ---
+>   .../ABI/testing/sysfs-bus-coresight-devices-tpda   | 10 +++++
+>   drivers/hwtracing/coresight/coresight-tpda.c       | 46 ++++++++++++++++++++++
+>   drivers/hwtracing/coresight/coresight-tpda.h       |  8 ++++
+>   3 files changed, 64 insertions(+)
+> 
+> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
+> index c8bc7b19ab25..d359d90dca72 100644
+> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
+> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
+> @@ -41,3 +41,13 @@ Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qu
+>   Description:
+>   		(RW) Set global (all ports) flush request bit. The bit remains set until a
+>   		global flush request sequence completes.
+> +
+> +What:		/sys/bus/coresight/devices/<tpda-name>/syncr_mode
+> +Date:		December 2025
+> +KernelVersion:	6.19
+> +Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
+> +Description:
+> +		(RW) Set mode the of the syncr counter.
+> +		mode 0 - COUNT[11:0] value represents the approximate number of bytes moved between two ASYNC packet requests
+> +		mode 1 - the bits COUNT[11:7] are used as a power of 2. for example, we could insert an async packet every 8K
+> +		         data by writing a value 13 to the COUNT[11:7] field.
 
-kernel test robot noticed the following build errors:
+What is COUNT here ? and more importantly how is this usefule without
+the support for setting the COUNT ? Do we plan to expose setting this ?
+If yes, why not now ? I don't see the point of merging "this" patch
+without the support for setting the counter.
 
-[auto build test ERROR on linus/master]
-[also build test ERROR on v6.19-rc2 next-20251219]
-[cannot apply to arm64/for-next/core]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Barry-Song/arm64-Provide-dcache_by_myline_op_nosync-helper/20251219-195810
-base:   linus/master
-patch link:    https://lore.kernel.org/r/20251219053658.84978-6-21cnbao%40gmail.com
-patch subject: [PATCH 5/6] dma-mapping: Allow batched DMA sync operations if supported by the arch
-config: i386-buildonly-randconfig-006-20251222 (https://download.01.org/0day-ci/archive/20251222/202512222029.Dd6Vs1Eg-lkp@intel.com/config)
-compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251222/202512222029.Dd6Vs1Eg-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202512222029.Dd6Vs1Eg-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> kernel/dma/direct.c:456:4: error: call to undeclared function 'dma_direct_unmap_phys_batch_add'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     456 |                         dma_direct_unmap_phys_batch_add(dev, sg->dma_address,
-         |                         ^
-   kernel/dma/direct.c:456:4: note: did you mean 'dma_direct_unmap_phys'?
-   kernel/dma/direct.h:188:20: note: 'dma_direct_unmap_phys' declared here
-     188 | static inline void dma_direct_unmap_phys(struct device *dev, dma_addr_t addr,
-         |                    ^
->> kernel/dma/direct.c:484:22: error: call to undeclared function 'dma_direct_map_phys_batch_add'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     484 |                         sg->dma_address = dma_direct_map_phys_batch_add(dev, sg_phys(sg),
-         |                                           ^
-   2 errors generated.
+Suzuki
 
 
-vim +/dma_direct_unmap_phys_batch_add +456 kernel/dma/direct.c
 
-   439	
-   440	/*
-   441	 * Unmaps segments, except for ones marked as pci_p2pdma which do not
-   442	 * require any further action as they contain a bus address.
-   443	 */
-   444	void dma_direct_unmap_sg(struct device *dev, struct scatterlist *sgl,
-   445			int nents, enum dma_data_direction dir, unsigned long attrs)
-   446	{
-   447		struct scatterlist *sg;
-   448		int i;
-   449		bool need_sync = false;
-   450	
-   451		for_each_sg(sgl,  sg, nents, i) {
-   452			if (sg_dma_is_bus_address(sg)) {
-   453				sg_dma_unmark_bus_address(sg);
-   454			} else {
-   455				need_sync = true;
- > 456				dma_direct_unmap_phys_batch_add(dev, sg->dma_address,
-   457						      sg_dma_len(sg), dir, attrs);
-   458			}
-   459		}
-   460		if (need_sync && !dev_is_dma_coherent(dev))
-   461			arch_sync_dma_batch_flush();
-   462	}
-   463	#endif
-   464	
-   465	int dma_direct_map_sg(struct device *dev, struct scatterlist *sgl, int nents,
-   466			enum dma_data_direction dir, unsigned long attrs)
-   467	{
-   468		struct pci_p2pdma_map_state p2pdma_state = {};
-   469		struct scatterlist *sg;
-   470		int i, ret;
-   471		bool need_sync = false;
-   472	
-   473		for_each_sg(sgl, sg, nents, i) {
-   474			switch (pci_p2pdma_state(&p2pdma_state, dev, sg_page(sg))) {
-   475			case PCI_P2PDMA_MAP_THRU_HOST_BRIDGE:
-   476				/*
-   477				 * Any P2P mapping that traverses the PCI host bridge
-   478				 * must be mapped with CPU physical address and not PCI
-   479				 * bus addresses.
-   480				 */
-   481				break;
-   482			case PCI_P2PDMA_MAP_NONE:
-   483				need_sync = true;
- > 484				sg->dma_address = dma_direct_map_phys_batch_add(dev, sg_phys(sg),
-   485						sg->length, dir, attrs);
-   486				if (sg->dma_address == DMA_MAPPING_ERROR) {
-   487					ret = -EIO;
-   488					goto out_unmap;
-   489				}
-   490				break;
-   491			case PCI_P2PDMA_MAP_BUS_ADDR:
-   492				sg->dma_address = pci_p2pdma_bus_addr_map(
-   493					p2pdma_state.mem, sg_phys(sg));
-   494				sg_dma_len(sg) = sg->length;
-   495				sg_dma_mark_bus_address(sg);
-   496				continue;
-   497			default:
-   498				ret = -EREMOTEIO;
-   499				goto out_unmap;
-   500			}
-   501			sg_dma_len(sg) = sg->length;
-   502		}
-   503	
-   504		if (need_sync && !dev_is_dma_coherent(dev))
-   505			arch_sync_dma_batch_flush();
-   506		return nents;
-   507	
-   508	out_unmap:
-   509		dma_direct_unmap_sg(dev, sgl, i, dir, attrs | DMA_ATTR_SKIP_CPU_SYNC);
-   510		return ret;
-   511	}
-   512	
+> diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/hwtracing/coresight/coresight-tpda.c
+> index d24a9098f1b1..7baa8a0965d3 100644
+> --- a/drivers/hwtracing/coresight/coresight-tpda.c
+> +++ b/drivers/hwtracing/coresight/coresight-tpda.c
+> @@ -163,6 +163,15 @@ static void tpda_enable_pre_port(struct tpda_drvdata *drvdata)
+>   	 */
+>   	if (drvdata->trig_flag_ts)
+>   		writel_relaxed(0x0, drvdata->base + TPDA_FPID_CR);
+> +
+> +	/* Initialize with a value of 0 */
+> +	val = 0;
+> +	if (drvdata->syncr_mode)
+> +		val |= TPDA_SYNCR_MODE_CTRL_MASK;
+> +
+> +	/* Program the counter to its MAX value by default */
+> +	val |= TPDA_SYNCR_COUNTER_MASK;
+> +	writel_relaxed(val, drvdata->base + TPDA_SYNCR);
+>   }
+>   
+>   static int tpda_enable_port(struct tpda_drvdata *drvdata, int port)
+> @@ -385,8 +394,45 @@ static ssize_t global_flush_req_store(struct device *dev,
+>   }
+>   static DEVICE_ATTR_RW(global_flush_req);
+>   
+> +static ssize_t syncr_mode_show(struct device *dev,
+> +			       struct device_attribute *attr,
+> +			       char *buf)
+> +{
+> +	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+> +	unsigned long val, syncr_val;
+> +
+> +	if (!drvdata->csdev->refcnt)
+> +		return -EINVAL;
+> +
+> +	guard(spinlock)(&drvdata->spinlock);
+> +	syncr_val = readl_relaxed(drvdata->base + TPDA_SYNCR);
+> +	val = FIELD_GET(TPDA_SYNCR_MODE_CTRL_MASK, syncr_val);
+> +
+> +	return sysfs_emit(buf, "%lu\n", val);
+> +}
+> +
+> +static ssize_t syncr_mode_store(struct device *dev,
+> +				struct device_attribute *attr,
+> +				const char *buf,
+> +				size_t size)
+> +{
+> +	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
+> +	unsigned long val;
+> +
+> +	if (kstrtoul(buf, 0, &val))
+> +		return -EINVAL;
+> +
+> +	guard(spinlock)(&drvdata->spinlock);
+> +	/* set the mode when first enabling the device */
+> +	drvdata->syncr_mode = !!val;
+> +
+> +	return size;
+> +}
+> +static DEVICE_ATTR_RW(syncr_mode);
+> +
+>   static struct attribute *tpda_attrs[] = {
+>   	&dev_attr_global_flush_req.attr,
+> +	&dev_attr_syncr_mode.attr,
+>   	tpda_trig_sysfs_rw(freq_ts_enable, FREQTS),
+>   	tpda_trig_sysfs_rw(trig_freq_enable, FRIE),
+>   	tpda_trig_sysfs_rw(trig_flag_ts_enable, FLRIE),
+> diff --git a/drivers/hwtracing/coresight/coresight-tpda.h b/drivers/hwtracing/coresight/coresight-tpda.h
+> index 1cc9253293ec..1d2de50bb9f9 100644
+> --- a/drivers/hwtracing/coresight/coresight-tpda.h
+> +++ b/drivers/hwtracing/coresight/coresight-tpda.h
+> @@ -9,6 +9,7 @@
+>   #define TPDA_CR			(0x000)
+>   #define TPDA_Pn_CR(n)		(0x004 + (n * 4))
+>   #define TPDA_FPID_CR		(0x084)
+> +#define TPDA_SYNCR		(0x08C)
+>   
+>   /* Cross trigger global (all ports) flush request bit */
+>   #define TPDA_CR_FLREQ		BIT(0)
+> @@ -36,6 +37,11 @@
+>   /* Aggregator port DSB data set element size bit */
+>   #define TPDA_Pn_CR_DSBSIZE		BIT(8)
+>   
+> +/* TPDA_SYNCR counter mask */
+> +#define TPDA_SYNCR_COUNTER_MASK		GENMASK(11, 0)
+> +/* TPDA_SYNCR mode control bit */
+> +#define TPDA_SYNCR_MODE_CTRL_MASK	GENMASK(12, 12)
+> +
+>   #define TPDA_MAX_INPORTS	32
+>   
+>   /**
+> @@ -52,6 +58,7 @@
+>    * @trig_freq:	Enable/disable cross trigger FREQ packet request interface.
+>    * @freq_ts:	Enable/disable the timestamp for all FREQ packets.
+>    * @cmbchan_mode: Configure the CMB/MCMB channel mode.
+> + * @syncr_mode:	Configure the mode for counting packets.
+>    */
+>   struct tpda_drvdata {
+>   	void __iomem		*base;
+> @@ -66,6 +73,7 @@ struct tpda_drvdata {
+>   	bool			trig_freq;
+>   	bool			freq_ts;
+>   	bool			cmbchan_mode;
+> +	bool			syncr_mode;
+>   };
+>   
+>   /* Enumerate members of global control register(cr) */
+> 
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
