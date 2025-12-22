@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE67AE6748D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88B87D711D5
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 09:44:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,29 +12,29 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DnOhC3gDzjPKL1u8Gf/D8zWgsYNDRy9TN8Idu01s0JM=; b=FbnE0EvTrN9cvqofmc4PwefcfD
-	RrasMtLeanLRRL3DuswyD4l+LDMvhDyZI7vi0Njmou7HK5SkOLrYZoYL9K0aQ7v6d4KadM1xO3/an
-	/kiBncqJgCxDKVopaAPHBa8oRf1ZWRzk3Hko6NUGvAO4I2sq9Tk/1ZATeN1A0aOECIxlgAAkC49ox
-	jrHthH0q691J69mFJmfzdZoVBjRjNllNzfThm3RyF9au0oqDJjKTnpUdiLKSLC+6EeI5te1UwLwCx
-	iicXoIsyjy/h9KMcTcErm3YGS8cFv2r+jJBowXH2TWeAjgy056qT4meTxdTgfqsEKSImckrKb+N1x
-	9wtzL/tA==;
+	bh=/oEXVsmFVs0xqk4gMISYSdlIJXvCPibEK0lRcifwNT0=; b=RvU5HNBa1naL4v75td4z9A4AA6
+	/cfFmaoxa0xm12RtIMldv/j2y75nzQKV46z4xVvmD1jwybk8VKws1RJiXGiHkoNPjS0LkPwWUNg8x
+	bUX7+lTUSmmgOAwhIWsuBZ0U2ZSOb/Fs0knRtKVvLVDGlMCEuuqSM3tclLCNpGhJWvaR+7iqFfD3o
+	xIzGS3stbPILrR9Px5MJ0n8jy8HMHDbCn8bvsTWUgPG4f1uxkHmTG/36Hsps38gYK4QuAFBD40j2H
+	7A7pLbG+bu7Eiprb4K+m9cgqGI76XPZeGDQFpuRR2TQsiWUbMjqsHZrAJ4tPOmM69pjMlvbZYK8O3
+	Z9NLUUhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXcTA-0000000DXsO-2MJi;
-	Mon, 22 Dec 2025 09:44:48 +0000
-Received: from out30-110.freemail.mail.aliyun.com ([115.124.30.110])
+	id 1vXcT9-0000000DXqa-0ABD;
+	Mon, 22 Dec 2025 09:44:47 +0000
+Received: from out30-100.freemail.mail.aliyun.com ([115.124.30.100])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXcT2-0000000DXii-1htS
+	id 1vXcSv-0000000DXa7-22TA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Dec 2025 09:44:42 +0000
+	Mon, 22 Dec 2025 09:44:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1766396678; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=DnOhC3gDzjPKL1u8Gf/D8zWgsYNDRy9TN8Idu01s0JM=;
-	b=vEiurCNNtobkHQG2qhfJdjf1bNHNZMUaV9WbJFQlFBdBwqOKr+nh4c0LWbegbvF/LUqIMHA98PPTKReVSRMRrI1TaR7yVa9/5k/GvlSaOjNtYGQOwpLHUGYLr/Ow8WoCF1b/yQmpyzjXEMQOemf10W5Bkh+V+jNTOIc9HvR2cu8=
-Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0WvOT.WZ_1766396671 cluster:ay36)
+	t=1766396671; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=/oEXVsmFVs0xqk4gMISYSdlIJXvCPibEK0lRcifwNT0=;
+	b=WTFGV932ihKQfJ0f+L67QeoLmnyxeYdwc9g/T5g2oSwtZLWD/LMyJNkEq4KECZ5pXmav6fhYtA9ryIAh2/q5k+KZxHPO5SiwkrhIIJXlcxsBfvhC50sjukybIEp2h1XvAbJRr+MdXfi74EWzFONsDLC1ETq4hvQFqYzmNq3aess=
+Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0WvOk-hQ_1766396669 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Mon, 22 Dec 2025 17:44:33 +0800
+          Mon, 22 Dec 2025 17:44:30 +0800
 From: Ruidong Tian <tianruidong@linux.alibaba.com>
 To: catalin.marinas@arm.com,
 	will@kernel.org,
@@ -52,18 +52,17 @@ To: catalin.marinas@arm.com,
 	yazen.ghannam@amd.com,
 	misono.tomohiro@fujitsu.com
 Cc: tianruidong@linux.alibaba.com
-Subject: [PATCH v4 12/17] ras: AEST: Allow configuring CE threshold via debugfs
-Date: Mon, 22 Dec 2025 17:43:45 +0800
-Message-Id: <20251222094351.38792-13-tianruidong@linux.alibaba.com>
+Subject: [PATCH v4 11/17] ras: AEST: Add error count tracking and debugfs interface
+Date: Mon, 22 Dec 2025 17:43:44 +0800
+Message-Id: <20251222094351.38792-12-tianruidong@linux.alibaba.com>
 X-Mailer: git-send-email 2.33.1
 In-Reply-To: <20251222094351.38792-1-tianruidong@linux.alibaba.com>
 References: <20251222094351.38792-1-tianruidong@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_014440_651185_2A576EE9 
-X-CRM114-Status: UNSURE (   9.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251222_014433_896721_ABD48A3C 
+X-CRM114-Status: GOOD (  13.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,117 +77,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This commit introduces the ability to configure the Corrected Error (CE)
-threshold for AEST records through debugfs. This allows administrators to
-dynamically adjust the CE threshold for error reporting.
+This commit introduces error counting functionality for AEST records.
+Previously, error statistics were not directly available for individual
+error records or AEST nodes.
 
 Signed-off-by: Ruidong Tian <tianruidong@linux.alibaba.com>
 ---
- Documentation/ABI/testing/debugfs-aest | 16 ++++++++++
- drivers/ras/aest/aest-sysfs.c          | 42 ++++++++++++++++++++++++++
- 2 files changed, 58 insertions(+)
+ Documentation/ABI/testing/debugfs-aest | 14 ++++++
+ drivers/ras/aest/aest-core.c           | 21 +++++++++
+ drivers/ras/aest/aest-sysfs.c          | 64 ++++++++++++++++++++++++++
+ drivers/ras/aest/aest.h                | 10 ++++
+ 4 files changed, 109 insertions(+)
 
 diff --git a/Documentation/ABI/testing/debugfs-aest b/Documentation/ABI/testing/debugfs-aest
-index a984fcedede2..76ba1b77b274 100644
+index 1152fc83c3fc..a984fcedede2 100644
 --- a/Documentation/ABI/testing/debugfs-aest
 +++ b/Documentation/ABI/testing/debugfs-aest
-@@ -23,6 +23,14 @@ Description:
+@@ -23,9 +23,23 @@ Description:
  		See more at:
  			https://developer.arm.com/documentation/den0085/latest/
  
-+What:		/sys/kernel/debug/aest/<name>.<id>/<node_name>/ce_threshold
++What:		/sys/kernel/debug/aest/<name>.<id>/<node_name>/err_count
 +Date:		Dec 2025
 +KernelVersion	6.19
 +Contact:	Ruidong Tian <tianruidong@linux.alibaba.com>
 +Description:
-+		(WO) Write the ce threshold to all records of this node. Failed
-+		if input exceeded the maximum threshold
++		(RO) Outputs error statistics for all error records of this node.
 +
- What:		/sys/kernel/debug/aest/<name>.<id>/<node_name>/err_count
+ What:		/sys/kernel/debug/aest/<name>.<id>/<node_name>/record<index>/err_*
  Date:		Dec 2025
  KernelVersion	6.19
-@@ -37,6 +45,14 @@ Contact:	Ruidong Tian <tianruidong@linux.alibaba.com>
+ Contact:	Ruidong Tian <tianruidong@linux.alibaba.com>
  Description:
  		(RO) Read err_* register and return val.
- 
-+What:		/sys/kernel/debug/aest/<name>.<id>/<node_name>/record<index>/ce_threshold
++
++What:		/sys/kernel/debug/aest/<name>.<id>/<node_name>/record<index>/err_count
 +Date:		Dec 2025
 +KernelVersion	6.19
 +Contact:	Ruidong Tian <tianruidong@linux.alibaba.com>
 +Description:
-+		(RW) Read and write the ce threshold to this record. Failed
-+		if input exceeded the maximum threshold
++		(RO) Outputs error statistics for all this records.
+diff --git a/drivers/ras/aest/aest-core.c b/drivers/ras/aest/aest-core.c
+index 3bcc635cf8e4..75cca98024ad 100644
+--- a/drivers/ras/aest/aest-core.c
++++ b/drivers/ras/aest/aest-core.c
+@@ -170,6 +170,27 @@ static int aest_node_gen_pool_add(struct aest_device *adev,
+ 	init_aest_event(event, record, regs);
+ 	llist_add(&event->llnode, &adev->event_list);
+ 
++	if (regs->err_status & ERR_STATUS_CE)
++		record->count.ce++;
++	if (regs->err_status & ERR_STATUS_DE)
++		record->count.de++;
++	if (regs->err_status & ERR_STATUS_UE) {
++		switch (regs->err_status & ERR_STATUS_UET) {
++		case ERR_STATUS_UET_UC:
++			record->count.uc++;
++			break;
++		case ERR_STATUS_UET_UEU:
++			record->count.ueu++;
++			break;
++		case ERR_STATUS_UET_UER:
++			record->count.uer++;
++			break;
++		case ERR_STATUS_UET_UEO:
++			record->count.ueo++;
++			break;
++		}
++	}
 +
- What:		/sys/kernel/debug/aest/<name>.<id>/<node_name>/record<index>/err_count
- Date:		Dec 2025
- KernelVersion	6.19
+ 	return 0;
+ }
+ 
 diff --git a/drivers/ras/aest/aest-sysfs.c b/drivers/ras/aest/aest-sysfs.c
-index b54e879506aa..392e7ad8328e 100644
+index f3b5427ff4f0..b54e879506aa 100644
 --- a/drivers/ras/aest/aest-sysfs.c
 +++ b/drivers/ras/aest/aest-sysfs.c
-@@ -7,6 +7,25 @@
+@@ -7,6 +7,46 @@
  
  #include "aest.h"
  
 +static void
-+aest_store_threshold(struct aest_record *record, void *data)
++aest_error_count(struct aest_record *record, void *data)
 +{
-+	u64 err_misc0, *threshold = data;
-+	struct ce_threshold *ce = &record->ce;
++	struct record_count *count = data;
 +
-+	if (*threshold > ce->info->max_count)
-+		return;
-+
-+	ce->threshold = *threshold;
-+	ce->count = ce->info->max_count - ce->threshold + 1;
-+
-+	err_misc0 = record_read(record, ERXMISC0);
-+	ce->reg_val = (err_misc0 & ~ce->info->mask) |
-+			(ce->count << ce->info->shift);
-+
-+	record_write(record, ERXMISC0, ce->reg_val);
++	count->ce += record->count.ce;
++	count->de += record->count.de;
++	count->uc += record->count.uc;
++	count->ueu += record->count.ueu;
++	count->uer += record->count.uer;
++	count->ueo += record->count.ueo;
 +}
 +
- static void
- aest_error_count(struct aest_record *record, void *data)
- {
-@@ -77,6 +96,27 @@ DEFINE_AEST_DEBUGFS_ATTR(err_misc1, ERXMISC1);
++/*******************************************************************************
++ *
++ * Debugfs for AEST node
++ *
++ ******************************************************************************/
++
++static int aest_node_err_count_show(struct seq_file *m, void *data)
++{
++	struct aest_node *node = m->private;
++	struct record_count count = { 0 };
++	int i;
++
++	for (i = 0; i < node->record_count; i++)
++		aest_error_count(&node->records[i], &count);
++
++	seq_printf(m, "CE: %llu\n"
++				"DE: %llu\n"
++				"UC: %llu\n"
++				"UEU: %llu\n"
++				"UEO: %llu\n"
++				"UER: %llu\n",
++				count.ce, count.de, count.uc, count.ueu,
++				count.uer, count.ueo);
++	return 0;
++}
++DEFINE_SHOW_ATTRIBUTE(aest_node_err_count);
++
+ /*******************************************************************************
+  *
+  * Attribute for AEST record
+@@ -37,6 +77,25 @@ DEFINE_AEST_DEBUGFS_ATTR(err_misc1, ERXMISC1);
  DEFINE_AEST_DEBUGFS_ATTR(err_misc2, ERXMISC2);
  DEFINE_AEST_DEBUGFS_ATTR(err_misc3, ERXMISC3);
  
-+static int record_ce_threshold_get(void *data, u64 *val)
++static int aest_record_err_count_show(struct seq_file *m, void *data)
 +{
-+	struct aest_record *record = data;
++	struct aest_record *record = m->private;
++	struct record_count count = { 0 };
 +
-+	*val = record->ce.threshold;
++	aest_error_count(record, &count);
++
++	seq_printf(m, "CE: %llu\n"
++				"DE: %llu\n"
++				"UC: %llu\n"
++				"UEU: %llu\n"
++				"UEO: %llu\n"
++				"UER: %llu\n",
++				count.ce, count.de, count.uc, count.ueu,
++				count.uer, count.ueo);
 +	return 0;
 +}
++DEFINE_SHOW_ATTRIBUTE(aest_record_err_count);
 +
-+static int record_ce_threshold_set(void *data, u64 val)
-+{
-+	u64 threshold = val;
-+	struct aest_record *record = data;
-+
-+	aest_store_threshold(record, &threshold);
-+
-+	return 0;
-+}
-+
-+DEFINE_DEBUGFS_ATTRIBUTE(record_ce_threshold_ops, record_ce_threshold_get,
-+					record_ce_threshold_set, "%llu\n");
-+
- static int aest_record_err_count_show(struct seq_file *m, void *data)
+ static void aest_record_init_debugfs(struct aest_record *record)
  {
- 	struct aest_record *record = m->private;
-@@ -116,6 +156,8 @@ static void aest_record_init_debugfs(struct aest_record *record)
+ 	debugfs_create_file("err_fr", 0600, record->debugfs, record,
+@@ -55,6 +114,8 @@ static void aest_record_init_debugfs(struct aest_record *record)
+ 								&err_misc2_ops);
+ 	debugfs_create_file("err_misc3", 0600, record->debugfs, record,
  								&err_misc3_ops);
- 	debugfs_create_file("err_count", 0400, record->debugfs, record,
- 						&aest_record_err_count_fops);
-+	debugfs_create_file("ce_threshold", 0600, record->debugfs, record,
-+						&record_ce_threshold_ops);
++	debugfs_create_file("err_count", 0400, record->debugfs, record,
++						&aest_record_err_count_fops);
  }
  
  static void
+@@ -63,6 +124,9 @@ aest_node_init_debugfs(struct aest_node *node)
+ 	int i;
+ 	struct aest_record *record;
+ 
++	debugfs_create_file("err_count", 0400, node->debugfs, node,
++					&aest_node_err_count_fops);
++
+ 	for (i = 0; i < node->record_count; i++) {
+ 		record = &node->records[i];
+ 		if (!record->name)
+diff --git a/drivers/ras/aest/aest.h b/drivers/ras/aest/aest.h
+index ceb9e32bcee3..802430857dc4 100644
+--- a/drivers/ras/aest/aest.h
++++ b/drivers/ras/aest/aest.h
+@@ -116,6 +116,15 @@ struct ce_threshold {
+ 	u64 reg_val;
+ };
+ 
++struct record_count {
++	u64 ce;
++	u64 de;
++	u64 uc;
++	u64 uer;
++	u64 ueo;
++	u64 ueu;
++};
++
+ struct aest_record {
+ 	char *name;
+ 	int index;
+@@ -136,6 +145,7 @@ struct aest_record {
+ 
+ 	struct ce_threshold ce;
+ 	enum ras_ce_threshold threshold_type;
++	struct record_count count;
+ 	struct dentry *debugfs;
+ };
+ 
 -- 
 2.51.2.612.gdc70283dfc
 
