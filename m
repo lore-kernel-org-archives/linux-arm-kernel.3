@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0217E67498
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 09:44:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDA1FE67495
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 09:44:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RnbyC3rvD/1hMCsEW+9+cfFgG1J5fHPhbAya46E/HCg=; b=wQn1Xkz6Nzy8OkFk0rkM9EWKBV
-	pcQaWZ9540Cr60nKS59yHmETDetZtDxc+ntb7oDMklSf58vy9I+jybOY5nmDZ3eYGBSfHYaxjXi+9
-	k69yYBeUlH5FxLgfXz/gDU8HSfpNBh/qIUSdle5O7DQYI+/q2xhLrmkiGQAam+PSUab5pPi3gvY5k
-	3ZisLhjN1giHgvJblssViMxHt3iW8EfkFGk7NnBZJs6qgvU9uvE+a3kwgCZjViMgFXdEtsGM0wxET
-	SzElIkzDAd5dLEQZf2seDsV/Wo0+tzmY6lhwX6EaPfNEzi80drCiaNf9JVPu4LLC4jfciBsDaHUMI
-	WZnTyL8g==;
+	bh=jZ/B4MXERfJ26Le+E/44WzHr/HfvoQfr2TdZTK6VJkU=; b=CIxtCjhLn7BZcvGEwHZt+bIzKi
+	bkd/oTBQv2rTCz9q2U3B2JAEXdSpkiZOYPuIjNpPyme7EYynhy8hUs4f5gPuLXASAFN28D0EFGh/v
+	ldbnYkjjDlgVYYmdwTAj15+Memh4eN01OxKMzvOBYyDHWkGCOqScORsJ9DVs/cyRcYn1xPfBTcMWB
+	lxGzTSu5J1SuUYNziCSl+qeaWg33zpXK2opFqMM+HImiU6Ej6ITbdCV+FydKo82eATp9ejU0yWXTa
+	pnjoDNoj4wR5N9zS1oinxCB1YffpxLqA5PC3mU8T0HiGSxVWcgzQoeQ0YHo5wAsYKsVXF4NVKX5/Z
+	gYaAxUnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXcT8-0000000DXpo-0ldT;
-	Mon, 22 Dec 2025 09:44:46 +0000
-Received: from out30-99.freemail.mail.aliyun.com ([115.124.30.99])
+	id 1vXcTB-0000000DXtP-2bRt;
+	Mon, 22 Dec 2025 09:44:49 +0000
+Received: from out30-132.freemail.mail.aliyun.com ([115.124.30.132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXcSr-0000000DXWt-1QJ4
+	id 1vXcT3-0000000DXk5-3TuH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Dec 2025 09:44:31 +0000
+	Mon, 22 Dec 2025 09:44:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1766396667; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=RnbyC3rvD/1hMCsEW+9+cfFgG1J5fHPhbAya46E/HCg=;
-	b=IjEAYEGB51y/PWhee6mxmPPE8drw7kF/eeQgTUqmw6IwXVLq4JFzpwwEUlF2+vlFG7vA5/e9gbegJkOno1dNropgXb6ikgGi7dZca3VQqNhk8Io6hRwxRyhfR/wmWn55ACT7wakONy/KRCvwzMNOx06Jl72Vcu5cVnqAFX38byo=
-Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0WvOT.US_1766396665 cluster:ay36)
+	t=1766396680; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=jZ/B4MXERfJ26Le+E/44WzHr/HfvoQfr2TdZTK6VJkU=;
+	b=S0exGpHHikVzkGMaQ6HtwaST4SYlhHcLhUC+vL433zQCbBltwtkPiT3cjhgzJMnygw/I8abwzIC1AsV4kfjQ3sQY1fTKEMfl7gB4krOYL4noAfKqBL8aUMPUn7qggULqVvvdGSHrP7A2obwuVQ+zyqDgDp44vgUV7FWfOREqIVw=
+Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0WvOl8BF_1766396678 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Mon, 22 Dec 2025 17:44:26 +0800
+          Mon, 22 Dec 2025 17:44:39 +0800
 From: Ruidong Tian <tianruidong@linux.alibaba.com>
 To: catalin.marinas@arm.com,
 	will@kernel.org,
@@ -52,17 +52,17 @@ To: catalin.marinas@arm.com,
 	yazen.ghannam@amd.com,
 	misono.tomohiro@fujitsu.com
 Cc: tianruidong@linux.alibaba.com
-Subject: [PATCH v4 10/17] ras: AEST: Introduce AEST driver sysfs interface
-Date: Mon, 22 Dec 2025 17:43:43 +0800
-Message-Id: <20251222094351.38792-11-tianruidong@linux.alibaba.com>
+Subject: [PATCH v4 14/17] ras: ATL: Unify ATL interface for ARM64 and AMD
+Date: Mon, 22 Dec 2025 17:43:48 +0800
+Message-Id: <20251222094351.38792-16-tianruidong@linux.alibaba.com>
 X-Mailer: git-send-email 2.33.1
 In-Reply-To: <20251222094351.38792-1-tianruidong@linux.alibaba.com>
 References: <20251222094351.38792-1-tianruidong@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_014429_556510_AFF91B54 
-X-CRM114-Status: GOOD (  21.47  )
+X-CRM114-CacheID: sfid-20251222_014442_024192_C0B5EBB4 
+X-CRM114-Status: GOOD (  17.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,309 +77,188 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Exposes certain AEST driver information to userspace.
+Certain components report errors using their internal physical addresses.
+For instance, on AMD platforms, the UMC (Unified Memory Controller) reports
+normalized addresses, while on Arm systems, memory controllers may report
+logical addresses. These addresses must be translated into System Physical
+Addresses (SPA) before the OS can utilize them effectively.
 
-Only ROOT can access these interface because it includes
-hardware-sensitive information:
-
-  ls /sys/kernel/debug/aest/
-  memory<id> smmu<id> ...
-
-  ls /sys/kernel/debug/aest/memory<id>/
-  record0 record1 ...
-
-All details at:
-        Documentation/ABI/testing/debugfs-aest
+AMD already provides the amd_atl_umc_na_to_spa interface for physical address
+translation. This patch introduces a common function, atl_ras_la_to_spa,
+intended for use by both AMD and Arm64 architectures. The parameters of this
+function are architecture-specific data required for the address translation
+process.
 
 Signed-off-by: Ruidong Tian <tianruidong@linux.alibaba.com>
 ---
- Documentation/ABI/testing/debugfs-aest |  31 +++++++
- MAINTAINERS                            |   1 +
- drivers/ras/aest/Makefile              |   1 +
- drivers/ras/aest/aest-core.c           |  13 +++
- drivers/ras/aest/aest-sysfs.c          | 118 +++++++++++++++++++++++++
- drivers/ras/aest/aest.h                |   8 ++
- 6 files changed, 172 insertions(+)
- create mode 100644 Documentation/ABI/testing/debugfs-aest
- create mode 100644 drivers/ras/aest/aest-sysfs.c
+ drivers/edac/amd64_edac.c      |  2 +-
+ drivers/ras/aest/aest-core.c   |  3 +++
+ drivers/ras/amd/atl/core.c     |  4 ++--
+ drivers/ras/amd/atl/internal.h |  2 +-
+ drivers/ras/amd/atl/umc.c      |  3 ++-
+ drivers/ras/ras.c              | 24 +++++++++++-------------
+ include/linux/ras.h            |  9 ++++-----
+ 7 files changed, 24 insertions(+), 23 deletions(-)
 
-diff --git a/Documentation/ABI/testing/debugfs-aest b/Documentation/ABI/testing/debugfs-aest
-new file mode 100644
-index 000000000000..1152fc83c3fc
---- /dev/null
-+++ b/Documentation/ABI/testing/debugfs-aest
-@@ -0,0 +1,31 @@
-+What:		/sys/kernel/debug/aest/<name>.<id>/
-+Date:		Dec 2025
-+KernelVersion	6.19
-+Contact:	Ruidong Tian <tianruidong@linux.alibaba.com>
-+Description:
-+		Directory represented a AEST device, <name> means device type,
-+		like:
-+
-+			processor
-+			memory
-+			smmu
-+			...
-+		<id> is the unique ID for this device.
-+
-+What:		/sys/kernel/debug/aest/<name>.<id>/<node_name>/*
-+Date:		Dec 2025
-+KernelVersion	6.19
-+Contact:	Ruidong Tian <tianruidong@linux.alibaba.com>
-+Description:
-+		Attibute for aest node which belong this device, the format
-+		of node name is: <Node Type>-<Node Address>
-+
-+		See more at:
-+			https://developer.arm.com/documentation/den0085/latest/
-+
-+What:		/sys/kernel/debug/aest/<name>.<id>/<node_name>/record<index>/err_*
-+Date:		Dec 2025
-+KernelVersion	6.19
-+Contact:	Ruidong Tian <tianruidong@linux.alibaba.com>
-+Description:
-+		(RO) Read err_* register and return val.
-diff --git a/MAINTAINERS b/MAINTAINERS
-index fd4c40c4607c..2c148b7ab4b2 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -346,6 +346,7 @@ M:	Ruidong Tian <tianruidond@linux.alibaba.com>
- L:	linux-acpi@vger.kernel.org
- L:	linux-arm-kernel@lists.infradead.org
- S:	Supported
-+F:	Documentation/ABI/testing/debugfs-aest
- F:	arch/arm64/include/asm/ras.h
- F:	drivers/acpi/arm64/aest.c
- F:	drivers/ras/aest/
-diff --git a/drivers/ras/aest/Makefile b/drivers/ras/aest/Makefile
-index a6ba7e36fb43..75495413d2b6 100644
---- a/drivers/ras/aest/Makefile
-+++ b/drivers/ras/aest/Makefile
-@@ -3,3 +3,4 @@
- obj-$(CONFIG_AEST) 	+= aest.o
+diff --git a/drivers/edac/amd64_edac.c b/drivers/edac/amd64_edac.c
+index 2391f3469961..478cfef37892 100644
+--- a/drivers/edac/amd64_edac.c
++++ b/drivers/edac/amd64_edac.c
+@@ -2847,7 +2847,7 @@ static void decode_umc_error(int node_id, struct mce *m)
+ 	a_err.ipid = m->ipid;
+ 	a_err.cpu  = m->extcpu;
  
- aest-y		:= aest-core.o
-+aest-y		+= aest-sysfs.o
+-	sys_addr = amd_convert_umc_mca_addr_to_sys_addr(&a_err);
++	sys_addr = convert_ras_la_to_spa(&a_err);
+ 	if (IS_ERR_VALUE(sys_addr)) {
+ 		err.err_code = ERR_NORM_ADDR;
+ 		goto log_error;
 diff --git a/drivers/ras/aest/aest-core.c b/drivers/ras/aest/aest-core.c
-index 686dde6f2e68..3bcc635cf8e4 100644
+index a290b482bf8b..052211ca3e2a 100644
 --- a/drivers/ras/aest/aest-core.c
 +++ b/drivers/ras/aest/aest-core.c
-@@ -20,6 +20,9 @@ DEFINE_PER_CPU(struct aest_device, percpu_adev);
- #undef pr_fmt
- #define pr_fmt(fmt) "AEST: " fmt
- 
-+#ifdef CONFIG_DEBUG_FS
-+struct dentry *aest_debugfs;
-+#endif
- /*
-  * This memory pool is only to be used to save AEST node in AEST irq context.
-  * There can be 500 AEST node at most.
-@@ -940,6 +943,8 @@ static int aest_device_probe(struct platform_device *pdev)
- 
- 	platform_set_drvdata(pdev, adev);
- 
-+	aest_dev_init_debugfs(adev);
+@@ -235,6 +235,9 @@ static void aest_node_pool_process(struct work_struct *work)
+ 		    (status & (ERR_STATUS_UE | ERR_STATUS_DE))) {
+ 			if (event->addressing_mode == AEST_ADDREESS_SPA)
+ 				addr = event->regs.err_addr & PHYS_MASK;
++			else
++				addr = convert_ras_la_to_spa(event);
 +
- 	aest_dev_dbg(adev, "Node cnt: %x, id: %x\n", adev->node_cnt, adev->id);
+ 			aest_handle_memory_failure(addr);
+ 		}
  
+diff --git a/drivers/ras/amd/atl/core.c b/drivers/ras/amd/atl/core.c
+index 0f7cd6dab0b0..4f44c0ce97ec 100644
+--- a/drivers/ras/amd/atl/core.c
++++ b/drivers/ras/amd/atl/core.c
+@@ -210,7 +210,7 @@ static int __init amd_atl_init(void)
+ 
+ 	/* Increment this module's recount so that it can't be easily unloaded. */
+ 	__module_get(THIS_MODULE);
+-	amd_atl_register_decoder(convert_umc_mca_addr_to_sys_addr);
++	atl_register_decoder(convert_umc_mca_addr_to_sys_addr);
+ 
+ 	pr_info("AMD Address Translation Library initialized\n");
  	return 0;
-@@ -955,12 +960,20 @@ static struct platform_driver aest_driver = {
- 
- static int __init aest_init(void)
+@@ -222,7 +222,7 @@ static int __init amd_atl_init(void)
+  */
+ static void __exit amd_atl_exit(void)
  {
-+#ifdef CONFIG_DEBUG_FS
-+	aest_debugfs = debugfs_create_dir("aest", NULL);
-+#endif
-+
- 	return platform_driver_register(&aest_driver);
+-	amd_atl_unregister_decoder();
++	atl_unregister_decoder();
  }
- module_init(aest_init);
  
- static void __exit aest_exit(void)
+ module_init(amd_atl_init);
+diff --git a/drivers/ras/amd/atl/internal.h b/drivers/ras/amd/atl/internal.h
+index 82a56d9c2be1..423a6193fdc7 100644
+--- a/drivers/ras/amd/atl/internal.h
++++ b/drivers/ras/amd/atl/internal.h
+@@ -279,7 +279,7 @@ int denormalize_address(struct addr_ctx *ctx);
+ int dehash_address(struct addr_ctx *ctx);
+ 
+ unsigned long norm_to_sys_addr(u8 socket_id, u8 die_id, u8 coh_st_inst_id, unsigned long addr);
+-unsigned long convert_umc_mca_addr_to_sys_addr(struct atl_err *err);
++unsigned long convert_umc_mca_addr_to_sys_addr(void *data);
+ 
+ u64 add_base_and_hole(struct addr_ctx *ctx, u64 addr);
+ u64 remove_base_and_hole(struct addr_ctx *ctx, u64 addr);
+diff --git a/drivers/ras/amd/atl/umc.c b/drivers/ras/amd/atl/umc.c
+index befc616d5e8a..57a78c380467 100644
+--- a/drivers/ras/amd/atl/umc.c
++++ b/drivers/ras/amd/atl/umc.c
+@@ -399,8 +399,9 @@ static u8 get_coh_st_inst_id(struct atl_err *err)
+ 	return FIELD_GET(UMC_CHANNEL_NUM, err->ipid);
+ }
+ 
+-unsigned long convert_umc_mca_addr_to_sys_addr(struct atl_err *err)
++unsigned long convert_umc_mca_addr_to_sys_addr(void *data)
  {
-+#ifdef CONFIG_DEBUG_FS
-+	debugfs_remove(aest_debugfs);
-+#endif
-+
- 	platform_driver_unregister(&aest_driver);
++	struct atl_err *err = data;
+ 	u8 socket_id = topology_physical_package_id(err->cpu);
+ 	u8 coh_st_inst_id = get_coh_st_inst_id(err);
+ 	unsigned long addr = get_addr(err->addr);
+diff --git a/drivers/ras/ras.c b/drivers/ras/ras.c
+index 2a5b5a9fdcb3..050b49466a18 100644
+--- a/drivers/ras/ras.c
++++ b/drivers/ras/ras.c
+@@ -10,36 +10,34 @@
+ #include <linux/ras.h>
+ #include <linux/uuid.h>
+ 
+-#if IS_ENABLED(CONFIG_AMD_ATL)
+ /*
+  * Once set, this function pointer should never be unset.
+  *
+  * The library module will set this pointer if it successfully loads. The module
+  * should not be unloaded except for testing and debug purposes.
+  */
+-static unsigned long (*amd_atl_umc_na_to_spa)(struct atl_err *err);
++static unsigned long (*atl_ras_la_to_spa)(void *err);
+ 
+-void amd_atl_register_decoder(unsigned long (*f)(struct atl_err *))
++void atl_register_decoder(unsigned long (*f)(void *))
+ {
+-	amd_atl_umc_na_to_spa = f;
++	atl_ras_la_to_spa = f;
  }
- module_exit(aest_exit);
-diff --git a/drivers/ras/aest/aest-sysfs.c b/drivers/ras/aest/aest-sysfs.c
-new file mode 100644
-index 000000000000..f3b5427ff4f0
---- /dev/null
-+++ b/drivers/ras/aest/aest-sysfs.c
-@@ -0,0 +1,118 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * ARM Error Source Table Support
-+ *
-+ * Copyright (c) 2025, Alibaba Group.
-+ */
-+
-+#include "aest.h"
-+
-+/*******************************************************************************
-+ *
-+ * Attribute for AEST record
-+ *
-+ ******************************************************************************/
-+
-+#define DEFINE_AEST_DEBUGFS_ATTR(name, offset) \
-+static int name##_get(void *data, u64 *val) \
-+{ \
-+	struct aest_record *record = data; \
-+	*val = record_read(record, offset); \
-+	return 0; \
-+} \
-+static int name##_set(void *data, u64 val) \
-+{ \
-+	struct aest_record *record = data; \
-+	record_write(record, offset, val); \
-+	return 0; \
-+} \
-+DEFINE_DEBUGFS_ATTRIBUTE(name##_ops, name##_get, name##_set, "%#llx\n")
-+
-+DEFINE_AEST_DEBUGFS_ATTR(err_fr, ERXFR);
-+DEFINE_AEST_DEBUGFS_ATTR(err_ctrl, ERXCTLR);
-+DEFINE_AEST_DEBUGFS_ATTR(err_status, ERXSTATUS);
-+DEFINE_AEST_DEBUGFS_ATTR(err_addr, ERXADDR);
-+DEFINE_AEST_DEBUGFS_ATTR(err_misc0, ERXMISC0);
-+DEFINE_AEST_DEBUGFS_ATTR(err_misc1, ERXMISC1);
-+DEFINE_AEST_DEBUGFS_ATTR(err_misc2, ERXMISC2);
-+DEFINE_AEST_DEBUGFS_ATTR(err_misc3, ERXMISC3);
-+
-+static void aest_record_init_debugfs(struct aest_record *record)
-+{
-+	debugfs_create_file("err_fr", 0600, record->debugfs, record,
-+								&err_fr_ops);
-+	debugfs_create_file("err_ctrl", 0600, record->debugfs, record,
-+								&err_ctrl_ops);
-+	debugfs_create_file("err_status", 0600, record->debugfs, record,
-+								&err_status_ops);
-+	debugfs_create_file("err_addr", 0600, record->debugfs, record,
-+								&err_addr_ops);
-+	debugfs_create_file("err_misc0", 0600, record->debugfs, record,
-+								&err_misc0_ops);
-+	debugfs_create_file("err_misc1", 0600, record->debugfs, record,
-+								&err_misc1_ops);
-+	debugfs_create_file("err_misc2", 0600, record->debugfs, record,
-+								&err_misc2_ops);
-+	debugfs_create_file("err_misc3", 0600, record->debugfs, record,
-+								&err_misc3_ops);
-+}
-+
-+static void
-+aest_node_init_debugfs(struct aest_node *node)
-+{
-+	int i;
-+	struct aest_record *record;
-+
-+	for (i = 0; i < node->record_count; i++) {
-+		record = &node->records[i];
-+		if (!record->name)
-+			continue;
-+		record->debugfs = debugfs_create_dir(record->name,
-+								node->debugfs);
-+		aest_record_init_debugfs(record);
-+	}
-+}
-+
-+static void
-+aest_oncore_dev_init_debugfs(struct aest_device *adev)
-+{
-+	int cpu, i;
-+	struct aest_node *node;
-+	struct aest_device *percpu_dev;
-+	char name[16];
-+
-+	for_each_possible_cpu(cpu) {
-+		percpu_dev = this_cpu_ptr(adev->adev_oncore);
-+
-+		snprintf(name, sizeof(name), "processor%u", cpu);
-+		percpu_dev->debugfs = debugfs_create_dir(name, aest_debugfs);
-+
-+		for (i = 0; i < adev->node_cnt; i++) {
-+			node = &adev->nodes[i];
-+
-+			node->debugfs = debugfs_create_dir(node->name,
-+							percpu_dev->debugfs);
-+			aest_node_init_debugfs(node);
-+		}
-+	}
-+}
-+
-+void aest_dev_init_debugfs(struct aest_device *adev)
-+{
-+	int i;
-+	struct aest_node *node;
-+
-+	adev->debugfs = debugfs_create_dir(dev_name(adev->dev), aest_debugfs);
-+	if (aest_dev_is_oncore(adev)) {
-+		aest_oncore_dev_init_debugfs(adev);
-+		return;
-+	}
-+
-+	for (i = 0; i < adev->node_cnt; i++) {
-+		node = &adev->nodes[i];
-+		if (!node->name)
-+			continue;
-+		node->debugfs = debugfs_create_dir(node->name, adev->debugfs);
-+		aest_node_init_debugfs(node);
-+	}
-+}
-diff --git a/drivers/ras/aest/aest.h b/drivers/ras/aest/aest.h
-index f85e81ff35a6..ceb9e32bcee3 100644
---- a/drivers/ras/aest/aest.h
-+++ b/drivers/ras/aest/aest.h
-@@ -7,6 +7,7 @@
+-EXPORT_SYMBOL_GPL(amd_atl_register_decoder);
++EXPORT_SYMBOL_GPL(atl_register_decoder);
  
- #include <linux/acpi_aest.h>
- #include <asm/ras.h>
-+#include <linux/debugfs.h>
+-void amd_atl_unregister_decoder(void)
++void atl_unregister_decoder(void)
+ {
+-	amd_atl_umc_na_to_spa = NULL;
++	atl_ras_la_to_spa = NULL;
+ }
+-EXPORT_SYMBOL_GPL(amd_atl_unregister_decoder);
++EXPORT_SYMBOL_GPL(atl_unregister_decoder);
  
- #define MAX_GSI_PER_NODE 2
- #define DEFAULT_CE_THRESHOLD 1
-@@ -67,6 +68,8 @@
+-unsigned long amd_convert_umc_mca_addr_to_sys_addr(struct atl_err *err)
++unsigned long convert_ras_la_to_spa(void *err)
+ {
+-	if (!amd_atl_umc_na_to_spa)
++	if (!atl_ras_la_to_spa)
+ 		return -EINVAL;
  
- #define GIC_ERRDEVARCH 0xFFBC
+-	return amd_atl_umc_na_to_spa(err);
++	return atl_ras_la_to_spa(err);
+ }
+-EXPORT_SYMBOL_GPL(amd_convert_umc_mca_addr_to_sys_addr);
+-#endif /* CONFIG_AMD_ATL */
++EXPORT_SYMBOL_GPL(convert_ras_la_to_spa);
  
-+extern struct dentry *aest_debugfs;
-+
- struct aest_event {
- 	struct llist_node llnode;
- 	char *node_name;
-@@ -133,6 +136,7 @@ struct aest_record {
- 
- 	struct ce_threshold ce;
- 	enum ras_ce_threshold threshold_type;
-+	struct dentry *debugfs;
+ #define CREATE_TRACE_POINTS
+ #define TRACE_INCLUDE_PATH ../../include/ras
+diff --git a/include/linux/ras.h b/include/linux/ras.h
+index 05096f049dac..2270a8eb1038 100644
+--- a/include/linux/ras.h
++++ b/include/linux/ras.h
+@@ -42,14 +42,9 @@ struct atl_err {
  };
  
- struct aest_group {
-@@ -201,6 +205,7 @@ struct aest_node {
+ #if IS_ENABLED(CONFIG_AMD_ATL)
+-void amd_atl_register_decoder(unsigned long (*f)(struct atl_err *));
+-void amd_atl_unregister_decoder(void);
+ void amd_retire_dram_row(struct atl_err *err);
+-unsigned long amd_convert_umc_mca_addr_to_sys_addr(struct atl_err *err);
+ #else
+ static inline void amd_retire_dram_row(struct atl_err *err) { }
+-static inline unsigned long
+-amd_convert_umc_mca_addr_to_sys_addr(struct atl_err *err) { return -EINVAL; }
+ #endif /* CONFIG_AMD_ATL */
  
- 	int record_count;
- 	struct aest_record *records;
-+	struct dentry *debugfs;
- 	struct aest_node __percpu *oncore_node;
- };
+ #if defined(CONFIG_ARM) || defined(CONFIG_ARM64)
+@@ -63,6 +58,10 @@ amd_convert_umc_mca_addr_to_sys_addr(struct atl_err *err) { return -EINVAL; }
+ #define GET_LOGICAL_INDEX(mpidr) -EINVAL
+ #endif /* CONFIG_ARM || CONFIG_ARM64 */
  
-@@ -215,6 +220,7 @@ struct aest_device {
- 	struct work_struct aest_work;
- 	struct gen_pool *pool;
- 	struct llist_head event_list;
-+	struct dentry *debugfs;
- 	struct aest_device __percpu *adev_oncore;
- };
- 
-@@ -344,3 +350,5 @@ static inline bool aest_dev_is_oncore(struct aest_device *adev)
- {
- 	return adev->type == ACPI_AEST_PROCESSOR_ERROR_NODE;
- }
++void atl_register_decoder(unsigned long (*f)(void *));
++void atl_unregister_decoder(void);
++unsigned long convert_ras_la_to_spa(void *err);
 +
-+void aest_dev_init_debugfs(struct aest_device *adev);
+ #if IS_ENABLED(CONFIG_AEST)
+ void aest_register_decode_chain(struct notifier_block *nb);
+ void aest_unregister_decode_chain(struct notifier_block *nb);
 -- 
 2.51.2.612.gdc70283dfc
 
