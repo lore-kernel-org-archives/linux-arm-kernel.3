@@ -4,62 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AE2CE6748D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 09:09:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B7B5E6748D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 09:14:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=reDamkF5nEXFaFLCWDgByap5c19pqDA/RDfTje1bSjY=; b=PioWMuP5Vmhea4PAM2NpDggG/K
-	xVwOIFtom3yU5Gjjp/LwJT8OASgDSm9+iaksKlty+Xiay3pQM6HrhS9YHmES2fNCskY2wh2pMQ+wW
-	r4X4k9QGoCnOy51GlA+mvlSnpVXoK2vczS3UdxohsTaHrxtIj8uUq6JReC+ejJsCZUmhz7rlhCmwh
-	nNdVzDegU2+f4/Y4gF/OH/cvjcFSm9/FBaPC9yA2jdnLvBWI0wxtxS7eCobIMx+5vQ3rF9K5/PeHK
-	gfGhO+Gh+TbtBxvyHRnwXUwlog337hNpbsPAp8VFut1jvFXnG3cHRR6NACKBG7vT69BL5ezHdYJdw
-	soLpEOLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UzaQ0uVsvsP9DR/7XSaUNdKHLrt3MSrFE3PXxsAuTSo=; b=AooKpo4LBJqaLClMx9uyFZ1irG
+	FAMlgcHiSmQ54COq4NBlqBAzcYT/UTuln6DPm10ocC1Q2AtxAgOayN9W8MD02DSIrJYbnMCcVRN4P
+	Whal7bFJ/ZVzqWHsgFSe0iTUATTH3c2Fgyuq/Y4lxsK+CAFu7ogwQ9/QWyQzvnWCwqsc/kBuiQlFz
+	AoG8+ZjF7XBHAbgcdE1mbV1ZljeVAXN33DsGU5MJL8Gd0ymmpEmuw+QaUAwmqaEH8CJSDEDtUBbFp
+	1yxljkIcNOok8x9bm85Ox1bOMcvspRh1PW22d971w3WmMpRm8uWGw02m2TP01xzclx70RgGhWVDvi
+	0Ov+sKlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXbun-0000000DVEc-0Tf3;
-	Mon, 22 Dec 2025 09:09:17 +0000
+	id 1vXbzx-0000000DVSr-00b9;
+	Mon, 22 Dec 2025 09:14:37 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXbuj-0000000DVEA-1XGH
+	id 1vXbzu-0000000DVSU-1EP1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Dec 2025 09:09:15 +0000
+	Mon, 22 Dec 2025 09:14:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 97D7544244;
-	Mon, 22 Dec 2025 09:09:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 981CDC4CEF1;
-	Mon, 22 Dec 2025 09:09:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766394552;
-	bh=dPA58icEyl1d1Y7YNyGO4sB5sX1GTGyKNMTI6sWHddQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Qt30uHvUOqOKmrFaZsHXSxR7WqZkFYcq6JqlNlxnG2w/XWtFACiJBfp/76nf1OcUY
-	 QIy9bmQnwDxJkcD+OETOzNTiaqwljx82r2Cas/Kl3wf/z9iigyH8Np4YfU0Tp0XMRy
-	 j/o7DBkziUUMApKOt+bydQbK5owl8TiivJ2yuttsrCUgE0nQhWci5zRymtjtqfmOS7
-	 HRgGZvizUYA+XbggJWUeTRH2EAtarMxRzamlpubmbrDOwVi/jvMIobsF4RDq6jaZEe
-	 WgsC1Ca4u3i3Wevuzayglg2eYxBTgLmjIMinkDDugny+ix7qwjANjW+UeoVAQr4lU4
-	 VSwSxGG+zNb5w==
-Date: Mon, 22 Dec 2025 10:09:08 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Harini T <harini.t@amd.com>
-Cc: jassisinghbrar@gmail.com, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, michal.simek@amd.com, shubhrajyoti.datta@amd.com, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	git@amd.com
-Subject: Re: [PATCH] dt-bindings: mailbox: xlnx,zynqmp-ipi-mailbox: Document
- msg region requirement
-Message-ID: <20251222-funny-aspiring-seal-05c4ae@quoll>
-References: <20251222044653.1757886-1-harini.t@amd.com>
+	by sea.source.kernel.org (Postfix) with ESMTP id 379AE4423F;
+	Mon, 22 Dec 2025 09:14:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A4DFC4CEF1;
+	Mon, 22 Dec 2025 09:14:29 +0000 (UTC)
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: Magnus Damm <magnus.damm@gmail.com>
+Cc: linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [PATCH] ARM: shmobile: defconfig: Refresh for v6.19-rc1
+Date: Mon, 22 Dec 2025 10:14:27 +0100
+Message-ID: <2dc339bee5bee0a425e2b00bbb784b0ec21a0a33.1766394793.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20251222044653.1757886-1-harini.t@amd.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_010913_583967_1750CCE5 
-X-CRM114-Status: GOOD (  13.57  )
+X-CRM114-CacheID: sfid-20251222_011434_434116_12AD470C 
+X-CRM114-Status: GOOD (  10.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,41 +60,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 22, 2025 at 10:16:53AM +0530, Harini T wrote:
-> Add description clarifying that for Versal IPI mailboxes, both host and
-> remote agents must have the "msg" register region defined for successful
-> message passing. Without both, only notification-based communication
-> works.
-> 
-> Signed-off-by: Harini T <harini.t@amd.com>
-> ---
->  .../bindings/mailbox/xlnx,zynqmp-ipi-mailbox.yaml           | 6 ++++++
->  1 file changed, 6 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/mailbox/xlnx,zynqmp-ipi-mailbox.yaml b/Documentation/devicetree/bindings/mailbox/xlnx,zynqmp-ipi-mailbox.yaml
-> index 04d6473d666f..8fdf77c7935c 100644
-> --- a/Documentation/devicetree/bindings/mailbox/xlnx,zynqmp-ipi-mailbox.yaml
-> +++ b/Documentation/devicetree/bindings/mailbox/xlnx,zynqmp-ipi-mailbox.yaml
-> @@ -165,6 +165,12 @@ allOf:
->          reg-names: false
->  
->      else:
-> +      description:
+Refresh the defconfig for Renesas ARM systems:
+  - Enable Renesas RZ/N1 ADC support,
+  - Drop CONFIG_RPCSEC_GSS_KRB5=n (no longer auto-enabled since now
+    commit 324be6dcbf09133a ('Revert "SUNRPC: Make RPCSEC_GSS_KRB5
+    select CRYPTO instead of depending on it"')).
 
-Else block cannot have description.
+Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+---
+To be queued in renesas-devel for v6.20.
+---
+ arch/arm/configs/shmobile_defconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> +        For Versal IPI mailboxes, the "msg" register region is optional.
-
-So it is optional...
-
-> +        However, for successful message passing via mailbox, both the host IPI
-
-And it is not optional. If nothing works, then it is not optional.
-
-And why would it be optional in the first place? You generate your same
-IP with different settings?
-
-Best regards,
-Krzysztof
+diff --git a/arch/arm/configs/shmobile_defconfig b/arch/arm/configs/shmobile_defconfig
+index 0085921833c3e832..ef487eab17cc70aa 100644
+--- a/arch/arm/configs/shmobile_defconfig
++++ b/arch/arm/configs/shmobile_defconfig
+@@ -202,6 +202,7 @@ CONFIG_RZ_DMAC=y
+ CONFIG_ARM_GT_INITIAL_PRESCALER_VAL=1
+ # CONFIG_IOMMU_SUPPORT is not set
+ CONFIG_IIO=y
++CONFIG_RZN1_ADC=y
+ CONFIG_AK8975=y
+ CONFIG_PWM=y
+ CONFIG_PWM_RENESAS_RCAR=y
+@@ -218,7 +219,6 @@ CONFIG_NFS_V3_ACL=y
+ CONFIG_NFS_V4=y
+ CONFIG_NFS_V4_1=y
+ CONFIG_ROOT_NFS=y
+-# CONFIG_RPCSEC_GSS_KRB5 is not set
+ CONFIG_NLS_CODEPAGE_437=y
+ CONFIG_NLS_ISO8859_1=y
+ CONFIG_DMA_CMA=y
+-- 
+2.43.0
 
 
