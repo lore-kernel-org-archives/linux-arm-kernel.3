@@ -4,113 +4,211 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93E5BE6748D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 08:28:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 663DCD711D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 08:28:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/ABMBtHazCQPbXZPvqunvxRiAtO4J7KVdTol8wYfw0Q=; b=ZHOA13IObWR3slTO9Z5UTE1g4w
-	4/UGt8R0SQKK+Zp0u8GSzJHKp2cEZpRhEymzO8TlJq6sQUpbUF1+gXUE+Gg7exWv/p1sJt+l6jcfI
-	kKJ2Jiheddpws90Np8DMnR6R6vq+iv30OKeNxPRnw3wkHkelsILczOaz1bqIrkP6rIpicfd2yXdnh
-	V7huzyf9ofzwGEsr4STO7gKQARt2QxCiYjT/tKUu9TE7skRpfNvnBUhpedKaPaCTJykWuk9Gec4Qw
-	69d3E+wfPLcyBLysRJ7VjtloBQ1e1T6kV2VebTjSkA7xpoom+Eay7fW5So70A2MLGxv9KWRpeDW9n
-	itl6SFZQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d6mTZ3KfaYHHDtOF/exusqHByYhcNBQiWItkfF4F+UQ=; b=jjA1kFE1la++6SIQ86uYXhKnls
+	rwnfNXHGNU35PE0hwVn7HMcTnKyaQABJ4QS8xJcQvU+++hslT7kldP46dqH8a7Yh5iwGP/9JqYS0y
+	LYNs2ZZhpqhla//ZUOsy5Wxq0s8KuwZpsn9u06a3NyA6T42gay61qgevb3Ps8rC3vP5jcJaOo+i1E
+	SK+ecbgRzdv4Y8EtnY0lFNV/5k7+hGgdz2opJeUoP3A2edQyFuckz7F28cX6dVi7IUCUt4Jvm2HMy
+	+b4+5H8U5+RG0cV3IUEGRuWPSEPrhHT8IxGSuiFuemoTHRX9PrRh1hJn3zFhyi2057k75K+A5vyAC
+	0wtrjblw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXbHT-0000000DRKN-1Rq3;
-	Mon, 22 Dec 2025 08:28:39 +0000
-Received: from mail-pf1-x442.google.com ([2607:f8b0:4864:20::442])
+	id 1vXbHd-0000000DRP1-40Fu;
+	Mon, 22 Dec 2025 08:28:49 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXbHQ-0000000DRJ8-0Wlz
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Dec 2025 08:28:38 +0000
-Received: by mail-pf1-x442.google.com with SMTP id d2e1a72fcca58-7f1243792f2so2538293b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 00:28:35 -0800 (PST)
+	id 1vXbHb-0000000DRNQ-0Yhl;
+	Mon, 22 Dec 2025 08:28:48 +0000
+X-UUID: 3a43945cdf1011f09f706fa2197c6ceb-20251222
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=d6mTZ3KfaYHHDtOF/exusqHByYhcNBQiWItkfF4F+UQ=;
+	b=u2Xgm8tH96XnEIY/xornBZqiNT8IVRYy0g3hrCpIDlDeeEzU+mYtEhtXhrhOWGkfCb7j57m8y+iiW0kdyf09mnDgyR/j+5pn6d53oY2JrauyiEI30fIfUhO4v7BPonY7QyPYHfCC4oHF3IU6DL2iXwfUk60nrc7tCXKnVkIzBUI=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.9,REQID:bb431d39-eee9-48ba-85f4-e3dc7a56b546,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:5047765,CLOUDID:c4600903-1fa9-44eb-b231-4afc61466396,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|888|898,
+	TC:-5,Content:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BE
+	C:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 3a43945cdf1011f09f706fa2197c6ceb-20251222
+Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw01.mediatek.com
+	(envelope-from <peter.wang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 126979080; Mon, 22 Dec 2025 01:28:43 -0700
+Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.26; Mon, 22 Dec 2025 16:28:40 +0800
+Received: from SG2PR04CU009.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Mon, 22 Dec 2025 16:28:40 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=O0HjLIOXqWSFhnsOWRpGeQhJ7c4wff8FqJ3gHqjvJI/ih19hss2MzUlp+ekck65BNYOfw7pi7PJg0TBGhg1p4MtjTEHmSUZtCXGwWlVMQtBNKOZ14GnMHQO5rq9m37hJmsBxR3StDdcmN1uEyl/IFJKkCLZg0+ZfCStsKVjf5YdkI4cagylsA6CHxfXfnEgLErJd2iNw//Ef4y2nua2+Cne7bkuyaUiUndZfJvsLjmmE8dHm8VCiYnnBhtwTHFfkOxnW8kLfUOvxIQ1UF6DaxrvO+1vtMUhUlAe7QiabyYvPlQfadC13QHFfC97+gnV39P46ZZ3CYsFcv4cWtIvQAA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=d6mTZ3KfaYHHDtOF/exusqHByYhcNBQiWItkfF4F+UQ=;
+ b=PW0kRHjoBkPTIamU6RG5zNsUoZkHNqRddtDh2eJ+F4CmT4JnDsmPOY41A8RzAhW2PYA8ES1iHuTN24b822Z7inAloq9cnjRSP32Im4V8S7+jcYsa0wPFGmm5CRu4xKKtnEceenw16FIWhB32IUmj8MNcXpFAlh63K7k31QgEfty/mTuKnQj1r3oIEcqEyVddWjc/0uDn5fqYcYOC3JFDy2+tsTGFZlCGD978TCapwg58U+e2XE0Wl/TGkj7sgingwYMUD4F9LjAWBpeQFmGCf6SNuI9cNf0HyKBE2HugZ/GBrKXtBx90MlOkX3eFz6dt2wCjxrTeaNLQe0KtRQKU/A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1766392115; x=1766996915; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/ABMBtHazCQPbXZPvqunvxRiAtO4J7KVdTol8wYfw0Q=;
-        b=lxpJxE2tnlbvDb8gXPJuvvhJsBI4cT77XnUvud5U+Qfsm2juMtbzIV7fmQZIMkfZ5U
-         l3KyPV3PE5amS+HmA+e8O/10c3z0DwvWa6syNwEau4dKfsO2BvX7TXT79IHpkDVTV3Wa
-         sL7on7Mvi3MDTPzqgsai0VvPvq4TfS5P0cY9krgt3vyTslnqOMFMmZoDIyZk+rZ4xkVE
-         yjba128E3gpJ+Vq2XWuhfTlJ8pcoQ2ztQ1r7g1Iihih/OozSR00h7S+vJDSRZocwWtJ3
-         Frstw+o4NSBEvMD0sEgZ/4xYQRclmFaGl6J+/L/pMGyGP5jt30O69s8MsNwoXgOlLImn
-         Slmw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766392115; x=1766996915;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=/ABMBtHazCQPbXZPvqunvxRiAtO4J7KVdTol8wYfw0Q=;
-        b=sm+0dXeA9xyUNXjtl9UrhcpDWaDiW5s0iy/GwpBCWpFmiiwAamNsyEjAfut9jAjCY3
-         huip+qjXrXmz90x0jfl5ZWQhrlptuRAck0CNwMS7zxZMNREcpuu7JEz7zJ1xom8K6oyY
-         pCgAgCBKYOhYKXCZLYx2RTmmo0jAj5LbQVnQDYqG3iPrg57qK+JqLPgvygvhhyl1dXYw
-         uQs4PyYc7LXE/XKtvaDzEPbHOLm9Rfvcj0OXmgABldXcNeAIbt9Prw3spyIyeDXD1QeV
-         LbYdK/M4w5FVpN/yCpU3m7TuSS8HElZUQ6r5GNwtCCkt/5+VEI0gcpZSn9QnNXUmFSDx
-         nKWA==
-X-Forwarded-Encrypted: i=1; AJvYcCXbAqTGMpu6K3LSu0hLOfQML1Bjr10VTlN0FKLW5UM5T8zNvv1tahzXpM569PUL35UjE/uGbf9V748rVGrn2dQ5@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzr5x0vk0yS5t3IITRrCrqDAKiPCmmSDHZ6/rEgd+H2Is4BdzAA
-	pn82Y3rcax74hbURiLoPEcaapSUnuARX/gz11fs8Z8lHNUoT2/eMSrT4tkTLsCJJoWgaDA==
-X-Gm-Gg: AY/fxX5oMv+SFh/SA/s7IjZuuRMeERrIVaiBxIM24wT8GYnd8Vvb91suasaVcnic+cj
-	/Y/C43ZL93zz12RdlDZCbihP8tkogEeRpIYnJTyAt2Hnvfy1AQbm/fPxgcsVcn73ZGLI/8ZXvEy
-	+RE/uw9R/0zZbGVS1N50knTkigu1Vs/a0vG3A+qJVKmrWnseXiddwXASa77pqUhLaxJ/ZxL4fRO
-	yggGmce+CefvyaH4nH7ru8PMoN3KgMmIf2vmQhRXej7Yr8K623CiaghkZENIQmnTmqRBSiV9/n8
-	vBE9isNh0qPafPZ6U9pfc6TKwBtlJsm1pd/e3jl/vibIO+I5mkVsqUMXOiMz3C6BDZt780JMjaF
-	PCgWwRTQN+7DboqmwQxtfovRN5RR/v1UPqv4ufOARbZfcSxADdJ3NVcdiFy3uF4fjjnzSeLQWuc
-	Q+AymTh/yt
-X-Google-Smtp-Source: AGHT+IEdf8lOhDtPYqKizeM1Dh4nWRJWzDSgY4CwDeK+ppE6vvK3k4DXx/lWFGZRYtXZSu5qWUHggg==
-X-Received: by 2002:a05:6a00:1d98:b0:7aa:8397:7754 with SMTP id d2e1a72fcca58-7ff64ed1413mr8654654b3a.2.1766392115098;
-        Mon, 22 Dec 2025 00:28:35 -0800 (PST)
-Received: from frodo ([2404:4400:417e:3d00:8b90:7f55:1261:772f])
-        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-7ff7e493123sm9540699b3a.50.2025.12.22.00.28.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 22 Dec 2025 00:28:34 -0800 (PST)
-From: Jim Cromie <jim.cromie@gmail.com>
-To: linux-kernel@vger.kernel.org,
-	jbaron@akamai.com,
-	gregkh@linuxfoundation.org,
-	ukaszb@chromium.org,
-	louis.chauvet@bootlin.com
-Cc: dri-devel@lists.freedesktop.org,
-	amd-gfx@lists.freedesktop.org,
-	intel-gvt-dev@lists.freedesktop.org,
-	intel-gfx@lists.freedesktop.org,
-	daniel.vetter@ffwll.ch,
-	tvrtko.ursulin@linux.intel.com,
-	jani.nikula@intel.com,
-	ville.syrjala@linux.intel.com,
-	seanpaul@chromium.org,
-	robdclark@gmail.com,
-	groeck@google.com,
-	yanivt@google.com,
-	bleung@google.com,
-	quic_saipraka@quicinc.com,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	quic_psodagud@quicinc.com,
-	maz@kernel.org,
-	arnd@arndb.de,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	mingo@redhat.com,
-	jim.cromie@gmail.com,
-	linux-doc@vger.kernel.org
-Subject: [PATCH v7 31/31] docs/dyndbg: add classmap info to howto
-Date: Mon, 22 Dec 2025 21:20:48 +1300
-Message-ID: <20251222082049.1782440-32-jim.cromie@gmail.com>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20251222082049.1782440-3-jim.cromie@gmail.com>
-References: <20251222082049.1782440-3-jim.cromie@gmail.com>
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=d6mTZ3KfaYHHDtOF/exusqHByYhcNBQiWItkfF4F+UQ=;
+ b=MkfVC7Hctdmg3w6BJNKIfcFhbBbS5XDzLPixAfuidtLfM+qXtRzhiT2vtbMdFP4WlRWycFvLOC1iyJhh0jgBFOlJBjdTXgLC/O4AJOXtB6JwQQVSPi5sQfrbLHnJaZtiT8iP6BYDIUH1lAS6QgBuly4xkVTn/Dm1FC5ZZ5FwkW4=
+Received: from PSAPR03MB5605.apcprd03.prod.outlook.com (2603:1096:301:66::6)
+ by TY0PR03MB8200.apcprd03.prod.outlook.com (2603:1096:405:d::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.11; Mon, 22 Dec
+ 2025 08:28:38 +0000
+Received: from PSAPR03MB5605.apcprd03.prod.outlook.com
+ ([fe80::165:d36a:3f76:2925]) by PSAPR03MB5605.apcprd03.prod.outlook.com
+ ([fe80::165:d36a:3f76:2925%4]) with mapi id 15.20.9434.009; Mon, 22 Dec 2025
+ 08:28:38 +0000
+From: =?utf-8?B?UGV0ZXIgV2FuZyAo546L5L+h5Y+LKQ==?= <peter.wang@mediatek.com>
+To: Uwe Kleine <u.kleine-koenig@baylibre.com>,
+	"James.Bottomley@HansenPartnership.com"
+	<James.Bottomley@HansenPartnership.com>, "martin.petersen@oracle.com"
+	<martin.petersen@oracle.com>, "Kai.Makisara@kolumbus.fi"
+	<Kai.Makisara@kolumbus.fi>
+CC: "avri.altman@wdc.com" <avri.altman@wdc.com>, "beanhuo@micron.com"
+	<beanhuo@micron.com>, "quic_nguyenb@quicinc.com" <quic_nguyenb@quicinc.com>,
+	"linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>, "AngeloGioacchino
+ Del Regno" <angelogioacchino.delregno@collabora.com>, "bvanassche@acm.org"
+	<bvanassche@acm.org>, "adrian.hunter@intel.com" <adrian.hunter@intel.com>,
+	"alim.akhtar@samsung.com" <alim.akhtar@samsung.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
+	<matthias.bgg@gmail.com>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>
+Subject: Re: [PATCH v2 2/8] scsi: Make use of bus callbacks
+Thread-Topic: [PATCH v2 2/8] scsi: Make use of bus callbacks
+Thread-Index: AQHccMmTK/May6aVp0qM7Ut1RH2lvbUtWFyA
+Date: Mon, 22 Dec 2025 08:28:37 +0000
+Message-ID: <ba48917452f4bb168a2b76deb64d2edeace2c836.camel@mediatek.com>
+References: <cover.1766133330.git.u.kleine-koenig@baylibre.com>
+	 <a54e363a3fd2054fb924afd7df44bca7f444b5f1.1766133330.git.u.kleine-koenig@baylibre.com>
+In-Reply-To: <a54e363a3fd2054fb924afd7df44bca7f444b5f1.1766133330.git.u.kleine-koenig@baylibre.com>
+Accept-Language: zh-TW, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PSAPR03MB5605:EE_|TY0PR03MB8200:EE_
+x-ms-office365-filtering-correlation-id: ac5d5b28-bd7f-419e-60d0-08de41341aec
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016|38070700021;
+x-microsoft-antispam-message-info: =?utf-8?B?OU1PYXVCMFBIS1NPZGxKNXVpb1VnSDYyL3hTOWxqSWVnN0NTOGs2YkZuRUxz?=
+ =?utf-8?B?bjJadzluY1BLRTJmRUhYNTlyWStMeG8yb2Q4ZlpaeGdjZnFDMTJ0Q2M2SmdI?=
+ =?utf-8?B?RWJubFJURkdnWWh6LzVaM0J5Zld6OTllTmwwTVNhbFpveTBDaHd3WHUzT2hh?=
+ =?utf-8?B?MnFxT3dvSDg4NEFTR2RDZW1KeGFFSFJ3WGh6UVdJQ3pqbnErdkZnbVZYNlRz?=
+ =?utf-8?B?enNJazloQTlFRjBHeXY1NitNckd2YzhmWW5nN25MeFBIbkVmNGdMaVlBalN5?=
+ =?utf-8?B?eTFCMnN3cDN0dHIvL1NzejhMYzBKNWZ1S1N2QVFTcTVjWndWUk8zdGFXcVpK?=
+ =?utf-8?B?M1NENkJGY3U5NC91UHIzaUVwdjFhRExZeldFVmhLV2t4RnFSbnBhZER6dW9z?=
+ =?utf-8?B?MFVGbVgydlFkblYrbkJMSmhtTHlGbmwzTHRwZm1qaXdRQTA4cWduMmVZTmlD?=
+ =?utf-8?B?OHNnU2ZPMDZWRmx6UkdUN0Rwcmtpb3BMRTBHVkdITW5SOFdWMU80YWVYZ3Ar?=
+ =?utf-8?B?dUx1QVpLU2NPMnBmVE5sMy8yd2JpUU5yTlVrSWsycERUK1ZybHVOSmkrS1dF?=
+ =?utf-8?B?WW1UbXpQS3lJRGdDbkhDdkhPTjViL1ljVHc4aDNDV0xDQnZobWYrbGVWbWZU?=
+ =?utf-8?B?YmxGcWlMMGIwY09qZ0QyQVJHTlI5N3YwMEsrS2hCNi9tcE5XVW5Vb2FkdXlp?=
+ =?utf-8?B?SUptYTdjemRrRHdtNkVLSWh4dmdnMWFvTldYSlZnNGdYaFVBQmQwcC81M3Ny?=
+ =?utf-8?B?SjJKbW5BK2tWdmZUVytZczFhQm1kYjM3OUlPaTVZL21vUEJ0YzJWMXFxeG5W?=
+ =?utf-8?B?U2J4QlZCL1ZiTFhhYlZ6ZzYyQXlPQ2xjelpHQ2RJVW5SdnFETjdRMjdVcjFs?=
+ =?utf-8?B?M0NGTTV5cjhBN1Z2MUFBa01xOEpBV2VnL0VBUE95MURCYkV0WGFhSWdIMmgv?=
+ =?utf-8?B?NFU5MVZ2R2lrQWVKWTM1M05qT1UwQk9PM29Ub1NLRGhPOTNPYXhGcGJBblo4?=
+ =?utf-8?B?MHluSmhNVjFhUW1rU1oxN2IzSUI1S1FZclYxNHFaZzg4VUJTRXlMOE9iN2I4?=
+ =?utf-8?B?emEzL2VWZ2drK0Nzdit6dEMyeUMvbWNVLzNDREY2MCthWTV5czlJQ0FQRk5P?=
+ =?utf-8?B?MHJPVjlxcGNZVWhjeFdmWW1TMEpiUlRUVTZKRGJEVU5SYXN3RHNnbWtLOVky?=
+ =?utf-8?B?eUdScWl3ZTNZamswZHRiMWhoV25kM091NFYzZXdLNTYxdEltbzlGWG1hWXZO?=
+ =?utf-8?B?ay94cFAzUHA1dlQ0QjUwSFAvTVdrTFFnOVBuTjdoVE00MXhpMktyMWRXck9r?=
+ =?utf-8?B?ZzFFeHEzYkpzUmYrMEJlWnJhaEZjTHpqeDcydTJVNTkrUE9LeEZkeGRYbW1k?=
+ =?utf-8?B?NnBtL3AzTXM2TWpxVlUvWE4xWjBJcjMxREhueWVyUmJaWkRJTHVqZ0krY2FV?=
+ =?utf-8?B?QkFlUlNZb1B2SGZtYVNHQ1RRZWpwOGltVXliYVVSVHZZNjdxb1NRK2w2RGxr?=
+ =?utf-8?B?MkR0OTFZQjNodWdKdXpFVFJ3RkdncmZJcXplRG91d2xwaHNnZzltQ2VTdW9s?=
+ =?utf-8?B?dDY5VmRZUmltRkE2MUpDY2NYWmtlaFFNTVJLZ2VDaENrWVR1amo4K05peFdF?=
+ =?utf-8?B?VnEyaTRsdE1OTUQzTWxMbGVMKzJ3ZlZ3S0dpeVYrVjRNby9FaFdVNENNbE9m?=
+ =?utf-8?B?OWsyQzE4U1pRUzB2dDBLMmJPTWw4aFFZU0R5bUVPTWU4Q0U4eUZFOUttT1JB?=
+ =?utf-8?B?Si9mRUxZZkcrcE04SVZiNjRVYk5nell1aGxxZHRMVlF0dmNCVGlpTWVZQnRG?=
+ =?utf-8?B?NUNmOW50aXh0NmZmblg4eEhDQzRjNE1BcGJGUmFNYUMwV2JzNzBTWDVCWHBV?=
+ =?utf-8?B?VjJROStQQmNGNFE4bmwvbUYwY0loMkNZSlRLbmY1WDZEUzhuR2xnekFZV0hO?=
+ =?utf-8?B?Nks4NXU5OU93U0hjM0ZKdEJFNzhYOW4vV2xVaXFwUTdOSnlqWDV1TFpnTVVi?=
+ =?utf-8?B?b1o3NVRyZmh6Qm1xR3M5OEtSY0llYnBoSmdhMCtZMVVPeVFjT1EwMk5oK2U5?=
+ =?utf-8?Q?wp7Qly?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PSAPR03MB5605.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?T0xLaXN2TmR5UUV4QWtlL2ZVaVp5UldaZDZkNmFVcmhhVGY2WjJIMW82NnBw?=
+ =?utf-8?B?K1lCYWtmZVpoL0FpNzdXdmdCSUQ3aUVHM09ydEVVcC9IeVdPRTZ4c3hrWUhU?=
+ =?utf-8?B?OE16UCtVbnMrWEhmNjlLd1ZNOTRHMUZTdUN5QUExbkUycUg4OWhpd05JRHBM?=
+ =?utf-8?B?cndhN3o5S0E3TzJkUFRYcmQ1blNGMGtKenU0bWtYR3g0UUlwalJSVDlPSmxM?=
+ =?utf-8?B?UkhLb3VUcXU2Q2N5N3VLeG1EZ3ZVRG02YThiN3pZaUtPMUk5MkIwWTBIcWZY?=
+ =?utf-8?B?UW9DU0NTZnlGcTc1dVJiRjlQVzZLZGgwbitVMjNXWjZmNW9jMDJOQmF4anRZ?=
+ =?utf-8?B?ZFNHREtaazNHSTBpQVBxRzAyOVN3bEM3c3N0dEdGdjVLYlJya2dXWFQvcUpk?=
+ =?utf-8?B?SGErWlp4MzJKZVNYQU9ETk53OVlWY3FzazJhTGhUdm9GT1ZRVjZxNzJDYkp6?=
+ =?utf-8?B?aENEY3oxSTRJRzk0WTFUY0lsUzZhbFZ2Qzk5QWM1L1AxUElJeGM0a0cwb1kx?=
+ =?utf-8?B?Z2JScmNvMG4wTW1TSTZPcTYxTFJpNHNsTklzN3FSTmVqTVRwMHhkVTdrcDdB?=
+ =?utf-8?B?YWFQbSt0WnN6aTh3L0VnUk9FUFVqZkp1KzBhMGJpODF4bHgzVTVVWXRFUzdv?=
+ =?utf-8?B?UGx3dlN0TldSYlQ4b0kxanBZSHBoYWNpTnYrdGgrVjNVTEZiVkVzTDVqS0d2?=
+ =?utf-8?B?eFo0NGdRYzVzd1N4eEZCN0gyRXI4Z1pab0tYV2kwRmZvcWtxYzFzT1lGUFJr?=
+ =?utf-8?B?UEE0ZHFMU3NlKzhMWHdNcTNoaDg4VEtna2F4dUFyL25jdzVNN0E2U3dnZVJo?=
+ =?utf-8?B?SWZEYVRKOURQTUN6VmpYczRtb3BRK1ZiZTBKL2VJUjBWVFpaVXM3Z0JndCt2?=
+ =?utf-8?B?aHhNK0hZM1MwQS9oK2h1TitCMVFZa3NlWVNqeWs5aXdUZGRYdTgvbWZhTFc0?=
+ =?utf-8?B?SkhJMHhLUjZnY3pRUytzZHpjcCszM2kyNnZYdnd5bjIxYkNod3QwellBMTl3?=
+ =?utf-8?B?N1hIRTh6QzFNbWpYMnZoZjhBekJmZlFHTjVkQnFUcTFObWxsOGhubmIxVktQ?=
+ =?utf-8?B?TFpQVFFoWnQvU3hKeE84NGZ1bFdNNHNrS2JvQ3pTZ1A4aWRWcUNMellIeEps?=
+ =?utf-8?B?aEtQU0M3aU12U1p1SXlLeENKY1UvVnlKVlFzbnB1NXdWNURJMVV1SndKQXRy?=
+ =?utf-8?B?emtHU05ZRGVtZUl4aVpBcXRINlBTRHpBdUFJbmFZd1BCa3lDYWFQVVdzK1M3?=
+ =?utf-8?B?RTk0Y3BMZDVIUkZjRlNFMWFxWEtsdzIzOWUxaGRSK1NXN2ZmZWJhcFYyU0h5?=
+ =?utf-8?B?N3FIaDRGRjQ1ZXQ1cWVsSjkremxVUGw2RkdVb2d4LzVCVVQwdVFrVzVGWFV1?=
+ =?utf-8?B?SFVENVJNeVR1UUhHTEd3U2w2ZzcwWUx6SlErbFVRL0xhajhyYmRBcHlRN0ha?=
+ =?utf-8?B?ZXJYTVlnVjBXam90V085Y2owbCtjVjBzT0FtZldqNTBuTUZaNitBMVpyYnJj?=
+ =?utf-8?B?Y09ickF3VlpnU0RqMHNrN1pnSzYyUlJQQ05GSFdFdUljeUlxUmJuMXp0Z2h3?=
+ =?utf-8?B?aEsrWHgrZU5EOEZaNkxBa0ZibnJXNjVXcUY0bk1TdkwyM20xd2ZCc2lRaDJa?=
+ =?utf-8?B?dGNROGRwN0hmV1ZibksxYkR3RHQxVzN5RFFQZ2RTaDBsUTVoOFo4MjZsRVdm?=
+ =?utf-8?B?T0prSVp0NGNLc0hoeHVmUFZFd3ByZDNvbnRTNjFtbXNaV280YndhQ0dWaDA5?=
+ =?utf-8?B?TGtja0ZYZ3I3U3BMaFhiYm5NZENhRC84bEt4SFMybm9oOS85ZFZNNWRQUTVN?=
+ =?utf-8?B?Yk5tME1KLzFHQy85YTM0bC96b1ZzS1dQWFh0V3kreGE0VnNycGJsK3RxY3My?=
+ =?utf-8?B?elMvYXNWSmIxaFRmSmFnMjEyR2NSMmpiRy9hZzBlVXpBN1ZXRUN3YW13RU1G?=
+ =?utf-8?B?M1hZYU9XanNCRThXRWlrS2FvQWJPRTRXOGt5ODRFckJmV1UyU1Azc2FCa3c1?=
+ =?utf-8?B?ektFejdGKzBTdFFRcjRoeCtHZDlqcWwyUmVMTHpPeDF5dnpoK1BPMDRtSXRG?=
+ =?utf-8?B?MGJDZ05EM3NiWlVhVXk2RjI3QWVNMnIyRzdyYS9LbCtnMDlBK1ZCQkF1VlRI?=
+ =?utf-8?B?TnFXZWtOY0pHWmtJWDBZajA5eTRnUkJ3cWVrUjNZalNsek9waWJXeUFqYzh4?=
+ =?utf-8?B?ZUM0RXBnMDllUnBYVzFlenYzMzZYNytFdEFqUDZUUXRvSENycjNUbnorQitZ?=
+ =?utf-8?B?Q1VEZzh6NmV5bTVXV0Zib3MrZ2JCSmw5KzFNUk1VRFZDL0IyUzZIS05lRG9K?=
+ =?utf-8?B?bkJNK3A5Vy9oUkdmYzIxZXpEcTdYRGFLM25ZTEdZQnYxc3Jobm1aWjZYMURR?=
+ =?utf-8?Q?SWPXRg1mYmFtdsoA=3D?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <E4DCEA881F01BF40ABF08FDCB6C90805@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PSAPR03MB5605.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ac5d5b28-bd7f-419e-60d0-08de41341aec
+X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Dec 2025 08:28:37.8524
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: zjTKPw8u+Nhe3LSisLwxJPtDr5JH7j9dGkmuA8WCXqmlQuk2Rdu3ZM2Ch03fVBs85Azvm5FQYQ0uKzX12QYZyA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR03MB8200
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_002836_179273_C05C27C9 
-X-CRM114-Status: GOOD (  22.00  )
+X-CRM114-CacheID: sfid-20251222_002847_194932_A8338782 
+X-CRM114-Status: GOOD (  14.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,197 +223,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Describe the 3 API macros providing dynamic_debug's classmaps
-
-DYNAMIC_DEBUG_CLASSMAP_DEFINE - create & export a classmap
-DYNAMIC_DEBUG_CLASSMAP_USE    - refer to exported map
-DYNAMIC_DEBUG_CLASSMAP_PARAM  - bind control param to the classmap
-DYNAMIC_DEBUG_CLASSMAP_PARAM_REF + use module's storage - __drm_debug
-
-NB: The _DEFINE & _USE model makes the user dependent on the definer,
-just like EXPORT_SYMBOL(__drm_debug) already does.
-
-cc: linux-doc@vger.kernel.org
-Signed-off-by: Jim Cromie <jim.cromie@gmail.com>
----
- .../admin-guide/dynamic-debug-howto.rst       | 135 ++++++++++++++++--
- 1 file changed, 123 insertions(+), 12 deletions(-)
-
-diff --git a/Documentation/admin-guide/dynamic-debug-howto.rst b/Documentation/admin-guide/dynamic-debug-howto.rst
-index 89ee15d7ae58..c85266ee8eed 100644
---- a/Documentation/admin-guide/dynamic-debug-howto.rst
-+++ b/Documentation/admin-guide/dynamic-debug-howto.rst
-@@ -146,6 +146,9 @@ keywords are::
-   "1-30" is valid range but "1 - 30" is not.
- 
- 
-+Keywords
-+--------
-+
- The meanings of each keyword are:
- 
- func
-@@ -194,16 +197,6 @@ format
- 	format "nfsd: SETATTR"  // a neater way to match a format with whitespace
- 	format 'nfsd: SETATTR'  // yet another way to match a format with whitespace
- 
--class
--    The given class_name is validated against each module, which may
--    have declared a list of known class_names.  If the class_name is
--    found for a module, callsite & class matching and adjustment
--    proceeds.  Examples::
--
--	class DRM_UT_KMS	# a DRM.debug category
--	class JUNK		# silent non-match
--	// class TLD_*		# NOTICE: no wildcard in class names
--
- line
-     The given line number or range of line numbers is compared
-     against the line number of each ``pr_debug()`` callsite.  A single
-@@ -218,6 +211,25 @@ line
- 	line -1605          // the 1605 lines from line 1 to line 1605
- 	line 1600-          // all lines from line 1600 to the end of the file
- 
-+class
-+
-+    The given class_name is validated against each module, which may
-+    have declared a list of class_names it accepts.  If the class_name
-+    accepted by a module, callsite & class matching and adjustment
-+    proceeds.  Examples::
-+
-+	class DRM_UT_KMS	# a drm.debug category
-+	class JUNK		# silent non-match
-+	// class TLD_*		# NOTICE: no wildcard in class names
-+
-+.. note::
-+
-+    Unlike other keywords, classes are "name-to-change", not
-+    "omitting-constraint-allows-change".  See Dynamic Debug Classmaps
-+
-+Flags
-+-----
-+
- The flags specification comprises a change operation followed
- by one or more flag characters.  The change operation is one
- of the characters::
-@@ -238,11 +250,15 @@ The flags are::
-   s    Include the source file name
-   l    Include line number
- 
-+.. note::
-+
-+   * To query without changing	``+_`` or ``-_``.
-+   * To clear all flags		``=_`` or ``-fslmpt``.
-+
- For ``print_hex_dump_debug()`` and ``print_hex_dump_bytes()``, only
- the ``p`` flag has meaning, other flags are ignored.
- 
--Note the regexp ``^[-+=][fslmpt_]+$`` matches a flags specification.
--To clear all flags at once, use ``=_`` or ``-fslmpt``.
-+The regexp ``^[-+=][fslmpt_]+$`` matches a flags specification.
- 
- 
- Debug messages during Boot Process
-@@ -394,3 +410,98 @@ just a shortcut for ``print_hex_dump(KERN_DEBUG)``.
- For ``print_hex_dump_debug()``/``print_hex_dump_bytes()``, format string is
- its ``prefix_str`` argument, if it is constant string; or ``hexdump``
- in case ``prefix_str`` is built dynamically.
-+
-+.. _dyndbg-classmaps:
-+
-+Dynamic Debug Classmaps
-+=======================
-+
-+The "class" keyword selects prdbgs based on author supplied,
-+domain-oriented names.  This complements the nested-scope keywords:
-+module, file, function, line.
-+
-+The main difference from the others: classes must be named to be
-+changed.  This protects them from unintended overwrite::
-+
-+  # IOW this cannot undo any drm.debug settings
-+  :#> ddcmd -p
-+
-+This protection is needed; /sys/module/drm/parameters/debug is ABI.
-+drm.debug is authoritative when dyndbg is not used, dyndbg-under-DRM
-+is an implementation detail, and must not behave erratically, just
-+because another admin fed >control something unrelated.
-+
-+So each class must be enabled individually (no wildcards)::
-+
-+  :#> ddcmd class DRM_UT_CORE +p
-+  :#> ddcmd class DRM_UT_KMS +p
-+  # or more selectively
-+  :#> ddcmd class DRM_UT_CORE module drm +p
-+
-+That makes direct >control wordy and annoying, but it is a secondary
-+interface; it is not intended to replace the ABI, just slide in
-+underneath and reimplement the guaranteed behavior.  So DRM would keep
-+using the convenient way, and be able to trust it::
-+
-+  :#> echo 0x1ff > /sys/module/drm/parameters/debug
-+
-+That said, since the sysfs/kparam is the ABI, if the author omits the
-+CLASSMAP_PARAM, theres no ABI to guard, and he probably wants a less
-+pedantic >control interface.  In this case, protection is dropped.
-+
-+Dynamic Debug Classmap API
-+==========================
-+
-+DYNAMIC_DEBUG_CLASSMAP_DEFINE(clname,type,_base,classnames) - this maps
-+classnames (a list of strings) onto class-ids consecutively, starting
-+at _base.
-+
-+DYNAMIC_DEBUG_CLASSMAP_USE(clname) & _USE_(clname,_base) - modules
-+call this to refer to the var _DEFINEd elsewhere (and exported).
-+
-+DYNAMIC_DEBUG_CLASSMAP_PARAM(clname) - creates the sysfs/kparam,
-+maps/exposes bits 0..N as class-names.
-+
-+Classmaps are opt-in: modules invoke _DEFINE or _USE to authorize
-+dyndbg to update those named classes.  "class FOO" queries are
-+validated against the classes defined or used by the module, this
-+finds the classid to alter; classes are not directly selectable by
-+their classid.
-+
-+Classnames are global in scope, so subsystems (module-groups) should
-+prepend a subsystem name; unqualified names like "CORE" are discouraged.
-+
-+NB: It is an inherent API limitation (due to class_id's int type) that
-+the following are possible:
-+
-+  // these errors should be caught in review
-+  __pr_debug_cls(0, "fake DRM_UT_CORE msg");  // this works
-+  __pr_debug_cls(62, "un-known classid msg"); // this compiles, does nothing
-+
-+There are 2 types of classmaps:
-+
-+* DD_CLASS_TYPE_DISJOINT_BITS: classes are independent, like drm.debug
-+* DD_CLASS_TYPE_LEVEL_NUM: classes are relative, ordered (V3 > V2)
-+
-+DYNAMIC_DEBUG_CLASSMAP_PARAM - modelled after module_param_cb, it
-+refers to a DEFINEd classmap, and associates it to the param's
-+data-store.  This state is then applied to DEFINEr and USEr modules
-+when they're modprobed.
-+
-+The PARAM interface also enforces the DD_CLASS_TYPE_LEVEL_NUM relation
-+amongst the contained classnames; all classes are independent in the
-+control parser itself.  There is no implied meaning in names like "V4"
-+or "PL_ERROR" vs "PL_WARNING".
-+
-+Modules or subsystems (drm & drivers) can define multiple classmaps,
-+as long as they (all the classmaps) share the limited 0..62
-+per-module-group _class_id range, without overlap.
-+
-+If a module encounters a conflict between 2 classmaps it is _USEing or
-+_DEFINEing, it can invoke the extended _USE_(name,_base) macro to
-+de-conflict the respective ranges.
-+
-+``#define DEBUG`` will enable all pr_debugs in scope, including any
-+class'd ones.  This won't be reflected in the PARAM readback value,
-+but the class'd pr_debug callsites can be forced off by toggling the
-+classmap-kparam all-on then all-off.
--- 
-2.52.0
-
+T24gRnJpLCAyMDI1LTEyLTE5IGF0IDEwOjI1ICswMTAwLCBVd2UgS2xlaW5lLUvDtm5pZyB3cm90
+ZToNCj4gSW50cm9kdWNlIGEgYnVzIHNwZWNpZmljIHByb2JlLCByZW1vdmUgYW5kIHNodXRkb3du
+IGZ1bmN0aW9uLiBGb3Igbm93DQo+IHRoaXMgb25seSBhbGxvd3MgdG8gZ2V0IHJpZCBvZiBhIGNh
+c3Qgb2YgdGhlIGdlbmVyaWMgZGV2aWNlIHRvIGFuDQo+IHNjc2kNCj4gZGV2aWNlIGluIHRoZSBk
+cml2ZXJzIGFuZCBjaGFuZ2VzIHRoZSByZW1vdmUgcHJvdG90eXBlIHRvIHJldHVybg0KPiB2b2lk
+LS0tYSBub24temVybyByZXR1cm4gdmFsdWUgaXMgaWdub3JlZCBhbnlob3cuDQo+IA0KPiBUaGUg
+b2JqZWN0aXZlIGlzIHRvIGdldCByaWQgb2YgdXNlcnMgb2Ygc3RydWN0IGRldmljZV9kcml2ZXIN
+Cj4gY2FsbGJhY2tzDQo+IC5wcm9iZSgpLCAucmVtb3ZlKCkgYW5kIC5zaHV0ZG93bigpIHRvIGV2
+ZW50dWFsbHkgcmVtb3ZlIHRoZXNlLiBVbnRpbA0KPiBhbGwgc2NzaSBkcml2ZXJzIGFyZSBjb252
+ZXJ0ZWQgdGhpcyByZXN1bHRzIGluIGEgcnVudGltZSB3YXJuaW5nDQo+IGFib3V0DQo+IHRoZSBk
+cml2ZXJzIG5lZWRpbmcgYW4gdXBkYXRlIGJlY2F1c2UgdGhlcmUgaXMgYSBidXMgcHJvYmUgZnVu
+Y3Rpb24NCj4gYW5kDQo+IGEgZHJpdmVyIHByb2JlIGZ1bmN0aW9uLiBUaGUgaW4tdHJlZSBkcml2
+ZXJzIGFyZSBmaXhlZCBieSB0aGUNCj4gZm9sbG93aW5nDQo+IGNvbW1pdHMuDQo+IA0KPiBTaWdu
+ZWQtb2ZmLWJ5OiBVd2UgS2xlaW5lLUvDtm5pZyA8dS5rbGVpbmUta29lbmlnQGJheWxpYnJlLmNv
+bT4NCg0KUmV2aWV3ZWQtYnk6IFBldGVyIFdhbmcgPHBldGVyLndhbmdAbWVkaWF0ZWsuY29tPg0K
+DQo=
 
