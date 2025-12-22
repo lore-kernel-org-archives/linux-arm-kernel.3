@@ -4,112 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76F0FE67497
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 10:11:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E96B9D711D5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 10:21:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e8CoeuIT6T7KRUSr6GvWlQoN5V/Cu+i3G5ywMuIlPBE=; b=1au7/SeDrMhM3wJg2WkRxQd2h+
-	+kAK84UNHN5mxYAg04xculKDHLTxSbbOGURDaTZjSCeJQERbW3HcnYzqVxEWJHdVE8VXlxvCL1204
-	TPYlGMiqa0ZHcLrm8P0TFCnB+Y8ZHAzmafmpi/KQoPYAYJlzQWHpYKNba1+OWgrav0vWVatGas0SF
-	i8/hV1AnkTG57HLo47Du3fchBKcGovNarVIrzMlXrOX0fBd2hhxiL+nRtLyfKzUthK6xZHMuMegqI
-	5qtlK/WTn7sSc1V1ErSWkIAVwx+0/4ptes/QKjT5JFyW93FjeZOem0q2tFKLznlyYQwXahP255W8s
-	m3XsugqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IGX6q1EwizBQuQDLpaywg7mzFMLwjK5EiQRcSXh1QdI=; b=rKgU4VD5nnkJxZ49/6Ce+6S1es
+	cmcIRDtaVDDNhmTpDUlgpelrDfSmB8+QUUq85ROv6LIgxQQtOxdYIytFxVre2TGJ6HQ7YAeUHmQr4
+	nmIpvImm6WWwe4IX3jYyf1W0yihNCOgIvAT6/VOg7/GMO+QcxWCcZ64jM1CXNFnwss6yEG8VaPb44
+	b59Q+UTMxDuGEjmvN00qZDMCFZB7+2HYfDHMmLpB1mxMoGAPbenNCNwSX62bqf3s1KoEDBXaTsNPg
+	SMxOhioSd6+s6O6fpOBSwnkPrird0BYgp7Q6XeE1g3BaQVj0RFm5DPgmQll8xIQ5Tj8W+YllOQCkJ
+	od6C8N3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXctL-0000000DbKq-3GQ7;
-	Mon, 22 Dec 2025 10:11:52 +0000
-Received: from mail-qv1-xf43.google.com ([2607:f8b0:4864:20::f43])
+	id 1vXd2D-0000000Dbns-208p;
+	Mon, 22 Dec 2025 10:21:01 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXctI-0000000DbKU-1De3
+	id 1vXd2A-0000000DbnM-2iXY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Dec 2025 10:11:49 +0000
-Received: by mail-qv1-xf43.google.com with SMTP id 6a1803df08f44-88a35a00506so958566d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 02:11:47 -0800 (PST)
+	Mon, 22 Dec 2025 10:21:00 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-64b4f730a02so6015810a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 02:20:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1766398307; x=1767003107; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=e8CoeuIT6T7KRUSr6GvWlQoN5V/Cu+i3G5ywMuIlPBE=;
-        b=VDvmoQtu/NhQwEsi6hwgpda4f4eyKR6E/KJ2Rvz4i6oksM+3GWtL2tsgDLO8blPLvL
-         nKWoFN/+BuZburVY1B0AeRrGkniJemsNG4nLpQ+fSa7V2+luDBUxU81HRFR0HxPSaqYC
-         2wyrt9egGOqM5UCGtsqewK4JklmUr0HXoYT2hqAX0mhTKByxs8DAT36sfG3xmTZMMSys
-         +rkxOQP2eSR5VYtQL16pnnjns6CCYkHWSMebAQ+9CKqo14cE3UBGLONKcrt1sG11tugp
-         KtxoFKwGLUbpIsRBtfA064asEFMR6r4RlOBAUWpYEmSPAc3OUN7sviSAEfyx447dTlkx
-         M19g==
+        d=linaro.org; s=google; t=1766398856; x=1767003656; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=IGX6q1EwizBQuQDLpaywg7mzFMLwjK5EiQRcSXh1QdI=;
+        b=sbf86AhA8y7qvFLI62cjzDxAYlXAXB1JqkdpXJQieVnsA3v2R4XPEPaR5J9jI2I6Op
+         0H5UAUDhBqRblEKKovN+gPtt5FY1Fz71A828qtO4EcPtHa1175s+KYUGDVoXUv9TI61i
+         UffCE2l0Dd7xIYvNbAwmqDVOKHzh075LVcd7KCfrBxb0oWkLbDiBexautBNVVBDuoYXc
+         m8HnvgC0KZpJ317UkyEo40DzbsmtQ24W+a4mWXLcwZN3JiE9p/7s6IiRXjUAI05oZEAo
+         G8nTnyrknnYEPy1naxs1UdIoaTdTPUIhPp/3ZrzfIBCRTX1g2QqoAxZiHKvXybtfuRJf
+         iGBA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766398307; x=1767003107;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=e8CoeuIT6T7KRUSr6GvWlQoN5V/Cu+i3G5ywMuIlPBE=;
-        b=KqaBPHGCg0S/P+/QZ03rcytA1X22CwCsDEvmA7YQRMDTcaLZRx3oxqIT7T8avCKUYp
-         WIw3p7xS0mFDr0wsgRWZ06fA0MZihadZc0tttgqot1HPU7UOySqoPF8DSxhb7HLW/Pxb
-         M20PT+c+pGrGaBceMZBGVNO6WI4QphOUqY2x8lIy4cRPf3gjGx2JkqXjOoAM2f1PXex3
-         mhIjtauesfoTfQnKgP/85nWttyjXb5R65Q0i9yo7lsAunaFUE0j2VH2b+cChjz7p4rtA
-         DoclbPQNWP7tcwkEJ4JJ0FJKp3GeYMWf4fMpK3dLa9IgGoJyW1ToH/evXsAM3KGr/15o
-         e02w==
-X-Forwarded-Encrypted: i=1; AJvYcCV6JHga1f4OPGtZE9w2rCuJIxPg3SBB8YFIRyEoWKl7tMsPFqv/njYPQb4mpGBTFItMqQUrjwMI6k6OdXrW6faG@lists.infradead.org
-X-Gm-Message-State: AOJu0YzegfABw8a9MbtodWARXCX/WvnSyqUeCpsOEOBIEtiZiwlqEQRC
-	BCVoA+oZK8ygLmtJ4F62NCwFnL1F4wsOygTEZZY7iAcrHMWtpVKs/JVU
-X-Gm-Gg: AY/fxX4GQ63YWpSRabuleZEFa06FzjGJn/i52QYUPvq3S/dOpwfSi12Mtd/AcgNDc+w
-	e2/0nAlMeFXr+bvONwO4hIRQIqSR1hPC8ZzjPEQAQ4fPgXV909SeRZIbTlogd+Js/YN6Gn0u/dd
-	pOXqw2nbAvTV8ZOGe8kxCtxC51hmtCNssIArbBURPizAsfx355BMUMJSxkBk8RZbMMrFlG39rDu
-	PHFKeO6L4ghq8jJNRriMLgAk1Mq6Tvv2WrUr847OOGaWIfeTXCXxNfyb77sFuT1szLStt2SI+c/
-	dGkVBpUYRay//DrqOTpYW7I+W2DMXRvUCy2byp4qEfUJwYP88H434h6j1gQcO9dM41ZUv9ENj3X
-	j8Hn+lsHJcZmOW8yENQUsNHqWpvCra4fEMr8yMkIS6Qen5IrYSYKTYnPk6Sp+bSYs2SquGG/Uva
-	HeJa9cO6hH
-X-Google-Smtp-Source: AGHT+IE2Zb6S0jkYqUrtYWpStvs891PYhnLXWTjAJ+2Kugr/rEyZErNACZZvMfx5bTs9XAZT0sFrkA==
-X-Received: by 2002:a05:6a00:a381:b0:7e8:4471:8cd with SMTP id d2e1a72fcca58-7ff6687122dmr8756041b3a.46.1766392085796;
-        Mon, 22 Dec 2025 00:28:05 -0800 (PST)
-Received: from frodo ([2404:4400:417e:3d00:8b90:7f55:1261:772f])
-        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-7ff7e493123sm9540699b3a.50.2025.12.22.00.27.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 22 Dec 2025 00:28:05 -0800 (PST)
-From: Jim Cromie <jim.cromie@gmail.com>
-To: linux-kernel@vger.kernel.org,
-	jbaron@akamai.com,
-	gregkh@linuxfoundation.org,
-	ukaszb@chromium.org,
-	louis.chauvet@bootlin.com
-Cc: dri-devel@lists.freedesktop.org,
-	amd-gfx@lists.freedesktop.org,
-	intel-gvt-dev@lists.freedesktop.org,
-	intel-gfx@lists.freedesktop.org,
-	daniel.vetter@ffwll.ch,
-	tvrtko.ursulin@linux.intel.com,
-	jani.nikula@intel.com,
-	ville.syrjala@linux.intel.com,
-	seanpaul@chromium.org,
-	robdclark@gmail.com,
-	groeck@google.com,
-	yanivt@google.com,
-	bleung@google.com,
-	quic_saipraka@quicinc.com,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	quic_psodagud@quicinc.com,
-	maz@kernel.org,
-	arnd@arndb.de,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	mingo@redhat.com,
-	jim.cromie@gmail.com
-Subject: [PATCH v7 29/31] dyndbg: resolve "protection" of class'd pr_debug
-Date: Mon, 22 Dec 2025 21:20:46 +1300
-Message-ID: <20251222082049.1782440-30-jim.cromie@gmail.com>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20251222082049.1782440-3-jim.cromie@gmail.com>
-References: <20251222082049.1782440-3-jim.cromie@gmail.com>
+        d=1e100.net; s=20230601; t=1766398856; x=1767003656;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=IGX6q1EwizBQuQDLpaywg7mzFMLwjK5EiQRcSXh1QdI=;
+        b=D2UlJ5ee15YHXfQyZWRif+qKGInTa/f15E3nJs3NqST1OvzvVaf2x4m/hMPYhiz1qk
+         m43VYMZV8OiW1PLcT49jpbIyqhGl0ePfUyhXiyf2UXx3BgNKP0IiaU76xcF6UcISOpBm
+         gpnNBoiRxkdiH+zOtQYLw7xfEWcxC5FoWFUVYPq+FO4Dhl32KQZpiX8HVY9A5hW5cmYd
+         hrye1b+/G0Kd52+DYhLPCJu2ranNPMA4eJ1tkbOMcq7TLlvLmcqIOngZZtCq1E385tSQ
+         6Dm4hqLCqz24qvtfmwMdSy/NfVLNQ/60AvgCTuKqXrjIWDvFV3vQ3YI5c5c33uvqBpHV
+         ABeA==
+X-Forwarded-Encrypted: i=1; AJvYcCUgC5RiT3hVRCdl4az4AxiXOidOpOyycW8iKEEF2YwgGXtMEfOOPkaAs3+W1BDGKRSEP25oBdbnv2xVX5GdfJ1d@lists.infradead.org
+X-Gm-Message-State: AOJu0YynSI3lAJv4C2Th5Z6tQIj2fdkiprl9tWK1rd4BAAEsLzThA80v
+	ytDgcN/gX/T/HORulob/mxZK2nsF+TB7xPdBrwnFWPomctozqIekg/jlbogGZzn8jA8msxY3KsU
+	uLWECdvhDrRT6xU3kybcknQnAJOshR9w099RY8b/2sg==
+X-Gm-Gg: AY/fxX5PKoyAanXwomgvM36emm5zYJnpzFKDIkq4hlvHj2GRnTNPHbd6W5RlT8534iM
+	MKP9OJGfaruyP0j/XMTWT5Mr2YsQ0WcT95DQLbSbKhaYzUhR2EaiX1IlryBqDXNyg2pbwFQ6/9W
+	6mFdXRqgt/YMxTK4sJ/0NYdqp7KXQXqZR+541Oz/LqvGFOkcNmjnTcRNivkhp/HA4+YhkUWrJDZ
+	ZK6Qf2qAvpoFzLETPVrmAHyOrCOGcWkHXwz1AnlcPk0jLDWnpPXNZR56Z5veULTjHHHLQ==
+X-Google-Smtp-Source: AGHT+IEqXEGu9cvltqcnQjyMesMjaoRtKgOECBN5qmN3T1OJaLoUGgTcyks/ZkPJRdcjfHofOWpRzwLbozye182dWTE=
+X-Received: by 2002:a05:6402:3591:b0:64c:69e6:ad64 with SMTP id
+ 4fb4d7f45d1cf-64c69e6b268mr7653426a12.24.1766398856513; Mon, 22 Dec 2025
+ 02:20:56 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20251220-automatic-clocks-v6-0-36c2f276a135@linaro.org>
+ <20251220-automatic-clocks-v6-1-36c2f276a135@linaro.org> <215eb434-683f-4cf2-9bcd-0860991ae23e@kernel.org>
+ <CADrjBPoWcONhJJdCeovkwQ9Oha+t+dpHY_ohKPV7BQS1tougGw@mail.gmail.com> <d7a749e2-1d00-459f-adbb-0841190b7849@kernel.org>
+In-Reply-To: <d7a749e2-1d00-459f-adbb-0841190b7849@kernel.org>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Mon, 22 Dec 2025 10:20:44 +0000
+X-Gm-Features: AQt7F2okhEmetfhP-OZXD27I-iFbBBEDggeAe_X29tbibS3bKuDBCabzrOTR_5o
+Message-ID: <CADrjBPpv9OB5zjsE=+dUyZCz2xSs6XXWkpbK2qbFAdUyTaXXhQ@mail.gmail.com>
+Subject: Re: [PATCH v6 1/4] dt-bindings: clock: google,gs101-clock: add
+ samsung,sysreg property as required
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Sam Protsenko <semen.protsenko@linaro.org>, 
+	Sylwester Nawrocki <s.nawrocki@samsung.com>, Chanwoo Choi <cw00.choi@samsung.com>, 
+	Will McVicker <willmcvicker@google.com>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
+	kernel-team@android.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_021148_571587_9F104CD9 
-X-CRM114-Status: GOOD (  34.70  )
+X-CRM114-CacheID: sfid-20251222_022058_710723_0AB92E20 
+X-CRM114-Status: GOOD (  30.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,390 +104,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-classmap-v1 code protected class'd pr_debugs from unintended
-changes by unclassed/_DFLT queries:
+Hi Krzysztof,
 
-  # - to declutter examples:
-  alias ddcmd='echo $* > /proc/dynamic_debug/control'
+On Mon, 22 Dec 2025 at 09:53, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>
+> On 22/12/2025 10:39, Peter Griffin wrote:
+> > Hi Krzysztof,
+> >
+> > On Sun, 21 Dec 2025 at 13:26, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> >>
+> >> On 20/12/2025 10:05, Peter Griffin wrote:
+> >>> Each CMU (with the exception of cmu_top) has a corresponding sysreg bank
+> >>> that contains the BUSCOMPONENT_DRCG_EN and optional MEMCLK registers.
+> >>> The BUSCOMPONENT_DRCG_EN register enables dynamic root clock gating of
+> >>> bus components and MEMCLK gates the sram clock.
+> >>>
+> >>> Now the clock driver supports automatic clock mode, to fully enable dynamic
+> >>> root clock gating it is required to configure these registers. Update the
+> >>> bindings documentation so that all CMUs (with the exception of
+> >>> gs101-cmu-top) have samsung,sysreg as a required property.
+> >>>
+> >>> Note this is NOT an ABI break, as if the property isn't specified the
+> >>> clock driver will fallback to the current behaviour of not initializing
+> >>> the registers. The system still boots, but bus components won't benefit
+> >>> from dynamic root clock gating and dynamic power will be higher (which has
+> >>> been the case until now anyway).
+> >>>
+> >>> Additionally update the DT example to included the correct CMU size as
+> >>> registers in that region are used for automatic clock mode.
+> >>>
+> >>> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
+> >>> ---
+> >>> Changes in v5:
+> >>> - Invert the test for google,gs101-cmu-top (Andre)
+> >>>
+> >>
+> >>
+> >> <form letter>
+> >> This is a friendly reminder during the review process.
+> >>
+> >> It looks like you received a tag and forgot to add it.
+> >>
+> >> If you do not know the process, here is a short explanation:
+> >> Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
+> >> of patchset, under or above your Signed-off-by tag, unless patch changed
+> >> significantly (e.g. new properties added to the DT bindings). Tag is
+> >> "received", when provided in a message replied to you on the mailing
+> >> list. Tools like b4 can help here. However, there's no need to repost
+> >> patches *only* to add the tags. The upstream maintainer will do that for
+> >> tags received on the version they apply.
+> >>
+> >> Please read:
+> >> https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
+> >>
+> >> If a tag was not added on purpose, please state why and what changed.
+> >> </form letter>
+> >
+> > Apologies, your tag should have been added.... got kind of sidetracked
+> > bisecting the linux-next regression with the serial console and then
+> > forgot to apply it.
+>
+> I think it was more than one tag, so I decided not to look for them.
+> Please send v7 with all tags collected.
 
-  # IOW, this should NOT alter drm.debug settings
-  ddcmd -p
+Sure, will resend shortly.
 
-  # Instead, you must name the class to change it.
-  # Protective but tedious
-  ddcmd class DRM_UT_CORE +p
-
-  # Or do it the (old school) subsystem way
-  # This is ABI !!
-  echo 1 > /sys/module/drm/parameters/debug
-
-Since the debug sysfs-node is ABI, if dyndbg is going to implement it,
-it must also honor its settings; it must at least protect against
-accidental changes to its classes from legacy queries.
-
-The protection allows all previously conceived queries to work the way
-they always have; ie select the same set of pr_debugs, despite the
-inclusion of whole new classes of pr_debugs.
-
-But that choice has 2 downsides:
-
-1. "name the class to change it" makes a tedious long-winded
-interface, needing many commands to set DRM_UT_* one at a time.
-
-2. It makes the class keyword special in some sense; the other
-keywords skip only on query mismatch, otherwise the code falls thru to
-adjust the pr-debug site.
-
- Jason Baron	didn't like v1 on point 2.
- Louis Chauvet	didn't like recent rev on point 1 tedium.
-
-But that said: /sys/ is ABI, so this must be reliable:
-
-  #> echo 0x1f > /sys/module/drm/parameters/debug
-
-It 'just works' without dyndbg underneath; we must deliver that same
-stability.  Convenience is secondary.
-
-The new resolution:
-
-If ABI is the blocking issue, then no ABI means no blocking issue.
-IOW, if the classmap has no presence under /sys/*, ie no PARAM, there
-is no ABI to guard, and no reason to enforce a tedious interface.
-
-In the future, if DRM wants to alter this protection, that is
-practical, but I think default-on is the correct mode.
-
-So atm classes without a PARAM are unprotected at >control, allowing
-admins their shortcuts.  I think this could satisfy all viewpoints.
-
-That said, theres also a possibility of wildcard classes:
-
-   #> ddcmd class '*' +p
-
-Currently, the query-class is exact-matched against each module's
-classmaps.names.  This gives precise behavior, a good basis.
-
-But class wildcards are possible, they just did'nt appear useful for
-DRM, whose classmap names are a flat DRM_UT_* namespace.
-
-IOW, theres no useful selectivity there:
-
-   #> ddcmd class "DRM_*" +p		# these enable every DRM_* class
-   #> ddcmd class "DRM_UT_*" +p
-
-   #> ddcmd class "DRM_UT_V*" +p	# finally select just 1: DRM_UT_VBL
-   #> ddcmd class "DRM_UT_D*" +p	# but this gets 3
-
-   #> ddcmd class "D*V*" +p		# here be dragons
-
-But there is debatable utility in the feature.
-
-   #> ddcmd class __DEFAULT__ -p	# what about this ?
-   #> ddcmd -p				# thats what this does. automatically
-
-Anyway, this patch does:
-
-1. adds link field from _ddebug_class_map to the .controlling_param
-
-2. sets it in ddebug_match_apply_kparam(), during modprobe/init,
-   when options like drm.debug=VAL are handled.
-
-3. ddebug_class_has_param() now checks .controlling_param
-
-4. ddebug_class_wants_protection() macro renames 3.
-   this frames it as a separable policy decision
-
-5. ddebug_match_desc() gets the most attention:
-
-a. move classmap consideration to the bottom
-   this insures all other constraints act 1st.
-   allows simpler 'final' decisions.
-
-b. split class choices cleanly on query:
-   class FOO vs none, and class'd vs _DPRINTK_CLASS_DFLT site.
-
-c. calls 4 when applying a class-less query to a class'd pr_debug
-   here we need a new fn to find the classmap with this .class_id
-
-d. calls new ddebug_find_classmap_by_class_id().
-   when class-less query looks at a class'd pr_debug.
-   finds classmap, which can then decide, currently by PARAM existence.
-
-NOTES:
-
-protection is only against class-less queries, explicit "class FOO"
-adjustments are allowed (that is the mechanism).
-
-The drm.debug sysfs-node heavily under-specifies the class'd pr_debugs
-it controls; none of the +mfls prefixing flags have any effect, and
-each callsite remains individually controllable. drm.debug just
-toggles the +p flag for all the modules' class'd pr_debugs.
-
-Signed-off-by: Jim Cromie <jim.cromie@gmail.com>
----
- include/linux/dynamic_debug.h |  14 ++--
- lib/dynamic_debug.c           | 127 +++++++++++++++++++++++++++-------
- 2 files changed, 110 insertions(+), 31 deletions(-)
-
-diff --git a/include/linux/dynamic_debug.h b/include/linux/dynamic_debug.h
-index b1d11d946780..b22da40e2583 100644
---- a/include/linux/dynamic_debug.h
-+++ b/include/linux/dynamic_debug.h
-@@ -75,6 +75,7 @@ enum ddebug_class_map_type {
-  * map @class_names 0..N to consecutive constants starting at @base.
-  */
- struct _ddebug_class_map {
-+	struct _ddebug_class_param *controlling_param;
- 	const struct module *mod;	/* NULL for builtins */
- 	const char *mod_name;
- 	const char **class_names;
-@@ -259,7 +260,12 @@ struct _ddebug_class_param {
-  *
-  * Creates a sysfs-param to control the classes defined by the
-  * exported classmap, with bits 0..N-1 mapped to the classes named.
-- * This version keeps class-state in a private long int.
-+ *
-+ * Since sysfs-params are ABI, this also protects the classmap'd
-+ * pr_debugs from un-class'd `echo -p > /proc/dynamic_debug/control`
-+ * changes.
-+ *
-+ * This keeps class-state in a private long int.
-  */
- #define DYNAMIC_DEBUG_CLASSMAP_PARAM(_name, _var, _flags)		\
- 	static unsigned long _name##_bvec;				\
-@@ -272,10 +278,8 @@ struct _ddebug_class_param {
-  * @_var:   name of the (exported) classmap var defining the classes/bits
-  * @_flags: flags to be toggled, typically just 'p'
-  *
-- * Creates a sysfs-param to control the classes defined by the
-- * exported clasmap, with bits 0..N-1 mapped to the classes named.
-- * This version keeps class-state in user @_bits.  This lets drm check
-- * __drm_debug elsewhere too.
-+ * Like DYNAMIC_DEBUG_CLASSMAP_PARAM, but maintains param-state in
-+ * extern @_bits.  This lets DRM check __drm_debug elsewhere too.
-  */
- #define DYNAMIC_DEBUG_CLASSMAP_PARAM_REF(_name, _bits, _var, _flags)	\
- 	__DYNAMIC_DEBUG_CLASSMAP_PARAM(_name, _bits, _var, _flags)
-diff --git a/lib/dynamic_debug.c b/lib/dynamic_debug.c
-index c50836c262b4..f60a723a441b 100644
---- a/lib/dynamic_debug.c
-+++ b/lib/dynamic_debug.c
-@@ -206,6 +206,50 @@ ddebug_find_valid_class(struct _ddebug_info const *di, const char *query_class,
- 	return NULL;
- }
- 
-+static bool ddebug_class_in_range(const int class_id, const struct _ddebug_class_map *map)
-+{
-+	return (class_id >= map->base &&
-+		class_id < map->base + map->length);
-+}
-+
-+static struct _ddebug_class_map *
-+ddebug_find_map_by_class_id(struct _ddebug_info *di, int class_id)
-+{
-+	struct _ddebug_class_map *map;
-+	struct _ddebug_class_user *cli;
-+	int i;
-+
-+	for_subvec(i, map, di, maps)
-+		if (ddebug_class_in_range(class_id, map))
-+			return map;
-+
-+	for_subvec(i, cli, di, users)
-+		if (ddebug_class_in_range(class_id, cli->map))
-+			return cli->map;
-+
-+	return NULL;
-+}
-+
-+/*
-+ * classmaps-V1 protected classes from changes by legacy commands
-+ * (those selecting _DPRINTK_CLASS_DFLT by omission).  This had the
-+ * downside that saying "class FOO" for every change can get tedious.
-+ *
-+ * V2 is smarter, it protects class-maps if the defining module also
-+ * calls DYNAMIC_DEBUG_CLASSMAP_PARAM to create a sysfs parameter.
-+ * Since the author wants the knob, we should assume they intend to
-+ * use it (in preference to "class FOO +p" >control), and want to
-+ * trust its settings.  This gives protection when its useful, and not
-+ * when its just tedious.
-+ */
-+static inline bool ddebug_class_has_param(const struct _ddebug_class_map *map)
-+{
-+	return !!(map->controlling_param);
-+}
-+
-+/* re-framed as a policy choice */
-+#define ddebug_class_wants_protection(map) (ddebug_class_has_param(map))
-+
- /*
-  * Search the tables for _ddebug's which match the given `query' and
-  * apply the `flags' and `mask' to them.  Returns number of matching
-@@ -214,11 +258,10 @@ ddebug_find_valid_class(struct _ddebug_info const *di, const char *query_class,
-  */
- static bool ddebug_match_desc(const struct ddebug_query *query,
- 			      struct _ddebug *dp,
--			      int valid_class)
-+			      struct _ddebug_info *di,
-+			      int selected_class)
- {
--	/* match site against query-class */
--	if (dp->class_id != valid_class)
--		return false;
-+	struct _ddebug_class_map *site_map;
- 
- 	/* match against the source filename */
- 	if (query->filename &&
-@@ -255,7 +298,28 @@ static bool ddebug_match_desc(const struct ddebug_query *query,
- 	    dp->lineno > query->last_lineno)
- 		return false;
- 
--	return true;
-+	/*
-+	 * above are all satisfied, so we can make final decisions:
-+	 * 1- class FOO or implied class __DEFAULT__
-+	 * 2- site.is_classed or not
-+	 */
-+	if (query->class_string) {
-+		/* class FOO given, exact match required */
-+		return (dp->class_id == selected_class);
-+	}
-+	/* query class __DEFAULT__ by omission. */
-+	if (dp->class_id == _DPRINTK_CLASS_DFLT) {
-+		/* un-classed site */
-+		return true;
-+	}
-+	/* site is class'd */
-+	site_map = ddebug_find_map_by_class_id(di, dp->class_id);
-+	if (!site_map) {
-+		WARN_ONCE(1, "unknown class_id %d, check %s's CLASSMAP definitions", dp->class_id, di->mod_name);
-+		return false;
-+	}
-+	/* module(-param) decides protection */
-+	return !ddebug_class_wants_protection(site_map);
- }
- 
- static int ddebug_change(const struct ddebug_query *query, struct flag_settings *modifiers)
-@@ -265,33 +329,31 @@ static int ddebug_change(const struct ddebug_query *query, struct flag_settings
- 	unsigned int newflags;
- 	unsigned int nfound = 0;
- 	struct flagsbuf fbuf, nbuf;
--	struct _ddebug_class_map *map = NULL;
--	int valid_class;
-+	int selected_class;
- 
- 	/* search for matching ddebugs */
- 	mutex_lock(&ddebug_lock);
- 	list_for_each_entry(dt, &ddebug_tables, link) {
- 		struct _ddebug_info *di = &dt->info;
-+		struct _ddebug_class_map *mods_map;
- 
- 		/* match against the module name */
- 		if (query->module &&
- 		    !match_wildcard(query->module, di->mod_name))
- 			continue;
- 
-+		selected_class = _DPRINTK_CLASS_DFLT;
- 		if (query->class_string) {
--			map = ddebug_find_valid_class(&dt->info, query->class_string,
--						      &valid_class);
--			if (!map)
-+			mods_map = ddebug_find_valid_class(di, query->class_string,
-+							   &selected_class);
-+			if (!mods_map)
- 				continue;
--		} else {
--			/* constrain query, do not touch class'd callsites */
--			valid_class = _DPRINTK_CLASS_DFLT;
- 		}
- 
- 		for (i = 0; i < di->descs.len; i++) {
- 			struct _ddebug *dp = &di->descs.start[i];
- 
--			if (!ddebug_match_desc(query, dp, valid_class))
-+			if (!ddebug_match_desc(query, dp, di, selected_class))
- 				continue;
- 
- 			nfound++;
-@@ -656,6 +718,7 @@ static int ddebug_exec_queries(char *query, const char *modname)
- }
- 
- /* apply a new class-param setting */
-+
- static int ddebug_apply_class_bitmap(const struct _ddebug_class_param *dcp,
- 				     const unsigned long *new_bits,
- 				     const unsigned long old_bits,
-@@ -1107,12 +1170,6 @@ static void *ddebug_proc_next(struct seq_file *m, void *p, loff_t *pos)
- 	return dp;
- }
- 
--static bool ddebug_class_in_range(const int class_id, const struct _ddebug_class_map *map)
--{
--	return (class_id >= map->base &&
--		class_id < map->base + map->length);
--}
--
- static const char *ddebug_class_name(struct _ddebug_info *di, struct _ddebug *dp)
- {
- 	struct _ddebug_class_map *map;
-@@ -1237,25 +1294,36 @@ static void ddebug_sync_classbits(const struct kernel_param *kp, const char *mod
- 	}
- }
- 
--static void ddebug_match_apply_kparam(const struct kernel_param *kp,
--				      const struct _ddebug_class_map *map,
--				      const char *mod_name)
-+static struct _ddebug_class_param *
-+ddebug_get_classmap_kparam(const struct kernel_param *kp,
-+			   const struct _ddebug_class_map *map)
- {
- 	struct _ddebug_class_param *dcp;
- 
- 	if (kp->ops != &param_ops_dyndbg_classes)
--		return;
-+		return false;
- 
- 	dcp = (struct _ddebug_class_param *)kp->arg;
- 
--	if (map == dcp->map) {
-+	return (map == dcp->map)
-+		? dcp : (struct _ddebug_class_param *)NULL;
-+}
-+
-+static void ddebug_match_apply_kparam(const struct kernel_param *kp,
-+				      struct _ddebug_class_map *map,
-+				      const char *mod_name)
-+{
-+	struct _ddebug_class_param *dcp = ddebug_get_classmap_kparam(kp, map);
-+
-+	if (dcp) {
-+		map->controlling_param = dcp;
- 		v2pr_info(" kp:%s.%s =0x%lx", mod_name, kp->name, *dcp->bits);
- 		vpr_cm_info(map, " %s maps ", mod_name);
- 		ddebug_sync_classbits(kp, mod_name);
- 	}
- }
- 
--static void ddebug_apply_params(const struct _ddebug_class_map *cm, const char *mod_name)
-+static void ddebug_apply_params(struct _ddebug_class_map *cm, const char *mod_name)
- {
- 	const struct kernel_param *kp;
- #if IS_ENABLED(CONFIG_MODULES)
-@@ -1275,6 +1343,13 @@ static void ddebug_apply_params(const struct _ddebug_class_map *cm, const char *
- 	}
- }
- 
-+/*
-+ * called from add_module, ie early. it can find controlling kparams,
-+ * which can/does? enable protection of this classmap from class-less
-+ * queries, on the grounds that the user created the kparam, means to
-+ * use it, and expects it to reflect reality.  We should oblige him,
-+ * and protect those classmaps from classless "-p" changes.
-+ */
- static void ddebug_apply_class_maps(const struct _ddebug_info *di)
- {
- 	struct _ddebug_class_map *cm;
--- 
-2.52.0
-
+Peter
 
