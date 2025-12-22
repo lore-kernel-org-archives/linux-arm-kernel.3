@@ -4,65 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ED5DE67806
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 17:18:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D648E67497
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 17:37:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WnRQ1N14lTvLUDG5zNQUTA3/Bs7JBM8b/hcwh989NRY=; b=vXVr4CvhlfHY0Db594Nkfny2xn
-	WyrDF+j3HR0+GloLotQVYXVHyu0vfTpxsq/ypcu1fKz3GHSmETnSF/BXt02t2w16ZLh+MYaZx/Chj
-	Ei+ON2CAw7xTmuuJ+z8yqjCiT5wSXdUuTFN3xyVlwfaqf5QMHF3AAfYxRE6Ky+nl2X8oXcoPjt1wO
-	6Qs75vJRUBYwU8/8/Zf3W7u7wanDXTwsJ8uuhpgoiJnF1Gnf1Aes+H1BxN7Xi7P7sqFvH4LVKvFrR
-	Ts2hMoxE1hcGi+IvQiG1iQE0rRYIUizs99yaACy0nvMmmNcfYFOaIccTKm6JXmGiapQYnAoZU9qif
-	BtGD0ncA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bGZqRzRvnoLs/W1Vfmx2ZUUw4BIY94JQTxY8xpWG0qk=; b=rG6wQ5XcQNAdM5UPA+J64dC/BM
+	L7rHsA71kcWx2pqLJ5fD99CvRwXaemDT/2YfJfMAcA5KzOeu7dJ1REO5Zap2Zc/dD3XeP/qE+Bg9P
+	99Ey4iHaadgy5EU0xxbZpDL50pJoJtd+Y4KKIcFGRCyKcVJaSM8N66PYnC2c6cVxSDkCccSDnR3fH
+	id64zFdN66QVruhhtfk+jFhETUU+xtNu9tRvxmVRBdUY2GgMazg3SmHFd2ryCQu67lDE42WhgY2qb
+	F99fdh6OqdGVWDRdPSP6vKZWyheoDGG912C+kdRqbjTY9y7LtQYl/X3DysyEHYGqDryY+FyJevVls
+	JG3SbVeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXjXi-0000000E12J-1C9t;
-	Mon, 22 Dec 2025 17:17:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXjXg-0000000E11y-0E0F
+	id 1vXjq8-0000000E1fV-1Qum;
+	Mon, 22 Dec 2025 17:37:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vXjq5-0000000E1f8-3UGP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Dec 2025 17:17:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C40A642DE7;
-	Mon, 22 Dec 2025 17:17:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 828EBC4CEF1;
-	Mon, 22 Dec 2025 17:17:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766423874;
-	bh=QOPog1YfYI90StUev6z08ROZmYBb9PrYSSSaMZnFZ+s=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=jFINYE8KYwvcfYuyjdl/b6hv5LyI8pyAHMGb7wjXwv/a2jN45PELDtVbvB+cO2/7S
-	 bZ3eP+b2YeSUFs0Jt3pHgrnbsxAbPLcIxN0hh+z0lKoDRAKdz2a+ogept/fiSnrRsO
-	 FU46Wxei7kFvFOTLekv0h1NP1yg4zb5PfSZLRCqR7xk8dWRWuv586n/ghKB0pTHT/z
-	 du8d+kNpLy7MrrwML6FCqqsXp0rpSEg12CzmeED88cUyA9Go2WbQfNWg3MPqB6M9Mn
-	 mjSvThDqbi1sXGadFMVVy0RE+nOJQuRI04lkj3+9EAqSG4UAVfa3aKdnvr19fYKw//
-	 BYGUtY+EDFOag==
-From: Mark Brown <broonie@kernel.org>
-To: Jernej Skrabec <jernej@kernel.org>, 
- Samuel Holland <samuel@sholland.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>
-Cc: Andre Przywara <andre.przywara@arm.com>, linux-spi@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-sunxi@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20251221110513.1850535-1-wens@kernel.org>
-References: <20251221110513.1850535-1-wens@kernel.org>
-Subject: Re: (subset) [PATCH 0/4] arm64: allwinner: a523: Support SPI
- controllers
-Message-Id: <176642387228.913099.2681822678465821683.b4-ty@kernel.org>
-Date: Mon, 22 Dec 2025 17:17:52 +0000
+	Mon, 22 Dec 2025 17:36:59 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6376C497;
+	Mon, 22 Dec 2025 09:36:48 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0FC763F694;
+	Mon, 22 Dec 2025 09:36:54 -0800 (PST)
+Date: Mon, 22 Dec 2025 17:36:53 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: James Clark <james.clark@linaro.org>, Joel May <joel-linux@jmay.us>,
+	Ian Rogers <irogers@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Linux perf Profiling <linux-perf-users@vger.kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH] arm64: perf: fix syscalltbl path base
+Message-ID: <20251222173653.GF9788@e132581.arm.com>
+References: <b2651f20-6f3a-49f5-9cd8-3fb028b2cab5@app.fastmail.com>
+ <fcefc3c0-541d-40cc-84e3-9c2460308bdb@linaro.org>
+ <23c07ac4-ff13-47a5-824a-e7af1d1847a3@app.fastmail.com>
+ <bda366b4-fa53-4feb-a7ce-ee47cfc404b5@linaro.org>
+ <20251215112818.GB681384@e132581.arm.com>
+ <c8161700-ad9d-43d3-8c45-cfc110ebcd49@app.fastmail.com>
+ <a5448524-a147-4edb-9359-bcee3d780eb6@linaro.org>
+ <ce4e1210-94c2-4664-885b-e39106905e21@app.fastmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-47773
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ce4e1210-94c2-4664-885b-e39106905e21@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_091756_118064_68FA9CBB 
-X-CRM114-Status: GOOD (  15.33  )
+X-CRM114-CacheID: sfid-20251222_093657_917681_D8F1E20D 
+X-CRM114-Status: GOOD (  23.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,47 +73,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 21 Dec 2025 19:05:07 +0800, Chen-Yu Tsai wrote:
-> This series adds support for the SPI controllers found in the Allwinner
-> A523 SoC family. The SPI controller is almost the same as the ones in
-> previous generations, except that it moved the "RX buffer count"
-> register field to a separate register, and that register now reports
-> the total count for RX buffer and FIFO.
+On Mon, Dec 22, 2025 at 11:42:49AM +0100, Arnd Bergmann wrote:
+> On Mon, Dec 22, 2025, at 11:05, James Clark wrote:
+> > On 21/12/2025 9:48 pm, Joel May wrote:
+> >> On Mon, Dec 15, 2025, at 03:28, Leo Yan wrote:
+> >> 
+> >> This is my first time contributing to the Linux kernel, so please bare with
+> >> my ignorance.  I don't know whether it's acceptable to consider patches
+> >> that conceptually improve something without an actual problem they're
+> >> solving.
+> >> 
+> >
+> > No worries, thanks for sending the fix. Yes I think it could be ok to 
+> > apply your patch anyway. I just wanted to make sure we were all on the 
+> > same page with both fixes fixing the same thing.
 > 
-> In practice the driver has never cared about the buffer count, but if
-> any implementation were to use it, this counts as a non-backward
-> compatible change.
+> I still don't think that Leo's series is correct.
+
+As discussed, I will respin the series to use asm-generic/unistd.h for
+arm64, this is consistent with other arches.
+
+> > You might want to drop the fixes tag though to avoid confusion if Leo's 
+> > one gets accepted, because then technically it doesn't fix anything any 
+> > more. Keeping Leo's fixes: tag is a bit better because it fixes 
+> > additional things and targets an older commit.
 > 
-> [...]
+> Before that gets applied, someone should explain why arm64 needs
+> any special treatment at all. A lot of work has gone into making
+> the syscall table handling consistent across architectures, so
+> whether we ship a copy of the generated header for perf, we
+> generate a new copy or we rely on 'make headers_install', should
+> should really be done the same way across every architecture.
 
-Applied to
+I agree arm64 is not a special case.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
-
-Thanks!
-
-[1/4] spi: dt-bindings: sun6i: Add compatibles for A523's SPI controllers
-      commit: e0c8755d44eb85afd40100586076c3dc4b62ee3b
-[2/4] spi: sun6i: Support A523's SPI controllers
-      commit: c81f30bde5b0449d9d82d31a66f0ffd608e610b5
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+For the long term, I think "make headers_install" is worth trying.  The
+main concern is that it introduces a dependency between tool builds
+and the kernel.  However, if tools/selftests need the latest kernel
+features, it's natural to depend on the latest headers.
 
 Thanks,
-Mark
-
+Leo
 
