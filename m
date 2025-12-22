@@ -4,72 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3332FE6749B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 11:48:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81EB0E6749A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 11:48:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KePd0afxNWtYr8KKYmPbFUVg6cS1GIlQLYN1F9TuuoY=; b=U0xvFJIPd0bY4rew467zOVXNbR
-	/UyKSi3aiSn9ru4bvbjkQQ6ausJ4ECMuFcyM6NbRYPkyN1XiQ8vPtCDv2hOysTM92oRF9eNzL9VSp
-	s2xSVSB6zB5G33zf9jqIFo5Koa2UAXE9ibLxw5VYUVQfhLH+W+vMQcSRp89rsrI4FPmixbz0lYGiB
-	8NOmZvjhSPVgjvZoJ4uuN8ar65mqbwE86+EYdi2sp8N+mh7jovovuX7Ijfb+m22qiJoseBn/cIzZq
-	ow7xmjfdOyHOXwyMASJ5R2KA40NWmEEUYjMfTj2d0OUJmapcLl/SgXRyA2WD0oph6bPzLysfKON/V
-	1vkOg87A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2pfG2FGkeqdKtN9RNd7Vzxcgb13kzm9Ua4HpZFnxrFA=; b=dRpITxxlhys7E3x53mql9vLRDL
+	zXcAjP0GTmvgj+hMhklkXedCqckXxmRfo2t8VAPZ2TuhBiFHfUHsE6KgNO+XfEenO3dWGCGZ29PWu
+	N8iIx8zzajGC9EJ8DKIUmRdH58K+SN0xbJ6OIceb7p+uYdgLMwx96Gz2oopQtRuaooaKphB0r8HHR
+	HtysmLq2khs3uP1d5NwE9GlGeI5I7/e82vsgVd00Ebpu4s3R726F+cp+xorR791ChkZVhPNOMsIHW
+	AjDL6i1Zm8pJS/LteY/AubJO8rjgPiXFeS9XR1ZiurI+znvIRkOQp92am+1EOsuQz31tEyCDz3BYX
+	EtWvYZ/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXeOi-0000000DgTl-3QKs;
-	Mon, 22 Dec 2025 11:48:20 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vXeP1-0000000Dgbk-0wQd;
+	Mon, 22 Dec 2025 11:48:39 +0000
+Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXeOf-0000000DgSN-2hlC
+	id 1vXeOi-0000000DgSz-1mMN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Dec 2025 11:48:19 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.150])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dZbwg6PmSzHnH6C;
-	Mon, 22 Dec 2025 19:47:31 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id D209D40539;
-	Mon, 22 Dec 2025 19:48:06 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Mon, 22 Dec
- 2025 11:48:05 +0000
-Date: Mon, 22 Dec 2025 11:48:04 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Ben Horgan <ben.horgan@arm.com>
-CC: James Morse <james.morse@arm.com>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, D Scott Phillips OS
-	<scott@os.amperecomputing.com>, <carl@os.amperecomputing.com>,
-	<lcherian@marvell.com>, <bobo.shaobowang@huawei.com>,
-	<tan.shaopeng@fujitsu.com>, <baolin.wang@linux.alibaba.com>, Jamie Iles
-	<quic_jiles@quicinc.com>, Xin Hao <xhao@linux.alibaba.com>,
-	<peternewman@google.com>, <dfustini@baylibre.com>, <amitsinght@marvell.com>,
-	David Hildenbrand <david@kernel.org>, Dave Martin <dave.martin@arm.com>, Koba
- Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
-	<fenghuay@nvidia.com>, <baisheng.gao@unisoc.com>, Gavin Shan
-	<gshan@redhat.com>, <rohit.mathew@arm.com>, <reinette.chatre@intel.com>,
-	Punit Agrawal <punit.agrawal@oss.qualcomm.com>
-Subject: Re: [RFC PATCH 07/38] arm_mpam: resctrl: Add boilerplate cpuhp and
- domain allocation
-Message-ID: <20251222114804.00005231@huawei.com>
-In-Reply-To: <4495db3f-cfb8-4571-b83a-10a24f7b73a9@arm.com>
-References: <20251205215901.17772-1-james.morse@arm.com>
-	<20251205215901.17772-8-james.morse@arm.com>
-	<20251218113014.00002691@huawei.com>
-	<4495db3f-cfb8-4571-b83a-10a24f7b73a9@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Mon, 22 Dec 2025 11:48:22 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=2pfG2FGkeqdKtN9RNd7Vzxcgb13kzm9Ua4HpZFnxrFA=;
+	b=gk87i4ggW79ZggPR8oBheys6SvdF7hYLha1MT6VPKCAPQJ+TRHjXBDLKaAIZXxgVtSlejhfSU
+	R6ETfk4CROePgxZT3vmKHzg5eEqPEYIblrxgLmvfIhtM/OV7CDzs1cREKjzkP2Fo1oHHKJaNQKa
+	a0KIQkMCcY6SDj/sd3BxOik=
+Received: from mail.maildlp.com (unknown [172.19.162.140])
+	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4dZbsy2C2mzcZxm;
+	Mon, 22 Dec 2025 19:45:10 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 15A5F201E8;
+	Mon, 22 Dec 2025 19:48:13 +0800 (CST)
+Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
+ (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 22 Dec
+ 2025 19:48:11 +0800
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <oleg@redhat.com>,
+	<tglx@linutronix.de>, <peterz@infradead.org>, <luto@kernel.org>,
+	<shuah@kernel.org>, <kees@kernel.org>, <wad@chromium.org>,
+	<ruanjinjie@huawei.com>, <kevin.brodsky@arm.com>, <macro@orcam.me.uk>,
+	<charlie@rivosinc.com>, <akpm@linux-foundation.org>, <ldv@strace.io>,
+	<anshuman.khandual@arm.com>, <mark.rutland@arm.com>, <thuth@redhat.com>,
+	<song@kernel.org>, <ryan.roberts@arm.com>, <ada.coupriediaz@arm.com>,
+	<broonie@kernel.org>, <liqiang01@kylinos.cn>, <pengcan@kylinos.cn>,
+	<kmal@cock.li>, <dvyukov@google.com>, <richard.weiyang@gmail.com>,
+	<reddybalavignesh9979@gmail.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>
+Subject: [PATCH v10 01/16] arm64: Remove unused _TIF_WORK_MASK
+Date: Mon, 22 Dec 2025 19:47:22 +0800
+Message-ID: <20251222114737.1334364-2-ruanjinjie@huawei.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20251222114737.1334364-1-ruanjinjie@huawei.com>
+References: <20251222114737.1334364-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500009.china.huawei.com (7.191.174.84) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.90.53.73]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_034817_979860_C311B360 
-X-CRM114-Status: GOOD (  18.08  )
+X-CRM114-CacheID: sfid-20251222_034820_873634_D4019BCA 
+X-CRM114-Status: UNSURE (   7.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,71 +86,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Since commit b3cf07851b6c ("arm64: entry: Switch to generic IRQ
+entry"), _TIF_WORK_MASK is never used, so remove it.
 
-> >> +static struct mpam_resctrl_dom *
-> >> +mpam_resctrl_get_domain_from_cpu(int cpu, struct mpam_resctrl_res *res)
-> >> +{
-> >> +	struct mpam_resctrl_dom *dom;
-> >> +	struct rdt_ctrl_domain *ctrl_d;
-> >> +
-> >> +	lockdep_assert_cpus_held();
-> >> +
-> >> +	list_for_each_entry_rcu(ctrl_d, &res->resctrl_res.ctrl_domains,
-> >> +				hdr.list) {
-> >> +		dom = container_of(ctrl_d, struct mpam_resctrl_dom,
-> >> +				   resctrl_ctrl_dom);  
-> > 
-> > I'm lazy so haven't checked for more code here in later patches, but
-> > if not, why not iterate the list to access the domain directly rather
-> > than jumping through the rdt_ctrl_domain?
-> > 
-> > Something along lines of:
-> > 	
-> > 	list_for_each_entry_rcu(dom, &res->resctrl_res.ctrl_domains,
-> > 				resctrl_ctrl_dom.hdr.list) {
-> > 	}
-> >  
-> 
-> Unless I've misunderstood I don't think this works because it's not what
-> the fs/resctrl code expects.
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+---
+ arch/arm64/include/asm/thread_info.h | 6 ------
+ 1 file changed, 6 deletions(-)
 
-I think I explained this one badly.
-
-This should be functionally identical to the above so no visible side
-effects outside of this code.  All this change is meant to do is wrap the
-container_of() in the list iterator. When using the _entry_ variants
-it is wrapping container_of() anyway so just going one level further
-up the hierarchy of nested structures.
-
-struct a {
-	struct b {
-		struct list_head l;
-	}
-}
-
-It's actually a list of struct a as all elements on this list are
-struct b instances within struct a, but you are treating it as a list
-of struct b and then using a container_of() to get to struct a on
-each one.
-
-The change is treat it as a list of struct a with the list_head happening
-to be wrapped in struct b.  Results in slightly simpler code and makes
-the point these are always struct a instances.
-
-Jonathan
-
-
-
-> 
-> 
-> >> +
-> >> +		if (cpumask_test_cpu(cpu, &dom->ctrl_comp->affinity))
-> >> +			return dom;
-> >> +	}
-> >> +
-> >> +	return NULL;
-> >> +}
-> >> +
-
+diff --git a/arch/arm64/include/asm/thread_info.h b/arch/arm64/include/asm/thread_info.h
+index a803b887b0b4..24fcd6adaa33 100644
+--- a/arch/arm64/include/asm/thread_info.h
++++ b/arch/arm64/include/asm/thread_info.h
+@@ -106,12 +106,6 @@ void arch_setup_new_exec(void);
+ #define _TIF_NOTIFY_SIGNAL	(1 << TIF_NOTIFY_SIGNAL)
+ #define _TIF_TSC_SIGSEGV	(1 << TIF_TSC_SIGSEGV)
+ 
+-#define _TIF_WORK_MASK		(_TIF_NEED_RESCHED | _TIF_NEED_RESCHED_LAZY | \
+-				 _TIF_NOTIFY_RESUME | _TIF_FOREIGN_FPSTATE | \
+-				 _TIF_UPROBE | _TIF_MTE_ASYNC_FAULT | \
+-				 _TIF_NOTIFY_SIGNAL | _TIF_SIGPENDING | \
+-				 _TIF_PATCH_PENDING)
+-
+ #define _TIF_SYSCALL_WORK	(_TIF_SYSCALL_TRACE | _TIF_SYSCALL_AUDIT | \
+ 				 _TIF_SYSCALL_TRACEPOINT | _TIF_SECCOMP | \
+ 				 _TIF_SYSCALL_EMU)
+-- 
+2.34.1
 
 
