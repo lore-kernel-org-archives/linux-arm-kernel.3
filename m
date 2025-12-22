@@ -4,61 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D648E67497
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 17:37:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9CB9E67803
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 18:00:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bGZqRzRvnoLs/W1Vfmx2ZUUw4BIY94JQTxY8xpWG0qk=; b=rG6wQ5XcQNAdM5UPA+J64dC/BM
-	L7rHsA71kcWx2pqLJ5fD99CvRwXaemDT/2YfJfMAcA5KzOeu7dJ1REO5Zap2Zc/dD3XeP/qE+Bg9P
-	99Ey4iHaadgy5EU0xxbZpDL50pJoJtd+Y4KKIcFGRCyKcVJaSM8N66PYnC2c6cVxSDkCccSDnR3fH
-	id64zFdN66QVruhhtfk+jFhETUU+xtNu9tRvxmVRBdUY2GgMazg3SmHFd2ryCQu67lDE42WhgY2qb
-	F99fdh6OqdGVWDRdPSP6vKZWyheoDGG912C+kdRqbjTY9y7LtQYl/X3DysyEHYGqDryY+FyJevVls
-	JG3SbVeQ==;
+	bh=dXo0XmPhzaeXOxCnEx9hH+u3QjRF1RyUWpvNBcumJRc=; b=b0ZoKd75B+kP7NnjPvGRHh++Em
+	TmOJvBfQ+Nwpa4bk4vxbEqyjvVi3vgiivX4i3nnX2/W0Ks/7pFNLwleZmL3BohBGkEfD5vbgrXj4o
+	7nyqMuiewBFlGH1+s666L1jdLjaW9Q9i3MB8atZ1ERYF6WGTP49x+L6hkjpq5cggpq42OOUJF0hAW
+	jHtYCdb/lkhZ552cQqDWjK0pk7+f9uldI6E1i7DCHsin39yxR4Rcpg+elrkMj045pPjkd954nJXBz
+	h0iWYOo/Chqs4wBRG6v7kMLLptvBlCgwIKaDgkyFtALaMZ3EqFeXMutr927wcajEdPLbTvY0uYKIC
+	PriIuyfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXjq8-0000000E1fV-1Qum;
-	Mon, 22 Dec 2025 17:37:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXjq5-0000000E1f8-3UGP
+	id 1vXkDD-0000000E2XB-1JJA;
+	Mon, 22 Dec 2025 18:00:51 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vXkD8-0000000E2Wd-2ITo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Dec 2025 17:36:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6376C497;
-	Mon, 22 Dec 2025 09:36:48 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0FC763F694;
-	Mon, 22 Dec 2025 09:36:54 -0800 (PST)
-Date: Mon, 22 Dec 2025 17:36:53 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: James Clark <james.clark@linaro.org>, Joel May <joel-linux@jmay.us>,
-	Ian Rogers <irogers@google.com>,
+	Mon, 22 Dec 2025 18:00:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1766426445;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=dXo0XmPhzaeXOxCnEx9hH+u3QjRF1RyUWpvNBcumJRc=;
+	b=d2zqirgDXWeuoAjPhvSahdwo60SNotfrfpdabPQvpFQs6IFBiDOEg1DgpICSDg9zGhZoyV
+	3CPOG5QyUlz2dA92E/aWbi+iHPbTpkPFYnlc+7HfQZWe3LlkFYmjUDWyWuY8HxZWr4oKMq
+	Ct5zekcA+DL1H4wrTejxFx5jsuMl3/o=
+Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com
+ [209.85.219.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-438-C9DwPvjZNNKZmAKKhzdUvQ-1; Mon, 22 Dec 2025 13:00:41 -0500
+X-MC-Unique: C9DwPvjZNNKZmAKKhzdUvQ-1
+X-Mimecast-MFC-AGG-ID: C9DwPvjZNNKZmAKKhzdUvQ_1766426441
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-8887c0d3074so113713026d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 10:00:41 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766426441; x=1767031241;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=dXo0XmPhzaeXOxCnEx9hH+u3QjRF1RyUWpvNBcumJRc=;
+        b=wI3+iU8lvldbvicBY6Q2sX8a9sD198oxdqUOhU3eZ9LRo8x183vwhb0lgqsDAyxxaF
+         LnVmPkw8++z7PJBneMIa1stxzZUnlYrip3hROOVF/DqjK1i92n0tzUQ+TV5KdasKM460
+         1VzmkWWI/gEFwYHDc6IvJBObgjpbKsglhBCpK2IhOS3cvk9gAJAsJ9umisetnvHNsRDI
+         w/pV0YKVmvW5FZLCKxD87cBB16FrDboivL3TaYvFXwtvuOwhW4UC9DLBSmgsCJ0VOXjQ
+         8Cx+4WueIyByjBCBbhbgg21xRmEpt2xWeUcvoX0fE32lzon8ErhuVaalxJiHlg47q+lv
+         jDtA==
+X-Forwarded-Encrypted: i=1; AJvYcCUAEWqeH8bSurcVgmG+PCO3sjUuj1dH+pBBouqqwbU8V+lT+vLIEhDlFXyKpVlP2qt7zmTiQfOJ0JxGkcZqFWSN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzsa9H9w2KWHYbmih31FmaF0SaiwFOr7rYWgPHXu5kpQOlhk8Q5
+	bfr9SJUZRTNqeSwqPFYLb9gKISIvrs1C2ojrLX6vWSCNuhJxoTrMitQFHgNNwpFuj+3DxJMc9Gs
+	zmeNjYuoKap/omnhvBpE2InRBzFwvnOG2/WScxgoVv2aJH/TLvaZTLFvbAt910qc2l7YHImWDyf
+	UJ
+X-Gm-Gg: AY/fxX5Q0G+nkVuiZGEFS9xqzMEQ4lfYqV24/J/VpjDcGxDaG4wI56NP8R64XG9BP2h
+	JkPbwGxO6Qx1zBa3xh2zm9a8M6ABBmhRKSOkE41EdG+dGGQ9VrpGeMSckOJSZXBc8CgS+a0yeOW
+	Rb6bY258l1J9IU2H7ULRGAn1dcluMebZpiIl11omzUNPVY7Z92ffFSWdN1vdkTAXofFXYaWusK/
+	XaMon3SIdJRQ0O/UchLnqHi+wcjOh2S1IuGDM4SwDgY9dpYdFk+CguM1qV+Tb98TyYXjf/8ATg0
+	LBSzmlD8oYBCqGOJR1g6sg9er7uNs4bQO7yz6I/Anly93FKd5btt3/g7sd7M4vTG1T48iO30hvr
+	sXdbaaCb8Njqa6+UQSX5rVhLqAsoV495yhvhx7jlPRpz3
+X-Received: by 2002:a05:6214:27c6:b0:88a:306b:820b with SMTP id 6a1803df08f44-88d83d670e7mr209995456d6.57.1766426440671;
+        Mon, 22 Dec 2025 10:00:40 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFShBd6/ILCtyh9OhdnIzWfY3dp9JmiO74dGqZBOXDUCJ4lowAybkSiEsS44d+2GsPo84wwMA==
+X-Received: by 2002:a05:6214:27c6:b0:88a:306b:820b with SMTP id 6a1803df08f44-88d83d670e7mr209994116d6.57.1766426440046;
+        Mon, 22 Dec 2025 10:00:40 -0800 (PST)
+Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-88d9a63e296sm86625536d6.52.2025.12.22.10.00.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 22 Dec 2025 10:00:39 -0800 (PST)
+Date: Mon, 22 Dec 2025 13:00:36 -0500
+From: Brian Masney <bmasney@redhat.com>
+To: "irving.ch.lin" <irving-ch.lin@mediatek.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Qiqi Wang <qiqi.wang@mediatek.com>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Linux perf Profiling <linux-perf-users@vger.kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Subject: Re: [PATCH] arm64: perf: fix syscalltbl path base
-Message-ID: <20251222173653.GF9788@e132581.arm.com>
-References: <b2651f20-6f3a-49f5-9cd8-3fb028b2cab5@app.fastmail.com>
- <fcefc3c0-541d-40cc-84e3-9c2460308bdb@linaro.org>
- <23c07ac4-ff13-47a5-824a-e7af1d1847a3@app.fastmail.com>
- <bda366b4-fa53-4feb-a7ce-ee47cfc404b5@linaro.org>
- <20251215112818.GB681384@e132581.arm.com>
- <c8161700-ad9d-43d3-8c45-cfc110ebcd49@app.fastmail.com>
- <a5448524-a147-4edb-9359-bcee3d780eb6@linaro.org>
- <ce4e1210-94c2-4664-885b-e39106905e21@app.fastmail.com>
+	linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org,
+	netdev@vger.kernel.org,
+	Project_Global_Chrome_Upstream_Group@mediatek.com,
+	sirius.wang@mediatek.com, vince-wl.liu@mediatek.com,
+	jh.hsu@mediatek.com
+Subject: Re: [PATCH v4 04/21] clk: mediatek: Add MT8189 apmixedsys clock
+ support
+Message-ID: <aUmHRCXNy45PrVLG@redhat.com>
+References: <20251215034944.2973003-1-irving-ch.lin@mediatek.com>
+ <20251215034944.2973003-5-irving-ch.lin@mediatek.com>
 MIME-Version: 1.0
+In-Reply-To: <20251215034944.2973003-5-irving-ch.lin@mediatek.com>
+User-Agent: Mutt/2.2.14 (2025-02-20)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: UazX__idVS5luf8_h5iV_-_8sjDMW1l8A4z4No5LZHQ_1766426441
+X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <ce4e1210-94c2-4664-885b-e39106905e21@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_093657_917681_D8F1E20D 
-X-CRM114-Status: GOOD (  23.47  )
+X-CRM114-CacheID: sfid-20251222_100048_272357_E5A486A5 
+X-CRM114-Status: GOOD (  14.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,45 +125,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 22, 2025 at 11:42:49AM +0100, Arnd Bergmann wrote:
-> On Mon, Dec 22, 2025, at 11:05, James Clark wrote:
-> > On 21/12/2025 9:48 pm, Joel May wrote:
-> >> On Mon, Dec 15, 2025, at 03:28, Leo Yan wrote:
-> >> 
-> >> This is my first time contributing to the Linux kernel, so please bare with
-> >> my ignorance.  I don't know whether it's acceptable to consider patches
-> >> that conceptually improve something without an actual problem they're
-> >> solving.
-> >> 
-> >
-> > No worries, thanks for sending the fix. Yes I think it could be ok to 
-> > apply your patch anyway. I just wanted to make sure we were all on the 
-> > same page with both fixes fixing the same thing.
+On Mon, Dec 15, 2025 at 11:49:13AM +0800, irving.ch.lin wrote:
+> From: Irving-CH Lin <irving-ch.lin@mediatek.com>
 > 
-> I still don't think that Leo's series is correct.
-
-As discussed, I will respin the series to use asm-generic/unistd.h for
-arm64, this is consistent with other arches.
-
-> > You might want to drop the fixes tag though to avoid confusion if Leo's 
-> > one gets accepted, because then technically it doesn't fix anything any 
-> > more. Keeping Leo's fixes: tag is a bit better because it fixes 
-> > additional things and targets an older commit.
+> Add support for the MT8189 apmixedsys clock controller, which provides
+> PLLs generated from SoC 26m.
 > 
-> Before that gets applied, someone should explain why arm64 needs
-> any special treatment at all. A lot of work has gone into making
-> the syscall table handling consistent across architectures, so
-> whether we ship a copy of the generated header for perf, we
-> generate a new copy or we rely on 'make headers_install', should
-> should really be done the same way across every architecture.
+> Signed-off-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
+> ---
+>  drivers/clk/mediatek/Kconfig                 |  13 ++
+>  drivers/clk/mediatek/Makefile                |   1 +
+>  drivers/clk/mediatek/clk-mt8189-apmixedsys.c | 192 +++++++++++++++++++
+                        ^^^^^^^^^^^^^^^^^^^^^^^
 
-I agree arm64 is not a special case.
+This file, along with others in this series, is not listed in
+MAINTAINERS. This is the current entry:
 
-For the long term, I think "make headers_install" is worth trying.  The
-main concern is that it introduces a dependency between tool builds
-and the kernel.  However, if tools/selftests need the latest kernel
-features, it's natural to depend on the latest headers.
+MEDIATEK MT6735 CLOCK & RESET DRIVERS
+M:      Yassine Oudjana <y.oudjana@protonmail.com>
+L:      linux-clk@vger.kernel.org
+L:      linux-mediatek@lists.infradead.org (moderated for non-subscribers)
+S:      Maintained
+F:      drivers/clk/mediatek/clk-mt6735-apmixedsys.c
+F:      drivers/clk/mediatek/clk-mt6735-imgsys.c
+F:      drivers/clk/mediatek/clk-mt6735-infracfg.c
+F:      drivers/clk/mediatek/clk-mt6735-mfgcfg.c
+F:      drivers/clk/mediatek/clk-mt6735-pericfg.c
+F:      drivers/clk/mediatek/clk-mt6735-topckgen.c
+F:      drivers/clk/mediatek/clk-mt6735-vdecsys.c
+F:      drivers/clk/mediatek/clk-mt6735-vencsys.c
+F:      include/dt-bindings/clock/mediatek,mt6735-apmixedsys.h
+F:      include/dt-bindings/clock/mediatek,mt6735-imgsys.h
+F:      include/dt-bindings/clock/mediatek,mt6735-infracfg.h
+F:      include/dt-bindings/clock/mediatek,mt6735-mfgcfg.h
+F:      include/dt-bindings/clock/mediatek,mt6735-pericfg.h
+F:      include/dt-bindings/clock/mediatek,mt6735-topckgen.h
+F:      include/dt-bindings/clock/mediatek,mt6735-vdecsys.h
+F:      include/dt-bindings/clock/mediatek,mt6735-vencsys.h
+F:      include/dt-bindings/reset/mediatek,mt6735-infracfg.h
+F:      include/dt-bindings/reset/mediatek,mt6735-mfgcfg.h
+F:      include/dt-bindings/reset/mediatek,mt6735-pericfg.h
+F:      include/dt-bindings/reset/mediatek,mt6735-vdecsys.h
 
-Thanks,
-Leo
+Should the entries to MAINTAINERS be simplified to the following?
+
+F:      drivers/clk/mediatek/
+F:      include/dt-bindings/clock/mediatek,*
+
+Brian
+
 
