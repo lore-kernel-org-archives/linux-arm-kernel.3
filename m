@@ -4,113 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9CB9E67803
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 18:00:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6727E67497
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 18:05:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dXo0XmPhzaeXOxCnEx9hH+u3QjRF1RyUWpvNBcumJRc=; b=b0ZoKd75B+kP7NnjPvGRHh++Em
-	TmOJvBfQ+Nwpa4bk4vxbEqyjvVi3vgiivX4i3nnX2/W0Ks/7pFNLwleZmL3BohBGkEfD5vbgrXj4o
-	7nyqMuiewBFlGH1+s666L1jdLjaW9Q9i3MB8atZ1ERYF6WGTP49x+L6hkjpq5cggpq42OOUJF0hAW
-	jHtYCdb/lkhZ552cQqDWjK0pk7+f9uldI6E1i7DCHsin39yxR4Rcpg+elrkMj045pPjkd954nJXBz
-	h0iWYOo/Chqs4wBRG6v7kMLLptvBlCgwIKaDgkyFtALaMZ3EqFeXMutr927wcajEdPLbTvY0uYKIC
-	PriIuyfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Subject:Cc:From:To:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ay6xXTFii1p+icO+7nohIqHQs7dMgk+nkWsA97U4Zfc=; b=uOqFtbtlZZoyYLYe8D6GzG5Q+/
+	F6lzzGf4HipIauZUz7+wYCHgYqPKwsNq/NuymKUOARg4nHmzLEqBfHGroi60EAM58sWTXx3KR2zWb
+	CaaouGgYWm/hv6n0AM/6boZ6W4BlTAoBf/N48nr5mH8WrcL+kebHEccFtx+24ybFEPRzFnI4odeLJ
+	u/FwYUixf5aS4FQ9TswB17lPrM+doj8wgvCf0Uws/HtloxJoOEyYifVzxjJQ0aFrhvizqUG+V6LKs
+	I1pjnGO5qKD3qlmRARlaxn1MlHNWyTIxbyMXdZzsZgH3w60PPZ7b6g312spHnpm1S6iczn9+Qd+mh
+	YO1N6hkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXkDD-0000000E2XB-1JJA;
-	Mon, 22 Dec 2025 18:00:51 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vXkI0-0000000E2ol-3N8L;
+	Mon, 22 Dec 2025 18:05:48 +0000
+Received: from mail-10631.protonmail.ch ([79.135.106.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXkD8-0000000E2Wd-2ITo
+	id 1vXkHx-0000000E2o0-3WwF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Dec 2025 18:00:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1766426445;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=dXo0XmPhzaeXOxCnEx9hH+u3QjRF1RyUWpvNBcumJRc=;
-	b=d2zqirgDXWeuoAjPhvSahdwo60SNotfrfpdabPQvpFQs6IFBiDOEg1DgpICSDg9zGhZoyV
-	3CPOG5QyUlz2dA92E/aWbi+iHPbTpkPFYnlc+7HfQZWe3LlkFYmjUDWyWuY8HxZWr4oKMq
-	Ct5zekcA+DL1H4wrTejxFx5jsuMl3/o=
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com
- [209.85.219.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-438-C9DwPvjZNNKZmAKKhzdUvQ-1; Mon, 22 Dec 2025 13:00:41 -0500
-X-MC-Unique: C9DwPvjZNNKZmAKKhzdUvQ-1
-X-Mimecast-MFC-AGG-ID: C9DwPvjZNNKZmAKKhzdUvQ_1766426441
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-8887c0d3074so113713026d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 10:00:41 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766426441; x=1767031241;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=dXo0XmPhzaeXOxCnEx9hH+u3QjRF1RyUWpvNBcumJRc=;
-        b=wI3+iU8lvldbvicBY6Q2sX8a9sD198oxdqUOhU3eZ9LRo8x183vwhb0lgqsDAyxxaF
-         LnVmPkw8++z7PJBneMIa1stxzZUnlYrip3hROOVF/DqjK1i92n0tzUQ+TV5KdasKM460
-         1VzmkWWI/gEFwYHDc6IvJBObgjpbKsglhBCpK2IhOS3cvk9gAJAsJ9umisetnvHNsRDI
-         w/pV0YKVmvW5FZLCKxD87cBB16FrDboivL3TaYvFXwtvuOwhW4UC9DLBSmgsCJ0VOXjQ
-         8Cx+4WueIyByjBCBbhbgg21xRmEpt2xWeUcvoX0fE32lzon8ErhuVaalxJiHlg47q+lv
-         jDtA==
-X-Forwarded-Encrypted: i=1; AJvYcCUAEWqeH8bSurcVgmG+PCO3sjUuj1dH+pBBouqqwbU8V+lT+vLIEhDlFXyKpVlP2qt7zmTiQfOJ0JxGkcZqFWSN@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzsa9H9w2KWHYbmih31FmaF0SaiwFOr7rYWgPHXu5kpQOlhk8Q5
-	bfr9SJUZRTNqeSwqPFYLb9gKISIvrs1C2ojrLX6vWSCNuhJxoTrMitQFHgNNwpFuj+3DxJMc9Gs
-	zmeNjYuoKap/omnhvBpE2InRBzFwvnOG2/WScxgoVv2aJH/TLvaZTLFvbAt910qc2l7YHImWDyf
-	UJ
-X-Gm-Gg: AY/fxX5Q0G+nkVuiZGEFS9xqzMEQ4lfYqV24/J/VpjDcGxDaG4wI56NP8R64XG9BP2h
-	JkPbwGxO6Qx1zBa3xh2zm9a8M6ABBmhRKSOkE41EdG+dGGQ9VrpGeMSckOJSZXBc8CgS+a0yeOW
-	Rb6bY258l1J9IU2H7ULRGAn1dcluMebZpiIl11omzUNPVY7Z92ffFSWdN1vdkTAXofFXYaWusK/
-	XaMon3SIdJRQ0O/UchLnqHi+wcjOh2S1IuGDM4SwDgY9dpYdFk+CguM1qV+Tb98TyYXjf/8ATg0
-	LBSzmlD8oYBCqGOJR1g6sg9er7uNs4bQO7yz6I/Anly93FKd5btt3/g7sd7M4vTG1T48iO30hvr
-	sXdbaaCb8Njqa6+UQSX5rVhLqAsoV495yhvhx7jlPRpz3
-X-Received: by 2002:a05:6214:27c6:b0:88a:306b:820b with SMTP id 6a1803df08f44-88d83d670e7mr209995456d6.57.1766426440671;
-        Mon, 22 Dec 2025 10:00:40 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFShBd6/ILCtyh9OhdnIzWfY3dp9JmiO74dGqZBOXDUCJ4lowAybkSiEsS44d+2GsPo84wwMA==
-X-Received: by 2002:a05:6214:27c6:b0:88a:306b:820b with SMTP id 6a1803df08f44-88d83d670e7mr209994116d6.57.1766426440046;
-        Mon, 22 Dec 2025 10:00:40 -0800 (PST)
-Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-88d9a63e296sm86625536d6.52.2025.12.22.10.00.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 22 Dec 2025 10:00:39 -0800 (PST)
-Date: Mon, 22 Dec 2025 13:00:36 -0500
-From: Brian Masney <bmasney@redhat.com>
-To: "irving.ch.lin" <irving-ch.lin@mediatek.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Qiqi Wang <qiqi.wang@mediatek.com>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org,
-	netdev@vger.kernel.org,
-	Project_Global_Chrome_Upstream_Group@mediatek.com,
-	sirius.wang@mediatek.com, vince-wl.liu@mediatek.com,
-	jh.hsu@mediatek.com
-Subject: Re: [PATCH v4 04/21] clk: mediatek: Add MT8189 apmixedsys clock
- support
-Message-ID: <aUmHRCXNy45PrVLG@redhat.com>
-References: <20251215034944.2973003-1-irving-ch.lin@mediatek.com>
- <20251215034944.2973003-5-irving-ch.lin@mediatek.com>
+	Mon, 22 Dec 2025 18:05:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1766426740; x=1766685940;
+	bh=ay6xXTFii1p+icO+7nohIqHQs7dMgk+nkWsA97U4Zfc=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=VNH9f739vztBhMb7jnrfDS066IK5I5749HghCFdaG+MCuAavq2Y8YrwToODxw3uhi
+	 Q29dimA79e49sA4ZHSY7FeJZ3FdMZqrPRX0fGSCah2as4spcUbEOrRfLvbhQVxixq6
+	 atNGuhIutkp3jguJunfEgkk4coe4RxrC133aGSW671r2YB5A013tm1FUxFBADcFxJO
+	 EILVwb9lFM24o4Lqj9/VwjvNxlyJHI98OVgWJ1ECMUrhGGdCAislIiK2jYMnqNrp8c
+	 WSyKUll0PypUX9h+9edoxfm5AjU2C63GUqfPCA3PAYo/IuN+gzn8V+O3Xq4oUl+g1x
+	 hT9P2TyLsIrrQ==
+Date: Mon, 22 Dec 2025 18:05:33 +0000
+To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>
+From: Harry Austen <hpausten@protonmail.com>
+Cc: Shayne Chen <shayne.chen@mediatek.com>, Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, Harry Austen <hpausten@protonmail.com>
+Subject: [PATCH] wifi: mt76: fix buffer overflow bug
+Message-ID: <20251222180437.1938-1-hpausten@protonmail.com>
+Feedback-ID: 53116287:user:proton
+X-Pm-Message-ID: cb661200901071ea47144025303f1bc8e90deb0c
 MIME-Version: 1.0
-In-Reply-To: <20251215034944.2973003-5-irving-ch.lin@mediatek.com>
-User-Agent: Mutt/2.2.14 (2025-02-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: UazX__idVS5luf8_h5iV_-_8sjDMW1l8A4z4No5LZHQ_1766426441
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_100048_272357_E5A486A5 
-X-CRM114-Status: GOOD (  14.39  )
+X-CRM114-CacheID: sfid-20251222_100546_033596_BBC2F0D4 
+X-CRM114-Status: UNSURE (   8.75  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,53 +67,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 15, 2025 at 11:49:13AM +0800, irving.ch.lin wrote:
-> From: Irving-CH Lin <irving-ch.lin@mediatek.com>
-> 
-> Add support for the MT8189 apmixedsys clock controller, which provides
-> PLLs generated from SoC 26m.
-> 
-> Signed-off-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
-> ---
->  drivers/clk/mediatek/Kconfig                 |  13 ++
->  drivers/clk/mediatek/Makefile                |   1 +
->  drivers/clk/mediatek/clk-mt8189-apmixedsys.c | 192 +++++++++++++++++++
-                        ^^^^^^^^^^^^^^^^^^^^^^^
+Prevents attempting to read an extra byte from the origin string.
+Example stacktrace:
 
-This file, along with others in this series, is not listed in
-MAINTAINERS. This is the current entry:
+------------[ cut here ]------------
+strnlen: detected buffer overflow: 17 byte read of buffer size 16
+WARNING: lib/string_helpers.c:1036 at __fortify_report+0x2d/0x50, CPU#0: kw=
+orker/0:0/9
+Modules linked in:
+CPU: 0 UID: 0 PID: 9 Comm: kworker/0:0 Not tainted 6.19.0-rc2+ #13 PREEMPT(=
+full)
+Hardware name: Micro-Star International Co., Ltd. MS-7E24/B650M GAMING PLUS=
+ WIFI (MS-7E24), BIOS 1.C2 08/06/2025
+Workqueue: events mt7921_init_work
+RIP: 0010:__fortify_report+0x3f/0x50
+Code: b6 c1 48 c7 c1 93 60 c0 95 48 8b 34 c5 50 9c 2a 95 48 8d 05 03 1f ee =
+01 40 f6 c7 01 48 c7 c7 3c 66 c4 95 48 0f 44 cf 48 89 c7 <67> 48 0f b9 3a c=
+3 cc cc cc cc cc cc cc cc cc cc cc ba 2f 00 00 00
+RSP: 0018:ffff9f370019fcd0 EFLAGS: 00010246
+RAX: ffffffff9636a210 RBX: ffff9420525b1ea0 RCX: ffffffff95c4663c
+RDX: 0000000000000011 RSI: ffffffff95cf5242 RDI: ffffffff9636a210
+RBP: ffff9f370019fd70 R08: 0000000000000010 R09: ffff9f370019fbf1
+R10: 0000000000000004 R11: 0000000000000000 R12: ffffffff95bb3ca3
+R13: ffff9420525bb101 R14: 0000000000000000 R15: 00000000ffffffea
+FS:  0000000000000000(0000) GS:ffff9427c79ae000(0000) knlGS:000000000000000=
+0
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: ffff942526a01000 CR3: 00000005e5a2c000 CR4: 0000000000750ef0
+PKRU: 55555554
+Call Trace:
+ <TASK>
+ __fortify_panic+0x5/0x10
+ mt76_connac2_load_patch+0x34f/0x360
+ ? update_load_avg+0x1f1/0x840
+ mt792x_load_firmware+0x35/0x150
+ mt7921_run_firmware+0x28/0x4c0
+ ? _raw_spin_unlock+0x12/0x30
+ ? ____mt76_poll_msec+0x53/0xa0
+ mt7921e_mcu_init+0xba/0x100
+ mt7921_init_work+0x70/0x1c0
+ process_scheduled_works+0x1f0/0x420
+ worker_thread+0x296/0x370
+ ? pr_cont_work+0x1c0/0x1c0
+ kthread+0x213/0x240
+ ? kthread_blkcg+0x40/0x40
+ ret_from_fork+0xfa/0x1c0
+ ? kthread_blkcg+0x40/0x40
+ ret_from_fork_asm+0x11/0x20
+ </TASK>
+---[ end trace 0000000000000000 ]---
+------------[ cut here ]------------
+kernel BUG at lib/string_helpers.c:1043!
+Oops: invalid opcode: 0000 [#1] SMP NOPTI
+CPU: 0 UID: 0 PID: 9 Comm: kworker/0:0 Tainted: G        W           6.19.0=
+-rc2+ #13 PREEMPT(full)
+Tainted: [W]=3DWARN
+Hardware name: Micro-Star International Co., Ltd. MS-7E24/B650M GAMING PLUS=
+ WIFI (MS-7E24), BIOS 1.C2 08/06/2025
+Workqueue: events mt7921_init_work
+RIP: 0010:__fortify_panic+0x5/0x10
+Code: 1d 00 00 00 48 89 df 48 c7 c6 72 68 c8 95 5b 41 5e 41 5f e9 dd c2 4a =
+00 cc cc cc cc cc cc cc cc cc cc cc cc cc e8 bb b3 87 00 <0f> 0b cc cc cc c=
+c cc cc cc cc cc 0f 1f 44 00 00 55 48 89 e5 41 56
+RSP: 0018:ffff9f370019fcd8 EFLAGS: 00010246
+RAX: ffffffff9636a210 RBX: ffff9420525b1ea0 RCX: ffffffff95c4663c
+RDX: 0000000000000011 RSI: ffffffff95cf5242 RDI: ffffffff9636a210
+RBP: ffff9f370019fd70 R08: 0000000000000010 R09: ffff9f370019fbf1
+R10: 0000000000000004 R11: 0000000000000000 R12: ffffffff95bb3ca3
+R13: ffff9420525bb101 R14: 0000000000000000 R15: 00000000ffffffea
+FS:  0000000000000000(0000) GS:ffff9427c79ae000(0000) knlGS:000000000000000=
+0
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: ffff942526a01000 CR3: 00000005e5a2c000 CR4: 0000000000750ef0
+PKRU: 55555554
+Call Trace:
+ <TASK>
+ mt76_connac2_load_patch+0x34f/0x360
+ ? update_load_avg+0x1f1/0x840
+ mt792x_load_firmware+0x35/0x150
+ mt7921_run_firmware+0x28/0x4c0
+ ? _raw_spin_unlock+0x12/0x30
+ ? ____mt76_poll_msec+0x53/0xa0
+ mt7921e_mcu_init+0xba/0x100
+ mt7921_init_work+0x70/0x1c0
+ process_scheduled_works+0x1f0/0x420
+ worker_thread+0x296/0x370
+ ? pr_cont_work+0x1c0/0x1c0
+ kthread+0x213/0x240
+ ? kthread_blkcg+0x40/0x40
+ ret_from_fork+0xfa/0x1c0
+ ? kthread_blkcg+0x40/0x40
+ ret_from_fork_asm+0x11/0x20
+ </TASK>
+Modules linked in:
+---[ end trace 0000000000000000 ]---
+RIP: 0010:__fortify_panic+0x5/0x10
+Code: 1d 00 00 00 48 89 df 48 c7 c6 72 68 c8 95 5b 41 5e 41 5f e9 dd c2 4a =
+00 cc cc cc cc cc cc cc cc cc cc cc cc cc e8 bb b3 87 00 <0f> 0b cc cc cc c=
+c cc cc cc cc cc 0f 1f 44 00 00 55 48 89 e5 41 56
+RSP: 0018:ffff9f370019fcd8 EFLAGS: 00010246
+RAX: ffffffff9636a210 RBX: ffff9420525b1ea0 RCX: ffffffff95c4663c
+RDX: 0000000000000011 RSI: ffffffff95cf5242 RDI: ffffffff9636a210
+RBP: ffff9f370019fd70 R08: 0000000000000010 R09: ffff9f370019fbf1
+R10: 0000000000000004 R11: 0000000000000000 R12: ffffffff95bb3ca3
+R13: ffff9420525bb101 R14: 0000000000000000 R15: 00000000ffffffea
+FS:  0000000000000000(0000) GS:ffff9427c79ae000(0000) knlGS:000000000000000=
+0
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: ffff942526a01000 CR3: 00000005e5a2c000 CR4: 0000000000750ef0
+PKRU: 55555554
 
-MEDIATEK MT6735 CLOCK & RESET DRIVERS
-M:      Yassine Oudjana <y.oudjana@protonmail.com>
-L:      linux-clk@vger.kernel.org
-L:      linux-mediatek@lists.infradead.org (moderated for non-subscribers)
-S:      Maintained
-F:      drivers/clk/mediatek/clk-mt6735-apmixedsys.c
-F:      drivers/clk/mediatek/clk-mt6735-imgsys.c
-F:      drivers/clk/mediatek/clk-mt6735-infracfg.c
-F:      drivers/clk/mediatek/clk-mt6735-mfgcfg.c
-F:      drivers/clk/mediatek/clk-mt6735-pericfg.c
-F:      drivers/clk/mediatek/clk-mt6735-topckgen.c
-F:      drivers/clk/mediatek/clk-mt6735-vdecsys.c
-F:      drivers/clk/mediatek/clk-mt6735-vencsys.c
-F:      include/dt-bindings/clock/mediatek,mt6735-apmixedsys.h
-F:      include/dt-bindings/clock/mediatek,mt6735-imgsys.h
-F:      include/dt-bindings/clock/mediatek,mt6735-infracfg.h
-F:      include/dt-bindings/clock/mediatek,mt6735-mfgcfg.h
-F:      include/dt-bindings/clock/mediatek,mt6735-pericfg.h
-F:      include/dt-bindings/clock/mediatek,mt6735-topckgen.h
-F:      include/dt-bindings/clock/mediatek,mt6735-vdecsys.h
-F:      include/dt-bindings/clock/mediatek,mt6735-vencsys.h
-F:      include/dt-bindings/reset/mediatek,mt6735-infracfg.h
-F:      include/dt-bindings/reset/mediatek,mt6735-mfgcfg.h
-F:      include/dt-bindings/reset/mediatek,mt6735-pericfg.h
-F:      include/dt-bindings/reset/mediatek,mt6735-vdecsys.h
+Fixes: f804a5895eba ("wifi: mt76: Strip whitespace from build ddate")
+Signed-off-by: Harry Austen <hpausten@protonmail.com>
+---
+ drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-Should the entries to MAINTAINERS be simplified to the following?
+diff --git a/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c b/drivers=
+/net/wireless/mediatek/mt76/mt76_connac_mcu.c
+index ea99167765b0c..b735b3671fab5 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c
++++ b/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c
+@@ -3101,7 +3101,7 @@ int mt76_connac2_load_patch(struct mt76_dev *dev, con=
+st char *fw_name)
+ =09int i, ret, sem, max_len =3D mt76_is_sdio(dev) ? 2048 : 4096;
+ =09const struct mt76_connac2_patch_hdr *hdr;
+ =09const struct firmware *fw =3D NULL;
+-=09char build_date[17];
++=09char build_date[sizeof(hdr->build_date) + 1];
+=20
+ =09sem =3D mt76_connac_mcu_patch_sem_ctrl(dev, true);
+ =09switch (sem) {
+@@ -3125,8 +3125,8 @@ int mt76_connac2_load_patch(struct mt76_dev *dev, con=
+st char *fw_name)
+ =09}
+=20
+ =09hdr =3D (const void *)fw->data;
+-=09strscpy(build_date, hdr->build_date, sizeof(build_date));
+-=09build_date[16] =3D '\0';
++=09strscpy(build_date, hdr->build_date, sizeof(hdr->build_date));
++=09build_date[sizeof(hdr->build_date)] =3D '\0';
+ =09strim(build_date);
+ =09dev_info(dev->dev, "HW/SW Version: 0x%x, Build Time: %.16s\n",
+ =09=09 be32_to_cpu(hdr->hw_sw_ver), build_date);
+--=20
+2.52.0
 
-F:      drivers/clk/mediatek/
-F:      include/dt-bindings/clock/mediatek,*
-
-Brian
 
 
