@@ -4,130 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB156E674B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 15:02:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CB60E674B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 15:15:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MbRnW+taGLz61/GYCYEks4oaouDwWT4YbUUlXc+6T8c=; b=eq3gfObE+JBsdzDINToLHVJz9O
-	stpjKN9r+0F8aU0TCcKIzW72yATFT3sMVXHbSYoeCBExWv7hXg95/t+ANqnCfvex6ZKMgnKPEezL6
-	i/VI/d9V0mxaWKQ581s7cQuG+5Z52KUrsRVEHvc2Yyee9OXdCLqqx5q/uyohnPUqiHYHuRMuayGqj
-	1rGXNFgP6kZiua53LBcB0ojj8zJL7E83/gnzObzVDH7tQ7OXR95JJyrE7z/9GvQKUWkJIclbwR7BK
-	kLGqThPUweFmj/0Xv8VbvLYWGfs7F41nwfJv+Ns7WBNQCD1+7HKyVtZooSGweHhLNHJZHZOzie5fJ
-	qLRzpeHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=9LJhS2nq8ZHS6T/QvSCJ9XFnbSCF5NsF3Smsb7IoFAo=; b=z+RsXxTle4Oo93
+	N275ZFmRSfDmQTWc+ORHHZETjuVvHLvJ6JJBk4Q21+YDYQAHBZCw2PvPtyBBP4KXdyGcc8ZhJ74zw
+	0SjjIFWHX3w5tO4LuCawZcZdNQX2PFzf9Hf/QedJbSSV86JKLx9fc1KKPYYY2GBC+1h9Z/hOFKIvN
+	My7gaAG790nbddAS1Lx+FQsjfVflOrIkHMubQQUbdrGkfxjzVJwci8Jx5k0miEH3+B7t1dE+KvPUl
+	bwEiLPUBqD1Vbig/b0Q25qmhPZgrwSeMbsUPNbHO0MwfnTyg6DOKT6WA0OfoeUMWFsBCiD6eLoc57
+	U69Zusl3QjkYeuHCFS9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXhQz-0000000Dt9d-2uxp;
-	Mon, 22 Dec 2025 15:02:53 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vXhcZ-0000000DtgI-1AdB;
+	Mon, 22 Dec 2025 15:14:51 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXhQw-0000000Dt8w-3kTn
+	id 1vXhcW-0000000Dtfc-34pf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Dec 2025 15:02:52 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BMECL471352255
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 15:02:49 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=MbRnW+taGLz61/GYCYEks4oaouDwWT4YbUU
-	lXc+6T8c=; b=T2X1amvSu+XjVkhSyzmjwUlV7TBBmPvyMgahrGAIofFfT+kHSIM
-	7S+aW5isUSblaXl44mYTvjv002YjITInVdLEvpTfU4irvY7dKkkwWmp2MMAgXXkA
-	L+1w42j/nVAilwBBiZgF1C4XWuohsV9YA0bU8UmNMTrZtCQjY560AyqGyTtclRAb
-	CA/sfmcGVPnLG6iNsoGwQKkBMcXFztGSIKWRCLUvD+4bVXYCG35I7hFiaGoR7cSc
-	QeHgw7sHAi3O6ikPbrwpKjt/dxC+KiQPJEYiUkl7OgB0GbvHDUe1J0Ukh9kB8rPx
-	jYWZ3wKH5UQJin5sM7ybqpVUybl+ic4OPtg==
-Received: from mail-oo1-f69.google.com (mail-oo1-f69.google.com [209.85.161.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4b69ahknhf-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 15:02:49 +0000 (GMT)
-Received: by mail-oo1-f69.google.com with SMTP id 006d021491bc7-65747d01bb0so6513592eaf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 07:02:49 -0800 (PST)
+	Mon, 22 Dec 2025 15:14:50 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-42fbc3056afso2143305f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 07:14:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1766415768; x=1767020568; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=MbRnW+taGLz61/GYCYEks4oaouDwWT4YbUUlXc+6T8c=;
-        b=WDpzGblH2Vdsw2/okP02tHugBVZF8SMpXXPb4u9t/SAXeM2nPhrUcJ9zTDp+LmFzJb
-         ZtaHqtCLc69ifFNnKdVVSS0SEu1/2ZlXzovAvifpO7NWPEEvBgV51jqcvw8L8R/xrWIc
-         OzFlR3ODMKaErL77KOtoFWPMjpEAnXaQWwWV0j2Zq6c4ppu8PRMr7Tl9Rx8O3qO2lI4G
-         jyhnVgbD1B9vAg1Q/qlvOJDRpz6uKhamgawmm5TW3CcQUlMbtA+U/T+Op4Efzuao0EKp
-         Ej6O5mrDeH7SX59ZCfXTE0TNu+SjTbcUMjdREQffT3qwpPQXDBaerY0nVYSRtCrnPRNg
-         EAGA==
+        d=linaro.org; s=google; t=1766416487; x=1767021287; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=9LJhS2nq8ZHS6T/QvSCJ9XFnbSCF5NsF3Smsb7IoFAo=;
+        b=gu/SNvZDUbZilhxKpr9FgihNzXUeox1IWgLxOJKzKnm1vNaOrcmGcdvm1SGKkGCMdj
+         Rc3OaCwZblfxl+oJUTvqvpduoFFS57iSA5frrASWd9iJVYs5m+8OPSYzVJe3yQx8pxF5
+         HmsGjmzYNkAfShn2QsTowWxiBo7RhN0X+AuodIr5/LWFtQ4elJt3jOcZkmXeHrf/IDCI
+         QB1VCQJj4+cDzxXY4LLvPXC0z50vK1psoRQgzXFDs57v6wHvB7I6CCFYHqy4zgx6bwZB
+         0OiJcxzU33Ixb9nExK22x8aBCG6gMpFriszQWU3quzJI+EVuoHYZn/6lXNKj/6HVm5OB
+         mTEg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766415768; x=1767020568;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1766416487; x=1767021287;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=MbRnW+taGLz61/GYCYEks4oaouDwWT4YbUUlXc+6T8c=;
-        b=ISgF/eR+QOhQT1qK5aJWSvlWAUnmgYynH3pP0vhB+1z6Lv9Cx2fgI9sR1yGNjSnZgS
-         5th89VhAa46OtAyd0jaJY/8zBzLc3TFQPrKVnibIjBhUnXDDes3dn4uYlq64+7bXB0bW
-         IbHwhaFGbSqQZmmkQSUTeUT0g9NbpCinusm4SSsTuMXg2X4aBzuJoBlPqhqiGCTAq46s
-         BfBPaG16dkC1IkkmkPCE3LYGrwCfndfmyJKNwuHhmy52/MZYT9YBsD2zWXAO5RQifkYE
-         fjOXzXRylHszk+W/bcC2Wfg76M/DvXwe8h+SvKpS4Q+pLtm5XN5HTc61DW3SjtW0VEpj
-         bZww==
-X-Forwarded-Encrypted: i=1; AJvYcCXqT/n3kD+AdreT3ouqXzUPj/Zgjql5CuwuBSvq0Sq25nYXCiv2Td3V5swKJOuhXpPfRDB8KTLd24NDMK3Uud8y@lists.infradead.org
-X-Gm-Message-State: AOJu0YwWYDcTCjQDr3+QvOjLPEmFfz1y/mSFk+zqRE3u23L5bO9Ks1Lr
-	GuFB9vv4fAEk5hUbX9rGJG4vHEZXFSTDWwtqn3sPX6Y1dnHqS4wiMyY2JYqm4PBoYtunpjYUJ6O
-	rRdukXux97ScpME28eNZf4K/plHW4tuSbNkCpfizRbGOMkWZj+q7Hy9g6rTQMVXA3mYOXmCxRPE
-	owWklil/ccKg==
-X-Gm-Gg: AY/fxX4tN2QGFV3OGL5FfVgfLn3wDj8RyYTOONKGgY7F6N1gSY3Dh5dxW5csvap8uIZ
-	jSIaghYg3Md57CmlveiVrIQtONcg3NkUAsk48eSRb9MpJfNgrPDUQF632vbgI2ReJo5kkHa4l6N
-	/cXNzn6uTwis+OzWpnrnMLhdh4QFelBX9wMhfJdNrddi9fi2sslZ7tI+OvCXJmKUchP5OK2vBZM
-	oAaTStkTkNFYgb5NQz+vYk9WgqYKasBvrz31akzA3/ipN7Bj3fe2iDtpszBM7mXuPqxA97V8xMH
-	GkugAvT5RTshu3fFBO4zHRjAxMi1OBXBmqL5pgDEagtN4iGJKqVT8xzHcBRojDDnxlG0QKIIW8X
-	yCgSc8l+vajU9QC33slNB4qpquREK34utHUeMiw==
-X-Received: by 2002:a05:6820:6081:b0:659:9a49:8e92 with SMTP id 006d021491bc7-65d0ea65d9fmr3174887eaf.22.1766415768429;
-        Mon, 22 Dec 2025 07:02:48 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IG7muTZlKDO/hZmrLDRprGb4Ds+B4A/MOrQVAeKXIBtOKKPHjm3aDXKYtsOVpcZygPExsVlzw==
-X-Received: by 2002:a05:6820:6081:b0:659:9a49:8e92 with SMTP id 006d021491bc7-65d0ea65d9fmr3174849eaf.22.1766415767791;
-        Mon, 22 Dec 2025 07:02:47 -0800 (PST)
-Received: from brgl-qcom.home ([2a01:cb1d:dc:7e00:cf80:9c52:813b:afa9])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4324e9ba877sm22160900f8f.0.2025.12.22.07.02.46
+        bh=9LJhS2nq8ZHS6T/QvSCJ9XFnbSCF5NsF3Smsb7IoFAo=;
+        b=QW5SoSuj+CoeiURQXPfW7RP0AzxravdIZeFNVH35WdILJRI5GnkSbxAZ+3mh5X6te+
+         moAgyGmsM+xzBLiSVSa8yupG/zxN3/i+BHhmZRJumoIMDO9yr9DMWfa86dmkYpzmU7mb
+         iEXuTPYDG9x5RktHZs7rHZa3Hr1GPhfbXnlPJDj35FXKkVl24YN5dXTH+wug+a2eB1md
+         9HZqE/6Q32lGt33/4WQdn9zQA54CRoWalEtDqJSJrUhzkbmiaXOC5UtlETvS6oPXUPbm
+         LadxycpowmpQ/HYWaX26h438qOoC9ZgWx+52vsrCKiXnuzoSYoKKEi4mSJoauWnlV3cB
+         RU8A==
+X-Forwarded-Encrypted: i=1; AJvYcCXapFJ0TsPQmIejvl/dI8kzxu87sN1GvTR74V/FPBP07/OAx7OsaSh+AaFOuu7hGyt86a1i6gOl6SznWykOfbFS@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx42mc+Cctqu4wue17/eJeZ332Yo38Xd/nCAMv8es/VziQHjRqZ
+	a9p2g/DfzcaCbfs84mBzxVxgPIHRA5ZOg+WSBTjqReNNWpjbhDz16Vvu28jbZzXe60g=
+X-Gm-Gg: AY/fxX6Y3BM38Gk7E9Eyr1rI/xNTHZgilANgH349DzKw98GfWQgVFabDWQBgk8/bOOw
+	SLVrUjIsezGDRmBRjDrZr9J2tMCQbQk2rvA3/HmIJJip86B4x3cFeSBdbrlf4xyYFS4xcbaTzhx
+	zObrtpeo4J6aQaRa3xJGEbqy/uR5b2IYvxIkNqe0KkgTblyrs8yvfqbWZ7Wf0XMaycdVi1r0A9d
+	CSCEfcY2siQpdlqh7jBMLA7G0WQBgnbE0Cvmkygjhv7Cn7WQxqjSphgrm2wh142P9QpSSqReCDo
+	GR5oqanTKziz+AKBVIyttre0LjZouRp/2qWDuD+q1pc5eZnVYClFfRyo5N5wVR1H8/cheoKm4cE
+	OwqKgLCbBwQ8gECyLGEpa14bs+OKFBOVEPVjrOPx1MUaJWBt49WLFSO5bMd0Wq9KK3FOFtk/aB0
+	lG50I+MkbhuAr/MshCN0LJmlgGcWAlUdQ=
+X-Google-Smtp-Source: AGHT+IFn92lYsDgvK7tpXNAPQ0WsUj1chzC1o/mtl8WTQxCYBCBN4igonzXBapuvSBdZM9yNW4+VSA==
+X-Received: by 2002:a05:6000:144d:b0:431:74:cd5 with SMTP id ffacd0b85a97d-4324e50b758mr14849127f8f.45.1766416486681;
+        Mon, 22 Dec 2025 07:14:46 -0800 (PST)
+Received: from ho-tower-lan.lan ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4324ea830fesm22750093f8f.20.2025.12.22.07.14.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 22 Dec 2025 07:02:47 -0800 (PST)
-From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>,
-        Matthias Brugger <matthias.bgg@gmail.com>
-Cc: linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-mediatek@lists.infradead.org,
-        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: [PATCH] clk: mediatek: don't select clk-mt8192 for all ARM64 builds
-Date: Mon, 22 Dec 2025 16:02:35 +0100
-Message-ID: <20251222150235.34919-1-bartosz.golaszewski@oss.qualcomm.com>
-X-Mailer: git-send-email 2.47.3
+        Mon, 22 Dec 2025 07:14:46 -0800 (PST)
+From: James Clark <james.clark@linaro.org>
+Subject: [PATCH v4 00/14] perf cs-etm/arm-spe: Remove hard coded config
+ fields
+Date: Mon, 22 Dec 2025 15:14:25 +0000
+Message-Id: <20251222-james-perf-config-bits-v4-0-0608438186fc@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=JuH8bc4C c=1 sm=1 tr=0 ts=69495d99 cx=c_pps
- a=lVi5GcDxkcJcfCmEjVJoaw==:117 a=xqWC_Br6kY4A:10 a=wP3pNCr1ah4A:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8
- a=aCVAxBrhNG69dy2j9FMA:9 a=rBiNkAWo9uy_4UTK5NWh:22
-X-Proofpoint-ORIG-GUID: k-EXd7ts5GIKoqsMvYmiL6wvqiLKehyq
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjIyMDEzNyBTYWx0ZWRfX7Ia7iKN8lrpV
- P2UFttGevKt1chwZDDRSvCwqXqQtMX8pFvDf7Fw423Fw9SSX5DkCKMAV+HGcOYqx3G4DSpsSdR/
- QUDtSj0K/+78kbgzxwT/Jo3hLLehgGz0VzL3VpRZkS6QTfMjUvoYNjEZ+uG+u2tGYgNN3LsSeoJ
- GOGGmMKpsYNCYE7H1pim2WZtYnwZs9JV7R9kTKE9e019dzex9fraoAJ1AXpGRIU8yCQHp9Mrq/7
- 82hkYKGr4wFqqSFeZZeFLOfHWGwDceFoaCuTR9GMLt0jYOJf3JhSELsquB0xINzuNoCCI7cmJZQ
- RurSwp88h84y8aentBN8QTBBy9WzZ8ssikaE5l+O0Jj+p5+HDvhDttpyMz21rdzjaJL/2biHrKp
- gNto+q1nz/80W087ld4MOa1BJktwmoWY91dMJG3gxhS/Ieojv0qV0MK7uwy1WNyX8wLT+HOqfx1
- Wso3Ec0NzxdIwlrKe8g==
-X-Proofpoint-GUID: k-EXd7ts5GIKoqsMvYmiL6wvqiLKehyq
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-12-22_01,2025-12-22_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 priorityscore=1501 adultscore=0 phishscore=0
- lowpriorityscore=0 clxscore=1015 impostorscore=0 suspectscore=0 spamscore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2512120000
- definitions=main-2512220137
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAFJgSWkC/3XPzQrCMAzA8VeRnq2k2dyHJ99DPLQ13SK6jnYUR
+ fbuVr0osuM/kF/IQ0QKTFHsVg8RKHFkP+Qo1ythez10JPmUWyDgVimF8qyvFOVIwUnrB8edNDx
+ FaYhqBZUDByDy8hjI8e0NH465e46TD/f3naRe0w+JoJbIpCRIRLLGuAagtvsLDzr4jQ+deJkJv
+ 51m0cHslNoCNqptCwN/TvHlLL+YiuxoXVS6bMqqrqsfZ57nJ3S9Q8RNAQAA
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@linaro.org>, John Garry <john.g.garry@oracle.com>, 
+ Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>
+Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>
+X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_070251_074370_CB7ED1D9 
-X-CRM114-Status: GOOD (  14.01  )
+X-CRM114-CacheID: sfid-20251222_071448_840090_25792246 
+X-CRM114-Status: GOOD (  17.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,29 +111,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This option defaults to y for ARCH64 meaning it's built even if we don't
-want anything related to mediatek. Make the default condition stricter
-and only build it if ARCH_MEDIATEK is selected.
+The specific config field that an event format attribute is in is
+consistently hard coded, even though the API is supposed to be that the
+driver publishes the config field name. To stop this pattern from being
+copy pasted and causing problems in the future, replace them all with
+calls to a new helper that returns the value that a user set.
 
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+This reveals some issues in evsel__set_config_if_unset(). It doesn't
+work with sparse bitfields, which are an unused but documented feature.
+And it also only writes to the attr.config field. To fix it we need to
+start tracking user changes for all config fields and then use existing
+helper functions that support sparse bitfields. Some other refactoring
+was also required and a test was added.
+
 ---
- drivers/clk/mediatek/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Changes in v4:
+- Constify some function args (Ian)
+- Move some evsel__* functions to evsel.c and make some pmu.c functions
+  public to support this (Ian)
+- Drop pmu arg where it can be fetched from evsel->pmu (Ian)
+- Link to v3: https://lore.kernel.org/r/20251212-james-perf-config-bits-v3-0-aa36a4846776@linaro.org
 
-diff --git a/drivers/clk/mediatek/Kconfig b/drivers/clk/mediatek/Kconfig
-index 0e8dd82aa84e..2c09fd729bab 100644
---- a/drivers/clk/mediatek/Kconfig
-+++ b/drivers/clk/mediatek/Kconfig
-@@ -820,7 +820,7 @@ config COMMON_CLK_MT8192
- 	depends on ARM64 || COMPILE_TEST
- 	select COMMON_CLK_MEDIATEK
- 	select COMMON_CLK_MEDIATEK_FHCTL
--	default ARM64
-+	default ARM64 && ARCH_MEDIATEK
- 	help
- 	  This driver supports MediaTek MT8192 basic clocks.
- 
+Changes in v3:
+- Fix uninitialized variable warning on GCC
+- Fix leak of evlist in test
+- Confirm no type punning issues with ubsan (Ian)
+- Link to v2: https://lore.kernel.org/r/20251208-james-perf-config-bits-v2-0-4ac0281993b0@linaro.org
+
+Changes in v2:
+- Remove macros in get_config_chgs() and some other refactoring.
+- Support sparse bitfields in evsel__set_config_if_unset().
+- Always track user changes instead of only when
+  'pmu->perf_event_attr_init_default' is set.
+- Add a test.
+- Don't bail out in cs-etm.c if any format fields are missing (Leo).
+- Rename 'guess' to 'synth' (Mike).
+- Link to v1: https://lore.kernel.org/r/20251201-james-perf-config-bits-v1-0-22ecbbf8007c@linaro.org
+
+---
+James Clark (14):
+      perf parse-events: Refactor get_config_terms() to remove macros
+      perf evsel: Refactor evsel__set_config_if_unset() arguments
+      perf evsel: Move evsel__* functions to evsel.c
+      perf evsel: Support sparse fields in evsel__set_config_if_unset()
+      perf parse-events: Track all user changed config bits
+      perf evsel: apply evsel__set_config_if_unset() to all config fields
+      perf evsel: Add a helper to get the value of a config field
+      perf parse-events: Always track user config changes
+      perf tests: Test evsel__set_config_if_unset() and config change tracking
+      perf cs-etm: Make a helper to find the Coresight evsel
+      perf cs-etm: Don't use hard coded config bits when setting up ETMCR
+      perf cs-etm: Don't use hard coded config bits when setting up TRCCONFIGR
+      perf cs-etm: Don't hard code config attribute when configuring the event
+      perf arm-spe: Don't hard code config attribute
+
+ tools/perf/arch/arm/util/cs-etm.c    | 201 +++++++++++++++-------------
+ tools/perf/arch/arm64/util/arm-spe.c |  17 +--
+ tools/perf/arch/x86/util/intel-pt.c  |   3 +-
+ tools/perf/tests/pmu.c               |  91 +++++++++++++
+ tools/perf/util/evsel.c              | 112 +++++++++++++++-
+ tools/perf/util/evsel.h              |   6 +-
+ tools/perf/util/evsel_config.h       |   7 +-
+ tools/perf/util/parse-events.c       | 248 ++++++++++++++++++++---------------
+ tools/perf/util/pmu.c                |  95 ++++----------
+ tools/perf/util/pmu.h                |  34 ++++-
+ 10 files changed, 529 insertions(+), 285 deletions(-)
+---
+base-commit: cbd41c6d4c26c161a2b0e70ad411d3885ff13507
+change-id: 20251112-james-perf-config-bits-bee7106f0f00
+
+Best regards,
 -- 
-2.47.3
+James Clark <james.clark@linaro.org>
 
 
