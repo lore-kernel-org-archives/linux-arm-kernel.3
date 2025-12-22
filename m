@@ -4,75 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37A29E674B1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 13:40:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3617CE674AF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 13:43:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1c9ZPZRZkz14B3cF0kxLCmvcGTxuNJZNvYxvmg4ZTGA=; b=AL5848t9HgWcwrDCJFdbdfkQJg
-	TZiKKtZq+QWTXbskAxREB3z++CtzxGNhuk9u0iE6ANZiY96Vq1AwS3z+4yqWJ+BpwPvUSRwHTGCUk
-	9JnTA5zCLzLOWaOkS6+AuTTJwi/1ynswGBl0Ps0RLYfx1P51B9e5KfuZKr5PO20ku7L43XP3sJMqV
-	6vDKPqCMJxY4j9BgUIadvN9ydHVIyhciXu/OM6rWAq31mvS8pRZmHXFTVGKiw1ArNpLSzv2enF/nq
-	8/3vpRxLjsMx0Qbm/osX6Z3wwWRWkJeU7CmvKOmY1Iwgm18bMCObEEy9Ko5DAqdT53NmmmFtXk9qB
-	+1oHB8eg==;
+	bh=hkIdtbm3vg4nodeqjiJwMSQ3Vk9rASnees/QYeheYTs=; b=iMvZ2Po1QgrzSASj6guYPBeDu2
+	3fC+xPG1PdOKCtcCdCqW1rhWlN9HO962O+15xvCYZZUzNIIbRXGdOc0VDEmgUyIAPmtLuJ5vNrH2L
+	7LzQwuGXK/PRLwUpghe1y/YPbKe9O3bKwhGId5EaAFtVbTexHkvPnaApO43Kpdq8RpIQ7YIP8oxFp
+	OWdeOV5UMu8JbZqo4l/6qObTAsvMYoStGKb0e/OrHr6YHodF1HLl8jV1ecK7VZyI727Dnqz4S8slu
+	VA/QpouxTkf88vdPcGv/w+3fKYiZlHV32k1T7dySI/YCe5xqQNJGfVvmliKGuR0xPJmc/VM0q4BaP
+	D3tbLKyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXg8j-0000000DpMm-2qHn;
-	Mon, 22 Dec 2025 13:39:57 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXg8i-0000000DpMO-2d9W;
-	Mon, 22 Dec 2025 13:39:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=1c9ZPZRZkz14B3cF0kxLCmvcGTxuNJZNvYxvmg4ZTGA=; b=AoDgwDWB34drisoKS5l4zKoqMc
-	Y8Hnj8eBJLITuzJODxvKjNOlJM5BmceV50B4Kr9gs/KVcCtSdA5zdbOQD+ZsAOsfgPdjWPiOi0kZz
-	VwhYBW4oPcymH7XkKJlRBsqYSeXJf6lA+LgS9lDre07903cS1hQMQdkwcitBhirZmZnmucjxGmnfl
-	+Xl49gMP8don2KHSxGFnmooxUDvo2qLoqKyITDcuKQQQV4dLAuvyB9YhLIs/gNWLHkKEv7Rwm0NKm
-	YBml0noXznMTHK7MX42R9OFqBc25RxPPIBxlf3a4FC04F3xbO+3WCLmZGtTiP95tf0UlsDGzAuNs5
-	DqlE+k3Q==;
-Received: from gloria.sntech.de ([185.11.138.130])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXfHE-0000000F3S5-2NDa;
-	Mon, 22 Dec 2025 12:44:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=1c9ZPZRZkz14B3cF0kxLCmvcGTxuNJZNvYxvmg4ZTGA=; b=O7YYw/E5YjomHWfZoJ7vD3dncy
-	KzvaCkoIAq5An6hIlP6SiqkrKsZIG4DkoWc3ip7d/UDT46max9CrdQmtNsmEiOrxeaucRbK0E8d5q
-	3PMWS0Xkscx98wmUYiv5Lz8NUmOtLM3kELki8YHZ/uvUCuBhXonOmxl1WYyuEqOON6WznjJ2pvddG
-	XCDSBAgBXQicUbQnZElPczJ++2eQUbzzWHW8yf+k7lo4xuGo2gqdrRh0OKx+MWr3eS1iKKOfqV1ax
-	qBf4vllJMezhHj67Qo62y2yluC5pU/kTrv7cZNmbCgraWji41QCeczhHrLrtGM4ZiamH4Svn9LdrS
-	wOaUv7lQ==;
-Received: from [194.95.143.137] (helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1vXg8c-0005vi-1b; Mon, 22 Dec 2025 14:39:50 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Chukun Pan <amadeus@jmu.edu.cn>,
- Sebastian Reichel <sebastian.reichel@collabora.com>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH 3/3] arm64: dts: rockchip: enable saradc for ArmSoM Sige5
-Date: Mon, 22 Dec 2025 14:39:49 +0100
-Message-ID: <3767252.NG923GbCHz@phil>
-In-Reply-To: <aUlHa-QhCLOk8AGa@venus>
-References: <20251220100010.26643-1-amadeus@jmu.edu.cn>
- <20251220100010.26643-3-amadeus@jmu.edu.cn> <aUlHa-QhCLOk8AGa@venus>
+	id 1vXgBn-0000000DpfE-0Xbg;
+	Mon, 22 Dec 2025 13:43:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vXgBi-0000000DpeI-46FS
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 22 Dec 2025 13:43:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CCC661515
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 05:42:52 -0800 (PST)
+Received: from [169.254.77.58] (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A21B43F778
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 05:42:59 -0800 (PST)
+Date: Mon, 22 Dec 2025 13:41:52 +0000
+From: Liviu Dudau <liviu.dudau@arm.com>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Boris Brezillon <boris.brezillon@collabora.com>,
+	Steven Price <steven.price@arm.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Chen-Yu Tsai <wenst@chromium.org>, Chia-I Wu <olvaffe@gmail.com>,
+	kernel@collabora.com, dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org
+Subject: Re: [PATCH v2 3/4] drm/panthor: Implement reading shader_present
+ from nvmem
+Message-ID: <aUlKoHKb084vm_p-@e142607>
+References: <20251220-mt8196-shader-present-v2-0-45b1ff1dfab0@collabora.com>
+ <20251220-mt8196-shader-present-v2-3-45b1ff1dfab0@collabora.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20251220-mt8196-shader-present-v2-3-45b1ff1dfab0@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_124440_663598_B9D5B87E 
-X-CRM114-Status: GOOD (  15.19  )
+X-CRM114-CacheID: sfid-20251222_054303_968505_8B035812 
+X-CRM114-Status: GOOD (  23.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,31 +79,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Montag, 22. Dezember 2025, 14:32:53 Mitteleurop=C3=A4ische Normalzeit sc=
-hrieb Sebastian Reichel:
-> Hi,
->=20
-> On Sat, Dec 20, 2025 at 06:00:10PM +0800, Chukun Pan wrote:
-> > Add ADC support to ArmSoM Sige5 board.
-> >=20
-> > Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
-> > ---
->=20
-> The reference voltage is different between the different board
-> revisions. Older boards (1.1 and 1.2) have SARADC_AVDD1V8 connected
-> to &vcca_1v8_s0, but newer boards (1.3) use VCCA1V8_PLDO2_S0
-> instead. I guess considering &vcca1v8_pldo2_s0 is marked as always
-> on, we can ignore this difference, but I think it's worth a comment
-> in the DT and the commit description. Otherwise:
->=20
-> Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+On Sat, Dec 20, 2025 at 07:49:54PM +0100, Nicolas Frattaroli wrote:
+> On some platforms, notably MediaTek MT8196, the shader_present bitmask
+> in the Mali GPU register for it has cores enabled that may be faulty.
+> The true shader_present bitmask is found in an efuse instead.
+> 
+> Implement reading shader_present from an nvmem cell if one is present,
+> falling back to the Mali register if it's absent. The error codes are
+> trickled up through to the probe function so that probe deferral works.
+> 
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-darn, too late for this one - should've waited longer for
-this possible Rb :-) ... I did add the others before pushing
-though.
+Reviewed-by: Liviu Dudau <liviu.dudau@arm.com>
 
+Best regards,
+Liviu
 
-Heiko
-
-
+> ---
+>  drivers/gpu/drm/panthor/panthor_hw.c | 36 ++++++++++++++++++++++++++++++------
+>  1 file changed, 30 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/panthor/panthor_hw.c b/drivers/gpu/drm/panthor/panthor_hw.c
+> index 87ebb7ae42c4..80c521784cd3 100644
+> --- a/drivers/gpu/drm/panthor/panthor_hw.c
+> +++ b/drivers/gpu/drm/panthor/panthor_hw.c
+> @@ -1,6 +1,7 @@
+>  // SPDX-License-Identifier: GPL-2.0 or MIT
+>  /* Copyright 2025 ARM Limited. All rights reserved. */
+>  
+> +#include <linux/nvmem-consumer.h>
+>  #include <drm/drm_print.h>
+>  
+>  #include "panthor_device.h"
+> @@ -109,7 +110,25 @@ static char *get_gpu_model_name(struct panthor_device *ptdev)
+>  	return "(Unknown Mali GPU)";
+>  }
+>  
+> -static void panthor_gpu_info_init(struct panthor_device *ptdev)
+> +static int overload_shader_present(struct panthor_device *ptdev)
+> +{
+> +	u64 contents;
+> +	int ret;
+> +
+> +	ret = nvmem_cell_read_variable_le_u64(ptdev->base.dev, "shader-present",
+> +					      &contents);
+> +	if (!ret)
+> +		ptdev->gpu_info.shader_present = contents;
+> +	else if (ret == -ENOENT)
+> +		return 0;
+> +	else
+> +		return dev_err_probe(ptdev->base.dev, ret,
+> +				     "Failed to read shader-present nvmem cell\n");
+> +
+> +	return 0;
+> +}
+> +
+> +static int panthor_gpu_info_init(struct panthor_device *ptdev)
+>  {
+>  	unsigned int i;
+>  
+> @@ -143,13 +162,18 @@ static void panthor_gpu_info_init(struct panthor_device *ptdev)
+>  		ptdev->gpu_info.tiler_present = gpu_read64(ptdev, GPU_TILER_PRESENT);
+>  		ptdev->gpu_info.l2_present = gpu_read64(ptdev, GPU_L2_PRESENT);
+>  	}
+> +
+> +	return overload_shader_present(ptdev);
+>  }
+>  
+> -static void panthor_hw_info_init(struct panthor_device *ptdev)
+> +static int panthor_hw_info_init(struct panthor_device *ptdev)
+>  {
+>  	u32 major, minor, status;
+> +	int ret;
+>  
+> -	panthor_gpu_info_init(ptdev);
+> +	ret = panthor_gpu_info_init(ptdev);
+> +	if (ret)
+> +		return ret;
+>  
+>  	major = GPU_VER_MAJOR(ptdev->gpu_info.gpu_id);
+>  	minor = GPU_VER_MINOR(ptdev->gpu_info.gpu_id);
+> @@ -172,6 +196,8 @@ static void panthor_hw_info_init(struct panthor_device *ptdev)
+>  		 "shader_present=0x%0llx l2_present=0x%0llx tiler_present=0x%0llx",
+>  		 ptdev->gpu_info.shader_present, ptdev->gpu_info.l2_present,
+>  		 ptdev->gpu_info.tiler_present);
+> +
+> +	return 0;
+>  }
+>  
+>  static int panthor_hw_bind_device(struct panthor_device *ptdev)
+> @@ -218,7 +244,5 @@ int panthor_hw_init(struct panthor_device *ptdev)
+>  	if (ret)
+>  		return ret;
+>  
+> -	panthor_hw_info_init(ptdev);
+> -
+> -	return 0;
+> +	return panthor_hw_info_init(ptdev);
+>  }
+> 
+> -- 
+> 2.52.0
+> 
 
