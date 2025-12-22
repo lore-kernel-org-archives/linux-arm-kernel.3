@@ -4,103 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9241E674B0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 13:28:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ABE2E674AF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 13:33:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YDlebowKLSytReXRSPBwIovISOjJgg7iMWjU9xn2E0E=; b=kVUfYD2Ewl+IuybOtL309vCo0s
-	AunCkwfvQvEMnNfDfywnzbBa6zdIUOvVaOwVD+wfWY44oSgQnIamjvBYpTsEbE6PaRIowcjkE8LDI
-	um/Nu7IbiNCOx+1PeML6zU7nSFHlZAmU5yBit/Qvn3f/brt7MQ+sMqhMISV9j//sW5gWQ1Ujue/fA
-	+2NYJsfwOG7cQvxUS60kzB8P8rxpCQw4hdMCqch0G3b9bb8FnV7nFrzvUIUU1F8xNCRqahDyhSpOX
-	rC4xqY5PB8vAr1hOgYTDgnkKPuASjPkffVPf+4Xx1p15ZtEVAMMHW6fXh84ZwllnYqY0O+nfCHbJ8
-	Wb4HlIOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xIQHEpYlJdjAzhSSiNHyixl/z+6+WF1tijlCEgseJiQ=; b=LSHtWGCHZrZctd61Xy5z4eeLcv
+	Z8M2AL+nfKS+acYxfiyIW7h5x0UER7kYXjB4jq9Zl33OfBCl38aF4vxGTdjFtCRKEmB6BRZE/1ohX
+	F3iiShpipl5CeNR1kYOYGrqW2pqwmWkLkNM5wRr3FMeByZtNF8vqlBX744y1b8Qc3/Ooq3ODYNEab
+	A42w9YQXy6MHFHtQC5YY6n5qNHfygX2BphIAQf2zYptFr0XL9DQFjXe2ovKHkyCyCGkf8C4Ey5QTq
+	pZWJW4KCmVKK4xjJBLsWn7DdF82beOjslbk/oWN4Os42ZB9rbFdJ9pAY6tCaVGFWtLNZTjf8hNd4g
+	Sktqog9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXfxd-0000000DoDf-2I64;
-	Mon, 22 Dec 2025 13:28:29 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vXg2O-0000000DodX-3fkZ;
+	Mon, 22 Dec 2025 13:33:24 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXfxa-0000000DoC2-3Sai
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 22 Dec 2025 13:28:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=YDlebowKLSytReXRSPBwIovISOjJgg7iMWjU9xn2E0E=; b=Fj1bV6yxuHXszrk56Nns0Xq3jB
-	6NCyV15ZL356KxtdIUrR0q6pBTD6VM1JHjV3fSjlvxy8+Oeii031g43+v3j0uVjW39cE1HcdBB4Yj
-	HbmEYuovl4gvN37OeYutTebozktNf8bJDxQvX9GaOohrRRf8DpE+Jhc5eoCWJwUCPgRVYgsZDACEH
-	+3txSKkP4F0wdgoh3Lt/GQBbioSpb0jqpip6UVGSsZY/UqVDDSN09l94sai4d9G59KGSdB4wbDBkg
-	CL5UmC8iy70/s8NGNGUhsJRUajYWjy9OakfCJpcXdnS4L1nseCSE7FSR76tKTO1fR1IgI+iOkv/O0
-	26ZFxrgw==;
-Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXf66-0000000F2Ja-2GLN
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Dec 2025 12:33:12 +0000
-Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-4f1aecac2c9so40310551cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 05:28:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1766410101; x=1767014901; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YDlebowKLSytReXRSPBwIovISOjJgg7iMWjU9xn2E0E=;
-        b=ftvgnOOhvKF+o16FspMELX4agcTd4tkevYBZkUx6SJbHukOvAnaO3R4OPjyfeseJsz
-         znBYxMQO1d2lIO2r6OxD5UHqruXIBTfLo2Z8YMAJG4UnOTJxX1T5VvyYg8VuY0tpOgLt
-         MHOOVmArab2uZJloKi3S63HijJi7YKd1T5cDwsw1F/ouMckr7XdTRXJUQ0rDVVrgN1rA
-         al/G6KCgIp9UCWMcVRG3dTb+e/NXglJoKzaUmgyNFOjOnaCnfVYzLMBJ2hsvlA8dPzN4
-         RNE6s3HsHRS7aYzrlJ5TuuiMbQVGOMR6IBDWZE3LzqL5609OsA3CPb9kpgGPxjIPNV5E
-         917A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766410101; x=1767014901;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=YDlebowKLSytReXRSPBwIovISOjJgg7iMWjU9xn2E0E=;
-        b=YDtn2/j5TzkIl9SBnTfgk8usHH3ZXRU726e9p6Iqp3YqhhO/V+d1Nut2ZCz/qR/lKR
-         uWYOXRVkvj72OaxcptAUtai/bhRioisRRl/9oQqyl4YXG21lyMsPy97YGJbW5jAoOorj
-         wZSVUN+9oIWbheSb/0kKxQ5ajtxa8KV8r3vJIP7DntUEunsQha3SSzLIq66RxnXi8fQJ
-         2PBcJW6FpAkL7mkrqxLVP8ba2pwV9WmncWI6ls6B2jDMzGHhg/VLBcLxWZZX9t4u963N
-         dapt0gp7SdQ5etTyRAUhudtNaTmn7U4cUKK6qViVr0y3HkPh3bfqV2nWftWualxiIftL
-         v3Fg==
-X-Forwarded-Encrypted: i=1; AJvYcCVF7nYMNO5yZsZN7jqTsdcNihTp10t5shkNjbjxXM8iXAVBN0HrkAlWQZXL07cRqmSBRbQJphYdegHTpKcR6sDh@lists.infradead.org
-X-Gm-Message-State: AOJu0YyC6gmqD7C1EKP7M4HmJ3deryvCeWzRItaKK/B+HireVKIvYOfN
-	RA6hzEctgbZOrQGBFzAhjffoQx2ZwdK2h3qgHwH+VZgGEsV10Uq/V78HEBy2HkYNsHiTddZHTq3
-	EC6DLVX+gmCZ9RBbtQDIajeb9FmwCwPzqAg1kh38=
-X-Gm-Gg: AY/fxX7ieGod47Gq2mEuL8mtsbhS4JL4sSNjX1rWjyZZFNC8mke+u3OzDbj1AtsXVyB
-	oU1gnsxkeagbqg08hRgdzooZYGUAHy+zyhxxZ65R1tX2XoJvejIeX1HrjFByDuRTW+6bn0d4uQj
-	P5zS6rbpUtrfaECgA/n5VjzeO9nKQNGpExE208U0GbLCNmeP8/Up8gI/Mel2fz4ycI+QQeBsPq3
-	Uc+m795tOdXf+fyZ4F3ZYngPiNs2JY42VtbGe1NVl3AsyM9pZxAof6dazX+aoV9ag2/aB34n5va
-	WVF0MIfDF6iuOfOea4/WpAg/
-X-Google-Smtp-Source: AGHT+IHAC1B0IqYscWngHVEOOgH6nPUg7BF7svekT7WeCJSzKv/KaP+4UG0eF0tY45F5jYxheY2blzrxV+thgMpT02A=
-X-Received: by 2002:a05:622a:411b:b0:4f0:31bd:2aaa with SMTP id
- d75a77b69052e-4f4aac5db91mr179071981cf.4.1766410100766; Mon, 22 Dec 2025
- 05:28:20 -0800 (PST)
+	id 1vXg2N-0000000Docr-0bI0;
+	Mon, 22 Dec 2025 13:33:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1766410379; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=euv+u++lrBDdHfL/UveqiiNdvqYsULgbwGwJ606ibleQy3JzBUf97GfdEeY47aDhJR2gP0pYVm/Q2iaeB3FNFdH2jqOnAU9C2YgQ9gikt+wMfZLUYQZdz7waqv9kUY2cIqfitTjRcrdgX4YiKX2fP6FaAHTo8RJNrDSWVzF2w0E=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1766410379; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=xIQHEpYlJdjAzhSSiNHyixl/z+6+WF1tijlCEgseJiQ=; 
+	b=MC8cftZ4Wh4hyIumUsTMAmISv5hgKEkPXguuFGIUwCyJB4sGqTN66OwyPe3jMVqzOWC69YZ+7ae4d/VmjlWt806zg/IhbC1Z9x1t3glIIQ1WYN4+UBfr+IJTQXzokViSG5AyaK2WUI7nuuYvM6BcfknsD0pvUzhAbUARfjkMxyk=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1766410379;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=xIQHEpYlJdjAzhSSiNHyixl/z+6+WF1tijlCEgseJiQ=;
+	b=U9CcIWgzlnf3M1Uf9mk7bDddsdZxtOg2plSWZjj8XrKbU5Q/A275Y/q6MO8tZRLq
+	P/qtGRy31txKLEmk6NA4hg1y6/xC3Dawv7U/Qn2jwzX2Eg1kCVVK167eIKP6XQtxxW9
+	wfZ0JPyR4I89UUe2Vb+rtOtPsES691q4OqBPZxp8=
+Received: by mx.zohomail.com with SMTPS id 1766410376673158.54540855926552;
+	Mon, 22 Dec 2025 05:32:56 -0800 (PST)
+Received: by venus (Postfix, from userid 1000)
+	id 13169180421; Mon, 22 Dec 2025 22:32:53 +0900 (JST)
+Date: Mon, 22 Dec 2025 14:32:53 +0100
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH 3/3] arm64: dts: rockchip: enable saradc for ArmSoM Sige5
+Message-ID: <aUlHa-QhCLOk8AGa@venus>
+References: <20251220100010.26643-1-amadeus@jmu.edu.cn>
+ <20251220100010.26643-3-amadeus@jmu.edu.cn>
 MIME-Version: 1.0
-References: <20251201-nanopi-m5-ufs-v2-1-ece9c0ee17c4@gmail.com>
- <CABjd4Ywc-L0jvXwk253MDZwgN3srY6WQ5EhoKZ6wb+Hae376_A@mail.gmail.com> <119070978.nniJfEyVGO@phil>
-In-Reply-To: <119070978.nniJfEyVGO@phil>
-From: Alexey Charkov <alchark@gmail.com>
-Date: Mon, 22 Dec 2025 17:28:07 +0400
-X-Gm-Features: AQt7F2ofyZnqEtwWu-6gIroppVlUF0KWZIJCYmIw9FL9qTliLfl7M3hB0GDErVw
-Message-ID: <CABjd4YyCgVBFP4GG5FK5xO3SY=at5fpYicTO+ghaSCJaP_+XJQ@mail.gmail.com>
-Subject: Re: [PATCH v2] arm64: dts: rockchip: enable UFS controller on
- FriendlyElec NanoPi M5
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="fqerxpmbaspw64pr"
+Content-Disposition: inline
+In-Reply-To: <20251220100010.26643-3-amadeus@jmu.edu.cn>
+X-Zoho-Virus-Status: 1
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-1.5.1/266.382.52
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_123310_727841_8A50B3D4 
-X-CRM114-Status: GOOD (  28.25  )
+X-CRM114-CacheID: sfid-20251222_053323_379837_80645B83 
+X-CRM114-Status: GOOD (  17.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,97 +85,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
 
-On Mon, Dec 22, 2025 at 4:41=E2=80=AFPM Heiko Stuebner <heiko@sntech.de> wr=
-ote:
->
-> Hi Alexey,
->
-> Am Donnerstag, 18. Dezember 2025, 15:05:39 Mitteleurop=C3=A4ische Normalz=
-eit schrieb Alexey Charkov:
-> > Hi Heiko,
-> >
-> > On Mon, Dec 1, 2025 at 3:35=E2=80=AFPM Alexey Charkov <alchark@gmail.co=
-m> wrote:
-> > >
-> > > The NanoPi M5 board supports pluggable UFS modules using the UFSHC
-> > > inside its Rockchip RK3576 SoC.
-> > >
-> > > Enable the respective devicetree node and add its supply regulators.
-> > >
-> > > Link: https://wiki.friendlyelec.com/wiki/images/9/97/NanoPi_M5_LP5_24=
-11_SCH.pdf
-> > > Signed-off-by: Alexey Charkov <alchark@gmail.com>
-> > > ---
-> > > Changes in v2:
-> > > - Describe UFS supply regulators
-> > > - Add link to schematic
-> > > - Link to v1: https://lore.kernel.org/r/20251127-nanopi-m5-ufs-v1-1-0=
-d28d157712c@gmail.com
-> > > ---
-> > >  arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts | 27 +++++++++++++=
-++++++++++
-> > >  1 file changed, 27 insertions(+)
-> >
-> > Would you mind pulling this one, or do you have any reservations?
-> > There hasn't been any discussion, but it looks like a pretty simple
-> > change, runtime tested and schema-tested.
->
-> Your patch fell directly into the dead-zone between -rc7 and -rc1 ;-)
+--fqerxpmbaspw64pr
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 3/3] arm64: dts: rockchip: enable saradc for ArmSoM Sige5
+MIME-Version: 1.0
 
-Understood :)
+Hi,
 
-> > +     vcc1v2_ufs_vccq: regulator-vcc1v2-ufs-vccq {
-> > +             compatible =3D "regulator-fixed";
-> > +             regulator-min-microvolt =3D <1200000>;
-> > +             regulator-max-microvolt =3D <1200000>;
-> > +             regulator-name =3D "vcc1v2_ufs_vccq";
-> > +             vin-supply =3D <&vcc5v0_sys_s5>;
-> > +             en-supply =3D <&vcc_3v3_s3>;
-> > +     };
-> > +
-> > +     vcc1v8_ufs_vccq2: regulator-vcc1v8-ufs-vccq2 {
-> > +             compatible =3D "regulator-fixed";
-> > +             regulator-min-microvolt =3D <1800000>;
-> > +             regulator-max-microvolt =3D <1800000>;
-> > +             regulator-name =3D "vcc1v8_ufs_vccq2";
-> > +             vin-supply =3D <&vcc_1v8_s3>;
-> > +             en-supply =3D <&vdda_1v2_s0>;
-> > +     };
->
->
-> But where does the "en-supply" come from? For the life of me, I can't fin=
-d
-> any reference to it in either the bindings in the kernel, nor the dt-sche=
-ma.
->
-> Can you please point me to the part of the documentation where that is
-> described?
+On Sat, Dec 20, 2025 at 06:00:10PM +0800, Chukun Pan wrote:
+> Add ADC support to ArmSoM Sige5 board.
+>=20
+> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+> ---
 
-The bindings [1] describe supplies by a wildcard pattern '.*-supply$',
-and the device in question is a DC-DC regulator (see page 17 of the
-schematic [2]), which produces the 1.2V power for the chip, its VIN
-pin directly wired to VCC5V0_SYS_S5 and its EN pin directly wired to
-VCC_3V3_S3, both of which need to be active for the 1.2V feed to
-appear - thus both are 'supplies' of sorts. VCCQ2 is similar, but
-implemented using a simple gate circuit. This is done to ensure
-correct power sequencing, from what I understood.
+The reference voltage is different between the different board
+revisions. Older boards (1.1 and 1.2) have SARADC_AVDD1V8 connected
+to &vcca_1v8_s0, but newer boards (1.3) use VCCA1V8_PLDO2_S0
+instead. I guess considering &vcca1v8_pldo2_s0 is marked as always
+on, we can ignore this difference, but I think it's worth a comment
+in the DT and the commit description. Otherwise:
 
-I've just checked the fixed regulator driver though, and it only
-handles 'vin-supply', not any other '.*-supply$' - thus, technically,
-it doesn't currently implement the full schema :) Not sure if there is
-another existing facility to model multi-parent regulators that I
-missed, or if it's a good idea to extend the fixed.c driver to handle
-an arbitrary number of supplies?
+Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
 
-Any guidance would be appreciated.
+-- Sebastian
 
-Thanks a lot,
-Alexey
+>  arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts | 5 +++++
+>  1 file changed, 5 insertions(+)
+>=20
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts b/arch/=
+arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+> index a0d8f52a706f..d372ba252af8 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
+> @@ -897,6 +897,11 @@ &sai6 {
+>  	status =3D "okay";
+>  };
+> =20
+> +&saradc {
+> +	vref-supply =3D <&vcca_1v8_s0>;
+> +	status =3D "okay";
+> +};
+> +
+>  &sdhci {
+>  	bus-width =3D <8>;
+>  	full-pwr-cycle-in-suspend;
+> --=20
+> 2.25.1
+>=20
+>=20
 
-[1] https://github.com/torvalds/linux/blob/master/Documentation/devicetree/=
-bindings/regulator/regulator.yaml#L246-L248
-[2] https://wiki.friendlyelec.com/wiki/images/9/97/NanoPi_M5_LP5_2411_SCH.p=
-df
+--fqerxpmbaspw64pr
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmlJSIQACgkQ2O7X88g7
++ppiNA/+Oz78Q2ztqHrQtTLANPeQP2v3zZOQNOq3eUh37wBDzqR6NPJp/jgf56d4
+JYluiTzA/Wc2O55RRMQwzm50fDYR+4sYiQnS7iv4pf9re7amtGEAUYM+Qi0RMJ4u
+Ff7DJKq8h52cIwKKwZyPAJPBplMYN2jjMYB9fck1s81VJnY0yVEqSzCmdgYA+NHu
+rmEFp0RJWGYqbvoa5F6RUrjkpR0LpxxYVrPAdrNyh+I3ASzkPzx9EaxfQDdfPN0M
+kxNqUNQ4tEkuJTTq5NSGJLeQkYULB0+0bbRMov9KU5pG5Hjng3ExHMXrzRMSyl5a
+iJ/McrXu+PAp0MUjXVjt4eEMaqHnYVn0n5DWs0NChJ2+ebGigtXQAAcF4C8ME+YK
+FrdU2C3+lYw/XVTSHFoO434BPfQUOoF0VvvqVXtIAufLgNpzy8HtpvVtNdjZulkU
+E/a6qxrOjdChJJIiH4QOV/HBPOx3RPeLWL2y/6BFIZkYkrKDY9zdK1qnw/05S3PB
+6py22qpb8sQ9PnE+0xnu+S+PauFu/i2KviLFBSpASae70tVuFZBg0gK3t2tK122V
+w7LfdYcriQXK8QLNVCTn8YWCmNA1BRqe3k9WCC/8P/XtepI6OJwrX1ogCmScoTqp
+psWg7UDw6A5UqSMjWdY/lVZ8mha+7BMVp3cf1mwXme0+dcyIzsw=
+=YKZm
+-----END PGP SIGNATURE-----
+
+--fqerxpmbaspw64pr--
 
