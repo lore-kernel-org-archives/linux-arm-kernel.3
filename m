@@ -4,59 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F670E67803
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 18:07:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 685B2E67803
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 18:09:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KIJ8qnnIn2fAU6lPdevesO7Rmp1csv0a8O5Oc90bx5Y=; b=21HpFWKnxxNfJFEi//nwwVLt/5
-	hE48EVIa0tt4yNHGpNECUwgmEhfp+XlJhRjOjvvvf+ZNO/zFAr11I6gMTflHjCHwtZx8KpYPdIb9U
-	a4kvkqbrq/pUGX/UCwjrE8I+tUEh8nsZ0UVdfdKOGmpomj8RN2zR979RDwbTGc9P32DteKtc9W8Mg
-	pdHAPfzuv3dLvunmALDHtBMvaSy48s261fHEIzXjvIxs5tJWqNXdXCbhYIWne33wFMJFkl43Ap9IO
-	oMDC14ivr1BdpZ5BKa4EwWmKIbGFyDzMzUNsXQ1nzmqxZnjaOYedaWIx/BApfFGLIKJonOJEmeRQp
-	UZ/3CV2w==;
+	bh=/MPZ0+lXn26JACnK/1Bt2AJSyVQiGzIeO7aL1qutLK8=; b=vbyo+Sv4gD6jBSMjNmXdJjkMpI
+	GSOIif1592MrLgwjIhVZUz70+oyzg6DjyKZmt3gU4tYRw7dBkoPwQNjGvFUpgmOg7Ti9NKqFFjYNy
+	p6TlBfI2kPGQfT310/SUYsimN0FSZ0pg79MgukG5C884kRThQfkRuVXQSJi1W4Tesn2aqm27FrjtI
+	pC85lNrjiAZaWoz0Jm8HO92qOHWlVpSvAWnSXrp3tbhoC3A1ON8N4Yy4Ikd5BtN1XdGYzQMyJt6wJ
+	6HDIDqy1NUad+lN23BHlOxGbkZfEy/lX8KEY5/NOQPizhdA4w0NvTiVqTgxiqti20BAWgbzkgfGCh
+	lSf5EdPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXkJM-0000000E30e-3m46;
-	Mon, 22 Dec 2025 18:07:12 +0000
-Received: from out-183.mta1.migadu.com ([95.215.58.183])
+	id 1vXkLw-0000000E3E2-0O3g;
+	Mon, 22 Dec 2025 18:09:52 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXkJI-0000000E2zc-375N
+	id 1vXkLt-0000000E3DK-20eU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Dec 2025 18:07:11 +0000
-Date: Mon, 22 Dec 2025 12:06:47 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1766426825;
+	Mon, 22 Dec 2025 18:09:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1766426988;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=KIJ8qnnIn2fAU6lPdevesO7Rmp1csv0a8O5Oc90bx5Y=;
-	b=v1H1biNDta8dBMhI6O/Lwni5MPUVNHO+eWiAh/FLiesVXT5NfJuW+moKjnH5LB+Hjcq1Ke
-	cw/u755wlQsSv3+bRbviueiK6b1nj5+bJPE7d5sYKofjrS39wMquqoe4lteCj85/QGJJlB
-	qs3oNq8NtL/n60dE5F2pqYCaJw0Phow=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Andrew Jones <andrew.jones@linux.dev>
-To: Fuad Tabba <tabba@google.com>
-Cc: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, maz@kernel.org, 
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	will@kernel.org, pbonzini@redhat.com, shuah@kernel.org, anup@brainfault.org
-Subject: Re: [PATCH v2 3/5] KVM: riscv: selftests: Fix incorrect rounding in
- page_align()
-Message-ID: <20251222-67bdefbbd6f1687ffbcabf81@orel>
-References: <20251215165155.3451819-1-tabba@google.com>
- <20251215165155.3451819-4-tabba@google.com>
+	bh=/MPZ0+lXn26JACnK/1Bt2AJSyVQiGzIeO7aL1qutLK8=;
+	b=BIl/v2FHp1rvioOgjFCfRfYHJQDusr0YFhHuABEV0YQ3jacqvlT+MJQ+91VUr4S7+yyLQ1
+	IP9GIwnyWS/SkeSs1yWOKvwnSEPXC3ypdeX8/FAoaQhMMcIkMLqFEfekrGfbfpTcDWvbZs
+	esEzUPaMAFZMjuQDuyuqQNy0hfLzjSc=
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com
+ [209.85.160.200]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-73-LFnYnvj0PGKSuyP7UP8Row-1; Mon, 22 Dec 2025 13:09:46 -0500
+X-MC-Unique: LFnYnvj0PGKSuyP7UP8Row-1
+X-Mimecast-MFC-AGG-ID: LFnYnvj0PGKSuyP7UP8Row_1766426986
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4f1f42515ffso99478961cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 10:09:46 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766426986; x=1767031786;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=/MPZ0+lXn26JACnK/1Bt2AJSyVQiGzIeO7aL1qutLK8=;
+        b=VApuJxJ+fiBox0wSx4BJkiXPWFPxU10D81xMqUZemoIpoLRXQEvRteBdmZ+UpsBeou
+         q+9+ZhFfi3EQmV2uT6ontYxb5sKRwu1sdjc95FO07KS58EHXJ/bqhhzuf/g5ApnagJ4j
+         G+SqvHE+WgBgNvLbrTYERZE9/rzhaHL6AlFqSey4qrveyyZzdPX9e4l0WLZpxT6yDwFW
+         r8CkFyILwuPth4pUt9HOUQioec4nQFk9YrEFm9Uao1oBDt5bx9GawanSpdGIYeLL2n8o
+         xWe1cgUFG1GyqAhvSi4HDDh6t5sLqqBI5JEna61s0kjzH7DjAik1RTZg7PNu6DqgkG9a
+         f0+w==
+X-Forwarded-Encrypted: i=1; AJvYcCU0zaaxTlhb4QzVKtwqpG058nlT37Liu8+Y4+726qKYecDb13covmHuIBmzHHB3vlxRDnEBzZjVRFX8UiJcoTwu@lists.infradead.org
+X-Gm-Message-State: AOJu0YzxybarhvzABnkDVg4GqRjPz+PVd5z+fWA6yFanGGL1QxPgBcyb
+	k83ytIUrJqX7OPhtPB4XuUGEcf1DiGz71UuzWFGIKSA4IULrR4zSQGkSlhrJaI/sB0FcpL3W1Fu
+	fHUGf8t/DrYElIkDQFA1BA5yvT/7yePN8cxAu7HkVTUyZXqfNVZbwMN544sT87UkOK7M92EkF8m
+	98
+X-Gm-Gg: AY/fxX6/Vzccezsppzmi5V9d0l0sNEWG+VmzrF9WtR3vyOcHfZhyhfpiOt6U6/+Q4y6
+	uj93f3dJQWxlq9+dW1igW3+Ul9Vfwy2gyTGXfxp8VmgUWCJ9nAvSYihGLI9t5G2k6AsYrkAm/al
+	cEjhyw0jrMrGKpy8K4VxjlqF4qY3DP//+sWQgoAZWoHOAoeH8JfHioPa15eRqJG/mdkRJulSBxs
+	KJOEG58u7dxO5szlRuHqbYHomZyLpOKAeFxMOYHH/VLv7zNvzuQp/4HRwlvE78Z06mzr1Y0DMct
+	kk/uqjSyVBdlWr8zdXEkcAQeWwWBgVx6LIu/xK1tZQDdeP6+nQsCOIj4MSRU4nz2cJ0W8Gwftct
+	w1YT1OqNZD2+9oxmNNuoTMTB5SaMdzScw93RyIbPR8nV3
+X-Received: by 2002:a05:622a:11cb:b0:4eb:a192:de99 with SMTP id d75a77b69052e-4f4abdc6a37mr166817941cf.76.1766426986156;
+        Mon, 22 Dec 2025 10:09:46 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHhen4inuPei2QtIgz1Jhp7TuWhSfPiBiWyK9QaTxuqDdPYVrS4RnzupTyJuPkfHzkoEa0TrQ==
+X-Received: by 2002:a05:622a:11cb:b0:4eb:a192:de99 with SMTP id d75a77b69052e-4f4abdc6a37mr166817461cf.76.1766426985756;
+        Mon, 22 Dec 2025 10:09:45 -0800 (PST)
+Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-88d99d7a08asm89568916d6.38.2025.12.22.10.09.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 22 Dec 2025 10:09:45 -0800 (PST)
+Date: Mon, 22 Dec 2025 13:09:43 -0500
+From: Brian Masney <bmasney@redhat.com>
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] clk: mediatek: don't select clk-mt8192 for all ARM64
+ builds
+Message-ID: <aUmJZ7o6PpWeXFZP@redhat.com>
+References: <20251222150235.34919-1-bartosz.golaszewski@oss.qualcomm.com>
 MIME-Version: 1.0
+In-Reply-To: <20251222150235.34919-1-bartosz.golaszewski@oss.qualcomm.com>
+User-Agent: Mutt/2.2.14 (2025-02-20)
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 72qQYk7l79f4j5HJDpNq3zmzC88j_XUFNruboA2xx8s_1766426986
+X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251215165155.3451819-4-tabba@google.com>
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_100708_949702_E7A0BA97 
-X-CRM114-Status: GOOD (  17.43  )
+X-CRM114-CacheID: sfid-20251222_100949_614692_25CECB5A 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,37 +114,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 15, 2025 at 04:51:53PM +0000, Fuad Tabba wrote:
-> The implementation of `page_align()` in `processor.c` calculates
-> alignment incorrectly for values that are already aligned. Specifically,
-> `(v + vm->page_size) & ~(vm->page_size - 1)` aligns to the *next* page
-> boundary even if `v` is already page-aligned, potentially wasting a page
-> of memory.
+On Mon, Dec 22, 2025 at 04:02:35PM +0100, Bartosz Golaszewski wrote:
+> This option defaults to y for ARCH64 meaning it's built even if we don't
+> want anything related to mediatek. Make the default condition stricter
+> and only build it if ARCH_MEDIATEK is selected.
 > 
-> Fix the calculation to use standard alignment logic: `(v + vm->page_size
-> - 1) & ~(vm->page_size - 1)`.
-> 
-> Fixes: 3e06cdf10520 ("KVM: selftests: Add initial support for RISC-V 64-bit")
-> Signed-off-by: Fuad Tabba <tabba@google.com>
-> ---
->  tools/testing/selftests/kvm/lib/riscv/processor.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/tools/testing/selftests/kvm/lib/riscv/processor.c b/tools/testing/selftests/kvm/lib/riscv/processor.c
-> index 2eac7d4b59e9..d5e8747b5e69 100644
-> --- a/tools/testing/selftests/kvm/lib/riscv/processor.c
-> +++ b/tools/testing/selftests/kvm/lib/riscv/processor.c
-> @@ -28,7 +28,7 @@ bool __vcpu_has_ext(struct kvm_vcpu *vcpu, uint64_t ext)
->  
->  static uint64_t page_align(struct kvm_vm *vm, uint64_t v)
->  {
-> -	return (v + vm->page_size) & ~(vm->page_size - 1);
-> +	return (v + vm->page_size - 1) & ~(vm->page_size - 1);
->  }
->  
->  static uint64_t pte_addr(struct kvm_vm *vm, uint64_t entry)
-> -- 
-> 2.52.0.239.gd5f0c6e74e-goog
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
-Reviewed-by: Andrew Jones <andrew.jones@linux.dev>
+Reviewed-by: Brian Masney <bmasney@redhat.com>
+
 
