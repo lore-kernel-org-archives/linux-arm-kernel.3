@@ -4,71 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 588AEE6749B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 11:50:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAB29E6749C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 11:50:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u8BeSNtEVzlT6axXxyrW1SjM8RGFF7kCN49fE8uObuM=; b=HVMZ/6loTh6Ls3KXEJtAOyxq6C
-	74Upi3h0r0YIrWjsQIw2NTMJn0gLTvDKE1zqLovwht9GxdqS3EIc9zpM0KW7oTxTHYdAovuyn7iYf
-	HKGuE15rmwkl2T90q6wMzpcNmMsdZiJ0lkiBbFDwO78sig7vRG6e5brSLVch6O+Quuz/i0myTRNS/
-	uEoFA6A/0+Zqo+g2A5IWzGnw4x0YwtKI/K8QLwMFGk/g0fkiQE2cjnXeGlGQAlnlEtTrSm5ltUAy9
-	03TryDAqxf8SKysckjRMnNpo1RoYcktVz7ODyna7raQnLsg2pgxmlknMz+/tBzbNo3+HjqghqCO/n
-	y6+QVIRg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ruyy63GwboUn7+9s5l67HuCdYOrz3XONvrYdWrJbZr8=; b=Ig11zdM/J0BqciXU/yyGQvLIHi
+	9TQGLJYO8ElQXJqER18NgjuO+jpv5Q5KKXgpgl8g9uS2bDOut/MeQ1zloHt3nSRfSQ3SejeJpiSWP
+	IKdhsGrcqlF2wriqSSUF3RGsaaJEbnoT2wdvv7/GedYhkHJDkUGmczFJevsFe8jlRsnrI2fCWW0c4
+	p7xt+1AttPKsG0c1vP/L9zn/kJNkEY1vgHSRn+mg6A8i4yLc0vSbXAn19RGCfaoCACTHSCasNU6Pf
+	jLBjfaYDM8M0NyEJCzgCbHLOFUf81VDTZiXLtkzHi/Ysqdofe95tdRAC2gj5mwfJjAM9j8RSWnWtB
+	0HscAaSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXeR2-0000000Di4m-24zy;
-	Mon, 22 Dec 2025 11:50:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vXeR3-0000000Di55-02cd;
+	Mon, 22 Dec 2025 11:50:45 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXeQx-0000000Di3I-1w8B
-	for linux-arm-kernel@lists.infradead.org;
+	id 1vXeR0-0000000Di3D-0gIA;
 	Mon, 22 Dec 2025 11:50:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 17A354396E;
-	Mon, 22 Dec 2025 11:50:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7178DC116C6;
-	Mon, 22 Dec 2025 11:50:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766404239;
-	bh=qtFhad+oksdajZTyUIhQ/cThE6gZHtNWEc9qENT9c2E=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=qSyz+iFeGQEA+35kpg996olqXKNHMAZ+5ja+4eg3YnH0hkrrbawEJgu7DR41OERnx
-	 TjDB6udahrCOjg2YGo/0RXCsWDxLj4QSfgbD1kPjrj9EbK/K9w/IPHUMpMOIXA3SIp
-	 rckEAFf+K+L6J9nt3PirhSYqE9EWnNvUpWeIw0JVa0Sng24Tj36HcOO05PPNhE7naf
-	 ulnRBFXtlWmUxiiMAvLLmOu/dvaTyc6NUzJ1ZxbeJ2UQVcb6FX+GUb3ioKeYajVAl/
-	 u9nto3aGPWJnLzyLus8bJU2URh3sCpXO1yXvRYfPTVhLaZQloN7Jje57TAfQZYknNi
-	 MTUObcXAjfrLw==
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Sam Protsenko <semen.protsenko@linaro.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, 
- Peter Griffin <peter.griffin@linaro.org>
-Cc: Will McVicker <willmcvicker@google.com>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
- kernel-team@android.com
-In-Reply-To: <20251222-automatic-clocks-v7-0-fec86fa89874@linaro.org>
-References: <20251222-automatic-clocks-v7-0-fec86fa89874@linaro.org>
-Subject: Re: (subset) [PATCH v7 0/4] Implement hardware automatic clock
- gating (HWACG) for gs101
-Message-Id: <176640423317.47079.9046133168071940495.b4-ty@kernel.org>
-Date: Mon, 22 Dec 2025 12:50:33 +0100
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=ruyy63GwboUn7+9s5l67HuCdYOrz3XONvrYdWrJbZr8=; b=vARL6LrT+8uqJV8RIB88I7spsT
+	VcvqJXHZ2ESVBUXH8pmBDr6rSZIyusgktlb9xTjaFrNyB/hP0IW8zYhI19KcMG8Ehy65OagQl2NpD
+	TvOU/srFlHluBlH5fGPr9Q5HTM6c0cwQoTMUXlnRNLZwLLZbv5gR7+7pFsbX1gH7H4D0EDey8RiC+
+	G4KGL3ST5Evr8aKquQSLsW7cZKzGnoZJc418sSO+RcGMthBaCf76o8PLPjSP49so+VUv53GzEFn64
+	jlSn2FLqebJcj1lyUNi7AmfUI1VaA9OeuWjOUgqhJfIOWnKlBB974EL1TCGYkXx+5mU3oT4QIiMD/
+	MYPy1VZw==;
+Received: from [194.95.143.137] (helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vXeQT-0004nF-5v; Mon, 22 Dec 2025 12:50:09 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: Jonathan Cameron <jic23@kernel.org>,
+ David Lechner <dlechner@baylibre.com>,
+ Nuno =?UTF-8?B?U8Oh?= <nuno.sa@analog.com>,
+ Andy Shevchenko <andy@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, linux-iio@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ linux-rockchip@lists.infradead.org,
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH 3/3] iio: adc: rockchip: Simplify probe() with local 'dev'
+Date: Mon, 22 Dec 2025 12:50:07 +0100
+Message-ID: <5782401.ejJDZkT8p0@phil>
+In-Reply-To: <20251221142602.47368-6-krzysztof.kozlowski@oss.qualcomm.com>
+References: <20251221142602.47368-4-krzysztof.kozlowski@oss.qualcomm.com>
+ <20251221142602.47368-6-krzysztof.kozlowski@oss.qualcomm.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_035041_844726_63A0667D 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20251222_035042_410486_DE552F1F 
+X-CRM114-Status: UNSURE (   7.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,30 +80,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Am Sonntag, 21. Dezember 2025, 15:26:05 Mitteleurop=C3=A4ische Normalzeit s=
+chrieb Krzysztof Kozlowski:
+> Simplify the probe function by using a local 'dev' variable instead of
+> full pointer dereference.  This makes several lines shorter, which
+> allows to avoid wrapping making code more readable.
+>=20
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-On Mon, 22 Dec 2025 10:22:11 +0000, Peter Griffin wrote:
-> This series addresses an issue with Samsung Exynos based upstream clock driver
-> whereby the upstream clock driver sets all the clock gates into "manual mode"
-> (which uses a bit that is documented as reserved in the gate registers).
-> 
-> Another issue with the current "manual clock gating" approach upstream is
-> there are many bus/interconnect clocks whose relationships to the IPs
-> are not well documented or defined in the specs. When adding a new CMU until
-> now we have tried to label these clocks appropriately with CLK_IS_CRITICAL and
-> CLK_IGNORE_UNUSED but doing so is both error prone and time consuming. If
-> your lucky disabling a critical bus clock causes an immediate hang. Other
-> clocks however aren't so obvious and show up through random instability
-> some period of time later.
-> 
-> [...]
+Yep, makes the code definitly nicer to read
 
-Applied, thanks!
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
 
-[2/4] arm64: dts: exynos: gs101: add samsung,sysreg property to CMU nodes
-      https://git.kernel.org/krzk/linux/c/01272f05aae5f6aca4337eb52e6b9290ce12e9f7
-
-Best regards,
--- 
-Krzysztof Kozlowski <krzk@kernel.org>
 
 
