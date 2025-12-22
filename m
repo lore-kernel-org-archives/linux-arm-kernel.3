@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2609DE6749B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 11:49:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A08DCE6749A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 11:49:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S3hbrlvj9nTle8zD5nundzj0J9i0Kdczvuf9BWM9sBA=; b=gDX0MAzISqSVvUgNzZmRaKdkwo
-	u5fK+nfYwPEOVJz3P0UeWxck3GvqpyrhYtz/fPnFHAoO1L3zGW99cPxk3tOZZkYG7swycTPx2MLDe
-	zdcL51498vO6GxMsafmG3CSkkYM1YnpmKDVjxWLeXQyBuqbyDjpXOcDEDj906V9K+aVxHYMwfhBei
-	qwqcqnEx0tjpaI4S6IjluL/krgleEqswoClSLntETJIyzZXty2ojDAFoO9MnW48LlGiwmiaOKvvmG
-	sEs0hmWqaOPSfhEPYYjRU3LAeb7xRuF2i2kfnrvYJJtJVidzyua+KqxADiK+zHRLjf2r9YWAVwt9F
-	AG8+6vLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aJTiI4bA0T86T+t5tkcGj308AfemJUXr12sJGCUKjxE=; b=c7VHdUMacOZuN2v9awbjiMgNtW
+	Ep98E06T/HzyFqf0foq1HywxCYkcQNleAoWnPT+OQVDqhC5cBng9rY5vme6M46OWhdoUx2Jfv12Q5
+	a966KxMTLcvG6Ewpf9Nw4uKX+pg+d40O+CLtGxUylyUMdMdOEMbYmjm2QgugnGsLwq3Yk7LvuINGk
+	nKRIJM7x4HRVHqijB6huq2SmnFxkf8ORgkqje3Drxx6JBHN86hQ0jhjFYzMJQx/Nh9ib0Ac/oHSfX
+	wDged0H7UV9y516YOYO6QkU7MdnxpEjhG2TgfQJH0unIJi8ikoCd1UpLXTpEDGD/wRADaSFf4xByb
+	ad9nSvww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXePH-0000000Dgpc-171g;
-	Mon, 22 Dec 2025 11:48:55 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+	id 1vXePM-0000000Dgvi-26M7;
+	Mon, 22 Dec 2025 11:49:00 +0000
+Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXeOw-0000000DgZG-1MuU
+	id 1vXeP0-0000000Dgb6-1edp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Dec 2025 11:48:39 +0000
+	Mon, 22 Dec 2025 11:48:40 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=S3hbrlvj9nTle8zD5nundzj0J9i0Kdczvuf9BWM9sBA=;
-	b=Nmtk4AEvwXQmD/Kyr7Q6sF5YiVxvdJ4yKktNjmWsoTNDFUOX90ZXuaQHq68uB3JIwjBRvKiNj
-	hM5LXkZn3vf7Rv21+HsbhvpjBNL+U2tIS/S8HufXp0m9Urd/gr7wvUAlUk6Z5KE/k61cQpXTNgf
-	npauqpC+TR/O3miBueiw71I=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4dZbtK2QM1zcZxm;
+	bh=aJTiI4bA0T86T+t5tkcGj308AfemJUXr12sJGCUKjxE=;
+	b=oEp9Ug2akzL8mvTBxZckK/2AGC0mDTS0+1Yg50bxXbJZZwf0Kofh8opHytIvDbFFE0fTZ+mKg
+	91HGNx00zKxlBUuyoTwgobQs1gtHw90gQ6xi/9B+Xo0yzM6Q7KVc1VBm39OwekhahuHXm0g22Vv
+	pnooENZI9QBWUtKykiVbRXQ=
+Received: from mail.maildlp.com (unknown [172.19.163.0])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4dZbtK16znzRhWS;
 	Mon, 22 Dec 2025 19:45:29 +0800 (CST)
 Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 1B24140538;
-	Mon, 22 Dec 2025 19:48:32 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 4BC574036C;
+	Mon, 22 Dec 2025 19:48:35 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
  (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 22 Dec
- 2025 19:48:30 +0800
+ 2025 19:48:33 +0800
 From: Jinjie Ruan <ruanjinjie@huawei.com>
 To: <catalin.marinas@arm.com>, <will@kernel.org>, <oleg@redhat.com>,
 	<tglx@linutronix.de>, <peterz@infradead.org>, <luto@kernel.org>,
@@ -56,21 +56,21 @@ To: <catalin.marinas@arm.com>, <will@kernel.org>, <oleg@redhat.com>,
 	<kmal@cock.li>, <dvyukov@google.com>, <richard.weiyang@gmail.com>,
 	<reddybalavignesh9979@gmail.com>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>
-Subject: [PATCH v10 13/16] arm64: entry: Convert to generic entry
-Date: Mon, 22 Dec 2025 19:47:34 +0800
-Message-ID: <20251222114737.1334364-14-ruanjinjie@huawei.com>
+Subject: [PATCH v10 15/16] entry: Inline syscall_exit_work() and syscall_trace_enter()
+Date: Mon, 22 Dec 2025 19:47:36 +0800
+Message-ID: <20251222114737.1334364-16-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20251222114737.1334364-1-ruanjinjie@huawei.com>
 References: <20251222114737.1334364-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
 X-Originating-IP: [10.90.53.73]
 X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
  dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_034834_880459_6D16E070 
-X-CRM114-Status: GOOD (  23.89  )
+X-CRM114-CacheID: sfid-20251222_034839_247248_83BCFFF1 
+X-CRM114-Status: GOOD (  21.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,432 +85,250 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, x86, Riscv, Loongarch use the generic entry which makes
-maintainers' work easier and codes more elegant. arm64 has already
-switched to the generic IRQ entry, so completely convert arm64 to use
-the generic entry infrastructure from kernel/entry/*.
+After switch arm64 to Generic Entry, a new hotspot syscall_exit_work()
+appeared because syscall_exit_work() is not inlined, so inline
+syscall_exit_work(). Also inline syscall_trace_enter() to align with
+syscall_exit_work().
 
-The changes are below:
- - Remove TIF_SYSCALL_* flag.
+On v6.19-rc1 with audit on, inline both syscall_trace_enter() and
+syscall_exit_work() has 4% performance uplift on perf bench basic
+syscall on kunpeng920 as below:
 
- - Remove _TIF_SYSCALL_WORK/EXIT_WORK as they are equal with
-   SYSCALL_WORK_ENTER/EXIT.
+    | Metric     | W/O this patch | With this patch | Change  |
+    | ---------- | -------------- | --------------- | ------  |
+    | Total time | 2.353 [sec]    | 2.264 [sec]     |  ↓3.8%  |
+    | usecs/op   | 0.235374       | 0.226472        |  ↓3.8%  |
+    | ops/sec    | 4,248,588      | 4,415,554       |  ↑3.9%  |
 
- - Implement arch_ptrace_report_syscall_entry/exit() with
-   report_syscall_entry/exit() to do arm64-specific save/restore
-   during syscall entry/exit.
-
- - Remove arm64 syscall_trace_enter() and related sub-functions
-   including syscall_enter_audit(), by calling generic entry's
-   functions with similar functionality.
-
- - Set/clear SYSCALL_EXIT_TRAP flag when enable/disable single_step,
-   So _TIF_SINGLESTEP can be replaced with generic SYSCALL_EXIT_TRAP,
-   _TIF_SYSCALL_EXIT_WORK and _TIF_SINGLESTEP can be replaced
-   with generic SYSCALL_WORK_EXIT, arm64's report_single_step() can be
-   replaced with generic version.
-
- - Remove arm64's syscall_exit_to_user_mode_work_prepare() and
-   syscall_exit_work() etc. by using generic entry's similar same name
-   functions.
-
- - Implement arch_syscall_is_vdso_sigreturn() to support "Syscall User
-   Dispatch".
-
-Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
-Suggested-by: Kevin Brodsky <kevin.brodsky@arm.com>
-Suggested-by: Mark Rutland <mark.rutland@arm.com>
 Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
- arch/arm64/Kconfig                    |   2 +-
- arch/arm64/include/asm/entry-common.h |  76 +++++++++++++
- arch/arm64/include/asm/syscall.h      |  19 +++-
- arch/arm64/include/asm/thread_info.h  |  19 +---
- arch/arm64/kernel/debug-monitors.c    |   7 ++
- arch/arm64/kernel/ptrace.c            | 153 --------------------------
- arch/arm64/kernel/signal.c            |   2 +-
- arch/arm64/kernel/syscall.c           |   6 +-
- 8 files changed, 107 insertions(+), 177 deletions(-)
+ include/linux/entry-common.h         | 102 ++++++++++++++++++++++++++-
+ kernel/entry/common.h                |   7 --
+ kernel/entry/syscall-common.c        |  96 ++-----------------------
+ kernel/entry/syscall_user_dispatch.c |   4 +-
+ 4 files changed, 106 insertions(+), 103 deletions(-)
+ delete mode 100644 kernel/entry/common.h
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 93173f0a09c7..f50b49ce8b65 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -153,9 +153,9 @@ config ARM64
- 	select GENERIC_CPU_DEVICES
- 	select GENERIC_CPU_VULNERABILITIES
- 	select GENERIC_EARLY_IOREMAP
-+	select GENERIC_ENTRY
- 	select GENERIC_IDLE_POLL_SETUP
- 	select GENERIC_IOREMAP
--	select GENERIC_IRQ_ENTRY
- 	select GENERIC_IRQ_IPI
- 	select GENERIC_IRQ_KEXEC_CLEAR_VM_FORWARD
- 	select GENERIC_IRQ_PROBE
-diff --git a/arch/arm64/include/asm/entry-common.h b/arch/arm64/include/asm/entry-common.h
-index cab8cd78f693..d8bf4bf342e8 100644
---- a/arch/arm64/include/asm/entry-common.h
-+++ b/arch/arm64/include/asm/entry-common.h
-@@ -3,14 +3,21 @@
- #ifndef _ASM_ARM64_ENTRY_COMMON_H
- #define _ASM_ARM64_ENTRY_COMMON_H
+diff --git a/include/linux/entry-common.h b/include/linux/entry-common.h
+index 17171e8873fc..ad61a13bf24f 100644
+--- a/include/linux/entry-common.h
++++ b/include/linux/entry-common.h
+@@ -2,6 +2,7 @@
+ #ifndef __LINUX_ENTRYCOMMON_H
+ #define __LINUX_ENTRYCOMMON_H
  
-+#include <linux/ptrace.h>
- #include <linux/thread_info.h>
- 
-+#include <asm/compat.h>
- #include <asm/cpufeature.h>
- #include <asm/daifflags.h>
- #include <asm/fpsimd.h>
- #include <asm/mte.h>
- #include <asm/stacktrace.h>
- 
-+enum ptrace_syscall_dir {
-+	PTRACE_SYSCALL_ENTER = 0,
-+	PTRACE_SYSCALL_EXIT,
-+};
-+
- #define ARCH_EXIT_TO_USER_MODE_WORK (_TIF_MTE_ASYNC_FAULT | _TIF_FOREIGN_FPSTATE)
- 
- static __always_inline void arch_exit_to_user_mode_work(struct pt_regs *regs,
-@@ -54,4 +61,73 @@ static inline bool arch_irqentry_exit_need_resched(void)
- 
- #define arch_irqentry_exit_need_resched arch_irqentry_exit_need_resched
- 
-+static __always_inline unsigned long ptrace_save_reg(struct pt_regs *regs,
-+						     enum ptrace_syscall_dir dir,
-+						     int *regno)
-+{
-+	unsigned long saved_reg;
-+
-+	/*
-+	 * We have some ABI weirdness here in the way that we handle syscall
-+	 * exit stops because we indicate whether or not the stop has been
-+	 * signalled from syscall entry or syscall exit by clobbering a general
-+	 * purpose register (ip/r12 for AArch32, x7 for AArch64) in the tracee
-+	 * and restoring its old value after the stop. This means that:
-+	 *
-+	 * - Any writes by the tracer to this register during the stop are
-+	 *   ignored/discarded.
-+	 *
-+	 * - The actual value of the register is not available during the stop,
-+	 *   so the tracer cannot save it and restore it later.
-+	 *
-+	 * - Syscall stops behave differently to seccomp and pseudo-step traps
-+	 *   (the latter do not nobble any registers).
-+	 */
-+	*regno = (is_compat_task() ? 12 : 7);
-+	saved_reg = regs->regs[*regno];
-+	regs->regs[*regno] = dir;
-+
-+	return saved_reg;
-+}
-+
-+static __always_inline int arch_ptrace_report_syscall_entry(struct pt_regs *regs)
-+{
-+	unsigned long saved_reg;
-+	int regno, ret;
-+
-+	saved_reg = ptrace_save_reg(regs, PTRACE_SYSCALL_ENTER, &regno);
-+	ret = ptrace_report_syscall_entry(regs);
-+	if (ret)
-+		forget_syscall(regs);
-+	regs->regs[regno] = saved_reg;
-+
-+	return ret;
-+}
-+
-+#define arch_ptrace_report_syscall_entry arch_ptrace_report_syscall_entry
-+
-+static __always_inline void arch_ptrace_report_syscall_exit(struct pt_regs *regs,
-+							    int step)
-+{
-+	unsigned long saved_reg;
-+	int regno;
-+
-+	saved_reg = ptrace_save_reg(regs, PTRACE_SYSCALL_EXIT, &regno);
-+	if (!step) {
-+		ptrace_report_syscall_exit(regs, 0);
-+		regs->regs[regno] = saved_reg;
-+	} else {
-+		regs->regs[regno] = saved_reg;
-+
-+		/*
-+		 * Signal a pseudo-step exception since we are stepping but
-+		 * tracer modifications to the registers may have rewound the
-+		 * state machine.
-+		 */
-+		ptrace_report_syscall_exit(regs, 1);
-+	}
-+}
-+
-+#define arch_ptrace_report_syscall_exit arch_ptrace_report_syscall_exit
-+
- #endif /* _ASM_ARM64_ENTRY_COMMON_H */
-diff --git a/arch/arm64/include/asm/syscall.h b/arch/arm64/include/asm/syscall.h
-index 7746c8f0e045..240d45735cc5 100644
---- a/arch/arm64/include/asm/syscall.h
-+++ b/arch/arm64/include/asm/syscall.h
-@@ -9,6 +9,9 @@
- #include <linux/compat.h>
- #include <linux/err.h>
- 
-+#include <asm/compat.h>
-+#include <asm/vdso.h>
-+
- typedef long (*syscall_fn_t)(const struct pt_regs *regs);
- 
- extern const syscall_fn_t sys_call_table[];
-@@ -120,7 +123,19 @@ static inline int syscall_get_arch(struct task_struct *task)
- 	return AUDIT_ARCH_AARCH64;
++#include <linux/audit.h>
+ #include <linux/irq-entry-common.h>
+ #include <linux/livepatch.h>
+ #include <linux/ptrace.h>
+@@ -64,7 +65,64 @@ static __always_inline int arch_ptrace_report_syscall_entry(struct pt_regs *regs
  }
- 
--int syscall_trace_enter(struct pt_regs *regs, long syscall, unsigned long flags);
--void syscall_exit_to_user_mode_work_prepare(struct pt_regs *regs);
-+static inline bool arch_syscall_is_vdso_sigreturn(struct pt_regs *regs)
-+{
-+	unsigned long sigtramp;
-+
-+#ifdef CONFIG_COMPAT
-+	if (is_compat_task()) {
-+		unsigned long sigpage = (unsigned long)current->mm->context.sigpage;
-+
-+		return regs->pc >= sigpage && regs->pc < (sigpage + PAGE_SIZE);
-+	}
-+#endif
-+	sigtramp = (unsigned long)VDSO_SYMBOL(current->mm->context.vdso, sigtramp);
-+	return regs->pc == (sigtramp + 8);
-+}
- 
- #endif	/* __ASM_SYSCALL_H */
-diff --git a/arch/arm64/include/asm/thread_info.h b/arch/arm64/include/asm/thread_info.h
-index ef1462b9b00b..90be0c590b86 100644
---- a/arch/arm64/include/asm/thread_info.h
-+++ b/arch/arm64/include/asm/thread_info.h
-@@ -43,6 +43,7 @@ struct thread_info {
- 	void			*scs_sp;
  #endif
- 	u32			cpu;
-+	unsigned long		syscall_work;   /* SYSCALL_WORK_ flags */
- };
  
- #define thread_saved_pc(tsk)	\
-@@ -65,11 +66,6 @@ void arch_setup_new_exec(void);
- #define TIF_UPROBE		5	/* uprobe breakpoint or singlestep */
- #define TIF_MTE_ASYNC_FAULT	6	/* MTE Asynchronous Tag Check Fault */
- #define TIF_NOTIFY_SIGNAL	7	/* signal notifications exist */
--#define TIF_SYSCALL_TRACE	8	/* syscall trace active */
--#define TIF_SYSCALL_AUDIT	9	/* syscall auditing */
--#define TIF_SYSCALL_TRACEPOINT	10	/* syscall tracepoint for ftrace */
--#define TIF_SECCOMP		11	/* syscall secure computing */
--#define TIF_SYSCALL_EMU		12	/* syscall emulation active */
- #define TIF_PATCH_PENDING	13	/* pending live patching update */
- #define TIF_MEMDIE		18	/* is terminating due to OOM killer */
- #define TIF_FREEZE		19
-@@ -92,27 +88,14 @@ void arch_setup_new_exec(void);
- #define _TIF_NEED_RESCHED_LAZY	(1 << TIF_NEED_RESCHED_LAZY)
- #define _TIF_NOTIFY_RESUME	(1 << TIF_NOTIFY_RESUME)
- #define _TIF_FOREIGN_FPSTATE	(1 << TIF_FOREIGN_FPSTATE)
--#define _TIF_SYSCALL_TRACE	(1 << TIF_SYSCALL_TRACE)
--#define _TIF_SYSCALL_AUDIT	(1 << TIF_SYSCALL_AUDIT)
--#define _TIF_SYSCALL_TRACEPOINT	(1 << TIF_SYSCALL_TRACEPOINT)
--#define _TIF_SECCOMP		(1 << TIF_SECCOMP)
--#define _TIF_SYSCALL_EMU	(1 << TIF_SYSCALL_EMU)
- #define _TIF_PATCH_PENDING	(1 << TIF_PATCH_PENDING)
- #define _TIF_UPROBE		(1 << TIF_UPROBE)
--#define _TIF_SINGLESTEP		(1 << TIF_SINGLESTEP)
- #define _TIF_32BIT		(1 << TIF_32BIT)
- #define _TIF_SVE		(1 << TIF_SVE)
- #define _TIF_MTE_ASYNC_FAULT	(1 << TIF_MTE_ASYNC_FAULT)
- #define _TIF_NOTIFY_SIGNAL	(1 << TIF_NOTIFY_SIGNAL)
- #define _TIF_TSC_SIGSEGV	(1 << TIF_TSC_SIGSEGV)
- 
--#define _TIF_SYSCALL_WORK	(_TIF_SYSCALL_TRACE | _TIF_SYSCALL_AUDIT | \
--				 _TIF_SYSCALL_TRACEPOINT | _TIF_SECCOMP | \
--				 _TIF_SYSCALL_EMU)
--
--#define _TIF_SYSCALL_EXIT_WORK	(_TIF_SYSCALL_TRACE | _TIF_SYSCALL_AUDIT | \
--				 _TIF_SYSCALL_TRACEPOINT)
--
- #ifdef CONFIG_SHADOW_CALL_STACK
- #define INIT_SCS							\
- 	.scs_base	= init_shadow_call_stack,			\
-diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
-index 29307642f4c9..e67643a70405 100644
---- a/arch/arm64/kernel/debug-monitors.c
-+++ b/arch/arm64/kernel/debug-monitors.c
-@@ -385,11 +385,18 @@ void user_enable_single_step(struct task_struct *task)
- 
- 	if (!test_and_set_ti_thread_flag(ti, TIF_SINGLESTEP))
- 		set_regs_spsr_ss(task_pt_regs(task));
+-long syscall_trace_enter(struct pt_regs *regs, long syscall, unsigned long work);
++static inline void syscall_enter_audit(struct pt_regs *regs, long syscall)
++{
++	if (unlikely(audit_context())) {
++		unsigned long args[6];
++
++		syscall_get_arguments(current, regs, args);
++		audit_syscall_entry(syscall, args[0], args[1], args[2], args[3]);
++	}
++}
++
++void __trace_sys_enter(struct pt_regs *regs, long syscall);
++bool syscall_user_dispatch(struct pt_regs *regs);
++
++static __always_inline long syscall_trace_enter(struct pt_regs *regs, long syscall,
++						unsigned long work)
++{
++	long ret = 0;
 +
 +	/*
-+	 * Ensure that a trap is triggered once stepping out of a system
-+	 * call prior to executing any user instruction.
++	 * Handle Syscall User Dispatch.  This must comes first, since
++	 * the ABI here can be something that doesn't make sense for
++	 * other syscall_work features.
 +	 */
-+	set_task_syscall_work(task, SYSCALL_EXIT_TRAP);
- }
- NOKPROBE_SYMBOL(user_enable_single_step);
++	if (work & SYSCALL_WORK_SYSCALL_USER_DISPATCH) {
++		if (syscall_user_dispatch(regs))
++			return -1L;
++	}
++
++	/* Handle ptrace */
++	if (work & (SYSCALL_WORK_SYSCALL_TRACE | SYSCALL_WORK_SYSCALL_EMU)) {
++		ret = arch_ptrace_report_syscall_entry(regs);
++		if (ret || (work & SYSCALL_WORK_SYSCALL_EMU))
++			return -1L;
++	}
++
++	/* Do seccomp after ptrace, to catch any tracer changes. */
++	if (work & SYSCALL_WORK_SECCOMP) {
++		ret = __secure_computing();
++		if (ret == -1L)
++			return ret;
++	}
++
++	/* Either of the above might have changed the syscall number */
++	syscall = syscall_get_nr(current, regs);
++
++	if (unlikely(work & SYSCALL_WORK_SYSCALL_TRACEPOINT)) {
++		__trace_sys_enter(regs, syscall);
++		/*
++		 * Probes or BPF hooks in the tracepoint may have changed the
++		 * system call number as well.
++		 */
++		syscall = syscall_get_nr(current, regs);
++	}
++
++	syscall_enter_audit(regs, syscall);
++
++	return ret ? : syscall;
++}
  
- void user_disable_single_step(struct task_struct *task)
- {
- 	clear_ti_thread_flag(task_thread_info(task), TIF_SINGLESTEP);
-+	clear_task_syscall_work(task, SYSCALL_EXIT_TRAP);
+ /**
+  * syscall_enter_from_user_mode_work - Check and handle work before invoking
+@@ -131,6 +189,19 @@ static __always_inline long syscall_enter_from_user_mode(struct pt_regs *regs, l
+ 	return ret;
  }
- NOKPROBE_SYMBOL(user_disable_single_step);
-diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
-index 2645ddf77369..f575b30b2dc4 100644
---- a/arch/arm64/kernel/ptrace.c
-+++ b/arch/arm64/kernel/ptrace.c
-@@ -8,7 +8,6 @@
-  * Copyright (C) 2012 ARM Ltd.
+ 
++/*
++ * If SYSCALL_EMU is set, then the only reason to report is when
++ * SINGLESTEP is set (i.e. PTRACE_SYSEMU_SINGLESTEP).  This syscall
++ * instruction has been already reported in syscall_enter_from_user_mode().
++ */
++static __always_inline bool report_single_step(unsigned long work)
++{
++	if (work & SYSCALL_WORK_SYSCALL_EMU)
++		return false;
++
++	return work & SYSCALL_WORK_SYSCALL_EXIT_TRAP;
++}
++
+ /**
+  * arch_ptrace_report_syscall_exit - Architecture specific
+  *				     ptrace_report_syscall_exit.
+@@ -151,6 +222,8 @@ static __always_inline void arch_ptrace_report_syscall_exit(struct pt_regs *regs
+ }
+ #endif
+ 
++void __trace_sys_exit(struct pt_regs *regs, long ret);
++
+ /**
+  * syscall_exit_work - Handle work before returning to user mode
+  * @regs:	Pointer to current pt_regs
+@@ -158,7 +231,32 @@ static __always_inline void arch_ptrace_report_syscall_exit(struct pt_regs *regs
+  *
+  * Do one-time syscall specific work.
   */
+-void syscall_exit_work(struct pt_regs *regs, unsigned long work);
++static __always_inline void syscall_exit_work(struct pt_regs *regs, unsigned long work)
++{
++	bool step;
++
++	/*
++	 * If the syscall was rolled back due to syscall user dispatching,
++	 * then the tracers below are not invoked for the same reason as
++	 * the entry side was not invoked in syscall_trace_enter(): The ABI
++	 * of these syscalls is unknown.
++	 */
++	if (work & SYSCALL_WORK_SYSCALL_USER_DISPATCH) {
++		if (unlikely(current->syscall_dispatch.on_dispatch)) {
++			current->syscall_dispatch.on_dispatch = false;
++			return;
++		}
++	}
++
++	audit_syscall_exit(regs);
++
++	if (work & SYSCALL_WORK_SYSCALL_TRACEPOINT)
++		__trace_sys_exit(regs, syscall_get_return_value(current, regs));
++
++	step = report_single_step(work);
++	if (step || work & SYSCALL_WORK_SYSCALL_TRACE)
++		arch_ptrace_report_syscall_exit(regs, step);
++}
+ 
+ /*
+  * Syscall specific exit to user mode preparation. Runs with interrupts
+diff --git a/kernel/entry/common.h b/kernel/entry/common.h
+deleted file mode 100644
+index f6e6d02f07fe..000000000000
+--- a/kernel/entry/common.h
++++ /dev/null
+@@ -1,7 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
+-#ifndef _COMMON_H
+-#define _COMMON_H
+-
+-bool syscall_user_dispatch(struct pt_regs *regs);
+-
+-#endif
+diff --git a/kernel/entry/syscall-common.c b/kernel/entry/syscall-common.c
+index fe38f84dfff3..10231d30405e 100644
+--- a/kernel/entry/syscall-common.c
++++ b/kernel/entry/syscall-common.c
+@@ -1,104 +1,16 @@
+ // SPDX-License-Identifier: GPL-2.0
  
 -#include <linux/audit.h>
- #include <linux/compat.h>
- #include <linux/kernel.h>
- #include <linux/sched/signal.h>
-@@ -18,7 +17,6 @@
- #include <linux/smp.h>
- #include <linux/ptrace.h>
- #include <linux/user.h>
--#include <linux/seccomp.h>
- #include <linux/security.h>
- #include <linux/init.h>
- #include <linux/signal.h>
-@@ -28,7 +26,6 @@
- #include <linux/hw_breakpoint.h>
- #include <linux/regset.h>
- #include <linux/elf.h>
--#include <linux/rseq.h>
+ #include <linux/entry-common.h>
+-#include "common.h"
  
- #include <asm/compat.h>
- #include <asm/cpufeature.h>
-@@ -38,13 +35,9 @@
- #include <asm/mte.h>
- #include <asm/pointer_auth.h>
- #include <asm/stacktrace.h>
--#include <asm/syscall.h>
- #include <asm/traps.h>
- #include <asm/system_misc.h>
+ #define CREATE_TRACE_POINTS
+ #include <trace/events/syscalls.h>
  
--#define CREATE_TRACE_POINTS
--#include <trace/events/syscalls.h>
--
- struct pt_regs_offset {
- 	const char *name;
- 	int offset;
-@@ -2338,152 +2331,6 @@ long arch_ptrace(struct task_struct *child, long request,
- 	return ptrace_request(child, request, addr, data);
- }
- 
--enum ptrace_syscall_dir {
--	PTRACE_SYSCALL_ENTER = 0,
--	PTRACE_SYSCALL_EXIT,
--};
--
--static __always_inline unsigned long ptrace_save_reg(struct pt_regs *regs,
--						     enum ptrace_syscall_dir dir,
--						     int *regno)
--{
--	unsigned long saved_reg;
--
--	/*
--	 * We have some ABI weirdness here in the way that we handle syscall
--	 * exit stops because we indicate whether or not the stop has been
--	 * signalled from syscall entry or syscall exit by clobbering a general
--	 * purpose register (ip/r12 for AArch32, x7 for AArch64) in the tracee
--	 * and restoring its old value after the stop. This means that:
--	 *
--	 * - Any writes by the tracer to this register during the stop are
--	 *   ignored/discarded.
--	 *
--	 * - The actual value of the register is not available during the stop,
--	 *   so the tracer cannot save it and restore it later.
--	 *
--	 * - Syscall stops behave differently to seccomp and pseudo-step traps
--	 *   (the latter do not nobble any registers).
--	 */
--	*regno = (is_compat_task() ? 12 : 7);
--	saved_reg = regs->regs[*regno];
--	regs->regs[*regno] = dir;
--
--	return saved_reg;
--}
--
--static int report_syscall_entry(struct pt_regs *regs)
--{
--	unsigned long saved_reg;
--	int regno, ret;
--
--	saved_reg = ptrace_save_reg(regs, PTRACE_SYSCALL_ENTER, &regno);
--	ret = ptrace_report_syscall_entry(regs);
--	if (ret)
--		forget_syscall(regs);
--	regs->regs[regno] = saved_reg;
--
--	return ret;
--}
--
--static void report_syscall_exit(struct pt_regs *regs)
--{
--	unsigned long saved_reg;
--	int regno;
--
--	saved_reg = ptrace_save_reg(regs, PTRACE_SYSCALL_EXIT, &regno);
--	if (!test_thread_flag(TIF_SINGLESTEP)) {
--		ptrace_report_syscall_exit(regs, 0);
--		regs->regs[regno] = saved_reg;
--	} else {
--		regs->regs[regno] = saved_reg;
--
--		/*
--		 * Signal a pseudo-step exception since we are stepping but
--		 * tracer modifications to the registers may have rewound the
--		 * state machine.
--		 */
--		ptrace_report_syscall_exit(regs, 1);
--	}
--}
--
 -static inline void syscall_enter_audit(struct pt_regs *regs, long syscall)
--{
++void __trace_sys_enter(struct pt_regs *regs, long syscall)
+ {
 -	if (unlikely(audit_context())) {
 -		unsigned long args[6];
 -
 -		syscall_get_arguments(current, regs, args);
 -		audit_syscall_entry(syscall, args[0], args[1], args[2], args[3]);
 -	}
--}
++	trace_sys_enter(regs, syscall);
+ }
+ 
+-long syscall_trace_enter(struct pt_regs *regs, long syscall,
+-				unsigned long work)
++void __trace_sys_exit(struct pt_regs *regs, long ret)
+ {
+-	long ret = 0;
 -
--int syscall_trace_enter(struct pt_regs *regs, long syscall, unsigned long flags)
--{
--	int ret;
--
--	if (flags & (_TIF_SYSCALL_EMU | _TIF_SYSCALL_TRACE)) {
--		ret = report_syscall_entry(regs);
--		if (ret || (flags & _TIF_SYSCALL_EMU))
--			return NO_SYSCALL;
+-	/*
+-	 * Handle Syscall User Dispatch.  This must comes first, since
+-	 * the ABI here can be something that doesn't make sense for
+-	 * other syscall_work features.
+-	 */
+-	if (work & SYSCALL_WORK_SYSCALL_USER_DISPATCH) {
+-		if (syscall_user_dispatch(regs))
+-			return -1L;
 -	}
 -
--	/* Do the secure computing after ptrace; failures should be fast. */
--	if (flags & _TIF_SECCOMP) {
+-	/* Handle ptrace */
+-	if (work & (SYSCALL_WORK_SYSCALL_TRACE | SYSCALL_WORK_SYSCALL_EMU)) {
+-		ret = arch_ptrace_report_syscall_entry(regs);
+-		if (ret || (work & SYSCALL_WORK_SYSCALL_EMU))
+-			return -1L;
+-	}
+-
+-	/* Do seccomp after ptrace, to catch any tracer changes. */
+-	if (work & SYSCALL_WORK_SECCOMP) {
 -		ret = __secure_computing();
--		if (ret == -1)
--			return NO_SYSCALL;
+-		if (ret == -1L)
+-			return ret;
 -	}
 -
 -	/* Either of the above might have changed the syscall number */
 -	syscall = syscall_get_nr(current, regs);
 -
--	if (test_thread_flag(TIF_SYSCALL_TRACEPOINT)) {
+-	if (unlikely(work & SYSCALL_WORK_SYSCALL_TRACEPOINT)) {
 -		trace_sys_enter(regs, syscall);
--
 -		/*
 -		 * Probes or BPF hooks in the tracepoint may have changed the
 -		 * system call number as well.
 -		 */
--		 syscall = syscall_get_nr(current, regs);
+-		syscall = syscall_get_nr(current, regs);
 -	}
 -
 -	syscall_enter_audit(regs, syscall);
@@ -518,93 +336,68 @@ index 2645ddf77369..f575b30b2dc4 100644
 -	return ret ? : syscall;
 -}
 -
--static inline bool report_single_step(unsigned long flags)
+-/*
+- * If SYSCALL_EMU is set, then the only reason to report is when
+- * SINGLESTEP is set (i.e. PTRACE_SYSEMU_SINGLESTEP).  This syscall
+- * instruction has been already reported in syscall_enter_from_user_mode().
+- */
+-static inline bool report_single_step(unsigned long work)
 -{
--	if (flags & _TIF_SYSCALL_EMU)
+-	if (work & SYSCALL_WORK_SYSCALL_EMU)
 -		return false;
 -
--	return flags & _TIF_SINGLESTEP;
+-	return work & SYSCALL_WORK_SYSCALL_EXIT_TRAP;
 -}
 -
--static void syscall_exit_work(struct pt_regs *regs, unsigned long flags)
+-void syscall_exit_work(struct pt_regs *regs, unsigned long work)
 -{
 -	bool step;
 -
+-	/*
+-	 * If the syscall was rolled back due to syscall user dispatching,
+-	 * then the tracers below are not invoked for the same reason as
+-	 * the entry side was not invoked in syscall_trace_enter(): The ABI
+-	 * of these syscalls is unknown.
+-	 */
+-	if (work & SYSCALL_WORK_SYSCALL_USER_DISPATCH) {
+-		if (unlikely(current->syscall_dispatch.on_dispatch)) {
+-			current->syscall_dispatch.on_dispatch = false;
+-			return;
+-		}
+-	}
+-
 -	audit_syscall_exit(regs);
 -
--	if (flags & _TIF_SYSCALL_TRACEPOINT)
+-	if (work & SYSCALL_WORK_SYSCALL_TRACEPOINT)
 -		trace_sys_exit(regs, syscall_get_return_value(current, regs));
 -
--	step = report_single_step(flags);
--	if (step || flags & _TIF_SYSCALL_TRACE)
--		report_syscall_exit(regs);
--}
--
--void syscall_exit_to_user_mode_work_prepare(struct pt_regs *regs)
--{
--	unsigned long flags = read_thread_flags();
--
--	rseq_syscall(regs);
--
--	if (unlikely(flags & _TIF_SYSCALL_EXIT_WORK) || flags & _TIF_SINGLESTEP)
--		syscall_exit_work(regs, flags);
--}
--
+-	step = report_single_step(work);
+-	if (step || work & SYSCALL_WORK_SYSCALL_TRACE)
+-		arch_ptrace_report_syscall_exit(regs, step);
++	trace_sys_exit(regs, ret);
+ }
+diff --git a/kernel/entry/syscall_user_dispatch.c b/kernel/entry/syscall_user_dispatch.c
+index a9055eccb27e..d89dffcc2d64 100644
+--- a/kernel/entry/syscall_user_dispatch.c
++++ b/kernel/entry/syscall_user_dispatch.c
+@@ -2,6 +2,8 @@
  /*
-  * SPSR_ELx bits which are always architecturally RES0 per ARM DDI 0487D.a.
-  * We permit userspace to set SSBS (AArch64 bit 12, AArch32 bit 23) which is
-diff --git a/arch/arm64/kernel/signal.c b/arch/arm64/kernel/signal.c
-index 1110eeb21f57..d3ec1892b3c7 100644
---- a/arch/arm64/kernel/signal.c
-+++ b/arch/arm64/kernel/signal.c
-@@ -8,8 +8,8 @@
- 
- #include <linux/cache.h>
- #include <linux/compat.h>
+  * Copyright (C) 2020 Collabora Ltd.
+  */
++
 +#include <linux/entry-common.h>
- #include <linux/errno.h>
--#include <linux/irq-entry-common.h>
- #include <linux/kernel.h>
- #include <linux/signal.h>
- #include <linux/freezer.h>
-diff --git a/arch/arm64/kernel/syscall.c b/arch/arm64/kernel/syscall.c
-index 80b7fd67492e..c440ccb2af62 100644
---- a/arch/arm64/kernel/syscall.c
-+++ b/arch/arm64/kernel/syscall.c
-@@ -2,6 +2,7 @@
- 
- #include <linux/compiler.h>
- #include <linux/context_tracking.h>
-+#include <linux/entry-common.h>
- #include <linux/errno.h>
- #include <linux/nospec.h>
+ #include <linux/sched.h>
+ #include <linux/prctl.h>
  #include <linux/ptrace.h>
-@@ -68,6 +69,7 @@ static void invoke_syscall(struct pt_regs *regs, unsigned int scno,
- static void el0_svc_common(struct pt_regs *regs, int scno, int sc_nr,
- 			   const syscall_fn_t syscall_table[])
+@@ -15,8 +17,6 @@
+ 
+ #include <asm/syscall.h>
+ 
+-#include "common.h"
+-
+ static void trigger_sigsys(struct pt_regs *regs)
  {
-+	unsigned long work = READ_ONCE(current_thread_info()->syscall_work);
- 	unsigned long flags = read_thread_flags();
- 
- 	regs->orig_x0 = regs->regs[0];
-@@ -101,7 +103,7 @@ static void el0_svc_common(struct pt_regs *regs, int scno, int sc_nr,
- 		return;
- 	}
- 
--	if (unlikely(flags & _TIF_SYSCALL_WORK)) {
-+	if (unlikely(work & SYSCALL_WORK_ENTER)) {
- 		/*
- 		 * The de-facto standard way to skip a system call using ptrace
- 		 * is to set the system call to -1 (NO_SYSCALL) and set x0 to a
-@@ -119,7 +121,7 @@ static void el0_svc_common(struct pt_regs *regs, int scno, int sc_nr,
- 		 */
- 		if (scno == NO_SYSCALL)
- 			syscall_set_return_value(current, regs, -ENOSYS, 0);
--		scno = syscall_trace_enter(regs, scno, flags);
-+		scno = syscall_trace_enter(regs, scno, work);
- 		if (scno == NO_SYSCALL)
- 			goto trace_exit;
- 	}
+ 	struct kernel_siginfo info;
 -- 
 2.34.1
 
