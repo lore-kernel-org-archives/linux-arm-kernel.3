@@ -4,157 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A46AE6748D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 09:17:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 243D2E6748D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 09:17:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gEttamuP59dkMhpfbDzlvMFEqXSf8qpVnYodQGfdzkw=; b=g1ec8O75/nibrOr+uEMHE+m6/P
-	4+h0JrangeD5o3mh8bCQQuWO4DdtKjmsrcHN6AWtKnmtkZhPYnue3yLW3EmxLouAj8plrlDRlKKQM
-	7R56Iwgvh41rpYiuOQtVOFJAz1QdPoS3swF+ueVL//SgQCXzfknTS+T6jEo2Ku+Zj35oB545B7hE9
-	m4Ia/uC1Ah/RgWV3YjR6462zUFVMOKAoRjvKZDUuccw3WsWH8DNngIPH9Sa3Byi7Q/jtXCL9C1QEs
-	Kqvz8+9Q2MW3BpKsCCnHSZty+RJK3qyODydS2Kyjm2/DQN/884inzwZ1y5i1Bwl87qPR9dxsSqZIG
-	NUMOKkiA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Nb3n1nsNJMcoSFIkmzKS2rMqgizIUNC22FVriH9Ctx8=; b=qTMAbn9EVnXrO/r63cKnZv89kD
+	lPj+iNNFoPqZ7N7JIsaAEAarWMEA39UL0CF/oDoEEjJk3Q9fK/zLaqfMS7w0aS9IDO3e6eZr3Dwo6
+	ZjYNJSIpkZKgRVfPHhecUpPKR6TSySLmz+D56AiMCOhcGcoSi1FaEVCBYs/7euACCUrrBEQ47vvYR
+	BpPufJzd3O+DrDwurL3wt3TS+JpVNgXXXnOY5R8nMor8DfgJFK0HeykaoXBz4wQT2XPA2mYm2CkLI
+	Cd5g7wilBtb4ZD3SfBtyt/de0hLrZxrOfpFrjYzVtBrr5Bm4iqLPT9b+bLl5mPtfTFiVT8rnv8JBX
+	831+v9sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXc2X-0000000DVeX-0MfA;
-	Mon, 22 Dec 2025 09:17:17 +0000
-Received: from mail-eastusazon11011021.outbound.protection.outlook.com ([52.101.52.21] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1vXc2d-0000000DVgP-10mH;
+	Mon, 22 Dec 2025 09:17:23 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXc2U-0000000DVe0-3OVR
+	id 1vXc2Z-0000000DVeI-2oMn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Dec 2025 09:17:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qjXTx53TBLaF+kU0zAxryZRNZ3uQhNHKbc/5H+HjqpD1sFhz5Uekhif/fNl8ufuVBfHvUd1FoSaXTRxVbDVIuOQ5ntQ9hsog7VWi5ffKJ9CzWjs+PLxLnyS845V7yxqWE6pkG4iZvbe1zs/HIfBmjZ+DTNZxSRoxKBmw2CSGjaUThluPPmCuV1hJP93K6A6WShczOVSNMGhhV/JSAcnNF/TpXo6DpIg/l3oz/lQaZFN5kdDm6xdVqw9wSBqPDyVnbI63lEG0OlcS8KosX14trrbQN9xUNmpEYaMMjhNxc5qHlQFKiFaIDPjCMVJtw6LMyaJ3pv/v8xSwBxG7GDS6cA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gEttamuP59dkMhpfbDzlvMFEqXSf8qpVnYodQGfdzkw=;
- b=MSVQJd+sODtoCBS1xOvPLNwy/lpuMsaEGdlWtm+DUKPBjFOLAlUiajJ5QrwXREqb6Ks0lstFgcSGbJ+cWJIugPAFyoHMcfWNFIIknefrRLZN3D5sPj8d7OMjQWK5MypwfbEUCPTJCwgAmAmI8LomEnGrWaCxSU3z4kGe0ImWctel08IQfPPHsGcmtdQ0Z3Uy5NK5jpO7ejf2w7C2nEoiYA54TaRebePidDNaSu0mBf+99SJTfDPzgqK/sS6LQVZGgMaOy4xuBfy1o24oJj6etywRfge/2gERNhhtmaZ1f6pifkdhspmKdEg4KfsDoEM4NVoDD1pWmVw7FC5zd1Ol8A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=google.com smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gEttamuP59dkMhpfbDzlvMFEqXSf8qpVnYodQGfdzkw=;
- b=ygbxbL7PFuh2yzNOwnEk60DP+8II1jlzoyJ+aXojwauOJ+POZNpsnngCpfjlbHIqOygwXxn+exqEwMSfW2n15DqDvu+GjwccOQRSLRMXOi4oywJ7QW49B511NKP2CiEFCXrc075H18f9r1FvKa36Gg/RSlV5oRbTq5taskktlNU=
-Received: from BL1PR13CA0171.namprd13.prod.outlook.com (2603:10b6:208:2bd::26)
- by DS0PR12MB7852.namprd12.prod.outlook.com (2603:10b6:8:147::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.11; Mon, 22 Dec
- 2025 09:17:06 +0000
-Received: from BL02EPF0001A101.namprd05.prod.outlook.com
- (2603:10b6:208:2bd:cafe::f7) by BL1PR13CA0171.outlook.office365.com
- (2603:10b6:208:2bd::26) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9456.10 via Frontend Transport; Mon,
- 22 Dec 2025 09:17:03 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- BL02EPF0001A101.mail.protection.outlook.com (10.167.241.132) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9456.9 via Frontend Transport; Mon, 22 Dec 2025 09:17:06 +0000
-Received: from SATLEXMB04.amd.com (10.181.40.145) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.17; Mon, 22 Dec
- 2025 03:17:06 -0600
-Received: from satlexmb07.amd.com (10.181.42.216) by SATLEXMB04.amd.com
- (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 22 Dec
- 2025 03:17:05 -0600
-Received: from amd.com (10.180.168.240) by satlexmb07.amd.com (10.181.42.216)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17 via Frontend
- Transport; Mon, 22 Dec 2025 01:17:00 -0800
-Date: Mon, 22 Dec 2025 09:16:55 +0000
-From: Ankit Soni <Ankit.Soni@amd.com>
-To: Sean Christopherson <seanjc@google.com>
-CC: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
-	Paolo Bonzini <pbonzini@redhat.com>, Joerg Roedel <joro@8bytes.org>, "David
- Woodhouse" <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>,
-	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
-	<kvm@vger.kernel.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, Sairaj Kodilkar <sarunkod@amd.com>, "Vasant
- Hegde" <vasant.hegde@amd.com>, Maxim Levitsky <mlevitsk@redhat.com>, "Joao
- Martins" <joao.m.martins@oracle.com>, Francesco Lavra
-	<francescolavra.fl@gmail.com>, David Matlack <dmatlack@google.com>, "Naveen
- Rao" <Naveen.Rao@amd.com>
-Subject: Re: [PATCH v3 38/62] KVM: SVM: Take and hold ir_list_lock across
- IRTE updates in IOMMU
-Message-ID: <njhjud3e6wbdftzr3ziyuh5bhyvc5ndt5qvmg7rlvh5isoop2l@f2uxctws2c7d>
-References: <20250611224604.313496-2-seanjc@google.com>
- <20250611224604.313496-40-seanjc@google.com>
+	Mon, 22 Dec 2025 09:17:22 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 70F141A2368;
+	Mon, 22 Dec 2025 09:17:14 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 45E13606C1;
+	Mon, 22 Dec 2025 09:17:14 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D1A9F10AB0140;
+	Mon, 22 Dec 2025 10:17:08 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1766395033; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=Nb3n1nsNJMcoSFIkmzKS2rMqgizIUNC22FVriH9Ctx8=;
+	b=nTppoy4S3vb8RSx5dHoCVBs3MXIZ2NgxoLdtn1i8P8i1fdxV4vdc4cR2J2qN9amyRoVqXJ
+	OBFsKphvKmjZVcVt3RYEywq7VOfV4M3+Y/fxpEmjxj7P0YlIj93AqDO8QtPukY9KNfD+Wt
+	B2ETiMQ354F2eq08es+qA/AxHcAlZ5AIWHRY/gL7gtG23KWSLCL2JR+kaqP62I92Zxmzre
+	fLtmndNOLpuCnnWD0qA9pJaq9S8kBnNsFLWkQ1eyfWApvjDpZdgYQefCd1FaQcPYSsPy/x
+	+nVUdpaHs4vIheaYaHvjJPu5qfRWFGKrTMyVdKfyEPdGjIzLwws2moyJaut9CQ==
+Message-ID: <160e221e-98a8-4097-8340-94ac7d208136@bootlin.com>
+Date: Mon, 22 Dec 2025 10:17:07 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/4] Introduce Allwinner H616 PWM controller
+To: =?UTF-8?Q?Jernej_=C5=A0krabec?= <jernej.skrabec@gmail.com>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Samuel Holland <samuel@sholland.org>, Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20251217082504.80226-1-richard.genoud@bootlin.com>
+ <6113404.MhkbZ0Pkbq@jernej-laptop>
+Content-Language: en-US, fr
+From: Richard GENOUD <richard.genoud@bootlin.com>
+Organization: Bootlin
+In-Reply-To: <6113404.MhkbZ0Pkbq@jernej-laptop>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250611224604.313496-40-seanjc@google.com>
-Received-SPF: None (SATLEXMB04.amd.com: Ankit.Soni@amd.com does not designate
- permitted sender hosts)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL02EPF0001A101:EE_|DS0PR12MB7852:EE_
-X-MS-Office365-Filtering-Correlation-Id: a7d36328-7e40-43b2-b9d9-08de413ae09b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|7416014|1800799024|82310400026|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?OERFbDZCL3FWT1huNDJjd255ZC9BSkRUOGFoeWtMTy92V0RWRFg0eThoQzlX?=
- =?utf-8?B?aW9SNGxTWkN2bjYyU2pjUG12UVIyRzNwVnIyaU5qVGFnVEdsTTN3MGRRM1BD?=
- =?utf-8?B?WjY1UXAvMnVtWjJsV1ZETWJWR2tnWFVsVWJTSkdrSlNsemR2NkxpOXZvSTZO?=
- =?utf-8?B?YkloWEtiLy93UTY5VVhmY0pFQlNjZG5TVEs1aWZyN3N5R3pBNWxTWDBST0Vz?=
- =?utf-8?B?RENOK3Nla3ladUtML09wRTRPQVNJYkxhUk5aL01ZOE5LM0FDdzdvOGtSL2VK?=
- =?utf-8?B?QWNMUXVIeFBTL21FU0ZJbXlBcTdLZml2QmZsdkh4SkVXUVJOU0RkcWhGV2tP?=
- =?utf-8?B?MmVCTjFtY3FlUmRjeDlkSmhoSDlPMGtzS2NxMi9YemhoaExXNzhTZFV4YlQy?=
- =?utf-8?B?emJmYkdvcVVWTTlBdGhNa24zMUE5NUVuNFBLRWYxRWxsZWRqV29ENHlidy94?=
- =?utf-8?B?NFdsdjZNaEJBZEtpenhkRC82S2p1enlkWXNqTGsxZ2tRcUZ3aDdadUhPRjdZ?=
- =?utf-8?B?ZHNhUENPY3ovZ0h5UlRTZUpWUklLRkIyMlA5NWJFdFJhOStIV0NlVkFDZ2th?=
- =?utf-8?B?d3FqYTZTVTE5M3NLdzJEZHJzSS9hbW9sb0JXVGtOWUVaTWdIVlF4ekZUNFNn?=
- =?utf-8?B?NTFXbmNnSkFtZUw5V2VYVHV4c2E5bFFmWG8xNnhSTko1ajNiQnN5WHlkeUta?=
- =?utf-8?B?U1ZjSU1ZSUtrQTltQ0M0QXJpMTc4WHFlMkk3eDl5SXVNUzBhckM4UlUxTlBV?=
- =?utf-8?B?d1JRaWlMTTA4SExySnFkWHBCK0RtbFJyczhSNk9xNDFpQW0yRStSMUhmeWxQ?=
- =?utf-8?B?cXFOcENtNUd4dkwvYS9lYVRCMDYwOWZ0UFZMMndUeUNPSGwwcHh6OEtuRElr?=
- =?utf-8?B?US9TdFR3Y2QzMW50TTJpSUlkcVZtM3ZYd21NOGJ2MlNhVHFlRUZ2bnJ0ZVcy?=
- =?utf-8?B?RFZRTWp6dUdmR3ZnYmlFbFN2NFVOazl6cThHL0xkSmlBdUkvMy9NVFZCRno2?=
- =?utf-8?B?SVhNWlR6M2hRNnpCbU1NdzZRL1dBWVdJWTFqZUIxUnU0MDcrRUhJZ2xjaDEy?=
- =?utf-8?B?UXEwKzlEenVpSHNDeTNMNWtRVlhLeFdlM0dIalZieXVqeHFjSWtIZDZQcDJw?=
- =?utf-8?B?MUloYmg2MSt1bW14MHdyZTZkREVZT3RRcmpiQjJMUnRGUGhMb05UUUxXRHN3?=
- =?utf-8?B?Z3NYc0hSSUZzaTlSUEkyREJXWjlhVE5BMHdGUUk3QkdsT3JDeVY4Wm8zV2Zm?=
- =?utf-8?B?MzVKSTd3cTZTZThVZUJjYjFhV09TTTZNZHNITlVqSGhDOGRXelViWmVVMVB4?=
- =?utf-8?B?ZWJoYjlBaWtLazhRZ2QxMTJ1dkdFYkM2cG0yTzZnZ1dZNjQyL2ticVR2TGxp?=
- =?utf-8?B?MjllaGwyZWJKWW8zdlo5V1oyRStlRWtEcmhwdHF5MUZxWlBQWnZmODQrYy9v?=
- =?utf-8?B?ZDZ4enBUVTZwUmpsNE4vNWo4OExrdDJWQmovcnJnSEpja1d6TDNZalZUWm1V?=
- =?utf-8?B?NFEzWFRJT0tGazdWczlKSTRaRCtnTDJ0VHBJYURrdjBIdmRLZWsvR1JtVTdv?=
- =?utf-8?B?TEVoRmdUbTRIR0tNc3JhRWlqYUtwYlFGbmo2TThKYU9JY1hBQmYzM1pnZ0c4?=
- =?utf-8?B?N012MHhrWlJkUEtrSEE4c0d5dTRmbjBqVC8wRmhpMXJPT1N5SE8wenZOMFpz?=
- =?utf-8?B?UVZaOSs1V1paUDdyTkkzRjNWcjhJcnFJNzdHMUF6OVNXVnFIM1VnYmZoeElF?=
- =?utf-8?B?V1R4b3ZkOXpGM3c0alRTa2xXMmlXN3RLTWxWbUJhN2ljMlg1MlFqdzZzVk83?=
- =?utf-8?B?ZDcyTEJvY1BvTXh1czNEQmh1M00zM3Nsa1JFalQ1ZFlieWROdC94UDk5Zmpo?=
- =?utf-8?B?M2l4U3p1L1M1TjkzWU9JWEZVUThxcWhPd0NSaTFuYndmRTFteVJxQ0hGck9F?=
- =?utf-8?B?NHBkT2VrN3FaQWg3UzBLSWtRNHQ4d1l6ZEJvWUlaMnM5YkpRaU41Z2piQUp2?=
- =?utf-8?B?bC9XSnk4STNCc0N0WXlOdWFQMG1sb3QrSXlNZllBUUtHc0IzQzlzdlRWSDF0?=
- =?utf-8?B?N3NkY0RDQnVtZlhhVU9XRlZJNENDbzFXNitCdz09?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(376014)(7416014)(1800799024)(82310400026)(7053199007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Dec 2025 09:17:06.4946
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a7d36328-7e40-43b2-b9d9-08de413ae09b
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL02EPF0001A101.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7852
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_011715_275994_414888EC 
-X-CRM114-Status: GOOD (  21.69  )
+X-CRM114-CacheID: sfid-20251222_011719_907397_C4054CD4 
+X-CRM114-Status: GOOD (  27.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,248 +84,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 11, 2025 at 03:45:41PM -0700, Sean Christopherson wrote:
-> Now that svm_ir_list_add() isn't overloaded with all manner of weird
-> things, fold it into avic_pi_update_irte(), and more importantly take
-> ir_list_lock across the irq_set_vcpu_affinity() calls to ensure the info
-> that's shoved into the IRTE is fresh.  While preemption (and IRQs) is
-> disabled on the task performing the IRTE update, thanks to irqfds.lock,
-> that task doesn't hold the vCPU's mutex, i.e. preemption being disabled
-> is irrelevant.
+Hi Jernej,
+
+Le 21/12/2025 à 20:12, Jernej Škrabec a écrit :
+> Dne sreda, 17. december 2025 ob 09:25:00 Srednjeevropski standardni čas je Richard Genoud napisal(a):
+>> Allwinner H616 PWM controller is quite different from the A10 one.
+>>
+>> It can drive 6 PWM channels, and like for the A10, each channel has a
+>> bypass that permits to output a clock, bypassing the PWM logic, when
+>> enabled.
+>>
+>> But, the channels are paired 2 by 2, sharing a first set of
+>> MUX/prescaler/gate.
+>> Then, for each channel, there's another prescaler (that will be bypassed
+>> if the bypass is enabled for this channel).
+>>
+>> It looks like that:
+>>              _____      ______      ________
+>> OSC24M --->|     |    |      |    |        |
+>> APB1 ----->| Mux |--->| Gate |--->| /div_m |-----> PWM_clock_src_xy
+>>             |_____|    |______|    |________|
+>>                            ________
+>>                           |        |
+>>                        +->| /div_k |---> PWM_clock_x
+>>                        |  |________|
+>>                        |    ______
+>>                        |   |      |
+>>                        +-->| Gate |----> PWM_bypass_clock_x
+>>                        |   |______|
+>> PWM_clock_src_xy -----+   ________
+>>                        |  |        |
+>>                        +->| /div_k |---> PWM_clock_y
+>>                        |  |________|
+>>                        |    ______
+>>                        |   |      |
+>>                        +-->| Gate |----> PWM_bypass_clock_y
+>>                            |______|
+>>
+>> Where xy can be 0/1, 2/3, 4/5
+>>
+>> PWM_clock_x/y serve for the PWM purpose.
+>> PWM_bypass_clock_x/y serve for the clock-provider purpose.
+>> The common clock framework has been used to manage those clocks.
+>>
+>> This PWM driver serves as a clock-provider for PWM_bypass_clocks.
+>> This is needed for example by the embedded AC300 PHY which clock comes
+>> from PMW5 pin (PB12).
 > 
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  arch/x86/kvm/svm/avic.c | 55 +++++++++++++++++------------------------
->  1 file changed, 22 insertions(+), 33 deletions(-)
+> No. Drop all clocks related code and make this pure PWM driver, like pwm-sun4i
+> is. For AC300, AC200 or whatever other device may need clock produced by PWM,
+> pwm-clock can be used like this:
 > 
-> diff --git a/arch/x86/kvm/svm/avic.c b/arch/x86/kvm/svm/avic.c
-> index f1e9f0dd43e8..4747fb09aca4 100644
-> --- a/arch/x86/kvm/svm/avic.c
-> +++ b/arch/x86/kvm/svm/avic.c
->  
->  int avic_pi_update_irte(struct kvm_kernel_irqfd *irqfd, struct kvm *kvm,
->  			unsigned int host_irq, uint32_t guest_irq,
->  			struct kvm_vcpu *vcpu, u32 vector)
-> @@ -823,8 +797,18 @@ int avic_pi_update_irte(struct kvm_kernel_irqfd *irqfd, struct kvm *kvm,
->  			.vapic_addr = avic_get_backing_page_address(to_svm(vcpu)),
->  			.vector = vector,
->  		};
-> +		struct vcpu_svm *svm = to_svm(vcpu);
-> +		u64 entry;
->  		int ret;
->  
-> +		/*
-> +		 * Prevent the vCPU from being scheduled out or migrated until
-> +		 * the IRTE is updated and its metadata has been added to the
-> +		 * list of IRQs being posted to the vCPU, to ensure the IRTE
-> +		 * isn't programmed with stale pCPU/IsRunning information.
-> +		 */
-> +		guard(spinlock_irqsave)(&svm->ir_list_lock);
-> +
-
-Hi,
-
-I’m seeing a lockdep warning about a possible circular locking dependency
-involving svm->ir_list_lock and irq_desc_lock when using AMD SVM with AVIC
-enabled and a VFIO passthrough device, on 6.19-rc2.
-
-Environment
-===========
-
-  - Kernel: 6.19.0-rc2
-  - QEMU: 10.1.94
-  - CPU: AMD EPYC 9965
-  - Modules involved: kvm_amd, kvm, vfio_pci, vfio, irqbypass, mlx5_core
-  - Workload: QEMU guest with an mlx5 PCI device passed through.
-
-Lockdep warning
-===============
-
-The warning is:
-
-  ======================================================
-  WARNING: possible circular locking dependency detected
-  6.19.0-rc2 #20 Tainted: G            E
-  ------------------------------------------------------
-  CPU 58/KVM/28597 is trying to acquire lock:
-    ff12c47d4b1f34c0 (&irq_desc_lock_class){-.-.}-{2:2}, at: __irq_get_desc_lock+0x58/0xa0
-
-    but task is already holding lock:
-    ff12c49b28552110 (&svm->ir_list_lock){....}-{2:2}, at: avic_pi_update_irte+0x147/0x270 [kvm_amd]
-
-    which lock already depends on the new lock.
-
-  the existing dependency chain (in reverse order) is:
-
-    -> #3 (&svm->ir_list_lock){....}-{2:2}:
-         _raw_spin_lock_irqsave+0x4e/0xb0
-         __avic_vcpu_put+0x7a/0x150 [kvm_amd]
-         avic_vcpu_put+0x50/0x70 [kvm_amd]
-         svm_vcpu_put+0x38/0x70 [kvm_amd]
-         kvm_arch_vcpu_put+0x21b/0x330 [kvm]
-         kvm_sched_out+0x62/0x90 [kvm]
-         __schedule+0x8d3/0x1d10
-         __cond_resched+0x5c/0x80
-         __mutex_lock+0x83/0x10b0
-         mutex_lock_nested+0x1b/0x30
-         kvm_hv_set_msr_common+0x199/0x12a0 [kvm]
-         kvm_set_msr_common+0x468/0x1310 [kvm]
-         svm_set_msr+0x645/0x730 [kvm_amd]
-         __kvm_set_msr+0xa3/0x2f0 [kvm]
-         kvm_set_msr_ignored_check+0x23/0x1b0 [kvm]
-         do_set_msr+0x76/0xd0 [kvm]
-         msr_io+0xbe/0x1c0 [kvm]
-         kvm_arch_vcpu_ioctl+0x700/0x2090 [kvm]
-         kvm_vcpu_ioctl+0x632/0xc60 [kvm]
-         __x64_sys_ioctl+0xa5/0x100
-         x64_sys_call+0x1243/0x26b0
-         do_syscall_64+0x93/0x1470
-         entry_SYSCALL_64_after_hwframe+0x76/0x7e
-
-    -> #2 (&rq->__lock){-.-.}-{2:2}:
-         _raw_spin_lock_nested+0x32/0x80
-         raw_spin_rq_lock_nested+0x22/0xa0
-         task_rq_lock+0x5f/0x150
-         cgroup_move_task+0x46/0x110
-         css_set_move_task+0xe1/0x240
-         cgroup_post_fork+0x98/0x2d0
-         copy_process+0x1ea8/0x2330
-         kernel_clone+0xa7/0x440
-         user_mode_thread+0x63/0x90
-         rest_init+0x28/0x200
-         start_kernel+0xae0/0xcd0
-         x86_64_start_reservations+0x18/0x30
-         x86_64_start_kernel+0xfd/0x150
-         common_startup_64+0x13e/0x141
-
-    -> #1 (&p->pi_lock){-.-.}-{2:2}:
-         _raw_spin_lock_irqsave+0x4e/0xb0
-         try_to_wake_up+0x59/0xaa0
-         wake_up_process+0x15/0x30
-         irq_do_set_affinity+0x145/0x270
-         irq_set_affinity_locked+0x172/0x250
-         irq_set_affinity+0x47/0x80
-         write_irq_affinity.isra.0+0xfe/0x120
-         irq_affinity_proc_write+0x1d/0x30
-         proc_reg_write+0x69/0xa0
-         vfs_write+0x110/0x560
-         ksys_write+0x77/0x100
-         __x64_sys_write+0x19/0x30
-         x64_sys_call+0x79/0x26b0
-         do_syscall_64+0x93/0x1470
-         entry_SYSCALL_64_after_hwframe+0x76/0x7e
-
-    -> #0 (&irq_desc_lock_class){-.-.}-{2:2}:
-         __lock_acquire+0x1595/0x2640
-         lock_acquire+0xc4/0x2c0
-         _raw_spin_lock_irqsave+0x4e/0xb0
-         __irq_get_desc_lock+0x58/0xa0
-         irq_set_vcpu_affinity+0x4a/0x100
-         avic_pi_update_irte+0x170/0x270 [kvm_amd]
-         kvm_pi_update_irte+0xea/0x220 [kvm]
-         kvm_arch_irq_bypass_add_producer+0x9b/0xb0 [kvm]
-         __connect+0x5f/0x100 [irqbypass]
-         irq_bypass_register_producer+0xe4/0xb90 [irqbypass]
-         vfio_msi_set_vector_signal+0x1b0/0x330 [vfio_pci_core]
-         vfio_msi_set_block+0x5a/0xd0 [vfio_pci_core]
-         vfio_pci_set_msi_trigger+0x19e/0x260 [vfio_pci_core]
-         vfio_pci_set_irqs_ioctl+0x46/0x140 [vfio_pci_core]
-         vfio_pci_core_ioctl+0x6ea/0xc20 [vfio_pci_core]
-         vfio_device_fops_unl_ioctl+0xb1/0x9d0 [vfio]
-         __x64_sys_ioctl+0xa5/0x100
-         x64_sys_call+0x1243/0x26b0
-         do_syscall_64+0x93/0x1470
-         entry_SYSCALL_64_after_hwframe+0x76/0x7e
-
-  Chain exists of:
-    &irq_desc_lock_class --> &rq->__lock --> &svm->ir_list_lock
-
-  Possible unsafe locking scenario:
-
-        CPU0                            CPU1
-        ----                            ----
-   lock(&svm->ir_list_lock);
-                                      lock(&rq->__lock);
-                                      lock(&svm->ir_list_lock);
-   lock(&irq_desc_lock_class);
-
-        *** DEADLOCK ***
-
-At the point of the warning, the following locks are held:
-
-  #0: &vdev->igate           (vfio_pci_core)
-  #1: lock#10                (irqbypass)
-  #2: &kvm->irqfds.lock      (kvm)
-  #3: &svm->ir_list_lock     (kvm_amd)
-
-and the stack backtrace has:
-
-  __irq_get_desc_lock
-  irq_set_vcpu_affinity
-  avic_pi_update_irte               [kvm_amd]
-  kvm_pi_update_irte                [kvm]
-  kvm_arch_irq_bypass_add_producer  [kvm]
-  __connect                         [irqbypass]
-  irq_bypass_register_producer      [irqbypass]
-  vfio_msi_set_vector_signal        [vfio_pci_core]
-  vfio_pci_set_irqs_ioctl           [vfio_pci_core]
-  vfio_pci_core_ioctl               [vfio_pci_core]
-  vfio_device_fops_unl_ioctl        [vfio]
-  __x64_sys_ioctl
-  x64_sys_call
-  do_syscall_64
-  entry_SYSCALL_64_after_hwframe
-
-So lockdep sees:
-
-  &irq_desc_lock_class -> &rq->__lock -> &svm->ir_list_lock
-
-while avic_pi_update_irte() currently holds svm->ir_list_lock and then
-takes irq_desc_lock via irq_set_vcpu_affinity(), which creates the
-potential inversion.
-
-Reproduction
-============
-
-Host:
-
-  - AMD EPYC + AVIC enabled
-  - Kernel 6.19-rc2 with lockdep
-  - VFIO passthrough of an mlx5 device (mlx5_core loaded)
-
-Launch command with Passthrough device, with AVIC mode.
-
-The warning triggers when enabling MSI/MSI-X for the passthrough device
-from the guest, i.e. via VFIO ioctl on the host that goes through
-irq_bypass and eventually calls avic_pi_update_irte().
-
-I can reproduce this reliably when starting the guest with the VFIO
-device assigned after every host reboot.
-
-Questions
-=========
-
-  - Is this lockdep warning expected/benign in this code path, or does it
-    indicate a real potential deadlock between svm->ir_list_lock and
-    irq_desc_lock with AVIC + irq_bypass + VFIO?
-
-  - If this is considered a real issue, is the expected direction to:
-      * change the locking around avic_pi_update_irte()/svm->ir_list_lock, or
-      * adjust how irq_bypass / VFIO interacts with vCPU affinity updates
-        on AMD/AVIC, or
-      * annotate the locking somehow if lockdep is over-reporting here?
-
-I’m happy to:
-
-  - Provide my full .config
-  - Share the exact QEMU command line
-  - Test any proposed patches or instrumentation
-
-Thanks,
-Ankit Soni
-Ankit.Soni@amd.com
-
-> -- 
-> 2.50.0.rc1.591.g9c95f17f64-goog
+> ac300_pwm_clk: ac300-clk {
+> 	compatible = "pwm-clock";
+> 	#clock-cells = <0>;
+> 	clock-frequency = <24000000>;
+> 	pinctrl-names = "default";
+> 	pinctrl-0 = <&pwm1_pin>;
+> 	pwms = <&pwm 1 42 0>;
+> };
 > 
+> ac300 {
+> 	...
+> 	clocks = <&ac300_pwm_clk>;
+> 	...
+> };
+Yes, that was my first move, but after trying quite hard, I came to the 
+conclusion that pwm-clock is not fit for this precise case.
+If we had only one source clock, this would be a perfect fit though.
+
+Here's the problem: the pwm-clock request a period from the PWM driver, 
+without any clue that it actually wants a clock at a specific frequency, 
+and not a PWM signal with duty cycle capability.
+So, the PWM driver doesn't know if it can use the bypass or not, it 
+doesn't even have the real accurate frequency information (23809524 Hz 
+instead of 24MHz) because the pwm_apply only deals with periods.
+With pwm-clock, we loose a precious information along the way (that we 
+actually want a clock and not a PWM signal).
+That's ok with simple PWM drivers that don't have multiple input clocks, 
+but in this case, without this information, we can't know for sure which 
+clock to use.
+And here, for instance, if pwm-clock requests 42ns, the logic is to 
+select the highest clock (100MHz), with no prescaler, and a duty cycle 
+value of 2/4 => we have 25MHz instead of 24MHz.
+And that's a perfectly fine choice for a PMW, because we still can 
+change the duty cycle in the range [0-4]/4.
+But obviously for a clock, we don't care about the duty cycle, but more 
+about the clock accuracy.
+When I tried to use pwm-clock, I ended up making assumptions on what was 
+the intended use (if the asked period is 42 with a duty cycle of 50% 
+maybe the consumer wants a clock), but that was too hack-ish.
+
+That's why I put aside the pwm-clock and I went for this instead.
+
+
+Thanks for the review!
+
+Regards,
+Richard
+
+> 
+> Best regards,
+> Jernej
+> 
+>>
+>> This series is based onto v6.19-rc1
+>>
+>> Changes since v1:
+>> - rebase onto v6.19-rc1
+>> - add missing headers
+>> - remove MODULE_ALIAS (suggested by Krzysztof)
+>> - use sun4i-pwm binding instead of creating a new one (suggested by Krzysztof)
+>> - retrieve the parent clocks from the devicetree
+>> - switch num_parents to unsigned int
+>>
+>> Richard Genoud (4):
+>>    dt-bindings: pwm: allwinner: add h616 pwm compatible
+>>    pwm: sun50i: Add H616 PWM support
+>>    arm64: dts: allwinner: h616: add PWM controller
+>>    MAINTAINERS: Add entry on Allwinner H616 PWM driver
+>>
+>>   .../bindings/pwm/allwinner,sun4i-a10-pwm.yaml |  19 +-
+>>   MAINTAINERS                                   |   5 +
+>>   .../arm64/boot/dts/allwinner/sun50i-h616.dtsi |  47 +
+>>   drivers/pwm/Kconfig                           |  12 +
+>>   drivers/pwm/Makefile                          |   1 +
+>>   drivers/pwm/pwm-sun50i-h616.c                 | 892 ++++++++++++++++++
+>>   6 files changed, 975 insertions(+), 1 deletion(-)
+>>   create mode 100644 drivers/pwm/pwm-sun50i-h616.c
+>>
+>>
+>> base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+>>
+> 
+> 
+> 
+> 
+
+
+-- 
+Richard Genoud, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
