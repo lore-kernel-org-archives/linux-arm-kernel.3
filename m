@@ -4,73 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1939BE674B2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 13:28:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9241E674B0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 13:28:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XcPyVo/INbG+mgbLBjB/e28X/tzSMYtvIP/ykLtkGFg=; b=hj0rGVwdNKboDAsfJBLYacaii4
-	TyHYK9W8y/YoFY6gJdKsWUF28maupg553369nvEGgxjwYNK7AVz/mbMBgHyefmAhJpt8F/pXJqrGC
-	o9wXyf5lkgQkfqEP9P+VGsVgIByUlr744p2oueLrNy9L+1/n/2JYNtzhmUZ+qy/6l5eRi/1cHUUGb
-	hUgb4eO1GUOp5JP8X2cNGw/pVmPyOltqftrVCBbgB0fFq2un3SlBYj7o4NCPnYbh5di6TT3mcw4TJ
-	J1lt/sztaLYTq+mFoVkJh3q7xCDStu6wiY/ANTkFV3w4kRtb3uSMerww+V3i7tFtnWhic9Cz2W77E
-	4L/Ig9pg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YDlebowKLSytReXRSPBwIovISOjJgg7iMWjU9xn2E0E=; b=kVUfYD2Ewl+IuybOtL309vCo0s
+	AunCkwfvQvEMnNfDfywnzbBa6zdIUOvVaOwVD+wfWY44oSgQnIamjvBYpTsEbE6PaRIowcjkE8LDI
+	um/Nu7IbiNCOx+1PeML6zU7nSFHlZAmU5yBit/Qvn3f/brt7MQ+sMqhMISV9j//sW5gWQ1Ujue/fA
+	+2NYJsfwOG7cQvxUS60kzB8P8rxpCQw4hdMCqch0G3b9bb8FnV7nFrzvUIUU1F8xNCRqahDyhSpOX
+	rC4xqY5PB8vAr1hOgYTDgnkKPuASjPkffVPf+4Xx1p15ZtEVAMMHW6fXh84ZwllnYqY0O+nfCHbJ8
+	Wb4HlIOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXfxY-0000000DoBJ-1RQJ;
-	Mon, 22 Dec 2025 13:28:24 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vXfxd-0000000DoDf-2I64;
+	Mon, 22 Dec 2025 13:28:29 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXfxW-0000000DoAb-0m2t;
-	Mon, 22 Dec 2025 13:28:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1766410093; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=L1/IFsv93jm9dJPfOH5z5exRx8KEx9Y8Eox/Zlu2ucOjCqwOzUjxdx6KP5IPWa4riBbXda2jmEBVd9YmDlEo7rltJ6/NQAB0hgYeTRjcGW7UqrNR//zyJBn7VFhGGGvB62MXApRXART6ndGVu2eniKDUKReI0H832FRCLr2vDs0=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1766410093; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=XcPyVo/INbG+mgbLBjB/e28X/tzSMYtvIP/ykLtkGFg=; 
-	b=XYLFaN+IIL/Dp8El9QsMlCTLpVLPDOFxnKsCnPyZQ6XIxqLG0oQQTshhR1+g9L101ICKJBoR4a9PH4OyvGWHdlzp7HtlF8oyj5x8oKQyCqV4z02eQi9xwcQ0aRSzjBKk+ZrRDfkNoFWm1gdiI/Ht9xlnlrteMRZfx7uKLnJL7YI=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1766410092;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=XcPyVo/INbG+mgbLBjB/e28X/tzSMYtvIP/ykLtkGFg=;
-	b=XoJusC6uNbe5XnHn1TU9hF55SAj9huta4r9Xv0+kf8fGsn59qFkvmHi0Qar+f0mk
-	qXWZBzTsx4ACT7cK/E8Ix37vC172EN2tlbb6dnh3BxlR596v+ffpwZBk8WI79J/WcVK
-	gAXIa4KCVuTf0vxFgHtcWSZ9k6jFDAjzB00ydlDY=
-Received: by mx.zohomail.com with SMTPS id 176641009056882.95030986245024;
-	Mon, 22 Dec 2025 05:28:10 -0800 (PST)
-Received: by venus (Postfix, from userid 1000)
-	id 34ED0180421; Mon, 22 Dec 2025 22:28:07 +0900 (JST)
-Date: Mon, 22 Dec 2025 14:28:07 +0100
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH 2/3] arm64: dts: rockchip: fix hp-det pin for ArmSoM Sige5
-Message-ID: <aUlGrcNAwp9AK8Mc@venus>
-References: <20251220100010.26643-1-amadeus@jmu.edu.cn>
- <20251220100010.26643-2-amadeus@jmu.edu.cn>
+	id 1vXfxa-0000000DoC2-3Sai
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 22 Dec 2025 13:28:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=YDlebowKLSytReXRSPBwIovISOjJgg7iMWjU9xn2E0E=; b=Fj1bV6yxuHXszrk56Nns0Xq3jB
+	6NCyV15ZL356KxtdIUrR0q6pBTD6VM1JHjV3fSjlvxy8+Oeii031g43+v3j0uVjW39cE1HcdBB4Yj
+	HbmEYuovl4gvN37OeYutTebozktNf8bJDxQvX9GaOohrRRf8DpE+Jhc5eoCWJwUCPgRVYgsZDACEH
+	+3txSKkP4F0wdgoh3Lt/GQBbioSpb0jqpip6UVGSsZY/UqVDDSN09l94sai4d9G59KGSdB4wbDBkg
+	CL5UmC8iy70/s8NGNGUhsJRUajYWjy9OakfCJpcXdnS4L1nseCSE7FSR76tKTO1fR1IgI+iOkv/O0
+	26ZFxrgw==;
+Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vXf66-0000000F2Ja-2GLN
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 22 Dec 2025 12:33:12 +0000
+Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-4f1aecac2c9so40310551cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 05:28:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1766410101; x=1767014901; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YDlebowKLSytReXRSPBwIovISOjJgg7iMWjU9xn2E0E=;
+        b=ftvgnOOhvKF+o16FspMELX4agcTd4tkevYBZkUx6SJbHukOvAnaO3R4OPjyfeseJsz
+         znBYxMQO1d2lIO2r6OxD5UHqruXIBTfLo2Z8YMAJG4UnOTJxX1T5VvyYg8VuY0tpOgLt
+         MHOOVmArab2uZJloKi3S63HijJi7YKd1T5cDwsw1F/ouMckr7XdTRXJUQ0rDVVrgN1rA
+         al/G6KCgIp9UCWMcVRG3dTb+e/NXglJoKzaUmgyNFOjOnaCnfVYzLMBJ2hsvlA8dPzN4
+         RNE6s3HsHRS7aYzrlJ5TuuiMbQVGOMR6IBDWZE3LzqL5609OsA3CPb9kpgGPxjIPNV5E
+         917A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766410101; x=1767014901;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=YDlebowKLSytReXRSPBwIovISOjJgg7iMWjU9xn2E0E=;
+        b=YDtn2/j5TzkIl9SBnTfgk8usHH3ZXRU726e9p6Iqp3YqhhO/V+d1Nut2ZCz/qR/lKR
+         uWYOXRVkvj72OaxcptAUtai/bhRioisRRl/9oQqyl4YXG21lyMsPy97YGJbW5jAoOorj
+         wZSVUN+9oIWbheSb/0kKxQ5ajtxa8KV8r3vJIP7DntUEunsQha3SSzLIq66RxnXi8fQJ
+         2PBcJW6FpAkL7mkrqxLVP8ba2pwV9WmncWI6ls6B2jDMzGHhg/VLBcLxWZZX9t4u963N
+         dapt0gp7SdQ5etTyRAUhudtNaTmn7U4cUKK6qViVr0y3HkPh3bfqV2nWftWualxiIftL
+         v3Fg==
+X-Forwarded-Encrypted: i=1; AJvYcCVF7nYMNO5yZsZN7jqTsdcNihTp10t5shkNjbjxXM8iXAVBN0HrkAlWQZXL07cRqmSBRbQJphYdegHTpKcR6sDh@lists.infradead.org
+X-Gm-Message-State: AOJu0YyC6gmqD7C1EKP7M4HmJ3deryvCeWzRItaKK/B+HireVKIvYOfN
+	RA6hzEctgbZOrQGBFzAhjffoQx2ZwdK2h3qgHwH+VZgGEsV10Uq/V78HEBy2HkYNsHiTddZHTq3
+	EC6DLVX+gmCZ9RBbtQDIajeb9FmwCwPzqAg1kh38=
+X-Gm-Gg: AY/fxX7ieGod47Gq2mEuL8mtsbhS4JL4sSNjX1rWjyZZFNC8mke+u3OzDbj1AtsXVyB
+	oU1gnsxkeagbqg08hRgdzooZYGUAHy+zyhxxZ65R1tX2XoJvejIeX1HrjFByDuRTW+6bn0d4uQj
+	P5zS6rbpUtrfaECgA/n5VjzeO9nKQNGpExE208U0GbLCNmeP8/Up8gI/Mel2fz4ycI+QQeBsPq3
+	Uc+m795tOdXf+fyZ4F3ZYngPiNs2JY42VtbGe1NVl3AsyM9pZxAof6dazX+aoV9ag2/aB34n5va
+	WVF0MIfDF6iuOfOea4/WpAg/
+X-Google-Smtp-Source: AGHT+IHAC1B0IqYscWngHVEOOgH6nPUg7BF7svekT7WeCJSzKv/KaP+4UG0eF0tY45F5jYxheY2blzrxV+thgMpT02A=
+X-Received: by 2002:a05:622a:411b:b0:4f0:31bd:2aaa with SMTP id
+ d75a77b69052e-4f4aac5db91mr179071981cf.4.1766410100766; Mon, 22 Dec 2025
+ 05:28:20 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="mavwqnpbh2afphvy"
-Content-Disposition: inline
-In-Reply-To: <20251220100010.26643-2-amadeus@jmu.edu.cn>
-X-Zoho-Virus-Status: 1
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-1.5.1/266.382.52
-X-ZohoMailClient: External
+References: <20251201-nanopi-m5-ufs-v2-1-ece9c0ee17c4@gmail.com>
+ <CABjd4Ywc-L0jvXwk253MDZwgN3srY6WQ5EhoKZ6wb+Hae376_A@mail.gmail.com> <119070978.nniJfEyVGO@phil>
+In-Reply-To: <119070978.nniJfEyVGO@phil>
+From: Alexey Charkov <alchark@gmail.com>
+Date: Mon, 22 Dec 2025 17:28:07 +0400
+X-Gm-Features: AQt7F2ofyZnqEtwWu-6gIroppVlUF0KWZIJCYmIw9FL9qTliLfl7M3hB0GDErVw
+Message-ID: <CABjd4YyCgVBFP4GG5FK5xO3SY=at5fpYicTO+ghaSCJaP_+XJQ@mail.gmail.com>
+Subject: Re: [PATCH v2] arm64: dts: rockchip: enable UFS controller on
+ FriendlyElec NanoPi M5
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_052822_464763_2167A735 
-X-CRM114-Status: GOOD (  17.62  )
+X-CRM114-CacheID: sfid-20251222_123310_727841_8A50B3D4 
+X-CRM114-Status: GOOD (  28.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,75 +115,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Heiko,
 
---mavwqnpbh2afphvy
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 2/3] arm64: dts: rockchip: fix hp-det pin for ArmSoM Sige5
-MIME-Version: 1.0
+On Mon, Dec 22, 2025 at 4:41=E2=80=AFPM Heiko Stuebner <heiko@sntech.de> wr=
+ote:
+>
+> Hi Alexey,
+>
+> Am Donnerstag, 18. Dezember 2025, 15:05:39 Mitteleurop=C3=A4ische Normalz=
+eit schrieb Alexey Charkov:
+> > Hi Heiko,
+> >
+> > On Mon, Dec 1, 2025 at 3:35=E2=80=AFPM Alexey Charkov <alchark@gmail.co=
+m> wrote:
+> > >
+> > > The NanoPi M5 board supports pluggable UFS modules using the UFSHC
+> > > inside its Rockchip RK3576 SoC.
+> > >
+> > > Enable the respective devicetree node and add its supply regulators.
+> > >
+> > > Link: https://wiki.friendlyelec.com/wiki/images/9/97/NanoPi_M5_LP5_24=
+11_SCH.pdf
+> > > Signed-off-by: Alexey Charkov <alchark@gmail.com>
+> > > ---
+> > > Changes in v2:
+> > > - Describe UFS supply regulators
+> > > - Add link to schematic
+> > > - Link to v1: https://lore.kernel.org/r/20251127-nanopi-m5-ufs-v1-1-0=
+d28d157712c@gmail.com
+> > > ---
+> > >  arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts | 27 +++++++++++++=
+++++++++++
+> > >  1 file changed, 27 insertions(+)
+> >
+> > Would you mind pulling this one, or do you have any reservations?
+> > There hasn't been any discussion, but it looks like a pretty simple
+> > change, runtime tested and schema-tested.
+>
+> Your patch fell directly into the dead-zone between -rc7 and -rc1 ;-)
 
-Hi,
+Understood :)
 
-On Sat, Dec 20, 2025 at 06:00:09PM +0800, Chukun Pan wrote:
-> Although the hp_det pin is not used, according to the schematic,
-> the headphone detection pin is GPIO4_B0. Fix the incorrect pin.
->=20
-> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
-> ---
+> > +     vcc1v2_ufs_vccq: regulator-vcc1v2-ufs-vccq {
+> > +             compatible =3D "regulator-fixed";
+> > +             regulator-min-microvolt =3D <1200000>;
+> > +             regulator-max-microvolt =3D <1200000>;
+> > +             regulator-name =3D "vcc1v2_ufs_vccq";
+> > +             vin-supply =3D <&vcc5v0_sys_s5>;
+> > +             en-supply =3D <&vcc_3v3_s3>;
+> > +     };
+> > +
+> > +     vcc1v8_ufs_vccq2: regulator-vcc1v8-ufs-vccq2 {
+> > +             compatible =3D "regulator-fixed";
+> > +             regulator-min-microvolt =3D <1800000>;
+> > +             regulator-max-microvolt =3D <1800000>;
+> > +             regulator-name =3D "vcc1v8_ufs_vccq2";
+> > +             vin-supply =3D <&vcc_1v8_s3>;
+> > +             en-supply =3D <&vdda_1v2_s0>;
+> > +     };
+>
+>
+> But where does the "en-supply" come from? For the life of me, I can't fin=
+d
+> any reference to it in either the bindings in the kernel, nor the dt-sche=
+ma.
+>
+> Can you please point me to the part of the documentation where that is
+> described?
 
-Apparently all of the public schematics (board rev 1.1 - 1.3) have
-HP_DET_L connected to GPIO4_B0. It's also easy to see how the wrong
-pin ended up in the DT: the schematics also added HP_DET_L as a
-comment to GPIO0_D3 (which is actually connected to TP_RST_L)!
+The bindings [1] describe supplies by a wildcard pattern '.*-supply$',
+and the device in question is a DC-DC regulator (see page 17 of the
+schematic [2]), which produces the 1.2V power for the chip, its VIN
+pin directly wired to VCC5V0_SYS_S5 and its EN pin directly wired to
+VCC_3V3_S3, both of which need to be active for the 1.2V feed to
+appear - thus both are 'supplies' of sorts. VCCQ2 is similar, but
+implemented using a simple gate circuit. This is done to ensure
+correct power sequencing, from what I understood.
 
-Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+I've just checked the fixed regulator driver though, and it only
+handles 'vin-supply', not any other '.*-supply$' - thus, technically,
+it doesn't currently implement the full schema :) Not sure if there is
+another existing facility to model multi-parent regulators that I
+missed, or if it's a good idea to extend the fixed.c driver to handle
+an arbitrary number of supplies?
 
--- Sebastian
+Any guidance would be appreciated.
 
->  arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->=20
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts b/arch/=
-arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
-> index 392ba83ab05a..a0d8f52a706f 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
-> +++ b/arch/arm64/boot/dts/rockchip/rk3576-armsom-sige5.dts
-> @@ -812,8 +812,8 @@ gmac1_rst: gmac1-rst {
->  	};
-> =20
->  	headphone {
-> -		hp_det: hp-det {
-> -			rockchip,pins =3D <0 RK_PD3 RK_FUNC_GPIO &pcfg_pull_up>;
-> +		hp_det_l: hp-det-l {
-> +			rockchip,pins =3D <4 RK_PB0 RK_FUNC_GPIO &pcfg_pull_none>;
->  		};
->  	};
-> =20
-> --=20
-> 2.25.1
->=20
->=20
+Thanks a lot,
+Alexey
 
---mavwqnpbh2afphvy
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmlJR2YACgkQ2O7X88g7
-+pqWog//X+vOJzl7Gh9baLrsAMP1sxkw4DPfvqF0IvGB7q5lqKZVfRcvE68kskwA
-zbp+frT64ebUM0dQ8F5jdYoy0AnWQvuO48aEg3P4QnQByU5NZ7KDILQuJByonHzB
-VcWhh0FCuxhs8iPE5EJ3U2aUKDO6110nfskA3+wkeXJDy5S5DEZCOnaiaVAeaW5M
-GZ3fRdtz3OvJFbUGvKFDTTRfCS9O9EKdZwBETEVLa/rID+M/i1qYnjHi7DxOf6tP
-YO0rDyEwK3fyWuw2TzbuK2flvtzpS06lNco4pQrKInCfbrHGxI9VpguF/wo0lxim
-XJAj4fbJt14Csfpycjr91sCgBEf3Q3jiDv465ZvVTX2KF8oU047JsCQs0kh6VD1k
-ihWm/Fgi+O7D4CWvzMBLztcjnxvG8zGPUNRfD0HLs48jUutM+xobROO53qcm8DWO
-AwpgNXGH7ZmZYkMRz9xPnutX5NE9FGOOQhMMIeC/NutbByPoZZ2uei/0hDx7OFst
-izCfG3MAHzl0Ze8b49tZTUOQ73vzieAFE/f7ffrUbdX9qR0yKoGP9Dw5R4giOVqC
-QHyRqWC8Xn31X5RlOYQAaeYg+Yk/Nq8TRxzXU/Y5mgwe0FM04qIfFLpQIJo9usHR
-LOdEtyNMv/DC/M4yqRISba6qV4Xs0EZzakBVYHFUhkQNoNLxpcs=
-=GMVl
------END PGP SIGNATURE-----
-
---mavwqnpbh2afphvy--
+[1] https://github.com/torvalds/linux/blob/master/Documentation/devicetree/=
+bindings/regulator/regulator.yaml#L246-L248
+[2] https://wiki.friendlyelec.com/wiki/images/9/97/NanoPi_M5_LP5_2411_SCH.p=
+df
 
