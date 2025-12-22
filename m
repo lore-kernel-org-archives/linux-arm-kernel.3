@@ -4,86 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F8DCE677FD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 16:53:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB527E677FD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 16:57:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7q8wRM/8v+Uftt6ArKO5GhO4Kdfpa2N8hxqGhl858H0=; b=JnqRGLpiF8thszespeDe1xMtlf
-	RdZWs8y0G09R+TkzWpEfKLeiQkTqhSsON0GC57bj1UWJAYxejxOZzErIIcJsIdDezzGZnAh80BEi6
-	Hs4dBcAsFkaAxdTNEJ1bT5soz2A4R/Vi4dX5Y4pdA4c1yiYZYuEMLkeeom5gCWX0vNYXKwQOjHSh2
-	DrNNc39ZB2bFMU/pcw9RMe19hOA73UXMDBjU44SOcSzoRGfxUNCRhAw6nuALLKHfq6+9sSBdnpLer
-	NC4ks0D6ULUmON7XzZjCe0vZiy8CmsiYWDjoORncbiuwVPBkTU8sPKGjHcOr3HiIURASGj6sHYCXR
-	BxjGknbg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UJ0a5V29viz7LLXs2uuLzoheftdEXYHQbwbfYUs9794=; b=zRMuglfVI6kl6tJzq9hWOstnIc
+	HrqsXpJPdRenozUxCNm2nqKnUKqiLnHPRivGK+GhS7w/31eIZPlSzTLWY9FJEeehMJJcamWhpQQz4
+	7a350HYU1V2TlxvEuBRnXqQwQ9nvbKlkc9bGTekcWb6KYBOtCN2yjM6uERqoPoC1cBwmGi9W5JYox
+	tKytng4lPC/4bljs+3nYuO6GjAFCXAYecBLActI06/7y3UF0VK/sQb7qFPjkkYztXlydh2iNFcf7y
+	0krGEPLcl8ciU19K11FBAQ7DpN+uIg5t14duC6gsC2zypBttw2ahOOiEMBwlZ+6C+EtdKg3yrO4cq
+	NqR0oJZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXjA2-0000000Dzbp-3CHs;
-	Mon, 22 Dec 2025 16:53:30 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1vXjEG-0000000DznQ-1xlh;
+	Mon, 22 Dec 2025 16:57:52 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXjA0-0000000DzbT-0RYG
+	id 1vXjED-0000000Dzn3-2TAU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Dec 2025 16:53:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1766422408; x=1797958408;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=SLzPCyVSf2GCKYqR6ihp41nIyXMktxWN6o79iAcwaVc=;
-  b=grEnWQ+BFTD3cZYfM4HaLe4om01wW2b8wMQCLUqV7EVXzpJthfReELMs
-   wVc53/QXaR6T5r3x7C8rV8axnpqCgZ/ANICpVfxCS8tluy/3DRR0uX5bm
-   dmr09nMOdQZcGf51URBFUDX2dwdnDG3mXNqkAIvFp6dVoD7OaTpOrPpii
-   GKEidCOYOa75q1ZoIHnoJ6wQKBmqG22SrIVNdhiWW0H5ERmYA3Z9Cmbj3
-   /Mg8IVjYlrVK91T66n737ExFXpXaxfNGX09W6wdtwpvGZqOq/eKLUhnfC
-   o9Z6GLTeWnCE8QQ/45iABSsibtGUs3/W1qeQxrBrBhqXr/4Uk5hRP2KMO
-   g==;
-X-CSE-ConnectionGUID: cUagrNQ6RVqU773OKAqjBQ==
-X-CSE-MsgGUID: Gq7KhJ/6R9GRS/lzQeFLmw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11650"; a="55849969"
-X-IronPort-AV: E=Sophos;i="6.21,168,1763452800"; 
-   d="scan'208";a="55849969"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Dec 2025 08:53:26 -0800
-X-CSE-ConnectionGUID: 6fDkPJhHRFmrLp8CGDNaLQ==
-X-CSE-MsgGUID: AZDQkn5AQxWF4NRtHppNNg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,168,1763452800"; 
-   d="scan'208";a="204049302"
-Received: from igk-lkp-server01.igk.intel.com (HELO 8a0c053bdd2a) ([10.211.93.152])
-  by fmviesa005.fm.intel.com with ESMTP; 22 Dec 2025 08:53:22 -0800
-Received: from kbuild by 8a0c053bdd2a with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vXj9s-000000005Ym-1Tsx;
-	Mon, 22 Dec 2025 16:53:20 +0000
-Date: Mon, 22 Dec 2025 17:52:47 +0100
-From: kernel test robot <lkp@intel.com>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, nd <nd@arm.com>,
-	"maz@kernel.org" <maz@kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Joey Gouly <Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>
-Subject: Re: [PATCH 14/32] KVM: arm64: gic-v5: Implement GICv5 load/put and
- save/restore
-Message-ID: <202512221751.nHKObHNq-lkp@intel.com>
-References: <20251212152215.675767-15-sascha.bischoff@arm.com>
+	Mon, 22 Dec 2025 16:57:51 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BMECba11390185
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 16:57:49 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	UJ0a5V29viz7LLXs2uuLzoheftdEXYHQbwbfYUs9794=; b=RflW7gzBBE8Aopcg
+	DvCZI7IbiXVCNW7maGoHbDhOPdXXItEJS9JKBKx7VvZHYApwi8PyGEHIrOfw/U40
+	WTFTIgxbc8I5gTkf1znhAyzipdBmzkm7BLCZU7Ia17gpDq1fNX6w4hi1sYq5oZ9v
+	KAUY4EIkc50QyzENxOJHqGuS6l2TtX1xyT3cV78jFcQDmfwZp3xLeKdfCahJ66bS
+	7H5J1I0SB56FwdK3be11GexQ0N09AhnbXOQzzMKxYEXg/gYIiK1UHUkHJsZJKAfR
+	fXSWl11t9AWcz+AFXpXbPwjhmLe9PMk4oZfwdOoUzxyh7R0T32up9wAZl2sKDd39
+	2mgbVg==
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4b6vk6jekn-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 16:57:48 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4edaf9e48ecso111176341cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 08:57:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1766422668; x=1767027468; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UJ0a5V29viz7LLXs2uuLzoheftdEXYHQbwbfYUs9794=;
+        b=hqf5KRn6aXvQtUtmfR/da2vGZAtV+sBWuII6MFjjdIeuV6ir81dXhCeqmToSx9aTc4
+         rzquKH4G5ieWyo1NeAXgsBvJUa3of/PN80WOf0nCNKP5+QCGwq5XOGGAlv1Gkuf6VdV6
+         FtGpdBp13tXvyzVzCJHljO/oVVlEmm5J4ZPsTpa4IlllmWIKukLyTfcNYY/g0ITdDeYj
+         i/1ESjQljtp1M71t0iinfaoozPO9RlUMd4qiJYzLeXDDuQrx0zoUQoqoz/d/doYM4bZL
+         GswbVqJqJE1YfUGwu21TGcp/pbogAc9YzFsOtj5cJj2RgKrdFmB2xEpbOw9MAaB79sKi
+         e2iQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766422668; x=1767027468;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=UJ0a5V29viz7LLXs2uuLzoheftdEXYHQbwbfYUs9794=;
+        b=ByrJhlrdXTRXiVyJ1bySduEeE7xZ/EoZk0wks6XA/GBFccYTU9IVrBngR7+AwyYYh7
+         Sbt41OZvQ+TIDkm1eAfJLYRp4RseTUTR//qqifCIoJ0zI5BOIINK0YrSs8isSb7HwHF/
+         owM6ocbrfUaKkJUpbWmrQqXn8YCiGHpqfMoBifOSQtP4cm8ACz8JmM1MGx6d6wTqOywa
+         MPFQkrknta4VpuIauTjZmpQZAvFo46Sgbl7GI/zdN7Rjg9f6pDjINrPIu8fpMc6ZZhmI
+         lSUIepfCpD28ARZFqSr3irKYM4DBcfGyolo4lqmvMTttl20B9hKCiXzF3vsRbLET7LVI
+         NlIw==
+X-Forwarded-Encrypted: i=1; AJvYcCXPZ/F5Ic2NM4i+uBMmOHhi+Bj8uK+gI5cdjZhZemG+Tx3P/0Rou03lel5ShD9QdE+zhPoeVJwmGOnJIbm5FZwA@lists.infradead.org
+X-Gm-Message-State: AOJu0YzSAs5ppa3Uciqq1No0SR0oODMactZzpGYjVZ9id0YEor5vLZ+u
+	Eec5Azu+laYIfxKIxVOiF0ZXFjqbMLqBmAdqcn2qNzjnbKpcKsddva6m2jUq5C/IQ8xA2Vlsxkk
+	9kEWSizDIP5egnup+4VdAkJ0y2VKX7bEwd9bKkltr6fj/FDV+0LH4Z9PiDUv+e8Ep74H6epK8pi
+	PTQg==
+X-Gm-Gg: AY/fxX55HcqW4BQ2pzajUeKbbm7CqK/ZolgwrCwgDMh6FU7lRUzTUzVflUe0ssbzbjg
+	SRo9GOqzX2nZ8jvmUofwlYtrwjlmVAEbMGugwWpv9L+69nY8Bcwv24Q/minNft6aD1R4RGw+erJ
+	rfZIuzCd5Smd7jOSzcZB0h72W6IXQZiXxHpd+AaBbRAX7SKj4zF8TpbLlVJ1YWaiEwuZvK2MY2s
+	7Wfwj2gdqbbrUujqjcggS+dV0WWJ81NjpTchlicO3coIJhgHdU4LdkSMcDxgAhd89wGK9Qz24j8
+	cYtJFGkyfFhNgQ8Ccl61O3/g85fNSZfekKD5wVByYFXpqN/MZtiKCGvbbjCa/ib7YX0qjO6mggg
+	aR7ti/aKJIGhiNkTj/c+rXZrkfZznIrL8mqD4OSA=
+X-Received: by 2002:ac8:5812:0:b0:4ee:19d6:fadd with SMTP id d75a77b69052e-4f4abcb5a4dmr178429341cf.4.1766422667658;
+        Mon, 22 Dec 2025 08:57:47 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFWZF599NsIynd91SWFwhgXiDj4KAvOYt3rbwctNuUe4W1B3LixKxYkgSgS3/cdAjsy77Bt2g==
+X-Received: by 2002:ac8:5812:0:b0:4ee:19d6:fadd with SMTP id d75a77b69052e-4f4abcb5a4dmr178429141cf.4.1766422667183;
+        Mon, 22 Dec 2025 08:57:47 -0800 (PST)
+Received: from brgl-qcom.home ([2a01:cb1d:dc:7e00:3452:ec03:2e24:c9a9])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d193621c8sm197464795e9.7.2025.12.22.08.57.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 22 Dec 2025 08:57:46 -0800 (PST)
+From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+To: Linus Walleij <linus.walleij@linaro.org>, Joel Stanley <joel@jms.id.au>,
+        Andrew Jeffery <andrew@codeconstruct.com.au>,
+        Eugeniy Paltsev <Eugeniy.Paltsev@synopsys.com>,
+        Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
+        Srinivas Neeli <srinivas.neeli@amd.com>,
+        Michal Simek <michal.simek@amd.com>, Linus Walleij <linusw@kernel.org>,
+        Bartosz Golaszewski <brgl@kernel.org>,
+        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
+        linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org
+Subject: Re: [PATCH v3 0/3] gpio: Simplify with device_get_match_data()
+Date: Mon, 22 Dec 2025 17:57:44 +0100
+Message-ID: <176642266266.42223.9755579914845515277.b4-ty@oss.qualcomm.com>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20251219-gpio-of-match-v3-0-6b84194a02a8@oss.qualcomm.com>
+References: <20251219-gpio-of-match-v3-0-6b84194a02a8@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251212152215.675767-15-sascha.bischoff@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-ORIG-GUID: jThymCp0GcYVVIi0-ocIQ6CvPHUutU3x
+X-Authority-Analysis: v=2.4 cv=cuuWUl4i c=1 sm=1 tr=0 ts=6949788c cx=c_pps
+ a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=bC-a23v3AAAA:8 a=EUspDBNiAAAA:8 a=KKAkSRfTAAAA:8 a=BSbm5AsyGp5ZQscXBokA:9
+ a=QEXdDO2ut3YA:10 a=a_PwQJl-kcHnX1M80qC6:22 a=FO4_E8m0qiDe52t0p3_H:22
+ a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjIyMDE1NSBTYWx0ZWRfXxYaMYcqjUAIs
+ PQPrOHBwCkfsoaEC0mQsW7vsrfkyxHG/oweMigm8zZudSw+55Le9L/ZYA6eM9hbqVB4K3erAhpO
+ Gtuxb95NASonwq74ACff3oMzwReYmHzO4/FRYdordDgxSA4SakmMfCNioTUaqIIgM9zIKfqtpEL
+ mrjfV8IizHoPDu//EeSyxWdapFqYAtXL8FyYD/4TSYPqWpIba/2XqfPodzu3PN1CpQzje+3MPJ7
+ fGsjwEL8/k2dz87tAICfZoGswCEUialbmQX6BOJ2Hln5tsgd2PBP7lDa6ZXbBjAtvNNknFHzGHZ
+ fYvNRI9nNIY3Lqe8HEWYWqKa05YnUnPs6/xmNe34V4Cx4VRzxgVzuSFZTx9lOnia48bBQtyLnee
+ k+co6KS22/bWNsDsgE/9P3wHgZv7oztsy1kwbr9ewKCHw9/M5fX6Rf786G2P1N1KFbZ8P7G+V8m
+ d7yaamYirCz5MC46j6w==
+X-Proofpoint-GUID: jThymCp0GcYVVIi0-ocIQ6CvPHUutU3x
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-12-22_02,2025-12-22_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 lowpriorityscore=0 adultscore=0 malwarescore=0
+ priorityscore=1501 spamscore=0 bulkscore=0 suspectscore=0 clxscore=1015
+ phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2512120000
+ definitions=main-2512220155
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_085328_183780_51A90656 
-X-CRM114-Status: GOOD (  13.87  )
+X-CRM114-CacheID: sfid-20251222_085749_636637_E4376F34 
+X-CRM114-Status: GOOD (  11.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,83 +153,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sascha,
 
-kernel test robot noticed the following build errors:
+On Fri, 19 Dec 2025 13:13:11 +0100, Krzysztof Kozlowski wrote:
+> Changes in v3:
+> - Fix subjects and commit msg -> device_get_match_data
+> - Patch #3: Use dev_err_probe
+> - Link to v2: https://patch.msgid.link/20251219-gpio-of-match-v2-0-5c65cbb513ac@oss.qualcomm.com
+> 
+> Changes in v2:
+> - Drop applied patch
+> - Use device_get_match_data() as suggested by Bartosz
+> - Link to v1: https://patch.msgid.link/20251106-gpio-of-match-v1-0-50c7115a045e@linaro.org
+> 
+> [...]
 
-[auto build test ERROR on linus/master]
-[also build test ERROR on v6.19-rc2 next-20251219]
-[cannot apply to kvmarm/next arm64/for-next/core kvm/queue kvm/next kvm/linux-next]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Applied, thanks!
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Sascha-Bischoff/KVM-arm64-Account-for-RES1-bits-in-DECLARE_FEAT_MAP-and-co/20251212-233140
-base:   linus/master
-patch link:    https://lore.kernel.org/r/20251212152215.675767-15-sascha.bischoff%40arm.com
-patch subject: [PATCH 14/32] KVM: arm64: gic-v5: Implement GICv5 load/put and save/restore
-config: arm64-allnoconfig-bpf (https://download.01.org/0day-ci/archive/20251222/202512221751.nHKObHNq-lkp@intel.com/config)
-compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project ecaf673850beb241957352bd61e95ed34256635f)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251222/202512221751.nHKObHNq-lkp@intel.com/reproduce)
+[1/3] gpio: aspeed: Simplify with device_get_match_data()
+      commit: cecf10b700e06a2f2e2b638b1f680e1ae7f343ac
+[2/3] gpio: creg-snps: Simplify with device_get_match_data()
+      commit: da7c18a457c7a32c4ed1e1e326837d9d7cb4483c
+[3/3] gpio: zynq: Simplify with device_get_match_data()
+      commit: 48befae0d6eee275c3e30d1cd45f39d6ba011e19
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202512221751.nHKObHNq-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from arch/arm64/kernel/asm-offsets.c:16:
-   In file included from ./include/linux/kvm_host.h:45:
-   In file included from ./arch/arm64/include/asm/kvm_host.h:36:
->> ./include/kvm/arm_vgic.h:392:19: error: field has incomplete type 'struct gicv5_vpe'
-     392 |         struct gicv5_vpe gicv5_vpe;
-         |                          ^
-   ./include/kvm/arm_vgic.h:392:9: note: forward declaration of 'struct gicv5_vpe'
-     392 |         struct gicv5_vpe gicv5_vpe;
-         |                ^
-   1 error generated.
-
-
-vim +392 ./include/kvm/arm_vgic.h
-
-   360	
-   361	struct vgic_v5_cpu_if {
-   362		u64	vgic_apr;
-   363		u64	vgic_vmcr;
-   364	
-   365		/* PPI register state */
-   366		u64	vgic_ppi_hmr[2];
-   367		u64	vgic_ppi_dvir[2];
-   368		u64	vgic_ppi_priorityr[16];
-   369	
-   370		/* The pending state of the guest. This is merged with the exit state */
-   371		u64	vgic_ppi_pendr[2];
-   372	
-   373		/* The state flushed to the regs when entering the guest */
-   374		u64	vgic_ppi_activer_entry[2];
-   375		u64	vgic_ich_ppi_enabler_entry[2];
-   376		u64	vgic_ppi_pendr_entry[2];
-   377	
-   378		/* The saved state of the regs when leaving the guest */
-   379		u64	vgic_ppi_activer_exit[2];
-   380		u64	vgic_ich_ppi_enabler_exit[2];
-   381		u64	vgic_ppi_pendr_exit[2];
-   382	
-   383		/*
-   384		 * The ICSR is re-used across host and guest, and hence it needs to be
-   385		 * saved/restored. Only one copy is required as the host should block
-   386		 * preemption between executing GIC CDRCFG and acccessing the
-   387		 * ICC_ICSR_EL1. A guest, of course, can never guarantee this, and hence
-   388		 * it is the hyp's responsibility to keep the state constistent.
-   389		 */
-   390		u64	vgic_icsr;
-   391	
- > 392		struct gicv5_vpe gicv5_vpe;
-   393	};
-   394	
-
+Best regards,
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
