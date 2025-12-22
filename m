@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D7BCE6748D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 08:25:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93231E6748D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 08:26:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wJ6LQIhz3opDVp8qv4sJ5LmxJU4UfSK37U6o6GR2gQA=; b=XYXGfzijk6wtfyAELq518e5UyH
-	hwcnQ4543H7AcEZaq/8dyw+6vmbiDpRFydG0EfDN8P4N04N++TKnMcu3NIffaZH67vhYJsooTzqZQ
-	0C3fnST0OGz4ICl6RVca91dviCF4jQypaJEQml+5nYkziI2LFs9wdNwKd5U7kRz8iFOZxAfp75iAp
-	O/3fpLtflto9wV1Qu+MQ2bCSfnt+7nYOZxSZvR5hlTA0g/cXKxtXLdpufy64OFcob98Y65XKSTlzC
-	ZZX5MSjjj+Iz9SYvMqyIlhvowFvQZ7qay2kNkWrCH4OxIl4zv0WPolQeGXIYzYBDooYbVKfMGaMIT
-	u2nBF3eQ==;
+	bh=FrG1isq17Lyb0bJFCu5jKcbVF320nGGDAVNnMWnzxZY=; b=J8s02YNaUeavv+g9HjFrKU/K+Q
+	bI/1Nn7yiz5G2YnzQZEUEY4ts4cKmUW9wYQU6KA8FIPfO8Z1F2eNtVzSlSAUBBtIudVrTCULHT1os
+	0xzxMPrheDgx2aduVOjssyxZg3jnEX8pvJHtA9FWlASN+goZbuG9blHjhbJvsddit7cHrVADr0Pv8
+	JUUx7iu6ohpXAX4WtubbfDJSHVTY5Ry19Ofyyo5TTHQZ8ziHASjK67hahWg+RV1B+9cpFBSZo3mHd
+	kivou2aptTn4wiZaVhySOD5yYtrBMbWF9MN6Nb0puok0DWAkbpmWO5615IIziLTMf7w4U4Gt8YEb4
+	iT58HsjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXbEX-0000000DQTa-4BfM;
-	Mon, 22 Dec 2025 08:25:39 +0000
-Received: from mail-pf1-x441.google.com ([2607:f8b0:4864:20::441])
+	id 1vXbEi-0000000DQYc-2OiL;
+	Mon, 22 Dec 2025 08:25:48 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXbEP-0000000DQQV-3WzQ
+	id 1vXbEc-0000000DQWF-2Cr5
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Dec 2025 08:25:31 +0000
-Received: by mail-pf1-x441.google.com with SMTP id d2e1a72fcca58-7baf61be569so4008105b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 00:25:29 -0800 (PST)
+	Mon, 22 Dec 2025 08:25:44 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2a099233e8dso32098295ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 00:25:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1766391929; x=1766996729; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1766391941; x=1766996741; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=wJ6LQIhz3opDVp8qv4sJ5LmxJU4UfSK37U6o6GR2gQA=;
-        b=dN/qXCy+zuNDXJ0zxFYRGoWxDlBy8VPYMPEqPOKaQGwT6Pi7TcI5zHRAlbfuQECKqG
-         K95YwxbszO4IcCt9ZE+8Emua3pEAVcYqU2MTobSaSvkfwqq1PkurfOoprZIZgtCRy9B1
-         K/Zv32OGS8cPxvkcQSlm5pp8HpMEN4CUxqlCXCW0Pujk+cmty3z4DkUyyFFm9VbEzkyY
-         YkCeET4kcxaALp2br59+fezQxUoQJZapL4e4KJY0BYKXRMCoNWktzp91SNGG/LpKMnMb
-         9rKfQ/hR905d2Fj1mLSstvgidEBiC+B3Cou3s4UK3Fz/F/WgRfZuIIU33RUz9Q1fdsI8
-         kGkQ==
+        bh=FrG1isq17Lyb0bJFCu5jKcbVF320nGGDAVNnMWnzxZY=;
+        b=KEZFDSHDshfwXGfXFP2oeDRjNmz04RW6oOYGQWWdhHOxh5oegjDtCX4PYhoP9lT3/u
+         +ykI9Ctoy5seT+NMzPTYPSbbOI5+P+gqCOdt+5GCv/V2VhRZQOjmTcWT/X1Htl3LJaOT
+         vbZdv2E4a1GyM7O4/nMpmeeXe20ECIrlklObZt0YKV0UMgLyOczhsLkbspfpWbGHxoqp
+         HYYprwurS50+Y2gVBPG9WWiMFJ56YvNRlRKZt/GLCU6qxcQKmY1vMUu6DgpbwMCsXAE3
+         +QzHWrSc1yrjccO6ex++BwOtQqPL0qf+xZ527j1alAQaZeP0o1sfxfSu/uTmxXt5jCJU
+         UM7w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766391929; x=1766996729;
+        d=1e100.net; s=20230601; t=1766391941; x=1766996741;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=wJ6LQIhz3opDVp8qv4sJ5LmxJU4UfSK37U6o6GR2gQA=;
-        b=MvxAv9tx/5LJE5V73P0VK8cZd+LJZhP7HKzIGhltbYkqdEl7IcXz313MiTWSFveXFC
-         KUQGR950zKFIXwPYxBv1b4IZF2+mwFBq/wZtl/NJ3Q2KarCUCFpwBQ4g7CBkf0Afyw3/
-         py9GpfVFNlrY1/M6QWzhnGtVRtWnpLQFDMF5YFSNnXjeJVaDH7pcxGes+sSDBVTNFfes
-         1vwiNT352/2YPStyl+zhKKoznpwVJiX1bTUMtREmO5CkVMzja9rAbs9lB2IqqGNbI7q3
-         ahSF2khJJVGixa3dS64Aj+EhhZT5IWsu0TmdrsHBTtfWS1D8bOOJHGvVHpFLsDXzfCQi
-         TQhA==
-X-Forwarded-Encrypted: i=1; AJvYcCUBnqd/WnwvlG8ficZE9hwjEq1285Uuf6W+010LBzrDqQOHIozAhemh5lx2KqKccEw/htU5cfGDnXTaxVW0IHd3@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzv+9UKonPaeTIK5vhczKC3nECfkVBasGLNmcasKMerHP8ZvC7Z
-	0tp8V18vST1bHe/ErZa7jf6vcWmPYyYQXQh081+5KiWpY7doYdj+kWzO
-X-Gm-Gg: AY/fxX64LG0Q/NnB3NQ+mzvn7zOiRQFfhBv6GBKYSGjUQNYvqYOpP7eD2WujAvPYNgO
-	bQFeaygwFdxYKTe6edJ19E4izV1Os5XQVjurRwu4T7COmJSoZ/+Y1x3jRBf+JBOReUlnM/HjphQ
-	ryeeaE5MIbBrPwdlSNH4g+1TqMWrvy07skZag07XmYns+6WenCUnDQSY8S28ejZr5IDNgs5O2H/
-	Rdr/5jn/hp0di4KYk9MrFx2CQyXkjiinA3F/aNwK7mv8G0ODtaW7EkR15+SlKkVfdULAWKlK+eq
-	m9CuVB8KfcRhbnqz+lSUpQiEbMWQBcPiznj6zE03gzGeBlJBJM2OYfdfLEL+PuW/OFJXgkpVWMA
-	/FlBunys/6Gv8Lqxy6zXegh1pQiU8flPB1Etkhqtw3ERkqsm2peHNtABpIaVN8ilgAll6Ci/nY5
-	sfNlI3b7ZX
-X-Google-Smtp-Source: AGHT+IE+QxCurRN0AzDICu9k2MWk1SPp1amxCYIl0Rf045fB7y1IHjsIYvGaV+1OKSxAVQgufeDctw==
-X-Received: by 2002:a05:6a00:4190:b0:7e8:4471:ae5d with SMTP id d2e1a72fcca58-7ff67456c6emr7951795b3a.41.1766391929081;
-        Mon, 22 Dec 2025 00:25:29 -0800 (PST)
+        bh=FrG1isq17Lyb0bJFCu5jKcbVF320nGGDAVNnMWnzxZY=;
+        b=XzTBufe2jKK2fHZAgwUFKtLyK7JeoEdDJz+xZYRZXlZwol3Jh/3gjhmx5lqqR9Rpz9
+         u5brsNXgLzjJlocPdVSCuZSKngw29ASf5AbqtIEnE8KAOmPS/79XpyaTE6UuPBZMjmht
+         ra3i11K8M5pXcMPyhOwP709Xf0kejlHGhmCXuTaGr26SQStltVmEmM/6WrnwQ/poRTT4
+         cnc/dwBT4a9HyT4ow/S8NZAb37g+QUJXFNFJPErMSLV4xdaZ8qfkbfEBitAevcH7y2nc
+         LHMAJqIM9AZJ978W4XUzFTUFkGokZeSIXLEbPCnD+t/h9RtelhN8jLYrU11S1XUsQKHb
+         vB0g==
+X-Forwarded-Encrypted: i=1; AJvYcCUl3Am7S1Llc9S3Qza7D9wKokLgRceaDLitFZnpbNZgzpQ880ix8eVlL+SEyjv72LiYfhBChqpvXwJgGzZxeNGC@lists.infradead.org
+X-Gm-Message-State: AOJu0YybGdmWt7x8wPjIovOpho0LOynCz/Ogzr40nlx5kKa8YGWniIMF
+	SGJnzmqPMVbSAyhhhDcHmZT3qEz5eMb9ql826nMn0mkLa54N1ARbnPEb
+X-Gm-Gg: AY/fxX7JiWFHHyVtNftUUOSCsKUoF9t/yPhcALWZHQCPiCdTNj6xLhbDHIG7f5L8MUT
+	VgsOdfu6S3ZX5jp2NdPYQZlOV0NwtD5Y9zfWn7t8hYMXysyE6wkql+fW0iUbkUbx0hxY/K5O0Tw
+	gogMVV4sAQ/aK9dd5R675bu+FWcC3hXS1wSB1g7ds+alRTSNnDu2rsQyTRWj3btsgKUwPA7mgQv
+	85+Tqgq2EjibRIjrSEO4YMm73i02Oo+CrG9N9K9bnP7m8kji6KPT5RYoWWJRgoUaXEJ/tPnJ5Pb
+	iRSc5FwjsLkC4QeeaG/lPOCi6hzLvkH0HOpvXAs0IjTGUl5d6Bov2PRrONapXELJcxBSPM6B3cE
+	Rn7tPvx4v7oosxuQkgV8y54DSX15TPrqkHCLiVPa8tTSxH7eLu6jkH/3LW2dSBhS1Yqg67iDlE7
+	30qxfVczPY
+X-Google-Smtp-Source: AGHT+IFewFiHLSSMkteVB5+mJ427GMrWESNV1s0gzG1qZwVux0iZoGglO5KJ+zZHGWbOk0GOGu+BPQ==
+X-Received: by 2002:a17:902:ea11:b0:290:91d2:9304 with SMTP id d9443c01a7336-2a2f22052f9mr107996865ad.4.1766391941481;
+        Mon, 22 Dec 2025 00:25:41 -0800 (PST)
 Received: from frodo ([2404:4400:417e:3d00:8b90:7f55:1261:772f])
-        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-7ff7e493123sm9540699b3a.50.2025.12.22.00.25.17
+        by smtp.googlemail.com with ESMTPSA id d2e1a72fcca58-7ff7e493123sm9540699b3a.50.2025.12.22.00.25.29
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 22 Dec 2025 00:25:28 -0800 (PST)
+        Mon, 22 Dec 2025 00:25:40 -0800 (PST)
 From: Jim Cromie <jim.cromie@gmail.com>
 To: linux-kernel@vger.kernel.org,
 	jbaron@akamai.com,
@@ -99,17 +99,17 @@ Cc: dri-devel@lists.freedesktop.org,
 	linux-arm-msm@vger.kernel.org,
 	mingo@redhat.com,
 	jim.cromie@gmail.com
-Subject: [PATCH v7 23/31] dyndbg: check DYNAMIC_DEBUG_CLASSMAP_DEFINE args at compile-time
-Date: Mon, 22 Dec 2025 21:20:40 +1300
-Message-ID: <20251222082049.1782440-24-jim.cromie@gmail.com>
+Subject: [PATCH v7 24/31] dyndbg-test: change do_prints testpoint to accept a loopct
+Date: Mon, 22 Dec 2025 21:20:41 +1300
+Message-ID: <20251222082049.1782440-25-jim.cromie@gmail.com>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20251222082049.1782440-3-jim.cromie@gmail.com>
 References: <20251222082049.1782440-3-jim.cromie@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_002530_126954_CDAAD406 
-X-CRM114-Status: GOOD (  15.03  )
+X-CRM114-CacheID: sfid-20251222_002542_624722_3A4F6A61 
+X-CRM114-Status: GOOD (  14.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,87 +124,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add __DYNAMIC_DEBUG_CLASSMAP_CHECK to implement the following
-arg-checks at compile-time:
+echo 1000 > /sys/module/test_dynamic_debug/parameters/do_prints
 
-	0 <= _base < 63
-	class_names is not empty
-	class_names[0] is a string
-	(class_names.length + _base) < 63
+This allows its use as a scriptable load generator, to generate
+dynamic-prefix-emits for flag combinations vs undecorated messages.
+This will make it easy to assess the cost of the prefixing.
 
-These compile-time checks will prevent several simple misuses, and
-will issue obvious errors if violated.
-
-4 such examples are added to test_dynamic_debug_submod.ko, and will
-fail compilation if -DDD_MACRO_ARGCHECK is added to cflags.  This
-wouldn't be a useful CONFIG_ item, since it breaks the build.
+Reading the ./do_prints node also prints messages (once) to the-log.
 
 Signed-off-by: Jim Cromie <jim.cromie@gmail.com>
 ---
- include/linux/dynamic_debug.h |  9 +++++++++
- lib/test_dynamic_debug.c      | 13 ++++++++++++-
- 2 files changed, 21 insertions(+), 1 deletion(-)
+ lib/test_dynamic_debug.c | 32 +++++++++++++++++++++-----------
+ 1 file changed, 21 insertions(+), 11 deletions(-)
 
-diff --git a/include/linux/dynamic_debug.h b/include/linux/dynamic_debug.h
-index 905db0b49104..b19c9b1d53b6 100644
---- a/include/linux/dynamic_debug.h
-+++ b/include/linux/dynamic_debug.h
-@@ -180,6 +180,14 @@ struct _ddebug_class_param {
-  * __pr_debug_cls(22, "no such class"); compiles but is not reachable
-  */
- 
-+#define __DYNAMIC_DEBUG_CLASSMAP_CHECK(_clnames, _base)			\
-+	static_assert(((_base) >= 0 && (_base) < _DPRINTK_CLASS_DFLT),	\
-+		      "_base must be in 0..62");			\
-+	static_assert(ARRAY_SIZE(_clnames) > 0,				\
-+		      "classnames array size must be > 0");		\
-+	static_assert((ARRAY_SIZE(_clnames) + (_base)) < _DPRINTK_CLASS_DFLT, \
-+		      "_base + classnames.length exceeds range")
-+
- /**
-  * DYNAMIC_DEBUG_CLASSMAP_DEFINE - define debug classes used by a module.
-  * @_var:   name of the classmap, exported for other modules coordinated use.
-@@ -193,6 +201,7 @@ struct _ddebug_class_param {
-  */
- #define DYNAMIC_DEBUG_CLASSMAP_DEFINE(_var, _mapty, _base, ...)		\
- 	static const char *_var##_classnames[] = { __VA_ARGS__ };	\
-+	__DYNAMIC_DEBUG_CLASSMAP_CHECK(_var##_classnames, (_base));	\
- 	extern struct _ddebug_class_map _var;				\
- 	struct _ddebug_class_map __aligned(8) __used			\
- 		__section("__dyndbg_class_maps") _var = {		\
 diff --git a/lib/test_dynamic_debug.c b/lib/test_dynamic_debug.c
-index 1ba4be9a403a..b2bdfdfb6ba1 100644
+index b2bdfdfb6ba1..fa81177e8089 100644
 --- a/lib/test_dynamic_debug.c
 +++ b/lib/test_dynamic_debug.c
-@@ -133,7 +133,7 @@ DYNAMIC_DEBUG_CLASSMAP_PARAM(level_num, p);
-  * Enable with -Dflag on compile to test overlapping class-id range
-  * detection.  This should warn on modprobes.
-  */
--DYNDBG_CLASSMAP_DEFINE(classid_range_conflict, 0, D2_CORE + 1, "D3_CORE");
-+DYNAMIC_DEBUG_CLASSMAP_DEFINE(classid_range_conflict, 0, D2_CORE + 1, "D3_CORE");
- #endif
+@@ -29,18 +29,25 @@
  
- #else /* TEST_DYNAMIC_DEBUG_SUBMOD */
-@@ -146,8 +146,19 @@ DYNDBG_CLASSMAP_DEFINE(classid_range_conflict, 0, D2_CORE + 1, "D3_CORE");
- DYNAMIC_DEBUG_CLASSMAP_USE(map_disjoint_bits);
- DYNAMIC_DEBUG_CLASSMAP_USE(map_level_num);
+ #include <linux/module.h>
  
-+#if defined(DD_MACRO_ARGCHECK)
-+/*
-+ * Exersize compile-time arg-checks in DYNAMIC_DEBUG_CLASSMAP_DEFINE.
-+ * These will break compilation.
-+ */
-+DYNAMIC_DEBUG_CLASSMAP_DEFINE(fail_base_neg, 0, -1, "NEGATIVE_BASE_ARG");
-+DYNAMIC_DEBUG_CLASSMAP_DEFINE(fail_base_big, 0, 100, "TOOBIG_BASE_ARG");
-+DYNAMIC_DEBUG_CLASSMAP_DEFINE(fail_str_type, 0, 0, 1 /* not a string */);
-+DYNAMIC_DEBUG_CLASSMAP_DEFINE(fail_emptyclass, 0, 0 /* ,empty */);
- #endif
- 
-+#endif /* TEST_DYNAMIC_DEBUG_SUBMOD */
+-/* re-gen output by reading or writing sysfs node: do_prints */
+-
+-static void do_prints(void); /* device under test */
++/* re-trigger debug output by reading or writing sysfs node: do_prints */
++static void do_prints(unsigned int); /* device under test */
+ static int param_set_do_prints(const char *instr, const struct kernel_param *kp)
+ {
+-	do_prints();
++	int rc;
++	unsigned int ct;
 +
- /* stand-in for all pr_debug etc */
- #define prdbg(SYM) __pr_debug_cls(SYM, #SYM " msg\n")
++	rc = kstrtouint(instr, 0, &ct);
++	if (rc) {
++		pr_err("expecting numeric input, using 1 instead\n");
++		ct = 1;
++	}
++	do_prints(ct);
+ 	return 0;
+ }
+ static int param_get_do_prints(char *buffer, const struct kernel_param *kp)
+ {
+-	do_prints();
+-	return scnprintf(buffer, PAGE_SIZE, "did do_prints\n");
++	do_prints(1);
++	return scnprintf(buffer, PAGE_SIZE, "did 1 do_prints\n");
+ }
+ static const struct kernel_param_ops param_ops_do_prints = {
+ 	.set = param_set_do_prints,
+@@ -191,17 +198,20 @@ static void do_levels(void)
+ 	prdbg(V7);
+ }
  
+-static void do_prints(void)
++static void do_prints(unsigned int ct)
+ {
+-	pr_debug("do_prints:\n");
+-	do_cats();
+-	do_levels();
++	/* maybe clamp this */
++	pr_debug("do-prints %d times:\n", ct);
++	for (; ct; ct--) {
++		do_cats();
++		do_levels();
++	}
+ }
+ 
+ static int __init test_dynamic_debug_init(void)
+ {
+ 	pr_debug("init start\n");
+-	do_prints();
++	do_prints(1);
+ 	pr_debug("init done\n");
+ 	return 0;
+ }
 -- 
 2.52.0
 
