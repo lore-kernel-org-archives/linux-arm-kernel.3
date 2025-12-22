@@ -4,102 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 685B2E67803
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 18:09:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14A7AE67803
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 18:11:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/MPZ0+lXn26JACnK/1Bt2AJSyVQiGzIeO7aL1qutLK8=; b=vbyo+Sv4gD6jBSMjNmXdJjkMpI
-	GSOIif1592MrLgwjIhVZUz70+oyzg6DjyKZmt3gU4tYRw7dBkoPwQNjGvFUpgmOg7Ti9NKqFFjYNy
-	p6TlBfI2kPGQfT310/SUYsimN0FSZ0pg79MgukG5C884kRThQfkRuVXQSJi1W4Tesn2aqm27FrjtI
-	pC85lNrjiAZaWoz0Jm8HO92qOHWlVpSvAWnSXrp3tbhoC3A1ON8N4Yy4Ikd5BtN1XdGYzQMyJt6wJ
-	6HDIDqy1NUad+lN23BHlOxGbkZfEy/lX8KEY5/NOQPizhdA4w0NvTiVqTgxiqti20BAWgbzkgfGCh
-	lSf5EdPg==;
+	bh=/toT1W7OTQvTEtD4gZRzA7tSobi23a6qTYqR+de5foM=; b=xt/lyiAej//iDgetbtdkFjf7n2
+	9CmLS4M7Ibd7AuyQqL3qjo0K8NnfigcoKCNoFvxvXU3Wb+/n4WssZf1I/rG4dyCqxq31KRCSZDOaf
+	frl7GvcaAEWOe2dDPMmG8VnELUe7CWMHlnGjoWUXltFLkCgkDY7gi+z3PdZ3AOrSe9ozU2XtBRdtl
+	80+nALJWv1PhSQ2dghHyTw/zVKfvzK3FgJYBUjJblDKVIU+aSHuIIaTE6rkKCjoIeG53iKuX/8JeC
+	avlI1hHyxUlHmfWe/KqxCRNKdQOZ+vp3fqA4rHGfAIhFy7vcS4IRRMtqZWbdMl4GgHFPXFKx57qDP
+	WqwVyvmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXkLw-0000000E3E2-0O3g;
-	Mon, 22 Dec 2025 18:09:52 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vXkNZ-0000000E3PX-3RzZ;
+	Mon, 22 Dec 2025 18:11:33 +0000
+Received: from out-174.mta0.migadu.com ([91.218.175.174])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXkLt-0000000E3DK-20eU
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Dec 2025 18:09:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1766426988;
+	id 1vXkNX-0000000E3Oz-0iYj;
+	Mon, 22 Dec 2025 18:11:32 +0000
+Date: Mon, 22 Dec 2025 12:11:18 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1766427082;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=/MPZ0+lXn26JACnK/1Bt2AJSyVQiGzIeO7aL1qutLK8=;
-	b=BIl/v2FHp1rvioOgjFCfRfYHJQDusr0YFhHuABEV0YQ3jacqvlT+MJQ+91VUr4S7+yyLQ1
-	IP9GIwnyWS/SkeSs1yWOKvwnSEPXC3ypdeX8/FAoaQhMMcIkMLqFEfekrGfbfpTcDWvbZs
-	esEzUPaMAFZMjuQDuyuqQNy0hfLzjSc=
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com
- [209.85.160.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-73-LFnYnvj0PGKSuyP7UP8Row-1; Mon, 22 Dec 2025 13:09:46 -0500
-X-MC-Unique: LFnYnvj0PGKSuyP7UP8Row-1
-X-Mimecast-MFC-AGG-ID: LFnYnvj0PGKSuyP7UP8Row_1766426986
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4f1f42515ffso99478961cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 10:09:46 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766426986; x=1767031786;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=/MPZ0+lXn26JACnK/1Bt2AJSyVQiGzIeO7aL1qutLK8=;
-        b=VApuJxJ+fiBox0wSx4BJkiXPWFPxU10D81xMqUZemoIpoLRXQEvRteBdmZ+UpsBeou
-         q+9+ZhFfi3EQmV2uT6ontYxb5sKRwu1sdjc95FO07KS58EHXJ/bqhhzuf/g5ApnagJ4j
-         G+SqvHE+WgBgNvLbrTYERZE9/rzhaHL6AlFqSey4qrveyyZzdPX9e4l0WLZpxT6yDwFW
-         r8CkFyILwuPth4pUt9HOUQioec4nQFk9YrEFm9Uao1oBDt5bx9GawanSpdGIYeLL2n8o
-         xWe1cgUFG1GyqAhvSi4HDDh6t5sLqqBI5JEna61s0kjzH7DjAik1RTZg7PNu6DqgkG9a
-         f0+w==
-X-Forwarded-Encrypted: i=1; AJvYcCU0zaaxTlhb4QzVKtwqpG058nlT37Liu8+Y4+726qKYecDb13covmHuIBmzHHB3vlxRDnEBzZjVRFX8UiJcoTwu@lists.infradead.org
-X-Gm-Message-State: AOJu0YzxybarhvzABnkDVg4GqRjPz+PVd5z+fWA6yFanGGL1QxPgBcyb
-	k83ytIUrJqX7OPhtPB4XuUGEcf1DiGz71UuzWFGIKSA4IULrR4zSQGkSlhrJaI/sB0FcpL3W1Fu
-	fHUGf8t/DrYElIkDQFA1BA5yvT/7yePN8cxAu7HkVTUyZXqfNVZbwMN544sT87UkOK7M92EkF8m
-	98
-X-Gm-Gg: AY/fxX6/Vzccezsppzmi5V9d0l0sNEWG+VmzrF9WtR3vyOcHfZhyhfpiOt6U6/+Q4y6
-	uj93f3dJQWxlq9+dW1igW3+Ul9Vfwy2gyTGXfxp8VmgUWCJ9nAvSYihGLI9t5G2k6AsYrkAm/al
-	cEjhyw0jrMrGKpy8K4VxjlqF4qY3DP//+sWQgoAZWoHOAoeH8JfHioPa15eRqJG/mdkRJulSBxs
-	KJOEG58u7dxO5szlRuHqbYHomZyLpOKAeFxMOYHH/VLv7zNvzuQp/4HRwlvE78Z06mzr1Y0DMct
-	kk/uqjSyVBdlWr8zdXEkcAQeWwWBgVx6LIu/xK1tZQDdeP6+nQsCOIj4MSRU4nz2cJ0W8Gwftct
-	w1YT1OqNZD2+9oxmNNuoTMTB5SaMdzScw93RyIbPR8nV3
-X-Received: by 2002:a05:622a:11cb:b0:4eb:a192:de99 with SMTP id d75a77b69052e-4f4abdc6a37mr166817941cf.76.1766426986156;
-        Mon, 22 Dec 2025 10:09:46 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHhen4inuPei2QtIgz1Jhp7TuWhSfPiBiWyK9QaTxuqDdPYVrS4RnzupTyJuPkfHzkoEa0TrQ==
-X-Received: by 2002:a05:622a:11cb:b0:4eb:a192:de99 with SMTP id d75a77b69052e-4f4abdc6a37mr166817461cf.76.1766426985756;
-        Mon, 22 Dec 2025 10:09:45 -0800 (PST)
-Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-88d99d7a08asm89568916d6.38.2025.12.22.10.09.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 22 Dec 2025 10:09:45 -0800 (PST)
-Date: Mon, 22 Dec 2025 13:09:43 -0500
-From: Brian Masney <bmasney@redhat.com>
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] clk: mediatek: don't select clk-mt8192 for all ARM64
- builds
-Message-ID: <aUmJZ7o6PpWeXFZP@redhat.com>
-References: <20251222150235.34919-1-bartosz.golaszewski@oss.qualcomm.com>
+	bh=/toT1W7OTQvTEtD4gZRzA7tSobi23a6qTYqR+de5foM=;
+	b=fFWvoW/7kSGLJp45pHDVtgX9vgb+7so0qkJceS3LAGTyR1KaxF3L+F72RF4P9zBGHGrYUm
+	aVaaQEkrE3EKHvupvEsBRhRlekKnoRyTkn4kjqm+11ROVQfl6TfmMiQ0RG7VjXg0tycJia
+	qLd1QfPUM+9xCRLaIPN+tDyVVMt3i0Q=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Andrew Jones <andrew.jones@linux.dev>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, maz@kernel.org, 
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	will@kernel.org, pbonzini@redhat.com, shuah@kernel.org, anup@brainfault.org
+Subject: Re: [PATCH v2 4/5] KVM: selftests: Move page_align() to shared header
+Message-ID: <20251222-ed460d0e29ab66fb4987e365@orel>
+References: <20251215165155.3451819-1-tabba@google.com>
+ <20251215165155.3451819-5-tabba@google.com>
 MIME-Version: 1.0
-In-Reply-To: <20251222150235.34919-1-bartosz.golaszewski@oss.qualcomm.com>
-User-Agent: Mutt/2.2.14 (2025-02-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 72qQYk7l79f4j5HJDpNq3zmzC88j_XUFNruboA2xx8s_1766426986
-X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <20251215165155.3451819-5-tabba@google.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_100949_614692_25CECB5A 
-X-CRM114-Status: GOOD (  10.76  )
+X-CRM114-CacheID: sfid-20251222_101131_387245_06AAD408 
+X-CRM114-Status: GOOD (  16.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,13 +69,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 22, 2025 at 04:02:35PM +0100, Bartosz Golaszewski wrote:
-> This option defaults to y for ARCH64 meaning it's built even if we don't
-> want anything related to mediatek. Make the default condition stricter
-> and only build it if ARCH_MEDIATEK is selected.
+On Mon, Dec 15, 2025 at 04:51:54PM +0000, Fuad Tabba wrote:
+> To avoid code duplication, move page_align() to the shared `kvm_util.h`
+> header file.
 > 
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+> No functional change intended.
+> 
+> Signed-off-by: Fuad Tabba <tabba@google.com>
+> ---
+>  tools/testing/selftests/kvm/include/kvm_util.h    | 5 +++++
+>  tools/testing/selftests/kvm/lib/arm64/processor.c | 5 -----
+>  tools/testing/selftests/kvm/lib/riscv/processor.c | 5 -----
+>  3 files changed, 5 insertions(+), 10 deletions(-)
+> 
+> diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
+> index 81f4355ff28a..dabbe4c3b93f 100644
+> --- a/tools/testing/selftests/kvm/include/kvm_util.h
+> +++ b/tools/testing/selftests/kvm/include/kvm_util.h
+> @@ -1258,6 +1258,11 @@ static inline int __vm_disable_nx_huge_pages(struct kvm_vm *vm)
+>  	return __vm_enable_cap(vm, KVM_CAP_VM_DISABLE_NX_HUGE_PAGES, 0);
+>  }
+>  
+> +static inline uint64_t page_align(struct kvm_vm *vm, uint64_t v)
+> +{
+> +	return (v + vm->page_size - 1) & ~(vm->page_size - 1);
+> +}
+> +
+>  /*
+>   * Arch hook that is invoked via a constructor, i.e. before exeucting main(),
+>   * to allow for arch-specific setup that is common to all tests, e.g. computing
+> diff --git a/tools/testing/selftests/kvm/lib/arm64/processor.c b/tools/testing/selftests/kvm/lib/arm64/processor.c
+> index 607a4e462984..143632917766 100644
+> --- a/tools/testing/selftests/kvm/lib/arm64/processor.c
+> +++ b/tools/testing/selftests/kvm/lib/arm64/processor.c
+> @@ -21,11 +21,6 @@
+>  
+>  static vm_vaddr_t exception_handlers;
+>  
+> -static uint64_t page_align(struct kvm_vm *vm, uint64_t v)
+> -{
+> -	return (v + vm->page_size - 1) & ~(vm->page_size - 1);
+> -}
+> -
+>  static uint64_t pgd_index(struct kvm_vm *vm, vm_vaddr_t gva)
+>  {
+>  	unsigned int shift = (vm->pgtable_levels - 1) * (vm->page_shift - 3) + vm->page_shift;
+> diff --git a/tools/testing/selftests/kvm/lib/riscv/processor.c b/tools/testing/selftests/kvm/lib/riscv/processor.c
+> index d5e8747b5e69..f8ff4bf938d9 100644
+> --- a/tools/testing/selftests/kvm/lib/riscv/processor.c
+> +++ b/tools/testing/selftests/kvm/lib/riscv/processor.c
+> @@ -26,11 +26,6 @@ bool __vcpu_has_ext(struct kvm_vcpu *vcpu, uint64_t ext)
+>  	return !ret && !!value;
+>  }
+>  
+> -static uint64_t page_align(struct kvm_vm *vm, uint64_t v)
+> -{
+> -	return (v + vm->page_size - 1) & ~(vm->page_size - 1);
+> -}
+> -
+>  static uint64_t pte_addr(struct kvm_vm *vm, uint64_t entry)
+>  {
+>  	return ((entry & PGTBL_PTE_ADDR_MASK) >> PGTBL_PTE_ADDR_SHIFT) <<
+> -- 
+> 2.52.0.239.gd5f0c6e74e-goog
+> 
+>
 
-Reviewed-by: Brian Masney <bmasney@redhat.com>
+kvm_util.h is collecting a bit too much random stuff and it'd be nice to
+split stuff out rather than add more, but, for now, this is an overall
+improvement since we kill some duplication.
 
+Reviewed-by: Andrew Jones <andrew.jones@linux.dev>
+
+Thanks,
+drew
 
