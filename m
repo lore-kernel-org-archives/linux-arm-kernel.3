@@ -4,57 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97CBCE674AF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 13:12:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8A13E674A9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 13:19:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1O/NWQ7G3LeHjqjrkVbwge4Fh2HgmORRQ7Vj/3VJZzM=; b=M6GhddPBpfENeDvOcmB1a7dF3p
-	bkDouhMyIyrlRDRH9f4ZPKRwvg9rMHpGqpmjDwbCzhxghexL+HDg0fpzRFAPTpwX20ScxQNa5/tOs
-	XxGnrBT7klRLBySUDzoPneQOwnPLeoI+fcDqlY9abZH9wqy0CA6xHKdGYkmeQQPLZpKAsTuNSx3I8
-	WqDfimNV6LlBcxWhiG3EF/pK7taRFFXLcoYH0bhV1PUK29zSMnpW3l7NyXMjsJoFIkgcGlfUSKnwL
-	ePOn2FBAVzuEEwSMZQtAftSSD3u/lPLjBXyAkmoZiM4kZhdoInQgemGfQzOsBOgpWsJ79J2JyXrWt
-	Oy/rdFJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3U9k/NKfSlh7y1R75VLDNwz88D19g1m24h0n25Hi60E=; b=Ol+Atb3YYHsQm+lkQRtS+ReO5a
+	C+Y4zX+NFLoJnT4mQeJzHEdxUO27T6mCOzVpOwqbM1y5tMVgLV7lPiU13FhdF3DJb8QzVO6AVV05A
+	5Krn2qqgbqBF+JbnAt4LMASqtPuVQuMSFXZ6yNi4RRBEreYvNtmmeaInKXQPc5CAeK/YtmCYnYoMK
+	WukweZqxPsKxKdP4g/K3NGgG68JeVfRdCEon6Hnlkw+mbya/KC4t1maMDv6wATZD3ijwU6b7i2eP5
+	JztBntn6DadSiiTi8TAkgSBLLBdyEoJUb8hj4iSqqVValZY9cHOkkLEXHqzI/e1nzHjwp/wHFdWT+
+	jFzufSqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXfiX-0000000DnVZ-1x37;
-	Mon, 22 Dec 2025 13:12:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXfiU-0000000DnVE-1I9d
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Dec 2025 13:12:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 229AC497;
-	Mon, 22 Dec 2025 05:12:42 -0800 (PST)
-Received: from [10.57.78.114] (unknown [10.57.78.114])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 85A143F778;
-	Mon, 22 Dec 2025 05:12:47 -0800 (PST)
-Message-ID: <9899b6c2-2bdf-41b8-9156-dcf1b611da39@arm.com>
-Date: Mon, 22 Dec 2025 13:12:45 +0000
+	id 1vXfov-0000000Dnip-00fM;
+	Mon, 22 Dec 2025 13:19:29 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vXfor-0000000DniB-2lnZ;
+	Mon, 22 Dec 2025 13:19:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1766409561;
+	bh=emf1dXBuOWxpY82o+aXIdtYDx7+Dc4rLBq1gNe0BeaA=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=PDs8sfWH303jVH3FYT7qAPoxcIRfz0+IgFx6zHCXn4+Mf+M5N7dJP2TR8zfYb72hC
+	 +eARnuGWKyPheREfWo8QbLXsVUQP5iSsohy86uw/iPPGbREIzLj/DvMNVovHpSiG6q
+	 aUiS7HXqSaELs9ZANYxwrIGddIT0vZmxrGxn9nti5vxJ+4ewjkQIxwgOlobWiq591i
+	 fD0A9HqFYC7pbNuuiDgv1AGzHNdvMwd9DCxpuQ1E/28yb6Y7fjJUoRMMno9U8aGvB6
+	 zGuaJFycpjK4eXZAbUQHhqCeHOmrukYO7YlPyIpFgKT6wh9YAXhvC5tpTzrjX6lF6Q
+	 8qLSv6xCyka/A==
+Received: from [IPv6:2606:6d00:17:7b4b::c41] (unknown [IPv6:2606:6d00:17:7b4b::c41])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EF08A17E0125;
+	Mon, 22 Dec 2025 14:19:18 +0100 (CET)
+Message-ID: <bf4a8049f49b8d6d8a39faecee025dce51d59db3.camel@collabora.com>
+Subject: Re: [PATCH v7 14/17] media: rkvdec: Add H264 support for the
+ VDPU381 variant
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Jianfeng Liu <liujianfeng1994@gmail.com>, detlev.casanova@collabora.com
+Cc: corbet@lwn.net, daniel.almeida@collabora.com, didi.debian@cknow.org, 
+	ezequiel@vanguardiasur.com.ar, hansg@kernel.org, heiko@sntech.de, 
+	hverkuil@kernel.org, james.cowgill@blaize.com, jonas@kwiboo.se, 
+	kernel@collabora.com, laurent.pinchart@ideasonboard.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	mchehab@kernel.org, opensource206@gmail.com, ribalda@chromium.org, 
+	sakari.ailus@linux.intel.com, yunkec@google.com
+Date: Mon, 22 Dec 2025 08:19:16 -0500
+In-Reply-To: <20251220164604.10052-1-liujianfeng1994@gmail.com>
+References: <20251218232829.337811-15-detlev.casanova@collabora.com>
+	 <20251220164604.10052-1-liujianfeng1994@gmail.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-x0PCQHDfMIfaKLpNVYF3"
+User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 4/4] coresight: tpda: add sysfs node to flush specific
- port
-Content-Language: en-GB
-To: Jie Gan <jie.gan@oss.qualcomm.com>, Mike Leach <mike.leach@linaro.org>,
- James Clark <james.clark@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Tao Zhang <tao.zhang@oss.qualcomm.com>
-References: <20251222-add_sysfs_nodes_to_configure_tpda-v6-0-b27143d45c86@oss.qualcomm.com>
- <20251222-add_sysfs_nodes_to_configure_tpda-v6-4-b27143d45c86@oss.qualcomm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20251222-add_sysfs_nodes_to_configure_tpda-v6-4-b27143d45c86@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_051250_896982_7C277AE8 
-X-CRM114-Status: GOOD (  20.80  )
+X-CRM114-CacheID: sfid-20251222_051925_964610_2CBDA830 
+X-CRM114-Status: GOOD (  17.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,113 +95,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/12/2025 06:02, Jie Gan wrote:
-> From: Tao Zhang <tao.zhang@oss.qualcomm.com>
-> 
-> Setting bit i in the TPDA_FLUSH_CR register initiates a flush request
-> for port i, forcing the data to synchronize and be transmitted to the
-> sink device.
-> 
-> Signed-off-by: Tao Zhang <tao.zhang@oss.qualcomm.com>
-> Reviewed-by: James Clark <james.clark@linaro.org>
-> Co-developed-by: Jie Gan <jie.gan@oss.qualcomm.com>
-> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
-> ---
->   .../ABI/testing/sysfs-bus-coresight-devices-tpda   |  7 ++++
->   drivers/hwtracing/coresight/coresight-tpda.c       | 40 ++++++++++++++++++++++
->   drivers/hwtracing/coresight/coresight-tpda.h       |  1 +
->   3 files changed, 48 insertions(+)
-> 
-> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
-> index d359d90dca72..df8f03d4b573 100644
-> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
-> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
-> @@ -51,3 +51,10 @@ Description:
->   		mode 0 - COUNT[11:0] value represents the approximate number of bytes moved between two ASYNC packet requests
->   		mode 1 - the bits COUNT[11:7] are used as a power of 2. for example, we could insert an async packet every 8K
->   		         data by writing a value 13 to the COUNT[11:7] field.
-> +
-> +What:		/sys/bus/coresight/devices/<tpda-name>/port_flush_req
-> +Date:		December 2025
-> +KernelVersion:	6.19
-> +Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
-> +Description:
-> +		(RW) Configure the bit i to requests a flush operation of port i on the TPDA.
 
-Does this have similar semantics as the "global_flush_req"  for "Read" ? 
-i.e., the bit stays set until the request completes ? Otherwise, why 
-isn't this Write only ?
+--=-x0PCQHDfMIfaKLpNVYF3
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-I don't see the point of "Reading" this value back.
+Hi,
 
-Suzuki
+Le dimanche 21 d=C3=A9cembre 2025 =C3=A0 00:46 +0800, Jianfeng Liu a =C3=A9=
+crit=C2=A0:
+> Hi,
+>=20
+> On Thu, 18 Dec 2025 18:28:24 -0500, Detlev Casanova wrote:
+> > +static int rkvdec_h264_start(struct rkvdec_ctx *ctx)
+> > +{
+> > +	struct rkvdec_dev *rkvdec =3D ctx->dev;
+> > +	struct rkvdec_h264_priv_tbl *priv_tbl;
+> > +	struct rkvdec_h264_ctx *h264_ctx;
+> > +	struct v4l2_ctrl *ctrl;
+> > +	int ret;
+> > +
+> > +	ctrl =3D v4l2_ctrl_find(&ctx->ctrl_hdl,
+> > +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 V4L2_CID_STATELESS_H264_SPS);
+> > +	if (!ctrl)
+> > +		return -EINVAL;
+> > +
+> > +	h264_ctx =3D kzalloc(sizeof(*h264_ctx), GFP_KERNEL);
+> > +	if (!h264_ctx)
+> > +		return -ENOMEM;
+>=20
+> I can see the sps validation is removed:
+>=20
+> 	ret =3D rkvdec_h264_validate_sps(ctx, ctrl->p_new.p_h264_sps);
+> 	if (ret)
+> 		return ret;
+>=20
+> This should fix decoding issue with chromium when minimum size of h264
+> decoder is lower than 32. While I find this issue is caused by chromium
+> not following v4l2 stateless spec, and I think checking sps at start
+> should be still necessary.
 
-> diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/hwtracing/coresight/coresight-tpda.c
-> index 7baa8a0965d3..f79fea4fbb2c 100644
-> --- a/drivers/hwtracing/coresight/coresight-tpda.c
-> +++ b/drivers/hwtracing/coresight/coresight-tpda.c
-> @@ -430,9 +430,49 @@ static ssize_t syncr_mode_store(struct device *dev,
->   }
->   static DEVICE_ATTR_RW(syncr_mode);
->   
-> +static ssize_t port_flush_req_show(struct device *dev,
-> +				   struct device_attribute *attr,
-> +				   char *buf)
-> +{
-> +	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> +	unsigned long val;
-> +
-> +	if (!drvdata->csdev->refcnt)
-> +		return -EINVAL;
-> +
-> +	guard(spinlock)(&drvdata->spinlock);
-> +	val = readl_relaxed(drvdata->base + TPDA_FLUSH_CR);
-> +
-> +	return sysfs_emit(buf, "0x%lx\n", val);
-> +}
-> +
-> +static ssize_t port_flush_req_store(struct device *dev,
-> +				    struct device_attribute *attr,
-> +				    const char *buf,
-> +				    size_t size)
-> +{
-> +	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> +	u32 val;
-> +
-> +	if (kstrtou32(buf, 0, &val))
-> +		return -EINVAL;
-> +
-> +	if (!drvdata->csdev->refcnt || !val)
-> +		return -EINVAL;
-> +
-> +	guard(spinlock)(&drvdata->spinlock);
-> +	CS_UNLOCK(drvdata->base);
-> +	writel_relaxed(val, drvdata->base + TPDA_FLUSH_CR);
-> +	CS_LOCK(drvdata->base);
-> +
-> +	return size;
-> +}
-> +static DEVICE_ATTR_RW(port_flush_req);
-> +
->   static struct attribute *tpda_attrs[] = {
->   	&dev_attr_global_flush_req.attr,
->   	&dev_attr_syncr_mode.attr,
-> +	&dev_attr_port_flush_req.attr,
->   	tpda_trig_sysfs_rw(freq_ts_enable, FREQTS),
->   	tpda_trig_sysfs_rw(trig_freq_enable, FRIE),
->   	tpda_trig_sysfs_rw(trig_flag_ts_enable, FLRIE),
-> diff --git a/drivers/hwtracing/coresight/coresight-tpda.h b/drivers/hwtracing/coresight/coresight-tpda.h
-> index 1d2de50bb9f9..ef1ce2ce36a9 100644
-> --- a/drivers/hwtracing/coresight/coresight-tpda.h
-> +++ b/drivers/hwtracing/coresight/coresight-tpda.h
-> @@ -10,6 +10,7 @@
->   #define TPDA_Pn_CR(n)		(0x004 + (n * 4))
->   #define TPDA_FPID_CR		(0x084)
->   #define TPDA_SYNCR		(0x08C)
-> +#define TPDA_FLUSH_CR		(0x090)
->   
->   /* Cross trigger global (all ports) flush request bit */
->   #define TPDA_CR_FLREQ		BIT(0)
-> 
+One of the missing part of rkvdec is that once you set the OUTPUT format we=
+ only
+reset the capture format, but we should also reset the SPS control to a mat=
+ching
+default, matching the resolution and resetting the depth. In fact, I don't =
+even
+see code that verify the bit depth against already allocated memory, and th=
+e is
+not capable of converting.
 
+I tend to agree with Jianfeng, that we should leave that un-modified until =
+we
+have time to fully address and test this situation.
+
+Nicolas
+
+>=20
+> I have sent a fix to chromium[1] and it should get merged later.
+>=20
+> [1] https://chromium-review.googlesource.com/c/chromium/src/+/7274555
+>=20
+> Best regards,
+> Jianfeng
+
+--=-x0PCQHDfMIfaKLpNVYF3
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaUlFVAAKCRDZQZRRKWBy
+9KYSAQCyLydUKeXmCMqZ6Lz6eQ45ZV3TgM87Bo4WJW/g+M1IKQD+LiW5IG8MDVmP
+l6tBtIFnYSztPPgjaZjO29BF1siDCgg=
+=XJKL
+-----END PGP SIGNATURE-----
+
+--=-x0PCQHDfMIfaKLpNVYF3--
 
