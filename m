@@ -4,105 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEDBBE67482
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 11:26:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EB5AE6749B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 11:44:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YPgDvOrc6Z6FI66bGWH7nZrKKPg18xmDLr/yqLIfNcs=; b=JgqhP4m/xpL7ym9lqgNXrnMz1e
-	2j8wqqQHhRjNoPnC8Q8IQRtHUIWPn1ROq+KRvvQH1aKkPgRhApfY8Ps8jiaTrV4+wf7hgobwVOPy1
-	13PODvnXQUySEtxHREynvzd7eN/cl9G3naZYYbdSpJLVuNB2ZXIpT8GCEK6j1usoD0hRsDL32D2tC
-	oeS9qgKHtVydVa4Fc6IdiiIqWRhNSttr1lYlZ5Z5uusjK2EhZ6vzISAf/L4m236QBOdBeWuNh6vWx
-	p02ZELVSebS9fJyys9HOdNNzzkP/upbs5Ef64XK6yIXIaVT0U7lTtOo+SXyOFS9i530Y/QOzyvW2y
-	I+KLDlwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b8a+f6gl2Wz4m9MuhI4zrCSwDqPsTlNmo2n2XvDMCD0=; b=XRcHUSszHOKdYIKSVBaPdgFVCc
+	WN6d6WVg49WrooIo1l3Pz3exbaeY4oN4G3IM5I15hNCMgu0anyutmRQlcmTI+G3YHo69LTJvuvirU
+	0VXC2uuK24dYaoLMZPHVRzzqLQTMNZyKn+5uywwwq+84kQJnZ22W5Y7QF2Uznz5Da3XU/1FfDFmVj
+	Ky3bXcq5D+O9j4fWMuxGtyL2ha4/BomMlOj/1M4Gy1j0iQ62q2MgS+C3H+OsKeVV/l+aefn3NJVGn
+	XswxxIXq8PZLiSROYkY53VYLAGbqg4ra62JphvZCejLKjqEWck0dGyJTmTqb+dNpvGB4ntTaNmvNl
+	BZFiCS5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXe3H-0000000Dfei-0Ro9;
-	Mon, 22 Dec 2025 11:26:11 +0000
-Received: from mail-pl1-x642.google.com ([2607:f8b0:4864:20::642])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXe3E-0000000DfeJ-0Eeg
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Dec 2025 11:26:09 +0000
-Received: by mail-pl1-x642.google.com with SMTP id d9443c01a7336-2a0fe77d141so41294835ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 03:26:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1766402766; x=1767007566; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=YPgDvOrc6Z6FI66bGWH7nZrKKPg18xmDLr/yqLIfNcs=;
-        b=RINXNowPQqZZXg9SDG5hwmysGJkQ6egMnu+CHJaeekU6NqfnMkst0RE5CAhjxub6sn
-         i3jH5XcUJ7gtDAo4mnGoA5KzobBttnV52ZpyG+cVE7WK5OVgDCoOBre93aH3W19s0XuK
-         ylsFhVqQmM3g2Sg10OgKk884IEAQQL0BGGurZDvUnsQ2IcfwA5ZxDN80Gon2GBhZq+5p
-         jOiobJL1/dOjMYg1uGFDgGJ1CMJxB6rkKIw0LLRO0wfXwXukLzE7/l2NGdPDq+r5U+em
-         kKSyDYW414WcvHv/sDqEvDrrLcgH6WlbkRO/ztrMNigePuNwSrnAHwPWEU/j4mESb6kY
-         SlWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766402766; x=1767007566;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YPgDvOrc6Z6FI66bGWH7nZrKKPg18xmDLr/yqLIfNcs=;
-        b=G07/tqcrvcXJCoDVY47Kh20zyrp7VnYmoWoMccsAlUev41tCIZ3VYFjZkiSiLgexan
-         NgKpa6qWdaLtAL0FssYe9lQ08qZ5vgk6QFtCmpDYH8KXZweNOXtfmYl5g1KHMtWO0hRL
-         7ObI+pKZheZAofarqMZzUYDROyASEs5sbTAxxwFDulO4XsDr5bAQRQNBvFwdFcxiGvPN
-         /hJhFA6M0GL9rO6BDwWqyimJACzRNMLxo2mKdSnRPceGINPL+TRTL/fdxuQYTZPTbGxX
-         D/fWUluT2EKAaz9JnkP5z5vq0b9/PeJQ7FhhR14AYRqR5IiP0GI+bHFkAxE3EZ1pypyZ
-         G6Gw==
-X-Forwarded-Encrypted: i=1; AJvYcCVe0ofqZvuZkble06nOsAzIE1u0diaFS4xC+r9m9DOPImillERUx7vz63o8mts3XgGv1FAgOO64IgvUuONrbxx5@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUrtRE8vfvOCBeNkqRGXTWYySjFlVeVsnFqk/+mF8Qzo72/Hmf
-	ri0jh2H0A5DPEzlQ+w+LjBHjALGselkCONGES9uWFNYN6OufrsCV50Rx
-X-Gm-Gg: AY/fxX4CJKKYiHrC/0n3FR5IlLQ8RJbHSRoPGJfEsuII7OdGIGbWD/eMrwEeMFP+6PO
-	Et2lWuukYdy59h5yauQ0cWYeyjOyfSxk6s26H7RhPHo8TwFvQcRAio5JQTLei6nDsAJp8arZZRV
-	y032CfwId5ihf872gxaNET+wdUcj/EEXFh8UQ6pF1suENpRXKptefpM3gAZwSZScQyJQ3h1GI53
-	emMluENqEhdZcd2dW4cVfWVyf1I1eoK+rdw9zvOOOkKA0Yu1gNHGYRm2ToE/fwqoK0VYmPxSFFH
-	d7Udf5uqWRZagluF8pADhuVQZqGi50zApKKe8gDxiDZklySUMI1aIbhiOlWp+y8jiIAa7YCTXT9
-	y2/qQpszQ6AWwWeectBNAsDAO3oMpp/dyDsYrzft/gGLInWHQIjkJYOhtz7N6IhiQfH/Cq92MG+
-	8EM09gnsmFkf590eMD+mw2gpneLGgyU/OHFzrrP2HVP7v5qZx90BsXGSGQuXrbRA54cxTdpOYc8
-	TCzM2MPmw2DJToWyDAxZQ28qaNaGNcDrblw18TIFEnM36Zn1aSLWqZFUl5GKlOfEAmlpycDyUVX
-	ktJvEhsLpatu
-X-Google-Smtp-Source: AGHT+IFYHl6Ami/Fr/cAqd6c4FtIqedeodym7KvXuloCEE2tyym65FcGKbybdqQRLNMA5fqUBmjjcw==
-X-Received: by 2002:a17:902:dac8:b0:2a0:ba6d:d0ff with SMTP id d9443c01a7336-2a2f223177dmr104463525ad.16.1766402766457;
-        Mon, 22 Dec 2025 03:26:06 -0800 (PST)
-Received: from 2001-b400-e3f4-8350-2c3b-65a6-c562-3201.emome-ip6.hinet.net (2001-b400-e3f4-8350-2c3b-65a6-c562-3201.emome-ip6.hinet.net. [2001:b400:e3f4:8350:2c3b:65a6:c562:3201])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a2f3d74bb0sm93937725ad.88.2025.12.22.03.26.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 22 Dec 2025 03:26:06 -0800 (PST)
-From: Kevin Tung <kevin.tung.openbmc@gmail.com>
-Date: Mon, 22 Dec 2025 19:25:29 +0800
-Subject: [PATCH] ARM: dts: aspeed: yosemite5: add x4 E1.S expansion board
- I2C mux
+	id 1vXeKn-0000000Dg9I-3iNQ;
+	Mon, 22 Dec 2025 11:44:17 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vXeKj-0000000Dg8E-3jZC;
+	Mon, 22 Dec 2025 11:44:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9F56C497;
+	Mon, 22 Dec 2025 03:43:53 -0800 (PST)
+Received: from [10.1.29.18] (e122027.cambridge.arm.com [10.1.29.18])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1FD983F778;
+	Mon, 22 Dec 2025 03:43:55 -0800 (PST)
+Message-ID: <d4d35a65-6ff8-47ea-9764-f03f7bead334@arm.com>
+Date: Mon, 22 Dec 2025 11:43:53 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/4] drm/panthor: Implement reading shader_present from
+ nvmem
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ Boris Brezillon <boris.brezillon@collabora.com>,
+ Liviu Dudau <liviu.dudau@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Chen-Yu Tsai <wenst@chromium.org>, Chia-I Wu <olvaffe@gmail.com>,
+ kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-pm@vger.kernel.org
+References: <20251220-mt8196-shader-present-v2-0-45b1ff1dfab0@collabora.com>
+ <20251220-mt8196-shader-present-v2-3-45b1ff1dfab0@collabora.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20251220-mt8196-shader-present-v2-3-45b1ff1dfab0@collabora.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251222-yv5_add_dvt_e1s_ioexp-v1-1-25ad202d2681@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAKgqSWkC/x3MQQqAIBBA0avIrBN0MqiuEjFETjWbEg0porsnL
- d/i/wcSR+EEvXogcpYkx15gKwXzNu0ra/HFgAYbi4j6zg1N3pPPJ7FNJAdfQVvX1YaNa42robQ
- h8iLX/x3G9/0AXWt1MGcAAAA=
-X-Change-ID: 20251222-yv5_add_dvt_e1s_ioexp-14930e048043
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- Amithash Prasasd <amithash@meta.com>, Kevin Tung <Kevin.Tung@quantatw.com>, 
- Ken Chen <Ken.Chen@quantatw.com>, Leo Yang <Leo-Yang@quantatw.com>, 
- Jackson Liu <Jackson.Liu@quantatw.com>, 
- Kevin Tung <kevin.tung.openbmc@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1766402763; l=1757;
- i=kevin.tung.openbmc@gmail.com; s=20250924; h=from:subject:message-id;
- bh=AYuzuGSC2KyBdpb8hlYBY4+KTfc8mfuG0hrKUlWN6X0=;
- b=iYN6qeY3wMD3HyqlgwpbWDH1W7gTGl8fAskNUaffziqK0UPHS3mck0rJ2kDDIHYmNBvQUCArK
- vhpDUVX53K3BPZiIFMuykl32cWhjNLAUTP99xQQnePiTvK7hwbhJd8v
-X-Developer-Key: i=kevin.tung.openbmc@gmail.com; a=ed25519;
- pk=PjAss0agA0hiuLfIBlA9j/qBmJaPCDP+jmQIUB6SE7g=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_032608_248027_4EFF6D2C 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20251222_034414_098643_8B341DE4 
+X-CRM114-Status: GOOD (  20.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,69 +78,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The new hardware design adds two additional E1.S devices behind an
-I2C mux at address 0x73 on bus 10. Add support for this mux in the
-DTS device tree.
+On 20/12/2025 18:49, Nicolas Frattaroli wrote:
+> On some platforms, notably MediaTek MT8196, the shader_present bitmask
+> in the Mali GPU register for it has cores enabled that may be faulty.
+> The true shader_present bitmask is found in an efuse instead.
+> 
+> Implement reading shader_present from an nvmem cell if one is present,
+> falling back to the Mali register if it's absent. The error codes are
+> trickled up through to the probe function so that probe deferral works.
+> 
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-Signed-off-by: Kevin Tung <kevin.tung.openbmc@gmail.com>
----
-Summary:
-Revise linux device tree entry related to Meta (Facebook) Yosemite5.
+Reviewed-by: Steven Price <steven.price@arm.com>
 
-Changes in v1:
-- Add x4 E1.S expansion board I2C mux
----
- .../dts/aspeed/aspeed-bmc-facebook-yosemite5.dts   | 23 ++++++++++++++++++++++
- 1 file changed, 23 insertions(+)
-
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts
-index 2486981f3d6bd36f3fe780b21e834b85242f8aa9..87524892322c1388c146b33ac454018a31dad168 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dts
-@@ -31,6 +31,8 @@ aliases {
- 		i2c33 = &i2c30mux0ch1;
- 		i2c34 = &i2c30mux0ch2;
- 		i2c35 = &i2c30mux0ch3;
-+		i2c36 = &i2c10mux0ch0;
-+		i2c37 = &i2c10mux0ch1;
- 		serial0 = &uart1;
- 		serial2 = &uart3;
- 		serial3 = &uart4;
-@@ -702,6 +704,27 @@ eeprom@54 {
- 		compatible = "atmel,24c128";
- 		reg = <0x54>;
- 	};
-+
-+	/* I2C MUX on E1S x4 board */
-+	i2c-mux@73 {
-+		compatible = "nxp,pca9543";
-+		reg = <0x73>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		i2c-mux-idle-disconnect;
-+
-+		i2c10mux0ch0: i2c@0 {
-+			reg = <0>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+
-+		i2c10mux0ch1: i2c@1 {
-+			reg = <1>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+		};
-+	};
- };
- 
- &i2c11 {
-
----
-base-commit: 9448598b22c50c8a5bb77a9103e2d49f134c9578
-change-id: 20251222-yv5_add_dvt_e1s_ioexp-14930e048043
-
-Best regards,
--- 
-Kevin Tung <kevin.tung.openbmc@gmail.com>
+> ---
+>  drivers/gpu/drm/panthor/panthor_hw.c | 36 ++++++++++++++++++++++++++++++------
+>  1 file changed, 30 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/panthor/panthor_hw.c b/drivers/gpu/drm/panthor/panthor_hw.c
+> index 87ebb7ae42c4..80c521784cd3 100644
+> --- a/drivers/gpu/drm/panthor/panthor_hw.c
+> +++ b/drivers/gpu/drm/panthor/panthor_hw.c
+> @@ -1,6 +1,7 @@
+>  // SPDX-License-Identifier: GPL-2.0 or MIT
+>  /* Copyright 2025 ARM Limited. All rights reserved. */
+>  
+> +#include <linux/nvmem-consumer.h>
+>  #include <drm/drm_print.h>
+>  
+>  #include "panthor_device.h"
+> @@ -109,7 +110,25 @@ static char *get_gpu_model_name(struct panthor_device *ptdev)
+>  	return "(Unknown Mali GPU)";
+>  }
+>  
+> -static void panthor_gpu_info_init(struct panthor_device *ptdev)
+> +static int overload_shader_present(struct panthor_device *ptdev)
+> +{
+> +	u64 contents;
+> +	int ret;
+> +
+> +	ret = nvmem_cell_read_variable_le_u64(ptdev->base.dev, "shader-present",
+> +					      &contents);
+> +	if (!ret)
+> +		ptdev->gpu_info.shader_present = contents;
+> +	else if (ret == -ENOENT)
+> +		return 0;
+> +	else
+> +		return dev_err_probe(ptdev->base.dev, ret,
+> +				     "Failed to read shader-present nvmem cell\n");
+> +
+> +	return 0;
+> +}
+> +
+> +static int panthor_gpu_info_init(struct panthor_device *ptdev)
+>  {
+>  	unsigned int i;
+>  
+> @@ -143,13 +162,18 @@ static void panthor_gpu_info_init(struct panthor_device *ptdev)
+>  		ptdev->gpu_info.tiler_present = gpu_read64(ptdev, GPU_TILER_PRESENT);
+>  		ptdev->gpu_info.l2_present = gpu_read64(ptdev, GPU_L2_PRESENT);
+>  	}
+> +
+> +	return overload_shader_present(ptdev);
+>  }
+>  
+> -static void panthor_hw_info_init(struct panthor_device *ptdev)
+> +static int panthor_hw_info_init(struct panthor_device *ptdev)
+>  {
+>  	u32 major, minor, status;
+> +	int ret;
+>  
+> -	panthor_gpu_info_init(ptdev);
+> +	ret = panthor_gpu_info_init(ptdev);
+> +	if (ret)
+> +		return ret;
+>  
+>  	major = GPU_VER_MAJOR(ptdev->gpu_info.gpu_id);
+>  	minor = GPU_VER_MINOR(ptdev->gpu_info.gpu_id);
+> @@ -172,6 +196,8 @@ static void panthor_hw_info_init(struct panthor_device *ptdev)
+>  		 "shader_present=0x%0llx l2_present=0x%0llx tiler_present=0x%0llx",
+>  		 ptdev->gpu_info.shader_present, ptdev->gpu_info.l2_present,
+>  		 ptdev->gpu_info.tiler_present);
+> +
+> +	return 0;
+>  }
+>  
+>  static int panthor_hw_bind_device(struct panthor_device *ptdev)
+> @@ -218,7 +244,5 @@ int panthor_hw_init(struct panthor_device *ptdev)
+>  	if (ret)
+>  		return ret;
+>  
+> -	panthor_hw_info_init(ptdev);
+> -
+> -	return 0;
+> +	return panthor_hw_info_init(ptdev);
+>  }
+> 
 
 
