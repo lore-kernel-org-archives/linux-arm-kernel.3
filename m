@@ -4,94 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FC9EE674B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 15:29:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28D8DE677EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 22 Dec 2025 15:33:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3gjP35cBA/xLIQiDo38CPhxP2cqKO6MoYUqR4x35YRw=; b=VKvDc2wpl+cNaMH01rkHuuXN8O
-	o4sMwqv3y/45nbS5hebWGMCoQHMywnvaOSf2v0kJKYk+eNuz+2jAmD/CcAN8F+jydYvRSErpiJMX0
-	g7VvhQBK9gwVVk5ILKpDIf1ZzSRedzp9Y917Y5pGwZKsL6gZERfTGRKBOpq6Z7guiT8IM4xtl+R7s
-	6PvY4CfhpjV701KB228feoEfUHYQqtp2h39tUtaBjjW59cFiIDuL7SE21yYC5JPGSfzhBzkJTaH5x
-	3d7rqQFPIq+ebFJW7bQqE1LA/VutfUrr2J4/MdVD2ktX1oozxMZ/L9tZAHfDVv4Ha/ipQlKaYv5Dx
-	TeJ+mjEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4YetxDVR1VxI0DTAWYAmjhdeCk8r20I0WByPG5tUrY0=; b=zUeFlEGjVJofDBjmLqdLcqMn47
+	YJnYtab0HQl2eZnyxKlDdpBqr7l1y232e1AkqR7vJskH+O7+7ieYrDC8/4d/51gCDVBI7tpUkqDHU
+	99oZ8u3NRPAVM8r7Hbo5BxCMjrOODcGhw75w4jmYL6RvxJitVvgTh7eNiM+Khrnya478F7ICRAwUx
+	UdKgRYZcZylA4w+MyaqnpNCydPIynPKW/2wIYKxkHzGvrPy1/qL54yNBia33MlPfPq5hrMHzlrhm1
+	2IswFuMhym75tlDqePqmKVzzH/hYxQ7b+JIXWbr1MEwHrj5/niRtJKqIc+T4pAWjwNjOTcCiSUvYA
+	Naano0vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXhqU-0000000DvOj-14Wj;
-	Mon, 22 Dec 2025 15:29:14 +0000
-Received: from mail-ot1-f50.google.com ([209.85.210.50])
+	id 1vXhuc-0000000DvZn-3rRX;
+	Mon, 22 Dec 2025 15:33:30 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXhqR-0000000DvON-2m5e
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 22 Dec 2025 15:29:12 +0000
-Received: by mail-ot1-f50.google.com with SMTP id 46e09a7af769-7c76d855ddbso1158727a34.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 07:29:10 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766417350; x=1767022150;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3gjP35cBA/xLIQiDo38CPhxP2cqKO6MoYUqR4x35YRw=;
-        b=NAWZQI8hem0RmCa44sP1kB79pEMYL1hCCe60pDE+x0UHqyRDSWP4xdBAY2uCA+/OhG
-         chAqddjPkjHlcz5jdk0OO3KLSkD2H7io7R4dfwXNfft6JD4SFlM/HX7uVEi9Dwkl1oBc
-         0qMrukhINrilEOuC4u1ugtyA48VJBQ+XIBCVSJ5Nqi1ve0SOduKqTcWhTZrvhNBrmKQp
-         vhYvNkhdtGPbD2AWLYJ6OFZbh8KwW096TWYu9RwBJWr7kqyFbGPcCMl33JY6kkEDUQpv
-         oFurQ3v6ZZO7AZ/ZprR9nnQ/7zoILnXVyRvzwAPGCU+wZiWoueSyPP9RIv0uz5FduS/F
-         VLWg==
-X-Gm-Message-State: AOJu0YyQK1sxMTuezTdo/10L/LTs80olJ11nfSKsD9Kujhbn3yoZTDxH
-	9FGcBQ5zNR55HGLgzSAQypgYZu26uovJ7VLr0HGepAuMudZwbvue8Fi7
-X-Gm-Gg: AY/fxX74FFGWgIEdSnsptOfnuL+QoPGWaZN06KU+cAr10J6mFIhIi3qK54adlmYe1it
-	/8HFTH0IKUJq4GuXGEaGvLFF0h8CtGpOiYWYp1kfQ3SZJd6JnTL7+BwNoUgQiVII1L7qZmQUO2o
-	opMdB6AF6gFnZWPzo1nAzxgtSaq9qXiF7ekxUXf9egcjRmShA2KXqvaBaHuh+poo00BQvwB03zX
-	SwCk8u4AkeUtLZbyvKu3mz1s3xIkb1gyot9LdSPGDmSsTn7qMAAWhlAb6xBekYolgrc6PCcVJB4
-	tgCzWEK9dCwAyHkbrXpX5fuCwA/Kd6Ouc/RSWGoQbavduGS7BeHbnuGjl8IOdL23tqrSBMmEltG
-	V4OjY+15QiEqUhV98pQRvuiKU1/RLfzUygpszrx3zDwf1+jChwdqrl6CqgxZFAHvS+0ji2cm6OD
-	wpgVlxpdY33etjJ9H4vrzq7smh
-X-Google-Smtp-Source: AGHT+IGVcq4K1AuHoxYg7INDkNkuprMgNTWqLwhWLeF7yuLOnk9Yx0LUPU2KReQ0jIoNQtiJzx+f0A==
-X-Received: by 2002:a05:6830:4582:b0:7cb:125d:2a43 with SMTP id 46e09a7af769-7cc66a1287bmr3846250a34.28.1766417349933;
-        Mon, 22 Dec 2025 07:29:09 -0800 (PST)
-Received: from localhost ([2a03:2880:10ff:5b::])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7cc667d572asm7516062a34.14.2025.12.22.07.29.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 22 Dec 2025 07:29:09 -0800 (PST)
-From: Breno Leitao <leitao@debian.org>
-Date: Mon, 22 Dec 2025 07:28:55 -0800
-Subject: [PATCH] arm64: mm: warn once for ioremap attempts on RAM mappings
+	id 1vXhuZ-0000000DvZD-2eZO;
+	Mon, 22 Dec 2025 15:33:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1766417608; x=1797953608;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=oevZNtJK/umXqU3Iu+7UzKkPRbb+1+8qqTTjLfmC6wU=;
+  b=nLtUs/LhEAnBvt6bihL23Pn0cNRrmkMviSJ58rnDeGjRvTuw4NHNG6zj
+   8HnvSiwKmUUcj13zaiNICjLK913nY8MYkd7eWeESboY1j9Ey96oQVgsw0
+   U41mgkra0X33H6FKBHa1Mpz186jQ3RqDgwSlwORuaPwI7EWS/TglzhuNS
+   sOXXP7juZ85PJjBSI8axzd4AsRlE/eAxAJLGdw3a9ks4iyNE5W4LIxQuL
+   enhBa/MKktvCQPXT7jP3KEps5pv0ZWNrIQY0VW27rECz07y6SR8i1yhdm
+   jzvqgzgy1RYzzVbsIYTAtyUc2JxDy1TaxCeErfER/skoMdFlrqa6KCr9Q
+   A==;
+X-CSE-ConnectionGUID: YSWiR+hkQgGncmK8cR6WWg==
+X-CSE-MsgGUID: KG2279M4RAuUxLHiBfqxkA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11650"; a="68026716"
+X-IronPort-AV: E=Sophos;i="6.21,168,1763452800"; 
+   d="scan'208";a="68026716"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Dec 2025 07:33:26 -0800
+X-CSE-ConnectionGUID: ukAZI8NMSOiEtpG5QUZ/Uw==
+X-CSE-MsgGUID: L8+GSCwISZyJ+reXBPVunA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,168,1763452800"; 
+   d="scan'208";a="223033237"
+Received: from igk-lkp-server01.igk.intel.com (HELO 8a0c053bdd2a) ([10.211.93.152])
+  by fmviesa002.fm.intel.com with ESMTP; 22 Dec 2025 07:33:22 -0800
+Received: from kbuild by 8a0c053bdd2a with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vXhuR-000000005Y0-3SMV;
+	Mon, 22 Dec 2025 15:33:19 +0000
+Date: Mon, 22 Dec 2025 16:32:53 +0100
+From: kernel test robot <lkp@intel.com>
+To: Benjamin Gaignard <benjamin.gaignard@collabora.com>, joro@8bytes.org,
+	will@kernel.org, robin.murphy@arm.com, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
+	nicolas.dufresne@collabora.com, p.zabel@pengutronix.de,
+	mchehab@kernel.org
+Cc: Paul Gazzillo <paul@pgazz.com>,
+	Necip Fazil Yildiran <fazilyildiran@gmail.com>,
+	oe-kbuild-all@lists.linux.dev, iommu@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-media@vger.kernel.org,
+	kernel@collabora.com,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>
+Subject: Re: [PATCH v10 5/7] media: verisilicon: AV1: Restore IOMMU context
+ before decoding a frame
+Message-ID: <202512221600.vlUX9PF6-lkp@intel.com>
+References: <20251215085349.10155-6-benjamin.gaignard@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251222-arm64_ioremap-v1-1-30ff5f718b61@debian.org>
-X-B4-Tracking: v=1; b=H4sIALdjSWkC/yXM3QqCQBAG0FcZvmsX1rE12VeJiFVHm8AfZisC8
- d2jvDw3Z0MWU8mItMHkrVmXGZHKgtDd0zyK0x6RwJ5Dycwu2VSfbrqYTGl1Pfuzr9omVKFBQVh
- NBv38v8v1cH61D+mevwT7/gVuG1JwcQAAAA==
-X-Change-ID: 20251222-arm64_ioremap-d20703b85358
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- kernel-team@meta.com, clm@fb.com, Breno Leitao <leitao@debian.org>
-X-Mailer: b4 0.15-dev-47773
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1501; i=leitao@debian.org;
- h=from:subject:message-id; bh=POVwh7CIkpm8OwgtoG3u426PTzAyYheJiuT2ffXLjeA=;
- b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBpSWPFksJ6Y16yNrpT1VKRMJZnwT+KP5gYsNMZt
- 1BLT/2eSp2JAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCaUljxQAKCRA1o5Of/Hh3
- beU0D/4i52o2SEZrAvbmPRFBbfc8u+M2tKF0LgG7bE8z++2znri4naTPcgKk+F4NhwactwVrdEA
- UZ8NHI8bQGwpGNgO6tCFBQrcgd0KkWRY1lmY1mjAWM9yIydWfW1rKLJpS3cIA6PNsxy62GT46BH
- lE+GzgzzfYFK7suk9fRgsiixLF5ciWpVrCU5HX1HvqMiqFH6EwFOVcyflVBQn4EIQ/Y4cOVvjiP
- q6PDnSP1coTVHSiGT0xYBDuLg/gC8OTZPe1wZcQZBMC+k9xxlywwZIwS02DbP/57EL3jqFajtVp
- QHikwRvsiQobDfS3XEJtyHxt/IGNNcsMwAs1zIFVZwx0pnJgcNh157a7PGfdLZPHHL8lQmY166X
- RcM1bNgLndjZzOxzXqUbVGoy06rNLDH7qXmmAJIqE294+QBGddeZuYI/4m8xL4MqmVqgTiPp2rQ
- G3zNyLwXZ2jSa0kWF6hBfjrA59wpWmjbU+2bCbFwagG+F0iWdNKi75KCaTq6/rKWa6nz9WRTQXg
- D2NLwg/IkqDRWS2NMvC6+66Gwia6UBbYS9C5iwfp5TbMgfoQJS7ttEQdi0PTXJefDcfea6zGV5Y
- 2jfRn3LJ2alPGcOSCnSAX8eNguDS8Gd2UOjjEtxNgc0JbczVeAVHhh3b3y92or5Dos17Iz+/9NS
- pe/IbjWa3088Wjg==
-X-Developer-Key: i=leitao@debian.org; a=openpgp;
- fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251215085349.10155-6-benjamin.gaignard@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_072911_718450_E9F40E3D 
-X-CRM114-Status: GOOD (  13.84  )
+X-CRM114-CacheID: sfid-20251222_073327_772500_B27B8A09 
+X-CRM114-Status: UNSURE (   9.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,47 +98,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace WARN_ON with WARN_ONCE when detecting attempts to ioremap
-RAM. This prevents log spam when a misbehaving driver repeatedly tries
-to map RAM via ioremap.
+Hi Benjamin,
 
-A single warning is more than enough to show the broken code path, and
-extra reports don't add extra information.
+kernel test robot noticed the following build warnings:
 
-Warning floods have been seen in production environments where broken
-external drivers hit this code path thousand of times, causing
-unnecessary messages to be printed and pressure on the serial console.
+[auto build test WARNING on linus/master]
+[also build test WARNING on v6.19-rc2 next-20251219]
+[cannot apply to robh/for-next rockchip/for-next arm64/for-next/core]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Signed-off-by: Breno Leitao <leitao@debian.org>
----
-PS: This is crashing a host due to a lockup on nbcon that is likely
-fixed by commit d5d399efff65773("printk/nbcon: Release nbcon consoles ownership
-in atomic flush after each emitted record")
----
- arch/arm64/mm/ioremap.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+url:    https://github.com/intel-lab-lkp/linux/commits/Benjamin-Gaignard/dt-bindings-vendor-prefixes-Add-Verisilicon/20251215-165740
+base:   linus/master
+patch link:    https://lore.kernel.org/r/20251215085349.10155-6-benjamin.gaignard%40collabora.com
+patch subject: [PATCH v10 5/7] media: verisilicon: AV1: Restore IOMMU context before decoding a frame
+config: openrisc-kismet-CONFIG_VSI_IOMMU-CONFIG_VIDEO_HANTRO_ROCKCHIP-0-0 (https://download.01.org/0day-ci/archive/20251222/202512221600.vlUX9PF6-lkp@intel.com/config)
+reproduce: (https://download.01.org/0day-ci/archive/20251222/202512221600.vlUX9PF6-lkp@intel.com/reproduce)
 
-diff --git a/arch/arm64/mm/ioremap.c b/arch/arm64/mm/ioremap.c
-index 10e246f11271..b12cbed9b5ad 100644
---- a/arch/arm64/mm/ioremap.c
-+++ b/arch/arm64/mm/ioremap.c
-@@ -24,7 +24,8 @@ void __iomem *ioremap_prot(phys_addr_t phys_addr, size_t size,
- 		return NULL;
- 
- 	/* Don't allow RAM to be mapped. */
--	if (WARN_ON(pfn_is_map_memory(__phys_to_pfn(phys_addr))))
-+	if (WARN_ONCE(pfn_is_map_memory(__phys_to_pfn(phys_addr)),
-+		      "ioremap attempted on RAM pfn\n"))
- 		return NULL;
- 
- 	/*
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202512221600.vlUX9PF6-lkp@intel.com/
 
----
-base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-change-id: 20251222-arm64_ioremap-d20703b85358
+kismet warnings: (new ones prefixed by >>)
+>> kismet: WARNING: unmet direct dependencies detected for VSI_IOMMU when selected by VIDEO_HANTRO_ROCKCHIP
+   WARNING: unmet direct dependencies detected for VSI_IOMMU
+     Depends on [n]: IOMMU_SUPPORT [=n] && (ARCH_ROCKCHIP && ARM64 || COMPILE_TEST [=y])
+     Selected by [y]:
+     - VIDEO_HANTRO_ROCKCHIP [=y] && MEDIA_SUPPORT [=y] && MEDIA_PLATFORM_SUPPORT [=y] && MEDIA_PLATFORM_DRIVERS [=y] && VIDEO_HANTRO [=y] && (ARCH_ROCKCHIP || COMPILE_TEST [=y])
 
-Best regards,
---  
-Breno Leitao <leitao@debian.org>
-
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
