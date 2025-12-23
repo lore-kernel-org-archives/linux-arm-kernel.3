@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 847B8E6FE23
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 17:33:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF156E6FE23
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 17:34:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GqaQRBKoM/CiH2DB/TnINbMtAw4kNIgu5kDpZuHo4B0=; b=ZRYOCcknW9LCJm6Typ0+N4SaP2
-	CRd87THteftYKitq88Q7u2MrAHX2RBJksG6s44Gii6W7jO1hTdWkUL9fz0TnfvCcNSXguEZzeyDTU
-	cWbRdElasZtNzyc1SHV/mWlaaqVM2OmHjUK4dcDZcfT6WFmM7RcZ/CcvEY8AGb50/6/rfCgsyLpXJ
-	RLLMtNbudllW6I+kCLDWr9nd+uK2gmVnW2mgpGAUOBjAUYBRpjGDvTZCj8ZTcB3SWQmaMZuWBuohn
-	CADJ8cUUcWD/ophZMGYX02tHj4kak0+TDhEzmmGlBafY0s40ID0wruHlSMZ2ZrUuJ9eCeSCA+aH55
-	HKK/WyLw==;
+	bh=GGhpgcSD7Na83bojLS1ewDLOcwdbtRTs91T9DRYcYc4=; b=jGcfeP18nGcPBmWaYhVflq2Udc
+	trvObpfX8j7g5jETj+peGcBvdnSTtncE7RkSqey3sCOghz+IIRrqwEVaUOW/SLRWBN0xnlcTi2oja
+	C417ZUBW0/v/Qq3rccEanD9Q4q4X0yeOICpt5juYvxm1Ec2fmfHuvFaBWgHujpjYAoeqKmsDJyjI/
+	GaA2ZoO+o5L94myMoe/GqY2uoDfs6DaO7J09fjAK0Rfx4ITfqplVfl1q8LDEhCthHn/9cus7WOCCq
+	pKE0/bEJzK/ghn9GE9vyPZOBHAYEWSD3Zyo2p7qGl76NEXmHxH1E0owAdwsHexbRitrZQ+CS2H9IF
+	JZec83Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY6GW-0000000Fpbz-1aL7;
-	Tue, 23 Dec 2025 17:33:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vY6Go-0000000Fph5-2f5L;
+	Tue, 23 Dec 2025 17:34:02 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY6GU-0000000Fpbi-2EU8;
-	Tue, 23 Dec 2025 17:33:42 +0000
+	id 1vY6Gm-0000000FpgJ-01Y6;
+	Tue, 23 Dec 2025 17:34:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F242A6013A;
-	Tue, 23 Dec 2025 17:33:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7633C113D0;
-	Tue, 23 Dec 2025 17:33:37 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6C5AE44093;
+	Tue, 23 Dec 2025 17:33:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08883C19423;
+	Tue, 23 Dec 2025 17:33:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766511221;
-	bh=m7HpFgNLV9TNM8Cr/q/pRPRVkPEEhFM+P9eE+IsCGLg=;
+	s=k20201202; t=1766511239;
+	bh=Xhadf7WxNcbHexZkIdejQDCjOzzfeofXi1dqZAVER/U=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=a63U1Y7t+uP3fy7j+j3rVDyF8Qn7Ezx49gZ3nu/xsZmcuw3nCyx6HRSf1y68qcUyV
-	 uUUwYe1HZtoTP6eAX9UfKqsA2cNDXmUzj6Nq1tmHadGGWi5U/pPf9q44xU/ASjqHP1
-	 Ytu/EEvTzvr1PvRhWdo6ZR/YqyYsURAC5a2QCPJ0yIgOilgEL/fiGKQRpInOY0Xgw7
-	 e0qy9RNwP/xSTSgQM6jM2qpltSl7wWCFZO0nsvmOL1NUe0rXb1tHgEc1hitcNLd5Am
-	 IR/2NFfbFtb9A+uRO+nMvcesIq7/r8xTNoGQCpxvB9ZS445mauauZYo+BaC9PFEe6I
-	 4vSVXL78iZ4rQ==
+	b=RoXUVWJcWo5rR+PJhTILIkGMHhVBFPBj9jxUcbPpmJDrqsZnNb1Dv9Uravd+RSnom
+	 HSpJPfeAbyx0c2R41TgA4HZDueCZiHayXBiAYKhmtsARsQl6XpZRsAjOCMEbRcAj+J
+	 8RQ2Kap8hqnQvv1PHjuTih2H64AigYb5HbVsOwCw7fuPwtekQ65Pb89qd44gJfmHq5
+	 vbgbnrAB2mivdHNJtA1oz8yAk1NP/x6y5AvaKDBg3qvlPyXqKrcyPEr7YPwMtuxhWh
+	 LZFUmdvUL+uvCpLx8af+lzQzIf70FzjXZ7p3DmA5ufb1AQn8kGEtk/fTNYYWOPcL0p
+	 9uPGD2xuHJiEQ==
 From: Vinod Koul <vkoul@kernel.org>
-To: Kishon Vijay Abraham I <kishon@kernel.org>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Franz Schnyder <fra.schnyder@gmail.com>
-Cc: Franz Schnyder <franz.schnyder@toradex.com>, 
- linux-phy@lists.infradead.org, imx@lists.linux.dev, 
+To: Amelie Delaunay <amelie.delaunay@st.com>, 
+ Dan Carpenter <dan.carpenter@linaro.org>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Johan Hovold <johan+linaro@kernel.org>, 
+ Fengguang Wu <fengguang.wu@intel.com>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, linux-phy@lists.infradead.org, 
+ linux-stm32@st-md-mailman.stormreply.com, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Francesco Dolcini <francesco.dolcini@toradex.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, stable@vger.kernel.org, 
- Xu Yang <xu.yang_2@nxp.com>
-In-Reply-To: <20251126140136.1202241-1-fra.schnyder@gmail.com>
-References: <20251126140136.1202241-1-fra.schnyder@gmail.com>
-Subject: Re: [PATCH v2] phy: fsl-imx8mq-usb: fix typec orientation switch
- when built as module
-Message-Id: <176651121758.749296.4271020306636125527.b4-ty@kernel.org>
-Date: Tue, 23 Dec 2025 23:03:37 +0530
+ kernel-janitors@vger.kernel.org
+In-Reply-To: <aTfHcMJK1wFVnvEe@stanley.mountain>
+References: <aTfHcMJK1wFVnvEe@stanley.mountain>
+Subject: Re: [PATCH] phy: stm32-usphyc: Fix off by one in probe()
+Message-Id: <176651123567.749296.7003388912771665169.b4-ty@kernel.org>
+Date: Tue, 23 Dec 2025 23:03:55 +0530
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.13.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251223_093400_071438_1A260AE6 
+X-CRM114-Status: UNSURE (   7.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,23 +81,20 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 26 Nov 2025 15:01:33 +0100, Franz Schnyder wrote:
-> Currently, the PHY only registers the typec orientation switch when it
-> is built in. If the typec driver is built as a module, the switch
-> registration is skipped due to the preprocessor condition, causing
-> orientation detection to fail.
+On Tue, 09 Dec 2025 09:53:36 +0300, Dan Carpenter wrote:
+> The "index" variable is used as an index into the usbphyc->phys[] array
+> which has usbphyc->nphys elements.  So if it is equal to usbphyc->nphys
+> then it is one element out of bounds.  The "index" comes from the
+> device tree so it's data that we trust and it's unlikely to be wrong,
+> however it's obviously still worth fixing the bug.  Change the > to >=.
 > 
-> With commit
-> 45fe729be9a6 ("usb: typec: Stub out typec_switch APIs when CONFIG_TYPEC=n")
-> the preprocessor condition is not needed anymore and the orientation
-> switch is correctly registered for both built-in and module builds.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] phy: fsl-imx8mq-usb: fix typec orientation switch when built as module
-      commit: 49ccab4bedd4779899246107dc19fb01c5b6fea3
+[1/1] phy: stm32-usphyc: Fix off by one in probe()
+      commit: cabd25b57216ddc132efbcc31f972baa03aad15a
 
 Best regards,
 -- 
