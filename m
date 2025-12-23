@@ -4,92 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B9BAE6FE28
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 19:32:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5609E6FE28
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 19:37:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S3MC/DJyxuqUqO+aA+Wb0Xz81EzDT3zbLRjYsUOml1Q=; b=ZVRu7PUqD6T0jUkKprkwuqgiW6
-	nLV4UHpwXRf9Wuo0Iq0YVKNjvVRcr9nrj+tui9yWvljEJ7M8R10nZ4fTu5UpH2CTia/AWOJSYwQ8F
-	WCskFdfteR1/oQeNNAfwf6ZMULhGk53TzZKwjFY5gmZT+k6fMqjSlXDr5j3/46/wcI3CCP8oCMBeg
-	r7vmHCS84m5peInfj4WfZ8TTDVyhar0x3D+R6xEILsUwmLCilNH2cFHq3rBHP2WI82g2U4CvJ2LFq
-	2hAFaMRWt/bbyoOFQHkXXjp/Uc0kbKAlPsCZzxOKZxrLOjolaxzTD7DwqqLXi/K526EZxMu8kvjjD
-	muEqeofg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mpE2cHSu7VEJSV8o9XAdCC+Pqd8elvYLdca31NEtq6Y=; b=U8hDJtf0+GLklX6RrH+xQAmUET
+	R0UKSWDoYok1aPhTxF7v4EN2k/aIFEeNdbtClF0kwIJgdGITlTya4+turW3T+kCeaxoyXuIAOlTfL
+	4Yig7QKSND78Z95JXW3HVfl/HbDm1zwlpdH/svff+6iX0PgiA2FlZgaTOq/0kWO2y8tv64ecwPwqW
+	7u40ztlJKYv1+9l37X0LDF8dFkQ+HJcdMEZOq5GuNoM1IUH9bWklGVyZbKQZTd8NbkjbpUAvJC3EO
+	7+p69Emxcp+ACSUGjM3sgf0Q++PFb/FYOVVz6MsrZS1OU0XyFX0Civc5MOXrG4roKmTU04NwJN3wM
+	GLViI0ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY86s-0000000FzGb-302w;
-	Tue, 23 Dec 2025 19:31:54 +0000
-Received: from shelob.surriel.com ([96.67.55.147])
+	id 1vY8Ca-0000000FzYG-2Ccq;
+	Tue, 23 Dec 2025 19:37:48 +0000
+Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY86q-0000000FzGF-2piA
+	id 1vY8CX-0000000FzXb-2goX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Dec 2025 19:31:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=surriel.com
-	; s=mail; h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:
-	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=S3MC/DJyxuqUqO+aA+Wb0Xz81EzDT3zbLRjYsUOml1Q=; b=XvcgwatDvNRIqTVzxBEvAtRgmD
-	rFkbSYKJopSiemzHlULOFVByZwO+jcvsno7jG50qWziVJDNvgANFEgF8fuV2pTK4Qn+VDodpXvBGu
-	uA+v25gq4eFGrsNCpmLhrxihh8vRM/jzbkO1mAgmLsFu4KZ86dP7BLXo4Kdgw9ehJm3I8ZrUTLker
-	O0HChL0WBF7Sf0W63PKlHiwi4Zmwe3M+EgkvkfP7govGfwvWOr6/9WiMO8QpzdjrWzjsJWwblORCK
-	abajXy7BIwQj79KS7+9KyEr4LrcuDjTPVtH+oN67oPZCW2aZ4y6mhCCP2yhNMQk7TA6Mt9RWiRB7h
-	p83Fiypw==;
-Received: from fangorn.home.surriel.com ([10.0.13.7])
-	by shelob.surriel.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.97.1)
-	(envelope-from <riel@surriel.com>)
-	id 1vY86V-000000005Xj-0BE2;
-	Tue, 23 Dec 2025 14:31:32 -0500
-Message-ID: <4d867df02dcc3cc8f519903282f6e63b2974a461.camel@surriel.com>
-Subject: Re: [PATCH 2/2] kthread: Warn if mm_struct lacks user_ns in
- kthread_use_mm()
-From: Rik van Riel <riel@surriel.com>
-To: Breno Leitao <leitao@debian.org>, Ard Biesheuvel <ardb@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-efi@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, puranjay@kernel.org, 
-	usamaarif642@gmail.com, kernel-team@meta.com
-Date: Tue, 23 Dec 2025 14:31:32 -0500
-In-Reply-To: <20251223-efi_fix_619-v1-2-e0146b8b9d73@debian.org>
-References: <20251223-efi_fix_619-v1-0-e0146b8b9d73@debian.org>
-	 <20251223-efi_fix_619-v1-2-e0146b8b9d73@debian.org>
-Autocrypt: addr=riel@surriel.com; prefer-encrypt=mutual;
- keydata=mQENBFIt3aUBCADCK0LicyCYyMa0E1lodCDUBf6G+6C5UXKG1jEYwQu49cc/gUBTTk33A
- eo2hjn4JinVaPF3zfZprnKMEGGv4dHvEOCPWiNhlz5RtqH3SKJllq2dpeMS9RqbMvDA36rlJIIo47
- Z/nl6IA8MDhSqyqdnTY8z7LnQHqq16jAqwo7Ll9qALXz4yG1ZdSCmo80VPetBZZPw7WMjo+1hByv/
- lvdFnLfiQ52tayuuC1r9x2qZ/SYWd2M4p/f5CLmvG9UcnkbYFsKWz8bwOBWKg1PQcaYHLx06sHGdY
- dIDaeVvkIfMFwAprSo5EFU+aes2VB2ZjugOTbkkW2aPSWTRsBhPHhV6dABEBAAG0HlJpayB2YW4gU
- mllbCA8cmllbEByZWRoYXQuY29tPokBHwQwAQIACQUCW5LcVgIdIAAKCRDOed6ShMTeg05SB/986o
- gEgdq4byrtaBQKFg5LWfd8e+h+QzLOg/T8mSS3dJzFXe5JBOfvYg7Bj47xXi9I5sM+I9Lu9+1XVb/
- r2rGJrU1DwA09TnmyFtK76bgMF0sBEh1ECILYNQTEIemzNFwOWLZZlEhZFRJsZyX+mtEp/WQIygHV
- WjwuP69VJw+fPQvLOGn4j8W9QXuvhha7u1QJ7mYx4dLGHrZlHdwDsqpvWsW+3rsIqs1BBe5/Itz9o
- 6y9gLNtQzwmSDioV8KhF85VmYInslhv5tUtMEppfdTLyX4SUKh8ftNIVmH9mXyRCZclSoa6IMd635
- Jq1Pj2/Lp64tOzSvN5Y9zaiCc5FucXtB9SaWsgdmFuIFJpZWwgPHJpZWxAc3VycmllbC5jb20+iQE
- +BBMBAgAoBQJSLd2lAhsjBQkSzAMABgsJCAcDAgYVCAIJCgsEFgIDAQIeAQIXgAAKCRDOed6ShMTe
- g4PpB/0ZivKYFt0LaB22ssWUrBoeNWCP1NY/lkq2QbPhR3agLB7ZXI97PF2z/5QD9Fuy/FD/jddPx
- KRTvFCtHcEzTOcFjBmf52uqgt3U40H9GM++0IM0yHusd9EzlaWsbp09vsAV2DwdqS69x9RPbvE/Ne
- fO5subhocH76okcF/aQiQ+oj2j6LJZGBJBVigOHg+4zyzdDgKM+jp0bvDI51KQ4XfxV593OhvkS3z
- 3FPx0CE7l62WhWrieHyBblqvkTYgJ6dq4bsYpqxxGJOkQ47WpEUx6onH+rImWmPJbSYGhwBzTo0Mm
- G1Nb1qGPG+mTrSmJjDRxrwf1zjmYqQreWVSFEt26tBpSaWsgdmFuIFJpZWwgPHJpZWxAZmIuY29tP
- okBPgQTAQIAKAUCW5LbiAIbIwUJEswDAAYLCQgHAwIGFQgCCQoLBBYCAwECHgECF4AACgkQznneko
- TE3oOUEQgAsrGxjTC1bGtZyuvyQPcXclap11Ogib6rQywGYu6/Mnkbd6hbyY3wpdyQii/cas2S44N
- cQj8HkGv91JLVE24/Wt0gITPCH3rLVJJDGQxprHTVDs1t1RAbsbp0XTksZPCNWDGYIBo2aHDwErhI
- omYQ0Xluo1WBtH/UmHgirHvclsou1Ks9jyTxiPyUKRfae7GNOFiX99+ZlB27P3t8CjtSO831Ij0Ip
- QrfooZ21YVlUKw0Wy6Ll8EyefyrEYSh8KTm8dQj4O7xxvdg865TLeLpho5PwDRF+/mR3qi8CdGbkE
- c4pYZQO8UDXUN4S+pe0aTeTqlYw8rRHWF9TnvtpcNzZw==
+	Tue, 23 Dec 2025 19:37:46 +0000
+Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2a090819ed1so45996555ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 11:37:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1766518664; x=1767123464; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=mpE2cHSu7VEJSV8o9XAdCC+Pqd8elvYLdca31NEtq6Y=;
+        b=wEdCqQnaHT+kitVsfmYAoRb6PFp46AfVQG9jyBbzm3FDCt/65qTjozENJ42RS/7NL3
+         Zq2+RhPi0s1JV7V4wIxFboLOfvkOXPk7RYlr8Rfs6kar4cxIeO8V0eSaM86gBFuQK+F9
+         GGixDQLEOgc26WvCd7SRvgCtc1laKe5Ch0p3Zsfd/Jt7LUR1couR8L/XkAOeqSOoCkc/
+         piGtosC4vQlbLB6qXIyCLOu5PzdqQklVzZY4Or7NZSLRwUbvKPrVh6g7ugQBapVQB0At
+         Yaaa1hK+ej3I/Tv/gssuYgy2tNhPLo9WJT3SQDgQM13UmaHbclChik3I7QtVZ1sgTVM+
+         YfYg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766518664; x=1767123464;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=mpE2cHSu7VEJSV8o9XAdCC+Pqd8elvYLdca31NEtq6Y=;
+        b=rz7dmlt8UU/A9rbtLoHhecuPctVwMC4r5Z0YRyWkYUceg2qw4xfc3L7Kzn+0uKc0hH
+         YWjosB0jI2u7E6DBWCzOk7uEaHLzvBmXhpy8HktLBKcrPx+N1cfrC9wX63gc8JnCXjRS
+         6p/0yCNLs7cVP4rFPxI9JnFNWedgZvP3X4gP5oL+uTEu/SSvt3L0U5za3j18YVjUxVZM
+         scGUwXS8Mi1Kz9JTSO9NXAAM0fc4uMACJNbs2TkXR6u4vfXS07Wv/O/V7cogsHuqNwNd
+         NpTf7f4JAwbdPmndoyBdvPK4dtqtVot6ddHC2ADzwP74gP+Ud5a/MocU8YMcisOl2bro
+         6LuA==
+X-Forwarded-Encrypted: i=1; AJvYcCVIyeYe/ObSoCGTIEn9XDTpqZ8uCrPAS/ousqhiqBYuRmjEr3XSMivvb3UT50FSfiCRpz9P9NKKzlfQNAl1urSb@lists.infradead.org
+X-Gm-Message-State: AOJu0YwhsGo+SjjsRExdTzwLa8jZhxdr50NyPp0Dpl36RQfsaNiq6RTF
+	NFEpGIeBhHMTucMt0TPz/Qk3M3LvuSXYgKdV2SusKighZcACLY1EF9q3chBXu4W6DQx4hRNHhTi
+	geApsuUsXxChM2A==
+X-Google-Smtp-Source: AGHT+IF83L91Gh8tBV6+mxWodX8HXmAQvfSbCEAss+zVjQUMiFCvaVUUpvJKxJPo6RfJA6Fdt7OWobxVaK6jag==
+X-Received: from dlbto10.prod.google.com ([2002:a05:7022:3b0a:b0:121:7a50:e97b])
+ (user=pekangas job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:7022:2214:b0:11a:23fb:16e2 with SMTP id a92af1059eb24-121721aab8fmr17386955c88.9.1766518663824;
+ Tue, 23 Dec 2025 11:37:43 -0800 (PST)
+Date: Tue, 23 Dec 2025 19:34:39 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.52.0.351.gbe84eed79e-goog
+Message-ID: <20251223193440.1441657-1-pekangas@google.com>
+Subject: [PATCH 0/1] KVM: arm64: Fix hyp VA size between layout and MMU
+From: Petteri Kangaslampi <pekangas@google.com>
+To: kvmarm@lists.linux.dev
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Vincent Donnefort <vdonnefort@google.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Petteri Kangaslampi <pekangas@google.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
-MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_113152_716013_8C546A1B 
-X-CRM114-Status: UNSURE (   8.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251223_113745_705510_D42FF088 
+X-CRM114-Status: GOOD (  12.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,28 +91,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2025-12-23 at 02:55 -0800, Breno Leitao wrote:
-> Add a WARN_ON_ONCE() check to detect mm_struct instances that are
-> missing user_ns initialization when passed to kthread_use_mm().
->=20
-> When a kthread adopts an mm via kthread_use_mm(), LSM hooks and
-> capability checks may access current->mm->user_ns for credential
-> validation. If user_ns is NULL, this leads to a NULL pointer
-> dereference crash.
->=20
-> This was observed with efi_mm on arm64, where commit a5baf582f4c0
-> ("arm64/efi: Call EFI runtime services without disabling preemption")
-> introduced kthread_use_mm(&efi_mm), but efi_mm lacked user_ns
-> initialization, causing crashes during /proc access.
->=20
-> Adding this warning helps catch similar bugs early during development
-> rather than waiting for hard-to-debug NULL pointer crashes in
-> production.
->=20
-> Signed-off-by: Breno Leitao <leitao@debian.org>
+All,
 
-Acked-by: Rik van Riel <riel@surriel.com>
+In the KVM initialization code, kvm_mmu_init() and
+kvm_compute_layout() use different logic when determining the
+hypervisor's virtual address space size. Specifically, the MMU code
+uses the larger of vabits_actual (the kernel's VA size) and
+IDMAP_VA_BITS (48 bits), while the VA layout code just uses the
+kernel's VA size.
 
---=20
-All Rights Reversed.
+This means that if the kernel is configured with a VA size of less
+than 48 bits (like happens in our environment), the assumptions used
+to calculate hyp_physvirt_offset and the code that determines VA
+ranges to use for mappings in hyp/nvhe/mm.c get out of sync, which can
+results in mapping failures.
+
+The immediate fix is pretty obvious and attached here. This is against
+6.12 but I don't think this code has changed recently. I think longer
+term refactoring knowledge of the hypervisor's address space into one
+place might be helpful; currently it is a bit spread out.
+
+Petteri Kangaslampi (1):
+  KVM: arm64: Fix hyp VA size between layout and MMU
+
+ arch/arm64/kvm/va_layout.c | 17 ++++++++++++-----
+ 1 file changed, 12 insertions(+), 5 deletions(-)
+
+-- 
+2.52.0.351.gbe84eed79e-goog
+
 
