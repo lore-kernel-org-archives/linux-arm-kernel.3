@@ -4,100 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 677EDE6F079
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 10:03:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B2C1E6F079
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 10:03:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7VJPGTun9iAEUTgsAs5oldXV0hm6NbS8Rh/bgRh+cvE=; b=1jB0RmAx/MeqI11bjmY2b62ig2
-	k1zJq+Jie79Pzr0VHK4zGKDBHI5bADP63/rM7XS/p8iLtbxV8IbAEUPnpLqynwKnvsBnWNmhpuxXA
-	fF9HB8f5QjfX9P5QFXyTSeVf+a9QnzxgkFWmB1lQcfHmm4iO31ie7T1c2H1Kn9g9RO6mToH03FdK+
-	5RA4cM8DBdRcdnwKIDLBAngag22Or5pSYaig+vB0RdoLDBTsy/uATsnGdobrTJOId6IiM4y7kShvd
-	QV93pR2fG1y8D6NlkOV3wEjay+uTAvlY5HX3zSib1CyruJTwk29Yp4CAQ5EGk+7U0aI1d4Q7vM6+r
-	V48x9nSg==;
+	bh=Kn07S0VFJ00r1Opp95FLhCfso4raJ3godCnzzNkTUdQ=; b=uS4HwIbsQYzhnkvMuxnNDgnr+G
+	+XvajlOD/URaab+jPdLMB/fI6RTsK8B/l0eHMWE16scKMKnlz60Q+vLUXgAIBXvgm0TKdRNJi0aA2
+	LXX18A4VDssTItSHUMsGutvMkLAZqah+Lx7uHhxf44d1Wico1jd56nHQfnc20gRobzshbLcmQEUO8
+	TIsNZUrTpfIIQibAY2neHVhFRig147pSU4BCB9GHICKH+D8grfi2UkrBd1jB5q4Vddwoywx3sFbXW
+	AoDvQtjd9PmRhkrIV7rLgC/4V0MWRX2znjqtR+eO9eiblXpyOlYGWdI/0rQGX4IvgzJwHd0hbPvIt
+	rcl/+ocA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXzEU-0000000Eog4-105t;
-	Tue, 23 Dec 2025 10:03:10 +0000
+	id 1vXzEc-0000000Eoli-1qiW;
+	Tue, 23 Dec 2025 10:03:18 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXzEI-0000000EoTu-0ZEP
+	id 1vXzEL-0000000EoZ2-3QBg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Dec 2025 10:03:00 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BN2uKbO1528818
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 10:02:57 GMT
+	Tue, 23 Dec 2025 10:03:03 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BN74vPD2115196
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 10:03:01 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	7VJPGTun9iAEUTgsAs5oldXV0hm6NbS8Rh/bgRh+cvE=; b=bIBBN9gEj819WWSx
-	ukr6MOHNbMcO371J8nAzeNYa6kAXDXdyE4Dg/KOTsXaUTl9qKkZkGyRLFsanbFM7
-	ulRV11/8RRD9xGHJkL5via2oxM8bV6+tDFtIDXmq/u97zF8aI5SlLyMu89neCMDG
-	4+G1BfRsARTSwS//CvhRqWHZi/lbX18qELxu7Gulg/+9G/jTQHbcFHvI3sSUJbpu
-	F/geqQDiMKZYCvIorg0sAQNQOseeeCIphl8Yf9Ax6I4JQuaCniTsMznNJN5oeS26
-	NkGkG3bWxTuZe2B7WVeVjmr83pKepmi4QZzpriJF/ENOpl53lgZMfiuxGK9Xhcqy
-	0qriWQ==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4b758y3g7g-1
+	Kn07S0VFJ00r1Opp95FLhCfso4raJ3godCnzzNkTUdQ=; b=lgtVVrCRDEEhbVLA
+	bu1fxLTBApMnXU4Io5Rs7UxlEpP4lv20AZm80EjrI6PAMZvpCBjCN/RrpU2aydOL
+	g0vyT5gMOrqNJiYyX+5UjqmHbGn8dMJbc8BplkwFup1dzZnaRiKrxV9wmSjanO+5
+	DAV8tqUDtGipXSWN/91KJm2nSQtUFCtkt+YZ4M8XDjdSA/Nrb8pwgRj3S1RPeblX
+	O2ENydHSe6u8kcw6kNgqkiKc9x8rPElPzUPsxhK41Q0bMN0QMNciQW9HOdMdDHzq
+	QZlmEU8TXuKRxRf76vttD6biAOOikTeEIAE5DoAFlKqjR/y8mG+ajwHT1pavw7Zi
+	aYLMgw==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4b7cudj7yv-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 10:02:57 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4ee416413a8so52841481cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 02:02:57 -0800 (PST)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 10:03:01 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4ed79dd4a47so103663991cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 02:03:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1766484176; x=1767088976; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1766484180; x=1767088980; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=7VJPGTun9iAEUTgsAs5oldXV0hm6NbS8Rh/bgRh+cvE=;
-        b=W+V7mSSHqOLiw/8T2MFFWMtAxfXXPTk+nibA86HJpyEZHmzxHsriqfjczwfUl8qc3/
-         zoMz3WhplRCpUnf2C/HzgQKSZZqpYqWVMW0rktWWg8aIH7ruteqmN0pKgNWz174aiYMd
-         aC2/8lKIu6oL7VjTT2uTv8p5uGVG6ORGw6F7+B7usMfNtG50YN/OkRXLDJnxKbLQ4y1s
-         FP3MmWLtSlRKSQh6s9qeqIm8WDxMIXPv7kU0aBXmmbYOU8R/TsJiSbtaAiv/aQZyzF2O
-         nA9FBmPtLMtj6uAVALCOj542fyRa9CBgsrrRj5GEuU2NFwU35B87jXUSAFq0O073By8q
-         +uUg==
+        bh=Kn07S0VFJ00r1Opp95FLhCfso4raJ3godCnzzNkTUdQ=;
+        b=H8mL6uDhfGVkg0dfMvgFw3mxinVG5uaZ4hSPC+b+EB/feHqIwTJGywkT3uHGI/pmf6
+         1dM8r0VgPReS2juu7QD1kr4vrLyWeFPqYLtney1aTghrOBLLLmTXeKujV6LTaBulTV4g
+         0B2a/fi3bPOtEDSHwEM/A6spKcFlk+NDq7PQxTrnPV9WUDEHYnpN6Z1j/LxwgIgl4ipb
+         0yWxTunFVQ8OeKMs1BTqqnyI0dqj5P6NdRZ/Q76swlaBI4iu5R5Gvi0T24zOmQguqd4A
+         UJmnCgDb+mXP+VrVjPHH1XHEwFy9tECXbcqWY2iN1u0Igx/eQOizCPDBlUv5niPeSF6y
+         5RQQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766484176; x=1767088976;
+        d=1e100.net; s=20230601; t=1766484180; x=1767088980;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=7VJPGTun9iAEUTgsAs5oldXV0hm6NbS8Rh/bgRh+cvE=;
-        b=juP1k6PXGvdDbIeiadWlYn+8pTEGj3Oh+xNvZVdQUSdIGRXXTAFn1KVlRvwUHI/9dw
-         /ctthpw0qN6uhe8ciIJC9fScaFSB0Ctl+QSQA+U7gxCt9vJOfU1cOn/T/IxqT9Nvma77
-         qybfhs9gg7a2GkQAIH4ZruKdVFu53BCFNCwo5MdJkcKU8jxwv0iPleqKdJ1/zB/1ZGCy
-         PqhH0VcSjCsmgvqu/AsP5Kch9iXhzkzDv3ZE84lQCknfg1itsmUqJRYalYJiIxqKaWiV
-         Nud5mur9LSBZzgFqqVuMPDwu4QSUM+5XrqNYVajb/42WMndYyZ1rJu5uxFBl3MLWtePk
-         uUOA==
-X-Forwarded-Encrypted: i=1; AJvYcCXMJbNRn2oDNRNnhxwzdW7uvJCdONsRIPFC1ayGE0bDhMFaDGEKM8+svhlSMsCzoRAnSaOnNJkqH6Z7G/HSNJ8E@lists.infradead.org
-X-Gm-Message-State: AOJu0YwpaclZY0yOEDUMxdQjDT99c4+dpu+b9bQW5KMR5P+/IKgVwCkI
-	xIGjlu+M9IjRgaXW5FmBLHXIF5KGlXlsoI/paco9lpJmQagIvqGab6ojA844M70SNLTKHUhHnO9
-	H+neFbKbXMZ8AwRWliWqdrTkZL0jG4qXpzNMkBEUQfiQSp4tigA1Xqfpgso2wiDl0iAdrqqyCH1
-	+4yQ==
-X-Gm-Gg: AY/fxX4OUxIu+L0G4RiKAS7Kv/ct+MpptY7uwSpdLSqHY0xs9ohtE3qquugtLzoyZWh
-	KN+DwXLBn7QdxgjCl8Ab3AvjTp3FuEJeL6iU1byEPusIifluD9U0vnLZofc1A6IF+lDKlTZEuOK
-	niMA5PLIMZmha6afhOZSGFcGllMhZGidt8raPxPfvCGaQjBpfKqsU31rir/VkcQtYdztPQ2uOSm
-	MSN71AMbZkfYPN5cN4g+QFmX5XPxt1icaZfgFEzQz0lE9uaC5G2fp4vtPMb2fA0l1vsotEg4wHu
-	RIrJkFIGOcQgtZyBBecB5VEw+IxeFI8+1CXXYdApplItdyCfppcxEpxC+pBS+DFBw1zljaQDqTp
-	fR6uQGcV4MT+wcs0aZQeOhlHBW28bRQXHT5FlsA==
-X-Received: by 2002:a05:622a:1927:b0:4e8:9920:be58 with SMTP id d75a77b69052e-4f4abbae21fmr207317981cf.0.1766484176218;
-        Tue, 23 Dec 2025 02:02:56 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEvZUZ2J6IwscWcY7RC74ES7QnMTV7pkYZ1I5E0GX9LHN3najl8MNqhxo5VDEyhUmehwO5Tzg==
-X-Received: by 2002:a05:622a:1927:b0:4e8:9920:be58 with SMTP id d75a77b69052e-4f4abbae21fmr207317561cf.0.1766484175625;
-        Tue, 23 Dec 2025 02:02:55 -0800 (PST)
+        bh=Kn07S0VFJ00r1Opp95FLhCfso4raJ3godCnzzNkTUdQ=;
+        b=ZZoStl+XDdNlU1/VOa4wtJ7nMOkM2rOg8kD0LAzDnHzmgY3DUgmQiwh3rj9P1fcbnN
+         mMgtdospX22gI9UyPCAF6Ptm4ixQk3w//89LPiHW26mtoFa7pAQXTBoUtubeBgJs3AMy
+         BHdPZkTQ+95FgT3kxFsG2naluEJePnbBClbKpNRKYa0oL0JIsklRgsUSDePbhx2ym4Io
+         P+urwQruKmlOtrQxvB2+OkGdWPHKtl+0cPPVRyKx15vjyxPV+/YyO2lRE2sdOcwzUFhU
+         iWgLG/SdGrrv8IqjLZZAu2Pr5XiOrlWgLMh8VKA5EIeAW323e2lL3w07S+0xsBO+p/Xx
+         zHxA==
+X-Forwarded-Encrypted: i=1; AJvYcCXhaA6FfEkDQKjP5gn6ZyQhYyGDXiC8Kog2mStPObOabBeNpSQHwaX6F+7C7e/Ji9mslHoMirIlJhhSVRdoV/zH@lists.infradead.org
+X-Gm-Message-State: AOJu0YwZvLGL6uLeszIwJg/oJ5ABhjzcVy7OLTpCPX4gLY+BNEc0kGSg
+	iTqKjgwGYkmqcEMic4wrtXiRHAd1cZ6UXNsmP8TseJwRKc71z7T447Rf26TupgaZ3B7VSb+0d9d
+	0tO4A9v21+HcqIqxcCpoM/vLg85f0n2yWgCMaHf2+GqdW6hNcyfS6MaX6p1KUJKOfwLbnS0gk1c
+	/aiQ==
+X-Gm-Gg: AY/fxX7V9JImoehglAbzU1n+dBVzrDPC7r1JK6u6SGCT09azoIIwp7eItcpKXw3wBhA
+	tOEZVySEzOx3sDJyNDiuF7g9YWAxCeb+/gZSdycdrDAyPr+47TMzqViZyyG3+yJoOSE0XQ6swJI
+	lEfLJK0loTmoetfesiT1nNE72k9RHhQi1Lo3J9SOnC4NotjPSOWJtXj6IuZRl/C+z+Y95eU6Sgi
+	ONB9GZM5Abch3ZJUpwoHEpi+ieB1HXz6WXsO8KRPIJkLdW/qKZPSC9S6SbZlLou/xvKMe3iIJbR
+	CCLE69b5hkuRK16PXcIudgB8CWBj6A4xOt9gKPEhZym8K4tCi223kb5EkKHNv3M16a3CKSSrnUC
+	5YgT5Z6WNaCUanReQotc5JsnCdRs3dU12G/0FjA==
+X-Received: by 2002:a05:622a:250:b0:4f3:5346:5d54 with SMTP id d75a77b69052e-4f4abd78d8fmr199055451cf.50.1766484180388;
+        Tue, 23 Dec 2025 02:03:00 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEb/XwjqmlNu6biskXJYdXx7yRjIVunYQjmGPYAWmA2yv1ld3r5jkFpRaOKuHbmJJD/SAxQsA==
+X-Received: by 2002:a05:622a:250:b0:4f3:5346:5d54 with SMTP id d75a77b69052e-4f4abd78d8fmr199055071cf.50.1766484179952;
+        Tue, 23 Dec 2025 02:02:59 -0800 (PST)
 Received: from brgl-qcom.local ([2a01:cb1d:dc:7e00:190a:1976:65e2:c61])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4324ea1b36fsm26794625f8f.5.2025.12.23.02.02.54
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4324ea1b36fsm26794625f8f.5.2025.12.23.02.02.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Dec 2025 02:02:55 -0800 (PST)
+        Tue, 23 Dec 2025 02:02:59 -0800 (PST)
 From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Date: Tue, 23 Dec 2025 11:02:29 +0100
-Subject: [PATCH 07/12] i2c: ali15x3: use i2c_adapter-specific printk
+Date: Tue, 23 Dec 2025 11:02:32 +0100
+Subject: [PATCH 10/12] i2c: nforce2: use i2c_adapter-specific printk
  helpers
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251223-i2c-printk-helpers-v1-7-46a08306afdb@oss.qualcomm.com>
+Message-Id: <20251223-i2c-printk-helpers-v1-10-46a08306afdb@oss.qualcomm.com>
 References: <20251223-i2c-printk-helpers-v1-0-46a08306afdb@oss.qualcomm.com>
 In-Reply-To: <20251223-i2c-printk-helpers-v1-0-46a08306afdb@oss.qualcomm.com>
 To: Wolfram Sang <wsa+renesas@sang-engineering.com>,
@@ -118,49 +118,49 @@ Cc: linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org,
         Bartosz Golaszewski <brgl@kernel.org>,
         Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4026;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2796;
  i=bartosz.golaszewski@oss.qualcomm.com; h=from:subject:message-id;
- bh=Z5y+uDYDLt8QrBK74QcxPQFJYMWolbieGXxGJWOf/Z0=;
- b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBpSmi+az3h2mjkdy8JfZt/+vwI7gUUYCdcxe1ji
- Aldb5AAaUyJAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCaUpovgAKCRAFnS7L/zaE
- wwg1D/9/TgJ7+cyyriM7piIyunaQDjTvaDw+EBEL51hFHlX+lO4/jVLy2woMDI6R4fIvrXdW6ub
- Jpy8I2sZt3jMNDjOwoehDFb99d7nU9UhuOIfHRCrblhzfjt5iX1W+Qaf1pwx0BawuEPynomq6YV
- 8YXynU/1S/jKFPWKtSwMhvDyUfo2IiEuj3+gmgLsn7gW5CUydnE1u2dyvJPDUz90YLOHV7/RQBg
- fDif1lvU3gfyFc+J2P/yOhXn8Kr9DkrvqIQyYJdfbes6fDpGhgG9OAIUUHhhKpTjuit3E9F9wMd
- FtxMUW3JOIdOouc90ODz/CCxB/bn3qYR+bY2vynlawaZQAFsb+nE33QJshh8AMF9esfFhUjNqQ9
- mebGDH5BMjgjuPJCLwlPneIN+MXg4aJlY2gZySYW2vtrMOreqUVOWaNaK/tECpvg7zY+wu/FNJn
- OtTNA7guV0cmbQHlOXLdjzKbklatBSK3hvb+0TUjfcli/xb2Wbpkvz1qhX4UorxXc7aW67O+Nh/
- K7+rXBRV+/VbEI22DeQ7FRSUA0shc+W1WZKDV/M7RO//k8q8g63p69ixoRUXzIqiiDjsm8oPizV
- thrGUnbGDKbK6jTyCj+ShJmpLpL9LIJ5RPRtEbMachuYbTpfqO0d0QWI58cXjGgllDLPJhR4Oxr
- OY84XabOoDPMwvA==
+ bh=1RcMgKhoVIDH/uvlkjR4k8BRDeSqy3Z1wqmJ/Zg7uPQ=;
+ b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBpSmjAWS6dV2oSrIJN/8EGc+7W8i9AyzXFZaPPi
+ mcV5IzVlFiJAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCaUpowAAKCRAFnS7L/zaE
+ wy0dEAClg4CncFPQN0S3c+U7UOudBSZbQgLmP6HOhyUtZ3U9OLbCsKadAQFgEhSwX1jECTm5dNF
+ 0RdoIoG+fF0GCw60nKZXgiUzxNUalzHyZjn3MgzLiNqR/BAr3Fe55XuV4sKpYT6yU1xAZ1D0AS0
+ WB+Cuxnns2XBnbCeu8KX2+jXTE4EspmlwPkIwNTPlrAlof76u8Fyj815z/OQA/0uApNYkRudhth
+ 8X0O57dlCLpgrWcFelojmLpkvLBhwA3ug9kSOZS5GlNWt9tC7n8yEBuUGnu8+MG+yfjadZSdiGY
+ FI/2l6PvAgagfWA6020GUjaUrTrdzHQr57t80WmhjeCdzxZht4XNHlQGykb1O4pHcC9FQoSsK1/
+ Ua5Ilo556Drv7i1I7H8wPdl3MyXIb2mphWJCjOR3kD/v2xvLIqwnApfjb1z+6ag9RZHTuZBzsch
+ h700sSioPBCeNDSEl8K/MX2Q6LnXgJHDfoXh0dQWUt0WV2kziDw7ZQCFJMAL8MU11fniAfWtnLu
+ 0zkk4hjESymk+Muoy340vMIrgjGBzwhm/KxR9h3yN2OPcYeZBQ6RTKGDc0TXwrufHCZ3m2YcYPU
+ zB8cbguyyVBO5QUmGddwtTBc2xiWqtP6i75lMrsX7aWcquTAWMGnXWUt2zTV+fbXqmMuyOwazC6
+ QswEw5+ooZn9yfA==
 X-Developer-Key: i=bartosz.golaszewski@oss.qualcomm.com; a=openpgp;
  fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
-X-Authority-Analysis: v=2.4 cv=TOdIilla c=1 sm=1 tr=0 ts=694a68d1 cx=c_pps
- a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+X-Authority-Analysis: v=2.4 cv=ebkwvrEH c=1 sm=1 tr=0 ts=694a68d5 cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
  a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=EUspDBNiAAAA:8 a=FH57a1SQlJoUzRel804A:9 a=QEXdDO2ut3YA:10
- a=a_PwQJl-kcHnX1M80qC6:22
-X-Proofpoint-ORIG-GUID: 8RQMHi_j2Y7ctBt8cFtuZJ1ZZLdLl2Xr
-X-Proofpoint-GUID: 8RQMHi_j2Y7ctBt8cFtuZJ1ZZLdLl2Xr
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjIzMDA4MCBTYWx0ZWRfX4GdDIHvfdcMF
- Tid09I9qnAbyWNscH1Ict0y8pKJIVj7p6mvNEMIE3f/VqD4lLK1XClkRImOOdcPemttVH5i7hkI
- eir+sRwXRRrXAKWIStsONRxuwSFyHV+OTIq4OhXlqF58AyTYe1abRE7RcalH634BLm3f0rsGDDo
- GxZdYHNaLAbMNOnLOfeTSdQx0O+hC0ymlhbiksTYAbCJ47ATT29AjbK5B8KmaF/D2y949dW3LG4
- s1u9EOMifx7z4Rd/GKUn65Aevx+SJQBjs5ix6DewqKU6aAUUKyxZ1g1qQGbghzkgIazc8gZ69FX
- MCxKjMJ8GSsAw8ZqJuH6tdTDtCTq/y1USrmU9h+QUJQApzkeUbTxFhrp3WcroJiDuGnSWKDztnX
- c2IYLLqmsP6zuSZip2MeJuraZply8rAQFZV4XVcDDNYtmK1H+5D8RuCNn7Qzquf7RuUr7H5Zlca
- yZZ6BYR/0FFtGYL/xTA==
+ a=EUspDBNiAAAA:8 a=ULAvDvZivfA9C-ZB8fsA:9 a=QEXdDO2ut3YA:10
+ a=uxP6HrT_eTzRwkO_Te1X:22
+X-Proofpoint-GUID: cujYomOf4ejiNwHeTejnshleFTy9bkLa
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjIzMDA4MCBTYWx0ZWRfX4frlhq5THIz3
+ LM368wUE+UvRxbacHK/PuenPSNBQOWWmEl8fqzvHnN3tChymDcoThKPBv44o5rFNiVzaI47npgT
+ wibTQ95xP7oV1pOEULoP0GAIiX22TLGpKBBMd1IP/49rP2KvdKHiysZzEMkQnj8mqdgpgH03kUh
+ WfohyhEWOql+ycuPXP/7LEchcooswAJCuKj/XCk0QQg0G7BycINac0lqjfv4PLjR5R1d6WG7B8A
+ fjWMGT5aPqinKGqNYN31YK0173smmVpL5dFb3iRmpW3gOTHgU90xxfl+naQJ+HsvKXPJD+EoUQE
+ MmSq5jB+64ANN8k/K8iB+bNrsiBeiXUmHaySgzwY3htpkts52o77QAYeAoMLYiWgVrkVkpVXgI/
+ hhk+JYdqYV4yhDQ0x+uPZPRajK6fQt/J/Ziu0KL+c94meDl34hIPpChlrIKOiTShmPonc+ouoPK
+ PgT0Nx5sgIPyGY7SlJQ==
+X-Proofpoint-ORIG-GUID: cujYomOf4ejiNwHeTejnshleFTy9bkLa
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
  definitions=2025-12-23_02,2025-12-22_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 adultscore=0 lowpriorityscore=0 malwarescore=0 priorityscore=1501
- clxscore=1015 impostorscore=0 bulkscore=0 suspectscore=0 phishscore=0
+ phishscore=0 malwarescore=0 adultscore=0 suspectscore=0 clxscore=1015
+ priorityscore=1501 bulkscore=0 spamscore=0 impostorscore=0 lowpriorityscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2512230080
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_020258_214499_369384BA 
-X-CRM114-Status: GOOD (  19.63  )
+X-CRM114-CacheID: sfid-20251223_020301_865285_872697A3 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,97 +181,74 @@ that dereference.
 
 Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 ---
- drivers/i2c/busses/i2c-ali15x3.c | 20 ++++++++++----------
- 1 file changed, 10 insertions(+), 10 deletions(-)
+ drivers/i2c/busses/i2c-nforce2.c | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/i2c/busses/i2c-ali15x3.c b/drivers/i2c/busses/i2c-ali15x3.c
-index 418d11266671e314aa2fb882ece025dc0ae998da..bd62aa8d645004bef121fa46efc1d7afc473332a 100644
---- a/drivers/i2c/busses/i2c-ali15x3.c
-+++ b/drivers/i2c/busses/i2c-ali15x3.c
-@@ -223,7 +223,7 @@ static int ali15x3_transaction(struct i2c_adapter *adap)
- 	int result = 0;
+diff --git a/drivers/i2c/busses/i2c-nforce2.c b/drivers/i2c/busses/i2c-nforce2.c
+index d58a308582e47650238312537d2d721261d3bca4..2fa6f1dbd27a92c2d67915775e588e4bab675d76 100644
+--- a/drivers/i2c/busses/i2c-nforce2.c
++++ b/drivers/i2c/busses/i2c-nforce2.c
+@@ -123,7 +123,7 @@ static void nforce2_abort(struct i2c_adapter *adap)
  	int timeout = 0;
+ 	unsigned char temp;
  
--	dev_dbg(&adap->dev, "Transaction (pre): STS=%02x, CNT=%02x, CMD=%02x, "
-+	i2c_dbg(adap, "Transaction (pre): STS=%02x, CNT=%02x, CMD=%02x, "
- 		"ADD=%02x, DAT0=%02x, DAT1=%02x\n", inb_p(SMBHSTSTS),
- 		inb_p(SMBHSTCNT), inb_p(SMBHSTCMD), inb_p(SMBHSTADD),
- 		inb_p(SMBHSTDAT0), inb_p(SMBHSTDAT1));
-@@ -255,7 +255,7 @@ static int ali15x3_transaction(struct i2c_adapter *adap)
- 	   then the BUSY bit may come back on when you try and use the chip again.
- 	   If that's the case you are stuck.
- 	*/
--		dev_info(&adap->dev, "Resetting entire SMB Bus to "
-+		i2c_info(adap, "Resetting entire SMB Bus to "
- 			"clear busy condition (%02x)\n", temp);
- 		outb_p(ALI15X3_T_OUT, SMBHSTCNT);
- 		temp = inb_p(SMBHSTSTS);
-@@ -270,7 +270,7 @@ static int ali15x3_transaction(struct i2c_adapter *adap)
- 			/* this is probably going to be correctable only by a power reset
- 			   as one of the bits now appears to be stuck */
- 			/* This may be a bus or device with electrical problems. */
--			dev_err(&adap->dev, "SMBus reset failed! (0x%02x) - "
-+			i2c_err(adap, "SMBus reset failed! (0x%02x) - "
- 				"controller or device on bus is probably hung\n",
- 				temp);
- 			return -EBUSY;
-@@ -299,7 +299,7 @@ static int ali15x3_transaction(struct i2c_adapter *adap)
+-	dev_dbg(&adap->dev, "Aborting current transaction\n");
++	i2c_dbg(adap, "Aborting current transaction\n");
  
- 	if (temp & ALI15X3_STS_TERM) {
- 		result = -EIO;
--		dev_dbg(&adap->dev, "Error: Failed bus transaction\n");
-+		i2c_dbg(adap, "Error: Failed bus transaction\n");
- 	}
+ 	outb_p(NVIDIA_SMB_CTRL_ABORT, NVIDIA_SMB_CTRL);
+ 	do {
+@@ -132,7 +132,7 @@ static void nforce2_abort(struct i2c_adapter *adap)
+ 	} while (!(temp & NVIDIA_SMB_STATUS_ABRT_STS) &&
+ 			(timeout++ < MAX_TIMEOUT));
+ 	if (!(temp & NVIDIA_SMB_STATUS_ABRT_STS))
+-		dev_err(&adap->dev, "Can't reset the smbus\n");
++		i2c_err(adap, "Can't reset the smbus\n");
+ 	outb_p(NVIDIA_SMB_STATUS_ABRT_STS, NVIDIA_SMB_STATUS_ABRT);
+ }
  
- 	/*
-@@ -310,7 +310,7 @@ static int ali15x3_transaction(struct i2c_adapter *adap)
- 	*/
- 	if (temp & ALI15X3_STS_COLL) {
- 		result = -ENXIO;
--		dev_dbg(&adap->dev,
-+		i2c_dbg(adap,
- 			"Error: no response or bus collision ADD=%02x\n",
- 			inb_p(SMBHSTADD));
- 	}
-@@ -318,9 +318,9 @@ static int ali15x3_transaction(struct i2c_adapter *adap)
- 	/* haven't ever seen this */
- 	if (temp & ALI15X3_STS_DEV) {
- 		result = -EIO;
--		dev_err(&adap->dev, "Error: device error\n");
-+		i2c_err(adap, "Error: device error\n");
- 	}
--	dev_dbg(&adap->dev, "Transaction (post): STS=%02x, CNT=%02x, CMD=%02x, "
-+	i2c_dbg(adap, "Transaction (post): STS=%02x, CNT=%02x, CMD=%02x, "
- 		"ADD=%02x, DAT0=%02x, DAT1=%02x\n", inb_p(SMBHSTSTS),
- 		inb_p(SMBHSTCNT), inb_p(SMBHSTCMD), inb_p(SMBHSTADD),
- 		inb_p(SMBHSTDAT0), inb_p(SMBHSTDAT1));
-@@ -347,7 +347,7 @@ static s32 ali15x3_access(struct i2c_adapter * adap, u16 addr,
- 		temp = inb_p(SMBHSTSTS);
- 	}
- 	if (timeout >= MAX_TIMEOUT) {
--		dev_err(&adap->dev, "Idle wait Timeout! STS=0x%02x\n", temp);
-+		i2c_err(adap, "Idle wait Timeout! STS=0x%02x\n", temp);
- 	}
+@@ -148,13 +148,13 @@ static int nforce2_check_status(struct i2c_adapter *adap)
+ 	} while ((!temp) && (timeout++ < MAX_TIMEOUT));
  
- 	switch (size) {
-@@ -404,7 +404,7 @@ static s32 ali15x3_access(struct i2c_adapter * adap, u16 addr,
- 		size = ALI15X3_BLOCK_DATA;
+ 	if (timeout > MAX_TIMEOUT) {
+-		dev_dbg(&adap->dev, "SMBus Timeout!\n");
++		i2c_dbg(adap, "SMBus Timeout!\n");
+ 		if (smbus->can_abort)
+ 			nforce2_abort(adap);
+ 		return -ETIMEDOUT;
+ 	}
+ 	if (!(temp & NVIDIA_SMB_STS_DONE) || (temp & NVIDIA_SMB_STS_STATUS)) {
+-		dev_dbg(&adap->dev, "Transaction failed (0x%02x)!\n", temp);
++		i2c_dbg(adap, "Transaction failed (0x%02x)!\n", temp);
+ 		return -EIO;
+ 	}
+ 	return 0;
+@@ -207,7 +207,7 @@ static s32 nforce2_access(struct i2c_adapter *adap, u16 addr,
+ 		if (read_write == I2C_SMBUS_WRITE) {
+ 			len = data->block[0];
+ 			if ((len == 0) || (len > I2C_SMBUS_BLOCK_MAX)) {
+-				dev_err(&adap->dev,
++				i2c_err(adap,
+ 					"Transaction failed (requested block size: %d)\n",
+ 					len);
+ 				return -EINVAL;
+@@ -221,7 +221,7 @@ static s32 nforce2_access(struct i2c_adapter *adap, u16 addr,
  		break;
+ 
  	default:
--		dev_warn(&adap->dev, "Unsupported transaction %d\n", size);
-+		i2c_warn(adap, "Unsupported transaction %d\n", size);
+-		dev_err(&adap->dev, "Unsupported transaction %d\n", size);
++		i2c_err(adap, "Unsupported transaction %d\n", size);
  		return -EOPNOTSUPP;
  	}
  
-@@ -437,7 +437,7 @@ static s32 ali15x3_access(struct i2c_adapter * adap, u16 addr,
- 		outb_p(inb_p(SMBHSTCNT) | ALI15X3_BLOCK_CLR, SMBHSTCNT);
- 		for (i = 1; i <= data->block[0]; i++) {
- 			data->block[i] = inb_p(SMBBLKDAT);
--			dev_dbg(&adap->dev, "Blk: len=%d, i=%d, data=%02x\n",
-+			i2c_dbg(adap, "Blk: len=%d, i=%d, data=%02x\n",
- 				len, i, data->block[i]);
- 		}
- 		break;
+@@ -249,7 +249,7 @@ static s32 nforce2_access(struct i2c_adapter *adap, u16 addr,
+ 	case I2C_SMBUS_BLOCK_DATA:
+ 		len = inb_p(NVIDIA_SMB_BCNT);
+ 		if ((len <= 0) || (len > I2C_SMBUS_BLOCK_MAX)) {
+-			dev_err(&adap->dev,
++			i2c_err(adap,
+ 				"Transaction failed (received block size: 0x%02x)\n",
+ 				len);
+ 			return -EPROTO;
 
 -- 
 2.47.3
