@@ -4,98 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59467E6B272
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 11:24:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1655E6F079
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 11:28:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=37RUNcK4I4PT64rzfy/R8cHrYSg57U06mGC+3iQ2/Cc=; b=SzLdmw78Ttne8zuTb1Y8YcSRP5
-	SU1WnRt4mTWnz+l1MugcfcSnILHB/CsoL2Nk5AdUH7Ryf2iQvgnXgsR+O8sr0y5MXFfIzgFEpIRCV
-	HnbQrZIj8zNoZ9KQRxR/z3hM29HTnEmcoBYKBoh3BK6Lcz/UsZfCesJm5ZXBAb4/Z4RmzqjV0I404
-	QKek+f7bHocbaGxNjnEPFHu3iwQpB/PrSOQyb/Yfk/2esnWYMR7kc3qwE9NiugOK8LQhhH20RvaV2
-	BJEjfPloHDZ1NaHMkU5hzWU0VkAQCmVOu06oUFGh5ZZoNZ8CWmFBZ3Q52YRb1BaemIIaAUxqyADkM
-	cDJEaxGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GoXV5/kZyFMZVald6kwaeihI+dlbH8TvOiyZEmCCauc=; b=mVCpeB48drYiU7E46Am4/DooVR
+	VRVnZqYUroIjt0DDo8cGkHNh2wCHAZXAof7hyNC4r1u5+2sTro33IchcGpIVtgDXKaJsFZn5LnsNQ
+	meW5MGVFQsU9/ncg8MbPdgeU5mtrDDnWVeHC7+tYZati3gc+G4ihUDBgqtJ0r0EJfhEBiwwJQNds3
+	CmSU4pOO4UCd5VsU3yNwKG4gmFpwmpno3XAzIAZNAByAG827I9GZdgNy0+Jy1afcDd0en/WeXmeFf
+	hihGZ+jw27YbPbGHESFpK4LErhhKyC3q0Pi+n7tj1UihIyGW/6sLT2sTYQbDT67mTQVLV1siGxaMt
+	ox5A5RAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY0Ui-0000000EwS9-0TkB;
-	Tue, 23 Dec 2025 11:24:00 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+	id 1vY0Yx-0000000EwhF-20ef;
+	Tue, 23 Dec 2025 11:28:23 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY0Uf-0000000EwRq-2vyD
+	id 1vY0Yv-0000000Ewh7-3q5j
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Dec 2025 11:23:58 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-7f89d0b37f0so2956758b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 03:23:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1766489036; x=1767093836; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=37RUNcK4I4PT64rzfy/R8cHrYSg57U06mGC+3iQ2/Cc=;
-        b=fPWiZM0FGu1OQjSXwgwwReOJz9+CcW3gTmEVfu/n4ObUi2U32AVjTLHaj8FLigj8z/
-         gLKPpF/tFRZIIrTSiLWFk/Miva03feQ89y7DCzOD73K/1mJZZIpzrj2/SrVBACi4UBG2
-         sn4uqvJsf7HtgC9smH0LAzCq/8BCPbpE3IMEbooAo64qe/Ci0i27b10o3qOjcOedROlV
-         zm7GwkWA+WJDFup4KnB5pNKpz2O8JFNnWxWSo9sHMdgDbzByvdg9cd+zd5T00wlbSXFc
-         6q66+FUr2esWkOFXTbIxSCZyLfyZG4VqJbe56o1X9lcEWERRzvkAUmtpYgVE0tv0NWKq
-         HA/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766489036; x=1767093836;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=37RUNcK4I4PT64rzfy/R8cHrYSg57U06mGC+3iQ2/Cc=;
-        b=FOvDi68hzvTI5FyNavCyGbKbFaCrFLK5urA6s60gO71HQCcIiaYUDJJ/I1E61pzR9l
-         SMGLMFAJIc4hgNkUxC1wJ1EsdCfQZWIbReyrnhwRe9xXJTN3Zzf1t9aSi14vMA0JbhBr
-         2716HMOfLXaf2lOdeLlSQedgngNLRrOZda2MwreMuvfjq6zilSHenG14qjA+nRGMKFmL
-         IIkvlwQiLhO6BSDxf8Re2WpaXZcGmuMYlfmo/XE/fpzTsltYzyPs3U8UIU/fjgYiZvDx
-         nerHEia0MiTN3scjINMZvaO/f5f2g97zowfsDwZmCxNU/MB96JADljPh04Pqpfp+aPdT
-         1r5A==
-X-Forwarded-Encrypted: i=1; AJvYcCXilwTKenVMKrg5Y2TXZqIhoY80y1q8Dp9GP2RONh9pvTr4ck0tp5SkXZUobnZrJsxNXLi2BZi/SaFznqTUrxke@lists.infradead.org
-X-Gm-Message-State: AOJu0YyXmJRrS6RhfxcVtOBsgA9kn5fQf1l3zI4BEn/UHDafucZmoIrU
-	GV3WvCkb2LJ1xF2Mwhq+TjPancueuJuZOm7z7LjMzjtynga2x7a/sXdb3sw7rYlnjVFOEx56cTM
-	2fbkElZM=
-X-Gm-Gg: AY/fxX5ZmmCIrz3r5oX7uaB+ccSLzadqZXquK2gvmZ3Bhk6x3f8NzEoDLClbSzuEk3+
-	txpH76GTLmTrlKnAQaDxGVqxJ1VoHDVcB/VioBW7RsTOyHyfTofdZb0kzTgX8Lykm4+o3Sumdbz
-	nhPNHwC8xkOoIgGKTec1C3uvXuWi9nOde0/LmZj5L0EqAciHKBKT3nwxl/xg/NlDHUDjUs5oWUL
-	/N31NRmfoTHFpi/muJ32MviLdBGuphp3n4rL3sxazAHkdplQLYQ1ezJgK5Z38pYyh/qpjRwp+nc
-	RbpbG2+Jf6VjPjf+AsJDFFYGnZ7hIl9gYof3vz01JWOWUh6ON87AjvNRpngYASgdLPp9O+KynaV
-	rJGM3iDnI6rNikSGPr4cEwQhOJwDRMc1oDZDVYRUTTCWNv7fzek5+laCp7Wih10ZY2JDOwQCG8d
-	vwej/fqLmJNle57as1
-X-Google-Smtp-Source: AGHT+IGxox0BnKpXIXpIkILbnFvlZ2cigLgZX+lwkyuIDPT6BC7th92Abu5fCPBNRSHMzVeVYDoTUw==
-X-Received: by 2002:a05:6a20:a11e:b0:366:14b0:4b15 with SMTP id adf61e73a8af0-3769f933424mr13267847637.32.1766489036518;
-        Tue, 23 Dec 2025 03:23:56 -0800 (PST)
-Received: from draszik.lan ([212.129.75.63])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7ff7dfab836sm13480878b3a.36.2025.12.23.03.23.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Dec 2025 03:23:55 -0800 (PST)
-Message-ID: <a3b89ce1a88e9efb2ff6af27bd1bd48dbc06c2fc.camel@linaro.org>
-Subject: Re: [PATCH v4 4/5] soc: samsung: exynos-chipid: add
- google,gs101-otp support
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>,
-  Krzysztof Kozlowski	 <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar	 <alim.akhtar@samsung.com>, Peter
- Griffin <peter.griffin@linaro.org>,  Srinivas Kandagatla	 <srini@kernel.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, semen.protsenko@linaro.org, 
-	willmcvicker@google.com, kernel-team@android.com,
- devicetree@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, 	linux-kernel@vger.kernel.org
-Date: Tue, 23 Dec 2025 11:23:56 +0000
-In-Reply-To: <aa55c3865d151697120a2855e711d59468bdcd0a.camel@linaro.org>
-References: <20251222-gs101-chipid-v4-0-aa8e20ce7bb3@linaro.org>
-		 <20251222-gs101-chipid-v4-4-aa8e20ce7bb3@linaro.org>
-	 <aa55c3865d151697120a2855e711d59468bdcd0a.camel@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-2+build3 
+	Tue, 23 Dec 2025 11:28:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 036756013B;
+	Tue, 23 Dec 2025 11:28:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AB01C116C6;
+	Tue, 23 Dec 2025 11:28:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766489300;
+	bh=lZe1cCbxkn52whYgqfzuO8vrl214dFz4RWvAWiF8ObI=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=DTZpsN3eHoFAL9lrlZRgFKStnM20W6ebr/myjO8gHzSWEQKg0j7s+gU5cLBlx/qhk
+	 2iOvObt6Oxh3c0IoTL3f0rp2ZZd6wCYPH/aCbVLV9O3EeVp8I66XxWnELaoZWpdWL2
+	 KS1hCJeaWL6G+hDcujgg9Zmns9YQkyp9SAoz4EDxQl57jEN6411dFMCBuXX8lkg+Tx
+	 rYm5Jc5LjJkHArFYrjdgdNxzbOCU4hSqtePP0JKUyR6M9BVa3v6zUAqeNCmJ9cINU/
+	 Z358X8iWp06b+w2Sz3N2U0zAhckweAxPNdfwnJiyOHXbCoSn8lmBiL6OyIIZII/75M
+	 wnD1ZyGfbFyfQ==
+From: Vinod Koul <vkoul@kernel.org>
+To: Jernej Skrabec <jernej@kernel.org>, 
+ Samuel Holland <samuel@sholland.org>, Chen-Yu Tsai <wens@kernel.org>
+Cc: Andre Przywara <andre.przywara@arm.com>, dmaengine@vger.kernel.org, 
+ linux-sunxi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org
+In-Reply-To: <20251221080450.1813479-1-wens@kernel.org>
+References: <20251221080450.1813479-1-wens@kernel.org>
+Subject: Re: [PATCH] dmaengine: sun6i: Choose appropriate burst length
+ under maxburst
+Message-Id: <176648929819.697163.12733277039569161505.b4-ty@kernel.org>
+Date: Tue, 23 Dec 2025 16:58:18 +0530
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_032357_749934_9BCA97E6 
-X-CRM114-Status: UNSURE (   8.55  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.13.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,18 +72,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2025-12-23 at 10:18 +0000, Andr=C3=A9 Draszik wrote:
-> Looking closer, why is this not val? Now you're shifting the sub_rev
-> register value by the main rev shift, assigning the sub_rev register
-> value to the main rev variable.
->=20
-> And then, all assignments to main_rev become identical and don't need to
-> be duplicated.
 
-Anyway, it does work for the SoCs supported, my RB still applies. Code can =
-be
-updated in the future if the need arises.
+On Sun, 21 Dec 2025 16:04:48 +0800, Chen-Yu Tsai wrote:
+> maxburst, as provided by the client, specifies the largest amount of
+> data that is allowed to be transferred in one burst. This limit is
+> normally provided to avoid a data burst overflowing the target FIFO.
+> It does not mean that the DMA engine can only do bursts in that size.
+> 
+> Let the driver pick the largest supported burst length within the
+> given limit. This lets the driver work correctly with some clients that
+> give a large maxburst value. In particular, the 8250_dw driver will give
+> a quarter of the UART's FIFO size as maxburst. On some systems the FIFO
+> size is 256 bytes, giving a maxburst of 64 bytes, while the hardware
+> only supports bursts of up to 16 bytes.
+> 
+> [...]
 
-Cheers,
-Andre'
+Applied, thanks!
+
+[1/1] dmaengine: sun6i: Choose appropriate burst length under maxburst
+      commit: 7178c3586ab42693b28bb81014320a7783e5c435
+
+Best regards,
+-- 
+~Vinod
+
+
 
