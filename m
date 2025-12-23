@@ -4,142 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BA85E6F07B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 09:53:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1374E6F07B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 09:55:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rueDqM5R/QJzu4XQ07WkZ5PUKgVruLuJrOOv/52SRXE=; b=nIwGYQdSfF3X0OCJG1WbbQJA9A
-	LTgK978yiNDQtk2UpTrOVBHGCy8rUfgr60qDP7DwQ3FqTieVgogds2KrbCO0TO7AIIWj7P7Yoy2Hs
-	hoOW5nv7YdDOylETkU8w6QvV0c91ghC3pABR//ueNWv8xIdldZqZBD650PpKSiv3AMFtFW/kiyRme
-	xOuNBF5FGbUao0ATwSZD7G/xQUzXdJDNHYj4bwjCyGuIXBeRwm2J1EAcP5je1Tipbu+V610Ld6mPU
-	Gknmud9F3xLCUfNZ3wHPvilLAIKufDINLY3rWoO+Clxdx3PtDMr4ez07Zqdm4N+aTJ6zJ77Jd5XOe
-	tAPj5/IQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IPXyR+DtSHvjmSw63vey96VhbW0eHbWu1L3mVM+HHkU=; b=j7sLRnwADC9jVOvEvtwYBH2Co2
+	Zc352rRnQklfvzw7Raq32Hd5oQ0dGix2DBtb2LYHy+kdwJ+0VrGUcphoD1bqvHemtdMKbJqVqVXoT
+	YZ/P47nTKOYynFkTcGXE/kSdqx3d/hJO0VwmLLMBsgm5ytu/SEjF00+rI7SpVwqRYx4LoDI7Q+E56
+	f3tRpXPHQaIjTyeyillpQxxEGumRexhOcWFpLmBjPYpQUt1Dbx+41kCnyPtjc1oi9D3PfBi0VM7Os
+	GbaOHvSakR4POZFbUOhDHHKHRUEI/sv7xhJVx6zZ+cFOD+QkOCjKQRgwtm8wpSbhRjButdgg4NKSW
+	JGpKGZVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXz50-0000000EnVb-3HiM;
-	Tue, 23 Dec 2025 09:53:22 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vXz6j-0000000EnhF-07Vl;
+	Tue, 23 Dec 2025 09:55:09 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXz4y-0000000EnVC-1UAC
+	id 1vXz6g-0000000Eng2-078Y
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Dec 2025 09:53:21 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BN8td4t2748481
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 09:53:20 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	rueDqM5R/QJzu4XQ07WkZ5PUKgVruLuJrOOv/52SRXE=; b=W3BZKMDgz6qDfs2A
-	ImINVOVBVssM9H+CCD5ziScGxEHvzMA6/DmfqZB+U+ue1XX2oABCLq5gfdmZVUfS
-	ggwGRZ9xJrTkLdGVfqf+mxBQCt5jW8i3WFpnO3mGkbGQJx+9iaIrOi9fmtTD4+a4
-	XBSt6jzAwBEpsw8WzSMEjg1hNJKnzIxp68VJX+LE9Z8ZVa1AGjXdYqeucVYfMpDH
-	ASM5UCALH3g6ssmmYtPhWFxnh6klSgtk37hpBynMDyz6XEPoYgeUHKan2R0dtFZJ
-	oGk0JDdkH89iCfQbq7Hl3czpGcgQi1BJHMTlQW3wPndvdgZcwx5Ai/BMUABw5+75
-	5Z/GDQ==
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4b7h5csm8y-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 09:53:19 +0000 (GMT)
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2a0dabc192eso107910195ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 01:53:19 -0800 (PST)
+	Tue, 23 Dec 2025 09:55:07 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-7f216280242so1792013b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 01:55:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1766483599; x=1767088399; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=rueDqM5R/QJzu4XQ07WkZ5PUKgVruLuJrOOv/52SRXE=;
-        b=MW3KHC8xCTAwvusCmX7W0p359/lpg0FaYKD1G9V1KpRvO26ubXhfyDPE+NylLi7zA6
-         DUVwcfVQ14FrULyHiL2V3y/l5xNIjsD/RRkJFI2aUSpaeGnAYYKhxpT0uNnDaPet25NL
-         tx1Os9bxo7oac1mo7YOVlGKLbFepBQli88nk8CL4w5ZJj26XcZ/nKDm6cwa0oFLDHFsM
-         +zelWk2Q0K9fJY+JqiDO0UyNaA/wsG3UHkMKd86E3tCTS3uu5sTtDb6xSMynXW1GNBrV
-         4GYMxfncOwGz7ZbUhp/+/cBw2qoe3rkl/EDfnvMKEdLgmHoyoFzmAE89gSPqJaC4SVY7
-         hRkg==
+        d=gmail.com; s=20230601; t=1766483705; x=1767088505; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=IPXyR+DtSHvjmSw63vey96VhbW0eHbWu1L3mVM+HHkU=;
+        b=T1cW5R0peH6cr9+4OlL5SWanGTDEMlYSjidc1pq23/Ai+DoAMqShV4w5r7Q77ZpRVh
+         ImVOwO7EnksN7G98/3V9p/p+zpT8wwIrMP4vVOaEwmPb2bkBsok6j5ue7HLTOCKnH9jx
+         YxAA9YCHbNlUfqUxWTHTEp3+xpyC0xRoZzL5jFW4EM2SYXv1E8Lb+Nxim7XSYr/wpEbO
+         fvqjk4El7i8WqotyeiDEi3l2qMcUWaErn1K6s4FOvt1hPcdQzAuUXpb3uf/xGQUgyaYI
+         Gn5Ra8VFwKOv1cCQCUUYiRPWwvLgvnIW/3pw94dO00LvMi+Q0bZta4JJ2HKXwVx7MZzO
+         3Vqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766483599; x=1767088399;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=rueDqM5R/QJzu4XQ07WkZ5PUKgVruLuJrOOv/52SRXE=;
-        b=nuqQhQvTjYc1jKKa37jFZOYX9Gm7fcZmM84QwExnH762EBe9mg64+np5Q8bwPga48M
-         w2beTwfdy38g1L7rD36S9H4Xr3Ni+gnyau2FXBQvESBubLWJulC94sCHIm8QLbMp4gVs
-         nGamkosxM0aBsj3B0fs3bE8yOLPgbIi345D45QYVDD8Of2am5wdpHWH0BBJEJeDL7wdm
-         AZUWrYpxGR/5ntr1xQ2rCK8yXPpqr6BNIS3U1kWRdlsl6rCTonvau2z+vzrUMpCUskAz
-         FE45QDoecFUEnhCqpyK1FgT/BQRbHca1RqS/XlmHqBMyCWG+rgmEQsnvAWbme2+P1K4g
-         B9oA==
-X-Forwarded-Encrypted: i=1; AJvYcCUBWd8Z3pgY63UJrWWIrMWN0Qdy++ckhVVMbNmyYfbyXjX/Q3UnhFeCrhl0D1ZeRpN+KtGgIpAsT+RMSamKopNI@lists.infradead.org
-X-Gm-Message-State: AOJu0YzpotsbvG4NwX1HyTy728/UyvumJT1FmugEGuYpEec0U7McBjlQ
-	XSoZUws7VkIjvtnUbUTvxlyYaju2RsjIC/0aXazs51/hieyVK5gVob+bE9JPU2LDgok08qFs8+K
-	j6DG/NnFnPbFLcm8pKHOzujp4uHJ5rrj9K5DKvcoqMblzhOwZi3apHIdh7xy0DB8bpfUaNbB06h
-	4evg==
-X-Gm-Gg: AY/fxX5FKAs8sktss5grBOvY1Zn0m/1AFrTyfXGXJUdwTYeUMxz1ehA+dKupslsTIJW
-	3V6h9Yccjm27zSsRtAiAkBsUz9q5H2VT5FyZKCjXGxMoIadQ9kVnRjrDyi+JG/C0JjLy5oRKn13
-	bksIAGLqhNYbrajLromi2SDMts+IdvpI7L8Db/xMwalMkfvuolXENQ9JzbJDde+zhIEOvnwWVWc
-	vZx/dxIrA6S++FTVMaSNvY13Cssqssj7yjnpU8z8wAvuLSHqrBsM2FjJBaPsoSertMiKniDwlWT
-	sFp6nXBKkrWFgXcTRKaRUrGmYwW9cQ8x9eW+kCRxTINvQ37REccsWdxdffYJe+HhIwDOf8hudj8
-	vvXiImnuUrsSLPO+KelvpJ4iNJHdgwDbI+sxx0+nH0riB2Sd/8NHce2IqYRJU7d3iqH1qnkvqGc
-	s=
-X-Received: by 2002:a17:902:e803:b0:2a0:d5b0:dd82 with SMTP id d9443c01a7336-2a2f2a420e1mr140856995ad.61.1766483598981;
-        Tue, 23 Dec 2025 01:53:18 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGNt7A8ugJxNnv6i4qUo7cz7Q5h/AKiyqpJFPuFCzO3I1pykcdS9W5estsBjuHvSKmn24d4mg==
-X-Received: by 2002:a17:902:e803:b0:2a0:d5b0:dd82 with SMTP id d9443c01a7336-2a2f2a420e1mr140856825ad.61.1766483598453;
-        Tue, 23 Dec 2025 01:53:18 -0800 (PST)
-Received: from [10.133.33.169] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-34e9223aab0sm12603184a91.13.2025.12.23.01.53.15
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 23 Dec 2025 01:53:18 -0800 (PST)
-Message-ID: <23737351-e254-4b2c-a3e3-bc7eebb1c025@oss.qualcomm.com>
-Date: Tue, 23 Dec 2025 17:53:12 +0800
+        d=1e100.net; s=20230601; t=1766483705; x=1767088505;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=IPXyR+DtSHvjmSw63vey96VhbW0eHbWu1L3mVM+HHkU=;
+        b=Z/jcuRJo665tQNlB9zztXgfXQhrZNeApSHi86sv8Fw1XA9pHtx2X7DnkcY3j/F7iaZ
+         YacZg4vWfAuJqA8Gc6QWdtEXRNxZ2tWqfkAFY4EWwAV0rTYe9blh2dWiYV46QlAT+JOG
+         aFO3kp2U8TVKqpL5RpjbHL26XI4hA7UeGGGgctcNQurOKdm7DV4tZ8FEcEK32f2UEJtU
+         Fb7dVcJMCP+cHwZ48SaLGp6NqKCvsLGm+kMTtMu4urihRV0UosjdMo4RSPw80EpWEuWa
+         LRO//7T32oSQntAs6CK70hxQ203XrccgB4uoUJwQHgCskkT/lA5ezm/HgwjLIMnROUnW
+         rcMA==
+X-Forwarded-Encrypted: i=1; AJvYcCVMsjXcguiZ/As6lZAO+k2EhIH+22NCrQBngqsCwmPiW9xuTLpCMNIEr8TFKIjDifShamHwN35tlrlEt0CDKsDh@lists.infradead.org
+X-Gm-Message-State: AOJu0YwB656Bk+UfBXGbVSLtvTOrHJWxKiBBvv9PpnjQ9HVuu1SGCpg6
+	mtThGkfJFFr4+IL1wyjMHC36AveZIE5yjShxKofbyn7vyrlhKxm2KNvq
+X-Gm-Gg: AY/fxX6I9DtwUQJQlVQEXHhg23l6A4jDsOL44AbiEtRQ1K3N+BjfuoxSx1tRiDmfhF5
+	HttNvSLwE7NFfvyfMg7Cwa/zMRK2SmO1xUszapJUBSRfCfq11CzgmSNdoRhFwtB+1/ttGE4jQd0
+	16DYWTSrNmaNGbmRPCX3GxTBUZL1XOaR+Y/t9movlvd2dShyAE2qYhGjzvRzeK6yUqiO/TBvpBF
+	kBd7UDlHhw9oVjA6DNTOwrohXCja7MjZZXWc+Kw987w/Zr8dtwCXIQAlx2nYr2bKOWhVFCIlacO
+	E2aMZYa6VTf2b2mFXeuzxhpZo0dZcEbWUZYUDA4mThgKP9Fhlw7EPGzRXgTdkoiKrLimKwUyzN4
+	xwfqH+gAsj5zM7iIZ44DcMLp+jZe0PSfQP2BSFPku1B+ZaSbsVMr8/eLiPk9dvKUOUUq2RkeopM
+	LuQ5fUqzeEtEtAcNgzpUgg5hZj+A7C
+X-Google-Smtp-Source: AGHT+IEdzNfnqNUJyDypKzn3dPYc29vkogAq63TVtVQNeWPmClzH/fQB7OhCe8Q/j5leeIRr37dB1w==
+X-Received: by 2002:a05:6a20:6a07:b0:371:7666:648c with SMTP id adf61e73a8af0-3769f3351f4mr13306712637.24.1766483704666;
+        Tue, 23 Dec 2025 01:55:04 -0800 (PST)
+Received: from rahul-mintos.ban-spse ([165.204.156.251])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a2f3d776ebsm124413885ad.99.2025.12.23.01.55.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 23 Dec 2025 01:55:04 -0800 (PST)
+From: Abhishek Rajput <abhiraj21put@gmail.com>
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	lkp@intel.com,
+	abhiraj21put@gmail.com
+Subject: [PATCH v2] drm/mediatek: Convert legacy DRM logging to drm_* helpers in mtk_crtc.c
+Date: Tue, 23 Dec 2025 15:24:34 +0530
+Message-ID: <20251223095434.492041-1-abhiraj21put@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 3/4] coresight: tpda: add logic to configure TPDA_SYNCR
- register
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, Tao Zhang <tao.zhang@oss.qualcomm.com>
-References: <20251223-add_sysfs_nodes_to_configure_tpda-v7-0-db4e6810047c@oss.qualcomm.com>
- <20251223-add_sysfs_nodes_to_configure_tpda-v7-3-db4e6810047c@oss.qualcomm.com>
- <ab53c4e1-e0a2-4a6b-840b-a84e9b236e8f@arm.com>
-Content-Language: en-US
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-In-Reply-To: <ab53c4e1-e0a2-4a6b-840b-a84e9b236e8f@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjIzMDA3OCBTYWx0ZWRfX094Z0xZn1Si2
- G8j42xioi6pWJS1OmESeFNqMmyuajYftdMF1bonQX6w0jZsQI2IAwyUHRlvZNt3sF5LN1KSEITz
- h+HOzwWDmhTHf24nAWtwxBuDyERcXPEjAD76EwGvWPaWKzB5WqFOEZDnUCx3AuZTQvz2ewVLCcd
- DsyAiMgLq8VN1FNIHytNJ7D+aUIzz4ZPDYB9ghUEPann+7Kuv6iBAKmX8qrAw2eTtFLnY7MXmq+
- i/zazkd7ziaIe0o42ruPF/iYUV4oMtogSWwzMsYxELWzfAzR+s/8aXcSnkcf8x27OL0aF0YcYNY
- lJqgTLM2zEsDqjR268CS4MwQv6itYmxVR2mmBor9MRRP44GVh0QDMLeWVukQSxPlX9FCUqqYjCd
- R0SWVGahoQcIik6v5BPJnpB2UIg2Jwqy0kQpdnF/hT8WRUu4ore02dCsWJUGbNA7EP61iu7n2YH
- iZ3wEAabPWqWWOve/9w==
-X-Proofpoint-ORIG-GUID: oSrhzNFXh6n3KKR-jbPtctMN4jkLBlzf
-X-Authority-Analysis: v=2.4 cv=LeUxKzfi c=1 sm=1 tr=0 ts=694a668f cx=c_pps
- a=cmESyDAEBpBGqyK7t0alAg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=KKAkSRfTAAAA:8
- a=ftp70H-Omfm4tq10K7kA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=1OuFwYUASf3TG4hYMiVC:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-GUID: oSrhzNFXh6n3KKR-jbPtctMN4jkLBlzf
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-12-23_02,2025-12-22_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 suspectscore=0 phishscore=0 priorityscore=1501 lowpriorityscore=0
- clxscore=1015 impostorscore=0 adultscore=0 bulkscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2512230078
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_015320_437915_DBC5B655 
-X-CRM114-Status: GOOD (  23.66  )
+X-CRM114-CacheID: sfid-20251223_015506_096735_60EB74E1 
+X-CRM114-Status: GOOD (  17.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,228 +105,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Replace DRM_ERROR() and DRM_DEBUG_DRIVER() calls in
+drivers/gpu/drm/mediatek/mtk_crtc.c with the corresponding drm__err()
+and drm_dbg_driver() helpers.
 
+The drm_*() logging helpers take a struct drm_device * argument,
+allowing the DRM core to prefix log messages with the correct device
+name and instance. This is required to correctly distinguish log
+messages on systems with multiple GPUs.
 
-On 12/23/2025 5:49 PM, Suzuki K Poulose wrote:
-> On 23/12/2025 08:41, Jie Gan wrote:
->> From: Tao Zhang <tao.zhang@oss.qualcomm.com>
->>
->> The TPDA_SYNC counter tracks the number of bytes transferred from the
->> aggregator. When this count reaches the value programmed in the
->> TPDA_SYNCR register, an ASYNC request is triggered, allowing userspace
->> tools to accurately parse each valid packet.
->>
->> Signed-off-by: Tao Zhang <tao.zhang@oss.qualcomm.com>
->> Reviewed-by: James Clark <james.clark@linaro.org>
->> Co-developed-by: Jie Gan <jie.gan@oss.qualcomm.com>
->> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
->> ---
->>   .../ABI/testing/sysfs-bus-coresight-devices-tpda   | 18 +++++
->>   drivers/hwtracing/coresight/coresight-tpda.c       | 90 ++++++++++++ 
->> ++++++++++
->>   drivers/hwtracing/coresight/coresight-tpda.h       | 10 +++
->>   3 files changed, 118 insertions(+)
->>
->> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices- 
->> tpda b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
->> index c8bc7b19ab25..c989eea1ef59 100644
->> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
->> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
->> @@ -41,3 +41,21 @@ Contact:    Jinlong Mao 
->> <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qu
->>   Description:
->>           (RW) Set global (all ports) flush request bit. The bit 
->> remains set until a
->>           global flush request sequence completes.
->> +
->> +What:        /sys/bus/coresight/devices/<tpda-name>/syncr_mode
->> +Date:        December 2025
->> +KernelVersion:    6.19
->> +Contact:    Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang 
->> <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
->> +Description:
->> +        (RW) Set mode the of the syncr counter.
->> +        mode 0 - COUNT[11:0] value represents the approximate number 
->> of bytes moved between two ASYNC packet requests
->> +        mode 1 - the bits COUNT[11:7] are used as a power of 2. for 
->> example, we could insert an async packet every 8K
->> +                 data by writing a value 13 to the COUNT[11:7] field.
->> +
->> +What:        /sys/bus/coresight/devices/<tpda-name>/syncr_count
->> +Date:        December 2025
->> +KernelVersion:    6.19
->> +Contact:    Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang 
->> <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
->> +Description:
->> +        (RW) Set value the of the syncr counter.
->> +        Range: 0-4095
->> diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/ 
->> hwtracing/coresight/coresight-tpda.c
->> index d24a9098f1b1..8283e16ec400 100644
->> --- a/drivers/hwtracing/coresight/coresight-tpda.c
->> +++ b/drivers/hwtracing/coresight/coresight-tpda.c
->> @@ -163,6 +163,20 @@ static void tpda_enable_pre_port(struct 
->> tpda_drvdata *drvdata)
->>        */
->>       if (drvdata->trig_flag_ts)
->>           writel_relaxed(0x0, drvdata->base + TPDA_FPID_CR);
->> +
->> +    /* Initialize with a value of 0 */
->> +    val = 0;
->> +    if (drvdata->syncr_mode)
->> +        val |= TPDA_SYNCR_MODE_CTRL_MASK;
->> +
->> +    if (drvdata->syncr_count > 0 &&
->> +        drvdata->syncr_count < TPDA_SYNCR_COUNT_MASK)
->> +        val |= drvdata->syncr_count;
->> +    else
->> +        /* Program the count to its MAX value by default */
->> +        val |= TPDA_SYNCR_COUNT_MASK;
->> +
->> +    writel_relaxed(val, drvdata->base + TPDA_SYNCR);
->>   }
->>   static int tpda_enable_port(struct tpda_drvdata *drvdata, int port)
->> @@ -385,8 +399,84 @@ static ssize_t global_flush_req_store(struct 
->> device *dev,
->>   }
->>   static DEVICE_ATTR_RW(global_flush_req);
->> +static ssize_t syncr_mode_show(struct device *dev,
->> +                   struct device_attribute *attr,
->> +                   char *buf)
->> +{
->> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
->> +    unsigned long val, syncr_val;
->> +
->> +    if (!drvdata->csdev->refcnt)
->> +        return -EINVAL;
->> +
->> +    guard(spinlock)(&drvdata->spinlock);
->> +    syncr_val = readl_relaxed(drvdata->base + TPDA_SYNCR);
->> +    val = FIELD_GET(TPDA_SYNCR_MODE_CTRL_MASK, syncr_val);
->> +
->> +    return sysfs_emit(buf, "%lu\n", val);
->> +}
->> +
->> +static ssize_t syncr_mode_store(struct device *dev,
->> +                struct device_attribute *attr,
->> +                const char *buf,
->> +                size_t size)
->> +{
->> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
->> +    unsigned long val;
->> +
->> +    if (kstrtoul(buf, 0, &val))
->> +        return -EINVAL;
->> +
->> +    guard(spinlock)(&drvdata->spinlock);
->> +    /* set the mode when first enabling the device */
->> +    drvdata->syncr_mode = !!val;
->> +
->> +    return size;
->> +}
->> +static DEVICE_ATTR_RW(syncr_mode);
->> +
->> +static ssize_t syncr_count_show(struct device *dev,
->> +                struct device_attribute *attr,
->> +                char *buf)
->> +{
->> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
->> +    unsigned long val;
->> +
->> +    if (!drvdata->csdev->refcnt)
->> +        return -EINVAL;
->> +
->> +    guard(spinlock)(&drvdata->spinlock);
->> +    val = readl_relaxed(drvdata->base + TPDA_SYNCR);
->> +    val &= TPDA_SYNCR_COUNT_MASK;
->> +
->> +    return sysfs_emit(buf, "%lu\n", val);
->> +}
->> +
->> +static ssize_t syncr_count_store(struct device *dev,
->> +                 struct device_attribute *attr,
->> +                 const char *buf,
->> +                 size_t size)
->> +{
->> +    struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
->> +    unsigned long val;
->> +
->> +    if (kstrtoul(buf, 0, &val))
->> +        return -EINVAL;
->> +
->> +    if (val < 0 || val > TPDA_SYNCR_COUNT_MASK)
-> 
-> Checking "val < 0" for an unsigned type is invalid. Simply keep the 
-> second part.
-> 
+This change aligns the Mediatek DRM driver with the DRM TODO item:
+"Convert logging to drm_* functions with drm_device parameter".
 
-Sure, sorry for the mistake. I forgot it’s an unsigned value here.
+Reported-by: kernel test robot <lkp@intel.com>
+Closes:
+https://lore.kernel.org/oe-kbuild-all/202512220515.z3QybJ8I-lkp@intel.com/
+Signed-off-by: Abhishek Rajput <abhiraj21put@gmail.com>
+---
+v2:
+- Fix unused variable warning when CONFIG_MTK_CMDQ is disabled
+- Added Reported-by and Closes tags
+Link to v1:
+https://lore.kernel.org/all/20251217070303.689913-1-abhiraj21put@gmail.com/
+ drivers/gpu/drm/mediatek/mtk_crtc.c | 22 ++++++++++++++--------
+ 1 file changed, 14 insertions(+), 8 deletions(-)
 
-Will send a new version to fix it.
-
-Thanks,
-Jie
-
-> Suzuki
-> 
-> 
->> +        return -EINVAL;
->> +
->> +    guard(spinlock)(&drvdata->spinlock);
->> +    drvdata->syncr_count = val;
->> +
->> +    return size;
->> +}
->> +static DEVICE_ATTR_RW(syncr_count);
->> +
->>   static struct attribute *tpda_attrs[] = {
->>       &dev_attr_global_flush_req.attr,
->> +    &dev_attr_syncr_mode.attr,
->> +    &dev_attr_syncr_count.attr,
->>       tpda_trig_sysfs_rw(freq_ts_enable, FREQTS),
->>       tpda_trig_sysfs_rw(trig_freq_enable, FRIE),
->>       tpda_trig_sysfs_rw(trig_flag_ts_enable, FLRIE),
->> diff --git a/drivers/hwtracing/coresight/coresight-tpda.h b/drivers/ 
->> hwtracing/coresight/coresight-tpda.h
->> index 1cc9253293ec..56d35697303a 100644
->> --- a/drivers/hwtracing/coresight/coresight-tpda.h
->> +++ b/drivers/hwtracing/coresight/coresight-tpda.h
->> @@ -9,6 +9,7 @@
->>   #define TPDA_CR            (0x000)
->>   #define TPDA_Pn_CR(n)        (0x004 + (n * 4))
->>   #define TPDA_FPID_CR        (0x084)
->> +#define TPDA_SYNCR        (0x08C)
->>   /* Cross trigger global (all ports) flush request bit */
->>   #define TPDA_CR_FLREQ        BIT(0)
->> @@ -36,6 +37,11 @@
->>   /* Aggregator port DSB data set element size bit */
->>   #define TPDA_Pn_CR_DSBSIZE        BIT(8)
->> +/* TPDA_SYNCR count mask */
->> +#define TPDA_SYNCR_COUNT_MASK        GENMASK(11, 0)
->> +/* TPDA_SYNCR mode control bit */
->> +#define TPDA_SYNCR_MODE_CTRL_MASK    GENMASK(12, 12)
->> +
->>   #define TPDA_MAX_INPORTS    32
->>   /**
->> @@ -52,6 +58,8 @@
->>    * @trig_freq:    Enable/disable cross trigger FREQ packet request 
->> interface.
->>    * @freq_ts:    Enable/disable the timestamp for all FREQ packets.
->>    * @cmbchan_mode: Configure the CMB/MCMB channel mode.
->> + * @syncr_mode:    Setting the mode for counting packets.
->> + * @syncr_count: Setting the value of the count.
->>    */
->>   struct tpda_drvdata {
->>       void __iomem        *base;
->> @@ -66,6 +74,8 @@ struct tpda_drvdata {
->>       bool            trig_freq;
->>       bool            freq_ts;
->>       bool            cmbchan_mode;
->> +    bool            syncr_mode;
->> +    u32            syncr_count;
->>   };
->>   /* Enumerate members of global control register(cr) */
->>
-> 
+diff --git a/drivers/gpu/drm/mediatek/mtk_crtc.c b/drivers/gpu/drm/mediatek/mtk_crtc.c
+index 991cdb3d7d5f..bca2e40bca54 100644
+--- a/drivers/gpu/drm/mediatek/mtk_crtc.c
++++ b/drivers/gpu/drm/mediatek/mtk_crtc.c
+@@ -227,11 +227,12 @@ static int mtk_crtc_ddp_clk_enable(struct mtk_crtc *mtk_crtc)
+ {
+ 	int ret;
+ 	int i;
++	struct drm_device *dev = mtk_crtc->base.dev;
+ 
+ 	for (i = 0; i < mtk_crtc->ddp_comp_nr; i++) {
+ 		ret = mtk_ddp_comp_clk_enable(mtk_crtc->ddp_comp[i]);
+ 		if (ret) {
+-			DRM_ERROR("Failed to enable clock %d: %d\n", i, ret);
++			drm_err(dev, "Failed to enable clock %d: %d\n", i, ret);
+ 			goto err;
+ 		}
+ 	}
+@@ -343,6 +344,7 @@ static int mtk_crtc_ddp_hw_init(struct mtk_crtc *mtk_crtc)
+ 	struct drm_connector *connector;
+ 	struct drm_encoder *encoder;
+ 	struct drm_connector_list_iter conn_iter;
++	struct drm_device *dev = mtk_crtc->base.dev;
+ 	unsigned int width, height, vrefresh, bpc = MTK_MAX_BPC;
+ 	int ret;
+ 	int i;
+@@ -371,19 +373,19 @@ static int mtk_crtc_ddp_hw_init(struct mtk_crtc *mtk_crtc)
+ 
+ 	ret = pm_runtime_resume_and_get(crtc->dev->dev);
+ 	if (ret < 0) {
+-		DRM_ERROR("Failed to enable power domain: %d\n", ret);
++		drm_err(dev, "Failed to enable power domain: %d\n", ret);
+ 		return ret;
+ 	}
+ 
+ 	ret = mtk_mutex_prepare(mtk_crtc->mutex);
+ 	if (ret < 0) {
+-		DRM_ERROR("Failed to enable mutex clock: %d\n", ret);
++		drm_err(dev, "Failed to enable mutex clock: %d\n", ret);
+ 		goto err_pm_runtime_put;
+ 	}
+ 
+ 	ret = mtk_crtc_ddp_clk_enable(mtk_crtc);
+ 	if (ret < 0) {
+-		DRM_ERROR("Failed to enable component clocks: %d\n", ret);
++		drm_err(dev, "Failed to enable component clocks: %d\n", ret);
+ 		goto err_mutex_unprepare;
+ 	}
+ 
+@@ -648,10 +650,11 @@ static void mtk_crtc_ddp_irq(void *data)
+ 	struct mtk_drm_private *priv = crtc->dev->dev_private;
+ 
+ #if IS_REACHABLE(CONFIG_MTK_CMDQ)
++	struct drm_device *dev = mtk_crtc->base.dev;
+ 	if (!priv->data->shadow_register && !mtk_crtc->cmdq_client.chan)
+ 		mtk_crtc_ddp_config(crtc, NULL);
+ 	else if (mtk_crtc->cmdq_vblank_cnt > 0 && --mtk_crtc->cmdq_vblank_cnt == 0)
+-		DRM_ERROR("mtk_crtc %d CMDQ execute command timeout!\n",
++		drm_err(dev, "mtk_crtc %d CMDQ execute command timeout!\n",
+ 			  drm_crtc_index(&mtk_crtc->base));
+ #else
+ 	if (!priv->data->shadow_register)
+@@ -776,9 +779,10 @@ static void mtk_crtc_atomic_enable(struct drm_crtc *crtc,
+ {
+ 	struct mtk_crtc *mtk_crtc = to_mtk_crtc(crtc);
+ 	struct mtk_ddp_comp *comp = mtk_crtc->ddp_comp[0];
++	struct drm_device *dev = mtk_crtc->base.dev;
+ 	int ret;
+ 
+-	DRM_DEBUG_DRIVER("%s %d\n", __func__, crtc->base.id);
++	drm_dbg_driver(dev, "%s %d\n", __func__, crtc->base.id);
+ 
+ 	ret = mtk_ddp_comp_power_on(comp);
+ 	if (ret < 0) {
+@@ -803,9 +807,10 @@ static void mtk_crtc_atomic_disable(struct drm_crtc *crtc,
+ {
+ 	struct mtk_crtc *mtk_crtc = to_mtk_crtc(crtc);
+ 	struct mtk_ddp_comp *comp = mtk_crtc->ddp_comp[0];
++	struct drm_device *dev = mtk_crtc->base.dev;
+ 	int i;
+ 
+-	DRM_DEBUG_DRIVER("%s %d\n", __func__, crtc->base.id);
++	drm_dbg_driver(dev, "%s %d\n", __func__, crtc->base.id);
+ 	if (!mtk_crtc->enabled)
+ 		return;
+ 
+@@ -845,10 +850,11 @@ static void mtk_crtc_atomic_begin(struct drm_crtc *crtc,
+ 									  crtc);
+ 	struct mtk_crtc_state *mtk_crtc_state = to_mtk_crtc_state(crtc_state);
+ 	struct mtk_crtc *mtk_crtc = to_mtk_crtc(crtc);
++	struct drm_device *dev = mtk_crtc->base.dev;
+ 	unsigned long flags;
+ 
+ 	if (mtk_crtc->event && mtk_crtc_state->base.event)
+-		DRM_ERROR("new event while there is still a pending event\n");
++		drm_err(dev, "new event while there is still a pending event\n");
+ 
+ 	if (mtk_crtc_state->base.event) {
+ 		mtk_crtc_state->base.event->pipe = drm_crtc_index(crtc);
+-- 
+2.34.1
 
 
