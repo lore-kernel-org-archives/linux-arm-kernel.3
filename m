@@ -4,172 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71E4CE6B26C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 01:19:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3512E6B26C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 01:21:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=elNwXEdcQcmASuYwS+WJw0qhcVX8URIeM6OQYsLi/MY=; b=x9ZjfLUjppncL579F/visXROQ0
-	3MXJx3Iy297PgYvQuVeFH3BiZlkWjtiuK0+lffOosPR2ewwdzMO+u4FVt/qu57b+XCFxnAxBNSxyJ
-	iHodUnq8PZ72k3hIgWPOUHxRoPBcUYCPSkcxXDKB/+t4KeZjbHdo/TWf3LHP0RQjlogcb4W5ncvlS
-	LO808Zw87BLSIdOUlqJBN19/ULXBD6k+52zzSv8rLsljY6Bf62m+rggafhVXtXHHIItFU9hIVv0CT
-	F4xepEtbGh7+CftCUpsChiuaIiGKKmS1YOX8OYamja3DP/Uz+khKdEuSFQa+B+bgZv36M4+TA9kIH
-	zk6OkgnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=QFIYlKEy8yHSnPf19GYduDItDs9HYU5SRJBIsBbqdcc=; b=n3LMSJ673aAMWQ
+	xPtfaleICG4EuZB2gPKXQaJa6c0XkPweSj6i6Z86101gcBKSjtgZ4/0wm/fz1MMR6t2Ok8llh4dB0
+	O+klodDFbEhiEJ8HzWocLwGCyhW9aF8SiQ1DeiEAXnByoPe3UM4K1olTqtWTlLIHHC4alQqauKCCR
+	SzNN6gJGpCSOK/G9GKWHjjgT9LWUTPNDkwQsh4a8C6ArE6zlxEsi2DZyLMM1+OqURBmeK0ePR/Fgq
+	FW5bPT/usJNDgqksPCJ8NpgM0w31wI/0yj3EBOqn1mbjWrFsi8Ff2gnpEO7vxnho6FNgz0UHIUpRI
+	POPf6CmmLdA6rB9q7/dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXr3L-0000000EKyv-1l9M;
-	Tue, 23 Dec 2025 01:19:07 +0000
-Received: from mail-westeuropeazon11011041.outbound.protection.outlook.com ([52.101.70.41] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1vXr5k-0000000ELBw-3i63;
+	Tue, 23 Dec 2025 01:21:36 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXr3I-0000000EKy1-3Ca5
+	id 1vXr5k-0000000ELBq-0ax3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Dec 2025 01:19:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UeJX1NqOkGwKrrI9uce0wLEauAUrWVbT2U2t2IZX5SquAYxQeSIa2Nsytd8l+sDMvqXMxB0052udP9VcTFsPf678UiM3STCGYwCPngIcBnrdFYxO0zZb70b624noQ1naZMZqX3W/wdbd1UkUmBEE+EsUQbRlRx02+P7mPesNsTZKpJGgtxxREXqOi5QI80MTCIZzGq7wkWQpI5GblFVGqmICXE76XrfsKO44TZD84baug2YtxYBXh99qyoK7e2KBLq6laD3086+ZulefjWzjIuuHE7LSMOm4+Um1+lv9JTTgR+2m5IG5wpxASuNSYkCXqlA/7t8Y0YWRGJYdKTZbTw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=elNwXEdcQcmASuYwS+WJw0qhcVX8URIeM6OQYsLi/MY=;
- b=ZRZWAOakY5lnAUO6sVyZXK9As/jEZYzYsnUBlbI/fSDHUHlZoGpOGHi3REw0yD8WDQCSwzkVeNwTom8/k1eAkFZP4HGulaHYChSOhYTSVFhC6Rwmp6Rq1z8sBmJq8FW3zodqJhTFOLmAmJHNNB0nyg1U9CvU7zAERZ1gJ0Lo/GhyKaCU7tPAwmpNSs0KRX/YJK0uPH5c3+ao9A36u2IisKmVj9VI7tehFvvcwJKkQ6F1mcHgsWguZTYTN8S/Ny3FGnG+LHlV0PRjF6NUkX/Rv60QtyNEkI9Yji8VTq+U0JZJjBoqMxz/vjCis97Xs4UbdTZUGkk/HcSgZjKRyIGEsQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=elNwXEdcQcmASuYwS+WJw0qhcVX8URIeM6OQYsLi/MY=;
- b=CwGP/3xbhVidSyB1bfQm2dDeNG5bSgkaoKJmTkmcB+dqLlONHx3MZp3VXNhdjXIZUdM4BmcKB9LPeqD935yXYPzI7zF8XPtefJvPB6XioNTX59RKeVNjmdoDkNpxOu1Tg+g9aWoreeF/pzSzvsqTn9H97XGwzyTONmniaMDpZD3VdWmgaQ9GefVXuKrszpuMI2gEg5au1V/rcZ/VpxYOcemaaCEM712RUuArQoYzDvwsSiCNfNd0mZfobLoOv37YBlFs9hE678VCRJtYcezArGCqv0ewCdG+Gm15HpQk3tE0VKBEDkaCJFhItE6Eov4fObvD/benRnw47mxrWT0aqg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
- by GVXPR04MB11523.eurprd04.prod.outlook.com (2603:10a6:150:289::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.11; Tue, 23 Dec
- 2025 01:18:58 +0000
-Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
- ([fe80::2755:55ac:5d6f:4f87%4]) with mapi id 15.20.9434.009; Tue, 23 Dec 2025
- 01:18:57 +0000
-Message-ID: <1261af9b-339a-4081-ab95-ad8a4d05636d@oss.nxp.com>
-Date: Tue, 23 Dec 2025 09:18:47 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] media: amphion: Use kmalloc instead of vmalloc
-To: Nicolas Dufresne <nicolas@ndufresne.ca>, linux-media@vger.kernel.org
-Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl,
- sebastian.fricke@collabora.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
- kernel@pengutronix.de, festevam@gmail.com, linux-imx@nxp.com,
- Frank.li@nxp.com, xiahong.bao@nxp.com, eagle.zhou@nxp.com,
- imx@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20251222084912.747-1-ming.qian@oss.nxp.com>
- <de871401c693088783de5ad8068533ac532a9f03.camel@ndufresne.ca>
-From: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>
-In-Reply-To: <de871401c693088783de5ad8068533ac532a9f03.camel@ndufresne.ca>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: MA5PR01CA0238.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1f4::19) To PAXPR04MB8254.eurprd04.prod.outlook.com
- (2603:10a6:102:1cd::24)
+	Tue, 23 Dec 2025 01:21:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 415FC60172;
+	Tue, 23 Dec 2025 01:21:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF9EBC116C6;
+	Tue, 23 Dec 2025 01:21:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766452895;
+	bh=RCwPCR8V7LwNtswKx2PNWbdaptOLKzPY1WFiZk8EQPk=;
+	h=From:Subject:Date:To:Cc:From;
+	b=jijWCj6xTEtNwrDopp8+5dgmHORgA0hroCyyC44inKXo2RT9vHkpc5Qzgrl7UYxEU
+	 6iHRYhV/CJTCor4t10qHXczJ0EMrJjDtns6u21vZWvIrEOtohSYYEHA1nALy4CKUia
+	 nvBXbOJW8l6FQxuXfWW5vhMRXwrUi1x7yK+hpiVdZs9JUOUbnJM9adb5LFgq0oCPGK
+	 tAzyKkZGcMRiXrtmPXlfxUqqVwyctKybNYO1zuv+EPaDHhm976UuLxH1uZ3UJz7/vA
+	 fF47yPzr2D+Fr5RxCKgYFiREgFtnqjdFCmwUacju3vS5GCzv/JcdbXOD2vvSVoSucF
+	 zZ6Rk3TI0ckOQ==
+From: Mark Brown <broonie@kernel.org>
+Subject: [PATCH v9 00/30] KVM: arm64: Implement support for SME
+Date: Tue, 23 Dec 2025 01:20:54 +0000
+Message-Id: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|GVXPR04MB11523:EE_
-X-MS-Office365-Filtering-Correlation-Id: 570583c8-b813-4ac6-dcab-08de41c13e7c
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|19092799006|1800799024|366016|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?elh0akxXR0lzOEg0ZTdtaGxmdjNTbHFMRVN1VGhtZ29qQXo3bzk5TWtucnIr?=
- =?utf-8?B?NFY0NnM2ejNTMlFQMXQ2eHJEZ0UrL3J6MXZvdUFkTkZJTTk5a2xHbXRYUm5P?=
- =?utf-8?B?L0s2U2RQNlBlVWcrZ0psZHZBSGJGdzVHeWZsZlBEOWNidXhjZXhlRTk5a3A4?=
- =?utf-8?B?SnpTTkFxR3pJWWc4WW9tVjlBbFcwTWhOL3p0TnB0YXgxaEc5Zk9QZ2RGMjhy?=
- =?utf-8?B?dlZ5Y1NqdHFMNTJVOVlqdmFTQ2NrRW5zVW02YUtvalYrd2publB5S1p3TzlO?=
- =?utf-8?B?YklwUGRYbW15aHNTSlZpZy9uOVVmY3JvSU9VQWVTRmU5bk83dWpFTDhvblBL?=
- =?utf-8?B?cnlnbjBkTHhMTUFMOEMyaWxvSityNVd4YnN4VWg5MldtNnFvYW0wREhtYTRn?=
- =?utf-8?B?cnNpKy9CTk1yd1VGek4wamV4S3VIcWJMOHRXUzc4cUFEWGdVeStZNGw4K3p5?=
- =?utf-8?B?R3BRbjhuVGRMeGxEVTd6MXVWRTE5T3VIeUI4OTd2V1FnY3I5d1JKd3B2QkQy?=
- =?utf-8?B?QzZQVnNva1djOW9zTFJLYkZQUHUrTVpjSEJZNUpTcjNPOHZvN1ZXS0oyejRP?=
- =?utf-8?B?MTZ0c05NM2FWODd4UmFWQ09VNEVpYnJmYnpLYjhTSlhzUDNnSHJwYTVNT3lO?=
- =?utf-8?B?RzJMWHptVmFEcmo5ZFJnTmRGeVU4UGVhaWxnanR6aFF5V1pQVHBxRVRlbUwx?=
- =?utf-8?B?UTJubmk2MXFBME1SdUJ6cmxPdEduM20zdVhKRk1RSVNGL2piWHVKVE1kMjhV?=
- =?utf-8?B?akFSZVovaTdyL0RVbW1zR3lmektsQ1hINmZzWUZHSWh1US9Ub1RMZXNUVUFB?=
- =?utf-8?B?dlhySzhhYVdpeU9iVS9mNUFtM28wL1h6OFBYWGYxelNlU1V6a2kwd2JRWHlY?=
- =?utf-8?B?RXdPNGFWem5KWUVaYXZMWUdZQ1VIK3o5YmN5c0JpaXJKUnJXclJ3TUlkYXp6?=
- =?utf-8?B?c2JzZ2JJT0tZYmh5a1AvYnp3LzZ3V2d1RlZXZWNjckdMK0hTbE4zWTJDMStR?=
- =?utf-8?B?Qkt6OUtHc1VzMEN4WksybTJjc3AxQUJlUHZLMXFsRzJPMnpEb05HbjNrZi9U?=
- =?utf-8?B?MkljcHgwTy9EdWFFSFFCUkoxMXBzdnE1aHliaDdrU0FXMlRObGhCbzdlZEhM?=
- =?utf-8?B?bmNkZmpoaEpVYXBZdVUvNGE2Snl0em5SV1ZuK01FTnFCeUUxSStsOGNiTUhZ?=
- =?utf-8?B?ajVqaHpWYVlQOG1RZlpxdms4US9kbzduUmt5Z3FRY010NmYxbjJzeVNkdmhH?=
- =?utf-8?B?b3NwaGxRWFAwL0x2MmJ0OWZKdzdMRzEzUHltanBaWkRXckpnQUs4aEo2S0F6?=
- =?utf-8?B?WWlyRmFtVEVTV1hTcE5adTd0d1VqajVSMWVCdU1xTjA1U0lNYVovZHZXdUw3?=
- =?utf-8?B?dUVIVlRYOElUZG9ZNWFscUFwdXZ6QlRnT25ta3AyUWlScitXeS83OVZ3Nlpk?=
- =?utf-8?B?Zk1VSDVjQmNxZTJyaEpTQTU4WFU2WDhVWUdBMW9Gd3EzaFpRQ2ljTGczb0Jv?=
- =?utf-8?B?QldXMi9nQmI0am01NkF6NFBQQXQ5bU5kVVRLaUpWaVh5aGlydkViN2NCTUVK?=
- =?utf-8?B?MVBMUHBweW5KVWNhSkdqNGVSQ3Fwd1dXUEc0SHpXQURsR2JyM09GU2pWOXlD?=
- =?utf-8?B?RUJVNnNzT0NzVzk5dk8raXh0N2pqTTg3NjlTVGZxbU9lbmJuZXBrd0krQjg2?=
- =?utf-8?B?QURBSjY2Skd3WHBTMVRmMVpjM3NCclRCS0toa0ZKb2p1M29yN2NySzVWNXlO?=
- =?utf-8?B?clZMcm5jMkIxL05iYkczU0NnKzRJQWNhaGlnMWk0NnZwYUJCalh1aHprbXp0?=
- =?utf-8?B?SkpWaFhXTkFGYy9MWE9SUW12MTBsYUJCcnpPbEpzZXp6c1hFbURhR2ZsVFhz?=
- =?utf-8?B?cVo3aW9OTUtnMmZqT2s4N2hmRUFlYnJ6ZUJidUM3c0pTMnlWeXROUWgvdWcw?=
- =?utf-8?Q?r1sp3UCwgDHu2ixshv7HP1aVXdMtrd+b?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(19092799006)(1800799024)(366016)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cFN3YjBpeVE0dks4eVVsNU5JRkZjV3QvR0xxU1RNcWpJa3BRR3RhcFpDY2lz?=
- =?utf-8?B?S0pUTFpqWXBFUnJET2NuMWxkcFRyL0dhN2NDMXRGTEdUN2dzVXdadEcrWGpN?=
- =?utf-8?B?bzRUOVpGNEt6QTBkbUFLamZDRmNJL1UzTDhKTHE1UVhPdVFHbjdzTkFpWkEz?=
- =?utf-8?B?QmZmVURBQkhLTnV1WDI5RitSMEVicWRVTDFUcnFLSmFjUUE5aTZrSUoyd2li?=
- =?utf-8?B?U2N2UGMwVWE0TFphd0Eyb3JQQ0pyUHArcURQcERibG5BNkZERkxjbnFHTFha?=
- =?utf-8?B?VzF2WFpjalVqZkRpeGt2RWttUDBnRUlkTjJNMGdGM2hBczZWTit6dk1jY1Iw?=
- =?utf-8?B?eERlR1JWUHU1V2wxVkU0MGZhYlFqa3E2MkpTSGNZbnJkbGtmVkQ2MmFaa0xu?=
- =?utf-8?B?NkVlMGk5dGo1cjFNMzljcmlKNHF2RlQrdEFOWUxEYnpodkFBNDJqcFV1cCt3?=
- =?utf-8?B?a0YvOTZ0ekJzZUNKLzR1WkNBV1J3dnRDU0ZBcXhOZW95OG5hdXJlaDJ6ZHI0?=
- =?utf-8?B?Y2lwUVFaMEJYR0Fib01RWU8zcVhCY0lDM1JUMGhVWmJ3NnBrRzlpaHNmaTNi?=
- =?utf-8?B?N3dQeWxKOWF5azZNZjFRZ0pGNllDUXl5ai9rbWVkaGFpVjZmazVWQkZYWDhw?=
- =?utf-8?B?WFg1akJEYlVVTG9XT1hYY3RrZ0hGVE9YdGJrSTlGdTJPN1JIMFQvbnZlM2pF?=
- =?utf-8?B?ejVxeGE0MndmT1ZnODJNZllFS1ErUldaZk1qOG9XUHp0bVlIVDNGYTUwTk1K?=
- =?utf-8?B?Tk1ObS9kZ242SUp3K3RTNFJBemowbHV2TmE4Tm90OW80a2FJUXRkejl4UG1z?=
- =?utf-8?B?cWlWTEdTb2VOUUU0MCtQeExtRVBkdDh5amYxem9NM3UwVjR3ZWZvbVE5TURY?=
- =?utf-8?B?SE9GNGZlQk5OcXBRNitwamRzRU1HTjZ3ZDU2WloyRnYwZE9lVTNTQlVQdGg2?=
- =?utf-8?B?a25aQ21PWTMycGl2QkU4NlFzNEtQdTJSL3BmRUtzbkYzd3dIWERIOWpJS0F6?=
- =?utf-8?B?MFhOYUR2ZDJHQksyOEM3cG92MC9mU1E0cmROV0IxbjZMTkE2RTJwTmdkajhZ?=
- =?utf-8?B?QmNnbEh1bytvS1ZsaWVTTTh1a0ZBN2h0eGRqbm9vTFc3SUtucDViL0ZtWmJ4?=
- =?utf-8?B?RG8yeTI0Ty9YbzIvb1M1VkpQK0h3TWtuZjVmMFRWeFFuaDFZMTdYNWxtVXNj?=
- =?utf-8?B?M2NlazVNYU4wQjNnMmhFYzN2dU1sL3l0dXFORDF0TUgwTTd6MlJnZVpoWWo4?=
- =?utf-8?B?RGdYVlB4M3dyYzY2NnN5cGcwMlZOeUFaQWFFb3dQTzM5R3I0OWU3Z3RoL1VC?=
- =?utf-8?B?a3JNWWpjVmpwSlpNcDlVMlRGTnc3azlXZUU5OGlkZmdmNkFXYk5EbFVMWW5s?=
- =?utf-8?B?ZmkydngyM2Y5ZVQ3TEZXWDN2RXhHU1NMcTVYKzhVUnZpenRFd1BtNWNEdUFS?=
- =?utf-8?B?L0p0QXZlM3ZKVlpSVFdWL0E1NVYwVWk0SGVjN1RFVDV3T0EvbUswYUtOenho?=
- =?utf-8?B?OEJOSC9jVE8xTHl3R3YwNjc0cjhISEFkc29SVHVweDBTMkxLVERYWUFOWFlU?=
- =?utf-8?B?OGZRWlVxVkFlU291TjdheVRIYmhsMFJCTGJrYmtqOExxRUwrQy9CaVZNVWpj?=
- =?utf-8?B?clJFc3VpamlVN1FrWHozR0NWOHhSay9BOEVHZHZ4ditZb0p4RkRUcXUvWC9K?=
- =?utf-8?B?WitpWDBBcVd5dVB6L1p5WUNTQVY0ODNlTXgzQ3Axd3hGcENBRE5IdjlWd2Ja?=
- =?utf-8?B?c1VRMWtURmJVZFBYNHZURFU1Q0w1RGpNU1diRlkrNlFHWm5SUjVncnpDVjBW?=
- =?utf-8?B?Y3J1a3RneldjNytwckZTYlo0QzZQNFVNQWRXN29FR2hDWm1XcUV5SS9sZnhL?=
- =?utf-8?B?T2svZjlTMUVpVzV4eVpWVmdvSWlvYXM2clBrTzQ5dDV4MXd2Y0tmcFNXLzdP?=
- =?utf-8?B?VktwRW9wL05tM2htclhyV3M3VjZ1SkxjVTFGMkxHWm9FZW1BSHc4eG5ZekNp?=
- =?utf-8?B?dS9PdjZFaDdHY3dqWDZic3FIYmRnWjgrS1NDYW1CbVh3MlNGNnR4NFZkSFVn?=
- =?utf-8?B?eTA2SjRoN2VDeVpDV3RKeGhlRmxxZnRoNC9ob0d6aVZETCtBRHJ3Z3F2MFJv?=
- =?utf-8?B?Zi9ZSWxQTG8xK3hNckRNYkhwVXA1eGRnTWd5V2FWTGw0ZUl0aTc0S0pqcGhk?=
- =?utf-8?B?RGovMW1pM3NhbDN4Um94T3c4bGFCN2c3L0czMlJGSmVKNCttaWJod05ydlJs?=
- =?utf-8?B?aGRxZGNERG9Hc3NPTWZhVWY5bkNGYk9NOUhkajdzUit6Z21qM1V2b08vWGFu?=
- =?utf-8?B?MGU4YzBORWRnRXhWK053OE9VSWg0ZE1MaWplME5STEhHM3ZiczRoQT09?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 570583c8-b813-4ac6-dcab-08de41c13e7c
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Dec 2025 01:18:57.0378
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: k7fbNHW2z/Yx90IAT7blvkq8DlgsVB848Afq1ca0yOhS0VIJtRFAf40SFr6xAjW3wXEKBtuxZD3PkpELUGNjrw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB11523
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_171904_960902_B78BECBF 
-X-CRM114-Status: GOOD (  16.97  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAHfuSWkC/2XSzW7DIAwH8Fepch4VdsCBnvYe0w58tlGXpCNZt
+ Knqu4806qqFoy1+NqD/tRpDasNYHXbXKoW5Hduhz4V+2VXuZPpjYK3PdYUca15zYOe5YyZ1JNj
+ YBcbJAAryNdVUZWPNGJhNpnenRU3dZeleUojt933L23uuT+04DennvnSGpbvO14ib+TMwzmIE5
+ RthUQf/eg6pDx/7IR2rZdSMfxyw5Ji5N4jkLChubcHrBxeZ8y2vM+fSclAOYgwlFw8uOYLYcrF
+ sJ2FIgfHOYcHlkwtotlwubxekDXoZZSMKTk9OKLecMgcQLkaR785L3jy5Kr+uybwxJL1Cqyzwg
+ qsn17zgKnN0FkFrR5LcP35bQ5HC51dO3LQmYw2PG7qunQ67mfagWXKQT99+AfttIkinAgAA
+X-Change-ID: 20230301-kvm-arm64-sme-06a1246d3636
+To: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Will Deacon <will@kernel.org>, 
+ Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>
+Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>, 
+ Mark Rutland <mark.rutland@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ Peter Maydell <peter.maydell@linaro.org>, 
+ Eric Auger <eric.auger@redhat.com>, Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.15-dev-47773
+X-Developer-Signature: v=1; a=openpgp-sha256; l=10595; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=RCwPCR8V7LwNtswKx2PNWbdaptOLKzPY1WFiZk8EQPk=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpSe6CE43K4tNMoaKm8RiLoj8JbAp4KnLo7g6wZ
+ yPW8xSXwdGJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaUnuggAKCRAk1otyXVSH
+ 0BLRB/9GOFsxJhKl+9f+soMN4ZPT/Rrld8Fq3PinnZUfAJeqbKOokmEt+vUCY6gV/ttk2xU+SZI
+ p5CK94uS0xIz3R/HZpZwGVIsjEq6vm1E6akZmhJC0ZmylJO9fqGpI/cTFF0VRvfSR2OWWZU7BRB
+ 3EkRu3KnatzHkcHwSZy8xk/SyAkh+qa9Y98NNuNRV06lQ8/YoO/v42PmaJHa4mQBaNRIEjYCaLP
+ RJWekXtpUVPxlMpN260dXt6OCGjWXkQ56cB4PzGWCNLk7T4HxBmpn8tQFcjYalerpNmOf66HxMs
+ XqVyGo3VDKrcjnMFQuGmlS8gb9P4zideSr2ynT5DyU5X5xqY
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,294 +94,212 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolas,
+I've removed the RFC tag from this version of the series, but the items
+that I'm looking for feedback on remains the same:
 
-On 12/23/2025 6:35 AM, Nicolas Dufresne wrote:
-> Hi,
-> 
-> Le lundi 22 décembre 2025 à 16:49 +0800, ming.qian@oss.nxp.com a écrit :
->> From: Ming Qian <ming.qian@oss.nxp.com>
->>
->> Replace vmalloc/vfree with kmalloc/kfree for allocating small
->> driver structures (vpu_inst, vdec_t, venc_t, vpu_cmd_t, and
->> frame objects).
->>
->> vmalloc() is designed for large memory allocations and incurs
->> unnecessary overhead for small objects due to virtual memory
->> mapping. kmalloc() is more appropriate as it allocates physically
->> contiguous memory with lower overhead.
->>
->> ftrace measurements of vpu_alloc_cmd() show significant improvement:
->>
->>    Before (vmalloc):  35-72 us   (avg ~45.7 us)
->>    After (kmalloc):   11-26 us   (avg ~16.8 us)
->>
->> This reduces allocation time by approximately 63%.
->>
->> No functional changes are intended.
->>
->> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
-> 
-> I don't see this patch on patchwork yet, I don't know why. Did you get a
-> notification or anything ? The patch looks good to me.
-> 
-> Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-> 
+ - The userspace ABI, in particular:
+  - The vector length used for the SVE registers, access to the SVE
+    registers and access to ZA and (if available) ZT0 depending on
+    the current state of PSTATE.{SM,ZA}.
+  - The use of a single finalisation for both SVE and SME.
 
-I did not receive any system notification or reply.
-It's currently in patchwork, and I'm not sure why there's been such a 
-long delay.
+ - The addition of control for enabling fine grained traps in a similar
+   manner to FGU but without the UNDEF, I'm not clear if this is desired
+   at all and at present this requires symmetric read and write traps like
+   FGU. That seemed like it might be desired from an implementation
+   point of view but we already have one case where we enable an
+   asymmetric trap (for ARM64_WORKAROUND_AMPERE_AC03_CPU_38) and it
+   seems generally useful to enable asymmetrically.
 
-Thanks for your review.
+This series implements support for SME use in non-protected KVM guests.
+Much of this is very similar to SVE, the main additional challenge that
+SME presents is that it introduces a new vector length similar to the
+SVE vector length and two new controls which change the registers seen
+by guests:
 
-Regards,
-Ming
+ - PSTATE.ZA enables the ZA matrix register and, if SME2 is supported,
+   the ZT0 LUT register.
+ - PSTATE.SM enables streaming mode, a new floating point mode which
+   uses the SVE register set with the separately configured SME vector
+   length.  In streaming mode implementation of the FFR register is
+   optional.
 
->> ---
->>   drivers/media/platform/amphion/vdec.c     | 16 +++++++---------
->>   drivers/media/platform/amphion/venc.c     | 20 +++++++++-----------
->>   drivers/media/platform/amphion/vpu_cmds.c | 15 +++++++--------
->>   drivers/media/platform/amphion/vpu_core.c | 11 ++++-------
->>   4 files changed, 27 insertions(+), 35 deletions(-)
->>
->> diff --git a/drivers/media/platform/amphion/vdec.c b/drivers/media/platform/amphion/vdec.c
->> index c0d2aabb9e0e..7a1c58cac02d 100644
->> --- a/drivers/media/platform/amphion/vdec.c
->> +++ b/drivers/media/platform/amphion/vdec.c
->> @@ -9,7 +9,6 @@
->>   #include <linux/list.h>
->>   #include <linux/kernel.h>
->>   #include <linux/module.h>
->> -#include <linux/vmalloc.h>
->>   #include <linux/videodev2.h>
->>   #include <media/v4l2-device.h>
->>   #include <media/v4l2-event.h>
->> @@ -17,7 +16,6 @@
->>   #include <media/v4l2-ioctl.h>
->>   #include <media/videobuf2-v4l2.h>
->>   #include <media/videobuf2-dma-contig.h>
->> -#include <media/videobuf2-vmalloc.h>
->>   #include "vpu.h"
->>   #include "vpu_defs.h"
->>   #include "vpu_core.h"
->> @@ -1642,9 +1640,9 @@ static void vdec_cleanup(struct vpu_inst *inst)
->>   		vdec->slots = NULL;
->>   		vdec->slot_count = 0;
->>   	}
->> -	vfree(vdec);
->> +	kfree(vdec);
->>   	inst->priv = NULL;
->> -	vfree(inst);
->> +	kfree(inst);
->>   }
->>   
->>   static void vdec_init_params(struct vdec_t *vdec)
->> @@ -1909,13 +1907,13 @@ static int vdec_open(struct file *file)
->>   	struct vdec_t *vdec;
->>   	int ret;
->>   
->> -	inst = vzalloc(sizeof(*inst));
->> +	inst = kzalloc(sizeof(*inst), GFP_KERNEL);
->>   	if (!inst)
->>   		return -ENOMEM;
->>   
->> -	vdec = vzalloc(sizeof(*vdec));
->> +	vdec = kzalloc(sizeof(*vdec), GFP_KERNEL);
->>   	if (!vdec) {
->> -		vfree(inst);
->> +		kfree(inst);
->>   		return -ENOMEM;
->>   	}
->>   
->> @@ -1923,8 +1921,8 @@ static int vdec_open(struct file *file)
->>   				    sizeof(*vdec->slots),
->>   				    GFP_KERNEL | __GFP_ZERO);
->>   	if (!vdec->slots) {
->> -		vfree(vdec);
->> -		vfree(inst);
->> +		kfree(vdec);
->> +		kfree(inst);
->>   		return -ENOMEM;
->>   	}
->>   	vdec->slot_count = VDEC_SLOT_CNT_DFT;
->> diff --git a/drivers/media/platform/amphion/venc.c b/drivers/media/platform/amphion/venc.c
->> index aced76401b69..9e5cbc2b0d3f 100644
->> --- a/drivers/media/platform/amphion/venc.c
->> +++ b/drivers/media/platform/amphion/venc.c
->> @@ -13,14 +13,12 @@
->>   #include <linux/videodev2.h>
->>   #include <linux/ktime.h>
->>   #include <linux/rational.h>
->> -#include <linux/vmalloc.h>
->>   #include <media/v4l2-device.h>
->>   #include <media/v4l2-event.h>
->>   #include <media/v4l2-mem2mem.h>
->>   #include <media/v4l2-ioctl.h>
->>   #include <media/videobuf2-v4l2.h>
->>   #include <media/videobuf2-dma-contig.h>
->> -#include <media/videobuf2-vmalloc.h>
->>   #include "vpu.h"
->>   #include "vpu_defs.h"
->>   #include "vpu_core.h"
->> @@ -844,7 +842,7 @@ static int venc_get_encoded_frames(struct vpu_inst *inst)
->>   					       v4l2_m2m_dst_buf_remove(inst->fh.m2m_ctx)))
->>   			break;
->>   		list_del_init(&frame->list);
->> -		vfree(frame);
->> +		kfree(frame);
->>   	}
->>   
->>   	return 0;
->> @@ -860,7 +858,7 @@ static int venc_frame_encoded(struct vpu_inst *inst, void *arg)
->>   	if (!info)
->>   		return -EINVAL;
->>   	venc = inst->priv;
->> -	frame = vzalloc(sizeof(*frame));
->> +	frame = kzalloc(sizeof(*frame), GFP_KERNEL);
->>   	if (!frame)
->>   		return -ENOMEM;
->>   
->> @@ -912,9 +910,9 @@ static void venc_cleanup(struct vpu_inst *inst)
->>   		return;
->>   
->>   	venc = inst->priv;
->> -	vfree(venc);
->> +	kfree(venc);
->>   	inst->priv = NULL;
->> -	vfree(inst);
->> +	kfree(inst);
->>   }
->>   
->>   static int venc_start_session(struct vpu_inst *inst, u32 type)
->> @@ -1067,7 +1065,7 @@ static void venc_cleanup_frames(struct venc_t *venc)
->>   
->>   	list_for_each_entry_safe(frame, tmp, &venc->frames, list) {
->>   		list_del_init(&frame->list);
->> -		vfree(frame);
->> +		kfree(frame);
->>   	}
->>   }
->>   
->> @@ -1151,7 +1149,7 @@ static int venc_process_capture(struct vpu_inst *inst, struct vb2_buffer *vb)
->>   		return ret;
->>   
->>   	list_del_init(&frame->list);
->> -	vfree(frame);
->> +	kfree(frame);
->>   	return 0;
->>   }
->>   
->> @@ -1309,13 +1307,13 @@ static int venc_open(struct file *file)
->>   	struct venc_t *venc;
->>   	int ret;
->>   
->> -	inst = vzalloc(sizeof(*inst));
->> +	inst = kzalloc(sizeof(*inst), GFP_KERNEL);
->>   	if (!inst)
->>   		return -ENOMEM;
->>   
->> -	venc = vzalloc(sizeof(*venc));
->> +	venc = kzalloc(sizeof(*venc), GFP_KERNEL);
->>   	if (!venc) {
->> -		vfree(inst);
->> +		kfree(inst);
->>   		return -ENOMEM;
->>   	}
->>   
->> diff --git a/drivers/media/platform/amphion/vpu_cmds.c b/drivers/media/platform/amphion/vpu_cmds.c
->> index 5695f5c1cb3e..ab69412e0aa7 100644
->> --- a/drivers/media/platform/amphion/vpu_cmds.c
->> +++ b/drivers/media/platform/amphion/vpu_cmds.c
->> @@ -13,7 +13,6 @@
->>   #include <linux/slab.h>
->>   #include <linux/types.h>
->>   #include <linux/delay.h>
->> -#include <linux/vmalloc.h>
->>   #include "vpu.h"
->>   #include "vpu_defs.h"
->>   #include "vpu_cmds.h"
->> @@ -84,13 +83,13 @@ static struct vpu_cmd_t *vpu_alloc_cmd(struct vpu_inst *inst, u32 id, void *data
->>   	int i;
->>   	int ret;
->>   
->> -	cmd = vzalloc(sizeof(*cmd));
->> +	cmd = kzalloc(sizeof(*cmd), GFP_KERNEL);
->>   	if (!cmd)
->>   		return NULL;
->>   
->> -	cmd->pkt = vzalloc(sizeof(*cmd->pkt));
->> +	cmd->pkt = kzalloc(sizeof(*cmd->pkt), GFP_KERNEL);
->>   	if (!cmd->pkt) {
->> -		vfree(cmd);
->> +		kfree(cmd);
->>   		return NULL;
->>   	}
->>   
->> @@ -98,8 +97,8 @@ static struct vpu_cmd_t *vpu_alloc_cmd(struct vpu_inst *inst, u32 id, void *data
->>   	ret = vpu_iface_pack_cmd(inst->core, cmd->pkt, inst->id, id, data);
->>   	if (ret) {
->>   		dev_err(inst->dev, "iface pack cmd %s fail\n", vpu_id_name(id));
->> -		vfree(cmd->pkt);
->> -		vfree(cmd);
->> +		kfree(cmd->pkt);
->> +		kfree(cmd);
->>   		return NULL;
->>   	}
->>   	for (i = 0; i < ARRAY_SIZE(vpu_cmd_requests); i++) {
->> @@ -118,8 +117,8 @@ static void vpu_free_cmd(struct vpu_cmd_t *cmd)
->>   		return;
->>   	if (cmd->last_response_cmd)
->>   		atomic_long_set(cmd->last_response_cmd, cmd->key);
->> -	vfree(cmd->pkt);
->> -	vfree(cmd);
->> +	kfree(cmd->pkt);
->> +	kfree(cmd);
->>   }
->>   
->>   static int vpu_session_process_cmd(struct vpu_inst *inst, struct vpu_cmd_t *cmd)
->> diff --git a/drivers/media/platform/amphion/vpu_core.c b/drivers/media/platform/amphion/vpu_core.c
->> index 168f0514851e..85cc4a14f8ed 100644
->> --- a/drivers/media/platform/amphion/vpu_core.c
->> +++ b/drivers/media/platform/amphion/vpu_core.c
->> @@ -17,7 +17,6 @@
->>   #include <linux/pm_runtime.h>
->>   #include <linux/pm_domain.h>
->>   #include <linux/firmware.h>
->> -#include <linux/vmalloc.h>
->>   #include "vpu.h"
->>   #include "vpu_defs.h"
->>   #include "vpu_core.h"
->> @@ -265,7 +264,7 @@ static int vpu_core_register(struct device *dev, struct vpu_core *core)
->>   	INIT_WORK(&core->msg_work, vpu_msg_run_work);
->>   	INIT_DELAYED_WORK(&core->msg_delayed_work, vpu_msg_delayed_work);
->>   	buffer_size = roundup_pow_of_two(VPU_MSG_BUFFER_SIZE);
->> -	core->msg_buffer = vzalloc(buffer_size);
->> +	core->msg_buffer = kzalloc(buffer_size, GFP_KERNEL);
->>   	if (!core->msg_buffer) {
->>   		dev_err(core->dev, "failed allocate buffer for fifo\n");
->>   		ret = -ENOMEM;
->> @@ -282,10 +281,8 @@ static int vpu_core_register(struct device *dev, struct vpu_core *core)
->>   
->>   	return 0;
->>   error:
->> -	if (core->msg_buffer) {
->> -		vfree(core->msg_buffer);
->> -		core->msg_buffer = NULL;
->> -	}
->> +	kfree(core->msg_buffer);
->> +	core->msg_buffer = NULL;
->>   	if (core->workqueue) {
->>   		destroy_workqueue(core->workqueue);
->>   		core->workqueue = NULL;
->> @@ -308,7 +305,7 @@ static int vpu_core_unregister(struct device *dev, struct vpu_core *core)
->>   
->>   	vpu_core_put_vpu(core);
->>   	core->vpu = NULL;
->> -	vfree(core->msg_buffer);
->> +	kfree(core->msg_buffer);
->>   	core->msg_buffer = NULL;
->>   
->>   	if (core->workqueue) {
->>
->> base-commit: b70886ff5833cf499e77af77d2324ce8f68b60ce
+It is also permitted to build systems which support SME without SVE, in
+this case when not in streaming mode no SVE registers or instructions
+are available.  Further, there is no requirement that there be any
+overlap in the set of vector lengths supported by SVE and SME in a
+system, this is expected to be a common situation in practical systems.
+
+Since there is a new vector length to configure we introduce a new
+feature parallel to the existing SVE one with a new pseudo register for
+the streaming mode vector length.  Due to the overlap with SVE caused by
+streaming mode rather than finalising SME as a separate feature we use
+the existing SVE finalisation to also finalise SME, a new define
+KVM_ARM_VCPU_VEC is provided to help make user code clearer.  Finalising
+SVE and SME separately would introduce complication with register access
+since finalising SVE makes the SVE registers writeable by userspace and
+doing multiple finalisations results in an error being reported.
+Dealing with a state where the SVE registers are writeable due to one of
+SVE or SME being finalised but may have their VL changed by the other
+being finalised seems like needless complexity with minimal practical
+utility, it seems clearer to just express directly that only one
+finalisation can be done in the ABI.
+
+Access to the floating point registers follows the architecture:
+
+ - When both SVE and SME are present:
+   - If PSTATE.SM == 0 the vector length used for the Z and P registers
+     is the SVE vector length.
+   - If PSTATE.SM == 1 the vector length used for the Z and P registers
+     is the SME vector length.
+ - If only SME is present:
+   - If PSTATE.SM == 0 the Z and P registers are inaccessible and the
+     floating point state accessed via the encodings for the V registers.
+   - If PSTATE.SM == 1 the vector length used for the Z and P registers
+ - The SME specific ZA and ZT0 registers are only accessible if SVCR.ZA is 1.
+
+The VMM must understand this, in particular when loading state SVCR
+should be configured before other state.  It should be noted that while
+the architecture refers to PSTATE.SM and PSTATE.ZA these PSTATE bits are
+not preserved in SPSR_ELx, they are only accessible via SVCR.
+
+There are a large number of subfeatures for SME, most of which only
+offer additional instructions but some of which (SME2 and FA64) add
+architectural state. These are configured via the ID registers as per
+usual.
+
+Protected KVM supported, with the implementation maintaining the
+existing restriction that the hypervisor will refuse to run if streaming
+mode or ZA is enabled.  This both simplfies the code and avoids the need
+to allocate storage for host ZA and ZT0 state, there seems to be little
+practical use case for supporting this and the memory usage would be
+non-trivial.
+
+The new KVM_ARM_VCPU_VEC feature and ZA and ZT0 registers have not been
+added to the get-reg-list selftest, the idea of supporting additional
+features there without restructuring the program to generate all
+possible feature combinations has been rejected.  I will post a separate
+series which does that restructuring.
+
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+Changes in v9:
+- Rebase onto v6.19-rc1.
+- ABI document clarifications.
+- Add changes dropping asserts on single bit wide bitfields in set_id_regs.
+- Link to v8: https://lore.kernel.org/r/20250902-kvm-arm64-sme-v8-0-2cb2199c656c@kernel.org
+
+Changes in v8:
+- Small fixes in ABI documentation.
+- Link to v7: https://lore.kernel.org/r/20250822-kvm-arm64-sme-v7-0-7a65d82b8b10@kernel.org
+
+Changes in v7:
+- Rebase onto v6.17-rc1.
+- Handle SMIDR_EL1 as a VM wide ID register and use this in feat_sme_smps().
+- Expose affinity fields in SMIDR_EL1.
+- Remove SMPRI_EL1 from vcpu_sysreg, the value is always 0 currently.
+- Prevent userspace writes to SMPRIMAP_EL2.
+- Link to v6: https://lore.kernel.org/r/20250625-kvm-arm64-sme-v6-0-114cff4ffe04@kernel.org
+
+Changes in v6:
+- Rebase onto v6.16-rc3.
+- Link to v5: https://lore.kernel.org/r/20250417-kvm-arm64-sme-v5-0-f469a2d5f574@kernel.org
+
+Changes in v5:
+- Rebase onto v6.15-rc2.
+- Add pKVM guest support.
+- Always restore SVCR.
+- Link to v4: https://lore.kernel.org/r/20250214-kvm-arm64-sme-v4-0-d64a681adcc2@kernel.org
+
+Changes in v4:
+- Rebase onto v6.14-rc2 and Mark Rutland's fixes.
+- Expose SME to nested guests.
+- Additional cleanups and test fixes following on from the rebase.
+- Flush register state on VMM PSTATE.{SM,ZA}.
+- Link to v3: https://lore.kernel.org/r/20241220-kvm-arm64-sme-v3-0-05b018c1ffeb@kernel.org
+
+Changes in v3:
+- Rebase onto v6.12-rc2.
+- Link to v2: https://lore.kernel.org/r/20231222-kvm-arm64-sme-v2-0-da226cb180bb@kernel.org
+
+Changes in v2:
+- Rebase onto v6.7-rc3.
+- Configure subfeatures based on host system only.
+- Complete nVHE support.
+- There was some snafu with sending v1 out, it didn't make it to the
+  lists but in case it hit people's inboxes I'm sending as v2.
+
+---
+Mark Brown (30):
+      arm64/sysreg: Update SMIDR_EL1 to DDI0601 2025-06
+      arm64/fpsimd: Update FA64 and ZT0 enables when loading SME state
+      arm64/fpsimd: Decide to save ZT0 and streaming mode FFR at bind time
+      arm64/fpsimd: Check enable bit for FA64 when saving EFI state
+      arm64/fpsimd: Determine maximum virtualisable SME vector length
+      KVM: arm64: Pay attention to FFR parameter in SVE save and load
+      KVM: arm64: Pull ctxt_has_ helpers to start of sysreg-sr.h
+      KVM: arm64: Move SVE state access macros after feature test macros
+      KVM: arm64: Rename SVE finalization constants to be more general
+      KVM: arm64: Document the KVM ABI for SME
+      KVM: arm64: Define internal features for SME
+      KVM: arm64: Rename sve_state_reg_region
+      KVM: arm64: Store vector lengths in an array
+      KVM: arm64: Implement SME vector length configuration
+      KVM: arm64: Support SME control registers
+      KVM: arm64: Support TPIDR2_EL0
+      KVM: arm64: Support SME identification registers for guests
+      KVM: arm64: Support SME priority registers
+      KVM: arm64: Provide assembly for SME register access
+      KVM: arm64: Support userspace access to streaming mode Z and P registers
+      KVM: arm64: Flush register state on writes to SVCR.SM and SVCR.ZA
+      KVM: arm64: Expose SME specific state to userspace
+      KVM: arm64: Context switch SME state for guests
+      KVM: arm64: Handle SME exceptions
+      KVM: arm64: Expose SME to nested guests
+      KVM: arm64: Provide interface for configuring and enabling SME for guests
+      KVM: arm64: selftests: Remove spurious check for single bit safe values
+      KVM: arm64: selftests: Skip impossible invalid value tests
+      KVM: arm64: selftests: Add SME system registers to get-reg-list
+      KVM: arm64: selftests: Add SME to set_id_regs test
+
+ Documentation/virt/kvm/api.rst                   | 120 ++++++++---
+ arch/arm64/include/asm/fpsimd.h                  |  26 +++
+ arch/arm64/include/asm/kvm_emulate.h             |   6 +
+ arch/arm64/include/asm/kvm_host.h                | 163 ++++++++++++---
+ arch/arm64/include/asm/kvm_hyp.h                 |   5 +-
+ arch/arm64/include/asm/kvm_pkvm.h                |   2 +-
+ arch/arm64/include/asm/vncr_mapping.h            |   2 +
+ arch/arm64/include/uapi/asm/kvm.h                |  33 +++
+ arch/arm64/kernel/cpufeature.c                   |   2 -
+ arch/arm64/kernel/fpsimd.c                       |  89 ++++----
+ arch/arm64/kvm/arm.c                             |  10 +
+ arch/arm64/kvm/config.c                          |  11 +-
+ arch/arm64/kvm/fpsimd.c                          |  28 ++-
+ arch/arm64/kvm/guest.c                           | 252 ++++++++++++++++++++---
+ arch/arm64/kvm/handle_exit.c                     |  14 ++
+ arch/arm64/kvm/hyp/fpsimd.S                      |  28 ++-
+ arch/arm64/kvm/hyp/include/hyp/switch.h          | 168 +++++++++++++--
+ arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h       | 110 ++++++----
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c               |  86 ++++++--
+ arch/arm64/kvm/hyp/nvhe/pkvm.c                   |  85 ++++++--
+ arch/arm64/kvm/hyp/nvhe/switch.c                 |   4 +-
+ arch/arm64/kvm/hyp/nvhe/sys_regs.c               |   6 +
+ arch/arm64/kvm/hyp/vhe/switch.c                  |  17 +-
+ arch/arm64/kvm/hyp/vhe/sysreg-sr.c               |   7 +
+ arch/arm64/kvm/nested.c                          |   3 +-
+ arch/arm64/kvm/reset.c                           | 156 ++++++++++----
+ arch/arm64/kvm/sys_regs.c                        | 140 ++++++++++++-
+ arch/arm64/tools/sysreg                          |   8 +-
+ include/uapi/linux/kvm.h                         |   1 +
+ tools/testing/selftests/kvm/arm64/get-reg-list.c |  15 +-
+ tools/testing/selftests/kvm/arm64/set_id_regs.c  |  84 ++++++--
+ 31 files changed, 1367 insertions(+), 314 deletions(-)
+---
+base-commit: 3e7f562e20ee87a25e104ef4fce557d39d62fa85
+change-id: 20230301-kvm-arm64-sme-06a1246d3636
+
+Best regards,
+--  
+Mark Brown <broonie@kernel.org>
+
 
