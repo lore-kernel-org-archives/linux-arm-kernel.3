@@ -4,83 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05769E6B25F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 06:59:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2293E6C5F9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 07:03:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mM2FUnSVD45WvsERcA4Tj2tAAZnWuUSteOTQa2M4nbc=; b=hzIb9md/iKm8ZuiN7o+tIMj+lj
-	CW7Y9xU1cEEjggMlynnpJTWRT9fcudVjXyTHl35A4HPcOANmgR1ryk9E6EEFKMSvxAQRuW6m/y65u
-	058yXsgoWL1Qcw1R6mVpE6GfFHnxRLscngTMN1/C8bWg38vIaAI8tQeA9Sl142o4lmC7DJtXhbwm3
-	jCrYfuyGPXEbdhEg/LT2AD4JzI2rRMotJXpmgqBJTxxrR4D2jY04ww4cHCYOiQXqgfkAWlJ71YX9W
-	TaUgbTba1lFRxIz0zs755X40961kTxNGl1IRGwi/a/s8jufAQgPgrCBbJ0ppZIWn+QpqDndLSDz1w
-	BbL6rtQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=i4ZSxjj++F6niM6MGkHfYxcazXxj7CnxPlbQm2mXX0Y=; b=3hhYIBkZQoo1BA3sMSgcA74RgC
+	3Ee4hjGiyOuO40tfAK8hLrD+x8dTe9lK18cVwKa/hov0mKJMPhiqqdym1mC47AOpE9pbmrxVsvpRo
+	3Z+qDDbQkPxvcDS+xQtttVqV6Qru5pkwmFQuAtpQfmSgLxgfIBKeJWY1rTKcate6RuGYOlCPFstfP
+	Jp3k0nlIAeNfINXTOo+GO/J76Ss3FcbvQI4I93X3AbxeTyXmetYrJ/OHacOfJ74+nDq9CdGdoK5kL
+	SmeMjZ/VrdXqDC1dxADpLkuywuywlSOWcHF3wLEbsgTfGw0vVsqI3JIFao+D1nEsq/lTR6LfqLRwW
+	jat0KtQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXwMq-0000000EcHH-3fRh;
-	Tue, 23 Dec 2025 06:59:36 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1vXwQe-0000000Ed9M-2Pnr;
+	Tue, 23 Dec 2025 07:03:32 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXwMl-0000000EcB7-1rlo
+	id 1vXwQb-0000000Ed8u-245w
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Dec 2025 06:59:32 +0000
-From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1766473169;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mM2FUnSVD45WvsERcA4Tj2tAAZnWuUSteOTQa2M4nbc=;
-	b=XC+dlZEx0hOWtTVhdiY1gIT200+4orY4OLW8hMT+k7m18wWJVaCcoQKTHEKQyuIyAF+rzr
-	ykEATKYYMNDUSqd1YHXYZsTw45sBhGZ5hwPRiRygEq1bjNb9SHg2hyUe1OYZDmD0UM60wG
-	+bsmBC5tDjIhvyl0fRDM5G6kvu7hbC7xLuw08kzbrP+Es9gCB9ZlXUpk9jebL/E1JvQbot
-	B+Ma3layleeKbj0lFMowyi4gWvp09XSOQHKDgcN8/+9SzauRdohUwdlMf3bcPlOWgxXNp2
-	2ZR1xfSYHw2BNUHOXBrF/fCOqJ6vGlkitwtnwi0+HZwvoPHjKUEaIvI6h8fMEw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1766473169;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mM2FUnSVD45WvsERcA4Tj2tAAZnWuUSteOTQa2M4nbc=;
-	b=aQcdd4oK6OqxKV0iUCrlWPMUZ5iWlq0R4haZuSns4MDs+JY4k89d4sUXTdM13mP8NgkUja
-	f74MfFbCgkiLkaBg==
-Date: Tue, 23 Dec 2025 07:59:20 +0100
-Subject: [PATCH 9/9] MIPS: vdso: Provide getres_time64() for 32-bit ABIs
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20251223-vdso-compat-time32-v1-9-97ea7a06a543@linutronix.de>
-References: <20251223-vdso-compat-time32-v1-0-97ea7a06a543@linutronix.de>
-In-Reply-To: <20251223-vdso-compat-time32-v1-0-97ea7a06a543@linutronix.de>
-To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
- Vincenzo Frascino <vincenzo.frascino@arm.com>, 
- Shuah Khan <shuah@kernel.org>, Ingo Molnar <mingo@redhat.com>, 
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
- Russell King <linux@armlinux.org.uk>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-Cc: linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- Russell King <rmk+kernel@armlinux.org.uk>, 
- linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
- Arnd Bergmann <arnd@arndb.de>, linux-api@vger.kernel.org, 
- =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1766473161; l=1324;
- i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=RMI5k+F7krRakVS3hHkFucei6uZny6MTPLu5777RVD0=;
- b=FByXLnZDtqFeAsI04xGLObUsOOvjQRML1ATRv1MT5GgR20btjHvIoffIcSRS07gaXJejOb1Ou
- U7yhvSnzbP0AqwbnejJr7AWQjsKwDDviO1gh3dDeEK9TMplIHHd665C
-X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
- pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
+	Tue, 23 Dec 2025 07:03:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1766473409; x=1798009409;
+  h=date:from:to:cc:subject:message-id;
+  bh=OYAAOtt4UHChAD9CsR3wfzaIzubmt9+lGh284vG7Re0=;
+  b=O1pLffRBvEApa41NQE54b4T9dGUHxr6DGRV0Xu4cA3tm19DqulsOpMKm
+   eyzVH5xKhM1OayLy8ZdgxGXwzGFXjz9/pbhUS/XyoBH/tBpwVqP9C2R8z
+   7SxSo2UwNCOiidyDLxFOwg5j7PSoVfj8hwy/xMnN7E9zGvrr+xDJUfhsp
+   l4TsQmyi++92hTA2lnnaEikXSgjZzdxSJQzKLozY/tGUa8wsCFNbcV90b
+   quV+WfE7M+4zevFQcF/5qUnVMZHArATDlvZl8wPnnMR4UNubfUDXunvYr
+   1c68beYVl1MUMJ9KmxnjBU3INmoLjmWY95MJd2q8+4jEsbfEJmdX+H5o3
+   Q==;
+X-CSE-ConnectionGUID: Fk6CDqguRa6mlgmR93bKMQ==
+X-CSE-MsgGUID: Vp1R2s4NTvm9IvY2Jm9RAg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11650"; a="85909428"
+X-IronPort-AV: E=Sophos;i="6.21,170,1763452800"; 
+   d="scan'208";a="85909428"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Dec 2025 23:03:28 -0800
+X-CSE-ConnectionGUID: iY3TBslkSuqASOhb2LyBXg==
+X-CSE-MsgGUID: uJKulmm/SXmELJJJEQhcCA==
+X-ExtLoop1: 1
+Received: from lkp-server02.sh.intel.com (HELO dd3453e2b682) ([10.239.97.151])
+  by fmviesa003.fm.intel.com with ESMTP; 22 Dec 2025 23:03:26 -0800
+Received: from kbuild by dd3453e2b682 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vXwQX-000000001Z7-0sKk;
+	Tue, 23 Dec 2025 07:03:25 +0000
+Date: Tue, 23 Dec 2025 15:02:49 +0800
+From: kernel test robot <lkp@intel.com>
+To: Sascha Bischoff <sascha.bischoff@arm.com>
+Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: [arm-platforms:kvm-arm64/gicv5-full 42/82]
+ arch/arm64/kvm/vgic/vgic-v5-tables.c:502:2-7: WARNING: NULL check before some
+ freeing functions is not needed.
+Message-ID: <202512231452.XlBbTBAN-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_225931_631894_5326CCF7 
-X-CRM114-Status: UNSURE (   8.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251222_230329_584732_823F759C 
+X-CRM114-Status: GOOD (  13.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,48 +81,189 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For consistency with __vdso_clock_gettime64() there should also be a
-64-bit variant of clock_getres(). This will allow the extension of
-CONFIG_COMPAT_32BIT_TIME to the vDSO and finally the removal of 32-bit
-time types from the kernel and UAPI.
+tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git kvm-arm64/gicv5-full
+head:   1426b88096b597395df4c82f089b87c62bab45da
+commit: a994bc0447523a526e17ae0a62024bf8ef371ce6 [42/82] KVM: arm64: gic-v5: Create, manage, and teardown VMT & VPETs
+config: arm64-randconfig-r064-20251223 (https://download.01.org/0day-ci/archive/20251223/202512231452.XlBbTBAN-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 15.1.0
 
-Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
----
- arch/mips/vdso/vdso.lds.S      | 1 +
- arch/mips/vdso/vgettimeofday.c | 6 ++++++
- 2 files changed, 7 insertions(+)
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202512231452.XlBbTBAN-lkp@intel.com/
 
-diff --git a/arch/mips/vdso/vdso.lds.S b/arch/mips/vdso/vdso.lds.S
-index c8bbe56d89cb..5d08be3a6b85 100644
---- a/arch/mips/vdso/vdso.lds.S
-+++ b/arch/mips/vdso/vdso.lds.S
-@@ -103,6 +103,7 @@ VERSION
- 		__vdso_clock_getres;
- #if _MIPS_SIM != _MIPS_SIM_ABI64
- 		__vdso_clock_gettime64;
-+		__vdso_clock_getres_time64;
- #endif
- #endif
- 	local: *;
-diff --git a/arch/mips/vdso/vgettimeofday.c b/arch/mips/vdso/vgettimeofday.c
-index 604afea3f336..59627f2f51b7 100644
---- a/arch/mips/vdso/vgettimeofday.c
-+++ b/arch/mips/vdso/vgettimeofday.c
-@@ -46,6 +46,12 @@ int __vdso_clock_gettime64(clockid_t clock,
- 	return __cvdso_clock_gettime(clock, ts);
- }
- 
-+int __vdso_clock_getres_time64(clockid_t clock,
-+			       struct __kernel_timespec *ts)
-+{
-+	return __cvdso_clock_getres(clock, ts);
-+}
-+
- #else
- 
- int __vdso_clock_gettime(clockid_t clock,
+cocci warnings: (new ones prefixed by >>)
+>> arch/arm64/kvm/vgic/vgic-v5-tables.c:502:2-7: WARNING: NULL check before some freeing functions is not needed.
+   arch/arm64/kvm/vgic/vgic-v5-tables.c:504:2-7: WARNING: NULL check before some freeing functions is not needed.
+   arch/arm64/kvm/vgic/vgic-v5-tables.c:506:2-7: WARNING: NULL check before some freeing functions is not needed.
+   arch/arm64/kvm/vgic/vgic-v5-tables.c:508:2-7: WARNING: NULL check before some freeing functions is not needed.
+--
+>> arch/arm64/kvm/vgic/vgic-v5-tables.c:473:42-48: ERROR: application of sizeof to pointer
+--
+>> arch/arm64/kvm/vgic/vgic-v5-tables.c:391:5-10: WARNING: Unsigned expression compared with zero: vm_id < 0
+
+vim +502 arch/arm64/kvm/vgic/vgic-v5-tables.c
+
+   357	
+   358	/*
+   359	 * Initialise an entry in the VMT based on the index of the VM. We
+   360	 * make the assumption that our VM ID is zero based, and that we can
+   361	 * use it to index into the VMT. We check that the index is in the
+   362	 * allowed range, just in case.
+   363	 *
+   364	 * We allocate:
+   365	 *     * The VM Descriptor
+   366	 *     * The VPE Table
+   367	 *
+   368	 * We set:
+   369	 *     * The VPE ID Bits
+   370	 *
+   371	 * Note: We don't mark the VMTE as valid as this needs to be done by
+   372	 * the hardware..
+   373	 */
+   374	int vgic_v5_vmte_init(struct kvm *kvm)
+   375	{
+   376		struct vmtl2_entry *vmte;
+   377		gicv5_vm_info *vmi;
+   378		void *vmd = NULL, *vpet = NULL;
+   379		void **vped_ptrs = NULL;
+   380		size_t vpet_alloc_size;
+   381		int ret;
+   382		u64 tmp;
+   383		u16 vm_id = vgic_v5_vm_id(kvm);
+   384	
+   385		if (!vgic_v5_vmt_allocated()) {
+   386			kvm_err("VMT is not allocated; cannot populate\n");
+   387			ret = -EINVAL;
+   388			goto out_fail;
+   389		}
+   390	
+ > 391		if (vm_id < 0) {
+   392			kvm_err("Failed to find free vm_id\n");
+   393			return vm_id;
+   394		}
+   395	
+   396		if (vgic_v5_alloc_l2_vmt(kvm)) {
+   397			kvm_err("Failed to make the L2 VMTE valid!\n");
+   398			return -EIO;
+   399		}
+   400	
+   401		ret = vgic_v5_get_l2_vmte(vm_id, &vmte);
+   402		if (ret) {
+   403			kvm_err("Failed to look up VMTE\n");
+   404			return ret;
+   405		}
+   406	
+   407		if (FIELD_GET(GICV5_VMTEL2E_VALID, vmte->val[0])) {
+   408			kvm_err("Attempt to initialize a valid VMTE (0x%x)!\n", vm_id);
+   409			return -EINVAL;
+   410		}
+   411	
+   412		ret = vgic_v5_reset_vmte(vm_id);
+   413		if (ret) {
+   414			kvm_err("Failed to reset VMTE\n");
+   415			return ret;
+   416		}
+   417	
+   418		vmi = kzalloc(sizeof(gicv5_vm_info), GFP_KERNEL);
+   419		if (vmi == NULL) {
+   420			ret = -ENOMEM;
+   421			goto out_fail;
+   422		}
+   423	
+   424		/* Allocate and assign the VM Descriptor, if requested. */
+   425		if (vmt_info->vmd_size != 0) {
+   426			vmd = kzalloc(vmt_info->vmd_size, GFP_KERNEL);
+   427			if (vmd == NULL) {
+   428				kvm_err("Failed to allocate memory for VM Descriptor\n");
+   429				ret = -ENOMEM;
+   430				goto out_fail;
+   431			}
+   432	
+   433			if (!IS_ALIGNED((u64)vmd, vmt_info->vmd_size)) {
+   434				kvm_err("VMD is incorrectly aligned\n");
+   435				ret = -EFAULT;
+   436				goto out_fail;
+   437			}
+   438	
+   439			/* Stash the VA so we can free it later */
+   440			vmi->vmd_base = vmd;
+   441	
+   442			tmp = FIELD_PREP(GICV5_VMTEL2E_VMD_ADDR,
+   443					virt_to_phys(vmd) >>
+   444					GICV5_VMTEL2E_VMD_ADDR_SHIFT);
+   445			WRITE_ONCE(vmte->val[0], cpu_to_le64(tmp));
+   446		}
+   447	
+   448		/*
+   449		 * Allocate and assign the VPE Table.
+   450		 */
+   451		vpet_alloc_size = sizeof(vpe_entry) * vmt_info->max_vpes;
+   452		vpet = kzalloc(vpet_alloc_size, GFP_KERNEL);
+   453		if (vpet == NULL) {
+   454			kvm_err("Failed to allocate memory for VPE Table\n");
+   455			ret = -ENOMEM;
+   456			goto out_fail;
+   457		}
+   458	
+   459		if (!IS_ALIGNED((u64)vpet, vpet_alloc_size)) {
+   460			kvm_err("VPET is incorrectly aligned\n");
+   461			ret = -EFAULT;
+   462			goto out_fail;
+   463		}
+   464	
+   465		/* Stash the VA so we can free it later */
+   466		vmi->vpet_base = vpet;
+   467	
+   468		tmp = FIELD_PREP(GICV5_VMTEL2E_VPET_ADDR,
+   469				virt_to_phys(vpet) >> GICV5_VMTEL2E_VPET_ADDR_SHIFT);
+   470		tmp |= FIELD_PREP(GICV5_VMTEL2E_VPE_ID_BITS, fls(vmt_info->max_vpes) - 1);
+   471		WRITE_ONCE(vmte->val[1], cpu_to_le64(tmp));
+   472	
+ > 473		vped_ptrs = kzalloc(vmt_info->max_vpes * sizeof(vped_ptrs), GFP_KERNEL);
+   474		if (vped_ptrs == NULL) {
+   475			kvm_err("Failed to allocate memory for VPED tracking\n");
+   476			ret = -ENOMEM;
+   477			goto out_fail;
+   478		}
+   479		vmi->vped_ptrs = vped_ptrs;
+   480	
+   481		if (gicv5_host_ist_caps.irs_non_coherent) {
+   482			if (vmd)
+   483				dcache_clean_inval_poc((unsigned long)vmd,
+   484						       (unsigned long)vmd + vmt_info->vmd_size);
+   485			if (vpet)
+   486				dcache_clean_inval_poc((unsigned long)vpet,
+   487						       (unsigned long)vpet + vpet_alloc_size);
+   488			dcache_clean_poc((unsigned long)vmte,
+   489					 (unsigned long)vmte + sizeof(*vmte));
+   490		} else {
+   491			dsb(ishst);
+   492		}
+   493	
+   494		ret = xa_insert(&vm_info, vm_id, vmi, GFP_KERNEL);
+   495		if (ret)
+   496			goto out_fail;
+   497	
+   498		return 0;
+   499	
+   500	out_fail:
+   501		if (vmd)
+ > 502			kfree(vmd);
+   503		if (vpet)
+   504			kfree(vpet);
+   505		if (vped_ptrs)
+   506			kfree(vped_ptrs);
+   507		if (vmi)
+   508			kfree(vmi);
+   509	
+   510		vgic_v5_reset_vmte(vm_id);
+   511	
+   512		return ret;
+   513	}
+   514	
 
 -- 
-2.52.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
