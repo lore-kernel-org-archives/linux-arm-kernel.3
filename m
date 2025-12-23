@@ -4,70 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C36AE6B275
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 05:49:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BE52E6B25F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 06:28:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MSFx6Rnw8Uesz11I46fNYvPpzwOjE58x5E7aQ6mIcqg=; b=bRUDjXQhU1AA3ImanZeaQhh2H4
-	5KM07dciGC1pyO81y/pymQ4Oy0UmPaLEsCgvKix9QJU+G6O20Kcx45g2d3uuqyL7Eo02BJgGb2NRf
-	OX9eaWgw6LZHpRNT7F1wtaVzH3PcEqJl77f57QnBDHfitMwzxdJZyvnlCe4s4uEIghJwXte+d458C
-	ieUxQxj31xgLtRFoEGS4csSt79jAkc/VPlkCquJlg8zSnIiqRrGAhy/aViBCZlHbxui0tBm4RnOl3
-	aI2y5CNg5dComTYhHKaoGK/ynutiVpyv4OrSusPAx6qtOWcJArRZHCiL2vrmMOPYTXhHLzuJmpFLo
-	9ApJZiIw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kl3xWuxJkj37qiaSYFbjnuuyaCf1IKI7ca5H3qEr6Lw=; b=YOzFsbOX6AFRVkKLxob7gbIEkS
+	9Vj2dWdDR4D0oYkJPFQ+cmS1X1KQqRkruVNI2TwT76Zz+HeODWblPIi/YGpQ7VsKqxOgkoEN8oV0V
+	BwXx5WzmUpqWrEAhdw4ufrrNhQ/q4WI38S8IMnTol+FbUX0W+c6qFgjKSAhN+SdsB9Bc0/slcX8u4
+	sFwiHtK00kp+bTSoQ3BnzFFn6pcIQ5nYxx2XBYjlxUXWcD4XRde38jQblDZ7/A3p3a4lEdZqj8tge
+	L7/6jSVATUnCg+8C3pKVHNs9qW2Otb1GJwbRNCnMjspj01kxt5SHXFnHmkU5WsZSd4+yOmnHrrJLe
+	N7gWb9aQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXvGc-0000000EZ6F-3BTb;
-	Tue, 23 Dec 2025 05:49:06 +0000
-Received: from out30-118.freemail.mail.aliyun.com ([115.124.30.118])
+	id 1vXvsm-0000000Eaqc-2ga1;
+	Tue, 23 Dec 2025 06:28:32 +0000
+Received: from mail-westeuropeazon11011048.outbound.protection.outlook.com ([52.101.70.48] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXvGS-0000000EZ1D-2BlH
+	id 1vXvsj-0000000EaqB-0jPD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Dec 2025 05:48:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1766468929; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=MSFx6Rnw8Uesz11I46fNYvPpzwOjE58x5E7aQ6mIcqg=;
-	b=tgob9aS+HlH8NepYQ/k2D1reXChZgPot6S2CMRZtCxqVnUYruzGrotpb35KNyHzGS06rJ/rIgf2RXy75rY+nDBoGpz4r59RdzY/XQs9e2ssW6jne8nWm+QbMpiRFMACm+HufyiOVWPeVJj4e14ZjrWhLEkiyW2mUTV7KUFRBKMI=
-Received: from localhost(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0WvWSzFR_1766468925 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Tue, 23 Dec 2025 13:48:45 +0800
-From: Baolin Wang <baolin.wang@linux.alibaba.com>
-To: akpm@linux-foundation.org,
-	david@kernel.org,
-	catalin.marinas@arm.com,
-	will@kernel.org
-Cc: lorenzo.stoakes@oracle.com,
-	ryan.roberts@arm.com,
-	Liam.Howlett@oracle.com,
-	vbabka@suse.cz,
-	rppt@kernel.org,
-	surenb@google.com,
-	mhocko@suse.com,
-	riel@surriel.com,
-	harry.yoo@oracle.com,
-	jannh@google.com,
-	willy@infradead.org,
-	baohua@kernel.org,
-	dev.jain@arm.com,
-	baolin.wang@linux.alibaba.com,
-	linux-mm@kvack.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 1/5] mm: rmap: support batched checks of the references for large folios
-Date: Tue, 23 Dec 2025 13:48:35 +0800
-Message-ID: <e9ff5fa689740f3b6f3ed1c1ec0e3244f20c1f06.1766455378.git.baolin.wang@linux.alibaba.com>
-X-Mailer: git-send-email 2.43.7
-In-Reply-To: <cover.1766455377.git.baolin.wang@linux.alibaba.com>
-References: <cover.1766455377.git.baolin.wang@linux.alibaba.com>
-MIME-Version: 1.0
+	Tue, 23 Dec 2025 06:28:30 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tjfjJx157RnNxcDu87rTzU+weOyjLED3GGUO/k1A2eRc5Osv5ExOFL6cGwLOP1NygbVlJ4PzK8caWoWiq1LMqEns2X8mZfE151g20pwjIUR1g6+OcSxKOoSsf55prOXekJPLlOHtjAPl8a17vXzqVFVRgzj0HSMl9/xxVLNq22CS3f7O495zgg0vn2H82Bwta9j9bCSObCdcUkTkIoZWiT34v9b4Ts3Ekmu5xE5s47yV+vCgSJD6OMdD07ZwLI4qRDWArzyZelXmI25hP/NuzXneFEujsMhCKZdTVW18iClQcxnTUcc6yIzlz9ewagd8QnOT8ApaXOzOTGXelLF7jw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kl3xWuxJkj37qiaSYFbjnuuyaCf1IKI7ca5H3qEr6Lw=;
+ b=lKMssEsGXQsO5oNEqbyETaKvWC6uzuoCHhGU3lftItMd9+BbNO6RgkKEWBJOceU3EDqBK8CRjEEu35yJ0V6reQqvRYb6A7jRNlNf3euQ5LVfwdN4ujy7hK92X49p5Y6AcOwtdKR1/8p2CpuNitr1DFgx7hPkIYIsAAKhwcGXW/ecpAas3DPsaod81zGBqpvM/kZszVKjV1bmOMA8OMm+ziXv2CiSIWjTXDZOmc21hYgTji6AkLNFqJDKM36iG9FrKE2hGgvJKeDD6Vc/zRoKAg7irVRcRkJPI87QFNjgNRJ0kPtU8jHzDIRkwi6K7tu3nzFdQCWTx5GKX6bt9rZhqw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kl3xWuxJkj37qiaSYFbjnuuyaCf1IKI7ca5H3qEr6Lw=;
+ b=i/PYwkJyOwd/kcHfRZalCB5R6ub1KyMbS9iLA3S+x98nWB9lZvmKXX4mmEApePeriCSdy3RFHD6BQBRjukGCVr+IYMw5ymWVFP4ndsOF3FcJbYBt285HeNJJkTDjpfPMUIMf6k6r8hSxGkoGS6tqay22pGBSb3ZW1MpKNQB1U3CMj7IJ9ZWKp7zt72mzJKvUTtWrxL5fyYgXdcuzp66XGprxn0vLlBKxy8WVjn/wAOPK8OfpEY3vnU2qFX0Mczc0ESG0xmhzZI1es7qtE3fbOXPIX63g0Ng9uMDMkOkhmLAFhXQWDHGYexwbKRkabTrpTELXhBOr8McCEHvnR2uPcA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
+ by PA4PR04MB7999.eurprd04.prod.outlook.com (2603:10a6:102:c0::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.9; Tue, 23 Dec
+ 2025 06:28:25 +0000
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::2755:55ac:5d6f:4f87%4]) with mapi id 15.20.9434.009; Tue, 23 Dec 2025
+ 06:28:25 +0000
+From: ming.qian@oss.nxp.com
+To: linux-media@vger.kernel.org
+Cc: mchehab@kernel.org,
+	hverkuil-cisco@xs4all.nl,
+	nicolas@ndufresne.ca,
+	sebastian.fricke@collabora.com,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	linux-imx@nxp.com,
+	Frank.li@nxp.com,
+	xiahong.bao@nxp.com,
+	eagle.zhou@nxp.com,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] media: amphion: Drop min_queued_buffers assignment
+Date: Tue, 23 Dec 2025 14:27:52 +0800
+Message-ID: <20251223062754.836-1-ming.qian@oss.nxp.com>
+X-Mailer: git-send-email 2.48.1.windows.1
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SI2PR02CA0024.apcprd02.prod.outlook.com
+ (2603:1096:4:195::18) To PAXPR04MB8254.eurprd04.prod.outlook.com
+ (2603:10a6:102:1cd::24)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|PA4PR04MB7999:EE_
+X-MS-Office365-Filtering-Correlation-Id: f6889bbd-d5f0-4f75-d557-08de41ec7a02
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|19092799006|366016|7416014|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?hBYoyS51E3+mTVma5uNBFm9B6EA7jNJn4RxckjvAaW8GdeldBoE+WJwjYy4r?=
+ =?us-ascii?Q?1eRUhMf7ikscRsU4VQPrQ+QFAQI9LZq4gZYEOjOLyNNgxS/7hlbhsy1VJNdi?=
+ =?us-ascii?Q?kd+D8yeAzBOOWfSofQ3iyjipmbZrJjZ+kpClCgEj5RfxwcQ1U+MJcVCM1UYa?=
+ =?us-ascii?Q?JHEEhuoyogAgwZAseDCKLZC/9ZAr7IJwVoPRL0vKbE3Uy17cnXNHkTIaptsl?=
+ =?us-ascii?Q?V7SNadVsLJX0IeePYeZdUGINevdxyHJ6t3DhUWgaDktN54qvZ9aOloEtprBs?=
+ =?us-ascii?Q?BzrZ5RURqg1F1qVDmPQ75OvotxJIey6DyCaiOQrB6K1g0P6okOsndys93NIt?=
+ =?us-ascii?Q?xG1VkFXfChwyHlkkxVYyjrq1yU8YMTLVqKiRPYSsLBX6C3IH7wthtITEhW98?=
+ =?us-ascii?Q?DiFr/8MJbzxtt39QpSxgH0fXEIG635vfWLdnAe261/vImXZqiiSvvXuHZ7qh?=
+ =?us-ascii?Q?cGKd9Xes1XaVxBbBDXKaocrrTG4Dlx5u1ZbtJTQK8AXcxS72oZZtzLn6LsEv?=
+ =?us-ascii?Q?0A1T3g9jXzl6PsO+kZLsS2cJBvPiPpbaABaUlmVMPRZnGRT87L27berwraWX?=
+ =?us-ascii?Q?8k7cI0G/HWljQAHz9XeTbSyd9ct1ljpc4YOGjz2OLWzl4I/rMRRyVuctecLf?=
+ =?us-ascii?Q?k/32ii0C/6QMNmGJ1ge3gW+0UZfj0NbgajnrROBFTSxsZjiaFzc2d5H2yKnN?=
+ =?us-ascii?Q?IR3/kDrccYSplib4GGRoD9tjhOTBH7+6m9zc3fW59GyYiRLMqbffkYE2x8bE?=
+ =?us-ascii?Q?MHGJWwk3fd+K02VaN+f8O4BgEzdA1MND5hE+5EtF0RgvPpEinpHGChwEMcc1?=
+ =?us-ascii?Q?z13UvptQTcvrGmWZJ5a5lpmajsSvzGxjjz3aHWk5S+xKqIQ0nyM1eZ7QCCBh?=
+ =?us-ascii?Q?X+poHl/0U0W/0Eg6IfcNB5zCRpf7YIslKCKwX1IfwO8wGfnyl+n8+3vTSOEK?=
+ =?us-ascii?Q?qwSdDkPDhmEQQIPW6EO5cy//s+CNIi4GHRNIfxTiZK/ms6pJEGBpfWx/6Cil?=
+ =?us-ascii?Q?2PpWlS6MlFmJE7/gJNittaPJBlznTWFRzWCKo91etiQjKtydIYgNGPDITBQS?=
+ =?us-ascii?Q?oj1nTx52d2GoImq875rrnKnyPvK+aDg9dHMeYnNvJjG8K26Eo2a6Mj/JS4Zh?=
+ =?us-ascii?Q?6jfFm9a2pAgvfYzawtH/l+AehjyDl0r4mK/ZaGtEGVzCBcoHeELkJ8zDzPNu?=
+ =?us-ascii?Q?Fep9XU0KgnL0WtIcj3Emw9mkj21dhTxqKrqg0m03wzcqMUcRL21Va/cie1/W?=
+ =?us-ascii?Q?RAtxKbozGUts9PA/ZDWEosK8Os9KxvuP7oh5jpYNQ2qXxpaEW9deLWlYD1V7?=
+ =?us-ascii?Q?LbWhML3adhophbywGOzUwHkKGz9AIkh6B1Lg5R6quYAq+4iryY7z5bsPn0C9?=
+ =?us-ascii?Q?1UEfdlL13qx8TSmvswPAMd7RVlrl0iaLqPyRCJYF//TqTMP3Hw20oaCMT/66?=
+ =?us-ascii?Q?swEnxcUHIRb4MlW1g8ZMUdlqKwymYn7hmJ8bapDLL4kthFRrTR+Rr25F9/Cs?=
+ =?us-ascii?Q?6JSopTl3W2oWDiw4TlWIilAZY56NyHtGmE/J?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(19092799006)(366016)(7416014)(376014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GZmj/N1w1FGn1NV4hpSKK77YteFhY7ncoE8ynFzkagJhvuT5zCFQMTz+9ka6?=
+ =?us-ascii?Q?dtW8O18nOoTfnviE0TB2C1jgaHnEuAyaO2CBXIOctIHeqqELNDeRB5OZ1ovB?=
+ =?us-ascii?Q?NaT4FQIBhARibunlT8cH+LNicnA3QEzh6RkUDcc+QKMxy/NyBKnXjkfacJ0m?=
+ =?us-ascii?Q?Du8N3k00o3H094xTcf/ZyRIf4z0xHnxDtGtTPM5lonHhRLND+wlDz1xPDS8a?=
+ =?us-ascii?Q?uj7YChyF6ZeYnsZj5UhEjHDYKjrWhlq1P11Lx0FtSqaSUe7H9rxgZuWoPI9E?=
+ =?us-ascii?Q?GBP/WyfkL767z3UTgIMqvXfPZ+byRwrfws7mZ3KWj0VOmPf5FopNqqX8MORT?=
+ =?us-ascii?Q?5AVxx8EAOPDx5NHesomObe2Qgj7JqzpdgvK8jkFijPxZymUtrmFxjQPPiHYi?=
+ =?us-ascii?Q?dvQBz6YphtgL4hBjl6NNHvU5WHWrxSoWlhGzwWUgbN32M7mBuLmvGGUW0X0D?=
+ =?us-ascii?Q?W1ZKvfkAxJ8qKQrBAj210dSAjoGcbRrx8NdqCTIyYRng4THr3LXbNepRu1e4?=
+ =?us-ascii?Q?w7KOtZuQPBaFFUHBBdR4zLMbihhr7Q6Vdc9H5yneNtYqXQQIO5pxHPeOvOcN?=
+ =?us-ascii?Q?y9yZkUjsbxPprFB7JeSj3k+auxxI16ztK0rKt4j5kxnYc5aQsEm+vocbN+v4?=
+ =?us-ascii?Q?Cyrnpclw+WSKHWFRgGQzxLRPefLHEIKdQHnBCYRT5ls/CR26ucmC+MGq/lNx?=
+ =?us-ascii?Q?pA3vYK3JlIQ5mzX9NVKD4iPujKnZGivEk1RNI9szVCFJ2xvHh4M0L1OaMlWm?=
+ =?us-ascii?Q?zborU7NRTz52niRmMkZcChujjqs6Nr0iRhOwg64DyySJwuECzwH3uGywedCK?=
+ =?us-ascii?Q?nDSJ5FGn2y6q4GSjTyEuje/g6ulDs3AyBGurmJLt8Ws3l74veR4RwG8ONnvI?=
+ =?us-ascii?Q?9/kAwhA8InxlejNlYqF6JySrmzWkRLOnQuyUAo6eOsU+9p4z6xcokaje2FYd?=
+ =?us-ascii?Q?wpYMOfobPLM+svTa2XrIVL8mbaFkSQPWfxKNQBq4iY9Pp4Bnzl26cF1+JWbP?=
+ =?us-ascii?Q?UUkjwNsAli/HNdoWWTQb/WbRvphHvo9N+yu1xFgTxTkWg5wUE6bpIZof8rOx?=
+ =?us-ascii?Q?2uB5rpN7I+xKPv5hhX73RYFNwq4qNopWunB3XpViWpBfLxx7n2krNn5Rte2l?=
+ =?us-ascii?Q?oFeNJt/j/xqJHXdb1sFTqAJwPcmPFLzbCkIqcR7xFwqR6jR0SH+NQ2VuMHgh?=
+ =?us-ascii?Q?uq0RPXfayd08dyINI2FDQq/udvcc4yWBbUlxhW5vrrzJUZ4SaCVcyiQG047E?=
+ =?us-ascii?Q?U7aiv31rn0ZOMpblGJ6OXPdhnp1RgUxc5gUd00QEIfeCQPCg2DqCAPuE8BXu?=
+ =?us-ascii?Q?mxohofba2Jrfyyz9YjQcvhpe8Q1hIWhBI3jDXL1qRQsnN8SZYRI0PaoWFujt?=
+ =?us-ascii?Q?UYToiZzyXaqMYDocnVK1hUVBn6eziLU2BzXqtAJqKh6CgshPNcHHW7+VfMFN?=
+ =?us-ascii?Q?P83dxwaI9TP7pDpbUa09V+rtQH9PzdEWsWI0NhaOFVaafWSoIRTtS5PS/OwZ?=
+ =?us-ascii?Q?4RCFyd7tXLRHH28ReYPPxnCLAp8RWuZwRqDR0rHSFGLYeAITn1NhSC5V4DH2?=
+ =?us-ascii?Q?UC2I9I9KAqjCudTdF/SFNJ5sEevwpzCCAR27jV04J3cKIIxBtVvs1KV8UdOe?=
+ =?us-ascii?Q?QfyXE9vGGhxM/OfJaQIPtMSaZDp3Yw+VYLf+PIuN+TugmuRAco1avHw9T1/O?=
+ =?us-ascii?Q?Y7bZe1XrwUa12rF/l5rB+ToYUyCDzDH2ZXUYmtA+stTIc2nBmkOkpDUdEWqC?=
+ =?us-ascii?Q?0g7Q6Tc9+w=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f6889bbd-d5f0-4f75-d557-08de41ec7a02
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Dec 2025 06:28:25.0474
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: SV39aV2jnG+SaiO7LP9PqQBnSDwOVI7iVMJkUehtH05O53OSrarNxdbYhUQ8q9TJ4tsR4R98UZ4p4ZA5AX6cfg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7999
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_214857_270167_1E88F473 
-X-CRM114-Status: GOOD (  18.10  )
+X-CRM114-CacheID: sfid-20251222_222829_228249_E1D7881A 
+X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,168 +175,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, folio_referenced_one() always checks the young flag for each PTE
-sequentially, which is inefficient for large folios. This inefficiency is
-especially noticeable when reclaiming clean file-backed large folios, where
-folio_referenced() is observed as a significant performance hotspot.
+From: Ming Qian <ming.qian@oss.nxp.com>
 
-Moreover, on Arm64 architecture, which supports contiguous PTEs, there is already
-an optimization to clear the young flags for PTEs within a contiguous range.
-However, this is not sufficient. We can extend this to perform batched operations
-for the entire large folio (which might exceed the contiguous range: CONT_PTE_SIZE).
+The min_queued_buffers field controls when start_streaming() is called
+by the vb2 core (it delays the callback until at least N buffers are
+queued). Setting it to 1 affects the timing of start_streaming(), which
+breaks the seek flow in decoder scenarios and causes test failures.
 
-Introduce a new API: clear_flush_young_ptes() to facilitate batched checking
-of the young flags and flushing TLB entries, thereby improving performance
-during large folio reclamation. And it will be overridden by the architecture
-that implements a more efficient batch operation in the following patches.
+The current driver implementation does not rely on this minimum buffer
+requirement and handles streaming start correctly with the default
+value of 0, so remove these assignments.
 
-Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+Fixes: 3cd084519c6f ("media: amphion: add vpu v4l2 m2m support")
+Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
 ---
- include/linux/mmu_notifier.h |  9 +++++----
- include/linux/pgtable.h      | 35 +++++++++++++++++++++++++++++++++++
- mm/rmap.c                    | 29 +++++++++++++++++++++++++++--
- 3 files changed, 67 insertions(+), 6 deletions(-)
+ drivers/media/platform/amphion/vpu_v4l2.c | 2 --
+ 1 file changed, 2 deletions(-)
 
-diff --git a/include/linux/mmu_notifier.h b/include/linux/mmu_notifier.h
-index d1094c2d5fb6..dbbdcef4abf1 100644
---- a/include/linux/mmu_notifier.h
-+++ b/include/linux/mmu_notifier.h
-@@ -515,16 +515,17 @@ static inline void mmu_notifier_range_init_owner(
- 	range->owner = owner;
- }
- 
--#define ptep_clear_flush_young_notify(__vma, __address, __ptep)		\
-+#define ptep_clear_flush_young_notify(__vma, __address, __ptep, __nr)	\
- ({									\
- 	int __young;							\
- 	struct vm_area_struct *___vma = __vma;				\
- 	unsigned long ___address = __address;				\
--	__young = ptep_clear_flush_young(___vma, ___address, __ptep);	\
-+	unsigned int ___nr = __nr;					\
-+	__young = clear_flush_young_ptes(___vma, ___address, __ptep, ___nr);	\
- 	__young |= mmu_notifier_clear_flush_young(___vma->vm_mm,	\
- 						  ___address,		\
- 						  ___address +		\
--							PAGE_SIZE);	\
-+						  ___nr * PAGE_SIZE);	\
- 	__young;							\
- })
- 
-@@ -650,7 +651,7 @@ static inline void mmu_notifier_subscriptions_destroy(struct mm_struct *mm)
- 
- #define mmu_notifier_range_update_to_read_only(r) false
- 
--#define ptep_clear_flush_young_notify ptep_clear_flush_young
-+#define ptep_clear_flush_young_notify clear_flush_young_ptes
- #define pmdp_clear_flush_young_notify pmdp_clear_flush_young
- #define ptep_clear_young_notify ptep_test_and_clear_young
- #define pmdp_clear_young_notify pmdp_test_and_clear_young
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index 2f0dd3a4ace1..fcf7a7820061 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -1087,6 +1087,41 @@ static inline void wrprotect_ptes(struct mm_struct *mm, unsigned long addr,
- }
- #endif
- 
-+#ifndef clear_flush_young_ptes
-+/**
-+ * clear_flush_young_ptes - Clear the access bit and perform a TLB flush for PTEs
-+ *			    that map consecutive pages of the same folio.
-+ * @vma: The virtual memory area the pages are mapped into.
-+ * @addr: Address the first page is mapped at.
-+ * @ptep: Page table pointer for the first entry.
-+ * @nr: Number of entries to clear access bit.
-+ *
-+ * May be overridden by the architecture; otherwise, implemented as a simple
-+ * loop over ptep_clear_flush_young().
-+ *
-+ * Note that PTE bits in the PTE range besides the PFN can differ. For example,
-+ * some PTEs might be write-protected.
-+ *
-+ * Context: The caller holds the page table lock.  The PTEs map consecutive
-+ * pages that belong to the same folio.  The PTEs are all in the same PMD.
-+ */
-+static inline int clear_flush_young_ptes(struct vm_area_struct *vma,
-+					 unsigned long addr, pte_t *ptep,
-+					 unsigned int nr)
-+{
-+	int young;
-+
-+	young = ptep_clear_flush_young(vma, addr, ptep);
-+	while (--nr) {
-+		ptep++;
-+		addr += PAGE_SIZE;
-+		young |= ptep_clear_flush_young(vma, addr, ptep);
-+	}
-+
-+	return young;
-+}
-+#endif
-+
- /*
-  * On some architectures hardware does not set page access bit when accessing
-  * memory page, it is responsibility of software setting this bit. It brings
-diff --git a/mm/rmap.c b/mm/rmap.c
-index d6799afe1114..a0fc05f5966f 100644
---- a/mm/rmap.c
-+++ b/mm/rmap.c
-@@ -827,9 +827,11 @@ static bool folio_referenced_one(struct folio *folio,
- 	struct folio_referenced_arg *pra = arg;
- 	DEFINE_FOLIO_VMA_WALK(pvmw, folio, vma, address, 0);
- 	int ptes = 0, referenced = 0;
-+	unsigned int nr;
- 
- 	while (page_vma_mapped_walk(&pvmw)) {
- 		address = pvmw.address;
-+		nr = 1;
- 
- 		if (vma->vm_flags & VM_LOCKED) {
- 			ptes++;
-@@ -874,9 +876,24 @@ static bool folio_referenced_one(struct folio *folio,
- 			if (lru_gen_look_around(&pvmw))
- 				referenced++;
- 		} else if (pvmw.pte) {
-+			if (folio_test_large(folio)) {
-+				unsigned long end_addr =
-+					pmd_addr_end(address, vma->vm_end);
-+				unsigned int max_nr =
-+					(end_addr - address) >> PAGE_SHIFT;
-+				pte_t pteval = ptep_get(pvmw.pte);
-+
-+				nr = folio_pte_batch(folio, pvmw.pte,
-+						     pteval, max_nr);
-+			}
-+
-+			ptes += nr;
- 			if (ptep_clear_flush_young_notify(vma, address,
--						pvmw.pte))
-+						pvmw.pte, nr))
- 				referenced++;
-+			/* Skip the batched PTEs */
-+			pvmw.pte += nr - 1;
-+			pvmw.address += (nr - 1) * PAGE_SIZE;
- 		} else if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE)) {
- 			if (pmdp_clear_flush_young_notify(vma, address,
- 						pvmw.pmd))
-@@ -886,7 +903,15 @@ static bool folio_referenced_one(struct folio *folio,
- 			WARN_ON_ONCE(1);
- 		}
- 
--		pra->mapcount--;
-+		pra->mapcount -= nr;
-+		/*
-+		 * If we are sure that we batched the entire folio,
-+		 * we can just optimize and stop right here.
-+		 */
-+		if (ptes == pvmw.nr_pages) {
-+			page_vma_mapped_walk_done(&pvmw);
-+			break;
-+		}
- 	}
- 
- 	if (referenced)
+diff --git a/drivers/media/platform/amphion/vpu_v4l2.c b/drivers/media/platform/amphion/vpu_v4l2.c
+index 47dff9a35bb4..1fb887b9098c 100644
+--- a/drivers/media/platform/amphion/vpu_v4l2.c
++++ b/drivers/media/platform/amphion/vpu_v4l2.c
+@@ -670,7 +670,6 @@ static int vpu_m2m_queue_init(void *priv, struct vb2_queue *src_vq, struct vb2_q
+ 		src_vq->mem_ops = &vb2_vmalloc_memops;
+ 	src_vq->drv_priv = inst;
+ 	src_vq->buf_struct_size = sizeof(struct vpu_vb2_buffer);
+-	src_vq->min_queued_buffers = 1;
+ 	src_vq->dev = inst->vpu->dev;
+ 	src_vq->lock = &inst->lock;
+ 	ret = vb2_queue_init(src_vq);
+@@ -687,7 +686,6 @@ static int vpu_m2m_queue_init(void *priv, struct vb2_queue *src_vq, struct vb2_q
+ 		dst_vq->mem_ops = &vb2_vmalloc_memops;
+ 	dst_vq->drv_priv = inst;
+ 	dst_vq->buf_struct_size = sizeof(struct vpu_vb2_buffer);
+-	dst_vq->min_queued_buffers = 1;
+ 	dst_vq->dev = inst->vpu->dev;
+ 	dst_vq->lock = &inst->lock;
+ 	ret = vb2_queue_init(dst_vq);
 -- 
-2.47.3
+2.52.0
 
 
