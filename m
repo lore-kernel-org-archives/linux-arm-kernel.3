@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48E92E6F063
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 07:26:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AACE7E6F071
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 08:37:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=wMhrMczaTdzgw/2Epo64A6mnsiiunjOSoKZrxh5anZM=; b=T8JXVgY9zHrxT1AmegoDRlVUk2
-	+CdaAIe+EuBJWqHY08iCmRItggPRZPvM/ZQQulVRFuWJod0TiCDdj88r7ZX2oluv3MoDZIwjDB+Dx
-	NCpOccv/YMkpnQiDMJROWcT5IIQ7QSDjgU/VjS0ItdXLNe70Yfq/lL2u5Aio2fd7/H5HPPmpohHk0
-	ydGrX9IpHpJI+fYoFcbIm22Zm6lwvYuTyEWzBU3tEsprxCrHu0EOPxFtZ3xC28JCii3LIjyH3R03A
-	IrQiv9KcHu2RlzNtrKZKnAqfGKM/RWoA44eX2cPJJwZCRwPetYx54cxqijFsYZl61++wj/TXJ88QP
-	XhE+btxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8wuJHDWjaGLzXiqjbQ5KAqwu4/yLolE49hadsWsYnko=; b=S4eQ/lHA+G4EvQuKJizy4TAJ5E
+	+BqTpRnNebznYYswpItbnTL8hWmTKTBSanqb+Zh8Vxz9MMthmqKb4IoxLOUpffUGfrmdtNYTvKhOl
+	nAGy/FDhDgNQ8xQOBc9Mxsgu+PhXCvmq4GpgmZdD71zc8A+WMALV/N9gn/PQEEyZPmCFwf6okONb9
+	kYgwuK5qIE1nX9h0vCEUWvzgkq5oBNt/PCXxLnWWGfNDtfCGPodsNoMNyxx53FKIjJkIDey1gZ+pX
+	zswc+hfOgeXUkiPktjdoAVwCOqfGlpvBGBx9zXONjbK/AgOcFfpXP9VTvGGKXs1jL08Whv14roWpw
+	GMBZTWTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXwmS-0000000EeGr-0OH1;
-	Tue, 23 Dec 2025 07:26:04 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vXxtn-0000000EgiG-0vuZ;
+	Tue, 23 Dec 2025 08:37:43 +0000
+Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXwmO-0000000EeGI-2EiH
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Dec 2025 07:26:03 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 43569C1AE1A;
-	Tue, 23 Dec 2025 07:25:32 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 3455960716;
-	Tue, 23 Dec 2025 07:25:57 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 75C0A10AB08CD;
-	Tue, 23 Dec 2025 08:25:52 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1766474756; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=wMhrMczaTdzgw/2Epo64A6mnsiiunjOSoKZrxh5anZM=;
-	b=Mm7ULY/wGVXC8lzdvFLJBUjxYi5ImbP9zti3LmFFHF6jMWuC356Os15s/ubUvZWtGuqTU4
-	/PSYzTOSIKwmTWY1AlGe5x2orL2N2XvE3jDDo+d/HxSp/v6FntCLbnZxk+ZlxXTaWPqW4M
-	gjvsD2CSDbd2entK3EqdF567JWx/Ki1SVQpVKiRzg1yU5vXG72yXEMcEkVk65lb/3LC4H3
-	gfYagEhJ+pIr5dtoWte/abNO2sXXxOiibhFaXiZ9TdVzl5MtbFtptlGFvLhnNQWA9WRSHa
-	it+yftasZINrncpy9Q/fJQeNn+Yv3xO25rAGgZMvskNjXA/8O+XaKcCclPfT7A==
-From: Richard Genoud <richard.genoud@bootlin.com>
-To: Christophe Leroy <chleroy@kernel.org>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Kees Cook <kees@kernel.org>,
-	Roy Pledge <roy.pledge@nxp.com>,
-	Claudiu Manoil <claudiu.manoil@nxp.com>,
-	Scott Wood <oss@buserror.net>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Richard Genoud <richard.genoud@bootlin.com>
-Subject: [PATCH] soc: fsl: qbman: fix race condition in qman_destroy_fq
-Date: Tue, 23 Dec 2025 08:25:49 +0100
-Message-ID: <20251223072549.397625-1-richard.genoud@bootlin.com>
-X-Mailer: git-send-email 2.47.3
+	id 1vXxti-0000000Egh3-2XgF;
+	Tue, 23 Dec 2025 08:37:41 +0000
+Received: from francesco-nb (xcpe-178-82-120-96.dyn.res.sunrise.net [178.82.120.96])
+	by mail11.truemail.it (Postfix) with ESMTPA id 75CBB1FA65;
+	Tue, 23 Dec 2025 09:37:30 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1766479051;
+	bh=8wuJHDWjaGLzXiqjbQ5KAqwu4/yLolE49hadsWsYnko=; h=From:To:Subject;
+	b=LsYd986y7/LfVxODKxkxdM5aXB2gjX4iwNaf0oAmaFBcA197ohCba+C/DTd+oNO3d
+	 RX5hKR5by9NkKfnrqcl+PO9rReCmhnjQjE4m0y33VaeGEnOnq7z9BRs5sSACVuirwr
+	 YDT03Mt88p5bq+wC414JpVEPkhTfc4I79FhXWol013I/HDFqn4+9w2e/Edd+Iv6a7l
+	 kVOhu6KtDki1QAow1qszh9uwE8ML5JWW0F81RQ0XwyV0HFc9bh9a6L6bHBJYCQkc6s
+	 Felrmzyst9VlG97uAQTOzRuDAauh8hWzE/KInMbppa+9EYZPDiHQ4AlbHlQjVR44U2
+	 c7TrSQpvl7Rig==
+Date: Tue, 23 Dec 2025 09:37:26 +0100
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Vinod Koul <vkoul@kernel.org>, Franz Schnyder <fra.schnyder@gmail.com>
+Cc: Kishon Vijay Abraham I <kishon@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Franz Schnyder <franz.schnyder@toradex.com>,
+	linux-phy@lists.infradead.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>, stable@vger.kernel.org,
+	Xu Yang <xu.yang_2@nxp.com>
+Subject: Re: [PATCH v2] phy: fsl-imx8mq-usb: fix typec orientation switch
+ when built as module
+Message-ID: <20251223083726.GA24283@francesco-nb>
+References: <20251126140136.1202241-1-fra.schnyder@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251126140136.1202241-1-fra.schnyder@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_232600_927443_0BDFEE48 
-X-CRM114-Status: GOOD (  15.68  )
+X-CRM114-CacheID: sfid-20251223_003739_746080_A443208C 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,88 +77,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When QMAN_FQ_FLAG_DYNAMIC_FQID is set, there's a race condition between
-fq_table[fq->idx] state and freeing/allocating from the pool and
-WARN_ON(fq_table[fq->idx]) in qman_create_fq() gets triggered.
+Hello Vinod,
 
-Indeed, we can have:
-         Thread A                             Thread B
-    qman_destroy_fq()                    qman_create_fq()
-      qman_release_fqid()
-        qman_shutdown_fq()
-        gen_pool_free()
-           -- At this point, the fqid is available again --
-                                           qman_alloc_fqid()
-           -- so, we can get the just-freed fqid in thread B --
-                                           fq->fqid = fqid;
-                                           fq->idx = fqid * 2;
-                                           WARN_ON(fq_table[fq->idx]);
-                                           fq_table[fq->idx] = fq;
-     fq_table[fq->idx] = NULL;
+On Wed, Nov 26, 2025 at 03:01:33PM +0100, Franz Schnyder wrote:
+> From: Franz Schnyder <franz.schnyder@toradex.com>
+> 
+> Currently, the PHY only registers the typec orientation switch when it
+> is built in. If the typec driver is built as a module, the switch
+> registration is skipped due to the preprocessor condition, causing
+> orientation detection to fail.
+> 
+> With commit
+> 45fe729be9a6 ("usb: typec: Stub out typec_switch APIs when CONFIG_TYPEC=n")
+> the preprocessor condition is not needed anymore and the orientation
+> switch is correctly registered for both built-in and module builds.
+> 
+> Fixes: b58f0f86fd61 ("phy: fsl-imx8mq-usb: add tca function driver for imx95")
+> Cc: stable@vger.kernel.org
+> Suggested-by: Xu Yang <xu.yang_2@nxp.com>
+> Signed-off-by: Franz Schnyder <franz.schnyder@toradex.com>
 
-And adding some logs between qman_release_fqid() and
-fq_table[fq->idx] = NULL makes the WARN_ON() trigger a lot more.
+Just a gentle ping on this.
 
-To prevent that, ensure that fq_table[fq->idx] is set to NULL before
-gen_pool_free() is called by using smp_wmb().
-
-Fixes: c535e923bb97 ("soc/fsl: Introduce DPAA 1.x QMan device driver")
-Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
----
- drivers/soc/fsl/qbman/qman.c | 24 ++++++++++++++++++++++--
- 1 file changed, 22 insertions(+), 2 deletions(-)
-
-NB: I'm not 100% sure of the need of a barrier here, since even without
-it, the WARN_ON() wasn't triggered any more.
-
-diff --git a/drivers/soc/fsl/qbman/qman.c b/drivers/soc/fsl/qbman/qman.c
-index 6b392b3ad4b1..39a3e7aab6ff 100644
---- a/drivers/soc/fsl/qbman/qman.c
-+++ b/drivers/soc/fsl/qbman/qman.c
-@@ -1827,6 +1827,8 @@ EXPORT_SYMBOL(qman_create_fq);
- 
- void qman_destroy_fq(struct qman_fq *fq)
- {
-+	int leaked;
-+
- 	/*
- 	 * We don't need to lock the FQ as it is a pre-condition that the FQ be
- 	 * quiesced. Instead, run some checks.
-@@ -1834,11 +1836,29 @@ void qman_destroy_fq(struct qman_fq *fq)
- 	switch (fq->state) {
- 	case qman_fq_state_parked:
- 	case qman_fq_state_oos:
--		if (fq_isset(fq, QMAN_FQ_FLAG_DYNAMIC_FQID))
--			qman_release_fqid(fq->fqid);
-+		/*
-+		 * There's a race condition here on releasing the fqid,
-+		 * setting the fq_table to NULL, and freeing the fqid.
-+		 * To prevent it, this order should be respected:
-+		 */
-+		if (fq_isset(fq, QMAN_FQ_FLAG_DYNAMIC_FQID)) {
-+			leaked = qman_shutdown_fq(fq->fqid);
-+			if (leaked)
-+				pr_debug("FQID %d leaked\n", fq->fqid);
-+		}
- 
- 		DPAA_ASSERT(fq_table[fq->idx]);
- 		fq_table[fq->idx] = NULL;
-+
-+		if (fq_isset(fq, QMAN_FQ_FLAG_DYNAMIC_FQID) && !leaked) {
-+			/*
-+			 * fq_table[fq->idx] should be set to null before
-+			 * freeing fq->fqid otherwise it could by allocated by
-+			 * qman_alloc_fqid() while still being !NULL
-+			 */
-+			smp_wmb();
-+			gen_pool_free(qm_fqalloc, fq->fqid | DPAA_GENALLOC_OFF, 1);
-+		}
- 		return;
- 	default:
- 		break;
-
-base-commit: 9448598b22c50c8a5bb77a9103e2d49f134c9578
--- 
-2.47.3
+Thanks,
+Francesco
 
 
