@@ -4,92 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EDA8E6FE23
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 16:14:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59759E6F09F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 16:28:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MVFVIKq0sBuyCffyYJ/1sD+iO89pe4U1D3i3N6wh6Y4=; b=GtOG7hyo7/AeEX7PJmCwzNJS2K
-	8LetfC0AxojlbAtu5J0cxpjW+5QhtHN9+nKA4aGv9WjbBNKbh2rcBCUlZVF6yU3BqyCHNAd7lDQdj
-	zXFsOR+W+Y90NvBIHm6Q8/UuoLqhpNJR2hJhq3Wj2r0wx1uyNvzuQmKzbbXsPnH4sQrw6lPeHmxMC
-	sLLNNaYXEr7V0g5iGE60lBrR+k4g89WvvL1nZgfnmqbnPYXOKeuNarhbiITUbNsG2K/bFoCaWgQUg
-	szB2lwZRfrQhMRoyR4cqreiNL0qIfFmDFuK9p8l9BRxwogFkMAtJhxwkjK0UXg88IkC8h0sQJtJ8a
-	E1TM1qdg==;
+	bh=5zhEumOHdvOS21Q8dxhsdUIxoXJSndybq5PrMkA1LBU=; b=Rp45k3KEgPW6lDPaP6Nj10fRAV
+	D9BrqRhE9sjTMZGgoO0y2MI/wJ5Z1PcLlzgolSyT27RhoAeqC024VCOQyPE++hOhwe3nzGcR5l9K3
+	qryM12KImVnmEV2NfjITsZvBGp3G+D/PTkwYrv/1j8q5K6c6zc/jy77rkMybpfYk0PuOdkRqJ0j5X
+	0QZcAlzI+SGn1tZxKQIoPdRkg2K/Tnem2tIPhWMMtdW+Z8sotFghGsy+y31B6fZSqB6YKC1P5w+sI
+	9RAgcZXbPgPykqaoCfrVSEBP3uwdlQ/FyuFe7R3dfWeDd0PGvz2hGcxaNTCeM07LXAg3LjXssMFAZ
+	71gZYJig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY51S-0000000FkHq-2Pzp;
-	Tue, 23 Dec 2025 16:14:06 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vY5FE-0000000Fl2Q-1UAL;
+	Tue, 23 Dec 2025 16:28:20 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY51P-0000000FkH3-2FsA;
-	Tue, 23 Dec 2025 16:14:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1766506430; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=GcLwAerCHEy/SR9JcYm3k6axVMsajNFFuPap2PgzrSCXjh4rWjBHBR68qGTzFmEtN3w7Ltea08lsuyXM5TqbBZ/wEy4Lt0BA0OELULdM6rGXc6Zpm/lcq+V2kll+jr5bGo9G+2hiQRG68jUw/5rriZEB9x1FO9zW043d4D4Ja4w=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1766506430; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=MVFVIKq0sBuyCffyYJ/1sD+iO89pe4U1D3i3N6wh6Y4=; 
-	b=hgp16a5Gt/bQR/q68E5ve1yIbch7gWUfpYZwrYxqEPYRA7AjCYQWufj7UkH2WtntiJJcClOSpAjT8qbQ6hzQpa922gcQfGHjT2HYoNkxzsljhiHj3NZ1a+yqkgkpT8oA9vDxj8bmrSmjcajiXIH/eZp5StcOj4YLKIkQ6YTq43Y=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1766506430;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=MVFVIKq0sBuyCffyYJ/1sD+iO89pe4U1D3i3N6wh6Y4=;
-	b=lU9ueyei4bCn1/G3l4CDl0V7jCJjtHAIWGiYxDcQVWZ69Z0gd87bNml6FjOrSs7q
-	Yr35Hpe+PYjszET5s4SQgWJvKVUq7y1hrqqsKtgZ0Dq8O+HDeUXJ73zJ+et/nhTZ5bH
-	ZLnMXLNksOm4agx1xpj7JKjvKjzSQjIwePAVYmn4=
-Received: by mx.zohomail.com with SMTPS id 1766506427805485.7983551832393;
-	Tue, 23 Dec 2025 08:13:47 -0800 (PST)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: "chu.stanley@gmail.com" <chu.stanley@gmail.com>,
- "robh@kernel.org" <robh@kernel.org>,
- Chunfeng Yun =?UTF-8?B?KOS6keaYpeWzsCk=?= <Chunfeng.Yun@mediatek.com>,
- "kishon@kernel.org" <kishon@kernel.org>,
- "James.Bottomley@HansenPartnership.com"
- <James.Bottomley@hansenpartnership.com>,
- "bvanassche@acm.org" <bvanassche@acm.org>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- "neil.armstrong@linaro.org" <neil.armstrong@linaro.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- Chaotian Jing =?UTF-8?B?KOS6leacneWkqSk=?= <Chaotian.Jing@mediatek.com>,
- "lgirdwood@gmail.com" <lgirdwood@gmail.com>,
- "vkoul@kernel.org" <vkoul@kernel.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "alim.akhtar@samsung.com" <alim.akhtar@samsung.com>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "avri.altman@wdc.com" <avri.altman@wdc.com>,
- "martin.petersen@oracle.com" <martin.petersen@oracle.com>,
- "broonie@kernel.org" <broonie@kernel.org>,
- Peter Wang =?UTF-8?B?KOeOi+S/oeWPiyk=?= <peter.wang@mediatek.com>
-Cc: "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
- "kernel@collabora.com" <kernel@collabora.com>
-Subject: Re: [PATCH v4 07/25] scsi: ufs: mediatek: Rework 0.9V regulator
-Date: Tue, 23 Dec 2025 17:13:39 +0100
-Message-ID: <14003986.uLZWGnKmhe@workhorse>
-In-Reply-To: <8206d9e715f7ef987b5369d0bda68cce13528112.camel@mediatek.com>
-References: <20251218-mt8196-ufs-v4-0-ddec7a369dd2@collabora.com>
- <20251218-mt8196-ufs-v4-7-ddec7a369dd2@collabora.com>
- <8206d9e715f7ef987b5369d0bda68cce13528112.camel@mediatek.com>
+	id 1vY5FB-0000000Fl21-31GQ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 23 Dec 2025 16:28:18 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-152.bb.dnainternet.fi [81.175.209.152])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id D969182E;
+	Tue, 23 Dec 2025 17:28:03 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1766507284;
+	bh=1F2Zj+2njSt5moO8g4iGnH+134BmLjJduhFI1MxZQIU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=T+qbUMU3hgOB1+QcSutEoG0hGWuDWUahwdRdFj4iuM7C9uu6y1XByC4DvM7qCKHrF
+	 D3qcdBj9rYE8aT1pWbsWEGrzwhsKPh70nbs2sq/qjJ59hv40EdOLl8vh1f09chPLZZ
+	 U0F0wI3wpfvn3xwhf49X3ndFpt+b8f+Cgmn1LG5g=
+Date: Tue, 23 Dec 2025 18:27:56 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Drew Fustini <fustini@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev,
+	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] Documentation/process: maintainer-soc: Be more
+ explicit about defconfig
+Message-ID: <20251223162756.GA25011@pendragon.ideasonboard.com>
+References: <20251223142726.73417-3-krzysztof.kozlowski@oss.qualcomm.com>
+ <20251223150256.GI9817@pendragon.ideasonboard.com>
+ <f858ea0e-24d5-4cdd-ab57-dfeebe67ae7b@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <f858ea0e-24d5-4cdd-ab57-dfeebe67ae7b@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_081403_624988_7088A35F 
-X-CRM114-Status: GOOD (  15.68  )
+X-CRM114-CacheID: sfid-20251223_082817_926023_116470E3 
+X-CRM114-Status: GOOD (  25.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,46 +74,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tuesday, 23 December 2025 10:35:39 Central European Standard Time Peter =
-Wang (=E7=8E=8B=E4=BF=A1=E5=8F=8B) wrote:
-> On Thu, 2025-12-18 at 13:54 +0100, Nicolas Frattaroli wrote:
-> >=20
-> > +static int ufs_mtk_get_supplies(struct ufs_mtk_host *host)
-> > +{
-> > +       struct device *dev =3D host->hba->dev;
-> > +       const struct ufs_mtk_soc_data *data =3D
-> > of_device_get_match_data(dev);
-> > +
-> > +       if (!data || !data->has_avdd09)
-> > +               return 0;
-> >=20
->=20
->=20
-> Hi Nicolas,
->=20
-> It seems that has_avdd09 is not necessary, because if the=20
-> platform does not support avdd09, it will return an error
-> (-ENODEV) and bypass the avdd09 flow, right?
->=20
-> Thanks
-> Peter
->=20
->=20
->=20
->=20
+On Tue, Dec 23, 2025 at 04:32:02PM +0100, Krzysztof Kozlowski wrote:
+> On 23/12/2025 16:02, Laurent Pinchart wrote:
+> > On Tue, Dec 23, 2025 at 03:27:27PM +0100, Krzysztof Kozlowski wrote:
+> >> It is already documented but people still send noticeable amount of
+> >> patches ignoring the rule - get_maintainers.pl does not work on
+> >> arm64/configs/defconfig or any other shared ARM defconfig.
+> >>
+> >> Be more explicit, that one must not rely on typical/simple approach
+> >> here for getting To/Cc list.
+> >>
+> >> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> >>
+> >> ---
+> >>
+> >> Incorrectly addressed patches for arm64/defconfig are around ~2 per month...
+> >> ---
+> >>  Documentation/process/maintainer-soc.rst | 6 ++++--
+> >>  1 file changed, 4 insertions(+), 2 deletions(-)
+> >>
+> >> diff --git a/Documentation/process/maintainer-soc.rst b/Documentation/process/maintainer-soc.rst
+> >> index 3ba886f52a51..014c639022b2 100644
+> >> --- a/Documentation/process/maintainer-soc.rst
+> >> +++ b/Documentation/process/maintainer-soc.rst
+> >> @@ -57,8 +57,10 @@ Submitting Patches for Given SoC
+> >>  
+> >>  All typical platform related patches should be sent via SoC submaintainers
+> >>  (platform-specific maintainers).  This includes also changes to per-platform or
+> >> -shared defconfigs (scripts/get_maintainer.pl might not provide correct
+> >> -addresses in such case).
+> >> +shared defconfigs. Note that scripts/get_maintainer.pl might not provide
+> >> +correct addresses for the shared defconfig, so ignore its output and manually
+> >> +create CC-list based on MAINTAINERS file or use something like
+> >> +``scripts/get_maintainer.pl -f drivers/soc/FOO/``).
+> > 
+> > I fear this will be another piece of documentation that people won't
+> > read. It would be more effective to implement custom logic in
+> > get_maintainer.pl (or at least output an informative message).
+> 
+> Part of the logic is already there, but I will not grow that - I don't
+> want to touch Perl code. It's pretty obvious the tool should be do it,
+> so feel free to fix it.
 
-Hi,
+Even if I knew perl, I'd have no time :-)
 
-that would allow compatibles that are not allowed to have an avdd09
-regulator by the binding (because the SoC doesn't have that pin) to
-have one specified in the device tree get picked up. This would then
-cause those devices with such a device tree to enter
-ufs_mtk_va09_pwr_ctrl(), which is not what we want. While we could
-blame this on the DT being wrong in that case, I think it's better
-if we avoid such a situation entirely.
+> No point however to stop proper documentation.
 
-Kind regards,
-Nicolas Frattaroli
+-- 
+Regards,
 
-
+Laurent Pinchart
 
