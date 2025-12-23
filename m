@@ -4,106 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5B4FE6FE23
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 19:01:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F321BE6FE24
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 19:25:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vx0jOvF6tZS8pxKHJ8Mkyoco4/zguV4NZ9A2mS3WuCM=; b=lBsesuxG1XNto1SidPknhN5y9D
-	GEUhuprcP+ofg6J8qJ/hn9WxlZnrXko02jSYgq1wjzN0rNkMD2eMflKf5ZHklTfwyaMBBM1io0LNh
-	rj0ZYLM47owGKY73K29U1aTz3Xlf69zX+4aO5+AOvWFo+1+p1ILAJvi5deoKzLNC9i8p+8IG1eYsl
-	m1TXWqULaIFh0fqE2oG4Tu2SiyJYK08HXGehuYWJCFzgtSbAcQEqEnG2jxFCM4u2Cm7coVC/10EDw
-	AZN5hxv6OiwXTAPuaddqMW0s0a/5l01t3dBO6mvkjFmc1oEmn8bTeH0ouK0LoV8ySZfPre1XIte7P
-	d9sTe8IQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MKVZ6gnaghV+4OuvPE0MfgGwA+znTse9G/0vYKIzuzc=; b=LPTZur5MDInTwQtGf62rg2/jXp
+	I/LbI9nHd60VjtBpLaku6hDxAXg9svk6jSwj5IjHZHmupz4H0Ci7qRxUm6hmbC2t6Uq33Q8nZs6Dg
+	UlgJH/bElctuxunlWtu3GbQrzNvB97qqL5RLILWlhFsKuDQBpcij0m0WLnGPCytUGjPosyYoaTocq
+	yNLDKtjs2XJbLRaOhhacMMl96pDsO20IuhWbEQ0tkH0EftLfMzURXa/xD3iIT5ZdDDFPKt9F0RU/H
+	GZLgAPLu+NwjItyi0SMCstZN4xbzySAp9Bi2BUNKkxDfHVQrcs2DHUBdQKjecGFd4cskweHrAzP2J
+	qiqSjqmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY7dG-0000000Fy3r-2B8P;
-	Tue, 23 Dec 2025 19:01:18 +0000
-Received: from mail-yw1-x112f.google.com ([2607:f8b0:4864:20::112f])
+	id 1vY80X-0000000Fyvb-1Z8N;
+	Tue, 23 Dec 2025 19:25:21 +0000
+Received: from shelob.surriel.com ([96.67.55.147])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY7dE-0000000Fy34-18qN
+	id 1vY80V-0000000Fyuf-0htH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Dec 2025 19:01:17 +0000
-Received: by mail-yw1-x112f.google.com with SMTP id 00721157ae682-78ab03c30ceso45323317b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 11:01:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1766516473; x=1767121273; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:subject:references
-         :in-reply-to:message-id:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vx0jOvF6tZS8pxKHJ8Mkyoco4/zguV4NZ9A2mS3WuCM=;
-        b=RvBZ7urdFL+1aiXMKS8y+VDqS8NaaMPUQoUCVWW1t/3UELtAOKON+5kZGd9uKKCgaf
-         UDyq2D5F3mNdMhMp8eWVZWpuua5kS3DlyoBQxTZEKbRzcTHOgeo4PAl0/5ssaUsPeGuT
-         LJT0aLjukW7oUV1REAEWDJ9R4ypvjabUQO05QEmGs9IDqdGVRggjG9WYnEH6jBmNB/j9
-         dd58M5jZvpmkFo7qQzJNeRG5TuN/gxOFEq3QgAmIwqTKDDRDJHzqPYjZrXLPkIM6b5lf
-         SD74QF1jNG3LowvShKKlrNUD8v4+yTp9f/o6MGxtFAwadUyBPONTst37CjV+rvfRLaeQ
-         zHpw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766516473; x=1767121273;
-        h=content-transfer-encoding:mime-version:subject:references
-         :in-reply-to:message-id:cc:to:from:date:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=vx0jOvF6tZS8pxKHJ8Mkyoco4/zguV4NZ9A2mS3WuCM=;
-        b=DLJ3Dsvjgd/9+g+TLvZyK77KD3fPtthz/Byh3zBn6sn5a41+XhQdQjRKZi94eyg21t
-         8dxid9v3weds02kUhriemCEXsfk0Hvvu90mPHS+owcjK8P89kYp7eYtXgg7v7jS7z8yJ
-         dhIGKH39UeNCirS53zMe3nK9UBRA8+TnS7soi3k3pX9bxpklUUwMWrqdQkwdHWTWdget
-         0Pj4Fb26c3CwJ1k0542kx1oiM8jJjaVA7fbXbUA25owcVN+TYjcGOLY5e0vJF6U7YCFV
-         ++W/X15/3ZTE2G5LIEdFbz4lvBU4oOFCjAye47XkSks1RiRZLyoG0Q15p5xyV4Vp31e3
-         v+yQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVsBuc3kCuAEzfbl2Q/jOaVRj34ELlC1Jjmkpqlj6zidZPWtAWs1ghqseRKnQKDSoo2/cRetKjT+ryqxqh6owrW@lists.infradead.org
-X-Gm-Message-State: AOJu0YzcegQlfHxIFpiHPRHYgCo26JB/VJkN79r0AOobM8W1YlpHqBgx
-	yvGQDcccRNv/g4j5a4NOvE1DtcZSLXps/CmJDkQKaufeB6OcLJOhR9md
-X-Gm-Gg: AY/fxX5Jn9K41JaspbNmkgZIip72NxOUIgT/0RS8A0pYzwNmwAvUBfgiaTxZNM0WEHM
-	G3fRn3s9gqMdD+KNJd/U4UfuWXHdSTPGFFtmQPeWTzlPskqnn9/v33SrubgycoNLqekisQWNkKP
-	CtnkwuD4gqwPEpzM9G4hzcLaaa60727Bnmh39oK/8Wj9kZeSHeZ445NugsqSTC+8FAMzJwG/OuP
-	pV0LVzBkqrQ+Ow6HlVlYgDMa98KjGcZp06Baxokdwi4eaPuG20Bimh6b5/u7fjmz93y5q4qPpc5
-	bEDdsACDVZujwYqW7/6ySP9SDqYuIdy+9L/8qiBZwY/i2eQCqGMRTgAT2h4VJRSLTX/R2sfKkE3
-	hP84hJVT5lORldCOWj35bJR5Fk62UJJdAtEB03zuSdgjk1l6voLCATyfocu0OVST4+fhQuoFVP7
-	xHH3SAp1rlDpGTLWbjMgzcyNkTVYPs6FGrHMXNXGdExqy/MuYJAD9ahwVKbNMbh4r7/mpGatsID
-	RXHsA==
-X-Google-Smtp-Source: AGHT+IEWRFlbhvq7/GCqpt+unPpPjWVNkObSkmzQVDUvyG3eowHw3ouJONLooJzvYG8sKv1QFMJ/Wg==
-X-Received: by 2002:a05:690c:6a04:b0:78c:3007:dabf with SMTP id 00721157ae682-78fb3f2c893mr127569747b3.27.1766516473358;
-        Tue, 23 Dec 2025 11:01:13 -0800 (PST)
-Received: from gmail.com (141.139.145.34.bc.googleusercontent.com. [34.145.139.141])
-        by smtp.gmail.com with UTF8SMTPSA id 00721157ae682-78fb437380esm57704487b3.4.2025.12.23.11.01.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Dec 2025 11:01:12 -0800 (PST)
-Date: Tue, 23 Dec 2025 14:01:11 -0500
-From: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
-To: Paolo Abeni <pabeni@redhat.com>, 
- Jibin Zhang <jibin.zhang@mediatek.com>, 
- Eric Dumazet <edumazet@google.com>, 
- Neal Cardwell <ncardwell@google.com>, 
- Kuniyuki Iwashima <kuniyu@google.com>, 
- "David S . Miller" <davem@davemloft.net>, 
- David Ahern <dsahern@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, 
- Simon Horman <horms@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, 
- steffen.klassert@secunet.com
-Cc: wsd_upstream@mediatek.com, 
- shiming.cheng@mediatek.com, 
- defa.li@mediatek.com
-Message-ID: <willemdebruijn.kernel.2633c480125d5@gmail.com>
-In-Reply-To: <aab6c515-12e4-48ca-8220-c0797dae781f@redhat.com>
-References: <20251217035548.8104-1-jibin.zhang@mediatek.com>
- <aab6c515-12e4-48ca-8220-c0797dae781f@redhat.com>
-Subject: Re: [PATCH] net: fix segmentation of forwarding fraglist GRO
-Mime-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: 7bit
+	Tue, 23 Dec 2025 19:25:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=surriel.com
+	; s=mail; h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:
+	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=MKVZ6gnaghV+4OuvPE0MfgGwA+znTse9G/0vYKIzuzc=; b=cK5j6/WJxuN6PUjAGb5ilVl03d
+	yAfLxWN6svhzkrUr9lZKZJLo2EfAKVNMdTrpd8umBGeroEYFOEH9bU8tsIvhhy+rEKQqtYJW9j668
+	OjXdinWl0UXznZcP0+b1HO1/TAIH9+O37NaoAdhvUWeNiF+XXzbXZhZUiOX0IYkCMooyzh/bAqyZn
+	HQQ3a1JzDng4lcTG4H9+yZk6TYqHuQQeihYnubj8eClYvPM0iiGrzRZ4ckg8yQ0QFbcP5nsatLdSY
+	E+jrPYAI0agE6GKt50OuVMTbkPbM+PoerV7ua/tAHe/N5HZ7WowbGLxKIybesFvqLIntJFQjd04Ih
+	6Ysq7I1Q==;
+Received: from fangorn.home.surriel.com ([10.0.13.7])
+	by shelob.surriel.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.97.1)
+	(envelope-from <riel@surriel.com>)
+	id 1vY7zk-000000005Kw-26qy;
+	Tue, 23 Dec 2025 14:24:33 -0500
+Message-ID: <a060d8ec023cb7b8dbec0cb4105d03fb24c57a3d.camel@surriel.com>
+Subject: Re: [PATCH 1/2] arm64: efi: Fix NULL pointer dereference by
+ initializing user_ns
+From: Rik van Riel <riel@surriel.com>
+To: Breno Leitao <leitao@debian.org>, Ard Biesheuvel <ardb@kernel.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-efi@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, puranjay@kernel.org, 
+	usamaarif642@gmail.com, kernel-team@meta.com
+Date: Tue, 23 Dec 2025 14:24:33 -0500
+In-Reply-To: <20251223-efi_fix_619-v1-1-e0146b8b9d73@debian.org>
+References: <20251223-efi_fix_619-v1-0-e0146b8b9d73@debian.org>
+	 <20251223-efi_fix_619-v1-1-e0146b8b9d73@debian.org>
+Autocrypt: addr=riel@surriel.com; prefer-encrypt=mutual;
+ keydata=mQENBFIt3aUBCADCK0LicyCYyMa0E1lodCDUBf6G+6C5UXKG1jEYwQu49cc/gUBTTk33A
+ eo2hjn4JinVaPF3zfZprnKMEGGv4dHvEOCPWiNhlz5RtqH3SKJllq2dpeMS9RqbMvDA36rlJIIo47
+ Z/nl6IA8MDhSqyqdnTY8z7LnQHqq16jAqwo7Ll9qALXz4yG1ZdSCmo80VPetBZZPw7WMjo+1hByv/
+ lvdFnLfiQ52tayuuC1r9x2qZ/SYWd2M4p/f5CLmvG9UcnkbYFsKWz8bwOBWKg1PQcaYHLx06sHGdY
+ dIDaeVvkIfMFwAprSo5EFU+aes2VB2ZjugOTbkkW2aPSWTRsBhPHhV6dABEBAAG0HlJpayB2YW4gU
+ mllbCA8cmllbEByZWRoYXQuY29tPokBHwQwAQIACQUCW5LcVgIdIAAKCRDOed6ShMTeg05SB/986o
+ gEgdq4byrtaBQKFg5LWfd8e+h+QzLOg/T8mSS3dJzFXe5JBOfvYg7Bj47xXi9I5sM+I9Lu9+1XVb/
+ r2rGJrU1DwA09TnmyFtK76bgMF0sBEh1ECILYNQTEIemzNFwOWLZZlEhZFRJsZyX+mtEp/WQIygHV
+ WjwuP69VJw+fPQvLOGn4j8W9QXuvhha7u1QJ7mYx4dLGHrZlHdwDsqpvWsW+3rsIqs1BBe5/Itz9o
+ 6y9gLNtQzwmSDioV8KhF85VmYInslhv5tUtMEppfdTLyX4SUKh8ftNIVmH9mXyRCZclSoa6IMd635
+ Jq1Pj2/Lp64tOzSvN5Y9zaiCc5FucXtB9SaWsgdmFuIFJpZWwgPHJpZWxAc3VycmllbC5jb20+iQE
+ +BBMBAgAoBQJSLd2lAhsjBQkSzAMABgsJCAcDAgYVCAIJCgsEFgIDAQIeAQIXgAAKCRDOed6ShMTe
+ g4PpB/0ZivKYFt0LaB22ssWUrBoeNWCP1NY/lkq2QbPhR3agLB7ZXI97PF2z/5QD9Fuy/FD/jddPx
+ KRTvFCtHcEzTOcFjBmf52uqgt3U40H9GM++0IM0yHusd9EzlaWsbp09vsAV2DwdqS69x9RPbvE/Ne
+ fO5subhocH76okcF/aQiQ+oj2j6LJZGBJBVigOHg+4zyzdDgKM+jp0bvDI51KQ4XfxV593OhvkS3z
+ 3FPx0CE7l62WhWrieHyBblqvkTYgJ6dq4bsYpqxxGJOkQ47WpEUx6onH+rImWmPJbSYGhwBzTo0Mm
+ G1Nb1qGPG+mTrSmJjDRxrwf1zjmYqQreWVSFEt26tBpSaWsgdmFuIFJpZWwgPHJpZWxAZmIuY29tP
+ okBPgQTAQIAKAUCW5LbiAIbIwUJEswDAAYLCQgHAwIGFQgCCQoLBBYCAwECHgECF4AACgkQznneko
+ TE3oOUEQgAsrGxjTC1bGtZyuvyQPcXclap11Ogib6rQywGYu6/Mnkbd6hbyY3wpdyQii/cas2S44N
+ cQj8HkGv91JLVE24/Wt0gITPCH3rLVJJDGQxprHTVDs1t1RAbsbp0XTksZPCNWDGYIBo2aHDwErhI
+ omYQ0Xluo1WBtH/UmHgirHvclsou1Ks9jyTxiPyUKRfae7GNOFiX99+ZlB27P3t8CjtSO831Ij0Ip
+ QrfooZ21YVlUKw0Wy6Ll8EyefyrEYSh8KTm8dQj4O7xxvdg865TLeLpho5PwDRF+/mR3qi8CdGbkE
+ c4pYZQO8UDXUN4S+pe0aTeTqlYw8rRHWF9TnvtpcNzZw==
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_110116_334776_BF1271AF 
-X-CRM114-Status: GOOD (  28.29  )
+X-CRM114-CacheID: sfid-20251223_112519_216640_5556F5A6 
+X-CRM114-Status: UNSURE (   7.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,89 +104,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Paolo Abeni wrote:
-> On 12/17/25 4:55 AM, Jibin Zhang wrote:
-> > This patch enhances GSO segment checks by verifying the presence
-> > of frag_list and protocol consistency, addressing low throughput
-> > issues on IPv4 servers when used as hotspots
-> > 
-> > Specifically, it fixes a bug in GSO segmentation when forwarding
-> > GRO packets with frag_list. The function skb_segment_list cannot
-> > correctly process GRO skbs converted by XLAT, because XLAT only
-> > converts the header of the head skb. As a result, skbs in the
-> > frag_list may remain unconverted, leading to protocol
-> > inconsistencies and reduced throughput.
-> > 
-> > To resolve this, the patch uses skb_segment to handle forwarded
-> > packets converted by XLAT, ensuring that all fragments are
-> > properly converted and segmented.
-> > 
-> > Signed-off-by: Jibin Zhang <jibin.zhang@mediatek.com>
-> 
-> This looks like a fix, it should target the 'net' tree and include a
-> suitable Fixes tag.
-> 
-> > ---
-> >  net/ipv4/tcp_offload.c | 3 ++-
-> >  net/ipv4/udp_offload.c | 3 ++-
-> >  2 files changed, 4 insertions(+), 2 deletions(-)
-> > 
-> > diff --git a/net/ipv4/tcp_offload.c b/net/ipv4/tcp_offload.c
-> > index fdda18b1abda..162a384a15bb 100644
-> > --- a/net/ipv4/tcp_offload.c
-> > +++ b/net/ipv4/tcp_offload.c
-> > @@ -104,7 +104,8 @@ static struct sk_buff *tcp4_gso_segment(struct sk_buff *skb,
-> >  	if (!pskb_may_pull(skb, sizeof(struct tcphdr)))
-> >  		return ERR_PTR(-EINVAL);
-> >  
-> > -	if (skb_shinfo(skb)->gso_type & SKB_GSO_FRAGLIST) {
-> > +	if ((skb_shinfo(skb)->gso_type & SKB_GSO_FRAGLIST) && skb_has_frag_list(skb) &&
-> > +	    (skb->protocol == skb_shinfo(skb)->frag_list->protocol)) {
-> >  		struct tcphdr *th = tcp_hdr(skb);
+On Tue, 2025-12-23 at 02:55 -0800, Breno Leitao wrote:
+>=20
+> diff --git a/drivers/firmware/efi/efi.c b/drivers/firmware/efi/efi.c
+> index a9070d00b833..55452e61af31 100644
+> --- a/drivers/firmware/efi/efi.c
+> +++ b/drivers/firmware/efi/efi.c
+> @@ -73,6 +73,7 @@ struct mm_struct efi_mm =3D {
+> =C2=A0	MMAP_LOCK_INITIALIZER(efi_mm)
+> =C2=A0	.page_table_lock	=3D
+> __SPIN_LOCK_UNLOCKED(efi_mm.page_table_lock),
+> =C2=A0	.mmlist			=3D
+> LIST_HEAD_INIT(efi_mm.mmlist),
+> +	.user_ns		=3D &init_user_ns,
+> =C2=A0	.cpu_bitmap		=3D { [BITS_TO_LONGS(NR_CPUS)] =3D 0},
+> =C2=A0#ifdef CONFIG_SCHED_MM_CID
+> =C2=A0	.mm_cid.lock		=3D
+> __RAW_SPIN_LOCK_UNLOCKED(efi_mm.mm_cid.lock),
 
-Using fraglist gso on a system that modifies packet headers is a known
-bad idea. I guess this was not anticipated when the feature was added.
-But we've seen plenty of examples with BPF already before.
+Seems legit?
 
-This skb->protocol change is only one of a variety of ways that the
-headers may end up mismatching.
+Acked-by: Rik van Riel <riel@surriel.com>
 
-It's not bad to bandaid it and fall back onto regular GSO.
-
-But it seems like we'll continue to have to play whack-a-mole unless
-we find a more fundamental solution. E.g., disabling fraglist GRO when
-such a path is detected, or downgrade an skb to non-fraglist in paths
-like this XLAT.
-
-
-> >  
-> >  		if (skb_pagelen(skb) - th->doff * 4 == skb_shinfo(skb)->gso_size)
-> > diff --git a/net/ipv4/udp_offload.c b/net/ipv4/udp_offload.c
-> > index 19d0b5b09ffa..704fb32d10d7 100644
-> > --- a/net/ipv4/udp_offload.c
-> > +++ b/net/ipv4/udp_offload.c
-> > @@ -512,7 +512,8 @@ struct sk_buff *__udp_gso_segment(struct sk_buff *gso_skb,
-> >  		return NULL;
-> >  	}
-> >  
-> > -	if (skb_shinfo(gso_skb)->gso_type & SKB_GSO_FRAGLIST) {
-> > +	if ((skb_shinfo(gso_skb)->gso_type & SKB_GSO_FRAGLIST) && skb_has_frag_list(gso_skb) &&
-> > +	    (gso_skb->protocol == skb_shinfo(gso_skb)->frag_list->protocol)) {
-> >  		 /* Detect modified geometry and pass those to skb_segment. */
-> >  		if (skb_pagelen(gso_skb) - sizeof(*uh) == skb_shinfo(gso_skb)->gso_size)
-> >  			return __udp_gso_segment_list(gso_skb, features, is_ipv6);
-> 
-> I guess checks should be needed for ipv6.
-> 
-> Also it looks like this skips the CSUM_PARTIAL preparation, and possibly
-> break csum offload.
-> 
-> Additionally I don't like the ever increasing stack of hacks needed to
-> let GSO_FRAGLIST operate in the most diverse setups, the simpler fix
-> would be disabling such aggregation.
-> 
-> /P
-> 
-
-
+--=20
+All Rights Reversed.
 
