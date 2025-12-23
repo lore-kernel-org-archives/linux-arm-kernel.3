@@ -4,62 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7876EE6B272
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 11:28:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F055E6B272
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 11:28:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yUHuB82vpXqtM4mqDLbMwJfY8lRSnm1OS32W+P5cNUQ=; b=WflsUJeHnEzQgKcv0wHIh3kOS8
-	j+CKXQT0CAn1G7kV+BbEt04krXZI4gvTbYA2WH7TZjlgn8yhatC91x/0fFwL+1L9JJBWPWfjmk/3W
-	B7ZbPD68JKPEhR+Ui0T147fWalamuqFxq+ysad2WgCwkdRmz08uUkeBQ3ZX2GeQwuoS/tTF/JYd7D
-	q93uzNH0evlyuxLEUjfTe4PZyKxGoOOkCFgnZ17bLgJ3oF8vrZIyCoiRDKcJWAcfextLGh0jnYbwz
-	YVqetjEFKxrPkPnr1xAz3hubppel1D5d6Crf3Pwr72pNvzs0vvrzlfbwuahFtwUEhKN+oDCxn69bm
-	zc2XI2ew==;
+	bh=Md+l1CMe6xZwqh7Ts+gRFTVC6B+gztfBrQ1rIeGhSaE=; b=HyDjDEMAlKG2Yx6YfYz6pVIG1E
+	ehDKzGI1B5cuzpydHJf80VxHuul1YAK9Pbr1kvVjaSxETAIGU71bSFq2F/BB0BKsdLxsFt6KZQ/VN
+	RLMtOA5NO8Hqg9/jGJiLotwPvc8ancaF1YofoU38JcuP7XD8/Wfo3Br9bWgWZ9/EySLYq+4XEKS32
+	KRunLbCcPH3xu4PAdoZkv12ig0qfs2JgaRPt0sGSqos+XVPMCG/5sq7mtB6MOE/VPmv0xjrn5zJBs
+	c5sNSdtxzpaVHPfyOk4ZKeV9ObEr1A46x1jUjMsh3gEKafY1qnAAnl19MY1VvZkzJzO1+sdHsuPj6
+	7DG9CcPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY0ZC-0000000Ewmw-1rEZ;
-	Tue, 23 Dec 2025 11:28:38 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vY0ZD-0000000EwnW-0l8S;
+	Tue, 23 Dec 2025 11:28:39 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY0Z3-0000000Ewiw-15ri
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Dec 2025 11:28:29 +0000
+	id 1vY0Z7-0000000EwkD-1BwG;
+	Tue, 23 Dec 2025 11:28:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AD1956013B;
+	by sea.source.kernel.org (Postfix) with ESMTP id 76D7B44404;
+	Tue, 23 Dec 2025 11:28:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 035D6C19424;
 	Tue, 23 Dec 2025 11:28:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05E5BC116C6;
-	Tue, 23 Dec 2025 11:28:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766489308;
-	bh=KCJf4ICKUg4d+4CCrW1uq1qUVJx+y45H9G4fHNmF96Q=;
+	s=k20201202; t=1766489312;
+	bh=DrFdDG6IvSD40UbQviAe9Hu1ENooMM/4w95t2G/Z3ag=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=sH5oTrTB5k619Stb59NdBv4Swig7HXVjHNn9QI5WMWz/Trcq2M9GbuTaoVu6skcf4
-	 reZe+wV2HXuxEUMT9Sj9aWXelCHJ4SF+7Xh0yIh69XV3I9OreJh8JLXjrHfFlU6A3S
-	 2aKjO7ow6tJykFtKOumFrhc4smLI5c3mWlvmPW4dgp6q9Mci+PTgErMLDQCpnknXL0
-	 CRVISSBsGI+TYdhgMgVl+vufkZDWJglyG2TUS5k5RkjK/Fsd97NKx6wdA3yKldThGF
-	 JerthVbXS+1eibIZPxcCK7/zjt57amdmlTz5aVGlT8DBW9B4ZuEdleQo25PTKfgDAI
-	 qnbPQpsfa0YCQ==
+	b=AzkSYThXqZHzQOmrf/zMBBKv4KhWOl0FiqdRWP7lPm49CsiCIK4qTWEpKmF+TBqQ3
+	 GkBpGVTce/skOn3alymq8zP7KyNT1JdBa3H9iOOppgZw4Ng/TaSLxzSXR9peqY19Xj
+	 76SFoEMldM2QxK75XRGE8EDePqmG0V7+pIHPAVKaNUy4SdYY073vQpWK3divFjojrJ
+	 0yU6TeMIxzJBs3pT7hJ65bVrQvR7XYGSKtbWlZ9yJMYWxYv/nO8FGne8Btbb3q6syI
+	 02xTZ6++14YRGtgpzB7pPWDYajptWCZ5fUFFswGTxvIFZWHGpKGFYy+F29Oo2PfZxr
+	 C4DVDowPfK8qQ==
 From: Vinod Koul <vkoul@kernel.org>
-To: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>, 
- Amelie Delaunay <amelie.delaunay@foss.st.com>
-Cc: dmaengine@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- =?utf-8?q?Cl=C3=A9ment_Le_Goffic?= <clement.legoffic@foss.st.com>
-In-Reply-To: <20251217-mdma_warnings_fix-v2-1-340200e0bb55@foss.st.com>
-References: <20251217-mdma_warnings_fix-v2-1-340200e0bb55@foss.st.com>
-Subject: Re: [PATCH v2] dmaengine: stm32-mdma: initialize m2m_hw_period and
- ccr to fix warnings
-Message-Id: <176648930565.697163.2533356435881488772.b4-ty@kernel.org>
-Date: Tue, 23 Dec 2025 16:58:25 +0530
+To: dmaengine@vger.kernel.org, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: sean.wang@mediatek.com, robh@kernel.org, krzk+dt@kernel.org, 
+ conor+dt@kernel.org, matthias.bgg@gmail.com, long.cheng@mediatek.com, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ kernel@collabora.com
+In-Reply-To: <20251113122229.23998-1-angelogioacchino.delregno@collabora.com>
+References: <20251113122229.23998-1-angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH 0/8] MediaTek UART DMA: Fixes, improvements and new
+ SoCs
+Message-Id: <176648930864.697163.15382813689450810341.b4-ty@kernel.org>
+Date: Tue, 23 Dec 2025 16:58:28 +0530
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.13.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251223_032833_355356_2A6AECCB 
+X-CRM114-Status: UNSURE (   9.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,25 +78,38 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 17 Dec 2025 09:15:03 +0100, Amelie Delaunay wrote:
-> m2m_hw_period is initialized only when chan_config->m2m_hw is true. This
-> triggers a warning:
-> ‘m2m_hw_period’ may be used uninitialized [-Wmaybe-uninitialized]
-> Although m2m_hw_period is only used when chan_config->m2m_hw is true and
-> ignored otherwise, initialize it unconditionally to 0.
+On Thu, 13 Nov 2025 13:22:21 +0100, AngeloGioacchino Del Regno wrote:
+> This series performs fixes the MediaTek UART DMA driver to be able
+> to correctly program AP_DMA controllers that support extended
+> addressing, performs some cleanups to improve code readability
+> and adds support for *all* of the SoCs generations that are upstream.
 > 
-> ccr is initialized by stm32_mdma_set_xfer_param() when the sg list is not
-> empty. This triggers a warning:
-> ‘ccr’ may be used uninitialized [-Wmaybe-uninitialized]
-> Indeed, it could be used uninitialized if the sg list is empty. Initialize
-> it to 0.
+> This includes MT6795, MT7988, MT8173, MT8183, MT8186, MT8188, MT8195,
+> other than all of their Genio variants (where applicable), all of
+> their Smartphone variants (where applicable), and also some newer
+> generation SoCs that are in the process of being upstreamed, like
+> MT8196 and MT8189.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] dmaengine: stm32-mdma: initialize m2m_hw_period and ccr to fix warnings
-      commit: aaf3bc0265744adbc2d364964ef409cf118d193d
+[1/8] dt-bindings: dma: mediatek,uart-dma: Allow MT6795 single compatible
+      commit: 4b9ce35ca5924c195df1a6bbccdc9aae4f5cb422
+[2/8] dt-bindings: dma: mediatek,uart-dma: Deprecate mediatek,dma-33bits
+      commit: ebc5e9176e0f9b7effc259b58a7387019ac8811d
+[3/8] dt-bindings: dma: mediatek,uart-dma: Support all SoC generations
+      commit: fd7843f0da58b37072c1dafa779d128bb36912bf
+[4/8] dmaengine: mediatek: uart-apdma: Get addressing bits from match data
+      commit: ff81a68a87b1dbf5c1b819f240f83715c701ef0d
+[5/8] dmaengine: mediatek: uart-apdma: Fix above 4G addressing TX/RX
+      commit: 58ab9d7b6651d21e1cff1777529f2d3dd0b4e851
+[6/8] dmaengine: mediatek: mtk-uart-apdma: Rename support_33bits to support_ext_addr
+      commit: 7cb173936858f2278d9cf8b2f5d7d52fd000e54e
+[7/8] dmaengine: mediatek: mtk-uart-apdma: Add support for Dimensity 6300
+      commit: 391e20f21cfdee2f55f2274e83b37c03199062ea
+[8/8] dmaengine: mediatek: mtk-uart-apdma: Add support for Dimensity 9200
+      commit: 3587b2b6bf7681835c7c366c6083e2cd9e4b519d
 
 Best regards,
 -- 
