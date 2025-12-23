@@ -4,145 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE29CE6F07C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 10:10:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF8A0E6F07C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 10:13:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z7mN3BkUNBaIaOkmlbuW8OFHgs2JKr51ekn2SvPyheI=; b=2IDMV+i2JAo+uN6yQDODYbO9ol
-	hZ8DsfRMf1OABilfwpNKhltYq46L0Z/sFoTiEyGos7YwUyWyscJF2QIlGzSZXLVeOobdx+dbtysik
-	5e7dOP+wBjczZfr7k6BV3zWkPfloxbQ5Eq2VFTmtQOZ6GhnEiM2lUZd0n6+bTv/okg5C6Bp1nWwPR
-	6P7Xt9EquP2LpkbLuRhoNkACqSv24ImZr5k3A/+gbr6M89snqHC4sTXsaUNk+iE2rr0aQ9W5fw6Py
-	JbhZ+xjTbxr8/x7ZP/jLCbJigx8pkomTc5OSzwN8cLNzI0UTB4VES3qLDq9wbVTAFHf8eUe4MEZmh
-	BZoWSmDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kGMtlDyyRbCcoNhJtD681fIKSx7Hpi6HHJrHp091fTU=; b=etz9Wfs5lbexfNGQQoc6+AVHVY
+	ibDPWApbivDeZGKYHF2hLbinVTgm/24/eeyLHZEsq73tqt9Xe+MxUd1E8jXBea0lf1lcUTVWSVi3V
+	pWYfw3pB5yYmRFaA6KXa+U0IwlY9vHQ9OTpDB//LvZQB+u/Zpi4DddMVmAQpXplWDmZvVXAt/pgCJ
+	a52JT+d8vEkBHdTbTiYwCkoY+0ilYxVPNeixL/z2GzZtwXBirXDy7JJ8gEct+d+v85pRICTpHmk6Y
+	ZJE+TGeWyZKIQwf4YKsTPjusQNwXt1rJWs9WjwsL5ar3ZeKv9YSVwE/t+V2wXpwd+9SDz3dGVkH5F
+	39d2w4UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXzLc-0000000ErfD-3tEw;
-	Tue, 23 Dec 2025 10:10:32 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vXzO5-0000000Es6h-2Ai1;
+	Tue, 23 Dec 2025 10:13:05 +0000
+Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXzLU-0000000Erb4-2spX
+	id 1vXzO3-0000000Es5n-0ccP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Dec 2025 10:10:27 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BN7H4pQ4044741
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 10:10:24 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	z7mN3BkUNBaIaOkmlbuW8OFHgs2JKr51ekn2SvPyheI=; b=FBOaI6bcsH5bUMEw
-	loW7yPxPiHxCfHCPzvJtc3QvAMevmIWxnYp9PqaqsDn4jexnort4GjEcBad2oneR
-	cLi660aZLZowKf7k264F9GA3Wq9T3FXHEwGLbOJtfioDB/UF/obWnLNnCaVDqqSW
-	eKGoL+KNKNOOYfrNb7LyYzJ6oq1WpUzYSaVjNoGE4DiIVJx88vTaPpIkSFt6bMRa
-	Fb2FuiHCdBimdJ7MoXk7j+nIBblsvMKnshmFDsXTrkMdSmrkMorGdSn/AjRc+X64
-	7buMyaCz4zQzQn56lq6U/gdI/JZO/L7XXSMKMjmLVEKwgCvDSWPGj3d2LpUHSOkb
-	V5BbZw==
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4b7cuha7da-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 10:10:24 +0000 (GMT)
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-29f8e6a5de4so67043615ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 02:10:24 -0800 (PST)
+	Tue, 23 Dec 2025 10:13:04 +0000
+Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-42e2d02a3c9so3206302f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 02:13:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1766484623; x=1767089423; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=z7mN3BkUNBaIaOkmlbuW8OFHgs2JKr51ekn2SvPyheI=;
-        b=UmK8D7h0zApdK/AtDvM7LobTbVp76qeCQ1qjMqRudl8ZlYqL13jGpZPO25Co90coRz
-         6Rt4dYOAZXzNdI9ixdJehgyUCsztQdVfcZ97Eo7qvWZAbMYjZoHIjLMyauxIiDoT+NXG
-         Epv+xInpiPOCtHPozAZDBqPDwzWA/jPbV6Yp8fVAbkrbdFlkQ05oSLL4ESQ2fa4QC/ec
-         +mzeZqaJfOIKdAcJsptLPFyjJHLWzLeBYP+4mGSBcCqBNYBmolthj22De3f8pitr83aQ
-         lRWIVTUCauxGHqll/Dv6qHx8Wo7c8HWU8R6/K8hWJO3A5uq45eDwX/B+w0FP1qES0x3m
-         gFRw==
+        d=gmail.com; s=20230601; t=1766484781; x=1767089581; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=kGMtlDyyRbCcoNhJtD681fIKSx7Hpi6HHJrHp091fTU=;
+        b=SqQI7K1SUchpgPtsMyb5rcawfnAqGS48UQ153TWI4bx8fZyLLPTwqaPGUSs5ElYaBh
+         9SA7gm7pIsx1HGn+qGVyCrv5K5HIT29I2Ev2yc2snJT4NihiBaojQ2cRe5Xoxu5NOknl
+         Kr4aIB9AwOm6uko8rKwbt2MXxyfSM4GnCCxwTGrJi7UzIw1KCsqCBuRXZI1pbNrrQb94
+         X83XsJTETSeXnuNLyM/CYm5hUr7PN0GQ8RGddV7q6Xx5oG9cy937LUGqNHW/WE+UHD3Y
+         ThvR2a2d3kam/5/R3dAu68lvO05mTNfMg3PEvg5PNKK0UFhlE6mpw5EvNeX2dsRBZZ6S
+         4ScQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766484623; x=1767089423;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=z7mN3BkUNBaIaOkmlbuW8OFHgs2JKr51ekn2SvPyheI=;
-        b=j58Y2FlNXRG9SqCbmDkLsNHR6dKpiap0fe8n6G2p73wKaC/iVyAb6LBcAPe7ywK+N/
-         NVgxg5yhTkE37eaDeOyEZXMyZ7ki0jM6tlHHqpklhoQ1aiwKOUBvXqalt8Fs4ObFW0R+
-         JdVwaoQwSTQGLY6BHKF92iZH0EoR9JliRzRivFg+9I+roZE4LicFGpIoboViooqseDRs
-         T9EnaR7IWYmFh4BvNdp5xxUNpybJZWiaZFM9mSiF50k9GrHzNpaQFqFMr8YDF+PBMubo
-         imC1YSVY6oHT5MKHSMetLp3lM7oDfO585GTQApy+Hk5hQ9bhjftniV548p/uQ4qYKbQZ
-         THDw==
-X-Forwarded-Encrypted: i=1; AJvYcCW3hgYm2yJEazITVjKEZ0ix4QpWImEu6/kUmCmnX3NDO/bqXM1hdHCoaI6NRczpii9Q66tIm7U5v/xR61rAUmK2@lists.infradead.org
-X-Gm-Message-State: AOJu0YwKSJ67dfDZLessVjR+NLiYk/O4DNRQVJn77tsbRAyPmzH8ZcrW
-	lzv1iBu4uuWnwSQzQUA+r7iDlayIrQb9Fu+o35NXYN45Lh+sIRJ1m/zGrjFp1VHtv5XY3AFuInY
-	ehPd/ueWBn1WSws4boVdp+gyA8RimJynNa3yNFVwDPhqK6zpylgat1XK1d6iJQ9HwG0aYa2u/Qa
-	Q5k6YSHxSvjBiN
-X-Gm-Gg: AY/fxX7VM8Jt/tTRi9N+stn0GDRI1DlGgNAMhPl4PVpSeuERQs1TcjThKTxnx6/wPip
-	hUvMBwldPv9dbVRGZvI4GoHY+uNeTeWFmDMHG1J684+WHVHsIX0cLfo3OdHUDQFHwA+ixkYlTU3
-	5JuYMIdS4QG0iCPN2g/ZLvoZlthEa+yNPJIIqPutDA3ZmIzrM0T4tSFISb+ciiAV+lAaKkMkn4M
-	8YUARLtqMcV39OZmWKGOFbIhudOW6Xuwwf97BWu4EiOLzmP79LqGoS0XJY9cZZg9bDI85y0zk1z
-	SoeWsVQ7loDA+eAkU+Dy5VTUjd5850Y2IHETxKPWKa8UeL2ojcjFuqN/0QNkn17PU3w4mDsUhpm
-	0o9o3n63R3PiQbzjFOyyrttJu+P6ZYWj+bH7ocDmEQnpVww5/XK+m73PA4raJ5g2Q4+rhNAcA
-X-Received: by 2002:a17:902:e746:b0:2a0:d074:e9f4 with SMTP id d9443c01a7336-2a2f2c4e3dcmr136127365ad.59.1766484623145;
-        Tue, 23 Dec 2025 02:10:23 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGgsPtM2LO+1xkqBBAXxfoaYMXrx0J52zpPMUVlt/Ux9UF8DqRlUzaibDDRMQDMNpar8qq+Og==
-X-Received: by 2002:a17:902:e746:b0:2a0:d074:e9f4 with SMTP id d9443c01a7336-2a2f2c4e3dcmr136127095ad.59.1766484622671;
-        Tue, 23 Dec 2025 02:10:22 -0800 (PST)
-Received: from jiegan-gv.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a2f3c6661esm120824625ad.2.2025.12.23.02.10.19
+        d=1e100.net; s=20230601; t=1766484781; x=1767089581;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kGMtlDyyRbCcoNhJtD681fIKSx7Hpi6HHJrHp091fTU=;
+        b=lRC7yC5NP+LdpEl0G1r4bypDXZYb7k9DRmB1A2SIIzp6c8/L2RTAKSbPVFSGDMTwrR
+         gIox+ebGGYYwe1ttQhWiTUzS1ooJDDHR6IVJWQX57Pzq52aLVE2bEQbqNUJbYv9quIz5
+         z+Sgc0ipDW8AyD6c2qdcgHrXX8soizxZ/o88G9l922pPXs0D6DbI0BamsnaUhv5ItbSE
+         3CkueBr5kQQLPCunWCdqT6ejP64OI4jT+rbvR8cfpIFERTT65LL1EHWvedB+zN/kRZUB
+         zQDakbR3TLagTA4ZJUcrEmNxTx/ETFeMdwpMlhJTMK+sld3CP/BdgQnnWcwJbh/WYi7d
+         fb5A==
+X-Forwarded-Encrypted: i=1; AJvYcCXt8c4ihQjMP3KKUcJAnYu8R6KqPY/ag0+NqWMY3I9EfyltToO0L1KR/zlmnffjwr8xF8VI5h4pd5MegF5y3146@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXP349avtMZhf+URnJQS6HrqJf05m1B2MeNiqYPIPdws32N9XO
+	04mMvu5gJV+4aSH0ZHx3207R+FjVIEMs/QBIOylxeZ1Mh6ii3nTj3Kuc03jaiw==
+X-Gm-Gg: AY/fxX5RfNxOZwqxY/Bz29fRkrNms1O8elaGSMq5In/WDCKXSCs+1GDQZ4kGmOL0eAH
+	ZhNbPDw2mLL48FlSWbag1Usfvici9+x8lRe3yDFgA3n1jvB/Z3leUQRBwNSsEuTzAsEw01u1JvP
+	Nvajvwt30dQPibXm6ftxbbqzSJKfuwxWWY93z3XC2OqFp9FW/H2/hyH89JV0EWFq8oLA1iAu9mZ
+	qmicPr+gpokl2qvKLU8I+a7BU5ovjoZF46XWvOyPOXocS5P5Mf2r7cbxdFOS8AG5E2j0ienHnon
+	798VxMXjU2YzB0y5mbVo9mc7ZJPUqLYF8xrVMXT31ffIGiXkK5tN2gqlR1UVdV6ZwCcak5qdWnG
+	VVMRDuvUeiNc5S9mcXGDwDMM0M0R3QJ5IBqnK6rO+xwQNwALevGHz3gdEuSlwYb93y1Lo9hwS9k
+	iCbFd1XjMBcIGS/skn5kIvsmoV2w==
+X-Google-Smtp-Source: AGHT+IGF0o0X3T9TPemtGA4iv5QpXYtSLA5891eQonPhGoJJdeHdYF9/vi2taBPYEXsT/bnOH7uFfA==
+X-Received: by 2002:a05:6000:188e:b0:430:fb26:3409 with SMTP id ffacd0b85a97d-4324e703d95mr14723855f8f.63.1766484780377;
+        Tue, 23 Dec 2025 02:13:00 -0800 (PST)
+Received: from eichest-laptop.lan ([2a02:168:af72:0:db87:3fd:1ea8:b6eb])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4324eaa0908sm26759247f8f.31.2025.12.23.02.12.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Dec 2025 02:10:22 -0800 (PST)
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-Date: Tue, 23 Dec 2025 18:09:53 +0800
-Subject: [PATCH v8 4/4] coresight: tpda: add sysfs node to flush specific
- port
+        Tue, 23 Dec 2025 02:13:00 -0800 (PST)
+From: Stefan Eichenberger <eichest@gmail.com>
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	linux-stm32@st-md-mailman.stormreply.com
+Cc: netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	robh@kernel.org,
+	francesco.dolcini@toradex.com,
+	Stefan Eichenberger <stefan.eichenberger@toradex.com>
+Subject: [PATCH net-next v2] net: stmmac: dwmac: Add a fixup for the Micrel KSZ9131 PHY
+Date: Tue, 23 Dec 2025 11:10:59 +0100
+Message-ID: <20251223101240.10634-1-eichest@gmail.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251223-add_sysfs_nodes_to_configure_tpda-v8-4-4c95db608b62@oss.qualcomm.com>
-References: <20251223-add_sysfs_nodes_to_configure_tpda-v8-0-4c95db608b62@oss.qualcomm.com>
-In-Reply-To: <20251223-add_sysfs_nodes_to_configure_tpda-v8-0-4c95db608b62@oss.qualcomm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, Jie Gan <jie.gan@oss.qualcomm.com>,
-        Tao Zhang <tao.zhang@oss.qualcomm.com>
-X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1766484607; l=3701;
- i=jie.gan@oss.qualcomm.com; s=20250909; h=from:subject:message-id;
- bh=81dX2nTlJr2gpRluG70T7YUTTcZv6ubCht7Nlur4GXg=;
- b=FvZ9kNSl2e5b9eKViO/BPeuoah03ZoDuyXlXfX0w1R7qUSRmAI62644Ak2+mcvJErrfEB/GTR
- t/lL3b3fwt2BSeDwnblfbG64SLmrxF9xRxn3d3JfeUHVZ2K5Mqz7hR3
-X-Developer-Key: i=jie.gan@oss.qualcomm.com; a=ed25519;
- pk=3LxxUZRPCNkvPDlWOvXfJNqNO4SfGdy3eghMb8puHuk=
-X-Proofpoint-ORIG-GUID: UvToUaSfuZqkoErcoX4EALeqFnwBge1y
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjIzMDA4MCBTYWx0ZWRfX2ciWLofxCbBn
- DgaVckjNmy5RXsA2zLoaPIsR+y2uf/1iTyAKXrynzaloU0Q76OiLKPafhWHKWhdaeIDEGRiiTym
- 0vn2O71GbfkbcenfogEUu3bPx8iUb5F6lfNh6Sg7FBfZ934VqJ+eMBdp1NHxYhs38gHV/WfCvNt
- Qd1dhtVj9cc/6EUIsjQ8hz0IudHrhcss9OPK6pl8fEXx/2caKPMYqiiugP/yyWmuIcKJWEqhFkW
- YpK6A2gWYXUBL/yfA7aFATOjEyHaBS67KV4PgGdWHHAfNQ7jiHp+xquNEkqKTHJL/+BJguPBhFW
- hDU1p2jzR079SfaTE/ft5eKQ6jMs0o+pntYll+FmVafeQiPMWAtwJluORVMhA26R2gj0BflfB84
- sRZxgPRkYaBxUAkEfhBy5ZqjcZFo3q4OI0B/5mXKX4BaHByozWEEvlPGEcmI/FRpRBUzCmH2Gmv
- /4oDwp9ekGqOlTYQzkw==
-X-Proofpoint-GUID: UvToUaSfuZqkoErcoX4EALeqFnwBge1y
-X-Authority-Analysis: v=2.4 cv=NZDrFmD4 c=1 sm=1 tr=0 ts=694a6a90 cx=c_pps
- a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=KKAkSRfTAAAA:8
- a=Uaz1Er67hVaxBR8z2rIA:9 a=QEXdDO2ut3YA:10 a=GvdueXVYPmCkWapjIL-Q:22
- a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-12-23_02,2025-12-22_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 spamscore=0 clxscore=1015 impostorscore=0 malwarescore=0
- suspectscore=0 phishscore=0 bulkscore=0 adultscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2512230080
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_021026_197709_6965E89A 
-X-CRM114-Status: GOOD (  15.87  )
+X-CRM114-CacheID: sfid-20251223_021303_281475_E2059FCE 
+X-CRM114-Status: GOOD (  22.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,107 +112,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Tao Zhang <tao.zhang@oss.qualcomm.com>
+From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
 
-Setting bit i in the TPDA_FLUSH_CR register initiates a flush request
-for port i, forcing the data to synchronize and be transmitted to the
-sink device.
+Add a fixup to the stmmac driver to keep the preamble before the SFD
+(Start Frame Delimiter) on the Micrel KSZ9131 PHY when the driver is
+used on an NXP i.MX8MP SoC.
 
-Signed-off-by: Tao Zhang <tao.zhang@oss.qualcomm.com>
-Reviewed-by: James Clark <james.clark@linaro.org>
-Co-developed-by: Jie Gan <jie.gan@oss.qualcomm.com>
-Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+This allows to workaround errata ERR050694 of the NXP i.MX8MP that
+states:
+ENET_QOS: MAC incorrectly discards the received packets when Preamble
+Byte does not precede SFD or SMD.
+
+The bit which disables this feature is not documented in the datasheet
+from Micrel, but has been found by NXP and Micrel following this
+discussion:
+https://community.nxp.com/t5/i-MX-Processors/iMX8MP-eqos-not-working-for-10base-t/m-p/2151032
+
+It has been tested on Verdin iMX8MP from Toradex by forcing the PHY to
+10MBit. Without bit 2 being set in the remote loopback register, no
+packets are received. With the bit set, reception works fine.
+
+Signed-off-by: Stefan Eichenberger <stefan.eichenberger@toradex.com>
 ---
- .../ABI/testing/sysfs-bus-coresight-devices-tpda   |  8 +++++
- drivers/hwtracing/coresight/coresight-tpda.c       | 40 ++++++++++++++++++++++
- drivers/hwtracing/coresight/coresight-tpda.h       |  1 +
- 3 files changed, 49 insertions(+)
+Changes in v2:
+- Use phy_register_fixup_for_uid() instead of adding a new device tree
+  property
+- I will send the conversion of the micrel.txt binding as a separate
+  patch series
+- Link to v1: https://lore.kernel.org/all/20251212084657.29239-1-eichest@gmail.com/
 
-diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
-index c989eea1ef59..48b8fda1b796 100644
---- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tpda
-@@ -59,3 +59,11 @@ Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qu
- Description:
- 		(RW) Set value the of the syncr counter.
- 		Range: 0-4095
+ .../net/ethernet/stmicro/stmmac/dwmac-imx.c   | 56 ++++++++++++++++++-
+ 1 file changed, 55 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c
+index db288fbd5a4df..23bc917d3f0bd 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-imx.c
+@@ -19,6 +19,7 @@
+ #include <linux/regmap.h>
+ #include <linux/slab.h>
+ #include <linux/stmmac.h>
++#include <linux/micrel_phy.h>
+ 
+ #include "stmmac_platform.h"
+ 
+@@ -39,6 +40,12 @@
+ #define RMII_RESET_SPEED		(0x3 << 14)
+ #define CTRL_SPEED_MASK			GENMASK(15, 14)
+ 
++/* Undocumented bit of the KSZ9131RNX in the remote loopback register to keep
++ * the preamble before sfd. It was reported by NXP in cooperation with Micrel.
++ */
++#define KSZ9x31_REMOTE_LOOPBACK			0x11
++#define KSZ9x31_REMOTE_LOOPBACK_KEEP_PREAMBLE	BIT(2)
 +
-+What:		/sys/bus/coresight/devices/<tpda-name>/port_flush_req
-+Date:		December 2025
-+KernelVersion:	6.19
-+Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Tao Zhang <tao.zhang@oss.qualcomm.com>, Jie Gan <jie.gan@oss.qualcomm.com>
-+Description:
-+		(RW) Configure the bit i to requests a flush operation of port i on the TPDA.
-+		The requested bit(s) remain set until the flush request completes.
-diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/hwtracing/coresight/coresight-tpda.c
-index deb5a646a04c..7055f8f13427 100644
---- a/drivers/hwtracing/coresight/coresight-tpda.c
-+++ b/drivers/hwtracing/coresight/coresight-tpda.c
-@@ -473,10 +473,50 @@ static ssize_t syncr_count_store(struct device *dev,
+ struct imx_priv_data;
+ 
+ struct imx_dwmac_ops {
+@@ -282,6 +289,30 @@ imx_dwmac_parse_dt(struct imx_priv_data *dwmac, struct device *dev)
+ 	return err;
  }
- static DEVICE_ATTR_RW(syncr_count);
  
-+static ssize_t port_flush_req_show(struct device *dev,
-+				   struct device_attribute *attr,
-+				   char *buf)
++static int imx8mp_dwmac_phy_micrel_fixup(struct phy_device *phydev)
 +{
-+	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	unsigned long val;
++	struct device *mdio_bus_dev = phydev->mdio.dev.parent;
++	struct device_node *mac_node;
 +
-+	if (!drvdata->csdev->refcnt)
-+		return -EINVAL;
++	if (!mdio_bus_dev || !mdio_bus_dev->parent)
++		return 0;
 +
-+	guard(spinlock)(&drvdata->spinlock);
-+	val = readl_relaxed(drvdata->base + TPDA_FLUSH_CR);
++	mac_node = mdio_bus_dev->parent->of_node;
++	if (!mac_node)
++		return 0;
 +
-+	return sysfs_emit(buf, "0x%lx\n", val);
++	if (!of_device_is_compatible(mac_node, "nxp,imx8mp-dwmac-eqos"))
++		return 0;
++
++	/* Keep the preamble before the SFD (Start Frame Delimiter) for the
++	 * Micrel KSZ9131. This is required on the i.MX8MP because of errata
++	 * ERR050694.
++	 */
++	return phy_modify_changed(phydev, KSZ9x31_REMOTE_LOOPBACK,
++				  KSZ9x31_REMOTE_LOOPBACK_KEEP_PREAMBLE,
++				  KSZ9x31_REMOTE_LOOPBACK_KEEP_PREAMBLE);
 +}
 +
-+static ssize_t port_flush_req_store(struct device *dev,
-+				    struct device_attribute *attr,
-+				    const char *buf,
-+				    size_t size)
+ static int imx_dwmac_probe(struct platform_device *pdev)
+ {
+ 	struct plat_stmmacenet_data *plat_dat;
+@@ -389,7 +420,30 @@ static struct platform_driver imx_dwmac_driver = {
+ 		.of_match_table = imx_dwmac_match,
+ 	},
+ };
+-module_platform_driver(imx_dwmac_driver);
++
++static int __init imx_dwmac_init(void)
 +{
-+	struct tpda_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	u32 val;
++	int ret;
 +
-+	if (kstrtou32(buf, 0, &val))
-+		return -EINVAL;
++	if (of_machine_is_compatible("fsl,imx8mp")) {
++		ret = phy_register_fixup_for_uid(PHY_ID_KSZ9131, MICREL_PHY_ID_MASK,
++						 imx8mp_dwmac_phy_micrel_fixup);
++		if (ret)
++			return ret;
++	}
 +
-+	if (!drvdata->csdev->refcnt || !val)
-+		return -EINVAL;
-+
-+	guard(spinlock)(&drvdata->spinlock);
-+	CS_UNLOCK(drvdata->base);
-+	writel_relaxed(val, drvdata->base + TPDA_FLUSH_CR);
-+	CS_LOCK(drvdata->base);
-+
-+	return size;
++	return platform_driver_register(&imx_dwmac_driver);
 +}
-+static DEVICE_ATTR_RW(port_flush_req);
++module_init(imx_dwmac_init);
 +
- static struct attribute *tpda_attrs[] = {
- 	&dev_attr_global_flush_req.attr,
- 	&dev_attr_syncr_mode.attr,
- 	&dev_attr_syncr_count.attr,
-+	&dev_attr_port_flush_req.attr,
- 	tpda_trig_sysfs_rw(freq_ts_enable, FREQTS),
- 	tpda_trig_sysfs_rw(trig_freq_enable, FRIE),
- 	tpda_trig_sysfs_rw(trig_flag_ts_enable, FLRIE),
-diff --git a/drivers/hwtracing/coresight/coresight-tpda.h b/drivers/hwtracing/coresight/coresight-tpda.h
-index 56d35697303a..a090352009bb 100644
---- a/drivers/hwtracing/coresight/coresight-tpda.h
-+++ b/drivers/hwtracing/coresight/coresight-tpda.h
-@@ -10,6 +10,7 @@
- #define TPDA_Pn_CR(n)		(0x004 + (n * 4))
- #define TPDA_FPID_CR		(0x084)
- #define TPDA_SYNCR		(0x08C)
-+#define TPDA_FLUSH_CR		(0x090)
++static void __exit imx_dwmac_exit(void)
++{
++	if (of_machine_is_compatible("fsl,imx8mp"))
++		phy_unregister_fixup_for_uid(PHY_ID_KSZ9131, MICREL_PHY_ID_MASK);
++
++	platform_driver_unregister(&imx_dwmac_driver);
++}
++module_exit(imx_dwmac_exit);
  
- /* Cross trigger global (all ports) flush request bit */
- #define TPDA_CR_FLREQ		BIT(0)
-
+ MODULE_AUTHOR("NXP");
+ MODULE_DESCRIPTION("NXP imx8 DWMAC Specific Glue layer");
 -- 
-2.34.1
+2.51.0
 
 
