@@ -4,96 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCFCFE6F084
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 10:56:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CFADE6F084
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 11:04:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P+FdLdYIbfO7vOmrfvIwEh+YRn/9rHzC4lMj63oYJMc=; b=MITgdetOMWqEUTMQ3bPtJeAHGp
-	LRPxyDJRoxCnpiJuR12mPRlUBLjryy42Cc0PX+LtqcJlq3AZERMaTU2VDaeKG0DB+bYUTo/RFwEhD
-	o40TwxZcu1U0CxN3WkVsJXrHk2vNbDn7i8Iowli/tXCtnP+0lx0FU3yOR+VyVPrPl/qaHBzo+2o1h
-	GJbKWhA3l3txVdA/LAJuZ2AFOlcUFeRdWOO8daLFqjpzpPHZh5V5fYe4gsjh5U8nPjl5IxmmMkw6l
-	v6htCImpPfcB4VPti68H/RuShHZSvitm3arEiQfVRoXIRYoIYG1yYqf4pQ2jr0Ip6xawJGioTJ0Rl
-	lkknXeiA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=pQ+XXkvHSA2dGT1VpgVey3NASrpnvjmCvzg+N/lld3Q=; b=BCS5A0Y0HjmMXS
+	KV7N4RBLCjIUe1+t07DvClmRGRxj7PSiDgkw/KP8HwU+74j3hHr5S1/IlZXsJCfjsbxwiwXYGGY/R
+	33IKf/DWCyeeBiG/SZ9m7xOE9obg+HMdpMxXXqwOKRMMqPBY3ume4eBckVHxt2lFT1/5WuM24GWTX
+	re8olFZFWcg7W0kDkes18bvp/KJvdpAIM1Hg7DPOqgaIg5DawYwdYXABQmTNJcSJsCl23CD94WR0O
+	BuTyQorQEYChP8aQ15nsukJvVToDn9yooInGU9xLS8a6QKtKLoe7AUu6ALT3v2lenLUVsVkybYrm3
+	gVuyFb/VpeKH5GNslEPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY03q-0000000Eukp-0CIO;
-	Tue, 23 Dec 2025 10:56:14 +0000
-Received: from mail-ot1-f54.google.com ([209.85.210.54])
+	id 1vY0Bq-0000000EvN4-1j7p;
+	Tue, 23 Dec 2025 11:04:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY03k-0000000EujP-1Wk2
+	id 1vY0Bn-0000000EvMC-0kNj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Dec 2025 10:56:09 +0000
-Received: by mail-ot1-f54.google.com with SMTP id 46e09a7af769-7c6cc366884so2292768a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 02:56:07 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766487367; x=1767092167;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=P+FdLdYIbfO7vOmrfvIwEh+YRn/9rHzC4lMj63oYJMc=;
-        b=XJjIHNLkf46Cy4EDsxSTipkZU0JseZd70zIIWkd0pgn+VZnSISovzDfdsOJwUVE1pb
-         BCIDJkt2SRznlLmrrnCIYFLDA+QcocCDBEEYuunArc/hG1i1KdpLZjU88Jt7Ud3VPql5
-         hghW/WDiRPadVPCsZV5GCP7YudQMDIKwLkcGoTbAdvjq06919SEpTXOhjBeXYYrRboa+
-         Qc8ebTQGcajztXMvwCqsM6kFrwvBhgB6IMBu+xqbEisKvmgrZNzae0pW8ytHB5ZBgxX1
-         x4Hf4B/5tqD5KrEH3oo9MpuIBu2XuUFHQTYGZUBlMsRGdR5ECcmcpdh4ZTwHYCpMK9z4
-         CHtg==
-X-Forwarded-Encrypted: i=1; AJvYcCWIckQ8ZBfDwAg96823yN/uGueCmXRJXAuodkSmpDbbZ+vUDo9MzPsPCoyPFFl2O7omGjAmZecKascdQVaLI4Cw@lists.infradead.org
-X-Gm-Message-State: AOJu0YznD900E3PfJSKaj5p+zs/WwKSaRzGZnJTV9HE3gwIblBnnq3/2
-	lO6b+yP43Fw/6w2wlT7xmh9vm56jBVFZzsN1FLBEcw/QjCFZXSuom9Dp
-X-Gm-Gg: AY/fxX6iX4US9bNIgBd5HzixolmZ4VZVpPSnfKMITrCSRVBTVptGnjmFGqjDbSiA2Xx
-	+jSSIMqcVhroc9dMT8u5frE8w/Z6Xx7MXpqqSTFybIDMVwRdI0XFTm97JlGaVseO/QhJ/JV0odA
-	pqewdU8byYL4PEOP3R/ngxaX+bRHLU9Z4Mf4HRUhB8wAP9ebmoEqqOn2hIpNdWRYTqpiWilDIHu
-	l1fWnDBzQFw87D0FFVMm4Esl4deAGppenKatfRr1qgPfIow8rK0K/MgiAFbveFyruSOWvtG4dpT
-	odcmgyajkb11SThoe4qIpI0cvobWlfu5J1BZqCRC6vJrwXBdHKIyLZJRpee2dPxmYXsWQzQcAGV
-	wWWNJrvTvXvh8OabtE1geYAlcoI8b0h1dLfsNwphQdbq8xarski7UTs77jnddMSudGzY/vGl4iu
-	9dlZbQ6ZGTISdn8Q==
-X-Google-Smtp-Source: AGHT+IHN2V35Klregw+9YTKsH2OtlmwwB/mDyXPjK++QZTB2CC0RR+jqY6r+PZxq7ko/5WlgLmeZrw==
-X-Received: by 2002:a05:6830:314e:b0:7c6:cb39:adf7 with SMTP id 46e09a7af769-7cc6689c9d0mr6676247a34.6.1766487367049;
-        Tue, 23 Dec 2025 02:56:07 -0800 (PST)
-Received: from localhost ([2a03:2880:10ff:49::])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7cc6673bdabsm9065064a34.10.2025.12.23.02.56.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Dec 2025 02:56:06 -0800 (PST)
-From: Breno Leitao <leitao@debian.org>
-Date: Tue, 23 Dec 2025 02:55:43 -0800
-Subject: [PATCH 1/2] arm64: efi: Fix NULL pointer dereference by
- initializing user_ns
+	Tue, 23 Dec 2025 11:04:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E632A44369
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 11:04:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B833BC2BC87
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 11:04:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766487865;
+	bh=biUgEjzTLA2qxnGKmM6Ej5xs7lQ2WYxGQ9yr+adss88=;
+	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
+	b=r4iFTtyUaJSeS53r1g6gYRFQ7LBaaU420AqItPgA01WKlV5q/GSaZwo5Y56adUcE8
+	 u2d8PJaKvSBlyIoSlSx9EBMkmTqI5lE7OhtEd3m0mt0ypIdXUu86yEReqPgADay1Wu
+	 1TnsXU79RRm0GCehzjxo1DccTqpYKDFimY3zRVGjBpBp140cl2IXt8llhHYbkzj44P
+	 qS0WPx5fFkv3eVcFgNTxYag6jaHPWTkeJ/ATaaWXfpJNzDAbCJOolk76PdEn3+RgFT
+	 6TM0VIWEe4Bs2OipQqftao//8I0zJxrPlQ1NbUAPqeZEUiBGfxuVW3LxW5SuVxbQy7
+	 Ut4XKpDb0EqCQ==
+Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-59911cb8c3cso5311827e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 03:04:25 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCV8dPbqj9tCLntLrUKZ1rvVi3Lz09xcvPjnYXOgaONrd5KZEkKcn1ZEkSPXptTfBF77175Fmh72YuAvyct4mcwQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw0IYJg1qs+Eyc+JV6tSdLqO1EvcRf54AVH7WWT+M/1DW/U0SPa
+	ABQwH/jX4mi0EKOyHiql3lM8XYVIPow3zS1GNEnBV1Q+dx5j9wALXd4CooOo2TYdlWlm6zZdmo0
+	Uesnq0PrJ26mxautpzm8xM9E/zy0IGdY=
+X-Google-Smtp-Source: AGHT+IHFRCOw1OndrHUP8fu/5Pu86rNoly2fZw9WpBncVYiaNKQ4oxRlCC+E8Yk0b5wLZeLJPra7VnbPIBMd4pnW17A=
+X-Received: by 2002:a05:6512:b85:b0:598:853e:4865 with SMTP id
+ 2adb3069b0e04-59a17d670demr5354973e87.50.1766487863823; Tue, 23 Dec 2025
+ 03:04:23 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251223-efi_fix_619-v1-1-e0146b8b9d73@debian.org>
-References: <20251223-efi_fix_619-v1-0-e0146b8b9d73@debian.org>
-In-Reply-To: <20251223-efi_fix_619-v1-0-e0146b8b9d73@debian.org>
-To: Ard Biesheuvel <ardb@kernel.org>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-efi@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, riel@surriel.com, puranjay@kernel.org, 
- usamaarif642@gmail.com, Breno Leitao <leitao@debian.org>, 
- kernel-team@meta.com
-X-Mailer: b4 0.15-dev-47773
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2290; i=leitao@debian.org;
- h=from:subject:message-id; bh=JPX11ECPaVPrf1MUlS1NHwPHSQuz31NB4jHoPAD7UEs=;
- b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBpSnVERN1w34K2bU0P1LvowG6Xgn8s0jFHxj1T+
- myf6uG4fiKJAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCaUp1RAAKCRA1o5Of/Hh3
- bcV4D/wMbGBfSuzqozvQHGdYEhbyw9hw7JGeECYucULIyAmq1QKPRk6tmC/KNW66EbKynHk3W0B
- lwz/otxPI/YJZKk9TW7HbW64zgXZ2cICMblLGA8+G/0hqDbsYorXNZ7b+cIRTU3ACDrnP/2zlIP
- iYRjfPI25MWAo08KO8n/FFnekS8D65B1BJqNz/gE9L0qOcRqxQAZfeDvx5kKtlpgwXXsXkaBv+v
- pklHh9H5eJGNGf/LECjmedGBDU2lknktPo807TbRjjF2WhitXoY7UG7mc/3lDvLQ0yjPGno3Nxw
- +1tvxWsEDPI/S241Q18a67nm6rLr4CoF8JY+c+6XaktdUI0bQKOVRXsBI3T/ZRR5nyD8lGdVhk8
- H8IdIJhpJ9pdpbUwYFY9bEOGmP85bjrYtMH7Bl2Fk/ijhZQHzp+HnQL02jQ0eNW6iZJKpltBy9Z
- /k7eShirBHO01BNDZjdc7P3jHTrE33iTh9BCsUnWChJxFhcVToq1RXIJ8FrSY5n6OJBq1ePcqXm
- GwCwSu70Xut+SZvBgSm2ofGBPoqwsz5DS99ipygfYmKcZoyXuJDcjFsFFPAQvZw+JtrTHxWf0KP
- QT8O93E6sgd/j/ZSmvroKHwXYp43yIUyo5R2BZm+OYi+Fwz8yjaA26DoKvT3SneoCsDHtlS3yyK
- MU54OZsno/DXPFA==
-X-Developer-Key: i=leitao@debian.org; a=openpgp;
- fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
+References: <20251223-i2c-printk-helpers-v1-0-46a08306afdb@oss.qualcomm.com> <20251223-i2c-printk-helpers-v1-2-46a08306afdb@oss.qualcomm.com>
+In-Reply-To: <20251223-i2c-printk-helpers-v1-2-46a08306afdb@oss.qualcomm.com>
+From: Chen-Yu Tsai <wens@kernel.org>
+Date: Tue, 23 Dec 2025 19:04:11 +0800
+X-Gmail-Original-Message-ID: <CAGb2v65_bC23uVNdXXy0OW3Zx4wxO+CAuae5zPR4m2zt29kYXA@mail.gmail.com>
+X-Gm-Features: AQt7F2oTKoNzOiHRkxSJE0lLrLQx6-2c3kaid1cyT2kNWjPKTkvyybHt0ZNsvmc
+Message-ID: <CAGb2v65_bC23uVNdXXy0OW3Zx4wxO+CAuae5zPR4m2zt29kYXA@mail.gmail.com>
+Subject: Re: [PATCH 02/12] i2c: sun6i-p2wi: use i2c_adapter-specific printk helpers
+To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>, Andi Shyti <andi.shyti@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Khalil Blaiech <kblaiech@nvidia.com>, Asmaa Mnebhi <asmaa@nvidia.com>, Jean Delvare <jdelvare@suse.com>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>, 
+	=?UTF-8?Q?Andreas_F=C3=A4rber?= <afaerber@suse.de>, 
+	Manivannan Sadhasivam <mani@kernel.org>, linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linuxppc-dev@lists.ozlabs.org, linux-actions@lists.infradead.org, 
+	Bartosz Golaszewski <brgl@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_025608_419011_9369369B 
-X-CRM114-Status: GOOD (  11.56  )
+X-CRM114-CacheID: sfid-20251223_030427_320871_905148ED 
+X-CRM114-Status: GOOD (  15.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,60 +88,69 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Linux 6.19-rc2 (9448598b22c5 ("Linux 6.19-rc2")) is crashing with a NULL
-pointer dereference on arm64 hosts:
+On Tue, Dec 23, 2025 at 6:02=E2=80=AFPM Bartosz Golaszewski
+<bartosz.golaszewski@oss.qualcomm.com> wrote:
+>
+> Convert all instances of using device printk helpers with struct device
+> embedded in struct i2c_adapter to the new i2c-specific macros that hide
+> that dereference.
+>
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
-  Unable to handle kernel NULL pointer dereference at virtual address 00000000000000c8
-   pc : cap_capable (security/commoncap.c:82 security/commoncap.c:128)
-   Call trace:
-    cap_capable (security/commoncap.c:82 security/commoncap.c:128) (P)
-    security_capable (security/security.c:?)
-    ns_capable_noaudit (kernel/capability.c:342 kernel/capability.c:381)
-    __ptrace_may_access (./include/linux/rcupdate.h:895 kernel/ptrace.c:326)
-    ptrace_may_access (kernel/ptrace.c:353)
-    do_task_stat (fs/proc/array.c:467)
-    proc_tgid_stat (fs/proc/array.c:673)
-    proc_single_show (fs/proc/base.c:803)
+Acked-by: Chen-Yu Tsai <wens@kernel.org>
 
-I've bissected the problem to commit a5baf582f4c0 ("arm64/efi: Call EFI
-runtime services without disabling preemption").
-
-From my analyzes, the crash occurs because efi_mm lacks a user_ns field
-initialization. This was previously harmless, but commit a5baf582f4c0
-("arm64/efi: Call EFI runtime services without disabling preemption")
-changed the EFI runtime call path to use kthread_use_mm(&efi_mm), which
-temporarily adopts efi_mm as the current mm for the calling kthread.
-
-When a thread has an active mm, LSM hooks like cap_capable() expect
-mm->user_ns to be valid for credential checks. With efi_mm.user_ns being
-NULL, capability checks during possible /proc access dereference the
-NULL pointer and crash.
-
-Fix by initializing efi_mm.user_ns to &init_user_ns.
-
-Fixes: a5baf582f4c0 ("arm64/efi: Call EFI runtime services without disabling preemption")
-Signed-off-by: Breno Leitao <leitao@debian.org>
----
- drivers/firmware/efi/efi.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/firmware/efi/efi.c b/drivers/firmware/efi/efi.c
-index a9070d00b833..55452e61af31 100644
---- a/drivers/firmware/efi/efi.c
-+++ b/drivers/firmware/efi/efi.c
-@@ -73,6 +73,7 @@ struct mm_struct efi_mm = {
- 	MMAP_LOCK_INITIALIZER(efi_mm)
- 	.page_table_lock	= __SPIN_LOCK_UNLOCKED(efi_mm.page_table_lock),
- 	.mmlist			= LIST_HEAD_INIT(efi_mm.mmlist),
-+	.user_ns		= &init_user_ns,
- 	.cpu_bitmap		= { [BITS_TO_LONGS(NR_CPUS)] = 0},
- #ifdef CONFIG_SCHED_MM_CID
- 	.mm_cid.lock		= __RAW_SPIN_LOCK_UNLOCKED(efi_mm.mm_cid.lock),
-
--- 
-2.47.3
-
+> ---
+>  drivers/i2c/busses/i2c-sun6i-p2wi.c | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
+>
+> diff --git a/drivers/i2c/busses/i2c-sun6i-p2wi.c b/drivers/i2c/busses/i2c=
+-sun6i-p2wi.c
+> index fb5280b8cf7fc0e3cba8ea6a318172ea2b011a02..845ca56cdae2d056c122eb648=
+c082f319d955b5e 100644
+> --- a/drivers/i2c/busses/i2c-sun6i-p2wi.c
+> +++ b/drivers/i2c/busses/i2c-sun6i-p2wi.c
+> @@ -122,7 +122,7 @@ static int p2wi_smbus_xfer(struct i2c_adapter *adap, =
+u16 addr,
+>         unsigned long dlen =3D P2WI_DLEN_DATA_LENGTH(1);
+>
+>         if (p2wi->target_addr >=3D 0 && addr !=3D p2wi->target_addr) {
+> -               dev_err(&adap->dev, "invalid P2WI address\n");
+> +               i2c_err(adap, "invalid P2WI address\n");
+>                 return -EINVAL;
+>         }
+>
+> @@ -139,7 +139,7 @@ static int p2wi_smbus_xfer(struct i2c_adapter *adap, =
+u16 addr,
+>         writel(dlen, p2wi->regs + P2WI_DLEN);
+>
+>         if (readl(p2wi->regs + P2WI_CTRL) & P2WI_CTRL_START_TRANS) {
+> -               dev_err(&adap->dev, "P2WI bus busy\n");
+> +               i2c_err(adap, "P2WI bus busy\n");
+>                 return -EBUSY;
+>         }
+>
+> @@ -154,12 +154,12 @@ static int p2wi_smbus_xfer(struct i2c_adapter *adap=
+, u16 addr,
+>         wait_for_completion(&p2wi->complete);
+>
+>         if (p2wi->status & P2WI_INTS_LOAD_BSY) {
+> -               dev_err(&adap->dev, "P2WI bus busy\n");
+> +               i2c_err(adap, "P2WI bus busy\n");
+>                 return -EBUSY;
+>         }
+>
+>         if (p2wi->status & P2WI_INTS_TRANS_ERR) {
+> -               dev_err(&adap->dev, "P2WI bus xfer error\n");
+> +               i2c_err(adap, "P2WI bus xfer error\n");
+>                 return -ENXIO;
+>         }
+>
+>
+> --
+> 2.47.3
+>
 
