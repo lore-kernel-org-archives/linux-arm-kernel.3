@@ -4,57 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63300E6F090
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 13:06:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 647F9E6F08C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 13:32:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jQ6IiHD3cdsFchHBZsv1iuzaV/K7XecIsTp4AbR5KfY=; b=Q4sRwbeVS9nNf/ZKiJ1GVUjZkP
-	+wrSzx5Kw8LeTeRtv+4SIOsnRL6fVv+cc/PLb8TNGxmKLPzodQuz5jQ5lNK9JXCwxIgufp+gI0QXp
-	vS16RVXPX8UMfmqMNPziPupCao5jtElCykl6f+TgF/SS58sv3iYFSARXBzvBMYdvORkatc4jFC+EE
-	mjwTXtU/Qpq0k8wDcvrXsoGmH/gRXMy6zFSRgcCqlzbJFCkPvNSjCkEJqrMlHgPFaSghrdOT6GAuq
-	VhpG3iT4dRYPRnrR81lcxlFOLp/FqVNdK7jIipxLeTfY9JkTLVQ4fvu9N3/+YdC7GstxlGxFOcSea
-	UgYeB9RQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i/YE2Ys72Rr5nTarcZRD7r94sOVWF4IzfIb6okizoYE=; b=WSMbdnGqBtxYKqdswirzrYwFbz
+	IeUbNIrbbHO6EXZP/SPFEVsNMl9nqfWNPbw9710gCD6f9Ppba0dZeVjZt8IQS3rhJXNbkeS+ub8j8
+	3oGieRYMLff/ecdoAAHo1J7/Cxn1PKjpxQCXg/DaojkA4gv2IFU4XV5XqAV743VJwyBWkoCVc8uX6
+	ZaWpaxm3tsepK10lty2JQ7Wfjsag2rvcx8U1cg+cDD+N1xm78CbxC+C+JOw+ZIm7bWTRkt3Wx1R90
+	uF0A+bD/0wP3AHMgcsAxcW8K4Qpsw5bZcASGStYlLf8tkQiEKB/2ldRtJR08iKK2YgyZrDCz/uGMq
+	68hSoUnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY25N-0000000FWCu-1eEt;
-	Tue, 23 Dec 2025 13:05:57 +0000
-Received: from mail2-relais-roc.national.inria.fr ([192.134.164.83])
+	id 1vY2VC-0000000FXaR-2NKL;
+	Tue, 23 Dec 2025 13:32:38 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY25J-0000000FWC5-3nsD
+	id 1vY2VA-0000000FXaH-22jU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Dec 2025 13:05:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=inria.fr; s=dc;
-  h=date:from:to:subject:message-id:mime-version;
-  bh=jQ6IiHD3cdsFchHBZsv1iuzaV/K7XecIsTp4AbR5KfY=;
-  b=GeATMJvh/Jin3+SNkiFTW66UKfKLC8W96I/S/TQv2BKJ57p7hNjXbAuY
-   cJopoU8WfNo47hQoSEnGafIN9x5weyH2wpiYdxSsgyXKdn38hdbOP7Eem
-   kCqfiQl6AMQBCm41K2s/tmNSKq60x6O4q7sXEetR7p8WWJsP+9nxkGOqb
-   w=;
-X-CSE-ConnectionGUID: w3fwfvrpQuyxlKtGuyYUvA==
-X-CSE-MsgGUID: lpc9P1RtRee447jytmNdiQ==
-Authentication-Results: mail2-relais-roc.national.inria.fr; dkim=none (message not signed) header.i=none; spf=SoftFail smtp.mailfrom=julia.lawall@inria.fr; dmarc=fail (p=none dis=none) d=inria.fr
-X-IronPort-AV: E=Sophos;i="6.21,170,1763420400"; 
-   d="scan'208";a="255717808"
-Received: from dt-lawall.paris.inria.fr ([128.93.67.65])
-  by mail2-relais-roc.national.inria.fr with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Dec 2025 14:05:48 +0100
-Date: Tue, 23 Dec 2025 14:05:47 +0100 (CET)
-From: Julia Lawall <julia.lawall@inria.fr>
-To: Sascha Bischoff <sascha.bischoff@arm.com>, 
-    linux-arm-kernel@lists.infradead.org, oe-kbuild-all@lists.linux.de
-Subject: [arm-platforms:kvm-arm64/gicv5-full 80/82] arch/arm64/kvm/vgic/vgic-its-v5.c:1213:2-8:
- preceding lock on line 1181 (fwd)
-Message-ID: <15556f41-78ab-7418-f686-4d796a3ecf38@inria.fr>
+	Tue, 23 Dec 2025 13:32:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 88019600CB;
+	Tue, 23 Dec 2025 13:32:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BE05C113D0;
+	Tue, 23 Dec 2025 13:32:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766496754;
+	bh=xbt9uegKH0QnNNxNVuyDChxCTc/MnbUT0LpZPpYj1po=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=tsX+elypj/hcJ7YpsHnJrxshuDSNi4bG3RAvK5wBIPQZJH1tak151baA3vKZDut+u
+	 kDvLkeeFUrrOC0PJuLX6jVkoSF6oPV9NgjRyFcksn2rzKVuFTT5ctSPJYRTQQJxKX9
+	 Zw60jNdVb7HLc7Y9y4Jb3lILntG5slQJA8Gxsg5RExuspURxBk919xqBcQXRIOxvPV
+	 4C39mqSw4bXe9ZmcsqXXf1n+u2DBjn7M9S2KolaN1wqhHDsVT3oSCrQCCf4fyrtj1L
+	 Zybb6+FaAjlgJe/emkTEw9VwixbGjISutLKqKXpawszu0a9yeHhTuo6fvOSaGx8Zg5
+	 1NYO9ar5YMZmw==
+Message-ID: <3d156c45-b55d-4ca4-95d6-0d06e067bbdb@kernel.org>
+Date: Tue, 23 Dec 2025 14:32:24 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_050554_231398_878FC816 
-X-CRM114-Status: UNSURE (   6.98  )
-X-CRM114-Notice: Please train this message.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/5] dt-bindings: mfd: maxim,max77759: add charger
+ child node
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: amitsd@google.com, Sebastian Reichel <sre@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
+ <andre.draszik@linaro.org>, Lee Jones <lee@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Badhri Jagan Sridharan <badhri@google.com>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-usb@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
+References: <20251218-max77759-charger-v2-0-2b259980a686@google.com>
+ <20251218-max77759-charger-v2-1-2b259980a686@google.com>
+ <411802b6-517d-497e-bf7b-183e6e6d7a64@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <411802b6-517d-497e-bf7b-183e6e6d7a64@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,108 +127,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Pleas check whether unlocks are needed at line 1213.
+On 19/12/2025 09:17, Krzysztof Kozlowski wrote:
+> On 18/12/2025 23:49, Amit Sunil Dhamne via B4 Relay wrote:
+>> From: Amit Sunil Dhamne <amitsd@google.com>
+>>
+>> The Maxim MAX77759 MFD includes a charger function. Extend the max77759
+>> binding to include the charger. Also, update the example to include
+>> charger.
+>>
+>> Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
+>> ---
+>>  .../devicetree/bindings/mfd/maxim,max77759.yaml    | 33 ++++++++++++++++++++++
+>>  1 file changed, 33 insertions(+)
+>>
+>> diff --git a/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml b/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml
+>> index 525de9ab3c2b..1cffdf2e5776 100644
+>> --- a/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml
+>> +++ b/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml
+>> @@ -37,6 +37,30 @@ properties:
+>>    nvmem-0:
+>>      $ref: /schemas/nvmem/maxim,max77759-nvmem.yaml
+>>  
+>> +  charger:
+>> +    type: object
+>> +    description: This is a dual input switch mode battery charger for portable
+>> +      applications. It supports wired and wireless charging and can operate in
+>> +      buck and boost mode.
+>> +
+> 
+> 
+> I do not see any improvements, so same comment: this should be folded
+> into the parent.
+> 
+> Please read DTS 101 slides or writing bindings or any other talks...
+> 
 
-julia
+No responses to my emails for a few days, so I assume discussion is done
+and I mark it as changes requested in patchwork.
 
----------- Forwarded message ----------
-Date: Tue, 23 Dec 2025 20:39:59 +0800
-From: kernel test robot <lkp@intel.com>
-To: oe-kbuild@lists.linux.dev
-Cc: lkp@intel.com, Julia Lawall <julia.lawall@inria.fr>
-Subject: [arm-platforms:kvm-arm64/gicv5-full 80/82]
-    arch/arm64/kvm/vgic/vgic-its-v5.c:1213:2-8: preceding lock on line 1181
-
-BCC: lkp@intel.com
-CC: oe-kbuild-all@lists.linux.dev
-CC: linux-arm-kernel@lists.infradead.org
-TO: Sascha Bischoff <sascha.bischoff@arm.com>
-
-tree:   https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git kvm-arm64/gicv5-full
-head:   1426b88096b597395df4c82f089b87c62bab45da
-commit: e01f1868ec7bf5d212cd8daf67da77fc8c1cd320 [80/82] KVM: arm64: gic-v5: Implement has/set/get attr for ITS MMIO regions
-:::::: branch date: 4 days ago
-:::::: commit date: 4 days ago
-config: arm64-randconfig-r064-20251223 (https://download.01.org/0day-ci/archive/20251223/202512232029.FJOH3tvX-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 15.1.0
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Reported-by: Julia Lawall <julia.lawall@inria.fr>
-| Closes: https://lore.kernel.org/r/202512232029.FJOH3tvX-lkp@intel.com/
-
-cocci warnings: (new ones prefixed by >>)
->> arch/arm64/kvm/vgic/vgic-its-v5.c:1213:2-8: preceding lock on line 1181
-   arch/arm64/kvm/vgic/vgic-its-v5.c:1213:2-8: preceding lock on line 1188
-
-vim +1213 arch/arm64/kvm/vgic/vgic-its-v5.c
-
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1167
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1168  static int vgic_v5_its_attr_regs_access(struct kvm_device *dev,
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1169  				 struct kvm_device_attr *attr,
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1170  				 u64 *reg, bool is_write)
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1171  {
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1172  	const struct vgic_register_region *region;
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1173  	struct vgic_v5_its *its;
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1174  	gpa_t addr, offset;
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1175  	unsigned int len;
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1176  	int align, ret = 0;
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1177
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1178  	its = dev->private;
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1179  	offset = attr->attr;
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1180
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05 @1181  	mutex_lock(&dev->kvm->lock);
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1182
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1183  	if (kvm_trylock_all_vcpus(dev->kvm)) {
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1184  		mutex_unlock(&dev->kvm->lock);
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1185  		return -EBUSY;
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1186  	}
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1187
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1188  	mutex_lock(&dev->kvm->arch.config_lock);
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1189
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1190  	if (IS_VGIC_ADDR_UNDEF(its->vgic_v5_its_base)) {
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1191  		ret = -ENXIO;
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1192  		goto out;
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1193  	}
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1194
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1195  	region = vgic_find_mmio_region(vgic_v5_its_registers,
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1196  				       ARRAY_SIZE(vgic_v5_its_registers),
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1197  				       offset);
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1198  	if (!region) {
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1199  		ret = -ENXIO;
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1200  		goto out;
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1201  	}
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1202
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1203  	/*
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1204  	 * Although the spec supports upper/lower 32-bit accesses to
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1205  	 * 64-bit ITS registers, the userspace ABI requires 64-bit
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1206  	 * accesses to all 64-bit wide registers. We therefore only
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1207  	 * support 32-bit accesses to 32-bit-wide registers.
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1208  	 */
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1209  	align = region->access_flags & VGIC_ACCESS_64bit ? 0x7 : 0x3;
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1210  	len = region->access_flags & VGIC_ACCESS_64bit ? 8 : 4;
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1211
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1212  	if (offset & align)
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05 @1213  		return -EINVAL;
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1214
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1215  	addr = its->vgic_v5_its_base + offset;
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1216
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1217  	if (is_write) {
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1218  		region->its_write(dev->kvm, its, addr, len, *reg);
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1219  	} else {
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1220  		*reg = region->its_read(dev->kvm, its, addr, len);
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1221  	}
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1222  out:
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1223  	mutex_unlock(&dev->kvm->arch.config_lock);
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1224  	kvm_unlock_all_vcpus(dev->kvm);
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1225  	mutex_unlock(&dev->kvm->lock);
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1226
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1227  	return ret;
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1228  }
-e01f1868ec7bf5 Sascha Bischoff 2025-09-05  1229
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Best regards,
+Krzysztof
 
