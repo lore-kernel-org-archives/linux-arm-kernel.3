@@ -4,74 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2602E6F086
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 17:57:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2B37E6FE28
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 18:02:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A5e65IGpIhGqP5Bp1BDEsHKNZKGjWq/+tq7PdLVmUW0=; b=RfvZ75qpg1BqW4r4R21FNYxKbq
-	7cT6lPh9rb65mWoghEZvPgn2GOFpOrGNK4NAKyy7Oo+9XtdJ3tYSgC7+2OnH+76OYcWbiWY+Q61dP
-	slXCJTjkON1ZD7RRkohtFzTiEwIVFx2Y5J7PAKFFnZv/AVn+Ec8NmIUO1L5/DVeMUShDVz4BZVuBS
-	vLDtZ9pz7gOziofIlT7DTn5bBLPi0srgIBrGzjY/B3y9Jw03rfpbR7sVugiKKfp5b5ooUZ3xAd8AA
-	v80Op51+haAaVxGrOLM7z88A5SlTe/CB99XmUuKV33S1amfQ4uw8cojTlPz2uY8JKPUNoXwAWeBUt
-	/DTwyeEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=MsJ1QZniSDD+5EITzP+UrPN8oRW59aqUk/sWSedUXyI=; b=fFxqIZtoGytt/2
+	CyHf8Lu730mZY5VoIj8d+cb3Z2Glyd9bKsa8mdwuq4yCPViqrymWKyCuAdMLCa2W99W5IVItZzc3v
+	xkIPUdAbwnUE4whpp+8T0hEPlXcGmE8RT5OfLKWB8DtnB6/3RChnMmIfKEzdcuBD0yJPW+DwBZMbU
+	XB6PNk/fuVbjqIuL9YTnjQSIIUNl8oDyEYxnj81id+hSYcJWDUxp12E+pfxLCArC+xW8hw9RAw3m6
+	D0FFIa3DSTbdT0mZOwulLUTHH3J9UNYhxywPTBLDOdqbLiLGQODIlPut97mgdavpjcO/XzIxal5Qo
+	XpkKjhHI4eiBR1mrRUPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY6db-0000000FsTm-0dFs;
-	Tue, 23 Dec 2025 17:57:35 +0000
-Received: from mxout3.routing.net ([2a03:2900:1:a::8])
+	id 1vY6hz-0000000Fswt-0RNK;
+	Tue, 23 Dec 2025 18:02:07 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY6dT-0000000FsQX-2f1c;
-	Tue, 23 Dec 2025 17:57:30 +0000
-Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
-	by mxout3.routing.net (Postfix) with ESMTP id 069CA604A6;
-	Tue, 23 Dec 2025 17:57:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=routing; t=1766512642;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=A5e65IGpIhGqP5Bp1BDEsHKNZKGjWq/+tq7PdLVmUW0=;
-	b=npbzClcl8kaXyFa96B1ZIk+8Eh2mJGPe27Q671JQPbl+AAIxn+Rpy7RDsJIODnsVZsco6a
-	j2IozCx7S6Or2BIVhhfAkVQGwuruWNvnvUatm3E0zk9TONgPNjk1cscXtgbFiMW5sVoBeK
-	cEst+8sVsPBhsE6EIj8oGqO5xpgsw7Q=
-Received: from frank-u24.. (fttx-pool-217.61.156.193.bambit.de [217.61.156.193])
-	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id BBCE2122700;
-	Tue, 23 Dec 2025 17:57:21 +0000 (UTC)
-From: Frank Wunderlich <linux@fw-web.de>
-To: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>,
-	Lukasz Luba <lukasz.luba@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Frank Wunderlich <frank-w@public-files.de>,
-	=?UTF-8?q?N=C3=ADcolas=20F=2E=20R=2E=20A=2E=20Prado?= <nfraprado@collabora.com>,
-	Mason Chang <mason-cw.chang@mediatek.com>,
-	Balsam CHIHI <bchihi@baylibre.com>,
-	linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH v2 2/2] thermal/drivers/mediatek/lvts_thermal: Add mt7987 support
-Date: Tue, 23 Dec 2025 18:56:27 +0100
-Message-ID: <20251223175710.25850-3-linux@fw-web.de>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251223175710.25850-1-linux@fw-web.de>
-References: <20251223175710.25850-1-linux@fw-web.de>
+	id 1vY6hw-0000000FswI-2IQM;
+	Tue, 23 Dec 2025 18:02:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1766512909; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=nhikv8QN2PLa8vYZ9E/fW1azQiq+cs92oCQ2GDQ5gXjwCfmABc/swYiJV6PBx34Rlmek1e/iIduxd46ayXL/1mfyNQeHefd+26gEE8Bh1jeMCLfg/1gKNgEZiS6EX8ZNqebtBoK3g+3S2s4dMhr0jtr6/0Pnn8cyvNJodUgUdfY=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1766512909; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=MsJ1QZniSDD+5EITzP+UrPN8oRW59aqUk/sWSedUXyI=; 
+	b=cOWSN2YR5F+XsADDRwRfwc7hPIetNWaxV7h+gQ+JWjBl+W+cNmUTp0IOFpOrPThx3FAGOHUEgT7vi7cgzzuvQiZVqE+SWmeU6f1SeGdoib1m3T5iUAx7eqFsVhkLTsxFhDS5G2sHBgrybQr5nBMWWveT/IrYvkcQm1l6XBw5ECI=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=ariel.dalessandro@collabora.com;
+	dmarc=pass header.from=<ariel.dalessandro@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1766512909;
+	s=zohomail; d=collabora.com; i=ariel.dalessandro@collabora.com;
+	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
+	bh=MsJ1QZniSDD+5EITzP+UrPN8oRW59aqUk/sWSedUXyI=;
+	b=FB7kt9UfXBkEhrqxAq6vSkgnrGHxc7lC0UvYvL4YSh3PkIgScvO8a5K1+VCmpA5F
+	BunmyvAKi3r9F3L+iIIBJyX1PUz7vfnQp+HCvXva4WNROisTD/LxfIKWifHVM5KY/vI
+	dWv+E7dV7lFTipgeW52bY2GmIyjXp2SxrqG6kC1A=
+Received: by mx.zohomail.com with SMTPS id 1766512908289648.1607741516309;
+	Tue, 23 Dec 2025 10:01:48 -0800 (PST)
+From: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+Subject: [PATCH v3 00/21] Introduce support for CRTC (post-blend) color
+ pipeline
+Date: Tue, 23 Dec 2025 15:01:20 -0300
+Message-Id: <20251223-mtk-post-blend-color-pipeline-v3-0-7d969f9a37a0@collabora.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAPHYSmkC/4XQwW6DMAwG4FdBOdcTCWGQnvYeUw8huKtVSGiSo
+ k6Id58ph0m99BLpt+zPchaRMBImcSwWEXGmRMFzqA6FcBfrfxCo5yxUqeqyqUoY8xWmkDJ0A/o
+ eXBhChIkmHMgjaNOitMa5ukLBxhTxTI+n/33ifKGUQ/x9rpvlVt3lVqk38iyhBGu0/uy1dbZVX
+ 9ww2C5E++HCKDZ9Vv+ikc07UW2i07qRHT91+yqu+wERb3f+l7xfITqbkKlxpHwsPD4ybPukkoY
+ n1j9+aNmZUQEAAA==
+X-Change-ID: 20250730-mtk-post-blend-color-pipeline-498e1a9cc53e
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Louis Chauvet <louis.chauvet@bootlin.com>, 
+ Haneen Mohammed <hamohammed.sa@gmail.com>, 
+ Melissa Wen <melissa.srw@gmail.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ kernel@collabora.com, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>, 
+ Ariel D'Alessandro <ariel.dalessandro@collabora.com>, 
+ Harry Wentland <harry.wentland@amd.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1766512902; l=6847;
+ i=ariel.dalessandro@collabora.com; s=20251223; h=from:subject:message-id;
+ bh=TNlJyxlKojej4zv0RZk+kwLQ87vuyffyqaMh0IyTO1E=;
+ b=2jPmt15ST/F1BYdrP7k/ivbjeiR/AwghrkpxfGU2Wf+VQ74ZD/gRhhi27WUlgMyJOjTCD7ZKu
+ J80wS+otxYxC4WYZJxUYHBmxYMgrAtT7UXCpoHKVRhk5mgE75M8UlCc
+X-Developer-Key: i=ariel.dalessandro@collabora.com; a=ed25519;
+ pk=QZRL9EsSBV3/FhDHi9L/7ZTz2dwa7iyqgl+y1UYaQXQ=
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_095727_962375_1CE9A6C4 
-X-CRM114-Status: GOOD (  11.79  )
+X-CRM114-CacheID: sfid-20251223_100204_643279_E5D0FD29 
+X-CRM114-Status: GOOD (  15.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,95 +102,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Wunderlich <frank-w@public-files.de>
+This series is based on "Color Pipeline API w/ VKMS" [1]. It reuses the
+same concept of a color pipeline API but for the post-blend stage
+instead of pre-blend, by attaching the COLOR_PIPELINE property to the
+CRTC rather than a plane.
 
-Add support for MT7987.
+The patches in the series first implement the necessary changes in the
+DRM core to allow for CRTC (post-blend) color pipelines and expose it 
+through the uAPI, and then implement support in both the MediaTek KMS
+driver and in VKMS.
 
-Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+This series has been tested with IGT, with the latest revision of patch
+series "Support post-blend color pipeline API" [2] applied, on top of
+VKMS, as well as with Weston, with a WIP branch [3], on a MT8195-Tomato
+Chromebook and a MT8188 Genio 700 EVK, where both gamma LUT and CTM
+color transformations have been simultaneously configured in hardware
+through the API and validated (test commits for weston at [4]).
+
+[1] https://lore.kernel.org/all/20251115000237.3561250-1-alex.hung@amd.com/
+[2] https://lore.kernel.org/igt-dev/20250912-post-blend-colorops-v1-0-83fc62420cba@collabora.com/T/#t
+[3] https://gitlab.collabora.com/nfraprado/weston/-/tree/post-blend-colorops?ref_type=heads
+[4] https://gitlab.collabora.com/nfraprado/weston/-/tree/post-blend-color-pipeline-lut-ctm-test?ref_type=tags
+
+Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+Co-developed-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
 ---
-v2:
-- drop irq-enable member
-- move mt7987 above mt7988
----
- drivers/thermal/mediatek/lvts_thermal.c | 36 +++++++++++++++++++++++++
- 1 file changed, 36 insertions(+)
+Changes in v3:
+- Aligned terminology between plane (pre-blend) and crtc (post-blend)
+  color pipeline (Harry Wentland). Replaced all naming s/post-blend/crtc
+- Reworked cleanup in vkms_initialize_post_blend_color_pipeline (Louis
+  Chauvet).
+- Added check on CLIENT_CAP while setting COLOR_PIPELINE property (Louis
+  Chauvet).
+- Moved common color_pipeline property initialization code to
+  drivers/gpu/drm/drm_property.c
+- Added missing support for CRTC (post-blend) color pipeline
+  configuration in VKMS.
+- Added missing return value checks in mtk_crtc_create()
+- Added drm_color_lut_to_lut32() and made use of it in mtk_disp_gamma.c
+- Added drm_color_ctm_to_ctm_3x4() and made use of it in mtk_disp_ccorr.c
+- Split plane and crtc fields descriptions in struct drm_colorop
+- Link to v2: https://lore.kernel.org/r/20250917-mtk-post-blend-color-pipeline-v2-0-ac4471b44758@collabora.com
 
-diff --git a/drivers/thermal/mediatek/lvts_thermal.c b/drivers/thermal/mediatek/lvts_thermal.c
-index ab55b20cda47..c345a6191715 100644
---- a/drivers/thermal/mediatek/lvts_thermal.c
-+++ b/drivers/thermal/mediatek/lvts_thermal.c
-@@ -85,6 +85,8 @@
- #define LVTS_GOLDEN_TEMP_DEFAULT	50
- #define LVTS_COEFF_A_MT8195			-250460
- #define LVTS_COEFF_B_MT8195			250460
-+#define LVTS_COEFF_A_MT7987			-204650
-+#define LVTS_COEFF_B_MT7987			204650
- #define LVTS_COEFF_A_MT7988			-204650
- #define LVTS_COEFF_B_MT7988			204650
- 
-@@ -1373,6 +1375,20 @@ static void lvts_remove(struct platform_device *pdev)
- 		lvts_ctrl_set_enable(&lvts_td->lvts_ctrl[i], false);
- }
- 
-+static const struct lvts_ctrl_data mt7987_lvts_ap_data_ctrl[] = {
-+	{
-+		.lvts_sensor = {
-+			{ .dt_id = MT7987_CPU,
-+			  .cal_offsets = { 0x04, 0x05, 0x06 } },
-+			{ .dt_id = MT7987_ETH2P5G,
-+			  .cal_offsets = { 0x08, 0x09, 0x0a } },
-+		},
-+		VALID_SENSOR_MAP(1, 1, 0, 0),
-+		.offset = 0x0,
-+		.mode = LVTS_MSR_FILTERED_MODE,
-+	},
-+};
-+
- static const struct lvts_ctrl_data mt7988_lvts_ap_data_ctrl[] = {
- 	{
- 		.lvts_sensor = {
-@@ -1455,6 +1471,12 @@ static const u32 default_init_cmds[] = {
- 	0xC10300FC, 0xC103009D, 0xC10300F1, 0xC10300E1
- };
- 
-+static const u32 mt7987_init_cmds[] = {
-+	0xC1030300, 0xC1030420, 0xC1030500, 0xC10307A6, 0xC10308C7,
-+	0xC103098D, 0xC1030C7C, 0xC1030AA8, 0xC10308CE, 0xC10308C7,
-+	0xC1030B04, 0xC1030E01, 0xC10306B8
-+};
-+
- static const u32 mt7988_init_cmds[] = {
- 	0xC1030300, 0xC1030420, 0xC1030500, 0xC10307A6, 0xC1030CFC,
- 	0xC1030A8C, 0xC103098D, 0xC10308F1, 0xC1030B04, 0xC1030E01,
-@@ -1753,6 +1775,19 @@ static const struct lvts_ctrl_data mt8195_lvts_ap_data_ctrl[] = {
- 	}
- };
- 
-+static const struct lvts_data mt7987_lvts_ap_data = {
-+	.lvts_ctrl	= mt7987_lvts_ap_data_ctrl,
-+	.num_lvts_ctrl	= ARRAY_SIZE(mt7987_lvts_ap_data_ctrl),
-+	.conn_cmd	= mt7988_conn_cmds,
-+	.init_cmd	= mt7987_init_cmds,
-+	.num_conn_cmd	= ARRAY_SIZE(mt7988_conn_cmds),
-+	.num_init_cmd	= ARRAY_SIZE(mt7987_init_cmds),
-+	.temp_factor	= LVTS_COEFF_A_MT7987,
-+	.temp_offset	= LVTS_COEFF_B_MT7987,
-+	.gt_calib_bit_offset = 32,
-+	.def_calibration = 19380,
-+};
-+
- static const struct lvts_data mt7988_lvts_ap_data = {
- 	.lvts_ctrl	= mt7988_lvts_ap_data_ctrl,
- 	.conn_cmd	= mt7988_conn_cmds,
-@@ -1857,6 +1892,7 @@ static const struct lvts_data mt8195_lvts_ap_data = {
- };
- 
- static const struct of_device_id lvts_of_match[] = {
-+	{ .compatible = "mediatek,mt7987-lvts-ap", .data = &mt7987_lvts_ap_data },
- 	{ .compatible = "mediatek,mt7988-lvts-ap", .data = &mt7988_lvts_ap_data },
- 	{ .compatible = "mediatek,mt8186-lvts", .data = &mt8186_lvts_data },
- 	{ .compatible = "mediatek,mt8188-lvts-mcu", .data = &mt8188_lvts_mcu_data },
+Changes in v2:
+- Split core DRM changes for post-blend color pipelines from single
+  commit into smaller changes
+- Added post-blend color pipeline support in VKMS
+- Introduced driver cap, and made client cap depend on it (daniels)
+- Made deprecated color props (GAMMA_LUT, DEGAMMA_LUT, CTM) available as
+  read-only when post-blend color pipelines are enabled (daniels)
+- Created colorop_modeset_lock/unlock to commonize locking pattern for
+  colorops (louis.chauvet)
+- Added helper for post-blend 1D curve colorop creation
+- Link to v1: https://lore.kernel.org/r/20250822-mtk-post-blend-color-pipeline-v1-0-a9446d4aca82@collabora.com
+
+---
+Ariel D'Alessandro (2):
+      drm: Add helper to extract a 3x4 matrix from any CTM matrix dimensions
+      drm: Add helper to extract a LUT entry from either 16-bit or 32-bit LUT
+
+Nícolas F. R. A. Prado (19):
+      drm/crtc: Add color pipeline to CRTC state
+      drm/colorop: Allow parenting colorop to CRTC
+      drm: Factor out common color_pipeline property initialization code
+      drm/crtc: Add COLOR_PIPELINE property
+      drm: Introduce DRM_CAP_CRTC_COLOR_PIPELINE
+      drm: Introduce DRM_CLIENT_CAP_CRTC_COLOR_PIPELINE
+      drm/atomic: Pass crtc_color_pipeline client cap to atomic check
+      drm/atomic: Print the color pipeline as part of the CRTC state print
+      drm/colorop: Factor out common paths from colorops helpers
+      drm/colorop: Introduce colorop helpers for crtc
+      drm/crtc: Track crtc color pipeline client cap in drm_crtc_state
+      drm/mediatek: Support CRTC colorops for gamma and ctm
+      drm/mediatek: ccorr: Support CRTC color pipeline API
+      drm/mediatek: gamma: Support CRTC color pipeline API
+      drm/mediatek: Set CRTC color pipeline driver cap
+      drm/vkms: Rename existing color pipeline helpers to contain "plane"
+      drm/vkms: Prepare pre_blend_color_transform() for CRTC color pipelines
+      drm/vkms: Introduce support for post-blend color pipeline
+      drm/vkms: Set CRTC color pipeline driver cap
+
+ drivers/gpu/drm/drm_atomic.c                  |   9 +-
+ drivers/gpu/drm/drm_atomic_uapi.c             |  71 +++++++-
+ drivers/gpu/drm/drm_colorop.c                 | 242 +++++++++++++++++++++-----
+ drivers/gpu/drm/drm_connector.c               |   1 +
+ drivers/gpu/drm/drm_crtc.c                    |  31 ++++
+ drivers/gpu/drm/drm_crtc_internal.h           |   1 +
+ drivers/gpu/drm/drm_ioctl.c                   |  12 ++
+ drivers/gpu/drm/drm_mode_object.c             |   9 +
+ drivers/gpu/drm/drm_plane.c                   |  35 +---
+ drivers/gpu/drm/drm_property.c                |  44 +++++
+ drivers/gpu/drm/mediatek/mtk_crtc.c           | 222 ++++++++++++++++++++++-
+ drivers/gpu/drm/mediatek/mtk_ddp_comp.c       |   6 +-
+ drivers/gpu/drm/mediatek/mtk_ddp_comp.h       |   2 +
+ drivers/gpu/drm/mediatek/mtk_disp_ccorr.c     |  88 ++++++++--
+ drivers/gpu/drm/mediatek/mtk_disp_drv.h       |   6 +-
+ drivers/gpu/drm/mediatek/mtk_disp_gamma.c     |  68 ++++++--
+ drivers/gpu/drm/mediatek/mtk_drm_drv.c        |   3 +-
+ drivers/gpu/drm/vkms/tests/vkms_config_test.c |  70 +++++---
+ drivers/gpu/drm/vkms/vkms_colorop.c           | 110 +++++++++++-
+ drivers/gpu/drm/vkms/vkms_composer.c          |  13 +-
+ drivers/gpu/drm/vkms/vkms_config.c            |   5 +-
+ drivers/gpu/drm/vkms/vkms_config.h            |  29 ++-
+ drivers/gpu/drm/vkms/vkms_crtc.c              |   6 +-
+ drivers/gpu/drm/vkms/vkms_drv.c               |  10 +-
+ drivers/gpu/drm/vkms/vkms_drv.h               |   8 +-
+ drivers/gpu/drm/vkms/vkms_output.c            |   3 +-
+ drivers/gpu/drm/vkms/vkms_plane.c             |   2 +-
+ include/drm/drm_atomic.h                      |  20 +++
+ include/drm/drm_atomic_uapi.h                 |   2 +
+ include/drm/drm_color_mgmt.h                  |  61 +++++++
+ include/drm/drm_colorop.h                     |  25 ++-
+ include/drm/drm_crtc.h                        |  27 +++
+ include/drm/drm_drv.h                         |   6 +
+ include/drm/drm_file.h                        |   7 +
+ include/drm/drm_property.h                    |   5 +
+ include/uapi/drm/drm.h                        |  25 +++
+ 36 files changed, 1109 insertions(+), 175 deletions(-)
+---
+base-commit: b96bcfba104c65db41378a04f5ccac186f79578f
+change-id: 20250730-mtk-post-blend-color-pipeline-498e1a9cc53e
+
+Best regards,
 -- 
-2.43.0
+Ariel D'Alessandro <ariel.dalessandro@collabora.com>
 
 
