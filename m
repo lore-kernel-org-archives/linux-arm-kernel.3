@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66F33E6B26C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 01:23:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4922AE6B261
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 01:23:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sSSAU93OGIDl9bp2vRZvZOVWUXGkVZhgxCUHmOxfEF4=; b=T1tAnk9WDV7dm3kjGvsG00w01X
-	G/t5a7Ir4TwRhpr5pSbErB3WEk3KHOxwaWZzUTHSKTu9hVd6nkn8Wkd+LO67NbT5LyKFHtBDQ3H7B
-	3lGLgyGk3B7T9eYsxnwSeG8rnfp8ursIPqCFZj2VMQ7WJN6AkTFAdK/3VkNE8ekoiDck4kriWBLri
-	A+cQHAq4VMWasz0B3c4CFkysrHI8kz0+pe7Smj7RHLU0m1oM1Gjd7mHumboD5VQ9DLSD+2skkVgDu
-	o7JGxkK+U+IpRDolb5TtZw9IaxBom0cIclNJOZKc/rPAXGIw/LLl9g/YzpryGMsIk6lj82aKaHNh+
-	rPNlEr3Q==;
+	bh=lZY2ScmbYPT07jCEDx9Ax8+p/WTKhTCSS/exmiQPSko=; b=LfcRMyJmJ8KqIpklJfb3TjLpsI
+	ZFnVXK+aWBU3hLM8fC+5FUgd3ZZdKAEtfPBDo0ajkLJxmbE7qPUT4iOYW7UebaZBD7OD9ZoJrXMLk
+	kDLMwy0vvW0+p2c51PYUaIwb3lzez7AifJ806QUv1a2STM3oU5BBYRYOGW+x1Ox6LZA1x1OodW+9R
+	npUmlvMZ3RKg8YsXkOFRNg+8ms+GkFVFKAleZkq86kp9//usxrxHpgjqb4giIpYgWyQlJfH6g7jpi
+	0pcTAZbZQq4T3kaFlO2wRDMZUBfntw7cAAr5WulkhCN+uY3Iaq+doBUejVQvAMIvQgamx8QoVxcMZ
+	IOLX5Tyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXr76-0000000EMIU-2Uqy;
-	Tue, 23 Dec 2025 01:23:00 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vXr77-0000000EMIy-0KQ5;
+	Tue, 23 Dec 2025 01:23:01 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXr6r-0000000EM3E-0PkN
+	id 1vXr74-0000000EMGI-1oAB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Dec 2025 01:22:54 +0000
+	Tue, 23 Dec 2025 01:22:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B8D1B43803;
-	Tue, 23 Dec 2025 01:22:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B75E5C4CEF1;
-	Tue, 23 Dec 2025 01:22:40 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BCCB26018C;
+	Tue, 23 Dec 2025 01:22:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8F451C19422;
+	Tue, 23 Dec 2025 01:22:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766452964;
-	bh=nKbwSwJUawLfLfO+eAl8l5ECEVYhA/SyxKS3n4Kg7RI=;
+	s=k20201202; t=1766452977;
+	bh=QalGDOMHjOiQjvBbbedaaYeF4HQ2DEwgjsr/uOC9S0E=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=U/waK+epxGtWLeXIBQn3Ty2yXnCqVXgAzu2zC+vmW+VPzVwP3Qx2tnCRWizotJEa6
-	 00FUhw0DrwiyIE+Qli2lH+DzOEqYXRyZcY2OGL4m6LPw3Vy8l+yoVnNOq1soPlxhot
-	 g2gffacx9SivdiSS8jFuJUFOSDSN1uGe6UPIfYij9wrEuwMIIJObDTw0Sai10+yJN7
-	 Pk/JIcg8E8WyYBeUT7k5tzm6L50RcNXj8PnoiuxRodO52Fxclq5VlGRaBdkhFO1SRb
-	 lzRF2CRN7FdAP5m/FBK+uviCsLQ4uf6wAiPHvCygzNIi3uvNgjEr8yBEnqpNrsDYrB
-	 m0+VyrgIhP7lw==
+	b=DZraqkfX93bL3Xevfi+qsnXNb9OcIWXRZQqAiD/HWbASFR2KJ7RdKD1rEv7n7MbM1
+	 VQaiOHb+FuPb2T/w8k0YpWl1k0JSjS+jIv7aPB0q0msMJ3/uEwTG1fCHrKViOkXZ3w
+	 PwgG97CyAeYu9nxQjl6JuX6xjRH4n4qLAVvp+duMIaUe/3QQ0nW4ICDp7iBtJocvFF
+	 lhQxOM96DR/WzMJ49v1HYaqDuuZFE8hLF+NuEyxowNv1tG8D6zppzXmyZsUMKL2ysz
+	 MCkgjGZuzUMIvqVx0ikJ1gUxPFcGAPu9JhKsl/8mKULjtNs8dpS1wXUvsIZpBanlwK
+	 Vt/tO9EKzucgg==
 From: Mark Brown <broonie@kernel.org>
-Date: Tue, 23 Dec 2025 01:21:10 +0000
-Subject: [PATCH v9 16/30] KVM: arm64: Support TPIDR2_EL0
+Date: Tue, 23 Dec 2025 01:21:13 +0000
+Subject: [PATCH v9 19/30] KVM: arm64: Provide assembly for SME register
+ access
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251223-kvm-arm64-sme-v9-16-8be3867cb883@kernel.org>
+Message-Id: <20251223-kvm-arm64-sme-v9-19-8be3867cb883@kernel.org>
 References: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org>
 In-Reply-To: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
@@ -64,20 +65,17 @@ Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>,
  Peter Maydell <peter.maydell@linaro.org>, 
  Eric Auger <eric.auger@redhat.com>, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-47773
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3465; i=broonie@kernel.org;
- h=from:subject:message-id; bh=nKbwSwJUawLfLfO+eAl8l5ECEVYhA/SyxKS3n4Kg7RI=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpSe6OmAHAqwGrTwNHiYW/k9eyKKBOSHAc//E8p
- irmzvJrZx+JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaUnujgAKCRAk1otyXVSH
- 0JcpB/9lyY5vhfu0MpB/kSRWge/e+OfzF6Ac3Qb3qg/WMWoXwhEHkRWTVtFajpo0Vc8spi3s6v8
- d0gwBsdcdU5ra9Nb8yziHD7WeaeqU2XaupIAEcIc5UjMHHBT/j7YgGAf0FvWUWFhg2HRJ9Sw1VP
- GEv6hL6koKqkPmS0MqMuMWjHY8lufURynIIozFrkwwPZrlLwSThIdYJCmJ6t/A28RtKLAf2aFNW
- k8heGHxiisImOluv1kWUrpu22u6J62eh6A1ahp965I7KeiBam+AN8dmPv8RJPwvP1lOFjq5wsJZ
- /1C6kbZ+whSUbLCNn7kicSnl5dmw6amQnyZOMPF7TIbuFL7/
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1851; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=QalGDOMHjOiQjvBbbedaaYeF4HQ2DEwgjsr/uOC9S0E=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpSe6Rm6UAk60DHDfEFq1PtHTHsczXqVLJt7lIW
+ mXsBgcMvg2JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaUnukQAKCRAk1otyXVSH
+ 0IcHB/42RHGmQOW7bcb0Ca/kXpI+DpixoJ3o82LwO+zziSgSoIRMBGxX2S3DE8strN3QI33ylPX
+ HvYQ0PrSI7IyZa9DMk2bIQzKIOKyg2tDb9maQm6iPGySwTUIKxmMM4Io3f8cY7+mz/KAL+5NnfL
+ o+XpSaXuu9W1cqk10ObSgPh+ohdHbOkP2Sl10iVeEITpcgUEDtmeW9aBkeUSAccNqbyrBRSHSGk
+ MjvN4/GST/Ef9J/mFebLrus44Zo6fFqTIgURWE8DwoMiogYmpMjGAOlaMLEYI/E3PUTjXxl1XC0
+ jZphq6h63+BpNT4S0/vSe2f4sYCVmZimpIx8Q709gUoNRcWs
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_172245_226684_F1E22618 
-X-CRM114-Status: GOOD (  15.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,88 +90,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SME adds a new thread ID register, TPIDR2_EL0. This is used in userspace
-for delayed saving of the ZA state but in terms of the architecture is
-not really connected to SME other than being part of FEAT_SME. It has an
-independent fine grained trap and the runtime connection with the rest
-of SME is purely software defined.
-
-Expose the register as a system register if the guest supports SME,
-context switching it along with the other EL0 TPIDRs.
+Provide versions of the SME state save and restore functions for the
+hypervisor to allow it to restore ZA and ZT for guests.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/include/asm/kvm_host.h          |  1 +
- arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h | 15 +++++++++++++++
- arch/arm64/kvm/sys_regs.c                  |  3 ++-
- 3 files changed, 18 insertions(+), 1 deletion(-)
+ arch/arm64/include/asm/kvm_hyp.h |  3 +++
+ arch/arm64/kvm/hyp/fpsimd.S      | 26 ++++++++++++++++++++++++++
+ 2 files changed, 29 insertions(+)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index f24441244a68..825b74f752d6 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -448,6 +448,7 @@ enum vcpu_sysreg {
- 	CSSELR_EL1,	/* Cache Size Selection Register */
- 	TPIDR_EL0,	/* Thread ID, User R/W */
- 	TPIDRRO_EL0,	/* Thread ID, User R/O */
-+	TPIDR2_EL0,	/* Thread ID, Register 2 */
- 	TPIDR_EL1,	/* Thread ID, Privileged */
- 	CNTKCTL_EL1,	/* Timer Control Register (EL1) */
- 	PAR_EL1,	/* Physical Address Register */
-diff --git a/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h b/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
-index 5624fd705ae3..8c3b3d6df99f 100644
---- a/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/sysreg-sr.h
-@@ -88,6 +88,17 @@ static inline bool ctxt_has_sctlr2(struct kvm_cpu_context *ctxt)
- 	return kvm_has_sctlr2(kern_hyp_va(vcpu->kvm));
- }
+diff --git a/arch/arm64/include/asm/kvm_hyp.h b/arch/arm64/include/asm/kvm_hyp.h
+index 0317790dd3b7..1cef9991d238 100644
+--- a/arch/arm64/include/asm/kvm_hyp.h
++++ b/arch/arm64/include/asm/kvm_hyp.h
+@@ -116,6 +116,9 @@ void __fpsimd_save_state(struct user_fpsimd_state *fp_regs);
+ void __fpsimd_restore_state(struct user_fpsimd_state *fp_regs);
+ void __sve_save_state(void *sve_pffr, u32 *fpsr, int save_ffr);
+ void __sve_restore_state(void *sve_pffr, u32 *fpsr, int restore_ffr);
++int __sve_get_vl(void);
++void __sme_save_state(void const *state, bool restore_zt);
++void __sme_restore_state(void const *state, bool restore_zt);
  
-+static inline bool ctxt_has_sme(struct kvm_cpu_context *ctxt)
-+{
-+	struct kvm_vcpu *vcpu;
+ u64 __guest_enter(struct kvm_vcpu *vcpu);
+ 
+diff --git a/arch/arm64/kvm/hyp/fpsimd.S b/arch/arm64/kvm/hyp/fpsimd.S
+index 6e16cbfc5df2..44a1b0a483da 100644
+--- a/arch/arm64/kvm/hyp/fpsimd.S
++++ b/arch/arm64/kvm/hyp/fpsimd.S
+@@ -29,3 +29,29 @@ SYM_FUNC_START(__sve_save_state)
+ 	sve_save 0, x1, x2, 3
+ 	ret
+ SYM_FUNC_END(__sve_save_state)
 +
-+	if (!system_supports_sme())
-+		return false;
++SYM_FUNC_START(__sve_get_vl)
++	_sve_rdvl	0, 1
++	ret
++SYM_FUNC_END(__sve_get_vl)
 +
-+	vcpu = ctxt_to_vcpu(ctxt);
-+	return kvm_has_sme(kern_hyp_va(vcpu->kvm));
-+}
++SYM_FUNC_START(__sme_save_state)
++	_sme_rdsvl	2, 1		// x2 = VL/8
++	sme_save_za 0, x2, 12		// Leaves x0 pointing to the end of ZA
 +
- static inline bool ctxt_is_guest(struct kvm_cpu_context *ctxt)
- {
- 	return host_data_ptr(host_ctxt) != ctxt;
-@@ -127,6 +138,8 @@ static inline void __sysreg_save_user_state(struct kvm_cpu_context *ctxt)
- {
- 	ctxt_sys_reg(ctxt, TPIDR_EL0)	= read_sysreg(tpidr_el0);
- 	ctxt_sys_reg(ctxt, TPIDRRO_EL0)	= read_sysreg(tpidrro_el0);
-+	if (ctxt_has_sme(ctxt))
-+		ctxt_sys_reg(ctxt, TPIDR2_EL0)	= read_sysreg_s(SYS_TPIDR2_EL0);
- }
- 
- static inline void __sysreg_save_el1_state(struct kvm_cpu_context *ctxt)
-@@ -204,6 +217,8 @@ static inline void __sysreg_restore_user_state(struct kvm_cpu_context *ctxt)
- {
- 	write_sysreg(ctxt_sys_reg(ctxt, TPIDR_EL0),	tpidr_el0);
- 	write_sysreg(ctxt_sys_reg(ctxt, TPIDRRO_EL0),	tpidrro_el0);
-+	if (ctxt_has_sme(ctxt))
-+		write_sysreg_s(ctxt_sys_reg(ctxt, TPIDR2_EL0), SYS_TPIDR2_EL0);
- }
- 
- static inline void __sysreg_restore_el1_state(struct kvm_cpu_context *ctxt,
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 5c912139d264..7e550f045f4d 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -3504,7 +3504,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 	  .visibility = s1poe_visibility },
- 	{ SYS_DESC(SYS_TPIDR_EL0), NULL, reset_unknown, TPIDR_EL0 },
- 	{ SYS_DESC(SYS_TPIDRRO_EL0), NULL, reset_unknown, TPIDRRO_EL0 },
--	{ SYS_DESC(SYS_TPIDR2_EL0), undef_access },
-+	{ SYS_DESC(SYS_TPIDR2_EL0), NULL, reset_unknown, TPIDR2_EL0,
-+	  .visibility = sme_visibility},
- 
- 	{ SYS_DESC(SYS_SCXTNUM_EL0), undef_access },
- 
++	cbz	x1, 1f
++	_str_zt 0
++1:
++	ret
++SYM_FUNC_END(__sme_save_state)
++
++SYM_FUNC_START(__sme_restore_state)
++	_sme_rdsvl	2, 1		// x2 = VL/8
++	sme_load_za	0, x2, 12	// Leaves x0 pointing to end of ZA
++
++	cbz	x1, 1f
++	_ldr_zt 0
++
++1:
++	ret
++SYM_FUNC_END(__sme_restore_state)
 
 -- 
 2.47.3
