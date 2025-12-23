@@ -4,91 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B095DE6B272
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 12:09:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 467F0E6F084
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 12:09:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vvoXd0olczu9y6nMznlZ+Q9E5vlmItS5Dhf1dTQ+L50=; b=l1+y/A6mxoSWBfkYYp/OpUw2fK
-	2uVbRIwbFi62LOGGVf9cv72vZbsGar3E/jXcqphuqOllQ2sUZL6QgXy9OHgn0MtHbM+H/v0Zldz82
-	BalPLwC0eods6Rwe4J6sr85sH4RC5RJxhoXhlbox5SAI7FEqN89GhAhNXxqUhEt92dEo0HL51rDYm
-	dhWfTQJMRvyK2WrbtHN1aT7g1uLkLmzAbEYq0jMORNGDaUkQImhWrCQlRtFKVxoRXo2TPqKd8tEbs
-	rz7sh2FG0FoR7CYCJRDpmpFmzjLXR+TwCdSaAhuWkqliNmtSvZpuU1rfy+6CvcDp17ctTePr34w8L
-	6qhusN5w==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=XA7347+QYCBWw9CqEBlEl7aFZAF+AwSB+q4FGCY9RTw=; b=lXWrBEj7HtgmbwACtVUobUw9LI
+	iSU2t9X56OYt798eWNga367Qb/wQeXdd6rUWRwqMboVIyl1y2TmcrwNYkXI2w40J4DcD+ATi5P0aF
+	LxYBmQ5M5kd2xPDxpw2pGu253enq/N5R0Ndmfqd7XGvgmzaUiAilnq7LnrvP1Vkc7EEiR885KbHXZ
+	SaO2BxX2DPOQU/4CqqtLLJR6P1bacH1RYpBcUFeK8ZNgtOM6F3T5PC0kWVND5exjynrxI45+u+EiH
+	eoaoOpj7RUt8MpWNXD3l1LSAZcOL99sBbU535Z1XJ9KLS/6evcBpCnOCTTbWf61NWaoWA+8OQU0MB
+	fbrS8WCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY1CZ-0000000FOgx-24Rj;
-	Tue, 23 Dec 2025 12:09:19 +0000
+	id 1vY1Ci-0000000FOst-2kFh;
+	Tue, 23 Dec 2025 12:09:28 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY18U-0000000FJcs-1qOS;
-	Tue, 23 Dec 2025 12:05:06 +0000
+	id 1vY1AF-0000000FLoc-2IsF
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 23 Dec 2025 12:06:55 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=vvoXd0olczu9y6nMznlZ+Q9E5vlmItS5Dhf1dTQ+L50=; b=U+KYDNaEUHfrGNKfImMM68nv/n
-	Vo1S8cVJV+qHh8OOpg7c3D6dPEdlYkYKBkKsDPr70d1pG9l2vbp4weelAki3vtF3v1tC5FQ8pfgt5
-	HuQ6zZ0j2a6ehjymkyfvuyl1+BRDnq25mfdBI+GGax6w8dRE6ExGAKIJntamm69Q8vtnxKb/H3Opc
-	wanwb4u3mCs6t+kb8t2iMG1uNrjwYhp9hnrK5vuNB4C6dF7XN+Hh1xXJVAq5ewKSSqtVlDp5LCBiJ
-	rJ/yeVW7a3LqcsWkldSxFLT2UJ8Qo+ct6n5N0hNvV0w7L6SO/SS6ZkqiaPCsS8yB/uhzL/nhm0oT7
-	0JVk61Kg==;
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=XA7347+QYCBWw9CqEBlEl7aFZAF+AwSB+q4FGCY9RTw=; b=TQEyw5GuphQM9HfFwtylZhUNQN
+	KJ9Vwkk+wS2fA3Py8EQ8GQi3womoOv6wXPI8pCoCizeYHSB6I9Kg/uVVJ9fsZN6yVZ6AJXv/UKczX
+	rjt7Y+DF+jCrZ+s3t///jGTvAmpap7ihY0tSkBTdOOtMhf39rvliSRzLwkAd8tY9/a5no1gdy3mKn
+	8SuvLrwNFT/vaCf6yo16XtC2MvcrlPWnod+zsWBSHsyLIg6G50HkJlVE9BYaosb+zXZASvM/BUdlB
+	MORfavU55U2vun3K4YwJOollzRhWxj5cTQEU+R8ClJ97oKJJXqCP59iLdCjx5Gib/l7mk1B6f8T9o
+	p3K9URFw==;
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY0Gy-0000000GgzE-0aQ0;
-	Tue, 23 Dec 2025 11:09:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1766491495;
-	bh=YBuvzt/NhTYWhzP+XmcIESOEGPy6LMoYjTaUBOofg0o=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jEOrOCkFycldj1VQlKzLPZ2QbJwhvQDjQ9yat1fYpn21EmGho3vxEKzrBIKqTYatI
-	 wqSjnv9K40+cNzQB2bqONNJEB6cXB3g1My5TnMbmFuLkROFSqxxBBrj+gu2GFpbOEd
-	 9b2U3/U8XN1BWup+cbV00mXqXJ+BuSgZQLsiO4nRgjgtErolMNBK0Dyxbunhor64GA
-	 aXFyXyDhtJjKVOofDnRzC32Xfl9P8s3gEeUJ/5Hr2UtVtwcgef74+C7j2/SYcLJlRU
-	 +/un8LadHThntKUc7/SgNGBZKMt7ceYLm4eWpDWFg759Rtk9W0IaDBOZ+/KQZ/D73o
-	 6d6/oofkxuPkQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id D93B617E0125;
-	Tue, 23 Dec 2025 13:04:53 +0100 (CET)
-Message-ID: <ddff4617-884d-4ac2-bc24-28f669104b2e@collabora.com>
-Date: Tue, 23 Dec 2025 13:04:53 +0100
+	id 1vY0Ik-0000000GhWe-2kyY
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 23 Dec 2025 11:11:40 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-7aae5f2633dso4952745b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 04:06:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1766491607; x=1767096407; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=XA7347+QYCBWw9CqEBlEl7aFZAF+AwSB+q4FGCY9RTw=;
+        b=OsGXX8ZfLTJvvDmf/aLPVgfeAzBrC3m5dgi6DX/jQE7xOySN/0mN2YcNri852U1cB0
+         esHD2fJND4uL/+ObTjCPX+ZGTNJma0IY1RUfe0ZpbNiNvAVCIjDTF+WfSo5UaF+YoFZC
+         jhi5rU3tY5Ai/2XSIyh+39Nu4RhZngkzTqY7jCcLhHpyJdfsCNuMGLcARhn2xFn8tZfn
+         90CM4PBMJkorMp2KOgLH3phbuYYAhC1Fkb0dVJv3Nr3oNmjXrjyj/G4woZojoOXg2rFl
+         ztpbs+a2LN0JKRJTH42vKrOzjoLT7tMl/9QPZdXADuG4jkHprHoDYkzJAHYNeJI2IJ9V
+         A9Rg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766491607; x=1767096407;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=XA7347+QYCBWw9CqEBlEl7aFZAF+AwSB+q4FGCY9RTw=;
+        b=ifiER4EsdV+Ke9hrmdfMfvRd3CgzGwFyxwsGCtoICwPAJCmUvEGMjMNFz/4rpDUHHG
+         17J2rdVv53wwtszKExGCyvV3cy4mgjWSFHGUfe4M2lHTnw1k2TuibpJNd1xQReNYDH2P
+         AsWEkw6QyAU8VWfQR9Y71jmMU7RSv1VycXyJDJCpTdrJwO6XxbMH4Vz+gv8SPwY9gQ1q
+         mKIwvvfy3b5/BrJIwaOvqWmuF8tElTLQl2MgU5vTo5LaJ4Gtqb+XJ3ATkJ2YktwOTecl
+         ofBfOzj69xFOeqzzkqFMPgKRx2iWBmeCxyHLE1yjP+pAsRbwgvleO82SnSj+ADLdELdM
+         mbgQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXNhWQbq4MGmWHTeRRX/T0dGSn68HNI6OF6v3CcvzSz3kvcRC6nJTLAUncRQB966HSduiIiSWiX+pll5ITsMuG2@lists.infradead.org
+X-Gm-Message-State: AOJu0YzztVB7HvnCJTqkpz8yzx1r+AxKnt/NQmtg/ZDW4uFpqMHheeFg
+	YkzsNSCaDvJp7uVcwpg4L2aac6i9r0LR2MqjzXZSCApxtOTJZIp69/VU
+X-Gm-Gg: AY/fxX7gikD3CmsMnzFl9aeQlXbjXFistcgGB68DI8gAaQA9cizaRhz4gOoWrk5rXpu
+	uaf8YMTHx8bquIKulaXk2N/qiHesT8IKCeJh6Yp6j11y+7ZtYxNEmEgF5LzU13Yskjmkm7OwvZk
+	dJ1fUAjYFooqTAyA855yxhUJSVm/JqcS98mQoddSzLVYVsTNxTJhkGSY+iARW2V/409m+QLHy62
+	N1eNEcxg1vbU5ml319WOTjcpVqS1h6Z5zBMBnsO4ehlxHFy0dqdxdAiMgJQVs4FAUQfUU91/94l
+	F1GMqGorMDj/ycB3nbOrPbrN0qCbi6RGxKwXzplYZUUoyY7S2ZhdC9Iw8UL5Jp39KOJ7BorUdqv
+	vcOGwMjjoISeQjbdgHH8SLkJtxdFt6QYg46aHH4RjQ/cI0ycUlUQWNgQs98yrINfkVeReoqyLpY
+	igURCaWkmNqOC8JQYkAjCGfzhEjgNxi0Halx0tOM9D
+X-Google-Smtp-Source: AGHT+IF4+cdeZ1NC10aAm+KwYgJMNg8RxEb/DoHAzYfPlJtcL9zq4KAq+89VulYJx3AM7dROfEcM3A==
+X-Received: by 2002:a05:6a20:6a28:b0:363:b976:8f79 with SMTP id adf61e73a8af0-376a9de5449mr12760926637.43.1766491607081;
+        Tue, 23 Dec 2025 04:06:47 -0800 (PST)
+Received: from localhost.localdomain ([103.163.65.25])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7ff7a939ea2sm13473139b3a.4.2025.12.23.04.06.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 23 Dec 2025 04:06:46 -0800 (PST)
+From: Lakshmi S <lakshmicar.2023@gmail.com>
+To: peter.chen@cixtech.com,
+	fugang.duan@cixtech.com,
+	jassisinghbrar@gmail.com
+Cc: cix-kernel-upstream@cixtech.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	trivial@kernel.org,
+	Lakshmi S <lakshmicar.2023@gmail.com>
+Subject: [PATCH] mailbox: cix: fix typo in error message
+Date: Tue, 23 Dec 2025 17:36:22 +0530
+Message-Id: <20251223120622.4316-1-lakshmicar.2023@gmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 00/25] MediaTek UFS Cleanup and MT8196 Enablement
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Alim Akhtar <alim.akhtar@samsung.com>, Avri Altman <avri.altman@wdc.com>,
- Bart Van Assche <bvanassche@acm.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>,
- Peter Wang <peter.wang@mediatek.com>, Stanley Jhu <chu.stanley@gmail.com>,
- "James E.J. Bottomley" <James.Bottomley@HansenPartnership.com>,
- "Martin K. Petersen" <martin.petersen@oracle.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>, Chaotian Jing <Chaotian.Jing@mediatek.com>,
- Neil Armstrong <neil.armstrong@linaro.org>
-Cc: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
- kernel@collabora.com, linux-scsi@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-phy@lists.infradead.org
-References: <20251218-mt8196-ufs-v4-0-ddec7a369dd2@collabora.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20251218-mt8196-ufs-v4-0-ddec7a369dd2@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_110948_312948_4D1BE512 
-X-CRM114-Status: GOOD (  24.83  )
+X-CRM114-CacheID: sfid-20251223_111138_807667_789CE2CD 
+X-CRM114-Status: GOOD (  11.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,70 +116,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 18/12/25 13:54, Nicolas Frattaroli ha scritto:
-> In this series, the existing MediaTek UFS binding is expanded and
-> completed to correctly describe not just the existing compatibles, but
-> also to introduce a new compatible in the from of the MT8196 SoC.
-> 
-> The resets, which until now were completely absent from both the UFS
-> host controller binding and the UFS PHY binding, are introduced to both.
-> This also means the driver's undocumented and, in mainline, unused reset
-> logic is reworked. In particular, the PHY reset is no longer a reset of
-> the host controller node, but of the PHY node.
-> 
-> This means the host controller can reset the PHY through the common PHY
-> framework.
-> 
-> The resets remain optional.
-> 
-> Additionally, a massive number of driver cleanups are introduced. These
-> were prompted by me inspecting the driver more closely as I was
-> adjusting it to correspond to the binding.
-> 
-> The driver still implements vendor properties that are undocumented in
-> the binding. I did not touch most of those, as I neither want to
-> convince the bindings maintainers that they are needed without knowing
-> precisely what they're for, nor do I want to argue with the driver
-> authors when removing them.
-> 
-> Due to the "Marie Kondo with a chainsaw" nature of the driver cleanup
-> patches, I humbly request that reviewers do not comment on displeasing
-> code they see in the context portion of a patch before they've read the
-> whole patch series, as that displeasing code may in fact be reworked in
-> a subsequent patch of this series. Please keep comments focused on the
-> changed lines of the diff; I know there's more that can be done, but it
-> doesn't necessarily need to be part of this series.
-> 
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> ---
-> Changes in v4:
-> - bindings: Redo the supply situation, as the avdd pins don't describe
->    the vcc(q2) card supplies.
-> - bindings: format clock in mt8196 example more tersely.
-> - phy: use devm_reset_control_get_optional_exclusive directly
-> - driver: get and enable/disable the aforementioned avdd supplies.
-> - Link to v3: https://lore.kernel.org/r/20251023-mt8196-ufs-v3-0-0f04b4a795ff@collabora.com
-> 
-> Changes in v3:
-> - Split mediatek,ufs bindings change into two patches, one for
->    completing the existing binding, one for the MT8196
-> - Add over a dozen driver cleanup patches
-> - Add explicit support for the MT8196 compatible to the driver
-> - Note: next-20251023, on which I based this, currently has a broken
->    build due to an unrelated OPP core change that was merged with no
->    build testing. I can't use next-20251022 either, as that lacks the
->    recent mediatek UFS changes. It is what it is.
-> - Link to v2: https://lore.kernel.org/r/20251016-mt8196-ufs-v2-0-c373834c4e7a@collabora.com
-> 
-> Changes in v2:
-> - Reorder define in mtk_sip_svc.h
-> - Use bulk reset APIs in UFS host driver
-> - Link to v1: https://lore.kernel.org/r/20251014-mt8196-ufs-v1-0-195dceb83bc8@collabora.com
-> 
+Fix typo "overlow" -> "overflow" in FIFO overflow error message.
 
-Whole series is
+Signed-off-by: Lakshmi S <lakshmicar.2023@gmail.com>
+---
+ drivers/mailbox/cix-mailbox.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-
+diff --git a/drivers/mailbox/cix-mailbox.c b/drivers/mailbox/cix-mailbox.c
+index 5bb1416c26a5..443620e8ae37 100644
+--- a/drivers/mailbox/cix-mailbox.c
++++ b/drivers/mailbox/cix-mailbox.c
+@@ -346,7 +346,7 @@ static void cix_mbox_isr_fifo(struct mbox_chan *chan)
+ 		/* FIFO overflow is generated */
+ 		if (int_status & CIX_FIFO_OFLOW_INT) {
+ 			status = cix_mbox_read(priv, CIX_FIFO_STAS);
+-			dev_err(priv->dev, "fifo overlow: int_stats %d\n", status);
++			dev_err(priv->dev, "fifo overflow: int_stats %d\n", status);
+ 			cix_mbox_write(priv, CIX_FIFO_OFLOW_INT, CIX_INT_CLEAR);
+ 		}
+ 	}
+-- 
+2.25.1
 
 
