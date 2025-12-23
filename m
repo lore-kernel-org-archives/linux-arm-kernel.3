@@ -4,141 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A4BCE6F095
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 15:24:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41BF0E6F095
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 15:25:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=enkE1tTZKHT5McMw/4sLoei+1i1ZWXAWJbotyOg3Oyo=; b=BhjrP99yyS1VR46NLbz6hhQFfc
-	NXN/hOfv73ZtvQvfKC9ldfjfbAMuoS5o1Royf1cHqz2pTdZUmVsoeciIwbUzLOyoUupgo9MioPw+A
-	eARtSvI4C+0MO1uBMIKCtvVRfEhYV/DGqIOEgDJyUS51RfM/CjO9UManV62U18OqxqhmFHZBGIBAj
-	IVUPGaWXPiWpte2EZtfDFAD+EKybSXOzXr6ore181rnw8HUpeoSPkQ0a41M9WyFfSMnjN0TSKMCv7
-	7tiV2kphAvpw7i9HU4OLfAlzyeZ6zPYmrXl94pqFcAhexHZRrwZDsbve9kHPPTMjZtEjssLB2wNzX
-	KUMFq68g==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i0SmkUAFgkhAyHiqKViysyG2Zix/5NH57pWSiE3UYUY=; b=mF8nJi/0kSjhFvvoR72psBrjJt
+	VyqwtCH1ky1xoHOhJsA8PQLNndqvgHaVxRcVCChs2qi4/Vzd36nTSryeFP3J8M7Qk6jb6dXlazXyD
+	J/OZveUkWPB/+c0OOgRzTi4WVgzw2AMMF/5mxvdAsT/Y0/B+ClY5eewQ9Q1qjQg/Y555xZo4IJcDv
+	te6V8+bDcrskmyow/2i6wc1cUwDdPbMmn8pOvHa4nlIKhne4SUd8hR2TkAqSahnPSNp8UDGsj5jdq
+	DC2Xy14QwwrlGsP8COMSvd9s7EXz2uthIijUDQ8dvJdUqXjK0yqPjJSiUEqAuCZ2e0xC3XIZhkXdT
+	s/GIs+Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY4Ff-0000000FfrO-1BcX;
-	Tue, 23 Dec 2025 15:24:43 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vY4G5-0000000Fg08-03nc;
+	Tue, 23 Dec 2025 15:25:09 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY4Fd-0000000Ffqj-06Bh
+	id 1vY4G2-0000000Ffyv-1Vif
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Dec 2025 15:24:42 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BNElpBJ4044542
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 15:24:40 GMT
+	Tue, 23 Dec 2025 15:25:07 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BNBRFDO700694
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 15:25:05 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=enkE1tTZKHT5McMw/4sLoei+1i1ZWXAWJbo
-	tyOg3Oyo=; b=PkJmdE2+bw2xyH3PzDA4ovUenuJLthPLkwFU097F8HyV/nexdq9
-	GCu1UJqdU9Mxvxx/nDR9K79bvnIABCMU9ghY0eM4bo4NbkwuR1xBpKOBX+0Auy2n
-	j9qZ37A+d2GiaU0Rx+f2KtXnvv86oWyQaSelaR9rIa+CKI5M694palNlgWEjybI1
-	9mi7bgahD4De1K4tvLZa+lfQS1phd5wktusvw5nZZrwDnDm0EOzhjJ4NFPlszWva
-	BbQcMxj5kep1GOBqa7/A7EBdwLOdvQPQaNu9RmDUUtMrXXlnaNbpGsL3g5+gGtqk
-	kHeWW4mxXyvXnzRGYxw7TwsfLdTOyshLWOA==
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=i0SmkUAFgkh
+	AyHiqKViysyG2Zix/5NH57pWSiE3UYUY=; b=ZtAil2yus2oec1vAHCtAMveo2+3
+	LQkTOmZ1EA8lVAwPPTKzQEPt5Ir9hd277yYtyggHZlVrmJLLCkrhi6qmyBlTdcAC
+	RRJMuUkEJbMo7FnYS3VBx2R/avumunYTyjUyanmhY8c4jcnjUh5hglEYlU54pF8E
+	TwzLTaRQxQfvQgGkrGEkWQcVmlkBNXs/JIWVBHLNzzEbAnO/i8h/skZAATiFfw8y
+	yT3NNribNRB9Yufu3S8SpM5C/gy6S7Nbepe3T0j0BrBNnbHfb213P1V92txG6Rx/
+	r7qOYEcoxbh/TM33j8SUYLhOZ3MyP0F+1wrtkUUVz+jhl7/zHOCsEnbxMJw==
 Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4b7cuhb2qk-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4b7t7jrmum-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 15:24:40 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4ed79dd4a47so109151941cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 07:24:40 -0800 (PST)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 15:25:05 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4ee09693109so97236181cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 07:25:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1766503479; x=1767108279; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=enkE1tTZKHT5McMw/4sLoei+1i1ZWXAWJbotyOg3Oyo=;
-        b=Ef6Xik4ixjURcryNLC0cpkbxAogLHNkg6hLM3AstWcHglnIrdREK1VuQ7uTgdXuL0e
-         TRNRxVJ7Wnhg7t83cX/nueYgMDTjAC0BXsjUIeyxc3R6bLmsLbPPVyCrIp/3U8ChZTuA
-         7QWNtlg6addIk+ZBGRYtx8jfDqeLATFUqCsUvebbHdeBUZmTMSemRPo4D/cQBfx8eGcU
-         dxTryRyRW+G6lgqB2zDX5SQsHaof4v/ZKIjoczxhqavyBMfij77og6n80ph6oM43z2lw
-         qJLkrpAp/Bn/GCGme9U8hXIzyotpi1ehYMzpM2j5DFAieE/OKmMwp5R2foy/UzB/4RHA
-         cg5g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766503479; x=1767108279;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=oss.qualcomm.com; s=google; t=1766503505; x=1767108305; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=enkE1tTZKHT5McMw/4sLoei+1i1ZWXAWJbotyOg3Oyo=;
-        b=JRxkNqFXMjzVAuJYTzB0Wgqeup61C5xsT4DJJEUbgu4CxmbJvOXRr3J6doiJDvZ4+/
-         9CGaupZVxSLi6R8ez5vvmptbDGThL0Nz3gBhgCiYPzi4Lua6NMd4RsaG+NzHlV6HNeE/
-         /0oMYYI3B9tgzcHYQ1s6Z7xosVFRgrVHnkv4getlaohZKbQNcug+HjilIgpWCJ7UD9YK
-         BF4vNl0gCjbZ1cFDsGqobCSuS38KARveZqsZlphHI91CxHblDo5jNUCu5Oxp/zR64aov
-         ZjosxelfIJutNV/MQKwRPRpeVA5JAq0LszCJReeGFl8Pbtk87qW0KUbc3YyTU0CZyQv7
-         jiBg==
-X-Forwarded-Encrypted: i=1; AJvYcCV2K7/7b5ftvEJze72MOHYQRir6kwdWAvE2A8FOgMeLfkMhW1Nd3dMUpPl57wAcowqb1Uv/1YLaveVikP51XCHF@lists.infradead.org
-X-Gm-Message-State: AOJu0YwdRT8PLnhIqFZ/jMYJJfj3+tDv6mRne9vf1J3g0bt8wb1re0XT
-	IymGW+mbThjL+GzWl+Jw3zRn4yuQDQ5qlUtQ0Dna8mUsXjgKyDNTNNYkyF4+GLdINV1xqwTxuzA
-	M+fFmcqKYWexqHl6dRK5tpXsNIMW1psSLYTGjawULCgX3i3rAz/Owigp5eXCZTdo9xXfofvVamC
-	64jw==
-X-Gm-Gg: AY/fxX5500E3CmXbpgt9EtdswvAQrPLonqGwexKUtvJpN89hXQzL+CVwvet7aaroVKd
-	3qFDCdYad4DwTalP9MZxoWJQf31uSaSqbNgOCwsQxjeOhwC+Tcv40uZSJ6bLQEVKJBKbdoreHTN
-	gYjcJ7HYIpVCKh4WGXYO9ifVs77ueGEi+VOOlIi2RTNImawXF9YMNj3V+f8wiWv9bvUjLJZLkJ7
-	8oy9dmgmh5HxfOzN89jJ83HmivcqUFPdkvggks4Lw1zdQJQEgpuzUXYhUeOZIzj1vprn+DOwnbx
-	BSxuk4Bev+MNY9WhUzK6Gj05RO3bnK/bZGaFeFfK5klympf1gTwWXguHcqs3MrL7CW1sveqAn4Z
-	QMWgnIXpB2Jr2UTfVj3sqaQ5I8Q4fRaa1Lt4o7umoQs4suAXGG2wx6X5HAIMqNfLIuoo=
-X-Received: by 2002:ac8:5908:0:b0:4ee:1c81:b1d5 with SMTP id d75a77b69052e-4f4abd79529mr259722601cf.46.1766503479345;
-        Tue, 23 Dec 2025 07:24:39 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGFCw4vHCvah2o4Cv9Nn1hBede70hg3oYyiodU1ijSIBMwr8RVRLddE8a/R3rPskB6gW64UdA==
-X-Received: by 2002:ac8:5908:0:b0:4ee:1c81:b1d5 with SMTP id d75a77b69052e-4f4abd79529mr259721981cf.46.1766503478728;
-        Tue, 23 Dec 2025 07:24:38 -0800 (PST)
+        bh=i0SmkUAFgkhAyHiqKViysyG2Zix/5NH57pWSiE3UYUY=;
+        b=ZAan9DTiCWj2AWTnNjKj+J19fhXdHEYNmmCxBlXL7demIvtTLF5u58deuRYy8fjzcw
+         4p/OcTLJ17q6K07SL1OAgXg1HWNddejHMLSF0YK65MW+z0pTHl6bsPRA+7cCIwlBcakS
+         KYLTDeeCshbz7Firicrw62SiblHe0/ctUZN9ADfqm5HXo73aE2ASUfNY9NO6JhcYrrF3
+         gYBnqdGYsysb6ioXJkVz2IdKtjPkb71bAOTI0U2wC1VFkXfbHR3RsXAjBKzo/OlOh3lK
+         MwIkO/TADx2U2Y9BNpUOFjdipQDBw4qt3t5tRn6xKRLQXeHCgtiQSbRa6RRG+Y5u3FXp
+         KqaA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766503505; x=1767108305;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=i0SmkUAFgkhAyHiqKViysyG2Zix/5NH57pWSiE3UYUY=;
+        b=i3ZV9TW/GraMjsG4viw5D6caB4YMhYtNo6Bxoh+81+NnX6U7eGHCJHDzbY9IKowd28
+         yNRTYpxOSus42SdIyDy1Pl8yRZlkPo0EHONpH42ox+lxcOGAwZlBapRzhqbhHrKEB5J8
+         NfBxgsBaCljiYGaN7lU3iEpAMZLCpYLCzpMKLGxgAzaHFsSbIrqyDW41K39WXKjcWjgy
+         mMRD5MKM4Y7QLh51yVZRJal4Seayrp7lHw1h/7ebQ9oXRoUMP8cOLDQZ+lx40jHuIakq
+         z6voUl8TIhEwutDlHUWwySlzAGSIK1P8AyNQHWl8D388Jvam+ZW/YEnuxu20RiqX1n1A
+         /M6Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWSsCv3tiNoNxU6SBTfw5UZicIVIfo71mmBXJ3Ya+v8yVyNsQe7MqcxNtofDF2CURUWy4fGA3tnzdgbZVkK0hma@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLABrBe1d/3rFu7gWEdfJ1/wFHkTrsaBdzR9r5/3iHa9+90wS3
+	O31fy5P4Bvbm62oQh+J44JPLylEdvkkjuLHkyPNbFMU4x+VE6hXm3CyS/XEHH2ZusncoRUN8efc
+	jk74Qg+oiXIxoUo8zQ50LjCmeimonWpvvMXTAFjZa3RKH4JUkyybJ0pmaxN0O5ee4Htu0J2siaq
+	SYiA==
+X-Gm-Gg: AY/fxX6ETjVb366luQTK8wixdqetBM0Y7j46OCyf5/2dV0ZuR7I+zkrZrl3vGfX7uCK
+	OsMMDS+KvECmb6xvx6xPFqk5SQNAFw5hxh0lWmFy1NqgXiEBdNVEL9xWSmR6J4JxTtg+YoZ4cXk
+	cXlP0CQcWN8831MNJufynwOxkfpHybmMsD6cDTm597aIDULFjaSA7+/qeSDqohoRegy3hPQ0+mC
+	0WvDKbPskUwN/9zlEIzzNxHgFq7fJbOw7eL6h0VT/ARBB/JVuKMN3ULnD+S288vtcILp+OtBkwt
+	gsSP1Hjjy71YcrdzSvAiz3qaXA3X8BwwSzpIhIvAgxvFKdOdVI7vFWdH8RW1NEyQROnKOfB+vzS
+	nePDuMAYAw/gOFO41NElleiKwJTrAgZDPI21SqHG/E0rDeWZ5FwV0HplkJmvBgWzZNwY=
+X-Received: by 2002:a05:622a:4d0f:b0:4f1:cd72:f22b with SMTP id d75a77b69052e-4f4abd98192mr229113111cf.52.1766503504790;
+        Tue, 23 Dec 2025 07:25:04 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHQKg2fdKfqVLZoHQeyi9qFrIKKVLzKMNIicTx/TH/uvkxikBkD5cfE7b2Zi1xO43MhF9psxw==
+X-Received: by 2002:a05:622a:4d0f:b0:4f1:cd72:f22b with SMTP id d75a77b69052e-4f4abd98192mr229112611cf.52.1766503504385;
+        Tue, 23 Dec 2025 07:25:04 -0800 (PST)
 Received: from quoll.home (83.31.98.88.ipv4.supernova.orange.pl. [83.31.98.88])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8037f3ffbasm1455311366b.61.2025.12.23.07.24.37
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8037f51144sm1465699166b.69.2025.12.23.07.25.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Dec 2025 07:24:38 -0800 (PST)
+        Tue, 23 Dec 2025 07:25:03 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>,
-        devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+To: Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Vincenzo Frascino <vincenzo.frascino@arm.com>,
+        Liviu Dudau <liviu.dudau@arm.com>, Sudeep Holla <sudeep.holla@arm.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
         linux-kernel@vger.kernel.org
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH] arm64: dts: axiado: Use lowercase hex
-Date: Tue, 23 Dec 2025 16:24:33 +0100
-Message-ID: <20251223152432.155299-2-krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH 2/2] arm64: dts: arm: Use lowercase hex
+Date: Tue, 23 Dec 2025 16:24:59 +0100
+Message-ID: <20251223152457.155392-4-krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251223152457.155392-3-krzysztof.kozlowski@oss.qualcomm.com>
+References: <20251223152457.155392-3-krzysztof.kozlowski@oss.qualcomm.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=935; i=krzysztof.kozlowski@oss.qualcomm.com;
- h=from:subject; bh=vmXsaiTHEm7r8KkNcYV1iQ7TVZuwQ8i+4gOM19/Azt0=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpSrQwtaOKEyi5tBHtwrJN3zIE6Ws9qt+KgU3Y/
- PY/1P7bNEGJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaUq0MAAKCRDBN2bmhouD
- 123tD/9sq2XZEs25PeHXMn0/3GZeIifNVJayA4pM8k+JW01OUyq7H4hVZtGBmzhkKjtp/H4Gzfn
- pmk6CimFC3xQSB6iYPRe6jp608K3XO3EI4g2Lpc0qxhZwZjwDUihVUY4Mx6+2nHy7I6QUS3BBUU
- cFql07OznDKHSeir7fWm0FqsXLAr/zaloyYxvrzxV7IkLNvAfOaJhVp0kFewsib6c10P2yt4o2M
- c9jqkpv511HtyJu4MBlcZ/aJ0xKorowtuVCCvcIt6nF48Or4C4ikHZKwFACODgxGEyc7j8SVjJk
- zOszTJBqkCKFgTpvdk0ZiD2FCSQ0pJ7xDZYo+NsWDwfAiY0+tbGLVNGENibgI7guaqLokJdM1Xg
- p0G1S1K0J3bWe/o7sQUbamd8ntbiHpmW3DnaZ0dFFEPc6SMV1kP2F1GrZ1dICPS92YtVyxX6A4C
- CnJ1TRq0PQj5nKmFx2n9L+Y+BeIca670Jo3SHNJWKcTekWsSFlwoMXRwBSlD4tV41am1JkhKsBb
- 1B1K1kUy2KnUdkopoCsMcevs4HTOqInZ/tGjeVyDzgHuRyhk2mARzjed+5yCObucitf50n/jL0m
- j4HlxLGxaZabXoqsI+hdh0jejS93e51id+lReED/HFMrcSZP3EmW6BQLjq6buUIUFfvV1S0S85i tyO6TzfvKsL2jiQ==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2477; i=krzysztof.kozlowski@oss.qualcomm.com;
+ h=from:subject; bh=kfBs5umcn6wnNbBT9wHQdh8n1yg5yAtvW9uywSpZS88=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpSrRKuVtD4PeupYzv8wV3yix9NoyTh0U3uyyR9
+ WJvY6FWsYWJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaUq0SgAKCRDBN2bmhouD
+ 13GFEACBacz1GTOMxn9uQJF7Bl4khj2URkqSDl1gW2lUSFVbmXbDJMIjBH/li8tlow34jtF5D/k
+ IL/lx1HZg68Fxvn5pkEXS1cPdq1vnUftBWQotm0amMkCHUPJeUEGIrUTExNRrSXraJZdwwwBtK4
+ EOYv/3uq0aMoQHan3vas6vSjHIwXQpkzuefsjvXWU6qZd2dssfoIKAvjqVTOy6EFLnu/e9PGDyK
+ XMs1mBg9b9iMokxiAhCUHYRYtC3gR24HiiU9Z3SEwWoH59BiRZ+5uDVnvuP0XXe0EcSQg4lRwbr
+ HzpWzMKlzEpk2tFXSxmHZR0QlejBs23FcubtuQR/lxLh15EldExlBra7KDQVDrizytQlSldbfQm
+ P+OerugMMO5FiSJp7It+anDGABAJUPdwiY8OGqxErgMeOjiroGhF1GNzEi2KTPI4wJ2ek9J0mEG
+ POFyOPkRTduUUqkmX5MJQPhKag46UJVouTkggValIPe71bTdr0X79tKYNJlKa/WBRYBXjlr8W2t
+ iexqemZwZEMw1uye2PuQQi7eXefXBj/af8ii399+KgOylMljn0PECZvO9AoyKu+myyBPcV64vi6
+ Nk0Pci0SX/8x0pygNLrD1VC/OJLxpXDWoz8hsXCD+FRwlvaYvucxK1SMfBQj5fdvjqn/ODxRkl1 1BNWhzu55rvvenA==
 X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: 17Lw6isU9PQS3U-mICSWA6fASmyeaGpT
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjIzMDEyNyBTYWx0ZWRfX9JN1T2p4xnYk
- 9V3+bBqMD/dHWXdhP/OKJ3BuWD1X0flqZiPKbGYcGRpC79m/an2Y9odC4Ublt07Lv40MGDruyxZ
- uJq0jT/NtAPnO9Mnfw9yPwzBRu1U7R83kguQ59HdyWFP1C4R+RzUCa0mcWheSEH7+eEyL3uqrX+
- wpBmUArfeDYpqcVHEaEqUEEk2juAgtFgfTUjSzJwXvYSYJ8pfZm5y7crUHcnWMPBCN/wy0p4Az/
- OPB07lihj86jRVNnFDKuCOrM33ft72R+oPBL+TCOOOMuzwN7KKkbNZ6S/g1I2iWx+ZR0kRbVU7Z
- DnQf3t9u8oRfnMXpUBTZiHKmvhZxFpiOO6pA5aU14wpgYAUcHGQGBiT3IRQlLwSq/VMt53f9xU8
- xKpnvrNHtgbM3iyvncuk3FIC9R/uQhEwGg6N0oILdCM3BfoeZGJ9JXYGcgESrBP66NFx94HjTge
- nXGUBS5m6+ZQM1AsGUA==
-X-Proofpoint-GUID: 17Lw6isU9PQS3U-mICSWA6fASmyeaGpT
-X-Authority-Analysis: v=2.4 cv=NZDrFmD4 c=1 sm=1 tr=0 ts=694ab438 cx=c_pps
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjIzMDEyNyBTYWx0ZWRfX+39tVFPmlf3V
+ oGe6ILnr2WTDyp5BqKIJoIjjCqLBVMJE2LDgOR1OzpR1JgjAgOPjYmbtThr4iV5X7nHASjqH/Z3
+ dP5DmtTNDTMTaz+JrcO14vF79go5iy0HBVOcaQCcjHjorZje7m+oGoVdajPME7hFUj9GRY5lgOx
+ lXObLVmVU1kJDvfxyz3oDLQPijLZq4FH6CvKir+2dk2K80nYH+UxKcpkkcK9BIbhT/7OEUfdCFW
+ dw/mceRO/rgbG6A4fGBdEVq1Vwzp4qZipoparS2iUy2teM9631uF8/nWg4IQDT+XXdsCmG8TY8N
+ 0auiCBGhDufpWKPgiFFdnsTDQ/J5r2s2EC4t7rwWoUZUp6g7d4VYvSAjSyAmWJsTooW561fEIeE
+ cKPY1zq5gWTSnmNV7/alc9cMoZpKJk2Qcwq5hW7v4r0aTwxcxbMHhZA1YOvAgZiUVSRU2rislHf
+ A8FcnhmHtEt2+kiI55A==
+X-Authority-Analysis: v=2.4 cv=IvATsb/g c=1 sm=1 tr=0 ts=694ab451 cx=c_pps
  a=JbAStetqSzwMeJznSMzCyw==:117 a=qe4J/qXhiWkb1JZGYKbLYA==:17
  a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=EUspDBNiAAAA:8 a=O68X4J5GT_4SPXitl-cA:9 a=uxP6HrT_eTzRwkO_Te1X:22
+ a=EUspDBNiAAAA:8 a=IFuFvOSg1DZuT3FR_m8A:9 a=0bXxn9q0MV6snEgNplNhOjQmxlI=:19
+ a=uxP6HrT_eTzRwkO_Te1X:22
+X-Proofpoint-GUID: a8WWsFm3Ve9sxnzP2B4kPRqpQSgGSmzm
+X-Proofpoint-ORIG-GUID: a8WWsFm3Ve9sxnzP2B4kPRqpQSgGSmzm
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
  definitions=2025-12-23_03,2025-12-22_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 spamscore=0 clxscore=1015 impostorscore=0 malwarescore=0
- suspectscore=0 phishscore=0 bulkscore=0 adultscore=0 lowpriorityscore=0
+ adultscore=0 clxscore=1015 bulkscore=0 malwarescore=0 impostorscore=0
+ suspectscore=0 priorityscore=1501 lowpriorityscore=0 spamscore=0 phishscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2512230127
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_072441_072536_7D1F2479 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20251223_072506_526993_83E6BA20 
+X-CRM114-Status: GOOD (  14.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,28 +165,65 @@ The DTS code coding style expects lowercase hex for values and unit
 addresses.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-
 ---
+ arch/arm/boot/dts/arm/arm-realview-eb.dtsi    | 2 +-
+ arch/arm/boot/dts/arm/arm-realview-pb1176.dts | 2 +-
+ arch/arm/boot/dts/arm/arm-realview-pb11mp.dts | 2 +-
+ arch/arm/boot/dts/arm/arm-realview-pbx.dtsi   | 2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
 
-Patches done with sed, verified with comparing unflattened DTB and
-dtx_diff.
----
- arch/arm64/boot/dts/axiado/ax3000.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm64/boot/dts/axiado/ax3000.dtsi b/arch/arm64/boot/dts/axiado/ax3000.dtsi
-index 792f52e0c7dd..d515f3141529 100644
---- a/arch/arm64/boot/dts/axiado/ax3000.dtsi
-+++ b/arch/arm64/boot/dts/axiado/ax3000.dtsi
-@@ -480,7 +480,7 @@ uart0: serial@80520000 {
- 
- 		uart1: serial@805a0000 {
- 			compatible = "axiado,ax3000-uart", "cdns,uart-r1p12";
--			reg = <0x00 0x805A0000 0x00 0x100>;
-+			reg = <0x00 0x805a0000 0x00 0x100>;
- 			interrupt-parent = <&gic500>;
- 			interrupts = <GIC_SPI 113 IRQ_TYPE_LEVEL_HIGH>;
- 			clock-names = "uart_clk", "pclk";
+diff --git a/arch/arm/boot/dts/arm/arm-realview-eb.dtsi b/arch/arm/boot/dts/arm/arm-realview-eb.dtsi
+index 16f784da5a55..ae370d4eb9d8 100644
+--- a/arch/arm/boot/dts/arm/arm-realview-eb.dtsi
++++ b/arch/arm/boot/dts/arm/arm-realview-eb.dtsi
+@@ -234,7 +234,7 @@ oscclk0: clock-controller@c {
+ 				reg = <0x0c 0x04>;
+ 				#clock-cells = <0>;
+ 				lock-offset = <0x20>;
+-				vco-offset = <0x0C>;
++				vco-offset = <0x0c>;
+ 				clocks = <&xtal24mhz>;
+ 			};
+ 			oscclk1: clock-controller@10 {
+diff --git a/arch/arm/boot/dts/arm/arm-realview-pb1176.dts b/arch/arm/boot/dts/arm/arm-realview-pb1176.dts
+index b9b10cbd65aa..a75d8b107fe1 100644
+--- a/arch/arm/boot/dts/arm/arm-realview-pb1176.dts
++++ b/arch/arm/boot/dts/arm/arm-realview-pb1176.dts
+@@ -260,7 +260,7 @@ oscclk0: clock-controller@c {
+ 				reg = <0x0c 0x04>;
+ 				#clock-cells = <0>;
+ 				lock-offset = <0x20>;
+-				vco-offset = <0x0C>;
++				vco-offset = <0x0c>;
+ 				clocks = <&xtal24mhz>;
+ 			};
+ 			oscclk1: clock-controller@10 {
+diff --git a/arch/arm/boot/dts/arm/arm-realview-pb11mp.dts b/arch/arm/boot/dts/arm/arm-realview-pb11mp.dts
+index db1b6793cd2c..59c78def83f2 100644
+--- a/arch/arm/boot/dts/arm/arm-realview-pb11mp.dts
++++ b/arch/arm/boot/dts/arm/arm-realview-pb11mp.dts
+@@ -343,7 +343,7 @@ oscclk0: clock-controller@c {
+ 				reg = <0x0c 0x04>;
+ 				#clock-cells = <0>;
+ 				lock-offset = <0x20>;
+-				vco-offset = <0x0C>;
++				vco-offset = <0x0c>;
+ 				clocks = <&xtal24mhz>;
+ 			};
+ 			oscclk1: clock-controller@10 {
+diff --git a/arch/arm/boot/dts/arm/arm-realview-pbx.dtsi b/arch/arm/boot/dts/arm/arm-realview-pbx.dtsi
+index e625403a9456..0d3d96ffa6e6 100644
+--- a/arch/arm/boot/dts/arm/arm-realview-pbx.dtsi
++++ b/arch/arm/boot/dts/arm/arm-realview-pbx.dtsi
+@@ -256,7 +256,7 @@ oscclk0: clock-controller@c {
+ 				reg = <0x0c 0x04>;
+ 				#clock-cells = <0>;
+ 				lock-offset = <0x20>;
+-				vco-offset = <0x0C>;
++				vco-offset = <0x0c>;
+ 				clocks = <&xtal24mhz>;
+ 			};
+ 			oscclk1: clock-controller@10 {
 -- 
 2.51.0
 
