@@ -4,65 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6A49E6F095
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 15:23:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54D24E6F093
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 15:24:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LOL+AU7kVQyOpYQ+Kf5A4ON6XtLBAZC/C5kIrkAAMMY=; b=bwbv9zMuBopk0ERL3LiE4/OcrA
-	7xIePZMWEbbqZLwHfHQh1ZxVb2SkQHLGP8XytVpmrKsm76bHucGajnaHjsCH9sJBRx4scMwCrW5K9
-	xRqa+aoePWCdpos0n8cLd9cit6MCaybEKS51Q3nOQG+BouCwS64B86z/wmV4esBCzKpzgN6Z1i2Ou
-	LbCQyINiE8Fj5IYxtc7QSCZlY8C5Ue05g0gqprWWpVg5Mx8y8lI+Q9IrGsolJzt6pPFEBFwM06KQT
-	gyL2WTLKLhWi/+P6zrWX4Lwr7iTagmv9rmvhPLl88EKPKGTKQdSm0p3V3TMQZKiwqoTgzDuFq/V44
-	/QspE+/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QMmcdT+K8wwMJ6Nc4yP90XgGiFCkV+mKlk/jeKDr12M=; b=w++K5PP0f+5Aa5FrZDRRMHvTS0
+	LloFTBLmMHpOCmC356gioyNdvCJJzWohHX4R35xOr2QTePkVuYCTjyEZFRuToOCAc87CL/OIcfaDg
+	Ar+eV1f0NkijNGJuAIPRBAc6SUEd7nWoSUGwHD9hmhRFRR2aeUwzl8o8iAOX6mvKacRqAAVhEkGbS
+	2hn2uF0Ln5LdhAviYUexUguWXIfqWW9qUg75pFV/7w5djsEJReAkS6UAeflkCprhAtnxUhv7j+ae/
+	VwJXDXohIgD2tvrYFyefu/JjKlUc+MQPliKQhbl45H6X2fJQZfn7n/oxJU+XSbZtp5koJWa4gKa6C
+	jtVFDOGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY4Eo-0000000Ffie-0Tqd;
-	Tue, 23 Dec 2025 15:23:50 +0000
-Received: from ms.lwn.net ([2600:3c01:e000:3a1::42])
+	id 1vY4FW-0000000FfoP-1vZH;
+	Tue, 23 Dec 2025 15:24:34 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY4Em-0000000FfiF-1fr4
+	id 1vY4FU-0000000Ffnm-22DM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Dec 2025 15:23:49 +0000
-DKIM-Filter: OpenDKIM Filter v2.11.0 ms.lwn.net 88E0540AFF
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lwn.net; s=20201203;
-	t=1766503424; bh=LOL+AU7kVQyOpYQ+Kf5A4ON6XtLBAZC/C5kIrkAAMMY=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=s31WIABBnz/69IfOXguM2PScYz+zPgmqMyTUH2dALC9zZjJY+BFPgwQ7PyfdvaNzO
-	 NJRjODp9ayy/VWT+6oaXylLbHZ2PpJikFFmlpYfwBjtA6ySoH74QV5lUE6THGrpA/l
-	 EqTdgINL1rfaX40xJ2IofEGLYuqfPwxB3ZefCl9mJI0U32nUUiLbT0gQtasT1p4J8b
-	 nrX7ZWWmUS8wDOgAACWolgwoudFUCzOWzFU8ZxpCKskQ/fxROYtykjoH86ywLvHZdW
-	 uWr3CKMEr+za8eyKGhfE8DWfUkSmPavYm2RjoylGL69N8Wr+bfYJ2vgSwZgtagWYi1
-	 ixFP/hLDsg0fg==
-Received: from localhost (unknown [IPv6:2601:280:4600:27b::1fe])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by ms.lwn.net (Postfix) with ESMTPSA id 88E0540AFF;
-	Tue, 23 Dec 2025 15:23:44 +0000 (UTC)
-From: Jonathan Corbet <corbet@lwn.net>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, Arnd
- Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, Alexandre
- Belloni <alexandre.belloni@bootlin.com>, Linus Walleij
- <linus.walleij@linaro.org>, Drew Fustini <fustini@kernel.org>,
- linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev,
- workflows@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org
+	Tue, 23 Dec 2025 15:24:33 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BN9u90o1890693
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 15:24:31 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=QMmcdT+K8wwMJ6Nc4yP90XgGiFCkV+mKlk/
+	jeKDr12M=; b=YRUlRJxenXvQ+jR1NcpWqryBMsf6boy9w4ikbM1aqcSteWRUEak
+	izAeHOrFG9jfp2UEVaGRlMBxf7+vOEbQlVBIO4EIcLYDVwfFo4MFJpoVqjf7ZjpB
+	oR6MyYa9hw3iMuvcwSaSk4HbyfCQQDgoGhGfKyPDztkQgH4nKCVV/RRZl/3Cs5wy
+	P1YeFpQ+8bk+fkc1OFAh4oami0eqc5glTXc9/vhI65BWT6PsMBYLQYDP6jZgudyd
+	utLo6YXeiVGUqx9Dqcfm8f9ahaMQLLaAJ0TqsSjozbBoeHwZX9et8O+FjZYaPAYO
+	GfMboj/MHG7RhG4q7RTNHOrUusavxDhj65w==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4b770am0w1-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 15:24:31 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4ed69f9ce96so165393081cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 07:24:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1766503470; x=1767108270; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=QMmcdT+K8wwMJ6Nc4yP90XgGiFCkV+mKlk/jeKDr12M=;
+        b=K/y93jFD7FV/+Bn0vtUQikdb8FOX5lJRCkmqSHH/J/2/a99xS6YjNtaqvy7WfaObRe
+         CY+vbAhLKVGXYfZzFnoodu/cEbOevmmeNnJRa1kyGcTBDVnABRl86Tj52gd0DzyBDfHm
+         /2RXWDjLpinbhd+MHFS+ik+n3+xXTfrRX/9reQPdRaRdliJpN2zGJZb47bo4FLLFAXpN
+         4VRimW2/l31ZaPI3CpALGSFSLI5d5A2Pot3C03MiwM20JLDg7bM02JqoiuIjjsKXKryi
+         QwmuzYqa3Pp8qWQOyjlVyj2gxW8SvF1wotBa1JzrbRbkTgCp88EWulwoXvOiKSvuEJxx
+         S8dA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766503470; x=1767108270;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QMmcdT+K8wwMJ6Nc4yP90XgGiFCkV+mKlk/jeKDr12M=;
+        b=bDYbJl+3J3bqfd5uqtCb5itADLz+ibeDH3vLeUsQBku5CV73wVSglD7Rb9gUDkaAvN
+         ijYg/oF+tABOoE8e3xaPKmS5CeaKmQZwjCjfO1Cs/RMcfTAXj5t86MFOR3RixxtElOQy
+         mgx1UPCFfg/aZQPTRwgzutfvupTczonlEEfq5Js0AcrkUXaA845XMbpV+Djg2w61iZZ3
+         gDVWNgjfNx0oGrBUBpUbuWz3bGX7ebpQkuHX+iEAjDYBLfBVuS0Bu5mrpKnLQ0LVXs3s
+         iVCeUQUAta3qvjpjS22H4MCqN23MohqG408BUkztMGdhfIdfUUFwpLfXXQqPo0a43gfE
+         X4/A==
+X-Forwarded-Encrypted: i=1; AJvYcCWhcMnv2qHYsUGFquaQ8WEwA1JiPVrEjUlIVAzku3fwFdmHqrkeF2PWNODbb5ZXv/f1URZ7ZP6KiHLlYcLYPq5N@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzp6Uq2Keuj9Vo6KvOCX4cKa6byOzdQ8tYHS1fkUZUmYhIDMNX2
+	ALnZjWlLT1vBeC1AnJslBZOyJsFeJ/a/mm+ev2WU7XtOcSRp7c2CYivoNxOk+mb5COtMChdVrFd
+	kdfLJOe13Jqd65Guau4a5GucjTRsdzwD9pQycXqTWE9mnbdm+8JhfiT9+5wDqg4KM+HWvOTlsMX
+	7WnVii1+2jew==
+X-Gm-Gg: AY/fxX5pmWG2TkZjci2GiwnZG4uTsiu4r5Jr4f+S10yx0jY8dp1d77Gfr5YO1CgWVO9
+	RX/AmqmpDdM+bR+ITyNIGw/maTtE4XxGE9LrgpKJKxrgUonNkYrNU4FH3XRcTxHv73OAksN6moj
+	P6ht+81ROp8nCrUjgTJ8MJsm8xgQix0T5DXphYg2Z4zyiKUWO5zcxMkeS0HfGVygX/oh0amr4sw
+	IGdZ+k5v4yXgIP3FXJqS7JuDa3feOB2fqHIjBsTzDlbE+2H85iXWCu/dX9WtyKMCandmJFiJSxQ
+	9dhFI11Slu37/Qt/vCY/yOEj53f1Eu7fA6LWvlzbZFMCFW2aCMBlqRrbIO4vH+YOJ4Mb8A9LQRR
+	5x0nfm2p2AEij/VeVvRFSKZMOyfQC+Y+8atcWugf/UKmsjHXK7kzvHbgdTa6ummlA2mo=
+X-Received: by 2002:a05:622a:5a07:b0:4f1:bd73:ac6f with SMTP id d75a77b69052e-4f4abdb8cc8mr231626221cf.74.1766503470560;
+        Tue, 23 Dec 2025 07:24:30 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IG50u2D69lwV8b3TXu4NEv9KuyeK2nPzCvtYeviZ5nVPswjTYq9WxwSsmE5GaZkxzYacemvMg==
+X-Received: by 2002:a05:622a:5a07:b0:4f1:bd73:ac6f with SMTP id d75a77b69052e-4f4abdb8cc8mr231625831cf.74.1766503470119;
+        Tue, 23 Dec 2025 07:24:30 -0800 (PST)
+Received: from quoll.home (83.31.98.88.ipv4.supernova.orange.pl. [83.31.98.88])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b80377f2f18sm1441971566b.0.2025.12.23.07.24.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 23 Dec 2025 07:24:29 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+To: Peter Chen <peter.chen@cixtech.com>, Fugang Duan <fugang.duan@cixtech.com>,
+        CIX Linux Kernel Upstream Group <cix-kernel-upstream@cixtech.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org
 Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH 1/2] Documentation/process: maintainer-soc: Be more
- explicit about defconfig
-In-Reply-To: <20251223142726.73417-3-krzysztof.kozlowski@oss.qualcomm.com>
-References: <20251223142726.73417-3-krzysztof.kozlowski@oss.qualcomm.com>
-Date: Tue, 23 Dec 2025 08:23:43 -0700
-Message-ID: <87ecolxlvk.fsf@trenco.lwn.net>
+Subject: [PATCH] arm64: dts: cix: Use lowercase hex
+Date: Tue, 23 Dec 2025 16:24:25 +0100
+Message-ID: <20251223152424.155253-2-krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1039; i=krzysztof.kozlowski@oss.qualcomm.com;
+ h=from:subject; bh=tfCmGWuWFSw1zXPwxcOw/l/wjenGNWYj4UhPm6Q5Z7Y=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpSrQo7RVLhUYbhcym3Pt6bv+anUgASPS/TY4yL
+ Nq8sXWeMpOJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaUq0KAAKCRDBN2bmhouD
+ 1wIwD/9wkHL24i2n7uk3eE3ApWRssD6UR7rGxMsnyh/yrEWkRjmqtcrq8FaHa7pew3iASN9FhNO
+ FxUN4CgVqpnDiDVw63ljF0oh/HRMXwt6V/y+ljmx+fqLCj0cOqMYDImkLrKtqwBGbQC2ipjSGsa
+ ZLydjg35PViPxcSfMHGtwgGY+UqZILz8RsIbtNLpIJD3BxmDO836xYetm4mbqCCKxwm0j479YqL
+ vnWsVXXHwBNi0ILoc0LYz7/ILoGvFQk6LJ32f7CE+J6p6CDloT+QUL2p+MAf8wFTBfnWrTA/pgf
+ MAbI4rKy16KvmZCIHGRL8WdVLQqNFs9hxSqo2IMtovuxvxCsBOXmk4C35Qmf2K3BnyI153CNbx3
+ wqU+X+Bey2hapwdX7rEgfS+5Lspt416rgcQlf1+tcKRZeAYs7y3qRHFzRkWtpePoRSLl87PjypA
+ CXNiprWN9ZwcWb1hxo0jpPTw7eU3a/Cq1qBTlxHR8mHe75UtvuPa/O6fQC/kYhd9Mor6Eg8H7Uf
+ 7O4Ovte73P8Jths10TtG8oMYfGU7uHx2MFvAMdVO9ZXsl6ZFXzSRnV0w7xKTZtb9MY4PXHHdTsO
+ aACANrVl2mMHU0rDZGqfaRbBVVYkv8SD090i623eT7a4JZwfLSj3+DS0ddnQnvSXcjayOQj52rQ Jexx7lZsXEPtaRw==
+X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjIzMDEyNyBTYWx0ZWRfX2ePasYcXEiql
+ Axyu2SnIRPup/HiKvuqTx5VLP0m3GRZSovS0RXLsAvJ9x5COb0ZCJOoCcUlhGioEkleITdlU8i1
+ 0D3O//ilwoDmV1oV/EDKDdLKZqAsgHuqL7AI+mEzX+MquVrOKyLasdhSLLNpKkXRk0J0+GIWfzY
+ sa3YhnUygjHtzGwCnowr7X2310zYEJvSp+4W3XqaYskFaWKMnP86SAcw4cnq5dmRjFpXy6DNSUK
+ huJTwmryzdao9QrvxrHbZW1IVRqffi9/SLABi8hMWBtrbmMUfVqAqwhmLTcCuEPbsZSskJnrcju
+ Od7Cd5NmLuvF0hInXUGpPcr/Z2PQs2ZMAGyNEHXRm539w9zPyHJQLdU+hpwdDjbd1qX8s1wnFwV
+ jyNE2Au+0ty5gT5fD3Zq4WGpk920iVrDxEPwb/pUUuWXO96JNqHqUaDF+ZuBX/QsMP2OSW7I8WQ
+ UNqwvcLtQGgcqDUrHgQ==
+X-Authority-Analysis: v=2.4 cv=VqAuwu2n c=1 sm=1 tr=0 ts=694ab42f cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=qe4J/qXhiWkb1JZGYKbLYA==:17
+ a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=EUspDBNiAAAA:8 a=41lT66G6l7ICSz0wmBcA:9 a=uxP6HrT_eTzRwkO_Te1X:22
+X-Proofpoint-GUID: dWUyaay1QX8ls1DWjEMqm9QRO43v_Ujy
+X-Proofpoint-ORIG-GUID: dWUyaay1QX8ls1DWjEMqm9QRO43v_Ujy
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-12-23_03,2025-12-22_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 bulkscore=0 impostorscore=0 malwarescore=0 adultscore=0
+ priorityscore=1501 phishscore=0 clxscore=1015 lowpriorityscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2512230127
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_072348_476911_8752650F 
-X-CRM114-Status: GOOD (  19.15  )
+X-CRM114-CacheID: sfid-20251223_072432_641201_A2663C5F 
+X-CRM114-Status: GOOD (  13.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,46 +156,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com> writes:
+The DTS code coding style expects lowercase hex for values and unit
+addresses.
 
-> It is already documented but people still send noticeable amount of
-> patches ignoring the rule - get_maintainers.pl does not work on
-> arm64/configs/defconfig or any other shared ARM defconfig.
->
-> Be more explicit, that one must not rely on typical/simple approach
-> here for getting To/Cc list.
->
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
->
-> ---
->
-> Incorrectly addressed patches for arm64/defconfig are around ~2 per month...
-> ---
->  Documentation/process/maintainer-soc.rst | 6 ++++--
->  1 file changed, 4 insertions(+), 2 deletions(-)
->
-> diff --git a/Documentation/process/maintainer-soc.rst b/Documentation/process/maintainer-soc.rst
-> index 3ba886f52a51..014c639022b2 100644
-> --- a/Documentation/process/maintainer-soc.rst
-> +++ b/Documentation/process/maintainer-soc.rst
-> @@ -57,8 +57,10 @@ Submitting Patches for Given SoC
->  
->  All typical platform related patches should be sent via SoC submaintainers
->  (platform-specific maintainers).  This includes also changes to per-platform or
-> -shared defconfigs (scripts/get_maintainer.pl might not provide correct
-> -addresses in such case).
-> +shared defconfigs. Note that scripts/get_maintainer.pl might not provide
-> +correct addresses for the shared defconfig, so ignore its output and manually
-> +create CC-list based on MAINTAINERS file or use something like
-> +``scripts/get_maintainer.pl -f drivers/soc/FOO/``).
->  
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Like Laurent, I don't see this as being effective.  Why is it that
-get_maintainer.pl fails here?  It seems far better to fix that, if at
-all possible, rather than expect random contributors to notice this text
-and work around the problem...?
+---
 
-Thanks,
+Patches done with sed, verified with comparing unflattened DTB and
+dtx_diff.
+---
+ arch/arm64/boot/dts/cix/sky1.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-jon
+diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
+index 64b76905cbff..fb8c826bbc97 100644
+--- a/arch/arm64/boot/dts/cix/sky1.dtsi
++++ b/arch/arm64/boot/dts/cix/sky1.dtsi
+@@ -523,7 +523,7 @@ pcie_x1_1_rc: pcie@a0e0000 {
+ 			reg-names = "reg", "cfg", "rcsu_strap", "rcsu_status", "msg";
+ 			ranges = <0x01000000 0x0 0x38100000 0x0 0x38100000 0x0 0x00100000>,
+ 				 <0x02000000 0x0 0x38200000 0x0 0x38200000 0x0 0x07e00000>,
+-				 <0x43000000 0x0C 0x00000000 0x0C 0x00000000 0x04 0x00000000>;
++				 <0x43000000 0x0c 0x00000000 0x0c 0x00000000 0x04 0x00000000>;
+ 			#address-cells = <3>;
+ 			#size-cells = <2>;
+ 			bus-range = <0x30 0x5f>;
+-- 
+2.51.0
+
 
