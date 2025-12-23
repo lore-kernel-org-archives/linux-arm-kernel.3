@@ -4,49 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52D52E6F093
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 15:28:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A02DCE6F09A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 15:30:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9gbtMwY2YVa0H173w3WbQBq4RE1ONRyWpl1RV9f3r7c=; b=aMbpZKHOX4yVPuYv+ZX3BkrOCg
-	j2QY/hYmOA8jvOA4DsZ4vUgJY/CioqsQ/38ntlDKzZoHQle3PxWXW/+b81rBFexI5J0kR1ofdp2tX
-	nbP0+Cz3Mawsym09zH8mZ2ARVP75Cx2bTj3Ojf8XNxf3Eb+w0dnjSohaUYG6r9dPfSwdTtRsGqLEY
-	96wuEka3JsKaDfRcQhetrEGztwUOgrjcu8yuWayXbv2hQOStVH5uCKc447Oraa6Dj6nGM1xNSB2kC
-	ld+1JnBwDeP/EEYGrWCHwRMSibB3pvwn9IRNoNW/l2/0jKYun0pYPGoY/QctJDeRLJjudFWnmLeSK
-	LTBBsUhA==;
+	bh=eqcZIu3mjEHxgGQRmv5xp/gUQLgLGEeAu3Ob/ynMT7U=; b=zevn2EZ6b29eQNBqDrfkBXVGes
+	RgJ4t97eQhMh4cQdW4YitWNpxLyT/dHPDncj8CXQeePGLqA0uNwxkBBPcW0FyZ6JlZHtdP4D/r3oM
+	UPzTgReHt8JtaPxvBjTcuG45mC8A+YJ1s7R7x7cI/37ewuSFxIkyHH3r0bGMrOPgOHXI19uXDjiH9
+	BW2PcBHq0FNDlMZVc/xaMGURTQ9OAKPZRpbOMzdYxXYrQUoTxJ6PTU62FY2wICrs54PK0+h/3QpPN
+	s/jeekZodcy/VDX5JZe1+HPQyyF9fJ/Y4zdlEkBk/oC8Z4m0lYTB1PRmpv/JARlZFI7+80Y239BRE
+	wZVtBzeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY4Iy-0000000FhMi-2rhC;
-	Tue, 23 Dec 2025 15:28:08 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vY4Kz-0000000Fha3-3wIk;
+	Tue, 23 Dec 2025 15:30:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY4Iw-0000000FhMH-3vsG
+	id 1vY4Kz-0000000FhZp-1Uus
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Dec 2025 15:28:08 +0000
+	Tue, 23 Dec 2025 15:30:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6466943995;
-	Tue, 23 Dec 2025 15:28:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0A67C113D0;
-	Tue, 23 Dec 2025 15:28:01 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8714C60123;
+	Tue, 23 Dec 2025 15:30:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A10DC116C6;
+	Tue, 23 Dec 2025 15:30:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766503686;
-	bh=3NsJCQHiVrYTCAurl0B2XKdWOp4yZ5PXfAgiHzAbIvs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JEaMyGsviS+IfgFK30HYTAd1+tgZO6eyP3Ni6u3Lolf6bBfFy+RmAsJwRLuHDdjE5
-	 6QAsvS3P9YuRXmT3avmHR10A6ZoQgO2jbeIWNt8+arKwlAz0AmF5WxwKtVXnXN5lCJ
-	 0anrdxBYRpzu1FC9+TdHqsuHLj81jp2TH3pvesd3zL22Ptnjon+0QqFhHbDc2OfFZr
-	 ckCqVeWjB5Q48l774TVbfsP4lf5t8XOwxCC+q5MJSX3kfNJcBgfan+CBBQFWBCXPzN
-	 rZ67nHqZgKtWkhPngZZtnJOrHany7ybtXCpRbWAy/Qxt962BTvtXMj+aQpUdm5U4uo
-	 7VPalGSZecDXw==
-Message-ID: <6f425362-ad11-43d3-b74f-4576a7dc9954@kernel.org>
-Date: Tue, 23 Dec 2025 16:27:59 +0100
+	s=k20201202; t=1766503810;
+	bh=WhwcBi6ETgpkrZTN9xohHSlcx5pkoi0KV7OqASWqWbI=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=ixVuc0CsUOooEWTI9sxMurYiotea5M+hW8RCramP288uzdH1bbNagN+j8Ie3skKrw
+	 6ubfCevqu9DppFNa4/nE+vPfcxQZ7TSm3mPcrKtq9pQn1OzmFMvqjoSAGrooDJX+/r
+	 wSR2P18UW5StZVUbwjpEBrV3u6ZJiTRlez2D5H+RkM3iFW/uNm17kXmFHUNHpRf5Ll
+	 1XOdrrU+sv3M4j9uZ97WvryXFJmAS8lv8zkS6Yw4WJHjfksM8E5egXW4DvRE01qk1v
+	 iSm7tKJN3pKkDL52uJnj18kEq8iZ+BHkHW+/w2ICBI92TugND7wBaVlHLd/+zJJDK0
+	 E+zxUNGYHtw7w==
+Message-ID: <b8efa1f8-1e6d-4069-a57a-ab58d5dbc2ce@kernel.org>
+Date: Tue, 23 Dec 2025 16:30:04 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH] arm64: defconfig: remove SLIM_QCOM_CTRL
+From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Mikko Rapeli <mikko.rapeli@linaro.org>
 Cc: Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
  Geert Uytterhoeven <geert+renesas@glider.be>, Arnd Bergmann <arnd@arndb.de>,
@@ -60,7 +61,7 @@ Cc: Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
 References: <20251223134807.3543642-1-mikko.rapeli@linaro.org>
  <c06878f7-bb93-4de2-b54a-e97fbc1a333e@kernel.org> <aUqgFCgmBy7H9yW0@nuoska>
  <4f99f3ba-ef5b-4163-ad1a-99527dd96f8a@kernel.org> <aUqo9AV2zSJqr_oE@nuoska>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <6f425362-ad11-43d3-b74f-4576a7dc9954@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -105,12 +106,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <aUqo9AV2zSJqr_oE@nuoska>
+In-Reply-To: <6f425362-ad11-43d3-b74f-4576a7dc9954@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_072807_019723_98E6FCCD 
-X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,24 +123,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/12/2025 15:36, Mikko Rapeli wrote:
->>
+On 23/12/2025 16:27, Krzysztof Kozlowski wrote:
+> On 23/12/2025 15:36, Mikko Rapeli wrote:
 >>>
->>> I sent to addresses reported by get_maintainers.pl.
+>>>>
+>>>> I sent to addresses reported by get_maintainers.pl.
+>>>
+>>> There is no output of get_maintainers.pl for this file. It's one of
+>>> cases where script does not work (I think already documented in
+>>> maintainer soc profile).
 >>
->> There is no output of get_maintainers.pl for this file. It's one of
->> cases where script does not work (I think already documented in
->> maintainer soc profile).
+>> Sorry, I don't get it. This issue is a generic one since now arm64 defconfig
+>> has one unknown option. Tools which check kernel config for unknown options
+>> trigger warnings when arm64 defconfig is used.
+>>
+>> If get_maintainers.pl is broken for this file, then please fix it. I don't
+>> know how to fix it.
 > 
-> Sorry, I don't get it. This issue is a generic one since now arm64 defconfig
-> has one unknown option. Tools which check kernel config for unknown options
-> trigger warnings when arm64 defconfig is used.
-> 
-> If get_maintainers.pl is broken for this file, then please fix it. I don't
-> know how to fix it.
+> No one knows, partially because it is very, very difficult task, that's
+> the problem.
 
-No one knows, partially because it is very, very difficult task, that's
-the problem.
+Ah, wait, it was fixed already! You just run get_maintainers incorrectly
+- You cannot use git fallback here, it's pointless. You could have read
+the get_maintainers.pl output.
 
 Best regards,
 Krzysztof
