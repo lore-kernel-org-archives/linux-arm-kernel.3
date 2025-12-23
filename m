@@ -4,62 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59759E6F09F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 16:28:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D84F8E6FE23
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 16:28:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5zhEumOHdvOS21Q8dxhsdUIxoXJSndybq5PrMkA1LBU=; b=Rp45k3KEgPW6lDPaP6Nj10fRAV
-	D9BrqRhE9sjTMZGgoO0y2MI/wJ5Z1PcLlzgolSyT27RhoAeqC024VCOQyPE++hOhwe3nzGcR5l9K3
-	qryM12KImVnmEV2NfjITsZvBGp3G+D/PTkwYrv/1j8q5K6c6zc/jy77rkMybpfYk0PuOdkRqJ0j5X
-	0QZcAlzI+SGn1tZxKQIoPdRkg2K/Tnem2tIPhWMMtdW+Z8sotFghGsy+y31B6fZSqB6YKC1P5w+sI
-	9RAgcZXbPgPykqaoCfrVSEBP3uwdlQ/FyuFe7R3dfWeDd0PGvz2hGcxaNTCeM07LXAg3LjXssMFAZ
-	71gZYJig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0qkh9NDueAgmjfZXlNcUqY3qLpWOOPfkCMJCmVRhSeM=; b=DjAgIiPSzxlNWqI6hnMyMMtZVW
+	C61pJ4aOKDPoaJIKo0f2rNBFtpepu5t0Ws5dvrMex0Q95jbKTYSxMoIlZlLXxblgrvHmHGLXTzBNQ
+	byipFq3XRHm2nvrUYFRqyinMsTCew3xnuExaJX+6PKqEc+Y/oVlxsOFyQl+6o0oYKIJYOs60+fHUz
+	VdyCfD7W9nrroji6XltGb9zCztFdfInIsso4zLqi48uYG6N9EuAwuJN27n025mB+RE4F56xhGbmlW
+	teqN7FXk4JzzVjy1sKgbpI5VrjNwF+z7iOzpPhazyzrTantCme5pTswJPfDVsgT64jm/EwlGHrXoe
+	R/q/TReg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY5FE-0000000Fl2Q-1UAL;
-	Tue, 23 Dec 2025 16:28:20 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vY5Fh-0000000Fl8i-0h2D;
+	Tue, 23 Dec 2025 16:28:49 +0000
+Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY5FB-0000000Fl21-31GQ
+	id 1vY5Fd-0000000Fl6E-2b4q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Dec 2025 16:28:18 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-152.bb.dnainternet.fi [81.175.209.152])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id D969182E;
-	Tue, 23 Dec 2025 17:28:03 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1766507284;
-	bh=1F2Zj+2njSt5moO8g4iGnH+134BmLjJduhFI1MxZQIU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=T+qbUMU3hgOB1+QcSutEoG0hGWuDWUahwdRdFj4iuM7C9uu6y1XByC4DvM7qCKHrF
-	 D3qcdBj9rYE8aT1pWbsWEGrzwhsKPh70nbs2sq/qjJ59hv40EdOLl8vh1f09chPLZZ
-	 U0F0wI3wpfvn3xwhf49X3ndFpt+b8f+Cgmn1LG5g=
-Date: Tue, 23 Dec 2025 18:27:56 +0200
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Drew Fustini <fustini@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev,
-	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] Documentation/process: maintainer-soc: Be more
- explicit about defconfig
-Message-ID: <20251223162756.GA25011@pendragon.ideasonboard.com>
-References: <20251223142726.73417-3-krzysztof.kozlowski@oss.qualcomm.com>
- <20251223150256.GI9817@pendragon.ideasonboard.com>
- <f858ea0e-24d5-4cdd-ab57-dfeebe67ae7b@oss.qualcomm.com>
+	Tue, 23 Dec 2025 16:28:48 +0000
+Received: from localhost.localdomain (xcpe-178-82-120-96.dyn.res.sunrise.net [178.82.120.96])
+	by mail11.truemail.it (Postfix) with ESMTPA id 65EF41FE01;
+	Tue, 23 Dec 2025 17:28:41 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1766507321;
+	bh=0qkh9NDueAgmjfZXlNcUqY3qLpWOOPfkCMJCmVRhSeM=; h=From:To:Subject;
+	b=bfHWyYiz9scdm0bBe8fdoLg+M/oq84E/CM3Imf0YrJMTz7kgk2gmteOD7CWKp9vCR
+	 MVurGEE8WeiY9s/oETwZhSAJz3fBS0tshVKuf+aq+rW1hziimo2uJLlg8IfciKcamg
+	 3YDf9O3pfIoIgoNbvJdE3EdmHFwAfK2v1RSgDwfe7nhkO2fEVAKhC9J6RkwjnDGDdq
+	 E/c5KIco0SBiGJ1q74jGLjS8B3DLZkLymRVyU9nwFZpBKuwfJz7Aga6W8q4LOM29zF
+	 1l9mQxL9auwSVQDepKwk5S34GvtH4cGpcgDTwP9nxzG1kWaaPHQJi58SonUwmZpZhD
+	 vg8CmYon6pPpg==
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v1 0/4] arm64: dts: freescale: Add Apalis iMX8QP
+Date: Tue, 23 Dec 2025 17:28:26 +0100
+Message-ID: <20251223162833.138286-1-francesco@dolcini.it>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <f858ea0e-24d5-4cdd-ab57-dfeebe67ae7b@oss.qualcomm.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_082817_926023_116470E3 
-X-CRM114-Status: GOOD (  25.59  )
+X-CRM114-CacheID: sfid-20251223_082846_587591_1C1E23C1 
+X-CRM114-Status: UNSURE (   9.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,54 +76,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 23, 2025 at 04:32:02PM +0100, Krzysztof Kozlowski wrote:
-> On 23/12/2025 16:02, Laurent Pinchart wrote:
-> > On Tue, Dec 23, 2025 at 03:27:27PM +0100, Krzysztof Kozlowski wrote:
-> >> It is already documented but people still send noticeable amount of
-> >> patches ignoring the rule - get_maintainers.pl does not work on
-> >> arm64/configs/defconfig or any other shared ARM defconfig.
-> >>
-> >> Be more explicit, that one must not rely on typical/simple approach
-> >> here for getting To/Cc list.
-> >>
-> >> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> >>
-> >> ---
-> >>
-> >> Incorrectly addressed patches for arm64/defconfig are around ~2 per month...
-> >> ---
-> >>  Documentation/process/maintainer-soc.rst | 6 ++++--
-> >>  1 file changed, 4 insertions(+), 2 deletions(-)
-> >>
-> >> diff --git a/Documentation/process/maintainer-soc.rst b/Documentation/process/maintainer-soc.rst
-> >> index 3ba886f52a51..014c639022b2 100644
-> >> --- a/Documentation/process/maintainer-soc.rst
-> >> +++ b/Documentation/process/maintainer-soc.rst
-> >> @@ -57,8 +57,10 @@ Submitting Patches for Given SoC
-> >>  
-> >>  All typical platform related patches should be sent via SoC submaintainers
-> >>  (platform-specific maintainers).  This includes also changes to per-platform or
-> >> -shared defconfigs (scripts/get_maintainer.pl might not provide correct
-> >> -addresses in such case).
-> >> +shared defconfigs. Note that scripts/get_maintainer.pl might not provide
-> >> +correct addresses for the shared defconfig, so ignore its output and manually
-> >> +create CC-list based on MAINTAINERS file or use something like
-> >> +``scripts/get_maintainer.pl -f drivers/soc/FOO/``).
-> > 
-> > I fear this will be another piece of documentation that people won't
-> > read. It would be more effective to implement custom logic in
-> > get_maintainer.pl (or at least output an informative message).
-> 
-> Part of the logic is already there, but I will not grow that - I don't
-> want to touch Perl code. It's pretty obvious the tool should be do it,
-> so feel free to fix it.
+From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-Even if I knew perl, I'd have no time :-)
+Add support for the NXP i.MX8QP SoC and for Apalis iMX8QP SoM mated with
+Apalis Ixora and Apalis Evaluation board.
 
-> No point however to stop proper documentation.
+Apalis iMX8QP is a variant of the Apalis iMX8QM, using an NXP i.MX8QP
+SoC instead of the i.MX8QM. The two SoCs are pin to pin compatible, with
+the i.MX8QP being a lower end variant, with a slower GPU and one Cortex
+A72 core instead of two.
+
+The two Apalis SoMs variants share the same schematics and PCB, and the
+iMX8QP variant exists only on revision V1.1 of board.
+
+Link: https://www.nxp.com/products/i.MX8
+Link: https://www.toradex.com/computer-on-modules/apalis-arm-family/nxp-imx-8
+
+Francesco Dolcini (4):
+  dt-bindings: arm: fsl: Add Apalis iMX8QP
+  arm64: dts: imx8qm: Add CPU cluster labels
+  arm64: dts: freescale: Add NXP i.MX8QP SoC dtsi
+  arm64: dts: freescale: Add Apalis iMX8QP
+
+ .../devicetree/bindings/arm/fsl.yaml          |  6 +++--
+ arch/arm64/boot/dts/freescale/Makefile        |  5 ++++
+ arch/arm64/boot/dts/freescale/imx8qm.dtsi     |  4 +--
+ .../imx8qp-apalis-v1.1-eval-v1.2.dts          | 26 +++++++++++++++++++
+ .../dts/freescale/imx8qp-apalis-v1.1-eval.dts | 16 ++++++++++++
+ .../imx8qp-apalis-v1.1-ixora-v1.1.dts         | 16 ++++++++++++
+ .../imx8qp-apalis-v1.1-ixora-v1.2.dts         | 16 ++++++++++++
+ .../dts/freescale/imx8qp-apalis-v1.1.dtsi     | 16 ++++++++++++
+ arch/arm64/boot/dts/freescale/imx8qp.dtsi     | 24 +++++++++++++++++
+ 9 files changed, 125 insertions(+), 4 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8qp-apalis-v1.1-eval-v1.2.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8qp-apalis-v1.1-eval.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8qp-apalis-v1.1-ixora-v1.1.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8qp-apalis-v1.1-ixora-v1.2.dts
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8qp-apalis-v1.1.dtsi
+ create mode 100644 arch/arm64/boot/dts/freescale/imx8qp.dtsi
 
 -- 
-Regards,
+2.47.3
 
-Laurent Pinchart
 
