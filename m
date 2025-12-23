@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D74EE6F086
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 17:44:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C4AEE6F086
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 17:45:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wj7GDHLzW+C414QXD/lrtEL4bgBibXRM1vZM9QNHvr0=; b=R1x7R/kjymjVyNFQF35XFuPaRI
-	yEI6q1tsxB0Sjsgl8Uik0PQJOQNvwa5YfUkBJpSGZv5yWQ6NcDdmrGAYpghomTIWhCwPFl5qrkC6C
-	dW0Pa1ajUsg4mTN3VWUiesTo58RwTRfm16UCYC7Opp0sv/GHMNcrrl/zqE0wp0L0+ZECYqQboMXJ1
-	XExLZ7mzZA34WoHKHE5uZ3FVYg9D5ba4ZpL6BmwEORTpamBTV9xfqIEee9NYsvo82hY3HSUDxcBLw
-	Vz90w5nNHIQQW+1sVjOQ6TxE4Nc6Ton6IAXtTkBXLlP5eAyW1hrDaOryclRZKJwQERiz/WRfLZyR8
-	HIPLijjg==;
+	bh=RsZ/b29xaMtiiysVAEoW4yek99qbTnvtAM0lssnx25k=; b=Awcy3pKu5yGZ6IktRCFUiljoK/
+	i/5DEiWIdyYNAhsYqrrBt873BJLpvMJk2BizWBpAUmkws1kORIMlrBYnZe15dreyWmzbnk7jorh29
+	lt5DJmNd4u48pO54fL0rWwKliv4ulaIO2z52ybGPV1UU1qy7ITvrZtdxx6GuhD9ZQe5dkmxNf1OGu
+	MoskA8QzLNkxRjCnWEXoNYga6eDYLMo4BnNpdVcsi08S/Lq5QpcBrJJ+vMos6PlgHZN+SG1EoJT4t
+	oBx6DWHi6pq7lTzwx2yYha/mfinSRHJkklvZz6pzc19S0cdYupqnz2o9Jvax7M1YAjuj17mz41YRG
+	/Ycx6ydQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY6RC-0000000Fqve-1gZp;
-	Tue, 23 Dec 2025 17:44:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vY6Rh-0000000FrFp-46DN;
+	Tue, 23 Dec 2025 17:45:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY6R8-0000000FqtB-1c1o;
-	Tue, 23 Dec 2025 17:44:43 +0000
+	id 1vY6Rg-0000000FrFN-3u9w;
+	Tue, 23 Dec 2025 17:45:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0D4CB4085E;
-	Tue, 23 Dec 2025 17:44:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F482C116D0;
-	Tue, 23 Dec 2025 17:44:36 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5EBFC60146;
+	Tue, 23 Dec 2025 17:45:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC5D7C113D0;
+	Tue, 23 Dec 2025 17:45:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766511881;
-	bh=PLc3ggjOm8pNxE0mUFygpy5myL/Add/ECkFcmWDsJv4=;
+	s=k20201202; t=1766511916;
+	bh=IREpsCbPDjPXBUeM3hVpkzTdgens1z8F0+oisTuZVws=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=fTamgbyDxueAuqzoR9INSRwthaBzUMhXpEdygryva+7DYO4SeZMDwBavCCXhjiJdH
-	 hcZcpyiGn9+XeMsDkXGtt5gkMIOsgfycGsGnykYFyDdB6HsLBViAUZlaRXnYHGwv2k
-	 r7U9QTD33CDFoKVGEx0k8DHHPuUe5sS7q9FrQBIxSIFce+VlzxfcqaUYqVUZeh3+ZQ
-	 AgRrp/701JuNokeo489S5Dq7Pdqlu8Bjo9seUYBU6gEV47ORyhiUvquWz5cfDzRFhw
-	 LMKbW/UmYQkyYFs3mOdDEafdTF1BqQ+Tlf7MERjlytvEuTLM/rfYrYFsnuvg+vtBKc
-	 jVn6whfYs3j0Q==
+	b=s3x4O61lW7g72WQyjOgA0jnBkV5RQhLAD5XHp8bwr9tmAIpAE1UGIxrfc5/+v6jlG
+	 4aNHfOiPZf5XqAtci5PZLnaZQkMQRYtdi7dvd1mSn1wiPTXw/CDxq4IPl5wWR0iM1n
+	 j0SIw6vABuVJ9X46iiSTEmLe0Rlvx/zhVRr9OvS3F5IAUHpC9A/MkSlG9w2j+Xtp36
+	 QGOMfkcPkVifbVoVa60ppQ/yNNg483VPERAIgKEmRygWWyM9TbaUfu9LOeFH0jSrAI
+	 vrzi52ZmBIxKhIVeq8UYtuswy5ojifLhrSpyf+9PUNs7AEdc4qRHbYfxNuzQCbxWNV
+	 gtQfC+pUwHzfg==
 From: Vinod Koul <vkoul@kernel.org>
-To: Chunfeng Yun <chunfeng.yun@mediatek.com>, 
+To: Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
  Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Guillaume Ranquet <granquet@baylibre.com>, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Cc: kernel@collabora.com, Krzysztof Kozlowski <krzk@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+ Sven Peter <sven@kernel.org>
+Cc: linux-kernel@vger.kernel.org, asahi@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org, 
  linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, 
- =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-In-Reply-To: <20251217-mtk-genio-evk-hdmi-support-v2-0-a994976bb39a@collabora.com>
-References: <20251217-mtk-genio-evk-hdmi-support-v2-0-a994976bb39a@collabora.com>
-Subject: Re: (subset) [PATCH v2 00/12] Add HDMI support for Mediatek Genio
- 510/700/1200-EVK and Radxa NIO-12L boards
-Message-Id: <176651187669.759340.13955241073309104035.b4-ty@kernel.org>
-Date: Tue, 23 Dec 2025 23:14:36 +0530
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Hector Martin <marcan@marcan.st>
+In-Reply-To: <20251214-b4-atcphy-v3-0-ba82b20e9459@kernel.org>
+References: <20251214-b4-atcphy-v3-0-ba82b20e9459@kernel.org>
+Subject: Re: [PATCH v3 0/3] Apple Silicon Type-C PHY
+Message-Id: <176651191159.759340.7918107926279417342.b4-ty@kernel.org>
+Date: Tue, 23 Dec 2025 23:15:11 +0530
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.13.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_094442_448928_8EF8CFC2 
-X-CRM114-Status: UNSURE (   7.66  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,24 +75,24 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 17 Dec 2025 11:18:59 +0100, Louis-Alexis Eyraud wrote:
-> This patch series adds and enables the HDMI output support for the
-> following boards:
-> - Mediatek Genio 510-EVK (MT8370)
-> - Mediatek Genio 700-EVK (MT8390)
-> - Mediatek Genio 1200-EVK (MT8395)
-> - Radxa NIO-12L (MT8395)
+On Sun, 14 Dec 2025 11:51:33 +0000, Sven Peter wrote:
+> This series adds support for the combined Type-C PHY found in Apple
+> Silicon machines and required for USB3, DP-AltMode, and Thunderbolt/USB4
+> support. As in the previous versions, this is limited to USB3 support so
+> far since the other modes need further work in different subsystems.
+> With the dwc3 glue driver being upstream this is however the last part
+> required for upstream USB3 support.
 > 
 > [...]
 
 Applied, thanks!
 
-[01/12] dt-bindings: phy: mediatek,hdmi-phy: Fix clock output names for MT8195
-        commit: 65790df6dcd2f41fab2288ed3d2c3bca00d8dfd4
-[02/12] dt-bindings: phy: mediatek,hdmi-phy: Add support for MT8188 SoC
-        commit: 6226f616c8e9ac30c294b86ff59e3a9566e2a8d0
-[03/12] dt-bindings: phy: mediatek,hdmi-phy: Document extra clocks for MT8195
-        commit: ff89cea2385b6236790f3be2727d9ae527daf4a0
+[1/3] soc: apple: Add hardware tunable support
+      commit: a722de305eacb382a5d306f9f8e502f81bab682d
+[2/3] dt-bindings: phy: Add Apple Type-C PHY
+      commit: c1538b87caef6b2783502c820457be092a7266be
+[3/3] phy: apple: Add Apple Type-C PHY
+      commit: 8e98ca1e74db2ae051c9b545d42b879efa5a2f6c
 
 Best regards,
 -- 
