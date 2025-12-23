@@ -4,85 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B845AE6FE24
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 18:04:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8096BE6FE24
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 18:11:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xe7KX5/ffCktYxkt+30TjEUOn+MQMMGBLrHbUWsPl9A=; b=onieJnC6yUHVCfps0GZiQa4KXY
-	fAtrmYLQ5unTlpqaQvAvLUknOSUHgItee8NCGcxn3H1sybrb9q+WaYMrtjBb9LA/afIIQGvYjMBE0
-	lIGM/dDuHDJ1punR0MP4N4S+o7hDeA779T3v05JpFzNTs90rQEsAZAjsL4tfn0NvKmSXqJSkn9K2z
-	NWVlR7/kX+0S68a3pcgJamVFX/DCMRKBUgeMY0vAWOmBBaWpM1dPb0DieEcdYvru9dmvaQzPW/sOd
-	hzYsUwvTMVgvYJvTPrbWP6FrR7wUI8n3ucNMnejUKVZR+03YlgaI/G4gmW7pFWZW3myv9CTCLIglR
-	WmR20qcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bSj5pxqUkGPtDBBaQFh8SBVDFBTrS+7/HjDU0XwkQPs=; b=TuzIMPDJs7ExS3W3oQCPOtrisc
+	mIaGi1R2ylomeiXwG5nZ+VCQ2vCpL6J7b8ZpCrELRyOyJ9C5wgoUlvSgbVoAtWjVu0cY/+jJczpSi
+	SVhXoA/hj/G3dqCMBEJxi3ESYeRjYq5Ld2ELlnFwPgvK7NCCmiDq4rLUQDTgAjW7tOIctubogMbin
+	67UAL3BAvsZrsWc8iKFNXI3hpXrcCaMxpQs1UFdGGZa4ODXaedk6axQawxNmcmclCmNfScuXGncvv
+	h9DW+5k2yty1dZu002cR1N+tMrPeHUSwJlNplB0NSLCs/I8mKyQuSYA9S5kl01n/ctEbP6C+4ORk2
+	eQO/PKOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY6kH-0000000Fv71-1L64;
-	Tue, 23 Dec 2025 18:04:29 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vY6ql-0000000Fvyt-0W4p;
+	Tue, 23 Dec 2025 18:11:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY6k3-0000000Fury-2lIO;
-	Tue, 23 Dec 2025 18:04:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1766513045; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=L/kwjEaHzCRUNMi5m8EdjvSCdckMoTGOjLkr4/oyus2EaOnrbdm8icpRNaHjB4JTgBkxq0sNaEKNUC8FA7/sIFdR28jCXYVxXM0y4o5rb8dSr/kE6W7XddiBo9zGMoO6gqj2u+3xuSMPuyM4o0fmDgyMuh4UWndfF25YCMosBV8=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1766513045; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=xe7KX5/ffCktYxkt+30TjEUOn+MQMMGBLrHbUWsPl9A=; 
-	b=BZ5RfP8yciLpoJHO5yiR7jSLiBzmlw32ms79z8jN7GO2fBYKsehAFNQlBUAUBIFEH5RkVuORku7802i8066Kkf+OivV//o1M18Kv8Tn9yiRxTkfH6eSxL1N9YBLZIZ3JPYREaxq2Y/V2V0mh7unKXX7Sk17T+0TSZ3c5x+EzfrU=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=ariel.dalessandro@collabora.com;
-	dmarc=pass header.from=<ariel.dalessandro@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1766513045;
-	s=zohomail; d=collabora.com; i=ariel.dalessandro@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=xe7KX5/ffCktYxkt+30TjEUOn+MQMMGBLrHbUWsPl9A=;
-	b=ka8V5seXaIF3CFDwLp1fSjmihLyggWSapuajig5Lp3cA9lYRQXCeQKEnw+r6ctiT
-	qHq07Ns6yNJnghE+O7ULCUmzJ61rUHy7gIgkU/nmNy044lOHr8P5LYWg3l6lWEEY/Mt
-	r1GEchNSGAy9zttWORY51DM4Wdujs5CaVbxsBhOE=
-Received: by mx.zohomail.com with SMTPS id 1766513043096141.82196198415215;
-	Tue, 23 Dec 2025 10:04:03 -0800 (PST)
-From: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-Date: Tue, 23 Dec 2025 15:01:41 -0300
-Subject: [PATCH v3 21/21] drm/vkms: Set CRTC color pipeline driver cap
+	id 1vY6qk-0000000Fvyk-19yB
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 23 Dec 2025 18:11:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 49FF260142;
+	Tue, 23 Dec 2025 18:11:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FBFEC113D0;
+	Tue, 23 Dec 2025 18:11:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766513469;
+	bh=vCKrrF1o0/Sy5zt04haiRM3dM3kVeJ9oxBI9ruG+/lQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=nm7dP9K37WQ91NFZL+iwUFWhCmuzJSPvFZeTgq7f8lpN19LuwUdZomDaO+GfjfH5h
+	 cqX2BUZ/VXsg4XDxwrxuM0rNfDKlO/95CvnGRErQ/JKirXVWOxjBBQa8VTZP+KzwVy
+	 PT0WbsNxeKg4QZGXfl02aiw1mhCATHIL6Z4oKwy0P75pLnN6xkkZqatLqvMHYEJpZe
+	 +F2jDS/Y+o6L0uhU2sdiIGaY7zjiK2AtG+k1z2wlQHueKKlWk2mp6fYzEV+iBORpOU
+	 xy+IYZynIulenhDOcdnOj2dSwbGclzmwm5Q9J8CSBDXsuZK2kBHUtg/ZiJnMAO88Vm
+	 cIbgRs2WxgBuw==
+Date: Tue, 23 Dec 2025 10:11:06 -0800
+From: Namhyung Kim <namhyung@kernel.org>
+To: Leo Yan <leo.yan@arm.com>
+Cc: Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Ian Rogers <irogers@google.com>, Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	James Clark <james.clark@linaro.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@kernel.org>, LKML <linux-kernel@vger.kernel.org>,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 08/11] tools headers: Sync arm64 headers with kernel
+ sources
+Message-ID: <aUrbOlBwdLFTMjH1@google.com>
+References: <20251222225716.3565649-1-namhyung@kernel.org>
+ <20251222225716.3565649-8-namhyung@kernel.org>
+ <20251223153648.GG9788@e132581.arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20251223-mtk-post-blend-color-pipeline-v3-21-7d969f9a37a0@collabora.com>
-References: <20251223-mtk-post-blend-color-pipeline-v3-0-7d969f9a37a0@collabora.com>
-In-Reply-To: <20251223-mtk-post-blend-color-pipeline-v3-0-7d969f9a37a0@collabora.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Louis Chauvet <louis.chauvet@bootlin.com>, 
- Haneen Mohammed <hamohammed.sa@gmail.com>, 
- Melissa Wen <melissa.srw@gmail.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- kernel@collabora.com, 
- =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>, 
- Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1766512902; l=1111;
- i=ariel.dalessandro@collabora.com; s=20251223; h=from:subject:message-id;
- bh=gQFC766tccP0PdIOKUEQiK11Tirgc3AWqnqe3NzY2Vo=;
- b=jhCoAhoS0Grzt6YiW0jqVUY3CjSqOVgbkX+1ILgEPeIuZv3KL8AgIQhDVXL4s+BwVJfx/rX58
- WfyawBOXlioCmhneTj7YU6dIkWfgqUUZRpgwO7dSKkeV4Jxi++RNdL0
-X-Developer-Key: i=ariel.dalessandro@collabora.com; a=ed25519;
- pk=QZRL9EsSBV3/FhDHi9L/7ZTz2dwa7iyqgl+y1UYaQXQ=
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_100415_820035_CAA61BDB 
-X-CRM114-Status: UNSURE (   9.55  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20251223153648.GG9788@e132581.arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,35 +77,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Nícolas F. R. A. Prado" <nfraprado@collabora.com>
+Hi Leo,
 
-Now that the driver implements CRTC (post-blend) color pipelines, set
-the driver cap so they can be used from userspace.
+On Tue, Dec 23, 2025 at 03:36:48PM +0000, Leo Yan wrote:
+> Hi Namhyung,
+> 
+> On Mon, Dec 22, 2025 at 02:57:13PM -0800, Namhyung Kim wrote:
+> 
+> [...]
+> 
+> >  #define NVIDIA_CPU_PART_DENVER		0x003
+> >  #define NVIDIA_CPU_PART_CARMEL		0x004
+> > +#define NVIDIA_CPU_PART_OLYMPUS		0x010
+> 
+> Just remind, this is duplicated with patch [1], so you may decide
+> which one to pick for merging.
 
-Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
-Co-developed-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-Reviewed-by: Louis Chauvet <louis.chauvet@bootlin.com>
----
- drivers/gpu/drm/vkms/vkms_drv.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+Oh, thanks for the reminder.  I've missed it.  I think it's small enough
+to merge to perf-tools tree.  I'll drop this part.
 
-diff --git a/drivers/gpu/drm/vkms/vkms_drv.c b/drivers/gpu/drm/vkms/vkms_drv.c
-index 39195540fe2b1..62cd36c805e45 100644
---- a/drivers/gpu/drm/vkms/vkms_drv.c
-+++ b/drivers/gpu/drm/vkms/vkms_drv.c
-@@ -94,7 +94,8 @@ static void vkms_atomic_commit_tail(struct drm_atomic_state *old_state)
- }
- 
- static const struct drm_driver vkms_driver = {
--	.driver_features	= DRIVER_MODESET | DRIVER_ATOMIC | DRIVER_GEM,
-+	.driver_features	= DRIVER_MODESET | DRIVER_ATOMIC | DRIVER_GEM |
-+				  DRIVER_CRTC_COLOR_PIPELINE,
- 	.fops			= &vkms_driver_fops,
- 	DRM_GEM_SHMEM_DRIVER_OPS,
- 	DRM_FBDEV_SHMEM_DRIVER_OPS,
+> 
+> Otherwise, LGTM:
+> 
+> Reviewed-by: Leo Yan <leo.yan@arm.com>
 
--- 
-2.51.0
+Thanks,
+Namhyung
 
 
