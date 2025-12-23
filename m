@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FA2BE6F08B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 12:47:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E46D4E6F08B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 12:48:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S++huAmEAkUClmPwncwKruZGwhblkTqjmQ+PX3zDkac=; b=VJRXmKNR2doi4XE0llgvpGCaNL
-	yN+qB5uBta7H3dDRmfmmCWTK91anoRyqUvBzEdvXlBH93WWqF84AZ7C982j35CeTi7GTwQAaoIV4b
-	j2V148eiflE3ur8fSy3LvcSYb5dFtjyOoT/PP8K5YZBnoqE4Q0sZNKV4eNuHd3+4YjxlbFI3oCM3t
-	3fXa5+ImTx12ycSJtQ0Mrfm93vgkKJy6YVOEFzwXX5ch7TI01mfV7kwWg4/u5xzohU/7rnEuEyv2E
-	nzjcnP93FAPBOgVKW5REfY1mNQI3zjCMlDzUq0kYerbtQ/LJ9NNzCuGWcEeJV7Js2cNTjrsjWzXVE
-	mArwWaHg==;
+	bh=HUtBaLYtkCJS72VKzemCoJUU4CMYaENyV8bACGywy+o=; b=ZXNxo53cuPcjTbPaNu0L+E3T3e
+	88xCl+9d0xVfRX8HSKYrnAHNiP2rF/hZsK2ooEKEbw5U7+v1PbOrOWlwQ3AJvPOyiE04o+lE5U2HZ
+	jAlW1lQ/3oMXqholTQg++6GZsDTJyanb1nWmpk+KZbUWxnfztz5bpshu6QUxQPX5G8p/PNNg40ANn
+	/P92SFJ9KYNVLx1qLhDqTIxKDfFYKOLDVHQ6SHuYtjtYnZ7xdiTUKvX1+P+6M85vr21GhGYnIrknO
+	FO0fMkTOu8ysVoGG8XMVfbOzMutXTLVF6JtVWUXkoFjVikfbjBvRilRMroFL/iaGczRHC9DJhSr4I
+	odJJkOrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY1np-0000000FV1Y-2oHa;
-	Tue, 23 Dec 2025 12:47:49 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vY1nu-0000000FV3Z-46iL;
+	Tue, 23 Dec 2025 12:47:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY1nn-0000000FV0d-3A30
+	id 1vY1nt-0000000FV2g-0tQL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Dec 2025 12:47:47 +0000
+	Tue, 23 Dec 2025 12:47:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 346BD60139;
+	by sea.source.kernel.org (Postfix) with ESMTP id 2B141443AD;
+	Tue, 23 Dec 2025 12:47:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5616FC113D0;
 	Tue, 23 Dec 2025 12:47:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E2EDC116C6;
-	Tue, 23 Dec 2025 12:47:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766494066;
-	bh=2MjDtfXLypEJRTDTl8IzvcRwXY4LSxBOkoiWuhZLK/c=;
+	s=k20201202; t=1766494072;
+	bh=jGxjXld3AbH/E5UJYH7bhKAG0w3LuU6IFlo/+lXXbyE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=u/xMO7Nw3t3IKgf7oRNo8bj7RH9qndcM/dAQAGbmZiPkooJ0K4tsMdl+JnfF1FmoU
-	 px3VoHsX5JNFtyIcOvePmF15TGIUSD90DN9EQ0sdmmq345AS69CX+KI7FEz6FEpG3q
-	 zNIDJKg9jWU7X/ArBmIuFsB1wZs6wNeA7R5p1p7ykjTaKei7TLSNn/b4iR8wb3W/wj
-	 fqc6ImWdPssVqoUjrok/PQ88iquzXfa/AERl89HenBCD7OVvAWG44AUOQIOel+BsEW
-	 AmV5Hspqhp3BgCCdpmE/mQikQwBQALq2sq4FSS5ccQ0uZt64MsBiJyWJZjcwWoyT2j
-	 D8g5SnmSMLvJA==
+	b=gXGBmVIJqJRkCum5iYNnqsEG2H0Wc1XPk6ECg093ArxZO7wPZ97xbuhNMuS1/finB
+	 RqaIel3Wh4AuUufa1fMGExYCHqqzuAqMjJq9eYEESh1IBMg9MQOFf08lj6BBFOHjqY
+	 EUWEL97hcYYLqpK/+q6gLOhGaNJjeRrOMUYqB8Kc4C7IPHuOaXqLijRFPRZB9Mp39g
+	 OeBoHAHsRMF//BwLTgi1YaqmwHdUhbZus0eV919cV/vYFuxWFmhGrpExeJu49Qoycb
+	 GsDPSX6Xl+eisCuUhTQUL3HUPYfaDmIJ8POccdzV+dYZOnPEz2BNWfW5rouqJsF5fc
+	 f4pNInq4ecxIg==
 From: Michael Walle <mwalle@kernel.org>
 To: Frank Binns <frank.binns@imgtec.com>,
 	Matt Coster <matt.coster@imgtec.com>,
@@ -67,16 +67,18 @@ Cc: linux-clk@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Michael Walle <mwalle@kernel.org>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v2 1/4] dt-bindings: gpu: img: Add AM62P SoC specific compatible
-Date: Tue, 23 Dec 2025 13:47:13 +0100
-Message-ID: <20251223124729.2482877-2-mwalle@kernel.org>
+	Michael Walle <mwalle@kernel.org>
+Subject: [PATCH v2 2/4] clk: keystone: don't cache clock rate
+Date: Tue, 23 Dec 2025 13:47:14 +0100
+Message-ID: <20251223124729.2482877-3-mwalle@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251223124729.2482877-1-mwalle@kernel.org>
 References: <20251223124729.2482877-1-mwalle@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251223_044753_266265_DBDB938B 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,35 +93,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The AM62P and the J722S features the same BXS-4 GPU as the J721S2. Add a
-new SoC specific compatible.
+The TISCI firmware will return 0 if the clock or consumer is not
+enabled although there is a stored value in the firmware. IOW a call to
+set rate will work but at get rate will always return 0 if the clock is
+disabled.
+The clk framework will try to cache the clock rate when it's requested
+by a consumer. If the clock or consumer is not enabled at that point,
+the cached value is 0, which is wrong. Thus, disable the cache
+altogether.
 
 Signed-off-by: Michael Walle <mwalle@kernel.org>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Kevin Hilman <khilman@baylibre.com>
+Reviewed-by: Randolph Sapp <rs@ti.com>
 ---
- Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/clk/keystone/sci-clk.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-index 86ef68985317..a1f54dbae3f3 100644
---- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-+++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-@@ -40,6 +40,7 @@ properties:
-           - const: img,img-rogue
-       - items:
-           - enum:
-+              - ti,am62p-gpu
-               - ti,j721s2-gpu
-           - const: img,img-bxs-4-64
-           - const: img,img-rogue
-@@ -100,6 +101,7 @@ allOf:
-           contains:
-             enum:
-               - ti,am62-gpu
-+              - ti,am62p-gpu
-               - ti,j721s2-gpu
-     then:
-       properties:
+diff --git a/drivers/clk/keystone/sci-clk.c b/drivers/clk/keystone/sci-clk.c
+index 9d5071223f4c..0a1565fdbb3b 100644
+--- a/drivers/clk/keystone/sci-clk.c
++++ b/drivers/clk/keystone/sci-clk.c
+@@ -333,6 +333,14 @@ static int _sci_clk_build(struct sci_clk_provider *provider,
+ 
+ 	init.ops = &sci_clk_ops;
+ 	init.num_parents = sci_clk->num_parents;
++
++	/*
++	 * A clock rate query to the SCI firmware will return 0 if either the
++	 * clock itself is disabled or the attached device/consumer is disabled.
++	 * This makes it inherently unsuitable for the caching of the clk
++	 * framework.
++	 */
++	init.flags = CLK_GET_RATE_NOCACHE;
+ 	sci_clk->hw.init = &init;
+ 
+ 	ret = devm_clk_hw_register(provider->dev, &sci_clk->hw);
 -- 
 2.47.3
 
