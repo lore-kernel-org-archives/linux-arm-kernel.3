@@ -4,88 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21A68E6F06C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 09:19:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18F0DE6F06C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 09:26:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MN79rI9/KyHBudrHJMLVUfkqPeyoZa6QDJn2X3WWy3Q=; b=ctjHTGukoiNO/TzU+l3EeiulJd
-	5z+Dkw41wl5PLgBC1lZiO2jEdl98oSSijWDtoB8x/i8e0Ds1qZsz/Gc94aRFx9+7YV9vaWKxkLebB
-	vzquMnX/vFHsdYjS4DW0bHdRBcJDAejNzQSmVWDENx/Tvfrq1mj6GDVM8Pz416pkNo0brQjmKZCHD
-	xojTDBuNLT5aZNMOv+ljOYu/Nj6YOyHqNj5U/ECWyUWGtBeX8VweE6WRIsRJo1sKg+5i7xHughEQ4
-	qcrEWemrEYY9sY21fUWpy/qYBMs1knRjcNLhEocfhVYSrBG2vCdmpLPFUsnIrK4On1f6L1JmWV3Jr
-	WpWIJKkA==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GTGEyTW46XThYDSb3nGfOTcnTXkOQCNX3Dl5sNqjw6Y=; b=hWdUao8kgF9OrqxXY0A69FtOs7
+	gevbSC9sy/wI1P7D8xZMdpwXeR4hwhRFu6ktDVzX1D8Xgzszl4qrwLEJ971hy1sOmtBUXhoN3rKDr
+	a6iH/DFAfhpDOPLqZj8LbZEGXijraohQ3gZUOw91nWLTSKH2VQWsgL0aj+xWAB6jbxXyrxlZxhfS2
+	AZ5EWTotWfkprNSsgBYY7ff6Tus6xe6ZlGzh9Yb1huwe8ACzhwCDOyFi5iy73kc9MhpE2/9FbVvvR
+	EvdVUhUUlL5ZLboANCU+c85n6egi3bnmKzVzroZBHymjqHaeT3gjXOS5Rio8rZRDAauhjcHkgaKQJ
+	L/UZ9sUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXyXv-0000000EjyG-0vHO;
-	Tue, 23 Dec 2025 09:19:11 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1vXyen-0000000EkM3-3rm5;
+	Tue, 23 Dec 2025 09:26:17 +0000
+Received: from mail-vk1-xa2a.google.com ([2607:f8b0:4864:20::a2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXyXt-0000000Ejxe-1Bzm
+	id 1vXyel-0000000EkLe-2FR6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Dec 2025 09:19:10 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-29f2676bb21so62507725ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 01:19:08 -0800 (PST)
+	Tue, 23 Dec 2025 09:26:16 +0000
+Received: by mail-vk1-xa2a.google.com with SMTP id 71dfb90a1353d-55b1dde0961so3512879e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 01:26:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1766481548; x=1767086348; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=MN79rI9/KyHBudrHJMLVUfkqPeyoZa6QDJn2X3WWy3Q=;
-        b=RioZ39+YqfCjp7YPEuqS1JKBer4nzR4HpqwsSyxXL2PANsh+J4Ng/MhvLepgBOC3xk
-         euEjkAACDyWbWspTG2l+y/TwXSbUt2rrkAlnURUe4Zm3difm++zqukSwzh02I4nz0BTF
-         yvyQNJsHk/NTGSlcqWRS2CiakvBbmikG89SjJEJPjFdXlTY7ln4RMR7U9ItI2AvfqWBp
-         AgEmGEySYSZT8JBcWBQWXVHiTRtkEMkFBcGfiPtcYudYdD7BpqyOLj137ES9i1lOedH9
-         DJgsHfxV5blaLYJKP67DXWPj4SyBF551XcMfVSCR+0zU1OB6z4m2tMwuLxxclBruOnFH
-         F+zA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766481548; x=1767086348;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1766481973; x=1767086773; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=MN79rI9/KyHBudrHJMLVUfkqPeyoZa6QDJn2X3WWy3Q=;
-        b=rg/65YxqfQTxIqg1+kP5XPEQo9RzzYvvqtE7FPiGgUHP/IqswGyxJSCso+eV+IL4E8
-         x1EqTWRpxi/ILCXYijQ+Fyp/ot6doBUca4ZWeIpvzdZO/cql5T3zIBsOQ6SFYMINtynN
-         mZ5RrhSmwyskU6qMI8VIAyYL1y9r0fzAuBvCt3in5AIlReP1Evcca3j5ws3pzvQjjt+U
-         9F9xdZHlaiOguR+qBhwkaleX+80zHs9Pf/C95ooAyD2CMNNVjmeoBAUr/TSya7EjnFS5
-         BootEPEzxplNJu3/wdyvdza/PKE/e0W7vPozV8kwTGmywkHep0rfMoJAUlTuXmSy1zNW
-         D0mQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWP6exsGCdfLJ5cPG4ERPL7GdqpqJQUAkmLwii6TtYKqsRUSLw0xIG+WvNQ/oOIMgTGWTy2OegIoon1HelAnrlL@lists.infradead.org
-X-Gm-Message-State: AOJu0YwyKhOHmBvVuTFxZB2STRPFqVuozZRAtJuXUGsgHViTPoU7DHav
-	2SZ9sF+Xht1ZqGpEKHKJvYRkYEiGelkqKzAJKzlpx1EqW1N0PDinCEax
-X-Gm-Gg: AY/fxX6qicrh/P95oL/1lfPUoVURbRNxCMn3/xwH/IDk1gFYP393ZMN4rzCwt8xfYyD
-	q85/jeXrVFcMpz/chM/NVAncOJViaHEk+TbOZSd26EuevAMweyPJCPHoV+q1bQ1B4LhRWGkAd/p
-	JCaEuVqJuRyS3hIceGJKcnWQy74jHm5guhqrb/6cIL6jUiZwxvSiE5TtCJogGX4PdIskGL9rhc0
-	vwE3F4hsqrsFvmIt3hW3FjbsQRRmM8Scx3MxgBumBjJLZFDYQEM2zjk0AoaUsWMtqHZB4NzV1ib
-	IITGpN1DY9pKsy3+nXd1ukuaBE5vHeabrClkQ5+ZUJ66SgzAk3YT485s4QSe7YJZm13pTemDe7d
-	AraR3AVyvQ7klie0DAbb7QOrVt4+WB4s3kXRxI0PVFAd+SSkCtJvTQe7y4jsbk6IukXPLjRlpUw
-	ZF7yky+wBUlcCvElAmX1U7ylFNfNoYO71YoRnzuxet0UbwcMf8lDA=
-X-Google-Smtp-Source: AGHT+IFDvVNBPIk/7N9p1UGMGeO6c8CWfVFmTEw04NxvaycNWPTi1YVQbjaRaf7i+encOwwdDQVN5Q==
-X-Received: by 2002:a17:903:4b28:b0:2a0:ed13:398e with SMTP id d9443c01a7336-2a2f2a4f222mr140671645ad.49.1766481548098;
-        Tue, 23 Dec 2025 01:19:08 -0800 (PST)
-Received: from localhost.localdomain ([103.163.65.25])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a2f3d5d1b8sm122886215ad.68.2025.12.23.01.19.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Dec 2025 01:19:07 -0800 (PST)
-From: Lakshmi S <lakshmicar.2023@gmail.com>
-To: sudeep.holla@arm.com,
-	cristian.marussi@arm.com,
-	jassisinghbrar@gmail.com
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	trivial@kernel.org,
-	Lakshmi S <lakshmicar.2023@gmail.com>
-Subject: [PATCH] mailbox: arm_mhuv3: fix typo in comment 
-Date: Tue, 23 Dec 2025 14:48:07 +0530
-Message-Id: <20251223091807.3070-1-lakshmicar.2023@gmail.com>
-X-Mailer: git-send-email 2.25.1
+        bh=GTGEyTW46XThYDSb3nGfOTcnTXkOQCNX3Dl5sNqjw6Y=;
+        b=NtliWllDKHuQqmY+sabNCyrBQBg36stdPgQWAynuRrwFODXo8SftmDcjbpDXNQPKbP
+         sJ2fBKgmZnuRFcCK57Axe/CfZFv54v/2gYAzr+WlYe1xYMHjtMrl0KtiQdKe2A5P8C1y
+         5jSocfTpRmykNYxmfGAOj4PeLx+kfPbMvlJ0CHKQ4gpFo9Jt+z5U+JjZnM5bMtAH7Nif
+         7wNlmAXIWKVimpXy2GIO0xhfUXp7Oiu6xK+l86G2nq0hXMzbBB2dTxKb5btul7ULWCmI
+         CouLO09EcEQftQOd85mNqR31CCkW1SFlTNLYZoJpYh01awPIRWh3TIiCGa4LDjE72MdR
+         slrw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766481973; x=1767086773;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=GTGEyTW46XThYDSb3nGfOTcnTXkOQCNX3Dl5sNqjw6Y=;
+        b=KWyAz9o4FqBtKfxhqvwGFX9IFTdE9a7BhZRIVg9+k6DQL5ODWpBmB5N/Xd3P/+aVaz
+         v3XH3DU2f/xlzXpqxGHFuzCWUH3xznvITcm42oAF/3XlBhvLEhazws2qWkvEIO7a0ZpL
+         4CYGnjyO+i8kQTvbQfcyVJTXhwRf8skFO6fwO3bvFFsiEVDepldM9qFSilv7yMO1/ALn
+         SJAvb3ANmvJWOKhhRu3AfAEIUr+Gylr6jH8Z/6AJvI+T+mT7xeJ4T5OAVhBnWNoaAJrn
+         4vwEB3B1dAmIe8ACyjr4n6umO479sA57pQZ1fZPviryCVFW7JHHBlP2kFRF0XEmXA0YK
+         wsKw==
+X-Forwarded-Encrypted: i=1; AJvYcCV0kwUdjCK9Aua3nh7tc9qMtfYMG0N02RIKlJvP6NEwDwlJZuXA6AZz1S1Ih6LKGBydMynX+jl1fEMSx6NYc0VM@lists.infradead.org
+X-Gm-Message-State: AOJu0YzSOcJsQpxAQAdKlg91i3RlJt9kdcOy8d4VP2VAtrqEOxG+4kHw
+	EPHOzj+em3s9CqqCnFFzMWwqfyPEXBM1nUkMUn02dmna3aT1H2eBnesVLB43wiOcNcxIixqJN3F
+	p4YyKsbFemGWAc2/LsyN0YIDprBuGYEA=
+X-Gm-Gg: AY/fxX77CQFq7hHosqH1vHATh+5aTwFcLVyBmwjVqv0U1BhdHH6sKNbTF8Esb4UHcAo
+	7ZTtRSz3Kzthlg6R8E/Ng6cP+4JjsjMUuWu4E1QljbRlg8B5KjRZ90HIpTuLSTNNDxrYEMs2FDa
+	c246wdvDWi+zjGKC04Gza5uYcY5VIRRoZS4ZFahewdUZhp0CYCX6C2BBAV1Iv9zT9goPPA426nm
+	yaTPjrEYjIiPL8cijAo0oys5+U8/kD3SQO1CdP03sI/FFZyXNGHOCth/QimLDq33tU5M5vGhNQp
+	JXqt/Mg=
+X-Google-Smtp-Source: AGHT+IGNdoIAhQtLGCBr8mC/SwI6VG9mNcrxVeUK7FLVxcyVEZlSIvEaWHvs6v2NaAD9i9XNu9ROrW3FCi+AlPV3bc8=
+X-Received: by 2002:a05:6122:8c26:b0:559:ebd7:56e4 with SMTP id
+ 71dfb90a1353d-5615bceb93amr4461609e0c.5.1766481973546; Tue, 23 Dec 2025
+ 01:26:13 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20251222-ventura2_initial_dts-v1-0-1f06166c78a3@gmail.com>
+ <20251222-ventura2_initial_dts-v1-2-1f06166c78a3@gmail.com>
+ <c069b452-df22-4afa-bf6a-c48949f40ebc@lunn.ch> <CAF7HswN_jEXOU_9K4LpLnbhvd+RD0qqELAHxMBbp=hGtMjS4kQ@mail.gmail.com>
+ <35f3eba9-5ec4-4cba-8a64-fb521dc65b79@lunn.ch>
+In-Reply-To: <35f3eba9-5ec4-4cba-8a64-fb521dc65b79@lunn.ch>
+From: Kyle Hsieh <kylehsieh1995@gmail.com>
+Date: Tue, 23 Dec 2025 17:26:02 +0800
+X-Gm-Features: AQt7F2rfLXR1N_dAP9Rb-QfqDYef379P6Ra9zBB7wrWIZBUMZ5TM9ysNyWSrhdo
+Message-ID: <CAF7HswN0hhJQ-gmE59cKTuPyzrs1A3rM8Xw+Z8i3_AsHRiNcug@mail.gmail.com>
+Subject: Re: [PATCH 2/2] ARM: dts: aspeed: ventura2: Add Meta ventura2 BMC
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+	Andrew Jeffery <andrew@codeconstruct.com.au>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_011909_331377_D0BFB574 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20251223_012615_609377_06C5DC4D 
+X-CRM114-Status: GOOD (  20.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,27 +102,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix typo "channnels"-> "channels" in struct documentation.
-
-Signed-off-by: Lakshmi S <lakshmicar.2023@gmail.com>
----
- drivers/mailbox/arm_mhuv3.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/mailbox/arm_mhuv3.c b/drivers/mailbox/arm_mhuv3.c
-index 0910da67f8a1..a1c528be47f3 100644
---- a/drivers/mailbox/arm_mhuv3.c
-+++ b/drivers/mailbox/arm_mhuv3.c
-@@ -333,7 +333,7 @@ struct mhuv3_extension {
-  * @rev: MHUv3 controller IIDR revision.
-  * @var: MHUv3 controller IIDR variant.
-  * @prod_id: MHUv3 controller IIDR product_id.
-- * @num_chans: The total number of channnels discovered across all extensions.
-+ * @num_chans: The total number of channels discovered across all extensions.
-  * @cmb_irq: Combined IRQ number if any found defined.
-  * @ctrl: A reference to the MHUv3 control page for this block.
-  * @pbx: Base address of the PBX register mapping region.
--- 
-2.25.1
-
+On Tue, Dec 23, 2025 at 5:13=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
+>
+> On Tue, Dec 23, 2025 at 09:49:02AM +0800, =E8=AC=9D=E6=94=BF=E5=90=89 wro=
+te:
+> > On Mon, Dec 22, 2025 at 5:30=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wr=
+ote:
+> > >
+> > > > +&mdio0 {
+> > > > +     status =3D "okay";
+> > > > +};
+> > > > +
+> > > > +&mac2 {
+> > > > +     status =3D "okay";
+> > > > +     phy-mode =3D "rmii";
+> > > > +     pinctrl-names =3D "default";
+> > > > +     pinctrl-0 =3D <&pinctrl_rmii3_default>;
+> > > > +     fixed-link {
+> > > > +             speed =3D <100>;
+> > > > +             full-duplex;
+> > > > +     };
+> > > > +};
+> > >
+> > > That is an odd combination. You enable the MDIO bus, but don't have
+> > > any PHYs on it, no phandles pointing to it. And you have this
+> > > fixed-link. It makes me think you have an Ethernet switch on the bus,
+> > > and this connects to it?
+> > Thanks for the clarification.
+> > Yes, there is an Ethernet switch in the design.
+> > The MAC is connected to the switch via RMII using a fixed-link
+> > configuration.
+>
+> What make/model of switch is it? Is it unmanaged, or does it use SPI
+> or I2C for management?
+The switch is connected via RMII to the MAC and is managed over MDIO.
+On our board, MDIO is not wired directly to the processor; instead, we
+use a USB-to-MPSSE bridge (FT2232) to toggle the MDIO signals for
+switch management.
+So the MDIO bus in the DTS is not used, and enabling it there was a mistake=
+.
+>
+>         Andrew
+Best Regard,
+Kyle Hsieh
 
