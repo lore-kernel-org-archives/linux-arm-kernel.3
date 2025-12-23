@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5ABFE6FE23
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 18:03:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B12E0E6FE23
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 18:03:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8tVdDl5X51j5Ux5xji9PlQBIjzS9DLtBXIu2gVhHv+A=; b=MwWDbxv4ZjoCKH9Bd0tmOGWKn5
-	9KLGGPFj0YSuK3HjusWo7j6XCfdcEdQrGWApwRNuVGLZM4XHYtw2cRsUaSF13needocrUTaSdiSrt
-	vTckZ060eZ6j29cwVsiwrXNen4nm+TttFSSTwPkv8mZq136mePBIadJfo4awIDa+EVk5pSVPiDtyW
-	WPij9lRxezrnrFAnmkw2eyqL7JEpQBonfzo227S21jErEDtcslE7IQpIMbtoqbENq3hXyLIOAguIp
-	JCkXWbWXS8yE8ylKIVUWFBW+wnNQ6Nc/jo/7+8GeY85ITrGM1K/uy4VenDzg8KheJsXRqGLn32+41
-	gqk++SZQ==;
+	bh=TTP2nlfF4TVr6/Gr417b9vvRxgYthN/xdBwufZt5Fp0=; b=nSkJoZhvY+6VBZRsyHcJyNzClu
+	Urw3P0lPQozm2upwGvqzy/NEXWTkaMlIdZe6f3ct9mhq3eiN3gmCbGMyYNZXOmk0jK6uetRtJobb2
+	ONk+Ma88eQoMdU0PhsPY/SZ1fPkFtBG5/79s5qubDAID6CnmWOX9Iahz6tk7KI0MNYUCB5gmL6hm1
+	3bNw4NiI0CG/pxwUos91e1Hk4+Bgf/Qt35ArzGLChzmePDcmFQ8A43A+tlQgZe+dYdJcmfrJuIagx
+	S+LVvGcfJDsaeLSqTysHuLQSHxgnvI5Oprm1bnuX24Biz5KItcSjz4OG761TR3hLFmbVacbxbzUrx
+	273oHzBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY6ip-0000000FtcX-2bUC;
-	Tue, 23 Dec 2025 18:03:06 +0000
+	id 1vY6j2-0000000FtlO-0oXx;
+	Tue, 23 Dec 2025 18:03:12 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY6il-0000000FtXv-1zej;
-	Tue, 23 Dec 2025 18:02:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1766512960; cv=none; 
+	id 1vY6ir-0000000Ftcr-1Ghr;
+	Tue, 23 Dec 2025 18:03:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1766512968; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=mA7mnyyb4V3jS/5YbPKp2L15a9As8zz9retIRr6cFJ1gUHGxNmrig4Hyk+S2Qf1rqW2OeJ8hpmT5mb8J5vNaFO/dxUD/4NLAvbuvGwDLQ4J3/QVsB6EVCAJXniGpmvZdD1I5aCg2kwFoi58X42nxIfidqsIDCwXZqmC/BHbaCek=
+	b=HpdUob6t1Xl2/3PjfLNrFueMsFxdAE9nbrES2kBedg2MObL6Ute7AuFC29gTH7x3lLw1XFZ3nZHsM92HGPdCuGdaCzHgCNQFjO407A4rHdAVD4Ysqri2WxHfIjPenNKNo/hHasyMeT3y67LEyYoxTSb9plrmTjBidY5sJqEF6Bo=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1766512960; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=8tVdDl5X51j5Ux5xji9PlQBIjzS9DLtBXIu2gVhHv+A=; 
-	b=Jdzq+aK9t5I6gxYknwZt7D5LUyKhnbZaKHnjDlCVSVX9xFkk1p61KlCxgeiPuBDeNdUAyKDUhIPtesZYiH7o//cD6WrzY96FuDaohjPhErE0owsEFutxyP4NV8dGNU9xuSma96Kvb/5Yojdik6vMAtAVXoxABp9YN5bAeioaOI8=
+	t=1766512968; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=TTP2nlfF4TVr6/Gr417b9vvRxgYthN/xdBwufZt5Fp0=; 
+	b=EhMMZwlQwQtf3zn7aVQRnDUgz+nScaDlqistZBvGUn+4TTt/PqwZYhqQ0B5vX8utMS5yj6GjYU5HkoTFJrvOMfJ4B4Wh4W4jEQYpx6Z/V3ZPjeK6b06BWhyE3sBJ6Gbj9SRaxxkf0pkFOC6Uzu5pRunXHylPLUy3AEnhSWmD3L4=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=ariel.dalessandro@collabora.com;
 	dmarc=pass header.from=<ariel.dalessandro@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1766512960;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1766512968;
 	s=zohomail; d=collabora.com; i=ariel.dalessandro@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=8tVdDl5X51j5Ux5xji9PlQBIjzS9DLtBXIu2gVhHv+A=;
-	b=XAWkDFu4uEmp0fx9A1FVlGZK6B7ywx9qtfiXdNaHyGVhwkhj25Mc9A13bhapEAWr
-	OuWoPvQWzvtJpAAPKtBhqecFGOBZTd6B0zxJMio0+K5DXxXR9fA9JIL2/YdVWuthGw/
-	QokuPqyLYSTRqrsJdyNiDTODXyRLKMQ+Nuo7w3rg=
-Received: by mx.zohomail.com with SMTPS id 17665129596543.9630842896659715;
-	Tue, 23 Dec 2025 10:02:39 -0800 (PST)
+	bh=TTP2nlfF4TVr6/Gr417b9vvRxgYthN/xdBwufZt5Fp0=;
+	b=ZRLzwvwk9X9Im3smvZA/0yBp4aoRr7GK2T4HzF/Ekc9bbjoWoJ2USjZukXqJ22GP
+	ue1vlI9MQYmBFmsqK53/4JIFl8gHSzE2QhybWpaF/VJ9d8M+3Vvw5bBWZWy+/k+iR1e
+	sHUkvL4P3HUeN9JZEVlcH1eTPvs8mxPh6dKMlN5c=
+Received: by mx.zohomail.com with SMTPS id 1766512966401297.4740004327332;
+	Tue, 23 Dec 2025 10:02:46 -0800 (PST)
 From: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-Date: Tue, 23 Dec 2025 15:01:28 -0300
-Subject: [PATCH v3 08/21] drm/atomic: Print the color pipeline as part of
- the CRTC state print
+Date: Tue, 23 Dec 2025 15:01:29 -0300
+Subject: [PATCH v3 09/21] drm/colorop: Factor out common paths from
+ colorops helpers
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20251223-mtk-post-blend-color-pipeline-v3-8-7d969f9a37a0@collabora.com>
+Message-Id: <20251223-mtk-post-blend-color-pipeline-v3-9-7d969f9a37a0@collabora.com>
 References: <20251223-mtk-post-blend-color-pipeline-v3-0-7d969f9a37a0@collabora.com>
 In-Reply-To: <20251223-mtk-post-blend-color-pipeline-v3-0-7d969f9a37a0@collabora.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -73,18 +73,17 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  Ariel D'Alessandro <ariel.dalessandro@collabora.com>, 
  Harry Wentland <harry.wentland@amd.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1766512902; l=1191;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1766512902; l=8035;
  i=ariel.dalessandro@collabora.com; s=20251223; h=from:subject:message-id;
- bh=rcwbsd4sgvqm0zAsHPgYyQ8i3zpA2VcJDltqzHchMVA=;
- b=bA/+hM2Fz8JyB+uOiYZi/hBKhWQasDCTdvY+fKqXClHT06O3p7FmR8Kgugm1sNBqu7ztnkA+R
- wsRgP2bwpkHBQkHe8GPD6wZdQxhhkiaN6SR3FwD1qzi/8z64BtgbTJk
+ bh=5Qni8H4yUQhtfmB3ydT1m5AL0OONphS8F8GXu44wugo=;
+ b=IzIHGHHAg4aiERlzri8xSRIIzbx0Vof/Kv9r5nHjhaH7BfQCsvvmvolnAS7nGYUEbyr4QFDxd
+ i7w968a9jKGC6xEv5fp7Ebg63623cB2mijjg+tmAHInvt5Zij5rad00
 X-Developer-Key: i=ariel.dalessandro@collabora.com; a=ed25519;
  pk=QZRL9EsSBV3/FhDHi9L/7ZTz2dwa7iyqgl+y1UYaQXQ=
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_100255_603596_63C0EDD8 
-X-CRM114-Status: UNSURE (   7.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251223_100306_317969_B2936466 
+X-CRM114-Status: GOOD (  14.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,8 +100,8 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: "Nícolas F. R. A. Prado" <nfraprado@collabora.com>
 
-Print the value of the color pipeline in the CRTC state as part of the
-CRTC state print.
+Factor out the common code paths from the colorop helpers so they can be
+reused by the post-blend colorop helpers.
 
 Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 Co-developed-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
@@ -110,22 +109,231 @@ Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
 Reviewed-by: Louis Chauvet <louis.chauvet@bootlin.com>
 Reviewed-by: Harry Wentland <harry.wentland@amd.com>
 ---
- drivers/gpu/drm/drm_atomic.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/gpu/drm/drm_colorop.c | 146 ++++++++++++++++++++++++++++--------------
+ 1 file changed, 99 insertions(+), 47 deletions(-)
 
-diff --git a/drivers/gpu/drm/drm_atomic.c b/drivers/gpu/drm/drm_atomic.c
-index e9022d7ad04b0..aa4aa2f589b3d 100644
---- a/drivers/gpu/drm/drm_atomic.c
-+++ b/drivers/gpu/drm/drm_atomic.c
-@@ -475,6 +475,8 @@ static void drm_atomic_crtc_print_state(struct drm_printer *p,
- 	drm_printf(p, "\tplane_mask=%x\n", state->plane_mask);
- 	drm_printf(p, "\tconnector_mask=%x\n", state->connector_mask);
- 	drm_printf(p, "\tencoder_mask=%x\n", state->encoder_mask);
-+	drm_printf(p, "\tcolor-pipeline=%d\n",
-+		   state->color_pipeline ? state->color_pipeline->base.id : 0);
- 	drm_printf(p, "\tmode: " DRM_MODE_FMT "\n", DRM_MODE_ARG(&state->mode));
+diff --git a/drivers/gpu/drm/drm_colorop.c b/drivers/gpu/drm/drm_colorop.c
+index bf3b8ff51571b..6a285cdb0a354 100644
+--- a/drivers/gpu/drm/drm_colorop.c
++++ b/drivers/gpu/drm/drm_colorop.c
+@@ -93,9 +93,9 @@ static const struct drm_prop_enum_list drm_colorop_lut3d_interpolation_list[] =
  
- 	if (crtc->funcs->atomic_print_state)
+ /* Init Helpers */
+ 
+-static int drm_plane_colorop_init(struct drm_device *dev, struct drm_colorop *colorop,
+-				  struct drm_plane *plane, enum drm_colorop_type type,
+-				  uint32_t flags)
++static int drm_common_colorop_init(struct drm_device *dev,
++				   struct drm_colorop *colorop,
++				   enum drm_colorop_type type, uint32_t flags)
+ {
+ 	struct drm_mode_config *config = &dev->mode_config;
+ 	struct drm_property *prop;
+@@ -108,7 +108,6 @@ static int drm_plane_colorop_init(struct drm_device *dev, struct drm_colorop *co
+ 	colorop->base.properties = &colorop->properties;
+ 	colorop->dev = dev;
+ 	colorop->type = type;
+-	colorop->plane = plane;
+ 	colorop->next = NULL;
+ 
+ 	list_add_tail(&colorop->head, &config->colorop_list);
+@@ -157,6 +156,20 @@ static int drm_plane_colorop_init(struct drm_device *dev, struct drm_colorop *co
+ 	return ret;
+ }
+ 
++static int drm_plane_colorop_init(struct drm_device *dev,
++				  struct drm_colorop *colorop,
++				  struct drm_plane *plane,
++				  enum drm_colorop_type type, uint32_t flags)
++{
++	int ret;
++
++	ret = drm_common_colorop_init(dev, colorop, type, flags);
++
++	colorop->plane = plane;
++
++	return ret;
++}
++
+ /**
+  * drm_colorop_cleanup - Cleanup a drm_colorop object in color_pipeline
+  *
+@@ -210,31 +223,13 @@ EXPORT_SYMBOL(drm_colorop_pipeline_destroy);
+  * @flags: bitmask of misc, see DRM_COLOROP_FLAG_* defines.
+  * @return zero on success, -E value on failure
+  */
+-int drm_plane_colorop_curve_1d_init(struct drm_device *dev, struct drm_colorop *colorop,
+-				    struct drm_plane *plane, u64 supported_tfs, uint32_t flags)
++static int drm_common_colorop_curve_1d_init(struct drm_device *dev, struct drm_colorop *colorop,
++					    u64 supported_tfs, uint32_t flags)
+ {
+ 	struct drm_prop_enum_list enum_list[DRM_COLOROP_1D_CURVE_COUNT];
+ 	int i, len;
+ 
+ 	struct drm_property *prop;
+-	int ret;
+-
+-	if (!supported_tfs) {
+-		drm_err(dev,
+-			"No supported TFs for new 1D curve colorop on [PLANE:%d:%s]\n",
+-			plane->base.id, plane->name);
+-		return -EINVAL;
+-	}
+-
+-	if ((supported_tfs & -BIT(DRM_COLOROP_1D_CURVE_COUNT)) != 0) {
+-		drm_err(dev, "Unknown TF provided on [PLANE:%d:%s]\n",
+-			plane->base.id, plane->name);
+-		return -EINVAL;
+-	}
+-
+-	ret = drm_plane_colorop_init(dev, colorop, plane, DRM_COLOROP_1D_CURVE, flags);
+-	if (ret)
+-		return ret;
+ 
+ 	len = 0;
+ 	for (i = 0; i < DRM_COLOROP_1D_CURVE_COUNT; i++) {
+@@ -263,6 +258,41 @@ int drm_plane_colorop_curve_1d_init(struct drm_device *dev, struct drm_colorop *
+ 
+ 	return 0;
+ }
++
++static int drm_colorop_has_supported_tf(struct drm_device *dev, struct drm_mode_object *obj,
++					const char *name, u64 supported_tfs)
++{
++	if (!supported_tfs) {
++		drm_err(dev,
++			"No supported TFs for new 1D curve colorop on [PLANE:%d:%s]\n",
++			obj->id, name);
++		return -EINVAL;
++	}
++
++	if ((supported_tfs & -BIT(DRM_COLOROP_1D_CURVE_COUNT)) != 0) {
++		drm_err(dev, "Unknown TF provided on [PLANE:%d:%s]\n",
++			obj->id, name);
++		return -EINVAL;
++	}
++
++	return 0;
++}
++
++int drm_plane_colorop_curve_1d_init(struct drm_device *dev, struct drm_colorop *colorop,
++				    struct drm_plane *plane, u64 supported_tfs, uint32_t flags)
++{
++	int ret;
++
++	ret = drm_colorop_has_supported_tf(dev, &plane->base, plane->name, supported_tfs);
++	if (ret)
++		return ret;
++
++	ret = drm_plane_colorop_init(dev, colorop, plane, DRM_COLOROP_1D_CURVE, flags);
++	if (ret)
++		return ret;
++
++	return drm_common_colorop_curve_1d_init(dev, colorop, supported_tfs, flags);
++}
+ EXPORT_SYMBOL(drm_plane_colorop_curve_1d_init);
+ 
+ static int drm_colorop_create_data_prop(struct drm_device *dev, struct drm_colorop *colorop)
+@@ -283,29 +313,16 @@ static int drm_colorop_create_data_prop(struct drm_device *dev, struct drm_color
+ 	return 0;
+ }
+ 
+-/**
+- * drm_plane_colorop_curve_1d_lut_init - Initialize a DRM_COLOROP_1D_LUT
+- *
+- * @dev: DRM device
+- * @colorop: The drm_colorop object to initialize
+- * @plane: The associated drm_plane
+- * @lut_size: LUT size supported by driver
+- * @interpolation: 1D LUT interpolation type
+- * @flags: bitmask of misc, see DRM_COLOROP_FLAG_* defines.
+- * @return zero on success, -E value on failure
+- */
+-int drm_plane_colorop_curve_1d_lut_init(struct drm_device *dev, struct drm_colorop *colorop,
+-					struct drm_plane *plane, uint32_t lut_size,
+-					enum drm_colorop_lut1d_interpolation_type interpolation,
+-					uint32_t flags)
++static int
++drm_common_colorop_curve_1d_lut_init(struct drm_device *dev,
++				     struct drm_colorop *colorop,
++				     uint32_t lut_size,
++				     enum drm_colorop_lut1d_interpolation_type interpolation,
++				     uint32_t flags)
+ {
+ 	struct drm_property *prop;
+ 	int ret;
+ 
+-	ret = drm_plane_colorop_init(dev, colorop, plane, DRM_COLOROP_1D_LUT, flags);
+-	if (ret)
+-		return ret;
+-
+ 	/* initialize 1D LUT only attribute */
+ 	/* LUT size */
+ 	prop = drm_property_create_range(dev, DRM_MODE_PROP_IMMUTABLE | DRM_MODE_PROP_ATOMIC,
+@@ -337,17 +354,40 @@ int drm_plane_colorop_curve_1d_lut_init(struct drm_device *dev, struct drm_color
+ 
+ 	return 0;
+ }
+-EXPORT_SYMBOL(drm_plane_colorop_curve_1d_lut_init);
+ 
+-int drm_plane_colorop_ctm_3x4_init(struct drm_device *dev, struct drm_colorop *colorop,
+-				   struct drm_plane *plane, uint32_t flags)
++/**
++ * drm_plane_colorop_curve_1d_lut_init - Initialize a DRM_COLOROP_1D_LUT
++ *
++ * @dev: DRM device
++ * @colorop: The drm_colorop object to initialize
++ * @plane: The associated drm_plane
++ * @lut_size: LUT size supported by driver
++ * @lut1d_interpolation: 1D LUT interpolation type
++ * @flags: bitmask of misc, see DRM_COLOROP_FLAG_* defines.
++ * @return zero on success, -E value on failure
++ */
++int
++drm_plane_colorop_curve_1d_lut_init(struct drm_device *dev, struct drm_colorop *colorop,
++				    struct drm_plane *plane, uint32_t lut_size,
++				    enum drm_colorop_lut1d_interpolation_type lut1d_interpolation,
++				    uint32_t flags)
+ {
+ 	int ret;
+ 
+-	ret = drm_plane_colorop_init(dev, colorop, plane, DRM_COLOROP_CTM_3X4, flags);
++	ret = drm_plane_colorop_init(dev, colorop, plane, DRM_COLOROP_1D_LUT, flags);
+ 	if (ret)
+ 		return ret;
+ 
++	return drm_common_colorop_curve_1d_lut_init(dev, colorop, lut_size,
++						    lut1d_interpolation, flags);
++}
++EXPORT_SYMBOL(drm_plane_colorop_curve_1d_lut_init);
++
++static int drm_common_colorop_ctm_3x4_init(struct drm_device *dev, struct drm_colorop *colorop,
++					   uint32_t flags)
++{
++	int ret;
++
+ 	ret = drm_colorop_create_data_prop(dev, colorop);
+ 	if (ret)
+ 		return ret;
+@@ -356,6 +396,18 @@ int drm_plane_colorop_ctm_3x4_init(struct drm_device *dev, struct drm_colorop *c
+ 
+ 	return 0;
+ }
++
++int drm_plane_colorop_ctm_3x4_init(struct drm_device *dev, struct drm_colorop *colorop,
++				   struct drm_plane *plane, uint32_t flags)
++{
++	int ret;
++
++	ret = drm_plane_colorop_init(dev, colorop, plane, DRM_COLOROP_CTM_3X4, flags);
++	if (ret)
++		return ret;
++
++	return drm_common_colorop_ctm_3x4_init(dev, colorop, flags);
++}
+ EXPORT_SYMBOL(drm_plane_colorop_ctm_3x4_init);
+ 
+ /**
 
 -- 
 2.51.0
