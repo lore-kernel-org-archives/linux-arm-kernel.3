@@ -4,51 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D8BCE6B26C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 01:23:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2398DE6B261
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 01:23:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jpMqQ3wvZj+ouJx1/JPyHZ6FJWqUDPHR5XJ9tjkRbIg=; b=GOMIuYu+oAA1U1w8YQdYgw8IgH
-	WgTuf6EYnszh+vecz1/hkrs0AIX4+3ATIF6FAsk8ageVOBf8kV6GX9MwneZcyurFxD5mVmsIV0vgc
-	Cetc0KJXatDOU5hf6Eyh7rMvVTSyXAWo+3vul2VTKUDoIfTVxPgY0iD+dNK63yiL77hi/bAsxhEmh
-	caR4OkkWrzwuPLI2w+LUB9/cTJZmSLZBGsxE5LNPkj5FtGZN+4TSFHDw37lnDwa4h774mXN6+m3UE
-	Ducd1caA8ql5glkgLdIoGxKlkArHSUi0L60Uy/RU/wF7ZW4tTETbBuBVwJfNuy7JlGgFFcJyqVZvT
-	FwT7OzYw==;
+	bh=LLJJxlwfXoobC3N0QxHSQiUq4Tn/e/r2OKXS1LULcfE=; b=efy14E0/TLHda8EWlOrIc9Q1uu
+	f44G4AmCBo5dEpopbwalw3jfKDyxenrkU/dbGzwvWbSkZttYJ8+jictnCyCRVHe6K6KmVKjCGAB0y
+	ihnc+DdKD51gdcBMlirC1oCmAfYXh3ybxLOZ8yUgnMn7QzPINWHJyUCYxhBbEI1ibUolpuBxFPr7f
+	5JSAW+Qp60JWcqA3LPbJdkaku7O+35IoFsOM1LiQ+cfQ3sE7sclJHcR/xhgJLC24JxvSchFzI09Pa
+	AlAJn/N5RWt/zb9qG/9JNXNul1jejsFphC9iDySHBm4bi9Jlog3rw2iVTPkHwlfQzskYan2wDyjQR
+	YqaSwltA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXr7o-0000000EN3O-3ERN;
-	Tue, 23 Dec 2025 01:23:44 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vXr7u-0000000EN7u-1Wzf;
+	Tue, 23 Dec 2025 01:23:50 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXr7T-0000000EMgG-33Oy
+	id 1vXr7g-0000000EMv5-3KCD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Dec 2025 01:23:34 +0000
+	Tue, 23 Dec 2025 01:23:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2943643F47;
-	Tue, 23 Dec 2025 01:23:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E997C4CEF1;
-	Tue, 23 Dec 2025 01:23:19 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 16EA06018D;
+	Tue, 23 Dec 2025 01:23:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED853C4CEF1;
+	Tue, 23 Dec 2025 01:23:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766453003;
-	bh=FzRi1bctv9rrqNEWwOJp3F+K+iFD0wwTwXRP36rhp+Y=;
+	s=k20201202; t=1766453015;
+	bh=jbLNcvQ8qxr+FL0J4Bab/tdTijCeYtU2EXCu11Jdphc=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=OdctPKNJwOjWJ5tecGrza74VtWHJA9rrjCwOhN2FX4CdIo9tRikRy644wetxVooIN
-	 IxOkRdl83h6vyyS401NfoF9BJGXc4LHcF2cIdR7OwPJOKDb9vjzS+WsXCW7zC+yp/b
-	 hemm1WLXEpOfp2qa/Ww+RBfYFNVM70aWmqZ3E056kOqKWXvtAd6u9RbgjtC7wV3aR1
-	 SLV6QBFuJ5owkYy8Mqr6cOv5j5OP1hsKqei9pm95vSiB908pvlkD48lgeEOgV3KJdQ
-	 emF/QSPj6QoZAB4EkayZIKNkYwuIHcf0Z/83lALqupB9Lrew7oh2NnBKgsw/h5DCUQ
-	 OnkhLeKZi411A==
+	b=EJ+BbwVJ5m3VApHWOcACnEn/Jtbrhz3GXdEHzeekIga3vryGLjkOdmsZwWXvDIOvA
+	 BBxgwyPU7COryEy6mVlRZlH1M1GySUOo74ZpZV4vzwnepOJpu3u40EyJeDx5meyyjO
+	 t+BakPXpQ/lA/tygjFk+NPGWxCqZXs46AeIkBmL4wL5FQb4EFwmrsu3b07okc/L3Hf
+	 QH+5Z2LzInok83O39wAR0otC7kQm9VC9M3uW7HuLvCts3rYVg5ID7FmoN+EXUUCyca
+	 MTjafTAzlcXP2WyAS9IdOPmbaOtX/H7zzjRsiT8gDGaEJfou0pOeMmagkWcuVg4qRS
+	 qfylhUpbLObJw==
 From: Mark Brown <broonie@kernel.org>
-Date: Tue, 23 Dec 2025 01:21:19 +0000
-Subject: [PATCH v9 25/30] KVM: arm64: Expose SME to nested guests
+Date: Tue, 23 Dec 2025 01:21:22 +0000
+Subject: [PATCH v9 28/30] KVM: arm64: selftests: Skip impossible invalid
+ value tests
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251223-kvm-arm64-sme-v9-25-8be3867cb883@kernel.org>
+Message-Id: <20251223-kvm-arm64-sme-v9-28-8be3867cb883@kernel.org>
 References: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org>
 In-Reply-To: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org>
 To: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
@@ -64,20 +65,17 @@ Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>,
  Peter Maydell <peter.maydell@linaro.org>, 
  Eric Auger <eric.auger@redhat.com>, Mark Brown <broonie@kernel.org>
 X-Mailer: b4 0.15-dev-47773
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1408; i=broonie@kernel.org;
- h=from:subject:message-id; bh=FzRi1bctv9rrqNEWwOJp3F+K+iFD0wwTwXRP36rhp+Y=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpSe6Vf+MTqYjq4kXe4kbr9Zy9gweDKTkN/+6I+
- 2AscH+hGPOJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaUnulQAKCRAk1otyXVSH
- 0K47B/46AKQNCiAhn5hTkguKHo5oVF1pbyCaBey9vSjyQIbzDbvhCfKZqmL6Sdu/DMwtf98exB1
- RD1+t4wd3yU5XYMsyE8z5/zhRYyKKnOpz97jMwjJwkZ1YS7TYLQ4WmUhvaSV+WkLPEJkbCsSXIi
- y59GMQwrVxyom7Wui2mpYgm2JkqomZOW10XLIPBi8G60NgFjH6q7LGsUDBe7lucid92uDTvCkGe
- bh5+0qgM2Bf0ecCA5VCfMKhgCY6yAj7SPuzOWWApXTABtJHLH7MPC/b6EWv6h9PpwbdWQy8YHTf
- ezKax5T3S18GNdYUmZZdkUApkD2VmxucgyzJ6bwLrmqesJhe
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3644; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=jbLNcvQ8qxr+FL0J4Bab/tdTijCeYtU2EXCu11Jdphc=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpSe6YjlDBX+enbPVACfxp+aByWhyMVRBBrMoHp
+ yKUFjTo7kmJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaUnumAAKCRAk1otyXVSH
+ 0PAdB/wKnIGQ0YWaL2F/ONZhaNf7iTxCd4x4MoDNmNeqoCkxjB7QvAl3CDHLRjbPZXLqxliOVWW
+ n9wi9014gJZ/JD0umqy8ZetSmzKsOQw1mmMhW3nd22zLuLKufd/KC6upoXXMBq56T6yiP5FWnoU
+ J4qeY8twwIzjd/zVmXaiK9ZE4RIbMhyhLi4USL89FG08YCzCFBK0ginrTgJ3h255gW6KCzuVm5E
+ fOMzXi83SHaSprSXVV2EFXxUsBZXwsyesJAMt/3GSB0xyLcYIlFfPiOI0bwUXJP/tKwj/sSSFbw
+ OL2lN0rqRDQ57wtw06kB9PzKMie3b7CaLj2SW44lWrTJRErt
 X-Developer-Key: i=broonie@kernel.org; a=openpgp;
  fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_172323_882785_2B5C5A13 
-X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,45 +90,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With support for context switching SME state in place allow access to SME
-in nested guests.
+The set_id_regs test currently assumes that there will always be invalid
+values available in bitfields for it to generate but this may not be the
+case if the architecture has defined meanings for every possible value for
+the bitfield. An assert added in commit bf09ee918053e ("KVM: arm64:
+selftests: Remove ARM64_FEATURE_FIELD_BITS and its last user") refuses to
+run for single bit fields which will show the issue most readily but there
+is no reason wider ones can't show the same issue.
 
-The SME floating point state is handled along with all the other floating
-point state, SME specific floating point exceptions are directed into the
-same handlers as other floating point exceptions with NV specific handling
-for the vector lengths already in place.
-
-TPIDR2_EL0 is context switched along with the other TPIDRs as part of the
-main guest register context switch.
-
-SME priority support is currently masked from all guests including nested
-ones.
+Rework the tests for invalid value to check if an invalid value can be
+generated and skip the test if not, removing the assert.
 
 Signed-off-by: Mark Brown <broonie@kernel.org>
 ---
- arch/arm64/kvm/nested.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
+ tools/testing/selftests/kvm/arm64/set_id_regs.c | 58 ++++++++++++++++++++-----
+ 1 file changed, 46 insertions(+), 12 deletions(-)
 
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index cdeeb8f09e72..a0967ca8c61e 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -1534,14 +1534,13 @@ u64 limit_nv_id_reg(struct kvm *kvm, u32 reg, u64 val)
- 		break;
+diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
+index 322cd13b9352..641194c5005a 100644
+--- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
++++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
+@@ -318,11 +318,12 @@ uint64_t get_safe_value(const struct reg_ftr_bits *ftr_bits, uint64_t ftr)
+ }
  
- 	case SYS_ID_AA64PFR1_EL1:
--		/* Only support BTI, SSBS, CSV2_frac */
-+		/* Only support BTI, SME, SSBS, CSV2_frac */
- 		val &= ~(ID_AA64PFR1_EL1_PFAR		|
- 			 ID_AA64PFR1_EL1_MTEX		|
- 			 ID_AA64PFR1_EL1_THE		|
- 			 ID_AA64PFR1_EL1_GCS		|
- 			 ID_AA64PFR1_EL1_MTE_frac	|
- 			 ID_AA64PFR1_EL1_NMI		|
--			 ID_AA64PFR1_EL1_SME		|
- 			 ID_AA64PFR1_EL1_RES0		|
- 			 ID_AA64PFR1_EL1_MPAM_frac	|
- 			 ID_AA64PFR1_EL1_MTE);
+ /* Return an invalid value to a given ftr_bits an ftr value */
+-uint64_t get_invalid_value(const struct reg_ftr_bits *ftr_bits, uint64_t ftr)
++uint64_t get_invalid_value(const struct reg_ftr_bits *ftr_bits, uint64_t ftr,
++			   bool *skip)
+ {
+ 	uint64_t ftr_max = ftr_bits->mask >> ftr_bits->shift;
+ 
+-	TEST_ASSERT(ftr_max > 1, "This test doesn't support single bit features");
++	*skip = false;
+ 
+ 	if (ftr_bits->sign == FTR_UNSIGNED) {
+ 		switch (ftr_bits->type) {
+@@ -330,42 +331,72 @@ uint64_t get_invalid_value(const struct reg_ftr_bits *ftr_bits, uint64_t ftr)
+ 			ftr = max((uint64_t)ftr_bits->safe_val + 1, ftr + 1);
+ 			break;
+ 		case FTR_LOWER_SAFE:
++			if (ftr == ftr_max)
++				*skip = true;
+ 			ftr++;
+ 			break;
+ 		case FTR_HIGHER_SAFE:
++			if (ftr == 0)
++				*skip = true;
+ 			ftr--;
+ 			break;
+ 		case FTR_HIGHER_OR_ZERO_SAFE:
+-			if (ftr == 0)
++			switch (ftr) {
++			case 0:
+ 				ftr = ftr_max;
+-			else
++				break;
++			case 1:
++				*skip = true;
++				break;
++			default:
+ 				ftr--;
+-			break;
++				break;
++			}
+ 		default:
++			*skip = true;
+ 			break;
+ 		}
+ 	} else if (ftr != ftr_max) {
+ 		switch (ftr_bits->type) {
+ 		case FTR_EXACT:
+ 			ftr = max((uint64_t)ftr_bits->safe_val + 1, ftr + 1);
++			if (ftr > ftr_max)
++				*skip = true;
+ 			break;
+ 		case FTR_LOWER_SAFE:
+-			ftr++;
++			if (ftr == ftr_max)
++				*skip = true;
++			else
++				ftr++;
+ 			break;
+ 		case FTR_HIGHER_SAFE:
+-			ftr--;
+-			break;
+-		case FTR_HIGHER_OR_ZERO_SAFE:
+ 			if (ftr == 0)
+-				ftr = ftr_max - 1;
++				*skip = true;
+ 			else
+ 				ftr--;
+ 			break;
++		case FTR_HIGHER_OR_ZERO_SAFE:
++			switch (ftr) {
++			case 0:
++				if (ftr_max > 1)
++					ftr = ftr_max - 1;
++				else
++					*skip = true;
++				break;
++			case 1:
++				*skip = true;
++				break;
++			default:
++				ftr--;
++				break;
++			break;
++			}
+ 		default:
++			*skip = true;
+ 			break;
+ 		}
+ 	} else {
+-		ftr = 0;
++		*skip = true;
+ 	}
+ 
+ 	return ftr;
+@@ -400,12 +431,15 @@ static void test_reg_set_fail(struct kvm_vcpu *vcpu, uint64_t reg,
+ 	uint8_t shift = ftr_bits->shift;
+ 	uint64_t mask = ftr_bits->mask;
+ 	uint64_t val, old_val, ftr;
++	bool skip;
+ 	int r;
+ 
+ 	val = vcpu_get_reg(vcpu, reg);
+ 	ftr = (val & mask) >> shift;
+ 
+-	ftr = get_invalid_value(ftr_bits, ftr);
++	ftr = get_invalid_value(ftr_bits, ftr, &skip);
++	if (skip)
++		return;
+ 
+ 	old_val = val;
+ 	ftr <<= shift;
 
 -- 
 2.47.3
