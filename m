@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2021E6F085
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 17:45:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3B4CE6F086
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 17:45:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BJDvRtW4Qrq16EMTlgKACHbyaVDCeazp1+QnqcqIz60=; b=v2Qs9y3VWP6UExIRf8Cecd1gVS
-	L4Q3p/cyKdcTIZK/aCUni7vMC6eUg79m+2fJLgJ81YbMA4tmXaZRLdExLNPtYpU8yjrSHmU3PH4So
-	56W2CzggqDn7vgBfBT2o53w9BOSsTFhhNG2bYiZ6ggwVoxTekW/X2zsL9UkNgIGMjeQX4O/WE2Uxg
-	R1edb/PYB3+jLI3/mnsOwfyQzzc44lswxzYxmyeoU919ofRE+9TNUdba3J0krPMlxAv4VQNR8eARV
-	pQif0a/C+ZbXyJWPxponVKDXGJEMmKZtApNYaPT/oMe5q03+uY+6j2y6YlTuRoi/M18XgSYTiUkth
-	oXRZNZ7A==;
+	bh=gRBAcDwm05WUrfxgEcsK8+z8TK79dEQ1pkIeBQHgn7A=; b=R/gyZNobIlLLq6niyyueBeDobC
+	7jnSTSnewHFziZEo1LHPYXbJa7rtJ/OozcHiV9TRdKpW+K4YeL2/X0unHfxjv95AStsFPbEVndg75
+	MNk4DTXg12lnuGBYBxicsM8aMWlhj5KnZpoa3Oz2hQM9lHPWfVdTp4N2jGqocvzQYjyidXm+ypW6N
+	qhg+/bI++nG9yDyJ2OeulanpYAoAE/IbiBDLoUFujVoGCTr5UKS9XHZsdrsnzNSDvqwGJ/eU6gS0y
+	9KL0osXp4nJ9aCjrYh105H5dAGOkKbDoE6O9/L92CJ6LCDCIiCBNFaHBcoDEUBZ34pskNYlv0USDi
+	txe8WVKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY6Ro-0000000FrKE-2Io9;
-	Tue, 23 Dec 2025 17:45:24 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vY6S0-0000000FrSJ-3KOL;
+	Tue, 23 Dec 2025 17:45:36 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY6Rn-0000000FrJJ-1r3W;
-	Tue, 23 Dec 2025 17:45:23 +0000
+	id 1vY6Rw-0000000FrPD-2UdV;
+	Tue, 23 Dec 2025 17:45:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D263560143;
-	Tue, 23 Dec 2025 17:45:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B177EC19421;
-	Tue, 23 Dec 2025 17:45:16 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 298CB418D6;
+	Tue, 23 Dec 2025 17:45:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9E3DC116D0;
+	Tue, 23 Dec 2025 17:45:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766511922;
-	bh=T2nlD48GlaoJgKHs5BjofUYL/ofPr9ZNhb5JsuIEU9o=;
+	s=k20201202; t=1766511932;
+	bh=QnfHw7gktqMQcpaZBa6HDrlNZ+/FNsdSEG4q/pIYhEA=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=Chi1/a2EXD0CKQMuWgr/euJuLk9PeIwxJo4Ad0fSVfmFTxJyLyaMR9hFIPE7eLw3M
-	 Dh97j5qQUJquRz6X8otCn8/i/fOJcHJPK1pmso20pPvzHSmTLA2m2W5+1PbuQUVvun
-	 DD14V2claROpYdReo59+hOqMSLmya+QrGbw8ojQwGlNFK5PWFzwxhbjEtn4tHbKilu
-	 0nQuWxjA5mQkbG66rDOw4/yw/vZuyrOa6ssAFN7xqlE1C/uiHu/Fmdc9OWg8+LtHvB
-	 HKofrm39lylBMF4y3jcx55jZJ6Mitcwj9BJQJ6jusKaDSpLBXWhtiLKP9b98jMuyPZ
-	 NUIFXy8fKQWRQ==
+	b=IsFkJxNq2dX725QpsMGli+i9KLKcfIijkuFrRUdWr79UNEQpmK9ldEIxz8RxuGk+f
+	 513pQs6migSmGO6EOWbqvSl9/2Apz6/WtgJWcoU1+uok2ByHrIqkzzZEzkcu/Q+LL8
+	 pfpwlEOpSvnqNdyQO5nRPyuECF//0+q5CK1KgUNbiqvtpDlyDVS8MOR4SYB7IpMGBD
+	 rgYAzQ29rQklDwTJRzVvwER+9cePLRES3AILfIb0IqUZoTyDvaMtYEX1aodp47KlKM
+	 DbtspiiKG4XwjrlezB9KeRPj/1qddmqOgRH+LosSc2xay2Pq8xfCJ7JMaI8t4iePTi
+	 Q/bpKEp6ivyOA==
 From: Vinod Koul <vkoul@kernel.org>
-To: kishon@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
- conor+dt@kernel.org, alim.akhtar@samsung.com, andre.draszik@linaro.org, 
- peter.griffin@linaro.org, kauschluss@disroot.org, johan@kernel.org, 
- ivo.ivanov.ivanov1@gmail.com, m.szyprowski@samsung.com, 
- s.nawrocki@samsung.com, Pritam Manohar Sutar <pritam.sutar@samsung.com>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com, 
- dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com, 
- selvarasu.g@samsung.com
-In-Reply-To: <20251124110453.2887437-1-pritam.sutar@samsung.com>
-References: <CGME20251124105651epcas5p20d9987d882d5d3850b599b4b46cf70d5@epcas5p2.samsung.com>
- <20251124110453.2887437-1-pritam.sutar@samsung.com>
-Subject: Re: [PATCH v10 0/6] initial usbdrd phy support for Exynosautov920
- soc
-Message-Id: <176651191635.759340.5010016532880564804.b4-ty@kernel.org>
-Date: Tue, 23 Dec 2025 23:15:16 +0530
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: Yao Zi <ziyao@disroot.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org
+In-Reply-To: <20250910122000.951100-1-amadeus@jmu.edu.cn>
+References: <20250910122000.951100-1-amadeus@jmu.edu.cn>
+Subject: Re: [PATCH 1/1] phy: rockchip: naneng-combphy: use existing DT
+ property check for rk3528
+Message-Id: <176651192952.759340.11206011301842508188.b4-ty@kernel.org>
+Date: Tue, 23 Dec 2025 23:15:29 +0530
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.13.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251223_094532_691476_5EB158CB 
+X-CRM114-Status: UNSURE (   5.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,31 +76,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 24 Nov 2025 16:34:47 +0530, Pritam Manohar Sutar wrote:
-> This SoC has a single USB 3.1 DRD combo phy and three USB2.0 only
-> DRD phy controllers as mentined below
+On Wed, 10 Sep 2025 20:20:00 +0800, Chukun Pan wrote:
+> The naneng-combphy driver already has DT property checks for
+> "rockchip,enable-ssc" and "rockchip,ext-refclk", use it for
+> the rk3528_combphy_cfg. Also aligned the indentation of the
+> rk3528_combphy_grfcfgs parameters (using tabs).
 > 
->   * Combo phy supports USB3.1 SSP+(10Gbps) protocol and is backwards
->     compatible to the USB3.0 SS(5Gbps). 'Add-on USB2.0' phy is added
->     to support USB2.0 HS(480Mbps), FS(12Mbps) and LS(1.5Mbps) data rates.
->     These two phys are combined to form a combo phy as mentioned below.
 > 
-> [...]
 
 Applied, thanks!
 
-[1/6] dt-bindings: phy: samsung,usb3-drd-phy: add ExynosAutov920 HS phy compatible
-      commit: 28810c0dfe8aa82e6514858bdcd7a83f0848e90a
-[2/6] phy: exynos5-usbdrd: support HS phy for ExynosAutov920
-      commit: 031314bd37cb6ce352b1300ffd4e07a7bebce1ef
-[3/6] dt-bindings: phy: samsung,usb3-drd-phy: add ExynosAutov920 combo hsphy
-      commit: fc58d4628396e4ae2791ff2396793d04940348e1
-[4/6] phy: exynos5-usbdrd: support HS combo phy for ExynosAutov920
-      commit: 22a401c9a2e1e27a136088e4291bec49869cecf5
-[5/6] dt-bindings: phy: samsung,usb3-drd-phy: add ExynosAutov920 combo ssphy
-      commit: 05681c9c7e59c164d7e1fc34696f3130d088bc64
-[6/6] phy: exynos5-usbdrd: support SS combo phy for ExynosAutov920
-      commit: 2fdfc1bb752e393561cf532f5d54607d70e464bc
+[1/1] phy: rockchip: naneng-combphy: use existing DT property check for rk3528
+      commit: 23c3373af05a3ec268acb02ffe962ac6882c673a
 
 Best regards,
 -- 
