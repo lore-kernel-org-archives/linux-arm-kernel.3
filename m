@@ -4,84 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A6F9E6F08F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 12:38:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADC71E6F08B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 12:47:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4gYZKz5pDnH3l2OkpHDAAXOTVzzdyTla+FAIcw2f6tY=; b=y5Qw3GSo2iwl6YQBkgZGXZwuvz
-	Cq3GRvYlPTMLjvbUdnJvkFPXEmGOi5KtHl9ffVqPIVoqNUNnwsFqa3wox552ahJDrsVhLW5/ApR2X
-	pLCEfD+jZsWrEVh24V2gBpyOwOgSxquDOHd4iUJ/TKZvS8sqg5NuJcAyk6PfDOGq7FJFqsXjku749
-	ILTrU7Fe9IkZ90h3zafvBgW2/aVKHD5NHpXoUtCe0MuyYhh+PlClOZc/j3TJR1sDL9rpCutEbxPN7
-	rygwqvNRuasgfL6FdHxUBjf5NcN9BEOEXdqNWLn1uZrmoHpoe5bw2Ubb4ZpMBRNjH/Jn6gyQIri6o
-	AzUHSZug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=pLfghK18morQpXT9BEqhLMr+9W9RlMs2kLlFEkTdBvI=; b=SyyDTjgcZYt9b2xsjZCghHEbCi
+	fJJ8ykUdYPyuq1IQwFye6YdoNh0EJPbZinlj5mHDtsvAvB1aShsM8KDSSUYs77nVu/ZbDXtKAf7gI
+	Uyp9s9nx5iOaijpv3v3+xOxMSuGEsItChapsjcl/HlUehzGXGFU/wR6WVDWgtXYKSlDB6NKTJkEx+
+	4KrM8/rtptpt14DURrAysKS598USZvA9AESt+hWQ1X0nnrD4ll4rb+42ivmzeI+rBpBtyFwEt7C+K
+	FeXdZH5EZe3zLwXsrPcnhWMB+gJylez1gYixzBR1R17KOBvoaUlMI+3l663MRVAE/wCY+x1GC5QWU
+	kxCl9ieQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY1f0-0000000FU07-1rER;
-	Tue, 23 Dec 2025 12:38:42 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vY1nk-0000000FUzj-1XuN;
+	Tue, 23 Dec 2025 12:47:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY1ea-0000000FTWh-0SCm;
-	Tue, 23 Dec 2025 12:38:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1766493489;
-	bh=70ZG8RLfpdui8rg/UXpo7IzLHPeebgji9MGrfmTyqsE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=gFA7+XcteN2QDYWhrhQr7UWAbk/JsZde6aHkAV16mEgOWAU+uC6K3nHDmBIuNKUlF
-	 w0FcSVTu9e93ooZ3ph7ieEGDxDCjOJcIR5pFVXNCwHQz+o5O12zYUzXD1k06EaXwYL
-	 hEHkmphOoysA0w8LQ5ps0xpgcdMS7Io1ByFcY13fl+lxXPv39kc8O0Wr1/XMNoAfTz
-	 nVWRbKjpXfHgK5cjtByi/pGypN89UjUbuvR8t2QXYbifQQPAlnEdF2wSmXhk6iJD64
-	 Q7D8b02Y+O6oy+++TjXMGE5Uf0trlXRtUXGa7n1eIcpFeayD7TWm6c7NkEblw/Zr4T
-	 mNFlprTY5kVng==
-Received: from beast.luon.net (unknown [IPv6:2a10:3781:2531:0:f337:3245:2545:b505])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: sjoerd)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 9FF1F17E151B;
-	Tue, 23 Dec 2025 13:38:09 +0100 (CET)
-Received: by beast.luon.net (Postfix, from userid 1000)
-	id 66A53117A067B; Tue, 23 Dec 2025 13:38:08 +0100 (CET)
-From: Sjoerd Simons <sjoerd@collabora.com>
-Date: Tue, 23 Dec 2025 13:37:57 +0100
-Subject: [PATCH v5 7/8] arm64: dts: mediatek: mt7981b: Add wifi memory
- region
+	id 1vY1ni-0000000FUzV-4APN
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 23 Dec 2025 12:47:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id EE976600CB;
+	Tue, 23 Dec 2025 12:47:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ECD6EC113D0;
+	Tue, 23 Dec 2025 12:47:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766494061;
+	bh=vIDLcNDvZkN5LTCFnFI3qztjOOsnOhIPYziKgleG5U4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=nS/LYUGG3bQWx8kgoisYWGHKKh0DWJMRI4/JUwCUzxuCqJhdEffcw8bQ6NJDCLArK
+	 +yD6VkIsifDT4qNnKcj9Y318Gr+O0v8AdqXcjAnSPubjbv3c2DSqAw/x83DeYTgl8A
+	 cTuhu28oH0JFPZn0F5NDPomxfJfbHUnfowah+2KMDXlDg2Td4MsdMTvD8XXuK2xDsI
+	 azj/89k4Qgct2+VIjwZKvEweKsuNrW37HxfPtjBMb0FDBRruLcHNo6B4ek8cvv4QT3
+	 /A/B5HnDGrZgFKBHz9thgkbQkT2EyxyH1qB/r/kDXAiispTT/+youTbGrEvK3FeCHe
+	 pWTuHBusy9TSQ==
+From: Michael Walle <mwalle@kernel.org>
+To: Frank Binns <frank.binns@imgtec.com>,
+	Matt Coster <matt.coster@imgtec.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Andrew Davis <afd@ti.com>,
+	Santosh Shilimkar <ssantosh@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Randolph Sapp <rs@ti.com>
+Cc: linux-clk@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Michael Walle <mwalle@kernel.org>
+Subject: [PATCH v2 0/4] drm/imagination: add AM62P/AM67A/J722S support
+Date: Tue, 23 Dec 2025 13:47:12 +0100
+Message-ID: <20251223124729.2482877-1-mwalle@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251223-openwrt-one-network-v5-7-7d1864ea3ad5@collabora.com>
-References: <20251223-openwrt-one-network-v5-0-7d1864ea3ad5@collabora.com>
-In-Reply-To: <20251223-openwrt-one-network-v5-0-7d1864ea3ad5@collabora.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Ryder Lee <ryder.lee@mediatek.com>, 
- Jianjun Wang <jianjun.wang@mediatek.com>, 
- Bjorn Helgaas <bhelgaas@google.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, 
- Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, Lee Jones <lee@kernel.org>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>, Felix Fietkau <nbd@nbd.name>
-Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, linux-pci@vger.kernel.org, 
- linux-phy@lists.infradead.org, netdev@vger.kernel.org, 
- Daniel Golle <daniel@makrotopia.org>, Bryan Hinton <bryan@bryanhinton.com>, 
- Sjoerd Simons <sjoerd@collabora.com>
-X-Mailer: b4 0.14.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_043816_358298_F4E6C4F0 
-X-CRM114-Status: UNSURE (   9.65  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,41 +88,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add required memory region for the builtin wifi block.
+The AM62P and AM67A/J722S feature the same BXS-4 GPU as the J721S2.
+In theory, one have to just add the DT node. But it turns out, that
+the clock handling is not working. If I understood Nishan Menon
+correct, it is working on the J721S2 because there, the clock is
+shared, while on the AM62P the GPU has its own PLL.
+In the latter case, the driver will fail with a WARN() because the
+queried clock rate is zero due to a wrong cached value.
 
-Signed-off-by: Sjoerd Simons <sjoerd@collabora.com>
----
-V1 -> V2: Don't set status to in this patch
----
- arch/arm64/boot/dts/mediatek/mt7981b.dtsi | 6 ++++++
- 1 file changed, 6 insertions(+)
+This was tested on the sa67 board which is based on the AM67A SoC.
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
-index 1f4c11435466..a7be3670e005 100644
---- a/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt7981b.dtsi
-@@ -69,6 +69,11 @@ secmon_reserved: secmon@43000000 {
- 			no-map;
- 		};
- 
-+		wmcpu_emi: wmcpu-reserved@47c80000 {
-+			reg = <0 0x47c80000 0 0x100000>;
-+			no-map;
-+		};
-+
- 		wo_emi0: wo-emi@47d80000 {
- 			reg = <0 0x47d80000 0 0x40000>;
- 			no-map;
-@@ -497,6 +502,7 @@ wifi@18000000 {
- 			clocks = <&topckgen CLK_TOP_NETSYS_MCU_SEL>,
- 				 <&topckgen CLK_TOP_AP2CNN_HOST_SEL>;
- 			clock-names = "mcu", "ap2conn";
-+			memory-region = <&wmcpu_emi>;
- 			resets = <&watchdog MT7986_TOPRGU_CONSYS_SW_RST>;
- 			reset-names = "consys";
- 			status = "disabled";
+v2:
+ - collect ACKs
+ - rebase onto latest -next
+ - new patch which enables 800MHz operation for the sa67 board
+
+v1:
+ - https://lore.kernel.org/r/20250915143440.2362812-1-mwalle@kernel.org/
+ - Don't set the clock to 800MHz in the soc dtsi. 800MHz is only
+   possible if the core voltage is 0.85V. Just use the hardware
+   default of 720MHz. A board device tree can set the 800MHz if
+   applicable. Thanks Nishan.
+ - Also add the new compatible to a conditional in the DT schema.
+   Thanks Andrew.
+ - Dropped the wrong of_clk_set_defaults() and instead disable
+   caching of the clock rate.
+
+RFC:
+ - https://lore.kernel.org/r/20250716134717.4085567-1-mwalle@kernel.org/
+
+Michael Walle (4):
+  dt-bindings: gpu: img: Add AM62P SoC specific compatible
+  clk: keystone: don't cache clock rate
+  arm64: dts: ti: add GPU node
+  arm64: dts: ti: sa67: set the GPU clock to 800MHz
+
+ .../devicetree/bindings/gpu/img,powervr-rogue.yaml    |  2 ++
+ .../arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi | 11 +++++++++++
+ arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-base.dts |  6 ++++++
+ drivers/clk/keystone/sci-clk.c                        |  8 ++++++++
+ 4 files changed, 27 insertions(+)
 
 -- 
-2.51.0
+2.47.3
 
 
