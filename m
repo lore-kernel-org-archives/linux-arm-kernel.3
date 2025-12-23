@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6836FE6F078
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 09:35:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 055C2E6F07F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 09:35:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b3C+qgmQTO6q+ahKr3lr8ctZXn2gMuRMV2zstFu7ihg=; b=hqWlieCIqd65pOiia8D0xejstR
-	ziJRl0+CDsYF3KStJ9D41HGvIytqFGgpqVEhavEYyk8PrRAiQTQdZ4qWa1fK4aB69z1uFriEBBdNS
-	/2g/Ig6xlSqk3pd8g/3czeU2rcZH49dcJU5ij52ctEUvHsKIpWb3uI8u0/b3Dg3uGhWb2/NBIoXQh
-	0mLN6/JTFJX9ou2Rku0D5s/FftkgHJ1tvwPFQxapjAzK/2uBQcQpasd4L32/8ZJZAiVf2mqBBV8SB
-	DJqbbUTvjJkbpXqDbvaEiScrJ/UI3O0W0EweUUtoIQxbcGe6ocFLv0ex14bmvxw+2z3tQqNvr/we1
-	tjwFokTQ==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ucEthsCqbk52NQw8tNJfOkUvRsIr8+lbN1ni+Zgoq74=; b=FLYOEi774HzCrDkEhtEub/OF/R
+	5/9boVPrRAlEdaBsygm89jcEQZPASoABvaw9/fWW9omXaYrJO2unSP3wK2Ob++t7HLLLL7nVz6rrx
+	UcJbbgTUNyOyL1mAsyHqvqHk1/A5IbuDcMq8l4bq0GL2iS3fQh6LnpRcwmY3fTJqZeWOfD6IsmJkj
+	MzI+8yQ09mHo+vSITWIZ0/QdNHZSlUiYGR23812aMZJQtcYUoqKCgd20Oz4LwKH4ArQ/XDDVraBll
+	iAAAY+q2gaC1oFqXVO81eTFlp9VyNK1KBZVxVqnp7p52LkY+D/iGmeOjU0/ak60coyUqB7EQOn9xW
+	neW2NRSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXynt-0000000ElZq-2p7E;
-	Tue, 23 Dec 2025 09:35:41 +0000
-Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
+	id 1vXynu-0000000ElbV-3kEh;
+	Tue, 23 Dec 2025 09:35:42 +0000
+Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXynh-0000000ElV0-2WAT
+	id 1vXynk-0000000ElUy-43dy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Dec 2025 09:35:34 +0000
+	Tue, 23 Dec 2025 09:35:35 +0000
 Received: from mail.maildlp.com (unknown [172.19.163.15])
-	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4db8t600C9znTW0;
-	Tue, 23 Dec 2025 17:32:13 +0800 (CST)
+	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4db8tD5Sdrz1cyrj;
+	Tue, 23 Dec 2025 17:32:20 +0800 (CST)
 Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id EC47140539;
+	by mail.maildlp.com (Postfix) with ESMTPS id 94E9C40539;
 	Tue, 23 Dec 2025 17:35:26 +0800 (CST)
 Received: from kwepemq200004.china.huawei.com (7.202.195.237) by
  dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 23 Dec 2025 17:35:23 +0800
+ 15.2.1544.11; Tue, 23 Dec 2025 17:35:21 +0800
 Received: from huawei.com (10.90.31.46) by kwepemq200004.china.huawei.com
  (7.202.195.237) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Tue, 23 Dec
- 2025 17:35:23 +0800
+ 2025 17:35:20 +0800
 From: Zhou Wang <wangzhou1@hisilicon.com>
 To: <catalin.marinas@arm.com>, <will@kernel.org>, <maz@kernel.org>,
 	<oliver.upton@linux.dev>, <joey.gouly@arm.com>, <suzuki.poulose@arm.com>,
@@ -48,12 +48,10 @@ To: <catalin.marinas@arm.com>, <will@kernel.org>, <maz@kernel.org>,
 CC: <linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
 	<yangyccccc@gmail.com>, <prime.zeng@hisilicon.com>, <xuwei5@huawei.com>,
 	<wangzhou1@hisilicon.com>
-Subject: [PATCH v8 6/7] arm64: Add support for FEAT_{LS64, LS64_V}
-Date: Tue, 23 Dec 2025 17:33:42 +0800
-Message-ID: <20251223093343.3822498-7-wangzhou1@hisilicon.com>
+Subject: [PATCH v8 0/7] Add support for FEAT_{LS64, LS64_V} and related tests
+Date: Tue, 23 Dec 2025 17:33:36 +0800
+Message-ID: <20251223093343.3822498-1-wangzhou1@hisilicon.com>
 X-Mailer: git-send-email 2.30.0
-In-Reply-To: <20251223093343.3822498-1-wangzhou1@hisilicon.com>
-References: <20251223093343.3822498-1-wangzhou1@hisilicon.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -61,8 +59,8 @@ X-Originating-IP: [10.90.31.46]
 X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
  kwepemq200004.china.huawei.com (7.202.195.237)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_013529_947887_63F99AD3 
-X-CRM114-Status: GOOD (  20.19  )
+X-CRM114-CacheID: sfid-20251223_013533_332642_696D9615 
+X-CRM114-Status: GOOD (  14.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,202 +75,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yicong Yang <yangyicong@hisilicon.com>
-
 Armv8.7 introduces single-copy atomic 64-byte loads and stores
 instructions and its variants named under FEAT_{LS64, LS64_V}.
-These features are identified by ID_AA64ISAR1_EL1.LS64 and the
-use of such instructions in userspace (EL0) can be trapped.
-
-As st64bv (FEAT_LS64_V) and st64bv0 (FEAT_LS64_ACCDATA) can not be tell
-apart, FEAT_LS64 and FEAT_LS64_ACCDATA which will be supported in later
-patch will be exported to userspace, FEAT_LS64_V will be enabled only
-in kernel.
-
-In order to support the use of corresponding instructions in userspace:
-- Make ID_AA64ISAR1_EL1.LS64 visbile to userspace
+Add support for Armv8.7 FEAT_{LS64, LS64_V}:
 - Add identifying and enabling in the cpufeature list
-- Expose these support of these features to userspace through HWCAP3
-  and cpuinfo
+- Expose the support of FEAT_LS64 to userspace through HWCAP3 and cpuinfo
+- Add related hwcap test
+- Handle the trap of unsupported memory (normal/uncacheable) access in a VM
 
-ld64b/st64b (FEAT_LS64) and st64bv (FEAT_LS64_V) is intended for
-special memory (device memory) so requires support by the CPU, system
-and target memory location (device that support these instructions).
-The HWCAP3_LS64, implies the support of CPU and system (since no
-identification method from system, so SoC vendors should advertise
-support in the CPU if system also support them).
+A real scenario for this feature is that the userspace driver can make use of
+this to implement direct WQE (workqueue entry) - a mechanism to fill WQE
+directly into the hardware.
 
-Otherwise for ld64b/st64b the atomicity may not be guaranteed or a
-DABT will be generated, so users (probably userspace driver developer)
-should make sure the target memory (device) also have the support.
-For st64bv 0xffffffffffffffff will be returned as status result for
-unsupported memory so user should check it.
+Picked Marc's 2 patches form [1] for handling the LS64 trap in a VM on emulated
+MMIO and the introduce of KVM_EXIT_ARM_LDST64B.
 
-Document the restrictions along with HWCAP3_LS64.
+[1] https://lore.kernel.org/linux-arm-kernel/20240815125959.2097734-1-maz@kernel.org/
 
-Acked-by: Arnd Bergmann <arnd@arndb.de>
-Acked-by: Oliver Upton <oupton@kernel.org>
-Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
-Signed-off-by: Zhou Wang <wangzhou1@hisilicon.com>
----
- Documentation/arch/arm64/booting.rst    | 12 +++++++++++
- Documentation/arch/arm64/elf_hwcaps.rst |  7 +++++++
- arch/arm64/include/asm/hwcap.h          |  1 +
- arch/arm64/include/uapi/asm/hwcap.h     |  1 +
- arch/arm64/kernel/cpufeature.c          | 28 +++++++++++++++++++++++++
- arch/arm64/kernel/cpuinfo.c             |  1 +
- arch/arm64/tools/cpucaps                |  2 ++
- 7 files changed, 52 insertions(+)
+Tested with updated hwcap test(host in VHE):
+[root@localhost tmp]# ./hwcap
+[...]
+# LS64 present
+ok 226 cpuinfo_match_LS64
+ok 227 sigill_LS64
+ok 228 # SKIP sigbus_LS64
+# 120 skipped test(s) detected. Consider enabling relevant config options to improve coverage.
+# Totals: pass:108 fail:0 xfail:0 xpass:0 skip:120 error:0
 
-diff --git a/Documentation/arch/arm64/booting.rst b/Documentation/arch/arm64/booting.rst
-index 26efca09aef3..13ef311dace8 100644
---- a/Documentation/arch/arm64/booting.rst
-+++ b/Documentation/arch/arm64/booting.rst
-@@ -556,6 +556,18 @@ Before jumping into the kernel, the following conditions must be met:
- 
-    - MDCR_EL3.TPM (bit 6) must be initialized to 0b0
- 
-+  For CPUs with support for 64-byte loads and stores without status (FEAT_LS64):
-+
-+  - If the kernel is entered at EL1 and EL2 is present:
-+
-+    - HCRX_EL2.EnALS (bit 1) must be initialised to 0b1.
-+
-+  For CPUs with support for 64-byte stores with status (FEAT_LS64_V):
-+
-+  - If the kernel is entered at EL1 and EL2 is present:
-+
-+    - HCRX_EL2.EnASR (bit 2) must be initialised to 0b1.
-+
- The requirements described above for CPU mode, caches, MMUs, architected
- timers, coherency and system registers apply to all CPUs.  All CPUs must
- enter the kernel in the same exception level.  Where the values documented
-diff --git a/Documentation/arch/arm64/elf_hwcaps.rst b/Documentation/arch/arm64/elf_hwcaps.rst
-index a15df4956849..97315ae6c0da 100644
---- a/Documentation/arch/arm64/elf_hwcaps.rst
-+++ b/Documentation/arch/arm64/elf_hwcaps.rst
-@@ -444,6 +444,13 @@ HWCAP3_MTE_STORE_ONLY
- HWCAP3_LSFE
-     Functionality implied by ID_AA64ISAR3_EL1.LSFE == 0b0001
- 
-+HWCAP3_LS64
-+    Functionality implied by ID_AA64ISAR1_EL1.LS64 == 0b0001. Note that
-+    the function of instruction ld64b/st64b requires support by CPU, system
-+    and target (device) memory location and HWCAP3_LS64 implies the support
-+    of CPU. User should only use ld64b/st64b on supported target (device)
-+    memory location, otherwise fallback to the non-atomic alternatives.
-+
- 
- 4. Unused AT_HWCAP bits
- -----------------------
-diff --git a/arch/arm64/include/asm/hwcap.h b/arch/arm64/include/asm/hwcap.h
-index 1f63814ae6c4..72ea4bda79f3 100644
---- a/arch/arm64/include/asm/hwcap.h
-+++ b/arch/arm64/include/asm/hwcap.h
-@@ -179,6 +179,7 @@
- #define KERNEL_HWCAP_MTE_FAR		__khwcap3_feature(MTE_FAR)
- #define KERNEL_HWCAP_MTE_STORE_ONLY	__khwcap3_feature(MTE_STORE_ONLY)
- #define KERNEL_HWCAP_LSFE		__khwcap3_feature(LSFE)
-+#define KERNEL_HWCAP_LS64		__khwcap3_feature(LS64)
- 
- /*
-  * This yields a mask that user programs can use to figure out what
-diff --git a/arch/arm64/include/uapi/asm/hwcap.h b/arch/arm64/include/uapi/asm/hwcap.h
-index 575564ecdb0b..06f83ca8de56 100644
---- a/arch/arm64/include/uapi/asm/hwcap.h
-+++ b/arch/arm64/include/uapi/asm/hwcap.h
-@@ -146,5 +146,6 @@
- #define HWCAP3_MTE_FAR		(1UL << 0)
- #define HWCAP3_MTE_STORE_ONLY		(1UL << 1)
- #define HWCAP3_LSFE		(1UL << 2)
-+#define HWCAP3_LS64		(1UL << 3)
- 
- #endif /* _UAPI__ASM_HWCAP_H */
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index c840a93b9ef9..6cab77e2ffa9 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -240,6 +240,7 @@ static const struct arm64_ftr_bits ftr_id_aa64isar0[] = {
- };
- 
- static const struct arm64_ftr_bits ftr_id_aa64isar1[] = {
-+	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64ISAR1_EL1_LS64_SHIFT, 4, 0),
- 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64ISAR1_EL1_XS_SHIFT, 4, 0),
- 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64ISAR1_EL1_I8MM_SHIFT, 4, 0),
- 	ARM64_FTR_BITS(FTR_VISIBLE, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64ISAR1_EL1_DGH_SHIFT, 4, 0),
-@@ -2260,6 +2261,16 @@ static void cpu_enable_e0pd(struct arm64_cpu_capabilities const *cap)
- }
- #endif /* CONFIG_ARM64_E0PD */
- 
-+static void cpu_enable_ls64(struct arm64_cpu_capabilities const *cap)
-+{
-+	sysreg_clear_set(sctlr_el1, SCTLR_EL1_EnALS, SCTLR_EL1_EnALS);
-+}
-+
-+static void cpu_enable_ls64_v(struct arm64_cpu_capabilities const *cap)
-+{
-+	sysreg_clear_set(sctlr_el1, SCTLR_EL1_EnASR, 0);
-+}
-+
- #ifdef CONFIG_ARM64_PSEUDO_NMI
- static bool can_use_gic_priorities(const struct arm64_cpu_capabilities *entry,
- 				   int scope)
-@@ -3148,6 +3159,22 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
- 		.matches = has_cpuid_feature,
- 		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, XNX, IMP)
- 	},
-+	{
-+		.desc = "LS64",
-+		.capability = ARM64_HAS_LS64,
-+		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
-+		.matches = has_cpuid_feature,
-+		.cpu_enable = cpu_enable_ls64,
-+		ARM64_CPUID_FIELDS(ID_AA64ISAR1_EL1, LS64, LS64)
-+	},
-+	{
-+		.desc = "LS64_V",
-+		.capability = ARM64_HAS_LS64_V,
-+		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
-+		.matches = has_cpuid_feature,
-+		.cpu_enable = cpu_enable_ls64_v,
-+		ARM64_CPUID_FIELDS(ID_AA64ISAR1_EL1, LS64, LS64_V)
-+	},
- 	{},
- };
- 
-@@ -3267,6 +3294,7 @@ static const struct arm64_cpu_capabilities arm64_elf_hwcaps[] = {
- 	HWCAP_CAP(ID_AA64ISAR1_EL1, BF16, EBF16, CAP_HWCAP, KERNEL_HWCAP_EBF16),
- 	HWCAP_CAP(ID_AA64ISAR1_EL1, DGH, IMP, CAP_HWCAP, KERNEL_HWCAP_DGH),
- 	HWCAP_CAP(ID_AA64ISAR1_EL1, I8MM, IMP, CAP_HWCAP, KERNEL_HWCAP_I8MM),
-+	HWCAP_CAP(ID_AA64ISAR1_EL1, LS64, LS64, CAP_HWCAP, KERNEL_HWCAP_LS64),
- 	HWCAP_CAP(ID_AA64ISAR2_EL1, LUT, IMP, CAP_HWCAP, KERNEL_HWCAP_LUT),
- 	HWCAP_CAP(ID_AA64ISAR3_EL1, FAMINMAX, IMP, CAP_HWCAP, KERNEL_HWCAP_FAMINMAX),
- 	HWCAP_CAP(ID_AA64ISAR3_EL1, LSFE, IMP, CAP_HWCAP, KERNEL_HWCAP_LSFE),
-diff --git a/arch/arm64/kernel/cpuinfo.c b/arch/arm64/kernel/cpuinfo.c
-index c44e6d94f5de..6149bc91251d 100644
---- a/arch/arm64/kernel/cpuinfo.c
-+++ b/arch/arm64/kernel/cpuinfo.c
-@@ -81,6 +81,7 @@ static const char *const hwcap_str[] = {
- 	[KERNEL_HWCAP_PACA]		= "paca",
- 	[KERNEL_HWCAP_PACG]		= "pacg",
- 	[KERNEL_HWCAP_GCS]		= "gcs",
-+	[KERNEL_HWCAP_LS64]		= "ls64",
- 	[KERNEL_HWCAP_DCPODP]		= "dcpodp",
- 	[KERNEL_HWCAP_SVE2]		= "sve2",
- 	[KERNEL_HWCAP_SVEAES]		= "sveaes",
-diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-index 0fac75f01534..50a0c695f340 100644
---- a/arch/arm64/tools/cpucaps
-+++ b/arch/arm64/tools/cpucaps
-@@ -46,6 +46,8 @@ HAS_HCX
- HAS_LDAPR
- HAS_LPA2
- HAS_LSE_ATOMICS
-+HAS_LS64
-+HAS_LS64_V
- HAS_MOPS
- HAS_NESTED_VIRT
- HAS_BBML2_NOABORT
+Tested with updated hwcap test(guest in VHE):
+root@localhost:/mnt# ./hwcap
+[...]
+# LS64 present
+ok 226 cpuinfo_match_LS64
+ok 227 sigill_LS64
+ok 228 # SKIP sigbus_LS64
+# 120 skipped test(s) detected. Consider enabling relevant config options to improve coverage.
+# Totals: pass:108 fail:0 xfail:0 xpass:0 skip:120 error:0
+
+Tested nVHE case as well, same log as above.
+
+Change since v7:
+- Tiny spelling fix in 1/7
+- Change the order between 5/7 and 6/7
+- Remove has_ls64, use has_cpuid_feature directly in 6/7
+- Add Acked-by from Arnd and Oliver
+- Trap st64bv from EL0 to EL1/EL2
+- Rebase on v6.19-rc1
+Link: https://lore.kernel.org/all/20251107072127.448953-1-wangzhou1@hisilicon.com/
+
+Change since v6:
+- Add exception inject about nested VM in 3/7
+- Remove __maybe_unused related codes in 7/7, replace to use asm clobber
+- Add my signoff in each patch
+- Rebase on v6.18-rc4
+Link: https://lore.kernel.org/all/20251024090819.4097819-1-wangzhou1@hisilicon.com/
+
+Change since v5:
+- Rebase on v6.18-rc2 and fix the conflicts
+- Add more description in elf_hwcaps.rst as suggested by Catalin Marinas
+Link: https://lore.kernel.org/all/20250818064806.25417-1-yangyicong@huawei.com/
+
+Change since v4:
+- Rebase on v6.17-rc2 and fix the conflicts
+Link: https://lore.kernel.org/linux-arm-kernel/20250715081356.12442-1-yangyicong@huawei.com/
+
+Change since v3:
+- Inject DABT fault for LS64 fault on unsupported memory but with valid memslot
+Link: https://lore.kernel.org/linux-arm-kernel/20250626080906.64230-1-yangyicong@huawei.com/
+
+Change since v2:
+- Handle the LS64 fault to userspace and allow userspace to inject LS64 fault
+- Reorder the patches to make KVM handling prior to feature support
+Link: https://lore.kernel.org/linux-arm-kernel/20250331094320.35226-1-yangyicong@huawei.com/
+
+Change since v1:
+- Drop the support for LS64_ACCDATA
+- handle the DABT of unsupported memory type after checking the memory attributes
+Link: https://lore.kernel.org/linux-arm-kernel/20241202135504.14252-1-yangyicong@huawei.com/
+
+Marc Zyngier (2):
+  KVM: arm64: Add exit to userspace on {LD,ST}64B* outside of memslots
+  KVM: arm64: Add documentation for KVM_EXIT_ARM_LDST64B
+
+Yicong Yang (5):
+  KVM: arm64: Handle DABT caused by LS64* instructions on unsupported
+    memory
+  arm64: Provide basic EL2 setup for FEAT_{LS64, LS64_V} usage at EL0/1
+  KVM: arm64: Enable FEAT_{LS64, LS64_V} in the supported guest
+  arm64: Add support for FEAT_{LS64, LS64_V}
+  kselftest/arm64: Add HWCAP test for FEAT_LS64
+
+ Documentation/arch/arm64/booting.rst      | 12 ++++++
+ Documentation/arch/arm64/elf_hwcaps.rst   |  7 ++++
+ Documentation/virt/kvm/api.rst            | 43 ++++++++++++++++----
+ arch/arm64/include/asm/el2_setup.h        | 12 +++++-
+ arch/arm64/include/asm/esr.h              |  8 ++++
+ arch/arm64/include/asm/hwcap.h            |  1 +
+ arch/arm64/include/asm/kvm_emulate.h      |  7 ++++
+ arch/arm64/include/uapi/asm/hwcap.h       |  1 +
+ arch/arm64/kernel/cpufeature.c            | 28 +++++++++++++
+ arch/arm64/kernel/cpuinfo.c               |  1 +
+ arch/arm64/kvm/inject_fault.c             | 34 ++++++++++++++++
+ arch/arm64/kvm/mmio.c                     | 27 ++++++++++++-
+ arch/arm64/kvm/mmu.c                      | 14 ++++++-
+ arch/arm64/tools/cpucaps                  |  2 +
+ include/uapi/linux/kvm.h                  |  3 +-
+ tools/testing/selftests/arm64/abi/hwcap.c | 49 +++++++++++++++++++++++
+ 16 files changed, 238 insertions(+), 11 deletions(-)
+
 -- 
 2.33.0
 
