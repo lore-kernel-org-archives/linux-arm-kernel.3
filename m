@@ -4,88 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3B4CE6F093
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 15:18:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6A49E6F095
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 15:23:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XTeynD7R3f8TSWusp/I0+MZqGGvggeKphRRbdhM4fhk=; b=rhhIEWVIiZGDM4ONVtJpmWCc3d
-	qtAu+hsMY4P6C6NxSjjDb/6+TgrCNRuspiuHZsUVZJEaomy7faR7f8UtQvnmHdV/sRMGP0r7mfFZI
-	TO7Sf5463Hltj6QQ1mttor+BjGNoAjhSQuSHHJsdjCmjJ/zMdTBVcv7Wcls3wDxktYKgNGYqVPlHd
-	nnOplhy0EVwAvbIQzlpMfXZOt6ahlLen1+sdC67Mjzd/7rP/cxjKpIY0ddxchRhCq/TF9FhO33omW
-	wtyu0CjgBYridtdIJI7NMd+XxyGn/UEjGLniRXi3DkMhU1bN24FjYmENHCqBew5cvIayXqyxiiO74
-	z70+vpkw==;
+	bh=LOL+AU7kVQyOpYQ+Kf5A4ON6XtLBAZC/C5kIrkAAMMY=; b=bwbv9zMuBopk0ERL3LiE4/OcrA
+	7xIePZMWEbbqZLwHfHQh1ZxVb2SkQHLGP8XytVpmrKsm76bHucGajnaHjsCH9sJBRx4scMwCrW5K9
+	xRqa+aoePWCdpos0n8cLd9cit6MCaybEKS51Q3nOQG+BouCwS64B86z/wmV4esBCzKpzgN6Z1i2Ou
+	LbCQyINiE8Fj5IYxtc7QSCZlY8C5Ue05g0gqprWWpVg5Mx8y8lI+Q9IrGsolJzt6pPFEBFwM06KQT
+	gyL2WTLKLhWi/+P6zrWX4Lwr7iTagmv9rmvhPLl88EKPKGTKQdSm0p3V3TMQZKiwqoTgzDuFq/V44
+	/QspE+/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY49D-0000000FfPZ-0pjH;
-	Tue, 23 Dec 2025 15:18:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vY4Eo-0000000Ffie-0Tqd;
+	Tue, 23 Dec 2025 15:23:50 +0000
+Received: from ms.lwn.net ([2600:3c01:e000:3a1::42])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY49A-0000000FfP5-1I8I
+	id 1vY4Em-0000000FfiF-1fr4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Dec 2025 15:18:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id ED27943BD0;
-	Tue, 23 Dec 2025 15:17:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C86DC113D0;
-	Tue, 23 Dec 2025 15:17:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766503078;
-	bh=xHMvPjpKyxjB5+zEUkjOy7aEQZr7/WEBY7QJCb1Hs8U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qWsF7jIJOslT8s1S7u/8bjnxl+YQ/1ByeQ1ewt/+rY/9WYG7O1ARU2wUEC0MpvUkt
-	 nJ29+l60fflZZupPoGJY+iB2n0drXAFhG9mh6pnuMBJb+Q3dWKObeiO7STxE+Fl2lq
-	 /KJl7wC7I4QxiKm6M1Zpl1TE/4K8VCzBQpRQArSOLRIrhIRdNuylIsV4o8rCr8jETr
-	 eubw6Onv5VRePw33jttvcPvJiaJCMvHFthEnaBXxiGC8xSNdWgKZcgBD+Fs1McLBoa
-	 6Zqxp/0BvGVhgeE0KZ5Sh8GsmQJZ+tbuC+UMA/z97aVCaWhHitaOxuz7S+m+nR/Dcu
-	 HtgrcvRm/JsRw==
-Date: Tue, 23 Dec 2025 16:17:55 +0100
-From: Frederic Weisbecker <frederic@kernel.org>
-To: Chen Ridong <chenridong@huaweicloud.com>
-Cc: LKML <linux-kernel@vger.kernel.org>,
-	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Gabriele Monaco <gmonaco@redhat.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
-	Will Deacon <will@kernel.org>, cgroups@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
-	linux-mm@kvack.org, linux-pci@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH 17/31] cpuset: Propagate cpuset isolation update to
- workqueue through housekeeping
-Message-ID: <aUqyo58-CDReEm10@localhost.localdomain>
-References: <20251105210348.35256-1-frederic@kernel.org>
- <20251105210348.35256-18-frederic@kernel.org>
- <e0b3f050-ef2e-478e-9e22-5f800b86ee42@huaweicloud.com>
+	Tue, 23 Dec 2025 15:23:49 +0000
+DKIM-Filter: OpenDKIM Filter v2.11.0 ms.lwn.net 88E0540AFF
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lwn.net; s=20201203;
+	t=1766503424; bh=LOL+AU7kVQyOpYQ+Kf5A4ON6XtLBAZC/C5kIrkAAMMY=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=s31WIABBnz/69IfOXguM2PScYz+zPgmqMyTUH2dALC9zZjJY+BFPgwQ7PyfdvaNzO
+	 NJRjODp9ayy/VWT+6oaXylLbHZ2PpJikFFmlpYfwBjtA6ySoH74QV5lUE6THGrpA/l
+	 EqTdgINL1rfaX40xJ2IofEGLYuqfPwxB3ZefCl9mJI0U32nUUiLbT0gQtasT1p4J8b
+	 nrX7ZWWmUS8wDOgAACWolgwoudFUCzOWzFU8ZxpCKskQ/fxROYtykjoH86ywLvHZdW
+	 uWr3CKMEr+za8eyKGhfE8DWfUkSmPavYm2RjoylGL69N8Wr+bfYJ2vgSwZgtagWYi1
+	 ixFP/hLDsg0fg==
+Received: from localhost (unknown [IPv6:2601:280:4600:27b::1fe])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by ms.lwn.net (Postfix) with ESMTPSA id 88E0540AFF;
+	Tue, 23 Dec 2025 15:23:44 +0000 (UTC)
+From: Jonathan Corbet <corbet@lwn.net>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, Arnd
+ Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, Alexandre
+ Belloni <alexandre.belloni@bootlin.com>, Linus Walleij
+ <linus.walleij@linaro.org>, Drew Fustini <fustini@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev,
+ workflows@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH 1/2] Documentation/process: maintainer-soc: Be more
+ explicit about defconfig
+In-Reply-To: <20251223142726.73417-3-krzysztof.kozlowski@oss.qualcomm.com>
+References: <20251223142726.73417-3-krzysztof.kozlowski@oss.qualcomm.com>
+Date: Tue, 23 Dec 2025 08:23:43 -0700
+Message-ID: <87ecolxlvk.fsf@trenco.lwn.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <e0b3f050-ef2e-478e-9e22-5f800b86ee42@huaweicloud.com>
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_071800_394484_40A07D92 
-X-CRM114-Status: GOOD (  26.04  )
+X-CRM114-CacheID: sfid-20251223_072348_476911_8752650F 
+X-CRM114-Status: GOOD (  19.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,138 +77,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Thu, Nov 06, 2025 at 08:55:42AM +0800, Chen Ridong a écrit :
-> 
-> 
-> On 2025/11/6 5:03, Frederic Weisbecker wrote:
-> > Until now, cpuset would propagate isolated partition changes to
-> > workqueues so that unbound workers get properly reaffined.
-> > 
-> > Since housekeeping now centralizes, synchronize and propagates isolation
-> > cpumask changes, perform the work from that subsystem for consolidation
-> > and consistency purposes.
-> > 
-> > For simplification purpose, the target function is adapted to take the
-> > new housekeeping mask instead of the isolated mask.
-> > 
-> > Suggested-by: Tejun Heo <tj@kernel.org>
-> > Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
-> > ---
-> >  include/linux/workqueue.h |  2 +-
-> >  init/Kconfig              |  1 +
-> >  kernel/cgroup/cpuset.c    | 14 ++++++--------
-> >  kernel/sched/isolation.c  |  4 +++-
-> >  kernel/workqueue.c        | 17 ++++++++++-------
-> >  5 files changed, 21 insertions(+), 17 deletions(-)
-> > 
-> > diff --git a/include/linux/workqueue.h b/include/linux/workqueue.h
-> > index dabc351cc127..a4749f56398f 100644
-> > --- a/include/linux/workqueue.h
-> > +++ b/include/linux/workqueue.h
-> > @@ -588,7 +588,7 @@ struct workqueue_attrs *alloc_workqueue_attrs_noprof(void);
-> >  void free_workqueue_attrs(struct workqueue_attrs *attrs);
-> >  int apply_workqueue_attrs(struct workqueue_struct *wq,
-> >  			  const struct workqueue_attrs *attrs);
-> > -extern int workqueue_unbound_exclude_cpumask(cpumask_var_t cpumask);
-> > +extern int workqueue_unbound_housekeeping_update(const struct cpumask *hk);
-> >  
-> >  extern bool queue_work_on(int cpu, struct workqueue_struct *wq,
-> >  			struct work_struct *work);
-> > diff --git a/init/Kconfig b/init/Kconfig
-> > index cab3ad28ca49..a1b3a3b66bfc 100644
-> > --- a/init/Kconfig
-> > +++ b/init/Kconfig
-> > @@ -1247,6 +1247,7 @@ config CPUSETS
-> >  	bool "Cpuset controller"
-> >  	depends on SMP
-> >  	select UNION_FIND
-> > +	select CPU_ISOLATION
-> >  	help
-> >  	  This option will let you create and manage CPUSETs which
-> >  	  allow dynamically partitioning a system into sets of CPUs and
-> > diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
-> > index b04a4242f2fa..ea102e4695a5 100644
-> > --- a/kernel/cgroup/cpuset.c
-> > +++ b/kernel/cgroup/cpuset.c
-> > @@ -1392,7 +1392,7 @@ static bool partition_xcpus_del(int old_prs, struct cpuset *parent,
-> >  	return isolcpus_updated;
-> >  }
-> >  
-> > -static void update_unbound_workqueue_cpumask(bool isolcpus_updated)
-> > +static void update_housekeeping_cpumask(bool isolcpus_updated)
-> >  {
-> >  	int ret;
-> >  
-> > @@ -1401,8 +1401,6 @@ static void update_unbound_workqueue_cpumask(bool isolcpus_updated)
-> >  	if (!isolcpus_updated)
-> >  		return;
-> >  
-> > -	ret = workqueue_unbound_exclude_cpumask(isolated_cpus);
-> > -	WARN_ON_ONCE(ret < 0);
-> >  	ret = housekeeping_update(isolated_cpus, HK_TYPE_DOMAIN);
-> >  	WARN_ON_ONCE(ret < 0);
-> >  }
-> > @@ -1558,7 +1556,7 @@ static int remote_partition_enable(struct cpuset *cs, int new_prs,
-> >  	list_add(&cs->remote_sibling, &remote_children);
-> >  	cpumask_copy(cs->effective_xcpus, tmp->new_cpus);
-> >  	spin_unlock_irq(&callback_lock);
-> > -	update_unbound_workqueue_cpumask(isolcpus_updated);
-> > +	update_housekeeping_cpumask(isolcpus_updated);
-> >  	cpuset_force_rebuild();
-> >  	cs->prs_err = 0;
-> >  
-> > @@ -1599,7 +1597,7 @@ static void remote_partition_disable(struct cpuset *cs, struct tmpmasks *tmp)
-> >  	compute_excpus(cs, cs->effective_xcpus);
-> >  	reset_partition_data(cs);
-> >  	spin_unlock_irq(&callback_lock);
-> > -	update_unbound_workqueue_cpumask(isolcpus_updated);
-> > +	update_housekeeping_cpumask(isolcpus_updated);
-> >  	cpuset_force_rebuild();
-> >  
-> >  	/*
-> > @@ -1668,7 +1666,7 @@ static void remote_cpus_update(struct cpuset *cs, struct cpumask *xcpus,
-> >  	if (xcpus)
-> >  		cpumask_copy(cs->exclusive_cpus, xcpus);
-> >  	spin_unlock_irq(&callback_lock);
-> > -	update_unbound_workqueue_cpumask(isolcpus_updated);
-> > +	update_housekeeping_cpumask(isolcpus_updated);
-> >  	if (adding || deleting)
-> >  		cpuset_force_rebuild();
-> >  
-> > @@ -2027,7 +2025,7 @@ static int update_parent_effective_cpumask(struct cpuset *cs, int cmd,
-> >  		WARN_ON_ONCE(parent->nr_subparts < 0);
-> >  	}
-> >  	spin_unlock_irq(&callback_lock);
-> > -	update_unbound_workqueue_cpumask(isolcpus_updated);
-> > +	update_housekeeping_cpumask(isolcpus_updated);
-> >  
-> >  	if ((old_prs != new_prs) && (cmd == partcmd_update))
-> >  		update_partition_exclusive_flag(cs, new_prs);
-> > @@ -3047,7 +3045,7 @@ static int update_prstate(struct cpuset *cs, int new_prs)
-> >  	else if (isolcpus_updated)
-> >  		isolated_cpus_update(old_prs, new_prs, cs->effective_xcpus);
-> >  	spin_unlock_irq(&callback_lock);
-> > -	update_unbound_workqueue_cpumask(isolcpus_updated);
-> > +	update_housekeeping_cpumask(isolcpus_updated);
-> >  
-> 
-> The patch [1] has been applied to cgroup/for-next, you may have to adapt it.
-> 
-> [1]:
-> https://lore.kernel.org/cgroups/20251105043848.382703-6-longman@redhat.com/T/#u
+Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com> writes:
 
-Right, I just waited for -rc1 to pop-up before doing that.
-v5 will follow shortly.
+> It is already documented but people still send noticeable amount of
+> patches ignoring the rule - get_maintainers.pl does not work on
+> arm64/configs/defconfig or any other shared ARM defconfig.
+>
+> Be more explicit, that one must not rely on typical/simple approach
+> here for getting To/Cc list.
+>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+>
+> ---
+>
+> Incorrectly addressed patches for arm64/defconfig are around ~2 per month...
+> ---
+>  Documentation/process/maintainer-soc.rst | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
+>
+> diff --git a/Documentation/process/maintainer-soc.rst b/Documentation/process/maintainer-soc.rst
+> index 3ba886f52a51..014c639022b2 100644
+> --- a/Documentation/process/maintainer-soc.rst
+> +++ b/Documentation/process/maintainer-soc.rst
+> @@ -57,8 +57,10 @@ Submitting Patches for Given SoC
+>  
+>  All typical platform related patches should be sent via SoC submaintainers
+>  (platform-specific maintainers).  This includes also changes to per-platform or
+> -shared defconfigs (scripts/get_maintainer.pl might not provide correct
+> -addresses in such case).
+> +shared defconfigs. Note that scripts/get_maintainer.pl might not provide
+> +correct addresses for the shared defconfig, so ignore its output and manually
+> +create CC-list based on MAINTAINERS file or use something like
+> +``scripts/get_maintainer.pl -f drivers/soc/FOO/``).
+>  
 
-Thanks.
+Like Laurent, I don't see this as being effective.  Why is it that
+get_maintainer.pl fails here?  It seems far better to fix that, if at
+all possible, rather than expect random contributors to notice this text
+and work around the problem...?
 
-> 
-> -- 
-> Best regards,
-> Ridong
-> 
+Thanks,
 
--- 
-Frederic Weisbecker
-SUSE Labs
+jon
 
