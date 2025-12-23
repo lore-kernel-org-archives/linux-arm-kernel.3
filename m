@@ -4,60 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B7AAE6F091
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 13:54:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F634E6F093
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 13:58:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2m1nXDkMRbgyrNZ3fWvlis7fsd1EOi9IRHGFWYhTUl0=; b=CzUtOCl/9vsti1ez1XKmTHSsnT
-	HegNx481+k0oMnHdHfJmoLgX/aaKwXhno12DvpPw//I4y4KOYJskhZFdTEtgvPi+lLeVE6vqf9sno
-	J1/SU5zUJXnICYH/wCuwkijOvEEt/D5yo2c5vas6tjgXxGz0VViLJD2fO42+XCYyMJ5ptWZyl795w
-	DE2+MJm6EX65kNsBrIY4h8GxoxB8x1zCHiPkP+gHz8OTOQo8g7oCOgwt53j5b6Hk1/ioDy3jyMUko
-	EJWTNAaBW6GtNKYCc6lliiaOgwOmUzr1JdrKxInNtqeuV9L9bKzSxCPhNbDWE2Xe83zJ+whaXnQ7D
-	aip/HR8Q==;
+	bh=yKwDK4STszGV8vbOMc3KlFzvlsT8tw8vcmmy9EXfXY4=; b=ljFJSoMDW6E10oP6hI/2QogwPM
+	n79LUHvEDxrrlPyf9RASCWE/fMCWFg+UQDhGFQydjBZKCf56mBItzragF6Ox/KnQqa/JsLxh0/Fqk
+	9S6csLlQ4VxF55V6DBgUTGWNibL6Ux6xmqSNg2C3xuJjty6akxu53JmW3/IGwU52D3fL+GvQoJXAn
+	w+C0DmuZcpLTPhOdo8Q94Ibkhcm7TOFrZmsBp7UJmvOS2ALZ6VqpeiATDlckjDvXZTA/ewElCDJVy
+	awbAs0J5Cw8GepIWOn1G+CxinBuieBw8k/Qz6Mhr/xz4v3HxKbzZEPNsyrTYuZ89h6T39W3dJ9Dcg
+	bhdW5RSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY2q9-0000000FZ0q-3VdD;
-	Tue, 23 Dec 2025 13:54:17 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vY2uZ-0000000FZFV-0SQM;
+	Tue, 23 Dec 2025 13:58:51 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY2q8-0000000FZ0k-40wc
+	id 1vY2uW-0000000FZF7-3aFZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Dec 2025 13:54:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 64A9360123;
-	Tue, 23 Dec 2025 13:54:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EBEDC113D0;
-	Tue, 23 Dec 2025 13:54:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766498056;
-	bh=AiITmCreaKBX7HKqX2F5SX04cacgCiPL74DHqx+cHiY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qrmsdykTICzc1mqAHBjdG9SAc/oCv5sxGKGxwnXadPn1+LOy1LVhoMMzrBhhBkuDP
-	 w2K07fAkYvb3vTL6xolLw35bpdOQqJAmGrdrEwXfdrobtJe8tibdsHa4nwC/pq9P01
-	 ma2qh2+JsjFFIa5o3aZRLYbkNVhyEfQadnc+P41mkK60xosPQDc0Sptz3Mj2dwkopE
-	 jRCW2U+pVv3Jkgfmi6+LzzJZkDzq6lvnXARy4IeKr+89d46c9FCsLBqnxIbP0m7vCQ
-	 Kkkf5GPDTZxUkPZwNK6G3RvQHHut/6W6guZ9aCsNxLfbAKZ1jqx5wLKouSTNu7anUo
-	 F1Ay4F91canbA==
-Date: Tue, 23 Dec 2025 14:54:13 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Kyle Hsieh <kylehsieh1995@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: arm: aspeed: add Meta ventura2 board
-Message-ID: <20251223-ginger-worm-of-swiftness-a8fa05@quoll>
-References: <20251222-ventura2_initial_dts-v1-0-1f06166c78a3@gmail.com>
- <20251222-ventura2_initial_dts-v1-1-1f06166c78a3@gmail.com>
+	Tue, 23 Dec 2025 13:58:50 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-5957c929a5eso7235013e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 05:58:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1766498327; x=1767103127; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=yKwDK4STszGV8vbOMc3KlFzvlsT8tw8vcmmy9EXfXY4=;
+        b=EUFRv1684HEaei9vGrKMGywnjYwaAs1rV+m9HSKldD8/KjUwpBIbZeHB5uec8+V2vK
+         OvFPxYL/nMBlikr0Hvl8UKntMh9PL2fR233PGX6Z5FqbK/St1eONbfntpFYL/OngsubK
+         GXNIMqelrA92jBBDJdjp3yLE98bjJvID49oWjAtttGtU/MmieHE5YOkrL9/NerA7Yic5
+         ClCTHBP+MWdHqZNcpuw2JnH1BviLombv/OkHQjz37kmogUB3m2zKzRZ2yX1cynwIQSjp
+         JkQ64usiACUTpYgEg++gs0Lxm1CAi4wORXXpVAhEpYPzW+ALQ86KchvIz8r/kXtM/nTm
+         6jRg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766498327; x=1767103127;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=yKwDK4STszGV8vbOMc3KlFzvlsT8tw8vcmmy9EXfXY4=;
+        b=ltKj8lA1YeH1d9NMZRYb8TjEsbHeBLqePL5uGpqewuoXpOIADCyRhwT5eIu8Y4t01R
+         PTMNk3fItik1OoCttyJkb1PEg0EJBZXrZQQBiJ6fchyTkCNTUMJxtMPICtHpe4CMOHoq
+         wTaWW2gk0xNEbQ7BKAO7x1WMKjs2pxUhNRjIoPaArS+lXyrZvnaY1RfXZIHVlAEnKHc6
+         FFrYiuuMSuKnkfUKJ7UXI4axxhdlVrMtJ2ZZ6QZ/3QaFCZ+1CZIbHn2HtdRLicbx0+Ry
+         xNqqt9NkTCauQ/MJIk35B7GFTWm8PT25ICnItLmqM6WZMPzNyYIXa8Qm2BXgrChEOEjo
+         /Vug==
+X-Forwarded-Encrypted: i=1; AJvYcCXtNCL/j+Kr4ivzd66JdFjDwBD4T+KWuUoH/njER1eFgvnkF5ds/Z2taKUDjybEXPzWL2hLiLMrtVIU43XBVgCu@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBJGW3lLuNdgsjq8+8ixm4prgzq7V7Viglo+evwlrcnUIqqaw3
+	gdDXl1Zyy7YaLaIq4FY0AyePE37NGPWVWQsp2O8ghGlcNX73uOSg9PHB6fggZMGejzM=
+X-Gm-Gg: AY/fxX5KKhuI8HvdirdgRsgSvy/2l+JnqJZsR80Uq88CJlr+1dUcvYA10ktL0XkJdn4
+	C4CeSrK5vme/1IXgALYOYowftkFQF8wm6N2ble1jxQfMIzyZI8eYkH+OD2fmFFTfc28nUa5Ya1o
+	29cn4ik4wrsPkCIEz8D5sXdgnHnM4EtiHRaUWeVsRZn4oa3XrujELl/i0WbTTunrNnVINJCRRnx
+	xOLU1ziUVtc+QmzU7O5B2ay+xDYoMA1WQOvyp8EGUfTUMDQbD+ffhCSfLHS//wPCx9eiJSpGbxA
+	5XnMgJRw9sHRLckUWtTo0eIiWfOc0cjmByPQz9hEZ4lw1eQwsaibnQL+SXC7VPoaiAGQdZ6Y3d3
+	Zc0mpg0NN6FGXZpCpfSXcOhuX06er2wBzJ/QsWuoFPsJ7dmA/8qw25cCp7R/bi9gZ2B+Wh+BsBy
+	+k7zTPreY9njnDYo09EowUz41/PNw34w7/UcwUn/hUa7rt
+X-Google-Smtp-Source: AGHT+IFv99Ej3GkUrXZadn9xCMt2v/wJnf6A79YGb01ppx4vbKEg0EBBNlfipL3lHtnz1hRVMbz/WQ==
+X-Received: by 2002:ac2:4c49:0:b0:594:2a0f:916f with SMTP id 2adb3069b0e04-59a17d5dd7amr5109990e87.43.1766498326586;
+        Tue, 23 Dec 2025 05:58:46 -0800 (PST)
+Received: from nuoska (87-100-249-247.bb.dnainternet.fi. [87.100.249.247])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59b27194edbsm485807e87.53.2025.12.23.05.58.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 23 Dec 2025 05:58:46 -0800 (PST)
+Date: Tue, 23 Dec 2025 15:58:44 +0200
+From: Mikko Rapeli <mikko.rapeli@linaro.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Arnd Bergmann <arnd@arndb.de>, Nishanth Menon <nm@ti.com>,
+	Eric Biggers <ebiggers@kernel.org>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	=?iso-8859-1?Q?N=EDcolas_F_=2E_R_=2E_A_=2E?= Prado <nfraprado@collabora.com>,
+	Taniya Das <quic_tdas@quicinc.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] arm64: defconfig: remove SLIM_QCOM_CTRL
+Message-ID: <aUqgFCgmBy7H9yW0@nuoska>
+References: <20251223134807.3543642-1-mikko.rapeli@linaro.org>
+ <c06878f7-bb93-4de2-b54a-e97fbc1a333e@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251222-ventura2_initial_dts-v1-1-1f06166c78a3@gmail.com>
+In-Reply-To: <c06878f7-bb93-4de2-b54a-e97fbc1a333e@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251223_055848_925021_19C3C822 
+X-CRM114-Status: GOOD (  12.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,17 +107,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 22, 2025 at 03:45:43PM +0800, Kyle Hsieh wrote:
-> Document the new compatibles used on Facebook ventura2.
+Hi,
+
+On Tue, Dec 23, 2025 at 02:51:45PM +0100, Krzysztof Kozlowski wrote:
+> On 23/12/2025 14:48, Mikko Rapeli wrote:
+> > It has been removed by:
 > 
-> Signed-off-by: Kyle Hsieh <kylehsieh1995@gmail.com>
-> ---
->  Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 1 +
->  1 file changed, 1 insertion(+)
+> by commit foo bar (see also checkpatch and submitting patches).
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Ok will duplicate the info then.
 
-Best regards,
-Krzysztof
+> > 
+> > Fixes: 7cbba32a2d62 ("slimbus: qcom: remove unused qcom controller driver")
+> > 
+> 
+> Drop blank line
 
+Ok
+ 
+> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> 
+> You anyway need to send to proper mailing list for this soc (Qcom), not
+> random folks.
+
+Which proper list?
+
+I sent to addresses reported by get_maintainers.pl.
+
+Cheers,
+
+-Mikko
 
