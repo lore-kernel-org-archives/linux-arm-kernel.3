@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE5DCE6F085
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 17:22:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 847B8E6FE23
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 17:33:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WHP2xliIunnJcsC1gjZ31iV+F/F+4USoCACscUNjV1M=; b=tpbiTqrqn1/XkjB68Dky1daXxa
-	Zylk1NNaTNG+QA02eXE+NyL4OxRN/d2iofsv9mDIADp8xpP4Ig8BUVLR/GToc9VTc6CazawMJPnQu
-	ERYfJypQAMttf2u0TkeypYi7rVNCDbM2T15UyOMtRmhXmed0k616NOqKovLdQykC9YYIxApLd/w24
-	J+/M0VUOMmqPkIQi45MPNeR6kaP3EjLDUq7J6NT7mAfXhqSdqqvt8+AlmtedT8hIHGzj19XtbBvJp
-	gEd6cVxdimpVxHrJi7OiE8mvEq97oYLq2oaIRJEhN6S847YnS9iGceoLPEqxhRTti797l1iiMx/g4
-	YDOoOgfQ==;
+	bh=GqaQRBKoM/CiH2DB/TnINbMtAw4kNIgu5kDpZuHo4B0=; b=ZRYOCcknW9LCJm6Typ0+N4SaP2
+	CRd87THteftYKitq88Q7u2MrAHX2RBJksG6s44Gii6W7jO1hTdWkUL9fz0TnfvCcNSXguEZzeyDTU
+	cWbRdElasZtNzyc1SHV/mWlaaqVM2OmHjUK4dcDZcfT6WFmM7RcZ/CcvEY8AGb50/6/rfCgsyLpXJ
+	RLLMtNbudllW6I+kCLDWr9nd+uK2gmVnW2mgpGAUOBjAUYBRpjGDvTZCj8ZTcB3SWQmaMZuWBuohn
+	CADJ8cUUcWD/ophZMGYX02tHj4kak0+TDhEzmmGlBafY0s40ID0wruHlSMZ2ZrUuJ9eCeSCA+aH55
+	HKK/WyLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY65d-0000000FoyB-2Neu;
-	Tue, 23 Dec 2025 17:22:29 +0000
-Received: from dilbert.mork.no ([2a01:4f9:c010:a439::d])
+	id 1vY6GW-0000000Fpbz-1aL7;
+	Tue, 23 Dec 2025 17:33:44 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY65a-0000000Foxg-109k;
-	Tue, 23 Dec 2025 17:22:27 +0000
-Received: from canardo.dyn.mork.no ([IPv6:2a01:799:10e2:d900:0:0:0:1])
-	(authenticated bits=0)
-	by dilbert.mork.no (8.18.1/8.18.1) with ESMTPSA id 5BNHGJQY589406
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=OK);
-	Tue, 23 Dec 2025 17:16:20 GMT
-Received: from miraculix.mork.no ([IPv6:2a01:799:10e2:d90a:6f50:7559:681d:630c])
-	(authenticated bits=0)
-	by canardo.dyn.mork.no (8.18.1/8.18.1) with ESMTPSA id 5BNHGIXw540064
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=OK);
-	Tue, 23 Dec 2025 18:16:19 +0100
-Received: (nullmailer pid 993152 invoked by uid 1000);
-	Tue, 23 Dec 2025 17:16:18 -0000
-From: =?utf-8?Q?Bj=C3=B8rn_Mork?= <bmork@telenor.net>
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-mediatek@lists.infradead.org, linux-wireless@vger.kernel.org,
-        lorenzo@kernel.org, nbd@nbd.name, ryder.lee@mediatek.com,
-        sean.wang@mediatek.com, shayne.chen@mediatek.com
-Subject: Re: [PATCH 1/1] wifi: mt76: mt7996: fix mixed FEM check of mt7996
- chipset
-In-Reply-To: <20251223140016.235771-1-amadeus@jmu.edu.cn> (Chukun Pan's
-	message of "Tue, 23 Dec 2025 22:00:16 +0800")
-Organization: Telenor
-References: <87fr96tp7w.fsf@miraculix.mork.no>
-	<20251223140016.235771-1-amadeus@jmu.edu.cn>
-Date: Tue, 23 Dec 2025 18:16:18 +0100
-Message-ID: <87a4z9f7a5.fsf@miraculix.mork.no>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	id 1vY6GU-0000000Fpbi-2EU8;
+	Tue, 23 Dec 2025 17:33:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id F242A6013A;
+	Tue, 23 Dec 2025 17:33:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7633C113D0;
+	Tue, 23 Dec 2025 17:33:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766511221;
+	bh=m7HpFgNLV9TNM8Cr/q/pRPRVkPEEhFM+P9eE+IsCGLg=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=a63U1Y7t+uP3fy7j+j3rVDyF8Qn7Ezx49gZ3nu/xsZmcuw3nCyx6HRSf1y68qcUyV
+	 uUUwYe1HZtoTP6eAX9UfKqsA2cNDXmUzj6Nq1tmHadGGWi5U/pPf9q44xU/ASjqHP1
+	 Ytu/EEvTzvr1PvRhWdo6ZR/YqyYsURAC5a2QCPJ0yIgOilgEL/fiGKQRpInOY0Xgw7
+	 e0qy9RNwP/xSTSgQM6jM2qpltSl7wWCFZO0nsvmOL1NUe0rXb1tHgEc1hitcNLd5Am
+	 IR/2NFfbFtb9A+uRO+nMvcesIq7/r8xTNoGQCpxvB9ZS445mauauZYo+BaC9PFEe6I
+	 4vSVXL78iZ4rQ==
+From: Vinod Koul <vkoul@kernel.org>
+To: Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Franz Schnyder <fra.schnyder@gmail.com>
+Cc: Franz Schnyder <franz.schnyder@toradex.com>, 
+ linux-phy@lists.infradead.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Francesco Dolcini <francesco.dolcini@toradex.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, stable@vger.kernel.org, 
+ Xu Yang <xu.yang_2@nxp.com>
+In-Reply-To: <20251126140136.1202241-1-fra.schnyder@gmail.com>
+References: <20251126140136.1202241-1-fra.schnyder@gmail.com>
+Subject: Re: [PATCH v2] phy: fsl-imx8mq-usb: fix typec orientation switch
+ when built as module
+Message-Id: <176651121758.749296.4271020306636125527.b4-ty@kernel.org>
+Date: Tue, 23 Dec 2025 23:03:37 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Virus-Scanned: clamav-milter 1.4.3 at canardo.mork.no
-X-Virus-Status: Clean
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_092226_592763_ED59783A 
-X-CRM114-Status: UNSURE (   8.82  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.13.0
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,51 +76,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Chukun Pan <amadeus@jmu.edu.cn> writes:
 
->> The problem is that the patch breaks the other device variant, which
->> used to work before.  If we assume the eeprom data from Zyxel is
->> correct, then this variant is iFEM.
->
-> Do you have the specific model name and what the RF chips are?
-> The eeprom seems to be fine.
+On Wed, 26 Nov 2025 15:01:33 +0100, Franz Schnyder wrote:
+> Currently, the PHY only registers the typec orientation switch when it
+> is built in. If the typec driver is built as a module, the switch
+> registration is skipped due to the preprocessor condition, causing
+> orientation detection to fail.
+> 
+> With commit
+> 45fe729be9a6 ("usb: typec: Stub out typec_switch APIs when CONFIG_TYPEC=n")
+> the preprocessor condition is not needed anymore and the orientation
+> switch is correctly registered for both built-in and module builds.
+> 
+> [...]
 
-Device with iFEM+eFEM+eFEM, working with your patch:
-Zyxel EE4600-00
+Applied, thanks!
 
-Readouts from the ADIE_ID registers:
+[1/1] phy: fsl-imx8mq-usb: fix typec orientation switch when built as module
+      commit: 49ccab4bedd4779899246107dc19fb01c5b6fea3
 
-root@ee4600:~# echo 0x0f00002c >/sys/kernel/debug/ieee80211/phy0/mt76/regidx
-root@ee4600:~# grep . /sys/kernel/debug/ieee80211/phy0/mt76/rf_regval=20
-0x79758a02
-root@ee4600:~# echo 0x1f00002c >/sys/kernel/debug/ieee80211/phy0/mt76/regidx
-root@ee4600:~# grep . /sys/kernel/debug/ieee80211/phy0/mt76/rf_regval=20
-0x79778a10
-root@ee4600:~# echo 0x2f00002c >/sys/kernel/debug/ieee80211/phy0/mt76/regidx
-root@ee4600:~# grep . /sys/kernel/debug/ieee80211/phy0/mt76/rf_regval=20
-0x79778a10
-
-Device with iFEM+iFEM+iFEM, working before and breaking with your patch:
-Zyxel WE4600-01
-
-Readouts from the ADIE_ID registers:
-
-root@we4600:~# echo 0x0f00002c >/sys/kernel/debug/ieee80211/phy0/mt76/regidx
-root@we4600:~# grep . /sys/kernel/debug/ieee80211/phy0/mt76/rf_regval
-0x79758a02
-root@we4600:~# echo 0x1f00002c >/sys/kernel/debug/ieee80211/phy0/mt76/regidx
-root@we4600:~# grep . /sys/kernel/debug/ieee80211/phy0/mt76/rf_regval
-0x79778a11
-root@we4600:~# echo 0x2f00002c >/sys/kernel/debug/ieee80211/phy0/mt76/regidx
-root@we4600:~# grep . /sys/kernel/debug/ieee80211/phy0/mt76/rf_regval
-0x79778a11
+Best regards,
+-- 
+~Vinod
 
 
-I don't know exactly what chips these are.  I have no specs or
-datasheets and I haven't removed the heatsink and shielding
-
-
-
-
-Bj=C3=B8rn
 
