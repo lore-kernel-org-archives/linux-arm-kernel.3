@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2F06E6F08E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 12:48:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B291BE6F08E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 12:48:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XHTEIrlF/J5gLnuxeviWqwuo/78cmkpt/QaiQiwPmks=; b=syDR7J3xEShOItgrpe5RdO6qzS
-	AnucgQY5XwPZMvzBsfboSYYLoD5hkTReuetwDG9cdglIwGQKzWNhoFEAsuQLdPn9XROAnt08lbSC7
-	hibU2lzbe1W6DDc8H/IKWgydtlLJJnzm6P2yLIIfoTatO6sZ0SkFagojWRgRppgHhFAEi+E4e1E2F
-	OtrKdmMfKRPGH8GaRzRo6TEnvGdXWYrVdGyL1ignjXk0i6s9oWvxyvJJmxZ0js67nNIA1C//Z1pJB
-	lCYarrr3Ft5xGha8f2xEXlhvDzJbNl1cP5qCLxGiQdVya1BdZqrjEL3iGUcplRmGzPcFn4Pmx649v
-	2m8wvqIQ==;
+	bh=wYNeeuY0cO1TFUCt+bQaF+1AjVDKDQGHrFfMGn/OIDI=; b=Gb/L6mfzjlMXbP7jQFqV8D9aXY
+	DabdF3RoCB9VcO2hyLczYr1z3olunRW0Qvw3C1L7VpGRCAzAK1jDfMzcRY4454sGrJPAwDOSapcbg
+	p+MruXh66o0XOpTYeRaRMGIRmEJArVMpoCbwU2Zh+sczLP3Fj8gBRTf3oEHlNsuQTu6KQFYxEPAmG
+	vvIzEUuyrfvcnS2AINXuZJxXUew8lj9Prv9yxdpyXEw7YdUmN5IfcWIlinD6jmVz9vPHupdE+0y3V
+	AW74vYmT8sBuh4x6Zi25AFIEtO6knoDx19Ms8msrKVGwka19SVp+PCjewSBNYC9MxsI0kxdl8dn3D
+	bUl6fxWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY1nz-0000000FV5m-1YLk;
-	Tue, 23 Dec 2025 12:47:59 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vY1o5-0000000FV9P-3RzA;
+	Tue, 23 Dec 2025 12:48:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY1nx-0000000FV57-48QI
+	id 1vY1o2-0000000FV7X-2sTF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Dec 2025 12:47:58 +0000
+	Tue, 23 Dec 2025 12:48:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6AEEB6013A;
+	by sea.source.kernel.org (Postfix) with ESMTP id 4E67E443A9;
+	Tue, 23 Dec 2025 12:48:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B8E4C113D0;
 	Tue, 23 Dec 2025 12:47:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 788F3C116C6;
-	Tue, 23 Dec 2025 12:47:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766494077;
-	bh=WXvLUt0Z4RKCNcS99dOC/TE9RwivHFDhbm9iqtxU6lw=;
+	s=k20201202; t=1766494082;
+	bh=B3xjfPRKFS0qoDeFoIRFLfaayzMur0aXjaMmej6M+fY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=oVkaDxA3FQ+242CPw9Nk3qyl6ju3owT7uVtIWKZwdNSeXEe1CYIUzK3BXk7U9MjrK
-	 arUl9yXvURxfDeMoY6R/WsHSxOYqELoBj17bIGOXZeSGff2VY+2CTG113VuoHY7fym
-	 0LIMDdgSvqGgwClsQuLb1ho//8eqrIx8j5lhMRRbUHYwfQSyuTySKvoNrQj9Sox85H
-	 NcdcUg+HUED3thRKNCHinPVr5USJNFMA2xTb5BNkvIlBOftbMxzTpX9L/lK6hFSWZk
-	 /A4gE99eQoL2W2a0HnZkhTo9db4WLu/U7MM1WaG1sasiE/9qFX1MGFS8DxM5oFUnFq
-	 rU0meQQEZrisg==
+	b=NbcY4pX7UDRBAH4ABtafnWNjBiGs15KK27AUjeMprV6VHlaJScb+kc0gkP4pq9L64
+	 BnExPDBzCuUh4NNdaojK6q9d+2HvCjUKfhxmXNUCdPkP+/KI3dSk0KfB9ZpP4+xQPI
+	 6+aBqjJh5BBnRhixRWoVMjer4IH+31iJXIta72hIW+FGgJdn/97wLG3cumHLXPvLtt
+	 nzugW7B58tBFoaO4W8iCsxOCpo8GKnunDulQoMUCuzjDlg+EdQgbHieFvJ4zT4VGPo
+	 FXcaVYmCJjWYzWcw4/vJbqqNiRYs3ZWm6gohw3+3z49F7IwWLQKvxpKRSCSsVDuRAg
+	 oi9eh0bpFPHnQ==
 From: Michael Walle <mwalle@kernel.org>
 To: Frank Binns <frank.binns@imgtec.com>,
 	Matt Coster <matt.coster@imgtec.com>,
@@ -68,14 +68,17 @@ Cc: linux-clk@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	Michael Walle <mwalle@kernel.org>
-Subject: [PATCH v2 3/4] arm64: dts: ti: add GPU node
-Date: Tue, 23 Dec 2025 13:47:15 +0100
-Message-ID: <20251223124729.2482877-4-mwalle@kernel.org>
+Subject: [PATCH v2 4/4] arm64: dts: ti: sa67: set the GPU clock to 800MHz
+Date: Tue, 23 Dec 2025 13:47:16 +0100
+Message-ID: <20251223124729.2482877-5-mwalle@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251223124729.2482877-1-mwalle@kernel.org>
 References: <20251223124729.2482877-1-mwalle@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251223_044802_790440_CBEAD519 
+X-CRM114-Status: GOOD (  10.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,35 +93,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The J722S features a BXS-4 GPU. Add the node for it.
+The board is running with a core voltage of 0.85V and therefore we can
+clock the GPU at 800MHz.
 
 Signed-off-by: Michael Walle <mwalle@kernel.org>
 ---
- .../arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi | 11 +++++++++++
- 1 file changed, 11 insertions(+)
+ arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-base.dts | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
-index 3cf7c2b3ce2d..a55e5108e7b6 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
-@@ -1110,6 +1110,17 @@ dphy0: phy@30110000 {
- 		status = "disabled";
- 	};
+diff --git a/arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-base.dts b/arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-base.dts
+index 7169d934adac..0c7f3e10a150 100644
+--- a/arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-base.dts
++++ b/arch/arm64/boot/dts/ti/k3-am67a-kontron-sa67-base.dts
+@@ -292,6 +292,12 @@ &cpsw_port1 {
+ 	status = "okay";
+ };
  
-+	gpu: gpu@fd80000 {
-+		compatible = "ti,am62p-gpu", "img,img-bxs-4-64", "img,img-rogue";
-+		reg = <0x00 0x0fd80000 0x00 0x80000>;
-+		clocks = <&k3_clks 237 3>;
-+		clock-names = "core";
-+		interrupts = <GIC_SPI 241 IRQ_TYPE_LEVEL_HIGH>;
-+		power-domains = <&k3_pds 237 TI_SCI_PD_EXCLUSIVE>,
-+				<&k3_pds 242 TI_SCI_PD_EXCLUSIVE>;
-+		power-domain-names = "a", "b";
-+	};
++&gpu {
++	/* The VCORE is 0.85V, thus we can use a faster GPU clock. */
++	assigned-clocks = <&k3_clks 237 3>;
++	assigned-clock-rates = <800000000>;
++};
 +
- 	vpu: video-codec@30210000 {
- 		compatible = "ti,j721s2-wave521c", "cnm,wave521c";
- 		reg = <0x00 0x30210000 0x00 0x10000>;
+ &main_gpio0 {
+ 	gpio-line-names =
+ 		"", "", "", "", "", "", "", "SOC_SDIO_PWR_EN", "VSD_SEL",
 -- 
 2.47.3
 
