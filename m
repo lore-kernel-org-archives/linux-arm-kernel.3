@@ -4,83 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 314FDE6B260
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 00:03:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E90BE6B261
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 00:57:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3LOicgErNhTFYQEd3WH4kuv3Qzd96akWti2P2bwjKXg=; b=fGWZRzkqUyz0U0
-	7GqqNNmnM+nm7w0ZUvEXhZJdjMHDgzBrRUeKZUhjb5AQDChveoRu2JUegTQEnAI7zxZw6SJYYv4hh
-	0qRRG/rMHTJtLoEno2bKrcJpa87Qw2BURd6lsW69mbfsDjGCqL3pTFVsOP4W4QLts5pvMe/fod+KR
-	7gwsiMbimhP6+H7ppNtEJB/+bYqGlGpwYSHP62/0CI+1BSjd0BuYk+EFxveH7vCQzA52b7NMItLrH
-	ENI1vRPyWQARsFvfbQ6Mq4i9CuUwnaBPLOLlheNf76G4ln4J5BR6fITkDq5eUWKaw5E76frw56K7Y
-	HYZKJFl+1bwok/ezW8Lw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mazY05Rk88IFhG/yxgjr8IgIa6TgygthwUjraMDpVR4=; b=2tCTBqLEwL2fYyCCn9+HBHPdPN
+	P7cdNthGrY0Dza9Wlp27PX5VNubKGLrLKmCWcnuBcx90lbA7cFVxHxHk3uPx0EuBNn66fWq0sTbNd
+	/xWBss/jfmLH4RbN0ykBgaWqRuzORJC3ExOWtAp5rISlqV5aZwpwJ+U1ATsPJ3AHr77g8hOCR0AyY
+	5rR4AH4eVLIVpCAT3QDNo+EZJ0V4QZuzlw66xrR0NnBAot7SS1brzqdIaPMyuI9iYhQ9bLSm4lzOh
+	Vpiq8Dbqh7JP1LGkvgUId60PLonnqAkKgZrCxxbzEsObm2cqeAIlDMkM6ULV5bLxZbBZ1xzlX9O2K
+	pS34ibrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXprq-0000000EHfk-21yD;
-	Tue, 23 Dec 2025 00:03:10 +0000
-Received: from mail-qv1-xf35.google.com ([2607:f8b0:4864:20::f35])
+	id 1vXqiW-0000000EKAK-1WQD;
+	Tue, 23 Dec 2025 00:57:36 +0000
+Received: from mgamail.intel.com ([198.175.65.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXpro-0000000EHfN-1k7N
+	id 1vXqiU-0000000EK9x-0gFb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Dec 2025 00:03:09 +0000
-Received: by mail-qv1-xf35.google.com with SMTP id 6a1803df08f44-88a288811a4so50541666d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 16:03:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1766448186; x=1767052986; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3LOicgErNhTFYQEd3WH4kuv3Qzd96akWti2P2bwjKXg=;
-        b=WRKPxcP2psjwPmePxWkba1D0mnKCmCsMCSHRhadZ6ArC7n+AdpgX+bs9L7lfzU3XZP
-         RM3ZM//d0UZ/FvSrMXqIjMK1yRanTuBQMzF6t709mcGA6Xwo4OwyJpuT2/it6upvvxlk
-         rTEiiyLCPSCtv2hqxGCD34tcoNnc7+oGa9y2/ap7uZSy6qSvaX0dyWx9lclX6xmuvtZw
-         fA2wrNjsHLMUE24N8cYavZ+2gPRM/4gTXKDZbutoiekHx3q1APAh3vb1nLseRaO0clTJ
-         QkWatTZuu24RUHfiiXfzMzws3Eh7UFGa+AGOh9ujysq+yOStROazde9o1UW7dE6z/qtv
-         Vr7g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766448186; x=1767052986;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=3LOicgErNhTFYQEd3WH4kuv3Qzd96akWti2P2bwjKXg=;
-        b=Xu7aLAQE+MMy1GnD9LI8HO7AlzmtDUIvvAVCYDlFfKlyX5KUFAKj+7r7uCCgKpE1B7
-         yYo5WGycW9FM4xHSrs3mV5sLyq9Gs46AZXmdwVS7NCgbloYpKCuhvZBohIMb17JmmwrA
-         i3jqabtqmV8s1Ak/ug7F+YZVC5LcejzuRHxgrVDBSGKp1SSJpyQp+Zr9NoVq0ytLNSnS
-         bjrd3Mf4XCo5fUjEI6WvQEz3V350hi8U6Iq0uFvPT+Geg26il57tOlgP2pSEiiSAxbYs
-         by6JDNgkowLLkYQnMqwTCTef0CsAvO8JpvR9+Ili4P+2s/5wCMuU+v7/pksQTbutM2p+
-         QeQg==
-X-Forwarded-Encrypted: i=1; AJvYcCWIW24zprSfZQ5hIaslcpLVu3SBfABOId9WHmnaSuKQnSYUFiSx8/hUwOszpLsTvsao39siSO6k5hlfYX0c2Idn@lists.infradead.org
-X-Gm-Message-State: AOJu0YxfxALTdOaQ/sdrCP1wrrK/A12ryUZddqacPOtc5lit+6IqV/AP
-	iResAC+MvErM+PZcaR6OcwZGXhcVOMrNjY98DC2J4NawSCzObFjzdFzedoElP/JNfToE4Y4hMe/
-	0AkTk/W4ZEbyWxSKhxZ2myF6Z4xShgNs=
-X-Gm-Gg: AY/fxX4qL1FjmeF3AxAogxVMV45/bk9ESHNzzs4pq0zUF7ybCRuESGyBvZu0jP1R3uw
-	LsLBpxgnzeiVBW9rA5+6YnCsgD8cNw7qU2OXs7kh4Bj1uGcTgkPkHiqsOp+MgLS2whHB2w4Hn+H
-	hNk8xzFOg9EzCY6DRm/dcF3FoUNEn1bLwNOesbnlkIxkXYQE2CdZXbOgpDFNBGrxRhRK8lq7tao
-	aZ5b7m51N1TrOSP4Tga0OtFn/QKF5XaFT1/uPvFXvqKLd15DGzAY18Z1Q93x3xCajrlPg==
-X-Google-Smtp-Source: AGHT+IEZZVrQZ0i2FOsWBMrA37EgStlHwxoujL9L1Fx4NStIdzIudBmVYo0v/NHWIETz9sf+Dm3aWxP2ut/+MfFNKiE=
-X-Received: by 2002:ad4:414c:0:b0:880:4310:7e02 with SMTP id
- 6a1803df08f44-88d81d42e4bmr152858826d6.21.1766448186339; Mon, 22 Dec 2025
- 16:03:06 -0800 (PST)
+	Tue, 23 Dec 2025 00:57:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1766451454; x=1797987454;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=Tzhli8fZhmydE3WtkzmFX0iuaaxe/re1tXi3k0T9e3o=;
+  b=TuczWF7vcGA6hTIXUJgTbd8z7ubiOVk+Wz2tESNVcDMIPmPJhekSe46m
+   h1cnZhKNRZbD2ghj/QGg0HTjP55ERr35PrIqYC9aAf2PTEd35d24kz8l5
+   1aNfHHV6D5oFliQ3eEsCqMAhYFrDZCbZD+4yBMQhghpR8BLMwjLvZ3jHx
+   ud91ZJp/AK5gN3YfgsZiNzRzJHui8kKcD0SpG1cBa2iODJafXvdVPL6b3
+   jAwqAhO04dUjfbtFUeBRjJOfWWIFQl3QN4hra/8D9jjSwfWRirIhvtl1S
+   nmn0KSTcNu506k3oFjn7hXfjHpDU1OYpyiOOAiZxVF/bYzGmLnaAu0f4M
+   Q==;
+X-CSE-ConnectionGUID: PvceQXPsQRGHkhLNOYMyjA==
+X-CSE-MsgGUID: IU7/sToLRHCHWy1cqGIE4Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11650"; a="68350540"
+X-IronPort-AV: E=Sophos;i="6.21,169,1763452800"; 
+   d="scan'208";a="68350540"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa110.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Dec 2025 16:57:32 -0800
+X-CSE-ConnectionGUID: 1obue43dSTyg7GkfEywvfw==
+X-CSE-MsgGUID: rJm/Ik0hRb+dawbPI+6Clw==
+X-ExtLoop1: 1
+Received: from igk-lkp-server01.igk.intel.com (HELO 8a0c053bdd2a) ([10.211.93.152])
+  by fmviesa003.fm.intel.com with ESMTP; 22 Dec 2025 16:57:28 -0800
+Received: from kbuild by 8a0c053bdd2a with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vXqiM-000000005gO-0t6c;
+	Tue, 23 Dec 2025 00:57:26 +0000
+Date: Tue, 23 Dec 2025 01:57:16 +0100
+From: kernel test robot <lkp@intel.com>
+To: Ruidong Tian <tianruidong@linux.alibaba.com>, catalin.marinas@arm.com,
+	will@kernel.org, lpieralisi@kernel.org, guohanjun@huawei.com,
+	sudeep.holla@arm.com, xueshuai@linux.alibaba.com,
+	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, rafael@kernel.org,
+	lenb@kernel.org, tony.luck@intel.com, bp@alien8.de,
+	yazen.ghannam@amd.com, misono.tomohiro@fujitsu.com
+Cc: oe-kbuild-all@lists.linux.dev, tianruidong@linux.alibaba.com
+Subject: Re: [PATCH v4 10/17] ras: AEST: Introduce AEST driver sysfs interface
+Message-ID: <202512230122.CfXZcF76-lkp@intel.com>
+References: <20251222094351.38792-11-tianruidong@linux.alibaba.com>
 MIME-Version: 1.0
-References: <20251221115523.GI13030@unreal> <20251221192458.1320-1-21cnbao@gmail.com>
- <20251222084921.GA13529@unreal>
-In-Reply-To: <20251222084921.GA13529@unreal>
-From: Barry Song <21cnbao@gmail.com>
-Date: Tue, 23 Dec 2025 13:02:55 +1300
-X-Gm-Features: AQt7F2rid0y3y0Yd9WtXER6TR3yir1jQ4ns4ZMhe7WurwhJeM4kREFYEM2znxW0
-Message-ID: <CAGsJ_4yuvHNqHDi8eN-8UoY2McoXUeCMmbjFAr=jSdv8GpGKeg@mail.gmail.com>
-Subject: Re: [PATCH 5/6] dma-mapping: Allow batched DMA sync operations if
- supported by the arch
-To: Leon Romanovsky <leon@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251222094351.38792-11-tianruidong@linux.alibaba.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251222_160308_466615_CA0C5584 
-X-CRM114-Status: GOOD (  21.27  )
+X-CRM114-CacheID: sfid-20251222_165734_283353_41EF547B 
+X-CRM114-Status: GOOD (  10.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,117 +87,64 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: v-songbaohua@oppo.com, zhengtangquan@oppo.com, ryan.roberts@arm.com, will@kernel.org, anshuman.khandual@arm.com, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, surenb@google.com, iommu@lists.linux.dev, maz@kernel.org, robin.murphy@arm.com, ardb@kernel.org, linux-arm-kernel@lists.infradead.org, m.szyprowski@samsung.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 22, 2025 at 9:49=E2=80=AFPM Leon Romanovsky <leon@kernel.org> w=
-rote:
->
-> On Mon, Dec 22, 2025 at 03:24:58AM +0800, Barry Song wrote:
-> > On Sun, Dec 21, 2025 at 7:55=E2=80=AFPM Leon Romanovsky <leon@kernel.or=
-g> wrote:
-> > [...]
-> > > > +
-> > >
-> > > I'm wondering why you don't implement this batch=E2=80=91sync support=
- inside the
-> > > arch_sync_dma_*() functions. Doing so would minimize changes to the g=
-eneric
-> > > kernel/dma/* code and reduce the amount of #ifdef=E2=80=91based spagh=
-etti.
-> > >
-> >
-> > There are two cases: mapping an sg list and mapping a single
-> > buffer. The former can be batched with
-> > arch_sync_dma_*_batch_add() and flushed via
-> > arch_sync_dma_batch_flush(), while the latter requires all work to
-> > be done inside arch_sync_dma_*(). Therefore,
-> > arch_sync_dma_*() cannot always batch and flush.
->
-> Probably in all cases you can call the _batch_ variant, followed by _flus=
-h_,
-> even when handling a single page. This keeps the code consistent across a=
-ll
-> paths. On platforms that do not support _batch_, the _flush_ operation wi=
-ll be
-> a NOP anyway.
+Hi Ruidong,
 
-We have a lot of code outside kernel/dma that also calls
-arch_sync_dma_for_* such as arch/arm, arch/mips, drivers/xen,
-I guess we don=E2=80=99t want to modify so many things?
+kernel test robot noticed the following build warnings:
 
-for kernel/dma, we have two "single" callers only:
-kernel/dma/direct.h, kernel/dma/swiotlb.c.  and they looks quite
-straightforward:
+[auto build test WARNING on rafael-pm/linux-next]
+[also build test WARNING on rafael-pm/bleeding-edge ras/edac-for-next next-20251219]
+[cannot apply to arm64/for-next/core linus/master tip/smp/core v6.16-rc1]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-static inline void dma_direct_sync_single_for_device(struct device *dev,
-                dma_addr_t addr, size_t size, enum dma_data_direction dir)
-{
-        phys_addr_t paddr =3D dma_to_phys(dev, addr);
+url:    https://github.com/intel-lab-lkp/linux/commits/Ruidong-Tian/ACPI-AEST-Parse-the-AEST-table/20251222-175211
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git linux-next
+patch link:    https://lore.kernel.org/r/20251222094351.38792-11-tianruidong%40linux.alibaba.com
+patch subject: [PATCH v4 10/17] ras: AEST: Introduce AEST driver sysfs interface
+reproduce: (https://download.01.org/0day-ci/archive/20251223/202512230122.CfXZcF76-lkp@intel.com/reproduce)
 
-        swiotlb_sync_single_for_device(dev, paddr, size, dir);
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202512230122.CfXZcF76-lkp@intel.com/
 
-        if (!dev_is_dma_coherent(dev))
-                arch_sync_dma_for_device(paddr, size, dir);
-}
+All warnings (new ones prefixed by >>):
 
-I guess moving to arch_sync_dma_for_device_batch + flush
-doesn=E2=80=99t really look much better, does it?
+   Using alabaster theme
+   ERROR: Cannot find file ./include/linux/pci.h
+   WARNING: No kernel-doc for file ./include/linux/pci.h
+   ERROR: Cannot find file ./include/linux/mod_devicetable.h
+   WARNING: No kernel-doc for file ./include/linux/mod_devicetable.h
+>> Documentation/ABI/testing/debugfs-aest:1: WARNING: Block quote ends without a blank line; unexpected unindent. [docutils]
+   ERROR: Cannot find file ./include/linux/bootconfig.h
+   WARNING: No kernel-doc for file ./include/linux/bootconfig.h
+   ERROR: Cannot find file ./include/linux/pstore_zone.h
+   ERROR: Cannot find file ./include/linux/pstore_zone.h
+   WARNING: No kernel-doc for file ./include/linux/pstore_zone.h
 
->
-> I would also rename arch_sync_dma_batch_flush() to arch_sync_dma_flush().
 
-Sure.
+vim +1 Documentation/ABI/testing/debugfs-aest
 
->
-> You can also minimize changes in dma_direct_map_phys() too, by extending
-> it's signature to provide if flush is needed or not.
+   > 1	What:		/sys/kernel/debug/aest/<name>.<id>/
+     2	Date:		Dec 2025
+     3	KernelVersion	6.19
+     4	Contact:	Ruidong Tian <tianruidong@linux.alibaba.com>
+     5	Description:
+     6			Directory represented a AEST device, <name> means device type,
+     7			like:
+     8	
+     9				processor
+    10				memory
+    11				smmu
+    12				...
+    13			<id> is the unique ID for this device.
+    14	
 
-Yes. I have
-
-static inline dma_addr_t __dma_direct_map_phys(struct device *dev,
-                phys_addr_t phys, size_t size, enum dma_data_direction dir,
-                unsigned long attrs, bool flush)
-
-and two wrappers:
-static inline dma_addr_t dma_direct_map_phys(struct device *dev,
-                phys_addr_t phys, size_t size, enum dma_data_direction dir,
-                unsigned long attrs)
-{
-        return __dma_direct_map_phys(dev, phys, size, dir, attrs, true);
-}
-
-static inline dma_addr_t dma_direct_map_phys_batch_add(struct device *dev,
-                phys_addr_t phys, size_t size, enum dma_data_direction dir,
-                unsigned long attrs)
-{
-        return __dma_direct_map_phys(dev, phys, size, dir, attrs, false);
-}
-
-If you prefer exposing "flush" directly in dma_direct_map_phys()
-and updating its callers with flush=3Dtrue, I think that=E2=80=99s fine.
-
-It could be also true for dma_direct_sync_single_for_device().
-
->
-> dma_direct_map_phys(....) -> dma_direct_map_phys(...., bool flush):
->
-> static inline dma_addr_t dma_direct_map_phys(...., bool flush)
-> {
->         ....
->
->         if (dma_addr !=3D DMA_MAPPING_ERROR && !dev_is_dma_coherent(dev) =
-&&
->             !(attrs & (DMA_ATTR_SKIP_CPU_SYNC | DMA_ATTR_MMIO)))
->         {
->                 arch_sync_dma_for_device(phys, size, dir);
->                 if (flush)
->                         arch_sync_dma_flush();
->         }
-> }
->
-
-Thanks
-Barry
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
