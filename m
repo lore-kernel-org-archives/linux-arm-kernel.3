@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F321BE6FE24
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 19:25:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B9BAE6FE28
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 19:32:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
 	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MKVZ6gnaghV+4OuvPE0MfgGwA+znTse9G/0vYKIzuzc=; b=LPTZur5MDInTwQtGf62rg2/jXp
-	I/LbI9nHd60VjtBpLaku6hDxAXg9svk6jSwj5IjHZHmupz4H0Ci7qRxUm6hmbC2t6Uq33Q8nZs6Dg
-	UlgJH/bElctuxunlWtu3GbQrzNvB97qqL5RLILWlhFsKuDQBpcij0m0WLnGPCytUGjPosyYoaTocq
-	yNLDKtjs2XJbLRaOhhacMMl96pDsO20IuhWbEQ0tkH0EftLfMzURXa/xD3iIT5ZdDDFPKt9F0RU/H
-	GZLgAPLu+NwjItyi0SMCstZN4xbzySAp9Bi2BUNKkxDfHVQrcs2DHUBdQKjecGFd4cskweHrAzP2J
-	qiqSjqmw==;
+	bh=S3MC/DJyxuqUqO+aA+Wb0Xz81EzDT3zbLRjYsUOml1Q=; b=ZVRu7PUqD6T0jUkKprkwuqgiW6
+	nLV4UHpwXRf9Wuo0Iq0YVKNjvVRcr9nrj+tui9yWvljEJ7M8R10nZ4fTu5UpH2CTia/AWOJSYwQ8F
+	WCskFdfteR1/oQeNNAfwf6ZMULhGk53TzZKwjFY5gmZT+k6fMqjSlXDr5j3/46/wcI3CCP8oCMBeg
+	r7vmHCS84m5peInfj4WfZ8TTDVyhar0x3D+R6xEILsUwmLCilNH2cFHq3rBHP2WI82g2U4CvJ2LFq
+	2hAFaMRWt/bbyoOFQHkXXjp/Uc0kbKAlPsCZzxOKZxrLOjolaxzTD7DwqqLXi/K526EZxMu8kvjjD
+	muEqeofg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY80X-0000000Fyvb-1Z8N;
-	Tue, 23 Dec 2025 19:25:21 +0000
+	id 1vY86s-0000000FzGb-302w;
+	Tue, 23 Dec 2025 19:31:54 +0000
 Received: from shelob.surriel.com ([96.67.55.147])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY80V-0000000Fyuf-0htH
+	id 1vY86q-0000000FzGF-2piA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Dec 2025 19:25:20 +0000
+	Tue, 23 Dec 2025 19:31:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=surriel.com
 	; s=mail; h=MIME-Version:Content-Transfer-Encoding:Content-Type:References:
 	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
 	List-Post:List-Owner:List-Archive;
-	bh=MKVZ6gnaghV+4OuvPE0MfgGwA+znTse9G/0vYKIzuzc=; b=cK5j6/WJxuN6PUjAGb5ilVl03d
-	yAfLxWN6svhzkrUr9lZKZJLo2EfAKVNMdTrpd8umBGeroEYFOEH9bU8tsIvhhy+rEKQqtYJW9j668
-	OjXdinWl0UXznZcP0+b1HO1/TAIH9+O37NaoAdhvUWeNiF+XXzbXZhZUiOX0IYkCMooyzh/bAqyZn
-	HQQ3a1JzDng4lcTG4H9+yZk6TYqHuQQeihYnubj8eClYvPM0iiGrzRZ4ckg8yQ0QFbcP5nsatLdSY
-	E+jrPYAI0agE6GKt50OuVMTbkPbM+PoerV7ua/tAHe/N5HZ7WowbGLxKIybesFvqLIntJFQjd04Ih
-	6Ysq7I1Q==;
+	bh=S3MC/DJyxuqUqO+aA+Wb0Xz81EzDT3zbLRjYsUOml1Q=; b=XvcgwatDvNRIqTVzxBEvAtRgmD
+	rFkbSYKJopSiemzHlULOFVByZwO+jcvsno7jG50qWziVJDNvgANFEgF8fuV2pTK4Qn+VDodpXvBGu
+	uA+v25gq4eFGrsNCpmLhrxihh8vRM/jzbkO1mAgmLsFu4KZ86dP7BLXo4Kdgw9ehJm3I8ZrUTLker
+	O0HChL0WBF7Sf0W63PKlHiwi4Zmwe3M+EgkvkfP7govGfwvWOr6/9WiMO8QpzdjrWzjsJWwblORCK
+	abajXy7BIwQj79KS7+9KyEr4LrcuDjTPVtH+oN67oPZCW2aZ4y6mhCCP2yhNMQk7TA6Mt9RWiRB7h
+	p83Fiypw==;
 Received: from fangorn.home.surriel.com ([10.0.13.7])
 	by shelob.surriel.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.97.1)
 	(envelope-from <riel@surriel.com>)
-	id 1vY7zk-000000005Kw-26qy;
-	Tue, 23 Dec 2025 14:24:33 -0500
-Message-ID: <a060d8ec023cb7b8dbec0cb4105d03fb24c57a3d.camel@surriel.com>
-Subject: Re: [PATCH 1/2] arm64: efi: Fix NULL pointer dereference by
- initializing user_ns
+	id 1vY86V-000000005Xj-0BE2;
+	Tue, 23 Dec 2025 14:31:32 -0500
+Message-ID: <4d867df02dcc3cc8f519903282f6e63b2974a461.camel@surriel.com>
+Subject: Re: [PATCH 2/2] kthread: Warn if mm_struct lacks user_ns in
+ kthread_use_mm()
 From: Rik van Riel <riel@surriel.com>
 To: Breno Leitao <leitao@debian.org>, Ard Biesheuvel <ardb@kernel.org>, 
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
 Cc: linux-efi@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, puranjay@kernel.org, 
 	usamaarif642@gmail.com, kernel-team@meta.com
-Date: Tue, 23 Dec 2025 14:24:33 -0500
-In-Reply-To: <20251223-efi_fix_619-v1-1-e0146b8b9d73@debian.org>
+Date: Tue, 23 Dec 2025 14:31:32 -0500
+In-Reply-To: <20251223-efi_fix_619-v1-2-e0146b8b9d73@debian.org>
 References: <20251223-efi_fix_619-v1-0-e0146b8b9d73@debian.org>
-	 <20251223-efi_fix_619-v1-1-e0146b8b9d73@debian.org>
+	 <20251223-efi_fix_619-v1-2-e0146b8b9d73@debian.org>
 Autocrypt: addr=riel@surriel.com; prefer-encrypt=mutual;
  keydata=mQENBFIt3aUBCADCK0LicyCYyMa0E1lodCDUBf6G+6C5UXKG1jEYwQu49cc/gUBTTk33A
  eo2hjn4JinVaPF3zfZprnKMEGGv4dHvEOCPWiNhlz5RtqH3SKJllq2dpeMS9RqbMvDA36rlJIIo47
@@ -87,8 +87,8 @@ Content-Transfer-Encoding: quoted-printable
 User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_112519_216640_5556F5A6 
-X-CRM114-Status: UNSURE (   7.44  )
+X-CRM114-CacheID: sfid-20251223_113152_716013_8C546A1B 
+X-CRM114-Status: UNSURE (   8.23  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,24 +105,24 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On Tue, 2025-12-23 at 02:55 -0800, Breno Leitao wrote:
+> Add a WARN_ON_ONCE() check to detect mm_struct instances that are
+> missing user_ns initialization when passed to kthread_use_mm().
 >=20
-> diff --git a/drivers/firmware/efi/efi.c b/drivers/firmware/efi/efi.c
-> index a9070d00b833..55452e61af31 100644
-> --- a/drivers/firmware/efi/efi.c
-> +++ b/drivers/firmware/efi/efi.c
-> @@ -73,6 +73,7 @@ struct mm_struct efi_mm =3D {
-> =C2=A0	MMAP_LOCK_INITIALIZER(efi_mm)
-> =C2=A0	.page_table_lock	=3D
-> __SPIN_LOCK_UNLOCKED(efi_mm.page_table_lock),
-> =C2=A0	.mmlist			=3D
-> LIST_HEAD_INIT(efi_mm.mmlist),
-> +	.user_ns		=3D &init_user_ns,
-> =C2=A0	.cpu_bitmap		=3D { [BITS_TO_LONGS(NR_CPUS)] =3D 0},
-> =C2=A0#ifdef CONFIG_SCHED_MM_CID
-> =C2=A0	.mm_cid.lock		=3D
-> __RAW_SPIN_LOCK_UNLOCKED(efi_mm.mm_cid.lock),
-
-Seems legit?
+> When a kthread adopts an mm via kthread_use_mm(), LSM hooks and
+> capability checks may access current->mm->user_ns for credential
+> validation. If user_ns is NULL, this leads to a NULL pointer
+> dereference crash.
+>=20
+> This was observed with efi_mm on arm64, where commit a5baf582f4c0
+> ("arm64/efi: Call EFI runtime services without disabling preemption")
+> introduced kthread_use_mm(&efi_mm), but efi_mm lacked user_ns
+> initialization, causing crashes during /proc access.
+>=20
+> Adding this warning helps catch similar bugs early during development
+> rather than waiting for hard-to-debug NULL pointer crashes in
+> production.
+>=20
+> Signed-off-by: Breno Leitao <leitao@debian.org>
 
 Acked-by: Rik van Riel <riel@surriel.com>
 
