@@ -4,96 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43383E6F091
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 13:48:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 109C2E6F08F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 13:51:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pS8rWyfWcotXxtGYAT3bEx8x0gwT5wDTFZwn1Rzc4PE=; b=UJk2heAn0nKLBkBbXv4/b365rN
-	fWBisTnDHJqXA16T/bjnPmzV4+5ePuaiEgkYTLTLwx7YE4O/VluCNP/mtySp3OiemcB/ZxczzC3T4
-	qycsEEsle/Jt3KFV6fwjwtYhMDvxIRtED77uthQsL1IT2J66BpYnvhcL6APggY6u6LMPP7YuGukIo
-	gf05ndZ4/xDFMpR3jH7cUXZujctsoiGJ6i7hzRdXoZeLihhg8/eaj6zVUm+ku1w6LUFLdrXdMhoEr
-	YtFmS7YrzTYo1aC8tIyQruaPnm4ozYhXpPxOuEWlNjHTDyPwrv9jrYy2mSwz3KyIY/nHFrnqfmu63
-	fx27PGNw==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oww5c9ZWCjj0kvNn7r08TobxkIZCu7b5KAcCb2HY/yo=; b=n6w5GBz68RfR8MyvAvHIqjtSC8
+	QPIzOg1/NBI36DwsUyzXkzYujN+jwHWNwlKoPiiisATW4M4vDpNZL4I1MzHbwt1zVWLkp9ykT+P4Z
+	Ry4urfKOrqtl1XFYnLFD+uUy43qwny1AxTuopd1q+u+uKn2sG9sHs1Lq+FFSKNhlravklOB+jvKI1
+	Id3bIZfpIbgd57sSWoJ7sLO27X67xaiLBX2nkOK3zZvoKJcnsskdgpqrXQ1n/Yw0kB0cvLsG5ZVOb
+	niYjKwKvMQbyiRSDc8OemI8rm8wbo1b0E162vraAWc4OfRNiiCr8v9/+smo2UztkgW9HU+2gN1JYs
+	UDAbDwEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY2ka-0000000FYKi-3nRc;
-	Tue, 23 Dec 2025 13:48:32 +0000
-Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
+	id 1vY2nq-0000000FYoH-3JPg;
+	Tue, 23 Dec 2025 13:51:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vY2kY-0000000FYJq-1oU2
+	id 1vY2np-0000000FYnx-0hZ3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Dec 2025 13:48:31 +0000
-Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-598f81d090cso5388585e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 05:48:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1766497708; x=1767102508; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=pS8rWyfWcotXxtGYAT3bEx8x0gwT5wDTFZwn1Rzc4PE=;
-        b=UApxQnZ4gSbVhDBq+OomzrZ34bwTE2fJjUU2RlSspGfd1iDiFcItSpDhn4OhFO3M9x
-         FyX8qxEopdb9CcyLNCpSdwJb5eC6CSN0jZdry6yKQ+toIq/blMFAU2TuSurF3FNNm10a
-         8+V/R27EDa4hvI/HWD3tQag8PwXZfOXuBEp2pe2uLur72Fl1VP41R8/nGFM0JrEuBfoo
-         lO5u17/oGuc/HmTLTtN8ETyVQoUeBwJqa3l3fn3MMwpvVABNFaGbktjj3/RWX+k3V8fH
-         nCcDB4ZdsN9gjd20Bh1lixcm9jAHsa8pOg1wvPBPlcNXudKRwFUT04J/dROOUk2gYY1f
-         I4Fw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766497708; x=1767102508;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pS8rWyfWcotXxtGYAT3bEx8x0gwT5wDTFZwn1Rzc4PE=;
-        b=TFzzgvNxF6rL5dBL1/4rmzXGydkVBUq3uXkIFiF0PBkuhYWh74Y2lA52l7pGWWOmHd
-         aYHNe+e94/z2Dd4OrTAVv5QUWCen5I+lpz9cumpqcNRa3JnqvNc6q4NhVlsj3rugjz7N
-         W3Hie99xKrMCCu7B8396RZ6DAF5OIdBhDo8eiF8sSmomwQOmAtOLJQJVb5ctx3uS8K9m
-         vJ6Xs8mOpCqyahiOGIGU88GztRZxl+59fl65XESaYYLpGefKrjx+4w/NZUMulIeS2K7T
-         VrWp9X4h2Sdvpt9stp3MzIpUciIIntpwcUEAdY4tLYtK0A2cTZJY46rc/7+tF3B6z1Z8
-         RSMA==
-X-Forwarded-Encrypted: i=1; AJvYcCVmUOre7GATfu5QdNlmnu5VCk325QKcQ2AWUNu0PwwmtvrWYAgug2itbNPYefuYyMorg2I04b25VVslRe1iPel9@lists.infradead.org
-X-Gm-Message-State: AOJu0YxxN4CCguCBOK1s/3U1S6FdtFqMfteMmAhTIuT82Xl1/timXgwh
-	DeMN5UgvIeZJ5UUgAiDPPpitkOhidBsFf5T+FqeGF9msEOGjec0OArARWnLqIIs8psE=
-X-Gm-Gg: AY/fxX6zqGveCnIhGxrBIiwrPr5tYJN7M9lJoTZuSpmvnUGBVQXJTceVkAjMND9MSq3
-	rgicc4c/5nCKJ9t3koAEgc/gubAcKs3hmnaSvUBYb1G7Z3PxjStUJyvsgpe8PnrmQPm1vklLkLv
-	fJPuIOnmD3vrWEJ3UR6r8K3jKYvSPO5kXUzjTw/ukNq9Hd+yhK4lR8L/h41zJctuJJTPgNzwehc
-	pEfjO0nTIxXQG5Lqcu3BQtOqYU6AeVmrYNeQmNPKkbyH6ZSoycsEW8fsEJmhfvRUGe/lhYBicy7
-	j/AlhtdpCcFHlQqva6KCygNmSge9eg4mb4iEl+LytaCE7AkcUXOlUFLCwwnGlck6xEeXkfG1zC7
-	6GtAoLQ+EiiU+zIPG0M1LDiqk2FlNY1RaDvVov4q7YBinPX6ZOJzctY3WzYiDDT1/1gIizV+Xy9
-	0JtjrJNg2LwKdxsFjPJ2No8FKOrv7KXFG018QKydUNI6NFd/rG7Y0gYIo=
-X-Google-Smtp-Source: AGHT+IG+c4/RhrcEWvVjCw+XNfIQ6jiup8GUv8VhayqjYvwY9lpy/eTomyv1J1vV47F+EQ3wMHzWlg==
-X-Received: by 2002:a05:6512:1307:b0:598:853e:d3d6 with SMTP id 2adb3069b0e04-59a17d66996mr4927844e87.51.1766497707712;
-        Tue, 23 Dec 2025 05:48:27 -0800 (PST)
-Received: from nuoska (87-100-249-247.bb.dnainternet.fi. [87.100.249.247])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59a1861f2e6sm4121821e87.69.2025.12.23.05.48.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Dec 2025 05:48:27 -0800 (PST)
-From: Mikko Rapeli <mikko.rapeli@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Nishanth Menon <nm@ti.com>,
-	Eric Biggers <ebiggers@kernel.org>,
-	=?UTF-8?q?Andr=C3=A9=20Draszik?= <andre.draszik@linaro.org>,
-	=?UTF-8?q?N=C3=ADcolas=20F=20=2E=20R=20=2E=20A=20=2E=20Prado?= <nfraprado@collabora.com>,
-	Taniya Das <quic_tdas@quicinc.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Mikko Rapeli <mikko.rapeli@linaro.org>
-Subject: [PATCH] arm64: defconfig: remove SLIM_QCOM_CTRL
-Date: Tue, 23 Dec 2025 15:48:07 +0200
-Message-ID: <20251223134807.3543642-1-mikko.rapeli@linaro.org>
-X-Mailer: git-send-email 2.51.0
+	Tue, 23 Dec 2025 13:51:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 726966013A;
+	Tue, 23 Dec 2025 13:51:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB363C113D0;
+	Tue, 23 Dec 2025 13:51:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766497912;
+	bh=v7p73fpQEEMZW8NUVEDLt8HGaDG9X6nDV2NH6bJhiMQ=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=LhWkm0sNKDKcrDbhsMcHkdHaYbS6fI1QKPROBt8UO0arwOtWPfwu31mQBhYgRcAga
+	 W7zcc7rULf70Cx9oMKvnoDZS5UkJNATbvO+0c8w2ZRHzW3gI+kgkFkJYRPfPIihSP7
+	 LmDqo2nAzargj8KM5D4QWY6CTQcElU7HSJkvGHhUHKJqWXnRpoBI6GBN3/+jW3V+Sc
+	 5lf9sZWeVGChBACmM7fHC3sE2xGZ23DjGUzNKw9qnoVBSEoYjKwGHiPFNoJAXxvynC
+	 eBu9oecjAOgoCxFtV0KeVIWn2Vs4P5KHQvIVnJsA8DUBDkfsR52wRrK1McWSQo0Nrp
+	 UlTUO7JLFS13Q==
+Message-ID: <c06878f7-bb93-4de2-b54a-e97fbc1a333e@kernel.org>
+Date: Tue, 23 Dec 2025 14:51:45 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_054830_489245_BFDBB450 
-X-CRM114-Status: UNSURE (   9.15  )
-X-CRM114-Notice: Please train this message.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: defconfig: remove SLIM_QCOM_CTRL
+To: Mikko Rapeli <mikko.rapeli@linaro.org>,
+ Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>, Arnd Bergmann <arnd@arndb.de>,
+ Nishanth Menon <nm@ti.com>, Eric Biggers <ebiggers@kernel.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ =?UTF-8?Q?N=C3=ADcolas_F_=2E_R_=2E_A_=2E_Prado?= <nfraprado@collabora.com>,
+ Taniya Das <quic_tdas@quicinc.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20251223134807.3543642-1-mikko.rapeli@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251223134807.3543642-1-mikko.rapeli@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,28 +120,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It has been removed by:
+On 23/12/2025 14:48, Mikko Rapeli wrote:
+> It has been removed by:
 
-Fixes: 7cbba32a2d62 ("slimbus: qcom: remove unused qcom controller driver")
+by commit foo bar (see also checkpatch and submitting patches).
 
-Signed-off-by: Mikko Rapeli <mikko.rapeli@linaro.org>
----
- arch/arm64/configs/defconfig | 1 -
- 1 file changed, 1 deletion(-)
+> 
+> Fixes: 7cbba32a2d62 ("slimbus: qcom: remove unused qcom controller driver")
+> 
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 997fa7cd9de5..4dc0caa36263 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1709,7 +1709,6 @@ CONFIG_OPTEE=y
- CONFIG_MUX_GPIO=m
- CONFIG_MUX_MMIO=y
- CONFIG_SLIMBUS=m
--CONFIG_SLIM_QCOM_CTRL=m
- CONFIG_SLIM_QCOM_NGD_CTRL=m
- CONFIG_INTERCONNECT=y
- CONFIG_INTERCONNECT_IMX=y
--- 
-2.34.1
+Drop blank line
 
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+
+You anyway need to send to proper mailing list for this soc (Qcom), not
+random folks.
+
+Best regards,
+Krzysztof
 
