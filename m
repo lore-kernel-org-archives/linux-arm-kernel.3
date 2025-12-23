@@ -4,78 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 118AEE6B26C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 01:24:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B640AE6B26C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 23 Dec 2025 01:49:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W6sOyydV0HR6E8zW7YD6rYGr2TFPfAfXnn2bcdZZ4vk=; b=Cru/9tjkmwoHVueLGW69twyMHO
-	Da0aVtVtpSgqPzTBQMFIDg5/0+g1hYdsCShPUT78qgknimn0dG3mGdjYCjt5pwszVrkOf/Kla/5H6
-	WwcfvrJBishPQrdmZj97NRpdgNDbYwpSL8+yMerqR4qhnemLOFTn/uv4IXRS4vEI36OmlB5bkDXm6
-	otnb0HeP7h/ol56mGL8zfTg07aBpde7VYqdcPYBDLgU/Yw5Ag+I26uJYdYGvht5dNXiLh+8IRO4/c
-	ldypo7YcAi5VV/kA8BCxdQhHoLX4hCE9EufncL4a2wWJO51dIp9c5NkSzghdQUvOgRmSfbRSYY5iY
-	jVnedE0g==;
+	bh=YF2+2OBqACOiCo6iSElhd5mEow7KLbkSPjlb63HoSsQ=; b=UyHIBKKQeJbSnJEGS5MrpYQEaa
+	wSC07f21qZSu6GxXoiYwyqD2dJYmLcLw1bl13Y09LVcX7WsB2zKIgqKwgpV7jVckL17P9/+dVz+ti
+	zvcGl2dmi8AOc0cFKcPh6uJmejW32XsAWCWN93R58JLemakTjQuZU6/GKFkF92BHh82vizqI4Qyke
+	we55hfhgXsdeG8cQ0+9Ii7O5xAdoC6pMLE+Hx0ujYWCC3Zsfj2oHSxkHWu6VBmv9y58Dhuc2ot1Yt
+	a7imFJjdVN/2joo1exefHxBQnPRcwFcrmvHDXZJt/WqvDsxxrfhNPvIJ/UxZHCWdVztpiB/x1c76N
+	HJFhwdew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXr7x-0000000ENBI-03X7;
-	Tue, 23 Dec 2025 01:23:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vXrWX-0000000EOmP-3W4V;
+	Tue, 23 Dec 2025 01:49:17 +0000
+Received: from mail-vk1-xa35.google.com ([2607:f8b0:4864:20::a35])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vXr7p-0000000EN3W-1TdU
+	id 1vXrWU-0000000EOm2-2uZC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 23 Dec 2025 01:23:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9174B60188;
-	Tue, 23 Dec 2025 01:23:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75150C4CEF1;
-	Tue, 23 Dec 2025 01:23:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766453024;
-	bh=biBZze5wJQdB2Qc9fXo86i+NjUBgBr6X/9wDncv9D5Q=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=lecEL8eOZXFmjzpni/xmLZL/Z86cerSieXn+9NDNhqxg61iPWXtGinqGPWE32xxKn
-	 Sdf2+JykhJIGkxKvmrAflNj49YoeSXa5WtfMMl3G15ebOBnVVJDzuR81ZltmkRUbBg
-	 SLs7dnpOb4gALrpTQjXQeBHroDbB1KYr9/CdPS6RQP/V6fXnqUEZcs8HCtwwhAVKD9
-	 nKNncO41OCNTDQduqNyCWKATmH/JpX0WdBR3I+6FPTkPMClm5uhqRi3yibvv4/U8Ue
-	 H6Yh4hUDeFuXsxf/TTHMRz4qsSveBW74iA1N7ynstRjxciYsnqKK+LrUrZoll9NpAw
-	 zxoZ031Plt4CQ==
-From: Mark Brown <broonie@kernel.org>
-Date: Tue, 23 Dec 2025 01:21:24 +0000
-Subject: [PATCH v9 30/30] KVM: arm64: selftests: Add SME to set_id_regs
- test
+	Tue, 23 Dec 2025 01:49:16 +0000
+Received: by mail-vk1-xa35.google.com with SMTP id 71dfb90a1353d-559748bcf99so4015471e0c.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 22 Dec 2025 17:49:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1766454553; x=1767059353; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YF2+2OBqACOiCo6iSElhd5mEow7KLbkSPjlb63HoSsQ=;
+        b=HCoMrFRDVnGU1kszV6BH8r3XGBgog4MAppq4jqOEbQSK3tIIYPoMKJR9VEEMc6czWE
+         E7ZGMRLlWaJHjNwIIBdd39djpA/mYKDmO1sRxKML0v8Qi5qiruvyg0pvZ0GNECERry/O
+         j6m39tRd0u8u7R3/hga39LIFoDeDyhVNXd+Y4MBLrvvHryXggxNhsbysMgzE7qeaLrqd
+         rT9iNDb0U0cpbGUdWwYeUTdDCbGpOxvFCquvuRgucF+tScTE9vrZ2Xba7bk87hU1cUPI
+         VxsI6KW4ptILO/BTe6+s6gniLJKJQWIRSrFgFP2Lato+Fglrr691yUtTsHru5K1wwJoE
+         nq9g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766454553; x=1767059353;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=YF2+2OBqACOiCo6iSElhd5mEow7KLbkSPjlb63HoSsQ=;
+        b=OzMZRPc7SUUtOxzMn6k49PFli0wP38XMnURsUeOyhLoolTKhaY56sgG57OG+P/LJFX
+         j+jRYiJsW9YuXbuvHTV5D5EaLqi5j3vUaFMIgUa0G1+kuLRZUw8V+AInFqo+K7EPNjqP
+         6GCl5UTRizibyliJYc57IxiaslYQnSczo+PHbFWVRwOTjjebJElfjQmXHJz8jHi33MkD
+         GZ2J4KCxQaQI7MkL29ktCgw+9zQx5M37k3ramAbSnPmi74rQVeeT5wM9u6UtN3wfr8vV
+         5Ciu8ZaY3WLf47s5U7nqkaRgXaXLtD4Fd6CzNGUanSY+rBr+SXoYd9dGpRRkSpyhzxNw
+         lm8A==
+X-Forwarded-Encrypted: i=1; AJvYcCWprpZoihQR6TBR3j0AUFNpdPVa0nfJ7yPIoLd5dG1GbeOf7GAa1si/u40NP+7DEp0u1aACdaCGSdxRydT2/ZEL@lists.infradead.org
+X-Gm-Message-State: AOJu0YwpcHI2gyd+tgwrdg2Dd0AqZO5jr7B/HuS0l7ANdhATTWCU03jX
+	z6yTYkvkxT3fzj34wogF2VLcVnfWCxZ35EdQzkvBNSPH10HD1/5CM3zxpIj1e5ORCfivVZCgqnV
+	lB8uIYiJpphbnyg1ln6kchyWnPtVQN6U=
+X-Gm-Gg: AY/fxX5LHTF+2MLmwzctq27Sr6GNbhQnxxuzcmgP1HMAf2o0WLmxZNUbkWEIimNdaTc
+	Hpsf0yFo6/cmXcEQljTQR1FThqYF+8U9Ag8gZvBHSM2Zc+VAxjCNNfL3ymxSrsTa+bifWMvUWXr
+	JqOiIvJGuiFeGtnh6pCeaJugHQ7QKyd6ebmF2jLZl2HlOXqxWkY2u3kFTgTqqv34yFayzOa2H/i
+	2JgNfWJS28Q6D7VkrDbaDxfFhTTBv9hSHzJVqadQIAsscozwHlt1spYCH/VBr9578ixrGii
+X-Google-Smtp-Source: AGHT+IHBHq5niwB64zOQi9Ir1RYdcuhYIiAiMknQ60wGRGAecKNEstEn4F6joAjyRSSk+aJXifaYWR8qfB82RD9k+ME=
+X-Received: by 2002:a05:6122:318f:b0:559:83be:69c5 with SMTP id
+ 71dfb90a1353d-5615be07d05mr3706682e0c.10.1766454553289; Mon, 22 Dec 2025
+ 17:49:13 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251223-kvm-arm64-sme-v9-30-8be3867cb883@kernel.org>
-References: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org>
-In-Reply-To: <20251223-kvm-arm64-sme-v9-0-8be3867cb883@kernel.org>
-To: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, Will Deacon <will@kernel.org>, 
- Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <shuah@kernel.org>, Oliver Upton <oupton@kernel.org>
-Cc: Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>, 
- Mark Rutland <mark.rutland@arm.com>, Ben Horgan <ben.horgan@arm.com>, 
- linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
- linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
- linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- Peter Maydell <peter.maydell@linaro.org>, 
- Eric Auger <eric.auger@redhat.com>, Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.15-dev-47773
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2754; i=broonie@kernel.org;
- h=from:subject:message-id; bh=biBZze5wJQdB2Qc9fXo86i+NjUBgBr6X/9wDncv9D5Q=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpSe6ZkgocYr2mGN9fKdCMYgkg1el8uznuZmkoj
- G98q/feEOOJATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaUnumQAKCRAk1otyXVSH
- 0K85B/wNsRCOfe6FnZaGCX+B0kHmxdSjtYhwgjJdEAvSvTKLAtZmj7jDPO+5qc7+VVh4pX/MmhI
- aefgBuf4s+uCqd0d0o0zQoZpmu3n3KLeBJeg+6A+tfistXav4qG8kBQ8OwtKkReRVNus6ppmGWx
- OIBxWlmQP5DghzNK4P5WqRro7rC/P8XpI3mS5lfGLLlupC6kvePjQ+QamKlY0zOK8pVzCnj61xp
- /PvPFqdEnX4+cRCHIGqBpEk8LLPN1K9R14DoyviycsggQd5GC991rANwaV4/g+Hl5VStaetztPI
- XY2x1ikz93+SlwLZI3b3kXGGEvSabfKcm5V8AeMmF42b+wF4
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+References: <20251222-ventura2_initial_dts-v1-0-1f06166c78a3@gmail.com>
+ <20251222-ventura2_initial_dts-v1-2-1f06166c78a3@gmail.com> <c069b452-df22-4afa-bf6a-c48949f40ebc@lunn.ch>
+In-Reply-To: <c069b452-df22-4afa-bf6a-c48949f40ebc@lunn.ch>
+From: =?UTF-8?B?6Kyd5pS/5ZCJ?= <kylehsieh1995@gmail.com>
+Date: Tue, 23 Dec 2025 09:49:02 +0800
+X-Gm-Features: AQt7F2p2os6FavK-DkfJbJKZMaXhN9nltNSiU8Gza--K1TKLdY1MJx6HBIjggPA
+Message-ID: <CAF7HswN_jEXOU_9K4LpLnbhvd+RD0qqELAHxMBbp=hGtMjS4kQ@mail.gmail.com>
+Subject: Re: [PATCH 2/2] ARM: dts: aspeed: ventura2: Add Meta ventura2 BMC
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+	Andrew Jeffery <andrew@codeconstruct.com.au>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251222_174914_741235_ACBCE15D 
+X-CRM114-Status: GOOD (  15.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,65 +99,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add coverage of the SME ID registers to set_id_regs, ID_AA64PFR1_EL1.SME
-becomes writable and we add ID_AA64SMFR_EL1 and it's subfields.
-
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- tools/testing/selftests/kvm/arm64/set_id_regs.c | 24 ++++++++++++++++++++++++
- 1 file changed, 24 insertions(+)
-
-diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-index 641194c5005a..73489c48d550 100644
---- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
-+++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-@@ -203,6 +203,28 @@ static const struct reg_ftr_bits ftr_id_aa64mmfr3_el1[] = {
- 	REG_FTR_END,
- };
- 
-+static const struct reg_ftr_bits ftr_id_aa64smfr0_el1[] = {
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, FA64, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, LUTv2, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, SMEver, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, I16I64, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, F64F64, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, I16I32, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, B16B16, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, F16F16, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, F8F16, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, F8F32, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, I8I32, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, F16F32, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, B16F32, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, BI32I32, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, F32F32, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, SF8FMA, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, SF8DP4, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64SMFR0_EL1, SF8DP2, 0),
-+	REG_FTR_END,
-+};
-+
- static const struct reg_ftr_bits ftr_id_aa64zfr0_el1[] = {
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64ZFR0_EL1, F64MM, 0),
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64ZFR0_EL1, F32MM, 0),
-@@ -235,6 +257,7 @@ static struct test_feature_reg test_regs[] = {
- 	TEST_REG(SYS_ID_AA64MMFR1_EL1, ftr_id_aa64mmfr1_el1),
- 	TEST_REG(SYS_ID_AA64MMFR2_EL1, ftr_id_aa64mmfr2_el1),
- 	TEST_REG(SYS_ID_AA64MMFR3_EL1, ftr_id_aa64mmfr3_el1),
-+	TEST_REG(SYS_ID_AA64SMFR0_EL1, ftr_id_aa64smfr0_el1),
- 	TEST_REG(SYS_ID_AA64ZFR0_EL1, ftr_id_aa64zfr0_el1),
- };
- 
-@@ -254,6 +277,7 @@ static void guest_code(void)
- 	GUEST_REG_SYNC(SYS_ID_AA64MMFR1_EL1);
- 	GUEST_REG_SYNC(SYS_ID_AA64MMFR2_EL1);
- 	GUEST_REG_SYNC(SYS_ID_AA64MMFR3_EL1);
-+	GUEST_REG_SYNC(SYS_ID_AA64SMFR0_EL1);
- 	GUEST_REG_SYNC(SYS_ID_AA64ZFR0_EL1);
- 	GUEST_REG_SYNC(SYS_MPIDR_EL1);
- 	GUEST_REG_SYNC(SYS_CLIDR_EL1);
-
--- 
-2.47.3
-
+On Mon, Dec 22, 2025 at 5:30=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
+>
+> > +&mdio0 {
+> > +     status =3D "okay";
+> > +};
+> > +
+> > +&mac2 {
+> > +     status =3D "okay";
+> > +     phy-mode =3D "rmii";
+> > +     pinctrl-names =3D "default";
+> > +     pinctrl-0 =3D <&pinctrl_rmii3_default>;
+> > +     fixed-link {
+> > +             speed =3D <100>;
+> > +             full-duplex;
+> > +     };
+> > +};
+>
+> That is an odd combination. You enable the MDIO bus, but don't have
+> any PHYs on it, no phandles pointing to it. And you have this
+> fixed-link. It makes me think you have an Ethernet switch on the bus,
+> and this connects to it?
+Thanks for the clarification.
+Yes, there is an Ethernet switch in the design.
+The MAC is connected to the switch via RMII using a fixed-link
+configuration.
+However, the MDIO bus is not connected to the switch and is not
+used on this board. Enabling the MDIO controller in the DTS was
+a mistake on my side.
+I will fix this in the next revision by disabling the unused MDIO
+node, while keeping the fixed-link RMII connection to the switch.
+>
+>     Andrew
 
