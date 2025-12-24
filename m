@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C685E7491C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 07:30:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD41CE74ADE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 07:30:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tDd5ecR3DhD17Syo/L/GME/XjYLDnkMJOJbjzS9MS0E=; b=VZk+pfyE172Q2B2M6hDIra7c/L
-	88StAuREYFYZV55cj5PV3S1xQCbu6cTP0SxOfNfZ3uBHnNF8DE6o03rhxu7wiA8/4qfYQWVrd1ovB
-	eRlLibEkz7+Q/lJNek9eN2vtl3kyZY4y6151ncUk2xq+tot2vLGWPpWSHCM/duhMlERF6fRT75K6m
-	5zzmlFE3vGGoxukPeHVfkZOTyrJL1ufCmmJmDhPShVstNj822tt6smicKdYmFLdk0XN3g5fy+tpJB
-	uU/EIOEpoel0W/R3Pqps/WTN24KTwlrBFaZVks19NPDfCspu8mD5RyFcpyTOO/lpeDwsYoDfdALUg
-	g1yShF9w==;
+	bh=34Yn/l6AefGUYrQXSWNv1nM8Siy3FT7KuNTJgBnUrPU=; b=FGpCkSMqPpym0Dx0CuRxGY3ugO
+	6vPMWukFpjf8EfQ4k/2yZLHkkXv9YPO93HMgTmJnQ5U2n7NlSE1kVmfzW/EoKHOVfeNWy3fneWAcN
+	++dejFwPv19IwZEkqv5ocwGRiqmt2peYKvxYt3bGxWwe1MF+8309vtmm9uRpe3cOgLh68qq/khCmU
+	KynH1ecP1b6FVmOgIPvex3e/WySPwx16WL/ZHefSdpyCYslmGuB4Vt0BFVkFB6QfENaMGcPrkNSEP
+	0i4bFY4HZZamzdSDIq+TEHp7tyNPQ9iySTuliZEwMYUo2O8Qlo2e11Ep95JKdlWN1JQPQAplZxujd
+	Ot0svGWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYJKO-0000000GXQ6-21ks;
-	Wed, 24 Dec 2025 07:30:36 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vYJKR-0000000GXSQ-3BWe;
+	Wed, 24 Dec 2025 07:30:39 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYJKK-0000000GXNh-3Z0E;
-	Wed, 24 Dec 2025 07:30:34 +0000
+	id 1vYJKL-0000000GXNk-00Zk;
+	Wed, 24 Dec 2025 07:30:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1766561429;
-	bh=eYu8Nq+w5A2A6v7D8iAIPR9NzDkFmS/GlSo/NzWVz0Q=;
+	bh=275RkoijZ9ucMKuDaFvwXmFSOwPO0XBDoE4ljKpdgDI=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=o0StNlF6AT/Im/wgG6NhEi2JBngssBhzjkCacTC0TOmAuU/4x3vg88cz2kXd8yDBl
-	 fbyBBdPBljnfHOoh5OQwn+y9d7eiZRkaioh5PaV5EERmrQ+WZrVm8kbe3SPzc1EJMB
-	 trMS5oowhPYhp76N/W6fa0/Di0leSPniy1TwwrGKWA37t0zMaGQqqTLdwI1OCvk9Nc
-	 eiYkd9gyPpyHeJGNHeUdnETBzSy/HF33DIYt6jF+Y+myz7h3Dyg+fOmgALIGkHuifE
-	 p0RMBe7Qm5PYJ5ifqmg06d3ZH0n8/i76LbOq4Y++Ic7OQ3mEo7f/jstszLPoqJBLDj
-	 wJzwVpgBhU8zQ==
+	b=aWESDHXbqv7RTKQMVuvdt/+fXeF2L1RrwyjCRYiNqhAAQWCIVHxrSFvnrJ/F//Stn
+	 H+Yq4kHYDk4yosaiyTyE8c7q3tg9HXub8yWl3uYhlTqLNju5nWilO274XHKZv5hV6b
+	 aJ0cBid9Q6xLXqxWcEvU7MlJsH6IxC+E1JIWhx1ZgYRiW7FfE/+Kk+ceHqwgFptkmf
+	 NpaxPWmRdkaoyVsrqm5W7ESsvwNoMS7CC29nkUQRgGvwqSYZYgBVtNoth5QvoW22/9
+	 imPJg7f0NMcTOtKFOsFWD0bcJtomDmxxqKv3Z3Va1Kh+LaO/SljKEHSaEZqPW4nfiw
+	 zXfUeZvoWe82g==
 Received: from beast.luon.net (simons.connected.by.freedominter.net [45.83.240.172])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: sjoerd)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 23D0717E10F8;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 26C7017E1330;
 	Wed, 24 Dec 2025 08:30:29 +0100 (CET)
 Received: by beast.luon.net (Postfix, from userid 1000)
-	id CBF5D11A3A2DB; Wed, 24 Dec 2025 08:30:28 +0100 (CET)
+	id C077C11A3A2D7; Wed, 24 Dec 2025 08:30:28 +0100 (CET)
 From: Sjoerd Simons <sjoerd@collabora.com>
-Date: Wed, 24 Dec 2025 08:30:13 +0100
-Subject: [PATCH 4/4] clk: mediatek: Declare MT7988 infra muxes as no-gate
+Date: Wed, 24 Dec 2025 08:30:11 +0100
+Subject: [PATCH 2/4] clk: mediatek: Declare MT7981 infra muxes as no-gate
  muxes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251224-mtk-not-a-gate-v1-4-d4667e3b7856@collabora.com>
+Message-Id: <20251224-mtk-not-a-gate-v1-2-d4667e3b7856@collabora.com>
 References: <20251224-mtk-not-a-gate-v1-0-d4667e3b7856@collabora.com>
 In-Reply-To: <20251224-mtk-not-a-gate-v1-0-d4667e3b7856@collabora.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -65,8 +65,8 @@ Cc: kernel@collabora.com, linux-clk@vger.kernel.org,
  linux-mediatek@lists.infradead.org, Sjoerd Simons <sjoerd@collabora.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_233033_431527_B24D62EE 
-X-CRM114-Status: GOOD (  10.87  )
+X-CRM114-CacheID: sfid-20251223_233033_441003_CF2C56EF 
+X-CRM114-Status: GOOD (  10.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,109 +85,76 @@ A MUX_GATE without a gate, is really just a MUX. Adjust the mux
 declarations to match that. This fixes out-of-bounds shifts due to no
 longer trying to enable/disable the gate with a shift of (u8)-1.
 
-Fixes: 4b4719437d85 ("clk: mediatek: add drivers for MT7988 SoC")
+Fixes: 813c3b53b55b ("clk: mediatek: add MT7981 clock support")
 Signed-off-by: Sjoerd Simons <sjoerd@collabora.com>
 ---
- drivers/clk/mediatek/clk-mt7988-infracfg.c | 88 ++++++++++++++++--------------
- 1 file changed, 46 insertions(+), 42 deletions(-)
+ drivers/clk/mediatek/clk-mt7981-infracfg.c | 55 ++++++++++++------------------
+ 1 file changed, 22 insertions(+), 33 deletions(-)
 
-diff --git a/drivers/clk/mediatek/clk-mt7988-infracfg.c b/drivers/clk/mediatek/clk-mt7988-infracfg.c
-index ef8267319d91..69e86fc29d73 100644
---- a/drivers/clk/mediatek/clk-mt7988-infracfg.c
-+++ b/drivers/clk/mediatek/clk-mt7988-infracfg.c
-@@ -56,49 +56,53 @@ static const char *const infra_pcie_gfmux_tl_ck_o_p3_parents[] __initconst = {
+diff --git a/drivers/clk/mediatek/clk-mt7981-infracfg.c b/drivers/clk/mediatek/clk-mt7981-infracfg.c
+index 0487b6bb80ae..574930e87fbe 100644
+--- a/drivers/clk/mediatek/clk-mt7981-infracfg.c
++++ b/drivers/clk/mediatek/clk-mt7981-infracfg.c
+@@ -44,40 +44,29 @@ static const char *const infra_pcie_parents[] __initconst = {
  
  static const struct mtk_mux infra_muxes[] = {
  	/* MODULE_CLK_SEL_0 */
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_MUX_UART0_SEL, "infra_mux_uart0_sel",
--			     infra_mux_uart0_parents, 0x0018, 0x0010, 0x0014, 0, 1, -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_MUX_UART1_SEL, "infra_mux_uart1_sel",
--			     infra_mux_uart1_parents, 0x0018, 0x0010, 0x0014, 1, 1, -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_MUX_UART2_SEL, "infra_mux_uart2_sel",
--			     infra_mux_uart2_parents, 0x0018, 0x0010, 0x0014, 2, 1, -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_MUX_SPI0_SEL, "infra_mux_spi0_sel", infra_mux_spi0_parents,
--			     0x0018, 0x0010, 0x0014, 4, 1, -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_MUX_SPI1_SEL, "infra_mux_spi1_sel", infra_mux_spi1_parents,
--			     0x0018, 0x0010, 0x0014, 5, 1, -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_MUX_SPI2_SEL, "infra_mux_spi2_sel", infra_mux_spi0_parents,
--			     0x0018, 0x0010, 0x0014, 6, 1, -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM_SEL, "infra_pwm_sel", infra_pwm_bck_parents, 0x0018,
--			     0x0010, 0x0014, 14, 2, -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM_CK1_SEL, "infra_pwm_ck1_sel", infra_pwm_bck_parents,
--			     0x0018, 0x0010, 0x0014, 16, 2, -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM_CK2_SEL, "infra_pwm_ck2_sel", infra_pwm_bck_parents,
--			     0x0018, 0x0010, 0x0014, 18, 2, -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM_CK3_SEL, "infra_pwm_ck3_sel", infra_pwm_bck_parents,
--			     0x0018, 0x0010, 0x0014, 20, 2, -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM_CK4_SEL, "infra_pwm_ck4_sel", infra_pwm_bck_parents,
--			     0x0018, 0x0010, 0x0014, 22, 2, -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM_CK5_SEL, "infra_pwm_ck5_sel", infra_pwm_bck_parents,
--			     0x0018, 0x0010, 0x0014, 24, 2, -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM_CK6_SEL, "infra_pwm_ck6_sel", infra_pwm_bck_parents,
--			     0x0018, 0x0010, 0x0014, 26, 2, -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM_CK7_SEL, "infra_pwm_ck7_sel", infra_pwm_bck_parents,
--			     0x0018, 0x0010, 0x0014, 28, 2, -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM_CK8_SEL, "infra_pwm_ck8_sel", infra_pwm_bck_parents,
--			     0x0018, 0x0010, 0x0014, 30, 2, -1, -1, -1),
-+	MUX_CLR_SET(CLK_INFRA_MUX_UART0_SEL, "infra_mux_uart0_sel",
-+		    infra_mux_uart0_parents, 0x0018, 0x0010, 0x0014, 0, 1),
-+	MUX_CLR_SET(CLK_INFRA_MUX_UART1_SEL, "infra_mux_uart1_sel",
-+		    infra_mux_uart1_parents, 0x0018, 0x0010, 0x0014, 1, 1),
-+	MUX_CLR_SET(CLK_INFRA_MUX_UART2_SEL, "infra_mux_uart2_sel",
-+		    infra_mux_uart2_parents, 0x0018, 0x0010, 0x0014, 2, 1),
-+	MUX_CLR_SET(CLK_INFRA_MUX_SPI0_SEL, "infra_mux_spi0_sel",
-+		    infra_mux_spi0_parents, 0x0018, 0x0010, 0x0014, 4, 1),
-+	MUX_CLR_SET(CLK_INFRA_MUX_SPI1_SEL, "infra_mux_spi1_sel",
-+		    infra_mux_spi1_parents, 0x0018, 0x0010, 0x0014, 5, 1),
-+	MUX_CLR_SET(CLK_INFRA_MUX_SPI2_SEL, "infra_mux_spi2_sel",
-+		    infra_mux_spi0_parents, 0x0018, 0x0010, 0x0014, 6, 1),
-+	MUX_CLR_SET(CLK_INFRA_PWM_SEL, "infra_pwm_sel",
-+		    infra_pwm_bck_parents, 0x0018, 0x0010, 0x0014, 14, 2),
-+	MUX_CLR_SET(CLK_INFRA_PWM_CK1_SEL, "infra_pwm_ck1_sel",
-+		    infra_pwm_bck_parents, 0x0018, 0x0010, 0x0014, 16, 2),
-+	MUX_CLR_SET(CLK_INFRA_PWM_CK2_SEL, "infra_pwm_ck2_sel",
-+		    infra_pwm_bck_parents, 0x0018, 0x0010, 0x0014, 18, 2),
-+	MUX_CLR_SET(CLK_INFRA_PWM_CK3_SEL, "infra_pwm_ck3_sel",
-+		    infra_pwm_bck_parents, 0x0018, 0x0010, 0x0014, 20, 2),
-+	MUX_CLR_SET(CLK_INFRA_PWM_CK4_SEL, "infra_pwm_ck4_sel",
-+		    infra_pwm_bck_parents, 0x0018, 0x0010, 0x0014, 22, 2),
-+	MUX_CLR_SET(CLK_INFRA_PWM_CK5_SEL, "infra_pwm_ck5_sel",
-+		    infra_pwm_bck_parents, 0x0018, 0x0010, 0x0014, 24, 2),
-+	MUX_CLR_SET(CLK_INFRA_PWM_CK6_SEL, "infra_pwm_ck6_sel",
-+		    infra_pwm_bck_parents, 0x0018, 0x0010, 0x0014, 26, 2),
-+	MUX_CLR_SET(CLK_INFRA_PWM_CK7_SEL, "infra_pwm_ck7_sel",
-+		    infra_pwm_bck_parents, 0x0018, 0x0010, 0x0014, 28, 2),
-+	MUX_CLR_SET(CLK_INFRA_PWM_CK8_SEL, "infra_pwm_ck8_sel",
-+		    infra_pwm_bck_parents, 0x0018, 0x0010, 0x0014, 30, 2),
+-	MUX_GATE_CLR_SET_UPD(CLK_INFRA_UART0_SEL, "infra_uart0_sel",
+-			     infra_uart_parent, 0x0018, 0x0010, 0x0014, 0, 1,
+-			     -1, -1, -1),
+-	MUX_GATE_CLR_SET_UPD(CLK_INFRA_UART1_SEL, "infra_uart1_sel",
+-			     infra_uart_parent, 0x0018, 0x0010, 0x0014, 1, 1,
+-			     -1, -1, -1),
+-	MUX_GATE_CLR_SET_UPD(CLK_INFRA_UART2_SEL, "infra_uart2_sel",
+-			     infra_uart_parent, 0x0018, 0x0010, 0x0014, 2, 1,
+-			     -1, -1, -1),
+-	MUX_GATE_CLR_SET_UPD(CLK_INFRA_SPI0_SEL, "infra_spi0_sel",
+-			     infra_spi0_parents, 0x0018, 0x0010, 0x0014, 4, 1,
+-			     -1, -1, -1),
+-	MUX_GATE_CLR_SET_UPD(CLK_INFRA_SPI1_SEL, "infra_spi1_sel",
+-			     infra_spi1_parents, 0x0018, 0x0010, 0x0014, 5, 1,
+-			     -1, -1, -1),
+-	MUX_GATE_CLR_SET_UPD(CLK_INFRA_SPI2_SEL, "infra_spi2_sel",
+-			     infra_spi0_parents, 0x0018, 0x0010, 0x0014, 6, 1,
+-			     -1, -1, -1),
+-	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM1_SEL, "infra_pwm1_sel",
+-			     infra_pwm1_parents, 0x0018, 0x0010, 0x0014, 9, 1,
+-			     -1, -1, -1),
+-	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM2_SEL, "infra_pwm2_sel",
+-			     infra_pwm1_parents, 0x0018, 0x0010, 0x0014, 11, 1,
+-			     -1, -1, -1),
+-	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM3_SEL, "infra_pwm3_sel",
+-			     infra_pwm1_parents, 0x0018, 0x0010, 0x0014, 15, 1,
+-			     -1, -1, -1),
+-	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM_BSEL, "infra_pwm_bsel",
+-			     infra_pwm_bsel_parents, 0x0018, 0x0010, 0x0014, 13,
+-			     2, -1, -1, -1),
++	MUX_CLR_SET(CLK_INFRA_UART0_SEL, "infra_uart0_sel",
++		    infra_uart_parent, 0x0018, 0x0010, 0x0014, 0, 1),
++	MUX_CLR_SET(CLK_INFRA_UART1_SEL, "infra_uart1_sel",
++		    infra_uart_parent, 0x0018, 0x0010, 0x0014, 1, 1),
++	MUX_CLR_SET(CLK_INFRA_UART2_SEL, "infra_uart2_sel",
++		    infra_uart_parent, 0x0018, 0x0010, 0x0014, 2, 1),
++	MUX_CLR_SET(CLK_INFRA_SPI0_SEL, "infra_spi0_sel",
++		    infra_spi0_parents, 0x0018, 0x0010, 0x0014, 4, 1),
++	MUX_CLR_SET(CLK_INFRA_SPI1_SEL, "infra_spi1_sel",
++		    infra_spi1_parents, 0x0018, 0x0010, 0x0014, 5, 1),
++	MUX_CLR_SET(CLK_INFRA_SPI2_SEL, "infra_spi2_sel",
++		    infra_spi0_parents, 0x0018, 0x0010, 0x0014, 6, 1),
++	MUX_CLR_SET(CLK_INFRA_PWM1_SEL, "infra_pwm1_sel",
++		    infra_pwm1_parents, 0x0018, 0x0010, 0x0014, 9, 1),
++	MUX_CLR_SET(CLK_INFRA_PWM2_SEL, "infra_pwm2_sel",
++		    infra_pwm1_parents, 0x0018, 0x0010, 0x0014, 11, 1),
++	MUX_CLR_SET(CLK_INFRA_PWM3_SEL, "infra_pwm3_sel",
++		    infra_pwm1_parents, 0x0018, 0x0010, 0x0014, 15, 1),
++	MUX_CLR_SET(CLK_INFRA_PWM_BSEL, "infra_pwm_bsel",
++		    infra_pwm_bsel_parents, 0x0018, 0x0010, 0x0014, 13, 2),
  	/* MODULE_CLK_SEL_1 */
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PCIE_GFMUX_TL_O_P0_SEL, "infra_pcie_gfmux_tl_o_p0_sel",
--			     infra_pcie_gfmux_tl_ck_o_p0_parents, 0x0028, 0x0020, 0x0024, 0, 2, -1,
--			     -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PCIE_GFMUX_TL_O_P1_SEL, "infra_pcie_gfmux_tl_o_p1_sel",
--			     infra_pcie_gfmux_tl_ck_o_p1_parents, 0x0028, 0x0020, 0x0024, 2, 2, -1,
--			     -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PCIE_GFMUX_TL_O_P2_SEL, "infra_pcie_gfmux_tl_o_p2_sel",
--			     infra_pcie_gfmux_tl_ck_o_p2_parents, 0x0028, 0x0020, 0x0024, 4, 2, -1,
--			     -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PCIE_GFMUX_TL_O_P3_SEL, "infra_pcie_gfmux_tl_o_p3_sel",
--			     infra_pcie_gfmux_tl_ck_o_p3_parents, 0x0028, 0x0020, 0x0024, 6, 2, -1,
--			     -1, -1),
-+	MUX_CLR_SET(CLK_INFRA_PCIE_GFMUX_TL_O_P0_SEL,
-+		    "infra_pcie_gfmux_tl_o_p0_sel",
-+		    infra_pcie_gfmux_tl_ck_o_p0_parents,
-+		    0x0028, 0x0020, 0x0024, 0, 2),
-+	MUX_CLR_SET(CLK_INFRA_PCIE_GFMUX_TL_O_P1_SEL,
-+		    "infra_pcie_gfmux_tl_o_p1_sel",
-+		    infra_pcie_gfmux_tl_ck_o_p1_parents,
-+		    0x0028, 0x0020, 0x0024, 2, 2),
-+	MUX_CLR_SET(CLK_INFRA_PCIE_GFMUX_TL_O_P2_SEL,
-+		    "infra_pcie_gfmux_tl_o_p2_sel",
-+		    infra_pcie_gfmux_tl_ck_o_p2_parents,
-+		    0x0028, 0x0020, 0x0024, 4, 2),
-+	MUX_CLR_SET(CLK_INFRA_PCIE_GFMUX_TL_O_P3_SEL,
-+		    "infra_pcie_gfmux_tl_o_p3_sel",
-+		    infra_pcie_gfmux_tl_ck_o_p3_parents,
-+		    0x0028, 0x0020, 0x0024, 6, 2),
+-	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PCIE_SEL, "infra_pcie_sel",
+-			     infra_pcie_parents, 0x0028, 0x0020, 0x0024, 0, 2,
+-			     -1, -1, -1),
++	MUX_CLR_SET(CLK_INFRA_PCIE_SEL, "infra_pcie_sel",
++		    infra_pcie_parents, 0x0028, 0x0020, 0x0024, 0, 2),
  };
  
  static const struct mtk_gate_regs infra0_cg_regs = {
