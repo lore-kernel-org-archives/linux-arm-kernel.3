@@ -4,106 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20767E776FD
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 19:11:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9400E776F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 19:16:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oXhnYTRKWSBrdTvGbB7qy2q3xu05EvIJIuYEgLdKQ5w=; b=eo+XbJS9AqV7d256r0n1yJcLR2
-	govT/7H1KnxGbYrMLSD27KFXC7663nIjvEXJ1IShyE8p7TSG6q7RZDUtuojGFQTIaopH+ZQuaNtrt
-	h16mTggiUsHHOcpQXLhz2Y+lHLfVASmCq5VQKM/jPM2zkB08Q6uRQj9vJ0v7Lci345tFzCKlcNh68
-	xUyf9up2Bygt4O+fBoXAVM71PTLycI0PgmCPtUwZB2BtY55XTkYXiwj8e8o6KJOmdTSG1GREMt+se
-	sbkoaZNurjNvafJbI+0j2b8iz/b38y7ZzCtuAWxSzRvYs98JzaevJw2lTNiagYQvg9FEQtO1LQFbW
-	YW8yMgXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=laVChJNHDMAEia3D9tY89qEJGVGUm43S0WNZqN+Tr7Q=; b=DB6rlRPbEwoFkOhKx3Mb53r+Ap
+	MrZcBe9yACQJ20hbbM5c2PWSZmjQNHgaSvSgBU5rrXk373PPKxspPlDy/JPFts6Gnxt8ayPmKpgTF
+	2AAs90nYmlJRZkqntyOZQK5EX1KNn+MS0NKYnZV0hZSsywHJGEdawUWWvPW+YrnWgxj9dvjOFo3OK
+	2zUFE881nv6CPONY6JZRxd+ZIweCSEZfyJidhqKtVi5LCSIdj4UuXO2dMdt/vobc9Dz40KKr3hJE4
+	LwPalT7dweq7/iCATKpzHbdzqZvQIMbe2a1Fz2JyhV84/QPMkyh1coUh0GUGbao9tKMqFSresoKXK
+	G1sKWpYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYUGy-0000000HLLm-1YyV;
-	Wed, 24 Dec 2025 19:11:48 +0000
-Received: from mail-yx1-xb12d.google.com ([2607:f8b0:4864:20::b12d])
+	id 1vYULU-0000000HLaD-0V5Y;
+	Wed, 24 Dec 2025 19:16:28 +0000
+Received: from mx.olsak.net ([37.205.8.231])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYUGw-0000000HLLO-3S6p
+	id 1vYULM-0000000HLX0-0wtI
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Dec 2025 19:11:47 +0000
-Received: by mail-yx1-xb12d.google.com with SMTP id 956f58d0204a3-64661975669so6088465d50.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Dec 2025 11:11:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1766603505; x=1767208305; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=oXhnYTRKWSBrdTvGbB7qy2q3xu05EvIJIuYEgLdKQ5w=;
-        b=MbL68kETZo83UrjVPBcJebi1tj6OlE61CsG6ULjU6+LEkWltuP/3FtvN5yNlndgRu1
-         cEYQmnK0A8vRVQSANtb9UKQ2An8fIf4i32wy5B7oZECOVk8jk2pS2jZ0ZiRi9+dxQRnN
-         I6hADR6tOO4VzU/KqKXoEJ8ZGyH8ecS9IBj6lMtGvvIre4jCQ7/bmWJ+oyTRc+0txeg9
-         rXzHiht26zg23/vp+3xUahpmxx7PlPMVaPXfPOKWXpvOmu4hVh3jjyMdvfEPH5JbnSQw
-         G6ripFXCfZkQ6xmm15Zbs6lve347SmZR9tkTiKexOoIYutnk+u4kmPwaKlrycvF/Mtwm
-         OACA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766603505; x=1767208305;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=oXhnYTRKWSBrdTvGbB7qy2q3xu05EvIJIuYEgLdKQ5w=;
-        b=Te+UxcVo7ur/qQ8VrQaNGrjCLq7xQqkm7XDGIkqqS7kV9j28/sLRZExD/xcwHpTwDf
-         2dtYquY8iFXC/joEVNb0nN4DyU3LWvyJvG+bwqi9B1rXLK+tJyTHbNzAfDisGRlacZs7
-         bKGsrEmqz74UKf2yLMYi7g7R59B6AN0RG8WYxNlbDrqlXtAO2GWgsp7DwPbaHpQyrZYJ
-         mnQyMsUxTwcTWK8UTuL48udB3DtKWV+qbCnRSsMLi9fYUnk+ieEwuLqBImiXze7uhwlh
-         Fr4gC+5OdimDzyCARTjy2amFuet/c6skRIq3ATto+HIcAtRzlP4IQeq/B2qOKGegftdA
-         sipQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXHJFswOvURwVkGwstWsaINJKMjjK9vORz+R9aCHZAMu5DH4Bv3AhzH2cj1L14S2HkPOJMKDPArDObIQIE0tAD7@lists.infradead.org
-X-Gm-Message-State: AOJu0YyCrP+LnhleZ/iH2YOeIs6Yo+CLOxZuSzAhE1MAtbG/HGSQzYBT
-	EmV9OaZXiWhU5G2BSr52juYkOTBhyGSBnmoUBaLX1ujFfSdxtbqOigCCsBLWYwkkOQ==
-X-Gm-Gg: AY/fxX7RNDIw1GCOXqnEP1XJp338vJHYCgda2km6SrHseVGYoUusKXb2PBnFlfVJpQ7
-	AJ+Zt3z94pE/o/6gCq+NoTaJpQD9DNi4aSSq53joulunmBDJI3/Sio5IW13HcE4vo9ZXurtWi19
-	iRZsXTvD1l9OyX5TWWh0Wkfgm5RlhD/gJpeHwq0cbfKuS2pK0HTKo2mUcoZL7tsLSb0MVhqJsUv
-	moWnnE18KkH2rZ1Y0NqpH9YuDivRe2gTWA5966ixxsqG1DDTFX4ChbWQI2FoMb02NrY5BI8sAQs
-	O8K8yS+NwHxRwZVz5RtXDUIVx0+XovD3uvJHc/KQnQRB2W8tAA5tAWI0I3ivD4RpJAanyWPggyX
-	g1MWffYB7rDbDB55znW/jl7bPwCxVKv8Og49wfC+RaATmt90xBFApS3Kzr/B2ajdo+TGCZbkU1D
-	lq2dJiGC6wKe9OsM0FgA1SYOoZ2v97ekkHOFjc7phYY5/Jvjxse8HEQ2UIlYI=
-X-Google-Smtp-Source: AGHT+IF4+78/ybW8h2aFs9XZbSKza4sj6Czw5R4tW02KVHwiK1CyevWiPabB7l4R0Pz1pzDMvfJfng==
-X-Received: by 2002:a05:690e:1486:b0:63f:31f7:b956 with SMTP id 956f58d0204a3-6466a898fbbmr15286144d50.27.1766603505319;
-        Wed, 24 Dec 2025 11:11:45 -0800 (PST)
-Received: from ?IPV6:2600:1700:4570:89a0:6872:f79a:c2ff:4f4f? ([2600:1700:4570:89a0:6872:f79a:c2ff:4f4f])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-6466a81d4e4sm8640178d50.0.2025.12.24.11.11.43
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 24 Dec 2025 11:11:44 -0800 (PST)
-Message-ID: <27d2a9de-487a-409b-8807-d1d3bf9e8ee7@google.com>
-Date: Wed, 24 Dec 2025 11:11:42 -0800
+	Wed, 24 Dec 2025 19:16:24 +0000
+DKIM-Signature: a=rsa-sha256; bh=laVChJNHDMAEia3D9tY89qEJGVGUm43S0WNZqN+Tr7Q=;
+ c=relaxed/relaxed; d=dujemihanovic.xyz;
+ h=Subject:Subject:Sender:To:To:Cc:Cc:From:From:Date:Date:MIME-Version:MIME-Version:Content-Type:Content-Type:Content-Transfer-Encoding:Content-Transfer-Encoding:Reply-To:In-Reply-To:In-Reply-To:Message-Id:Message-Id:References:References:Autocrypt:Autocrypt:Openpgp;
+ i=@dujemihanovic.xyz; s=default; t=1766603684; v=1; x=1767035684;
+ b=SN+ObwVEF/zqznQv8SvkdHWJchtv4GCvgsa382pLIH7l8wzC8eYH3kBZ7/0xHo4i+qs04no5
+ Il8QHjJoYawDMSXY31NNLJhoRymV94nQcxMthyZJdFRfiji+8fAIs4pMWdvvIIb8cqTtAzyQtDn
+ vUL3sHnn8/6kmN5+whf+aD/Bq+XlxUnXlA14p7cRDWed9x2wDr+2eO+eMUf+lXi0p8ZNRx3Xqaa
+ pv6GPsm3Vxyo0Reysvn2I6gTAcxhP3V9JwpD2nPvkZI+IZSbsiVcEzgcGkIgJVN6ptqr9EnX6O3
+ P4u7mDsLoamS3zCPGSiR7GwgYHEuuy+kIRPOEngKACxVw==
+Received: by mx.olsak.net (envelope-sender <duje@dujemihanovic.xyz>) with
+ ESMTPS id d4a10bf5; Wed, 24 Dec 2025 20:14:44 +0100
+From: Duje =?UTF-8?B?TWloYW5vdmnEhw==?= <duje@dujemihanovic.xyz>
+To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ Karel Balej <balejk@matfyz.cz>
+Cc: ~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org,
+ Karel Balej <balejk@matfyz.cz>
+Subject: Re: [PATCH v2 2/2] pmdomain: add audio power island for Marvell PXA1908 SoC
+Date: Wed, 24 Dec 2025 20:14:43 +0100
+Message-ID: <5977726.DvuYhMxLoT@radijator>
+In-Reply-To: <20251213084843.7491-2-balejk@matfyz.cz>
+References: <20251213084843.7491-1-balejk@matfyz.cz>
+ <20251213084843.7491-2-balejk@matfyz.cz>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/5] dt-bindings: mfd: maxim,max77759: add charger
- child node
-To: Krzysztof Kozlowski <krzk@kernel.org>, Sebastian Reichel
- <sre@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
- <andre.draszik@linaro.org>, Lee Jones <lee@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Badhri Jagan Sridharan <badhri@google.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-usb@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
-References: <20251218-max77759-charger-v2-0-2b259980a686@google.com>
- <20251218-max77759-charger-v2-1-2b259980a686@google.com>
- <411802b6-517d-497e-bf7b-183e6e6d7a64@kernel.org>
- <3d156c45-b55d-4ca4-95d6-0d06e067bbdb@kernel.org>
-From: Amit Sunil Dhamne <amitsd@google.com>
-Content-Language: en-US
-In-Reply-To: <3d156c45-b55d-4ca4-95d6-0d06e067bbdb@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Autocrypt: addr=duje@dujemihanovic.xyz;
+ keydata=
+ mDMEZokhzhYJKwYBBAHaRw8BAQdAWJZ0hsI/ytTqHGFV8x6tzd5sB596cTeeDB4CQsTf+wC0KUR
+ 1amUgTWloYW5vdmnEhyA8ZHVqZS5taWhhbm92aWNAc2tvbGUuaHI+iJkEMBYKAEEWIQRt/0HWDf
+ MUtbdrpjCtMZNSRY+tAwUCaJ5XkSMdIEFkZHJlc3MgYm91bmNlcyBhcyBvZiB+MzEvMDgvMjAyN
+ QAKCRCtMZNSRY+tA/N/AQDth3Xl3wNcETvWPqqfYfyw4BFqbOD05A/W0/G0ZIjFzgD+PZVts3sN
+ p5WuEwIxUrWxwavWJQBJwhXeWdru5ol82gmImQQTFgoAQRYhBG3/QdYN8xS1t2umMK0xk1JFj60
+ DBQJmiSH/AhsDBQkJZgGABQsJCAcCAiICBhUKCQgLAgQWAgMBAh4HAheAAAoJEK0xk1JFj60Dlw
+ 8A/i4lPOL7NaYoYePDql8MaJaR9qoUi+D+HtD3t0Koi7ztAQCdizXbuqP3AVNxy5Gpb1ozgp9Xq
+ h2MRcNmJCHA1YhWAbQoRHVqZSBNaWhhbm92acSHIDxkdWplQGR1amVtaWhhbm92aWMueHl6PoiZ
+ BBMWCgBBFiEEbf9B1g3zFLW3a6YwrTGTUkWPrQMFAmaJIc4CGwMFCQlmAYAFCwkIBwICIgIGFQo
+ JCAsCBBYCAwECHgcCF4AACgkQrTGTUkWPrQPUYAEAlVKitl0w6Wun+hC0JIf8bnc0TnrH8kcDxV
+ f5lAF38fcA/j8RxR/p558NTFUyHZt2Sa5AqxVkaA4aJekySytWe1YGuDgEZokhzhIKKwYBBAGXV
+ QEFAQEHQMRz0l4Dnk6Vl9YqC+ZGDDpr8SkFDyYOXqdBMGad3VccAwEIB4h+BBgWCgAmFiEEbf9B
+ 1g3zFLW3a6YwrTGTUkWPrQMFAmaJIc4CGwwFCQlmAYAACgkQrTGTUkWPrQMbkwD+K6jiXYYMRnV
+ l/5dpL//wXB1cM72ceR9tXYweMXg1lfABAOugzMF0xypW9zwYAEWVNOAaPsqtEPPYfBY3IXxl6m
+ sB
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251224_111146_874400_1C109D19 
-X-CRM114-Status: GOOD (  15.76  )
+X-CRM114-CacheID: sfid-20251224_111621_298229_A0C713EF 
+X-CRM114-Status: GOOD (  10.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,47 +89,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Saturday, 13 December 2025 09:48:13 Central European Standard Time Karel=
+=20
+Balej wrote:
+> Define power domain which needs to be enabled in order for audio to work
+> on the PXA1908-based samsung,coreprimevelte smartphone. In the
+> downstream code, this power-on method is marked as specific to the ULCx
+> series which is allegedly a codename of sorts with ULC1 corresponding to
+> the PXA1908.
+>=20
+> No other audio components needed for sound to work on this phone are
+> currently available mainline but some successful testing was performed
+> with the vendor variants of the respective drivers and with the domain
+> forced always-on.
+>=20
+> Signed-off-by: Karel Balej <balejk@matfyz.cz>
 
-On 12/23/25 5:32 AM, Krzysztof Kozlowski wrote:
-> On 19/12/2025 09:17, Krzysztof Kozlowski wrote:
->> On 18/12/2025 23:49, Amit Sunil Dhamne via B4 Relay wrote:
->>> From: Amit Sunil Dhamne <amitsd@google.com>
->>>
->>> The Maxim MAX77759 MFD includes a charger function. Extend the max77759
->>> binding to include the charger. Also, update the example to include
->>> charger.
->>>
->>> Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
->>> ---
->>>  .../devicetree/bindings/mfd/maxim,max77759.yaml    | 33 ++++++++++++++++++++++
->>>  1 file changed, 33 insertions(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml b/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml
->>> index 525de9ab3c2b..1cffdf2e5776 100644
->>> --- a/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml
->>> +++ b/Documentation/devicetree/bindings/mfd/maxim,max77759.yaml
->>> @@ -37,6 +37,30 @@ properties:
->>>    nvmem-0:
->>>      $ref: /schemas/nvmem/maxim,max77759-nvmem.yaml
->>>  
->>> +  charger:
->>> +    type: object
->>> +    description: This is a dual input switch mode battery charger for portable
->>> +      applications. It supports wired and wireless charging and can operate in
->>> +      buck and boost mode.
->>> +
->>
->> I do not see any improvements, so same comment: this should be folded
->> into the parent.
->>
->> Please read DTS 101 slides or writing bindings or any other talks...
->>
-> No responses to my emails for a few days,so I assume discussion is done
-> and I mark it as changes requested in patchwork.
+Reviewed-by: Duje Mihanovi=C4=87 <duje@dujemihanovic.xyz>
 
-Yes please. Sorry about the delay.
+Regards,
+=2D-
+Duje
 
->
-> Best regards,
-> Krzysztof
+
 
