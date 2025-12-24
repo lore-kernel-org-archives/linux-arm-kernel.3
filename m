@@ -4,99 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DABDE7544D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 10:30:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB2A2E75448
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 10:40:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KNz2TcJzJmqF7rsKjUpwytr/M43/Sc2TIAVK6pF3yUw=; b=N1pPiQ+owGwAWUKaKDb4JcL2Le
-	Eb934yVS7VW6G7zqm2f8wabWnIHVtvWNn0SjtH9XLQfmUYwrYfwcJ12QhzD0Psrb51AUr+jHQXn+a
-	p0LDXLX5vprvnAgRcWSA/74MEvIJKS0Bxrdie1NZssf+33XKY9WuHtyUJnBuCtpedJMb/EjI5KWEI
-	gBgs3FLMQjOt5qub2zLpZ6dbDKI6Hlt682UeG3AaA6cS7vtfhTvhXRZTm8fZjhGCdoi2xWE6anNWE
-	LivhPIgvX1Icdh3/q+MB1W42WcxVrxZ0a86PWS0vNkRjvsONrVTKpvbtybOI17VMrRe+rXWjl6b1L
-	xjZVLOkA==;
+	bh=YX0Iu63byjNVx+YuTlIdUvEoIm6dN1b2nrc/xx3b1B4=; b=xtf7gdRbV+NIc4qn+b/FlLWefk
+	Y76j7ADPthb62BYXwYiQDPs6fZLiw9SIVtRq7ux335CJwOvuY0GVHCNsDxszos6Ildhj/B8vNm5bH
+	0TULQh+gSkgb+y/EmrzY1EL0w6ckgFPq7n2+oOeO44D4+7VdSZDIJ6LPydnPeHEuA6eIiwZPZUHSf
+	XxsCOh84ZkP12SBvDdLUpp8OcsAKQckIhC7npqx2L5lP2rbrkgq/NVVTbPjl509ODY3+eGpC2VvmM
+	PK/a4Pj/T1Qt5AycyXvM1nrD9YW/cBzRGCNP+8sJP3KyBaQZKQgF6PsCVt6oLKmggbiSUVEI2drFF
+	VnaYQe3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYM8V-0000000GhAb-1Zez;
-	Wed, 24 Dec 2025 10:30:31 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1vYMHr-0000000GhbY-47a2;
+	Wed, 24 Dec 2025 10:40:11 +0000
+Received: from fhigh-b1-smtp.messagingengine.com ([202.12.124.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYM8R-0000000GhAB-2nsU
+	id 1vYMHp-0000000Ghb7-11Gg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Dec 2025 10:30:30 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-b7cee045187so1040199166b.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Dec 2025 02:30:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sartura.hr; s=sartura; t=1766572225; x=1767177025; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KNz2TcJzJmqF7rsKjUpwytr/M43/Sc2TIAVK6pF3yUw=;
-        b=0V2QtF++4TVygM1CFSDEW4btSqjcTOeClQfrXXERXZlJfSg0FiknReVTM9QvLyELGH
-         w9fOOSzm8TtdmuyBhEUDjZB08P7fWdCE5C8/jMtxEvfuaQ+ojaLkJ6dPjsn5HgQIK+vP
-         F0kYKG1PbvWkGveade0w3m2X7yxuRDsrK2kKWYjOjk10+dttOHXOp3kXFkZfw5H8qzif
-         dD7K02GdyChiElz1bDqdVy+N+YHgsONP8cHkSNk+BNHwOYOomu1xTqmVs2elybkItqj5
-         iQaC1sUacs5XDG8VvzGC0+xUlu8pkqPsV/+fXcfD8GvOcwZhyP9rr7cB5I7OaQFou6sN
-         iuWQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766572225; x=1767177025;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=KNz2TcJzJmqF7rsKjUpwytr/M43/Sc2TIAVK6pF3yUw=;
-        b=FCugu0cImgS7HqL/G3ztpYE1qdOzqAy2qTkywHo10A+oJxdi/0C2tG4mIyA1R2Tvti
-         4OjURvCRMRYi7VdvudL/7TJIEMf8DSWh8Zx5snz0l85c+wo5q6+wgWaFkJyjAbYI+W+n
-         eC7jX0JKxncWXMwSpXmNw1BwzbSRXG1QqErwlWY6h8ulHd9RxAR48iFniyUk4we5rjK5
-         FQ6jG/wtnC1qaLAeSk+NuhYdwws5D1xpFFjKv7SpPSKBxPyflqqr/R1Rq88XVT4IPirM
-         9NVwcw8bYwBfNT9fxVKBmdQdh5QpVzcsdR0AITjG0VkQHUz3/vct9pOAu8jPwhL52R3O
-         bzXw==
-X-Forwarded-Encrypted: i=1; AJvYcCU35B/NRn4sUbTkaXQ5zttJCV1/Ln5HMBM22vErmjxjfRaFBBnHFO1UY/bdZvnlKTQjz/xIsZDzwy8trrJ+Nnb5@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHhxsKH7roZ+IZ/SAHvoeefjqlhorsJswrV95yzbOTunWj3Nid
-	N5EYmXL8ljHDj2sNX6d/c8rkT0Yp2qn7DT8may4uTzSZINzsV9NmtBtDr6E1re/h8PCLFRcPEvY
-	3Xai88qq2kkkNZuv50U0YbkGBdcY6YgqDhvPl+nR4yQ==
-X-Gm-Gg: AY/fxX6ajIbD9XbRhdCQKtglkL5z1kL7HoAxRGlJlOD0UgGr1nJLDO2VlsWUaFN6YW6
-	EeXlD/xyXRPKmfZ+8GSY/in6JhDEcALPQWDlVOXX7xxdcTE/jOaJ9giI73xPnUm2OF2q895TbKa
-	zSbvmf0sV4wZCcVVhRLlw71H/Fj99+y4AlUgYe7ZwKjuajuHaaTiyWIxu7rp9nDRXqVXftQ+Yel
-	6KvAd0ngW0NZkNZvnAC51BNQhkP/tkdUDVkbIZshdkg2/S+6x9bRSfUElNcrlIjDkpaigusHzwP
-	MgnwmEh6W5IemUOphxZ4hpklP9Z7ihjT3lsgf6XHCv0f+cHIbxxLUcnPRm2A
-X-Google-Smtp-Source: AGHT+IFeflXA2mce6O+1rdmvPjP/12/Umt2Y99WbRQ8cM3OEzOcKAWgIne20UzsSB0V8xKjPoflCDtb5j1Pn52N5SuA=
-X-Received: by 2002:a17:907:7f01:b0:b71:ea7c:e501 with SMTP id
- a640c23a62f3a-b80355b2523mr2261188266b.4.1766572225170; Wed, 24 Dec 2025
- 02:30:25 -0800 (PST)
+	Wed, 24 Dec 2025 10:40:10 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 16CC97A0111;
+	Wed, 24 Dec 2025 05:40:07 -0500 (EST)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Wed, 24 Dec 2025 05:40:07 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1766572806;
+	 x=1766659206; bh=YX0Iu63byjNVx+YuTlIdUvEoIm6dN1b2nrc/xx3b1B4=; b=
+	QeJJgFZhNvvg0LviLTt+Pq5z3YtzD9j7TUGykYJZMwfAX0UFf6qeDVyVIERLmj5p
+	U7j/beLiLT4zFfDYY/bX9GbjBd2MkzDcWJM5CapFk/lYhsWlrLjvRsHhPArOucK+
+	oM5O4fAp1pWVB50sMYoixNnD8B8mWIkErPF7ZfAchJJE8jEe9oHngj4CWWcTzurL
+	UtR+OffS0D49o+dM8YZ9iDIoYxUkTRr3trBcSI+qd6I7+MRdqma44EA6FE/24IrX
+	3IiZXXefHN2GRZ7XkOIhYgzFpUarW7nIQRqisVOBOoYkhoSoJDRQezI3JQUok0MD
+	9Kh4HKMAAVKu6Pxb7e9xjg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1766572806; x=
+	1766659206; bh=YX0Iu63byjNVx+YuTlIdUvEoIm6dN1b2nrc/xx3b1B4=; b=L
+	yacBhegZDB19uOBTAp/wSlLXl8g6HBw0+822kqJcnJiIdEm6W+a8lHW2tr66/HJF
+	oxpnd+iRDmx4rCaC9u/H8yFh09nkx538PDqIQ86KzhtVmuBR/VllurMBodF5p6iq
+	vlKcjySvJq+ECORrqOCTpFi5do4v4hP3x+B8FG4uiIGoV3VJ11w41ifHkyMxpVkX
+	PItiB//BWRFNF6Cz0U0TPgDDV5jRYxZfWpRzmR2q90i/hBnqbh2gYMGeVoN2OZiM
+	rFWjIge4/DHxL2S3RVSBxZ5tVMR2YUdnrN9PhqjhfadJZ/cHELc8gkooejWNHcFj
+	WgatZY5d/aQpBvTMtWZTA==
+X-ME-Sender: <xms:BcNLaQ8_rLHVTGubTg2P5ApbiePHfRLPueQURHHYIn4yM1yRNivjNw>
+    <xme:BcNLaTgnYWbussBHtYvReijMeyGzF5RDOnjwZpljyD3i3rzrX4cvRjTLXaI3xtGjs
+    xFX0CfAf-Krn4xifppTrCf97cnrPk_15Du-2hfEAbYIdTHkwk1xb4E>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdeivdeglecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
+    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
+    hnpefhtdfhvddtfeehudekteeggffghfejgeegteefgffgvedugeduveelvdekhfdvieen
+    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
+    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopeduhedpmhhouggvpehsmhhtphhouhht
+    pdhrtghpthhtoheplhhinhhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtth
+    hopegrnhgurhgvrghssehgrghishhlvghrrdgtohhmpdhrtghpthhtohepfihilhhlhies
+    ihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopegrrhhnugeskhgvrhhnvghlrdhorh
+    hgpdhrtghpthhtoheptghhlhgvrhhohieskhgvrhhnvghlrdhorhhgpdhrtghpthhtohep
+    giekieeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqmhhmsehkvhgrtg
+    hkrdhorhhgpdhrtghpthhtoheplhhinhhushdrfigrlhhlvghijheslhhinhgrrhhordho
+    rhhgpdhrtghpthhtoheprghkphhmsehlihhnuhigqdhfohhunhgurghtihhonhdrohhrgh
+X-ME-Proxy: <xmx:BsNLabj5Yb1efwgwyTd1LSIMoi70vcnjBOt3SFtI-jp0Z29wK1e9LA>
+    <xmx:BsNLadkCZiJD4h480VwjNs-pq8OK3G1CzOk3qfrOsmNA6HAkAqeqMQ>
+    <xmx:BsNLaUq0Wy6zYySKPnxsEUBzUKAr8PGSq2bXJWTVEibcouFQDC-kzA>
+    <xmx:BsNLaZJ9xGBNNGmTeO_GCEZiyEqQkgoYgAA_A9A2X_-wwwkI0r4IJQ>
+    <xmx:BsNLaQOG8zh3VdLD6QUVIu4Ol1HBvAQigwbEglcR8MAqbb0gtF6h8g8h>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id E4F4570006D; Wed, 24 Dec 2025 05:40:05 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-References: <20251223201921.1332786-1-robert.marko@sartura.hr>
- <20251223201921.1332786-2-robert.marko@sartura.hr> <20251224-berserk-mackerel-of-snow-4cae54@quoll>
-In-Reply-To: <20251224-berserk-mackerel-of-snow-4cae54@quoll>
-From: Robert Marko <robert.marko@sartura.hr>
-Date: Wed, 24 Dec 2025 11:30:14 +0100
-X-Gm-Features: AQt7F2rVNXRXeSbgmjkb2SKB7p5AiaNihNvuJMBrgMZ7XIKTnJcRJJO5brWpKNE
-Message-ID: <CA+HBbNGym6Q9b166n-P=h_JssOHm0yfyL73JZ+G9P81muK=g4A@mail.gmail.com>
-Subject: Re: [PATCH v3 01/15] include: dt-bindings: add LAN969x clock bindings
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com, 
-	claudiu.beznea@tuxon.dev, herbert@gondor.apana.org.au, davem@davemloft.net, 
-	vkoul@kernel.org, andi.shyti@kernel.org, lee@kernel.org, 
-	andrew+netdev@lunn.ch, edumazet@google.com, kuba@kernel.org, 
-	pabeni@redhat.com, linusw@kernel.org, Steen.Hegelund@microchip.com, 
-	daniel.machon@microchip.com, UNGLinuxDriver@microchip.com, olivia@selenic.com, 
-	radu_nicolae.pirea@upb.ro, richard.genoud@bootlin.com, 
-	gregkh@linuxfoundation.org, jirislaby@kernel.org, broonie@kernel.org, 
-	mturquette@baylibre.com, sboyd@kernel.org, lars.povlsen@microchip.com, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org, 
-	dmaengine@vger.kernel.org, linux-i2c@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-spi@vger.kernel.org, 
-	linux-serial@vger.kernel.org, linux-usb@vger.kernel.org, 
-	linux-clk@vger.kernel.org, luka.perkov@sartura.hr
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-ThreadId: AQxZfb8dcq5J
+Date: Wed, 24 Dec 2025 11:39:26 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Jason Gunthorpe" <jgg@nvidia.com>
+Cc: "Arnd Bergmann" <arnd@kernel.org>, linux-mm@kvack.org,
+ "Andrew Morton" <akpm@linux-foundation.org>,
+ "Andreas Larsson" <andreas@gaisler.com>,
+ "Christophe Leroy" <chleroy@kernel.org>,
+ "Dave Hansen" <dave.hansen@linux.intel.com>,
+ "Linus Walleij" <linus.walleij@linaro.org>,
+ "Matthew Wilcox" <willy@infradead.org>,
+ "Richard Weinberger" <richard@nod.at>,
+ "Russell King" <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org,
+ linux-fsdevel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, x86@kernel.org
+Message-Id: <f6c49549-57af-4640-a09e-896c47bb8657@app.fastmail.com>
+In-Reply-To: <aUtPRFdbpSQ20eOx@nvidia.com>
+References: <20251219161559.556737-1-arnd@kernel.org>
+ <20251219161559.556737-4-arnd@kernel.org>
+ <20251219171412.GG254720@nvidia.com>
+ <513078d3-976a-4e6d-b311-dcfcfea99238@app.fastmail.com>
+ <aUtPRFdbpSQ20eOx@nvidia.com>
+Subject: Re: [PATCH 3/4] ARM: remove support for highmem on VIVT
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251224_023027_727083_58EA450E 
-X-CRM114-Status: GOOD (  16.59  )
+X-CRM114-CacheID: sfid-20251224_024009_351795_798447C1 
+X-CRM114-Status: GOOD (  18.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,52 +125,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 24, 2025 at 11:21=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.o=
-rg> wrote:
+On Wed, Dec 24, 2025, at 03:26, Jason Gunthorpe wrote:
+> On Fri, Dec 19, 2025 at 09:34:33PM +0100, Arnd Bergmann wrote:
+>> On Fri, Dec 19, 2025, at 18:14, Jason Gunthorpe wrote:
+>> >
+>> > This looks great, but do you think there should be a boot time crash
+>> > if a VIVT and HIGHMEM are enabled, just incase?
+>> 
+>> Do you mean in the common code or just for Arm?
+>> 
+>> We could use the Arm specific cache_is_vivt() macro, but it feels like
+>> the 'dpends on !CPU_CACHE_VIVT' Kconfig check I added is both
+>> safer and simpler.
 >
-> On Tue, Dec 23, 2025 at 09:16:12PM +0100, Robert Marko wrote:
-> > Add the required LAN969x clock bindings.
->
-> I do not see clock bindings actually here. Where is the actual binding?
-> Commit msg does not help me at all to understand why you are doing this
-> without actual required bindings.
-
-I guess it is a bit confusing, there is no schema here, these are the
-clock indexes that
-reside in dt-bindings and are used by the SoC DTSI.
-
-I guess I should have titled this something like:
-dt-bindings: clock: lan969x: add binding includes for LAN969x clock IDs
-
-Regards,
-Robert
-
->
-> Please use subject prefixes matching the subsystem. You can get them for
-> example with 'git log --oneline -- DIRECTORY_OR_FILE' on the directory
-> your patch is touching. For bindings, the preferred subjects are
-> explained here:
-> https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-pat=
-ches.html#i-for-patch-submitters
-> Bindings never have a "include" prefix.
->
-> A nit, subject: drop second/last, redundant "bindings". The
-> "dt-bindings" prefix is already stating that these are bindings.
-> See also:
-> https://elixir.bootlin.com/linux/v6.17-rc3/source/Documentation/devicetre=
-e/bindings/submitting-patches.rst#L18
->
-> Best regards,
-> Krzysztof
+> Okay, so maybe I'm asking if !CPU_CACHE_VIVT then the kernel fails to
+> boot on vivt systems, maybe it already does?
 >
 
+Yes, in two separate ways:
 
---=20
-Robert Marko
-Staff Embedded Linux Engineer
-Sartura d.d.
-Lendavska ulica 16a
-10000 Zagreb, Croatia
-Email: robert.marko@sartura.hr
-Web: www.sartura.hr
+- you can build a kernel for any combination of armv4/v4t/v5 CPUs
+  (all VIVT), or any combination of armv6/v6k/v7/v7ve/v8 CPUs
+  (all VIPT or PIPT), but we already enforce that you cannot mix
+  the two in any way. The two sets are sufficiently different in
+  terms of instruction set, MMU cache and FPU that trying to boot
+  the wrong one probably doesn't even get to the point of printing
+  any output.
+
+- If something changed about the assumption above, any Arm kernel
+  still needs to enable support for each individual CPU model that
+  you may want to boot on. Enabling a SoC family will select the
+  CPUs used in that SoC, and enabling a CPU type selects
+  the cache features like CPU_CACHE_VIVT. Attempting to boot
+  on a CPU model that is not enabled in the kernel build makes
+  it fail in setup_arch() with:
+
+                pr_err("CPU%u: configuration botched (ID %08x), CPU halted\n",
+                       smp_processor_id(), midr);
+                while (1)
+                        ;
+
+     Arnd
 
