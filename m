@@ -4,93 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2741E6B279
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 02:24:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03313E74905
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 02:26:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1loIAAfZi3ARrBea2GD590U569CMRnH53n7SJVQ+fYg=; b=vuXhtxY2UNtSCQ7YJKTMBAnXwX
-	TL64or69jr4ea40VdvtaDtJwVuenwIJgz776WQrx7K9EtWxeSDXAaMMAFczNdWYAJzsj6dEXhXVPC
-	+xUe14/UD8TzUTbFPq6fe0ey404HiPap8iR4YCtb0Y4FBMdCG6ODdsZmUFiBZGgFhO/El7/vz4/qt
-	cxxzjoCJXCUryiXTlY8UJdmgfLSkAPB2OLkadQsVAxcq6jlATT9GNnxJDcazUrypfAdMiYazi07q8
-	05jjOzyDds9PQaq5HzPDFtZ9tVy30XD1XCf6xBF6NSvzGt891StdA9UFvUeanmc01GOxAtRy6XZZ/
-	TmlUGKVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Fe971I7vctGicnmZN3rn6GUUD9cdSqx5fnZuxG5VU50=; b=gD2Jp32JH6pC4Yv62f/i+Cl2ey
+	+iJPDO8fvoJ2JPY9hUvO6/S6f+rZLb/GXyXUU0TunVxgC+LFzqW39HeXeSVihyp2jJsXfjgeFopfZ
+	BNe7gRMbsd8zzH1GRRnVo1vHnckR/986Li+qCslMxkohH9bGCamTKZ2CqWTpF/Y1OW6LB9KH8Y7Mi
+	gnFbkJESCPoII7tejJgIiHQFiFXtn4uil8aHMF8op8PzstIR61rMR5uJvEUMhlcxkIvSo6QasTmW7
+	ITZV5pCj99BkZEiexNvjCfTOk4c4BRG0cQBjR6tJ8fYe12FlvxXwXJbGj2ukpQMl5OSlCbWU7VPiG
+	fEHvgFjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYEY9-0000000GJjJ-2XDm;
-	Wed, 24 Dec 2025 02:24:29 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1vYEZy-0000000GJup-3Qi6;
+	Wed, 24 Dec 2025 02:26:22 +0000
+Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYEY6-0000000GJi4-2VfE
+	id 1vYEZw-0000000GJuP-0Qwm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Dec 2025 02:24:27 +0000
-Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-597c83bb5c2so4413514e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 18:24:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1766543064; x=1767147864; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1loIAAfZi3ARrBea2GD590U569CMRnH53n7SJVQ+fYg=;
-        b=jMBde3ZwF2FAi9CyrDulW0iUuJPxfpMKKC7A5rtnDZ3va6OsiHMw6f/y7SVpJvFEdG
-         TH5EceQeyRnt8iOxnQTEvBdhrwchvAo3sO5VnWJznuAlFQqccwVKPlW3oi2+yjBBJTeq
-         DB9BCucpJGRDqDHXu2f4zeQK6ZvnadD8rp1DXL0RBZfkJk4Lbq/coqJ0di9Sc3c4w2Ee
-         B06cIwlKleKGJBdrapF+grgjW/JITkVOYmxiK9iAdiyEji3cb74mIv8YSxZcZaJizShT
-         jPPqBxEDcF9rHH7UxueC/vbz/LvNhV/QuDz5g+TMjNEx+qbq90qYOEFjqTKz0fBn0XoI
-         jyZA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766543064; x=1767147864;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=1loIAAfZi3ARrBea2GD590U569CMRnH53n7SJVQ+fYg=;
-        b=TVMTW2B4ltBn0IXxwaqaCRxbeNNj730gTdK170N3PQDEzfZKRVUJUgt5ZdmTPZ9xyu
-         f5KIAwTCIXIST3i51DADFe946bhCvh62TIuHStVbHFfuQQsRVCeS5VGpGDy+Yi+42AK1
-         vL5Z0Qpg0BMFcTTE6vuC6WFjOrybBVdRwTJHfPijV+VuEc0cSapvcZM6UKl8AbkZipCE
-         0uErKSb+F4SAaNqO3TxyL6eH7LcnrbryE1Op30qdo0cw356nucGmPR+Dinzroklolg3Q
-         bKnbFW1YapoCepmdNNNbIaL9oDP1qO/2Sc/SdbGrBRdPlPUdXswHM01X7drfLqxZw6eT
-         FlOA==
-X-Forwarded-Encrypted: i=1; AJvYcCWP+a2MpzdZnvPZ+UrYmZ06Mu9uAxIJQxITwLMeNuu5vNliMygRba7eOP6ofgARyOT9ZepVizQOEhpQJW+171f9@lists.infradead.org
-X-Gm-Message-State: AOJu0YxfamPpvKWZN3wWw2/CdbhNs3+Zs5awin2qU1rRaT+4HkFDUQaj
-	lg/4387POj0zvWB0ccLiVSm4/fbGUfvqjF9wIWMQh5WHOVt8xhrku8ZkXDLRPsJCVv6oOXRMuj7
-	dehPofPDd8yfyRr2d2y10qPY18G5hS8I=
-X-Gm-Gg: AY/fxX7i3jW7tezVOBtiDb5bxRVGSAK5dnjizcBNTvnF+70N05aQBx4eawW4bDl4N5R
-	ZoRNp7J7A2fBWwbidUN76pGI+kYkLyT7QqRRGg4LZQtxZoQsc42ujPUP/9hlQuncaCEutItC+A2
-	r+h+TC1wPmr8vwhxVx3jfjCwm8PqmrkvwXERt3pkpNPn02NU1xm/L1Y/9HbCGswI++4hVJFPJWg
-	Ew49vrDXDf7Dsvx0gJJDPOSKTH87g6baJWAXLl0UMupX5MZy7mWmZbEhyISHxVx+zOCI2Po
-X-Google-Smtp-Source: AGHT+IE/+50K3afhfndy8OOQCaT5Jx8UIeiRvbJr4DL0U3mNPbecM/23tUIstTpZgAeJvbIu4PB7SOkqEOl5NRqK1zg=
-X-Received: by 2002:a05:6512:128c:b0:59a:10d9:72d with SMTP id
- 2adb3069b0e04-59a17d498fbmr6776183e87.45.1766543063511; Tue, 23 Dec 2025
- 18:24:23 -0800 (PST)
+	Wed, 24 Dec 2025 02:26:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Mx5Rzuwjo/Xh5/W81OJIHkx3oMT6JVmcSoJpAchShZK6p9y+WKL7bX3R1ar7XWQlL9c9z3dasVBXEGzSqiggqx0Eyt+oB7py+gUt4bHAwlaoHEZkJuTbeHcv7RNSvcOTPtgbIERT1VD+umcD9JqyNT2UjZDtHt5ByhBiIosMRtiXSmtlNOth89I3yoFIeH1Pao32PLVASDOenEns6/yj7KZ3BACbAsHSAgbIVCM6z3D7jtZh9P/n7TjieyS53eGpBC+JGBI9LBoNa0UocLQz7ZGI6vJfGHPAJ7YtEOaVHXGU5fMkL2E/AAkTyAlKkrHjIwCeIIGvgnuaJAKlVknDXQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Fe971I7vctGicnmZN3rn6GUUD9cdSqx5fnZuxG5VU50=;
+ b=YNzL55AkTxP8JEXPBGkE6UPwTILPmz4smZxzWIFKnaVr+f+oN8T8H4Rw8yDhsqUA9bGRab61gqrCDRcAlM38YmuydFq3nlX+iaJjq8ZeYQhvDcQq+9WJXC+WOx8yWW/MnwGV9tl564eCdyPQFU/dVmDYwns9YekydQ65TqThiDCeaJ7FJIeC7iZAF0tKWtX8VqYr8bVFty0oxZ/YXVtZAs5Cw10c5rDKiXLOrbabXDrffigw4CdwFUOKaiaCWi113A/dfMYoRePfiu3f+5sKmD6FNjEV8mtXPTT99rsVM29djYsL5uC7en+7UsG140A2GdX5runue/k1RHEq25Xmnw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Fe971I7vctGicnmZN3rn6GUUD9cdSqx5fnZuxG5VU50=;
+ b=nx4Ugnd2xEPHsHecTCKT4saQNpZ2+oVL9/UgZiEYQtJjmo6V1FUtC5c6PIm4SFtF6GC0zqmVaBdJ2yFRW+A+B8vCTdRKP5TebmGYDYm9pCdlo9je1F2OzCWKIV90sGRwn7zkcyhwHWe1zF1xK8fmCx0JQER3SVe2gyV6WxC1kqFvhjSuSaFaE38HY3LsKlIcpX/ZlhR83wpb6rlhF30rm3bsF7tLtjCbUwehTuY0uTEBZcEJEkg6rK7EmNPUmWo8lVafVCpTE52N9kZRRXFLekTnsnCmqT75W7Jb08BIMo3+olGXyiZOaaiKrcX+TdVmcph4vyaSeyF5OYJcEfkdbw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
+ by SA1PR12MB8095.namprd12.prod.outlook.com (2603:10b6:806:33f::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9456.11; Wed, 24 Dec
+ 2025 02:26:14 +0000
+Received: from LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::1b59:c8a2:4c00:8a2c]) by LV8PR12MB9620.namprd12.prod.outlook.com
+ ([fe80::1b59:c8a2:4c00:8a2c%3]) with mapi id 15.20.9456.008; Wed, 24 Dec 2025
+ 02:26:14 +0000
+Date: Tue, 23 Dec 2025 22:26:12 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Arnd Bergmann <arnd@kernel.org>, linux-mm@kvack.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Christophe Leroy <chleroy@kernel.org>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Matthew Wilcox <willy@infradead.org>,
+	Richard Weinberger <richard@nod.at>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, x86@kernel.org
+Subject: Re: [PATCH 3/4] ARM: remove support for highmem on VIVT
+Message-ID: <aUtPRFdbpSQ20eOx@nvidia.com>
+References: <20251219161559.556737-1-arnd@kernel.org>
+ <20251219161559.556737-4-arnd@kernel.org>
+ <20251219171412.GG254720@nvidia.com>
+ <513078d3-976a-4e6d-b311-dcfcfea99238@app.fastmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <513078d3-976a-4e6d-b311-dcfcfea99238@app.fastmail.com>
+X-ClientProxiedBy: MW4PR04CA0187.namprd04.prod.outlook.com
+ (2603:10b6:303:86::12) To LV8PR12MB9620.namprd12.prod.outlook.com
+ (2603:10b6:408:2a1::19)
 MIME-Version: 1.0
-References: <cover.1763415705.git.geraldogabriel@gmail.com>
- <eaa9c75ca02a53f8bcc293b8bc73d013e26ec253.1763415706.git.geraldogabriel@gmail.com>
- <qncj72c3owrw7rvnj6jit2sbn4ojyr3kztcjailfxtdboan6sy@ddh5g7v4fcvt>
- <3ea8ac20-6332-0c0c-645b-36ca4231c109@manjaro.org> <DF197NIRHLIJ.3LIG9GJGJQLQX@cknow-tech.com>
- <656e9b4e-c350-f808-701e-e49e8dad7062@manjaro.org>
-In-Reply-To: <656e9b4e-c350-f808-701e-e49e8dad7062@manjaro.org>
-From: Geraldo Nascimento <geraldogabriel@gmail.com>
-Date: Tue, 23 Dec 2025 23:24:12 -0300
-X-Gm-Features: AQt7F2qM7hLDFS0yoRUqiACBfHqK5NSRbS9YoOFtrIx5Y1oXB1EP6whymdD-2I8
-Message-ID: <CAEsQvcv_8HnWNHAQGKs3pzBqrO_9+HsMr9w-F=pZJ1oEXeC=Bw@mail.gmail.com>
-Subject: Re: [PATCH v2 1/4] PCI: rockchip: limit RK3399 to 2.5 GT/s to prevent damage
-To: Dragan Simic <dsimic@manjaro.org>
-Cc: Diederik de Haas <diederik@cknow-tech.com>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Shawn Lin <shawn.lin@rock-chips.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Johan Jonker <jbx6244@gmail.com>, linux-rockchip@lists.infradead.org, 
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|SA1PR12MB8095:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0d7b1b12-71fc-4b54-3c06-08de4293cf5c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?FfGIOQyH14URNgZzvp0KfG1PHBbKMeDHkpBMBq1b6fLft2MbXrU9HhhHviZ7?=
+ =?us-ascii?Q?lgl5xMlYRG3aedouznpV846rSqfCbMXmC/uBswWj3fXMfQ5C3gjU2mywVof1?=
+ =?us-ascii?Q?JgUFzzlOY3nG42mP029e/XyxY7RCB1YLIKsf2Ajhnh3mqltuEhQXVaxDV7tD?=
+ =?us-ascii?Q?wmrp2aefHiEpfi7cBG+JhLLAMS2gr5stCJqcd2VtpY56ihAM0Vmu6yjSMZPj?=
+ =?us-ascii?Q?rYOZYfrGvGms3eO3PXrofnISNhqUmtTBHU3JHD7BqhxMMSHzLTaa8ueTIm+z?=
+ =?us-ascii?Q?Ki9JVeKm3U8bIhnp368zIzYw4PtupZOXGsnA3I3NYjR60FFYjEw/sEnrFEVc?=
+ =?us-ascii?Q?K7+f8lrCoQBQqwlZ4rnr/Dn4fp89whZz43TNk0qNjyPbt/EBZE+HeDssay++?=
+ =?us-ascii?Q?W+bGMhFZo6yWb1Ots3mdLdG/K4mDOJfVwNKRrInDgG/to7tc/pxt5fgfZEyg?=
+ =?us-ascii?Q?oYjscZP/FhLRO0J0fwq5DfHMjNDQ+wsjtRcNWa3/j4GjE2WPBc1bkjqthy0Z?=
+ =?us-ascii?Q?gDdUTTzB0rg1Ct7WKwyHXn7ag0kPtt883uGxjdX8h6uUexwWZ11Ms6VBTpVU?=
+ =?us-ascii?Q?CmKwZWRUIG7LwU91dBiCDdORZDyVw44dUz37etehgduIy6mzzyVrHnNAPJpI?=
+ =?us-ascii?Q?1QAYUMKpFzbtXFFawrQaOBKyhcxCy0+aN1muYcKRWVCx+O3eehmU5kx1a3m1?=
+ =?us-ascii?Q?t6YhGBEn5EUb/mEOUkR/3WuHfYgTzrThZvYqoSu6dFxjYzDYuPHLheMVAN7C?=
+ =?us-ascii?Q?aKO/hL4YlnmBFaLMAeHASMXYO5rxPHOifxnDLaBvfy5tWnYOusRl8acQB2U7?=
+ =?us-ascii?Q?Sd8p68j6tFcJG6QOLpgR9RUdadDs6pL+JLxtbHSFrbHyv5Pns+R5nFbPVFfi?=
+ =?us-ascii?Q?vo3pESHNUqv5t44OM7vLjRXNOZy8ujpRlgR0NcrxaUsYbz7DoMy79L6T53g8?=
+ =?us-ascii?Q?MITx6FOmupGlSa9As/lcPNBIBErQqe/1bZr95MwYlJFljPWEVEv1lnlbRJYF?=
+ =?us-ascii?Q?fTaQNWpSTjL0fdaCJgT/ccGak0gumrg9l/pqzUBOzZDnd1/eqLN590ePfBSZ?=
+ =?us-ascii?Q?DZUdEXs6+Qmievh/dH4ZQEFkOE++g7B7s90ErE2ZVwdjudcsqCJ4RDzXNLhx?=
+ =?us-ascii?Q?+kHAs50AlshMHKnnn+62VsUR6ez+4a7xD/sKRN3KyXNI7Y6Glnuk8yo5pFv5?=
+ =?us-ascii?Q?on2+lWrsBjYiYsDIQkKyeznfFvJ3q5/4WQIOsJCc03LX06aQSRBpbugB7XEz?=
+ =?us-ascii?Q?eBf2LvBfY+ok87zlaI+/zyaddoz3E8OGaDZMtu5ehyt3wvlz4VODSUMDmyGD?=
+ =?us-ascii?Q?YECauAjRmA3TAI7ItBfMxRh4mxBeJjBHxgcD1Nb2oieTpXP3vU8jfADKfdae?=
+ =?us-ascii?Q?BMYR5dKI1e5U40vTeEgfXhBdyDhHtxTe/Lu87YibrTep8B4PNpUYGTkcS/C2?=
+ =?us-ascii?Q?hY1y2dSL0o30bVL/jKgexveyi5PPaWuL?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+kxDzyl/dThwRaEXpYXkNI7XExGZdFars2UevTeolxu1Yiz9Zv7JQcC9f4/2?=
+ =?us-ascii?Q?J1WbfGzFW9mKItjtKzSbNzhKC6uV7SO2ev5b419Hd2gVRvEl/CCKtB3YL9js?=
+ =?us-ascii?Q?YOV8ggsbTqEUrF2VBIMKHtQl/oSpV64KtNl+zp56rsYGFUIPoNaZuTgJ/GHD?=
+ =?us-ascii?Q?cWDa2LeMQn65EeXLhzboPOhX5p6f+DPBsZoyfzhSK6C4KK4HFyQY5KLvtuO5?=
+ =?us-ascii?Q?Lh7kv/qwPRa/AQJ1hYcF4GTPv1O/5UCDMPqoiwxXILWch4/i0q9XeIktZODA?=
+ =?us-ascii?Q?v/tEj/EV+htVTZ/jksA0kD9dI39TAPoMvCdRQKNYYtomY3gsrPCA/kSUZXnx?=
+ =?us-ascii?Q?k6lqRM+kLRXQHtiPB9LnM4C96M5MYch/T6TN0hYabmgwbzP/OGdU2VVU5jdo?=
+ =?us-ascii?Q?OjbEJurAew3WT4+NNYduyeVeGoUKmVOOmCNf2Nb/dwE9rVtifSYGaNPqCICr?=
+ =?us-ascii?Q?dahkXAM+8jafixcjRVVdzohCxBGtNGedwphSW7Oy5tJzwbfuk+jujkSbIMfg?=
+ =?us-ascii?Q?wD6mO0iwG8uGxLUdzBWXDAPC3qV0fAuS7VLff0dCXBKGNO1mI9IP4nggpnnk?=
+ =?us-ascii?Q?AhLxHZwtE1QJXSJOFvU+Bs8A9znbbijps+vZSYhrd2WciT8WB7kK0VTzafb/?=
+ =?us-ascii?Q?f5jxkYZSARzDuoDUq1cjDkWd4jAq/F4ygvbvJE286FS43d5Sat0pfpi6fHnk?=
+ =?us-ascii?Q?LRO9B7PYxM173eFg1z/1AfCJitPQfoUTfKXk3zvA+3KGW/uYcf8YpG/zRu6H?=
+ =?us-ascii?Q?ey2jJPe6KKT+qSG24wqr1YsYjd1anD/UN2fKRmUJTjqou6BO1V6B77XRQVlr?=
+ =?us-ascii?Q?Q38lpcA43YDnDsj+ILtwO33T3B3OdHUSoEq3Y8XvyCLYiWJPr7qu8RvYU1e0?=
+ =?us-ascii?Q?n9WqR0eF61bczo/WXcD0CgdVQzfWvmsB9u1P3/ZzJIiuhaUa81uOydB+itIh?=
+ =?us-ascii?Q?1IJS0lnLfUKjEtsdmLccwn5NETr3Wq6iFsFv5iAKFjqEWqJt3vuOC27fAEic?=
+ =?us-ascii?Q?6qSPcyqnzAS364NbicyXecAJBP+dshZXZPq/DKCeM9UAN80bbR9i3Kv9GwbR?=
+ =?us-ascii?Q?sEjuJ2Zr52O7h18vV/jUtAArF5t5gIIztIEy+mHkQco7D3QaNsSCOsuZ4qKv?=
+ =?us-ascii?Q?LpvZCU5TtTFbD6pFYo7T3wObJETFNsvVnRRoy4YnqqKiiHWKEMOkOuDzQtOf?=
+ =?us-ascii?Q?Y5wREG3AWtgxpcGG9U3v1K8XskL1Pe78IZe/oaRi7CLp52rloFpRA3Cj1mQv?=
+ =?us-ascii?Q?tVvMFwAiba471RpS/qFVAyG6vw2yldirnOZmFhYbXU6uYkT0ysSO9qdht8I/?=
+ =?us-ascii?Q?R0yXwsGRg1HBxr13jwIf+VSTbQCzX+t3gtCm8jmB4yQ69iZYLGhuhI7v9z1y?=
+ =?us-ascii?Q?CIbYuY7Kv0H1fDt/zt8hi2U/DDIkl2gMubYzK3LowIG/ooJkycsNBr3jABdW?=
+ =?us-ascii?Q?/ik0LdZkoN+tQbf8AIvJQnyEZAluTs2GbgwScb4RkhaNidTUy6M6DNWQV7B6?=
+ =?us-ascii?Q?tTcUJIQ47pUaBkHvC+VdXtQByZt+TmZT436HK6tY2FE4aim2C1cv2ZQWteVx?=
+ =?us-ascii?Q?ZqwbyEvGBflRs604h5np7NBilfQkGulvM1bnuTC7PY8+5MayayyNqqIcYcpd?=
+ =?us-ascii?Q?fBfVMPkovoiao8Z+1kbM31Vg3QNzCl3Zv8E3Ngrl2pXqo5L9+Svtk8jUpjJb?=
+ =?us-ascii?Q?t26d3K5IXFHTy+XJRSKy1OKEtwOMYisyat41YDkbpAErW4p3?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0d7b1b12-71fc-4b54-3c06-08de4293cf5c
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Dec 2025 02:26:14.2322
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: CjYlyjUNBbQQd5TbjlAYcVphkB2MfhTVRNVWJpLTdWY0PTfXg+LwjlQoWivegRge
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB8095
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_182426_667453_A6E967E0 
-X-CRM114-Status: GOOD (  28.76  )
+X-CRM114-CacheID: sfid-20251223_182620_145911_04179BC2 
+X-CRM114-Status: GOOD (  17.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,100 +170,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Mani, Dragan, Diederik, and all,
-
-I'm currently facing banking issues in Brazil which means I'm
-refraining from fetching my email through POP3 with mutt to do proper
-kernel development.
-I usually fetch my mail through POP3 and have the server delete it, to
-save space on my free tier.
-But I found out I have a 20-year old bank account open that I had
-forgot about, and with this bureaucracy hell I can't have the server
-delete the messages for now.
-I'll send v3 with more proper and illustrative wording once I get this done=
-.
-
-Thanks,
-Geraldo Nascimento
-
-On Thu, Dec 18, 2025 at 7:13=E2=80=AFAM Dragan Simic <dsimic@manjaro.org> w=
-rote:
->
-> Hello Diederik,
->
-> On Thursday, December 18, 2025 11:01 CET, "Diederik de Haas" <diederik@ck=
-now-tech.com> wrote:
-> > On Thu Dec 18, 2025 at 10:47 AM CET, Dragan Simic wrote:
-> > > On Thursday, December 18, 2025 09:05 CET, Manivannan Sadhasivam <mani=
-@kernel.org> wrote:
-> > >> On Mon, Nov 17, 2025 at 06:47:05PM -0300, Geraldo Nascimento wrote:
-> > >> > Shawn Lin from Rockchip has reiterated that there may be danger in=
- using
-> > >> > their PCIe with 5.0 GT/s speeds. Warn the user if they make a DT c=
-hange
-> > >> > from the default and drive at 2.5 GT/s only, even if the DT
-> > >> > max-link-speed property is invalid or inexistent.
-> > >> >
-> > >> > This change is corroborated by RK3399 official datasheet [1], whic=
-h
-> > >> > says maximum link speed for this platform is 2.5 GT/s.
-> > >> >
-> > >> > [1] https://opensource.rock-chips.com/images/d/d7/Rockchip_RK3399_=
-Datasheet_V2.1-20200323.pdf
-> > >> >
-> > >> > Fixes: 956cd99b35a8 ("PCI: rockchip: Separate common code from RC =
-driver")
-> > >> > Link: https://lore.kernel.org/all/ffd05070-9879-4468-94e3-b88968b4=
-c21b@rock-chips.com/
-> > >> > Cc: stable@vger.kernel.org
-> > >> > Reported-by: Dragan Simic <dsimic@manjaro.org>
-> > >> > Reported-by: Shawn Lin <shawn.lin@rock-chips.com>
-> > >> > Reviewed-by: Dragan Simic <dsimic@manjaro.org>
-> > >> > Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
-> > >> > ---
-> > >> >  drivers/pci/controller/pcie-rockchip.c | 10 ++++++++--
-> > >> >  1 file changed, 8 insertions(+), 2 deletions(-)
-> > >> >
-> > >> > diff --git a/drivers/pci/controller/pcie-rockchip.c b/drivers/pci/=
-controller/pcie-rockchip.c
-> > >> > index 0f88da378805..992ccf4b139e 100644
-> > >> > --- a/drivers/pci/controller/pcie-rockchip.c
-> > >> > +++ b/drivers/pci/controller/pcie-rockchip.c
-> > >> > @@ -66,8 +66,14 @@ int rockchip_pcie_parse_dt(struct rockchip_pcie=
- *rockchip)
-> > >> >          }
-> > >> >
-> > >> >          rockchip->link_gen =3D of_pci_get_max_link_speed(node);
-> > >> > -        if (rockchip->link_gen < 0 || rockchip->link_gen > 2)
-> > >> > -                rockchip->link_gen =3D 2;
-> > >> > +        if (rockchip->link_gen < 0 || rockchip->link_gen > 2) {
-> > >> > +                rockchip->link_gen =3D 1;
-> > >> > +                dev_warn(dev, "invalid max-link-speed, set to 2.5=
- GT/s\n");
-> > >> > +        }
-> > >> > +        else if (rockchip->link_gen =3D=3D 2) {
-> > >> > +                rockchip->link_gen =3D 1;
-> > >> > +                dev_warn(dev, "5.0 GT/s is dangerous, set to 2.5 =
-GT/s\n");
-> > >>
-> > >> What does 'danger' really mean here? Link instability or something e=
-lse?
-> > >> Error messages should be precise and not fearmongering.
-> > >
-> > > I agree that the original wording is a bit suboptimal, and I'd sugges=
-t
-> > > to Geraldo that the produced warning message is changed to
-> > >
-> > >   "5.0 GT/s may cause data corruption, limited to to 2.5 GT/s\n"
-> > >
-> > > or something similar, to better reflect the actual underlying issue.
+On Fri, Dec 19, 2025 at 09:34:33PM +0100, Arnd Bergmann wrote:
+> On Fri, Dec 19, 2025, at 18:14, Jason Gunthorpe wrote:
+> > On Fri, Dec 19, 2025 at 05:15:58PM +0100, Arnd Bergmann wrote:
+> >>  arch/arm/Kconfig                    |  1 +
+> >>  arch/arm/configs/gemini_defconfig   |  1 -
+> >>  arch/arm/configs/multi_v5_defconfig |  1 -
+> >>  arch/arm/configs/mvebu_v5_defconfig |  1 -
+> >>  arch/arm/include/asm/highmem.h      | 56 ++---------------------------
+> >>  arch/arm/mm/cache-feroceon-l2.c     | 31 ++--------------
+> >>  arch/arm/mm/cache-xsc3l2.c          | 47 +++---------------------
+> >>  arch/arm/mm/dma-mapping.c           | 12 ++-----
+> >>  arch/arm/mm/flush.c                 | 19 +++-------
+> >>  9 files changed, 16 insertions(+), 153 deletions(-)
 > >
-> > s/limited to to/therefore limit speed to/ ?
->
-> That would work well in a book or an article, while slightly terse
-> wording is usually preferred in the messages produced by the kernel,
-> or in log messages in general.  Such an approach compacts as much
-> information as possible in as few words as possible, while still
-> remaining (mostly) grammatically correct.
->
+> > This looks great, but do you think there should be a boot time crash
+> > if a VIVT and HIGHMEM are enabled, just incase?
+> 
+> Do you mean in the common code or just for Arm?
+> 
+> We could use the Arm specific cache_is_vivt() macro, but it feels like
+> the 'dpends on !CPU_CACHE_VIVT' Kconfig check I added is both
+> safer and simpler.
+
+Okay, so maybe I'm asking if !CPU_CACHE_VIVT then the kernel fails to
+boot on vivt systems, maybe it already does?
+
+It would be ARM specific, all this stuff is only for ARM32..
+
+Jason
 
