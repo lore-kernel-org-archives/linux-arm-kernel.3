@@ -4,58 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB45DE75458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 13:25:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52966E7544B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 13:32:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1zYKtm0NA2ZP4ktq0x+0ajoxRw0Z/JYH22EVb2Qabus=; b=UIMh7kIU1t4iy8nKWGBNoiYefp
-	0A7wXy9O1v56U1fzqj1R6Jvfhkk2WWxrC9fggxiEq7mNyixILvXwz+Jfsk5Qcc3EMbytnfte4GFr3
-	LqJmXZXblJS4bQ/isD/MPxvfECa3/b0Z3F8EZzkW5kZV1FUVkL8i9io6yMgICyiR3TsURGsf4eSiG
-	iLhggfoGn6Sa7faEPJLw+AoPMLqekebJ0Q630p4ENOCzk1a+IsiQUHaMPgnWt7uz2+bpUyL/jLy1y
-	O7AVEdYzscZ7UkSOpHGeKu4npUCEMS40SOeHG3ao3hjwMQyRE897j+fDUUGQhRp82RfaSVVT3Kwrl
-	cus5IOug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:To:From:
+	Subject:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xbu83KDb8EzV5fBCpVF9Ofv9QvuINTQfWgSaYI2v7SA=; b=N+GNhvLw1Zq9EbJTAEc5AVD3Cs
+	tQA2WOR4871sZ1rr9WFPNTO6wN8/oR8VN1BUps/St+m2x4Gdh8nwD/oeH2UygWTYBFA1NO834Pggp
+	yycPlq7jPyzmxxdLZ6XzmgVf+65ZNwIEKrW4+JQJyrX+hF/eUxxuEaFJMQWAyyj2ehQEIN2PKIny5
+	FV5sVYdFFID2X38oCcD5ghlfM+8026DTgaETKJef2i011yJ5S1knQ3To/uqTkiK8be/SSdUdTJ4Hk
+	N0etnyn5JXlsyfsTwCQLVLYyydv5Rtl4H5Dprzbs7dscHVzojth4cPAPHgyzQRqGITpv4ofvmEPHe
+	XS52YFmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYOrG-0000000GqKj-3y73;
-	Wed, 24 Dec 2025 13:24:54 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYOrD-0000000GqIz-3rrJ
+	id 1vYOyZ-0000000GqtE-2S57;
+	Wed, 24 Dec 2025 13:32:27 +0000
+Received: from aposti.net ([185.119.170.32])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vYOyL-0000000Gqso-0Dss
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Dec 2025 13:24:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 94491339;
-	Wed, 24 Dec 2025 05:24:36 -0800 (PST)
-Received: from [10.57.93.190] (unknown [10.57.93.190])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 02CC03F694;
-	Wed, 24 Dec 2025 05:24:40 -0800 (PST)
-Message-ID: <ec49f0fe-9df8-4762-b315-240cbb1ed3ce@arm.com>
-Date: Wed, 24 Dec 2025 13:24:39 +0000
+	Wed, 24 Dec 2025 13:32:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=crapouillou.net;
+	s=mail; t=1766583118;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=xbu83KDb8EzV5fBCpVF9Ofv9QvuINTQfWgSaYI2v7SA=;
+	b=DEHZIvg4Ki+CGC9dPeVP65atqr2lD/HbbCKx2IgDAZyJ++LHBm6mGdJpLvqm1yVa6wvdCo
+	e33UpVsAOyw6MNZnD9cFpL+K1heqU7rD5VAIJijN9F4mwjYwoixKdfDqpvXni9X7q/WsRp
+	D55qOu5YZ0UXQidG7niJggEcy9NMSOc=
+Message-ID: <e661a947f0cefb1651dcd3f7f57855313ad9fd7a.camel@crapouillou.net>
+Subject: Re: [PATCH 3/4] mmc: jz4740: Fix Wvoid-pointer-to-enum-cast warning
+From: Paul Cercueil <paul@crapouillou.net>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, Aubin
+ Constans <aubin.constans@microchip.com>, Ulf Hansson
+ <ulf.hansson@linaro.org>, Nicolas Ferre	 <nicolas.ferre@microchip.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,  Claudiu Beznea
+ <claudiu.beznea@tuxon.dev>, Robert Richter <rric@kernel.org>, Andrew
+ Jeffery	 <andrew@codeconstruct.com.au>, Adrian Hunter
+ <adrian.hunter@intel.com>, Joel Stanley <joel@jms.id.au>, Nathan Chancellor
+ <nathan@kernel.org>, Nick Desaulniers	 <nick.desaulniers+lkml@gmail.com>,
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ linux-mmc@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, 	linux-mips@vger.kernel.org,
+ linux-aspeed@lists.ozlabs.org, 	openbmc@lists.ozlabs.org,
+ llvm@lists.linux.dev
+Date: Wed, 24 Dec 2025 14:30:56 +0100
+In-Reply-To: <20251224124431.208434-7-krzysztof.kozlowski@oss.qualcomm.com>
+References: <20251224124431.208434-5-krzysztof.kozlowski@oss.qualcomm.com>
+	 <20251224124431.208434-7-krzysztof.kozlowski@oss.qualcomm.com>
+Autocrypt: addr=paul@crapouillou.net; prefer-encrypt=mutual;
+ keydata=mQENBF0KhcEBCADkfmrzdTOp/gFOMQX0QwKE2WgeCJiHPWkpEuPH81/HB2dpjPZNW03ZM
+ LQfECbbaEkdbN4YnPfXgcc1uBe5mwOAPV1MBlaZcEt4M67iYQwSNrP7maPS3IaQJ18ES8JJ5Uf5Uz
+ FZaUawgH+oipYGW+v31cX6L3k+dGsPRM0Pyo0sQt52fsopNPZ9iag0iY7dGNuKenaEqkYNjwEgTtN
+ z8dt6s3hMpHIKZFL3OhAGi88wF/21isv0zkF4J0wlf9gYUTEEY3Eulx80PTVqGIcHZzfavlWIdzhe
+ +rxHTDGVwseR2Y1WjgFGQ2F+vXetAB8NEeygXee+i9nY5qt9c07m8mzjABEBAAG0JFBhdWwgQ2VyY
+ 3VlaWwgPHBhdWxAY3JhcG91aWxsb3UubmV0PokBTgQTAQoAOBYhBNdHYd8OeCBwpMuVxnPua9InSr
+ 1BBQJdCoXBAhsDBQsJCAcCBhUKCQgLAgQWAgMBAh4BAheAAAoJEHPua9InSr1BgvIH/0kLyrI3V0f
+ 33a6D3BJwc1grbygPVYGuC5l5eMnAI+rDmLR19E2yvibRpgUc87NmPEQPpbbtAZt8On/2WZoE5OIP
+ dlId/AHNpdgAtGXo0ZX4LGeVPjxjdkbrKVHxbcdcnY+zzaFglpbVSvp76pxqgVg8PgxkAAeeJV+ET
+ 4t0823Gz2HzCL/6JZhvKAEtHVulOWoBh368SYdolp1TSfORWmHzvQiCCCA+j0cMkYVGzIQzEQhX7U
+ rf9N/nhU5/SGLFEi9DcBfXoGzhyQyLXflhJtKm3XGB1K/pPulbKaPcKAl6rIDWPuFpHkSbmZ9r4KF
+ lBwgAhlGy6nqP7O3u7q23hRU=
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/5] mm: rmap: support batched checks of the references
- for large folios
-Content-Language: en-GB
-To: Baolin Wang <baolin.wang@linux.alibaba.com>, akpm@linux-foundation.org,
- david@kernel.org, catalin.marinas@arm.com, will@kernel.org
-Cc: lorenzo.stoakes@oracle.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
- rppt@kernel.org, surenb@google.com, mhocko@suse.com, riel@surriel.com,
- harry.yoo@oracle.com, jannh@google.com, willy@infradead.org,
- baohua@kernel.org, dev.jain@arm.com, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <cover.1766455377.git.baolin.wang@linux.alibaba.com>
- <e9ff5fa689740f3b6f3ed1c1ec0e3244f20c1f06.1766455378.git.baolin.wang@linux.alibaba.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <e9ff5fa689740f3b6f3ed1c1ec0e3244f20c1f06.1766455378.git.baolin.wang@linux.alibaba.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251224_052452_154557_8E38C52E 
-X-CRM114-Status: GOOD (  32.75  )
+X-CRM114-CacheID: sfid-20251224_053221_216185_BED81B67 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,184 +90,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 23/12/2025 05:48, Baolin Wang wrote:
-> Currently, folio_referenced_one() always checks the young flag for each PTE
-> sequentially, which is inefficient for large folios. This inefficiency is
-> especially noticeable when reclaiming clean file-backed large folios, where
-> folio_referenced() is observed as a significant performance hotspot.
-> 
-> Moreover, on Arm64 architecture, which supports contiguous PTEs, there is already
-> an optimization to clear the young flags for PTEs within a contiguous range.
-> However, this is not sufficient. We can extend this to perform batched operations
-> for the entire large folio (which might exceed the contiguous range: CONT_PTE_SIZE).
-> 
-> Introduce a new API: clear_flush_young_ptes() to facilitate batched checking
-> of the young flags and flushing TLB entries, thereby improving performance
-> during large folio reclamation. And it will be overridden by the architecture
-> that implements a more efficient batch operation in the following patches.
-> 
-> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+Hi Krzysztof,
 
-With the 2 niggles below addressed:
+Le mercredi 24 d=C3=A9cembre 2025 =C3=A0 13:44 +0100, Krzysztof Kozlowski a
+=C3=A9crit=C2=A0:
+> "jz4740" is an enum, thus cast of pointer on 64-bit compile test with
+> clang W=3D1 causes:
+>=20
+> =C2=A0 jz4740_mmc.c:1055:18: error: cast to smaller integer type 'enum
+> jz4740_mmc_version' from 'const void *' [-Werror,-Wvoid-pointer-to-
+> enum-cast]
+>=20
+> Signed-off-by: Krzysztof Kozlowski
+> <krzysztof.kozlowski@oss.qualcomm.com>
 
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+Reviewed-by: Paul Cercueil <paul@crapouillou.net>
+
+Cheers,
+-Paul
 
 > ---
->  include/linux/mmu_notifier.h |  9 +++++----
->  include/linux/pgtable.h      | 35 +++++++++++++++++++++++++++++++++++
->  mm/rmap.c                    | 29 +++++++++++++++++++++++++++--
->  3 files changed, 67 insertions(+), 6 deletions(-)
-> 
-> diff --git a/include/linux/mmu_notifier.h b/include/linux/mmu_notifier.h
-> index d1094c2d5fb6..dbbdcef4abf1 100644
-> --- a/include/linux/mmu_notifier.h
-> +++ b/include/linux/mmu_notifier.h
-> @@ -515,16 +515,17 @@ static inline void mmu_notifier_range_init_owner(
->  	range->owner = owner;
->  }
->  
-> -#define ptep_clear_flush_young_notify(__vma, __address, __ptep)		\
-> +#define ptep_clear_flush_young_notify(__vma, __address, __ptep, __nr)	\
-
-I think I previously suggested that this should be renamed to
-clear_flush_young_ptes_notify() given that it is now a batch operation. Were
-others against that or did you forget?
-
->  ({									\
->  	int __young;							\
->  	struct vm_area_struct *___vma = __vma;				\
->  	unsigned long ___address = __address;				\
-> -	__young = ptep_clear_flush_young(___vma, ___address, __ptep);	\
-> +	unsigned int ___nr = __nr;					\
-> +	__young = clear_flush_young_ptes(___vma, ___address, __ptep, ___nr);	\
->  	__young |= mmu_notifier_clear_flush_young(___vma->vm_mm,	\
->  						  ___address,		\
->  						  ___address +		\
-> -							PAGE_SIZE);	\
-> +						  ___nr * PAGE_SIZE);	\
->  	__young;							\
->  })
->  
-> @@ -650,7 +651,7 @@ static inline void mmu_notifier_subscriptions_destroy(struct mm_struct *mm)
->  
->  #define mmu_notifier_range_update_to_read_only(r) false
->  
-> -#define ptep_clear_flush_young_notify ptep_clear_flush_young
-> +#define ptep_clear_flush_young_notify clear_flush_young_ptes
->  #define pmdp_clear_flush_young_notify pmdp_clear_flush_young
->  #define ptep_clear_young_notify ptep_test_and_clear_young
->  #define pmdp_clear_young_notify pmdp_test_and_clear_young
-> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-> index 2f0dd3a4ace1..fcf7a7820061 100644
-> --- a/include/linux/pgtable.h
-> +++ b/include/linux/pgtable.h
-> @@ -1087,6 +1087,41 @@ static inline void wrprotect_ptes(struct mm_struct *mm, unsigned long addr,
->  }
->  #endif
->  
-> +#ifndef clear_flush_young_ptes
-> +/**
-> + * clear_flush_young_ptes - Clear the access bit and perform a TLB flush for PTEs
-> + *			    that map consecutive pages of the same folio.
-> + * @vma: The virtual memory area the pages are mapped into.
-> + * @addr: Address the first page is mapped at.
-> + * @ptep: Page table pointer for the first entry.
-> + * @nr: Number of entries to clear access bit.
-> + *
-> + * May be overridden by the architecture; otherwise, implemented as a simple
-> + * loop over ptep_clear_flush_young().
-> + *
-> + * Note that PTE bits in the PTE range besides the PFN can differ. For example,
-> + * some PTEs might be write-protected.
-> + *
-> + * Context: The caller holds the page table lock.  The PTEs map consecutive
-> + * pages that belong to the same folio.  The PTEs are all in the same PMD.
-> + */
-> +static inline int clear_flush_young_ptes(struct vm_area_struct *vma,
-> +					 unsigned long addr, pte_t *ptep,
-> +					 unsigned int nr)
-> +{
-> +	int young;
-> +
-> +	young = ptep_clear_flush_young(vma, addr, ptep);
-> +	while (--nr) {
-> +		ptep++;
-> +		addr += PAGE_SIZE;
-> +		young |= ptep_clear_flush_young(vma, addr, ptep);
-> +	}
-
-I think it's better to avoid the two ptep_clear_flush_young() calls if we can.
-Personally I think we should just go for the simple:
-
-	for (i = 0; i < nr; ++i, ++ptep, addr += PAGE_SIZE)
-		young |= ptep_clear_flush_young(vma, addr, ptep);
-
-> +
-> +	return young;
-> +}
-> +#endif
-> +
->  /*
->   * On some architectures hardware does not set page access bit when accessing
->   * memory page, it is responsibility of software setting this bit. It brings
-> diff --git a/mm/rmap.c b/mm/rmap.c
-> index d6799afe1114..a0fc05f5966f 100644
-> --- a/mm/rmap.c
-> +++ b/mm/rmap.c
-> @@ -827,9 +827,11 @@ static bool folio_referenced_one(struct folio *folio,
->  	struct folio_referenced_arg *pra = arg;
->  	DEFINE_FOLIO_VMA_WALK(pvmw, folio, vma, address, 0);
->  	int ptes = 0, referenced = 0;
-> +	unsigned int nr;
->  
->  	while (page_vma_mapped_walk(&pvmw)) {
->  		address = pvmw.address;
-> +		nr = 1;
->  
->  		if (vma->vm_flags & VM_LOCKED) {
->  			ptes++;
-> @@ -874,9 +876,24 @@ static bool folio_referenced_one(struct folio *folio,
->  			if (lru_gen_look_around(&pvmw))
->  				referenced++;
->  		} else if (pvmw.pte) {
-> +			if (folio_test_large(folio)) {
-> +				unsigned long end_addr =
-> +					pmd_addr_end(address, vma->vm_end);
-> +				unsigned int max_nr =
-> +					(end_addr - address) >> PAGE_SHIFT;
-> +				pte_t pteval = ptep_get(pvmw.pte);
-> +
-> +				nr = folio_pte_batch(folio, pvmw.pte,
-> +						     pteval, max_nr);
-> +			}
-> +
-> +			ptes += nr;
->  			if (ptep_clear_flush_young_notify(vma, address,
-> -						pvmw.pte))
-> +						pvmw.pte, nr))
->  				referenced++;
-> +			/* Skip the batched PTEs */
-> +			pvmw.pte += nr - 1;
-> +			pvmw.address += (nr - 1) * PAGE_SIZE;
->  		} else if (IS_ENABLED(CONFIG_TRANSPARENT_HUGEPAGE)) {
->  			if (pmdp_clear_flush_young_notify(vma, address,
->  						pvmw.pmd))
-> @@ -886,7 +903,15 @@ static bool folio_referenced_one(struct folio *folio,
->  			WARN_ON_ONCE(1);
->  		}
->  
-> -		pra->mapcount--;
-> +		pra->mapcount -= nr;
-> +		/*
-> +		 * If we are sure that we batched the entire folio,
-> +		 * we can just optimize and stop right here.
-> +		 */
-> +		if (ptes == pvmw.nr_pages) {
-> +			page_vma_mapped_walk_done(&pvmw);
-> +			break;
-> +		}
->  	}
->  
->  	if (referenced)
-
+> =C2=A0drivers/mmc/host/jz4740_mmc.c | 2 +-
+> =C2=A01 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/mmc/host/jz4740_mmc.c
+> b/drivers/mmc/host/jz4740_mmc.c
+> index 6a0d0250d47b..6a3c26b7c82d 100644
+> --- a/drivers/mmc/host/jz4740_mmc.c
+> +++ b/drivers/mmc/host/jz4740_mmc.c
+> @@ -1052,7 +1052,7 @@ static int jz4740_mmc_probe(struct
+> platform_device* pdev)
+> =C2=A0	host =3D mmc_priv(mmc);
+> =C2=A0
+> =C2=A0	/* Default if no match is JZ4740 */
+> -	host->version =3D (enum
+> jz4740_mmc_version)device_get_match_data(&pdev->dev);
+> +	host->version =3D (unsigned long)device_get_match_data(&pdev-
+> >dev);
+> =C2=A0
+> =C2=A0	ret =3D mmc_of_parse(mmc);
+> =C2=A0	if (ret)
 
