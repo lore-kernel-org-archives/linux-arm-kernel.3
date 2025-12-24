@@ -4,79 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C96D0E75448
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 10:43:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4E70E75448
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 10:54:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=55Wdlxhr6LRYHaQsgdonHzFOxbh0VPJ42HcRCsxXoWA=; b=I3h7qv7lyVRlSEsjBpV4jOT5xh
-	UTbZJNurwApkSRnbnDUCACFUI88FnMo6NFWtxo97rohEXneCy/qb8RcNfTRcYgWbAIuLJO0eLW48Y
-	ZDuweel8OpeK1bh3SNdeRpw1/barjXe0DSASfQM4YWga6D4ujGsLCpKp1hAU1WV9AHXFTuSbBUhcX
-	sAY3QdheyGOPJd9DYy4o0bSe5TVFzQqwG0z3/KtTdEPqv45rN/Cup0U19dPG+e4KZjVLUCgsSgsy7
-	WGaFs+mqin0VGETlP564T/AU1MLxzyClFtrZMwfsNXix+aUeGSvTogCZQ/6KwxUb4nwlMz1yAX+Tp
-	pNsXDU8w==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zj162aZxQBEU+UIjJS9+a4lH3G+iwLeQyL/18BsRVfw=; b=RfHWVL+pf+4nFIEdgyuE5PwoAU
+	zNvxilNfFs1PkmLCisV6T+erEPayPV5ahkP+6nLoJUI2GhTzYcBTVLml5p6c1y6rkJ7qYBB2Sa2+Q
+	eDUwsXQ6RlUHrXCs1Fa43rZd3A80XUVnY7Kf2igdrwfu+djvdrmlxzsE6ie79fVgzIllbIsCTiX5d
+	eBALEysMc0fBeiFIiRkp1cLVSqJWEp/VVZA/6rEluPQj4l92o9ZsFLRQToQDBj9jWaS80FOioOStE
+	SC2WzFtgq9HUlm3vCUbwhWilDianLMAAfwW4EEOxL03n1s3qtKcgXyYjm9+2GQtWkZsC1O9mUcUrN
+	YUF3LA9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYMKX-0000000Ghkz-2F2L;
-	Wed, 24 Dec 2025 10:42:57 +0000
-Received: from www3141.sakura.ne.jp ([49.212.207.181])
+	id 1vYMVk-0000000GiGq-2y9B;
+	Wed, 24 Dec 2025 10:54:32 +0000
+Received: from out30-98.freemail.mail.aliyun.com ([115.124.30.98])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYMKU-0000000GhkX-1YKQ
+	id 1vYMVh-0000000GiGA-1Dvk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Dec 2025 10:42:56 +0000
-Received: from www.redadmin.org (bc043154.ppp.asahi-net.or.jp [222.228.43.154])
-	(authenticated bits=0)
-	by www3141.sakura.ne.jp (8.16.1/8.16.1) with ESMTPSA id 5BO8cq3U007035
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Wed, 24 Dec 2025 17:38:52 +0900 (JST)
-	(envelope-from weibu@redadmin.org)
-Received: from localhost (localhost [127.0.0.1])
-	by www.redadmin.org (Postfix) with ESMTP id C4441109D5746;
-	Wed, 24 Dec 2025 17:38:51 +0900 (JST)
-X-Virus-Scanned: amavis at redadmin.org
-Received: from www.redadmin.org ([127.0.0.1])
- by localhost (redadmin.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id pOYzVlgpNVHq; Wed, 24 Dec 2025 17:38:47 +0900 (JST)
-Received: by www.redadmin.org (Postfix, from userid 1000)
-	id 8874910A0ECCF; Wed, 24 Dec 2025 17:38:47 +0900 (JST)
-Authentication-Results: www.redadmin.org; arc=none smtp.remote-ip=127.0.0.1
-ARC-Seal: i=1; a=rsa-sha256; d=redadmin.org; s=20231208space; t=1766565527;
-	cv=none; b=gzgMwxS0W8KiSRcwpjGyWYl9uHWSmex6mi7qhb/VcYSN42rLkbn/KW+1zx1FBUlPGm18FXA4GQPrFMQG0HOs0492neUW6GPQ63cIn+sA5WwES3unYsmPtOoxpp322GGw/xSB9AzVcsYqY5sSnSxJm85ylou6ORQx4DgPIkgVAXI=
-ARC-Message-Signature: i=1; a=rsa-sha256; d=redadmin.org; s=20231208space;
-	t=1766565527; c=relaxed/relaxed;
-	bh=55Wdlxhr6LRYHaQsgdonHzFOxbh0VPJ42HcRCsxXoWA=;
-	h=DKIM-Filter:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding; b=BCPNHvQwYypZlGR9D9qFIdmE2/FwFiEYOipg55d/jvQL7RBN7kVwfzL3kfcQQCi7YgJIR2F45lFilGgNsh6czrydO3wTLqNOToA0SB4Qs2CzmD5lKXErHWEKVZPsb/qfqz2HfyKdO9070RGFwh4pFzLLToHS5njdaMqyVot5Q+U=
-ARC-Authentication-Results: i=1; www.redadmin.org
-DKIM-Filter: OpenDKIM Filter v2.11.0 www.redadmin.org 8874910A0ECCF
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redadmin.org;
-	s=20231208space; t=1766565527;
-	bh=55Wdlxhr6LRYHaQsgdonHzFOxbh0VPJ42HcRCsxXoWA=;
-	h=From:To:Cc:Subject:Date:From;
-	b=dildJhKGDsFhkveq50tYibePfrP+nFZutqRS2kMXGNw6oO3sqREtQiZYTxDUxWqQZ
-	 +RTPh3MrGJiG/cKuKIH6hr8e8xUjYljCw6mqcijSimqa7G0bwdSAC2Xz57S1A4+fZv
-	 sDt/UWSBzUswPLoKJqdBWCB5hVmqQm+yuhonR8Dk=
-From: Akiyoshi Kurita <weibu@redadmin.org>
-To: Rob Herring <robh@kernel.org>
-Cc: Guenter Roeck <linux@roeck-us.net>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-        Andrew Jeffery <andrew@codeconstruct.com.au>,
-        linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
-        linux-kernel@vger.kernel.org, Akiyoshi Kurita <weibu@redadmin.org>
-Subject: [PATCH] docs: dt-bindings: hwmon: aspeed-pwm-tacho: fix typos
-Date: Wed, 24 Dec 2025 17:38:45 +0900
-Message-ID: <20251224083845.2727976-1-weibu@redadmin.org>
+	Wed, 24 Dec 2025 10:54:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1766573661; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=zj162aZxQBEU+UIjJS9+a4lH3G+iwLeQyL/18BsRVfw=;
+	b=Ft9NHhxYr/yQgVA/Tm+jTK9Egkc5lsdu2kntgcFfW2aVq7VL4ekoChUEMxyjA1+ysUPiyJuEe11HubKOHy7wbtyLDeDD0CTFkxQE5bJxziTRQzQRQubNAJmhe4P8GTE/0eo+ZRGo+RVq8yG/R8Jo8SQYMSW8puY4GmFNzfyqpWc=
+Received: from localhost(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0Wvb6GVT_1766573657 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 24 Dec 2025 18:54:18 +0800
+From: Baolin Wang <baolin.wang@linux.alibaba.com>
+To: baolin.wang@linux.alibaba.com
+Cc: Liam.Howlett@oracle.com,
+	akpm@linux-foundation.org,
+	baohua@kernel.org,
+	catalin.marinas@arm.com,
+	david@kernel.org,
+	dev.jain@arm.com,
+	harry.yoo@oracle.com,
+	jannh@google.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org,
+	lorenzo.stoakes@oracle.com,
+	mhocko@suse.com,
+	riel@surriel.com,
+	rppt@kernel.org,
+	ryan.roberts@arm.com,
+	surenb@google.com,
+	vbabka@suse.cz,
+	will@kernel.org,
+	willy@infradead.org
+Subject: [PATCH] arm64: mm: fix passing the incorrect 'CONT_PTES' for non-batched APIs
+Date: Wed, 24 Dec 2025 18:54:07 +0800
+Message-ID: <38f3d9fbd486bdd75874a833a24a8c704b6b5a95.1766573044.git.baolin.wang@linux.alibaba.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <3b427d9010a6d52f2b91342760f12be097d21cf6.1766455378.git.baolin.wang@linux.alibaba.com>
+References: <3b427d9010a6d52f2b91342760f12be097d21cf6.1766455378.git.baolin.wang@linux.alibaba.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251224_024254_946832_449E4F21 
-X-CRM114-Status: GOOD (  10.56  )
+X-CRM114-CacheID: sfid-20251224_025430_000599_D2F45D8D 
+X-CRM114-Status: GOOD (  10.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,43 +82,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix "upto" -> "up to" occurrences and add missing "be" in one sentence.
+Since contpte_test_and_clear_young_ptes() and contpte_clear_flush_young_ptes
+have  already performed CONT_PTE_SIZE alignment and will clear the young flag
+for the entire cont block, Their non-batched callers do not need to pass in
+'CONT_PTES' to specify the cont block range. Otherwise, it may exceed the
+range of a single cont block for the non-batched cases.
 
-Signed-off-by: Akiyoshi Kurita <weibu@redadmin.org>
+Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
 ---
- .../devicetree/bindings/hwmon/aspeed-pwm-tacho.txt        | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+Hi Andrew,
 
-diff --git a/Documentation/devicetree/bindings/hwmon/aspeed-pwm-tacho.txt b=
-/Documentation/devicetree/bindings/hwmon/aspeed-pwm-tacho.txt
-index 8645cd3b867a..d1db4adb2df7 100644
---- a/Documentation/devicetree/bindings/hwmon/aspeed-pwm-tacho.txt
-+++ b/Documentation/devicetree/bindings/hwmon/aspeed-pwm-tacho.txt
-@@ -1,9 +1,9 @@
- ASPEED AST2400/AST2500 PWM and Fan Tacho controller device driver
-=20
--The ASPEED PWM controller can support upto 8 PWM outputs. The ASPEED Fan T=
-acho
--controller can support upto 16 Fan tachometer inputs.
-+The ASPEED PWM controller can support up to 8 PWM outputs. The ASPEED Fan =
-Tacho
-+controller can support up to 16 Fan tachometer inputs.
-=20
--There can be upto 8 fans supported. Each fan can have one PWM output and
-+There can be up to 8 fans supported. Each fan can have one PWM output and
- one/two Fan tach inputs.
-=20
- Required properties for pwm-tacho node:
-@@ -28,7 +28,7 @@ Required properties for pwm-tacho node:
-=20
- fan subnode format:
- =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
--Under fan subnode there can upto 8 child nodes, with each child node
-+Under fan subnode there can be up to 8 child nodes, with each child node
- representing a fan. If there are 8 fans each fan can have one PWM port and
- one/two Fan tach inputs.
- For PWM port can be configured cooling-levels to create cooling device.
---=20
+As I conducted more tests, I found that the ptep_test_and_clear_young() operation
+may clear the young flag beyond a single cont block range, causing issues.
+Please fold this fixup into this patch to solve this issue. Thanks.
+---
+ arch/arm64/include/asm/pgtable.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index d5fbe72e820a..5e9ff16146c3 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -1823,7 +1823,7 @@ static inline int ptep_test_and_clear_young(struct vm_area_struct *vma,
+ 	if (likely(!pte_valid_cont(orig_pte)))
+ 		return __ptep_test_and_clear_young(vma, addr, ptep);
+ 
+-	return contpte_test_and_clear_young_ptes(vma, addr, ptep, CONT_PTES);
++	return contpte_test_and_clear_young_ptes(vma, addr, ptep, 1);
+ }
+ 
+ #define __HAVE_ARCH_PTEP_CLEAR_YOUNG_FLUSH
+@@ -1835,7 +1835,7 @@ static inline int ptep_clear_flush_young(struct vm_area_struct *vma,
+ 	if (likely(!pte_valid_cont(orig_pte)))
+ 		return __ptep_clear_flush_young(vma, addr, ptep);
+ 
+-	return contpte_clear_flush_young_ptes(vma, addr, ptep, CONT_PTES);
++	return contpte_clear_flush_young_ptes(vma, addr, ptep, 1);
+ }
+ 
+ #define wrprotect_ptes wrprotect_ptes
+-- 
 2.47.3
 
 
