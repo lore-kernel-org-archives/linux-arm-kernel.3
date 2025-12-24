@@ -4,84 +4,215 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7382FE74905
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 02:19:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6126CE6B279
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 02:20:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lGNkmI7lLA5friw2z8LCkR6AnSqW06UEW2HMkj70PRU=; b=Z5Mv4iGqA9HpMQR6aiOOStfFJz
-	/w8LPmhDnhDLjLhofb/lVGI1AkbAWBm3jHoHSMSse5BYY8ivEUOWWA2YzuZ7F0QJcr00zvW1gZCv1
-	IUbuQmeamJQL7r8xjpYfCi61CPa4AXD55WOhnZJOmLqd0JJzjcYk4PppSM1mpaRYQTtVi2hwC72Ra
-	MBIGg7Rj1eJwgJ89lMNVeuYY4YpuWtCunR/bvtddiCqtKxf55BGph9VznJp1sqwj5cqn8eHCC/hAF
-	JZjL46kUke5jxRDXIzxcbXFTrW3km7vjAKca0J7yGsS6sf6D1S8e1gBaUtBJQZHjOEKlD1a349Vzx
-	UPyqwxWw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3qtwzFg59I7gZD6ia/CZdyX0vt7aFxDbQdhn8SIUigs=; b=wBGc5qGep9h8+e9hb1Lb28DulE
+	n51lQ+uhWTWQYep3QZzzrTtT3B0OX29Mdnr5aPQx9tISRtWol3A9y7cEKaBl5D5RKvQTWbWZ6nhvw
+	Uzl9U5JizJtq/X8OVDLrqo/U9AGB84qivVr2QpxebOsQIwUtpkFnzdzMBbJzwmJW5MG2TTUVpQ9P3
+	Uljj2mkKRynzLyyXhTCpAqnR+5WpqKaor3zjfpI1FUKYtqtGLYxHB1ESxeKMbp7MNc5HV70Ryzm2q
+	vZJ6qWliCjwsNYNDrV9Vv+B/vtxmS7ZX2PlwTOTuLS00/gEOXFBYtQVCXS0O3Nhkl2SbOoGRcLksL
+	AlYjbQ3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYETg-0000000GJ1e-3Lky;
-	Wed, 24 Dec 2025 02:19:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vYEUJ-0000000GJCH-05Le;
+	Wed, 24 Dec 2025 02:20:31 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYETe-0000000GJ0x-3Jn2;
-	Wed, 24 Dec 2025 02:19:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6AD1540BA9;
-	Wed, 24 Dec 2025 02:19:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 3FC31C113D0;
-	Wed, 24 Dec 2025 02:19:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766542789;
-	bh=jFjY83/tq6vO4+ip+94yK8xiJZpXbCXttEYX8/RAqLM=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=AgvazgmdrmAxLc8vZbTwceZAiRLDAL2iQ23Y8cbC8FcbpQL8Z2npAZteI0JB+RhMa
-	 J8WX6i2D4yh9m+cijnv1poPlwfMtvKnoSZXX/UzzjW59K8xSaSzPnFgUyBGeiAS2Fu
-	 zgh8by5xioBumPiRgc3J2t0edFFnzV9b9kV93Wym5ha195Kp2LHAwPUu41BspGhBIF
-	 qqiYIkATGpNtsjge5HpgtceaCMTWqBNI7nyJ9aUwUg0xT/YZT8sjXvN59fP8xhm6XP
-	 y01twwDWR+SaWq416hPFBdmn5QgZ6L1U4unayL5ClRUbNwODAoWoj/xKTN7MofbD0l
-	 /HP751m0UkVjA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 28E77E6B279;
-	Wed, 24 Dec 2025 02:19:49 +0000 (UTC)
-From: Shimin Guo via B4 Relay <devnull+shimin.guo.skydio.com@kernel.org>
-Date: Tue, 23 Dec 2025 18:19:20 -0800
-Subject: [PATCH] perf unwind-libdw: fix a cross-arch unwinding bug
-MIME-Version: 1.0
+	id 1vYEUG-0000000GJAv-2n3x;
+	Wed, 24 Dec 2025 02:20:29 +0000
+X-UUID: 1b68a2a6e06f11f08b17dd397dc63300-20251223
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=3qtwzFg59I7gZD6ia/CZdyX0vt7aFxDbQdhn8SIUigs=;
+	b=hb54VVBd+CaFfZR+wHBjmsozBdISzliHflc/SicxMm2ADAeJFYg5CS5aC2WphJm6A3qN/CXjK5ENqNNYS/Stb5vQBl1pgWtfRNvfyjIX32Ep6fEoD8FLWR4EoldaJETs+pXP+lJrHFjNqHGgElRJf/tSRfXk/Ifn42kLfsL5Dbg=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.9,REQID:d5ef81f5-9a05-47f8-b498-59048312861b,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:5047765,CLOUDID:850b1b03-1fa9-44eb-b231-4afc61466396,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|888|898,
+	TC:-5,Content:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BE
+	C:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 1b68a2a6e06f11f08b17dd397dc63300-20251223
+Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw02.mediatek.com
+	(envelope-from <macpaul.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 385777626; Tue, 23 Dec 2025 19:20:25 -0700
+Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
+ mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Wed, 24 Dec 2025 10:20:22 +0800
+Received: from SG2PR04CU010.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Wed, 24 Dec 2025 10:20:21 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QJaToZKnmnhNFKEVMewqnsXd9ubVipUNeogfEBGbch8kZht9S0NrjubfjHxWAi4JuIidfAJqaGmLnYNey6juUapKqq3g4FlkGK8zqhdCEd47rNS8aWLPk0NRbGwueMEPdkS1Jx8TekkVtoR5pS10ehaynhFUIgNJiLqnP4Yq/ItV8cvvczAKp8sMXwheK7Dfbmlr5kDG31BiUfcQE0yx3DO+G+s5E603wbnm29o9cae90SMnRwWi/o6e7/5yFjGleSMl42p0mELMacM/O8Pttlhu9amGfbSg/BOxQBbSW2m8RDdLlLu4KN4beebLuH64yOIG/UFmNbY7tGInwoAs5A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=3qtwzFg59I7gZD6ia/CZdyX0vt7aFxDbQdhn8SIUigs=;
+ b=tBqP/KtgLtLjQJWI4Yd9g0xltPTrL+s6SE1RukJhq6x6cFclinNFvcNm9eFRIneApuvLGNPWNfazR1NqNXdqBHdeK2dayerhoTh1zGqIbimCEPA/SB+YzbczEzaMSPd2yWdGjvQGcViawWrRVpNT0kX+f+2r2pw5LzEykDRvueDK4kXjCqbCEZA5pSuiv8SNu0hHMKnzrHr7j/gWDApcTOKXzteeHqyozSVlZ2uw7oB5mN2dc+BLydkEmDn0OeUtQL6ccDcJjbcNfFzgeq6RNnIoMdJBh799rTfbAVYkIiGE2+hxks1MLGVDunobAdzXrZg3/6bDW6TeWixq6I0lmQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3qtwzFg59I7gZD6ia/CZdyX0vt7aFxDbQdhn8SIUigs=;
+ b=r/mtevSsUCkpBPtCbasr5OT7aRHPS6Npx6o25sllhI9x1YdmwdvhsKhwW4kXFFaNjl2gZD/nq572bUarE6i+I9/aWzrQhLaBRfnaqD8K/GRnpm2N29aqBG5lJkCyAoTVIzGdSlRyGiMqk4Xr6V8yNylcK0vobtMgjok8wRF0pSY=
+Received: from SEZPR03MB7810.apcprd03.prod.outlook.com (2603:1096:101:184::13)
+ by KL1PR03MB6899.apcprd03.prod.outlook.com (2603:1096:820:9e::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9456.11; Wed, 24 Dec
+ 2025 02:20:19 +0000
+Received: from SEZPR03MB7810.apcprd03.prod.outlook.com
+ ([fe80::2557:de4d:a3c7:41e8]) by SEZPR03MB7810.apcprd03.prod.outlook.com
+ ([fe80::2557:de4d:a3c7:41e8%4]) with mapi id 15.20.9456.008; Wed, 24 Dec 2025
+ 02:20:19 +0000
+From: =?utf-8?B?TWFjcGF1bCBMaW4gKOael+aZuuaWjCk=?= <Macpaul.Lin@mediatek.com>
+To: "tzimmermann@suse.de" <tzimmermann@suse.de>, "chunkuang.hu@kernel.org"
+	<chunkuang.hu@kernel.org>, "simona@ffwll.ch" <simona@ffwll.ch>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"airlied@gmail.com" <airlied@gmail.com>, "p.zabel@pengutronix.de"
+	<p.zabel@pengutronix.de>, "maarten.lankhorst@linux.intel.com"
+	<maarten.lankhorst@linux.intel.com>, "mripard@kernel.org"
+	<mripard@kernel.org>, Nicolas Prado <nfraprado@collabora.com>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>
+CC: Ariel D'Alessandro <ariel.dalessandro@collabora.com>,
+	=?utf-8?B?QmVhciBXYW5nICjokKnljp/mg5/lvrcp?= <bear.wang@mediatek.com>,
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	=?utf-8?B?UGFibG8gU3VuICjlravmr5Pnv5Qp?= <pablo.sun@mediatek.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, Daniel Stone <daniels@collabora.com>,
+	"kernel@collabora.com" <kernel@collabora.com>
+Subject: Re: [PATCH 06/11] drm/mediatek: Add plane_colorops_init() DDP hook
+ for OVL
+Thread-Topic: [PATCH 06/11] drm/mediatek: Add plane_colorops_init() DDP hook
+ for OVL
+Thread-Index: AQHcdETz8gxuVbMf9kSn3uHshcXMAbUwDycA
+Date: Wed, 24 Dec 2025 02:20:19 +0000
+Message-ID: <5bc77576fc6e77f9f87cef27b42b67e2c2c2c9ac.camel@mediatek.com>
+References: <20251223-mtk-ovl-pre-blend-colorops-v1-0-0cb99bd0ab33@collabora.com>
+	 <20251223-mtk-ovl-pre-blend-colorops-v1-6-0cb99bd0ab33@collabora.com>
+In-Reply-To: <20251223-mtk-ovl-pre-blend-colorops-v1-6-0cb99bd0ab33@collabora.com>
+Accept-Language: zh-TW, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SEZPR03MB7810:EE_|KL1PR03MB6899:EE_
+x-ms-office365-filtering-correlation-id: 17e573e9-7962-4bf6-0441-08de4292fbf4
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|921020|38070700021;
+x-microsoft-antispam-message-info: =?utf-8?B?dVFibGxYYnFKNGc4bGc5cmo3cVZQTWFMSWlxZTZISlNKcExzSjRWdGQ3YmlJ?=
+ =?utf-8?B?cHg0WDVCdWpZVWE3bUdnVG1yRFppME9qTTlHbzJ1L3AyTmZYcTVDU0pvUFc5?=
+ =?utf-8?B?MEhQcVdreWNLU3E3WWM3cDVXTDkwSm9WRG84N3hXdFZzbHllN29GeHhlalNX?=
+ =?utf-8?B?TjlIQ0pBMVNUQkUzT1B0dGJkekZRRmpMMUo5dEVERUg0ZWFBc2Y3TThrSnJZ?=
+ =?utf-8?B?UloxVWRBVnNLYU9obG5oYktIaVl1QjFHTC96WllvOUVGaXJUS1RIREJVTlJK?=
+ =?utf-8?B?YnZBdEh3VlgrOFlNckF1Kzk1YkVIS2tEdnU5OFdWT0MvWkhkZVQ3cjhobGd5?=
+ =?utf-8?B?TVFXV25xcW44YzdSMzVBSXh4RjRyUUtFdGVFcUtWUmlFS2JYS2hTTGRRaVRh?=
+ =?utf-8?B?aXpKeUJnUTV5TDE3REVFdi9zV0YzaWdHazU0dmZHVlhOd3QzRHN4QW5OYklU?=
+ =?utf-8?B?UHZZM0ZZaFpZSU5oZ3hpVTc1L3g2aTNTY0tqWGwvdHQwaVZlTkZpRzlHdVpB?=
+ =?utf-8?B?d01Vb3JuSU9abW9YVzRrcW95Y2JDcVRHUTg3Y2w5TUZYRXB4M3VFMGlaWkZ4?=
+ =?utf-8?B?RTRYWkhTbnh2UWZwc09DSTRYdkNML0FCTlpBRG9wUG9uRGxscENEU3c4bHJi?=
+ =?utf-8?B?RE5tVk5vNFhlRmtEdTFVOHFGYWdZQTNxcUljamZkQ0NwOVc4SW5IRFlMRkoz?=
+ =?utf-8?B?VVorUnVSdUFiQ1R5L2NVSWV5aGFzTm1VS21HK3BnY2pDamgxYXNZY2dzSHQy?=
+ =?utf-8?B?UXl3QnArQmxuWjd6NDBKdWYzU1B2blV2RkZ4WlBveWY3TEsrSGx4SUQ2TmxP?=
+ =?utf-8?B?amhTSzIvV1dOVVU0Q3pXNm1RWUlQQTN6UitRNlQ4T3BRWFk4b2JpUmlJTE8r?=
+ =?utf-8?B?MDQ0cHUxdWozVnBsUXc2Z3JKbmR3Z0c5b0JOTDhjcDlRUU5qaGNTTnZraHRE?=
+ =?utf-8?B?K2hVQ21HVlZZUmlWQVNteXduVlgrcHZuVC9iZjZURUxaZnFVd2d5SVRLeTUv?=
+ =?utf-8?B?Q2pVTmJkZ3NvOEVHelVGMGt6djY4eEpCT1VoU2JwZGxJTDludWVNOExTK2Jo?=
+ =?utf-8?B?TmRLcDh3Ty9JSTNUT1IvV28yVktFRUxiK3RQYno4WHhaOUtCbWRSdjdRWEVS?=
+ =?utf-8?B?L2g4WDNGdTh4bmlDZkVuK2s1SVFRYThMQSt2dWpxeE9ucmtnam5xbHY0WnVt?=
+ =?utf-8?B?SWF2bGZVVzJKVVBiMlZCUWhhOWFUdFZ0cU1SbXFvNEZEcGFJUGIvbzBkMDZG?=
+ =?utf-8?B?dVNKcXlCRzFFb3Q4bGdvbzFKOGh3Y2lOWXJmRFRlSUVsdU1yL3lEK0owaFJ0?=
+ =?utf-8?B?OWNMSDJKdXFtbXg3bEFvMGhqQVRjNElkL1dZVkpEL1NrNGoyWStiYUI0WllJ?=
+ =?utf-8?B?cDMrL3ZnNFNVRW5UaUxYQ3RmRFpSbHFUMm4rRFVYZjV0YnNXbzNnNFdBdGo1?=
+ =?utf-8?B?SnhmTkZuZ0EyNHQ2U3ZPeTQ5b2NRTklVL20ra1pXV2dYb29oeHBpQ3Evb2pL?=
+ =?utf-8?B?TzBFOHNyemI4Ync5TkVLek01dy9SU1pyZjBydVF2TVpFUVdmeWd0NnZ5b3lQ?=
+ =?utf-8?B?cEx4dmpRTG5VZ2Q0MWlTU3h5cDF0eFpNSytZMVF1Q1M0enc3YUt6SGlsTnM1?=
+ =?utf-8?B?cnVGOXdFeVFsV2NwdDNtNmpQQVQ0U3JQOUt2OUtvMnFuQXpjN2dzRDFhUkR2?=
+ =?utf-8?B?VjNHZUhQdWNwMmRHSkRYakFZY3drOHJYNEhNTGxnd2RmYzVDZ29oTEhuSGU4?=
+ =?utf-8?B?S2NmUWdGWWtGejFRMGdUdU9SbUJGa25NVjJCZ2h0ckFJdmhTV1JvczlXaUxX?=
+ =?utf-8?B?ZTZ1N3VpZkVXNklPQUEwUVlNTTlSMlJGdS9zSkJuZEdRcXJVT0FwdTVnNFVF?=
+ =?utf-8?B?clFEWFJ4bjBEWXpQdjc5VFRMV1cwVkpHaVB2ZC9wSm5qc2hESUtnTnQwSVph?=
+ =?utf-8?B?NTlIeElST1d6Y2F2QU0xOEFMN0pGMit3Y0xUazdZVUoyT3JCQ0FMelFnT213?=
+ =?utf-8?B?enEvNEJ0MTArQzJsNE1GTEVaeERFbk1ENGlDL0ljaFdxaC9rVVhwMWtNTmIy?=
+ =?utf-8?B?K3c0ZGtqdksybTZxUkh3YTNwb29OMWdKc0tadz09?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEZPR03MB7810.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(921020)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?cThMMC90eXRzcmdKUStsbjZ1Uk1BQXQrUEdFSzI5eXJJdUljQmFVSERDbmJM?=
+ =?utf-8?B?V2tWb1hISHYyYlY5OWo1cDZLVjVVblhldEkwVjJMOVZmNnJSZmtIY2FwUXYx?=
+ =?utf-8?B?QTVuMUFGd1hUYlhKa1EveEhxOXNYVVlrbW55M1ZXd255R2E2eU5uaytWdUZu?=
+ =?utf-8?B?N3JMamNQdmk1WXdnYmdiVDRiN0VGU1p0TzdjU3dEZklScENQQWRydUo5blZT?=
+ =?utf-8?B?TGRFWGkzSkdKMkhtSTBpbU4zUDZSaXpZUGhrZEw1RHpaemcxWnV0aUh3K1Zn?=
+ =?utf-8?B?RUFrWDJrL1M1ZStPbmpaT2wxdEdhRVdtcjlNL1BaOElJUVIvMXk2RUVzaVJZ?=
+ =?utf-8?B?QWhacWhQNlZNYUVkcGxqQVlneUpXd2dNWGtLNkpFank2NmZQN2ViWjF1eGR0?=
+ =?utf-8?B?bWRmYjJTWGQyZTZDUTF2d1p1bEVNZFZUVlFXNFcyVmlZUVMwZ21FWVE5Vkc3?=
+ =?utf-8?B?cStZMnZBV25Md1V1VWlFWEVOTisxTGVWTXEva0ZDTGFLK2dNai9GUVB4VHRV?=
+ =?utf-8?B?Um5EYndVYUFoSG5YRXptcnBxRHpFNTE2UEY4czRuS1R1OHltMlJYUFJlazQr?=
+ =?utf-8?B?TzV0bEtuYVJxeVZzTzZiZ09kd3FSa20zcHUwQnlQWGhIeVA5NHllSFVDK21V?=
+ =?utf-8?B?ZnF6NmZwVENIeDdwcmdYUjl1WllyTFZqNXF4dDlmbXVBT0NtQVJUOUllWEx0?=
+ =?utf-8?B?SFJieXlRcnRTNXdWLzdRZDErcjFBVnppYWl2M3hpYlV4WHhuZnhiY1Rhc3d4?=
+ =?utf-8?B?cEQ4RmlWakdTWUQ1S1h1d2U0cE1mU0gzQ1l1cFhFaU4rRnNhS0o5UndJZGd3?=
+ =?utf-8?B?bXo5ejdGaCthMkRTcm13NjJveS96TmhpbS9sZDE3aU5GYS81YmRRb1U0d05U?=
+ =?utf-8?B?SVhSUnl2UVdBaUttZzFZb00wWDFveGtucGpwUmNsVU14cndHYnZrK3pTS24z?=
+ =?utf-8?B?NUJGSlovWHBRWFlQVjh6YXFnN1l5K0RnS3J2VkJBMC9wWnl1M3VLL1Q1S0VU?=
+ =?utf-8?B?TXdSSkM2Uk1qd1Nnc3pzNExQMURsTDhwd0o1cXp0VkVobDBjZjMzald2Wkdj?=
+ =?utf-8?B?Tm14aEsxYTFIN3B4Wm1xaktpM1VQWkZZaW9DaXlyaTJsRFF6TzVONVFsQ09C?=
+ =?utf-8?B?Um4xR1AxTTducThyTjhFTFVnaHRMUWhDa1lwd3FJSlRzclV1WmMrd2F4ZndK?=
+ =?utf-8?B?UzE4Rm9waUh5NldiUi9DNUhJUVk4aVNPSTNZNHk0RmxONjBrVjB3MUJYS0NQ?=
+ =?utf-8?B?ZWpoM0p3R1RqR2x3d0VIYnZrNEh2c2RQeU9vRGlKUzdVUkJKSG4zTXlERkZW?=
+ =?utf-8?B?RmUzdnl0ZEw2RkMxb3pnWGhqR2s5aURjRTZXeFJ3MWFHVXhNMjhIbUIzbito?=
+ =?utf-8?B?TUliVXR3dmN6MEdVUDRBNjhGWDJwcklYWDJ3U0tnS1YyVkkzUXpZZW5Pckhh?=
+ =?utf-8?B?b2h0YTJ0M01jTDhhOEVzcVNOTE9vYjFSa2praHVESUhZbHBPeFloUjVsNHNS?=
+ =?utf-8?B?V3pMa1ppMFg1ZnlvRFltTUNmTmJDU091SmtxWS9nMko0Q3dNRGVqcDhaSEt5?=
+ =?utf-8?B?WVp5czNrRTFJQlRCNVNDUW5TbnhBOGNxMjZUTklqem1tbkJjTnJUdjVJWmVD?=
+ =?utf-8?B?R0FZUHNKVEdxeEtVVWF1Qk41ZjVSQjNuak9PK2ZyTlgvdkVodnN6UHB5WHJo?=
+ =?utf-8?B?Q0VNZHB0NUQ0MG5XNFR6NUtTUmZaaTl1QkxibnBaZnAzUjRoc2J0ZU4ybUpo?=
+ =?utf-8?B?Y1pJQ3loUEowQzdxYkFRRGFuMTNndVMwTE5LUkxzalhhZkc2L2xwQ2tOeDhZ?=
+ =?utf-8?B?a2pVMlFiblNBWnpUR01uTitsTmhzR0UzdEduTnJZVjJNWFkxUzlDQkNlSlp4?=
+ =?utf-8?B?R1J0QXljS25SWlY1Y0Rid3pXOGl2MEh5bDNmY1ZOOU5BSmFyV0Qyb2dFcmxn?=
+ =?utf-8?B?dWw3RDhNWDZkRWVFR1BMM2tURkZneE1DYXRqWWtxYksrODNJS3JlRzBlS0Nq?=
+ =?utf-8?B?TTJRWTJGb3pheit6dFk2cXRjak80WkFhcFU0R0pFNXNZL0lWczBCTXRuK09U?=
+ =?utf-8?B?bzMwZitGYnJCd291WmdzcDFjVnBzdmhiaVF2d2Eyc1I4c0Q2TnVRN01jVkdP?=
+ =?utf-8?B?SjJKZTF6eG01dmpLa0xrRVdnT2JGTFRnMzNPOUdlc2g4L09xS0RJenNOWXVQ?=
+ =?utf-8?B?ckVEWFRQVUwrMEFsNXFOV08rWUR6bWVISGlBY2dDZ3UwZDg4VlEyQ3BIdjNC?=
+ =?utf-8?B?dnVmbWxNRktxWVBDNDZ6SEtzWmtYS1JXRnFNK1d3VklodUg1RWc5WjRZRE5G?=
+ =?utf-8?B?THJtSzNrWU13ZEVERWdFdVZJa09WbUxIQjdYUkE0TjU0aVBpWjlFTXd4cC9W?=
+ =?utf-8?Q?FcYMkpjWRD8S2e34=3D?=
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251223-cross-arch-unwind-v1-1-4d71ee7db512@skydio.com>
-X-B4-Tracking: v=1; b=H4sIAKdNS2kC/x3MPQqAMAxA4atIZgO1UlGvIg6lTTVLlQR/QLy7x
- fEb3ntASZgUxuoBoZOVt1zQ1BWE1eeFkGMxWGNdY22LQTZV9BJWPPLFOWLsBxM771IyHkq3CyW
- +/+c0v+8H4U6nRmMAAAA=
-X-Change-ID: 20251223-cross-arch-unwind-d890d6a5ff0a
-To: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
- James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
- Leo Yan <leo.yan@linux.dev>, Peter Zijlstra <peterz@infradead.org>, 
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, Guo Ren <guoren@kernel.org>, 
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-perf-users@vger.kernel.org, linux-csky@vger.kernel.org, 
- linux-riscv@lists.infradead.org, Shimin Guo <shimin.guo@skydio.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1766542788; l=19257;
- i=shimin.guo@skydio.com; s=20251223; h=from:subject:message-id;
- bh=40l5ccksJqGw/oklYl5GdK5u9+8khusrwGKRvaYo8Io=;
- b=H0qgSn3q7iB5y/m+k86ynjJ8+Q2MTyPUnmcUHlF1csDTtiEy2F3JSv4yUl49aAX0mHAw2j7oH
- DEwdAef3RW2DVfuKbTLk6pgd+HTSwShevokQaTdegQ0Bx29t6Y8WJwB
-X-Developer-Key: i=shimin.guo@skydio.com; a=ed25519;
- pk=nzTBfI+uHpVtYV5Am25mRvAeY5o5049QH/QxFAGK6VM=
-X-Endpoint-Received: by B4 Relay for shimin.guo@skydio.com/20251223 with
- auth_id=584
-X-Original-From: Shimin Guo <shimin.guo@skydio.com>
+Content-ID: <BD46C029ED48A340BC8D6A2108A9E738@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SEZPR03MB7810.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 17e573e9-7962-4bf6-0441-08de4292fbf4
+X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Dec 2025 02:20:19.2539
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 1hVP71h4GGhkLzz/gOimzopqTB4w/yAqBvqV0VbSr3RA1EZ+YJlVOuE+OHtDFJ6+LuBXAjCUjuXtjFhrRvsYdSWb9jLmfimCEMc5QdYSuDQ=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR03MB6899
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_181950_887969_6E4D03FC 
-X-CRM114-Status: GOOD (  21.32  )
+X-CRM114-CacheID: sfid-20251223_182028_711068_AB6C5A5E 
+X-CRM114-Status: GOOD (  15.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,436 +224,27 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: shimin.guo@skydio.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Shimin Guo <shimin.guo@skydio.com>
-
-The set_initial_registers field of Dwfl_Thread_Callbacks needs to be set
-according to the arch of the stack samples being analyzed, not the arch
-that perf itself is built for. Currently perf fails to unwind stack samples
-collected from archs different from that of the host perf is running on.
-This patch moves the arch-specific implementations of set_initial_registers
-from tools/perf/arch to tools/perf/utli/unwind-libdw-arch, similar to the
-way the perf-regs-arch folder contains arch-specific functions related to
-registers, and chooses the implementation based on the arch of the data
-being processed.
-
-Signed-off-by: Shimin Guo <shimin.guo@skydio.com>
----
-checkpatch flagged three issues:
-> tools/perf/util/unwind-libdw-arch/Build:232: WARNING: added, moved
-or deleted file(s), does MAINTAINERS need updating?
-
-Not sure what to do about that.
-
-> checkpatch.pl: tools/perf/util/unwind-libdw.c:228: WARNING:
-Non-declarative macros with multiple statements should be enclosed in
-a do - while loop
-> checkpatch.pl: tools/perf/util/unwind-libdw.c:228: WARNING: macros
-should not use a trailing semicolon
-
-Are these two false positives? I'm defining static global variables
-with the macro.
----
- tools/perf/arch/arm/util/Build                     |  1 -
- tools/perf/arch/arm64/util/Build                   |  1 -
- tools/perf/arch/csky/util/Build                    |  2 -
- tools/perf/arch/powerpc/util/Build                 |  1 -
- tools/perf/arch/riscv/util/Build                   |  1 -
- tools/perf/arch/s390/util/Build                    |  2 -
- tools/perf/arch/x86/util/Build                     |  1 -
- tools/perf/util/Build                              |  1 +
- tools/perf/util/unwind-libdw-arch/Build            |  8 ++++
- .../unwind-libdw-arch/unwind-libdw-arm.c}          |  4 +-
- .../unwind-libdw-arch/unwind-libdw-arm64.c}        |  4 +-
- .../unwind-libdw-arch/unwind-libdw-csky.c}         |  6 +--
- .../unwind-libdw-arch/unwind-libdw-loongarch.c}    |  4 +-
- .../unwind-libdw-arch/unwind-libdw-powerpc.c}      |  4 +-
- .../unwind-libdw-arch/unwind-libdw-riscv.c}        |  4 +-
- .../unwind-libdw-arch/unwind-libdw-s390.c}         |  6 +--
- .../unwind-libdw-arch/unwind-libdw-x86.c}          |  2 +-
- tools/perf/util/unwind-libdw.c                     | 49 +++++++++++++++++++---
- tools/perf/util/unwind-libdw.h                     | 10 ++++-
- 19 files changed, 79 insertions(+), 32 deletions(-)
-
-diff --git a/tools/perf/arch/arm/util/Build b/tools/perf/arch/arm/util/Build
-index fd695e1fdaee2ccc300a206131b8b38a763b00ce..3291f893b943df0722dff583523fff4ae79919bc 100644
---- a/tools/perf/arch/arm/util/Build
-+++ b/tools/perf/arch/arm/util/Build
-@@ -1,6 +1,5 @@
- perf-util-y += perf_regs.o
- 
- perf-util-$(CONFIG_LOCAL_LIBUNWIND)    += unwind-libunwind.o
--perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
- 
- perf-util-y += pmu.o auxtrace.o cs-etm.o
-diff --git a/tools/perf/arch/arm64/util/Build b/tools/perf/arch/arm64/util/Build
-index d63881081d2eb1e9a83eabf82104d75308f7fc79..0177af19cc00038d6a6005592ddc530bf7eb1557 100644
---- a/tools/perf/arch/arm64/util/Build
-+++ b/tools/perf/arch/arm64/util/Build
-@@ -1,4 +1,3 @@
--perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
- perf-util-$(CONFIG_LIBTRACEEVENT) += kvm-stat.o
- perf-util-$(CONFIG_LOCAL_LIBUNWIND) += unwind-libunwind.o
- perf-util-y += ../../arm/util/auxtrace.o
-diff --git a/tools/perf/arch/csky/util/Build b/tools/perf/arch/csky/util/Build
-index 5e6ea82c42021d3d5651ca4c4a3a6e5138574e4e..6b2d0e021b11464e46d6b53974260d32ea969732 100644
---- a/tools/perf/arch/csky/util/Build
-+++ b/tools/perf/arch/csky/util/Build
-@@ -1,3 +1 @@
- perf-util-y += perf_regs.o
--
--perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
-diff --git a/tools/perf/arch/powerpc/util/Build b/tools/perf/arch/powerpc/util/Build
-index 3d0d5427aef7f26a8c05c883cc7ad763f08cbb30..5fd28ec713a4db74ecd1d26866a65ddb20e94bd3 100644
---- a/tools/perf/arch/powerpc/util/Build
-+++ b/tools/perf/arch/powerpc/util/Build
-@@ -9,5 +9,4 @@ perf-util-y += evsel.o
- perf-util-$(CONFIG_LIBDW) += skip-callchain-idx.o
- 
- perf-util-$(CONFIG_LIBUNWIND) += unwind-libunwind.o
--perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
- perf-util-y += auxtrace.o
-diff --git a/tools/perf/arch/riscv/util/Build b/tools/perf/arch/riscv/util/Build
-index 58a672246024dd0f72e767d11e9958bd9913ec3c..628b9ebd418bde8cdf1ab1332bf79f7c9d50760e 100644
---- a/tools/perf/arch/riscv/util/Build
-+++ b/tools/perf/arch/riscv/util/Build
-@@ -2,4 +2,3 @@ perf-util-y += perf_regs.o
- perf-util-y += header.o
- 
- perf-util-$(CONFIG_LIBTRACEEVENT) += kvm-stat.o
--perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
-diff --git a/tools/perf/arch/s390/util/Build b/tools/perf/arch/s390/util/Build
-index c64eb18dbdae93adafabf8542e4c9a763ecfe057..5391d26fedd46b7d30a1bef0bff2ec2d58ec30ed 100644
---- a/tools/perf/arch/s390/util/Build
-+++ b/tools/perf/arch/s390/util/Build
-@@ -2,8 +2,6 @@ perf-util-y += header.o
- perf-util-$(CONFIG_LIBTRACEEVENT) += kvm-stat.o
- perf-util-y += perf_regs.o
- 
--perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
--
- perf-util-y += machine.o
- perf-util-y += pmu.o
- 
-diff --git a/tools/perf/arch/x86/util/Build b/tools/perf/arch/x86/util/Build
-index c0dc5965f3624a6f02525a04d287dff755356d20..fad256252bb95a8f8350b6bb1a54e8074eaebbec 100644
---- a/tools/perf/arch/x86/util/Build
-+++ b/tools/perf/arch/x86/util/Build
-@@ -12,7 +12,6 @@ perf-util-y += evsel.o
- perf-util-y += iostat.o
- 
- perf-util-$(CONFIG_LOCAL_LIBUNWIND)    += unwind-libunwind.o
--perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
- 
- perf-util-y += auxtrace.o
- perf-util-y += archinsn.o
-diff --git a/tools/perf/util/Build b/tools/perf/util/Build
-index 1c2a43e1dc68e7f751ec6082352b10de9ffeea62..15f8a4f4b24a46b6300e824f672dd9c0d5b7865f 100644
---- a/tools/perf/util/Build
-+++ b/tools/perf/util/Build
-@@ -226,6 +226,7 @@ perf-util-$(CONFIG_LIBDW) += debuginfo.o
- perf-util-$(CONFIG_LIBDW) += annotate-data.o
- 
- perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw.o
-+perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw-arch/
- perf-util-$(CONFIG_LOCAL_LIBUNWIND)    += unwind-libunwind-local.o
- perf-util-$(CONFIG_LIBUNWIND)          += unwind-libunwind.o
- perf-util-$(CONFIG_LIBUNWIND_X86)      += libunwind/x86_32.o
-diff --git a/tools/perf/util/unwind-libdw-arch/Build b/tools/perf/util/unwind-libdw-arch/Build
-new file mode 100644
-index 0000000000000000000000000000000000000000..e016d54ae2a40ecba47156c8f09cb72156105727
---- /dev/null
-+++ b/tools/perf/util/unwind-libdw-arch/Build
-@@ -0,0 +1,8 @@
-+perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw-x86.o
-+perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw-arm.o
-+perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw-arm64.o
-+perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw-csky.o
-+perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw-loongarch.o
-+perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw-powerpc.o
-+perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw-riscv.o
-+perf-util-$(CONFIG_LIBDW_DWARF_UNWIND) += unwind-libdw-s390.o
-\ No newline at end of file
-diff --git a/tools/perf/arch/arm/util/unwind-libdw.c b/tools/perf/util/unwind-libdw-arch/unwind-libdw-arm.c
-similarity index 88%
-rename from tools/perf/arch/arm/util/unwind-libdw.c
-rename to tools/perf/util/unwind-libdw-arch/unwind-libdw-arm.c
-index fbb643f224ec4b27ce9d67051fe0bc4ad555b05e..c2718d6b6cff131cd67883e24bb0d3d963c8095a 100644
---- a/tools/perf/arch/arm/util/unwind-libdw.c
-+++ b/tools/perf/util/unwind-libdw-arch/unwind-libdw-arm.c
-@@ -1,11 +1,11 @@
- // SPDX-License-Identifier: GPL-2.0
- #include <elfutils/libdwfl.h>
--#include "perf_regs.h"
-+#include "../../../arch/arm/include/uapi/asm/perf_regs.h"
- #include "../../../util/unwind-libdw.h"
- #include "../../../util/perf_regs.h"
- #include "../../../util/sample.h"
- 
--bool libdw__arch_set_initial_registers(Dwfl_Thread *thread, void *arg)
-+bool libdw_set_initial_registers_arm(Dwfl_Thread *thread, void *arg)
- {
- 	struct unwind_info *ui = arg;
- 	struct regs_dump *user_regs = perf_sample__user_regs(ui->sample);
-diff --git a/tools/perf/arch/arm64/util/unwind-libdw.c b/tools/perf/util/unwind-libdw-arch/unwind-libdw-arm64.c
-similarity index 92%
-rename from tools/perf/arch/arm64/util/unwind-libdw.c
-rename to tools/perf/util/unwind-libdw-arch/unwind-libdw-arm64.c
-index b89b0a7e5ad919fed23643d219fbdc3d84deff1e..87602503e057badc6efd37169cc60c96cf3949ab 100644
---- a/tools/perf/arch/arm64/util/unwind-libdw.c
-+++ b/tools/perf/util/unwind-libdw-arch/unwind-libdw-arm64.c
-@@ -1,11 +1,11 @@
- // SPDX-License-Identifier: GPL-2.0
- #include <elfutils/libdwfl.h>
--#include "perf_regs.h"
-+#include "../../../arch/arm64/include/uapi/asm/perf_regs.h"
- #include "../../../util/unwind-libdw.h"
- #include "../../../util/perf_regs.h"
- #include "../../../util/sample.h"
- 
--bool libdw__arch_set_initial_registers(Dwfl_Thread *thread, void *arg)
-+bool libdw_set_initial_registers_arm64(Dwfl_Thread *thread, void *arg)
- {
- 	struct unwind_info *ui = arg;
- 	struct regs_dump *user_regs = perf_sample__user_regs(ui->sample);
-diff --git a/tools/perf/arch/csky/util/unwind-libdw.c b/tools/perf/util/unwind-libdw-arch/unwind-libdw-csky.c
-similarity index 92%
-rename from tools/perf/arch/csky/util/unwind-libdw.c
-rename to tools/perf/util/unwind-libdw-arch/unwind-libdw-csky.c
-index b20b1569783d7e982e91b1b40120d29ccf2f01d1..889d3b788931f3af55b03ef8b91d5def364972e5 100644
---- a/tools/perf/arch/csky/util/unwind-libdw.c
-+++ b/tools/perf/util/unwind-libdw-arch/unwind-libdw-csky.c
-@@ -2,12 +2,12 @@
- // Copyright (C) 2019 Hangzhou C-SKY Microsystems co.,ltd.
- 
- #include <elfutils/libdwfl.h>
--#include "perf_regs.h"
-+#include "../../../arch/csky/include/uapi/asm/perf_regs.h"
- #include "../../util/unwind-libdw.h"
- #include "../../util/perf_regs.h"
--#include "../../util/event.h"
-+#include "../../util/sample.h"
- 
--bool libdw__arch_set_initial_registers(Dwfl_Thread *thread, void *arg)
-+bool libdw_set_initial_registers_csky(Dwfl_Thread *thread, void *arg)
- {
- 	struct unwind_info *ui = arg;
- 	struct regs_dump *user_regs = perf_sample__user_regs(ui->sample);
-diff --git a/tools/perf/arch/loongarch/util/unwind-libdw.c b/tools/perf/util/unwind-libdw-arch/unwind-libdw-loongarch.c
-similarity index 91%
-rename from tools/perf/arch/loongarch/util/unwind-libdw.c
-rename to tools/perf/util/unwind-libdw-arch/unwind-libdw-loongarch.c
-index 60b1144bedd5f325e1512eeab05c29a1e8de2b03..1c5753ace6f63be771aa92365d3174ad8ed3a6fd 100644
---- a/tools/perf/arch/loongarch/util/unwind-libdw.c
-+++ b/tools/perf/util/unwind-libdw-arch/unwind-libdw-loongarch.c
-@@ -2,12 +2,12 @@
- /* Copyright (C) 2020-2023 Loongson Technology Corporation Limited */
- 
- #include <elfutils/libdwfl.h>
--#include "perf_regs.h"
-+#include "../../../arch/loongarch/include/uapi/asm/perf_regs.h"
- #include "../../util/unwind-libdw.h"
- #include "../../util/perf_regs.h"
- #include "../../util/sample.h"
- 
--bool libdw__arch_set_initial_registers(Dwfl_Thread *thread, void *arg)
-+bool libdw_set_initial_registers_loongarch(Dwfl_Thread *thread, void *arg)
- {
- 	struct unwind_info *ui = arg;
- 	struct regs_dump *user_regs = perf_sample__user_regs(ui->sample);
-diff --git a/tools/perf/arch/powerpc/util/unwind-libdw.c b/tools/perf/util/unwind-libdw-arch/unwind-libdw-powerpc.c
-similarity index 93%
-rename from tools/perf/arch/powerpc/util/unwind-libdw.c
-rename to tools/perf/util/unwind-libdw-arch/unwind-libdw-powerpc.c
-index 82d0c28ae3459ecdb0039cac1f534420d142739b..28635af3c4aa420faa4de7e53428d82917f78021 100644
---- a/tools/perf/arch/powerpc/util/unwind-libdw.c
-+++ b/tools/perf/util/unwind-libdw-arch/unwind-libdw-powerpc.c
-@@ -1,7 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
- #include <elfutils/libdwfl.h>
- #include <linux/kernel.h>
--#include "perf_regs.h"
-+#include "../../../arch/powerpc/include/uapi/asm/perf_regs.h"
- #include "../../../util/unwind-libdw.h"
- #include "../../../util/perf_regs.h"
- #include "../../../util/sample.h"
-@@ -13,7 +13,7 @@ static const int special_regs[3][2] = {
- 	{ 109, PERF_REG_POWERPC_CTR },
- };
- 
--bool libdw__arch_set_initial_registers(Dwfl_Thread *thread, void *arg)
-+bool libdw_set_initial_registers_powerpc(Dwfl_Thread *thread, void *arg)
- {
- 	struct unwind_info *ui = arg;
- 	struct regs_dump *user_regs = perf_sample__user_regs(ui->sample);
-diff --git a/tools/perf/arch/riscv/util/unwind-libdw.c b/tools/perf/util/unwind-libdw-arch/unwind-libdw-riscv.c
-similarity index 92%
-rename from tools/perf/arch/riscv/util/unwind-libdw.c
-rename to tools/perf/util/unwind-libdw-arch/unwind-libdw-riscv.c
-index dc1476e16321736de897ad53a00fbc813bd706db..2a5442b3b5bdc27252378de0073deb8a620f8779 100644
---- a/tools/perf/arch/riscv/util/unwind-libdw.c
-+++ b/tools/perf/util/unwind-libdw-arch/unwind-libdw-riscv.c
-@@ -2,12 +2,12 @@
- /* Copyright (C) 2019 Hangzhou C-SKY Microsystems co.,ltd. */
- 
- #include <elfutils/libdwfl.h>
--#include "perf_regs.h"
-+#include "../../../arch/riscv/include/uapi/asm/perf_regs.h"
- #include "../../util/unwind-libdw.h"
- #include "../../util/perf_regs.h"
- #include "../../util/sample.h"
- 
--bool libdw__arch_set_initial_registers(Dwfl_Thread *thread, void *arg)
-+bool libdw_set_initial_registers_riscv(Dwfl_Thread *thread, void *arg)
- {
- 	struct unwind_info *ui = arg;
- 	struct regs_dump *user_regs = perf_sample__user_regs(ui->sample);
-diff --git a/tools/perf/arch/s390/util/unwind-libdw.c b/tools/perf/util/unwind-libdw-arch/unwind-libdw-s390.c
-similarity index 89%
-rename from tools/perf/arch/s390/util/unwind-libdw.c
-rename to tools/perf/util/unwind-libdw-arch/unwind-libdw-s390.c
-index c27c7a0d1076c890c35ba19543932c4ed5ac9c2a..18d44074a55bc1c7fa2d7150afc1f1a93d4eadf8 100644
---- a/tools/perf/arch/s390/util/unwind-libdw.c
-+++ b/tools/perf/util/unwind-libdw-arch/unwind-libdw-s390.c
-@@ -4,11 +4,11 @@
- #include "../../util/perf_regs.h"
- #include "../../util/event.h"
- #include "../../util/sample.h"
--#include "dwarf-regs-table.h"
--#include "perf_regs.h"
-+#include "../../arch/s390/include/dwarf-regs-table.h"
-+#include "../../../arch/s390/include/uapi/asm/perf_regs.h"
- 
- 
--bool libdw__arch_set_initial_registers(Dwfl_Thread *thread, void *arg)
-+bool libdw_set_initial_registers_s390(Dwfl_Thread *thread, void *arg)
- {
- 	struct unwind_info *ui = arg;
- 	struct regs_dump *user_regs = perf_sample__user_regs(ui->sample);
-diff --git a/tools/perf/arch/x86/util/unwind-libdw.c b/tools/perf/util/unwind-libdw-arch/unwind-libdw-x86.c
-similarity index 94%
-rename from tools/perf/arch/x86/util/unwind-libdw.c
-rename to tools/perf/util/unwind-libdw-arch/unwind-libdw-x86.c
-index 798493e887d7308cb293e29e4ba11054d0fda722..822e799fe1543d82dab27a8efeada3f5cde08a44 100644
---- a/tools/perf/arch/x86/util/unwind-libdw.c
-+++ b/tools/perf/util/unwind-libdw-arch/unwind-libdw-x86.c
-@@ -5,7 +5,7 @@
- #include "../../../util/perf_regs.h"
- #include "util/sample.h"
- 
--bool libdw__arch_set_initial_registers(Dwfl_Thread *thread, void *arg)
-+bool libdw_set_initial_registers_x86(Dwfl_Thread *thread, void *arg)
- {
- 	struct unwind_info *ui = arg;
- 	struct regs_dump *user_regs = perf_sample__user_regs(ui->sample);
-diff --git a/tools/perf/util/unwind-libdw.c b/tools/perf/util/unwind-libdw.c
-index ae70fb56a05729b9f06a411d162eabebbf29ac52..4a0f13bc5af99de446d440c551c718ef0187e195 100644
---- a/tools/perf/util/unwind-libdw.c
-+++ b/tools/perf/util/unwind-libdw.c
-@@ -225,12 +225,46 @@ static bool memory_read(Dwfl *dwfl __maybe_unused, Dwarf_Addr addr, Dwarf_Word *
- 	return true;
- }
- 
--static const Dwfl_Thread_Callbacks callbacks = {
--	.next_thread		= next_thread,
--	.memory_read		= memory_read,
--	.set_initial_registers	= libdw__arch_set_initial_registers,
-+#define DEFINE_DWFL_THREAD_CALLBACKS(arch)                           \
-+static const Dwfl_Thread_Callbacks callbacks_##arch = {              \
-+	.next_thread           = next_thread,                        \
-+	.memory_read           = memory_read,                        \
-+	.set_initial_registers = libdw_set_initial_registers_##arch, \
- };
- 
-+DEFINE_DWFL_THREAD_CALLBACKS(x86)
-+DEFINE_DWFL_THREAD_CALLBACKS(arm)
-+DEFINE_DWFL_THREAD_CALLBACKS(arm64)
-+DEFINE_DWFL_THREAD_CALLBACKS(csky)
-+DEFINE_DWFL_THREAD_CALLBACKS(loongarch)
-+DEFINE_DWFL_THREAD_CALLBACKS(powerpc)
-+DEFINE_DWFL_THREAD_CALLBACKS(riscv)
-+DEFINE_DWFL_THREAD_CALLBACKS(s390)
-+
-+static const Dwfl_Thread_Callbacks *get_thread_callbacks(const char *arch)
-+{
-+	if (!strcmp(arch, "arm"))
-+		return &callbacks_arm;
-+	else if (!strcmp(arch, "arm64"))
-+		return &callbacks_arm64;
-+	else if (!strcmp(arch, "csky"))
-+		return &callbacks_csky;
-+	else if (!strcmp(arch, "loongarch"))
-+		return &callbacks_loongarch;
-+	else if (!strcmp(arch, "powerpc"))
-+		return &callbacks_powerpc;
-+	else if (!strcmp(arch, "riscv"))
-+		return &callbacks_riscv;
-+	else if (!strcmp(arch, "s390"))
-+		return &callbacks_s390;
-+	else if (!strcmp(arch, "x86"))
-+		return &callbacks_x86;
-+
-+	pr_err("Fail to get thread callbacks for arch %s, returns NULL\n",
-+	       arch);
-+	return NULL;
-+}
-+
- static int
- frame_callback(Dwfl_Frame *state, void *arg)
- {
-@@ -278,6 +312,7 @@ int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
- 	const char *arch = perf_env__arch(ui_buf.machine->env);
- 	Dwarf_Word ip;
- 	int err = -EINVAL, i;
-+	const Dwfl_Thread_Callbacks *callbacks;
- 
- 	if (!data->user_regs || !data->user_regs->regs)
- 		return -EINVAL;
-@@ -300,7 +335,11 @@ int unwind__get_entries(unwind_entry_cb_t cb, void *arg,
- 	if (err)
- 		goto out;
- 
--	err = !dwfl_attach_state(ui->dwfl, EM_NONE, thread__tid(thread), &callbacks, ui);
-+	callbacks = get_thread_callbacks(arch);
-+	if (!callbacks)
-+		goto out;
-+
-+	err = !dwfl_attach_state(ui->dwfl, EM_NONE, thread__tid(thread), callbacks, ui);
- 	if (err)
- 		goto out;
- 
-diff --git a/tools/perf/util/unwind-libdw.h b/tools/perf/util/unwind-libdw.h
-index 8c88bc4f2304b59561ffd482469ca63ce0f531f0..574b29848cce31e6bfd93021f752b518cebf73b7 100644
---- a/tools/perf/util/unwind-libdw.h
-+++ b/tools/perf/util/unwind-libdw.h
-@@ -9,7 +9,15 @@ struct machine;
- struct perf_sample;
- struct thread;
- 
--bool libdw__arch_set_initial_registers(Dwfl_Thread *thread, void *arg);
-+bool libdw_set_initial_registers_x86(Dwfl_Thread *thread, void *arg);
-+bool libdw_set_initial_registers_arm(Dwfl_Thread *thread, void *arg);
-+bool libdw_set_initial_registers_arm64(Dwfl_Thread *thread, void *arg);
-+bool libdw_set_initial_registers_csky(Dwfl_Thread *thread, void *arg);
-+bool libdw_set_initial_registers_loongarch(Dwfl_Thread *thread, void *arg);
-+bool libdw_set_initial_registers_mips(Dwfl_Thread *thread, void *arg);
-+bool libdw_set_initial_registers_powerpc(Dwfl_Thread *thread, void *arg);
-+bool libdw_set_initial_registers_riscv(Dwfl_Thread *thread, void *arg);
-+bool libdw_set_initial_registers_s390(Dwfl_Thread *thread, void *arg);
- 
- struct unwind_info {
- 	Dwfl			*dwfl;
-
----
-base-commit: cbd41c6d4c26c161a2b0e70ad411d3885ff13507
-change-id: 20251223-cross-arch-unwind-d890d6a5ff0a
-
-Best regards,
--- 
-Shimin Guo <shimin.guo@skydio.com>
-
-
+T24gVHVlLCAyMDI1LTEyLTIzIGF0IDE2OjQ0IC0wMzAwLCBOw61jb2xhcyBGLiBSLiBBLiBQcmFk
+byB3cm90ZToNCj4gSG9vayBPVkwncyBwbGFuZSBjb2xvcm9wcyBpbml0aWFsaXphdGlvbiBmdW5j
+dGlvbiBpbiBERFAgdG8gYWxsb3cgaXRzDQo+IHVzYWdlIGJ5IHRoZSBNZWRpYVRlayBLTVMgZHJp
+dmVyLg0KPiANCj4gU2lnbmVkLW9mZi1ieTogTsOtY29sYXMgRi4gUi4gQS4gUHJhZG8gPG5mcmFw
+cmFkb0Bjb2xsYWJvcmEuY29tPg0KPiAtLS0NCj4gwqBkcml2ZXJzL2dwdS9kcm0vbWVkaWF0ZWsv
+bXRrX2RkcF9jb21wLmMgfCAxICsNCj4gwqAxIGZpbGUgY2hhbmdlZCwgMSBpbnNlcnRpb24oKykN
+Cj4gDQo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2dwdS9kcm0vbWVkaWF0ZWsvbXRrX2RkcF9jb21w
+LmMNCj4gYi9kcml2ZXJzL2dwdS9kcm0vbWVkaWF0ZWsvbXRrX2RkcF9jb21wLmMNCj4gaW5kZXgg
+OTRiMzU2ZGE2ZGU3Li5lZjkwNmIyYWZmNzQgMTAwNjQ0DQo+IC0tLSBhL2RyaXZlcnMvZ3B1L2Ry
+bS9tZWRpYXRlay9tdGtfZGRwX2NvbXAuYw0KPiArKysgYi9kcml2ZXJzL2dwdS9kcm0vbWVkaWF0
+ZWsvbXRrX2RkcF9jb21wLmMNCj4gQEAgLTMzMSw2ICszMzEsNyBAQCBzdGF0aWMgY29uc3Qgc3Ry
+dWN0IG10a19kZHBfY29tcF9mdW5jcyBkZHBfb3ZsID0NCj4gew0KPiDCoMKgwqDCoMKgwqDCoCAu
+Z2V0X2Zvcm1hdHMgPSBtdGtfb3ZsX2dldF9mb3JtYXRzLA0KPiDCoMKgwqDCoMKgwqDCoCAuZ2V0
+X251bV9mb3JtYXRzID0gbXRrX292bF9nZXRfbnVtX2Zvcm1hdHMsDQo+IMKgwqDCoMKgwqDCoMKg
+IC5pc19hZmJjX3N1cHBvcnRlZCA9IG10a19vdmxfaXNfYWZiY19zdXBwb3J0ZWQsDQo+ICvCoMKg
+wqDCoMKgwqAgLnBsYW5lX2NvbG9yb3BzX2luaXQgPSBtdGtfb3ZsX3BsYW5lX2NvbG9yb3BzX2lu
+aXQsDQo+IMKgfTsNCj4gDQo+IMKgc3RhdGljIGNvbnN0IHN0cnVjdCBtdGtfZGRwX2NvbXBfZnVu
+Y3MgZGRwX3Bvc3RtYXNrID0gew0KPiANCj4gLS0NCj4gMi41MS4wDQo+IA0KPiANCg0KUmV2aWV3
+ZWQtYnk6IE1hY3BhdWwgTGluIDxtYWNwYXVsLmxpbkBtZWRpYXRlay5jb20+DQoNCkJlc3QgcmVn
+YXJkcywNCk1hY3BhdWwgTGluDQo=
 
