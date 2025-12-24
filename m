@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2BEEE7545E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 13:49:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E27B4E75458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 13:49:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6O6rmYJG+Tl4L6LWgIlJj4N9PKLZ9AXfFtLpQTmd/fo=; b=PDjfNp9QjA6xLgrZGznhE6+WmP
-	eqsB0rRrES3p4cn5Ftte8F/CEYy3nHydvfGRVk3awg/7BSkV43Mj6XyWBBOsVW53iw0fz+L2Bgok2
-	KTRiUmlAZxRyPhHMeL4hgN4hsWBXkdb6GEVBLU9HX5ITZM8usaSUryg9Wl1EZuCGnXD/OESZMKSLr
-	fB+KvyMOuHrmwD6SS/YtjljVZ+RU+qzCujcfDsF7EFswo5dtY3qd7hEc78EBvEpNwVH61RKRZXiI3
-	4uU6gNX+bhKq1Q0YuQ31bU+7Tx6yBojHsGhbhksfMV4iEBdjHVLnQJgo2nAZHso3P7HL8XNCkprAD
-	kt+Uy1AA==;
+	bh=J6ah9F19j8ar51YOj/i8aeqJcAZAEhWnxFfOmFAzpfM=; b=EKyXj7ULHEgi5KKvz1cmu6tbj+
+	/Qsc3CN6VJxAf+xw69KZwS6R0cvGLqIZy321uwoA8Acp38THoaEn3TPiKaY1GedJ+vzgE8UCyTbfP
+	0KTySygylI2d/CoWqW1ZDCCa9Q3gk/O9w4hEoUKURVlGSXHzeaUHtSOGYicNX6L6/RU8O1RIplP87
+	CwCcj5ERdfTCRkjx8pK+9RZk0XhQmeKlxbNb03Z/CYPaykUQT8xLBwq1NI7qYupYI11yZFTDHNb81
+	zG1eT2xpEHDzD22PtTGC4Mj4DwHokQUmizvquxcMmg7oPKhrmO76HYEBtRFtu12tIdID2lsVeb6zI
+	IK2WgkTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYPF8-0000000Gu8A-2u4J;
-	Wed, 24 Dec 2025 13:49:34 +0000
+	id 1vYPFG-0000000GuG3-0HPc;
+	Wed, 24 Dec 2025 13:49:44 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYPF6-0000000Gu52-1Lqz
+	id 1vYPFE-0000000GuE3-3JlQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Dec 2025 13:49:32 +0000
+	Wed, 24 Dec 2025 13:49:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BD79B600AD;
+	by tor.source.kernel.org (Postfix) with ESMTP id 1CC06600AD;
+	Wed, 24 Dec 2025 13:49:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E007AC4CEF7;
 	Wed, 24 Dec 2025 13:49:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7775BC4CEFB;
-	Wed, 24 Dec 2025 13:49:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766584171;
-	bh=j8MGHYhCs1J4x6C+On5nxQzbEbcFY8oG1AQUgHvIMQ8=;
+	s=k20201202; t=1766584179;
+	bh=v+Hi/QvshgBMqvM0z0QGnJU2LBWwYE1HGBmu0KtZ+dc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Ug4foumUQK9xRmYsoDji03kHgYZzKPVPSgWqmGK3NJ+Z7jjoOn8Vl3zo1uGnRUXGG
-	 t6pgfWJPN83UUgWKg2TyarSyKH7GVLWJ7DnO6XlRJCW1HvygjPb5Odk4vZOFcuFaxF
-	 ejKKSs4ytrwCFSO3OsW1nuuiExbDBVHHm1MbHVHPYuucbzxQNkzgDNPRB8SOBm8mD4
-	 NYpyM32QqQIAes3ebGOpL0dm8GBsBikiUEcOMzBiAv9d1Ndn85XsDYQGLAzJbmA9X+
-	 c1SijNhPjuzP3mjTbN/GBf9j5oqsoAQJcgWW0zk1XA3Fyda5ziOczDh16D87/Hw80f
-	 OKeLK+2485YKQ==
+	b=VrX2pmQOvVTzPFdB3trv/bRr1kHWY1gFXkJYQ9vAZchkg0TGKXjd0qLc21mcUqWBQ
+	 c6IQdoV6joMojnXeJ0GWjCDorzjXRye4sPTIXpdQjNa3lwIMO/73WoGa1R3HbNiTwQ
+	 /+LbH3XmQwQTKf+i+vFPJh3YGr2AR5VsiFJatDHTudJeiMKQO075P5q14/oJ++4YCG
+	 JFAKVX76vsaQ4kn5snndsojVdOq8mGkjow4Fj17LIs5pxyljc747Uy+IMl1nXExaJp
+	 EdSXIH1SPYJUDLbMGGKoI6XOWDMlHLT1up1k8ZzwlvpUPAG2G+yLFkAOu+TmXJPzBZ
+	 4BV8kHQ8r8lsg==
 From: Frederic Weisbecker <frederic@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Frederic Weisbecker <frederic@kernel.org>,
@@ -81,9 +81,9 @@ Cc: Frederic Weisbecker <frederic@kernel.org>,
 	linux-mm@kvack.org,
 	linux-pci@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH 28/33] sched: Switch the fallback task allowed cpumask to HK_TYPE_DOMAIN
-Date: Wed, 24 Dec 2025 14:45:15 +0100
-Message-ID: <20251224134520.33231-29-frederic@kernel.org>
+Subject: [PATCH 29/33] sched/arm64: Move fallback task cpumask to HK_TYPE_DOMAIN
+Date: Wed, 24 Dec 2025 14:45:16 +0100
+Message-ID: <20251224134520.33231-30-frederic@kernel.org>
 X-Mailer: git-send-email 2.51.1
 In-Reply-To: <20251224134520.33231-1-frederic@kernel.org>
 References: <20251224134520.33231-1-frederic@kernel.org>
@@ -103,31 +103,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Tasks that have all their allowed CPUs offline don't want their affinity
-to fallback on either nohz_full CPUs or on domain isolated CPUs. And
-since nohz_full implies domain isolation, checking the latter is enough
-to verify both.
+When none of the allowed CPUs of a task are online, it gets migrated
+to the fallback cpumask which is all the non nohz_full CPUs.
 
-Therefore exclude domain isolation from fallback task affinity.
+However just like nohz_full CPUs, domain isolated CPUs don't want to be
+disturbed by tasks that have lost their CPU affinities.
+
+And since nohz_full rely on domain isolation to work correctly, the
+housekeeping mask of domain isolated CPUs should always be a superset of
+the housekeeping mask of nohz_full CPUs (there can be CPUs that are
+domain isolated but not nohz_full, OTOH there shouldn't be nohz_full
+CPUs that are not domain isolated):
+
+	HK_TYPE_DOMAIN | HK_TYPE_KERNEL_NOISE == HK_TYPE_DOMAIN
+
+Therefore use HK_TYPE_DOMAIN as the appropriate fallback target for
+tasks and since this cpumask can be modified at runtime, make sure
+that 32 bits support CPUs on ARM64 mismatched systems are not isolated
+by cpusets.
 
 Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
 ---
- include/linux/mmu_context.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/kernel/cpufeature.c | 18 +++++++++++++++---
+ include/linux/cpu.h            |  4 ++++
+ kernel/cgroup/cpuset.c         | 17 ++++++++++++++---
+ 3 files changed, 33 insertions(+), 6 deletions(-)
 
-diff --git a/include/linux/mmu_context.h b/include/linux/mmu_context.h
-index ac01dc4eb2ce..ed3dd0f3fe19 100644
---- a/include/linux/mmu_context.h
-+++ b/include/linux/mmu_context.h
-@@ -24,7 +24,7 @@ static inline void leave_mm(void) { }
- #ifndef task_cpu_possible_mask
- # define task_cpu_possible_mask(p)	cpu_possible_mask
- # define task_cpu_possible(cpu, p)	true
--# define task_cpu_fallback_mask(p)	housekeeping_cpumask(HK_TYPE_TICK)
-+# define task_cpu_fallback_mask(p)	housekeeping_cpumask(HK_TYPE_DOMAIN)
- #else
- # define task_cpu_possible(cpu, p)	cpumask_test_cpu((cpu), task_cpu_possible_mask(p))
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index c840a93b9ef9..70b0e45e299a 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -1656,6 +1656,18 @@ has_cpuid_feature(const struct arm64_cpu_capabilities *entry, int scope)
+ 	return feature_matches(val, entry);
+ }
+ 
++/*
++ * 32 bits support CPUs can't be isolated because tasks may be
++ * arbitrarily affine to them, defeating the purpose of isolation.
++ */
++bool arch_isolated_cpus_can_update(struct cpumask *new_cpus)
++{
++	if (static_branch_unlikely(&arm64_mismatched_32bit_el0))
++		return !cpumask_intersects(cpu_32bit_el0_mask, new_cpus);
++	else
++		return true;
++}
++
+ const struct cpumask *system_32bit_el0_cpumask(void)
+ {
+ 	if (!system_supports_32bit_el0())
+@@ -1669,7 +1681,7 @@ const struct cpumask *system_32bit_el0_cpumask(void)
+ 
+ const struct cpumask *task_cpu_fallback_mask(struct task_struct *p)
+ {
+-	return __task_cpu_possible_mask(p, housekeeping_cpumask(HK_TYPE_TICK));
++	return __task_cpu_possible_mask(p, housekeeping_cpumask(HK_TYPE_DOMAIN));
+ }
+ 
+ static int __init parse_32bit_el0_param(char *str)
+@@ -3987,8 +3999,8 @@ static int enable_mismatched_32bit_el0(unsigned int cpu)
+ 	bool cpu_32bit = false;
+ 
+ 	if (id_aa64pfr0_32bit_el0(info->reg_id_aa64pfr0)) {
+-		if (!housekeeping_cpu(cpu, HK_TYPE_TICK))
+-			pr_info("Treating adaptive-ticks CPU %u as 64-bit only\n", cpu);
++		if (!housekeeping_cpu(cpu, HK_TYPE_DOMAIN))
++			pr_info("Treating domain isolated CPU %u as 64-bit only\n", cpu);
+ 		else
+ 			cpu_32bit = true;
+ 	}
+diff --git a/include/linux/cpu.h b/include/linux/cpu.h
+index 487b3bf2e1ea..0b48af25ab5c 100644
+--- a/include/linux/cpu.h
++++ b/include/linux/cpu.h
+@@ -229,4 +229,8 @@ static inline bool cpu_attack_vector_mitigated(enum cpu_attack_vectors v)
+ #define smt_mitigations SMT_MITIGATIONS_OFF
  #endif
+ 
++struct cpumask;
++
++bool arch_isolated_cpus_can_update(struct cpumask *new_cpus);
++
+ #endif /* _LINUX_CPU_H_ */
+diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
+index cd6119c02beb..1cc83a3c25f6 100644
+--- a/kernel/cgroup/cpuset.c
++++ b/kernel/cgroup/cpuset.c
+@@ -1408,14 +1408,22 @@ static void partition_xcpus_del(int old_prs, struct cpuset *parent,
+ 	cpumask_or(parent->effective_cpus, parent->effective_cpus, xcpus);
+ }
+ 
++bool __weak arch_isolated_cpus_can_update(struct cpumask *new_cpus)
++{
++	return true;
++}
++
+ /*
+- * isolated_cpus_can_update - check for isolated & nohz_full conflicts
++ * isolated_cpus_can_update - check for conflicts against housekeeping and
++ *                            CPUs capabilities.
+  * @add_cpus: cpu mask for cpus that are going to be isolated
+  * @del_cpus: cpu mask for cpus that are no longer isolated, can be NULL
+  * Return: false if there is conflict, true otherwise
+  *
+- * If nohz_full is enabled and we have isolated CPUs, their combination must
+- * still leave housekeeping CPUs.
++ * Check for conflicts:
++ * - If nohz_full is enabled and there are isolated CPUs, their combination must
++ *   still leave housekeeping CPUs.
++ * - Architecture has CPU capabilities incompatible with being isolated
+  *
+  * TBD: Should consider merging this function into
+  *      prstate_housekeeping_conflict().
+@@ -1426,6 +1434,9 @@ static bool isolated_cpus_can_update(struct cpumask *add_cpus,
+ 	cpumask_var_t full_hk_cpus;
+ 	int res = true;
+ 
++	if (!arch_isolated_cpus_can_update(add_cpus))
++		return false;
++
+ 	if (!housekeeping_enabled(HK_TYPE_KERNEL_NOISE))
+ 		return true;
+ 
 -- 
 2.51.1
 
