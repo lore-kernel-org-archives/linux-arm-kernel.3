@@ -4,118 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2794E7545C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 15:55:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BD98E776C1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 16:00:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FJkpRMY171vY3L0h7v1fPXyaunxRTtx28UxKO+p6tOY=; b=nk/WF3rD67JixdyAjgzD9vyOX8
-	lHeTQSaK3p70Gx7oOU6HqH/NqDNynU0MVqTg6R3IhYD8UMlAmaZvp/yC1QKD3GLTplZND3ydzomwN
-	v8cM4g/vl4EZnbQmqZuG9bUonZrJwH4RUs0cAB9gHDgkJshKA9Gl3EkvPy7zsYEhyLBRuTiX5S9dd
-	SH5PTJECUqWn7NOVBxKdMJurWqV6XV/7/zuCP8yeSrvFVsQBZRiffMJilDXthLYcuQ5mnu1AQCsiJ
-	lz84MRq8hwPOyBXQOEgQlXqXwHViViXTkF/en6LSHBsqQXDNIb0LBKaEDIf9lvisBMkfT5VMXjo5p
-	UNd+D3aQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/WSMWE/26hpkCga2NLvtQJAspfFCx8jE0uqEewiIag0=; b=rkILpL+3yOYfLYIYK44K1j1wG6
+	nt8b8EFErt8YsTTq+DRoPzF281K4oOVbfjzQ/jhkwKPobGD4qz9TXOcLZrodf4OUzNPIMXIQN2ijG
+	OM/xZEg3D8JXl0KqvoWDZZb485wgGibuWK8vDuuvr2+wlLw8l0FdGViI53ANqYcRWb6vALobRPcPV
+	tkNY1UIRHkluVQA01UQXpuH16N3KXYnfNqVDYBIDBtIumJy1BmrOR/zuFzcDeW1g2G+2H+zSDIKYE
+	15pRDeGerN2RMBPPEU+6kOpRhE26UrtwBrAeju7PpfmSloaFOqMHWKWG5qicLp8uBHQqRaUh4ZBrT
+	aGTxEDOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYRCg-0000000HAPb-3vlf;
-	Wed, 24 Dec 2025 15:55:10 +0000
-Received: from mail-ed1-x542.google.com ([2a00:1450:4864:20::542])
+	id 1vYRHJ-0000000HAzn-0cQV;
+	Wed, 24 Dec 2025 15:59:57 +0000
+Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYRCS-0000000HAL5-04JA
+	id 1vYRHE-0000000HAyy-1FFQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Dec 2025 15:54:57 +0000
-Received: by mail-ed1-x542.google.com with SMTP id 4fb4d7f45d1cf-649e28dccadso9958794a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Dec 2025 07:54:55 -0800 (PST)
+	Wed, 24 Dec 2025 15:59:55 +0000
+Received: by mail-qk1-x72e.google.com with SMTP id af79cd13be357-8b21fc25ae1so577469585a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Dec 2025 07:59:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=osyx-tech.20230601.gappssmtp.com; s=20230601; t=1766591694; x=1767196494; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=FJkpRMY171vY3L0h7v1fPXyaunxRTtx28UxKO+p6tOY=;
-        b=b8iCz7bVJ7c732B26bIaex0AfXKFHzZtGBJ8VL4q9g6xmlEuWNA9/S+WQDaNhH9F0n
-         limEx89fEfcj2zalR8dAKgSFds6pg7eHmLFB0rQM5Zj6ofgBhILOBSYpmyhSc1XUGhJw
-         9eVLzq4n8Wn/mVw7Fzk7Ea8TUL6giZ5MRklkc3YBo+U9yrzzdwGkoDrnJK/nh5vpYwwH
-         5nZdBusZ6RjANAta99BnCElLrjlTHP860z1X50QslPE1F1mHiF8wiMLbjmJLPWa19OcR
-         0AEyQ9OeJ8ixEjEYuwBZ2wHmsh75WylJhhcvFhaIB/YENPuUg7UQws5X1jF+UfVkhdMj
-         EW4A==
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1766591991; x=1767196791; darn=lists.infradead.org;
+        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
+         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=/WSMWE/26hpkCga2NLvtQJAspfFCx8jE0uqEewiIag0=;
+        b=dNaPFJGOxyWjr46jpZUWxw22bDIjs1udYiOqmZ5UYWGDE08hULFUSaEhbySlGEaN4M
+         bzHGh8EvmDXI2eqDnn5nBTsDzLJi7/4wGRZseVWEY4w0VN0eFeDkmStuKpwz7HjVYCRn
+         LlaxWUtpKV7Bwo0QSsKvvX1Em67EnUJvMiQq0nMRbR/kASk1Du9FVtgovBCsQkwpJ3V0
+         dCOY5VNquve/Owbw9wazSdT2t0qLEjDohAVZrePy7JutjzhLBXtKGQL+V6r3hiBCDm76
+         tFRnjcUXHz6DlYa+MUCIQ+dXCDLT87R4/jF5+nrCjbonqn4pSIL2aRCDDMMw4o/17yLn
+         8VTg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766591694; x=1767196494;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=FJkpRMY171vY3L0h7v1fPXyaunxRTtx28UxKO+p6tOY=;
-        b=SOudTdMAyrh/PAmtnx/5Oe2wFkLQBtQmW7cBREwH60EIfgyDXSV8Scnnb/SMv6NfAL
-         nPy+XRQjhOfn/3dXAOZbEDpjSGkzyp3HRu+Z2DWzYhdikWWe3b/CiYwiXSM4YTvdXUvy
-         0wd09dv5r2ap7M6fY9I/fRXof+TJMSg9z3FFeKl4o7w1gQl4N7aUIU7lYdloknI9Limf
-         nlJWaDbL1fz+Qa/34b3J81SMT9/CLDsLbt2EGlX2WMcidrdewtPvxJdAHIHws4AFjA40
-         f5x0Qy8U9JhXEMyRPR7j0xoO9+eIpO8r2Sm4Igxz/6jNxf0lQFhXRYYGqFjh4InKLXBD
-         PSSw==
-X-Forwarded-Encrypted: i=1; AJvYcCVyjN8dHi8ynE2qKo16XV3yRRRXca+dv9GjBa5nMinn8Hih6bZaUu8WwYzhOcjDHBAee7tZavY0EwTRJ0w9zegI@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPAJnN++Ol9km+JNY7R+I59mC+XBM1AjK9yKK+AbR68Z1BrxFa
-	kJgEg/yhvxYR4ZdL7Tw1m9hnjc2pOwhJWZ5nEl/bTa73j5P9ic30sFjer/V4+Px3dl0IISXLxYQ
-	xHadt3acI
-X-Gm-Gg: AY/fxX6qcQxEwzA9U8Sz+ecBqbA+9qNswMeo9Zsph3j2JpfYgxTjai7UqJK9V+gnZo5
-	H7gQy4K5zp5SJq+QDmQl89DIopcZOPUH9knc3uqHQ7qZQmCRXfX3ty/leSrCR5U3iVYyU/AB8iF
-	mtH4a/CWuxQwDcwnl07tMe0tXcheMJTEt3k5+OFqG2D2NjkCjmxqQ+wKnXlZHOzH687B/xCtfpy
-	SiJ4VvIbQh2QjHkn9Gu3gZLBxqEYy0ODkOI/Fl4Kj61g50EeEHRQvK6xKn/6o6TJq2NEY/KXWj6
-	5yGgpOPgGKcHgw6ozym0hH3sbiN1jU6mYc9R2SQZNFB5tRdBUD748SoJua0dRLSe0z5V61KtpU9
-	CO9P6algtx269TAgujN2pV5TKFgLl2SkzYcKYqBYF03WFA69vuwbdN899Ce2o6he5L07O5jbfMM
-	ux8KLBKpYzPgCowf+LpQ==
-X-Google-Smtp-Source: AGHT+IFoD/NhA0rxBVvmihrITY4sie8giUtNeWvA8wocBW66o3SMKffzkvrHP32aOGkRlyEpA+8vEA==
-X-Received: by 2002:a05:6000:2386:b0:430:f718:2388 with SMTP id ffacd0b85a97d-4324e4bfa20mr16996119f8f.8.1766584383195;
-        Wed, 24 Dec 2025 05:53:03 -0800 (PST)
-Received: from jp-linux.Home ([2001:8a0:f59c:a900:39e4:e84d:192a:5c5c])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4324eaa64cesm34494677f8f.35.2025.12.24.05.53.01
+        d=1e100.net; s=20230601; t=1766591991; x=1767196791;
+        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
+         :from:subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/WSMWE/26hpkCga2NLvtQJAspfFCx8jE0uqEewiIag0=;
+        b=QoorHrjQoUenRPJVFcTNyn0r8RV6x03x2apuNWYy/upkJtxo0j8JVZthsclHpD097M
+         uC5GUIwxU14QornjRjCT5mevXAA5KEL85gT+FgodxecvCrAOoWLUfW71joWaDK4NafBc
+         nhBQTTymY0gMtB2QWcihI1TVac2JBN9OOWwQ+yiVCffOcJMkN78LH5acCMA7Xgzktfhr
+         5cJTDIFGrGhMX8rMcZeI7K2R+7xIKU2QV9AwEHpFYxxtU0TRtYBdG1Ze6NVgmw0bE+nW
+         9K5HHoCjdEMBAJcof2kNtH7kDe8dTeyeAbV4R+QCU/DXbVl+18jQMrVdn94i05FUQjRd
+         M1Rg==
+X-Forwarded-Encrypted: i=1; AJvYcCVTNu2rApVEZ4KDahB4UK4JAxTcN3AUfuzM6UAMLFHvBS2Shr/D+Yb67jleGxs/fgVohznxyepEFSGm9B/mtJUw@lists.infradead.org
+X-Gm-Message-State: AOJu0YwT7ymGWPjVMkLb7Kd/CErZjgadwA2nxGuwhAhTWazQ3tC/3Mvn
+	vjLmJgRaiwz+5hbyaidiGzFaajJz6E8+ALTMxI8KXzsxHKDplYdIYgtsJb6WedrRhjk=
+X-Gm-Gg: AY/fxX6eu8OPjb8T1KNUq3uIuoeztmK5zfcb/hN3r6UNLAYjwGYaZkkXZezbDxbMnVZ
+	woU59qIwCaMae9j2GBKyz4Cbv4qzaMF3H+tTcjG9/WNjsYGirhadfLzUTYn0uKSzjvopnbcRFMr
+	C4WNoL26yUYkOvMEpG34vgSSHbtJNcBC1OVjTGuVz/os+6xvrAzFDM3FgaksJHGUpno9lpYOeHh
+	+xn58genFQrB7nnk4HNSoQlud9U6dVO2ZyGAroyqMY446w31irF+3oiXPdAmRg20Q50S6kYaio1
+	mULoJBZ9c5SDQ7Nu4x1cVlhTEzkM14EeQEQ284JtyP611aCTAqp4vcTWjh5eCvrNu47bk3cZna9
+	Yd9xoD7qK9ZuKQ4sQ10WruXDRXoGX+4s4VWcZywc2vRxtHfRrNTnsVWbQc6RIUMX54d7F1AomxV
+	XcXZjxFewSk1d+jzU3
+X-Google-Smtp-Source: AGHT+IEvTXUWsdfb1c7lXzx2lNU4vqAmRcfs5ge8eo5IMBugNQUMOnZvF8ghn8YowoKI01K6gIjpbg==
+X-Received: by 2002:a05:620a:691a:b0:8b2:eae0:bbf4 with SMTP id af79cd13be357-8c08f666fc0mr2781706885a.19.1766591991112;
+        Wed, 24 Dec 2025 07:59:51 -0800 (PST)
+Received: from ?IPv6:2606:6d00:17:7b4b::c41? ([2606:6d00:17:7b4b::c41])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8c0973f28e3sm1415561585a.45.2025.12.24.07.59.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Dec 2025 05:53:02 -0800 (PST)
-From: joaopeixoto@osyx.tech
-To: linux-kernel@vger.kernel.org
-Cc: ajd@linux.ibm.com,
-	alex@ghiti.fr,
-	aou@eecs.berkeley.edu,
-	bagasdotme@gmail.com,
-	catalin.marinas@arm.com,
-	conor+dt@kernel.org,
-	corbet@lwn.net,
-	dan.j.williams@intel.com,
-	davidmcerdeira@osyx.tech,
-	devicetree@vger.kernel.org,
-	dev@kael-k.io,
-	gregkh@linuxfoundation.org,
-	haren@linux.ibm.com,
-	heiko@sntech.de,
-	joaopeixoto@osyx.tech,
-	jose@osyx.tech,
-	kever.yang@rock-chips.com,
-	krzk+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux@armlinux.org.uk,
-	linux-doc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	maddy@linux.ibm.com,
-	mani@kernel.org,
-	nathan@kernel.org,
-	neil.armstrong@linaro.org,
-	palmer@dabbelt.com,
-	pjw@kernel.org,
-	prabhakar.mahadev-lad.rj@bp.renesas.com,
-	robh@kernel.org,
-	will@kernel.org
-Subject: [PATCH 2/5] virt: add Bao IPC shared memory driver
-Date: Wed, 24 Dec 2025 13:52:14 +0000
-Message-ID: <20251224135217.25350-3-joaopeixoto@osyx.tech>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251224135217.25350-1-joaopeixoto@osyx.tech>
-References: <20251224135217.25350-1-joaopeixoto@osyx.tech>
+        Wed, 24 Dec 2025 07:59:50 -0800 (PST)
+Message-ID: <de09023e7bdb1698c0bcdeb8d625101cbf647595.camel@ndufresne.ca>
+Subject: Re: [PATCH v2 18/22] media: rockchip: rga: move rga_fmt to rga-hw.h
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Sven =?ISO-8859-1?Q?P=FCschel?= <s.pueschel@pengutronix.de>, Jacob Chen
+	 <jacob-chen@iotwrt.com>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
+ Mauro Carvalho Chehab
+	 <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Rob Herring
+	 <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	 <conor+dt@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, kernel@pengutronix.de
+Date: Wed, 24 Dec 2025 10:59:49 -0500
+In-Reply-To: <20251203-spu-rga3-v2-18-989a67947f71@pengutronix.de>
+References: <20251203-spu-rga3-v2-0-989a67947f71@pengutronix.de>
+	 <20251203-spu-rga3-v2-18-989a67947f71@pengutronix.de>
+Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-Yz7EV6xH1v3dWkULnR4e"
+User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251224_075456_414007_F22E3CF9 
-X-CRM114-Status: GOOD (  26.73  )
+X-CRM114-CacheID: sfid-20251224_075952_433539_B91E548C 
+X-CRM114-Status: GOOD (  30.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,651 +119,392 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: João Peixoto <joaopeixoto@osyx.tech>
 
-Add a new driver providing an interface for communication with guests
-hosted by the Bao hypervisor using shared-memory channels. The driver
-exposes read/write regions defined in device tree and notifies the
-hypervisor via an architecture-specific hypercall (SMC/HVC on ARM and
-SBI ecall on RISC-V).
+--=-Yz7EV6xH1v3dWkULnR4e
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-The patch introduces:
-  - drivers/bao/ with the initial Bao IPC shared-memory implementation
-  - Kconfig entry enabling BAO_SHMEM
-  - Makefile integration for building the driver
-  - A character device interface supporting mmap(), read(), and write()
-  - Platform driver support using DT properties for channel layout
+Le mercredi 03 d=C3=A9cembre 2025 =C3=A0 16:52 +0100, Sven P=C3=BCschel a =
+=C3=A9crit=C2=A0:
+> Move rga_fmt to rga-hw in preparation of the RGA3 addition, as the struct
+> contains many RGA2 specific values. They are used to write the correct
+> register values quickly based on the chosen format. Therefore the
+> pointer to the rga_fmt struct is kept but changed to an opaque void
+> pointer outside of the rga-hw.h.
+>=20
+> To enumerate and set the correct formats, two helper functions need to
+> be exposed in the rga_hw struct:
+>=20
+> enum_format just get's the vidioc_enum_fmt format and it's return value
+> is also returned from vidioc_enum_fmt. This is a simple pass-through,
+> as the implementation is very simple.
+>=20
+> adjust_and_map_format is a simple abstraction around the previous
+> rga_find_format. But unlike rga_find_format, it always returns a valid
+> format. Therefore the passed format value is also a pointer to update
+> it in case the values are not supported by the hardware.
+> Due to the RGA3 supporting different formats on the capture and output
+> side, an additional parameter is_capture has been added to support
+> this use-case.
+>=20
+> Signed-off-by: Sven P=C3=BCschel <s.pueschel@pengutronix.de>
+> ---
+> =C2=A0drivers/media/platform/rockchip/rga/rga-buf.c |=C2=A0 2 +-
+> =C2=A0drivers/media/platform/rockchip/rga/rga-hw.c=C2=A0 | 53 +++++++++++=
+++++++++++------
+> =C2=A0drivers/media/platform/rockchip/rga/rga-hw.h=C2=A0 | 12 ++++++
+> =C2=A0drivers/media/platform/rockchip/rga/rga.c=C2=A0=C2=A0=C2=A0=C2=A0 |=
+ 38 +++++--------------
+> =C2=A0drivers/media/platform/rockchip/rga/rga.h=C2=A0=C2=A0=C2=A0=C2=A0 |=
+ 17 ++-------
+> =C2=A05 files changed, 68 insertions(+), 54 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/rockchip/rga/rga-buf.c b/drivers/medi=
+a/platform/rockchip/rga/rga-buf.c
+> index 8de6b9c3fd615..b0f226f7f06d9 100644
+> --- a/drivers/media/platform/rockchip/rga/rga-buf.c
+> +++ b/drivers/media/platform/rockchip/rga/rga-buf.c
+> @@ -158,7 +158,7 @@ static int rga_buf_prepare(struct vb2_buffer *vb)
+> =C2=A0	}
+> =C2=A0
+> =C2=A0	/* Fill the remaining planes */
+> -	info =3D v4l2_format_info(f->fmt->fourcc);
+> +	info =3D v4l2_format_info(f->pix.pixelformat);
+> =C2=A0	for (i =3D info->mem_planes; i < info->comp_planes; i++)
+> =C2=A0		dma_addrs[i] =3D dma_addrs[0] + get_plane_offset(f, info, i);
+> =C2=A0
+> diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media=
+/platform/rockchip/rga/rga-hw.c
+> index 4dee33d8f7206..a868a34a1452e 100644
+> --- a/drivers/media/platform/rockchip/rga/rga-hw.c
+> +++ b/drivers/media/platform/rockchip/rga/rga-hw.c
+> @@ -44,14 +44,15 @@ rga_get_corner_addrs(struct rga_frame *frm, struct rg=
+a_addrs *addrs,
+> =C2=A0	struct rga_addrs *lt, *lb, *rt, *rb;
+> =C2=A0	unsigned int x_div =3D 0,
+> =C2=A0		=C2=A0=C2=A0=C2=A0=C2=A0 y_div =3D 0, y_stride =3D 0, uv_stride =
+=3D 0, pixel_width =3D 0;
+> +	struct rga_fmt *fmt =3D frm->fmt;
+> =C2=A0
+> =C2=A0	lt =3D &corner_addrs.left_top;
+> =C2=A0	lb =3D &corner_addrs.left_bottom;
+> =C2=A0	rt =3D &corner_addrs.right_top;
+> =C2=A0	rb =3D &corner_addrs.right_bottom;
+> =C2=A0
+> -	x_div =3D frm->fmt->x_div;
+> -	y_div =3D frm->fmt->y_div;
+> +	x_div =3D fmt->x_div;
+> +	y_div =3D fmt->y_div;
+> =C2=A0	y_stride =3D frm->pix.plane_fmt[0].bytesperline;
+> =C2=A0	uv_stride =3D y_stride / x_div;
+> =C2=A0	pixel_width =3D y_stride / frm->pix.width;
+> @@ -162,6 +163,8 @@ static void rga_cmd_set_trans_info(struct rga_ctx *ct=
+x)
+> =C2=A0	union rga_dst_vir_info dst_vir_info;
+> =C2=A0	union rga_dst_act_info dst_act_info;
+> =C2=A0	u32 in_stride, out_stride;
+> +	struct rga_fmt *in_fmt =3D ctx->in.fmt;
+> +	struct rga_fmt *out_fmt =3D ctx->out.fmt;
+> =C2=A0
+> =C2=A0	src_h =3D ctx->in.crop.height;
+> =C2=A0	src_w =3D ctx->in.crop.width;
+> @@ -177,18 +180,18 @@ static void rga_cmd_set_trans_info(struct rga_ctx *=
+ctx)
+> =C2=A0	dst_vir_info.val =3D dest[(RGA_DST_VIR_INFO - RGA_MODE_BASE_REG) >=
+> 2];
+> =C2=A0	dst_act_info.val =3D dest[(RGA_DST_ACT_INFO - RGA_MODE_BASE_REG) >=
+> 2];
+> =C2=A0
+> -	src_info.data.format =3D ctx->in.fmt->hw_format;
+> -	src_info.data.swap =3D ctx->in.fmt->color_swap;
+> -	dst_info.data.format =3D ctx->out.fmt->hw_format;
+> -	dst_info.data.swap =3D ctx->out.fmt->color_swap;
+> +	src_info.data.format =3D in_fmt->hw_format;
+> +	src_info.data.swap =3D in_fmt->color_swap;
+> +	dst_info.data.format =3D out_fmt->hw_format;
+> +	dst_info.data.swap =3D out_fmt->color_swap;
+> =C2=A0
+> =C2=A0	/*
+> =C2=A0	 * CSC mode must only be set when the colorspace families differ b=
+etween
+> =C2=A0	 * input and output. It must remain unset (zeroed) if both are the=
+ same.
+> =C2=A0	 */
+> =C2=A0
+> -	if (RGA_COLOR_FMT_IS_YUV(ctx->in.fmt->hw_format) &&
+> -	=C2=A0=C2=A0=C2=A0 RGA_COLOR_FMT_IS_RGB(ctx->out.fmt->hw_format)) {
+> +	if (RGA_COLOR_FMT_IS_YUV(in_fmt->hw_format) &&
+> +	=C2=A0=C2=A0=C2=A0 RGA_COLOR_FMT_IS_RGB(out_fmt->hw_format)) {
+> =C2=A0		switch (ctx->in.pix.colorspace) {
+> =C2=A0		case V4L2_COLORSPACE_REC709:
+> =C2=A0			src_info.data.csc_mode =3D RGA_SRC_CSC_MODE_BT709_R0;
+> @@ -199,8 +202,8 @@ static void rga_cmd_set_trans_info(struct rga_ctx *ct=
+x)
+> =C2=A0		}
+> =C2=A0	}
+> =C2=A0
+> -	if (RGA_COLOR_FMT_IS_RGB(ctx->in.fmt->hw_format) &&
+> -	=C2=A0=C2=A0=C2=A0 RGA_COLOR_FMT_IS_YUV(ctx->out.fmt->hw_format)) {
+> +	if (RGA_COLOR_FMT_IS_RGB(in_fmt->hw_format) &&
+> +	=C2=A0=C2=A0=C2=A0 RGA_COLOR_FMT_IS_YUV(out_fmt->hw_format)) {
+> =C2=A0		switch (ctx->out.pix.colorspace) {
+> =C2=A0		case V4L2_COLORSPACE_REC709:
+> =C2=A0			dst_info.data.csc_mode =3D RGA_SRC_CSC_MODE_BT709_R0;
+> @@ -619,11 +622,35 @@ static struct rga_fmt formats[] =3D {
+> =C2=A0	},
+> =C2=A0};
+> =C2=A0
+> +static void *rga_adjust_and_map_format(struct v4l2_pix_format_mplane *fo=
+rmat,
+> +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 bool is_output)
+> +{
+> +	unsigned int i;
+> +
+> +	if (!format)
+> +		return &formats[0];
+> +
+> +	for (i =3D 0; i < ARRAY_SIZE(formats); i++) {
+> +		if (formats[i].fourcc =3D=3D format->pixelformat)
+> +			return &formats[i];
+> +	}
+> +
+> +	format->pixelformat =3D formats[0].fourcc;
+> +	return &formats[0];
+> +}
+> +
+> +static int rga_enum_format(struct v4l2_fmtdesc *f)
+> +{
+> +	if (f->index >=3D ARRAY_SIZE(formats))
+> +		return -EINVAL;
+> +
+> +	f->pixelformat =3D formats[f->index].fourcc;
+> +	return 0;
+> +}
+> +
+> =C2=A0const struct rga_hw rga2_hw =3D {
+> =C2=A0	.card_type =3D "rga2",
+> =C2=A0	.has_internal_iommu =3D true,
+> -	.formats =3D formats,
+> -	.num_formats =3D ARRAY_SIZE(formats),
+> =C2=A0	.cmdbuf_size =3D RGA_CMDBUF_SIZE,
+> =C2=A0	.min_width =3D MIN_WIDTH,
+> =C2=A0	.max_width =3D MAX_WIDTH,
+> @@ -636,4 +663,6 @@ const struct rga_hw rga2_hw =3D {
+> =C2=A0	.start =3D rga_hw_start,
+> =C2=A0	.handle_irq =3D rga_handle_irq,
+> =C2=A0	.get_version =3D rga_get_version,
+> +	.adjust_and_map_format =3D rga_adjust_and_map_format,
+> +	.enum_format =3D rga_enum_format,
+> =C2=A0};
+> diff --git a/drivers/media/platform/rockchip/rga/rga-hw.h b/drivers/media=
+/platform/rockchip/rga/rga-hw.h
+> index fffcab0131225..3bc4b1f5acba2 100644
+> --- a/drivers/media/platform/rockchip/rga/rga-hw.h
+> +++ b/drivers/media/platform/rockchip/rga/rga-hw.h
+> @@ -6,6 +6,8 @@
+> =C2=A0#ifndef __RGA_HW_H__
+> =C2=A0#define __RGA_HW_H__
+> =C2=A0
+> +#include <linux/types.h>
+> +
+> =C2=A0#define RGA_CMDBUF_SIZE 0x20
+> =C2=A0
+> =C2=A0/* Hardware limits */
+> @@ -431,4 +433,14 @@ union rga_pat_con {
+> =C2=A0	} data;
+> =C2=A0};
+> =C2=A0
+> +struct rga_fmt {
+> +	u32 fourcc;
+> +	int depth;
+> +	u8 uv_factor;
+> +	u8 y_div;
+> +	u8 x_div;
+> +	u8 color_swap;
+> +	u8 hw_format;
+> +};
+> +
+> =C2=A0#endif
+> diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/pl=
+atform/rockchip/rga/rga.c
+> index 7e30fafb25fab..c991cc64b4b7f 100644
+> --- a/drivers/media/platform/rockchip/rga/rga.c
+> +++ b/drivers/media/platform/rockchip/rga/rga.c
+> @@ -185,17 +185,6 @@ static int rga_setup_ctrls(struct rga_ctx *ctx)
+> =C2=A0	return 0;
+> =C2=A0}
+> =C2=A0
+> -static struct rga_fmt *rga_fmt_find(struct rockchip_rga *rga, u32 pixelf=
+ormat)
+> -{
+> -	unsigned int i;
+> -
+> -	for (i =3D 0; i < rga->hw->num_formats; i++) {
+> -		if (rga->hw->formats[i].fourcc =3D=3D pixelformat)
+> -			return &rga->hw->formats[i];
+> -	}
+> -	return NULL;
+> -}
+> -
+> =C2=A0struct rga_frame *rga_get_frame(struct rga_ctx *ctx, enum v4l2_buf_=
+type type)
+> =C2=A0{
+> =C2=A0	if (V4L2_TYPE_IS_OUTPUT(type))
+> @@ -217,7 +206,6 @@ static int rga_open(struct file *file)
+> =C2=A0		.crop.top =3D 0,
+> =C2=A0		.crop.width =3D def_width,
+> =C2=A0		.crop.height =3D def_height,
+> -		.fmt =3D &rga->hw->formats[0],
+> =C2=A0	};
+> =C2=A0
+> =C2=A0	ctx =3D kzalloc(sizeof(*ctx), GFP_KERNEL);
+> @@ -238,9 +226,11 @@ static int rga_open(struct file *file)
+> =C2=A0	ctx->in =3D def_frame;
+> =C2=A0	ctx->out =3D def_frame;
+> =C2=A0
+> -	v4l2_fill_pixfmt_mp_aligned(&ctx->in.pix, ctx->in.fmt->fourcc,
+> +	ctx->in.fmt =3D rga->hw->adjust_and_map_format(&ctx->in.pix, true);
+> +	v4l2_fill_pixfmt_mp_aligned(&ctx->in.pix, ctx->in.pix.pixelformat,
+> =C2=A0				=C2=A0=C2=A0=C2=A0 def_width, def_height, rga->hw->stride_align=
+ment);
+> -	v4l2_fill_pixfmt_mp_aligned(&ctx->out.pix, ctx->out.fmt->fourcc,
+> +	ctx->out.fmt =3D rga->hw->adjust_and_map_format(&ctx->out.pix, false);
+> +	v4l2_fill_pixfmt_mp_aligned(&ctx->out.pix, ctx->out.pix.pixelformat,
+> =C2=A0				=C2=A0=C2=A0=C2=A0 def_width, def_height, rga->hw->stride_align=
+ment);
+> =C2=A0
+> =C2=A0	if (mutex_lock_interruptible(&rga->mutex)) {
+> @@ -322,15 +312,8 @@ vidioc_querycap(struct file *file, void *priv, struc=
+t v4l2_capability *cap)
+> =C2=A0static int vidioc_enum_fmt(struct file *file, void *priv, struct v4=
+l2_fmtdesc *f)
+> =C2=A0{
+> =C2=A0	struct rockchip_rga *rga =3D video_drvdata(file);
+> -	struct rga_fmt *fmt;
+> =C2=A0
+> -	if (f->index >=3D rga->hw->num_formats)
+> -		return -EINVAL;
+> -
+> -	fmt =3D &rga->hw->formats[f->index];
+> -	f->pixelformat =3D fmt->fourcc;
+> -
+> -	return 0;
+> +	return rga->hw->enum_format(f);
+> =C2=A0}
+> =C2=A0
+> =C2=A0static int vidioc_g_fmt(struct file *file, void *priv, struct v4l2_=
+format *f)
+> @@ -355,15 +338,13 @@ static int vidioc_try_fmt(struct file *file, void *=
+priv, struct v4l2_format *f)
+> =C2=A0	struct rga_ctx *ctx =3D file_to_rga_ctx(file);
+> =C2=A0	struct rockchip_rga *rga =3D ctx->rga;
+> =C2=A0	const struct rga_hw *hw =3D rga->hw;
+> -	struct rga_fmt *fmt;
+> =C2=A0	u32 min_width =3D hw->min_width;
+> =C2=A0	u32 max_width =3D hw->max_width;
+> =C2=A0	u32 min_height =3D hw->min_height;
+> =C2=A0	u32 max_height =3D hw->max_height;
+> =C2=A0
+> -	fmt =3D rga_fmt_find(rga, pix_fmt->pixelformat);
+> -	if (!fmt)
+> -		fmt =3D &hw->formats[0];
+> +	hw->adjust_and_map_format(pix_fmt,
+> +				=C2=A0 V4L2_TYPE_IS_OUTPUT(f->type));
+> =C2=A0
+> =C2=A0	if (V4L2_TYPE_IS_OUTPUT(f->type) &&
+> =C2=A0	=C2=A0=C2=A0=C2=A0 v4l2_m2m_get_dst_vq(ctx->fh.m2m_ctx)->streaming=
+) {
+> @@ -425,7 +406,8 @@ static int vidioc_s_fmt(struct file *file, void *priv=
+, struct v4l2_format *f)
+> =C2=A0	frm =3D rga_get_frame(ctx, f->type);
+> =C2=A0	if (IS_ERR(frm))
+> =C2=A0		return PTR_ERR(frm);
+> -	frm->fmt =3D rga_fmt_find(rga, pix_fmt->pixelformat);
+> +	frm->fmt =3D rga->hw->adjust_and_map_format(pix_fmt,
+> +						=C2=A0 V4L2_TYPE_IS_OUTPUT(f->type));
+> =C2=A0
+> =C2=A0	/* Reset crop settings */
+> =C2=A0	frm->crop.left =3D 0;
+> @@ -438,7 +420,7 @@ static int vidioc_s_fmt(struct file *file, void *priv=
+, struct v4l2_format *f)
+> =C2=A0	v4l2_dbg(debug, 1, &rga->v4l2_dev,
+> =C2=A0		 "[%s] fmt - %p4cc %dx%d (stride %d)\n",
+> =C2=A0		=C2=A0 V4L2_TYPE_IS_OUTPUT(f->type) ? "OUTPUT" : "CAPTURE",
+> -		=C2=A0 &frm->fmt->fourcc, pix_fmt->width, pix_fmt->height,
+> +		=C2=A0 &pix_fmt->pixelformat, pix_fmt->width, pix_fmt->height,
+> =C2=A0		=C2=A0 pix_fmt->plane_fmt[0].bytesperline);
+> =C2=A0
+> =C2=A0	for (i =3D 0; i < pix_fmt->num_planes; i++) {
+> diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/pl=
+atform/rockchip/rga/rga.h
+> index a7f891b94a478..980f70f842317 100644
+> --- a/drivers/media/platform/rockchip/rga/rga.h
+> +++ b/drivers/media/platform/rockchip/rga/rga.h
+> @@ -17,22 +17,12 @@
+> =C2=A0#define DEFAULT_WIDTH 100
+> =C2=A0#define DEFAULT_HEIGHT 100
+> =C2=A0
+> -struct rga_fmt {
+> -	u32 fourcc;
+> -	int depth;
+> -	u8 uv_factor;
+> -	u8 y_div;
+> -	u8 x_div;
+> -	u8 color_swap;
+> -	u8 hw_format;
+> -};
 
-Each device instance maps its assigned shared-memory region, validates
-read/write channel configuration, and exposes a /dev/baoipc<N> node
-used by user space to exchange data with Bao guests.
+Ah! here's the removal of the unused variable. Not review friendly, but at =
+last
+removed.
 
-Signed-off-by: João Peixoto <joaopeixoto@osyx.tech>
----
- drivers/virt/Kconfig                 |   2 +
- drivers/virt/Makefile                |   1 +
- drivers/virt/bao/Kconfig             |   3 +
- drivers/virt/bao/Makefile            |   3 +
- drivers/virt/bao/ipcshmem/Kconfig    |   9 +
- drivers/virt/bao/ipcshmem/Makefile   |   3 +
- drivers/virt/bao/ipcshmem/ipcshmem.c | 539 +++++++++++++++++++++++++++
- 7 files changed, 560 insertions(+)
- create mode 100644 drivers/virt/bao/Kconfig
- create mode 100644 drivers/virt/bao/Makefile
- create mode 100644 drivers/virt/bao/ipcshmem/Kconfig
- create mode 100644 drivers/virt/bao/ipcshmem/Makefile
- create mode 100644 drivers/virt/bao/ipcshmem/ipcshmem.c
+Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
-diff --git a/drivers/virt/Kconfig b/drivers/virt/Kconfig
-index 52eb7e4ba71f..cb98c4c52fd1 100644
---- a/drivers/virt/Kconfig
-+++ b/drivers/virt/Kconfig
-@@ -47,6 +47,8 @@ source "drivers/virt/nitro_enclaves/Kconfig"
- 
- source "drivers/virt/acrn/Kconfig"
- 
-+source "drivers/virt/bao/Kconfig"
-+
- endif
- 
- source "drivers/virt/coco/Kconfig"
-diff --git a/drivers/virt/Makefile b/drivers/virt/Makefile
-index f29901bd7820..623a671f8711 100644
---- a/drivers/virt/Makefile
-+++ b/drivers/virt/Makefile
-@@ -10,3 +10,4 @@ obj-y				+= vboxguest/
- obj-$(CONFIG_NITRO_ENCLAVES)	+= nitro_enclaves/
- obj-$(CONFIG_ACRN_HSM)		+= acrn/
- obj-y				+= coco/
-+obj-$(CONFIG_BAO_SHMEM)		+= bao/
-diff --git a/drivers/virt/bao/Kconfig b/drivers/virt/bao/Kconfig
-new file mode 100644
-index 000000000000..4f7929d57475
---- /dev/null
-+++ b/drivers/virt/bao/Kconfig
-@@ -0,0 +1,3 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+source "drivers/virt/bao/ipcshmem/Kconfig"
-diff --git a/drivers/virt/bao/Makefile b/drivers/virt/bao/Makefile
-new file mode 100644
-index 000000000000..68f5d3f282c4
---- /dev/null
-+++ b/drivers/virt/bao/Makefile
-@@ -0,0 +1,3 @@
-+# SPDX-License-Identifier: GPL-2.0
-+
-+obj-$(CONFIG_BAO_SHMEM) += ipcshmem/
-diff --git a/drivers/virt/bao/ipcshmem/Kconfig b/drivers/virt/bao/ipcshmem/Kconfig
-new file mode 100644
-index 000000000000..42690073e819
---- /dev/null
-+++ b/drivers/virt/bao/ipcshmem/Kconfig
-@@ -0,0 +1,9 @@
-+# SPDX-License-Identifier: GPL-2.0
-+config BAO_SHMEM
-+	tristate "Bao hypervisor shared memory support"
-+
-+	help
-+	This enables support for Bao shared memory communication.
-+	It allows the kernel to interface with guests running under
-+	the Bao hypervisor, providing a character device interface
-+	for exchanging data through dedicated shared-memory regions.
-diff --git a/drivers/virt/bao/ipcshmem/Makefile b/drivers/virt/bao/ipcshmem/Makefile
-new file mode 100644
-index 000000000000..e027dcdb06aa
---- /dev/null
-+++ b/drivers/virt/bao/ipcshmem/Makefile
-@@ -0,0 +1,3 @@
-+# SPDX-License-Identifier: GPL-2.0
-+obj-$(CONFIG_BAO_SHMEM) += bao.o
-+bao-objs += ipcshmem.o
-diff --git a/drivers/virt/bao/ipcshmem/ipcshmem.c b/drivers/virt/bao/ipcshmem/ipcshmem.c
-new file mode 100644
-index 000000000000..cadb79bfca6e
---- /dev/null
-+++ b/drivers/virt/bao/ipcshmem/ipcshmem.c
-@@ -0,0 +1,539 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Bao Hypervisor IPC Through Shared-memory Driver
-+ *
-+ * Copyright (c) Bao Project and Contributors. All rights reserved.
-+ *
-+ * Authors:
-+ *	David Cerdeira <davidmcerdeira@osyx.tech>
-+ *	José Martins <jose@osyx.tech>
-+ *	João Peixoto <joaopeixoto@osyx.tech>
-+ */
-+
-+#include <linux/types.h>
-+#include <linux/kernel.h>
-+#include <linux/module.h>
-+#include <linux/uaccess.h>
-+#include <linux/fs.h>
-+#include <linux/io.h>
-+#include <linux/ioport.h>
-+#include <linux/interrupt.h>
-+#include <linux/of.h>
-+#include <linux/io.h>
-+#include <linux/mutex.h>
-+#include <linux/poll.h>
-+#include <linux/platform_device.h>
-+#include <linux/ioctl.h>
-+#include <linux/cdev.h>
-+#include <linux/device.h>
-+#include <linux/spinlock.h>
-+#include <linux/mutex.h>
-+#include <linux/wait.h>
-+#include <linux/mm.h>
-+
-+#if defined(CONFIG_ARM64) || defined(CONFIG_ARM)
-+#include <linux/arm-smccc.h>
-+#include <asm/memory.h>
-+#elif CONFIG_RISCV
-+#include <asm/sbi.h>
-+#endif
-+
-+#define DEV_NAME "baoipc"
-+#define MAX_DEVICES 16
-+#define NAME_LEN 32
-+
-+static dev_t bao_ipcshmem_devt;
-+struct class *cl;
-+
-+/**
-+ * struct bao_ipcshmem - Bao IPC shared memory device
-+ * @cdev: Character device interface
-+ * @dev: Device structure
-+ * @id: Device instance ID
-+ * @label: Name/label of the device
-+ * @read_base: Base address of the read channel
-+ * @read_size: Size of the read channel
-+ * @write_base: Base address of the write channel
-+ * @write_size: Size of the write channel
-+ * @physical_base: Physical memory base address
-+ * @shmem_size: Total size of the shared memory region
-+ */
-+struct bao_ipcshmem {
-+	struct cdev cdev;
-+	struct device *dev;
-+	int id;
-+	char label[NAME_LEN];
-+	void *read_base;
-+	size_t read_size;
-+	void *write_base;
-+	size_t write_size;
-+	phys_addr_t *physical_base;
-+	size_t shmem_size;
-+};
-+
-+#ifdef CONFIG_ARM64
-+/**
-+ * bao_ipcshmem_notify - Notify the Bao hypervisor of an IPC shared memory event (ARM64)
-+ * @dev: IPC shared memory device
-+ *
-+ * Executes a fast SMC hypercall to notify the hypervisor of an event
-+ * associated with the given IPC shared memory device.
-+ *
-+ * Return: Hypercall return value.
-+ */
-+static uint64_t bao_ipcshmem_notify(struct bao_ipcshmem *dev)
-+{
-+	register uint64_t x0 asm("x0") =
-+		ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL, ARM_SMCCC_SMC_64,
-+				   ARM_SMCCC_OWNER_VENDOR_HYP, 1);
-+	register uint64_t x1 asm("x1") = dev->id;
-+	register uint64_t x2 asm("x2") = 0;
-+
-+	asm volatile("hvc 0\t\n" : "=r"(x0) : "r"(x0), "r"(x1), "r"(x2));
-+
-+	return x0;
-+}
-+#elif CONFIG_ARM
-+/**
-+ * bao_ipcshmem_notify - Notify the Bao hypervisor of an IPC shared memory event (ARM)
-+ * @dev: IPC shared memory device
-+ *
-+ * Executes a fast SMC hypercall to notify the hypervisor of an event
-+ * associated with the given IPC shared memory device.
-+ *
-+ * Return: Hypercall return value.
-+ */
-+static uint32_t bao_ipcshmem_notify(struct bao_ipcshmem *dev)
-+{
-+	register uint32_t r0 asm("r0") =
-+		ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL, ARM_SMCCC_SMC_32,
-+				   ARM_SMCCC_OWNER_VENDOR_HYP, 1);
-+	register uint32_t r1 asm("r1") = dev->id;
-+	register uint32_t r2 asm("r2") = 0;
-+
-+	asm volatile("hvc #0\t\n" : "=r"(r0) : "r"(r0), "r"(r1), "r"(r2));
-+
-+	return r0;
-+}
-+#elif CONFIG_RISCV
-+/**
-+ * bao_ipcshmem_notify - Notify the Bao hypervisor of an IPC shared memory event (RISC-V)
-+ * @dev: IPC shared memory device
-+ *
-+ * Executes an SBI call to notify the Bao hypervisor of an IPC shared memory event.
-+ *
-+ * Return: SBI call error code.
-+ */
-+static uint64_t bao_ipcshmem_notify(struct bao_ipcshmem *dev)
-+{
-+	struct sbiret ret = sbi_ecall(0x08000ba0, 1, dev->id, 0, 0, 0, 0, 0);
-+
-+	return ret.error;
-+}
-+#endif
-+
-+/**
-+ * bao_ipcshmem_mmap_fops - mmap handler for IPC shared memory
-+ * @filp: File pointer
-+ * @vma: Virtual memory area
-+ *
-+ * Maps the physical shared memory of the Bao IPC device into
-+ * userspace using remap_pfn_range.
-+ *
-+ * Return: 0 on success, -EFAULT on failure.
-+ */
-+static int bao_ipcshmem_mmap_fops(struct file *filp, struct vm_area_struct *vma)
-+{
-+	struct bao_ipcshmem *bao = filp->private_data;
-+	unsigned long vsize = vma->vm_end - vma->vm_start;
-+	unsigned long offset = vma->vm_pgoff << PAGE_SHIFT;
-+	phys_addr_t paddr;
-+
-+	if (WARN_ON_ONCE(!bao))
-+		return -ENODEV;
-+
-+	if (!vsize)
-+		return -EINVAL;
-+
-+	if (offset >= bao->shmem_size)
-+		return -EINVAL;
-+
-+	if (vsize > bao->shmem_size - offset)
-+		return -EINVAL;
-+
-+	paddr = (phys_addr_t)bao->physical_base + offset;
-+
-+	if (!PAGE_ALIGNED(paddr))
-+		return -EINVAL;
-+
-+	if (remap_pfn_range(vma, vma->vm_start,
-+			    paddr >> PAGE_SHIFT,
-+			    vsize, vma->vm_page_prot))
-+		return -EFAULT;
-+
-+	return 0;
-+}
-+
-+/**
-+ * bao_ipcshmem_read_fops - read handler for IPC shared memory
-+ * @filp: File pointer
-+ * @buf: Userspace buffer
-+ * @count: Number of bytes to read
-+ * @ppos: File offset
-+ *
-+ * Copies data from the Bao IPC read buffer to userspace.
-+ *
-+ * Return: Number of bytes read, or 0 if EOF.
-+ */
-+static ssize_t bao_ipcshmem_read_fops(struct file *filp, char __user *buf,
-+				      size_t count, loff_t *ppos)
-+{
-+	struct bao_ipcshmem *bao = filp->private_data;
-+	size_t available;
-+
-+	if (WARN_ON_ONCE(!bao || !buf || !ppos))
-+		return -EINVAL;
-+
-+	if (*ppos >= bao->read_size)
-+		return 0;
-+
-+	available = bao->read_size - *ppos;
-+	if (count > available)
-+		count = available;
-+
-+	if (copy_to_user(buf, bao->read_base + *ppos, count))
-+		return -EFAULT;
-+
-+	*ppos += count;
-+	return count;
-+}
-+
-+/**
-+ * bao_ipcshmem_write_fops - write handler for IPC shared memory
-+ * @filp: File pointer
-+ * @buf: Userspace buffer
-+ * @count: Number of bytes to write
-+ * @ppos: File offset
-+ *
-+ * Copies data from userspace to the Bao IPC write buffer and
-+ * notifies the hypervisor of the update.
-+ *
-+ * Return: Number of bytes written.
-+ */
-+static ssize_t bao_ipcshmem_write_fops(struct file *filp, const char __user *buf,
-+				       size_t count, loff_t *ppos)
-+{
-+	struct bao_ipcshmem *bao = filp->private_data;
-+	size_t avail;
-+
-+	if (WARN_ON_ONCE(!bao || !buf || !ppos))
-+		return -EINVAL;
-+
-+	if (*ppos >= bao->write_size)
-+		return 0;
-+
-+	avail = bao->write_size - *ppos;
-+	if (count > avail)
-+		count = avail;
-+
-+	if (copy_from_user(bao->write_base + *ppos, buf, count))
-+		return -EFAULT;
-+
-+	*ppos += count;
-+
-+	/* Notify any listeners that new data is available */
-+	bao_ipcshmem_notify(bao);
-+
-+	return count;
-+}
-+
-+/**
-+ * bao_ipcshmem_open_fops - open handler for IPC shared memory
-+ * @inode: Inode pointer
-+ * @filp: File pointer
-+ *
-+ * Associates the file with the Bao IPC device and increments
-+ * the kobject reference.
-+ *
-+ * Return: 0 on success.
-+ */
-+static int bao_ipcshmem_open_fops(struct inode *inode, struct file *filp)
-+{
-+	struct bao_ipcshmem *bao;
-+
-+	if (WARN_ON_ONCE(!inode || !filp))
-+		return -EINVAL;
-+
-+	bao = container_of(inode->i_cdev, struct bao_ipcshmem, cdev);
-+	filp->private_data = bao;
-+
-+	kobject_get(&bao->dev->kobj);
-+
-+	return 0;
-+}
-+
-+/**
-+ * bao_ipcshmem_release_fops - release handler for IPC shared memory
-+ * @inode: Inode pointer
-+ * @filp: File pointer
-+ *
-+ * Disassociates the file from the Bao IPC device and decrements
-+ * the kobject reference.
-+ *
-+ * Return: 0 on success.
-+ */
-+static int bao_ipcshmem_release_fops(struct inode *inode, struct file *filp)
-+{
-+	struct bao_ipcshmem *bao;
-+
-+	if (WARN_ON_ONCE(!inode || !filp))
-+		return -EINVAL;
-+
-+	bao = container_of(inode->i_cdev, struct bao_ipcshmem, cdev);
-+	filp->private_data = NULL;
-+
-+	kobject_put(&bao->dev->kobj);
-+
-+	return 0;
-+}
-+
-+static const struct file_operations bao_ipcshmem_fops = {
-+	.owner = THIS_MODULE,
-+	.read = bao_ipcshmem_read_fops,
-+	.write = bao_ipcshmem_write_fops,
-+	.mmap = bao_ipcshmem_mmap_fops,
-+	.open = bao_ipcshmem_open_fops,
-+	.release = bao_ipcshmem_release_fops
-+};
-+
-+/**
-+ * bao_ipcshmem_register - Register a Bao IPC shared memory device
-+ * @pdev: Platform device
-+ *
-+ * Maps the shared memory region, validates channel layout, initializes
-+ * the read/write buffers, registers the character device, and creates
-+ * the sysfs device entry.
-+ *
-+ * Return: 0 on success, negative error code on failure.
-+ */
-+static int bao_ipcshmem_register(struct platform_device *pdev)
-+{
-+	int ret = 0, id = -1;
-+	struct device *dev = &pdev->dev;
-+	struct device_node *np = dev->of_node;
-+	struct module *owner = THIS_MODULE;
-+	struct resource *r;
-+	dev_t devt;
-+	resource_size_t shmem_size;
-+	u32 write_offset, read_offset, write_size, read_size;
-+	bool rd_in_range, wr_in_range, disjoint;
-+	void *shmem_base_addr = NULL;
-+	struct bao_ipcshmem *bao;
-+
-+	/* Get memory resource */
-+	r = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-+	if (!r) {
-+		dev_err(dev, "failed to get memory resource\n");
-+		return -EINVAL;
-+	}
-+
-+	/* Read channel offsets and sizes */
-+	of_property_read_u32_index(np, "read-channel", 0, &read_offset);
-+	of_property_read_u32_index(np, "read-channel", 1, &read_size);
-+	of_property_read_u32_index(np, "write-channel", 0, &write_offset);
-+	of_property_read_u32_index(np, "write-channel", 1, &write_size);
-+
-+	/* Validate memory layout */
-+	rd_in_range = (r->start + read_offset + read_size) <= r->end;
-+	wr_in_range = (r->start + write_offset + write_size) <= r->end;
-+	disjoint = ((read_offset + read_size) <= write_offset) ||
-+		   ((write_offset + write_size) <= read_offset);
-+
-+	if (!rd_in_range || !wr_in_range || !disjoint) {
-+		dev_err(dev, "invalid channel layout\n");
-+		dev_err(dev, "rd_in_range=%d, wr_in_range=%d, disjoint=%d\n",
-+			rd_in_range, wr_in_range, disjoint);
-+		return -EINVAL;
-+	}
-+
-+	/* Map shared memory */
-+	shmem_size = r->end - r->start + 1;
-+	shmem_base_addr = memremap(r->start, shmem_size, MEMREMAP_WB);
-+	if (!shmem_base_addr) {
-+		dev_err(dev, "failed to map shared memory\n");
-+		return -ENOMEM;
-+	}
-+
-+	/* Read device ID from device tree */
-+	of_property_read_u32(np, "id", &id);
-+	if (id >= MAX_DEVICES) {
-+		dev_err(dev, "invalid device id %d\n", id);
-+		ret = -EINVAL;
-+		goto err_unmap;
-+	}
-+
-+	/* Allocate and initialize device structure */
-+	bao = devm_kzalloc(dev, sizeof(*bao), GFP_KERNEL);
-+	if (!bao) {
-+		ret = -ENOMEM;
-+		goto err_unmap;
-+	}
-+
-+	snprintf(bao->label, NAME_LEN, "%s%d", DEV_NAME, id);
-+	bao->id = id;
-+	bao->read_size = read_size;
-+	bao->write_size = write_size;
-+	bao->read_base = shmem_base_addr + read_offset;
-+	bao->write_base = shmem_base_addr + write_offset;
-+	bao->physical_base = (void *)r->start;
-+	bao->shmem_size = shmem_size;
-+
-+	cdev_init(&bao->cdev, &bao_ipcshmem_fops);
-+	bao->cdev.owner = owner;
-+
-+	/* Add character device */
-+	devt = MKDEV(MAJOR(bao_ipcshmem_devt), id);
-+	ret = cdev_add(&bao->cdev, devt, 1);
-+	if (ret)
-+		goto err_unmap;
-+
-+	/* Create device node */
-+	bao->dev = device_create(cl, dev, devt, bao, bao->label);
-+	if (IS_ERR(bao->dev)) {
-+		ret = PTR_ERR(bao->dev);
-+		goto err_cdev;
-+	}
-+	dev_set_drvdata(bao->dev, bao);
-+
-+	return 0;
-+
-+err_cdev:
-+	cdev_del(&bao->cdev);
-+err_unmap:
-+	memunmap(shmem_base_addr);
-+	dev_err(dev, "failed initialization\n");
-+	return ret;
-+}
-+
-+/**
-+ * bao_ipcshmem_unregister - Unregister a Bao IPC shared memory device
-+ * @pdev: Platform device
-+ *
-+ * Unmaps the shared memory region, destroys the sysfs device, and
-+ * deletes the character device.
-+ */
-+static void bao_ipcshmem_unregister(struct platform_device *pdev)
-+{
-+	struct bao_ipcshmem *bao;
-+	void *shmem_base;
-+
-+	/* Retrieve the driver data */
-+	bao = dev_get_drvdata(&pdev->dev);
-+	if (!bao)
-+		return;
-+
-+	/* Unmap shared memory */
-+	if (bao->read_base)
-+		shmem_base = (void *)((uintptr_t)bao->read_base -
-+				      ((uintptr_t)bao->read_base - (uintptr_t)bao->physical_base));
-+	else
-+		shmem_base = NULL;
-+
-+	if (shmem_base)
-+		memunmap(shmem_base);
-+
-+	/* Destroy device node */
-+	if (bao->dev)
-+		device_destroy(cl, bao->cdev.dev);
-+
-+	/* Delete character device */
-+	cdev_del(&bao->cdev);
-+}
-+
-+static const struct of_device_id of_bao_ipcshmem_match[] = {
-+	{
-+		.compatible = "bao,ipcshmem",
-+	},
-+	{ /* sentinel */ }
-+};
-+
-+MODULE_DEVICE_TABLE(of, of_bao_ipcshmem_match);
-+
-+static struct platform_driver bao_ipcshmem_driver = {
-+	.probe = bao_ipcshmem_register,
-+	.remove = bao_ipcshmem_unregister,
-+	.driver = {
-+		   .name = DEV_NAME,
-+		   .of_match_table = of_bao_ipcshmem_match,
-+		    },
-+};
-+
-+/**
-+ * bao_ipcshmem_init - Module initialization for Bao IPC shared memory
-+ *
-+ * Creates a device class, allocates a range of character device numbers,
-+ * and registers the platform driver.
-+ *
-+ * Return: 0 on success, negative error code on failure.
-+ */
-+static int __init bao_ipcshmem_init(void)
-+{
-+	int ret;
-+
-+	/* Create device class */
-+	cl = class_create(DEV_NAME);
-+	if (IS_ERR(cl)) {
-+		ret = PTR_ERR(cl);
-+		pr_err("unable to create class %s\n", DEV_NAME);
-+		return ret;
-+	}
-+
-+	/* Allocate major/minor numbers for character devices */
-+	ret = alloc_chrdev_region(&bao_ipcshmem_devt, 0, MAX_DEVICES, DEV_NAME);
-+	if (ret) {
-+		pr_err("unable to allocate chrdev region for %s\n", DEV_NAME);
-+		goto err_class_destroy;
-+	}
-+
-+	/* Register platform driver */
-+	ret = platform_driver_register(&bao_ipcshmem_driver);
-+	if (ret) {
-+		pr_err("unable to register platform driver for %s\n", DEV_NAME);
-+		goto err_unregister_chrdev;
-+	}
-+
-+	return 0;
-+
-+err_unregister_chrdev:
-+	unregister_chrdev_region(bao_ipcshmem_devt, MAX_DEVICES);
-+err_class_destroy:
-+	class_destroy(cl);
-+	return ret;
-+}
-+
-+/**
-+ * bao_ipcshmem_exit - Module exit for Bao IPC shared memory
-+ *
-+ * Unregisters the platform driver, releases the character device region,
-+ * and destroys the device class.
-+ */
-+static void __exit bao_ipcshmem_exit(void)
-+{
-+	/* Unregister the platform driver */
-+	platform_driver_unregister(&bao_ipcshmem_driver);
-+
-+	/* Release the allocated character device numbers */
-+	unregister_chrdev_region(bao_ipcshmem_devt, MAX_DEVICES);
-+
-+	/* Destroy the device class */
-+	class_destroy(cl);
-+}
-+
-+module_init(bao_ipcshmem_init);
-+module_exit(bao_ipcshmem_exit);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_AUTHOR("David Cerdeira <davidmcerdeira@osyx.tech>");
-+MODULE_AUTHOR("José Martins <jose@osyx.tech>");
-+MODULE_AUTHOR("João Peixoto <joaopeixoto@osyx.tech>");
-+MODULE_DESCRIPTION("Bao Hypervisor IPC Through Shared-memory Driver");
--- 
-2.43.0
+> -
+> =C2=A0struct rga_frame {
+> =C2=A0	/* Crop */
+> =C2=A0	struct v4l2_rect crop;
+> =C2=A0
+> =C2=A0	/* Image format */
+> -	struct rga_fmt *fmt;
+> +	void *fmt;
+> =C2=A0	struct v4l2_pix_format_mplane pix;
+> =C2=A0};
+> =C2=A0
+> @@ -145,8 +135,6 @@ static inline void rga_mod(struct rockchip_rga *rga, =
+u32 reg, u32 val, u32 mask)
+> =C2=A0struct rga_hw {
+> =C2=A0	const char *card_type;
+> =C2=A0	bool has_internal_iommu;
+> -	struct rga_fmt *formats;
+> -	u32 num_formats;
+> =C2=A0	size_t cmdbuf_size;
+> =C2=A0	u32 min_width, min_height;
+> =C2=A0	u32 max_width, max_height;
+> @@ -158,6 +146,9 @@ struct rga_hw {
+> =C2=A0		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct rga_vb_buffer *src, struct =
+rga_vb_buffer *dst);
+> =C2=A0	bool (*handle_irq)(struct rockchip_rga *rga);
+> =C2=A0	void (*get_version)(struct rockchip_rga *rga);
+> +	void *(*adjust_and_map_format)(struct v4l2_pix_format_mplane *format,
+> +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 bool is_output);
+> +	int (*enum_format)(struct v4l2_fmtdesc *f);
+> =C2=A0};
+> =C2=A0
+> =C2=A0static inline bool rga_has_internal_iommu(const struct rockchip_rga=
+ *rga)
 
+--=-Yz7EV6xH1v3dWkULnR4e
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaUwN9QAKCRDZQZRRKWBy
+9PgbAP0Vfr6uJCAC5URmlDNN0VtVrSgkiLdQItl3mJA6ZjtYPAEA/6GG12wLnkPL
+G6ihuu2Lg+M6cft1cJyHcYK0Jg5Vgg4=
+=p/Dk
+-----END PGP SIGNATURE-----
+
+--=-Yz7EV6xH1v3dWkULnR4e--
 
