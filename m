@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AE67E75458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 13:46:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 231B2E75453
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 13:46:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mykHzv7B8kPpGCQz2I8/IOEXpAkCsSLvoDKqARyITa8=; b=PI0gGoe49FIb+AuSHG+dWe/sOs
-	Xiwa6PaMvMyyHZgG/9w2jJdD9m8AQFzEi3DfXymrMRVHu/ckJhWFl1tqmzUhl9tb/bK4fiWeAmpve
-	a739KlvWzMeQh5z7qtFE4+0SsQe66Bkv2OV5vxGvAlz7VbX3XL06LvhmPidFmG4cid9muOMmXQrot
-	lsQ6awfRNyWb3ImNFO8d4cU2a4Vx/QoRMPwLwoGS6yOicYn9srJTJ43RVKggAF05kDmb5G4CMcoiy
-	zu4XvJC7qOQ564vbqA1yTl/3z3YgzyhAy1h6tkVX5XTYFtrzV8VzycqcKn8k7hsQ10LMU1d9PRkEG
-	3X9FkirA==;
+	bh=kpFz+qSaydRc3TsGmh+/+d+h4P4lLnsTpDEcEmwKbsg=; b=hBVLAxiwzhU0m1BV7JZZXKFI0U
+	vQLJX6nOGTqHCgjdvjgm3oKfCnnHOdi0BUTJtRyv3xbJQFX1WZNZzbkY2MN8srC7NfyeIY2zNwcZ/
+	/z8uUAlMXFxJTkgmNeq0PbOHPDrTEaNYJcMjgybZLUcsF7MDvpQijiXsjPLCZk8tkRUChwg9Wx5CX
+	+tjMzkiEIu3Bzw0nBTNI6hHk6c6ryUR1GRmpNjhQTRzNTaxaTmDamHi6IOvs85HKLvzHpxUi8X+ld
+	XG+R57QeOjhAd39bw0JqNyqOHwM4m0lcA1Rx19ye2b6vOhv9aoSvCgaLKbaC80sBVKqfvZsgAftMs
+	ncYqTIzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYPBY-0000000GrqR-26Wl;
-	Wed, 24 Dec 2025 13:45:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vYPBw-0000000Grxp-3idn;
+	Wed, 24 Dec 2025 13:46:16 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYPBW-0000000GrpZ-0mIc
+	id 1vYPBe-0000000Grrm-0F72
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Dec 2025 13:45:50 +0000
+	Wed, 24 Dec 2025 13:46:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 50EF260051;
+	by sea.source.kernel.org (Postfix) with ESMTP id AB45E41675;
+	Wed, 24 Dec 2025 13:45:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7455FC116D0;
 	Wed, 24 Dec 2025 13:45:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BC57C4CEFB;
-	Wed, 24 Dec 2025 13:45:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766583949;
-	bh=11kVg/bDOXpa/yvnQMWYkjqm5C/SPwrAAGSvfZEuxSQ=;
+	s=k20201202; t=1766583957;
+	bh=7CktjiyIthVdYHa9fRih51rkJO049RvxC4k3gxcrSfU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=H7mMb30Qrj92/uviIhc1fyEu+nlpB/xOX1eLU8tjIzv3vuprkqSRobPPuypYr4P86
-	 KKG/T/ugcEL7chZ7jENBr+nDTaB3fIQi73GMI/yU4M9CSLpe5XHRfs2aG3MH798ZKl
-	 4W/s54uzqvvTq1KFo01rD6iLvt2JZgIB7Zox3EjCQFHqsDBeakRVEyKAdhPX9plzTc
-	 aF7Nqm7+o5LRlE4Mh0g/fVhpHlIWeUJo9F24g6Tw54kHme7x7rVQ5M2lw44yP9OcQP
-	 8I1gtwsfIgFGPD3ffd6khrIbcSTp71xzfbRWYvyWJ0QW3FHw2OXLZOVvnkrZ4PQwN7
-	 u8QBR2FBdMU/w==
+	b=F/Tyv4YzP+plPQJKaSLuPEMdFxw3ZtENKHh2pjVToOk5227AiH+ZQI5yPwMVVD29C
+	 kLkFDorQyePgLdHfXM0f/iz+TV4NjaoHCn4ZxTLpmFguw+wHVycblRu+B3MS9Ot8SR
+	 RxgrwTFoKKCTIq/uKNz0JzweWZ1NzoPKFTzSEQvP/JFoQ9mMXKYri+Luvtu9TzJoNz
+	 QbVoDOVhzOZcUdNZVVJTsplPVblFi4XhnJmLIOi8fx3nmRj0w47J+4wn6IY+1U+qOX
+	 Ce3yTydWrvfVzC3nbZRvbYjyZnPWPe7QQKRyBio79sst5IhAMh4/7ipJNG75xSpb+d
+	 cl5g99p2tk0Ug==
 From: Frederic Weisbecker <frederic@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Frederic Weisbecker <frederic@kernel.org>,
@@ -81,14 +81,17 @@ Cc: Frederic Weisbecker <frederic@kernel.org>,
 	linux-mm@kvack.org,
 	linux-pci@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH 02/33] cpu: Revert "cpu/hotplug: Prevent self deadlock on CPU hot-unplug"
-Date: Wed, 24 Dec 2025 14:44:49 +0100
-Message-ID: <20251224134520.33231-3-frederic@kernel.org>
+Subject: [PATCH 03/33] memcg: Prepare to protect against concurrent isolated cpuset change
+Date: Wed, 24 Dec 2025 14:44:50 +0100
+Message-ID: <20251224134520.33231-4-frederic@kernel.org>
 X-Mailer: git-send-email 2.51.1
 In-Reply-To: <20251224134520.33231-1-frederic@kernel.org>
 References: <20251224134520.33231-1-frederic@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251224_054603_465268_CBBF106B 
+X-CRM114-Status: GOOD (  12.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,106 +106,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-1) The commit:
+The HK_TYPE_DOMAIN housekeeping cpumask will soon be made modifiable at
+runtime. In order to synchronize against memcg workqueue to make sure
+that no asynchronous draining is pending or executing on a newly made
+isolated CPU, target and queue a drain work under the same RCU critical
+section.
 
-	2b8272ff4a70 ("cpu/hotplug: Prevent self deadlock on CPU hot-unplug")
-
-was added to fix an issue where the hotplug control task (BP) was
-throttled between CPUHP_AP_IDLE_DEAD and CPUHP_HRTIMERS_PREPARE waiting
-in the hrtimer blindspot for the bandwidth callback queued in the dead
-CPU.
-
-2) Later on, the commit:
-
-	38685e2a0476 ("cpu/hotplug: Don't offline the last non-isolated CPU")
-
-plugged on the target selection for the workqueue offloaded CPU down
-process to prevent from destroying the last CPU domain.
-
-3) Finally:
-
-	5c0930ccaad5 ("hrtimers: Push pending hrtimers away from outgoing CPU earlier")
-
-removed entirely the conditions for the race exposed and partially fixed
-in 1). The offloading of the CPU down process to a workqueue on another
-CPU then becomes unnecessary. But the last CPU belonging to scheduler
-domains must still remain online.
-
-Therefore revert the now obsolete commit
-2b8272ff4a70b866106ae13c36be7ecbef5d5da2 and move the housekeeping check
-under the cpu_hotplug_lock write held. Since HK_TYPE_DOMAIN will include
-both isolcpus and cpuset isolated partition, the hotplug lock will
-synchronize against concurrent cpuset partition updates.
+Whenever housekeeping will update the HK_TYPE_DOMAIN cpumask, a memcg
+workqueue flush will also be issued in a further change to make sure
+that no work remains pending after a CPU has been made isolated.
 
 Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
 ---
- kernel/cpu.c | 37 +++++++++++--------------------------
- 1 file changed, 11 insertions(+), 26 deletions(-)
+ mm/memcontrol.c | 15 +++++++++++----
+ 1 file changed, 11 insertions(+), 4 deletions(-)
 
-diff --git a/kernel/cpu.c b/kernel/cpu.c
-index 8df2d773fe3b..40b8496f47c5 100644
---- a/kernel/cpu.c
-+++ b/kernel/cpu.c
-@@ -1410,6 +1410,16 @@ static int __ref _cpu_down(unsigned int cpu, int tasks_frozen,
+diff --git a/mm/memcontrol.c b/mm/memcontrol.c
+index be810c1fbfc3..c3c473c3dfca 100644
+--- a/mm/memcontrol.c
++++ b/mm/memcontrol.c
+@@ -2003,6 +2003,13 @@ static bool is_memcg_drain_needed(struct memcg_stock_pcp *stock,
+ 	return flush;
+ }
  
- 	cpus_write_lock();
- 
-+	/*
-+	 * Keep at least one housekeeping cpu onlined to avoid generating
-+	 * an empty sched_domain span.
-+	 */
-+	if (cpumask_any_and(cpu_online_mask,
-+			    housekeeping_cpumask(HK_TYPE_DOMAIN)) >= nr_cpu_ids) {
-+		ret = -EBUSY;
-+		goto out;
-+	}
++static void schedule_drain_work(int cpu, struct work_struct *work)
++{
++	guard(rcu)();
++	if (!cpu_is_isolated(cpu))
++		schedule_work_on(cpu, work);
++}
 +
- 	cpuhp_tasks_frozen = tasks_frozen;
+ /*
+  * Drains all per-CPU charge caches for given root_memcg resp. subtree
+  * of the hierarchy under it.
+@@ -2032,8 +2039,8 @@ void drain_all_stock(struct mem_cgroup *root_memcg)
+ 				      &memcg_st->flags)) {
+ 			if (cpu == curcpu)
+ 				drain_local_memcg_stock(&memcg_st->work);
+-			else if (!cpu_is_isolated(cpu))
+-				schedule_work_on(cpu, &memcg_st->work);
++			else
++				schedule_drain_work(cpu, &memcg_st->work);
+ 		}
  
- 	prev_state = cpuhp_set_state(cpu, st, target);
-@@ -1456,22 +1466,8 @@ static int __ref _cpu_down(unsigned int cpu, int tasks_frozen,
- 	return ret;
- }
- 
--struct cpu_down_work {
--	unsigned int		cpu;
--	enum cpuhp_state	target;
--};
--
--static long __cpu_down_maps_locked(void *arg)
--{
--	struct cpu_down_work *work = arg;
--
--	return _cpu_down(work->cpu, 0, work->target);
--}
--
- static int cpu_down_maps_locked(unsigned int cpu, enum cpuhp_state target)
- {
--	struct cpu_down_work work = { .cpu = cpu, .target = target, };
--
- 	/*
- 	 * If the platform does not support hotplug, report it explicitly to
- 	 * differentiate it from a transient offlining failure.
-@@ -1480,18 +1476,7 @@ static int cpu_down_maps_locked(unsigned int cpu, enum cpuhp_state target)
- 		return -EOPNOTSUPP;
- 	if (cpu_hotplug_disabled)
- 		return -EBUSY;
--
--	/*
--	 * Ensure that the control task does not run on the to be offlined
--	 * CPU to prevent a deadlock against cfs_b->period_timer.
--	 * Also keep at least one housekeeping cpu onlined to avoid generating
--	 * an empty sched_domain span.
--	 */
--	for_each_cpu_and(cpu, cpu_online_mask, housekeeping_cpumask(HK_TYPE_DOMAIN)) {
--		if (cpu != work.cpu)
--			return work_on_cpu(cpu, __cpu_down_maps_locked, &work);
--	}
--	return -EBUSY;
-+	return _cpu_down(cpu, 0, target);
- }
- 
- static int cpu_down(unsigned int cpu, enum cpuhp_state target)
+ 		if (!test_bit(FLUSHING_CACHED_CHARGE, &obj_st->flags) &&
+@@ -2042,8 +2049,8 @@ void drain_all_stock(struct mem_cgroup *root_memcg)
+ 				      &obj_st->flags)) {
+ 			if (cpu == curcpu)
+ 				drain_local_obj_stock(&obj_st->work);
+-			else if (!cpu_is_isolated(cpu))
+-				schedule_work_on(cpu, &obj_st->work);
++			else
++				schedule_drain_work(cpu, &obj_st->work);
+ 		}
+ 	}
+ 	migrate_enable();
 -- 
 2.51.1
 
