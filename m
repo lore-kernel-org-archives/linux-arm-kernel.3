@@ -4,93 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DC7DE776F0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 16:59:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74006E776F8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 18:05:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yyywd9I0kEffR/daSYsAoEeToLYK1gQi6U+zGnM/qhI=; b=xKLIpUmBWrnC633+wF0y/QvGL0
-	gs6wabuBtnaPQ0FhjO9AanKO+vUAdMcWHwpZaKEZuaEE+rcLiV27uIFKQwnFs/vbJJlWayFe6HxXH
-	sQANjhQLDVrD13Go5bPDCd3TXk+m+fcSnGOc4Tki05rpZWOzMlxN6zX6p8SHEAxJVfjd4cb801uuj
-	ymNUG+458TtGzT+p6YjMuqbb0fR1Uk2bGam0qjUnCMKRb69fJzt4F69oPhAVvM/CeaHYOsAb5qHVX
-	7PxZKSIpzDowbmxFNnAKsR5jpd47aor2jqKtyRHaJnJ5FmcTluyyFovoGAoALsI7ZLsvHr3OyfrHF
-	5cR35ZRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=22MfY3XWiyk/sSyDEnFvWyWZlluc/6ifs1eZ2y9ZezU=; b=rUc9zsmoAxwu+ekFLmW3xwWcml
+	i7Q9Lbxz/DbvmxZKGuYEB562LpnEz4tns+b20cWJ/9PEn5DuUlP81vnDbsbWhNi98A61QQakr3Liz
+	Rq3qHT1NhzVLDiVEt2NpADYeDsB/vk+cUUc5IvLxG1X45UhjiN4qC4Oi8Yg4GXdautHX0Lq6emzIk
+	KgJDOZT74Z1N1OPx5UWBSNhrbyvyt5s5V1KwqwmKIFvTfdgsqoWzlPmjMCWog7x2GiSfUhXAKn55W
+	txrOFBvVtns3PQMTeEeK4nJKTGyyJofKrA5aj5030wc5gvqZYTtpwgAtaaVB7MHaXwgShm2O38D+j
+	h5rgjiAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYSCT-0000000HG3I-2GS2;
-	Wed, 24 Dec 2025 16:59:01 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYSCM-0000000HG1I-3XO9
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 24 Dec 2025 16:58:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=Yyywd9I0kEffR/daSYsAoEeToLYK1gQi6U+zGnM/qhI=; b=IXOGk/TyJRsabp5RdcJ7Sw/zdF
-	Y7WeyF5m+eitUh1dWrmQWTfsclk0a+iW9bgr9H20SzCWVtz7mNthC09bLX3GvIiY6mdzAvhaCUjim
-	w7mkmeWSZSi7S0JYXEGYvxxdnCFpU8S5ppULnQkiIe1j/JDnCkCw1b37SmReU4Xc3vON0hzXQq/jS
-	WL1h7lp6uNSuGK4UTapNZN9G1A2JqoEectRER1f1Mg58D0SvEivoDmpVQ5zzMFkURnWAkToreMADG
-	6onggRJ82woxEMQw6rlezEJez8XhYduTd6RJlPlSkhuErv/ljj6s4xinDidtSRLKmJtBVrqhXw8jN
-	uN6loB9A==;
-Received: from mleia.com ([178.79.152.223] helo=mail.mleia.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYSCI-000000003HB-1Ro9
+	id 1vYTEL-0000000HJ5L-2YIe;
+	Wed, 24 Dec 2025 18:05:02 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vYTEG-0000000HJ4Y-3Ipf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Dec 2025 16:58:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
-	t=1766595528; bh=wEFs4mTiDo0ClYnjqZcnDlX0QwitP+M2KZrX9mPhHrc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dbtUgE2CO+zOXXPZCEKY286KCynRymPPNdq7tf8Oa+rdf+isGSczP0xZjndEdA26R
-	 Tp0lGhtCQDzGeM14M7kATFMV6ZEQfheVxIJB4Tv07kTSRoPMvkdIMquzEbARY6532O
-	 cNwySBBQLiZtZuSvov0XLJWmQlnplamMPrb9PBsysJMAIJlzxFqtQHKgClkV5xHu0k
-	 JIPyVdSykPW/elnmV4lOpyjx14wdSQZjFELZha5OsCvHPSFDkaXbUktAPF+ts90cCG
-	 NrfzG4MdrjVl1HRMyJfrZd+wFkuyfiR6UUjn1TqZy3asa7w1LgxjB9GwAFeQ/CNTKA
-	 eCeUqqvXnfGsw==
-Received: from mail.mleia.com (localhost [127.0.0.1])
-	by mail.mleia.com (Postfix) with ESMTP id 665C33E837D;
-	Wed, 24 Dec 2025 16:58:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
-	t=1766595528; bh=wEFs4mTiDo0ClYnjqZcnDlX0QwitP+M2KZrX9mPhHrc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dbtUgE2CO+zOXXPZCEKY286KCynRymPPNdq7tf8Oa+rdf+isGSczP0xZjndEdA26R
-	 Tp0lGhtCQDzGeM14M7kATFMV6ZEQfheVxIJB4Tv07kTSRoPMvkdIMquzEbARY6532O
-	 cNwySBBQLiZtZuSvov0XLJWmQlnplamMPrb9PBsysJMAIJlzxFqtQHKgClkV5xHu0k
-	 JIPyVdSykPW/elnmV4lOpyjx14wdSQZjFELZha5OsCvHPSFDkaXbUktAPF+ts90cCG
-	 NrfzG4MdrjVl1HRMyJfrZd+wFkuyfiR6UUjn1TqZy3asa7w1LgxjB9GwAFeQ/CNTKA
-	 eCeUqqvXnfGsw==
-Received: from mail.mleia.com (91-159-24-186.elisa-laajakaista.fi [91.159.24.186])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.mleia.com (Postfix) with ESMTPSA id DF0623E8AFF;
-	Wed, 24 Dec 2025 16:58:47 +0000 (UTC)
-From: Vladimir Zapolskiy <vz@mleia.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
-	devicetree@vger.kernel.org,
+	Wed, 24 Dec 2025 18:04:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D8916339;
+	Wed, 24 Dec 2025 10:04:46 -0800 (PST)
+Received: from bogus (e133711.arm.com [10.1.197.51])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7D5333F5A1;
+	Wed, 24 Dec 2025 10:04:52 -0800 (PST)
+Date: Wed, 24 Dec 2025 18:04:50 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Linus Walleij <linusw@kernel.org>, linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org, arm-scmi@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 1/2] ARM: dts: lpc32xx: change NAND controllers node names
-Date: Wed, 24 Dec 2025 18:58:44 +0200
-Message-ID: <20251224165845.1261926-2-vz@mleia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251224165845.1261926-1-vz@mleia.com>
-References: <20251224165845.1261926-1-vz@mleia.com>
+Subject: Re: [PATCH 2/3] clk: scpi: Simplify with scoped for each OF child
+ loop
+Message-ID: <aUwrQiALSG8MRj2L@bogus>
+References: <20251224112239.83735-4-krzysztof.kozlowski@oss.qualcomm.com>
+ <20251224112239.83735-5-krzysztof.kozlowski@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-49551924 
-X-CRM114-CacheID: sfid-20251224_165848_436591_5C3F0C63 
-X-CRM114-Status: GOOD (  11.47  )
-/bin/ln: failed to access 'reaver_cache/texts/20251224_165848_436591_5C3F0C63': No such file or directory
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251224112239.83735-5-krzysztof.kozlowski@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251224_165848_436591_5C3F0C63 
-X-CRM114-Status: GOOD (  12.27  )
+X-CRM114-CacheID: sfid-20251224_100456_873679_6253B63F 
+X-CRM114-Status: UNSURE (   6.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,36 +69,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The device tree node name of NAND controllers shall be 'nand-controller',
-while 'flash' name is the name of NAND chip device tree nodes.
+On Wed, Dec 24, 2025 at 12:22:41PM +0100, Krzysztof Kozlowski wrote:
+> Use scoped for-each loop when iterating over device nodes to make code a
+> bit simpler.
+> 
 
-Signed-off-by: Vladimir Zapolskiy <vz@mleia.com>
----
- arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
 
-diff --git a/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi b/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
-index 206c66bdfe41..3d5a59b2886c 100644
---- a/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
-+++ b/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
-@@ -62,14 +62,14 @@ iram: sram@8000000 {
- 		/*
- 		 * Enable either SLC or MLC
- 		 */
--		slc: flash@20020000 {
-+		slc: nand-controller@20020000 {
- 			compatible = "nxp,lpc3220-slc";
- 			reg = <0x20020000 0x1000>;
- 			clocks = <&clk LPC32XX_CLK_SLC>;
- 			status = "disabled";
- 		};
- 
--		mlc: flash@200a8000 {
-+		mlc: nand-controller@200a8000 {
- 			compatible = "nxp,lpc3220-mlc";
- 			reg = <0x200a8000 0x11000>;
- 			interrupts = <11 IRQ_TYPE_LEVEL_HIGH>;
 -- 
-2.43.0
-
+Regards,
+Sudeep
 
