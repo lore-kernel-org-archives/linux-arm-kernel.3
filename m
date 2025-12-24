@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDE44E75453
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 13:47:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB6E5E75453
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 13:47:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ughUk2eWnPugNXWzTJLzKsveJLgzP8u6JsIwIQnZTNM=; b=NyiT8+95nG8Ws9JbCgwcabEugF
-	76k8fUOfmYwOU3F/CUiJ7YT5HQC1JS0g4OyPG7+1eTRY/3EjUN2Zigou2Uo+l9qZ612GfwU0ki28h
-	RGCjlb5SRHyc20QeoNSom/LwGZNh9hAFRKTIykA8v++03jxknCIuyEpRDtIDPM2qT8ioOlMY+EJUt
-	44yjyIIXoKyh2CWywiIUVky/YVJDAOCrlTh7su+wNT8fOzBzYfx8FP6a1c/SWh63GV9Q8U4hAq6VD
-	JqrPfkco3XhiJI9Y8Ya1NlQ1apnJN/lxNTFHUW6Wwed8sYt13B6Pur90hl3szMpaDQELKSa0v2nPd
-	HtiQMrIw==;
+	bh=9WbUPE6bJh4bG4sGu5jifyq21X5wZFvvwK42Lk0RJlI=; b=3F3CnKQWxqUTqUqiHOfCzBYIAS
+	YzhPZb2kI8ZWfWmEkFZAC1EX8l36XMrBEUrMnTCj6miws9FejUvI/0YrF/OY9/4TfOqqwh5/uGQAN
+	N1HeGrlKX0/AV/4E6+qP64/ZHTkE43BmjTROJD8z1L2+4AC8otovJiwUWgcMstO/d0FUMDCzTrbqU
+	zV3mYifrwX/GR9K8PsYFVoynxZrUrdQLLfRgqrPBITcH3X00TJoIaFmvIYodqFk1DeDE3gFvGwjF8
+	I8b6nbzOC1iKjtvgd34AF/E7uTVq2NyRglkF3nWeL3kfQO2YTCW8+dsNdB/JK+CTwmZvY3mmWIqo1
+	lnxFH6SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYPCR-0000000GsDE-3MfC;
-	Wed, 24 Dec 2025 13:46:47 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vYPCk-0000000GsLD-1NZy;
+	Wed, 24 Dec 2025 13:47:06 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYPCD-0000000Gs7K-16O5
+	id 1vYPCU-0000000GsEj-0O6y
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Dec 2025 13:46:33 +0000
+	Wed, 24 Dec 2025 13:46:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id ACACF60010;
-	Wed, 24 Dec 2025 13:46:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBCDAC116D0;
-	Wed, 24 Dec 2025 13:46:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7953960138;
+	Wed, 24 Dec 2025 13:46:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3641FC4CEFB;
+	Wed, 24 Dec 2025 13:46:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766583992;
-	bh=N56RJwx7Vb0djbwM5UfAAN+LOP0Kn2KqSnmCrDj/jJE=;
+	s=k20201202; t=1766584009;
+	bh=uGe6Ex9InA/ctQyPBwEfQeCRruCOXrYZdOto/ar5f3U=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=n2EjTdqRlTonPTSSa/d6pqVWTkVS6ePyeUGMFpZhN0kMrhcwsaMATff2cCZreeKjw
-	 HTung2JesMCjBga9qbgVkXuIbJZN9ulRXq9aREVEtXKa4nsDn+OJQ4pPjG90VMqwos
-	 RDOTRtzS1xp7WyRoEe6lijvom6CqjU8hS1OqDvwe3TnwP+zS8xTeX9BW3OY3Xf2MXk
-	 fQQH6JTwzjmLB8m2wjdw0tk4IXObJNwUOmwt7tY/mlBBh83RGtqqKmjP8W7Tugsetf
-	 3ZT1zRav/DixiInhTG1tOgapEoz3mzDJONy0HDf6LJ44jRrRJhYvhJA5J6+3bS0Jny
-	 R6GPEp+JbkrNw==
+	b=QkYBtnhAQ44/QDhvyD+7F9s+u0UyEIzuX1QswgTK4hn9nB5xybx6i1hFP+3OlC5e2
+	 n3QTVokwjBgbk6ivKWOtdU3iSevx+kpxs7OA6i6eJ/CwW1beUG7tm+q8zZ5DLeEHG8
+	 01i13pW9Hf6tjz3oP4mIP6n00eIg3L/gvfs81iaM9AvkPwBHbSLXFuflUzQAcAnLPl
+	 gGJgYTg7vHeM+EwQmsb9L+8Agyj9XOWgkiM2t2qaxQzfTm8hMC8yE6gHr4XY3BIac3
+	 uQvrHdBPyTk6U0rXMbbBYsrr5CULeDo3AMXZByb6mc07RYSNfapMAKagVHUaH2F5E7
+	 ZsgsPEuaKJTbQ==
 From: Frederic Weisbecker <frederic@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Frederic Weisbecker <frederic@kernel.org>,
@@ -81,9 +81,9 @@ Cc: Frederic Weisbecker <frederic@kernel.org>,
 	linux-mm@kvack.org,
 	linux-pci@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH 07/33] driver core: cpu: Convert /sys/devices/system/cpu/isolated to use HK_TYPE_DOMAIN_BOOT
-Date: Wed, 24 Dec 2025 14:44:54 +0100
-Message-ID: <20251224134520.33231-8-frederic@kernel.org>
+Subject: [PATCH 09/33] block: Protect against concurrent isolated cpuset change
+Date: Wed, 24 Dec 2025 14:44:56 +0100
+Message-ID: <20251224134520.33231-10-frederic@kernel.org>
 X-Mailer: git-send-email 2.51.1
 In-Reply-To: <20251224134520.33231-1-frederic@kernel.org>
 References: <20251224134520.33231-1-frederic@kernel.org>
@@ -103,28 +103,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Make sure /sys/devices/system/cpu/isolated only prints what was passed
-through the isolcpus= parameter before HK_TYPE_DOMAIN will also
-integrate cpuset isolated partitions.
+The block subsystem prevents running the workqueue to isolated CPUs,
+including those defined by cpuset isolated partitions. Since
+HK_TYPE_DOMAIN will soon contain both and be subject to runtime
+modifications, synchronize against housekeeping using the relevant lock.
+
+For full support of cpuset changes, the block subsystem may need to
+propagate changes to isolated cpumask through the workqueue in the
+future.
 
 Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
 ---
- drivers/base/cpu.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ block/blk-mq.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/base/cpu.c b/drivers/base/cpu.c
-index c6c57b6f61c6..3e3fa031e605 100644
---- a/drivers/base/cpu.c
-+++ b/drivers/base/cpu.c
-@@ -291,7 +291,7 @@ static ssize_t print_cpus_isolated(struct device *dev,
- 		return -ENOMEM;
+diff --git a/block/blk-mq.c b/block/blk-mq.c
+index 1978eef95dca..0037af1216f3 100644
+--- a/block/blk-mq.c
++++ b/block/blk-mq.c
+@@ -4257,12 +4257,16 @@ static void blk_mq_map_swqueue(struct request_queue *q)
  
- 	cpumask_andnot(isolated, cpu_possible_mask,
--		       housekeeping_cpumask(HK_TYPE_DOMAIN));
-+		       housekeeping_cpumask(HK_TYPE_DOMAIN_BOOT));
- 	len = sysfs_emit(buf, "%*pbl\n", cpumask_pr_args(isolated));
+ 		/*
+ 		 * Rule out isolated CPUs from hctx->cpumask to avoid
+-		 * running block kworker on isolated CPUs
++		 * running block kworker on isolated CPUs.
++		 * FIXME: cpuset should propagate further changes to isolated CPUs
++		 * here.
+ 		 */
++		rcu_read_lock();
+ 		for_each_cpu(cpu, hctx->cpumask) {
+ 			if (cpu_is_isolated(cpu))
+ 				cpumask_clear_cpu(cpu, hctx->cpumask);
+ 		}
++		rcu_read_unlock();
  
- 	free_cpumask_var(isolated);
+ 		/*
+ 		 * Initialize batch roundrobin counts
 -- 
 2.51.1
 
