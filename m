@@ -4,87 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32826E74917
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 05:18:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB6EFE74903
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 05:30:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u6LC33FrBHnFwijckLFQe8PlcMlhWZbaNpDq7Z3k5U4=; b=kbrAUQ7d0ZgNLnn3FXraKqdy/w
-	oYbJ3sJrLzwe1XkiOfnTrTf7HyvFqlNBL0659/F5yWFTKaXxctNXuBtJdq/ZJiPAzVj8ypcwhV7U0
-	rwwo0VmqtlE8cG+5RS4HvkuSpv8YSDVd26O9qqASFPwNDb2Fp/JzW9gox9uz60RRblthe1k62Op1z
-	1snJqmPlTW9tppMTuJO3/EYZbjwrvRmJVNiqJ9/ZuWFgYjjUXHG34JuJos5dgwvuTVuQuAiQKth2a
-	HjJuwJKxqxHsiZD3HHLVbKU8bpzb6z4az8Bjbn7o4+SshOZTPiVQL8iZI9RRTqBSBbqAxIfYyg+rH
-	ysfYsZIw==;
+	bh=tLI6EQT5smrDlxFXcMXg4ADAaAObZLSLjRKawafbQAY=; b=q2yLa1PuHzBRfE7eRenSkixO1c
+	PrAI7cBCGaTapeak7JYTFt0kTgUD35peLEeyzMZxwUmmPW48xaWeMezz3l5Z8BnN0hlalI++90KAb
+	/kR8/qc0fNZUoRvIJmDF5n7LZGgTYLe59gLm0AvIP4Ng0IzGPPxo/RNzjDAod19kttz3BeXyaQ6aQ
+	jlbwbkGxiITfMX+WD+XPl9WPMO2Ha8ZEtknipNiQnyMbgHxjhqdUXL+pzb+JXzcFLIGmujxdbd3MA
+	bws0o9cmxfi1XcgAccM3/RUm5bKw6FIO8rhUvbX/jD5GNoCdWLqF1ffJC4RDZQ45+KS90hRyrpWbG
+	kQqDhJCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYHGl-0000000GQPV-2PTU;
-	Wed, 24 Dec 2025 05:18:43 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1vYHSW-0000000GQxV-2LYu;
+	Wed, 24 Dec 2025 05:30:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYHGi-0000000GQOj-1hkO
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Dec 2025 05:18:42 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-64d2c50f0d6so4628872a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 21:18:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1766553518; x=1767158318; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=u6LC33FrBHnFwijckLFQe8PlcMlhWZbaNpDq7Z3k5U4=;
-        b=WUPy5kTDXDg4zXBAYz6d5MJDGRIQLbmmtgWRzinrVn0wt09L0yPFsZOZKuboVpReIB
-         JsLf5u83t5uyleRh3QZphz5aRgrAaFFioFXSirok10LNL31C+y19UjpG4E9Knb0MYyDm
-         nf8ayhYHb7WVvGuQ2ZMyr7JNnIJfBEVew5zDwmzWsk6Im9Dp7aO/HEj+Mf8qW3znaJot
-         SYFp7CYCjS5ICeQ5wE9qXOGMIHyUftTZyeB6fMebS2KK9pFPn63/2D1n4qbkr6y23kX/
-         /g/F+ZAp1O1RFJtJpc4JWH3liP9+dDTEMth16gcEFX0xM3ojwdkpVVMigTqBX04C3RUV
-         EQvQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766553518; x=1767158318;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=u6LC33FrBHnFwijckLFQe8PlcMlhWZbaNpDq7Z3k5U4=;
-        b=wMT2Zz3dqYuA+TnIg31BGiVRNChjijSCQNAGj5znaKqVXL7sh+i5Jxz52AQSJ/OIbp
-         z7KMSddOMGVmgx6LtrR3sN5s5vMlSQ2KwnyIK+gBWv97D4+SUYaWm+JxrY0zCle+G0b6
-         zG4Y4wHFE+5eHfywyRD6IednpWoWA49Dpx42fv7tKJQN8wX2mZ+fIi7yQddpnPj4AQRF
-         gNbEfK5R7e6ZIXmMcuikRD6ij/K2+DmmoLX3BUo8uUNxq4wYbZnJ41MDHgtVdWJgtcue
-         i6o75KGmYoBHOSYThSiVGjBxeybvI3/j95V6hcbhq4jMCEM3LJZo3jCqDGK8NM6qVVGq
-         bEvg==
-X-Forwarded-Encrypted: i=1; AJvYcCUpsb6ChADWne8tLLTYFcHM+1nQfFBYxFa1zqVXS3wZySOrdut/WfgGYDzI8Vg5CL+32Repot5mMHqHklw3uQQe@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy/s+P65ye/LeIoO3vlOzv/2NvwcvpzvugD5SxmXQ4PlWjuhU2b
-	sEqLJ/ZauVKG6N5zLsFbbjS+DV+XCRYhZvLsVxnX4hxNsD4e+hCUS/M6a3smKTWjIhcoM4UhpKQ
-	n5rJrINSFKr5/rQj77Q4a/a7wsifbGl8=
-X-Gm-Gg: AY/fxX7ZKKoMMkZcOXHBNYbkvWyh+jAneFg8GBNQ8F19AoxeQR3BWT6D6UNDZJwGG/J
-	X7bbF27l294mIwMG6+MZu4I8x0i8MBd3aNveXcVBOL0cnIXFIcKq5hLQRca7V/y1Mx72c0P7MjD
-	rEGUD9dmcpluXgE4m155AFZmN2dhsyMpDkFgA5XyRQzk7KlXf34k2/FBGhGh1UTJy+RF1gGcOG8
-	y6OP5701VYpW4EiKCuRr7pJEzw5oQJi+QZgUuhAhNzI2NUt5acCPrORALbrwD1qVBc=
-X-Google-Smtp-Source: AGHT+IE5dtPIKyU8ptUI2hkdMI7fwbMdU7esjAJmTvjiO17a7ITetL6IcJCGHQwxARRvQd0qeb1vLtgPofOSuLa2c5M=
-X-Received: by 2002:a05:6402:5188:b0:64b:572e:6ba5 with SMTP id
- 4fb4d7f45d1cf-64b8e93c0dbmr15294044a12.4.1766553517792; Tue, 23 Dec 2025
- 21:18:37 -0800 (PST)
+	id 1vYHSV-0000000GQxM-22ls;
+	Wed, 24 Dec 2025 05:30:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 9154B60123;
+	Wed, 24 Dec 2025 05:30:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF1F1C4CEFB;
+	Wed, 24 Dec 2025 05:30:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766554250;
+	bh=1X9APecdnLI/dPB5jwwC+T1kxLB0WLC073vyb8hkJgE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SISDydjirDPYMUr4FcfxX40KBetH36Bjt+7pfTrpYmEmu1dd3hfUs3tTGX/NJ9qQF
+	 X9Fm57cx+ptcwhFuNNkN5uGbHO5TM696KG63jvQbPbeLXIMWoSRPgCpeNPlB7uNiNl
+	 RVsK/7XARw8cBznR0jdphIRjJBW9PrBsb5hKiBLaoONmjOQ76AUknCN3p2Gcp6OXPA
+	 uBm0TPM9fBzuM+86esajXU34fbEWeVAd2/uXW+oOWiv5GQ7n5T+CC+/5F+CyCQ9p7O
+	 x0kP0727nRjzkrInVLGaSyPnJR/4lVYXQdVCWjot+cn8BAk/DvXPZM2vtGmk89FaB8
+	 pSw44WM1/otYg==
+Date: Wed, 24 Dec 2025 11:00:46 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: Roy Luo <royluo@google.com>
+Cc: Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Badhri Jagan Sridharan <badhri@google.com>,
+	Doug Anderson <dianders@google.com>, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	Joy Chakraborty <joychakr@google.com>,
+	Naveen Kumar <mnkumar@google.com>
+Subject: Re: [PATCH v9 2/2] phy: Add Google Tensor SoC USB PHY driver
+Message-ID: <aUt6hobN9DPUGbpz@vaman>
+References: <20251222-phyb4-v9-0-82c0b671b070@google.com>
+ <20251222-phyb4-v9-2-82c0b671b070@google.com>
+ <aUqhbVFHczpL9qnL@vaman>
+ <CA+zupgxP+_2iRYABhPM1OOJtRdkrcOvrsKH=Sxk45XwsiamzTw@mail.gmail.com>
 MIME-Version: 1.0
-References: <cover.1763415705.git.geraldogabriel@gmail.com> <eaa9c75ca02a53f8bcc293b8bc73d013e26ec253.1763415706.git.geraldogabriel@gmail.com>
-In-Reply-To: <eaa9c75ca02a53f8bcc293b8bc73d013e26ec253.1763415706.git.geraldogabriel@gmail.com>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Wed, 24 Dec 2025 10:48:20 +0530
-X-Gm-Features: AQt7F2pedp4R-xyN_-ijj3Fu8brq9lijlFOC48RK9mmQXfW6wy7VvzSVIN4mKhs
-Message-ID: <CANAwSgQ726J_vnDKEKd94Kq62kx8ToZzUGysz4r3tNAXvfAbGA@mail.gmail.com>
-Subject: Re: [PATCH v2 1/4] PCI: rockchip: limit RK3399 to 2.5 GT/s to prevent damage
-To: Geraldo Nascimento <geraldogabriel@gmail.com>
-Cc: Shawn Lin <shawn.lin@rock-chips.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Heiko Stuebner <heiko@sntech.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Johan Jonker <jbx6244@gmail.com>, Dragan Simic <dsimic@manjaro.org>, 
-	linux-rockchip@lists.infradead.org, linux-pci@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_211840_467299_EB44EE64 
-X-CRM114-Status: GOOD (  22.64  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CA+zupgxP+_2iRYABhPM1OOJtRdkrcOvrsKH=Sxk45XwsiamzTw@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,64 +85,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Geraldo,
+On 23-12-25, 09:53, Roy Luo wrote:
+> On Tue, Dec 23, 2025 at 6:04 AM Vinod Koul <vkoul@kernel.org> wrote:
+> >
+> > On 22-12-25, 21:31, Roy Luo wrote:
 
-On Tue, 18 Nov 2025 at 03:17, Geraldo Nascimento
-<geraldogabriel@gmail.com> wrote:
->
-> Shawn Lin from Rockchip has reiterated that there may be danger in using
-> their PCIe with 5.0 GT/s speeds. Warn the user if they make a DT change
-> from the default and drive at 2.5 GT/s only, even if the DT
-> max-link-speed property is invalid or inexistent.
->
-> This change is corroborated by RK3399 official datasheet [1], which
-> says maximum link speed for this platform is 2.5 GT/s.
->
-> [1] https://opensource.rock-chips.com/images/d/d7/Rockchip_RK3399_Datasheet_V2.1-20200323.pdf
->
-To accurately determine the operating speed, we can leverage the
-PCIE_CLIENT_BASIC_STATUS0/1 fields.
-This provides a dynamic mechanism to resolve the issue.
+> > > +struct google_usb_phy {
+> > > +     struct device *dev;
+> > > +     struct regmap *usb_cfg_regmap;
+> > > +     unsigned int usb2_cfg_offset;
+> > > +     void __iomem *usbdp_top_base;
+> > > +     struct google_usb_phy_instance insts[GOOGLE_USB_PHY_NUM];
+> >
+> > so you have an array for one phy?
+> 
+> While the current patch only supports usb2, I used an array
+> to simplify future support for usb3 and DP. I understand this
+> might seem like over-engineering for now, and we could
+> certainly wait to implement the array until the second phy
+> support is added. I’m happy to move away from array if
+> you’d prefer a simpler approach for this iteration.
 
-[1] https://github.com/torvalds/linux/blob/master/drivers/pci/controller/pcie-rockchip-ep.c#L533-L595
+Rather than do array, allocate mem as probe based on how many phys will
+be there and use that. That would be a better approach than static
+allocation here
 
-Thanks
--Anand
+> > > +static int google_usb2_phy_exit(struct phy *_phy)
+> > > +{
+> > > +     struct google_usb_phy_instance *inst = phy_get_drvdata(_phy);
+> > > +     struct google_usb_phy *gphy = to_google_usb_phy(inst);
+> > > +     u32 reg;
+> > > +
+> > > +     dev_dbg(gphy->dev, "exiting usb2 phy\n");
+> > > +
+> > > +     guard(mutex)(&gphy->phy_mutex);
+> > > +
+> > > +     regmap_read(gphy->usb_cfg_regmap, gphy->usb2_cfg_offset + USBCS_USB2PHY_CFG21_OFFSET, &reg);
+> > > +     reg &= ~USBCS_USB2PHY_CFG21_PHY_ENABLE;
+> > > +     regmap_write(gphy->usb_cfg_regmap, gphy->usb2_cfg_offset + USBCS_USB2PHY_CFG21_OFFSET, reg);
+> > > +
+> > > +     reset_control_bulk_assert(inst->num_rsts, inst->rsts);
+> > > +     clk_bulk_disable_unprepare(inst->num_clks, inst->clks);
+> > > +
+> > > +     return 0;
+> > > +}
+> > > +
+> > > +static const struct phy_ops google_usb2_phy_ops = {
+> > > +     .init           = google_usb2_phy_init,
+> > > +     .exit           = google_usb2_phy_exit,
+> > > +};
+> >
+> > Only two ops? I would expect more... No power_on/off or set_mode?
+> >
+> > --
+> > ~Vinod
+> 
+> No, configuring usb2 phy is pretty straightforward. The hardware
+> does not distinguish between "initialized" and "powered on" states,
+> it also does not distinguish phy mode.
 
-> Fixes: 956cd99b35a8 ("PCI: rockchip: Separate common code from RC driver")
-> Link: https://lore.kernel.org/all/ffd05070-9879-4468-94e3-b88968b4c21b@rock-chips.com/
-> Cc: stable@vger.kernel.org
-> Reported-by: Dragan Simic <dsimic@manjaro.org>
-> Reported-by: Shawn Lin <shawn.lin@rock-chips.com>
-> Reviewed-by: Dragan Simic <dsimic@manjaro.org>
-> Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
-> ---
->  drivers/pci/controller/pcie-rockchip.c | 10 ++++++++--
->  1 file changed, 8 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/pci/controller/pcie-rockchip.c b/drivers/pci/controller/pcie-rockchip.c
-> index 0f88da378805..992ccf4b139e 100644
-> --- a/drivers/pci/controller/pcie-rockchip.c
-> +++ b/drivers/pci/controller/pcie-rockchip.c
-> @@ -66,8 +66,14 @@ int rockchip_pcie_parse_dt(struct rockchip_pcie *rockchip)
->         }
->
->         rockchip->link_gen = of_pci_get_max_link_speed(node);
-> -       if (rockchip->link_gen < 0 || rockchip->link_gen > 2)
-> -               rockchip->link_gen = 2;
-> +       if (rockchip->link_gen < 0 || rockchip->link_gen > 2) {
-> +               rockchip->link_gen = 1;
-> +               dev_warn(dev, "invalid max-link-speed, set to 2.5 GT/s\n");
-> +       }
-> +       else if (rockchip->link_gen == 2) {
-> +               rockchip->link_gen = 1;
-> +               dev_warn(dev, "5.0 GT/s is dangerous, set to 2.5 GT/s\n");
-> +       }
->
->         for (i = 0; i < ROCKCHIP_NUM_PM_RSTS; i++)
->                 rockchip->pm_rsts[i].id = rockchip_pci_pm_rsts[i];
-> --
-> 2.49.0
->
->
+ok
+
+-- 
+~Vinod
 
