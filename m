@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4222DE776F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 19:18:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7ADDE776FD
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 19:20:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xZg5eUrmrvQkn5kS5Z5StXMcG2MdDw+ySiCbxKWmi3o=; b=JSK6Jj/EtDjOjzKKp6sEADcRve
-	64P1gz8K2+XpPNFOJU3/w508CupX7TRGOI3Cc/+4Hq6/KIlMvDT3MyCKr2svD/AmkHeimhQwsa2xF
-	K2LJyJhJyQIg2KEE5KHkmtEo/mOKv0bj/ty4oxhTJef997ofFLAiXPyVwDbjo7QYEkIVYszuj6COt
-	OjafflyyoTKXV8H2wgelSy/YYZllu61ftOfSC8L/StsyvkEeOP7VMJQZSwLXm02+96/NbbFIb0ztF
-	BHiocIGcALlX0Qx2Jh3dIw2VuQEfWDOc2FYo+mFVekSk44jpg4AUsfBS+tO0zwlVEbyjp2V6h/4U5
-	OEZkpEhA==;
+	bh=FWgFvpw/AHNyDXufCuZ5epDAc/pafdJFP2isUDb12EE=; b=a8UHJI2WFFveyyGlT0n1g6oHSH
+	87UNGDIEgEVavYd9VC6tgjBbAu7emSG7MAH94ejXJtjYK6LMoaZZHeYqoodpG+LzU5R+eKV5jREbU
+	LGjUAYmjzMnFqSAizdfeumy/8zsqaGa9RYV/mvmHDFg7AbBLzGtDK3xsa/jMdze2/v5Xtl7ApQFxz
+	6mw/LjfSeUfGtajxdc7+ILfoh1e/+ZiTBf0ZthmKLSyjbKSL4b8CUDEEoha5kYwNnluXD38MjDkAh
+	3ie+T6Tav0XsuyAC/jga57sIVoyZOgoUz9OokuEwKwQ2dntvSlOQkD/Dh1OCMIvNKsiyn17IoplJg
+	LZRafsRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYUN5-0000000HLhb-2FWC;
-	Wed, 24 Dec 2025 19:18:07 +0000
-Received: from mail-qk1-x734.google.com ([2607:f8b0:4864:20::734])
+	id 1vYUOz-0000000HLps-07mr;
+	Wed, 24 Dec 2025 19:20:05 +0000
+Received: from mail-qv1-xf34.google.com ([2607:f8b0:4864:20::f34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYUN3-0000000HLgw-1BoE
+	id 1vYUOv-0000000HLpM-1Sqi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Dec 2025 19:18:06 +0000
-Received: by mail-qk1-x734.google.com with SMTP id af79cd13be357-8b5c81bd953so745121485a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Dec 2025 11:18:04 -0800 (PST)
+	Wed, 24 Dec 2025 19:20:03 +0000
+Received: by mail-qv1-xf34.google.com with SMTP id 6a1803df08f44-88a3d2f3299so72500176d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Dec 2025 11:20:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1766603884; x=1767208684; darn=lists.infradead.org;
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1766604000; x=1767208800; darn=lists.infradead.org;
         h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
          :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=xZg5eUrmrvQkn5kS5Z5StXMcG2MdDw+ySiCbxKWmi3o=;
-        b=hmqXLK8DA1uYE9flIi1EGIkLH42pnekliHymY2TTdHgdGg74wcczJ0YWOpLffnow6n
-         OMuJnGzBbsBK+aTnN9MPPuDbTg3LmLP6JklTXZxnbgnYN9DpLbszadt2DjripI0OGHM1
-         pAGg3nE7fTL5ISRjSICPap4etnJEA/9OYRn8Un9NUtnH/MBaW1RlXPIRUR33+sS9XVqL
-         RdOx4Z27ZBT7UoYsR3JkT6nJhoMIgvMd/B5b/BxT/doEIMB0beRjdTzooHDdjCyY3Pnr
-         vjeYH7FkopvN77wR9SH/n3wObDndogeixyYhwL5vCCFc0JpED3PzdJUhQzJNkWDwb3bv
-         fRBg==
+        bh=FWgFvpw/AHNyDXufCuZ5epDAc/pafdJFP2isUDb12EE=;
+        b=Py1bths248QYl9BN73EhLAumSjyKe/tUzLWl8hmU0RBdjLF5I6k3K7PsJ98uwldykc
+         9NSWhwYTkF6enEDbwa0pYIZh5695TJBC+KyI8TJOcMWZ53KKeHUhwFGk14nDAtJRBRvW
+         ptcypq4XurHpVGiBBCQe6npAXn18GrLRFhZo/ajYSDfmr2OBI61FZbC2LFuAAwejUswY
+         5rY9XcYojlGEaAy0PEAfRYTeUCHst3fmzQmt0LkSgmeuHSroSPLKNNQ6WnQ2igYACCvT
+         AptfHN/Q1mqUmUr1FCizGueyHh/ZxlvbwKfqcAuyohgHETIcJLYxQ3GvzEuCKq99pPcS
+         MRiQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766603884; x=1767208684;
+        d=1e100.net; s=20230601; t=1766604000; x=1767208800;
         h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
          :from:subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=xZg5eUrmrvQkn5kS5Z5StXMcG2MdDw+ySiCbxKWmi3o=;
-        b=KnF7/BSrWm3OdvrLx7Mhdn49o9JQlvfMmWYAKC5btOCbHQlSjnDG+/E13YfSKfemth
-         o0RSeiFUbJ3Z0LTYiP/n/pm5qtyX9R711QCAdC/qHUVQaPZ1cgSdQ2iqlAG/+VjZnvOa
-         uGINKuw/FPpyoQ3e0LDOPZtLEOA3tqXKsFv5WFy2HmLb5PexQaWuAX+fpnKiFQDFxoec
-         xQkBiY6yPoNKO5GKqSBfX45JkbBUjJn3uyMUYYnkVSp5F5530m5fn+OpDbqamj3ZLjjg
-         VqWpKPYXoBhWbLOn9L630HmlM+oM6NZV8kpash45oW+uv06lneRfe0jId4B9Maypfz1y
-         5D3Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXTC5lAM/rHx97cJGFfXQlVf30vV7t3oBXaawLdcI62Bum1QqQ+E7czkCy9DlMNO6bOikiInrL5zSwRfOVRvNOO@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+LAZhldtvLshw1Nsd1Lqj7DSPzhcDHdVBhdsLj02ejH5uEzrR
-	4/P+ywdGFoyEwzmQVGtzgvH3qXjpW0Kb++UQOi/vZ7R/ECfZWYx4KEg+naMnaXB/nTw=
-X-Gm-Gg: AY/fxX7Gdf65TKlpD5/jqF2lyI3k37nWZYQF1QUEFIEO1U/VMXj4CxMfH9oLFBaoMui
-	gbRWd5K89D4fZb2fsVTQ4n36V2qIhndYeG6JR7kphqZzrlFJx/0ZsZInis1GXmcGAJbU7Bg1nRL
-	aP1+p67gRqdGOCG7GHcT1J7ZFSAB1ap4saHDakmygl4ihGBAZYRrzBJD5FYGbvxd35PL3M8Qtw5
-	0nXVglSJMCy5SoE3303FUzEVy6c33gi4cxm7GoWTjoTu86I3GXWvrxndWXunZOv91o0hKV4F2On
-	vF9Dxafr/dmo52tQqJ8GnRqB4oqLuQFMofp5JiT613yQeRdUTXErPYv0JZbIDF3bigR9uYN3SgW
-	n7CA97Ozoz4Jg3i1MpKDNy4at7hEZCAhirIehUDB95BLngs7xXnDGE5sQM/ks1Y7laODig5vC8/
-	xPqd9O9MMWj7rSwf9x
-X-Google-Smtp-Source: AGHT+IFE+lwyQ0lBVNQN9AauKUiupd6cPnSEIMOpaIWg/SbEk3o4rIkkKVIUe+K1qw6hZBgNQd+vpA==
-X-Received: by 2002:a05:620a:4843:b0:8c0:cca6:8522 with SMTP id af79cd13be357-8c0cca68539mr1707477185a.37.1766603883870;
-        Wed, 24 Dec 2025 11:18:03 -0800 (PST)
+        bh=FWgFvpw/AHNyDXufCuZ5epDAc/pafdJFP2isUDb12EE=;
+        b=KccWpQ8gpRUOfe7wBmMXncD1wWKQyinY/+OhNNScN9VncDKQtvxPpNSqFqevM5OWNS
+         HbFQZdonpkpc94NTmXquKzOjft2m6UCr1LKQC0xKBeYx1chHEZWSCaUQYY7uOosvg0/x
+         ErkX7Pe5T8S+lVeF9ulSsAHRua1UoHglg/NYm6YXATToKKUZBMU1ChL/96fu1Qvkvqij
+         QFKQYFb2iouR6lFd88XmBIcakEL/57SGpO69kjP7bNycWV9nAkRJ5UqHJxDhQmuRqIGw
+         UpmhBv6CUN890diP4o4KddMOSyxX511V320wSyQquIUj5uEjSi3tATadMMBSBOBhJfH/
+         oroA==
+X-Forwarded-Encrypted: i=1; AJvYcCUWFmRkoTHyvtpk/bb89Nhb/lpS80pwcrxafVdOaQD54i5bHyH3+V5mkEecNVqPYwDiPjnmv3pND9O1cghdrsxB@lists.infradead.org
+X-Gm-Message-State: AOJu0YzrSiDisylHkWuaEo/doTRt1XFdPfMDvfTQ2hmx7P3qUTVZpss+
+	v1s9263VXZxMQUKxcPgv8no15Pef8iZPEGySHCRxiMnIJ3iPlU85fTB7HJChsx4Oyks=
+X-Gm-Gg: AY/fxX4Ehbw5loKqFMifgTOdmEfgqTRwDVqxv9zdPvPKMW711YVNAEuwT9j0A3tgbt3
+	jaktfu2+lAws1+DE7VR0Vrl4jTHLLQzItvRnIcfCHKYcsmLm984ufUvVcOpsn2+N2PZQG7tx8ke
+	hs8JFbWQQHwiH/2EWrfFO1iJ3os2Oa/ZU3yaJXcuPo1Nq22itPCefYOzrnKbcKVc27r/Tj1oxRl
+	RPZJK5r49YaDTjkxhcyzTg7GYwMulA+v0fN9tr3v/2I+Ti0veF3YNNJVM7Hf3Sa84LYFxkxXOvy
+	P87zE3HB1yn1W1zQmlfdyWxiEcbibyGDUKUxFJ/fDMaQOJwfhw8+xrpaI+tz+lP1cJw4lgTtkUF
+	tR8Xr+kPXcsFJiMDhAhGAw7PoeV5GZPDwXavQCas+qkX/CWfmoyzCBtzUOqLng+t9aFZQGohzb0
+	yBvmZzqsBFbxe3SgZvWNYTi8BEym8=
+X-Google-Smtp-Source: AGHT+IEeDZpPPu6YZwcQ8tx4vjP/alqKLZ2iCL81HE8OxCMqXyviVYCPm8KNV8TIbtaCK6+e47FNYg==
+X-Received: by 2002:a05:6214:20a2:b0:880:5279:98eb with SMTP id 6a1803df08f44-88d86290d80mr291887636d6.44.1766604000085;
+        Wed, 24 Dec 2025 11:20:00 -0800 (PST)
 Received: from ?IPv6:2606:6d00:17:7b4b::c41? ([2606:6d00:17:7b4b::c41])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-88d9623feb0sm136297056d6.2.2025.12.24.11.18.02
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-88d9a44e26bsm131729676d6.47.2025.12.24.11.19.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Dec 2025 11:18:03 -0800 (PST)
-Message-ID: <b6ae2f157fb6fd0b80602f363b99dab1dc0b1cc6.camel@ndufresne.ca>
-Subject: Re: [PATCH v4 1/3] media: docs: dev-decoder: Trigger dynamic source
- change for colorspace
+        Wed, 24 Dec 2025 11:19:59 -0800 (PST)
+Message-ID: <5500fa4f4ee321a451360a84cf5834781c1a9615.camel@ndufresne.ca>
+Subject: Re: [PATCH v4 2/3] media: amphion: Clear last_buffer_dequeued flag
+ for DEC_CMD_START
 From: Nicolas Dufresne <nicolas@ndufresne.ca>
 To: ming.qian@oss.nxp.com, linux-media@vger.kernel.org
 Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl, 
@@ -80,10 +80,10 @@ Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl,
  linux-imx@nxp.com, Frank.li@nxp.com, 	xiahong.bao@nxp.com,
  eagle.zhou@nxp.com, imx@lists.linux.dev, 	linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
-Date: Wed, 24 Dec 2025 14:18:02 -0500
-In-Reply-To: <20251217030227.1546-2-ming.qian@oss.nxp.com>
+Date: Wed, 24 Dec 2025 14:19:58 -0500
+In-Reply-To: <20251217030227.1546-3-ming.qian@oss.nxp.com>
 References: <20251217030227.1546-1-ming.qian@oss.nxp.com>
-	 <20251217030227.1546-2-ming.qian@oss.nxp.com>
+	 <20251217030227.1546-3-ming.qian@oss.nxp.com>
 Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
  keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
  /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
@@ -98,12 +98,12 @@ Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
  ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
  bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
 Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-n17ZtuMY6Flq/RX7bbkp"
+	protocol="application/pgp-signature"; boundary="=-TbnDfBH7kuP5a4j2UK4h"
 User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251224_111805_326734_B1090B4E 
-X-CRM114-Status: GOOD (  13.79  )
+X-CRM114-CacheID: sfid-20251224_112001_396661_FF6FFB65 
+X-CRM114-Status: GOOD (  13.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,7 +119,7 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---=-n17ZtuMY6Flq/RX7bbkp
+--=-TbnDfBH7kuP5a4j2UK4h
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
@@ -127,48 +127,45 @@ Le mercredi 17 d=C3=A9cembre 2025 =C3=A0 11:02 +0800, ming.qian@oss.nxp.com=
  a =C3=A9crit=C2=A0:
 > From: Ming Qian <ming.qian@oss.nxp.com>
 >=20
-> If colorspace changes, the client needs to renegotiate the pipeline,
-> otherwise the decoded frame may not be displayed correctly.
->=20
-> So add colorspace as a trigger parameter for dynamic resolution change.
+> The V4L2_DEC_CMD_START command may be used to handle the dynamic source
+> change, which will triggers an implicit decoder drain.
+> The last_buffer_dequeued flag is set in the implicit decoder drain,
+> so driver need to clear it to continue the following decoding flow.
 >=20
 > Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
 
 Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
 > ---
-> =C2=A0Documentation/userspace-api/media/v4l/dev-decoder.rst | 5 ++++-
-> =C2=A01 file changed, 4 insertions(+), 1 deletion(-)
+> =C2=A0drivers/media/platform/amphion/vdec.c | 1 +
+> =C2=A01 file changed, 1 insertion(+)
 >=20
-> diff --git a/Documentation/userspace-api/media/v4l/dev-decoder.rst
-> b/Documentation/userspace-api/media/v4l/dev-decoder.rst
-> index eb662ced0ab4..2beb6ba1b3c2 100644
-> --- a/Documentation/userspace-api/media/v4l/dev-decoder.rst
-> +++ b/Documentation/userspace-api/media/v4l/dev-decoder.rst
-> @@ -933,7 +933,10 @@ reflected by corresponding queries):
-> =C2=A0
-> =C2=A0* the minimum number of buffers needed for decoding,
-> =C2=A0
-> -* bit-depth of the bitstream has been changed.
-> +* bit-depth of the bitstream has been changed,
-> +
-> +* colorspace of the bitstream has been changed, but it doesn't require
-> +=C2=A0 buffer reallocation.
-> =C2=A0
-> =C2=A0Whenever that happens, the decoder must proceed as follows:
-> =C2=A0
+> diff --git a/drivers/media/platform/amphion/vdec.c b/drivers/media/platfo=
+rm/amphion/vdec.c
+> index c0d2aabb9e0e..f25dbcebdccf 100644
+> --- a/drivers/media/platform/amphion/vdec.c
+> +++ b/drivers/media/platform/amphion/vdec.c
+> @@ -724,6 +724,7 @@ static int vdec_decoder_cmd(struct file *file, void *=
+fh, struct v4l2_decoder_cmd
+> =C2=A0	switch (cmd->cmd) {
+> =C2=A0	case V4L2_DEC_CMD_START:
+> =C2=A0		vdec_cmd_start(inst);
+> +		vb2_clear_last_buffer_dequeued(v4l2_m2m_get_dst_vq(inst->fh.m2m_ctx));
+> =C2=A0		break;
+> =C2=A0	case V4L2_DEC_CMD_STOP:
+> =C2=A0		vdec_cmd_stop(inst);
 
---=-n17ZtuMY6Flq/RX7bbkp
+--=-TbnDfBH7kuP5a4j2UK4h
 Content-Type: application/pgp-signature; name="signature.asc"
 Content-Description: This is a digitally signed message part
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaUw8agAKCRDZQZRRKWBy
-9CHGAP9gEAjecV8PUMv/Zb5o06iitW7EtgLf6x+mn9znVa2a7wEA6gnPxAGouGcD
-1gWVb5hh/gTP+c0avA3fnMj4aV97VQc=
-=oB75
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaUw83gAKCRDZQZRRKWBy
+9N4GAPsEStp+V8u3PcY6TUQYOCoH/OAkqDJ6OoG31fahIVD4IQEA+Bl3uh5sZQhc
+KDFtxNYkj8x7KW7YxzN9h3vDdlSs3AM=
+=bMEn
 -----END PGP SIGNATURE-----
 
---=-n17ZtuMY6Flq/RX7bbkp--
+--=-TbnDfBH7kuP5a4j2UK4h--
 
