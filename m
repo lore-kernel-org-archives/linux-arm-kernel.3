@@ -4,58 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AD00E74913
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 05:05:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32826E74917
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 05:18:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MkixSAhRxEVhX5M563rXharhRiWWamTV8SfoJKxI6V4=; b=mNUYI0TRH4JuamE8TXo6NOrWD/
-	rHO3nlCKv5JV/4/AVtuSKJ0ym0GgQL+gwMn/lYMItJUFzeyp8jZPs60/EPu1o3c4x1QaTLODuS6PU
-	utiHy1tdt/+4rm+ZFyBjOLhlKhrWZC32oKkTNvLnHWEZix5DQ/4azwXx4GyknOEzRvgJGAVm8FFuQ
-	dB24a7B1vCPOfeaZNL0z08x3Nfvb0xJeWRgMmbUGxc5GBjBZwmfK/VgX9p1486vtUMVtE/L2lCBqB
-	f2EYgA0Y4zpgAJLEH0hclLlPG9Y8FJAPxMGYwgAqllS2nnsnjbDBXNFcyOMa6AbC3CWsPPFyAdIpI
-	SPelg3nw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u6LC33FrBHnFwijckLFQe8PlcMlhWZbaNpDq7Z3k5U4=; b=kbrAUQ7d0ZgNLnn3FXraKqdy/w
+	oYbJ3sJrLzwe1XkiOfnTrTf7HyvFqlNBL0659/F5yWFTKaXxctNXuBtJdq/ZJiPAzVj8ypcwhV7U0
+	rwwo0VmqtlE8cG+5RS4HvkuSpv8YSDVd26O9qqASFPwNDb2Fp/JzW9gox9uz60RRblthe1k62Op1z
+	1snJqmPlTW9tppMTuJO3/EYZbjwrvRmJVNiqJ9/ZuWFgYjjUXHG34JuJos5dgwvuTVuQuAiQKth2a
+	HjJuwJKxqxHsiZD3HHLVbKU8bpzb6z4az8Bjbn7o4+SshOZTPiVQL8iZI9RRTqBSBbqAxIfYyg+rH
+	ysfYsZIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYH3o-0000000GPrj-1UuP;
-	Wed, 24 Dec 2025 05:05:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYH3k-0000000GPrC-2uZD
+	id 1vYHGl-0000000GQPV-2PTU;
+	Wed, 24 Dec 2025 05:18:43 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vYHGi-0000000GQOj-1hkO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Dec 2025 05:05:18 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CD602339;
-	Tue, 23 Dec 2025 21:05:05 -0800 (PST)
-Received: from [10.164.18.59] (MacBook-Pro.blr.arm.com [10.164.18.59])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 830543F73F;
-	Tue, 23 Dec 2025 21:05:07 -0800 (PST)
-Message-ID: <19e28edb-87b1-4e4d-accc-2219f717aa51@arm.com>
-Date: Wed, 24 Dec 2025 10:35:04 +0530
+	Wed, 24 Dec 2025 05:18:42 +0000
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-64d2c50f0d6so4628872a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 21:18:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1766553518; x=1767158318; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=u6LC33FrBHnFwijckLFQe8PlcMlhWZbaNpDq7Z3k5U4=;
+        b=WUPy5kTDXDg4zXBAYz6d5MJDGRIQLbmmtgWRzinrVn0wt09L0yPFsZOZKuboVpReIB
+         JsLf5u83t5uyleRh3QZphz5aRgrAaFFioFXSirok10LNL31C+y19UjpG4E9Knb0MYyDm
+         nf8ayhYHb7WVvGuQ2ZMyr7JNnIJfBEVew5zDwmzWsk6Im9Dp7aO/HEj+Mf8qW3znaJot
+         SYFp7CYCjS5ICeQ5wE9qXOGMIHyUftTZyeB6fMebS2KK9pFPn63/2D1n4qbkr6y23kX/
+         /g/F+ZAp1O1RFJtJpc4JWH3liP9+dDTEMth16gcEFX0xM3ojwdkpVVMigTqBX04C3RUV
+         EQvQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766553518; x=1767158318;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=u6LC33FrBHnFwijckLFQe8PlcMlhWZbaNpDq7Z3k5U4=;
+        b=wMT2Zz3dqYuA+TnIg31BGiVRNChjijSCQNAGj5znaKqVXL7sh+i5Jxz52AQSJ/OIbp
+         z7KMSddOMGVmgx6LtrR3sN5s5vMlSQ2KwnyIK+gBWv97D4+SUYaWm+JxrY0zCle+G0b6
+         zG4Y4wHFE+5eHfywyRD6IednpWoWA49Dpx42fv7tKJQN8wX2mZ+fIi7yQddpnPj4AQRF
+         gNbEfK5R7e6ZIXmMcuikRD6ij/K2+DmmoLX3BUo8uUNxq4wYbZnJ41MDHgtVdWJgtcue
+         i6o75KGmYoBHOSYThSiVGjBxeybvI3/j95V6hcbhq4jMCEM3LJZo3jCqDGK8NM6qVVGq
+         bEvg==
+X-Forwarded-Encrypted: i=1; AJvYcCUpsb6ChADWne8tLLTYFcHM+1nQfFBYxFa1zqVXS3wZySOrdut/WfgGYDzI8Vg5CL+32Repot5mMHqHklw3uQQe@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy/s+P65ye/LeIoO3vlOzv/2NvwcvpzvugD5SxmXQ4PlWjuhU2b
+	sEqLJ/ZauVKG6N5zLsFbbjS+DV+XCRYhZvLsVxnX4hxNsD4e+hCUS/M6a3smKTWjIhcoM4UhpKQ
+	n5rJrINSFKr5/rQj77Q4a/a7wsifbGl8=
+X-Gm-Gg: AY/fxX7ZKKoMMkZcOXHBNYbkvWyh+jAneFg8GBNQ8F19AoxeQR3BWT6D6UNDZJwGG/J
+	X7bbF27l294mIwMG6+MZu4I8x0i8MBd3aNveXcVBOL0cnIXFIcKq5hLQRca7V/y1Mx72c0P7MjD
+	rEGUD9dmcpluXgE4m155AFZmN2dhsyMpDkFgA5XyRQzk7KlXf34k2/FBGhGh1UTJy+RF1gGcOG8
+	y6OP5701VYpW4EiKCuRr7pJEzw5oQJi+QZgUuhAhNzI2NUt5acCPrORALbrwD1qVBc=
+X-Google-Smtp-Source: AGHT+IE5dtPIKyU8ptUI2hkdMI7fwbMdU7esjAJmTvjiO17a7ITetL6IcJCGHQwxARRvQd0qeb1vLtgPofOSuLa2c5M=
+X-Received: by 2002:a05:6402:5188:b0:64b:572e:6ba5 with SMTP id
+ 4fb4d7f45d1cf-64b8e93c0dbmr15294044a12.4.1766553517792; Tue, 23 Dec 2025
+ 21:18:37 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND RFC PATCH 1/2] mm/vmalloc: Do not align size to huge size
-To: Uladzislau Rezki <urezki@gmail.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org,
- tytso@mit.edu, adilger.kernel@dilger.ca, cem@kernel.org,
- ryan.roberts@arm.com, anshuman.khandual@arm.com,
- shijie@os.amperecomputing.com, yang@os.amperecomputing.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, npiggin@gmail.com, willy@infradead.org,
- david@kernel.org, ziy@nvidia.com
-References: <20251212042701.71993-1-dev.jain@arm.com>
- <20251212042701.71993-2-dev.jain@arm.com> <aUkv51yk8lgzW9jv@milan>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <aUkv51yk8lgzW9jv@milan>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <cover.1763415705.git.geraldogabriel@gmail.com> <eaa9c75ca02a53f8bcc293b8bc73d013e26ec253.1763415706.git.geraldogabriel@gmail.com>
+In-Reply-To: <eaa9c75ca02a53f8bcc293b8bc73d013e26ec253.1763415706.git.geraldogabriel@gmail.com>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Wed, 24 Dec 2025 10:48:20 +0530
+X-Gm-Features: AQt7F2pedp4R-xyN_-ijj3Fu8brq9lijlFOC48RK9mmQXfW6wy7VvzSVIN4mKhs
+Message-ID: <CANAwSgQ726J_vnDKEKd94Kq62kx8ToZzUGysz4r3tNAXvfAbGA@mail.gmail.com>
+Subject: Re: [PATCH v2 1/4] PCI: rockchip: limit RK3399 to 2.5 GT/s to prevent damage
+To: Geraldo Nascimento <geraldogabriel@gmail.com>
+Cc: Shawn Lin <shawn.lin@rock-chips.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Johan Jonker <jbx6244@gmail.com>, Dragan Simic <dsimic@manjaro.org>, 
+	linux-rockchip@lists.infradead.org, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_210516_828891_71C893E5 
-X-CRM114-Status: GOOD (  31.59  )
+X-CRM114-CacheID: sfid-20251223_211840_467299_EB44EE64 
+X-CRM114-Status: GOOD (  22.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,217 +99,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Geraldo,
 
-On 22/12/25 5:17 pm, Uladzislau Rezki wrote:
-> On Fri, Dec 12, 2025 at 09:57:00AM +0530, Dev Jain wrote:
->> vmalloc() consists of the following:
->>
->> (1) find empty space in the vmalloc space -> (2) get physical pages from
->> the buddy system -> (3) map the pages into the pagetable.
->>
->> It turns out that the cost of (1) and (3) is pretty insignificant. Hence,
->> the cost of vmalloc becomes highly sensitive to physical memory allocation
->> time.
->>
->> Currently, if we decide to use huge mappings, apart from aligning the start
->> of the target vm_struct region to the huge-alignment, we also align the
->> size. This does not seem to produce any benefit (apart from simplification
->> of the code), and there is a clear disadvantage - as mentioned above, the
->> main cost of vmalloc comes from its interaction with the buddy system, and
->> thus requesting more memory than was requested by the caller is suboptimal
->> and unnecessary.
->>
->> This change is also motivated due to the next patch ("arm64/mm: Enable
->> vmalloc-huge by default"). Suppose that some user of vmalloc maps 17 pages,
->> uses that mapping for an extremely short time, and vfree's it. That patch,
->> without this patch, on arm64 will ultimately map 16 * 2 = 32 pages in a
->> contiguous way. Since the mapping is used for a very short time, it is
->> likely that the extra cost of mapping 15 pages defeats any benefit from
->> reduced TLB pressure, and regresses that code path. 
->>
->> Signed-off-by: Dev Jain <dev.jain@arm.com>
->> ---
->>  mm/vmalloc.c | 38 ++++++++++++++++++++++++++++++--------
->>  1 file changed, 30 insertions(+), 8 deletions(-)
->>
->> diff --git a/mm/vmalloc.c b/mm/vmalloc.c
->> index ecbac900c35f..389225a6f7ef 100644
->> --- a/mm/vmalloc.c
->> +++ b/mm/vmalloc.c
->> @@ -654,7 +654,7 @@ static int vmap_small_pages_range_noflush(unsigned long addr, unsigned long end,
->>  int __vmap_pages_range_noflush(unsigned long addr, unsigned long end,
->>  		pgprot_t prot, struct page **pages, unsigned int page_shift)
->>  {
->> -	unsigned int i, nr = (end - addr) >> PAGE_SHIFT;
->> +	unsigned int i, step, nr = (end - addr) >> PAGE_SHIFT;
->>  
->>  	WARN_ON(page_shift < PAGE_SHIFT);
->>  
->> @@ -662,7 +662,8 @@ int __vmap_pages_range_noflush(unsigned long addr, unsigned long end,
->>  			page_shift == PAGE_SHIFT)
->>  		return vmap_small_pages_range_noflush(addr, end, prot, pages);
->>  
->> -	for (i = 0; i < nr; i += 1U << (page_shift - PAGE_SHIFT)) {
->> +	step = 1U << (page_shift - PAGE_SHIFT);
->> +	for (i = 0; i < ALIGN_DOWN(nr, step); i += step) {
->>  		int err;
->>  
->>  		err = vmap_range_noflush(addr, addr + (1UL << page_shift),
->> @@ -673,8 +674,9 @@ int __vmap_pages_range_noflush(unsigned long addr, unsigned long end,
->>  
->>  		addr += 1UL << page_shift;
->>  	}
->> -
->> -	return 0;
->> +	if (IS_ALIGNED(nr, step))
->> +		return 0;
->> +	return vmap_small_pages_range_noflush(addr, end, prot, pages + i);
->>  }
->>  
-> Can we improve the readability?
+On Tue, 18 Nov 2025 at 03:17, Geraldo Nascimento
+<geraldogabriel@gmail.com> wrote:
 >
-> <snip>
-> index 25a4178188ee..14ca019b57af 100644
-> --- a/mm/vmalloc.c
-> +++ b/mm/vmalloc.c
-> @@ -655,6 +655,8 @@ int __vmap_pages_range_noflush(unsigned long addr, unsigned long end,
->                 pgprot_t prot, struct page **pages, unsigned int page_shift)
->  {
->         unsigned int i, step, nr = (end - addr) >> PAGE_SHIFT;
-> +       unsigned int nr_aligned;
-> +       unsigned long chunk_size;
+> Shawn Lin from Rockchip has reiterated that there may be danger in using
+> their PCIe with 5.0 GT/s speeds. Warn the user if they make a DT change
+> from the default and drive at 2.5 GT/s only, even if the DT
+> max-link-speed property is invalid or inexistent.
 >
->         WARN_ON(page_shift < PAGE_SHIFT);
+> This change is corroborated by RK3399 official datasheet [1], which
+> says maximum link speed for this platform is 2.5 GT/s.
 >
-> @@ -662,20 +664,24 @@ int __vmap_pages_range_noflush(unsigned long addr, unsigned long end,
->                         page_shift == PAGE_SHIFT)
->                 return vmap_small_pages_range_noflush(addr, end, prot, pages);
+> [1] https://opensource.rock-chips.com/images/d/d7/Rockchip_RK3399_Datasheet_V2.1-20200323.pdf
 >
-> -       step = 1U << (page_shift - PAGE_SHIFT);
-> -       for (i = 0; i < ALIGN_DOWN(nr, step); i += step) {
-> -               int err;
-> +       step = 1U << (page_shift - PAGE_SHIFT); /* small pages per huge chunk. */
-> +       nr_aligned = ALIGN_DOWN(nr, step);
-> +       chunk_size = 1UL << page_shift;
+To accurately determine the operating speed, we can leverage the
+PCIE_CLIENT_BASIC_STATUS0/1 fields.
+This provides a dynamic mechanism to resolve the issue.
+
+[1] https://github.com/torvalds/linux/blob/master/drivers/pci/controller/pcie-rockchip-ep.c#L533-L595
+
+Thanks
+-Anand
+
+> Fixes: 956cd99b35a8 ("PCI: rockchip: Separate common code from RC driver")
+> Link: https://lore.kernel.org/all/ffd05070-9879-4468-94e3-b88968b4c21b@rock-chips.com/
+> Cc: stable@vger.kernel.org
+> Reported-by: Dragan Simic <dsimic@manjaro.org>
+> Reported-by: Shawn Lin <shawn.lin@rock-chips.com>
+> Reviewed-by: Dragan Simic <dsimic@manjaro.org>
+> Signed-off-by: Geraldo Nascimento <geraldogabriel@gmail.com>
+> ---
+>  drivers/pci/controller/pcie-rockchip.c | 10 ++++++++--
+>  1 file changed, 8 insertions(+), 2 deletions(-)
 >
-> -               err = vmap_range_noflush(addr, addr + (1UL << page_shift),
-> +       for (i = 0; i < nr_aligned; i += step) {
-> +               int err = vmap_range_noflush(addr, addr + chunk_size,
->                                         page_to_phys(pages[i]), prot,
->                                         page_shift);
->                 if (err)
->                         return err;
->
-> -               addr += 1UL << page_shift;
-> +               addr += chunk_size;
+> diff --git a/drivers/pci/controller/pcie-rockchip.c b/drivers/pci/controller/pcie-rockchip.c
+> index 0f88da378805..992ccf4b139e 100644
+> --- a/drivers/pci/controller/pcie-rockchip.c
+> +++ b/drivers/pci/controller/pcie-rockchip.c
+> @@ -66,8 +66,14 @@ int rockchip_pcie_parse_dt(struct rockchip_pcie *rockchip)
 >         }
-> -       if (IS_ALIGNED(nr, step))
-> +
-> +       if (i == nr)
->                 return 0;
-> +
-> +       /* Map the tail using small pages. */
->         return vmap_small_pages_range_noflush(addr, end, prot, pages + i);
->  }
-> <snip>
-
-Indeed I can do this.
-
 >
->>  int vmap_pages_range_noflush(unsigned long addr, unsigned long end,
->> @@ -3197,7 +3199,7 @@ struct vm_struct *__get_vm_area_node(unsigned long size,
->>  	unsigned long requested_size = size;
->>  
->>  	BUG_ON(in_interrupt());
->> -	size = ALIGN(size, 1ul << shift);
->> +	size = PAGE_ALIGN(size);
->>  	if (unlikely(!size))
->>  		return NULL;
->>  
->> @@ -3353,7 +3355,7 @@ static void vm_reset_perms(struct vm_struct *area)
->>  	 * Find the start and end range of the direct mappings to make sure that
->>  	 * the vm_unmap_aliases() flush includes the direct map.
->>  	 */
->> -	for (i = 0; i < area->nr_pages; i += 1U << page_order) {
->> +	for (i = 0; i < ALIGN_DOWN(area->nr_pages, 1U << page_order); i += (1U << page_order)) {
->>
-> nr_blocks?
+>         rockchip->link_gen = of_pci_get_max_link_speed(node);
+> -       if (rockchip->link_gen < 0 || rockchip->link_gen > 2)
+> -               rockchip->link_gen = 2;
+> +       if (rockchip->link_gen < 0 || rockchip->link_gen > 2) {
+> +               rockchip->link_gen = 1;
+> +               dev_warn(dev, "invalid max-link-speed, set to 2.5 GT/s\n");
+> +       }
+> +       else if (rockchip->link_gen == 2) {
+> +               rockchip->link_gen = 1;
+> +               dev_warn(dev, "5.0 GT/s is dangerous, set to 2.5 GT/s\n");
+> +       }
 >
->>  		unsigned long addr = (unsigned long)page_address(area->pages[i]);
->>  
->>  		if (addr) {
->> @@ -3365,6 +3367,18 @@ static void vm_reset_perms(struct vm_struct *area)
->>  			flush_dmap = 1;
->>  		}
->>  	}
->> +	for (; i < area->nr_pages; ++i) {
->> +		unsigned long addr = (unsigned long)page_address(area->pages[i]);
->> +
->> +		if (addr) {
->> +			unsigned long page_size;
->> +
->> +			page_size = PAGE_SIZE;
->> +			start = min(addr, start);
->> +			end = max(addr + page_size, end);
->> +			flush_dmap = 1;
->> +		}
->> +	}
->>  
->>  	/*
->>  	 * Set direct map to something invalid so that it won't be cached if
->> @@ -3673,6 +3687,7 @@ vm_area_alloc_pages(gfp_t gfp, int nid,
->>  	 * more permissive.
->>  	 */
->>  	if (!order) {
->> +single_page:
->>  		while (nr_allocated < nr_pages) {
->>  			unsigned int nr, nr_pages_request;
->>  
->> @@ -3704,13 +3719,18 @@ vm_area_alloc_pages(gfp_t gfp, int nid,
->>  			 * If zero or pages were obtained partly,
->>  			 * fallback to a single page allocator.
->>  			 */
->> -			if (nr != nr_pages_request)
->> +			if (nr != nr_pages_request) {
->> +				order = 0;
->>  				break;
->> +			}
->>  		}
->>  	}
->>  
->>  	/* High-order pages or fallback path if "bulk" fails. */
->>  	while (nr_allocated < nr_pages) {
->> +		if (nr_pages - nr_allocated < (1UL << order)) {
->> +			goto single_page;
->> +		}
->>  		if (!(gfp & __GFP_NOFAIL) && fatal_signal_pending(current))
->>  			break;
->>
-> Yes, it requires more attention. That "goto single_page" should be
-> eliminated, IMO. We should not jump between blocks, logically the
-> single_page belongs to "order-0 alloc path".
->
-> Probably it requires more refactoring to simplify it.
-
-I can think about refactoring this.
-
->
->>  
->> @@ -5179,7 +5199,9 @@ static void show_numa_info(struct seq_file *m, struct vm_struct *v,
->>  
->>  	memset(counters, 0, nr_node_ids * sizeof(unsigned int));
->>  
->> -	for (nr = 0; nr < v->nr_pages; nr += step)
->> +	for (nr = 0; nr < ALIGN_DOWN(v->nr_pages, step); nr += step)
->> +		counters[page_to_nid(v->pages[nr])] += step;
->> +	for (; nr < v->nr_pages; ++nr)
->>  		counters[page_to_nid(v->pages[nr])] += step;
->>
-> Can we fit it into one loop? Last tail loop continuous adding step?
-
-I don't see any other way.
-
->
+>         for (i = 0; i < ROCKCHIP_NUM_PM_RSTS; i++)
+>                 rockchip->pm_rsts[i].id = rockchip_pci_pm_rsts[i];
 > --
-> Uladzislau Rezki
+> 2.49.0
+>
+>
 
