@@ -4,108 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2903EE7545C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 15:29:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA723E776C1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 15:31:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TwkJIIAOyC+iGrxHsI9snh+xrQsvtUQwuewCKc8KNUQ=; b=1dWDd4zErV0LN068CYvhEDXpsG
-	k0zJ/AExShS1824FNne/9XMkGHw5/2xHbjzC71iXKM38vZMS0n4MhrI9BnyyCh+VYZQf2K5IEQwFc
-	PD1IdrOaz1uPH8iwHF4tqkgZS1wORA5RJN+86tezhBtaE/F6vepkPyeF3Kis98d1c9PuvxWzMqCZH
-	woKcEKUEXjHDU3jLJhna8zsDxrbeAzU/iaSsKaWyK159hNdzPx8dZSBvLJU5TDmIjVfWxOj+QWR+V
-	p+XzRIx7lon+svEfCu2JemgwdmdIdKTc48IgJriFnGwOm1n7rGDHEcOIR1ALgsEIysIRAowAGMoSG
-	BzV3qPBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IPMvizX4aiSFiPWN4zq9M2mNvcGpcgi2Bqmh2GmQ0o0=; b=2ckjwSn9er5rV7lv3n0aViSsQa
+	eba6AcbiQFVHi5vcBQwwwxQJJtEybAFIE217aDfb520UsifSb5+rcTseHXS0ub7XpsPgq78DXOAw2
+	6Efg12kFONytbCQhxKgmEG56CsEOoFXFnQu8bjP2RJ6EtNprQQbmGo1D0rmojEgIVs6O/3ViyyXou
+	UgZvFGLO/l2KBQaFDL8eP+5Csjb8L2TgfV6jJ71aAbPTHY8ZjR+gQcUDTH5Kb4pkzW02jIjL6EuNx
+	TVYpO3qKWD55nigtHFpsdWdK4R7JSCsbMp/MgUTblCDZmUGgx8/DHkjUvHvE0G2xKBnXm+hrDFfJY
+	G278Ay7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYQo6-0000000H6t0-1KLf;
-	Wed, 24 Dec 2025 15:29:46 +0000
-Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
+	id 1vYQpY-0000000H7AP-3FUv;
+	Wed, 24 Dec 2025 15:31:16 +0000
+Received: from mail-ej1-x644.google.com ([2a00:1450:4864:20::644])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYQo3-0000000H6sI-3J5b
+	id 1vYQpV-0000000H78o-1jME
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Dec 2025 15:29:44 +0000
-Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-4f1b4bb40aaso31880721cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Dec 2025 07:29:43 -0800 (PST)
+	Wed, 24 Dec 2025 15:31:15 +0000
+Received: by mail-ej1-x644.google.com with SMTP id a640c23a62f3a-b802d5e9f06so773816166b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Dec 2025 07:31:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1766590183; x=1767194983; darn=lists.infradead.org;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
-         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=TwkJIIAOyC+iGrxHsI9snh+xrQsvtUQwuewCKc8KNUQ=;
-        b=0/MJ51nnUn9Pnx9Dm+cJcSvkxI5ESPQc/Lm7wFKlHDnbnP5nYpVS7oETJ4Zdv3QZHo
-         jxJ7jPGcrqm8udk+n+ssSkImwJdPdos7dcz2h45fSAzqE5DfJsSJuNr1nOUpbIN5GQie
-         EE/mGipRQuMmc1e42vfTSG9zBu4XS4Ck6qVHDP3/t8RH9RN4exX/TO8gNubE6mAhUaa3
-         NO/7KsM2Otkl8qm+SqGZvpa20mP3vyGvlakcAc1bjsrrh2pHVw7obgoKbFawjJdIgVEc
-         7ioBt6mY4pyeg+cZ2OiP4mrXibiooALFeD6uK27XY0cPbsb7tbeHXE64m38znWpOkRrL
-         jPGQ==
+        d=osyx-tech.20230601.gappssmtp.com; s=20230601; t=1766590270; x=1767195070; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=IPMvizX4aiSFiPWN4zq9M2mNvcGpcgi2Bqmh2GmQ0o0=;
+        b=JCZavx7evbpbEkP+oZaGfWkRKwIueXCMcypfAEMChbht4tEC9jl5Xp2Q437Wp/YD6F
+         VuqiXIbrBgRtSLO6+FesBKSHz8HkWhKXPH0Q3VZHJZQwCgc07ubWGqQc70Hp4u/Sl1Cb
+         rQL4elkhI77qB5UjKJEBpfp3dZbOHG/fZVeI8OER9KkB9hlQDqyAK+IbGcY63XYeRSJg
+         C8/VIrjyoKDiLR2rBLJBb+tTIxTjHMCP5ZvFJ1J5zEskgOc7dUFyC15yNnnTvnUL90Ty
+         z/3W5HJM66lOpDBO1/lECUSD5vdLeDfcVKxI9T+GG+GpsjIgZlIWAV7wJDqHhgjuZhB5
+         lwQg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766590183; x=1767194983;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
-         :from:subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TwkJIIAOyC+iGrxHsI9snh+xrQsvtUQwuewCKc8KNUQ=;
-        b=p/5feKbptf+rsXFe9piWVNIb+aC0EkvFFl8gSKJbzrCtGP4x3tRcWSpDRVwKE8lTOR
-         B+Bhi7iDVpV1ZB3KJWyzVtRloLKHIOIPau2A4Db9f0sZ2V/uyFG8EuyGZsJSoXBNLqoE
-         W8NVxQIXX72TO+KEVhnVJE9JhR2hbYM934U0ssdUBWReI68GnwjmU5KV1WWMh149IgUD
-         OFww9UllwMsYtogcgC5lYJHOvEo05/+lgLN0lvlQU8Rvg8o6LZ/jH//mP+dVp+virVSE
-         Xs4ki4NX+HcNycZ7pMt5smhaga5LJvuAKEvF+a4UQeyw70Uk6pwjgfXkBKQcAXnt6Hp+
-         qqZg==
-X-Forwarded-Encrypted: i=1; AJvYcCUyXAr4KwisAA+AghFeNVZzOIG5tabnnp5A2WJ3oT7lIV5q/aPE0WfSCw9MVUpTpB0tKx9OgRXLZ1Xc3OjC1waQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+8pB4UiiJZ59H6XF2TqHfirl+saloLn/KtBMyrLLb/BukXLmk
-	guM3nQTw8ZV0LEvR1B/kaSSd6XJgWz6PkKRA54uD9CEbXLvX22eZdODGa3MU2BcNdGc=
-X-Gm-Gg: AY/fxX4IBSMKrnOf/4S03WlLO6xAnoBODO+nDKBaE63NByViJj3M+f0h3aZrxxnlpFy
-	hOExUpEhVCwWAIB1eEfQePtLPJOVXXa9dQjwJTTN5uH3GWZkUh2z4NMPen606yNRYHErRZMRJHa
-	aSdoNkC+A9Ul7uCKatBr9hnPL4Nq3/YFxxW22iThYHOd4mLrq+N9pM61I9rd3+EeCwhL00GJ8h5
-	iW29eRgvY3HqisJWgtU+Wr2DJ33AM3bfjnsjHXhCr0qd2HNYaI9QP5RqTzDCmCuPZYn9f4rks8f
-	DVj2zdvywlX/RLn4yHP9NBzdxMOzYLoiNox3Le+d4dBvvaidNj7Wv3JaKzj63ayWql/+DltwOmv
-	20gAY19p2p68qe5DruAHnJe86NA4owCeAYa3hZgphWOExBoGvt/6Xu/ljmj8Ckzj5yQMFt2dF6N
-	ryE2lRzycI4S1TK/XS
-X-Google-Smtp-Source: AGHT+IFurORRUJNULnlbX94R2za/XCt3vvaDyHm+KjHk3sOKh4CoRdkgBOx3YgO3VJabdA7p5qCnbw==
-X-Received: by 2002:a05:622a:4d93:b0:4e8:96ed:2e65 with SMTP id d75a77b69052e-4f4abcc50e0mr263126051cf.22.1766590182533;
-        Wed, 24 Dec 2025 07:29:42 -0800 (PST)
-Received: from ?IPv6:2606:6d00:17:7b4b::c41? ([2606:6d00:17:7b4b::c41])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4f4ac66841bsm120154681cf.30.2025.12.24.07.29.41
+        d=1e100.net; s=20230601; t=1766590270; x=1767195070;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=IPMvizX4aiSFiPWN4zq9M2mNvcGpcgi2Bqmh2GmQ0o0=;
+        b=eJ36E4WyIb7ar/ot9yuFmxXQ/DpoBT74dYfxE1ykNouvoc/q1zm19MJw5L82END7bE
+         jciZZVZJjxHBSsGH5Q8+cgTBhWI35ti/JwlVwUE9C7WTVtSKr8RTKNrWpltyDmXwxCqP
+         wIIV2CgtwlOM7SV0iw8OILGJP8H+FYZ2JT4HLfTWnNCX283ZFo4V2+rqKc1UXqlsBpv2
+         UGSPwEonFcz4KuNG/VLXSsBDskJLA/RE33hECx7bRZBVQUwyeNdYQ8ePg5CFAujv5bB/
+         h0cFZPiAYyihdt9MVD0tBDbQA95JP45HQHwGVW1C0uyWFmaN7+8NWtqW7IdnxTzW/dfM
+         HTAg==
+X-Forwarded-Encrypted: i=1; AJvYcCXw6DzqMbaQTk2WufTqNOW6+uwTAbuuuatiF+zinf6tkbQ4CnX7mvUWjHzlPDuGHip4ok3bjYhXeaxgIril8upi@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxwu98kky4c01bRbOzTp/UJNCuDy+F5hY4boJ6hmAdYI9ORgcdV
+	2Sao80ukyd5dfF0avldpcE8c2xSesZGmnkT8z9OBgTpCwxhhxP7kVQ3+h2qJz62KfiClClwLekF
+	h63Sh8Xtr
+X-Gm-Gg: AY/fxX7axTbUXl3eLM8+ubmZclT8rgg+q9hsfB1LEwzKu3/kfw9smR6349ciOFSThZx
+	hhUBeMj7GS+ZaE+lBbrp3OyyKH5tf29kqsGB8FfgWrgMtSHjfe2fVoygrQB4/qyZGAQJIEEar7f
+	Hy4KVR5G9BqqzaVfR6ncim8ZkziEVkIaeRl7WcTa6He1pJTZK/3D1PCB1SvpJMPgAxsuktLMyQy
+	wHKD2IrqM2XQchbCKSwtE9brtsSjyE7MnS7CQzxRyxaPEfv+Ai18WFOYSvB7zXhuyVW/RV3iCD5
+	Ch0Dt1O0QDQwT6rtvok9QzyUkgSFvBbtMvUBjqpcOP4BaYX0Eb4uYGRu1ToWVSzsL6u3x2KQ0YI
+	6uLZtxr+6OyfUN9NlG2/8uQm6hfZ7W4XspnNVeyt70zZ/QTpo7eEogxXscPoZIEbQOD/7SVA6X2
+	gKnenGj7d2AD8yXauIZ+HQowhCAdZT
+X-Google-Smtp-Source: AGHT+IHwTgoJWLEso+A946j2blMKEWqz6uE5I08Gnk6feDE3r7jM3E2NW/e7qsJaXZv87W/jfEeMvg==
+X-Received: by 2002:a5d:4e46:0:b0:430:fe22:5f1c with SMTP id ffacd0b85a97d-4324e703af5mr14626447f8f.59.1766584386173;
+        Wed, 24 Dec 2025 05:53:06 -0800 (PST)
+Received: from jp-linux.Home ([2001:8a0:f59c:a900:39e4:e84d:192a:5c5c])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4324eaa64cesm34494677f8f.35.2025.12.24.05.53.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Dec 2025 07:29:41 -0800 (PST)
-Message-ID: <8c3a3299036dd1bab158bdcd589abd027d2864b6.camel@ndufresne.ca>
-Subject: Re: [PATCH v2 10/22] media: rockchip: rga: prepare cmdbuf on
- streamon
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Sven =?ISO-8859-1?Q?P=FCschel?= <s.pueschel@pengutronix.de>, Jacob Chen
-	 <jacob-chen@iotwrt.com>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
- Mauro Carvalho Chehab
-	 <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Rob Herring
-	 <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	 <conor+dt@kernel.org>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, kernel@pengutronix.de
-Date: Wed, 24 Dec 2025 10:29:41 -0500
-In-Reply-To: <20251203-spu-rga3-v2-10-989a67947f71@pengutronix.de>
-References: <20251203-spu-rga3-v2-0-989a67947f71@pengutronix.de>
-	 <20251203-spu-rga3-v2-10-989a67947f71@pengutronix.de>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-wgUFX3W9vJo/GeY1uEul"
-User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
+        Wed, 24 Dec 2025 05:53:05 -0800 (PST)
+From: joaopeixoto@osyx.tech
+To: linux-kernel@vger.kernel.org
+Cc: ajd@linux.ibm.com,
+	alex@ghiti.fr,
+	aou@eecs.berkeley.edu,
+	bagasdotme@gmail.com,
+	catalin.marinas@arm.com,
+	conor+dt@kernel.org,
+	corbet@lwn.net,
+	dan.j.williams@intel.com,
+	davidmcerdeira@osyx.tech,
+	devicetree@vger.kernel.org,
+	dev@kael-k.io,
+	gregkh@linuxfoundation.org,
+	haren@linux.ibm.com,
+	heiko@sntech.de,
+	joaopeixoto@osyx.tech,
+	jose@osyx.tech,
+	kever.yang@rock-chips.com,
+	krzk+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux@armlinux.org.uk,
+	linux-doc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	maddy@linux.ibm.com,
+	mani@kernel.org,
+	nathan@kernel.org,
+	neil.armstrong@linaro.org,
+	palmer@dabbelt.com,
+	pjw@kernel.org,
+	prabhakar.mahadev-lad.rj@bp.renesas.com,
+	robh@kernel.org,
+	will@kernel.org
+Subject: [PATCH 3/5] dt-bindings: Add Bao I/O dispatcher driver binding
+Date: Wed, 24 Dec 2025 13:52:15 +0000
+Message-ID: <20251224135217.25350-4-joaopeixoto@osyx.tech>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251224135217.25350-1-joaopeixoto@osyx.tech>
+References: <20251224135217.25350-1-joaopeixoto@osyx.tech>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251224_072943_845368_CBBAD15E 
-X-CRM114-Status: GOOD (  21.69  )
+X-CRM114-CacheID: sfid-20251224_073113_472736_9FE16499 
+X-CRM114-Status: GOOD (  14.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,150 +130,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: João Peixoto <joaopeixoto@osyx.tech>
 
---=-wgUFX3W9vJo/GeY1uEul
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+This patch adds a Device Tree binding for the Bao I/O Dispatcher kernel
+module, which can be loaded into backend VMs. The I/O Dispatcher
+provides the bridge between the Bao hypervisor Remote I/O system and the
+frontend device model in userspace, offering a unified API to support
+various VirtIO backends.
 
-Hi,
+The dispatcher handles hypercalls to the Bao hypervisor, IRQ/eventfd
+forwarding, and provides a character device interface for frontend
+devices, enabling efficient communication between the hypervisor and
+userspace device models.
 
-Le mercredi 03 d=C3=A9cembre 2025 =C3=A0 16:52 +0100, Sven P=C3=BCschel a =
-=C3=A9crit=C2=A0:
-> Prepare the command buffer on streamon to reuse it's contents instead of
-> completely writing it for every frame. Due to the stream settings being
-> fixed after a streamon we only need to replace the source and destination
-> addresses for each frame. This reduces the amount of CPU and memory
-> operations done in each frame.
+The binding documents the following properties:
+  - compatible: "bao,io-dispatcher"
+  - reg: Memory regions for the dispatcher (multiple VirtIO devices)
+  - interrupts: Interrupts used by the devices
+  - interrupt-parent: Parent interrupt controller
 
-My speculation is that flushing to device is usually more expensive then th=
-is,
-but I didn't check closely if you have enabled the caches. That being said,=
- this
-is good change. It highlight the inflexible nature of V4L2 imho, which in t=
-his
-case can be used to optimize.
+This enables kernel drivers to correctly instantiate and configure Bao
+I/O Dispatcher modules based on the DT description.
 
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+Signed-off-by: João Peixoto <joaopeixoto@osyx.tech>
+---
+ .../bindings/bao/io-dispatcher.yaml           | 67 +++++++++++++++++++
+ 1 file changed, 67 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/bao/io-dispatcher.yaml
 
->=20
-> Signed-off-by: Sven P=C3=BCschel <s.pueschel@pengutronix.de>
-> ---
-> =C2=A0drivers/media/platform/rockchip/rga/rga-hw.c | 13 +++++++++----
-> =C2=A0drivers/media/platform/rockchip/rga/rga.c=C2=A0=C2=A0=C2=A0 | 13 ++=
-++++++++++-
-> =C2=A0drivers/media/platform/rockchip/rga/rga.h=C2=A0=C2=A0=C2=A0 |=C2=A0=
- 1 +
-> =C2=A03 files changed, 22 insertions(+), 5 deletions(-)
->=20
-> diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media=
-/platform/rockchip/rga/rga-hw.c
-> index 56a2558539bfb..8cdfe089fd636 100644
-> --- a/drivers/media/platform/rockchip/rga/rga-hw.c
-> +++ b/drivers/media/platform/rockchip/rga/rga-hw.c
-> @@ -408,8 +408,6 @@ static void rga_cmd_set(struct rga_ctx *ctx,
-> =C2=A0{
-> =C2=A0	struct rockchip_rga *rga =3D ctx->rga;
-> =C2=A0
-> -	memset(ctx->cmdbuf_virt, 0, RGA_CMDBUF_SIZE * 4);
-> -
-> =C2=A0	rga_cmd_set_src_addr(ctx, src->dma_desc_pa);
-> =C2=A0	/*
-> =C2=A0	 * Due to hardware bug,
-> @@ -418,11 +416,9 @@ static void rga_cmd_set(struct rga_ctx *ctx,
-> =C2=A0	rga_cmd_set_src1_addr(ctx, dst->dma_desc_pa);
-> =C2=A0
-> =C2=A0	rga_cmd_set_dst_addr(ctx, dst->dma_desc_pa);
-> -	rga_cmd_set_mode(ctx);
-> =C2=A0
-> =C2=A0	rga_cmd_set_src_info(ctx, &src->offset);
-> =C2=A0	rga_cmd_set_dst_info(ctx, &dst->offset);
-> -	rga_cmd_set_trans_info(ctx);
-> =C2=A0
-> =C2=A0	rga_write(rga, RGA_CMD_BASE, ctx->cmdbuf_phy);
-> =C2=A0
-> @@ -431,6 +427,14 @@ static void rga_cmd_set(struct rga_ctx *ctx,
-> =C2=A0				=C2=A0=C2=A0 PAGE_SIZE, DMA_BIDIRECTIONAL);
-> =C2=A0}
-> =C2=A0
-> +static void rga_hw_setup_cmdbuf(struct rga_ctx *ctx)
-> +{
-> +	memset(ctx->cmdbuf_virt, 0, RGA_CMDBUF_SIZE * 4);
-> +
-> +	rga_cmd_set_mode(ctx);
-> +	rga_cmd_set_trans_info(ctx);
-> +}
-> +
-> =C2=A0static void rga_hw_start(struct rockchip_rga *rga,
-> =C2=A0			 struct rga_vb_buffer *src,=C2=A0 struct rga_vb_buffer *dst)
-> =C2=A0{
-> @@ -622,6 +626,7 @@ const struct rga_hw rga2_hw =3D {
-> =C2=A0	.max_height =3D MAX_HEIGHT,
-> =C2=A0	.stride_alignment =3D 4,
-> =C2=A0
-> +	.setup_cmdbuf =3D rga_hw_setup_cmdbuf,
-> =C2=A0	.start =3D rga_hw_start,
-> =C2=A0	.handle_irq =3D rga_handle_irq,
-> =C2=A0	.get_version =3D rga_get_version,
-> diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/pl=
-atform/rockchip/rga/rga.c
-> index 592c977a07cf3..f02ae02de26ca 100644
-> --- a/drivers/media/platform/rockchip/rga/rga.c
-> +++ b/drivers/media/platform/rockchip/rga/rga.c
-> @@ -523,6 +523,17 @@ static int vidioc_s_selection(struct file *file, voi=
-d *priv,
-> =C2=A0	return ret;
-> =C2=A0}
-> =C2=A0
-> +static int vidioc_streamon(struct file *file, void *priv,
-> +			=C2=A0=C2=A0 enum v4l2_buf_type type)
-> +{
-> +	struct rga_ctx *ctx =3D file_to_rga_ctx(file);
-> +	const struct rga_hw *hw =3D ctx->rga->hw;
-> +
-> +	hw->setup_cmdbuf(ctx);
-> +
-> +	return v4l2_m2m_streamon(file, ctx->fh.m2m_ctx, type);
-> +}
-> +
-> =C2=A0static const struct v4l2_ioctl_ops rga_ioctl_ops =3D {
-> =C2=A0	.vidioc_querycap =3D vidioc_querycap,
-> =C2=A0
-> @@ -547,7 +558,7 @@ static const struct v4l2_ioctl_ops rga_ioctl_ops =3D =
-{
-> =C2=A0	.vidioc_subscribe_event =3D v4l2_ctrl_subscribe_event,
-> =C2=A0	.vidioc_unsubscribe_event =3D v4l2_event_unsubscribe,
-> =C2=A0
-> -	.vidioc_streamon =3D v4l2_m2m_ioctl_streamon,
-> +	.vidioc_streamon =3D vidioc_streamon,
-> =C2=A0	.vidioc_streamoff =3D v4l2_m2m_ioctl_streamoff,
-> =C2=A0
-> =C2=A0	.vidioc_g_selection =3D vidioc_g_selection,
-> diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/pl=
-atform/rockchip/rga/rga.h
-> index 0aef348dddb95..93162b118d069 100644
-> --- a/drivers/media/platform/rockchip/rga/rga.h
-> +++ b/drivers/media/platform/rockchip/rga/rga.h
-> @@ -154,6 +154,7 @@ struct rga_hw {
-> =C2=A0	u32 max_width, max_height;
-> =C2=A0	u8 stride_alignment;
-> =C2=A0
-> +	void (*setup_cmdbuf)(struct rga_ctx *ctx);
-> =C2=A0	void (*start)(struct rockchip_rga *rga,
-> =C2=A0		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct rga_vb_buffer *src, struct =
-rga_vb_buffer *dst);
-> =C2=A0	bool (*handle_irq)(struct rockchip_rga *rga);
+diff --git a/Documentation/devicetree/bindings/bao/io-dispatcher.yaml b/Documentation/devicetree/bindings/bao/io-dispatcher.yaml
+new file mode 100644
+index 000000000000..7795f55d3ff9
+--- /dev/null
++++ b/Documentation/devicetree/bindings/bao/io-dispatcher.yaml
+@@ -0,0 +1,67 @@
++# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
++%YAML 1.2
++---
++$id: "http://devicetree.org/schemas/bao/io-dispatcher.yaml#"
++$schema: "http://devicetree.org/meta-schemas/core.yaml#"
++
++title: Bao I/O Dispatcher Device
++
++maintainers:
++  - João Peixoto <joaopeixoto@osyx.tech>
++  - José Martins <jose@osyx.tech>
++  - David Cerdeira <davidmcerdeira@osyx.tech>
++
++description: |
++  I/O Dispatcher device for Bao hypervisor guests. Handles multiple VirtIO
++  backend devices and their interrupts.
++
++properties:
++  compatible:
++    const: "bao,io-dispatcher"
++    description: Device compatible string.
++
++  reg:
++    description: |
++      Memory regions for each VirtIO backend device.
++    maxItems: 20
++    type: array
++    items:
++      type: integer
++
++  interrupts:
++    description: |
++      Interrupt numbers for each VirtIO backend device.
++    type: array
++    items:
++      type: integer
++    minItems: 3
++    maxItems: 3
++
++  interrupt-parent:
++    description: Parent interrupt controller node
++    type: string
++
++required:
++  - compatible
++  - reg
++  - interrupts
++  - interrupt-parent
++
++additionalProperties: false
++
++examples:
++  - |
++    bao_io_dispatcher: bao-io-dispatcher {
++        compatible = "bao,io-dispatcher";
++        reg = <0x0 0x50000000 0x0 0x01000000
++               0x0 0x51000000 0x0 0x01000000
++               0x0 0x52000000 0x0 0x01000000
++               0x0 0x53000000 0x0 0x01000000
++               0x0 0x54000000 0x0 0x01000000>;
++        interrupts = <0x0 0x08 0x1
++                      0x0 0x09 0x1
++                      0x0 0x0a 0x1
++                      0x0 0x0b 0x1
++                      0x0 0x0c 0x1>;
++        interrupt-parent = <&gic>;
++    };
+-- 
+2.43.0
 
---=-wgUFX3W9vJo/GeY1uEul
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaUwG5QAKCRDZQZRRKWBy
-9O4FAP9E2aNeLRZt1zQcbEal6Ub+hRLjCwZuHvx4d6mo+exV+gD8D3fEU7lK1Rbl
-U4jgUBplP0NBwSIZ6m7R2BXkERRjOQA=
-=EAR/
------END PGP SIGNATURE-----
-
---=-wgUFX3W9vJo/GeY1uEul--
 
