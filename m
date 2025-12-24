@@ -4,103 +4,223 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1426E7491B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 06:45:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93CA6E7491E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 07:02:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4QJa5zNaYwI9Q0ay2XweLQfUaSeQW14V6dXDidLHBa8=; b=e+2+63MYOtQSZZMD2NSLi0i6N8
-	+DkcRwlZFMJlwhF6BvoTF/RA/m1UNczkFZmerGFhfhjbGBVDNFuqpHFA3U+LuF3XqiyvWDa++IcNQ
-	3U82tCrOdTL9/mL/bFMuzeLKbRhmAYf6h0ZEeZOpm0ybGxNSnWVOn+sX0yMpLtJz34jukegdO4Wx5
-	GncX81Rl3L3cItSR1SVhszqUHdeBv+/LphgP4H5laLedEkGzENQKPginEQsT3tml8FMNcpwUG3Db+
-	5mxhzbRTOFMxpnlZ9x994UVfz2XTtNzgk7cFb7pMDHmkPf5geanPmxLfrB+ByOGyj2loxbVY+HUMM
-	LPmrsKtg==;
+	bh=BdtOcLy53MUa4hx6b45uQGhnvH7xPvCX0Qhx+RtD9Yk=; b=Gop4G54ikJqYMmbl+a3pVsFauG
+	sb6FYvhANMwBm8m1owCKPt0/rV4sUcy2c6wsRFBcSGkvhPyKvbFbi0ogsuQnu7RDBmXyabivzejyO
+	W4wBiadTx6g/vY1f/TqeXpUtEjMDrk6VUQIcxHOMQZH7fcNhdrC63VTlL18JJ+ngFfDepvzpVbn5b
+	s9jGHGx6IHnmlJbUrf1W//DaET7iVFeY/nqTWoDLsuxVEZUh6WMtr9ntiervmSottUX+45h1tn//c
+	FqMUuhnxXn2cHkx59YFcZ0UGluepE7+E+I9e1d4VftH3a8AfcgVuXdgkI+ROsyEWDqH2jVemvrAkp
+	UOBRrU9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYIcE-0000000GVNE-0hVv;
-	Wed, 24 Dec 2025 06:44:58 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1vYIso-0000000GW47-0WZt;
+	Wed, 24 Dec 2025 07:02:06 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYIc9-0000000GVLS-1jhi
+	id 1vYIsk-0000000GW3j-2kmh
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Dec 2025 06:44:55 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-34c84dc332cso4858996a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 22:44:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1766558692; x=1767163492; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=4QJa5zNaYwI9Q0ay2XweLQfUaSeQW14V6dXDidLHBa8=;
-        b=ed7IuACLnj1KNVKGxPm9xVJXmm/+KwzkkDk3a8R5N6sAhvP/bzy3XTnFDZNXstPwF6
-         JSVaw+BygKhaMq502CVeM/+KgPy9/CRiKG2sGd4jIlP3roJTaN06QDOgQQTvNooF+e7V
-         MRxjws/NgUN+ifPMbs0lQNVv4h4PXNDpW7UGLPx734q0LOUwabfFHy3Repsp2DPGyZja
-         6/lBM5FtyspFeCIaHPTLJbpQurIpSO0T+TucUBubeUgoeGfp/9F5MHHtxS8SmJ9rTK8L
-         kWYnsFFNG8Qs2J6bFoWX/I5NBJ4IeXbR8NNFrSrw4c4bDGBo4lL3NeSleD/dp7LV1HjL
-         pG5g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766558692; x=1767163492;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=4QJa5zNaYwI9Q0ay2XweLQfUaSeQW14V6dXDidLHBa8=;
-        b=szq110eFZ2kdfi9TEsx/8fiazAOjSI2FrkmbGNgzHktw6++Faa6Wd+67IicgTbIMq5
-         tHaOJvPE+zXwGdcbTzj96icW3/hEiPUp99zLKsbydBXaXtoFyaZtY0ad6XJPWTaRGt2s
-         aLpRXeubOyR/ROrGiZCEEbA7Y5+aQuruhKWkhhclKrnjIyOKPzXzi15PxX5w5fe8CLfV
-         6KZYkLW+9brrbEqAijStJTik1iy1zbP/qx10jKkaVDOcTs8aefOWSvWt7bPW0GtYBjaf
-         vEm3fqiqsdsVTOOxKx7Ax6W2RykyKMlzch9Frwo69paU8Du6xeLyH4QFOtB5uVXMAhsp
-         apRw==
-X-Forwarded-Encrypted: i=1; AJvYcCV9Dk1VlSmFWT5j4I8dgGqaA22Ol9DOvWCn5NM34xl24vcqSNbNB49MgBi4ATM6D/XuhXnYwt9jRz4vgRRXoWUr@lists.infradead.org
-X-Gm-Message-State: AOJu0YzAXUL6Ou9nHp3KDUTlnwoa6E1ISgSCsF9QkCuRgytcY10bmTLj
-	RXFvbdDXLR5M1AoEe2O9Ig+1h11pAIWgrtJyedumhSC7W+fKivq07E/0
-X-Gm-Gg: AY/fxX7gTldLJ+t2SON15uBuHgs4E5lWQ+t2faeClCaJOr4pP1kFS8fwosgWWSPs7W6
-	wjfjMv3H7k+dl4lwye9s7C5PdT4E2UWNDsMPmHbaHe9xp25vObjUDQJ9oZfQxOkP74KbqGMMSuk
-	FbZ7zumeYSpWLgoT9GQC5syNFWuK0zMDmpXJCe3lQyouLGHa55JkucEbw80Z20dI9dRMQeUjMYA
-	196ioamNs6NLkAYY0UWzNB9qTqVp0yNvNnMjTzUD6mfnLvLbE8qj+ZZKULGqRUfiiN7KYRbilvP
-	UyrXqnLtsWhR+tT3pfEPlNEJ0YrweqzXr66I2ITijpe9GvJivtHXQCo/3j/efVShQCIdEqIwTv8
-	ECc/kx2Q3G1QcT6iA3ukrU+2N6LTDgOOcdc8rjzIbcFbg4nWGWRG99gAABStIMD4u5e1ghFcz1u
-	9fWDp/DK16M0sUQdRUlUSq1Fz39gOcw2nyjiSju0IePehlgOoyh18=
-X-Google-Smtp-Source: AGHT+IH1rva0NssnS9mV1QssXyfBk8MiqSXSM3GLbjs7MlBuMcKZg61JftsNt0cIPtHzqBsmusJvOA==
-X-Received: by 2002:a17:90b:1f8c:b0:349:2936:7f4 with SMTP id 98e67ed59e1d1-34e921bc5c1mr11927698a91.32.1766558692071;
-        Tue, 23 Dec 2025 22:44:52 -0800 (PST)
-Received: from [127.0.1.1] (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-34e7729b04dsm8320864a91.6.2025.12.23.22.44.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Dec 2025 22:44:51 -0800 (PST)
-From: Kyle Hsieh <kylehsieh1995@gmail.com>
-Date: Wed, 24 Dec 2025 14:44:39 +0800
-Subject: [PATCH v2 2/2] ARM: dts: aspeed: ventura2: Add Meta ventura2 BMC
+	Wed, 24 Dec 2025 07:02:05 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=Ne9LdqX/Qy4K9qvmPCCiiePGMXadFeKZx0nzCaY2r4r0cbjphT4ir83FKFBlFEN+b2r5dr8YAoixRKj5h8L9gyO+yTrThQVKRp8f8P3LpI1U7D2h6brPAY9YMETGvo8UmYxaj9ELpzwv3GUvtI2Q1rxTR/5cGvXGiai4FFP29rduoLahiEuvGaOgd6GNJddJG/I4bVVN5Qdf//buU3a6FfNid9aTO42hDP3GiAfCr6gK7kYKu0e4HMjjZiWd9rbdZ9oW6IlGfjkCJmLsN9mNNoC07HqRCU/GKlhBK+Zr4wHGsrNG/cYvk/3oMe6mjlUbZUPiA50C1aOIWNVG2CF8zg==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BdtOcLy53MUa4hx6b45uQGhnvH7xPvCX0Qhx+RtD9Yk=;
+ b=ZcPuILBTP/nUel8W8IBHwGvPzXcwo2hrCV205avUQfNYN98u5P38xBv8EHgLeYZly7WcK0jiBy8/23IgnY42Bm8BbR7jU58ItpFUurPzsIgrjM4DymHdtrpm2zutoRC0mHS5YHp6w+VjDgw++8ywiDvxCQuv4qWz4mG+NQN7qTQOOEXeWhbAh0iK9YTuJl86lE77lB/ORwwjmd9CSshaBnR1eUSkzn/MSWk0SIdHd8SB5R++5t5sJuR7PnQwWGI/KukuLZe5crL5aYphkRkmBBP9iz3lI9zrM1u1snBgh3ngSra/LB5DziojdN3Vy/xeOd/eQ3URTKXQPkgGEPSSIg==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=os.amperecomputing.com smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BdtOcLy53MUa4hx6b45uQGhnvH7xPvCX0Qhx+RtD9Yk=;
+ b=JOBPy/dh+W4JdXkZYVP1P3M/wk59BePcMPcTBQ8wcmDShhsxTQ/d0BRx2EkOVWFp33oXXCq+CaRA/p55iP6fI/8Vq1A6FM5yUyxQ1OfLdo+ihTOyK+MtL9XxsR/JKth2L1t41IEFiixvmlxf8cqKMCiPRqKlkt9CROeB9GKJCYQ=
+Received: from DU2PR04CA0275.eurprd04.prod.outlook.com (2603:10a6:10:28c::10)
+ by MRWPR08MB11236.eurprd08.prod.outlook.com (2603:10a6:501:74::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.11; Wed, 24 Dec
+ 2025 07:01:44 +0000
+Received: from DU6PEPF00009528.eurprd02.prod.outlook.com
+ (2603:10a6:10:28c:cafe::9) by DU2PR04CA0275.outlook.office365.com
+ (2603:10a6:10:28c::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9434.11 via Frontend Transport; Wed,
+ 24 Dec 2025 07:01:44 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ DU6PEPF00009528.mail.protection.outlook.com (10.167.8.9) with Microsoft SMTP
+ Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9456.9 via
+ Frontend Transport; Wed, 24 Dec 2025 07:01:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=B6Z9ASQLJDp2P6J8aOwEt65wpf3g3ZgfA1RX2lKLmL8ZFsbCadnKm7r2YKCK4o3tCPQ/jelDxxfzgrBdwCTcfo+D14PHo0hx0hdhFiH9Di5yukCMIHRiD9OjC9hFV/ANGGZPYzO1dSoBHPI+yoA6CbNYB+XzMPHmLIfJcNTS2mB73j2nYZX+Y4gqvtXWAc8xyTXgeZk4THhKIunchEkhSMAmIwxbz6HW7bYAvrb/SUWQqodJeQnVFX9cg9FSOgdqePZwQyRfiR6U4FJP1KWfk4aAd3OYJMKa8USjyjUtyhlF/72t1A8boMprnbcAqt5tqo1TUe3kPhCqd/bDrlMn1g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BdtOcLy53MUa4hx6b45uQGhnvH7xPvCX0Qhx+RtD9Yk=;
+ b=i4SmoOTkOYSr8r0PUDdXEBlpRTRY81i84MPY2CCMgPvFVsXjXF5eWXVP7aVD7mD3GbBWIzOBqcO/bN9UQjCdqeU4S6J8Cs3hOfUVpnMVqtjc0FT0zUGrdXaDJTjo+Rp8uKfMFvTZ/Pm/ZXkIu92I30P1ObKOK7w6yZKeL/78W+vnrg9ug7wz5d0IJosH5kqf4fIlB5Md3i2bDYVbeeq0LnAeHSSSfG5DtiN1YN/gP+qnzp0rNZIzPbzgkhbudfJyk5MYpFWgVeScedG02Z3ObpbwROR6wCEG5wwbQ/XIgQ8DMFP9WF54rOakIECyrWdv5q+eWAs+fwclAdq1BlTffw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BdtOcLy53MUa4hx6b45uQGhnvH7xPvCX0Qhx+RtD9Yk=;
+ b=JOBPy/dh+W4JdXkZYVP1P3M/wk59BePcMPcTBQ8wcmDShhsxTQ/d0BRx2EkOVWFp33oXXCq+CaRA/p55iP6fI/8Vq1A6FM5yUyxQ1OfLdo+ihTOyK+MtL9XxsR/JKth2L1t41IEFiixvmlxf8cqKMCiPRqKlkt9CROeB9GKJCYQ=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20) by DB9PR08MB6555.eurprd08.prod.outlook.com
+ (2603:10a6:10:257::6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9456.11; Wed, 24 Dec
+ 2025 07:00:39 +0000
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::d430:4ef9:b30b:c739%3]) with mapi id 15.20.9456.008; Wed, 24 Dec 2025
+ 07:00:39 +0000
+Date: Wed, 24 Dec 2025 07:00:35 +0000
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: Yang Shi <yang@os.amperecomputing.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>, akpm@linux-foundation.org,
+	david@kernel.org, lorenzo.stoakes@oracle.com,
+	Liam.Howlett@oracle.com, vbabka@suse.cz, rppt@kernel.org,
+	surenb@google.com, mhocko@suse.com, ast@kernel.org,
+	daniel@iogearbox.net, andrii@kernel.org, martin.lau@linux.dev,
+	eddyz87@gmail.com, song@kernel.org, yonghong.song@linux.dev,
+	john.fastabend@gmail.com, kpsingh@kernel.org, sdf@fomichev.me,
+	haoluo@google.com, jolsa@kernel.org, jackmanb@google.com,
+	hannes@cmpxchg.org, ziy@nvidia.com, bigeasy@linutronix.de,
+	clrkwllms@kernel.org, rostedt@goodmis.org, catalin.marinas@arm.com,
+	will@kernel.org, kevin.brodsky@arm.com, dev.jain@arm.com,
+	linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+	bpf@vger.kernel.org, linux-rt-devel@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 0/2] introduce pagetable_alloc_nolock()
+Message-ID: <aUuPk6fj1wUPfypI@e129823.arm.com>
+References: <20251212161832.2067134-1-yeoreum.yun@arm.com>
+ <916c17ba-22b1-456e-a184-cb3f60249af7@arm.com>
+ <aUGOPd7gNRf1xHEc@e129823.arm.com>
+ <100cc8da-b826-4fc2-a624-746bf6fb049d@arm.com>
+ <aUKKZR0u22KOPfd7@e129823.arm.com>
+ <d96ac977-222e-4e8d-9487-da1306198419@arm.com>
+ <93327680-7d7d-415e-958b-0d2a667dbb52@os.amperecomputing.com>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <93327680-7d7d-415e-958b-0d2a667dbb52@os.amperecomputing.com>
+X-ClientProxiedBy: LO4P123CA0269.GBRP123.PROD.OUTLOOK.COM
+ (2603:10a6:600:194::22) To GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251224-ventura2_initial_dts-v2-2-f193ba5d4073@gmail.com>
-References: <20251224-ventura2_initial_dts-v2-0-f193ba5d4073@gmail.com>
-In-Reply-To: <20251224-ventura2_initial_dts-v2-0-f193ba5d4073@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- Kyle Hsieh <kylehsieh1995@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=79586;
- i=kylehsieh1995@gmail.com; h=from:subject:message-id;
- bh=KCh3gas91dAHp0Dn7JAe2mNg1mwmO9CFjPoPslctjKo=;
- b=owEBbQGS/pANAwAKAaWDQrcJVsSBAcsmYgBpS4vdNxMQ8gt4TnUHlU8ShGK21FK0yubBm5rVt
- peZ135XItqJATMEAAEKAB0WIQTJHsaNZOdY+THGqJelg0K3CVbEgQUCaUuL3QAKCRClg0K3CVbE
- gYaYB/96/pq7mgqjNl5SSvNx/TsVgVgfrRI6/4LueeMbzoBpz4jEXVuphBGZ2mAgbCM9HIB9q6T
- AKWW8GSha715Zvj4n0LvDSaLcAUbKt3zqSf37IELxVORVY+RkKNipTBexqLIXDIVaFg9JzNf85T
- jLE11uuwzB9YdJVFz+NQDx6Ou4eHDNIbVGkQCcETN6ccSHz4basmeyeg6Rh3q8q4lLHlm2OZnd1
- 2HJG4thAZy7h9CnRGbie0hBhGix2Uu9lhROqbow9AADAtWZCHpAN0m6/v51NJ0REOnAnPf0Aqvy
- GwmENw8/9hfjkAhOjV4dQigHiuOxv8p+cop5V+y031R225vc
-X-Developer-Key: i=kylehsieh1995@gmail.com; a=openpgp;
- fpr=C91EC68D64E758F931C6A897A58342B70956C481
+X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|DB9PR08MB6555:EE_|DU6PEPF00009528:EE_|MRWPR08MB11236:EE_
+X-MS-Office365-Filtering-Correlation-Id: 849fa4fe-87c4-4a31-4449-08de42ba4b7b
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|7416014|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?OFA0bSt5U29JOWFNZXl3MC96WXVWRHJ5bjQ2TTBWMTdQU2dpSVZTQmhTY3F1?=
+ =?utf-8?B?MS9TTW5rRVBndEdvWW93K3FaMHNRU3BOQkd6THBIZFNJemVwS2N2cTB0dHVZ?=
+ =?utf-8?B?RFRkZ01yUjVRUTJGOGRzMzdOWXlacWhGSlozbEJacDhaSUZ4QWY0UDFWa25R?=
+ =?utf-8?B?RGcrL0NRUHRtdlRjNHJwWWRBY2RiN0xITU9NK3BRZzVvVFUzdTBjZTAxbnl5?=
+ =?utf-8?B?ZDlOSU9IbEFXM3VRb3VNeHdEV1JlT2YrUnRLMDlaWm40L3E0aTY3VG0xR1Ez?=
+ =?utf-8?B?akJxRnhWRk83T3hQRzltcDhqamgxZVZNN0JpL3hmVmtIRmRuTkpIQVRPZzlS?=
+ =?utf-8?B?Z1pncWFjYllJN21XMWZKOW4zR3M2NUU5SFZKV0dXZHVKMzVQZmJKdFBLOWd1?=
+ =?utf-8?B?T0NBWjAvK3ZSWUF1NmJEMjNqMEhrMVk5VmtuVTgzRTBCclFOS1prN2VWc285?=
+ =?utf-8?B?emZqN1RKOTM3U25uOHdtNDRrNDVJWVBmcm10VXZMMzdrZmVCem1FZThMMEVH?=
+ =?utf-8?B?NGhObm94WmZKVDl2UXMyS204YWppbWkvTmJSZUhESnIxeGlBL3pJdlcwak5J?=
+ =?utf-8?B?cWRuUUtoUjRWcEJmMG91ZFJreXhLVFpndWErYVlDQjV6TlYyYm1pL2IrNjFR?=
+ =?utf-8?B?RWdTWW8zVWxucTgzd3BMd1hXa0JKb1VnVVh6ekYyOURDZ0lsOE5LVVhhRWZT?=
+ =?utf-8?B?VHZFbDVDbWhNRVpyN0RpaWRSNzJYRUZHbnpEUWFDWWk1VzdlQ3ZWY0ZMSjM5?=
+ =?utf-8?B?WFhCM3VNNnV3SEVZYm00aE5vWlFzei9oTTgvMVRlODBwcFgwV2pxaENQYjR3?=
+ =?utf-8?B?S1NRNjcxUkhUZHRYQzBCNzlLNGtIRSt6bXd4QldyQlVuOTZhRVdaZFNPOC91?=
+ =?utf-8?B?Y21oc1JWUFdMRjZydWttN1R6anV5d0FDRlY3Z3AzZDgvQlB2Z1lLaCtWeWI0?=
+ =?utf-8?B?MktFZlBKQWZrVXB2WVFpSFlxSjBRWlVLWVlqWTYvejBDeWpTS3lWZGU4Mkxq?=
+ =?utf-8?B?dXRpdjdLVzJaZjliQW13anBHTWQ1aUlNVTMxTW1vc0Q3SUFnbmF6MXJzTGE4?=
+ =?utf-8?B?d0lRMjVTVngzSG91Wm14MGR3akdsMjFaNW1laW5JNTVwZHJDMWtaMnMwcXJT?=
+ =?utf-8?B?NjF6VW91clQ1aGxHSHBhamlWR29ESytQUm5STUZHTnkvWXk1Y0VrdGFwWkgw?=
+ =?utf-8?B?cDBLcGtkUjdPVEI5RUtwbldmNzRZSTIrUE5KdjB2KzYzUk1kbnlTWWdzOElQ?=
+ =?utf-8?B?cmh1TldrMm91K1VEZVNyTExBeFpmUkpDaXVhcHJUbjAzejMvV01NQmYvdTRj?=
+ =?utf-8?B?V1FXL3FrNFlWNysxOEdKMnd4VDlhSmxsMXpsM09ENWVWcVMvaXBKZFRLNXFz?=
+ =?utf-8?B?eHZXV1ZYdXV1aGE2Z3NtR1N4YjA2a3dDMkdjVlBXVnJ0SjVWSEVlSkVCUUk5?=
+ =?utf-8?B?VmR2Tmp5SkJOVkF2MXBuZU83VFNrWE9KeGtadVJIZmxZcUlPSnpGTmxYSGJZ?=
+ =?utf-8?B?amtqWWxQYldWWjdnMUZxMWtsYmlKVDVNQ3Vmb2tLeGxaelRDNXZOeEZ1RzZl?=
+ =?utf-8?B?UzRhallRMXNoQnRTVi84OG9LZDlVSjV2N0NOczNBMFZBM0MzRlVxQ3M3ajdN?=
+ =?utf-8?B?WWsxR3p3dzZkZjhHU1ErVXlHbWZlS0xDenFDdnRHY3dkbGZQUjhZRklFMmtZ?=
+ =?utf-8?B?VWZTblJ2dWZadi9wYkt4STBLRm9wRDRBNjRlRXFQbmJsRDlyZXFqTHRwQ0NO?=
+ =?utf-8?B?SnZZT0d4dGhKVW5CRzRxZytoWFFYRXdpd2VLRTlUam5iSXJhL09jK1VqRVNo?=
+ =?utf-8?B?V050YWN4MUdvRy9LT1R3NlFSbW82WTR1cFEzeHRRRFZZa0UvQVpjT242ZlVE?=
+ =?utf-8?B?NWhRZTl2b3RxT0dNKzluMXArb0ZvdjBOeU94REp1alJ4T1hFMzFFeFN1OHBG?=
+ =?utf-8?B?WVk2L3FjeFg2SEc3RkhxWWY5ZHJvY2dhc25aNlJUYml1Tjk0L2FWY2VCdCs3?=
+ =?utf-8?B?WXhMRW5YbFVBPT0=?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB6555
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU6PEPF00009528.eurprd02.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: 8b60c035-0d21-48a6-b2b7-08de42ba2558
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|7416014|14060799003|1800799024|35042699022|82310400026|13003099007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?ckE2YWRDbW1OMnNCQnVzNldkb3VucHZGTjZZTjkxbE1xZi94RTA0NktOTHAv?=
+ =?utf-8?B?OUtVZGZDdmd2bjhLV0xuUnkzZW01NlM5MTlPb09rT1V6RElQa0NsNHd6UU9E?=
+ =?utf-8?B?bTdpeVJjYmtwSi9zMzhaRXdOaEtJVEtNVDNFOHhUZ0dSRi9uTktaZ0FhQjU2?=
+ =?utf-8?B?em1TazZSbWJwWEZPcFhoQ29tbS8waVUxYTk0VVlEZ1dIUUFpbThwdkJKYnR2?=
+ =?utf-8?B?bmVwY0VSMlhDRjAvOGIwaTBlN3hlSDdtSUhDcWZuR3FBK3gvU1dKSm5HZTVZ?=
+ =?utf-8?B?S1BnU3luckFwWnV0VXRQTjFtTVNsUlBGbGNZSHVDV0VnOGN5cG82UGMzT1NM?=
+ =?utf-8?B?UGJ4dVp5RS9IVzk3VjVYeERRQmx3eCtwYXpPUnEyTkNBVkhSVkw4Q1NDTmlt?=
+ =?utf-8?B?SE9HQkxNKys1QWJsMlpqUlVXVG1wQkJMR21EdG5BOVcyWTJIYitRZGVFSWRW?=
+ =?utf-8?B?aHdKeDVRM2hhQXluVnI5eitGWUUzUUtzTEpEMTh1Vm1jV0k3RlIrUEphWVlX?=
+ =?utf-8?B?Y3N6ZTFGTnRMQ1VyMWEvMkNyTFh6VGhobS83LzZMOWQvNEUyLzhPU0hEQW5W?=
+ =?utf-8?B?amx1b09LNHk5V1IyQWMyWUh6Q3crbS9WQ0JUZGJJUVNoaEsvV252OEpCM2NE?=
+ =?utf-8?B?MDVyOE5RN0s5M1huYm5CY281VkZvTnppQmcwNi85ZVNXTlQ0WWlpN3NMcmJW?=
+ =?utf-8?B?akJWMEoxS3gxSFBVQnQ5cDNLK205SXNodE11aEtzek53eWd2aDdvK2ZJM2Na?=
+ =?utf-8?B?VWJjTXdiaFp4dzAzR2pjUURtNGdwZCtlczRGYlRoVHJ4R0R2cHdrZldheWZq?=
+ =?utf-8?B?SUR1NFV3V3dxMUIwYlYwdUNwODZ1Yk9uRFRjcEw1VnUwYnEzRzZEUHpScnBG?=
+ =?utf-8?B?L0pnQ2dGZjN6dUYxQXVWMWFGMEFRVDhOZXo4N0ZmUE92T2FTbDQ2MXZmenFv?=
+ =?utf-8?B?emhaLzZOVFlxb25nRFJzQWZOd2I5Y0p1SXRUV3lkTGFnVEhVUHpsdEU1Z2t4?=
+ =?utf-8?B?STVGcnJJUWVPdy83VFc1ZStIdzVNNlIvaVpIMERSQVpNWGpFOWx1eEJyNzA1?=
+ =?utf-8?B?THdCdHA1QjdLaS9jREczNGNiM0dvZ3ZVK2tKeFIzNE5kazQzMkpWNVo1SjBP?=
+ =?utf-8?B?UmdXdXlLZThxM3FvSDBSZVgrVVRFOCswaVpucVBUck1sbENCV0hvVmtSR1Jk?=
+ =?utf-8?B?bnNlSVFndng0WmlqVm5ZeXJQMFV3VWhSeWl4NVZ5OGYvcEJRc0FJSEZWNXhW?=
+ =?utf-8?B?M2hncVhXNnJCT0x6TmdjUjJnZW1oRDRBQnVpcFlEQ24yQUcrWGs0QXlJb1do?=
+ =?utf-8?B?OTVIRStWc21oUFVGRnBWVWdsbHYzWHRhczlIaFl4dFFqa2M5d2YxeFRzUTlH?=
+ =?utf-8?B?R2hKcmlsYlhlUDhFWVVHVkhaaytrMWNMTCtORXdPeTJ5eTMvNm1OYWRKTnRm?=
+ =?utf-8?B?YlZXaGp6dWhUcHJBTzFtY09ueWpqY2ZlZkdMRFQxc1p1Z1dJL3pMRkJlRkZO?=
+ =?utf-8?B?eDl6TzNweGZ2c2ZMTFZhMitjMG0zWGp0RGVEZEhpZWFNUGwyaGJyL2RucHc0?=
+ =?utf-8?B?RXhUTkxXNXJOcER6b1J4N2RkSTVrVkpQTml2QTZJOUJ5bFFDQWlzOG1mLzF1?=
+ =?utf-8?B?K2ZWa25KQ0hyYWIya2xBTVJuTTdCS2N2eUFiVlFQRXdIOTlZMTJmbjFCemQr?=
+ =?utf-8?B?OHZYRWJzRDVCOFFwc3p0a3Q4VEZkUDdFeW5vOHM5TDdLSkdWNWNta0JXMXBB?=
+ =?utf-8?B?SlQyTU1RcFErUDlNT0ZVWkEyZFpsOExPKy9wZ0VJeTBydlBmTWxmQzBLZkdl?=
+ =?utf-8?B?NjBXTHYvR2hXalhsTFBIVllXR2FIVXo0cENCdVJndWxQYk45Tk9JeUIvZVov?=
+ =?utf-8?B?UFFLUDdFTnc1b0tSaWhvYXpBQzJ3Zk1JMHVtWTZmSWduaVpGVy9Mb3lya3pC?=
+ =?utf-8?B?VktGSXZjZ1pqK0g4ZnZ2OWxBb3RaTXNFVHpESGRBdmk3aUxZM0Y0aEhkME80?=
+ =?utf-8?B?U25NbVdEZ1JEVDZBUVdaalNEYlFCQndzQ1dhSHNBZFBIWFBCUG04aEdFWTRy?=
+ =?utf-8?B?dlovMXhkV3h0WXo5a0FJeWVGRitmN0xpL21FZmRhK2ZHdkhrbTE2TG9hcENF?=
+ =?utf-8?Q?IyFsSBR2BfKtFMab2ep7A69Je?=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700013)(7416014)(14060799003)(1800799024)(35042699022)(82310400026)(13003099007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Dec 2025 07:01:43.0181
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 849fa4fe-87c4-4a31-4449-08de42ba4b7b
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF00009528.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MRWPR08MB11236
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_224453_547858_6711E9B5 
-X-CRM114-Status: GOOD (  13.54  )
+X-CRM114-CacheID: sfid-20251223_230202_956991_9862F364 
+X-CRM114-Status: GOOD (  12.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,2981 +235,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add linux device tree entry related to the Meta(Facebook) rmc-node.
-The system use an AT2600 BMC.
-This node is named "ventura2".
+Hi Yang,
 
-Signed-off-by: Kyle Hsieh <kylehsieh1995@gmail.com>
----
- arch/arm/boot/dts/aspeed/Makefile                  |    1 +
- .../dts/aspeed/aspeed-bmc-facebook-ventura2.dts    | 2945 ++++++++++++++++++++
- 2 files changed, 2946 insertions(+)
+> On 12/17/25 9:04 PM, Ryan Roberts wrote:
+> > On 17/12/2025 10:48, Yeoreum Yun wrote:
+> > > Hi Ryan,
+> > >
+> > > > On 16/12/2025 16:52, Yeoreum Yun wrote:
+> > > > > Hi Ryan,
+> > > > >
+> > > > > > On 12/12/2025 16:18, Yeoreum Yun wrote:
+> > > > > > > Some architectures invoke pagetable_alloc() or __get_free_pages()
+> > > > > > > with preemption disabled.
+> > > > > > > For example, in arm64, linear_map_split_to_ptes() calls pagetable_alloc()
+> > > > > > > while spliting block entry to ptes and __kpti_install_ng_mappings()
+> > > > > > > calls __get_free_pages() to create kpti pagetable.
+> > > > > > >
+> > > > > > > Under PREEMPT_RT, calling pagetable_alloc() with
+> > > > > > > preemption disabled is not allowed, because it may acquire
+> > > > > > > a spin lock that becomes sleepable on RT, potentially
+> > > > > > > causing a sleep during page allocation.
+> > > > > > >
+> > > > > > > Since above two functions is called as callback of stop_machine()
+> > > > > > > where its callback is called in preemption disabled,
+> > > > > > > They could make a potential problem. (sleeping in preemption disabled).
+> > > > > > >
+> > > > > > > To address this, introduce pagetable_alloc_nolock() API.
+> > > > > > I don't really understand what the problem is that you're trying to fix. As I
+> > > > > > see it, there are 2 call sites in arm64 arch code that are calling into the page
+> > > > > > allocator from stop_machine() - one via via pagetable_alloc() and another via
+> > > > > > __get_free_pages(). But both of those calls are passing in GFP_ATOMIC. It was my
+> > > > > > understanding that the page allocator would ensure it never sleeps when
+> > > > > > GFP_ATOMIC is passed in, (even for PREEMPT_RT)?
+> > > > > Although GFP_ATOMIC is specify, it only affects of "water mark" of the
+> > > > > page with __GFP_HIGH. and to get a page, it must grab the lock --
+> > > > > zone->lock or pcp_lock in the rmqueue().
+> > > > >
+> > > > > This zone->lock and pcp_lock is spin_lock and it's a sleepable in
+> > > > > PREEMPT_RT that's why the memory allocation/free using general API
+> > > > > except nolock() version couldn't be called since
+> > > > > if "contention" happens they'll sleep while waiting to get the lock.
+> > > > >
+> > > > > The reason why "nolock()" can use, it always uses "trylock" with
+> > > > > ALLOC_TRYLOCK flags. otherwise GFP_ATOMIC also can be sleepable in
+> > > > > PREEMPT_RT.
+> > > > >
+> > > > > > What is the actual symptom you are seeing?
+> > > > > Since the place where called while smp_cpus_done() and there seems no
+> > > > > contention, there seems no problem. However as I mention in another
+> > > > > thread
+> > > > > (https://lore.kernel.org/all/aT%2FdrjN1BkvyAGoi@e129823.arm.com/),
+> > > > > This gives a the false impression --
+> > > > > GFP_ATOMIC are “safe to use in preemption disabled”
+> > > > > even though they are not in PREEMPT_RT case, I've changed it.
+> > > > >
+> > > > > > If the page allocator is somehow ignoring the GFP_ATOMIC request for PREEMPT_RT,
+> > > > > > then isn't that a bug in the page allocator? I'm not sure why you would change
+> > > > > > the callsites? Can't you just change the page allocator based on GFP_ATOMIC?
+> > > > > It doesn't ignore the GFP_ATOMIC feature:
+> > > > >    - __GFP_HIGH: use water mark till min reserved
+> > > > >    - __GFP_KSWAPD_RECLAIM: wake up kswapd if reclaim required.
+> > > > >
+> > > > > But, it's a restriction -- "page allocation / free" API cannot be called
+> > > > > in preempt-disabled context at PREEMPT_RT.
+> > > > >
+> > > > > That's why I think it's wrong usage not a page allocator bug.
+> > > > I've taken a look at this and I agree with your analysis. Thanks for explaining.
+> > > >
+> > > > Looking at other stop_machine() callbacks, there are some that call printk() and
+> > > > I would assume that spinlocks could be taken there which may present the same
+> > > > kind of issue or PREEMPT_RT? (I'm guessing). I don't see any others that attempt
+> > > > to allocate memory though.
+> > > IIRC, there was a problem related for printk while try to grab
+> > > pl011_console related lock (spin_lock) while holding
+> > > console_lock(raw_spin_lock) in v6.10.0-rc7 at rpi5:
+> > >
+> > >      [  230.381263] CPU: 2 PID: 5574 Comm: syz.4.1695 Not tainted 6.10.0-rc7-01903-g52828ea60dfd #3
+> > >      [  230.381479] Hardware name: linux,dummy-virt (DT)
+> > >      [  230.381565] Call trace:
+> > >      [  230.381607]  dump_backtrace+0x318/0x348
+> > >      [  230.381727]  show_stack+0x4c/0x80
+> > >      [  230.381875]  dump_stack_lvl+0x214/0x328
+> > >      [  230.382159]  dump_stack+0x3c/0x58
+> > >      [  230.382456]  __lock_acquire+0x4398/0x4720
+> > >      [  230.382683]  lock_acquire+0x648/0xb70
+> > >      [  230.382928]  _raw_spin_lock_irqsave+0x138/0x240
+> > >      [  230.383121]  pl011_console_write+0x240/0x8a0
+> > >      [  230.383356]  console_flush_all+0x708/0x1368
+> > >      [  230.383571]  console_unlock+0x180/0x440
+> > >      [  230.383742]  vprintk_emit+0x1f8/0x9d0
+> > >      [  230.383832]  vprintk_default+0x64/0x90
+> > >      [  230.383914]  vprintk+0x2d0/0x400
+> > >      [  230.383971]  _printk+0xdc/0x128
+> > >      [  230.384229]  hrtimer_interrupt+0x8f0/0x920
+> > >      [  230.384414]  arch_timer_handler_virt+0xc0/0x100
+> > >      [  230.384812]  handle_percpu_devid_irq+0x20c/0x4e0
+> > >      [  230.385053]  generic_handle_domain_irq+0xc0/0x120
+> > >      [  230.385367]  gic_handle_irq+0x88/0x360
+> > >      [  230.385559]  call_on_irq_stack+0x24/0x70
+> > >      [  230.385801]  do_interrupt_handler+0xf8/0x200
+> > >      [  230.386092]  el1_interrupt+0x68/0xc0
+> > >      [  230.386434]  el1h_64_irq_handler+0x18/0x28
+> > >      [  230.386716]  el1h_64_irq+0x64/0x68
+> > >      [  230.386853]  __sanitizer_cov_trace_const_cmp2+0x30/0x68
+> > >      [  230.387026]  alloc_pages_mpol_noprof+0x170/0x698
+> > >      [  230.387309]  vma_alloc_folio_noprof+0x128/0x2a8
+> > >      [  230.387610]  vma_alloc_zeroed_movable_folio+0xa0/0xe0
+> > >      [  230.387822]  folio_prealloc+0x5c/0x280
+> > >      [  230.388008]  do_wp_page+0xc30/0x3bc0
+> > >      [  230.388206]  __handle_mm_fault+0xdb8/0x2ba0
+> > >      [  230.388448]  handle_mm_fault+0x194/0x8a8
+> > >      [  230.388676]  do_page_fault+0x6bc/0x1030
+> > >      [  230.388924]  do_mem_abort+0x8c/0x240
+> > >      [  230.389056]  el0_da+0xf0/0x3f8
+> > >      [  230.389178]  el0t_64_sync_handler+0xb4/0x130
+> > >      [  230.389452]  el0t_64_sync+0x190/0x198
+> > >
+> > > But this problem is gone when I try with some of patches in rt-tree
+> > > related for printk which are merged in current tree
+> > > (https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-rt-devel.git/log/?h=linux-6.10.y-rt-rebase).
+> > >
+> > > So I think printk() wouldn't be a problem.
+> > >
+> > > > Anyway, to fix the 2 arm64 callsites, I see 2 possible approaches:
+> > > >
+> > > > - Call the nolock variant (as you are doing). But that would just convert a
+> > > > deadlock to a panic; if the lock is held when stop_machine() runs, without your
+> > > > change, we now have a deadlock due to waiting on the lock inside stop_machine().
+> > > > With your change, we notice the lock is already taken and panic. I guess it is
+> > > > marginally better, but not by much. Certainly I would just _always_ call the
+> > > > nolock variant regardless of PREEMPT_RT if we take this route; For !PREEMPT_RT,
+> > > > the lock is guarranteed to be free so nolock will always succeed.
+> > > >
+> > > > - Preallocate the memory before entering stop_machine(). I think this would be
+> > > > much more robust. For kpti_install_ng_mappings() I think you could hoist the
+> > > > allocation/free out of stop_machine() and pass the pointer in pretty easily. For
+> > > > linear_map_split_to_ptes() its a bit more complex; Perhaps, we need to walk the
+> > > > pgtable to figure out how much to preallocate, allocate it, then set it up as a
+> > > > special allocator, wrapped by an allocation function and modify the callchain to
+> > > > take a callback function instead of gfp flags.
+> > > >
+> > > > What do you think?
+> > > Definitely, second suggestoin is much better.
+> > > My question is whether *memory contention* really happen in the point
+> > > both functions are called.
+> > My guess would be that it's unlikely, but not impossible. The secondary CPUs are
+> > up, and presumably running their idle thread. I think various power management
+> > things can be plugged into the idle thread; if so, then I guess it's possible
+> > that the CPU could be running some hook as part of a power state transition, and
+> > that could be dynamically allocating memory? That's all just a guess though; I
+> > don't know the details of that part of the system.
+>
+> Sorry for chiming in late. I was just done my travel, but still suffered
+> from jet lag. I may be out of my mind...
 
-diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed/Makefile
-index 9adf9278dc94..6b96997629d4 100644
---- a/arch/arm/boot/dts/aspeed/Makefile
-+++ b/arch/arm/boot/dts/aspeed/Makefile
-@@ -32,6 +32,7 @@ dtb-$(CONFIG_ARCH_ASPEED) += \
- 	aspeed-bmc-facebook-minipack.dtb \
- 	aspeed-bmc-facebook-santabarbara.dtb \
- 	aspeed-bmc-facebook-tiogapass.dtb \
-+	aspeed-bmc-facebook-ventura2.dtb \
- 	aspeed-bmc-facebook-wedge40.dtb \
- 	aspeed-bmc-facebook-wedge100.dtb \
- 	aspeed-bmc-facebook-wedge400-data64.dtb \
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dts
-new file mode 100644
-index 000000000000..e22bbaf519ea
---- /dev/null
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-ventura2.dts
-@@ -0,0 +1,2945 @@
-+// SPDX-License-Identifier: GPL-2.0
-+// Copyright (c) 2023 Facebook Inc.
-+/dts-v1/;
-+
-+#include "aspeed-g6.dtsi"
-+#include <dt-bindings/i2c/i2c.h>
-+#include <dt-bindings/gpio/aspeed-gpio.h>
-+
-+/ {
-+	model = "Facebook ventura2 RMC";
-+	compatible = "facebook,ventura2-rmc", "aspeed,ast2600";
-+	aliases {
-+		serial4 = &uart5;
-+
-+		/*
-+		 * i2c switch 0-0077, pca9548, 8 child channels assigned
-+		 * with bus number 16-23.
-+		 */
-+		i2c16 = &i2c0mux0ch0;
-+		i2c17 = &i2c0mux0ch1;
-+		i2c18 = &i2c0mux0ch2;
-+		i2c19 = &i2c0mux0ch3;
-+		i2c20 = &i2c0mux0ch4;
-+		i2c21 = &i2c0mux0ch5;
-+		i2c22 = &i2c0mux0ch6;
-+		i2c23 = &i2c0mux0ch7;
-+
-+		/*
-+		 * i2c switch 1-0077, pca9548, 8 child channels assigned
-+		 * with bus number 24-31.
-+		 */
-+		i2c24 = &i2c1mux0ch0;
-+		i2c25 = &i2c1mux0ch1;
-+		i2c26 = &i2c1mux0ch2;
-+		i2c27 = &i2c1mux0ch3;
-+		i2c28 = &i2c1mux0ch4;
-+		i2c29 = &i2c1mux0ch5;
-+		i2c30 = &i2c1mux0ch6;
-+		i2c31 = &i2c1mux0ch7;
-+
-+		/*
-+		 * i2c switch 4-0077, pca9548, 8 child channels assigned
-+		 * with bus number 32-39.
-+		 */
-+		i2c32 = &i2c4mux0ch0;
-+		i2c33 = &i2c4mux0ch1;
-+		i2c34 = &i2c4mux0ch2;
-+		i2c35 = &i2c4mux0ch3;
-+		i2c36 = &i2c4mux0ch4;
-+		i2c37 = &i2c4mux0ch5;
-+		i2c38 = &i2c4mux0ch6;
-+		i2c39 = &i2c4mux0ch7;
-+
-+		/*
-+		 * i2c switch 5-0077, pca9548, 8 child channels assigned
-+		 * with bus number 40-47.
-+		 */
-+		i2c40 = &i2c5mux0ch0;
-+		i2c41 = &i2c5mux0ch1;
-+		i2c42 = &i2c5mux0ch2;
-+		i2c43 = &i2c5mux0ch3;
-+		i2c44 = &i2c5mux0ch4;
-+		i2c45 = &i2c5mux0ch5;
-+		i2c46 = &i2c5mux0ch6;
-+		i2c47 = &i2c5mux0ch7;
-+
-+		/*
-+		 * i2c switch 8-0077, pca9548, 8 child channels assigned
-+		 * with bus number 48-55.
-+		 */
-+		i2c48 = &i2c8mux0ch0;
-+		i2c49 = &i2c8mux0ch1;
-+		i2c50 = &i2c8mux0ch2;
-+		i2c51 = &i2c8mux0ch3;
-+		i2c52 = &i2c8mux0ch4;
-+		i2c53 = &i2c8mux0ch5;
-+		i2c54 = &i2c8mux0ch6;
-+		i2c55 = &i2c8mux0ch7;
-+
-+		/*
-+		 * i2c switch 11-0077, pca9548, 8 child channels assigned
-+		 * with bus number 56-63.
-+		 */
-+		i2c56 = &i2c11mux0ch0;
-+		i2c57 = &i2c11mux0ch1;
-+		i2c58 = &i2c11mux0ch2;
-+		i2c59 = &i2c11mux0ch3;
-+		i2c60 = &i2c11mux0ch4;
-+		i2c61 = &i2c11mux0ch5;
-+		i2c62 = &i2c11mux0ch6;
-+		i2c63 = &i2c11mux0ch7;
-+
-+		/*
-+		 * i2c switch 13-0077, pca9548, 8 child channels assigned
-+		 * with bus number 64-71.
-+		 */
-+		i2c64 = &i2c13mux0ch0;
-+		i2c65 = &i2c13mux0ch1;
-+		i2c66 = &i2c13mux0ch2;
-+		i2c67 = &i2c13mux0ch3;
-+		i2c68 = &i2c13mux0ch4;
-+		i2c69 = &i2c13mux0ch5;
-+		i2c70 = &i2c13mux0ch6;
-+		i2c71 = &i2c13mux0ch7;
-+
-+		/*
-+		 * i2c switch 15-0077, pca9548, 8 child channels assigned
-+		 * with bus number 72-79.
-+		 */
-+		i2c72 = &i2c15mux0ch0;
-+		i2c73 = &i2c15mux0ch1;
-+		i2c74 = &i2c15mux0ch2;
-+		i2c75 = &i2c15mux0ch3;
-+		i2c76 = &i2c15mux0ch4;
-+		i2c77 = &i2c15mux0ch5;
-+		i2c78 = &i2c15mux0ch6;
-+		i2c79 = &i2c15mux0ch7;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial4:57600n8";
-+	};
-+
-+	iio-hwmon {
-+		compatible = "iio-hwmon";
-+		io-channels = <&adc0 0>, <&adc0 1>, <&adc0 2>, <&adc0 3>,
-+		<&adc0 4>, <&adc0 5>, <&adc0 6>, <&adc0 7>,
-+		<&adc1 2>;
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		led-0 {
-+			label = "bmc_heartbeat_amber";
-+			gpios = <&gpio0 ASPEED_GPIO(P, 7) GPIO_ACTIVE_LOW>;
-+			linux,default-trigger = "heartbeat";
-+		};
-+
-+		led-1 {
-+			label = "fp_id_amber";
-+			default-state = "off";
-+			gpios = <&gpio0 ASPEED_GPIO(B, 5) GPIO_ACTIVE_HIGH>;
-+		};
-+
-+		led-2 {
-+			label = "bmc_ready_noled";
-+			default-state = "on";
-+			gpios = <&gpio0 ASPEED_GPIO(B, 3) (GPIO_ACTIVE_HIGH|GPIO_TRANSITORY)>;
-+		};
-+
-+		led-3 {
-+			label = "power_blue";
-+			default-state = "off";
-+			gpios = <&gpio0 ASPEED_GPIO(P, 4) GPIO_ACTIVE_HIGH>;
-+		};
-+	};
-+
-+	fan_leds {
-+		compatible = "gpio-leds";
-+
-+		led-0 {
-+			label = "fcb0fan0_ledd1_blue";
-+			default-state = "off";
-+			gpios = <&fan_io_expander0 0 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		led-1 {
-+			label = "fcb0fan1_ledd2_blue";
-+			default-state = "off";
-+			gpios = <&fan_io_expander0 1 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		led-2 {
-+			label = "fcb0fan2_ledd3_blue";
-+			default-state = "off";
-+			gpios = <&fan_io_expander1 0 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		led-3 {
-+			label = "fcb0fan3_ledd4_blue";
-+			default-state = "off";
-+			gpios = <&fan_io_expander1 1 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		led-4 {
-+			label = "fcb0fan0_ledd1_amber";
-+			default-state = "off";
-+			gpios = <&fan_io_expander0 4 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		led-5 {
-+			label = "fcb0fan1_ledd2_amber";
-+			default-state = "off";
-+			gpios = <&fan_io_expander0 5 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		led-6 {
-+			label = "fcb0fan2_ledd3_amber";
-+			default-state = "off";
-+			gpios = <&fan_io_expander1 4 GPIO_ACTIVE_LOW>;
-+		};
-+
-+		led-7 {
-+			label = "fcb0fan3_ledd4_amber";
-+			default-state = "off";
-+			gpios = <&fan_io_expander1 5 GPIO_ACTIVE_LOW>;
-+		};
-+	};
-+
-+	memory@80000000 {
-+		device_type = "memory";
-+		reg = <0x80000000 0x80000000>;
-+	};
-+
-+	p1v8_bmc_aux: regulator-p1v8-bmc-aux {
-+		compatible = "regulator-fixed";
-+		regulator-name = "p1v8_bmc_aux";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		regulator-always-on;
-+	};
-+
-+	p2v5_bmc_aux: regulator-p2v5-bmc-aux {
-+		compatible = "regulator-fixed";
-+		regulator-name = "p2v5_bmc_aux";
-+		regulator-min-microvolt = <2500000>;
-+		regulator-max-microvolt = <2500000>;
-+		regulator-always-on;
-+	};
-+
-+	p5v_dac_aux: regulator-p5v-bmc-aux {
-+		compatible = "regulator-fixed";
-+		regulator-name = "p5v_dac_aux";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-always-on;
-+	};
-+
-+	spi1_gpio: spi {
-+		compatible = "spi-gpio";
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		sck-gpios = <&gpio0 ASPEED_GPIO(Z, 3) GPIO_ACTIVE_HIGH>;
-+		mosi-gpios = <&gpio0 ASPEED_GPIO(Z, 4) GPIO_ACTIVE_HIGH>;
-+		miso-gpios = <&gpio0 ASPEED_GPIO(Z, 5) GPIO_ACTIVE_HIGH>;
-+		cs-gpios = <&gpio0 ASPEED_GPIO(Z, 0) GPIO_ACTIVE_LOW>;
-+		num-chipselects = <1>;
-+
-+		tpm@0 {
-+			compatible = "infineon,slb9670", "tcg,tpm_tis-spi";
-+			spi-max-frequency = <33000000>;
-+			reg = <0>;
-+		};
-+	};
-+};
-+
-+&fmc {
-+	status = "okay";
-+	flash@0 {
-+		status = "okay";
-+		m25p,fast-read;
-+		label = "bmc";
-+		spi-max-frequency = <50000000>;
-+		#include "openbmc-flash-layout-128.dtsi"
-+	};
-+	flash@1 {
-+		status = "okay";
-+		m25p,fast-read;
-+		label = "alt-bmc";
-+		spi-max-frequency = <50000000>;
-+	};
-+};
-+
-+&peci0 {
-+	status = "okay";
-+};
-+
-+&mac2 {
-+	status = "okay";
-+	phy-mode = "rmii";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_rmii3_default>;
-+	fixed-link {
-+		speed = <100>;
-+		full-duplex;
-+	};
-+};
-+
-+&mac3 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_rmii4_default>;
-+	use-ncsi;
-+};
-+
-+&ehci0 {
-+	status = "okay";
-+};
-+
-+&ehci1 {
-+	status = "okay";
-+};
-+
-+&adc0 {
-+	vref-supply = <&p1v8_bmc_aux>;
-+	status = "okay";
-+
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_adc0_default &pinctrl_adc1_default
-+	&pinctrl_adc2_default &pinctrl_adc3_default
-+	&pinctrl_adc4_default &pinctrl_adc5_default
-+	&pinctrl_adc6_default &pinctrl_adc7_default>;
-+};
-+
-+&adc1 {
-+	vref-supply = <&p2v5_bmc_aux>;
-+	status = "okay";
-+
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_adc8_default &pinctrl_adc10_default>;
-+};
-+
-+&gpio0 {
-+	gpio-line-names =
-+	/*A0-A7*/	"","","","","","","","",
-+	/*B0-B7*/	"BATTERY_DETECT","","","BMC_READY_R",
-+				"","FM_ID_LED","","",
-+	/*C0-C7*/	"","","","","","","","",
-+	/*D0-D7*/	"","","","","","","","",
-+	/*E0-E7*/	"","","","","","","","",
-+	/*F0-F7*/	"","","","","","","","",
-+	/*G0-G7*/	"FM_MUX1_SEL_R","","","",
-+				"","","","",
-+	/*H0-H7*/	"","","","","","","","",
-+	/*I0-I7*/	"","","","","","","","",
-+	/*J0-J7*/	"","","","","","","","",
-+	/*K0-K7*/	"","","","","","","","",
-+	/*L0-L7*/	"","","","","","","","",
-+	/*M0-M7*/	"","","","","","","","",
-+	/*N0-N7*/	"LED_POSTCODE_0","LED_POSTCODE_1",
-+				"LED_POSTCODE_2","LED_POSTCODE_3",
-+				"LED_POSTCODE_4","LED_POSTCODE_5",
-+				"LED_POSTCODE_6","LED_POSTCODE_7",
-+	/*O0-O7*/	"","","","","","","","",
-+	/*P0-P7*/	"PWR_BTN_BMC_BUF_N","","ID_RST_BTN_BMC_N","",
-+				"PWR_LED","","","BMC_HEARTBEAT_N",
-+	/*Q0-Q7*/	"","","","","","","","",
-+	/*R0-R7*/	"","","","","","","","",
-+	/*S0-S7*/	"","","","","","","","",
-+	/*T0-T7*/	"","","","","","","","",
-+	/*U0-U7*/	"","","","","","","","",
-+	/*V0-V7*/	"","","","","","","","",
-+	/*W0-W7*/	"","","","","","","","",
-+	/*X0-X7*/	"","","","","","","","",
-+	/*Y0-Y7*/	"","","","","","","","",
-+	/*Z0-Z7*/	"","","","","","","","";
-+};
-+
-+&gpio1 {
-+	gpio-line-names =
-+	/*18A0-18A7*/	"","","","","","","","",
-+	/*18B0-18B7*/	"","","","",
-+					"FM_BOARD_BMC_REV_ID0","FM_BOARD_BMC_REV_ID1",
-+					"FM_BOARD_BMC_REV_ID2","",
-+	/*18C0-18C7*/	"SPI_BMC_BIOS_ROM_IRQ0_R_N","","","","","","","",
-+	/*18D0-18D7*/	"","","","","","","","",
-+	/*18E0-18E3*/	"FM_BMC_PROT_LS_EN","AC_PWR_BMC_BTN_R_N","","";
-+};
-+
-+&sgpiom0 {
-+	status = "okay";
-+	ngpios = <128>;
-+	bus-frequency = <2000000>;
-+	gpio-line-names =
-+	/*"input pin","output pin"*/
-+	/*A0 - A7*/
-+	"power-chassis-good","FM_PLD_HEARTBEAT_LVC3_R",
-+	"host0-ready","",
-+	"CONTROL_VT2_SUPPLY1_CLOSE","FM_MDIO_SW_SEL_PLD",
-+	"CONTROL_VT2_SUPPLY2_CLOSE","FM_88E6393X_BIN_UPDATE_EN_N",
-+	"CONTROL_VT2_SUPPLY3_CLOSE","Sequence_TransFR_Alert",
-+	"RETURN_CNTL1_FB","WATER_VALVE1_OPEN",
-+	"RETURN_CNTL2_FB","WATER_VALVE2_OPEN",
-+	"RETURN_CNTL3_FB","WATER_VALVE3_OPEN",
-+	/*B0 - B7*/
-+	"IT_STOP_PUMP_R_CPLD","WATER_VALVE1_CLOSE",
-+	"IT_STOP_PUMP_SPARE_R_CPLD","WATER_VALVE2_CLOSE",
-+	"IT_STOP_PUMP_2_R_CPLD","WATER_VALVE3_CLOSE",
-+	"IT_STOP_PUMP_SPARE_2_R_CPLD","REPORT_VT2_SUPPLY1_CLOSE",
-+	"RPU_2_READY_SPARE_PLD_R","REPORT_VT2_SUPPLY2_CLOSE",
-+	"RPU_2_READY_PLD_R","REPORT_VT2_SUPPLY3_CLOSE",
-+	"RPU_READY_SPARE_PLD_R","PCIE_SSD1_PRSNT_N",
-+	"RPU_READY_PLD_R","",
-+	/*C0 - C7*/
-+	"IOEXP8_INT_N","",
-+	"SUPPLY_CNTL1_FB","",
-+	"SUPPLY_CNTL2_FB","",
-+	"SUPPLY_CNTL3_FB","",
-+	"PRSNT_TRAY1_TO_40_R_BUF_N","",
-+	"PWRGD_TRAY1_TO_40_R_BUF","",
-+	"SMALL_LEAK_TRAY1_TO_40_R_BUF_N","",
-+	"LEAK_DETECT_TRAY1_TO_40_R_BUF_N","",
-+	/*D0 - D7*/
-+	"PRSNT_CANBUSP1_TRAY1_TO_32_N","",
-+	"PWRGD_CANBUSP1_TRAY1_TO_32_PWROK","",
-+	"SMALL_LEAK_CANBUSP1_TRAY1_TO_32_N","",
-+	"LEAK_DETECT_CANBUSP1_TRAY1_TO_32_N","",
-+	"PRSNT_CANBUSP2_TRAY1_TO_32_N","",
-+	"PWRGD_CANBUSP2_TRAY1_TO_32_PWROK","",
-+	"SMALL_LEAK_CANBUSP2_TRAY1_TO_32_N","",
-+	"LEAK_DETECT_CANBUSP2_TRAY1_TO_32_N","",
-+	/*E0 - E7*/
-+	"PRSNT_CANBUSP3_TRAY1_TO_32_N","",
-+	"PWRGD_CANBUSP3_TRAY1_TO_32_PWROK","",
-+	"SMALL_LEAK_CANBUSP3_TRAY1_TO_32_N","",
-+	"LEAK_DETECT_CANBUSP3_TRAY1_TO_32_N","",
-+	"PRSNT_CANBUSP4_TRAY1_TO_32_N","",
-+	"PWRGD_CANBUSP4_TRAY1_TO_32_PWROK","",
-+	"SMALL_LEAK_CANBUSP4_TRAY1_TO_32_N","",
-+	"LEAK_DETECT_CANBUSP4_TRAY1_TO_32_N","",
-+	/*F0 - F7*/
-+	"PRSNT_CANBUSP5_TRAY1_TO_32_N","",
-+	"PWRGD_CANBUSP5_TRAY1_TO_32_PWROK","",
-+	"SMALL_LEAK_CANBUSP5_TRAY1_TO_32_N","",
-+	"LEAK_DETECT_CANBUSP5_TRAY1_TO_32_N","",
-+	"PRSNT_CANBUSP6_TRAY1_TO_32_N","",
-+	"PWRGD_CANBUSP6_TRAY1_TO_32_PWROK","",
-+	"SMALL_LEAK_CANBUSP6_TRAY1_TO_32_N","",
-+	"LEAK_DETECT_CANBUSP6_TRAY1_TO_32_N","",
-+	/*G0 - G7*/
-+	"PRSNT_CANBUSP7_TRAY1_TO_32_N","",
-+	"PWRGD_CANBUSP7_TRAY1_TO_32_PWROK","",
-+	"SMALL_LEAK_CANBUSP7_TRAY1_TO_32_N","",
-+	"LEAK_DETECT_CANBUSP7_TRAY1_TO_32_N","",
-+	"PRSNT_CANBUSP8_TRAY1_TO_32_N","",
-+	"PWRGD_CANBUSP8_TRAY1_TO_32_PWROK","",
-+	"SMALL_LEAK_CANBUSP8_TRAY1_TO_32_N","",
-+	"LEAK_DETECT_CANBUSP8_TRAY1_TO_32_N","",
-+	/*H0 - H7*/
-+	"wCHASSIS0_LEAK_Q_N_R","",
-+	"wCHASSIS1_LEAK_Q_N_R","",
-+	"wCHASSIS2_LEAK_Q_N_R","",
-+	"wCHASSIS3_LEAK_Q_N_R","",
-+	"wCHASSIS4_LEAK_Q_N_R","",
-+	"wCHASSIS5_LEAK_Q_N_R","",
-+	"wCHASSIS6_LEAK_Q_N_R","",
-+	"wCHASSIS7_LEAK_Q_N_R","",
-+	/*I0 - I7*/
-+	"wCHASSIS8_LEAK_Q_N_R","",
-+	"wCHASSIS9_LEAK_Q_N_R","",
-+	"wCHASSIS10_LEAK_Q_N_R","",
-+	"wCHASSIS11_LEAK_Q_N_R","",
-+	"wAALC_RPU_READY","",
-+	"","",
-+	"","",
-+	"","",
-+	/*J0 - J7*/
-+	"","",
-+	"","",
-+	"","",
-+	"","",
-+	"","",
-+	"","",
-+	"","",
-+	"","",
-+	/*K0 - K7*/
-+	"","",
-+	"","",
-+	"","",
-+	"","",
-+	"","",
-+	"","",
-+	"","",
-+	"","",
-+	/*L0 - L7*/
-+	"wIT_GEAR_RPU_2_LINK_PRSNT_SPARE_N_R","",
-+	"wIT_GEAR_RPU_2_LINK_PRSNT_N_R","",
-+	"wIT_GEAR_RPU_LINK_PRSNT_SPARE_N_R","",
-+	"wIT_GEAR_RPU_LINK_PRSNT_N_R","",
-+	"","",
-+	"","",
-+	"","",
-+	"","",
-+	/*M0 - M7*/
-+	"","",
-+	"","",
-+	"wPRSNT_SENSOR_N","",
-+	"wPRSNT3_VT2_PLD_N","",
-+	"wPRSNT2_VT2_PLD_N","",
-+	"wPRSNT1_VT2_PLD_N","",
-+	"wPRSNT3_RETURN_PLD_N","",
-+	"wPRSNT2_RETURN_PLD_N","",
-+	/*N0 - N7*/
-+	"wPRSNT1_RETURN_PLD_N","",
-+	"wPRSNT3_SUPPLY_PLD_N","",
-+	"wPRSNT2_SUPPLY_PLD_N","",
-+	"wPRSNT1_SUPPLY_PLD_N","",
-+	"wPRSNT_LEAK11_SENSOR_R_PLD_N","",
-+	"wPRSNT_LEAK10_SENSOR_R_PLD_N","",
-+	"wPRSNT_LEAK9_SENSOR_R_PLD_N","",
-+	"wPRSNT_LEAK8_SENSOR_R_PLD_N","",
-+	/*O0 - O7*/
-+	"wPRSNT_LEAK7_SENSOR_R_PLD_N","",
-+	"wPRSNT_LEAK6_SENSOR_R_PLD_N","",
-+	"wPRSNT_LEAK5_SENSOR_R_PLD_N","",
-+	"wPRSNT_LEAK4_SENSOR_R_PLD_N","",
-+	"wPRSNT_LEAK3_SENSOR_R_PLD_N","",
-+	"wPRSNT_LEAK2_SENSOR_R_PLD_N","",
-+	"wPRSNT_LEAK1_SENSOR_R_PLD_N","",
-+	"wPRSNT_LEAK0_SENSOR_R_PLD_N","",
-+	/*P0 - P7*/
-+	"","",
-+	"","",
-+	"","",
-+	"","",
-+	"","",
-+	"","",
-+	"","",
-+	"","";
-+};
-+
-+&wdt1 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_wdtrst1_default>;
-+	aspeed,reset-type = "soc";
-+	aspeed,external-signal;
-+	aspeed,ext-push-pull;
-+	aspeed,ext-active-high;
-+	aspeed,ext-pulse-duration = <256>;
-+};
-+
-+&i2c0 {
-+	status = "okay";
-+
-+	i2c-mux@77 {
-+		compatible = "nxp,pca9548";
-+		reg = <0x77>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		i2c-mux-idle-disconnect;
-+
-+		i2c0mux0ch0: i2c@0 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <0>;
-+			temp-sensor@4c {
-+				compatible = "adi,adt7461";
-+				reg = <0x4c>;
-+			};
-+		};
-+
-+		i2c0mux0ch1: i2c@1 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <1>;
-+			temp-sensor@4c {
-+				compatible = "adi,adt7461";
-+				reg = <0x4c>;
-+			};
-+		};
-+
-+		i2c0mux0ch2: i2c@2 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <2>;
-+			status = "okay";
-+		};
-+
-+		i2c0mux0ch3: i2c@3 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <3>;
-+			status = "okay";
-+		};
-+
-+		i2c0mux0ch4: i2c@4 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <4>;
-+			status = "okay";
-+		};
-+
-+		i2c0mux0ch5: i2c@5 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <5>;
-+			status = "okay";
-+
-+			eeprom@56 {
-+				compatible = "atmel,24c128";
-+				reg = <0x56>;
-+			};
-+		};
-+
-+		i2c0mux0ch6: i2c@6 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <6>;
-+
-+			eeprom@56 {
-+				compatible = "atmel,24c128";
-+				reg = <0x56>;
-+			};
-+
-+			fan_io_expander0: gpio@20 {
-+				compatible = "nxp,pca9555";
-+				reg = <0x20>;
-+				gpio-controller;
-+				#gpio-cells = <2>;
-+			};
-+
-+			fan_io_expander1: gpio@21 {
-+				compatible = "nxp,pca9555";
-+				reg = <0x21>;
-+				gpio-controller;
-+				#gpio-cells = <2>;
-+			};
-+
-+			adc@1d {
-+				compatible = "ti,adc128d818";
-+				reg = <0x1d>;
-+				ti,mode = /bits/ 8 <1>;
-+			};
-+
-+			adc@35 {
-+				compatible = "maxim,max11617";
-+				reg = <0x35>;
-+			};
-+		};
-+
-+		i2c0mux0ch7: i2c@7 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <7>;
-+
-+			fanctl0: fan-controller@20 {
-+				compatible = "maxim,max31790";
-+				reg = <0x20>;
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+			};
-+
-+			fanctl1: fan-controller@23 {
-+				compatible = "nuvoton,nct7363";
-+				reg = <0x23>;
-+				#pwm-cells = <2>;
-+
-+				fan-9 {
-+					pwms = <&fanctl1 0 20000>;
-+					tach-ch = /bits/ 8 <0x09>;
-+				};
-+
-+				fan-11 {
-+					pwms = <&fanctl1 0 20000>;
-+					tach-ch = /bits/ 8 <0x0B>;
-+				};
-+
-+				fan-10 {
-+					pwms = <&fanctl1 4 20000>;
-+					tach-ch = /bits/ 8 <0x0A>;
-+				};
-+
-+				fan-13 {
-+					pwms = <&fanctl1 4 20000>;
-+					tach-ch = /bits/ 8 <0x0D>;
-+				};
-+
-+				fan-15 {
-+					pwms = <&fanctl1 6 20000>;
-+					tach-ch = /bits/ 8 <0x0F>;
-+				};
-+
-+				fan-1 {
-+					pwms = <&fanctl1 6 20000>;
-+					tach-ch = /bits/ 8 <0x01>;
-+				};
-+
-+				fan-0 {
-+					pwms = <&fanctl1 10 20000>;
-+					tach-ch = /bits/ 8 <0x00>;
-+				};
-+
-+				fan-3 {
-+					pwms = <&fanctl1 10 20000>;
-+					tach-ch = /bits/ 8 <0x03>;
-+				};
-+			};
-+		};
-+	};
-+};
-+
-+&i2c1 {
-+	status = "okay";
-+
-+	i2c-mux@77 {
-+		compatible = "nxp,pca9548";
-+		reg = <0x77>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		i2c-mux-idle-disconnect;
-+
-+		i2c1mux0ch0: i2c@0 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <0>;
-+			status = "okay";
-+		};
-+
-+		i2c1mux0ch1: i2c@1 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <1>;
-+			status = "okay";
-+		};
-+
-+		i2c1mux0ch2: i2c@2 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <2>;
-+			status = "okay";
-+		};
-+
-+		i2c1mux0ch3: i2c@3 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <3>;
-+			status = "okay";
-+		};
-+
-+		i2c1mux0ch4: i2c@4 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <4>;
-+			status = "okay";
-+		};
-+
-+		i2c1mux0ch5: i2c@5 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <5>;
-+			status = "okay";
-+		};
-+
-+		i2c1mux0ch6: i2c@6 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <6>;
-+			status = "okay";
-+		};
-+
-+		i2c1mux0ch7: i2c@7 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <7>;
-+			status = "okay";
-+		};
-+	};
-+};
-+
-+&i2c2 {
-+	status = "okay";
-+	bus-frequency = <400000>;
-+};
-+
-+&i2c3 {
-+	status = "okay";
-+	bus-frequency = <400000>;
-+
-+	dac@c {
-+		reg = <0x0c>;
-+		compatible = "adi,ad5612";
-+		vcc-supply = <&p5v_dac_aux>;
-+	};
-+
-+	dac@e {
-+		reg = <0x0e>;
-+		compatible = "adi,ad5612";
-+		vcc-supply = <&p5v_dac_aux>;
-+	};
-+
-+	dac@f {
-+		reg = <0x0f>;
-+		compatible = "adi,ad5612";
-+		vcc-supply = <&p5v_dac_aux>;
-+	};
-+
-+	prsnt_io_expander0: gpio@30 {
-+		compatible = "nxp,pca9698";
-+		reg = <0x30>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <48 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	prsnt_io_expander1: gpio@31 {
-+		compatible = "nxp,pca9698";
-+		reg = <0x31>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <56 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	prsnt_io_expander2: gpio@32 {
-+		compatible = "nxp,pca9698";
-+		reg = <0x32>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <64 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	prsnt_io_expander3: gpio@33 {
-+		compatible = "nxp,pca9698";
-+		reg = <0x33>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <72 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	prsnt_io_expander4: gpio@34 {
-+		compatible = "nxp,pca9698";
-+		reg = <0x34>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <80 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	prsnt_io_expander5: gpio@35 {
-+		compatible = "nxp,pca9698";
-+		reg = <0x35>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <88 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	prsnt_io_expander6: gpio@36 {
-+		compatible = "nxp,pca9698";
-+		reg = <0x36>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <96 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	prsnt_io_expander7: gpio@37 {
-+		compatible = "nxp,pca9698";
-+		reg = <0x37>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <104 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	pwrgd_io_expander0: gpio@38 {
-+		compatible = "nxp,pca9698";
-+		reg = <0x38>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <50 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	pwrgd_io_expander1: gpio@39 {
-+		compatible = "nxp,pca9698";
-+		reg = <0x39>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <58 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	pwrgd_io_expander2: gpio@3a {
-+		compatible = "nxp,pca9698";
-+		reg = <0x3a>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <66 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	pwrgd_io_expander3: gpio@3b {
-+		compatible = "nxp,pca9698";
-+		reg = <0x3b>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <74 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	pwrgd_io_expander4: gpio@3c {
-+		compatible = "nxp,pca9698";
-+		reg = <0x3c>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <82 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	pwrgd_io_expander5: gpio@3d {
-+		compatible = "nxp,pca9698";
-+		reg = <0x3d>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <90 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	pwrgd_io_expander6: gpio@3e {
-+		compatible = "nxp,pca9698";
-+		reg = <0x3e>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <98 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	pwrgd_io_expander7: gpio@3f {
-+		compatible = "nxp,pca9698";
-+		reg = <0x3f>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <106 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	large_leak_io_expander0: gpio@40 {
-+		compatible = "nxp,pca9698";
-+		reg = <0x40>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <54 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	large_leak_io_expander1: gpio@41 {
-+		compatible = "nxp,pca9698";
-+		reg = <0x41>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <62 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	large_leak_io_expander2: gpio@42 {
-+		compatible = "nxp,pca9698";
-+		reg = <0x42>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <70 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	large_leak_io_expander3: gpio@43 {
-+		compatible = "nxp,pca9698";
-+		reg = <0x43>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <78 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	large_leak_io_expander4: gpio@44 {
-+		compatible = "nxp,pca9698";
-+		reg = <0x44>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <86 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	large_leak_io_expander5: gpio@45 {
-+		compatible = "nxp,pca9698";
-+		reg = <0x45>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <94 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	large_leak_io_expander6: gpio@46 {
-+		compatible = "nxp,pca9698";
-+		reg = <0x46>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <102 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	large_leak_io_expander7: gpio@47 {
-+		compatible = "nxp,pca9698";
-+		reg = <0x47>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <110 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	small_leak_io_expander0: gpio@48 {
-+		compatible = "nxp,pca9698";
-+		reg = <0x48>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <52 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	small_leak_io_expander1: gpio@49 {
-+		compatible = "nxp,pca9698";
-+		reg = <0x49>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <60 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	small_leak_io_expander2: gpio@4a {
-+		compatible = "nxp,pca9698";
-+		reg = <0x4a>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <68 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	small_leak_io_expander3: gpio@4b {
-+		compatible = "nxp,pca9698";
-+		reg = <0x4b>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <76 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	small_leak_io_expander4: gpio@4c {
-+		compatible = "nxp,pca9698";
-+		reg = <0x4c>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <84 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	small_leak_io_expander5: gpio@4d {
-+		compatible = "nxp,pca9698";
-+		reg = <0x4d>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <92 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	small_leak_io_expander6: gpio@4e {
-+		compatible = "nxp,pca9698";
-+		reg = <0x4e>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <100 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	small_leak_io_expander7: gpio@4f {
-+		compatible = "nxp,pca9698";
-+		reg = <0x4f>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <108 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	io_expander6: gpio@23 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x23>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+	};
-+};
-+
-+&i2c4 {
-+	status = "okay";
-+
-+	i2c-mux@77 {
-+		compatible = "nxp,pca9548";
-+		reg = <0x77>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		i2c-mux-idle-disconnect;
-+
-+		i2c4mux0ch0: i2c@0 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <0>;
-+
-+			io_expander3: gpio@23 {
-+				compatible = "nxp,pca9555";
-+				reg = <0x23>;
-+				gpio-controller;
-+				#gpio-cells = <2>;
-+			};
-+		};
-+
-+		i2c4mux0ch1: i2c@1 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <1>;
-+
-+			temp-sensor@48 {
-+				compatible = "ti,tmp75";
-+				reg = <0x48>;
-+			};
-+
-+			temp-sensor@4a {
-+				compatible = "ti,tmp75";
-+				reg = <0x4a>;
-+			};
-+
-+			eeprom@56 {
-+				compatible = "atmel,24c128";
-+				reg = <0x56>;
-+			};
-+
-+			power-monitor@76 {
-+				compatible = "infineon,xdpe15284";
-+				reg = <0x76>;
-+			};
-+		};
-+
-+		i2c4mux0ch2: i2c@2 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <2>;
-+			status = "okay";
-+		};
-+
-+		i2c4mux0ch3: i2c@3 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <3>;
-+			status = "okay";
-+		};
-+
-+		i2c4mux0ch4: i2c@4 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <4>;
-+			status = "okay";
-+		};
-+
-+		i2c4mux0ch5: i2c@5 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <5>;
-+			status = "okay";
-+		};
-+
-+		i2c4mux0ch6: i2c@6 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <6>;
-+			status = "okay";
-+		};
-+
-+		i2c4mux0ch7: i2c@7 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <7>;
-+			status = "okay";
-+		};
-+	};
-+};
-+
-+&i2c5 {
-+	status = "okay";
-+
-+	io_expander4: gpio@22 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x22>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+	};
-+
-+	io_expander5: gpio@23 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x23>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+	};
-+
-+	temp-sensor@4f {
-+		compatible = "ti,tmp75";
-+		reg = <0x4f>;
-+	};
-+
-+	eeprom@54 {
-+		compatible = "atmel,24c128";
-+		reg = <0x54>;
-+	};
-+
-+	i2c-mux@77 {
-+		compatible = "nxp,pca9548";
-+		reg = <0x77>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		i2c-mux-idle-disconnect;
-+
-+		i2c5mux0ch0: i2c@0 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <0>;
-+		};
-+
-+		i2c5mux0ch1: i2c@1 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <1>;
-+		};
-+
-+		i2c5mux0ch2: i2c@2 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <2>;
-+
-+			eeprom@56 {
-+				compatible = "atmel,24c128";
-+				reg = <0x56>;
-+			};
-+		};
-+
-+		i2c5mux0ch3: i2c@3 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <3>;
-+
-+			eeprom@56 {
-+				compatible = "atmel,24c128";
-+				reg = <0x56>;
-+			};
-+		};
-+
-+		i2c5mux0ch4: i2c@4 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <4>;
-+
-+			eeprom@56 {
-+				compatible = "atmel,24c128";
-+				reg = <0x56>;
-+			};
-+		};
-+
-+		i2c5mux0ch5: i2c@5 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <5>;
-+
-+			eeprom@56 {
-+				compatible = "atmel,24c128";
-+				reg = <0x56>;
-+			};
-+		};
-+
-+		i2c5mux0ch6: i2c@6 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <6>;
-+
-+			eeprom@56 {
-+				compatible = "atmel,24c128";
-+				reg = <0x56>;
-+			};
-+		};
-+
-+		i2c5mux0ch7: i2c@7 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <7>;
-+
-+			eeprom@56 {
-+				compatible = "atmel,24c128";
-+				reg = <0x56>;
-+			};
-+		};
-+	};
-+};
-+
-+&i2c6 {
-+	status = "okay";
-+
-+	eeprom@50 {
-+		compatible = "atmel,24c64";
-+		reg = <0x50>;
-+	};
-+
-+	io_expander0: gpio@20 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x20>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+	};
-+
-+	io_expander1: gpio@21 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x21>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+	};
-+
-+	io_expander2: gpio@22 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x22>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+	};
-+
-+	io_expander7: gpio@23 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x23>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+	};
-+
-+	rtc@51 {
-+		compatible = "nxp,pcf8563";
-+		reg = <0x51>;
-+	};
-+};
-+
-+&i2c7 {
-+	status = "okay";
-+	bus-frequency = <100000>;
-+	multi-master;
-+	aspeed,hw-timeout-ms = <1000>;
-+
-+	ipmb@10 {
-+		compatible = "ipmb-dev";
-+		reg = <(0x10 | I2C_OWN_SLAVE_ADDRESS)>;
-+		i2c-protocol;
-+	};
-+};
-+
-+&i2c8 {
-+	status = "okay";
-+
-+	i2c-mux@77 {
-+		compatible = "nxp,pca9548";
-+		reg = <0x77>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		i2c-mux-idle-disconnect;
-+
-+		i2c8mux0ch0: i2c@0 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <0>;
-+			status = "okay";
-+		};
-+
-+		i2c8mux0ch1: i2c@1 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <1>;
-+			status = "okay";
-+		};
-+
-+		i2c8mux0ch2: i2c@2 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <2>;
-+			status = "okay";
-+		};
-+
-+		i2c8mux0ch3: i2c@3 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <3>;
-+			status = "okay";
-+		};
-+
-+		i2c8mux0ch4: i2c@4 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <4>;
-+			status = "okay";
-+		};
-+
-+		i2c8mux0ch5: i2c@5 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <5>;
-+			status = "okay";
-+		};
-+
-+		i2c8mux0ch6: i2c@6 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <6>;
-+			status = "okay";
-+		};
-+
-+		i2c8mux0ch7: i2c@7 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <7>;
-+			status = "okay";
-+		};
-+	};
-+};
-+
-+&i2c9 {
-+	status = "okay";
-+
-+	temperature-sensor@4b {
-+		compatible = "ti,tmp75";
-+		reg = <0x4b>;
-+	};
-+
-+	eeprom@50 {
-+		compatible = "atmel,24c128";
-+		reg = <0x50>;
-+	};
-+
-+	eeprom@51 {
-+		compatible = "atmel,24c128";
-+		reg = <0x51>;
-+	};
-+
-+	eeprom@56 {
-+		compatible = "atmel,24c64";
-+		reg = <0x56>;
-+	};
-+};
-+
-+&i2c10 {
-+	status = "okay";
-+
-+	power-sensor@41 {
-+		compatible = "ti,ina238";
-+		reg = <0x41>;
-+		shunt-resistor = <20000>;
-+	};
-+
-+	power-sensor@42 {
-+		compatible = "ti,ina238";
-+		reg = <0x42>;
-+		shunt-resistor = <1000>;
-+	};
-+
-+	power-sensor@43 {
-+		compatible = "ti,ina238";
-+		reg = <0x43>;
-+		shunt-resistor = <20000>;
-+	};
-+
-+	power-sensor@46 {
-+		compatible = "ti,ina238";
-+		reg = <0x46>;
-+		shunt-resistor = <1000>;
-+	};
-+
-+	adc@35 {
-+		compatible = "maxim,max11617";
-+		reg = <0x35>;
-+	};
-+
-+	power-monitor@14 {
-+		compatible = "infineon,xdp710";
-+		reg = <0x14>;
-+	};
-+
-+	power-monitor@44 {
-+		compatible = "lltc,ltc4287";
-+		reg = <0x44>;
-+	};
-+
-+	power-monitor@40 {
-+		compatible = "ti,ina230";
-+		reg = <0x40>;
-+		shunt-resistor = <1000>;
-+	};
-+
-+	power-monitor@45 {
-+		compatible = "ti,ina230";
-+		reg = <0x45>;
-+		shunt-resistor = <1000>;
-+	};
-+
-+	adc@48 {
-+		compatible = "ti,ads1015";
-+		reg = <0x48>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+	};
-+
-+	power-monitor@69 {
-+		compatible = "pmbus";
-+		reg = <0x69>;
-+	};
-+
-+	temp-sensor@4d {
-+		compatible = "ti,tmp75";
-+		reg = <0x4d>;
-+	};
-+
-+	temp-sensor@4c {
-+		compatible = "ti,tmp75";
-+		reg = <0x4c>;
-+	};
-+
-+	temp-sensor@4e {
-+		compatible = "ti,tmp75";
-+		reg = <0x4e>;
-+	};
-+
-+	legacy_prsnt_io_expander0: gpio@11 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x11>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <40 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	legacy_prsnt_io_expander1: gpio@12 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x12>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <40 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	legacy_prsnt_io_expander2: gpio@13 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x13>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <40 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	legacy_pwrgd_io_expander0: gpio@28 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x28>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <42 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	legacy_pwrgd_io_expander1: gpio@15 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x15>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <42 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	legacy_pwrgd_io_expander2: gpio@16 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x16>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <42 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	legacy_leak_io_expander0: gpio@17 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x17>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <46 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	legacy_leak_io_expander1: gpio@18 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x18>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <46 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	legacy_leak_io_expander2: gpio@19 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x19>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <46 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	legacy_small_leak_io_expander0: gpio@1a {
-+		compatible = "nxp,pca9555";
-+		reg = <0x1a>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <44 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	legacy_small_leak_io_expander1: gpio@1b {
-+		compatible = "nxp,pca9555";
-+		reg = <0x1b>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <44 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	legacy_small_leak_io_expander2: gpio@1c {
-+		compatible = "nxp,pca9555";
-+		reg = <0x1c>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		interrupt-parent = <&sgpiom0>;
-+		interrupts = <44 IRQ_TYPE_LEVEL_LOW>;
-+	};
-+
-+	sku_info_io_expander: gpio@61 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x61>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+	};
-+
-+	fpga_io_expander64: gpio@64 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x64>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+	};
-+
-+	fpga_io_expander65: gpio@65 {
-+		compatible = "nxp,pca9555";
-+		reg = <0x65>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+	};
-+};
-+
-+&i2c11 {
-+	status = "okay";
-+
-+	i2c-mux@77 {
-+		compatible = "nxp,pca9548";
-+		reg = <0x77>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		i2c-mux-idle-disconnect;
-+
-+		i2c11mux0ch0: i2c@0 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <0>;
-+			status = "okay";
-+		};
-+
-+		i2c11mux0ch1: i2c@1 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <1>;
-+			status = "okay";
-+		};
-+
-+		i2c11mux0ch2: i2c@2 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <2>;
-+			status = "okay";
-+		};
-+
-+		i2c11mux0ch3: i2c@3 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <3>;
-+			status = "okay";
-+		};
-+
-+		i2c11mux0ch4: i2c@4 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <4>;
-+			status = "okay";
-+		};
-+
-+		i2c11mux0ch5: i2c@5 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <5>;
-+			status = "okay";
-+		};
-+
-+		i2c11mux0ch6: i2c@6 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <6>;
-+			status = "okay";
-+		};
-+
-+		i2c11mux0ch7: i2c@7 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <7>;
-+			status = "okay";
-+		};
-+	};
-+};
-+
-+&i2c12 {
-+	status = "okay";
-+	bus-frequency = <400000>;
-+};
-+
-+&i2c13 {
-+	status = "okay";
-+
-+	i2c-mux@77 {
-+		compatible = "nxp,pca9548";
-+		reg = <0x77>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		i2c-mux-idle-disconnect;
-+
-+		i2c13mux0ch0: i2c@0 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <0>;
-+			status = "okay";
-+		};
-+
-+		i2c13mux0ch1: i2c@1 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <1>;
-+			status = "okay";
-+		};
-+
-+		i2c13mux0ch2: i2c@2 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <2>;
-+			status = "okay";
-+		};
-+
-+		i2c13mux0ch3: i2c@3 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <3>;
-+			status = "okay";
-+		};
-+
-+		i2c13mux0ch4: i2c@4 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <4>;
-+			status = "okay";
-+		};
-+
-+		i2c13mux0ch5: i2c@5 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <5>;
-+			status = "okay";
-+		};
-+
-+		i2c13mux0ch6: i2c@6 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <6>;
-+			status = "okay";
-+		};
-+
-+		i2c13mux0ch7: i2c@7 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <7>;
-+			status = "okay";
-+		};
-+	};
-+};
-+
-+&i2c14 {
-+	status = "okay";
-+};
-+
-+&i2c15 {
-+	status = "okay";
-+
-+	i2c-mux@77 {
-+		compatible = "nxp,pca9548";
-+		reg = <0x77>;
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		i2c-mux-idle-disconnect;
-+
-+		i2c15mux0ch0: i2c@0 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <0>;
-+			status = "okay";
-+		};
-+
-+		i2c15mux0ch1: i2c@1 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <1>;
-+			status = "okay";
-+		};
-+
-+		i2c15mux0ch2: i2c@2 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <2>;
-+			status = "okay";
-+		};
-+
-+		i2c15mux0ch3: i2c@3 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <3>;
-+			status = "okay";
-+		};
-+
-+		i2c15mux0ch4: i2c@4 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <4>;
-+			status = "okay";
-+		};
-+
-+		i2c15mux0ch5: i2c@5 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <5>;
-+			status = "okay";
-+		};
-+
-+		i2c15mux0ch6: i2c@6 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <6>;
-+			status = "okay";
-+		};
-+
-+		i2c15mux0ch7: i2c@7 {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			reg = <7>;
-+			status = "okay";
-+		};
-+	};
-+};
-+
-+&spi2 {
-+	status = "okay";
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_spi2_default>;
-+
-+	flash@0 {
-+		status = "okay";
-+		m25p,fast-read;
-+		label = "pnor";
-+		spi-max-frequency = <12000000>;
-+		spi-tx-bus-width = <2>;
-+		spi-rx-bus-width = <2>;
-+	};
-+};
-+
-+&io_expander0 {
-+	gpio-line-names =
-+	"RST_POE_BMC_N", "POE_DISABLE_BMC_N_R",
-+	"RST_FT4232_1_BMC_N_R", "RST_FT4232_2_BMC_N_R",
-+	"RST_FT4232_3_BMC_N_R", "PRSNT_FANBP_0_PWR_N",
-+	"PRSNT_FANBP_0_SIG_N", "PRSNT_POE_PWR_N",
-+	"PRSNT_POE_SIG_N", "IRQ_POE_BMC_N_R",
-+	"PWRGD_P3V3_ISO_POE_BMC_R", "88E6393X_INT_N_R",
-+	"P48V_HSC_ALERT_N", "SMB_TMC75_TEMP_ALERT_N_R",
-+	"DEV_DIS_N", "PCI_DIS_N";
-+};
-+
-+&io_expander1 {
-+	gpio-line-names =
-+	"PWRGD_CPU_LVC3_BMC", "R_FM_BIOS_POST_CMPLT_BMC",
-+	"RSVD_GPIO_BMC_B16_R", "",
-+	"R_FM_CPU_ERR1_LVT3_L", "R_FM_CPU_ERR2_LVT3_L",
-+	"", "ISO_FM_BMC_ONCTL_L",
-+	"R_COME_THERM_L", "BMC_RST_BTN_N",
-+	"", "PCIE_SSD1_PRSNT_N",
-+	"", "wTRAY_PWRGD23_N_BUF_R",
-+	"wTRAY_PWRGD24_N_BUF_R", "wTRAY_PWRGD29_N_BUF_R";
-+};
-+
-+&io_expander2 {
-+	gpio-line-names =
-+	"BOARD_ID_0", "BOARD_ID_1",
-+	"BOARD_ID_2", "BOARD_ID_3",
-+	"SKU_ID_3", "SKU_ID_2",
-+	"SKU_ID_1", "SKU_ID_0",
-+	"FT4232_1_SUSPEND_BMC_N", "FT4232_1_PWREN_BMC_N",
-+	"FT4232_2_SUSPEND_BMC_N", "FT4232_2_PWREN_BMC_N",
-+	"FT4232_3_SUSPEND_BMC_N", "FT4232_3_PWREN_BMC_N",
-+	"P12V_AUX_SMBALERT_R", "P52V_SENSE_ALERT";
-+};
-+
-+&io_expander3 {
-+	gpio-line-names =
-+	"RSVD_GPIO_BMC_A12_R", "RSVD_GPIO_BMC_E14_R",
-+	"", "RST_I2CRST_MUX1_N",
-+	"RST_I2CRST_MUX2_N", "RST_I2CRST_MUX3_N",
-+	"RST_I2CRST_MUX4_N", "RST_I2CRST_MUX5_N",
-+	"RST_I2CRST_MUX6_N", "RST_I2CRST_MUX7_N",
-+	"RST_I2CRST_MUX8_N", "P24V_EFUSE9_FAULT",
-+	"wTRAY_PWRGD30_N_BUF_R", "wTRAY_PWRGD31_N_BUF_R",
-+	"wTRAY_PWRGD32_N_BUF_R", "wTRAY_PWRGD37_N_BUF_R";
-+};
-+
-+&io_expander4 {
-+	gpio-line-names =
-+	"R_COME_THERMTRIP_L", "R_PWRGD_PCH_PWROK",
-+	"PWRGD_P3V3_STBY_D2", "R_H_MEMHOT_OUT_FET_L",
-+	"", "R_FM_SOC_BMC_RST_L",
-+	"", "R_FM_PCHHOT_L",
-+	"R_FM_CPU_ERR0_LVT3_L", "FM_CPU_DIMM_EVENT_COD_BUF",
-+	"R_ISO_FM_USB_OC0_L", "BIOS_DEBUG_MSG_DIS_L",
-+	"R_IRQ_BMC_PCH_SMI_N", "wTRAY_PWRGD38_N_BUF_R",
-+	"wTRAY_PWRGD39_N_BUF_R", "wTRAY_PWRGD40_N_BUF_R";
-+};
-+
-+&io_expander5 {
-+	gpio-line-names =
-+	"PWRGD_P5V_AUX_R2", "",
-+	"PWRGD_P1V5_AUX_R", "PWRGD_P1V05_AUX_R",
-+	"PWRGD_P52V_HSC_PWROK_R", "PWRGD_P24V_AUX_2_R",
-+	"PWRGD_P24V_AUX_R", "PWRGD_P12V_AUX_R2",
-+	"PWRGD_P12V_SCM_R", "P24V_AUX_INA230_ALERT_N_R",
-+	"P24V_AUX_2_INA230_ALERT_N_R", "PRSNT_CAN1_MCIO_N",
-+	"PRSNT_CAN2_MCIO_N", "PRSNT_AALC_MCIO_N",
-+	"PRSNT_RACKMON_MCIO_N", "PRSNT_RIO_RACKMON_N";
-+};
-+
-+&io_expander6 {
-+	gpio-line-names =
-+	"P24V_EFUSE1_FAULT", "P24V_EFUSE2_FAULT",
-+	"P24V_EFUSE3_FAULT", "P24V_EFUSE4_FAULT",
-+	"P24V_EFUSE5_FAULT", "P24V_EFUSE6_FAULT",
-+	"TEMP1_ALERT_N_R", "TEMP2_ALERT_N_R",
-+	"RST_FT2232_N", "PRSNT_COME_N",
-+	"FM_COME_BMC_RM_DEBUG_EN", "SMB_TMC75_TEMP2_ALERT_N_R",
-+	"SMB_TMC75_TEMP3_ALERT_N_R", "SMB_TMC75_TEMP4_ALERT_N_R",
-+	"P24V_EFUSE7_FAULT", "P24V_EFUSE8_FAULT";
-+};
-+
-+&io_expander7 {
-+	gpio-line-names =
-+	"IOEXP1_INT_N", "IOEXP2_INT_N",
-+	"IOEXP3_INT_N", "IOEXP4_INT_N",
-+	"IOEXP5_INT_N", "IOEXP6_INT_N",
-+	"IOEXP7_INT_N", "",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&prsnt_io_expander0 {
-+	gpio-line-names =
-+	"CAN1_TRAY1_PRSNT", "CAN1_TRAY2_PRSNT",
-+	"CAN1_TRAY3_PRSNT", "CAN1_TRAY4_PRSNT",
-+	"CAN1_TRAY5_PRSNT", "CAN1_TRAY6_PRSNT",
-+	"CAN1_TRAY7_PRSNT", "CAN1_TRAY8_PRSNT",
-+	"CAN1_TRAY9_PRSNT", "CAN1_TRAY10_PRSNT",
-+	"CAN1_TRAY11_PRSNT", "CAN1_TRAY12_PRSNT",
-+	"CAN1_TRAY13_PRSNT", "CAN1_TRAY14_PRSNT",
-+	"CAN1_TRAY15_PRSNT", "CAN1_TRAY16_PRSNT",
-+	"CAN1_TRAY17_PRSNT", "CAN1_TRAY18_PRSNT",
-+	"CAN1_TRAY19_PRSNT", "CAN1_TRAY20_PRSNT",
-+	"CAN1_TRAY21_PRSNT", "CAN1_TRAY22_PRSNT",
-+	"CAN1_TRAY23_PRSNT", "CAN1_TRAY24_PRSNT",
-+	"CAN1_TRAY25_PRSNT", "CAN1_TRAY26_PRSNT",
-+	"CAN1_TRAY27_PRSNT", "CAN1_TRAY28_PRSNT",
-+	"CAN1_TRAY29_PRSNT", "CAN1_TRAY30_PRSNT",
-+	"CAN1_TRAY31_PRSNT", "CAN1_TRAY32_PRSNT",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&prsnt_io_expander1 {
-+	gpio-line-names =
-+	"CAN2_TRAY1_PRSNT", "CAN2_TRAY2_PRSNT",
-+	"CAN2_TRAY3_PRSNT", "CAN2_TRAY4_PRSNT",
-+	"CAN2_TRAY5_PRSNT", "CAN2_TRAY6_PRSNT",
-+	"CAN2_TRAY7_PRSNT", "CAN2_TRAY8_PRSNT",
-+	"CAN2_TRAY9_PRSNT", "CAN2_TRAY10_PRSNT",
-+	"CAN2_TRAY11_PRSNT", "CAN2_TRAY12_PRSNT",
-+	"CAN2_TRAY13_PRSNT", "CAN2_TRAY14_PRSNT",
-+	"CAN2_TRAY15_PRSNT", "CAN2_TRAY16_PRSNT",
-+	"CAN2_TRAY17_PRSNT", "CAN2_TRAY18_PRSNT",
-+	"CAN2_TRAY19_PRSNT", "CAN2_TRAY20_PRSNT",
-+	"CAN2_TRAY21_PRSNT", "CAN2_TRAY22_PRSNT",
-+	"CAN2_TRAY23_PRSNT", "CAN2_TRAY24_PRSNT",
-+	"CAN2_TRAY25_PRSNT", "CAN2_TRAY26_PRSNT",
-+	"CAN2_TRAY27_PRSNT", "CAN2_TRAY28_PRSNT",
-+	"CAN2_TRAY29_PRSNT", "CAN2_TRAY30_PRSNT",
-+	"CAN2_TRAY31_PRSNT", "CAN2_TRAY32_PRSNT",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&prsnt_io_expander2 {
-+	gpio-line-names =
-+	"CAN3_TRAY1_PRSNT", "CAN3_TRAY2_PRSNT",
-+	"CAN3_TRAY3_PRSNT", "CAN3_TRAY4_PRSNT",
-+	"CAN3_TRAY5_PRSNT", "CAN3_TRAY6_PRSNT",
-+	"CAN3_TRAY7_PRSNT", "CAN3_TRAY8_PRSNT",
-+	"CAN3_TRAY9_PRSNT", "CAN3_TRAY10_PRSNT",
-+	"CAN3_TRAY11_PRSNT", "CAN3_TRAY12_PRSNT",
-+	"CAN3_TRAY13_PRSNT", "CAN3_TRAY14_PRSNT",
-+	"CAN3_TRAY15_PRSNT", "CAN3_TRAY16_PRSNT",
-+	"CAN3_TRAY17_PRSNT", "CAN3_TRAY18_PRSNT",
-+	"CAN3_TRAY19_PRSNT", "CAN3_TRAY20_PRSNT",
-+	"CAN3_TRAY21_PRSNT", "CAN3_TRAY22_PRSNT",
-+	"CAN3_TRAY23_PRSNT", "CAN3_TRAY24_PRSNT",
-+	"CAN3_TRAY25_PRSNT", "CAN3_TRAY26_PRSNT",
-+	"CAN3_TRAY27_PRSNT", "CAN3_TRAY28_PRSNT",
-+	"CAN3_TRAY29_PRSNT", "CAN3_TRAY30_PRSNT",
-+	"CAN3_TRAY31_PRSNT", "CAN3_TRAY32_PRSNT",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&prsnt_io_expander3 {
-+	gpio-line-names =
-+	"CAN4_TRAY1_PRSNT", "CAN4_TRAY2_PRSNT",
-+	"CAN4_TRAY3_PRSNT", "CAN4_TRAY4_PRSNT",
-+	"CAN4_TRAY5_PRSNT", "CAN4_TRAY6_PRSNT",
-+	"CAN4_TRAY7_PRSNT", "CAN4_TRAY8_PRSNT",
-+	"CAN4_TRAY9_PRSNT", "CAN4_TRAY10_PRSNT",
-+	"CAN4_TRAY11_PRSNT", "CAN4_TRAY12_PRSNT",
-+	"CAN4_TRAY13_PRSNT", "CAN4_TRAY14_PRSNT",
-+	"CAN4_TRAY15_PRSNT", "CAN4_TRAY16_PRSNT",
-+	"CAN4_TRAY17_PRSNT", "CAN4_TRAY18_PRSNT",
-+	"CAN4_TRAY19_PRSNT", "CAN4_TRAY20_PRSNT",
-+	"CAN4_TRAY21_PRSNT", "CAN4_TRAY22_PRSNT",
-+	"CAN4_TRAY23_PRSNT", "CAN4_TRAY24_PRSNT",
-+	"CAN4_TRAY25_PRSNT", "CAN4_TRAY26_PRSNT",
-+	"CAN4_TRAY27_PRSNT", "CAN4_TRAY28_PRSNT",
-+	"CAN4_TRAY29_PRSNT", "CAN4_TRAY30_PRSNT",
-+	"CAN4_TRAY31_PRSNT", "CAN4_TRAY32_PRSNT",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&prsnt_io_expander4 {
-+	gpio-line-names =
-+	"CAN5_TRAY1_PRSNT", "CAN5_TRAY2_PRSNT",
-+	"CAN5_TRAY3_PRSNT", "CAN5_TRAY4_PRSNT",
-+	"CAN5_TRAY5_PRSNT", "CAN5_TRAY6_PRSNT",
-+	"CAN5_TRAY7_PRSNT", "CAN5_TRAY8_PRSNT",
-+	"CAN5_TRAY9_PRSNT", "CAN5_TRAY10_PRSNT",
-+	"CAN5_TRAY11_PRSNT", "CAN5_TRAY12_PRSNT",
-+	"CAN5_TRAY13_PRSNT", "CAN5_TRAY14_PRSNT",
-+	"CAN5_TRAY15_PRSNT", "CAN5_TRAY16_PRSNT",
-+	"CAN5_TRAY17_PRSNT", "CAN5_TRAY18_PRSNT",
-+	"CAN5_TRAY19_PRSNT", "CAN5_TRAY20_PRSNT",
-+	"CAN5_TRAY21_PRSNT", "CAN5_TRAY22_PRSNT",
-+	"CAN5_TRAY23_PRSNT", "CAN5_TRAY24_PRSNT",
-+	"CAN5_TRAY25_PRSNT", "CAN5_TRAY26_PRSNT",
-+	"CAN5_TRAY27_PRSNT", "CAN5_TRAY28_PRSNT",
-+	"CAN5_TRAY29_PRSNT", "CAN5_TRAY30_PRSNT",
-+	"CAN5_TRAY31_PRSNT", "CAN5_TRAY32_PRSNT",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&prsnt_io_expander5 {
-+	gpio-line-names =
-+	"CAN6_TRAY1_PRSNT", "CAN6_TRAY2_PRSNT",
-+	"CAN6_TRAY3_PRSNT", "CAN6_TRAY4_PRSNT",
-+	"CAN6_TRAY5_PRSNT", "CAN6_TRAY6_PRSNT",
-+	"CAN6_TRAY7_PRSNT", "CAN6_TRAY8_PRSNT",
-+	"CAN6_TRAY9_PRSNT", "CAN6_TRAY10_PRSNT",
-+	"CAN6_TRAY11_PRSNT", "CAN6_TRAY12_PRSNT",
-+	"CAN6_TRAY13_PRSNT", "CAN6_TRAY14_PRSNT",
-+	"CAN6_TRAY15_PRSNT", "CAN6_TRAY16_PRSNT",
-+	"CAN6_TRAY17_PRSNT", "CAN6_TRAY18_PRSNT",
-+	"CAN6_TRAY19_PRSNT", "CAN6_TRAY20_PRSNT",
-+	"CAN6_TRAY21_PRSNT", "CAN6_TRAY22_PRSNT",
-+	"CAN6_TRAY23_PRSNT", "CAN6_TRAY24_PRSNT",
-+	"CAN6_TRAY25_PRSNT", "CAN6_TRAY26_PRSNT",
-+	"CAN6_TRAY27_PRSNT", "CAN6_TRAY28_PRSNT",
-+	"CAN6_TRAY29_PRSNT", "CAN6_TRAY30_PRSNT",
-+	"CAN6_TRAY31_PRSNT", "CAN6_TRAY32_PRSNT",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&prsnt_io_expander6 {
-+	gpio-line-names =
-+	"CAN7_TRAY1_PRSNT", "CAN7_TRAY2_PRSNT",
-+	"CAN7_TRAY3_PRSNT", "CAN7_TRAY4_PRSNT",
-+	"CAN7_TRAY5_PRSNT", "CAN7_TRAY6_PRSNT",
-+	"CAN7_TRAY7_PRSNT", "CAN7_TRAY8_PRSNT",
-+	"CAN7_TRAY9_PRSNT", "CAN7_TRAY10_PRSNT",
-+	"CAN7_TRAY11_PRSNT", "CAN7_TRAY12_PRSNT",
-+	"CAN7_TRAY13_PRSNT", "CAN7_TRAY14_PRSNT",
-+	"CAN7_TRAY15_PRSNT", "CAN7_TRAY16_PRSNT",
-+	"CAN7_TRAY17_PRSNT", "CAN7_TRAY18_PRSNT",
-+	"CAN7_TRAY19_PRSNT", "CAN7_TRAY20_PRSNT",
-+	"CAN7_TRAY21_PRSNT", "CAN7_TRAY22_PRSNT",
-+	"CAN7_TRAY23_PRSNT", "CAN7_TRAY24_PRSNT",
-+	"CAN7_TRAY25_PRSNT", "CAN7_TRAY26_PRSNT",
-+	"CAN7_TRAY27_PRSNT", "CAN7_TRAY28_PRSNT",
-+	"CAN7_TRAY29_PRSNT", "CAN7_TRAY30_PRSNT",
-+	"CAN7_TRAY31_PRSNT", "CAN7_TRAY32_PRSNT",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&prsnt_io_expander7 {
-+	gpio-line-names =
-+	"CAN8_TRAY1_PRSNT", "CAN8_TRAY2_PRSNT",
-+	"CAN8_TRAY3_PRSNT", "CAN8_TRAY4_PRSNT",
-+	"CAN8_TRAY5_PRSNT", "CAN8_TRAY6_PRSNT",
-+	"CAN8_TRAY7_PRSNT", "CAN8_TRAY8_PRSNT",
-+	"CAN8_TRAY9_PRSNT", "CAN8_TRAY10_PRSNT",
-+	"CAN8_TRAY11_PRSNT", "CAN8_TRAY12_PRSNT",
-+	"CAN8_TRAY13_PRSNT", "CAN8_TRAY14_PRSNT",
-+	"CAN8_TRAY15_PRSNT", "CAN8_TRAY16_PRSNT",
-+	"CAN8_TRAY17_PRSNT", "CAN8_TRAY18_PRSNT",
-+	"CAN8_TRAY19_PRSNT", "CAN8_TRAY20_PRSNT",
-+	"CAN8_TRAY21_PRSNT", "CAN8_TRAY22_PRSNT",
-+	"CAN8_TRAY23_PRSNT", "CAN8_TRAY24_PRSNT",
-+	"CAN8_TRAY25_PRSNT", "CAN8_TRAY26_PRSNT",
-+	"CAN8_TRAY27_PRSNT", "CAN8_TRAY28_PRSNT",
-+	"CAN8_TRAY29_PRSNT", "CAN8_TRAY30_PRSNT",
-+	"CAN8_TRAY31_PRSNT", "CAN8_TRAY32_PRSNT",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&pwrgd_io_expander0 {
-+	gpio-line-names =
-+	"CAN1_TRAY1_PWRGD", "CAN1_TRAY2_PWRGD",
-+	"CAN1_TRAY3_PWRGD", "CAN1_TRAY4_PWRGD",
-+	"CAN1_TRAY5_PWRGD", "CAN1_TRAY6_PWRGD",
-+	"CAN1_TRAY7_PWRGD", "CAN1_TRAY8_PWRGD",
-+	"CAN1_TRAY9_PWRGD", "CAN1_TRAY10_PWRGD",
-+	"CAN1_TRAY11_PWRGD", "CAN1_TRAY12_PWRGD",
-+	"CAN1_TRAY13_PWRGD", "CAN1_TRAY14_PWRGD",
-+	"CAN1_TRAY15_PWRGD", "CAN1_TRAY16_PWRGD",
-+	"CAN1_TRAY17_PWRGD", "CAN1_TRAY18_PWRGD",
-+	"CAN1_TRAY19_PWRGD", "CAN1_TRAY20_PWRGD",
-+	"CAN1_TRAY21_PWRGD", "CAN1_TRAY22_PWRGD",
-+	"CAN1_TRAY23_PWRGD", "CAN1_TRAY24_PWRGD",
-+	"CAN1_TRAY25_PWRGD", "CAN1_TRAY26_PWRGD",
-+	"CAN1_TRAY27_PWRGD", "CAN1_TRAY28_PWRGD",
-+	"CAN1_TRAY29_PWRGD", "CAN1_TRAY30_PWRGD",
-+	"CAN1_TRAY31_PWRGD", "CAN1_TRAY32_PWRGD",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&pwrgd_io_expander1 {
-+	gpio-line-names =
-+	"CAN2_TRAY1_PWRGD", "CAN2_TRAY2_PWRGD",
-+	"CAN2_TRAY3_PWRGD", "CAN2_TRAY4_PWRGD",
-+	"CAN2_TRAY5_PWRGD", "CAN2_TRAY6_PWRGD",
-+	"CAN2_TRAY7_PWRGD", "CAN2_TRAY8_PWRGD",
-+	"CAN2_TRAY9_PWRGD", "CAN2_TRAY10_PWRGD",
-+	"CAN2_TRAY11_PWRGD", "CAN2_TRAY12_PWRGD",
-+	"CAN2_TRAY13_PWRGD", "CAN2_TRAY14_PWRGD",
-+	"CAN2_TRAY15_PWRGD", "CAN2_TRAY16_PWRGD",
-+	"CAN2_TRAY17_PWRGD", "CAN2_TRAY18_PWRGD",
-+	"CAN2_TRAY19_PWRGD", "CAN2_TRAY20_PWRGD",
-+	"CAN2_TRAY21_PWRGD", "CAN2_TRAY22_PWRGD",
-+	"CAN2_TRAY23_PWRGD", "CAN2_TRAY24_PWRGD",
-+	"CAN2_TRAY25_PWRGD", "CAN2_TRAY26_PWRGD",
-+	"CAN2_TRAY27_PWRGD", "CAN2_TRAY28_PWRGD",
-+	"CAN2_TRAY29_PWRGD", "CAN2_TRAY30_PWRGD",
-+	"CAN2_TRAY31_PWRGD", "CAN2_TRAY32_PWRGD",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&pwrgd_io_expander2 {
-+	gpio-line-names =
-+	"CAN3_TRAY1_PWRGD", "CAN3_TRAY2_PWRGD",
-+	"CAN3_TRAY3_PWRGD", "CAN3_TRAY4_PWRGD",
-+	"CAN3_TRAY5_PWRGD", "CAN3_TRAY6_PWRGD",
-+	"CAN3_TRAY7_PWRGD", "CAN3_TRAY8_PWRGD",
-+	"CAN3_TRAY9_PWRGD", "CAN3_TRAY10_PWRGD",
-+	"CAN3_TRAY11_PWRGD", "CAN3_TRAY12_PWRGD",
-+	"CAN3_TRAY13_PWRGD", "CAN3_TRAY14_PWRGD",
-+	"CAN3_TRAY15_PWRGD", "CAN3_TRAY16_PWRGD",
-+	"CAN3_TRAY17_PWRGD", "CAN3_TRAY18_PWRGD",
-+	"CAN3_TRAY19_PWRGD", "CAN3_TRAY20_PWRGD",
-+	"CAN3_TRAY21_PWRGD", "CAN3_TRAY22_PWRGD",
-+	"CAN3_TRAY23_PWRGD", "CAN3_TRAY24_PWRGD",
-+	"CAN3_TRAY25_PWRGD", "CAN3_TRAY26_PWRGD",
-+	"CAN3_TRAY27_PWRGD", "CAN3_TRAY28_PWRGD",
-+	"CAN3_TRAY29_PWRGD", "CAN3_TRAY30_PWRGD",
-+	"CAN3_TRAY31_PWRGD", "CAN3_TRAY32_PWRGD",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&pwrgd_io_expander3 {
-+	gpio-line-names =
-+	"CAN4_TRAY1_PWRGD", "CAN4_TRAY2_PWRGD",
-+	"CAN4_TRAY3_PWRGD", "CAN4_TRAY4_PWRGD",
-+	"CAN4_TRAY5_PWRGD", "CAN4_TRAY6_PWRGD",
-+	"CAN4_TRAY7_PWRGD", "CAN4_TRAY8_PWRGD",
-+	"CAN4_TRAY9_PWRGD", "CAN4_TRAY10_PWRGD",
-+	"CAN4_TRAY11_PWRGD", "CAN4_TRAY12_PWRGD",
-+	"CAN4_TRAY13_PWRGD", "CAN4_TRAY14_PWRGD",
-+	"CAN4_TRAY15_PWRGD", "CAN4_TRAY16_PWRGD",
-+	"CAN4_TRAY17_PWRGD", "CAN4_TRAY18_PWRGD",
-+	"CAN4_TRAY19_PWRGD", "CAN4_TRAY20_PWRGD",
-+	"CAN4_TRAY21_PWRGD", "CAN4_TRAY22_PWRGD",
-+	"CAN4_TRAY23_PWRGD", "CAN4_TRAY24_PWRGD",
-+	"CAN4_TRAY25_PWRGD", "CAN4_TRAY26_PWRGD",
-+	"CAN4_TRAY27_PWRGD", "CAN4_TRAY28_PWRGD",
-+	"CAN4_TRAY29_PWRGD", "CAN4_TRAY30_PWRGD",
-+	"CAN4_TRAY31_PWRGD", "CAN4_TRAY32_PWRGD",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&pwrgd_io_expander4 {
-+	gpio-line-names =
-+	"CAN5_TRAY1_PWRGD", "CAN5_TRAY2_PWRGD",
-+	"CAN5_TRAY3_PWRGD", "CAN5_TRAY4_PWRGD",
-+	"CAN5_TRAY5_PWRGD", "CAN5_TRAY6_PWRGD",
-+	"CAN5_TRAY7_PWRGD", "CAN5_TRAY8_PWRGD",
-+	"CAN5_TRAY9_PWRGD", "CAN5_TRAY10_PWRGD",
-+	"CAN5_TRAY11_PWRGD", "CAN5_TRAY12_PWRGD",
-+	"CAN5_TRAY13_PWRGD", "CAN5_TRAY14_PWRGD",
-+	"CAN5_TRAY15_PWRGD", "CAN5_TRAY16_PWRGD",
-+	"CAN5_TRAY17_PWRGD", "CAN5_TRAY18_PWRGD",
-+	"CAN5_TRAY19_PWRGD", "CAN5_TRAY20_PWRGD",
-+	"CAN5_TRAY21_PWRGD", "CAN5_TRAY22_PWRGD",
-+	"CAN5_TRAY23_PWRGD", "CAN5_TRAY24_PWRGD",
-+	"CAN5_TRAY25_PWRGD", "CAN5_TRAY26_PWRGD",
-+	"CAN5_TRAY27_PWRGD", "CAN5_TRAY28_PWRGD",
-+	"CAN5_TRAY29_PWRGD", "CAN5_TRAY30_PWRGD",
-+	"CAN5_TRAY31_PWRGD", "CAN5_TRAY32_PWRGD",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&pwrgd_io_expander5 {
-+	gpio-line-names =
-+	"CAN6_TRAY1_PWRGD", "CAN6_TRAY2_PWRGD",
-+	"CAN6_TRAY3_PWRGD", "CAN6_TRAY4_PWRGD",
-+	"CAN6_TRAY5_PWRGD", "CAN6_TRAY6_PWRGD",
-+	"CAN6_TRAY7_PWRGD", "CAN6_TRAY8_PWRGD",
-+	"CAN6_TRAY9_PWRGD", "CAN6_TRAY10_PWRGD",
-+	"CAN6_TRAY11_PWRGD", "CAN6_TRAY12_PWRGD",
-+	"CAN6_TRAY13_PWRGD", "CAN6_TRAY14_PWRGD",
-+	"CAN6_TRAY15_PWRGD", "CAN6_TRAY16_PWRGD",
-+	"CAN6_TRAY17_PWRGD", "CAN6_TRAY18_PWRGD",
-+	"CAN6_TRAY19_PWRGD", "CAN6_TRAY20_PWRGD",
-+	"CAN6_TRAY21_PWRGD", "CAN6_TRAY22_PWRGD",
-+	"CAN6_TRAY23_PWRGD", "CAN6_TRAY24_PWRGD",
-+	"CAN6_TRAY25_PWRGD", "CAN6_TRAY26_PWRGD",
-+	"CAN6_TRAY27_PWRGD", "CAN6_TRAY28_PWRGD",
-+	"CAN6_TRAY29_PWRGD", "CAN6_TRAY30_PWRGD",
-+	"CAN6_TRAY31_PWRGD", "CAN6_TRAY32_PWRGD",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&pwrgd_io_expander6 {
-+	gpio-line-names =
-+	"CAN7_TRAY1_PWRGD", "CAN7_TRAY2_PWRGD",
-+	"CAN7_TRAY3_PWRGD", "CAN7_TRAY4_PWRGD",
-+	"CAN7_TRAY5_PWRGD", "CAN7_TRAY6_PWRGD",
-+	"CAN7_TRAY7_PWRGD", "CAN7_TRAY8_PWRGD",
-+	"CAN7_TRAY9_PWRGD", "CAN7_TRAY10_PWRGD",
-+	"CAN7_TRAY11_PWRGD", "CAN7_TRAY12_PWRGD",
-+	"CAN7_TRAY13_PWRGD", "CAN7_TRAY14_PWRGD",
-+	"CAN7_TRAY15_PWRGD", "CAN7_TRAY16_PWRGD",
-+	"CAN7_TRAY17_PWRGD", "CAN7_TRAY18_PWRGD",
-+	"CAN7_TRAY19_PWRGD", "CAN7_TRAY20_PWRGD",
-+	"CAN7_TRAY21_PWRGD", "CAN7_TRAY22_PWRGD",
-+	"CAN7_TRAY23_PWRGD", "CAN7_TRAY24_PWRGD",
-+	"CAN7_TRAY25_PWRGD", "CAN7_TRAY26_PWRGD",
-+	"CAN7_TRAY27_PWRGD", "CAN7_TRAY28_PWRGD",
-+	"CAN7_TRAY29_PWRGD", "CAN7_TRAY30_PWRGD",
-+	"CAN7_TRAY31_PWRGD", "CAN7_TRAY32_PWRGD",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&pwrgd_io_expander7 {
-+	gpio-line-names =
-+	"CAN8_TRAY1_PWRGD", "CAN8_TRAY2_PWRGD",
-+	"CAN8_TRAY3_PWRGD", "CAN8_TRAY4_PWRGD",
-+	"CAN8_TRAY5_PWRGD", "CAN8_TRAY6_PWRGD",
-+	"CAN8_TRAY7_PWRGD", "CAN8_TRAY8_PWRGD",
-+	"CAN8_TRAY9_PWRGD", "CAN8_TRAY10_PWRGD",
-+	"CAN8_TRAY11_PWRGD", "CAN8_TRAY12_PWRGD",
-+	"CAN8_TRAY13_PWRGD", "CAN8_TRAY14_PWRGD",
-+	"CAN8_TRAY15_PWRGD", "CAN8_TRAY16_PWRGD",
-+	"CAN8_TRAY17_PWRGD", "CAN8_TRAY18_PWRGD",
-+	"CAN8_TRAY19_PWRGD", "CAN8_TRAY20_PWRGD",
-+	"CAN8_TRAY21_PWRGD", "CAN8_TRAY22_PWRGD",
-+	"CAN8_TRAY23_PWRGD", "CAN8_TRAY24_PWRGD",
-+	"CAN8_TRAY25_PWRGD", "CAN8_TRAY26_PWRGD",
-+	"CAN8_TRAY27_PWRGD", "CAN8_TRAY28_PWRGD",
-+	"CAN8_TRAY29_PWRGD", "CAN8_TRAY30_PWRGD",
-+	"CAN8_TRAY31_PWRGD", "CAN8_TRAY32_PWRGD",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&large_leak_io_expander0 {
-+	gpio-line-names =
-+	"CAN1_TRAY1_LARGE_LEAK", "CAN1_TRAY2_LARGE_LEAK",
-+	"CAN1_TRAY3_LARGE_LEAK", "CAN1_TRAY4_LARGE_LEAK",
-+	"CAN1_TRAY5_LARGE_LEAK", "CAN1_TRAY6_LARGE_LEAK",
-+	"CAN1_TRAY7_LARGE_LEAK", "CAN1_TRAY8_LARGE_LEAK",
-+	"CAN1_TRAY9_LARGE_LEAK", "CAN1_TRAY10_LARGE_LEAK",
-+	"CAN1_TRAY11_LARGE_LEAK", "CAN1_TRAY12_LARGE_LEAK",
-+	"CAN1_TRAY13_LARGE_LEAK", "CAN1_TRAY14_LARGE_LEAK",
-+	"CAN1_TRAY15_LARGE_LEAK", "CAN1_TRAY16_LARGE_LEAK",
-+	"CAN1_TRAY17_LARGE_LEAK", "CAN1_TRAY18_LARGE_LEAK",
-+	"CAN1_TRAY19_LARGE_LEAK", "CAN1_TRAY20_LARGE_LEAK",
-+	"CAN1_TRAY21_LARGE_LEAK", "CAN1_TRAY22_LARGE_LEAK",
-+	"CAN1_TRAY23_LARGE_LEAK", "CAN1_TRAY24_LARGE_LEAK",
-+	"CAN1_TRAY25_LARGE_LEAK", "CAN1_TRAY26_LARGE_LEAK",
-+	"CAN1_TRAY27_LARGE_LEAK", "CAN1_TRAY28_LARGE_LEAK",
-+	"CAN1_TRAY29_LARGE_LEAK", "CAN1_TRAY30_LARGE_LEAK",
-+	"CAN1_TRAY31_LARGE_LEAK", "CAN1_TRAY32_LARGE_LEAK",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&large_leak_io_expander1 {
-+	gpio-line-names =
-+	"CAN2_TRAY1_LARGE_LEAK", "CAN2_TRAY2_LARGE_LEAK",
-+	"CAN2_TRAY3_LARGE_LEAK", "CAN2_TRAY4_LARGE_LEAK",
-+	"CAN2_TRAY5_LARGE_LEAK", "CAN2_TRAY6_LARGE_LEAK",
-+	"CAN2_TRAY7_LARGE_LEAK", "CAN2_TRAY8_LARGE_LEAK",
-+	"CAN2_TRAY9_LARGE_LEAK", "CAN2_TRAY10_LARGE_LEAK",
-+	"CAN2_TRAY11_LARGE_LEAK", "CAN2_TRAY12_LARGE_LEAK",
-+	"CAN2_TRAY13_LARGE_LEAK", "CAN2_TRAY14_LARGE_LEAK",
-+	"CAN2_TRAY15_LARGE_LEAK", "CAN2_TRAY16_LARGE_LEAK",
-+	"CAN2_TRAY17_LARGE_LEAK", "CAN2_TRAY18_LARGE_LEAK",
-+	"CAN2_TRAY19_LARGE_LEAK", "CAN2_TRAY20_LARGE_LEAK",
-+	"CAN2_TRAY21_LARGE_LEAK", "CAN2_TRAY22_LARGE_LEAK",
-+	"CAN2_TRAY23_LARGE_LEAK", "CAN2_TRAY24_LARGE_LEAK",
-+	"CAN2_TRAY25_LARGE_LEAK", "CAN2_TRAY26_LARGE_LEAK",
-+	"CAN2_TRAY27_LARGE_LEAK", "CAN2_TRAY28_LARGE_LEAK",
-+	"CAN2_TRAY29_LARGE_LEAK", "CAN2_TRAY30_LARGE_LEAK",
-+	"CAN2_TRAY31_LARGE_LEAK", "CAN2_TRAY32_LARGE_LEAK",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&large_leak_io_expander2 {
-+	gpio-line-names =
-+	"CAN3_TRAY1_LARGE_LEAK", "CAN3_TRAY2_LARGE_LEAK",
-+	"CAN3_TRAY3_LARGE_LEAK", "CAN3_TRAY4_LARGE_LEAK",
-+	"CAN3_TRAY5_LARGE_LEAK", "CAN3_TRAY6_LARGE_LEAK",
-+	"CAN3_TRAY7_LARGE_LEAK", "CAN3_TRAY8_LARGE_LEAK",
-+	"CAN3_TRAY9_LARGE_LEAK", "CAN3_TRAY10_LARGE_LEAK",
-+	"CAN3_TRAY11_LARGE_LEAK", "CAN3_TRAY12_LARGE_LEAK",
-+	"CAN3_TRAY13_LARGE_LEAK", "CAN3_TRAY14_LARGE_LEAK",
-+	"CAN3_TRAY15_LARGE_LEAK", "CAN3_TRAY16_LARGE_LEAK",
-+	"CAN3_TRAY17_LARGE_LEAK", "CAN3_TRAY18_LARGE_LEAK",
-+	"CAN3_TRAY19_LARGE_LEAK", "CAN3_TRAY20_LARGE_LEAK",
-+	"CAN3_TRAY21_LARGE_LEAK", "CAN3_TRAY22_LARGE_LEAK",
-+	"CAN3_TRAY23_LARGE_LEAK", "CAN3_TRAY24_LARGE_LEAK",
-+	"CAN3_TRAY25_LARGE_LEAK", "CAN3_TRAY26_LARGE_LEAK",
-+	"CAN3_TRAY27_LARGE_LEAK", "CAN3_TRAY28_LARGE_LEAK",
-+	"CAN3_TRAY29_LARGE_LEAK", "CAN3_TRAY30_LARGE_LEAK",
-+	"CAN3_TRAY31_LARGE_LEAK", "CAN3_TRAY32_LARGE_LEAK",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&large_leak_io_expander3 {
-+	gpio-line-names =
-+	"CAN4_TRAY1_LARGE_LEAK", "CAN4_TRAY2_LARGE_LEAK",
-+	"CAN4_TRAY3_LARGE_LEAK", "CAN4_TRAY4_LARGE_LEAK",
-+	"CAN4_TRAY5_LARGE_LEAK", "CAN4_TRAY6_LARGE_LEAK",
-+	"CAN4_TRAY7_LARGE_LEAK", "CAN4_TRAY8_LARGE_LEAK",
-+	"CAN4_TRAY9_LARGE_LEAK", "CAN4_TRAY10_LARGE_LEAK",
-+	"CAN4_TRAY11_LARGE_LEAK", "CAN4_TRAY12_LARGE_LEAK",
-+	"CAN4_TRAY13_LARGE_LEAK", "CAN4_TRAY14_LARGE_LEAK",
-+	"CAN4_TRAY15_LARGE_LEAK", "CAN4_TRAY16_LARGE_LEAK",
-+	"CAN4_TRAY17_LARGE_LEAK", "CAN4_TRAY18_LARGE_LEAK",
-+	"CAN4_TRAY19_LARGE_LEAK", "CAN4_TRAY20_LARGE_LEAK",
-+	"CAN4_TRAY21_LARGE_LEAK", "CAN4_TRAY22_LARGE_LEAK",
-+	"CAN4_TRAY23_LARGE_LEAK", "CAN4_TRAY24_LARGE_LEAK",
-+	"CAN4_TRAY25_LARGE_LEAK", "CAN4_TRAY26_LARGE_LEAK",
-+	"CAN4_TRAY27_LARGE_LEAK", "CAN4_TRAY28_LARGE_LEAK",
-+	"CAN4_TRAY29_LARGE_LEAK", "CAN4_TRAY30_LARGE_LEAK",
-+	"CAN4_TRAY31_LARGE_LEAK", "CAN4_TRAY32_LARGE_LEAK",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&large_leak_io_expander4 {
-+	gpio-line-names =
-+	"CAN5_TRAY1_LARGE_LEAK", "CAN5_TRAY2_LARGE_LEAK",
-+	"CAN5_TRAY3_LARGE_LEAK", "CAN5_TRAY4_LARGE_LEAK",
-+	"CAN5_TRAY5_LARGE_LEAK", "CAN5_TRAY6_LARGE_LEAK",
-+	"CAN5_TRAY7_LARGE_LEAK", "CAN5_TRAY8_LARGE_LEAK",
-+	"CAN5_TRAY9_LARGE_LEAK", "CAN5_TRAY10_LARGE_LEAK",
-+	"CAN5_TRAY11_LARGE_LEAK", "CAN5_TRAY12_LARGE_LEAK",
-+	"CAN5_TRAY13_LARGE_LEAK", "CAN5_TRAY14_LARGE_LEAK",
-+	"CAN5_TRAY15_LARGE_LEAK", "CAN5_TRAY16_LARGE_LEAK",
-+	"CAN5_TRAY17_LARGE_LEAK", "CAN5_TRAY18_LARGE_LEAK",
-+	"CAN5_TRAY19_LARGE_LEAK", "CAN5_TRAY20_LARGE_LEAK",
-+	"CAN5_TRAY21_LARGE_LEAK", "CAN5_TRAY22_LARGE_LEAK",
-+	"CAN5_TRAY23_LARGE_LEAK", "CAN5_TRAY24_LARGE_LEAK",
-+	"CAN5_TRAY25_LARGE_LEAK", "CAN5_TRAY26_LARGE_LEAK",
-+	"CAN5_TRAY27_LARGE_LEAK", "CAN5_TRAY28_LARGE_LEAK",
-+	"CAN5_TRAY29_LARGE_LEAK", "CAN5_TRAY30_LARGE_LEAK",
-+	"CAN5_TRAY31_LARGE_LEAK", "CAN5_TRAY32_LARGE_LEAK",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&large_leak_io_expander5 {
-+	gpio-line-names =
-+	"CAN6_TRAY1_LARGE_LEAK", "CAN6_TRAY2_LARGE_LEAK",
-+	"CAN6_TRAY3_LARGE_LEAK", "CAN6_TRAY4_LARGE_LEAK",
-+	"CAN6_TRAY5_LARGE_LEAK", "CAN6_TRAY6_LARGE_LEAK",
-+	"CAN6_TRAY7_LARGE_LEAK", "CAN6_TRAY8_LARGE_LEAK",
-+	"CAN6_TRAY9_LARGE_LEAK", "CAN6_TRAY10_LARGE_LEAK",
-+	"CAN6_TRAY11_LARGE_LEAK", "CAN6_TRAY12_LARGE_LEAK",
-+	"CAN6_TRAY13_LARGE_LEAK", "CAN6_TRAY14_LARGE_LEAK",
-+	"CAN6_TRAY15_LARGE_LEAK", "CAN6_TRAY16_LARGE_LEAK",
-+	"CAN6_TRAY17_LARGE_LEAK", "CAN6_TRAY18_LARGE_LEAK",
-+	"CAN6_TRAY19_LARGE_LEAK", "CAN6_TRAY20_LARGE_LEAK",
-+	"CAN6_TRAY21_LARGE_LEAK", "CAN6_TRAY22_LARGE_LEAK",
-+	"CAN6_TRAY23_LARGE_LEAK", "CAN6_TRAY24_LARGE_LEAK",
-+	"CAN6_TRAY25_LARGE_LEAK", "CAN6_TRAY26_LARGE_LEAK",
-+	"CAN6_TRAY27_LARGE_LEAK", "CAN6_TRAY28_LARGE_LEAK",
-+	"CAN6_TRAY29_LARGE_LEAK", "CAN6_TRAY30_LARGE_LEAK",
-+	"CAN6_TRAY31_LARGE_LEAK", "CAN6_TRAY32_LARGE_LEAK",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&large_leak_io_expander6 {
-+	gpio-line-names =
-+	"CAN7_TRAY1_LARGE_LEAK", "CAN7_TRAY2_LARGE_LEAK",
-+	"CAN7_TRAY3_LARGE_LEAK", "CAN7_TRAY4_LARGE_LEAK",
-+	"CAN7_TRAY5_LARGE_LEAK", "CAN7_TRAY6_LARGE_LEAK",
-+	"CAN7_TRAY7_LARGE_LEAK", "CAN7_TRAY8_LARGE_LEAK",
-+	"CAN7_TRAY9_LARGE_LEAK", "CAN7_TRAY10_LARGE_LEAK",
-+	"CAN7_TRAY11_LARGE_LEAK", "CAN7_TRAY12_LARGE_LEAK",
-+	"CAN7_TRAY13_LARGE_LEAK", "CAN7_TRAY14_LARGE_LEAK",
-+	"CAN7_TRAY15_LARGE_LEAK", "CAN7_TRAY16_LARGE_LEAK",
-+	"CAN7_TRAY17_LARGE_LEAK", "CAN7_TRAY18_LARGE_LEAK",
-+	"CAN7_TRAY19_LARGE_LEAK", "CAN7_TRAY20_LARGE_LEAK",
-+	"CAN7_TRAY21_LARGE_LEAK", "CAN7_TRAY22_LARGE_LEAK",
-+	"CAN7_TRAY23_LARGE_LEAK", "CAN7_TRAY24_LARGE_LEAK",
-+	"CAN7_TRAY25_LARGE_LEAK", "CAN7_TRAY26_LARGE_LEAK",
-+	"CAN7_TRAY27_LARGE_LEAK", "CAN7_TRAY28_LARGE_LEAK",
-+	"CAN7_TRAY29_LARGE_LEAK", "CAN7_TRAY30_LARGE_LEAK",
-+	"CAN7_TRAY31_LARGE_LEAK", "CAN7_TRAY32_LARGE_LEAK",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&large_leak_io_expander7 {
-+	gpio-line-names =
-+	"CAN8_TRAY1_LARGE_LEAK", "CAN8_TRAY2_LARGE_LEAK",
-+	"CAN8_TRAY3_LARGE_LEAK", "CAN8_TRAY4_LARGE_LEAK",
-+	"CAN8_TRAY5_LARGE_LEAK", "CAN8_TRAY6_LARGE_LEAK",
-+	"CAN8_TRAY7_LARGE_LEAK", "CAN8_TRAY8_LARGE_LEAK",
-+	"CAN8_TRAY9_LARGE_LEAK", "CAN8_TRAY10_LARGE_LEAK",
-+	"CAN8_TRAY11_LARGE_LEAK", "CAN8_TRAY12_LARGE_LEAK",
-+	"CAN8_TRAY13_LARGE_LEAK", "CAN8_TRAY14_LARGE_LEAK",
-+	"CAN8_TRAY15_LARGE_LEAK", "CAN8_TRAY16_LARGE_LEAK",
-+	"CAN8_TRAY17_LARGE_LEAK", "CAN8_TRAY18_LARGE_LEAK",
-+	"CAN8_TRAY19_LARGE_LEAK", "CAN8_TRAY20_LARGE_LEAK",
-+	"CAN8_TRAY21_LARGE_LEAK", "CAN8_TRAY22_LARGE_LEAK",
-+	"CAN8_TRAY23_LARGE_LEAK", "CAN8_TRAY24_LARGE_LEAK",
-+	"CAN8_TRAY25_LARGE_LEAK", "CAN8_TRAY26_LARGE_LEAK",
-+	"CAN8_TRAY27_LARGE_LEAK", "CAN8_TRAY28_LARGE_LEAK",
-+	"CAN8_TRAY29_LARGE_LEAK", "CAN8_TRAY30_LARGE_LEAK",
-+	"CAN8_TRAY31_LARGE_LEAK", "CAN8_TRAY32_LARGE_LEAK",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&small_leak_io_expander0 {
-+	gpio-line-names =
-+	"CAN1_TRAY1_SMALL_LEAK", "CAN1_TRAY2_SMALL_LEAK",
-+	"CAN1_TRAY3_SMALL_LEAK", "CAN1_TRAY4_SMALL_LEAK",
-+	"CAN1_TRAY5_SMALL_LEAK", "CAN1_TRAY6_SMALL_LEAK",
-+	"CAN1_TRAY7_SMALL_LEAK", "CAN1_TRAY8_SMALL_LEAK",
-+	"CAN1_TRAY9_SMALL_LEAK", "CAN1_TRAY10_SMALL_LEAK",
-+	"CAN1_TRAY11_SMALL_LEAK", "CAN1_TRAY12_SMALL_LEAK",
-+	"CAN1_TRAY13_SMALL_LEAK", "CAN1_TRAY14_SMALL_LEAK",
-+	"CAN1_TRAY15_SMALL_LEAK", "CAN1_TRAY16_SMALL_LEAK",
-+	"CAN1_TRAY17_SMALL_LEAK", "CAN1_TRAY18_SMALL_LEAK",
-+	"CAN1_TRAY19_SMALL_LEAK", "CAN1_TRAY20_SMALL_LEAK",
-+	"CAN1_TRAY21_SMALL_LEAK", "CAN1_TRAY22_SMALL_LEAK",
-+	"CAN1_TRAY23_SMALL_LEAK", "CAN1_TRAY24_SMALL_LEAK",
-+	"CAN1_TRAY25_SMALL_LEAK", "CAN1_TRAY26_SMALL_LEAK",
-+	"CAN1_TRAY27_SMALL_LEAK", "CAN1_TRAY28_SMALL_LEAK",
-+	"CAN1_TRAY29_SMALL_LEAK", "CAN1_TRAY30_SMALL_LEAK",
-+	"CAN1_TRAY31_SMALL_LEAK", "CAN1_TRAY32_SMALL_LEAK",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&small_leak_io_expander1 {
-+	gpio-line-names =
-+	"CAN2_TRAY1_SMALL_LEAK", "CAN2_TRAY2_SMALL_LEAK",
-+	"CAN2_TRAY3_SMALL_LEAK", "CAN2_TRAY4_SMALL_LEAK",
-+	"CAN2_TRAY5_SMALL_LEAK", "CAN2_TRAY6_SMALL_LEAK",
-+	"CAN2_TRAY7_SMALL_LEAK", "CAN2_TRAY8_SMALL_LEAK",
-+	"CAN2_TRAY9_SMALL_LEAK", "CAN2_TRAY10_SMALL_LEAK",
-+	"CAN2_TRAY11_SMALL_LEAK", "CAN2_TRAY12_SMALL_LEAK",
-+	"CAN2_TRAY13_SMALL_LEAK", "CAN2_TRAY14_SMALL_LEAK",
-+	"CAN2_TRAY15_SMALL_LEAK", "CAN2_TRAY16_SMALL_LEAK",
-+	"CAN2_TRAY17_SMALL_LEAK", "CAN2_TRAY18_SMALL_LEAK",
-+	"CAN2_TRAY19_SMALL_LEAK", "CAN2_TRAY20_SMALL_LEAK",
-+	"CAN2_TRAY21_SMALL_LEAK", "CAN2_TRAY22_SMALL_LEAK",
-+	"CAN2_TRAY23_SMALL_LEAK", "CAN2_TRAY24_SMALL_LEAK",
-+	"CAN2_TRAY25_SMALL_LEAK", "CAN2_TRAY26_SMALL_LEAK",
-+	"CAN2_TRAY27_SMALL_LEAK", "CAN2_TRAY28_SMALL_LEAK",
-+	"CAN2_TRAY29_SMALL_LEAK", "CAN2_TRAY30_SMALL_LEAK",
-+	"CAN2_TRAY31_SMALL_LEAK", "CAN2_TRAY32_SMALL_LEAK",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&small_leak_io_expander2 {
-+	gpio-line-names =
-+	"CAN3_TRAY1_SMALL_LEAK", "CAN3_TRAY2_SMALL_LEAK",
-+	"CAN3_TRAY3_SMALL_LEAK", "CAN3_TRAY4_SMALL_LEAK",
-+	"CAN3_TRAY5_SMALL_LEAK", "CAN3_TRAY6_SMALL_LEAK",
-+	"CAN3_TRAY7_SMALL_LEAK", "CAN3_TRAY8_SMALL_LEAK",
-+	"CAN3_TRAY9_SMALL_LEAK", "CAN3_TRAY10_SMALL_LEAK",
-+	"CAN3_TRAY11_SMALL_LEAK", "CAN3_TRAY12_SMALL_LEAK",
-+	"CAN3_TRAY13_SMALL_LEAK", "CAN3_TRAY14_SMALL_LEAK",
-+	"CAN3_TRAY15_SMALL_LEAK", "CAN3_TRAY16_SMALL_LEAK",
-+	"CAN3_TRAY17_SMALL_LEAK", "CAN3_TRAY18_SMALL_LEAK",
-+	"CAN3_TRAY19_SMALL_LEAK", "CAN3_TRAY20_SMALL_LEAK",
-+	"CAN3_TRAY21_SMALL_LEAK", "CAN3_TRAY22_SMALL_LEAK",
-+	"CAN3_TRAY23_SMALL_LEAK", "CAN3_TRAY24_SMALL_LEAK",
-+	"CAN3_TRAY25_SMALL_LEAK", "CAN3_TRAY26_SMALL_LEAK",
-+	"CAN3_TRAY27_SMALL_LEAK", "CAN3_TRAY28_SMALL_LEAK",
-+	"CAN3_TRAY29_SMALL_LEAK", "CAN3_TRAY30_SMALL_LEAK",
-+	"CAN3_TRAY31_SMALL_LEAK", "CAN3_TRAY32_SMALL_LEAK",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&small_leak_io_expander3 {
-+	gpio-line-names =
-+	"CAN4_TRAY1_SMALL_LEAK", "CAN4_TRAY2_SMALL_LEAK",
-+	"CAN4_TRAY3_SMALL_LEAK", "CAN4_TRAY4_SMALL_LEAK",
-+	"CAN4_TRAY5_SMALL_LEAK", "CAN4_TRAY6_SMALL_LEAK",
-+	"CAN4_TRAY7_SMALL_LEAK", "CAN4_TRAY8_SMALL_LEAK",
-+	"CAN4_TRAY9_SMALL_LEAK", "CAN4_TRAY10_SMALL_LEAK",
-+	"CAN4_TRAY11_SMALL_LEAK", "CAN4_TRAY12_SMALL_LEAK",
-+	"CAN4_TRAY13_SMALL_LEAK", "CAN4_TRAY14_SMALL_LEAK",
-+	"CAN4_TRAY15_SMALL_LEAK", "CAN4_TRAY16_SMALL_LEAK",
-+	"CAN4_TRAY17_SMALL_LEAK", "CAN4_TRAY18_SMALL_LEAK",
-+	"CAN4_TRAY19_SMALL_LEAK", "CAN4_TRAY20_SMALL_LEAK",
-+	"CAN4_TRAY21_SMALL_LEAK", "CAN4_TRAY22_SMALL_LEAK",
-+	"CAN4_TRAY23_SMALL_LEAK", "CAN4_TRAY24_SMALL_LEAK",
-+	"CAN4_TRAY25_SMALL_LEAK", "CAN4_TRAY26_SMALL_LEAK",
-+	"CAN4_TRAY27_SMALL_LEAK", "CAN4_TRAY28_SMALL_LEAK",
-+	"CAN4_TRAY29_SMALL_LEAK", "CAN4_TRAY30_SMALL_LEAK",
-+	"CAN4_TRAY31_SMALL_LEAK", "CAN4_TRAY32_SMALL_LEAK",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&small_leak_io_expander4 {
-+	gpio-line-names =
-+	"CAN5_TRAY1_SMALL_LEAK", "CAN5_TRAY2_SMALL_LEAK",
-+	"CAN5_TRAY3_SMALL_LEAK", "CAN5_TRAY4_SMALL_LEAK",
-+	"CAN5_TRAY5_SMALL_LEAK", "CAN5_TRAY6_SMALL_LEAK",
-+	"CAN5_TRAY7_SMALL_LEAK", "CAN5_TRAY8_SMALL_LEAK",
-+	"CAN5_TRAY9_SMALL_LEAK", "CAN5_TRAY10_SMALL_LEAK",
-+	"CAN5_TRAY11_SMALL_LEAK", "CAN5_TRAY12_SMALL_LEAK",
-+	"CAN5_TRAY13_SMALL_LEAK", "CAN5_TRAY14_SMALL_LEAK",
-+	"CAN5_TRAY15_SMALL_LEAK", "CAN5_TRAY16_SMALL_LEAK",
-+	"CAN5_TRAY17_SMALL_LEAK", "CAN5_TRAY18_SMALL_LEAK",
-+	"CAN5_TRAY19_SMALL_LEAK", "CAN5_TRAY20_SMALL_LEAK",
-+	"CAN5_TRAY21_SMALL_LEAK", "CAN5_TRAY22_SMALL_LEAK",
-+	"CAN5_TRAY23_SMALL_LEAK", "CAN5_TRAY24_SMALL_LEAK",
-+	"CAN5_TRAY25_SMALL_LEAK", "CAN5_TRAY26_SMALL_LEAK",
-+	"CAN5_TRAY27_SMALL_LEAK", "CAN5_TRAY28_SMALL_LEAK",
-+	"CAN5_TRAY29_SMALL_LEAK", "CAN5_TRAY30_SMALL_LEAK",
-+	"CAN5_TRAY31_SMALL_LEAK", "CAN5_TRAY32_SMALL_LEAK",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&small_leak_io_expander5 {
-+	gpio-line-names =
-+	"CAN6_TRAY1_SMALL_LEAK", "CAN6_TRAY2_SMALL_LEAK",
-+	"CAN6_TRAY3_SMALL_LEAK", "CAN6_TRAY4_SMALL_LEAK",
-+	"CAN6_TRAY5_SMALL_LEAK", "CAN6_TRAY6_SMALL_LEAK",
-+	"CAN6_TRAY7_SMALL_LEAK", "CAN6_TRAY8_SMALL_LEAK",
-+	"CAN6_TRAY9_SMALL_LEAK", "CAN6_TRAY10_SMALL_LEAK",
-+	"CAN6_TRAY11_SMALL_LEAK", "CAN6_TRAY12_SMALL_LEAK",
-+	"CAN6_TRAY13_SMALL_LEAK", "CAN6_TRAY14_SMALL_LEAK",
-+	"CAN6_TRAY15_SMALL_LEAK", "CAN6_TRAY16_SMALL_LEAK",
-+	"CAN6_TRAY17_SMALL_LEAK", "CAN6_TRAY18_SMALL_LEAK",
-+	"CAN6_TRAY19_SMALL_LEAK", "CAN6_TRAY20_SMALL_LEAK",
-+	"CAN6_TRAY21_SMALL_LEAK", "CAN6_TRAY22_SMALL_LEAK",
-+	"CAN6_TRAY23_SMALL_LEAK", "CAN6_TRAY24_SMALL_LEAK",
-+	"CAN6_TRAY25_SMALL_LEAK", "CAN6_TRAY26_SMALL_LEAK",
-+	"CAN6_TRAY27_SMALL_LEAK", "CAN6_TRAY28_SMALL_LEAK",
-+	"CAN6_TRAY29_SMALL_LEAK", "CAN6_TRAY30_SMALL_LEAK",
-+	"CAN6_TRAY31_SMALL_LEAK", "CAN6_TRAY32_SMALL_LEAK",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&small_leak_io_expander6 {
-+	gpio-line-names =
-+	"CAN7_TRAY1_SMALL_LEAK", "CAN7_TRAY2_SMALL_LEAK",
-+	"CAN7_TRAY3_SMALL_LEAK", "CAN7_TRAY4_SMALL_LEAK",
-+	"CAN7_TRAY5_SMALL_LEAK", "CAN7_TRAY6_SMALL_LEAK",
-+	"CAN7_TRAY7_SMALL_LEAK", "CAN7_TRAY8_SMALL_LEAK",
-+	"CAN7_TRAY9_SMALL_LEAK", "CAN7_TRAY10_SMALL_LEAK",
-+	"CAN7_TRAY11_SMALL_LEAK", "CAN7_TRAY12_SMALL_LEAK",
-+	"CAN7_TRAY13_SMALL_LEAK", "CAN7_TRAY14_SMALL_LEAK",
-+	"CAN7_TRAY15_SMALL_LEAK", "CAN7_TRAY16_SMALL_LEAK",
-+	"CAN7_TRAY17_SMALL_LEAK", "CAN7_TRAY18_SMALL_LEAK",
-+	"CAN7_TRAY19_SMALL_LEAK", "CAN7_TRAY20_SMALL_LEAK",
-+	"CAN7_TRAY21_SMALL_LEAK", "CAN7_TRAY22_SMALL_LEAK",
-+	"CAN7_TRAY23_SMALL_LEAK", "CAN7_TRAY24_SMALL_LEAK",
-+	"CAN7_TRAY25_SMALL_LEAK", "CAN7_TRAY26_SMALL_LEAK",
-+	"CAN7_TRAY27_SMALL_LEAK", "CAN7_TRAY28_SMALL_LEAK",
-+	"CAN7_TRAY29_SMALL_LEAK", "CAN7_TRAY30_SMALL_LEAK",
-+	"CAN7_TRAY31_SMALL_LEAK", "CAN7_TRAY32_SMALL_LEAK",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&small_leak_io_expander7 {
-+	gpio-line-names =
-+	"CAN8_TRAY1_SMALL_LEAK", "CAN8_TRAY2_SMALL_LEAK",
-+	"CAN8_TRAY3_SMALL_LEAK", "CAN8_TRAY4_SMALL_LEAK",
-+	"CAN8_TRAY5_SMALL_LEAK", "CAN8_TRAY6_SMALL_LEAK",
-+	"CAN8_TRAY7_SMALL_LEAK", "CAN8_TRAY8_SMALL_LEAK",
-+	"CAN8_TRAY9_SMALL_LEAK", "CAN8_TRAY10_SMALL_LEAK",
-+	"CAN8_TRAY11_SMALL_LEAK", "CAN8_TRAY12_SMALL_LEAK",
-+	"CAN8_TRAY13_SMALL_LEAK", "CAN8_TRAY14_SMALL_LEAK",
-+	"CAN8_TRAY15_SMALL_LEAK", "CAN8_TRAY16_SMALL_LEAK",
-+	"CAN8_TRAY17_SMALL_LEAK", "CAN8_TRAY18_SMALL_LEAK",
-+	"CAN8_TRAY19_SMALL_LEAK", "CAN8_TRAY20_SMALL_LEAK",
-+	"CAN8_TRAY21_SMALL_LEAK", "CAN8_TRAY22_SMALL_LEAK",
-+	"CAN8_TRAY23_SMALL_LEAK", "CAN8_TRAY24_SMALL_LEAK",
-+	"CAN8_TRAY25_SMALL_LEAK", "CAN8_TRAY26_SMALL_LEAK",
-+	"CAN8_TRAY27_SMALL_LEAK", "CAN8_TRAY28_SMALL_LEAK",
-+	"CAN8_TRAY29_SMALL_LEAK", "CAN8_TRAY30_SMALL_LEAK",
-+	"CAN8_TRAY31_SMALL_LEAK", "CAN8_TRAY32_SMALL_LEAK",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&legacy_prsnt_io_expander0 {
-+	gpio-line-names =
-+	"wTRAY_PRSNT1_N_BUF_R", "wTRAY_PRSNT2_N_BUF_R",
-+	"wTRAY_PRSNT3_N_BUF_R", "wTRAY_PRSNT4_N_BUF_R",
-+	"wTRAY_PRSNT5_N_BUF_R", "wTRAY_PRSNT6_N_BUF_R",
-+	"wTRAY_PRSNT7_N_BUF_R", "wTRAY_PRSNT8_N_BUF_R",
-+	"wTRAY_PRSNT9_N_BUF_R", "wTRAY_PRSNT10_N_BUF_R",
-+	"wTRAY_PRSNT11_N_BUF_R", "wTRAY_PRSNT12_N_BUF_R",
-+	"wTRAY_PRSNT13_N_BUF_R", "wTRAY_PRSNT14_N_BUF_R",
-+	"wTRAY_PRSNT15_N_BUF_R", "wTRAY_PRSNT16_N_BUF_R";
-+};
-+
-+&legacy_prsnt_io_expander1 {
-+	gpio-line-names =
-+	"wTRAY_PRSNT17_N_BUF_R", "wTRAY_PRSNT18_N_BUF_R",
-+	"wTRAY_PRSNT19_N_BUF_R", "wTRAY_PRSNT20_N_BUF_R",
-+	"wTRAY_PRSNT21_N_BUF_R", "wTRAY_PRSNT22_N_BUF_R",
-+	"wTRAY_PRSNT23_N_BUF_R", "wTRAY_PRSNT24_N_BUF_R",
-+	"wTRAY_PRSNT25_N_BUF_R", "wTRAY_PRSNT26_N_BUF_R",
-+	"wTRAY_PRSNT27_N_BUF_R", "wTRAY_PRSNT28_N_BUF_R",
-+	"wTRAY_PRSNT29_N_BUF_R", "wTRAY_PRSNT30_N_BUF_R",
-+	"wTRAY_PRSNT31_N_BUF_R", "wTRAY_PRSNT32_N_BUF_R";
-+};
-+
-+&legacy_prsnt_io_expander2 {
-+	gpio-line-names =
-+	"wTRAY_PRSNT33_N_BUF_R", "wTRAY_PRSNT34_N_BUF_R",
-+	"wTRAY_PRSNT35_N_BUF_R", "wTRAY_PRSNT36_N_BUF_R",
-+	"wTRAY_PRSNT37_N_BUF_R", "wTRAY_PRSNT38_N_BUF_R",
-+	"wTRAY_PRSNT39_N_BUF_R", "wTRAY_PRSNT40_N_BUF_R",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&legacy_pwrgd_io_expander0 {
-+	gpio-line-names =
-+	"wTRAY_PWRGD1_N_BUF_R", "wTRAY_PWRGD2_N_BUF_R",
-+	"wTRAY_PWRGD3_N_BUF_R", "wTRAY_PWRGD4_N_BUF_R",
-+	"wTRAY_PWRGD5_N_BUF_R", "wTRAY_PWRGD6_N_BUF_R",
-+	"wTRAY_PWRGD7_N_BUF_R", "wTRAY_PWRGD8_N_BUF_R",
-+	"wTRAY_PWRGD9_N_BUF_R", "wTRAY_PWRGD10_N_BUF_R",
-+	"wTRAY_PWRGD11_N_BUF_R", "wTRAY_PWRGD12_N_BUF_R",
-+	"wTRAY_PWRGD13_N_BUF_R", "wTRAY_PWRGD14_N_BUF_R",
-+	"wTRAY_PWRGD15_N_BUF_R", "wTRAY_PWRGD16_N_BUF_R";
-+};
-+
-+&legacy_pwrgd_io_expander1 {
-+	gpio-line-names =
-+	"wTRAY_PWRGD17_N_BUF_R", "wTRAY_PWRGD18_N_BUF_R",
-+	"wTRAY_PWRGD19_N_BUF_R", "wTRAY_PWRGD20_N_BUF_R",
-+	"wTRAY_PWRGD21_N_BUF_R", "wTRAY_PWRGD22_N_BUF_R",
-+	"", "",
-+	"wTRAY_PWRGD25_N_BUF_R", "wTRAY_PWRGD26_N_BUF_R",
-+	"wTRAY_PWRGD27_N_BUF_R", "wTRAY_PWRGD28_N_BUF_R",
-+	"", "",
-+	"", "";
-+};
-+
-+&legacy_pwrgd_io_expander2 {
-+	gpio-line-names =
-+	"wTRAY_PWRGD33_N_BUF_R", "wTRAY_PWRGD34_N_BUF_R",
-+	"wTRAY_PWRGD35_N_BUF_R", "wTRAY_PWRGD36_N_BUF_R",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&legacy_leak_io_expander0 {
-+	gpio-line-names =
-+	"wTRAY_LEAK_DETECT1_N_BUF_R", "wTRAY_LEAK_DETECT2_N_BUF_R",
-+	"wTRAY_LEAK_DETECT3_N_BUF_R", "wTRAY_LEAK_DETECT4_N_BUF_R",
-+	"wTRAY_LEAK_DETECT5_N_BUF_R", "wTRAY_LEAK_DETECT6_N_BUF_R",
-+	"wTRAY_LEAK_DETECT7_N_BUF_R", "wTRAY_LEAK_DETECT8_N_BUF_R",
-+	"wTRAY_LEAK_DETECT9_N_BUF_R", "wTRAY_LEAK_DETECT10_N_BUF_R",
-+	"wTRAY_LEAK_DETECT11_N_BUF_R", "wTRAY_LEAK_DETECT12_N_BUF_R",
-+	"wTRAY_LEAK_DETECT13_N_BUF_R", "wTRAY_LEAK_DETECT14_N_BUF_R",
-+	"wTRAY_LEAK_DETECT15_N_BUF_R", "wTRAY_LEAK_DETECT16_N_BUF_R";
-+};
-+
-+&legacy_leak_io_expander1 {
-+	gpio-line-names =
-+	"wTRAY_LEAK_DETECT17_N_BUF_R", "wTRAY_LEAK_DETECT18_N_BUF_R",
-+	"wTRAY_LEAK_DETECT19_N_BUF_R", "wTRAY_LEAK_DETECT20_N_BUF_R",
-+	"wTRAY_LEAK_DETECT21_N_BUF_R", "wTRAY_LEAK_DETECT22_N_BUF_R",
-+	"wTRAY_LEAK_DETECT23_N_BUF_R", "wTRAY_LEAK_DETECT24_N_BUF_R",
-+	"wTRAY_LEAK_DETECT25_N_BUF_R", "wTRAY_LEAK_DETECT26_N_BUF_R",
-+	"wTRAY_LEAK_DETECT27_N_BUF_R", "wTRAY_LEAK_DETECT28_N_BUF_R",
-+	"wTRAY_LEAK_DETECT29_N_BUF_R", "wTRAY_LEAK_DETECT30_N_BUF_R",
-+	"wTRAY_LEAK_DETECT31_N_BUF_R", "wTRAY_LEAK_DETECT32_N_BUF_R";
-+};
-+
-+&legacy_leak_io_expander2 {
-+	gpio-line-names =
-+	"wTRAY_LEAK_DETECT33_N_BUF_R", "wTRAY_LEAK_DETECT34_N_BUF_R",
-+	"wTRAY_LEAK_DETECT35_N_BUF_R", "wTRAY_LEAK_DETECT36_N_BUF_R",
-+	"wTRAY_LEAK_DETECT37_N_BUF_R", "wTRAY_LEAK_DETECT38_N_BUF_R",
-+	"wTRAY_LEAK_DETECT39_N_BUF_R", "wTRAY_LEAK_DETECT40_N_BUF_R",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&legacy_small_leak_io_expander0 {
-+	gpio-line-names =
-+	"wTRAY_SMALL_LEAK1_N_BUF_R", "wTRAY_SMALL_LEAK2_N_BUF_R",
-+	"wTRAY_SMALL_LEAK3_N_BUF_R", "wTRAY_SMALL_LEAK4_N_BUF_R",
-+	"wTRAY_SMALL_LEAK5_N_BUF_R", "wTRAY_SMALL_LEAK6_N_BUF_R",
-+	"wTRAY_SMALL_LEAK7_N_BUF_R", "wTRAY_SMALL_LEAK8_N_BUF_R",
-+	"wTRAY_SMALL_LEAK9_N_BUF_R", "wTRAY_SMALL_LEAK10_N_BUF_R",
-+	"wTRAY_SMALL_LEAK11_N_BUF_R", "wTRAY_SMALL_LEAK12_N_BUF_R",
-+	"wTRAY_SMALL_LEAK13_N_BUF_R", "wTRAY_SMALL_LEAK14_N_BUF_R",
-+	"wTRAY_SMALL_LEAK15_N_BUF_R", "wTRAY_SMALL_LEAK16_N_BUF_R";
-+};
-+
-+&legacy_small_leak_io_expander1 {
-+	gpio-line-names =
-+	"wTRAY_SMALL_LEAK17_N_BUF_R", "wTRAY_SMALL_LEAK18_N_BUF_R",
-+	"wTRAY_SMALL_LEAK19_N_BUF_R", "wTRAY_SMALL_LEAK20_N_BUF_R",
-+	"wTRAY_SMALL_LEAK21_N_BUF_R", "wTRAY_SMALL_LEAK22_N_BUF_R",
-+	"wTRAY_SMALL_LEAK23_N_BUF_R", "wTRAY_SMALL_LEAK24_N_BUF_R",
-+	"wTRAY_SMALL_LEAK25_N_BUF_R", "wTRAY_SMALL_LEAK26_N_BUF_R",
-+	"wTRAY_SMALL_LEAK27_N_BUF_R", "wTRAY_SMALL_LEAK28_N_BUF_R",
-+	"wTRAY_SMALL_LEAK29_N_BUF_R", "wTRAY_SMALL_LEAK30_N_BUF_R",
-+	"wTRAY_SMALL_LEAK31_N_BUF_R", "wTRAY_SMALL_LEAK32_N_BUF_R";
-+};
-+
-+&fpga_io_expander64 {
-+	gpio-line-names =
-+	"wTRAY_PWRGD_TEST", "wprovision_done",
-+	"", "",
-+	"", "",
-+	"LEAK_CONFIG0", "LEAK_CONFIG1",
-+	"FPGA_PWRGD_P24V_AUX_R", "FPGA_PWRGD_P24V_AUX_2_R",
-+	"FPGA_PWRGD_P12V_SCM_R", "FPGA_PWRGD_P12V_AUX_R2",
-+	"FPGA_PRSNT_FANBP_0_SIG_R_PLD_N", "FPGA_PRSNT_FANBP_0_PWR_R_PLD_N",
-+	"FPGA_P24V_AUX_INA230_ALERT_N_R", "FPGA_SMB_TMC75_TEMP_ALERT_N_R";
-+};
-+
-+&fpga_io_expander65 {
-+	gpio-line-names =
-+	"FPGA_PCI_DIS_N", "FPGA_DEV_DIS_N",
-+	"FPGA_PWRGD_P3V3_AUX_R", "FPGA_PWRGD_P5V_AUX_R2",
-+	"FPGA_PWRGD_P1V05_AUX_R", "FPGA_P48V_HSC_ALERT_N",
-+	"FPGA_PWRGD_P1V5_AUX_R", "FPGA_PWRGD_P52V_HSC_PWROK_R",
-+	"FPGA_R_COME_THERMTRIP_L", "FPGA_PRSNT_POE_SIG_PLD_N",
-+	"FPGA_PRSNT_POE_PWR_PLD_N", "FPGA_PRSNT_RIO_RACKMON_N",
-+	"FPGA_PRSNT_CAN2_MCIO_N", "FPGA_PRSNT_CAN1_MCIO_N",
-+	"FPGA_PRSNT_RACKMON_MCIO_N", "FPGA_PRSNT_AALC_MCIO_N";
-+};
-+
-+&legacy_small_leak_io_expander2 {
-+	gpio-line-names =
-+	"wTRAY_SMALL_LEAK33_N_BUF_R", "wTRAY_SMALL_LEAK34_N_BUF_R",
-+	"wTRAY_SMALL_LEAK35_N_BUF_R", "wTRAY_SMALL_LEAK36_N_BUF_R",
-+	"wTRAY_SMALL_LEAK37_N_BUF_R", "wTRAY_SMALL_LEAK38_N_BUF_R",
-+	"wTRAY_SMALL_LEAK39_N_BUF_R", "wTRAY_SMALL_LEAK40_N_BUF_R",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "";
-+};
-+
-+&sku_info_io_expander {
-+	gpio-line-names =
-+	"", "",
-+	"", "",
-+	"", "",
-+	"", "",
-+	"support_miniSAS", "support_CAN_Bus",
-+	"support_AALC", "support_Front_VT1_2",
-+	"support_Front_VT1_3", "support_Rear_VT2",
-+	"", "";
-+};
-+
-+&fan_io_expander0 {
-+	gpio-line-names =
-+	"FM_FAN0_POWER_LED_N", "FM_FAN1_POWER_LED_N",
-+	"P12V_FAN0_PWR_GD", "P12V_FAN1_PWR_GD",
-+	"FM_FAN0_FAULT_LED_N", "FM_FAN1_FAULT_LED_N",
-+	"P12V_FAN0_FLTB", "P12V_FAN1_FLTB",
-+	"FM_FAN0_BUF_PRESENT_R", "FM_FAN1_BUF_PRESENT_R",
-+	"", "",
-+	"FM_FAN0_P12V_EN", "FM_FAN1_P12V_EN",
-+	"", "";
-+};
-+
-+&fan_io_expander1 {
-+	gpio-line-names =
-+	"FM_FAN2_POWER_LED_N", "FM_FAN3_POWER_LED_N",
-+	"P12V_FAN2_PWR_GD", "P12V_FAN3_PWR_GD",
-+	"FM_FAN2_FAULT_LED_N", "FM_FAN3_FAULT_LED_N",
-+	"P12V_FAN2_FLTB", "P12V_FAN3_FLTB",
-+	"FM_FAN2_BUF_PRESENT_R", "FM_FAN3_BUF_PRESENT_R",
-+	"", "",
-+	"FM_FAN2_P12V_EN", "FM_FAN3_P12V_EN",
-+	"", "";
-+};
+No worries. and I hope you feel better soon :).
 
--- 
-2.34.1
+>
+> I agree the sleeping lock is a problem for -rt kernel. But it is hard for me
+> to understand how come the lock contention could happen. When the boot CPU
+> is repainting the linear map, the secondary CPUs are running in a busy loop
+> to wait for idmap_kpti_bbml2_flag is cleared by the boot CPU instead of idle
+> thread. And the secondary CPUs running with idmap active and init_mm
+> inactive. So the nolock variant seems good enough to me if I don't miss
+> anything.
 
+As Ryan said, “It’s unlikely, but not impossible.”
+
+For example, suppose someone creates a kthread bound to a CPU
+other than the kernel_init() task during early_initcall,
+and that thread performs memory allocation.
+(Of course, I don’t expect anyone to actually do this;
+it’s just to illustrate that it’s not impossible.)
+
+When that CPU comes online, the kthread will be scheduled and will attempt to allocate memory.
+
+Meanwhile, another CPU executing smp_init() calls smp_cpus_done() and
+then invokes linear_map_split_to_ptes().
+
+If the kthread performing memory allocation is preempted
+by the stopper thread at that point, linear_map_split_to_ptes() could fail,
+because the memory-allocation-related lock is already held by the kthread.
+
+So, I've sent a new version of this:
+  - https://lore.kernel.org/all/20251218194750.395301-1-yeoreum.yun@arm.com/
+
+
+Thanks!
+
+--
+Sincerely,
+Yeoreum Yun
 
