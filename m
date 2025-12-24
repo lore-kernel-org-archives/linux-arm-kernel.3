@@ -4,86 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A733E776F8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 19:25:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70C9BE776F0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 19:34:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EcC2/wRdvVVn4EBbf9oNqdQI8h7Pk69qNBD1NEvRhAo=; b=MklB3/HvWxtY5Df8lCQilJMVle
-	Ul7MyGg5LGSYtwZgodkTLQQKOwhopxk/feGPhV0VwpYsWNn+Y2DgSTgnbsqex80CAM6rG5VNMdO1T
-	wPyPMBhC1Q7PxdMhn3HFs4KJ/8TjCIw+WgcjswD4cRbDasDjPvavc7DEXDjoG4qksEIalmYvv4s/x
-	mD4G+rreV4upGfgreT8EetibB+fWp1DPmsVb3sfQm/TdfQrOtafciggXVS7iRseYbXi6gWG0djXOD
-	LYcW+LPHldz307y8Ng13EC9nd8U6JpDrlrL+fpnp/l6ctqX5N5msKLuvBgdIrqDcsPArwUavcJzt2
-	GjQRPp6w==;
+	bh=x6e16gv7fkGlDB1AoJnkIFe8dWDnsL2zpf8dEOQ9gVg=; b=hIvoHIz9ujW4IhoUQFi11LKhs2
+	qFNRLK4u5v9A3W3J4HemQCILvwjuJhtJV03oNt9E02JV1NFtAB6X0fzygcZ3uG6yz9SbCqQ3zfvAj
+	ovVXwXc5SX47aQo5/AEkWLER99v6k09/YetmZKXiCNsE9kO8p6OpuzAW4xPxGSLJWgSTo6QInw0lF
+	fgxS7RiOS0jH93RUMK2RP4yegzpEiu1jptPMJ+KyJZKNpkXXLhXv4xMSXeLULzVcyyBnhc5ZNiHOC
+	oXsQSpS+n/GgFDth69aKVL195n+qSK6adMljO4bDk9EnVZBkNA2G8Fta6pII9IJIM/nP+U6t10PhO
+	/ZyiUeeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYUTr-0000000HM5S-1YTc;
-	Wed, 24 Dec 2025 19:25:07 +0000
-Received: from mail-qk1-x735.google.com ([2607:f8b0:4864:20::735])
+	id 1vYUcu-0000000HMS2-0uhv;
+	Wed, 24 Dec 2025 19:34:28 +0000
+Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYUTn-0000000HM54-42Zb
+	id 1vYUco-0000000HMR9-2dNx
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Dec 2025 19:25:06 +0000
-Received: by mail-qk1-x735.google.com with SMTP id af79cd13be357-8b2f0f9e4cbso468421685a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Dec 2025 11:25:03 -0800 (PST)
+	Wed, 24 Dec 2025 19:34:24 +0000
+Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-4ee1e18fb37so60731571cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Dec 2025 11:34:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1766604302; x=1767209102; darn=lists.infradead.org;
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1766604861; x=1767209661; darn=lists.infradead.org;
         h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
          :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=EcC2/wRdvVVn4EBbf9oNqdQI8h7Pk69qNBD1NEvRhAo=;
-        b=I+8hBTgaLfFvzyLvnjLBI3Nlq3Alg+alnzd4cPb62zoDA01WXxDoyQAXwHXivzqQu1
-         SkJyt5ij391NC03u4DHNqCy6RWkOFQRzHiUb4hRCFts5vkDuOWJwp564jVOAZ8X4+3mv
-         xlxL+K5sKJp/iaFhAE4dEHmTXzqWpyABHEDtjN6uxczEL3pjzWObg2azaGi+86lTf55c
-         dPEn9R3LDf9eHASZVj6SgST3TSJNTYZC7ceKa3PR6JTcL9snpTkY7wgOo87wEHyMnZTb
-         8WyBpjz2ebeJPt72nxUyB6ps+R5U+zCGD+Zb5coX6A0pIgOdjMiD+u+VecOuf5zB/1xN
-         SRYg==
+        bh=x6e16gv7fkGlDB1AoJnkIFe8dWDnsL2zpf8dEOQ9gVg=;
+        b=rsCyiZk4ywSyhXX+9LGI7yCnax8q16On/VMg5tQUO7/1iQOQ5X4BOwkrYjlIgXwYhE
+         vkBDAEL5Keoz0k78mPUAHbpajty2+R6SF8uZXKvceEFZpappMtZqGUNJ4APqWsAn9Xb6
+         /k9MMycm2qkaJZQKgWvHvdYZ9fQp0ZcEZPmDzCanm/ALJVDR4LFJYoSXXPu6qTaPvnZ5
+         CB//kLJG+ZsVK4FnfvG2R7ITIrjYFDsYN0Ipjoq5D5sCR4KzO9xlzffN24/ekPVbDH0q
+         nrOlfHkTPJ5mmOebjEqH1VjlTRMJtQQGjAEswYjg9mJJAO7L0tdsMMtY5Nw19+z99w3M
+         KalQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766604302; x=1767209102;
+        d=1e100.net; s=20230601; t=1766604861; x=1767209661;
         h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
          :from:subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=EcC2/wRdvVVn4EBbf9oNqdQI8h7Pk69qNBD1NEvRhAo=;
-        b=e1mTGVxq02DpAZY0/UyOeKzbxvw1+goFUt1D8MHR0RGMu+uaQtLXadDsc9CP+5k4nf
-         6fs9qC4qQ8H6/9nPwrKhbIS7AFOKa/MoGJHVBNbi92hR6hf/bxHNkZElmu5w1FD1TS8w
-         3qk9E3Pir9tG7vOf47k28FRu529KJYZcM8x9gcdpsLe/PPR4ZvsiJXvhrSwoNuki+jnG
-         0lEvcfpTEYXQQUPg/aioSLL6sWE1FCClmYEuene9RZtPFYhwCV6TQd05bBBp2zLCjMHL
-         +yAiXGSpmhryj2E6yEkxtSWgdmES9wEzt3ENWCg+2bOl9hZ3IysMU6naFYtuiw2F4KMD
-         uX2A==
-X-Forwarded-Encrypted: i=1; AJvYcCXFGMRPA8Oj9GLwTDJOu+0pyxt4RDkZ6us2re4vr7j1pDVZZz0+wY+eTi9/t/xSI7cLXEe5uud0Fv4NyrqCWS4a@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzdu8HcdMuu4AFTmoeuXH5qG37r15ri8VnW6KSqRxJMdWC+lDrP
-	ZNNf6FsalyNdmvH2NZAhilV7oeH6Rbp6fgEYvRmfqorOKB3jwMCaU+DvJBac5J7T/RI=
-X-Gm-Gg: AY/fxX5vA68ty1Ej7JS7HIRs1nl0oyaQKQAw+OoExfM6LZOzfmBbA6MBpYBEiSAOlkC
-	k/8BpHOKepfSnx/WXVs0zVjXAcErCr5CodJQ6XYWFcK12/pnKfVX9ltCKFi2IQsIVDQY620oyXx
-	YdGzrnDMvDmx0NHfSwwcf8lDSSDFLyay3+fKT7ZcwNpxmv67bJFOmPDNf0l29qY7x781/Ju4MR7
-	9wX16s4bJQtokwt0ldct6nAmHm/+NejMWLjatt3/Sq67YGAvbBz3AQ40VKlsTqJE05rzEKyySPd
-	skoWVaPvt/Vr8mQgOleP0RN1+oPBA963nqR9KU2dpIYpQ9+cftUkjvbYxQ/w6YilPsKd3kMigNv
-	VPZBLKitD6XLemH+3hpMVwSk9gO8OWoB4FFlb4u2u9AUiguyKJpi3VdF10TySwrHI15ywiAvMIj
-	iETBXEm+W8NnzYLExa
-X-Google-Smtp-Source: AGHT+IHz8XgMTn76ZHlPpnpvAj1H6/tJW+eqYOQ1q/VE3zGtKMA6q+I33ugOdqv7oLXVyELPXYLVCg==
-X-Received: by 2002:a05:620a:831b:b0:8c1:7bc9:3aa5 with SMTP id af79cd13be357-8c17bc940d8mr713344385a.0.1766604302282;
-        Wed, 24 Dec 2025 11:25:02 -0800 (PST)
+        bh=x6e16gv7fkGlDB1AoJnkIFe8dWDnsL2zpf8dEOQ9gVg=;
+        b=at2iKmcFdURWyoBAhE774uxjFXA2HpakVgpuEL1QX2l0/uhX/B7mRkpOCEPmFqTIJ3
+         fDqbr8g4q8HV3VUMjuTOOmO+MJLFCHI9gnZmpIP475LVTw1K6EGf6j/NABGBjFTUvFiL
+         7sOsmjbb+7SZoswzEIHOGSb/fMCGDp2Baivyt0Zcu2U1mgGOgDFqSNfbnRI1ytDU+3v8
+         qAOtjX7sZLAi8GzB24dBdvs9Fs0XaPIF9PPYVsck14XQLIIqhQJe5pwYO4vFAhrw71pz
+         J5F3HYu/QE0lDowR2JEfonmgqSwNgZ0/ZPwU3KRXOwKCjDQEBRBazV7WaB6KryCUAOhG
+         KFQA==
+X-Forwarded-Encrypted: i=1; AJvYcCV8xSSOMaK/j1gmNUwFjjB2NhnqL9LZtL3foOqkNIbnQKFl9lvpJKzmJhsOIZ/vXo34blkZ8XfnihjUttl6v/co@lists.infradead.org
+X-Gm-Message-State: AOJu0YwKDccvlLKEbxGKjPW8cVzl3bLiDvP12PK3wNzULWld/Zs2YbxZ
+	kkDGXkCsoBclAqn5jsepDVehNR7Rb+gY2acSVWK9P4iHx1HPj5Z2yFjgbQGuYvTQMlo=
+X-Gm-Gg: AY/fxX4XfDmyqt06CfeNvpM91t3EeRfCBs3jzphx4fVIzDc6W3JWkXwIZhZqv5iBpkh
+	iqbxCGhc+UBYDoaDmg7I0K+3hH1iUUjSQvIXZ7heusDNz9B5gyAhnKeE1znFp5+UVTkmMGfKIkd
+	/w/V7qM7mykKncZM4OrsWbi/5wZXZ0cBX6F1vdK0VvXFyEM/PA0xvVIkHZbt+TVV/lpkGEYQ4i7
+	9lSS6Z/o8nn/Pa3qdDSLj01bYRI/xN+08MFhdKa/ZX2YFIEe5wLE5cVc8BfULSfy4wLndVzwpdk
+	e1oZRqjhmTYI6qcXvHMo8z3IRihZxRJwz0kfz73+U8K1O3N0ugmAJlSp975PmI3MZ0EB1AEo3PD
+	4O/z9s95rIlYxNpS0DaGQFr56jGcuF0Y7iWDP2+Uf6kpc8fL2kuKfXTTX/nfUWBAubazXvJdSHQ
+	r8xxQhk4uQZ7xu93uU6KbWpxLcdfQ=
+X-Google-Smtp-Source: AGHT+IE5c0d9pz9gNJn0vh5jGGkS4wNXyintuchpyEm5t5iJ8jOJyL4PkY5GG2wEQBxudRt+jOfljw==
+X-Received: by 2002:a05:622a:6a8e:b0:4f4:c10e:fa3e with SMTP id d75a77b69052e-4f4c10efd3fmr133639501cf.3.1766604861041;
+        Wed, 24 Dec 2025 11:34:21 -0800 (PST)
 Received: from ?IPv6:2606:6d00:17:7b4b::c41? ([2606:6d00:17:7b4b::c41])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8c096783662sm1421044985a.5.2025.12.24.11.25.00
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-88d997aedafsm132331276d6.31.2025.12.24.11.34.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 24 Dec 2025 11:25:01 -0800 (PST)
-Message-ID: <8d5952b87a1456b2b2203b6321888a16980d7a8b.camel@ndufresne.ca>
-Subject: Re: [PATCH v4 3/3] media: amphion: Trigger source change if
- colorspace changed
+        Wed, 24 Dec 2025 11:34:20 -0800 (PST)
+Message-ID: <2974614b2440ed828f49ff7819ca7935d7bb8109.camel@ndufresne.ca>
+Subject: Re: [PATCH v2 4/4] media: mediatek: jpeg: add compatible for MT8189
+ SoC
 From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: ming.qian@oss.nxp.com, linux-media@vger.kernel.org
-Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl, 
-	sebastian.fricke@collabora.com, shawnguo@kernel.org,
- s.hauer@pengutronix.de, 	kernel@pengutronix.de, festevam@gmail.com,
- linux-imx@nxp.com, Frank.li@nxp.com, 	xiahong.bao@nxp.com,
- eagle.zhou@nxp.com, imx@lists.linux.dev, 	linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Date: Wed, 24 Dec 2025 14:24:59 -0500
-In-Reply-To: <20251217030227.1546-4-ming.qian@oss.nxp.com>
-References: <20251217030227.1546-1-ming.qian@oss.nxp.com>
-	 <20251217030227.1546-4-ming.qian@oss.nxp.com>
+To: Jianhua Lin <jianhua.lin@mediatek.com>, mchehab@kernel.org,
+ robh@kernel.org, 	krzk+dt@kernel.org, conor+dt@kernel.org,
+ matthias.bgg@gmail.com, 	angelogioacchino.delregno@collabora.com
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-media@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, 
+	Project_Global_Chrome_Upstream_Group@mediatek.com,
+ sirius.wang@mediatek.com, 	vince-wl.liu@mediatek.com, jh.hsu@mediatek.com
+Date: Wed, 24 Dec 2025 14:34:19 -0500
+In-Reply-To: <20251224031721.9942-5-jianhua.lin@mediatek.com>
+References: <20251224031721.9942-1-jianhua.lin@mediatek.com>
+	 <20251224031721.9942-5-jianhua.lin@mediatek.com>
 Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
  keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
  /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
@@ -98,12 +99,12 @@ Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
  ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
  bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
 Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-e7Chkxp9Nxc1QldT920F"
+	protocol="application/pgp-signature"; boundary="=-qqvl0ztmS4O0H5gavPMm"
 User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251224_112504_026099_104BEB04 
-X-CRM114-Status: GOOD (  17.85  )
+X-CRM114-CacheID: sfid-20251224_113422_702915_F104C5B3 
+X-CRM114-Status: GOOD (  16.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,179 +120,120 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---=-e7Chkxp9Nxc1QldT920F
+--=-qqvl0ztmS4O0H5gavPMm
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-Hi Ming,
-
-Le mercredi 17 d=C3=A9cembre 2025 =C3=A0 11:02 +0800, ming.qian@oss.nxp.com=
- a =C3=A9crit=C2=A0:
-> From: Ming Qian <ming.qian@oss.nxp.com>
+Le mercredi 24 d=C3=A9cembre 2025 =C3=A0 11:17 +0800, Jianhua Lin a =C3=A9c=
+rit=C2=A0:
+> Compared to the previous generation IC, the MT8189 uses 34-bit iova
+> address-space (16GB) and requires a single clock configuration.
+> Therefore, add new compatible to support the JPEG encoder and decoder
+> of MT8189 SoC.
 >=20
-> After encountering a colorspace change in the stream, the decoder
-> sends a V4L2_EVENT_SOURCE_CHANGE event with changes set to
-> V4L2_EVENT_SRC_CH_RESOLUTION.
->=20
-> Then the client can detect and handle the colorspace change without any
-> buffer reallocation
->=20
-> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+> Signed-off-by: Jianhua Lin <jianhua.lin@mediatek.com>
 
 Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 
-> ---
-> =C2=A0drivers/media/platform/amphion/vdec.c=C2=A0=C2=A0=C2=A0=C2=A0 | 61 =
-+++++++++++++++--------
-> =C2=A0drivers/media/platform/amphion/vpu_v4l2.c |=C2=A0 1 -
-> =C2=A02 files changed, 40 insertions(+), 22 deletions(-)
->=20
-> diff --git a/drivers/media/platform/amphion/vdec.c b/drivers/media/platfo=
-rm/amphion/vdec.c
-> index f25dbcebdccf..beeaf75c76b4 100644
-> --- a/drivers/media/platform/amphion/vdec.c
-> +++ b/drivers/media/platform/amphion/vdec.c
-> @@ -950,7 +950,7 @@ static void vdec_stop_done(struct vpu_inst *inst)
-> =C2=A0	vpu_inst_unlock(inst);
-> =C2=A0}
-> =C2=A0
-> -static bool vdec_check_source_change(struct vpu_inst *inst)
-> +static bool vdec_check_source_change(struct vpu_inst *inst, struct vpu_d=
-ec_codec_info *hdr)
-> =C2=A0{
-> =C2=A0	struct vdec_t *vdec =3D inst->priv;
-> =C2=A0	const struct vpu_format *sibling;
-> @@ -962,26 +962,35 @@ static bool vdec_check_source_change(struct vpu_ins=
-t *inst)
-> =C2=A0		return false;
-> =C2=A0
-> =C2=A0	sibling =3D vpu_helper_find_sibling(inst, inst->cap_format.type, i=
-nst->cap_format.pixfmt);
-> -	if (sibling && vdec->codec_info.pixfmt =3D=3D sibling->pixfmt)
-> -		vdec->codec_info.pixfmt =3D inst->cap_format.pixfmt;
-> +	if (sibling && hdr->pixfmt =3D=3D sibling->pixfmt)
-> +		hdr->pixfmt =3D inst->cap_format.pixfmt;
-> =C2=A0
-> =C2=A0	if (!vb2_is_streaming(v4l2_m2m_get_dst_vq(inst->fh.m2m_ctx)))
-> =C2=A0		return true;
-> -	if (inst->cap_format.pixfmt !=3D vdec->codec_info.pixfmt)
-> +	if (inst->cap_format.pixfmt !=3D hdr->pixfmt)
-> =C2=A0		return true;
-> -	if (inst->cap_format.width !=3D vdec->codec_info.decoded_width)
-> +	if (inst->cap_format.width !=3D hdr->decoded_width)
-> =C2=A0		return true;
-> -	if (inst->cap_format.height !=3D vdec->codec_info.decoded_height)
-> +	if (inst->cap_format.height !=3D hdr->decoded_height)
-> =C2=A0		return true;
-> =C2=A0	if (vpu_get_num_buffers(inst, inst->cap_format.type) < inst->min_b=
-uffer_cap)
-> =C2=A0		return true;
-> -	if (inst->crop.left !=3D vdec->codec_info.offset_x)
-> +	if (inst->crop.left !=3D hdr->offset_x)
-> =C2=A0		return true;
-> -	if (inst->crop.top !=3D vdec->codec_info.offset_y)
-> +	if (inst->crop.top !=3D hdr->offset_y)
-> =C2=A0		return true;
-> -	if (inst->crop.width !=3D vdec->codec_info.width)
-> +	if (inst->crop.width !=3D hdr->width)
-> =C2=A0		return true;
-> -	if (inst->crop.height !=3D vdec->codec_info.height)
-> +	if (inst->crop.height !=3D hdr->height)
-> +		return true;
-> +	if (!hdr->progressive)
-> +		return true;
-> +
-> +	if (vdec->seq_hdr_found &&
-> +	=C2=A0=C2=A0=C2=A0 (hdr->color_primaries !=3D vdec->codec_info.color_pr=
-imaries ||
-> +	=C2=A0=C2=A0=C2=A0=C2=A0 hdr->transfer_chars !=3D vdec->codec_info.tran=
-sfer_chars ||
-> +	=C2=A0=C2=A0=C2=A0=C2=A0 hdr->matrix_coeffs !=3D vdec->codec_info.matri=
-x_coeffs ||
-> +	=C2=A0=C2=A0=C2=A0=C2=A0 hdr->full_range !=3D vdec->codec_info.full_ran=
-ge))
-> =C2=A0		return true;
-> =C2=A0
-> =C2=A0	return false;
-> @@ -1333,20 +1342,25 @@ static void vdec_event_seq_hdr(struct vpu_inst *i=
-nst, struct vpu_dec_codec_info
-> =C2=A0	struct vdec_t *vdec =3D inst->priv;
-> =C2=A0
-> =C2=A0	vpu_inst_lock(inst);
-> -	memcpy(&vdec->codec_info, hdr, sizeof(vdec->codec_info));
-> =C2=A0
-> -	vpu_trace(inst->dev, "[%d] %d x %d, crop : (%d, %d) %d x %d, %d, %d\n",
-> +	vpu_trace(inst->dev,
-> +		=C2=A0 "[%d] %d x %d, crop : (%d, %d) %d x %d, %d, %d, colorspace: %d,=
- %d, %d, %d\n",
-> =C2=A0		=C2=A0 inst->id,
-> -		=C2=A0 vdec->codec_info.decoded_width,
-> -		=C2=A0 vdec->codec_info.decoded_height,
-> -		=C2=A0 vdec->codec_info.offset_x,
-> -		=C2=A0 vdec->codec_info.offset_y,
-> -		=C2=A0 vdec->codec_info.width,
-> -		=C2=A0 vdec->codec_info.height,
-> +		=C2=A0 hdr->decoded_width,
-> +		=C2=A0 hdr->decoded_height,
-> +		=C2=A0 hdr->offset_x,
-> +		=C2=A0 hdr->offset_y,
-> +		=C2=A0 hdr->width,
-> +		=C2=A0 hdr->height,
-> =C2=A0		=C2=A0 hdr->num_ref_frms,
-> -		=C2=A0 hdr->num_dpb_frms);
-> +		=C2=A0 hdr->num_dpb_frms,
-> +		=C2=A0 hdr->color_primaries,
-> +		=C2=A0 hdr->transfer_chars,
-> +		=C2=A0 hdr->matrix_coeffs,
-> +		=C2=A0 hdr->full_range);
-> =C2=A0	inst->min_buffer_cap =3D hdr->num_ref_frms + hdr->num_dpb_frms;
-> -	vdec->is_source_changed =3D vdec_check_source_change(inst);
-> +	vdec->is_source_changed =3D vdec_check_source_change(inst, hdr);
-> +	memcpy(&vdec->codec_info, hdr, sizeof(vdec->codec_info));
-> =C2=A0	vdec_init_fmt(inst);
-> =C2=A0	vdec_init_crop(inst);
-> =C2=A0	vdec_init_mbi(inst);
-> @@ -1375,7 +1389,12 @@ static void vdec_event_resolution_change(struct vp=
-u_inst *inst)
-> =C2=A0{
-> =C2=A0	struct vdec_t *vdec =3D inst->priv;
-> =C2=A0
-> -	vpu_trace(inst->dev, "[%d]\n", inst->id);
-> +	vpu_trace(inst->dev, "[%d] input : %d, decoded : %d, display : %d, sequ=
-ence : %d\n",
-> +		=C2=A0 inst->id,
-> +		=C2=A0 vdec->params.frame_count,
-> +		=C2=A0 vdec->decoded_frame_count,
-> +		=C2=A0 vdec->display_frame_count,
-> +		=C2=A0 vdec->sequence);
-> =C2=A0	vpu_inst_lock(inst);
-> =C2=A0	vdec->seq_tag =3D vdec->codec_info.tag;
-> =C2=A0	vdec_clear_fs(&vdec->mbi);
-> diff --git a/drivers/media/platform/amphion/vpu_v4l2.c b/drivers/media/pl=
-atform/amphion/vpu_v4l2.c
-> index 47dff9a35bb4..121165a7184f 100644
-> --- a/drivers/media/platform/amphion/vpu_v4l2.c
-> +++ b/drivers/media/platform/amphion/vpu_v4l2.c
-> @@ -102,7 +102,6 @@ static int vpu_notify_eos(struct vpu_inst *inst)
-> =C2=A0int vpu_notify_source_change(struct vpu_inst *inst)
-> =C2=A0{
-> =C2=A0	static const struct v4l2_event ev =3D {
-> -		.id =3D 0,
-> =C2=A0		.type =3D V4L2_EVENT_SOURCE_CHANGE,
-> =C2=A0		.u.src_change.changes =3D V4L2_EVENT_SRC_CH_RESOLUTION
-> =C2=A0	};
+I'll have to wait for some ack on the bindings, which looks otherwise fine =
+to
+me. But due to holiday, that might be delayed a little bit.
 
---=-e7Chkxp9Nxc1QldT920F
+cheers,
+Nicolas
+
+> ---
+> =C2=A0.../platform/mediatek/jpeg/mtk_jpeg_core.c=C2=A0=C2=A0=C2=A0 | 44 +=
+++++++++++++++++++
+> =C2=A01 file changed, 44 insertions(+)
+>=20
+> diff --git a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> index d08fe365cbb2..9ea8d8f56e9b 100644
+> --- a/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> +++ b/drivers/media/platform/mediatek/jpeg/mtk_jpeg_core.c
+> @@ -1866,6 +1866,10 @@ static struct clk_bulk_data mt8173_jpeg_dec_clocks=
+[] =3D
+> {
+> =C2=A0	{ .id =3D "jpgdec" },
+> =C2=A0};
+> =C2=A0
+> +static struct clk_bulk_data mtk_jpeg_dec_clocks[] =3D {
+> +	{ .id =3D "jpgdec" },
+> +};
+> +
+> =C2=A0static const struct mtk_jpeg_variant mt8173_jpeg_drvdata =3D {
+> =C2=A0	.clks =3D mt8173_jpeg_dec_clocks,
+> =C2=A0	.num_clks =3D ARRAY_SIZE(mt8173_jpeg_dec_clocks),
+> @@ -1897,6 +1901,38 @@ static const struct mtk_jpeg_variant mtk_jpeg_drvd=
+ata =3D
+> {
+> =C2=A0	.multi_core =3D false,
+> =C2=A0};
+> =C2=A0
+> +static const struct mtk_jpeg_variant mtk8189_jpegenc_drvdata =3D {
+> +	.clks =3D mtk_jpeg_clocks,
+> +	.num_clks =3D ARRAY_SIZE(mtk_jpeg_clocks),
+> +	.formats =3D mtk_jpeg_enc_formats,
+> +	.num_formats =3D MTK_JPEG_ENC_NUM_FORMATS,
+> +	.qops =3D &mtk_jpeg_enc_qops,
+> +	.irq_handler =3D mtk_jpeg_enc_irq,
+> +	.hw_reset =3D mtk_jpeg_enc_reset,
+> +	.m2m_ops =3D &mtk_jpeg_enc_m2m_ops,
+> +	.dev_name =3D "mtk-jpeg-enc",
+> +	.ioctl_ops =3D &mtk_jpeg_enc_ioctl_ops,
+> +	.out_q_default_fourcc =3D V4L2_PIX_FMT_YUYV,
+> +	.cap_q_default_fourcc =3D V4L2_PIX_FMT_JPEG,
+> +	.support_34bit =3D true,
+> +};
+> +
+> +static const struct mtk_jpeg_variant mtk8189_jpegdec_drvdata =3D {
+> +	.clks =3D mtk_jpeg_dec_clocks,
+> +	.num_clks =3D ARRAY_SIZE(mtk_jpeg_dec_clocks),
+> +	.formats =3D mtk_jpeg_dec_formats,
+> +	.num_formats =3D MTK_JPEG_DEC_NUM_FORMATS,
+> +	.qops =3D &mtk_jpeg_dec_qops,
+> +	.irq_handler =3D mtk_jpeg_dec_irq,
+> +	.hw_reset =3D mtk_jpeg_dec_reset,
+> +	.m2m_ops =3D &mtk_jpeg_dec_m2m_ops,
+> +	.dev_name =3D "mtk-jpeg-dec",
+> +	.ioctl_ops =3D &mtk_jpeg_dec_ioctl_ops,
+> +	.out_q_default_fourcc =3D V4L2_PIX_FMT_JPEG,
+> +	.cap_q_default_fourcc =3D V4L2_PIX_FMT_YUV420M,
+> +	.support_34bit =3D true,
+> +};
+> +
+> =C2=A0static struct mtk_jpeg_variant mtk8195_jpegenc_drvdata =3D {
+> =C2=A0	.formats =3D mtk_jpeg_enc_formats,
+> =C2=A0	.num_formats =3D MTK_JPEG_ENC_NUM_FORMATS,
+> @@ -1936,6 +1972,14 @@ static const struct of_device_id mtk_jpeg_match[] =
+=3D {
+> =C2=A0		.compatible =3D "mediatek,mtk-jpgenc",
+> =C2=A0		.data =3D &mtk_jpeg_drvdata,
+> =C2=A0	},
+> +	{
+> +		.compatible =3D "mediatek,mt8189-jpgenc",
+> +		.data =3D &mtk8189_jpegenc_drvdata,
+> +	},
+> +	{
+> +		.compatible =3D "mediatek,mt8189-jpgdec",
+> +		.data =3D &mtk8189_jpegdec_drvdata,
+> +	},
+> =C2=A0	{
+> =C2=A0		.compatible =3D "mediatek,mt8195-jpgenc",
+> =C2=A0		.data =3D &mtk8195_jpegenc_drvdata,
+
+--=-qqvl0ztmS4O0H5gavPMm
 Content-Type: application/pgp-signature; name="signature.asc"
 Content-Description: This is a digitally signed message part
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaUw+DAAKCRDZQZRRKWBy
-9CCgAQCJEcF67WbJCFUJ9LDCkCSQrAPnJ5AUlW1B1MtmPrdnyQD/bln376ZTtTKz
-q3xQG4oYSaWKF3oR8duW1S5G/Fz0fwc=
-=B805
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaUxAOwAKCRDZQZRRKWBy
+9JqBAP9i7M2YbOEYsWIhtcAH9zQcvXYutrHtuKt+PmEgNW4g5AD9ECawAwyRxWOa
+fdGbfG5KGblydDkiwIRY9o3Ya2p6XQQ=
+=ZDB6
 -----END PGP SIGNATURE-----
 
---=-e7Chkxp9Nxc1QldT920F--
+--=-qqvl0ztmS4O0H5gavPMm--
 
