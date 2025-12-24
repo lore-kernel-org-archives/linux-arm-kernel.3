@@ -4,69 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34D7EE74ADE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 07:32:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7287CE74AE1
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 07:49:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ppye8HYjBmEPrdZNIzeH74t/GToJKaCPXTBOK93LMeI=; b=RPJZnXImMCYRGMzMnIXVZEW6E2
-	Q+0DD97tZ3KXLkpUqbmaAnINZD/AYEeTv5/mVgFty5gR81TsiM9gyrEh6XZSp1XpOHYiS8U+QvG4Q
-	k1Axuyai4ezBR+cfuTZMqkLfSaaPyTBhJpxE3vX+9N1oQcsyWAYIr7nwkmkRuahUstzaCY92ktm6v
-	UFMuXgd18pewW8WlOeZpGpdKJu5binFfN2FEGKzKBMzUJO85ccJ3AmMUP7MxfhLhJBR9ztjBrpvYs
-	MguqkEusk3wtiE9Lrr0q7T9dqsTxvEXgxYAs1hbDN5jBQEGGjVavIgXq5xtehoVhFH2wibEUdfXT1
-	mXs+JzDQ==;
+	bh=h0/Sg9vEcVPykAL4iwpmTNn0DtmSkFDaeo8PJsZs1/M=; b=MjJGvIMIaAQPI9HYliR1FjOe2C
+	3qKBABsd0COaviR3J29nIlsQ6u3M1hDo0bZrxOG8G7Ne6GyWwo2NnGE/B9MM+V666quXTz0/8twDc
+	gCGcQb8mh/Qe0cBYXtGbtO0FG5Yn5T82n2eyjOvUCOrHmdQmtDbKvUTLyRgjn73Vz0eZc8FTxYwkq
+	0Z1Wv+5gl6VNQflMr8N6I24PZYPlz5u6w+hmDbCMrlLECBnp3qDGZxHzSdnWK9H/X2QvIu0jamd7S
+	nRW9Zv+XeLhJ/Pt7A9bNIEMp1Ia68bDSAuzHtZLN9odrnUTZ7cHm03xEAKo+c2RP9/KXjT08MTvgO
+	O4L8385w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYJMa-0000000GY0A-2OpI;
-	Wed, 24 Dec 2025 07:32:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vYJcm-0000000GYjQ-2FWE;
+	Wed, 24 Dec 2025 07:49:36 +0000
+Received: from out30-131.freemail.mail.aliyun.com ([115.124.30.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYJMY-0000000GXzp-2TvQ;
-	Wed, 24 Dec 2025 07:32:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 97B9860151;
-	Wed, 24 Dec 2025 07:32:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE239C4CEFB;
-	Wed, 24 Dec 2025 07:32:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766561569;
-	bh=w5e9TnrVP5ABegEPA7dNb4tZYj1u9bTP/vBnZ/hS2tY=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=hf1E8ILlRZDpG0ZPukbun9DVqpea0FkRG2ChgsNG6vJJBC/qZAY3i5nFfeheALSMK
-	 IDNhzn7UIoC5XgGSVEH7yG0Atxm8YwHRK/yI0HFaOKxrbe3JLB5p34lUm9hVaBOi3O
-	 ZBy0HMOjSekxO45JZlZRDyYMFDB3rkLlbLShcQJzeGOiTWtgUdgkz60UsKhnRLq0Gp
-	 dkcloG7u9WNzoPep08Fg9yyLTwED9YFtErdQcV1H/6QiTCsN2EbJ9rCEezAAS6xlpf
-	 l0ttNUllE7L4749pz57ZD8GkevkZPlkZEu/Tmo4OnwYFZ17FF3P/9PxIg+RY+rp4ba
-	 YaTgX2NXFfA3w==
-From: Vinod Koul <vkoul@kernel.org>
-To: Kishon Vijay Abraham I <kishon@kernel.org>, 
- Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Chunfeng Yun <chunfeng.yun@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Heiko Stuebner <heiko@sntech.de>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Stephen Boyd <sboyd@kernel.org>, 
- Maxime Ripard <mripard@kernel.org>, Brian Masney <bmasney@redhat.com>
-Cc: linux-clk@vger.kernel.org, linux-phy@lists.infradead.org, 
- linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, 
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <20251212-phy-clk-round-rate-v3-0-beae3962f767@redhat.com>
-References: <20251212-phy-clk-round-rate-v3-0-beae3962f767@redhat.com>
-Subject: Re: [PATCH v3 0/9] phy: convert from clk round_rate() to
- determine_rate()
-Message-Id: <176656156358.817806.16966474957670370356.b4-ty@kernel.org>
-Date: Wed, 24 Dec 2025 13:02:43 +0530
+	id 1vYJcj-0000000GYib-01NB
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 24 Dec 2025 07:49:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1766562566; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=h0/Sg9vEcVPykAL4iwpmTNn0DtmSkFDaeo8PJsZs1/M=;
+	b=hvLv+G+4C67o1VYw6Pz6ZomvF1l3TXAe/mtk4P2mJGwpKdoeEvA56Zmu5133HUUcOdJ2FKUiamehxCJ8tkZVpyE9M8RtdtCKhMWMCydntj9Tmg0sm5wYrm7j5QhU+Ed3s2E7RolJoeQGVvB3sMRJ2EXb/QM6rXy5u303X9k5IUU=
+Received: from 30.221.132.102(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0WvaN3qJ_1766562562 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Wed, 24 Dec 2025 15:49:23 +0800
+Message-ID: <db72933f-cda7-4196-8e54-73cbefbf1a26@linux.alibaba.com>
+Date: Wed, 24 Dec 2025 15:49:21 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.13.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v13 2/5] arm64: add support for ARCH_HAS_COPY_MC
+To: Tong Tiangen <tongtiangen@huawei.com>, Mark Rutland
+ <mark.rutland@arm.com>, Jonathan Cameron <Jonathan.Cameron@Huawei.com>,
+ Mauro Carvalho Chehab <mchehab+huawei@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>, James Morse
+ <james.morse@arm.com>, Robin Murphy <robin.murphy@arm.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+ Alexander Potapenko <glider@google.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+ "Naveen N. Rao" <naveen.n.rao@linux.ibm.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+ linuxppc-dev@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+ kasan-dev@googlegroups.com, wangkefeng.wang@huawei.com,
+ Guohanjun <guohanjun@huawei.com>
+References: <20241209024257.3618492-1-tongtiangen@huawei.com>
+ <20241209024257.3618492-3-tongtiangen@huawei.com>
+From: Ruidong Tian <tianruidong@linux.alibaba.com>
+In-Reply-To: <20241209024257.3618492-3-tongtiangen@huawei.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251223_234933_839254_44355614 
+X-CRM114-Status: GOOD (  32.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,46 +85,267 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Tong:
 
-On Fri, 12 Dec 2025 08:16:18 +0900, Brian Masney wrote:
-> The round_rate() clk ops is deprecated in the clk framework in favor
-> of the determine_rate() clk ops, so let's go ahead and convert the
-> drivers in the phy subsystem using the Coccinelle semantic patch
-> posted below. I did a few minor cosmetic cleanups of the code in a
-> few cases.
-> 
-> Changes since v2:
-> - Patch 8 (phy-rockchip-samsung-hdptx): fixed merge conflict so this now
->   applies against next-20251211. Cristian / Heiko: I kept your
->   Reviewed-by since structurally the code is still the same as before.
-> - Link to v2: https://lore.kernel.org/r/20250810-phy-clk-round-rate-v2-0-9162470bb9f2@redhat.com
-> 
-> [...]
+I applied this path on 6.18 and tested on Kunpeng920, system still alive 
+when i inject a error in copy from user context, but I found that user 
+application receive a SIGBUS, this action is different with x86 machine 
+which return -EFAULT rather than send SIGBUS.
 
-Applied, thanks!
+I added a patch to fix this behavior[0]. Feel free to incorporate it 
+into your series, or I can send it as a formal follow-up patch, 
+whichever you prefer.
 
-[1/9] phy: freescale: phy-fsl-samsung-hdmi: convert from round_rate() to determine_rate()
-      commit: efc389fa00d1b93df8f95974c4f8c11da63671da
-[2/9] phy: mediatek: phy-mtk-hdmi-mt2701: convert from round_rate() to determine_rate()
-      commit: ebed08490d667141085ed873309aec5806dbb3a9
-[3/9] phy: mediatek: phy-mtk-hdmi-mt8173: convert from round_rate() to determine_rate()
-      commit: be4267241c196745e1f649afb7d232fe4440073a
-[4/9] phy: mediatek: phy-mtk-hdmi-mt8195: convert from round_rate() to determine_rate()
-      commit: 7a4ce5a9b674654ab04961a9ea03d15d71edb2a9
-[5/9] phy: mediatek: phy-mtk-mipi-dsi-mt8173: convert from round_rate() to determine_rate()
-      commit: 8e6bb53203d5c0a0cbc4f5cd90d8b2c6f20818ba
-[6/9] phy: mediatek: phy-mtk-mipi-dsi-mt8183: convert from round_rate() to determine_rate()
-      commit: 0484168a352f0f75a82d9917df4b23f5466726b7
-[7/9] phy: rockchip: phy-rockchip-inno-hdmi: convert from round_rate() to determine_rate()
-      commit: 2f7870297ae073b0fd6e1f875a9b84c5de0dea00
-[8/9] phy: rockchip: phy-rockchip-samsung-hdptx: convert from round_rate() to determine_rate()
-      commit: 3d4ffdfcf108e73b7c5bf07e0358d0fe8fac28d4
-[9/9] phy: ti: phy-j721e-wiz: convert from round_rate() to determine_rate()
-      commit: 27287e3b52b5954b73203d32ee76ffd5f53f5074
+[0]: https://github.com/winterddd/linux/tree/arm-copyin
 
 Best regards,
--- 
-~Vinod
+Ruidong
 
+在 2024/12/9 10:42, Tong Tiangen 写道:
+> For the arm64 kernel, when it processes hardware memory errors for
+> synchronize notifications(do_sea()), if the errors is consumed within the
+> kernel, the current processing is panic. However, it is not optimal.
+> 
+> Take copy_from/to_user for example, If ld* triggers a memory error, even in
+> kernel mode, only the associated process is affected. Killing the user
+> process and isolating the corrupt page is a better choice.
+> 
+> Add new fixup type EX_TYPE_KACCESS_ERR_ZERO_MEM_ERR to identify insn
+> that can recover from memory errors triggered by access to kernel memory,
+> and this fixup type is used in __arch_copy_to_user(), This make the regular
+> copy_to_user() will handle kernel memory errors.
+> 
+> Signed-off-by: Tong Tiangen <tongtiangen@huawei.com>
+> ---
+>   arch/arm64/Kconfig                   |  1 +
+>   arch/arm64/include/asm/asm-extable.h | 31 +++++++++++++++++++++++-----
+>   arch/arm64/include/asm/asm-uaccess.h |  4 ++++
+>   arch/arm64/include/asm/extable.h     |  1 +
+>   arch/arm64/lib/copy_to_user.S        | 10 ++++-----
+>   arch/arm64/mm/extable.c              | 19 +++++++++++++++++
+>   arch/arm64/mm/fault.c                | 30 ++++++++++++++++++++-------
+>   7 files changed, 78 insertions(+), 18 deletions(-)
+> 
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 100570a048c5..5fa54d31162c 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -21,6 +21,7 @@ config ARM64
+>   	select ARCH_ENABLE_THP_MIGRATION if TRANSPARENT_HUGEPAGE
+>   	select ARCH_HAS_CACHE_LINE_SIZE
+>   	select ARCH_HAS_CC_PLATFORM
+> +	select ARCH_HAS_COPY_MC if ACPI_APEI_GHES
+>   	select ARCH_HAS_CURRENT_STACK_POINTER
+>   	select ARCH_HAS_DEBUG_VIRTUAL
+>   	select ARCH_HAS_DEBUG_VM_PGTABLE
+> diff --git a/arch/arm64/include/asm/asm-extable.h b/arch/arm64/include/asm/asm-extable.h
+> index b8a5861dc7b7..0f9123efca0a 100644
+> --- a/arch/arm64/include/asm/asm-extable.h
+> +++ b/arch/arm64/include/asm/asm-extable.h
+> @@ -5,11 +5,13 @@
+>   #include <linux/bits.h>
+>   #include <asm/gpr-num.h>
+>   
+> -#define EX_TYPE_NONE			0
+> -#define EX_TYPE_BPF			1
+> -#define EX_TYPE_UACCESS_ERR_ZERO	2
+> -#define EX_TYPE_KACCESS_ERR_ZERO	3
+> -#define EX_TYPE_LOAD_UNALIGNED_ZEROPAD	4
+> +#define EX_TYPE_NONE				0
+> +#define EX_TYPE_BPF				1
+> +#define EX_TYPE_UACCESS_ERR_ZERO		2
+> +#define EX_TYPE_KACCESS_ERR_ZERO		3
+> +#define EX_TYPE_LOAD_UNALIGNED_ZEROPAD		4
+> +/* kernel access memory error safe */
+> +#define EX_TYPE_KACCESS_ERR_ZERO_MEM_ERR	5
+>   
+>   /* Data fields for EX_TYPE_UACCESS_ERR_ZERO */
+>   #define EX_DATA_REG_ERR_SHIFT	0
+> @@ -51,6 +53,17 @@
+>   #define _ASM_EXTABLE_UACCESS(insn, fixup)				\
+>   	_ASM_EXTABLE_UACCESS_ERR_ZERO(insn, fixup, wzr, wzr)
+>   
+> +#define _ASM_EXTABLE_KACCESS_ERR_ZERO_MEM_ERR(insn, fixup, err, zero)	\
+> +	__ASM_EXTABLE_RAW(insn, fixup, 					\
+> +			  EX_TYPE_KACCESS_ERR_ZERO_MEM_ERR,		\
+> +			  (						\
+> +			    EX_DATA_REG(ERR, err) |			\
+> +			    EX_DATA_REG(ZERO, zero)			\
+> +			  ))
+> +
+> +#define _ASM_EXTABLE_KACCESS_MEM_ERR(insn, fixup)			\
+> +	_ASM_EXTABLE_KACCESS_ERR_ZERO_MEM_ERR(insn, fixup, wzr, wzr)
+> +
+>   /*
+>    * Create an exception table entry for uaccess `insn`, which will branch to `fixup`
+>    * when an unhandled fault is taken.
+> @@ -69,6 +82,14 @@
+>   	.endif
+>   	.endm
+>   
+> +/*
+> + * Create an exception table entry for kaccess `insn`, which will branch to
+> + * `fixup` when an unhandled fault is taken.
+> + */
+> +	.macro          _asm_extable_kaccess_mem_err, insn, fixup
+> +	_ASM_EXTABLE_KACCESS_MEM_ERR(\insn, \fixup)
+> +	.endm
+> +
+>   #else /* __ASSEMBLY__ */
+>   
+>   #include <linux/stringify.h>
+> diff --git a/arch/arm64/include/asm/asm-uaccess.h b/arch/arm64/include/asm/asm-uaccess.h
+> index 5b6efe8abeeb..19aa0180f645 100644
+> --- a/arch/arm64/include/asm/asm-uaccess.h
+> +++ b/arch/arm64/include/asm/asm-uaccess.h
+> @@ -57,6 +57,10 @@ alternative_else_nop_endif
+>   	.endm
+>   #endif
+>   
+> +#define KERNEL_MEM_ERR(l, x...)			\
+> +9999:	x;					\
+> +	_asm_extable_kaccess_mem_err	9999b, l
+> +
+>   #define USER(l, x...)				\
+>   9999:	x;					\
+>   	_asm_extable_uaccess	9999b, l
+> diff --git a/arch/arm64/include/asm/extable.h b/arch/arm64/include/asm/extable.h
+> index 72b0e71cc3de..bc49443bc502 100644
+> --- a/arch/arm64/include/asm/extable.h
+> +++ b/arch/arm64/include/asm/extable.h
+> @@ -46,4 +46,5 @@ bool ex_handler_bpf(const struct exception_table_entry *ex,
+>   #endif /* !CONFIG_BPF_JIT */
+>   
+>   bool fixup_exception(struct pt_regs *regs);
+> +bool fixup_exception_me(struct pt_regs *regs);
+>   #endif
+> diff --git a/arch/arm64/lib/copy_to_user.S b/arch/arm64/lib/copy_to_user.S
+> index 802231772608..bedab1678431 100644
+> --- a/arch/arm64/lib/copy_to_user.S
+> +++ b/arch/arm64/lib/copy_to_user.S
+> @@ -20,7 +20,7 @@
+>    *	x0 - bytes not copied
+>    */
+>   	.macro ldrb1 reg, ptr, val
+> -	ldrb  \reg, [\ptr], \val
+> +	KERNEL_MEM_ERR(9998f, ldrb  \reg, [\ptr], \val)
+>   	.endm
+>   
+>   	.macro strb1 reg, ptr, val
+> @@ -28,7 +28,7 @@
+>   	.endm
+>   
+>   	.macro ldrh1 reg, ptr, val
+> -	ldrh  \reg, [\ptr], \val
+> +	KERNEL_MEM_ERR(9998f, ldrh  \reg, [\ptr], \val)
+>   	.endm
+>   
+>   	.macro strh1 reg, ptr, val
+> @@ -36,7 +36,7 @@
+>   	.endm
+>   
+>   	.macro ldr1 reg, ptr, val
+> -	ldr \reg, [\ptr], \val
+> +	KERNEL_MEM_ERR(9998f, ldr \reg, [\ptr], \val)
+>   	.endm
+>   
+>   	.macro str1 reg, ptr, val
+> @@ -44,7 +44,7 @@
+>   	.endm
+>   
+>   	.macro ldp1 reg1, reg2, ptr, val
+> -	ldp \reg1, \reg2, [\ptr], \val
+> +	KERNEL_MEM_ERR(9998f, ldp \reg1, \reg2, [\ptr], \val)
+>   	.endm
+>   
+>   	.macro stp1 reg1, reg2, ptr, val
+> @@ -64,7 +64,7 @@ SYM_FUNC_START(__arch_copy_to_user)
+>   9997:	cmp	dst, dstin
+>   	b.ne	9998f
+>   	// Before being absolutely sure we couldn't copy anything, try harder
+> -	ldrb	tmp1w, [srcin]
+> +KERNEL_MEM_ERR(9998f, ldrb	tmp1w, [srcin])
+>   USER(9998f, sttrb tmp1w, [dst])
+>   	add	dst, dst, #1
+>   9998:	sub	x0, end, dst			// bytes not copied
+> diff --git a/arch/arm64/mm/extable.c b/arch/arm64/mm/extable.c
+> index 228d681a8715..9ad2b6473b60 100644
+> --- a/arch/arm64/mm/extable.c
+> +++ b/arch/arm64/mm/extable.c
+> @@ -72,7 +72,26 @@ bool fixup_exception(struct pt_regs *regs)
+>   		return ex_handler_uaccess_err_zero(ex, regs);
+>   	case EX_TYPE_LOAD_UNALIGNED_ZEROPAD:
+>   		return ex_handler_load_unaligned_zeropad(ex, regs);
+> +	case EX_TYPE_KACCESS_ERR_ZERO_MEM_ERR:
+> +		return false;
+>   	}
+>   
+>   	BUG();
+>   }
+> +
+> +bool fixup_exception_me(struct pt_regs *regs)
+> +{
+> +	const struct exception_table_entry *ex;
+> +
+> +	ex = search_exception_tables(instruction_pointer(regs));
+> +	if (!ex)
+> +		return false;
+> +
+> +	switch (ex->type) {
+> +	case EX_TYPE_UACCESS_ERR_ZERO:
+> +	case EX_TYPE_KACCESS_ERR_ZERO_MEM_ERR:
+> +		return ex_handler_uaccess_err_zero(ex, regs);
+> +	}
+> +
+> +	return false;
+> +}
+> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
+> index ef63651099a9..278e67357f49 100644
+> --- a/arch/arm64/mm/fault.c
+> +++ b/arch/arm64/mm/fault.c
+> @@ -801,21 +801,35 @@ static int do_bad(unsigned long far, unsigned long esr, struct pt_regs *regs)
+>   	return 1; /* "fault" */
+>   }
+>   
+> +/*
+> + * APEI claimed this as a firmware-first notification.
+> + * Some processing deferred to task_work before ret_to_user().
+> + */
+> +static int do_apei_claim_sea(struct pt_regs *regs)
+> +{
+> +	int ret;
+> +
+> +	ret = apei_claim_sea(regs);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (!user_mode(regs) && IS_ENABLED(CONFIG_ARCH_HAS_COPY_MC)) {
+> +		if (!fixup_exception_me(regs))
+> +			return -ENOENT;
+> +	}
+> +
+> +	return ret;
+> +}
+> +
+>   static int do_sea(unsigned long far, unsigned long esr, struct pt_regs *regs)
+>   {
+>   	const struct fault_info *inf;
+>   	unsigned long siaddr;
+>   
+> -	inf = esr_to_fault_info(esr);
+> -
+> -	if (user_mode(regs) && apei_claim_sea(regs) == 0) {
+> -		/*
+> -		 * APEI claimed this as a firmware-first notification.
+> -		 * Some processing deferred to task_work before ret_to_user().
+> -		 */
+> +	if (do_apei_claim_sea(regs) == 0)
+>   		return 0;
+> -	}
+>   
+> +	inf = esr_to_fault_info(esr);
+>   	if (esr & ESR_ELx_FnV) {
+>   		siaddr = 0;
+>   	} else {
 
 
