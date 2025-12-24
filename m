@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EDDDE75453
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 13:49:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2BEEE7545E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 13:49:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vaBB3ZAidEzu+R4QKreMGrQqZKFKqkZxWTvMIWrUJi8=; b=c6cwPF7SrlIYKPDJFQIMxjgaBp
-	7YoqK1frvuLEiRHMYC/XEt6ah8flpCEN5BJUz97OBpxROjd76wqy37ILTjIg9swq5VnY3zl3ZEwdc
-	sWRIUZv2iZnJLXhUcSXwVhqu2Ryw09YzQPJYlIcehpSein0SmlVGBxLnroX8/Nl6xpgtuYTkKX6c5
-	JgH0ZEFyUF7YqgFaZQbApMj5bDsN3GRkcFGRCNVYTkg3sc5xukIihfGeNeuIqOpdM6mLlzFY/2Pit
-	OR9qcAdgd8z+jT12nHxbFfwrmWa1LqVZ62yZ2pmbwmCGA4rgdXQCn1zrXD7v0bpIafHLcMgKPlEaY
-	M6CpZqCA==;
+	bh=6O6rmYJG+Tl4L6LWgIlJj4N9PKLZ9AXfFtLpQTmd/fo=; b=PDjfNp9QjA6xLgrZGznhE6+WmP
+	eqsB0rRrES3p4cn5Ftte8F/CEYy3nHydvfGRVk3awg/7BSkV43Mj6XyWBBOsVW53iw0fz+L2Bgok2
+	KTRiUmlAZxRyPhHMeL4hgN4hsWBXkdb6GEVBLU9HX5ITZM8usaSUryg9Wl1EZuCGnXD/OESZMKSLr
+	fB+KvyMOuHrmwD6SS/YtjljVZ+RU+qzCujcfDsF7EFswo5dtY3qd7hEc78EBvEpNwVH61RKRZXiI3
+	4uU6gNX+bhKq1Q0YuQ31bU+7Tx6yBojHsGhbhksfMV4iEBdjHVLnQJgo2nAZHso3P7HL8XNCkprAD
+	kt+Uy1AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYPF1-0000000Gu0m-0ewO;
-	Wed, 24 Dec 2025 13:49:27 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vYPF8-0000000Gu8A-2u4J;
+	Wed, 24 Dec 2025 13:49:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYPEx-0000000Gtvx-3ikB
+	id 1vYPF6-0000000Gu52-1Lqz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Dec 2025 13:49:24 +0000
+	Wed, 24 Dec 2025 13:49:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 53B20600AD;
+	by tor.source.kernel.org (Postfix) with ESMTP id BD79B600AD;
+	Wed, 24 Dec 2025 13:49:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7775BC4CEFB;
 	Wed, 24 Dec 2025 13:49:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D148C19422;
-	Wed, 24 Dec 2025 13:49:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766584163;
-	bh=ENIdUvl8EYDtGu4SEnJQoOMyqCQID6RqOP4IIi52OKQ=;
+	s=k20201202; t=1766584171;
+	bh=j8MGHYhCs1J4x6C+On5nxQzbEbcFY8oG1AQUgHvIMQ8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=u5nMJGU7u1DH0JY08fgyPGDPpgKN8a8XlXRA7QVvtQppd+ytoY69BFhVMltQ23cU/
-	 EI69ztN/Eq+S6IUsh6uy3SbC1D07oMdavhWJN3/AiyBPCttozyUuh3XWjyMnS47FHW
-	 XHN9PS6WwvJhEjdb9GFI3YR1+11G/AF84ulnRcD1PerMS7JVK2t3NPmY5/1D5R6dYR
-	 m0FVn+H9Ta83gahzHDJQ9ONnH+JIdQJhkZbulzIouua4dDtOG7MgurzpZve+xNFkVR
-	 vc0MdghWXVXVHevpJ7RCMqOo2w7nBsjUk2lPDZYtG/HiEXu+SbNdzvxyX6MwRfR6Mz
-	 M/mKgvQ1Rf4Ug==
+	b=Ug4foumUQK9xRmYsoDji03kHgYZzKPVPSgWqmGK3NJ+Z7jjoOn8Vl3zo1uGnRUXGG
+	 t6pgfWJPN83UUgWKg2TyarSyKH7GVLWJ7DnO6XlRJCW1HvygjPb5Odk4vZOFcuFaxF
+	 ejKKSs4ytrwCFSO3OsW1nuuiExbDBVHHm1MbHVHPYuucbzxQNkzgDNPRB8SOBm8mD4
+	 NYpyM32QqQIAes3ebGOpL0dm8GBsBikiUEcOMzBiAv9d1Ndn85XsDYQGLAzJbmA9X+
+	 c1SijNhPjuzP3mjTbN/GBf9j5oqsoAQJcgWW0zk1XA3Fyda5ziOczDh16D87/Hw80f
+	 OKeLK+2485YKQ==
 From: Frederic Weisbecker <frederic@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Frederic Weisbecker <frederic@kernel.org>,
@@ -81,9 +81,9 @@ Cc: Frederic Weisbecker <frederic@kernel.org>,
 	linux-mm@kvack.org,
 	linux-pci@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH 27/33] kthread: Rely on HK_TYPE_DOMAIN for preferred affinity management
-Date: Wed, 24 Dec 2025 14:45:14 +0100
-Message-ID: <20251224134520.33231-28-frederic@kernel.org>
+Subject: [PATCH 28/33] sched: Switch the fallback task allowed cpumask to HK_TYPE_DOMAIN
+Date: Wed, 24 Dec 2025 14:45:15 +0100
+Message-ID: <20251224134520.33231-29-frederic@kernel.org>
 X-Mailer: git-send-email 2.51.1
 In-Reply-To: <20251224134520.33231-1-frederic@kernel.org>
 References: <20251224134520.33231-1-frederic@kernel.org>
@@ -103,45 +103,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Unbound kthreads want to run neither on nohz_full CPUs nor on domain
-isolated CPUs. And since nohz_full implies domain isolation, checking
-the latter is enough to verify both.
+Tasks that have all their allowed CPUs offline don't want their affinity
+to fallback on either nohz_full CPUs or on domain isolated CPUs. And
+since nohz_full implies domain isolation, checking the latter is enough
+to verify both.
 
-Therefore exclude kthreads from domain isolation.
+Therefore exclude domain isolation from fallback task affinity.
 
 Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
 ---
- kernel/kthread.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+ include/linux/mmu_context.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/kernel/kthread.c b/kernel/kthread.c
-index 85ccf5bb17c9..968fa5868d21 100644
---- a/kernel/kthread.c
-+++ b/kernel/kthread.c
-@@ -362,18 +362,20 @@ static void kthread_fetch_affinity(struct kthread *kthread, struct cpumask *cpum
- {
- 	const struct cpumask *pref;
- 
-+	guard(rcu)();
-+
- 	if (kthread->preferred_affinity) {
- 		pref = kthread->preferred_affinity;
- 	} else {
- 		if (kthread->node == NUMA_NO_NODE)
--			pref = housekeeping_cpumask(HK_TYPE_KTHREAD);
-+			pref = housekeeping_cpumask(HK_TYPE_DOMAIN);
- 		else
- 			pref = cpumask_of_node(kthread->node);
- 	}
- 
--	cpumask_and(cpumask, pref, housekeeping_cpumask(HK_TYPE_KTHREAD));
-+	cpumask_and(cpumask, pref, housekeeping_cpumask(HK_TYPE_DOMAIN));
- 	if (cpumask_empty(cpumask))
--		cpumask_copy(cpumask, housekeeping_cpumask(HK_TYPE_KTHREAD));
-+		cpumask_copy(cpumask, housekeeping_cpumask(HK_TYPE_DOMAIN));
- }
- 
- static void kthread_affine_node(void)
+diff --git a/include/linux/mmu_context.h b/include/linux/mmu_context.h
+index ac01dc4eb2ce..ed3dd0f3fe19 100644
+--- a/include/linux/mmu_context.h
++++ b/include/linux/mmu_context.h
+@@ -24,7 +24,7 @@ static inline void leave_mm(void) { }
+ #ifndef task_cpu_possible_mask
+ # define task_cpu_possible_mask(p)	cpu_possible_mask
+ # define task_cpu_possible(cpu, p)	true
+-# define task_cpu_fallback_mask(p)	housekeeping_cpumask(HK_TYPE_TICK)
++# define task_cpu_fallback_mask(p)	housekeeping_cpumask(HK_TYPE_DOMAIN)
+ #else
+ # define task_cpu_possible(cpu, p)	cpumask_test_cpu((cpu), task_cpu_possible_mask(p))
+ #endif
 -- 
 2.51.1
 
