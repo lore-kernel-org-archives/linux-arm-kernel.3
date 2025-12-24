@@ -4,188 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97BE8E748FC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 01:04:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D2DEE748FC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 01:29:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CHgg9IL7FE026ch0/W9DThBQX+0QxyHh6wbnCQb/hR4=; b=HBUhH/VDo2XBbUT65HtieSktzE
-	8uh66JCx6H1iiAT3leFcyoYCiG3QTfxBOSOvrysS8O+ZnJgyLoDMwTzviD5Yhr75ow6U3VRwKGarS
-	fjR5kmlz1nBmxLywyMOkjBl2KUbSjSVaNwMSD+r252OxFAaHT7o/JVovm9ptoEQfgy5sXAWk4E37/
-	L+xkZyAKrz8Jixg+o/gtMfSKVNSO/l3w2UTv5dhrBOS9nm9TRvpE+87qhq2p27/0NEAPakctrOi5j
-	VjIdetZKlNLFR1FrqnMOfRtc9JGhz8toHk1zUq2YphwOpSH41sqfErM8ZgDqe4ImYBl5gNJ/ktCCd
-	wPeHoM5Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fY7oetAkXk6EDYNEyscTKD195vWG9mtNfQ3sP9pZIoo=; b=xllXW71CH9FVkT
+	PXgLup+G9+iurew1JdJoNVukkhP+8iam+SVZWdfAcpxWs+Bubk8PGY2D4WIhbb4hAY1tvTOnYg4AA
+	eCfR3rpDGqWrrrpUgEhDXJfQFJckIH0HbYFry805r7Ce2+4/C0cv0W/87Vmn62IWFovIMlDaSCFur
+	3Vt9fAczzcXK5HWoOJB9+D97cDyXk1weHeIfpNncyt88AUfnPlTRneVrMnXB7l1diuZmf464SFcar
+	xMbJi+248aIKmT58CTHzBt1tORAY3zDgMQ6+YZfuFU0vYWsBcUxN8LZbWFKB4YSVEEoLeKUVos2sx
+	x76J4P/4L1SBkNJ0Nqcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYDIn-0000000GFud-0Yac;
-	Wed, 24 Dec 2025 01:04:33 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vYDgv-0000000GHD5-1xPF;
+	Wed, 24 Dec 2025 01:29:29 +0000
+Received: from mail-qv1-xf2d.google.com ([2607:f8b0:4864:20::f2d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYDIU-0000000GFZI-39LR
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 24 Dec 2025 01:04:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=CHgg9IL7FE026ch0/W9DThBQX+0QxyHh6wbnCQb/hR4=; b=lAZlElQVFE0F/Lipu2rR+dkgB+
-	5j/PwZchK2EBo/ssQDfdawxVCVGMv+n1QcLc+QZNeRnWJwa+ooA3nY6NPYZyTYCdADcTbLfq7rvGf
-	rkJ5m9xRnV4neTehU/QbMUmS84Eb2CEqI2zCq9ca6PUUuhQBEni3p6hA5KG9DaTPuELyq7UVsI2hC
-	Ao+oTMAGQNuxu/UNC4otnxgN0kzkCAqGrV04s9dKGsvEh/nNGjiH4Fl6trhtJWL1Z4QwMtTh8ztth
-	9TCcbslX69MWXuY0hBrnCDcp6PjZ9MRKltgsf94f33IssTDXrqSL7WiDognGlXRkf/G7kTr5daOWT
-	pH4DAhBQ==;
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYCQy-000000002GC-0UFh
+	id 1vYDgt-0000000GHCe-1G0Q
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Dec 2025 00:08:59 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BNHrcUx678252
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Dec 2025 01:04:05 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	CHgg9IL7FE026ch0/W9DThBQX+0QxyHh6wbnCQb/hR4=; b=jlqhWfoSus3AvDYQ
-	rNg9bNMgYw3zocQdvrdxXy5zd9+nVPnYik3umQeq7Mmy5TnJxJsd+oTkcbSg02YL
-	tJRoDy8grzJPGgruw6Maxu+YfHm6coLBuXuwydQGMU91gsjihn+disnYvNpaiYxJ
-	ykGhPxjB8pKv76xpOyCwQX9Jwr5wSrHlYaXtQRIGxIyXo3f7NLyRqyhx4oI+pjR+
-	k7YNcJdVZdT/hUIB2ZMPZ0Tj1SbWVvQ677CmJNXRRGCrosb8XlOFzSxJs4jjCygl
-	uLcRnnKQV0wPWFIkJtQoSnI3IhTy89qHQ5TuDEMuzVZsBV+ghOHxSGDhxLmU5Uk2
-	wzPqvQ==
-Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4b7yvq11am-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Dec 2025 01:04:05 +0000 (GMT)
-Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-88a34f64f5eso171464166d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 17:04:05 -0800 (PST)
+	Wed, 24 Dec 2025 01:29:28 +0000
+Received: by mail-qv1-xf2d.google.com with SMTP id 6a1803df08f44-888bd3bd639so68998456d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 23 Dec 2025 17:29:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1766538244; x=1767143044; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=CHgg9IL7FE026ch0/W9DThBQX+0QxyHh6wbnCQb/hR4=;
-        b=Jtypv+ejvXLxnVXS4NWqMELgQXZFdyDOB9IXjgmU5js99bbDNIHsfymn3jXnhWP5ST
-         KHjuK9WQWHksebYTiqRLcUJTWXQdK9qN8PSNmBCIpPgTWc5ZeP/J78CBO62vdJgosEKz
-         O94rruQC00f58d1nPywzzct372UqGHDJr/mr0qD68OoM/8ZEC2xeHXGXdWjJtFGXzruR
-         EBlILXvNg0EjlihdWSv5vw/cpy84oxMNRMgVOCCDIVVRoxdnbMjKulHhxkykIhQYbtEu
-         58hRYBS7eJxZZQ/AsqgiiJk9TMRKsJsInzYpPyvY+vra64Kwr5cYRgkla+C/hAg8lpy1
-         wBhg==
+        d=gmail.com; s=20230601; t=1766539765; x=1767144565; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fY7oetAkXk6EDYNEyscTKD195vWG9mtNfQ3sP9pZIoo=;
+        b=V3n2zOptyNi6dAKSYHDlIA/CzyMRme2gqmoCfzwBnXqHLykG8PS0947TMCEw5aSUvP
+         RPNypePDH6Yr8tqD528mndZIu5HrBBAkecNe9PcxHMXn6r22GoCT2OXvX3PmUR80RDxu
+         8FZgLBBzAUIQG1l2udQDCb2GFLRypZ2dM7NIS2g4bjCw1antqFRY2JRub/60EO5RqGeM
+         ad9X0kbIpIcf2r04aC3sSL0tboCXPfAGjhlVD6ItGccJ2/V9pQZ2vEQJ3XazKARP0KjN
+         7/a4guSmD15g9zbd5NsGL8/mblTDjYSNFLj9GCALp5BgigasoQ7hlyOFAfQ7wre8+XTM
+         5KOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766538244; x=1767143044;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=CHgg9IL7FE026ch0/W9DThBQX+0QxyHh6wbnCQb/hR4=;
-        b=IAZEMITN/fLpV2v7+i/sc6uAB2Gzax3EmiB3cv4m4BACk5oNl+pd9mndny/C2hRZnG
-         Gdkd8HVJU8JwKXozCB/KzZh47mLXXK2WKkRAW8hEdNFL14rZp+aerrbtqiuV051zsnUc
-         GzzDCzVRLpOzHOwl9IKCGo6XXPqRouSwRTKNclPvXZz0CVV59SJGuY1/FUoaF4iajkuT
-         k6rSNcMD+qRbeekeElOf+TrFxxTdsNMNAe18MJ+Ms8ePxMl8c/oiORnGxGwEaoRsn19A
-         CI7jKof5C9K/ynMA6xs72mGoMUQfMk3YJGKF1vO6XzLN0JY2fWX35545C8qJvNcaVIeZ
-         PPZQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXCom5zmujA4+FLuEB2Pnz4xTIETrVl/j2YSRBrs2aMi9P1izW+zLyNmCVyeEKiurzjsEoVwwzGaUSXN9TlCfmX@lists.infradead.org
-X-Gm-Message-State: AOJu0YzB8Rg8loAeLY5GKEP3sow6hHbESQtIGFQX441+5QtC5ptPJaX8
-	zo5+HtULVb7h5BbucTX1iFy4G9/5CkiMEVcydm9j7xoBoUd6/2BbvFlnhpTUQgKenHkO4LDc/tV
-	xNBpF5ekutSAxvyoYG4pAuwT3qE3TPank9uwJs/TtNZMkK97kIkgzQqBIrht0llRYjvwRHetox0
-	h5ZA==
-X-Gm-Gg: AY/fxX7cyC6m6PVRiwK6DDPsukV/KebPKEPJ05pI2ji4H1PS9wMVhWI7lx10TKw44JP
-	O5+q2bn1qB43U7fiUu4jtE6f7AP7KPFDRbtZBZJyLvGkpimNXhV4EDdpYvmDr9Q4Vv1wTZN3Qbn
-	Ad7JOqJxDgEVAPeaSkJF3gx8P4FPS9vyE+jKpDhzwwrdGqm0l/L22uvahLSMf5FjqrEw2yi5d4C
-	o4WrxC8T9+woevEwo4TfH+SAOPfLXNjeCGhyd41oSaFcSz3npLyj4uwE2akW1zdafUD+de3Tql4
-	rZqGoStBr+uary1mpg1E8AssGtZR2LLtrs55Lnb7ZvH6WyxvDCEx2Q8GL5Z2xtY/ECP04nbqI55
-	C2b0pPMx7AOhF/Ecjww8W5NcKVm7zlaLIf27MCjFv4doqHz/XHqeEf19lDNfv6A5kPlVVKGBjlF
-	fobuSZoRtLkf2FPWTbmRi73C4=
-X-Received: by 2002:ad4:4e8f:0:b0:888:7d61:b218 with SMTP id 6a1803df08f44-88d81d47b5fmr175846826d6.11.1766538244313;
-        Tue, 23 Dec 2025 17:04:04 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFu7+HH145K//WnhennzRUAZ/qC4YMZkCHH5OOgkflOfdjzzhnjIk8vQXkFQam/FvXO84smjQ==
-X-Received: by 2002:ad4:4e8f:0:b0:888:7d61:b218 with SMTP id 6a1803df08f44-88d81d47b5fmr175846286d6.11.1766538243819;
-        Tue, 23 Dec 2025 17:04:03 -0800 (PST)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59a18628284sm4545268e87.93.2025.12.23.17.04.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 23 Dec 2025 17:04:03 -0800 (PST)
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Date: Wed, 24 Dec 2025 03:02:59 +0200
-Subject: [PATCH v3 10/10] drm/debug: don't register files for unsupported
- HDMI InfoFrames
+        d=1e100.net; s=20230601; t=1766539765; x=1767144565;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=fY7oetAkXk6EDYNEyscTKD195vWG9mtNfQ3sP9pZIoo=;
+        b=Yi3peGA3o2qQ/ZdQXP/yvIrS8Aevurq0jAy2PneHiOftEn/0pvOxK10JtUgGpwgjtQ
+         J5Vgsdp50tCf/fs8mWVbueVFYeA/3WdykSlohWQyXtkAbrv0Jjs1LPwaIwRkW6A6y0Pc
+         HIqI+wGK3ew5Mitenp/k+wcA90LhVG6sZkjcWMiM6HKbiaOtmnzWy8UnFPKbnrXX//mz
+         fPm/78sJhxC/yHXSXS9Z/eNET2hM61tsDIg57q/5289UQkn7UvYDFSpQQ6W6hLfJI/Qn
+         8lZZvAWW8ByN396Kxk+Tijsj6MlSzG+FM7itOGr3Z0agyME3RVwXFCLrtclxju7Qrc6O
+         Ib4A==
+X-Forwarded-Encrypted: i=1; AJvYcCX1keodfjMqTR7d3yZ2AcxOlht64Vae7Vp3rMkOW3Z9ozm2AE+n1xwZthI+8/Ut0xD30t3rS6dtl7VAuUY7Iyra@lists.infradead.org
+X-Gm-Message-State: AOJu0YwiMUCw1SzemtLpE0h5CkLjPwxJOvqP+ZNzhRTcRK2DlCOhGcUn
+	eGiXgCzfeJ0pIhzxOAh/sl6/jXcXXW6QcBM+tlHn1dbYzJx8s7Rs6WvSlQrXIwO2YV+idSWNDqI
+	ZIVI/Y2Z8ZYA9beWwEYqGH7UFf+GD010=
+X-Gm-Gg: AY/fxX7EDdm3BtZNQmvBXM42LBDSRIPZY40N10u62eNokIwq6D22IwZ/DJnGBqbT9/2
+	VBfGWCY3h6J2QXesLR1rTA6bHvJ+YFTPZwLRO/3R88jsKLatt8d7XQSmkSqzDMh2EWOAi6rVLA9
+	/WzacHrOH0sh1qcRSzDsS6MlPpPUkPZV9F++JyHWpXff/j0TLfzn2Ze8/egHpdmp5Mb3hOsk3Vw
+	4SgfzYqJnR/CjPTZuhDg1SDliTX+Nfbw3mMiLaGjm2qAmrYXoBOWZQVmJaPpZgNjyitbg==
+X-Google-Smtp-Source: AGHT+IEqanr28YSBOTX+Nbqh3KipT7oWDaRrm4vfSqEc2gNLOzwNiYOzGsbYOVFZRYgy+qI8NODGQG32DiQMP3byR7U=
+X-Received: by 2002:a0c:fe4a:0:b0:888:4930:7988 with SMTP id
+ 6a1803df08f44-88d8453a11cmr183257436d6.35.1766539765063; Tue, 23 Dec 2025
+ 17:29:25 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251224-limit-infoframes-2-v3-10-7fd3cacfefed@oss.qualcomm.com>
-References: <20251224-limit-infoframes-2-v3-0-7fd3cacfefed@oss.qualcomm.com>
-In-Reply-To: <20251224-limit-infoframes-2-v3-0-7fd3cacfefed@oss.qualcomm.com>
-To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Dave Stevenson <dave.stevenson@raspberrypi.com>,
-        =?utf-8?q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
-        Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
-        Chen-Yu Tsai <wens@kernel.org>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Samuel Holland <samuel@sholland.org>,
-        Andrzej Hajda <andrzej.hajda@intel.com>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Robert Foss <rfoss@kernel.org>,
-        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-        Jonas Karlman <jonas@kwiboo.se>, Liu Ying <victor.liu@nxp.com>,
-        Chun-Kuang Hu <chunkuang.hu@kernel.org>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jesszhan0024@gmail.com>, Sean Paul <sean@poorly.run>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        Sandy Huang <hjc@rock-chips.com>,
-        =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
-        Andy Yan <andy.yan@rock-chips.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-        linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        freedreno@lists.freedesktop.org, linux-rockchip@lists.infradead.org
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1244;
- i=dmitry.baryshkov@oss.qualcomm.com; h=from:subject:message-id;
- bh=e83riHemz7jmVSC1s86WzW2uTf0LnBtD9CtSbMUNt3o=;
- b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBpSzvaPmw40jATyUWTrYBTNEusZxIc+obHstv5S
- b4iElplUN6JATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCaUs72gAKCRCLPIo+Aiko
- 1di3B/95raEOH5VDkaGoqgK45/yZh46TpjSkI0p4xAQ5QWmsMaaCn7Newqpeo25B8E3VpDS52aa
- up3rolkowr24CN+AOTFNP4qaLU+wQ5ufsLePmUId4/Sf7f/3uLCmTjU2bAAc7WkBJDBOUgESVoE
- VPOds3GCRBLX3X0qEONZ6Q6pJmz9433H5cMK5o5GZz3dTS0dZZqphPcLWyxJSLEmmZrEn2G8Wyx
- MZQXEWNaui7oT4aHMyYoZX0z2RTqrLwJAAmkkLQISa4jHnSF5bBJb4YQauizaBu+BJqV1TOmbVf
- WZtZHkfsakdCoN6Xjk8QGpdcOMYzMgS1IQv2DEwSOdtfE7Y8
-X-Developer-Key: i=dmitry.baryshkov@oss.qualcomm.com; a=openpgp;
- fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
-X-Proofpoint-ORIG-GUID: qhQqOtg3sy3YepbPV8a1mObooHSlZ7cN
-X-Authority-Analysis: v=2.4 cv=abZsXBot c=1 sm=1 tr=0 ts=694b3c05 cx=c_pps
- a=oc9J++0uMp73DTRD5QyR2A==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=EUspDBNiAAAA:8 a=tIAOKlZC_mo2NaXw_9IA:9 a=QEXdDO2ut3YA:10
- a=iYH6xdkBrDN1Jqds4HTS:22
-X-Proofpoint-GUID: qhQqOtg3sy3YepbPV8a1mObooHSlZ7cN
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjI0MDAwNyBTYWx0ZWRfXxWDJOh/rEjiF
- dL/gZZOrayO39venrgN+eJrKPQS7gxi875eYbF5oL/cx9Fy4cNau8/cZmYwV33J7hEQlYVJWLos
- 4Ff4Lea0d95djTRZAJ4n/1xqJvBdhrqQpwb8Vhj2Sv6GHmtVe65Lcs2bYjEdpN1JnLD62EY7Q58
- MavALzHSppOXXEjdINfpIGgUCni6WCq5aVOfPodBkmuIHqXlcxQOdD1CyMZpeQROA270Bow97vU
- obaFrNQozh1dsJ9GvMvIhWf5FG8kc2HICk877wgNdIkGI6o+NCtiNFlnjQWyRs8eJVhZslC5y0e
- dzskSDQiIUJTFKsT8QxVvvGV5aRZcJ39aWW8H20OrYR27Z1jEk5rYrnifbxiyoLuuJV2E4GXPxl
- naUc/JJpkMYKfdVmtpgUh9KIKzjOVdkbnACrK3sgv0tK0XolpMvXZiXPYIAyj1fo1KcNnPRNvIa
- Xs2vNRvR+IYCOQQWV4Q==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-12-23_05,2025-12-22_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 priorityscore=1501 lowpriorityscore=0 bulkscore=0 spamscore=0
- clxscore=1015 malwarescore=0 phishscore=0 suspectscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2512240007
+References: <20251221115523.GI13030@unreal> <20251221192458.1320-1-21cnbao@gmail.com>
+ <20251222084921.GA13529@unreal> <CAGsJ_4yuvHNqHDi8eN-8UoY2McoXUeCMmbjFAr=jSdv8GpGKeg@mail.gmail.com>
+ <20251223141424.GB11869@unreal>
+In-Reply-To: <20251223141424.GB11869@unreal>
+From: Barry Song <21cnbao@gmail.com>
+Date: Wed, 24 Dec 2025 14:29:13 +1300
+X-Gm-Features: AQt7F2riwb-u3bAOGTAJVBUOYvKKCghOt8XbZSdY6cf48c0vtLf1xqZXCdBK7SI
+Message-ID: <CAGsJ_4x9YOT2kG0iWz_5NzRVt2iDN9YeUTknZ2MKg7SwmOGOqg@mail.gmail.com>
+Subject: Re: [PATCH 5/6] dma-mapping: Allow batched DMA sync operations if
+ supported by the arch
+To: Leon Romanovsky <leon@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251224_000856_894894_4E50D13A 
-X-CRM114-Status: GOOD (  15.78  )
+X-CRM114-CacheID: sfid-20251223_172927_354250_02669270 
+X-CRM114-Status: GOOD (  29.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -197,44 +93,156 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: v-songbaohua@oppo.com, zhengtangquan@oppo.com, ryan.roberts@arm.com, will@kernel.org, anshuman.khandual@arm.com, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, surenb@google.com, iommu@lists.linux.dev, maz@kernel.org, robin.murphy@arm.com, ardb@kernel.org, linux-arm-kernel@lists.infradead.org, m.szyprowski@samsung.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Having debugfs files for the InfoFrames that are not supported by the
-driver is confusing, stop registering those in the debugfs.
+On Wed, Dec 24, 2025 at 3:14=E2=80=AFAM Leon Romanovsky <leon@kernel.org> w=
+rote:
+>
+> On Tue, Dec 23, 2025 at 01:02:55PM +1300, Barry Song wrote:
+> > On Mon, Dec 22, 2025 at 9:49=E2=80=AFPM Leon Romanovsky <leon@kernel.or=
+g> wrote:
+> > >
+> > > On Mon, Dec 22, 2025 at 03:24:58AM +0800, Barry Song wrote:
+> > > > On Sun, Dec 21, 2025 at 7:55=E2=80=AFPM Leon Romanovsky <leon@kerne=
+l.org> wrote:
+> > > > [...]
+> > > > > > +
+> > > > >
+> > > > > I'm wondering why you don't implement this batch=E2=80=91sync sup=
+port inside the
+> > > > > arch_sync_dma_*() functions. Doing so would minimize changes to t=
+he generic
+> > > > > kernel/dma/* code and reduce the amount of #ifdef=E2=80=91based s=
+paghetti.
+> > > > >
+> > > >
+> > > > There are two cases: mapping an sg list and mapping a single
+> > > > buffer. The former can be batched with
+> > > > arch_sync_dma_*_batch_add() and flushed via
+> > > > arch_sync_dma_batch_flush(), while the latter requires all work to
+> > > > be done inside arch_sync_dma_*(). Therefore,
+> > > > arch_sync_dma_*() cannot always batch and flush.
+> > >
+> > > Probably in all cases you can call the _batch_ variant, followed by _=
+flush_,
+> > > even when handling a single page. This keeps the code consistent acro=
+ss all
+> > > paths. On platforms that do not support _batch_, the _flush_ operatio=
+n will be
+> > > a NOP anyway.
+> >
+> > We have a lot of code outside kernel/dma that also calls
+> > arch_sync_dma_for_* such as arch/arm, arch/mips, drivers/xen,
+> > I guess we don=E2=80=99t want to modify so many things?
+>
+> Aren't they using internal, arch specific, arch_sync_dma_for_* implementa=
+tions?
 
-Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
----
- drivers/gpu/drm/drm_debugfs.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+for arch/arm, arch/mips, they are arch-specific implementations.
+xen is an exception:
 
-diff --git a/drivers/gpu/drm/drm_debugfs.c b/drivers/gpu/drm/drm_debugfs.c
-index 365cf337529f..ae1c6126c2c5 100644
---- a/drivers/gpu/drm/drm_debugfs.c
-+++ b/drivers/gpu/drm/drm_debugfs.c
-@@ -672,6 +672,10 @@ static int create_hdmi_audio_infoframe_file(struct drm_connector *connector,
- {
- 	struct dentry *file;
- 
-+	if (!connector->hdmi.funcs ||
-+	    !connector->hdmi.funcs->audio.write_infoframe)
-+		return 0;
-+
- 	file = debugfs_create_file("audio", 0400, parent, connector, &audio_infoframe_fops);
- 	if (IS_ERR(file))
- 		return PTR_ERR(file);
-@@ -726,6 +730,9 @@ static int create_hdmi_## _f ## _infoframe_file(struct drm_connector *connector,
- { \
- 	struct dentry *file; \
- 	\
-+	if (!connector->hdmi.funcs || \
-+	    !connector->hdmi.funcs->_f.write_infoframe) \
-+		return 0; \
- 	file = debugfs_create_file(#_f, 0400, parent, connector, &_f ## _infoframe_fops); \
- 	if (IS_ERR(file)) \
- 		return PTR_ERR(file); \
+static void xen_swiotlb_unmap_phys(struct device *hwdev, dma_addr_t dev_add=
+r,
+                size_t size, enum dma_data_direction dir, unsigned long att=
+rs)
+{
+        phys_addr_t paddr =3D xen_dma_to_phys(hwdev, dev_addr);
+        struct io_tlb_pool *pool;
 
--- 
-2.47.3
+        BUG_ON(dir =3D=3D DMA_NONE);
 
+        if (!dev_is_dma_coherent(hwdev) && !(attrs & DMA_ATTR_SKIP_CPU_SYNC=
+)) {
+                if (pfn_valid(PFN_DOWN(dma_to_phys(hwdev, dev_addr))))
+                        arch_sync_dma_for_cpu(paddr, size, dir);
+                else
+                        xen_dma_sync_for_cpu(hwdev, dev_addr, size, dir);
+        }
+
+        /* NOTE: We use dev_addr here, not paddr! */
+        pool =3D xen_swiotlb_find_pool(hwdev, dev_addr);
+        if (pool)
+                __swiotlb_tbl_unmap_single(hwdev, paddr, size, dir,
+                                           attrs, pool);
+}
+
+>
+> >
+> > for kernel/dma, we have two "single" callers only:
+> > kernel/dma/direct.h, kernel/dma/swiotlb.c.  and they looks quite
+> > straightforward:
+> >
+> > static inline void dma_direct_sync_single_for_device(struct device *dev=
+,
+> >                 dma_addr_t addr, size_t size, enum dma_data_direction d=
+ir)
+> > {
+> >         phys_addr_t paddr =3D dma_to_phys(dev, addr);
+> >
+> >         swiotlb_sync_single_for_device(dev, paddr, size, dir);
+> >
+> >         if (!dev_is_dma_coherent(dev))
+> >                 arch_sync_dma_for_device(paddr, size, dir);
+> > }
+> >
+> > I guess moving to arch_sync_dma_for_device_batch + flush
+> > doesn=E2=80=99t really look much better, does it?
+> >
+> > >
+> > > I would also rename arch_sync_dma_batch_flush() to arch_sync_dma_flus=
+h().
+> >
+> > Sure.
+> >
+> > >
+> > > You can also minimize changes in dma_direct_map_phys() too, by extend=
+ing
+> > > it's signature to provide if flush is needed or not.
+> >
+> > Yes. I have
+> >
+> > static inline dma_addr_t __dma_direct_map_phys(struct device *dev,
+> >                 phys_addr_t phys, size_t size, enum dma_data_direction =
+dir,
+> >                 unsigned long attrs, bool flush)
+>
+> My suggestion is to use it directly, without wrappers.
+>
+> >
+> > and two wrappers:
+> > static inline dma_addr_t dma_direct_map_phys(struct device *dev,
+> >                 phys_addr_t phys, size_t size, enum dma_data_direction =
+dir,
+> >                 unsigned long attrs)
+> > {
+> >         return __dma_direct_map_phys(dev, phys, size, dir, attrs, true)=
+;
+> > }
+> >
+> > static inline dma_addr_t dma_direct_map_phys_batch_add(struct device *d=
+ev,
+> >                 phys_addr_t phys, size_t size, enum dma_data_direction =
+dir,
+> >                 unsigned long attrs)
+> > {
+> >         return __dma_direct_map_phys(dev, phys, size, dir, attrs, false=
+);
+> > }
+> >
+> > If you prefer exposing "flush" directly in dma_direct_map_phys()
+> > and updating its callers with flush=3Dtrue, I think that=E2=80=99s fine=
+.
+>
+> Yes
+>
+
+OK. Could you take a look at [1] and see if any further
+improvements are needed before I send v2?
+
+[1] https://lore.kernel.org/lkml/20251223023648.31614-1-21cnbao@gmail.com/
+
+Thanks
+Barry
 
