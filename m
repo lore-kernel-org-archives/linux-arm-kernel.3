@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB6E5E75453
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 13:47:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7C39E7545D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 13:47:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9WbUPE6bJh4bG4sGu5jifyq21X5wZFvvwK42Lk0RJlI=; b=3F3CnKQWxqUTqUqiHOfCzBYIAS
-	YzhPZb2kI8ZWfWmEkFZAC1EX8l36XMrBEUrMnTCj6miws9FejUvI/0YrF/OY9/4TfOqqwh5/uGQAN
-	N1HeGrlKX0/AV/4E6+qP64/ZHTkE43BmjTROJD8z1L2+4AC8otovJiwUWgcMstO/d0FUMDCzTrbqU
-	zV3mYifrwX/GR9K8PsYFVoynxZrUrdQLLfRgqrPBITcH3X00TJoIaFmvIYodqFk1DeDE3gFvGwjF8
-	I8b6nbzOC1iKjtvgd34AF/E7uTVq2NyRglkF3nWeL3kfQO2YTCW8+dsNdB/JK+CTwmZvY3mmWIqo1
-	lnxFH6SA==;
+	bh=5wizuhTN6mGlwa9nDLf8YTsLN8D8vmBJXyWiJsoAfY8=; b=kcN/9UwrKxzNvViBnOCBIU42j+
+	ApYP5fQOPU8+LkmYnirJoP3jIyIqIen/Jov422JMpUewwsQ6KiSa0ixnt4jYgQ8tbi1eZo2Rw90wa
+	TJGUe3XyqLvLPU07k9kuyHk17CRBw7r3wGDJOZvyh3Jd4HIagT6fD+iFa24Zyt3bYW6616y1RLmtj
+	XPMSseVGcX6F9y9cmAAurooz0Fr34IUZWlhEWxUo4PxVrMd1iu6EDLJFdZ0WkwDvc4oUgrwY5TXGl
+	Tto2L/BnOqIDcOsVFe1Yh2PzjzqgX1EfpziGyH6l1n5zVcT82rr9xhQ2fqgf8tVEcUIl7FX25ZC1Z
+	8HSRj7AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYPCk-0000000GsLD-1NZy;
+	id 1vYPCk-0000000GsLc-2xmA;
 	Wed, 24 Dec 2025 13:47:06 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYPCU-0000000GsEj-0O6y
+	id 1vYPCd-0000000GsHG-0eKc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Dec 2025 13:46:54 +0000
+	Wed, 24 Dec 2025 13:47:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7953960138;
+	by tor.source.kernel.org (Postfix) with ESMTP id 96066600AD;
+	Wed, 24 Dec 2025 13:46:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E85BC116D0;
 	Wed, 24 Dec 2025 13:46:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3641FC4CEFB;
-	Wed, 24 Dec 2025 13:46:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766584009;
-	bh=uGe6Ex9InA/ctQyPBwEfQeCRruCOXrYZdOto/ar5f3U=;
+	s=k20201202; t=1766584018;
+	bh=cfBsUi49kwBpo1bGsw5oqJU14C2/JcinY0oHFYzJ/us=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QkYBtnhAQ44/QDhvyD+7F9s+u0UyEIzuX1QswgTK4hn9nB5xybx6i1hFP+3OlC5e2
-	 n3QTVokwjBgbk6ivKWOtdU3iSevx+kpxs7OA6i6eJ/CwW1beUG7tm+q8zZ5DLeEHG8
-	 01i13pW9Hf6tjz3oP4mIP6n00eIg3L/gvfs81iaM9AvkPwBHbSLXFuflUzQAcAnLPl
-	 gGJgYTg7vHeM+EwQmsb9L+8Agyj9XOWgkiM2t2qaxQzfTm8hMC8yE6gHr4XY3BIac3
-	 uQvrHdBPyTk6U0rXMbbBYsrr5CULeDo3AMXZByb6mc07RYSNfapMAKagVHUaH2F5E7
-	 ZsgsPEuaKJTbQ==
+	b=REhxuoO3IX20hXtECaAueG16NscS9v1kyy5t+tUn35175JOSmkEnv4SvDaoazf7ww
+	 YBpD3lRKkH2447ENW80qcP37hFyQ1nh1kM6Hopa6gcqmxGAx4vr2zZBbYP3naQ8kNq
+	 JrEdcRRdPKO2q4yT5ATlv4ZznyMVYjlX6EfL2jmCsj2VIQBRGH8y3lO6py7ylcjmZo
+	 efrxzY9JDKc8YjWfLnEDN1BYAYTzeNsIu534qaYrwScoI/mx5NKToLKPBHQZGg6upA
+	 tyOavV43+aqYi1yHJHwWrGKQTWYuBo3NPayKJq0vqYJU7MJ+xYxwhGTXnBMYZ4J8UH
+	 wWeA2GZaq/CLg==
 From: Frederic Weisbecker <frederic@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Frederic Weisbecker <frederic@kernel.org>,
@@ -81,9 +81,9 @@ Cc: Frederic Weisbecker <frederic@kernel.org>,
 	linux-mm@kvack.org,
 	linux-pci@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH 09/33] block: Protect against concurrent isolated cpuset change
-Date: Wed, 24 Dec 2025 14:44:56 +0100
-Message-ID: <20251224134520.33231-10-frederic@kernel.org>
+Subject: [PATCH 10/33] timers/migration: Prevent from lockdep false positive warning
+Date: Wed, 24 Dec 2025 14:44:57 +0100
+Message-ID: <20251224134520.33231-11-frederic@kernel.org>
 X-Mailer: git-send-email 2.51.1
 In-Reply-To: <20251224134520.33231-1-frederic@kernel.org>
 References: <20251224134520.33231-1-frederic@kernel.org>
@@ -103,42 +103,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The block subsystem prevents running the workqueue to isolated CPUs,
-including those defined by cpuset isolated partitions. Since
-HK_TYPE_DOMAIN will soon contain both and be subject to runtime
-modifications, synchronize against housekeeping using the relevant lock.
+Testing housekeeping_cpu() will soon require that either the RCU "lock"
+is held or the cpuset mutex.
 
-For full support of cpuset changes, the block subsystem may need to
-propagate changes to isolated cpumask through the workqueue in the
-future.
+When CPUs get isolated through cpuset, the change is propagated to
+timer migration such that isolation is also performed from the migration
+tree. However that propagation is done using workqueue which tests if
+the target is actually isolated before proceeding.
+
+Lockdep doesn't know that the workqueue caller holds cpuset mutex and
+that it waits for the work, making the housekeeping cpumask read safe.
+
+Shut down the future warning by removing this test. It is unecessary
+beyond hotplug, the workqueue is already targeted towards isolated CPUs.
 
 Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
 ---
- block/blk-mq.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ kernel/time/timer_migration.c | 20 +++++++++++++++-----
+ 1 file changed, 15 insertions(+), 5 deletions(-)
 
-diff --git a/block/blk-mq.c b/block/blk-mq.c
-index 1978eef95dca..0037af1216f3 100644
---- a/block/blk-mq.c
-+++ b/block/blk-mq.c
-@@ -4257,12 +4257,16 @@ static void blk_mq_map_swqueue(struct request_queue *q)
+diff --git a/kernel/time/timer_migration.c b/kernel/time/timer_migration.c
+index 18dda1aa782d..3879575a4975 100644
+--- a/kernel/time/timer_migration.c
++++ b/kernel/time/timer_migration.c
+@@ -1497,7 +1497,7 @@ static int tmigr_clear_cpu_available(unsigned int cpu)
+ 	return 0;
+ }
  
- 		/*
- 		 * Rule out isolated CPUs from hctx->cpumask to avoid
--		 * running block kworker on isolated CPUs
-+		 * running block kworker on isolated CPUs.
-+		 * FIXME: cpuset should propagate further changes to isolated CPUs
-+		 * here.
- 		 */
-+		rcu_read_lock();
- 		for_each_cpu(cpu, hctx->cpumask) {
- 			if (cpu_is_isolated(cpu))
- 				cpumask_clear_cpu(cpu, hctx->cpumask);
- 		}
-+		rcu_read_unlock();
+-static int tmigr_set_cpu_available(unsigned int cpu)
++static int __tmigr_set_cpu_available(unsigned int cpu)
+ {
+ 	struct tmigr_cpu *tmc = this_cpu_ptr(&tmigr_cpu);
  
- 		/*
- 		 * Initialize batch roundrobin counts
+@@ -1505,9 +1505,6 @@ static int tmigr_set_cpu_available(unsigned int cpu)
+ 	if (WARN_ON_ONCE(!tmc->tmgroup))
+ 		return -EINVAL;
+ 
+-	if (tmigr_is_isolated(cpu))
+-		return 0;
+-
+ 	guard(mutex)(&tmigr_available_mutex);
+ 
+ 	cpumask_set_cpu(cpu, tmigr_available_cpumask);
+@@ -1523,6 +1520,14 @@ static int tmigr_set_cpu_available(unsigned int cpu)
+ 	return 0;
+ }
+ 
++static int tmigr_set_cpu_available(unsigned int cpu)
++{
++	if (tmigr_is_isolated(cpu))
++		return 0;
++
++	return __tmigr_set_cpu_available(cpu);
++}
++
+ static void tmigr_cpu_isolate(struct work_struct *ignored)
+ {
+ 	tmigr_clear_cpu_available(smp_processor_id());
+@@ -1530,7 +1535,12 @@ static void tmigr_cpu_isolate(struct work_struct *ignored)
+ 
+ static void tmigr_cpu_unisolate(struct work_struct *ignored)
+ {
+-	tmigr_set_cpu_available(smp_processor_id());
++	/*
++	 * Don't call tmigr_is_isolated() ->housekeeping_cpu() directly because
++	 * the cpuset mutex is correctly held by the workqueue caller but lockdep
++	 * doesn't know that.
++	 */
++	__tmigr_set_cpu_available(smp_processor_id());
+ }
+ 
+ /**
 -- 
 2.51.1
 
