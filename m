@@ -4,74 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D59E1E74916
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 11:35:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFA60E74915
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 11:42:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aPfIf24VliWQq0f8Kj4Kw8bFV8BRu0VC6Nhx23FKLvY=; b=RRvYkYFxlZ96Mp7ne9RCzb1T+M
-	S93621ZuSIl++TE3Ie30UAvyqHBkpMvSmSNX/J9UnIxSksNHw9FhZwrTs0323I6ASdx2m6YhvzoTz
-	pZnW0Ea7evq6PoPVtIkycfhoTViKywcY1s7w8CvWx0fW4+8hKjoXpJ7A6RgNYVDW378xWrHtZq5EZ
-	Tf8k01tSaJHyZu1yvZa9PdQSIyAHgnMgelu+bsADPUFhTXbEjiGeEHaSB4OlQVDfnhwQDx+Co5suf
-	OhntoeIMV9OrmCAcz+cnRGVyRCqonKhZ6RnSjBvl9Nmy8M3nlcWjNCWJZoFW3Ytqum0YFhp1ksymh
-	LxFmoOjQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=U+gVmRUB2u2nv3Wc1zC5rKWwnuvVcDu6lhjOYLZCxUQ=; b=UDlTQSeb8/QgkQ4I10V5ocMdUo
+	Afi8A5YyfyW4JKeeFjQw+9YdQYwbeExaE6ZPtcQrBsRVI3CoIdXF2UCXzaQHZ7W0YwyX6qhyg1QGl
+	dYfpEFRVTHHF4U3sfzlRk2J/BbECRKj6UeLajNt1aGpLTm9fnVMj4jv7cE+atyfzKNE4Ob/8qDmU7
+	MRiWV5bmRaIo64WSc0U7HLq2UHQyc3hJ4Ip+Xn/plGYUDEqWCGvVzDHjitw7EIQSvWvjLIUUq3F+i
+	Lf2HNmJK0o9VA+WVSGL5X7Q15Zsue2hc+oKgcIy2uAYChr7iiSVj5hnr6C0Eujnmgf821ozZ6Jcye
+	fy8gwFMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYN9c-0000000GkZ6-14Oj;
-	Wed, 24 Dec 2025 11:35:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vYNG3-0000000Gkny-0eaA;
+	Wed, 24 Dec 2025 11:42:23 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYN9b-0000000GkYy-1viw
+	id 1vYNFz-0000000GknG-3DKM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Dec 2025 11:35:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5CEE260010;
-	Wed, 24 Dec 2025 11:35:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A511C4CEFB;
-	Wed, 24 Dec 2025 11:35:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766576142;
-	bh=rcZ3nMY4d65lf7YZ3P3xmWEvn3BCIy1Hqxm5btFypgE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Xyh3uCiqBwLSFzvpXcwS7OgzIHuc0bPj2+++1C+l1eEdHzwH9vJxSkiPqkRFMbS1y
-	 ps9iufDkUHMFc+Ubsp/Ih+8vg/xG8gALVWWcXY8qNStsjwnxrLOqaekU8um42jJEfS
-	 Lc4m/ukrr2IIbJASAXqg+HHenooEDls2rLMRH+jytjJ6hh1g6L3+GcX8wqn7OZWMYC
-	 HKN4ffk7wlUSVmn8o1KLxUx+Ck8RnJ4pswDZfnYqLfRA9T9YiYmihb5Eh3YYjWHQxH
-	 H4dgYwbOm0YyQODKZahb3AHHHOWVb79bXnGIvQqAB1Qib22CmyKuAdU37Gl3WgD+CW
-	 8Arj0xFK1ZM8A==
-Message-ID: <6089e76b-80aa-4254-af70-12b96d115a2e@kernel.org>
-Date: Wed, 24 Dec 2025 12:35:31 +0100
+	Wed, 24 Dec 2025 11:42:21 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BO90vBj700441
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Dec 2025 11:42:18 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=U+gVmRUB2u2nv3Wc1zC5rKWwnuvVcDu6lhj
+	OYLZCxUQ=; b=AnxwkYs8IAf1GZ3C3mD+SyC4el6zF2qhamgjZAEjfL/LSklYd1a
+	MsHDYPmOQbWfBIEPNpdVYFYyg6Gh+y5XvVRWD5V2Jgs5NC4AiG6D4wT3XRY2n6d+
+	EvGLxbTE3iCeh1KIsXL2z06GlsK9/+Y+DqzFmpp3CUXq1AM7kVl7TckjCOgpUfC9
+	1AlOpj3Suyx5AnB2Z7e7kyU37c2/R+Mo/fhdFT684IJj+1ewWkQhVoFM1+SrujsF
+	O29xXaLFpwXDIuPFBazIm9oCKg59ZWWW8WIMv6F1nQoj5PDrKQUtWY8E78SI/bRB
+	dTGBpthUZZPMDe+Ra2+crNuvtHLYvAeCU1w==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4b7t7jukmy-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Dec 2025 11:42:18 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4f183e4cc7bso104888891cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Dec 2025 03:42:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1766576538; x=1767181338; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=U+gVmRUB2u2nv3Wc1zC5rKWwnuvVcDu6lhjOYLZCxUQ=;
+        b=AA7yAnbQKiL2t2lM1Pf2sycNnDZTuAM8PYXe2kKRXx5DobFxl/oZUGizY/W/mt7QL3
+         i3nuH5oE9EXhtt0ZOLmNiAuEIkJ0S3wU3dTTiXlhtEZslVbYonTga/Vv9U1d1ZN3ih85
+         NDpP7f3v+2DnynEiCzUHDruyLPm7QCiCdT+zD7I6HIVcvliCpM6BBz+YtI4jXb8NSslG
+         ss5RZoqriY9hqH6LXvJzr3qs0lnVNYNXUyK3BQYm/xqoLifAEBTeWALE2ZrLZ5exoy6C
+         Gzv1C+mNKFHJ9QcTfPQZdiQ4jHu6flS/rSfsCHc22R5O1c1a3zIIJt07UoN/cxryAhXN
+         W0Fg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766576538; x=1767181338;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=U+gVmRUB2u2nv3Wc1zC5rKWwnuvVcDu6lhjOYLZCxUQ=;
+        b=W6fddVBj5ga52dlm7W0C3Xcg7azjKCzEpn+3LHcVGQZr3WpW9EaPFHSrAxmtzCU9EW
+         TenMCgHveTASPejaUuj/TSC6Iy2Um1Zs+abEv2oxDLP4bArlIp14sds4kJ6neE7ynDFP
+         57v9VfnCqLcfs1J/13Of5FTjmu0JhqZ0MbtbtAWXoiCx9S+PuEwTHvWaE4uoVI85q1kS
+         nE2VaR3/3cmz/8O/tTuh7OOMEBwOGDkPlsIjI9yFUJGhH0m5o4l8NHWfqfdo9XNc5jyb
+         97FHc71nVRGvjClWJ9yLnjnZerYC9zQe+t2k6NBi9CuwufXAxE16bFOgsGHk40yf9JuZ
+         PZhA==
+X-Forwarded-Encrypted: i=1; AJvYcCVxQP6k5Tosu0vvAWVMadWjx35YDyGamokwuFJ3YzbfOVV1Uz9F5cR6p/iMWRZ2yjHwH6KWZnZFhMCrE5iQ4pxP@lists.infradead.org
+X-Gm-Message-State: AOJu0YxyE2i0j/fNtYZhKPxhf1/CYM5MgzqXnxQdFHberR5j0wkj6DPM
+	4fHWF09JAanTxYHz2j7bGesJSfNKvjdMW3IoczkEII1SwRGwlGURGmpGyXQ7usBAcut4kj/Ra2e
+	gNHus68h+oC+UYp+u90IKrwQI/66nA6k/IHV1N6bPNuu4rOPVhAaRMV4gkIPgwbqEtGM05DIfy6
+	bo2w==
+X-Gm-Gg: AY/fxX69M1gCAIINTDDIjJgE3aKBn9TCsIysU1DZLvLaOVzWBzQVwGh/7jjyXVNYBVc
+	hKNqENNw5NN8Eo2eLLyp23y5MEt4mkEAHX4sVCES1NUL4beEaobYa7kldBlB5mfK86lX6vvxnjB
+	5qgqTliW01EioyI0U4keZFEBVxKodWI6NbIatE49u3pl+CftE2/AjvgHKLn1FWUG1D5Zp3TVSpN
+	SKJbl+JcpNZqYgonWY9QvESmGangrZcRwv2oRIpVuVX2n4Pcij1Wqnowkg4LYOLoDsD7MlO0hQI
+	54px02DsSwuc1kYfVCiWKvyGpSAU5XWrSEg84sl788UvnreLosrp+4GPtMQ5Lq6TfwZ+Wvoa7V+
+	KpBkOJf1ugJPNNVIFTCswN0PGKORoLlelNKUf1KOsjRSDyag/u9HUHN90xxJIYhOJrODICA==
+X-Received: by 2002:a05:622a:6bc5:b0:4e8:b2df:fe1f with SMTP id d75a77b69052e-4f4b44aa828mr163735941cf.28.1766576537793;
+        Wed, 24 Dec 2025 03:42:17 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGYJQbZ7xIuM5JsrPsYTOyPB7yBvvFRWJ69uQCl8zSRJ/Ken0JqIo6Kls3ykdo83q8RZTzLsg==
+X-Received: by 2002:a05:622a:6bc5:b0:4e8:b2df:fe1f with SMTP id d75a77b69052e-4f4b44aa828mr163735851cf.28.1766576537378;
+        Wed, 24 Dec 2025 03:42:17 -0800 (PST)
+Received: from quoll.home (83.5.187.232.ipv4.supernova.orange.pl. [83.5.187.232])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-64b9105a9d8sm16468342a12.11.2025.12.24.03.42.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 24 Dec 2025 03:42:16 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>, Michal Simek <michal.simek@amd.com>,
+        Jassi Brar <jassisinghbrar@gmail.com>,
+        Brian Masney <bmasney@redhat.com>, linux-clk@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH 1/3] clk: zynqmp: divider: Fix zynqmp_clk_divider_determine_rate kerneldoc
+Date: Wed, 24 Dec 2025 12:42:11 +0100
+Message-ID: <20251224114210.139817-4-krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] arch/*: increase lowmem size to avoid highmem use
-To: Arnd Bergmann <arnd@kernel.org>, linux-mm@kvack.org
-Cc: Arnd Bergmann <arnd@arndb.de>, Andrew Morton <akpm@linux-foundation.org>,
- Andreas Larsson <andreas@gaisler.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, Jason Gunthorpe <jgg@nvidia.com>,
- Linus Walleij <linus.walleij@linaro.org>,
- Matthew Wilcox <willy@infradead.org>, Richard Weinberger <richard@nod.at>,
- Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org,
- linux-fsdevel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- x86@kernel.org, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- "H. Peter Anvin" <hpa@zytor.com>, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Michal Simek <monstr@monstr.eu>, David Hildenbrand <david@kernel.org>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- "Liam R . Howlett" <Liam.Howlett@oracle.com>,
- Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
- Nishanth Menon <nm@ti.com>, Lucas Stach <l.stach@pengutronix.de>
-References: <20251219161559.556737-1-arnd@kernel.org>
- <20251219161559.556737-2-arnd@kernel.org>
-Content-Language: fr-FR
-From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-In-Reply-To: <20251219161559.556737-2-arnd@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1331; i=krzysztof.kozlowski@oss.qualcomm.com;
+ h=from:subject; bh=7+3rMzvWcGTKos/3OJqmU9tz7kC9zKpFIYE0gqYo5Aw=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpS9GSuPMj/bofVABLhnOOl4JRJ2uqvbka0tUdQ
+ YT2afTx+smJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaUvRkgAKCRDBN2bmhouD
+ 10CiD/4mSux1oeYItqR5RWzwadskR10HMs+EK6yD0EulBWZJMQjZjA7WhfWuzrS1QCaytFULuaG
+ 054YN38zVMSSUKKlOqflhqZGdPnD3afJHKgY5jB1NbIVmXJp62dcShVMzv85LUHpr8IKKDD87Kc
+ ryy3wOMsOVjSU1GriuZX73kJnIwjL/oupXN86cHskl192vk74UIRwDV5Z6UeTiTnvj67SYklXzh
+ cz6zmFOVvm03Sor18p5ckWB7OrxnaIuUwLfWB96NSqrtb5CzCWyQUftdRJeCFQYbgELUJrNJaiP
+ KdZLuA92uiFXGMkwrFJLXxv4gcxJGUWNvDPnh7WDGgFC8SItfuD+6me7QdHT72szHc1D+alZRmA
+ EvGoSOONtwVw4uCSf6umN2ZY2/1mWmZ+GcVt9G6gx5/X21vwVH8yPWqxadG8GGcd8uoQ3vdNoAc
+ IQHgl09pMdZRScCLg0c9PuJzhXfHzc0XW7afOOCXIlzBUQtAQi2Y7XB+1C3m8Xy5gLNMwZwFRSH
+ Vs7vHcJVOMNLkjOJGiJX4Jro6FXz7dEtFJGTqinWNa2wKLTaHDCwCH+gNsCXdZItUvUCueUHk4t
+ xd3ZrJc7AIknh/SYjrFSqHCfVxrT5Nm8B2a0z3dRfvrM0AiTvo8AdnvUy3esG2a4rQhoeQFO5mn b/SKEfK+Is0NIIg==
+X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjI0MDEwMSBTYWx0ZWRfX5iaDQIVz462O
+ jMo+/u6vtPMOlVDJoszWXu+AQYP/6q9vnv5/rcon//rxnXR75ixcmu5PDFSVfQ7LuF6EyPMciBb
+ jZgcXEdLXsyNUG7GxJFhhOKqHmbr2F2RaaGgYv3GMp7syR+ViDA6t9cr3Z7cr8Dft9+EzQB8Kzl
+ uHAhavYHiXfP7YlOOT/8Z9yJS33v0GjXt/Ku3tzyt+n+KcYG8nU0uSSJhOFRfD8/4Ej74IEERP7
+ ZrNCUZTW8h86vF3UkzIXElBCSmacTZ9Hs9kqZ382D2+T0wQw9oK9o+cyFaey0WT19S5TSaMVxbU
+ bSddIRfpFv8UKvu3rVK6bpptVYkqxLwcCvRNxCqQtHUGNL0P/qRS3oCcIbL0A1qidwb5Ux5Dc+E
+ tQnej1r5vQWViFq52oFvvXEnoIfT/RQn0WiA2CjprR+EcjBKYg+y0ggpiTd/PGDd2+J8F5dRSWR
+ UZubNdknFKz9sspOC0w==
+X-Authority-Analysis: v=2.4 cv=IvATsb/g c=1 sm=1 tr=0 ts=694bd19a cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=urQ9wjG1USoGuMoDBEOPbA==:17
+ a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=EUspDBNiAAAA:8 a=_NWB5zRfvcGgyacOYGAA:9 a=uxP6HrT_eTzRwkO_Te1X:22
+X-Proofpoint-GUID: KpJuewdls9x7sFy0u4hEz0VTb7b_LnkW
+X-Proofpoint-ORIG-GUID: KpJuewdls9x7sFy0u4hEz0VTb7b_LnkW
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-12-24_03,2025-12-22_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 clxscore=1015 bulkscore=0 malwarescore=0 impostorscore=0
+ suspectscore=0 priorityscore=1501 lowpriorityscore=0 spamscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2512240101
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251224_034220_183167_4ED7DF78 
+X-CRM114-Status: GOOD (  12.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,158 +154,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+After renaming round_rate->determine, kerneldoc does not match anymore,
+causing W=1 warnings:
 
+  Warning: drivers/clk/zynqmp/divider.c:122 function parameter 'req' not described in 'zynqmp_clk_divider_determine_rate'
+  Warning: drivers/clk/zynqmp/divider.c:122 expecting prototype for zynqmp_clk_divider_round_rate(). Prototype was for zynqmp_clk_divider_determine_rate() instead
 
-Le 19/12/2025 à 17:15, Arnd Bergmann a écrit :
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> Most of the common 32-bit architectures (x86, arm, powerpc) all use the
-> default virtual memory layout that was already in place for i386 systems
-> in the 1990s, using exactly 3GiB of user TASK_SIZE, with the upper 1GiB
-> of addresses split between (at most 896MiB) lowmem and vmalloc.
-> 
-> Linux-2.3 introduced CONFIG_HIGHMEM for large x86 server machines that
-> had 4GiB of RAM or more, with the VMSPLIT_3G/2G/1G options added in
-> v2.6.16 for machines that had one or two gigabytes of memory but wanted
-> to avoid the overhead from managing highmem. Over time, similar options
-> appeared on other 32-bit architectures.
-> 
-> Twenty years later, it makes sense to reconsider the default settings,
-> as the tradeoffs have changed a bit:
-> 
->   - Configurations with more than 2GiB have become extremely rare,
->     as any users with large memory have moved on to 64-bit systems.
->     There were only ever a few Laptop models in this category: Apple
->     Powerbook G4 (2005), Macbook (2006), IBM Thinkpad X60 (2006), Arm
->     Chromebooks based on Exynos 5800 (2014), Tegra K1 (2014) and RK3288
->     (2015), and manufacturer support for all of these has ended in 2020
->     or (much) earlier.
->     Embedded systems with more than 2GiB use additional SoCs of a
->     similar vintage: Intel Atom Z5xx (2008), Freescale QorIQ (2008),
->     Marvell Armada XP (2010), Freescale i.MX6Q (2011), LSI Axxia (2013),
->     TI Keystone2 (2014), Renesas RZ/G1M (2015). Most boards based on
->     these have stopped receiving kernel upgrades. Newer 32-bit chips
->     only support smaller memory configurations, though in particular the
->     i.MX6Q and Keystone2 families have expected support cycles past 2035.
->     While 32-bit server installations used to support even larger memory,
->     none of those seem to still be used in production on any architecture.
-> 
->   - While general-purpose distributes for 32-bit targets were common,
->     it was rather risky to change the CONFIG_VMSPLIT setting because
->     there is always a possibility of running into device driver bugs or
->     applications that need a large virtual memory size. Presumably
->     a lot of these issues have been resolved now, so most setups should
->     be fine using a custom vmsplit instead of highmem now.
-> 
->   - As fewer users test highmem, the expectation is that it will
->     increasingly break in the future, so getting users to change the
->     vmsplit means that even if there is a bug to fix initially,
->     it improves the situation in the long run.
-> 
->   - Highmem will ultimately need to be removed, at least for the page
->     cache and most other code using it today. In a previous discussion, I
->     had suggested doing this as early as 2029, but based on the discussions
->     since ELC, the plan is now to leave highmem-enabled page cache as an
->     option until at least 2029, at which point remaining users will have
->     the choice between no longer updating kernels or using a combination of
->     a custom vmsplit and zram/zswap. Changing the defaults now should both
->     speed up the highmem deprecation and make it less painful for users.
-> 
->   - The most VM space intensive applications tend to be web browsers,
->     specifcally Chrome/ChromeOS and Firefox. Both have now stopped
->     providing binary updates, but Firefox can still be built from source.
->     Testing various combinations on Debian/armhf, I found that Firefox 140
->     can still show complex websites with VMSPLIT_2G_OPT with and without
->     HIGHMEM, though it failed for me both with the small address space
->     of VMSPLIT_1G and the small lowmem of VMSPLIT_3G_OPT when HIGHMEM
->     is disabled.
->     This is likely to get worse with future versions, so embedded users
->     may still be forced to migrate to specialized browsers like WPE Webkit
->     when HIGHMEM pagecache is finally removed.
-> 
-> Based on the above observations and the discussion at the kernel summit,
-> change the defaults to the most appropriate values: use 1GiB of lowmem on
-> non-highmem configurations, and either 2GiB or 1.75GiB of lowmem on highmem
-> builds, depending on what is available on the architecture.  As ARM_LPAE
-> and X86_PAE builds both require a gigabyte-aligned vmsplit, those get
-> to use VMSPLIT_2G. The result is that the majority of previous highmem
-> users now only need lowmem. For platform specific defconfig files that
-> are known to only support up to 1GiB of RAM, drop the CONFIG_HIGHMEM line
-> as well as a simplification.
-> 
-> On PowerPC and Microblaze, the options have somewhat different names but
-> should have the same effect. MIPS and Xtensa cannot support a larger
-> than 512MB of lowmem but are limited to small DDR2 memory in most
-> implementations, with MT7621 being a notable exception. ARC and C-Sky
-> could support a configurable vmsplit in theory, but it's not clear
-> if anyone still cares.
-> SPARC is currently limited to 192MB of lowmem and should get patched
-> to behave either like arm/x86 or powerpc/microblaze to support 2GiB
-> of lowmem.
-> 
-> There are likely going to be regressions from the changed defaults,
-> in particular when hitting previously hidden device driver bugs
-> that fail to set the correct DMA mask, or from applications that
-> need a large virtual address space.
-> Ideally the in-kernel problems should all be fixable, but the previous
-> behavior is still selectable as a fallback with CONFIG_EXPERT=y
-> 
-> Cc: Russell King <linux@armlinux.org.uk>
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Ingo Molnar <mingo@redhat.com>
-> Cc: Borislav Petkov <bp@alien8.de>
-> Cc: Dave Hansen <dave.hansen@linux.intel.com>
-> Cc: x86@kernel.org
-> Cc: "H. Peter Anvin" <hpa@zytor.com>
-> Cc: Madhavan Srinivasan <maddy@linux.ibm.com>
-> Cc: Michael Ellerman <mpe@ellerman.id.au>
-> Cc: Nicholas Piggin <npiggin@gmail.com>
-> Cc: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
-> Cc: linuxppc-dev@lists.ozlabs.org
-> Cc: Michal Simek <monstr@monstr.eu>
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: David Hildenbrand <david@kernel.org>
-> Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-> Cc: Liam R. Howlett <Liam.Howlett@oracle.com>
-> Cc: Vlastimil Babka <vbabka@suse.cz>
-> Cc: Mike Rapoport <rppt@kernel.org>
-> Cc: Suren Baghdasaryan <surenb@google.com>
-> Cc: Michal Hocko <mhocko@suse.com>
-> Cc: Matthew Wilcox <willy@infradead.org>
-> Cc: linux-mm@kvack.org
-> Cc: Richard Weinberger <richard@nod.at>
-> Cc: Linus Walleij <linus.walleij@linaro.org>
-> Cc: Nishanth Menon <nm@ti.com>
-> Cc: Andreas Larsson <andreas@gaisler.com>
-> Cc: Lucas Stach <l.stach@pengutronix.de>
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
->   arch/arm/Kconfig                            |  5 ++++-
->   arch/arm/configs/aspeed_g5_defconfig        |  1 -
->   arch/arm/configs/dove_defconfig             |  2 --
->   arch/arm/configs/mv78xx0_defconfig          |  2 --
->   arch/arm/configs/u8500_defconfig            |  1 -
->   arch/arm/configs/vt8500_v6_v7_defconfig     |  3 ---
->   arch/arm/mach-omap2/Kconfig                 |  1 -
->   arch/microblaze/Kconfig                     |  9 ++++++---
->   arch/microblaze/configs/mmu_defconfig       |  1 -
->   arch/powerpc/Kconfig                        | 17 +++++++++++------
->   arch/powerpc/configs/44x/akebono_defconfig  |  1 -
->   arch/powerpc/configs/85xx/ksi8560_defconfig |  1 -
->   arch/powerpc/configs/85xx/stx_gp3_defconfig |  1 -
+Fixes: 0f9cf96a01fd ("clk: zynqmp: divider: convert from round_rate() to determine_rate()")
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+---
+ drivers/clk/zynqmp/divider.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
-Reviewed-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
-
-Be aware that it will likely trivialy conflict with 
-https://lore.kernel.org/linuxppc-dev/6a2575420770d075cd090b5a316730a2ffafdee4.1766574657.git.chleroy@kernel.org/
-
-Another point is that it will increase the overall memory usage when 
-people activate KASAN as KASAN reserves 1/8 of RAM for lowmem memory. I 
-think we need to look at the impact on available virtual memory, because 
-1/8 of 2G is 256M which is the size of the last segment shared by KASAN 
-shadow mem and vmalloc.
-
-Christophe
+diff --git a/drivers/clk/zynqmp/divider.c b/drivers/clk/zynqmp/divider.c
+index c824eeacd8eb..5baa967aa7c9 100644
+--- a/drivers/clk/zynqmp/divider.c
++++ b/drivers/clk/zynqmp/divider.c
+@@ -111,10 +111,9 @@ static unsigned long zynqmp_clk_divider_recalc_rate(struct clk_hw *hw,
+ }
+ 
+ /**
+- * zynqmp_clk_divider_round_rate() - Round rate of divider clock
++ * zynqmp_clk_divider_determine_rate() - Determine rate of divider clock
+  * @hw:			handle between common and hardware-specific interfaces
+- * @rate:		rate of clock to be set
+- * @prate:		rate of parent clock
++ * @req:		rate of clock to be set
+  *
+  * Return: 0 on success else error+reason
+  */
+-- 
+2.51.0
 
 
