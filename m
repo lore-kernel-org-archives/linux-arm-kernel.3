@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 693A2E75458
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 13:49:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED965E75453
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 13:49:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ym0clnOXcCkHRqDykTV1fJDIYWiu2wzmH3T6iBeqLuA=; b=niEYFAwYBFvTPd+gt5ZsmJTePQ
-	Bhm6mZ8rygaBnA4JvqsdltFcduAWTMKosY05cHLdcIplpyPe3Ha/bJdcxiIlJL3VScqoXxBJS9kM8
-	btYKGGd/flHNxJYFVm463OqEmE/lv06ZtcVhXUMuOw6P4VjVX17ULoxvAgpNIHW9XrzWw9/hihW9+
-	o2o1kQ6B/THYlZ88R7ZtpVX8ag4f6JEEcnbrISvHelmt/y9DZ6Ph9kBcDOI/uwmDurmLgRmaQ7vIe
-	p5x1049je930A5My1pTkfLTz8LaoUIKBylYVenVWA6bNc9A3iHNrmkedJgNdOn5rdLJsa4KJbgCOG
-	a6lzCqAA==;
+	bh=PccGRd2au1n9nQvEk/PkCGv+alNBYU7VP4ze/r44x5Y=; b=JMkWf9mGbAchJS9bimdWyybsjM
+	60b67e0WLrBiHK1av8rjpUuGIJdDOHgs/gXGTAKCMRGnnX5/jNtu8LEfQ8hHZT2qK5FTSkfWaoNUo
+	54OyMquC6saa0aj2ju4iSBkNp4Ed20kDpAxXGRNCHGUJopf26Vz+UrZqXJTThYgXOIXHPTfkgJtSL
+	g+IOYx7JJBCS0FiwNBuRI0IN+HUYkooA1R6W2V9jiEXPVoTq7bUMFejfzsjSSbVIDKVdhgCa2JC27
+	bLbCDZdsCWMdHcCzcngGcqeY0kgD5NrcPaTgl+MPl6UwJFJQLNnFgWOMUvXibg1i70PDw5+TwSi8H
+	vZ0BTpYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYPEr-0000000GttP-0l2q;
-	Wed, 24 Dec 2025 13:49:17 +0000
+	id 1vYPF0-0000000Gu02-2PoV;
+	Wed, 24 Dec 2025 13:49:26 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYPEg-0000000Gtkj-0TuC
+	id 1vYPEp-0000000GtpV-3EIf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Dec 2025 13:49:11 +0000
+	Wed, 24 Dec 2025 13:49:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B997540AD6;
+	by sea.source.kernel.org (Postfix) with ESMTP id D2DFE42AE4;
+	Wed, 24 Dec 2025 13:49:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13500C116D0;
 	Wed, 24 Dec 2025 13:49:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97CAAC4CEFB;
-	Wed, 24 Dec 2025 13:48:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766584145;
-	bh=IvvJgMcd52cz0eUXtHfqF0Ab2ynthHHbFGfYcVS7MhI=;
+	s=k20201202; t=1766584154;
+	bh=ET9jXr6f8rYkms9GJeHVMFbu3UaE384JPmUpmT08RPw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kaBuFHVDB+r1+wmFnnz/WXtOLPFboUNL1OfEf6O7xFqhEpPyvk1qxpu41Pur1Xjn9
-	 6Rg/yUgFRgX0/0gJgIgcozT2cXOLTx/lYiYTwV9KoYdAINweW494Xw02UR6s97sqtC
-	 NX5Bw1Wwzz+XMvfy7tMlFM3xcXriho5wAtb5tZlZIZOzyb4lLYEb7qc3dZ9nHWDeKN
-	 KetC6eCqsdmW/FfngzqvExoTcqJPGM7FqyMUw6eKtvSUjB7/W5w8L5kCb8slh2rNCn
-	 TAQ9olUE/bT5wEZ82t0sE2yzV8RLX0WCBKZAUWIxrXslvPmpaK+/563Fyd67a6KXJr
-	 ib8CaUU8B1QDw==
+	b=pgF3cVS0eJtNZMorkjrgR3meGVoRMugAE/ejv7L856w2ip4rnxxFZ/DWN2tlLXOGT
+	 v8Kei6N9Lo5DcXVWOoQ4ihl6Bu/gTc5tR6DZVcTW6J7jBGZeMlIrHxJM1rEGA7zy/E
+	 rKAj1xBv+OQtbZA/FKdkPFzn1Ye7AZ3K621W6USFmD0VuczWW5sgVQVZo0jWZBDCHY
+	 G5ZRFlrcgb2lJgHXDO/qJPXat+r5fs+ldhywnnN5lSwUNyYRbhinC60Jl4nHAK5Fdq
+	 754ol3zLD6Wxw3ivQMgefbGMNMVawtO7f5SKRLSKPLdZ64PT+ph3MiInUpai34k4bk
+	 PoF8H5N2VPtPg==
 From: Frederic Weisbecker <frederic@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Frederic Weisbecker <frederic@kernel.org>,
@@ -81,17 +81,17 @@ Cc: Frederic Weisbecker <frederic@kernel.org>,
 	linux-mm@kvack.org,
 	linux-pci@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH 25/33] kthread: Include unbound kthreads in the managed affinity list
-Date: Wed, 24 Dec 2025 14:45:12 +0100
-Message-ID: <20251224134520.33231-26-frederic@kernel.org>
+Subject: [PATCH 26/33] kthread: Include kthreadd to the managed affinity list
+Date: Wed, 24 Dec 2025 14:45:13 +0100
+Message-ID: <20251224134520.33231-27-frederic@kernel.org>
 X-Mailer: git-send-email 2.51.1
 In-Reply-To: <20251224134520.33231-1-frederic@kernel.org>
 References: <20251224134520.33231-1-frederic@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251224_054908_393519_C6F2576F 
-X-CRM114-Status: GOOD (  18.38  )
+X-CRM114-CacheID: sfid-20251224_054916_199143_D0978E8F 
+X-CRM114-Status: GOOD (  11.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,120 +106,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The managed affinity list currently contains only unbound kthreads that
-have affinity preferences. Unbound kthreads globally affine by default
-are outside of the list because their affinity is automatically managed
-by the scheduler (through the fallback housekeeping mask) and by cpuset.
+The unbound kthreads affinity management performed by cpuset is going to
+be imported to the kthread core code for consolidation purposes.
 
-However in order to preserve the preferred affinity of kthreads, cpuset
-will delegate the isolated partition update propagation to the
-housekeeping and kthread code.
-
-Prepare for that with including all unbound kthreads in the managed
-affinity list.
+Treat kthreadd just like any other kthread.
 
 Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
 ---
- kernel/kthread.c | 70 ++++++++++++++++++++++++++++--------------------
- 1 file changed, 41 insertions(+), 29 deletions(-)
+ kernel/kthread.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/kernel/kthread.c b/kernel/kthread.c
-index f1e4f1f35cae..51c0908d3d02 100644
+index 51c0908d3d02..85ccf5bb17c9 100644
 --- a/kernel/kthread.c
 +++ b/kernel/kthread.c
-@@ -365,9 +365,10 @@ static void kthread_fetch_affinity(struct kthread *kthread, struct cpumask *cpum
- 	if (kthread->preferred_affinity) {
- 		pref = kthread->preferred_affinity;
- 	} else {
--		if (WARN_ON_ONCE(kthread->node == NUMA_NO_NODE))
--			return;
--		pref = cpumask_of_node(kthread->node);
-+		if (kthread->node == NUMA_NO_NODE)
-+			pref = housekeeping_cpumask(HK_TYPE_KTHREAD);
-+		else
-+			pref = cpumask_of_node(kthread->node);
- 	}
+@@ -818,12 +818,13 @@ int kthreadd(void *unused)
+ 	/* Setup a clean context for our children to inherit. */
+ 	set_task_comm(tsk, comm);
+ 	ignore_signals(tsk);
+-	set_cpus_allowed_ptr(tsk, housekeeping_cpumask(HK_TYPE_KTHREAD));
+ 	set_mems_allowed(node_states[N_MEMORY]);
  
- 	cpumask_and(cpumask, pref, housekeeping_cpumask(HK_TYPE_KTHREAD));
-@@ -380,32 +381,29 @@ static void kthread_affine_node(void)
- 	struct kthread *kthread = to_kthread(current);
- 	cpumask_var_t affinity;
+ 	current->flags |= PF_NOFREEZE;
+ 	cgroup_init_kthreadd();
  
--	WARN_ON_ONCE(kthread_is_per_cpu(current));
-+	if (WARN_ON_ONCE(kthread_is_per_cpu(current)))
-+		return;
- 
--	if (kthread->node == NUMA_NO_NODE) {
--		housekeeping_affine(current, HK_TYPE_KTHREAD);
--	} else {
--		if (!zalloc_cpumask_var(&affinity, GFP_KERNEL)) {
--			WARN_ON_ONCE(1);
--			return;
--		}
--
--		mutex_lock(&kthread_affinity_lock);
--		WARN_ON_ONCE(!list_empty(&kthread->affinity_node));
--		list_add_tail(&kthread->affinity_node, &kthread_affinity_list);
--		/*
--		 * The node cpumask is racy when read from kthread() but:
--		 * - a racing CPU going down will either fail on the subsequent
--		 *   call to set_cpus_allowed_ptr() or be migrated to housekeepers
--		 *   afterwards by the scheduler.
--		 * - a racing CPU going up will be handled by kthreads_online_cpu()
--		 */
--		kthread_fetch_affinity(kthread, affinity);
--		set_cpus_allowed_ptr(current, affinity);
--		mutex_unlock(&kthread_affinity_lock);
--
--		free_cpumask_var(affinity);
-+	if (!zalloc_cpumask_var(&affinity, GFP_KERNEL)) {
-+		WARN_ON_ONCE(1);
-+		return;
- 	}
++	kthread_affine_node();
 +
-+	mutex_lock(&kthread_affinity_lock);
-+	WARN_ON_ONCE(!list_empty(&kthread->affinity_node));
-+	list_add_tail(&kthread->affinity_node, &kthread_affinity_list);
-+	/*
-+	 * The node cpumask is racy when read from kthread() but:
-+	 * - a racing CPU going down will either fail on the subsequent
-+	 *   call to set_cpus_allowed_ptr() or be migrated to housekeepers
-+	 *   afterwards by the scheduler.
-+	 * - a racing CPU going up will be handled by kthreads_online_cpu()
-+	 */
-+	kthread_fetch_affinity(kthread, affinity);
-+	set_cpus_allowed_ptr(current, affinity);
-+	mutex_unlock(&kthread_affinity_lock);
-+
-+	free_cpumask_var(affinity);
- }
- 
- static int kthread(void *_create)
-@@ -919,8 +917,22 @@ static int kthreads_online_cpu(unsigned int cpu)
- 			ret = -EINVAL;
- 			continue;
- 		}
--		kthread_fetch_affinity(k, affinity);
--		set_cpus_allowed_ptr(k->task, affinity);
-+
-+		/*
-+		 * Unbound kthreads without preferred affinity are already affine
-+		 * to housekeeping, whether those CPUs are online or not. So no need
-+		 * to handle newly online CPUs for them.
-+		 *
-+		 * But kthreads with a preferred affinity or node are different:
-+		 * if none of their preferred CPUs are online and part of
-+		 * housekeeping at the same time, they must be affine to housekeeping.
-+		 * But as soon as one of their preferred CPU becomes online, they must
-+		 * be affine to them.
-+		 */
-+		if (k->preferred_affinity || k->node != NUMA_NO_NODE) {
-+			kthread_fetch_affinity(k, affinity);
-+			set_cpus_allowed_ptr(k->task, affinity);
-+		}
- 	}
- 
- 	free_cpumask_var(affinity);
+ 	for (;;) {
+ 		set_current_state(TASK_INTERRUPTIBLE);
+ 		if (list_empty(&kthread_create_list))
 -- 
 2.51.1
 
