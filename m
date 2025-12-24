@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65F58E75453
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 13:47:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A59AFE75458
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 13:47:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ApjPO282eYqEcYcf0OZCGawmv5v67njckKGjdm3x/+U=; b=ymzJt5iw8qlUB9BgSg0wtTlyS2
-	br/T8u1R160BCX8tukSQ1BBGfQ4gKJcb/i+Aurfhobv9UsEJbnsS17GMPewe/wGqIBQEuk1iRpSke
-	ACwEbXW2PrIasTOKZ8jsnw9cyyELXK2Ui0pZs9QQ86/YAUOiz0lQnSV6H8GR4pVmwIDgyF0Lppb/y
-	UxULTz0hJ2iwkG96+gVYUc1WJYcT4I0Akw8cYb1ZnQaKToVRTG+t9zAamH8iS/2SawjdM07g6uwlW
-	exAFYXmksu436IcQC9Xx6zBZJMBipefvx6XqfHmFHjrLoqEPWVuJRFamn+wOyQEHRxO+aylE0KDby
-	vsbxuFfQ==;
+	bh=P2Ps57mPJ8qAkwxRqJia303cfJSZSh55xKC8m6/f21o=; b=z0HqtMOm92aZuSZQc2YwYYovc1
+	+j/e/IosvBystE2KarwvBNYs35Tx1De47K2C8HaVAlX06kUJfDjUZIXgCdzRVPswcv7UBmVvJR9kh
+	KTLW1vJZu8Jqet7JfJYnBZ0szYzmlXffFDkkbtW9Ek3Bvv61LYLK8QpCvYnPTu8arswfRdXYShC+R
+	UbneUPeqabcdHlMxeoZMprAG/99VkP3lF83j9ZYHRYzZZWEQhSUKRqyZYXkznvWdIXmz3pQs8nE+y
+	1vd1ztbJo2r6w5yvd3V5hB5VUbfnlpga9HEaxJiBr3hdRX02qe8YLIACbhvY676ABtKUk0Jd4wtDo
+	bS0r+dxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYPD7-0000000GsZO-1HWp;
-	Wed, 24 Dec 2025 13:47:29 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vYPDJ-0000000Gskd-1Zgq;
+	Wed, 24 Dec 2025 13:47:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYPCt-0000000GsNy-2xoY
+	id 1vYPDA-0000000Gsdw-47Lb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Dec 2025 13:47:19 +0000
+	Wed, 24 Dec 2025 13:47:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6A8C04344C;
-	Wed, 24 Dec 2025 13:47:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62463C2BC87;
-	Wed, 24 Dec 2025 13:47:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A5DF540C2E;
+	Wed, 24 Dec 2025 13:47:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 132F5C19421;
+	Wed, 24 Dec 2025 13:47:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766584035;
-	bh=v9YrBjmYoXXJcaUrCVcNEergJy1rpdNBj6w7mIgdodQ=;
+	s=k20201202; t=1766584052;
+	bh=bEcbX7KWei/F/tdd1dqLNOJQoJehpFK4YPlUxFH95Ec=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=rCRujogTY+v2D7yNqeA2I4GHSEB5IZ6gjsFGX3G5TJYOT0Mj3Q+Sv7+IKEY0+THzu
-	 7igwa4gdL1xbO5MZz7u8limrG0g71QKHp8uIT8ZKC6DpAC0YOAnM5rFSu74DOYB1Z4
-	 HWuzWKNk7uy1AFlVxMxxei5I5tZizBny1roqv6wsvmjcVEk7JfGl8keToChYW3XFhu
-	 EQiCKpdu5d0aTnR/goCjhSqylvapGUC/fA/wVCXQa8/N83XqgTKj+ec7CKs7WZPg/6
-	 GEg080xTpmoiZRH46UkLLvxB1SXoNxoC/21yOxb0ZK1gAG5CVY8JwfPnOmEfoRaEyU
-	 SdcaeUqbrgKcQ==
+	b=rWBEXiFXFwOZeezwfBkkOxMAGA/N78W09k3qvuwX4GdIGU32CYAGAwxja/awX8kkV
+	 J3lGm3qkjnrv1DU4n/D3+knMeI8Y5sCMVs98kJIYMO9pHkuOD4PJxshTq7F7pfChdh
+	 i6PLAj9PGKTA/Zbb+TvC70uO+moyUZEEsRNxfxmYtaBRk0qczG15CJ/HqGyXIucU3w
+	 ZHCxrfSt5EWat662ghZxFaCSH0yQ3CKEivUeErRRJgr5sCzrmz5BnpwgNdwOt/I8Zw
+	 zCM2WZWmJBoBBojR9P4JLjLFjxus1c6N0lyGSId+Y0oAPl7VMqgeQTYyVkQ8EjgU12
+	 My41ZMotzUzjQ==
 From: Frederic Weisbecker <frederic@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Frederic Weisbecker <frederic@kernel.org>,
@@ -81,9 +81,9 @@ Cc: Frederic Weisbecker <frederic@kernel.org>,
 	linux-mm@kvack.org,
 	linux-pci@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH 12/33] cpuset: Provide lockdep check for cpuset lock held
-Date: Wed, 24 Dec 2025 14:44:59 +0100
-Message-ID: <20251224134520.33231-13-frederic@kernel.org>
+Subject: [PATCH 14/33] cpuset: Update HK_TYPE_DOMAIN cpumask from cpuset
+Date: Wed, 24 Dec 2025 14:45:01 +0100
+Message-ID: <20251224134520.33231-15-frederic@kernel.org>
 X-Mailer: git-send-email 2.51.1
 In-Reply-To: <20251224134520.33231-1-frederic@kernel.org>
 References: <20251224134520.33231-1-frederic@kernel.org>
@@ -91,8 +91,8 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251224_054717_851354_46C75F68 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20251224_054736_255866_79592DB1 
+X-CRM114-Status: GOOD (  20.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,51 +107,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-cpuset modifies partitions, including isolated, while holding the cpuset
-mutex.
+Until now, HK_TYPE_DOMAIN used to only include boot defined isolated
+CPUs passed through isolcpus= boot option. Users interested in also
+knowing the runtime defined isolated CPUs through cpuset must use
+different APIs: cpuset_cpu_is_isolated(), cpu_is_isolated(), etc...
 
-This means that holding the cpuset mutex is safe to synchronize against
-housekeeping cpumask changes.
+There are many drawbacks to that approach:
 
-Provide a lockdep check to validate that.
+1) Most interested subsystems want to know about all isolated CPUs, not
+  just those defined on boot time.
+
+2) cpuset_cpu_is_isolated() / cpu_is_isolated() are not synchronized with
+  concurrent cpuset changes.
+
+3) Further cpuset modifications are not propagated to subsystems
+
+Solve 1) and 2) and centralize all isolated CPUs within the
+HK_TYPE_DOMAIN housekeeping cpumask.
+
+Subsystems can rely on RCU to synchronize against concurrent changes.
+
+The propagation mentioned in 3) will be handled in further patches.
 
 Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
 ---
- include/linux/cpuset.h | 2 ++
- kernel/cgroup/cpuset.c | 7 +++++++
- 2 files changed, 9 insertions(+)
+ include/linux/sched/isolation.h |  7 +++
+ kernel/cgroup/cpuset.c          |  3 ++
+ kernel/sched/isolation.c        | 76 ++++++++++++++++++++++++++++++---
+ kernel/sched/sched.h            |  1 +
+ 4 files changed, 81 insertions(+), 6 deletions(-)
 
-diff --git a/include/linux/cpuset.h b/include/linux/cpuset.h
-index a98d3330385c..1c49ffd2ca9b 100644
---- a/include/linux/cpuset.h
-+++ b/include/linux/cpuset.h
-@@ -18,6 +18,8 @@
- #include <linux/mmu_context.h>
- #include <linux/jump_label.h>
+diff --git a/include/linux/sched/isolation.h b/include/linux/sched/isolation.h
+index 109a2149e21a..6842a1ba4d13 100644
+--- a/include/linux/sched/isolation.h
++++ b/include/linux/sched/isolation.h
+@@ -9,6 +9,11 @@
+ enum hk_type {
+ 	/* Revert of boot-time isolcpus= argument */
+ 	HK_TYPE_DOMAIN_BOOT,
++	/*
++	 * Same as HK_TYPE_DOMAIN_BOOT but also includes the
++	 * revert of cpuset isolated partitions. As such it
++	 * is always a subset of HK_TYPE_DOMAIN_BOOT.
++	 */
+ 	HK_TYPE_DOMAIN,
+ 	/* Revert of boot-time isolcpus=managed_irq argument */
+ 	HK_TYPE_MANAGED_IRQ,
+@@ -35,6 +40,7 @@ extern const struct cpumask *housekeeping_cpumask(enum hk_type type);
+ extern bool housekeeping_enabled(enum hk_type type);
+ extern void housekeeping_affine(struct task_struct *t, enum hk_type type);
+ extern bool housekeeping_test_cpu(int cpu, enum hk_type type);
++extern int housekeeping_update(struct cpumask *isol_mask, enum hk_type type);
+ extern void __init housekeeping_init(void);
  
-+extern bool lockdep_is_cpuset_held(void);
-+
- #ifdef CONFIG_CPUSETS
- 
- /*
-diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
-index 3afa72f8d579..5e2e3514c22e 100644
---- a/kernel/cgroup/cpuset.c
-+++ b/kernel/cgroup/cpuset.c
-@@ -283,6 +283,13 @@ void cpuset_full_unlock(void)
- 	cpus_read_unlock();
+ #else
+@@ -62,6 +68,7 @@ static inline bool housekeeping_test_cpu(int cpu, enum hk_type type)
+ 	return true;
  }
  
-+#ifdef CONFIG_LOCKDEP
-+bool lockdep_is_cpuset_held(void)
-+{
-+	return lockdep_is_held(&cpuset_mutex);
-+}
-+#endif
-+
- static DEFINE_SPINLOCK(callback_lock);
++static inline int housekeeping_update(struct cpumask *isol_mask, enum hk_type type) { return 0; }
+ static inline void housekeeping_init(void) { }
+ #endif /* CONFIG_CPU_ISOLATION */
  
- void cpuset_callback_lock_irq(void)
+diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
+index 5e2e3514c22e..e13e32491ebf 100644
+--- a/kernel/cgroup/cpuset.c
++++ b/kernel/cgroup/cpuset.c
+@@ -1490,6 +1490,9 @@ static void update_isolation_cpumasks(void)
+ 	ret = tmigr_isolated_exclude_cpumask(isolated_cpus);
+ 	WARN_ON_ONCE(ret < 0);
+ 
++	ret = housekeeping_update(isolated_cpus, HK_TYPE_DOMAIN);
++	WARN_ON_ONCE(ret < 0);
++
+ 	isolated_cpus_updating = false;
+ }
+ 
+diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
+index 83be49ec2b06..a124f1119f2e 100644
+--- a/kernel/sched/isolation.c
++++ b/kernel/sched/isolation.c
+@@ -29,18 +29,48 @@ static struct housekeeping housekeeping;
+ 
+ bool housekeeping_enabled(enum hk_type type)
+ {
+-	return !!(housekeeping.flags & BIT(type));
++	return !!(READ_ONCE(housekeeping.flags) & BIT(type));
+ }
+ EXPORT_SYMBOL_GPL(housekeeping_enabled);
+ 
++static bool housekeeping_dereference_check(enum hk_type type)
++{
++	if (IS_ENABLED(CONFIG_LOCKDEP) && type == HK_TYPE_DOMAIN) {
++		/* Cpuset isn't even writable yet? */
++		if (system_state <= SYSTEM_SCHEDULING)
++			return true;
++
++		/* CPU hotplug write locked, so cpuset partition can't be overwritten */
++		if (IS_ENABLED(CONFIG_HOTPLUG_CPU) && lockdep_is_cpus_write_held())
++			return true;
++
++		/* Cpuset lock held, partitions not writable */
++		if (IS_ENABLED(CONFIG_CPUSETS) && lockdep_is_cpuset_held())
++			return true;
++
++		return false;
++	}
++
++	return true;
++}
++
++static inline struct cpumask *housekeeping_cpumask_dereference(enum hk_type type)
++{
++	return rcu_dereference_all_check(housekeeping.cpumasks[type],
++					 housekeeping_dereference_check(type));
++}
++
+ const struct cpumask *housekeeping_cpumask(enum hk_type type)
+ {
++	const struct cpumask *mask = NULL;
++
+ 	if (static_branch_unlikely(&housekeeping_overridden)) {
+-		if (housekeeping.flags & BIT(type)) {
+-			return rcu_dereference_check(housekeeping.cpumasks[type], 1);
+-		}
++		if (READ_ONCE(housekeeping.flags) & BIT(type))
++			mask = housekeeping_cpumask_dereference(type);
+ 	}
+-	return cpu_possible_mask;
++	if (!mask)
++		mask = cpu_possible_mask;
++	return mask;
+ }
+ EXPORT_SYMBOL_GPL(housekeeping_cpumask);
+ 
+@@ -80,12 +110,46 @@ EXPORT_SYMBOL_GPL(housekeeping_affine);
+ 
+ bool housekeeping_test_cpu(int cpu, enum hk_type type)
+ {
+-	if (static_branch_unlikely(&housekeeping_overridden) && housekeeping.flags & BIT(type))
++	if (static_branch_unlikely(&housekeeping_overridden) &&
++	    READ_ONCE(housekeeping.flags) & BIT(type))
+ 		return cpumask_test_cpu(cpu, housekeeping_cpumask(type));
+ 	return true;
+ }
+ EXPORT_SYMBOL_GPL(housekeeping_test_cpu);
+ 
++int housekeeping_update(struct cpumask *isol_mask, enum hk_type type)
++{
++	struct cpumask *trial, *old = NULL;
++
++	if (type != HK_TYPE_DOMAIN)
++		return -ENOTSUPP;
++
++	trial = kmalloc(cpumask_size(), GFP_KERNEL);
++	if (!trial)
++		return -ENOMEM;
++
++	cpumask_andnot(trial, housekeeping_cpumask(HK_TYPE_DOMAIN_BOOT), isol_mask);
++	if (!cpumask_intersects(trial, cpu_online_mask)) {
++		kfree(trial);
++		return -EINVAL;
++	}
++
++	if (!housekeeping.flags)
++		static_branch_enable(&housekeeping_overridden);
++
++	if (housekeeping.flags & BIT(type))
++		old = housekeeping_cpumask_dereference(type);
++	else
++		WRITE_ONCE(housekeeping.flags, housekeeping.flags | BIT(type));
++	rcu_assign_pointer(housekeeping.cpumasks[type], trial);
++
++	synchronize_rcu();
++
++	kfree(old);
++
++	return 0;
++}
++
+ void __init housekeeping_init(void)
+ {
+ 	enum hk_type type;
+diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
+index 475bdab3b8db..653e898a996a 100644
+--- a/kernel/sched/sched.h
++++ b/kernel/sched/sched.h
+@@ -30,6 +30,7 @@
+ #include <linux/context_tracking.h>
+ #include <linux/cpufreq.h>
+ #include <linux/cpumask_api.h>
++#include <linux/cpuset.h>
+ #include <linux/ctype.h>
+ #include <linux/file.h>
+ #include <linux/fs_api.h>
 -- 
 2.51.1
 
