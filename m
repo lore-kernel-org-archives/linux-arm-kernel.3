@@ -4,57 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD41CE74ADE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 07:30:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0D79E74AE0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 07:30:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=34Yn/l6AefGUYrQXSWNv1nM8Siy3FT7KuNTJgBnUrPU=; b=FGpCkSMqPpym0Dx0CuRxGY3ugO
-	6vPMWukFpjf8EfQ4k/2yZLHkkXv9YPO93HMgTmJnQ5U2n7NlSE1kVmfzW/EoKHOVfeNWy3fneWAcN
-	++dejFwPv19IwZEkqv5ocwGRiqmt2peYKvxYt3bGxWwe1MF+8309vtmm9uRpe3cOgLh68qq/khCmU
-	KynH1ecP1b6FVmOgIPvex3e/WySPwx16WL/ZHefSdpyCYslmGuB4Vt0BFVkFB6QfENaMGcPrkNSEP
-	0i4bFY4HZZamzdSDIq+TEHp7tyNPQ9iySTuliZEwMYUo2O8Qlo2e11Ep95JKdlWN1JQPQAplZxujd
-	Ot0svGWA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=v97j/avb3nDbxCl3K09zRMxiKXz/u+GiHSDaP2oimIM=; b=5E8zib6swqjqQD
+	BNgIabIl/bxrjAKSMTCyuwA8fH858fpE+40EI1LposLc4+I0ro8cQyTCxHP2BUPNXhkNgLzH8TRVS
+	tFkdMsoepjlzyPWjo2v3Zpsw90+9jB/1RYmVr3cgdoSvIm7f1FlITkK+JnDJMh6oVNdEB7pkl77R0
+	JXmX2xNpFhT85gOrAAOqQpXp5Qpbatk3V4T5j2qZr9Jey07VM6Uo3g0S5m/Gjk8Xt7B7GNB0aB58s
+	Q9K6ekAhqfLWkpkfKXVmlxYYgJacXQQUIMPm24UeNpMG4y8u3SrcfeuI9ov6OvrSiTk78r6CYo73j
+	CHTTbFvfGW9pTo/6WF5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYJKR-0000000GXSQ-3BWe;
-	Wed, 24 Dec 2025 07:30:39 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYJKL-0000000GXNk-00Zk;
+	id 1vYJKN-0000000GXPl-3s60;
 	Wed, 24 Dec 2025 07:30:35 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vYJKK-0000000GXNi-3pPG;
+	Wed, 24 Dec 2025 07:30:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
 	s=mail; t=1766561429;
-	bh=275RkoijZ9ucMKuDaFvwXmFSOwPO0XBDoE4ljKpdgDI=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=aWESDHXbqv7RTKQMVuvdt/+fXeF2L1RrwyjCRYiNqhAAQWCIVHxrSFvnrJ/F//Stn
-	 H+Yq4kHYDk4yosaiyTyE8c7q3tg9HXub8yWl3uYhlTqLNju5nWilO274XHKZv5hV6b
-	 aJ0cBid9Q6xLXqxWcEvU7MlJsH6IxC+E1JIWhx1ZgYRiW7FfE/+Kk+ceHqwgFptkmf
-	 NpaxPWmRdkaoyVsrqm5W7ESsvwNoMS7CC29nkUQRgGvwqSYZYgBVtNoth5QvoW22/9
-	 imPJg7f0NMcTOtKFOsFWD0bcJtomDmxxqKv3Z3Va1Kh+LaO/SljKEHSaEZqPW4nfiw
-	 zXfUeZvoWe82g==
-Received: from beast.luon.net (simons.connected.by.freedominter.net [45.83.240.172])
+	bh=p9EApc/81gnQlU/LhWQkv1EujxBdHond5uKb1PR5F2k=;
+	h=From:Subject:Date:To:Cc:From;
+	b=b6IkRrtCO/zl01DcGcHmlGgXYzJN5M8H9DRZ9I9D0jd5BhvE4b6rLvBopQp/Li5YB
+	 7NUlBZb+Q/Fo24cP3c/CfY1axDQ//CX/t+2BLI0C23J9q/4XxKtn591/iEQa8rKXHy
+	 uCRExOWtDv+XeSm9rebi+P7tjzgIDOcD+oSXj0mtD6qCq/+I2iw/oje0gLFb8bLIPu
+	 FOTv2uZyBLVurw7jcXdwJlp7QZqSZGEYEPhnj3jwipSYBKVS0UQZJRO2JjQq/4+rK+
+	 k8sCE2tc2JKN9qHIZ+pK0Atpz8D7fKgqvJaQZGTlMeJDrk1XbwyeAxM9E2K+dO21kO
+	 2Fn721VI/xToQ==
+Received: from beast.luon.net (unknown [IPv6:2a10:3781:2531:0:f337:3245:2545:b505])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: sjoerd)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 26C7017E1330;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 13A1017E0463;
 	Wed, 24 Dec 2025 08:30:29 +0100 (CET)
 Received: by beast.luon.net (Postfix, from userid 1000)
-	id C077C11A3A2D7; Wed, 24 Dec 2025 08:30:28 +0100 (CET)
+	id B565811A3A2D3; Wed, 24 Dec 2025 08:30:28 +0100 (CET)
 From: Sjoerd Simons <sjoerd@collabora.com>
-Date: Wed, 24 Dec 2025 08:30:11 +0100
-Subject: [PATCH 2/4] clk: mediatek: Declare MT7981 infra muxes as no-gate
- muxes
+Subject: [PATCH 0/4] clk: mediatek: Fix no-gate mux declarations
+Date: Wed, 24 Dec 2025 08:30:09 +0100
+Message-Id: <20251224-mtk-not-a-gate-v1-0-d4667e3b7856@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251224-mtk-not-a-gate-v1-2-d4667e3b7856@collabora.com>
-References: <20251224-mtk-not-a-gate-v1-0-d4667e3b7856@collabora.com>
-In-Reply-To: <20251224-mtk-not-a-gate-v1-0-d4667e3b7856@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAIGWS2kC/x3MQQqAIBBA0avErBtQKZGuEi2sJhsiDZUIwrsnL
+ d/i/xcSRaYEQ/NCpJsTB18h2waW3XpHyGs1KKF6qVSHZz7Qh4wWnc2EtIhZz9r00hqo0RVp4+c
+ fjlMpH3XKLrRgAAAA
+X-Change-ID: 20251224-mtk-not-a-gate-ec0b6b6851a8
 To: Michael Turquette <mturquette@baylibre.com>, 
  Stephen Boyd <sboyd@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
@@ -65,8 +66,9 @@ Cc: kernel@collabora.com, linux-clk@vger.kernel.org,
  linux-mediatek@lists.infradead.org, Sjoerd Simons <sjoerd@collabora.com>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_233033_441003_CF2C56EF 
-X-CRM114-Status: GOOD (  10.30  )
+X-CRM114-CacheID: sfid-20251223_233033_433039_273D5DBF 
+X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,85 +83,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A MUX_GATE without a gate, is really just a MUX. Adjust the mux
-declarations to match that. This fixes out-of-bounds shifts due to no
-longer trying to enable/disable the gate with a shift of (u8)-1.
+When booting a MT7981 board (OpenWRT One) with UBSAN, the following
+error showed up:
 
-Fixes: 813c3b53b55b ("clk: mediatek: add MT7981 clock support")
+```
+UBSAN: shift-out-of-bounds in drivers/clk/mediatek/clk-mux.c:76:8
+shift exponent 255 is too large for 64-bit type 'long unsigned int'
+```
+
+This is due to various infra muxes being declared as MUX_GATE_ even
+though they don't actually have a gate.
+
+First patch in this series adds a helper to make it easier to declare
+muxes that neither have a gate nor update registers. This seems common
+for MT798* infra muxes. The following ones corrects the incorrect mux
+definitions by transitioning to this new declaration.
+
 Signed-off-by: Sjoerd Simons <sjoerd@collabora.com>
 ---
- drivers/clk/mediatek/clk-mt7981-infracfg.c | 55 ++++++++++++------------------
- 1 file changed, 22 insertions(+), 33 deletions(-)
+Sjoerd Simons (4):
+      clk: mediatek: clk-mux: Add helper for muxes without UPD
+      clk: mediatek: Declare MT7981 infra muxes as no-gate muxes
+      clk: mediatek: Declare MT7986 infra muxes as no-gate muxes
+      clk: mediatek: Declare MT7988 infra muxes as no-gate muxes
 
-diff --git a/drivers/clk/mediatek/clk-mt7981-infracfg.c b/drivers/clk/mediatek/clk-mt7981-infracfg.c
-index 0487b6bb80ae..574930e87fbe 100644
---- a/drivers/clk/mediatek/clk-mt7981-infracfg.c
-+++ b/drivers/clk/mediatek/clk-mt7981-infracfg.c
-@@ -44,40 +44,29 @@ static const char *const infra_pcie_parents[] __initconst = {
- 
- static const struct mtk_mux infra_muxes[] = {
- 	/* MODULE_CLK_SEL_0 */
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_UART0_SEL, "infra_uart0_sel",
--			     infra_uart_parent, 0x0018, 0x0010, 0x0014, 0, 1,
--			     -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_UART1_SEL, "infra_uart1_sel",
--			     infra_uart_parent, 0x0018, 0x0010, 0x0014, 1, 1,
--			     -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_UART2_SEL, "infra_uart2_sel",
--			     infra_uart_parent, 0x0018, 0x0010, 0x0014, 2, 1,
--			     -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_SPI0_SEL, "infra_spi0_sel",
--			     infra_spi0_parents, 0x0018, 0x0010, 0x0014, 4, 1,
--			     -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_SPI1_SEL, "infra_spi1_sel",
--			     infra_spi1_parents, 0x0018, 0x0010, 0x0014, 5, 1,
--			     -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_SPI2_SEL, "infra_spi2_sel",
--			     infra_spi0_parents, 0x0018, 0x0010, 0x0014, 6, 1,
--			     -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM1_SEL, "infra_pwm1_sel",
--			     infra_pwm1_parents, 0x0018, 0x0010, 0x0014, 9, 1,
--			     -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM2_SEL, "infra_pwm2_sel",
--			     infra_pwm1_parents, 0x0018, 0x0010, 0x0014, 11, 1,
--			     -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM3_SEL, "infra_pwm3_sel",
--			     infra_pwm1_parents, 0x0018, 0x0010, 0x0014, 15, 1,
--			     -1, -1, -1),
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PWM_BSEL, "infra_pwm_bsel",
--			     infra_pwm_bsel_parents, 0x0018, 0x0010, 0x0014, 13,
--			     2, -1, -1, -1),
-+	MUX_CLR_SET(CLK_INFRA_UART0_SEL, "infra_uart0_sel",
-+		    infra_uart_parent, 0x0018, 0x0010, 0x0014, 0, 1),
-+	MUX_CLR_SET(CLK_INFRA_UART1_SEL, "infra_uart1_sel",
-+		    infra_uart_parent, 0x0018, 0x0010, 0x0014, 1, 1),
-+	MUX_CLR_SET(CLK_INFRA_UART2_SEL, "infra_uart2_sel",
-+		    infra_uart_parent, 0x0018, 0x0010, 0x0014, 2, 1),
-+	MUX_CLR_SET(CLK_INFRA_SPI0_SEL, "infra_spi0_sel",
-+		    infra_spi0_parents, 0x0018, 0x0010, 0x0014, 4, 1),
-+	MUX_CLR_SET(CLK_INFRA_SPI1_SEL, "infra_spi1_sel",
-+		    infra_spi1_parents, 0x0018, 0x0010, 0x0014, 5, 1),
-+	MUX_CLR_SET(CLK_INFRA_SPI2_SEL, "infra_spi2_sel",
-+		    infra_spi0_parents, 0x0018, 0x0010, 0x0014, 6, 1),
-+	MUX_CLR_SET(CLK_INFRA_PWM1_SEL, "infra_pwm1_sel",
-+		    infra_pwm1_parents, 0x0018, 0x0010, 0x0014, 9, 1),
-+	MUX_CLR_SET(CLK_INFRA_PWM2_SEL, "infra_pwm2_sel",
-+		    infra_pwm1_parents, 0x0018, 0x0010, 0x0014, 11, 1),
-+	MUX_CLR_SET(CLK_INFRA_PWM3_SEL, "infra_pwm3_sel",
-+		    infra_pwm1_parents, 0x0018, 0x0010, 0x0014, 15, 1),
-+	MUX_CLR_SET(CLK_INFRA_PWM_BSEL, "infra_pwm_bsel",
-+		    infra_pwm_bsel_parents, 0x0018, 0x0010, 0x0014, 13, 2),
- 	/* MODULE_CLK_SEL_1 */
--	MUX_GATE_CLR_SET_UPD(CLK_INFRA_PCIE_SEL, "infra_pcie_sel",
--			     infra_pcie_parents, 0x0028, 0x0020, 0x0024, 0, 2,
--			     -1, -1, -1),
-+	MUX_CLR_SET(CLK_INFRA_PCIE_SEL, "infra_pcie_sel",
-+		    infra_pcie_parents, 0x0028, 0x0020, 0x0024, 0, 2),
- };
- 
- static const struct mtk_gate_regs infra0_cg_regs = {
+ drivers/clk/mediatek/clk-mt7981-infracfg.c | 55 ++++++++-----------
+ drivers/clk/mediatek/clk-mt7986-infracfg.c | 45 ++++++---------
+ drivers/clk/mediatek/clk-mt7988-infracfg.c | 88 ++++++++++++++++--------------
+ drivers/clk/mediatek/clk-mux.h             |  7 +++
+ 4 files changed, 93 insertions(+), 102 deletions(-)
+---
+base-commit: b927546677c876e26eba308550207c2ddf812a43
+change-id: 20251224-mtk-not-a-gate-ec0b6b6851a8
 
+Best regards,
 -- 
-2.51.0
+Sjoerd Simons <sjoerd@collabora.com>
 
 
