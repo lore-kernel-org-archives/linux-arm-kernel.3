@@ -4,158 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03313E74905
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 02:26:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F28DE7490B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 24 Dec 2025 03:18:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fe971I7vctGicnmZN3rn6GUUD9cdSqx5fnZuxG5VU50=; b=gD2Jp32JH6pC4Yv62f/i+Cl2ey
-	+iJPDO8fvoJ2JPY9hUvO6/S6f+rZLb/GXyXUU0TunVxgC+LFzqW39HeXeSVihyp2jJsXfjgeFopfZ
-	BNe7gRMbsd8zzH1GRRnVo1vHnckR/986Li+qCslMxkohH9bGCamTKZ2CqWTpF/Y1OW6LB9KH8Y7Mi
-	gnFbkJESCPoII7tejJgIiHQFiFXtn4uil8aHMF8op8PzstIR61rMR5uJvEUMhlcxkIvSo6QasTmW7
-	ITZV5pCj99BkZEiexNvjCfTOk4c4BRG0cQBjR6tJ8fYe12FlvxXwXJbGj2ukpQMl5OSlCbWU7VPiG
-	fEHvgFjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=762KOSuTk8NJfRKqdPZ7KSGbQUNzMG+1bi7UE30D9xU=; b=t9IX8E2i9QHB8Vuv6yN/pmcx7u
+	KQqYQVtQJva4AT3sXPk3SLyLWxuEQh7L5lCCx0cOsGiGhR7LXv0fvbI9TYhofuKdFUBfuqEdGu2J1
+	/QqsYSQJdpFrpeV9N3Zl4G5IthdyZplj/8dtHmD0EZWQDxKDrsPhcASK7m9azIkeQZatATx4sySBl
+	8XvqcccbAML5KkmbTZVbm0J55aPkSxX7e3yyQFpOu9R8vlCpEuwKy/6goeRTSRq4bmEprkh4Z88QO
+	DxZ8ARurJFs+6Vfvg7ONU6yt2wtu+XVdcvEL+K5lLM6qcwyJgvGEz7wyeP5PRJIsJ/sqAIyqI+HE6
+	3mttD2Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYEZy-0000000GJup-3Qi6;
-	Wed, 24 Dec 2025 02:26:22 +0000
-Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1vYFNo-0000000GLre-3utR;
+	Wed, 24 Dec 2025 03:17:52 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYEZw-0000000GJuP-0Qwm
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 24 Dec 2025 02:26:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Mx5Rzuwjo/Xh5/W81OJIHkx3oMT6JVmcSoJpAchShZK6p9y+WKL7bX3R1ar7XWQlL9c9z3dasVBXEGzSqiggqx0Eyt+oB7py+gUt4bHAwlaoHEZkJuTbeHcv7RNSvcOTPtgbIERT1VD+umcD9JqyNT2UjZDtHt5ByhBiIosMRtiXSmtlNOth89I3yoFIeH1Pao32PLVASDOenEns6/yj7KZ3BACbAsHSAgbIVCM6z3D7jtZh9P/n7TjieyS53eGpBC+JGBI9LBoNa0UocLQz7ZGI6vJfGHPAJ7YtEOaVHXGU5fMkL2E/AAkTyAlKkrHjIwCeIIGvgnuaJAKlVknDXQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Fe971I7vctGicnmZN3rn6GUUD9cdSqx5fnZuxG5VU50=;
- b=YNzL55AkTxP8JEXPBGkE6UPwTILPmz4smZxzWIFKnaVr+f+oN8T8H4Rw8yDhsqUA9bGRab61gqrCDRcAlM38YmuydFq3nlX+iaJjq8ZeYQhvDcQq+9WJXC+WOx8yWW/MnwGV9tl564eCdyPQFU/dVmDYwns9YekydQ65TqThiDCeaJ7FJIeC7iZAF0tKWtX8VqYr8bVFty0oxZ/YXVtZAs5Cw10c5rDKiXLOrbabXDrffigw4CdwFUOKaiaCWi113A/dfMYoRePfiu3f+5sKmD6FNjEV8mtXPTT99rsVM29djYsL5uC7en+7UsG140A2GdX5runue/k1RHEq25Xmnw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Fe971I7vctGicnmZN3rn6GUUD9cdSqx5fnZuxG5VU50=;
- b=nx4Ugnd2xEPHsHecTCKT4saQNpZ2+oVL9/UgZiEYQtJjmo6V1FUtC5c6PIm4SFtF6GC0zqmVaBdJ2yFRW+A+B8vCTdRKP5TebmGYDYm9pCdlo9je1F2OzCWKIV90sGRwn7zkcyhwHWe1zF1xK8fmCx0JQER3SVe2gyV6WxC1kqFvhjSuSaFaE38HY3LsKlIcpX/ZlhR83wpb6rlhF30rm3bsF7tLtjCbUwehTuY0uTEBZcEJEkg6rK7EmNPUmWo8lVafVCpTE52N9kZRRXFLekTnsnCmqT75W7Jb08BIMo3+olGXyiZOaaiKrcX+TdVmcph4vyaSeyF5OYJcEfkdbw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com (2603:10b6:408:2a1::19)
- by SA1PR12MB8095.namprd12.prod.outlook.com (2603:10b6:806:33f::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9456.11; Wed, 24 Dec
- 2025 02:26:14 +0000
-Received: from LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::1b59:c8a2:4c00:8a2c]) by LV8PR12MB9620.namprd12.prod.outlook.com
- ([fe80::1b59:c8a2:4c00:8a2c%3]) with mapi id 15.20.9456.008; Wed, 24 Dec 2025
- 02:26:14 +0000
-Date: Tue, 23 Dec 2025 22:26:12 -0400
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Arnd Bergmann <arnd@kernel.org>, linux-mm@kvack.org,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Christophe Leroy <chleroy@kernel.org>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Matthew Wilcox <willy@infradead.org>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, x86@kernel.org
-Subject: Re: [PATCH 3/4] ARM: remove support for highmem on VIVT
-Message-ID: <aUtPRFdbpSQ20eOx@nvidia.com>
-References: <20251219161559.556737-1-arnd@kernel.org>
- <20251219161559.556737-4-arnd@kernel.org>
- <20251219171412.GG254720@nvidia.com>
- <513078d3-976a-4e6d-b311-dcfcfea99238@app.fastmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <513078d3-976a-4e6d-b311-dcfcfea99238@app.fastmail.com>
-X-ClientProxiedBy: MW4PR04CA0187.namprd04.prod.outlook.com
- (2603:10b6:303:86::12) To LV8PR12MB9620.namprd12.prod.outlook.com
- (2603:10b6:408:2a1::19)
+	id 1vYFNm-0000000GLrA-2ZSo;
+	Wed, 24 Dec 2025 03:17:51 +0000
+X-UUID: 1e39a9aae07711f08b17dd397dc63300-20251223
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=762KOSuTk8NJfRKqdPZ7KSGbQUNzMG+1bi7UE30D9xU=;
+	b=gA146xB7dvD0WWiamMsn+SlzVZtYp2VDt7jv2pXOyILAilTiSr7a9QQ7dXeYIYoeUGZhbsnpM6tOVknXecPz2E/bPfK9Hl8siEDVRq2o4fjGIneu6566XD1kSpCEW405zwRrT44RXvK9w5az93oQ2HnxsFloc5dF9l6fiUQT5iY=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.9,REQID:7b95bf6e-2a92-469f-bd10-dcc57d4dd055,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:5047765,CLOUDID:0ffddb28-e3a2-4f78-a442-8c73c4eb9e9d,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:0|15|5
+	0,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
+	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 1e39a9aae07711f08b17dd397dc63300-20251223
+Received: from mtkmbs13n1.mediatek.inc [(172.21.101.193)] by mailgw02.mediatek.com
+	(envelope-from <jianhua.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1805254443; Tue, 23 Dec 2025 20:17:46 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Wed, 24 Dec 2025 11:17:43 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Wed, 24 Dec 2025 11:17:42 +0800
+From: Jianhua Lin <jianhua.lin@mediatek.com>
+To: <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <matthias.bgg@gmail.com>,
+	<angelogioacchino.delregno@collabora.com>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-media@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<sirius.wang@mediatek.com>, <vince-wl.liu@mediatek.com>,
+	<jh.hsu@mediatek.com>, Jianhua Lin <jianhua.lin@mediatek.com>
+Subject: [PATCH v2 0/4] Mediatek MT8189 JPEG support
+Date: Wed, 24 Dec 2025 11:17:17 +0800
+Message-ID: <20251224031721.9942-1-jianhua.lin@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9620:EE_|SA1PR12MB8095:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0d7b1b12-71fc-4b54-3c06-08de4293cf5c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|366016;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?FfGIOQyH14URNgZzvp0KfG1PHBbKMeDHkpBMBq1b6fLft2MbXrU9HhhHviZ7?=
- =?us-ascii?Q?lgl5xMlYRG3aedouznpV846rSqfCbMXmC/uBswWj3fXMfQ5C3gjU2mywVof1?=
- =?us-ascii?Q?JgUFzzlOY3nG42mP029e/XyxY7RCB1YLIKsf2Ajhnh3mqltuEhQXVaxDV7tD?=
- =?us-ascii?Q?wmrp2aefHiEpfi7cBG+JhLLAMS2gr5stCJqcd2VtpY56ihAM0Vmu6yjSMZPj?=
- =?us-ascii?Q?rYOZYfrGvGms3eO3PXrofnISNhqUmtTBHU3JHD7BqhxMMSHzLTaa8ueTIm+z?=
- =?us-ascii?Q?Ki9JVeKm3U8bIhnp368zIzYw4PtupZOXGsnA3I3NYjR60FFYjEw/sEnrFEVc?=
- =?us-ascii?Q?K7+f8lrCoQBQqwlZ4rnr/Dn4fp89whZz43TNk0qNjyPbt/EBZE+HeDssay++?=
- =?us-ascii?Q?W+bGMhFZo6yWb1Ots3mdLdG/K4mDOJfVwNKRrInDgG/to7tc/pxt5fgfZEyg?=
- =?us-ascii?Q?oYjscZP/FhLRO0J0fwq5DfHMjNDQ+wsjtRcNWa3/j4GjE2WPBc1bkjqthy0Z?=
- =?us-ascii?Q?gDdUTTzB0rg1Ct7WKwyHXn7ag0kPtt883uGxjdX8h6uUexwWZ11Ms6VBTpVU?=
- =?us-ascii?Q?CmKwZWRUIG7LwU91dBiCDdORZDyVw44dUz37etehgduIy6mzzyVrHnNAPJpI?=
- =?us-ascii?Q?1QAYUMKpFzbtXFFawrQaOBKyhcxCy0+aN1muYcKRWVCx+O3eehmU5kx1a3m1?=
- =?us-ascii?Q?t6YhGBEn5EUb/mEOUkR/3WuHfYgTzrThZvYqoSu6dFxjYzDYuPHLheMVAN7C?=
- =?us-ascii?Q?aKO/hL4YlnmBFaLMAeHASMXYO5rxPHOifxnDLaBvfy5tWnYOusRl8acQB2U7?=
- =?us-ascii?Q?Sd8p68j6tFcJG6QOLpgR9RUdadDs6pL+JLxtbHSFrbHyv5Pns+R5nFbPVFfi?=
- =?us-ascii?Q?vo3pESHNUqv5t44OM7vLjRXNOZy8ujpRlgR0NcrxaUsYbz7DoMy79L6T53g8?=
- =?us-ascii?Q?MITx6FOmupGlSa9As/lcPNBIBErQqe/1bZr95MwYlJFljPWEVEv1lnlbRJYF?=
- =?us-ascii?Q?fTaQNWpSTjL0fdaCJgT/ccGak0gumrg9l/pqzUBOzZDnd1/eqLN590ePfBSZ?=
- =?us-ascii?Q?DZUdEXs6+Qmievh/dH4ZQEFkOE++g7B7s90ErE2ZVwdjudcsqCJ4RDzXNLhx?=
- =?us-ascii?Q?+kHAs50AlshMHKnnn+62VsUR6ez+4a7xD/sKRN3KyXNI7Y6Glnuk8yo5pFv5?=
- =?us-ascii?Q?on2+lWrsBjYiYsDIQkKyeznfFvJ3q5/4WQIOsJCc03LX06aQSRBpbugB7XEz?=
- =?us-ascii?Q?eBf2LvBfY+ok87zlaI+/zyaddoz3E8OGaDZMtu5ehyt3wvlz4VODSUMDmyGD?=
- =?us-ascii?Q?YECauAjRmA3TAI7ItBfMxRh4mxBeJjBHxgcD1Nb2oieTpXP3vU8jfADKfdae?=
- =?us-ascii?Q?BMYR5dKI1e5U40vTeEgfXhBdyDhHtxTe/Lu87YibrTep8B4PNpUYGTkcS/C2?=
- =?us-ascii?Q?hY1y2dSL0o30bVL/jKgexveyi5PPaWuL?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9620.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?+kxDzyl/dThwRaEXpYXkNI7XExGZdFars2UevTeolxu1Yiz9Zv7JQcC9f4/2?=
- =?us-ascii?Q?J1WbfGzFW9mKItjtKzSbNzhKC6uV7SO2ev5b419Hd2gVRvEl/CCKtB3YL9js?=
- =?us-ascii?Q?YOV8ggsbTqEUrF2VBIMKHtQl/oSpV64KtNl+zp56rsYGFUIPoNaZuTgJ/GHD?=
- =?us-ascii?Q?cWDa2LeMQn65EeXLhzboPOhX5p6f+DPBsZoyfzhSK6C4KK4HFyQY5KLvtuO5?=
- =?us-ascii?Q?Lh7kv/qwPRa/AQJ1hYcF4GTPv1O/5UCDMPqoiwxXILWch4/i0q9XeIktZODA?=
- =?us-ascii?Q?v/tEj/EV+htVTZ/jksA0kD9dI39TAPoMvCdRQKNYYtomY3gsrPCA/kSUZXnx?=
- =?us-ascii?Q?k6lqRM+kLRXQHtiPB9LnM4C96M5MYch/T6TN0hYabmgwbzP/OGdU2VVU5jdo?=
- =?us-ascii?Q?OjbEJurAew3WT4+NNYduyeVeGoUKmVOOmCNf2Nb/dwE9rVtifSYGaNPqCICr?=
- =?us-ascii?Q?dahkXAM+8jafixcjRVVdzohCxBGtNGedwphSW7Oy5tJzwbfuk+jujkSbIMfg?=
- =?us-ascii?Q?wD6mO0iwG8uGxLUdzBWXDAPC3qV0fAuS7VLff0dCXBKGNO1mI9IP4nggpnnk?=
- =?us-ascii?Q?AhLxHZwtE1QJXSJOFvU+Bs8A9znbbijps+vZSYhrd2WciT8WB7kK0VTzafb/?=
- =?us-ascii?Q?f5jxkYZSARzDuoDUq1cjDkWd4jAq/F4ygvbvJE286FS43d5Sat0pfpi6fHnk?=
- =?us-ascii?Q?LRO9B7PYxM173eFg1z/1AfCJitPQfoUTfKXk3zvA+3KGW/uYcf8YpG/zRu6H?=
- =?us-ascii?Q?ey2jJPe6KKT+qSG24wqr1YsYjd1anD/UN2fKRmUJTjqou6BO1V6B77XRQVlr?=
- =?us-ascii?Q?Q38lpcA43YDnDsj+ILtwO33T3B3OdHUSoEq3Y8XvyCLYiWJPr7qu8RvYU1e0?=
- =?us-ascii?Q?n9WqR0eF61bczo/WXcD0CgdVQzfWvmsB9u1P3/ZzJIiuhaUa81uOydB+itIh?=
- =?us-ascii?Q?1IJS0lnLfUKjEtsdmLccwn5NETr3Wq6iFsFv5iAKFjqEWqJt3vuOC27fAEic?=
- =?us-ascii?Q?6qSPcyqnzAS364NbicyXecAJBP+dshZXZPq/DKCeM9UAN80bbR9i3Kv9GwbR?=
- =?us-ascii?Q?sEjuJ2Zr52O7h18vV/jUtAArF5t5gIIztIEy+mHkQco7D3QaNsSCOsuZ4qKv?=
- =?us-ascii?Q?LpvZCU5TtTFbD6pFYo7T3wObJETFNsvVnRRoy4YnqqKiiHWKEMOkOuDzQtOf?=
- =?us-ascii?Q?Y5wREG3AWtgxpcGG9U3v1K8XskL1Pe78IZe/oaRi7CLp52rloFpRA3Cj1mQv?=
- =?us-ascii?Q?tVvMFwAiba471RpS/qFVAyG6vw2yldirnOZmFhYbXU6uYkT0ysSO9qdht8I/?=
- =?us-ascii?Q?R0yXwsGRg1HBxr13jwIf+VSTbQCzX+t3gtCm8jmB4yQ69iZYLGhuhI7v9z1y?=
- =?us-ascii?Q?CIbYuY7Kv0H1fDt/zt8hi2U/DDIkl2gMubYzK3LowIG/ooJkycsNBr3jABdW?=
- =?us-ascii?Q?/ik0LdZkoN+tQbf8AIvJQnyEZAluTs2GbgwScb4RkhaNidTUy6M6DNWQV7B6?=
- =?us-ascii?Q?tTcUJIQ47pUaBkHvC+VdXtQByZt+TmZT436HK6tY2FE4aim2C1cv2ZQWteVx?=
- =?us-ascii?Q?ZqwbyEvGBflRs604h5np7NBilfQkGulvM1bnuTC7PY8+5MayayyNqqIcYcpd?=
- =?us-ascii?Q?fBfVMPkovoiao8Z+1kbM31Vg3QNzCl3Zv8E3Ngrl2pXqo5L9+Svtk8jUpjJb?=
- =?us-ascii?Q?t26d3K5IXFHTy+XJRSKy1OKEtwOMYisyat41YDkbpAErW4p3?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0d7b1b12-71fc-4b54-3c06-08de4293cf5c
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9620.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Dec 2025 02:26:14.2322
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: CjYlyjUNBbQQd5TbjlAYcVphkB2MfhTVRNVWJpLTdWY0PTfXg+LwjlQoWivegRge
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB8095
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251223_182620_145911_04179BC2 
-X-CRM114-Status: GOOD (  17.67  )
+X-CRM114-CacheID: sfid-20251223_191750_665520_F33ADE48 
+X-CRM114-Status: UNSURE (   7.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,33 +89,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 19, 2025 at 09:34:33PM +0100, Arnd Bergmann wrote:
-> On Fri, Dec 19, 2025, at 18:14, Jason Gunthorpe wrote:
-> > On Fri, Dec 19, 2025 at 05:15:58PM +0100, Arnd Bergmann wrote:
-> >>  arch/arm/Kconfig                    |  1 +
-> >>  arch/arm/configs/gemini_defconfig   |  1 -
-> >>  arch/arm/configs/multi_v5_defconfig |  1 -
-> >>  arch/arm/configs/mvebu_v5_defconfig |  1 -
-> >>  arch/arm/include/asm/highmem.h      | 56 ++---------------------------
-> >>  arch/arm/mm/cache-feroceon-l2.c     | 31 ++--------------
-> >>  arch/arm/mm/cache-xsc3l2.c          | 47 +++---------------------
-> >>  arch/arm/mm/dma-mapping.c           | 12 ++-----
-> >>  arch/arm/mm/flush.c                 | 19 +++-------
-> >>  9 files changed, 16 insertions(+), 153 deletions(-)
-> >
-> > This looks great, but do you think there should be a boot time crash
-> > if a VIVT and HIGHMEM are enabled, just incase?
-> 
-> Do you mean in the common code or just for Arm?
-> 
-> We could use the Arm specific cache_is_vivt() macro, but it feels like
-> the 'dpends on !CPU_CACHE_VIVT' Kconfig check I added is both
-> safer and simpler.
+This series is based on tag: next-20251219, linux-next/master
 
-Okay, so maybe I'm asking if !CPU_CACHE_VIVT then the kernel fails to
-boot on vivt systems, maybe it already does?
+Changes compared with v1:
+- Patches 1/4:
+  - Updating commit message
+- Patches 2/4, 3/4: 
+  - Updating commit message
+  - Adjusted property descriptions acorrding to hardware requirements
+  - Improved formatting for better readability and consistency
+- Patches 4/4:
+  - Updating commit message
 
-It would be ARM specific, all this stuff is only for ARM32..
+Jianhua Lin (4):
+  arm64: dts: mt8188: update JPEG encoder/decoder compatible
+  dt-bindings: media: mediatek-jpeg-decoder: add MT8189 compatible
+    string
+  dt-bindings: media: mediatek-jpeg-encoder: add MT8189 compatible
+    string
+  media: mediatek: jpeg: add compatible for MT8189 SoC
 
-Jason
+ .../bindings/media/mediatek-jpeg-decoder.yaml | 50 ++++++++++++++++---
+ .../bindings/media/mediatek-jpeg-encoder.yaml | 29 ++++++++---
+ arch/arm64/boot/dts/mediatek/mt8188.dtsi      |  9 ++--
+ .../platform/mediatek/jpeg/mtk_jpeg_core.c    | 44 ++++++++++++++++
+ 4 files changed, 114 insertions(+), 18 deletions(-)
+
+-- 
+2.45.2
+
 
