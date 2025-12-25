@@ -4,139 +4,211 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29B91E784B5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Dec 2025 01:53:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C2A6E784B9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Dec 2025 02:21:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lTMsC0SwiBA2ewZQd68amFmG+DPbnH3fLn4naGygtUA=; b=U6H1Nj3ZSTVdW/rA2HrZDFTAx1
-	pJ0qctwBetd0OtjXqTckyXz4ttt/CCW1ZFZ52dtwAtY/QwRTAcZ1HUuLUtyDtKp1gvoNcLBlVFa61
-	GfRa4LDYwbWJTtghf7fk8CnxOOjkcNYMiT3VSbVgPnRJvWlKA/e48EfQiRyn9OXR6vx/NF+uZcYR/
-	0nLojmDdgVwXweLYiWzmJBqqRLHKmLtZ0EFAlmDSCOEOpHjQJ1nIVJKiH8u7fYpAp2iUL5ZIa8V95
-	C23XsGg1BLLlcTD7XmDiRLOeY5S0qlQwSIx2Ht0vR5T7IY/WuRS2pW1soFNzGvSpDmeNdvJrrUCzN
-	uxBeaVQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rcAx6Vj1KctHlFwnf0J1NvuScT5RKre8Q9ELAbF/r1U=; b=cKOuctaHV4yRb+gN3P8sBWjXWW
+	hwP9gkxEpCZ4m4+4oY2bxTjsJNwNXnB008j4Vmmrf8D1DjTYlU4grOt+529sV+vnWggP4G219rq1z
+	e0feSAHLIgU8OgYaQFAkSF4y/KecJarUPyvBWHTW0MMzupJmz1QlQO/pvpbxQbc+CLOJhN9veixam
+	PaY0hFLlvs3GKWIbfc5w7toHIKUuZe5eAdxpapWVbLsLYb+JfH33moNzD85U/XymX+1VDLPTTh8dq
+	UIhxhxNL/iofVs8lN5UQM8RuQumpoSRy+34EtAwySZsvLulgpCRPkwa9wm2eqefBdwshoy+YX2OB3
+	e6DPiKRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYaXM-0000000HZQb-0yKt;
-	Thu, 25 Dec 2025 01:53:08 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vYayH-0000000Had5-4Aqf;
+	Thu, 25 Dec 2025 02:20:58 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYaXJ-0000000HZQD-3UrO
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Dec 2025 01:53:07 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BP0mppn275950
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Dec 2025 01:53:03 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	lTMsC0SwiBA2ewZQd68amFmG+DPbnH3fLn4naGygtUA=; b=nQ8UIXQdLOPvfOkL
-	dMLeGTWT/lewL6Jow/aBm8IopbF3Y6qQ7+ncRbpw6lGPMzXAV6Tz8VNV0h8xcc3s
-	DPdEK7gTUQlPsy03TpCh7lQXEgOjpxq3dnAVMuLKrCEo5PRlqtu1DUw6eb+Rm7hq
-	H0197MzF3TZ2smVX+Xc3B6rgbHDfOJbYHJ0JkSGYGeXM6mQ8IQcloVSr+Vn3t874
-	f0yJPhODKrq5tPtAufEBuBhsZNZCfqpYqnF15WOI/J6vrKGAdTbB9mLv1Iu6dxZO
-	n0nC0Ao+99flpPeZb0G/SjIZSoV7Tw2CFL7oVEmaLMfiuS4KruL42+mqzddoYFeN
-	SIe0Nw==
-Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4b7yvq3vex-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Dec 2025 01:53:03 +0000 (GMT)
-Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-34c5d6193daso12530504a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Dec 2025 17:53:03 -0800 (PST)
+	id 1vYayD-0000000HacG-2eP3;
+	Thu, 25 Dec 2025 02:20:57 +0000
+X-UUID: 5313a8a8e13811f08b17dd397dc63300-20251224
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:To:From; bh=rcAx6Vj1KctHlFwnf0J1NvuScT5RKre8Q9ELAbF/r1U=;
+	b=Kt0Cz1Aiz8YGlYw0DBl5s//e+mo825kahavh6fE1LgNaYGWnIGw8Bwu9mEG+akhekMkPK/Gi4JXS7kYUXmb4JJtWqmYjoeAqf21n4xRQ7ejJdzKojOhXHk8d8iYDCUnyoRmYpzvG8Ap+nOt3brGQg8jB8/c1v8T+s2P+W1DWVsM=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.9,REQID:63c000d7-2902-4e1b-aab6-fba06cd8f1b6,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:5047765,CLOUDID:74bd2403-1fa9-44eb-b231-4afc61466396,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|888|898,
+	TC:-5,Content:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BE
+	C:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 5313a8a8e13811f08b17dd397dc63300-20251224
+Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw02.mediatek.com
+	(envelope-from <kyrie.wu@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 2077744209; Wed, 24 Dec 2025 19:20:47 -0700
+Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
+ MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Thu, 25 Dec 2025 10:20:44 +0800
+Received: from SI4PR04CU002.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Thu, 25 Dec 2025 10:20:44 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lmwNZjRrJDJ1Ne7AtTQjMFoF8mDyCHBw2i1e6aoBxyfI3M17iZGqJkLiit+3iA77HIZTKu4z5tXLW4si7buSM7ZgDnUX6P+ryFIoebu6wcZyh8DV7P/vhfLHH23Rk2i43CDA0FCR3ItATqvsIFEPuGxT+p8i4GDisbll3Y8NWOIrJ9YSryisVn2N78jFqT6wTWdjKfXAZgMgQIXKQwS/qJU1zZs4G3U/dIkESBDnBfIw6cIsw3kOZmyy9o0rNzhHmdlnaS10/8ikTe+1b0ADNGL67wPISRpCAGVlLwV+/ZpAwNgqSddnERf27QmJkeV94u/dii1C/eoOVg6lARXs7w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rcAx6Vj1KctHlFwnf0J1NvuScT5RKre8Q9ELAbF/r1U=;
+ b=qJkSkz7A3cmW0P1js23+mR0P1vmpYyc+kGBJbPL5dL55qSQyzeevtqU232lGr9u13n/dh0OfKn0nlhZ9ryomxfjmB9mbsLdlqwhXy+Mv8+g7BzJa15JoVnasy1bhesyDiZ4hcnLvvEmTHrLjQTBi35B+W5yqkaVKvJV/DW+9M/G+KERdRhzg1TFRHkpVq5nuBnMrAKQq6RmS4Ex3IItHhC3/VAAGh7dcQ/W4ZLFe0B355KgWtlqAr+gfkKyfHSwAWHbpEdZxZ+UBLSS1z5uE9hvgbOna09CygnJGQlsw2qJJvcFGLf8hAfUALoYag+rwCgQwkujroln5/1AUfG77gQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1766627583; x=1767232383; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=lTMsC0SwiBA2ewZQd68amFmG+DPbnH3fLn4naGygtUA=;
-        b=FoLn+LtYPMmXst+tIOe2OtpX7/H0N/xzh1M82923wRNlyfYRUrfENjPO/WXwigtrTZ
-         d3FqsprwEmFO8JvC2T5fmSlLYRPyTjqZPngV2F6IqRVEBK8X7TnQn6Tjp7S8VwiDBu5G
-         OXcQoFDPw5CDwRKOYRdnIao8Sp6C0330MpUA/QCBxRT6NQgBx0VSQUYrFesc+TfulOb0
-         MQwLzVAOz8ebPd2qz7eveAgSHXe8uESnWETa1xiWyFoxFLtXP5rk8vDBSpgj8r/6Vsy2
-         3WRVn2/Y0onRmLZtTXb7d/Mz7dS/HMxV4UpPnYx11uyHFYcnDn6YbRwrdCP5mhwdKFGE
-         8hmQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766627583; x=1767232383;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=lTMsC0SwiBA2ewZQd68amFmG+DPbnH3fLn4naGygtUA=;
-        b=EvYaJF8BQWrG4HW+6ruQEvQK0QwSjQuEMXdGIpDIe/D72kNjyiB2BJhGONh1DAU8au
-         8AFQk9wmUvGboyog6R3GJ9S3+7Mh2KPlgIm0t+2POXy2KvylEhVxnKdNXV83O+g/vFfL
-         WJ6sG2MZPhjgtppbAyatbcGMuQyz2OmizuXw0xLjFJAYumfNdm0c8x/4AWqtnyDGbEXY
-         It9QLaSvLfwRCUjFdBiOjGG6Y52cdG0bo7qt4pVv580AtuYo7yZqunid2Y/n6zwkP2wF
-         E6tPZwA8WzQkt1JgqETiYrdY657X13FGAK5hPtYE6ZnLWRtuCB8uyrHPQL9qBMpn9gZD
-         tMPQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWpLRL7y+MZ0j8BNW7mtrSHkD0gXcu71nuK8kp7O4m9FzL3/hwAztc/IaG9SDEhz+sXLsGF04uBaMUXj1NfQ5w8@lists.infradead.org
-X-Gm-Message-State: AOJu0YzeHiK9EB2IK/yKE90dpUQ20m42Hz7fES5D5oPbLUSz1vrbbbSI
-	B5apM0OiIo5TqFMPcl1wK7oT+PvkNcqyKPsfWAZ6agcnX39B+Mj/R0CLk0D+QrZMQ+DMqtjbnNt
-	QrPe2e7qzatNN689rigWM6H6kxAENuB6C9KI4+aemfYcelixlgtPeiWjE1uHRoQ2SlmvD84YHpR
-	W1DQ==
-X-Gm-Gg: AY/fxX7FlIn55PoGFEYkFbUIkVCc8/77wx3aZS5IVda7p+TYOGVyjIU+/zt8uTyP4C7
-	ssBqnBNbze/ASelR5Ya+u24JO5RVX10cvQNcxBiPurw7TwgQQ+BVKg+1kUuOPDDA69UBFBAEEXv
-	U6Vqb4tJK50n1aPHZHyV4nvqLh0UbaExeefuUPivYBR7XCGLpOpkFkMpmM/BuPn6dmNz9hhV0Uy
-	AyEe0lnofAmU0QBLflITR5DG2mFN5rGIpT9ul4NpWWPiRg7uZ97RO8VGGkNP/7UC1P9dmXVIjaD
-	Jkab+dOg/Ke5qE7O6R90aMjxwNd+jhVZB1VbZeQQD0PTfWZLLmmWamnod/6XluI0dqc9knzX3nq
-	D14KdHsrg6S3Zs2VPYzuTy6hllwvd+QcBnRzj7VwdPqw9t73i4YzaDx6BvUmOXtXwfYQJWdOWbJ
-	GBXIQK
-X-Received: by 2002:a05:6a20:a106:b0:366:14ac:e1dc with SMTP id adf61e73a8af0-376aaff535emr19179077637.66.1766627582510;
-        Wed, 24 Dec 2025 17:53:02 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHwMzT+yv8Q66avLJb03Vpq86z2JpTm3Ixh1dMTBijThR4XbZSKrYCUMtG0ZhnW2FELgxsvgw==
-X-Received: by 2002:a05:6a20:a106:b0:366:14ac:e1dc with SMTP id adf61e73a8af0-376aaff535emr19179051637.66.1766627581933;
-        Wed, 24 Dec 2025 17:53:01 -0800 (PST)
-Received: from [10.133.33.10] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c1e7a018eb5sm16400281a12.16.2025.12.24.17.52.57
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 24 Dec 2025 17:53:01 -0800 (PST)
-Message-ID: <cb100594-b89b-475b-9bda-5daf278be84e@oss.qualcomm.com>
-Date: Thu, 25 Dec 2025 09:52:43 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 0/7] Provide support for Trigger Generation Unit
-To: andersson@kernel.org, alexander.shishkin@linux.intel.com,
-        mike.leach@linaro.org, suzuki.poulose@arm.com, james.clark@arm.com,
-        krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
-        devicetree@vger.kernel.org, gregkh@linuxfoundation.org
-References: <20251219065902.2296896-1-songwei.chai@oss.qualcomm.com>
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rcAx6Vj1KctHlFwnf0J1NvuScT5RKre8Q9ELAbF/r1U=;
+ b=KnT5/Ls6Eagwx2/aQoDXxqeFZQM/vc5v9yoSjyuoj0pFH7FNxE8I+9efaM5T7cnhNUyxOJm/cp0kG6rupZBLKO1uO30iDMKhbN8vOLRz+FmFq5XQf7PPa2e/r3OT4+AEroib+ZZnXGCr3H2Gqm3ymBqwWc4F+SxDofXanA0K7AU=
+Received: from PUZPR03MB6186.apcprd03.prod.outlook.com (2603:1096:301:b9::5)
+ by KU2PPF2A1016A19.apcprd03.prod.outlook.com (2603:1096:d18::40d) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9456.11; Thu, 25 Dec
+ 2025 02:20:42 +0000
+Received: from PUZPR03MB6186.apcprd03.prod.outlook.com
+ ([fe80::a013:f3b3:a461:8ece]) by PUZPR03MB6186.apcprd03.prod.outlook.com
+ ([fe80::a013:f3b3:a461:8ece%4]) with mapi id 15.20.9434.009; Thu, 25 Dec 2025
+ 02:20:41 +0000
+From: =?utf-8?B?S3lyaWUgV3UgKOWQtOaZlyk=?= <Kyrie.Wu@mediatek.com>
+To: "nicolas@ndufresne.ca" <nicolas@ndufresne.ca>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"mchehab@kernel.org" <mchehab@kernel.org>,
+	=?utf-8?B?S3lyaWUgV3UgKOWQtOaZlyk=?= <Kyrie.Wu@mediatek.com>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>, "robh@kernel.org"
+	<robh@kernel.org>, "hverkuil-cisco@xs4all.nl" <hverkuil-cisco@xs4all.nl>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
+	<matthias.bgg@gmail.com>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH v11 01/12] media: mediatek: jpeg: fix jpeg hw count
+ setting
+Thread-Topic: [PATCH v11 01/12] media: mediatek: jpeg: fix jpeg hw count
+ setting
+Thread-Index: AQHcY3DD+F6x+E+x+EOSNtKThCBNOrUk1kqAgAzs9AA=
+Date: Thu, 25 Dec 2025 02:20:41 +0000
+Message-ID: <d99811831065542167c8dae6285ecdada946104d.camel@mediatek.com>
+References: <20251202094800.6140-1-kyrie.wu@mediatek.com>
+	 <20251202094800.6140-2-kyrie.wu@mediatek.com>
+	 <cd4c9c6f89d2ad506113745f4273ff6e6b65c75a.camel@ndufresne.ca>
+In-Reply-To: <cd4c9c6f89d2ad506113745f4273ff6e6b65c75a.camel@ndufresne.ca>
+Accept-Language: en-US
 Content-Language: en-US
-From: Songwei Chai <songwei.chai@oss.qualcomm.com>
-In-Reply-To: <20251219065902.2296896-1-songwei.chai@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: DMqd4JzijFDckq8jp495W2oh1ekUGYOl
-X-Authority-Analysis: v=2.4 cv=abZsXBot c=1 sm=1 tr=0 ts=694c98ff cx=c_pps
- a=vVfyC5vLCtgYJKYeQD43oA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=pGLkceISAAAA:8 a=EUspDBNiAAAA:8
- a=COk6AnOGAAAA:8 a=fhqOlET_MB95s3sYkCsA:9 a=Xy4DMoyCCsA-7icV:21
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=rl5im9kqc5Lf4LNbBjHf:22
- a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: DMqd4JzijFDckq8jp495W2oh1ekUGYOl
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjI1MDAxNSBTYWx0ZWRfX8sKL0Rf1INLD
- yc10BJsgbtiF/ZJM4LXw0fTPQeJjj5PpDCJBSUL+doMTYtKN3dRBibmcI8ft69q4bDVqEnFj16/
- zuWv9HJ4y/et7ubN0ZYzpu6Dj3tLVEd++IMKcsKQov+qYACLVEVNUHxm7ixndkzClHTAFu7LmMd
- I7pzuShblGQp3U+zMq/5nm1TF5NTS5IlL1/UZtDUBm0WgPGuAGGeFUsypMEP0DRFJ5hHmJUoz8t
- kx9T0uvEQJmAI2QbG4qYVmdtYXguj6EcPeiHLcUwnrqumAnqgrfOixd1qzXcmKzvDVpNwiJdvD8
- 2UIcH0JtlsLFsitTXNa4PM/zJrfWHvaiKiZxwb2SIkUjwPGGZPOeNji3On66/Z5SbXzGY83Fl4u
- pJvzeOw76QLT9DSZRSmUzuDc0F0AbXABMUtLQFsZLoFoDIFy8nx0ZPUuuHxCFyJMmPmYMAYoqXw
- lCX5i0Yx6SaNa2gjrvA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-12-24_04,2025-12-22_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 priorityscore=1501 lowpriorityscore=0 bulkscore=0 spamscore=0
- clxscore=1015 malwarescore=0 phishscore=0 suspectscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2512250015
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PUZPR03MB6186:EE_|KU2PPF2A1016A19:EE_
+x-ms-office365-filtering-correlation-id: c0db4eb6-1e25-468e-243c-08de435c33b7
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|38070700021|921020;
+x-microsoft-antispam-message-info: =?utf-8?B?Q0ZES1IxRmQ5R3pmcCtpM2x1UFg4Y3lvOVN3UG1TYWt1VytYdEltdjR3ZVNF?=
+ =?utf-8?B?ajR4M2Fqa2d4NnU3aDhsbEJ0VWZyUFduK0c4TnVoTkVYZGtLSWhyRDYzdHpG?=
+ =?utf-8?B?NEtvTXZTbjAzNWZtTG84enNEc01oaEU2RUROSjhkb3VuVVBaSjlUSEJqOEk4?=
+ =?utf-8?B?Z1JFR2RjMXJLTEJsWERXQ2lienEwU0tXZW5NOFpiN1FoVU1NYm1NbG1xZHZJ?=
+ =?utf-8?B?VkNFTTBCbE5aay9wN2lwc1hQamVDNkR5S1hpNEdDc2ZhOURYYnhrR0YzRmM3?=
+ =?utf-8?B?YzNyNVlSZEtEOFVKV3pZaENVM2hDSWJBbGhFWWFranBBdklqK1FOQlJjSGR0?=
+ =?utf-8?B?NXIyY2RGMGNNUHZURGlRbVU3UlNjUFBBZjZDRWlNYUlpV1dlVUt2U0pBa1hO?=
+ =?utf-8?B?MDZ0NDQ1UDczbStwSVlnVmcyczJYRTJ2OFAyeTJxNDJXMVJhQ2J5b2hHTWw2?=
+ =?utf-8?B?NVlUL2kyem9iU3pFd2hnWTJscUg5ODVvTDEyYy9PaUp2UEhkMkFHaDBRSkNh?=
+ =?utf-8?B?cnp5d3AveFFlWDNtY2I3MmYvdTAvR2RWeUV1ejVBYmhOd1Z5dkYzcE9wTFdZ?=
+ =?utf-8?B?dkxnazQ1RHozL3FoaUZycDBpbE5JWHNFejZaZDFCa3RjaEhZY2lpSjNqcmg2?=
+ =?utf-8?B?Y2lQRExJd2NyNjNNNTh2SHNmSGwydVh6YVhselBUN2ZEK0RSNWJlV1U0SGk4?=
+ =?utf-8?B?TjZVVFpZQ1pxU3N0THc1ZXVHcjUzSzlUVGFlZGVPRlY1c3AwNURGOGM2R0wy?=
+ =?utf-8?B?L1Fnb3JTQThzcjVQeUdZWUw5SWF5TkJveG9IcElZbVAyYzBoa2JkWjZCSTJ4?=
+ =?utf-8?B?TlRuVENKOEJldHU3emJoMUxkNG13WHZiZTNLRFd5TGVwdmhKUG1rMEJyblBp?=
+ =?utf-8?B?N1BsLzNkcnlQU2QzdGhGTW1UeUJ4WTdHNEpMbjFFY1JFQWl5d1IwYnRDQ3V1?=
+ =?utf-8?B?alFkZ0QwVjlhL21kdStIWjArVDVnL1pnRnVObmZNSHdmSTVXNTh6dVE4NWs3?=
+ =?utf-8?B?QUErQitZSTZZOWwwWkdqOTVIS1hUVjZRdHRmVzVGVUwxQ0hrelM3Tm02bnZr?=
+ =?utf-8?B?LzUvWjF3dmR1eTI5YjVYZUcybVgyK2p5d2h3NFVjNlBGaWtaSHUrY2JkQ3pq?=
+ =?utf-8?B?Yko3M21WVHJsZXpIcE9ULzNpQmVnZU5vVlhYLzhnTnhYbndNOHhDZUMrM1lX?=
+ =?utf-8?B?Tm8xZ0tXTktpTEZ2dGRyV2RkNmxQQVNydWVqT1ZsNnZNZ1FiMlA0TDNQanZ5?=
+ =?utf-8?B?Z3VPWFVVOGZqUG5SNWtSVkdPSFRDaHNBbWpuNTZldkg2M29wT1BVN1FkaEFH?=
+ =?utf-8?B?QWJFSEtqblNuSDBSZTRiUzFrQnd5VXRycE4yMlBmdVRueHYzdGQ0Z254SUJ3?=
+ =?utf-8?B?NGpyMWZJbW91d3o1T2RZNHlwL0FyQWs3eGszTDNINzV6UHZ5OElTR2JnQXBl?=
+ =?utf-8?B?bUpEM2RhMnJzK1ZneHNHWEM3TGVta2pBRVVpVnVzMmcrRGo5cXBLeFBqV0Ix?=
+ =?utf-8?B?RU0yZkFsK0pYeXhnVFI0TGMxYTZpVDB2YnhlV1dNVVZ0Y0w4K1pUdTMydkxy?=
+ =?utf-8?B?M3AvVENyZ0czQXZEbDFZaXZRVE9aN3VRdHRGVG1DSjZocXc1bkEyZEF1TFZE?=
+ =?utf-8?B?Y3VVTkZ5b0IrVjk2aTU1U1JKd3pGNFI0YTZUS256ODlucnVJaXpSRUFVMlhU?=
+ =?utf-8?B?SzAwc2pKTEJ1Y0xhcGYzL291OFFsVVIyb2taQmFrRWloOEh4cXhIa1crR2la?=
+ =?utf-8?B?MkRTcThJdWxrNUpPclR1aEswa1d2QzU0ZkJ1c2lFWEVmc1FYT29ZM0VOUmhq?=
+ =?utf-8?B?VkZjaDVXNjQrMmlSclB2Ylg2dlBZbWFSTzQ2RHJDZmhjNjR6eFFQVkhEMWYz?=
+ =?utf-8?B?dzhIY0tPUDB5Si9remIwbmpVRTlBb3pOYnMrMnI5Uk5sTjJHNXVRdDVZM2pO?=
+ =?utf-8?B?SGJnWWwwRHJyMU5oemZORWhuWlB1dVZST2dLVS9tMllOL0VyaXR4ZWhTWFZS?=
+ =?utf-8?B?S09LTVRJSlhJQy9lNFJvWXJMVnd5a0pSbSt1Y3NUVUZTamlXZVBRWnVDYmUr?=
+ =?utf-8?B?eFZKa3RuNmo0aURDMlFYeUxUTXFXUmxkUFIrUT09?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PUZPR03MB6186.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(38070700021)(921020);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?SG1qWmRkb1dQVm4yZlFuMC9keDZjc1l5ZkFpZExjdEx5Q1pNZmRGLysvSXFM?=
+ =?utf-8?B?aGhZd3hOTWEzOGs5aEVsWUZsWU90bW9YNnF6UDFqK3ErbGcyOGVVUlUzWE41?=
+ =?utf-8?B?Qm5BdmRLaGt2Z2FiWDJQR0gzUFk5bGUxc0hxcWQ3U0lSekliWGlKUDBqKzN1?=
+ =?utf-8?B?RWs4TWNQRXIyY1FiMlBMY25NdlBsM3d1VmkwUTRKREtoRmNObFgxVmtlZXRC?=
+ =?utf-8?B?ZjhNVC80VG9FK2x6RDVjSFFWVUhBUmtTS2hZZCt4Rkk5WHpyTjN2bjVqb2c4?=
+ =?utf-8?B?V2hhbmV5ak5PUzYvLzM3S1hXTXJjdjBHL0laWDRzK2Q3QTFyczRwd1oxTUFC?=
+ =?utf-8?B?RjZjTlpGelg4cGY1SUowSU9TaFEvTDhWdlBvL3AyT3JFQXdUWTNMYlFTVlFP?=
+ =?utf-8?B?OFduM1FGVkFoTnVLMHJVVSszSCtPaVF0TnJWaEhLWWJvMHNoaHZPbzYzVmQ1?=
+ =?utf-8?B?VUZoZmtibmZvaXVGTUp6amtucWdsZ0xsSlF5ZmdMM3FzWUhLSFk2MGt1dmdJ?=
+ =?utf-8?B?aDIwUVJxT0lLbjlQUjBHRGxLQklEaTU4OVduam91SkZoTWtUYVYzNE9iRklB?=
+ =?utf-8?B?SGpsRSttSDhYYisxOUV6MGhZZHc3M1JKQWpOMm9SM2NLT2RZODZHbzY0bDlq?=
+ =?utf-8?B?bUVRVFZDeG9mOUtJVERLSzFYNWMybENleVF4OUZNb3FPMGZtM1FxZmk2bWVB?=
+ =?utf-8?B?dSs4UjM3UVhZM2JJVGp5a2RRcGpKMnFZc2w5S0FyR3c5dUlRSXZ6UUFjdnhU?=
+ =?utf-8?B?SFNzN2JJV1MySmZZTTJ4b0wySVVHSmY1SEJUaE1Idlh0Ukx0cCtISStNdTZY?=
+ =?utf-8?B?WmtsalRENFBPSWJiODJDOEhZRFlLRHU5WDNOTXB2aHRmZndJbWJpTWwzYjR5?=
+ =?utf-8?B?aXpDZ1pqQlh1SFVtTlJiRGl1SUlnbiszd00xT0N1T2MxMVUxSEdMOVN6NlFZ?=
+ =?utf-8?B?N2F3UWRkbVptK0NyeFpQL3pvT1R0RWp5eHUxNmVjbDRVNlExRDRXUWpkU2pF?=
+ =?utf-8?B?OUVBTUJ5TnJZTU9FaDB4SlI2LzhXazVTa2NqMWxXVytVaTlhWUNNSXRPS2tH?=
+ =?utf-8?B?QjhRdHJES2RHOTNuZzk1WmlqWW83Uytxbk9QcGhlUlZRRElaYU8zeUtGaFJF?=
+ =?utf-8?B?alBJaEFzVGxXQ2NaZWJOYXNkQ3lienRwVFZYZW9ndHd5WWNBSlFYV1d4d25v?=
+ =?utf-8?B?MGRRcCszNXBCam10Z0xKcmQ4UGZIcDNFM2NYQ2Vsc0w5RmNUV0diN3owR3Bo?=
+ =?utf-8?B?QVdrNlFXTmc1MzBaNVNRRnVJeTQwa1FtRWhjcFo2NzNvcVQyVjBtY2d3dmIy?=
+ =?utf-8?B?Uk1QRmFTWlNuM0FVZ2YvMXBPZU9VMEdmeHV6U2NNNEpIekZwR0dQb21RNS9h?=
+ =?utf-8?B?ajh5cVJjQXpMVFd2bkhEZkpFWXUweTEwUGh4c3FrVDRrVVg1REttK25aNUpx?=
+ =?utf-8?B?NmpOc3FzZ3VNNXBtWW04djFEQld6T2ZRT1VDWXkwNElwd0lBK3VZTWtxMXhM?=
+ =?utf-8?B?enpMRDFpNlJ3bjBMWTlFSGwyY01LMEVtUEI5bnpHWEliWG9BTXJ4K3IrbWJU?=
+ =?utf-8?B?em9tTXN0UTkwVnZXckp3aUh3RThrOEdRVEREbGg4d2l4YkhKVDU1N0xmc0RZ?=
+ =?utf-8?B?Mlc4U0R5NWdOT2Nvc3o0RkVocDF3VlltSW5kYlBxSW9KMDRJMTFRYlZud3RQ?=
+ =?utf-8?B?cWZLSmF0Zm5EZExPVzcrc1Q3M1N1bzkyZU1RS0NlY0s5OThqSFF1bDFGV1Fu?=
+ =?utf-8?B?S1dWaE85bDhYZGtVVGRUUDh5NUMrWGJKdFJwNlFqOXhVSi81REZhcVlKdGV3?=
+ =?utf-8?B?VGVzRGRUQWhjb09UNVUwcjNqdC9vdFpMRXcxYXNicFZkU2VzT2JqM0NOM0sz?=
+ =?utf-8?B?eDJidmZXRGhTRG1wSzFDeUtvbERBcGp3S2cyNy9maklVWHM4OUVidW14bmxK?=
+ =?utf-8?B?T0VsSC9WMEZOeVo0Um5WL1A4RHV5QkRzcVpSZDI5M2YvMy9hU1VzZ1JuZWRN?=
+ =?utf-8?B?NmNrZnFQZmg0RWt0ODd4UVRUcU9kMWZSdUV2THVrTUJWVW5kL2JGZlV6UFg0?=
+ =?utf-8?B?c24yN3IzZll0YXlNQ0NmSEFlNUhhZFFDL2x0Mk9FdktoR3NDTXp5N25GQnNV?=
+ =?utf-8?B?RXBUeElITUpxUTBqdWl4RStFdnhBMDFRSno0TWNRbXRqc0J0R3FwcTBzejda?=
+ =?utf-8?B?VTkzVUNIZzBwWHE0bkk4cnhJdjluMzg5YTFyLys2QWlNd3A4YWsxcnNLV2wr?=
+ =?utf-8?B?MXJIRnRGQzIwbWF0Q3B1VGpMWXBzclpHZ1NBUEQxRldJZWdyRnZ3bVlsUHZB?=
+ =?utf-8?B?Q2JvVDFTN0RHYWJERXNoYnNBcWtVeFBrZlZmRzA4bG9oOHRKcFM0QT09?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <16840A02887E5F42B0DBCD4BAC18CE63@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PUZPR03MB6186.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c0db4eb6-1e25-468e-243c-08de435c33b7
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Dec 2025 02:20:41.6077
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 0bDV7gpT5PL1fAfIuPRQGRA7w+DBV2ZWYdl5r0DsHfvYbf1Poo4Hy9T3kqgr4p2u23uxvL2z7EvyIKv10fg/uA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KU2PPF2A1016A19
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251224_175305_925226_7BC2D24F 
-X-CRM114-Status: GOOD (  33.93  )
+X-CRM114-CacheID: sfid-20251224_182053_753054_339AAF5A 
+X-CRM114-Status: GOOD (  21.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,429 +223,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Gentle Reminder.
-
-On 12/19/2025 2:58 PM, Songwei Chai wrote:
-> We propose creating a new qcom directory under drivers/hwtracing
-> to host this TGU driver, as well as additional Qualcomm-specific
-> hwtracing drivers that we plan to submit in the coming months.
-> This structure will help organize vendor-specific implementations
-> and facilitate future development and maintenance.
-> 
-> Feedback from the community on this proposal is highly appreciated.
-> 
-> - Why we are proposing this:
-> 
-> TGU has the ability to monitor signal conditions and trigger debug-related
-> actions, serving as a programmable hardware component that enhances system
-> trace and debug capabilities. Placing it under drivers/hwtracing aligns with
-> its function as a trace generation utility.
-> 
-> We previously attempted to push this driver to drivers/hwtracing/coresight,
-> but did not receive support from the maintainers of the CoreSight subsystem.
-> The reason provided was: “This component is primarily a part of the
-> Qualcomm proprietary QPMDA subsystem, and is capable of operating
-> independently from the CoreSight hardware trace generation system.”
-> 
-> Chat history : https://lore.kernel.org/all/CAJ9a7ViKxHThyZfFFDV_FkNRimk4uo1NrMtQ-kcaj1qO4ZcGnA@mail.gmail.com/
-> 
-> Given this, we have been considering whether it would be appropriate
-> to create a dedicated drivers/hwtracing/qcom directory for
-> Qualcomm-related hwtracing drivers. This would follow the precedent set
-> by Intel, which maintains its own directory at drivers/hwtracing/intel_th.
-> We believe this structure would significantly facilitate
-> future submissions of related Qualcomm drivers.
-> 
-> - Maintenance of drivers/hwtracing/qcom:
-> 
-> Bjorn, who maintains linux-arm-msm, will be the maintainer of this
-> directory — we’ve discussed this with him and he’s aware that his task
-> list may grow accordingly. Additionally, Qualcomm engineers familiar with
-> the debug hardware — such as [Tingwei Zhang, Jinlong Mao, Songwei Chai],
-> will be available to review incoming patches and support ongoing
-> development.
-> 
-> - Detail for TGU:
-> 
-> This component can be utilized to sense a plurality of signals and
-> create a trigger into the CTI or generate interrupts to processors
-> once the input signal meets the conditions. We can treat the TGU’s
-> workflow as a flowsheet, it has some “steps” regions for customization.
-> In each step region, we can set the signals that we want with priority
-> in priority_group, set the conditions in each step via condition_decode,
-> and set the resultant action by condition_select. Meanwhile,
-> some TGUs (not all) also provide timer/counter functionality.
-> Based on the characteristics described above, we consider the TGU as a
-> helper in the CoreSight subsystem. Its master device is the TPDM, which
-> can transmit signals from other subsystems, and we reuse the existing
-> ports mechanism to link the TPDM to the connected TGU.
-> 
-> Here is a detailed example to explain how to use the TGU:
-> 
-> In this example, the TGU is configured to use 2 conditions, 2 steps, and
-> the timer. The goal is to look for one of two patterns which are generated
-> from TPDM, giving priority to one, and then generate a trigger once the
-> timer reaches a certain value. In other words, two conditions are used
-> for the first step to look for the two patterns, where the one with the
-> highest priority is used in the first condition. Then, in the second step,
-> the timer is enabled and set to be compared to the given value at each
-> clock cycle. These steps are better shown below.
->      
->                |-----------------|
->                |                 |
->                |       TPDM      |
->                |                 |
->                |-----------------|
->                         |
->                         |
->      --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ------
->      |                  |                                                 |
->      |                  |                          |--------------------| |
->      |    |---- --->    |                          |  Go to next steps  | |
->      |    |             |                |--- ---> |  Enable timer      | |
->      |    |             v                |         |                    | |
->      |    |    |-----------------|       |         |--------------------| |
->      |    |    |                 |  Yes  |                    |           |
->      |    |    |   inputs==0xB   | ----->|                    | <-------- |
->      |    |    |                 |       |                    |      No | |
->      | No |    |-----------------|       |                    v         | |
->      |    |             |                |          |-----------------| | |
->      |    |             |                |          |                 | | |
->      |    |             |                |          |      timer>=3   |-- |
->      |    |             v                |          |                 |   |
->      |    |    |-----------------|       |          |-----------------|   |
->      |    |    |                 |  Yes  |                    |           |
->      |    |--- |   inputs==0xA   | ----->|                    | Yes       |
->      |         |                 |                            |           |
->      |         |-----------------|                            v           |
->      |                                              |-----------------|   |
->      |                                              |                 |   |
->      |                                              |      Trigger    |   |
->      |                                              |                 |   |
->      |                                              |-----------------|   |
->      |  TGU                                                   |           |
->      |--- --- --- --- --- --- --- --- --- --- --- --- --- --- |--- --- -- |
->                                                               |
->                                                               v
->                                                      |-----------------|
->                                                      |The controllers  |
->                                                      |which will use   |
->                                                      |triggers further |
->                                                      |-----------------|
-> 
-> steps:
->      1. Reset TGU /*it will disable tgu and reset dataset*/
->      - echo 1 > /sys/bus/amba/devices/<tgu-name>/reset_tgu
-> 
->      2. Set the pattern match for priority0 to 0xA = 0b1010 and for
->         priority 1 to 0xB = 0b1011.
->      - echo 0x11113232 > /sys/bus/amba/devices/<tgu-name>/step0_priority0/reg0
->      - echo 0x11113233 > /sys/bus/amba/devices/<tgu-name>/step0_priority1/reg0
-> 
->      Note:
->          Bit distribution diagram for each priority register
->      |-------------------------------------------------------------------|
->      |   Bits          |       Field Nam   |    Description              |
->      |-------------------------------------------------------------------|
->      |                 |                   | 00 = bypass for OR output   |
->      |     29:28       |   SEL_BIT7_TYPE2  | 01 = bypass for AND output  |
->      |                 |                   | 10 = sense input '0' is true|
->      |                 |                   | 11 = sense input '1' is true|
->      |-------------------------------------------------------------------|
->      |                 |                   | 00 = bypass for OR output   |
->      |     25:24       |   SEL_BIT6_TYPE2  | 01 = bypass for AND output  |
->      |                 |                   | 10 = sense input '0' is true|
->      |                 |                   | 11 = sense input '1' is true|
->      |-------------------------------------------------------------------|
->      |                 |                   | 00 = bypass for OR output   |
->      |     21:20       |   SEL_BIT5_TYPE2  | 01 = bypass for AND output  |
->      |                 |                   | 10 = sense input '0' is true|
->      |                 |                   | 11 = sense input '1' is true|
->      |-------------------------------------------------------------------|
->      |                 |                   | 00 = bypass for OR output   |
->      |     17:16       |   SEL_BIT4_TYPE2  | 01 = bypass for AND output  |
->      |                 |                   | 10 = sense input '0' is true|
->      |                 |                   | 11 = sense input '1' is true|
->      |-------------------------------------------------------------------|
->      |                 |                   | 00 = bypass for OR output   |
->      |     13:12       |   SEL_BIT3_TYPE2  | 01 = bypass for AND output  |
->      |                 |                   | 10 = sense input '0' is true|
->      |                 |                   | 11 = sense input '1' is true|
->      |-------------------------------------------------------------------|
->      |                 |                   | 00 = bypass for OR output   |
->      |      9:8        |   SEL_BIT2_TYPE2  | 01 = bypass for AND output  |
->      |                 |                   | 10 = sense input '0' is true|
->      |                 |                   | 11 = sense input '1' is true|
->      |-------------------------------------------------------------------|
->      |                 |                   | 00 = bypass for OR output   |
->      |      5:4        |  SEL_BIT1_TYPE2   | 01 = bypass for AND output  |
->      |                 |                   | 10 = sense input '0' is true|
->      |                 |                   | 11 = sense input '1' is true|
->      |-------------------------------------------------------------------|
->      |                 |                   | 00 = bypass for OR output   |
->      |      1:0        |  SEL_BIT0_TYPE2   | 01 = bypass for AND output  |
->      |                 |                   | 10 = sense input '0' is true|
->      |                 |                   | 11 = sense input '1' is true|
->      |-------------------------------------------------------------------|
->      These bits are used to identify the signals we want to sense, with
->      a maximum signal number of 140. For example, to sense the signal
->      0xA (binary 1010), we set the value of bits 0 to 13 to 3232, which
->      represents 1010. The remaining bits are set to 1, as we want to use
->      AND gate to summarize all the signals we want to sense here. For
->      rising or falling edge detection of any input to the priority, set
->      the remaining bits to 0 to use an OR gate.
-> 
->      3. look for the pattern for priority_i i=0,1.
->      - echo 0x3 > /sys/bus/amba/devices/<tgu-name>/step0_condition_decode/reg0
->      - echo 0x30 > /sys/bus/amba/devices/<tgu-name>/step0_condition_decode/reg1
-> 
->      |-------------------------------------------------------------------------------|
->      |   Bits          |    Field Nam        |            Description                |
->      |-------------------------------------------------------------------------------|
->      |                 |                     |For each decoded condition, this       |
->      |      24         |       NOT           |inverts the output. If the condition   |
->      |                 |                     |decodes to true, and the NOT field     |
->      |                 |                     |is '1', then the output is NOT true.   |
->      |-------------------------------------------------------------------------------|
->      |                 |                     |When '1' the output from the associated|
->      |      21         |  BC0_COMP_ACTIVE    |comparator will be actively included in|
->      |                 |                     |the decoding of this particular        |
->      |                 |                     |condition.                             |
->      |-------------------------------------------------------------------------------|
->      |                 |                     |When '1' the output from the associated|
->      |                 |                     |comparator will need to be 1 to affect |
->      |      20         |   BC0_COMP_HIGH     |the decoding of this condition.        |
->      |                 |                     |Conversely, a '0' here requires a '0'  |
->      |                 |                     |from the comparator                    |
->      |-------------------------------------------------------------------------------|
->      |                 |                     |When '1' the output from the associated|
->      |      17         |                     |comparator will be actively included in|
->      |                 |  TC0_COMP_ACTIVE    |the decoding of this particular        |
->      |                 |                     |condition.                             |
->      |-------------------------------------------------------------------------------|
->      |                 |                     |When '1' the output from the associated|
->      |                 |                     |comparator will need to be 1 to affect |
->      |      16         |  TC0_COMP_HIGH      |the decoding of this particular        |
->      |                 |                     |condition.Conversely, a 0 here         |
->      |                 |                     |requires a '0' from the comparator     |
->      |-------------------------------------------------------------------------------|
->      |                 |                     |When '1' the output from Priority_n    |
->      |                 |                     |OR logic will be actively              |
->      |     4n+3        | Priority_n_OR_ACTIVE|included in the decoding of            |
->      |                 |    (n=0,1,2,3)      |this particular condition.             |
->      |                 |                     |                                       |
->      |-------------------------------------------------------------------------------|
->      |                 |                     |When '1' the output from Priority_n    |
->      |                 |                     |will need to be '1' to affect the      |
->      |     4n+2        |  Priority_n_OR_HIGH |decoding of this particular            |
->      |                 |    (n=0,1,2,3)      |condition. Conversely, a '0' here      |
->      |                 |                     |requires a '0' from Priority_n OR logic|
->      |-------------------------------------------------------------------------------|
->      |                 |                     |When '1' the output from Priority_n    |
->      |                 |                     |AND logic will be actively             |
->      |     4n+1        |Priority_n_AND_ACTIVE|included in the decoding of this       |
->      |                 |  (n=0,1,2,3)        |particular condition.                  |
->      |                 |                     |                                       |
->      |-------------------------------------------------------------------------------|
->      |                 |                     |When '1' the output from Priority_n    |
->      |                 |                     |AND logic will need to be '1' to       |
->      |      4n         | Priority_n_AND_HIGH |affect the decoding of this            |
->      |                 |   (n=0,1,2,3)       |particular condition. Conversely,      |
->      |                 |                     |a '0' here requires a '0' from         |
->      |                 |                     |Priority_n AND logic.                  |
->      |-------------------------------------------------------------------------------|
->      Since we use `priority_0` and `priority_1` with an AND output in step 2, we set `0x3`
->      and `0x30` here to activate them.
-> 
->      4. Set NEXT_STEP = 1 and TC0_ENABLE = 1 so that when the conditions
->         are met then the next step will be step 1 and the timer will be enabled.
->      - echo 0x20008 > /sys/bus/amba/devices/<tgu-name>/step0_condition_select/reg0
->      - echo 0x20008 > /sys/bus/amba/devices/<tgu-name>/step0_condition_select/reg1
-> 
->      |-----------------------------------------------------------------------------|
->      |   Bits          |       Field Nam   |            Description                |
->      |-----------------------------------------------------------------------------|
->      |                 |                   |This field defines the next step the   |
->      |    18:17        |     NEXT_STEP     |TGU will 'goto' for the associated     |
->      |                 |                   |Condition and Step.                    |
->      |-----------------------------------------------------------------------------|
->      |                 |                   |For each possible output trigger       |
->      |    13           |     TRIGGER       |available, set a '1' if you want       |
->      |                 |                   |the trigger to go active for the       |
->      |                 |                   |associated condition and Step.         |
->      |-----------------------------------------------------------------------------|
->      |                 |                   |This will cause BC0 to increment if the|
->      |    9            |     BC0_INC       |associated Condition is decoded for    |
->      |                 |                   |this step.                             |
->      |-----------------------------------------------------------------------------|
->      |                 |                   |This will cause BC0 to decrement if the|
->      |    8            |     BC0_DEC       |associated Condition is decoded for    |
->      |                 |                   |this step.                             |
->      |-----------------------------------------------------------------------------|
->      |                 |                   |This will clear BC0 count value to 0 if|
->      |    7            |     BC0_CLEAR     |the associated Condition is decoded    |
->      |                 |                   |for this step.                         |
->      |-----------------------------------------------------------------------------|
->      |                 |                   |This will cause TC0 to increment until |
->      |    3            |     TC0_ENABLE    |paused or cleared if the associated    |
->      |                 |                   |Condition is decoded for this step.    |
->      |-----------------------------------------------------------------------------|
->      |                 |                   |This will cause TC0 to pause until     |
->      |    2            |     TC0_PAUSE     |enabled if the associated Condition    |
->      |                 |                   |is decoded for this step.              |
->      |-----------------------------------------------------------------------------|
->      |                 |                   |This will clear TC0 count value to 0   |
->      |    1            |     TC0_CLEAR     |if the associated Condition is         |
->      |                 |                   |decoded for this step.                 |
->      |-----------------------------------------------------------------------------|
->      |                 |                   |This will set the done signal to the   |
->      |    0            |     DONE          |TGU FSM if the associated Condition    |
->      |                 |                   |is decoded for this step.              |
->      |-----------------------------------------------------------------------------|
->      Based on the distribution diagram, we set `0x20008` for `priority0` and `priority1` to
->      achieve "jump to step 1 and enable TC0" once the signal is sensed.
-> 
->      5. activate the timer comparison for this step.
->      -  echo 0x30000  > /sys/bus/amba/devices/<tgu-name>/step1_condition_decode/reg0
-> 
->      |-------------------------------------------------------------------------------|
->      |                 |                     |When '1' the output from the associated|
->      |      17         |                     |comparator will be actively included in|
->      |                 |  TC0_COMP_ACTIVE    |the decoding of this particular        |
->      |                 |                     |condition.                             |
->      |-------------------------------------------------------------------------------|
->      |                 |                     |When '1' the output from the associated|
->      |                 |                     |comparator will need to be 1 to affect |
->      |      16         |  TC0_COMP_HIGH      |the decoding of this particular        |
->      |                 |                     |condition.Conversely, a 0 here         |
->      |                 |                     |requires a '0' from the comparator     |
->      |-------------------------------------------------------------------------------|
->      Accroding to the decode distribution diagram , we give 0x30000 here to set 16th&17th bit
->      to enable timer comparison.
-> 
->      6. Set the NEXT_STEP = 0 and TC0_PAUSE = 1 and TC0_CLEAR = 1 once the timer
->         has reached the given value.
->      - echo 0x6 > /sys/bus/amba/devices/<tgu-name>/step1_condition_select/reg0
-> 
->      7. Enable Trigger 0 for TGU when the condition 0 is met in step1,
->         i.e. when the timer reaches 3.
->      - echo 0x2000 > /sys/bus/amba/devices/<tgu-name>/step1_condition_select/default
-> 
->      Note:
->          1. 'default' register allows for establishing the resultant action for
->          the default condition
-> 
->          2. Trigger:For each possible output trigger available from
->          the Design document, there are three triggers: interrupts, CTI,
->          and Cross-TGU mapping.All three triggers can occur, but
->          the choice of which trigger to use depends on the user's
->          needs.
-> 
->      8. Compare the timer to 3 in step 1.
->      - echo 0x3 > /sys/bus/amba/devices/<tgu-name>/step1_timer/reg0
-> 
->      9. enale tgu
->      - echo 1 > /sys/bus/amba/devices/<tgu-name>/enable_tgu
-> ---
-> Link to V8: https://lore.kernel.org/all/20251203090055.2432719-1-songwei.chai@oss.qualcomm.com/
-> 
-> Changes in V9:
-> - Decoupled the tgu driver from coresight header file and registered it as an amba device.
-> - Retained Rob's reviewed-by tag on patch1/7 since the file remains unchanged.
-> - Updated the sysfs node path in the Documentation directory.
-> ---
-> Link to V7: https://lore.kernel.org/all/20251104064043.88972-1-songwei.chai@oss.qualcomm.com/
-> 
-> Changes in V8:
-> - Add "select" section in bindings.
-> - Update publish date in "sysfs-bus-coresight-devices-tgu".
-> ---
-> Link to V6: https://lore.kernel.org/all/20250709104114.22240-1-songchai@qti.qualcomm.com/
-> 
-> Changes in V7:
-> - Move the TGU code location from 'drivers/hwtracing/coresight/' to 'drivers/hwtracing/qcom/'.
-> - Rename the spinlock used in the code from 'spinlock' to 'lock'.
-> - Perform the 'calculate_array_location' separately, instead of doing it within the function.
-> - Update the sender email address.
-> ---
-> Link to V5: https://lore.kernel.org/all/20250529081949.26493-1-quic_songchai@quicinc.com/
-> 
-> Changes in V6:
-> - Replace spinlock with guard(spinlock) in tgu_enable.
-> - Remove redundant blank line.
-> - Update publish date and contact member's name in "sysfs-bus-coresight-devices-tgu".
-> ---
-> Link to V4: https://patchwork.kernel.org/project/linux-arm-msm/cover/20250423101054.954066-1-quic_songchai@quicinc.com/
-> 
-> Changes in V5:
-> - Update publish date and kernel_version in "sysfs-bus-coresight-devices-tgu"
-> ---
-> Link to V3: https://lore.kernel.org/all/20250227092640.2666894-1-quic_songchai@quicinc.com/
-> 
-> Changes in V4:
-> - Add changlog in coverletter.
-> - Correct 'year' in Copyright in patch1.
-> - Correct port mechansim description in patch1.
-> - Remove 'tgu-steps','tgu-regs','tgu-conditions','tgu-timer-counters' from dt-binding
-> and set them through reading DEVID register as per Mike's suggestion.
-> - Modify tgu_disable func to make it have single return point in patch2 as per
-> Mike's suggestion.
-> - Use sysfs_emit in enable_tgu_show func in ptach2.
-> - Remove redundant judgement in enable_tgu_store in patch2.
-> - Correct typo in description in patch3.
-> - Set default ret as SYSFS_GROUP_INVISIBLE, and returnret at end in pacth3 as
-> per Mike's suggestion.
-> - Remove tgu_dataset_ro definition in patch3
-> - Use #define constants with explanations of what they are rather than
-> arbitrary magic numbers in patch3 and patch4.
-> - Check -EINVAL before using 'calculate_array_location()' in array in patch4.
-> - Add 'default' in 'tgu_dataset_show''s switch part in patch4.
-> - Document the value needed to initiate the reset in pacth7.
-> - Check "value" in 'reset_tgu_store' and bail out with an error code if 0 in patch7.
-> - Remove dev_dbg in 'reset_tgu_store' in patch7.
-> ---
-> Link to V2: https://lore.kernel.org/all/20241010073917.16023-1-quic_songchai@quicinc.com/
-> 
-> Changes in V3:
-> - Correct typo and format in dt-binding in patch1
-> - Rebase to the latest kernel version
-> ---
-> Link to V1: https://lore.kernel.org/all/20240830092311.14400-1-quic_songchai@quicinc.com/
-> 
-> Changes in V2:
->   - Use real name instead of login name,
->   - Correct typo and format in dt-binding and code.
->   - Bring order in tgu_prob(declarations with and without assignments) as per
-> Krzysztof's suggestion.
->   - Add module device table in patch2.
->   - Set const for tgu_common_grp and tgu_ids in patch2.
->   - Initialize 'data' in tgu_ids to fix the warning in pacth2.
-> ---
-> 
-> Songwei Chai (7):
->    dt-bindings: arm: Add support for Qualcomm TGU trace
->    qcom-tgu: Add TGU driver
->    qcom-tgu: Add signal priority support
->    qcom-tgu: Add TGU decode support
->    qcom-tgu: Add support to configure next action
->    qcom-tgu: Add timer/counter functionality for TGU
->    qcom-tgu: Add reset node to initialize
-> 
->   .../ABI/testing/sysfs-bus-amba-devices-tgu    |  51 ++
->   .../devicetree/bindings/arm/qcom,tgu.yaml     |  92 +++
->   drivers/Makefile                              |   1 +
->   drivers/hwtracing/Kconfig                     |   2 +
->   drivers/hwtracing/qcom/Kconfig                |  18 +
->   drivers/hwtracing/qcom/Makefile               |   3 +
->   drivers/hwtracing/qcom/tgu.c                  | 702 ++++++++++++++++++
->   drivers/hwtracing/qcom/tgu.h                  | 272 +++++++
->   8 files changed, 1141 insertions(+)
->   create mode 100644 Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
->   create mode 100644 Documentation/devicetree/bindings/arm/qcom,tgu.yaml
->   create mode 100644 drivers/hwtracing/qcom/Kconfig
->   create mode 100644 drivers/hwtracing/qcom/Makefile
->   create mode 100644 drivers/hwtracing/qcom/tgu.c
->   create mode 100644 drivers/hwtracing/qcom/tgu.h
-> 
-
+T24gVHVlLCAyMDI1LTEyLTE2IGF0IDE1OjU3IC0wNTAwLCBOaWNvbGFzIER1ZnJlc25lIHdyb3Rl
+Og0KPiBIaSwNCj4gDQo+IExlIG1hcmRpIDAyIGTDqWNlbWJyZSAyMDI1IMOgIDE3OjQ3ICswODAw
+LCBLeXJpZSBXdSBhIMOpY3JpdCA6DQo+ID4gRGlmZmVyZW50IElDcyBoYXZlIGRpZmZlcmVudCBh
+bW91bnRzIG9mIGhhcmR3YXJlLA0KPiA+IHVzZSBhIHZhcmlhYmxlIHRvIHNldCB0aGUgYW1vdW50
+IG9mIGhhcmR3YXJlLg0KPiANCj4gRGlkIHlvdSBtZWFuIGRpZmZlcmVudCBhbW91bnQgb2YgY29y
+ZXMgPyBUaGUgdXNlIG9mICJoYXJkd2FyZSIgaXMNCj4gc3RyYW5nZSBpbg0KPiB0aGlzIGRlc2Ny
+aXB0aW9uLg0KWWVzLCBpdCdzIHJpZ2h0LiBJIHdpbGwgY2hhbmdlIGl0IGluIHRoZSBuZXh0IHZl
+cnNpb24uDQoNClRoYW5rcy4NCj4gDQo+ID4gDQo+ID4gRml4ZXM6IDkzNGU4YmNjYWM5NSAoIm10
+ay1qcGVnZW5jOiBzdXBwb3J0IGpwZWdlbmMgbXVsdGktaGFyZHdhcmUiKQ0KPiA+IEZpeGVzOiAw
+ZmE0OWRmNDIyMmYgKCJtZWRpYTogbXRrLWpwZWdkZWM6IHN1cHBvcnQganBlZ2RlYyBtdWx0aS0N
+Cj4gPiBoYXJkd2FyZSIpDQo+IA0KPiBJdHMgbm90IGNsZWFyIGZyb20geW91ciBkZXNjcmlwdGlv
+biBpZiB0aGlzIGlzIGluIHByZXBhcmF0aW9uIG9mDQo+IE1UODE5NiBvciBhbg0KPiBhY3R1YWwg
+Zml4LiBJZiBpdHMgaW4gcHJlcGFyYXRpb24gb2YsIGRyb3AgdGhpcywgaWYgaXQgZml4ZXMgc29t
+ZQ0KPiBleGlzdGluZyBTb0MsDQo+IHBsZWFzZSB0ZWxsIHVzZSB3aGljaCBvbmUuIEFuZCB0ZWxs
+IHVzIGhvdyBpdCBicmVha3Mgd2l0aG91dCB0aGlzDQo+IGZpeC4NCj4gDQo+IHJlZ2FyZHMsDQo+
+IE5pY29sYXMNCg0KRGVhciBOaWNvbGFzLA0KDQpUaGUgbWFjcm8gd2FzIGZpcnN0IHVzZWQgdG8g
+cmVwcmVzZW50IHRoZSBhbW91bnQgb2YgY29yZXMgZm9yIE1UODE5NS4NCkhvd2V2ZXIsIHRoZSBj
+b3JlcycgcXVhbnRpdHkgb2YgTVQ4MTk2IGlzIGRpZmZlcmVudCBmcm9tIHRoYXQgaW4gdGhlDQpN
+VDgxOTUsDQphbmQgaXQgbWF5IGFsc28gZGlmZmVyIGluIHRoZSBjb21pbmcgSUNzLiBUaGVyZWZv
+cmUsIHRoZSBkZWZpbml0aW9uIG9mDQp0aGUgbWFjcm8gY2FuIG5vdCB1c2VkIHRvIHJlcHJlc2Vu
+dCB0aGUgYW1vdW50IG9mIGNvcmVzLg0KDQpCdXQgaWYgeW91IHRoaW5rIHRoaXMgaXMgbm9ybWFs
+IHNldHRpbmcgcGF0Y2ggcmF0aGVyIHRoYW4gYSBmaXhlZCBvbmUsDQpJIHdpbGwgY2hhbmdlIHRo
+ZSBjb21taXQgbWVzc2FnZXMgaW4gdGhlIG5leHQgdmVyc2lvbi4NCg0KTG9vayBmb3J3YXJkIHRv
+IHlvdXIgZnVydGhlciByZXBseS4NCg0KVGhhbmtzLg0KDQpSZWdhcmRzLA0KS3lyaWUuDQoNCj4g
+DQo+ID4gDQo+ID4gU2lnbmVkLW9mZi1ieTogS3lyaWUgV3UgPGt5cmllLnd1QG1lZGlhdGVrLmNv
+bT4NCj4gPiBSZXZpZXdlZC1ieTogQW5nZWxvR2lvYWNjaGlubyBEZWwgUmVnbm8gPA0KPiA+IGFu
+Z2Vsb2dpb2FjY2hpbm8uZGVscmVnbm9AY29sbGFib3JhLmNvbT4NCj4gPiAtLS0NCj4gPiAgZHJp
+dmVycy9tZWRpYS9wbGF0Zm9ybS9tZWRpYXRlay9qcGVnL210a19qcGVnX2NvcmUuYyAgIHwgOCAr
+KysrLS0tDQo+ID4gLQ0KPiA+ICBkcml2ZXJzL21lZGlhL3BsYXRmb3JtL21lZGlhdGVrL2pwZWcv
+bXRrX2pwZWdfY29yZS5oICAgfCAyICsrDQo+ID4gIGRyaXZlcnMvbWVkaWEvcGxhdGZvcm0vbWVk
+aWF0ZWsvanBlZy9tdGtfanBlZ19kZWNfaHcuYyB8IDEgKw0KPiA+ICBkcml2ZXJzL21lZGlhL3Bs
+YXRmb3JtL21lZGlhdGVrL2pwZWcvbXRrX2pwZWdfZW5jX2h3LmMgfCAxICsNCj4gPiAgNCBmaWxl
+cyBjaGFuZ2VkLCA4IGluc2VydGlvbnMoKyksIDQgZGVsZXRpb25zKC0pDQo+ID4gDQo+ID4gZGlm
+ZiAtLWdpdCBhL2RyaXZlcnMvbWVkaWEvcGxhdGZvcm0vbWVkaWF0ZWsvanBlZy9tdGtfanBlZ19j
+b3JlLmMNCj4gPiBiL2RyaXZlcnMvbWVkaWEvcGxhdGZvcm0vbWVkaWF0ZWsvanBlZy9tdGtfanBl
+Z19jb3JlLmMNCj4gPiBpbmRleCA2MjY4ZDY1MWJkY2YuLjZhN2UwMTEzMGYxYyAxMDA2NDQNCj4g
+PiAtLS0gYS9kcml2ZXJzL21lZGlhL3BsYXRmb3JtL21lZGlhdGVrL2pwZWcvbXRrX2pwZWdfY29y
+ZS5jDQo+ID4gKysrIGIvZHJpdmVycy9tZWRpYS9wbGF0Zm9ybS9tZWRpYXRlay9qcGVnL210a19q
+cGVnX2NvcmUuYw0KPiA+IEBAIC0xNDY3LDcgKzE0NjcsNyBAQCBzdGF0aWMgaW50IG10a19qcGVn
+ZW5jX2dldF9odyhzdHJ1Y3QNCj4gPiBtdGtfanBlZ19jdHggKmN0eCkNCj4gPiAgCWludCBpOw0K
+PiA+ICANCj4gPiAgCXNwaW5fbG9ja19pcnFzYXZlKCZqcGVnLT5od19sb2NrLCBmbGFncyk7DQo+
+ID4gLQlmb3IgKGkgPSAwOyBpIDwgTVRLX0pQRUdFTkNfSFdfTUFYOyBpKyspIHsNCj4gPiArCWZv
+ciAoaSA9IDA7IGkgPCBqcGVnLT5tYXhfaHdfY291bnQ7IGkrKykgew0KPiA+ICAJCWNvbXBfanBl
+ZyA9IGpwZWctPmVuY19od19kZXZbaV07DQo+ID4gIAkJaWYgKGNvbXBfanBlZy0+aHdfc3RhdGUg
+PT0gTVRLX0pQRUdfSFdfSURMRSkgew0KPiA+ICAJCQlod19pZCA9IGk7DQo+ID4gQEAgLTE1MTQs
+NyArMTUxNCw3IEBAIHN0YXRpYyBpbnQgbXRrX2pwZWdkZWNfZ2V0X2h3KHN0cnVjdA0KPiA+IG10
+a19qcGVnX2N0eCAqY3R4KQ0KPiA+ICAJaW50IGk7DQo+ID4gIA0KPiA+ICAJc3Bpbl9sb2NrX2ly
+cXNhdmUoJmpwZWctPmh3X2xvY2ssIGZsYWdzKTsNCj4gPiAtCWZvciAoaSA9IDA7IGkgPCBNVEtf
+SlBFR0RFQ19IV19NQVg7IGkrKykgew0KPiA+ICsJZm9yIChpID0gMDsgaSA8IGpwZWctPm1heF9o
+d19jb3VudDsgaSsrKSB7DQo+ID4gIAkJY29tcF9qcGVnID0ganBlZy0+ZGVjX2h3X2RldltpXTsN
+Cj4gPiAgCQlpZiAoY29tcF9qcGVnLT5od19zdGF0ZSA9PSBNVEtfSlBFR19IV19JRExFKSB7DQo+
+ID4gIAkJCWh3X2lkID0gaTsNCj4gPiBAQCAtMTU5Nyw3ICsxNTk3LDcgQEAgc3RhdGljIHZvaWQg
+bXRrX2pwZWdlbmNfd29ya2VyKHN0cnVjdA0KPiA+IHdvcmtfc3RydWN0ICp3b3JrKQ0KPiA+ICAJ
+CWpwZWdfd29yayk7DQo+ID4gIAlzdHJ1Y3QgbXRrX2pwZWdfZGV2ICpqcGVnID0gY3R4LT5qcGVn
+Ow0KPiA+ICANCj4gPiAtCWZvciAoaSA9IDA7IGkgPCBNVEtfSlBFR0VOQ19IV19NQVg7IGkrKykN
+Cj4gPiArCWZvciAoaSA9IDA7IGkgPCBqcGVnLT5tYXhfaHdfY291bnQ7IGkrKykNCj4gPiAgCQlj
+b21wX2pwZWdbaV0gPSBqcGVnLT5lbmNfaHdfZGV2W2ldOw0KPiA+ICAJaSA9IDA7DQo+ID4gIA0K
+PiA+IEBAIC0xNjkyLDcgKzE2OTIsNyBAQCBzdGF0aWMgdm9pZCBtdGtfanBlZ2RlY193b3JrZXIo
+c3RydWN0DQo+ID4gd29ya19zdHJ1Y3QgKndvcmspDQo+ID4gIAlzdHJ1Y3QgbXRrX2pwZWdfZmIg
+ZmI7DQo+ID4gIAl1bnNpZ25lZCBsb25nIGZsYWdzOw0KPiA+ICANCj4gPiAtCWZvciAoaSA9IDA7
+IGkgPCBNVEtfSlBFR0RFQ19IV19NQVg7IGkrKykNCj4gPiArCWZvciAoaSA9IDA7IGkgPCBqcGVn
+LT5tYXhfaHdfY291bnQ7IGkrKykNCj4gPiAgCQljb21wX2pwZWdbaV0gPSBqcGVnLT5kZWNfaHdf
+ZGV2W2ldOw0KPiA+ICAJaSA9IDA7DQo+ID4gIA0KPiA+IGRpZmYgLS1naXQgYS9kcml2ZXJzL21l
+ZGlhL3BsYXRmb3JtL21lZGlhdGVrL2pwZWcvbXRrX2pwZWdfY29yZS5oDQo+ID4gYi9kcml2ZXJz
+L21lZGlhL3BsYXRmb3JtL21lZGlhdGVrL2pwZWcvbXRrX2pwZWdfY29yZS5oDQo+ID4gaW5kZXgg
+MDJlZDBlZDViNzM2Li42YmU1Y2YzMGRlYTEgMTAwNjQ0DQo+ID4gLS0tIGEvZHJpdmVycy9tZWRp
+YS9wbGF0Zm9ybS9tZWRpYXRlay9qcGVnL210a19qcGVnX2NvcmUuaA0KPiA+ICsrKyBiL2RyaXZl
+cnMvbWVkaWEvcGxhdGZvcm0vbWVkaWF0ZWsvanBlZy9tdGtfanBlZ19jb3JlLmgNCj4gPiBAQCAt
+MjEyLDYgKzIxMiw3IEBAIHN0cnVjdCBtdGtfanBlZ2RlY19jb21wX2RldiB7DQo+ID4gICAqIEBy
+ZWdfZGVjYmFzZToJanBnIGRlY29kZSByZWdpc3RlciBiYXNlIGFkZHINCj4gPiAgICogQGRlY19o
+d19kZXY6CWpwZyBkZWNvZGUgaGFyZHdhcmUgZGV2aWNlDQo+ID4gICAqIEBod19pbmRleDoJCWpw
+ZyBodyBpbmRleA0KPiA+ICsgKiBAbWF4X2h3X2NvdW50OglqcGVnIGh3LWNvcmUgY291bnQNCj4g
+PiAgICovDQo+ID4gIHN0cnVjdCBtdGtfanBlZ19kZXYgew0KPiA+ICAJc3RydWN0IG11dGV4CQls
+b2NrOw0KPiA+IEBAIC0yMzQsNiArMjM1LDcgQEAgc3RydWN0IG10a19qcGVnX2RldiB7DQo+ID4g
+IAl2b2lkIF9faW9tZW0gKnJlZ19kZWNiYXNlW01US19KUEVHREVDX0hXX01BWF07DQo+ID4gIAlz
+dHJ1Y3QgbXRrX2pwZWdkZWNfY29tcF9kZXYgKmRlY19od19kZXZbTVRLX0pQRUdERUNfSFdfTUFY
+XTsNCj4gPiAgCWF0b21pY190IGh3X2luZGV4Ow0KPiA+ICsJdTMyIG1heF9od19jb3VudDsNCj4g
+PiAgfTsNCj4gPiAgDQo+ID4gIC8qKg0KPiA+IGRpZmYgLS1naXQgYS9kcml2ZXJzL21lZGlhL3Bs
+YXRmb3JtL21lZGlhdGVrL2pwZWcvbXRrX2pwZWdfZGVjX2h3LmMNCj4gPiBiL2RyaXZlcnMvbWVk
+aWEvcGxhdGZvcm0vbWVkaWF0ZWsvanBlZy9tdGtfanBlZ19kZWNfaHcuYw0KPiA+IGluZGV4IGU3
+OGUxZDExMDkzYy4uYTFlNTQ3MTVjYjdlIDEwMDY0NA0KPiA+IC0tLSBhL2RyaXZlcnMvbWVkaWEv
+cGxhdGZvcm0vbWVkaWF0ZWsvanBlZy9tdGtfanBlZ19kZWNfaHcuYw0KPiA+ICsrKyBiL2RyaXZl
+cnMvbWVkaWEvcGxhdGZvcm0vbWVkaWF0ZWsvanBlZy9tdGtfanBlZ19kZWNfaHcuYw0KPiA+IEBA
+IC02NjQsNiArNjY0LDcgQEAgc3RhdGljIGludCBtdGtfanBlZ2RlY19od19wcm9iZShzdHJ1Y3QN
+Cj4gPiBwbGF0Zm9ybV9kZXZpY2UgKnBkZXYpDQo+ID4gIAltYXN0ZXJfZGV2LT5kZWNfaHdfZGV2
+W2ldID0gZGV2Ow0KPiA+ICAJbWFzdGVyX2Rldi0+cmVnX2RlY2Jhc2VbaV0gPSBkZXYtPnJlZ19i
+YXNlOw0KPiA+ICAJZGV2LT5tYXN0ZXJfZGV2ID0gbWFzdGVyX2RldjsNCj4gPiArCW1hc3Rlcl9k
+ZXYtPm1heF9od19jb3VudCsrOw0KPiA+ICANCj4gPiAgCXBsYXRmb3JtX3NldF9kcnZkYXRhKHBk
+ZXYsIGRldik7DQo+ID4gIAlwbV9ydW50aW1lX2VuYWJsZSgmcGRldi0+ZGV2KTsNCj4gPiBkaWZm
+IC0tZ2l0IGEvZHJpdmVycy9tZWRpYS9wbGF0Zm9ybS9tZWRpYXRlay9qcGVnL210a19qcGVnX2Vu
+Y19ody5jDQo+ID4gYi9kcml2ZXJzL21lZGlhL3BsYXRmb3JtL21lZGlhdGVrL2pwZWcvbXRrX2pw
+ZWdfZW5jX2h3LmMNCj4gPiBpbmRleCA5YWIyN2FlZTMwMmEuLjI4ZDA1OTA5Yzk2ZiAxMDA2NDQN
+Cj4gPiAtLS0gYS9kcml2ZXJzL21lZGlhL3BsYXRmb3JtL21lZGlhdGVrL2pwZWcvbXRrX2pwZWdf
+ZW5jX2h3LmMNCj4gPiArKysgYi9kcml2ZXJzL21lZGlhL3BsYXRmb3JtL21lZGlhdGVrL2pwZWcv
+bXRrX2pwZWdfZW5jX2h3LmMNCj4gPiBAQCAtMzg2LDYgKzM4Niw3IEBAIHN0YXRpYyBpbnQgbXRr
+X2pwZWdlbmNfaHdfcHJvYmUoc3RydWN0DQo+ID4gcGxhdGZvcm1fZGV2aWNlICpwZGV2KQ0KPiA+
+ICAJbWFzdGVyX2Rldi0+ZW5jX2h3X2RldltpXSA9IGRldjsNCj4gPiAgCW1hc3Rlcl9kZXYtPnJl
+Z19lbmNiYXNlW2ldID0gZGV2LT5yZWdfYmFzZTsNCj4gPiAgCWRldi0+bWFzdGVyX2RldiA9IG1h
+c3Rlcl9kZXY7DQo+ID4gKwltYXN0ZXJfZGV2LT5tYXhfaHdfY291bnQrKzsNCj4gPiAgDQo+ID4g
+IAlwbGF0Zm9ybV9zZXRfZHJ2ZGF0YShwZGV2LCBkZXYpOw0KPiA+ICAJcG1fcnVudGltZV9lbmFi
+bGUoJnBkZXYtPmRldik7DQo=
 
