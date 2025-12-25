@@ -4,68 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B8EEE7AD44
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Dec 2025 14:33:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09DB9E7AD5E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Dec 2025 16:25:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=uNfdrS+biCdncifQkWg/99TWg0VOonW54vqEzYwxc7k=; b=00n3smuhanRjNV2Gu4M0UjRIsc
-	i2OFvFe6GJoKJIgVhg1D7Bdv5K7wTUI03sCCOltcJFPM8ap09rBvMNcf60Seu8U0JjAu3MGbfGUHx
-	ERYXRw/BN9zagjENXSXDZ4Qr2yyDth+ttiZoZ1xo/ifeKliIKhmCE5E/wGkLtOYbMD9ZBoiBoq+k6
-	5o+NQPyn93nsVc+5eTEsP1nNPvIvJA+6GRyAVwdAjIj6bcmmGGrsvrYq13VIWOVuKyTmd2PJBBE9L
-	O80+RJ7RDv9Edw6Ycfry6+UIwB9X5gtGIjkbDGAUCPX4t0utUbV8dHNPvwqRN5+22HsQqrP61OLMl
-	PatfFlaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9w9PoOAphBvrMeuMPvt+UDtYQWc7xDRbIiFcY8PW7pU=; b=BcZYl/wT7p7D2feHZ7Ea89juwU
+	dCIdD0oGAh3tqP0hCoj078VqmUfzHd00+niCjg93gvAeBI7K5CnPpP09TN/f75rZU6y5pxswa+1uv
+	SCssqB0l6WLtTFaER7rk0Q3r641/fCIlto42MzZ+zhzR7GTGDeaFiRUFvFg3Ba5uXEX+gg1WaQjx7
+	X+DXpkgcgPDKl+tShAAMbcHIAVx/D71UqbLBNL7VA4DjJ5TA9m51bZdac1Ra/iQ5zi7seGXH59GQo
+	Z7qbjv8qFSJxlyKitJ4g5e/7RtrwPQvwoSogDVy8HLT5PYDgVum+uzXOzs9ovht3JkJaTK1NGurA9
+	IujTGyew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYmP1-00000000Tf4-0RvI;
-	Thu, 25 Dec 2025 14:33:20 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1vYo9P-00000000XIy-0ExN;
+	Thu, 25 Dec 2025 16:25:19 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYmOw-00000000Tds-2TeY
+	id 1vYo9L-00000000XHx-16To
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Dec 2025 14:33:17 +0000
-Received: from dfae2b116770.home.arpa (unknown [124.16.138.129])
-	by APP-03 (Coremail) with SMTP id rQCowAAXMNciS01pfPn4AQ--.15897S2;
-	Thu, 25 Dec 2025 22:33:06 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: nm@ti.com,
-	ssantosh@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Wentao Liang <vulab@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH] soc: ti: pruss: fix double free in pruss_clk_mux_setup()
-Date: Thu, 25 Dec 2025 14:32:56 +0000
-Message-Id: <20251225143256.2363630-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	Thu, 25 Dec 2025 16:25:18 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 313F24E41D99;
+	Thu, 25 Dec 2025 16:25:09 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id DF33360742;
+	Thu, 25 Dec 2025 16:25:08 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8BF4C103C8CAF;
+	Thu, 25 Dec 2025 17:24:56 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1766679907; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=9w9PoOAphBvrMeuMPvt+UDtYQWc7xDRbIiFcY8PW7pU=;
+	b=JEp21IQ6lhvA7GHyuGEFtjRTQ4IGqq4eZbh2FLAyWSrqCEeOvJV9lOYHMkYJknW5QyyXv6
+	PGQpmEkwa+Ttf+W+qBq/IViwdlSgz1BWTOI98b7sbc7y7ggDQCzB+GcyEaNdPW63p56nD7
+	VUyEVD8AvdIbBgxmgEW+Ou1evzJhsH2mU8zW39XvcYQ9aON4sQMY3Pc8VNGd8rU1LZ7N67
+	v9mruJxmT99O7L9E+AcZwKtSMRHEUdVlFS3hcqeiJ7hZOgufxVRRQoPJ8bQgbMx0b9vV2Q
+	SQEfEaeFx0h6BJIg8LdoIOmGeDEhG4BSWIKmxlXpY911xsKxLvOwGckKnEa1jw==
+Date: Thu, 25 Dec 2025 17:24:55 +0100
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Robert Marko <robert.marko@sartura.hr>, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org,
+	nicolas.ferre@microchip.com, claudiu.beznea@tuxon.dev,
+	herbert@gondor.apana.org.au, davem@davemloft.net, vkoul@kernel.org,
+	andi.shyti@kernel.org, lee@kernel.org, andrew+netdev@lunn.ch,
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+	linusw@kernel.org, Steen.Hegelund@microchip.com,
+	daniel.machon@microchip.com, UNGLinuxDriver@microchip.com,
+	olivia@selenic.com, radu_nicolae.pirea@upb.ro,
+	richard.genoud@bootlin.com, gregkh@linuxfoundation.org,
+	jirislaby@kernel.org, broonie@kernel.org, mturquette@baylibre.com,
+	sboyd@kernel.org, lars.povlsen@microchip.com,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
+	dmaengine@vger.kernel.org, linux-i2c@vger.kernel.org,
+	netdev@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-spi@vger.kernel.org, linux-serial@vger.kernel.org,
+	linux-usb@vger.kernel.org, linux-clk@vger.kernel.org,
+	luka.perkov@sartura.hr
+Subject: Re: [PATCH v3 01/15] include: dt-bindings: add LAN969x clock bindings
+Message-ID: <2025122516245554f59e2e@mail.local>
+References: <20251223201921.1332786-1-robert.marko@sartura.hr>
+ <20251223201921.1332786-2-robert.marko@sartura.hr>
+ <20251224-berserk-mackerel-of-snow-4cae54@quoll>
+ <CA+HBbNGym6Q9b166n-P=h_JssOHm0yfyL73JZ+G9P81muK=g4A@mail.gmail.com>
+ <78bf252c-fd5e-4a36-b1a3-ca8ed26fde7a@kernel.org>
+ <CA+HBbNG+ZVD6grGDp32Ninx7H1AyEbGvP0nwc0zUv94tOV8hYg@mail.gmail.com>
+ <d210552f-c8bf-4084-9317-b743075d9946@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowAAXMNciS01pfPn4AQ--.15897S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrZw4DtryrJF48Zr48JFy7Wrg_yoWkWrgEgr
-	4rWFW3Xw4UGF47Gry7Jr48Zrna93ZF9F1xCan2vFy3AFyDArn8tF45ZFnrCr9rZrW8Ga47
-	Gw1kZ3W8try7GjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbIAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
-	Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_GcCE3s
-	1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0
-	cI8IcVAFwI0_Wrv_ZF1lYx0Ex4A2jsIE14v26F8l6FkdMcvjeVCFs4IE7xkEbVWUJVW8Jw
-	ACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lc7CjxVAaw2AFwI0_JF0_
-	Jw1lc2xSY4AK67AK6ry5MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI
-	8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AK
-	xVWUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI
-	8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280
-	aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIevJa73UjIFyT
-	uYvjfUUYFADUUUU
-X-Originating-IP: [124.16.138.129]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBwsHA2lM61TPgQAAsc
+In-Reply-To: <d210552f-c8bf-4084-9317-b743075d9946@kernel.org>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251225_063315_068763_80C22CA1 
-X-CRM114-Status: UNSURE (   9.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251225_082515_955791_1339B17D 
+X-CRM114-Status: GOOD (  22.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,42 +98,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the pruss_clk_mux_setup(), the devm_add_action_or_reset() indirectly
-calls pruss_of_free_clk_provider(), which calls of_node_put(clk_mux_np)
-on the error path. However, after the devm_add_action_or_reset()
-returns, the of_node_put(clk_mux_np) is called again, causing a double
-free.
+On 25/12/2025 09:47:34+0100, Krzysztof Kozlowski wrote:
+> On 24/12/2025 15:01, Robert Marko wrote:
+> > On Wed, Dec 24, 2025 at 2:05 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> >>
+> >> On 24/12/2025 11:30, Robert Marko wrote:
+> >>> On Wed, Dec 24, 2025 at 11:21 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> >>>>
+> >>>> On Tue, Dec 23, 2025 at 09:16:12PM +0100, Robert Marko wrote:
+> >>>>> Add the required LAN969x clock bindings.
+> >>>>
+> >>>> I do not see clock bindings actually here. Where is the actual binding?
+> >>>> Commit msg does not help me at all to understand why you are doing this
+> >>>> without actual required bindings.
+> >>>
+> >>> I guess it is a bit confusing, there is no schema here, these are the
+> >>> clock indexes that
+> >>> reside in dt-bindings and are used by the SoC DTSI.
+> >>
+> >> I understand as not used by drivers? Then no ABI and there is no point
+> >> in putting them into bindings.
+> > 
+> > It is not included by the driver directly, but it requires these exact
+> > indexes to be passed
+> > so its effectively ABI.
+> 
+> How it requires the exact index? In what way? I do not see anything in
+> the gck driver using/relying on these values. Nothing. Please point me
+> to the line which directly uses these values.... or how many times I
+> will need to write this is not ABI?
+> 
 
-Fix by using a separate label to avoid the duplicate of_node_put().
+The index here is the exact id that needs to be set in the PMC_PCR
+register and so it is dictated by the hardware.
 
-Fixes: ba59c9b43c86 ("soc: ti: pruss: support CORECLK_MUX and IEPCLK_MUX")
-Cc: stable@vger.kernel.org
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
----
- drivers/soc/ti/pruss.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/soc/ti/pruss.c b/drivers/soc/ti/pruss.c
-index d7634bf5413a..c16d96bebe3f 100644
---- a/drivers/soc/ti/pruss.c
-+++ b/drivers/soc/ti/pruss.c
-@@ -368,13 +368,14 @@ static int pruss_clk_mux_setup(struct pruss *pruss, struct clk *clk_mux,
- 				       clk_mux_np);
- 	if (ret) {
- 		dev_err(dev, "failed to add clkmux free action %d", ret);
--		goto put_clk_mux_np;
-+		goto ret_error;
- 	}
- 
- 	return 0;
- 
- put_clk_mux_np:
- 	of_node_put(clk_mux_np);
-+ret_error:
- 	return ret;
- }
- 
 -- 
-2.34.1
-
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
