@@ -4,115 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26015E7AD41
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Dec 2025 08:52:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EDDFE7AD41
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Dec 2025 08:57:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vdxrRzpaL/8J1M0wvZmDR36BjD0Lg1vI2YhOyqg433g=; b=PlM/9Ze+I+oJwVDDieiEptisWs
-	q5GNtOPUeKgUTCKIXIbCCdJXsazvmOjYtEMlsJh1NxMr/P02sl634Hv8q9JPF9zKEyiO9CpJVUJHz
-	ol0tG31rplu9KbXCv9NFN+0G5uthNSDJ3FAfe9/EgZ/u8y/NI4WL7A8vzRfr0hG5hCU8I9W0zSU6E
-	D9F7aHc5Ow6ColQvvNynSWSt9oAnWxUaFV5rN3KLUYeFfYEw+f9Gzn7kbY1ndJPMH2lJ6l4XED1c6
-	EGhn78lgh7CDAPpiLAOFkotgCRbpwuFXLPJ6PMcQKtJRmPGVoI8kj9a4E7bznGokTs3QP3qxY45uo
-	OPwOEGjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bXwihixJnLHyicZJYdUJaKd9nTtOlGiOfiQhSRCXDjE=; b=QamQl3pvZUC+LR5gx8+1HhGMbG
+	bczsgqJM9dDN48PWsld3GoczbT9+CAdOxToIjS/WSdiIB4v/RIQR5FCP2eR1NwwtHTxixWtZCxP2b
+	C/A+OMwWzJqC2KthOclOnqNn6BNcQW6Y2Jq4LxdgpREsC2qZsSlwHa6RZQf5FY2GOufCZ4v9xzvpe
+	nCXe9LHMoJOePqO2Tn4NxmN6L2zE1utpAaN5X+HTCnueUVZ3gl95TUbDQgSLvWBPYKDqKS/U0diLI
+	9OCK56WIlCngDS8JwxKtSnStt/x3iqXrtEj37eL9Mwbx4eNXQEumUU1VsZ2B9dn2ThyLAvUR5SV9L
+	tnxjLykg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYh5C-00000000Euw-2cuw;
-	Thu, 25 Dec 2025 08:52:30 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vYhAE-00000000FJv-0tz9;
+	Thu, 25 Dec 2025 08:57:42 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYh59-00000000EuE-2tPK;
-	Thu, 25 Dec 2025 08:52:28 +0000
+	id 1vYhAC-00000000FJm-3Xzo;
+	Thu, 25 Dec 2025 08:57:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E8CB3402F9;
-	Thu, 25 Dec 2025 08:52:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1947FC4CEF1;
-	Thu, 25 Dec 2025 08:52:15 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 07B0D60010;
+	Thu, 25 Dec 2025 08:57:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B75CCC4CEF1;
+	Thu, 25 Dec 2025 08:57:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766652746;
-	bh=qDR6aHVeZknX7OzXBltgBV84PUQq/D015YpphkF9kWc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Q4RkF2EI6QworjJ5wAlnPIW9/w6glKsrlEHYyCdBISo0g5nGleb4kQ8ZmyNySBmx7
-	 wQoBdcoS4185ir6kR+YgoKLXnMztRRDTC/+uleAHHtx/XBzUf9TQjUhfadX71sfFy7
-	 tcvQb7bni/dMFRnjn8+WN6DzFl+ChWro9GKpckC6P9UPU32SYCEXp9jaNLMV1YuuGQ
-	 otR1jrKYe0EsSQI0CeecATJxKZZuFNGT7+26cIobT12vIIXnOxyTww/kEFNmjW6og6
-	 1Ly6owbKNEpy5DmcZy2HkgJOFgo4t5IKCTCp6jktFMqb0D5fYhLuz+Z+N3PE6wz2uh
-	 HfF7VgAhP4IhA==
-Message-ID: <15fcc60d-b12e-4e20-9c3d-2426a4762c55@kernel.org>
-Date: Thu, 25 Dec 2025 09:52:13 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 5/5] MAINTAINERS: Add entries for Bao hypervisor drivers,
- headers, and DT bindings
-To: joaopeixoto@osyx.tech, linux-kernel@vger.kernel.org
-Cc: ajd@linux.ibm.com, alex@ghiti.fr, aou@eecs.berkeley.edu,
- bagasdotme@gmail.com, catalin.marinas@arm.com, conor+dt@kernel.org,
- corbet@lwn.net, dan.j.williams@intel.com, davidmcerdeira@osyx.tech,
- devicetree@vger.kernel.org, dev@kael-k.io, gregkh@linuxfoundation.org,
- haren@linux.ibm.com, heiko@sntech.de, jose@osyx.tech,
- kever.yang@rock-chips.com, krzk+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux@armlinux.org.uk,
- linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
- maddy@linux.ibm.com, mani@kernel.org, nathan@kernel.org,
- neil.armstrong@linaro.org, palmer@dabbelt.com, pjw@kernel.org,
- prabhakar.mahadev-lad.rj@bp.renesas.com, robh@kernel.org, will@kernel.org
-References: <20251224135217.25350-1-joaopeixoto@osyx.tech>
- <20251224135217.25350-6-joaopeixoto@osyx.tech>
+	s=k20201202; t=1766653058;
+	bh=JbAlLOSZ4lp2eqLIqN854RLD8F4hVgelu+B0u8PEklQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=lnfOTwU4+apIYrQlSwNee5D+OFUc0kyNaJ05pnV9yb/rrNk++IRoErqOxaNYxdZEa
+	 Ec47AbiAW7GQrAOPpJxhwUyFk3GwlFQEQRfhgssjeGhSVa6wLU6dwBw60W8FM84mVs
+	 yC8zVz72FqK43BBWTQVtMlie6qtYNv26lZmyti6L1jM68UsNjdv8TR7S+FJAVtnMRU
+	 J2NQ9Ww5JUohaY9eX0JlF3EXzJL3uDIU6lAvxuwzBAx5Jd67BAjgVB/99gI6165R20
+	 zZg33ZqlOpxS9F+fIxawiBJlEPxthN07AQhbDtTL74uRxkodg76ILOdLMuqVRHNRnr
+	 qrSppllPQyGpQ==
+Date: Thu, 25 Dec 2025 09:57:34 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251224135217.25350-6-joaopeixoto@osyx.tech>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251225_005227_841857_8A57F953 
-X-CRM114-Status: UNSURE (   8.64  )
-X-CRM114-Notice: Please train this message.
+To: joaopeixoto@osyx.tech
+Cc: linux-kernel@vger.kernel.org, ajd@linux.ibm.com, alex@ghiti.fr, 
+	aou@eecs.berkeley.edu, bagasdotme@gmail.com, catalin.marinas@arm.com, 
+	conor+dt@kernel.org, corbet@lwn.net, dan.j.williams@intel.com, 
+	davidmcerdeira@osyx.tech, devicetree@vger.kernel.org, dev@kael-k.io, 
+	gregkh@linuxfoundation.org, haren@linux.ibm.com, heiko@sntech.de, jose@osyx.tech, 
+	kever.yang@rock-chips.com, krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux@armlinux.org.uk, linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	maddy@linux.ibm.com, mani@kernel.org, nathan@kernel.org, neil.armstrong@linaro.org, 
+	palmer@dabbelt.com, pjw@kernel.org, prabhakar.mahadev-lad.rj@bp.renesas.com, 
+	robh@kernel.org, will@kernel.org
+Subject: Re: [PATCH 1/5] dt-bindings: Add Bao IPC shared memory driver binding
+Message-ID: <20251225-translucent-radical-coot-d3f9ee@quoll>
+References: <20251224135217.25350-1-joaopeixoto@osyx.tech>
+ <20251224135217.25350-2-joaopeixoto@osyx.tech>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20251224135217.25350-2-joaopeixoto@osyx.tech>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,25 +77,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/12/2025 14:52, joaopeixoto@osyx.tech wrote:
-> From: João Peixoto <joaopeixoto@osyx.tech>
-> 
-> Add MAINTAINERS entries for the Bao hypervisor components including:
-> - Bao IPC shared memory driver and its device tree bindings
-> - Bao I/O dispatcher driver and its device tree bindings
-> - Kernel headers for Bao (ARM, ARM64, and RISC-V)
-> - UAPI header
+On Wed, Dec 24, 2025 at 01:52:13PM +0000, joaopeixoto@osyx.tech wrote:
+> From: Jo=C3=A3o Peixoto <joaopeixoto@osyx.tech>
+>=20
+> This patch adds a Device Tree binding for the Bao IPC shared memory
+> device, which provides a standardized description of the hardware
+> interface used for inter-VM communication in Bao-based systems.
+>=20
 
-This is irrelevant.
+All you emails bounced as spam, so you need tofix your email setup. I
+found this only via lore.
 
-> 
-> This ensures that the kernel review and notification system correctly
-> identifies the maintainers for all Bao hypervisor components in the
-> kernel tree.
+> The binding documents the following properties:
+>=20
+>   - compatible: "bao,ipcshmem"
+>   - reg: Memory region for the shared memory device
+>   - id: Unique device identifier
+>   - read-channel: [offset, size] for reading from the shared memory
+>   - write-channel: [offset, size] for writing to the shared memory
+>   - interrupts: Interrupts used by the device
+
+Irrelevant. Drop.
+
+>=20
+> This enables kernel drivers and userspace tools to correctly
+> instantiate and configure Bao IPC shared memory devices based
+> on the DT description, facilitating efficient communication
+> between VMs.
+>=20
+
+Irrelevant. Describe hardware.
+
+> Signed-off-by: Jo=C3=A3o Peixoto <joaopeixoto@osyx.tech>
+> ---
+>  .../devicetree/bindings/bao/ipcshmem.yaml     | 99 +++++++++++++++++++
+>  .../devicetree/bindings/vendor-prefixes.yaml  |  2 +
+>  2 files changed, 101 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/bao/ipcshmem.yaml
 
 
-This is irrelevant as well. Write concise yet useful commit msgs.
+Filename matching compatible.
+>=20
+> diff --git a/Documentation/devicetree/bindings/bao/ipcshmem.yaml b/Docume=
+ntation/devicetree/bindings/bao/ipcshmem.yaml
+> new file mode 100644
+> index 000000000000..398ac610c29f
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/bao/ipcshmem.yaml
+> @@ -0,0 +1,99 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: "http://devicetree.org/schemas/bao/ipcshmem.yaml#"
+> +$schema: "http://devicetree.org/meta-schemas/core.yaml#"
+> +
+> +title: Bao IPC Shared Memory Device
+> +
+> +maintainers:
+> +  - Jos=C3=A9 Martins <jose@osyx.tech>
+> +  - David Cerdeira <davidmcerdeira@osyx.tech>
+> +  - Jo=C3=A3o Peixoto <joaopeixoto@osyx.tech>
+> +
+> +description: |
+> +  Shared memory based communication device for Bao hypervisor guests.
+> +  It allows the kernel to interface with guests running under
+> +	the Bao hypervisor, providing a character device interface
+> +	for exchanging data through dedicated shared-memory regions.
+> +
+> +properties:
+> +  compatible:
+> +    const: "bao,ipcshmem"
+> +
+> +  reg:
+> +    description: |
+> +      Memory resource for the shared memory device.
+> +    maxItems: 4
+> +    type: array
+> +    items:
+> +      type: integer
+
+
+Don't send us LLM junk. Nothing here is even close to proper bindings,
+which means:
+
+1. You did not write it yourself, because it is impossible to come with
+syntax like that (just does not exist),
+
+2. Did not even bother to test it.
+
 
 Best regards,
 Krzysztof
+
 
