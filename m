@@ -4,211 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C2A6E784B9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Dec 2025 02:21:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CA56E784BD
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Dec 2025 02:44:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rcAx6Vj1KctHlFwnf0J1NvuScT5RKre8Q9ELAbF/r1U=; b=cKOuctaHV4yRb+gN3P8sBWjXWW
-	hwP9gkxEpCZ4m4+4oY2bxTjsJNwNXnB008j4Vmmrf8D1DjTYlU4grOt+529sV+vnWggP4G219rq1z
-	e0feSAHLIgU8OgYaQFAkSF4y/KecJarUPyvBWHTW0MMzupJmz1QlQO/pvpbxQbc+CLOJhN9veixam
-	PaY0hFLlvs3GKWIbfc5w7toHIKUuZe5eAdxpapWVbLsLYb+JfH33moNzD85U/XymX+1VDLPTTh8dq
-	UIhxhxNL/iofVs8lN5UQM8RuQumpoSRy+34EtAwySZsvLulgpCRPkwa9wm2eqefBdwshoy+YX2OB3
-	e6DPiKRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q1wb5xT+3SX74fD7XcHG6ZfgZRlhTQTgEASipYKevpc=; b=LsZECJvH2UCvI5oUTKx+LutKdY
+	Dre1bToWntS4Ol6ya30KmkVljm0Lyg+vLEszqqA4/EJ+7U681FrD7XWm6jJm2iHIsWOdRMqiUGRrB
+	TRJaAz5AQKsSqG8f8mD2pq91D5HbXSfJkynT27IY5ZcqhZWmxGJoEelRqYiKtZNSveXSc4kPM39US
+	iurKsxuyRLczuBgQpA9jWdFO2yfGidLVMOMNUMbiLYMst9ASu+qqG46dkU8lQgicdfdo8NnCLB0B3
+	KiVJ1zmU7i+pJZ1GftraDYISnzz7HvKOMBv9ALSce0SDXKjdCsN1HnpMHIqSmSSQssxQ+zmIVZ+jf
+	ivLLNk/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYayH-0000000Had5-4Aqf;
-	Thu, 25 Dec 2025 02:20:58 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1vYbKv-000000000f5-0Tcm;
+	Thu, 25 Dec 2025 02:44:21 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYayD-0000000HacG-2eP3;
-	Thu, 25 Dec 2025 02:20:57 +0000
-X-UUID: 5313a8a8e13811f08b17dd397dc63300-20251224
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:To:From; bh=rcAx6Vj1KctHlFwnf0J1NvuScT5RKre8Q9ELAbF/r1U=;
-	b=Kt0Cz1Aiz8YGlYw0DBl5s//e+mo825kahavh6fE1LgNaYGWnIGw8Bwu9mEG+akhekMkPK/Gi4JXS7kYUXmb4JJtWqmYjoeAqf21n4xRQ7ejJdzKojOhXHk8d8iYDCUnyoRmYpzvG8Ap+nOt3brGQg8jB8/c1v8T+s2P+W1DWVsM=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.9,REQID:63c000d7-2902-4e1b-aab6-fba06cd8f1b6,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:5047765,CLOUDID:74bd2403-1fa9-44eb-b231-4afc61466396,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|888|898,
-	TC:-5,Content:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BE
-	C:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 5313a8a8e13811f08b17dd397dc63300-20251224
-Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw02.mediatek.com
-	(envelope-from <kyrie.wu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 2077744209; Wed, 24 Dec 2025 19:20:47 -0700
-Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
- MTKMBS09N1.mediatek.inc (172.21.101.35) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.29; Thu, 25 Dec 2025 10:20:44 +0800
-Received: from SI4PR04CU002.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
- 15.2.2562.29 via Frontend Transport; Thu, 25 Dec 2025 10:20:44 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lmwNZjRrJDJ1Ne7AtTQjMFoF8mDyCHBw2i1e6aoBxyfI3M17iZGqJkLiit+3iA77HIZTKu4z5tXLW4si7buSM7ZgDnUX6P+ryFIoebu6wcZyh8DV7P/vhfLHH23Rk2i43CDA0FCR3ItATqvsIFEPuGxT+p8i4GDisbll3Y8NWOIrJ9YSryisVn2N78jFqT6wTWdjKfXAZgMgQIXKQwS/qJU1zZs4G3U/dIkESBDnBfIw6cIsw3kOZmyy9o0rNzhHmdlnaS10/8ikTe+1b0ADNGL67wPISRpCAGVlLwV+/ZpAwNgqSddnERf27QmJkeV94u/dii1C/eoOVg6lARXs7w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rcAx6Vj1KctHlFwnf0J1NvuScT5RKre8Q9ELAbF/r1U=;
- b=qJkSkz7A3cmW0P1js23+mR0P1vmpYyc+kGBJbPL5dL55qSQyzeevtqU232lGr9u13n/dh0OfKn0nlhZ9ryomxfjmB9mbsLdlqwhXy+Mv8+g7BzJa15JoVnasy1bhesyDiZ4hcnLvvEmTHrLjQTBi35B+W5yqkaVKvJV/DW+9M/G+KERdRhzg1TFRHkpVq5nuBnMrAKQq6RmS4Ex3IItHhC3/VAAGh7dcQ/W4ZLFe0B355KgWtlqAr+gfkKyfHSwAWHbpEdZxZ+UBLSS1z5uE9hvgbOna09CygnJGQlsw2qJJvcFGLf8hAfUALoYag+rwCgQwkujroln5/1AUfG77gQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
+	id 1vYbKr-000000000ed-0ek6
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 25 Dec 2025 02:44:19 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BP2EB3o228083
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Dec 2025 02:44:16 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Q1wb5xT+3SX74fD7XcHG6ZfgZRlhTQTgEASipYKevpc=; b=GSo9+3ziG69nWN3J
+	PGYWDiUG4XC3VhmlIhFw7qQsaCaSSnq+GogB3MRRVFhpoDx8y+KXsrmq0ayG/MdU
+	AfypdBGk2LQecm6wRbzrRJSoTbQncRDZWfKklKsa1nMs3nDiDJg2myMItgSlqPu6
+	jYPgk2WmtFWrlzIOtJqnArYyCDmxO5DnWBf43q3p17e5N5oZTXhZlE/sj7/j+LyV
+	ctH3ZZ2HfuU2tiDjVaZuw9TVLDiNZYqIlwEU4LB/sOSbBWSndi6K6dMdAqpQ48wZ
+	eSZgwg7SvEvrcftjGwO1yoC2CV8JShzKjiSvxA5iGS7nGr8IP3SKsaC/4cIiyJwN
+	RPvjyA==
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4b8vaa81dq-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Dec 2025 02:44:15 +0000 (GMT)
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2a0dabc192eso142298035ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Dec 2025 18:44:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rcAx6Vj1KctHlFwnf0J1NvuScT5RKre8Q9ELAbF/r1U=;
- b=KnT5/Ls6Eagwx2/aQoDXxqeFZQM/vc5v9yoSjyuoj0pFH7FNxE8I+9efaM5T7cnhNUyxOJm/cp0kG6rupZBLKO1uO30iDMKhbN8vOLRz+FmFq5XQf7PPa2e/r3OT4+AEroib+ZZnXGCr3H2Gqm3ymBqwWc4F+SxDofXanA0K7AU=
-Received: from PUZPR03MB6186.apcprd03.prod.outlook.com (2603:1096:301:b9::5)
- by KU2PPF2A1016A19.apcprd03.prod.outlook.com (2603:1096:d18::40d) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9456.11; Thu, 25 Dec
- 2025 02:20:42 +0000
-Received: from PUZPR03MB6186.apcprd03.prod.outlook.com
- ([fe80::a013:f3b3:a461:8ece]) by PUZPR03MB6186.apcprd03.prod.outlook.com
- ([fe80::a013:f3b3:a461:8ece%4]) with mapi id 15.20.9434.009; Thu, 25 Dec 2025
- 02:20:41 +0000
-From: =?utf-8?B?S3lyaWUgV3UgKOWQtOaZlyk=?= <Kyrie.Wu@mediatek.com>
-To: "nicolas@ndufresne.ca" <nicolas@ndufresne.ca>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
-	"linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"mchehab@kernel.org" <mchehab@kernel.org>,
-	=?utf-8?B?S3lyaWUgV3UgKOWQtOaZlyk=?= <Kyrie.Wu@mediatek.com>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, "robh@kernel.org"
-	<robh@kernel.org>, "hverkuil-cisco@xs4all.nl" <hverkuil-cisco@xs4all.nl>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Subject: Re: [PATCH v11 01/12] media: mediatek: jpeg: fix jpeg hw count
- setting
-Thread-Topic: [PATCH v11 01/12] media: mediatek: jpeg: fix jpeg hw count
- setting
-Thread-Index: AQHcY3DD+F6x+E+x+EOSNtKThCBNOrUk1kqAgAzs9AA=
-Date: Thu, 25 Dec 2025 02:20:41 +0000
-Message-ID: <d99811831065542167c8dae6285ecdada946104d.camel@mediatek.com>
-References: <20251202094800.6140-1-kyrie.wu@mediatek.com>
-	 <20251202094800.6140-2-kyrie.wu@mediatek.com>
-	 <cd4c9c6f89d2ad506113745f4273ff6e6b65c75a.camel@ndufresne.ca>
-In-Reply-To: <cd4c9c6f89d2ad506113745f4273ff6e6b65c75a.camel@ndufresne.ca>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PUZPR03MB6186:EE_|KU2PPF2A1016A19:EE_
-x-ms-office365-filtering-correlation-id: c0db4eb6-1e25-468e-243c-08de435c33b7
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|38070700021|921020;
-x-microsoft-antispam-message-info: =?utf-8?B?Q0ZES1IxRmQ5R3pmcCtpM2x1UFg4Y3lvOVN3UG1TYWt1VytYdEltdjR3ZVNF?=
- =?utf-8?B?ajR4M2Fqa2d4NnU3aDhsbEJ0VWZyUFduK0c4TnVoTkVYZGtLSWhyRDYzdHpG?=
- =?utf-8?B?NEtvTXZTbjAzNWZtTG84enNEc01oaEU2RUROSjhkb3VuVVBaSjlUSEJqOEk4?=
- =?utf-8?B?Z1JFR2RjMXJLTEJsWERXQ2lienEwU0tXZW5NOFpiN1FoVU1NYm1NbG1xZHZJ?=
- =?utf-8?B?VkNFTTBCbE5aay9wN2lwc1hQamVDNkR5S1hpNEdDc2ZhOURYYnhrR0YzRmM3?=
- =?utf-8?B?YzNyNVlSZEtEOFVKV3pZaENVM2hDSWJBbGhFWWFranBBdklqK1FOQlJjSGR0?=
- =?utf-8?B?NXIyY2RGMGNNUHZURGlRbVU3UlNjUFBBZjZDRWlNYUlpV1dlVUt2U0pBa1hO?=
- =?utf-8?B?MDZ0NDQ1UDczbStwSVlnVmcyczJYRTJ2OFAyeTJxNDJXMVJhQ2J5b2hHTWw2?=
- =?utf-8?B?NVlUL2kyem9iU3pFd2hnWTJscUg5ODVvTDEyYy9PaUp2UEhkMkFHaDBRSkNh?=
- =?utf-8?B?cnp5d3AveFFlWDNtY2I3MmYvdTAvR2RWeUV1ejVBYmhOd1Z5dkYzcE9wTFdZ?=
- =?utf-8?B?dkxnazQ1RHozL3FoaUZycDBpbE5JWHNFejZaZDFCa3RjaEhZY2lpSjNqcmg2?=
- =?utf-8?B?Y2lQRExJd2NyNjNNNTh2SHNmSGwydVh6YVhselBUN2ZEK0RSNWJlV1U0SGk4?=
- =?utf-8?B?TjZVVFpZQ1pxU3N0THc1ZXVHcjUzSzlUVGFlZGVPRlY1c3AwNURGOGM2R0wy?=
- =?utf-8?B?L1Fnb3JTQThzcjVQeUdZWUw5SWF5TkJveG9IcElZbVAyYzBoa2JkWjZCSTJ4?=
- =?utf-8?B?TlRuVENKOEJldHU3emJoMUxkNG13WHZiZTNLRFd5TGVwdmhKUG1rMEJyblBp?=
- =?utf-8?B?N1BsLzNkcnlQU2QzdGhGTW1UeUJ4WTdHNEpMbjFFY1JFQWl5d1IwYnRDQ3V1?=
- =?utf-8?B?alFkZ0QwVjlhL21kdStIWjArVDVnL1pnRnVObmZNSHdmSTVXNTh6dVE4NWs3?=
- =?utf-8?B?QUErQitZSTZZOWwwWkdqOTVIS1hUVjZRdHRmVzVGVUwxQ0hrelM3Tm02bnZr?=
- =?utf-8?B?LzUvWjF3dmR1eTI5YjVYZUcybVgyK2p5d2h3NFVjNlBGaWtaSHUrY2JkQ3pq?=
- =?utf-8?B?Yko3M21WVHJsZXpIcE9ULzNpQmVnZU5vVlhYLzhnTnhYbndNOHhDZUMrM1lX?=
- =?utf-8?B?Tm8xZ0tXTktpTEZ2dGRyV2RkNmxQQVNydWVqT1ZsNnZNZ1FiMlA0TDNQanZ5?=
- =?utf-8?B?Z3VPWFVVOGZqUG5SNWtSVkdPSFRDaHNBbWpuNTZldkg2M29wT1BVN1FkaEFH?=
- =?utf-8?B?QWJFSEtqblNuSDBSZTRiUzFrQnd5VXRycE4yMlBmdVRueHYzdGQ0Z254SUJ3?=
- =?utf-8?B?NGpyMWZJbW91d3o1T2RZNHlwL0FyQWs3eGszTDNINzV6UHZ5OElTR2JnQXBl?=
- =?utf-8?B?bUpEM2RhMnJzK1ZneHNHWEM3TGVta2pBRVVpVnVzMmcrRGo5cXBLeFBqV0Ix?=
- =?utf-8?B?RU0yZkFsK0pYeXhnVFI0TGMxYTZpVDB2YnhlV1dNVVZ0Y0w4K1pUdTMydkxy?=
- =?utf-8?B?M3AvVENyZ0czQXZEbDFZaXZRVE9aN3VRdHRGVG1DSjZocXc1bkEyZEF1TFZE?=
- =?utf-8?B?Y3VVTkZ5b0IrVjk2aTU1U1JKd3pGNFI0YTZUS256ODlucnVJaXpSRUFVMlhU?=
- =?utf-8?B?SzAwc2pKTEJ1Y0xhcGYzL291OFFsVVIyb2taQmFrRWloOEh4cXhIa1crR2la?=
- =?utf-8?B?MkRTcThJdWxrNUpPclR1aEswa1d2QzU0ZkJ1c2lFWEVmc1FYT29ZM0VOUmhq?=
- =?utf-8?B?VkZjaDVXNjQrMmlSclB2Ylg2dlBZbWFSTzQ2RHJDZmhjNjR6eFFQVkhEMWYz?=
- =?utf-8?B?dzhIY0tPUDB5Si9remIwbmpVRTlBb3pOYnMrMnI5Uk5sTjJHNXVRdDVZM2pO?=
- =?utf-8?B?SGJnWWwwRHJyMU5oemZORWhuWlB1dVZST2dLVS9tMllOL0VyaXR4ZWhTWFZS?=
- =?utf-8?B?S09LTVRJSlhJQy9lNFJvWXJMVnd5a0pSbSt1Y3NUVUZTamlXZVBRWnVDYmUr?=
- =?utf-8?B?eFZKa3RuNmo0aURDMlFYeUxUTXFXUmxkUFIrUT09?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PUZPR03MB6186.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(38070700021)(921020);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?SG1qWmRkb1dQVm4yZlFuMC9keDZjc1l5ZkFpZExjdEx5Q1pNZmRGLysvSXFM?=
- =?utf-8?B?aGhZd3hOTWEzOGs5aEVsWUZsWU90bW9YNnF6UDFqK3ErbGcyOGVVUlUzWE41?=
- =?utf-8?B?Qm5BdmRLaGt2Z2FiWDJQR0gzUFk5bGUxc0hxcWQ3U0lSekliWGlKUDBqKzN1?=
- =?utf-8?B?RWs4TWNQRXIyY1FiMlBMY25NdlBsM3d1VmkwUTRKREtoRmNObFgxVmtlZXRC?=
- =?utf-8?B?ZjhNVC80VG9FK2x6RDVjSFFWVUhBUmtTS2hZZCt4Rkk5WHpyTjN2bjVqb2c4?=
- =?utf-8?B?V2hhbmV5ak5PUzYvLzM3S1hXTXJjdjBHL0laWDRzK2Q3QTFyczRwd1oxTUFC?=
- =?utf-8?B?RjZjTlpGelg4cGY1SUowSU9TaFEvTDhWdlBvL3AyT3JFQXdUWTNMYlFTVlFP?=
- =?utf-8?B?OFduM1FGVkFoTnVLMHJVVSszSCtPaVF0TnJWaEhLWWJvMHNoaHZPbzYzVmQ1?=
- =?utf-8?B?VUZoZmtibmZvaXVGTUp6amtucWdsZ0xsSlF5ZmdMM3FzWUhLSFk2MGt1dmdJ?=
- =?utf-8?B?aDIwUVJxT0lLbjlQUjBHRGxLQklEaTU4OVduam91SkZoTWtUYVYzNE9iRklB?=
- =?utf-8?B?SGpsRSttSDhYYisxOUV6MGhZZHc3M1JKQWpOMm9SM2NLT2RZODZHbzY0bDlq?=
- =?utf-8?B?bUVRVFZDeG9mOUtJVERLSzFYNWMybENleVF4OUZNb3FPMGZtM1FxZmk2bWVB?=
- =?utf-8?B?dSs4UjM3UVhZM2JJVGp5a2RRcGpKMnFZc2w5S0FyR3c5dUlRSXZ6UUFjdnhU?=
- =?utf-8?B?SFNzN2JJV1MySmZZTTJ4b0wySVVHSmY1SEJUaE1Idlh0Ukx0cCtISStNdTZY?=
- =?utf-8?B?WmtsalRENFBPSWJiODJDOEhZRFlLRHU5WDNOTXB2aHRmZndJbWJpTWwzYjR5?=
- =?utf-8?B?aXpDZ1pqQlh1SFVtTlJiRGl1SUlnbiszd00xT0N1T2MxMVUxSEdMOVN6NlFZ?=
- =?utf-8?B?N2F3UWRkbVptK0NyeFpQL3pvT1R0RWp5eHUxNmVjbDRVNlExRDRXUWpkU2pF?=
- =?utf-8?B?OUVBTUJ5TnJZTU9FaDB4SlI2LzhXazVTa2NqMWxXVytVaTlhWUNNSXRPS2tH?=
- =?utf-8?B?QjhRdHJES2RHOTNuZzk1WmlqWW83Uytxbk9QcGhlUlZRRElaYU8zeUtGaFJF?=
- =?utf-8?B?alBJaEFzVGxXQ2NaZWJOYXNkQ3lienRwVFZYZW9ndHd5WWNBSlFYV1d4d25v?=
- =?utf-8?B?MGRRcCszNXBCam10Z0xKcmQ4UGZIcDNFM2NYQ2Vsc0w5RmNUV0diN3owR3Bo?=
- =?utf-8?B?QVdrNlFXTmc1MzBaNVNRRnVJeTQwa1FtRWhjcFo2NzNvcVQyVjBtY2d3dmIy?=
- =?utf-8?B?Uk1QRmFTWlNuM0FVZ2YvMXBPZU9VMEdmeHV6U2NNNEpIekZwR0dQb21RNS9h?=
- =?utf-8?B?ajh5cVJjQXpMVFd2bkhEZkpFWXUweTEwUGh4c3FrVDRrVVg1REttK25aNUpx?=
- =?utf-8?B?NmpOc3FzZ3VNNXBtWW04djFEQld6T2ZRT1VDWXkwNElwd0lBK3VZTWtxMXhM?=
- =?utf-8?B?enpMRDFpNlJ3bjBMWTlFSGwyY01LMEVtUEI5bnpHWEliWG9BTXJ4K3IrbWJU?=
- =?utf-8?B?em9tTXN0UTkwVnZXckp3aUh3RThrOEdRVEREbGg4d2l4YkhKVDU1N0xmc0RZ?=
- =?utf-8?B?Mlc4U0R5NWdOT2Nvc3o0RkVocDF3VlltSW5kYlBxSW9KMDRJMTFRYlZud3RQ?=
- =?utf-8?B?cWZLSmF0Zm5EZExPVzcrc1Q3M1N1bzkyZU1RS0NlY0s5OThqSFF1bDFGV1Fu?=
- =?utf-8?B?S1dWaE85bDhYZGtVVGRUUDh5NUMrWGJKdFJwNlFqOXhVSi81REZhcVlKdGV3?=
- =?utf-8?B?VGVzRGRUQWhjb09UNVUwcjNqdC9vdFpMRXcxYXNicFZkU2VzT2JqM0NOM0sz?=
- =?utf-8?B?eDJidmZXRGhTRG1wSzFDeUtvbERBcGp3S2cyNy9maklVWHM4OUVidW14bmxK?=
- =?utf-8?B?T0VsSC9WMEZOeVo0Um5WL1A4RHV5QkRzcVpSZDI5M2YvMy9hU1VzZ1JuZWRN?=
- =?utf-8?B?NmNrZnFQZmg0RWt0ODd4UVRUcU9kMWZSdUV2THVrTUJWVW5kL2JGZlV6UFg0?=
- =?utf-8?B?c24yN3IzZll0YXlNQ0NmSEFlNUhhZFFDL2x0Mk9FdktoR3NDTXp5N25GQnNV?=
- =?utf-8?B?RXBUeElITUpxUTBqdWl4RStFdnhBMDFRSno0TWNRbXRqc0J0R3FwcTBzejda?=
- =?utf-8?B?VTkzVUNIZzBwWHE0bkk4cnhJdjluMzg5YTFyLys2QWlNd3A4YWsxcnNLV2wr?=
- =?utf-8?B?MXJIRnRGQzIwbWF0Q3B1VGpMWXBzclpHZ1NBUEQxRldJZWdyRnZ3bVlsUHZB?=
- =?utf-8?B?Q2JvVDFTN0RHYWJERXNoYnNBcWtVeFBrZlZmRzA4bG9oOHRKcFM0QT09?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <16840A02887E5F42B0DBCD4BAC18CE63@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+        d=oss.qualcomm.com; s=google; t=1766630655; x=1767235455; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Q1wb5xT+3SX74fD7XcHG6ZfgZRlhTQTgEASipYKevpc=;
+        b=Pbcz0vJO3ZikQRZI8AV85sxuPn+G47Py2cbI2q1SmZ7KroFvYFKtcTW/WXUOUQuace
+         9d5nfcpDifbXWws3mrNIzTGixyB9tcAAxbO9RDPAsMEJWj63eJ+14SLp50IAhrIo4WJt
+         wORJ+dT62JxbHkMrFztnjTP65nTuu66jTck2FbpXp5XiWby6hAF7hXAsu1iw6IyToW+g
+         xwtVL7PzcGn6/Wha6MANTeXUmrM35ADeaFQCPHJehlk8nktXsS/8UXZIVgzSCblfcye4
+         ibasNt3CsI/8n0XKaFokJbqFqDHtGnUN6jXrLP74smUbSpw021o99zRT/wDYCPuhFpoU
+         g9aQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766630655; x=1767235455;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Q1wb5xT+3SX74fD7XcHG6ZfgZRlhTQTgEASipYKevpc=;
+        b=Y5pmrCyIyaXLu2//bCwcGbaRKkcwZsDz/WlNTkpaOjVSn1NZw8HUU/0MNn04ZspDnE
+         FwnHkeGLEsSRFMTxMakeMy4tRIcdNyVXC8iMkVVv6UdSszC8JZHqvitQhNXjdzre7JUl
+         O4cIoJmb8vSSk6cDE7OPFojDUOyJejU5biVnPeysqRf6UnFrFeLS4FvIgJOgCLFsCw9L
+         e/KNWENzNVfA5IgBVyg8SiYr3sIacg5yUkTad2ghiiKpexdJPdRbx/7Zfdh4VsftsMbI
+         YFvRQmUlpRaRk4JWVsPPJCPN2/GuKeDu+kymxBuHAsD0uQyiX5fW34EnSfZnb6BK6xHH
+         6icA==
+X-Forwarded-Encrypted: i=1; AJvYcCWn98Zxsl0bS0HuZ1Szylv7V74ALoUjldPyHcAcLwMhqXdVYlQU8qquZUaacXas93j2frYhFt0Mg7bdX5clS3BJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxLRgX4IzkpvuTeHB0/LbiQuzl3RcLSpZHWlj8sxE3qcZZn0uIb
+	M/zfZqhpz2xtnVQD7KWVtotmRR76v6daad6y+Ur3hGYxLsgMWKubzUG4e++iRyjyBCs1Rte0NMo
+	Xc4uFsAANxyupnbIxP5G9Ux/eMvcsoJATLP/izDvnDylwjUPMluZmhdHeFtDWKEt1BVLTt4jwuj
+	hJ5Q==
+X-Gm-Gg: AY/fxX5Y3mANeNpV7UDUT+azp5FnZ9VoJ7R/HhCdmY2tNyMBvupe6OLtEFqR2Adi+3Z
+	3Rl+2hli1LuK0LEodcEZIJLi7KXKFU4r0OufTz70twekVHvuHEmdUNR+0dC4645AzSS8zyXlqQV
+	O7MQN3624PFjZenOdAtVQ9QKxOw6lFYiFqyz9tui7eIhKW8Er2ZxUrluogRhwYCSyey5qaa8c9f
+	NGt5297/7x7Wr7IpPG+Gsh3h3Wv0JobOu8sxU/ETuvsek061Fi9wU+oie6uVppHVVljoc5DliNC
+	pePgfLn2Y66IdAsX3/GDfn4pH6ziexmkS9CBuLxfKwHoQ/6eg32/UydcRF5eiEzXGH+9tttztym
+	h8lvunNQfq0ndLAMeA7kQHkteSAaamYafmfPTQIttPiYWLAZcxpg08LrebhOnVAZhp9Y+vhlxJc
+	M=
+X-Received: by 2002:a17:903:3b86:b0:2a1:1f28:d7ee with SMTP id d9443c01a7336-2a2f293e0d0mr191947075ad.57.1766630654633;
+        Wed, 24 Dec 2025 18:44:14 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IF3Kz2Egs+ye+uWCT6V6dCDuaQ2pGQyY+N+0McTP3jCXraZVMNAL2nLC2nrTjuFo6zvZiagfw==
+X-Received: by 2002:a17:903:3b86:b0:2a1:1f28:d7ee with SMTP id d9443c01a7336-2a2f293e0d0mr191946755ad.57.1766630654094;
+        Wed, 24 Dec 2025 18:44:14 -0800 (PST)
+Received: from [10.133.33.250] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a2f3c74490sm166275095ad.5.2025.12.24.18.44.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 24 Dec 2025 18:44:13 -0800 (PST)
+Message-ID: <458b3404-ca67-43fe-8610-f33c875b2de1@oss.qualcomm.com>
+Date: Thu, 25 Dec 2025 10:44:07 +0800
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PUZPR03MB6186.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c0db4eb6-1e25-468e-243c-08de435c33b7
-X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Dec 2025 02:20:41.6077
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 0bDV7gpT5PL1fAfIuPRQGRA7w+DBV2ZWYdl5r0DsHfvYbf1Poo4Hy9T3kqgr4p2u23uxvL2z7EvyIKv10fg/uA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KU2PPF2A1016A19
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 2/7] qcom-tgu: Add TGU driver
+To: Songwei Chai <songwei.chai@oss.qualcomm.com>, andersson@kernel.org,
+        alexander.shishkin@linux.intel.com, mike.leach@linaro.org,
+        suzuki.poulose@arm.com, james.clark@arm.com, krzk+dt@kernel.org,
+        conor+dt@kernel.org
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-arm-msm@vger.kernel.org, coresight@lists.linaro.org,
+        devicetree@vger.kernel.org, gregkh@linuxfoundation.org
+References: <20251219065902.2296896-1-songwei.chai@oss.qualcomm.com>
+ <20251219065902.2296896-3-songwei.chai@oss.qualcomm.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <20251219065902.2296896-3-songwei.chai@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: 8cIN8UVlxUV_9MLYOM5OQ1zW0RuaciJC
+X-Proofpoint-ORIG-GUID: 8cIN8UVlxUV_9MLYOM5OQ1zW0RuaciJC
+X-Authority-Analysis: v=2.4 cv=WMByn3sR c=1 sm=1 tr=0 ts=694ca4ff cx=c_pps
+ a=JL+w9abYAAE89/QcEU+0QA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=RlaAdA2wXV2HMp-xn2gA:9
+ a=QEXdDO2ut3YA:10 a=324X-CrmTo6CU4MGRt3R:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjI1MDAyMyBTYWx0ZWRfXxL7ZpPsXiU/E
+ XHECEOOjEWA8Gb8i+uePsWBUR+OrYC2+zZ1pVRVg3v1kOpW2x00xrflUkKOJGIX5KMU3j0ENPwg
+ OfUDPqRuUhZF19psQO0a/9Fv/GNqSgLEflR7YTxkvat6p7PLwcHm6cSPOBVfVDxIc6v1US4PmZE
+ f/hh50Uudmwtv8KiuL5w4qIsoeL5A6xcSfMeel98/AhNjIo1sXOgXFgEeYth1B8AFnH44PHhYIG
+ FaUFyjaAjZPoULcIXxBLBPAPMxcxctod+nTSQ2vUclFeuxufAzlFZy/RfL6tRJdExtHJs7DDjrM
+ XvXigiX94y3qFZEMlx6vuNvkN/1DxLV9wBNcYFH4hKVIcR9fvuvXFc8jn/2HgyYB7RnOsXyH9mC
+ qQ7kfGMiSencdeSGQnXCYfJBGMo1cZgQRSGdm+8kGNuujDE4pU91a28uAwi/Z5c3gietJe/4ynO
+ V7yeU3Qtdusli4Pr2WA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-12-24_04,2025-12-22_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 malwarescore=0 suspectscore=0 clxscore=1015 bulkscore=0
+ spamscore=0 adultscore=0 lowpriorityscore=0 priorityscore=1501 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2512250023
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251224_182053_753054_339AAF5A 
-X-CRM114-Status: GOOD (  21.05  )
+X-CRM114-CacheID: sfid-20251224_184417_330325_D06ACCCC 
+X-CRM114-Status: GOOD (  36.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -223,105 +151,399 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCAyMDI1LTEyLTE2IGF0IDE1OjU3IC0wNTAwLCBOaWNvbGFzIER1ZnJlc25lIHdyb3Rl
-Og0KPiBIaSwNCj4gDQo+IExlIG1hcmRpIDAyIGTDqWNlbWJyZSAyMDI1IMOgIDE3OjQ3ICswODAw
-LCBLeXJpZSBXdSBhIMOpY3JpdCA6DQo+ID4gRGlmZmVyZW50IElDcyBoYXZlIGRpZmZlcmVudCBh
-bW91bnRzIG9mIGhhcmR3YXJlLA0KPiA+IHVzZSBhIHZhcmlhYmxlIHRvIHNldCB0aGUgYW1vdW50
-IG9mIGhhcmR3YXJlLg0KPiANCj4gRGlkIHlvdSBtZWFuIGRpZmZlcmVudCBhbW91bnQgb2YgY29y
-ZXMgPyBUaGUgdXNlIG9mICJoYXJkd2FyZSIgaXMNCj4gc3RyYW5nZSBpbg0KPiB0aGlzIGRlc2Ny
-aXB0aW9uLg0KWWVzLCBpdCdzIHJpZ2h0LiBJIHdpbGwgY2hhbmdlIGl0IGluIHRoZSBuZXh0IHZl
-cnNpb24uDQoNClRoYW5rcy4NCj4gDQo+ID4gDQo+ID4gRml4ZXM6IDkzNGU4YmNjYWM5NSAoIm10
-ay1qcGVnZW5jOiBzdXBwb3J0IGpwZWdlbmMgbXVsdGktaGFyZHdhcmUiKQ0KPiA+IEZpeGVzOiAw
-ZmE0OWRmNDIyMmYgKCJtZWRpYTogbXRrLWpwZWdkZWM6IHN1cHBvcnQganBlZ2RlYyBtdWx0aS0N
-Cj4gPiBoYXJkd2FyZSIpDQo+IA0KPiBJdHMgbm90IGNsZWFyIGZyb20geW91ciBkZXNjcmlwdGlv
-biBpZiB0aGlzIGlzIGluIHByZXBhcmF0aW9uIG9mDQo+IE1UODE5NiBvciBhbg0KPiBhY3R1YWwg
-Zml4LiBJZiBpdHMgaW4gcHJlcGFyYXRpb24gb2YsIGRyb3AgdGhpcywgaWYgaXQgZml4ZXMgc29t
-ZQ0KPiBleGlzdGluZyBTb0MsDQo+IHBsZWFzZSB0ZWxsIHVzZSB3aGljaCBvbmUuIEFuZCB0ZWxs
-IHVzIGhvdyBpdCBicmVha3Mgd2l0aG91dCB0aGlzDQo+IGZpeC4NCj4gDQo+IHJlZ2FyZHMsDQo+
-IE5pY29sYXMNCg0KRGVhciBOaWNvbGFzLA0KDQpUaGUgbWFjcm8gd2FzIGZpcnN0IHVzZWQgdG8g
-cmVwcmVzZW50IHRoZSBhbW91bnQgb2YgY29yZXMgZm9yIE1UODE5NS4NCkhvd2V2ZXIsIHRoZSBj
-b3JlcycgcXVhbnRpdHkgb2YgTVQ4MTk2IGlzIGRpZmZlcmVudCBmcm9tIHRoYXQgaW4gdGhlDQpN
-VDgxOTUsDQphbmQgaXQgbWF5IGFsc28gZGlmZmVyIGluIHRoZSBjb21pbmcgSUNzLiBUaGVyZWZv
-cmUsIHRoZSBkZWZpbml0aW9uIG9mDQp0aGUgbWFjcm8gY2FuIG5vdCB1c2VkIHRvIHJlcHJlc2Vu
-dCB0aGUgYW1vdW50IG9mIGNvcmVzLg0KDQpCdXQgaWYgeW91IHRoaW5rIHRoaXMgaXMgbm9ybWFs
-IHNldHRpbmcgcGF0Y2ggcmF0aGVyIHRoYW4gYSBmaXhlZCBvbmUsDQpJIHdpbGwgY2hhbmdlIHRo
-ZSBjb21taXQgbWVzc2FnZXMgaW4gdGhlIG5leHQgdmVyc2lvbi4NCg0KTG9vayBmb3J3YXJkIHRv
-IHlvdXIgZnVydGhlciByZXBseS4NCg0KVGhhbmtzLg0KDQpSZWdhcmRzLA0KS3lyaWUuDQoNCj4g
-DQo+ID4gDQo+ID4gU2lnbmVkLW9mZi1ieTogS3lyaWUgV3UgPGt5cmllLnd1QG1lZGlhdGVrLmNv
-bT4NCj4gPiBSZXZpZXdlZC1ieTogQW5nZWxvR2lvYWNjaGlubyBEZWwgUmVnbm8gPA0KPiA+IGFu
-Z2Vsb2dpb2FjY2hpbm8uZGVscmVnbm9AY29sbGFib3JhLmNvbT4NCj4gPiAtLS0NCj4gPiAgZHJp
-dmVycy9tZWRpYS9wbGF0Zm9ybS9tZWRpYXRlay9qcGVnL210a19qcGVnX2NvcmUuYyAgIHwgOCAr
-KysrLS0tDQo+ID4gLQ0KPiA+ICBkcml2ZXJzL21lZGlhL3BsYXRmb3JtL21lZGlhdGVrL2pwZWcv
-bXRrX2pwZWdfY29yZS5oICAgfCAyICsrDQo+ID4gIGRyaXZlcnMvbWVkaWEvcGxhdGZvcm0vbWVk
-aWF0ZWsvanBlZy9tdGtfanBlZ19kZWNfaHcuYyB8IDEgKw0KPiA+ICBkcml2ZXJzL21lZGlhL3Bs
-YXRmb3JtL21lZGlhdGVrL2pwZWcvbXRrX2pwZWdfZW5jX2h3LmMgfCAxICsNCj4gPiAgNCBmaWxl
-cyBjaGFuZ2VkLCA4IGluc2VydGlvbnMoKyksIDQgZGVsZXRpb25zKC0pDQo+ID4gDQo+ID4gZGlm
-ZiAtLWdpdCBhL2RyaXZlcnMvbWVkaWEvcGxhdGZvcm0vbWVkaWF0ZWsvanBlZy9tdGtfanBlZ19j
-b3JlLmMNCj4gPiBiL2RyaXZlcnMvbWVkaWEvcGxhdGZvcm0vbWVkaWF0ZWsvanBlZy9tdGtfanBl
-Z19jb3JlLmMNCj4gPiBpbmRleCA2MjY4ZDY1MWJkY2YuLjZhN2UwMTEzMGYxYyAxMDA2NDQNCj4g
-PiAtLS0gYS9kcml2ZXJzL21lZGlhL3BsYXRmb3JtL21lZGlhdGVrL2pwZWcvbXRrX2pwZWdfY29y
-ZS5jDQo+ID4gKysrIGIvZHJpdmVycy9tZWRpYS9wbGF0Zm9ybS9tZWRpYXRlay9qcGVnL210a19q
-cGVnX2NvcmUuYw0KPiA+IEBAIC0xNDY3LDcgKzE0NjcsNyBAQCBzdGF0aWMgaW50IG10a19qcGVn
-ZW5jX2dldF9odyhzdHJ1Y3QNCj4gPiBtdGtfanBlZ19jdHggKmN0eCkNCj4gPiAgCWludCBpOw0K
-PiA+ICANCj4gPiAgCXNwaW5fbG9ja19pcnFzYXZlKCZqcGVnLT5od19sb2NrLCBmbGFncyk7DQo+
-ID4gLQlmb3IgKGkgPSAwOyBpIDwgTVRLX0pQRUdFTkNfSFdfTUFYOyBpKyspIHsNCj4gPiArCWZv
-ciAoaSA9IDA7IGkgPCBqcGVnLT5tYXhfaHdfY291bnQ7IGkrKykgew0KPiA+ICAJCWNvbXBfanBl
-ZyA9IGpwZWctPmVuY19od19kZXZbaV07DQo+ID4gIAkJaWYgKGNvbXBfanBlZy0+aHdfc3RhdGUg
-PT0gTVRLX0pQRUdfSFdfSURMRSkgew0KPiA+ICAJCQlod19pZCA9IGk7DQo+ID4gQEAgLTE1MTQs
-NyArMTUxNCw3IEBAIHN0YXRpYyBpbnQgbXRrX2pwZWdkZWNfZ2V0X2h3KHN0cnVjdA0KPiA+IG10
-a19qcGVnX2N0eCAqY3R4KQ0KPiA+ICAJaW50IGk7DQo+ID4gIA0KPiA+ICAJc3Bpbl9sb2NrX2ly
-cXNhdmUoJmpwZWctPmh3X2xvY2ssIGZsYWdzKTsNCj4gPiAtCWZvciAoaSA9IDA7IGkgPCBNVEtf
-SlBFR0RFQ19IV19NQVg7IGkrKykgew0KPiA+ICsJZm9yIChpID0gMDsgaSA8IGpwZWctPm1heF9o
-d19jb3VudDsgaSsrKSB7DQo+ID4gIAkJY29tcF9qcGVnID0ganBlZy0+ZGVjX2h3X2RldltpXTsN
-Cj4gPiAgCQlpZiAoY29tcF9qcGVnLT5od19zdGF0ZSA9PSBNVEtfSlBFR19IV19JRExFKSB7DQo+
-ID4gIAkJCWh3X2lkID0gaTsNCj4gPiBAQCAtMTU5Nyw3ICsxNTk3LDcgQEAgc3RhdGljIHZvaWQg
-bXRrX2pwZWdlbmNfd29ya2VyKHN0cnVjdA0KPiA+IHdvcmtfc3RydWN0ICp3b3JrKQ0KPiA+ICAJ
-CWpwZWdfd29yayk7DQo+ID4gIAlzdHJ1Y3QgbXRrX2pwZWdfZGV2ICpqcGVnID0gY3R4LT5qcGVn
-Ow0KPiA+ICANCj4gPiAtCWZvciAoaSA9IDA7IGkgPCBNVEtfSlBFR0VOQ19IV19NQVg7IGkrKykN
-Cj4gPiArCWZvciAoaSA9IDA7IGkgPCBqcGVnLT5tYXhfaHdfY291bnQ7IGkrKykNCj4gPiAgCQlj
-b21wX2pwZWdbaV0gPSBqcGVnLT5lbmNfaHdfZGV2W2ldOw0KPiA+ICAJaSA9IDA7DQo+ID4gIA0K
-PiA+IEBAIC0xNjkyLDcgKzE2OTIsNyBAQCBzdGF0aWMgdm9pZCBtdGtfanBlZ2RlY193b3JrZXIo
-c3RydWN0DQo+ID4gd29ya19zdHJ1Y3QgKndvcmspDQo+ID4gIAlzdHJ1Y3QgbXRrX2pwZWdfZmIg
-ZmI7DQo+ID4gIAl1bnNpZ25lZCBsb25nIGZsYWdzOw0KPiA+ICANCj4gPiAtCWZvciAoaSA9IDA7
-IGkgPCBNVEtfSlBFR0RFQ19IV19NQVg7IGkrKykNCj4gPiArCWZvciAoaSA9IDA7IGkgPCBqcGVn
-LT5tYXhfaHdfY291bnQ7IGkrKykNCj4gPiAgCQljb21wX2pwZWdbaV0gPSBqcGVnLT5kZWNfaHdf
-ZGV2W2ldOw0KPiA+ICAJaSA9IDA7DQo+ID4gIA0KPiA+IGRpZmYgLS1naXQgYS9kcml2ZXJzL21l
-ZGlhL3BsYXRmb3JtL21lZGlhdGVrL2pwZWcvbXRrX2pwZWdfY29yZS5oDQo+ID4gYi9kcml2ZXJz
-L21lZGlhL3BsYXRmb3JtL21lZGlhdGVrL2pwZWcvbXRrX2pwZWdfY29yZS5oDQo+ID4gaW5kZXgg
-MDJlZDBlZDViNzM2Li42YmU1Y2YzMGRlYTEgMTAwNjQ0DQo+ID4gLS0tIGEvZHJpdmVycy9tZWRp
-YS9wbGF0Zm9ybS9tZWRpYXRlay9qcGVnL210a19qcGVnX2NvcmUuaA0KPiA+ICsrKyBiL2RyaXZl
-cnMvbWVkaWEvcGxhdGZvcm0vbWVkaWF0ZWsvanBlZy9tdGtfanBlZ19jb3JlLmgNCj4gPiBAQCAt
-MjEyLDYgKzIxMiw3IEBAIHN0cnVjdCBtdGtfanBlZ2RlY19jb21wX2RldiB7DQo+ID4gICAqIEBy
-ZWdfZGVjYmFzZToJanBnIGRlY29kZSByZWdpc3RlciBiYXNlIGFkZHINCj4gPiAgICogQGRlY19o
-d19kZXY6CWpwZyBkZWNvZGUgaGFyZHdhcmUgZGV2aWNlDQo+ID4gICAqIEBod19pbmRleDoJCWpw
-ZyBodyBpbmRleA0KPiA+ICsgKiBAbWF4X2h3X2NvdW50OglqcGVnIGh3LWNvcmUgY291bnQNCj4g
-PiAgICovDQo+ID4gIHN0cnVjdCBtdGtfanBlZ19kZXYgew0KPiA+ICAJc3RydWN0IG11dGV4CQls
-b2NrOw0KPiA+IEBAIC0yMzQsNiArMjM1LDcgQEAgc3RydWN0IG10a19qcGVnX2RldiB7DQo+ID4g
-IAl2b2lkIF9faW9tZW0gKnJlZ19kZWNiYXNlW01US19KUEVHREVDX0hXX01BWF07DQo+ID4gIAlz
-dHJ1Y3QgbXRrX2pwZWdkZWNfY29tcF9kZXYgKmRlY19od19kZXZbTVRLX0pQRUdERUNfSFdfTUFY
-XTsNCj4gPiAgCWF0b21pY190IGh3X2luZGV4Ow0KPiA+ICsJdTMyIG1heF9od19jb3VudDsNCj4g
-PiAgfTsNCj4gPiAgDQo+ID4gIC8qKg0KPiA+IGRpZmYgLS1naXQgYS9kcml2ZXJzL21lZGlhL3Bs
-YXRmb3JtL21lZGlhdGVrL2pwZWcvbXRrX2pwZWdfZGVjX2h3LmMNCj4gPiBiL2RyaXZlcnMvbWVk
-aWEvcGxhdGZvcm0vbWVkaWF0ZWsvanBlZy9tdGtfanBlZ19kZWNfaHcuYw0KPiA+IGluZGV4IGU3
-OGUxZDExMDkzYy4uYTFlNTQ3MTVjYjdlIDEwMDY0NA0KPiA+IC0tLSBhL2RyaXZlcnMvbWVkaWEv
-cGxhdGZvcm0vbWVkaWF0ZWsvanBlZy9tdGtfanBlZ19kZWNfaHcuYw0KPiA+ICsrKyBiL2RyaXZl
-cnMvbWVkaWEvcGxhdGZvcm0vbWVkaWF0ZWsvanBlZy9tdGtfanBlZ19kZWNfaHcuYw0KPiA+IEBA
-IC02NjQsNiArNjY0LDcgQEAgc3RhdGljIGludCBtdGtfanBlZ2RlY19od19wcm9iZShzdHJ1Y3QN
-Cj4gPiBwbGF0Zm9ybV9kZXZpY2UgKnBkZXYpDQo+ID4gIAltYXN0ZXJfZGV2LT5kZWNfaHdfZGV2
-W2ldID0gZGV2Ow0KPiA+ICAJbWFzdGVyX2Rldi0+cmVnX2RlY2Jhc2VbaV0gPSBkZXYtPnJlZ19i
-YXNlOw0KPiA+ICAJZGV2LT5tYXN0ZXJfZGV2ID0gbWFzdGVyX2RldjsNCj4gPiArCW1hc3Rlcl9k
-ZXYtPm1heF9od19jb3VudCsrOw0KPiA+ICANCj4gPiAgCXBsYXRmb3JtX3NldF9kcnZkYXRhKHBk
-ZXYsIGRldik7DQo+ID4gIAlwbV9ydW50aW1lX2VuYWJsZSgmcGRldi0+ZGV2KTsNCj4gPiBkaWZm
-IC0tZ2l0IGEvZHJpdmVycy9tZWRpYS9wbGF0Zm9ybS9tZWRpYXRlay9qcGVnL210a19qcGVnX2Vu
-Y19ody5jDQo+ID4gYi9kcml2ZXJzL21lZGlhL3BsYXRmb3JtL21lZGlhdGVrL2pwZWcvbXRrX2pw
-ZWdfZW5jX2h3LmMNCj4gPiBpbmRleCA5YWIyN2FlZTMwMmEuLjI4ZDA1OTA5Yzk2ZiAxMDA2NDQN
-Cj4gPiAtLS0gYS9kcml2ZXJzL21lZGlhL3BsYXRmb3JtL21lZGlhdGVrL2pwZWcvbXRrX2pwZWdf
-ZW5jX2h3LmMNCj4gPiArKysgYi9kcml2ZXJzL21lZGlhL3BsYXRmb3JtL21lZGlhdGVrL2pwZWcv
-bXRrX2pwZWdfZW5jX2h3LmMNCj4gPiBAQCAtMzg2LDYgKzM4Niw3IEBAIHN0YXRpYyBpbnQgbXRr
-X2pwZWdlbmNfaHdfcHJvYmUoc3RydWN0DQo+ID4gcGxhdGZvcm1fZGV2aWNlICpwZGV2KQ0KPiA+
-ICAJbWFzdGVyX2Rldi0+ZW5jX2h3X2RldltpXSA9IGRldjsNCj4gPiAgCW1hc3Rlcl9kZXYtPnJl
-Z19lbmNiYXNlW2ldID0gZGV2LT5yZWdfYmFzZTsNCj4gPiAgCWRldi0+bWFzdGVyX2RldiA9IG1h
-c3Rlcl9kZXY7DQo+ID4gKwltYXN0ZXJfZGV2LT5tYXhfaHdfY291bnQrKzsNCj4gPiAgDQo+ID4g
-IAlwbGF0Zm9ybV9zZXRfZHJ2ZGF0YShwZGV2LCBkZXYpOw0KPiA+ICAJcG1fcnVudGltZV9lbmFi
-bGUoJnBkZXYtPmRldik7DQo=
+
+
+On 12/19/2025 2:58 PM, Songwei Chai wrote:
+> Add driver to support device TGU (Trigger Generation Unit).
+> TGU is a Data Engine which can be utilized to sense a plurality of
+> signals and create a trigger into the CTI or generate interrupts to
+> processors. Add probe/enable/disable functions for tgu.
+> 
+> Signed-off-by: Songwei Chai <songwei.chai@oss.qualcomm.com>
+> ---
+>   .../ABI/testing/sysfs-bus-amba-devices-tgu    |   9 +
+>   drivers/Makefile                              |   1 +
+>   drivers/hwtracing/Kconfig                     |   2 +
+>   drivers/hwtracing/qcom/Kconfig                |  18 ++
+>   drivers/hwtracing/qcom/Makefile               |   3 +
+>   drivers/hwtracing/qcom/tgu.c                  | 178 ++++++++++++++++++
+>   drivers/hwtracing/qcom/tgu.h                  |  51 +++++
+>   7 files changed, 262 insertions(+)
+>   create mode 100644 Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
+>   create mode 100644 drivers/hwtracing/qcom/Kconfig
+>   create mode 100644 drivers/hwtracing/qcom/Makefile
+>   create mode 100644 drivers/hwtracing/qcom/tgu.c
+>   create mode 100644 drivers/hwtracing/qcom/tgu.h
+> 
+> diff --git a/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu b/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
+> new file mode 100644
+> index 000000000000..24dcdf1d70cc
+> --- /dev/null
+> +++ b/Documentation/ABI/testing/sysfs-bus-amba-devices-tgu
+> @@ -0,0 +1,9 @@
+> +What:		/sys/bus/amba/devices/<tgu-name>/enable_tgu
+> +Date:		December 2025
+> +KernelVersion	6.19
+> +Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Songwei Chai <songwei.chai@oss.qualcomm.com>
+> +Description:
+> +		(RW) Set/Get the enable/disable status of TGU
+> +		Accepts only one of the 2 values -  0 or 1.
+> +		0 : disable TGU.
+> +		1 : enable TGU.
+> diff --git a/drivers/Makefile b/drivers/Makefile
+> index ccc05f1eae3e..9608a3debb1f 100644
+> --- a/drivers/Makefile
+> +++ b/drivers/Makefile
+> @@ -177,6 +177,7 @@ obj-$(CONFIG_RAS)		+= ras/
+>   obj-$(CONFIG_USB4)		+= thunderbolt/
+>   obj-$(CONFIG_CORESIGHT)		+= hwtracing/coresight/
+>   obj-y				+= hwtracing/intel_th/
+> +obj-y				+= hwtracing/qcom/
+>   obj-$(CONFIG_STM)		+= hwtracing/stm/
+>   obj-$(CONFIG_HISI_PTT)		+= hwtracing/ptt/
+>   obj-y				+= android/
+> diff --git a/drivers/hwtracing/Kconfig b/drivers/hwtracing/Kconfig
+> index 911ee977103c..8a640218eed8 100644
+> --- a/drivers/hwtracing/Kconfig
+> +++ b/drivers/hwtracing/Kconfig
+> @@ -7,4 +7,6 @@ source "drivers/hwtracing/intel_th/Kconfig"
+>   
+>   source "drivers/hwtracing/ptt/Kconfig"
+>   
+> +source "drivers/hwtracing/qcom/Kconfig"
+> +
+>   endmenu
+> diff --git a/drivers/hwtracing/qcom/Kconfig b/drivers/hwtracing/qcom/Kconfig
+> new file mode 100644
+> index 000000000000..d6f6d4b0f28e
+> --- /dev/null
+> +++ b/drivers/hwtracing/qcom/Kconfig
+> @@ -0,0 +1,18 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +#
+> +# QCOM specific hwtracing drivers
+> +#
+> +menu "Qualcomm specific hwtracing drivers"
+> +
+> +config QCOM_TGU
+> +	tristate "QCOM Trigger Generation Unit driver"
+
+TGU is working as the helper device of the TPDM, can we say:
+
+select CORESIGHT_TPDM
+
+
+> +	help
+> +	  This driver provides support for Trigger Generation Unit that is
+> +	  used to detect patterns or sequences on a given set of signals.
+> +	  TGU is used to monitor a particular bus within a given region to
+> +	  detect illegal transaction sequences or slave responses. It is also
+> +	  used to monitor a data stream to detect protocol violations and to
+> +	  provide a trigger point for centering data around a specific event
+> +	  within the trace data buffer.
+> +
+> +endmenu
+> diff --git a/drivers/hwtracing/qcom/Makefile b/drivers/hwtracing/qcom/Makefile
+> new file mode 100644
+> index 000000000000..5a0a868c1ea0
+> --- /dev/null
+> +++ b/drivers/hwtracing/qcom/Makefile
+> @@ -0,0 +1,3 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +
+> +obj-$(CONFIG_QCOM_TGU) += tgu.o
+> diff --git a/drivers/hwtracing/qcom/tgu.c b/drivers/hwtracing/qcom/tgu.c
+> new file mode 100644
+> index 000000000000..dbd1acbd2fa5
+> --- /dev/null
+> +++ b/drivers/hwtracing/qcom/tgu.c
+> @@ -0,0 +1,178 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All rights reserved.
+
+Please update the copyright.
+Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+
+same for other new created files.
+
+> + */
+> +
+> +#include <linux/amba/bus.h>
+> +#include <linux/device.h>
+> +#include <linux/err.h>
+> +#include <linux/io.h>
+> +#include <linux/kernel.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/pm_runtime.h>
+> +
+> +#include "tgu.h"
+> +
+> +static void tgu_write_all_hw_regs(struct tgu_drvdata *drvdata)
+> +{
+> +	TGU_UNLOCK(drvdata->base);
+> +	/* Enable TGU to program the triggers */
+> +	writel(1, drvdata->base + TGU_CONTROL);
+> +	TGU_LOCK(drvdata->base);
+> +}
+> +
+> +static int tgu_enable(struct device *dev)
+> +{
+> +	struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
+> +
+> +	guard(spinlock)(&drvdata->lock);
+> +	if (drvdata->enable)
+> +		return -EBUSY;
+> +
+> +	tgu_write_all_hw_regs(drvdata);
+> +	drvdata->enable = true;
+> +
+> +	return 0;
+> +}
+> +
+> +static int tgu_disable(struct device *dev)
+
+void is better as the return value always 0?
+
+> +{
+> +	struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
+> +
+> +	guard(spinlock)(&drvdata->lock);
+> +	if (drvdata->enable) {
+> +		TGU_UNLOCK(drvdata->base);
+> +		writel(0, drvdata->base + TGU_CONTROL);
+> +		TGU_LOCK(drvdata->base);
+> +
+> +		drvdata->enable = false;
+> +	}
+> +	return 0;
+> +}
+> +
+> +static ssize_t enable_tgu_show(struct device *dev,
+> +				struct device_attribute *attr, char *buf)
+> +{
+> +	bool enabled;
+> +	struct tgu_drvdata *drvdata = dev_get_drvdata(dev);
+> +
+> +	guard(spinlock)(&drvdata->lock);
+> +	enabled = drvdata->enable;
+> +
+> +	return sysfs_emit(buf, "%d\n", enabled);
+
+Remove enabled with below:
+
+return sysfs_emit(buf, "%d\n", (int)drvdata->enable);
+
+It may suffer a warning during compile without cast?
+
+> +}
+> +
+> +/* enable_tgu_store - Configure Trace and Gating Unit (TGU) triggers. */
+> +static ssize_t enable_tgu_store(struct device *dev,
+> +				struct device_attribute *attr,
+> +				const char *buf,
+> +				size_t size)
+> +{
+> +	int ret = 0;
+> +	unsigned long val;
+
+Prefer inverse christmas tree order
+
+> +
+> +	ret = kstrtoul(buf, 0, &val);
+> +	if (ret)
+> +		return ret;
+
+if (kstrtoul(buf, 0, &val)
+	return -EINVAL;
+
+> +
+> +	if (val) {
+> +		ret = pm_runtime_resume_and_get(dev);
+> +		if (ret)
+> +			return ret;
+> +		ret = tgu_enable(dev);
+> +		if (ret)
+> +			pm_runtime_put(dev);
+
+		if (ret) {
+			pm_runtime_put(dev);
+			return ret;
+		}
+
+
+> +	} else {
+> +		ret = tgu_disable(dev);
+
+the return value here is 0, we can just ignore it, see previous comment.
+
+> +		pm_runtime_put(dev);
+> +	}
+> +
+> +	if (ret)
+> +		return ret;
+
+Remove if here.
+
+> +	return size;
+> +}
+> +static DEVICE_ATTR_RW(enable_tgu);
+> +
+> +static struct attribute *tgu_common_attrs[] = {
+> +	&dev_attr_enable_tgu.attr,
+> +	NULL,
+> +};
+> +
+> +static const struct attribute_group tgu_common_grp = {
+> +	.attrs = tgu_common_attrs,
+> +	NULL,
+> +};
+> +
+> +static const struct attribute_group *tgu_attr_groups[] = {
+> +	&tgu_common_grp,
+> +	NULL,
+> +};
+> +
+> +static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
+> +{
+> +	struct device *dev = &adev->dev;
+> +	struct tgu_drvdata *drvdata;
+> +	int ret;
+> +
+> +	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
+> +	if (!drvdata)
+> +		return -ENOMEM;
+> +
+> +	drvdata->dev = &adev->dev;
+> +	dev_set_drvdata(dev, drvdata);
+> +
+> +	drvdata->base = devm_ioremap_resource(dev, &adev->res);
+> +	if (IS_ERR(drvdata->base))
+> +		return PTR_ERR(drvdata->base);
+> +
+> +	spin_lock_init(&drvdata->lock);
+> +
+> +	ret = sysfs_create_groups(&dev->kobj, tgu_attr_groups);
+> +	if (ret) {
+> +		dev_err(dev, "failed to create sysfs groups: %d\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	drvdata->enable = false;
+
+default false, no need.
+
+> +
+> +	pm_runtime_put(&adev->dev);
+> +	return 0;
+> +}
+> +
+> +static void tgu_remove(struct amba_device *adev)
+> +{
+> +	struct device *dev = &adev->dev;
+> +
+> +	sysfs_remove_groups(&dev->kobj, tgu_attr_groups);
+> +
+> +	tgu_disable(dev);
+> +	dev_set_drvdata(dev, NULL);
+
+no need. remove will release the allocated memory.
+
+> +}
+> +
+> +static const struct amba_id tgu_ids[] = {
+> +	{
+> +		.id = 0x000f0e00,
+> +		.mask = 0x000fffff,
+> +	},
+> +	{ 0, 0, NULL },
+> +};
+> +
+> +MODULE_DEVICE_TABLE(amba, tgu_ids);
+> +
+> +static struct amba_driver tgu_driver = {
+> +	.drv = {
+> +		.name = "qcom-tgu",
+> +		.suppress_bind_attrs = true,
+> +	},
+> +	.probe = tgu_probe,
+> +	.remove = tgu_remove,
+> +	.id_table = tgu_ids,
+> +};
+> +
+> +module_amba_driver(tgu_driver);
+> +
+> +MODULE_AUTHOR("Songwei Chai <songwei.chai@oss.qualcomm.com>");
+> +MODULE_AUTHOR("Jinlong Mao <jinlong.mao@oss.qualcomm.com>");
+> +MODULE_DESCRIPTION("Qualcomm Trigger Generation Unit driver");
+> +MODULE_LICENSE("GPL");
+> diff --git a/drivers/hwtracing/qcom/tgu.h b/drivers/hwtracing/qcom/tgu.h
+> new file mode 100644
+> index 000000000000..abc732f91dfc
+> --- /dev/null
+> +++ b/drivers/hwtracing/qcom/tgu.h
+> @@ -0,0 +1,51 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All rights reserved.
+
+Please update the copyright.
+Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
+
+> + */
+> +
+> +#ifndef _QCOM_TGU_H
+> +#define _QCOM_TGU_H
+> +
+> +/* Register addresses */
+> +#define TGU_CONTROL 0x0000
+
+#define TGU_CONTROL 0
+
+Thanks,
+Jie
+
+> +#define TGU_LAR		0xfb0
+> +#define TGU_UNLOCK_OFFSET	0xc5acce55
+> +
+> +static inline void TGU_LOCK(void __iomem *addr)
+> +{
+> +	do {
+> +		/* Wait for things to settle */
+> +		mb();
+> +		writel_relaxed(0x0, addr + TGU_LAR);
+> +	} while (0);
+> +}
+> +
+> +static inline void TGU_UNLOCK(void __iomem *addr)
+> +{
+> +	do {
+> +		writel_relaxed(TGU_UNLOCK_OFFSET, addr + TGU_LAR);
+> +		/* Make sure everyone has seen this */
+> +		mb();
+> +	} while (0);
+> +}
+> +
+> +/**
+> + * struct tgu_drvdata - Data structure for a TGU (Trigger Generator Unit)
+> + * @base: Memory-mapped base address of the TGU device
+> + * @dev: Pointer to the associated device structure
+> + * @lock: Spinlock for handling concurrent access
+> + * @enable: Flag indicating whether the TGU device is enabled
+> + *
+> + * This structure defines the data associated with a TGU device,
+> + * including its base address, device pointers, clock, spinlock for
+> + * synchronization, trigger data pointers, maximum limits for various
+> + * trigger-related parameters, and enable status.
+> + */
+> +struct tgu_drvdata {
+> +	void __iomem *base;
+> +	struct device *dev;
+> +	spinlock_t lock;
+> +	bool enable;
+> +};
+> +
+> +#endif
+
 
