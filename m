@@ -4,61 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 992B7E784A6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Dec 2025 08:36:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA12CE7AD40
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Dec 2025 08:47:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nlAWMHGfS2snrlMgavSuVfao2sue3av9XJuynhxfd+M=; b=Q/wqF2KXWfEyi3YJKarSOqilV4
-	DBqjqcOUR9wtZ5e2Vpp3KtW4iX8KEM475h2T3aq9hJvLgu3EEMD776htmeltq1K7KIapmi7mfEXhV
-	ceDNrm7//eD9YIzOlcmCfmOeq/CopxUHRyhDpdjt1/yRONnddEmjqC7TrZKEGEIGyD6Quc8HZDSEK
-	0e1S9cMYtdMJ+l58CTShwnvjbdnUDRFHj0gy/nfz8U761QOToQxGL+3IiJYI6ErhPPn5qJZ4pp2T0
-	KyUWBNO37165x2mNyngOJrkt4bPVQu9cPJc/4TERSFA64KbJ+unudRosV8ZM9btanS7fthgHvw5UN
-	Kou2QNKw==;
+	bh=I4T6YkdPCecWVX/e/FMqAmBbr4sJcT4HmSSEG6dcsZM=; b=2BPNvOpl9cr4CierDm5T7BG9OT
+	9QKAEc1ii6F/iZbz+3buW9NUGw9OsTvZvAgPPRgEo3kgncact+Aozn4DhFEXKHAyT0Kn8VVjNhZpy
+	+icjJLwbcFZ77gXdX0caohr2kc7RKM6cfHxKp269LJH8Oaxtc1syfHAVNk8oAnLqgvw7+TaVC4kT/
+	1wbGYQTgZgvJ45W45bgOcxgSNNMbOnh68CNyK7yFCxDft1Kbpvea4z76X6W0GOGJF4i1PQtmae3Xn
+	e2lZDsW/OtjW3fbrPv7qszlnUqdV5E8JGZ3ox4kQ2tSAMihqr+JQ7Fqiah8gXic2DxHfj4pyXAXaj
+	TcFEKfqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYgpw-00000000EBF-2WLl;
-	Thu, 25 Dec 2025 08:36:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vYh0l-00000000EbQ-28Hf;
+	Thu, 25 Dec 2025 08:47:55 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYgpt-00000000EAp-3oEm;
-	Thu, 25 Dec 2025 08:36:43 +0000
+	id 1vYh0j-00000000Eb3-3EWg
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 25 Dec 2025 08:47:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C0D5B41926;
-	Thu, 25 Dec 2025 08:36:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3F42C4CEF1;
-	Thu, 25 Dec 2025 08:36:35 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9C36B42A1F;
+	Thu, 25 Dec 2025 08:47:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C230FC4CEF1;
+	Thu, 25 Dec 2025 08:47:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766651800;
-	bh=+LTmmExZhYIq3wRPRw18QmDP2pXk7ZkD9j48bgY5Hgs=;
+	s=k20201202; t=1766652472;
+	bh=tGzoiwIypyZ1iLWL1dGZAiulpww0GETNLT0hTiOL9vU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Y49kadE8vK3VRthElztNnUF2LI97elLlbCHeguKGaq0lZhke/QNdqrZ8ckdZYU7OF
-	 Vh9b3NA6JEWJXHG8SMmP/59gZ7hMBqSNEolfLd14p+KL/iepV6MSzvEZjFyQFDFPC3
-	 9TX7QnsbDclAgVY18zA094ew0RCsSoFSl/oH4sEMiBzhyrwPeuZwofUeFCD3LU0Rm1
-	 BabJZdvQMNdtZs5wlrN/JDVR3Fx+JYKyMw8NRoX0yBGJmMGrZ7Lv2DQW7TdhkG4vIG
-	 ct/QP2lg+Lwe6RdCIitD9pU+fT4PMEjD9BP2+2OUF5p50kEkERMV3lJ25hnpyzP1Gm
-	 Pa+j1M3K5vHJg==
-Message-ID: <f58ccc03-286e-4ca0-acc4-6c6474a9df5c@kernel.org>
-Date: Thu, 25 Dec 2025 09:36:32 +0100
+	b=rSQfAtpu1Tvje/pcoez2UitanssUVwM5Cw1SU9kJa9Dw+XhVX2F+U9GlYoKtGJVbX
+	 yg+sXK4KfXtEVLU+r7yvHaiA8uPZaF4WDYdaALbqFC8+I2x4MDvryas+cJma11Ktgl
+	 bD/8n2VD+10tm2Qlrlbp4Uz5mFXnFttIOL5jxnpnZbqe/hojpQ/ctBkpk4ebOK7p53
+	 Jk0AxOaAoVTP73KCHaPr876LRnUVqNn4CHB1Bz/f24N2otmhGdG08GivmZk4jTOXzA
+	 kjH/eT9zXi3CGjKZ95ockcCO0V8gAcyf/rnmeM89AJXIW3sf8z5SUCO7F2KFrsQEdq
+	 HKbnq3pWlXfqg==
+Message-ID: <d210552f-c8bf-4084-9317-b743075d9946@kernel.org>
+Date: Thu, 25 Dec 2025 09:47:34 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 6/7] dt-bindings: pinctrl: rockchip: Add RMIO
- controller binding
-To: Ye Zhang <ye.zhang@rock-chips.com>,
- Linus Walleij <linus.walleij@linaro.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, linux-gpio@vger.kernel.org,
+Subject: Re: [PATCH v3 01/15] include: dt-bindings: add LAN969x clock bindings
+To: Robert Marko <robert.marko@sartura.hr>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
+ claudiu.beznea@tuxon.dev, herbert@gondor.apana.org.au, davem@davemloft.net,
+ vkoul@kernel.org, andi.shyti@kernel.org, lee@kernel.org,
+ andrew+netdev@lunn.ch, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, linusw@kernel.org, Steen.Hegelund@microchip.com,
+ daniel.machon@microchip.com, UNGLinuxDriver@microchip.com,
+ olivia@selenic.com, radu_nicolae.pirea@upb.ro, richard.genoud@bootlin.com,
+ gregkh@linuxfoundation.org, jirislaby@kernel.org, broonie@kernel.org,
+ mturquette@baylibre.com, sboyd@kernel.org, lars.povlsen@microchip.com,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- tao.huang@rock-chips.com
-References: <20251216112053.1927852-1-ye.zhang@rock-chips.com>
- <20251216112053.1927852-7-ye.zhang@rock-chips.com>
- <5154ca76-0f23-4b52-8e6d-07005c52ac6d@kernel.org>
- <8e126c63-1388-40ff-9046-818f7a8c969f@rock-chips.com>
+ linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
+ dmaengine@vger.kernel.org, linux-i2c@vger.kernel.org,
+ netdev@vger.kernel.org, linux-gpio@vger.kernel.org,
+ linux-spi@vger.kernel.org, linux-serial@vger.kernel.org,
+ linux-usb@vger.kernel.org, linux-clk@vger.kernel.org, luka.perkov@sartura.hr
+References: <20251223201921.1332786-1-robert.marko@sartura.hr>
+ <20251223201921.1332786-2-robert.marko@sartura.hr>
+ <20251224-berserk-mackerel-of-snow-4cae54@quoll>
+ <CA+HBbNGym6Q9b166n-P=h_JssOHm0yfyL73JZ+G9P81muK=g4A@mail.gmail.com>
+ <78bf252c-fd5e-4a36-b1a3-ca8ed26fde7a@kernel.org>
+ <CA+HBbNG+ZVD6grGDp32Ninx7H1AyEbGvP0nwc0zUv94tOV8hYg@mail.gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,13 +115,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <8e126c63-1388-40ff-9046-818f7a8c969f@rock-chips.com>
+In-Reply-To: <CA+HBbNG+ZVD6grGDp32Ninx7H1AyEbGvP0nwc0zUv94tOV8hYg@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251225_003642_089727_C0683CB3 
-X-CRM114-Status: UNSURE (   8.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251225_004753_863478_869E1AD5 
+X-CRM114-Status: GOOD (  14.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,33 +135,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/12/2025 04:25, Ye Zhang wrote:
->>> +/* RMIO function definition */
->>> +#define RMIO_UART1_TX			1
->>> +#define RMIO_UART1_RX			2
->>> +#define RMIO_UART2_TX			3
->>> +#define RMIO_UART2_RX			4
->>> +#define RMIO_UART3_TX			5
->>> +#define RMIO_UART3_RX			6
->>> +#define RMIO_UART3_CTSN			7
->>> +#define RMIO_UART3_RTSN			8
->>> +#define RMIO_UART4_TX			9
->>> +#define RMIO_UART4_RX			10
->>> +#define RMIO_UART4_CTSN			11
->>> +#define RMIO_UART4_RTSN			12
->>> +#define RMIO_MIPITE			13
->>> +#define RMIO_CLK_32K			14
->>> +#define RMIO_I2C0_SCL			15
->>> +#define RMIO_I2C0_SDA			16
+On 24/12/2025 15:01, Robert Marko wrote:
+> On Wed, Dec 24, 2025 at 2:05 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
 >>
->> I do not see how this is a binding. Please point me to the patch using
->> this in the driver.
-> These macros are intended to be used in the Device Tree sources to 
-> improve readability, avoiding “magic numbers” for the RMIO function IDs.
+>> On 24/12/2025 11:30, Robert Marko wrote:
+>>> On Wed, Dec 24, 2025 at 11:21 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>>>>
+>>>> On Tue, Dec 23, 2025 at 09:16:12PM +0100, Robert Marko wrote:
+>>>>> Add the required LAN969x clock bindings.
+>>>>
+>>>> I do not see clock bindings actually here. Where is the actual binding?
+>>>> Commit msg does not help me at all to understand why you are doing this
+>>>> without actual required bindings.
+>>>
+>>> I guess it is a bit confusing, there is no schema here, these are the
+>>> clock indexes that
+>>> reside in dt-bindings and are used by the SoC DTSI.
+>>
+>> I understand as not used by drivers? Then no ABI and there is no point
+>> in putting them into bindings.
+> 
+> It is not included by the driver directly, but it requires these exact
+> indexes to be passed
+> so its effectively ABI.
 
-That was not my question. Read again what I asked.
+How it requires the exact index? In what way? I do not see anything in
+the gck driver using/relying on these values. Nothing. Please point me
+to the line which directly uses these values.... or how many times I
+will need to write this is not ABI?
 
-So not a binding, remove.
 
 
 Best regards,
