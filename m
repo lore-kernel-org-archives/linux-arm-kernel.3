@@ -4,93 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CB93E784A9
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Dec 2025 00:34:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 125E4E776FC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Dec 2025 01:02:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tvJrGIx5xr6bd4apb7bOhjYC7gT8f2fehBHgHwpjp9Q=; b=3V6Un/8oDDvwqD6p0UXXq7t3Ll
-	56MEXHlWgMwx6314rNnzUFiMQk4yB12pPJLSNfrDZmkbWP/rZJqIq1wUUoHOWTGyb8IIDuKS+taNq
-	gAFhxCeRQL7at/qe2bqOhtzQd/FcuU+1nXU5BcvtSmRA33vwgj5vjfKIlC0AmM4TqWQtPu6v7PD1h
-	j/xOUT6wDn0nZFX3r/VqTDkaB/9CWxDqvQeonMhOtEVcjlIdnm7FWX/GDes82tazPHAlT5Kp+DsqC
-	CmvESxcAOEIj3rl10ozvxTmeUORvZ8fPHyhUsZDRDGdBbHtACfeehKg0asiygNQY5gYs/cHm3XCv/
-	C8mdaJNQ==;
+	bh=2fy7EXMdCyEH27NzJMvO2tdqkUATW53yXrUXnni0WAs=; b=LXedxQFS3cVmIak9v+3d+tZ0ee
+	Peas7UmgvHRv4IutxDnHR8cYK+ysTcMB1I7LhQzRA/gdXo3n4Og83vM8nFZLCNrj62JDTP6Quboze
+	RZiW73ilFHht8YP9czmjwArSctlDH0xAhfyRijdYsgO614sycAzhCiq4lQiATTuMtp6j6p8G/5YTK
+	kPxjdTjsKTwtoBPZVQp49hdOkJvyvJkCunZfo6bHFwGCv2exhCaRuh0XyXmJ/1+QxLEn6S7ITEqUX
+	G7/WpOh6Q3dvfuv079PxOl/NkhFwBSghj4zAwL/Ny9GXh5G/TPJ6vnPsKq6FpoSncza66CzcWGnZv
+	zZ/AynAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYZIp-0000000HX0K-20kT;
-	Thu, 25 Dec 2025 00:34:03 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1vYZjs-0000000HXwa-1pI8;
+	Thu, 25 Dec 2025 01:02:00 +0000
+Received: from out30-132.freemail.mail.aliyun.com ([115.124.30.132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYZIn-0000000HWzb-1WJJ
+	id 1vYZjo-0000000HXvb-24Bg
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Dec 2025 00:34:02 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2a0d52768ccso78266555ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 24 Dec 2025 16:34:00 -0800 (PST)
+	Thu, 25 Dec 2025 01:01:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1766622840; x=1767227640; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tvJrGIx5xr6bd4apb7bOhjYC7gT8f2fehBHgHwpjp9Q=;
-        b=z/eR8eSkvqRQiui7LhPIzJ0UmKNeGyHmN3/rGautvhUhkxuAuL9CGoOFzPsM0fc6Dm
-         9EZHhnsCkWHjhd0YRaHHHB+dWbjDGhbD1+z9ArCZUR8w9PSqFBbDT3qPADShbJv000OB
-         k8DX9+jlPP60wZGmiwqgii3stF77PJzC5QnEQOEsJP4FuqTPqqR33Jf3PCnVIa59QYpT
-         0Mc44/ujp2zDNrB2iuS+CXXwkHFKJP8i6wXDBiRO6pxe93T39n7SVEH5heL/qeE2CU6t
-         0ajWxGFxcOn+V2QEstTnHvZfx87tEytCtftAn0Eh7GRMoIVQsXYleddAGywi5aiBba3o
-         uJCw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766622840; x=1767227640;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=tvJrGIx5xr6bd4apb7bOhjYC7gT8f2fehBHgHwpjp9Q=;
-        b=SSdKwkGtdlONr3W7tmP2/1A8XctvwlfuLggVyKeemZ/dTs3CU91O676BYIdTRdyUs4
-         4CYp9Z71H1MfeNhChqAaOHDCeLD6kQwvJ1JFfUkZ/z8hnI0DxyW9igIoEH9sQAb8gwh/
-         ikUHJCyW16PvTflTLlfMtyeLIIqJVQsrrXG6noX9QRbAZ+sN/MrAK0cBopRVEkUs7QUi
-         eN/sBV16XSLvYs+x88VlRtAFFct/AScMZem/03qlP/sFcTADPm2CC/xX1aLAwZ3A3J0k
-         ggEoY64V7kPsa5Bfz50oAPaSZ8QQ4As2BDcOdLolhtgzn/arzSABF8EZRZeJ0/Sh2gK/
-         AWmQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX7zHoq+DDSq2SNiX4HWV85U/U4zZy1+bezpzebY3E5T3d3viDNYAysyJLNDtbpI9n5E2oQM1yaWdz0X3RVxi9b@lists.infradead.org
-X-Gm-Message-State: AOJu0YxxMGi0T+3LbalftF0kS2pAj7RyHOLWn6bmyMUBmhay6pQw8/vT
-	mUsrAEA+td9zxVI85d27exATzfdVGsMvKDDUSYeuoob8FlSOUySWNjjpiVMBqD+ZbumWrmhGrqi
-	pYq66cCQcn04qvVZa8IEKWpg/c6D/cQy0dvK2ZDUFcv9w0ZjyiCkwGtW5
-X-Gm-Gg: AY/fxX40GnxMCa4EmHBiX7RHyfDRr4VK6aVFHhVnk826DKthQizwvB1hvG+uZ2MWgO/
-	SuIu8nGb3i6MC+4MI8g1OQRCiuT+OK5IkqtOqAMCzNGOc1AEheeoTCP5mPIVQSn6K5I4zJ8x7DT
-	c1NIQN8OzIv5ZKyGYPJFoo32Xl6tLt5wHLmwk3yB4aKxq3q/UMlRQsA6w+NCJrSdP4LcDT4cFr1
-	ETwqNNWO5prJX53T4ENYZU5JhQ9i+AeuqRfEXlx+fZO69FIQJ0hdJpvTjpbb2n2jbLkl/WbaE30
-	1PJVQFcATsgzmcIyM3xgIRfiQdh2
-X-Google-Smtp-Source: AGHT+IGCFNQwV2B9gW85beRpO1nk7W/XQi6wwn5DJO7Zav/pmROHDw2dRc82S2a7AH7ihqx3VW/rLaLZrRoY8NOchKM=
-X-Received: by 2002:a05:7022:3718:b0:119:e56b:9593 with SMTP id
- a92af1059eb24-121722ed87cmr19469821c88.24.1766622839122; Wed, 24 Dec 2025
- 16:33:59 -0800 (PST)
+	d=linux.alibaba.com; s=default;
+	t=1766624511; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=2fy7EXMdCyEH27NzJMvO2tdqkUATW53yXrUXnni0WAs=;
+	b=O9rb/vjUa6PQXhvvRh88c1Wa13z4ve+pWa8ozdQC7pcpnom5f2/EfVdrlbfwdMiqPnV52582IITf+3MokTssAn8JfIa0+0A9Rr+Z4Po0VrqtLxvQu1qcvsWim14kVkWARzchu+ZN/dmYqduWH/mF2fv4yLcXaHzGia7ymnpU8wo=
+Received: from 30.74.144.121(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0Wvci210_1766624507 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Thu, 25 Dec 2025 09:01:48 +0800
+Message-ID: <43b6ef51-c88f-4b0c-b512-c7195afdd31b@linux.alibaba.com>
+Date: Thu, 25 Dec 2025 09:01:47 +0800
 MIME-Version: 1.0
-References: <20251222-phyb4-v9-0-82c0b671b070@google.com> <20251222-phyb4-v9-2-82c0b671b070@google.com>
- <aUqhbVFHczpL9qnL@vaman> <CA+zupgxP+_2iRYABhPM1OOJtRdkrcOvrsKH=Sxk45XwsiamzTw@mail.gmail.com>
- <aUt6hobN9DPUGbpz@vaman>
-In-Reply-To: <aUt6hobN9DPUGbpz@vaman>
-From: Roy Luo <royluo@google.com>
-Date: Wed, 24 Dec 2025 16:33:21 -0800
-X-Gm-Features: AQt7F2r_cQFC2N0eTEOR5BjjKp383NkfQ5rWibUZL_Pyz-eoT5c0f_oTz4h86S8
-Message-ID: <CA+zupgwX_zN-Mge01Ye1_J+rwy0yEQdww1+bPo8YFWnfx68n5Q@mail.gmail.com>
-Subject: Re: [PATCH v9 2/2] phy: Add Google Tensor SoC USB PHY driver
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Peter Griffin <peter.griffin@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Badhri Jagan Sridharan <badhri@google.com>, 
-	Doug Anderson <dianders@google.com>, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/5] mm: rmap: support batched checks of the references
+ for large folios
+To: Ryan Roberts <ryan.roberts@arm.com>, akpm@linux-foundation.org,
+ david@kernel.org, catalin.marinas@arm.com, will@kernel.org
+Cc: lorenzo.stoakes@oracle.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
+ rppt@kernel.org, surenb@google.com, mhocko@suse.com, riel@surriel.com,
+ harry.yoo@oracle.com, jannh@google.com, willy@infradead.org,
+ baohua@kernel.org, dev.jain@arm.com, linux-mm@kvack.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <cover.1766455377.git.baolin.wang@linux.alibaba.com>
+ <e9ff5fa689740f3b6f3ed1c1ec0e3244f20c1f06.1766455378.git.baolin.wang@linux.alibaba.com>
+ <ec49f0fe-9df8-4762-b315-240cbb1ed3ce@arm.com>
+From: Baolin Wang <baolin.wang@linux.alibaba.com>
+In-Reply-To: <ec49f0fe-9df8-4762-b315-240cbb1ed3ce@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251224_163401_423786_D06C2AB5 
-X-CRM114-Status: GOOD (  21.90  )
+X-CRM114-CacheID: sfid-20251224_170157_025110_B76F2FE3 
+X-CRM114-Status: GOOD (  21.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,80 +72,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 23, 2025 at 9:30=E2=80=AFPM Vinod Koul <vkoul@kernel.org> wrote=
-:
->
-> On 23-12-25, 09:53, Roy Luo wrote:
-> > On Tue, Dec 23, 2025 at 6:04=E2=80=AFAM Vinod Koul <vkoul@kernel.org> w=
-rote:
-> > >
-> > > On 22-12-25, 21:31, Roy Luo wrote:
->
-> > > > +struct google_usb_phy {
-> > > > +     struct device *dev;
-> > > > +     struct regmap *usb_cfg_regmap;
-> > > > +     unsigned int usb2_cfg_offset;
-> > > > +     void __iomem *usbdp_top_base;
-> > > > +     struct google_usb_phy_instance insts[GOOGLE_USB_PHY_NUM];
-> > >
-> > > so you have an array for one phy?
-> >
-> > While the current patch only supports usb2, I used an array
-> > to simplify future support for usb3 and DP. I understand this
-> > might seem like over-engineering for now, and we could
-> > certainly wait to implement the array until the second phy
-> > support is added. I=E2=80=99m happy to move away from array if
-> > you=E2=80=99d prefer a simpler approach for this iteration.
->
-> Rather than do array, allocate mem as probe based on how many phys will
-> be there and use that. That would be a better approach than static
-> allocation here
+Hi Ryan,
 
-Make sense, will change it in the next version.
+On 2025/12/24 21:24, Ryan Roberts wrote:
+> On 23/12/2025 05:48, Baolin Wang wrote:
+>> Currently, folio_referenced_one() always checks the young flag for each PTE
+>> sequentially, which is inefficient for large folios. This inefficiency is
+>> especially noticeable when reclaiming clean file-backed large folios, where
+>> folio_referenced() is observed as a significant performance hotspot.
+>>
+>> Moreover, on Arm64 architecture, which supports contiguous PTEs, there is already
+>> an optimization to clear the young flags for PTEs within a contiguous range.
+>> However, this is not sufficient. We can extend this to perform batched operations
+>> for the entire large folio (which might exceed the contiguous range: CONT_PTE_SIZE).
+>>
+>> Introduce a new API: clear_flush_young_ptes() to facilitate batched checking
+>> of the young flags and flushing TLB entries, thereby improving performance
+>> during large folio reclamation. And it will be overridden by the architecture
+>> that implements a more efficient batch operation in the following patches.
+>>
+>> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+> 
+> With the 2 niggles below addressed:
+> 
+> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
 
-Thanks,
-Roy
+Thanks.
 
->
-> > > > +static int google_usb2_phy_exit(struct phy *_phy)
-> > > > +{
-> > > > +     struct google_usb_phy_instance *inst =3D phy_get_drvdata(_phy=
-);
-> > > > +     struct google_usb_phy *gphy =3D to_google_usb_phy(inst);
-> > > > +     u32 reg;
-> > > > +
-> > > > +     dev_dbg(gphy->dev, "exiting usb2 phy\n");
-> > > > +
-> > > > +     guard(mutex)(&gphy->phy_mutex);
-> > > > +
-> > > > +     regmap_read(gphy->usb_cfg_regmap, gphy->usb2_cfg_offset + USB=
-CS_USB2PHY_CFG21_OFFSET, &reg);
-> > > > +     reg &=3D ~USBCS_USB2PHY_CFG21_PHY_ENABLE;
-> > > > +     regmap_write(gphy->usb_cfg_regmap, gphy->usb2_cfg_offset + US=
-BCS_USB2PHY_CFG21_OFFSET, reg);
-> > > > +
-> > > > +     reset_control_bulk_assert(inst->num_rsts, inst->rsts);
-> > > > +     clk_bulk_disable_unprepare(inst->num_clks, inst->clks);
-> > > > +
-> > > > +     return 0;
-> > > > +}
-> > > > +
-> > > > +static const struct phy_ops google_usb2_phy_ops =3D {
-> > > > +     .init           =3D google_usb2_phy_init,
-> > > > +     .exit           =3D google_usb2_phy_exit,
-> > > > +};
-> > >
-> > > Only two ops? I would expect more... No power_on/off or set_mode?
-> > >
-> > > --
-> > > ~Vinod
-> >
-> > No, configuring usb2 phy is pretty straightforward. The hardware
-> > does not distinguish between "initialized" and "powered on" states,
-> > it also does not distinguish phy mode.
->
-> ok
->
-> --
-> ~Vinod
+>> ---
+>>   include/linux/mmu_notifier.h |  9 +++++----
+>>   include/linux/pgtable.h      | 35 +++++++++++++++++++++++++++++++++++
+>>   mm/rmap.c                    | 29 +++++++++++++++++++++++++++--
+>>   3 files changed, 67 insertions(+), 6 deletions(-)
+>>
+>> diff --git a/include/linux/mmu_notifier.h b/include/linux/mmu_notifier.h
+>> index d1094c2d5fb6..dbbdcef4abf1 100644
+>> --- a/include/linux/mmu_notifier.h
+>> +++ b/include/linux/mmu_notifier.h
+>> @@ -515,16 +515,17 @@ static inline void mmu_notifier_range_init_owner(
+>>   	range->owner = owner;
+>>   }
+>>   
+>> -#define ptep_clear_flush_young_notify(__vma, __address, __ptep)		\
+>> +#define ptep_clear_flush_young_notify(__vma, __address, __ptep, __nr)	\
+> 
+> I think I previously suggested that this should be renamed to
+> clear_flush_young_ptes_notify() given that it is now a batch operation. Were
+> others against that or did you forget?
+
+Sorry, I missed this comment. Yes, sounds reasonable to me. Will do in 
+the next version.
+
+>>   ({									\
+>>   	int __young;							\
+>>   	struct vm_area_struct *___vma = __vma;				\
+>>   	unsigned long ___address = __address;				\
+>> -	__young = ptep_clear_flush_young(___vma, ___address, __ptep);	\
+>> +	unsigned int ___nr = __nr;					\
+>> +	__young = clear_flush_young_ptes(___vma, ___address, __ptep, ___nr);	\
+>>   	__young |= mmu_notifier_clear_flush_young(___vma->vm_mm,	\
+>>   						  ___address,		\
+>>   						  ___address +		\
+>> -							PAGE_SIZE);	\
+>> +						  ___nr * PAGE_SIZE);	\
+>>   	__young;							\
+>>   })
+>>   
+>> @@ -650,7 +651,7 @@ static inline void mmu_notifier_subscriptions_destroy(struct mm_struct *mm)
+>>   
+>>   #define mmu_notifier_range_update_to_read_only(r) false
+>>   
+>> -#define ptep_clear_flush_young_notify ptep_clear_flush_young
+>> +#define ptep_clear_flush_young_notify clear_flush_young_ptes
+>>   #define pmdp_clear_flush_young_notify pmdp_clear_flush_young
+>>   #define ptep_clear_young_notify ptep_test_and_clear_young
+>>   #define pmdp_clear_young_notify pmdp_test_and_clear_young
+>> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+>> index 2f0dd3a4ace1..fcf7a7820061 100644
+>> --- a/include/linux/pgtable.h
+>> +++ b/include/linux/pgtable.h
+>> @@ -1087,6 +1087,41 @@ static inline void wrprotect_ptes(struct mm_struct *mm, unsigned long addr,
+>>   }
+>>   #endif
+>>   
+>> +#ifndef clear_flush_young_ptes
+>> +/**
+>> + * clear_flush_young_ptes - Clear the access bit and perform a TLB flush for PTEs
+>> + *			    that map consecutive pages of the same folio.
+>> + * @vma: The virtual memory area the pages are mapped into.
+>> + * @addr: Address the first page is mapped at.
+>> + * @ptep: Page table pointer for the first entry.
+>> + * @nr: Number of entries to clear access bit.
+>> + *
+>> + * May be overridden by the architecture; otherwise, implemented as a simple
+>> + * loop over ptep_clear_flush_young().
+>> + *
+>> + * Note that PTE bits in the PTE range besides the PFN can differ. For example,
+>> + * some PTEs might be write-protected.
+>> + *
+>> + * Context: The caller holds the page table lock.  The PTEs map consecutive
+>> + * pages that belong to the same folio.  The PTEs are all in the same PMD.
+>> + */
+>> +static inline int clear_flush_young_ptes(struct vm_area_struct *vma,
+>> +					 unsigned long addr, pte_t *ptep,
+>> +					 unsigned int nr)
+>> +{
+>> +	int young;
+>> +
+>> +	young = ptep_clear_flush_young(vma, addr, ptep);
+>> +	while (--nr) {
+>> +		ptep++;
+>> +		addr += PAGE_SIZE;
+>> +		young |= ptep_clear_flush_young(vma, addr, ptep);
+>> +	}
+> 
+> I think it's better to avoid the two ptep_clear_flush_young() calls if we can.
+> Personally I think we should just go for the simple:
+> 
+> 	for (i = 0; i < nr; ++i, ++ptep, addr += PAGE_SIZE)
+> 		young |= ptep_clear_flush_young(vma, addr, ptep);
+
+ACK. Thanks for reviewing.
 
