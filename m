@@ -4,111 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04A9AE7AD44
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Dec 2025 12:25:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC3F8E7AD43
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Dec 2025 12:37:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ywW98XS6res9D7IMY0byEqLGrLNRur9ZyuhjcR6k7aQ=; b=UG3GDLr2mmpkr+/mSY21CPPbRD
-	nGPiYoX7LgxcYsyqnkz9elbdpR4GyZNCbW48pPAsvKNRgJXxFhZTjF8gsGhKcUAwKbzZgTtTAbY02
-	ZwHLYqa/jqRJkuL5+xYFAP8kY9hij42IfDhKD91K8UHz87hfCcdYPP8x7Lf9czy0IRLg7hrEy8AE8
-	JTtD2aVr+aCdltWfVrsLmy3T0WxCpgFuFla+vn1CcPi7pyoOLqfKuapQLhaHb3RwBJEk0fec+dGFA
-	1Y8QqiHHtCA7yia1fi5VNObFsiAE4JqZJIqh10dm6rUgR/9ftAV3BTDnNoZNwoo26U18EOQJ81Q1U
-	xlI+0pRg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
+	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=52OMyis1hK3e8tyxRKg13XnUv2UzYGhF2+CoNDgnfxk=; b=BbfUCdXtJ3DPYwsBY2Rkv2buID
+	4Fr4af6jKFSjW8n6bRH6YISFjvCOmQMLXekknCT9Us0doSQGx7nP9TMQ5DKPRycsOeH4tbWByNY8c
+	nrfc9DAmoP8XFN6YNev8BuzvysoR3n1+OVBsCpx2Ja69pk2DvGRTCLNk+y2rv5k7tPmY0aC1h7Xb9
+	mXlTacheG7X5Z688VRfxCy2C0NBEjMxupcxqkamfzGkACvjSLZUOo4pQKRSWqlDGTxl7mIGVqgQSX
+	LqyjYOfa5JBPuneTLCYdGFY5zykuF3OS5u6t1FeqlOg0Q7ANSgLjuOC0viOZGgnCdFFZHzAylzKMt
+	BdE4IvKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYkP7-00000000Odq-2wNI;
-	Thu, 25 Dec 2025 12:25:17 +0000
+	id 1vYkaU-00000000PDD-0SIl;
+	Thu, 25 Dec 2025 12:37:02 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYkP4-00000000OdR-37B8
+	id 1vYkaO-00000000PCk-3iE6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Dec 2025 12:25:16 +0000
+	Thu, 25 Dec 2025 12:36:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 86A2B43F74;
-	Thu, 25 Dec 2025 12:25:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2461DC4CEF1;
-	Thu, 25 Dec 2025 12:25:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 804AE43982;
+	Thu, 25 Dec 2025 12:36:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADC11C4CEF1;
+	Thu, 25 Dec 2025 12:36:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766665512;
-	bh=3q6AduS43sIgNwRnR7yCnvcTOf4iSDobbK49TGHtvf4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=k0DxF03nqojbdIzT6GY7zSe419S/Syk0ikEJHdpOLEs1zGVwViptNm19s68GsTBAr
-	 TALKXZ8lZaddybxXxUzmdwtBs49SpGSoHGWKTFZ+dk2df8cbBFMF0ta0KFKdxqG+Ga
-	 K876hjk0QDPCKIOMr4SZQBPqj9al3TaEY/WeZ+yNw7fROHcPVomzjXT5P0Gy+FniKq
-	 UIXa4l2hSZWWlbNXPiQ9wyMqNlZiq85K8Y5m7LblDhpVWBQE6p1pEvz2MZ4CI8RLyH
-	 0Hqj/PGKFzUzyrVRYk9QYKs43MUfOQIn/byQ0dJgMcE90eTpFcCATk2ef00cN6KXsa
-	 glInIznN1MElw==
-Message-ID: <fd068960-33ca-4a47-9850-fde41de18995@kernel.org>
-Date: Thu, 25 Dec 2025 13:25:07 +0100
+	s=k20201202; t=1766666215;
+	bh=WzoONx4GwRY0HIt+QGBq0NrV6ZYzdLYx41h6bExqSyo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GH64681eyxF/5e2195mhPnPO3YGodiwCuyr6x+WjMJS2vhlRlwCZ0KBL5qyx0ZzZN
+	 uMqLbqEY7wyKIKJ34IM/sKcD2GND2sPGJqtihi1U7olo/bB6RcVON7wqml+zGVjX+f
+	 FMRgavhp0mrbhVKMf7UEdZxhcwWx5RkcaBa01Dgzdj+8Yb1IbV0q2ED/F3s5wSAWhx
+	 la9VBLsEhLqKRATnzaYYi4QGqE+tIcoKnJzW/bXb0hAZR1/SRFYgy35lUZo/AK6sLi
+	 SO3MQstr7qy5yT4mBaNueQTsVGINVdFwy92Vmkzk/tJO0dLya093ww8C3lErecBdMf
+	 4twp/pZ1CFIug==
+Date: Thu, 25 Dec 2025 14:36:50 +0200
+From: Leon Romanovsky <leon@kernel.org>
+To: Barry Song <21cnbao@gmail.com>
+Subject: Re: [PATCH 5/6] dma-mapping: Allow batched DMA sync operations if
+ supported by the arch
+Message-ID: <20251225123650.GJ11869@unreal>
+References: <20251224085145.GF11869@unreal>
+ <20251225054509.39917-1-21cnbao@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/4] ARM: dts: allwinner: Fix remaining DT validation
- errors
-To: Chen-Yu Tsai <wens@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Jernej Skrabec <jernej@kernel.org>,
- Samuel Holland <samuel@sholland.org>, Linus Walleij <linusw@kernel.org>,
- Mauro Carvalho Chehab <mchehab@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-sunxi@lists.linux.dev,
- linux-gpio@vger.kernel.org, linux-media@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251225103616.3203473-1-wens@kernel.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251225103616.3203473-1-wens@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251225054509.39917-1-21cnbao@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251225_042514_986424_DEFE549E 
-X-CRM114-Status: UNSURE (   8.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251225_043657_022570_7B667395 
+X-CRM114-Status: GOOD (  16.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,20 +68,84 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: v-songbaohua@oppo.com, zhengtangquan@oppo.com, ryan.roberts@arm.com, will@kernel.org, anshuman.khandual@arm.com, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, surenb@google.com, iommu@lists.linux.dev, maz@kernel.org, robin.murphy@arm.com, ardb@kernel.org, linux-arm-kernel@lists.infradead.org, m.szyprowski@samsung.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/12/2025 11:36, Chen-Yu Tsai wrote:
-> Hi folks,
+On Thu, Dec 25, 2025 at 06:45:09PM +1300, Barry Song wrote:
+> > > >
+> > >
+> > > OK. Could you take a look at [1] and see if any further
+> > > improvements are needed before I send v2?
+> >
+> > Everything looks ok, except these renames:
+> > -                       arch_sync_dma_for_cpu(paddr, sg->length, dir);
+> > +                       arch_sync_dma_for_cpu_batch_add(paddr, sg->length, dir);
 > 
-> This series gets rid of the remaining DT validation errors for Allwinner
-> (sunxi) ARM 32-bit device trees. The patches are self explaining.
+> Thanks!
+> I'm happy to drop the rename as outlined below-feedback welcome :-)
 > 
-> I plan to take all four patches through the sunxi tree.
+> diff --git a/arch/arm64/include/asm/cache.h b/arch/arm64/include/asm/cache.h
+> index dd2c8586a725..487fb7c355ed 100644
+> --- a/arch/arm64/include/asm/cache.h
+> +++ b/arch/arm64/include/asm/cache.h
+> @@ -87,6 +87,12 @@ int cache_line_size(void);
+>  
+>  #define dma_get_cache_alignment	cache_line_size
+>  
+> +static inline void arch_sync_dma_flush(void)
+> +{
+> +	dsb(sy);
+> +}
+> +#define arch_sync_dma_flush arch_sync_dma_flush
+> +
+>  /* Compress a u64 MPIDR value into 32 bits. */
+>  static inline u64 arch_compact_of_hwid(u64 id)
+>  {
+> diff --git a/arch/arm64/mm/dma-mapping.c b/arch/arm64/mm/dma-mapping.c
+> index b2b5792b2caa..ae1ae0280eef 100644
+> --- a/arch/arm64/mm/dma-mapping.c
+> +++ b/arch/arm64/mm/dma-mapping.c
+> @@ -17,7 +17,7 @@ void arch_sync_dma_for_device(phys_addr_t paddr, size_t size,
+>  {
+>  	unsigned long start = (unsigned long)phys_to_virt(paddr);
+>  
+> -	dcache_clean_poc(start, start + size);
+> +	dcache_clean_poc_nosync(start, start + size);
+>  }
+>  
+>  void arch_sync_dma_for_cpu(phys_addr_t paddr, size_t size,
+> @@ -28,7 +28,7 @@ void arch_sync_dma_for_cpu(phys_addr_t paddr, size_t size,
+>  	if (dir == DMA_TO_DEVICE)
+>  		return;
+>  
+> -	dcache_inval_poc(start, start + size);
+> +	dcache_inval_poc_nosync(start, start + size);
+>  }
+>  
+>  void arch_dma_prep_coherent(struct page *page, size_t size)
+> diff --git a/include/linux/dma-map-ops.h b/include/linux/dma-map-ops.h
+> index 4809204c674c..e7dd8a63b40e 100644
+> --- a/include/linux/dma-map-ops.h
+> +++ b/include/linux/dma-map-ops.h
+> @@ -361,6 +361,12 @@ static inline void arch_sync_dma_for_cpu(phys_addr_t paddr, size_t size,
+>  }
+>  #endif /* ARCH_HAS_SYNC_DMA_FOR_CPU */
+>  
+> +#ifndef arch_sync_dma_flush
 
-It's v1 and not a resend, thus subsystem patches should go via subsystem
-trees.
+You likely need to wrap this in "#ifdef CONFIG_ARCH_HAS_SYNC_DMA_FLUSH"
+as done in the surrounding code.
 
-Best regards,
-Krzysztof
+Thanks
+
+> +static inline void arch_sync_dma_flush(void)
+> +{
+> +}
+> +#endif
+> +
+>  #ifdef CONFIG_ARCH_HAS_SYNC_DMA_FOR_CPU_ALL
+>  void arch_sync_dma_for_cpu_all(void);
+>  #else
+> 
 
