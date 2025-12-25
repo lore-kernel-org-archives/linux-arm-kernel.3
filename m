@@ -4,102 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E947E7AD62
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Dec 2025 17:45:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F50BE7AD67
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Dec 2025 17:47:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zz1xVTvh572lJX2qZqJOG7cy24vvTwbo6dUFp/NuXtg=; b=fLmTY4tNy21EJJDGy2POqKubyG
-	vKVsz1I4AlCrFOf3pJ7XqOynwIoMS/c/ujhnQPZoIbJaN//QA+ECoBZXAhJMNwqSy2IiDl2U+NaqL
-	FgEWJp6vPaR0LPM6WEkLORAZOpn86pf0Ut+Cam4Qdb/875QhHfznqWpXa3w3ycSME9tRg9ibeOwmq
-	VcJcFPSOgFnMLRy1wLd+W/okU87Z0EvC0ClFhyViXptoSfmH5MLedeJP0ZxYxOe6egvdB/wQOG0IX
-	HUN0sD4WMipPhEt376IHpzbgnaCCVnT4MWZdLVlssVJFdgq2WEOOyBaNttWsjWDr2MLYz+Nas0LTr
-	4RoHq+Ww==;
+	bh=0kJtkYpkUPuI2JipA1QFCVFw9kslwydenMOjeWpb0No=; b=eKmyVnl0L7c4Z8SpmwnZfMDnYn
+	kvko6TqQcU+jHjgzDG6dxsSYqENXQNPp+Uj0JJBrHp2HP+urL5je/Ye1De6+M6bXybvVpMuetce2Z
+	uT7+Op4WB7+KtQOC6NVVmlPpTI6i6SRUcRpKvBHBHa92BI0VeV9Zn9woEAQzSpQ0jWjqtfODMvbqM
+	eSCQ29bNMJopBUuMBye+lpbipPZXq9Pc5XzxnKMc2iRe1I+fS9TBBOo0ct/21XVUPhpK8ES1rE4Qy
+	RpfHP2ikhLe0so5obvMNRbCC2TbS8hcsW5mmbW+DlW4/V544cIOfwJrM6wMxdyUcGygNGRggdChaM
+	v1t79iSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYpOx-00000000aDQ-2BLB;
-	Thu, 25 Dec 2025 17:45:27 +0000
+	id 1vYpQW-00000000aNo-3p1x;
+	Thu, 25 Dec 2025 17:47:04 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYpOu-00000000aCr-3C1O
+	id 1vYpQU-00000000aNQ-08Th
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Dec 2025 17:45:26 +0000
+	Thu, 25 Dec 2025 17:47:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1766684723;
+	s=mimecast20190719; t=1766684821;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=zz1xVTvh572lJX2qZqJOG7cy24vvTwbo6dUFp/NuXtg=;
-	b=VY6NAAf0q/V/vUYJIC5kol8YLY88GC++XwTZ3bgkF7yMkquo3gTlQAq3kkMOoyVYu0J5tV
-	0tLS1H+u2wQoow3Hx2xDIVXyxdULfT36WFfhQYYb8ZMhAqgu37n2azkUgtWwJamhkuSr++
-	iT17OY3ss8JFWoCc2mqoTg3uZQHL04Q=
+	bh=0kJtkYpkUPuI2JipA1QFCVFw9kslwydenMOjeWpb0No=;
+	b=CeSYSAyCOafdgXCq2Urnk9kbLtXI2WYC86KBKbPT376utGH5+FcUp/EG49FU3gbBi1Xu6Q
+	QHtU4nWB1HHUtzolZfIagLHTtVUc1FGPy7Gno+Zt7z+1mDaEsLF0oyiESkBKx2SIdSV1Wt
+	IoMMbbygJBvdK9Qa6t0C2MQGjd64oys=
 Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com
  [209.85.222.199]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-627-41Sfd9i6P2e7P46W81vCWQ-1; Thu, 25 Dec 2025 12:45:19 -0500
-X-MC-Unique: 41Sfd9i6P2e7P46W81vCWQ-1
-X-Mimecast-MFC-AGG-ID: 41Sfd9i6P2e7P46W81vCWQ_1766684719
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-8b24383b680so2248935685a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Dec 2025 09:45:19 -0800 (PST)
+ us-mta-627-t75OMwEwNPmSA6XpfD8fjA-1; Thu, 25 Dec 2025 12:46:59 -0500
+X-MC-Unique: t75OMwEwNPmSA6XpfD8fjA-1
+X-Mimecast-MFC-AGG-ID: t75OMwEwNPmSA6XpfD8fjA_1766684819
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-8b234bae2a7so1615890785a.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Dec 2025 09:46:59 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766684719; x=1767289519;
+        d=1e100.net; s=20230601; t=1766684819; x=1767289619;
         h=user-agent:in-reply-to:content-disposition:mime-version:references
          :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=zz1xVTvh572lJX2qZqJOG7cy24vvTwbo6dUFp/NuXtg=;
-        b=joZWgCHBXwKeSHblxSH+Lv2+8JUFjCpmqUixD7xybzuFUTggXzLMFt77M9ZNga6vrL
-         1fWwCpXlZgD9SI5oIAAkgYKmJzIGrcfCJ6e1tyOTFbeNkGXmUfqMU101BGnfJysR18+J
-         kPXElhsZr8u0GtZEW5x8lZsmHBVYSloImBTYfWYtJj0aZ0o417lSDf+emq15/w2CzDhK
-         jOrXIgT7MT6rpkkdeZ5rlGYeWVhZD6Af+d9EzqvrHq5gIIZLjMgF2ySFsSIl9jADtMg5
-         mNnpNzB9muZHcCYHaRCapjIDlVeOJgHOV4Aj00aMlau5nMZar9fP5Wp9GB9+ZFIKqlaM
-         I7ag==
-X-Forwarded-Encrypted: i=1; AJvYcCXwKQSOKNYu5jQra/LpdzxQwcywVgngsHG8qXrPSOWnarhSujdLs8IE+mb+7DSoEaYP65K6y382GtXLAN01ohKq@lists.infradead.org
-X-Gm-Message-State: AOJu0YxuwOc69X13j5x3DpeohI8C2skoM9aFi941yHSw8gQcwuwHsCoV
-	Ow5QuJlBQS+UwLFcYnw4NyIg3Yv6uP6QR4U8lCr1XU2Ma44f8HM8/uAB3SkjT6dKq60PyvJHSco
-	RnDhj+4zXyLMQy9zRdmjcxXUjgzR4KQJ1Rn1WkkAj/5H3dXf0+GIMrwqGmMnVwp3q6VMMCO8086
-	Sw
-X-Gm-Gg: AY/fxX6JW3PaEd5UYaoPi0zHQhTw7cshp5ynQ2CmrhILIdHNl5feqpKyzCoIBN3edNX
-	Be68o4eV7yhSTzeN9JLH89uOYjQQs/wEVT90fnJmr0JId+Ga4McUdLdX4oDKiKGJw9wPZ4FIktJ
-	sIH1Owjco0Bq9HeqltnCi1hSE7Kd/6ZpvYfrfhpmyNmTDc67u8bjezq9F3JNh/Ab1AgUmB+0+ZT
-	1OSidWTsUFo8JOH4/Qs1aFiOVZ9s4/zhWbF4uhQChiyu38UZtPosnl5G1fZKB8LNaedxSdVmJex
-	H5L4TsViDjnnNRLhvvdLM7JQlIV1ZMj1zNmIHfbJRh4IVPjWnIiuv/21BnfmzwTM73UVoOGbj7y
-	FBuwOW4A1/w5FA69fu67TekILDTq8T1qa8PUl6LRTP1d2
-X-Received: by 2002:a05:620a:f13:b0:8b2:ef2d:f74b with SMTP id af79cd13be357-8c08f66bf3emr3080550885a.29.1766684719220;
-        Thu, 25 Dec 2025 09:45:19 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IH/E6LsKwvfEMHC7uT4rrxVGLTNsXyb1jefziEMNS9y7ioMFDWn6jnZ3Lk+Vmjy/3v1Ei+vnA==
-X-Received: by 2002:a05:620a:f13:b0:8b2:ef2d:f74b with SMTP id af79cd13be357-8c08f66bf3emr3080548585a.29.1766684718918;
-        Thu, 25 Dec 2025 09:45:18 -0800 (PST)
+        bh=0kJtkYpkUPuI2JipA1QFCVFw9kslwydenMOjeWpb0No=;
+        b=RJHJ+kQSmxwsxFpw4dnMGcM2MeOExqqexmY8MO/Wvj9MKthYHsjXVu5aJuNiBnmPcP
+         YYNXAyMoVbF5wNodLy38FTwrxUNSOfrKbhRse6UPLcw4rZpzA+++giylzyFIDo0aVnLP
+         KTM6tMXoo6lkd+2e4OMztlllZZhA+DNy4bjeaDx8gHUEDWJT6PfgBAx8b722Tgz7E53T
+         Jzp4LZjOLzfy+siQcGcIR1pBlThaU49kEVKo1+b05rjxwjRxjjRf/dHfYYnyBK+6Dvgz
+         ZbW4YoMaoyTCeDUoQZr0GpMntc0pV5nU5AplBhFahoLXI2SFsJh+0SSPGSw1MOVuHE/5
+         Sfng==
+X-Forwarded-Encrypted: i=1; AJvYcCV/1y/U0WAVK1+2O1hBeSs8CzcRkQMWPY6RURG8PRwCDNOFVg9ESg2k34Afsg+AKXZqF8Tbt7Dm9c7HY4O2fwvW@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxg32vwa0Z+4K+WXRh7B17EefXGLEUBof4zojsRXd1Oz/a2n7Nx
+	NIfSeVjdQKMYaiR+VeWI1yEX0sIgpjbzIQM2sA5nUIlivcnO0a7D6e3wz9fDBpOJUZ1XH0GkM7E
+	tfWou5GT2wYNKWpSpYCyIFVbTWWWmUY7k+OYBaO6NTgqGTNA3SsIwgAOo4cYRlI6TzphLU9f4Tf
+	Qu
+X-Gm-Gg: AY/fxX6F/tjFUL65is2x6LR/Jr/LjIiVKPFVvuPXoqSqtBE1kGdDQD9LBeCb60eMzm6
+	tWA3mDetYlBvfmMv2NNX7r/bs7cmt2BSx1JcGY86475SlPBCCpdkSOCCRmEWga4YtIa0lKVouSM
+	Hiic2lxWwAMH0VGty+3ZX4XzepSlfd19rtO1gLI6lFzzLgvAkHLQ88mW1m2zzNxaYo/Wbu1GEG1
+	oubEwoc5d8OrpO58KKrxslBEY4wYxmY+FGd/86w/MmGZazLvVm1/shH+YzFdJxY+BLj+9ABrhZ2
+	DDp2hC6k7kHIioZhdj3TdZdOJ7psAjncy0coYI4A6AojxUnfxDxccLncz7duJLCc5PO9WmLlTj5
+	RZyhAnZz9oTOVO/7Cao/tFOKhb7rgpZGHneyG9Mn1LlM/
+X-Received: by 2002:a05:620a:4109:b0:8b1:498b:77fc with SMTP id af79cd13be357-8c08f6742f1mr3088095185a.33.1766684819236;
+        Thu, 25 Dec 2025 09:46:59 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IF7WXmE0cMDSwpEq7NOgN64FHK9QeM+bXc3yG0olFDRDC23yLs0+NqXOH85EiqPqZlaeHq21w==
+X-Received: by 2002:a05:620a:4109:b0:8b1:498b:77fc with SMTP id af79cd13be357-8c08f6742f1mr3088093785a.33.1766684818831;
+        Thu, 25 Dec 2025 09:46:58 -0800 (PST)
 Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-88d99d7dbdcsm151955716d6.43.2025.12.25.09.45.17
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8c0971ee247sm1538002385a.27.2025.12.25.09.46.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 25 Dec 2025 09:45:18 -0800 (PST)
-Date: Thu, 25 Dec 2025 12:45:16 -0500
+        Thu, 25 Dec 2025 09:46:57 -0800 (PST)
+Date: Thu, 25 Dec 2025 12:46:55 -0500
 From: Brian Masney <bmasney@redhat.com>
-To: Ryan Chen <ryan_chen@aspeedtech.com>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-aspeed@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v16 2/3] MAINTAINERS: Add entry for ASPEED clock drivers.
-Message-ID: <aU14LCCn_Cnd8tV6@redhat.com>
-References: <20251224-upstream_clk-v16-0-8c1318f56c3c@aspeedtech.com>
- <20251224-upstream_clk-v16-2-8c1318f56c3c@aspeedtech.com>
+	Stephen Boyd <sboyd@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Jassi Brar <jassisinghbrar@gmail.com>, linux-clk@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/3] clk: zynqmp: divider: Fix
+ zynqmp_clk_divider_determine_rate kerneldoc
+Message-ID: <aU14j4Xxes1BJLob@redhat.com>
+References: <20251224114210.139817-4-krzysztof.kozlowski@oss.qualcomm.com>
 MIME-Version: 1.0
-In-Reply-To: <20251224-upstream_clk-v16-2-8c1318f56c3c@aspeedtech.com>
+In-Reply-To: <20251224114210.139817-4-krzysztof.kozlowski@oss.qualcomm.com>
 User-Agent: Mutt/2.2.14 (2025-02-20)
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: TJS9LXQV1zxgYC5Mg8L2kO2VHOsh3mq7wp4rhnL2rwg_1766684719
+X-Mimecast-MFC-PROC-ID: Nf37nI6lKOj-1CnYXNBWns__1j0UGUTNtTDHoLLGoUw_1766684819
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251225_094524_875650_ECF99026 
-X-CRM114-Status: UNSURE (   9.14  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251225_094702_138523_6564E56A 
+X-CRM114-Status: GOOD (  10.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,10 +113,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 24, 2025 at 01:37:23PM +0800, Ryan Chen wrote:
-> Add support entry for ASPEED clock drivers.
+On Wed, Dec 24, 2025 at 12:42:11PM +0100, Krzysztof Kozlowski wrote:
+> After renaming round_rate->determine, kerneldoc does not match anymore,
+> causing W=1 warnings:
 > 
-> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
+>   Warning: drivers/clk/zynqmp/divider.c:122 function parameter 'req' not described in 'zynqmp_clk_divider_determine_rate'
+>   Warning: drivers/clk/zynqmp/divider.c:122 expecting prototype for zynqmp_clk_divider_round_rate(). Prototype was for zynqmp_clk_divider_determine_rate() instead
+> 
+> Fixes: 0f9cf96a01fd ("clk: zynqmp: divider: convert from round_rate() to determine_rate()")
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+
+Thanks for the fixup!
 
 Reviewed-by: Brian Masney <bmasney@redhat.com>
 
