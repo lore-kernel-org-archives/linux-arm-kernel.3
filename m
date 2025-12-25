@@ -4,64 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C847E784A6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Dec 2025 08:03:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B17EEE7AD40
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Dec 2025 08:17:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+79DpePxjeBLc83hqKTcBlIOqjY3+iSsrk4yTe1DscA=; b=u/Ma8YVr5or3Z3wN6XNOIlJoJ5
-	zVmW8NWzXWEC0kxw0pV7LzkpAigucnQOoCnJjR6DlRDHyIc0Kp4iK1Sz9Bp4EZPNdq1KiUeSvD+BC
-	/AaXC7nEzerPbQkWySrjrdN1ngqokehHsVuBzDDHAEUuBZq/I2d68vVJSbRmniTauL40hcrlyKd0l
-	M62Fn1G2mhIET9EtM/aEh07+OvkvPMUl24u5wRbetsTs5EWYpEE4z6HhXCxE4dkZyrTp3RaG4L1Az
-	iTt+zGyEHmBcWw49PfKFgXOQTk+BnqqnCX1Xy7O5goDQTWHWRYxxUCI2jFE8Qzs7KZxLZ92uy3BiU
-	12Gl/2mw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rPaxfOiO2h29JkefBVMH87cUVSszE5AdBCMfSOGSb4s=; b=vJctKj6c41S+3QnJ/v8R5Tfles
+	J8STlfdf39jwFHyYnJMFQAX7rmpWBmAkzhC+EFyCsqYnaZkClVprxgLrE+TkZYyC0M5UxyIVCMGT7
+	6rszqH2OKBUBNY+u7uDLjCO7/mlxxi+qBJDLv9VLLm2spvJcqBNdEzOe3KxaJBSUbZiw+m/BH50io
+	e7eIwzQm/xHxelCWmSZu0KsTb4cQXz/fQbvpDASgvq05sp7SdHChhL2Zr1tvKadzEAd64TGYfCHFG
+	jg1BiOnRmI7DvI+ZAjs3qwAppi4b0e8p+C45JCMbPXiQ5THyF17s+DGVY6FjudsN7jjGhkYuMwyQf
+	KMh/LEyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYgJA-00000000Cl6-2foL;
-	Thu, 25 Dec 2025 08:02:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vYgX4-00000000DR5-2MJZ;
+	Thu, 25 Dec 2025 08:17:14 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYgJ7-00000000CkQ-3dDG
+	id 1vYgX1-00000000DQg-46Q3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Dec 2025 08:02:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 93D58405C1;
-	Thu, 25 Dec 2025 08:02:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EBA3C4CEF1;
-	Thu, 25 Dec 2025 08:02:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766649765;
-	bh=uj9yrSuuf2gOll06W83ryExufB13oHVtebJ1kpodW0Q=;
-	h=From:To:Cc:Subject:Date:From;
-	b=R4fTazB6fEz4Ad8wfHWQvFOSk8Sp1j/zffO5BJeu6s3zAdRFTkW9ljkRrKz3GVnGI
-	 vqQZ2XUnxsIARk7yVDdw7utrS+kZSID+4/VCMHz6eSEyYoPCa3TzQ/2MBMUV0SjsCr
-	 vZboYtZ2PFx8EiNjAtuhEiKrs+qNzpuUS7KA3UgfphFnGfPUUuJzHzoYDxahL0M1L1
-	 m6SrIlfLIMtaX31eJYe0bUE79Tb92HX8kPMUZdb/Fg7+VfiyzSL1tOtdi7lnBVhq2T
-	 xp4uU4wBTfMQX9DozpjQpXjJ7xEt3QCMYzGPoDngmxRJZ9UPXhLUiCXrJEahYz0MPH
-	 ui02VjtpHS6sw==
-Received: by wens.tw (Postfix, from userid 1000)
-	id 963775FC5C; Thu, 25 Dec 2025 16:02:42 +0800 (CST)
-From: Chen-Yu Tsai <wens@kernel.org>
-To: Lee Jones <lee@kernel.org>
-Cc: Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej@kernel.org>,
-	Samuel Holland <samuel@sholland.org>,
-	Andre Przywara <andre.przywara@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] mfd: axp20x: AXP717: Add type-C CC registers
-Date: Thu, 25 Dec 2025 16:02:40 +0800
-Message-ID: <20251225080241.3153453-1-wens@kernel.org>
-X-Mailer: git-send-email 2.47.3
+	Thu, 25 Dec 2025 08:17:13 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-64b9d01e473so8274149a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Dec 2025 00:17:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1766650628; x=1767255428; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rPaxfOiO2h29JkefBVMH87cUVSszE5AdBCMfSOGSb4s=;
+        b=kUB7DId1VeI3th29fNluaEt9ESmOq3wNsI2D32VeGR5aOOCDe8+Ec+AfQ+JZqCx9Bi
+         PNsrn23mhafUaj/utRGFOQrDeCK6g+gYfgcUW//aPS/FM125HUI5WuEnHY4Fc/JXy8Sj
+         Tz7sbfSqX0OYbNx4WSzLP1QGzvQ2CxfYbQFhG5mvYZvONK5EWfZQkTF+90apD78WlHH8
+         hI/oCHh8M5ihH9WbYglTLvHKgEYu9QsOVCkKC9T66ebSdu2TMnFld9SFFsNBRJz9zEKI
+         1fAa0sMXfNQDhh9jyNy23pQPIYJjxxKFlN0kY84Vz9LmTEk/kgpgiV/5Grcjdj40Nbtb
+         lkWg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766650628; x=1767255428;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=rPaxfOiO2h29JkefBVMH87cUVSszE5AdBCMfSOGSb4s=;
+        b=Usb0vBpCQuH7yPHbf6JdOcB2yIhgJjGjsUTqQBOHqF9uYeXdxJ/HCThQel4srVbyqI
+         G+2//yAvjHF2Q0swHqX33QR3YOTU02fxd02O6Z+cVzFn/S/eya+FgG4WTd8dQjrisOw2
+         7eGeG+2otEVyyq+kd7gASZZypHfkWCYNuRKJrVwK4W3plN1py4skO7e2AuPeJk7SJ6Ou
+         pGWd569SBg+NL2kV4sfnKhs+VQpgsV1I/8FShnhveso1UoF7Dj/AB9aaa1EtZZ8F59SM
+         ZSsZgKXl0jTTg6WNUSBlvK0sX1Ik8jVC8Zq2fjOoKawIbB2NpkrPYlLwQwd1V+Dul210
+         eudg==
+X-Forwarded-Encrypted: i=1; AJvYcCUCYoqEZHZ8FWeDuOgbpAWPnpAO+P8r/mGtssIXtSSzxh2A2i1LXHPLYqCIpzGj5wzxj223vLReF6Fdln6a+PME@lists.infradead.org
+X-Gm-Message-State: AOJu0YzmOXexOqKd/elJtcRPHizOwY/IoCwZWd8kNI6UlAv38mCrQapv
+	LMtY539WkUkgxto4zSRftDZaTknuWQ8S02f7IihKupMsuDp3jdUfV3gZ
+X-Gm-Gg: AY/fxX5CMgoQMsZ8yH8jecjFX+I2oF3aMXnMlxsfXRlU13nwuYgFHtOA6WTeTIfypti
+	ClvweZmAI1ca332mAVyTyduMlgqMNvGjHuXFwNfHW92B27YV8tLVi6u52+I3F8jEcaFm7Nw5qlN
+	BA4pIPZxHhtydINjC2o3b6nSaMUHOP/9neZ3Bvcxm4yK305NfriSSAey6edJjdgR6rkv9/uPWAc
+	Mfm5+VTO3F+nqTn+tmdN6sNPZf05FuFLyh+udDWurVkA/0/aJ4GJVlrULo8Ku14pjbyGDdGNjyE
+	uTKbANxqsPcpDsWHTmgIoi5qBGYt3Svklq9DRClwEZ5MjZH9Ubcjn39LOTn0W425s1zVT3LK4eG
+	7nz6fMTg4RxdBIXCTY9o+qMgxQWGbHpLY2O+0hVuemZ6FU17pgiMgZuPW3LH01+mRnE2t0jmi58
+	qflYzJn4kSQZS4ggM22xCXWDcog0gD4aTH
+X-Google-Smtp-Source: AGHT+IGNe9sOMtndqFQn5j/VZK78chHVl1zIxR7eHSZrsbZhnsAd9hS4ioXFMobucGxkQgjR7lC5HA==
+X-Received: by 2002:a05:6402:430d:b0:64d:170:7976 with SMTP id 4fb4d7f45d1cf-64d01707bacmr16253632a12.16.1766650627578;
+        Thu, 25 Dec 2025 00:17:07 -0800 (PST)
+Received: from jernej-laptop.localnet ([188.159.248.16])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-64b91494c03sm19322279a12.18.2025.12.25.00.17.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 25 Dec 2025 00:17:07 -0800 (PST)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: Lee Jones <lee@kernel.org>, Chen-Yu Tsai <wens@kernel.org>
+Cc: Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej@kernel.org>,
+ Samuel Holland <samuel@sholland.org>,
+ Andre Przywara <andre.przywara@arm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] mfd: axp20x: AXP717: Add type-C CC registers
+Date: Thu, 25 Dec 2025 09:17:05 +0100
+Message-ID: <2827385.mvXUDI8C0e@jernej-laptop>
+In-Reply-To: <20251225080241.3153453-1-wens@kernel.org>
+References: <20251225080241.3153453-1-wens@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251225_000249_943924_D2E43494 
-X-CRM114-Status: GOOD (  11.65  )
+X-CRM114-CacheID: sfid-20251225_001712_238127_FA4C17BB 
+X-CRM114-Status: UNSURE (   7.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,62 +103,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The AXP717 has some extra registers related to type-C CC pin
-negotiation. They were missing from the original submission.
+Dne =C4=8Detrtek, 25. december 2025 ob 09:02:40 Srednjeevropski standardni =
+=C4=8Das je Chen-Yu Tsai napisal(a):
+> The AXP717 has some extra registers related to type-C CC pin
+> negotiation. They were missing from the original submission.
+>=20
+> Add them for completeness.
+>=20
+> Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
 
-Add them for completeness.
+Checked against datasheet.
 
-Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
----
- drivers/mfd/axp20x.c       | 5 ++++-
- include/linux/mfd/axp20x.h | 3 +++
- 2 files changed, 7 insertions(+), 1 deletion(-)
+Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-diff --git a/drivers/mfd/axp20x.c b/drivers/mfd/axp20x.c
-index c5f0ebae327f..679364189ea5 100644
---- a/drivers/mfd/axp20x.c
-+++ b/drivers/mfd/axp20x.c
-@@ -229,6 +229,8 @@ static const struct regmap_range axp717_writeable_ranges[] = {
- 	regmap_reg_range(AXP717_DCDC_OUTPUT_CONTROL, AXP717_CPUSLDO_CONTROL),
- 	regmap_reg_range(AXP717_ADC_CH_EN_CONTROL, AXP717_ADC_CH_EN_CONTROL),
- 	regmap_reg_range(AXP717_ADC_DATA_SEL, AXP717_ADC_DATA_SEL),
-+	regmap_reg_range(AXP717_TYPEC_CC_AA_EN, AXP717_TYPEC_CC_AA_EN),
-+	regmap_reg_range(AXP717_TYPEC_CC_MODE_CONTROL, AXP717_TYPEC_CC_MODE_CONTROL),
- };
- 
- static const struct regmap_range axp717_volatile_ranges[] = {
-@@ -237,6 +239,7 @@ static const struct regmap_range axp717_volatile_ranges[] = {
- 	regmap_reg_range(AXP717_BATT_PERCENT_DATA, AXP717_BATT_PERCENT_DATA),
- 	regmap_reg_range(AXP717_BATT_V_H, AXP717_BATT_CHRG_I_L),
- 	regmap_reg_range(AXP717_ADC_DATA_H, AXP717_ADC_DATA_L),
-+	regmap_reg_range(AXP717_TYPEC_CC_STATUS, AXP717_TYPEC_CC_STATUS),
- };
- 
- static const struct regmap_access_table axp717_writeable_table = {
-@@ -458,7 +461,7 @@ static const struct regmap_config axp717_regmap_config = {
- 	.val_bits = 8,
- 	.wr_table = &axp717_writeable_table,
- 	.volatile_table = &axp717_volatile_table,
--	.max_register = AXP717_ADC_DATA_L,
-+	.max_register = AXP717_TYPEC_CC_STATUS,
- 	.cache_type = REGCACHE_MAPLE,
- };
- 
-diff --git a/include/linux/mfd/axp20x.h b/include/linux/mfd/axp20x.h
-index 3c5aecf1d4b5..b352661d99a1 100644
---- a/include/linux/mfd/axp20x.h
-+++ b/include/linux/mfd/axp20x.h
-@@ -174,6 +174,9 @@ enum axp20x_variants {
- #define AXP717_ADC_DATA_SEL		0xcd
- #define AXP717_ADC_DATA_H		0xce
- #define AXP717_ADC_DATA_L		0xcf
-+#define AXP717_TYPEC_CC_AA_EN		0xe1
-+#define AXP717_TYPEC_CC_MODE_CONTROL	0xe3
-+#define AXP717_TYPEC_CC_STATUS		0xe7
- 
- #define AXP806_STARTUP_SRC		0x00
- #define AXP806_CHIP_ID			0x03
--- 
-2.47.3
+Best regards,
+Jernej
+
 
 
