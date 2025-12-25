@@ -4,111 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97E7BE7AD70
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Dec 2025 22:28:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2BD5E7AD71
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Dec 2025 22:31:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PeNHvsN1ZBvb8Hdsv//kNjFTWoycJwfijVViJF41qv8=; b=VbLY+mFDNV68PSoZ+u7sGYWnk5
-	q1RS9aiIn3V8zvw953a+DkyLlx3kRiLOdGmnI/65x2L1YaCvznMnAxt+mQdnPuCNF41mgPwA2zYpS
-	pMYO2t+IbvsjBK35ksG3IVKegPX5ysR1XcQGae+dt4I3OLm+5cJwhAMx5jYQkc7Z/fn6yMzTkMjAW
-	oHZAYnuV7ZheMu+egiuR+RzpRpg1fbCGUqdz4f+2ZOy8oMmj59nfV1hkrKQaLq7cAj7R1J+AYh0jz
-	aKdOpNZ7+BU48CV0cUaPNeN6Kjk+Sdda882Wc+sz4E04S4+0PWOLaK9vus3bCvrnIju+puKlEmQV2
-	UcSfDXEg==;
+	bh=ab+MnheIVRKoBcmzrgSbvk3S4ufWNXWYr9CVeGGgh3o=; b=HRh7AtD/ANwKW1g6rRAZK2e6+x
+	mLzvJzsoakqiW8vEad8fJJbM6jsc+vWRhovKC4qLcWd7mElhQ2JZYjWynDqrpTtKrCtuMXxP73ZfJ
+	XQWT3Tg8N/WBoYcNvf7XlxYcKjpqOysEafURE9Ih8XFGqKoZ9ro1Xab92ED0MFz3A4GmRZwfFJSEa
+	CPbUfJQp5/4lgyx3R6USHkODlhoC9J61CQN9Yn4vHVYXpvOenLxQAgjmJ5qhUpbcvU/Cq9PCWb29e
+	QOKU2A30IkYXES9fk/A6KVNTGaPTo8UA6ODh45pD+8y0yl9n6nMj5VLCViPXZtKArodua5IpTmoAO
+	p6XERL2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYtog-00000000j90-1hxn;
-	Thu, 25 Dec 2025 22:28:18 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYtof-00000000j8h-06cF
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 25 Dec 2025 22:28:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:References:Cc:To:Subject:MIME-Version:Date:Message-ID:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=PeNHvsN1ZBvb8Hdsv//kNjFTWoycJwfijVViJF41qv8=; b=JQT/mmsm00jYPf0lp3GLD4Y7Vj
-	hvWK0qKiYdVPNDs56L+zI5k+1gB7RJywPB18iUgCR2kIDK3XDml0MJ4psE5hBaXSSf1Z/981WOL3j
-	GXmBwcWq2m7+HlxbVUwX4QifmhRo1093FyrXcZZuQlBNbd2FEq67DMf1WS+/C3MfIlPQ6Ow2HISMW
-	/nVVpNm35+cMp9P/u0wB95qlagJe1i6RNs4f/VAMoCS6JBhALPMk/P8aq6X1bHs/GDrSb2MuT07JH
-	linrY/C7rdBEecPxk4WG08Ne2YnRq+R//p876qOqoIqgSaGsErwPI5ive+aRfhfjmLddnprvtg+0k
-	/O23j73w==;
+	id 1vYtrY-00000000jKd-1FMs;
+	Thu, 25 Dec 2025 22:31:16 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYtob-00000000f5T-2FyF
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vYtrU-00000000jKI-1QPj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Dec 2025 22:28:15 +0000
+	Thu, 25 Dec 2025 22:31:14 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1766701682;
+	s=mimecast20190719; t=1766701870;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=PeNHvsN1ZBvb8Hdsv//kNjFTWoycJwfijVViJF41qv8=;
-	b=NTzyyZTKAi+1p0EJ9DGkep+IfGVWOPiYNgfLeIF8l9mtC7emjX2vS66Id0WH9bm7MDt67Z
-	vkb3oMtcB4qu4346L097XKLPpdbX2G7G+q6UPHdqnI4dKPm34V9eJ+eHxVyUZek2S/PuBN
-	pRIt3j3Q+hZ5QFOZTXcEtStnDf1HQfw=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1766701691;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=PeNHvsN1ZBvb8Hdsv//kNjFTWoycJwfijVViJF41qv8=;
-	b=c+EZt+4fx66AOobrVUCxbkQIKjRPGAj6adUVZLuoTovJ8vpK/ZqyGxoIp5Agav3veaIJAi
-	lTudUUyg5rIr6h/RH5Vm+aA4BxGS00mgNzJYsIzxe4DpZbB+ZZQJDKMmsouYeifj4b/mdB
-	QXR2lCpWIlKJcSV7mhCV2K4Ri0Fd51M=
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com
- [209.85.219.69]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=ab+MnheIVRKoBcmzrgSbvk3S4ufWNXWYr9CVeGGgh3o=;
+	b=FBLyrlJbYqMwWhUEkAnMt4GnM2/x3kr82jeNI1tdE1+oK2aoQGLETza9Gwk5MiRvWMs+r4
+	RYKL872GtOYrkjYY9VUVWBa7MyoLNdA+p3zgEswZajn5M6C4iMAyHGqi9eWp3lceEcfxmi
+	J3mb8UArmi7ct00zYtLlrWBpvolSNYQ=
+Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com
+ [209.85.219.70]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-49-RQABeyFgP66uZur0khLrCA-1; Thu, 25 Dec 2025 17:28:00 -0500
-X-MC-Unique: RQABeyFgP66uZur0khLrCA-1
-X-Mimecast-MFC-AGG-ID: RQABeyFgP66uZur0khLrCA_1766701680
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-88a366fa140so323782856d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Dec 2025 14:28:00 -0800 (PST)
+ us-mta-159-Ae3J49uSOAyORED7JtA-YA-1; Thu, 25 Dec 2025 17:31:08 -0500
+X-MC-Unique: Ae3J49uSOAyORED7JtA-YA-1
+X-Mimecast-MFC-AGG-ID: Ae3J49uSOAyORED7JtA-YA_1766701868
+Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-88a39993e5fso177456156d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Dec 2025 14:31:08 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766701680; x=1767306480;
+        d=1e100.net; s=20230601; t=1766701868; x=1767306668;
         h=content-transfer-encoding:in-reply-to:content-language:references
          :cc:to:subject:user-agent:mime-version:date:message-id:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=PeNHvsN1ZBvb8Hdsv//kNjFTWoycJwfijVViJF41qv8=;
-        b=H9srRIfbaBXWM+aKqo1C3asxGvzV8+TMa6s0rdaCPsjXHKywCChI9RxHcWjCxnj4vS
-         klA6fJ5zyMajZ9x50xh/klBde3GSbrzaeMwqJqwm9HjAnPIYo4sAXB5SbWaM5kJDRkuI
-         W3ZavHoGPDZRnFGreKLQG9aKxTOuD+xzZfMMD7wj8U7N9Kxc4dFwN9UDYfE9Rc9Qkyxf
-         ZGSD01cmYpVqQUimrLw9gE5DBZtLSzqGdAHNBEH4CPrhNPS5jGYWerQA4kMjpHw/Lrnq
-         LrvPEMhCEOPTaFG3/Tct7hMLdGnGKEO/OvYgGIMPoE/qGMV+FKXBnTibJDNE+QF1nRau
-         1HFQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVtGe1AGI7kALWt9MZUUKUVq0A4aC75PMcacL3qnwy/4pvOppcbC21Lmu2hc5hXmcx3ushMYwaGJ1nRmFuPy/mT@lists.infradead.org
-X-Gm-Message-State: AOJu0YySaXipPGcG7qlmEt0nqGlP2AGGemcrIeql3TGMyDeLtgBoiZPP
-	Q5xEjO0zLnzTFj3SeSgvNzNrZw+SGbWzMJp8AGwPfeGQNVQKdSN5ga4QZSbiYJetAGv3ywYROQ8
-	kYQ3l06X/8zQMBIYi5g9jz6QjSM17rLpncHcwSTC6i9K5tIfea9YegD79fOHLEfAMvDyQhR3yR+
-	wN
-X-Gm-Gg: AY/fxX4gYlimBoK6r53MA9KAHydcPnBmOs3cfFH54vAXtJESqTdlpLr7SCnoXix79g9
-	5U6TsBBIuuaBQRg8rI5qlghklq6vZhF5LGew26qkl+lwBBFpWoMiq/PtjrfRF+xCPjv1SFmOfXb
-	+ASAUN/WOYjW013Qleg4Q+6sFmpybUiItTPvVn7tTZ9KnwD+q79nUwAoxh1qzgowf3BrHIw9TDd
-	1L2IVpdHNNYoqEjZ1K+YfNwirSPu4Dffzg/g1hSGiIU0RnrMFX9nTAKG2fLaD4MqfA74Cynd8LO
-	S9ouDNNcz00GJ6USgvyVzSBxg2EEDrRnSY9BfaeDwSQ0/SUknGeub1xMVa8T5bNyQM4llQGkMqZ
-	Q/oZigf2PPSn1cWhneXMjNC6RuJmGW98AhXZJC7nr4v0TVIykxQVMa+M0
-X-Received: by 2002:a05:620a:414c:b0:8bb:26db:e22f with SMTP id af79cd13be357-8c08fbb5432mr3197589085a.30.1766701679945;
-        Thu, 25 Dec 2025 14:27:59 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEkk34PfoZDZVXHOsdvaSoOtEJlSomrI6NhnO1ciZ/uaqISBnHAQBKZ+i37TxyEDRNXrTUZhA==
-X-Received: by 2002:a05:620a:414c:b0:8bb:26db:e22f with SMTP id af79cd13be357-8c08fbb5432mr3197585085a.30.1766701679541;
-        Thu, 25 Dec 2025 14:27:59 -0800 (PST)
+        bh=ab+MnheIVRKoBcmzrgSbvk3S4ufWNXWYr9CVeGGgh3o=;
+        b=Eek26InwWNFW48ezh+0fN1tMIKyx4B/jne45N8ptogClGTFvkuageaBbnk9lAZEhMQ
+         0RlfHIbyym/+9oTwHnNHKgWbx11usybLdX6osSFfleUn9e9LFpcN8veFNKtmlyceV0wa
+         90yplWUo1IkwSCdWIfah6isC7im/j9okIperEdahoGtCUC41ooqoiVugzIzy/JlwYz+K
+         H/XqVEahH5J4aLc568VGTEPopQpCcpDlZZEhbw+3i/VqeSdo0bdSonjTsCaGp5vKcfSH
+         /4PXC6f8gpi89wOmdwrltdoSqXxB/D0DdzsOXUh2BbcuPAm89YOW0ZOphzoAl5QCNnIm
+         iTUA==
+X-Forwarded-Encrypted: i=1; AJvYcCW3N07Tow4tqNyuLq/AUUVJ5wyQm9cZcPGa0+rB9CcNogcsT2OnJkPg/VHsOot6tMMK3kgs5E7y0/pOCVknQKW2@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1mELD7Nzb1/wBqcIHdstlFneLNcSzdc2uVWH7kwgJYgtoZ64H
+	tVhaemBVuOFx2MZENzeth3jHdBx2lsczY2/q4mbKTI8GGuKBubqoKpr9mWuBFqn/+37dzGkWQNQ
+	19Q0qNfli9ZB4mu1IQL0fdXdIYPHunF9oAZRB1NUehrRBsu7TkcPKsgYozOFWgZkDWIVmnzAMxX
+	98
+X-Gm-Gg: AY/fxX7VcjWcXjqP2xiqBHrQSJ8rFP/5LZSxiNZQbKkgNiRXqhfA0PUkgTn2pW1ZYqo
+	+SM3vFLZZH7D97Zrgv+xpgalqGfUrq5oJKeJGziVGPhhHnvIFgAdynn0sfnSy0eJzOHMf84UyvN
+	cacv86H+nFPgoEFdgqT6yWsD+IQr/gzf0MhZzZfcqG+zWTB8zw+OQq8A7OGNXw+AAqqXRb8RA/v
+	+6dQLy57itLmqZsPGVPCj8Ylv6TDDeRFZ3VmVWFF77KmStyswM1f5QWtYOkXm03C31ryjJAPIAF
+	QJxAevEkZjnlinVXJ21OM9Pr0nGBodGfVWOYBNSXZjrNTlsg4ryIIViYMveSQp3xL70YRX9uobW
+	DWq5Cla1K7zOf3lRTIFTeqKIX39QKKPazCsgS2ebhHiN01hTknEIbe27P
+X-Received: by 2002:a05:622a:341:b0:4ee:24fc:be81 with SMTP id d75a77b69052e-4f4abd400d4mr330935701cf.36.1766701867879;
+        Thu, 25 Dec 2025 14:31:07 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHthnytoNkit4+7wP+txqxK1npOqoQN/ulutuPL/gqwE7YXGTzVApXUK7yM3kp5hfoASbcRLg==
+X-Received: by 2002:a05:622a:341:b0:4ee:24fc:be81 with SMTP id d75a77b69052e-4f4abd400d4mr330935421cf.36.1766701867385;
+        Thu, 25 Dec 2025 14:31:07 -0800 (PST)
 Received: from ?IPV6:2601:600:947f:f020:85dc:d2b2:c5ee:e3c4? ([2601:600:947f:f020:85dc:d2b2:c5ee:e3c4])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8c0970f5fdasm1605628285a.35.2025.12.25.14.27.54
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4f4ac65344bsm146923311cf.28.2025.12.25.14.31.03
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 25 Dec 2025 14:27:58 -0800 (PST)
+        Thu, 25 Dec 2025 14:31:06 -0800 (PST)
 From: Waiman Long <llong@redhat.com>
 X-Google-Original-From: Waiman Long <longman@redhat.com>
-Message-ID: <04708b57-7ffe-4a97-925f-926d577061a6@redhat.com>
-Date: Thu, 25 Dec 2025 17:27:54 -0500
+Message-ID: <006b00ab-c8b4-4a2d-aa38-94a41eadd238@redhat.com>
+Date: Thu, 25 Dec 2025 17:31:02 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 05/33] sched/isolation: Save boot defined domain flags
+Subject: Re: [PATCH 06/33] cpuset: Convert boot_hk_cpus to use
+ HK_TYPE_DOMAIN_BOOT
 To: Frederic Weisbecker <frederic@kernel.org>,
  LKML <linux-kernel@vger.kernel.org>
 Cc: =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>,
@@ -134,17 +110,17 @@ Cc: =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>,
  linux-block@vger.kernel.org, linux-mm@kvack.org, linux-pci@vger.kernel.org,
  netdev@vger.kernel.org
 References: <20251224134520.33231-1-frederic@kernel.org>
- <20251224134520.33231-6-frederic@kernel.org>
-In-Reply-To: <20251224134520.33231-6-frederic@kernel.org>
+ <20251224134520.33231-7-frederic@kernel.org>
+In-Reply-To: <20251224134520.33231-7-frederic@kernel.org>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: fk4ZOMlsZyKHOGQbqUCKbnZxYATf1oaxQ1QxEOfElyw_1766701680
+X-Mimecast-MFC-PROC-ID: q7NYAn-V15J_omwBA4IdYyXdBN8SY8fJV4VsaTCiFlc_1766701868
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251225_222813_737745_9C74D8A7 
-X-CRM114-Status: GOOD (  18.09  )
+X-CRM114-CacheID: sfid-20251225_143112_460925_FF072286 
+X-CRM114-Status: GOOD (  20.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,45 +136,69 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 12/24/25 8:44 AM, Frederic Weisbecker wrote:
-> HK_TYPE_DOMAIN will soon integrate not only boot defined isolcpus= CPUs
-> but also cpuset isolated partitions.
->
-> Housekeeping still needs a way to record what was initially passed
-> to isolcpus= in order to keep these CPUs isolated after a cpuset
-> isolated partition is modified or destroyed while containing some of
-> them.
->
-> Create a new HK_TYPE_DOMAIN_BOOT to keep track of those.
+> boot_hk_cpus is an ad-hoc copy of HK_TYPE_DOMAIN_BOOT. Remove it and use
+> the official version.
 >
 > Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
 > Reviewed-by: Phil Auld <pauld@redhat.com>
+> Reviewed-by: Chen Ridong <chenridong@huawei.com>
 > ---
->   include/linux/sched/isolation.h | 4 ++++
->   kernel/sched/isolation.c        | 5 +++--
->   2 files changed, 7 insertions(+), 2 deletions(-)
+>   kernel/cgroup/cpuset.c | 22 +++++++---------------
+>   1 file changed, 7 insertions(+), 15 deletions(-)
 >
-> diff --git a/include/linux/sched/isolation.h b/include/linux/sched/isolation.h
-> index d8501f4709b5..109a2149e21a 100644
-> --- a/include/linux/sched/isolation.h
-> +++ b/include/linux/sched/isolation.h
-> @@ -7,8 +7,12 @@
->   #include <linux/tick.h>
+> diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
+> index 6e6eb09b8db6..3afa72f8d579 100644
+> --- a/kernel/cgroup/cpuset.c
+> +++ b/kernel/cgroup/cpuset.c
+> @@ -88,12 +88,6 @@ static cpumask_var_t	isolated_cpus;
+>    */
+>   static bool isolated_cpus_updating;
 >   
->   enum hk_type {
-> +	/* Revert of boot-time isolcpus= argument */
-> +	HK_TYPE_DOMAIN_BOOT,
->   	HK_TYPE_DOMAIN,
-> +	/* Revert of boot-time isolcpus=managed_irq argument */
->   	HK_TYPE_MANAGED_IRQ,
-> +	/* Revert of boot-time nohz_full= or isolcpus=nohz arguments */
->   	HK_TYPE_KERNEL_NOISE,
->   	HK_TYPE_MAX,
+> -/*
+> - * Housekeeping (HK_TYPE_DOMAIN) CPUs at boot
+> - */
+> -static cpumask_var_t	boot_hk_cpus;
+> -static bool		have_boot_isolcpus;
+> -
+>   /*
+>    * A flag to force sched domain rebuild at the end of an operation.
+>    * It can be set in
+> @@ -1453,15 +1447,16 @@ static bool isolated_cpus_can_update(struct cpumask *add_cpus,
+>    * @new_cpus: cpu mask
+>    * Return: true if there is conflict, false otherwise
+>    *
+> - * CPUs outside of boot_hk_cpus, if defined, can only be used in an
+> + * CPUs outside of HK_TYPE_DOMAIN_BOOT, if defined, can only be used in an
+>    * isolated partition.
+>    */
+>   static bool prstate_housekeeping_conflict(int prstate, struct cpumask *new_cpus)
+>   {
+> -	if (!have_boot_isolcpus)
+> +	if (!housekeeping_enabled(HK_TYPE_DOMAIN_BOOT))
+>   		return false;
 >   
-
-"Revert" is a verb. The term "Revert of" sound strange to me. I think 
-using "Inverse of" will sound better.
-
-Cheers,
-Longman
+> -	if ((prstate != PRS_ISOLATED) && !cpumask_subset(new_cpus, boot_hk_cpus))
+> +	if ((prstate != PRS_ISOLATED) &&
+> +	    !cpumask_subset(new_cpus, housekeeping_cpumask(HK_TYPE_DOMAIN_BOOT)))
+>   		return true;
+>   
+>   	return false;
+> @@ -3892,12 +3887,9 @@ int __init cpuset_init(void)
+>   
+>   	BUG_ON(!alloc_cpumask_var(&cpus_attach, GFP_KERNEL));
+>   
+> -	have_boot_isolcpus = housekeeping_enabled(HK_TYPE_DOMAIN);
+> -	if (have_boot_isolcpus) {
+> -		BUG_ON(!alloc_cpumask_var(&boot_hk_cpus, GFP_KERNEL));
+> -		cpumask_copy(boot_hk_cpus, housekeeping_cpumask(HK_TYPE_DOMAIN));
+> -		cpumask_andnot(isolated_cpus, cpu_possible_mask, boot_hk_cpus);
+> -	}
+> +	if (housekeeping_enabled(HK_TYPE_DOMAIN_BOOT))
+> +		cpumask_andnot(isolated_cpus, cpu_possible_mask,
+> +			       housekeeping_cpumask(HK_TYPE_DOMAIN_BOOT));
+>   
+>   	return 0;
+>   }
+Reviewed-by: Waiman Long <longman@redhat.com>
 
 
