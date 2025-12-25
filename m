@@ -4,87 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23F78E7AD62
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Dec 2025 16:45:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CBE4E7AD62
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Dec 2025 17:31:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y+IbK0Z2/OU5lKK1OsobvgQQxvg8i2YYJKuwcQL/IaE=; b=0SdDxTL4vGZ6yIao17RnQjHbju
-	aMDspZ0Nvns8kIw4SHxT9is47lR6munjLOVQWVKDrGj8YoMenRgLoJhhbqFRpSzPB7A/X/R6KLzqT
-	MlpG2WhwLa+sZXuMFaOiISX9LiYpd82Tp+vz9fwse7AW6do93NcBND1adHAziC89ouSpac+YqsbnX
-	JPD7aoqlHqb+z/ri8foTbZBBlW7oGwz0gt6kGqrFu/zPsPeq2Np1QCv6qyHX2nCg/5BtkxbOdA7DT
-	px7Vt/DWxhKtc9hFFtzjI9lruLt78kR8sJbPKoGVXYysBYL3UeY+55hO7IBfC7llVtiBPadF8COeK
-	J2gvBs7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=31apXipNlf1QpVcJgO8AvAiPDS1k+UownqxyxhqGB04=; b=EsI4T/VxujE+H8Wofi/ldYg9iY
+	+CWk7HkJ93hQHcBN+4nLEm10DHCFjEqAWOB8uYZxx9pPh15neYxeYOHdrVbCMuohggLjx7sietY6v
+	F66uqalDnMaXjqrEyqczFtg9C52P876JEtpN6MbFaQr6KBjWl5zBpOBQ2GTNqvgTt69MNKLS62y4p
+	ERqjWODxNzB5vUFdWQ8mwAjPZ28nfWSJVH9lz9oo3hpbFvj5RqUenoCpH157WQCuVXfAfGFosy2jo
+	eqZgbdMXNCpW5lfYKL+++4NjyDH8C/n7q8UW/WtI8JrB/cjvUaEbMjRiEiMIwQt1mL0ikskZD2T0x
+	MF4EwUJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYoSs-00000000XwQ-2W6B;
-	Thu, 25 Dec 2025 16:45:26 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vYpBX-00000000ZZm-0Cvw;
+	Thu, 25 Dec 2025 17:31:35 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYoSp-00000000Xw0-1c6v
+	id 1vYpBU-00000000ZZ0-15SW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Dec 2025 16:45:25 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 1D6A71A241B;
-	Thu, 25 Dec 2025 16:45:20 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id D4ABC60742;
-	Thu, 25 Dec 2025 16:45:19 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CE071103C8CAF;
-	Thu, 25 Dec 2025 17:45:12 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1766681118; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=y+IbK0Z2/OU5lKK1OsobvgQQxvg8i2YYJKuwcQL/IaE=;
-	b=w2oWrB/Lvj0ilqa74OxdNWZZ5v5bZKDMsOwNdTw98nCTYRmHJf0e8HPP4xrul/ajIIWaG6
-	t+8YBXYcFixu06CqgdbC5v32jcQub6bcSngIGegihqteqFa3sT2OygBAntd7puzJ5JuOLc
-	yrAN1lGgPUzv5ggcWybFYL0ATjFVbfwCFzSN99Xyolep1YR7P1d+HA4V2jYmfT5EpNkjGj
-	taMJ9+3ELee1EwOn0NwVvTxts78Sk4we6hcqZom9KxJwUndXFo9dk4NPmJ/VIt4ktwNOtg
-	Jix8U3vz8F7vK0JiOUBb9DweiouM32UX42UK5WVXYkIP4EzjlXnlyHNZTEZLSg==
-Date: Thu, 25 Dec 2025 17:45:12 +0100
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Robert Marko <robert.marko@sartura.hr>, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org,
-	nicolas.ferre@microchip.com, claudiu.beznea@tuxon.dev,
-	herbert@gondor.apana.org.au, davem@davemloft.net, vkoul@kernel.org,
-	andi.shyti@kernel.org, lee@kernel.org, andrew+netdev@lunn.ch,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-	linusw@kernel.org, Steen.Hegelund@microchip.com,
-	daniel.machon@microchip.com, UNGLinuxDriver@microchip.com,
-	olivia@selenic.com, radu_nicolae.pirea@upb.ro,
-	richard.genoud@bootlin.com, gregkh@linuxfoundation.org,
-	jirislaby@kernel.org, broonie@kernel.org, mturquette@baylibre.com,
-	sboyd@kernel.org, lars.povlsen@microchip.com,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
-	dmaengine@vger.kernel.org, linux-i2c@vger.kernel.org,
-	netdev@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-spi@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-usb@vger.kernel.org, linux-clk@vger.kernel.org,
-	luka.perkov@sartura.hr
-Subject: Re: [PATCH v3 01/15] include: dt-bindings: add LAN969x clock bindings
-Message-ID: <20251225164512525907d8@mail.local>
-References: <20251223201921.1332786-1-robert.marko@sartura.hr>
- <20251223201921.1332786-2-robert.marko@sartura.hr>
- <20251224-berserk-mackerel-of-snow-4cae54@quoll>
- <CA+HBbNGym6Q9b166n-P=h_JssOHm0yfyL73JZ+G9P81muK=g4A@mail.gmail.com>
- <78bf252c-fd5e-4a36-b1a3-ca8ed26fde7a@kernel.org>
- <CA+HBbNG+ZVD6grGDp32Ninx7H1AyEbGvP0nwc0zUv94tOV8hYg@mail.gmail.com>
- <d210552f-c8bf-4084-9317-b743075d9946@kernel.org>
- <2025122516245554f59e2e@mail.local>
+	Thu, 25 Dec 2025 17:31:33 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-7b9387df58cso10842100b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Dec 2025 09:31:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1766683891; x=1767288691; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=31apXipNlf1QpVcJgO8AvAiPDS1k+UownqxyxhqGB04=;
+        b=Ks1QHYy84W1/rCBsiGM+moFyrKbpqmD7fS6DtNQZrmUGo8HGAJEtQB6+EXzFvXoK9w
+         ZCm4PrlhS997HeA+XKS6tUHCId57bOwy8cFdqKHUkLFJY/vRO30jMtgGI0As8SHB1RHP
+         i/t/d4oMcgHSPySKv+2eRMfag9PVgsMKF6Zq7eQ8k6CL7L9YcXYbzfGRzjhK7UDd8Rp7
+         28+Q0g699LbpBl+LcfX3k4qYSNS3eunR8bYxPQtxOZ4I6SC2WapejtJxuYMQIKjHpfYe
+         J9r56PzaswJij939axAF0quA/CH53qBDexFQAJQXg5cRHDKgU+hdQCJJr2R/U6jw1wxh
+         to/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766683891; x=1767288691;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=31apXipNlf1QpVcJgO8AvAiPDS1k+UownqxyxhqGB04=;
+        b=qNEnqlweLa0K2s0dQ+2SqomUcEHkEKK8lA+NZ0VhFYv2oB8ba1OWGLslAqaOoBSqAR
+         zoFCs8QNf3aE76ztuTW42gZGT8PRTZ5Cn1OnYlnqhETNThg1TnM434v6M7IC5OyHNNDw
+         cUCNTSGoAZ1TgCjKljkTOoKr291cMOdvaP76k8iERjlIabFn4NfAkWog81exUP5xqktY
+         0PMBu4V9Z9xMiWKPAsJ96vPaJUuG84opZnAWyKeZ9J9qoumsGMXjHvpTNdDsqJ+Edv/1
+         mlbrmgGziSZ2vLbjWAGEaw0kIPV7awkW6iOqraS+jcFpvTPYd15AnFoOmEgq+gS9LtIj
+         Fo+A==
+X-Gm-Message-State: AOJu0YwEhPtTFeSLcMKXAG4m9ZEa+c8MCZYYCJzMczGIqfCfDdou3B5j
+	yKUEUjSG1hv1x6ZxIHtEYjAODWK+sin0eqVB8ILRL+O+CUzDZ0pzzcgu
+X-Gm-Gg: AY/fxX6QC6xVt7g1pDPClX8GGNCL60bAZDCKvCFt2wrGPQ7LvRYi0kPXfWnrgjqWmwz
+	xsk2u5CwU/7hlPyFBjxS1Pwc/MlzVNBth8kBSx6AitXUaQuX9sT/i6a6ZgRY2XQhzPW1l5vMrhy
+	1gPl+/k6TZVWLheCyJjanIxDILkhopd/Km+jSOIL6FGif/wIjmxzFigW5jmQcU1hbVgZhEzgRVr
+	8pbqJbKwBETMWudJF68b38/qqqb4kXfJl+3TOzgf9dNrK9ZMzFDcpJkflozJ4URq/SgUdeJAh4p
+	g2ZkypaEwaWbImHZVXLDQ3c8guHcHU2OhXPDXGbEZJKFQIA9wZHKqcTomECHo3AVRu269VfUW9n
+	A3qX5UJI2iu3epMIAqYBs3OGIMFQiH1BiOcmxZW9n4Sb60XU4/o6HNyRr7Su4aCbDgnCio5EzDU
+	abbgzNDNOndkJ+2w3JipAjQp1OzCih1xHNfwKwZhnCqVd1ZUf8SQnLTPZu6okaDCHFFvYWRaC3F
+	0BNKQUDFpVOMVcQAklE5A==
+X-Google-Smtp-Source: AGHT+IG+RrlusK3U5jY/HpNGFiRuvCk55ZP9KNfhnswIoqpfnEX38+YhmOAdvGnR9FlnaOygc0lLqA==
+X-Received: by 2002:aa7:9a85:0:b0:7f7:5d81:172b with SMTP id d2e1a72fcca58-7ff664807a0mr20929135b3a.42.1766683890687;
+        Thu, 25 Dec 2025 09:31:30 -0800 (PST)
+Received: from visitorckw-work01.c.googlers.com.com (25.118.81.34.bc.googleusercontent.com. [34.81.118.25])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7ff7e48f300sm19814805b3a.54.2025.12.25.09.31.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 25 Dec 2025 09:31:30 -0800 (PST)
+From: Kuan-Wei Chiu <visitorckw@gmail.com>
+To: linusw@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	arnd@arndb.de
+Cc: linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	jserv@ccns.ncku.edu.tw,
+	eleanor15x@gmail.com,
+	Kuan-Wei Chiu <visitorckw@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v2] ARM: dts: integrator: Fix DMA ranges mismatch warning on IM-PD1
+Date: Thu, 25 Dec 2025 17:31:18 +0000
+Message-ID: <20251225173118.580110-1-visitorckw@gmail.com>
+X-Mailer: git-send-email 2.52.0.358.g0dd7633a29-goog
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <2025122516245554f59e2e@mail.local>
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251225_084523_567158_60CA6235 
-X-CRM114-Status: GOOD (  25.40  )
+X-CRM114-CacheID: sfid-20251225_093132_327635_C60317E5 
+X-CRM114-Status: GOOD (  11.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,56 +105,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/12/2025 17:25:07+0100, Alexandre Belloni wrote:
-> On 25/12/2025 09:47:34+0100, Krzysztof Kozlowski wrote:
-> > On 24/12/2025 15:01, Robert Marko wrote:
-> > > On Wed, Dec 24, 2025 at 2:05 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
-> > >>
-> > >> On 24/12/2025 11:30, Robert Marko wrote:
-> > >>> On Wed, Dec 24, 2025 at 11:21 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
-> > >>>>
-> > >>>> On Tue, Dec 23, 2025 at 09:16:12PM +0100, Robert Marko wrote:
-> > >>>>> Add the required LAN969x clock bindings.
-> > >>>>
-> > >>>> I do not see clock bindings actually here. Where is the actual binding?
-> > >>>> Commit msg does not help me at all to understand why you are doing this
-> > >>>> without actual required bindings.
-> > >>>
-> > >>> I guess it is a bit confusing, there is no schema here, these are the
-> > >>> clock indexes that
-> > >>> reside in dt-bindings and are used by the SoC DTSI.
-> > >>
-> > >> I understand as not used by drivers? Then no ABI and there is no point
-> > >> in putting them into bindings.
-> > > 
-> > > It is not included by the driver directly, but it requires these exact
-> > > indexes to be passed
-> > > so its effectively ABI.
-> > 
-> > How it requires the exact index? In what way? I do not see anything in
-> > the gck driver using/relying on these values. Nothing. Please point me
-> > to the line which directly uses these values.... or how many times I
-> > will need to write this is not ABI?
-> > 
-> 
-> The index here is the exact id that needs to be set in the PMC_PCR
-> register and so it is dictated by the hardware.
+When compiling the device tree for the Integrator/AP with IM-PD1, the
+following warning is observed regarding the display controller node:
 
-This is the line you are looking for:
-https://elixir.bootlin.com/linux/v6.18.2/source/drivers/clk/at91/clk-generated.c#L44
+arch/arm/boot/dts/arm/integratorap-im-pd1.dts:251.3-14: Warning
+(dma_ranges_format):
+/bus@c0000000/bus@c0000000/display@1000000:dma-ranges: empty
+"dma-ranges" property but its #address-cells (2) differs from
+/bus@c0000000/bus@c0000000 (1)
 
-	regmap_write(gck->regmap, gck->layout->offset,
-		     (gck->id & gck->layout->pid_mask));
+The "dma-ranges" property is intended to describe DMA address
+translations for child nodes. However, the only child of the display
+controller is a "port" node, which does not perform DMA memory
+accesses.
 
-> 
-> 
-> -- 
-> Alexandre Belloni, co-owner and COO, Bootlin
-> Embedded Linux and Kernel engineering
-> https://bootlin.com
+Since the property is not required for the child node and triggers a
+warning due to default address cell mismatch, remove it.
 
+Fixes: 7bea67a99430 ("ARM: dts: integrator: Fix DMA ranges")
+Cc: stable@vger.kernel.org
+Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
+---
+Changes in v2:
+- Switch approach to remove the unused "dma-ranges" property instead of
+  adding "#address-cells" and "#size-cells".
+
+ arch/arm/boot/dts/arm/integratorap-im-pd1.dts | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/arch/arm/boot/dts/arm/integratorap-im-pd1.dts b/arch/arm/boot/dts/arm/integratorap-im-pd1.dts
+index db13e09f2fab..0e568baf03b0 100644
+--- a/arch/arm/boot/dts/arm/integratorap-im-pd1.dts
++++ b/arch/arm/boot/dts/arm/integratorap-im-pd1.dts
+@@ -248,7 +248,6 @@ display@1000000 {
+ 		/* 640x480 16bpp @ 25.175MHz is 36827428 bytes/s */
+ 		max-memory-bandwidth = <40000000>;
+ 		memory-region = <&impd1_ram>;
+-		dma-ranges;
+ 
+ 		port@0 {
+ 			#address-cells = <1>;
 -- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+2.52.0.358.g0dd7633a29-goog
+
 
