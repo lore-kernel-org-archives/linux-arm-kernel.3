@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FCD8E7AD45
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Dec 2025 10:36:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1AEAE7AD47
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Dec 2025 10:36:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bk0rOfMw2htq0I/J9WMXZApsuJWmdAyLpTpuloIh10k=; b=MgzjCWPwTVyTWaBcbN5YF0fzYL
-	WWPmuQvy+XkuW5BIswT+hXjcqmWwkR3a4R1xja8X9RfW0Zxw0Ku/AcInHvv30YYmQ0Bt+fAUhb2Tm
-	wKKTDJfmCcpA2M3wL4S/o9a0Ga85CM5VNPpC8fviCuD1XswUO8tp1IZCOTzekmE9l+QAdJ8ZuTB0t
-	rJ8VPIK1K6JVCpOY8Sm45ktmOKoYwsJ1Jw1Yx5anchVYnyMnIjGLnk0TJVPTuaW1crudgS6Cx3k3E
-	GjcDc0zIHFTiBfgmXWbiPUXbmwAAoexyTJRNStbqgCi2Or0gxcrHSLUhgHFIzDanTF5x4rU1pypQz
-	od66csRw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=L0uQvSVJbSEQTBW1W1Ohra4CsURQBMjqCsfmMNl/46Y=; b=13LVdeeT8LFYxTJS01P519Ok3t
+	SQXBJtmEfEnrUToUFWIrvv2u53KLtpNt+GhgALNK02163zPNKg/RWODc9uccBSEkHu/7Y7frr/yNG
+	j9f6sUwqVqnGD+XkLhzBS2EehRcSlBXucGiNZUKru6UBGqEn3z3d6QQuIyDYYP/hD4U08M691wPoM
+	7cY4bac3xTllXyLvOdwv3lNIuDbIveUZ1LR2qmO62gC6u3RIbsQDyql4P32wb3CoAKH0kjFnaEq97
+	c/b3IkzUeDQq+iTMTHdcg/wqyXxreWmtL2bc/ewxN3YbCv78v0vYdjkxe4hx7MEksmrDYa1NarpaQ
+	wDwwHd2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYihx-00000000KOQ-2Bs8;
-	Thu, 25 Dec 2025 10:36:37 +0000
+	id 1vYihx-00000000KOl-490x;
+	Thu, 25 Dec 2025 10:36:38 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYihp-00000000KMi-1rEM
+	id 1vYihp-00000000KMh-1rEl
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 25 Dec 2025 10:36:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CEF1960149;
+	by tor.source.kernel.org (Postfix) with ESMTP id CBEB260143;
 	Thu, 25 Dec 2025 10:36:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06F97C4AF0C;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 053ADC4AF09;
 	Thu, 25 Dec 2025 10:36:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1766658985;
-	bh=ubywY0Cd6f05tTAqgCRIM7FpmCrB3B8Rsio5nl4gyuc=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=kq1QTjvkZYgk/ImDvp5YiKcucNu6g05gsVwqUC3LdnhLrxiI/nfUgzKIvI/TRpPeT
-	 6mqyUz5cOSTiwA1YuuRfJKkKbX8pz0x0oWhurq2FCb/4Yg9G787cjDvd8WeKTN1kJ5
-	 nfCOQWshjvudaVTwpIKPqvXqd3bA5rlsNhSi2d4LAc/Jdj6Kp3S1PBJ987vZcqeEPG
-	 h2/QFpGg7rS+krL/gjDEICEYhShK11jMLxe5rjpzV+8gA6zNbb9zrCS8PspIB2TmLl
-	 xCaxf/A8OSme7k8wYxZftpap2foRuxo+/2TgFAjrHrIk5bbfrVb63PCNVuPFj4BG/T
-	 cY4m6p3JJQ+3A==
+	bh=hUjiGAUCEtkj7Gi1H/0UYonfjZuOU7AW5JdzHCgDQe0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Ja/rtA+4bw+OqEQTsX/xoFbdMOp9T+S9QqDvRK1rNtpM6yZWb1Ywh1s2zj6LDV0uH
+	 01CqVcszRJZCqKQkxeKcHb0eXgObpkLck9PHhNz9c1rBJCA0hyXkzkzqN8LZh6S0KT
+	 bqdukJ96hfpxeqe/Ruubc2S9B8aub3irjbV3VVVo7J0A0y7Wtyc4DdFm5FawtHNNRE
+	 hymEksH+BRXERvnIrpNe01+saDNXIR5jRxUBRvBdhWeE5WOEwPRIaKEje/ryAISMoX
+	 DspYTlEoTml2dICU6g/4Y0Syz+6hBkXivHV9qiIkKASY+L7VOszabsKb/wOvs20g45
+	 Ms+w6EK225+zA==
 Received: by wens.tw (Postfix, from userid 1000)
-	id 661295FEC0; Thu, 25 Dec 2025 18:36:22 +0800 (CST)
+	id 4AF465FC5C; Thu, 25 Dec 2025 18:36:22 +0800 (CST)
 From: Chen-Yu Tsai <wens@kernel.org>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -58,14 +58,11 @@ Cc: devicetree@vger.kernel.org,
 	linux-gpio@vger.kernel.org,
 	linux-media@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Hans de Goede <hdegoede@redhat.com>
-Subject: [PATCH 3/4] ARM: dts: allwinner: sun5i-a13-utoo-p66: delete "power-gpios" property
-Date: Thu, 25 Dec 2025 18:36:14 +0800
-Message-ID: <20251225103616.3203473-4-wens@kernel.org>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/4] ARM: dts: allwinner: Fix remaining DT validation errors
+Date: Thu, 25 Dec 2025 18:36:11 +0800
+Message-ID: <20251225103616.3203473-1-wens@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251225103616.3203473-1-wens@kernel.org>
-References: <20251225103616.3203473-1-wens@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -82,39 +79,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The P66's device tree includes the reference design dtsi files, which
-defines a node and properties for the touchpanel in the common design.
-The P66 dts file then overrides all the properties to match its own
-design, but as the touchpanel model is different, a different schema
-is matched. This other schema uses a different name for the GPIO.
+Hi folks,
 
-The original submission added the correct GPIO property, but did not
-delete the one inherited from the reference design, causing validation
-errors.
+This series gets rid of the remaining DT validation errors for Allwinner
+(sunxi) ARM 32-bit device trees. The patches are self explaining.
 
-Explicitly delete the incorrect GPIO property.
+I plan to take all four patches through the sunxi tree.
 
-Fixes: 2a53aff27236 ("ARM: dts: sun5i: Enable touchscreen on Utoo P66")
-Signed-off-by: Chen-Yu Tsai <wens@kernel.org>
 
----
-Cc: Hans de Goede <hdegoede@redhat.com>
----
- arch/arm/boot/dts/allwinner/sun5i-a13-utoo-p66.dts | 1 +
- 1 file changed, 1 insertion(+)
+ChenYu
 
-diff --git a/arch/arm/boot/dts/allwinner/sun5i-a13-utoo-p66.dts b/arch/arm/boot/dts/allwinner/sun5i-a13-utoo-p66.dts
-index be486d28d04f..428cab5a0e90 100644
---- a/arch/arm/boot/dts/allwinner/sun5i-a13-utoo-p66.dts
-+++ b/arch/arm/boot/dts/allwinner/sun5i-a13-utoo-p66.dts
-@@ -102,6 +102,7 @@ &touchscreen {
- 	/* The P66 uses a different EINT then the reference design */
- 	interrupts = <6 9 IRQ_TYPE_EDGE_FALLING>; /* EINT9 (PG9) */
- 	/* The icn8318 binding expects wake-gpios instead of power-gpios */
-+	/delete-property/ power-gpios;
- 	wake-gpios = <&pio 1 3 GPIO_ACTIVE_HIGH>; /* PB3 */
- 	touchscreen-size-x = <800>;
- 	touchscreen-size-y = <480>;
+
+Chen-Yu Tsai (4):
+  dt-bindings: media: sun4i-a10-video-engine: Add interconnect
+    properties
+  dt-bindings: pinctrl: sunxi: Allow pinmux sub-pattern with leading
+    numbers
+  ARM: dts: allwinner: sun5i-a13-utoo-p66: delete "power-gpios" property
+  ARM: dts: allwinner: Replace status "failed" with "fail"
+
+ .../media/allwinner,sun4i-a10-video-engine.yaml        | 10 ++++++++++
+ .../bindings/pinctrl/allwinner,sun4i-a10-pinctrl.yaml  |  2 +-
+ .../boot/dts/allwinner/sun4i-a10-dserve-dsrv9703c.dts  |  2 +-
+ .../boot/dts/allwinner/sun4i-a10-pov-protab2-ips9.dts  |  2 +-
+ arch/arm/boot/dts/allwinner/sun5i-a13-utoo-p66.dts     |  1 +
+ arch/arm/boot/dts/allwinner/sun6i-a31-hummingbird.dts  |  2 +-
+ arch/arm/boot/dts/allwinner/sun6i-a31s-primo81.dts     |  2 +-
+ 7 files changed, 16 insertions(+), 5 deletions(-)
+
 -- 
 2.47.3
 
