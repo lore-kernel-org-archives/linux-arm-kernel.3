@@ -4,91 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13527E7AD40
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Dec 2025 06:27:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C364E7AD40
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Dec 2025 06:27:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ibJU0wUBIZD2vUwQMTCl3u43643DnxYyYUTq+Snsdfo=; b=f8TD5xpeEiiUaL7Y0ouhbCmK4D
-	8M5boNYDKYBRfx0hK8NWbcYnUIKrrui1jQC+QpKbPsFVxpST8XG8OuSQZrncCu4C9iqfyHBmpYhzA
-	SGBcfFxCG/sXC5TNlXRtjLuaNZIeWjUckhgX5SXkmK61bSDN7mJc5vTIgA+H10rhkA61OQbqPxSmn
-	kYkkh3wKiwRjnr5+bdaMxUsC+0B5Eg7HWz5nnn3WTby8NUfZFQfiYk/o0pNeGHPvhuipYaggP5NMW
-	qk2Ji6+6Ezi/JB4jGwuUm9Sg9Ii1wG4HpnqrRbF2zZ3RKD9aaMlI4LODNEk2rgv73BP9kJiKt6IL6
-	FdEWem6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rRcJacw4RRwg/LVkcqvOxXC3HBKQq8AOhXzMR72wG7E=; b=cRLdCpglLzfx1AlZPbt3Mlv7Dx
+	Ur7gL3MTWkQL6zdH5/vQAdH5o/wELAHohIGAnVKSHUbecel06CwCmKW23HLYRBhYMU2KBBbVVgPqk
+	LRCbk/ImFf7jxovDEFlSko1Li4qTtuZrf2eu/B64m1l+sM0Pm0KGMZBzgXgR/i/yf5VSpJn/BQKb7
+	ZZExs4yBgDT0i6rKzVmHiiaNDje3JyVQeUv0n+PBh3C6zA6N0/pIK7Jv2zKssbNz2ketSURk5o6xp
+	L4YKtw17Zr0FYQbcokFui4qPyaZXFYTNbuvNcoz8fqb8O37oYdLsmKvzUzjdyNn3IrIrIQs5JbjuF
+	Vt0emGuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYeoK-000000007rq-2nJe;
-	Thu, 25 Dec 2025 06:26:56 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1vYeoX-000000007vq-1DhY;
+	Thu, 25 Dec 2025 06:27:09 +0000
+Received: from mgamail.intel.com ([192.198.163.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYeoG-000000007r8-4A5q;
-	Thu, 25 Dec 2025 06:26:55 +0000
+	id 1vYeoU-000000007ug-34PH;
+	Thu, 25 Dec 2025 06:27:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1766644013; x=1798180013;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=G7DWSOB9fPpBxa7DXoXilHYnQeeepH0vpFzNouz+8bg=;
-  b=F1kPBQRe1LLzJKrICJyphO5RJW1pQ4gnylCOuKlScsCJ/1nRUdd0Aa6q
-   JdhVceWMVhzGlpV/+zEeGAWRX+h2MyrVhDb4R/g1iz69Zs1W//G8xz+gk
-   RuoYQUMLI9nqZVf0k5vEO1ioGeOAvyGnalsPg4xsTdolkcO4/n4GZ3/+r
-   QWDkhUAUrnpbB4on4o7T0Yx9/uLh9h98D5resxsW41PlnIUd6PhyGVNNy
-   AnUcZBivbzF0jrhrsfKj7OKCwyG98rHwNC7NVqjSwARO1pCxdNak/142u
-   i9wjWpSzJCX2xDf2ovbfiGknhBMU5vGzB/JLX8LbP4QX0ADgET/Y/fiOZ
-   w==;
-X-CSE-ConnectionGUID: A/nGAne+Tia3hEAK7Ovb0g==
-X-CSE-MsgGUID: RouW9goIQSqIYrf4LnduHg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11652"; a="79089599"
+  t=1766644027; x=1798180027;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=p1XfubM0YWj6WnMP8u+aCWSf2k0v8QcI9Wgv+fon5Ck=;
+  b=E4dzvruNcXQE5dw9kyc+jRTBrmIE7QvS576jan+va5QuBsyRkHFlktZH
+   vS/jnf6/P0u400jmA2rsbb2BQmmm2qun4SR/Xcsa79iHWj80++5q4vlVY
+   LKhE+gXWjunWXMVTVyp5HlAFlMe6KxxmVMYU42qVkeWNEDxNUeAuPrK/F
+   9/JZZhfCsAIv1FOKpt0qc53RNF+jHSoTLTBLNWwelZh8DMgTQFjje2r+a
+   6cCb3dznAgHmk8riR5vVQZH4dMfne9Dey9KfneJg/RkABA1/qKC6rLnH8
+   5BpiLgNRR4KWcJuxdFqdzXA1+moZ/16Jr51pec23Hvjhg9nbFNbDKoV17
+   g==;
+X-CSE-ConnectionGUID: OTv80gozRRqW02uziagCxA==
+X-CSE-MsgGUID: tcAwYgnpTG+NBpXxdUordw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11652"; a="68340500"
 X-IronPort-AV: E=Sophos;i="6.21,175,1763452800"; 
-   d="scan'208";a="79089599"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Dec 2025 22:26:50 -0800
-X-CSE-ConnectionGUID: Ad0S3tiVS+qUh3q9N8kLWg==
-X-CSE-MsgGUID: Msg01NgwSkKvsVX+MGudxg==
+   d="scan'208";a="68340500"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Dec 2025 22:27:06 -0800
+X-CSE-ConnectionGUID: DUtRii2LTCeg4q7vXPJ1zA==
+X-CSE-MsgGUID: a7dRTs5tS6S+a0BISdFYdg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.21,175,1763452800"; 
-   d="scan'208";a="199809963"
-Received: from lkp-server02.sh.intel.com (HELO dd3453e2b682) ([10.239.97.151])
-  by fmviesa007.fm.intel.com with ESMTP; 24 Dec 2025 22:26:46 -0800
-Received: from kbuild by dd3453e2b682 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vYeo7-000000003pB-2ymU;
-	Thu, 25 Dec 2025 06:26:43 +0000
-Date: Thu, 25 Dec 2025 14:26:22 +0800
-From: kernel test robot <lkp@intel.com>
-To: Ariel D'Alessandro <ariel.dalessandro@collabora.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Chun-Kuang Hu <chunkuang.hu@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Louis Chauvet <louis.chauvet@bootlin.com>,
-	Haneen Mohammed <hamohammed.sa@gmail.com>,
-	Melissa Wen <melissa.srw@gmail.com>
-Cc: oe-kbuild-all@lists.linux.dev, dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
-	=?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>,
-	Ariel D'Alessandro <ariel.dalessandro@collabora.com>,
-	Harry Wentland <harry.wentland@amd.com>
-Subject: Re: [PATCH v3 09/21] drm/colorop: Factor out common paths from
- colorops helpers
-Message-ID: <202512251442.dLlbaNp3-lkp@intel.com>
-References: <20251223-mtk-post-blend-color-pipeline-v3-9-7d969f9a37a0@collabora.com>
+   d="scan'208";a="200649863"
+Received: from dapengmi-mobl1.ccr.corp.intel.com (HELO [10.124.240.14]) ([10.124.240.14])
+  by fmviesa009-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Dec 2025 22:26:59 -0800
+Message-ID: <43d1cde6-2277-4f3c-8e7d-59e6edb2228a@linux.intel.com>
+Date: Thu, 25 Dec 2025 14:26:56 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251223-mtk-post-blend-color-pipeline-v3-9-7d969f9a37a0@collabora.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 15/44] KVM: x86/pmu: Snapshot host (i.e. perf's)
+ reported PMU capabilities
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
+ Oliver Upton <oupton@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>,
+ Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+ Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>,
+ Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ kvm@vger.kernel.org, loongarch@lists.linux.dev,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ Mingwei Zhang <mizhang@google.com>, Xudong Hao <xudong.hao@intel.com>,
+ Sandipan Das <sandipan.das@amd.com>,
+ Xiong Zhang <xiong.y.zhang@linux.intel.com>,
+ Manali Shukla <manali.shukla@amd.com>, Jim Mattson <jmattson@google.com>
+References: <20251206001720.468579-1-seanjc@google.com>
+ <20251206001720.468579-16-seanjc@google.com>
+Content-Language: en-US
+From: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
+In-Reply-To: <20251206001720.468579-16-seanjc@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251224_222653_129618_BDC0EE64 
-X-CRM114-Status: UNSURE (   9.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251224_222706_805582_8A8BBD19 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,30 +100,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ariel,
 
-kernel test robot noticed the following build warnings:
+On 12/6/2025 8:16 AM, Sean Christopherson wrote:
+> Take a snapshot of the unadulterated PMU capabilities provided by perf so
+> that KVM can compare guest vPMU capabilities against hardware capabilities
+> when determining whether or not to intercept PMU MSRs (and RDPMC).
+>
+> Reviewed-by: Sandipan Das <sandipan.das@amd.com>
+> Tested-by: Xudong Hao <xudong.hao@intel.com>
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> ---
+>  arch/x86/kvm/pmu.c | 2 ++
+>  1 file changed, 2 insertions(+)
+>
+> diff --git a/arch/x86/kvm/pmu.c b/arch/x86/kvm/pmu.c
+> index 487ad19a236e..7c219305b61d 100644
+> --- a/arch/x86/kvm/pmu.c
+> +++ b/arch/x86/kvm/pmu.c
+> @@ -108,6 +108,8 @@ void kvm_init_pmu_capability(const struct kvm_pmu_ops *pmu_ops)
+>  	bool is_intel = boot_cpu_data.x86_vendor == X86_VENDOR_INTEL;
+>  	int min_nr_gp_ctrs = pmu_ops->MIN_NR_GP_COUNTERS;
+>  
+> +	perf_get_x86_pmu_capability(&kvm_host_pmu);
+> +
+>  	/*
+>  	 * Hybrid PMUs don't play nice with virtualization without careful
+>  	 * configuration by userspace, and KVM's APIs for reporting supported
 
-[auto build test WARNING on b96bcfba104c65db41378a04f5ccac186f79578f]
+Hi Sean,
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Ariel-D-Alessandro/drm-crtc-Add-color-pipeline-to-CRTC-state/20251224-020551
-base:   b96bcfba104c65db41378a04f5ccac186f79578f
-patch link:    https://lore.kernel.org/r/20251223-mtk-post-blend-color-pipeline-v3-9-7d969f9a37a0%40collabora.com
-patch subject: [PATCH v3 09/21] drm/colorop: Factor out common paths from colorops helpers
-config: openrisc-randconfig-r073-20251225 (https://download.01.org/0day-ci/archive/20251225/202512251442.dLlbaNp3-lkp@intel.com/config)
-compiler: or1k-linux-gcc (GCC) 12.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251225/202512251442.dLlbaNp3-lkp@intel.com/reproduce)
+It looks a merging error here. We don't need this patch.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202512251442.dLlbaNp3-lkp@intel.com/
+The original patch "51f34b1 ("KVM: x86/pmu: Snapshot host (i.e. perf's)
+reported PMU capabilities")" had been merged into upstream and subsequently
+we submitted a new patch "034417c1439a ("KVM: x86/pmu: Don't try to get
+perf capabilities for hybrid CPUs")" to fix the warning introduced from
+previous patch  "51f34b1 ("KVM: x86/pmu: Snapshot host (i.e. perf's)
+reported PMU capabilities")". Thanks.
 
-All warnings (new ones prefixed by >>):
+-Dapeng Mi
 
->> Warning: drivers/gpu/drm/drm_colorop.c:227 expecting prototype for drm_plane_colorop_curve_1d_init(). Prototype was for drm_common_colorop_curve_1d_init() instead
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
