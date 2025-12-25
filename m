@@ -4,75 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0D97E7AD41
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Dec 2025 08:22:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 992B7E784A6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Dec 2025 08:36:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GBIp9kX+hl2mkbN1urGov/Z/70FEgI+eflqjn/ioE4Y=; b=xCGEbPbISSGAxI
-	Lk7ctC/IN6WW1P8AxmyeYpxyqfuCQkexpZ3e7G4hgS/fTaR9MQY80gyZzQSTQtkoKYyMNJPVmKGr0
-	uppnbuVyTuaTVdr5dnJ+fODvsUARrWg2Vj+rbaP4vFinXZrpeehVjzZ+LeNb2h4c/QNgXS+X6xMXP
-	Tws3sJf4wMBU18k5FQghw6/dS2j8Wne86VjnNBd3vny8RBfYt/ELJaB8MW4oWzFOjtx8bGvYSiIIW
-	aUZZXmo9xChMbq1Melz00RVy74FX5iafEJcTc0CpreSPP751W6BT0jEIlLinb6aRMGBB3rN0g4OtH
-	OfkOBXuukv5hKT8m/7MA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nlAWMHGfS2snrlMgavSuVfao2sue3av9XJuynhxfd+M=; b=Q/wqF2KXWfEyi3YJKarSOqilV4
+	DBqjqcOUR9wtZ5e2Vpp3KtW4iX8KEM475h2T3aq9hJvLgu3EEMD776htmeltq1K7KIapmi7mfEXhV
+	ceDNrm7//eD9YIzOlcmCfmOeq/CopxUHRyhDpdjt1/yRONnddEmjqC7TrZKEGEIGyD6Quc8HZDSEK
+	0e1S9cMYtdMJ+l58CTShwnvjbdnUDRFHj0gy/nfz8U761QOToQxGL+3IiJYI6ErhPPn5qJZ4pp2T0
+	KyUWBNO37165x2mNyngOJrkt4bPVQu9cPJc/4TERSFA64KbJ+unudRosV8ZM9btanS7fthgHvw5UN
+	Kou2QNKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYgcC-00000000Dgq-1NE1;
-	Thu, 25 Dec 2025 08:22:32 +0000
+	id 1vYgpw-00000000EBF-2WLl;
+	Thu, 25 Dec 2025 08:36:44 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYgc8-00000000DgU-2Z9W
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Dec 2025 08:22:31 +0000
+	id 1vYgpt-00000000EAp-3oEm;
+	Thu, 25 Dec 2025 08:36:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 01B1841991
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Dec 2025 08:22:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9083C19423
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Dec 2025 08:22:27 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C0D5B41926;
+	Thu, 25 Dec 2025 08:36:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3F42C4CEF1;
+	Thu, 25 Dec 2025 08:36:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766650947;
-	bh=GBIp9kX+hl2mkbN1urGov/Z/70FEgI+eflqjn/ioE4Y=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc:From;
-	b=a5yyFRb9uYBzXdPMfDY9vd4rIRPVEQsvsCeWkNpcuMRC1oFSiawSyRMjO8JH0ss+Z
-	 x/QqhbYn4H2K5w5BJz4Wbqbc5yjW86RK+JUdiiASMd3rYdF75g5W/ucdGbgLZeZQtJ
-	 M0aD3nb1BRHmorKDtA+gqJ9Vunr1cAH1IQDLNQgQjj3FSAKjIAustTvo2HAO7oejED
-	 BQfq3K24nxEX3VBOrl0jQxIikCIXP2lCn1R15NZhdsQx8JQtBjoCUej1u3yfR7469C
-	 CySkvxOuqSrDJxvFYWV0Xc9oVlUyzSzGKoOIKV0FOW4oDwBwhKze2XTGnNHiTt4ExL
-	 DrphkeTLbTz8w==
-Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-37bb8bef4cdso61387101fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Dec 2025 00:22:27 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWzF/c+PgZO1v5iBNKpdlylONLq+xPjUWZDQL9pb8l3c6kHrtJY77h3m5YFS9FeSyYGO8i3wcc+qTAUg4H+I7MP@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw0fE/Lvf/+6nWh8qSmrzulFp8KQsK+z+a4ZWp5QW3pW48CIMFd
-	8XdDzSChCTNgFxZdUaEE96k/Fn84KdCdsJrl1nhnKYC/vybVr9XvA/787/hrqemTLOoTdG3vdKo
-	PGaTEch6eHFThXPZpEvkg4oWwtbQsZ2c=
-X-Google-Smtp-Source: AGHT+IFppeSVdlVccV8ZLOVWMT/HmjByzAPqOV4k8UjgxAxDAQTT6kTjy5H+aCpOAkmg3adrDHLP6/5j+VdObqpd5IA=
-X-Received: by 2002:a05:651c:544:b0:37b:95ee:f605 with SMTP id
- 38308e7fff4ca-381215af948mr71834481fa.10.1766650946149; Thu, 25 Dec 2025
- 00:22:26 -0800 (PST)
+	s=k20201202; t=1766651800;
+	bh=+LTmmExZhYIq3wRPRw18QmDP2pXk7ZkD9j48bgY5Hgs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Y49kadE8vK3VRthElztNnUF2LI97elLlbCHeguKGaq0lZhke/QNdqrZ8ckdZYU7OF
+	 Vh9b3NA6JEWJXHG8SMmP/59gZ7hMBqSNEolfLd14p+KL/iepV6MSzvEZjFyQFDFPC3
+	 9TX7QnsbDclAgVY18zA094ew0RCsSoFSl/oH4sEMiBzhyrwPeuZwofUeFCD3LU0Rm1
+	 BabJZdvQMNdtZs5wlrN/JDVR3Fx+JYKyMw8NRoX0yBGJmMGrZ7Lv2DQW7TdhkG4vIG
+	 ct/QP2lg+Lwe6RdCIitD9pU+fT4PMEjD9BP2+2OUF5p50kEkERMV3lJ25hnpyzP1Gm
+	 Pa+j1M3K5vHJg==
+Message-ID: <f58ccc03-286e-4ca0-acc4-6c6474a9df5c@kernel.org>
+Date: Thu, 25 Dec 2025 09:36:32 +0100
 MIME-Version: 1.0
-References: <20251115141347.13087-1-jernej.skrabec@gmail.com> <20251115141347.13087-2-jernej.skrabec@gmail.com>
-In-Reply-To: <20251115141347.13087-2-jernej.skrabec@gmail.com>
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Thu, 25 Dec 2025 16:22:11 +0800
-X-Gmail-Original-Message-ID: <CAGb2v64h5E+hz-G4HEBesVgu4bkFfTi5vNEpU2BQFUYHKCqY8A@mail.gmail.com>
-X-Gm-Features: AQt7F2p6GeAz5pE56ddcluDZYRCFD_O3UDD7G_yS9PvFCxlCXBqEjAn8ZBftz2A
-Message-ID: <CAGb2v64h5E+hz-G4HEBesVgu4bkFfTi5vNEpU2BQFUYHKCqY8A@mail.gmail.com>
-Subject: Re: [PATCH 1/7] drm/sun4i: Add support for DE33 CSC
-To: Jernej Skrabec <jernej.skrabec@gmail.com>
-Cc: samuel@sholland.org, mripard@kernel.org, maarten.lankhorst@linux.intel.com, 
-	tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, mturquette@baylibre.com, 
-	sboyd@kernel.org, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 6/7] dt-bindings: pinctrl: rockchip: Add RMIO
+ controller binding
+To: Ye Zhang <ye.zhang@rock-chips.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ tao.huang@rock-chips.com
+References: <20251216112053.1927852-1-ye.zhang@rock-chips.com>
+ <20251216112053.1927852-7-ye.zhang@rock-chips.com>
+ <5154ca76-0f23-4b52-8e6d-07005c52ac6d@kernel.org>
+ <8e126c63-1388-40ff-9046-818f7a8c969f@rock-chips.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <8e126c63-1388-40ff-9046-818f7a8c969f@rock-chips.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251225_002230_107841_A74F2C09 
-X-CRM114-Status: UNSURE (   8.46  )
+X-CRM114-CacheID: sfid-20251225_003642_089727_C0683CB3 
+X-CRM114-Status: UNSURE (   8.92  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,17 +122,38 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 15, 2025 at 10:14=E2=80=AFPM Jernej Skrabec
-<jernej.skrabec@gmail.com> wrote:
->
-> DE33 has channel CSC units (for each plane separately) so pipeline can
-> be configured to output in desired colorspace.
->
-> Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+On 25/12/2025 04:25, Ye Zhang wrote:
+>>> +/* RMIO function definition */
+>>> +#define RMIO_UART1_TX			1
+>>> +#define RMIO_UART1_RX			2
+>>> +#define RMIO_UART2_TX			3
+>>> +#define RMIO_UART2_RX			4
+>>> +#define RMIO_UART3_TX			5
+>>> +#define RMIO_UART3_RX			6
+>>> +#define RMIO_UART3_CTSN			7
+>>> +#define RMIO_UART3_RTSN			8
+>>> +#define RMIO_UART4_TX			9
+>>> +#define RMIO_UART4_RX			10
+>>> +#define RMIO_UART4_CTSN			11
+>>> +#define RMIO_UART4_RTSN			12
+>>> +#define RMIO_MIPITE			13
+>>> +#define RMIO_CLK_32K			14
+>>> +#define RMIO_I2C0_SCL			15
+>>> +#define RMIO_I2C0_SDA			16
+>>
+>> I do not see how this is a binding. Please point me to the patch using
+>> this in the driver.
+> These macros are intended to be used in the Device Tree sources to 
+> improve readability, avoiding “magic numbers” for the RMIO function IDs.
 
-Reviewed-by: Chen-Yu Tsai <wens@kernel.org>
+That was not my question. Read again what I asked.
+
+So not a binding, remove.
+
+
+Best regards,
+Krzysztof
 
