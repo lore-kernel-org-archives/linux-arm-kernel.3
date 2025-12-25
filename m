@@ -4,72 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA12CE7AD40
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Dec 2025 08:47:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39B0EE7AD41
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Dec 2025 08:52:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I4T6YkdPCecWVX/e/FMqAmBbr4sJcT4HmSSEG6dcsZM=; b=2BPNvOpl9cr4CierDm5T7BG9OT
-	9QKAEc1ii6F/iZbz+3buW9NUGw9OsTvZvAgPPRgEo3kgncact+Aozn4DhFEXKHAyT0Kn8VVjNhZpy
-	+icjJLwbcFZ77gXdX0caohr2kc7RKM6cfHxKp269LJH8Oaxtc1syfHAVNk8oAnLqgvw7+TaVC4kT/
-	1wbGYQTgZgvJ45W45bgOcxgSNNMbOnh68CNyK7yFCxDft1Kbpvea4z76X6W0GOGJF4i1PQtmae3Xn
-	e2lZDsW/OtjW3fbrPv7qszlnUqdV5E8JGZ3ox4kQ2tSAMihqr+JQ7Fqiah8gXic2DxHfj4pyXAXaj
-	TcFEKfqw==;
+	bh=d453QlEDIs6R7h8k24XZwX3i51N19psbYYx45hKnfGY=; b=4Cdli6hq/jTD6pCtS067WoD3q4
+	8dv65jBn9XwihrLwPsxwL69o07zHpqkFloGV46+X03+GTimTMIZf3TeW1cMVdSPHJLWqJS4dJj8aE
+	rqCfM1jmbFt6RGjg7DbyWtB7AD4q86758hN14+pEGpkan+eLPvEOymBLANpsCBtO8Ll5wK1wDcAHy
+	Xviuxz84/PEV9gqcCX2wRd4shmRcSRkL8A1kx2hPH7t9eH5HtjaFf1Bhnnzcg8TCOxRNwXVx70v1x
+	0u72uAUFm//pljz1/ZgCQp+74dRGiu4yliwVG9YFT4C+yrRMQTE9qXx0xs7VQ2bQwgS698pE7SLSL
+	ztKluxPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYh0l-00000000EbQ-28Hf;
-	Thu, 25 Dec 2025 08:47:55 +0000
+	id 1vYh4d-00000000Epl-3eNU;
+	Thu, 25 Dec 2025 08:51:55 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYh0j-00000000Eb3-3EWg
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Dec 2025 08:47:54 +0000
+	id 1vYh4b-00000000EpP-0XWP;
+	Thu, 25 Dec 2025 08:51:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9C36B42A1F;
-	Thu, 25 Dec 2025 08:47:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C230FC4CEF1;
-	Thu, 25 Dec 2025 08:47:37 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 85030405FD;
+	Thu, 25 Dec 2025 08:51:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02AF0C4CEF1;
+	Thu, 25 Dec 2025 08:51:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766652472;
-	bh=tGzoiwIypyZ1iLWL1dGZAiulpww0GETNLT0hTiOL9vU=;
+	s=k20201202; t=1766652712;
+	bh=D9mysTcv+Jgh35PRk6Sd3Rn3Bu9gIl/Jg7Ezf6E68ag=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=rSQfAtpu1Tvje/pcoez2UitanssUVwM5Cw1SU9kJa9Dw+XhVX2F+U9GlYoKtGJVbX
-	 yg+sXK4KfXtEVLU+r7yvHaiA8uPZaF4WDYdaALbqFC8+I2x4MDvryas+cJma11Ktgl
-	 bD/8n2VD+10tm2Qlrlbp4Uz5mFXnFttIOL5jxnpnZbqe/hojpQ/ctBkpk4ebOK7p53
-	 Jk0AxOaAoVTP73KCHaPr876LRnUVqNn4CHB1Bz/f24N2otmhGdG08GivmZk4jTOXzA
-	 kjH/eT9zXi3CGjKZ95ockcCO0V8gAcyf/rnmeM89AJXIW3sf8z5SUCO7F2KFrsQEdq
-	 HKbnq3pWlXfqg==
-Message-ID: <d210552f-c8bf-4084-9317-b743075d9946@kernel.org>
-Date: Thu, 25 Dec 2025 09:47:34 +0100
+	b=gN1gv9OVCSNgOkGlHboJ16lonZxFU2Tp7IU07L5a3//qsgtDy3MeYkXZR/q0yGJWA
+	 KwdmyrmwuhruBE6FAdTDKKVhKgah1xZ9p4BuB5nbPQPNr+uQa2jm+2FxjA08Deqw9G
+	 94itPTsGuBVPmomvGaXrseALwpI6yDVCIaH2lZM6RlNwMfSoiY9mdNF96DO6FKa68o
+	 Kh9s0gornhY5u9V/4Q97VSpeCAW6suYslJkHrRLUFZfSRi7VyrqaFAroiGjNYH2Xr+
+	 EY5rCYO2A33Y1DL1tQoFwKb3uPrFACfhIL2ViSTLefsc37GxopRByhr83OpgbAo/WL
+	 dG1UUWIpS+Zlw==
+Message-ID: <3538f671-8a16-4b71-b15f-3ef5cfeacd40@kernel.org>
+Date: Thu, 25 Dec 2025 09:51:39 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 01/15] include: dt-bindings: add LAN969x clock bindings
-To: Robert Marko <robert.marko@sartura.hr>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
- claudiu.beznea@tuxon.dev, herbert@gondor.apana.org.au, davem@davemloft.net,
- vkoul@kernel.org, andi.shyti@kernel.org, lee@kernel.org,
- andrew+netdev@lunn.ch, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, linusw@kernel.org, Steen.Hegelund@microchip.com,
- daniel.machon@microchip.com, UNGLinuxDriver@microchip.com,
- olivia@selenic.com, radu_nicolae.pirea@upb.ro, richard.genoud@bootlin.com,
- gregkh@linuxfoundation.org, jirislaby@kernel.org, broonie@kernel.org,
- mturquette@baylibre.com, sboyd@kernel.org, lars.povlsen@microchip.com,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
- dmaengine@vger.kernel.org, linux-i2c@vger.kernel.org,
- netdev@vger.kernel.org, linux-gpio@vger.kernel.org,
- linux-spi@vger.kernel.org, linux-serial@vger.kernel.org,
- linux-usb@vger.kernel.org, linux-clk@vger.kernel.org, luka.perkov@sartura.hr
-References: <20251223201921.1332786-1-robert.marko@sartura.hr>
- <20251223201921.1332786-2-robert.marko@sartura.hr>
- <20251224-berserk-mackerel-of-snow-4cae54@quoll>
- <CA+HBbNGym6Q9b166n-P=h_JssOHm0yfyL73JZ+G9P81muK=g4A@mail.gmail.com>
- <78bf252c-fd5e-4a36-b1a3-ca8ed26fde7a@kernel.org>
- <CA+HBbNG+ZVD6grGDp32Ninx7H1AyEbGvP0nwc0zUv94tOV8hYg@mail.gmail.com>
+Subject: Re: [PATCH 0/5] virt: Add Bao hypervisor IPC and I/O dispatcher
+ drivers
+To: joaopeixoto@osyx.tech, linux-kernel@vger.kernel.org
+Cc: ajd@linux.ibm.com, alex@ghiti.fr, aou@eecs.berkeley.edu,
+ bagasdotme@gmail.com, catalin.marinas@arm.com, conor+dt@kernel.org,
+ corbet@lwn.net, dan.j.williams@intel.com, davidmcerdeira@osyx.tech,
+ devicetree@vger.kernel.org, dev@kael-k.io, gregkh@linuxfoundation.org,
+ haren@linux.ibm.com, heiko@sntech.de, jose@osyx.tech,
+ kever.yang@rock-chips.com, krzk+dt@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux@armlinux.org.uk,
+ linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ maddy@linux.ibm.com, mani@kernel.org, nathan@kernel.org,
+ neil.armstrong@linaro.org, palmer@dabbelt.com, pjw@kernel.org,
+ prabhakar.mahadev-lad.rj@bp.renesas.com, robh@kernel.org, will@kernel.org
+References: <20251224135217.25350-1-joaopeixoto@osyx.tech>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -115,12 +105,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <CA+HBbNG+ZVD6grGDp32Ninx7H1AyEbGvP0nwc0zUv94tOV8hYg@mail.gmail.com>
+In-Reply-To: <20251224135217.25350-1-joaopeixoto@osyx.tech>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251225_004753_863478_869E1AD5 
-X-CRM114-Status: GOOD (  14.71  )
+X-CRM114-CacheID: sfid-20251225_005153_209049_A9EF9C5A 
+X-CRM114-Status: UNSURE (   7.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,36 +126,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/12/2025 15:01, Robert Marko wrote:
-> On Wed, Dec 24, 2025 at 2:05 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>
->> On 24/12/2025 11:30, Robert Marko wrote:
->>> On Wed, Dec 24, 2025 at 11:21 AM Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>>>
->>>> On Tue, Dec 23, 2025 at 09:16:12PM +0100, Robert Marko wrote:
->>>>> Add the required LAN969x clock bindings.
->>>>
->>>> I do not see clock bindings actually here. Where is the actual binding?
->>>> Commit msg does not help me at all to understand why you are doing this
->>>> without actual required bindings.
->>>
->>> I guess it is a bit confusing, there is no schema here, these are the
->>> clock indexes that
->>> reside in dt-bindings and are used by the SoC DTSI.
->>
->> I understand as not used by drivers? Then no ABI and there is no point
->> in putting them into bindings.
+On 24/12/2025 14:52, joaopeixoto@osyx.tech wrote:
+> From: João Peixoto <joaopeixoto@osyx.tech>
 > 
-> It is not included by the driver directly, but it requires these exact
-> indexes to be passed
-> so its effectively ABI.
+> This series introduces support for the Bao hypervisor guest-side drivers
+> under drivers/virt/bao and the associated Device Tree bindings, UAPI,
+> and MAINTAINERS entries.
+> 
+> Bao is a lightweight static-partitioning hypervisor for embedded and
+> safety-critical systems. This series adds:
+> - The Bao IPC shared memory driver, which enables Linux guests to
+>   communicate with each other through shared memory regions.
+> - The Bao I/O Dispatcher driver, which allows Bao's VMs to share I/O
+>   devices using device paravirtualization (VirtIO).
+> 
 
-How it requires the exact index? In what way? I do not see anything in
-the gck driver using/relying on these values. Nothing. Please point me
-to the line which directly uses these values.... or how many times I
-will need to write this is not ABI?
 
-
+None of these patches, except MAINTAINERS reached my mailbox. Fix your
+submission process, so it will not be marked by spam and bounced.
 
 Best regards,
 Krzysztof
