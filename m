@@ -4,99 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9864DE8FDA2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Dec 2025 13:17:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E73CE8FDA7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Dec 2025 14:11:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=3nq+EYlL++mG/3TFa3FwRdzZI9jSs+tcNFo3bySgaV0=; b=wUTB8ZWsqMv7Hy
-	/bpy2DkVXFTjYEtPGLTZRz3gTjomFHZeaGeRbv/lHTetx6Qvx4JZBg3mCmJlrsRnqg8b+KQUOi8J0
-	CZzJHpCACC/677ctHlFfhZkUnTN5oZaTuTkI5HYcPXNFMhvC+J+h2UH0kCGI9d0KNrnebbOcEttDK
-	l5/+P84n11oqVQ4+LXVXkVph74g+wlTJqEP4a/ddMWtlqJiOvbCnmvwsZCdL5yoN1luVwEGeMnywc
-	1z+pXfdIIVVt3sX7P1HPAxX3qTTARQF2aUn0OjLV5o7MJXPHo+lPa9OOy0TlZQS97otoYXXqNeIWZ
-	JgYzSSxZPGyS4v3Rom/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=C1Eb8Tbzs2NO6bPeBqhZrfOFwL0tG0ndVs0MF0jDIGQ=; b=rqnGLpPhGWUqvNxNch4wIc0hac
+	vcR0u74qTsGdHVPgNtLWTR2mTrV4fHokeae6W8nXCGGlErQk8Mxr00l5OWLwSbv3fbY6bh7zE5XFC
+	uiWqLN94kdcQShrdIIQKsdHifJTm8BCLM+0u+DPCyjR5Q/TGRDYwoMb9tYLFRCruQOMfVrLDpQCwm
+	tMe8FKywDfKO686SR0AclW1bD0hq3tySJTOYcsZKa7duSVXIio1c6t4i4cWZ4uYAgD6W9XtTcRXdP
+	Gjx54e54cMX7O5gIF+OwROoP7J+G03nhvAFISk+WMFGnlhjb6BbVW/l7DLqi2/UYj1i+TRRKgSxd+
+	NxBz0Hvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZ7h6-00000001CmS-2D7D;
-	Fri, 26 Dec 2025 13:17:24 +0000
-Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
+	id 1vZ8XP-00000001EWd-2bih;
+	Fri, 26 Dec 2025 14:11:27 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZ7h2-00000001Clx-0wiY
+	id 1vZ8XM-00000001EVW-2EP6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Dec 2025 13:17:22 +0000
-Received: by mail-wm1-x343.google.com with SMTP id 5b1f17b1804b1-477aa218f20so43703945e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Dec 2025 05:17:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1766755037; x=1767359837; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=3nq+EYlL++mG/3TFa3FwRdzZI9jSs+tcNFo3bySgaV0=;
-        b=cw6nqVwqX6A6I7t2/QQ1KgJKi9vIeI+kvcEdwr2zA9yycEi6jFG5KFtgtEZsu8rIyx
-         pZJ/S9Hs1qPeSaCqEqOJHda1ZNQBVdrZKjl43U/yCmsaLmxrRcpIM2ByzAMPIJzLVP/U
-         hv01XpIX4jx9aMU4ZREd9hY+LrIaeET7/sEe80mPZ1bdKLDPub9O/6yuXwkgsrXdT/MP
-         S+kq4es9afndqk7smdS1ILhJJpiE4KV4nC6Y9EcyFH72Vrlewah4r6tPfIzvSndDLH6E
-         TJ/Q/wbfBg0MHD34NwLBKbt6Ju8hffW/3PUDI03mQuu/EqcaYOtgGZh/RJ2o5ux1+Q5i
-         DiBQ==
+	Fri, 26 Dec 2025 14:11:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1766758283;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=C1Eb8Tbzs2NO6bPeBqhZrfOFwL0tG0ndVs0MF0jDIGQ=;
+	b=FM9lmZ62Z0k0QvOs7EsIaOF4L+zDjKwPDonVOngrvonjRVZRo89ltadHexLkUrjqXv4AfJ
+	m3TjghHXQd8hbEK6jelB9np2C/VuDYPPLtazpivRMb+jbbVz1iHtr9vgiforpM+u4BfGjT
+	R3j1EpXC5Nxb1zK6gqhIXEzaXqHmez4=
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com
+ [209.85.214.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-257-f479PhyyNdGLnoRDZc2TpA-1; Fri, 26 Dec 2025 09:11:21 -0500
+X-MC-Unique: f479PhyyNdGLnoRDZc2TpA-1
+X-Mimecast-MFC-AGG-ID: f479PhyyNdGLnoRDZc2TpA_1766758281
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-29f1f79d6afso106291825ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Dec 2025 06:11:21 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766755037; x=1767359837;
-        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1766758281; x=1767363081;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=3nq+EYlL++mG/3TFa3FwRdzZI9jSs+tcNFo3bySgaV0=;
-        b=OgCovSS8XrZKCt58IHZmtTg4G/u5YWojb9Y7p+pjgQuVkmhBUU+h11k9VdcC8MBhHy
-         pc38/mEvEGCZk5KuoeXpX80chrTLh24mp8oEZkEwMMHJNoJx7T6Uqf/u6sQbjeBoksdv
-         s5SdUVzfyEr7ok7FqB+U2ud+0B9IadlbM9yNH57Z0cjZtCwIkVraYvUTUFWg+apxFaUp
-         swSAz63Woi09KxulJq5pWxu9PQYtIfYizo3GML43HpWoCbRobRrygyDZBAOAd3UE0rgG
-         CPjmV5YaAl/WDd/UAkz/a6lUUWnaquUIua3os7tpPRtWEYG8toETLCofiENEVpulhMLV
-         B3qA==
-X-Forwarded-Encrypted: i=1; AJvYcCUHqe+1boIcQGAcPR9DmoManKJG1t/7t2UDQXgw4i2vXNPXE8R3N3AVP1HLe+smdOx6g3AFlrcCXUOswhxUHn0j@lists.infradead.org
-X-Gm-Message-State: AOJu0YwjHajHB2yBBMowWEGYJGk7ifcwgsqmaJtXnDn9mNTE3uUUogH5
-	B5/JssSQWxuhTE5jscNyj8h7PXUPVaersP68fArFUAWoOLpkV9AOx1LLGIx/yrUU8xI=
-X-Gm-Gg: AY/fxX4i0Q4Q8RoplsRa2pbQLtAFHVU6Vk6bBJofiau378pvZefSaoQYFB2m9awF3HH
-	ydp9JfT5cZGXtP/x0ySv88lg6aMEhC3fsINMnsXMRXLqieZuXJ5hHMAjbsKv5P96JPSriBkekZ6
-	YCFeABRrDyE7VXhiZD/yMc/qpvOJTzOFb0XWYsafqOD+y/1Z4nt8zqhr8OommXSSQVu7Trw32II
-	SZDaVrEUtMxdSW3SdT9Fb0ny8ESPJRCQWz0sCRpUQqTJqhQyivryGorNKreYiiZZgYgZUls1OIO
-	yyS+KmTWHP/yGwIOp+0kTXp798Ylo4g1i3Snu+aWBfZTX3TnranQnKF8XX924pzo64VUS7U1xgD
-	7WFKkKkXcI3ZEFs+cCSXZVgFgmdikG7VHMiVszIoulGtL4KPmgnrCeLITiS+swvuGWfq2djZbtH
-	LrYw41ACExfUjLerSm
-X-Google-Smtp-Source: AGHT+IGemvX5W+7cNu+/fYMuzoT9IV7eJMQ9HN7J6El6QbJ0mh0x3X7WIlEDnhHX9DTKeesGfgSayQ==
-X-Received: by 2002:a05:600c:1d1d:b0:477:a21c:2066 with SMTP id 5b1f17b1804b1-47d19532f48mr217783085e9.5.1766755037373;
-        Fri, 26 Dec 2025 05:17:17 -0800 (PST)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47be272e46fsm434235755e9.4.2025.12.26.05.17.16
+        bh=C1Eb8Tbzs2NO6bPeBqhZrfOFwL0tG0ndVs0MF0jDIGQ=;
+        b=VoCZH4N3VlpsGFbwg4Bq2BHVV/5q4QV6VSR4NjDj4Nn0InLZDUInM5h4L45w+o7gRw
+         7ELg3mF6cUiZ/cciJJDLcBNKHy/Lb8EqWoVLKnzQvact4k8bZnzYFwTKqxAjpx9E/2WV
+         4dh3xjtNuSYjmRLrNH/afskAsr1GgUJKJGzLX4MhHlkH7Y6Qu8bg6mzI3I6LEtWJZSfv
+         Evl02+kv2V0lL5ytuO6xutvIUI7ZIyuaFcLOjIUWmKvVwobVABe2vvPfKEO1JKmtRxPm
+         qXoHinypel+3oozLfsxRFSHJaCZeqvoWHXgM+khbIznQjcFblXMsU7yL1a/0G4RJRgzy
+         99+g==
+X-Forwarded-Encrypted: i=1; AJvYcCUfryg5uq6GxH0+xOncbUvTKZF1oBnBvYwWsFhi1sEX4OMesNJq8dnzCSOBh1SxS6HlgZZfxuq7+UX2B3bgmbBY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz9+chS0ku32VGj/b1mkXTvolDzjMbgoToaZJM8/HLSFCWAk+Q+
+	zCDzzEoCwgjkRttq4KR/NqkPOOGhWtphmS5YjgAbnNXaOxYQFAHVH20xQFnEcsK93Sjdker5r+6
+	h+UQ3BMVTNi528+z6jhX3glvYxuJvXeaDpQRJFf4T3/qY6WTuxLRgWSw4UaYPRFmFwoYIT4WKeS
+	Dn
+X-Gm-Gg: AY/fxX70lYBI8kg7NsGz3xSFWA+rPXHoqI3nPNpOPHvP1N7XHfhdwsekkr5Z27b98LF
+	JoBr8s5csRBeCe4KszREbVxJpKjp+HgTFJu0UQ4q6D9guoOyGbWUjTM5501nmYRver/s9DxDGgz
+	VEyxctAy6DofZwIO9m41D6TpiNWQhsmzcsfGvJKCMVudCb/GmdwSAEwWJVOA7BQnMjdVKT1uIB7
+	tFF4iPyiPrpzzYym8BbhFggqU2qnXds+IYsURojBzhLLORgB2TVAdx9B5tt4QLLSVJ/+xz1l3Ww
+	m7XuKj9QCURB0msiDyQjFTPZCWK02ehWewkmOB788QeTsE51Do8tC2LN/8Cuc8asOEDaaN+Wt0E
+	q
+X-Received: by 2002:a17:902:c103:b0:2a0:97d2:a264 with SMTP id d9443c01a7336-2a2f2735214mr156670145ad.37.1766758280497;
+        Fri, 26 Dec 2025 06:11:20 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEXwhad5jc3xv4cqcmnL6jgHZfUywv9Z9yVyVbU1Tg52LQN7cnj/6oCJmqPwsvSlt7Wg7i7lA==
+X-Received: by 2002:a17:902:c103:b0:2a0:97d2:a264 with SMTP id d9443c01a7336-2a2f2735214mr156669855ad.37.1766758279936;
+        Fri, 26 Dec 2025 06:11:19 -0800 (PST)
+Received: from localhost ([209.132.188.88])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a2f3d5d663sm207266485ad.77.2025.12.26.06.11.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 26 Dec 2025 05:17:17 -0800 (PST)
-Date: Fri, 26 Dec 2025 16:17:14 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: oe-kbuild@lists.linux.dev, Jie Gan <jie.gan@oss.qualcomm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Fri, 26 Dec 2025 06:11:19 -0800 (PST)
+From: Coiby Xu <coxu@redhat.com>
+To: kexec@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Arnaud Lefebvre <arnaud.lefebvre@clever-cloud.com>,
+	Baoquan he <bhe@redhat.com>,
+	Dave Young <dyoung@redhat.com>,
+	Kairui Song <ryncsn@gmail.com>,
+	Pingfan Liu <kernelfans@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
 	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-	Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>
-Cc: lkp@intel.com, oe-kbuild-all@lists.linux.dev,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	devicetree@vger.kernel.org, Jie Gan <jie.gan@oss.qualcomm.com>
-Subject: Re: [PATCH v9 2/8] coresight: tmc: add create/clean functions for
- etr_buf_list
-Message-ID: <202512251923.GDSbVal1-lkp@intel.com>
+	Saravana Kannan <saravanak@google.com>,
+	linux-kernel@vger.kernel.org (open list),
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE)
+Subject: [PATCH] arm64/kdump: pass dm-crypt keys to kdump kernel
+Date: Fri, 26 Dec 2025 22:11:15 +0800
+Message-ID: <20251226141116.1379601-1-coxu@redhat.com>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251224-enable-byte-cntr-for-ctcu-v9-2-886c4496fed4@oss.qualcomm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: bxZuCi8jbrvS1a9R990Y5Wee2cELwZogkvCBTtX2OCw_1766758281
+X-Mimecast-Originator: redhat.com
+Content-Transfer-Encoding: 8bit
+content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251226_051720_391770_E4E6E302 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20251226_061124_644938_68472F89 
+X-CRM114-Status: GOOD (  18.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,90 +118,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jie,
+Based on the CONFIG_CRASH_DM_CRYPT feature, this patch adds
+LUKS-encrypted device dump target support to ARM64 by addressing two
+challenges [1],
+ - Kdump kernel may not be able to decrypt the LUKS partition. For some
+   machines, a system administrator may not have a chance to enter the
+   password to decrypt the device in kdump initramfs after the 1st kernel
+   crashes
 
-kernel test robot noticed the following build warnings:
+ - LUKS2 by default use the memory-hard Argon2 key derivation function
+   which is quite memory-consuming compared to the limited memory reserved
+   for kdump.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Jie-Gan/coresight-core-Refactoring-ctcu_get_active_port-and-make-it-generic/20251224-171604
-base:   47b7b5e32bb7264b51b89186043e1ada4090b558
-patch link:    https://lore.kernel.org/r/20251224-enable-byte-cntr-for-ctcu-v9-2-886c4496fed4%40oss.qualcomm.com
-patch subject: [PATCH v9 2/8] coresight: tmc: add create/clean functions for etr_buf_list
-config: arm-randconfig-r073-20251225 (https://download.01.org/0day-ci/archive/20251225/202512251923.GDSbVal1-lkp@intel.com/config)
-compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 4ef602d446057dabf5f61fb221669ecbeda49279)
+1st kernel will add device tree property dmcryptkeys as similar to
+elfcorehdr to pass the memory address of the stored info of dm-crypt
+keys to the kdump kernel.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-| Closes: https://lore.kernel.org/r/202512251923.GDSbVal1-lkp@intel.com/
+[1] https://lore.kernel.org/all/20250502011246.99238-1-coxu@redhat.com/
 
-smatch warnings:
-drivers/hwtracing/coresight/coresight-tmc-etr.c:1992 tmc_create_etr_buf_list() warn: passing freed memory 'new_node' (line 1991)
-drivers/hwtracing/coresight/coresight-tmc-etr.c:1992 tmc_create_etr_buf_list() warn: passing zero to 'PTR_ERR'
+Cc: Arnaud Lefebvre <arnaud.lefebvre@clever-cloud.com>
+Cc: Baoquan he <bhe@redhat.com>
+Cc: Dave Young <dyoung@redhat.com>
+Cc: Kairui Song <ryncsn@gmail.com>
+Cc: Pingfan Liu <kernelfans@gmail.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Signed-off-by: Coiby Xu <coxu@redhat.com>
+---
+ arch/arm64/kernel/machine_kexec_file.c |  9 +++++++++
+ drivers/of/fdt.c                       | 19 +++++++++++++++++++
+ drivers/of/kexec.c                     | 19 +++++++++++++++++++
+ 3 files changed, 47 insertions(+)
 
-vim +/new_node +1992 drivers/hwtracing/coresight/coresight-tmc-etr.c
+diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
+index 410060ebd86d..5f3bad8ca96d 100644
+--- a/arch/arm64/kernel/machine_kexec_file.c
++++ b/arch/arm64/kernel/machine_kexec_file.c
+@@ -134,6 +134,15 @@ int load_other_segments(struct kimage *image,
+ 
+ 		kexec_dprintk("Loaded elf core header at 0x%lx bufsz=0x%lx memsz=0x%lx\n",
+ 			      image->elf_load_addr, kbuf.bufsz, kbuf.memsz);
++
++		ret = crash_load_dm_crypt_keys(image);
++
++		if (ret == -ENOENT) {
++			kexec_dprintk("No dm crypt key to load\n");
++		} else if (ret) {
++			pr_err("Failed to load dm crypt keys\n");
++			goto out_err;
++		}
+ 	}
+ #endif
+ 
+diff --git a/drivers/of/fdt.c b/drivers/of/fdt.c
+index 331646d667b9..2b22dc7e2b5f 100644
+--- a/drivers/of/fdt.c
++++ b/drivers/of/fdt.c
+@@ -866,6 +866,24 @@ static void __init early_init_dt_check_for_elfcorehdr(unsigned long node)
+ 		 elfcorehdr_addr, elfcorehdr_size);
+ }
+ 
++static void __init early_init_dt_check_for_dmcryptkeys(unsigned long node)
++{
++	const __be32 *prop;
++
++	if (!IS_ENABLED(CONFIG_CRASH_DM_CRYPT))
++		return;
++
++	pr_debug("Looking for dmcryptkeys property... ");
++
++	prop = of_get_flat_dt_prop(node, "linux,dmcryptkeys", NULL);
++	if (!prop)
++		return;
++
++	dm_crypt_keys_addr = dt_mem_next_cell(dt_root_addr_cells, &prop);
++
++	pr_debug("dm_crypt_keys_addr=0x%llx\n", dm_crypt_keys_addr);
++}
++
+ static unsigned long chosen_node_offset = -FDT_ERR_NOTFOUND;
+ 
+ /*
+@@ -1097,6 +1115,7 @@ int __init early_init_dt_scan_chosen(char *cmdline)
+ 
+ 	early_init_dt_check_for_initrd(node);
+ 	early_init_dt_check_for_elfcorehdr(node);
++	early_init_dt_check_for_dmcryptkeys(node);
+ 
+ 	rng_seed = of_get_flat_dt_prop(node, "rng-seed", &l);
+ 	if (rng_seed && l > 0) {
+diff --git a/drivers/of/kexec.c b/drivers/of/kexec.c
+index 1ee2d31816ae..4bfb1ea5744e 100644
+--- a/drivers/of/kexec.c
++++ b/drivers/of/kexec.c
+@@ -432,6 +432,25 @@ void *of_kexec_alloc_and_setup_fdt(const struct kimage *image,
+ 		if (ret)
+ 			goto out;
+ 
++		if (image->dm_crypt_keys_addr != 0) {
++			ret = fdt_appendprop_addrrange(fdt, 0, chosen_node,
++						       "linux,dmcryptkeys",
++						       image->dm_crypt_keys_addr,
++						       image->dm_crypt_keys_sz);
++
++			if (ret)
++				goto out;
++
++			/*
++			 * Avoid dmcryptkeys from being stomped on in kdump kernel by
++			 * setting up memory reserve map.
++			 */
++			ret = fdt_add_mem_rsv(fdt, image->dm_crypt_keys_addr,
++					      image->dm_crypt_keys_sz);
++			if (ret)
++				goto out;
++		}
++
+ #ifdef CONFIG_CRASH_DUMP
+ 		/* add linux,usable-memory-range */
+ 		ret = fdt_appendprop_addrrange(fdt, 0, chosen_node,
 
-34af91eeb7e78e Jie Gan 2025-12-24  1959  int tmc_create_etr_buf_list(struct tmc_drvdata *drvdata, int num_nodes)
-34af91eeb7e78e Jie Gan 2025-12-24  1960  {
-34af91eeb7e78e Jie Gan 2025-12-24  1961  	struct etr_buf_node *new_node;
-34af91eeb7e78e Jie Gan 2025-12-24  1962  	struct etr_buf *sysfs_buf;
-34af91eeb7e78e Jie Gan 2025-12-24  1963  	int i = 0, ret = 0;
-34af91eeb7e78e Jie Gan 2025-12-24  1964  
-34af91eeb7e78e Jie Gan 2025-12-24  1965  	/* We dont need a list if there is only one node */
-34af91eeb7e78e Jie Gan 2025-12-24  1966  	if (num_nodes < 2)
-34af91eeb7e78e Jie Gan 2025-12-24  1967  		return -EINVAL;
-34af91eeb7e78e Jie Gan 2025-12-24  1968  
-34af91eeb7e78e Jie Gan 2025-12-24  1969  	/* We expect that sysfs_buf in drvdata has already been allocated. */
-34af91eeb7e78e Jie Gan 2025-12-24  1970  	if (drvdata->sysfs_buf) {
-34af91eeb7e78e Jie Gan 2025-12-24  1971  		/* Directly insert the allocated sysfs_buf into the list first */
-34af91eeb7e78e Jie Gan 2025-12-24  1972  		new_node = kzalloc(sizeof(struct etr_buf_node), GFP_KERNEL);
-34af91eeb7e78e Jie Gan 2025-12-24  1973  		if (IS_ERR(new_node))
-34af91eeb7e78e Jie Gan 2025-12-24  1974  			return PTR_ERR(new_node);
-34af91eeb7e78e Jie Gan 2025-12-24  1975  
-34af91eeb7e78e Jie Gan 2025-12-24  1976  		new_node->sysfs_buf = drvdata->sysfs_buf;
-34af91eeb7e78e Jie Gan 2025-12-24  1977  		new_node->is_free = false;
-34af91eeb7e78e Jie Gan 2025-12-24  1978  		list_add(&new_node->node, &drvdata->etr_buf_list);
-34af91eeb7e78e Jie Gan 2025-12-24  1979  		i++;
-34af91eeb7e78e Jie Gan 2025-12-24  1980  	}
-34af91eeb7e78e Jie Gan 2025-12-24  1981  
-34af91eeb7e78e Jie Gan 2025-12-24  1982  	while (i < num_nodes) {
-34af91eeb7e78e Jie Gan 2025-12-24  1983  		new_node = kzalloc(sizeof(struct etr_buf_node), GFP_KERNEL);
-34af91eeb7e78e Jie Gan 2025-12-24  1984  		if (IS_ERR(new_node)) {
-34af91eeb7e78e Jie Gan 2025-12-24  1985  			ret = PTR_ERR(new_node);
-34af91eeb7e78e Jie Gan 2025-12-24  1986  			break;
-34af91eeb7e78e Jie Gan 2025-12-24  1987  		}
-34af91eeb7e78e Jie Gan 2025-12-24  1988  
-34af91eeb7e78e Jie Gan 2025-12-24  1989  		sysfs_buf = tmc_alloc_etr_buf(drvdata, drvdata->size, 0, cpu_to_node(0), NULL);
-34af91eeb7e78e Jie Gan 2025-12-24  1990  		if (IS_ERR(sysfs_buf)) {
-34af91eeb7e78e Jie Gan 2025-12-24 @1991  			kfree(new_node);
-34af91eeb7e78e Jie Gan 2025-12-24 @1992  			ret = PTR_ERR(new_node);
-
-s/new_node/sysfs_buf/
-
-34af91eeb7e78e Jie Gan 2025-12-24  1993  			break;
-34af91eeb7e78e Jie Gan 2025-12-24  1994  		}
-34af91eeb7e78e Jie Gan 2025-12-24  1995  
-34af91eeb7e78e Jie Gan 2025-12-24  1996  		/* We dont have a available sysfs_buf in drvdata, setup one */
-34af91eeb7e78e Jie Gan 2025-12-24  1997  		if (!drvdata->sysfs_buf) {
-34af91eeb7e78e Jie Gan 2025-12-24  1998  			drvdata->sysfs_buf = sysfs_buf;
-34af91eeb7e78e Jie Gan 2025-12-24  1999  			new_node->is_free = false;
-34af91eeb7e78e Jie Gan 2025-12-24  2000  		} else
-34af91eeb7e78e Jie Gan 2025-12-24  2001  			new_node->is_free = true;
-34af91eeb7e78e Jie Gan 2025-12-24  2002  
-34af91eeb7e78e Jie Gan 2025-12-24  2003  		new_node->sysfs_buf = sysfs_buf;
-34af91eeb7e78e Jie Gan 2025-12-24  2004  		list_add(&new_node->node, &drvdata->etr_buf_list);
-34af91eeb7e78e Jie Gan 2025-12-24  2005  		i++;
-34af91eeb7e78e Jie Gan 2025-12-24  2006  	}
-34af91eeb7e78e Jie Gan 2025-12-24  2007  
-34af91eeb7e78e Jie Gan 2025-12-24  2008  	/* Clean the list if there is an error */
-34af91eeb7e78e Jie Gan 2025-12-24  2009  	if (ret)
-34af91eeb7e78e Jie Gan 2025-12-24  2010  		tmc_clean_etr_buf_list(drvdata);
-34af91eeb7e78e Jie Gan 2025-12-24  2011  
-34af91eeb7e78e Jie Gan 2025-12-24  2012  	return ret;
-34af91eeb7e78e Jie Gan 2025-12-24  2013  }
-
+base-commit: ccd1cdca5cd433c8a5dff78b69a79b31d9b77ee1
+prerequisite-patch-id: af871421d3653569c735073a3d2d4915412736d7
+prerequisite-patch-id: 536241bdf9240e12a5b038415875d4ce417a0892
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.52.0
 
 
