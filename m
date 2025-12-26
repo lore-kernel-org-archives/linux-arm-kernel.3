@@ -4,123 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2201EE8FDBE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Dec 2025 22:17:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4FF3E8FDBE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Dec 2025 22:32:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gb98MWMdlEGo36TvwfyminxMDlqaYbAnnXftxbdSDi0=; b=3w0kKpoOEbH5WppHroVlr6lxpK
-	9m0j74EwXVxSteO6CsT33xqaTt6y4MlmgOShINBZe8Rs8d4AsyLcOlw4JMwnm2HwqI89muhbf8kkg
-	MMKzHdAMPn8h7sR9qbD7UgQYSli57LEoe6+e2wh7ZMEIa1tzorX/LDJk9YVz/LoVYt9TcW5YKnsb1
-	KH5KzSzi23xxUCAOUwPJmfV3gR/wxsnMWdhJo0k3f7b6tmYyLArHwwbfK08Ma1O7KoKja+mNxeqlK
-	wPLLyemPdk3+E0m34prdCBrNEEo9Fi7cC3TnOBSSzTxiWzB3yV02kWvYCBf2BAlf5ejQlkGOGYXsJ
-	cXXsYBWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=dt20NZOu8P33kPfB0YirAytrgIeXPwxH9gzj4UBwvSg=; b=tIEXkbePKMpwuM
+	y3QXsTzv+etFgUFsrDBoThl+V/oq12vOQv0tWEKTYPTBzDaAieKiVU7LtTzh3XIyC3RoY7Uhjr/hG
+	CWMLaeCNHU9XS+dSY0C9IOZkgH1iYoTzyRo/CtFdb1LWyx2/S7AEx4iktRIcasqM58oivIapebrn+
+	3ez2SIxx+iaCKFnfGcVPXa48910r0Ex07t8haX18lb/iM73+1dG+J2Sk/i9++5dmg9BxXCsBpsCgJ
+	57kQob5m5NeCIcIVkdrLEEpCmSApb4zArhgSKayuwgxZE5x635sMXMVqs8sJexMy8h5zKIoweonoQ
+	fnxBouKc3Ba8I+jaUMOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZG7P-00000001VpM-3FjP;
-	Fri, 26 Dec 2025 22:17:07 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vZGLt-00000001WFz-1KGR;
+	Fri, 26 Dec 2025 22:32:05 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZG7L-00000001Vou-3g8J
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Dec 2025 22:17:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1766787421;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Gb98MWMdlEGo36TvwfyminxMDlqaYbAnnXftxbdSDi0=;
-	b=d0pJk+UBil7d0TNuXgVSAFqSsz1UkHMD+fhnWvxd2VU79CI/VKTpCKYpMJH7xiQIxokCt4
-	Xq5M636MDoPCsC6InRJb/TvcbKzvuZgdCgyBjddreTDCZ9A/Q8SA3mcw3xbn0lKhC1vf8X
-	wr7P3l0c7OCIGk2JfW3LtoyTLBDpJAY=
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com
- [209.85.160.198]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-225-m8mmdzHFNP-m4FxbJuI0aQ-1; Fri, 26 Dec 2025 17:16:59 -0500
-X-MC-Unique: m8mmdzHFNP-m4FxbJuI0aQ-1
-X-Mimecast-MFC-AGG-ID: m8mmdzHFNP-m4FxbJuI0aQ_1766787419
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-4ee0c1c57bcso275436231cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Dec 2025 14:16:59 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766787419; x=1767392219;
-        h=content-transfer-encoding:in-reply-to:content-language:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Gb98MWMdlEGo36TvwfyminxMDlqaYbAnnXftxbdSDi0=;
-        b=fWle30xkDSram+I7nMNGO4elBrtVwGsIHzeOad7bs+NUtQCotKf3UP1NsgS8i4pRKz
-         iXZ+SKBG0yhknM+/XiHnjfTnV2j76OXGm4uhdLfZbhTfFMHBdjyC2Lo+NuRF6g0np3o0
-         vppcPCHVVRX2xPrK/MzvfjVkUMuQSlok/Hv4EgNIci1z9adt8nnP4p9sbUQCifYDmcrf
-         FKNg99asUy1HNMl2wLZgswNsH80m+XzpRgLKRyCpwW5u5y25R5RxuF4wt0Uj+6rOy48N
-         gLpaAH21rJpg5CKAGc8UfcmV9yFgT7BG8R/raEtDqK+MvmGpbvYElpgpXT3y7B1Xcgnc
-         YXSg==
-X-Forwarded-Encrypted: i=1; AJvYcCUtfquhksE694cOzH3ENL4j3BZZ9aKBLtgzv4oRbW1NR9//VDU2J5hXk5VIfAR8UK6fVm9uNVvnyCnp6NquggEP@lists.infradead.org
-X-Gm-Message-State: AOJu0YwpLNCAPjhDXG2u28uEvvgfyNVutLGCKMHXQtrqqQiZbdp8YpnE
-	UAeUBYr9GXdm3lcXrCI7e5kfMYJREcyyKGLEYhEeJFKFUhCGsUyKiveuLqdO+nJ1dOZF0xmXJyY
-	C0uKdTLkf4L9SRbpSnPIoXiXoGmSYVu12bSZyj1zyfvLg7ZJq5ofU/LkJZN5rGvg+eF5ZFiGcrw
-	iq
-X-Gm-Gg: AY/fxX4WYQf0hpeJWz5Gwfvv451UtxRx4qns85cbK1fcJi/+xNvjKJF/Fxj07gN6+E1
-	JHSQhbZKf2jUlQsxxgV304Z+DqZeW0AAoVasAtYtHNfWCh51rE3wpkt7y13JqkrtUxg7WbFOgei
-	xWpexfSKMpr6mzVuEtbp/3Lbs1RE/1cgh0zcTpr6JzhYJ15GF2Fk+Q5fLh3f1AUbQJgSicAyQVN
-	ih8Ft7CdwookfQVs8Wtv5cKX3eNr1x5k0ytY30ja8v1okrpkstwdrLX4GPdR/hG1oXLx5uG4CCl
-	ry2CrHaBbvQoagtr3JNEgo8ADX4ERCBRmvZbOrl31PIldHiQmaNoifZR1QCavG1BPUsI/J+hC+/
-	S7jnxDYLDz6Cw8OywD1DpsXLaodbgC4JMEDQLl2OwFoqXHYvlpQOfjZQk
-X-Received: by 2002:a05:622a:cc:b0:4f0:22df:9afe with SMTP id d75a77b69052e-4f4abd801f1mr367336441cf.51.1766787419319;
-        Fri, 26 Dec 2025 14:16:59 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGRvuLHSyqUpCT4r+1J8I9GjzOXah9qpvn8vbYEiTnx2y0sMdtY9oMwdnxWWZ/KZalKRQ1OSQ==
-X-Received: by 2002:a05:622a:cc:b0:4f0:22df:9afe with SMTP id d75a77b69052e-4f4abd801f1mr367336221cf.51.1766787418961;
-        Fri, 26 Dec 2025 14:16:58 -0800 (PST)
-Received: from ?IPV6:2601:600:947f:f020:85dc:d2b2:c5ee:e3c4? ([2601:600:947f:f020:85dc:d2b2:c5ee:e3c4])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4f4ac54adb9sm164334711cf.10.2025.12.26.14.16.55
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 26 Dec 2025 14:16:58 -0800 (PST)
-From: Waiman Long <llong@redhat.com>
-X-Google-Original-From: Waiman Long <longman@redhat.com>
-Message-ID: <46a613e8-cf5b-4fbc-9299-48ab1a6f347b@redhat.com>
-Date: Fri, 26 Dec 2025 17:16:54 -0500
+	id 1vZGLq-00000001WFZ-3rNc;
+	Fri, 26 Dec 2025 22:32:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 83536444A7;
+	Fri, 26 Dec 2025 22:32:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06D7EC4CEF7;
+	Fri, 26 Dec 2025 22:32:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766788321;
+	bh=J5Jqm5xsdySK6xnw1VOys1NDqCq9XV/QNBpwKwi1/rM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=b1HEiD2EHgPf9ffbPpEE6A2XqMeKh/t3qOKgip2nJydL4o3hl5o43AkPq/jBtUmIF
+	 478b6PN5m9qR3iMtaxcoWaTX90c/Yqog9RuZBT55YbNj+C4bTYrXtIKMpv9fdC+SXS
+	 NY10aMu1C4iiovc9Qh8M0wCPraOdrLjyDbUzKqLIGTP6X8FrjS2An2IMHP5zZ8L36M
+	 JHcTs1S61D01i9oLu1Ey7xcj4vVn4r9jVjmeH0V7YIe9tMVH0IRJ5iGgbxgcHDIwVa
+	 K5K3TxXbCqnsWRYKvj5+738dMefEX4SZ8ptQoSRdIv7o2EsMk22ECxvJdZh0JApuTe
+	 oqJEptSeNxHLA==
+Date: Fri, 26 Dec 2025 16:31:59 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Niklas Cassel <cassel@kernel.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	FUKAUMI Naoki <naoki@radxa.com>,
+	Krishna chaitanya chundru <quic_krichai@quicinc.com>,
+	Damien Le Moal <dlemoal@kernel.org>, stable@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>
+Subject: Re: [PATCH v2 1/6] Revert "PCI: dw-rockchip: Don't wait for link
+ since we can detect Link Up"
+Message-ID: <20251226223159.GA4143516@bhelgaas>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 27/33] kthread: Rely on HK_TYPE_DOMAIN for preferred
- affinity management
-To: Frederic Weisbecker <frederic@kernel.org>,
- LKML <linux-kernel@vger.kernel.org>
-Cc: =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Bjorn Helgaas <bhelgaas@google.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Chen Ridong <chenridong@huawei.com>, Danilo Krummrich <dakr@kernel.org>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Gabriele Monaco <gmonaco@redhat.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
- Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
- Lai Jiangshan <jiangshanlai@gmail.com>,
- Marco Crivellari <marco.crivellari@suse.com>, Michal Hocko
- <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
- Paolo Abeni <pabeni@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
- Phil Auld <pauld@redhat.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
- Roman Gushchin <roman.gushchin@linux.dev>,
- Shakeel Butt <shakeel.butt@linux.dev>, Simon Horman <horms@kernel.org>,
- Tejun Heo <tj@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
- cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-block@vger.kernel.org, linux-mm@kvack.org, linux-pci@vger.kernel.org,
- netdev@vger.kernel.org
-References: <20251224134520.33231-1-frederic@kernel.org>
- <20251224134520.33231-28-frederic@kernel.org>
-In-Reply-To: <20251224134520.33231-28-frederic@kernel.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: dG2G30YTN86cEZVJVrtm8eYkXCdc_BWEqP1ldN1ED_8_1766787419
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251222064207.3246632-9-cassel@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251226_141704_002875_F8EC3A24 
-X-CRM114-Status: GOOD (  17.33  )
+X-CRM114-CacheID: sfid-20251226_143203_039060_E7720A7F 
+X-CRM114-Status: GOOD (  20.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,46 +80,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/24/25 8:45 AM, Frederic Weisbecker wrote:
-> Unbound kthreads want to run neither on nohz_full CPUs nor on domain
-> isolated CPUs. And since nohz_full implies domain isolation, checking
-> the latter is enough to verify both.
->
-> Therefore exclude kthreads from domain isolation.
->
-> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
-> ---
->   kernel/kthread.c | 8 +++++---
->   1 file changed, 5 insertions(+), 3 deletions(-)
->
-> diff --git a/kernel/kthread.c b/kernel/kthread.c
-> index 85ccf5bb17c9..968fa5868d21 100644
-> --- a/kernel/kthread.c
-> +++ b/kernel/kthread.c
-> @@ -362,18 +362,20 @@ static void kthread_fetch_affinity(struct kthread *kthread, struct cpumask *cpum
->   {
->   	const struct cpumask *pref;
->   
-> +	guard(rcu)();
-> +
->   	if (kthread->preferred_affinity) {
->   		pref = kthread->preferred_affinity;
->   	} else {
->   		if (kthread->node == NUMA_NO_NODE)
-> -			pref = housekeeping_cpumask(HK_TYPE_KTHREAD);
-> +			pref = housekeeping_cpumask(HK_TYPE_DOMAIN);
->   		else
->   			pref = cpumask_of_node(kthread->node);
->   	}
->   
-> -	cpumask_and(cpumask, pref, housekeeping_cpumask(HK_TYPE_KTHREAD));
-> +	cpumask_and(cpumask, pref, housekeeping_cpumask(HK_TYPE_DOMAIN));
->   	if (cpumask_empty(cpumask))
-> -		cpumask_copy(cpumask, housekeeping_cpumask(HK_TYPE_KTHREAD));
-> +		cpumask_copy(cpumask, housekeeping_cpumask(HK_TYPE_DOMAIN));
->   }
->   
->   static void kthread_affine_node(void)
-Reviewed-by: Waiman Long <longman@redhat.com>
+[+cc Ilpo]
 
+On Mon, Dec 22, 2025 at 07:42:08AM +0100, Niklas Cassel wrote:
+> This reverts commit ec9fd499b9c60a187ac8d6414c3c343c77d32e42.
+> 
+> While this fake hotplugging was a nice idea, it has shown that this feature
+> does not handle PCIe switches correctly:
+> pci_bus 0004:43: busn_res: can not insert [bus 43-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
+
+Apart from the actual problem you're fixing, it looks like some of our
+bus number resource setup is a little deficient here.  The "43-41" and
+"42-41" ranges are bogus and "(null)" doesn't tell us anything useful.
+
+> pci_bus 0004:43: busn_res: [bus 43-41] end is updated to 43
+> pci_bus 0004:43: busn_res: can not insert [bus 43] under [bus 42-41] (conflicts with (null) [bus 42-41])
+> pci 0004:42:00.0: devices behind bridge are unusable because [bus 43] cannot be assigned for them
+> pci_bus 0004:44: busn_res: can not insert [bus 44-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
+> pci_bus 0004:44: busn_res: [bus 44-41] end is updated to 44
+> pci_bus 0004:44: busn_res: can not insert [bus 44] under [bus 42-41] (conflicts with (null) [bus 42-41])
+> pci 0004:42:02.0: devices behind bridge are unusable because [bus 44] cannot be assigned for them
+> pci_bus 0004:45: busn_res: can not insert [bus 45-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
+> pci_bus 0004:45: busn_res: [bus 45-41] end is updated to 45
+> pci_bus 0004:45: busn_res: can not insert [bus 45] under [bus 42-41] (conflicts with (null) [bus 42-41])
+> pci 0004:42:06.0: devices behind bridge are unusable because [bus 45] cannot be assigned for them
+> pci_bus 0004:46: busn_res: can not insert [bus 46-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
+> pci_bus 0004:46: busn_res: [bus 46-41] end is updated to 46
+> pci_bus 0004:46: busn_res: can not insert [bus 46] under [bus 42-41] (conflicts with (null) [bus 42-41])
+> pci 0004:42:0e.0: devices behind bridge are unusable because [bus 46] cannot be assigned for them
+> pci_bus 0004:42: busn_res: [bus 42-41] end is updated to 46
+> pci_bus 0004:42: busn_res: can not insert [bus 42-46] under [bus 41] (conflicts with (null) [bus 41])
+> pci 0004:41:00.0: devices behind bridge are unusable because [bus 42-46] cannot be assigned for them
+> pcieport 0004:40:00.0: bridge has subordinate 41 but max busn 46
+> 
+> During the initial scan, PCI core doesn't see the switch and since the Root
+> Port is not hot plug capable, the secondary bus number gets assigned as the
+> subordinate bus number. This means, the PCI core assumes that only one bus
+> will appear behind the Root Port since the Root Port is not hot plug
+> capable.
+> 
+> This works perfectly fine for PCIe endpoints connected to the Root Port,
+> since they don't extend the bus. However, if a PCIe switch is connected,
+> then there is a problem when the downstream busses starts showing up and
+> the PCI core doesn't extend the subordinate bus number after initial scan
+> during boot.
+
+I suppose this is could also be viewed as a resource management
+problem.  
+
+Even in the normal hotplug case, we never know what a hot-added
+hierarchy will look like, so we hack around it with the compiled-in
+DEFAULT_HOTPLUG_BUS_SIZE and the "hpbussize=" kernel parameter.
+
+It would be nice if we could allocate more bus numbers at hot-add (or
+link-up) time as needed.  That's hard after drivers have claimed
+nearby devices, but in this case there might not be anything nearby.
+
+> The long term plan is to migrate this driver to the pwrctrl framework,
+> once it adds proper support for powering up and enumerating PCIe switches.
+
+"Proper" is hiding some important details here.  pwrctrl already
+supports powering up and enumerating switches.  I think this refers to
+[1], where Mani says the plan is for pwrctrl to power up everything
+before the initial bus scan so we can figure out how many buses are
+needed.
+
+Bjorn
+
+[1] https://lore.kernel.org/linux-pci/fle74skju2rorxmfdvosmeyrx3g75rysuszov5ofvde2exj4ir@3kfjyfyhczmn/
 
