@@ -4,72 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C324E8FDBA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Dec 2025 22:54:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4481AE8FDB8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Dec 2025 22:54:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pcGdIc/9DJZ3V/5WVf7vUUbl5wTlCyMzFQWvUiTQ7kw=; b=uc9RDmnacNsDy3
-	pN9Cly4fZu2s/mEvoezfdo8oVZRrShLIujJgLc4O+D0RouEZYf97fd1PNCjpPfioLBwr0MwGxr6Ib
-	nQEDX6ZKwYnqTnERMb4wxggVXdqxWUgmtCZSXO+OTWvI5uwdgS/mCIhI0KsN3X2eC3kaMJcY5Oovl
-	bAR2HSxihusR0TQOoI/YZBf3kNFmbNNV1bfXQXnYvCEZZEVqC1lUcDzTBRqRzse8VUt5doNcXGHY2
-	Udrw2ZAQ6CKG4Ps+zXLUcEX6D7mMwUYpgbsXwpkJtIuO8kRQlGajVx++62eUHEJ8CB5BFxxRUkXLw
-	2TyYnFYcLBr/hZN/w64w==;
+	List-Owner; bh=9mp0y7L70LQWZn3MNrpl8AtI1agZhiyYjI11ja2HdtI=; b=GmBtxbfWpnFH73
+	Uk6uUMcdbUE4Y8lrQLLPx19Kp5iKrR+SqJgr/dVtYXdTlcRHmTuWaL/rn6happDfupGpaciIr3JvO
+	/z7R/HsWWWMBPJK43ghRx312F3bzZ0Ydt0n5e6mHm6NgP+31vjGJuUCAD8kuauqNC18panKsRQb0+
+	MCMx8eKIgIf8jsfgTxXvA9QxZwZbbXDDvmYoZ3w+099iopizp+Z6uxVRqQgdJwOntfH4d5cjh4QoT
+	Tn9fncNb5ozBm9QIlZu3PeXM0oJBBMcEIlYtGGIVgSBy4jk2pQwcHvGuOHr9lmGwBUqZWoZ/ZGup9
+	NSWrmYZkzp523yW+fpIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZGhE-00000001XIq-25LA;
-	Fri, 26 Dec 2025 22:54:08 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1vZGhW-00000001XSH-0t5J;
+	Fri, 26 Dec 2025 22:54:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZGhB-00000001XGT-2Xfk
+	id 1vZGhU-00000001XQs-3Enf
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 26 Dec 2025 22:54:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=9mp0y7L70LQWZn3MNrpl8AtI1agZhiyYjI11ja2HdtI=; b=cqGXvqaZWfHHM3pK+cayHrOg7L
+	dy5dB6I/yvTSSJRjVBUvSjNbTbnCsWudgha1ZV7+u/lWDapPHyeSBS5OWj4cVK/5rOgSO5uIsw4Wf
+	L56dmI3A5P2aw0FFcKcIcAl+2u7CLcDVfMb+iQl39Wd4t0vIVusRC+/TqnktxeXkJRkymsmxiu6VX
+	kySnYX65T9Vp316kYAkstFZ929YsDWZObIhG0/CZBgbwkuHu0oagQSL0OUtIJGyf866Htm9H48c+p
+	eynRZ2UYjGH+ow1AU0KsM9kiA57bz/dz9BNXm//7BnBjcFpoIg40jaAcLsemNrFw+jpWEJ0cuL+0G
+	2O6U3ISg==;
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vZGhN-00000001AIz-3DvA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Dec 2025 22:54:07 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-34c24f4dfb7so5727366a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Dec 2025 14:54:05 -0800 (PST)
+	Fri, 26 Dec 2025 22:54:23 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2a09757004cso96804145ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Dec 2025 14:54:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1766789645; x=1767394445; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1766789652; x=1767394452; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=pcGdIc/9DJZ3V/5WVf7vUUbl5wTlCyMzFQWvUiTQ7kw=;
-        b=LqRvbGiDuZFaBEnm9fEbB0HejdAjgqDWwd5Y8Pj/F+YRlk9PWR2aUxNTp0hqO4L9T6
-         LRlicRa/qOduGahk49GXSmSM35ADHetsX9yGLt+1q97JzdXIaCYawkgdjJ8PN5Ecacs8
-         wdFzinuBfmpx8EiTyUUkFlm/CX578trmtTGUWiy+8AdfBiV0L+QcoIOxgjLtbe+CU84m
-         OkUbM1ddZIHV15cxp+MUUGouPC7tkVUvYxdMKB8wyUpQa76zhis3DR/yRLPwoo01ip8I
-         acMTDitO/WJiDiE2loFekX0dt/TGZLozGJ3L2ya7GsDjteJovVcKo/PjNONWKUz1TXvi
-         DBjA==
+        bh=9mp0y7L70LQWZn3MNrpl8AtI1agZhiyYjI11ja2HdtI=;
+        b=epBkzEb5UmXYCwYPKqRPTr3mOEXS5/L0pNBxwBuJdvks3nv2KK4KCrz3UYKM4hUbFc
+         bV6U6pghV0Izf3k+AfjIPpZ/jr446U1pAEEJQ1UHvMi67UUqbe6lvm6P6P14iUKS5UZB
+         B5InwstUlpmRrkHA7Di3W9ZEp96yUZ7PX3oBvx3rK5rgQao14heShwvlnZR+S/qKgdUP
+         xb/Yo451Xq3OTdElV/jBv2oywQSrWsvJ1YooG8TDqUytjY6WttjeLXStxgQzQ2NStIQx
+         irKIvf8deoAWQNP9F05Yx4CQLz+Uqci/66NsEgXUoGxSRhqR65J3iTbaQDAGFf+VDMfA
+         nTnA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766789645; x=1767394445;
+        d=1e100.net; s=20230601; t=1766789652; x=1767394452;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=pcGdIc/9DJZ3V/5WVf7vUUbl5wTlCyMzFQWvUiTQ7kw=;
-        b=eJgKfO+KXnX6sh1h/U3jXzGRpX/UyTk1Qt+GSaaYSMz5siYHEA/TXv1ipkpR5Q/r6f
-         Pn0rY9Rty+aeWk3VE/CA7pHTVplWgnfri2NmuSgsYZSF/QMG9OVhLvxON5xUSoUo4IE3
-         pZaEBD7eHYpqEEiHWZO9g7o8Fqcsd+7bjcp+caeezOFp3Xy6OoR0AV3qGymxDpokMS6B
-         G8AhLkorLAreUTMWvkUFATTFbILQ+Jao86vVN9Y66OF7a6ifF4kc8Au27/9UNDy9Xu7j
-         jBw7jSRosPG4ngSPf7NYmVi3p/gU5OyQwnPdSy/QuPeUhxFU6S+5UDHVc/+i+y6sEvQD
-         5NJA==
-X-Forwarded-Encrypted: i=1; AJvYcCViQWkew7ha7ZgY0eUrS3GGKiyjr5WyOWhpQJsnfMLKbCDynmM+Mv9ZyjsjCzjttSZOB+XxD+yy+1H6EYcKWnlf@lists.infradead.org
-X-Gm-Message-State: AOJu0YxnhrncrgSr3KjWKX9SGSvKB+jTs+47FkDdGPOKsuldNksp5aT5
-	71/QEu9hpBAwol2UHTzeqhrVy58Rn5wH+NXCRjK22b2WOrdEfd/I1wG8
-X-Gm-Gg: AY/fxX5PYqicWlyTfk1Q/Qzz1YFhRaRJAd2G4/MPfkdR1mikS2i00Vexzm+Faj+nbWt
-	1DxuY9aUOSsHU5AB4I4xl6qhQCyDOllu9YlHyk20+tI7PFdI2sLyKlGfvKxG+A0cyU1LijCCKTp
-	uuht/7/BIgJti2mv4VPoSsJN6swGluWlnQGp/z/M66cCGUg++HKrTEny4ivOierFwvQC4Syq0Di
-	iNiqCEh2a0gf/eXUaa+VAc6h638zyOc2DfKm35/BeEIhBuSz6WTbgB/uT+zl56EcnSWLJ0nxChw
-	21Gl1N1DmvGp7++Em4YzmD4paOODG3xFeQ2zoHngAU7M+Rzu+GCSyJ/ILNEHvk4RfTwlDocZ394
-	moLg6ym9By9ihXzznz5BvjyZD039aT8Mj+n96ySAC84FjPTglVhOcf0SVxJWfcSe197UqOs/Vp4
-	MvyxFshpI4sL17
-X-Google-Smtp-Source: AGHT+IE+oJ1Ft1XOQ1XU6OeA4rerw4thrh1Pz4yYg+rxMS7HW6pD48/QipbV6W5OVknyxXIG+nvg1w==
-X-Received: by 2002:a17:90b:5804:b0:34a:b459:bd10 with SMTP id 98e67ed59e1d1-34e921bf172mr21139744a91.24.1766789644533;
-        Fri, 26 Dec 2025 14:54:04 -0800 (PST)
+        bh=9mp0y7L70LQWZn3MNrpl8AtI1agZhiyYjI11ja2HdtI=;
+        b=RVmyTbL8po89edMKXQ9lS7Rj9Ub33fknJX7qmvw2dXiwtnKAML/f2lD3H6hr8Yw/DO
+         6WYDkhdhXdEOy9yq57B+7cLv1ymjnU752LqxR8VbA9qh9epm2KMw/xmaf8s6vIqgTeug
+         eu2ZFRrTbXCOxOBwunbM4Vw3falx6+Hz1+upULmbOkx+0wXJfa6gcXM/jSKnl7yJ4+Ch
+         WgYub4f5T/lZbijkuK2bZ116Z+IZaGQ5TiZms+S++v1k97n2xYH4crkjvwWUvZLykxMl
+         IY0tmorLdZJGwAnhte/n+xxA63I/STM2IfsKAy38tjrOB/S6nktYIlGEDcFYkzz4XQ6Z
+         fXJA==
+X-Forwarded-Encrypted: i=1; AJvYcCX2mxluWLUVEFEWERjlyDM9AAk7hEtqTWzK0rdA/ngsOUt5clT6YiBLGEllYruPQEQ7dyX1zpJjHcFoTZEFPePN@lists.infradead.org
+X-Gm-Message-State: AOJu0YypU4X2ycLZLEl6Keae/oCiS51AXhHfMTwZrb0crYs6zhGvLV4P
+	VffGA5NXGHOYazKjAje+Ygc6wvP7syQ1AV50ymZzjo9R4v4ZD6n6Egfl
+X-Gm-Gg: AY/fxX6DxOZBf6hj16VgXs21SxyjuJbA1j46PtnADF2XUUfIQLx1Xej4KN0egJjDZfc
+	yw5XRAv1Hv5fo7szOdarWbDGzJkP0gXeO0Oy2dxKTnBCnCBJi9zoh2CsC9QYa0mlf0ngCump1an
+	0Dva3jLsxX0FWVKcI/SJdkBqEEqUo4lBL0EkOOJ3iXVYHq1+WuTxvyOsVVXvmJ0d2V0yZ9Opuh1
+	/rbHItKF5HuV4tehnKHzfsDTOXPIVHr0NzrBS2nddoX6kdV0nRAgIrzERZO7p56JVyKGpEBcuu+
+	eG3rU9I40Syf0h0dvXHM3KNi3qD0zpPthMLbOXCmr5rPg9ElKRqIKcoGazrXWw+Ayv48hCGHBZK
+	kerw8jG3fEmjDApEPGZR32PvmM+0aFqCkt2JUheePcX0JoGWEyaQmC5IrIwDSrDT3b3UYWewrRx
+	zN7oHYm6ulO34b
+X-Google-Smtp-Source: AGHT+IH3Qyivahvz1Re89nhjkOGapFSbuTfRVGKZtZJZOQKn2pFT9vJfuh0AHXHFbf1hI+2p00nHuQ==
+X-Received: by 2002:a17:902:f607:b0:2a1:4c31:335 with SMTP id d9443c01a7336-2a2f2717b88mr227808145ad.26.1766789652012;
+        Fri, 26 Dec 2025 14:54:12 -0800 (PST)
 Received: from barry-desktop.hub ([47.72.129.29])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-34e772ac1acsm9981428a91.9.2025.12.26.14.53.57
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-34e772ac1acsm9981428a91.9.2025.12.26.14.54.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 26 Dec 2025 14:54:03 -0800 (PST)
+        Fri, 26 Dec 2025 14:54:11 -0800 (PST)
 From: Barry Song <21cnbao@gmail.com>
 To: catalin.marinas@arm.com,
 	m.szyprowski@samsung.com,
@@ -77,17 +92,17 @@ To: catalin.marinas@arm.com,
 	will@kernel.org,
 	iommu@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v2 6/8] dma-mapping: Support batch mode for dma_direct_{map,unmap}_sg
-Date: Sat, 27 Dec 2025 11:52:46 +1300
-Message-ID: <20251226225254.46197-7-21cnbao@gmail.com>
+Subject: [PATCH RFC v2 7/8] dma-iommu: Support DMA sync batch mode for IOVA link and unlink
+Date: Sat, 27 Dec 2025 11:52:47 +1300
+Message-ID: <20251226225254.46197-8-21cnbao@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20251226225254.46197-1-21cnbao@gmail.com>
 References: <20251226225254.46197-1-21cnbao@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251226_145405_667241_21F8DEA9 
-X-CRM114-Status: GOOD (  14.92  )
+X-CRM114-CacheID: sfid-20251226_225419_294666_E9EEC44E 
+X-CRM114-Status: GOOD (  13.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,186 +114,95 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Barry Song <baohua@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, Leon Romanovsky <leon@kernel.org>, Anshuman Khandual <anshuman.khandual@arm.com>, Marc Zyngier <maz@kernel.org>, linux-kernel@vger.kernel.org, Tangquan Zheng <zhengtangquan@oppo.com>, xen-devel@lists.xenproject.org, Suren Baghdasaryan <surenb@google.com>, Ard Biesheuvel <ardb@kernel.org>
+Cc: Barry Song <baohua@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, Leon Romanovsky <leon@kernel.org>, Anshuman Khandual <anshuman.khandual@arm.com>, Marc Zyngier <maz@kernel.org>, Joerg Roedel <joro@8bytes.org>, linux-kernel@vger.kernel.org, Tangquan Zheng <zhengtangquan@oppo.com>, xen-devel@lists.xenproject.org, Suren Baghdasaryan <surenb@google.com>, Ard Biesheuvel <ardb@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 From: Barry Song <baohua@kernel.org>
 
-Leon suggested extending a flush argument to
-dma_direct_unmap_phys(), dma_direct_map_phys(), and
-dma_direct_sync_single_for_cpu(). For single-buffer cases, this
-would use flush=true, while for SG cases flush=false would be
-used, followed by a single flush after all cache operations are
-issued in dma_direct_{map,unmap}_sg().
+Apply batched DMA synchronization to __dma_iova_link() and
+iommu_dma_iova_unlink_range_slow(). For multiple
+sync_dma_for_device() and sync_dma_for_cpu() calls, we only
+need to wait once for the completion of all sync operations,
+rather than waiting for each one individually.
 
-This ultimately benefits dma_map_sg() and dma_unmap_sg().
+I do not have the hardware to test this, so it is marked as
+RFC. I would greatly appreciate it if someone could test it.
 
+Suggested-by: Marek Szyprowski <m.szyprowski@samsung.com>
 Cc: Leon Romanovsky <leon@kernel.org>
 Cc: Catalin Marinas <catalin.marinas@arm.com>
 Cc: Will Deacon <will@kernel.org>
 Cc: Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: Robin Murphy <robin.murphy@arm.com>
 Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
 Cc: Ard Biesheuvel <ardb@kernel.org>
 Cc: Marc Zyngier <maz@kernel.org>
 Cc: Anshuman Khandual <anshuman.khandual@arm.com>
 Cc: Ryan Roberts <ryan.roberts@arm.com>
 Cc: Suren Baghdasaryan <surenb@google.com>
+Cc: Robin Murphy <robin.murphy@arm.com>
+Cc: Joerg Roedel <joro@8bytes.org>
 Cc: Tangquan Zheng <zhengtangquan@oppo.com>
 Signed-off-by: Barry Song <baohua@kernel.org>
 ---
- kernel/dma/direct.c  | 17 +++++++++++++----
- kernel/dma/direct.h  | 16 ++++++++++------
- kernel/dma/mapping.c |  6 +++---
- 3 files changed, 26 insertions(+), 13 deletions(-)
+ drivers/iommu/dma-iommu.c | 15 +++++++++------
+ 1 file changed, 9 insertions(+), 6 deletions(-)
 
-diff --git a/kernel/dma/direct.c b/kernel/dma/direct.c
-index 98bacf562ca1..550a1a13148d 100644
---- a/kernel/dma/direct.c
-+++ b/kernel/dma/direct.c
-@@ -447,14 +447,19 @@ void dma_direct_unmap_sg(struct device *dev, struct scatterlist *sgl,
- {
- 	struct scatterlist *sg;
- 	int i;
-+	bool need_sync = false;
+diff --git a/drivers/iommu/dma-iommu.c b/drivers/iommu/dma-iommu.c
+index 6827763a3877..ffa940bdbbaf 100644
+--- a/drivers/iommu/dma-iommu.c
++++ b/drivers/iommu/dma-iommu.c
+@@ -1849,10 +1849,8 @@ static int __dma_iova_link(struct device *dev, dma_addr_t addr,
+ 	bool coherent = dev_is_dma_coherent(dev);
+ 	int prot = dma_info_to_prot(dir, coherent, attrs);
  
- 	for_each_sg(sgl,  sg, nents, i) {
--		if (sg_dma_is_bus_address(sg))
-+		if (sg_dma_is_bus_address(sg)) {
- 			sg_dma_unmark_bus_address(sg);
--		else
-+		} else {
-+			need_sync = true;
- 			dma_direct_unmap_phys(dev, sg->dma_address,
--					      sg_dma_len(sg), dir, attrs);
-+					      sg_dma_len(sg), dir, attrs, false);
-+		}
- 	}
-+	if (need_sync && !dev_is_dma_coherent(dev))
-+		arch_sync_dma_flush();
- }
- #endif
- 
-@@ -464,6 +469,7 @@ int dma_direct_map_sg(struct device *dev, struct scatterlist *sgl, int nents,
- 	struct pci_p2pdma_map_state p2pdma_state = {};
- 	struct scatterlist *sg;
- 	int i, ret;
-+	bool need_sync = false;
- 
- 	for_each_sg(sgl, sg, nents, i) {
- 		switch (pci_p2pdma_state(&p2pdma_state, dev, sg_page(sg))) {
-@@ -475,8 +481,9 @@ int dma_direct_map_sg(struct device *dev, struct scatterlist *sgl, int nents,
- 			 */
- 			break;
- 		case PCI_P2PDMA_MAP_NONE:
-+			need_sync = true;
- 			sg->dma_address = dma_direct_map_phys(dev, sg_phys(sg),
--					sg->length, dir, attrs);
-+					sg->length, dir, attrs, false);
- 			if (sg->dma_address == DMA_MAPPING_ERROR) {
- 				ret = -EIO;
- 				goto out_unmap;
-@@ -495,6 +502,8 @@ int dma_direct_map_sg(struct device *dev, struct scatterlist *sgl, int nents,
- 		sg_dma_len(sg) = sg->length;
- 	}
- 
-+	if (need_sync && !dev_is_dma_coherent(dev))
-+		arch_sync_dma_flush();
- 	return nents;
- 
- out_unmap:
-diff --git a/kernel/dma/direct.h b/kernel/dma/direct.h
-index a69326eed266..d4ad79828090 100644
---- a/kernel/dma/direct.h
-+++ b/kernel/dma/direct.h
-@@ -67,13 +67,15 @@ static inline void dma_direct_sync_single_for_device(struct device *dev,
- }
- 
- static inline void dma_direct_sync_single_for_cpu(struct device *dev,
--		dma_addr_t addr, size_t size, enum dma_data_direction dir)
-+		dma_addr_t addr, size_t size, enum dma_data_direction dir,
-+		bool flush)
- {
- 	phys_addr_t paddr = dma_to_phys(dev, addr);
- 
- 	if (!dev_is_dma_coherent(dev)) {
- 		arch_sync_dma_for_cpu(paddr, size, dir);
--		arch_sync_dma_flush();
-+		if (flush)
-+			arch_sync_dma_flush();
- 		arch_sync_dma_for_cpu_all();
- 	}
- 
-@@ -85,7 +87,7 @@ static inline void dma_direct_sync_single_for_cpu(struct device *dev,
- 
- static inline dma_addr_t dma_direct_map_phys(struct device *dev,
- 		phys_addr_t phys, size_t size, enum dma_data_direction dir,
--		unsigned long attrs)
-+		unsigned long attrs, bool flush)
- {
- 	dma_addr_t dma_addr;
- 
-@@ -114,7 +116,8 @@ static inline dma_addr_t dma_direct_map_phys(struct device *dev,
- 	if (!dev_is_dma_coherent(dev) &&
- 	    !(attrs & (DMA_ATTR_SKIP_CPU_SYNC | DMA_ATTR_MMIO))) {
+-	if (!coherent && !(attrs & (DMA_ATTR_SKIP_CPU_SYNC | DMA_ATTR_MMIO))) {
++	if (!coherent && !(attrs & (DMA_ATTR_SKIP_CPU_SYNC | DMA_ATTR_MMIO)))
  		arch_sync_dma_for_device(phys, size, dir);
 -		arch_sync_dma_flush();
-+		if (flush)
-+			arch_sync_dma_flush();
- 	}
- 	return dma_addr;
+-	}
  
-@@ -127,7 +130,8 @@ static inline dma_addr_t dma_direct_map_phys(struct device *dev,
+ 	return iommu_map_nosync(iommu_get_dma_domain(dev), addr, phys, size,
+ 			prot, GFP_ATOMIC);
+@@ -1995,6 +1993,8 @@ int dma_iova_sync(struct device *dev, struct dma_iova_state *state,
+ 	dma_addr_t addr = state->addr + offset;
+ 	size_t iova_start_pad = iova_offset(iovad, addr);
+ 
++	if (!dev_is_dma_coherent(dev))
++		arch_sync_dma_flush();
+ 	return iommu_sync_map(domain, addr - iova_start_pad,
+ 		      iova_align(iovad, size + iova_start_pad));
+ }
+@@ -2008,6 +2008,8 @@ static void iommu_dma_iova_unlink_range_slow(struct device *dev,
+ 	struct iommu_dma_cookie *cookie = domain->iova_cookie;
+ 	struct iova_domain *iovad = &cookie->iovad;
+ 	size_t iova_start_pad = iova_offset(iovad, addr);
++	bool need_sync_dma = !dev_is_dma_coherent(dev) &&
++			!(attrs & (DMA_ATTR_SKIP_CPU_SYNC | DMA_ATTR_MMIO));
+ 	dma_addr_t end = addr + size;
+ 
+ 	do {
+@@ -2023,16 +2025,17 @@ static void iommu_dma_iova_unlink_range_slow(struct device *dev,
+ 			end - addr, iovad->granule - iova_start_pad);
+ 
+ 		if (!dev_is_dma_coherent(dev) &&
+-		    !(attrs & (DMA_ATTR_SKIP_CPU_SYNC | DMA_ATTR_MMIO))) {
++		    !(attrs & (DMA_ATTR_SKIP_CPU_SYNC | DMA_ATTR_MMIO)))
+ 			arch_sync_dma_for_cpu(phys, len, dir);
+-			arch_sync_dma_flush();
+-		}
+ 
+ 		swiotlb_tbl_unmap_single(dev, phys, len, dir, attrs);
+ 
+ 		addr += len;
+ 		iova_start_pad = 0;
+ 	} while (addr < end);
++
++	if (need_sync_dma)
++		arch_sync_dma_flush();
  }
  
- static inline void dma_direct_unmap_phys(struct device *dev, dma_addr_t addr,
--		size_t size, enum dma_data_direction dir, unsigned long attrs)
-+		size_t size, enum dma_data_direction dir, unsigned long attrs,
-+		bool flush)
- {
- 	phys_addr_t phys;
- 
-@@ -137,7 +141,7 @@ static inline void dma_direct_unmap_phys(struct device *dev, dma_addr_t addr,
- 
- 	phys = dma_to_phys(dev, addr);
- 	if (!(attrs & DMA_ATTR_SKIP_CPU_SYNC))
--		dma_direct_sync_single_for_cpu(dev, addr, size, dir);
-+		dma_direct_sync_single_for_cpu(dev, addr, size, dir, flush);
- 
- 	swiotlb_tbl_unmap_single(dev, phys, size, dir,
- 					 attrs | DMA_ATTR_SKIP_CPU_SYNC);
-diff --git a/kernel/dma/mapping.c b/kernel/dma/mapping.c
-index 37163eb49f9f..d8cfa56a3cbb 100644
---- a/kernel/dma/mapping.c
-+++ b/kernel/dma/mapping.c
-@@ -166,7 +166,7 @@ dma_addr_t dma_map_phys(struct device *dev, phys_addr_t phys, size_t size,
- 
- 	if (dma_map_direct(dev, ops) ||
- 	    (!is_mmio && arch_dma_map_phys_direct(dev, phys + size)))
--		addr = dma_direct_map_phys(dev, phys, size, dir, attrs);
-+		addr = dma_direct_map_phys(dev, phys, size, dir, attrs, true);
- 	else if (use_dma_iommu(dev))
- 		addr = iommu_dma_map_phys(dev, phys, size, dir, attrs);
- 	else if (ops->map_phys)
-@@ -207,7 +207,7 @@ void dma_unmap_phys(struct device *dev, dma_addr_t addr, size_t size,
- 	BUG_ON(!valid_dma_direction(dir));
- 	if (dma_map_direct(dev, ops) ||
- 	    (!is_mmio && arch_dma_unmap_phys_direct(dev, addr + size)))
--		dma_direct_unmap_phys(dev, addr, size, dir, attrs);
-+		dma_direct_unmap_phys(dev, addr, size, dir, attrs, true);
- 	else if (use_dma_iommu(dev))
- 		iommu_dma_unmap_phys(dev, addr, size, dir, attrs);
- 	else if (ops->unmap_phys)
-@@ -373,7 +373,7 @@ void __dma_sync_single_for_cpu(struct device *dev, dma_addr_t addr, size_t size,
- 
- 	BUG_ON(!valid_dma_direction(dir));
- 	if (dma_map_direct(dev, ops))
--		dma_direct_sync_single_for_cpu(dev, addr, size, dir);
-+		dma_direct_sync_single_for_cpu(dev, addr, size, dir, true);
- 	else if (use_dma_iommu(dev))
- 		iommu_dma_sync_single_for_cpu(dev, addr, size, dir);
- 	else if (ops->sync_single_for_cpu)
+ static void __iommu_dma_iova_unlink(struct device *dev,
 -- 
 2.43.0
 
