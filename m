@@ -4,90 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1F59E8FDBA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Dec 2025 22:54:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC6EAE8FDBF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Dec 2025 23:09:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=beONI3EcXYpecg+Q1bsEm+B77vz1JdIzHQgAsq5N5yU=; b=YF2otvT56Eowru
-	VVwp2GsGz9WUp/6J0F7gStqZ26DNV/6RN4t0DXFlsABeVHNd1ZPNlgobY8ftSRwQ8VbvOEx1QMiTQ
-	B0GxaWq/I3kFXC1vHX14QODU/0yWDd9YBl+MvMvCfX5Mit80LN3x9uE+FsMv93bfgHgiHLwUEmyps
-	CbeA4IK12RsMwe4Ofdodi0uba0MUNXeI2HcIC9ks65QJujm4xIcoxQ+7H051RwZmMj6Vw1DgfIREs
-	9g3VDNhI23cSXxuuwSGqqfbuJeIMvgU1100eEGwdcn/QdqcblrvkYpEW57BXq4OPCSSvhopk5W//W
-	XYFnOblDffGG6vTba1sA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hPVYyOhmWYyUzd26KqEqEx9SiJ2wqcstK13CbukMaus=; b=RHqQ+5TcyG1TATx3RDtXjoS1TG
+	YU9UYAFwv7bwej5F8cr6WMX5lAhwnpiX40j8U09gGbajHbI5e6IDqynuHFNPjcGRANL0tXceAuXLz
+	YGWmSMxhE5++yt+geo3zn9yWe7XkvsWjOTTPp3YqIReDL6QQ5g9Lu2uFiG44B2bGWN1lac9kBpUZ1
+	tZcKjJAk8t9wJyFQmP3HTS4X7ym/din4yzvtBhCMPN6BMqpLfpb/5hjzOeEoFn7aPx1zPXR4x09mP
+	6BrCrb+/49NfWe/oR7R/nMraCtK+7BKRBoQk1bQQpEzSaB/9e9d2e7o5ldH8039Pefsv8ZLgRFzqu
+	XFv2xwuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZGhV-00000001XRy-3iFY;
-	Fri, 26 Dec 2025 22:54:25 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1vZGvb-00000001YAd-2UYD;
+	Fri, 26 Dec 2025 23:08:59 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZGhQ-00000001XOo-1Tqv
+	id 1vZGvY-00000001Y9g-19C2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Dec 2025 22:54:24 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-34be2be4b7cso4971682a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Dec 2025 14:54:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1766789659; x=1767394459; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=beONI3EcXYpecg+Q1bsEm+B77vz1JdIzHQgAsq5N5yU=;
-        b=WdWXL/YaZkfl0LzNfqF/v+LubVJlBK9uwMCEW0oWJRztCxqpc751Q+71n3gs2eJ2/h
-         QEUkd2AenOxl/SshZekdgBkfz4kgoJwLf4AlLMtBNL98j0U2oF2bAblvjC9J1tJWQmGY
-         KMESdxNBoM+O6ef+5X/FNOOWiLvKxruRvvXhb4sJPgfHvSqfny2RKZNO8t6L6C3KARnN
-         9qPDNKBs4Cum7UxAgHT8Wa6vs5YzTugm2SQUuc6yslyKw1sPkSMBM2wkp63kPjim9wh7
-         EwewA8IwP8be9J8wH5nY0ek4RFDH8TnbVC4XSQL2XblTw5SdLoYp+Kj8ejs/y23UEQ7q
-         DPwQ==
+	Fri, 26 Dec 2025 23:08:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1766790533;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=hPVYyOhmWYyUzd26KqEqEx9SiJ2wqcstK13CbukMaus=;
+	b=N5ULQChj3waHbp5JqOilPGouwqSvFnriOeVsIcIceHVuRNFf+tQ3+oRsuiOqgBXlJ//H94
+	vAKxXsupdXBy363SM/u6u7X9NWKbGjvZozmeJjg3GksuMzqVFkFx130Oz0j/ViDgIlTSdx
+	PNe3kVV9U2QuHVm3T1ndtjdTyNW8Dqw=
+Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com
+ [209.85.219.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-323-TLW-3vI8MOa6wfxLMKI0Gg-1; Fri, 26 Dec 2025 18:08:52 -0500
+X-MC-Unique: TLW-3vI8MOa6wfxLMKI0Gg-1
+X-Mimecast-MFC-AGG-ID: TLW-3vI8MOa6wfxLMKI0Gg_1766790532
+Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-88a25a341ebso179394746d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Dec 2025 15:08:52 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766789659; x=1767394459;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=beONI3EcXYpecg+Q1bsEm+B77vz1JdIzHQgAsq5N5yU=;
-        b=Sfxoy1ni5wafELMchrO1Pxqw55UGBp3Evxh+UAgp/1O3CA3vu11vfMm4bpkZhR2ZbT
-         BtrKF+DdMdN9DD1N9qPUH0JjnF/Hsyqa7Xu06/Ej8u+YIca2agOI53+F4QLshQKIZ24c
-         /Hj/mVoG06kCUZCgvHYvhYpP7JOmAOZ1RVt799JbO8xjGFhwQ9Bsnrkf8ue4xBzo0+j/
-         gvS/kLDq5hRtnk4AONsyV7hrmFn7Ob8Kpqi0yzd8sNRH21idk0Zl4rIeAsqtadU6m2VD
-         lwSjOCvBlhzSz+lueacDefImhDId7DjFq/tPQTmi3ec20V2fM1qzfBJgSDsnpEZls/7F
-         vnNA==
-X-Forwarded-Encrypted: i=1; AJvYcCU+Oo6dPElwJ9o9NQFDKtkZeQeXbgFsM4Gw82UDpOwF2ZcP/0zHBXqOfbqEGD5p7kgvZeZa7M4G53TdsR6NJQ4I@lists.infradead.org
-X-Gm-Message-State: AOJu0YxaqxcZx/0f8WLj7OSal1fKgnM6uih3EMNQA7QGMHcol1eXQFOd
-	LUds8PcU5IHuR5qsOn9iPNqovXwiFOViaCgFF6xLCa47QcSp/fGfaj6p
-X-Gm-Gg: AY/fxX79tOvWid8243vQg9K26wyaS6CAqXV/wGXRKwUJ60fkibzHfo6yjgzSlh44ef0
-	XfOqOngpNjhBuLxU7SkgecGVDbf6Ax7o25PrhHcMXysaQg4RNYAoRDu506eKq3lCqjXeYGuqDle
-	i3aOMACdWEg6aHFjc9JXRyKnaXNcVN1RkWyffzcYFvr0bHYxPQngmdUoVrLQ+He7K/gJAhTtbaN
-	4xXXbE+RZRtUB14h83l4VRgAEW6gGZbCP0D1o6tDznt/NxNbEM9UfJgoS1DRVik6+1ahNkp97Uw
-	KsLjcbkOf3KCMIj4cGI3lzKaw65B7xeldqL0TJq2NlopAA254UngOHkdh8pRjIbAF/YGV2jvyUc
-	Q5inTmN+LKTm+ag+a02L4QlaKaRNjBemApZ9es8nOv2Kq6DMb8xq0c7DDaBggD6+30pPEqp+Xh/
-	mlIAZFyuRbNoAq
-X-Google-Smtp-Source: AGHT+IF3FBOgnhAE+C4yK80l6tVlXmB4Rfi7fJf1frV3RXQh1+Ry7oysljXY9g9IJMnKqHJpP4IhrA==
-X-Received: by 2002:a17:90b:2787:b0:33b:cbb2:31ed with SMTP id 98e67ed59e1d1-34e91f6398cmr20025228a91.0.1766789659345;
-        Fri, 26 Dec 2025 14:54:19 -0800 (PST)
-Received: from barry-desktop.hub ([47.72.129.29])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-34e772ac1acsm9981428a91.9.2025.12.26.14.54.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 26 Dec 2025 14:54:18 -0800 (PST)
-From: Barry Song <21cnbao@gmail.com>
-To: catalin.marinas@arm.com,
-	m.szyprowski@samsung.com,
-	robin.murphy@arm.com,
-	will@kernel.org,
-	iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH RFC v2 8/8] dma-iommu: Support DMA sync batch mode for iommu_dma_sync_sg_for_{cpu, device}
-Date: Sat, 27 Dec 2025 11:52:48 +1300
-Message-ID: <20251226225254.46197-9-21cnbao@gmail.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20251226225254.46197-1-21cnbao@gmail.com>
-References: <20251226225254.46197-1-21cnbao@gmail.com>
+        d=1e100.net; s=20230601; t=1766790532; x=1767395332;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=hPVYyOhmWYyUzd26KqEqEx9SiJ2wqcstK13CbukMaus=;
+        b=igcgQzZL5w/xTmqNmD0I6YdnJkrBeorwtYFc9z6tRHchScyCRodcfNX20vxvK1TvaQ
+         FUH4QkLNrM21c3nslly50Dff4P/KfJ4TihPaixBA9CKG8s/TBHHy1LV/TfFQyrLCtEpn
+         cyJJrkTyp8PtjNFj3Z5uNrvF+bjSxOsVringpg60afsRfNaOy0ZCRteOZXIKMmvUn77Z
+         /hI0/xaimf4/KS+Bbx7eH0Iy1mpDyFPfPGZh/uXQqgT2RSTEvyzPu+GPGs2+znd1LAwv
+         y6rNuiQJdCDu4YCq6jc3ohdloTTRXXBU872l3m9fOlPZb3jLPivTv76lrvnzFI/1hQJZ
+         H3Uw==
+X-Forwarded-Encrypted: i=1; AJvYcCUb+3R9UH3ejrbdaCqFNFXs17hyepU++VTbaauyBkm+BouxZ2W8kWuG4zA7KCSOgKScgiNyg7u/eUd1r44dbDp8@lists.infradead.org
+X-Gm-Message-State: AOJu0YwDlIjsDBaKukMGBOFxQyD/g3FjQJrVHOlHalUzErYIsEP5hVc7
+	9ICnBqGukmF56mEEi4P4KFxihQ13spdKZurjSzfqEM5KInc5sItd556HyK4MsPgIoOyGTLojJ//
+	8R9dUbbCwDoPsryt2agk9CMJgSq0r1GPk7JtHy4NLHbwOKqfc5hBK0jh5N3R1makpW4pV9uI4JU
+	Ax
+X-Gm-Gg: AY/fxX4G3GW8F9bKIjG67oBptaHZ9DHmm/S1w1faWEC15Q2cg7UMsEcpYE6lSmAhoky
+	Jv5DO8tb4jhM/NwZ1l+QlzgIqRDE/tFumhURdVXs4zj7rdjlPRXnfxS3EGUQ7y7lkNdBBGOhe4r
+	AOeBNR61z+6bgWLkMjcNel+4dQbfhqM5Y1Ou9FqTOCQCGhUtBJbYzBfrJWglUNo9EVRNYzotV1y
+	xtn1ZN3XeUWCx52DAFVaXbcH7UswvzV+uk0zw2dxPtUt4ep56FWLwQiPJtJOI80NM5xHTWLcpN/
+	Qnpp+joL06bht2zeRm4YRaatgEXLFnxD+fVeciuq4csgI9P09Q3grKc1PiZEeACC766nx12zi+B
+	Q3EbdzbAIKC1BXLGwlNvqPecEgkpSN2qLv4q3Re9hqrS/J96fqur8Xzev
+X-Received: by 2002:a05:6214:48b:b0:890:e31:9685 with SMTP id 6a1803df08f44-8900e319a28mr37823546d6.69.1766790532036;
+        Fri, 26 Dec 2025 15:08:52 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEpv55vF+vDJeT6imxDEvVCM6zgRYx4B3T4/k2S1vjNooJ5kJOtFWemCi2nC+rcnjO9pXNW8Q==
+X-Received: by 2002:a05:6214:48b:b0:890:e31:9685 with SMTP id 6a1803df08f44-8900e319a28mr37823076d6.69.1766790531561;
+        Fri, 26 Dec 2025 15:08:51 -0800 (PST)
+Received: from ?IPV6:2601:600:947f:f020:85dc:d2b2:c5ee:e3c4? ([2601:600:947f:f020:85dc:d2b2:c5ee:e3c4])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-88d99d7dc1esm173664886d6.39.2025.12.26.15.08.44
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 26 Dec 2025 15:08:50 -0800 (PST)
+From: Waiman Long <llong@redhat.com>
+X-Google-Original-From: Waiman Long <longman@redhat.com>
+Message-ID: <2f892ef9-1965-486d-beab-eacf0b6b0386@redhat.com>
+Date: Fri, 26 Dec 2025 18:08:43 -0500
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 28/33] sched: Switch the fallback task allowed cpumask to
+ HK_TYPE_DOMAIN
+To: Frederic Weisbecker <frederic@kernel.org>,
+ LKML <linux-kernel@vger.kernel.org>
+Cc: =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Chen Ridong <chenridong@huawei.com>, Danilo Krummrich <dakr@kernel.org>,
+ "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Gabriele Monaco <gmonaco@redhat.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+ Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+ Lai Jiangshan <jiangshanlai@gmail.com>,
+ Marco Crivellari <marco.crivellari@suse.com>, Michal Hocko
+ <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+ Paolo Abeni <pabeni@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Phil Auld <pauld@redhat.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
+ Roman Gushchin <roman.gushchin@linux.dev>,
+ Shakeel Butt <shakeel.butt@linux.dev>, Simon Horman <horms@kernel.org>,
+ Tejun Heo <tj@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+ cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-block@vger.kernel.org, linux-mm@kvack.org, linux-pci@vger.kernel.org,
+ netdev@vger.kernel.org
+References: <20251224134520.33231-1-frederic@kernel.org>
+ <20251224134520.33231-29-frederic@kernel.org>
+In-Reply-To: <20251224134520.33231-29-frederic@kernel.org>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: fthVGc4W_eq0Qe61D_UOhdOXH4P4nAjJcRtAHKSz26k_1766790532
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251226_145420_433096_7445C44E 
-X-CRM114-Status: GOOD (  13.45  )
+X-CRM114-CacheID: sfid-20251226_150856_410156_52472E28 
+X-CRM114-Status: GOOD (  15.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,77 +132,35 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Barry Song <baohua@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, Leon Romanovsky <leon@kernel.org>, Anshuman Khandual <anshuman.khandual@arm.com>, Marc Zyngier <maz@kernel.org>, Joerg Roedel <joro@8bytes.org>, linux-kernel@vger.kernel.org, Tangquan Zheng <zhengtangquan@oppo.com>, xen-devel@lists.xenproject.org, Suren Baghdasaryan <surenb@google.com>, Ard Biesheuvel <ardb@kernel.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Barry Song <baohua@kernel.org>
-
-Apply batched DMA synchronization to iommu_dma_sync_sg_for_cpu() and
-iommu_dma_sync_sg_for_device(). For all buffers in an SG list, only
-a single flush operation is needed.
-
-I do not have the hardware to test this, so the patch is marked as
-RFC. I would greatly appreciate any testing feedback.
-
-Cc: Leon Romanovsky <leon@kernel.org>
-Cc: Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Cc: Ard Biesheuvel <ardb@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Suren Baghdasaryan <surenb@google.com>
-Cc: Robin Murphy <robin.murphy@arm.com>
-Cc: Joerg Roedel <joro@8bytes.org>
-Cc: Tangquan Zheng <zhengtangquan@oppo.com>
-Signed-off-by: Barry Song <baohua@kernel.org>
----
- drivers/iommu/dma-iommu.c | 15 +++++++--------
- 1 file changed, 7 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/iommu/dma-iommu.c b/drivers/iommu/dma-iommu.c
-index ffa940bdbbaf..b68dbfcb7846 100644
---- a/drivers/iommu/dma-iommu.c
-+++ b/drivers/iommu/dma-iommu.c
-@@ -1131,10 +1131,9 @@ void iommu_dma_sync_sg_for_cpu(struct device *dev, struct scatterlist *sgl,
- 			iommu_dma_sync_single_for_cpu(dev, sg_dma_address(sg),
- 						      sg->length, dir);
- 	} else if (!dev_is_dma_coherent(dev)) {
--		for_each_sg(sgl, sg, nelems, i) {
-+		for_each_sg(sgl, sg, nelems, i)
- 			arch_sync_dma_for_cpu(sg_phys(sg), sg->length, dir);
--			arch_sync_dma_flush();
--		}
-+		arch_sync_dma_flush();
- 	}
- }
- 
-@@ -1144,16 +1143,16 @@ void iommu_dma_sync_sg_for_device(struct device *dev, struct scatterlist *sgl,
- 	struct scatterlist *sg;
- 	int i;
- 
--	if (sg_dma_is_swiotlb(sgl))
-+	if (sg_dma_is_swiotlb(sgl)) {
- 		for_each_sg(sgl, sg, nelems, i)
- 			iommu_dma_sync_single_for_device(dev,
- 							 sg_dma_address(sg),
- 							 sg->length, dir);
--	else if (!dev_is_dma_coherent(dev))
--		for_each_sg(sgl, sg, nelems, i) {
-+	} else if (!dev_is_dma_coherent(dev)) {
-+		for_each_sg(sgl, sg, nelems, i)
- 			arch_sync_dma_for_device(sg_phys(sg), sg->length, dir);
--			arch_sync_dma_flush();
--		}
-+		arch_sync_dma_flush();
-+	}
- }
- 
- static phys_addr_t iommu_dma_map_swiotlb(struct device *dev, phys_addr_t phys,
--- 
-2.43.0
+On 12/24/25 8:45 AM, Frederic Weisbecker wrote:
+> Tasks that have all their allowed CPUs offline don't want their affinity
+> to fallback on either nohz_full CPUs or on domain isolated CPUs. And
+> since nohz_full implies domain isolation, checking the latter is enough
+> to verify both.
+>
+> Therefore exclude domain isolation from fallback task affinity.
+>
+> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+> ---
+>   include/linux/mmu_context.h | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/include/linux/mmu_context.h b/include/linux/mmu_context.h
+> index ac01dc4eb2ce..ed3dd0f3fe19 100644
+> --- a/include/linux/mmu_context.h
+> +++ b/include/linux/mmu_context.h
+> @@ -24,7 +24,7 @@ static inline void leave_mm(void) { }
+>   #ifndef task_cpu_possible_mask
+>   # define task_cpu_possible_mask(p)	cpu_possible_mask
+>   # define task_cpu_possible(cpu, p)	true
+> -# define task_cpu_fallback_mask(p)	housekeeping_cpumask(HK_TYPE_TICK)
+> +# define task_cpu_fallback_mask(p)	housekeeping_cpumask(HK_TYPE_DOMAIN)
+>   #else
+>   # define task_cpu_possible(cpu, p)	cpumask_test_cpu((cpu), task_cpu_possible_mask(p))
+>   #endif
+Acked-by: Waiman Long <longman@redhat.com>
 
 
