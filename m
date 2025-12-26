@@ -4,87 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2BD5E7AD71
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Dec 2025 22:31:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1D12E7AD78
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Dec 2025 02:25:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ab+MnheIVRKoBcmzrgSbvk3S4ufWNXWYr9CVeGGgh3o=; b=HRh7AtD/ANwKW1g6rRAZK2e6+x
-	mLzvJzsoakqiW8vEad8fJJbM6jsc+vWRhovKC4qLcWd7mElhQ2JZYjWynDqrpTtKrCtuMXxP73ZfJ
-	XQWT3Tg8N/WBoYcNvf7XlxYcKjpqOysEafURE9Ih8XFGqKoZ9ro1Xab92ED0MFz3A4GmRZwfFJSEa
-	CPbUfJQp5/4lgyx3R6USHkODlhoC9J61CQN9Yn4vHVYXpvOenLxQAgjmJ5qhUpbcvU/Cq9PCWb29e
-	QOKU2A30IkYXES9fk/A6KVNTGaPTo8UA6ODh45pD+8y0yl9n6nMj5VLCViPXZtKArodua5IpTmoAO
-	p6XERL2Q==;
+	bh=0Qsz5WPFD/uExCJQBnyZrl3TgkdgAhutxKnz59++5sE=; b=rK97X6A576dOv1OdoHpPYG/BdS
+	J4z3oIK6u22DLZRYqaWHXzhKOi4LiVvvPTdLVQHS1O/MUD3ZZNo4qyh6JSCmcFidsmw+ACeUBUW84
+	2K5zBP/P1aaFgM99yZnsEVmbLCrpCHyi6LwtF6LaeXdidsxyDMxq+slisCO4TieckozyIE5g8dv+B
+	9du3bNqv+u4m9aleMg57wSdTrDowuQfYyPJ7yNUbwCN+8nkwebtV0deco3++kmq3HuyRyLmG0mCJA
+	fu3+z9AqPvses3p13cOELR7JsWAlWuLKYTLwc2ysUGJbMJZlTzeTa8hHVOS3H8VxTwDnmZkTV9PvS
+	pGkHeJCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYtrY-00000000jKd-1FMs;
-	Thu, 25 Dec 2025 22:31:16 +0000
+	id 1vYxVq-00000000pUk-2Fuo;
+	Fri, 26 Dec 2025 02:25:06 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYtrU-00000000jKI-1QPj
+	id 1vYxVl-00000000pU1-3JJh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 25 Dec 2025 22:31:14 +0000
+	Fri, 26 Dec 2025 02:25:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1766701870;
+	s=mimecast20190719; t=1766715899;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=ab+MnheIVRKoBcmzrgSbvk3S4ufWNXWYr9CVeGGgh3o=;
-	b=FBLyrlJbYqMwWhUEkAnMt4GnM2/x3kr82jeNI1tdE1+oK2aoQGLETza9Gwk5MiRvWMs+r4
-	RYKL872GtOYrkjYY9VUVWBa7MyoLNdA+p3zgEswZajn5M6C4iMAyHGqi9eWp3lceEcfxmi
-	J3mb8UArmi7ct00zYtLlrWBpvolSNYQ=
-Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com
- [209.85.219.70]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=0Qsz5WPFD/uExCJQBnyZrl3TgkdgAhutxKnz59++5sE=;
+	b=hOwfFZ710VPjketZu6BcT4FTzJihP8HWqg/bEK12ffUbnuOtlDn7F61S+drIcBvfayJQiO
+	uPy0yhHcM91k1GV2F+M763QrXGRwYmf+LWEV70nvqdRGZ8sqHgZDdM9/DyyMUzRO0B+5+j
+	Ulw5E/AE8OgX604RaBBQKKgGs5fV6ec=
+Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com
+ [209.85.215.199]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-159-Ae3J49uSOAyORED7JtA-YA-1; Thu, 25 Dec 2025 17:31:08 -0500
-X-MC-Unique: Ae3J49uSOAyORED7JtA-YA-1
-X-Mimecast-MFC-AGG-ID: Ae3J49uSOAyORED7JtA-YA_1766701868
-Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-88a39993e5fso177456156d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Dec 2025 14:31:08 -0800 (PST)
+ us-mta-397-LLVOLiUEMv27TZ3jXTQujg-1; Thu, 25 Dec 2025 21:24:57 -0500
+X-MC-Unique: LLVOLiUEMv27TZ3jXTQujg-1
+X-Mimecast-MFC-AGG-ID: LLVOLiUEMv27TZ3jXTQujg_1766715897
+Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-b630b4d8d52so6739000a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Dec 2025 18:24:57 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766701868; x=1767306668;
+        d=1e100.net; s=20230601; t=1766715897; x=1767320697;
         h=content-transfer-encoding:in-reply-to:content-language:references
          :cc:to:subject:user-agent:mime-version:date:message-id:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ab+MnheIVRKoBcmzrgSbvk3S4ufWNXWYr9CVeGGgh3o=;
-        b=Eek26InwWNFW48ezh+0fN1tMIKyx4B/jne45N8ptogClGTFvkuageaBbnk9lAZEhMQ
-         0RlfHIbyym/+9oTwHnNHKgWbx11usybLdX6osSFfleUn9e9LFpcN8veFNKtmlyceV0wa
-         90yplWUo1IkwSCdWIfah6isC7im/j9okIperEdahoGtCUC41ooqoiVugzIzy/JlwYz+K
-         H/XqVEahH5J4aLc568VGTEPopQpCcpDlZZEhbw+3i/VqeSdo0bdSonjTsCaGp5vKcfSH
-         /4PXC6f8gpi89wOmdwrltdoSqXxB/D0DdzsOXUh2BbcuPAm89YOW0ZOphzoAl5QCNnIm
-         iTUA==
-X-Forwarded-Encrypted: i=1; AJvYcCW3N07Tow4tqNyuLq/AUUVJ5wyQm9cZcPGa0+rB9CcNogcsT2OnJkPg/VHsOot6tMMK3kgs5E7y0/pOCVknQKW2@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1mELD7Nzb1/wBqcIHdstlFneLNcSzdc2uVWH7kwgJYgtoZ64H
-	tVhaemBVuOFx2MZENzeth3jHdBx2lsczY2/q4mbKTI8GGuKBubqoKpr9mWuBFqn/+37dzGkWQNQ
-	19Q0qNfli9ZB4mu1IQL0fdXdIYPHunF9oAZRB1NUehrRBsu7TkcPKsgYozOFWgZkDWIVmnzAMxX
-	98
-X-Gm-Gg: AY/fxX7VcjWcXjqP2xiqBHrQSJ8rFP/5LZSxiNZQbKkgNiRXqhfA0PUkgTn2pW1ZYqo
-	+SM3vFLZZH7D97Zrgv+xpgalqGfUrq5oJKeJGziVGPhhHnvIFgAdynn0sfnSy0eJzOHMf84UyvN
-	cacv86H+nFPgoEFdgqT6yWsD+IQr/gzf0MhZzZfcqG+zWTB8zw+OQq8A7OGNXw+AAqqXRb8RA/v
-	+6dQLy57itLmqZsPGVPCj8Ylv6TDDeRFZ3VmVWFF77KmStyswM1f5QWtYOkXm03C31ryjJAPIAF
-	QJxAevEkZjnlinVXJ21OM9Pr0nGBodGfVWOYBNSXZjrNTlsg4ryIIViYMveSQp3xL70YRX9uobW
-	DWq5Cla1K7zOf3lRTIFTeqKIX39QKKPazCsgS2ebhHiN01hTknEIbe27P
-X-Received: by 2002:a05:622a:341:b0:4ee:24fc:be81 with SMTP id d75a77b69052e-4f4abd400d4mr330935701cf.36.1766701867879;
-        Thu, 25 Dec 2025 14:31:07 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHthnytoNkit4+7wP+txqxK1npOqoQN/ulutuPL/gqwE7YXGTzVApXUK7yM3kp5hfoASbcRLg==
-X-Received: by 2002:a05:622a:341:b0:4ee:24fc:be81 with SMTP id d75a77b69052e-4f4abd400d4mr330935421cf.36.1766701867385;
-        Thu, 25 Dec 2025 14:31:07 -0800 (PST)
+        bh=0Qsz5WPFD/uExCJQBnyZrl3TgkdgAhutxKnz59++5sE=;
+        b=JEfxwISJTfbKXVSnNp3HHkuYSHAMmweXdMplscvvvyt/f1AF4dM3HO+PEgRkJVw7qg
+         jV2sxL28ok6RjOHj/zx5LgKKfiyKNHSqG+OL7TUBVxBCSV3ms+ClsCYxW9x0Jag4arAH
+         KRi1SDwrC/VdY+fVkY1e0ghkX3ZjW66frlNsMxt+fHvjxQZYewABJ/PGT+7ZiSLnjq2r
+         +f6poOkwY0HtvCKEBklpqmKK0GrtzCDJygdYmO+9RJTFasSKlUTxIyE3uczasIsmtBw3
+         AyiluIoLwnycRWWjrME7KbPFqN+F/HkdK2oYV959V1Ktbde5TXv+dX8VhBHDelnoCFLn
+         X8cQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVcI5DyXjvgJgAY3SsF5SY4TD6qoFffWoPjsFrGfKpwiYYKPYiVdQYCYOydxB5QdIFt+yJy//ZOuuDgaZpYRuu6@lists.infradead.org
+X-Gm-Message-State: AOJu0YwvzHF07dJlVJdUKAQ76oHXq9LiGCLojMevdNHF3bxfYyPA7XQX
+	gUPa0SUvwWBRQ9ElC8Mvst4cddXCBatGEr2EISPSEgZvFDena8OVTbv/I3ytZobuepYiGvud2Z9
+	wcC6nOMT6xhwpqqn7ijvcr2fA1VSAGP0YiodYkKqnUOzJ/YWUT6oUH2FJStem926EPNB+pTM7Of
+	7m
+X-Gm-Gg: AY/fxX6blXzSqhPdftCnXKG74MuT6Hua9DFAQufL72T4AGN6PqSzcFgRbpxdj7HQk24
+	7wyebva22+chO4nDM5JdO+NEL6B/v4Vk+T0mYPK+T3SslnBypMj2Gb/WDzMoYURI/+3WMbS9KQ1
+	LmTqzYd3n0BniqWY+L6g4yhvFJOLIvFaeH6/Bbb1PssrJmRvkELYzKbBnfxe8nRhkKE75/zg+YO
+	5OeuEpQNJxvKqh5BcBzGNckHAHobQqctxeeZkDUyJGV150VjMqB/AI03tQEWLocdjwCB+xQIcHN
+	cVLh0YBmie3/sf0OdU7ra52U/lfDLZ0yv5jkajRcgU0fCeEuErqdIhWQsoLXhY/lTUZqjAhj+xr
+	EmHaX5oMqO0GO78ixw6tT39HoKYZbJKlWW6snqygkg/vAhbf+H5MK8bqt
+X-Received: by 2002:a05:7301:7d16:b0:2ae:526a:961d with SMTP id 5a478bee46e88-2b05ec8642fmr15215236eec.40.1766715896414;
+        Thu, 25 Dec 2025 18:24:56 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGXdA8ClkjU6K261gUhCEsY/UDJEEfrrLSdJplFZD7gmyleR6jxqLs3c/WeMtHejh420lmUqA==
+X-Received: by 2002:a05:7301:7d16:b0:2ae:526a:961d with SMTP id 5a478bee46e88-2b05ec8642fmr15215216eec.40.1766715895871;
+        Thu, 25 Dec 2025 18:24:55 -0800 (PST)
 Received: from ?IPV6:2601:600:947f:f020:85dc:d2b2:c5ee:e3c4? ([2601:600:947f:f020:85dc:d2b2:c5ee:e3c4])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4f4ac65344bsm146923311cf.28.2025.12.25.14.31.03
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b05ffad66fsm49761798eec.4.2025.12.25.18.24.43
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 25 Dec 2025 14:31:06 -0800 (PST)
+        Thu, 25 Dec 2025 18:24:55 -0800 (PST)
 From: Waiman Long <llong@redhat.com>
 X-Google-Original-From: Waiman Long <longman@redhat.com>
-Message-ID: <006b00ab-c8b4-4a2d-aa38-94a41eadd238@redhat.com>
-Date: Thu, 25 Dec 2025 17:31:02 -0500
+Message-ID: <17aadc7e-7dd6-4335-a748-e66f0239df85@redhat.com>
+Date: Thu, 25 Dec 2025 21:24:41 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 06/33] cpuset: Convert boot_hk_cpus to use
- HK_TYPE_DOMAIN_BOOT
+Subject: Re: [PATCH 14/33] cpuset: Update HK_TYPE_DOMAIN cpumask from cpuset
 To: Frederic Weisbecker <frederic@kernel.org>,
  LKML <linux-kernel@vger.kernel.org>
 Cc: =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>,
@@ -110,17 +109,17 @@ Cc: =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>,
  linux-block@vger.kernel.org, linux-mm@kvack.org, linux-pci@vger.kernel.org,
  netdev@vger.kernel.org
 References: <20251224134520.33231-1-frederic@kernel.org>
- <20251224134520.33231-7-frederic@kernel.org>
-In-Reply-To: <20251224134520.33231-7-frederic@kernel.org>
+ <20251224134520.33231-15-frederic@kernel.org>
+In-Reply-To: <20251224134520.33231-15-frederic@kernel.org>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: q7NYAn-V15J_omwBA4IdYyXdBN8SY8fJV4VsaTCiFlc_1766701868
+X-Mimecast-MFC-PROC-ID: TiFkDmBW3vxv-cXCw1-cWoOV_THVZuXEF35CmLxEkNo_1766715897
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251225_143112_460925_FF072286 
-X-CRM114-Status: GOOD (  20.28  )
+X-CRM114-CacheID: sfid-20251225_182501_913696_C90D84CA 
+X-CRM114-Status: GOOD (  28.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,70 +134,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/24/25 8:44 AM, Frederic Weisbecker wrote:
-> boot_hk_cpus is an ad-hoc copy of HK_TYPE_DOMAIN_BOOT. Remove it and use
-> the official version.
+On 12/24/25 8:45 AM, Frederic Weisbecker wrote:
+> Until now, HK_TYPE_DOMAIN used to only include boot defined isolated
+> CPUs passed through isolcpus= boot option. Users interested in also
+> knowing the runtime defined isolated CPUs through cpuset must use
+> different APIs: cpuset_cpu_is_isolated(), cpu_is_isolated(), etc...
+>
+> There are many drawbacks to that approach:
+>
+> 1) Most interested subsystems want to know about all isolated CPUs, not
+>    just those defined on boot time.
+>
+> 2) cpuset_cpu_is_isolated() / cpu_is_isolated() are not synchronized with
+>    concurrent cpuset changes.
+>
+> 3) Further cpuset modifications are not propagated to subsystems
+>
+> Solve 1) and 2) and centralize all isolated CPUs within the
+> HK_TYPE_DOMAIN housekeeping cpumask.
+>
+> Subsystems can rely on RCU to synchronize against concurrent changes.
+>
+> The propagation mentioned in 3) will be handled in further patches.
 >
 > Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
-> Reviewed-by: Phil Auld <pauld@redhat.com>
-> Reviewed-by: Chen Ridong <chenridong@huawei.com>
 > ---
->   kernel/cgroup/cpuset.c | 22 +++++++---------------
->   1 file changed, 7 insertions(+), 15 deletions(-)
+>   include/linux/sched/isolation.h |  7 +++
+>   kernel/cgroup/cpuset.c          |  3 ++
+>   kernel/sched/isolation.c        | 76 ++++++++++++++++++++++++++++++---
+>   kernel/sched/sched.h            |  1 +
+>   4 files changed, 81 insertions(+), 6 deletions(-)
 >
+> diff --git a/include/linux/sched/isolation.h b/include/linux/sched/isolation.h
+> index 109a2149e21a..6842a1ba4d13 100644
+> --- a/include/linux/sched/isolation.h
+> +++ b/include/linux/sched/isolation.h
+> @@ -9,6 +9,11 @@
+>   enum hk_type {
+>   	/* Revert of boot-time isolcpus= argument */
+>   	HK_TYPE_DOMAIN_BOOT,
+> +	/*
+> +	 * Same as HK_TYPE_DOMAIN_BOOT but also includes the
+> +	 * revert of cpuset isolated partitions. As such it
+> +	 * is always a subset of HK_TYPE_DOMAIN_BOOT.
+> +	 */
+>   	HK_TYPE_DOMAIN,
+>   	/* Revert of boot-time isolcpus=managed_irq argument */
+>   	HK_TYPE_MANAGED_IRQ,
+> @@ -35,6 +40,7 @@ extern const struct cpumask *housekeeping_cpumask(enum hk_type type);
+>   extern bool housekeeping_enabled(enum hk_type type);
+>   extern void housekeeping_affine(struct task_struct *t, enum hk_type type);
+>   extern bool housekeeping_test_cpu(int cpu, enum hk_type type);
+> +extern int housekeeping_update(struct cpumask *isol_mask, enum hk_type type);
+>   extern void __init housekeeping_init(void);
+>   
+>   #else
+> @@ -62,6 +68,7 @@ static inline bool housekeeping_test_cpu(int cpu, enum hk_type type)
+>   	return true;
+>   }
+>   
+> +static inline int housekeeping_update(struct cpumask *isol_mask, enum hk_type type) { return 0; }
+>   static inline void housekeeping_init(void) { }
+>   #endif /* CONFIG_CPU_ISOLATION */
+>   
 > diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
-> index 6e6eb09b8db6..3afa72f8d579 100644
+> index 5e2e3514c22e..e13e32491ebf 100644
 > --- a/kernel/cgroup/cpuset.c
 > +++ b/kernel/cgroup/cpuset.c
-> @@ -88,12 +88,6 @@ static cpumask_var_t	isolated_cpus;
->    */
->   static bool isolated_cpus_updating;
+> @@ -1490,6 +1490,9 @@ static void update_isolation_cpumasks(void)
+>   	ret = tmigr_isolated_exclude_cpumask(isolated_cpus);
+>   	WARN_ON_ONCE(ret < 0);
 >   
-> -/*
-> - * Housekeeping (HK_TYPE_DOMAIN) CPUs at boot
-> - */
-> -static cpumask_var_t	boot_hk_cpus;
-> -static bool		have_boot_isolcpus;
-> -
->   /*
->    * A flag to force sched domain rebuild at the end of an operation.
->    * It can be set in
-> @@ -1453,15 +1447,16 @@ static bool isolated_cpus_can_update(struct cpumask *add_cpus,
->    * @new_cpus: cpu mask
->    * Return: true if there is conflict, false otherwise
->    *
-> - * CPUs outside of boot_hk_cpus, if defined, can only be used in an
-> + * CPUs outside of HK_TYPE_DOMAIN_BOOT, if defined, can only be used in an
->    * isolated partition.
->    */
->   static bool prstate_housekeeping_conflict(int prstate, struct cpumask *new_cpus)
->   {
-> -	if (!have_boot_isolcpus)
-> +	if (!housekeeping_enabled(HK_TYPE_DOMAIN_BOOT))
->   		return false;
->   
-> -	if ((prstate != PRS_ISOLATED) && !cpumask_subset(new_cpus, boot_hk_cpus))
-> +	if ((prstate != PRS_ISOLATED) &&
-> +	    !cpumask_subset(new_cpus, housekeeping_cpumask(HK_TYPE_DOMAIN_BOOT)))
->   		return true;
->   
->   	return false;
-> @@ -3892,12 +3887,9 @@ int __init cpuset_init(void)
->   
->   	BUG_ON(!alloc_cpumask_var(&cpus_attach, GFP_KERNEL));
->   
-> -	have_boot_isolcpus = housekeeping_enabled(HK_TYPE_DOMAIN);
-> -	if (have_boot_isolcpus) {
-> -		BUG_ON(!alloc_cpumask_var(&boot_hk_cpus, GFP_KERNEL));
-> -		cpumask_copy(boot_hk_cpus, housekeeping_cpumask(HK_TYPE_DOMAIN));
-> -		cpumask_andnot(isolated_cpus, cpu_possible_mask, boot_hk_cpus);
-> -	}
-> +	if (housekeeping_enabled(HK_TYPE_DOMAIN_BOOT))
-> +		cpumask_andnot(isolated_cpus, cpu_possible_mask,
-> +			       housekeeping_cpumask(HK_TYPE_DOMAIN_BOOT));
->   
->   	return 0;
+> +	ret = housekeeping_update(isolated_cpus, HK_TYPE_DOMAIN);
+> +	WARN_ON_ONCE(ret < 0);
+> +
+>   	isolated_cpus_updating = false;
 >   }
-Reviewed-by: Waiman Long <longman@redhat.com>
+>   
+> diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
+> index 83be49ec2b06..a124f1119f2e 100644
+> --- a/kernel/sched/isolation.c
+> +++ b/kernel/sched/isolation.c
+> @@ -29,18 +29,48 @@ static struct housekeeping housekeeping;
+>   
+>   bool housekeeping_enabled(enum hk_type type)
+>   {
+> -	return !!(housekeeping.flags & BIT(type));
+> +	return !!(READ_ONCE(housekeeping.flags) & BIT(type));
+>   }
+>   EXPORT_SYMBOL_GPL(housekeeping_enabled);
+>   
+> +static bool housekeeping_dereference_check(enum hk_type type)
+> +{
+> +	if (IS_ENABLED(CONFIG_LOCKDEP) && type == HK_TYPE_DOMAIN) {
+
+To be more correct, we should use IS_ENABLED(CONFIG_PROVE_LOCKING) as 
+this is the real kconfig that enables most of the lockdep checking. 
+PROVE_LOCKING selects LOCKDEP but not vice versa. So for some weird 
+configs that set LOCKDEP but not PROVE_LOCKING, it can cause compilation 
+problem.
+
+Other than that, the rest looks good to me.
+
+Cheers,
+Longman
 
 
