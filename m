@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19D68E6B26F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Dec 2025 04:17:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B260E82CDE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Dec 2025 06:08:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gGxQlvCCkosqxm5lSDbcRzSOHgSI7WeDN0DsLRhbuGw=; b=Eckf0RqZPdM96GMflj0obRF/cC
-	UyjUatbD5jl/r8ijcMN7qo2rCIOi0RbblpBfFJjBOd6VTUyrzM6hIniyP2qmg6NazSWLgWqvOXkTU
-	ZKuGvvxFzmMOZy9BTE9aNRHGpuPBKAyGPnU597s5ubj3lh19hDgL0o3rJwj3Gkx4lVMhxpG2Q3JmU
-	pDVpPLw5NnsfnPXvK9RWd9DaPAiIaqvb1ocKVKOymdstNGk8JvvkDhZCzB5TLd99ClbYCW0Qr+l9U
-	aF2dmD/QaXaBxq8X5U800WPGlHGrztveUIXenBw8ESsEqzu4lWkuIa3GK60MxbJRS2xA7/16pSFpq
-	JCkdu3lg==;
+	bh=2dDam6/A7wKLN/SEOzZ9mYQr/Agu3pyZVWIzX0An9W4=; b=15aPtHLpbEIE2s+BSNS74loiQl
+	wwIo62XoAHS93VPWwsB1fRAliGRyA6fzbsLUMu+CgP3paBqOSeHKLypn7b7EEW4qG9s9nM9aIpRSB
+	u4LvCuoiuGvJkoBGhue3IGQDhDKpnZsQKxnnOlQpySO1bYCyRiRljEzcFS5dpOqkxcpOGMgAocfnN
+	db2PqyXusiKUrXLCUIzkibEVSw5nI8Jy4KzhMMkaoBxhIrL8W2Ho4xwTy4Rx2E3F/Heg+CVkWLh+b
+	h1Z9PjtaI2KxDQPvPFDk/oWIo8tqghD9w4Bg0E7ZAlom1KQmcYEXOlNOucCvuMyIujtwu41UXF4si
+	g30XHX0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYzGa-00000000taT-0qSc;
-	Fri, 26 Dec 2025 04:17:28 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
+	id 1vZ0zr-00000000wUE-39Rf;
+	Fri, 26 Dec 2025 06:08:19 +0000
+Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vYzGU-00000000tZo-3LU6;
-	Fri, 26 Dec 2025 04:17:26 +0000
-Received: from dfae2b116770.home.arpa (unknown [124.16.138.129])
-	by APP-01 (Coremail) with SMTP id qwCowAAnzWhNDE5psCHdAQ--.33559S2;
-	Fri, 26 Dec 2025 12:17:17 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: vkoul@kernel.org,
-	kishon@kernel.org,
-	heiko@sntech.de
-Cc: linux-phy@lists.infradead.org,
+	id 1vZ0zo-00000000wSc-3sfD
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 26 Dec 2025 06:08:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1766729290; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=2dDam6/A7wKLN/SEOzZ9mYQr/Agu3pyZVWIzX0An9W4=;
+	b=lP4GiUgTlRUS02vSyfQIKLhJuhQ1W+i9VJL08GG7myJqvKexLFDN3Iz0N+1ba4DH7bN7VmYWXLFj4rLlTkKz6HdMUFkrfs4wvbvaBfwPFvsUUmOtS6HJlQNZzs7TM0yqTZ74gN2A77rzxequHwTgeUsRIBDNJebuaR/tsJak0r8=
+Received: from localhost(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0WvgaV-U_1766729284 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Fri, 26 Dec 2025 14:08:05 +0800
+From: Baolin Wang <baolin.wang@linux.alibaba.com>
+To: akpm@linux-foundation.org,
+	david@kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org
+Cc: lorenzo.stoakes@oracle.com,
+	ryan.roberts@arm.com,
+	Liam.Howlett@oracle.com,
+	vbabka@suse.cz,
+	rppt@kernel.org,
+	surenb@google.com,
+	mhocko@suse.com,
+	riel@surriel.com,
+	harry.yoo@oracle.com,
+	jannh@google.com,
+	willy@infradead.org,
+	baohua@kernel.org,
+	dev.jain@arm.com,
+	baolin.wang@linux.alibaba.com,
+	linux-mm@kvack.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Wentao Liang <vulab@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH] phy: rockchip: inno-usb2: Fix a double free bug in rockchip_usb2phy_probe()
-Date: Fri, 26 Dec 2025 04:17:11 +0000
-Message-Id: <20251226041711.2369638-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v5 0/5] support batch checking of references and unmapping for large folios
+Date: Fri, 26 Dec 2025 14:07:54 +0800
+Message-ID: <cover.1766631066.git.baolin.wang@linux.alibaba.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: qwCowAAnzWhNDE5psCHdAQ--.33559S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7uw18KF15Wr15Wry3Jr43Jrb_yoW8GrW8pa
-	yDCrWDtrW8Kay8Wr1qyrn8ZFsYyayDt3yxGFZ2k3WfZ3Zxtw1DZa4fuFyUursxJFW8ZFsx
-	Jrs8ta4UAF43Zw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvv14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr
-	0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Wrv_ZF1lYx0Ex4A2jsIE14v26rkl6F8dMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lc7CjxVAaw2AFwI0_
-	Jw0_GFylc2xSY4AK67AK6r45MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r
-	4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF
-	67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2I
-	x0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2
-	z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIevJa73Uj
-	IFyTuYvjTRAPEfUUUUU
-X-Originating-IP: [124.16.138.129]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAgIA2lN4TqlYQAAs0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251225_201723_303340_63E947F8 
-X-CRM114-Status: UNSURE (   9.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251225_220817_365648_32633802 
+X-CRM114-Status: GOOD (  12.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,43 +80,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The for_each_available_child_of_node() calls of_node_put() to
-release child_np in each success loop. After breaking from the
-loop with the child_np has been released, the code will jump to
-the put_child label and will call the of_node_put() again if the
-devm_request_threaded_irq() fails. These cause a double free bug.
+Currently, folio_referenced_one() always checks the young flag for each PTE
+sequentially, which is inefficient for large folios. This inefficiency is
+especially noticeable when reclaiming clean file-backed large folios, where
+folio_referenced() is observed as a significant performance hotspot.
 
-Fix by using a separate label to avoid the duplicate of_node_put().
+Moreover, on Arm architecture, which supports contiguous PTEs, there is already
+an optimization to clear the young flags for PTEs within a contiguous range.
+However, this is not sufficient. We can extend this to perform batched operations
+for the entire large folio (which might exceed the contiguous range: CONT_PTE_SIZE).
 
-Fixes: ed2b5a8e6b98 ("phy: phy-rockchip-inno-usb2: support muxed interrupts")
-Cc: stable@vger.kernel.org
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
----
- drivers/phy/rockchip/phy-rockchip-inno-usb2.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+Similar to folio_referenced_one(), we can also apply batched unmapping for large
+file folios to optimize the performance of file folio reclamation. By supporting
+batched checking of the young flags, flushing TLB entries, and unmapping, I can
+observed a significant performance improvements in my performance tests for file
+folios reclamation. Please check the performance data in the commit message of
+each patch.
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-index b0f23690ec30..f754c3b1c357 100644
---- a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-+++ b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-@@ -1491,7 +1491,7 @@ static int rockchip_usb2phy_probe(struct platform_device *pdev)
- 						rphy);
- 		if (ret) {
- 			dev_err_probe(rphy->dev, ret, "failed to request usb2phy irq handle\n");
--			goto put_child;
-+			goto ret_error;
- 		}
- 	}
- 
-@@ -1499,6 +1499,7 @@ static int rockchip_usb2phy_probe(struct platform_device *pdev)
- 
- put_child:
- 	of_node_put(child_np);
-+ret_error:
- 	return ret;
- }
- 
+Run stress-ng and mm selftests, no issues were found.
+
+Patch 1: Add a new generic batched PTE helper that supports batched checks of
+the references for large folios.
+Patch 2 - 3: Preparation patches.
+patch 4: Implement the Arm64 arch-specific clear_flush_young_ptes().
+Patch 5: Support batched unmapping for file large folios.
+
+Changes from v4:
+ - Fix passing the incorrect 'CONT_PTES' for non-batched APIs.
+ - Rename ptep_clear_flush_young_notify() to clear_flush_young_ptes_notify() (per Ryan).
+ - Fix some coding style issues (per Ryan).
+ - Add reviewed tag from Ryan. Thanks.
+
+Changes from v3:
+ - Fix using an incorrect parameter in ptep_clear_flush_young_notify()
+   (per Liam).
+
+Changes from v2:
+ - Rearrange the patch set (per Ryan).
+ - Add pte_cont() check in clear_flush_young_ptes() (per Ryan).
+ - Add a helper to do contpte block alignment (per Ryan).
+ - Fix some coding style issues (per Lorenzo and Ryan).
+ - Add more comments and update the commit message (per Lorenzo and Ryan).
+ - Add acked tag from Barry. Thanks. 
+
+Changes from v1:
+ - Add a new patch to support batched unmapping for file large folios.
+ - Update the cover letter
+
+Baolin Wang (5):
+  mm: rmap: support batched checks of the references for large folios
+  arm64: mm: factor out the address and ptep alignment into a new helper
+  arm64: mm: support batch clearing of the young flag for large folios
+  arm64: mm: implement the architecture-specific
+    clear_flush_young_ptes()
+  mm: rmap: support batched unmapping for file large folios
+
+ arch/arm64/include/asm/pgtable.h | 23 ++++++++----
+ arch/arm64/mm/contpte.c          | 62 ++++++++++++++++++++------------
+ include/linux/mmu_notifier.h     |  9 ++---
+ include/linux/pgtable.h          | 31 ++++++++++++++++
+ mm/rmap.c                        | 38 ++++++++++++++++----
+ 5 files changed, 125 insertions(+), 38 deletions(-)
+
 -- 
-2.34.1
+2.47.3
 
 
