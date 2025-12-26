@@ -4,96 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 752A6E8FDA1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Dec 2025 08:48:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B063DE8FDA5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Dec 2025 10:10:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l7lRNkdCjBmT71Fa5OqwL1nmPywktY2nAd5y1O+Yba4=; b=ocIB3hlrKmEf0lxEWvNBHwhAjv
-	6dsAKTiiacAXuFR7VtoAODIEDxzBcDnHN2t5KYW+N7XwlR63aklLk/lLL8abzB+9xhmgxBwhFY09W
-	y/4XGO67c/Ce3vRgJNJJDVv1pA4M1CWrRcFHEa8ouwMNhl5KimfMUMAlPE2z2b2wmAjYwY4POR5wQ
-	Qq4OzmAT91oFUJuRhA63xP04CfRnCxl5k2Lw4K32PWcMsrHaRy0wb/egX3sT+Xa6d4YzvBi6/303F
-	JKttL1UgJH2eaHrTndbcB/DlmivbLavrFK7UtcgtjsTlEzUj/zUW6Sx3DyIrJYz6V5hiYeF+n87oF
-	wlc17ytg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=88k627egx0eAHfgEEW0/upasFqEqFwJf9dD4TOMvlnM=; b=TQEv67dvW11O4WwYnNeWk/9FR5
+	DxuZTblV3gRzhpRBUn34djgSc5vQUzpy+hbxExRLcEKw/x+QnO5zp6fKHpnerWdxM3970jwFPT1yj
+	+HuLG3Rmy4zWqsVGcTHftAuDO8oEscweNxxplzlbORK0z6lVTNy60w8ybjhY9wuiO+lSdU6Q4Lvwq
+	yklJmtHctZmdyu7N2ga3C8sizUpkIfNIQ0bCdKlbsF28hFVOm2IOCp1MUwpUcWMWdLVo1Y3kGDjRn
+	11hHf7qrNWxzyonMH+GdUX5neC41MknAuV3pt596627Cch/Gy8rs6EAOF+XCH07aH+vWmZj+rFZbl
+	FMaiC4tQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZ3Um-000000013Ce-1HkC;
-	Fri, 26 Dec 2025 08:48:24 +0000
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
+	id 1vZ4m1-000000015m2-2gUY;
+	Fri, 26 Dec 2025 10:10:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZ3Uh-000000013C5-2scg
+	id 1vZ4lz-000000015lu-1ZMJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Dec 2025 08:48:22 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.198])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4dczl63TSlzYQtqK
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Dec 2025 16:47:30 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.128])
-	by mail.maildlp.com (Postfix) with ESMTP id 3C3EE40576
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Dec 2025 16:48:12 +0800 (CST)
-Received: from [10.67.111.176] (unknown [10.67.111.176])
-	by APP4 (Coremail) with SMTP id gCh0CgC3F_jKS05pTcYjBg--.59999S2;
-	Fri, 26 Dec 2025 16:48:11 +0800 (CST)
-Message-ID: <c724aac7-5647-4253-bf7b-4ea92ea5d167@huaweicloud.com>
-Date: Fri, 26 Dec 2025 16:48:10 +0800
+	Fri, 26 Dec 2025 10:10:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E656B60122
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Dec 2025 10:10:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9105DC19421
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Dec 2025 10:10:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766743813;
+	bh=UwdDg/vJDXLfJsPqMBXTVvRQ7kiG/4QVTGKgd2G1aQM=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=UN367BKzngjMxzbnSsud+cdFVYG+xbgUlR717dQL8IGgJ6XpVU8hRSPPYIV43ktYs
+	 n9OxcOKpmbRxLs23H5fmt6cTa0L24YDXiYmhoaU5tBBKaS1X3VZAqTSCHBsYPuQmzj
+	 VIGkcnai1FaOdOd11OnDPm8ppOk8nAp1/LbQ3ARvK3owogswwPdaNr2udpHgB8oeSD
+	 piI8thPEJoCS/cjOnPhyp0b92hJl2WVYCF0bGBhe73t8OlyTpjmm0iBaHLjg17O1mb
+	 qZZ5MhzjqCHFUsQhshavikauNk+TZDS1u9RAbD0Ap7G67ABoIesTpOfMYxkaE+iHJ+
+	 XQWJYdpfgSwHw==
+Received: by mail-pj1-f50.google.com with SMTP id 98e67ed59e1d1-34c9edf63a7so7705246a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Dec 2025 02:10:13 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWMGsXf0JxBQwTjLEsA5w9QcmCPQY82WIpH6jbPQ7OFw4hUBmTtSwVE4LJvfkPpMYJUEF/ukb3ZZoH7YFDU2d34@lists.infradead.org
+X-Gm-Message-State: AOJu0YyWR4KRynlbDD1FmL2MEn0b0Ttu6XVBF4QV/cSK3SI2iAlNMeHe
+	CPG82iDx4AtvYJhK0pLx9NXbVS/Ta5fG8OXg0TPds5Bb9cidAUdMSLYIF6R5PauSiIghqOZQwA8
+	ATOIByDtGacQbnJ/FZLEphabvUPcFDKI=
+X-Google-Smtp-Source: AGHT+IFMPUHGcCWsXnH6hVjDphxdKvFV61uRZ7+ZSF8P9bM2PyRMJ+EqfmP3JBcmRs/5dnp6pRsP7bOptzbrNoOr6jY=
+X-Received: by 2002:a17:90b:4f91:b0:349:5b1b:78be with SMTP id
+ 98e67ed59e1d1-34e921b0557mr23396254a91.17.1766743813102; Fri, 26 Dec 2025
+ 02:10:13 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 17/33] PCI: Flush PCI probe workqueue on cpuset isolated
- partition change
-To: Frederic Weisbecker <frederic@kernel.org>,
- LKML <linux-kernel@vger.kernel.org>
-Cc: =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Bjorn Helgaas <bhelgaas@google.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Chen Ridong <chenridong@huawei.com>, Danilo Krummrich <dakr@kernel.org>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Gabriele Monaco <gmonaco@redhat.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
- Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
- Lai Jiangshan <jiangshanlai@gmail.com>,
- Marco Crivellari <marco.crivellari@suse.com>, Michal Hocko
- <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
- Paolo Abeni <pabeni@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
- Phil Auld <pauld@redhat.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
- Roman Gushchin <roman.gushchin@linux.dev>,
- Shakeel Butt <shakeel.butt@linux.dev>, Simon Horman <horms@kernel.org>,
- Tejun Heo <tj@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
- Will Deacon <will@kernel.org>, cgroups@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
- linux-mm@kvack.org, linux-pci@vger.kernel.org, netdev@vger.kernel.org
-References: <20251224134520.33231-1-frederic@kernel.org>
- <20251224134520.33231-18-frederic@kernel.org>
-Content-Language: en-US
-From: Chen Ridong <chenridong@huaweicloud.com>
-In-Reply-To: <20251224134520.33231-18-frederic@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: gCh0CgC3F_jKS05pTcYjBg--.59999S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxCr4kAF45AF1rAr47XryDAwb_yoWrAF4fpF
-	Z8AFW5tr48tFWUW3s0vF17Ar1S9wn2va4Ikr47Gw1Fvry2ya4vqasavry8tryfWrWDuF12
-	yFW5KrZxuayjyF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvFb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
-	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
-	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
-	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS
-	14v26rWY6Fy7MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
-	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWrXVW8
-	Jr1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7
-	CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v2
-	6r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvj
-	xUVZ2-UUUUU
-X-CM-SenderInfo: hfkh02xlgr0w46kxt4xhlfz01xgou0bp/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251226_004820_132844_4D4EA3D4 
-X-CRM114-Status: GOOD (  26.73  )
+References: <20251223-efi_fix_619-v1-0-e0146b8b9d73@debian.org>
+In-Reply-To: <20251223-efi_fix_619-v1-0-e0146b8b9d73@debian.org>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Fri, 26 Dec 2025 11:10:02 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXE2rN-erQNnSZ5-CGKWw6fCQ6Hvz-2BU1pn-Vy7ftneQA@mail.gmail.com>
+X-Gm-Features: AQt7F2pi64AhAkoQfxWEexPYGpeqDBFCLyEwaxZhaOVOJRaCzCp2dk7zUJsXPCA
+Message-ID: <CAMj1kXE2rN-erQNnSZ5-CGKWw6fCQ6Hvz-2BU1pn-Vy7ftneQA@mail.gmail.com>
+Subject: Re: [PATCH 0/2] arm64: efi: Fix NULL pointer crash in 6.19-rc2
+To: Breno Leitao <leitao@debian.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, linux-efi@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	riel@surriel.com, puranjay@kernel.org, usamaarif642@gmail.com, 
+	kernel-team@meta.com
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,127 +81,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2025/12/24 21:45, Frederic Weisbecker wrote:
-> The HK_TYPE_DOMAIN housekeeping cpumask is now modifiable at runtime. In
-> order to synchronize against PCI probe works and make sure that no
-> asynchronous probing is still pending or executing on a newly isolated
-> CPU, the housekeeping subsystem must flush the PCI probe works.
-> 
-> However the PCI probe works can't be flushed easily since they are
-> queued to the main per-CPU workqueue pool.
-> 
-> Solve this with creating a PCI probe-specific pool and provide and use
-> the appropriate flushing API.
-> 
-> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+On Tue, 23 Dec 2025 at 11:56, Breno Leitao <leitao@debian.org> wrote:
+>
+> I am seeing the following crash on arm64 with 6.19-rc2 (commit 9448598b22c5
+> ("Linux 6.19-rc2"))
+>
+>         Unable to handle kernel NULL pointer dereference at virtual address 00000000000000c8
+>
+>         Call trace:
+>         cap_capable (security/commoncap.c:82 security/commoncap.c:128) (P)
+>         security_capable (security/security.c:?)
+>         ns_capable_noaudit (kernel/capability.c:342 kernel/capability.c:381)
+>         __ptrace_may_access (./include/linux/rcupdate.h:895 kernel/ptrace.c:326)
+>         ptrace_may_access (kernel/ptrace.c:353)
+>         do_task_stat (fs/proc/array.c:467)
+>         proc_tgid_stat (fs/proc/array.c:673)
+>         proc_single_show (fs/proc/base.c:803)
+>         seq_read_iter (fs/seq_file.c:209)
+>         seq_read (./include/linux/ioprio.h:59 ./include/linux/ioprio.h:84 ./include/linux/fs.h:2177 fs/seq_file.c:158)
+>         vfs_read (./arch/arm64/include/asm/uaccess.h:46 fs/read_write.c:560)
+>         ksys_read (fs/read_write.c:705)
+>         __arm64_sys_read (fs/read_write.c:722)
+>         invoke_syscall (arch/arm64/kernel/syscall.c:46)
+>         el0_svc_common+0x90/0xe0
+>         do_el0_svc (arch/arm64/kernel/syscall.c:150)
+>         el0_svc (arch/arm64/kernel/entry-common.c:724)
+>         el0t_64_sync_handler (arch/arm64/kernel/entry-common.c:743)
+>         el0t_64_sync (arch/arm64/kernel/entry.S:596)
+>
+> This was bissected to commit a5baf582f4 ("arm64/efi: Call EFI runtime services without
+> disabling preemption").
+>
+> After the commit above, it crashes arm64 with a NULL pointer dereference in
+> cap_capable() when running below (ocassionally). Unfortunately I still don't
+> have a simple reproducer, and it takes about 10 minutes to crash on my systems.
+> it always crash with below[1] application.
+>
+> From my investigation, the root cause is that efi_mm lacks user_ns
+> initialization. When kthread_use_mm(&efi_mm) temporarily adopts efi_mm
+> for EFI calls, LSM hooks expect mm->user_ns to be valid for credential
+> checks. With it being NULL, capability checks crash.
+>
+> This series contains two patches:
+>
+> 1. efi: Initialize efi_mm.user_ns to &init_user_ns (the actual fix)
+> 2. kthread: Add WARN_ON_ONCE() to catch similar bugs early (RFC)
+>
+> The second patch is mostly an RFC that adds a warning in
+> kthread_use_mm() to detect any mm_struct missing user_ns initialization,
+> helping prevent similar NULL pointer crashes in the future.
+>
+> Link: https://github.com/facebookincubator/below [1]
+>
+> Signed-off-by: Breno Leitao <leitao@debian.org>
 > ---
->  drivers/pci/pci-driver.c | 17 ++++++++++++++++-
->  include/linux/pci.h      |  3 +++
->  kernel/sched/isolation.c |  2 ++
->  3 files changed, 21 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/pci/pci-driver.c b/drivers/pci/pci-driver.c
-> index 786d6ce40999..d87f781e5ce9 100644
-> --- a/drivers/pci/pci-driver.c
-> +++ b/drivers/pci/pci-driver.c
-> @@ -337,6 +337,8 @@ static int local_pci_probe(struct drv_dev_and_id *ddi)
->  	return 0;
->  }
->  
-> +static struct workqueue_struct *pci_probe_wq;
-> +
->  struct pci_probe_arg {
->  	struct drv_dev_and_id *ddi;
->  	struct work_struct work;
-> @@ -407,7 +409,11 @@ static int pci_call_probe(struct pci_driver *drv, struct pci_dev *dev,
->  		cpu = cpumask_any_and(cpumask_of_node(node),
->  				      wq_domain_mask);
->  		if (cpu < nr_cpu_ids) {
-> -			schedule_work_on(cpu, &arg.work);
-> +			struct workqueue_struct *wq = pci_probe_wq;
-> +
-> +			if (WARN_ON_ONCE(!wq))
-> +				wq = system_percpu_wq;
-> +			queue_work_on(cpu, wq, &arg.work);
->  			rcu_read_unlock();
->  			flush_work(&arg.work);
->  			error = arg.ret;
-> @@ -425,6 +431,11 @@ static int pci_call_probe(struct pci_driver *drv, struct pci_dev *dev,
->  	return error;
->  }
->  
-> +void pci_probe_flush_workqueue(void)
-> +{
-> +	flush_workqueue(pci_probe_wq);
-> +}
-> +
->  /**
->   * __pci_device_probe - check if a driver wants to claim a specific PCI device
->   * @drv: driver to call to check if it wants the PCI device
-> @@ -1762,6 +1773,10 @@ static int __init pci_driver_init(void)
->  {
->  	int ret;
->  
-> +	pci_probe_wq = alloc_workqueue("sync_wq", WQ_PERCPU, 0);
-> +	if (!pci_probe_wq)
-> +		return -ENOMEM;
-> +
->  	ret = bus_register(&pci_bus_type);
->  	if (ret)
->  		return ret;
-> diff --git a/include/linux/pci.h b/include/linux/pci.h
-> index 864775651c6f..f14f467e50de 100644
-> --- a/include/linux/pci.h
-> +++ b/include/linux/pci.h
-> @@ -1206,6 +1206,7 @@ struct pci_bus *pci_create_root_bus(struct device *parent, int bus,
->  				    struct pci_ops *ops, void *sysdata,
->  				    struct list_head *resources);
->  int pci_host_probe(struct pci_host_bridge *bridge);
-> +void pci_probe_flush_workqueue(void);
->  int pci_bus_insert_busn_res(struct pci_bus *b, int bus, int busmax);
->  int pci_bus_update_busn_res_end(struct pci_bus *b, int busmax);
->  void pci_bus_release_busn_res(struct pci_bus *b);
-> @@ -2079,6 +2080,8 @@ static inline int pci_has_flag(int flag) { return 0; }
->  _PCI_NOP_ALL(read, *)
->  _PCI_NOP_ALL(write,)
->  
-> +static inline void pci_probe_flush_workqueue(void) { }
-> +
->  static inline struct pci_dev *pci_get_device(unsigned int vendor,
->  					     unsigned int device,
->  					     struct pci_dev *from)
-> diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
-> index 8aac3c9f7c7f..7dbe037ea8df 100644
-> --- a/kernel/sched/isolation.c
-> +++ b/kernel/sched/isolation.c
-> @@ -8,6 +8,7 @@
->   *
->   */
->  #include <linux/sched/isolation.h>
-> +#include <linux/pci.h>
->  #include "sched.h"
->  
->  enum hk_flags {
-> @@ -145,6 +146,7 @@ int housekeeping_update(struct cpumask *isol_mask, enum hk_type type)
->  
->  	synchronize_rcu();
->  
-> +	pci_probe_flush_workqueue();
->  	mem_cgroup_flush_workqueue();
->  	vmstat_flush_workqueue();
->  
+> Breno Leitao (2):
+>       arm64: efi: Fix NULL pointer dereference by initializing user_ns
+>       kthread: Warn if mm_struct lacks user_ns in kthread_use_mm()
+>
 
-I am concerned that this flush work may slow down writes to the cpuset interface. I am not sure how
-significant the impact will be.
+Thanks for the report - I've queued these up in the EFI fixes tree.
 
-I'm concerned about potential deadlock risks. While preliminary investigation hasn't uncovered any
-issues, we must ensure that the cpu write lock is not held during the work(writing cpuset interface
-needs cpu read lock).
 
--- 
-Best regards,
-Ridong
-
+>  drivers/firmware/efi/efi.c | 1 +
+>  kernel/kthread.c           | 1 +
+>  2 files changed, 2 insertions(+)
+> ---
+> base-commit: 9448598b22c50c8a5bb77a9103e2d49f134c9578
+> change-id: 20251223-efi_fix_619-3891ca7d2914
+>
+> Best regards,
+> --
+> Breno Leitao <leitao@debian.org>
+>
+>
 
