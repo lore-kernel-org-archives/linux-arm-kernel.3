@@ -4,61 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CF39E8FDA5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Dec 2025 08:40:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 752A6E8FDA1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Dec 2025 08:48:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yfHDUPHLpb//CYvTTsSDlTKvWibGdWvqGHEMZe8sFu8=; b=eNuotVXQiYwbfRkJ0KJE5OWwAM
-	Z9H+QJaoorczbFrM3LB8dYFb+vrgvyJ5ufXlXiZBC0O5g0g0p+6Zyn4Aq4a2KNw+JxsYI+ZeoEw2N
-	Mph2KULGmbq/vJge6IgE381adTk+T8Ty4NMSv58wnKoDV9MY3nio8tbGf5viwpyCJGb/N7W4YSrM9
-	tU0pT9s0b+ZAF8bPk6u89/h3FmGIEz7PpYET3kljqxJSTkMKYo55LQzWZENNUzpSPqs/xYH4dGRr2
-	B/g64B1NReh6Xl1YbbrA32wsIxTrhYXjIlBtyZ4dPRrvBv6w9c8RmmNElAdyW6zzN807dp7Dz7Rlt
-	W2gHn3Ww==;
+	bh=l7lRNkdCjBmT71Fa5OqwL1nmPywktY2nAd5y1O+Yba4=; b=ocIB3hlrKmEf0lxEWvNBHwhAjv
+	6dsAKTiiacAXuFR7VtoAODIEDxzBcDnHN2t5KYW+N7XwlR63aklLk/lLL8abzB+9xhmgxBwhFY09W
+	y/4XGO67c/Ce3vRgJNJJDVv1pA4M1CWrRcFHEa8ouwMNhl5KimfMUMAlPE2z2b2wmAjYwY4POR5wQ
+	Qq4OzmAT91oFUJuRhA63xP04CfRnCxl5k2Lw4K32PWcMsrHaRy0wb/egX3sT+Xa6d4YzvBi6/303F
+	JKttL1UgJH2eaHrTndbcB/DlmivbLavrFK7UtcgtjsTlEzUj/zUW6Sx3DyIrJYz6V5hiYeF+n87oF
+	wlc17ytg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZ3NF-000000012sL-1kcY;
-	Fri, 26 Dec 2025 08:40:37 +0000
-Received: from out30-111.freemail.mail.aliyun.com ([115.124.30.111])
+	id 1vZ3Um-000000013Ce-1HkC;
+	Fri, 26 Dec 2025 08:48:24 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZ3ND-000000012rr-0HQK
+	id 1vZ3Uh-000000013C5-2scg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Dec 2025 08:40:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1766738432; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=yfHDUPHLpb//CYvTTsSDlTKvWibGdWvqGHEMZe8sFu8=;
-	b=Df5ZsSSQoMI56ae9lFt4TnQ1Kv7bzapIu1MCqaMtuM0GPKJ3HeT8lAWsO3vFcmmO+w7KVvteOkF5KUxyD1ajc5egA78ywCEPq58wpsiaita0fzPbXAfe9QBtHaiGKaz8x2rj4erypaTj6mKNpshi07/sNQg7urzAECYUVd/svtw=
-Received: from 30.74.129.66(mailfrom:tongweilin@linux.alibaba.com fp:SMTPD_---0Wvh15pX_1766738431 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Fri, 26 Dec 2025 16:40:32 +0800
-Message-ID: <a91e09e5-9735-4539-ba83-661674e7f728@linux.alibaba.com>
-Date: Fri, 26 Dec 2025 16:40:31 +0800
+	Fri, 26 Dec 2025 08:48:22 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.198])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4dczl63TSlzYQtqK
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Dec 2025 16:47:30 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.128])
+	by mail.maildlp.com (Postfix) with ESMTP id 3C3EE40576
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Dec 2025 16:48:12 +0800 (CST)
+Received: from [10.67.111.176] (unknown [10.67.111.176])
+	by APP4 (Coremail) with SMTP id gCh0CgC3F_jKS05pTcYjBg--.59999S2;
+	Fri, 26 Dec 2025 16:48:11 +0800 (CST)
+Message-ID: <c724aac7-5647-4253-bf7b-4ea92ea5d167@huaweicloud.com>
+Date: Fri, 26 Dec 2025 16:48:10 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH] arm64: Kconfig: enable ARCH_WANTS_THP_SWAP for all
- pagesizes
-To: Barry Song <21cnbao@gmail.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+Subject: Re: [PATCH 17/33] PCI: Flush PCI probe workqueue on cpuset isolated
+ partition change
+To: Frederic Weisbecker <frederic@kernel.org>,
+ LKML <linux-kernel@vger.kernel.org>
+Cc: =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>,
  Andrew Morton <akpm@linux-foundation.org>,
- David Hildenbrand <david@kernel.org>, linux-mm@kvack.org,
- baolin.wang@linux.alibaba.com
-References: <20251226063759.4020782-2-tongweilin@linux.alibaba.com>
- <CAGsJ_4zd+SMa4Mj23tjF5OwsP3LQyvYTrwN4y81=k8FSFgbH3Q@mail.gmail.com>
- <915dc88b-9131-4520-a2f2-facadc887bbd@linux.alibaba.com>
- <CAGsJ_4yQtFK8wtMuJ72ce8KFRT7mB4SZxqS1MKi6RA1WDNkm1Q@mail.gmail.com>
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Chen Ridong <chenridong@huawei.com>, Danilo Krummrich <dakr@kernel.org>,
+ "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Gabriele Monaco <gmonaco@redhat.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+ Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+ Lai Jiangshan <jiangshanlai@gmail.com>,
+ Marco Crivellari <marco.crivellari@suse.com>, Michal Hocko
+ <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+ Paolo Abeni <pabeni@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Phil Auld <pauld@redhat.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
+ Roman Gushchin <roman.gushchin@linux.dev>,
+ Shakeel Butt <shakeel.butt@linux.dev>, Simon Horman <horms@kernel.org>,
+ Tejun Heo <tj@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
+ Will Deacon <will@kernel.org>, cgroups@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
+ linux-mm@kvack.org, linux-pci@vger.kernel.org, netdev@vger.kernel.org
+References: <20251224134520.33231-1-frederic@kernel.org>
+ <20251224134520.33231-18-frederic@kernel.org>
 Content-Language: en-US
-From: Weilin Tong <tongweilin@linux.alibaba.com>
-In-Reply-To: <CAGsJ_4yQtFK8wtMuJ72ce8KFRT7mB4SZxqS1MKi6RA1WDNkm1Q@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+From: Chen Ridong <chenridong@huaweicloud.com>
+In-Reply-To: <20251224134520.33231-18-frederic@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: gCh0CgC3F_jKS05pTcYjBg--.59999S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxCr4kAF45AF1rAr47XryDAwb_yoWrAF4fpF
+	Z8AFW5tr48tFWUW3s0vF17Ar1S9wn2va4Ikr47Gw1Fvry2ya4vqasavry8tryfWrWDuF12
+	yFW5KrZxuayjyF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvFb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS
+	14v26rWY6Fy7MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
+	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWrXVW8
+	Jr1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7
+	CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v2
+	6r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvj
+	xUVZ2-UUUUU
+X-CM-SenderInfo: hfkh02xlgr0w46kxt4xhlfz01xgou0bp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251226_004035_395346_F2D4B77E 
-X-CRM114-Status: GOOD (  13.18  )
+X-CRM114-CacheID: sfid-20251226_004820_132844_4D4EA3D4 
+X-CRM114-Status: GOOD (  26.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,45 +109,126 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-在 2025/12/26 16:31, Barry Song 写道:
-> On Fri, Dec 26, 2025 at 9:18 PM Weilin Tong
-> <tongweilin@linux.alibaba.com> wrote:
->>
->> 在 2025/12/26 14:52, Barry Song 写道:
->>
->> On Fri, Dec 26, 2025 at 7:39 PM Weilin Tong
->> <tongweilin@linux.alibaba.com> wrote:
->>
->> Currently, ARCH_WANTS_THP_SWAP was limited to 4K page size ARM64 kernels, but
->> large folios requiring swapping also exist in other page size configurations
->> (e.g. 64K). Without this config, large folios in these kernels cannot be swapped
->> out.
->>
->> Here we enable ARCH_WANTS_THP_SWAP for all ARM64 page sizes.
->>
->> I no longer recall why this was not enabled for sizes other than
->> 4 KB in commit d0637c505f8a ("arm64: enable THP_SWAP for arm64"), but
->> it appears to be fine, and the swap cluster size should also be
->> more friendly to PMD alignment.
->>
->>
->> #ifdef CONFIG_THP_SWAP
->> #define SWAPFILE_CLUSTER        HPAGE_PMD_NR
->> #define swap_entry_order(order) (order)
->> #else
->> #define SWAPFILE_CLUSTER        256
->> #define swap_entry_order(order) 0
->> #endif
->>
->>
->> Thank you very much for taking the time to review this patch during the holiday. Wishing you a happy holiday as well!
->>
->> I appreciate you pointing out this optimization. We initially noticed the issue because, on ARM64 kernels with 64K page size, if large folios are used in shmem, they cannot be swapped out as a whole during shmem_writeout() due to the config limitation,
->> and are forced to split instead—which is something we wanted to avoid.
->>
->> It seems that this change will help enable better swap operations for large folios. Thank you again for your feedback!
-> Right, I believe this is the correct direction. Just double-check that
-> the MTE-related functionality works. Take a look at commit
-> f238b8c33c6738 ("arm64: mm: swap: support THP_SWAP on hardware with MTE").
-Thanks, I will take a look.
+
+On 2025/12/24 21:45, Frederic Weisbecker wrote:
+> The HK_TYPE_DOMAIN housekeeping cpumask is now modifiable at runtime. In
+> order to synchronize against PCI probe works and make sure that no
+> asynchronous probing is still pending or executing on a newly isolated
+> CPU, the housekeeping subsystem must flush the PCI probe works.
+> 
+> However the PCI probe works can't be flushed easily since they are
+> queued to the main per-CPU workqueue pool.
+> 
+> Solve this with creating a PCI probe-specific pool and provide and use
+> the appropriate flushing API.
+> 
+> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+> ---
+>  drivers/pci/pci-driver.c | 17 ++++++++++++++++-
+>  include/linux/pci.h      |  3 +++
+>  kernel/sched/isolation.c |  2 ++
+>  3 files changed, 21 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/pci/pci-driver.c b/drivers/pci/pci-driver.c
+> index 786d6ce40999..d87f781e5ce9 100644
+> --- a/drivers/pci/pci-driver.c
+> +++ b/drivers/pci/pci-driver.c
+> @@ -337,6 +337,8 @@ static int local_pci_probe(struct drv_dev_and_id *ddi)
+>  	return 0;
+>  }
+>  
+> +static struct workqueue_struct *pci_probe_wq;
+> +
+>  struct pci_probe_arg {
+>  	struct drv_dev_and_id *ddi;
+>  	struct work_struct work;
+> @@ -407,7 +409,11 @@ static int pci_call_probe(struct pci_driver *drv, struct pci_dev *dev,
+>  		cpu = cpumask_any_and(cpumask_of_node(node),
+>  				      wq_domain_mask);
+>  		if (cpu < nr_cpu_ids) {
+> -			schedule_work_on(cpu, &arg.work);
+> +			struct workqueue_struct *wq = pci_probe_wq;
+> +
+> +			if (WARN_ON_ONCE(!wq))
+> +				wq = system_percpu_wq;
+> +			queue_work_on(cpu, wq, &arg.work);
+>  			rcu_read_unlock();
+>  			flush_work(&arg.work);
+>  			error = arg.ret;
+> @@ -425,6 +431,11 @@ static int pci_call_probe(struct pci_driver *drv, struct pci_dev *dev,
+>  	return error;
+>  }
+>  
+> +void pci_probe_flush_workqueue(void)
+> +{
+> +	flush_workqueue(pci_probe_wq);
+> +}
+> +
+>  /**
+>   * __pci_device_probe - check if a driver wants to claim a specific PCI device
+>   * @drv: driver to call to check if it wants the PCI device
+> @@ -1762,6 +1773,10 @@ static int __init pci_driver_init(void)
+>  {
+>  	int ret;
+>  
+> +	pci_probe_wq = alloc_workqueue("sync_wq", WQ_PERCPU, 0);
+> +	if (!pci_probe_wq)
+> +		return -ENOMEM;
+> +
+>  	ret = bus_register(&pci_bus_type);
+>  	if (ret)
+>  		return ret;
+> diff --git a/include/linux/pci.h b/include/linux/pci.h
+> index 864775651c6f..f14f467e50de 100644
+> --- a/include/linux/pci.h
+> +++ b/include/linux/pci.h
+> @@ -1206,6 +1206,7 @@ struct pci_bus *pci_create_root_bus(struct device *parent, int bus,
+>  				    struct pci_ops *ops, void *sysdata,
+>  				    struct list_head *resources);
+>  int pci_host_probe(struct pci_host_bridge *bridge);
+> +void pci_probe_flush_workqueue(void);
+>  int pci_bus_insert_busn_res(struct pci_bus *b, int bus, int busmax);
+>  int pci_bus_update_busn_res_end(struct pci_bus *b, int busmax);
+>  void pci_bus_release_busn_res(struct pci_bus *b);
+> @@ -2079,6 +2080,8 @@ static inline int pci_has_flag(int flag) { return 0; }
+>  _PCI_NOP_ALL(read, *)
+>  _PCI_NOP_ALL(write,)
+>  
+> +static inline void pci_probe_flush_workqueue(void) { }
+> +
+>  static inline struct pci_dev *pci_get_device(unsigned int vendor,
+>  					     unsigned int device,
+>  					     struct pci_dev *from)
+> diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
+> index 8aac3c9f7c7f..7dbe037ea8df 100644
+> --- a/kernel/sched/isolation.c
+> +++ b/kernel/sched/isolation.c
+> @@ -8,6 +8,7 @@
+>   *
+>   */
+>  #include <linux/sched/isolation.h>
+> +#include <linux/pci.h>
+>  #include "sched.h"
+>  
+>  enum hk_flags {
+> @@ -145,6 +146,7 @@ int housekeeping_update(struct cpumask *isol_mask, enum hk_type type)
+>  
+>  	synchronize_rcu();
+>  
+> +	pci_probe_flush_workqueue();
+>  	mem_cgroup_flush_workqueue();
+>  	vmstat_flush_workqueue();
+>  
+
+I am concerned that this flush work may slow down writes to the cpuset interface. I am not sure how
+significant the impact will be.
+
+I'm concerned about potential deadlock risks. While preliminary investigation hasn't uncovered any
+issues, we must ensure that the cpu write lock is not held during the work(writing cpuset interface
+needs cpu read lock).
+
+-- 
+Best regards,
+Ridong
+
 
