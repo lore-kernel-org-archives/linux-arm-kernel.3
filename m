@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A4E4E8FDD8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Dec 2025 12:19:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 032E1E8FDD8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Dec 2025 12:19:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PI64KbZN9t1PF6ymgBKKgUkODGeQdgLto8SJvKTSB0M=; b=zdhMioDRKQqcOh8IPFjcPfRvW6
-	gPwG973IFKvZ4GVK65Ef5CEOPAI34yULTFbKFMoaJ7h41yzUhH3HqTfTOZMtHiMrf/ChpsC4mLvEW
-	04CLYCzk5x8/whPXfqfppv3gbmw9TMehs0jxQLnF2w+HlhZ2nYq25/7ysygyrV5XRyBi3Br45bvOI
-	vyvibmAzcG/3i1t+/eLxyNAcJi6ziNxoZ1Ls1fMUHttN0aSi0nYZnzbneRwfdrKzACA1PJB8VRf4t
-	TfTYEwpu2K2HSHGFuDU9H0eAM3dZ/G4kfrgkTCjTVx9q1MQYCpql3G51OLhCTxl3TGB2BEBD7wXrZ
-	SSPKT4Lg==;
+	bh=Ltdd8M4LmPmBXDEHAaMGtcqMVaDk3ISf2NYRX3F1G54=; b=tnsi1br3g4eieCht35tpsKlHN7
+	2lkNLxzbHl9iQ7UwUPKBy4H7Vv1ATi+8lmSyMaDi4uoNCyn94jIfVpnqGQuakf8xQ8E4eTLANjW5r
+	27BSZkYHhahW4ekW+RapU9/xDZMlLNhNJicrSp3jJ0HKSNKUpWS4oCBd4sYqcSKtDjrbQHF46Gdv0
+	0e8sL4MJYMq1SmO7t4K72h2WQeYpZ086dKyypd99Ss2fMpQhwT/8MTQMzPvnx134WDAKj3NDdrUfY
+	quKBSxjBXdvPmsAVP7ZZm1W690WHQadYM7obiXf+qOatyJwf08EdwG49KolpiQBBTXpsIqNg/fpUI
+	3Nm2LNbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZTGg-00000001xMI-0whx;
-	Sat, 27 Dec 2025 12:19:34 +0000
-Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
+	id 1vZTGr-00000001xWH-0aKg;
+	Sat, 27 Dec 2025 12:19:45 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZTGY-00000001xEV-2yI4
+	id 1vZTGh-00000001xN4-3uJ5
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 27 Dec 2025 12:19:31 +0000
-Received: by mail-wm1-x343.google.com with SMTP id 5b1f17b1804b1-47d3ffa6720so21711965e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 27 Dec 2025 04:19:26 -0800 (PST)
+	Sat, 27 Dec 2025 12:19:43 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-477b198f4bcso49248685e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 27 Dec 2025 04:19:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1766837965; x=1767442765; darn=lists.infradead.org;
+        d=suse.com; s=google; t=1766837974; x=1767442774; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=PI64KbZN9t1PF6ymgBKKgUkODGeQdgLto8SJvKTSB0M=;
-        b=Gsi4hHIxSeeXRXdAdUauoIUF/6d0J/pjNaySRXVyh7SekWI8bUuN7+YTe6GK/2Isda
-         T7jsBKJcAyNtcB4ppS17NnTU4ncS0DKpYkUnufwmIUw0fEdm0yWZfJsjiWpGPzysWSJW
-         l4DUajKseMZgvRFmxNoC48z4AKdWBxMtLI/ui/LF7rcxYAGRTd+vXra6lP84EYPHijeI
-         MwrzY31JHhp3835BAwMNUtyy1fXtuuH9keN1lhcSHTVPLV+1t2Vrbrs72qiyY8Hw0cJB
-         AdOlvVrV9CU2ab+qk3bcCFPRNIyVQoDLzBzM3PfPPUh0gdxaxqHEF0e7ztjvOWB1mxDu
-         rWow==
+        bh=Ltdd8M4LmPmBXDEHAaMGtcqMVaDk3ISf2NYRX3F1G54=;
+        b=HfvCOoUkw3NJD50N5SX40vxsWG1Z0Uu9YPcYVllQfcMC6ZVgMtY3586BHAxBCYLGNM
+         j7zuVIG7yiW8+7JT+TmHhjk+tkrZvSzDBolln4/Lzzty9h2B6QtXfilQwHQd75TeI3ro
+         UmAk+68AAGJ1R38mCu+TZlo6eh4qWj3H3qVcz7Ri2a91p7kp4jYiAQgdRggVCwPhfJhY
+         xe3cb5+6Ju9ogR95B6WdlXI7/3PDrLtqRWG6TYaZ2Objv+G+Dd8mmCUjMKdoMbN/4WNX
+         gaxTxPL89vJc3UaG92SXALwe2ufaV9ihO1x6UoWWQhpZhL6o1N1jsHxLEofrYcHYO0+h
+         vygA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766837965; x=1767442765;
+        d=1e100.net; s=20230601; t=1766837974; x=1767442774;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=PI64KbZN9t1PF6ymgBKKgUkODGeQdgLto8SJvKTSB0M=;
-        b=llVYe6D0yGqnnxumNC0gLlDq5RqMGzgBOo1DqH4neAeUaNbj90V2ZVy7KWiVMCTM4A
-         DPo5wou33vJdChL/uUN2GAD7eAfEUURoHJAJCenkpNlExTcHI9GGWma64tvsnGgO/JYO
-         c5iq57Fi4+rhIw5iC0f5qx0yTVVCLEDBnRQyQBKwMNEN3FbDo0hTXNx/n23sTL3KFPlJ
-         rnKwxpSzzSFIzzmQvYHguPOx2d6bFlPhMl11XnNxiMxHxjvWC89og+viQBaVEGPWbOO5
-         fLEHnUXQt5WcoVj+4fKjcmlsEJ+gzgRXE5HPcNFRj+jHWeeAX+Q77sFIg+2QFr9EiRgS
-         B6Kw==
-X-Forwarded-Encrypted: i=1; AJvYcCWI44pUHUF/j5yCCCu0/bLTXr4/lkpBmVaQz/K3ZkB+wBs+h+BlzECBPJ/PghiIaOUKSlxbgo8Tku7g2ueSwWy9@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywfbp3Htnw+9hasIozQvqAZo2ilCDT3Dax8E14tfa5OIRDr35/j
-	ohpyZO6YOhLzUwsMeLH0pu3RmOgeqS5wvV2KG7BzP7lChOgj/MwrL/aQk4qKw0OpDjE=
-X-Gm-Gg: AY/fxX4WkWyNAttEQ5ji3lDNLc2ttcmOkiSLn+XHjfalzFNpf/EpozFkLpeW0qruIEt
-	m90EXvZDuJU5P4W3o0OLYTU/Q+6wsw/6pQgk44S+qla2FlES3u06DDZ8F6afPfYrl9/D7utwbvr
-	Qq/wcVyymCQgfJMWNMz7z49TZYAUYwxwv5/Sg2XCXYFvBWjdXjLQN/hXHeKeKy1QJBJWrulQw0M
-	6OcBMhRz6DXA2QTrafMojptXWHyX8eJDhzXyDiTTCy7jRN9n7n0FC/0+ncxK/96a25bfBvmmXhn
-	3zzjcaQFjDWhnGYWK6bW+2TlOmMHeYweZB5e9yrsiySFwcBggJE3sdHx7Vtm3TNTdZaTVYOubYt
-	eanwAbzk/DRyZt/ACn0z9PVjKGTDwQQ7c24RiiGsYfGNGkT95L0M6pOSamRgZmSFvHBtZ8xIH7L
-	hWijz2/LGK
-X-Google-Smtp-Source: AGHT+IEqqHc/Rd2kLfHagj9YhzIrZRGfzwvOOoeUxY4FRXLnI0VACA/N9sgft7uDx22VCc1m3UDX7g==
-X-Received: by 2002:a05:600c:190f:b0:475:dd89:acb with SMTP id 5b1f17b1804b1-47d195a72fbmr289900545e9.22.1766837964788;
-        Sat, 27 Dec 2025 04:19:24 -0800 (PST)
+        bh=Ltdd8M4LmPmBXDEHAaMGtcqMVaDk3ISf2NYRX3F1G54=;
+        b=YRBVfGziaEWcVsYbBjqVvZyzTEPoTov/rQsErbwoB86I/8om/SZ7vyIv0hrhUnhJuS
+         JQQyrgNuQEUnZdgZgX8+BVY1v4RAFbB1lbHk4sjY7vuM9p07HTyw00xDC0J5Ug+KsuSO
+         BPft8pfcZb0UgnokLPWfRJvFjvJiKWIlC8CwBXuqQluUvLW8L930UUL/lIwSlwF2jtow
+         /O3r00TTBQ/AXCgGqsrLCELKUE6LB/KZUxZ/pIuap85dveIUl0sPTLS2N5CvuChOxwSL
+         fzweuFUGThAM5y4GlE9RZn+IgU2pUfBblB8tmHYzecQVlnIDWef1HF//kyIVynDIDv/h
+         pULA==
+X-Forwarded-Encrypted: i=1; AJvYcCUtwgNDQCDl5LWHkUuNUkw/1i2j50j7F/uH4xJBt5TSASl3r9ZdwLT6rliKwqV/Yb2+AUNuSqrnFb1OJMAW9adm@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHklO2nR3tiFZk1x5S7E6IBLY9k1oYhb9HCGmIB5FUEAV5rLK9
+	NQi6EdLJZzNpH499AwrdwLbfjlxUET1dmkL+4+LOLx6ikHCykdLt06m0dMr5eIq8IMA=
+X-Gm-Gg: AY/fxX4l3oqRWy6WvXkyrl9UZZf+excU5tYmKK97SyyCyNz+q3ScK+lNzhFLvcp30rm
+	G9DpOxsAKddimSX/7OyBMM6os7dyqxY9mWBU8vZUTfQWU8ECIW5lULY5GbmoO2AiQsRIj6/fcZy
+	Q1a5OI4QqMxsXtGEAnuVraoZBlX+WV7neZ4GcQnPvfBWupeRC9D8O/eoNZUhhCZulZ+V0s5Dx2K
+	KmrdNuGYHH94Pl6nRtiBLnKqoTs6hoR1YlS+l0hkmNW0OjqY127UYEBNpwQsOHxb5LAVpw5ZbLw
+	5C9LMqtHHnblRg46eWxCwJvvrAm12vbySrtpl2j7AjPV+R3HfbdcmQZqlfaO0/y7y1sIZNYdMba
+	sucGLb3bBFZ/Udj5RoaXzn9UZ5BCi4/X3MgpmsTBCwz68w9cS9py98l3+hLEioBwJ9RRasRoWoR
+	8W+ifpgst5
+X-Google-Smtp-Source: AGHT+IHMLS3VfYivW6iZyjAkGRbHMebp8EGQujmDyd6LpCoRzo/q2pR4OLsY4m1yHd+Dy1qj+iz1Lw==
+X-Received: by 2002:a05:600c:5288:b0:47a:75b6:32c with SMTP id 5b1f17b1804b1-47d19532f91mr239061855e9.2.1766837974046;
+        Sat, 27 Dec 2025 04:19:34 -0800 (PST)
 Received: from [127.0.0.1] ([2804:5078:811:d400:58f2:fc97:371f:2])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-121724cfdd0sm97940127c88.4.2025.12.27.04.19.15
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-121724cfdd0sm97940127c88.4.2025.12.27.04.19.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 27 Dec 2025 04:19:24 -0800 (PST)
+        Sat, 27 Dec 2025 04:19:33 -0800 (PST)
 From: Marcos Paulo de Souza <mpdesouza@suse.com>
-Date: Sat, 27 Dec 2025 09:16:24 -0300
-Subject: [PATCH 17/19] drivers: tty: ehv_bytechan: Migrate to
- register_console_force helper
+Date: Sat, 27 Dec 2025 09:16:25 -0300
+Subject: [PATCH 18/19] drivers: braille: console: Drop CON_ENABLED console
+ flag
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251227-printk-cleanup-part3-v1-17-21a291bcf197@suse.com>
+Message-Id: <20251227-printk-cleanup-part3-v1-18-21a291bcf197@suse.com>
 References: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
 In-Reply-To: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
 To: Richard Weinberger <richard@nod.at>, 
@@ -114,16 +114,16 @@ Cc: linux-um@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org, 
  Marcos Paulo de Souza <mpdesouza@suse.com>
 X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1766837798; l=1183;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1766837798; l=917;
  i=mpdesouza@suse.com; s=20231031; h=from:subject:message-id;
- bh=ipo1oJr6oF51GaJ/ypmHdNm6pxSai2H+L3ksWdFz4YE=;
- b=BCXQlMZHiSgf9aACQxFpdYHusJFHrRGAPtAecEP+JmKnj9nHT6kdi2m955mQdUkj992asxAcQ
- YxGwDMjxOJdD2wCUfBrHw1pcuZeGNuCZOOekwLuy8OjtGsDgBHGc3PP
+ bh=M+RAaPiD4L8bkGcekgUNUpTeF+sJQV6vQniznC8VslM=;
+ b=VNcSKbW4wn0ZJDPmlW3fCDrj2qqqMiKzMUpnoUVSmYqwNJRukKGa+p9lja5itToGTVwI9LN+2
+ mQPFka3TIBIDqDnH2JmGqErVL6l4YMmEx/hbdpLg4Ll2XIa+vBtsfSS
 X-Developer-Key: i=mpdesouza@suse.com; a=ed25519;
  pk=/Ni/TsKkr69EOmdZXkp1Q/BlzDonbOBRsfPa18ySIwU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251227_041926_773443_3D0B6B87 
-X-CRM114-Status: GOOD (  12.57  )
+X-CRM114-CacheID: sfid-20251227_041936_089140_6537FD78 
+X-CRM114-Status: GOOD (  10.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,39 +138,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The register_console_force function was introduced to register consoles
-even on the presence of default consoles, replacing the CON_ENABLE flag
-that was forcing the same behavior.
-
-No functional changes.
+The braille console doesn't take the same path on register_console
+that other console drivers. At this point, it only registers the console
+and do not receive any printk message, so we can drop the CON_ENABLED.
 
 Signed-off-by: Marcos Paulo de Souza <mpdesouza@suse.com>
 ---
- drivers/tty/ehv_bytechan.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/accessibility/braille/braille_console.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/drivers/tty/ehv_bytechan.c b/drivers/tty/ehv_bytechan.c
-index 69508d7a4135..a2aab48d11ae 100644
---- a/drivers/tty/ehv_bytechan.c
-+++ b/drivers/tty/ehv_bytechan.c
-@@ -299,7 +299,7 @@ static struct console ehv_bc_console = {
- 	.name		= "ttyEHV",
- 	.write		= ehv_bc_console_write,
- 	.device		= ehv_bc_console_device,
--	.flags		= CON_PRINTBUFFER | CON_ENABLED,
-+	.flags		= CON_PRINTBUFFER,
- };
- 
- /*
-@@ -331,7 +331,7 @@ static int __init ehv_bc_console_init(void)
- 	   byte channels here, either, since we only care about one. */
- 
- 	add_preferred_console(ehv_bc_console.name, ehv_bc_console.index, NULL);
--	register_console(&ehv_bc_console);
-+	register_console_force(&ehv_bc_console);
- 
- 	pr_info("ehv-bc: registered console driver for byte channel %u\n",
- 		stdout_bc);
+diff --git a/drivers/accessibility/braille/braille_console.c b/drivers/accessibility/braille/braille_console.c
+index 06b43b678d6e..0b7ec68b305c 100644
+--- a/drivers/accessibility/braille/braille_console.c
++++ b/drivers/accessibility/braille/braille_console.c
+@@ -360,7 +360,6 @@ int braille_register_console(struct console *console, int index,
+ 		if (ret != 0)
+ 			return ret;
+ 	}
+-	console->flags |= CON_ENABLED;
+ 	console->index = index;
+ 	braille_co = console;
+ 	register_keyboard_notifier(&keyboard_notifier_block);
 
 -- 
 2.52.0
