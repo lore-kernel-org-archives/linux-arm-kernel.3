@@ -4,86 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 637B9E8FDD8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Dec 2025 12:15:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78A34E8FDD8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Dec 2025 12:16:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eFczpWguGzhF64i1LzoHT3chL48is7quqBelng5MQSE=; b=kZOMv5u23Yng0/eXPteL3IGAc4
-	LEtSbsXVdXMbfRDCbftfaDwUMQGCH5j8dQZb9iKNsjDKUG+FuFCLVAMIXwga4b9ihU3Q7gEAn0NDC
-	Jjhj3pvNNRK3YQloFdSRUzXjDT7vC/LndA1KqBx6zw0WsAFFfn3hqn7KNr++tnMIcgiKvhk1e2NLW
-	vhPeG7t/O9d6RL8LESUKpOEiM7baCTT7AcWunmWmbHPGvX8pNofnIK29J7Ox8GabNdo2xPIXraCZE
-	IK+5fRwaYPCoj/MXP4C9whrCwk3J5lkUOHMzOJBQTbHQF4be7i7ls4Hk/jEoXSsoQ+a/RQNAmxa1b
-	2kIv9j/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ZTn0eoJ78H/BcwAZAT5V21TN0j41vlUozcdKxdaozdI=; b=IjwjVqgJ9O6w3s
+	exLsMeMW/m5ZqBrR1cx6/ffTiZCIQ5A0k7KfclBnZt0GfdJxLElSqIA2h51bSRN9NVDeACtbOf1zk
+	9pNT7MZUdyx0ZPWfL5prdKgk6AaX73pltwrmNg6dT+X645LnWPbVwQJbQSw3Kn5cZ4APG5wMs7imF
+	U8dOCMd5yIVFbuTSEZwDQ+5TjXpykMfcKhNlaqp5UXBHHi2NG8HiJDycgqDrmrdnNH2WZQMTO5VXQ
+	YXuMkOTvhC1pgU5tTyrsTDDeWMTYpKz8qBp4PzjSENZIoqvlnuy7brdijxVE4so2pUJnq/ZPD9B2M
+	+3sAOOrQ97xASBvxSvBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZTCy-00000001vDi-3GU4;
-	Sat, 27 Dec 2025 12:15:44 +0000
-Received: from mail-oi1-f180.google.com ([209.85.167.180])
+	id 1vZTE5-00000001vKA-22sD;
+	Sat, 27 Dec 2025 12:16:53 +0000
+Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZTCv-00000001vDK-2abZ
+	id 1vZTE2-00000001vJ7-0mDq
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 27 Dec 2025 12:15:42 +0000
-Received: by mail-oi1-f180.google.com with SMTP id 5614622812f47-459a258561cso1530086b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 27 Dec 2025 04:15:40 -0800 (PST)
+	Sat, 27 Dec 2025 12:16:52 +0000
+Received: by mail-wm1-x341.google.com with SMTP id 5b1f17b1804b1-4775e891b5eso31861295e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 27 Dec 2025 04:16:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1766837808; x=1767442608; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZTn0eoJ78H/BcwAZAT5V21TN0j41vlUozcdKxdaozdI=;
+        b=YKfCm5YY/LwiVOMdB3ngqgPfDn5daVsWMNncR5/bHLp/lO5zCP4oyO7NiIE6bKeG41
+         +kfkhpB0U00Hq5b/Iw42H2hSST8mwbudW6RwHnO3WsrDB0K7kUfTkPFN22JYWAZwSRCy
+         MQHKrJvSX9fvYLCZrY4QQbIMolpqGDsTfQl6zQ1bAUNRtD9jOGbCua5LJktwfKedYcTt
+         KHb2w06Knnor5LN7JBpI1RobpYWqO9HF8JB3Rq9kXB5zxrrWs/k3peLeWJIbu54q/uUe
+         MTyuNxGzJne8u4q7TOd6VYIO0dUs4Anq6+UeR14clcitef/l/7KlG1YmKK+9yjIaKFxk
+         Bhvg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766837739; x=1767442539;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=eFczpWguGzhF64i1LzoHT3chL48is7quqBelng5MQSE=;
-        b=g0o9QaxSO71SoFmdO+OF8Euwj/fMnhRGkthwTnT0jfod0wrbBXzSjW/alcDs8dut3H
-         xCpzZyFIrgOPevwEg6cI7k2MoeLUy/fwsNAHEgnWJc4FJxw1WpXDQJFcU7sHaP2btzJZ
-         1y4paA7KL4IMgmVhGjvMg602Gd8sozrKh/pryC34J09unP/CghPdR6doCvs2lOSFftiR
-         PiJEuVD5zOVRrBDW2PoNafRAAYYG3kb+k9BiG4puTeXyjDW53NOp9IQmqS6QFLMCdWw3
-         BxG/uqgRMZyVepqIY1xj6JiVgCZcqKMFR8XB8XyDfzAvUGztuTJ7ZF23jLgF1tJcbYzz
-         +UfQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUMw9vw/lACyJvc6/XJdE+gZHHgqd6VWjRuVqyV/cDS6YCDDuKRXyruMEPuzy+mNw5kkAea8AikyV7nJUTkaYzm@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+O1TttAV6kLa4Z9TSZB8IzBUNKBWk2JJ9bjOgtt/Roz4jdqyu
-	M5Q0d44OF/S/HeqhBZB6uw9hulrkaw7zAdWQRcI4PHYq5lUiJfOVIb59Ts1NJqXD
-X-Gm-Gg: AY/fxX7Zp2UJuRlNPMrM30p+fSnK0bC2KUbbbv7qNNOfxz05F0vnjSfHylLjCQLFtYb
-	gvCV9eeI41449S2BydADFIsgy0HAKrIwi3wtikq30FSsmiy2ZvYxkNQHAvmXlSl4UBNOwRnoMgs
-	KzSyaim/wcp5KRCa2g257onLWMzn4D6yoAz8rW99veCP0TixtOUud2l6N0u1K+hLSGiCI+Xd4hB
-	/JftZ8EZOeycSqVJ1Yd8FN1kanQRHdFVLyFjmvcQ5TuxwADf4CSL/MVQPKzC+FAcqYK/jfhiHs5
-	4Xqmr/B9sw/ihNGwgGClsj6gizIQU9JACE58hFYQRR2gbZB9Cxcbq9QvykHm4hP6pspAHNadY+b
-	RnKzm0KJtnqccpDNmQZvel1tbXHYxScGT0F/UZ3NTt6Tu2kgrwVmEagDKZc0AupK6sMEmM0zWhX
-	pkwLM9InK9iJTRFSEEInoG8IAnnFKLkj1SxDuBQ/g2kK+Zb2gG
-X-Google-Smtp-Source: AGHT+IH5higWfmFnzSitzbfsTpQ4bOUaU7G1pq/1sdHp/Rzfav41S+E9L8qHtNnC3Ekz5/AFDn4wwg==
-X-Received: by 2002:a05:6808:191b:b0:453:58dc:c006 with SMTP id 5614622812f47-457b20f55b9mr9426288b6e.3.1766837739457;
-        Sat, 27 Dec 2025 04:15:39 -0800 (PST)
-Received: from mail-ot1-f49.google.com (mail-ot1-f49.google.com. [209.85.210.49])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-457b3ba4221sm11982948b6e.3.2025.12.27.04.15.38
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 27 Dec 2025 04:15:38 -0800 (PST)
-Received: by mail-ot1-f49.google.com with SMTP id 46e09a7af769-7c6d13986f8so6467295a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 27 Dec 2025 04:15:38 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXkcBVP4h0A/isXwUjlvFE+HidQj1Wc8nL+2KM6zSI1YchWauxfjhtO1FrTI6wSPcF7qmoXX82GlY7srJ7zhK/7@lists.infradead.org
-X-Received: by 2002:a05:6830:4c0e:b0:7c6:9fcf:85d8 with SMTP id
- 46e09a7af769-7cc65e7369cmr17793573a34.15.1766837738220; Sat, 27 Dec 2025
- 04:15:38 -0800 (PST)
+        d=1e100.net; s=20230601; t=1766837808; x=1767442608;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZTn0eoJ78H/BcwAZAT5V21TN0j41vlUozcdKxdaozdI=;
+        b=lrNJJ7onC51VA5oLshaerxyfwupj/RDduoG4HH5RtvrPcCC3fEUMBfmy45lP8LqYrc
+         PF+4EEdcCQWXVKcQDmnBnu68I49ww0BGHbR0rQJq9dVmDotJhQC2kAw4M6v02x2y5ifp
+         UOlHfmaQ53KK2+51yXlwbeTPOWrbJtbzzADHm8UVjkZRpgtDSODMOxSrvtKoVwqzVFxD
+         cBaLTUjJvh8ATcHfiR9pX53WpkP44S2Jd5SpXq4YpunD+0d64MKKp3x1NhLLOufrKAFe
+         hjhDJEp6neacpOOs5eG4VuDb3ku6Lo8JqACL8z7M9voP5xxpqQ8Y4scznovnDdmfndfM
+         dHmQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWQypHI98CK/PzJo4wBb9yqTxwH2kWriE8g8/pY7yZNdpcdfRe6sNODOSM5n4pQ2O49POS79xUNZDF/kS4ZLT5v@lists.infradead.org
+X-Gm-Message-State: AOJu0YyI7bv7VZaA944x9UTxwkciEFiDzv3o8U/uP9snr9UYgRbsjWcm
+	/mo7PEE8R3WnhO+s9Q6Ov0CnqYvUAXtAwr6sGpRCjatvg7X3vtasdcELyty0z2CkD3rhaQXhsAd
+	oN4mz
+X-Gm-Gg: AY/fxX7/Uh+hCXDvkOT5Ekb2FUhBbFT9Eq9AB5F5lmUO2YQCblN9RoDfYhh34P2wIIk
+	5j3eRFFx09tbwCSghP8HTXr56pDJVK5Uz60/l5e57HilFx1fXA6ro2d8LiHoL2rfmtjIldnSsg3
+	I3XMyBkXfjm2rvo96bIe+D/gHNua/BLOe+GUXbYNIROjkQS5xaW+qTzWwuzsPeewLxd6WuaPrIt
+	Q8AcURDeleVZBnVC7g+Z3JXoCWbWqKfRZMk25BCc/vaqiZ5L2FvfEfck3/m56bEUJefbq5dNhQK
+	2F1ZsYNGRujIoDOwjOcO+IHmdVYZCYrO0CPjLLzXWJQO6KYjWAEdgB0qOUvhF90fgvA4i7S9t02
+	UmRzVxURctVikQCO0wmlLIdbMbJ2lKUTeI8rKBe86BO4fqC0hkcVkBY/bsJpKvG9Sgs1WGTQqSq
+	BJZ5FY0JwopqqdWLUDhxk=
+X-Google-Smtp-Source: AGHT+IGAwYPYNfJmaY9Q33nFH+RhwoM5QU0IvIHlZhMLVrSDLSWfjJCihtYGJekOl50CWdODgpBmVA==
+X-Received: by 2002:a05:600c:c086:b0:47b:e0ff:60f9 with SMTP id 5b1f17b1804b1-47d19577114mr202487205e9.20.1766837807525;
+        Sat, 27 Dec 2025 04:16:47 -0800 (PST)
+Received: from [127.0.0.1] ([2804:5078:811:d400:58f2:fc97:371f:2])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-121724cfdd0sm97940127c88.4.2025.12.27.04.16.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 27 Dec 2025 04:16:46 -0800 (PST)
+From: Marcos Paulo de Souza <mpdesouza@suse.com>
+Subject: [PATCH 00/19] printk cleanup - part 3
+Date: Sat, 27 Dec 2025 09:16:07 -0300
+Message-Id: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
 MIME-Version: 1.0
-References: <20251202004223.108388-1-leo.yeo@luaberry.com>
-In-Reply-To: <20251202004223.108388-1-leo.yeo@luaberry.com>
-From: Leo Yeo <leo.yeo@luaberry.com>
-Date: Sat, 27 Dec 2025 21:15:27 +0900
-X-Gmail-Original-Message-ID: <CAMV_mXF-X968OQQ4zAqjXNjfAFZJ=bU5EJ1371RMOF-m0pK3Jg@mail.gmail.com>
-X-Gm-Features: AQt7F2poZX_nrgKcS_IUowTD6o9oSFocjoSIDsTm3KhCuR3mnDqPbRpKFNm1c_8
-Message-ID: <CAMV_mXF-X968OQQ4zAqjXNjfAFZJ=bU5EJ1371RMOF-m0pK3Jg@mail.gmail.com>
-Subject: Re: [PATCH] arm64: mm: prevent context switching during idmap is mapped
-To: catalin.marinas@arm.com, will@kernel.org
-Cc: ryan.roberts@arm.com, akpm@linux-foundation.org, david@kernel.org, 
-	kevin.brodsky@arm.com, dev.jain@arm.com, quic_zhenhuah@quicinc.com, 
-	lorenzo.stoakes@oracle.com, yang@os.amperecomputing.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAfOT2kC/x2MwQpAQBBAf0VzNmVsHPyKHAaDidY2i5T8u83l1
+ Tu890AUU4nQZA+YXBp190koz2BY2M+COiaHsigrSsBg6o8Vh03YnwED2+FQmKjuiXrHNaQ0mEx
+ 6/9u2e98PHmJw7WYAAAA=
+X-Change-ID: 20251202-printk-cleanup-part3-ea116b11b3a6
+To: Richard Weinberger <richard@nod.at>, 
+ Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
+ Johannes Berg <johannes@sipsolutions.net>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jason Wessel <jason.wessel@windriver.com>, 
+ Daniel Thompson <danielt@kernel.org>, 
+ Douglas Anderson <dianders@chromium.org>, Petr Mladek <pmladek@suse.com>, 
+ Steven Rostedt <rostedt@goodmis.org>, 
+ John Ogness <john.ogness@linutronix.de>, 
+ Sergey Senozhatsky <senozhatsky@chromium.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, Breno Leitao <leitao@debian.org>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Geert Uytterhoeven <geert@linux-m68k.org>, Kees Cook <kees@kernel.org>, 
+ Tony Luck <tony.luck@intel.com>, 
+ "Guilherme G. Piccoli" <gpiccoli@igalia.com>, 
+ Madhavan Srinivasan <maddy@linux.ibm.com>, 
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
+ Christophe Leroy <christophe.leroy@csgroup.eu>, 
+ Andreas Larsson <andreas@gaisler.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>, 
+ Laurentiu Tudor <laurentiu.tudor@nxp.com>
+Cc: linux-um@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ kgdb-bugreport@lists.sourceforge.net, linux-serial@vger.kernel.org, 
+ netdev@vger.kernel.org, linux-m68k@lists.linux-m68k.org, 
+ linux-hardening@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+ sparclinux@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org, 
+ Marcos Paulo de Souza <mpdesouza@suse.com>
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1766837798; l=4070;
+ i=mpdesouza@suse.com; s=20231031; h=from:subject:message-id;
+ bh=pGCwrx7s/pzxpnqEvxnowKr5kIMRsCkFnk8/FBkLNPk=;
+ b=DtTvQmWwxI8nBiz56K8JWeAXva4ZUTP1TZfMsHc/t23MukO3Q9HDBbWL5zjE/2eZrLFOXevOl
+ 63plshGMBJVDC6pfWYfhJHhdbEMnrJWz9+G+dP9Hv10iWAGuGbiHgYC
+X-Developer-Key: i=mpdesouza@suse.com; a=ed25519;
+ pk=/Ni/TsKkr69EOmdZXkp1Q/BlzDonbOBRsfPa18ySIwU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251227_041541_709024_1CFA1C44 
-X-CRM114-Status: GOOD (  22.59  )
+X-CRM114-CacheID: sfid-20251227_041650_255419_B39E1BA9 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,70 +139,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 2, 2025 at 9:43=E2=80=AFAM Jeongin Yeo <leo.yeo@luaberry.com> w=
-rote:
->
->  cpu_install_idmap replaces ttbr0 to install idmap. replace_phys uses
->  idmap_cpu_replace_ttbr1 which is located in idmap,
->  thus it requires ttbr0 to point idmap.
->
->  However, if a kernel task has switched out right after
->  cpu_install_idmap, when kernel task is loaded, its ttbr0 is
->  mapped to reserved_pg_dir which doesn't contain any idmap
->  functions.
->  Therefore, the kernel task cannot find any functions to run,
->  causing memory fault.
->
->  As far as I can verify from the current arm64 tree,
->  no in-tree caller invokes this function from a preemptible context.
->
->  Nevertheless, future work might allow this function to be called in
->  preemptive state. Encapsulating the idmap sequence with
->  preempt_disable() and preempt_enable() prevents this possible problem.
+The parts 1 and 2 can be found here [1] and here[2].
 
-Hi,
+The changes proposed in this part 3 are mostly to clarify the usage of
+the interfaces for NBCON, and use the printk helpers more broadly.
+Besides it, it also introduces a new way to register consoles
+and drop thes the CON_ENABLED flag. It seems too much, but in reality
+the changes are not complex, and as the title says, it's basically a
+cleanup without changing the functional changes.
 
-Gentle ping on this patch (sent on Dec 1).
-Is there any feedback or concerns I should address?
+This patchset includes a patch from part 2 that needed more work [3], as
+suggested by Petr Mladek.
 
-Thanks.
+These changes were tested by reverting f79b163c4231
+("Revert "serial: 8250: Switch to nbcon console""), and used qemu to test
+suspend/resume cycles, and everything worked as expected.
 
->
-> Signed-off-by: Jeongin Yeo <leo.yeo@luaberry.com>
-> ---
->  arch/arm64/mm/mmu.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 2ba01dc8ef82..c3da836ebe8d 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -29,6 +29,7 @@
->  #include <linux/mm_inline.h>
->  #include <linux/pagewalk.h>
->  #include <linux/stop_machine.h>
-> +#include <linux/preempt.h>
->
->  #include <asm/barrier.h>
->  #include <asm/cputype.h>
-> @@ -2136,7 +2137,7 @@ void __cpu_replace_ttbr1(pgd_t *pgdp, bool cnp)
->                 ttbr1 |=3D TTBR_CNP_BIT;
->
->         replace_phys =3D (void *)__pa_symbol(idmap_cpu_replace_ttbr1);
-> -
-> +       preempt_disable();
->         cpu_install_idmap();
->
->         /*
-> @@ -2148,6 +2149,7 @@ void __cpu_replace_ttbr1(pgd_t *pgdp, bool cnp)
->         local_daif_restore(daif);
->
->         cpu_uninstall_idmap();
-> +       preempt_enable();
->  }
->
->  #ifdef CONFIG_ARCH_HAS_PKEYS
-> --
-> 2.43.0
->
+PS: b4 --auto-to-cc added a bunch of people as CC, so I'm not sure if
+I should remove some or not, so I'm leaving the list as it is. If the
+patchset needs a v2, and you feel that you don't need to copied, just
+let me know.
+
+Thanks for checking the patches, and happy holidays!
+
+[1]: https://lore.kernel.org/lkml/20250226-printk-renaming-v1-0-0b878577f2e6@suse.com/#t
+[2]: https://lore.kernel.org/linux-serial/20251121-printk-cleanup-part2-v2-0-57b8b78647f4@suse.com/
+[3]: https://lore.kernel.org/linux-serial/aSgeqM3DWvR8-cMY@pathway.suse.cz/
+
+Signed-off-by: Marcos Paulo de Souza <mpdesouza@suse.com>
+---
+Marcos Paulo de Souza (19):
+      printk/nbcon: Use an enum to specify the required callback in console_is_usable()
+      printk: Introduce console_is_nbcon
+      printk: Drop flags argument from console_is_usable
+      printk: Reintroduce consoles_suspended global state
+      printk: Add more context to suspend/resume functions
+      printk: Introduce register_console_force
+      drivers: netconsole: Migrate to register_console_force helper
+      debug: debug_core: Migrate to register_console_force helper
+      m68k: emu: nfcon.c: Migrate to register_console_force helper
+      fs: pstore: platform: Migrate to register_console_force helper
+      powerpc: kernel: udbg: Migrate to register_console_force helper
+      sparc: kernel: btext: Migrate to register_console_force helper
+      um: drivers: mconsole_kern.c: Migrate to register_console_force helper
+      drivers: hwtracing: stm: console.c: Migrate to register_console_force helper
+      drivers: tty: serial: mux.c: Migrate to register_console_force helper
+      drivers: tty: serial: ma35d1_serial: Migrate to register_console_force helper
+      drivers: tty: ehv_bytechan: Migrate to register_console_force helper
+      drivers: braille: console: Drop CON_ENABLED console flag
+      printk: Remove CON_ENABLED flag
+
+ arch/m68k/emu/nfcon.c                           |   5 +-
+ arch/powerpc/kernel/udbg.c                      |   4 +-
+ arch/sparc/kernel/btext.c                       |   4 +-
+ arch/um/drivers/mconsole_kern.c                 |   3 +-
+ arch/um/kernel/kmsg_dump.c                      |   2 +-
+ drivers/accessibility/braille/braille_console.c |   1 -
+ drivers/hwtracing/stm/console.c                 |   4 +-
+ drivers/net/netconsole.c                        |  13 +--
+ drivers/tty/ehv_bytechan.c                      |   4 +-
+ drivers/tty/serial/ma35d1_serial.c              |   4 +-
+ drivers/tty/serial/mux.c                        |   4 +-
+ drivers/tty/tty_io.c                            |   6 +-
+ fs/proc/consoles.c                              |   1 -
+ fs/pstore/platform.c                            |   6 +-
+ include/linux/console.h                         | 143 +++++++++++++++++++-----
+ kernel/debug/debug_core.c                       |   6 +-
+ kernel/debug/kdb/kdb_io.c                       |   6 +-
+ kernel/printk/nbcon.c                           |  17 +--
+ kernel/printk/printk.c                          | 140 ++++++++++++-----------
+ 19 files changed, 230 insertions(+), 143 deletions(-)
+---
+base-commit: 93d65587479cfc97c0d7e41b5e8c6378ca681632
+change-id: 20251202-printk-cleanup-part3-ea116b11b3a6
+
+Best regards,
+--  
+Marcos Paulo de Souza <mpdesouza@suse.com>
+
 
