@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20051E92704
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Dec 2025 12:34:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85336E92704
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Dec 2025 12:50:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LbZBJroFueUQcPOgoptvd1B4K3BU17Xda3J0of+vnLQ=; b=czukw0/n0CRShkDSMUTsQGbOTB
-	tKCjHW/iFT/8kQUlACvMiekeNkA4rBnT7tSt8Bw5QGkdmlljtv4VwhxIk93kZaisi30HA/juW5n49
-	5YZVGwuot/pynRNcZPaFCdbPbuVJc3Jf+fH5D9TJ1tlm36wT8KWzGC+tL0HzQNH1ry+roK1KQ9y9b
-	z1WNos1mOpfZ/LwOw3JKTkBXaw1kYKqbg4nX/wJ9UTMy2r/xNsXTTRSXYGfI7B5G4zqNKovi4tiSH
-	NKjDnwJtvTi4yi8gf2pnrk/Tct91bQYFP03spkp0TUv/2mt3Kpe433bqJXceolyMJC2hFjYXdixuz
-	4FvAX1fw==;
+	bh=E1+M+zuQhr9dPrfDTeDV2O9Y5py8ZUZg457Bquv2b9k=; b=b/khakYVqrSkv/s9pERvlfuEaN
+	RiP2PLkY8XHrqgUnB3wQL538Vbh1UbD9CTD3nvEPTLtprA3AfkGvaBO3WE1B5O9O8XYqbPxBZmiRE
+	fIWBtIB3scRXd/Q7QTnBIFYzc6+qPnbUogzvI64nCAz2bDsPcYcdi/AzkpNsYDveXESUk3MfeHNOQ
+	i0ZpNwPQBx+R1jIeQ9y3zfxrYuKeCf2NxjFLpyrckAaQuNkBFcHhVEd/G5sxiVQxs/hnYfV9+MF6W
+	qoP2yxcszf9/JiAmOYjMZFgpBVbhbLORntQbKNAKCGHhkr+aYA6J8iH8W1C4t1nhK8853wD2REEPU
+	2SF29vTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZTVC-00000001yWQ-2pS8;
-	Sat, 27 Dec 2025 12:34:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vZTky-00000001z9E-2CTR;
+	Sat, 27 Dec 2025 12:50:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZTVB-00000001yW3-1QuK;
-	Sat, 27 Dec 2025 12:34:34 +0000
+	id 1vZTkx-00000001z94-03KC;
+	Sat, 27 Dec 2025 12:50:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 04E31439EE;
-	Sat, 27 Dec 2025 12:34:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5ACC0C4CEF1;
-	Sat, 27 Dec 2025 12:34:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1EEE460010;
+	Sat, 27 Dec 2025 12:50:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A08BC4CEF1;
+	Sat, 27 Dec 2025 12:50:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766838872;
-	bh=6HCYp3y/LUjuszjlwAsie3ZUZ6lnUVx7wWALthdwp+E=;
+	s=k20201202; t=1766839849;
+	bh=NoIiabkLSrEfm+Wn2XfQIhp2qSUkWHgkyhkvdmrWEUs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=O46vvCR92jmq8E3o4O8MlM/MtC7tWTTqila3KaTLQCJyGNRiTX+BpXbvRjGA4kHrv
-	 mXCeaLHX0uIdESJs1qBz7uJLe+IP6qPK62v1P+8CKzaG/fVjrJsgA1CFg8CGIvEYvx
-	 AYO5monP/di7bk+oOE1MOzQLdWdzfFhbpeqNkU6qu+Npv7+zp1DCvHfcpEJ+UAZPM9
-	 7JumHN3gpyYIm23Wb275g449wOeXCfBt0gu+3SePp8vEgVs3tRCgNKSrh6lV8Auzw5
-	 o/ZhFBgy08ZbCs6YMBQMVwoRJoI7T4a25rMGaIbzwvJaGrxVemwIJfzk3NYqXAM4a/
-	 MV4S6GwCRhLKg==
-Date: Sat, 27 Dec 2025 13:34:30 +0100
+	b=czEyINwSV/6DJ3pY5shcwPoPwK3alLx1nRFTnjf5SW768UJ26RrFupOJEwMaQcI6P
+	 vCoutClLn8Fez7ZsXkieVXWo2ksY4a+IQ7cPjOtX0j92J3ENCWpHQSlwGb8Jgo2lOS
+	 gO5LDAxGuHIbrMloAymOBazQyBpdL0/lnCR0kT7dUPVhuFSk+LRu5KYnU2n+D0JeY6
+	 5eF79SRu+y3116Ip/NiZ0ls+hz1u3H5ONZxDDVCVyddmOk98r39U16eByR2+PWvbqh
+	 7R19EYGNWrRbCXtE9bw/qy4zhsmexDq7O5rNqt9NwZGIwn4Pmcz/dBeMT1/qK8g38+
+	 vGJjzkPoF3UXg==
+Date: Sat, 27 Dec 2025 13:50:47 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Jianhua Lin <jianhua.lin@mediatek.com>
-Cc: mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	Project_Global_Chrome_Upstream_Group@mediatek.com, sirius.wang@mediatek.com, vince-wl.liu@mediatek.com, 
-	jh.hsu@mediatek.com
-Subject: Re: [PATCH v2 1/4] arm64: dts: mt8188: update JPEG encoder/decoder
- compatible
-Message-ID: <20251227-overjoyed-illustrious-snail-9323e9@quoll>
-References: <20251224031721.9942-1-jianhua.lin@mediatek.com>
- <20251224031721.9942-2-jianhua.lin@mediatek.com>
+To: Tzu-Hao Wei <twei@axiado.com>
+Cc: SriNavmani A <srinavmani@axiado.com>, 
+	Prasad Bolisetty <pbolisetty@axiado.com>, Vinod Koul <vkoul@kernel.org>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Harshit Shah <hshah@axiado.com>, Ulf Hansson <ulf.hansson@linaro.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, Michal Simek <michal.simek@amd.com>, 
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org
+Subject: Re: [PATCH 5/8] dt-bindings: mmc: axiado: Add axiado eMMC variant
+Message-ID: <20251227-industrious-mammoth-of-culture-ff9dbe@quoll>
+References: <20251222-axiado-ax3000-add-emmc-host-driver-support-v1-0-5457d0ebcdb4@axiado.com>
+ <20251222-axiado-ax3000-add-emmc-host-driver-support-v1-5-5457d0ebcdb4@axiado.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251224031721.9942-2-jianhua.lin@mediatek.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251227_043433_399037_E22D0BF4 
-X-CRM114-Status: UNSURE (   8.40  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20251222-axiado-ax3000-add-emmc-host-driver-support-v1-5-5457d0ebcdb4@axiado.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,21 +74,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 24, 2025 at 11:17:18AM +0800, Jianhua Lin wrote:
-> The JPEG encoder and decoder of MT8188 share the same architecture
-> and features as those of MT8189, both use a 34-bit iova
-> address-space (16GB) and a single clock configuration.
+On Mon, Dec 22, 2025 at 04:45:04PM +0800, Tzu-Hao Wei wrote:
+> From: SriNavmani A <srinavmani@axiado.com>
 > 
-> Previously, MT8188 was incorrectly defined alongside SoCs with 32-bit
-> iova address-space (4GB), such as "mediatek,mt2701-jpgdec" and
-> "mediatek,mtk-jpgenc". This mismatch results in an ABI break,
+> Add device tree binding variant for the Axiado AX3000 Arasan eMMC
+> controller. This variant identifies the specific eMMC controller
+> implementation used on the AX3000 SoC and enables the appropriate
+> driver configuration.
+> 
+> Signed-off-by: Tzu-Hao Wei <twei@axiado.com>
 
-How this mismatch can result in ABI break?
+Incorrect DCO chain.
 
-> as MT8188 cannot function correctly under the 32-bit iova
-> address-space (4GB) configuration.
-
-Do you understand what is an ABI break? This commit is the ABI break.
 
 Best regards,
 Krzysztof
