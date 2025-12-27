@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9972CE9270E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Dec 2025 12:19:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A4E4E8FDD8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Dec 2025 12:19:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ejU77izjbpiitWXY1CFRfcJAx1qt+ylV9tDV0w1mOdk=; b=fWTDrCaIs7UPIKbVCkieAzvKID
-	BrBlrHji3CiXOzB7Lws2pBKIeiW/pPd4yA2pqJyboPsnsQTM9FktO+Mo46Jp1My2sSAnmDF8RJzrI
-	UHuDPmQBM0WgA/HqYz2otQmN7olTwumZm6BVBfmryfv9sLOdC2zPDhdg4b4RIKuAjbhGR4HR6+f97
-	6wBUZsYEg/ZhMV/a5b2R6pmLXS5CElwdse7QTBvPUtX47q1ISz/HnBzP4qlrXihPWXpjW/ntP2trW
-	dh2K9hoeaZXHZFBWgX3xEzaFlWQjTpFxWAsQ7HVazNvGWtkEyjRM0M+dXSnujtYq4+4NlEYWq6b+v
-	cKeLha6w==;
+	bh=PI64KbZN9t1PF6ymgBKKgUkODGeQdgLto8SJvKTSB0M=; b=zdhMioDRKQqcOh8IPFjcPfRvW6
+	gPwG973IFKvZ4GVK65Ef5CEOPAI34yULTFbKFMoaJ7h41yzUhH3HqTfTOZMtHiMrf/ChpsC4mLvEW
+	04CLYCzk5x8/whPXfqfppv3gbmw9TMehs0jxQLnF2w+HlhZ2nYq25/7ysygyrV5XRyBi3Br45bvOI
+	vyvibmAzcG/3i1t+/eLxyNAcJi6ziNxoZ1Ls1fMUHttN0aSi0nYZnzbneRwfdrKzACA1PJB8VRf4t
+	TfTYEwpu2K2HSHGFuDU9H0eAM3dZ/G4kfrgkTCjTVx9q1MQYCpql3G51OLhCTxl3TGB2BEBD7wXrZ
+	SSPKT4Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZTGU-00000001xAb-401L;
-	Sat, 27 Dec 2025 12:19:22 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1vZTGg-00000001xMI-0whx;
+	Sat, 27 Dec 2025 12:19:34 +0000
+Received: from mail-wm1-x343.google.com ([2a00:1450:4864:20::343])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZTGP-00000001x4z-1nJm
+	id 1vZTGY-00000001xEV-2yI4
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 27 Dec 2025 12:19:20 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-47bdbc90dcaso49503115e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 27 Dec 2025 04:19:17 -0800 (PST)
+	Sat, 27 Dec 2025 12:19:31 +0000
+Received: by mail-wm1-x343.google.com with SMTP id 5b1f17b1804b1-47d3ffa6720so21711965e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 27 Dec 2025 04:19:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1766837956; x=1767442756; darn=lists.infradead.org;
+        d=suse.com; s=google; t=1766837965; x=1767442765; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ejU77izjbpiitWXY1CFRfcJAx1qt+ylV9tDV0w1mOdk=;
-        b=dpwnyajkaw6l9D/oXfSIPA3A6vGba7kPkQBao307cPC0JBGDzKe4q2SE7bvela1Yl2
-         4FuRoXMIeYZZPv4d87ds594AmH7se1LC7Y+Lb5FkVFFLT50p96q3cpyrNQOU0UCMEE1W
-         ah7inerA/2zWnM7P7y8SRXzi9fwBYHH9Gn731nSp6vzXCYjskkdyCF/Q0nW+aNR6Xu4c
-         azNaWp26qFYDw8TH8ytx2NFz+MPx3Y46KzTHlNcto57x7zRoM6EqHyDFcevfk/lAwhCJ
-         HlfdCVIcnzzR787mrSUXC+kk3cxoz5nMDa3x526a71NSGMpgMDbAJnwlIu6gWbqGl0cs
-         Y87g==
+        bh=PI64KbZN9t1PF6ymgBKKgUkODGeQdgLto8SJvKTSB0M=;
+        b=Gsi4hHIxSeeXRXdAdUauoIUF/6d0J/pjNaySRXVyh7SekWI8bUuN7+YTe6GK/2Isda
+         T7jsBKJcAyNtcB4ppS17NnTU4ncS0DKpYkUnufwmIUw0fEdm0yWZfJsjiWpGPzysWSJW
+         l4DUajKseMZgvRFmxNoC48z4AKdWBxMtLI/ui/LF7rcxYAGRTd+vXra6lP84EYPHijeI
+         MwrzY31JHhp3835BAwMNUtyy1fXtuuH9keN1lhcSHTVPLV+1t2Vrbrs72qiyY8Hw0cJB
+         AdOlvVrV9CU2ab+qk3bcCFPRNIyVQoDLzBzM3PfPPUh0gdxaxqHEF0e7ztjvOWB1mxDu
+         rWow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766837956; x=1767442756;
+        d=1e100.net; s=20230601; t=1766837965; x=1767442765;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=ejU77izjbpiitWXY1CFRfcJAx1qt+ylV9tDV0w1mOdk=;
-        b=RDFknUL7XoL+0lI1SU+TVGQ7AoofLrnrNibQBRe98kc27Z+OCeGSt/W1IZYMKxcOMb
-         cBSUE8udsbxLpr1ftAAmXCUTlW/ogZyndld9JBQCP8MaW7iFndPgeKCTxMQ+y5ODWaZM
-         PsfoQ5+SC0tOcjYEOQnEaZdYolXz5AB3MNqMEvL+z4Fyof9u1LkJe+bvUpmaoNqs7KCY
-         oH1qdKB6YJs+nUNvH+xCDwaSSYySFB9cIzwMvM/Sxnllm9Y7XHuCz/dNXGSSDsn+V5Ar
-         e3YgBT5s5ChFyie9EHTN0BTbBybh7duEicPgTd6tI1VZXEhqLoW6g1tCmY1U4VS25Md9
-         plqw==
-X-Forwarded-Encrypted: i=1; AJvYcCVKuSz4g7zAxrW1jg6BVoX0N4IuPqezt9d1kT4ey07caRIxmq5rVGZURzVU73RTt1hJwwrxgsUZjU27Aw3C8N8I@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzn3bdaVdI4QXT8pYZqwEib4WgcZeDHVuSmkVdWpOf9lNAddiEe
-	q2rR7FW6YALdYjpTevmNv7HVbuPpFBoL8K211aXWA72HG9vCn3GqtoWf8PBUrezWfo8=
-X-Gm-Gg: AY/fxX7X3adshNgoRLmkTAeG6/RiAJjye1g8kjOr4YqwsK0g+EGbuzrdYBX5sILlSr+
-	LvgtDR75ARJdF//pr0f9mqqOaiwM/Se0dL9fEg7vqxNiQ3l5QSU2e9x9O3cf1iZmDcO/FhPam+J
-	wmXF9Ak2rTczQeDV2qglPRPXkk7ChH36pEOURPGjxEs2x3ztuQIllATnhcJtl8AWLQXIyJlq+4J
-	ouaHVMZ8GOnNdhfACNfeGo4TMvLpxvjuA0YhTNl33E8q+jtYsPCC9FPuYoSwlclwUZOjBeorsZs
-	vVLwj9he4fFc6TCaBGFHg159jm6SgGdE61KahKuobBvITGqLsUqtUgrxV16eMYYSZPGJ7oBMJW7
-	EJMeecIiVv2p6WavgtohymjIsbpvRb/C5JRmFKxrQpta/SgSWGKelifYBXnaPR37PMkWqUlQ03O
-	HVAe9o3ctu
-X-Google-Smtp-Source: AGHT+IGcVRETU5SGb8qIhgBdGnot/sm969/AEg3tWF/SLDrOBPXwM9NZtaV8oGtTOpkC0w9sxSvHbQ==
-X-Received: by 2002:a05:600c:3148:b0:479:3a86:dc1e with SMTP id 5b1f17b1804b1-47d1958e459mr275597435e9.36.1766837955551;
-        Sat, 27 Dec 2025 04:19:15 -0800 (PST)
+        bh=PI64KbZN9t1PF6ymgBKKgUkODGeQdgLto8SJvKTSB0M=;
+        b=llVYe6D0yGqnnxumNC0gLlDq5RqMGzgBOo1DqH4neAeUaNbj90V2ZVy7KWiVMCTM4A
+         DPo5wou33vJdChL/uUN2GAD7eAfEUURoHJAJCenkpNlExTcHI9GGWma64tvsnGgO/JYO
+         c5iq57Fi4+rhIw5iC0f5qx0yTVVCLEDBnRQyQBKwMNEN3FbDo0hTXNx/n23sTL3KFPlJ
+         rnKwxpSzzSFIzzmQvYHguPOx2d6bFlPhMl11XnNxiMxHxjvWC89og+viQBaVEGPWbOO5
+         fLEHnUXQt5WcoVj+4fKjcmlsEJ+gzgRXE5HPcNFRj+jHWeeAX+Q77sFIg+2QFr9EiRgS
+         B6Kw==
+X-Forwarded-Encrypted: i=1; AJvYcCWI44pUHUF/j5yCCCu0/bLTXr4/lkpBmVaQz/K3ZkB+wBs+h+BlzECBPJ/PghiIaOUKSlxbgo8Tku7g2ueSwWy9@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywfbp3Htnw+9hasIozQvqAZo2ilCDT3Dax8E14tfa5OIRDr35/j
+	ohpyZO6YOhLzUwsMeLH0pu3RmOgeqS5wvV2KG7BzP7lChOgj/MwrL/aQk4qKw0OpDjE=
+X-Gm-Gg: AY/fxX4WkWyNAttEQ5ji3lDNLc2ttcmOkiSLn+XHjfalzFNpf/EpozFkLpeW0qruIEt
+	m90EXvZDuJU5P4W3o0OLYTU/Q+6wsw/6pQgk44S+qla2FlES3u06DDZ8F6afPfYrl9/D7utwbvr
+	Qq/wcVyymCQgfJMWNMz7z49TZYAUYwxwv5/Sg2XCXYFvBWjdXjLQN/hXHeKeKy1QJBJWrulQw0M
+	6OcBMhRz6DXA2QTrafMojptXWHyX8eJDhzXyDiTTCy7jRN9n7n0FC/0+ncxK/96a25bfBvmmXhn
+	3zzjcaQFjDWhnGYWK6bW+2TlOmMHeYweZB5e9yrsiySFwcBggJE3sdHx7Vtm3TNTdZaTVYOubYt
+	eanwAbzk/DRyZt/ACn0z9PVjKGTDwQQ7c24RiiGsYfGNGkT95L0M6pOSamRgZmSFvHBtZ8xIH7L
+	hWijz2/LGK
+X-Google-Smtp-Source: AGHT+IEqqHc/Rd2kLfHagj9YhzIrZRGfzwvOOoeUxY4FRXLnI0VACA/N9sgft7uDx22VCc1m3UDX7g==
+X-Received: by 2002:a05:600c:190f:b0:475:dd89:acb with SMTP id 5b1f17b1804b1-47d195a72fbmr289900545e9.22.1766837964788;
+        Sat, 27 Dec 2025 04:19:24 -0800 (PST)
 Received: from [127.0.0.1] ([2804:5078:811:d400:58f2:fc97:371f:2])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-121724cfdd0sm97940127c88.4.2025.12.27.04.19.06
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-121724cfdd0sm97940127c88.4.2025.12.27.04.19.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 27 Dec 2025 04:19:15 -0800 (PST)
+        Sat, 27 Dec 2025 04:19:24 -0800 (PST)
 From: Marcos Paulo de Souza <mpdesouza@suse.com>
-Date: Sat, 27 Dec 2025 09:16:23 -0300
-Subject: [PATCH 16/19] drivers: tty: serial: ma35d1_serial: Migrate to
+Date: Sat, 27 Dec 2025 09:16:24 -0300
+Subject: [PATCH 17/19] drivers: tty: ehv_bytechan: Migrate to
  register_console_force helper
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251227-printk-cleanup-part3-v1-16-21a291bcf197@suse.com>
+Message-Id: <20251227-printk-cleanup-part3-v1-17-21a291bcf197@suse.com>
 References: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
 In-Reply-To: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
 To: Richard Weinberger <richard@nod.at>, 
@@ -114,16 +114,16 @@ Cc: linux-um@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org, 
  Marcos Paulo de Souza <mpdesouza@suse.com>
 X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1766837798; l=1239;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1766837798; l=1183;
  i=mpdesouza@suse.com; s=20231031; h=from:subject:message-id;
- bh=jiVyzdGaYwwOjViBefbG/4tnbA+IZ6VTt4S6NyPkSWY=;
- b=Y3ytKQigesyzk6xu3oPXbBS5mHTUJ1mX1rT6WRhai16pDTDKrILE6MzhKcIyuYvYQYYU9QQLY
- +jUI84bHhmDDBPQbqZ6BL7ROSTnYW/5U7XoL9eZmy1wASQ14fgiWD4j
+ bh=ipo1oJr6oF51GaJ/ypmHdNm6pxSai2H+L3ksWdFz4YE=;
+ b=BCXQlMZHiSgf9aACQxFpdYHusJFHrRGAPtAecEP+JmKnj9nHT6kdi2m955mQdUkj992asxAcQ
+ YxGwDMjxOJdD2wCUfBrHw1pcuZeGNuCZOOekwLuy8OjtGsDgBHGc3PP
 X-Developer-Key: i=mpdesouza@suse.com; a=ed25519;
  pk=/Ni/TsKkr69EOmdZXkp1Q/BlzDonbOBRsfPa18ySIwU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251227_041917_515494_2370B67E 
-X-CRM114-Status: GOOD (  12.54  )
+X-CRM114-CacheID: sfid-20251227_041926_773443_3D0B6B87 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,31 +146,31 @@ No functional changes.
 
 Signed-off-by: Marcos Paulo de Souza <mpdesouza@suse.com>
 ---
- drivers/tty/serial/ma35d1_serial.c | 4 ++--
+ drivers/tty/ehv_bytechan.c | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/tty/serial/ma35d1_serial.c b/drivers/tty/serial/ma35d1_serial.c
-index 285b0fe41a86..d1e03dee5579 100644
---- a/drivers/tty/serial/ma35d1_serial.c
-+++ b/drivers/tty/serial/ma35d1_serial.c
-@@ -633,7 +633,7 @@ static struct console ma35d1serial_console = {
- 	.write   = ma35d1serial_console_write,
- 	.device  = uart_console_device,
- 	.setup   = ma35d1serial_console_setup,
--	.flags   = CON_PRINTBUFFER | CON_ENABLED,
-+	.flags   = CON_PRINTBUFFER,
- 	.index   = -1,
- 	.data    = &ma35d1serial_reg,
+diff --git a/drivers/tty/ehv_bytechan.c b/drivers/tty/ehv_bytechan.c
+index 69508d7a4135..a2aab48d11ae 100644
+--- a/drivers/tty/ehv_bytechan.c
++++ b/drivers/tty/ehv_bytechan.c
+@@ -299,7 +299,7 @@ static struct console ehv_bc_console = {
+ 	.name		= "ttyEHV",
+ 	.write		= ehv_bc_console_write,
+ 	.device		= ehv_bc_console_device,
+-	.flags		= CON_PRINTBUFFER | CON_ENABLED,
++	.flags		= CON_PRINTBUFFER,
  };
-@@ -657,7 +657,7 @@ static void ma35d1serial_console_init_port(void)
- static int __init ma35d1serial_console_init(void)
- {
- 	ma35d1serial_console_init_port();
--	register_console(&ma35d1serial_console);
-+	register_console_force(&ma35d1serial_console);
- 	return 0;
- }
- console_initcall(ma35d1serial_console_init);
+ 
+ /*
+@@ -331,7 +331,7 @@ static int __init ehv_bc_console_init(void)
+ 	   byte channels here, either, since we only care about one. */
+ 
+ 	add_preferred_console(ehv_bc_console.name, ehv_bc_console.index, NULL);
+-	register_console(&ehv_bc_console);
++	register_console_force(&ehv_bc_console);
+ 
+ 	pr_info("ehv-bc: registered console driver for byte channel %u\n",
+ 		stdout_bc);
 
 -- 
 2.52.0
