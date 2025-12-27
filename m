@@ -4,56 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CBECE92710
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Dec 2025 20:16:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9723E92710
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Dec 2025 20:52:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5T62/0s5EUYuxsChg+u7pOaZZD1x+HOnvFhd8Pawb68=; b=aJHF2jjPar9DQ/1S1sO22MTp4g
-	iACs64zWMx5LCfjllkrJiTbrt1L3En1amv+pubehDY6tB7VyDMbfGY2ijzHutSeMQKo0WrC7JYmmJ
-	Ii9sS9KX/4cabd2KZ4gzwW+8vGMrjGiBFUdvLZZC3UNjx0k9vn9ewDL/KaWO0SOWMDS9/dngxG7pb
-	qOAXDKBJUkZP6gydGEWZotyLHRHqABQxNORt5DXCeMA61j5uPH4s4UJEDQeoUQK6vO0uYQiG8J4wz
-	1dyCXDu1p69E1Cq290wOQfYDdm9XnRqzS+BCXsV2BRlRsOgYaoPI6ewR+2HVQvEM/Jyht3+jxFNxW
-	LvI4Ep9A==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=COlE5Xveygh67jucjDOeVZnfTHNWpMeqgQJOQuwR0lI=; b=brgyXW2L1elgS1
+	pj5lPtmyqIyF9ArAYWUvYRcfxerxK7MTBEpGpn/k5UoVqrE7EHEXCB//dCdB1vhjk/9MVDUxQUAam
+	32v8RSU+GHFvMt3+3RmuoKNVYVKJDGey3n0Ng9I00kPgc+FV6Urchf/Y5+WMueeHM0KyG5SobY2Yc
+	8hCmVZI8FOkhv8kgtR/hA3VLTwnAQXPZ3g83AQrOIfAtvLvq7Nt+4GAcFCSvVHm3zIa4NaXw7PlXi
+	u3RVR93BABsNZjeNI5Cp6iEXZNfoDs4f78fi8F1J7h39F8piSEoWlHr3Sp2X6AuOEda2i2hA4HljO
+	1g/dT3/JzFmgH6EFQzaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZaiY-00000002Bqy-37ha;
-	Sat, 27 Dec 2025 20:16:50 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vZbGv-00000002CUq-3ipx;
+	Sat, 27 Dec 2025 20:52:21 +0000
+Received: from mail-qv1-xf35.google.com ([2607:f8b0:4864:20::f35])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZaiW-00000002Bqp-3WpG
+	id 1vZbGt-00000002CU2-0eG6
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 27 Dec 2025 20:16:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 882B460010;
-	Sat, 27 Dec 2025 20:16:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFEFAC4CEF1;
-	Sat, 27 Dec 2025 20:16:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766866606;
-	bh=YVbtQLZx9jfw9z6Q7qKoP3MRHyWD/+ZNiJGjIZfNTgg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uwKZl8KzwVtiip51+4heE0ashdbCeXp6U5OGLZVN5eA3XVOWJ7w0nu+JM1fdk1dvX
-	 ZfbtAVStzxCNZU1JJKfXU2qcA4s2Zf/F+0PKbtzuf9B9+glwGNiVwxgC1bY3mVWDqt
-	 x+OGDvSx4PZZI6McqMG+qakQtcWSE9+9tMu26q3QXTy1gMrTGcAo4CvA5PP9VpTn2Y
-	 t+LQEj1YwktMsX15KqA9mAEHyv4WHQBDsuDqMqLw7BtRg6wMni6pYQYI3FZb8kWIWE
-	 iFr0g/ZmzQ2XLCky+90/8NJrMcMB42KyHtG+QFBx2dI8aag00ktWTd4LyrTN8FnlYw
-	 dWKdi+ikD9wGg==
-Date: Sat, 27 Dec 2025 22:16:42 +0200
-From: Leon Romanovsky <leon@kernel.org>
-To: Barry Song <21cnbao@gmail.com>
-Subject: Re: [PATCH RFC v2 8/8] dma-iommu: Support DMA sync batch mode for
- iommu_dma_sync_sg_for_{cpu, device}
-Message-ID: <20251227201642.GQ11869@unreal>
-References: <20251226225254.46197-1-21cnbao@gmail.com>
- <20251226225254.46197-9-21cnbao@gmail.com>
+	Sat, 27 Dec 2025 20:52:20 +0000
+Received: by mail-qv1-xf35.google.com with SMTP id 6a1803df08f44-88a288811a4so91880136d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 27 Dec 2025 12:52:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1766868737; x=1767473537; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=COlE5Xveygh67jucjDOeVZnfTHNWpMeqgQJOQuwR0lI=;
+        b=Z135UrV2YhfSz6oYOa4JMoVdWZrYwa15iYL4vARaICQYvYnLfbskAJ1lIrhyKmjJ4I
+         LPddOIOZkZLNzU/nWDNDiN5hoAvzKdb++F4gQhW0qOtVfk2PdMFpTuuFnnTlRpo3Gq8b
+         uj6tC/NWxLNQaKXvkoQZ7FWbVUW/Al1Zha8bS7ZEtlwk+eLqpEWKooe6Q4bS9HWYlp5K
+         2fDtwkxbcrwWEEV5f55i2xdImwlIpX/EiMFdlnDBPITdYVp9IVhk+9f0KeGc/dHZF3KV
+         vEuUWA2tTc9uA57sLmkm7asAstpFzXLfdHe+JF2mmWW33qJGudKg9WcWTGVwi2D/Ao16
+         FYxg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766868737; x=1767473537;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=COlE5Xveygh67jucjDOeVZnfTHNWpMeqgQJOQuwR0lI=;
+        b=gAaT3PFCuTGhu+CXv8woZxBiVbZ4BI9KmwJgRoj4OZiiUZ87fIl3UDi5NrKbhBjboj
+         nZmP6kE8C4oEJafE6+P6umeVTMcwKXaO1MVOd6EWJDidKbA7AfDWvotzsGeykFmETn+r
+         NJlqddnAcN8RSQTSKeAMBlakA0vNYl6m4s6u00TYgf7xMFee7WvIMo09Qh5ZGF93D6SY
+         B14Oy/is0FTJ64pP7+ZpeHWfqkfk703urBrQf4sFaPHCaiaq3jl50XDrl/iETLLXdohJ
+         F7ORZKDBt52NzPwZ+sARE2FjU2Xjj0BzlxP9Jke1fBSUEqR2jjA5iFeUyXoRavM/sitx
+         XLIA==
+X-Forwarded-Encrypted: i=1; AJvYcCV5/nshjbtyGA1FL9qDA5U94eaUT11cnsPrPqNe6DIDzKTyCvx+F7O0JlKR7sxe5RzdsJYt43ys11eJe2MndJzI@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw/JbNAJ0hUzfofqhydltlf4ik6w4r2FWZkK2gERok9KH8NvkrV
+	psb4XCgSlx7SybYRQ4B6GD8zDjoGUn/4J0TuM9TAIOKFdDvn63fEVF6hh6PbGhaG80+MY2Ip/o/
+	FtZCVjM6AeQWiQGGE58VfkPEclaD88+8=
+X-Gm-Gg: AY/fxX75EPrZbRN9BfO+qGbl3Ft46Zj6uib4odqJAYs+bc95eWBzFZRA+57CNo1Cqkc
+	OcIQTFfNHNwa3ZAtcpoFExc+su4/Cl1KNKgpNytiv6LwWuqYUdGDzXXCurrVspa3m12sFD30tjb
+	+ZGgqnXlgFVgeZL3XrC2xNKyWcIrXn/Dxafgm0eNyeBogubG9oV77OYgETR5bdKPklRG7rDhDVq
+	XuT+2wrOevXUY4BoOxH2WJOJSwLLttB1gRv5zV2iiB4x2mfg/fKv/MA6493zI2Mc3c9zA==
+X-Google-Smtp-Source: AGHT+IFWlfYgq6fvhPnudIMznElnMp57SUfWPdf1Abz4VW1qQ4SuUkwafpWDnswUCDqMkbSt41dCGCuIrkeU0fQZTZ4=
+X-Received: by 2002:a05:6214:3a8a:b0:88f:cd09:9431 with SMTP id
+ 6a1803df08f44-88fcd0995d8mr271616716d6.41.1766868737130; Sat, 27 Dec 2025
+ 12:52:17 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251226225254.46197-9-21cnbao@gmail.com>
+References: <20251226225254.46197-1-21cnbao@gmail.com> <20251226225254.46197-6-21cnbao@gmail.com>
+ <20251227200933.GO11869@unreal>
+In-Reply-To: <20251227200933.GO11869@unreal>
+From: Barry Song <21cnbao@gmail.com>
+Date: Sun, 28 Dec 2025 09:52:05 +1300
+X-Gm-Features: AQt7F2q5TMmxm7Qs_CjJBcT-WAtF0589kk4jJXu2nxeg2qZ04GIbkJZVDuQBxso
+Message-ID: <CAGsJ_4yA83-K7PXiEtyidzF_j6qqKkt92z485KBS9+zGe_rjnw@mail.gmail.com>
+Subject: Re: [PATCH v2 5/8] dma-mapping: Support batch mode for dma_direct_sync_sg_for_*
+To: Leon Romanovsky <leon@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251227_125219_204041_4BFA065E 
+X-CRM114-Status: GOOD (  15.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,55 +91,61 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Tangquan Zheng <zhengtangquan@oppo.com>, Barry Song <baohua@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, will@kernel.org, Anshuman Khandual <anshuman.khandual@arm.com>, catalin.marinas@arm.com, Joerg Roedel <joro@8bytes.org>, linux-kernel@vger.kernel.org, Suren Baghdasaryan <surenb@google.com>, iommu@lists.linux.dev, Marc Zyngier <maz@kernel.org>, xen-devel@lists.xenproject.org, robin.murphy@arm.com, Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org, m.szyprowski@samsung.com
+Cc: Tangquan Zheng <zhengtangquan@oppo.com>, Ryan Roberts <ryan.roberts@arm.com>, will@kernel.org, Anshuman Khandual <anshuman.khandual@arm.com>, catalin.marinas@arm.com, linux-kernel@vger.kernel.org, Suren Baghdasaryan <surenb@google.com>, iommu@lists.linux.dev, Marc Zyngier <maz@kernel.org>, xen-devel@lists.xenproject.org, robin.murphy@arm.com, Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org, m.szyprowski@samsung.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Dec 27, 2025 at 11:52:48AM +1300, Barry Song wrote:
-> From: Barry Song <baohua@kernel.org>
-> 
-> Apply batched DMA synchronization to iommu_dma_sync_sg_for_cpu() and
-> iommu_dma_sync_sg_for_device(). For all buffers in an SG list, only
-> a single flush operation is needed.
-> 
-> I do not have the hardware to test this, so the patch is marked as
-> RFC. I would greatly appreciate any testing feedback.
-> 
-> Cc: Leon Romanovsky <leon@kernel.org>
-> Cc: Marek Szyprowski <m.szyprowski@samsung.com>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> Cc: Ard Biesheuvel <ardb@kernel.org>
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> Cc: Suren Baghdasaryan <surenb@google.com>
-> Cc: Robin Murphy <robin.murphy@arm.com>
-> Cc: Joerg Roedel <joro@8bytes.org>
-> Cc: Tangquan Zheng <zhengtangquan@oppo.com>
-> Signed-off-by: Barry Song <baohua@kernel.org>
-> ---
->  drivers/iommu/dma-iommu.c | 15 +++++++--------
->  1 file changed, 7 insertions(+), 8 deletions(-)
-> 
-> diff --git a/drivers/iommu/dma-iommu.c b/drivers/iommu/dma-iommu.c
-> index ffa940bdbbaf..b68dbfcb7846 100644
-> --- a/drivers/iommu/dma-iommu.c
-> +++ b/drivers/iommu/dma-iommu.c
-> @@ -1131,10 +1131,9 @@ void iommu_dma_sync_sg_for_cpu(struct device *dev, struct scatterlist *sgl,
->  			iommu_dma_sync_single_for_cpu(dev, sg_dma_address(sg),
->  						      sg->length, dir);
->  	} else if (!dev_is_dma_coherent(dev)) {
-> -		for_each_sg(sgl, sg, nelems, i) {
-> +		for_each_sg(sgl, sg, nelems, i)
->  			arch_sync_dma_for_cpu(sg_phys(sg), sg->length, dir);
-> -			arch_sync_dma_flush();
-> -		}
-> +		arch_sync_dma_flush();
+On Sun, Dec 28, 2025 at 9:09=E2=80=AFAM Leon Romanovsky <leon@kernel.org> w=
+rote:
+>
+> On Sat, Dec 27, 2025 at 11:52:45AM +1300, Barry Song wrote:
+> > From: Barry Song <baohua@kernel.org>
+> >
+> > Instead of performing a flush per SG entry, issue all cache
+> > operations first and then flush once. This ultimately benefits
+> > __dma_sync_sg_for_cpu() and __dma_sync_sg_for_device().
+> >
+> > Cc: Leon Romanovsky <leon@kernel.org>
+> > Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > Cc: Will Deacon <will@kernel.org>
+> > Cc: Marek Szyprowski <m.szyprowski@samsung.com>
+> > Cc: Robin Murphy <robin.murphy@arm.com>
+> > Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> > Cc: Ard Biesheuvel <ardb@kernel.org>
+> > Cc: Marc Zyngier <maz@kernel.org>
+> > Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+> > Cc: Ryan Roberts <ryan.roberts@arm.com>
+> > Cc: Suren Baghdasaryan <surenb@google.com>
+> > Cc: Tangquan Zheng <zhengtangquan@oppo.com>
+> > Signed-off-by: Barry Song <baohua@kernel.org>
+> > ---
+> >  kernel/dma/direct.c | 14 +++++++-------
+> >  1 file changed, 7 insertions(+), 7 deletions(-)
+>
+> <...>
+>
+> > -             if (!dev_is_dma_coherent(dev)) {
+> > +             if (!dev_is_dma_coherent(dev))
+> >                       arch_sync_dma_for_device(paddr, sg->length,
+> >                                       dir);
+> > -                     arch_sync_dma_flush();
+> > -             }
+> >       }
+> > +     if (!dev_is_dma_coherent(dev))
+> > +             arch_sync_dma_flush();
+>
+> This patch should be squashed into the previous one. You introduced
+> arch_sync_dma_flush() there, and now you are placing it elsewhere.
 
-This and previous patches should be squashed into the one which
-introduced arch_sync_dma_flush().
+Hi Leon,
+
+The previous patch replaces all arch_sync_dma_for_* calls with
+arch_sync_dma_for_* plus arch_sync_dma_flush(), without any
+functional change. The subsequent patches then implement the
+actual batching. I feel this is a better approach for reviewing
+each change independently. Otherwise, the previous patch would
+be too large.
 
 Thanks
+Barry
 
