@@ -4,83 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2995CE9271E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Dec 2025 21:45:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 196E9E92720
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Dec 2025 23:34:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lt41blxsMyjhc3LV6WnC+/wCpChm6SDa9UhbOfqHfRs=; b=LKFKxLiDTVowwr
-	hQWHwAIlQnmIpiNeNMn4OYIy/ieWYBVmG034hO0aZG5J5u3jI0+W/Swsbr6l2IIR0R1flWQz/gFZs
-	y5HpzlhJ0DNaNWDuvKp7kVHlVRUUX+KIKahwbe53dJwF90et94jEN/K/CJpvDszOJ81LqOjldmr7R
-	QhBU0DuT36aWuUdDyVY0BJCVBxQvs4hRhi/9TD+4rD8TaGZ3WHL2pxvlH6yLi/Qg44AwHgF++QAS4
-	lxzF2OwoFniyVIaGO58Y1PmdTC2DvubWTNMDhkFrQNEsmf69VUg7QfHYJh0AFaeWI3tDG+clU7XhE
-	2sFy/Y8g2f7lAXzKK9qg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r8ndoUydE7wCVollDThIleRkPMsRz9cY64b0IoVmCiw=; b=agHFPbu3DgBkOHOSL+1z6Ue9Eo
+	8d/KXoRstsfDZ3ewPK4oBV2w54mpuEuZwZPuTDso3WRqWrIR3ROKLDB8xk92BRbD366EsxaW3TaPj
+	7Jyr0oOk7hx/WSZWK0sAB6lKjRq3PKjR6DqGmeqFFm2HmDCNtriyPaM2FDzalzCcq8PffZ75Veacb
+	Zc6qEx6ebnBuWpn9GTgdhmCuTtDPm9WpB0TtZmmGH+calsMVI1gPhdEqUnFOz9f/AYeFjzurbo/lf
+	4rSHjmvQuRILDzAFPV1+t+n4CHRoU1j8V5PVxyKVGzivaCni3+Te8IfP905cAfJbqN4epSoSP+FL1
+	8Lb41+NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZc6K-00000002DdR-3irX;
-	Sat, 27 Dec 2025 21:45:28 +0000
-Received: from mail-qv1-xf33.google.com ([2607:f8b0:4864:20::f33])
+	id 1vZdno-00000002GxO-2TXx;
+	Sat, 27 Dec 2025 23:34:28 +0000
+Received: from mo4-p01-ob.smtp.rzone.de ([85.215.255.53])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZc6I-00000002Dd4-0YxS
+	id 1vZdnl-00000002Gwx-1FVx
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 27 Dec 2025 21:45:27 +0000
-Received: by mail-qv1-xf33.google.com with SMTP id 6a1803df08f44-88a288811a4so92138756d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 27 Dec 2025 13:45:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1766871925; x=1767476725; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lt41blxsMyjhc3LV6WnC+/wCpChm6SDa9UhbOfqHfRs=;
-        b=NVrSlE6nq+hcHWr50mRY4HRggGp9b9zVqbjRO2giIA+AL/K1jY7TxKOgY3E5TCs1BK
-         L42aRdXU0WqMbr3+WWJWsrecwkt4A+FrEs5g/dfkWzH0gFLyiqGS9qkrXq5hd2fMnleC
-         Vk4LuWUcHQUSOlu7f9DuraDwiB86eDjSdjqWJK8BWfOc4zkYynl8Qj+21ovyG/XGZZwX
-         z9N5AF+xlNLdiXOZp9YM+YlDlt8U2+M+7WbjTK0uEIc8yrfFJ6exdEPml0OkbKhX7Tpv
-         w0lms49rncZlNVCUN1v0hDVebleIntUwXty3xi1vIplj12eG5Bgv7q9kMnCB/4BVBPFB
-         2TZA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766871925; x=1767476725;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=lt41blxsMyjhc3LV6WnC+/wCpChm6SDa9UhbOfqHfRs=;
-        b=I0BhDSoIYfscfSCzVYylalAtxOgwKi0DIcr2agwQ4cQDBne8lacLmdfZuiLkvbwFiC
-         H9cdqUb1uWPgzTaxJf+HWR7axSOp4NdLPYJCZ2ps6IBKUXJxG72JZe9MAz/WYch1DdBM
-         iz1HF9sLRv7PmHPPXebXMdShKEddedEfDNgGgLEQc4EEZqPE7BF22XH8G0kSbMYnfzsQ
-         61ZpUYzS9aSR+6PFCO/4AKJ5MJ5xxMzGjiaTFDYNtPz/XX6WGy45d762IQv5JoaH1kQH
-         yYcU9KuBXwJYXPnXikYYBce5aAZ+hDw1sOqWRnIltVjgOxkQRasvHUCbcysHttNkg4x1
-         EKuA==
-X-Forwarded-Encrypted: i=1; AJvYcCW5Cnpthiuh1Cu39eXUeBNL9bPOtjxXVvgrEOv07Ifavwc0suFBXlEpRlVrj1rW1gP8cO/jCMVnUHzH3AelzUwm@lists.infradead.org
-X-Gm-Message-State: AOJu0YwyAyB5D76xCEvfaXn/Naf/IyMv4AxPyXUTYzA4qszYrnST1GWq
-	R3kuLuQv+iysIlhIebRS9Fj8ED687T+RHzTFHnuGAAcuVVuwQ71YspvUyvmB+/W9s24JYna5Ghg
-	pOpx6qGD5gWhmFlPm80/N7rLs4TkzCVg=
-X-Gm-Gg: AY/fxX7ngMsWCY6vdCaLyu6AQOfKgMhYQkatbpOb3JVtIGlkn5QUo0pWeJK2RkfR017
-	HPS8zH6qxw6i4YB5mHmloSP2V9EvDLLMkwNqLwwvfTapjRo8leCS15atx+5OtetdRVUdTCgZTv5
-	GG9g0/3iY939HWOsG2V7XozdB5cpAnnfLCKw6usw7GVg/ox/494+PJfnQlHreErhYLG0YcGNUcX
-	ch9B+C1X+RjcRlHsHB0kx1QNGYwTJ9gdfPDAC/fGDNAq8BjN2iJCWUvpG517WI+P/14IQ==
-X-Google-Smtp-Source: AGHT+IHmBi29677t2O37ea1flM7K/Y0dIjXGGt2yXIRM7uMA6APSnauCpQ+0jFlHKgITt5UGFK02RSmCY0Fj091CN4k=
-X-Received: by 2002:a05:6214:5092:b0:888:6ea5:a90b with SMTP id
- 6a1803df08f44-88d7f5b331fmr425798726d6.0.1766871924468; Sat, 27 Dec 2025
- 13:45:24 -0800 (PST)
+	Sat, 27 Dec 2025 23:34:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1766878462; cv=none;
+    d=strato.com; s=strato-dkim-0002;
+    b=jBJPSwsMYisrKcstp6UHoAMfj4ZNBGNA81/IGA+xA7zJox2+5tri8QfefLpqwxBXla
+    jQbDrRm9brjbyyUQlI4f4VSPVZnk9tRatyaklteL9ZW0wXfy8pZfAuB68hDV0tEc6nQB
+    griShjYlnYu8gJ5YKphBKw6bbUesTRFrzWiO/+EHIRWqdnfk7zEd8N+9i7OETDZdrCX0
+    p2TSKrShyxFdPJMt+jzNSpQVCSXwWaBgiHgZ04/Vs1m3J55F7vZTW180uRlr95Ekol7I
+    LejHRDPqpbUKAxCUoLlh73IISyQErvdf0CQ6bYn4HMtVj9IDbj1ce26VtesWajVXp8+l
+    wfTg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1766878462;
+    s=strato-dkim-0002; d=strato.com;
+    h=In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Cc:Date:
+    From:Subject:Sender;
+    bh=r8ndoUydE7wCVollDThIleRkPMsRz9cY64b0IoVmCiw=;
+    b=NsVsj3LjXXzqSE1YorMoVss7CsA3x6lV5qzsZMOSCEmnVlAb1l3FB7YUimu6FioprE
+    DlYtW0JI9DWpmB4Deo7S6oiTOyG/Ux2AQmN16iE6T+Ff8oBJbn9adlJ2DcdLwy329HIY
+    c/btn2UTsmhwYSKksyXCZLLFvMeooBF8mhUYxpFmlnyccaRILk7lItrjiXrb0NEBYq/v
+    +5ishXyKWEOJ8se+GDrroWMaQkZeMWMsKc9VFGpmRwlWIbJ8XkmuCdycBg9PpzHx5ntA
+    70Bc8UCXsRg0cJaABcNQyUZziyd7ItLgvVAXqKtW2hFPtR+BmIPTBL6b3iJDOfLiDmGu
+    wkCQ==
+ARC-Authentication-Results: i=1; strato.com;
+    arc=none;
+    dkim=none
+X-RZG-CLASS-ID: mo01
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1766878462;
+    s=strato-dkim-0002; d=jm0.eu;
+    h=In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Cc:Date:
+    From:Subject:Sender;
+    bh=r8ndoUydE7wCVollDThIleRkPMsRz9cY64b0IoVmCiw=;
+    b=Y8qAHNaIFQ75mUPgBviSwdfj65C8FNc2p1u/ayMAunCimmHy4iUt4ahuO+Mnd2tRCG
+    9A5k7u1uk/yIHChSBAngaachq2FSrgvD0QkfAlLXw6yVXG+mbTIo4mG9p7c+qB7FcuVq
+    mPGMrSeRgLPQxcscsNX7KuuBaXGCiXR8/2ZtAc/UoPtxIqSMZ2HYMrVfyv6xtSBbLnqo
+    OqBuD0B1Zl6kHdFOjZQeJDDzaHntV6qGPJcZh/jKe3Cvgzxfao5NyS7NHU642XlSqDSh
+    WE5PowF0tq2Bfk7jMiDD/0DlpSZvzt3ZgOOM53E34szqTqsSLqrpnoPn2c4a6Np0/pMR
+    8BHA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1766878462;
+    s=strato-dkim-0003; d=jm0.eu;
+    h=In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Cc:Date:
+    From:Subject:Sender;
+    bh=r8ndoUydE7wCVollDThIleRkPMsRz9cY64b0IoVmCiw=;
+    b=mU4wvbOHiaDVLe4JfrQD/dYRzYEc25Y/Xc0uS1ntw0M/uaCrVgPBMVv5kVrDtu7Gq9
+    dhYvUOXsgmm4/xJKU9CQ==
+X-RZG-AUTH: ":JmMXYEHmdv4HaV2cbPh7iS0wbr/uKIfGM0EPTeoCaRth8YQvpoIkZXd2bnfIrOV7Mbk="
+Received: from [192.168.1.232]
+    by smtp.strato.de (RZmta 54.1.0 DYNA|AUTH)
+    with ESMTPSA id z0d4ec1BRNYLubs
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
+	(Client did not present a certificate);
+    Sun, 28 Dec 2025 00:34:21 +0100 (CET)
+Message-ID: <0087cd4f-4e85-4cd0-8732-cd5b175e9eaa@jm0.eu>
+Date: Sun, 28 Dec 2025 00:34:20 +0100
 MIME-Version: 1.0
-References: <20251226225254.46197-1-21cnbao@gmail.com> <20251226225254.46197-5-21cnbao@gmail.com>
- <20251227200706.GN11869@unreal>
-In-Reply-To: <20251227200706.GN11869@unreal>
-From: Barry Song <21cnbao@gmail.com>
-Date: Sun, 28 Dec 2025 10:45:13 +1300
-X-Gm-Features: AQt7F2r-YxjjSYpd8cllnEqpFXg5kopB86XJsQIZsxDdh04rwEIBpc-UuQSQ9GE
-Message-ID: <CAGsJ_4zyascnpQ1cB-BMO9PDeeRZTBAh8Z-j-ip=RcxApa4zSg@mail.gmail.com>
-Subject: Re: [PATCH v2 4/8] dma-mapping: Separate DMA sync issuing and
- completion waiting
-To: Leon Romanovsky <leon@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] power: supply: add battery driver for netronix ec
+To: Andreas Kemnade <andreas@kemnade.info>
+Cc: =?UTF-8?Q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>,
+ Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Sebastian Reichel <sre@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+References: <20251227-kobo-aura-battery-v1-0-328a90ef5122@jm0.eu>
+ <20251227-kobo-aura-battery-v1-1-328a90ef5122@jm0.eu>
+ <20251227223815.17dea51d@kemnade.info>
+Content-Language: en-US
+From: "Ing. Josua Mayer" <josua.mayer@jm0.eu>
+Autocrypt: addr=josua.mayer@jm0.eu; keydata=
+ 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
+In-Reply-To: <20251227223815.17dea51d@kemnade.info>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251227_134526_249978_E949C71D 
-X-CRM114-Status: GOOD (  25.98  )
+X-CRM114-CacheID: sfid-20251227_153425_764798_45959D57 
+X-CRM114-Status: GOOD (  27.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,98 +155,115 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Juergen Gross <jgross@suse.com>, Tangquan Zheng <zhengtangquan@oppo.com>, Stefano Stabellini <sstabellini@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, will@kernel.org, Anshuman Khandual <anshuman.khandual@arm.com>, catalin.marinas@arm.com, Joerg Roedel <joro@8bytes.org>, linux-kernel@vger.kernel.org, Suren Baghdasaryan <surenb@google.com>, iommu@lists.linux.dev, Marc Zyngier <maz@kernel.org>, Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>, xen-devel@lists.xenproject.org, robin.murphy@arm.com, Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org, m.szyprowski@samsung.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Dec 28, 2025 at 9:07=E2=80=AFAM Leon Romanovsky <leon@kernel.org> w=
-rote:
->
-> On Sat, Dec 27, 2025 at 11:52:44AM +1300, Barry Song wrote:
-> > From: Barry Song <baohua@kernel.org>
-> >
-> > Currently, arch_sync_dma_for_cpu and arch_sync_dma_for_device
-> > always wait for the completion of each DMA buffer. That is,
-> > issuing the DMA sync and waiting for completion is done in a
-> > single API call.
-> >
-> > For scatter-gather lists with multiple entries, this means
-> > issuing and waiting is repeated for each entry, which can hurt
-> > performance. Architectures like ARM64 may be able to issue all
-> > DMA sync operations for all entries first and then wait for
-> > completion together.
-> >
-> > To address this, arch_sync_dma_for_* now issues DMA operations in
-> > batch, followed by a flush. On ARM64, the flush is implemented
-> > using a dsb instruction within arch_sync_dma_flush().
-> >
-> > For now, add arch_sync_dma_flush() after each
-> > arch_sync_dma_for_*() call. arch_sync_dma_flush() is defined as a
-> > no-op on all architectures except arm64, so this patch does not
-> > change existing behavior. Subsequent patches will introduce true
-> > batching for SG DMA buffers.
-> >
-> > Cc: Leon Romanovsky <leon@kernel.org>
-> > Cc: Catalin Marinas <catalin.marinas@arm.com>
-> > Cc: Will Deacon <will@kernel.org>
-> > Cc: Marek Szyprowski <m.szyprowski@samsung.com>
-> > Cc: Robin Murphy <robin.murphy@arm.com>
-> > Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> > Cc: Ard Biesheuvel <ardb@kernel.org>
-> > Cc: Marc Zyngier <maz@kernel.org>
-> > Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-> > Cc: Ryan Roberts <ryan.roberts@arm.com>
-> > Cc: Suren Baghdasaryan <surenb@google.com>
-> > Cc: Joerg Roedel <joro@8bytes.org>
-> > Cc: Juergen Gross <jgross@suse.com>
-> > Cc: Stefano Stabellini <sstabellini@kernel.org>
-> > Cc: Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>
-> > Cc: Tangquan Zheng <zhengtangquan@oppo.com>
-> > Signed-off-by: Barry Song <baohua@kernel.org>
-> > ---
-> >  arch/arm64/include/asm/cache.h |  6 ++++++
-> >  arch/arm64/mm/dma-mapping.c    |  4 ++--
-> >  drivers/iommu/dma-iommu.c      | 37 +++++++++++++++++++++++++---------
-> >  drivers/xen/swiotlb-xen.c      | 24 ++++++++++++++--------
-> >  include/linux/dma-map-ops.h    |  6 ++++++
-> >  kernel/dma/direct.c            |  8 ++++++--
-> >  kernel/dma/direct.h            |  9 +++++++--
-> >  kernel/dma/swiotlb.c           |  4 +++-
-> >  8 files changed, 73 insertions(+), 25 deletions(-)
->
-> <...>
->
-> > +#ifndef arch_sync_dma_flush
-> > +static inline void arch_sync_dma_flush(void)
-> > +{
-> > +}
-> > +#endif
->
-> Over the weekend I realized a useful advantage of the ARCH_HAVE_* config
-> options: they make it straightforward to inspect the entire DMA path simp=
-ly
-> by looking at the .config.
+Am 27.12.25 um 22:38 schrieb Andreas Kemnade:
+> On Sat, 27 Dec 2025 17:28:13 +0100
+> Josua Mayer <josua.mayer@jm0.eu> wrote:
+> 
+>> Implement a simple battery driver for monitoring voltage with the
+>> netronix embedded controller found in certain ebook readers.
+>>
+>> Signed-off-by: Josua Mayer <josua.mayer@jm0.eu>
+> 
+> This also produces a value somehow depending on battery voltage
+> on the Tolino vision.
+Good!
 
-I am not quite sure how much this benefits users, as the same
-information could also be obtained by grepping for
-#define arch_sync_dma_flush in the source code.
+> [...]
+>> diff --git a/drivers/mfd/ntxec.c b/drivers/mfd/ntxec.c
+>> index 08c68de0f01bc..d5059b8862aa8 100644
+>> --- a/drivers/mfd/ntxec.c
+>> +++ b/drivers/mfd/ntxec.c
+>> @@ -139,6 +139,7 @@ static const struct regmap_config regmap_config = {
+>> static const struct mfd_cell ntxec_subdev[] = {
+>> 	{ .name = "ntxec-rtc" },
+>> 	{ .name = "ntxec-pwm" },
+>> +	{ .name = "ntxec-battery" },
+>> };
+>>
+>> static const struct mfd_cell ntxec_subdev_pwm[] = {
+> 
+> I think that should be a separate patch for mfd.
+Okay
 
->
-> Thanks,
-> Reviewed-by: Leon Romanovsky <leonro@nvidia.com>
+> [...]
+>> +	switch (psp) {
+>> +		case POWER_SUPPLY_PROP_VOLTAGE_NOW:
+>> +			ret = regmap_read(priv->ec->regmap, NTXEC_REG_READ_BATTERY, &value);
+>> +			if (ret < 0)
+>> +				return ret;
+>> +
+>> +			/* ec value to microvolt conversion:
+>> +			 * vendor kernel source suggests linear behaviour from 3V to 4.2V
+>> +			 * with readings 767 to 1023; each increment represents 4687,5uV.
+>> +			 * adjust 3V boundary slightly to report exactly 4.2V when full.
+>> +			 */
+>> +			val->intval = 2999872 + (value - 767) * 4688;
+>> +			break;
+> I find this code both in some kobo 2.6.35.3 code and on the tolino 3.0.35:
+> 
+>          const unsigned short battGasgauge[] = {
+>          //      3.0V, 3.1V, 3.2V, 3.3V, 3.4V, 3.5V, 3.6V, 3.7V, 3.8V, 3.9V, 4.0V, 4.1V, 4.2V,
+> //               743,  767,  791,  812,  835,  860,  885,  909,  935,  960,  985, 1010, 1023,
+>                   767,  791,  812,  833,  852,  877,  903,  928,  950,  979,  993, 1019, 1023,
+>          };
+> 
+> This does not look very linear... We have offsets
+> 24
+> 21
+> 21
+> 19
+> 25
+> 26
+> 25
+> 22
+> 29
+> 14
+> 26
+> 4
+> 
+> Do you have something looking more sane?
+No, I based on the same but simplified it.
+> No idea what should produce such flaky offsets besides of
+> improper measurements. At least that should be commented.
+> And why do these tables exist at all?
+> 
+> Hmm, the more weird thing is that these voltages are translated linearly
+> inot capacity.
+Indeed - this is why I decided on a linear relationship ...
+matching minimal and maixmal voltage as close as possible.
 
-Thanks very much, Leon, for reviewing this over the weekend. One thing
-you might have missed is that I place arch_sync_dma_flush() after all
-arch_sync_dma_for_*() calls, for both single and sg cases. I also
-used a Python script to scan the code and verify that every
-arch_sync_dma_for_*() is followed by arch_sync_dma_flush(), to ensure
-that no call is left out.
+> So maybe they are just adjusted to have the capacity look
+> more sane. That would explain the 4 units step between 4.1V and 4.2V.
+4.1 is the full voltage of the lion battery if charger was disconnected.
+However 4.2 I think is the final voltage reached while charging.
 
-In the subsequent patches, for sg cases, the per-entry flush is
-replaced by a single flush of the entire sg. Each sg case has
-different characteristics: some are straightforward, while others
-can be tricky and involve additional contexts.
+> Having linear adc result -> voltage and nonlinear voltage-> capcity would
+> make more sense.
+Indeed.
+But if it was intended as percentage, then why would he register not 
+just read from 0-100 :(
+So I still guess it is some adc result.
 
-Thanks
-Barry
+> 
+> looking at such code snippet like this:
+> case POWER_SUPPLY_PROP_CAPACITY:
+>                  if (POWER_SUPPLY_STATUS_NOT_CHARGING == g_ntx_bat_di->battery_status) {
+>                          val->intval = 100;
+>                          return 0;
+>                  }
+>                  value = ntx_up_battery_vol();
+> [...]
+>                                  val->intval  = 100 - ((4100000 - value)/7000);
+> 
+> 
+> I am wondering whether we should just return capacity that way without
+> calculating voltage...
+I suppose it depends on whether it is more likely that the ec provides 
+voltage, or a charge estimation.
+
+br
+Josua
 
