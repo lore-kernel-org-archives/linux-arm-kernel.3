@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58F2BE8FDD8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Dec 2025 11:50:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1414FE92704
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Dec 2025 11:50:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2RsNzulXAZLkL2QafonCahbYbZr1u/QuXtoWJZpywhQ=; b=kn1jElnlICuagOPXsYCe8IM5NX
-	5339F4ozubgNMPtpA2z4lJ7xS2fuDqEUXO3FWZus3C1SEYdBxtaCh/RFHvou8Cohbxq6A1nX8d4lC
-	+sFL4mCvzPLaNpYzOYftt/EOefZgoXU1XWUVTNN77+HgKrgiP8rMceuxuneO/UJuatCYc6Ey4oplk
-	k5puz/AeYgl3hd4yKApSBT2zzbuJrn0KF+fMQocVgY8tJfy4ljE7xMp97SYkfWalR+qkANicF/Ttm
-	5lMqxRt8nY8S+q5eecrrLMkdysOsgKoHzTmZl33pDq6/mu47wRWW4fzTNjxs5nXJQqhuSmc4meZ+X
-	0SWZoHkA==;
+	bh=NVZd4LbAX/ESPe6p2DZyRdPbrAlNEDUy2MXVhXGH2V4=; b=PpyXcwbYC5qBse1voj1S0Gkdq5
+	ml5PVa30q0Htl3RFYQYuYpyQXI+HFI/WDWTyCDN9gZRdgKI9qRmX9rvhwrXMmaJf8zHWqbxRyDhrl
+	tFQmV/sfWEFDcoX7Zk6dCpem0h35suT7iNvR8yWA2T9Kt218v9jIECfueusI4l2jrqTQF4cTWDKeN
+	9MjDieG/Vf9BZE4acbuYBOQE136mxS7J0iDUTyztROm6rKVyzfzN95WKvw9ry5H7AC7To5cfzRM8/
+	4qBoIARf9VdvgH/0QzxcZYCVbKfCt1I1Zsk7iqa3ULBUuccnqe44HFMV0heEoDw5JjbciDeaHoNzi
+	/MVecJBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZSoJ-00000001tnm-2Fth;
-	Sat, 27 Dec 2025 11:50:15 +0000
-Received: from mail-m49241.qiye.163.com ([45.254.49.241])
+	id 1vZSoI-00000001tnC-2suf;
+	Sat, 27 Dec 2025 11:50:14 +0000
+Received: from mail-m49226.qiye.163.com ([45.254.49.226])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZSoF-00000001tl0-1i0c;
+	id 1vZSoF-00000001tkx-1j7j;
 	Sat, 27 Dec 2025 11:50:13 +0000
 Received: from rockchip.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 2ebf64e06;
-	Sat, 27 Dec 2025 19:50:04 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 2ebf64df8;
+	Sat, 27 Dec 2025 19:50:00 +0800 (GMT+08:00)
 From: Ye Zhang <ye.zhang@rock-chips.com>
 To: Ye Zhang <ye.zhang@rock-chips.com>,
 	Linus Walleij <linus.walleij@linaro.org>,
@@ -42,29 +42,28 @@ Cc: Bartosz Golaszewski <brgl@bgdev.pl>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	tao.huang@rock-chips.com,
-	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Subject: [PATCH v4 4/7] gpio: rockchip: support new version GPIO
-Date: Sat, 27 Dec 2025 19:49:54 +0800
-Message-Id: <20251227114957.3287944-5-ye.zhang@rock-chips.com>
+	tao.huang@rock-chips.com
+Subject: [PATCH v4 1/7] dt-bindings: pinctrl: Add rv1126b pinctrl support
+Date: Sat, 27 Dec 2025 19:49:51 +0800
+Message-Id: <20251227114957.3287944-2-ye.zhang@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20251227114957.3287944-1-ye.zhang@rock-chips.com>
 References: <20251227114957.3287944-1-ye.zhang@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9b5fa4f3d609d8kunm85cc97d2e30a05
+X-HM-Tid: 0a9b5fa4e53309d8kunm85cc97d2e308da
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGRlIQlYYSR1CHRodT09DGBpWFRQJFh
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGh9KT1YdGUlMGkNKT0MaT0hWFRQJFh
 	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
 	hVSktLVUpCS0tZBg++
 DKIM-Signature: a=rsa-sha256;
-	b=bC6exZdbJV5uWp0lB/ND7hHaFfXL7bv3RJwjGwFqc6ybX7WUaJJmHHTJiUrHZwdgiK8PXyc7jzwz+YYoLsnvuBusdD/WVfNpxSB9rl3Dg5Qnmqhq6EPInqMSP9uycCwYjQ2EZE+hy9p50IukpjR1Fphfn8hqGZ9PJQPoxIgvM8s=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=2RsNzulXAZLkL2QafonCahbYbZr1u/QuXtoWJZpywhQ=;
+	b=ZRnvBHbMoZeiXJmknGLzA4OWmvTPFBorXKQUtfDoD8sdLKsQrqgBVCPu4VCOpD+EJY0/bXIpjadJICOaN7oXcWezjvvJQ970nVQ+PalTlHTtNw98UltOBFfgZmNAc3AJEJtmQaczABE2w2UiOJvsva7USNMS2sEg2diUW6DidH0=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=NVZd4LbAX/ESPe6p2DZyRdPbrAlNEDUy2MXVhXGH2V4=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251227_035011_961783_A3C6D930 
-X-CRM114-Status: UNSURE (   8.21  )
+X-CRM114-CacheID: sfid-20251227_035011_957085_ECF868F9 
+X-CRM114-Status: UNSURE (   7.66  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,34 +79,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Support the next version GPIO controller on SoCs like rv1126b.
+The RV1126B is a new SoC that is the successor of the RV1126. It has
+different pinctrl registers and is not compatible with the RV1126.
+Therefore, add a new compatible string for it.
 
 Signed-off-by: Ye Zhang <ye.zhang@rock-chips.com>
-Acked-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 ---
- drivers/gpio/gpio-rockchip.c | 2 ++
- 1 file changed, 2 insertions(+)
+ Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/gpio/gpio-rockchip.c b/drivers/gpio/gpio-rockchip.c
-index 47174eb3ba76..c3e831c6bcf1 100644
---- a/drivers/gpio/gpio-rockchip.c
-+++ b/drivers/gpio/gpio-rockchip.c
-@@ -36,6 +36,7 @@
- #define GPIO_TYPE_V2		(0x01000C2B)
- #define GPIO_TYPE_V2_1		(0x0101157C)
- #define GPIO_TYPE_V2_2		(0x010219C8)
-+#define GPIO_TYPE_V2_6          (0x01063F6E)
+diff --git a/Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml
+index 125af766b992..97960245676d 100644
+--- a/Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml
++++ b/Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml
+@@ -51,6 +51,7 @@ properties:
+       - rockchip,rk3588-pinctrl
+       - rockchip,rv1108-pinctrl
+       - rockchip,rv1126-pinctrl
++      - rockchip,rv1126b-pinctrl
  
- static const struct rockchip_gpio_regs gpio_regs_v1 = {
- 	.port_dr = 0x00,
-@@ -674,6 +675,7 @@ static int rockchip_get_bank_data(struct rockchip_pin_bank *bank)
- 	case GPIO_TYPE_V2:
- 	case GPIO_TYPE_V2_1:
- 	case GPIO_TYPE_V2_2:
-+	case GPIO_TYPE_V2_6:
- 		bank->gpio_regs = &gpio_regs_v2;
- 		bank->gpio_type = GPIO_TYPE_V2;
- 		bank->db_clk = of_clk_get(bank->of_node, 1);
+   rockchip,grf:
+     $ref: /schemas/types.yaml#/definitions/phandle
 -- 
 2.34.1
 
