@@ -4,85 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42366E92714
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Dec 2025 16:28:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF150E8FDCD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Dec 2025 16:28:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BuD5YZ4N03UhpFzeELt8Wte/+AalKTr8rt0ghSZkn0s=; b=fE90CBnJtGaOHplkhx8KfE25BM
-	3I3wfSRabEEQEz/v6aWR6Iz/hwt0sqw1urGktRO2inipvi2y1AfMssN37As8gbnZurs4vBFpGnzE6
-	an7fLssibwv/g1QA0SCeC3UvKxpIIQhjuPfOp/LAfWfSAbVUMU2w3mTvyC4UmzKWJUyQb14KEipcm
-	7remT5HG9Ygo32SCxVLA+HqIXkdJPuqoDFRuiyiTlUmnxzvi19seIpTK0IgzNYyc/gPwwjqk6F2qq
-	LdANdhWGrQ6Ozf4Rq21rmhet6srvia0izLjAiuzRzeLpohE4wuSC/kHL5kKxPAAEGS8TduynRvIdW
-	BmBsl29w==;
+	bh=oBoh6hY3yJ4owxWQx6sgt/gcf5XerqfPpIM1LTdUQis=; b=RM9wzDGHUMjawrtLEoOI4J6FDp
+	EjiY0t5y6N271sG+eisQ/4f7pLFDmoXKlFRB7dJjUjByl1/NnRpbX3I9FzD7lFqwoAPwQIrVPr1EW
+	ehUCm4GCpm0xWt498bF5kPd+t/gppjSr2q7OHRqnme03sx7s5YC+YL7msgZ6OKGXiB3jY1FcQThFx
+	ooJXZxx6b0LxSK9E/5k2Dh/Iyx+iUQrOnq5Ztkfm0232MpSMHOUdI86Vuei2w9V+70l6Ganpt4iOu
+	SndyxD3WohD1lNhczH6hcn75MRrDx2iR/tZOvRfJJRDcvL14csA0P4pndElzc2ifGilAlmi1qMFx2
+	V/GqgWvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZX9d-000000024wc-3F65;
-	Sat, 27 Dec 2025 16:28:33 +0000
-Received: from mo4-p02-ob.smtp.rzone.de ([85.215.255.81])
+	id 1vZX9e-000000024wh-0M2z;
+	Sat, 27 Dec 2025 16:28:34 +0000
+Received: from mo4-p02-ob.smtp.rzone.de ([85.215.255.84])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZX9a-000000024vL-1W3v
+	id 1vZX9a-000000024vK-1WyB
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 27 Dec 2025 16:28:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1766852905; cv=none;
+ARC-Seal: i=1; a=rsa-sha256; t=1766852904; cv=none;
     d=strato.com; s=strato-dkim-0002;
-    b=iaa71vAjezJNy/1pjiRbSfjHyn3IdNOUUdn/4cXs5aVq/hHhWR3ladntH/CTGO/3h6
-    aiSqhfMhvAF5yFWqLzQaIo3DrFfivD5VBu46PQSazWKgPQxpGS6C1hmZxhQgA2st5kq9
-    IIjHzBq71Ui61IiVdOyCLqiDFZ5w3PRy5xX5panKiIZ9WkvStYuzwstHJIQMiqRTG8RX
-    5UObJ1+wWQvn7QYIYueRi2UY/Xvv5+jdULrfL8sOgJfRDgpPDpBmhsHpiz/0FnYUGD9c
-    RTxXAvx7tp93RDlWasZBnoR35rtc1X7+Bd+Zg1c/MqRCFltA15OXrw5HFsPC64HRVbD4
-    b+oQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1766852905;
+    b=pqy6mqROcxf1G/JG9se5DF+UkWnYtkSm+EqkpsxBPWFuiXVg+rVykipdg+itBR310h
+    LXsNRF9Be3yDCaO1bcjawQwn3ZjhxfKTu2S5cOSEFeOziKUISaofNJ7gBIMwPXxvtlgO
+    dpLOE4R1bSXDkYNLu5UZjHW86NntKEm1rj+MSXTSttmRKZfIor/H6LMmFLBmhXtXoOwF
+    WfHK/TODMFNDtHuVqUJoZEiCj3SdNIm9tDjNsqBfaAd8pG3/GjmWF6Bph72Qzqa3Uf9O
+    5f4dpoQRRQH94JzlN7Stb37NxyD5REjqq3Oni31UdeVR+DywzFUhuVG22k8tV+aPdGN4
+    +xHQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1766852904;
     s=strato-dkim-0002; d=strato.com;
     h=Cc:To:In-Reply-To:References:Message-Id:Subject:Date:From:Cc:Date:
     From:Subject:Sender;
-    bh=BuD5YZ4N03UhpFzeELt8Wte/+AalKTr8rt0ghSZkn0s=;
-    b=jASsQmOGTK07y99JraOF0l9hgphZXm9vb8J4Yq4xkOD1Rl3OWTBv23ai3/gyZE8zko
-    G0BlRj21ylJw58k70sacQLoqqVf1GmDoht8mVXX3M50awaOIkVQLry4nlrMMj5Zd0to5
-    HqyUp9how0o6l3j/QOt1/Ig8HrKc3umY7BW/cfz5RclqmqYDRIQUx+TEBpibuvxklNbP
-    v47wtMbhHPQCoLQUDACrJ0VbBj6BAarlZ3pt+d2TDedc4QgHhqsIj7EjodtVBr28S/Xi
-    QoA5XbMOZzWh+0EqTSaNxKy/1eXUMVHmwBTOxQtnkC2DmA+DzJ3vXNAdPmtwIhqssmfX
-    1fAA==
+    bh=oBoh6hY3yJ4owxWQx6sgt/gcf5XerqfPpIM1LTdUQis=;
+    b=o/hSiqjmceS4YHXvms+r++w0H1UnlaUo10zdxkSrIMRiniOvgYj0ePrbj64GiWAXIm
+    yFqUuquM8XYuX5fs0qIpSkd7B9SfZq9SC5c8YBKhZ6felz4PCUYQJcqbB2EXfxPoZE+w
+    Na54AOd3mhIofaFeLERn6xvtq10DpOF0+ly3eCrBZkrCeNniE2F+y2gdBsMaMm+GQVJ2
+    K7injbmOm0IaFY1MUHUMVtqMIj9oWYcthd1DzqaQwLueDXYpCYKLOrt4OpthkkdxQCDF
+    W3LEYscGslh0uAgXPxTQ+eFWmERnpeD5hBelPBVTJez3OIVcUsukJMXRBeH2pHM3hN/S
+    4lxA==
 ARC-Authentication-Results: i=1; strato.com;
     arc=none;
     dkim=none
 X-RZG-CLASS-ID: mo02
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1766852905;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1766852904;
     s=strato-dkim-0002; d=jm0.eu;
     h=Cc:To:In-Reply-To:References:Message-Id:Subject:Date:From:Cc:Date:
     From:Subject:Sender;
-    bh=BuD5YZ4N03UhpFzeELt8Wte/+AalKTr8rt0ghSZkn0s=;
-    b=FDbCjAvmvqCbwcOhWfjRcxcHxzdtFVBV/b2uhyVRdM58xsCYNXs+tEV6ySWZ7q/Qr7
-    frHXHnre7El7un9+ytVEPGo58XSefaJmU/PSwj+mMKkt+eRksXTFDL5/yjNFgeW6b1ZB
-    iqMAohVtYDa2dqJOm+tvkUB+Bggi/VcEA/BO83UPVEILcoyOS4q4mWf8SePK9Br65LS7
-    MwQSJGfHyIX7FFAslh27csONq8kei/tr89AxLlESCBTnLVVUpNcWUOJeoLpfLxAuWatN
-    W8IJP0fxeJQkxj1KlSkGNGbe6f5XBArjhRYeu1YRXvd9rl0SudqZ9aoRotNQz9C3M3RT
-    iGAg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1766852905;
+    bh=oBoh6hY3yJ4owxWQx6sgt/gcf5XerqfPpIM1LTdUQis=;
+    b=CYk4T6acNEEB6i53/NeTkcrkzFlKUgiCUkTso4ASy49j1yRpP40RrtC6O7sJWLAnlp
+    pUpxuCAHROZXRKaGLWrKZ7Kp3MLGNHqYmTEcCuZSQomz66+BV3GAi4H4cZOaajdqWTIw
+    UxAFKB+NsJ/aIxj/VF5jJhBJB8mcdLAgVsjS/Avpi+6Vi149p3fmIKobbnTNzlZ9eI3g
+    Pb9fUEZpMrRUl8I7Xp/OAF7UTVLw/dBC2TC8KwvDhAcXrFBYVCR1ONx+laOED2dau2SS
+    /TpAtDXay5UETEiKgU/lWaA00EGQNNP59ayKNAcw5FPVRvHGY3pPGW7+dR/JUFW1rjBn
+    0VgQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1766852904;
     s=strato-dkim-0003; d=jm0.eu;
     h=Cc:To:In-Reply-To:References:Message-Id:Subject:Date:From:Cc:Date:
     From:Subject:Sender;
-    bh=BuD5YZ4N03UhpFzeELt8Wte/+AalKTr8rt0ghSZkn0s=;
-    b=bLz5xEqOh+2dF9YJyWADchR8kRgH+MArwclgvjgGugEEr9R6IXs67Onj3lPpxRNCWs
-    TpsBCFXPixcbxJIqlqCQ==
+    bh=oBoh6hY3yJ4owxWQx6sgt/gcf5XerqfPpIM1LTdUQis=;
+    b=H9o1l0TGDq7W0PnemiPm+6e5jWMG32qaTil1P94FhVUlOfbyIJuBCR/BY020epbW+2
+    D6Y4qI8JM70bNl3YxBAg==
 X-RZG-AUTH: ":JmMXYEHmdv4HaV2cbPh7iS0wbr/uKIfGM0EPTeoCaRth8YQvpoIkZXd2bnfIrOV7Mbk="
 Received: from localhost.localdomain
     by smtp.strato.de (RZmta 54.1.0 DYNA|AUTH)
-    with ESMTPSA id z0d4ec1BRGSPtuK
+    with ESMTPSA id z0d4ec1BRGSOtuI
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
 	(Client did not present a certificate);
-    Sat, 27 Dec 2025 17:28:25 +0100 (CET)
+    Sat, 27 Dec 2025 17:28:24 +0100 (CET)
 From: Josua Mayer <josua.mayer@jm0.eu>
-Date: Sat, 27 Dec 2025 17:28:15 +0100
-Subject: [PATCH 3/3] ARM: dts: imx: imx50-kobo-aura: add description for
- battery
+Date: Sat, 27 Dec 2025 17:28:13 +0100
+Subject: [PATCH 1/3] power: supply: add battery driver for netronix ec
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251227-kobo-aura-battery-v1-3-328a90ef5122@jm0.eu>
+Message-Id: <20251227-kobo-aura-battery-v1-1-328a90ef5122@jm0.eu>
 References: <20251227-kobo-aura-battery-v1-0-328a90ef5122@jm0.eu>
 In-Reply-To: <20251227-kobo-aura-battery-v1-0-328a90ef5122@jm0.eu>
 To: =?utf-8?q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
@@ -97,9 +96,8 @@ Cc: Andreas Kemnade <andreas@kemnade.info>, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, Josua Mayer <josua.mayer@jm0.eu>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251227_082830_663418_0B9CBA9B 
-X-CRM114-Status: UNSURE (   8.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251227_082830_663652_59342BF8 
+X-CRM114-Status: GOOD (  19.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,46 +112,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Kobo Aura has a rechargable battery that is monitored by the embedded
-controller.
-
-Battery markings: PR-285083 3.7V Typ. 1500mAh; 575327416288 5.55Wh.
-
-Add description for this battery and link it for monitoring by the
-embedded controller.
+Implement a simple battery driver for monitoring voltage with the
+netronix embedded controller found in certain ebook readers.
 
 Signed-off-by: Josua Mayer <josua.mayer@jm0.eu>
 ---
- arch/arm/boot/dts/nxp/imx/imx50-kobo-aura.dts | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ drivers/mfd/ntxec.c                  |   1 +
+ drivers/power/supply/Kconfig         |   9 ++++
+ drivers/power/supply/Makefile        |   1 +
+ drivers/power/supply/ntxec-battery.c | 101 +++++++++++++++++++++++++++++++++++
+ 4 files changed, 112 insertions(+)
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx50-kobo-aura.dts b/arch/arm/boot/dts/nxp/imx/imx50-kobo-aura.dts
-index b1a6a9c58ac33..dc8d9fd45cd23 100644
---- a/arch/arm/boot/dts/nxp/imx/imx50-kobo-aura.dts
-+++ b/arch/arm/boot/dts/nxp/imx/imx50-kobo-aura.dts
-@@ -16,6 +16,14 @@ chosen {
- 		stdout-path = "serial1:115200n8";
- 	};
- 
-+	battery: battery {
-+		compatible = "simple-battery";
-+		voltage-min-design-microvolt = <3400000>;
-+		voltage-max-design-microvolt = <4100000>;
-+		energy-full-design-microwatt-hours = <5550000>;
-+		charge-full-design-microamp-hours = <1500000>;
-+	};
-+
- 	memory@70000000 {
- 		device_type = "memory";
- 		reg = <0x70000000 0x10000000>;
-@@ -151,6 +159,7 @@ embedded-controller@43 {
- 		system-power-controller;
- 		interrupts-extended = <&gpio4 11 IRQ_TYPE_EDGE_FALLING>;
- 		#pwm-cells = <2>;
-+		monitored-battery = <&battery>;
- 	};
+diff --git a/drivers/mfd/ntxec.c b/drivers/mfd/ntxec.c
+index 08c68de0f01bc..d5059b8862aa8 100644
+--- a/drivers/mfd/ntxec.c
++++ b/drivers/mfd/ntxec.c
+@@ -139,6 +139,7 @@ static const struct regmap_config regmap_config = {
+ static const struct mfd_cell ntxec_subdev[] = {
+ 	{ .name = "ntxec-rtc" },
+ 	{ .name = "ntxec-pwm" },
++	{ .name = "ntxec-battery" },
  };
  
+ static const struct mfd_cell ntxec_subdev_pwm[] = {
+diff --git a/drivers/power/supply/Kconfig b/drivers/power/supply/Kconfig
+index 92f9f7aae92f2..5674a23ba7bd6 100644
+--- a/drivers/power/supply/Kconfig
++++ b/drivers/power/supply/Kconfig
+@@ -1132,4 +1132,13 @@ config FUEL_GAUGE_MM8013
+ 	  the state of charge, temperature, cycle count, actual and design
+ 	  capacity, etc.
+ 
++config BATTERY_NTXEC
++	tristate "Battery driver for Netronix embedded controller"
++	depends on MFD_NTXEC
++	help
++	  Say yes here to enable netronix ec battery monitoring driver.
++	  It enables the monitoring battery voltage on certain e-book readers
++	  using an embedded controller by ODM Netronix. Battery design
++	  characteristics are read from Firmware Tables if available.
++
+ endif # POWER_SUPPLY
+diff --git a/drivers/power/supply/Makefile b/drivers/power/supply/Makefile
+index 4b79d5abc49a7..db6fc815f9da2 100644
+--- a/drivers/power/supply/Makefile
++++ b/drivers/power/supply/Makefile
+@@ -128,3 +128,4 @@ obj-$(CONFIG_CHARGER_SURFACE)	+= surface_charger.o
+ obj-$(CONFIG_BATTERY_UG3105)	+= ug3105_battery.o
+ obj-$(CONFIG_CHARGER_QCOM_SMB2)	+= qcom_smbx.o
+ obj-$(CONFIG_FUEL_GAUGE_MM8013)	+= mm8013.o
++obj-$(CONFIG_BATTERY_NTXEC)	+= ntxec-battery.o
+diff --git a/drivers/power/supply/ntxec-battery.c b/drivers/power/supply/ntxec-battery.c
+new file mode 100644
+index 0000000000000..f49f0966d18dd
+--- /dev/null
++++ b/drivers/power/supply/ntxec-battery.c
+@@ -0,0 +1,101 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * The Netronix embedded controller is a microcontroller found in some
++ * e-book readers designed by the original design manufacturer Netronix, Inc.
++ * It contains RTC, battery monitoring, system power management, and PWM
++ * functionality.
++ *
++ * This driver implements battery monitoring.
++ *
++ * Copyright 2021 Josua Mayer <josua.mayer@jm0.eu>
++ */
++
++#include <linux/mfd/ntxec.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/power_supply.h>
++#include <linux/property.h>
++#include <linux/regmap.h>
++
++static const enum power_supply_property ntxec_battery_properties[] = {
++	POWER_SUPPLY_PROP_VOLTAGE_NOW,
++};
++
++struct ntxec_battery {
++	struct ntxec *ec;
++};
++
++#define NTXEC_REG_READ_BATTERY	0x41
++
++static int ntxec_battery_get_property(struct power_supply *psy,
++				     enum power_supply_property psp,
++				     union power_supply_propval *val)
++{
++	struct ntxec_battery *priv = power_supply_get_drvdata(psy);
++	int ret;
++	unsigned int value;
++
++	switch (psp) {
++		case POWER_SUPPLY_PROP_VOLTAGE_NOW:
++			ret = regmap_read(priv->ec->regmap, NTXEC_REG_READ_BATTERY, &value);
++			if (ret < 0)
++				return ret;
++
++			/* ec value to microvolt conversion:
++			 * vendor kernel source suggests linear behaviour from 3V to 4.2V
++			 * with readings 767 to 1023; each increment represents 4687,5uV.
++			 * adjust 3V boundary slightly to report exactly 4.2V when full.
++			 */
++			val->intval = 2999872 + (value - 767) * 4688;
++			break;
++		default:
++			dev_err(&psy->dev, "%s: invalid property %u\n", __func__, psp);
++			return -EINVAL;
++	}
++
++	return 0;
++}
++
++static const struct power_supply_desc ntxec_battery_desc = {
++	.name = "ec-battery",
++	.type = POWER_SUPPLY_TYPE_BATTERY,
++	.properties = ntxec_battery_properties,
++	.get_property = ntxec_battery_get_property,
++	.num_properties = ARRAY_SIZE(ntxec_battery_properties),
++};
++
++static int ntxec_battery_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct ntxec *ec = dev_get_drvdata(dev->parent);
++	struct power_supply_config psy_cfg = {};
++	struct ntxec_battery *priv;
++	struct power_supply *psy;
++
++	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
++	if (!priv)
++		return -ENOMEM;
++
++	priv->ec = ec;
++	psy_cfg.drv_data = priv;
++	psy_cfg.fwnode = dev_fwnode(dev->parent);
++	psy_cfg.no_wakeup_source = true;
++	psy = devm_power_supply_register(dev, &ntxec_battery_desc, &psy_cfg);
++	if (IS_ERR(psy))
++		return PTR_ERR(psy);
++
++	return 0;
++}
++
++static struct platform_driver ntxec_battery_driver = {
++	.driver = {
++		.name = "ntxec-battery",
++	},
++	.probe = ntxec_battery_probe,
++};
++module_platform_driver(ntxec_battery_driver);
++
++MODULE_AUTHOR("Josua Mayer <josua.mayer@jm0.eu>");
++MODULE_DESCRIPTION("Battery driver for Netronix EC");
++MODULE_LICENSE("GPL");
++MODULE_ALIAS("platform:ntxec-battery");
 
 -- 
 2.51.0
