@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 810E1E9270E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Dec 2025 12:18:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83D6CE9270E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Dec 2025 12:18:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oUj1yTYG2OsJA5NR0t10qcegAjlFezEaj2Q6zpglNnU=; b=EV/gO9zTTC0jCGKLMq9Eoa77n0
-	/PcnaF3R4xqMWCiArVSftVq0n6F1qLX52rBpeX38W7Df5sFMz+onj75Eu2ZNKOFYgB64nHC4AXLwR
-	I8WuGAcdeabwSfkOKlkP0epDo2sIKAMC9bRu2EWntSylx7lYVJsX68LA26xsy2reIJ8xDe4a27ITZ
-	ovr0PWVKhRCW0zdPyyI1R8HTj+KUgQeP2aoGulAlN8APZAWE17qEahhpeXEqcxrGtWA6ne/zeqz58
-	7wZ5BhAVhOwKMj6xstIsnuJ62puRMlv0wES+le98m59nynkCzKRCKNAQo65KkRK0iP2MJy4q8fY9g
-	RhBUt3vw==;
+	bh=z9kNg59vMLuZUSj8msr6djkrRczOEtEux+Dq5BMshWM=; b=TUeMPKDlYhnmWjFS+gIL342SAd
+	6h8QFJQ4xxwYgeed3rp1Q4lWzeyny7HvdrpjzXsDYCeXeSg8FN/R9izlau7fIK6iU5eyBgN/GbO+Y
+	5kX2sSDHjv98bHjGQWcPOV83+zmNu2SJ9Exb9RBgVED3BH0t8ZmgUJyyhg10A10/TuCyQ+M0WTfek
+	Nv5vC/FbwymEZ1aC4qsQQCETsZ75D/2vvtRjjBSIpzzoiK4G0SmHa4XTRNv7Jxz6Ko7a38Buc1ran
+	jkSkTQHMT8hzM5eYIylqT3T6yk5Uy6sC+NjatZqxMpOvoWxaqSrtB3AWZ7sDSWSBojHg7N8ShMjzA
+	JgTws7cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZTFY-00000001wIq-3Zvb;
-	Sat, 27 Dec 2025 12:18:24 +0000
-Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
+	id 1vZTFi-00000001wQK-1wO3;
+	Sat, 27 Dec 2025 12:18:34 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZTFW-00000001wFa-09ln
+	id 1vZTFf-00000001wNY-17U8
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 27 Dec 2025 12:18:24 +0000
-Received: by mail-wm1-x341.google.com with SMTP id 5b1f17b1804b1-477563e28a3so48214285e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 27 Dec 2025 04:18:21 -0800 (PST)
+	Sat, 27 Dec 2025 12:18:32 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-47d493a9b96so5712075e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 27 Dec 2025 04:18:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1766837900; x=1767442700; darn=lists.infradead.org;
+        d=suse.com; s=google; t=1766837909; x=1767442709; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=oUj1yTYG2OsJA5NR0t10qcegAjlFezEaj2Q6zpglNnU=;
-        b=HhydajcNOQ0pLUGIwIk40N0nQjI7dIxRUpI+z5P1JunZRlDUPi7URA0lqyI5hkeI0f
-         FuolxDWIT7DH/mJ58gXDYxJw9Ve0smsHt5qMnA4/vhKYUnWSO3Zk6GHHT6WX2ebPxCUh
-         SMla85ImZyyFNXnVzWrCC5wyySXkzySvcKC2XJCZscMdlVr1OByT8PxA6WI+Ftd5b52u
-         WLDArRQLT40fX+uu2SriNkKGKlo6YWYsvoJkdtJi36W7GRiUj9Y2Wo3PRffloMKL0ORS
-         fx4GliKVOm5k1B/04WBn/B2dpP0HkTCRwYCPcFc2V19qiTrM+V7LNOc78g7Lk0aCbUAE
-         Ytyg==
+        bh=z9kNg59vMLuZUSj8msr6djkrRczOEtEux+Dq5BMshWM=;
+        b=gVLRTswJSEQ0AZZqkazOY96t+0A2Sw9X9z/f9VCkhucHcaSORgDAnzMxMqg6ubHYOW
+         p3RfmLhpdirEj1FIoRroyug52wGArhgPqxae7pKjnvKN1dKXqMHjQU1QAXU83KyZhuaM
+         GhNlb15aaIDbzv8gzUCmWyiWPRBlGtytdK1LE2cGAAWsVrQmK5A7PqsdiF9Pj5fkG4dp
+         Sqw0pl6RyzoB8gTKwMSVhCdOxI5TrCa9odTVeIFhJegbKGpGz1nCSJLCMfXXEYuKgxnZ
+         0NKxtDaM9Bj8SD5OnS1tf/yH+71HlN/O1kv7Ar37OLlshBs99UZdezGPCHNv+o7KFPp/
+         KoCw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766837900; x=1767442700;
+        d=1e100.net; s=20230601; t=1766837909; x=1767442709;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=oUj1yTYG2OsJA5NR0t10qcegAjlFezEaj2Q6zpglNnU=;
-        b=TMA5mvadGKGaRoXByaIxA44TF9J2Fcuu22Kch27HXk3MyHzafwVe08niA0rjAMSx3e
-         TPShPlSWcQ1sUma5XpPBsM4qBxMergaJSVGny6I3eN4C5JlPidghENGZX4uDhzjytBxg
-         QSmVS1ftlelKOfH+kQIaBbImh+0PrkbHoQV8wXVPqlAFWcbF6OXYFfNEVNHGk/ySjgrT
-         RYoLbaiJXeeu2/Z1RMzu5FUgbMRqRhFhGQz6cweRN/8Mhq4aHYe26FY/A9OuEMmkk8wR
-         gCOeNCC+F4IWHCbx1e2MZ3QVjI2oM3XOEDj58+q3vQaD+m9ueodH+J9PEab2D/ctA7QO
-         tuhw==
-X-Forwarded-Encrypted: i=1; AJvYcCUXHhGf8kQ1dLfP/hChmfXHCcO4e46y3rc1Ugdhe0TU61OXab/Po1mbWNtgVoU54eUbgRAK53CU388XM08N29uq@lists.infradead.org
-X-Gm-Message-State: AOJu0YyeGVgNPmZD3pJomX/JXDbKeU0OZ9N2hzhhHq106HfwkPvrzrRU
-	CdLTO8lHGHA4tCc2zEB/ccWSXjUZcbbgFTiw9DuD4byTPVhEke+V6dnBnLEDp3xg41c=
-X-Gm-Gg: AY/fxX5l1pX7yMpnT4De37LHlONo6JP7pNgIobQWu2S4d0yJ7ZJ8zzZKY1lYSm6HF+j
-	3c15h7Rn1dkyJFZ/5ApfoeowYZUVJ5yx7xZT1B5F7y2NNmcbRQ8Q8hZrYKlflUkywu3QqfnyvV2
-	FvnowHFxH4BFnNFSwEvQ/9UD+yAKrg3K1c+NojCIVQTOoLV5UZFwK8IgaKRR8k+aXBCGpZWwimv
-	AZvMedtnKykO5S+dsCUBM8aKem/OH5f5NZCqcblUwnyOfkk0oxy+A78HL6CUZCR/ULj4a+kWX/T
-	lclsZtZpwTTVCpkTLV9EEbra9faykn/iy0QkHiADRzloeYW7cgNijktLoONq4iWvmVVAPMiOmPt
-	mzkN7PJ/8qo1n2mN3XuuCVlFgQCEiGEXUeenEFnaQZZReXStxvHGQ91MpPmWdOrSDCrOz4ZD5Kx
-	pbMX9Wkszq
-X-Google-Smtp-Source: AGHT+IFXI+q7UVcETj2xrgWEDOplaD2DQfL+z5FfnKK5mI2lAjBc9EF1caRTkYKVAlNOUIoqedA3Qg==
-X-Received: by 2002:a05:600c:4d98:b0:475:d7fd:5c59 with SMTP id 5b1f17b1804b1-47be29f362amr221645875e9.16.1766837900191;
-        Sat, 27 Dec 2025 04:18:20 -0800 (PST)
+        bh=z9kNg59vMLuZUSj8msr6djkrRczOEtEux+Dq5BMshWM=;
+        b=a+W9f5wDp0blM1eLZ0seTaYyfdS6ag77k4ekjwNS+AIyTIP7M5tpAivA5sZym0Gq3A
+         bbXL7FKEUCbDnx0BK9u/MxGPlzutYuiJHJs/YUSomJqebrp+c8eRSiDj4sPb9iH01Ouf
+         Jc5CAwH5+M9QlwuS0ZOd46IE5fW2pLZO01NZgPPE+Y3cq/7DfwytKtUwx3gq8Td0u7DA
+         tpSHTComneHH9NlIq+KvGj8BKBFuzjw7MDMuWj/YN9Xoo5FDYbW+S2yEn1bbdUUf2M5z
+         qbyO5w4IbDyHSRC6RxoPkfomWMhoExOODgkx5RC/dmOIOt6Z4kv/G7HZNxAWDjM/D+SM
+         gybA==
+X-Forwarded-Encrypted: i=1; AJvYcCVcKfLAXVC9O7FXlPFDdiegvLLfZVVRIeQ1m2BdUnrHRHy6IqKkqZjT+PA1qkoOhCyPpS8DlbUMK5K+hTWPkxYr@lists.infradead.org
+X-Gm-Message-State: AOJu0YzhmfWGPjdSU6/hZ8+YhaOpeULEiIMxPCZp8LSXOkc5ZvKh6MQ/
+	KxW2YjmythBpl1VYzBaVDjVp61xcVMKmx7xsNft3ZiGZ2LYl7LB0nrvg1IDXIspGrcg=
+X-Gm-Gg: AY/fxX4lggm2BSeYdZKozAb9swN9mbzt2V4ZCr+6NlsT262Q8UPEItEO2mmmmMoior2
+	Ogif+H4JyB4gLPl/INPfE+cCkLvkvuwR4DrmADLhEEJGTYgvmmGhJ1ix1DccVA+t0YgJeB8dPFN
+	+wOgNSeXrL6stnTz5jMFtw6/AYJDu4wxV4Ly/WsUlD5x6LfQsW7yPXUTx0Wz8hmcQhYx9ea81vX
+	j2cyFtxyO8gh7kXN7uCHYKC1/mGmwE1aHavsJHm7jPgtaS3pOVxnRiyYbXq54YpdJTq7okqRMDv
+	FgI/r7gHbOog7RvB5aitwAsMPfNoKSJdEgJmzaEB9glW/gPqxVj1KlyE/DvzafNNBw2B3qPMrBf
+	sBtjOxGqSXvougftpqsrOBoVujxj36psnPDi/LRo7kD8IZr3XeWiLl9DxzCrT2J6Tp3MlkVOx7y
+	wK9aiyrEyH/fhX91uscwY=
+X-Google-Smtp-Source: AGHT+IHrtEPOGW5HpG0S0h+CrpgwJd8+zbJNmNN/crxl7Vk2Gjo34WfIR0WT0TkmrlMgn1CALEr/CA==
+X-Received: by 2002:a05:600c:4f4c:b0:47a:7aa0:175a with SMTP id 5b1f17b1804b1-47d1958591bmr299387905e9.26.1766837909421;
+        Sat, 27 Dec 2025 04:18:29 -0800 (PST)
 Received: from [127.0.0.1] ([2804:5078:811:d400:58f2:fc97:371f:2])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-121724cfdd0sm97940127c88.4.2025.12.27.04.18.11
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-121724cfdd0sm97940127c88.4.2025.12.27.04.18.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 27 Dec 2025 04:18:19 -0800 (PST)
+        Sat, 27 Dec 2025 04:18:28 -0800 (PST)
 From: Marcos Paulo de Souza <mpdesouza@suse.com>
-Date: Sat, 27 Dec 2025 09:16:17 -0300
-Subject: [PATCH 10/19] fs: pstore: platform: Migrate to
+Date: Sat, 27 Dec 2025 09:16:18 -0300
+Subject: [PATCH 11/19] powerpc: kernel: udbg: Migrate to
  register_console_force helper
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251227-printk-cleanup-part3-v1-10-21a291bcf197@suse.com>
+Message-Id: <20251227-printk-cleanup-part3-v1-11-21a291bcf197@suse.com>
 References: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
 In-Reply-To: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
 To: Richard Weinberger <richard@nod.at>, 
@@ -114,16 +114,16 @@ Cc: linux-um@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org, 
  Marcos Paulo de Souza <mpdesouza@suse.com>
 X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1766837798; l=1079;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1766837798; l=1180;
  i=mpdesouza@suse.com; s=20231031; h=from:subject:message-id;
- bh=3dvgtN1V/Te+qiB9DfrS6Ouyxfyny3L7qK8ewpooDVE=;
- b=vEVEr1V/PLyTXU5DKxPct4kmpsEX80YaTpb8m+k5Ll/RykRPcPf3SC/5piYXBTRWgZnh2jkWP
- FQP0jQiJpLBB9Qo/wJGJV1aoieFgYcnUso9xzkOCnscVwaYm3IY9A0b
+ bh=EzMaKsRNP/XrImaDzG6owj2ch5Rre3nG7qKvJVZXc3k=;
+ b=4hRgVgEFeE8Kfjdb4F4yho+pOLOr4/h5Rv8YKsyU7Hs44mjvTHW9sE+Wu4jBIqif6kS1nJWUa
+ QXrCwGXn4DFCsUQcLd3WwFDkthhp5OOtTZ3i5F2rVUBtIHQVlS2lOkg
 X-Developer-Key: i=mpdesouza@suse.com; a=ed25519;
  pk=/Ni/TsKkr69EOmdZXkp1Q/BlzDonbOBRsfPa18ySIwU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251227_041822_145649_BEB32BEC 
-X-CRM114-Status: GOOD (  11.33  )
+X-CRM114-CacheID: sfid-20251227_041831_373350_8B80B5C0 
+X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,27 +146,31 @@ No functional changes.
 
 Signed-off-by: Marcos Paulo de Souza <mpdesouza@suse.com>
 ---
- fs/pstore/platform.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ arch/powerpc/kernel/udbg.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/fs/pstore/platform.c b/fs/pstore/platform.c
-index f8b9c9c73997..9d42c0f2de9e 100644
---- a/fs/pstore/platform.c
-+++ b/fs/pstore/platform.c
-@@ -418,10 +418,10 @@ static void pstore_register_console(void)
- 		sizeof(pstore_console.name));
- 	/*
- 	 * Always initialize flags here since prior unregister_console()
--	 * calls may have changed settings (specifically CON_ENABLED).
-+	 * calls may have changed settings.
- 	 */
--	pstore_console.flags = CON_PRINTBUFFER | CON_ENABLED | CON_ANYTIME;
--	register_console(&pstore_console);
-+	pstore_console.flags = CON_PRINTBUFFER | CON_ANYTIME;
-+	register_console_force(&pstore_console);
+diff --git a/arch/powerpc/kernel/udbg.c b/arch/powerpc/kernel/udbg.c
+index 862b22b2b616..0f88b7697755 100644
+--- a/arch/powerpc/kernel/udbg.c
++++ b/arch/powerpc/kernel/udbg.c
+@@ -142,7 +142,7 @@ static void udbg_console_write(struct console *con, const char *s,
+ static struct console udbg_console = {
+ 	.name	= "udbg",
+ 	.write	= udbg_console_write,
+-	.flags	= CON_PRINTBUFFER | CON_ENABLED | CON_BOOT | CON_ANYTIME,
++	.flags	= CON_PRINTBUFFER | CON_BOOT | CON_ANYTIME,
+ 	.index	= 0,
+ };
+ 
+@@ -163,7 +163,7 @@ void __init register_early_udbg_console(void)
+ 		udbg_console.flags &= ~CON_BOOT;
+ 	}
+ 	early_console = &udbg_console;
+-	register_console(&udbg_console);
++	register_console_force(&udbg_console);
  }
  
- static void pstore_unregister_console(void)
+ #if 0   /* if you want to use this as a regular output console */
 
 -- 
 2.52.0
