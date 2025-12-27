@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA53AE8FDCC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Dec 2025 13:02:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D279E8FDD8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Dec 2025 13:03:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vMNcwU1XIRXwreJ3vQYYnf7jfKCD3a4layQ2kXpU6iU=; b=aOgvRe23X3dKd/kl+VFkQw9t4w
-	48x9R8a10Z4g8vv5boK8a+8G6Hm0SXV3bKbC9dnmf27Yakk4ceoMGIULixVSXX63mtplk8/qD4BXj
-	ZMau52JVfh1m1FkiMojZ7B4MB9s9stP1QbEpULXn6ZIm9FxI7RGgAq29+mv9QAXceD1nkIOvFKMkm
-	B1qjZEbRfjG1H2kWUNOve7JgGM98ANBbmfS2931uZNSIvrK72Aqz4w8zEzoFDjW9OlJ1LzM0ChgXo
-	8Pu77EJy7iiJ7d7ggxarpsO97Pcm07TFmOEVRAWi2OQthqKkOMtYqcd3JgbB9xi1fY8AjDU7awSWB
-	G/6bjXCg==;
+	bh=IijbA1nUMGZVCVJsOOsaD9hUoN4AjJRX75w3vZKSuuU=; b=ihWqNurHFLWDZsoyAth4BK7+WN
+	pnkWPnsuxgEDMkWfCaz5HDMpUoICOsQ9MTZH5WKKOncRsYA6oJgFx8ylvC6dQN9FgMvQm3DCdIwsR
+	N0iFH/mDU8uO95tzqKQfXFweL9T4r2TlSWehORCt2pSbloqWRNyCGEA4P53vQtd1n0iBMWlqJJ6SL
+	xsx14IsQcQupT7zvhC0DuXcyhKem26DQZ8RnL1RpAOlo/zRU1W/bqyehuhFixytBFZ4Snj+FleVfv
+	p725gVvF4PxWb3xgB341F86A/DZt3Zh7RDjy73TLWUXRYAE2jAXnXtl4LmUptBr0qGQVqtz45/hvv
+	viZMKwtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZTwN-00000001znw-1Q7A;
-	Sat, 27 Dec 2025 13:02:39 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vZTxN-00000001ztg-3Rrm;
+	Sat, 27 Dec 2025 13:03:41 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZTwM-00000001zno-1ImO
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 27 Dec 2025 13:02:38 +0000
+	id 1vZTxL-00000001zt0-2xcK;
+	Sat, 27 Dec 2025 13:03:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 53B756000A;
-	Sat, 27 Dec 2025 13:02:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 767F0C4CEF1;
-	Sat, 27 Dec 2025 13:02:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 17AEF4068E;
+	Sat, 27 Dec 2025 13:03:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 671A7C4CEF1;
+	Sat, 27 Dec 2025 13:03:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766840557;
-	bh=eu9YmoAVPx9G2RqP7sOlI4dEJ+qLQ8lmQAKMzvDuWsY=;
+	s=k20201202; t=1766840619;
+	bh=Wqwb3o6BSu14O7NzML1JrB6nW276UFpu+/YaOfyV2wI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LKlVrq2bOy4hP0YLqKJFavJ9XAk3qcaSNstmLmXaSWJTtmxvgzPfKCR5IxIyVfITO
-	 BHCfndgnHaCAiiLY6ViRURNysOKKryRO5DDerfAl/YueantgNOHcfY9Zm+MPLTetHI
-	 Ct0ddu5FJFkVvl6FG+g7aiJtQgLUqcVL9RArpt/UfbtVQGx4kcGM/x83SWxc/LHbBQ
-	 WKgHwN3OAKiQcmCdUluDDGZLPS5aZyBE/n22kmidWFkxAUD680Ch/Zy1+BsbW5DsFp
-	 Fwhwpydgle0/CKnQ77apLrYdLXD7VIdsUACW0oMikGZWCWcjVBa8giyQNdrxVu2WfH
-	 4EzaW++2usE7w==
-Date: Sat, 27 Dec 2025 14:02:34 +0100
+	b=EGuzYqyFOo/fEuMi6ESArC7JhQ029gKEFO0Nikb0Pp/jJ9NoC/YGQwZ23EJPr/HED
+	 6pq6Y/B0Ll+IQLJtsE/OpU628KrFOoLft7zmz0d+8Q45VNfpY5Rrfia6jhXBAJXBt+
+	 AkHTdDdFR29+ZUWpjUCSqge3PA9yKOHuBYXKC0RkQubDNImw5sVbP/K70bPytfSEN6
+	 Upr+eYBubc4GfC/bRdpyCPxyLCQV21dVG3jqM0LqEFPDQxUdm/2RgdwxLXaOiBMvrL
+	 u2lKqYAdYJWa+mUfOJ8yQl7o5m9FEnoL44fox0/k4oDOV/FON9rlR3a0WN7g4F3nkw
+	 +rpKVmR66G5dg==
+Date: Sat, 27 Dec 2025 14:03:36 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Francesco Dolcini <francesco@dolcini.it>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Francesco Dolcini <francesco.dolcini@toradex.com>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v1 1/4] dt-bindings: arm: fsl: Add Apalis iMX8QP
-Message-ID: <20251227-polite-malachite-chameleon-f446cc@quoll>
-References: <20251223162833.138286-1-francesco@dolcini.it>
- <20251223162833.138286-2-francesco@dolcini.it>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: vkoul@kernel.org, neil.armstrong@linaro.org, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, sjakhade@cadence.com, rogerq@kernel.org, 
+	linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, srk@ti.com
+Subject: Re: [PATCH 1/2] dt-bindings: phy: Add PHY_TYPE_XAUI definition
+Message-ID: <20251227-airborne-energetic-kingfisher-adc4fb@quoll>
+References: <20251224054905.763399-1-s-vadapalli@ti.com>
+ <20251224054905.763399-2-s-vadapalli@ti.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251223162833.138286-2-francesco@dolcini.it>
+In-Reply-To: <20251224054905.763399-2-s-vadapalli@ti.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251227_050339_758365_BF05C46C 
+X-CRM114-Status: UNSURE (   6.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,26 +74,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 23, 2025 at 05:28:27PM +0100, Francesco Dolcini wrote:
-> From: Francesco Dolcini <francesco.dolcini@toradex.com>
+On Wed, Dec 24, 2025 at 11:18:58AM +0530, Siddharth Vadapalli wrote:
+> From: Swapnil Jakhade <sjakhade@cadence.com>
 > 
-> Add binding documentation for the Apalis iMX8QP SoM mated with Apalis
-> Ixora and Apalis Evaluation board.
-> 
-> Apalis iMX8QP is a variant of the Apalis iMX8QM, using an NXP i.MX8QP
-> SoC instead of the i.MX8QM. The two SoCs are pin to pin compatible, with
-> the i.MX8QP being a lower end variant, with a slower GPU and one Cortex
-> A72 core instead of two.
-> 
-> The two Apalis SoMs variants share the same schematics and PCB, and the
-> iMX8QP variant exists only on revision V1.1 of board.
-> 
-> Link: https://www.nxp.com/products/i.MX8
-> Link: https://www.toradex.com/computer-on-modules/apalis-arm-family/nxp-imx-8
-> Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
-> ---
+> Add definition for XAUI phy type.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+What is XAUI?
+
+Your commit msg duplicates subject and is obvious - repeats what is
+in the diff. Pretty pointless.
 
 Best regards,
 Krzysztof
