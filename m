@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A02DE9270E
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Dec 2025 12:17:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5070E9270E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Dec 2025 12:17:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GvSE1c/4a8QCKCTV5gdf1mCLxf9YZVQyxdWd8z10SmE=; b=RYgr7xxDZoGSGGtm6OSj9aIA9Z
-	d4CP1idIU68eIZcNcCd95o3p3LjiftFU+NKCRu6p1oe8oeqOpPNQGbJTsxiIF0//+Z3C1eiB7k7Mr
-	2W2zDFDHIByqQrRKnC7AFykOUIWoK5JkGsO7OFtpOPGz7jiiaGsL6KOJnUDLBJrsCaCtw3/07NzL3
-	gUS26CgIlU41nDEBZee5CHvr5uN7ROy3/dFSFz36hyly/1davyCeWwhCAKyUhIGCiCBsnZeBawXBu
-	keX0yvrvU97tduKDNx1oK7U4Q4hECEuBx/6Hy/oEKi8Bbd6F4S/zVOwxM8c966Xp/t2GvoC65ZbhD
-	6gHgHr9Q==;
+	bh=8qC0U4cjRdxCF4b/YJbgVpXPFvwbnk17NoVL2cOfc8A=; b=s1NdDOGsDLWFjQcZc3oWqAp+o0
+	Y1J6ydZQ5LX+Hj6e2pfR/U6dDnIIAVwEK7Hgy/FpzYuIiFFr4cEvHvBNHASVdvUEmc6fu70io7YzE
+	eyggm2ZEhKIc9Iqd3TnTudZbwLIVJ2d1kl573s+leEEpLM4XzZbY3I391dimElgIE4oIvWvdP+72V
+	BSGT2wfeu1wU5xRLMmT4cIzWygbvA1Forr10iF+O5h5Lk3hds/kQBSMkSPAyLm2GPhy1iB0RjK3+3
+	cZMd7gpBNgCHmqkv5J6Lqth0FltbOsoj7LkRFLutZFbPjDb/Yc3cu7klc84WjHND/OAdffl1XGHBY
+	BkpWic7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZTEn-00000001vjF-1jwW;
-	Sat, 27 Dec 2025 12:17:37 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1vZTEx-00000001vqb-26KX;
+	Sat, 27 Dec 2025 12:17:47 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZTEl-00000001vgi-17OB
+	id 1vZTEu-00000001vnp-3Uoe
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 27 Dec 2025 12:17:36 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-47d3ffa6720so21705685e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 27 Dec 2025 04:17:34 -0800 (PST)
+	Sat, 27 Dec 2025 12:17:46 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-47774d3536dso61934045e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 27 Dec 2025 04:17:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1766837853; x=1767442653; darn=lists.infradead.org;
+        d=suse.com; s=google; t=1766837863; x=1767442663; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=GvSE1c/4a8QCKCTV5gdf1mCLxf9YZVQyxdWd8z10SmE=;
-        b=Uka8vTehvLRNEYoIAhip9HuDd9vZSBHNqca6g2S0SRgEoRiO+dgTrEyu3fFoVOl7kU
-         /vptMORZ7mnjiHh8rfdHtPgzgyI5zxq1aqTA53ZRhHS5wsPMKz4oumDTLK6KBQb80LDW
-         2b+wDD27wbiUeE46UfltJ1VJj9Txr3vi2KJ96bnp2deG30+xeQrmrSYU6WLK+cVIF6tH
-         HDTUyUyVPfScFftb603hgKoxtFWzg8VAa/8BdxNeg0OOxfi+u7gRPk4YjvpUw1kCP7YM
-         v1OZAxu4m1wddxXuvxejuTwICvX8yRAeVPMl6PemJ9UgpNfwLVF1jVs9Zz1uqBXc5Myb
-         eauw==
+        bh=8qC0U4cjRdxCF4b/YJbgVpXPFvwbnk17NoVL2cOfc8A=;
+        b=CUXnHGyDj0H+y4bjuiijpjutx/f+NQN+YwXpuVi3o7EKK2hNoG5WiOfobE7Tc9/BHI
+         dj0ERTTY0Igl+dK0BHK0ILF7/ZGjAVEdDMOZlNsdeitXZCcm9yiR+RfEPbEpUv0XIRFI
+         CcY2lzUwUn1WqAALDRWktab35keOBaz71qYT1o8z92Qyvivc6l167dVVJnCOF3qu2ZR6
+         V4i7SQzsxlNVwys16TIcZ256AE95lWaLkUJd81+hbr25s0eD6iLqxys/NJfO4QgVay4j
+         BWWpPRASPwoxHu5sMx0WYhb4OZ4tQ8SsB0v+9oj8SaLhEKTpu8mg/oW0AalSs7Spx1TF
+         Sh9Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766837853; x=1767442653;
+        d=1e100.net; s=20230601; t=1766837863; x=1767442663;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=GvSE1c/4a8QCKCTV5gdf1mCLxf9YZVQyxdWd8z10SmE=;
-        b=wXbH6aHiQzg7f5ELXd4xl9Grbadoq3j5REglkCFDytSD96Tsm1W2rT/yNO7iJQhXkf
-         cXU5kOKIe6cQM6RnVFoG3YF5BxEgEbl85S7h7nKSyoCTuOQDyLehmTN8LiWS5HKWElUL
-         eZ+kdt22501AOWv7Xw8zRUKtJih8Udbvp5Z1VKXuQnhM+cY1+8drvRDLGdryxuRc/ESi
-         CKEbVFePCsuU1hUlqg9YQgVQKcOb7dkxa8tt5gX7jk1xluPyh7mASOTB3wX4gd5a0nmX
-         5JbtW4b29n52jw1sYIsrg+XwDvW5Nrl0qkmHvXi1UHlkWxOWyl5gJhvIIG8BVUyo8X0L
-         b8zw==
-X-Forwarded-Encrypted: i=1; AJvYcCXWSEjVi7t7vtEKNa3paqQczyv+3b9o/2arLNgjBrPwNKSj3ZFU2SDJh+wVZspryk/NwFdBTH5xJ/p7b7rSpa5e@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+gzh4TX/40Y7VJGPXEKSxYJtwrSLQjzDQbrv8izWNWD1v9gB5
-	NBANUhfTSuu2uQbOUdTAFq9p0PG4UrtURqeqh99VGYF7+mteLrqlUiV/l9z/30cM4rE=
-X-Gm-Gg: AY/fxX7x0qHXNVnYtaJpLHHrKtEnPazNzISCaa7EAS5m61pfqBFmiujbvNDsHcquWRM
-	AOwM6OsQ2hUB9ckX1asRkRpIKm2gyQpS896iq002hDs5p1mz7GW4sBEbLUpp3kM0euOMmhZF8Id
-	8JEjTKqEBvKc+VTKsptmFZJhW9W/QF6oTpap5BiDlfYEbfWLef4PqKmGO62gpOnkz3/5i/ols84
-	y1zFxQus4TwifApzPRbES2q2E7WIswbRT6gZBrwvXIaRPGuvYDqvYPlA64GZ9KFPbsbxUeTtu/0
-	Weh1Kmlg9eF7qrYeUJhxY6PIpToV9byeR9ZmmPI/7+NxeOo1wJSeh/hORvw/x+fCzbvgH4n+8Pz
-	i15HTwDX9hTMxTKum+b5LsT4IM/Bj8mdFfF6juXnY9k/5/Tz5DrGw96ZQuSeVIIhVgtcv+KeVDw
-	+x2zISITvIYmjh/wWkrKE=
-X-Google-Smtp-Source: AGHT+IFc0PxKRmRSwma+5BK2z0BfbuhbWCK5ZAQiNCh/fQVQ/f+EcwX2yper4KDcLK2LLWDZAwXkgQ==
-X-Received: by 2002:a05:600c:620c:b0:475:dde5:d91b with SMTP id 5b1f17b1804b1-47d3639489cmr187665015e9.17.1766837853435;
-        Sat, 27 Dec 2025 04:17:33 -0800 (PST)
+        bh=8qC0U4cjRdxCF4b/YJbgVpXPFvwbnk17NoVL2cOfc8A=;
+        b=liqRcQt4M6xWZUEcPCseULxVAVvWaY2Phj49v79KmPVPBHZptNDF1r796DO0ZbjI3P
+         SrCOMbQERbLdjY4HUewXEJDrmAUEz5Gun7as4nFnzGVWmz29WixV5z34ls2L7ptmBskT
+         okYYYRxJIsCq8Cz4HzaOytaVoy980gaA4f1r4s/Qj//E7u4A8K0d/O0dZha4BZTAfOrH
+         Tu1I+1I1FtipJbPWh+UBS3pXJMv1krRU00GWi+VBFDVAIhaYJqmqVwDrmrzMfXewoKBP
+         3Tju4egFrjpiMn/Ijud1PY3sBR2Qm0mpT9h8A3OWYi0wjW5X9FvgSVtgyQcUlzTqrMxI
+         tCSQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXHg/a78TA9rH1Ovzxy8yyEWo9+ep5lSB/mlKi2N72Yu4p8ojGDWM5c51aVBVeTzbtPrlqxX63Oi+cn4H7fjxRn@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy1P1KG6tZkenuFT2EzCmF2MDarju060+KvG9+GqBZWS3pTuS91
+	+oE3iVMJ+/ntESa0N/MU+MMsG3d08csK07xIQIHmpV53ZZZSNiRDhrcG3zR1IBIUFFk=
+X-Gm-Gg: AY/fxX6Mk1YeiOsNXyUH09m9ZAV81m/ESGsjDQLgLRCxuuBOSKm6X4ETJSmlicSjeTG
+	FoaXIihn+oyrOyvHFagZ0fsplXtt7wEB+vJt+94y+8rOxJipQ6isda7bea9Q651Gz9xzDuY1J0G
+	Lp8CI0ZJnATqo+IQNsAWtrKVz7oREiLA4MRvyUYl9ow5eyJZ+d1zKm0IfFpJLLzdDCAi5pxbDBj
+	DlgT6237D3zFhC8U4K513P7uWYu4OvoFynX6Ycdvjd8ZY1t8dno2K4SZyE53M1WWrixgWKDwoYP
+	T4+qJWA2ZqbnyPE93RGxmPupdvyW3X3j3i/JHhOvlla4VxphXcdmMD9ffeeLKExNLgHAFYqwJFy
+	ysmoE2zDPV65FO/aWc29Z/90r9/eklaOM4ESL3z6EOTiYa1co3EBKwRcpgeUg3ITIaIN6MfjPkq
+	vHaSRTDiC97WYIVXNHdWo=
+X-Google-Smtp-Source: AGHT+IG9JI4KghQQLO4JoQ5Zx3PCxaurUWQYnoyI9pepg6l828D4iHu4xsQcwAkRrVG/7RHQ7XMpOg==
+X-Received: by 2002:a05:600c:3397:b0:475:d91d:28fb with SMTP id 5b1f17b1804b1-47be2999657mr224830455e9.4.1766837862676;
+        Sat, 27 Dec 2025 04:17:42 -0800 (PST)
 Received: from [127.0.0.1] ([2804:5078:811:d400:58f2:fc97:371f:2])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-121724cfdd0sm97940127c88.4.2025.12.27.04.17.24
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-121724cfdd0sm97940127c88.4.2025.12.27.04.17.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 27 Dec 2025 04:17:32 -0800 (PST)
+        Sat, 27 Dec 2025 04:17:42 -0800 (PST)
 From: Marcos Paulo de Souza <mpdesouza@suse.com>
-Date: Sat, 27 Dec 2025 09:16:12 -0300
-Subject: [PATCH 05/19] printk: Add more context to suspend/resume functions
+Date: Sat, 27 Dec 2025 09:16:13 -0300
+Subject: [PATCH 06/19] printk: Introduce register_console_force
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251227-printk-cleanup-part3-v1-5-21a291bcf197@suse.com>
+Message-Id: <20251227-printk-cleanup-part3-v1-6-21a291bcf197@suse.com>
 References: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
 In-Reply-To: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
 To: Richard Weinberger <richard@nod.at>, 
@@ -113,16 +113,16 @@ Cc: linux-um@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org, 
  Marcos Paulo de Souza <mpdesouza@suse.com>
 X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1766837798; l=1815;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1766837798; l=5702;
  i=mpdesouza@suse.com; s=20231031; h=from:subject:message-id;
- bh=ZR0iR9pvZGcVZSHwNZDrCThadrViJMyV5/bfGtiN4gw=;
- b=tA7/rFTFgz8i0hdAJ53eXVaQiZ32fF9Si88T8AKGgxMwsJDyXHg4gS+HXEQzjoX95zhxiaqSG
- v/P+ZTpJjf2DQdqlDkpPXA8mgBEajKQf1Xila0zWamPBwICGf70zjAA
+ bh=yZ/nvvnmmkaNmxpD4iXjZtoziYkh4kvSpXf/WZXovX8=;
+ b=Bzarxjf3B7CuE6yunxTz81Z6xrtzP/oSyuvyRHrm78aAxtHdfrdz9xczyh+zQMNScnR1tQowx
+ BZmWRp2B3qfBQ9NUKyPZEo6SC7UASze6iocMjN2ThffW7UbTy1hRyur
 X-Developer-Key: i=mpdesouza@suse.com; a=ed25519;
  pk=/Ni/TsKkr69EOmdZXkp1Q/BlzDonbOBRsfPa18ySIwU=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251227_041735_356385_F9C5FA08 
-X-CRM114-Status: GOOD (  12.60  )
+X-CRM114-CacheID: sfid-20251227_041744_934117_70A16F87 
+X-CRM114-Status: GOOD (  23.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,58 +137,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The new comments clarifies from where the functions are supposed to be
-called.
+The register_console_force function will register a console even if it
+wasn't specified on boot. The new function will act like all consoles
+being registered were using the CON_ENABLED flag.
+
+The CON_ENABLED flag will be removed in the following patches and the
+drivers that use it will migrate to register_console_force instead.
 
 Signed-off-by: Marcos Paulo de Souza <mpdesouza@suse.com>
 ---
- kernel/printk/printk.c | 12 ++++++++++--
- 1 file changed, 10 insertions(+), 2 deletions(-)
+ include/linux/console.h |  1 +
+ kernel/printk/printk.c  | 65 ++++++++++++++++++++++++++++++++-----------------
+ 2 files changed, 43 insertions(+), 23 deletions(-)
 
+diff --git a/include/linux/console.h b/include/linux/console.h
+index caf9b0951129..7d374a29a625 100644
+--- a/include/linux/console.h
++++ b/include/linux/console.h
+@@ -792,6 +792,7 @@ enum con_flush_mode {
+ extern int add_preferred_console(const char *name, const short idx, char *options);
+ extern void console_force_preferred_locked(struct console *con);
+ extern void register_console(struct console *);
++extern void register_console_force(struct console *c);
+ extern int unregister_console(struct console *);
+ extern void console_lock(void);
+ extern int console_trylock(void);
 diff --git a/kernel/printk/printk.c b/kernel/printk/printk.c
-index 173c14e08afe..85a8b6521d9e 100644
+index 85a8b6521d9e..c5c05e4d0a67 100644
 --- a/kernel/printk/printk.c
 +++ b/kernel/printk/printk.c
-@@ -2734,7 +2734,8 @@ MODULE_PARM_DESC(console_no_auto_verbose, "Disable console loglevel raise to hig
- /**
-  * console_suspend_all - suspend the console subsystem
-  *
-- * This disables printk() while we go into suspend states
-+ * This disables printk() while we go into suspend states. Called by the power
-+ * management subsystem.
+@@ -3858,7 +3858,7 @@ static int console_call_setup(struct console *newcon, char *options)
+  * enabled such as netconsole
   */
- void console_suspend_all(void)
+ static int try_enable_preferred_console(struct console *newcon,
+-					bool user_specified)
++					bool user_specified, bool force)
  {
-@@ -2766,6 +2767,12 @@ void console_suspend_all(void)
- 	synchronize_srcu(&console_srcu);
- }
+ 	struct console_cmdline *c;
+ 	int i, err;
+@@ -3896,12 +3896,15 @@ static int try_enable_preferred_console(struct console *newcon,
+ 		return 0;
+ 	}
  
++	if (force)
++		newcon->flags |= CON_ENABLED;
++
+ 	/*
+ 	 * Some consoles, such as pstore and netconsole, can be enabled even
+ 	 * without matching. Accept the pre-enabled consoles only when match()
+ 	 * and setup() had a chance to be called.
+ 	 */
+-	if (newcon->flags & CON_ENABLED && c->user_specified ==	user_specified)
++	if (newcon->flags & CON_ENABLED && c->user_specified == user_specified)
+ 		return 0;
+ 
+ 	return -ENOENT;
+@@ -4001,26 +4004,11 @@ static u64 get_init_console_seq(struct console *newcon, bool bootcon_registered)
+ 
+ static int unregister_console_locked(struct console *console);
+ 
+-/*
+- * The console driver calls this routine during kernel initialization
+- * to register the console printing procedure with printk() and to
+- * print any messages that were printed by the kernel before the
+- * console driver was initialized.
+- *
+- * This can happen pretty early during the boot process (because of
+- * early_printk) - sometimes before setup_arch() completes - be careful
+- * of what kernel features are used - they may not be initialised yet.
+- *
+- * There are two types of consoles - bootconsoles (early_printk) and
+- * "real" consoles (everything which is not a bootconsole) which are
+- * handled differently.
+- *  - Any number of bootconsoles can be registered at any time.
+- *  - As soon as a "real" console is registered, all bootconsoles
+- *    will be unregistered automatically.
+- *  - Once a "real" console is registered, any attempt to register a
+- *    bootconsoles will be rejected
 +/**
-+ * console_resume_all - resume the console subsystem
-+ *
-+ * This resumes printk() when the system is being restored. Called by the power
-+ * management subsystem.
-+ */
- void console_resume_all(void)
- {
- 	struct console_flush_type ft;
-@@ -3553,7 +3560,7 @@ struct tty_driver *console_device(int *index)
- /*
-  * Prevent further output on the passed console device so that (for example)
-  * serial drivers can suspend console output before suspending a port, and can
-- * re-enable output afterwards.
-+ * re-enable output afterwards. Called by console drivers.
++ * __register_console: Register a new console
++ * @force: Register the console even if not specified on boot
   */
- void console_suspend(struct console *console)
+-void register_console(struct console *newcon)
++static void __register_console(struct console *newcon, bool force)
  {
-@@ -3572,6 +3579,7 @@ void console_suspend(struct console *console)
- }
- EXPORT_SYMBOL(console_suspend);
+ 	bool use_device_lock = (newcon->flags & CON_NBCON) && newcon->write_atomic;
+ 	bool bootcon_registered = false;
+@@ -4080,11 +4068,11 @@ void register_console(struct console *newcon)
+ 	}
  
-+/* Resumes printing on the passed console device. Called by console drivers. */
- void console_resume(struct console *console)
+ 	/* See if this console matches one we selected on the command line */
+-	err = try_enable_preferred_console(newcon, true);
++	err = try_enable_preferred_console(newcon, true, force);
+ 
+ 	/* If not, try to match against the platform default(s) */
+ 	if (err == -ENOENT)
+-		err = try_enable_preferred_console(newcon, false);
++		err = try_enable_preferred_console(newcon, false, force);
+ 
+ 	/* printk() messages are not printed to the Braille console. */
+ 	if (err || newcon->flags & CON_BRL) {
+@@ -4185,8 +4173,39 @@ void register_console(struct console *newcon)
+ unlock:
+ 	console_list_unlock();
+ }
++
++/*
++ * The console driver calls this routine during kernel initialization
++ * to register the console printing procedure with printk() and to
++ * print any messages that were printed by the kernel before the
++ * console driver was initialized.
++ *
++ * This can happen pretty early during the boot process (because of
++ * early_printk) - sometimes before setup_arch() completes - be careful
++ * of what kernel features are used - they may not be initialised yet.
++ *
++ * There are two types of consoles - bootconsoles (early_printk) and
++ * "real" consoles (everything which is not a bootconsole) which are
++ * handled differently.
++ *  - Any number of bootconsoles can be registered at any time.
++ *  - As soon as a "real" console is registered, all bootconsoles
++ *    will be unregistered automatically.
++ *  - Once a "real" console is registered, any attempt to register a
++ *    bootconsoles will be rejected
++ */
++void register_console(struct console *newcon)
++{
++	__register_console(newcon, false);
++}
+ EXPORT_SYMBOL(register_console);
+ 
++
++void register_console_force(struct console *newcon)
++{
++	__register_console(newcon, true);
++}
++EXPORT_SYMBOL(register_console_force);
++
+ /* Must be called under console_list_lock(). */
+ static int unregister_console_locked(struct console *console)
  {
- 	struct console_flush_type ft;
 
 -- 
 2.52.0
