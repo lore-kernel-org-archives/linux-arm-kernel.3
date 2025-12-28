@@ -4,92 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D30C2E784BE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Dec 2025 15:52:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A987D3B7E5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Dec 2025 15:52:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xDt2nU/HCGuLKi4YQDj2IaYM1PBWLEa/ggxeMOrlmyU=; b=uc59vUolsdXTXr1JRcnpfnKwVo
-	B468yRvmNwzTsk1jbjRn2be5yIZ11FtEFc+Q+dZmhdI+mfzbJ5NeTmmumCWMhFScxc4YBpEBcNAjP
-	p88vies3bPjy5avCFhvB4SiJaGCJnwAwJZPG3UJCsfGP3EkTdYh849dyVbzNciSujxRYLNZO5bROI
-	QPo/pKrJYqrwdCwkFE2jH4a3tGQwPrTtZC1zPubMfqOxLp6sttK1YvJGPBaRwtMhSVy7FDFLP6tSi
-	MdvHjhMRI/73ZrZdwx2TPrYg3+UEwjrsm9h8Q7EwelaCv7Iv753E0N+gw7jAastyzzbJNxWl1o19v
-	gGwLQm/g==;
+	bh=P/m1vxR02WOyUjv42kPGF/giy/R0/NhZdgtsGDSOxAM=; b=AUQx47Rp36r9n0PxLNcCurSIRu
+	B2rbJ1rf5NsjRfTFvQH1bU2o/yW5aMx0tGvfAtVPtKN4MXU9KCyRACNmaUQqUXdv49jtt+pVpXOu0
+	Ko+499cN4PBRp2TFWd/i7m7Auq1nvV+58md/8VUTYrT5SiFFQB5GWLWqqPEDz8Ndn7Td0/minJS35
+	cbEXB11qOJ7agxhw6BxPGUXqEWTRzEIpwsAXyWEAFD6Net28eM1dzbk/nHQOrc61St2HsFpxCGGNW
+	CgFoy/7gcp3nXxJ5EJvl7LpC5bweZQzi8HIzzbTNF7iwa3D2CyAwD/xoG5qCjuLHnisrF19ZdYI3L
+	1B+Ftnog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZt3k-00000002qzD-1xZ3;
-	Sun, 28 Dec 2025 15:51:56 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1vZt3s-00000002r1R-1URp;
+	Sun, 28 Dec 2025 15:52:04 +0000
+Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZt3d-00000002qxU-33sZ
+	id 1vZt3m-00000002qza-1X3u
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 28 Dec 2025 15:51:51 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-59b30275e69so3347019e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Dec 2025 07:51:49 -0800 (PST)
+	Sun, 28 Dec 2025 15:52:01 +0000
+Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-37bb8bef4cdso80836311fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Dec 2025 07:51:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1766937108; x=1767541908; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1766937116; x=1767541916; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=xDt2nU/HCGuLKi4YQDj2IaYM1PBWLEa/ggxeMOrlmyU=;
-        b=mpQd7Nq5xhHJK7UHIgdzKplHphklsZut/MXZ+umW53pA64cO30K9Mj046miM+n+1Tw
-         RY5JIJNWAuJIj2CJBT8GGlAua6b2rIdTNMVbGA3LTEZetQN5hVmhHsxDdmy6GbhNbwrw
-         bBiVe4jMsaw0BLgsvuE6Y+EFJEtjJgNlhYBgruAGAMQUfS14dj/SnqeIC2lOH9iwINFj
-         Xu59eLPQXuypbEx/eLYJmkwUhXptuCsKa0Et8GxYt5aGx/IjbdljkFkHy81xxEA27VsC
-         Sbj+ixdVN1GPNO0NIq1qD0wks3pIm7z7gT1cDQwEkOzfKF9UC29kVjRz+D20C0UvN10E
-         i61Q==
+        bh=P/m1vxR02WOyUjv42kPGF/giy/R0/NhZdgtsGDSOxAM=;
+        b=MK8+6i7jDgiRhVe86CqmcMePlRSlPmCuro38Ug9uOqtDwG21BmPqK04ERvwktnurU6
+         w1jXC2j/VDzs43o5c4emHzvW68LfHrl9A+iyBdiukAVZPIunxxi4A4LWrYaz/MjSrB1I
+         1Zjxxdy7gpEBqtru2l4mFml/wf5Mvg7WExkc15TPbkvDQ5pWAN31sDQi5C6oOdYaSv0D
+         vg4SruExyQ8yf36wVJSd6YUAYC4MFvAL8lSdRV6TRKIN9KVF714a7FZDRUt57Lf6jf0V
+         6S/pmIsOMegbfLAxLY9ifDrNyc60Fgu8ZgOuQodkhGXSGi7Pi0cPl1/Hb41IdgR8HDQ0
+         9dpg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766937108; x=1767541908;
+        d=1e100.net; s=20230601; t=1766937116; x=1767541916;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=xDt2nU/HCGuLKi4YQDj2IaYM1PBWLEa/ggxeMOrlmyU=;
-        b=eCxso9qbw4PV3vaitmdnVosZbK8UeaUx/pWr8iD5KS1Xpa1tZJq6x+eGkB9tbA4Ix9
-         oOvfavsMzjJc79cNO1i10etrRdJZVKSdGLAh3LMd0DTJ4hoQzEy54T3atfmWCt/U3SfB
-         KHNR3kaq26bzsnNlkGFbiLH2jj7jqfn+LiyckjrTJUK9gL0aohGQz2JWKRh5lpin87aB
-         U1tFalXHwi/4bobj5KbDOtTtaVfo+2In1o2EIuW7lwXA1LLL5suWBPKAHOBwY7M0PwLp
-         M+lEK6Yg2Js04yiOy8zeqckHcEaPy9ZdoytRFvVpwZ8EMgkmj3EVKiGLvm41hQZne+Ck
-         upfw==
-X-Forwarded-Encrypted: i=1; AJvYcCVERbREbY3EHxHe6CqVLTVqsAcNXBlgQxWQMBX5QXws5yBMEEMvyh2C7KlSYCN8ajvhYvBDTwGTnIks1yviyTeP@lists.infradead.org
-X-Gm-Message-State: AOJu0YxFpGqJvVnrUp9hCKZqpdWhNIGrCbDe/eDJHVqxCFG03MYvrPu+
-	HBWS3sWKrp1tfwCM7jBJpyWS3otK/Ly6/Hg1ea4K0Mrt/T7VPtsDAKSFFSVSgE/w3o1m6CbIBfn
-	IfWHCCipluQRhVEEEy8rOk6Grwc/Z6lcjymwUd2IdeQ==
-X-Gm-Gg: AY/fxX6mPpR6/GqSvs+zVNZI6wwveLghGLtkSPw9jP0iQseUNPMhxvy1RXxxx9AAhGA
-	GIrb9fOSdavbFBQEESRfgNjm6jGl7mTUWvHYcu9PyU1Cahs9zWH2N7uCYP/d2g6dNOSS6yq2LSa
-	A5J95t1qXZzuOlYY9egCOD8eJDMAvmeXP3ZOLSQoBgH3mZMVPAzys5VeoE75CYOvYcA2yq4xGDM
-	w01oehgD7QMBCPCO/971RIbUPA4lh6WWUddm2Gz8sxK4U5/xFv+okXEZ1tkucupsJMH+yCC9++1
-	nlHHEZ4=
-X-Google-Smtp-Source: AGHT+IGU1N8QBbdq+8B2sBGxa7sL3yjutJLHsa+eD4d/4O/IOXbvlkTxqF+kvhbF6vdkbcVRxjuHnPzltz+HFIkKUD8=
-X-Received: by 2002:a05:6512:124f:b0:599:105a:67ce with SMTP id
- 2adb3069b0e04-59a17d727c3mr8952951e87.9.1766937107517; Sun, 28 Dec 2025
- 07:51:47 -0800 (PST)
+        bh=P/m1vxR02WOyUjv42kPGF/giy/R0/NhZdgtsGDSOxAM=;
+        b=AWyaUkA+m4OQTLJ2iDg4f/B+xbNABu7U9dB+b4F2b5+XXg8Wgp+EwZz4Z9PQC+fYqO
+         ZbRdHvY7QToA+2nhJEOsFBUWXIY7s23sd2UtuGKq60Nh1Vx+wkaxRjVw0cY2ayd3eHUy
+         eVcZsNU0vEWcS9cxUPLY3JSOnkGI1NPaIH5f5loWS1uSagBRP0tuGJBsKSMmJip2AFbh
+         hqZJ+LbqpkfUafBAFJbftR/j5D5chdXN/u8TmvhsXB1x1IE1cK6YCiZMk0Z8ZI/5lhY4
+         7fvCvzpdTpQkTS1xjQk4ft6LWfy3SCTXA+Z4KaCLg6ky+4zEhPRrPJm9j06f6oleJGF2
+         IXQg==
+X-Forwarded-Encrypted: i=1; AJvYcCUs4PiMPufR+N7TyWpScsj8Vn8P5CCjHsYbzZBFDNPW/ymZhQnMoQ57PfIF+T0JgNBu09rFffcRkriHXwT70eVW@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzk3nCizq0lnkfTil7dzIhZ4jTtIQdIIj6Vz9WCkXcYlQGkBz6L
+	k6bWNc5yA8nRyhA4OEm7PP6BGJY1/ImoLGtyVfXJqQ9kSqKMQhmO0/sqw7RljVctI6NwVTUlxSJ
+	gMcWjlmXjRO5PFPRfiWWn28Z8CM5X9iyhkvrxafRkWKLdy4WGRBWc
+X-Gm-Gg: AY/fxX4AapQg4MmSAG95uGhuqeY8Ng2GBTUNggq68TqWWDHB42g0hKqxhs5yLLtiLgI
+	YhBlq6n8Adt8oCKO/9SUzz1C8Xxt3BlUasSBYJW3rYUI9u2ZaRp80N3CEs24Gwl+YT3WKHW80yA
+	DkYdy2ikZTMjNofnugjOyg1sCBKtHMusmZ7Q30O7qkSvy4g0lTiU2LURWlArThXlh5tGB4BG3gV
+	wy+FrGZT7G6M1FaByLxlrfkI6hzoE5r+B2xKQrl1Lnea5Pws8dTZJmAH5PycNPuvxqiGUbj2FFf
+	O/2nkoI=
+X-Google-Smtp-Source: AGHT+IGB3UutjLANyz+UGrs1Pqtz1ghxCPTBV3dlt5zsd0azNruBIQWwpwIrTOgY2yNs1XyuNUwLWDwXCb5ktjQfulg=
+X-Received: by 2002:a2e:ae08:0:b0:37e:884f:b6ad with SMTP id
+ 38308e7fff4ca-381216725damr72755891fa.23.1766937116107; Sun, 28 Dec 2025
+ 07:51:56 -0800 (PST)
 MIME-Version: 1.0
-References: <20251128041722.3540037-1-macpaul.lin@mediatek.com>
-In-Reply-To: <20251128041722.3540037-1-macpaul.lin@mediatek.com>
+References: <20251215-v6-18-topic-imx93-blkctrl-v3-0-51dbd1333938@pengutronix.de>
+In-Reply-To: <20251215-v6-18-topic-imx93-blkctrl-v3-0-51dbd1333938@pengutronix.de>
 From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Sun, 28 Dec 2025 16:51:11 +0100
-X-Gm-Features: AQt7F2rKehWvSimlxiGz9Dfw_4j8BvE8_7xLSPYZyFy88f7zjPyzLM7SIUxe60A
-Message-ID: <CAPDyKFranQ=UU5waLcw27E4SG30bps80DmGs+zZs6N9=iZa_zg@mail.gmail.com>
-Subject: Re: [PATCH v2] pmdomain: mtk-pm-domains: improve spinlock recursion
- fix in probe with correcting reference count
-To: Macpaul Lin <macpaul.lin@mediatek.com>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	=?UTF-8?B?TsOtY29sYXMgRiAuIFIgLiBBIC4gUHJhZG8=?= <nfraprado@collabora.com>, 
-	Chen-Yu Tsai <wenst@chromium.org>, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	Weiyi Lu <Weiyi.Lu@mediatek.com>, Jian Hui Lee <jianhui.lee@canonical.com>, 
-	Irving-CH Lin <Irving-CH.Lin@mediatek.com>, conor@kernel.org, krzk@kernel.org, 
-	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, Bear Wang <bear.wang@mediatek.com>, 
-	Pablo Sun <pablo.sun@mediatek.com>, Ramax Lo <ramax.lo@mediatek.com>, 
-	Macpaul Lin <macpaul@gmail.com>, 
-	MediaTek Chromebook Upstream <Project_Global_Chrome_Upstream_Group@mediatek.com>, Stable@vger.kernel.org
+Date: Sun, 28 Dec 2025 16:51:19 +0100
+X-Gm-Features: AQt7F2rrgyY9PnfhYGRnz3aE_FjJItGK6XwPKeNDQpDGt15NF8-FEH9rM6gu3fs
+Message-ID: <CAPDyKFqjJV8=PH7bTkWKJD4Dc7JoT6p02mPMrKA3uGuAKGsYvQ@mail.gmail.com>
+Subject: Re: [PATCH v3 0/3] i.MX91/93 BLK-CTRL improvements
+To: Marco Felsch <m.felsch@pengutronix.de>
+Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, linux-pm@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, 
+	Alexander Stein <alexander.stein@ew.tq-group.com>, Frank Li <Frank.Li@nxp.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251228_075149_856343_1759945E 
-X-CRM114-Status: GOOD (  19.37  )
+X-CRM114-CacheID: sfid-20251228_075200_581936_88478F6C 
+X-CRM114-Status: GOOD (  15.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,95 +97,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 28 Nov 2025 at 05:17, Macpaul Lin <macpaul.lin@mediatek.com> wrote:
+On Mon, 15 Dec 2025 at 20:18, Marco Felsch <m.felsch@pengutronix.de> wrote:
 >
-> Remove scpsys_get_legacy_regmap(), replacing its usage with
-> of_find_node_with_property().  Explicitly call of_node_get(np) before each
-> of_find_node_with_property() to maintain correct node reference counting.
+> Hi,
 >
-> The of_find_node_with_property() function "consumes" its input by calling
-> of_node_put() internally, whether or not it finds a match.
-> Currently, dev->of_node (np) is passed multiple times in sequence without
-> incrementing its reference count, causing it to be decremented multiple times
-> and risking early memory release.
+> there were several approaches to bring the sub-devices population
+> mainline [1,2] but non of them made it upstream. Both approaches were
+> part of either the i.MX93 LVDS or MIPI-CSI enablement.
 >
-> Adding of_node_get(np) before each call balances the reference count,
-> preventing premature node release.
+> This small patchset decouples the blk-ctrl changes which allows the
+> MIPI-CSI and LVDS patchstack to be rebased ontop of this patchset.
 >
-> Fixes: c1bac49fe91f ("pmdomains: mtk-pm-domains: Fix spinlock recursion in probe")
-> Cc: Stable@vger.kernel.org
-> Signed-off-by: Macpaul Lin <macpaul.lin@mediatek.com>
-> Tested-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> Before adding the sub-device supprt, I converted the driver to devm_*
+> only API.
+>
+> Regards,
+>   Marco
+>
+> [1] https://lore.kernel.org/all/20250701-95_cam-v1-3-c5172bab387b@nxp.com/
+> [2] https://lore.kernel.org/all/20250304154929.1785200-4-alexander.stein@ew.tq-group.com/
+>
+> ---
+> Changes in v3:
+> - Link to v2: https://lore.kernel.org/r/20251202-v6-18-topic-imx93-blkctrl-v2-0-e73501034adc@pengutronix.de
+> - Add r-b (Frank)
+> - Rebase to v6.19-rc1
+>
+> Changes in v2:
+> - Link to v1: https://lore.kernel.org/r/20251201-v6-18-topic-imx93-blkctrl-v1-0-b57a72e60105@pengutronix.de
+> - Adapt patch2 commit message (Frank)
+> - Check devm_pm_runtime_enable() return (Frank)
+> - Add r-b tags (Frank, Alexander)
+>
+> ---
+> Marco Felsch (3):
+>       pmdomain: imx93-blk-ctrl: cleanup error path
+>       pmdomain: imx93-blk-ctrl: convert to devm_* only
+>       pmdomain: imx93-blk-ctrl: add support for optional subnodes
+>
+>  drivers/pmdomain/imx/imx93-blk-ctrl.c | 77 ++++++++++++++++-------------------
+>  1 file changed, 36 insertions(+), 41 deletions(-)
+> ---
+> base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+> change-id: 20251201-v6-18-topic-imx93-blkctrl-341220f7084d
+>
+> Best regards,
+> --
+> Marco Felsch <m.felsch@pengutronix.de>
+>
 
-Applied for fixes, thanks!
+The series applied for next, thanks!
 
 Kind regards
 Uffe
-
-
-
-> ---
->  drivers/pmdomain/mediatek/mtk-pm-domains.c | 21 ++++++---------------
->  1 file changed, 6 insertions(+), 15 deletions(-)
->
-> Changes for v2:
->  - Rewording commit message.
->  - Add Fixes: and Tested-by: tag, thanks.
->
-> diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.c b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-> index 80561d27f2b2..f64f24d520dd 100644
-> --- a/drivers/pmdomain/mediatek/mtk-pm-domains.c
-> +++ b/drivers/pmdomain/mediatek/mtk-pm-domains.c
-> @@ -984,18 +984,6 @@ static void scpsys_domain_cleanup(struct scpsys *scpsys)
->         }
->  }
->
-> -static struct device_node *scpsys_get_legacy_regmap(struct device_node *np, const char *pn)
-> -{
-> -       struct device_node *local_node;
-> -
-> -       for_each_child_of_node(np, local_node) {
-> -               if (of_property_present(local_node, pn))
-> -                       return local_node;
-> -       }
-> -
-> -       return NULL;
-> -}
-> -
->  static int scpsys_get_bus_protection_legacy(struct device *dev, struct scpsys *scpsys)
->  {
->         const u8 bp_blocks[3] = {
-> @@ -1017,7 +1005,8 @@ static int scpsys_get_bus_protection_legacy(struct device *dev, struct scpsys *s
->          * this makes it then possible to allocate the array of bus_prot
->          * regmaps and convert all to the new style handling.
->          */
-> -       node = scpsys_get_legacy_regmap(np, "mediatek,infracfg");
-> +       of_node_get(np);
-> +       node = of_find_node_with_property(np, "mediatek,infracfg");
->         if (node) {
->                 regmap[0] = syscon_regmap_lookup_by_phandle(node, "mediatek,infracfg");
->                 of_node_put(node);
-> @@ -1030,7 +1019,8 @@ static int scpsys_get_bus_protection_legacy(struct device *dev, struct scpsys *s
->                 regmap[0] = NULL;
->         }
->
-> -       node = scpsys_get_legacy_regmap(np, "mediatek,smi");
-> +       of_node_get(np);
-> +       node = of_find_node_with_property(np, "mediatek,smi");
->         if (node) {
->                 smi_np = of_parse_phandle(node, "mediatek,smi", 0);
->                 of_node_put(node);
-> @@ -1048,7 +1038,8 @@ static int scpsys_get_bus_protection_legacy(struct device *dev, struct scpsys *s
->                 regmap[1] = NULL;
->         }
->
-> -       node = scpsys_get_legacy_regmap(np, "mediatek,infracfg-nao");
-> +       of_node_get(np);
-> +       node = of_find_node_with_property(np, "mediatek,infracfg-nao");
->         if (node) {
->                 regmap[2] = syscon_regmap_lookup_by_phandle(node, "mediatek,infracfg-nao");
->                 num_regmaps++;
-> --
-> 2.45.2
->
 
