@@ -4,111 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67E00D3B7E5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Dec 2025 11:44:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E09A8D3B7E5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Dec 2025 12:32:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iVEK3bZnh+AmQUEzGtFQoAn5Ev2L/XPq5ijzycOgiAc=; b=nkgrODXzvYcejM4spC9TYtSbPV
-	2dxg8L55XF5fg05hnwzLx1IFR0ceApwc2Q4LludYGHwnMrqlHX+vd1W1lrWY4RWNc1fo4BvftXlQ8
-	ahbKBFdE4GD5gVmnGvYiGk5Q6C/nr9/PcDZgRfXrcuB7RhFmcG9a0FXDh+13zU69cKe8yHDYSll7m
-	xY5ZCIOUdJ4fQA0puX7Rzu+JB1p2VzqTatK7A+VzoyI3TiETKgfMoluTgkX6RH28CtxaquSZaR3Ln
-	8PsSypMerdNyBdEiqu8AypNbvCcCSthHJEG0AhX2/cvu41vAMXIuYQ9ytzJcR2pLX0er+Sh6pmIUO
-	+pW5hhew==;
+	bh=r1jxyQ4SU6GZzFNNKhdGCJtchcbuEbIXu8zrprykYbw=; b=K6FPln1SF/K9t5VrNJI8WVnFLu
+	vHaRs2UCaWeFtqmk6dGl9TxiuCZZ/aPSZ9+5zy1u1HWSzgm4HuKHaeB0wP1dT5G51yMEFhRNnVgZV
+	GAWZ9Zha5pawknG2dHbKyM/00Cw8OW0vGLydNsmi/qkmguMAvAHYMUZiiRHVMHc0y4G/FnBT53Di0
+	LK6hbFX1PxYC6QNeY2qU+gKu2S7PY1yQVWygQmL3C6X6Dp7qpwmk0wNZH1E1sCTDV1o+kTgTYzXG1
+	dtOrk+6ArFpx6lWs8WGyevMYaLoxk4TW36xeLRNU+W2167Elo14IKVM4xmDmPIhqgRg6MFkgKBVDd
+	mZkSqTgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZpBn-00000002fzT-2o2b;
-	Sun, 28 Dec 2025 11:43:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vZpwk-00000002guY-2XZD;
+	Sun, 28 Dec 2025 12:32:30 +0000
+Received: from mout.web.de ([212.227.17.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZpBl-00000002fzA-1jnP
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 28 Dec 2025 11:43:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A4C5A405C1;
-	Sun, 28 Dec 2025 11:43:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FB97C4CEFB;
-	Sun, 28 Dec 2025 11:43:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766922236;
-	bh=sMFt/DL9zGunASxCqLcb7zpNgfgsmgCv3E5jkezPqtY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PHUla6Y/BmfaqupTVeJDcziJvJ6GzknwDVrLWR/3DXknm0Irw01T+WklGtWXUODq+
-	 VTNulfsCz8FD+UvqWb9hRgt38e8eJcXikk/IGafy5nAlpX9RFb/f2l5zRmeYwT1+pa
-	 L//Lild6vuSWGuPikJMcvqq+twMY4A181EM3+brdqFvet1QfI4N6hcanjje0cFMX/s
-	 cZnQnXCOBeEhaUUBDnl3oAzgaTS6Mn9B2ZLMsOq3AMbQhHZrLs53AT42rK8/SlO8Ja
-	 oMF2kyic4Rilh40dRlARAzlewIYo44y8tQandSzG61D8MUpJNxQjFUsOQxOWIaEXWi
-	 vC8KJOH3XmnvA==
-Message-ID: <20d454a7-1606-4418-8996-6755c1ea3180@kernel.org>
-Date: Sun, 28 Dec 2025 12:43:51 +0100
+	id 1vZpwg-00000002gth-3mKM;
+	Sun, 28 Dec 2025 12:32:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1766925126; x=1767529926; i=markus.elfring@web.de;
+	bh=r1jxyQ4SU6GZzFNNKhdGCJtchcbuEbIXu8zrprykYbw=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=ri4oH2/kBwV/+cVymsFZnUg2HYVjoH1y6HPsNHGZ3o4gEJJ9ODQiV3JQfdP9XBvo
+	 B+BbMT5ELLSSVoRrIBdUdG+nxh4ZvWOZCt5Jdr/aMlIS/23VRLmzNNThbgabRLycv
+	 YHJ9BqswaBaPFBHCBLloX5wCDc5DlRS8lH/RZDhOR92KpYJl+PbAah8Hie50MpMKN
+	 qoFpv4xuXzB73wiw+bZ8MUNXR0QEDvB3zlwmmpJ1XoEyqGTqLlVuoO4oDdF3ylkZZ
+	 zPYuWu+9Aht2199tLsW3z5seKnHdYGhEbDo0FBJZTvaCG52+10yWS0TQ8XfaX5UJt
+	 acpcL67/WxTDUH9Zzg==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.69.183]) by smtp.web.de (mrweb105
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1Mpl4x-1wGal92wKD-00gZu0; Sun, 28
+ Dec 2025 13:32:06 +0100
+Message-ID: <0108245e-1979-4eba-97e1-eb2056294c0e@web.de>
+Date: Sun, 28 Dec 2025 13:31:52 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 5/5] pinctrl: samsung: rename gs101_pinctrl_* to
- exynos9_pinctrl_*
-To: Youngmin Nam <youngmin.nam@samsung.com>, s.nawrocki@samsung.com,
- alim.akhtar@samsung.com, linus.walleij@linaro.org, peter.griffin@linaro.org,
- semen.protsenko@linaro.org, ivo.ivanov.ivanov1@gmail.com
-Cc: ryu.real@samsung.com, d7271.choe@samsung.com, shin.son@samsung.com,
- jaewon02.kim@samsung.com, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20251202093613.852109-1-youngmin.nam@samsung.com>
- <CGME20251202093029epcas2p19224bab81f8ed2b9f63613fdd010ab57@epcas2p1.samsung.com>
- <20251202093613.852109-6-youngmin.nam@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251202093613.852109-6-youngmin.nam@samsung.com>
+To: vulab@iscas.ac.cn, linux-rockchip@lists.infradead.org,
+ linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Vinod Koul <vkoul@kernel.org>
+Cc: stable@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>
+References: <20251226041711.2369638-1-vulab@iscas.ac.cn>
+Subject: Re: [PATCH] phy: rockchip: inno-usb2: Fix a double free bug in
+ rockchip_usb2phy_probe()
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20251226041711.2369638-1-vulab@iscas.ac.cn>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:x2NOzwbOqRnCZjFxVpC9RUpwv3T3EqVFouVdlpcHpIQkz7yeYl8
+ YGWL5nGMZtRhukJzX5ttmBkNEXc27cvhIlpX49Cjd4zB0/b1WMBLWPaaGU1bIRwvau95a1t
+ 8BP9jqOdiwFcM4+iAFTEBf030fragoXiFiPusQLA2ahHDQpxDXY3JMXeXYf3gLyfpMxQbOg
+ HqeVoL9fMkqnY4tXojBOg==
+UI-OutboundReport: notjunk:1;M01:P0:ED2r6XYBs1Q=;d6NFeeS9QfiKKY9uB5ShZKjle8E 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 6381pcdQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251228_034357_632403_0F404229 
-X-CRM114-Status: UNSURE (   6.32  )
+X-CRM114-CacheID: sfid-20251228_043227_296175_14EA094D 
+X-CRM114-Status: UNSURE (   2.13  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -124,19 +84,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/12/2025 10:36, Youngmin Nam wrote:
-> The suspend/resume helpers named gs101_pinctrl_{suspend,resume} are not
-> GS101-specific. They implement the generic save/restore sequence used by
-> Exynos9-style controllers that have EINT filter configuration
-> (eint_fltcon) to preserve.
-> 
-> Rename them to exynos9_pinctrl_{suspend,resume} and update all users:
+=E2=80=A6
+> Fix by using a separate label to avoid the duplicate of_node_put().
 
-Why? Exynos9 does not exist, there is no such SoC. All other SoCs can
-use GS101 naming, just like GS101 could use Exynos-foo. You need to come
-with a reason why Exynos9 is better than GS101.
+May you return directly?
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Do=
+cumentation/process/coding-style.rst?h=3Dv6.19-rc2#n532
 
 
-Best regards,
-Krzysztof
+See also once more:
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Do=
+cumentation/process/submitting-patches.rst?h=3Dv6.19-rc2#n659
+
+Regards,
+Markus
+
 
