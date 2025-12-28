@@ -4,79 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 762B6D3B7E5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Dec 2025 18:01:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC4DCE784BE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Dec 2025 18:05:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iV+a3QU1u9zgF/HMHOcZk08Z+S1cfAayNrCh+S6rGB4=; b=NEuf4QTPhFJ3XUZXMLa0SkROuj
-	CNg69KkCiU8R2wUNRpkeodAT6dwHPfERcC15as4WjH/d+X5cqmquJgY9wrbvjw1d2r7LkgGPnb4uD
-	pWXvtkfTHNXCksd+a/eI5GZNfFGWfhXV5u0m5iuROhYYQ1Z3VgqVHu4qT+zD3wFdavLytooKTgfcf
-	Jc8aBLyiq6blagHpkVJ1inzqg7ZPXp7IhEqi0a+x1nQ0PuJaIc0uLK+lEmIt243KdBISu15rRhQcB
-	CAz4XXU//Z2QXMyq0hLUZXDzcMfu5DKbxakvSyDPl9IbJ8/PXwtqrPpLCOuj4U/iX/Crp4kFypLmd
-	5sqE8T1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Subject:Cc:From:To:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oaUC9LI3elKfK3dSHnAIr/04lkVLw5nLjwexGRodyx0=; b=XZF7iPRhKOzlcLNQ5R3W63LaRk
+	9mzJ9Gn5JHftajkN779Lvj0Bn7578ErFN9rGUAaaPhKNlFTGXbr1myo03oi2tVQ8CSsqTCeXrqF7D
+	qYNQaPL7rPJV2uXvYFh1n/MWlIssz5yJV1P4a+WT9lXUMVq4p8bgaPtXDzKLAT+I02FjoZJi7JwGL
+	ZtYrC8j4ikQ0QWXYAZU6B2ShhGhKU2/DkVveZt3jOfrqmU7aQWXhwdAXfds8gObM1R4C4rl4b2LZv
+	x1c18+L72xy9YMoh+1+zwolm/45ZfdK2REbcdkEfMMJSLaLCXqLVzI8mwRkJJOvD44diSogIL+PgA
+	modL/9AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZv4v-00000002wTF-2I63;
-	Sun, 28 Dec 2025 18:01:17 +0000
-Received: from mout.gmx.net ([212.227.15.18])
+	id 1vZv9L-00000002wfB-15Ev;
+	Sun, 28 Dec 2025 18:05:51 +0000
+Received: from mail-4398.protonmail.ch ([185.70.43.98])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZv4s-00000002wSt-2ryd
+	id 1vZv9I-00000002weq-1X7E
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 28 Dec 2025 18:01:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1766944862; x=1767549662; i=j.neuschaefer@gmx.net;
-	bh=iV+a3QU1u9zgF/HMHOcZk08Z+S1cfAayNrCh+S6rGB4=;
-	h=X-UI-Sender-Class:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:In-Reply-To:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=o/xWum0qJKUl9QHSMpQxiaHs3CjPbdT42wa0ZzsbYRmid7flXgDks5mjjxFkHsXu
-	 ScSsxOu5dmMuF7wNUuZdM2ckPeUHq89NUbb9ZlOrWfvyBNAN95wS8vTu9yCTW6vke
-	 G0Gcb7+4AtxmWaYBCbI3ngXk8xrbjovCWng6txw6ZR6sUuRq9M0S1WFOQ1bVGXnVW
-	 w/9Dza9g3JFHhCvN9cT0t4/2HyBWXqMQT6XvSxHb7hYZNpaOEgFFX93XhSG55NZXR
-	 Ya6pezi/vNkdeS0bvrEzyo4pqxfVqOEGBFUbzMn3Iq+ygJ0MjQFURNtloeHIj0pFu
-	 0uM3KSv3NyRlcEzscA==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from probook ([89.0.100.107]) by mail.gmx.net (mrgmx005
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MZTqW-1vOFwp44V4-00UhxV; Sun, 28
- Dec 2025 19:01:02 +0100
-Date: Sun, 28 Dec 2025 19:01:01 +0100
-From: =?utf-8?Q?J=2E_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>
-To: Josua Mayer <josua.mayer@jm0.eu>
-Cc: j.neuschaefer@gmx.net, Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sebastian Reichel <sre@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Andreas Kemnade <andreas@kemnade.info>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 3/3] ARM: dts: imx: imx50-kobo-aura: add description for
- battery
-Message-ID: <aVFwXWkPPW_kya-h@probook>
-References: <20251227-kobo-aura-battery-v1-0-328a90ef5122@jm0.eu>
- <20251227-kobo-aura-battery-v1-3-328a90ef5122@jm0.eu>
+	Sun, 28 Dec 2025 18:05:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chimac.ro;
+	s=protonmail2; t=1766945142; x=1767204342;
+	bh=oaUC9LI3elKfK3dSHnAIr/04lkVLw5nLjwexGRodyx0=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=Yey80o5cRU02yCd6jBEfTCDJhi4okVdB8KtrhHxCDFV/4PPXpSqFCU7aAKwVuveQU
+	 jayNfPWmjiUAIC5tcmdwhhcKiQPXuwR79lTzBz8YCNd9i2Au3WX+vbRDQJNGwlfNEI
+	 yMKLf7RKFO6QeYwkOQqDiIUAE6IhfGpLZe8rCsyK9HUA4MIuuKnLi4D5ZmH49iXRv7
+	 JhXeWDt6CgDTcW42kHaVcrodSwJUtZQWqfQXbBov039jK1W2ADqtV47EaWqGbJe4+x
+	 vxGUm7G2DnOnEtApOTCZmkd9W4ORgBqS4s/mw36ZOdVQvH4s6sYRSSBYJR188iKtze
+	 mFAZyMFuJKzVA==
+Date: Sun, 28 Dec 2025 18:05:39 +0000
+To: Krzysztof Kozlowski <krzk@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Tomasz Figa <tomasz.figa@gmail.com>
+From: Alexandru Chimac <alex@chimac.ro>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Alexandru Chimac <alex@chimac.ro>
+Subject: [PATCH v2 0/3] pinctrl: samsung: add Exynos9610 pinctrl support
+Message-ID: <20251228-exynos9610-pinctrl-v2-0-c9bbeee4c54b@chimac.ro>
+Feedback-ID: 139133584:user:proton
+X-Pm-Message-ID: 03372dea5be5ce295a5aa4e421e99660dc2dfff6
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20251227-kobo-aura-battery-v1-3-328a90ef5122@jm0.eu>
-X-Provags-ID: V03:K1:JUO7iNWvAJ/9f1iaFck40NARVjqYVivDcImGNCcQqVWSr4RPV2q
- 25sot2/5t6EQTCfh/PWxJoe5U4dAcasQbQSttMmL0/W7ml7Y92QtF2STiNyQLx2EgpxANog
- VXXYTqUTqNShOFwSylk7ukeJyXIyqPOwu+dFtvIHSSGNd+ksQ+HhM2WQCk0iRcz3EmW/1I8
- ibo44yDsohNA3CvSkcydw==
-UI-OutboundReport: notjunk:1;M01:P0:6/irBIHuHR8=;Ugo7S7uqlCaAHffj0mDZGCiyZHf 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 OisbAgyvT2mbFRhzs=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251228_100115_010885_E9C2D438 
-X-CRM114-Status: GOOD (  14.05  )
+X-CRM114-CacheID: sfid-20251228_100549_231083_B3C63E0C 
+X-CRM114-Status: UNSURE (   5.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,55 +67,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Dec 27, 2025 at 05:28:15PM +0100, Josua Mayer wrote:
-> Kobo Aura has a rechargable battery that is monitored by the embedded
-> controller.
->=20
-> Battery markings: PR-285083 3.7V Typ. 1500mAh; 575327416288 5.55Wh.
->=20
-> Add description for this battery and link it for monitoring by the
-> embedded controller.
->=20
-> Signed-off-by: Josua Mayer <josua.mayer@jm0.eu>
-> ---
+This patchset adds support for the pin controller found on Exynos9610.
 
-Reviewed-by: J. Neusch=C3=A4fer <j.neuschaefer@gmx.net>
+Signed-off-by: Alexandru Chimac <alex@chimac.ro>
+---
+v2:
+- Set proper FLTCON offsets for ALIVE, FSYS, DISPAUD, TOP pin banks
+- Define samsung_pin_bank_data structures as initialization constants
+---
+Alexandru Chimac (3):
+      dt-bindings: pinctrl: samsung: Add exynos9610-pinctrl compatible
+      dt-bindings: pinctrl: samsung: Add exynos9610-wakeup-eint node
+      pinctrl: samsung: Add Exynos9610 pinctrl configuration
 
-Thanks!
+ .../pinctrl/samsung,pinctrl-wakeup-interrupt.yaml  |   2 +
+ .../bindings/pinctrl/samsung,pinctrl.yaml          |   1 +
+ drivers/pinctrl/samsung/pinctrl-exynos-arm64.c     | 109 +++++++++++++++++=
+++++
+ drivers/pinctrl/samsung/pinctrl-samsung.c          |   2 +
+ drivers/pinctrl/samsung/pinctrl-samsung.h          |   1 +
+ 5 files changed, 115 insertions(+)
+---
+base-commit: 48c4c0b684f394721b7db809e1cc282fccdb33da
+change-id: 20250914-exynos9610-pinctrl-b44cdfaeeed1
 
->  arch/arm/boot/dts/nxp/imx/imx50-kobo-aura.dts | 9 +++++++++
->  1 file changed, 9 insertions(+)
->=20
-> diff --git a/arch/arm/boot/dts/nxp/imx/imx50-kobo-aura.dts b/arch/arm/bo=
-ot/dts/nxp/imx/imx50-kobo-aura.dts
-> index b1a6a9c58ac33..dc8d9fd45cd23 100644
-> --- a/arch/arm/boot/dts/nxp/imx/imx50-kobo-aura.dts
-> +++ b/arch/arm/boot/dts/nxp/imx/imx50-kobo-aura.dts
-> @@ -16,6 +16,14 @@ chosen {
->  		stdout-path =3D "serial1:115200n8";
->  	};
-> =20
-> +	battery: battery {
-> +		compatible =3D "simple-battery";
-> +		voltage-min-design-microvolt =3D <3400000>;
-> +		voltage-max-design-microvolt =3D <4100000>;
-> +		energy-full-design-microwatt-hours =3D <5550000>;
-> +		charge-full-design-microamp-hours =3D <1500000>;
-> +	};
-> +
->  	memory@70000000 {
->  		device_type =3D "memory";
->  		reg =3D <0x70000000 0x10000000>;
-> @@ -151,6 +159,7 @@ embedded-controller@43 {
->  		system-power-controller;
->  		interrupts-extended =3D <&gpio4 11 IRQ_TYPE_EDGE_FALLING>;
->  		#pwm-cells =3D <2>;
-> +		monitored-battery =3D <&battery>;
->  	};
->  };
-> =20
->=20
-> --=20
-> 2.51.0
->=20
+Best regards,
+--
+Alexandru Chimac <alex@chimac.ro>
+
+---
+Alexandru Chimac (3):
+      dt-bindings: pinctrl: samsung: Add exynos9610-pinctrl compatible
+      dt-bindings: pinctrl: samsung: Add exynos9610-wakeup-eint node
+      pinctrl: samsung: Add Exynos9610 pinctrl configuration
+
+ .../pinctrl/samsung,pinctrl-wakeup-interrupt.yaml  |   2 +
+ .../bindings/pinctrl/samsung,pinctrl.yaml          |   1 +
+ drivers/pinctrl/samsung/pinctrl-exynos-arm64.c     | 117 +++++++++++++++++=
+++++
+ drivers/pinctrl/samsung/pinctrl-samsung.c          |   2 +
+ drivers/pinctrl/samsung/pinctrl-samsung.h          |   1 +
+ 5 files changed, 123 insertions(+)
+---
+base-commit: 3e7f562e20ee87a25e104ef4fce557d39d62fa85
+change-id: 20251228-exynos9610-pinctrl-7d7988fd50a1
+
+Best regards,
+--=20
+Alexandru Chimac <alex@chimac.ro>
+
+
 
