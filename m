@@ -4,115 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 214C1E784BE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Dec 2025 13:21:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51116D3B7E5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Dec 2025 13:51:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NsMbiiRw5pwuhYdj9qM0uJazKIcwvpy1o66u9nBUaH4=; b=xVN24/J2NeICzlKSwb5X+7deFZ
-	UtujkRZstpjCuj0dak01h4Uovp9x/upqO4qbK019i7PlbQmhNdgUY1m8rYhlMukShuq9l4R2OGMxz
-	BituW6iOgjeFwF5rWU+F8faFUxuX/WXp3v2rVtUPj726Ost4Uf4M1hllItGGQwbD15CY7DP/2sntW
-	MsnSOTf91J2xc+kab/H9uRIK7UP6Nw3kv1KAKcgt/aDP/awOv4mpeorYxU8Ur/C9KTaL759+bYiWb
-	Pyq7IWZC3M9nKoTkukUsfkB3HqNE910Z33K6eQcskxozR4+kPZSmWoq4RVf3oZag32raEpey4mQE2
-	b3BsU11w==;
+	bh=oN/aIz1XY454lGJ8sbnw/g6DmoJjGaqS46WterdGgu8=; b=OwKElmSzc7H/gR2SyBz/eWFWmr
+	72Cr2y5cEMDXvjqc2bDzxWt8oFHKhLLLZvaq95o42fXjfCbwwCTXsw1afHRUD/LTUm2gQtKwzTzBr
+	nG6SOt8KE/lwbwTRN/DkLgWMxtnVv5WqCXVJHNf4rfFcKdP3d42ei98yoVKbb5bglg58d7oSxFghL
+	rSWOOX5dUeY1KF/5z9hk2kHgmlTArfcA0doFxKgrr/dFJN5tmA7HN1x2hCTD8hTytc4u12EzZQnRm
+	I2O/hQUpxkQMHhkEeiogW51YRrN469/5DidJukIjnd5Mjqjjwqzit+9rfbQZeAzNMQg71NMyZlJOJ
+	Q0F6OrVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZqiM-00000002m9F-3wgt;
-	Sun, 28 Dec 2025 13:21:42 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vZrAg-00000002mv7-2ZH7;
+	Sun, 28 Dec 2025 13:50:58 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZqiM-00000002m98-0jrY
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sun, 28 Dec 2025 13:21:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=NsMbiiRw5pwuhYdj9qM0uJazKIcwvpy1o66u9nBUaH4=; b=LWaNG2C7sXkM2raEs/s9lbksWg
-	8DtVc9mmrO6l9C7V9yn9d2MQxKCUec//teVDPmesknjKrSJjFIVaeSDrlc2k9WQPUVXYhQkkUwb5b
-	si6MFgMqKsA48cbMxeIRTMz98oTFYEHBuB+pK7JJ0aQyD2ab3lSJOFJVdkfUAS7AJrzSjcSbRKGqy
-	cKvvDnooHWbKKzMQwVaQ3L/ss6psolOlIFeizwPuePNx9fYBtKYaDel5KElmf6uDWEkZwANhFpgGK
-	5OCwOqcw2j132ahUlLsVbO8d+vl5AYqXckVQsvGgFe33YPySTTvAoaVl7XdQghZj7sUWrnW2BMCE2
-	2OKtz9pw==;
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZqiI-000000026wu-3usW
+	id 1vZrAe-00000002muN-1HBp
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 28 Dec 2025 13:21:40 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-8035e31d834so5762357b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Dec 2025 05:21:37 -0800 (PST)
+	Sun, 28 Dec 2025 13:50:57 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-b832c65124cso343912666b.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Dec 2025 05:50:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1766928096; x=1767532896; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=NsMbiiRw5pwuhYdj9qM0uJazKIcwvpy1o66u9nBUaH4=;
-        b=ZQVY2u/MpjOvK62MYaE8aW+HBQTAvoyyCB3CeaSayCvR0MZfE2kpJQjhziXGp0BXTk
-         lD1//PBfJSCBYVTPBktvxrIFp+p/ouiVxJ3Qlye4U7sc1yv4TmK7bKAV9kWCIFU/pTYi
-         +ybIyQAhMqVExbDRqnYk44ukfOnwY4G1aSGn+/JfqvLWneuhhyNyj9RXdxITDqTQnbly
-         4r8QIInbflBPM+DqwlwXXUTrT/Kt1LfR5dtm6WlTJb+6oMIBidXYGJrhVKVOmmFP7uaX
-         FmvJtdExELLjmECzRydWE38qdEaNtZFlNSSh1EcWCFGiVFiUnx3oCD0UYmFxmLAMayb1
-         zk+Q==
+        d=rivosinc.com; s=google; t=1766929854; x=1767534654; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=oN/aIz1XY454lGJ8sbnw/g6DmoJjGaqS46WterdGgu8=;
+        b=Gu3eIqKtteeOHNLG/soCDZaL5KcQaDPJb2DfIoXkt5Hs/HFnxdgKnFSn261dYdG2ct
+         C7LJWXEkiWakeLCRFQhu3JOSPGANlUKdj6+nrbk2MAq/MVVum3tpstb/gl42UhV+R/o/
+         tchQurTcpk+HQiwp/0UR6Na2NHsI5m9TilQKsn2Qgu8Km7tA1uNkneu2Ca49Jn8GO3EI
+         sOxgib9n4NHKNikieAeNC8j+d5qDhiHzxnQ0XhIAKwSyiurCh0Uip/M0rd72V6P8B1cC
+         98oqeSLmJq0W1wnK5vXkqe43teD/KvkZIFZSosamQnGD1Vw9oVFLJugWu6LaL6poIci9
+         mmkw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766928096; x=1767532896;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=NsMbiiRw5pwuhYdj9qM0uJazKIcwvpy1o66u9nBUaH4=;
-        b=YctsJSbNd0o0ceRnOgVmu5krXi2sHPXAmDeU+jStLFZKq6wpHMrPagUxjco5AcKZQy
-         /EAR+LfnMA0EbCCP8PN7gtZs971rPVbYhJMxjfljGB7XZrc8LK3AdBXqQAMn/38BSueL
-         B8n6yRF4HTMdXqsto93ORqkXJ4qq+t44urCZIe8bbtLiw9jZsODQoYbYI4SZvhlN12sc
-         FS35LuGwJKhLr8dU//wLgJ05dqyV4FCNBZH1ccSkIXEeYJEo5TvX2/pVNeMnWzWQ/4c4
-         KZ/VtlWFfSJ+i62hWOjagmnYZ1rVCct0uRo5e2aOzwTPOpqNljxXQG8i0yr5ibaqDo/X
-         011A==
-X-Forwarded-Encrypted: i=1; AJvYcCXNAblEUJJmnQFeDnZgUXf/btNQ39B0pUaQYk9rKZltL1MNkmcfNj3u1Kx9r9F6LenpwTdJt/rwlP+7cHvO4/uY@lists.infradead.org
-X-Gm-Message-State: AOJu0YyV0pv/Z/QNY3hEkNR6PzzsfZvIjfEViWKFdLXEL7Hc67CTIEZs
-	QY8b0W4HVBN7ZE4ytJFN/w5KEfe9u6f4JXlSbHTnbMwQaZxddXjmMQiq
-X-Gm-Gg: AY/fxX5YuDhxy26eCTonn6hXDN2l54JxXuuOcZuul0/hNDmF8qlaejRF3m6TtmpBeOr
-	G8uAjNsv3JbJ/e23fWF9IYZ4UvhhfaQ2ANckzcELA0dsA3mZnFFIPO597m0j/KqsWDbzN9Tm+lc
-	c9s32WYKniJJwu4Z1+Mo5hdBECsKQC/UVlHB9dbUKBBClCTzruKarMqoPg1SdNi0J/BwvQ+YE92
-	pwFMMIDlQ9xDR0EL9PCuIZuNhZMst1hynQPMSQG6v5HpsiO3RB4MEIlSmp4Bk51aGyIZklhCzJv
-	kuEbxEBfabcDBdYtiJEQk4H9StFTMk6nKGcjZskI/oSBY8naeFMYJnL4Xx1wB6UgPNM64pxU63R
-	uFjuJl/WdJ1J1jWzgZy+aoEOR0uQkPTO+5NXQdLEKwgagD9z6zbF0wq6KhbaflH+tRNuO9N9IHu
-	Tz7SmNaov4XJK9w7/xK/qmY/w+cT0EiWHfQR9IFkMOEaizwPBuJ4/7jTxJbMOCqLNoQZkXoSDez
-	pmgJCLF6UHl6NzyhGOGmbO9le+R6ghzoN/A6Q==
-X-Google-Smtp-Source: AGHT+IHeg/aDmTAdO7reMjcuq8FZ1iHZdOJNA4rNPYOoWbba+9Xx9UUwrhaHrn5Pm5j+3g0csgItJg==
-X-Received: by 2002:a05:6a20:e290:b0:364:13c3:3dd0 with SMTP id adf61e73a8af0-376a8eb6c35mr29010710637.36.1766928096301;
-        Sun, 28 Dec 2025 05:21:36 -0800 (PST)
-Received: from [172.27.236.57] (ec2-13-250-3-147.ap-southeast-1.compute.amazonaws.com. [13.250.3.147])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c1e7bd602desm24490702a12.21.2025.12.28.05.21.27
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 28 Dec 2025 05:21:34 -0800 (PST)
-Message-ID: <77111894-1b9f-4970-b41f-48e3a4c4b754@gmail.com>
-Date: Sun, 28 Dec 2025 21:21:25 +0800
+        d=1e100.net; s=20230601; t=1766929854; x=1767534654;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=oN/aIz1XY454lGJ8sbnw/g6DmoJjGaqS46WterdGgu8=;
+        b=FPD1BJWKQRMzI3aEyL96sKCyZ4KGUiZxq0n4AUen0K4U0drMBGs9ax0H/FWru8ApyM
+         Of46TMfNrLQ66nbBUTgxEomqOAE/COarO56SwMQBIprIP3xQkTCQYc6eEoUk7fVq8TQW
+         P2HgklGT/ZcbXUtH46hPvwErgomDRnRjS2uB7Vv8Lj3FsalSUvqRODdq25FXaYmdNH0y
+         6mGAXWbyjy04Y0RkS5skvL440LHJ96h9sFvari4MXIvVh9HuhM1WPJQql9RzjK+1MPMz
+         GV17vWuI2S85qUC66qYa5o8z+tSJhvc2AUcHFn5jV51APeiB6a0zKs0M1OOYDRyAO6QG
+         KJ3w==
+X-Forwarded-Encrypted: i=1; AJvYcCXqhvRbZaICkRXOy4MXmarU6RaHahWyIuGm4XIaFxYcm/ruYaC4Ya5Zh7nicX1L+Rr05d6DoOEZt3KlCv0RPWsW@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9jDqS6JZikm1hPa17firyM1FMjTfCDaLE4gfoXKkE+k84IqR8
+	IAe0v/4BBQ/FuGI+whi3HnxcTrGHojOqByw8Z9nRi3wCok6Dr32uwjs0gdAFxk1agm8zNEiM+w5
+	X7GVJIn6P8OuehSR/Z4zez1beba1TUQ658P6xogycow==
+X-Gm-Gg: AY/fxX484hLe3QDkGIvLjW7D18tX26UCK5tS2E1LRet70JHSb3DrSjQ6OVjxJ6S5Yd9
+	uHV/UTNqFJRAdpqoMnR2kNdPm28Cq4JIUW88lSXpLqOZk1+oNXk+hqTHw67qFHCW2B8aQS3F8hb
+	IjDKlpgpxiIDRHcQ3SVINUX+/aDor9N8ihGVQXK6z2xZa2LdvLtIrMXEteqKSnQ+Xw8VNDwPQ1m
+	7fJsNoy4fMcsK0XcQDrA5abJsiEB8wjhKx8GjD+lyTdrE70CGBvnnJwZJXo/RirRc06IOi+0tGE
+	EOjN/5ffoHKSef1SUmoD8gXvnck=
+X-Google-Smtp-Source: AGHT+IGYVNTT7KcVwWb/gcwfunBvcKj+HFmzGAfnAba+LpgJA3fa8hkqTMUPMnJPZBJQPzODyQqQOtMKHwz/Eg2Ojz4=
+X-Received: by 2002:a17:907:608c:b0:b76:d54b:849e with SMTP id
+ a640c23a62f3a-b8037153924mr2658906766b.34.1766929854291; Sun, 28 Dec 2025
+ 05:50:54 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/5] KVM: arm64: Enable HDBSS support and handle HDBSSF
- events
-To: Tian Zheng <zhengtian10@huawei.com>, maz@kernel.org,
- oliver.upton@linux.dev, catalin.marinas@arm.com, corbet@lwn.net,
- pbonzini@redhat.com, will@kernel.org
-Cc: linux-kernel@vger.kernel.org, yuzenghui@huawei.com,
- wangzhou1@hisilicon.com, yezhenyu2@huawei.com, xiexiangyou@huawei.com,
- zhengchuan@huawei.com, joey.gouly@arm.com, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org, suzuki.poulose@arm.com
-References: <20251121092342.3393318-1-zhengtian10@huawei.com>
- <20251121092342.3393318-5-zhengtian10@huawei.com>
- <87df4cba-b191-49cf-9486-fc379470a6eb@gmail.com>
- <f8e59e80-33b2-47cd-a042-11f28cc61645@huawei.com>
-Content-Language: en-US
-From: Robert Hoo <robert.hoo.linux@gmail.com>
-In-Reply-To: <f8e59e80-33b2-47cd-a042-11f28cc61645@huawei.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <20251105082639.342973-1-cleger@rivosinc.com> <20251105082639.342973-5-cleger@rivosinc.com>
+ <CAEEQ3wnQiUdNVjUpdDgAx1=y76vSo66vCD0Wf3EGes274jnkxw@mail.gmail.com>
+ <CADGDLFgnx3z9WMZBjURx7eEFeeDwb9tj+8WAik4siR_G8erk0Q@mail.gmail.com> <CAEEQ3wmLvBy0rVCwP_LcF9ube0=a1K6QFyp9jnE7JRMXxL11nw@mail.gmail.com>
+In-Reply-To: <CAEEQ3wmLvBy0rVCwP_LcF9ube0=a1K6QFyp9jnE7JRMXxL11nw@mail.gmail.com>
+From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
+Date: Sun, 28 Dec 2025 14:50:43 +0100
+X-Gm-Features: AQt7F2rerB-1E6FpXBUswthcbBv5Oblzt_4gQc9K618zEHs02-ut3W7zeJWdXpA
+Message-ID: <CADGDLFgN5QvqoKpe3HUK3K9qkkmsqKaXVDYkaJexhd7xZUGJCA@mail.gmail.com>
+Subject: Re: [External] [PATCH v8 4/5] perf: RISC-V: add support for SSE event
+To: yunhui cui <cuiyunhui@bytedance.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, 
+	Himanshu Chauhan <hchauhan@ventanamicro.com>, Anup Patel <apatel@ventanamicro.com>, 
+	Xu Lu <luxu.kernel@bytedance.com>, Atish Patra <atishp@atishpatra.org>, 
+	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251228_132139_113767_7E86953A 
-X-CRM114-Status: GOOD (  21.52  )
+X-CRM114-CacheID: sfid-20251228_055056_420717_8E956CBE 
+X-CRM114-Status: GOOD (  36.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,185 +102,364 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/24/2025 2:15 PM, Tian Zheng wrote:
-> 
-> 
-> On 12/17/2025 9:39 PM, Robert Hoo wrote:
->> On 11/21/2025 5:23 PM, Tian Zheng wrote:
->>> From: eillon <yezhenyu2@huawei.com>
->>>
->>> Implement the HDBSS enable/disable functionality using the
->>> KVM_CAP_ARM_HW_DIRTY_STATE_TRACK ioctl.
->>>
->>> Userspace (e.g., QEMU) can enable HDBSS by invoking the ioctl
->>> at the start of live migration, configuring the buffer size.
->>> The feature is disabled by invoking the ioctl again with size
->>> set to 0 once migration completes.
->>>
->>> Add support for updating the dirty bitmap based on the HDBSS
->>> buffer. Similar to the x86 PML implementation, KVM flushes the
->>> buffer on all VM-Exits, so running vCPUs only need to be kicked
->>> to force a VM-Exit.
->>>
->>> Signed-off-by: eillon <yezhenyu2@huawei.com>
->>> Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
->>> ---
->>>   arch/arm64/include/asm/kvm_host.h |  10 +++
->>>   arch/arm64/include/asm/kvm_mmu.h  |  17 +++++
->>>   arch/arm64/kvm/arm.c              | 107 ++++++++++++++++++++++++++++++
->>>   arch/arm64/kvm/handle_exit.c      |  45 +++++++++++++
->>>   arch/arm64/kvm/hyp/vhe/switch.c   |   1 +
->>>   arch/arm64/kvm/mmu.c              |  10 +++
->>>   arch/arm64/kvm/reset.c            |   3 +
->>>   include/linux/kvm_host.h          |   1 +
->>>   8 files changed, 194 insertions(+)
->>>
->>> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/ 
->>> asm/kvm_host.h
->>> index d962932f0e5f..408e4c2b3d1a 100644
->>> --- a/arch/arm64/include/asm/kvm_host.h
->>> +++ b/arch/arm64/include/asm/kvm_host.h
->>> @@ -87,6 +87,7 @@ int __init kvm_arm_init_sve(void);
->>>   u32 __attribute_const__ kvm_target_cpu(void);
->>>   void kvm_reset_vcpu(struct kvm_vcpu *vcpu);
->>>   void kvm_arm_vcpu_destroy(struct kvm_vcpu *vcpu);
->>> +void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu);
->>>
->>>   struct kvm_hyp_memcache {
->>>       phys_addr_t head;
->>> @@ -793,6 +794,12 @@ struct vcpu_reset_state {
->>>       bool        reset;
->>>   };
->>>
->>> +struct vcpu_hdbss_state {
->>> +    phys_addr_t base_phys;
->>> +    u32 size;
->>> +    u32 next_index;
->>> +};
->>> +
->>>   struct vncr_tlb;
->>>
->>>   struct kvm_vcpu_arch {
->>> @@ -897,6 +904,9 @@ struct kvm_vcpu_arch {
->>>
->>>       /* Per-vcpu TLB for VNCR_EL2 -- NULL when !NV */
->>>       struct vncr_tlb    *vncr_tlb;
->>> +
->>> +    /* HDBSS registers info */
->>> +    struct vcpu_hdbss_state hdbss;
->>>   };
->>>
->>>   /*
->>> diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/ 
->>> asm/kvm_mmu.h
->>> index e4069f2ce642..6ace1080aed5 100644
->>> --- a/arch/arm64/include/asm/kvm_mmu.h
->>> +++ b/arch/arm64/include/asm/kvm_mmu.h
->>> @@ -331,6 +331,23 @@ static __always_inline void __load_stage2(struct 
->>> kvm_s2_mmu *mmu,
->>>       asm(ALTERNATIVE("nop", "isb", ARM64_WORKAROUND_SPECULATIVE_AT));
->>>   }
->>>
->>> +static __always_inline void __load_hdbss(struct kvm_vcpu *vcpu)
->>> +{
->>> +    struct kvm *kvm = vcpu->kvm;
->>> +    u64 br_el2, prod_el2;
->>> +
->>> +    if (!kvm->enable_hdbss)
->>> +        return;
->>> +
->>> +    br_el2 = HDBSSBR_EL2(vcpu->arch.hdbss.base_phys, vcpu- >arch.hdbss.size);
->>> +    prod_el2 = vcpu->arch.hdbss.next_index;
->>> +
->>> +    write_sysreg_s(br_el2, SYS_HDBSSBR_EL2);
->>> +    write_sysreg_s(prod_el2, SYS_HDBSSPROD_EL2);
->>> +
->>> +    isb();
->>> +}
->>> +
->>>   static inline struct kvm *kvm_s2_mmu_to_kvm(struct kvm_s2_mmu *mmu)
->>>   {
->>>       return container_of(mmu->arch, struct kvm, arch);
->>> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
->>> index 870953b4a8a7..64f65e3c2a89 100644
->>> --- a/arch/arm64/kvm/arm.c
->>> +++ b/arch/arm64/kvm/arm.c
->>> @@ -79,6 +79,92 @@ int kvm_arch_vcpu_should_kick(struct kvm_vcpu *vcpu)
->>>       return kvm_vcpu_exiting_guest_mode(vcpu) == IN_GUEST_MODE;
->>>   }
->>>
->>> +void kvm_arm_vcpu_free_hdbss(struct kvm_vcpu *vcpu)
->>> +{
->>> +    struct page *hdbss_pg = NULL;
->>> +
->>> +    hdbss_pg = phys_to_page(vcpu->arch.hdbss.base_phys);
->>> +    if (hdbss_pg)
->>> +        __free_pages(hdbss_pg, vcpu->arch.hdbss.size);
->>> +
->>> +    vcpu->arch.hdbss = (struct vcpu_hdbss_state) {
->>> +        .base_phys = 0,
->>> +        .size = 0,
->>> +        .next_index = 0,
->>> +    };
->>> +}
->>> +
->>> +static int kvm_cap_arm_enable_hdbss(struct kvm *kvm,
->>> +                    struct kvm_enable_cap *cap)
->>> +{
->>> +    unsigned long i;
->>> +    struct kvm_vcpu *vcpu;
->>> +    struct page *hdbss_pg = NULL;
->>> +    int size = cap->args[0];
->>> +    int ret = 0;
->>> +
->>> +    if (!system_supports_hdbss()) {
->>> +        kvm_err("This system does not support HDBSS!\n");
->>> +        return -EINVAL;
->>> +    }
->>> +
->>> +    if (size < 0 || size > HDBSS_MAX_SIZE) {
->>> +        kvm_err("Invalid HDBSS buffer size: %d!\n", size);
->>> +        return -EINVAL;
->>> +    }
->>> +
->>
->> I think you should check if it's already enabled here. What if user space 
->> calls this twice?
-> 
-> Ok, I review the implement of qemu, when disable the hdbss feature in
-> ram_save_cleanup, size=0 will be set, so here can add a check, if (size
-> && kvm->arch.enable_hdbss), we will do nothing.
-> 
+Hi Yunhui,
 
-I mean you should check if ' kvm->enable_hdbss' is already set, if so, return 
-rather than alloc_pages() in below (you have allocated in previous call with 
-valid 'size').
+The specification states that each event ID act as the default
+priority so there is no need to actually set another priority:
+https://github.com/riscv-non-isa/riscv-sbi-doc/blob/master/src/ext-sse.adoc=
+#software-event-priority
 
-qemu is just one of the user space applications that would possibly call this 
-API, you cannot rely on your qemu patch's flow/sequence as assumption to design 
-a KVM API's implementation.
+As I said, currently, the SSE infra is requiring a priority to be set
+at registration time and most of the code passes 0 (which is wrong).
+I'll rework that for my next version.
 
->>
->>> +    /* Enable the HDBSS feature if size > 0, otherwise disable it. */
->>> +    if (size) {
->>> +        kvm_for_each_vcpu(i, vcpu, kvm) {
->>> +            hdbss_pg = alloc_pages(GFP_KERNEL_ACCOUNT, size);
->>> +            if (!hdbss_pg) {
->>> +                kvm_err("Alloc HDBSS buffer failed!\n");
->>> +                ret = -ENOMEM;
->>> +                goto error_alloc;
->>> +            }
->>> +
->>> +            vcpu->arch.hdbss = (struct vcpu_hdbss_state) {
->>> +                .base_phys = page_to_phys(hdbss_pg),
->>> +                .size = size,
->>> +                .next_index = 0,
->>> +            };
->>> +        }
->>> +
->>> +        kvm->enable_hdbss = true;
->>> +        kvm->arch.mmu.vtcr |= VTCR_EL2_HD | VTCR_EL2_HDBSS;
->>
+Thanks,
 
+Cl=C3=A9ment
+Bu maybe I missed something
 
+On Wed, Dec 17, 2025 at 3:22=E2=80=AFAM yunhui cui <cuiyunhui@bytedance.com=
+> wrote:
+>
+> Hi Cl=C3=A9ment,
+>
+> On Wed, Dec 17, 2025 at 4:36=E2=80=AFAM Cl=C3=A9ment L=C3=A9ger <cleger@r=
+ivosinc.com> wrote:
+> >
+> > On Fri, Dec 12, 2025 at 4:17=E2=80=AFAM yunhui cui <cuiyunhui@bytedance=
+.com> wrote:
+> > >
+> > > Hi Cl=C3=A9ment,
+> > >
+> > > On Wed, Nov 5, 2025 at 4:29=E2=80=AFPM Cl=C3=A9ment L=C3=A9ger <clege=
+r@rivosinc.com> wrote:
+> > > >
+> > > > In order to use SSE within PMU drivers, register a SSE handler for =
+the
+> > > > local PMU event. Reuse the existing overflow IRQ handler and pass
+> > > > appropriate pt_regs. Add a config option RISCV_PMU_SSE to select ev=
+ent
+> > > > delivery via SSE events.
+> > > >
+> > > > Signed-off-by: Cl=C3=A9ment L=C3=A9ger <cleger@rivosinc.com>
+> > > > ---
+> > > >  drivers/perf/Kconfig           | 10 +++++
+> > > >  drivers/perf/riscv_pmu.c       | 23 +++++++++++
+> > > >  drivers/perf/riscv_pmu_sbi.c   | 71 +++++++++++++++++++++++++++++-=
+----
+> > > >  include/linux/perf/riscv_pmu.h |  5 +++
+> > > >  4 files changed, 99 insertions(+), 10 deletions(-)
+> > > >
+> > > > diff --git a/drivers/perf/Kconfig b/drivers/perf/Kconfig
+> > > > index 638321fc9800..d6ffc2b036e5 100644
+> > > > --- a/drivers/perf/Kconfig
+> > > > +++ b/drivers/perf/Kconfig
+> > > > @@ -105,6 +105,16 @@ config RISCV_PMU_SBI
+> > > >           full perf feature support i.e. counter overflow, privileg=
+e mode
+> > > >           filtering, counter configuration.
+> > > >
+> > > > +config RISCV_PMU_SBI_SSE
+> > > > +       depends on RISCV_PMU && RISCV_SBI_SSE
+> > > > +       bool "RISC-V PMU SSE events"
+> > > > +       default n
+> > > > +       help
+> > > > +         Say y if you want to use SSE events to deliver PMU interr=
+upts. This
+> > > > +         provides a way to profile the kernel at any level by usin=
+g NMI-like
+> > > > +         SSE events. SSE events being really intrusive, this optio=
+n allows
+> > > > +         to select it only if needed.
+> > > > +
+> > > >  config STARFIVE_STARLINK_PMU
+> > > >         depends on ARCH_STARFIVE || COMPILE_TEST
+> > > >         depends on 64BIT
+> > > > diff --git a/drivers/perf/riscv_pmu.c b/drivers/perf/riscv_pmu.c
+> > > > index 7644147d50b4..dda2814801c0 100644
+> > > > --- a/drivers/perf/riscv_pmu.c
+> > > > +++ b/drivers/perf/riscv_pmu.c
+> > > > @@ -13,6 +13,7 @@
+> > > >  #include <linux/irqdesc.h>
+> > > >  #include <linux/perf/riscv_pmu.h>
+> > > >  #include <linux/printk.h>
+> > > > +#include <linux/riscv_sbi_sse.h>
+> > > >  #include <linux/smp.h>
+> > > >  #include <linux/sched_clock.h>
+> > > >
+> > > > @@ -254,6 +255,24 @@ void riscv_pmu_start(struct perf_event *event,=
+ int flags)
+> > > >         perf_event_update_userpage(event);
+> > > >  }
+> > > >
+> > > > +#ifdef CONFIG_RISCV_PMU_SBI_SSE
+> > > > +static void riscv_pmu_disable(struct pmu *pmu)
+> > > > +{
+> > > > +       struct riscv_pmu *rvpmu =3D to_riscv_pmu(pmu);
+> > > > +
+> > > > +       if (rvpmu->sse_evt)
+> > > > +               sse_event_disable_local(rvpmu->sse_evt);
+> > > > +}
+> > > > +
+> > > > +static void riscv_pmu_enable(struct pmu *pmu)
+> > > > +{
+> > > > +       struct riscv_pmu *rvpmu =3D to_riscv_pmu(pmu);
+> > > > +
+> > > > +       if (rvpmu->sse_evt)
+> > > > +               sse_event_enable_local(rvpmu->sse_evt);
+> > > > +}
+> > > > +#endif
+> > > > +
+> > > >  static int riscv_pmu_add(struct perf_event *event, int flags)
+> > > >  {
+> > > >         struct riscv_pmu *rvpmu =3D to_riscv_pmu(event->pmu);
+> > > > @@ -411,6 +430,10 @@ struct riscv_pmu *riscv_pmu_alloc(void)
+> > > >                 .event_mapped   =3D riscv_pmu_event_mapped,
+> > > >                 .event_unmapped =3D riscv_pmu_event_unmapped,
+> > > >                 .event_idx      =3D riscv_pmu_event_idx,
+> > > > +#ifdef CONFIG_RISCV_PMU_SBI_SSE
+> > > > +               .pmu_enable     =3D riscv_pmu_enable,
+> > > > +               .pmu_disable    =3D riscv_pmu_disable,
+> > > > +#endif
+> > > >                 .add            =3D riscv_pmu_add,
+> > > >                 .del            =3D riscv_pmu_del,
+> > > >                 .start          =3D riscv_pmu_start,
+> > > > diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_=
+sbi.c
+> > > > index e255c1b069ec..c852f64a5022 100644
+> > > > --- a/drivers/perf/riscv_pmu_sbi.c
+> > > > +++ b/drivers/perf/riscv_pmu_sbi.c
+> > > > @@ -17,6 +17,7 @@
+> > > >  #include <linux/irqdomain.h>
+> > > >  #include <linux/of_irq.h>
+> > > >  #include <linux/of.h>
+> > > > +#include <linux/riscv_sbi_sse.h>
+> > > >  #include <linux/cpu_pm.h>
+> > > >  #include <linux/sched/clock.h>
+> > > >  #include <linux/soc/andes/irq.h>
+> > > > @@ -1038,10 +1039,10 @@ static void pmu_sbi_start_overflow_mask(str=
+uct riscv_pmu *pmu,
+> > > >                 pmu_sbi_start_ovf_ctrs_sbi(cpu_hw_evt, ctr_ovf_mask=
+);
+> > > >  }
+> > > >
+> > > > -static irqreturn_t pmu_sbi_ovf_handler(int irq, void *dev)
+> > > > +static irqreturn_t pmu_sbi_ovf_handler(struct cpu_hw_events *cpu_h=
+w_evt,
+> > > > +                                      struct pt_regs *regs, bool f=
+rom_sse)
+> > > >  {
+> > > >         struct perf_sample_data data;
+> > > > -       struct pt_regs *regs;
+> > > >         struct hw_perf_event *hw_evt;
+> > > >         union sbi_pmu_ctr_info *info;
+> > > >         int lidx, hidx, fidx;
+> > > > @@ -1049,7 +1050,6 @@ static irqreturn_t pmu_sbi_ovf_handler(int ir=
+q, void *dev)
+> > > >         struct perf_event *event;
+> > > >         u64 overflow;
+> > > >         u64 overflowed_ctrs =3D 0;
+> > > > -       struct cpu_hw_events *cpu_hw_evt =3D dev;
+> > > >         u64 start_clock =3D sched_clock();
+> > > >         struct riscv_pmu_snapshot_data *sdata =3D cpu_hw_evt->snaps=
+hot_addr;
+> > > >
+> > > > @@ -1059,13 +1059,15 @@ static irqreturn_t pmu_sbi_ovf_handler(int =
+irq, void *dev)
+> > > >         /* Firmware counter don't support overflow yet */
+> > > >         fidx =3D find_first_bit(cpu_hw_evt->used_hw_ctrs, RISCV_MAX=
+_COUNTERS);
+> > > >         if (fidx =3D=3D RISCV_MAX_COUNTERS) {
+> > > > -               csr_clear(CSR_SIP, BIT(riscv_pmu_irq_num));
+> > > > +               if (!from_sse)
+> > > > +                       csr_clear(CSR_SIP, BIT(riscv_pmu_irq_num));
+> > > >                 return IRQ_NONE;
+> > > >         }
+> > > >
+> > > >         event =3D cpu_hw_evt->events[fidx];
+> > > >         if (!event) {
+> > > > -               ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_mask);
+> > > > +               if (!from_sse)
+> > > > +                       ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq=
+_mask);
+> > > >                 return IRQ_NONE;
+> > > >         }
+> > > >
+> > > > @@ -1080,16 +1082,16 @@ static irqreturn_t pmu_sbi_ovf_handler(int =
+irq, void *dev)
+> > > >
+> > > >         /*
+> > > >          * Overflow interrupt pending bit should only be cleared af=
+ter stopping
+> > > > -        * all the counters to avoid any race condition.
+> > > > +        * all the counters to avoid any race condition. When using=
+ SSE,
+> > > > +        * interrupt is cleared when stopping counters.
+> > > >          */
+> > > > -       ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_mask);
+> > > > +       if (!from_sse)
+> > > > +               ALT_SBI_PMU_OVF_CLEAR_PENDING(riscv_pmu_irq_mask);
+> > > >
+> > > >         /* No overflow bit is set */
+> > > >         if (!overflow)
+> > > >                 return IRQ_NONE;
+> > > >
+> > > > -       regs =3D get_irq_regs();
+> > > > -
+> > > >         for_each_set_bit(lidx, cpu_hw_evt->used_hw_ctrs, RISCV_MAX_=
+COUNTERS) {
+> > > >                 struct perf_event *event =3D cpu_hw_evt->events[lid=
+x];
+> > > >
+> > > > @@ -1145,6 +1147,51 @@ static irqreturn_t pmu_sbi_ovf_handler(int i=
+rq, void *dev)
+> > > >         return IRQ_HANDLED;
+> > > >  }
+> > > >
+> > > > +static irqreturn_t pmu_sbi_ovf_irq_handler(int irq, void *dev)
+> > > > +{
+> > > > +       return pmu_sbi_ovf_handler(dev, get_irq_regs(), false);
+> > > > +}
+> > > > +
+> > > > +#ifdef CONFIG_RISCV_PMU_SBI_SSE
+> > > > +static int pmu_sbi_ovf_sse_handler(u32 evt, void *arg, struct pt_r=
+egs *regs)
+> > > > +{
+> > > > +       struct cpu_hw_events __percpu *hw_events =3D arg;
+> > > > +       struct cpu_hw_events *hw_event =3D raw_cpu_ptr(hw_events);
+> > > > +
+> > > > +       pmu_sbi_ovf_handler(hw_event, regs, true);
+> > > > +
+> > > > +       return 0;
+> > > > +}
+> > > > +
+> > > > +static int pmu_sbi_setup_sse(struct riscv_pmu *pmu)
+> > > > +{
+> > > > +       int ret;
+> > > > +       struct sse_event *evt;
+> > > > +       struct cpu_hw_events __percpu *hw_events =3D pmu->hw_events=
+;
+> > > > +
+> > > > +       evt =3D sse_event_register(SBI_SSE_EVENT_LOCAL_PMU_OVERFLOW=
+, 0,
+> > > > +                                pmu_sbi_ovf_sse_handler, hw_events=
+);
+> > >
+> > > As Radim suggested, we had better preset a priority for different
+> > > events, such as these events and future ones:
+> > > SBI_SSE_EVENT_LOCAL_HIGH_PRIO_RAS
+> > > SBI_SSE_EVENT_LOCAL_DOUBLE_TRAP
+> > > SBI_SSE_EVENT_GLOBAL_HIGH_PRIO_RAS
+> > > SBI_SSE_EVENT_LOCAL_PMU_OVERFLOW
+> > > SBI_SSE_EVENT_LOCAL_LOW_PRIO_RAS
+> > > SBI_SSE_EVENT_GLOBAL_LOW_PRIO_RAS
+> > > SBI_SSE_EVENT_LOCAL_SOFTWARE_INJECTED
+> > > SBI_SSE_EVENT_LOCAL_UNKNOWN_NMI
+> > > SBI_SSE_EVENT_GLOBAL_SOFTWARE_INJECTED
+> >
+> > Hey Yunhui,
+> >
+> > What do you mean exactly ? Events have default priority based on their
+> > ID. However, the register call will set a priority =3D 0 for the event.
+> > I'll modify that to allow using an optional priority (or even remove
+> > it)
+>
+> Actually, each event needs to be assigned a reasonable priority.
+> Reference: https://lore.kernel.org/all/CAEEQ3wmEVVHC=3DS795dFsQ9iM5Xkz-KO=
+Be_CxXbvzyDBUo3wU6A@mail.gmail.com/
+>
+> >
+> > Thanks,
+> >
+> > Cl=C3=A9ment
+> >
+> > >
+> > > Could you please help add a "global priority enum"?
+> > >
+> > >
+> > > > +       if (IS_ERR(evt))
+> > > > +               return PTR_ERR(evt);
+> > > > +
+> > > > +       ret =3D sse_event_enable(evt);
+> > > > +       if (ret) {
+> > > > +               sse_event_unregister(evt);
+> > > > +               return ret;
+> > > > +       }
+> > > > +
+> > > > +       pr_info("using SSE for PMU event delivery\n");
+> > > > +       pmu->sse_evt =3D evt;
+> > > > +
+> > > > +       return ret;
+> > > > +}
+> > > > +#else
+> > > > +static int pmu_sbi_setup_sse(struct riscv_pmu *pmu)
+> > > > +{
+> > > > +       return -EOPNOTSUPP;
+> > > > +}
+> > > > +#endif
+> > > > +
+> > > >  static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_nod=
+e *node)
+> > > >  {
+> > > >         struct riscv_pmu *pmu =3D hlist_entry_safe(node, struct ris=
+cv_pmu, node);
+> > > > @@ -1195,6 +1242,10 @@ static int pmu_sbi_setup_irqs(struct riscv_p=
+mu *pmu, struct platform_device *pde
+> > > >         struct cpu_hw_events __percpu *hw_events =3D pmu->hw_events=
+;
+> > > >         struct irq_domain *domain =3D NULL;
+> > > >
+> > > > +       ret =3D pmu_sbi_setup_sse(pmu);
+> > > > +       if (!ret)
+> > > > +               return 0;
+> > > > +
+> > > >         if (riscv_isa_extension_available(NULL, SSCOFPMF)) {
+> > > >                 riscv_pmu_irq_num =3D RV_IRQ_PMU;
+> > > >                 riscv_pmu_use_irq =3D true;
+> > > > @@ -1229,7 +1280,7 @@ static int pmu_sbi_setup_irqs(struct riscv_pm=
+u *pmu, struct platform_device *pde
+> > > >                 return -ENODEV;
+> > > >         }
+> > > >
+> > > > -       ret =3D request_percpu_irq(riscv_pmu_irq, pmu_sbi_ovf_handl=
+er, "riscv-pmu", hw_events);
+> > > > +       ret =3D request_percpu_irq(riscv_pmu_irq, pmu_sbi_ovf_irq_h=
+andler, "riscv-pmu", hw_events);
+> > > >         if (ret) {
+> > > >                 pr_err("registering percpu irq failed [%d]\n", ret)=
+;
+> > > >                 return ret;
+> > > > diff --git a/include/linux/perf/riscv_pmu.h b/include/linux/perf/ri=
+scv_pmu.h
+> > > > index f82a28040594..08fdcf6baf4e 100644
+> > > > --- a/include/linux/perf/riscv_pmu.h
+> > > > +++ b/include/linux/perf/riscv_pmu.h
+> > > > @@ -28,6 +28,8 @@
+> > > >
+> > > >  #define RISCV_PMU_CONFIG1_GUEST_EVENTS 0x1
+> > > >
+> > > > +struct sse_event;
+> > > > +
+> > > >  struct cpu_hw_events {
+> > > >         /* currently enabled events */
+> > > >         int                     n_events;
+> > > > @@ -54,6 +56,9 @@ struct riscv_pmu {
+> > > >         char            *name;
+> > > >
+> > > >         irqreturn_t     (*handle_irq)(int irq_num, void *dev);
+> > > > +#ifdef CONFIG_RISCV_PMU_SBI_SSE
+> > > > +       struct sse_event *sse_evt;
+> > > > +#endif
+> > > >
+> > > >         unsigned long   cmask;
+> > > >         u64             (*ctr_read)(struct perf_event *event);
+> > > > --
+> > > > 2.43.0
+> > > >
+> > >
+> > > Thanks,
+> > > Yunhui
+>
+> Thanks,
+> Yunhui
 
