@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 295F9D3B7E5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Dec 2025 11:40:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A701DD3B7E5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Dec 2025 11:42:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t2L6rtcxCG50+TcmEsODUMYskLtYGJooJ2cBmAocj1E=; b=PPNvKgyrqC9GIjpvzWaXvx70yJ
-	YEhScfEeRTJPuUQscmzDpTdJ/wUP8+iTe82/sCrXIxd/3l5cidF2VGn/m7NnEI8Mm65eOgaFqn16H
-	NUtNy/ARTYjZJoCrFX/vPPEWAjeqMY9VKfjUwqDGAnsoPntrvrb69qyEGSwc5YZWa01O+W8l41Z4d
-	/Br3zgOiyDQlJBwPCbIPbhxYYz21zvUaptM61tAOBSwodBJx6I1SxfFgH230KJ0jFB6riJ8TWGzzp
-	8ZYV9vZ9eIFGLIBIFCJ5mDhT7QKEwyMOj1LeZZ5hNLyDpITWAuRWS7cwjubVS/jZP0zzRQUa8l/nW
-	5xCpGb+w==;
+	bh=EsDxdjrqmFhk850c4TWV5UzGF/hO7UbOe0ZM1zq22Y8=; b=qSzqr4ghoJXR8BfSmQND3TzG0F
+	oT4wM2FMdCH+chGhUy3QbFNBaRZT1Gdiwyr7sUCGJpQ7pf+8o62r+gkdFmS38xhEpiOxeTHTeMTGn
+	hwZQYBvIDvyzptTu1za9g/aEpBs3cHig34sHjziB0cavh+er7xpZVO+xNLqfu1o63ohyaTIk9pz99
+	2deSqFnXeS2soBwSwVgZFb5n5gBAWNKSppwECLBKvWJDwCcAeAc5sDzIHfsAUfBoEBDxBhb/Pz2KZ
+	G+CdeNvMSlpNPlWRCtZGOyAPkFtVpZSJPBak604xW5qW0N7wFA+wbY/5Q6yqLKIq4G/9rBqFbxAmc
+	44wkmOZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZp8g-00000002fjc-00Ky;
-	Sun, 28 Dec 2025 11:40:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vZp9o-00000002fqE-1aRE;
+	Sun, 28 Dec 2025 11:41:56 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZp8c-00000002fjW-2eTf
+	id 1vZp9i-00000002fpS-0Gaw
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 28 Dec 2025 11:40:45 +0000
+	Sun, 28 Dec 2025 11:41:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 97924600AA;
-	Sun, 28 Dec 2025 11:40:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2627CC4CEFB;
-	Sun, 28 Dec 2025 11:40:37 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 98E61442D1;
+	Sun, 28 Dec 2025 11:41:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B34CC4CEFB;
+	Sun, 28 Dec 2025 11:41:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766922041;
-	bh=O5FNx60UISry1GdS5eSCmVKiOVgJg94gN3CIEiLRb1s=;
+	s=k20201202; t=1766922109;
+	bh=EsDxdjrqmFhk850c4TWV5UzGF/hO7UbOe0ZM1zq22Y8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=sAz1e72GYrgH9qAlCG2GfxCs4hPab+sgLzc2iJlYlKvThXI4oHuas63S99iCoaDgI
-	 Qe5pM31MIElWBtHGlT+tAVHX1eFCkcr4ebRSis2nbv/ENJV0jRUFrY1v+HYrnbo0U0
-	 JO/8/mts5riNY4HEDqKn74WZPTEbrO17KHCYEOKvz80eW8cKeviXTGc0j/JTdmgKsP
-	 WL9m3UNke2N2LN/595Hsgtv3Xzdk7qRqFiCdHgQEjc4Np0UE/yyGJuQbKmCScZ8qDW
-	 NVkYnUZEPoLOAwRewD1KvsU1GGEJW/hJNvDMq5jxzf9e+Pms8NRPiYc8Xn0CynQRP6
-	 0oTsWGLRw7Brg==
-Message-ID: <8b97f7a0-5d43-41ed-85a7-e48488c49264@kernel.org>
-Date: Sun, 28 Dec 2025 12:40:36 +0100
+	b=di09trJE0hPH0zk2xiq3/Uvffzus60LLrsPUAKaS4m4f+6E71OubaKLOyze46uB6V
+	 NgUBlO55QCN2JPOhqgzINtn3YOw17d/TCEGK6Ab0CkWdDWFSI2Q9cs21O+iaUscbWp
+	 Z9eWawk6Q3Avglpz6tgaEuObV8FFjWOzsqaQ9iJAsWfcqqHz05ttc6Ey/BGzDTWR95
+	 AaJPTkGwTx0Ceqd9F30SJmFTsR9xLwwjos3xOHP+jVHtBoc8wleCJHC2gV+5/OlNkQ
+	 f9Yn//Q1LQuMh1PE1KMEixCN/XSOsNWubMEw8eKPNS9h2NYXCVRJITjsmRmVsaS0ps
+	 boc89rPQoC1uQ==
+Message-ID: <39a6dce9-ea6e-4a43-9bbc-54d822118db4@kernel.org>
+Date: Sun, 28 Dec 2025 12:41:44 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/5] pinctrl: samsung: Consolidate pin-bank macros
- under EXYNOS9_* and pass bank_type explicitly
+Subject: Re: [PATCH v3 3/5] pinctrl: samsung: add per-bank FLTCON offset to
+ EXYNOS9_PIN_BANK_* and fix tables
 To: Youngmin Nam <youngmin.nam@samsung.com>, s.nawrocki@samsung.com,
  alim.akhtar@samsung.com, linus.walleij@linaro.org, peter.griffin@linaro.org,
  semen.protsenko@linaro.org, ivo.ivanov.ivanov1@gmail.com
@@ -56,8 +56,8 @@ Cc: ryu.real@samsung.com, d7271.choe@samsung.com, shin.son@samsung.com,
  linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org,
  linux-kernel@vger.kernel.org
 References: <20251202093613.852109-1-youngmin.nam@samsung.com>
- <CGME20251202093026epcas2p28ddfd32305695df996841fd73b231b6b@epcas2p2.samsung.com>
- <20251202093613.852109-2-youngmin.nam@samsung.com>
+ <CGME20251202093028epcas2p456b6a2bfebfc76384f706a9962266fcf@epcas2p4.samsung.com>
+ <20251202093613.852109-4-youngmin.nam@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,9 +103,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251202093613.852109-2-youngmin.nam@samsung.com>
+In-Reply-To: <20251202093613.852109-4-youngmin.nam@samsung.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251228_034154_330905_8364D89F 
+X-CRM114-Status: UNSURE (   6.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,102 +125,15 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 02/12/2025 10:36, Youngmin Nam wrote:
-> Modern Exynos platforms have several near-duplicate pin-bank macro
-> families (EXYNOS850_*, EXYNOS8895_*, EXYNOS7870_*), which makes
-> tables verbose and harder to share across SoCs that differ only by
-> bank_type (alive/off) layout.
+> Several Exynos9-era pin-bank tables were implicitly assuming that the
+> filter control (FLTCON) registers are laid out contiguously from the
+> EINT base offset. Per the TRMs this is not always true. FLTCON can live
+> at a separate per-bank offset, and the current tables cause the driver
+> to program the wrong FLTCON addresses for some banks.
 
-I do not see at all how you reduced duplication, reduced verbosity or
-made here anything easier to read.
+"Can live" or "Does live"? Adding unused offset is not improving the
+code. The implicit offset is fine, if it is correct.
 
-Previous explicit EXYNOS850_PIN_BANK_EINTW() - so having one information
-about SoC - is now containing more verbose two informations:
-
-EXYNOS9_PIN_BANK_EINTW + exynos9_bank_type_alive,
-
-
-> 
-> This patch unifies them into one EXYNOS9_* macro family and makes the
-> bank_type an explicit argument. The common 850-era bank types are also
-> renamed to 'exynos9_bank_type_{alive,off}' to reflect their reuse on
-> later Exynos 9xxx-generation parts.
-> 
-> Naming rationale:
-> - Use of the EXYNOS9_* prefix indicates that these macros target
->   current Exynos generations sharing the same register layout and
->   EINT wiring model. Compared to SoC-specific prefixes
-
-There is no exynos9 chip. There is also no need to rename Exynos850 to
-Exynos9, because old name is correct, accurate and probably even older,
-thus more suitable choice.
-
-
->   (EXYNOS850_*, EXYNOS8895_*),
->   EXYNOS9_* is clearer and more future-proof for modern parts.
-> 
-> Key changes:
-> - Introduce:
->   - 'EXYNOS9_PIN_BANK_EINTN(bank_type, pins, reg, id)'
->   - 'EXYNOS9_PIN_BANK_EINTG(bank_type, pins, reg, id, offs)'
->   - 'EXYNOS9_PIN_BANK_EINTW(bank_type, pins, reg, id, offs)'
-> - Rename:
->   - 'exynos850_bank_type_alive'-> 'exynos9_bank_type_alive'
->   - 'exynos850_bank_type_off'  -> 'exynos9_bank_type_off'
-> - Convert pin-bank tables for:
->   - Exynos2200, 7870, 7885, 850, 990, 9810, 8890, 8895,
->     AutoV9, AutoV920, FSD
-> - Update GS101/EXYNOSV920 helpers to reference 'exynos9_bank_type_*'
->   instead of the old exynos850 names.
-> - Standardize on EXYNOS9_* macros while keeping SoC-specific
->   '*_bank_type_*' when layouts differ (e.g., 7870/8895).
-> 
-> No functional change intended.
-> 
-> Signed-off-by: Youngmin Nam <youngmin.nam@samsung.com>
-> Reviewed-by: Sam Protsenko <semen.protsenko@linaro.org>
-> Tested-by: Sam Protsenko <semen.protsenko@linaro.org>
-> ---
->  .../pinctrl/samsung/pinctrl-exynos-arm64.c    | 785 +++++++++---------
->  drivers/pinctrl/samsung/pinctrl-exynos.h      |  49 +-
->  2 files changed, 402 insertions(+), 432 deletions(-)
-> 
-> diff --git a/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c b/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c
-> index 627dca504d7a..d11b2d4ca913 100644
-> --- a/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c
-> +++ b/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c
-> @@ -53,7 +53,7 @@ static const struct samsung_pin_bank_type exynos7870_bank_type_alive = {
->   * Bank type for non-alive type. Bit fields:
->   * CON: 4, DAT: 1, PUD: 4, DRV: 4, CONPDN: 2, PUDPDN: 4
->   */
-> -static const struct samsung_pin_bank_type exynos850_bank_type_off  = {
-> +static const struct samsung_pin_bank_type exynos9_bank_type_off = {
-
-This is completely pointless.
-
->  	.fld_width = { 4, 1, 4, 4, 2, 4, },
->  	.reg_offset = { 0x00, 0x04, 0x08, 0x0c, 0x10, 0x14, },
->  };
-> @@ -62,7 +62,7 @@ static const struct samsung_pin_bank_type exynos850_bank_type_off  = {
->   * Bank type for alive type. Bit fields:
->   * CON: 4, DAT: 1, PUD: 4, DRV: 4
->   */
-> -static const struct samsung_pin_bank_type exynos850_bank_type_alive = {
-> +static const struct samsung_pin_bank_type exynos9_bank_type_alive = {
->  	.fld_width = { 4, 1, 4, 4, },
->  	.reg_offset = { 0x00, 0x04, 0x08, 0x0c, },
->  };
-> @@ -90,11 +90,11 @@ static atomic_t exynos_shared_retention_refcnt;
->  
->  /* pin banks of exynos2200 pin-controller - ALIVE */
->  static const struct samsung_pin_bank_data exynos2200_pin_banks0[] __initconst = {
-> -	EXYNOS850_PIN_BANK_EINTW(8, 0x0, "gpa0", 0x00),
-> -	EXYNOS850_PIN_BANK_EINTW(8, 0x20, "gpa1", 0x04),
-> -	EXYNOS850_PIN_BANK_EINTW(8, 0x40, "gpa2", 0x08),
-> -	EXYNOS850_PIN_BANK_EINTW(8, 0x60, "gpa3", 0x0c),
-> -	EXYNOS850_PIN_BANK_EINTW(2, 0x80, "gpa4", 0x10),
-> +	EXYNOS9_PIN_BANK_EINTW(exynos9_bank_type_alive, 8, 0x0, "gpa0", 0x00),
-
-And this is less readable.
 
 Best regards,
 Krzysztof
