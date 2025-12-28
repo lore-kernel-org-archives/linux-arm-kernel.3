@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A701DD3B7E5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Dec 2025 11:42:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67E00D3B7E5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Dec 2025 11:44:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EsDxdjrqmFhk850c4TWV5UzGF/hO7UbOe0ZM1zq22Y8=; b=qSzqr4ghoJXR8BfSmQND3TzG0F
-	oT4wM2FMdCH+chGhUy3QbFNBaRZT1Gdiwyr7sUCGJpQ7pf+8o62r+gkdFmS38xhEpiOxeTHTeMTGn
-	hwZQYBvIDvyzptTu1za9g/aEpBs3cHig34sHjziB0cavh+er7xpZVO+xNLqfu1o63ohyaTIk9pz99
-	2deSqFnXeS2soBwSwVgZFb5n5gBAWNKSppwECLBKvWJDwCcAeAc5sDzIHfsAUfBoEBDxBhb/Pz2KZ
-	G+CdeNvMSlpNPlWRCtZGOyAPkFtVpZSJPBak604xW5qW0N7wFA+wbY/5Q6yqLKIq4G/9rBqFbxAmc
-	44wkmOZg==;
+	bh=iVEK3bZnh+AmQUEzGtFQoAn5Ev2L/XPq5ijzycOgiAc=; b=nkgrODXzvYcejM4spC9TYtSbPV
+	2dxg8L55XF5fg05hnwzLx1IFR0ceApwc2Q4LludYGHwnMrqlHX+vd1W1lrWY4RWNc1fo4BvftXlQ8
+	ahbKBFdE4GD5gVmnGvYiGk5Q6C/nr9/PcDZgRfXrcuB7RhFmcG9a0FXDh+13zU69cKe8yHDYSll7m
+	xY5ZCIOUdJ4fQA0puX7Rzu+JB1p2VzqTatK7A+VzoyI3TiETKgfMoluTgkX6RH28CtxaquSZaR3Ln
+	8PsSypMerdNyBdEiqu8AypNbvCcCSthHJEG0AhX2/cvu41vAMXIuYQ9ytzJcR2pLX0er+Sh6pmIUO
+	+pW5hhew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZp9o-00000002fqE-1aRE;
-	Sun, 28 Dec 2025 11:41:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vZpBn-00000002fzT-2o2b;
+	Sun, 28 Dec 2025 11:43:59 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZp9i-00000002fpS-0Gaw
+	id 1vZpBl-00000002fzA-1jnP
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 28 Dec 2025 11:41:55 +0000
+	Sun, 28 Dec 2025 11:43:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 98E61442D1;
-	Sun, 28 Dec 2025 11:41:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B34CC4CEFB;
-	Sun, 28 Dec 2025 11:41:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A4C5A405C1;
+	Sun, 28 Dec 2025 11:43:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FB97C4CEFB;
+	Sun, 28 Dec 2025 11:43:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766922109;
-	bh=EsDxdjrqmFhk850c4TWV5UzGF/hO7UbOe0ZM1zq22Y8=;
+	s=k20201202; t=1766922236;
+	bh=sMFt/DL9zGunASxCqLcb7zpNgfgsmgCv3E5jkezPqtY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=di09trJE0hPH0zk2xiq3/Uvffzus60LLrsPUAKaS4m4f+6E71OubaKLOyze46uB6V
-	 NgUBlO55QCN2JPOhqgzINtn3YOw17d/TCEGK6Ab0CkWdDWFSI2Q9cs21O+iaUscbWp
-	 Z9eWawk6Q3Avglpz6tgaEuObV8FFjWOzsqaQ9iJAsWfcqqHz05ttc6Ey/BGzDTWR95
-	 AaJPTkGwTx0Ceqd9F30SJmFTsR9xLwwjos3xOHP+jVHtBoc8wleCJHC2gV+5/OlNkQ
-	 f9Yn//Q1LQuMh1PE1KMEixCN/XSOsNWubMEw8eKPNS9h2NYXCVRJITjsmRmVsaS0ps
-	 boc89rPQoC1uQ==
-Message-ID: <39a6dce9-ea6e-4a43-9bbc-54d822118db4@kernel.org>
-Date: Sun, 28 Dec 2025 12:41:44 +0100
+	b=PHUla6Y/BmfaqupTVeJDcziJvJ6GzknwDVrLWR/3DXknm0Irw01T+WklGtWXUODq+
+	 VTNulfsCz8FD+UvqWb9hRgt38e8eJcXikk/IGafy5nAlpX9RFb/f2l5zRmeYwT1+pa
+	 L//Lild6vuSWGuPikJMcvqq+twMY4A181EM3+brdqFvet1QfI4N6hcanjje0cFMX/s
+	 cZnQnXCOBeEhaUUBDnl3oAzgaTS6Mn9B2ZLMsOq3AMbQhHZrLs53AT42rK8/SlO8Ja
+	 oMF2kyic4Rilh40dRlARAzlewIYo44y8tQandSzG61D8MUpJNxQjFUsOQxOWIaEXWi
+	 vC8KJOH3XmnvA==
+Message-ID: <20d454a7-1606-4418-8996-6755c1ea3180@kernel.org>
+Date: Sun, 28 Dec 2025 12:43:51 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/5] pinctrl: samsung: add per-bank FLTCON offset to
- EXYNOS9_PIN_BANK_* and fix tables
+Subject: Re: [PATCH v3 5/5] pinctrl: samsung: rename gs101_pinctrl_* to
+ exynos9_pinctrl_*
 To: Youngmin Nam <youngmin.nam@samsung.com>, s.nawrocki@samsung.com,
  alim.akhtar@samsung.com, linus.walleij@linaro.org, peter.griffin@linaro.org,
  semen.protsenko@linaro.org, ivo.ivanov.ivanov1@gmail.com
@@ -56,8 +56,8 @@ Cc: ryu.real@samsung.com, d7271.choe@samsung.com, shin.son@samsung.com,
  linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org,
  linux-kernel@vger.kernel.org
 References: <20251202093613.852109-1-youngmin.nam@samsung.com>
- <CGME20251202093028epcas2p456b6a2bfebfc76384f706a9962266fcf@epcas2p4.samsung.com>
- <20251202093613.852109-4-youngmin.nam@samsung.com>
+ <CGME20251202093029epcas2p19224bab81f8ed2b9f63613fdd010ab57@epcas2p1.samsung.com>
+ <20251202093613.852109-6-youngmin.nam@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,12 +103,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251202093613.852109-4-youngmin.nam@samsung.com>
+In-Reply-To: <20251202093613.852109-6-youngmin.nam@samsung.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251228_034154_330905_8364D89F 
-X-CRM114-Status: UNSURE (   6.37  )
+X-CRM114-CacheID: sfid-20251228_034357_632403_0F404229 
+X-CRM114-Status: UNSURE (   6.32  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -125,14 +125,16 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 02/12/2025 10:36, Youngmin Nam wrote:
-> Several Exynos9-era pin-bank tables were implicitly assuming that the
-> filter control (FLTCON) registers are laid out contiguously from the
-> EINT base offset. Per the TRMs this is not always true. FLTCON can live
-> at a separate per-bank offset, and the current tables cause the driver
-> to program the wrong FLTCON addresses for some banks.
+> The suspend/resume helpers named gs101_pinctrl_{suspend,resume} are not
+> GS101-specific. They implement the generic save/restore sequence used by
+> Exynos9-style controllers that have EINT filter configuration
+> (eint_fltcon) to preserve.
+> 
+> Rename them to exynos9_pinctrl_{suspend,resume} and update all users:
 
-"Can live" or "Does live"? Adding unused offset is not improving the
-code. The implicit offset is fine, if it is correct.
+Why? Exynos9 does not exist, there is no such SoC. All other SoCs can
+use GS101 naming, just like GS101 could use Exynos-foo. You need to come
+with a reason why Exynos9 is better than GS101.
 
 
 Best regards,
