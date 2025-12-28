@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A72F7D3B7E5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Dec 2025 08:47:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 140E2D3B7E5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Dec 2025 10:30:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:From:Subject
-	:Message-ID:Date:MIME-Version:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Etm/3G7ScU80cA9b/oZOXsitJWZVjHAgTPG53iNEFVs=; b=z+OwatYc9463fyNTc8m50UQmKg
-	O69GH9bBjR+5Q0Kn6+vBqEM2f5R7idUsr+d9UdRW36pEGew7mhlEOddXFHTxuQh2NwSOIV5h98U0g
-	040hdIU4hIOvs8kabM3nw6cRywE/NT53LltTI8xpKNDC2tSAvHuqjLOh3EYwX4QY0oo182rMA4Vce
-	letB0ejBfivKyDbRZtlTCqM8RaOdnGKx6Tlj3efwNNiQ39rzitlq1VyPrPm1cZhI57ZNMyROwy1gX
-	0Zh3u3xvNA9Wwx6JEuKu3s5Y1hMC4774XB4Fas4xAXUhdgtSM430UsbiK2BddPO5iTxLxj/qp3ncm
-	oxmJbHZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tbEPwTPOWu7vaWsEXwywEe3UbNlIJRs5X3Zg+15R3vs=; b=vegqv2Gm3uWu9AjAs/oH7QccTq
+	hsNsXu54u55AKmh76eSmKF0T9SgXQlLNrGf0N1vuAmRFjpl9f09RWOpqYDZh7WKRotcyxfKbtgh3b
+	LxWoU/+Op9yBeC2UbpE3SR1+nZfyzm9KfId+ETOC+k0z/jUcWsD0Mg3AftHy+Q1PsS7NvwmuMmvsA
+	lpMKmnpK5l5QBur4ynpzP90GHn7LXIvke/I6HeDMGL8Wr1iZPFZRt9UMacUwbt3m0bPxssm355J7F
+	lyEZNofV4fqwBiDHs3E3OaJmghI7Q23j29SRfQqxBqT5eMF5zzzy7hLJzYA8ZQB7sBCmDMztL5c2l
+	s97a3iSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZmQw-00000002bZf-1hJZ;
-	Sun, 28 Dec 2025 08:47:26 +0000
-Received: from mail-oo1-f70.google.com ([209.85.161.70])
+	id 1vZo2v-00000002dOO-4Aov;
+	Sun, 28 Dec 2025 10:30:46 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZmQs-00000002bZH-3IF5
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 28 Dec 2025 08:47:24 +0000
-Received: by mail-oo1-f70.google.com with SMTP id 006d021491bc7-65cfc52c912so8155373eaf.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Dec 2025 00:47:21 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766911641; x=1767516441;
-        h=to:from:subject:message-id:date:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Etm/3G7ScU80cA9b/oZOXsitJWZVjHAgTPG53iNEFVs=;
-        b=HEiFFFv3iMbqL7kyFbnzfh/9cFnQxkxJ9Kb5EezJB4YhbYuIfjHdPftuCVt8X0wd8J
-         B+vFfkibbg57NAuOXO67IDQXuvoghs0W+nvYJLjekHL8qm3b2Ayqz3tOBdIxQUTgR2y/
-         CkNWPRtzoDgSxK18cOorUaC/ZtkZiubnmaiSJXMQWTyIoepSNunU1rjk64O1TMAGklVI
-         2C2dHuakkDSAnxUC6qwioOROspou+Iab7ov2SDRfTV4VJePUPYuGVAAKnTbEvGe8ibnW
-         nWrAxuL+JmMQM1TaPai/3iIDuvEoT6g3IQmbrMVpPcvHmYVGrXL35eKdghnJZHfm5d7v
-         p4FA==
-X-Gm-Message-State: AOJu0Yxjld6342v1EoatYeE+EnriuNQS5RCCIj4Cr/ppV6NUpCqp+2qP
-	uukMzH21sAZlLVb9COOcZCXhXjziy0MonzB6ImRhMrc+fnOkwVtAWH8Pe99lMD8VHYU4smwRA4v
-	NwOc3y1K/CCXFZ4QWHAWu3aIVbbBPRr7djPyh92FkYjw/VnDywR8eRynLiL8=
-X-Google-Smtp-Source: AGHT+IFEs9J3bUaLwIQehmTPZZRhDfIPtWi1ZWXXaQC3AgsSh9Oyi+usJxGuWKJqIqREInlFJft8kcTVNyEoqZMG7wsOHiQrCF7e
+	id 1vZo2u-00000002dOF-1Bsg;
+	Sun, 28 Dec 2025 10:30:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id AF9A860055;
+	Sun, 28 Dec 2025 10:30:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8720C4CEFB;
+	Sun, 28 Dec 2025 10:30:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766917842;
+	bh=iSoBZKWqJzZOiZShBZ0SH5d1WexPAjGU44wbacsprJ4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BtWKMpXiztzSDj7ueLLhMipJA0rLwp//K64RVHmJIYzIcP8aKBgqMQZuxUOs4dt/Q
+	 cIOaepS2VAx1eWlAsn9mKJ7N3/Q+tQdGoge8olMwM+FZNCUtZstk0wrqQBS/fgGcp2
+	 eaKVA4PuMSKQqqHLPqnYd6SVDoci+13dF6M9LaGRvKy7pss/8PKpc8Qaln0h5p9agV
+	 EhRW9U6buwJrNDLBU/Gb+VocPuoPvcjxPcaJhkHyLtm2Ms3xXpq5fMbxUbfZPfgc0P
+	 g8J+rBuw5J1K11OlJzR57zjxeopKqGQTD4a4/2NR4n3W70p+Qf+Ls5puewFw+4/Mld
+	 qyBGOqBMt1f6g==
+Date: Sun, 28 Dec 2025 11:30:39 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Ye Zhang <ye.zhang@rock-chips.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Bartosz Golaszewski <brgl@bgdev.pl>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	tao.huang@rock-chips.com
+Subject: Re: [PATCH v4 1/7] dt-bindings: pinctrl: Add rv1126b pinctrl support
+Message-ID: <20251228-airborne-elated-asp-c8f1fb@quoll>
+References: <20251227114957.3287944-1-ye.zhang@rock-chips.com>
+ <20251227114957.3287944-2-ye.zhang@rock-chips.com>
 MIME-Version: 1.0
-X-Received: by 2002:a4a:dcc8:0:b0:65d:7e5:d49d with SMTP id
- 006d021491bc7-65d0eade78cmr9001829eaf.72.1766911640790; Sun, 28 Dec 2025
- 00:47:20 -0800 (PST)
-Date: Sun, 28 Dec 2025 00:47:20 -0800
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6950ee98.a70a0220.c527.0009.GAE@google.com>
-Subject: [syzbot] Monthly arm report (Dec 2025)
-From: syzbot <syzbot+list754a4a62455c8c172e46@syzkaller.appspotmail.com>
-To: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	syzkaller-bugs@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251228_004722_870968_67D22BCF 
-X-CRM114-Status: UNSURE (   3.59  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20251227114957.3287944-2-ye.zhang@rock-chips.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,35 +72,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello arm maintainers/developers,
+On Sat, Dec 27, 2025 at 07:49:51PM +0800, Ye Zhang wrote:
+> The RV1126B is a new SoC that is the successor of the RV1126. It has
+> different pinctrl registers and is not compatible with the RV1126.
+> Therefore, add a new compatible string for it.
+> 
+> Signed-off-by: Ye Zhang <ye.zhang@rock-chips.com>
+> ---
+>  Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 
-This is a 31-day syzbot report for the arm subsystem.
-All related reports/information can be found at:
-https://syzkaller.appspot.com/upstream/s/arm
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-During the period, 0 new issues were detected and 0 were fixed.
-In total, 4 issues are still open and 7 have already been fixed.
+Best regards,
+Krzysztof
 
-Some of the still happening issues:
-
-Ref Crashes Repro Title
-<1> 294     Yes   WARNING in delayed_work_timer_fn
-                  https://syzkaller.appspot.com/bug?extid=e13e654d315d4da1277c
-<2> 66      Yes   INFO: task hung in truncate_inode_pages_final (2)
-                  https://syzkaller.appspot.com/bug?extid=760777ae7038cad77437
-<3> 15      Yes   WARNING in fpsimd_restore_current_state
-                  https://syzkaller.appspot.com/bug?extid=d4ab35af21e99d07ce67
-
----
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
-
-To disable reminders for individual bugs, reply with the following command:
-#syz set <Ref> no-reminders
-
-To change bug's subsystems, reply with:
-#syz set <Ref> subsystems: new-subsystem
-
-You may send multiple commands in a single email message.
 
