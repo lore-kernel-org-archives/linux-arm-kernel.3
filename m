@@ -4,58 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15B37E784BE
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Dec 2025 18:06:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A15A3E784BE
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Dec 2025 19:05:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
-	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Iimb+k4FWtKsauCwXJMg2NmIw/RYvYhly8/W3jnsDME=; b=TSZP31neAycVfVIq2fRSmVyfLf
-	Z7dxYsC2LhEOzXdx74x0scojC7CWuwPXRUKsZFFxjnZQMBAkNdruf3mkifElmRHTpqW2oDdD6iPsn
-	Hkp2p/LE/jgvaOE6VslIQFsBySOfw0/eefu6ubFWJuavld2KT5+zLnevdgs6sqQzt0Knffyw78nfX
-	QLouiJ3Mo+jzQYGpE6S5+6agyKB1X5vWONPYJ6+QXELEBvLu7LKBCYxbeRy561msYsMTf/cvrQhiF
-	VW1ZlR2iMznSoA2v5lxUMuiTN+/ECDWTWjgTpFecXBuVKbJm82vZg/5nKV/FYLxfN0uodozEtzcnD
-	sJk2AQ6w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=V+a4BSP8SHR/hJHE6wH3OQMSs3IfQlEwgGqTouscmqI=; b=3opcNABOxkG6IIyy8UxboDxFQM
+	rQsuYAVwCJDEXS+OfXQuqSdxMNNGZO9UQEUKmGHnRQc8P4uJ8pf+KnetUWvmz6HwGxjNE86zjbsLl
+	lkt+YSStE2OWgieJKAh1k1NPRA1lX6R6jtSzGtoD+4uXQro77sy5czol68mX6W05kVedFNXHBn6IT
+	uONfvY2wLvQUCGan+wqEQmKsktR6cuCutd2MWgc0W1R4F2CKwo1XETUwlrgWiEltW0eIE7uqfnmBq
+	uEGW99gj2+owRTkKdaEQ7zyqoEbgD0tNiUeP4J26Bb1K0mYyLgTT7W2LK2yLuc5QCEJSUo4EXvI/I
+	VMfyo8Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZv9g-00000002wka-2xfn;
-	Sun, 28 Dec 2025 18:06:12 +0000
-Received: from mail-244118.protonmail.ch ([109.224.244.118])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vZv9V-00000002wga-0WUm
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 28 Dec 2025 18:06:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chimac.ro;
-	s=protonmail2; t=1766945156; x=1767204356;
-	bh=Iimb+k4FWtKsauCwXJMg2NmIw/RYvYhly8/W3jnsDME=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=hAsqc5/mtwasv2h7vm6JImYTC5XGg2/j+Z2JaxXJ5iFhr7cqX6FUzqIAWSd6gi8SS
-	 ze0MGLcufVBc0Oi8HtDVySI+SBn29SPTBXx2TFQ6prZU2YTQqOTbEuGd86uh1VOBtq
-	 lcxLkW3/DxHWT1M612bBMlym5Pj95YNzTwgUpdcdGY8hqIUSqX2VBw4Hl6YiLLsYIL
-	 8GbLEXQn7o2pbxHGBCn8lW005c8I+kruTzJQX0LMBSQQIxfWFumExM7ttPFMzj+inp
-	 mMBZdt32C/8fMCilAW7PUVBPMcnO8WoUWLofZh02ofYfk34bLZcyVMSVIE9oZkWbuq
-	 b5Smt4iuYYAzQ==
-Date: Sun, 28 Dec 2025 18:05:55 +0000
-To: Krzysztof Kozlowski <krzk@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Tomasz Figa <tomasz.figa@gmail.com>
-From: Alexandru Chimac <alex@chimac.ro>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Alexandru Chimac <alex@chimac.ro>
-Subject: [PATCH v2 3/3] pinctrl: samsung: Add Exynos9610 pinctrl configuration
-Message-ID: <20251228-exynos9610-pinctrl-v2-3-c9bbeee4c54b@chimac.ro>
-In-Reply-To: <20251228-exynos9610-pinctrl-v2-0-c9bbeee4c54b@chimac.ro>
-References: <20251228-exynos9610-pinctrl-v2-0-c9bbeee4c54b@chimac.ro>
-Feedback-ID: 139133584:user:proton
-X-Pm-Message-ID: bb7879cbc9d07814358c81cae2b54fee2b09a00b
+	id 1vZw4g-00000002xyd-0ACw;
+	Sun, 28 Dec 2025 19:05:06 +0000
+Received: from [50.53.43.113] (helo=bombadil.infradead.org)
+	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vZw4d-00000002xyK-1Y21;
+	Sun, 28 Dec 2025 19:05:03 +0000
+From: Randy Dunlap <rdunlap@infradead.org>
+To: linux-kernel@vger.kernel.org
+Cc: Randy Dunlap <rdunlap@infradead.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] stm class: Kconfig: correct symbol name
+Date: Sun, 28 Dec 2025 11:05:02 -0800
+Message-ID: <20251228190502.2480758-1-rdunlap@infradead.org>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251228_100606_237606_5D104649 
-X-CRM114-Status: UNSURE (   8.70  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,188 +55,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add pinctrl configuration for Exynos9610. The bank types
-used are the same as on Exynos850 and gs101, so we can
-reuse the macros.
+Drop the leading "CONFIG_" when referring to Kconfig symbols--
+it is supplied by the kconfig software.
+This make the default values work as (apparently) expected.
 
-Signed-off-by: Alexandru Chimac <alex@chimac.ro>
+Fixes: a02509f301c6 ("stm class: Factor out default framing protocol")
+Fixes: d69d5e83110f ("stm class: Add MIPI SyS-T protocol support")
+Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
 ---
- drivers/pinctrl/samsung/pinctrl-exynos-arm64.c | 117 +++++++++++++++++++++=
-++++
- drivers/pinctrl/samsung/pinctrl-samsung.c      |   2 +
- drivers/pinctrl/samsung/pinctrl-samsung.h      |   1 +
- 3 files changed, 120 insertions(+)
+Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: linux-stm32@st-md-mailman.stormreply.com
+Cc: linux-arm-kernel@lists.infradead.org
 
-diff --git a/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c b/drivers/pinct=
-rl/samsung/pinctrl-exynos-arm64.c
-index 627dca504d7a..fe9f92cb037e 100644
---- a/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c
-+++ b/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c
-@@ -1770,6 +1770,123 @@ const struct samsung_pinctrl_of_match_data exynos88=
-95_of_data __initconst =3D {
- =09.num_ctrl=09=3D ARRAY_SIZE(exynos8895_pin_ctrl),
- };
-=20
-+/* pin banks of exynos9610 pin-controller 0 (ALIVE) */
-+static const struct samsung_pin_bank_data exynos9610_pin_banks0[] __initco=
-nst =3D {
-+=09EXYNOS850_PIN_BANK_EINTN(6, 0x000, "etc0"),
-+=09GS101_PIN_BANK_EINTW(8, 0x020, "gpa0", 0x00, 0x00),
-+=09GS101_PIN_BANK_EINTW(8, 0x040, "gpa1", 0x04, 0x08),
-+=09GS101_PIN_BANK_EINTW(8, 0x060, "gpa2", 0x08, 0x0c),
-+=09EXYNOS850_PIN_BANK_EINTN(5, 0x080, "gpq0"),
-+};
-+
-+/* pin banks of exynos9610 pin-controller 1 (CMGP) */
-+static const struct samsung_pin_bank_data exynos9610_pin_banks1[] __initco=
-nst =3D {
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x000, "gpm0", 0x00),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x020, "gpm1", 0x04),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x040, "gpm2", 0x08),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x060, "gpm3", 0x0C),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x080, "gpm4", 0x10),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x0A0, "gpm5", 0x14),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x0C0, "gpm6", 0x18),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x0E0, "gpm7", 0x1C),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x100, "gpm8", 0x20),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x120, "gpm9", 0x24),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x140, "gpm10", 0x28),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x160, "gpm11", 0x2C),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x180, "gpm12", 0x30),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x1A0, "gpm13", 0x34),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x1C0, "gpm14", 0x38),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x1E0, "gpm15", 0x3C),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x200, "gpm16", 0x40),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x220, "gpm17", 0x44),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x240, "gpm18", 0x48),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x260, "gpm19", 0x4C),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x280, "gpm20", 0x50),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x2A0, "gpm21", 0x54),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x2C0, "gpm22", 0x58),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x2E0, "gpm23", 0x5C),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x300, "gpm24", 0x60),
-+=09EXYNOS850_PIN_BANK_EINTW(1, 0x320, "gpm25", 0x64),
-+};
-+
-+/* pin banks of exynos9610 pin-controller 2 (DISPAUD) */
-+static const struct samsung_pin_bank_data exynos9610_pin_banks2[] __initco=
-nst =3D {
-+=09GS101_PIN_BANK_EINTG(5, 0x000, "gpb0", 0x00, 0x00),
-+=09GS101_PIN_BANK_EINTG(4, 0x020, "gpb1", 0x04, 0x08),
-+=09GS101_PIN_BANK_EINTG(5, 0x040, "gpb2", 0x08, 0x0c),
-+};
-+
-+/* pin banks of exynos9610 pin-controller 3 (FSYS) */
-+static const struct samsung_pin_bank_data exynos9610_pin_banks3[] __initco=
-nst =3D {
-+=09GS101_PIN_BANK_EINTG(4, 0x000, "gpf0", 0x00, 0x00),
-+=09GS101_PIN_BANK_EINTG(8, 0x020, "gpf1", 0x04, 0x04),
-+=09GS101_PIN_BANK_EINTG(6, 0x040, "gpf2", 0x08, 0x0c),
-+};
-+
-+/* pin banks of exynos9610 pin-controller 4 (TOP) */
-+static const struct samsung_pin_bank_data exynos9610_pin_banks4[] __initco=
-nst =3D {
-+=09GS101_PIN_BANK_EINTG(8, 0x000, "gpp0", 0x00, 0x00),
-+=09GS101_PIN_BANK_EINTG(6, 0x020, "gpp1", 0x04, 0x08),
-+=09GS101_PIN_BANK_EINTG(8, 0x040, "gpp2", 0x08, 0x10),
-+=09GS101_PIN_BANK_EINTG(8, 0x060, "gpc0", 0x0C, 0x18),
-+=09GS101_PIN_BANK_EINTG(8, 0x080, "gpc1", 0x10, 0x20),
-+=09GS101_PIN_BANK_EINTG(5, 0x0A0, "gpc2", 0x14, 0x28),
-+=09GS101_PIN_BANK_EINTG(8, 0x0C0, "gpg0", 0x18, 0x30),
-+=09GS101_PIN_BANK_EINTG(8, 0x0E0, "gpg1", 0x1C, 0x38),
-+=09GS101_PIN_BANK_EINTG(8, 0x100, "gpg2", 0x20, 0x40),
-+=09GS101_PIN_BANK_EINTG(6, 0x120, "gpg3", 0x24, 0x48),
-+=09GS101_PIN_BANK_EINTG(3, 0x140, "gpg4", 0x28, 0x50),
-+};
-+
-+/* pin banks of exynos9610 pin-controller 5 (SHUB) */
-+static const struct samsung_pin_bank_data exynos9610_pin_banks5[] __initco=
-nst =3D {
-+=09EXYNOS850_PIN_BANK_EINTG(4, 0x000, "gph0", 0x00),
-+=09EXYNOS850_PIN_BANK_EINTG(3, 0x020, "gph1", 0x04),
-+};
-+
-+static const struct samsung_pin_ctrl exynos9610_pin_ctrl[] __initconst =3D=
- {
-+=09{
-+=09=09/* pin-controller instance 0 ALIVE data */
-+=09=09.pin_banks=09=3D exynos9610_pin_banks0,
-+=09=09.nr_banks=09=3D ARRAY_SIZE(exynos9610_pin_banks0),
-+=09=09.eint_wkup_init =3D exynos_eint_wkup_init,
-+=09=09.suspend=09=3D exynos_pinctrl_suspend,
-+=09=09.resume=09=09=3D exynos_pinctrl_resume,
-+=09}, {
-+=09=09/* pin-controller instance 1 CMGP data */
-+=09=09.pin_banks=09=3D exynos9610_pin_banks1,
-+=09=09.nr_banks=09=3D ARRAY_SIZE(exynos9610_pin_banks1),
-+=09=09.eint_wkup_init =3D exynos_eint_wkup_init,
-+=09=09.suspend=09=3D exynos_pinctrl_suspend,
-+=09=09.resume=09=09=3D exynos_pinctrl_resume,
-+=09}, {
-+=09=09/* pin-controller instance 2 DISPAUD data */
-+=09=09.pin_banks=09=3D exynos9610_pin_banks2,
-+=09=09.nr_banks=09=3D ARRAY_SIZE(exynos9610_pin_banks2),
-+=09}, {
-+=09=09/* pin-controller instance 3 FSYS data */
-+=09=09.pin_banks=09=3D exynos9610_pin_banks3,
-+=09=09.nr_banks=09=3D ARRAY_SIZE(exynos9610_pin_banks3),
-+=09=09.suspend=09=3D exynos_pinctrl_suspend,
-+=09=09.resume=09=09=3D exynos_pinctrl_resume,
-+=09}, {
-+=09=09/* pin-controller instance 4 TOP data */
-+=09=09.pin_banks=09=3D exynos9610_pin_banks4,
-+=09=09.nr_banks=09=3D ARRAY_SIZE(exynos9610_pin_banks4),
-+=09=09.suspend=09=3D exynos_pinctrl_suspend,
-+=09=09.resume=09=09=3D exynos_pinctrl_resume,
-+=09}, {
-+=09=09/* pin-controller instance 5 SHUB data */
-+=09=09.pin_banks=09=3D exynos9610_pin_banks5,
-+=09=09.nr_banks=09=3D ARRAY_SIZE(exynos9610_pin_banks5),
-+=09},
-+};
-+
-+const struct samsung_pinctrl_of_match_data exynos9610_of_data __initconst =
-=3D {
-+=09.ctrl=09=09=3D exynos9610_pin_ctrl,
-+=09.num_ctrl=09=3D ARRAY_SIZE(exynos9610_pin_ctrl),
-+};
-+
- /*
-  * Pinctrl driver data for Tesla FSD SoC. FSD SoC includes three
-  * gpio/pin-mux/pinconfig controllers.
-diff --git a/drivers/pinctrl/samsung/pinctrl-samsung.c b/drivers/pinctrl/sa=
-msung/pinctrl-samsung.c
-index e374effba25a..5ac6f6b02327 100644
---- a/drivers/pinctrl/samsung/pinctrl-samsung.c
-+++ b/drivers/pinctrl/samsung/pinctrl-samsung.c
-@@ -1504,6 +1504,8 @@ static const struct of_device_id samsung_pinctrl_dt_m=
-atch[] =3D {
- =09=09.data =3D &exynos8890_of_data },
- =09{ .compatible =3D "samsung,exynos8895-pinctrl",
- =09=09.data =3D &exynos8895_of_data },
-+=09{ .compatible =3D "samsung,exynos9610-pinctrl",
-+=09=09.data =3D &exynos9610_of_data },
- =09{ .compatible =3D "samsung,exynos9810-pinctrl",
- =09=09.data =3D &exynos9810_of_data },
- =09{ .compatible =3D "samsung,exynos990-pinctrl",
-diff --git a/drivers/pinctrl/samsung/pinctrl-samsung.h b/drivers/pinctrl/sa=
-msung/pinctrl-samsung.h
-index 0f7b2ea98158..937600430a6e 100644
---- a/drivers/pinctrl/samsung/pinctrl-samsung.h
-+++ b/drivers/pinctrl/samsung/pinctrl-samsung.h
-@@ -398,6 +398,7 @@ extern const struct samsung_pinctrl_of_match_data exyno=
-s7885_of_data;
- extern const struct samsung_pinctrl_of_match_data exynos850_of_data;
- extern const struct samsung_pinctrl_of_match_data exynos8890_of_data;
- extern const struct samsung_pinctrl_of_match_data exynos8895_of_data;
-+extern const struct samsung_pinctrl_of_match_data exynos9610_of_data;
- extern const struct samsung_pinctrl_of_match_data exynos9810_of_data;
- extern const struct samsung_pinctrl_of_match_data exynos990_of_data;
- extern const struct samsung_pinctrl_of_match_data exynosautov9_of_data;
+ drivers/hwtracing/stm/Kconfig |    4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
---=20
-2.51.0
-
-
+--- linux-next-20251219.orig/drivers/hwtracing/stm/Kconfig
++++ linux-next-20251219/drivers/hwtracing/stm/Kconfig
+@@ -13,7 +13,7 @@ if STM
+ 
+ config STM_PROTO_BASIC
+ 	tristate "Basic STM framing protocol driver"
+-	default CONFIG_STM
++	default STM
+ 	help
+ 	  This is a simple framing protocol for sending data over STM
+ 	  devices. This was the protocol that the STM framework used
+@@ -28,7 +28,7 @@ config STM_PROTO_BASIC
+ 
+ config STM_PROTO_SYS_T
+ 	tristate "MIPI SyS-T STM framing protocol driver"
+-	default CONFIG_STM
++	default STM
+ 	help
+ 	  This is an implementation of MIPI SyS-T protocol to be used
+ 	  over the STP transport. In addition to the data payload, it
 
