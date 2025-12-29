@@ -4,62 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A51BE92FDA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 20:39:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0D9EE92FDA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 20:59:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+hXJ9VKZ+qgO9sXVJY5VLaceN+IBBoqhvgGYVD+dUrc=; b=0S19J7t3gOo1gs4l086aDEmlrs
-	z/fQbunzn97JbEj8w/opjz6S61jm5hIoXWywURdkiUMT4RCNrbaNkGu1UgrxqiSLTo2CSwMu2jYC6
-	klqNlL+erOafN0/oVKItWG6Z6NYBHZ9F3jMQutOWFU93Hhq/3pew057jmw71yq4mhDfv8MVDW1ZNh
-	4WccBDy+bVezmpqgxlJiXw70A49pn4OUlYCuhI/gep3it+MUu9lqjYjpi9G2DGZeeKljBNc/2uxKh
-	Ek0ynuUZWYcWil90JOKi5kMySdIGFs8fKK8nmFY1vKF5LCHzgIKkhAlud9D85X1eXQyZnQImXF5VT
-	oC8VQIhg==;
+	bh=mT72sLXnNV3V/jTjLvqc6CW9rW/yO+T8uURGolooNUk=; b=iflaVyiIDvhHYiwFSQvuDNWkQl
+	2Hit8M4ceYAWcsROuvLOIQZlooIHXNCY+g6/hQCbc2eKv8T1kMhVDvDdQb5gSUcVNjh6MGr2xZtrS
+	/IB9vjFT1vYXboNmgLqSOjovqMX5EHUr2VIhB15mDi70yGHjR3RCqkgfrfWUwHdbrY3iiNunzDEoO
+	woZ6IHz22g/xx0damspE2DuA0b6AEp0I+umlz2InpVdTRz3G1weMuH2fvfrBUE9zLY8xIS4ntfAmv
+	NyEW8FKlze3Pop5gy32ns5Tz4I86Fz24GvbyaGg5tBvRPt1rWCVjgqMIvw89zeORXPkOCHSEopdoI
+	vZ4Q2OWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaK1c-000000043NY-15ID;
-	Mon, 29 Dec 2025 20:39:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vaKKY-0000000449C-1aEN;
+	Mon, 29 Dec 2025 20:59:06 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaK1X-000000043MN-3KBA
+	id 1vaKKV-0000000448m-3EXG
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Dec 2025 20:39:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 33418444D1;
-	Mon, 29 Dec 2025 20:39:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E217CC4CEF7;
-	Mon, 29 Dec 2025 20:39:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767040766;
-	bh=8HiZDGiFI1Ej64HDHXl6T0blCYp6fT2OhJ3cyCelRKU=;
-	h=From:Date:Cc:To:In-Reply-To:References:Subject:From;
-	b=PA5VvINckjhy4V91bcU3EZ2+mTR8tSVR3Oy4ve5TUmnE2AMeiRMtdvDAN3oKV/6ch
-	 SuS/pYBISnOn7ZPurKX/hWny5LPJas8W3FvgZEGUpilFYsnutsmShIsmX2BkHAe5ES
-	 1F5Fyz6pxmMMjQF4xLk6QnutvUf7oEDIIDQn5XncAUWL/e3abzDMx2XX2xuh4rfnka
-	 WmiFghSe8RSjd3JRT+okRsJGWZp0PmCNskgXDFaTJ83UJNg00RTsZCiaxQ6ZEvHt9K
-	 uvW/u8A1vJO7P63IhpHuGuwRRa0ZBsec+ObGO8pOhg5egOisAnHY2vExM7zrvckxDi
-	 FvH9guXxu1dGA==
-From: Rob Herring <robh@kernel.org>
-Date: Mon, 29 Dec 2025 14:39:25 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Mon, 29 Dec 2025 20:59:04 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-42fb4eeb482so4693488f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Dec 2025 12:59:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1767041942; x=1767646742; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=mT72sLXnNV3V/jTjLvqc6CW9rW/yO+T8uURGolooNUk=;
+        b=ndmvZotDOfaCCxYoufLQb67P1FHlGCW8n2XqG3SIgEKVDXf70t8Doxug/hLTtsV24L
+         GYy/4CzFObB0dSlqvkXDdGi8oNBizlsTCB9r0PJYqNFZVwUvxhzHdefVrB9/mBOWzkUK
+         WCMdYIR0Zb0FNGTbuy6JKSECgrY1qA4wnAJd5j8T19WnalzVPKMsDK3RXantKS2Ti251
+         g/4f+48l2hqA9kNuHFizJAtBhn7+NYT0cpLbhC/CVhLLLVUEury6GschDiVK9Q8oGnSI
+         uR6pwaK3O44Ch5TgQod7fP8UTcdr+ocgAhqZM0ujcdaSjQD6wNw5JrmFKsH+H5+q18Kr
+         Dt5w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767041942; x=1767646742;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=mT72sLXnNV3V/jTjLvqc6CW9rW/yO+T8uURGolooNUk=;
+        b=Hgj2ZXGQImolvYIBh6ri73wD+RwqFbeEgrhAO0QihDYnXUojuC8vNZKV4Wuh5iOvLp
+         kzxeimWgY6g8dXH9hvyEERtXwEUkdnfD6uWglpcxnk0Vd+8cfvVVCYwlZZ3wRUAzIafo
+         vPl674TNSNHbA6avdFa9BvcxFLFX1MxOCrUHYUdnPCrNoJgG1zrUrZu2hRgfrF3OXwM6
+         Ulm3poCJir+M/DEx1fy5FB9P5PMWnzjDhza+jPBH1SbxVz9k31e/VPQNEw2gm6gwokef
+         YWnBUXObKNRAsNERCuV12HRcq0yqwg/MPYJO0yru+pE55DaWCscJUart4T9juoCDEWAa
+         8kRw==
+X-Forwarded-Encrypted: i=1; AJvYcCUA9X0jo9z9j81uNE4jZa8Oog4jlM0YZUX9M979yVbn6TT7fYfNjGPcMHkxfzFpG3Pjx1Gv/uDOhQKiSJYz0XCB@lists.infradead.org
+X-Gm-Message-State: AOJu0YwobXwakFhdHjpUxBQjnzFVzx3Vkh1PejM7wNoPUr/LMwdWS8g6
+	tGnosqDdZb/5G91UK4PBJoKBEONv+FYXGODWlwx/LIXP6imG9yK3LTpv7WXGBl3d
+X-Gm-Gg: AY/fxX4h22Awb7ZBOqXALMXm+Hi9jTXvCareqHLazbKAzjlk9udhVO02zps4j2hiE6X
+	f8jfHawXbZUbFDR4aUsEC4NqzGqZfWUmWXRaadzry2hZ2gGnMnzDJn1AV1S40ACcbGj51ZrOpAe
+	oMKlqp0NkILVpUuFIcVRF24nB5Tk8Gd8SCvqp9UOYa9FTQ4Y9Kyg1fpX4C7fScRwwD8Wh/imf31
+	DJr4b1l4xb1Kxac7R+4NTjhgFeLxSkz7DNWLmenj9q2XB6GOnPfKsx1e5uEXcSI+7O0K3ZgFOdm
+	6RhAFfnEg8UcwJiQygQiajBvg3Zph/yXJtBzggklseIBI0WbhtGoqGs9jMkZ6I7iA/PWJb5XV2s
+	6ksN8IdII2s9CLIRYH+UH0rR8jbhy2XCe0L4xBPc3V+My/XVhYdYPzt5uh8tyF8LGk+ORU4SFXw
+	Yxo8qexrkhX8xLmqwEZptCKBeEfhoI+jq+GFkRIF/jNkI9VXdFKdLkKCK7wS0twzUP3UNJKkMRt
+	gI5e8sgnHr20+dOyVjrE6q53Kw=
+X-Google-Smtp-Source: AGHT+IF+6dfGz8jAW2jy8V3d7wl/tvhBrzoFF1KjAPTCU32EzmQO5hO9Wctj+4CVYLo8hx4OP+5hSg==
+X-Received: by 2002:a05:6000:186e:b0:432:4c01:db00 with SMTP id ffacd0b85a97d-4324e4cff0dmr41189328f8f.27.1767041941354;
+        Mon, 29 Dec 2025 12:59:01 -0800 (PST)
+Received: from Lord-Beerus.station (net-5-94-28-220.cust.vodafonedsl.it. [5.94.28.220])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432613f7e6esm53784810f8f.21.2025.12.29.12.59.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 29 Dec 2025 12:59:00 -0800 (PST)
+Date: Mon, 29 Dec 2025 21:58:58 +0100
+From: Stefano Radaelli <stefano.radaelli21@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Primoz Fiser <primoz.fiser@norik.com>,
+	Yannic Moog <y.moog@phytec.de>,
+	Markus Niebel <Markus.Niebel@tq-group.com>,
+	Josua Mayer <josua@solid-run.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v1 3/3] arm64: dts: imx95-var-dart: Add support for
+ Variscite Sonata board
+Message-ID: <aVLrkqgjrsX7jfYw@Lord-Beerus.station>
+References: <20251229150421.57616-1-stefano.r@variscite.com>
+ <20251229150421.57616-4-stefano.r@variscite.com>
+ <0afc0945-af65-410d-8556-1d09792981cb@lunn.ch>
 MIME-Version: 1.0
-Cc: linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
- jserv@ccns.ncku.edu.tw, conor+dt@kernel.org, eleanor15x@gmail.com, 
- linux-arm-kernel@lists.infradead.org, linusw@kernel.org, krzk+dt@kernel.org, 
- arnd@arndb.de, devicetree@vger.kernel.org
-To: Kuan-Wei Chiu <visitorckw@gmail.com>
-In-Reply-To: <20251225173118.580110-1-visitorckw@gmail.com>
-References: <20251225173118.580110-1-visitorckw@gmail.com>
-Message-Id: <176703895443.2172504.7231951665641312391.robh@kernel.org>
-Subject: Re: [PATCH v2] ARM: dts: integrator: Fix DMA ranges mismatch
- warning on IM-PD1
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <0afc0945-af65-410d-8556-1d09792981cb@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251229_123927_873886_2A4E6E2E 
-X-CRM114-Status: GOOD (  18.55  )
+X-CRM114-CacheID: sfid-20251229_125903_827429_E8CD541A 
+X-CRM114-Status: GOOD (  13.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,67 +116,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Thu, 25 Dec 2025 17:31:18 +0000, Kuan-Wei Chiu wrote:
-> When compiling the device tree for the Integrator/AP with IM-PD1, the
-> following warning is observed regarding the display controller node:
+On Mon, Dec 29, 2025 at 07:24:50PM +0100, Andrew Lunn wrote:
 > 
-> arch/arm/boot/dts/arm/integratorap-im-pd1.dts:251.3-14: Warning
-> (dma_ranges_format):
-> /bus@c0000000/bus@c0000000/display@1000000:dma-ranges: empty
-> "dma-ranges" property but its #address-cells (2) differs from
-> /bus@c0000000/bus@c0000000 (1)
+> What is this ethernet connected to? In the commit message you mention
+> an SFP? So i would expect a phandle pointing to the SFP cage node,
+> which follows:
 > 
-> The "dma-ranges" property is intended to describe DMA address
-> translations for child nodes. However, the only child of the display
-> controller is a "port" node, which does not perform DMA memory
-> accesses.
+> Documentation/devicetree/bindings/net/sff,sfp.yam
 > 
-> Since the property is not required for the child node and triggers a
-> warning due to default address cell mismatch, remove it.
-> 
-> Fixes: 7bea67a99430 ("ARM: dts: integrator: Fix DMA ranges")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
-> ---
-> Changes in v2:
-> - Switch approach to remove the unused "dma-ranges" property instead of
->   adding "#address-cells" and "#size-cells".
-> 
->  arch/arm/boot/dts/arm/integratorap-im-pd1.dts | 1 -
->  1 file changed, 1 deletion(-)
-> 
+> 	Andrew
 
+Hi Andrew,
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+You're absolutely right, thanks for pointing that out!
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
+I mistakenly thought fixed-link alone was sufficient, but after reading
+the sff,sfp.yaml binding I understand the sfp node is needed to properly
+handle the SFP+ cage and transceiver module detection via I2C.
 
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
+I've updated the patch to include the sfp node with i2c-bus and
+los-gpios properties.
 
-  pip3 install dtschema --upgrade
+Sending v2 shortly.
 
-
-This patch series was applied (using b4) to base:
- Base: attempting to guess base-commit...
- Base: tags/next-20251219 (exact match)
- Base: tags/next-20251219 (use --merge-base to override)
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/arm/' for 20251225173118.580110-1-visitorckw@gmail.com:
-
-arch/arm/boot/dts/arm/integratorap-im-pd1.dtb: display@1000000 (arm,pl110): 'port@0' does not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/display/arm,pl11x.yaml
-
-
-
-
-
+Thanks,
+Stefano
 
