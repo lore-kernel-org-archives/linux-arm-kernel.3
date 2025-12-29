@@ -4,67 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4B77D3B7E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 06:59:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D064E8FDB1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 07:17:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z24o1bT1ugcsbBAq+DlkXsAbqHC8CQOJHAmR6N3rhQg=; b=iO3JawIzBITyZUXj4S4tBuEvfT
-	biuPsuZJl8N05iBeif7vAXafRFk5yEFw5ayXRu6nTXkHOLgzmhnwe5Cw5LhplkDEXf4V16AAKEMkK
-	R6xvKs0aNW4pXlB3J76oDdQQLivR49QUd0qM+BpwdQChlcrLBAH6WIbwchF6m6wPbTEfBr7fY5WjP
-	VNeclyKUShSdx42nt5Yi+rrvg9pM2ZsjzU6NJGqTSlMszKPJh5KEdy+rbHZOJba5bZKYlAiK5FHbC
-	oTX5xNpMxajCvYhvGqaQSFx2iiG2jK8JOqZR3SmvJY6zy01w3qryATx7npDX3/d/THTIixCA9ajwQ
-	WxfDuK1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=se5BkL4cc1OVNke0mTlfsa4ZqHPcw+QF9/7S5JxPs+0=; b=3TuBB950bKrvjM3GYROjquyudm
+	xwi3mWmNp0JKsE7C4RTdG81eFk2L8ickRwoXrg31FmbAGapazpNO267UEoJNSMSRcyWqzPvd0VIgq
+	BdM5MGPTMBImGg+6cefxfHQtuJByCpzjumP+tEITdcPtf3JYYfg/ZWtw96v3dS3OaAaWaUpBsgFdU
+	WABgnMNibhuIlfBcVK/soktUHlJdJiLciNDtvCjwXMsOzFYwT25hC2sCwl07UpuurEPc6ty4Qb6gf
+	63pmNE2Vv0LIU+E1DmzN1czb1PcmXlOURbgIyGaMxwh/DIAH0z4bWJoR1L2ANhjiAhF/JVy8QZOMc
+	nOXvX7IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1va7Dr-00000003Ova-14VR;
-	Mon, 29 Dec 2025 06:59:19 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1va7VL-00000003Pkx-1OFu;
+	Mon, 29 Dec 2025 07:17:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1va7Dp-00000003Ov6-2DJB
+	id 1va7VK-00000003Pkd-2hDR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Dec 2025 06:59:18 +0000
+	Mon, 29 Dec 2025 07:17:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4110343E5F;
-	Mon, 29 Dec 2025 06:59:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 013C0C4CEF7;
-	Mon, 29 Dec 2025 06:59:08 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 005F36000A;
+	Mon, 29 Dec 2025 07:17:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D206C4CEF7;
+	Mon, 29 Dec 2025 07:17:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766991556;
-	bh=o0wgikOuKph/UYuKT9+K1YO24u8iftLUAb48sk35Re0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LX6iWUywtDOVwU3j9KaL9yXGKfNvvYoCb2qlBXzbFyPsnG2vGbJfpde+T2rxhLMi6
-	 2QkUnuWKjSpsWFFAsUzRcNl579W7HN0vsLwnx0uIdqDYc9pemeno7sciMWkg6kcTI/
-	 4/xSfoSw/2dLsoppKWxsEq5G+zDhlITLjIbe3xtQyDd3VX8EaYH8uBU7LN15p9UqQL
-	 FVs9iNnIt/1eTm9Frc5o3vv9Yv1CER2nZ+JljzygBIBdOv7xURTNYUtEzZKhlQ+g8z
-	 HHaOgTGPYzoj7al1VV0VjV+KDjSPLts8cDtlXEe/iJFkjLIODRbrq6dVEwqGplAjPU
-	 8vCr0gtMZU5XA==
-Date: Mon, 29 Dec 2025 08:59:05 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Eugen Hristev <eugen.hristev@linaro.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org, tglx@linutronix.de, andersson@kernel.org,
-	pmladek@suse.com, rdunlap@infradead.org, corbet@lwn.net,
-	david@redhat.com, mhocko@suse.com, tudor.ambarus@linaro.org,
-	mukesh.ojha@oss.qualcomm.com, linux-arm-kernel@lists.infradead.org,
-	linux-hardening@vger.kernel.org, jonechou@google.com,
-	rostedt@goodmis.org, linux-doc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org,
-	linux-arch@vger.kernel.org, tony.luck@intel.com, kees@kernel.org
-Subject: Re: [PATCH 20/26] mm/sparse: Register information into meminspect
-Message-ID: <aVImuURq0FXsfsrp@kernel.org>
-References: <20251119154427.1033475-1-eugen.hristev@linaro.org>
- <20251119154427.1033475-21-eugen.hristev@linaro.org>
+	s=k20201202; t=1766992641;
+	bh=Sg+bAtSyL7lKgTYWHwnXS3UmgWGF91leNuB0+p3WayA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Nk8PovXg+7oNRTF3sI8ETfeS9Q1Cvofc0ov/InczWdgNEHqIPg+0gq6D1sqsHBOHF
+	 +5uUrtnd+DLCFo8j4shkWVWvnUFMtvKys9+ZoN2cQrDwqkJ3hPIo2c+lTwYwkBHKcX
+	 0a0K9jpInysBDoI4l73bvvv7CnlPAjBck4wVbck+dIKmq0CeLGVfjDrUH4SeVbaO0L
+	 Wb1kCk/VG5G6icswfwdqic7JBMy2cIdLtcTyB7IjQZrzzNWIaEKeUwe+BL+7r5BcQW
+	 KLUdSXgx8OdcZKxHRzVJwJrESd1vrHpH2CJKJtqOmGY8uLe1gNlbGUeCjKT/1BkZjP
+	 P4uP8zN8zacPQ==
+Message-ID: <88e9e4c4-13c9-4b96-88cc-abb581011e87@kernel.org>
+Date: Mon, 29 Dec 2025 08:17:15 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251119154427.1033475-21-eugen.hristev@linaro.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251228_225917_584255_6215D3BD 
-X-CRM114-Status: GOOD (  16.95  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: cix: Use lowercase hex
+To: Peter Chen <peter.chen@cixtech.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Fugang Duan <fugang.duan@cixtech.com>,
+ CIX Linux Kernel Upstream Group <cix-kernel-upstream@cixtech.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20251223152424.155253-2-krzysztof.kozlowski@oss.qualcomm.com>
+ <aVHb-kbi2QbChxj9@nchen-desktop>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <aVHb-kbi2QbChxj9@nchen-desktop>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,70 +118,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Eugen,
+On 29/12/2025 02:40, Peter Chen wrote:
+> On 25-12-23 16:24:25, Krzysztof Kozlowski wrote:
+>> EXTERNAL EMAIL
+>>
+>> The DTS code coding style expects lowercase hex for values and unit
+>> addresses.
+>>
+>> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+>>
+>> ---
+>>
+>> Patches done with sed, verified with comparing unflattened DTB and
+>> dtx_diff.
+>> ---
+>>  arch/arm64/boot/dts/cix/sky1.dtsi | 2 +-
+>>  1 file changed, 1 insertion(+), 1 deletion(-)
+>>
+>> diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
+>> index 64b76905cbff..fb8c826bbc97 100644
+>> --- a/arch/arm64/boot/dts/cix/sky1.dtsi
+>> +++ b/arch/arm64/boot/dts/cix/sky1.dtsi
+>> @@ -523,7 +523,7 @@ pcie_x1_1_rc: pcie@a0e0000 {
+>>                         reg-names = "reg", "cfg", "rcsu_strap", "rcsu_status", "msg";
+>>                         ranges = <0x01000000 0x0 0x38100000 0x0 0x38100000 0x0 0x00100000>,
+>>                                  <0x02000000 0x0 0x38200000 0x0 0x38200000 0x0 0x07e00000>,
+>> -                                <0x43000000 0x0C 0x00000000 0x0C 0x00000000 0x04 0x00000000>;
+>> +                                <0x43000000 0x0c 0x00000000 0x0c 0x00000000 0x04 0x00000000>;
+> 
+> Sorry, I could not apply for v6.19-rc1, could you?
 
-On Wed, Nov 19, 2025 at 05:44:21PM +0200, Eugen Hristev wrote:
-> Annotate vital static information into meminspect:
->  - mem_section
-> 
-> Information on these variables is stored into inspection table.
-> 
-> Register dynamic information into meminspect:
->  - section
->  - mem_section_usage
-> 
-> This information is being allocated for each node, so call
-> memblock_mark_inspect to mark the block accordingly.
-> 
-> Signed-off-by: Eugen Hristev <eugen.hristev@linaro.org>
-> ---
->  mm/sparse.c | 4 ++++
->  1 file changed, 4 insertions(+)
-> 
-> diff --git a/mm/sparse.c b/mm/sparse.c
-> index 17c50a6415c2..80530e39c8b2 100644
-> --- a/mm/sparse.c
-> +++ b/mm/sparse.c
-> @@ -15,6 +15,7 @@
->  #include <linux/swapops.h>
->  #include <linux/bootmem_info.h>
->  #include <linux/vmstat.h>
-> +#include <linux/meminspect.h>
->  #include "internal.h"
->  #include <asm/dma.h>
->  
-> @@ -30,6 +31,7 @@ struct mem_section mem_section[NR_SECTION_ROOTS][SECTIONS_PER_ROOT]
->  	____cacheline_internodealigned_in_smp;
->  #endif
->  EXPORT_SYMBOL(mem_section);
-> +MEMINSPECT_SIMPLE_ENTRY(mem_section);
->  
->  #ifdef NODE_NOT_IN_PAGE_FLAGS
->  /*
-> @@ -253,6 +255,7 @@ static void __init memblocks_present(void)
->  		size = sizeof(struct mem_section *) * NR_SECTION_ROOTS;
->  		align = 1 << (INTERNODE_CACHE_SHIFT);
->  		mem_section = memblock_alloc_or_panic(size, align);
-> +		memblock_mark_inspect(virt_to_phys(mem_section), size);
+What do you mean? It applies cleanly on v6.19-rc1 and on next. Your
+branches are not really updated, so maybe you need to fix this.
 
-Why not meminspect_register_va()?
+And no, I cannot apply this, because this would mean CIX is
+legacy/abandoned platform. Shall I mark it as such?
 
->  	}
->  #endif
->  
-> @@ -343,6 +346,7 @@ sparse_early_usemaps_alloc_pgdat_section(struct pglist_data *pgdat,
->  		limit = MEMBLOCK_ALLOC_ACCESSIBLE;
->  		goto again;
->  	}
-> +	memblock_mark_inspect(virt_to_phys(usage), size);
->  	return usage;
->  }
->  
-> -- 
-> 2.43.0
-> 
 
--- 
-Sincerely yours,
-Mike.
+Best regards,
+Krzysztof
 
