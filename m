@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F8C6E92FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 18:41:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE922E92FD0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 18:41:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fD3TOo20gfVbUTTrRVEjhVDMuAvx6I5y/UndE2JGgIM=; b=NRF0yIaRLzOF0KCM4sfNoiWyBJ
-	AVSElxg5RUj7rhBlIqj8E0sH5deZf4iopjGrOb1U65jeTM3gLB42G4y1HWZxsCM/tbWFqplRiDFv8
-	EHTbxUvDr+aDg7WFhNdX5KMqYXd3gP3C5BNgWsRoAkkhDsg3TvLvDS2JirV1zTOO/uSz+vKtq2Ynw
-	Nv9TWSNpTdz/Coh+eXpIJqfGt3F/mn/4VfwaCOrI56U6Aa6Sb4gJ4mX9+Fa8u1J+TwiMTxN/5gYLD
-	Qs0Jmsv8kBxP9R0prtW198LAYLoV9MMnnW8/SnTs62QaI7uh/55XyLRBH0+PkXjqmK3CirSSWfnsZ
-	YAgtdCWw==;
+	bh=H2nPBwlmLC+wGQo+kGghgS2CarqCL9CUUT5DieeAoVE=; b=w7vz/2t3uvpYYn/FyrDq/++kT9
+	C+Bsz9mQcaqOuxGUNQq+yVzomENlqhgjp7v7H47Nz6QlIkv5YH2XRVr7J1PK3rCbPnKM4FRQb78t4
+	/u3okg5m6JHUH5nregaysYxsH5Itk+nyG5bB2R1QaGdDfm1QESgBcbgzHWDnrXzwexBFX1HRysVR2
+	Lfxx3OB+PeJo8O4NXm7ymqg9aFO5P2+RiLRtVfbvRh3u7nH+YnKhUfxgV1kw4gN3UBNwtTWeoND0B
+	IrnGUQVFLwBk4OmOH7dyYdyNVYuZb1fq6JM61U8o2hdn7hY9NOAXEAX7OQ6RT8nl8SYynsokPr3R2
+	QHan8G0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaIAx-00000003y1x-2zP5;
-	Mon, 29 Dec 2025 18:41:03 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1vaIAy-00000003y2U-0LzT;
+	Mon, 29 Dec 2025 18:41:04 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaIAV-00000003xZy-3v6t
+	id 1vaIAY-00000003xbk-0y4l
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Dec 2025 18:40:37 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-47d3ffb0f44so22431425e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Dec 2025 10:40:35 -0800 (PST)
+	Mon, 29 Dec 2025 18:40:40 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-477619f8ae5so56967325e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Dec 2025 10:40:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sartura.hr; s=sartura; t=1767033634; x=1767638434; darn=lists.infradead.org;
+        d=sartura.hr; s=sartura; t=1767033636; x=1767638436; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=fD3TOo20gfVbUTTrRVEjhVDMuAvx6I5y/UndE2JGgIM=;
-        b=w0vAMawIU1xOTFz0U/hl796/ypGFvTkTzu/lxVecpNq8oZDdTzl4pNxwQujiH7n9Ax
-         6qnwAHq15F50iaARzY8PmxCdtDC2hU9iRT27LgSfqjiog+J+chDqUtIZsoknS0ScB1k9
-         fDdw6IpQq8nSO7NOCmgQNd2MDDXypc9UwdYNo1SQF0bUycD02OxHuxpAgjh7+NBtXppa
-         EsaijnjtIkCadyomiKTjqxp4hs3K/dTUgCv8fAdfSS+gbuc3K81WgAWoCP2fllNLDBZp
-         2CqxlKupTB6OGIbksQjHjWiyU9ItFT8UoJEqGeyemX0fEOQBNzBszbsPKGxeAQFo4k79
-         sSkQ==
+        bh=H2nPBwlmLC+wGQo+kGghgS2CarqCL9CUUT5DieeAoVE=;
+        b=c2fNdfIFEwBtWL5mOTVose5PMWZQTyuZWbFp8TzpM6U5CJECpVwlZMYYs953EoI0Uw
+         6/c+R1H1fxnD1c2XqZ/qRxj5wjcCcK4EVegfgUvKlnzMjBZKNhqAQJV0iIm8jtkWQ4xp
+         iYedU28tsK6p67QmhTtGqw92X+gGK3PSd2lAQ9Goz85uKay4EzTC2/E27xWU7rvbS4y/
+         8d2NJR36lTgLNFJ7o10kpYLgYN0erUHdQWhW0BgXT1MNHfI7iJeSsRg3hCbBm9kNdQg+
+         kIphrrKYu2rHwYw4sqNEhEHbC2AFRf8EMF6boFKCjoK0o6LETXJF4h3QFxxqIZjO1AEo
+         PGqw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767033634; x=1767638434;
+        d=1e100.net; s=20230601; t=1767033636; x=1767638436;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=fD3TOo20gfVbUTTrRVEjhVDMuAvx6I5y/UndE2JGgIM=;
-        b=bZAP9mRyeUliR/ElEBEdckt5/kUwRwXv48xu8+MXjGiuCzmFTZznuzC9epFrYDLDPf
-         anSNJIsA6HSvy2+pVDrru4qFz0nSyOdtfh9jDwzAcW1Q9ISL4azOZtYCgCp77+zbwKSS
-         uskv5sFDuq642CQ0oJNio1Zoclvesy3qAP6aJ3FH2ByeENXi4FJ01ng+F0lFb95ict3l
-         E26iijfkbYO+lmmv+XTr963ACJeJlChvag4NStn3uSipeSV8qcJUPEhLQcLuCTylXmhi
-         UJ4I/Y+JKTCJZj/s1/Jr4DDIeKvQ1bG/tVoSeSdjSwc7DzOhfuGGPJ8EIT+vyJhJ1dnF
-         3ZVA==
-X-Forwarded-Encrypted: i=1; AJvYcCXTnqhSYnlddf/CDSyfCTR+qKytcsrmSRK1h9yw0hXGaa1Jeemui3Qk2krWW2grMlmxi3lS8PRwfqLYSQk/TiW0@lists.infradead.org
-X-Gm-Message-State: AOJu0YwV6yTrNOAyrGopdx2VJgOYllqvFEQ2rHjs5TRhFhJoOHwQsNPr
-	iDpE3eodzRA5HQnxIn8JilKsGMADPW6Dx9B2daTpxYVx7OA+NL+WJRknJUiG1cCqXkc=
-X-Gm-Gg: AY/fxX5J6LQQP3H6FFXYvJL2xPcJ0H//7nioy0ABeGEOIGRfpaLObdlklORXqo7zz7t
-	B4fvn8C3k+D6fanrxPxRYaULrDixAI86gU7mLpEr41CAJWQOz+BWsMs14lsJrwkFd8IPEQFizL8
-	Rs0AuDcf0dNOz93Ss1coMzToiG/Owh8VUEauJOQvIN+/DIqq1YS5eUP+/yutYpOGJk35yqQabNQ
-	/YVSeWYEIziHgkWirobN4UohIZeB5GzXV48Lo4gYeacIh9NTRF21r3hT26OmldJa2UsAubHXhUI
-	jJRofe1B2/rrUXXNRnIQWWJAaQJbqYv2nfcg9AwhdMcu0bW+0EhWI19CuZQD5YIIIgwsCluYXKg
-	fU2BfZIKRNrjhkIT78nAA4PynIP5CnzNnaum8HoN/84J8G3Hi0cL3+zN0XMJvEyxmzN+fjaToaB
-	HQeY7wi2pNOoWIVNFTovId9Lc0HC66QsP7SGHCpT8AagybUgdxvNzOVYqjZqfGtYG4F6bhiFwNe
-	wmv8X18iS1OZghp1IAME0imGJ7Y
-X-Google-Smtp-Source: AGHT+IEOW1WMqA9XyyxJdu/NN+RbiiVAdkX9+5SQ+X2Sm6Ndg4Ati/iuxawV+Wvcj48RXpcfvKGVGw==
-X-Received: by 2002:a05:600c:c115:b0:47d:3ead:7439 with SMTP id 5b1f17b1804b1-47d3ead7574mr139091495e9.37.1767033634253;
-        Mon, 29 Dec 2025 10:40:34 -0800 (PST)
+        bh=H2nPBwlmLC+wGQo+kGghgS2CarqCL9CUUT5DieeAoVE=;
+        b=OKE7BEXWUjXKd+CYNXCkl4Ep+xqseJKV7kuIoycjwLpD+ckRZeFT3d3D0qdNL0bnNK
+         DQm4OMMQv3u2ZLuGpRiwdQfHgrYFme3LUaUdLcC7Wr6uTgnVavhwAATxz/eKlDp6mNqZ
+         MbGQCLsB1QbkjVsGNB88wtejUXgMaO2prfbsho0fLPiVf19jGxYbYQcSh7P1ccQXkTHZ
+         EFq78qTGCK+2dHTPqeJdQM47uGzo1cl5S1fPFIDFAwnRBK31l3F84qfmoLBDw20J5/1T
+         w0SvlkSyP9nIFSHvpKXg0mbwDecBMpKex70qvfclc+b+Xw8qZz+vrwvMu+h4vzDSfytj
+         agPw==
+X-Forwarded-Encrypted: i=1; AJvYcCWXdjkElWzyLEIkbCUhu7cTnShAon7DbjqyoNVrTXJsPtnHfbDa/HV/TI2tiMUSATi1+V14CZ0bCZsd8I8w/dxo@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBqUYKigN4uB7IwY26AX8e/iq/BG7nqBSDCM624bve5ockz+ig
+	A6iFOLC7gE6OImcdUZNG/xcYe45ZpjGpDbnjLMCtPR7k5gSMVNYd+tyKWGs+AD5hVFI=
+X-Gm-Gg: AY/fxX4wXaFYPb3IRsleUqhzVzH9jnQlnOEXsgSeiLRIJEN+e7JMnzueh/lUeOjXDC5
+	efmhMNXx7aNTPpc2Lw7Q0XUzHgZhpov8q0ihj1pcrliDyCtCSHox70toFDbePYnEpGARcMsxYly
+	9TlidLEJfuNKDUN9GpXrI97rlwyaaMAZgqjBFJGix1xBoQt4IylhzTmO11pUmcF94AbkitiaDW3
+	ueVLDdt6daOucuk1NehZgOGjdDxFGIkQLfOtr5+etnW8PVdIlM5bIxq3lq/hQ+yEAr2pcjqq3UP
+	LACkS68EAsfy1RNQr1f78Ej4n3ClSGpqfdfHD96bnAN8THniX1KSw9JYSYG71k2ysoJVNCWVfNg
+	4wRATZzycStGRUHU/dJI7TqGB8BqpqACBjDOJdopC8i1M/PPFLbJPZAe39suBFXx07OGjzr+pKp
+	E7fMDHW/cVYhOM4rOsZ+WJCHqWE5OZSqlMOhpbZSOS7jDECKiQVa8nbwj+VyknOMC4edJMS399V
+	l1MlxqL2z3qORqAq1+NuNTK9YSMjiWAsF3ntuA=
+X-Google-Smtp-Source: AGHT+IGJqflA/fWcbFGlt7I8QSG/W3Ym/AA8gFbH72KL6IAeQS+P/elQOb7uOHAEgNrEusVQwY5q5w==
+X-Received: by 2002:a05:600c:3b87:b0:477:aed0:f3fd with SMTP id 5b1f17b1804b1-47d1953b7b0mr395881215e9.8.1767033636235;
+        Mon, 29 Dec 2025 10:40:36 -0800 (PST)
 Received: from fedora (cpezg-94-253-146-116-cbl.xnet.hr. [94.253.146.116])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-47be27b28a7sm604907455e9.12.2025.12.29.10.40.32
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-47be27b28a7sm604907455e9.12.2025.12.29.10.40.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Dec 2025 10:40:33 -0800 (PST)
+        Mon, 29 Dec 2025 10:40:35 -0800 (PST)
 From: Robert Marko <robert.marko@sartura.hr>
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -110,20 +110,18 @@ To: robh@kernel.org,
 	linux-serial@vger.kernel.org,
 	linux-usb@vger.kernel.org
 Cc: luka.perkov@sartura.hr,
-	Robert Marko <robert.marko@sartura.hr>,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v4 11/15] dt-bindings: pinctrl: pinctrl-microchip-sgpio: add LAN969x
-Date: Mon, 29 Dec 2025 19:37:52 +0100
-Message-ID: <20251229184004.571837-12-robert.marko@sartura.hr>
+	Robert Marko <robert.marko@sartura.hr>
+Subject: [PATCH v4 12/15] arm64: dts: microchip: add LAN969x clock header file
+Date: Mon, 29 Dec 2025 19:37:53 +0100
+Message-ID: <20251229184004.571837-13-robert.marko@sartura.hr>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20251229184004.571837-1-robert.marko@sartura.hr>
 References: <20251229184004.571837-1-robert.marko@sartura.hr>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251229_104035_981231_5C3E9400 
-X-CRM114-Status: UNSURE (   8.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251229_104038_938891_2D7C7CE7 
+X-CRM114-Status: GOOD (  11.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,55 +136,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document LAN969x compatibles for SGPIO.
+LAN969x uses hardware clock indexes, so document theses in a header to make
+them humanly readable.
 
 Signed-off-by: Robert Marko <robert.marko@sartura.hr>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
-Changes in v3:
-* Pick Acked-by from Conor
+Changes in v4:
+* Move clock indexes from dt-bindings to a DTS header
 
- .../pinctrl/microchip,sparx5-sgpio.yaml       | 20 ++++++++++++++-----
- 1 file changed, 15 insertions(+), 5 deletions(-)
+Changes in v2:
+* Rename file to microchip,lan9691.h
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/microchip,sparx5-sgpio.yaml b/Documentation/devicetree/bindings/pinctrl/microchip,sparx5-sgpio.yaml
-index fa47732d7cef..9fbbafcdc063 100644
---- a/Documentation/devicetree/bindings/pinctrl/microchip,sparx5-sgpio.yaml
-+++ b/Documentation/devicetree/bindings/pinctrl/microchip,sparx5-sgpio.yaml
-@@ -21,10 +21,15 @@ properties:
-     pattern: '^gpio@[0-9a-f]+$'
- 
-   compatible:
--    enum:
--      - microchip,sparx5-sgpio
--      - mscc,ocelot-sgpio
--      - mscc,luton-sgpio
-+    oneOf:
-+      - enum:
-+          - microchip,sparx5-sgpio
-+          - mscc,ocelot-sgpio
-+          - mscc,luton-sgpio
-+      - items:
-+          - enum:
-+              - microchip,lan9691-sgpio
-+          - const: microchip,sparx5-sgpio
- 
-   '#address-cells':
-     const: 1
-@@ -80,7 +85,12 @@ patternProperties:
-     type: object
-     properties:
-       compatible:
--        const: microchip,sparx5-sgpio-bank
-+        oneOf:
-+          - items:
-+              - enum:
-+                  - microchip,lan9691-sgpio-bank
-+              - const: microchip,sparx5-sgpio-bank
-+          - const: microchip,sparx5-sgpio-bank
- 
-       reg:
-         description: |
+ arch/arm64/boot/dts/microchip/clk-lan9691.h | 24 +++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/microchip/clk-lan9691.h
+
+diff --git a/arch/arm64/boot/dts/microchip/clk-lan9691.h b/arch/arm64/boot/dts/microchip/clk-lan9691.h
+new file mode 100644
+index 000000000000..f0006a603747
+--- /dev/null
++++ b/arch/arm64/boot/dts/microchip/clk-lan9691.h
+@@ -0,0 +1,24 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
++
++#ifndef _DTS_CLK_LAN9691_H
++#define _DTS_CLK_LAN9691_H
++
++#define GCK_ID_QSPI0		0
++#define GCK_ID_QSPI2		1
++#define GCK_ID_SDMMC0		2
++#define GCK_ID_SDMMC1		3
++#define GCK_ID_MCAN0		4
++#define GCK_ID_MCAN1		5
++#define GCK_ID_FLEXCOM0		6
++#define GCK_ID_FLEXCOM1		7
++#define GCK_ID_FLEXCOM2		8
++#define GCK_ID_FLEXCOM3		9
++#define GCK_ID_TIMER		10
++#define GCK_ID_USB_REFCLK	11
++
++/* Gate clocks */
++#define GCK_GATE_USB_DRD	12
++#define GCK_GATE_MCRAMC		13
++#define GCK_GATE_HMATRIX	14
++
++#endif
 -- 
 2.52.0
 
