@@ -4,65 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE3A2E8FDB1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 08:50:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60B35E8FDB1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 08:51:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ge43V+B57fC2PZVYX/3fKWqaJDnVMBprNZqh3Y6JZNw=; b=njmFTEM/vTOUh2awo3G8NdPCt4
-	X9K9/jA7/jXPcylvrtkYPSA13jpTt+PckEVTe3gFwvgLglRWwqC8C/v8hzc+JRF+y29vv8wxZITOZ
-	+GTLij4+LAncBooHqfoLJU5+jvkuPyC3TxS2OWiszx11jI8vTcANj6jc+jryZ0dfLIvX4LhB1AurU
-	cwwwleol8UqV/w5E2LgMJawGDmBipBARzDZK2X+CSoNG0Od6lJNnjCS/iMLgu1Lz6b9vEERyYnaee
-	MyVT/+9fv6FwiHRQauUMaOsGQqej9NtLqsj6zmilKoF6piTPpPW7ouOtdA5Xn7pmrnVd6RPNCY6zo
-	3NL7qQWQ==;
+	bh=67pwLLBoTHHBX4RTyB7FiqvZ94xld+8F+iHT3Oc7b0U=; b=nUABvug6PVcfTrUR0yR9AsVUYu
+	GwwoPOR58hzEzw9BBKwWW5u5iTfOVTfsLqYnGntjbpCpFbMZW2sqlrUibLrKiFm2r9CLeA5aNo4mG
+	HzVdZlqG8pg7OxyisRQX7uqZMfR4DgdOyrA0wyRAOX2I4TSBiZm8gZSlg0RKq9VRKkAj56mWzOQA4
+	fZA9s3B0EoA7otW4Szi3kOxy8uujZYw2q9Xtlt0jb7U7ZC5j7PtL0fzaobtUg7eYYoK4+ofNyeVNe
+	mQPLCu5Ds93/yakG5UyfBSLmKLXQg+ZaLXZ71geNjO5o4fEXIds73Cmx974XAnGZCiFKn9WyGnqbN
+	MNb9FGGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1va8xR-00000003UcZ-1fZa;
-	Mon, 29 Dec 2025 08:50:29 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1va8yY-00000003UlJ-3fkP;
+	Mon, 29 Dec 2025 08:51:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1va8xQ-00000003UcS-2AHt
+	id 1va8yW-00000003Ukv-01Bj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Dec 2025 08:50:28 +0000
+	Mon, 29 Dec 2025 08:51:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EF34260017;
-	Mon, 29 Dec 2025 08:50:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED90EC4CEF7;
-	Mon, 29 Dec 2025 08:50:26 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F2E17407E9;
+	Mon, 29 Dec 2025 08:51:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E99AC4CEF7;
+	Mon, 29 Dec 2025 08:51:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766998227;
-	bh=1ALaMKIKCuUSWUA/hqdR0oh36sJOQQUkFqyRUJxVq8Y=;
+	s=k20201202; t=1766998292;
+	bh=De8M6oUwZaRM6ReeFRBncRB+CAkN4SRlPmejKl4NrD8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WPGlNMJ0UXYHJcsqCEaS1my2hsbVfQVdY80vjpFT94ZU4pgNs7kZpm4hP54TKyQmI
-	 T7OzJ6dvD2qe9+1lOx0x0whza1dWAE5ssNw3HqZfiefgl72zx4CbTNj1PanRNPtMQG
-	 vO5ScDQHramGt/9VJX9CgSQ5c0jJR4vIoR4zVj3XliPDgJwHyzYYghlXArpnEjP65G
-	 b2L7VmhVywVYU8zUsEfZCvkHvJoOLWdFNhcGo1EB+NwqrdjCw/Xhy71fjvRVQoVRfO
-	 m8ZWXGUFa8PYpkS7vFjlgMmV2HFbwA7jMdXdywpFAIBRGKVp5KGgVUGSyz0PCLISIH
-	 Kw2lQYaG4ONJw==
-Date: Mon, 29 Dec 2025 09:50:24 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Amit Sunil Dhamne <amitsd@google.com>
-Cc: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	=?utf-8?B?QW5kcsOp?= Draszik <andre.draszik@linaro.org>, Lee Jones <lee@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Badhri Jagan Sridharan <badhri@google.com>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, Peter Griffin <peter.griffin@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
-Subject: Re: [PATCH v3 1/5] dt-bindings: mfd: maxim,max77759: reference
- power-supply schema and add regulator property
-Message-ID: <20251229-festive-daft-boobook-838fb6@quoll>
-References: <20251227-max77759-charger-v3-0-54e664f5ca92@google.com>
- <20251227-max77759-charger-v3-1-54e664f5ca92@google.com>
+	b=nQ1nwhPQoMfcj88rC2E6YDivr5h//MrtE5ZkanKSuYHDQ3EvjBwHXqS5iuNTuRbH8
+	 FHR5hcuZIGTE+rTazLUjXkRJPFZdJ3eVCjA9DkfALQgbohLJJhEtusrkLV2L+tFWvE
+	 46M3PYtnCa2V4Ml1Bwznv14KPIzNdswIZCFeCB2wXBZxCuMOPZXFoWDHnYvpjlM65E
+	 VbDQ5j0fml+jDNPXT/xTpT+S+tBq9JBL+39+/8dFu50CXroM+Of+bi3vrV2PKsaxAK
+	 m4kbZGs8RDz5CTXVLDCq7To+21+FFIUmXfZUChbiha5jwHkM27ccMCh9TZlHBHtleG
+	 6xUFIY2J2FQJg==
+Date: Mon, 29 Dec 2025 16:51:27 +0800
+From: Shawn Guo <shawnguo@kernel.org>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ARM: dts: nxp: imx: Fix mc13xxx LED node names
+Message-ID: <aVJBDxyrhCzUgTiL@dragon>
+References: <20251118213551.44116-1-robh@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251227-max77759-charger-v3-1-54e664f5ca92@google.com>
+In-Reply-To: <20251118213551.44116-1-robh@kernel.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251229_005136_060483_4FDD4DB3 
+X-CRM114-Status: UNSURE (   7.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,19 +77,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Dec 27, 2025 at 12:04:21AM +0000, Amit Sunil Dhamne wrote:
-> Extend the max77759 binding to reference power-supply schema, so that
-> PMIC node can reference its supplier. Also, add regulator property to
-> control CHGIN (OTG) voltage.
+On Tue, Nov 18, 2025 at 03:35:50PM -0600, Rob Herring (Arm) wrote:
+> Node names are supposed to be generic and use hexadecimal unit-addresses.
 > 
-> Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
-> ---
->  .../devicetree/bindings/mfd/maxim,max77759.yaml          | 16 +++++++++++++++-
->  1 file changed, 15 insertions(+), 1 deletion(-)
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-
-Best regards,
-Krzysztof
-
+Applied, thanks!
 
