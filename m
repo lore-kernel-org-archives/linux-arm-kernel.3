@@ -4,65 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFE74E8FDB1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 12:44:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C4C3E8FDB1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 12:45:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VCdlIu8Fz5MAZjSLkZH6pxo2bb/KOt555SjJQrZc6ls=; b=ybzCCn1RGpVZueUEXptimW/QK0
-	3z27H3Gg4AIDSi0zPucZuNquQdC7xv/6gSFj1U71J1G+qX2NnLss+9xhJFv9Eh7yuwKGKlyluzTt9
-	0Z2OUKTPn85vm8atLyQnmwuUjK+J+G6tAy1K2+dl1MrTW3l9Nz8ZIUMbaQRU/T6DhsVCqEwLvTtaX
-	8zkQFkKROhjbeqfigTmpQ2h8/eZSrAl2Owys7cAZWS3Ma/7CvQXht4SzyV94Jffk+iEYMVh4iVDsh
-	Ri0AMf63aMn8Jfns+RbFdh7oAlSsZDUWsUjlhy1ef9FpAkpZDp8O5NT3K9I1hTTgRcB8z0EG9UH7n
-	vncAEbjg==;
+	bh=ildhAJVbNhT3jHUiw7GI7aaICTJD4Ypsoq9przBx30M=; b=JwtXt2fQHoJcNOjkJSeufJUGQC
+	gEn9ETwXKAnawVW+CKBYejEH4LU+r3A4wKgaocckyrlQQqgKOGB4e0XJr//tJzXHJKzmWN2NGQaGE
+	q/TiRUTsp7S58jVL207N68zm5hfRoJFfCFmhHiNM6tb8BaI20AHpeGsdTkS9N/l88qkPKMLL5sFki
+	AE0BhTUs1BWjmzVcJk3XRq+nxXvPZ70Wqevz2kpeNY9yaBY4AT8pP0Q9IKwnZtGk0uGnAmVY2QNL/
+	r6C9nm70FD7Q+df/4XzaZVX8uMNJOGCg5wPZ5GyjkaM9f0LrabLCe7djNqTzvGTqhxktGsD8unOol
+	nF32JSiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaCbQ-00000003hHw-2BKc;
-	Mon, 29 Dec 2025 12:44:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vaCd8-00000003hVI-3qtF;
+	Mon, 29 Dec 2025 12:45:47 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaCbO-00000003hHj-3Jrq
+	id 1vaCd7-00000003hV8-1HB3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Dec 2025 12:43:58 +0000
+	Mon, 29 Dec 2025 12:45:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 01FC76000A;
-	Mon, 29 Dec 2025 12:43:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4551FC4CEF7;
-	Mon, 29 Dec 2025 12:43:51 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7A2636000A;
+	Mon, 29 Dec 2025 12:45:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0E53C4CEF7;
+	Mon, 29 Dec 2025 12:45:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767012237;
-	bh=PflFpSdgfw64KNh6dNwM1X7/oaXn62aN7cbcelp7pl8=;
+	s=k20201202; t=1767012344;
+	bh=ppvgd/s8wvK+A0YDWqm9HszRKuwc9xFTsTgQi0kIFOQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bQM28xFlgX1OzrCkpMztchIYsjVjBlrJsoGTmoX/vVGqzoPeRsxKE9dJi5BWR8ebN
-	 qomEQqK0bLAhv9a4crOEDCY20ig/Y1PUl0qE6ftbVnvipV60sRmo1jLQXNhXitkfNV
-	 CUmlRmKTNdFLQBrjfZOSKLGSm3rNrzvXcQ9loo3ba/D/VuFI5poaCBtP8fcugVXgXI
-	 Gprfk3r4518Dz9alFegcxLiMu/LFxRK9mIHKHPx3mIZ+Ouzz4sENSLvrB5Jv9+oLuj
-	 Uc46JenoYu/DMzoXnVgTA2+hg7maTgw1JjqntLboudXcFOUKIv/odcgEoKD6W495va
-	 33w1XABJd80DA==
-Date: Mon, 29 Dec 2025 20:43:47 +0800
+	b=DEg/gIqtUk64VpEQIXk1OBXy4EsiPX73QhRG5+4YyVjKDan+7MWbXyFcRnSi4ApLK
+	 7AOExY0fJsPBXh/Myrhe23jnt6aZewikrjs/Tts1lDbN1JWH0YOz+Owhi/8MA3pYps
+	 LU2nwn21u7VT14jwHnIqi6Vr0SrgUOqCy4046PkVqNlJ/CwrsP4zhEkbrAtOyYfYxX
+	 sEkFGFWtKwKqAPLBYw+nU/srfB1piOST6yb5rs6iaAaA016tL5nlt9Hpwc0zLcvEME
+	 UAgqZSIXz74FaCA+rv3aMeT55TCGtzLKvodeg0ew0EYHaMvZPbGx9kcb6v+3tEC+EC
+	 bUbiReHC5vxVQ==
+Date: Mon, 29 Dec 2025 20:45:39 +0800
 From: Shawn Guo <shawnguo@kernel.org>
 To: Frank Li <Frank.Li@nxp.com>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	"open list:TQ SYSTEMS BOARD & DRIVER SUPPORT" <linux@ew.tq-group.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
 	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
 	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
 	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 1/1] arm64: dts: mba8xx: replace 0 with IMX_LPCG_CLK_0
- for lpcg indices
-Message-ID: <aVJ3g_V_xWStfGHi@dragon>
-References: <20251120214318.347483-1-Frank.Li@nxp.com>
+Subject: Re: [PATCH v2 1/1] arm64: dts: imx8qxp-mek: Add sensors under i2c1
+ bus
+Message-ID: <aVJ3895nxmH_M8au@dragon>
+References: <20251120215350.352117-1-Frank.Li@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251120214318.347483-1-Frank.Li@nxp.com>
+In-Reply-To: <20251120215350.352117-1-Frank.Li@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,11 +76,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 20, 2025 at 04:43:18PM -0500, Frank Li wrote:
-> Replace the 0 with IMX_LPCG_CLK_0 for LPCG clock indices. Although the
-> numerical value is identical, the LPCG input is defined as
-> IMX_LPCG_CLK_<n>, so using the symbolic constant improves clarity and
-> consistency with the LPCG clock naming convention.
+On Thu, Nov 20, 2025 at 04:53:50PM -0500, Frank Li wrote:
+> Add sensors under i2c1 bus.
 > 
 > Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
