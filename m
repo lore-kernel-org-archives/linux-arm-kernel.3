@@ -4,65 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55A56E8FDB1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 12:59:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ABC1D3B7E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 13:01:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GWQT1YFPKuGaJwuWPDoCk0EDhIvtFAswXl6M59Arurw=; b=uWKo5u2UuJTMcjXtd958+NU7i6
-	a0/+HC0dcgDpf3QMkE9pDJ8QuN6GtOlLa9jDDY58ulc5OOCJlI9RRo7J8MPjg1q+yn2o+huC9V6TZ
-	3v7z6Yk2VUkZ+yjY58ihu3nRXhF6oKqjb1diCHFLgeTgzyLt0x76ctqq1xx9xDLlsUd+Kz5G42vs7
-	1vfDteYbH3R49lLcrEAUyXrTt5JAaAkCWX82kZ3lLtxTL6fHosx0NPIdnG+L5mTXOWTY/uuYgFhKZ
-	cVMSwIRO9voRss/4S2DTaE/oxKdyhlnD06iEtiuXJ8DogwybFNZL1IIt9zKnxRkv3aEwMQmbPUECc
-	Nq5Ldx8A==;
+	bh=4Q5cvG9N8oira246Z7LjtRI7eXT4zJ3tCsEgTCKVwe0=; b=T6FWRqWgBlqGtEJfJgMgBmOq5c
+	wR/tKZssBu/w4apHobHDySrrD4MOvuR/fyHYKgT03EbmMo9Ub5wGtcpa3CYVuORJgVGcjcrB01wKZ
+	b2l+bXqB8Dbcp3v+9lE/XMTfrwfJIPyMHQyRV1XASEPQ0apDAr+D5qNHy6p+DCrHmfLwP1vvQujwl
+	4ldYMKD7tjgMzFLOUQa/GEaNqbkU2g1g6zCeF4cKC4pdsn9bqYk442pkVOQtHWjL7i+IeRaKUYeE8
+	Kho+87o531s7K8NT7sORTMIhNc2d5tgt3J3P8SKtzJliumQEDtZ9wAoZM1LqKFpShjyiGzoenvi8i
+	8exGQXog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaCqU-00000003iaz-0PxM;
-	Mon, 29 Dec 2025 12:59:34 +0000
+	id 1vaCry-00000003ikO-1zZX;
+	Mon, 29 Dec 2025 13:01:06 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaCqS-00000003iaq-1VCz
+	id 1vaCrx-00000003ikC-19r8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Dec 2025 12:59:32 +0000
+	Mon, 29 Dec 2025 13:01:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 703B46000A;
-	Mon, 29 Dec 2025 12:59:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66275C4CEF7;
-	Mon, 29 Dec 2025 12:59:23 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id B50BB60018;
+	Mon, 29 Dec 2025 13:01:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80A0DC4CEF7;
+	Mon, 29 Dec 2025 13:00:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767013171;
-	bh=UE1qaCpa8Xzfpci0DbcJIkq9Z3U1GQTGZeeLueNA130=;
+	s=k20201202; t=1767013264;
+	bh=mmjJboZKrZmMHhATWamcObm/1IvNb8WQs2oweHCNOP0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ABcy121yrODltMJwHB3214c8IPI0KZCrt34YETZuwPWx4zjMTkV6kW41vtvqvmfMC
-	 cQbDU/n6XSKaj7CBDKQMU+2ci/fgh2C0wZ4nAwnID1znUG2NbsV8WzKSVox1ONCuRB
-	 erE0nNtJKjqXQqjawBb+AtY/8MrymEiEUAtc/MPEs34xndD088eqFutYpstCl870Ay
-	 nTHzttsYAvVXKEpja9m3IVowdJkEtsdBJlADt48+MtUshiAaOpdkvuO+8+YEA2hdWz
-	 DARwyKlTvvluZ/jMW8mEG4LIHnLfzvxVFLk6WlrZZ+gW2Q3WYfPFqwyaoPLcQoZsNP
-	 JosKaLPxrKQYQ==
-Date: Mon, 29 Dec 2025 20:59:19 +0800
+	b=A3NDcquiBoavGRJbcVpmy2lzbQuLgx9RqhNPLAFWSz7SGNqOgbKh48WV2BXovpVW1
+	 WF0TiokarvtZb+f8KIVdPxs9nkfDw1u+RH0qmdQxiWJ416KXHu87XUU4GHBzlZpe7H
+	 Up7wMIQYNgveHofGUqo9M10X4okTh2SuKZDjYLHctBPEK0pFnG737H1SLJeOpf4xGO
+	 X+HQJgEdu+xXOw21Ejf4vOpXopFGqmIzRyu5e+meUhLlZbI2MNf887BVkHHTQeTta3
+	 wAWYhsShAG0XY/PNB9huEi61CtzAgXrPC4cMOP7LNV+64omg6rLR0SR6a6bKFJYcVr
+	 7RD6+W7g6uDyQ==
+Date: Mon, 29 Dec 2025 21:00:51 +0800
 From: Shawn Guo <shawnguo@kernel.org>
-To: Rogerio Pimentel <rpimentel.silva@gmail.com>
+To: Daniel Schultz <d.schultz@phytec.de>
 Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	s.hauer@pengutronix.de, krzk@kernel.org, kernel@pengutronix.de,
-	festevam@gmail.com, alexander.stein@ew.tq-group.com,
-	dario.binacchi@amarulasolutions.com, marex@denx.de,
-	Markus.Niebel@tq-group.com, y.moog@phytec.de,
-	joao.goncalves@toradex.com, frieder.schrempf@kontron.de,
-	josua@solid-run.com, francesco.dolcini@toradex.com,
-	primoz.fiser@norik.com, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v6 1/2] dt-bindings: arm: fsl: Add i.MX8MP FRDM board
-Message-ID: <aVJ7JxBxsnEmrbSq@dragon>
-References: <20251123181444.266030-1-rpimentel.silva@gmail.com>
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	upstream@lists.phytec.de
+Subject: Re: [PATCH] arm64: dts: imx8mm: Add label to thermal-zones
+Message-ID: <aVJ7g9bcilXJEbND@dragon>
+References: <20251124092242.3378017-1-d.schultz@phytec.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251123181444.266030-1-rpimentel.silva@gmail.com>
+In-Reply-To: <20251124092242.3378017-1-d.schultz@phytec.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,11 +71,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 23, 2025 at 01:14:43PM -0500, Rogerio Pimentel wrote:
-> Add device tree compatible string for the i.MX8MP FRDM board.
+On Mon, Nov 24, 2025 at 01:22:42AM -0800, Daniel Schultz wrote:
+> Add 'thermal_zones' as a label to the thermal-zones node.
 > 
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> Signed-off-by: Rogerio Pimentel <rpimentel.silva@gmail.com>
+> Without this label, it is not possible to add additional
+> trip points in board files. For example, to add an active
+> trip point for controlling a fan.
+> 
+> Signed-off-by: Daniel Schultz <d.schultz@phytec.de>
 
-Applied both, thanks!
+Applied, thanks!
 
