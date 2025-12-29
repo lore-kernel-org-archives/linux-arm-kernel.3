@@ -4,62 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 232F3E92FC4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 18:03:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86493E92FCB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 18:21:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VcXWyaF+NJeFlqFqgUEhw0SIGLhjPi7QaZzLkvUWKwk=; b=2z6lFDNScEXQFWxGekSNTcetoV
-	WQWgmZ6VIh4CfCdNo/CC+Q4n+lKcrmCUXRd1xs8P4Fo9oNK5hFLWiGoo3sI83GvdQPxV0UcJEGONZ
-	LRRxFAq7VdO0OePrRP3WaDcbLbdKQFlM8jb89ZKceOio/c/4lrxq9znHyaaSGYRfFDLYYClVVEIAz
-	wYvuUDZ1Y7idzx48t5PiIwNXFlgr1hCwB6vscSs1kehSnOEqLWSjtehEq/tfmWMP1G+kbF1Z34vwK
-	/2/lZGLWYPjyF5/rPlcMhLJ3KPtJMn80MPtMrQ0ZPO05nhf6Zw1JDolBxL/kzISaHnNNliSjZccok
-	fCF5Iplw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ICh1WIs14/72JBYekVxgqDTz4f7l5ZEA7Hy4pPqFp3w=; b=aUNsAag1VGyozFSZAQEf2N4JGh
+	D6L0dmH6DMstKTYMtms0Ish3Pf+LNZ5U/QZt86w0ERYmyUfLcMLT3D2UmuTAAlwu/lqF8kQay528J
+	SWsX+Dv8JJfuAiPxIF1rkK/Fg8FUyGDQn/tOxWXdvZFGNQHJNeYQ08hqQhJZsBy6QC3CRHIloADi2
+	t7huDgz75zwzxrJtNxSBc4X1VLp6iebrSKvu5vTVYBNAsIl6ZpNZ4+BCas1jPGiF5kB3GU0MXQArw
+	5jCyM3kw5QpAzvEyutmeQfELMpQqeqxqeHbPOrDjP+9dqSrESWwUVOqce3lzZlsN2JD0P0CZQ+yi1
+	2mMd9vdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaHax-00000003w1r-12Kv;
-	Mon, 29 Dec 2025 18:03:51 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaHav-00000003w1J-06kV
+	id 1vaHri-00000003weE-1RmE;
+	Mon, 29 Dec 2025 18:21:10 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vaHrc-00000003wdf-2Zj8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Dec 2025 18:03:50 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D2877339;
-	Mon, 29 Dec 2025 10:03:37 -0800 (PST)
-Received: from [10.57.45.222] (unknown [10.57.45.222])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3994E3F694;
-	Mon, 29 Dec 2025 10:03:39 -0800 (PST)
-Message-ID: <f3c32e7f-f940-4cb0-941c-cb7f7f628d88@arm.com>
-Date: Mon, 29 Dec 2025 19:03:35 +0100
+	Mon, 29 Dec 2025 18:21:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=ICh1WIs14/72JBYekVxgqDTz4f7l5ZEA7Hy4pPqFp3w=; b=pJ4qwmDBpJ94/ihnp+k4AIsvSD
+	e/f3b0J59vsh4Gz7ArprL3pwsk+sxNdnEBakuuG7zzbo7bpm4/iJNok4bHzGjYDGvRldRIamZgXjL
+	WZoEteTcB786+dG6gG4oVJNGIAKRiP93RCWF8sE6BWFgYlw+e1QcDd2RRud3TnSgZduc=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vaHr9-000ofX-UP; Mon, 29 Dec 2025 19:20:35 +0100
+Date: Mon, 29 Dec 2025 19:20:35 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Primoz Fiser <primoz.fiser@norik.com>,
+	Yannic Moog <y.moog@phytec.de>,
+	Markus Niebel <Markus.Niebel@tq-group.com>,
+	Josua Mayer <josua@solid-run.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v1 2/3] arm64: dts: freescale: Add support for Variscite
+ DART-MX95
+Message-ID: <b8349d9c-7a18-43bb-baaa-7e2ec62218b2@lunn.ch>
+References: <20251229150421.57616-1-stefano.r@variscite.com>
+ <20251229150421.57616-3-stefano.r@variscite.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 11/16] entry: Split syscall_exit_to_user_mode_work()
- for arch reuse
-To: Jinjie Ruan <ruanjinjie@huawei.com>, catalin.marinas@arm.com,
- will@kernel.org, oleg@redhat.com, tglx@linutronix.de, peterz@infradead.org,
- luto@kernel.org, shuah@kernel.org, kees@kernel.org, wad@chromium.org,
- macro@orcam.me.uk, charlie@rivosinc.com, akpm@linux-foundation.org,
- ldv@strace.io, anshuman.khandual@arm.com, mark.rutland@arm.com,
- thuth@redhat.com, song@kernel.org, ryan.roberts@arm.com,
- ada.coupriediaz@arm.com, broonie@kernel.org, liqiang01@kylinos.cn,
- pengcan@kylinos.cn, kmal@cock.li, dvyukov@google.com,
- richard.weiyang@gmail.com, reddybalavignesh9979@gmail.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org
-References: <20251222114737.1334364-1-ruanjinjie@huawei.com>
- <20251222114737.1334364-12-ruanjinjie@huawei.com>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20251222114737.1334364-12-ruanjinjie@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251229150421.57616-3-stefano.r@variscite.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251229_100349_152516_D9F4937A 
-X-CRM114-Status: GOOD (  21.26  )
+X-CRM114-CacheID: sfid-20251229_102104_677194_9C12F819 
+X-CRM114-Status: UNSURE (   8.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,109 +84,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 22/12/2025 12:47, Jinjie Ruan wrote:
-> In the generic entry code, the beginning of
-> syscall_exit_to_user_mode_work() can be reused on arm64 so it makes
-> sense to split it.
->
-> In preparation for moving arm64 over to the generic entry
-> code, split out syscall_exit_to_user_mode_work_prepare() helper from
-> syscall_exit_to_user_mode_work().
->
-> No functional changes.
->
-> Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> Reviewed-by: Thomas Gleixner <tglx@linutronix.de>
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> ---
->  include/linux/entry-common.h | 35 ++++++++++++++++++++++-------------
->  1 file changed, 22 insertions(+), 13 deletions(-)
->
-> diff --git a/include/linux/entry-common.h b/include/linux/entry-common.h
-> index 87efb38b7081..0de0e60630e1 100644
-> --- a/include/linux/entry-common.h
-> +++ b/include/linux/entry-common.h
-> @@ -121,20 +121,11 @@ static __always_inline long syscall_enter_from_user_mode(struct pt_regs *regs, l
->   */
->  void syscall_exit_work(struct pt_regs *regs, unsigned long work);
->  
-> -/**
-> - * syscall_exit_to_user_mode_work - Handle work before returning to user mode
-> - * @regs:	Pointer to currents pt_regs
-> - *
-> - * Same as step 1 and 2 of syscall_exit_to_user_mode() but without calling
-> - * exit_to_user_mode() to perform the final transition to user mode.
-> - *
-> - * Calling convention is the same as for syscall_exit_to_user_mode() and it
-> - * returns with all work handled and interrupts disabled. The caller must
-> - * invoke exit_to_user_mode() before actually switching to user mode to
-> - * make the final state transitions. Interrupts must stay disabled between
-> - * return from this function and the invocation of exit_to_user_mode().
-> +/*
-> + * Syscall specific exit to user mode preparation. Runs with interrupts
-> + * enabled.
->   */
-> -static __always_inline void syscall_exit_to_user_mode_work(struct pt_regs *regs)
-> +static __always_inline void syscall_exit_to_user_mode_work_prepare(struct pt_regs *regs)
->  {
->  	unsigned long work = READ_ONCE(current_thread_info()->syscall_work);
->  	unsigned long nr = syscall_get_nr(current, regs);
-> @@ -155,6 +146,24 @@ static __always_inline void syscall_exit_to_user_mode_work(struct pt_regs *regs)
->  	 */
->  	if (unlikely(work & SYSCALL_WORK_EXIT))
->  		syscall_exit_work(regs, work);
-> +}
+> +&enetc_port0 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_enetc0>;
+> +	phy-handle = <&ethphy0>;
+> +	/*
+> +	 * The required RGMII TX and RX 2ns delays are implemented directly
+> +	 * in hardware via passive delay elements on the SOM PCB.
+> +	 * No delay configuration is needed in software via PHY driver.
+> +	 */
+> +	phy-mode = "rgmii";
+> +	status = "okay";
+> +};
+
+> +&netc_emdio {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_emdio>, <&pinctrl_phy0res>;
+> +	status = "okay";
 > +
-> +/**
-> + * syscall_exit_to_user_mode_work - Handle work before returning to user mode
-> + * @regs:	Pointer to currents pt_regs
-> + *
-> + * Same as step 1 and 2 of syscall_exit_to_user_mode() but without calling
-> + * exit_to_user_mode() to perform the final transition to user mode.
-> + *
-> + * Calling convention is the same as for syscall_exit_to_user_mode() and it
-> + * returns with all work handled and interrupts disabled. The caller must
-> + * invoke exit_to_user_mode() before actually switching to user mode to
-> + * make the final state transitions. Interrupts must stay disabled between
-> + * return from this function and the invocation of exit_to_user_mode().
-> + */
-> +static __always_inline void syscall_exit_to_user_mode_work(struct pt_regs *regs)
-> +{
-> +	syscall_exit_to_user_mode_work_prepare(regs);
+> +	ethphy0: ethernet-phy@0 {
+> +		reg = <0>;
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reset-gpios = <&gpio5 16 GPIO_ACTIVE_LOW>;
+> +		reset-assert-us = <10000>;
+> +		reset-deassert-us = <100000>;
+> +
+> +		leds {
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +
+> +			led@0 {
+> +				reg = <0>;
+> +				color = <LED_COLOR_ID_YELLOW>;
+> +				function = LED_FUNCTION_LAN;
+> +				linux,default-trigger = "netdev";
+> +			};
+> +
+> +			led@1 {
+> +				reg = <1>;
+> +				color = <LED_COLOR_ID_GREEN>;
+> +				function = LED_FUNCTION_LAN;
+> +				linux,default-trigger = "netdev";
+> +			};
+> +		};
+> +	};
+> +};
 
-The naming is getting awfully confusing, with the separate introduction
-of syscall_exit_to_user_mode_prepare().
+For these two nodes only:
 
-Having had a closer look, do we really need
-syscall_exit_to_user_mode_work() as it currently stands? Nothing calls
-it except the generic syscall_exit_to_user_mode(). Which makes me think:
-how about moving the two lines below into syscall_exit_to_user_mode()
-instead of creating a new helper? IOW:
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-@@ -155,8 +155,6 @@ static __always_inline void
-syscall_exit_to_user_mode_work(struct pt_regs *regs)
-      */
-     if (unlikely(work & SYSCALL_WORK_EXIT))
-         syscall_exit_work(regs, work);
--    local_irq_disable_exit_to_user();
--    syscall_exit_to_user_mode_prepare(regs);
- }
- 
- /**
-@@ -192,6 +190,8 @@ static __always_inline void
-syscall_exit_to_user_mode(struct pt_regs *regs)
- {
-     instrumentation_begin();
-     syscall_exit_to_user_mode_work(regs);
-+    local_irq_disable_exit_to_user();
-+    syscall_exit_to_user_mode_prepare(regs);
-     instrumentation_end();
-     exit_to_user_mode();
- }
-
-- Kevin
-
->  	local_irq_disable_exit_to_user();
->  	syscall_exit_to_user_mode_prepare(regs);
->  }
+    Andrew
 
