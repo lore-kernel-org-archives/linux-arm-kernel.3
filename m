@@ -4,146 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 765B2D3B7E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 11:10:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73925D3B7E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 11:15:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sKiWXwxe+9H0SWNjyxuk3itASAxKxOKJ193n08TPct4=; b=TXrsYQGL5KaV6ifPQ6gGuHP53T
-	vpSjH1S6sM4jV7yj5RWXvr6SOeV2mFe+xshgwfVqjhzc2aNEcUl331361zVxYuuaTnRlR+68cU3e4
-	i+nyuEwO9/EenvWSkUMp8ehlhqy1diezES+wdH/q4zBLEb5zDgs2IHUPpw0IC+oF5JgWHjUCkYpva
-	lT/RO8NP5N4Gf3OUXRl53spFLwQz+cirRd744rvf0LNuUpm2Avtt8IzvJhltYm8ZBWlUK9pua6Npq
-	v0Z7Q63IoGXTldQuXbjA4SswKehdxzsHMwfPwkDcVPLq8cI79zFyr1EXhtNx6nQVb5TTbV6bbR8R6
-	AxbdS5Ug==;
+	bh=gpnL12+10WMDZ/zLbFzfXl87AByZQny2Cqko/Ftm7i8=; b=vm+kFCIOwZqb3doDfwORkJXYIq
+	oVNyYuOjpon+9BuOCKmCikmjUoIv3T7c9/dZ+N5Pqj73bbzFBuVmdJEKAhB+X5Ho4EfIpjdfBylmC
+	KZ/WhQ3sUb074VA5jcHWE28fwfA0yzQmXpkoFyZQ6ueg1B1n+V9/fdw1XNmjqnxPOMfg/aUYOV6GW
+	VNOv7Uf6Pp+qzpJiMMwvfmPYxPpR9OU1HycZaVPBYToR6XjougKDD7sfMgJd5UnrBzakH+PfEVCSn
+	dJJlnqmd+n9rqNM+y0gGqy0lr2XwTnmvULDZ1IaoKDTVEwCAE26dG/YMnZxpUu8NnySMlNSB3lr66
+	P4PCxIwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaB8d-00000003bcp-1hAT;
-	Mon, 29 Dec 2025 11:10:11 +0000
-Received: from mo4-p01-ob.smtp.rzone.de ([85.215.255.51])
+	id 1vaBDt-00000003c0Z-3Ddn;
+	Mon, 29 Dec 2025 11:15:37 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaB8T-00000003bba-0LF3
+	id 1vaBDp-00000003bzh-2YrI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Dec 2025 11:10:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1767006596; cv=none;
-    d=strato.com; s=strato-dkim-0002;
-    b=CKLidprdxKoJpW5ljLGmYgu6QIaq6ejdqvf7NIF77hTJ0QzAcSShu1Tu01lTX2m/vC
-    M31T2FPJXFegfbQQN1U2Z9Y4UeGehbdukUBdVX8bw8rxYYKMhSsP0XWVfmodxxGJmiSN
-    9tUbw9At5ARXVY2SwyPuudQzfJhBPvrb4kfJiNw9B9GnM9v2MK4Yt10TkJZJDR8Kcn5+
-    xFmrc7rGS011YSvLFS/P4gD5tN/lgMqhWz1/PZlHnrBXlf50XKoYIyR97l1He16S2mS9
-    ebrApzHLXLmficUeJIArRMii2dTf8mJ8WpjtQPrUlsX0H8uhxkRGuNi+FCWUG+jp6v5X
-    jQyg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1767006596;
-    s=strato-dkim-0002; d=strato.com;
-    h=In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Cc:Date:
-    From:Subject:Sender;
-    bh=sKiWXwxe+9H0SWNjyxuk3itASAxKxOKJ193n08TPct4=;
-    b=bU5DmuU1RQO7McY7iSl1lGXuGktVSeVdRMQeV6Yuwi+g2crRLijAiwDS63yXVA34Fz
-    miAjpXMF6uTKy9QVKzZuq6qHjuKvyzsjXTdIQtGL9hQkRms2gaDRp9wOWyOHpT2oCYBJ
-    XinEoUggLeFdExdo4CjTk8sljRErHhIrPSfPl7Fcyb9IIhIxucrKCoGfaP1lgNUXnAwy
-    0lNtIHWUTBXV20JfVnhkyadn9CFtwxx0srlDw2u7xw+2Xdx070Z2vzrerv5eXEsfr06t
-    dBtHCZoRVjJf8+Gr1TdSs0V0S6pNJVAQMT9j8fRvcGsDg8hZFq4hew9uEUd2A+7wtMac
-    g61g==
-ARC-Authentication-Results: i=1; strato.com;
-    arc=none;
-    dkim=none
-X-RZG-CLASS-ID: mo01
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1767006596;
-    s=strato-dkim-0002; d=jm0.eu;
-    h=In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Cc:Date:
-    From:Subject:Sender;
-    bh=sKiWXwxe+9H0SWNjyxuk3itASAxKxOKJ193n08TPct4=;
-    b=nvAIuMTua6DcEeFzu3p0Vw40wNf6omIRyHjkH+WcC9eCFIFrz9L0J2lw6J37zz0QMM
-    /sly9r8zITHaWSoaZde6hWZqUWd+Dev0JT88gqoAnQCrYgJ8hJweGZoqmF2gVt2dIeyS
-    pStvAacG/SIGfzqDaDRLBDNmxef5N5HAv/QBvpae9Q+57WCJ0Zjtk4cwYZThiA00fbmx
-    5u5QxETk3Mqj2kn+C3nNalOZTLJM1adbkKFnm/uk2jn+TwTifTmNT7u/BcvBbEX+HeQ2
-    GnEFDLY6Jocl+ZHVtrAy+X+5j3ohnkHnhcVpPsbVNHDRnnNAXi/Qn6J+tzPii8g2+qIz
-    rwzQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1767006596;
-    s=strato-dkim-0003; d=jm0.eu;
-    h=In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Cc:Date:
-    From:Subject:Sender;
-    bh=sKiWXwxe+9H0SWNjyxuk3itASAxKxOKJ193n08TPct4=;
-    b=R8JiuHuQ52hfojjL+JPnhTmD3oBGoy/x7RKETDY/FMI2PdBqJs6Y3zP7VQLE8As82n
-    ysSNEXyguvvKovO4ZrDw==
-X-RZG-AUTH: ":JmMXYEHmdv4HaV2cbPh7iS0wbr/uKIfGM0EPTeoCaRth8YQvpoIkZXd2bnfIrOV7Mbk="
-Received: from [192.168.1.232]
-    by smtp.strato.de (RZmta 54.1.0 DYNA|AUTH)
-    with ESMTPSA id z0d4ec1BTB9tyqP
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
-	(Client did not present a certificate);
-    Mon, 29 Dec 2025 12:09:55 +0100 (CET)
-Message-ID: <f413cdc1-1461-4896-b68e-6d78343b3fe1@jm0.eu>
-Date: Mon, 29 Dec 2025 12:09:55 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] power: supply: add battery driver for netronix ec
-To: =?UTF-8?Q?J=2E_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Sebastian Reichel <sre@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Andreas Kemnade <andreas@kemnade.info>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-pm@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <20251227-kobo-aura-battery-v1-0-328a90ef5122@jm0.eu>
- <20251227-kobo-aura-battery-v1-1-328a90ef5122@jm0.eu>
- <aVFvVtXe58q84NOk@probook>
-Content-Language: en-US
-From: "Ing. Josua Mayer" <josua.mayer@jm0.eu>
-Autocrypt: addr=josua.mayer@jm0.eu; keydata=
- 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
-In-Reply-To: <aVFvVtXe58q84NOk@probook>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+	Mon, 29 Dec 2025 11:15:36 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-477619f8ae5so54228165e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Dec 2025 03:15:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1767006929; x=1767611729; darn=lists.infradead.org;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gpnL12+10WMDZ/zLbFzfXl87AByZQny2Cqko/Ftm7i8=;
+        b=bNiDQ7G08aAj6j1fGE7jnbyjcf0t5J2RpNm8qcHJaRG1/KTXGmizWZO7lHFsL5qbwR
+         tS/yQM0xPrS9MrgpMW1QaDhqAR5Sr4ICnLwyrczfr8uWlFRSjzpdtcTet8BjseSDTRgR
+         NDsZq/lwwCurTi0h5IjXYrPDXh1gm7EfasK8j0+m8xWApPfOrAjnd68oMhDeDbzxyDIb
+         X7f3o0QVmICdF1lRwj0mF1I62j1ZIjt1MmccCRlhKdEJleAg6ITHCEcburw6iUhD7wgQ
+         gF9rCqb1lv29NvRe7+Q2tnWLd+MR+rWBREeQF4TK/wi/GrsE2tFECgdqgEsAAYbh2//Q
+         TxYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767006929; x=1767611729;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=gpnL12+10WMDZ/zLbFzfXl87AByZQny2Cqko/Ftm7i8=;
+        b=chta+wYgm3C1jKwNGC6DgqqgjTcjGmAAbnV8fV6A3ILaEf/SCZjYnm5Q6TAYlzybmc
+         bkeHqQ7esGROm4yFPrQrtxPfA/bQ6qpfHZQb6wRDOlg4BFObKjkO40S2zyOCx3A50t03
+         AbnEjaQNod05oeX4vRiOL7eeQkGyRUsJOoCm2SU+Qx4U4rKWG61P/EO3BYg9oPna7ph9
+         Umj1ZpWVX2jQw1293yg8Azat60mmNdAX1BbLGIN+RpKHt+puyvGWhUwCzE/gnUAF6va/
+         WNb8gIOh3tGIAOw4loVuUQRnYMse+vfkMW4wOex+wmmFvwqcYL/UIE34ksTm95YAVrIb
+         fmlQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWbLmV6P4IjC26arqEaWAp70LI+Yx8955jkKfqOwiDYsmUhAl8lkaKxJu4+WAHVkWVuv/B+MniRqqWxDmCJngxo@lists.infradead.org
+X-Gm-Message-State: AOJu0YxKdN150oGLOFeUC1cZoIUIpbtMsknKp5pE3Ei5Tcg1u8vqivOI
+	TpXFJu3TbvznDto9hmu9VthI09ka8pofy4VynxVoUbG5uf+h4FqbfcEN
+X-Gm-Gg: AY/fxX5VCA2CcZvYfxw3NjC+fnFMLAwq9of480mcCzwx5uZCXwjBmcl+gejd+UWVGWd
+	4/riJM2x8nlSvyxlpikrSfkxAE3/ut8GdlB07esmAcXG5XeJHbTTkQKczVQMYoDDwudv/SC0r2w
+	lP/uXHkzMLyKQXaZJ0czNdfDZtJqwqYLb/PgUP3fDLMpvuxLXuuBooZQD7q73laoBbkcWV/3lvu
+	JpKBELRTXR87vniOau1yXB0HANDqemi/5hOjFPWSUnPZ65WxIOT8TrmlRO+i1HXbarAigY65TIS
+	T2Wr4iJsK3bdy/hd0+zEwakQlmtM3b+ykhIFfeV1moQMUVkBI5/rHAMHSnqF3vhw0BdqWKF21xr
+	+eLe1MZG/Pg747NYQx/aRvrf7UuFAt/fk4wuBmstKkqUHI9uz2hBwk3W721WmElCBKygcVFd5j+
+	3q477xm8RGFLy9v8FjrE3s73kBs/Ax28er5dbG4bfC/3xlLGXthqCCj19ibzrwvgV5xBOMy5b3K
+	9oi5cwEANx+OFB1GvE2
+X-Google-Smtp-Source: AGHT+IE40zrhw3F6xmyWQeMWTwedY3Ymb2iFUauvsMIwQ1EpFshoVSZdHlAb9Q9oq8B4HsHTN7T4mA==
+X-Received: by 2002:a05:6000:430a:b0:427:854:770 with SMTP id ffacd0b85a97d-4324e50a1c1mr34072551f8f.43.1767006928605;
+        Mon, 29 Dec 2025 03:15:28 -0800 (PST)
+Received: from smtpclient.apple (static.253.36.98.91.clients.your-server.de. [91.98.36.253])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4324eaa4749sm62515969f8f.37.2025.12.29.03.15.26
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 29 Dec 2025 03:15:28 -0800 (PST)
+Content-Type: text/plain;
+	charset=utf-8
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.700.81.1.3\))
+Subject: Re: [PATCH RFC v1] drm/meson: venc: add support for HDMI DMT modes up
+ to 3840x2160
+From: Christian Hewitt <christianshewitt@gmail.com>
+In-Reply-To: <20251108134236.1299630-1-martin.blumenstingl@googlemail.com>
+Date: Mon, 29 Dec 2025 15:15:14 +0400
+Cc: linux-amlogic@lists.infradead.org,
+ dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org,
+ neil.armstrong@linaro.org,
+ maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org,
+ tzimmermann@suse.de,
+ tobetter@gmail.com
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <A9CFD913-A6AD-4078-90C2-C1E46EF5E74D@gmail.com>
+References: <20251108134236.1299630-1-martin.blumenstingl@googlemail.com>
+To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+X-Mailer: Apple Mail (2.3826.700.81.1.3)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251229_031001_524601_891C2F30 
-X-CRM114-Status: GOOD (  29.40  )
+X-CRM114-CacheID: sfid-20251229_031535_186711_BF9B2EE5 
+X-CRM114-Status: GOOD (  25.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,206 +110,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 28.12.25 um 18:56 schrieb J. Neuschäfer:
-> Hello!
-> 
-> Nice to see someone work on the Netronix EC :-)
-> 
-> On Sat, Dec 27, 2025 at 05:28:13PM +0100, Josua Mayer wrote:
->> Implement a simple battery driver for monitoring voltage with the
->> netronix embedded controller found in certain ebook readers.
->>
->> Signed-off-by: Josua Mayer <josua.mayer@jm0.eu>
->> ---
->>   drivers/mfd/ntxec.c                  |   1 +
->>   drivers/power/supply/Kconfig         |   9 ++++
->>   drivers/power/supply/Makefile        |   1 +
->>   drivers/power/supply/ntxec-battery.c | 101 +++++++++++++++++++++++++++++++++++
->>   4 files changed, 112 insertions(+)
->>
->> diff --git a/drivers/mfd/ntxec.c b/drivers/mfd/ntxec.c
->> index 08c68de0f01bc..d5059b8862aa8 100644
->> --- a/drivers/mfd/ntxec.c
->> +++ b/drivers/mfd/ntxec.c
->> @@ -139,6 +139,7 @@ static const struct regmap_config regmap_config = {
->>   static const struct mfd_cell ntxec_subdev[] = {
->>   	{ .name = "ntxec-rtc" },
->>   	{ .name = "ntxec-pwm" },
->> +	{ .name = "ntxec-battery" },
->>   };
->>   
->>   static const struct mfd_cell ntxec_subdev_pwm[] = {
->> diff --git a/drivers/power/supply/Kconfig b/drivers/power/supply/Kconfig
->> index 92f9f7aae92f2..5674a23ba7bd6 100644
->> --- a/drivers/power/supply/Kconfig
->> +++ b/drivers/power/supply/Kconfig
->> @@ -1132,4 +1132,13 @@ config FUEL_GAUGE_MM8013
->>   	  the state of charge, temperature, cycle count, actual and design
->>   	  capacity, etc.
->>   
->> +config BATTERY_NTXEC
->> +	tristate "Battery driver for Netronix embedded controller"
->> +	depends on MFD_NTXEC
->> +	help
->> +	  Say yes here to enable netronix ec battery monitoring driver.
->> +	  It enables the monitoring battery voltage on certain e-book readers
->> +	  using an embedded controller by ODM Netronix. Battery design
->> +	  characteristics are read from Firmware Tables if available.
-> 
-> What do you mean by Firmware Tables, and where does this happen?
-Effectively I mean device-tree.
+> On 8 Nov 2025, at 5:42=E2=80=AFpm, Martin Blumenstingl =
+<martin.blumenstingl@googlemail.com> wrote:
+>=20
+> Commit 5d0bfe448481 ("drm/meson: Add HDMI 1.4 4k modes") added support
+> for HDMI 1.4 4k modes, which is what TVs need. For computer monitors
+> the code is using the DMT code-path, which ends up in
+> meson_venc_hdmi_supported_mode(), which does not allow the 4k modes =
+yet.
+>=20
+> The datasheet for all supported SoCs mentions "4Kx2K@60". It's not
+> clear whether "4K" here means 3840 or 4096 pixels.
+>=20
+> Allow resolutions up to 3840x2160 pixels (including middle steps, such
+> as WQHD at 2560x1440 pixels) so they can be used with computer =
+monitors
+> (using the DMT code-path in the driver).
+>=20
+> Signed-off-by: Martin Blumenstingl =
+<martin.blumenstingl@googlemail.com>
 
-This happens in power-supply core automatically for type battery:
+This is not a TB to kernel standards, but it seems not many folk
+have ultra-wide monitors so this is as good as it gets:
 
-static struct power_supply *__must_check
-__power_supply_register(struct device *parent,
-				   const struct power_supply_desc *desc,
-				   const struct power_supply_config *cfg)
-{
-	...
-	/*
-	 * Expose constant battery info, if it is available. While there are
-	 * some chargers accessing constant battery data, we only want to
-	 * expose battery data to userspace for battery devices.
-	 */
-	if (desc->type == POWER_SUPPLY_TYPE_BATTERY) {
-		rc = power_supply_get_battery_info(psy, &psy->battery_info);
-		if (rc && rc != -ENODEV && rc != -ENOENT)
-			goto check_supplies_failed;
-	}
-	...
-}
+Tested-by: Khadas forum user with a VIM3 running patched 6.18 :)
 
-This code particular is the reason I marked it optional in DT binding.
+=
+https://forum.khadas.com/t/can-not-set-display-resolution-to-3440x1440-for=
+-dell-monitor/26271/8
 
-> 
-> (I guess it means devicetree/fwnode, but "git grep -i 'firmware tables'"
-Yes, given that power_supply_get_battery_info uses fwnode_* functions.
+Christian
 
-> doesn't show many uses of that term)
-I was struggling with the phrasing - can change to something better.
-
-> 
->> +
->>   endif # POWER_SUPPLY
->> diff --git a/drivers/power/supply/Makefile b/drivers/power/supply/Makefile
->> index 4b79d5abc49a7..db6fc815f9da2 100644
->> --- a/drivers/power/supply/Makefile
->> +++ b/drivers/power/supply/Makefile
->> @@ -128,3 +128,4 @@ obj-$(CONFIG_CHARGER_SURFACE)	+= surface_charger.o
->>   obj-$(CONFIG_BATTERY_UG3105)	+= ug3105_battery.o
->>   obj-$(CONFIG_CHARGER_QCOM_SMB2)	+= qcom_smbx.o
->>   obj-$(CONFIG_FUEL_GAUGE_MM8013)	+= mm8013.o
->> +obj-$(CONFIG_BATTERY_NTXEC)	+= ntxec-battery.o
->> diff --git a/drivers/power/supply/ntxec-battery.c b/drivers/power/supply/ntxec-battery.c
->> new file mode 100644
->> index 0000000000000..f49f0966d18dd
->> --- /dev/null
->> +++ b/drivers/power/supply/ntxec-battery.c
->> @@ -0,0 +1,101 @@
->> +// SPDX-License-Identifier: GPL-2.0-or-later
->> +/*
->> + * The Netronix embedded controller is a microcontroller found in some
->> + * e-book readers designed by the original design manufacturer Netronix, Inc.
->> + * It contains RTC, battery monitoring, system power management, and PWM
->> + * functionality.
->> + *
->> + * This driver implements battery monitoring.
->> + *
->> + * Copyright 2021 Josua Mayer <josua.mayer@jm0.eu>
->> + */
->> +
->> +#include <linux/mfd/ntxec.h>
->> +#include <linux/module.h>
->> +#include <linux/platform_device.h>
->> +#include <linux/power_supply.h>
->> +#include <linux/property.h>
->> +#include <linux/regmap.h>
->> +
->> +static const enum power_supply_property ntxec_battery_properties[] = {
->> +	POWER_SUPPLY_PROP_VOLTAGE_NOW,
->> +};
->> +
->> +struct ntxec_battery {
->> +	struct ntxec *ec;
->> +};
->> +
->> +#define NTXEC_REG_READ_BATTERY	0x41
->> +
->> +static int ntxec_battery_get_property(struct power_supply *psy,
->> +				     enum power_supply_property psp,
->> +				     union power_supply_propval *val)
->> +{
->> +	struct ntxec_battery *priv = power_supply_get_drvdata(psy);
->> +	int ret;
->> +	unsigned int value;
->> +
->> +	switch (psp) {
->> +		case POWER_SUPPLY_PROP_VOLTAGE_NOW:
->> +			ret = regmap_read(priv->ec->regmap, NTXEC_REG_READ_BATTERY, &value);
->> +			if (ret < 0)
->> +				return ret;
->> +
->> +			/* ec value to microvolt conversion:
->> +			 * vendor kernel source suggests linear behaviour from 3V to 4.2V
->> +			 * with readings 767 to 1023; each increment represents 4687,5uV.
->> +			 * adjust 3V boundary slightly to report exactly 4.2V when full.
->> +			 */
->> +			val->intval = 2999872 + (value - 767) * 4688;
->> +			break;
->> +		default:
->> +			dev_err(&psy->dev, "%s: invalid property %u\n", __func__, psp);
->> +			return -EINVAL;
->> +	}
->> +
->> +	return 0;
->> +}
->> +
->> +static const struct power_supply_desc ntxec_battery_desc = {
->> +	.name = "ec-battery",
->> +	.type = POWER_SUPPLY_TYPE_BATTERY,
->> +	.properties = ntxec_battery_properties,
->> +	.get_property = ntxec_battery_get_property,
->> +	.num_properties = ARRAY_SIZE(ntxec_battery_properties),
->> +};
->> +
->> +static int ntxec_battery_probe(struct platform_device *pdev)
->> +{
->> +	struct device *dev = &pdev->dev;
->> +	struct ntxec *ec = dev_get_drvdata(dev->parent);
->> +	struct power_supply_config psy_cfg = {};
->> +	struct ntxec_battery *priv;
->> +	struct power_supply *psy;
->> +
->> +	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
->> +	if (!priv)
->> +		return -ENOMEM;
->> +
->> +	priv->ec = ec;
->> +	psy_cfg.drv_data = priv;
->> +	psy_cfg.fwnode = dev_fwnode(dev->parent);
->> +	psy_cfg.no_wakeup_source = true;
->> +	psy = devm_power_supply_register(dev, &ntxec_battery_desc, &psy_cfg);
->> +	if (IS_ERR(psy))
->> +		return PTR_ERR(psy);
->> +
->> +	return 0;
->> +}
->> +
->> +static struct platform_driver ntxec_battery_driver = {
->> +	.driver = {
->> +		.name = "ntxec-battery",
->> +	},
->> +	.probe = ntxec_battery_probe,
->> +};
->> +module_platform_driver(ntxec_battery_driver);
->> +
->> +MODULE_AUTHOR("Josua Mayer <josua.mayer@jm0.eu>");
->> +MODULE_DESCRIPTION("Battery driver for Netronix EC");
->> +MODULE_LICENSE("GPL");
->> +MODULE_ALIAS("platform:ntxec-battery");
-> 
-> Thanks,
-> J. Neuschäfer
+> ---
+> I'm sending this as RFC as I'm hoping to get some comments on the
+> "4Kx2K@60" note from the datasheets.
+>=20
+> I have tested it myself on a GXL Le Potato board using a computer
+> monitor at 2560x1440 pixels.
+>=20
+> This is the spiritual successor of a patch titled "drm/meson: add
+> support for 2560x1440 resolution output" from [0]
+>=20
+> [0] =
+https://lore.kernel.org/linux-amlogic/20250927130239.825060-1-christianshe=
+witt@gmail.com/
+>=20
+>=20
+> drivers/gpu/drm/meson/meson_venc.c | 4 ++--
+> 1 file changed, 2 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/drivers/gpu/drm/meson/meson_venc.c =
+b/drivers/gpu/drm/meson/meson_venc.c
+> index 3bf0d6e4fc30..4abd0c09b442 100644
+> --- a/drivers/gpu/drm/meson/meson_venc.c
+> +++ b/drivers/gpu/drm/meson/meson_venc.c
+> @@ -868,10 +868,10 @@ meson_venc_hdmi_supported_mode(const struct =
+drm_display_mode *mode)
+>    DRM_MODE_FLAG_PVSYNC | DRM_MODE_FLAG_NVSYNC))
+> return MODE_BAD;
+>=20
+> - if (mode->hdisplay < 400 || mode->hdisplay > 1920)
+> + if (mode->hdisplay < 400 || mode->hdisplay > 3840)
+> return MODE_BAD_HVALUE;
+>=20
+> - if (mode->vdisplay < 480 || mode->vdisplay > 1920)
+> + if (mode->vdisplay < 480 || mode->vdisplay > 2160)
+> return MODE_BAD_VVALUE;
+>=20
+> return MODE_OK;
+> --=20
+> 2.51.2
+>=20
 
 
