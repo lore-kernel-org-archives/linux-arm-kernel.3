@@ -4,78 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E88CE8FDB1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 03:36:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87F52E8FDB1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 03:42:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=tlgzro7FncjNJuzBeVV+gMjPrzzsyNIqE/qYSbMjGMc=; b=ldi0JCvcozIoWnovqKpOExJt+K
-	hgZvZzPSACZ2EiHc3qCYXmXTpX9a5vNtKI9bHhr/V5vjXEOU0SZkvZp74ohl79qGkL6YUPF5VdFGw
-	GbgPzEntvBcq+khtKlpQL1arQuKEjhJOfi7fzsuNwcpKiC9TfQkd2vkMOmM5Y9No3POpv15/JDv6Y
-	2MfsXUECwekd7WosMT4g8v2n+4z+AIIBMRDVwdQoX4+DpYt1Tu4Hu4CSCZ3SySgukd9eIlDkunBTu
-	ZVyT9FAR1bWevVcegoqvFbH17GvGl6TjDwnXFMHgC9GFupLp5o3IMWA+vpF5hOAnB0oZKPKHfviB1
-	rrtjbuRQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=05vngKVz4lfpFdy+8zts3aFlxXn+rugFVSknSHjzbrU=; b=tbuf+U0tPsgAscWnOduimQR3cR
+	q7gX777/1mIlRZ7Jh7vmODi2lPCzYyR62++T6cySQGKe/MWFypfL9uBOEocCtHwVLHlkM9A5cUSzf
+	ZKjYeMlcrcqT+oh9gyd5G6idxxcxET8oq8hT/WBEEtboz7uU0SqhX3qZHAqfg3Ks+/7mbQ9fhKO5t
+	NAXiYRh2MWRj9r1XCL8qefzoYkPVjj5lzKD0VDmQrgsaXUOl6+I9/fkWKvr/31Lx2lg090pkYKrwh
+	noYOmJlV2k3sdg6VYWIyi22+qAxtcT23+ASBN4nLye2r6s0lmwIPLoXmvXzd1w52oCql3JwRqeHvS
+	cjSSISlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1va43n-00000003HoK-1p4T;
-	Mon, 29 Dec 2025 03:36:43 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1va491-00000003I1r-0pgq;
+	Mon, 29 Dec 2025 03:42:07 +0000
+Received: from mail-westeuropeazon11013024.outbound.protection.outlook.com ([52.101.72.24] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1va43l-00000003Hnw-0aGl
+	id 1va48y-00000003I0g-2is4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Dec 2025 03:36:42 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2a0a4b748a0so209773345ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Dec 2025 19:36:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1766979400; x=1767584200; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=tlgzro7FncjNJuzBeVV+gMjPrzzsyNIqE/qYSbMjGMc=;
-        b=FLPcufo0w7YCCRKUYWRaikXZeaW7sOL/06bE6/CggJe+pV+e27K38MUDz4XN3iW6Wy
-         XGu0gb4IKx/+rI+BV58L9dX0L/3Wscqwxe1p8q9m6QSqYGY7OhPr0F4VW+BN15dUhbYS
-         ylb8bNn0lNi8GXyXmOCBsr7yBdVgK3K4PzK5+Xbm0Mt+f2G0fMitfBGKmbA/+zMz679G
-         8LPZF1qXeFp1ukEXPq0hmxCnXgUAju/3+GQoicBLJEco/Xl+oOe1W10nzAcPZN0a/Rfo
-         G90bJ8WLwEkr3shqIMSQxY/mAy3mXQ8O+DiVU0lxAWqudP9vmq9Erxuxuvo/0N6Bq7fZ
-         cj9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1766979400; x=1767584200;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=tlgzro7FncjNJuzBeVV+gMjPrzzsyNIqE/qYSbMjGMc=;
-        b=KP6F3W+Db5n0eC8uxaeJ3bj1JeVbUlkDnxbAL6d9azJ0i5N0pTqMENeusjEg0gfoXr
-         S99QPzgAIVJaoYHLeO9r2nPmxvKPQl8ijNyV/FI2YH2FPoCsSTWyq7JUcHZQAkbuehpu
-         fLhpgylsVyJy4HfSpt5FSVD9yocLNulS4aNaCggTrS4cWCZqvSHoufdRTjdI3+ioE3Qi
-         A1TkU1ODq37fYCLstpDuqPGeHzeMo20wYRY1nHlq3+7j9dxJFPIloG3NmETSgkgF6C38
-         OwW4tiV9kKr0mJxWtTBKYjlTHI9wj95QcgTzTLrC+FpCedOKPM1FcLHer2prZgKS+Kmt
-         yE3A==
-X-Forwarded-Encrypted: i=1; AJvYcCVK5Q8f5uaPkeqrDB/2BjgVKHwYcof1FN3pIdITJrWa/ROGTgVZMdx+cNHRjM/yXKMQ+8dCUa4VHnVV5vS8vvEp@lists.infradead.org
-X-Gm-Message-State: AOJu0YyeElZL5QbDGZGGKCsXNrs2iwcDYB3soAOH7c9f+4bgNM6QVqQc
-	td/w4rcYyPUFdrzCrqNw93XnLzwEaeMMYpS5GHntKIiWgu9UZcqg9GuO3Gm4zTpuhcjP1CePiFF
-	ThH+YwMWo+3Hv0w==
-X-Google-Smtp-Source: AGHT+IEi02veFKPSaH8rSwZrrtPejgrT+aWN21tWglweLgCEKAGkZvcU4SKqoS1kr3Pi2TTzu5lhwViTWhZE1g==
-X-Received: from pltj6.prod.google.com ([2002:a17:902:76c6:b0:29f:1480:6153])
- (user=lucaswei job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:903:32cd:b0:2a0:ad09:750b with SMTP id d9443c01a7336-2a2f222aef2mr216742645ad.9.1766979399578;
- Sun, 28 Dec 2025 19:36:39 -0800 (PST)
-Date: Mon, 29 Dec 2025 03:36:19 +0000
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.52.0.358.g0dd7633a29-goog
-Message-ID: <20251229033621.996546-1-lucaswei@google.com>
-Subject: [PATCH v2] arm64: errata: Workaround for SI L1 downstream coherency issue
-From: Lucas Wei <lucaswei@google.com>
-To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>
-Cc: sjadavani@google.com, Lucas Wei <lucaswei@google.com>, 
-	kernel test robot <lkp@intel.com>, stable@vger.kernel.org, kernel-team@android.com, 
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	Mon, 29 Dec 2025 03:42:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=iW32okuLxG2gTM/exR2PKTRVwo5M+6No/NEYwZL7C2Z1ZHdI507iuE5+jVR8v+aeICfQq3c1AviEexnaZPI2yMG3z6oWCnUbPXGO1MVlb50xvEVuACN6JOd68329KXVrJRwCY55Ngqj3rmhMUqJrAFvDk4A7FQx4Z7wPBPmWzPYL/SwTLyj1kLyRn9tTNlHKL2t8JzdhzzAXdrYZkdFkx1oiw1RRfC5CmNtTiIx+F3tClZr8cEoQItYUAozfvx557MMD6HrKocqbtfev+aVdZcz4Oi1eAsMrC1v+jAKaO0EhJy555EFKhL3qt1uoDP8Zewc0AdfrN5f6/vQGFpobpA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=05vngKVz4lfpFdy+8zts3aFlxXn+rugFVSknSHjzbrU=;
+ b=YcblN40bG/rN1bONOkeXjqlTy3+VVrnMbBWiOLY6liFkFID5hlqx7IMQGg93SnSzBOzswA5osP7c9M0/dTljCHpb7SdHvNRU7njIoZL2ZACAAWRN3aSwv1ST4zveqhvME1GzeNB0CtOXNIsuJxGd3m5bcuGb7mQW1mo8m6Q6jBDJAxET9JqaH69DZNFnEvJMrgniFHhsmsXDfRYu5JyWa8s52jO8ISRPPmCSWjZse6JPEjojLrx3RH/kfge36mF986tQIE/NVG+/kV5t9OgNLAiR3EBENuslvR/mRqelNGvSJLqWGLXVtSdWuaPAXKcRd9uV96rUbrB+Ughim6P0Bg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=05vngKVz4lfpFdy+8zts3aFlxXn+rugFVSknSHjzbrU=;
+ b=nC3TTDnTcNbNas0x32NrzTUPDTfV/qKCKcuNoQX8TfpIoxb2SnDdzsw3RsCltBYBkTD2XPzkftDOdNQcM672I4Uaf4IXLrxYI2l4nrGrr2ThNOVmjiEsVSI4xZ9j3RcQq+itYiAYU/dpjRSm/ZqHSU4R9ZBAefFR/rHtggFCjYbhjHcKjMsBvyiVps4bBz3JqaQeLBQ7hOBbOuEMW0vimnpsyDOxP15hROyyQY8kvB3BoQXx8znTvlcrFoUyCxWrJjEN9J1rcIvDAc2NCE83Dg48v3Bb3HfPvUvOlqhkU12LA3eNM5so7QtLPOGqNTOEt86qBZPxBats0y3SYh9fuA==
+Received: from PAXPR04MB8510.eurprd04.prod.outlook.com (2603:10a6:102:211::7)
+ by PA1PR04MB11456.eurprd04.prod.outlook.com (2603:10a6:102:4f7::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9456.14; Mon, 29 Dec
+ 2025 03:41:58 +0000
+Received: from PAXPR04MB8510.eurprd04.prod.outlook.com
+ ([fe80::a7c2:e2fa:8e04:40db]) by PAXPR04MB8510.eurprd04.prod.outlook.com
+ ([fe80::a7c2:e2fa:8e04:40db%4]) with mapi id 15.20.9456.013; Mon, 29 Dec 2025
+ 03:41:58 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: "davem@davemloft.net" <davem@davemloft.net>, "kuba@kernel.org"
+	<kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>
+CC: "imx@lists.linux.dev" <imx@lists.linux.dev>, "netdev@vger.kernel.org"
+	<netdev@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-stm32@st-md-mailman.stormreply.com"
+	<linux-stm32@st-md-mailman.stormreply.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "bpf@vger.kernel.org"
+	<bpf@vger.kernel.org>, "mcoquelin.stm32@gmail.com"
+	<mcoquelin.stm32@gmail.com>, "alexandre.torgue@foss.st.com"
+	<alexandre.torgue@foss.st.com>, "ast@kernel.org" <ast@kernel.org>,
+	"daniel@iogearbox.net" <daniel@iogearbox.net>, "hawk@kernel.org"
+	<hawk@kernel.org>, "john.fastabend@gmail.com" <john.fastabend@gmail.com>,
+	"sdf@fomichev.me" <sdf@fomichev.me>, "rmk+kernel@armlinux.org.uk"
+	<rmk+kernel@armlinux.org.uk>, "0x1207@gmail.com" <0x1207@gmail.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
+	"hayashi.kunihiko@socionext.com" <hayashi.kunihiko@socionext.com>, Vladimir
+ Oltean <vladimir.oltean@nxp.com>, "boon.leong.ong@intel.com"
+	<boon.leong.ong@intel.com>, "edumazet@google.com" <edumazet@google.com>,
+	Hariprasad Kelam <hkelam@marvell.com>
+Subject: RE: [PATCH net] net: stmmac: fix the crash issue for zero copy XDP_TX
+ action
+Thread-Topic: [PATCH net] net: stmmac: fix the crash issue for zero copy
+ XDP_TX action
+Thread-Index: AQHcZO1pj0nep9pNq02KfA412DHJhbU4H4qg
+Date: Mon, 29 Dec 2025 03:41:58 +0000
+Message-ID: <PAXPR04MB8510BCFE90FBBBDF2915B89388BFA@PAXPR04MB8510.eurprd04.prod.outlook.com>
+References: <20251204071332.1907111-1-wei.fang@nxp.com>
+In-Reply-To: <20251204071332.1907111-1-wei.fang@nxp.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8510:EE_|PA1PR04MB11456:EE_
+x-ms-office365-filtering-correlation-id: 6615d8c4-c3e5-4f3b-4386-08de468c37f8
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|19092799006|376014|1800799024|38070700021;
+x-microsoft-antispam-message-info: =?us-ascii?Q?pFNsSqlLD+cmOHh7s00GJ7isHb7Q5HNaZeWxbHa2TGoaEmQ6lso7tXgf1MlJ?=
+ =?us-ascii?Q?BonS0/uB2bcOd0x5+SoHinLwbgCaRcLCKQE6tDleRPxi5JtP2FWLqbJigZUR?=
+ =?us-ascii?Q?rPBPg5wnCqrrtVfzEHK6NpQ/tJ8Dj2T4FgcqyLr7zcW+/1TRfDf8khbKA1Ip?=
+ =?us-ascii?Q?hKGtbJnOylnsfuIZgWiOWMC1D7WxKgitbU7n4yZciJyU8YtsfoyDVkUhu1jg?=
+ =?us-ascii?Q?A0LNhNMwXJxn8jFX+KrLcZTSQd/GVY1ru70oqFyuOppTpnb6eDif9QUun0W/?=
+ =?us-ascii?Q?hXBrHH7y5GWgwxCrE+C0iw7DsHjYyipblFPIn7Dw3Ujg8SvH3t3nq+agwQmc?=
+ =?us-ascii?Q?di77LaRHo/ENNrkW8QpnxN23fqeXUt6dLReiIfdlL22CCdyYig6gyOVEU9WU?=
+ =?us-ascii?Q?bKPlxaZDj35FtrxEk1sTqR1yNzZMuh7gn7onj6kudxXtHCGADTrAYeNiX793?=
+ =?us-ascii?Q?aZwrPvFm4PZLx2NSNU/myvrBYa1mLrYpDaHcVCnbSmY06nHRDP+Yzp0ecy/6?=
+ =?us-ascii?Q?/imux3Fuzc3PQHE4wZb7ClEZ9X9J/e33A/fULhoZItJh8CUn/yMZojft4V9n?=
+ =?us-ascii?Q?CZOtNiOughzINpopLjyjPlU/AMrfESGoG3Tzt5/qFcdEx0NHuzzBO336leJ2?=
+ =?us-ascii?Q?ubSHTVodt1/OvulxMS2orFHdvV63Ho1kbKslUlkP2AUqv3Omq73rXGz6s0cy?=
+ =?us-ascii?Q?4pIN7xL73y4DNnDMp9xh+eJNA6SU7TWawcDCfcOZNoMABm2HppOj0ScOyFxv?=
+ =?us-ascii?Q?XKTyIip/22HVvTaXSkM4YgSCSICRhgWK3tG/WC/j2yocQEPNvPMT5RdySf7M?=
+ =?us-ascii?Q?GQHWRm1b5jlOTxYFdd0ScJPYKZR8MboP9BiEBLzU0yLZHpjsOP40+GLK2KYw?=
+ =?us-ascii?Q?t2OsoV9qP3cdD2Z8cBsbyq5c83cYibFIUSj9llfN3Dshe1n9dgYEN/3O/5OI?=
+ =?us-ascii?Q?H9WB7lzDf0HW6iMcDvoUZXhF8SQ3HTD+izv1vvoXS9hA71CdRjfjxE/Kv19o?=
+ =?us-ascii?Q?fdwe3pNi+ZMkaqXoFXX58iRvD/QEQ76rtXSLiy4GIJ22H1ydiYB9PvZdsH96?=
+ =?us-ascii?Q?GXerTx3L5W/WgCq9ETUSxCXAzmlMlmIXSPIF8e9wGoJd24BiYTIcKRcrqHKd?=
+ =?us-ascii?Q?pHyBD09ZMhaR47ysFKtKwrNQVn25pFy0SgBTGoMAi+u/K4p5DXGOWdIUQxV2?=
+ =?us-ascii?Q?Veiy2LWrWk9Pz0VxJ0vUToDFSRkC4WcaDSanToYZQIVelqq26towxcBrU27x?=
+ =?us-ascii?Q?ilt1KgPC6Bg/jh8T0r+PpjG593BAcrE5nNRCWUDO0vKejlNZ7nBq5uB2bpfc?=
+ =?us-ascii?Q?3fTWFiO+jVZZoRbUm7fxgEACi6wRljU0yMRO4uaif+M5GixO9dClFkGnA393?=
+ =?us-ascii?Q?liixNgzoyzMNkQ7M1Mxv9Aj+GCRJMZTOuYweVZAPnEMuQkO7OpCFvrP5ZzoX?=
+ =?us-ascii?Q?jsFP6IksYXQ6A6LikjoN8mqHISR0XWRwkHJIwG+Rptb35yHgtdGgUv9mrQX4?=
+ =?us-ascii?Q?38lYbYT5pS+52gEV9R85/62EloXAwW7VUhV4?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8510.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(19092799006)(376014)(1800799024)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?vgB4gyEYW0vcUk/2NZVpKLfvZoUvpNu+xzgsN7KfQ454CCYDKx82LLuyLMTD?=
+ =?us-ascii?Q?lOZziODb0B1P+de/1zoPtk62hf6hHmwFJVfzSmvDF6TOqH8ha4NV2HvnWnnJ?=
+ =?us-ascii?Q?samwg6jeA+YnpSXNdujpHs5NgTCYdmEF4QRblewumtLI7tVxMDnP6D7YrgcD?=
+ =?us-ascii?Q?A47PrtcEuhFdURKIzQF/9niz/0e6yRp0NBkHYb74l/zT0zJ3K62MaepYzKnO?=
+ =?us-ascii?Q?ez6KD17lgzA2x2klYJLLDvyCb7/ZeP/SiHfNd1a+9FEyTe8tzagaCNq0JVO2?=
+ =?us-ascii?Q?2q3u5WBQw0+hMlgNG/nQITrEVlKfiOQft8N88Q52fpYYsE98h9MO+Ag/Xo2t?=
+ =?us-ascii?Q?fqgFc4sjnq+yHts1GrqOPp+fPrXmkf0XPMHnJmhSHXIlCzk0IXnoZB0sRPmV?=
+ =?us-ascii?Q?UVKA0PjJjhDuVkXfReXnBXRmWGvSJjEdwQCPhpkWR+hJA/4sQqbg9JzSRYEV?=
+ =?us-ascii?Q?/MOvp27ZsJDwNeSSbOx0/Ig3J6ic6fif3hyE0ZvJ66psVJTskf+pJlSfwshn?=
+ =?us-ascii?Q?mt6V9BPQj67+1t2vSQbtW22XCnaF5W48B5dYlDIKKbvLboyVR+pRZQyfmWb7?=
+ =?us-ascii?Q?QM7qEFi8d8A+f6xLgZN8ma39VG8bsB6qCCbC+z+I+ekkbPWwdSwicLOhtkYD?=
+ =?us-ascii?Q?S8mjDUPuMn4p7F7qcdCaSBO+UssRc5J5iBSO7Y9kMEvFRxZEeSTV+Xrpmf2W?=
+ =?us-ascii?Q?7K7+UfkQbtZ86fEtR9v3wEyBkjXSlOp+tUWidsSEadWXOPWDv0BtHSTtB4d9?=
+ =?us-ascii?Q?kADeCk3VLBi8CAht+5PNr78Vyi6/fdUBO4ycV4F11lssDbk+9PQg4q/N5mEP?=
+ =?us-ascii?Q?Qjjpc08irlsKC9EZXCjiw3V8VLTmWWynwYWAc1kQJATLxKxDIt11XaU+U47t?=
+ =?us-ascii?Q?gHoWMdAoHyNO3McdJUSjhGLQjhoM9MODi7cRoS00CmUlrEqrE9kILlxKmvmY?=
+ =?us-ascii?Q?C78+cfyjcbNgZ8prigEbyWNpzQqtPSNeFNJDoMPt0vZjHGk/NTW9q9KQeth9?=
+ =?us-ascii?Q?ZwvOwPCtxsnWaIUj9j44BHBxngJVEJZP+ZPVgZ81ykjIy8+Ldezj/awWupEw?=
+ =?us-ascii?Q?W9SvvjPH09Pz1OJrAgTxADYvHZgDij0zlj6kHeJeWdaeg3SyxY3uSDoVrdq3?=
+ =?us-ascii?Q?bSodvGoIB44tqOzh78xyTp5AqDr9KT5tXh86X4SuTsTMBuAgS7GRQAE3HzLe?=
+ =?us-ascii?Q?+LAQSeAPMmMmybNspgpmiWBRB4m9gmAP/Z0NbvTr5w/0V2D1yLhRAsgHa8qF?=
+ =?us-ascii?Q?eH+Toa9AbuynZPHcOxooGqLuqNMG4gHYjCtrvqE+6lQTNywFtceh0ggalOHy?=
+ =?us-ascii?Q?Pw7GxKvHMYjugAm0QjX3WoSwvgKfAE35atTtC4qafe0zWZUoc4ZILNzaNn0I?=
+ =?us-ascii?Q?YAURTqAOIdHIyXEPrN/dyQfAzDCAnVlhPm8MsdHtuso7swuZ5cf3badx9trg?=
+ =?us-ascii?Q?3UVD0gerbIU+94jEmn8JG3kjtSe9F2F1eWIBa1gcKWc268v/zXZP/V8GpO4E?=
+ =?us-ascii?Q?iSqYISd6EEESELOjPH0D/Q7j60JH5HG4uvfFL1ACns0bz8a0xI6vNyWuvQ8K?=
+ =?us-ascii?Q?7c3GuaN1v8Rq1aTw52jNn5EXdz0H/yY6lhX+eTE0lspGGD22zLyCGiRfMDnn?=
+ =?us-ascii?Q?nijr/NBxx6uZcqQs9MEUmPALOgyr22e9fFmuCQfe4Ogr5vwessTOCc6eA7T6?=
+ =?us-ascii?Q?F0qAniyrxNka7Hy1Yt/Y9EqLWKphMRljI/2fs+i+lottZxU6?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8510.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6615d8c4-c3e5-4f3b-4386-08de468c37f8
+X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Dec 2025 03:41:58.1537
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 93xiOiUYPZC3K+0Yh913gUnDASURaQBvU6FLFyFdWKzt4IgDSM2Ooy9+UMh3Tm3uwmI05G989R4138Zjp4TfvA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11456
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251228_193641_208956_0A7B345B 
-X-CRM114-Status: GOOD (  26.10  )
+X-CRM114-CacheID: sfid-20251228_194204_710920_69C5FADF 
+X-CRM114-Status: GOOD (  15.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,237 +180,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When software issues a Cache Maintenance Operation (CMO) targeting a
-dirty cache line, the CPU and DSU cluster may optimize the operation by
-combining the CopyBack Write and CMO into a single combined CopyBack
-Write plus CMO transaction presented to the interconnect (MCN).
-For these combined transactions, the MCN splits the operation into two
-separate transactions, one Write and one CMO, and then propagates the
-write and optionally the CMO to the downstream memory system or external
-Point of Serialization (PoS).
-However, the MCN may return an early CompCMO response to the DSU cluster
-before the corresponding Write and CMO transactions have completed at
-the external PoS or downstream memory. As a result, stale data may be
-observed by external observers that are directly connected to the
-external PoS or downstream memory.
+> There is a crash issue when running zero copy XDP_TX action, the crash
+> log is shown below.
+>=20
+> [  216.122464] Unable to handle kernel paging request at virtual address
+> fffeffff80000000
+> [  216.187524] Internal error: Oops: 0000000096000144 [#1]  SMP
+> [  216.301694] Call trace:
+> [  216.304130]  dcache_clean_poc+0x20/0x38 (P)
+> [  216.308308]  __dma_sync_single_for_device+0x1bc/0x1e0
+> [  216.313351]  stmmac_xdp_xmit_xdpf+0x354/0x400
+> [  216.317701]  __stmmac_xdp_run_prog+0x164/0x368
+> [  216.322139]  stmmac_napi_poll_rxtx+0xba8/0xf00
+> [  216.326576]  __napi_poll+0x40/0x218
+> [  216.408054] Kernel panic - not syncing: Oops: Fatal exception in inter=
+rupt
+>=20
+> For XDP_TX action, the xdp_buff is converted to xdp_frame by
+> xdp_convert_buff_to_frame(). The memory type of the resulting xdp_frame
+> depends on the memory type of the xdp_buff. For page pool based xdp_buff
+> it produces xdp_frame with memory type MEM_TYPE_PAGE_POOL. For zero
+> copy
+> XSK pool based xdp_buff it produces xdp_frame with memory type
+> MEM_TYPE_PAGE_ORDER0. However, stmmac_xdp_xmit_back() does not
+> check the
+> memory type and always uses the page pool type, this leads to invalid
+> mappings and causes the crash. Therefore, check the xdp_buff memory type
+> in stmmac_xdp_xmit_back() to fix this issue.
+>=20
+> Fixes: bba2556efad6 ("net: stmmac: Enable RX via AF_XDP zero-copy")
+> Signed-off-by: Wei Fang <wei.fang@nxp.com>
+> ---
+>  .../net/ethernet/stmicro/stmmac/stmmac_main.c   | 17
+> +++++++++++++++--
 
-This erratum affects any system topology in which the following
-conditions apply:
- - The Point of Serialization (PoS) is located downstream of the
-   interconnect.
- - A downstream observer accesses memory directly, bypassing the
-   interconnect.
+Hi,
 
-Conditions:
-This erratum occurs only when all of the following conditions are met:
- 1. Software executes a data cache maintenance operation, specifically,
-    a clean or invalidate by virtual address (DC CVAC, DC CIVAC, or DC
-    IVAC), that hits on unique dirty data in the CPU or DSU cache. This
-    results in a combined CopyBack and CMO being issued to the
-    interconnect.
- 2. The interconnect splits the combined transaction into separate Write
-    and CMO transactions and returns an early completion response to the
-    CPU or DSU before the write has completed at the downstream memory
-    or PoS.
- 3. A downstream observer accesses the affected memory address after the
-    early completion response is issued but before the actual memory
-    write has completed. This allows the observer to read stale data
-    that has not yet been updated at the PoS or downstream memory.
-
-The implementation of workaround put a second loop of CMOs at the same
-virtual address whose operation meet erratum conditions to wait until
-cache data be cleaned to PoC.. This way of implementation mitigates
-performance panalty compared to purly duplicate orignial CMO.
-
-Reported-by: kernel test robot <lkp@intel.com>
-Cc: stable@vger.kernel.org # 6.12.x
-Signed-off-by: Lucas Wei <lucaswei@google.com>
----
-
-Changes in v2:
-
- 1. Fixed warning from kernel test robot by changing
-    arm_si_l1_workaround_4311569 to static 
-    [Reported-by: kernel test robot <lkp@intel.com>]
-
----
- Documentation/arch/arm64/silicon-errata.rst |  3 ++
- arch/arm64/Kconfig                          | 19 +++++++++++++
- arch/arm64/include/asm/assembler.h          | 10 +++++++
- arch/arm64/kernel/cpu_errata.c              | 31 +++++++++++++++++++++
- arch/arm64/mm/cache.S                       | 13 ++++++++-
- arch/arm64/tools/cpucaps                    |  1 +
- 6 files changed, 76 insertions(+), 1 deletion(-)
-
-diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-index a7ec57060f64..98efdf528719 100644
---- a/Documentation/arch/arm64/silicon-errata.rst
-+++ b/Documentation/arch/arm64/silicon-errata.rst
-@@ -213,6 +213,9 @@ stable kernels.
- | ARM            | GIC-700         | #2941627        | ARM64_ERRATUM_2941627       |
- +----------------+-----------------+-----------------+-----------------------------+
- +----------------+-----------------+-----------------+-----------------------------+
-+| ARM            | SI L1           | #4311569        | ARM64_ERRATUM_4311569       |
-++----------------+-----------------+-----------------+-----------------------------+
-++----------------+-----------------+-----------------+-----------------------------+
- | Broadcom       | Brahma-B53      | N/A             | ARM64_ERRATUM_845719        |
- +----------------+-----------------+-----------------+-----------------------------+
- | Broadcom       | Brahma-B53      | N/A             | ARM64_ERRATUM_843419        |
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 65db12f66b8f..a834d30859cc 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -1153,6 +1153,25 @@ config ARM64_ERRATUM_3194386
- 
- 	  If unsure, say Y.
- 
-+config ARM64_ERRATUM_4311569
-+	bool "SI L1: 4311569: workaround for premature CMO completion erratum"
-+	default y
-+	help
-+	  This option adds the workaround for ARM SI L1 erratum 4311569.
-+
-+	  The erratum of SI L1 can cause an early response to a combined write
-+	  and cache maintenance operation (WR+CMO) before the operation is fully
-+	  completed to the Point of Serialization (POS).
-+	  This can result in a non-I/O coherent agent observing stale data,
-+	  potentially leading to system instability or incorrect behavior.
-+
-+	  Enabling this option implements a software workaround by inserting a
-+	  second loop of Cache Maintenance Operation (CMO) immediately following the
-+	  end of function to do CMOs. This ensures that the data is correctly serialized
-+	  before the buffer is handed off to a non-coherent agent.
-+
-+	  If unsure, say Y.
-+
- config CAVIUM_ERRATUM_22375
- 	bool "Cavium erratum 22375, 24313"
- 	default y
-diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
-index f0ca7196f6fa..d3d46e5f7188 100644
---- a/arch/arm64/include/asm/assembler.h
-+++ b/arch/arm64/include/asm/assembler.h
-@@ -381,6 +381,9 @@ alternative_endif
- 	.macro dcache_by_myline_op op, domain, start, end, linesz, tmp, fixup
- 	sub	\tmp, \linesz, #1
- 	bic	\start, \start, \tmp
-+alternative_if ARM64_WORKAROUND_4311569
-+	mov	\tmp, \start
-+alternative_else_nop_endif
- .Ldcache_op\@:
- 	.ifc	\op, cvau
- 	__dcache_op_workaround_clean_cache \op, \start
-@@ -402,6 +405,13 @@ alternative_endif
- 	add	\start, \start, \linesz
- 	cmp	\start, \end
- 	b.lo	.Ldcache_op\@
-+alternative_if ARM64_WORKAROUND_4311569
-+	.ifnc	\op, cvau
-+	mov	\start, \tmp
-+	mov	\tmp, xzr
-+	cbnz	\start, .Ldcache_op\@
-+	.endif
-+alternative_else_nop_endif
- 	dsb	\domain
- 
- 	_cond_uaccess_extable .Ldcache_op\@, \fixup
-diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
-index 8cb3b575a031..5c0ab6bfd44a 100644
---- a/arch/arm64/kernel/cpu_errata.c
-+++ b/arch/arm64/kernel/cpu_errata.c
-@@ -141,6 +141,30 @@ has_mismatched_cache_type(const struct arm64_cpu_capabilities *entry,
- 	return (ctr_real != sys) && (ctr_raw != sys);
- }
- 
-+#ifdef CONFIG_ARM64_ERRATUM_4311569
-+static DEFINE_STATIC_KEY_FALSE(arm_si_l1_workaround_4311569);
-+static int __init early_arm_si_l1_workaround_4311569_cfg(char *arg)
-+{
-+	static_branch_enable(&arm_si_l1_workaround_4311569);
-+	pr_info("Enabling cache maintenance workaround for ARM SI-L1 erratum 4311569\n");
-+
-+	return 0;
-+}
-+early_param("arm_si_l1_workaround_4311569", early_arm_si_l1_workaround_4311569_cfg);
-+
-+/*
-+ * We have some earlier use cases to call cache maintenance operation functions, for example,
-+ * dcache_inval_poc() and dcache_clean_poc() in head.S, before making decision to turn on this
-+ * workaround. Since the scope of this workaround is limited to non-coherent DMA agents, its
-+ * safe to have the workaround off by default.
-+ */
-+static bool
-+need_arm_si_l1_workaround_4311569(const struct arm64_cpu_capabilities *entry, int scope)
-+{
-+	return static_branch_unlikely(&arm_si_l1_workaround_4311569);
-+}
-+#endif
-+
- static void
- cpu_enable_trap_ctr_access(const struct arm64_cpu_capabilities *cap)
- {
-@@ -870,6 +894,13 @@ const struct arm64_cpu_capabilities arm64_errata[] = {
- 		ERRATA_MIDR_RANGE_LIST(erratum_spec_ssbs_list),
- 	},
- #endif
-+#ifdef CONFIG_ARM64_ERRATUM_4311569
-+	{
-+		.capability = ARM64_WORKAROUND_4311569,
-+		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
-+		.matches = need_arm_si_l1_workaround_4311569,
-+	},
-+#endif
- #ifdef CONFIG_ARM64_WORKAROUND_SPECULATIVE_UNPRIV_LOAD
- 	{
- 		.desc = "ARM errata 2966298, 3117295",
-diff --git a/arch/arm64/mm/cache.S b/arch/arm64/mm/cache.S
-index 503567c864fd..ddf0097624ed 100644
---- a/arch/arm64/mm/cache.S
-+++ b/arch/arm64/mm/cache.S
-@@ -143,9 +143,14 @@ SYM_FUNC_END(dcache_clean_pou)
-  *	- end     - kernel end address of region
-  */
- SYM_FUNC_START(__pi_dcache_inval_poc)
-+alternative_if ARM64_WORKAROUND_4311569
-+	mov	x4, x0
-+	mov	x5, x1
-+	mov	x6, #1
-+alternative_else_nop_endif
- 	dcache_line_size x2, x3
- 	sub	x3, x2, #1
--	tst	x1, x3				// end cache line aligned?
-+again:	tst	x1, x3				// end cache line aligned?
- 	bic	x1, x1, x3
- 	b.eq	1f
- 	dc	civac, x1			// clean & invalidate D / U line
-@@ -158,6 +163,12 @@ SYM_FUNC_START(__pi_dcache_inval_poc)
- 3:	add	x0, x0, x2
- 	cmp	x0, x1
- 	b.lo	2b
-+alternative_if ARM64_WORKAROUND_4311569
-+	mov	x0, x4
-+	mov	x1, x5
-+	sub	x6, x6, #1
-+	cbz	x6, again
-+alternative_else_nop_endif
- 	dsb	sy
- 	ret
- SYM_FUNC_END(__pi_dcache_inval_poc)
-diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-index 1b32c1232d28..3b18734f9744 100644
---- a/arch/arm64/tools/cpucaps
-+++ b/arch/arm64/tools/cpucaps
-@@ -101,6 +101,7 @@ WORKAROUND_2077057
- WORKAROUND_2457168
- WORKAROUND_2645198
- WORKAROUND_2658417
-+WORKAROUND_4311569
- WORKAROUND_AMPERE_AC03_CPU_38
- WORKAROUND_AMPERE_AC04_CPU_23
- WORKAROUND_TRBE_OVERWRITE_FILL_MODE
-
-base-commit: edde060637b92607f3522252c03d64ad06369933
--- 
-2.52.0.358.g0dd7633a29-goog
+Could this patch be applied?
 
 
