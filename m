@@ -4,78 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3A4ED3B7E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 08:27:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A28DFD3B7E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 08:28:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:CC:References:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/kOJIq7pUg3mGJ75MZAjwvVXNtVVlgH9+izX3rJU590=; b=2/h0ShnYTInUmUUCtr8OjBzfPo
-	aGIgwbQdApxJ9F+pkpqkL8EeblWr7isTEVS+DRYCFofP6CE+8TMgLkE46T9Lc+jlNxpLWIgxDz/x9
-	dW924CYE6mtD93OfeDo6dbkiZdV3/wK3Ur/BrbFNcgf0HU78UXjSGnYAf2hxZVlbYlHBD9DTKrOyN
-	maaq/HJZFNSI3l1p87vXJafUPiNqIzaA6GPqymkbhdX1M0toHIM7DuRVQLTZ/lWhm47p5n0sn7Zq3
-	Y0r8TYiiX162I/Fy7MGO5BjdRWjRu0NXo/HQzu0SgqxxNVibcCRuC3paRrbkgvuBnc8Ni1Yc5gjz+
-	PNeIB31g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LoX5WdOoGBrBROTBkDtX0PsV+s1fOCdAGe50Ey1bMGI=; b=FhBtyivb/BS0eoU84yuAiI7is2
+	nYsRJXgRmsYpl6bxYxrSDgmgqinfAWje6vNbNosF/mji39ByLQbg/B3AeEvkG89Wp4gq6ZzVqNnYd
+	REtYY98lLxqSkwzzTQDWDu6vZEE1V+uDl+vmSvMHMxgl4Fe9kiMb+QBVwFQcDufuE02FPVv0zoxJl
+	eSGSd2Ni/Pkn+5hcyaf0LLH+JXlVcV8NcwrWhlakAaHL67JLOlwsHtE/6k3j9H0vVBgVrMUnuxv0E
+	Z30qPBxch8J+XBdhjIxDAIPHL3gZJct4INW6NDXqzsUkyI+FiJTonowpSacJvxcYSt7iqao93FmAf
+	OSc4jOTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1va8bQ-00000003TPl-4A7v;
-	Mon, 29 Dec 2025 08:27:45 +0000
-Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
+	id 1va8cL-00000003TVQ-1Y2D;
+	Mon, 29 Dec 2025 08:28:41 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1va8bN-00000003TOn-1wze
+	id 1va8cK-00000003TV1-0xfV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Dec 2025 08:27:43 +0000
-dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=/kOJIq7pUg3mGJ75MZAjwvVXNtVVlgH9+izX3rJU590=;
-	b=A3W1FT9CcyVYgqL7G7ovNf+z0lSZu4SKF+R47SHwUm0dUiQJDyd3gJfeRDAENK2OD+rX5eGEC
-	43MIl9FB/xtSiQmDgu0cebaQZQmUwVb9hkSDwTBhUDXGiein8+m/CP9tod4TCt4IcF2yJgDsGpj
-	vmmRg2xiCJBrrZIGTzTgKKw=
-Received: from mail.maildlp.com (unknown [172.19.163.15])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4dfq4w5xVHz1K96D;
-	Mon, 29 Dec 2025 16:24:16 +0800 (CST)
-Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id B3D6A40565;
-	Mon, 29 Dec 2025 16:27:24 +0800 (CST)
-Received: from kwepemn500004.china.huawei.com (7.202.194.145) by
- dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 29 Dec 2025 16:27:24 +0800
-Received: from [10.67.120.218] (10.67.120.218) by
- kwepemn500004.china.huawei.com (7.202.194.145) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 29 Dec 2025 16:27:23 +0800
-Subject: Re: [PATCH v4 2/3] coresight: tmc: refactor the tmc-etr mode setting
- to avoid race conditions
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, <james.clark@linaro.org>,
-	<mike.leach@linaro.org>, <leo.yan@arm.com>
-References: <20251111122149.1981162-1-hejunhao3@h-partners.com>
- <20251111122149.1981162-3-hejunhao3@h-partners.com>
- <15868ecb-c1e7-4273-a2e2-5c10f2701c0b@arm.com>
- <14a564bf-f9a2-c49c-9cd6-a5b68bc43500@h-partners.com>
- <a0ff9d15-c0e8-4ba2-9187-2abbe5676b01@arm.com>
-CC: <anshuman.khandual@arm.com>, <yeoreum.yun@arm.com>,
-	<coresight@lists.linaro.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <jonathan.cameron@huawei.com>, Linuxarm
-	<linuxarm@huawei.com>, Junhao He <hejunhao3@h-partners.com>
-From: hejunhao <hejunhao3@h-partners.com>
-Message-ID: <0406ae9f-28f6-44e1-26dd-8f243e7fc9fb@h-partners.com>
-Date: Mon, 29 Dec 2025 16:27:23 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:45.0) Gecko/20100101
- Thunderbird/45.7.1
+	Mon, 29 Dec 2025 08:28:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 38AE96000A;
+	Mon, 29 Dec 2025 08:28:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E018C4CEF7;
+	Mon, 29 Dec 2025 08:28:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766996918;
+	bh=Xyb3EWtazZNtfN+CXVhBQ8OoojBIlsXAdu3ujH5aoc8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=RyN+yOiJy6LVrXhKC/H00QhbbrmqxzO7ATD2akO6MZcjjHZY+Xmm2seG3lHqftOix
+	 3F26Bxj9e64PzJk0M0njIAQX+9PZolaKFR3XKg7E6LAXCvc1IOjy5vnRcgoHfBeOo/
+	 Y0Dg7jqLKTNsNfuMHo4OjhVr9F/ExlBhyQf4mr5amJJ1zEFFy/qpV+nP3w0acmGvaI
+	 mPxp4SVnkOT0X9XYJ2vsSdDc7rcG1trvLhDdGR1I3y6DygYlU06mPHK/uNQPKC4tb7
+	 B/D+Gw3jbdIMC7CpRmUmVdOK9hCfRnUuZJjPMZeAbSMbdpuk4R/HuH9vWJtgdqnNno
+	 dGGsXSF5n+S9w==
+Date: Mon, 29 Dec 2025 16:28:32 +0800
+From: Shawn Guo <shawnguo@kernel.org>
+To: maudspierings@gocontroll.com
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Matti Vaittinen <mazziesaccount@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 5/5] arm64: dts: freescale: Add the GOcontroll
+ Moduline Mini
+Message-ID: <aVI7sOngq0be4vXy@dragon>
+References: <20251117-mini_iv-v4-0-5aa63832f51a@gocontroll.com>
+ <20251117-mini_iv-v4-5-5aa63832f51a@gocontroll.com>
 MIME-Version: 1.0
-In-Reply-To: <a0ff9d15-c0e8-4ba2-9187-2abbe5676b01@arm.com>
-Content-Type: text/plain; charset="utf-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.120.218]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemn500004.china.huawei.com (7.202.194.145)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251229_002742_147342_EC488157 
-X-CRM114-Status: GOOD (  38.94  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251117-mini_iv-v4-5-5aa63832f51a@gocontroll.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,406 +78,745 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Nov 17, 2025 at 04:01:30PM +0100, Maud Spierings via B4 Relay wrote:
+> From: Maud Spierings <maudspierings@gocontroll.com>
+> 
+> The Moduline Mini is a part of the wider GOcontroll Moduline ecosystem. These
+> are embedded controllers that focus on modularity with their swappable IO
+> modules.
+> 
+> Features:
+> - up to 4 Moduline IO modules
+> - 2 CAN busses
+> - 1 Ethernet
+> - 4 RGB leds
+> - 1 3D accelerometer
+> - optional Wi-Fi/Bluetooth
+> - optional 4G/GPS
+> 
+> Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
+> ---
+>  arch/arm64/boot/dts/freescale/Makefile             |   1 +
+>  .../imx8mm-tx8m-1610-moduline-mini-111.dts         | 688 +++++++++++++++++++++
+>  2 files changed, 689 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+> index b2fef44e0a37..0a84c7dc89e3 100644
+> --- a/arch/arm64/boot/dts/freescale/Makefile
+> +++ b/arch/arm64/boot/dts/freescale/Makefile
+> @@ -125,6 +125,7 @@ imx8mm-evkb-pcie-ep-dtbs += imx8mm-evkb.dtb imx-pcie0-ep.dtbo
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mm-evk-pcie-ep.dtb imx8mm-evkb-pcie-ep.dtb
+>  
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mm-tx8m-1610-moduline-iv-306-d.dtb
+> +dtb-$(CONFIG_ARCH_MXC) += imx8mm-tx8m-1610-moduline-mini-111.dtb
+>  
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mm-icore-mx8mm-ctouch2.dtb
+>  dtb-$(CONFIG_ARCH_MXC) += imx8mm-icore-mx8mm-edimm2.2.dtb
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610-moduline-mini-111.dts b/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610-moduline-mini-111.dts
+> new file mode 100644
+> index 000000000000..0091196a27d2
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/freescale/imx8mm-tx8m-1610-moduline-mini-111.dts
+> @@ -0,0 +1,688 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +/*
+> + * Copyright (C) 2025 Maud Spierings <maudspierings@gocontroll.com>
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include "imx8mm-tx8m-1610.dtsi"
+> +#include <dt-bindings/leds/common.h>
+> +
+> +/ {
+> +	chassis-type = "embedded";
+> +	compatible = "gocontroll,moduline-mini-111", "karo,imx8mm-tx8m-1610", "fsl,imx8mm";
+> +	hardware = "Moduline Mini V1.11";
+> +	model = "GOcontroll Moduline Mini";
+> +
+> +	aliases {
+> +		usb-host = &usbotg2;
+> +		usbotg = &usbotg1;
+> +		spi0 = &ecspi2; /* spidev number compatibility */
+> +		spi1 = &ecspi3; /* spidev number compatibility */
+> +		spi2 = &ecspi1; /* spidev number compatibility */
 
-On 2025/11/19 22:46, Suzuki K Poulose wrote:
-> On 15/11/2025 02:09, hejunhao wrote:
->>
->>
->> On 2025/11/13 23:02, Suzuki K Poulose wrote:
->>> Hi Junhao,
->>>
->>> While your patch fixes the problem it introduces imbalance in the
->>> way perf vs sysfs modes are handled.
->>>
->>
->> Hi Suzuki,
->>
->> Thank you for your comments.
->>
->> What you mean is that, as long as tmc_etr_enable_hw() has not yet been
->> called (i.e., ETR hasn't been fully enabled), both the perf and sysfs 
->> sessions
->> have the opportunity to take ownership of ETR device?
->>
->> Based on the following sysfs-based ETR enablement sequence, the 
->> spinlock is
->> released at two points (denoted as points a and b).
->> At either of these points, perf may acquire the lock and invoke
->> tmc_etr_enable_hw() to complete the ETR initialization, resulting in
->> ETR_mode == PERF. This would interrupt the ongoing sysfs enablement
->> flow and effectively give precedence to perf over sysfs.
->>
->> mode:
->>    [sysfs mode]
->>    tmc_enable_etr_sink_sysfs()
->>      tmc_etr_get_sysfs_buffer()
->>        spin_lock(&drvdata->spinlock)
->>        sysfs_buf = READ_ONCE(drvdata->sysfs_buf);
->>        if (!sysfs_buf || (sysfs_buf->size != drvdata->size))
->>          spin_unlock(&drvdata->spinlock)  <-- point a
->>          [sysfs buffer allocation]
->>          spin_lock(&drvdata->spinlock)
->>        drvdata->sysfs_buf = new_buf;
->>        spin_unlock(&drvdata->spinlock)  <-- point b
->>      spin_lock(&drvdata->spinlock)
->>      tmc_etr_enable_hw()
->>      spin_unlock(&drvdata->spinlock)
->>
->>    [perf mode]
->>    tmc_enable_etr_sink_perf()
->>      spin_lock(&drvdata->spinlock)
->>      tmc_etr_enable_hw()
->>      spin_unlock(&drvdata->spinlock)
->>
->> After the patch, both the perf and sysfs sessions contend fairly for 
->> the lock at
->> the entry point of tmc_enable_etr_sink(). The first to acquire the 
->> lock gains
->> exclusive control over the ETR sink for the remainder of the session.
->
-> TBH, we don't care about fairness of the different modes of operation.
->
-> 1. Perf must be given the priority - Because that provides a full easy
-> framework for making any meaningful sense of the trace.
->
-> 2. Sysfs mode should be only used for custom use cases, where you have
-> full control of the system. (e.g., System bringup, Validation or event
-> crash capture).
->
-> In other words, if someone wants to use sysfs mode they must know what
-> they are doing and not run any perf session in parallel.
->
-Hi Suzuki,
+Alphabetical order?
 
-I understand now.
-This issue has been present for some time. Based on the discussion 
-above, the
-quickest way to resolve it is to revert to patch [1]. I will rebase the 
-series onto
-for-next, submit the next version.
+> +	};
+> +
+> +	chosen {
+> +		stdout-path = "serial2:115200n8";
+> +	};
+> +
+> +	mcp_clock: mcp-clock {
+> +		compatible = "fixed-clock";
+> +		#clock-cells = <0>;
+> +		clock-frequency = <20000000>;
+> +	};
+> +
+> +	reg_3v3_comm: regulator-3v3-communication {
+> +		compatible = "regulator-fixed";
+> +		enable-active-high;
+> +		gpio = <&gpio1 11 GPIO_ACTIVE_HIGH>;
+> +		pinctrl-0 = <&pinctrl_reg_comm>;
+> +		pinctrl-names = "default";
+> +		power-supply = <&reg_6v4>;
+> +		/* also powers the cellular modem which can't vote on the regulator */
+> +		regulator-always-on;
+> +		regulator-max-microvolt = <3300000>;
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-name = "3v3_comm";
+> +	};
+> +
+> +	reg_5v0: regulator-5v0 {
+> +		compatible = "regulator-fixed";
+> +		power-supply = <&reg_6v4>;
+> +		regulator-always-on;
+> +		regulator-max-microvolt = <5000000>;
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-name = "5v0";
+> +	};
+> +
+> +	reg_6v4: regulator-6v4 {
+> +		compatible = "regulator-fixed";
+> +		regulator-always-on;
+> +		regulator-max-microvolt = <6400000>;
+> +		regulator-min-microvolt = <6400000>;
+> +		regulator-name = "6v4";
+> +	};
+> +
+> +	reg_can1_stby: regulator-can1-stby {
+> +		compatible = "regulator-fixed";
+> +		gpio = <&gpio2 12 GPIO_ACTIVE_LOW>;
+> +		pinctrl-0 = <&pinctrl_can1_reg>;
+> +		pinctrl-names = "default";
+> +		regulator-max-microvolt = <3300000>;
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-name = "can1-stby";
+> +	};
+> +
+> +	reg_can2_stby: regulator-can2-stby {
+> +		compatible = "regulator-fixed";
+> +		gpio = <&gpio3 15 GPIO_ACTIVE_LOW>;
+> +		pinctrl-0 = <&pinctrl_can2_reg>;
+> +		pinctrl-names = "default";
+> +		regulator-max-microvolt = <3300000>;
+> +		regulator-min-microvolt = <3300000>;
+> +		regulator-name = "can2-stby";
+> +	};
+> +
+> +	wifi_pwrseq: wifi-pwrseq {
+> +		compatible = "mmc-pwrseq-simple";
+> +		pinctrl-0 = <&pinctrl_wl_reg>;
+> +		pinctrl-names = "default";
+> +		post-power-on-delay-ms = <100>;
+> +		power-off-delay-us = <500000>;
+> +		reset-gpios = <&gpio5 28 GPIO_ACTIVE_LOW>;
+> +	};
+> +};
+> +
+> +&ecspi1 {
+> +	cs-gpios = <&gpio4 27 GPIO_ACTIVE_LOW>,
+> +		   <&gpio3 23 GPIO_ACTIVE_LOW>,
+> +		   <&gpio3 1 GPIO_ACTIVE_LOW>;
+> +	pinctrl-0 = <&pinctrl_ecspi1>;
+> +	pinctrl-names = "default";
+> +	status = "okay";
+> +
+> +	connector@0 {
+> +		compatible = "gocontroll,moduline-module-slot";
+> +		reg = <0>;
+> +		i2c-bus = <&i2c2>;
+> +		interrupt-parent = <&gpio4>;
+> +		interrupts = <26 IRQ_TYPE_EDGE_FALLING>;
+> +		reset-gpios = <&gpio4 28 GPIO_ACTIVE_LOW>;
+> +		slot-number = <3>;
+> +		spi-max-frequency = <54000000>;
+> +		sync-gpios = <&gpio3 7 GPIO_ACTIVE_HIGH>;
+> +		vddhpp-supply = <&reg_6v4>;
+> +		vddp-supply = <&reg_5v0>;
+> +		vdd-supply = <&reg_vdd_3v3>;
+> +	};
+> +
+> +	connector@1 {
+> +		compatible = "gocontroll,moduline-module-slot";
+> +		reg = <1>;
+> +		i2c-bus = <&i2c2>;
+> +		interrupt-parent = <&gpio3>;
+> +		interrupts = <19 IRQ_TYPE_EDGE_FALLING>;
+> +		reset-gpios = <&gpio3 21 GPIO_ACTIVE_LOW>;
+> +		slot-number = <4>;
+> +		spi-max-frequency = <54000000>;
+> +		sync-gpios = <&gpio3 7 GPIO_ACTIVE_HIGH>;
+> +		vddhpp-supply = <&reg_6v4>;
+> +		vddp-supply = <&reg_5v0>;
+> +		vdd-supply = <&reg_vdd_3v3>;
+> +	};
+> +
+> +	adc@2 {
+> +		compatible = "microchip,mcp3004";
+> +		reg = <2>;
+> +		spi-max-frequency = <2300000>;
+> +		vref-supply = <&reg_vdd_3v3>;
+> +	};
+> +};
+> +
+> +&ecspi2 {
+> +	cs-gpios = <&gpio3 24 GPIO_ACTIVE_LOW>,
+> +		   <&gpio3 9 GPIO_ACTIVE_LOW>;
+> +	pinctrl-0 = <&pinctrl_ecspi2>;
+> +	pinctrl-names = "default";
+> +	status = "okay";
+> +
+> +	can@0 {
+> +		compatible = "microchip,mcp25625";
+> +		reg = <0>;
+> +		clocks = <&mcp_clock>;
+> +		interrupt-parent = <&gpio3>;
+> +		interrupts = <22 IRQ_TYPE_LEVEL_LOW>;
+> +		pinctrl-0 = <&pinctrl_can1>;
+> +		pinctrl-names = "default";
+> +		spi-max-frequency = <10000000>;
+> +		vdd-supply = <&reg_vdd_3v3>;
+> +		xceiver-supply = <&reg_can1_stby>;
+> +	};
+> +
+> +	can@1 {
+> +		compatible = "microchip,mcp25625";
+> +		reg = <1>;
+> +		clocks = <&mcp_clock>;
+> +		interrupt-parent = <&gpio3>;
+> +		interrupts = <6 IRQ_TYPE_LEVEL_LOW>;
+> +		pinctrl-0 = <&pinctrl_can2>;
+> +		pinctrl-names = "default";
+> +		spi-max-frequency = <10000000>;
+> +		vdd-supply = <&reg_vdd_3v3>;
+> +		xceiver-supply = <&reg_can2_stby>;
+> +	};
+> +};
+> +
+> +&ecspi3 {
+> +	cs-gpios = <&gpio1 9 GPIO_ACTIVE_LOW>,
+> +		   <&gpio1 2 GPIO_ACTIVE_LOW>;
+> +	pinctrl-0 = <&pinctrl_ecspi3>;
+> +	pinctrl-names = "default";
+> +	status = "okay";
+> +
+> +	connector@0 {
+> +		compatible = "gocontroll,moduline-module-slot";
+> +		reg = <0>;
+> +		i2c-bus = <&i2c2>;
+> +		interrupt-parent = <&gpio1>;
+> +		interrupts = <10 IRQ_TYPE_EDGE_FALLING>;
+> +		reset-gpios = <&gpio1 7 GPIO_ACTIVE_LOW>;
+> +		slot-number = <1>;
+> +		spi-max-frequency = <54000000>;
+> +		sync-gpios = <&gpio3 7 GPIO_ACTIVE_HIGH>;
+> +		vddhpp-supply = <&reg_6v4>;
+> +		vddp-supply = <&reg_5v0>;
+> +		vdd-supply = <&reg_vdd_3v3>;
+> +	};
+> +
+> +	connector@1 {
+> +		compatible = "gocontroll,moduline-module-slot";
+> +		reg = <1>;
+> +		i2c-bus = <&i2c2>;
+> +		interrupt-parent = <&gpio1>;
+> +		interrupts = <5 IRQ_TYPE_EDGE_FALLING>;
+> +		reset-gpios = <&gpio5 21 GPIO_ACTIVE_LOW>;
+> +		slot-number = <2>;
+> +		spi-max-frequency = <54000000>;
+> +		sync-gpios = <&gpio3 7 GPIO_ACTIVE_HIGH>;
+> +		vddhpp-supply = <&reg_6v4>;
+> +		vddp-supply = <&reg_5v0>;
+> +		vdd-supply = <&reg_vdd_3v3>;
+> +	};
+> +};
+> +
+> +&gpu_2d {
+> +	status = "disabled";
+> +};
+> +
+> +&gpu_3d {
+> +	status = "disabled";
+> +};
+> +
+> +&i2c2 {
+> +	clock-frequency = <400000>;
+> +	pinctrl-0 = <&pinctrl_i2c2>;
+> +	pinctrl-1 = <&pinctrl_i2c2_gpio>;
+> +	pinctrl-names = "default", "gpio";
+> +	scl-gpios = <&gpio5 16 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+> +	sda-gpios = <&gpio5 17 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+> +	status = "okay";
+> +};
+> +
+> +&i2c3 {
+> +	clock-frequency = <400000>;
+> +	pinctrl-0 = <&pinctrl_i2c3>;
+> +	pinctrl-1 = <&pinctrl_i2c3_gpio>;
+> +	pinctrl-names = "default", "gpio";
+> +	scl-gpios = <&gpio5 18 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+> +	sda-gpios = <&gpio5 19 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
+> +	status = "okay";
+> +
+> +	lp5012@14 {
 
-Additionally, I might delay or suspend the planned refactoring of
-the mode handling.
+Can we use a generic node name, maybe led-controller?
 
-Thanks
-Junhao
+Shawn
 
-[1] 
-https://lore.kernel.org/linux-arm-kernel/20241202092419.11777-1-yangyicong@huawei.com/
-
-> Thanks
-> Suzuki
->
->
->>
->>> On 11/11/2025 12:21, Junhao He wrote:
->>>> From: Junhao He <hejunhao3@huawei.com>
->>>>
->>>> When trying to run perf and sysfs mode simultaneously, the WARN_ON()
->>>> in tmc_etr_enable_hw() is triggered sometimes:
->>>>
->>>>   WARNING: CPU: 42 PID: 3911571 at drivers/hwtracing/coresight/ 
->>>> coresight-tmc-etr.c:1060 tmc_etr_enable_hw+0xc0/0xd8 [coresight_tmc]
->>>>   [..snip..]
->>>>   Call trace:
->>>>    tmc_etr_enable_hw+0xc0/0xd8 [coresight_tmc] (P)
->>>>    tmc_enable_etr_sink+0x11c/0x250 [coresight_tmc] (L)
->>>>    tmc_enable_etr_sink+0x11c/0x250 [coresight_tmc]
->>>>    coresight_enable_path+0x1c8/0x218 [coresight]
->>>>    coresight_enable_sysfs+0xa4/0x228 [coresight]
->>>>    enable_source_store+0x58/0xa8 [coresight]
->>>>    dev_attr_store+0x20/0x40
->>>>    sysfs_kf_write+0x4c/0x68
->>>>    kernfs_fop_write_iter+0x120/0x1b8
->>>>    vfs_write+0x2c8/0x388
->>>>    ksys_write+0x74/0x108
->>>>    __arm64_sys_write+0x24/0x38
->>>>    el0_svc_common.constprop.0+0x64/0x148
->>>>    do_el0_svc+0x24/0x38
->>>>    el0_svc+0x3c/0x130
->>>>    el0t_64_sync_handler+0xc8/0xd0
->>>>    el0t_64_sync+0x1ac/0x1b0
->>>>   ---[ end trace 0000000000000000 ]---
->>>>
->>>> Since the sysfs buffer allocation and the hardware enablement is not
->>>> in the same critical region, it's possible to race with the perf
->>>>
->>>> mode:
->>>>    [sysfs mode]                   [perf mode]
->>>>    tmc_etr_get_sysfs_buffer()
->>>>      spin_lock(&drvdata->spinlock)
->>>>      [sysfs buffer allocation]
->>>>      spin_unlock(&drvdata->spinlock)
->>>> spin_lock(&drvdata->spinlock)
->>>>                                   tmc_etr_enable_hw()
->>>>                                     drvdata->etr_buf = 
->>>> etr_perf->etr_buf
->>>> spin_unlock(&drvdata->spinlock)
->>>>   spin_lock(&drvdata->spinlock)
->>>
->>> ^^ Could we not double check the mode here and break out ?
->>>
->>> Something like this :
->>>
->>>
->>> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/ 
->>> drivers/hwtracing/coresight/coresight-tmc-etr.c
->>> index e0d83ee01b77..2097c57d19d0 100644
->>> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
->>> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
->>> @@ -1314,6 +1314,9 @@ static int tmc_enable_etr_sink_sysfs(struct 
->>> coresight_device *csdev)
->>>         if (coresight_get_mode(csdev) == CS_MODE_SYSFS) {
->>>                 csdev->refcnt++;
->>>                 goto out;
->>> +       } else if (coresight_get_mode(csdev) != CS_MODE_DISABLED) {
->>> +               ret = -EBUSY;
->>> +               goto out;
->>>         }
->>>
->>>         ret = tmc_etr_enable_hw(drvdata, sysfs_buf);
->>>
->>>
->>> Suzuki
->>
->> Indeed, this approach addresses only the race condition between the 
->> perf and sysfs
->> components. It represents the simplest viable solution.
->>
->> This patch also resolves the potential null pointer dereference of 
->> drvdata->sysfs_buf,
->> which could occur when the buffer size is modified after ETR has 
->> already been
->> enabled, followed by enabling a second source device [1].
->>
->> If the refactored patch introduces additional issues, the 
->> implementation may be
->> reworked based on Yicong's original patches [2] ?
->>
->> [1]https://lore.kernel.org/linux-arm-kernel/20241202092419.11777-2- 
->> yangyicong@huawei.com/
->> [2]https://lore.kernel.org/linux-arm-kernel/20241202092419.11777-4- 
->> yangyicong@huawei.com/
->>
->> Best regards,
->> Junhao.
->>
->>>
->>>
->>>>   tmc_etr_enable_hw()
->>>>     WARN_ON(drvdata->etr_buf) // WARN sicne etr_buf initialized at
->>>>                                  the perf side
->>>>    spin_unlock(&drvdata->spinlock)
->>>>
->>>> A race condition is introduced here, perf always prioritizes 
->>>> execution, and
->>>> warnings can lead to concerns about potential hidden bugs, such as 
->>>> getting
->>>> out of sync.
->>>>
->>>> To fix this, configure the tmc-etr mode before invoking 
->>>> enable_etr_perf()
->>>> or enable_etr_sysfs(), explicitly check if the tmc-etr sink is already
->>>> enabled in a different mode, and simplily the setup and checks for 
->>>> "mode".
->>>> To prevent race conditions between mode transitions.
->>>>
->>>> Fixes: 296b01fd106e ("coresight: Refactor out buffer allocation 
->>>> function for ETR")
->>>> Reported-by: Yicong Yang <yangyicong@hisilicon.com>
->>>> Closes: https://lore.kernel.org/linux-arm- 
->>>> kernel/20241202092419.11777-2-yangyicong@huawei.com/
->>>> Signed-off-by: Junhao He <hejunhao3@huawei.com>
->>>> Tested-by: Yicong Yang <yangyicong@hisilicon.com>
->>>> Signed-off-by: Junhao He <hejunhao3@h-partners.com>
->>>> ---
->>>>   .../hwtracing/coresight/coresight-tmc-etr.c   | 106 
->>>> +++++++++---------
->>>>   1 file changed, 55 insertions(+), 51 deletions(-)
->>>>
->>>> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/ 
->>>> drivers/hwtracing/coresight/coresight-tmc-etr.c
->>>> index b07fcdb3fe1a..fe1d5e8a0d2b 100644
->>>> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
->>>> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
->>>> @@ -1263,11 +1263,6 @@ static struct etr_buf 
->>>> *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
->>>>           raw_spin_lock_irqsave(&drvdata->spinlock, flags);
->>>>       }
->>>>   -    if (drvdata->reading || coresight_get_mode(csdev) == 
->>>> CS_MODE_PERF) {
->>>> -        ret = -EBUSY;
->>>> -        goto out;
->>>> -    }
->>>> -
->>>>       /*
->>>>        * If we don't have a buffer or it doesn't match the 
->>>> requested size,
->>>>        * use the buffer allocated above. Otherwise reuse the 
->>>> existing buffer.
->>>> @@ -1278,7 +1273,6 @@ static struct etr_buf 
->>>> *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
->>>>           drvdata->sysfs_buf = new_buf;
->>>>       }
->>>>   -out:
->>>>       raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
->>>>         /* Free memory outside the spinlock if need be */
->>>> @@ -1289,7 +1283,7 @@ static struct etr_buf 
->>>> *tmc_etr_get_sysfs_buffer(struct coresight_device *csdev)
->>>>     static int tmc_enable_etr_sink_sysfs(struct coresight_device 
->>>> *csdev)
->>>>   {
->>>> -    int ret = 0;
->>>> +    int ret;
->>>>       unsigned long flags;
->>>>       struct tmc_drvdata *drvdata = 
->>>> dev_get_drvdata(csdev->dev.parent);
->>>>       struct etr_buf *sysfs_buf = tmc_etr_get_sysfs_buffer(csdev);
->>>> @@ -1299,23 +1293,10 @@ static int tmc_enable_etr_sink_sysfs(struct 
->>>> coresight_device *csdev)
->>>>         raw_spin_lock_irqsave(&drvdata->spinlock, flags);
->>>>   -    /*
->>>> -     * In sysFS mode we can have multiple writers per sink. Since 
->>>> this
->>>> -     * sink is already enabled no memory is needed and the HW need 
->>>> not be
->>>> -     * touched, even if the buffer size has changed.
->>>> -     */
->>>> -    if (coresight_get_mode(csdev) == CS_MODE_SYSFS) {
->>>> -        csdev->refcnt++;
->>>> -        goto out;
->>>> -    }
->>>> -
->>>>       ret = tmc_etr_enable_hw(drvdata, sysfs_buf);
->>>> -    if (!ret) {
->>>> -        coresight_set_mode(csdev, CS_MODE_SYSFS);
->>>> +    if (!ret)
->>>>           csdev->refcnt++;
->>>> -    }
->>>>   -out:
->>>>       raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
->>>>         if (!ret)
->>>> @@ -1729,39 +1710,24 @@ static int tmc_enable_etr_sink_perf(struct 
->>>> coresight_device *csdev, void *data)
->>>>   {
->>>>       int rc = 0;
->>>>       pid_t pid;
->>>> -    unsigned long flags;
->>>>       struct tmc_drvdata *drvdata = 
->>>> dev_get_drvdata(csdev->dev.parent);
->>>>       struct perf_output_handle *handle = data;
->>>>       struct etr_perf_buffer *etr_perf = etm_perf_sink_config(handle);
->>>>   -    raw_spin_lock_irqsave(&drvdata->spinlock, flags);
->>>> -     /* Don't use this sink if it is already claimed by sysFS */
->>>> -    if (coresight_get_mode(csdev) == CS_MODE_SYSFS) {
->>>> -        rc = -EBUSY;
->>>> -        goto unlock_out;
->>>> -    }
->>>> -
->>>> -    if (WARN_ON(!etr_perf || !etr_perf->etr_buf)) {
->>>> -        rc = -EINVAL;
->>>> -        goto unlock_out;
->>>> -    }
->>>> +    if (WARN_ON(!etr_perf || !etr_perf->etr_buf))
->>>> +        return -EINVAL;
->>>>         /* Get a handle on the pid of the session owner */
->>>>       pid = etr_perf->pid;
->>>>         /* Do not proceed if this device is associated with another 
->>>> session */
->>>> -    if (drvdata->pid != -1 && drvdata->pid != pid) {
->>>> -        rc = -EBUSY;
->>>> -        goto unlock_out;
->>>> -    }
->>>> +    if (drvdata->pid != -1 && drvdata->pid != pid)
->>>> +        return -EBUSY;
->>>>   -    /*
->>>> -     * No HW configuration is needed if the sink is already in
->>>> -     * use for this session.
->>>> -     */
->>>> +    /* The sink is already in use for this session */
->>>>       if (drvdata->pid == pid) {
->>>>           csdev->refcnt++;
->>>> -        goto unlock_out;
->>>> +        return rc;
->>>>       }
->>>>         rc = tmc_etr_enable_hw(drvdata, etr_perf->etr_buf);
->>>> @@ -1773,22 +1739,60 @@ static int tmc_enable_etr_sink_perf(struct 
->>>> coresight_device *csdev, void *data)
->>>>           csdev->refcnt++;
->>>>       }
->>>>   -unlock_out:
->>>> -    raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
->>>>       return rc;
->>>>   }
->>>>     static int tmc_enable_etr_sink(struct coresight_device *csdev,
->>>>                      enum cs_mode mode, void *data)
->>>>   {
->>>> -    switch (mode) {
->>>> -    case CS_MODE_SYSFS:
->>>> -        return tmc_enable_etr_sink_sysfs(csdev);
->>>> -    case CS_MODE_PERF:
->>>> -        return tmc_enable_etr_sink_perf(csdev, data);
->>>> -    default:
->>>> -        return -EINVAL;
->>>> +    struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
->>>> +    int rc;
->>>> +
->>>> +retry:
->>>> +    scoped_guard(raw_spinlock_irqsave, &drvdata->spinlock) {
->>>> +        if (coresight_get_mode(csdev) != CS_MODE_DISABLED &&
->>>> +            coresight_get_mode(csdev) != mode)
->>>> +            return -EBUSY;
->>>> +
->>>> +        switch (mode) {
->>>> +        case CS_MODE_SYSFS:
->>>> +            if (drvdata->reading)
->>>> +                return -EBUSY;
->>>> +
->>>> +            if (csdev->refcnt) {
->>>> +                /* The sink is already enabled via sysfs */
->>>> +                csdev->refcnt++;
->>>> +                return 0;
->>>> +            }
->>>> +
->>>> +            /*
->>>> +             * A sysfs session is currently enabling ETR, preventing
->>>> +             * a second sysfs process from repeatedly triggering the
->>>> +             * enable procedure.
->>>> +             */
->>>> +            if (coresight_get_mode(csdev) == CS_MODE_SYSFS && ! 
->>>> csdev->refcnt)
->>>> +                goto retry;
->>>> +
->>>> +            /*
->>>> +             * Set ETR to sysfs mode before it is fully enabled, to
->>>> +             * prevent race conditions during mode transitions.
->>>> +             */
->>>> +            coresight_set_mode(csdev, mode);
->>>> +            break;
->>>> +        case CS_MODE_PERF:
->>>> +            return tmc_enable_etr_sink_perf(csdev, data);
->>>> +        default:
->>>> +            return -EINVAL;
->>>> +        }
->>>> +    }
->>>> +
->>>> +    rc = tmc_enable_etr_sink_sysfs(csdev);
->>>> +    if (rc) {
->>>> + guard(raw_spinlock_irqsave)(&drvdata->spinlock);
->>>> +        coresight_set_mode(csdev, CS_MODE_DISABLED);
->>>>       }
->>>> +
->>>> +    return rc;
->>>>   }
->>>>     static int tmc_disable_etr_sink(struct coresight_device *csdev)
->>>
->>>
->>> .
->>>
->>
->
->
-> .
->
-
+> +		compatible = "ti,lp5012";
+> +		reg = <0x14>;
+> +		vled-supply = <&reg_6v4>;
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		multi-led@0 {
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			reg = <0>;
+> +			color = <LED_COLOR_ID_RGB>;
+> +			label = "case-led1";
+> +
+> +			led@0 {
+> +				reg = <0>;
+> +				color = <LED_COLOR_ID_RED>;
+> +			};
+> +
+> +			led@1 {
+> +				reg = <1>;
+> +				color = <LED_COLOR_ID_GREEN>;
+> +			};
+> +
+> +			led@2 {
+> +				reg = <2>;
+> +				color = <LED_COLOR_ID_BLUE>;
+> +			};
+> +		};
+> +
+> +		multi-led@1 {
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			reg = <1>;
+> +			color = <LED_COLOR_ID_RGB>;
+> +			label = "case-led2";
+> +
+> +			led@0 {
+> +				reg = <0>;
+> +				color = <LED_COLOR_ID_RED>;
+> +			};
+> +
+> +			led@1 {
+> +				reg = <1>;
+> +				color = <LED_COLOR_ID_GREEN>;
+> +			};
+> +
+> +			led@2 {
+> +				reg = <2>;
+> +				color = <LED_COLOR_ID_BLUE>;
+> +			};
+> +		};
+> +
+> +		multi-led@2 {
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			reg = <2>;
+> +			color = <LED_COLOR_ID_RGB>;
+> +			label = "case-led3";
+> +
+> +			led@0 {
+> +				reg = <0>;
+> +				color = <LED_COLOR_ID_RED>;
+> +			};
+> +
+> +			led@1 {
+> +				reg = <1>;
+> +				color = <LED_COLOR_ID_GREEN>;
+> +			};
+> +
+> +			led@2 {
+> +				reg = <2>;
+> +				color = <LED_COLOR_ID_BLUE>;
+> +			};
+> +		};
+> +
+> +		multi-led@3 {
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			reg = <3>;
+> +			color = <LED_COLOR_ID_RGB>;
+> +			label = "case-led4";
+> +
+> +			led@0 {
+> +				reg = <0>;
+> +				color = <LED_COLOR_ID_RED>;
+> +			};
+> +
+> +			led@1 {
+> +				reg = <1>;
+> +				color = <LED_COLOR_ID_GREEN>;
+> +			};
+> +
+> +			led@2 {
+> +				reg = <2>;
+> +				color = <LED_COLOR_ID_BLUE>;
+> +			};
+> +		};
+> +	};
+> +
+> +	accelerometer@18 {
+> +		compatible = "st,lis2dw12";
+> +		reg = <0x18>;
+> +		interrupt-parent = <&gpio5>;
+> +		interrupts = <3 IRQ_TYPE_EDGE_RISING>, <5 IRQ_TYPE_EDGE_RISING>;
+> +		pinctrl-0 = <&pinctrl_lis_int>;
+> +		pinctrl-names = "default";
+> +		vddio-supply = <&reg_vdd_3v3>;
+> +		vdd-supply = <&reg_vdd_3v3>;
+> +	};
+> +
+> +	humidity-sensor@5f {
+> +		compatible = "st,hts221";
+> +		reg = <0x5f>;
+> +		interrupt-parent = <&gpio3>;
+> +		interrupts = <10 IRQ_TYPE_EDGE_RISING>;
+> +		pinctrl-0 = <&pinctrl_hts_int>;
+> +		pinctrl-names = "default";
+> +		vdd-supply = <&reg_vdd_3v3>;
+> +	};
+> +};
+> +
+> +&iomuxc {
+> +	pinctrl_bt: btgrp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_GPIO1_IO01_GPIO1_IO1
+> +				MX8MM_DSE_X1
+> +			MX8MM_IOMUXC_SAI5_MCLK_GPIO3_IO25
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE | MX8MM_HYS_SCHMITT)
+> +			MX8MM_IOMUXC_ECSPI2_SS0_GPIO5_IO13
+> +				MX8MM_DSE_X1
+> +		>;
+> +	};
+> +
+> +	pinctrl_can1: can1grp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_SAI2_TXC_GPIO4_IO25
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +			MX8MM_IOMUXC_SAI5_RXD1_GPIO3_IO22
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE | MX8MM_HYS_SCHMITT)
+> +		>;
+> +	};
+> +
+> +	pinctrl_can1_reg: can1reggrp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_SD2_CD_B_GPIO2_IO12
+> +				(MX8MM_DSE_X2 | MX8MM_FSEL_FAST | MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +		>;
+> +	};
+> +
+> +	pinctrl_can2: can2grp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_NAND_CLE_GPIO3_IO5
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +			MX8MM_IOMUXC_NAND_DATA00_GPIO3_IO6
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE | MX8MM_HYS_SCHMITT)
+> +		>;
+> +	};
+> +
+> +	pinctrl_can2_reg: can2reggrp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_NAND_RE_B_GPIO3_IO15
+> +				(MX8MM_DSE_X2 | MX8MM_FSEL_FAST | MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +		>;
+> +	};
+> +
+> +	pinctrl_ecspi1: ecspi1grp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_ECSPI1_MOSI_ECSPI1_MOSI
+> +				MX8MM_DSE_X4
+> +			MX8MM_IOMUXC_ECSPI1_MISO_ECSPI1_MISO
+> +				(MX8MM_DSE_X4 | MX8MM_HYS_SCHMITT)
+> +			MX8MM_IOMUXC_ECSPI1_SCLK_ECSPI1_SCLK
+> +				MX8MM_DSE_X4
+> +			MX8MM_IOMUXC_SAI2_MCLK_GPIO4_IO27
+> +				MX8MM_DSE_X1
+> +			MX8MM_IOMUXC_SAI5_RXD2_GPIO3_IO23
+> +				MX8MM_DSE_X1
+> +			MX8MM_IOMUXC_NAND_CE0_B_GPIO3_IO1
+> +				MX8MM_DSE_X1
+> +		>;
+> +	};
+> +
+> +	pinctrl_ecspi2: ecspi2grp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_ECSPI2_MOSI_ECSPI2_MOSI
+> +				MX8MM_DSE_X4
+> +			MX8MM_IOMUXC_ECSPI2_MISO_ECSPI2_MISO
+> +				(MX8MM_DSE_X4 | MX8MM_HYS_SCHMITT)
+> +			MX8MM_IOMUXC_ECSPI2_SCLK_ECSPI2_SCLK
+> +				MX8MM_DSE_X4
+> +			MX8MM_IOMUXC_SAI5_RXD3_GPIO3_IO24
+> +				MX8MM_DSE_X1
+> +			MX8MM_IOMUXC_NAND_DATA03_GPIO3_IO9
+> +				MX8MM_DSE_X1
+> +		>;
+> +	};
+> +
+> +	pinctrl_ecspi3: ecspi3grp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_UART1_TXD_ECSPI3_MOSI
+> +				MX8MM_DSE_X4
+> +			MX8MM_IOMUXC_UART2_RXD_ECSPI3_MISO
+> +				(MX8MM_DSE_X4 | MX8MM_HYS_SCHMITT)
+> +			MX8MM_IOMUXC_UART1_RXD_ECSPI3_SCLK
+> +				MX8MM_DSE_X4
+> +			MX8MM_IOMUXC_GPIO1_IO09_GPIO1_IO9
+> +				MX8MM_DSE_X1
+> +			MX8MM_IOMUXC_GPIO1_IO02_GPIO1_IO2
+> +				MX8MM_DSE_X1
+> +		>;
+> +	};
+> +
+> +	pinctrl_hts_int: htsintgrp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_NAND_DATA04_GPIO3_IO10
+> +				(MX8MM_PULL_ENABLE | MX8MM_HYS_SCHMITT)
+> +		>;
+> +	};
+> +
+> +	pinctrl_i2c2: i2c2grp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_I2C2_SCL_I2C2_SCL
+> +				MX8MM_I2C_DEFAULT
+> +			MX8MM_IOMUXC_I2C2_SDA_I2C2_SDA
+> +				MX8MM_I2C_DEFAULT
+> +		>;
+> +	};
+> +
+> +	pinctrl_i2c2_gpio: i2c2-gpiogrp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_I2C2_SCL_GPIO5_IO16
+> +				MX8MM_I2C_DEFAULT
+> +			MX8MM_IOMUXC_I2C2_SDA_GPIO5_IO17
+> +				MX8MM_I2C_DEFAULT
+> +		>;
+> +	};
+> +
+> +	pinctrl_i2c3: i2c3grp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_I2C3_SCL_I2C3_SCL
+> +				MX8MM_I2C_DEFAULT
+> +			MX8MM_IOMUXC_I2C3_SDA_I2C3_SDA
+> +				MX8MM_I2C_DEFAULT
+> +		>;
+> +	};
+> +
+> +	pinctrl_i2c3_gpio: i2c3-gpiogrp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_I2C3_SCL_GPIO5_IO18
+> +				MX8MM_I2C_DEFAULT
+> +			MX8MM_IOMUXC_I2C3_SDA_GPIO5_IO19
+> +				MX8MM_I2C_DEFAULT
+> +		>;
+> +	};
+> +
+> +	pinctrl_lis_int: lisintgrp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_SPDIF_TX_GPIO5_IO3
+> +				(MX8MM_PULL_ENABLE | MX8MM_HYS_SCHMITT)
+> +			MX8MM_IOMUXC_SPDIF_EXT_CLK_GPIO5_IO5
+> +				(MX8MM_PULL_ENABLE | MX8MM_HYS_SCHMITT)
+> +		>;
+> +	};
+> +
+> +	pinctrl_reg_comm: reg_commgrp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_GPIO1_IO11_GPIO1_IO11
+> +				MX8MM_DSE_X1
+> +		>;
+> +	};
+> +
+> +	pinctrl_sysfs_gpios: sysfsgpiogrp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_GPIO1_IO07_GPIO1_IO7
+> +				MX8MM_DSE_X1
+> +			MX8MM_IOMUXC_I2C4_SDA_GPIO5_IO21
+> +				MX8MM_DSE_X1
+> +			MX8MM_IOMUXC_SAI3_RXFS_GPIO4_IO28
+> +				MX8MM_DSE_X1
+> +			MX8MM_IOMUXC_SAI5_RXD0_GPIO3_IO21
+> +				MX8MM_DSE_X1
+> +			MX8MM_IOMUXC_SD2_WP_GPIO2_IO20
+> +				MX8MM_DSE_X1
+> +			MX8MM_IOMUXC_GPIO1_IO00_GPIO1_IO0
+> +				MX8MM_DSE_X1
+> +			MX8MM_IOMUXC_GPIO1_IO04_GPIO1_IO4
+> +				MX8MM_DSE_X1
+> +			MX8MM_IOMUXC_GPIO1_IO06_GPIO1_IO6
+> +				MX8MM_DSE_X1
+> +		>;
+> +	};
+> +
+> +	pinctrl_uart1: uart1grp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_SAI2_RXC_UART1_DCE_RX
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +			MX8MM_IOMUXC_SAI2_RXFS_UART1_DCE_TX
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +			MX8MM_IOMUXC_SAI2_RXD0_UART1_DCE_RTS_B
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +			MX8MM_IOMUXC_SAI2_TXFS_UART1_DCE_CTS_B
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +		>;
+> +	};
+> +
+> +	pinctrl_uart2: uart2grp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_SAI3_TXFS_UART2_DCE_RX
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +			MX8MM_IOMUXC_SAI3_TXC_UART2_DCE_TX
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +			MX8MM_IOMUXC_SAI3_RXD_UART2_DCE_RTS_B
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +			MX8MM_IOMUXC_SAI3_RXC_UART2_DCE_CTS_B
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +		>;
+> +	};
+> +
+> +	pinctrl_uart3: uart3grp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_UART3_RXD_UART3_DCE_RX
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +			MX8MM_IOMUXC_UART3_TXD_UART3_DCE_TX
+> +				(MX8MM_PULL_UP | MX8MM_PULL_ENABLE)
+> +		>;
+> +	};
+> +
+> +	pinctrl_usdhc2: pinctrlusdhc2grp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_SD2_CLK_USDHC2_CLK
+> +				(MX8MM_DSE_X2 | MX8MM_FSEL_FAST | MX8MM_PULL_ENABLE)
+> +			MX8MM_IOMUXC_SD2_CMD_USDHC2_CMD
+> +				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
+> +			MX8MM_IOMUXC_SD2_DATA0_USDHC2_DATA0
+> +				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
+> +			MX8MM_IOMUXC_SD2_DATA1_USDHC2_DATA1
+> +				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
+> +			MX8MM_IOMUXC_SD2_DATA2_USDHC2_DATA2
+> +				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
+> +			MX8MM_IOMUXC_SD2_DATA3_USDHC2_DATA3
+> +				(MX8MM_DSE_X2 | MX8MM_USDHC_DATA_DEFAULT)
+> +		>;
+> +	};
+> +
+> +	pinctrl_wl_int: wlintgrp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_SAI5_RXC_GPIO3_IO20
+> +				(MX8MM_PULL_UP | MX8MM_HYS_SCHMITT | MX8MM_PULL_ENABLE)
+> +		>;
+> +	};
+> +
+> +	pinctrl_wl_reg: wlreggrp {
+> +		fsl,pins = <
+> +			MX8MM_IOMUXC_UART4_RXD_GPIO5_IO28
+> +				MX8MM_DSE_X1
+> +		>;
+> +	};
+> +};
+> +
+> +&uart1 {
+> +	pinctrl-0 = <&pinctrl_uart1>;
+> +	pinctrl-names = "default";
+> +	uart-has-rtscts;
+> +	status = "okay";
+> +
+> +	bluetooth {
+> +		compatible = "infineon,cyw43439-bt", "brcm,bcm4329-bt";
+> +		device-wakeup-gpios = <&gpio5 13 GPIO_ACTIVE_HIGH>;
+> +		interrupt-names = "host-wakeup";
+> +		interrupt-parent = <&gpio3>;
+> +		interrupts = <25 IRQ_TYPE_EDGE_FALLING>;
+> +		max-speed = <921600>;
+> +		pinctrl-0 = <&pinctrl_bt>;
+> +		pinctrl-names = "default";
+> +		shutdown-gpios = <&gpio1 1 GPIO_ACTIVE_HIGH>;
+> +		vbat-supply = <&reg_3v3_comm>;
+> +		vddio-supply = <&reg_3v3_comm>;
+> +	};
+> +};
+> +
+> +&uart2 {
+> +	pinctrl-0 = <&pinctrl_uart2>;
+> +	pinctrl-names = "default";
+> +	uart-has-rtscts;
+> +	status = "okay";
+> +};
+> +
+> +&uart3 {
+> +	pinctrl-0 = <&pinctrl_uart3>;
+> +	pinctrl-names = "default";
+> +	status = "okay";
+> +};
+> +
+> +&usbotg1 {
+> +	disable-over-current;
+> +	dr_mode = "peripheral";
+> +	status = "okay";
+> +};
+> +
+> +&usbotg2 {
+> +	disable-over-current;
+> +	dr_mode = "host";
+> +	vbus-supply = <&reg_5v0>;
+> +	status = "okay";
+> +};
+> +
+> +&usdhc2 {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +	cap-power-off-card;
+> +	keep-power-in-suspend;
+> +	max-frequency = <50000000>;
+> +	mmc-pwrseq = <&wifi_pwrseq>;
+> +	non-removable;
+> +	pinctrl-0 = <&pinctrl_usdhc2>;
+> +	pinctrl-names = "default";
+> +	sd-uhs-sdr25;
+> +	vmmc-supply = <&reg_3v3_comm>;
+> +	status = "okay";
+> +
+> +	wifi@1 {
+> +		compatible = "infineon,cyw43439-fmac", "brcm,bcm4329-fmac";
+> +		reg = <1>;
+> +		pinctrl-0 = <&pinctrl_wl_int>;
+> +		pinctrl-names = "default";
+> +		interrupt-names = "host-wake";
+> +		interrupt-parent = <&gpio3>;
+> +		interrupts = <20 IRQ_TYPE_LEVEL_LOW>;
+> +		brcm,board-type = "GOcontroll,moduline";
+> +	};
+> +};
+> +
+> +&vpu_blk_ctrl {
+> +	status = "disabled";
+> +};
+> +
+> +&vpu_g1 {
+> +	status = "disabled";
+> +};
+> +
+> +&vpu_g2 {
+> +	status = "disabled";
+> +};
+> +
+> +&wdog1 {
+> +	status = "okay";
+> +};
+> 
+> -- 
+> 2.51.2
+> 
+> 
 
