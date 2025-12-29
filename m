@@ -4,71 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D983D3B7E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 13:50:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EE32E92724
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 14:40:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o71Lxd227ZzaqIW1h39h+ZnNldOuy/R0kMia2ULVSMA=; b=CP0OYq1pqiduMYG14KM4kbvOvC
-	m+4KvFUu1vsHx0IONDRcWS9GrsSPMUIk98p74Ws7+K4hOGV7/M4QwdmMJIf710Bu+5fdTWN65fmMD
-	ovIucXhkEJyUx7b6/zdxZsxpJryIKz5RBiXhzGQ2qRQSpic7PxakYmQz5CbW/ya5urGeeE3lW4iHH
-	nxRy6kYh1oDcl5sI3f7a3tHdzBqVT8uosvJqr72I0NgwZIn3qxdngxQxsS9Gu0ORvFMGlvOYlJFxQ
-	DKtqCdvn2qki+KJDtJXhIFm707hB4ItV7gOib8MQhmQwrrTviE8+hCe9CvPT+ZtvJJ8oHL+nOaC9A
-	n6uNkhmw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CRfY/dhjT+kc1MJcMd3D1c3qtCXwz9d6dfF50jNi7zM=; b=K/Z9PnrXtvBqnYFyvToIWjPnAb
+	iDWZm7nev86UTyWE4Iw7UlE3eCid9FLFp+IKAF40sfPcROAbT+Pr4oELLpohmfc++cVTURtbGi30o
+	dGlMNWKOVZWAM5GzjOtAARjy/WTzgbZZbdRxgSXrcghq1fQRRPvKuIQabuHN9esAZZQ+/SlmEFXoW
+	UZvVAiX9xxMW2GBT2iOqV+7Y7j7mGNGazYJohlg7md652jN6Fy31KgXGNPsodWwl9PBhec6htv3Ex
+	EJNv+y4VQh8n2mBicHlppokBL2TtqVTNR2RCCWvEkp9WcIpa7X02R5k6zW+YBSlBiKs20EaEsZq82
+	SWHuMc4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaDdW-00000003kxg-0jMn;
-	Mon, 29 Dec 2025 13:50:14 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vaEQ3-00000003nAP-4AD1;
+	Mon, 29 Dec 2025 14:40:23 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaDdU-00000003kxG-0VF9
+	id 1vaEPz-00000003n9Y-1Ivy
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Dec 2025 13:50:13 +0000
+	Mon, 29 Dec 2025 14:40:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DDFEE40D6F;
-	Mon, 29 Dec 2025 13:50:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6F12C4CEF7;
-	Mon, 29 Dec 2025 13:50:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2031943445;
+	Mon, 29 Dec 2025 14:40:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E160C16AAE;
+	Mon, 29 Dec 2025 14:40:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767016210;
-	bh=JkD+7Su0h2sVFPy6YBrQzFZfhqvokIvRVoNcw/yYbk8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=GQhrozgZ3YlCEnV4LQ0e5FjvV7pwfEed0XenxxIsYtqTvg0aWEc1Ubj5VMDEFUJCm
-	 uaGAVrMSD1Q+ruWEev6a2ke9reO3YhPOFrFTPP6BJW0Pw1FaG0DYsWT0CxCuVCigqe
-	 Bo95h+sQsZemnhs2b9AsBV80kkibUBHFFF/2y240GItUj391+rPq/IN2X07beBYE87
-	 Kd7GKJ/wXyBS9M1F5C62GR9LRfBf8FWSdFnQVARJSLDUoAUZaVoTEgjqU854OZde3O
-	 5FOVd74V9w6ImzSmbNWTERx6VOy48/jQFyZ7zwE+H5ruRBRDoMCjPtWpUcv+k4WcwF
-	 EJ56w5Y67vcUw==
-From: William Breathitt Gray <wbg@kernel.org>
-To: Daniel Lezcano <daniel.lezcano@linaro.org>
-Cc: William Breathitt Gray <wbg@kernel.org>,
-	robh@kernel.org,
-	conor+dt@kernel.org,
-	krzk+dt@kernel.org,
-	s32@nxp.com,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-iio@vger.kernel.org,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 3/3] counter: Add STM based counter
-Date: Mon, 29 Dec 2025 22:50:01 +0900
-Message-ID: <20251229135006.10133-1-wbg@kernel.org>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <ba28863a-a5fe-498f-92a0-d71c356e7189@linaro.org>
-References: 
+	s=k20201202; t=1767019218;
+	bh=95eNv0h9dSeUKHPEZrk+7tpopWsRyVF7shUNwo04uqc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DszPpcjz/Spb2AyOl63ty/4z8XQXdNDT2k5mex3OvCAL3GdXV9aZIJusPmtNqz3rv
+	 aMpD13xVXd9F6++80Vo1rqKhu2Ga2X8v/s+If0TACH4BOK0SOpTYDAwmAq+3imQSqX
+	 TU2dgZQ3bGgJvLI+4AKBpfP48IAYG3OSGTJbGAl+h/VcM6+mA+OexW0F+EIc4a49N9
+	 0IorIwjny+Ch/PyYfbziHYxnL5aVuMOQ2JKnD5Qs5cdZ6dFWJQFiTuT5Vt71qWYiJS
+	 oWyNFHfT7qew344ucLY53r6xzG5+5DuL6XWs5/PDNykw9rtP/xzBZr5VoOvdsQfsZo
+	 TfBOjJLvXo88Q==
+Date: Mon, 29 Dec 2025 16:40:12 +0200
+From: Leon Romanovsky <leon@kernel.org>
+To: Barry Song <21cnbao@gmail.com>
+Subject: Re: [PATCH v2 4/8] dma-mapping: Separate DMA sync issuing and
+ completion waiting
+Message-ID: <20251229144012.GT11869@unreal>
+References: <20251226225254.46197-1-21cnbao@gmail.com>
+ <20251226225254.46197-5-21cnbao@gmail.com>
+ <20251227200706.GN11869@unreal>
+ <CAGsJ_4zyascnpQ1cB-BMO9PDeeRZTBAh8Z-j-ip=RcxApa4zSg@mail.gmail.com>
+ <20251228144909.GR11869@unreal>
+ <CAGsJ_4y=yoYZn+_ztdfuOCj_dS-M0h8YWO51AXubPbeR1FH6uQ@mail.gmail.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3077; i=wbg@kernel.org; h=from:subject; bh=JkD+7Su0h2sVFPy6YBrQzFZfhqvokIvRVoNcw/yYbk8=; b=owGbwMvMwCW21SPs1D4hZW3G02pJDJlBbXcnzuU387vWVz/VXHTJ8j6JpXukGCJVSuo+SAf8j Mq23lDRUcrCIMbFICumyNJrfvbug0uqGj9ezN8GM4eVCWQIAxenAEwk2pfhv6P1X9Puk1suqrwI nqqbbOwaoqCqbS/6+/fJ3qV3k/fJWjIynGJb5r18e3hWYPq//6tWPOx0a227dWFvraX3vdlmXZI V/AA=
-X-Developer-Key: i=wbg@kernel.org; a=openpgp; fpr=8D37CDDDE0D22528F8E89FB6B54856CABE12232B
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAGsJ_4y=yoYZn+_ztdfuOCj_dS-M0h8YWO51AXubPbeR1FH6uQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251229_055012_199991_B4786E0E 
-X-CRM114-Status: GOOD (  30.27  )
+X-CRM114-CacheID: sfid-20251229_064019_390995_D5F15FA2 
+X-CRM114-Status: GOOD (  48.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,77 +73,153 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Juergen Gross <jgross@suse.com>, Tangquan Zheng <zhengtangquan@oppo.com>, Stefano Stabellini <sstabellini@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, will@kernel.org, Anshuman Khandual <anshuman.khandual@arm.com>, catalin.marinas@arm.com, Joerg Roedel <joro@8bytes.org>, linux-kernel@vger.kernel.org, Suren Baghdasaryan <surenb@google.com>, iommu@lists.linux.dev, Marc Zyngier <maz@kernel.org>, Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>, xen-devel@lists.xenproject.org, robin.murphy@arm.com, Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org, m.szyprowski@samsung.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Dec 28, 2025 at 06:37:22PM +0100, Daniel Lezcano wrote:
-> 
-> Hi William,
-> 
-> On 12/28/25 07:52, William Breathitt Gray wrote:
-> > On Wed, Dec 17, 2025 at 08:49:57AM +0100, Daniel Lezcano wrote:
-> >> The NXP S32G2 automotive platform integrates four Cortex-A53 cores and
-> >> three Cortex-M7 cores, along with a large number of timers and
-> >> counters. These hardware blocks can be used as clocksources or
-> >> clockevents, or as timestamp counters shared across the various
-> >> subsystems running alongside the Linux kernel, such as firmware
-> >> components. Their actual usage depends on the overall platform
-> >> software design.
-> >>
-> >> In a Linux-based system, the kernel controls the counter, which is a
-> >> read-only shared resource for the other subsystems. One of its primary
-> >> purposes is to act as a common timestamp source for messages or
-> >> traces, allowing correlation of events occurring in different
-> >> operating system contexts.
-> >>
-> >> These changes introduce a basic counter driver that can start, stop,
-> >> and reset the counter. It also handles overflow accounting and
-> >> configures the prescaler value.
-> >>
-> >> Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
+On Mon, Dec 29, 2025 at 10:38:26AM +1300, Barry Song wrote:
+> On Mon, Dec 29, 2025 at 3:49 AM Leon Romanovsky <leon@kernel.org> wrote:
 > >
-> > Hi Daniel,
+> > On Sun, Dec 28, 2025 at 10:45:13AM +1300, Barry Song wrote:
+> > > On Sun, Dec 28, 2025 at 9:07 AM Leon Romanovsky <leon@kernel.org> wrote:
+> > > >
+> > > > On Sat, Dec 27, 2025 at 11:52:44AM +1300, Barry Song wrote:
+> > > > > From: Barry Song <baohua@kernel.org>
+> > > > >
+> > > > > Currently, arch_sync_dma_for_cpu and arch_sync_dma_for_device
+> > > > > always wait for the completion of each DMA buffer. That is,
+> > > > > issuing the DMA sync and waiting for completion is done in a
+> > > > > single API call.
+> > > > >
+> > > > > For scatter-gather lists with multiple entries, this means
+> > > > > issuing and waiting is repeated for each entry, which can hurt
+> > > > > performance. Architectures like ARM64 may be able to issue all
+> > > > > DMA sync operations for all entries first and then wait for
+> > > > > completion together.
+> > > > >
+> > > > > To address this, arch_sync_dma_for_* now issues DMA operations in
+> > > > > batch, followed by a flush. On ARM64, the flush is implemented
+> > > > > using a dsb instruction within arch_sync_dma_flush().
+> > > > >
+> > > > > For now, add arch_sync_dma_flush() after each
+> > > > > arch_sync_dma_for_*() call. arch_sync_dma_flush() is defined as a
+> > > > > no-op on all architectures except arm64, so this patch does not
+> > > > > change existing behavior. Subsequent patches will introduce true
+> > > > > batching for SG DMA buffers.
+> > > > >
+> > > > > Cc: Leon Romanovsky <leon@kernel.org>
+> > > > > Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > > > > Cc: Will Deacon <will@kernel.org>
+> > > > > Cc: Marek Szyprowski <m.szyprowski@samsung.com>
+> > > > > Cc: Robin Murphy <robin.murphy@arm.com>
+> > > > > Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+> > > > > Cc: Ard Biesheuvel <ardb@kernel.org>
+> > > > > Cc: Marc Zyngier <maz@kernel.org>
+> > > > > Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+> > > > > Cc: Ryan Roberts <ryan.roberts@arm.com>
+> > > > > Cc: Suren Baghdasaryan <surenb@google.com>
+> > > > > Cc: Joerg Roedel <joro@8bytes.org>
+> > > > > Cc: Juergen Gross <jgross@suse.com>
+> > > > > Cc: Stefano Stabellini <sstabellini@kernel.org>
+> > > > > Cc: Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>
+> > > > > Cc: Tangquan Zheng <zhengtangquan@oppo.com>
+> > > > > Signed-off-by: Barry Song <baohua@kernel.org>
+> > > > > ---
+> > > > >  arch/arm64/include/asm/cache.h |  6 ++++++
+> > > > >  arch/arm64/mm/dma-mapping.c    |  4 ++--
+> > > > >  drivers/iommu/dma-iommu.c      | 37 +++++++++++++++++++++++++---------
+> > > > >  drivers/xen/swiotlb-xen.c      | 24 ++++++++++++++--------
+> > > > >  include/linux/dma-map-ops.h    |  6 ++++++
+> > > > >  kernel/dma/direct.c            |  8 ++++++--
+> > > > >  kernel/dma/direct.h            |  9 +++++++--
+> > > > >  kernel/dma/swiotlb.c           |  4 +++-
+> > > > >  8 files changed, 73 insertions(+), 25 deletions(-)
+> > > >
+> > > > <...>
+> > > >
+> > > > > +#ifndef arch_sync_dma_flush
+> > > > > +static inline void arch_sync_dma_flush(void)
+> > > > > +{
+> > > > > +}
+> > > > > +#endif
+> > > >
+> > > > Over the weekend I realized a useful advantage of the ARCH_HAVE_* config
+> > > > options: they make it straightforward to inspect the entire DMA path simply
+> > > > by looking at the .config.
+> > >
+> > > I am not quite sure how much this benefits users, as the same
+> > > information could also be obtained by grepping for
+> > > #define arch_sync_dma_flush in the source code.
 > >
-> > It sounds like you're trying to implement a clock for timestamping.
+> > It differs slightly. Users no longer need to grep around or guess whether this
+> > platform used the arch_sync_dma_flush path. A simple grep for ARCH_HAVE_ in
+> > /proc/config.gz provides the answer.
 > 
-> Well no, it is a counter which is used for timestamping. It is an
-> automotive design.
-
-I'm sorry, I misunderstood your device earlier. We'll continue with the
-Counter driver implementation in that case.
-
-> > Regardless, if you do pursue a Counter driver you'll need to follow the
-> > Generic Counter paradigm[^1] and define at least three core components:
-> > a Signal, a Synapse, and a Count. Resetting the Count is typically
-> > implemented by defining a struct counter_ops counter_write()
-
-Oops, I should have written count_write() there; when a user sets the
-Count back to 0, it can be considered a reset.
-
-> > callback[^2], while overflows are typically implemented by pushing
-> > COUNTER_EVENT_OVERFLOW Counter events[^3] that can be watched by
-> > userspace.
+> In any case, it is only two or three lines of code, so I am fine with
+> either approach. Perhaps Marek, Robin, and others have a point here?
 > 
-> Yes, I think the Generic counter makes sense here for the goal to be
-> achieved. Thanks for the pointers, I'll see how the counter fits with
-> the paradigm.
+> >
+> > >
+> > > >
+> > > > Thanks,
+> > > > Reviewed-by: Leon Romanovsky <leonro@nvidia.com>
+> > >
+> > > Thanks very much, Leon, for reviewing this over the weekend. One thing
+> > > you might have missed is that I place arch_sync_dma_flush() after all
+> > > arch_sync_dma_for_*() calls, for both single and sg cases. I also
+> > > used a Python script to scan the code and verify that every
+> > > arch_sync_dma_for_*() is followed by arch_sync_dma_flush(), to ensure
+> > > that no call is left out.
+> > >
+> > > In the subsequent patches, for sg cases, the per-entry flush is
+> > > replaced by a single flush of the entire sg. Each sg case has
+> > > different characteristics: some are straightforward, while others
+> > > can be tricky and involve additional contexts.
+> >
+> > I didn't overlook it, and I understand your rationale. However, this is
+> > not how kernel patches should be structured. You should not introduce
+> > code in patch X and then move it elsewhere in patch X + Y.
 > 
->    -- Daniel
+> I am not quite convinced by this concern. This patch only
+> separates DMA sync issuing from completion waiting, and it
+> reflects that the development is done step by step.
+> 
+> >
+> > Place the code in the correct location from the start. Your patches are
+> > small enough to review as is.
+> 
+> My point is that this patch places the code in the correct locations
+> from the start. It splits arch_sync_dma_for_*() into
+> arch_sync_dma_for_*() plus arch_sync_dma_flush() everywhere, without
+> introducing any functional changes from the outset.
+> The subsequent patches clearly show which parts are truly batched.
+> 
+> In the meantime, I do not have a strong preference here. If you think
+> it is better to move some of the straightforward batching code here,
+> I can follow that approach. Perhaps I could move patch 5, patch 8,
+> and the iommu_dma_iova_unlink_range_slow change from patch 7 here,
+> while keeping
+> 
+>   [PATCH 6] dma-mapping: Support batch mode for
+>   dma_direct_{map,unmap}_sg
+> 
+> and the IOVA link part from patch 7 as separate patches, since that
+> part is not straightforward. The IOVA link changes affect both
+> __dma_iova_link() and dma_iova_sync(), which are two separate
+> functions and require a deeper understanding of the contexts to
+> determine correctness. That part also lacks testing.
 
-I suspect you'll define a Signal after the peripheral clock input to the
-counter device block; if it's possible to read the instataneous level of
-this signal, define a signal_read() callback for it.
+Don't worry about testing. NVME, RDMA and GPU are using this path
+and someone will test it.
 
-Your Synapse action is dependent on the edge sensitivity (i.e. rising,
-falling, or both edges) of your counter device; e.g. a rising edge
-configuration corresponds to a COUNTER_SYNAPSE_ACTION_RISING_EDGE action
-in action_read(). If your counter only ever increases, then you can
-report a COUNTER_FUNCTION_INCREASE function in the function_read()
-callback.
+> 
+> Would that be okay with you?
 
-Finally, the component names should be intuitive so give the Count a
-more intuitive name than "stm-cnt". The same idea applies to the name
-you give the Signal.
+I don't know, need to see the code.
 
-William Breathitt Gray
+Thanks
+
+> 
+> Thanks
+> Barry
 
