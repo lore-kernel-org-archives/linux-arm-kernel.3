@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0B7BD3B7E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 02:51:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC2ACD3B7E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 02:54:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+7wcU9JUwqqUiK2+BZmc8/Ti9tB11B9XThpvUtqkO2c=; b=D8+nPFX9nvsHV0KnZvqM3npcL0
-	ig95zONd3+YhEJGaSasabjuCvGrxtK1HqNKzpnnTXNiLjdcVRDbsFqP3E381tRY3Pefhg0tIrDBKH
-	mi4fTWnD5vAoJrQMWhf50UlhHz+RFZ/nR8xBEkqJMOP6cNxZoxDk8Pyqj9tgemm8g3z4u3XUfGwHq
-	9Psfv9xKbqyxDYNmp25TszKDHr3E+3r0kTW6dYkVBphGbRqVxwMRKn3tvmwmX3v80Ee5q85SdbPal
-	jQiBAJPYE95981FEY4EHZap//6xv/dB8FPfS95pOScW1cRdHJISAEi/59EUcnr25NhOjAYBTftkhu
-	q2msjS5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=75B4gxMdiRXoDbJNgqXGfnhtWbwMTHh+zPhA5Svb3G8=; b=AGt9Uan5rpb+ks7T87x2W326GX
+	Y123Bg4OcXtTRDE37jWO5EnFYlaUJs6U+kfeO/a2fuDXrM9dhEd7Wf1D30qngLzX6FSbo4aFwdj11
+	VNH/xcCkzwADg0u0/2aKxf5glt29xUa0ygEr6tmKQjQh6b3kgtnvjj3My3FjKm66RNLh2cBIhUswm
+	WBZ7QzeC61CejDX5VdJ5KxdNbPY7l2T/Oo4hJX3an0OxdnRujc+NtA2OcyKTEzaYZQSr8LJUftaeg
+	Sv3xHB+lMyrmG2LRZZNLLMz+LoX3VQwtIcPT65OYI8spfCAYzhnWhA7Qi82gK5L/k/8z24X2YH+bU
+	+gy/0gbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1va3LV-00000003FIA-2pkK;
-	Mon, 29 Dec 2025 02:50:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1va3OY-00000003FWh-12MY;
+	Mon, 29 Dec 2025 02:54:06 +0000
+Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1va3LS-00000003FHb-1CFs
+	id 1va3OV-00000003FW4-1za0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Dec 2025 02:50:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3DDD14321F;
-	Mon, 29 Dec 2025 02:50:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBE1FC4CEFB;
-	Mon, 29 Dec 2025 02:50:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1766976653;
-	bh=yX7/3mFH08YrJExkfGIoYVyNQTGTYRax+BrGZPlAAYU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oI3rPcoa1xH+lQ7hVZS9RVy5efBS0cVQnD4wC5Z0niim8Z8Thk9wRyKkL0mD0znYL
-	 b5k9FbUogkRcRSHDbMjrfO6fw1S0d+/D2L+DEXGDmyOBDNfshFWGU7Hi+JG/6lagh3
-	 jSWQ96C7QOErmpR4f9DEi6ijh5CIC3CSio/k+ZNak98D2gDYPDA8VdWKpehJwW/iyD
-	 rSqs0l+25O1+UzVdFNDP4b5JHAvZFiO1MK6sb1Oka+S/xv5fIPvg6+vU9nmrJbQaGH
-	 frBnT4An5I3w3/M+2hhRTyJU2y9UficmTCidBNmIMwKnoSWm3fG+uM5MqVsKCBpAQG
-	 zmM1WIAxawSzA==
-Date: Mon, 29 Dec 2025 10:50:41 +0800
-From: Shawn Guo <shawnguo@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Xu Yang <xu.yang_2@nxp.com>, Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Jacky Bai <ping.bai@nxp.com>
-Subject: Re: [PATCH v3 6/6] arm64: dts: imx8dxl-ss-ddr: Add DB (system
- interconnects) pmu support for i.MX8DXL
-Message-ID: <aVHsgSN5-gzJ4jt0@dragon>
-References: <20251103-qm_dts-v3-0-2bfda8ee14c2@nxp.com>
- <20251103-qm_dts-v3-6-2bfda8ee14c2@nxp.com>
+	Mon, 29 Dec 2025 02:54:04 +0000
+Received: from smtp1.mailbox.org (smtp1.mailbox.org [10.196.197.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4dfglm07GFz9t5G;
+	Mon, 29 Dec 2025 03:53:56 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1766976836;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=75B4gxMdiRXoDbJNgqXGfnhtWbwMTHh+zPhA5Svb3G8=;
+	b=SUtLtPrgzr3EoF0uqM0r229UqRIsxVebpxhK2jxnCDcO94zq9P6Bnn1yqqgfZZWJa18OQ1
+	1CQH0ZyRvzwDI71o3r+jtyfUOAOeGqsrETlxZYnmOFEsso+opmjoJ+1mbOx0h6OUR5RQsZ
+	TKa1EYVDB+V41hhOWvebwE/87GbIATErVvNRsM6Mzn9oFFGppNJI4X4HYflQq19JFkBL3V
+	QR3ZI/DA+UH0V1ACLhr8+C7uY20YTQ4jB6uRX/w1bMmPLl4AGT6zpO83aqMsUqlLdzopNn
+	0nwjEHkWhaJ9T456AjOKApcgGlkn0p7wvc6Sk1AVzQzstBiyYO4fCsPKZLSWCQ==
+Message-ID: <b61fc304-26e0-422f-bb31-303e7bcbb824@mailbox.org>
+Date: Mon, 29 Dec 2025 03:53:53 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251103-qm_dts-v3-6-2bfda8ee14c2@nxp.com>
+Subject: Re: [PATCH] arm64: dts: imx8mp: Update Data Modul i.MX8M Plus eDM SBC
+ DT to rev.903
+To: Shawn Guo <shawnguo@kernel.org>
+Cc: "Rob Herring (Arm)" <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, imx@lists.linux.dev,
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Sascha Hauer <s.hauer@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>
+References: <20241226171404.84095-1-marex@denx.de>
+ <173531253398.3886481.9345779510218290682.robh@kernel.org>
+ <14c48d93-8ee6-4769-8dc3-5c527134bc77@mailbox.org> <aVHqlnNGNGmaF14m@dragon>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <aVHqlnNGNGmaF14m@dragon>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-ID: 29f1afb84c51a004196
+X-MBO-RS-META: kspase6p397kpcxioyds6askqkgd9zd9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251228_185054_911164_DB2718E2 
-X-CRM114-Status: UNSURE (   7.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251228_185403_669446_0E4276D9 
+X-CRM114-Status: GOOD (  12.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,13 +84,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 03, 2025 at 04:48:33PM -0500, Frank Li wrote:
-> From: Jacky Bai <ping.bai@nxp.com>
+On 12/29/25 3:42 AM, Shawn Guo wrote:
+> On Fri, Dec 26, 2025 at 11:24:29AM +0100, Marek Vasut wrote:
+>> On 12/27/24 4:18 PM, Rob Herring (Arm) wrote:
+>>
+>> Hello Shawn,
+>>
+>>> On Thu, 26 Dec 2024 18:13:27 +0100, Marek Vasut wrote:
+>>>> Update the DT to match newest Data Modul i.MX8M Plus eDM SBC rev.903
+>>>> board which implements significant changes. Keep some of the rev.900
+>>>> and rev.902 nodes in the DT so that a DTO can be used to support old
+>>>> rev.900 and rev.902 boards easily.
+>>
+>> [...]
+>>
+>>> arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc.dtb: tpm@2e: compatible: 'oneOf' conditional failed, one must be fixed:
+>>> 	['st,st33tphf2ei2c', 'tcg,tpm-tis-i2c'] is too long
+>>> 	'st,st33tphf2ei2c' is not one of ['infineon,slb9673', 'nuvoton,npct75x', 'st,st33ktpm2xi2c']
+>>
+>> This is addressed in bindings patch [1] . Can this patch and the bindings
+>> patch be applied ?
+>>
+>> https://lore.kernel.org/all/20241226171124.83735-1-marex@denx.de/
 > 
-> Add DB pmu related nodes. This pmu is in DB (system interconnects).
-> 
-> Signed-off-by: Jacky Bai <ping.bai@nxp.com>
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
-
-Applied, thanks!
+> Could you resend them?
+Why ? The emails are in lore/patchwork and the patches still apply just 
+fine, don't they ?
 
