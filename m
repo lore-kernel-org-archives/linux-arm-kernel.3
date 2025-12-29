@@ -4,59 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72248D3B7E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 00:24:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC00DE784BE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 01:10:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bjYKwcZ3h3Z3aY45ZL0FzjkQV2PYU/9nrtqQgH9rJac=; b=AJP/ohdhS1sgAxWKu1ZkVUPkp0
-	/sZ9sH8LLcjleHkd3RFjBnU3qAEThrJOZzh9vQ/sN3T2nzG93O3OFXUm9nY8EGI7V5C37DhoVHAaK
-	JhISGnMQi4G+BTtm11pKwgTTnYHQMhrxPZwFi3YqKmeXd3WdPIkT25o3mIZyf7zdDRPbvAZg8YjLS
-	t91BgTJhmN9v4bkRUglpUovZu+hS1i38bkjw9koySBXE8Dc/OA8/VQTuvRuDDCGFu29yeIAVg28QL
-	vJwvKDB+39rIVdwoNBFFnF+83rTrmWBBzZFjELV420XSh0OHQT6MgC9i1uYw2aK0Op0EQr7guwz7i
-	EE1j0V/w==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HJ4BWOfev0AxvWtR+KH2UmHGgImxfHsSAZSTOYN05QI=; b=wxa3kqMBgp5AoIM7cAKzWJr3Cm
+	h9vG/KeCa9hix/PbVdM+SyqMufV4oWcIVtMipOndMYcnSYMeUtAgDEK7w2uMFRlPr1Kr++SBJa8r0
+	MGk9Jsjbm0I+iOk7DYFi2zMylCSA4kLyHISuGUFRi8/XTqS4yPS+fyvewmdSXTVhP5hIOQDCs3A4Q
+	9Q2AxUbXAr+SN3BlpxExo1jkqZAsgYxEwXCCmD3Le8l1K+3pVIzjGgOgvNtUO4DzOd5KRlg2srMh6
+	DcFuutKutSFgOvRIoOJAGMKdqq1M8hIQFv5dzuOgMKJShgz4OMcYw5yhCFEJK91wUzu5cPMDdKsKs
+	hkyO9F3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1va13r-0000000395K-1a44;
-	Mon, 29 Dec 2025 00:24:35 +0000
-Received: from out-183.mta1.migadu.com ([2001:41d0:203:375::b7])
+	id 1va1mE-00000003Auo-1NBk;
+	Mon, 29 Dec 2025 01:10:26 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1va13n-0000000394R-3K5u
+	id 1va1mB-00000003AuH-2yvq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Dec 2025 00:24:33 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1766967855;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=bjYKwcZ3h3Z3aY45ZL0FzjkQV2PYU/9nrtqQgH9rJac=;
-	b=aVIXTmTtG+FkNdvUIBZdEBobwoJv/sOs2O1zD/2hMDxBdLuoIxhXWBcN+t34niidSR/THV
-	Jtgt8HSZIU0B87WpWYtdWuM11vVRCSYUrR+twZh/IZYk4Zce4yPEpXKHzuigGwunELYHnq
-	8cXkA5TlQj7yMWcScq26GK1xEBBfhqo=
-From: Dawei Li <dawei.li@linux.dev>
-To: will@kernel.org,
-	robin.murphy@arm.com,
-	joro@8bytes.org
-Cc: jgg@ziepe.ca,
-	linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	set_pte_at@outlook.com,
-	Dawei Li <dawei.li@linux.dev>,
-	stable@vger.kernel.org
-Subject: [PATCH] iommu/arm-smmu-v3: Maintain valid access attributes for non-coherent SMMU
-Date: Mon, 29 Dec 2025 08:23:54 +0800
-Message-Id: <20251229002354.162872-1-dawei.li@linux.dev>
+	Mon, 29 Dec 2025 01:10:25 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BSNkVKp3328630
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Dec 2025 01:10:22 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	HJ4BWOfev0AxvWtR+KH2UmHGgImxfHsSAZSTOYN05QI=; b=a1g1UZ94UWEI3AW0
+	8TGiINT+51HQ3qkfwq8oCbblk28z9UNwEYGXaG0J12KLkrkxLMwiFE1KfKief5gg
+	ttApHW3k04k3CxVZNfWk9c1Jp/a0f8e7e6fhQoIMKmW5CMxSfd2SOAcv39+ZdDC0
+	wd5NykAL9582sKb1kCSbdOlelSTxF5X22Iuod9AnPD0ym6HDYS/1LBfmVUHIRrh3
+	JoL7Ol1hWfntpwVXYpkFpXKknDFOjtdvJ0NoN9tOVQEOycVEOuf+E5HvYz+RvaaW
+	0F0/dZ1EDh8IaLGaom7Kg3mNNrjktkRreRYFe/tjq3yzr0mEFRK1d56LO2JYCzkH
+	tnhvyQ==
+Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ba8r6awem-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Dec 2025 01:10:22 +0000 (GMT)
+Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-7c240728e2aso18912645b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Dec 2025 17:10:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1766970622; x=1767575422; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=HJ4BWOfev0AxvWtR+KH2UmHGgImxfHsSAZSTOYN05QI=;
+        b=FHd8UpTCbkbt/A6PKxsyWwt+LmxE0getla8780vypIMEnGgRGKLpJ/7tp4OLe5cMt/
+         AzgujmlC0p5PjgYrenvyCOJC56+SRiwAaGSpzxTKHGpgTTOb5xUwXF7/dL7xylFelEwH
+         7iUyE5VUsRBkJcW2hJdxGcWkD4rOgl5fxpOwRSdMytgAXuAgkJcJoqqniUnsh4abEgRz
+         Sq25voCLzN6xXPBndwzRzZlQPrAF+riVVG1QegZomHEF27mXSQc85XDb89vxLDZfXVcp
+         P0VGdW6sDdv3XvVCrm9i/ljyjhKPMr4oLq/+uQA043u6nZhKblrt6SmLdZy+gRdN7tH6
+         3Hag==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1766970622; x=1767575422;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=HJ4BWOfev0AxvWtR+KH2UmHGgImxfHsSAZSTOYN05QI=;
+        b=MLlNqBhrsJo/tMGHmh7b8y5Wy1jwEZ+ezgAfmzLHqae1IXk1xeqxMMh8bntz8xdxnP
+         GWHPgmTwZi1391+xXSyJ9js03xYs2UuAU04mUDUxpt0cvl7RzsHlTXOj9mWxVg0er7Gt
+         olkOTWtOUjHrk8TlTT3RNJWX7zJLAfRB7+i/HvyQLGXtifXjNP+qYlNgkZszKRBBFEJ2
+         ws+PjHtVvnVDmn3AuZI6pPKBP4lA8mcaPyoHLqEzG3xanz4XPlRuuyyI4Cp5r4yXeVmh
+         dKbTgS6UX1+EX6XLRlR2XvBRZmTpAEfWXAV3BFMCDfrdBS1m35K6LMSjyETBO7OtjKXH
+         oMlg==
+X-Forwarded-Encrypted: i=1; AJvYcCVrQcQXsidkrqV202nihhCEwY5GYJyYkZsinAllXLw4khNnbtn3wc4ZX969p0f7VX2JCSaWQPKOfDZqewmKD35h@lists.infradead.org
+X-Gm-Message-State: AOJu0YzeiVAbA1pRS7/EPa3oT/xDl6UWh7Qv21rpnU8at8oaz/p2I9gr
+	SXrk208SovKKP2TuLYYoCEXQW3oZA2zOJrCJSkAnIqTD26uX7/f++ECJXweXJrHRm4OdEFkmKIM
+	/v/eGA1D1M7ygXhAJlGRD168PFDVD4jDs+iTFhWOGaAgABJTpBrqXF9QgeubWq6rtm5HjYmvyAY
+	d0pA==
+X-Gm-Gg: AY/fxX485EIAuLAvVlBH5Z2oFhMv4DqWVYgtuf+kgwIjf+Z537p0Metrnm5OLQZECg7
+	NRrhecVGtBZ7O0PEtKShkGUCzonqNbWH8QwmqFS4bDf4Qj64n/9uiFK5rQ5sY2sCzpQ6Z7LnyxR
+	dDS1LVb1IMvZlheHVu7sA4t8AcmckeohTNmf7Iu8T92QmDOO8Yp1YwRMTroriYXa3DdM5hnCMOk
+	1KU8QZFku/HGXq0rZ+lrpwaki/rT6lcbk31eguVBChqetGz18FO0PmM+chMiMmkTGav9G14pK2+
+	yT80cXI2g8/VYp6oRBGKDk89CRbwaENTnhDBEil4ouisxSHdEMaHsaBOD51XqTX5iWYz10vRYeW
+	6YlYKQdx4jHQNoLMuHaexJDEcaJMYQhhCWyszwwvQTnuBwbkuQpvAWwNbI3+s2Q==
+X-Received: by 2002:a05:6a20:9149:b0:35d:2984:e5fd with SMTP id adf61e73a8af0-376a8eb2ab9mr22015702637.32.1766970621480;
+        Sun, 28 Dec 2025 17:10:21 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHisaB44sK758zI8M5r2trdQNCa7/jhf5rapQP/cqtsPLrHnhK38AjKdwlnpDugDpbu0acp0w==
+X-Received: by 2002:a05:6a20:9149:b0:35d:2984:e5fd with SMTP id adf61e73a8af0-376a8eb2ab9mr22015684637.32.1766970620987;
+        Sun, 28 Dec 2025 17:10:20 -0800 (PST)
+Received: from [10.133.33.23] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c1e7961fbb9sm23834239a12.2.2025.12.28.17.10.15
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 28 Dec 2025 17:10:20 -0800 (PST)
+Message-ID: <c60288a5-189d-4761-99eb-4681effe1252@oss.qualcomm.com>
+Date: Mon, 29 Dec 2025 09:10:14 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 2/8] coresight: tmc: add create/clean functions for
+ etr_buf_list
+To: Dan Carpenter <dan.carpenter@linaro.org>, oe-kbuild@lists.linux.dev,
+        Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+ <mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+        Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+        Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+Cc: lkp@intel.com, oe-kbuild-all@lists.linux.dev, coresight@lists.linaro.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org
+References: <202512251923.GDSbVal1-lkp@intel.com>
+Content-Language: en-US
+From: Jie Gan <jie.gan@oss.qualcomm.com>
+In-Reply-To: <202512251923.GDSbVal1-lkp@intel.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=Raidyltv c=1 sm=1 tr=0 ts=6951d4fe cx=c_pps
+ a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=NEAV23lmAAAA:8 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
+ a=i3X5FwGiAAAA:8 a=QyXUC8HyAAAA:8 a=KKAkSRfTAAAA:8 a=r4nmail-YYtXJwozotMA:9
+ a=QEXdDO2ut3YA:10 a=zc0IvFSfCIW2DFIPzwfm:22 a=mmqRlSCDY2ywfjPLJ4af:22
+ a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-ORIG-GUID: N7UBDykz23ucB8QTVLzLUqIen5GpuV1c
+X-Proofpoint-GUID: N7UBDykz23ucB8QTVLzLUqIen5GpuV1c
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjI5MDAwOSBTYWx0ZWRfXx2dNoEt8JHp2
+ 6wpTKW0rS1Rj1qVjITYxACvIfWSGhnqXK4Gx27R+erY0XH/Qdk3tTOPN8OafMwL5ouXrwDKaBe0
+ 064MyrQTvhqsZfyTpXkbvFU8Hb+FyXpzmN7lKs+fZkbf03ZPqAqyJCvAXg9dooIuPQ53cHA/Uf6
+ czJscBbQAh6BF5A8Nj0XNnhWE8ajRiLOCZ+AC8/bYtqrwT8QtgEeIo+eEAVsUYgpmT7oA7nIvwO
+ gqqwuLWSvnzzVb/5gz7fQF25cDGL+za+Ip3RGNJlScxPoNtO37/u8B2BNn3xGiyGmAN7DDUbQhF
+ ovBBnlKGQGmzaaXOeWsZUi+uqC/Y188MIvGjqwx3UYnPSjB40osyJIE4IntQYHohPLO4BAcvbN0
+ KdfHjgQ3tSqrHieiFIGzp5Gukf2YdDsK4mf80EVW0+8uWGDrXv5YKz8s+qP/elcOgIV72MXMN0e
+ nAwVQ+pQMIYN4PNNK8g==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-12-28_08,2025-12-26_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 clxscore=1015 phishscore=0 impostorscore=0 suspectscore=0
+ lowpriorityscore=0 bulkscore=0 malwarescore=0 spamscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2512290009
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251228_162432_537828_D03CF34E 
-X-CRM114-Status: GOOD (  13.75  )
+X-CRM114-CacheID: sfid-20251228_171023_772969_E9F4B7C6 
+X-CRM114-Status: GOOD (  17.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,208 +160,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-According to SMMUv3 architecture specification, IO-coherent access for
-SMMU is supported for:
-- Translation table walks.
-- Fetches of L1STD, STE, L1CD and CD.
-- Command queue, Event queue and PRI queue access.
-- GERROR, CMD_SYNC, Event queue and PRI queue MSIs, if supported
 
-In other words, if a SMMU implementation doesn't support IO coherent
-access(SMMUIDR0.COHACC==0), all fields above accessed by SMMU is
-expected to be non-coherent and S/W is supposed to maintain proper
-access attributes to achieve expected behavior.
 
-Unfortunately, for non-coherent SMMU implementation, current codebase
-only takes care of translation table walking. Fix it by providing right
-attributes(cacheability, shareablility, cache allocation hints, e.g) to
-other fields.
+On 12/26/2025 9:17 PM, Dan Carpenter wrote:
+> Hi Jie,
+> 
+> kernel test robot noticed the following build warnings:
+> 
+> url:    https://github.com/intel-lab-lkp/linux/commits/Jie-Gan/coresight-core-Refactoring-ctcu_get_active_port-and-make-it-generic/20251224-171604
+> base:   47b7b5e32bb7264b51b89186043e1ada4090b558
+> patch link:    https://lore.kernel.org/r/20251224-enable-byte-cntr-for-ctcu-v9-2-886c4496fed4%40oss.qualcomm.com
+> patch subject: [PATCH v9 2/8] coresight: tmc: add create/clean functions for etr_buf_list
+> config: arm-randconfig-r073-20251225 (https://download.01.org/0day-ci/archive/20251225/202512251923.GDSbVal1-lkp@intel.com/config)
+> compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 4ef602d446057dabf5f61fb221669ecbeda49279)
+> 
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
+> | Closes: https://lore.kernel.org/r/202512251923.GDSbVal1-lkp@intel.com/
+> 
+> smatch warnings:
+> drivers/hwtracing/coresight/coresight-tmc-etr.c:1992 tmc_create_etr_buf_list() warn: passing freed memory 'new_node' (line 1991)
+> drivers/hwtracing/coresight/coresight-tmc-etr.c:1992 tmc_create_etr_buf_list() warn: passing zero to 'PTR_ERR'
+> 
+> vim +/new_node +1992 drivers/hwtracing/coresight/coresight-tmc-etr.c
+> 
+> 34af91eeb7e78e Jie Gan 2025-12-24  1959  int tmc_create_etr_buf_list(struct tmc_drvdata *drvdata, int num_nodes)
+> 34af91eeb7e78e Jie Gan 2025-12-24  1960  {
+> 34af91eeb7e78e Jie Gan 2025-12-24  1961  	struct etr_buf_node *new_node;
+> 34af91eeb7e78e Jie Gan 2025-12-24  1962  	struct etr_buf *sysfs_buf;
+> 34af91eeb7e78e Jie Gan 2025-12-24  1963  	int i = 0, ret = 0;
+> 34af91eeb7e78e Jie Gan 2025-12-24  1964
+> 34af91eeb7e78e Jie Gan 2025-12-24  1965  	/* We dont need a list if there is only one node */
+> 34af91eeb7e78e Jie Gan 2025-12-24  1966  	if (num_nodes < 2)
+> 34af91eeb7e78e Jie Gan 2025-12-24  1967  		return -EINVAL;
+> 34af91eeb7e78e Jie Gan 2025-12-24  1968
+> 34af91eeb7e78e Jie Gan 2025-12-24  1969  	/* We expect that sysfs_buf in drvdata has already been allocated. */
+> 34af91eeb7e78e Jie Gan 2025-12-24  1970  	if (drvdata->sysfs_buf) {
+> 34af91eeb7e78e Jie Gan 2025-12-24  1971  		/* Directly insert the allocated sysfs_buf into the list first */
+> 34af91eeb7e78e Jie Gan 2025-12-24  1972  		new_node = kzalloc(sizeof(struct etr_buf_node), GFP_KERNEL);
+> 34af91eeb7e78e Jie Gan 2025-12-24  1973  		if (IS_ERR(new_node))
+> 34af91eeb7e78e Jie Gan 2025-12-24  1974  			return PTR_ERR(new_node);
+> 34af91eeb7e78e Jie Gan 2025-12-24  1975
+> 34af91eeb7e78e Jie Gan 2025-12-24  1976  		new_node->sysfs_buf = drvdata->sysfs_buf;
+> 34af91eeb7e78e Jie Gan 2025-12-24  1977  		new_node->is_free = false;
+> 34af91eeb7e78e Jie Gan 2025-12-24  1978  		list_add(&new_node->node, &drvdata->etr_buf_list);
+> 34af91eeb7e78e Jie Gan 2025-12-24  1979  		i++;
+> 34af91eeb7e78e Jie Gan 2025-12-24  1980  	}
+> 34af91eeb7e78e Jie Gan 2025-12-24  1981
+> 34af91eeb7e78e Jie Gan 2025-12-24  1982  	while (i < num_nodes) {
+> 34af91eeb7e78e Jie Gan 2025-12-24  1983  		new_node = kzalloc(sizeof(struct etr_buf_node), GFP_KERNEL);
+> 34af91eeb7e78e Jie Gan 2025-12-24  1984  		if (IS_ERR(new_node)) {
+> 34af91eeb7e78e Jie Gan 2025-12-24  1985  			ret = PTR_ERR(new_node);
+> 34af91eeb7e78e Jie Gan 2025-12-24  1986  			break;
+> 34af91eeb7e78e Jie Gan 2025-12-24  1987  		}
+> 34af91eeb7e78e Jie Gan 2025-12-24  1988
+> 34af91eeb7e78e Jie Gan 2025-12-24  1989  		sysfs_buf = tmc_alloc_etr_buf(drvdata, drvdata->size, 0, cpu_to_node(0), NULL);
+> 34af91eeb7e78e Jie Gan 2025-12-24  1990  		if (IS_ERR(sysfs_buf)) {
+> 34af91eeb7e78e Jie Gan 2025-12-24 @1991  			kfree(new_node);
+> 34af91eeb7e78e Jie Gan 2025-12-24 @1992  			ret = PTR_ERR(new_node);
+> 
+> s/new_node/sysfs_buf/
 
-Fixes: 4f41845b3407 ("iommu/io-pgtable: Replace IO_PGTABLE_QUIRK_NO_DMA with specific flag")
-Fixes: 9e6ea59f3ff3 ("iommu/io-pgtable: Support non-coherent page tables")
-Cc: stable@vger.kernel.org
-Signed-off-by: Dawei Li <dawei.li@linux.dev>
----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 73 +++++++++++++++------
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  1 +
- 2 files changed, 54 insertions(+), 20 deletions(-)
+Thanks for reporting. Will fix it.
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index d16d35c78c06..4f00bf53d26c 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -265,8 +265,14 @@ static int queue_remove_raw(struct arm_smmu_queue *q, u64 *ent)
- 	return 0;
- }
- 
-+static __always_inline bool smmu_coherent(struct arm_smmu_device *smmu)
-+{
-+	return !!(smmu->features & ARM_SMMU_FEAT_COHERENCY);
-+}
-+
- /* High-level queue accessors */
--static int arm_smmu_cmdq_build_cmd(u64 *cmd, struct arm_smmu_cmdq_ent *ent)
-+static int arm_smmu_cmdq_build_cmd(u64 *cmd, struct arm_smmu_cmdq_ent *ent,
-+				   struct arm_smmu_device *smmu)
- {
- 	memset(cmd, 0, 1 << CMDQ_ENT_SZ_SHIFT);
- 	cmd[0] |= FIELD_PREP(CMDQ_0_OP, ent->opcode);
-@@ -358,8 +364,13 @@ static int arm_smmu_cmdq_build_cmd(u64 *cmd, struct arm_smmu_cmdq_ent *ent)
- 		} else {
- 			cmd[0] |= FIELD_PREP(CMDQ_SYNC_0_CS, CMDQ_SYNC_0_CS_SEV);
- 		}
--		cmd[0] |= FIELD_PREP(CMDQ_SYNC_0_MSH, ARM_SMMU_SH_ISH);
--		cmd[0] |= FIELD_PREP(CMDQ_SYNC_0_MSIATTR, ARM_SMMU_MEMATTR_OIWB);
-+		if (smmu_coherent(smmu)) {
-+			cmd[0] |= FIELD_PREP(CMDQ_SYNC_0_MSH, ARM_SMMU_SH_ISH);
-+			cmd[0] |= FIELD_PREP(CMDQ_SYNC_0_MSIATTR, ARM_SMMU_MEMATTR_OIWB);
-+		} else {
-+			cmd[0] |= FIELD_PREP(CMDQ_SYNC_0_MSH, ARM_SMMU_SH_OSH);
-+			cmd[0] |= FIELD_PREP(CMDQ_SYNC_0_MSIATTR, ARM_SMMU_MEMATTR_OINC);
-+		}
- 		break;
- 	default:
- 		return -ENOENT;
-@@ -405,7 +416,7 @@ static void arm_smmu_cmdq_build_sync_cmd(u64 *cmd, struct arm_smmu_device *smmu,
- 				   q->ent_dwords * 8;
- 	}
- 
--	arm_smmu_cmdq_build_cmd(cmd, &ent);
-+	arm_smmu_cmdq_build_cmd(cmd, &ent, smmu);
- 	if (arm_smmu_cmdq_needs_busy_polling(smmu, cmdq))
- 		u64p_replace_bits(cmd, CMDQ_SYNC_0_CS_NONE, CMDQ_SYNC_0_CS);
- }
-@@ -461,7 +472,7 @@ void __arm_smmu_cmdq_skip_err(struct arm_smmu_device *smmu,
- 		dev_err(smmu->dev, "\t0x%016llx\n", (unsigned long long)cmd[i]);
- 
- 	/* Convert the erroneous command into a CMD_SYNC */
--	arm_smmu_cmdq_build_cmd(cmd, &cmd_sync);
-+	arm_smmu_cmdq_build_cmd(cmd, &cmd_sync, smmu);
- 	if (arm_smmu_cmdq_needs_busy_polling(smmu, cmdq))
- 		u64p_replace_bits(cmd, CMDQ_SYNC_0_CS_NONE, CMDQ_SYNC_0_CS);
- 
-@@ -913,7 +924,7 @@ static int __arm_smmu_cmdq_issue_cmd(struct arm_smmu_device *smmu,
- {
- 	u64 cmd[CMDQ_ENT_DWORDS];
- 
--	if (unlikely(arm_smmu_cmdq_build_cmd(cmd, ent))) {
-+	if (unlikely(arm_smmu_cmdq_build_cmd(cmd, ent, smmu))) {
- 		dev_warn(smmu->dev, "ignoring unknown CMDQ opcode 0x%x\n",
- 			 ent->opcode);
- 		return -EINVAL;
-@@ -965,7 +976,7 @@ static void arm_smmu_cmdq_batch_add(struct arm_smmu_device *smmu,
- 	}
- 
- 	index = cmds->num * CMDQ_ENT_DWORDS;
--	if (unlikely(arm_smmu_cmdq_build_cmd(&cmds->cmds[index], cmd))) {
-+	if (unlikely(arm_smmu_cmdq_build_cmd(&cmds->cmds[index], cmd, smmu))) {
- 		dev_warn(smmu->dev, "ignoring unknown CMDQ opcode 0x%x\n",
- 			 cmd->opcode);
- 		return;
-@@ -1603,6 +1614,7 @@ void arm_smmu_make_cdtable_ste(struct arm_smmu_ste *target,
- {
- 	struct arm_smmu_ctx_desc_cfg *cd_table = &master->cd_table;
- 	struct arm_smmu_device *smmu = master->smmu;
-+	u64 val;
- 
- 	memset(target, 0, sizeof(*target));
- 	target->data[0] = cpu_to_le64(
-@@ -1612,11 +1624,18 @@ void arm_smmu_make_cdtable_ste(struct arm_smmu_ste *target,
- 		(cd_table->cdtab_dma & STRTAB_STE_0_S1CTXPTR_MASK) |
- 		FIELD_PREP(STRTAB_STE_0_S1CDMAX, cd_table->s1cdmax));
- 
-+	if (smmu_coherent(smmu)) {
-+		val = FIELD_PREP(STRTAB_STE_1_S1CIR, STRTAB_STE_1_S1C_CACHE_WBRA) |
-+		      FIELD_PREP(STRTAB_STE_1_S1COR, STRTAB_STE_1_S1C_CACHE_WBRA) |
-+		      FIELD_PREP(STRTAB_STE_1_S1CSH, ARM_SMMU_SH_ISH);
-+	} else {
-+		val = FIELD_PREP(STRTAB_STE_1_S1CIR, STRTAB_STE_1_S1C_CACHE_NC) |
-+		      FIELD_PREP(STRTAB_STE_1_S1COR, STRTAB_STE_1_S1C_CACHE_NC) |
-+		      FIELD_PREP(STRTAB_STE_1_S1CSH, ARM_SMMU_SH_OSH);
-+	}
-+
- 	target->data[1] = cpu_to_le64(
--		FIELD_PREP(STRTAB_STE_1_S1DSS, s1dss) |
--		FIELD_PREP(STRTAB_STE_1_S1CIR, STRTAB_STE_1_S1C_CACHE_WBRA) |
--		FIELD_PREP(STRTAB_STE_1_S1COR, STRTAB_STE_1_S1C_CACHE_WBRA) |
--		FIELD_PREP(STRTAB_STE_1_S1CSH, ARM_SMMU_SH_ISH) |
-+		FIELD_PREP(STRTAB_STE_1_S1DSS, s1dss) | val |
- 		((smmu->features & ARM_SMMU_FEAT_STALLS &&
- 		  !master->stall_enabled) ?
- 			 STRTAB_STE_1_S1STALLD :
-@@ -3746,7 +3765,7 @@ int arm_smmu_init_one_queue(struct arm_smmu_device *smmu,
- 	q->cons_reg	= page + cons_off;
- 	q->ent_dwords	= dwords;
- 
--	q->q_base  = Q_BASE_RWA;
-+	q->q_base  = smmu_coherent(smmu) ? Q_BASE_RWA : 0;
- 	q->q_base |= q->base_dma & Q_BASE_ADDR_MASK;
- 	q->q_base |= FIELD_PREP(Q_BASE_LOG2SIZE, q->llq.max_n_shift);
- 
-@@ -4093,6 +4112,7 @@ static void arm_smmu_write_strtab(struct arm_smmu_device *smmu)
- 	struct arm_smmu_strtab_cfg *cfg = &smmu->strtab_cfg;
- 	dma_addr_t dma;
- 	u32 reg;
-+	u64 val;
- 
- 	if (smmu->features & ARM_SMMU_FEAT_2_LVL_STRTAB) {
- 		reg = FIELD_PREP(STRTAB_BASE_CFG_FMT,
-@@ -4107,8 +4127,12 @@ static void arm_smmu_write_strtab(struct arm_smmu_device *smmu)
- 		      FIELD_PREP(STRTAB_BASE_CFG_LOG2SIZE, smmu->sid_bits);
- 		dma = cfg->linear.ste_dma;
- 	}
--	writeq_relaxed((dma & STRTAB_BASE_ADDR_MASK) | STRTAB_BASE_RA,
--		       smmu->base + ARM_SMMU_STRTAB_BASE);
-+
-+	val = dma & STRTAB_BASE_ADDR_MASK;
-+	if (smmu_coherent(smmu))
-+		val |= STRTAB_BASE_RA;
-+
-+	writeq_relaxed(val, smmu->base + ARM_SMMU_STRTAB_BASE);
- 	writel_relaxed(reg, smmu->base + ARM_SMMU_STRTAB_BASE_CFG);
- }
- 
-@@ -4130,12 +4154,21 @@ static int arm_smmu_device_reset(struct arm_smmu_device *smmu)
- 		return ret;
- 
- 	/* CR1 (table and queue memory attributes) */
--	reg = FIELD_PREP(CR1_TABLE_SH, ARM_SMMU_SH_ISH) |
--	      FIELD_PREP(CR1_TABLE_OC, CR1_CACHE_WB) |
--	      FIELD_PREP(CR1_TABLE_IC, CR1_CACHE_WB) |
--	      FIELD_PREP(CR1_QUEUE_SH, ARM_SMMU_SH_ISH) |
--	      FIELD_PREP(CR1_QUEUE_OC, CR1_CACHE_WB) |
--	      FIELD_PREP(CR1_QUEUE_IC, CR1_CACHE_WB);
-+	if (smmu_coherent(smmu)) {
-+		reg = FIELD_PREP(CR1_TABLE_SH, ARM_SMMU_SH_ISH) |
-+		      FIELD_PREP(CR1_TABLE_OC, CR1_CACHE_WB) |
-+		      FIELD_PREP(CR1_TABLE_IC, CR1_CACHE_WB) |
-+		      FIELD_PREP(CR1_QUEUE_SH, ARM_SMMU_SH_ISH) |
-+		      FIELD_PREP(CR1_QUEUE_OC, CR1_CACHE_WB) |
-+		      FIELD_PREP(CR1_QUEUE_IC, CR1_CACHE_WB);
-+	} else {
-+		reg = FIELD_PREP(CR1_TABLE_SH, ARM_SMMU_SH_OSH) |
-+		      FIELD_PREP(CR1_TABLE_OC, CR1_CACHE_NC) |
-+		      FIELD_PREP(CR1_TABLE_IC, CR1_CACHE_NC) |
-+		      FIELD_PREP(CR1_QUEUE_SH, ARM_SMMU_SH_OSH) |
-+		      FIELD_PREP(CR1_QUEUE_OC, CR1_CACHE_NC) |
-+		      FIELD_PREP(CR1_QUEUE_IC, CR1_CACHE_NC);
-+	}
- 	writel_relaxed(reg, smmu->base + ARM_SMMU_CR1);
- 
- 	/* CR2 (random crap) */
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index ae23aacc3840..7a5f76e165dc 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -183,6 +183,7 @@ struct arm_vsmmu;
- #define ARM_SMMU_SH_ISH			3
- #define ARM_SMMU_MEMATTR_DEVICE_nGnRE	0x1
- #define ARM_SMMU_MEMATTR_OIWB		0xf
-+#define ARM_SMMU_MEMATTR_OINC		0x5
- 
- #define Q_IDX(llq, p)			((p) & ((1 << (llq)->max_n_shift) - 1))
- #define Q_WRP(llq, p)			((p) & (1 << (llq)->max_n_shift))
--- 
-2.25.1
+-Jie
+
+> 
+> 34af91eeb7e78e Jie Gan 2025-12-24  1993  			break;
+> 34af91eeb7e78e Jie Gan 2025-12-24  1994  		}
+> 34af91eeb7e78e Jie Gan 2025-12-24  1995
+> 34af91eeb7e78e Jie Gan 2025-12-24  1996  		/* We dont have a available sysfs_buf in drvdata, setup one */
+> 34af91eeb7e78e Jie Gan 2025-12-24  1997  		if (!drvdata->sysfs_buf) {
+> 34af91eeb7e78e Jie Gan 2025-12-24  1998  			drvdata->sysfs_buf = sysfs_buf;
+> 34af91eeb7e78e Jie Gan 2025-12-24  1999  			new_node->is_free = false;
+> 34af91eeb7e78e Jie Gan 2025-12-24  2000  		} else
+> 34af91eeb7e78e Jie Gan 2025-12-24  2001  			new_node->is_free = true;
+> 34af91eeb7e78e Jie Gan 2025-12-24  2002
+> 34af91eeb7e78e Jie Gan 2025-12-24  2003  		new_node->sysfs_buf = sysfs_buf;
+> 34af91eeb7e78e Jie Gan 2025-12-24  2004  		list_add(&new_node->node, &drvdata->etr_buf_list);
+> 34af91eeb7e78e Jie Gan 2025-12-24  2005  		i++;
+> 34af91eeb7e78e Jie Gan 2025-12-24  2006  	}
+> 34af91eeb7e78e Jie Gan 2025-12-24  2007
+> 34af91eeb7e78e Jie Gan 2025-12-24  2008  	/* Clean the list if there is an error */
+> 34af91eeb7e78e Jie Gan 2025-12-24  2009  	if (ret)
+> 34af91eeb7e78e Jie Gan 2025-12-24  2010  		tmc_clean_etr_buf_list(drvdata);
+> 34af91eeb7e78e Jie Gan 2025-12-24  2011
+> 34af91eeb7e78e Jie Gan 2025-12-24  2012  	return ret;
+> 34af91eeb7e78e Jie Gan 2025-12-24  2013  }
+> 
 
 
