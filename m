@@ -4,141 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2570CD3B7E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 01:56:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F463E784BE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 02:42:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nnad0PTSI3BBlV//NLw7zMvqm2xnorzLOZdNJnRBeIo=; b=d6MKz13jkb8QV9aiDtDkIzRqm9
-	cHvDnR+48cdgOWTW8R4KFlhV17gG8aPefkB+b7axtC9WJx8KoSN94xv+QGkFaVH0sVpHa0fryThVG
-	c9F8M8QgbVr4iDDYZq8MzgO1Uariq7vCpfiFhhb4D8CAxC2eGchwPtnK8rLsUWOzwtE2tUlQ+V8hS
-	z+B294M0wrHiqVtqo9I8HiO6f5P8RWYwaLvGQwS/H4sKjyqAJ8A3OjKkiCHyOyG6omiVhhVuZ6gay
-	CEEw1Lg6W3JCIJu/ReSv2VxIWFpP0e5yxaw/ciBdFdOlbqY8dti46d6OdqbbqhOx6xPkjwD/QPScS
-	YGOqaN6A==;
+	bh=YU0F2GreevXFoVqmX9VG52TjkETZrwkvLUIcCOhoP8g=; b=Xa6HifIAz2W2zAjmFc4RK19L+x
+	q3WfwE9D5ZPTSkhJvToKMUEL2AxveGEXmohQpWlW5xjJG8aWXl3Ds4gqJMa6hky0Fu63HqY7GHs/b
+	mAL7N1pDMI3EOgj6CUpx5/Ua47RRQ5//Nxep8FXt5VCawEx1afSf+23o7KAXlAom4btdpuC51f1Vt
+	K9GzZ4cyfPEdk4/QEYS7COHLGtRDJhSojc23IogGHtF2M16WPLASE9ZNkPg/EJA2fP1ZimftORTYp
+	qlaFtY9gr1Qd4PmJi9Nh9uxAL1VWx/Uksyafvd9n+OEwNhchBg0n6E/zsDDXZ6uaJdN6fNuupH+Yr
+	CTkTanUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1va2Ut-00000003D6s-0qut;
-	Mon, 29 Dec 2025 01:56:35 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1va3DR-00000003Eur-1Rlt;
+	Mon, 29 Dec 2025 02:42:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1va2Ur-00000003D6l-0Nk3
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 29 Dec 2025 01:56:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Nnad0PTSI3BBlV//NLw7zMvqm2xnorzLOZdNJnRBeIo=; b=I1Y0546p74ZhjhQJ/zOkI72FyF
-	gmNu88YgEkbWdGI3fqayZBaA5nWYyH7gt42poZN7PEyIkOOA0NtqHMB74Z/P+5P9pcyobjwoZvKep
-	HtC+nLQ3uKHDARkM7q3Qt9+LdZOXgOHB6luKHhbC1oVLTl908iGfhtfsfjQZIVCt0PKSDJD2VRY5a
-	XevxWDFGLqbs5iUXSZVnXSQVBsmlkGAWPopIP2AVvazs697ktTbOusKrucNiXzF9Msoo8MIp3etVu
-	+en5qJX21OKKcIUNGZwK5RoknqyiHgubE7UYRWqOS11vYD2qlxSdBDD1P7jTusXVGsGS9mDlP3yGY
-	pOzsxfBA==;
-Received: from mail-japanwestazon11022073.outbound.protection.outlook.com ([40.107.75.73] helo=OS8PR02CU002.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1va2Um-00000002On2-0O9i
+	id 1va3DQ-00000003Eui-3PEU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Dec 2025 01:56:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QBbt411FHWVk7qj7jlRkVmLPSww7mQOA4kABgrfcLiX8eLDUEBj7luwitydvRAkHTB4AGxC3uPp4YKconNQFxZsrvhezxntDXeScpBwDereRMyYDmB0BaQq9tZcE68A/y7vYZJG/4qoBcLPUJbm5AGDq3wKhlY547NB5awSwqV3JHqKJ0LdMthTNxUhjsgmUwKwiAj+wkfcb0x/D6DaBTCP16MRBxmPoNoJSqJou+WDywqJC+hal1JGeQTZUpWjvWUvu+DQ1Ngb/B/3kslnvWx+iNTFzIbbxIw8lFlz6TIPKcp/DZUrAR3LTABDZcnT6Oki4TvRmafrXjkhZVuxWfw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Nnad0PTSI3BBlV//NLw7zMvqm2xnorzLOZdNJnRBeIo=;
- b=ddrSHiyAf/h3WgxTKMDPXQiSqxZ6LB68hgO+lv4UpxhAt3DA57MXOFQ1wcE/eibrslN/IizrFzRSEQFf7kgq7DHRDB4V89bD/f22a4nOfVcszoz+hFLSf09dhM5OgSssXMZpGw509+3JQOhHP6pG1VrcU+D5F9zw+cp/m2TVrgjNnvaBoajXQsFbp5yNe/RFTYP4xLbyH8DMPrH6H6z8ZT98AX7Hh3zbPpXnSGJUfrbRHA9tGRCd2pyRko8/76/RmbP8bKZsyDJXsuEJI2lbY6ppETlQjB0VxtfuiAi75pzSCVm8hTt1lpBg6ePg2m8WQwpW2RvPYhOnk7dM9DwIFg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 222.71.101.198) smtp.rcpttodomain=cixtech.com smtp.mailfrom=cixtech.com;
- dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
- not signed); arc=none (0)
-Received: from SI2PR01CA0038.apcprd01.prod.exchangelabs.com
- (2603:1096:4:193::20) by TY0PR06MB6855.apcprd06.prod.outlook.com
- (2603:1096:405:13::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9434.11; Mon, 29 Dec
- 2025 01:56:14 +0000
-Received: from SG2PEPF000B66CD.apcprd03.prod.outlook.com
- (2603:1096:4:193:cafe::9f) by SI2PR01CA0038.outlook.office365.com
- (2603:1096:4:193::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9456.14 via Frontend Transport; Mon,
- 29 Dec 2025 01:55:45 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
- smtp.mailfrom=cixtech.com; dkim=none (message not signed)
- header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
-Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
- 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
- client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
-Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- SG2PEPF000B66CD.mail.protection.outlook.com (10.167.240.27) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9478.4 via Frontend Transport; Mon, 29 Dec 2025 01:56:13 +0000
-Received: from nchen-desktop (unknown [172.16.64.25])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id E8CB640A5A1E;
-	Mon, 29 Dec 2025 09:56:12 +0800 (CST)
-Date: Mon, 29 Dec 2025 09:56:11 +0800
-From: Peter Chen <peter.chen@cixtech.com>
-To: Gary Yang <gary.yang@cixtech.com>
-Cc: <fugang.duan@cixtech.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <linux-cix-kernel-upstream@cixtech.com>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 1/2] dt-bindings: arm: cix: add OrangePi 6 Plus board
-Message-ID: <aVHfu5mcX3ZVqQih@nchen-desktop>
-References: <20251219133553.1440970-1-gary.yang@cixtech.com>
- <20251219133553.1440970-2-gary.yang@cixtech.com>
+	Mon, 29 Dec 2025 02:42:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B3DBA60018;
+	Mon, 29 Dec 2025 02:42:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2EE55C4CEFB;
+	Mon, 29 Dec 2025 02:42:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766976155;
+	bh=VfX8cZ299Fd2aqfB00CG/8JVQnNZFXjsOP4N8336/Rk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NdeNYSvrLyMlPEcBO36rbv2dxeNZXCaHMW4Tz47KdN74ohVVlLMKKuZLsyLWVzwvd
+	 ShEnhqNA8MlLJUNgJtUQ8p5ltCN1KzBm+5WdtdWsJ4WBrdjFRhIvAipg9r4bFaA5QS
+	 E2AfLyDbBXuPKLbceiU8td5jpciPXpK8tm2n4iWFNnlKtvwRPjiz25bGrHT3KvLRuX
+	 et8A/qo7M6/x7bbHOq3w4qkmVILxLooUGD5BB8Ci4iNHyZzMM+FCxjJ4wP/Q3AGG19
+	 pgDEsLewoNuUXOrIWx3RtQi9NvJ71p6HWjkievkEqT2T8dAf4IRPg0QToaJrJjTTX0
+	 SMF3PP//eLmTQ==
+Date: Mon, 29 Dec 2025 10:42:30 +0800
+From: Shawn Guo <shawnguo@kernel.org>
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: "Rob Herring (Arm)" <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, imx@lists.linux.dev,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Subject: Re: [PATCH] arm64: dts: imx8mp: Update Data Modul i.MX8M Plus eDM
+ SBC DT to rev.903
+Message-ID: <aVHqlnNGNGmaF14m@dragon>
+References: <20241226171404.84095-1-marex@denx.de>
+ <173531253398.3886481.9345779510218290682.robh@kernel.org>
+ <14c48d93-8ee6-4769-8dc3-5c527134bc77@mailbox.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251219133553.1440970-2-gary.yang@cixtech.com>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SG2PEPF000B66CD:EE_|TY0PR06MB6855:EE_
-X-MS-Office365-Filtering-Correlation-Id: 81b28e65-15bd-4a7a-46da-08de467d725f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|1800799024|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ApHvO7DtgRwCf3b6ZzRx+c2td2kZX6QFDLsSZDKUZa8LhHEBnqYeYi2pr+7V?=
- =?us-ascii?Q?SUTPhtq0SAC1y7Dc1DJbMol2EcB0E3YvW3BjX1lnNiN/oCelGGv8PqR1jmvf?=
- =?us-ascii?Q?GzHz3f2ZsYAd1W1YK0T6BhecVbf7E1DCJe6U6+eTUaHh8/24XGwnXxY9Rj2W?=
- =?us-ascii?Q?z0ILcpeupOJc8FD38Uwa5Tg5ncCNeR/0rCYrJgba6LkztQJSikvbIbvUHUSq?=
- =?us-ascii?Q?EqMEQrp17EBRQrgPBHTuWrl7umwJxtyZIz0XZHILXHJxksiATZDres+8NGcm?=
- =?us-ascii?Q?XIJMlU3bJd/IuUC+mprAIeq8CQgswWvenXXmCORZQZz3mVuolEnyJmkziLDS?=
- =?us-ascii?Q?wKMu2CJdSeXgk7LEGE3NVAsqi+32HHceR5eX6/5wcV7P6AQoLLuWAFZ2ziwD?=
- =?us-ascii?Q?828CPoj5MfS9fKi6D9sYjDvDQBXUX2YmrYxGXlaCTrZz8oxPmtWb06QNzn/l?=
- =?us-ascii?Q?mXk8B+ZiPQ0B4ChPpTK0DsZzEJ0oarrTnz2SZiTfc/c9/hIKVuMTGna9cPdO?=
- =?us-ascii?Q?FfsZMBJSOM/dciUvaK6N2whzwTrxOnlQdA5RblyZsmO4j7DptTAKPwVMWb5H?=
- =?us-ascii?Q?Nci/wu2rUKRU9flkR3JTEo5E30ybjE0CCGka5CBiTRGa1t2IcTm4QqiXh/LK?=
- =?us-ascii?Q?+rG5ED4g/FPXqsaTChV5BOQqxFbQlsWHADuhKobQbaFGTy6wLAKOkEI3HPKK?=
- =?us-ascii?Q?ObYxvBZEFLKl/3poh0K0ZgMK2d3IJJZIR2T2b9IfOrqV8YKEiwHTTS+hWKk+?=
- =?us-ascii?Q?bHvey7Sgisv4AOWlgoZou2cNzpRxxLdsV+UZKwHddVsR6yoYEhqB0aH6hcV1?=
- =?us-ascii?Q?zobtuoPsM+YemeEDEzPpJ6U+rBxQm7fD9CJyFby0VM6XWgVIiOG2y14IP5ot?=
- =?us-ascii?Q?jLXYYv9iV2V3Yn3ekz662+3Scw8KI5/QgV4RmKtNdYwyYd2YkfBYzFgU/HRp?=
- =?us-ascii?Q?dkXOtdR9/jcoGqwEsP1/kaVUUn29rm8MxZhAegA2kfcZqUREs45xAon6Bgsv?=
- =?us-ascii?Q?1YYVOgAVmRHW4zMeYAZ8iTiEsyA4x+kmt9MYshic1hAPH2cu4GYrirYLNsW6?=
- =?us-ascii?Q?k6Ne6gcKxsCNB6OEBoY3ARFX0BbijPrcHZLYj4h8jIPIVlryJU1Z6M1LI7dF?=
- =?us-ascii?Q?v86KSgxFArxM4Belj7ugy9Tgvjd/fOJirDcnpBzBvkQzXjmQ3bH3vFOSU+Of?=
- =?us-ascii?Q?6Otg1ePyIKPhzoI1QmcbPzw/7J8lYVf/J4HhMFzCT59bQbH0noiZJcuNMa2s?=
- =?us-ascii?Q?VnJEPMvjJCuEMqRJDvsSg6SkYbixGYWHHoIDoUsDW/XXqRbmv+RNHgJ8ncjF?=
- =?us-ascii?Q?ggoIANVsFvj9zIj4YHsOe5QOHdU6ilV00dU1AHpoMVDswIv9P9aBIpFuwOSV?=
- =?us-ascii?Q?gTVsxtJkpWUY/chD/tTOrDeLqh+4lFYfZVSvy6tTGxjCKG0Cv+ih/G4o4yDE?=
- =?us-ascii?Q?tBwa03+jTb8R339ekkRIYRYTqwbkXv0GSf1AaKQu9Jukl743Xp18DrLPPIUJ?=
- =?us-ascii?Q?uq55lOvlZImq3jWBundKTAaCrL/gPcuG7WSCo8mBcUXFrttwr2wz96JJctDz?=
- =?us-ascii?Q?nmIl1Q1Wp/7jGJ2KY7M=3D?=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(1800799024)(36860700013);DIR:OUT;SFP:1102;
-X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Dec 2025 01:56:13.4416
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 81b28e65-15bd-4a7a-46da-08de467d725f
-X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: SG2PEPF000B66CD.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR06MB6855
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251229_015628_187907_B4C97F68 
-X-CRM114-Status: GOOD (  13.63  )
+In-Reply-To: <14c48d93-8ee6-4769-8dc3-5c527134bc77@mailbox.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,37 +76,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-12-19 21:35:52, Gary Yang wrote:
-> OrangePi 6 Plus adopts CIX CD8180/CD8160 SoC,
-> built-in 12-core 64-bit processor + NPU processor,
-> integrated graphics processor, equipped with 16GB/32GB/64GB
-> LPDDR5, and provides two M.2 KEY-M interfaces 2280 for NVMe SSD,
-> as well as SPI FLASH and TF slots to meet the needs of fast
-> read/write and high-capacity storage;
+On Fri, Dec 26, 2025 at 11:24:29AM +0100, Marek Vasut wrote:
+> On 12/27/24 4:18 PM, Rob Herring (Arm) wrote:
 > 
-> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
-> ---
->  Documentation/devicetree/bindings/arm/cix.yaml | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
+> Hello Shawn,
 > 
-> diff --git a/Documentation/devicetree/bindings/arm/cix.yaml b/Documentation/devicetree/bindings/arm/cix.yaml
-> index 114dab4bc4d2..e2cc0bb8b908 100644
-> --- a/Documentation/devicetree/bindings/arm/cix.yaml
-> +++ b/Documentation/devicetree/bindings/arm/cix.yaml
-> @@ -18,7 +18,9 @@ properties:
->  
->        - description: Radxa Orion O6
->          items:
-> -          - const: radxa,orion-o6
-> +          - enum:
-> +              - radxa,orion-o6
-> +              - xunlong,orangepi-6-plus
+> > On Thu, 26 Dec 2024 18:13:27 +0100, Marek Vasut wrote:
+> > > Update the DT to match newest Data Modul i.MX8M Plus eDM SBC rev.903
+> > > board which implements significant changes. Keep some of the rev.900
+> > > and rev.902 nodes in the DT so that a DTO can be used to support old
+> > > rev.900 and rev.902 boards easily.
+> 
+> [...]
+> 
+> > arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc.dtb: tpm@2e: compatible: 'oneOf' conditional failed, one must be fixed:
+> > 	['st,st33tphf2ei2c', 'tcg,tpm-tis-i2c'] is too long
+> > 	'st,st33tphf2ei2c' is not one of ['infineon,slb9673', 'nuvoton,npct75x', 'st,st33ktpm2xi2c']
+> 
+> This is addressed in bindings patch [1] . Can this patch and the bindings
+> patch be applied ?
+> 
+> https://lore.kernel.org/all/20241226171124.83735-1-marex@denx.de/
 
-The description is for Radxa O6, would you please add one description for
-this orangepi-6-plus board?
+Could you resend them?
 
--- 
-
-Best regards,
-Peter
+Shawn
 
