@@ -4,138 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CA9AD3B7E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 08:18:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1791FE8FDB1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 08:19:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=K/I6RRUjm9il6mjPH1XUvwoEPmNbJiY+iUUsgWRezhY=; b=MvAxPEmowWdqrLeia4AQoLoRNg
-	yUvKdJS/bN5hFGcWeysFVZ6to4ViFqVnC6WWN9RqzNaR129GobZxOuI7TsTZy4LLzF6H3WSXJcMIN
-	NDq5dl6+V2qzZGyJ7rNowhnbo6K6NyYbvlYpUTKDIT0DuSz4JX5fyscHo5+IJgqU3ouEiB8hijpo2
-	fQy8TD65/uGON5X+JWPOhBsAFN3KXOWp6g1MDKX9D0oJpB05/fdWD1JwjHCSlOharqMHE5CncDP3f
-	PzCyOalbJHnBw/8QcQ/xV9baPqnmQL+8LASJsgepWo36PtsBwGHy3gbn1wxV11rOkaM+vRPqOc455
-	g6PioBYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j1ThLRQyHIDweVLjfaoObSeSIbqtv2WtMM+/ZLETnkM=; b=wcdU1mCBkWLwZ6Bl81PH1WS7Ei
+	kB/F5h0Ewx8wxCUh/i8DVKTSXkbezOX1fPU2GkMdfxcMl67jbagn3tu2MSxHpNbNDLzVZZ4gCcVOZ
+	cpb/oVYHH8bGgGMKTRei9jgFg6k3m2yYnwsVQU9rWA/GytJeRvLKVOnaTEOMZuQ3myt0K/MQVzWwm
+	DonfWNiOVDrLNSogOa2vbAJGxSqlsHPDMizYv45srl1R/lZt7+U/Yr3+gORPgNWRWbMs2kQ0XD5Y2
+	elEeKTQwmuXx0iw7wWUWL3rX7G7KojBiE6illdho7ad8JafajkqYrNwzNaFFRdNlJYY2NXVxE0y8a
+	YPg3d/OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1va8S7-00000003SoW-40xG;
-	Mon, 29 Dec 2025 08:18:07 +0000
-Received: from mail-swedencentralazon11013024.outbound.protection.outlook.com ([52.101.83.24] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1va8Tn-00000003SwP-2XwZ;
+	Mon, 29 Dec 2025 08:19:51 +0000
+Received: from mout.web.de ([212.227.15.3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1va8S5-00000003So0-1lcr
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Dec 2025 08:18:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PgUxEkG2Jha0Pam5DyxZrdXi0eGjBZ7sANJfiR6GYsDhH8wGz9I2NIPnT1iGEwUb23OIf1+GUx7cjHm5JajP1A+YCvtXi5ch5tkXnHsFwYHZXJTCn+OF0uAAi6bDEjbviqapd3NmWWZ6Hz3Do6dl9pkOFC2vhGrZJOTQzXXTEAh+T19QMJShit05aWbEX4o1wDDMropwGilqQI3znwn8IVzusiMgtJgHAHD3Mp9AAVlIPAmsnOSm/DSDl9QxMUFfmc/P18Aq6+PX+31uDSKmzPx6716K6VkDj9oLang5GbjjjoAr2vl4qEeCOsAdeK9VrhcB0n0xJKxl+TTG5iRyIg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=K/I6RRUjm9il6mjPH1XUvwoEPmNbJiY+iUUsgWRezhY=;
- b=mHo/AoDJvCDAa7R635tlh0f5IKOeJIcsQ7+aEr5ItYPEkSudsO+hNdRSZRXz+wrdBzs15X7KtuxxYO4V62k8VvZioEkCEGrLHTAzM7cCIuh8J4Z9ZJMU7XlowBaEd/hQ6CNAPEOZd/7o26yB81xg1FDKW9CvjdMahD6iHLTcA/z9bpeB+1kz6y0KtgyFt6sGpNMdYwgt9B+kVxgNrPrKCUUPCaSHitVaCjdu1XiLaAXPdI11tVTMBr/kWX35ZWeaSjYrmfg9al1f6/9rG4FgiyyKbn8j8rWE3smqSA7Mo2KW+viD0iiIEFQWumV1LGvXD/i7EFsAJu4xyKeCVZguJg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 193.8.40.99) smtp.rcpttodomain=lists.infradead.org
- smtp.mailfrom=leica-geosystems.com.cn; dmarc=pass (p=reject sp=reject
- pct=100) action=none header.from=leica-geosystems.com.cn; dkim=none (message
- not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=leica-geosystems.com.cn; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=K/I6RRUjm9il6mjPH1XUvwoEPmNbJiY+iUUsgWRezhY=;
- b=jOtQuIh1hwMTHQoz3MsQXjV/1Wwt8s/6D6ZdDIun2Chc9w/5X6BhPr3aAlkHPL1e1hV048enZglc2zysmdUfOinDrKeAW/IfUKZwxzdNsQUa9+bEWP4yu3t3rRBBmEltWvtQQ5R+KgmpQXa1/BgnIRvWNRHR1m1MD6ckTxf1r7I=
-Received: from DUZP191CA0013.EURP191.PROD.OUTLOOK.COM (2603:10a6:10:4f9::10)
- by PAWPR06MB9050.eurprd06.prod.outlook.com (2603:10a6:102:38f::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9456.12; Mon, 29 Dec
- 2025 08:17:57 +0000
-Received: from DU6PEPF0000B620.eurprd02.prod.outlook.com
- (2603:10a6:10:4f9:cafe::46) by DUZP191CA0013.outlook.office365.com
- (2603:10a6:10:4f9::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9456.14 via Frontend Transport; Mon,
- 29 Dec 2025 08:17:49 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 193.8.40.99)
- smtp.mailfrom=leica-geosystems.com.cn; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=leica-geosystems.com.cn;
-Received-SPF: Pass (protection.outlook.com: domain of leica-geosystems.com.cn
- designates 193.8.40.99 as permitted sender) receiver=protection.outlook.com;
- client-ip=193.8.40.99; helo=hexagon.com; pr=C
-Received: from hexagon.com (193.8.40.99) by
- DU6PEPF0000B620.mail.protection.outlook.com (10.167.8.136) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9478.4 via Frontend Transport; Mon, 29 Dec 2025 08:17:56 +0000
-Received: from aherlnxbspsrv01.lgs-net.com ([10.61.228.61]) by hexagon.com with Microsoft SMTPSVC(10.0.17763.1697);
-	 Mon, 29 Dec 2025 09:17:56 +0100
-From: LI Qingwu <Qing-wu.Li@leica-geosystems.com.cn>
-To: o.rempel@pengutronix.de,
-	kernel@pengutronix.de,
-	andi.shyti@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	festevam@gmail.com,
-	linux-i2c@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: bsp-development.geo@leica-geosystems.com,
-	LI Qingwu <Qing-wu.Li@leica-geosystems.com.cn>
-Subject: [PATCH V1] i2c: imx: Fix SMBus block read hang on zero length
-Date: Mon, 29 Dec 2025 08:16:29 +0000
-Message-ID: <20251229081629.4081452-1-Qing-wu.Li@leica-geosystems.com.cn>
-X-Mailer: git-send-email 2.43.0
+	id 1va8Tk-00000003Svu-3ZpX;
+	Mon, 29 Dec 2025 08:19:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1766996379; x=1767601179; i=markus.elfring@web.de;
+	bh=j1ThLRQyHIDweVLjfaoObSeSIbqtv2WtMM+/ZLETnkM=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=lLB4sm14jcy+RafUYX/8f9iZdJPD6oPCWeZ0/izkWFoIIXTzQNHOYgFUPF2Xaxai
+	 Sr3ev7Hrk9dgHMEOktdl6UG0KpUpthdJrK1H88GOSlnAPinQBe95npKWWZzRk318v
+	 x3snUapF3BhCPy4/OOoIPxqRj2K8pn8ksHkuTnWHChNHJe82+8spX0SsplPAq4mGC
+	 bNQqncAbzEOvPpyq3a7t9O/pOo1sr2iYDaInd6zQClPJ08WdpqoI8n3hdOgaoQTEa
+	 x5mnWWCr1lt0EFPVsJxZXNAfTck7yxc97+OGfsqqr2nf6GC2l26mE9rjsAVYBR/HI
+	 faBsYJXKZGoPjx9YjA==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.69.231]) by smtp.web.de (mrweb006
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1N5UkQ-1vxvrE3Img-00quKN; Mon, 29
+ Dec 2025 09:19:38 +0100
+Message-ID: <1d9b46ba-728e-459a-9d82-0f49e2fe08b9@web.de>
+Date: Mon, 29 Dec 2025 09:19:19 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-OriginalArrivalTime: 29 Dec 2025 08:17:56.0436 (UTC) FILETIME=[A3021940:01DC789B]
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU6PEPF0000B620:EE_|PAWPR06MB9050:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 947fff37-5118-4b62-c8cb-08de46b2c5bb
-X-SET-LOWER-SCL-SCANNER: YES
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700013|1800799024|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?L8ihNu+2MZeSVrT3GimpqCvsVlKZkcja1LBjBUtY293qTrCLEIp/0YQpScQC?=
- =?us-ascii?Q?xLby5mcyZ3Pbldfsaq8e2Ev0TAYYTMHA1MCU0/ibZ4lwXnN+JdWjXu2v14Pl?=
- =?us-ascii?Q?o4hSDraWo+iJw8K37eM4emjLH6zjM7/PwIjZP5j/RKJICP3kUWXuPaowApdw?=
- =?us-ascii?Q?EyAq3vvOslBZSTur8QvAU+OjmnwyGG0upMYfBuEeEAHJCH8H8ZyWI1WCymlU?=
- =?us-ascii?Q?gQ3BPqBNoi7Lc15sggmx+SPPtTPuXkwrVb9clF0YoHLlPXuy6OXepBrmnMhc?=
- =?us-ascii?Q?4dH0gYW8VhlPQJeXwbWLHj+sCNklfPne+DvSktXcztAO3wauSuYLphCjApf0?=
- =?us-ascii?Q?rl1j4v+FqLktuHnA8ou8XElYxo5sel0rj6aukxg327v3VGN3IxFa0gxvb+lw?=
- =?us-ascii?Q?DQKqjmvvMktLfUy5KzghtxyxixFrKGZSiisrxCI2LKeOsy1I9cy3NxVC0iHO?=
- =?us-ascii?Q?tNbHgbpKTTHR40f/p9Jb6cVZmx3nKPFeqcWBhbNE8t3iDKfuko9rxtF17MZX?=
- =?us-ascii?Q?Mm7ohImyT3vYcBdPQQsphHjy2kDef2Nq2ijdioACx6sS+AwpsYA93OSkTejC?=
- =?us-ascii?Q?CriQ/WqUGKc8MdR187T9WUQ/QV5ds/EtN4/rxS1ry7pKnpJ/u9CbKBu8/Tl7?=
- =?us-ascii?Q?T5PoBy7RFI4oAPvmlT4U3X3/L1VE8Bz0yQp8p4yYi9xTljSE/IKdGnzrjjnc?=
- =?us-ascii?Q?4j8am0iYDz7k7LBJ4mZBnbZ1uT7+hbNc2RSp4xjftx+8dDbNGAC6XyQeVzPW?=
- =?us-ascii?Q?xk+SDxl8wSapFNnqVvb+jAa47g2ixMc4xp9r26FiKGXixIAlYVEHafPW4z7x?=
- =?us-ascii?Q?5q/YJSGFCqiFnb5Ym1pM+dMfcqH5OmGqXXu22a5jVZ2ZgYRlv7OlBZ8+fLLi?=
- =?us-ascii?Q?Kx/GS3pn3WmEuJFasqQ08KJ3tds15uk0swW8mLxUWVGHrdCJfbDRZseVT9w5?=
- =?us-ascii?Q?fP/cgoGco5IGpx6FF83xlQ3VvY45bBRRnojhRHT1HHfwfTdn88/4WFxlSrfk?=
- =?us-ascii?Q?V9nzoAlJnsQWbUq/U/BV+Md1gjjCD4GR5a8YB8uf8dFgFZDIdXhaH3XDSV2A?=
- =?us-ascii?Q?akynhDEvdcPAf37Q7OLc2KoxPht5ei2/b5NNWCxMMvUdSVIY6XWgGEXfSFV3?=
- =?us-ascii?Q?wLGWebe+mVyAXzjK18BhG/YrNCs2/1v3lvuxKZpijynaOMwzoRWAkjolUoW0?=
- =?us-ascii?Q?vov23Fk/2XAulizONMO5E3597ieR+7vfcsQdLKJ4aUxGAbMAyPPqJ2Nt+x77?=
- =?us-ascii?Q?V8dK1OQ/u/xVKpBEdY/1ZzIHbXEIwUOtUuf/m7nZ74myQiWW7aP9rCuroq1P?=
- =?us-ascii?Q?WxVbY1QBtppkuonyKiKqOmTrhiSRZvOn+FrBQpVjfZqqN4ClL3PuRrMdnEbX?=
- =?us-ascii?Q?eyMu+CKgD2TJF1Hl1BrHE9AdCzFldYMtpXxg/V4DMBleG2JCoFru8aBZwIX7?=
- =?us-ascii?Q?4504wecXAj49fwfbXe6KXRr7QAhQnFu5nYSYObW66FqbHMYQ6aV7g4/BEGw8?=
- =?us-ascii?Q?Ia7dBUTzB1uVtgoB0Cn4xEuqAz0FCD2X9sIZXJ7KmAv0unBNGQwxkwETglE8?=
- =?us-ascii?Q?qYOuoEFLsWlgqUZ3nC7jK6xoPwxyrYrKeKZqiFBY?=
-X-Forefront-Antispam-Report: CIP:193.8.40.99;CTRY:CH;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:hexagon.com;PTR:ahersrvdom51.leica-geosystems.com;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700013)(1800799024)(921020);DIR:OUT;SFP:1101;
-X-OriginatorOrg: leica-geosystems.com.cn
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Dec 2025 08:17:56.8087
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 947fff37-5118-4b62-c8cb-08de46b2c5bb
-X-MS-Exchange-CrossTenant-Id: 1b16ab3e-b8f6-4fe3-9f3e-2db7fe549f6a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=1b16ab3e-b8f6-4fe3-9f3e-2db7fe549f6a;Ip=[193.8.40.99];Helo=[hexagon.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000B620.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR06MB9050
+User-Agent: Mozilla Thunderbird
+To: Jianhao Xu <jianhao.xu@seu.edu.cn>, Zilin Guan <zilin@seu.edu.cn>,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ Matthias Brugger <matthias.bgg@gmail.com>
+Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org,
+ Angelo Gioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+References: <20251228162636.3829733-1-zilin@seu.edu.cn>
+Subject: Re: [PATCH v2] soc: mediatek: svs: Fix memory leak in
+ svs_enable_debug_write()
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20251228162636.3829733-1-zilin@seu.edu.cn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:2R9t5g8+vO1RbE9qB5N19dDxuB5vRmvjLbdSqc8I0XWu0qdCIme
+ vARL+ww0knbI2Zn/XhhqaSsjSexRFnrcuT6JFcXdYd654Dxgoj09xzeJc0wi8TzK6RfAtxU
+ RWCES5d7SnWYum6UGe+odU2RW5yOgg2cwSEZcGcTcKFj7YUyJTuSVcMLGK35y0YDl8zd3Mv
+ O8gbpYcEKJX/q7QYngRPQ==
+UI-OutboundReport: notjunk:1;M01:P0:U94XEdgalC0=;N3iDBY5+lejSgasMT00dIntgiat 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 FYwlHtT9IBBWDWE/Bt5/Xbsd/5dTP+cJo9T1sI
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251229_001805_751794_64B90CD9 
-X-CRM114-Status: GOOD (  17.03  )
+X-CRM114-CacheID: sfid-20251229_001949_248479_02DC52A8 
+X-CRM114-Status: UNSURE (   6.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,66 +84,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SMBus block read transfers encode the payload length in the first data
-byte. When this first byte is zero, there is no payload and the
-transaction should terminate immediately.
+=E2=80=A6
+> +++ b/drivers/soc/mediatek/mtk-svs.c
+> @@ -789,7 +789,7 @@ static ssize_t svs_enable_debug_write(struct file *f=
+ilp,
+>  	struct svs_bank *svsb =3D file_inode(filp)->i_private;
+>  	struct svs_platform *svsp =3D dev_get_drvdata(svsb->dev);
+>  	int enabled, ret;
+> -	char *buf =3D NULL;
+> +	char *buf __free(kfree) =3D NULL;
+> =20
+>  	if (count >=3D PAGE_SIZE)
+>  		return -EINVAL;
+=E2=80=A6
 
-On i.MX, if the first byte of an SMBus block read is zero, the driver
-unconditionally overwrites the state with IMX_I2C_STATE_READ_CONTINUE.
-This causes the state machine to enter an endless read loop, eventually
-overrunning internal buffers and leading to a crash.
+You may reduce the scopes for involved local variables,
+don't you?
 
-At the same time, the controller remains in master receive mode and
-never generates a proper STOP condition, leaving the I2C bus permanently
-busy and preventing any further transfers on the bus.
 
-Fix this by handling the zero-length case explicitly: when the first
-byte is zero, ensure that a clean STOP is generated. In this situation
-the controller is in master receive mode, so it must be switched to
-master transmit mode before stopping. This is done by draining the
-pending received byte from I2DR, setting I2CR_MTX to enter transmit
-mode, waiting briefly for the mode change, and then proceeding with the
-normal STOP sequence.
+See also:
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Do=
+cumentation/process/submitting-patches.rst?h=3Dv6.19-rc3#n262
 
-This change has been tested on i.MX 8M Plus platform.
-
-Signed-off-by: LI Qingwu <Qing-wu.Li@leica-geosystems.com.cn>
----
- drivers/i2c/busses/i2c-imx.c | 13 ++++++++++++-
- 1 file changed, 12 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/i2c/busses/i2c-imx.c b/drivers/i2c/busses/i2c-imx.c
-index dcce882f3eba..f40deecf0f66 100644
---- a/drivers/i2c/busses/i2c-imx.c
-+++ b/drivers/i2c/busses/i2c-imx.c
-@@ -735,6 +735,16 @@ static void i2c_imx_stop(struct imx_i2c_struct *i2c_imx, bool atomic)
- 		temp = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2CR);
- 		if (!(temp & I2CR_MSTA))
- 			i2c_imx->stopped = 1;
-+		if ((temp & I2CR_MSTA) && !(temp & I2CR_MTX)) {
-+			(void)imx_i2c_read_reg(i2c_imx, IMX_I2C_I2DR);
-+			temp |= I2CR_MTX;
-+			imx_i2c_write_reg(temp, i2c_imx, IMX_I2C_I2CR);
-+			if (atomic)
-+				udelay(25);
-+			else
-+				usleep_range(25, 50);
-+			temp = imx_i2c_read_reg(i2c_imx, IMX_I2C_I2CR);
-+		}
- 		temp &= ~(I2CR_MSTA | I2CR_MTX);
- 		if (i2c_imx->dma)
- 			temp &= ~I2CR_DMAEN;
-@@ -1103,7 +1113,8 @@ static irqreturn_t i2c_imx_master_isr(struct imx_i2c_struct *i2c_imx, unsigned i
- 
- 	case IMX_I2C_STATE_READ_BLOCK_DATA_LEN:
- 		i2c_imx_isr_read_block_data_len(i2c_imx);
--		i2c_imx->state = IMX_I2C_STATE_READ_CONTINUE;
-+		if (i2c_imx->state == IMX_I2C_STATE_READ_BLOCK_DATA_LEN)
-+			i2c_imx->state = IMX_I2C_STATE_READ_CONTINUE;
- 		break;
- 
- 	case IMX_I2C_STATE_WRITE:
--- 
-2.43.0
-
+Regards,
+Markus
 
