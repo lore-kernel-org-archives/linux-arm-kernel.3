@@ -4,72 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC2ACD3B7E5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 02:54:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E13EE784BE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 02:54:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=75B4gxMdiRXoDbJNgqXGfnhtWbwMTHh+zPhA5Svb3G8=; b=AGt9Uan5rpb+ks7T87x2W326GX
-	Y123Bg4OcXtTRDE37jWO5EnFYlaUJs6U+kfeO/a2fuDXrM9dhEd7Wf1D30qngLzX6FSbo4aFwdj11
-	VNH/xcCkzwADg0u0/2aKxf5glt29xUa0ygEr6tmKQjQh6b3kgtnvjj3My3FjKm66RNLh2cBIhUswm
-	WBZ7QzeC61CejDX5VdJ5KxdNbPY7l2T/Oo4hJX3an0OxdnRujc+NtA2OcyKTEzaYZQSr8LJUftaeg
-	Sv3xHB+lMyrmG2LRZZNLLMz+LoX3VQwtIcPT65OYI8spfCAYzhnWhA7Qi82gK5L/k/8z24X2YH+bU
-	+gy/0gbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/NdGbuWp7ftRkPjnunLaD5jwXzwLePWBZ9bzlCxmCxo=; b=G2OdEIEWeYkKgNWuI71ZSrWspS
+	sLVrq8WnPLVNakGShY2v9hN7Tl3MPUZ/6rUDSyqclGQoiBftMwSiKQPPp8XO033QerxOA2yrRZXiB
+	Tmm3NAx+GGBrwIP4R5ncQYxuR3GYe/W24GqIwSoHxcFG5eeVf5q/y3ytszMvg8FRBLe9ZyF2CL1EK
+	0yRqcVcAsAQQrAuIrMO64zZYeexqRZmMgGrC3fMXSc80CzRmGyM0kgfrhUG9K7uzvU4JTEy8CJycH
+	QlSL58LZbRbNYZyzqXYnHgZ73mtQwymiEfdryCGudaqKX4cBfPEdYzs+IhVUrYcG5FJDH2FtyJVqH
+	l7Y+Q0MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1va3OY-00000003FWh-12MY;
-	Mon, 29 Dec 2025 02:54:06 +0000
-Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
+	id 1va3Of-00000003FXv-2Gaa;
+	Mon, 29 Dec 2025 02:54:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1va3OV-00000003FW4-1za0
+	id 1va3Oc-00000003FXQ-1xCb
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Dec 2025 02:54:04 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [10.196.197.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4dfglm07GFz9t5G;
-	Mon, 29 Dec 2025 03:53:56 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1766976836;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=75B4gxMdiRXoDbJNgqXGfnhtWbwMTHh+zPhA5Svb3G8=;
-	b=SUtLtPrgzr3EoF0uqM0r229UqRIsxVebpxhK2jxnCDcO94zq9P6Bnn1yqqgfZZWJa18OQ1
-	1CQH0ZyRvzwDI71o3r+jtyfUOAOeGqsrETlxZYnmOFEsso+opmjoJ+1mbOx0h6OUR5RQsZ
-	TKa1EYVDB+V41hhOWvebwE/87GbIATErVvNRsM6Mzn9oFFGppNJI4X4HYflQq19JFkBL3V
-	QR3ZI/DA+UH0V1ACLhr8+C7uY20YTQ4jB6uRX/w1bMmPLl4AGT6zpO83aqMsUqlLdzopNn
-	0nwjEHkWhaJ9T456AjOKApcgGlkn0p7wvc6Sk1AVzQzstBiyYO4fCsPKZLSWCQ==
-Message-ID: <b61fc304-26e0-422f-bb31-303e7bcbb824@mailbox.org>
-Date: Mon, 29 Dec 2025 03:53:53 +0100
+	Mon, 29 Dec 2025 02:54:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id F13D64416F;
+	Mon, 29 Dec 2025 02:54:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CF3BC4CEFB;
+	Mon, 29 Dec 2025 02:54:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766976849;
+	bh=QZM5mGv9VhE/uWGcqaujT1EMdVbiKWIz+MuunJJxOjM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=iJrBn4xBK+1bAL/v3+QJCND1+V5acXw3avlRpZ+QU3bHqTvGW1Oq1pzqTd0kQgP6X
+	 7UIsAetPRDqmHvk91HvJgcmszrdS3AMLMy8frTQ2YcieiWCquyky+Dfu8KDrj5n1b/
+	 QOAWBX7BWB52b6ageD1tkLRSEh2kO0V1A/bhagXQGFxfTlmzs7iUWvb0+kjefVBqQR
+	 jnZrHbL5Ose0if437UDhiVbzjvZ2llT8FEBZNwfd0D7mKeGhYTi53xwviKgROKt7xW
+	 IZJI6HMdV/sADIoxYUBGKsjDGwLXctDjhcM/CRM2BVFJX1duuxoGtEXfRO+jXRbDOc
+	 CuflTHAgdButg==
+Date: Mon, 29 Dec 2025 10:54:05 +0800
+From: Shawn Guo <shawnguo@kernel.org>
+To: Frank Li <Frank.Li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 1/1] arm64: dts: imx8mp-evk: add camera ov5640 and
+ related nodes
+Message-ID: <aVHtTRNYQS6ju_yQ@dragon>
+References: <20251114155001.1195702-1-Frank.Li@nxp.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH] arm64: dts: imx8mp: Update Data Modul i.MX8M Plus eDM SBC
- DT to rev.903
-To: Shawn Guo <shawnguo@kernel.org>
-Cc: "Rob Herring (Arm)" <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, imx@lists.linux.dev,
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Sascha Hauer <s.hauer@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Pengutronix Kernel Team <kernel@pengutronix.de>
-References: <20241226171404.84095-1-marex@denx.de>
- <173531253398.3886481.9345779510218290682.robh@kernel.org>
- <14c48d93-8ee6-4769-8dc3-5c527134bc77@mailbox.org> <aVHqlnNGNGmaF14m@dragon>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <aVHqlnNGNGmaF14m@dragon>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-MBO-RS-ID: 29f1afb84c51a004196
-X-MBO-RS-META: kspase6p397kpcxioyds6askqkgd9zd9
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251114155001.1195702-1-Frank.Li@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251228_185403_669446_0E4276D9 
-X-CRM114-Status: GOOD (  12.45  )
+X-CRM114-CacheID: sfid-20251228_185410_554426_240302BD 
+X-CRM114-Status: GOOD (  14.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,30 +79,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/29/25 3:42 AM, Shawn Guo wrote:
-> On Fri, Dec 26, 2025 at 11:24:29AM +0100, Marek Vasut wrote:
->> On 12/27/24 4:18 PM, Rob Herring (Arm) wrote:
->>
->> Hello Shawn,
->>
->>> On Thu, 26 Dec 2024 18:13:27 +0100, Marek Vasut wrote:
->>>> Update the DT to match newest Data Modul i.MX8M Plus eDM SBC rev.903
->>>> board which implements significant changes. Keep some of the rev.900
->>>> and rev.902 nodes in the DT so that a DTO can be used to support old
->>>> rev.900 and rev.902 boards easily.
->>
->> [...]
->>
->>> arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc.dtb: tpm@2e: compatible: 'oneOf' conditional failed, one must be fixed:
->>> 	['st,st33tphf2ei2c', 'tcg,tpm-tis-i2c'] is too long
->>> 	'st,st33tphf2ei2c' is not one of ['infineon,slb9673', 'nuvoton,npct75x', 'st,st33ktpm2xi2c']
->>
->> This is addressed in bindings patch [1] . Can this patch and the bindings
->> patch be applied ?
->>
->> https://lore.kernel.org/all/20241226171124.83735-1-marex@denx.de/
+On Fri, Nov 14, 2025 at 10:50:01AM -0500, Frank Li wrote:
+> Add camera ov5640 and related nodes.
 > 
-> Could you resend them?
-Why ? The emails are in lore/patchwork and the patches still apply just 
-fine, don't they ?
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  arch/arm64/boot/dts/freescale/imx8mp-evk.dts | 80 ++++++++++++++++++++
+>  1 file changed, 80 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
+> index 3730792daf501..f5c19549acce5 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-evk.dts
+> @@ -74,6 +74,27 @@ pcie0_refclk: pcie0-refclk {
+>  		clock-frequency = <100000000>;
+>  	};
+>  
+> +	reg_1v5: regulator-1v5 {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "1v5";
+> +		regulator-min-microvolt = <1500000>;
+> +		regulator-max-microvolt = <1500000>;
+> +	};
+> +
+> +	reg_1v8: regulator-1v8 {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "1v8";
+> +		regulator-min-microvolt = <1500000>;
+> +		regulator-max-microvolt = <1500000>;
+
+1800000 ?
+
+> +	};
+> +
+> +	reg_2v8: regulator-1v8 {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "2v8";
+> +		regulator-min-microvolt = <1500000>;
+> +		regulator-max-microvolt = <1500000>;
+
+2800000 ?
+
+Shawn
+
+> +	};
+> +
+>  	reg_audio_3v3: regulator-audio-3v3 {
+>  		compatible = "regulator-fixed";
+>  		regulator-name = "audio-3v3";
+> @@ -556,6 +577,30 @@ &i2c2 {
+>  	pinctrl-0 = <&pinctrl_i2c2>;
+>  	status = "okay";
+>  
+> +	camera@3c {
+> +	       compatible = "ovti,ov5640";
+> +	       reg = <0x3c>;
+> +	       pinctrl-names = "default";
+> +	       pinctrl-0 = <&pinctrl_csi0_pwn>, <&pinctrl_csi0_rst>, <&pinctrl_csi_mclk>;
+> +	       clocks = <&clk IMX8MP_CLK_IPP_DO_CLKO2>;
+> +	       clock-names = "xclk";
+> +	       assigned-clocks = <&clk IMX8MP_CLK_IPP_DO_CLKO2>;
+> +	       assigned-clock-parents = <&clk IMX8MP_CLK_24M>;
+> +	       assigned-clock-rates = <24000000>;
+> +	       powerdown-gpios = <&gpio2 11 GPIO_ACTIVE_HIGH>;
+> +	       AVDD-supply = <&reg_2v8>;
+> +	       DVDD-supply = <&reg_1v5>;
+> +	       DOVDD-supply = <&reg_1v8>;
+> +	       status = "okay";
+> +
+> +	       port {
+> +		       ov5640_mipi_0_ep: endpoint {
+> +			       remote-endpoint = <&mipi_csi0_ep>;
+> +			       data-lanes = <1 2>;
+> +		       };
+> +	       };
+> +	};
+> +
+>  	hdmi@3d {
+>  		compatible = "adi,adv7535";
+>  		reg = <0x3d>;
+> @@ -660,6 +705,10 @@ &i2c5 {
+>  	 */
+>  };
+>  
+> +&isi_0 {
+> +	status = "okay";
+> +};
+> +
+>  &lcdif1 {
+>  	status = "okay";
+>  };
+> @@ -678,6 +727,19 @@ &micfil {
+>  	status = "okay";
+>  };
+>  
+> +&mipi_csi_0 {
+> +	status = "okay";
+> +
+> +	ports {
+> +	       port@0 {
+> +		       mipi_csi0_ep: endpoint {
+> +				remote-endpoint = <&ov5640_mipi_0_ep>;
+> +				data-lanes = <1 2>;
+> +		       };
+> +	       };
+> +	};
+> +};
+> +
+>  &mipi_dsi {
+>  	samsung,esc-clock-frequency = <10000000>;
+>  	status = "okay";
+> @@ -849,6 +911,24 @@ MX8MP_IOMUXC_SAI3_RXC__GPIO4_IO29		0xd6
+>  		>;
+>  	};
+>  
+> +	pinctrl_csi_mclk: csi_mclk_grp {
+> +		fsl,pins = <
+> +			MX8MP_IOMUXC_GPIO1_IO15__CCM_CLKO2	0x50
+> +		>;
+> +	};
+> +
+> +	pinctrl_csi0_pwn: csi0_pwn_grp {
+> +		fsl,pins = <
+> +			MX8MP_IOMUXC_SD1_STROBE__GPIO2_IO11	0x10
+> +		>;
+> +	};
+> +
+> +	pinctrl_csi0_rst: csi0_rst_grp {
+> +		fsl,pins = <
+> +			MX8MP_IOMUXC_GPIO1_IO06__GPIO1_IO06	0x10
+> +		>;
+> +	};
+> +
+>  	pinctrl_eqos: eqosgrp {
+>  		fsl,pins = <
+>  			MX8MP_IOMUXC_ENET_MDC__ENET_QOS_MDC				0x2
+> -- 
+> 2.34.1
+> 
 
