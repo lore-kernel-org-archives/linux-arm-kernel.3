@@ -4,64 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB8EBE92FD7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 22:12:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B56EE94102
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 23:25:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X5e3+JrsfjcY8Yrf/Recn5oGZCMrDihuEaUMy6DZ3rw=; b=CPixgSvXjB5sq6nSgqJ1wTKIy4
-	1x29XF0Eg3pYfFUnTD0UWCmSqzlldmMlEHEQ/8X8wPiha+78OhrgRRjO2lVs6OJso64CW0oAXC3LF
-	coCCLUgRe7YvP8TH4J0pAdhGhh6QAIsdlGf+f2vLNOQRk/sH9ysVEb3Gc7/7DUsnkae3jdVZVnHiO
-	TYKkGJ2rDI+2MYYiWLXF6pZ2RXnCgZmU+d7hRBmkPc+DD1KwKD44RgXB8XaIIKnEpJaEtkB2RzuxV
-	CallJx9RmCs5m0Wjjh9OHybqIH1j7My551lDGnz6VFjEaI4YbfhVXSybpgE0vmeOfGp+VgYt5qoXp
-	JFJOucsA==;
+	bh=8g/RL9DpYMne2dKMvOLjYxHkoQzMWz5i3+ifdqNtVHc=; b=iTHaEFfq8DmJIe9JH0I4MmXyO0
+	ueSsoaicXbbaUfjx/6pHlM/5qHD995rmL1RSQsBoB/kXf8aIkbrHk23VJqY4zkV8dCseBBE4Fhbwa
+	1ktA2mJbKZ0Si/whHE+fep7o+qsHHf6uxl2J9gVXNRZUj49iRUQ4Kr1U52Pq49+PzbSto2C5zKi/Q
+	w402rEWfpem0iV7u6oQz+f2FJhn7VC0PsB9upUMwn1UIhftSwlmIKY8XufF9yCUBk6UOsBO9buJ7b
+	FTImc2j8WrAWlC1XwxqjdkPfPHZtAlOSIqPekMm59qRNOdFTrlO0FsjK47jEgCxGDJE7QBPxgiYau
+	TGFtjRbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaLTL-000000046o4-3TjL;
-	Mon, 29 Dec 2025 22:12:15 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaLTJ-000000046nf-079h
+	id 1vaMcJ-000000048rA-2LPU;
+	Mon, 29 Dec 2025 23:25:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vaMcH-000000048qi-0Bwi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Dec 2025 22:12:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AFEB4497;
-	Mon, 29 Dec 2025 14:12:02 -0800 (PST)
-Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EBCC23F694;
-	Mon, 29 Dec 2025 14:12:04 -0800 (PST)
-Date: Mon, 29 Dec 2025 23:12:06 +0100
-From: Beata Michalska <beata.michalska@arm.com>
-To: "zhenglifeng (A)" <zhenglifeng1@huawei.com>
-Cc: Will Deacon <will@kernel.org>, catalin.marinas@arm.com,
-	rafael@kernel.org, viresh.kumar@linaro.org, sudeep.holla@arm.com,
-	gregkh@linuxfoundation.org, dakr@kernel.org,
-	ionela.voinescu@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org, linuxarm@huawei.com,
-	jonathan.cameron@huawei.com, vincent.guittot@linaro.org,
-	zhanjie9@hisilicon.com, lihuisong@huawei.com, yubowen8@huawei.com,
-	zhangpengjie2@huawei.com, wangzhi12@huawei.com,
-	linhongye@h-partners.com
-Subject: Re: [PATCH v6 0/3] arm64: topology: Handle AMU FIE setup on CPU
- hotplug
-Message-ID: <aVL8tp7k1ne9DWSX@arm.com>
-References: <20251119081356.2495290-1-zhenglifeng1@huawei.com>
- <aS2z0EURwHbbGZab@arm.com>
- <9b6882dc-a91a-42d6-bf76-347338930d71@huawei.com>
- <aS8GZOuaS1-j14MD@arm.com>
- <29253319-ced9-4ab6-a58e-28afdf235cde@huawei.com>
- <aTx2V4am0FNHm03R@google.com>
- <62ad0257-aa50-4ab6-bd46-64c3963e4b94@huawei.com>
+	Mon, 29 Dec 2025 23:25:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 09E6A41697;
+	Mon, 29 Dec 2025 23:25:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B29ADC4CEF7;
+	Mon, 29 Dec 2025 23:25:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767050731;
+	bh=gBic61XhRnhOC+5nNfIY22uN2UTZjrJ0gw/UGoHisUw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aY9VGVHhUxXe6n10yUd3Ij+dXkWLdgZUtVl2t7HHs71hCLrC6/bpMaQhij2BtIOKX
+	 8I9pes7DADMkBv7d6XdEZdDndszB06v88ncLpH1JwJCzwgDIQiwzlEfOBK3CVDDrJ7
+	 g6AWyiwCStbcLLy2cD90Xpf77wPXM7KUN3Ziq614OHCEYrBfIKMXAvKJ9+da00RSoa
+	 Eh9kpcEtN61/0dJ7xPJwAQ65YtSVVmkC4MX/rIBohFQKt5HUe9P7lLhDT6eM6sme6f
+	 supwRhDPB4Lf3Vpl4g88tqGjg4ygBBa7DKyXeAli3xv7pGi007KfbwA4t9pS90CUcg
+	 ZBVU67HBEptBQ==
+Date: Mon, 29 Dec 2025 17:25:30 -0600
+From: Rob Herring <robh@kernel.org>
+To: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Jens Wiklander <jens.wiklander@linaro.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sumit Garg <sumit.garg@kernel.org>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	op-tee@lists.trustedfirmware.org, devicetree@vger.kernel.org
+Subject: Re: [PATCH v20 1/6] dt-bindings: firmware: Add TEE remoteproc
+ service binding
+Message-ID: <20251229232530.GA2753472-robh@kernel.org>
+References: <20251217153917.3998544-1-arnaud.pouliquen@foss.st.com>
+ <20251217153917.3998544-2-arnaud.pouliquen@foss.st.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <62ad0257-aa50-4ab6-bd46-64c3963e4b94@huawei.com>
+In-Reply-To: <20251217153917.3998544-2-arnaud.pouliquen@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251229_141213_105210_425B5110 
-X-CRM114-Status: GOOD (  27.42  )
+X-CRM114-CacheID: sfid-20251229_152533_106872_052042A7 
+X-CRM114-Status: GOOD (  11.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,62 +81,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Dec 20, 2025 at 05:09:52PM +0800, zhenglifeng (A) wrote:
-> On 2025/12/13 4:08, Will Deacon wrote:
-> > On Fri, Dec 12, 2025 at 05:27:09PM +0800, zhenglifeng (A) wrote:
-> >> On 2025/12/2 23:31, Beata Michalska wrote:
-> >>> On Tue, Dec 02, 2025 at 11:05:25AM +0800, zhenglifeng (A) wrote:
-> >>>> On 2025/12/1 23:27, Beata Michalska wrote:
-> >>>>> Hi,
-> >>>>>
-> >>>>> Apologies for the delay in reviewing this - currently in progress....
-> >>>>> Out of curiosity: what's the cpufreq driver used for testing this series ?
-> >>>>
-> >>>> I used cppc_cpufreq for testing this. But with some modifications in
-> >>>> processor_driver.c, or you'll find that the driver will fail to load with
-> >>>> maxcpus set. The modification below is only a temporary solution. I'm still
-> >>>> working on that.
-> >>>>
-> >>> Right, so overall the implementation looks good - thanks for that.
-> >>> There are two issues though with the cppc cpufreq driver.
-> >>>
-> >>> One: as you have already noticed - it fails to register when
-> >>> cpumask_present != cpumask_online.
-> >>>
-> >>> Second: it will mix the sources of the freq scale if not all CPUs within the
-> >>> policy have AMUs enabled/valid. This is due to the fact that at the time of
-> >>> registering the driver and initializing the FIE support policy->cpus ==
-> >>> policy->related_cpus. Assuming scenario when there are two CPUs within the
-> >>> policy, one being offline and missing valid AMU counters,
-> >>> the topology_set_scale_freq_source from cppc cpufreq driver will register
-> >>> the tick handler for both CPUs, whereas AMU support will (rightly so) register
-> >>> only for the firs one. When the second CPU comes online, the mismatch will be
-> >>> detected and the arch callback will get cleared for the first CPU, but the
-> >>> second one will remain unchanged.
-> >>>
-> >>> That said, I do not think any of those issues is a blocker for this series.
-> >>> But both would need fixing.
-> >>
-> >> I believe Beata is OK with this series. So I think we can move ahead with it
-> >> now.
-> > 
-> > Please repost at -rc1. It would be nice to have an Ack from Beata...
+On Wed, Dec 17, 2025 at 04:39:12PM +0100, Arnaud Pouliquen wrote:
+> Add a device tree binding for the TEE-based remote processor control
+> service implemented as an OP-TEE Trusted Application identified by
+> UUID 80a4c275-0a47-4905-8285-1486a9771a08.
 > 
-> Hi Beata,
-> 
-> It would be nice if you could give this patch an Ack.
-> 
-> Thanks.
-> 
-Apologies, 've been away.
+> The TEE service node is a child of the "linaro,optee-tz" firmware node and
+> acts as a container for remoteproc devices that are controlled via TEE.
 
-Acked-by: Beata Michalska <beata.michalska@arm.com>
+Is this generic for any remoteproc device or just ST's remoteproc. Looks 
+like the latter to me.
 
----
-BR
-Beata
-> > 
-> > Will
-> > 
-> 
+> In addition, the "linaro,optee-tz" binding is updated to specify the
+> '#address-cells' and '#size-cells' values used for child TEE service
+> nodes.
+
+I'm pretty sure I already rejected per service/app child nodes for 
+OP-TEE when its binding was submitted. If we do need something in DT 
+to define some resources, then can't we have some sort of 
+standard/common communications channel? I don't care to see some sort of 
+free-for-all where we have every vendor doing their own thing. OP-TEE 
+needs to standarize this.
+
+Rob
 
