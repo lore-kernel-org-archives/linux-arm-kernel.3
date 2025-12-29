@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7997EE92FD7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 18:40:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B954AE92FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 18:40:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ClyoGQdLbQ+NSakHU5SbIxGsiXAmeIUAvdUGZfMfHas=; b=dqtjBZhT2invXNjIG+tcMfTxpC
-	C20fctt6B6AW8Zr+hWPlxlI3ThcQneCoJLip7b8gbHHWcyF1uuogdafGuVEEQlaWC9Zv6A6Xtp8WJ
-	B2v6CaSxWHPF49JQFWnW1W25foFeJpt98TT2e7AZt91dDbwpddeK2Zx2HH9HZDnbEBB3so+HuVAJZ
-	xMvN8hiQ22s12X4xuImfg9kXQWz4FgRPGgvJ7SuAP1rCAqslMmeSR8b5+AjqPgDHviaRgTwg1ilJt
-	jXRZgdxDm0InnXy8ID0OcIFzCorwuMSs+04xLTb+EXUkmu/VYCFUdNxYvFiHFYY+AOlBk1vSR3uvX
-	YF4uEPlA==;
+	bh=Pe7/bfwW61qpTH+JIS3AKR1VkqKbIoFXot2V67cYu6g=; b=UeXySShme+YRFIEZyVG/6YIvhC
+	JfzBdN/IMDvL9WRwvX4KFTixlUEf/PUCG29zUic2NYojcDoP/KoQPPKRn1r/MpIO+pP+H0IxadYjy
+	AI4as5G6olt7pLstYODXLK0BRLCEAXUJr+nuOH5FzbU15+/AK0RhZnoFtAgIhWwABvNDLFu607dve
+	udnQRQwoGAx8bxwt7mGUG8CeYXmuXXexhd+8CUpukOL+Zb5UN+N0bMRzCSsWS9vUHhjMhdjjeQUxf
+	CiJJPyedCQkbB8aZXQuwsdICSqDidNEmmUnRQCYjsckOat0nQkwrNp5pEm5EehFRi+FJ58QMDnFoo
+	lNnOpAEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaIAW-00000003xbl-3rWX;
-	Mon, 29 Dec 2025 18:40:36 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1vaIAZ-00000003xex-0Xwg;
+	Mon, 29 Dec 2025 18:40:39 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaIAM-00000003xVW-1usl
+	id 1vaIAT-00000003xZ9-3scw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Dec 2025 18:40:28 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4779aa4f928so93000415e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Dec 2025 10:40:26 -0800 (PST)
+	Mon, 29 Dec 2025 18:40:35 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-477bf34f5f5so68343465e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Dec 2025 10:40:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sartura.hr; s=sartura; t=1767033625; x=1767638425; darn=lists.infradead.org;
+        d=sartura.hr; s=sartura; t=1767033632; x=1767638432; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ClyoGQdLbQ+NSakHU5SbIxGsiXAmeIUAvdUGZfMfHas=;
-        b=0UKBVkX6WIb/0iFP+8qmV9OzaFlOpfR3D0BJHCfUDLpr3X4azPpvzqb3qjZysN8v9a
-         HiYAC/YhdcsabZypP0Wfg06RGgkvC1b2UIJk0QfUuhsiKEcs6tJZXMu0sMbAz/S/5ECJ
-         kR4wb8hJwGFrNZeV9ATace+vFPeP1mYWw/cZSbnLn65yviL6U7mqs/lCGDHEsAaBWBab
-         G7GTerumeG8kj+d6Nh9OUslj/cqLI1A3eSSkGjBInuuG5vQKsjkWyw3JsNR37wK6AMM9
-         4lCpcVrbufl3y1DDl+bYTjD0ZccKnNTxLDSQq3W4UEPQo5lJf3qB6ASM1R4a/YrzIrZh
-         /dFg==
+        bh=Pe7/bfwW61qpTH+JIS3AKR1VkqKbIoFXot2V67cYu6g=;
+        b=nKwx+66vCc9dJKkbegcthJOyrtSfmlGAzyToffFDx005KdPq37fPSoNE0JWUzvVR0F
+         X6W9rKR7MxkF8SdpuZEa4f40sTS+zhXpRrt+/QjyNTwNS0pjtEujS1OSRyapgajDv/gU
+         8djoTDz58jIP8H6Wam7WsduSxeZa7dI3jiLOIV2Ti7WQWsGWb0al/m5x7wTM+Aoadsps
+         AeAXm3bpHKFJY8E0fyuXkuZIJTBM68VzM5IydQc0A0K2lNaSWN7CBMd6aCVLABz4+vJQ
+         ofWeavKDTTI/YZx8yksFuL3P+H2ctgFeFjLLaJ2CAE38p6I/M1Oy7IJHsug9Ol2+r8ZV
+         Y66w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767033625; x=1767638425;
+        d=1e100.net; s=20230601; t=1767033632; x=1767638432;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=ClyoGQdLbQ+NSakHU5SbIxGsiXAmeIUAvdUGZfMfHas=;
-        b=LfBcHPFBRUyUjyQNMr3/gvvh3HNVVQDt1gVaBn89aO4+79TCMEvzr3E0wsT+us9cDc
-         65nOApcgvwa6n40zYk74+uUYtCDiNF+DkIW3xR/PAW37qJU1cZcu+xvmPYakRkEgtwo2
-         3unw6QFtJZ8SkTaM8IcSBNYhCptfAciyrTp7LQ4zHy8uQ3zfbH4iDZ0E0OQx/iavDXZu
-         D9A/WhQj/HQpB8WrjpYX6aiUAqTorEQVHwKGFSfE+BX4rWb9c0vJezNHBxp29VOAAU45
-         xf4K2gIlmnN4dz56PrQdoIa4D1MmSR0crrtPM7DbRwx+5aWOmyqLVIOL4OghoMcseE7H
-         HR3w==
-X-Forwarded-Encrypted: i=1; AJvYcCWQvIgFdI7WIEB5M7ndEKD+JQp1aDFi+9YyxpR2hB2cXKdTQE1HjsVLasirQ7rQdNPaLRnWlvQLad2NIJYf0N+H@lists.infradead.org
-X-Gm-Message-State: AOJu0YxEUgQBK3TDn/rBzfrCgkQn3TEXgIGZ6xB6aPlaSbW33G1wW8+F
-	bdh4dEw6hX3LEitV5sI3NdoxfsaIyKB2Wga+5NAyiLKmKDOo6jvgNQL9JoG3x9zYrQ4=
-X-Gm-Gg: AY/fxX6L77bxe5A3cUQAaxuD+5ib8CMLgknPgv41VzRrV6aFxtSrP6mtAWflI/UiGaq
-	alTs/LlovfMic7W/3l254Mw7rpi0JJpF7U7ee8LZRXUxM75FXNeO73fso37JhaepYiY738NTKqC
-	Di5dj2XzlUyWEQ19UGPyEgupxcFGs4tUCJEeWFVNE9rh4SbXWkUjTxTXu02C/8Wqi5utagv2qvC
-	PcikcTRbMTnHZbm6ZzuukWeuxg9HxRy3rb8oXdHowDg2c/mPP+xMo0BkwDtWOqDbiP31cE2Hf8e
-	q+dJF3tKtCStV0SBwOzhvjjLcPGhbdPvYpStC8L41oIssuR/+970Ak9xcmiLGDPCuT2Om6ygiDP
-	tjfYh7rRpxIxl2zmCvAT+lU0ocKul87e5m8JCwk1xRP8B0f3wQQkN1CC5GGx3q09+Zr8zjPbImc
-	fhxnIET+X3I4gXATbtxiVlkLyh05WBzKVdyRpjjkbHbp/J5u4V+XrAnSLG6bSOmujiRh/kUJH6S
-	miyCBOS0xqmGDUx29ZadmLjElOf/tWlWv3YNnE=
-X-Google-Smtp-Source: AGHT+IE/qB6NEHP1QqGV5PfcwRRofx95tVM5do9NhE19foMR/57boxHx8KStBk+G0GxCGRT1W9RoKA==
-X-Received: by 2002:a05:600c:444b:b0:477:9814:6882 with SMTP id 5b1f17b1804b1-47d1953b77fmr317021115e9.5.1767033624761;
-        Mon, 29 Dec 2025 10:40:24 -0800 (PST)
+        bh=Pe7/bfwW61qpTH+JIS3AKR1VkqKbIoFXot2V67cYu6g=;
+        b=fr0grZeK2uwQSZqud4oY2ipoLQfoZ+2JNix62nqY5L+2fuGAVWwrTVXHJn5NR/K7fF
+         V/M0N89hsnB1T3u5uo9U6aB+4JRjsg5ZogDXtiWOm5JAhTEM1S5DGdd1ZwGN1rL2yb+7
+         +R1LkMTHFGb58CbYaPWeNbcAvYDraIKwWOAqESGBzYQPUGOKs71yUj7vyHRWtq0ureaY
+         Ku0M5NG64I3DBaTxg8xjR5iOUPl+YFk5JQKMiuh/FqZOtlu9Jb19keNqNB9ccaifaKt+
+         /b7tGjUk3gDOK++J3bjzg2KQ0/iwl0Iqd9oruzgyRVWNAq8JroAsJZF6/qfWKcaH2M6D
+         umdA==
+X-Forwarded-Encrypted: i=1; AJvYcCWHkCGi2geLIgmuggZ0VRRYW6NbOSz3/hSbrxJJX+f7rffh1cLkx/wyrGh0GEDLhFXXXqaxEBNKD7SVXGRcy19F@lists.infradead.org
+X-Gm-Message-State: AOJu0YzpOJ38KW1wXWR9aWdpJIFYPMnnov9RQTZPxw6f8JS1KhWVP82/
+	sz+gbiyvf/y6CpKtt1fsmWx6JvvdgOj4XqCyMK9xhmrpqLnmjI36VuS372S2IK5hiMc=
+X-Gm-Gg: AY/fxX6sbU7a2GArEDdGk4HVTKCb4x8LnOFIkysDsCmMRVXuWd7JOX9g75le1PhrXF6
+	3elgX9a80QfFA8y+u3FS11ZzuhshtzlOQIvp3+Vxi7d72ZSCetk2e9fpCAMISFJcV1qLnAvcxOm
+	pqr1eV9mzNfsUdE1x+pjUaPk5jAlKgHg269I6DozZ6qtwBcUarj8xpNawb1VCLr+IQe49UYtD9v
+	YEKptktjScirEQ1wmxD7RMSTcxsR2ZfEASj41zezqx5Ui8F6Q+FP8AcvTw4209zI+mdHK0bhKmb
+	0JOWfqmzlle2WrX73WIaUvXlQNEp5/PfxzhAMyUwzrnmOQP3WgL/cnINeWFNkqdkLz3SsDFZZXY
+	Hy0vXaTH9wI+yz3i+ET4HfaZ5cZb+8/Kh/3C2Dukdld8BsWkwoyh2nHryNDcctl+Q0c5OcdULQT
+	ngI0fPSvH5qWNsnUFWZ/o180GDc6cXFnwMoSzwkjHIZ5L/wI7INumwWdChubzm1FBiKMqz53mo7
+	xDecX6oky7OBnbI5YWhT1tk442c
+X-Google-Smtp-Source: AGHT+IHMeEPdVuxCEsr3HbzwXW9O9zK0z+wZ0vfJLANR2lbSoc703JFfFuycpKgytpooUs272ghcDw==
+X-Received: by 2002:a05:600d:108:20b0:477:9986:5e6b with SMTP id 5b1f17b1804b1-47d1c038664mr255232695e9.28.1767033632356;
+        Mon, 29 Dec 2025 10:40:32 -0800 (PST)
 Received: from fedora (cpezg-94-253-146-116-cbl.xnet.hr. [94.253.146.116])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-47be27b28a7sm604907455e9.12.2025.12.29.10.40.23
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-47be27b28a7sm604907455e9.12.2025.12.29.10.40.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Dec 2025 10:40:24 -0800 (PST)
+        Mon, 29 Dec 2025 10:40:32 -0800 (PST)
 From: Robert Marko <robert.marko@sartura.hr>
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -112,17 +112,17 @@ To: robh@kernel.org,
 Cc: luka.perkov@sartura.hr,
 	Robert Marko <robert.marko@sartura.hr>,
 	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v4 06/15] dt-bindings: rng: atmel,at91-trng: add microchip,lan9691-trng
-Date: Mon, 29 Dec 2025 19:37:47 +0100
-Message-ID: <20251229184004.571837-7-robert.marko@sartura.hr>
+Subject: [PATCH v4 10/15] dt-bindings: net: mscc-miim: add microchip,lan9691-miim
+Date: Mon, 29 Dec 2025 19:37:51 +0100
+Message-ID: <20251229184004.571837-11-robert.marko@sartura.hr>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20251229184004.571837-1-robert.marko@sartura.hr>
 References: <20251229184004.571837-1-robert.marko@sartura.hr>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251229_104026_505273_2B13A684 
-X-CRM114-Status: UNSURE (   8.34  )
+X-CRM114-CacheID: sfid-20251229_104034_373076_213B4B98 
+X-CRM114-Status: UNSURE (   8.94  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -138,7 +138,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document Microchip LAN9696X TRNG compatible.
+Document Microchip LAN969x MIIM compatible.
 
 Signed-off-by: Robert Marko <robert.marko@sartura.hr>
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
@@ -146,21 +146,31 @@ Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Changes in v3:
 * Pick Acked-by from Conor
 
- Documentation/devicetree/bindings/rng/atmel,at91-trng.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ Documentation/devicetree/bindings/net/mscc,miim.yaml | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/rng/atmel,at91-trng.yaml b/Documentation/devicetree/bindings/rng/atmel,at91-trng.yaml
-index f78614100ea8..3628251b8c51 100644
---- a/Documentation/devicetree/bindings/rng/atmel,at91-trng.yaml
-+++ b/Documentation/devicetree/bindings/rng/atmel,at91-trng.yaml
-@@ -19,6 +19,7 @@ properties:
-           - microchip,sam9x60-trng
-       - items:
-           - enum:
-+              - microchip,lan9691-trng
-               - microchip,sama7g5-trng
-           - const: atmel,at91sam9g45-trng
-       - items:
+diff --git a/Documentation/devicetree/bindings/net/mscc,miim.yaml b/Documentation/devicetree/bindings/net/mscc,miim.yaml
+index 792f26b06b06..2207b33aee76 100644
+--- a/Documentation/devicetree/bindings/net/mscc,miim.yaml
++++ b/Documentation/devicetree/bindings/net/mscc,miim.yaml
+@@ -14,9 +14,14 @@ allOf:
+ 
+ properties:
+   compatible:
+-    enum:
+-      - mscc,ocelot-miim
+-      - microchip,lan966x-miim
++    oneOf:
++      - enum:
++          - mscc,ocelot-miim
++          - microchip,lan966x-miim
++      - items:
++          - enum:
++              - microchip,lan9691-miim
++          - const: mscc,ocelot-miim
+ 
+   "#address-cells":
+     const: 1
 -- 
 2.52.0
 
