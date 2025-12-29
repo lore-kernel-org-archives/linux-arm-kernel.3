@@ -4,168 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87F52E8FDB1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 03:42:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AACBD3B7E5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 03:45:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=05vngKVz4lfpFdy+8zts3aFlxXn+rugFVSknSHjzbrU=; b=tbuf+U0tPsgAscWnOduimQR3cR
-	q7gX777/1mIlRZ7Jh7vmODi2lPCzYyR62++T6cySQGKe/MWFypfL9uBOEocCtHwVLHlkM9A5cUSzf
-	ZKjYeMlcrcqT+oh9gyd5G6idxxcxET8oq8hT/WBEEtboz7uU0SqhX3qZHAqfg3Ks+/7mbQ9fhKO5t
-	NAXiYRh2MWRj9r1XCL8qefzoYkPVjj5lzKD0VDmQrgsaXUOl6+I9/fkWKvr/31Lx2lg090pkYKrwh
-	noYOmJlV2k3sdg6VYWIyi22+qAxtcT23+ASBN4nLye2r6s0lmwIPLoXmvXzd1w52oCql3JwRqeHvS
-	cjSSISlA==;
+	bh=6GnrEUv4bi+55mgugovFVEyUPy2XIupWUpfObnHg5e4=; b=VUlrzoVlsn4cCf3IBdZCNSacCH
+	+Lyj/8D+qO/j9amOO1SqxrqYUJPWSlqcU0W/B+BtxIMFMpeqfOCak2x6DsSL/+XZT6YO8id7gVKD2
+	9A0mOguoh0C7XPwJNLbc0ppCxyy5zC69OOcRcdOz/CXqQTNcwqrqpRKDzidPgO+pHVoju7k0huGiE
+	d8hbGK4iYP4y7+xDjD/5RJvkCL/BTF/9nZikCvAkoAYbyDz+Q+pwnJKfl/zmJkid1E89lJBT+QEW5
+	TFFTQM1FRB9RztGUiyBsQhbYnEKkLMka50JcBsBRiWx+pdc2YbIJNMezy4ea5Mh8W9c5fNyyGk0N/
+	41FhPFIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1va491-00000003I1r-0pgq;
-	Mon, 29 Dec 2025 03:42:07 +0000
-Received: from mail-westeuropeazon11013024.outbound.protection.outlook.com ([52.101.72.24] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1va4CH-00000003IFB-12nJ;
+	Mon, 29 Dec 2025 03:45:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1va48y-00000003I0g-2is4
+	id 1va4CF-00000003IEz-36xS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Dec 2025 03:42:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=iW32okuLxG2gTM/exR2PKTRVwo5M+6No/NEYwZL7C2Z1ZHdI507iuE5+jVR8v+aeICfQq3c1AviEexnaZPI2yMG3z6oWCnUbPXGO1MVlb50xvEVuACN6JOd68329KXVrJRwCY55Ngqj3rmhMUqJrAFvDk4A7FQx4Z7wPBPmWzPYL/SwTLyj1kLyRn9tTNlHKL2t8JzdhzzAXdrYZkdFkx1oiw1RRfC5CmNtTiIx+F3tClZr8cEoQItYUAozfvx557MMD6HrKocqbtfev+aVdZcz4Oi1eAsMrC1v+jAKaO0EhJy555EFKhL3qt1uoDP8Zewc0AdfrN5f6/vQGFpobpA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=05vngKVz4lfpFdy+8zts3aFlxXn+rugFVSknSHjzbrU=;
- b=YcblN40bG/rN1bONOkeXjqlTy3+VVrnMbBWiOLY6liFkFID5hlqx7IMQGg93SnSzBOzswA5osP7c9M0/dTljCHpb7SdHvNRU7njIoZL2ZACAAWRN3aSwv1ST4zveqhvME1GzeNB0CtOXNIsuJxGd3m5bcuGb7mQW1mo8m6Q6jBDJAxET9JqaH69DZNFnEvJMrgniFHhsmsXDfRYu5JyWa8s52jO8ISRPPmCSWjZse6JPEjojLrx3RH/kfge36mF986tQIE/NVG+/kV5t9OgNLAiR3EBENuslvR/mRqelNGvSJLqWGLXVtSdWuaPAXKcRd9uV96rUbrB+Ughim6P0Bg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=05vngKVz4lfpFdy+8zts3aFlxXn+rugFVSknSHjzbrU=;
- b=nC3TTDnTcNbNas0x32NrzTUPDTfV/qKCKcuNoQX8TfpIoxb2SnDdzsw3RsCltBYBkTD2XPzkftDOdNQcM672I4Uaf4IXLrxYI2l4nrGrr2ThNOVmjiEsVSI4xZ9j3RcQq+itYiAYU/dpjRSm/ZqHSU4R9ZBAefFR/rHtggFCjYbhjHcKjMsBvyiVps4bBz3JqaQeLBQ7hOBbOuEMW0vimnpsyDOxP15hROyyQY8kvB3BoQXx8znTvlcrFoUyCxWrJjEN9J1rcIvDAc2NCE83Dg48v3Bb3HfPvUvOlqhkU12LA3eNM5so7QtLPOGqNTOEt86qBZPxBats0y3SYh9fuA==
-Received: from PAXPR04MB8510.eurprd04.prod.outlook.com (2603:10a6:102:211::7)
- by PA1PR04MB11456.eurprd04.prod.outlook.com (2603:10a6:102:4f7::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9456.14; Mon, 29 Dec
- 2025 03:41:58 +0000
-Received: from PAXPR04MB8510.eurprd04.prod.outlook.com
- ([fe80::a7c2:e2fa:8e04:40db]) by PAXPR04MB8510.eurprd04.prod.outlook.com
- ([fe80::a7c2:e2fa:8e04:40db%4]) with mapi id 15.20.9456.013; Mon, 29 Dec 2025
- 03:41:58 +0000
-From: Wei Fang <wei.fang@nxp.com>
-To: "davem@davemloft.net" <davem@davemloft.net>, "kuba@kernel.org"
-	<kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>
-CC: "imx@lists.linux.dev" <imx@lists.linux.dev>, "netdev@vger.kernel.org"
-	<netdev@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-stm32@st-md-mailman.stormreply.com"
-	<linux-stm32@st-md-mailman.stormreply.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "bpf@vger.kernel.org"
-	<bpf@vger.kernel.org>, "mcoquelin.stm32@gmail.com"
-	<mcoquelin.stm32@gmail.com>, "alexandre.torgue@foss.st.com"
-	<alexandre.torgue@foss.st.com>, "ast@kernel.org" <ast@kernel.org>,
-	"daniel@iogearbox.net" <daniel@iogearbox.net>, "hawk@kernel.org"
-	<hawk@kernel.org>, "john.fastabend@gmail.com" <john.fastabend@gmail.com>,
-	"sdf@fomichev.me" <sdf@fomichev.me>, "rmk+kernel@armlinux.org.uk"
-	<rmk+kernel@armlinux.org.uk>, "0x1207@gmail.com" <0x1207@gmail.com>,
-	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
-	"hayashi.kunihiko@socionext.com" <hayashi.kunihiko@socionext.com>, Vladimir
- Oltean <vladimir.oltean@nxp.com>, "boon.leong.ong@intel.com"
-	<boon.leong.ong@intel.com>, "edumazet@google.com" <edumazet@google.com>,
-	Hariprasad Kelam <hkelam@marvell.com>
-Subject: RE: [PATCH net] net: stmmac: fix the crash issue for zero copy XDP_TX
- action
-Thread-Topic: [PATCH net] net: stmmac: fix the crash issue for zero copy
- XDP_TX action
-Thread-Index: AQHcZO1pj0nep9pNq02KfA412DHJhbU4H4qg
-Date: Mon, 29 Dec 2025 03:41:58 +0000
-Message-ID: <PAXPR04MB8510BCFE90FBBBDF2915B89388BFA@PAXPR04MB8510.eurprd04.prod.outlook.com>
-References: <20251204071332.1907111-1-wei.fang@nxp.com>
-In-Reply-To: <20251204071332.1907111-1-wei.fang@nxp.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8510:EE_|PA1PR04MB11456:EE_
-x-ms-office365-filtering-correlation-id: 6615d8c4-c3e5-4f3b-4386-08de468c37f8
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|19092799006|376014|1800799024|38070700021;
-x-microsoft-antispam-message-info: =?us-ascii?Q?pFNsSqlLD+cmOHh7s00GJ7isHb7Q5HNaZeWxbHa2TGoaEmQ6lso7tXgf1MlJ?=
- =?us-ascii?Q?BonS0/uB2bcOd0x5+SoHinLwbgCaRcLCKQE6tDleRPxi5JtP2FWLqbJigZUR?=
- =?us-ascii?Q?rPBPg5wnCqrrtVfzEHK6NpQ/tJ8Dj2T4FgcqyLr7zcW+/1TRfDf8khbKA1Ip?=
- =?us-ascii?Q?hKGtbJnOylnsfuIZgWiOWMC1D7WxKgitbU7n4yZciJyU8YtsfoyDVkUhu1jg?=
- =?us-ascii?Q?A0LNhNMwXJxn8jFX+KrLcZTSQd/GVY1ru70oqFyuOppTpnb6eDif9QUun0W/?=
- =?us-ascii?Q?hXBrHH7y5GWgwxCrE+C0iw7DsHjYyipblFPIn7Dw3Ujg8SvH3t3nq+agwQmc?=
- =?us-ascii?Q?di77LaRHo/ENNrkW8QpnxN23fqeXUt6dLReiIfdlL22CCdyYig6gyOVEU9WU?=
- =?us-ascii?Q?bKPlxaZDj35FtrxEk1sTqR1yNzZMuh7gn7onj6kudxXtHCGADTrAYeNiX793?=
- =?us-ascii?Q?aZwrPvFm4PZLx2NSNU/myvrBYa1mLrYpDaHcVCnbSmY06nHRDP+Yzp0ecy/6?=
- =?us-ascii?Q?/imux3Fuzc3PQHE4wZb7ClEZ9X9J/e33A/fULhoZItJh8CUn/yMZojft4V9n?=
- =?us-ascii?Q?CZOtNiOughzINpopLjyjPlU/AMrfESGoG3Tzt5/qFcdEx0NHuzzBO336leJ2?=
- =?us-ascii?Q?ubSHTVodt1/OvulxMS2orFHdvV63Ho1kbKslUlkP2AUqv3Omq73rXGz6s0cy?=
- =?us-ascii?Q?4pIN7xL73y4DNnDMp9xh+eJNA6SU7TWawcDCfcOZNoMABm2HppOj0ScOyFxv?=
- =?us-ascii?Q?XKTyIip/22HVvTaXSkM4YgSCSICRhgWK3tG/WC/j2yocQEPNvPMT5RdySf7M?=
- =?us-ascii?Q?GQHWRm1b5jlOTxYFdd0ScJPYKZR8MboP9BiEBLzU0yLZHpjsOP40+GLK2KYw?=
- =?us-ascii?Q?t2OsoV9qP3cdD2Z8cBsbyq5c83cYibFIUSj9llfN3Dshe1n9dgYEN/3O/5OI?=
- =?us-ascii?Q?H9WB7lzDf0HW6iMcDvoUZXhF8SQ3HTD+izv1vvoXS9hA71CdRjfjxE/Kv19o?=
- =?us-ascii?Q?fdwe3pNi+ZMkaqXoFXX58iRvD/QEQ76rtXSLiy4GIJ22H1ydiYB9PvZdsH96?=
- =?us-ascii?Q?GXerTx3L5W/WgCq9ETUSxCXAzmlMlmIXSPIF8e9wGoJd24BiYTIcKRcrqHKd?=
- =?us-ascii?Q?pHyBD09ZMhaR47ysFKtKwrNQVn25pFy0SgBTGoMAi+u/K4p5DXGOWdIUQxV2?=
- =?us-ascii?Q?Veiy2LWrWk9Pz0VxJ0vUToDFSRkC4WcaDSanToYZQIVelqq26towxcBrU27x?=
- =?us-ascii?Q?ilt1KgPC6Bg/jh8T0r+PpjG593BAcrE5nNRCWUDO0vKejlNZ7nBq5uB2bpfc?=
- =?us-ascii?Q?3fTWFiO+jVZZoRbUm7fxgEACi6wRljU0yMRO4uaif+M5GixO9dClFkGnA393?=
- =?us-ascii?Q?liixNgzoyzMNkQ7M1Mxv9Aj+GCRJMZTOuYweVZAPnEMuQkO7OpCFvrP5ZzoX?=
- =?us-ascii?Q?jsFP6IksYXQ6A6LikjoN8mqHISR0XWRwkHJIwG+Rptb35yHgtdGgUv9mrQX4?=
- =?us-ascii?Q?38lYbYT5pS+52gEV9R85/62EloXAwW7VUhV4?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8510.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(19092799006)(376014)(1800799024)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?vgB4gyEYW0vcUk/2NZVpKLfvZoUvpNu+xzgsN7KfQ454CCYDKx82LLuyLMTD?=
- =?us-ascii?Q?lOZziODb0B1P+de/1zoPtk62hf6hHmwFJVfzSmvDF6TOqH8ha4NV2HvnWnnJ?=
- =?us-ascii?Q?samwg6jeA+YnpSXNdujpHs5NgTCYdmEF4QRblewumtLI7tVxMDnP6D7YrgcD?=
- =?us-ascii?Q?A47PrtcEuhFdURKIzQF/9niz/0e6yRp0NBkHYb74l/zT0zJ3K62MaepYzKnO?=
- =?us-ascii?Q?ez6KD17lgzA2x2klYJLLDvyCb7/ZeP/SiHfNd1a+9FEyTe8tzagaCNq0JVO2?=
- =?us-ascii?Q?2q3u5WBQw0+hMlgNG/nQITrEVlKfiOQft8N88Q52fpYYsE98h9MO+Ag/Xo2t?=
- =?us-ascii?Q?fqgFc4sjnq+yHts1GrqOPp+fPrXmkf0XPMHnJmhSHXIlCzk0IXnoZB0sRPmV?=
- =?us-ascii?Q?UVKA0PjJjhDuVkXfReXnBXRmWGvSJjEdwQCPhpkWR+hJA/4sQqbg9JzSRYEV?=
- =?us-ascii?Q?/MOvp27ZsJDwNeSSbOx0/Ig3J6ic6fif3hyE0ZvJ66psVJTskf+pJlSfwshn?=
- =?us-ascii?Q?mt6V9BPQj67+1t2vSQbtW22XCnaF5W48B5dYlDIKKbvLboyVR+pRZQyfmWb7?=
- =?us-ascii?Q?QM7qEFi8d8A+f6xLgZN8ma39VG8bsB6qCCbC+z+I+ekkbPWwdSwicLOhtkYD?=
- =?us-ascii?Q?S8mjDUPuMn4p7F7qcdCaSBO+UssRc5J5iBSO7Y9kMEvFRxZEeSTV+Xrpmf2W?=
- =?us-ascii?Q?7K7+UfkQbtZ86fEtR9v3wEyBkjXSlOp+tUWidsSEadWXOPWDv0BtHSTtB4d9?=
- =?us-ascii?Q?kADeCk3VLBi8CAht+5PNr78Vyi6/fdUBO4ycV4F11lssDbk+9PQg4q/N5mEP?=
- =?us-ascii?Q?Qjjpc08irlsKC9EZXCjiw3V8VLTmWWynwYWAc1kQJATLxKxDIt11XaU+U47t?=
- =?us-ascii?Q?gHoWMdAoHyNO3McdJUSjhGLQjhoM9MODi7cRoS00CmUlrEqrE9kILlxKmvmY?=
- =?us-ascii?Q?C78+cfyjcbNgZ8prigEbyWNpzQqtPSNeFNJDoMPt0vZjHGk/NTW9q9KQeth9?=
- =?us-ascii?Q?ZwvOwPCtxsnWaIUj9j44BHBxngJVEJZP+ZPVgZ81ykjIy8+Ldezj/awWupEw?=
- =?us-ascii?Q?W9SvvjPH09Pz1OJrAgTxADYvHZgDij0zlj6kHeJeWdaeg3SyxY3uSDoVrdq3?=
- =?us-ascii?Q?bSodvGoIB44tqOzh78xyTp5AqDr9KT5tXh86X4SuTsTMBuAgS7GRQAE3HzLe?=
- =?us-ascii?Q?+LAQSeAPMmMmybNspgpmiWBRB4m9gmAP/Z0NbvTr5w/0V2D1yLhRAsgHa8qF?=
- =?us-ascii?Q?eH+Toa9AbuynZPHcOxooGqLuqNMG4gHYjCtrvqE+6lQTNywFtceh0ggalOHy?=
- =?us-ascii?Q?Pw7GxKvHMYjugAm0QjX3WoSwvgKfAE35atTtC4qafe0zWZUoc4ZILNzaNn0I?=
- =?us-ascii?Q?YAURTqAOIdHIyXEPrN/dyQfAzDCAnVlhPm8MsdHtuso7swuZ5cf3badx9trg?=
- =?us-ascii?Q?3UVD0gerbIU+94jEmn8JG3kjtSe9F2F1eWIBa1gcKWc268v/zXZP/V8GpO4E?=
- =?us-ascii?Q?iSqYISd6EEESELOjPH0D/Q7j60JH5HG4uvfFL1ACns0bz8a0xI6vNyWuvQ8K?=
- =?us-ascii?Q?7c3GuaN1v8Rq1aTw52jNn5EXdz0H/yY6lhX+eTE0lspGGD22zLyCGiRfMDnn?=
- =?us-ascii?Q?nijr/NBxx6uZcqQs9MEUmPALOgyr22e9fFmuCQfe4Ogr5vwessTOCc6eA7T6?=
- =?us-ascii?Q?F0qAniyrxNka7Hy1Yt/Y9EqLWKphMRljI/2fs+i+lottZxU6?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Mon, 29 Dec 2025 03:45:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D062260018;
+	Mon, 29 Dec 2025 03:45:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C092C4CEF7;
+	Mon, 29 Dec 2025 03:45:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1766979926;
+	bh=gMAqY+eLWWkGTNdPByA5LgE8BZzt8IImI0FhJUWIwCI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=hXQj7FZeFJLdyCcbkg47T/TL7P3I6md1cTwcWxhEk6wFWIBxGsyCcT/ouKl0kcjOq
+	 Fx62JucQTDL2pKCt41loOYgm8y/cZJ+k6YdFR7obV8zwFLuoegxJKEhob72TDtqQ/l
+	 paHwtFpW1vZah70W9VRgprewlwYOtzxlbe+qWKBsGhzRRLr+coili/cHU8vbz6c/pw
+	 wl2bag5FPPsnj52dbOZ6lZ04WvYAOxm+6zqUGFRm3xqERpVBB2jcjoCpr5/hNwVbDV
+	 kNhJ8DbiyiEB31F3bhn0w1qLlC2ELXaC0CafhlLSrj7gpM32kmrsisUb2iX9oxCxtq
+	 CfXCpSAT9goYQ==
+Date: Mon, 29 Dec 2025 11:45:21 +0800
+From: Shawn Guo <shawnguo@kernel.org>
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: "Rob Herring (Arm)" <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, imx@lists.linux.dev,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Subject: Re: [PATCH] arm64: dts: imx8mp: Update Data Modul i.MX8M Plus eDM
+ SBC DT to rev.903
+Message-ID: <aVH5Ua2g8WbpW3Ge@dragon>
+References: <20241226171404.84095-1-marex@denx.de>
+ <173531253398.3886481.9345779510218290682.robh@kernel.org>
+ <14c48d93-8ee6-4769-8dc3-5c527134bc77@mailbox.org>
+ <aVHqlnNGNGmaF14m@dragon>
+ <b61fc304-26e0-422f-bb31-303e7bcbb824@mailbox.org>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8510.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6615d8c4-c3e5-4f3b-4386-08de468c37f8
-X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Dec 2025 03:41:58.1537
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 93xiOiUYPZC3K+0Yh913gUnDASURaQBvU6FLFyFdWKzt4IgDSM2Ooy9+UMh3Tm3uwmI05G989R4138Zjp4TfvA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB11456
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251228_194204_710920_69C5FADF 
-X-CRM114-Status: GOOD (  15.48  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <b61fc304-26e0-422f-bb31-303e7bcbb824@mailbox.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,42 +78,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> There is a crash issue when running zero copy XDP_TX action, the crash
-> log is shown below.
->=20
-> [  216.122464] Unable to handle kernel paging request at virtual address
-> fffeffff80000000
-> [  216.187524] Internal error: Oops: 0000000096000144 [#1]  SMP
-> [  216.301694] Call trace:
-> [  216.304130]  dcache_clean_poc+0x20/0x38 (P)
-> [  216.308308]  __dma_sync_single_for_device+0x1bc/0x1e0
-> [  216.313351]  stmmac_xdp_xmit_xdpf+0x354/0x400
-> [  216.317701]  __stmmac_xdp_run_prog+0x164/0x368
-> [  216.322139]  stmmac_napi_poll_rxtx+0xba8/0xf00
-> [  216.326576]  __napi_poll+0x40/0x218
-> [  216.408054] Kernel panic - not syncing: Oops: Fatal exception in inter=
-rupt
->=20
-> For XDP_TX action, the xdp_buff is converted to xdp_frame by
-> xdp_convert_buff_to_frame(). The memory type of the resulting xdp_frame
-> depends on the memory type of the xdp_buff. For page pool based xdp_buff
-> it produces xdp_frame with memory type MEM_TYPE_PAGE_POOL. For zero
-> copy
-> XSK pool based xdp_buff it produces xdp_frame with memory type
-> MEM_TYPE_PAGE_ORDER0. However, stmmac_xdp_xmit_back() does not
-> check the
-> memory type and always uses the page pool type, this leads to invalid
-> mappings and causes the crash. Therefore, check the xdp_buff memory type
-> in stmmac_xdp_xmit_back() to fix this issue.
->=20
-> Fixes: bba2556efad6 ("net: stmmac: Enable RX via AF_XDP zero-copy")
-> Signed-off-by: Wei Fang <wei.fang@nxp.com>
-> ---
->  .../net/ethernet/stmicro/stmmac/stmmac_main.c   | 17
-> +++++++++++++++--
+On Mon, Dec 29, 2025 at 03:53:53AM +0100, Marek Vasut wrote:
+> On 12/29/25 3:42 AM, Shawn Guo wrote:
+> > On Fri, Dec 26, 2025 at 11:24:29AM +0100, Marek Vasut wrote:
+> > > On 12/27/24 4:18 PM, Rob Herring (Arm) wrote:
+> > > 
+> > > Hello Shawn,
+> > > 
+> > > > On Thu, 26 Dec 2024 18:13:27 +0100, Marek Vasut wrote:
+> > > > > Update the DT to match newest Data Modul i.MX8M Plus eDM SBC rev.903
+> > > > > board which implements significant changes. Keep some of the rev.900
+> > > > > and rev.902 nodes in the DT so that a DTO can be used to support old
+> > > > > rev.900 and rev.902 boards easily.
+> > > 
+> > > [...]
+> > > 
+> > > > arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc.dtb: tpm@2e: compatible: 'oneOf' conditional failed, one must be fixed:
+> > > > 	['st,st33tphf2ei2c', 'tcg,tpm-tis-i2c'] is too long
+> > > > 	'st,st33tphf2ei2c' is not one of ['infineon,slb9673', 'nuvoton,npct75x', 'st,st33ktpm2xi2c']
+> > > 
+> > > This is addressed in bindings patch [1] . Can this patch and the bindings
+> > > patch be applied ?
+> > > 
+> > > https://lore.kernel.org/all/20241226171124.83735-1-marex@denx.de/
+> > 
+> > Could you resend them?
+> Why ? The emails are in lore/patchwork and the patches still apply just
+> fine, don't they ?
 
-Hi,
+A couple of reasons:
 
-Could this patch be applied?
+- The patches were sent one year ago.
+- They should be in a single series, as binding change is a prerequisite of DTS one.
 
+Shawn
 
