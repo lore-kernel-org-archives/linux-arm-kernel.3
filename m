@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B954AE92FD2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7228E92FC4
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 18:40:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,65 +12,65 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pe7/bfwW61qpTH+JIS3AKR1VkqKbIoFXot2V67cYu6g=; b=UeXySShme+YRFIEZyVG/6YIvhC
-	JfzBdN/IMDvL9WRwvX4KFTixlUEf/PUCG29zUic2NYojcDoP/KoQPPKRn1r/MpIO+pP+H0IxadYjy
-	AI4as5G6olt7pLstYODXLK0BRLCEAXUJr+nuOH5FzbU15+/AK0RhZnoFtAgIhWwABvNDLFu607dve
-	udnQRQwoGAx8bxwt7mGUG8CeYXmuXXexhd+8CUpukOL+Zb5UN+N0bMRzCSsWS9vUHhjMhdjjeQUxf
-	CiJJPyedCQkbB8aZXQuwsdICSqDidNEmmUnRQCYjsckOat0nQkwrNp5pEm5EehFRi+FJ58QMDnFoo
-	lNnOpAEQ==;
+	bh=MElNA+evLW3q9gh9PLqoqAuYhUoiUgxuy1qDVWGw3Ao=; b=I4VsHZPKyYOFfdrvMLV1cbhDX9
+	YsqrMKCmh31MbGz5W6ysPqxLf/raXlNIjIiLVBmAQyqw0P5++GnlNlHCj/bHeay+Lj5cbOS985pbp
+	X04tX3l1cmANjrnMnhiOTSZzG/ByU28AYqqDVoIGp02qWt8T0LxUJbDVJvnVU+AP6MJRrzu3B75Ze
+	PKf9o5oo/4Hq8QtC6w817EqnJLbl6rKB8axr0mzofKluZ7AVxb83tagsORHVFpDDGzQmobjSl/cDH
+	LNjsqFlN6Jl84A7mfUaOtA9HtIX9ltVslCOJkwbU0AeFtxepDOO+p02sykqUWLFJWDQBBRoWGhqE4
+	jAOvcUiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaIAZ-00000003xex-0Xwg;
-	Mon, 29 Dec 2025 18:40:39 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1vaIAX-00000003xcm-2CF7;
+	Mon, 29 Dec 2025 18:40:37 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaIAT-00000003xZ9-3scw
+	id 1vaIAQ-00000003xXT-27i9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Dec 2025 18:40:35 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-477bf34f5f5so68343465e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Dec 2025 10:40:33 -0800 (PST)
+	Mon, 29 Dec 2025 18:40:31 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-477a219dbcaso75498585e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Dec 2025 10:40:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sartura.hr; s=sartura; t=1767033632; x=1767638432; darn=lists.infradead.org;
+        d=sartura.hr; s=sartura; t=1767033628; x=1767638428; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Pe7/bfwW61qpTH+JIS3AKR1VkqKbIoFXot2V67cYu6g=;
-        b=nKwx+66vCc9dJKkbegcthJOyrtSfmlGAzyToffFDx005KdPq37fPSoNE0JWUzvVR0F
-         X6W9rKR7MxkF8SdpuZEa4f40sTS+zhXpRrt+/QjyNTwNS0pjtEujS1OSRyapgajDv/gU
-         8djoTDz58jIP8H6Wam7WsduSxeZa7dI3jiLOIV2Ti7WQWsGWb0al/m5x7wTM+Aoadsps
-         AeAXm3bpHKFJY8E0fyuXkuZIJTBM68VzM5IydQc0A0K2lNaSWN7CBMd6aCVLABz4+vJQ
-         ofWeavKDTTI/YZx8yksFuL3P+H2ctgFeFjLLaJ2CAE38p6I/M1Oy7IJHsug9Ol2+r8ZV
-         Y66w==
+        bh=MElNA+evLW3q9gh9PLqoqAuYhUoiUgxuy1qDVWGw3Ao=;
+        b=hFLTuZsrdmBcaqvqBRx8xEtx1GA/Q/E/7/HbkLS1oQUER2BZ6K8UproBnVl/Vhrioq
+         n91HJJnl1DruUqQEcK57gymR1BSHyscNtgdIimWxqVGsCc/af88OcTa8MZnmFdu5PRIQ
+         4FZIjeV4qPlp+9Y+SGOuVP34OJy8I+HZo5XiM2TOXpzgD8UCeTQzbs/kiPRWq5txIZVM
+         VGbKUfS1bN3KLrBQ6/S3F3DikaxKg04ZcJcS9p9CFvHvJ23bLtK1MGMPGCRkXsgwoqb1
+         Z+kKHrK2b5COn1mVv9Ij0A4lXF+nHojW6ygGjJ5i9BC4E/FQcihQUVNuUIP1668ENJCr
+         eaUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767033632; x=1767638432;
+        d=1e100.net; s=20230601; t=1767033628; x=1767638428;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=Pe7/bfwW61qpTH+JIS3AKR1VkqKbIoFXot2V67cYu6g=;
-        b=fr0grZeK2uwQSZqud4oY2ipoLQfoZ+2JNix62nqY5L+2fuGAVWwrTVXHJn5NR/K7fF
-         V/M0N89hsnB1T3u5uo9U6aB+4JRjsg5ZogDXtiWOm5JAhTEM1S5DGdd1ZwGN1rL2yb+7
-         +R1LkMTHFGb58CbYaPWeNbcAvYDraIKwWOAqESGBzYQPUGOKs71yUj7vyHRWtq0ureaY
-         Ku0M5NG64I3DBaTxg8xjR5iOUPl+YFk5JQKMiuh/FqZOtlu9Jb19keNqNB9ccaifaKt+
-         /b7tGjUk3gDOK++J3bjzg2KQ0/iwl0Iqd9oruzgyRVWNAq8JroAsJZF6/qfWKcaH2M6D
-         umdA==
-X-Forwarded-Encrypted: i=1; AJvYcCWHkCGi2geLIgmuggZ0VRRYW6NbOSz3/hSbrxJJX+f7rffh1cLkx/wyrGh0GEDLhFXXXqaxEBNKD7SVXGRcy19F@lists.infradead.org
-X-Gm-Message-State: AOJu0YzpOJ38KW1wXWR9aWdpJIFYPMnnov9RQTZPxw6f8JS1KhWVP82/
-	sz+gbiyvf/y6CpKtt1fsmWx6JvvdgOj4XqCyMK9xhmrpqLnmjI36VuS372S2IK5hiMc=
-X-Gm-Gg: AY/fxX6sbU7a2GArEDdGk4HVTKCb4x8LnOFIkysDsCmMRVXuWd7JOX9g75le1PhrXF6
-	3elgX9a80QfFA8y+u3FS11ZzuhshtzlOQIvp3+Vxi7d72ZSCetk2e9fpCAMISFJcV1qLnAvcxOm
-	pqr1eV9mzNfsUdE1x+pjUaPk5jAlKgHg269I6DozZ6qtwBcUarj8xpNawb1VCLr+IQe49UYtD9v
-	YEKptktjScirEQ1wmxD7RMSTcxsR2ZfEASj41zezqx5Ui8F6Q+FP8AcvTw4209zI+mdHK0bhKmb
-	0JOWfqmzlle2WrX73WIaUvXlQNEp5/PfxzhAMyUwzrnmOQP3WgL/cnINeWFNkqdkLz3SsDFZZXY
-	Hy0vXaTH9wI+yz3i+ET4HfaZ5cZb+8/Kh/3C2Dukdld8BsWkwoyh2nHryNDcctl+Q0c5OcdULQT
-	ngI0fPSvH5qWNsnUFWZ/o180GDc6cXFnwMoSzwkjHIZ5L/wI7INumwWdChubzm1FBiKMqz53mo7
-	xDecX6oky7OBnbI5YWhT1tk442c
-X-Google-Smtp-Source: AGHT+IHMeEPdVuxCEsr3HbzwXW9O9zK0z+wZ0vfJLANR2lbSoc703JFfFuycpKgytpooUs272ghcDw==
-X-Received: by 2002:a05:600d:108:20b0:477:9986:5e6b with SMTP id 5b1f17b1804b1-47d1c038664mr255232695e9.28.1767033632356;
-        Mon, 29 Dec 2025 10:40:32 -0800 (PST)
+        bh=MElNA+evLW3q9gh9PLqoqAuYhUoiUgxuy1qDVWGw3Ao=;
+        b=VYZwEaRVXdCWdEUrXLqz16Sd/L81YZs/Lh67qfZGMel/VpXsZZVi9cSrB6wwkIGi8k
+         L5BPWgzqAXDr/w2zoCKRF3QNVPnRLazcTlRp8SU+uKmNOdsfZPPLtK+Z9EycmETp6fD5
+         Ajoa2paTJonOdcGPpIgYLi2Em3Bnsjk4mT/vJpQc4n/ldXUC/mZ3dK2BpnIc8/qk9IQS
+         mCXWmPpspyKK9e6UDh/PWbbUn8KcvXLQoluKMFkoGBI1tRUxci47oLdf2xBf891YwB68
+         sWVirem3VDblMemsIJbZcrEEohniQpxugS1jbyuNnIH0fXi8swB4EaEPNHnvfzrwDgxn
+         1ucA==
+X-Forwarded-Encrypted: i=1; AJvYcCUqjemLxLXvHkns1fr6Bty/rmWagNoTegnVThmkJ9DmIktKV5PppXetzPo0v7945XP37Rk+3P6faTU0jPV5kla+@lists.infradead.org
+X-Gm-Message-State: AOJu0YyejekQ0noZJHooii3uWWjhxjmeEMACVPMX+jdEPRYqfybRka6E
+	kH/S5CmmU4pRQyqgaK4zy5HQthaC6j1RSuJS76/oHJAR8cN6KfrrvS+FM+ikIzf2HEg=
+X-Gm-Gg: AY/fxX4pFE9/H8sDdMqOfPZ5pg2RYIwnsWcvuQU361C627eGgcDp2t5ihH8Hn4ksph/
+	1YLNbs+GdV4+s110MY42+g8aEJ4jwAcjgTx8k03oKffi/InSCvf0vuvLO6TIoxq9MK9Z7OOlEJH
+	cVp67COL9IoSC9jIgFpHAo1Syh33jtAVVuDjbbFjYQSvfbV/Tu4XCLObw5lUndcslVnBsd0VJ3H
+	VafwxKHKgQmANAsvIPogy5YjZdsj1QtahK5JvYrlaGQRHw7+ngl9dBr5RKV4JLekTTINhqSNW08
+	vXuXypx54eHvslaaIev+HMtolW/OY7yU07jmIWTAk6SqaC6GT9SlPHB/ujRNKy+mG+tf4hqUNy6
+	Q2CrkoItN/LEx2IgEYXJeJvaFbx5av6yj+sSSUef7Gp3fMKg0xrG5IYytBQd5CjMxCHqqZoIkY5
+	TUCpBOo7leAOJJQ0ODMPVH4f1lfLEe1LBaHmdUvumoXaEPEi0qqS0ghT4i28aA9PJcaB1zNsxgQ
+	q/gbEfWk/AesfJK/ZhOTvnsIlnN
+X-Google-Smtp-Source: AGHT+IFilbmrX7qgCmCad3pYK4YkE2820iFvJcnWl298VhAC/QPnRoMoqJ3XAnKO9WPGPH+NwyaEYQ==
+X-Received: by 2002:a05:600c:468b:b0:477:b734:8c52 with SMTP id 5b1f17b1804b1-47d195670b9mr338260535e9.14.1767033628587;
+        Mon, 29 Dec 2025 10:40:28 -0800 (PST)
 Received: from fedora (cpezg-94-253-146-116-cbl.xnet.hr. [94.253.146.116])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-47be27b28a7sm604907455e9.12.2025.12.29.10.40.30
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-47be27b28a7sm604907455e9.12.2025.12.29.10.40.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Dec 2025 10:40:32 -0800 (PST)
+        Mon, 29 Dec 2025 10:40:28 -0800 (PST)
 From: Robert Marko <robert.marko@sartura.hr>
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -112,17 +112,17 @@ To: robh@kernel.org,
 Cc: luka.perkov@sartura.hr,
 	Robert Marko <robert.marko@sartura.hr>,
 	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v4 10/15] dt-bindings: net: mscc-miim: add microchip,lan9691-miim
-Date: Mon, 29 Dec 2025 19:37:51 +0100
-Message-ID: <20251229184004.571837-11-robert.marko@sartura.hr>
+Subject: [PATCH v4 08/15] dt-bindings: crypto: atmel,at91sam9g46-sha: add microchip,lan9691-sha
+Date: Mon, 29 Dec 2025 19:37:49 +0100
+Message-ID: <20251229184004.571837-9-robert.marko@sartura.hr>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20251229184004.571837-1-robert.marko@sartura.hr>
 References: <20251229184004.571837-1-robert.marko@sartura.hr>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251229_104034_373076_213B4B98 
-X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-CacheID: sfid-20251229_104030_554514_8B0292C4 
+X-CRM114-Status: UNSURE (   8.45  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -138,7 +138,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document Microchip LAN969x MIIM compatible.
+Document Microchip LAN969x SHA compatible.
 
 Signed-off-by: Robert Marko <robert.marko@sartura.hr>
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
@@ -146,31 +146,21 @@ Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Changes in v3:
 * Pick Acked-by from Conor
 
- Documentation/devicetree/bindings/net/mscc,miim.yaml | 11 ++++++++---
- 1 file changed, 8 insertions(+), 3 deletions(-)
+ .../devicetree/bindings/crypto/atmel,at91sam9g46-sha.yaml        | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/net/mscc,miim.yaml b/Documentation/devicetree/bindings/net/mscc,miim.yaml
-index 792f26b06b06..2207b33aee76 100644
---- a/Documentation/devicetree/bindings/net/mscc,miim.yaml
-+++ b/Documentation/devicetree/bindings/net/mscc,miim.yaml
-@@ -14,9 +14,14 @@ allOf:
- 
- properties:
-   compatible:
--    enum:
--      - mscc,ocelot-miim
--      - microchip,lan966x-miim
-+    oneOf:
-+      - enum:
-+          - mscc,ocelot-miim
-+          - microchip,lan966x-miim
-+      - items:
-+          - enum:
-+              - microchip,lan9691-miim
-+          - const: mscc,ocelot-miim
- 
-   "#address-cells":
-     const: 1
+diff --git a/Documentation/devicetree/bindings/crypto/atmel,at91sam9g46-sha.yaml b/Documentation/devicetree/bindings/crypto/atmel,at91sam9g46-sha.yaml
+index 39e076b275b3..16704ff0dd7f 100644
+--- a/Documentation/devicetree/bindings/crypto/atmel,at91sam9g46-sha.yaml
++++ b/Documentation/devicetree/bindings/crypto/atmel,at91sam9g46-sha.yaml
+@@ -16,6 +16,7 @@ properties:
+       - const: atmel,at91sam9g46-sha
+       - items:
+           - enum:
++              - microchip,lan9691-sha
+               - microchip,sam9x7-sha
+               - microchip,sama7d65-sha
+           - const: atmel,at91sam9g46-sha
 -- 
 2.52.0
 
