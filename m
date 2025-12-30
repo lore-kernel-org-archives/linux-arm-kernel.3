@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83388EE49B4
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 21:19:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B883BEE49B4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 21:23:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gaRqv7k7VA61kOfmLtimV5rGgCGFCZ9YKiGuBGbb1EI=; b=SfpKi/CuR5L/Flq6hnQv/bOOsI
-	gCjaq2OaNk5GGUcE49GxET4FXIgvK8XhEzhO3ZPz/lW3l/9uJwX14l9M+PYz8//51BqJtHh7ZfD+W
-	fVBLdTdx9Qvr6jtDAcpHeAgJxCK7Zk9U3/ZgqE/+eryvg3SpuuZl4jNgNT/HgKwWqhcLecGZ97mzz
-	pQ/jTWZXcTfBF1OId1W1GJ/1IybFa6HItmI8A9hRccz0dD4OdPyOOP2HJb3UMTOqC1db9lSwaeYcu
-	LSfEwLSK6wF3gusXA8/DWhE+SwJf71leDrj2AgDh3VWQT2JzkZ8zUdRoM03jmxpPE94L5GbhtLR0w
-	GpbBCSEA==;
+	bh=j0ZsZ80gOyv9K5AsBUtbpmXPA9O1Zk/t4cM6p32TmUo=; b=LIiaMyOSTze26fkAs6FRl/7/6o
+	lpY4Szc0OSfakUMNgjXWl5mWCUK3fwnYUFazIixwxiAB8Xwz5rLzNADwNEbRzBYgVuyPmJ/Sg7zIX
+	PpQ/00KQFPqy1oC6DL2LJA3Vrik3qy6u+QAYY1MzaYcTghZ5XPs1Z4Lb8ffpvn4/zI+orCfpKvXF6
+	0a9/OFVFwy6jf4oaBYalBaTudYyaAXf1VXMevN34JaLkaOJ6UCgv0qXj1gvm1sy4wdHeUbqzAE8Vf
+	a/oC647/CC+UcYubhyecgSrVKbFDv8AMqcEwv/nXs1yvfhhZMKrgYsVX8Y2E0ZFTv5I/2CbuFQz+/
+	MuXlXwSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vah88-00000005Izl-0EW1;
-	Tue, 30 Dec 2025 21:19:48 +0000
-Received: from fhigh-a1-smtp.messagingengine.com ([103.168.172.152])
+	id 1vahBl-00000005JHC-2zME;
+	Tue, 30 Dec 2025 21:23:33 +0000
+Received: from fout-a8-smtp.messagingengine.com ([103.168.172.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vah85-00000005IzL-0Zig;
-	Tue, 30 Dec 2025 21:19:46 +0000
+	id 1vahBj-00000005JGn-0cjS;
+	Tue, 30 Dec 2025 21:23:32 +0000
 Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 18B4B140010B;
-	Tue, 30 Dec 2025 16:19:44 -0500 (EST)
+	by mailfout.phl.internal (Postfix) with ESMTP id C3BA1EC007A;
+	Tue, 30 Dec 2025 16:23:29 -0500 (EST)
 Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Tue, 30 Dec 2025 16:19:44 -0500
+  by phl-compute-04.internal (MEProxy); Tue, 30 Dec 2025 16:23:29 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
 	:cc:content-transfer-encoding:content-type:content-type:date
 	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1767129584;
-	 x=1767215984; bh=gaRqv7k7VA61kOfmLtimV5rGgCGFCZ9YKiGuBGbb1EI=; b=
-	rssManEhMuouAJrUcFMK+d3yZigXJ8ZX5wfE7aVfxVK6exde9GYrwv76yH3RDFOY
-	n+WuGMXpsVM0DAlyDR+rm0Z9U6msE/jZlGX6HmtEu01mnvYNqo5SHZenCsPwbOtA
-	7zBLr7qL+osA4D3A5Q/IPjO51Y8YRnyT5UoPHL79scullTrcMr4EH7H3hXRz0dMl
-	Mif1PCkeJKrfK8vQ9y73jzUz3kZ8NM7JRim3R1Z3YdYKqHlEZtGQT3DncXbxRiF8
-	wqktnyPCN3ELrQQLL1m6GgaviWDjcZpZeX1zX5VCYRBDV/lJ/FK/YptydrIOvqj/
-	FngxD3fMXbctQt7Xv1+J7A==
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1767129809;
+	 x=1767216209; bh=j0ZsZ80gOyv9K5AsBUtbpmXPA9O1Zk/t4cM6p32TmUo=; b=
+	rnvn1xMKaQw4EdxITy3EP1d+8jRLdA4s9PRvBwrOBFDr+1jF7IanPXIOZfgJfT4m
+	V23gp+u2JCC4ziMlXai5uamH/uVVxZsOFbVivW9X1ej72NFjGx9jaCjMplFtqL0i
+	40p+IGYu39YHpp7N71BxMHptD6IOM1jqekEDfxTBfaXiXQa3VZ4HLY/U4W017mdM
+	4fPeZS+b3YcCSy68K0hDFSm6TuH6jKsy6WtxgYMmQDMxp8okUWTtTuoPjwM6BiuT
+	/OP+qbN9JYCvQCTtETqgIgwjGh3V7U9lTNBSr85sziQIKr6oRHMGCbQ82y2qh2vI
+	WzFOCmt6b+q+XAkBD0iIKw==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:content-type:date:date:feedback-id:feedback-id
 	:from:from:in-reply-to:in-reply-to:message-id:mime-version
 	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1767129584; x=
-	1767215984; bh=gaRqv7k7VA61kOfmLtimV5rGgCGFCZ9YKiGuBGbb1EI=; b=g
-	en7v+wnekIyiUPLxQVI4zShOneTJrXWjRjnMZ7iYqo6pD7WGat5sNhmEOdXpGvdu
-	f41RW6XSWON2cAjjdlmOhF9eiMF0GOWk09R6UOEusd9vDslYE2l30ZZZcxjFe6Bl
-	v2gzWP+e5i8RNKBtF3LVRzr8XbMPJ7O+w5/MGdxYto1ynKDDcN34H42/hzlgYpzq
-	w7ax8mH24AVKFjTsxFtcKMIr1OMxZZyhiKTTa6qFsG/CYhS2kqna3QO9t0BvPccD
-	1/QK/TlVMaiXmZTAMdzouourQmbjyiwlcabmFHy1eFL5cvCE2UGHudCOSfxc+pxl
-	Ob0cuGMdr7O9uecLAy90Q==
-X-ME-Sender: <xms:70FUaYJuXBybU4ESG4j6EgnOJxKPZ8J1bEm2xxU8ZEaTV9EUc5wdvg>
-    <xme:70FUaS-tCpY8sbvbz9hVuJxJA_xOXWqLdcunuS7ipGmKNMH0jpXOSR90-5yTNpZrD
-    1727Q0LVdGjyhmY7Kzt90BKWjwZ6lHcTFgbbSsRxHyjDMQxP3BcUA>
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1767129809; x=
+	1767216209; bh=j0ZsZ80gOyv9K5AsBUtbpmXPA9O1Zk/t4cM6p32TmUo=; b=J
+	D5JbQPe0ckdBTMpnpR3T7198WmY0gBhwlbcaJ61RbxGrsJ13kn36kor1V0gYl5UL
+	D52vUXzKyiyxBd0MgkD7f6n/c1sEJYWUV4ZBggNHxaC5UYi6lmeLB5aOEp2+FXha
+	wCzGNc5DbsShatQd/JSEAbkLMTn12Zjkdt9QUdQGI7DMVfldcMsOS+i8QPborpWe
+	7seC+ouwwXrTUAWW3gE8dK6RpJqXkGjmT/chxrk0CRGqn2IQ1uOaTf3yDqpJ2w06
+	X6+GJe4QKQCdlwkYq+5ss/SOUQUaDwuhfoap7soUE/XjOLw70Ida6lA/3rTQKZpe
+	U3fCv2eohzdOHqwJRWVjw==
+X-ME-Sender: <xms:0UJUaUcG9Ip6mzzT7WmBd_4ov1OlJUwM_M80rjcDGIqdraQGisCbug>
+    <xme:0UJUaRBKjZ5ynxxvlUiEjvOf5JfYydw3diqzxDaeqGvjyTBGSmPfM9h_zHXCYEWh9
+    RSZtY28Ghfltce-vG59-0d6J782avKM7CQc8gze-5vIwzfC-LahAg>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdekuddtlecutefuodetggdotefrod
     ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
     ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
     hrpefoggffhffvvefkjghfufgtgfesthhqredtredtjeenucfhrhhomhepfdetrhhnugcu
     uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
     hnpedvhfdvkeeuudevfffftefgvdevfedvleehvddvgeejvdefhedtgeegveehfeeljeen
-    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
+    ucevlhhushhtvghrufhiiigvpedunecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
     esrghrnhgusgdruggvpdhnsggprhgtphhtthhopedufedpmhhouggvpehsmhhtphhouhht
     pdhrtghpthhtohepsghpsegrlhhivghnkedruggvpdhrtghpthhtoheplhhinhhugiesrg
     hrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthhopeguihhnghhuhigvnheskhgvrhhn
@@ -74,18 +74,18 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdekuddtlecutefuodetgg
     hlihhnuhhtrhhonhhigidruggvpdhrtghpthhtohepuggrvhgvrdhhrghnshgvnheslhhi
     nhhugidrihhnthgvlhdrtghomhdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnh
     gvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrgh
-X-ME-Proxy: <xmx:70FUaQgP-JMzu_xmvfxwJpTBVdBW1OiqpQkKnqAI1zHyo5s1wAmdiw>
-    <xmx:70FUaYnVnUcRsQ__xeAnKBChr80fdTccxjv8h4s-wkWn-ijkBk7iYA>
-    <xmx:70FUacaU1NZXNxkZoF2lEehHMGSLdYefbsXapL-GuidnjcW_DdUj5Q>
-    <xmx:70FUaTy8lZETqHSujSoS5nKa3fWiEYKATp3oxpcnVQjLiPIcY3Kp6g>
-    <xmx:8EFUafMvYwwHj5f5bGm86TQ3E-FZXMyUWVrWK8QSm5FO1oqDZe6qGXmC>
+X-ME-Proxy: <xmx:0UJUabX3uEaYwfWdELX3u6ZzrfbSpIyfTuH_jCl26JU1uGq72SpIpw>
+    <xmx:0UJUaTJVSDrHP2lsa3VLQw9TRU2rRHdcCAA8eUHoOcMnaK-xXI8FrA>
+    <xmx:0UJUabvF6pVvRUKR71-OdNb4yYfl6Dxrqs_ZH-oaYU73saDqprQtCw>
+    <xmx:0UJUaY2y4HX0bPqn_u4TMXK1nxY4SxfJK9GqaMf_gyycvcfrMijX8w>
+    <xmx:0UJUaTAXBqdiRoUP4BRrxxx46xIiZkFNsmglknondG8GX_jZcJ76-hwp>
 Feedback-ID: i56a14606:Fastmail
 Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id D56E2700069; Tue, 30 Dec 2025 16:19:43 -0500 (EST)
+	id 6576E700065; Tue, 30 Dec 2025 16:23:29 -0500 (EST)
 X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-X-ThreadId: AGeayQqQY9QV
-Date: Tue, 30 Dec 2025 22:19:22 +0100
+X-ThreadId: AbWOAV9uh8L3
+Date: Tue, 30 Dec 2025 22:23:08 +0100
 From: "Arnd Bergmann" <arnd@arndb.de>
 To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
  "Vineet Gupta" <vgupta@kernel.org>, "Russell King" <linux@armlinux.org.uk>,
@@ -95,17 +95,17 @@ To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
  "H. Peter Anvin" <hpa@zytor.com>
 Cc: linux-snps-arc@lists.infradead.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
-Message-Id: <93c55086-931a-4282-a94c-de4954047fa9@app.fastmail.com>
-In-Reply-To: <20251230-headers_install-config-leak-v1-3-efba5c58073d@linutronix.de>
+Message-Id: <9ecebf46-c230-4074-9001-7ba9d65634f1@app.fastmail.com>
+In-Reply-To: <20251230-headers_install-config-leak-v1-1-efba5c58073d@linutronix.de>
 References: <20251230-headers_install-config-leak-v1-0-efba5c58073d@linutronix.de>
- <20251230-headers_install-config-leak-v1-3-efba5c58073d@linutronix.de>
-Subject: Re: [PATCH 3/5] nios2: uapi: Stop leaking CONFIG_NIOS2_CI_SWAB_{NO,SUPPORT}
- references to userspace
+ <20251230-headers_install-config-leak-v1-1-efba5c58073d@linutronix.de>
+Subject: Re: [PATCH 1/5] ARC: uapi: Stop leaking CONFIG_ARC_HAS_SWAPE reference to
+ userspace
 Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251230_131945_245234_E4A76C75 
-X-CRM114-Status: GOOD (  17.43  )
+X-CRM114-CacheID: sfid-20251230_132331_272540_12105C22 
+X-CRM114-Status: GOOD (  12.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,38 +123,22 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Tue, Dec 30, 2025, at 08:10, Thomas Wei=C3=9Fschuh wrote:
 > UAPI headers are not supposed to leak references to kconfig symbols.
 > These won't be set when building userspace. Hide the kconfig reference
-> behind 'ifdef __KERNEL__', so it will be stripped by
+> behind 'if defined(__KERNEL__)', so it will be stripped by
 > headers_install.sh. The result for userspace will be the same, but the
-> exceptions in headers_install.sh can also be removed.
+> exception in headers_install.sh can also be removed.
 >
 > Signed-off-by: Thomas Wei=C3=9Fschuh <thomas.weissschuh@linutronix.de>
 
 Acked-by: Arnd Bergmann <arnd@arndb.de>
 
-> ---
->  arch/nios2/include/uapi/asm/swab.h | 2 ++
->  scripts/headers_install.sh         | 2 --
->  2 files changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/nios2/include/uapi/asm/swab.h=20
-> b/arch/nios2/include/uapi/asm/swab.h
-> index 9750547a5f82..bbfa9bd10b2f 100644
-> --- a/arch/nios2/include/uapi/asm/swab.h
-> +++ b/arch/nios2/include/uapi/asm/swab.h
-> @@ -14,6 +14,7 @@
->  #include <linux/types.h>
->  #include <asm-generic/swab.h>
->=20
-> +#ifdef __KERNEL__
->  #ifdef CONFIG_NIOS2_CI_SWAB_SUPPORT
->  #ifdef __GNUC__
->=20
+Same as for the nios2 version, I think the nicer solution would
+be to use the asm-generic header for uapi and move this one
+to arch/arc/include/asm/swab.h for kernel-internal use.
 
-I'm fairly sure this approach is correct, but I noticed
-that this makes arch/nios2/include/uapi/asm/swab.h empty
-in userspace, so you could just move the current file
-to arch/nios2/include/asm/swab.h instead and fall back to
-the asm-generic header for uapi.
+In theory, using 'select ARCH_USE_BUILTIN_BSWAP' in Kconfig should
+let the compiler pick the best swap instruction, which would
+be even less code, but I'm not sure if there was a reason that
+nios2 and arc don't already do this.
 
-     Arnd
+      Arnd
 
