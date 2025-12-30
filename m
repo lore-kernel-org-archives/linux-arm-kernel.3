@@ -4,92 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8021AEE0214
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 15:34:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77CB1EE020B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 15:34:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nXCQAS3HJRf+jQxCM70PqHXnYYGKX1vopCn4f1WZ9cE=; b=yo4oeBHp2K7+4y/tptzkF9Bgh9
-	BKRryGgid9avlcbVOjEVvHpFX74mf8MEhz/DtiCIKQFBhHsyzDsa15FAbiYcv9VTVYtlDCSPPKZkX
-	3EXaoUPvifsIZseB5Pg4sqJ3D8WpD4PzdAYzmCTNMJFDqYhrPWb+msRRuuXKl4HOxxVMXznuffmA6
-	k30RKVVQmwRVYT/o8YrCJVrUxn6RiWZI0hus7m9FYe8pg/+9Duo+FmmLv3MngskCN6JsuQHMiVkMp
-	U4zZvunBIRBH4LE+DhY8GHnJHmOMJYUWopsOjn8avRO4zcgU+9gwMuBTQcDO0hHJcaYqFIT8D2FHL
-	Cknluycg==;
+	bh=sHZNza5H0yo0+WpXCR20t4zu708adlm5RFd/Ch5En9c=; b=QJqgTZiD0cLj0XNTBWoLCmfCzr
+	DAD8+Nyjs2zHFae/gsQr9Nyaoodw4zkX00CYHVOB68FsOksbFQrPZOAwA7KGrRON70f/4AGfoN5Du
+	spLY7klo1fMAsxUzSKNH6H4pYfHNQ53SVpATPa1jHOxAHi3eLKquiwd9iVCmt4RgTKAvKNvslE1Oc
+	MI3lOUfG5EwBZ/dxupPT+XhRRPlr1LkXBXuL3+st6VPf+QTTaviW8gehRAaQV8ze8FBNPByPrGHQv
+	dKWnlhQHs/9lvdJFF7LITirmTwQusirpG1mHxyJk5dC/sDAEJJPnJaMoSeUKfP29pVork9T9CMV+p
+	09tyUxhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vabjp-0000000504S-1vW6;
-	Tue, 30 Dec 2025 15:34:21 +0000
-Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
+	id 1vabk3-00000005084-01Ag;
+	Tue, 30 Dec 2025 15:34:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vabjm-0000000503a-2un3
+	id 1vabjz-0000000506P-2o2V
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Dec 2025 15:34:19 +0000
-Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-37b983fbd45so76667711fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Dec 2025 07:34:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1767108857; x=1767713657; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=nXCQAS3HJRf+jQxCM70PqHXnYYGKX1vopCn4f1WZ9cE=;
-        b=BpZys2ZcgdXm58uxXslYJkvAnxBInTaSLSjrGprKz9+kyzBiobN03btQqYx6zJf6GK
-         7ukqT6jVjF08hqxSILLJc3hO0O8v7HelQON9vYX229n9EUz72LeEoWBUToJ2jgQijYVc
-         82z74tDVvCeZfgcdgcA2dnkQxCdJe2hyVO0dSnRZDDLP57BH7eVE9oXLKbWDtuEIjSgG
-         3jCsH4lVu++0nsq8oCqlAG8BtWBNjA/RCL06uy0MBm8BNf7BA61yj3zsVIfvFLn6FW+J
-         p6wTb9oZoKXVfmU0ISpG/Vib7ElHqXu2j7gvqachuy0tCTNqvwd8NprrcLS/gZBpFRGy
-         ydKQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767108857; x=1767713657;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nXCQAS3HJRf+jQxCM70PqHXnYYGKX1vopCn4f1WZ9cE=;
-        b=adDm4fkyEtRDpcPQ9f0RGIELi/NquUN8A5lqcd3GxX5AavwHCDM2o4nlVZ3HCnrTyB
-         5+SOAsfMxbl8LbyYcMwNZIsMz2XXfbfMFvrUjjX3Ehao3KeyR7c8pfUIWrz3HeKIb637
-         XQYD24C3PyAxHgOT810B8Dga0JIdluL26Pm1GcwYeikr278sobKu7D5Mf6WfX92TlsBn
-         nRNarzcKDsedtI3Mj92lxVfU79x9l87TYve38UsdZVzrCHaCWsbRrYckRDlwtaEL1OIr
-         4EhXqr62aecHPaUzUEs4AtRnxH0sd+/9Jfzn4nRSJNJnGMCao+PsNTNeFXmMDXsfuy3t
-         qazA==
-X-Forwarded-Encrypted: i=1; AJvYcCUj2vvv8CpdYhi3kvXgsDWM5RElA0AfQu+h9htM0P8zutyRWas9slqupoPGiarU0EEFCRw+3/8/pXkx2NIsVmvO@lists.infradead.org
-X-Gm-Message-State: AOJu0YxCX3yUoy2Z4BlC1ahjoxC3GmzUJfaHdV0UJo2TF6GW5vQraNAQ
-	d1Dsr82WB0twxNmWAvrtsN5ZBeWk2H91CkdPaaaeYtWiBYzdc4ig3Seraua4lenUHcl2mnh97F4
-	QQ/aLTtv9jsdsaBZNzOru9eEueJI+Fv/bKM1XuA7ZhA==
-X-Gm-Gg: AY/fxX6ApwtkYRHJLHlNrGg9s5XlczBYSk6JHjr/It+K2+KlzFd/XLs0mAfOYd/zkv1
-	5fX6wvw1PQLobs1P96FzCY0ckdBA8TMc2BNZGPuCRYPXbp7YokrLHj2qq3H7BJRAKts6OLhxPg9
-	WFTom1fxyW1hO/HvKTPQQvhKfodlmh0CoKKBgD5B4ZwsmKH19B2T97+1PWJrDz9cFpapt0KB0wb
-	THXAKc6adx57AunaleLvCkqM9oolA/IZI6X9rywPx2nZ/sm16+djeXg7lKAF7jSR4zsW5iPYgDT
-	xwcAEpo=
-X-Google-Smtp-Source: AGHT+IF8m67UtLFJYo+1Sd/5xP1asTd78BRhH0xaCX+pqytxUScESGkOS8OTTGNkp77INxT4etPPBh36TlR00OdBV7U=
-X-Received: by 2002:a2e:a801:0:b0:37b:b952:5e2 with SMTP id
- 38308e7fff4ca-3812158e6d1mr92229501fa.16.1767108856717; Tue, 30 Dec 2025
- 07:34:16 -0800 (PST)
-MIME-Version: 1.0
-References: <20251224124431.208434-5-krzysztof.kozlowski@oss.qualcomm.com> <20251224124431.208434-8-krzysztof.kozlowski@oss.qualcomm.com>
-In-Reply-To: <20251224124431.208434-8-krzysztof.kozlowski@oss.qualcomm.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Tue, 30 Dec 2025 16:33:39 +0100
-X-Gm-Features: AQt7F2oKPch5XI3ozINSBYMELnoLnRJYzcAZlrhoJTH7OcGc0z1qpY0CIewnVRk
-Message-ID: <CAPDyKFp3X0EeiGRHLQqzE3vkVoLmOwi=1813S32sLTqXab43gQ@mail.gmail.com>
-Subject: Re: [PATCH 4/4] mmc: sdhci: aspeed: Simplify with scoped for each OF
- child loop
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Aubin Constans <aubin.constans@microchip.com>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
-	Robert Richter <rric@kernel.org>, Paul Cercueil <paul@crapouillou.net>, 
-	Andrew Jeffery <andrew@codeconstruct.com.au>, Adrian Hunter <adrian.hunter@intel.com>, 
-	Joel Stanley <joel@jms.id.au>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, linux-mmc@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-mips@vger.kernel.org, linux-aspeed@lists.ozlabs.org, 
-	openbmc@lists.ozlabs.org, llvm@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
+	Tue, 30 Dec 2025 15:34:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id F2297442C4;
+	Tue, 30 Dec 2025 15:34:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9139C4CEFB;
+	Tue, 30 Dec 2025 15:34:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767108868;
+	bh=yjdh34Hmqne37G11Loiam1Ed+hhJrJ/NSB0q9oo+YsU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=iTzabqQCHIVzDVkUuv8Shn2YZNuawMeUh8aV1N6CErDCet3+LEFPixMu+9bbrYIpb
+	 P9OJ8qNFVCsHn8c1ZH66hfK9Dv+3tC0sQ3xTN/niouoT7t+i5GVnmWhxmpydzTrLFT
+	 3zvxyqIf0XbPXivH1j2TG5L7SbKQISmm9lMnEMlyFaatvbMcGlb6rVe48isAyLWXEu
+	 2I+J2Wxv7BP8S3iSDhCCIPnF2Lexi3c2N7pFvXzfxbgRRsnaLCMkoL+jDByadCmcL5
+	 EDVId8HE+fASLPwmFMPZ+oSKSzJC2woNESvh13YUSuLbyJZPNzlpihgkUrMPsL9RyM
+	 FjSwmdoy1zVNQ==
+Received: from lfbn-nan-1-2237-32.w92-139.abo.wanadoo.fr ([92.139.188.32] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vabju-0000000G12w-1N55;
+	Tue, 30 Dec 2025 15:34:26 +0000
+Date: Tue, 30 Dec 2025 15:34:25 +0000
+Message-ID: <87qzscdlvi.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Petteri Kangaslampi <pekangas@google.com>
+Cc: kvmarm@lists.linux.dev,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/1] KVM: arm64: Fix hyp VA size between layout and MMU
+In-Reply-To: <20251223193440.1441657-1-pekangas@google.com>
+References: <20251223193440.1441657-1-pekangas@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 92.139.188.32
+X-SA-Exim-Rcpt-To: pekangas@google.com, kvmarm@lists.linux.dev, oliver.upton@linux.dev, vdonnefort@google.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251230_073418_753458_5E8A72D7 
-X-CRM114-Status: GOOD (  17.39  )
+X-CRM114-CacheID: sfid-20251230_073431_729971_3B6E92F0 
+X-CRM114-Status: GOOD (  22.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,52 +91,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 24 Dec 2025 at 13:44, Krzysztof Kozlowski
-<krzysztof.kozlowski@oss.qualcomm.com> wrote:
->
-> Use scoped for-each loop when iterating over device nodes to make code a
-> bit simpler.
->
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+On Tue, 23 Dec 2025 19:34:39 +0000,
+Petteri Kangaslampi <pekangas@google.com> wrote:
+> 
+> All,
+> 
+> In the KVM initialization code, kvm_mmu_init() and
+> kvm_compute_layout() use different logic when determining the
+> hypervisor's virtual address space size. Specifically, the MMU code
+> uses the larger of vabits_actual (the kernel's VA size) and
+> IDMAP_VA_BITS (48 bits), while the VA layout code just uses the
+> kernel's VA size.
+> 
+> This means that if the kernel is configured with a VA size of less
+> than 48 bits (like happens in our environment), the assumptions used
+> to calculate hyp_physvirt_offset and the code that determines VA
+> ranges to use for mappings in hyp/nvhe/mm.c get out of sync, which can
+> results in mapping failures.
+> 
+> The immediate fix is pretty obvious and attached here. This is against
+> 6.12 but I don't think this code has changed recently. I think longer
+> term refactoring knowledge of the hypervisor's address space into one
+> place might be helpful; currently it is a bit spread out.
 
-All patches in the series applied for next, thanks!
+I'm sorry, but posting a patch against a kernel that is over a year
+old doesn't help. It may apply, but it doesn't mean it works. Please
+post a tested patch against the latest released kernel, or even
+better, the latest -rc.
 
-Kind regards
-Uffe
+Thanks,
 
+	M.
 
-> ---
->  drivers/mmc/host/sdhci-of-aspeed.c | 5 ++---
->  1 file changed, 2 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/mmc/host/sdhci-of-aspeed.c b/drivers/mmc/host/sdhci-of-aspeed.c
-> index ca97b01996b1..4296def69436 100644
-> --- a/drivers/mmc/host/sdhci-of-aspeed.c
-> +++ b/drivers/mmc/host/sdhci-of-aspeed.c
-> @@ -519,7 +519,7 @@ static struct platform_driver aspeed_sdhci_driver = {
->  static int aspeed_sdc_probe(struct platform_device *pdev)
->
->  {
-> -       struct device_node *parent, *child;
-> +       struct device_node *parent;
->         struct aspeed_sdc *sdc;
->         int ret;
->
-> @@ -548,12 +548,11 @@ static int aspeed_sdc_probe(struct platform_device *pdev)
->         dev_set_drvdata(&pdev->dev, sdc);
->
->         parent = pdev->dev.of_node;
-> -       for_each_available_child_of_node(parent, child) {
-> +       for_each_available_child_of_node_scoped(parent, child) {
->                 struct platform_device *cpdev;
->
->                 cpdev = of_platform_device_create(child, NULL, &pdev->dev);
->                 if (!cpdev) {
-> -                       of_node_put(child);
->                         ret = -ENODEV;
->                         goto err_clk;
->                 }
-> --
-> 2.51.0
->
+-- 
+Jazz isn't dead. It just smells funny.
 
