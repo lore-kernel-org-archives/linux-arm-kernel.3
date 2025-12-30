@@ -4,77 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CD4DEE4990
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 18:06:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E89F2EE4990
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 18:06:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VcsRDU8rlvK3l3KStHQGwiMcU7pfsmF2k+0fJUQSUDI=; b=WibsjDhicYvQak7UdnsA13RTbc
-	TrVnaDfCCaWlj2F5P3bN0momu6eXIzSY32uLHVy8KGTbZ+Em3sJe+9an7+0P1okGC3k24Pq8bxYyU
-	jLEyZD4Rl1dPhgHS0Pkgehl2/lCuAYogqy8mUCwE73lMWoVxVuJT7sgC0OMPl1pm61NpNj5MMEEMX
-	9eRdeR8qplfw1rjF9rCKYceZwhLAf5Ek9vTffJL9YVQfYcZq09WM5ieJumRgVkmOjVfZuugNgOIO2
-	oZgvWGOIfbqAC6GBauG3gxQqyoLGo8bgRcVgZplzuxyIcHoo5h5ICFHc5DFPuMAXjQEAqwBMBhEhw
-	I+PWpl/A==;
+	bh=ARCO3nGIu6xPRUPipV0IXFiGA08guJiq8+M45xgO7xg=; b=zSLCLgLh7RnV1c/jxOvIiwFcvQ
+	lZgBtW3i4386nm9vFMGQcln1PZ8C+uimvPBGv/UCW5y+5NjUtaAhiq00hzEf1o55cbFX+z+jwh5VV
+	Rvqw44C38Pfop/83wTLTj4EMQ3B6brqtlGFeyVKVwSKBGkKwfChHw1sqBIwd9HU0miexmpvghDbSE
+	SvoM1T1qppgolByeL3V0VfQnb1tSARVomwqxmgwu7EL5mGZI0ohboMS43gZHpMWY21bsQG+elXIN3
+	jEVs9X/WaydNRNg2O2gagqVU6i6T7mxrOpIkTeSjJ8Oze2bhm2h8Qi8qlp3/uPxt6Z2px/achIVkp
+	V+JnEnOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vae6q-00000005A9d-1P4k;
-	Tue, 30 Dec 2025 18:06:16 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vae79-00000005ABm-2foW;
+	Tue, 30 Dec 2025 18:06:35 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vae6m-00000005A9L-1tsz
+	id 1vae78-00000005ABb-3fav
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Dec 2025 18:06:15 +0000
+	Tue, 30 Dec 2025 18:06:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6B72140DD0;
-	Tue, 30 Dec 2025 18:06:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17DA0C4CEFB;
-	Tue, 30 Dec 2025 18:06:10 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 823B260017;
+	Tue, 30 Dec 2025 18:06:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05D38C4CEFB;
+	Tue, 30 Dec 2025 18:06:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767117970;
-	bh=d56dgI6Y5PdhNqTXDppdPpaYunnHYAw+cp/8Lv9TnIw=;
+	s=k20201202; t=1767117993;
+	bh=+mZ2BSG8Mo/7t6pCnAocYIY+9a/YSRxQPsfDZwP6lI8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LdP5RAlZVwfui6ATS7o6Q1TU6zwgdzyBneXEku3UUjhcew8CcIMDuW91se2EYAB2w
-	 KoTu1wvAY6xPblQ7lL70pVSG+HZcqZTkmVO7BTONVuss2b7R15Dtv/REXIQmOSKvwi
-	 HzIPNGELsRJ3r1NmPshi4izd7YUCNWKWuUHDd6Om6HnyXyO01tyS0b2SlMfxy6oCHW
-	 TK8/VCAagei4yvhmcJAsMlkZa/yJqmHcAw9vhbq939v4GFmOd3wASmZmD6ArSDzIAh
-	 WVHQyMQUdKYzLY12Z13eIvwfw76BEb7sx9hcRQuAbn/CJI49FTMJT32dVc6o3uLw9P
-	 Ws5JJMFAPTSGA==
-Date: Tue, 30 Dec 2025 12:06:09 -0600
+	b=TnAphv0B8FtOm3V3/J/xA4md6HvcO0RI7LhtjTixEFWoixXCzDO0IAujqQVLnllOv
+	 0jGx9RP58yCr81eA/hxp+CWpMUCxj/5XWjj2Agm37F3dM12xuM4s/7vJwqhl3CQ+Jp
+	 KFqk1dqNiAQtDEUdAzvsb6zm/W0i8Tp8xi7pb1O6dUEn/hUhyKmLm4jTcX1KrJkoSi
+	 RiqOUTv5h7UervvaA1pcwasBEwBWD1bICWOom/h4D4SM5ezakBx9beiiK979Kzyc41
+	 6uulURq3HYMtSiPsHPaX4lREJ0IdVGgpFmpq5ROLATAnKBs4IHllkMkLHZFLbtQPJH
+	 qLplRteSg0EbA==
+Date: Tue, 30 Dec 2025 12:06:32 -0600
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Robert Marko <robert.marko@sartura.hr>
-Cc: herbert@gondor.apana.org.au, Steen.Hegelund@microchip.com,
+Cc: daniel.machon@microchip.com, radu_nicolae.pirea@upb.ro,
+	linux-i2c@vger.kernel.org, linux-crypto@vger.kernel.org,
+	jirislaby@kernel.org, conor+dt@kernel.org,
+	alexandre.belloni@bootlin.com, andi.shyti@kernel.org,
+	olivia@selenic.com, linux-spi@vger.kernel.org,
 	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	netdev@vger.kernel.org, linux-serial@vger.kernel.org,
-	linux-spi@vger.kernel.org, linux-usb@vger.kernel.org,
-	claudiu.beznea@tuxon.dev, conor+dt@kernel.org,
-	nicolas.ferre@microchip.com, kuba@kernel.org,
-	linux-i2c@vger.kernel.org, lee@kernel.org,
-	linux-crypto@vger.kernel.org, jirislaby@kernel.org,
-	andrew+netdev@lunn.ch, dmaengine@vger.kernel.org,
-	andi.shyti@kernel.org, linux-gpio@vger.kernel.org,
-	pabeni@redhat.com, gregkh@linuxfoundation.org, davem@davemloft.net,
-	luka.perkov@sartura.hr, vkoul@kernel.org,
-	UNGLinuxDriver@microchip.com, radu_nicolae.pirea@upb.ro,
-	daniel.machon@microchip.com, richard.genoud@bootlin.com,
-	alexandre.belloni@bootlin.com, krzk+dt@kernel.org,
-	lars.povlsen@microchip.com, linux-kernel@vger.kernel.org,
-	broonie@kernel.org, linusw@kernel.org, edumazet@google.com,
-	olivia@selenic.com
-Subject: Re: [PATCH v4 01/15] dt-bindings: usb: Add Microchip LAN969x support
-Message-ID: <176711796888.884073.12938472533739359591.robh@kernel.org>
+	linux-kernel@vger.kernel.org, gregkh@linuxfoundation.org,
+	dmaengine@vger.kernel.org, andrew+netdev@lunn.ch,
+	krzk+dt@kernel.org, nicolas.ferre@microchip.com, linusw@kernel.org,
+	lars.povlsen@microchip.com, pabeni@redhat.com,
+	richard.genoud@bootlin.com, davem@davemloft.net,
+	netdev@vger.kernel.org, linux-usb@vger.kernel.org,
+	claudiu.beznea@tuxon.dev, linux-gpio@vger.kernel.org,
+	Steen.Hegelund@microchip.com, broonie@kernel.org,
+	luka.perkov@sartura.hr, edumazet@google.com,
+	herbert@gondor.apana.org.au, lee@kernel.org, kuba@kernel.org,
+	vkoul@kernel.org, UNGLinuxDriver@microchip.com,
+	linux-serial@vger.kernel.org
+Subject: Re: [PATCH v4 09/15] dt-bindings: dma: atmel: add
+ microchip,lan9691-dma
+Message-ID: <176711799188.884536.16157476210751555846.robh@kernel.org>
 References: <20251229184004.571837-1-robert.marko@sartura.hr>
- <20251229184004.571837-2-robert.marko@sartura.hr>
+ <20251229184004.571837-10-robert.marko@sartura.hr>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251229184004.571837-2-robert.marko@sartura.hr>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251230_100612_510417_821ECE01 
-X-CRM114-Status: UNSURE (   9.40  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20251229184004.571837-10-robert.marko@sartura.hr>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,20 +87,19 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 29 Dec 2025 19:37:42 +0100, Robert Marko wrote:
-> Microchip LAN969x has DWC3 compatible controller, though limited to 2.0(HS)
-> speed, so document it.
+On Mon, 29 Dec 2025 19:37:50 +0100, Robert Marko wrote:
+> Document Microchip LAN969x DMA compatible which is compatible to SAMA7G5.
 > 
 > Signed-off-by: Robert Marko <robert.marko@sartura.hr>
 > ---
-> Changes in v2:
-> * Fix example indentation
+> Changes in v3:
+> * Merged with microchip,sama7d65-dma since that also falls back to
+> microchip,sama7g5-dma
 > 
->  .../bindings/usb/microchip,lan9691-dwc3.yaml  | 66 +++++++++++++++++++
->  1 file changed, 66 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/usb/microchip,lan9691-dwc3.yaml
+>  Documentation/devicetree/bindings/dma/atmel,sama5d4-dma.yaml | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
 > 
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
