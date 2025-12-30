@@ -4,64 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22210E9410A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 02:22:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C53FBE92FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 02:23:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W7MuhpFuhJOuB1ZkxXNKbETWpshIvQ50dTBnFcWSOFE=; b=pnoz2MIixwdJcga9FhtOqcsqX7
-	ZVfgwKSQBOMuMmjlZ7dccZ77/v4bgQpmVDTVXVYDSuMYy/hMani1N2xmrvdRBTVbSgnUHRw8DCDXR
-	4ppl5uAqdqWDUii39dS8i5lZOPqTmwZLbT484F9YzIFCqyy8FVPtTFofv9i2lCGVW762Hwe5BdtRB
-	NRDuU0YfUyt2RAiFbi26URVNGOVEHt1y3NXSJG5b61nrlBWjsQnw+0rO28fJInlxonsN/Ix3VZuXX
-	u1lN87i1hi/rZAMv5UqD4QL501eD7eU71iPJrPOU7goFOKRc8iZZKNtei5sw+MMQ1eQpYt5ivSA6H
-	ca/rhbzw==;
+	bh=dKB/MFi2JJNcHgRM1ZVpW/6k+K0ih/df/zx7AJgRywM=; b=cC8jNci7+yuy1Eakejh8r7U6fu
+	gwi4tg+NjgZ1Wi0tMlq4Q6agn6+fB695VIrh5ZKvSAW0mEZ4/dgasBHYtzp4n+dPM8fvBIy7hfRQg
+	CrTYeBrGjeUSYDiuJPrB1vOhTqD2FwPl8rdn3eanWsNypUrLZQ2iYHVO6Hmlh0HGkdsyD3n+DiOjp
+	9HE9LQBhg/MB9EAiGLJJBiZRUmN9xLWa/hlKVZlYYe0l3OSE/8ASLL9bNNrxf+CKVElcEYSRAultX
+	9jBXW8it6ForVhYylsZjAhxFLIWkj18lL1WyOI1eKdfjUiv2+ipdjXB0Jaqj61L1URKOevgl6O5Oj
+	RJI1nomw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaPNl-00000004Iev-45Zb;
-	Tue, 30 Dec 2025 02:22:45 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vaPNu-00000004IgP-19MY;
+	Tue, 30 Dec 2025 02:22:54 +0000
+Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaPNj-00000004Iea-0mGL
+	id 1vaPNs-00000004Ifw-1b1z
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Dec 2025 02:22:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 55E12403F0;
-	Tue, 30 Dec 2025 02:22:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00C03C4CEF7;
-	Tue, 30 Dec 2025 02:22:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767061362;
-	bh=/psuR/3hwPcJXh/QxQDIWHYcRBOf2JQDF0tA2oZ5EE4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EAkkOMjtE/NFwqwLKKAWdE4xg1Nr453fHrv9QVVH43Hg5+P3MubD75i3BHxBcSSZX
-	 foTwDCvNTSAAB9tLotyetesFJWYUIhfxy44jZxEV3EFR7cbCr9GBluN7WzUpWTSuKa
-	 CIrAiqGq6c4JPcTFQOssiyfDelYfsv/O7b8EsSxJwZP5csbmWGb05DDkOFBW118XlQ
-	 gPvfZfHAG7DhoGBBuoD4+XsWrZJt3F0iEP4Tmf4I3pVDMo6M6RXAW+Mo+CNKidWHh+
-	 iAwD9Qfsqp8L6OcJsTbop8CxB3j4XTgrBjP9N96E4JsZRuR2LakMa4SjYdJtc8tzWO
-	 sP13ghCLyxpmQ==
-Date: Mon, 29 Dec 2025 20:22:41 -0600
-From: Rob Herring <robh@kernel.org>
-To: Akiyoshi Kurita <weibu@redadmin.org>
-Cc: Guenter Roeck <linux@roeck-us.net>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] docs: dt-bindings: hwmon: aspeed-pwm-tacho: fix typos
-Message-ID: <20251230022241.GA3214066-robh@kernel.org>
-References: <20251224083845.2727976-1-weibu@redadmin.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251224083845.2727976-1-weibu@redadmin.org>
+	Tue, 30 Dec 2025 02:22:53 +0000
+Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-be8c77ecc63so14730393a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Dec 2025 18:22:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1767061371; x=1767666171; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:user-agent:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=dKB/MFi2JJNcHgRM1ZVpW/6k+K0ih/df/zx7AJgRywM=;
+        b=Tjn6PeV4Tlwg+crYl11LGOstO9pXaZyP8UIULzUKH27XV1NaFx0bQy1o814Ltpx41+
+         ZQuAZXYh7HS9z72VuWLb4zZ9hmLjjKKaF8ZYFIdKhv+TEjk7qU6cOD7LtAi0Q6rxH9NT
+         VlDcD0DUTbkB5ACoiuNYbR6SNlEW2LF1abYrj6X5exYGIXxZuSW1B/D3b1d7ExAU2dTn
+         sJIHpAftRzAxIoF0/HkJVuvf8pGFXkeU+eHgNvE63yLHbFS0WWMheW3ScIRq/Oww95oV
+         uOj+nir3g7yJ8IIyXrY0DZxUlDRDSNouGh39XUDNZIDi+CxYrvZpGAAf0NwF6Iomvrqs
+         +ltQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767061371; x=1767666171;
+        h=cc:to:from:subject:message-id:user-agent:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dKB/MFi2JJNcHgRM1ZVpW/6k+K0ih/df/zx7AJgRywM=;
+        b=HbkBKMsrtbymvqtQdba+vMqW7EUmfU0sIASFEdO5S+NWznhhSlm2tFCGmM5J+V+eLi
+         teYv21i1WzAsoT/Xg8pWLZZ39Ra/DNud9/qxnt7E2SLjVEUhYWEL1TZnCEb42jHFbRv4
+         iJMpo3cpNz+qizs8UiVlqUB3d2A7qxdMzeGAwIpxUA6AZz/wCI5CdrB3ykmyIdRJju+/
+         z+MD6tVshjXbDkO5WKxeEY2lOMBAA9pkEM42YT6ruH7VyGMm1qVZGUMyYI3aAsxb2Jmq
+         Kac8R+yZWTyxL/HZon6Ms+byvWOBGEgmCbjpLtbgWAv8AcySZ9bWbITo+fOW3kwAMKvi
+         yC5g==
+X-Forwarded-Encrypted: i=1; AJvYcCV4piJixj8HJjy7FnanuzO995qWdzuG0Se+x7sv67BcOpXlKURbjA4YYj52tUPUyy5fJ7yfcVGYoXiKtPfAeSNu@lists.infradead.org
+X-Gm-Message-State: AOJu0YwtPSQrRc/WT0qnezsaf12ApHR3QdmYeSLC76WPh8Tt9pn7BM31
+	OIgAC/2pzNe1mAry/USp9HXS8zARMjHnlVHSVu7S8mMVhLRernp/wX5XaCztOqjzErWiA7Zu3xL
+	M0VllkMR2aw==
+X-Google-Smtp-Source: AGHT+IELINBMPFmRxNHDW7vHWpdCROA3hncsEtneXbUH1OrOJmjFny3vsrRGMAMBfntFNvUrUIrN7tzzSSsU
+X-Received: from dlbsn2.prod.google.com ([2002:a05:7022:b902:b0:11f:300a:a308])
+ (user=ynaffit job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:3718:b0:119:e569:f62e
+ with SMTP id a92af1059eb24-121722ecbe0mr22094565c88.39.1767061371145; Mon, 29
+ Dec 2025 18:22:51 -0800 (PST)
+Date: Mon, 29 Dec 2025 18:22:49 -0800
+In-Reply-To: <20251205-stable-disable-unit-ptr-warn-v2-1-cec53a8f736b@google.com>
+ (Justin Stitt's message of "Fri, 05 Dec 2025 14:51:41 -0800")
+Mime-Version: 1.0
+References: <20251205-stable-disable-unit-ptr-warn-v2-1-cec53a8f736b@google.com>
+User-Agent: mu4e 1.12.12; emacs 30.1
+Message-ID: <dbx8ikdoso7a.fsf@ynaffit-andsys.c.googlers.com>
+Subject: Re: [PATCH 6.1.y RESEND v2] KVM: arm64: sys_regs: disable
+ -Wuninitialized-const-pointer warning
+From: Tiffany Yang <ynaffit@google.com>
+To: Justin Stitt <justinstitt@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Alexandru Elisei <alexandru.elisei@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, 
+	Nathan Chancellor <nathan@kernel.org>, Christopher Covington <cov@codeaurora.org>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu, 
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251229_182243_244550_1D57ECA0 
-X-CRM114-Status: UNSURE (   8.64  )
+X-CRM114-CacheID: sfid-20251229_182252_438915_CA8064FB 
+X-CRM114-Status: UNSURE (   6.37  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,15 +98,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 24, 2025 at 05:38:45PM +0900, Akiyoshi Kurita wrote:
-> Fix "upto" -> "up to" occurrences and add missing "be" in one sentence.
+Justin Stitt <justinstitt@google.com> writes:
 
-This is in the process of being converted to schema. Please review that 
-patch and check these issues are not copied over.
+> A new warning in Clang 22 [1] complains that @clidr passed to
+> get_clidr_el1() is an uninitialized const pointer. get_clidr_el1()
+> doesn't really care since it casts away the const-ness anyways -- it is
+> a false positive.
 
-In general, don't fix .txt bindings. Convert to schema if you want to 
-improve them.
+<snip>
 
-Rob
+Reviewed-by: Tiffany Yang <ynaffit@google.com>
 
+-- 
+Tiffany Y. Yang
 
