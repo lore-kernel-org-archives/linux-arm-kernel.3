@@ -4,65 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A05B2E95A71
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 10:47:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A88DE95A6D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 10:53:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aateUwJAsBS5ebefM0Zc7Bz+yjeqfX9VuoGySIleu9E=; b=zh+7pXPkXhBj3ssw/3oGZfNcD2
-	JeM4COIs74zCzmqMERg3qXvTW31WChG9QfqIN+6cki0ksiCUFlqMeg2iYDj8ZfuszEJI3P8kgPZbO
-	/hOZjC9/7f1dTylqnqmEQJq3idMw5qDpvciiUlem3Cc3Sb5cKQSaItcp2lrXUo91ZGm5QIb3q/BVm
-	k3nIqreMknBOqZEoxFCd6iqfCZ3AuVuUhPrfjQ8nD8m67LO/DTObOHM0pCCNv5xnJJ8ooP1P/4XoL
-	viFXhylCxkl2BBNUSNpQsjViX46mri++GNeJHXwE2H05EbA3BXmiGSfX1XeFlqFZJYUV4dfahUiRN
-	+Q5t3E0Q==;
+	bh=RvrIXXtJkwQLpKLNYX+FQY6pO76+th3R8O23dDJCL7Y=; b=vaus0mK8BI+HlEHRdU9+QkV6aX
+	JlWjykVs0SyZpiIGa+uy3tF/K+6Es/JLSXF7CR58sF4Za15RB+dRpXbgHlCW/Vt+8S7I596tRCLsp
+	OeCIWJ8We98d9UjqQhRgP1lh1n2Mj5IDvm9z6NAsbnPuawuM9mr03rLAuZQSpaxz3dBljOd4AKNlG
+	sJEJ5iBLEk/oI9TDe19RXpkrT3nFnX3irVxowwMm863KvS+P2/jYwA7DICMg01MloB7LVcYPoYBkh
+	9wI9AwXfJF7FGSyZtP7dc9m4+c4//QZaVW8Q6fCs7mj+NojklM5/9ie/Rwxum73W+q/foRP+6myLH
+	m84nVTyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaXFb-00000004jFi-3ioe;
-	Tue, 30 Dec 2025 10:46:52 +0000
+	id 1vaXMH-00000004jVd-3y3c;
+	Tue, 30 Dec 2025 10:53:48 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaXFQ-00000004jER-0pjE
+	id 1vaXM4-00000004jUz-0PpN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Dec 2025 10:46:51 +0000
+	Tue, 30 Dec 2025 10:53:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=aateUwJAsBS5ebefM0Zc7Bz+yjeqfX9VuoGySIleu9E=; b=PZTl4DwF3xaHNqfimFBTn4RXBA
-	DkT3T/aWBGIF1MgWAaP11qTxSOxD0I0+IQRzQKSUSwWJL+lfdJHbhp4FSPoa/kW19siILDLIP2W/2
-	pFve28IcEjalh5z3HMTU7ZyJa2/qV9V4swmuu/Ydy7Stw5Y8+56nU8Ab48r4pJLvQ+NE=;
+	bh=RvrIXXtJkwQLpKLNYX+FQY6pO76+th3R8O23dDJCL7Y=; b=VF9GFn1+aPe5Sxe33P/Kxgmtza
+	6sKw4xc5OUnR5WrTwjMLpMwF+Su7o9Yg1chE/E0HgIL9PXbmPwAC5RRjfJUVJjoGh/Q9VgfWTqevN
+	MdRvAQ3AgTN/6x8xJZoQj+21QpMm1DS4lbrNtgIXleh17Kf/GndrGNAOFwRSBcPQeCuo=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1vaXFJ-000raV-5k; Tue, 30 Dec 2025 11:46:33 +0100
-Date: Tue, 30 Dec 2025 11:46:33 +0100
+	id 1vaXLp-000rca-IT; Tue, 30 Dec 2025 11:53:17 +0100
+Date: Tue, 30 Dec 2025 11:53:17 +0100
 From: Andrew Lunn <andrew@lunn.ch>
-To: Marek Vasut <marex@nabladev.com>
-Cc: linux-arm-kernel@lists.infradead.org, Fedor Ross <fedor.ross@ifm.com>,
-	Christian Eggers <ceggers@arri.de>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+To: Stefano Radaelli <stefano.radaelli21@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Markus Heidelberg <m.heidelberg@cab.de>,
-	Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 4/4] arm64: dts: imx8mn: Add ifm VHIP4 EvalBoard v1
- and v2
-Message-ID: <e3d305ce-cdfa-4a11-bd54-9648b12a013f@lunn.ch>
-References: <20251229193706.73564-1-marex@nabladev.com>
- <20251229193706.73564-4-marex@nabladev.com>
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Yannic Moog <y.moog@phytec.de>,
+	Primoz Fiser <primoz.fiser@norik.com>,
+	Markus Niebel <Markus.Niebel@tq-group.com>,
+	Josua Mayer <josua@solid-run.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 3/3] arm64: dts: imx95-var-dart: Add support for
+ Variscite Sonata board
+Message-ID: <138b59d1-e001-4c9b-bf8b-a5af703d747a@lunn.ch>
+References: <20251229213726.79374-1-stefano.r@variscite.com>
+ <20251229213726.79374-4-stefano.r@variscite.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251229193706.73564-4-marex@nabladev.com>
+In-Reply-To: <20251229213726.79374-4-stefano.r@variscite.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251230_024646_000411_1188B7A8 
-X-CRM114-Status: UNSURE (   7.49  )
+X-CRM114-CacheID: sfid-20251230_025332_139297_B2F6C309 
+X-CRM114-Status: UNSURE (   9.92  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -78,24 +84,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +&fec1 {
-> +	fsl,magic-packet;
+> +	sfp0: sfp {
+> +		compatible = "sff,sfp";
+> +		i2c-bus = <&lpi2c3>;
+> +		los-gpios = <&pca9534 1 GPIO_ACTIVE_HIGH>;
 
-Upps, i probably cut out too much context. This FEC is connected to the Ethernet switch.
+Minimalist for GPIOs, but O.K.
 
-WoL for a port connected to a switch? Have you tested this? Normally
-you would have WoL on each port of the switch, and not on the conduit
-interface.
+> +		maximum-power-milliwatt = <2000>;
+> +	};
+> +};
+> +
+> +&enetc_port1 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&pinctrl_enetc1>;
+> +	phy-handle = <&ethphy1>;
+> +	/*
+> +	 * The required RGMII TX and RX 2ns delays are implemented directly
+> +	 * in hardware via passive delay elements on the SOM PCB.
+> +	 * No delay configuration is needed in software via PHY driver.
+> +	 */
+> +	phy-mode = "rgmii";
+> +	status = "okay";
+> +};
+> +
+> +&enetc_port2 {
+> +	phy-mode = "10gbase-r";
+> +	sfp = <&sfp0>;
+> +	status = "okay";
+> +
+> +	fixed-link {
+> +		speed = <10000>;
+> +		full-duplex;
+> +	};
+> +};
 
-> +&fec1 {
-> +	fsl,magic-packet;
-
-Have you tested WoL?
-
-> +&fec1 {
-> +	fsl,magic-packet;
-
-WoL again?
+The fixed link is not needed. phylink will ask the SFP plugged into
+the cage what it is, and then configure the MAC as needed, 10GBase-R,
+5GBase-X, 2.5BaseX, 1000BaseX, SGMII etc.
 
 	Andrew
 
