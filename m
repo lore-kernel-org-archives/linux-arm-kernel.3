@@ -4,78 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D18DEEE49BC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 20:23:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F607EE0203
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 21:09:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7VSjZH9YRcwoArFWQ3nrQhzF6SeGlXpAy9wzH4sePkU=; b=otLZS+ObI7XPoLzoRexFkkMgpV
-	Btp0RwbROWxnpRKyju6ssbCaCevOjstaDK/cZ1nWJ/g1q607wL65vZvxqvCuDVjGSnk9cynEOcnv8
-	uXa7RaDFTRVINC/zNouE9NUJO/1gWeoxblsQQ1NYjm/ZVywmK6vqhBWHXH8C4YRCKTdXPyVeoNnDd
-	CiMXi6lKAAbYiWA+FLS8ULBvqUhIjO4+TPLbx2RWVWsW7gSGmCMw17feses8S64KsfbBtgfDUT9iE
-	UwS/rqaERxVHAedRaf+Rk6uPcu2GF6Z3hishpsf7LTVLHkOl27YoLGI/DAyFMZekR50VFgOJX6oCf
-	TGKPoIug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hvZE2Mdaq3RzQueJdX+n3+4wx/tUoxDbdm9E/c+gs1o=; b=z7rxrn9AxVjM1dMbMbXO6fUfwA
+	FVHMcGekFBufq0zX1wXhvGslJ31gDRCLt74cQqv4/K9iIoNtXtvj8S3DLz1n0W6NXRNPsb4hyUR0q
+	lMF4AcaZ/Ufx3heA1fPMtePe8ebzlrKyXkhgg+5fr5O1LgAskJ3MSA/4kt8kn/syYJkPuGAa6F48N
+	gR5x/VpbJT46+msRVv99lGzTIlrFN0Tx2rP0nEg5l1J8HCO7k79gUUd42T7/RUgXnrX2pQN+rrxqk
+	D3jtdd44MP3wQ3JlAWAYoV9C6dRjc55XeBmI5R3lFg6UEagf4kDItqdEVU80iXAtfkAoq4lJV8c7C
+	cKbsMwtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vagFH-00000005HFN-3gIj;
-	Tue, 30 Dec 2025 20:23:07 +0000
-Received: from mail.alien8.de ([65.109.113.108])
+	id 1vagxY-00000005IYo-35xU;
+	Tue, 30 Dec 2025 21:08:52 +0000
+Received: from fhigh-a1-smtp.messagingengine.com ([103.168.172.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vagFE-00000005HEa-1THC
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Dec 2025 20:23:05 +0000
-Received: from localhost (localhost.localdomain [127.0.0.1])
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with ESMTP id 8D7D140E0200;
-	Tue, 30 Dec 2025 20:22:39 +0000 (UTC)
-X-Virus-Scanned: Debian amavisd-new at mail.alien8.de
-Authentication-Results: mail.alien8.de (amavisd-new); dkim=pass (4096-bit key)
-	header.d=alien8.de
-Received: from mail.alien8.de ([127.0.0.1])
-	by localhost (mail.alien8.de [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id 6019D1TzHUu6; Tue, 30 Dec 2025 20:22:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alien8.de; s=alien8;
-	t=1767126154; bh=7VSjZH9YRcwoArFWQ3nrQhzF6SeGlXpAy9wzH4sePkU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CZftLkiSaYSuny9JPh+I4cMr86G5HGZynbGE4hsn0NvabteM/KIFQEcmu/mgFfNAF
-	 W0fPnfjlWbMn40x8ByvMddii07FftBkdzlm043PDJfB5gn8g09h5uE/8BW3uwqbQxk
-	 V7KSZzQbmQJSpLdtime8xn+e2LkbvVseaDdaDWbwcuq/y6Ky9KHLn6OQ1vzYxNfJgv
-	 vpIhzEVPQhjyBn5Qw18DpFm9sJl8mtntp6p8LFFhjU4hpDzod7pNu1diLwQYIIKwUD
-	 /mz/U/lh1yIepLjd/ROiwCXP5xOKWOWSpDXi9q5zhKkRYceNx6VTT3JyCD8M9eJkt7
-	 4lxfun7vIHgZRNA60bbHYm54gA8TfkB8WLR2vQ4PlvhYO2JJnc0GsVST/XTCnQ14WP
-	 Ac10ffwKginHPD1X3jCm5nnuXEs+qK4HQSlGFIgfVjaEeJYUSMAZ58UXxZMqzatTKq
-	 3ejWocyb2In7vzdfgOCro3hfc6zCOLQ8k8ik2rY6pRPuqQG/QRA9smEFMoTYBar3Ss
-	 A7ftcSCNrU34hZkNhbeafgpanayQ25kZ5u9wKlTWigAWfsFJPFsjmngoCmaOl4Kgwr
-	 9N5am9o9/se1jMAv0vtCq2k7exXFume5D168LibYKvOYkytYe8J01SSrNKmeV1fRRK
-	 c7VbaMk9SRHs/d1fF1EDJ0hg=
-Received: from zn.tnic (pd953023b.dip0.t-ipconnect.de [217.83.2.59])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
-	(No client certificate requested)
-	by mail.alien8.de (SuperMail on ZX Spectrum 128k) with UTF8SMTPSA id 9F49D40E01A9;
-	Tue, 30 Dec 2025 20:22:18 +0000 (UTC)
-Date: Tue, 30 Dec 2025 21:22:11 +0100
-From: Borislav Petkov <bp@alien8.de>
-To: Ruidong Tian <tianruidong@linux.alibaba.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, lpieralisi@kernel.org,
-	guohanjun@huawei.com, sudeep.holla@arm.com,
-	xueshuai@linux.alibaba.com, linux-kernel@vger.kernel.org,
-	linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	rafael@kernel.org, lenb@kernel.org, tony.luck@intel.com,
-	yazen.ghannam@amd.com, misono.tomohiro@fujitsu.com,
-	fengwei_yin@linux.alibaba.com
-Subject: Re: [PATCH v5 00/17] ARM Error Source Table V2 Support
-Message-ID: <20251230202211.GAaVQ0cx8o-CqzGU2O@fat_crate.local>
-References: <20251230090945.43969-1-tianruidong@linux.alibaba.com>
+	id 1vagxV-00000005IYM-0n0o;
+	Tue, 30 Dec 2025 21:08:50 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 8DD971400089;
+	Tue, 30 Dec 2025 16:08:46 -0500 (EST)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Tue, 30 Dec 2025 16:08:46 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1767128926;
+	 x=1767215326; bh=hvZE2Mdaq3RzQueJdX+n3+4wx/tUoxDbdm9E/c+gs1o=; b=
+	m5VRocYSXIlaNjd+wnyxBkSVsUT/BydMIpJq7VagNGuKzBrqFtbgisYFelvU7Mqy
+	ipBIrQzYfnPIapunzxQX69y2NP5LynZX8FpTsZ9zoCAgqOFuhNtQaOCU8cIOSKtU
+	7F1PmHdpMDwwJLPSYVLfWRj3kV8QrKcp5y86LKuEP+N4WpmUHf64xINXxKVdg3kL
+	qF4ZtIGseqI8F4kWe/w8WrErprFwyIM93VviN76uAnk8Hm1o///re+scA+CofU0m
+	/ltX8JeBbs66ZEDAc17iuvb7gLtVZOlVlipCv5u5vt9kPimmSHADDrLuhkrOoW5a
+	hFIdUFJhGqCpIpwwZLhNbQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1767128926; x=
+	1767215326; bh=hvZE2Mdaq3RzQueJdX+n3+4wx/tUoxDbdm9E/c+gs1o=; b=S
+	6oRw7Epu5P83pBA0VBspCtXLB9a+fetUFSiiUsfvJEL6RQPSW90uhRVcGFyC4Fo5
+	gxkgaAx095YYoERFgoXy9eJDavez8YdhCRI4XplExR95uDhyO59c400fuyBiVIfT
+	1cJu+S5IU994i2m+Ed6KeFLOGUDf0bwCaOOdGDOVLRNNc71azzHI2/ZOC0RQREMW
+	BATRCK0mnBociX6piQSsajcRl8E14M3NQ+fk0gGIFN1Osb43dFTa7I4bHkMUlNP9
+	hCxF7kwd6IXe6WpwBXgkNHdUB081jFrF0v8OJhfPE31oPOUAe1DsfnmlQaXuCIIL
+	rtNvczVIOjav0rn9B2vHw==
+X-ME-Sender: <xms:XD9UabAR9AMaHtmELUsYgLkS0pC60-lTD1E0dZYKeZoUrwRaF3Tyuw>
+    <xme:XD9UacV7nsCRy-q07r96ibTWTP7RlkOdzm6fJ0mpsvjBkWiBKKGKNyIQ5Hs-UrS9o
+    3F6BVZCqmwbGKj1TekeL6-Uc84Yqg3VnYSS31DQS_y7QaVVJmiK-m4>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdekuddtiecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefoggffhffvvefkjghfufgtgfesthhqredtredtjeenucfhrhhomhepfdetrhhnugcu
+    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
+    hnpedvhfdvkeeuudevfffftefgvdevfedvleehvddvgeejvdefhedtgeegveehfeeljeen
+    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
+    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopedufedpmhhouggvpehsmhhtphhouhht
+    pdhrtghpthhtohepsghpsegrlhhivghnkedruggvpdhrtghpthhtoheplhhinhhugiesrg
+    hrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthhopeguihhnghhuhigvnheskhgvrhhn
+    vghlrdhorhhgpdhrtghpthhtohepvhhguhhpthgrsehkvghrnhgvlhdrohhrghdprhgtph
+    htthhopeigkeeisehkvghrnhgvlhdrohhrghdprhgtphhtthhopehtghhlgieslhhinhhu
+    thhrohhnihigrdguvgdprhgtphhtthhopehthhhomhgrshdrfigvihhsshhstghhuhhhse
+    hlihhnuhhtrhhonhhigidruggvpdhrtghpthhtohepuggrvhgvrdhhrghnshgvnheslhhi
+    nhhugidrihhnthgvlhdrtghomhdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnh
+    gvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrgh
+X-ME-Proxy: <xmx:XD9UaSZYiC2v220cdPaTYOU-oj3KPPFC1Xc3XmgWHjp4UHZYvckwZw>
+    <xmx:XD9UaU_rZbeqDwREYLiDFU2r48qjrwn19l0pErG8anBa-9LRWtcXUw>
+    <xmx:XD9UaRS-Hfm9K4o2wQLCtyVCO8PTdUu7MTjfaDxn_9M-5HK2LfJ_Lg>
+    <xmx:XD9UaXJmwJ0jAtnQwzckrvQecW_EEq3-DNi_Xw4hDhRouIr-8Lb91Q>
+    <xmx:Xj9UaXEt3t9oxxj_Pw_AnnsGkC0dmbkMLvZn9Hc02v0ZSP6jrwqnikBy>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id C0E08700065; Tue, 30 Dec 2025 16:08:44 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
+X-ThreadId: A1Q6nbcC_O6V
+Date: Tue, 30 Dec 2025 22:08:04 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
+ "Vineet Gupta" <vgupta@kernel.org>, "Russell King" <linux@armlinux.org.uk>,
+ "Dinh Nguyen" <dinguyen@kernel.org>, "Thomas Gleixner" <tglx@linutronix.de>,
+ "Ingo Molnar" <mingo@redhat.com>, "Borislav Petkov" <bp@alien8.de>,
+ "Dave Hansen" <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>
+Cc: linux-snps-arc@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Message-Id: <a745a59f-947c-4847-b31c-5e32125a51a4@app.fastmail.com>
+In-Reply-To: <20251230-headers_install-config-leak-v1-4-efba5c58073d@linutronix.de>
+References: <20251230-headers_install-config-leak-v1-0-efba5c58073d@linutronix.de>
+ <20251230-headers_install-config-leak-v1-4-efba5c58073d@linutronix.de>
+Subject: Re: [PATCH 4/5] x86/uapi: Stop leaking kconfig references to userspace
 Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20251230090945.43969-1-tianruidong@linux.alibaba.com>
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251230_122304_547789_23EA0B8F 
-X-CRM114-Status: GOOD (  19.99  )
+X-CRM114-CacheID: sfid-20251230_130849_680713_0B79F9AE 
+X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,64 +120,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some high-level notes first:
+On Tue, Dec 30, 2025, at 08:10, Thomas Wei=C3=9Fschuh wrote:
+>=20
+>  /* entries in ARCH_DLINFO: */
+> -#if defined(CONFIG_IA32_EMULATION) || !defined(CONFIG_X86_64)
+> +#if defined(__KERNEL__) && (defined(CONFIG_IA32_EMULATION) ||=20
+> !defined(CONFIG_X86_64))
+>  # define AT_VECTOR_SIZE_ARCH 3
+>  #else /* else it's non-compat x86-64 */
+>  # define AT_VECTOR_SIZE_ARCH 2
 
-On Tue, Dec 30, 2025 at 05:09:28PM +0800, Ruidong Tian wrote:
-> This series introduces support for the ARM Error Source Table (AEST), aligning
-> with version 2.0 of ACPI for Armv8 RAS Extensions [0].
+While this patch clearly keeps the current behavior, I think it's
+wrong, and 32-bit userspace should see a '3' instead of '2' here.
 
-I'd like to hear from ARM folks what the strategy for this thing is...
+It can probably just be '3' unconditionally, or we can
+make it more complex and have a userspace definition based
+on __x86_64__ being defined.
 
-> AEST provides a critical mechanism for hardware to directly notify the
-> operating system kernel about RAS errors via interrupts, a concept known as
-> Kernel-first error handling. Compared to firmware-first error handling
-> (e.g., GHES), AEST offers a more lightweight approach. This efficiency allows
-> the OS to potentially report every Corrected Error (CE), enabling upper-layer
-> applications to leverage CE information for error prediction[1][2].
-> 
-> This series is based on Tyler Baicar's preliminary patches [3], which have not
-> yet been sent to the mailing list as v2.
+I also wonder if there is a problem with the third
+x86-64 entry being zero rather than AT_IGNORE. I see that
+some architectures do it like this, to keep the number constant
+even if some entries are missing:
 
-I guess I'll wait for those first.
+        if (likely(signal_minsigstksz))                          \
+                NEW_AUX_ENT(AT_MINSIGSTKSZ, signal_minsigstksz); \
+        else                                                     \
+                NEW_AUX_ENT(AT_IGNORE, 0);                       \
 
-> AEST Driver Architecture
-> ========================
-> 
-> The AEST driver is structured into three primary components:
->   - AEST device: Responsible for handling interrupts, managing the lifecycle
->                  of AEST nodes, and processing error records.
->   - AEST node: Corresponds directly to a RAS node in the hardware
-
-What is a "RAS node"?
-
->   - AEST record: Represents a set of RAS registers associated with a specific
->                  error source.
-
-...
-
-> Address Translation
-> ===================
-> 
-> As described in section 2.2 [0], error addresses reported by AEST records
-> may be "node-specific Logical Addresses" rather than the "System Physical
-> Addresses" (SPA) used by the kernel. Therefore, the driver needs to translate
-> these Logical Addresses (LA) to SPA. This translation mechanism is conceptually
-> similar to AMD's Address Translation Logic (ATL) [4], leading patch 0014 to
-> introduce a common translation function for both AMD and ARM architectures.
-
-Say what now? 
-
-The ATL is very AMD-specific. What does "conceptually similar" mean exactly?
-What happens if we have to change the ATL and break your use case in the
-process?
-
-What exact functionality from the ATL do you really need here?
-
-Thx.
-
--- 
-Regards/Gruss,
-    Boris.
-
-https://people.kernel.org/tglx/notes-about-netiquette
+     Arnd
 
