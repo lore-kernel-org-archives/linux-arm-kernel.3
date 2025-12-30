@@ -4,66 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4E1AE95A8B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 13:12:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A9CEE95A8C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 13:16:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=igOfcg9KKA0FJfoCI82WYXp2Y+NpSlqCrrcK+S1kTug=; b=ci50qLyzaHyds2q1rwz5SvyLv2
-	uX1+X34ZTi+YpeXsT22UbR277kkuUxtpRCa7f7poxNtTct5xn7d3zcz1IqgxahEGXoYq0gkKJXZ5A
-	hEdI7dtmdBHBa2bV8GSwhju1PN5K8F7tAzZEQbt7eRNAix73KeOUqOQy/82QGvS8QjWoWu7svvhOh
-	7Gg6EdHts7keZY6meJAbV4naaNGwE5h+gr1+P7pmnKZg7Eb0pnrE8GkRl7c7DfaP0tqX5381BjPGx
-	2XxafApPq3l3gbaLZA966zHn0G/YjSEg5HjOuT8ZrnLlUmuhDBOmJdvBjjDAnXLsbBdbXMMW91fh2
-	G3yS3abw==;
+	bh=mro0doOh0X9RxbtP6AspUu78gbQOGO/4DVR8EBmDhBk=; b=r2IsjbwOPKeHZb543bdnUuSjNx
+	HYnc5Nhmesy5Xg+itwuoYyUedmB54Op9YXJfkCD3Z+fn1KtgJLdhzNPl8y9tVux8SPi4JB0WH92tr
+	PUrbkC6Uk28aIO+KlVT6nEv+CwyiTqRJ71t4WFo4/QoxLZKX8YY3sCq1odaQRGo+RkuDv1SillSzW
+	/66TQjB8z3s/aR6dFnYN7VADGn+l+5Npj+nuyWhtCwLtVp5k++bZEnSOZnKwUb/oS+8dnV78poavW
+	UgxHsHcKp6YhrigV167AoYvqUSzPnRnNK4y7sEQDE6f73ieMxr4t0fIMZLX5NySsjMkpF1rb766uZ
+	hTwkC9AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaZWa-00000004qpb-1EZF;
-	Tue, 30 Dec 2025 13:12:32 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vaZae-00000004r6U-21Tw;
+	Tue, 30 Dec 2025 13:16:44 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaZWY-00000004qpT-3gth
+	id 1vaZad-00000004r6G-1FOM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Dec 2025 13:12:30 +0000
+	Tue, 30 Dec 2025 13:16:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EF9426000A;
-	Tue, 30 Dec 2025 13:12:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0D45C4CEFB;
-	Tue, 30 Dec 2025 13:12:25 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5DB136000A;
+	Tue, 30 Dec 2025 13:16:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3037EC4CEFB;
+	Tue, 30 Dec 2025 13:16:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767100349;
-	bh=R9HgzKj5DnzpWmoZYp/RfmX5CpfHXY11qVPk79TsB5c=;
+	s=k20201202; t=1767100602;
+	bh=oOocE+3FAjl8ilqNiFKWU7yGNQPLFNxslL7pnT2aNng=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nF7Qzn3cth3kLyyzG2eMYUXQDEt0v3SlUgOrIohWf1o/Le99cybzvEEqIUninVPJb
-	 iRLEi+rPjAFbXedGeRvcwJvBnjz5BX91Dp4qV5QKBFfbcMhXtSDPQqeUZDHcJzuZP7
-	 16HmPYT/kPsPoy6gfv/UrWrg+UxX+JdTgMUWtVZ1gzf67gfghP0XygJEqJiusRSO4j
-	 V9ZVgaDvzsUKCPbCiY2n/MrBq5w3+VvWx6PRyH6vJzK3EDIweXY1f9t2AIz+VevxbA
-	 C/9j5s0i4oquZk9MxSDi/siR8DJYkLinhX6eOFQ4Syod2YW2tsYdPLp7CJOeNpLs4q
-	 SNpPjp1spyxzw==
-Date: Tue, 30 Dec 2025 21:12:23 +0800
+	b=SZNdw6/hZV8x1aWhMmi4iDj8wW3dASSjIrdFjeEcJ+hGfmGiq6WJOaEVED2OQ2eUo
+	 MSWy2acAghE7LUI90FccDE3oK0NokFgEAvJw/Cfo3Dm1/n9tutbXqt4EFikQuj+Yd2
+	 L91DoYq8T30fEbsCflv9Xqip5MH0/tvkri3aupWXboCQzs1rzSqXukj6HFCC01a9mB
+	 qUE4Nd4ZRL8JHjEfzSUPWQY1IUaf72m4vU7GS8uzh6jsZr3RsYgDneOGiNviBLQi+j
+	 U2xByMYqH7RN65uSQc78efi6skStfQXavo0lkOnW9d07TAZKGXyw9yZIFCYNBPmI8J
+	 ypP4QEPOH5TkQ==
+Date: Tue, 30 Dec 2025 21:16:32 +0800
 From: Shawn Guo <shawnguo@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+To: Francesco Dolcini <francesco@dolcini.it>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>,
-	Chester Lin <chester62515@gmail.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
-	NXP S32 Linux Team <s32@nxp.com>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux@ew.tq-group.com
-Subject: Re: [PATCH 1/3] arm64: dts: freescale: Use hyphen in node names
-Message-ID: <aVPPtx-8Mg_lLLNE@dragon>
-References: <20251223152624.155845-4-krzysztof.kozlowski@oss.qualcomm.com>
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v1 0/4] arm64: dts: freescale: Add Apalis iMX8QP
+Message-ID: <aVPQsKS5iERmmKG9@dragon>
+References: <20251223162833.138286-1-francesco@dolcini.it>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251223152624.155845-4-krzysztof.kozlowski@oss.qualcomm.com>
+In-Reply-To: <20251223162833.138286-1-francesco@dolcini.it>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,12 +74,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 23, 2025 at 04:26:25PM +0100, Krzysztof Kozlowski wrote:
-> DTS coding style prefers hyphens instead of underscores in the node
-> names.  Change should be safe, because node names are not considered an
-> ABI.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+On Tue, Dec 23, 2025 at 05:28:26PM +0100, Francesco Dolcini wrote:
+> Francesco Dolcini (4):
+>   dt-bindings: arm: fsl: Add Apalis iMX8QP
+>   arm64: dts: imx8qm: Add CPU cluster labels
+>   arm64: dts: freescale: Add NXP i.MX8QP SoC dtsi
+>   arm64: dts: freescale: Add Apalis iMX8QP
 
 Applied all, thanks!
 
