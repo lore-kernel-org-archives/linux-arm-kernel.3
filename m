@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E6D2E94109
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 08:02:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 776FAE94123
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 08:02:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rSSgS4Owu7apQQ6F3BIp5jGRa84w3hOg76VfO/jrTmw=; b=vg/q8FEfGS9WaVU/A6mgp0Oe6k
-	Rlz3urJnUpD+J41v2yLtUAAlZ100tDoTHKWwtGmSEYIJKv/oJqy/D+EBTQMhc8+OVYYNCvqVhkGiI
-	UHQsYOpWmSwIrJ9wdkf8NkiP1S8nkVhUkJ4oRsjEaUraJiFjM1hdU6nK19amiGVt1oIm+m+a7kzqm
-	nbUOTYkDiV5yhqBiH6eIq5SwNWfR0p+makvKSYfrSptfsU6sIXmWu98kHPEp79isdPHHM2m9iy/XT
-	ZYL48Wa3VdM2L9mBrn10wPDh0EPVI0BQBozRNlBLrSvXNUIFfUjrynx1yoTq5JYwbvfamtQ3yxjX0
-	GJ8bJ2zA==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=l8AOMXLBKTR+COJZGGsbi068vIs7ru6iSzu/sWMLBAM=; b=0ACDDj9qOhSafHbNGY4L35LR9e
+	ZGzkJk7d+VYr9otwU6a1obIkggo4f/1mkSeDPaZ9AVwFKQ+gT+XlIYKM8kK8u0lxGaueEOV7WitqL
+	pWoxe9lnEdZk7VSlxfnX+FzIMm6YYiEDyvR374T8NiYmYIVxseUMdD6rwy2KROlbq2eDberpoyjdx
+	4XW/4Wk1+zF3c77IRumvPSE3gSr8CR51ZQrrGd6pa/wgB4+9J2WJM+lDc+jmu4XZt9aW1urYqvU4D
+	bXKjlDoDT16wR3iQXN38o7ggHnDzC6REUdrbDyyuNQEMoF4C7b420D/w/OPd54qnzjOHutT45QvZ2
+	4F0aK25Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaUg4-00000004Xxn-11IL;
-	Tue, 30 Dec 2025 08:02:00 +0000
+	id 1vaUg3-00000004XxM-3oAj;
+	Tue, 30 Dec 2025 08:01:59 +0000
 Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaUfw-00000004Xtj-3Zy0
+	id 1vaUfu-00000004Xtk-3qa6
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 30 Dec 2025 08:01:54 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=rSSgS4Owu7apQQ6F3BIp5jGRa84w3hOg76VfO/jrTmw=;
-	b=n8SuKZUhk8irlpoy7u+eoWhElMiDgO6/PbR0Z22LKXRi/+4eI/vglekMkORpqxAndxcX6Asv4
-	kcquYVAypwDR5xu5iTJ932y8InLeW7jfAcsE/+mDyZZ9Dn5r0///7zkcKj0kKazy89cGqBFLgyq
-	rj8UkrN2JqvmpzEVV+T4ryM=
-Received: from mail.maildlp.com (unknown [172.19.162.140])
-	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4dgQTW653bz1T4H8;
-	Tue, 30 Dec 2025 15:59:11 +0800 (CST)
+	bh=l8AOMXLBKTR+COJZGGsbi068vIs7ru6iSzu/sWMLBAM=;
+	b=CrIFgpa+jZ0jIeP69CPkifAfsmzI+9wp6Jki8ODy827ojLDvhnC82FmYGkLydb2oM6Oumhx94
+	jQflhr/gAWUPgL5arVy+I0F4xp41jlM+OuxKFdCcLGuyHND1L0tpr00uDY7P8TIHZpcUs3yagD9
+	GeTjOPsOKq3EBxq2bNGQYkc=
+Received: from mail.maildlp.com (unknown [172.19.162.197])
+	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4dgQTT5rbjz1T4FZ;
+	Tue, 30 Dec 2025 15:59:09 +0800 (CST)
 Received: from kwepemf200001.china.huawei.com (unknown [7.202.181.227])
-	by mail.maildlp.com (Postfix) with ESMTPS id 30EE52016A;
-	Tue, 30 Dec 2025 16:01:42 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 267F040363;
+	Tue, 30 Dec 2025 16:01:40 +0800 (CST)
 Received: from localhost.localdomain (10.50.163.32) by
  kwepemf200001.china.huawei.com (7.202.181.227) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 30 Dec 2025 16:01:41 +0800
+ 15.2.1544.11; Tue, 30 Dec 2025 16:01:39 +0800
 From: Lifeng Zheng <zhenglifeng1@huawei.com>
 To: <catalin.marinas@arm.com>, <will@kernel.org>, <rafael@kernel.org>,
 	<viresh.kumar@linaro.org>, <sudeep.holla@arm.com>,
@@ -54,12 +54,10 @@ CC: <linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
 	<vincent.guittot@linaro.org>, <zhanjie9@hisilicon.com>,
 	<lihuisong@huawei.com>, <yubowen8@huawei.com>, <zhangpengjie2@huawei.com>,
 	<wangzhi12@huawei.com>, <linhongye@h-partners.com>, <zhenglifeng1@huawei.com>
-Subject: [REPOST PATCH v6 3/3] arm64: topology: Handle AMU FIE setup on CPU hotplug
-Date: Tue, 30 Dec 2025 16:01:15 +0800
-Message-ID: <20251230080115.2120612-4-zhenglifeng1@huawei.com>
+Subject: [REPOST PATCH v6 0/3] arm64: topology: Handle AMU FIE setup on CPU hotplug
+Date: Tue, 30 Dec 2025 16:01:12 +0800
+Message-ID: <20251230080115.2120612-1-zhenglifeng1@huawei.com>
 X-Mailer: git-send-email 2.33.0
-In-Reply-To: <20251230080115.2120612-1-zhenglifeng1@huawei.com>
-References: <20251230080115.2120612-1-zhenglifeng1@huawei.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -67,8 +65,8 @@ X-Originating-IP: [10.50.163.32]
 X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
  kwepemf200001.china.huawei.com (7.202.181.227)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251230_000153_213068_D3D6A575 
-X-CRM114-Status: GOOD (  19.80  )
+X-CRM114-CacheID: sfid-20251230_000151_574871_EBE24B72 
+X-CRM114-Status: GOOD (  15.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,133 +81,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, when a cpufreq policy is created, the AMU FIE setup process
-checks all CPUs in the policy -- including those that are offline. If any
-of these CPUs are offline at that time, their AMU capability flag hasn't
-been verified yet, leading the check fail. As a result, AMU FIE is not
-enabled, even if the CPUs that are online do support it.
+Solve a problem that causes CPUs Setup AMU FIE failed in a corner case,
+even though they're eligible.
 
-Later, when the previously offline CPUs come online and report AMU support,
-there's no mechanism in place to re-enable AMU FIE for the policy. This
-leaves the entire frequency domain without AMU FIE, despite being eligible.
+Changelog:
 
-Restrict the initial AMU FIE check to only those CPUs that are online at
-the time the policy is created, and allow CPUs that come online later to
-join the policy with AMU FIE enabled.
+v6:
 
-Signed-off-by: Lifeng Zheng <zhenglifeng1@huawei.com>
-Acked-by: Beata Michalska <beata.michalska@arm.com>
+ - discard the modifications in cpufreq.c, and instead, make
+   supports_scale_freq_counters() checks that at least one CPU in the
+   policy supports AMU FIE, instead of all
+ - based on Beata's feedback, optimize cpuhp_topology_online() to make it
+   more readable
+ - use pr_warn instead of WARN_ON to show warning message when the
+   freq_counters_valid() check fails in cpuhp_topology_online()
+ - modify commit message as Beata and Rafael suggested
+
+v5:
+
+ - add a default implementation for cpufreq_cpu_policy() when
+   CONFIG_CPU_FREQ is not defined
+
+v4:
+
+ - change the function's name in patch 2 from
+   'cpufreq_cpu_get_raw_no_check' to 'cpufreq_cpu_policy'
+ - use only one line in the function body of cpufreq_cpu_policy()
+ - use cpus mask instead of related_cpus when calling arch_set_freq_scale()
+   in cpufreq.c
+ - add a warning when the freq_counters_valid() check fails in
+   cpuhp_topology_online()
+
+v3:
+
+ - add a patch to optimize amu_fie_setup()
+ - add a patch to add a function to get cpufreq policy without checking if
+   the CPU is online
+ - discard the reuse of amu_fie_setup() in cpuhp_topology_online() and keep
+   all the new logic in cpuhp_topology_online()
+ - test only the CPU which is going online in cpuhp_topology_online()
+ - when the freq_counters_valid() check fails, not only clear the scale
+   freq source but also clear all the related CPUs from amu_fie_cpus mask
+ - add some comments
+
+v2:
+
+ - keep init_amu_fie_notifier for setting up AMU FIE when the cpufreq
+   policy is being created
+ - set up AMU FIE only for online CPUs instead of related_cpus in
+   init_amu_fie_callback()
+ - check and set all the online CPUs in the same policy when hotplug one
+ - clear scale freq source for all the online CPUs in the same policy to
+   avoid using different source of the freq scale
+
 ---
- arch/arm64/kernel/topology.c | 65 ++++++++++++++++++++++++++++++++++--
- drivers/base/arch_topology.c |  9 ++++-
- 2 files changed, 71 insertions(+), 3 deletions(-)
+Discussions of previous version:
+v1: https://lore.kernel.org/all/20250607094533.416368-1-zhenglifeng1@huawei.com/
+v2: https://lore.kernel.org/all/20250725102813.1404322-1-zhenglifeng1@huawei.com/
+v3: https://lore.kernel.org/all/20250805093330.3715444-1-zhenglifeng1@huawei.com/
+v4: https://lore.kernel.org/all/20250814072853.3426386-1-zhenglifeng1@huawei.com/
+v5: https://lore.kernel.org/all/20250819072931.1647431-1-zhenglifeng1@huawei.com/
 
-diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
-index cf9bb761af3a..539b38935182 100644
---- a/arch/arm64/kernel/topology.c
-+++ b/arch/arm64/kernel/topology.c
-@@ -284,7 +284,7 @@ static int init_amu_fie_callback(struct notifier_block *nb, unsigned long val,
- 	struct cpufreq_policy *policy = data;
- 
- 	if (val == CPUFREQ_CREATE_POLICY)
--		amu_fie_setup(policy->related_cpus);
-+		amu_fie_setup(policy->cpus);
- 
- 	/*
- 	 * We don't need to handle CPUFREQ_REMOVE_POLICY event as the AMU
-@@ -303,10 +303,71 @@ static struct notifier_block init_amu_fie_notifier = {
- 	.notifier_call = init_amu_fie_callback,
- };
- 
-+static int cpuhp_topology_online(unsigned int cpu)
-+{
-+	struct cpufreq_policy *policy = cpufreq_cpu_policy(cpu);
-+
-+	/* Those are cheap checks */
-+
-+	/*
-+	 * Skip this CPU if:
-+	 *  - it has no cpufreq policy assigned yet,
-+	 *  - no policy exists that spans CPUs with AMU counters, or
-+	 *  - it was already handled.
-+	 */
-+	if (unlikely(!policy) || !cpumask_available(amu_fie_cpus) ||
-+	    cpumask_test_cpu(cpu, amu_fie_cpus))
-+		return 0;
-+
-+	/*
-+	 * Only proceed if all already-online CPUs in this policy
-+	 * support AMU counters.
-+	 */
-+	if (unlikely(!cpumask_subset(policy->cpus, amu_fie_cpus)))
-+		return 0;
-+
-+	/*
-+	 * If the new online CPU cannot pass this check, all the CPUs related to
-+	 * the same policy should be clear from amu_fie_cpus mask, otherwise they
-+	 * may use different source of the freq scale.
-+	 */
-+	if (!freq_counters_valid(cpu)) {
-+		pr_warn("CPU[%u] doesn't support AMU counters\n", cpu);
-+		topology_clear_scale_freq_source(SCALE_FREQ_SOURCE_ARCH,
-+						 policy->related_cpus);
-+		cpumask_andnot(amu_fie_cpus, amu_fie_cpus, policy->related_cpus);
-+		return 0;
-+	}
-+
-+	cpumask_set_cpu(cpu, amu_fie_cpus);
-+
-+	topology_set_scale_freq_source(&amu_sfd, cpumask_of(cpu));
-+
-+	pr_debug("CPU[%u]: counter will be used for FIE.", cpu);
-+
-+	return 0;
-+}
-+
- static int __init init_amu_fie(void)
- {
--	return cpufreq_register_notifier(&init_amu_fie_notifier,
-+	int ret;
-+
-+	ret = cpufreq_register_notifier(&init_amu_fie_notifier,
- 					CPUFREQ_POLICY_NOTIFIER);
-+	if (ret)
-+		return ret;
-+
-+	ret = cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN,
-+					"arm64/topology:online",
-+					cpuhp_topology_online,
-+					NULL);
-+	if (ret < 0) {
-+		cpufreq_unregister_notifier(&init_amu_fie_notifier,
-+					    CPUFREQ_POLICY_NOTIFIER);
-+		return ret;
-+	}
-+
-+	return 0;
- }
- core_initcall(init_amu_fie);
- 
-diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
-index 84ec92bff642..c0ef6ea9c111 100644
---- a/drivers/base/arch_topology.c
-+++ b/drivers/base/arch_topology.c
-@@ -34,7 +34,14 @@ EXPORT_PER_CPU_SYMBOL_GPL(capacity_freq_ref);
- 
- static bool supports_scale_freq_counters(const struct cpumask *cpus)
- {
--	return cpumask_subset(cpus, &scale_freq_counters_mask);
-+	int i;
-+
-+	for_each_cpu(i, cpus) {
-+		if (cpumask_test_cpu(i, &scale_freq_counters_mask))
-+			return true;
-+	}
-+
-+	return false;
- }
- 
- bool topology_scale_freq_invariant(void)
+Lifeng Zheng (3):
+  arm64: topology: Skip already covered CPUs when setting freq source
+  cpufreq: Add new helper function returning cpufreq policy
+  arm64: topology: Handle AMU FIE setup on CPU hotplug
+
+ arch/arm64/kernel/topology.c | 67 ++++++++++++++++++++++++++++++++++--
+ drivers/base/arch_topology.c |  9 ++++-
+ drivers/cpufreq/cpufreq.c    |  6 ++++
+ include/linux/cpufreq.h      |  5 +++
+ 4 files changed, 83 insertions(+), 4 deletions(-)
+
 -- 
 2.33.0
 
