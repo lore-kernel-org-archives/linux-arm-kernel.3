@@ -4,68 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7A5CEE0205
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 14:46:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97FB4EE0209
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 14:50:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0W5Lbamk+njEHK9A6i62wmfawW6k35N4fB2QmSx3b9s=; b=B1FdSZ3LgO6EIbLWjApVsgSVv1
-	VrYZQ2Wa978rj12pkD7hpCX45xmbzxzF9dIiJsOZx72rkG5aYBxe4FnTnNpHzDo7akgimKVDP6nfB
-	abzisl9bB3k2TQkvYO9ktAK59z2waYooJDDKdyOgxyENgJX2q3yPICofOTgf/2eB9ahgFp6W4JvBs
-	h6np92lncZE3Q3+feEN19xKeOf16Kwhr7TfKAKIAco2iMVPyZvBiUyFdcP83F0kZXSPlM5VoRSgL5
-	SUHzfvzdSScGu+1LfoDGugHtjlVsy6yEQ/yxfdJ0xi1ZjLWN5TmDkGF+Lni4ad0bvqUHeIBfOnoup
-	l+auA0kQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cCu+csm9ehLBd6Cc7THGvlYx++HbMhoswwxahh2uUGo=; b=Zl9Qr8zcGpiqGFvRLU/5nQCESy
+	wBHS7LAwiH9E0rcLWUEVp1bvOfyrdtGX+FKWKXg7eRVCEzkWHEWzmeOj0As4yVgOURDIFT2BGdNeF
+	xF6GXboShsx+aIuhORGDKBSE0Ex6A/r8UEDfBOQPZq5e/IMt9Whcdu69hNQo7jzsJ0RGgNQN9BfcJ
+	3+DNtFgkDIsForYUBhCjV6QxkqnGSvQpRFN7+UXNQ68mZtGNh7MtPIFT5QH5kyCoqDpAO7jN2DaJ8
+	5GEH/y5mF0UrPZ2OcsFxPqaX1+R/7s1okj48lMv+out++GXs7oRvDGgMgUKPxGyaHkZyMYf1qIoEU
+	D0JDToCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaazr-00000004ws1-1loa;
-	Tue, 30 Dec 2025 14:46:51 +0000
-Received: from mx.nabladev.com ([178.251.229.89])
+	id 1vab3J-00000004x4o-197X;
+	Tue, 30 Dec 2025 14:50:25 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaazo-00000004wrY-35xw
+	id 1vab3G-00000004x4d-2193
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Dec 2025 14:46:50 +0000
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 56FD0103014;
-	Tue, 30 Dec 2025 15:46:39 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
-	s=dkim; t=1767106005;
-	h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=0W5Lbamk+njEHK9A6i62wmfawW6k35N4fB2QmSx3b9s=;
-	b=X59Qmf8SsAl0xPTK2kQt1HSX6OZQugbq1DDTsOtn/Gd3gXsUB34V3WwVrGvOt1hgC7iqjD
-	lUt7zMY9AFGX9XsOQWn+6FNe0L7cJKoYGWZWvjOIVKXlmzoF3lb8eMfEbtfMfOgB01l0eG
-	3nwO1xW9NjDE0yfjX/tGQYIEwCYkSNcr8lfxrbmMcorLsd3WrRAVSH5HSqj8BWD+wODM8F
-	Mwt3n9wQAC8ragXjQWsJPCobnQ8rYOO/qQZceq1y/t4kKzELsQUdeQkb35OAYFhnhxiRbK
-	Qv2u6GQka+vMgeA/Eu5IirEC9dKAG5Dej2n3NtB0gOi3OjG5DAij5uDQM5ZdIw==
-Message-ID: <dc29e774-07fb-4d0e-a88a-27d4ec49d060@nabladev.com>
-Date: Tue, 30 Dec 2025 14:34:14 +0100
+	Tue, 30 Dec 2025 14:50:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DBDB360010;
+	Tue, 30 Dec 2025 14:50:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DAD1C4CEFB;
+	Tue, 30 Dec 2025 14:50:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767106220;
+	bh=8xysnLmoKexyoy3E0mV2YzmnUunnOMQmOy2mzrTjMCE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=CwaVGuGsIxcPdLnDw48i+vYFzYBHbz5tUqfRj4fekidD/Jbn+6NbyDl7C0/UGHqFH
+	 l1ED7oxuVpfMefIFTj68Hmh1QgvIctyalEYTTGj12DBqU9MNIuav3Xch8LiIz/HPPn
+	 CBwKDXKe3Mj8cdtFSxYTrR3DMYploLE6TgNU/L2VjxvftjUcjdWJ8R155GawPdLXbd
+	 LizkNH4nha9CwPYWbHxvkt690tvpg/rom8/ULmwopDaDysgdxRILJU3K/HfIcjv3us
+	 9WMx5Ztsj23FCVNGaLSZmO/kKPKeozUaO0FbphDUyobZQO/U33jImSzTR6VtbEbtbP
+	 dUJorj2HjsXxg==
+From: Jiri Olsa <jolsa@kernel.org>
+To: Steven Rostedt <rostedt@kernel.org>,
+	Florent Revest <revest@google.com>,
+	Mark Rutland <mark.rutland@arm.com>
+Cc: bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Menglong Dong <menglong8.dong@gmail.com>,
+	Song Liu <song@kernel.org>
+Subject: [PATCHv6 bpf-next 0/9] ftrace,bpf: Use single direct ops for bpf trampolines
+Date: Tue, 30 Dec 2025 15:50:01 +0100
+Message-ID: <20251230145010.103439-1-jolsa@kernel.org>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/4] arm64: dts: imx8mn: Add ifm VHIP4 EvalBoard v1 and
- v2
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: linux-arm-kernel@lists.infradead.org, Fedor Ross <fedor.ross@ifm.com>,
- Christian Eggers <ceggers@arri.de>, Conor Dooley <conor+dt@kernel.org>,
- Fabio Estevam <festevam@gmail.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Markus Heidelberg <m.heidelberg@cab.de>, Rob Herring <robh@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
- imx@lists.linux.dev, linux-kernel@vger.kernel.org
-References: <20251229193706.73564-1-marex@nabladev.com>
- <20251229193706.73564-4-marex@nabladev.com>
- <e3d305ce-cdfa-4a11-bd54-9648b12a013f@lunn.ch>
-Content-Language: en-US
-From: Marek Vasut <marex@nabladev.com>
-In-Reply-To: <e3d305ce-cdfa-4a11-bd54-9648b12a013f@lunn.ch>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251230_064649_001722_4EE37395 
-X-CRM114-Status: GOOD (  11.22  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,25 +75,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/30/25 11:46 AM, Andrew Lunn wrote:
->> +&fec1 {
->> +	fsl,magic-packet;
-> 
-> Upps, i probably cut out too much context. This FEC is connected to the Ethernet switch.
-> 
-> WoL for a port connected to a switch? Have you tested this? Normally
-> you would have WoL on each port of the switch, and not on the conduit
-> interface.
-> 
->> +&fec1 {
->> +	fsl,magic-packet;
-> 
-> Have you tested WoL?
-> 
->> +&fec1 {
->> +	fsl,magic-packet;
-> 
-> WoL again?
-I don't think WOL is used on this device at all. Would you suggest 
-removing the fsl,magic-packet properties ?
+hi,
+while poking the multi-tracing interface I ended up with just one ftrace_ops
+object to attach all trampolines.
+
+This change allows to use less direct API calls during the attachment changes
+in the future code, so in effect speeding up the attachment.
+
+In current code we get a speed up from using just a single ftrace_ops object.
+
+- with current code:
+
+  Performance counter stats for 'bpftrace -e fentry:vmlinux:ksys_* {} -c true':
+
+     6,364,157,902      cycles:k
+       828,728,902      cycles:u
+     1,064,803,824      instructions:u                   #    1.28  insn per cycle
+    23,797,500,067      instructions:k                   #    3.74  insn per cycle
+
+       4.416004987 seconds time elapsed
+
+       0.164121000 seconds user
+       1.289550000 seconds sys
+
+
+- with the fix:
+
+   Performance counter stats for 'bpftrace -e fentry:vmlinux:ksys_* {} -c true':
+
+     6,535,857,905      cycles:k
+       810,809,429      cycles:u
+     1,064,594,027      instructions:u                   #    1.31  insn per cycle
+    23,962,552,894      instructions:k                   #    3.67  insn per cycle
+
+       1.666961239 seconds time elapsed
+
+       0.157412000 seconds user
+       1.283396000 seconds sys
+
+
+
+The speedup seems to be related to the fact that with single ftrace_ops object
+we don't call ftrace_shutdown anymore (we use ftrace_update_ops instead) and
+we skip the synchronize rcu calls (each ~100ms) at the end of that function.
+
+rfc: https://lore.kernel.org/bpf/20250729102813.1531457-1-jolsa@kernel.org/
+v1:  https://lore.kernel.org/bpf/20250923215147.1571952-1-jolsa@kernel.org/
+v2:  https://lore.kernel.org/bpf/20251113123750.2507435-1-jolsa@kernel.org/
+v3:  https://lore.kernel.org/bpf/20251120212402.466524-1-jolsa@kernel.org/
+v4:  https://lore.kernel.org/bpf/20251203082402.78816-1-jolsa@kernel.org/
+v5:  https://lore.kernel.org/bpf/20251215211402.353056-10-jolsa@kernel.org/
+
+v6 changes:
+- rename add_hash_entry_direct to add_ftrace_hash_entry_direct [Steven]
+- factor hash_add/hash_sub [Steven]
+- add kerneldoc header for update_ftrace_direct_* functions [Steven]
+- few assorted smaller fixes [Steven]
+- added missing direct_ops wrappers for !CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
+  case [Steven]
+
+v5 changes:
+- do not export ftrace_hash object [Steven]
+- fix update_ftrace_direct_add new_filter_hash leak [ci]
+
+v4 changes:
+- rebased on top of bpf-next/master (with jmp attach changes)
+  added patch 1 to deal with that
+- added extra checks for update_ftrace_direct_del/mod to address
+  the ci bot review
+
+v3 changes:
+- rebased on top of bpf-next/master
+- fixed update_ftrace_direct_del cleanup path
+- added missing inline to update_ftrace_direct_* stubs
+
+v2 changes:
+- rebased on top fo bpf-next/master plus Song's livepatch fixes [1] 
+- renamed the API functions [2] [Steven]
+- do not export the new api [Steven]
+- kept the original direct interface:
+
+  I'm not sure if we want to melt both *_ftrace_direct and the new interface
+  into single one. It's bit different in semantic (hence the name change as
+  Steven suggested [2]) and I don't think the changes are not that big so
+  we could easily keep both APIs.
+
+v1 changes:
+- make the change x86 specific, after discussing with Mark options for
+  arm64 [Mark]
+
+thanks,
+jirka
+
+
+[1] https://lore.kernel.org/bpf/20251027175023.1521602-1-song@kernel.org/
+[2] https://lore.kernel.org/bpf/20250924050415.4aefcb91@batman.local.home/
+---
+Jiri Olsa (9):
+      ftrace,bpf: Remove FTRACE_OPS_FL_JMP ftrace_ops flag
+      ftrace: Make alloc_and_copy_ftrace_hash direct friendly
+      ftrace: Export some of hash related functions
+      ftrace: Add update_ftrace_direct_add function
+      ftrace: Add update_ftrace_direct_del function
+      ftrace: Add update_ftrace_direct_mod function
+      bpf: Add trampoline ip hash table
+      ftrace: Factor ftrace_ops ops_func interface
+      bpf,x86: Use single ftrace_ops for direct calls
+
+ arch/x86/Kconfig        |   1 +
+ include/linux/bpf.h     |   7 ++-
+ include/linux/ftrace.h  |  31 +++++++++-
+ kernel/bpf/trampoline.c | 259 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++---------------
+ kernel/trace/Kconfig    |   3 +
+ kernel/trace/ftrace.c   | 406 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--------
+ 6 files changed, 632 insertions(+), 75 deletions(-)
 
