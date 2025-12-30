@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDE53E94122
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 14:33:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7A5CEE0205
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 14:46:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8JAZbMLGq9TMjs8GUZEfV2eAaYJ10hW1yeCStSWqdbw=; b=zLxOnQMpz475vwWNxTldyyVsi4
-	0/8+bc84L7oUHy+4lBfsVTxwvER6PBC8VqjBQjS+TW6nRS5PZkUxJvEQJZWNNbmnWDAtR3qdf9+hL
-	W3WacZPOBnSpAcBAP9VExWWvbIxjSBregNjiLQzqrY2RNkg5UPPF5tKd6VfwUeNderdBAtbljKhvp
-	V9BtbtsXFhbC3oPkFV9jZV+udDnJwivXrCJRXLVDbBIa9chLQssXR5T/R8DY1vgufak5VOTbwi5t8
-	y48nTqo2FrjoZx4Cj1KqegwxqWtOdkIkDnwX1UfYyGopZLK8dD1T39OV+XBDxkYIRh+vgicsFdGQj
-	t4cF6qlw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0W5Lbamk+njEHK9A6i62wmfawW6k35N4fB2QmSx3b9s=; b=B1FdSZ3LgO6EIbLWjApVsgSVv1
+	VrYZQ2Wa978rj12pkD7hpCX45xmbzxzF9dIiJsOZx72rkG5aYBxe4FnTnNpHzDo7akgimKVDP6nfB
+	abzisl9bB3k2TQkvYO9ktAK59z2waYooJDDKdyOgxyENgJX2q3yPICofOTgf/2eB9ahgFp6W4JvBs
+	h6np92lncZE3Q3+feEN19xKeOf16Kwhr7TfKAKIAco2iMVPyZvBiUyFdcP83F0kZXSPlM5VoRSgL5
+	SUHzfvzdSScGu+1LfoDGugHtjlVsy6yEQ/yxfdJ0xi1ZjLWN5TmDkGF+Lni4ad0bvqUHeIBfOnoup
+	l+auA0kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaanH-00000004wMy-0SOA;
-	Tue, 30 Dec 2025 14:33:51 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1vaazr-00000004ws1-1loa;
+	Tue, 30 Dec 2025 14:46:51 +0000
+Received: from mx.nabladev.com ([178.251.229.89])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaanD-00000004wMR-3hcC;
-	Tue, 30 Dec 2025 14:33:49 +0000
-Date: Tue, 30 Dec 2025 15:33:39 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1767105221;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8JAZbMLGq9TMjs8GUZEfV2eAaYJ10hW1yeCStSWqdbw=;
-	b=zZCJc47rPwYSGoSyowiQ5zR77aGR5p7Gh1btHYIGDDdSDN2keKjXHAH9tW7KsyEeTXNptu
-	ST1wDx7lHJCXNbQQGDSm1JkFlBCE5Oq2AhhX/b81Ja6YxQqBP21lpqRuSclVkeqLKZQiZp
-	mym9qAEHMyzMeg5UTw0oebvB0HzgsU9cYmVQMBFbksOH60Ndqp6C+jEZ0rhgBcDWxLMUgB
-	VLLEeIERwNAtZ7imIxo33ZqZLoUthDcjyCcuJOptdIqhP0E3uORzK6q7CY9+atEY8RJ/yS
-	/mIV8RsdCLbs/r5GO4qgGY0wnckdFKn4Za/fNsNcddYQJLaLE2AeRa6CE5akSw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1767105221;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8JAZbMLGq9TMjs8GUZEfV2eAaYJ10hW1yeCStSWqdbw=;
-	b=LioFw67402qE0XgQ9J0GPgISibVX0jYkqA5gf745chp6vrOc9WS5riUaygVucjyTJV066Q
-	iVGei/dJLk5J4gDA==
-From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>, 
-	Dinh Nguyen <dinguyen@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
-	linux-snps-arc@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/5] ARM: uapi: Stop leaking CONFIG_CPU_ENDIAN_BE8
- reference to userspace
-Message-ID: <20251230152519-1f7ea27a-10de-4d0c-9dd0-04eb0588d733@linutronix.de>
-References: <20251230-headers_install-config-leak-v1-0-efba5c58073d@linutronix.de>
- <20251230-headers_install-config-leak-v1-2-efba5c58073d@linutronix.de>
- <d2ad12f2-3d65-4bef-890c-65d78a33d790@app.fastmail.com>
+	id 1vaazo-00000004wrY-35xw
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 30 Dec 2025 14:46:50 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 56FD0103014;
+	Tue, 30 Dec 2025 15:46:39 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nabladev.com;
+	s=dkim; t=1767106005;
+	h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=0W5Lbamk+njEHK9A6i62wmfawW6k35N4fB2QmSx3b9s=;
+	b=X59Qmf8SsAl0xPTK2kQt1HSX6OZQugbq1DDTsOtn/Gd3gXsUB34V3WwVrGvOt1hgC7iqjD
+	lUt7zMY9AFGX9XsOQWn+6FNe0L7cJKoYGWZWvjOIVKXlmzoF3lb8eMfEbtfMfOgB01l0eG
+	3nwO1xW9NjDE0yfjX/tGQYIEwCYkSNcr8lfxrbmMcorLsd3WrRAVSH5HSqj8BWD+wODM8F
+	Mwt3n9wQAC8ragXjQWsJPCobnQ8rYOO/qQZceq1y/t4kKzELsQUdeQkb35OAYFhnhxiRbK
+	Qv2u6GQka+vMgeA/Eu5IirEC9dKAG5Dej2n3NtB0gOi3OjG5DAij5uDQM5ZdIw==
+Message-ID: <dc29e774-07fb-4d0e-a88a-27d4ec49d060@nabladev.com>
+Date: Tue, 30 Dec 2025 14:34:14 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <d2ad12f2-3d65-4bef-890c-65d78a33d790@app.fastmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/4] arm64: dts: imx8mn: Add ifm VHIP4 EvalBoard v1 and
+ v2
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: linux-arm-kernel@lists.infradead.org, Fedor Ross <fedor.ross@ifm.com>,
+ Christian Eggers <ceggers@arri.de>, Conor Dooley <conor+dt@kernel.org>,
+ Fabio Estevam <festevam@gmail.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Markus Heidelberg <m.heidelberg@cab.de>, Rob Herring <robh@kernel.org>,
+ Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-kernel@vger.kernel.org
+References: <20251229193706.73564-1-marex@nabladev.com>
+ <20251229193706.73564-4-marex@nabladev.com>
+ <e3d305ce-cdfa-4a11-bd54-9648b12a013f@lunn.ch>
+Content-Language: en-US
+From: Marek Vasut <marex@nabladev.com>
+In-Reply-To: <e3d305ce-cdfa-4a11-bd54-9648b12a013f@lunn.ch>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251230_063348_109286_3831A5CC 
-X-CRM114-Status: GOOD (  19.49  )
+X-CRM114-CacheID: sfid-20251230_064649_001722_4EE37395 
+X-CRM114-Status: GOOD (  11.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,36 +80,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 30, 2025 at 03:20:10PM +0100, Arnd Bergmann wrote:
-> On Tue, Dec 30, 2025, at 08:10, Thomas Weiﬂschuh wrote:
-> > UAPI headers are not supposed to leak references to kconfig symbols.
-> > These won't be set when building userspace. Hide the kconfig reference
-> > behind 'if defined(__KERNEL__)', so it will be stripped by
-> > headers_install.sh, the same way other kconfig references in this file
-> > are handled. The result for userspace will be the same, but the
-> > exception in headers_install.sh can also be removed.
-> >
-> > Signed-off-by: Thomas Weiﬂschuh <thomas.weissschuh@linutronix.de>
+On 12/30/25 11:46 AM, Andrew Lunn wrote:
+>> +&fec1 {
+>> +	fsl,magic-packet;
 > 
-> According to codesearch.debian.net, there are no actual users of
-> this definition outside of the kernel, and there really shouldn't
-> be either.
+> Upps, i probably cut out too much context. This FEC is connected to the Ethernet switch.
 > 
-> It should be both safe and correct to open-code PSR_ENDSTATE
-> in the two file where it is used as
+> WoL for a port connected to a switch? Have you tested this? Normally
+> you would have WoL on each port of the switch, and not on the conduit
+> interface.
 > 
->  if (IS_ENABLED(CONFIG_CPU_ENDIAN_BE8))
->         regs->ARM_cpsr |= PSR_E_BIT
+>> +&fec1 {
+>> +	fsl,magic-packet;
 > 
-> and then remove the definition from the header. Alternatively
-> it could be moved into the non-uapi header, or you can have
-> an #ifdef around both of them.
-
-These alternatives work for me, too. I went with the current aproach as
-it matches what the rest of the file is doing and it won't break users.
-
-I'll do the open-coding as proposed above.
-
-
-Thomas
+> Have you tested WoL?
+> 
+>> +&fec1 {
+>> +	fsl,magic-packet;
+> 
+> WoL again?
+I don't think WOL is used on this device at all. Would you suggest 
+removing the fsl,magic-packet properties ?
 
