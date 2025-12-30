@@ -4,68 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F898E95A77
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 11:32:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25E2EE95A8A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 12:34:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K1snltsDxV+ytJEneWUq7yohHenCMNfAO6GgsDzcizc=; b=dMuYGX1G8c8W9yr8S9PtuXIfds
-	RyuW9dI182gi2JmuL+ZVlH2+OWuRGvASmkxv5QJ9+wKciS1PoJwW755jitIJ4WNrBb09PoPJlGd0z
-	erX9NZg9lyrUaOo6x8oWAt9L0otVP42vyNj/hGu39YGLrfGLETO15QHzW8x0GvWE6jZnt+/Kq7Hhp
-	zGfOl0U29pDuw6CvX8gsW1EoCZI6nkamm+ivz9/E8qcNHNhm2tDg9itcx3N3n5Bs7EiW/f+9tWpeD
-	PSq7WDO+491Wu2I0IhpyJaGS50oh5PxIAzdNEoEC3UxeLJpiVOIDTOwqZDhqBRZIYadsBfAsHwuhB
-	WyDy9cRA==;
+	bh=uhitdrdfjsFDdtWcu4vCn5M/fst89AUW/Vqwl7/eiUY=; b=JAM4W/4yb0j3BYtEclKxl7mTCP
+	t8KCEEkfLS3jBd4eFOKCY8oRq3gVG3QHhm1VTLuS6go/m5/d+sUCDdpBoW4vp1MYQpo99Tbe2zhEQ
+	Xqc6o1phj/5nQXho+s9Sz/84GIqiuwV59W1xOPDQ6wLUUd1vWG9ZVK/Mtu9IKEcVY/+v5+U280Jbn
+	FwlIrGQKHeh5Hxl9SycSAIKl5MzWn+XLlb1/EpSOa9MsXs2mcBJKsPV4OWkq1VsoTf5uBIEB6XlwO
+	hIfD5cmWfAguSvTgmUiyDSHk7jto3ods2ejla9edYDCSSj8IiOTDKb0tzsr8k6jObjO+9yREaE+1A
+	pSmafY5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaXxr-00000004lLy-0bmN;
-	Tue, 30 Dec 2025 11:32:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vaYw5-00000004oBY-1yZY;
+	Tue, 30 Dec 2025 12:34:49 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaXxo-00000004lLc-30Kq
+	id 1vaYw4-00000004oB7-082m
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Dec 2025 11:32:33 +0000
+	Tue, 30 Dec 2025 12:34:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E2EC942DDF;
-	Tue, 30 Dec 2025 11:32:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40BCCC4CEFB;
-	Tue, 30 Dec 2025 11:32:31 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7806260017;
+	Tue, 30 Dec 2025 12:34:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8D31C4CEFB;
+	Tue, 30 Dec 2025 12:34:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767094351;
-	bh=1wH3ZPxPRehzt76eXsHKSmF14QWef8nqajbMpVN7FTs=;
+	s=k20201202; t=1767098087;
+	bh=uhitdrdfjsFDdtWcu4vCn5M/fst89AUW/Vqwl7/eiUY=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fJoVs731GixdCVTUbjmkQfw5Lom+AtRheYjXhRYYzis8E8Xo/4Ko8stdzG/yjG4ez
-	 XMpXvpsvlrka/pjpmYNysfd5B6InMlFl9AKY4NUdeBXFKdN9zHlJ0yfwmu564u7VCA
-	 J1dvjoUgfoSMVXQ2zsV61b/gOtz4SolDmpKEnC+RwEHtSlT0fF4kDDoU/pt+W+O45y
-	 snXYpfz0Km3MUVLamraTR2M50QiOIoRvJCzyJ3/ufBkTkc4JaKS+WWSccKYp5uHEzS
-	 bvfzFI+gOemVmxo9Y0XNxOmCjV4v6yMQHzpNdGeruNZOoiwVQBgTnuD9+LaPcLG0vH
-	 GlamK/hBL75Xw==
-Date: Tue, 30 Dec 2025 12:32:29 +0100
+	b=Qhxh4TSBjITakOzATPI30S88W6QM2clrGe1xkuaiqRkYJl5oj5ja9vlfwXvwkIfMM
+	 DSmxa3dZngTRzsmNFLPVOP54wmza+9PIoKHUbCW71YS5uoJbTWi+9Lhfz+2oK91EGp
+	 9JvW6Ejl9VztudLi9Cy76sTlVF7kCraW84Lw9ILfiqik/r7XYi6ERe2h/URSWMXR7m
+	 xYdmSAfvBO10dqaJj+C5xXz78fskOq5Y3E8kOXGF21Fb3EJXn9zt4OhhQRK+Mm+wZX
+	 YLUbR6nY3Kwr/50v6zJJSMCrUXv5pCQwHXQSmvNNd204F6fRLLGoynLheUn0D07bze
+	 CbZ/zBE3wBhmw==
+Date: Tue, 30 Dec 2025 13:34:44 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Josua Mayer <josua.mayer@jm0.eu>
-Cc: Jonathan =?utf-8?Q?Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
-	Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Sebastian Reichel <sre@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Andreas Kemnade <andreas@kemnade.info>, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	Josua Mayer <josua@solid-run.com>
-Subject: Re: [PATCH 2/3] dt-bindings: mfd: netronix,ntxec: add reference to
- power-supply
-Message-ID: <20251230-defiant-frisky-bull-95ecd0@quoll>
-References: <20251227-kobo-aura-battery-v1-0-328a90ef5122@jm0.eu>
- <20251227-kobo-aura-battery-v1-2-328a90ef5122@jm0.eu>
+To: Nandor Han <nandor.han@gehealthcare.com>
+Cc: wim@linux-watchdog.org, linux@roeck-us.net, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, linux-watchdog@vger.kernel.org, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] dt-bindings: watchdog: fsl-imx: document continue in
+ low power mode
+Message-ID: <20251230-hidden-okapi-of-reputation-6ef8be@quoll>
+References: <20251229145000.421426-1-nandor.han@gehealthcare.com>
+ <20251229145000.421426-3-nandor.han@gehealthcare.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251227-kobo-aura-battery-v1-2-328a90ef5122@jm0.eu>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251230_033232_809880_FEF876E8 
-X-CRM114-Status: GOOD (  11.53  )
+In-Reply-To: <20251229145000.421426-3-nandor.han@gehealthcare.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,30 +73,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Dec 27, 2025 at 05:28:14PM +0100, Josua Mayer wrote:
-> The Netronix Embedded Controller supports monitoring of battery voltage.
-> 
-> Voltage monitoring functionality is self-contained and requires no
-> supply- or battery-specific runtime configuration.
-> 
-> Battery design characteristics (e.g. voltage-min-design-microvolt) are
-> useful for users to understand the charge level and are commonly
-> provided by a separate battery node linked with monitored-battery
-> property.
-> 
-> Add reference to power-supply.yaml so that power-supplies and
-> monitored-battery properties become available.
-> 
-> Further drop reg property description and replace it with maxItems 1 as
-> is common for i2c devices with single bus address.
-> 
-> Finally replace additionalProperties with unevaluatedProperties to
-> allow properties from referenced schemas.
-> 
-> Signed-off-by: Josua Mayer <josua@solid-run.com>
+On Mon, Dec 29, 2025 at 04:50:00PM +0200, Nandor Han wrote:
+> Property "fsl,wdt-continue-in-low-power" allows the watchdog to continue
+> running in low power modes (STOP and DOZE). By default, the watchdog is
+> suspended in these modes. This property provides the option to keep the
+> watchdog active during low power states when needed.
 
-This does not match From address. Please use consistent identities for
-both.
+And why exactly would that be a DT property? If system is sleeping
+(assuming this is what you meant by low power), no one will pet the dog,
+thus watchdog makes no sense.
+
+Otherwise I fail to see how this is a hardware property and we do not
+accept SW properties (see writing bindings, numerous presentations).
 
 Best regards,
 Krzysztof
