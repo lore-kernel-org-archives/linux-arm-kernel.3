@@ -4,67 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9B8FEE0215
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 15:35:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42D61EE0218
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 15:37:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nabQCJqKlBQXC+lm+okeZoBzrh5jPLLfEQ7mZ6JPtvo=; b=FMM3VnaVdVhf2rHbI9HrovXSE+
-	BbKm4RmE2K57VUuort6TMYhbgGfBJ8iqwzR3bmIHHQurFK+X44u5iTFxNN/YLIyuEwZ4bAtDEre0D
-	LIA1MJ+vZlN6ZANRKJn3u8eV54fSqSgs/KG35CAjTLoW4kaGm9IVlGLjlDkCJ8oGOqvSKE5PsQxLU
-	zpLgjVQW02rwVNENLUle/5GJEObVJj0KQpy1iBodbA4RSjT2CNxjXdiYr6SKAHb0oWW8CDXuE94Fu
-	dEMB4stb+rO0fx3McpYDy+LGFGO0WlOBfOdQ2/ho8ZHapQntkCeAO38cW5S3M/HLRfgvIQQneYeJG
-	xmeeKuCA==;
+	bh=e8lLSvrxP7mFJ813c9OQb0bInlODeqzjr+ojNg2Pu+I=; b=nNfjkG2BHrjvbUAsCYZMU6HfZ8
+	IqwSU1EjdiMyjg/TwC4C9ned5k4chNj1mhgnDWhCsI9aDPxJCLbStn0qNWG7iyKZqHDraWSxhZHeT
+	dm7PCfBlYayiILXct4GoQ2deYcJKdgxdxYVPR5yrm3djMxMW7uhoNa+tKMo1XwPQsjicrgoYyuUxA
+	3G/zWjNkuEm1cORlTcjzuqC8ioJb7DplyehGZO8NS4/ffed8wo0zlda0lsVv6dupSAoOr8S0IdRJh
+	1oM+W6UTOo4t/x/7BztpFicdNYW0YfDNl93uO3M7QY9LrHId/l7eyRsZI2HIPfDmwaY72U0bDAnpC
+	ZXoVEhAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vabl2-000000050M8-1X74;
-	Tue, 30 Dec 2025 15:35:36 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vabnE-000000050Ze-1be0;
+	Tue, 30 Dec 2025 15:37:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vabkx-000000050L9-37Sy
+	id 1vabnB-000000050ZG-3ajm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Dec 2025 15:35:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=nabQCJqKlBQXC+lm+okeZoBzrh5jPLLfEQ7mZ6JPtvo=; b=5Pl0fCbuJqu7Et0weELcwVXtpV
-	1ARiSNGuY/8OKPPgkRUAwRclA+bSHkBnCeI1qEpc67aptY3qZjqdLut3Zo20Pf+DkX1rMtMpcVQkf
-	rlAbNb72W/fMhsTLjqxnQfZcc77vzkqDjYCRnhGfG5yN+pct4Gt7xRI/ur+uxRenATDw=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vabkt-000sjC-11; Tue, 30 Dec 2025 16:35:27 +0100
-Date: Tue, 30 Dec 2025 16:35:27 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Marek Vasut <marex@nabladev.com>
-Cc: linux-arm-kernel@lists.infradead.org, Fedor Ross <fedor.ross@ifm.com>,
-	Christian Eggers <ceggers@arri.de>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Markus Heidelberg <m.heidelberg@cab.de>,
-	Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	Tue, 30 Dec 2025 15:37:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 13A0443EF4;
+	Tue, 30 Dec 2025 15:37:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E14FAC4CEFB;
+	Tue, 30 Dec 2025 15:37:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767109068;
+	bh=tIwfl2Yo5eMip565qmwOXZSIPkclnpZAD+5EurUHNVw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=jOvBWjJlBGAthPusa3MDujJmLlYaso7weZf+GtJvANkPCdvYcG7TwslhAmVQIjX9d
+	 AXU3EkJ++N4YnAijFojLLxMIXIR1kCNb4pIAhxGiRcIGSa8zwsWH14fZUUquclInZg
+	 QFp/qPUVdatEVbH94cQKoXQ7gAdqroACPW2KUR8ET/z+L1z33cE9dlRPItp5irO2AX
+	 Rc3gwlx1Rp6ALhLryzPMQ2P11/ImygzBtgxFoMZ1JOOyulC/2+NDaXacKl5bHq+tZG
+	 aiOy+FXeg/Y2o030RAE96JJKuRaq+FLPi7hQReRNDpLLZM0I/Lev2m2WM8IdNxXxUB
+	 ZfsTwJth2sUJQ==
+Received: from lfbn-nan-1-2237-32.w92-139.abo.wanadoo.fr ([92.139.188.32] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vabn8-0000000G15P-2bwo;
+	Tue, 30 Dec 2025 15:37:46 +0000
+Date: Tue, 30 Dec 2025 15:37:45 +0000
+Message-ID: <87pl7wdlpy.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Petteri Kangaslampi <pekangas@google.com>
+Cc: kvmarm@lists.linux.dev,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 4/4] arm64: dts: imx8mn: Add ifm VHIP4 EvalBoard v1
- and v2
-Message-ID: <51825dee-c2c9-4d94-b741-ffdc2fbfa773@lunn.ch>
-References: <20251229193706.73564-1-marex@nabladev.com>
- <20251229193706.73564-4-marex@nabladev.com>
- <e3d305ce-cdfa-4a11-bd54-9648b12a013f@lunn.ch>
- <dc29e774-07fb-4d0e-a88a-27d4ec49d060@nabladev.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <dc29e774-07fb-4d0e-a88a-27d4ec49d060@nabladev.com>
+Subject: Re: [PATCH 1/1] KVM: arm64: Fix hyp VA size between layout and MMU
+In-Reply-To: <20251223193440.1441657-2-pekangas@google.com>
+References: <20251223193440.1441657-1-pekangas@google.com>
+	<20251223193440.1441657-2-pekangas@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 92.139.188.32
+X-SA-Exim-Rcpt-To: pekangas@google.com, kvmarm@lists.linux.dev, oliver.upton@linux.dev, vdonnefort@google.com, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251230_073531_776344_306B32F3 
-X-CRM114-Status: GOOD (  14.04  )
+X-CRM114-CacheID: sfid-20251230_073749_935453_D0192562 
+X-CRM114-Status: GOOD (  22.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,30 +92,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 30, 2025 at 02:34:14PM +0100, Marek Vasut wrote:
-> On 12/30/25 11:46 AM, Andrew Lunn wrote:
-> > > +&fec1 {
-> > > +	fsl,magic-packet;
-> > 
-> > Upps, i probably cut out too much context. This FEC is connected to the Ethernet switch.
-> > 
-> > WoL for a port connected to a switch? Have you tested this? Normally
-> > you would have WoL on each port of the switch, and not on the conduit
-> > interface.
-> > 
-> > > +&fec1 {
-> > > +	fsl,magic-packet;
-> > 
-> > Have you tested WoL?
-> > 
-> > > +&fec1 {
-> > > +	fsl,magic-packet;
-> > 
-> > WoL again?
-> I don't think WOL is used on this device at all. Would you suggest removing
-> the fsl,magic-packet properties ?
+On Tue, 23 Dec 2025 19:34:40 +0000,
+Petteri Kangaslampi <pekangas@google.com> wrote:
+> 
+> Use a consistent hypervisor VA size between memory layout and MMU
+> initialization logic when the kernel is configured for less than
+> IDMAP_VA_BITS of VA space.
+>
+> Signed-off-by: Petteri Kangaslampi <pekangas@google.com>
+> ---
+>  arch/arm64/kvm/va_layout.c | 17 ++++++++++++-----
+>  1 file changed, 12 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/va_layout.c b/arch/arm64/kvm/va_layout.c
+> index f6ca0193a96f..76cdd62550e1 100644
+> --- a/arch/arm64/kvm/va_layout.c
+> +++ b/arch/arm64/kvm/va_layout.c
+> @@ -49,7 +49,7 @@ static void init_hyp_physvirt_offset(void)
+>  
+>  /*
+>   * We want to generate a hyp VA with the following format (with V ==
+> - * vabits_actual):
+> + * hypervisor VA bits):
+>   *
+>   *  63 ... V |     V-1    | V-2 .. tag_lsb | tag_lsb - 1 .. 0
+>   *  ---------------------------------------------------------
+> @@ -62,10 +62,17 @@ __init void kvm_compute_layout(void)
+>  {
+>  	phys_addr_t idmap_addr = __pa_symbol(__hyp_idmap_text_start);
+>  	u64 hyp_va_msb;
+> +	u32 hyp_va_bits;
+> +
+> +	/*
+> +	 * We use the bigger of IDMAP_VA_BITS and kernel VA size as the
+> +	 * hypervisor VA address space size. See mmu.c.
+> +	 */
+> +	hyp_va_bits = max(IDMAP_VA_BITS, vabits_actual);
 
-Yes.
+Instead of duplicating the logic from kvm_mmu_init(), I'd rather you
+make sure there is a single place where the EL2 VA width is computed,
+and use that consistently all over the place.
 
-	Andrew
+Since you were complaining about the spread of the VA layout handling,
+starting with this sort of consolidation seems like a decent starting
+point.
+
+Thanks,
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
