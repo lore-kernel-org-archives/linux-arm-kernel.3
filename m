@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF0BFE92FE3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 01:35:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5114CE92FE3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 01:38:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f9UsiHfhMknAiPQQC7T1s1S0P752ar4mzqRSdIE1dXU=; b=CsL7rKdJpNEyTbtd4kjNFhbIyI
-	K/gbDntOY7tWowVPD0Ip4e9TOw/+yxQzw8qXQak5YOjCDQir5puDQ8SCwGTsbVHyuXfTBJprlW3W1
-	o4Xv+zKPpCa6rRIbq2LVUiIBY+ibWixbwpUxPHu4wBAVGun5UCedvyaTk4ksEhs/ojTF2HFoPnIC9
-	pc0EJvw5+cR6eRstqmUkC0iwsZKCA9RJmzlf3lBpKwKCTLL9pJ3KtzyL2GwuuC8vZ8wpjXI6Z07zv
-	Q7FFJVO0MwpyMZ0sJCebIiR70vh02CQcDP5WWzLmCcP/HKJkRxZnl6yVNOdIbVH/1bJIo+HTo9mzK
-	Mm7ZvhAQ==;
+	bh=ZR01wDLXfeVLgjQ9DoBqi1cHsnDT+MJQBOGRvBziLWQ=; b=x3uCbYupIpslBBKeEHz7o9nENV
+	kmId+n80Kz3qjE0NWqtdq1Q135zrBoJ4L0nUNGwJdrQhA92KObuv93qx/214pk7lNe64ZFXew+ea9
+	lz21p+qo+8my3zxNq0P/Afqc976CQAqXsQ25FtmEQDLHVHhIiem6Y5HCDy5nixhm9q1o7H8Mn32th
+	Jb0anuctISdWX1XVF8BJkyumgJe+RC4RHSy+cAQj084+T/YPTXwnx2a563REdrt8tJVfon5ZXAV9m
+	5NHiAMlBPGtQ+cDvMPi4onOaDqOx57foCE+MihRBK5UZKHgZIA77Uj6YZwS3gQ5Yl4SdnKavyA1V7
+	YMsjz4bA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaOdg-00000004GTB-3dQO;
-	Tue, 30 Dec 2025 01:35:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vaOgd-00000004Gef-1wK7;
+	Tue, 30 Dec 2025 01:38:11 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaOdf-00000004GSv-0QHA
+	id 1vaOga-00000004GeD-49XM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Dec 2025 01:35:07 +0000
+	Tue, 30 Dec 2025 01:38:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 43F9F6000A;
-	Tue, 30 Dec 2025 01:35:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9493C4CEF7;
-	Tue, 30 Dec 2025 01:35:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 571CA440D8;
+	Tue, 30 Dec 2025 01:38:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15B2DC4CEF7;
+	Tue, 30 Dec 2025 01:38:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767058506;
-	bh=Tj9LHQA+IIT2RlXp2c5HhaFtv0tgYyyX0N8rDKsQDgU=;
+	s=k20201202; t=1767058688;
+	bh=urCIY28Bgg/DWNEhGAokKr3T2XA/0hKP4bHhcr/Cd8E=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=DjBBMpBn+cZZetPVWGTzI+d5MWX9W8emEsUr69Bw1L8QtapARppZ4FwAlP3y/guwa
-	 c2LuKMi2BWOmbt7eDYDIclvlePNZVTmgtZOJQwAbdU6SQ1eMoobyrW3NFEGNzgGZZQ
-	 3Z4ZQWmaEaI7+71ahs9FAP381YmEfru0JF79TCF7pN/EgnrIXPxpSS57G5aUU3TEFY
-	 GOxUoAiLJO+7E+D0cB1x14WZmTQeFmx0NoajJvGhJ6bQ4Y0X8UGe/GlyGSWTUDP54e
-	 AGxqgBGJOqmVtGVESheapDugYywmjmnrt3Sxt8aeA6S9l4WDAUEgikrHoaxgFc7+yn
-	 7wNfPVdjJNjkw==
-Date: Mon, 29 Dec 2025 19:35:04 -0600
+	b=ane3J7yRRaqVeKXcNFl0zPb8F1eUzeet5WWEV7XMk7579tlwZy76sgoUiQbfEF+Uq
+	 ye+KSU7k9a2XiwxqzgEuGpB7PwVPHtuVxyk4j5Wk0GkwFkLoTPwbKv+hNFR7qLqjm4
+	 eYZfS6OUXYMcEmDJbeas4P5nVszIgcs8/MPstXi+7ZPL5DHpj1eSXag+gfkGqu3fLd
+	 tpczmQLTtvsK3yW7drKcusScsXyQROhfD5Z7lBsRQbBuSEYO1wkgsxBgr2QYas4PdM
+	 4cIMyPzt30MRC6PpladfWCKr1uBgJtYFiD3UrD+Dw3AyDVR2Fy7mdH2HZxVAxUD8pA
+	 /8Pfl0Ckj9I8w==
+Date: Mon, 29 Dec 2025 19:38:07 -0600
 From: Rob Herring <robh@kernel.org>
 To: James Calligeros <jcalligeros99@gmail.com>
 Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
@@ -59,14 +59,18 @@ Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
 	devicetree@vger.kernel.org, imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	asahi@lists.linux.dev
-Subject: Re: [PATCH v2 1/7] ASoC: dt-bindings: convert tdm-slot to YAML
-Message-ID: <20251230013504.GB3037280-robh@kernel.org>
+Subject: Re: [PATCH v2 3/7] ASoC: dt-bindings: add TDM slot idle mode
+ properties
+Message-ID: <20251230013807.GA3063323-robh@kernel.org>
 References: <20251221-tdm-idle-slots-v2-0-ed4d96413aec@gmail.com>
- <20251221-tdm-idle-slots-v2-1-ed4d96413aec@gmail.com>
+ <20251221-tdm-idle-slots-v2-3-ed4d96413aec@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251221-tdm-idle-slots-v2-1-ed4d96413aec@gmail.com>
+In-Reply-To: <20251221-tdm-idle-slots-v2-3-ed4d96413aec@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251229_173809_069016_3758310C 
+X-CRM114-Status: GOOD (  19.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,111 +85,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Dec 21, 2025 at 07:35:57PM +1000, James Calligeros wrote:
-> This schema was still in plaintext form. Convert to YAML format.
+On Sun, Dec 21, 2025 at 07:35:59PM +1000, James Calligeros wrote:
+> Add properties to describe TDM slot idle behaviour. These properties can
+> be used to describe how a DAI is supposed to behave when not active.
+> 
+> For example, Apple Silicon laptops split a single I2S bus between two
+> physical lines which are combined at an OR gate in front of the
+> receiving port. One codec on each line is expected to transmit zeroes
+> during the active TDM slots of the opposite line, or we will have corrupted
+> data at the receiver.
 > 
 > Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
 > ---
->  .../bindings/sound/tdm-slot.txt          | 29 ---------------
->  .../bindings/sound/tdm-slot.yaml         | 49 +++++++++++++++++++++++++
->  2 files changed, 49 insertions(+), 29 deletions(-)
+>  .../bindings/sound/tdm-slot.yaml         | 33 +++++++++++++++++++++++++
+>  1 file changed, 33 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/sound/tdm-slot.txt b/Documentation/devicetree/bindings/sound/tdm-slot.txt
-> deleted file mode 100644
-> index 4bb513ae62fc..000000000000
-> --- a/Documentation/devicetree/bindings/sound/tdm-slot.txt
-> +++ /dev/null
-> @@ -1,29 +0,0 @@
-> -TDM slot:
-> -
-> -This specifies audio DAI's TDM slot.
-> -
-> -TDM slot properties:
-> -dai-tdm-slot-num : Number of slots in use.
-> -dai-tdm-slot-width : Width in bits for each slot.
-> -dai-tdm-slot-tx-mask : Transmit direction slot mask, optional
-> -dai-tdm-slot-rx-mask : Receive direction slot mask, optional
-> -
-> -For instance:
-> -	dai-tdm-slot-num = <2>;
-> -	dai-tdm-slot-width = <8>;
-> -	dai-tdm-slot-tx-mask = <0 1>;
-> -	dai-tdm-slot-rx-mask = <1 0>;
-> -
-> -And for each specified driver, there could be one .of_xlate_tdm_slot_mask()
-> -to specify an explicit mapping of the channels and the slots. If it's absent
-> -the default snd_soc_of_xlate_tdm_slot_mask() will be used to generating the
-> -tx and rx masks.
-> -
-> -For snd_soc_of_xlate_tdm_slot_mask(), the tx and rx masks will use a 1 bit
-> -for an active slot as default, and the default active bits are at the LSB of
-> -the masks.
-> -
-> -The explicit masks are given as array of integers, where the first
-> -number presents bit-0 (LSB), second presents bit-1, etc. Any non zero
-> -number is considered 1 and 0 is 0. snd_soc_of_xlate_tdm_slot_mask()
-> -does not do anything, if either mask is set non zero value.
 > diff --git a/Documentation/devicetree/bindings/sound/tdm-slot.yaml b/Documentation/devicetree/bindings/sound/tdm-slot.yaml
-> new file mode 100644
-> index 000000000000..5bc46048d689
-> --- /dev/null
+> index 5bc46048d689..e8b2d35a7c37 100644
+> --- a/Documentation/devicetree/bindings/sound/tdm-slot.yaml
 > +++ b/Documentation/devicetree/bindings/sound/tdm-slot.yaml
-> @@ -0,0 +1,49 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/sound/tdm-slot.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> @@ -33,6 +33,17 @@ $defs:
+>      $ref: /schemas/types.yaml#/definitions/uint32-array
+>      description: Receive direction slot mask. Optional. Identical to TX mask.
+>  
+> +  dai-tdm-idle-mode:
+> +    $ref: /schemas/types.yaml#/definitions/string
+> +    enum:
+> +      - none
+> +      - off
+> +      - zero
+> +      - pulldown
+> +      - hiz
+> +      - pullup
+> +      - drivehigh
 > +
-> +title: Time Division Multiplexing (TDM) Slot Parameters
+>  properties:
+>    dai-tdm-slot-num:
+>      $ref: "#/$defs/dai-tdm-slot-num"
+> @@ -46,4 +57,26 @@ properties:
+>    dai-tdm-slot-rx-mask:
+>      $ref: "#/$defs/dai-tdm-slot-rx-mask"
+>  
+> +  dai-tdm-slot-tx-idle-mode:
+> +    $ref: "#/$defs/dai-tdm-idle-mode"
+> +    description: Transmit direction idle slot mode. Optional. For hardware
+> +      that can configure its behaviour during idle TDM slots via
+> +      .set_tdm_idle(). "None" represents UB/unspecified behaviour and is the
+> +      same as not setting this property.
 > +
-> +maintainers:
-> +  - Liam Girdwood <lgirdwood@gmail.com>
+> +  dai-tdm-slot-rx-idle-mode:
+> +    $ref: "#/$defs/dai-tdm-idle-mode"
+> +    description: Receive direction idle slot mode. Optional. Identical to TX
+> +      idle slot mode.
 > +
-> +select: false
-> +
-> +$defs:
-> +  dai-tdm-slot-num:
+> +  dai-tdm-slot-tx-idle-mask:
 > +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description: Number of slots in use
+> +    description: Transmit direction idle slot mask. Optional. 1 represents
+> +      an idle slot.
 > +
-> +  dai-tdm-slot-width:
+> +  dai-tdm-slot-rx-idle-mask:
 > +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description: Width, in bits, of each slot
-> +
-> +  dai-tdm-slot-tx-mask:
-> +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> +    description: Transmit direction slot mask. Optional. Drivers may specify an
-> +      .xlate_tdm_slot_mask() to generate a slot mask dynamically. If neither
-> +      this property nor a driver-specific function are specified, the default
-> +      snd_soc_xlate_tdm_slot_mask() function will be used to generate a mask.
-> +      The first element of the array is slot 0 (LSB). Any nonzero value will be
-> +      treated as 1.
-> +
-> +  dai-tdm-slot-rx-mask:
-> +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> +    description: Receive direction slot mask. Optional. Identical to TX mask.
+> +    description: Receive direction idle slot mask. Optional. Identical to
+> +      TX mask.
 
-Just move each of these to the properties below as they are only used 
-once.
+These can be under a patternProperties:
 
-> +
-> +properties:
-> +  dai-tdm-slot-num:
-> +    $ref: "#/$defs/dai-tdm-slot-num"
-> +
-> +  dai-tdm-slot-width:
-> +    $ref: "#/$defs/dai-tdm-slot-width"
-> +
-> +  dai-tdm-slot-tx-mask:
-> +    $ref: "#/$defs/dai-tdm-slot-tx-mask"
-> +
-> +  dai-tdm-slot-rx-mask:
-> +    $ref: "#/$defs/dai-tdm-slot-rx-mask"
-> +
-> +additionalProperties: true
-> 
-> -- 
-> 2.52.0
-> 
+patternProperties:
+  '^dai-tdm-slot-[rt]x-idle-mode$':
+    ...
+
+  '^dai-tdm-slot-[rt]x-idle-mask$':
+    ...
+
+And then remove the $defs.
+
+Rob
 
