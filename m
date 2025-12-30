@@ -4,76 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07166EE0215
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 15:41:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA6F0EE021D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 15:50:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=luJpuX0RwJXsscpZJ9ordFnRhyuIP6pmGVi81YTnZ+A=; b=VEZS0cLYWs9ZUFo2rlMxEC/zvq
-	QeIHgvl7Ocj6y/QWC64cMuQ/d7BsH+NsDL0aOfx8JWH6dvK+xHx44iDQnDNriLvhd8U8+yiCgoMIX
-	d58JXyUgHvp7HLhp41Lp0miIJ9dIhZ0cn3ba2MPFJI+bn2b7VAgKa+R+w3kjApA4ZDFIHgHkGkWal
-	eKpW2MtPa9jR+pB5O/sfkKQY7NWuT0i0EOZxbmHJUfv/B1GbPPNKOEir7ygclFn2Ihb1xPZeBEVSM
-	4/rEDhZ67YQysCMAOdatuoyYZ7QntOEc+U+8Nlx44WKF/Rg42i5LH1oQgqJfQyYVx46rxLOI8kvSj
-	prKE+/gQ==;
+	bh=D/twUw2aB8H1ESU7zga+wglunyiP/Oa0QDRW+mO/4gk=; b=kxFdFjap8sEO7U8gH+e4X5pgTo
+	xnZRMI08ul5c2nMnmBQFNugqKPatOr10OzLt2kLjJmHdhZ13Aq8tAah7ssPIE0hv5ccEfWjgVYkhD
+	MbUnkkhR7kDKUJlmlLbs/j0rpq/D2zSev+h1vVvG+92CkX3ywrvH9qqdfXLhy5k2X/WNQMY11Fvaj
+	Ls0oLdYaPLdSlnfrWZtcezMseO4izZPwa2cLfMgWDi3ibx+tKyqMHFs5fAELx+aquYJ7xemSQ2nlC
+	1pZ1WPSTkf6hIHZKvJNFSwesMGmjuHIi44/Ly6BUs7pWaNld7H1gCKD8rzi4QImwZj+RYLuNuEUqQ
+	DdonO9Hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vabqb-000000050k1-1CjM;
-	Tue, 30 Dec 2025 15:41:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vabzS-00000005194-2x2C;
+	Tue, 30 Dec 2025 15:50:30 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vabqX-000000050jI-3P0T
+	id 1vabzR-0000000518G-1ZFZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Dec 2025 15:41:20 +0000
+	Tue, 30 Dec 2025 15:50:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 30CFF442CA
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Dec 2025 15:41:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03E10C2BC86
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Dec 2025 15:41:16 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2190D6001D
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Dec 2025 15:50:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CCCF3C2BCB0
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Dec 2025 15:50:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767109277;
-	bh=gyHQKb3z1nk+UnpTmdOwQ9Nw5LQ39V8OUPvQxvyOONo=;
+	s=k20201202; t=1767109826;
+	bh=buNYBa+G8qfLlUvBCR4ZFcvapW46f5DYot+jLhw9HoQ=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=PhXvNZOCnwhyuQl/sJpP93msu9Bz2T1BSHWyMFhgu1rnkvjje2kXUP3mTYoyo/YBa
-	 A8041AbNjQMhqHBamlugNvHPO+5bCDoZt6ZInP8Qm/SimipO6Ffjex3mCMUZvJW/Lp
-	 DUWlRZz+BHD+9wVyWaQzpSKD2xsxHeDFY4cJsxhYqIKi7EaOepRspvDlrkwZEKti5Z
-	 pwp6TTIYdcOV32pOtC/hmbSvML1tYP2xrzRE13sHlIRV7HAbuoyEPXWaVrNJ1DQDmL
-	 aKZ100NRT/ZeY2YZv/xqjiWrG5OFE7UrscBpPhiwpx0hCtRfIzahaw6cedrNB5J2pg
-	 fKFDeOSrmv1Gw==
-Received: by mail-dl1-f51.google.com with SMTP id a92af1059eb24-11beb0a7bd6so14670016c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Dec 2025 07:41:16 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWBh6oV8tbn09hCFNqX1Sj968sAhlxIBZ/se6YG5cqdQcQDSiehziRi+QJmE2LEBF0eVhQ3Yj0OzEv/ow+Lf8C9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5awxsgOZo/2Ygaprr81B2CRvu+7WTu2jpSJR4cJ2/0k+Xf4gk
-	lpKbJUvJFu35VJddK9/MOMXQMlhd3sP60yRpnze1bs5iJV0N3aGaLKZ+XFk91WvBWg1NCnPNosw
-	r0PMF/z5JIAHYPogTbfNNLZ+CR5g4mQ==
-X-Google-Smtp-Source: AGHT+IEh2n2zLpLnAWsSiBjd90/ps/z4xq2CFX5rKvlH82VgvcbIbEKrpQVoNU8JRj6mongRc2KFddek2E8g0FG2WcA=
-X-Received: by 2002:a05:7022:e88e:b0:119:e569:f851 with SMTP id
- a92af1059eb24-1206193963cmr33079705c88.8.1767109276351; Tue, 30 Dec 2025
- 07:41:16 -0800 (PST)
+	b=uud/8zHKAy9vAmWpvkX9rbSTgMdpfHBrh6WLiprE9pI8hXsuIlJvKVSvybs77Fn8Y
+	 sUNNKqabH1O3AAdbTpPpjTZKBZ6V0IebRTaOqL2zluNQBKVnI/KyICHqazM4+tq8Al
+	 e7KrJX5C2v4quZN/1/fXqONBGLQD9e5pGrZWWuL4E2yUMn9tgr24TnxY0pGE54iQk3
+	 FNmaJE5Xh1NVQAEmCs/Ertn7U8sVHeyHuLWOeql2YdFDe2u0OwNx/yZ5U0KPz8j379
+	 t4oJxM3x8CAObxRNyV5UERTf1i+gfTxIHvgPsa8R+JAxSfQDAsS9oaFzAQxP4vVDon
+	 lgi7CNLA0cyfA==
+Received: by mail-pf1-f172.google.com with SMTP id d2e1a72fcca58-7ba55660769so7819134b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Dec 2025 07:50:26 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUg26uEIbpRJASm/jXb2XzAzs27KPtiFPGBeKzcEHHvFHUt+yZnFOkDNRYokNzgX8OM7miYe7YV6sm94yjbE41j@lists.infradead.org
+X-Gm-Message-State: AOJu0YwwsIJC4sDdNgGf8Os3CgWeK5j7RiyruD3wv7L3HNldNsufn1MH
+	RACra+LOHPsVFhcuWZkuP39Kn3jGS4emq8Dzul7f0yE0C0v9l+YsYvnluFvmtAVZdn3YlCKAq5C
+	sbz/ymjBUL02O784xIZk7g2sqnaRxFg==
+X-Google-Smtp-Source: AGHT+IEZjuJ741PMreIHh9uiPP3hb59AwPjPkgs6EZmokmEJmwSPfCMKsbUmse1x0DIpIk+dUrk59qVP/n9gj5/yiuc=
+X-Received: by 2002:a05:7022:b906:b0:11b:d4a8:d244 with SMTP id
+ a92af1059eb24-121722ab1e3mr21838218c88.16.1767109826287; Tue, 30 Dec 2025
+ 07:50:26 -0800 (PST)
 MIME-Version: 1.0
-References: <aSW0p5sqnJVJsqDO@stanley.mountain>
-In-Reply-To: <aSW0p5sqnJVJsqDO@stanley.mountain>
+References: <20251125-drm-mediatek-hdmi-v2-wifpts-v1-1-a6c7582cf69a@kernel.org>
+In-Reply-To: <20251125-drm-mediatek-hdmi-v2-wifpts-v1-1-a6c7582cf69a@kernel.org>
 From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
-Date: Tue, 30 Dec 2025 15:41:04 +0000
-X-Gmail-Original-Message-ID: <CAAOTY__nif43taCWWdxfFqmtC=KibgJZ2AuUohiS1EdhXdDbow@mail.gmail.com>
-X-Gm-Features: AQt7F2o-8OY-770n-RCRfh2pqvzP9k8Fyvdsrmq_wWlXdIFfmVOWee9EjRaS2wo
-Message-ID: <CAAOTY__nif43taCWWdxfFqmtC=KibgJZ2AuUohiS1EdhXdDbow@mail.gmail.com>
-Subject: Re: [PATCH next] drm/mediatek: Fix platform_get_irq() error checking
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, CK Hu <ck.hu@mediatek.com>, 
-	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, dri-devel@lists.freedesktop.org, 
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kernel-janitors@vger.kernel.org
+Date: Tue, 30 Dec 2025 15:50:13 +0000
+X-Gmail-Original-Message-ID: <CAAOTY_-hGe-yWK-iSXDefEPJN9bc8A_r=kNirBAyHgCPhqoAvw@mail.gmail.com>
+X-Gm-Features: AQt7F2ole3Zhplk3q7hyGThFScP9pdJnuSD325W6WxvbLpbbWXRXwbGOdauOQ4Q
+Message-ID: <CAAOTY_-hGe-yWK-iSXDefEPJN9bc8A_r=kNirBAyHgCPhqoAvw@mail.gmail.com>
+Subject: Re: [PATCH] drm/mediatek: mtk_hdmi_v2: Fix return type of mtk_hdmi_v2_tmds_char_rate_valid()
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	David Airlie <airlied@gmail.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, CK Hu <ck.hu@mediatek.com>, 
+	dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, llvm@lists.linux.dev, 
+	patches@lists.linux.dev, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251230_074119_002265_689E3186 
-X-CRM114-Status: GOOD (  17.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,16 +85,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Dan:
+Hi, Nathan:
 
-Dan Carpenter <dan.carpenter@linaro.org> =E6=96=BC 2025=E5=B9=B411=E6=9C=88=
-25=E6=97=A5=E9=80=B1=E4=BA=8C =E4=B8=8B=E5=8D=881:52=E5=AF=AB=E9=81=93=EF=
-=BC=9A
+Nathan Chancellor <nathan@kernel.org> =E6=96=BC 2025=E5=B9=B411=E6=9C=8825=
+=E6=97=A5=E9=80=B1=E4=BA=8C =E4=B8=8B=E5=8D=8810:14=E5=AF=AB=E9=81=93=EF=BC=
+=9A
 >
-> The platform_get_irq() function returns negative error codes on failure
-> and positive non-zero IRQ numbers on success.  It never returns NULL. Fix
-> the error checking to look for negatives, and change "hdmi->irq" from
-> unsigned int to just int.
+> When building with -Wincompatible-function-pointer-types-strict, a
+> warning designed to catch kernel control flow integrity (kCFI) issues at
+> build time, there is an instance in the new HDMI v2 drm/mediatek code:
+>
+>   drivers/gpu/drm/mediatek/mtk_hdmi_v2.c:1331:31: error: incompatible fun=
+ction pointer types initializing 'enum drm_mode_status (*)(const struct drm=
+_bridge *, const struct drm_display_mode *, unsigned long long)' with an ex=
+pression of type 'int (const struct drm_bridge *, const struct drm_display_=
+mode *, unsigned long long)' [-Werror,-Wincompatible-function-pointer-types=
+-strict]
+>    1331 |         .hdmi_tmds_char_rate_valid =3D mtk_hdmi_v2_hdmi_tmds_ch=
+ar_rate_valid,
+>         |                                      ^~~~~~~~~~~~~~~~~~~~~~~~~~=
+~~~~~~~~~~~
+>
+> While 'int' and 'enum drm_mode_status' are ABI compatible, hence no
+> regular warning from -Wincompatible-function-pointer-types, the mismatch
+> will trigger a kCFI violation when mtk_hdmi_v2_tmds_char_rate_valid() is
+> called indirectly.
+>
+> Update the return type of mtk_hdmi_v2_tmds_char_rate_valid() to be 'enum
+> drm_mode_status' to clear up the warning and kCFI violation.
 
 Applied to mediatek-drm-fixes [1], thanks.
 
@@ -110,42 +125,42 @@ Chun-Kuang.
 >
 > Fixes: 8d0f79886273 ("drm/mediatek: Introduce HDMI/DDC v2 for MT8195/MT81=
 88")
-> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 > ---
->  drivers/gpu/drm/mediatek/mtk_hdmi_common.c | 2 +-
->  drivers/gpu/drm/mediatek/mtk_hdmi_common.h | 2 +-
->  2 files changed, 2 insertions(+), 2 deletions(-)
+>  drivers/gpu/drm/mediatek/mtk_hdmi_v2.c | 7 ++++---
+>  1 file changed, 4 insertions(+), 3 deletions(-)
 >
-> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_common.c b/drivers/gpu/drm=
-/mediatek/mtk_hdmi_common.c
-> index e78eb0876f16..bd7f8c56ec9c 100644
-> --- a/drivers/gpu/drm/mediatek/mtk_hdmi_common.c
-> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi_common.c
-> @@ -303,7 +303,7 @@ static int mtk_hdmi_dt_parse_pdata(struct mtk_hdmi *h=
-dmi, struct platform_device
->                 return dev_err_probe(dev, ret, "Failed to get clocks\n");
+> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c b/drivers/gpu/drm/med=
+iatek/mtk_hdmi_v2.c
+> index c272e1e74b7d..454b8b93b834 100644
+> --- a/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
+> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi_v2.c
+> @@ -1120,9 +1120,10 @@ static void mtk_hdmi_v2_hpd_disable(struct drm_bri=
+dge *bridge)
+>         mtk_hdmi_v2_disable(hdmi);
+>  }
 >
->         hdmi->irq =3D platform_get_irq(pdev, 0);
-> -       if (!hdmi->irq)
-> +       if (hdmi->irq < 0)
->                 return hdmi->irq;
+> -static int mtk_hdmi_v2_hdmi_tmds_char_rate_valid(const struct drm_bridge=
+ *bridge,
+> -                                                const struct drm_display=
+_mode *mode,
+> -                                                unsigned long long tmds_=
+rate)
+> +static enum drm_mode_status
+> +mtk_hdmi_v2_hdmi_tmds_char_rate_valid(const struct drm_bridge *bridge,
+> +                                     const struct drm_display_mode *mode=
+,
+> +                                     unsigned long long tmds_rate)
+>  {
+>         if (mode->clock < MTK_HDMI_V2_CLOCK_MIN)
+>                 return MODE_CLOCK_LOW;
 >
->         hdmi->regs =3D device_node_to_regmap(dev->of_node);
-> diff --git a/drivers/gpu/drm/mediatek/mtk_hdmi_common.h b/drivers/gpu/drm=
-/mediatek/mtk_hdmi_common.h
-> index de5e064585f8..7a644bbf5843 100644
-> --- a/drivers/gpu/drm/mediatek/mtk_hdmi_common.h
-> +++ b/drivers/gpu/drm/mediatek/mtk_hdmi_common.h
-> @@ -168,7 +168,7 @@ struct mtk_hdmi {
->         bool audio_enable;
->         bool powered;
->         bool enabled;
-> -       unsigned int irq;
-> +       int irq;
->         enum hdmi_hpd_state hpd;
->         hdmi_codec_plugged_cb plugged_cb;
->         struct device *codec_dev;
+> ---
+> base-commit: a846505a193d7492ad3531e33cacfca31e4bcdd1
+> change-id: 20251125-drm-mediatek-hdmi-v2-wifpts-d67b55175609
+>
+> Best regards,
 > --
-> 2.51.0
+> Nathan Chancellor <nathan@kernel.org>
 >
 
