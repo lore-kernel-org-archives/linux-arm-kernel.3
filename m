@@ -4,164 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B919EE57C2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 21:37:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F76AEE57C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 22:38:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=n68Q1FMNLBoPuZVtzKO7HiitXU7WT9FSjD/n0pMXlYo=; b=cIUHd4BcEXHKEI5FZGh4Hzk6QK
-	lF/0dvlLqaPwIgeCdiTjZWRMCxhIu1d7BntTqvmu8yDWBA9W23nw8AgYgpgiRqUAlo1eRhaoutIQ7
-	iSGhp5tO0vJjFehGFju5qChXvZYEYZmVXoFKnDRSu1PbkyE8pFvxTr3E70XoZ+riMT6/VUUGiYquf
-	GcLV408PKrkgx/rsB8g9XELXfy5bSq8qs/D8niyZPMggeRkjnCbRCh1j33JT29evKmKZKA83BJ7KI
-	IS3rNFP+/JswcdFsjzhcC6Pnvl/D2ToQ/SMVH10vE2TrFscIeIhSgkWkW33NPXYq8DHQN4LlVMIEg
-	v/3oTLAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=j4A5MkkssdopRAR93WJD4DYIHbsjcxApDg+nSlq5QCc=; b=b8sJtWv7Og8UzuvPOymAMTSMoV
+	KsQdaztYasDJaAov8KzJwl9x3VDE+1eN/wqW784yum2NwdItxPtfUQpE3/ZVIUNO8p+34cxkR4p0/
+	cV/68I7n7/wwPfl/HRNCpPiLeAMPh+KSrgncfTfZhklvdQ3pDG8YjQAW5Gdxq4SAMEZaJREWs/Yjc
+	GEiuHdCYf9KoSaqkiCjBuy2Fayv8yq1wpgXfQVY/Mouwx8FWHumBKSJL4jXGaJ7ehJ1pcls/5SgNB
+	LKb86KIhLHCTY8+y8fafuvnQaPBEia+uIlLgTweMi38YNyvs6s93QCfXY9qWlsonY1BytLnJHIAzW
+	6s0cLJYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vahPX-00000005K9l-3Dsx;
-	Tue, 30 Dec 2025 21:37:47 +0000
-Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1vaiM4-00000005Lkh-1bId;
+	Tue, 30 Dec 2025 22:38:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vahPU-00000005K9L-3tiO
+	id 1vaiM2-00000005Lkb-3FAR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Dec 2025 21:37:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HaIXRQHC7BrIjQZA6tyY5eIQVwZvhymTXvvegxhhMEqKh/0Nvmmrvy0rQcUM4+gb3nTz/AaZT7KFq8J+Bt91xZ2nl9SIpxoqKiicqC7+UigciQQXxrzRdn3qbd1KOQGM8w5dAD4LtST0Qq5O1xzMk0Z5eCQ3ZCFBzDG4KJBGLuwYiLNbIkzltytNaxubkhzfWzWYZJRlbOoPIBo/UXoJ8gNPQ59mqIQqsX4skOFJS1voa4khYgBFV3Dur9TgTgMtqr4nEOMN9SlTwxk8w7Jbt5yvQtrjdfX4H+H4qdmktZdTNahGFBvov4AEp4We+/GZgzmDY2JHkvFljRRs+7FkIw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=n68Q1FMNLBoPuZVtzKO7HiitXU7WT9FSjD/n0pMXlYo=;
- b=RC6S3JAwKSczZ+CuvQCRlZZzICd1MlhGzSjwHn5ltxPd0hJbwKBruA/h2Y6wit4iYLMEObYXyxuWEUjgaFipmYTz5OiP/6+6XzC4mUG8rRA5PcqcsVZoj+ZexUvDWo9pwvU40r6nGHA9hrIzMm38byc5PVHTM4plW6Bw1AFe8QUk7Ut0mNm2vz4k7DESMPOqOsCvECanq0c0fE/q7FZ3C/89j88lmPgZXCPOiDG+0fP1bEorKH9z6o6DrWhCylNNh2DOboUbL/P72gYWKPzBpzP50JRWugBUpuRbZKxmiPWE04D/Ejye914ZoEySC+O6/zJUVzT/YBVDb/V6jjSveA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=linaro.org smtp.mailfrom=ti.com; dmarc=pass
- (p=quarantine sp=none pct=100) action=none header.from=ti.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=n68Q1FMNLBoPuZVtzKO7HiitXU7WT9FSjD/n0pMXlYo=;
- b=NqP9HAP2xUyI6UN8e9qLPQ3W5Qyw4B+EigUPIz3zDFHWBUZoqNR6QZV+aHaROSQ2jqy4m7k8IBLs5wpG0kEQX1k9cwQzcwd13313GhI7vrlgKVagVBl9Y/6HGYeurY8JbK/KM9vJ8dxDD2u5B7xlcTgzxGB74IJtnbt8GJKGO3c=
-Received: from PH8P221CA0004.NAMP221.PROD.OUTLOOK.COM (2603:10b6:510:2d8::9)
- by SJ5PPF0687F9010.namprd10.prod.outlook.com (2603:10b6:a0f:fc02::786) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Tue, 30 Dec
- 2025 21:37:32 +0000
-Received: from CY4PEPF0000EE3F.namprd03.prod.outlook.com
- (2603:10b6:510:2d8:cafe::79) by PH8P221CA0004.outlook.office365.com
- (2603:10b6:510:2d8::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9478.4 via Frontend Transport; Tue,
- 30 Dec 2025 21:37:32 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- CY4PEPF0000EE3F.mail.protection.outlook.com (10.167.242.17) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9478.4 via Frontend Transport; Tue, 30 Dec 2025 21:37:30 +0000
-Received: from DFLE204.ent.ti.com (10.64.6.62) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 30 Dec
- 2025 15:37:27 -0600
-Received: from DFLE201.ent.ti.com (10.64.6.59) by DFLE204.ent.ti.com
- (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 30 Dec
- 2025 15:37:27 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE201.ent.ti.com
- (10.64.6.59) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 30 Dec 2025 15:37:27 -0600
-Received: from [127.0.1.1] (uda0506412.dhcp.ti.com [128.247.81.19])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5BULbRGN1397183;
-	Tue, 30 Dec 2025 15:37:27 -0600
-From: Kendall Willis <k-willis@ti.com>
-Date: Tue, 30 Dec 2025 15:37:18 -0600
-Subject: [PATCH] pmdomain: ti_sci: handle wakeup constraint for out-of-band
- wakeup
+	Tue, 30 Dec 2025 22:38:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3876A60017;
+	Tue, 30 Dec 2025 22:38:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69369C4CEFB;
+	Tue, 30 Dec 2025 22:38:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767134292;
+	bh=Tb3tynnxxnwuANiHqkonp4fihfVrESQp6TRTMLE8/iI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=b2cOJ8YL9H3+tcxp0RAQnc5CQYnXPXOwJghUPMxwUA9nJ6+jdDVbBaf+CVtGr49mj
+	 NcFoZvSde20KbB6f29qNdHoYvCrrD9KXIKSkLSESSZU3CeFKhgKvmeLsIKz36l3BDv
+	 ZqHDMjOeFqTCfC1E3RRn+MqTIhX3ZzoVKL9GVwFxgm5PZpPnoEShKS6g+GEHhM3T5R
+	 Ak3KCLfwYwDPNgJrx7tv306BftuJfE5/umRJJVfDTi/6tf7wCvTJtzXWSTNibia4VO
+	 e+wO+Ccg/vgWi85o7qxny3KxKBVON1mdMm8lbrc3w/6NSbRmm//YBotNrxpr9frRna
+	 8XuNauqTZD6tg==
+Date: Tue, 30 Dec 2025 23:38:09 +0100
+From: Frederic Weisbecker <frederic@kernel.org>
+To: Zhang Qiao <zhangqiao22@huawei.com>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Chen Ridong <chenridong@huawei.com>,
+	Danilo Krummrich <dakr@kernel.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Gabriele Monaco <gmonaco@redhat.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Marco Crivellari <marco.crivellari@suse.com>,
+	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
+	Will Deacon <will@kernel.org>, cgroups@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
+	linux-mm@kvack.org, linux-pci@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH 01/33] PCI: Prepare to protect against concurrent
+ isolated cpuset change
+Message-ID: <aVRUUXa6kJKHHQ_n@pavilion.home>
+References: <20251224134520.33231-1-frederic@kernel.org>
+ <20251224134520.33231-2-frederic@kernel.org>
+ <e01189e1-d8ef-2791-632c-90d4d897859b@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20251230-pmdomain-v1-1-3a009d1ff72e@ti.com>
-X-B4-Tracking: v=1; b=H4sIAA1GVGkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1NDI2MD3YLclPzcxMw83VRzw6TUFMskE4M0CyWg8oKi1LTMCrBR0bG1tQB
- WH4KKWgAAAA==
-X-Change-ID: 20251230-pmdomain-e71bed9b40f8
-To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, "Santosh
- Shilimkar" <ssantosh@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>
-CC: <d-gole@ti.com>, <vishalm@ti.com>, <sebin.francis@ti.com>,
-	<msp@baylibre.com>, <khilman@baylibre.com>, <a-kaur@ti.com>,
-	<s-kochidanadu@ti.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-pm@vger.kernel.org>, <linux-kernel@vger.kernel.org>, Kendall Willis
-	<k-willis@ti.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1767130647; l=2796;
- i=k-willis@ti.com; s=20251230; h=from:subject:message-id;
- bh=MZMhUYWr2cCT0JSBZm/cF+0daxKfqlqG0tEVLoeXUFo=;
- b=uxd4O4nfqzN+XcA2V4inx+miUCSACdRXk8T1392PhARiGNqQtvUMliuAPxiyIBaKzHe55LAgj
- XwJ6UTEKYflDN+poMKbIu2hGKkhmDEdPnBIj31kQxN61DAxYRo3MZ5D
-X-Developer-Key: i=k-willis@ti.com; a=ed25519;
- pk=fQiPVFwmogfDAKdaAKq163RWSfgHZVE/MrsDzp0Xo1k=
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000EE3F:EE_|SJ5PPF0687F9010:EE_
-X-MS-Office365-Filtering-Correlation-Id: 08aa8d81-7e13-42fd-dc50-08de47eba2f3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|1800799024|36860700013;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bkFkZllsWTdoNHNxRHIvZ1dTNG1LTzV1WmV3Y25PaWMxNlkrc1VLdURlZG1h?=
- =?utf-8?B?eWl1TUlYdHlqMEJqR2oxSlROQm1MSTZrV0JoTWFjYzI2NFdtTlZ3MWwvdFZm?=
- =?utf-8?B?dkhjc2xoZmNUMWppM3VPV2tYbWFMZjB0QXZjRXJDUUVhZ2pJL1BnRWlwUkFm?=
- =?utf-8?B?bzM5U1orTmlYdmJCY0ZRbUFiQndjOCtvOWtyV2ZzMG1TcGlsWVZzbXVGK1J1?=
- =?utf-8?B?dE9kcmpzd3MvSWJ4aTBpaEx5VjFoVy92aU01T3o1eEtDYk5jeDJtZlk4eHlj?=
- =?utf-8?B?TGhlRWtTNGVBdnFvYkUvay9nNi92aHMyamFpdFA2WUM2WWU1cmNrcnpLd2E1?=
- =?utf-8?B?T3dMSmRCNFUwWEdiWU1BV2dBNnZmdmNIOGF4cWRzb2h3TmRmRWVZTExXbTdh?=
- =?utf-8?B?a2JLWVFYSzN1RHNHM0dFKzEyeENFazJxMXFVT25ibjFHUGgrZkNlU0l6L0xl?=
- =?utf-8?B?YlNyVDEvUHlxQTZ2U1dBMy9BbFlqUkxDMmJEYWVKZ25nVk9KTnFTVUM4NzlC?=
- =?utf-8?B?RmR6ZUhpbTEzWFdKdS9JdHp0UGxTcWhCK2thKzlRWUhsdnZwZC9yZ0RXb21C?=
- =?utf-8?B?dTdHWHZTcjVyUThPcm5ZckhjUXpOVmxDdUMya3Bpbk1TcDFPM2Zpdk5KcjFL?=
- =?utf-8?B?NjlYMUh1MDFPS3V1S1BhZFg5dktxczhLRGF4T01kamhXR1k3R0JNQWFjaFRo?=
- =?utf-8?B?andxRGRIdHhMYUJ6YWdPK3hzQmsvdktTZ1ZHZDZ2WGlZdDYyZmlwL1JFdm5x?=
- =?utf-8?B?YzBETTN0c3dYV3orOUtBano0Z1dZdWU5N25WREpaRTUxMWR5bzMzRWR2Mk1s?=
- =?utf-8?B?NHY2UU01d2I4VldDaFJrVGNpM1BvSEpOditMeXM5V0dHVC9WQUl6eHpwZ0xy?=
- =?utf-8?B?VHlwYlRFVCt6ZFdxYVZiSVVGcXVIZkVaZWp5VTBDUVRLb3UzK2JjbHN4UmJv?=
- =?utf-8?B?NzR6ME5za1NRSnJmVTBCNnlXUm0xdnIyZzhRaDFGa2doQVovSWxRTXJqVCt4?=
- =?utf-8?B?cXB0KzVNalU1bFhYanVDMVZ6WWRHZmc4TG1GbENUckMzcHkrcXhyQUFlcGlp?=
- =?utf-8?B?dUExdC9ZS1Bqa09yVEg1V044OUIwMzBvYmpRRTRWVTdSNHhmdW14bUkzNkVw?=
- =?utf-8?B?MnIvcmN5a0VTUEZDWFJ2cEdUQ3o0Q2pUZDlmR1JuS1ZWUm9PV0k4ZzhkYktW?=
- =?utf-8?B?OS9ONXBEaUV2eXZqb3c3WTZjcVc3UFQzY1J5SmcrcTVOSi9MY3M0K0crTHlK?=
- =?utf-8?B?Ujg2bURhdlk2R1d4TkF6L1hvQjd6SGhneG5qZm54ZklReENUOUZ3MzA3WUsx?=
- =?utf-8?B?V2k3VUNQMTFFTUFJNnlpUkt6OTAyb3A2aXBWcWp6cWNLOGViQllrR09oR0J1?=
- =?utf-8?B?UHBwdzh0RlA4VVFlSWZkZjRTc3JwSlVNUjVKN2I2SFFwVDZyNmVjYzQzT25u?=
- =?utf-8?B?MktxK0lWMHRMb1BvOGx3WnRBaGMrakhldEFZbWc3enZySTcvcjQ4NDNHOFJx?=
- =?utf-8?B?L1FrdkJtdmkyV0J0bytiQnZHbG9yc3pxamhKWUFpaGpuNE5ZVDJDRDM3a1Bz?=
- =?utf-8?B?NkVHOUJSS1Nwa0ZKSnhCR21nRnFjRlM0ZGltUVorYzMzVlArK3lPSWM2dU1S?=
- =?utf-8?B?SEd4US9uTGdnSVBSKzMrdGx1MThmNDZFWHNDQTZQd3l3Mlk2TmcrSDNnM3ov?=
- =?utf-8?B?OFNrRU9IWnNTWHRmbjZpZVYvWFRjcGRhUDREK0JIWWdMR0M5REpwZGdiTVJF?=
- =?utf-8?B?dDRVd2lnWFZJZjNqaEVPaU5NbkQyREJESGNLck5sWVNob25GU0tEMU5Wc0Rx?=
- =?utf-8?B?NXZRTXhCN3FQdUw2WS9Yb0NhQ25DdnR3Z2podDR3UnloMDBxNnpkNTM0T3Ft?=
- =?utf-8?B?dy9MbUhvcUNsbjJHekpUZEFFbHRUVzZaTDBEbC9EcDZWZDNNQkFnTldGYmJh?=
- =?utf-8?B?VzQrM1crSUJMRlVULzVOUFM3d0FnWElGZ1lCTFlOUVlTTDNsengwZ01ZLzhp?=
- =?utf-8?B?SFVKYVdOZmNJbWtReS9rWGJ6QTBEQkZMVWRrYkl1Tm81NU9NUjJEaHZTNTRS?=
- =?utf-8?B?aWJZMnVJN0VWeDdPUEMyVjJreU13dFNkdElvZmRaNkxqOGNLdXdzckJEaEhi?=
- =?utf-8?Q?HDJo=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(376014)(1800799024)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Dec 2025 21:37:30.9626
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 08aa8d81-7e13-42fd-dc50-08de47eba2f3
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000EE3F.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ5PPF0687F9010
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251230_133744_975835_5269FD2C 
-X-CRM114-Status: GOOD (  13.62  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <e01189e1-d8ef-2791-632c-90d4d897859b@huawei.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,74 +98,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For devices capable of out-of-band system wakeups via I/O daisy chaining,
-prevent sending wakeup constraints to the PM co-processor. This allows
-the system to enter deeper low power modes, as the device is not marked
-as requiring power.
+Le Mon, Dec 29, 2025 at 11:23:56AM +0800, Zhang Qiao a écrit :
+> Hi, Weisbecker，
+> 
+> 在 2025/12/24 21:44, Frederic Weisbecker 写道:
+> > HK_TYPE_DOMAIN will soon integrate cpuset isolated partitions and
+> > therefore be made modifiable at runtime. Synchronize against the cpumask
+> > update using RCU.
+> > 
+> > The RCU locked section includes both the housekeeping CPU target
+> > election for the PCI probe work and the work enqueue.
+> > 
+> > This way the housekeeping update side will simply need to flush the
+> > pending related works after updating the housekeeping mask in order to
+> > make sure that no PCI work ever executes on an isolated CPU. This part
+> > will be handled in a subsequent patch.
+> > 
+> > Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+> > ---
+> >  drivers/pci/pci-driver.c | 47 ++++++++++++++++++++++++++++++++--------
+> >  1 file changed, 38 insertions(+), 9 deletions(-)
+> > 
+> > diff --git a/drivers/pci/pci-driver.c b/drivers/pci/pci-driver.c
+> > index 7c2d9d596258..786d6ce40999 100644
+> > --- a/drivers/pci/pci-driver.c
+> > +++ b/drivers/pci/pci-driver.c
+> > @@ -302,9 +302,8 @@ struct drv_dev_and_id {
+> >  	const struct pci_device_id *id;
+> >  };
+> >  
+> > -static long local_pci_probe(void *_ddi)
+> > +static int local_pci_probe(struct drv_dev_and_id *ddi)
+> >  {
+> > -	struct drv_dev_and_id *ddi = _ddi;
+> >  	struct pci_dev *pci_dev = ddi->dev;
+> >  	struct pci_driver *pci_drv = ddi->drv;
+> >  	struct device *dev = &pci_dev->dev;
+> > @@ -338,6 +337,19 @@ static long local_pci_probe(void *_ddi)
+> >  	return 0;
+> >  }
+> >  
+> > +struct pci_probe_arg {
+> > +	struct drv_dev_and_id *ddi;
+> > +	struct work_struct work;
+> > +	int ret;
+> > +};
+> > +
+> > +static void local_pci_probe_callback(struct work_struct *work)
+> > +{
+> > +	struct pci_probe_arg *arg = container_of(work, struct pci_probe_arg, work);
+> > +
+> > +	arg->ret = local_pci_probe(arg->ddi);
+> > +}
+> > +
+> >  static bool pci_physfn_is_probed(struct pci_dev *dev)
+> >  {
+> >  #ifdef CONFIG_PCI_IOV
+> > @@ -362,34 +374,51 @@ static int pci_call_probe(struct pci_driver *drv, struct pci_dev *dev,
+> >  	dev->is_probed = 1;
+> >  
+> >  	cpu_hotplug_disable();
+> > -
+> >  	/*
+> >  	 * Prevent nesting work_on_cpu() for the case where a Virtual Function
+> >  	 * device is probed from work_on_cpu() of the Physical device.
+> >  	 */
+> >  	if (node < 0 || node >= MAX_NUMNODES || !node_online(node) ||
+> >  	    pci_physfn_is_probed(dev)) {
+> > -		cpu = nr_cpu_ids;
+> > +		error = local_pci_probe(&ddi);
+> >  	} else {
+> >  		cpumask_var_t wq_domain_mask;
+> > +		struct pci_probe_arg arg = { .ddi = &ddi };
+> > +
+> > +		INIT_WORK_ONSTACK(&arg.work, local_pci_probe_callback);
+> >  
+> >  		if (!zalloc_cpumask_var(&wq_domain_mask, GFP_KERNEL)) {
+> >  			error = -ENOMEM;
+> 
+> If we return from here, arg.work will not be destroyed.
 
-Replaces the logic from commit b06bc4727991 ("pmdomain: ti_sci: handle
-wake IRQs for IO daisy chain wakeups") since checking out-of-band wakeup
-will cover the same functionality.
+Good catch! Thanks.
 
-Detect out-of-band wakeup in the suspend path, and if it exists, skip
-sending the constraint.
-
-Signed-off-by: Kendall Willis <k-willis@ti.com>
----
-Implementation
---------------
-This patch is intended to be implemented along with the following
-series. This patch has no dependencies on any of the other series:
-
-1. "pmdomain: ti_sci: handle wakeup constraint for out-of-band wakeup"
-   (this patch): Skips setting constraints for wakeup sources that have
-   out-of-band wakeup capability.
-   https://github.com/kwillis01/linux/commits/v6.19/uart-daisy-chain/pmdomain
-
-2. "serial: 8250: omap: set out-of-band wakeup if wakeup pinctrl exists":
-   Implements out-of-band wakeup from the UARTs for TI K3 SoCs
-   https://github.com/kwillis01/linux/tree/v6.19/uart-daisy-chain/uart-wakeup
-
-3. "arm64: dts: ti: k3-am62: Support Main UART wakeup": Implements the
-   functionality to wakeup the system from the Main UART
-   https://github.com/kwillis01/linux/tree/b4/uart-daisy-chain-dts
-
-Testing
--------
-Tested on a AM62P SK EVM board with all series and dependencies
-implemented. Suspend/resume verified with the Main UART wakeup source
-by entering a keypress on the console.
-
-This github branch has all the necessary patches to test the series
-using v6.19-rc1:
-https://github.com/kwillis01/linux/tree/v6.19/uart-daisy-chain/all
----
- drivers/pmdomain/ti/ti_sci_pm_domains.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/pmdomain/ti/ti_sci_pm_domains.c b/drivers/pmdomain/ti/ti_sci_pm_domains.c
-index e5d1934f78d9ee0a02eb05aa1301cd5a59e134d6..18d33bc35dee1b3bf6107af1e414db377d515199 100644
---- a/drivers/pmdomain/ti/ti_sci_pm_domains.c
-+++ b/drivers/pmdomain/ti/ti_sci_pm_domains.c
-@@ -91,8 +91,9 @@ static inline void ti_sci_pd_set_wkup_constraint(struct device *dev)
- 		 * If device can wakeup using IO daisy chain wakeups,
- 		 * we do not want to set a constraint.
- 		 */
--		if (dev->power.wakeirq) {
--			dev_dbg(dev, "%s: has wake IRQ, not setting constraints\n", __func__);
-+		if (device_out_band_wakeup(dev)) {
-+			dev_dbg(dev, "%s: has out of band wakeup, not setting constraints\n", \
-+					__func__);
- 			return;
- 		}
- 
-
----
-base-commit: f8f9c1f4d0c7a64600e2ca312dec824a0bc2f1da
-change-id: 20251230-pmdomain-e71bed9b40f8
-
-Best regards,
 -- 
-Kendall Willis <k-willis@ti.com>
-
+Frederic Weisbecker
+SUSE Labs
 
