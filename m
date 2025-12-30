@@ -4,101 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A021E95A8C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 13:23:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F943E95A8D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 13:40:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bzWnrkrlR5q++h42uLlncPmWAMWNl0rJ9nbD7WUwTfQ=; b=HeK0gThjFQtXS/1p4ybK83wkr4
-	Cd2ek1y/x5AOgt7GvMY7wnCxk7DovFvAwgP7cyNWhgPKe7RFctkzsC+xxcmVjPYsazl1YmYlA9Un2
-	YbqExpRp+SHh0PgwVLucZdeYgrYGOFE/GNlilnnyk4LlicwePr7iKE8PCBIZYappk9cMLXlkKl3Mw
-	qQpwDb4DI27ss8XUqHVYtTqqJ/FKypy5vcwrNEs6gbGv58uktS/2d8qKfrIAdkyB1mvZQTsZ9JiH1
-	mVNGRAX08ZoBcwuB3yQ/H413LbvT2b8Yk84E79p1+6T37GQupq3voDha180fEYzUlIabNjyAbiyfd
-	s8OgZU3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Bg1+ls4Dm0mVYOjkWjZgFsYapx+e4w8tJTjnMs5lrKs=; b=dLcM+TlF0BLQVqGqJupX2FnPrK
+	xal4d5P9oPzsnvHfKj9iLMzvVEMTkRTOcObNvfPY2BDVEAdnY4ixMZKgx1Yz0PcYQYUGvtuDI0Hcx
+	F/WK+VF0oDjGtR3aNKu3bQDL52i9V6YST5Nfgp/9/X+Bj4pKQjVJhKcBFXh6tvcpL1+H1ul3qdk0H
+	n4pU5LW16keLCs3SF2gCU+3zADRrU4YVUmno3MxXp1XmpWKw6+bEXGjwfwI1QQjoeSFw6A4TbqiFV
+	CnDOjGRKvdGwz312cYDRg8jNzN7p8rvgSnjIOSlvtYDeqa+rvYQ7mRMEoHDd6Ek+vUIdrhRh9gDUJ
+	KwZ68INQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaZhW-00000004raH-0naD;
-	Tue, 30 Dec 2025 13:23:50 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1vaZx4-00000004sCO-2OiH;
+	Tue, 30 Dec 2025 13:39:54 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaZhT-00000004rZa-2cmn
+	id 1vaZx1-00000004sBX-3Gif
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Dec 2025 13:23:49 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-42b3d7c1321so5871548f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Dec 2025 05:23:46 -0800 (PST)
+	Tue, 30 Dec 2025 13:39:53 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-5957ac0efc2so10716911e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Dec 2025 05:39:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1767101025; x=1767705825; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=bzWnrkrlR5q++h42uLlncPmWAMWNl0rJ9nbD7WUwTfQ=;
-        b=INyKMsqHmBilv9QcyzyxGc3cgIGgT/+FBhiBaFGKpC0PDVKtAO0sL3ImwyHBPp9pq8
-         nzFzzJI2taYBjgdKgMHKOB20U5Xmkc8oEwJEKYbPZFkTh1WAS9afJobbfOXDYzkNS32S
-         KAW7AkAyN6kvvJjWfsO5LoU5u75Wk/eouQeH/+XJheED8CT5NqKIq5lyDouz1jozOuAy
-         prunlUnZjE8O14lqs/+kyu+SjriLFbDRJQEIRyEz3VU3EmSyP+27M6amm46yydXROiUT
-         dP6mM7jXinTRBPGgaVOc5nKwwdZA1hnVMLMyDP8w4w5XfgFe3/VZTZoEfY/mlS+0szAg
-         vFyQ==
+        d=linaro.org; s=google; t=1767101989; x=1767706789; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=Bg1+ls4Dm0mVYOjkWjZgFsYapx+e4w8tJTjnMs5lrKs=;
+        b=GKBZm3FcV9pOc7hEsYJEoeLFuLqcHzKcCdql7HTGz9eIdlZy/B50yfCkRBwMF0hOSK
+         ES3HtJ8y2qHd20sOb+bBAH4+9lQqWchHspzNvcDCVAgXmeYMBJF4lrWTYpYZZc36Del4
+         ejCs3kua+F3Icjo1KtHF7qlxxCyRZu5L6BT4N8TN6ZpHvYOnr+4DB7838GiXfl299dPi
+         koFWlcTj03DOvgQPwyCoOXPnAPmBJ8k7Ybhryw6rivfh22BMv3jKD4vcVD1tVw+777nZ
+         +Oc21VnM4R6ngAQrSjrsOudlD/ruS45Quq+jkHwInLpW1nCEvPq3ynfzMPcjRpLRTgQU
+         4Qcg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767101025; x=1767705825;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1767101989; x=1767706789;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=bzWnrkrlR5q++h42uLlncPmWAMWNl0rJ9nbD7WUwTfQ=;
-        b=LDiUzM1pvkxIdGoIstbo2abNwNVmS0JfgmqFXeJwJ5CGCncYkkJw+tzmv/z9Bf7DyJ
-         b1+iZNAfNJ8naleCh0fq3VwnDZ7GNA/lFtmeBtxVaCV129geF30ekj5LkECHHr6TbKXJ
-         Uwh7vdB1wdf7VeFTbPbGqlAuVxNHGHZV5KndJJBAO0FFV25JIQvZxbObRSvfyycXDwmR
-         yeuV182RlNlBKGAwPcTvSvrcVPVe0ms2ztA2KIGMop4RH2YOvbOMifY2PFpztqDeTkJA
-         0duXJ0vOdVsIanIkvR2fFReTBf49YvTIosG0Zu/HPT8o41rJBqCJIlqOgIDphTDeTl4t
-         AFhQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVyAPevegoXukV1roDp9JoSOzXuxJsMRjPqqk1ZRR5tOZDOq5S2KQ07dH088E/WB/YwgpqpDqx8Cr7CEcMBaQPz@lists.infradead.org
-X-Gm-Message-State: AOJu0YzZPbx2T18L7qp6N7V9++REo+TYol9hgskkLoJ+BlH8Y//BTzRX
-	A15qNhNfV4rjaXUIa0i/dHIP/aLN+JusxJtv8tJVuQGMdd8miiGBY+HKn+zNIA==
-X-Gm-Gg: AY/fxX6tmheDbC5mLrFq87Vkw/pIBXzwhTV4XvS0xayDaiPloXzZE/S9XeYeI2d3PEP
-	y8w54399lSbtBx710cz/b9Y08KVIFDCDky/8SpZTTFfbLs7j1NAGq8VWNyYyBsQ7407ZpcuRy3T
-	tawuQxODyE9bXIarmDgAHxJco7FrTZx4RcOPa3Oxz+RODLR8Vup5+LCmdSr2k4tCJt0uc+rHqg6
-	Yv85go+sK8mk+VNGpKMB0pO3WT8+Igetz6FT8AzIWqb1c2WYmvUK0dQXQVHpSmJRa9VZrIiLhLF
-	N8UQZ/EkO4lZH4220AweyPYBUu8RzLry4Ie2aW+TQukl5XXTv7XNDEpr57xx3zBMN2ewAEWe2Q+
-	wKxtPZ7eWfAcn1htpJukJIFYXQJGbl4PyBbEcdupBSd8hk1Lh7WOlzTDufDY1pY2v/614l8guzH
-	Dp30T38vxueiuuBb7epCmVGpaRtYn332iy64V+kSqH+39o7WQzToc2Twy18/3/LdViLRWaMnA=
-X-Google-Smtp-Source: AGHT+IFUxDCYOfLilQ6lfBDnwhOcL2E6VOHW1djgaGHT1hjypUZN67hw/Qlj7b7P8zYClnV8NZsXzg==
-X-Received: by 2002:a05:6000:1844:b0:430:fa58:a03d with SMTP id ffacd0b85a97d-4324e70ef05mr36872432f8f.63.1767101025060;
-        Tue, 30 Dec 2025 05:23:45 -0800 (PST)
-Received: from alchark-surface.localdomain (bba-94-59-45-246.alshamil.net.ae. [94.59.45.246])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4324ea830fesm69332312f8f.20.2025.12.30.05.23.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 30 Dec 2025 05:23:44 -0800 (PST)
-From: Alexey Charkov <alchark@gmail.com>
-Date: Tue, 30 Dec 2025 17:23:34 +0400
-Subject: [PATCH v3] arm64: dts: rockchip: enable UFS controller on
- FriendlyElec NanoPi M5
+        bh=Bg1+ls4Dm0mVYOjkWjZgFsYapx+e4w8tJTjnMs5lrKs=;
+        b=O/fTRM78T25+n/7zpR3/5KCDnB21aIYfg2sW6vrk/yTJv2MkqPC56E9pbWFG4g2Wz+
+         8QgrL49aG3BuR0jIBSoumlNVJDNo7Shp/0NCMExl9A0qAXvmJlV2xivBdJLBrtdiyGlX
+         KnAVGpB92w1FeTY3Hum0AWqt0edLwlqMz3Ogk4brVNfJprwOev3HlyLdwe9Zn8LPVH8b
+         meDMGwyC2jLFlBGhJf5CY5acc4OnhIBgr0MPEbjZP3vGLHi82DcqJ4VyS7StMF1zTksK
+         qEYR05O9J75g2+vLuUpHYJ3V5xytKuYA8Sqm37b1kmCLnRoyDKJyc+fxffSEGbiedJem
+         Kzig==
+X-Forwarded-Encrypted: i=1; AJvYcCVI3b8f20QKeFtfMjkGZdg5JqBPq7UgQUTdOYHanTU9gmOkbgRcNcVFEOAIpw0gs/B3jBYWsM6uRczNBdqa8WpY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz6EOTsGgynAAblmOrH3BGOy0ZfsbbhlefD/9O0IDmXBfQEJfAx
+	ZOzv+QH6XpQwbXrFaQDfgh6e+rUD8bBAEN/2KvMxGWcngsBO/Wy+qNP0hbeza5SE5r4c4B/NGJu
+	b3j846z1Yt7PNPXL8+xQq/Nhrj0rkHYKBVGWiKGAQbg==
+X-Gm-Gg: AY/fxX4mh3fcKzf9aIXxTTnx2nE7KG7KPgygc/IBugEKJcjlKv2ulAikSp2yeTW3M/l
+	dMazKocgMdIl/jhiBaYE4zHQU8PoOxC96BexMAHHmr71vnde21wK+x7KmOS6/P/DBbAipirKawh
+	9xkqvfqyqibfAvkwpo8/rTdnV4lBkQUSK2ODqKOkBI2E5fmYcFMekdWDsSFdkexUNXz5zUlVLLh
+	AsX+mdLjuMWobPRpdn293GGjA5Q2U0bcocgIrE8yWyDgG6PA76Ek+2LOKCMoC5cLQEMxQBd
+X-Google-Smtp-Source: AGHT+IFc2q13TthZOLNMt7KlXgzpHYzWQ4Oc1qku0cPr+yLi0Y1e7lT6nY190irxS/Myr4DyEyhRfiOI15TA9SqTEa4=
+X-Received: by 2002:a05:6512:b20:b0:594:2870:9774 with SMTP id
+ 2adb3069b0e04-59a17d670f6mr11077610e87.38.1767101988845; Tue, 30 Dec 2025
+ 05:39:48 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251230-nanopi-m5-ufs-v3-1-ed188ae34fdb@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAFXSU2kC/3XMQQrCMBCF4atI1o5kRmPUlfcQFyWdtgM2KYkGp
- fTupt0ogsv34PtHlTgKJ3VajSpyliTBl7Fdr5TrKt8ySF22Ik0GkSz4yodBoDfwaBIYasgZbTX
- urSpmiNzIc+ldrmV3ku4hvpZ8xvn9V8oICLqmQ43GWiR3bvtKbhsXejWXMn00afzVVDQ7PjrNj
- NbtvvU0TW9ja/Pf6AAAAA==
-X-Change-ID: 20251127-nanopi-m5-ufs-52f2c5070167
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Alexey Charkov <alchark@gmail.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2289; i=alchark@gmail.com;
- h=from:subject:message-id; bh=UQ5DWsXFkrEb/TWPrQyCX2bixd/4Ob5s+086Cxhqs8I=;
- b=owGbwMvMwCW2adGNfoHIK0sZT6slMWQGX4o7EtZ/bd/e2hyd6JaNJy59lZ/Wbv6rJ3NDHmfK/
- N6LE5/N75jIwiDGxWAppsgy99sS26lGfLN2eXh8hZnDygQyRFqkgQEIWBj4chPzSo10jPRMtQ31
- DA11jHWMGLg4BWCqL1sw/A9aqLEx9z6DTEq9eoCSQcfu/7Z/dS9uFT0Y5dVywlFes4Lhn21rzdx
- 1P7fMDpo+M6TPeeYdefaco9pvbG7Jn/m16mCVOQsA
-X-Developer-Key: i=alchark@gmail.com; a=openpgp;
- fpr=9DF6A43D95320E9ABA4848F5B2A2D88F1059D4A5
+References: <20251205015428.643-1-ming.qian@oss.nxp.com> <20251205015428.643-2-ming.qian@oss.nxp.com>
+In-Reply-To: <20251205015428.643-2-ming.qian@oss.nxp.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Tue, 30 Dec 2025 14:39:12 +0100
+X-Gm-Features: AQt7F2p9Tp60FXm9JL954U-IrjyLLANKEoHVrFFumJZKPA0geVKKGoJbY19yu5A
+Message-ID: <CAPDyKFpt-GL-RFcJ5mTWFqaRfy1dQJ7LL8OBCoQK0+zPDFEzsg@mail.gmail.com>
+Subject: Re: [PATCH v4 1/3] media: v4l2-mem2mem: Add a kref to the
+ v4l2_m2m_dev structure
+To: ming.qian@oss.nxp.com
+Cc: linux-media@vger.kernel.org, mchehab@kernel.org, hverkuil-cisco@xs4all.nl, 
+	nicolas@ndufresne.ca, benjamin.gaignard@collabora.com, p.zabel@pengutronix.de, 
+	sebastian.fricke@collabora.com, shawnguo@kernel.org, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, linux-imx@nxp.com, 
+	l.stach@pengutronix.de, Frank.li@nxp.com, peng.fan@nxp.com, 
+	eagle.zhou@nxp.com, imx@lists.linux.dev, linux-pm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251230_052347_704476_2EDF3FE6 
-X-CRM114-Status: GOOD (  10.82  )
+X-CRM114-CacheID: sfid-20251230_053951_901816_B0437402 
+X-CRM114-Status: GOOD (  26.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,77 +99,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The NanoPi M5 board supports pluggable UFS modules using the UFSHC
-inside its Rockchip RK3576 SoC.
+On Fri, 5 Dec 2025 at 02:55, <ming.qian@oss.nxp.com> wrote:
+>
+> From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+>
+> Adding a reference count to the v4l2_m2m_dev structure allow safely
+> sharing it across multiple hardware nodes. This can be used to prevent
+> running jobs concurrently on m2m cores that have some internal resource
+> sharing.
+>
+> Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
 
-Enable the respective devicetree node and add its supply regulators.
+I certainly don't have the complete picture for how this needs to work.
 
-Link: https://wiki.friendlyelec.com/wiki/images/9/97/NanoPi_M5_LP5_2411_SCH.pdf
-Signed-off-by: Alexey Charkov <alchark@gmail.com>
----
-Changes in v3:
-- Dropped 'en-supply' from fixed regulators, as it's not envisaged by the
-  fixed regulator driver and seems like more trouble than its worth
-- Link to v2: https://lore.kernel.org/r/20251201-nanopi-m5-ufs-v2-1-ece9c0ee17c4@gmail.com
+However, I was thinking that rather than using a kref and having to
+share two specific functions to update it (v4l2_m2m_get|put), couldn't
+we just use a device-link instead?
 
-Changes in v2:
-- Describe UFS supply regulators
-- Add link to schematic
-- Link to v1: https://lore.kernel.org/r/20251127-nanopi-m5-ufs-v1-1-0d28d157712c@gmail.com
----
- arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts | 25 +++++++++++++++++++++++
- 1 file changed, 25 insertions(+)
+Kind regards
+Uffe
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts b/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
-index cce34c541f7c..c5b34069a443 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3576-nanopi-m5.dts
-@@ -110,6 +110,22 @@ vcc12v_dcin: regulator-vcc12v-dcin {
- 		regulator-name = "vcc12v_dcin";
- 	};
- 
-+	vcc1v2_ufs_vccq: regulator-vcc1v2-ufs-vccq {
-+		compatible = "regulator-fixed";
-+		regulator-min-microvolt = <1200000>;
-+		regulator-max-microvolt = <1200000>;
-+		regulator-name = "vcc1v2_ufs_vccq";
-+		vin-supply = <&vcc5v0_sys_s5>;
-+	};
-+
-+	vcc1v8_ufs_vccq2: regulator-vcc1v8-ufs-vccq2 {
-+		compatible = "regulator-fixed";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		regulator-name = "vcc1v8_ufs_vccq2";
-+		vin-supply = <&vcc_1v8_s3>;
-+	};
-+
- 	vcc3v3_m2_keym: regulator-vcc3v3-m2-keym {
- 		compatible = "regulator-fixed";
- 		enable-active-high;
-@@ -906,6 +922,15 @@ &uart0 {
- 	status = "okay";
- };
- 
-+&ufshc {
-+	vcc-supply = <&vcc_3v3_s3>;
-+	vccq-supply = <&vcc1v2_ufs_vccq>;
-+	vccq2-supply = <&vcc1v8_ufs_vccq2>;
-+	vdd-hba-supply = <&vdda_1v2_s0>;
-+
-+	status = "okay";
-+};
-+
- &usbdp_phy {
- 	status = "okay";
- };
-
----
-base-commit: cc3aa43b44bdb43dfbac0fcb51c56594a11338a8
-change-id: 20251127-nanopi-m5-ufs-52f2c5070167
-
-Best regards,
--- 
-Alexey Charkov <alchark@gmail.com>
-
+> ---
+> v4
+> - Add my Signed-off-by
+>
+>  drivers/media/v4l2-core/v4l2-mem2mem.c | 23 +++++++++++++++++++++++
+>  include/media/v4l2-mem2mem.h           | 21 +++++++++++++++++++++
+>  2 files changed, 44 insertions(+)
+>
+> diff --git a/drivers/media/v4l2-core/v4l2-mem2mem.c b/drivers/media/v4l2-core/v4l2-mem2mem.c
+> index fec93c1a9231..ae0de54d4c3e 100644
+> --- a/drivers/media/v4l2-core/v4l2-mem2mem.c
+> +++ b/drivers/media/v4l2-core/v4l2-mem2mem.c
+> @@ -90,6 +90,7 @@ static const char * const m2m_entity_name[] = {
+>   * @job_work:          worker to run queued jobs.
+>   * @job_queue_flags:   flags of the queue status, %QUEUE_PAUSED.
+>   * @m2m_ops:           driver callbacks
+> + * @kref:              device reference count
+>   */
+>  struct v4l2_m2m_dev {
+>         struct v4l2_m2m_ctx     *curr_ctx;
+> @@ -109,6 +110,8 @@ struct v4l2_m2m_dev {
+>         unsigned long           job_queue_flags;
+>
+>         const struct v4l2_m2m_ops *m2m_ops;
+> +
+> +       struct kref kref;
+>  };
+>
+>  static struct v4l2_m2m_queue_ctx *get_queue_ctx(struct v4l2_m2m_ctx *m2m_ctx,
+> @@ -1200,6 +1203,7 @@ struct v4l2_m2m_dev *v4l2_m2m_init(const struct v4l2_m2m_ops *m2m_ops)
+>         INIT_LIST_HEAD(&m2m_dev->job_queue);
+>         spin_lock_init(&m2m_dev->job_spinlock);
+>         INIT_WORK(&m2m_dev->job_work, v4l2_m2m_device_run_work);
+> +       kref_init(&m2m_dev->kref);
+>
+>         return m2m_dev;
+>  }
+> @@ -1211,6 +1215,25 @@ void v4l2_m2m_release(struct v4l2_m2m_dev *m2m_dev)
+>  }
+>  EXPORT_SYMBOL_GPL(v4l2_m2m_release);
+>
+> +void v4l2_m2m_get(struct v4l2_m2m_dev *m2m_dev)
+> +{
+> +       kref_get(&m2m_dev->kref);
+> +}
+> +EXPORT_SYMBOL_GPL(v4l2_m2m_get);
+> +
+> +static void v4l2_m2m_release_from_kref(struct kref *kref)
+> +{
+> +       struct v4l2_m2m_dev *m2m_dev = container_of(kref, struct v4l2_m2m_dev, kref);
+> +
+> +       v4l2_m2m_release(m2m_dev);
+> +}
+> +
+> +void v4l2_m2m_put(struct v4l2_m2m_dev *m2m_dev)
+> +{
+> +       kref_put(&m2m_dev->kref, v4l2_m2m_release_from_kref);
+> +}
+> +EXPORT_SYMBOL_GPL(v4l2_m2m_put);
+> +
+>  struct v4l2_m2m_ctx *v4l2_m2m_ctx_init(struct v4l2_m2m_dev *m2m_dev,
+>                 void *drv_priv,
+>                 int (*queue_init)(void *priv, struct vb2_queue *src_vq, struct vb2_queue *dst_vq))
+> diff --git a/include/media/v4l2-mem2mem.h b/include/media/v4l2-mem2mem.h
+> index bf6a09a04dcf..ca295c660c7f 100644
+> --- a/include/media/v4l2-mem2mem.h
+> +++ b/include/media/v4l2-mem2mem.h
+> @@ -547,6 +547,27 @@ v4l2_m2m_register_media_controller(struct v4l2_m2m_dev *m2m_dev,
+>   */
+>  void v4l2_m2m_release(struct v4l2_m2m_dev *m2m_dev);
+>
+> +/**
+> + * v4l2_m2m_get() - take a reference to the m2m_dev structure
+> + *
+> + * @m2m_dev: opaque pointer to the internal data to handle M2M context
+> + *
+> + * This is used to share the M2M device across multiple devices. This
+> + * can be used to avoid scheduling two hardware nodes concurrently.
+> + */
+> +void v4l2_m2m_get(struct v4l2_m2m_dev *m2m_dev);
+> +
+> +/**
+> + * v4l2_m2m_put() - remove a reference to the m2m_dev structure
+> + *
+> + * @m2m_dev: opaque pointer to the internal data to handle M2M context
+> + *
+> + * Once the M2M device have no more references, v4l2_m2m_realse() will be
+> + * called automatically. Users of this method should never call
+> + * v4l2_m2m_release() directly. See v4l2_m2m_get() for more details.
+> + */
+> +void v4l2_m2m_put(struct v4l2_m2m_dev *m2m_dev);
+> +
+>  /**
+>   * v4l2_m2m_ctx_init() - allocate and initialize a m2m context
+>   *
+> --
+> 2.52.0
+>
 
