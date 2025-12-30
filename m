@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45904E92FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 03:19:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 774FCE92722
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 03:28:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zD+gmRh3Xh/HHJG0Gj0lXHT0UGm9c3ZSo29yikKKwhU=; b=wiYcRRGYWbSHJkaUrLwBAQ1zgc
-	vhOCOrA6OMX+NNmVgiVZVdv+LEu4Mm+ZojaHGLh4WcfJk5+t9/hUspyqcMz9Lg6DDQ8w7fIt3tfOV
-	0D9iRPGhhWkXjqpZcFjxuDAl5+5WeDxVh7WtRAcTrAAuNIZWgDggYgGKsxp0IOROfHfgTtu4nBT0k
-	A8ORcU8aVaeZqcjxYOm26QbMsvuuJDINdHB8B2QpI0r+i0BrIb8y2/essOeDj/wsKWmA064jJySf4
-	1gNcoxjvh6uQajruekFYmtVgjtvM2YJLcN+u/m+KlEn9QYvBpX15Y65GK0HehZbsuvMn99d3IvS5m
-	/PnsuuhA==;
+	bh=Ts6r7QqfUF3YI7dl/i0FaC3+dLzP6Eq+YuewnnBackc=; b=lY2loUB4kGoviQifyFDz7BWvWp
+	L6kMR5zwOiK8RdLKm8xNw2/sy2axFTUN0vJnqLYIiIw6ovHRrV4uM4RbMOOgzh6SxCZGerVD7+bES
+	h09Wzc/sIgKFS8MoRSzJX1gn5sc9JSGsZB/gjFwqaR1W6zBpyfQDHr9MaLqRPPbTfEr6h3P6PD45x
+	zG87YknS3mMgi4flh2ITlVUu1ilpMCcbHZd26fzv8SAXazbhuRaYmImOEnlY8zNYsxD0jIRpmQg0p
+	lShP/Bw3+4oWZMYWair2dHormo91AZBv9BSUqVzdMqjzG5Gb2EvgdyKN79Yi+IUBid7GkaTTuAOwi
+	jhFGg5Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaQGL-00000004MN0-1Z65;
-	Tue, 30 Dec 2025 03:19:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vaQPJ-00000004MfF-1RTj;
+	Tue, 30 Dec 2025 03:28:25 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaQGJ-00000004MMc-0m0C
+	id 1vaQPH-00000004Mf6-4Ap3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Dec 2025 03:19:08 +0000
+	Tue, 30 Dec 2025 03:28:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4507D43CE4;
-	Tue, 30 Dec 2025 03:19:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 495F8C4CEF7;
-	Tue, 30 Dec 2025 03:19:03 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EADB06000A;
+	Tue, 30 Dec 2025 03:28:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87405C16AAE;
+	Tue, 30 Dec 2025 03:28:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767064746;
-	bh=O2r1KwYYSDALwqUvU7r3CqahDZShCtKWBjve35FT1yg=;
+	s=k20201202; t=1767065302;
+	bh=Dccpw7NPvtBDj/FiKmoCP1aZ1Hu8cpN1GGFZQAOlyAE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MGYeLxOWYN/Zq1UplbA7ORcLUNaZVqIbkVkof0sen7rRVF20HpmHevaE3Whe96Ixi
-	 6cwDUlwvfx/blUnoiWJYgseAEoeHysqVB3+bFYSTAMEIqDUG9muoDiiOPJAX/AkEKi
-	 GspB300ck4WjNDWmvMp407nnK/YRUjaLKadyNVbJBDR1/rEGbAL5rsANgFJERG6SuQ
-	 0KlLoUbkEBKvJkoLb6GCVTMY9359U7qNpYDKMNG8XmPzwr1O9l6EErDPPR9PD7Z4Q8
-	 wQtP8WVpfkTrtE5bCqhJfLhFmJWOKRVwh+WvCwBkyWuoQisO/Yz/IFsvs4tQleVOJe
-	 2COgC16X2L2Og==
-Date: Tue, 30 Dec 2025 11:19:01 +0800
+	b=S3/K7jpk/8nZPjwYl44wpek4Pb6k5lsqGww8UKUxKm0vtED6l/Qe6gmgMFRl22BR0
+	 Rb0Hbp6YVKnByxVtcyD5CLRDuUzvtx+SITxnWHn1oUemGtsV8vsguciQI55RRm85AL
+	 Lg3BiEh5kRHpVeKfjHWDCDx0GutRyXKaFIEFVZ5znJvGR5BfBZDBunoaTKq6aZKH+H
+	 33DQo2cxFKA+uvpnZl5y27MTkzfP77a2YQN+oCeFtrTngRqMdQ0y50E8i0adNTfeeb
+	 8/YqrJNGlXXHdYo52LQo+xVR9nkHxFRUO0HMwmoVprvOdMmmOC/9a5jNIeB4dABhoV
+	 eDpJOeW7fuGDg==
+Date: Tue, 30 Dec 2025 11:28:16 +0800
 From: Shawn Guo <shawnguo@kernel.org>
-To: Tim Harvey <tharvey@gateworks.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	bhelgaas@google.com, frank.li@nxp.com, l.stach@pengutronix.de,
+	lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: imx8m{m,p}-venice-gw71xx: Add Magetometer
-Message-ID: <aVNEpXM3XG8Dfczl@dragon>
-References: <20251209205828.689999-1-tharvey@gateworks.com>
+Subject: Re: [PATCH v10 4/4] arm64: dt: imx95: Add the missed ref clock for
+ PCIe[0,1]
+Message-ID: <aVNG0BjbEVHhgNCa@dragon>
+References: <20251211064821.2707001-1-hongxing.zhu@nxp.com>
+ <20251211064821.2707001-5-hongxing.zhu@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251209205828.689999-1-tharvey@gateworks.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251229_191907_236941_856E1933 
-X-CRM114-Status: UNSURE (   7.97  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20251211064821.2707001-5-hongxing.zhu@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,10 +75,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 09, 2025 at 12:58:28PM -0800, Tim Harvey wrote:
-> Add support for the optional LIS2MDL magnetometer on GW71xx baseboards.
+On Thu, Dec 11, 2025 at 02:48:21PM +0800, Richard Zhu wrote:
+> i.MX95 PCIes have two reference clock inputs, one of them is from
+> internal PLL. It's wired inside chip and present as "ref" clock. It's
+> not an optional clock.
 > 
-> Signed-off-by: Tim Harvey <tharvey@gateworks.com>
+> Add the missed ref clock for PCIe[0,1].
+> 
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
 
-Applied, thanks!
+It doesn't seem to apply to my tree.
+
+Shawn
+
+> ---
+>  .../boot/dts/freescale/imx95-tqma9596sa-mb-smarc-2.dts | 10 ++++++----
+>  1 file changed, 6 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/freescale/imx95-tqma9596sa-mb-smarc-2.dts b/arch/arm64/boot/dts/freescale/imx95-tqma9596sa-mb-smarc-2.dts
+> index 5b6b2bb80b288..1258fcb54681e 100644
+> --- a/arch/arm64/boot/dts/freescale/imx95-tqma9596sa-mb-smarc-2.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx95-tqma9596sa-mb-smarc-2.dts
+> @@ -237,8 +237,9 @@ &pcie0 {
+>  	clocks = <&scmi_clk IMX95_CLK_HSIO>,
+>  		 <&pcieclk 1>,
+>  		 <&scmi_clk IMX95_CLK_HSIOPLL_VCO>,
+> -		 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>;
+> -	clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux";
+> +		 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>,
+> +		 <&hsio_blk_ctl 0>;
+> +	clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux", "ref";
+>  	reset-gpio = <&expander2 9 GPIO_ACTIVE_LOW>;
+>  	status = "okay";
+>  };
+> @@ -250,8 +251,9 @@ &pcie1 {
+>  	clocks = <&scmi_clk IMX95_CLK_HSIO>,
+>  		 <&pcieclk 0>,
+>  		 <&scmi_clk IMX95_CLK_HSIOPLL_VCO>,
+> -		 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>;
+> -	clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux";
+> +		 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>,
+> +		 <&hsio_blk_ctl 0>;
+> +	clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux", "ref";
+>  	reset-gpio = <&expander2 10 GPIO_ACTIVE_LOW>;
+>  	status = "okay";
+>  };
+> -- 
+> 2.37.1
+> 
 
