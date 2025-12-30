@@ -4,66 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1A9AE9410A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 02:57:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56E21E9410A
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 03:00:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=clsigyX47lZkdH/N62Rkeyk4H3J1LmQvkV8b+N3azvs=; b=qeG+9AxONCUd2oD5mwKsBOaalI
-	rxAlIWuHCoeqInl34oDV6elZ9Kt4+VX9sNeAHZGi/2kjzwR51wiL+s650g73r52xblas4cMte4f/o
-	6gIpIOEpEJWkhxb4i3vXHBWwQRZedRowB3JyOFVFNNrkS68SXxL+f4KTo79u8hFo+9lrDP1HvQT6A
-	Rnif1iFrvNIaaHZ2wcrIZy0Ob7apLHx14rT/jgo5F6vg11uU/nXwOf2dIXplXPOoJzQuBj+Z7omtl
-	W5blidL6mEgOBTLO3fLJfMxD4lChZf05SwXYAX7BjvQZddlgC/bxjarXcF2kyrMQ3CsHOZfY7hlMb
-	xYtix5jw==;
+	bh=N8a1sx3itCAXO94VA3HQ7U54YmFfTU2DYVOqXzymjEk=; b=fzxm2jyoLuLZChc+P1K6hjDxAS
+	FXwgKq/P++NzCD0frz9M0pezGtN6tNFeteWxtNEpAzTz16MU+XifWTxOSb6hswbbE7q3mISuDq3VD
+	HTXQ3yRY3+q1sTRc3XM1VvL0gS4ocvyvSUkyq/Ht1sCftqPOHPJG8g0J4BJ7cAWB+pY0sqxadcqnS
+	Lfg6bpfundrVK0NVIeEQNTldYdE9WnvwX7/7xzqjvDFapBsGGDEtgIQTzlxEhYgScoS/EoXzgrQrv
+	PYOVto8EwwrhNEz32Sl3zJj6QruOJLCe/xo1pOJyxM59eaqCNnkqsx+DdiT498jSlBd/OMqZIOGnn
+	/umAHGKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaPvY-00000004L90-0bNl;
-	Tue, 30 Dec 2025 02:57:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vaPxk-00000004LHT-2b4w;
+	Tue, 30 Dec 2025 02:59:56 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaPvU-00000004L8d-42iT
+	id 1vaPxj-00000004LHL-0jro
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Dec 2025 02:57:38 +0000
+	Tue, 30 Dec 2025 02:59:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CAC8F419F5;
-	Tue, 30 Dec 2025 02:57:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A7A3C4CEF7;
-	Tue, 30 Dec 2025 02:57:33 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2B2606000A;
+	Tue, 30 Dec 2025 02:59:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D5F5C4CEF7;
+	Tue, 30 Dec 2025 02:59:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767063455;
-	bh=mZPhCiEGuhQZnTX/hLxPJDSMGw1z4lrwY4SA3V8cPhc=;
+	s=k20201202; t=1767063593;
+	bh=+BmXUEiiyeVcTdYDhJWiItwNydOodkCcStv+E5cUu+s=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gTHxhPyw51sxj3aFJxPPtceSmKmDzNCA8UDtFhlFgAT+7byLdOqpy4SauMZZeBg+W
-	 lwKfpzDJCdFv2Omu+LeYDtgFe3muAL+TfpDcYVDrP2muXD3KmHM+0lnK+V1tHPnE6r
-	 wBquegnp+3XsqbYVTFjXC5RjnDlzU/iXvIP+jQ/SjtPW7DbS2oU2aQgeXTsvvtWq5u
-	 BGNnUm1cg0e05VmGEzB/mxsqLS/Tdrpf3RXACuwzbiCeC3BwAlrfqdxPzzRY7+YwhI
-	 +rmkWjmUUUdQ7iV+UaROqOBb2dED+9U2EhbAStGxlTX9zPlcirp29b+3ruKT89MIh/
-	 sx8KciWNOMzoQ==
-Date: Tue, 30 Dec 2025 10:57:31 +0800
+	b=m6ZGAiJrPHrIhhO4g4V1dz5F2Gww7i1mwBejaUoWSNhAvt9sbFb441e49xcEjLGK1
+	 leNRQPlBzQr8aeRVJ4sDm6/bZX86e+GoSZpeCc1cnX4dVeDqSzxW6c1Ug8Vpa+7Ro0
+	 M641v/KT0Qg9OrB6lVC676Vye6SzwZYcmX8ZkMDx6QUHOuGMI93uClOay+FxOLDt3i
+	 NNNeylg0ae+c5c2aytrnGj9QlU9ImKfqLUBhrQ/hGDA5mBR4Zq6Qrnl26112BR2Na4
+	 JgEpC0cMuXtkKOd+THjC2xSyu0hdJjVvB3d0dDyN4uIaFLtEQtJEnFNKD/xt8FMuY5
+	 O/IR7Z0IH9DiQ==
+Date: Tue, 30 Dec 2025 10:59:48 +0800
 From: Shawn Guo <shawnguo@kernel.org>
-To: Stefano Radaelli <stefano.r@variscite.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+To: Francesco Dolcini <francesco@dolcini.it>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v1 0/4] arm64: dts: imx93-var-som-symphony: align DTS
- with hw revision
-Message-ID: <aVM_m_qAo91E5oKM@dragon>
-References: <20251205182258.50397-1-stefano.r@variscite.com>
+	Fabio Estevam <festevam@gmail.com>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v1] arm64: dts: freescale: imx8-apalis: Add ethernet alias
+Message-ID: <aVNAJDTkBihpsmi8@dragon>
+References: <20251209085747.39009-1-francesco@dolcini.it>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251205182258.50397-1-stefano.r@variscite.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251229_185737_021748_7386A95E 
-X-CRM114-Status: GOOD (  12.01  )
+In-Reply-To: <20251209085747.39009-1-francesco@dolcini.it>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,28 +74,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 05, 2025 at 07:22:53PM +0100, Stefano Radaelli wrote:
-> This series adds support for several peripherals available on the
-> Variscite Symphony carrier board for the VAR-SOM-MX93 module.
+On Tue, Dec 09, 2025 at 09:57:46AM +0100, Francesco Dolcini wrote:
+> From: Francesco Dolcini <francesco.dolcini@toradex.com>
 > 
-> The patches introduce:
+> Add alias for the apalis first ethernet interface, this ensures
+> consistent interface naming (e.g. `end0`) and this is used by the
+> firmware to correctly set the MAC address.
 > 
-> - GPIO aliases cleanup to better expose available GPIOs
-> - FT5x06 capacitive touch controller
-> - USB1 (OTG, via PTN5150 Type-C controller) and USB2 (host-only) support
-> - LPSPI6 controller exposed on the expansion connector
-> 
-> These changes describe real hardware connections and make the exposed
-> interfaces available to user applications.
-> 
-> Tested on the Symphony board with a VAR-SOM-MX93.
-> 
-> Stefano Radaelli (4):
->   arm64: dts: imx93-var-som-symphony: Update gpio aliases
->   arm64: dts: imx93-var-som-symphony: Add support for ft5x06 touch
->     controller
->   arm64: dts: imx93-var-som-symphony: Add USB support
->   arm64: dts: imx93-var-som-symphony: Enable LPSPI6 controller
+> Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-Applied all, thanks!
+Applied, thanks!
 
