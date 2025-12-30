@@ -4,55 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17549EE498E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 17:21:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1663BEE498F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 17:36:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p9uMm3rSbQlpCTjjn29mzd71nhDh071bBAUlV4E9oyM=; b=lWmzs1qVtWeVOeKFPzq5+/BzXj
-	GHGkctiU4pFMCq6O1TCRfUe4lcG4BsSEG0vf2uz516/6Bx04/XCp5KZv+2pD83TZagqaEqcORUspR
-	iG1wNuMQqXu5JRUnJmflwOVMc9Qar47PHVT5DJn2H+i3hdB6GJkADzwQmV4YF1tlXZCdfA5xsQn7N
-	mjXUdzX5puWfJTnIsN88YRG07o83WMV1So+m9+FvOf+cnQLiRD3JuuRdg0o3sPKVmzN1nJSDmKs8Z
-	Gxxv8s1ENrfbC6Pm/cQYMeKfJDIVtvAWeKZ78CbIM0o7xQUkbY4AGPt5l5VM9LCxciWq8Tre2yNvM
-	hywNuU0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/IB+huzo10okk2OaTVTslD9guwUX3b+iP/CdZtUnaS8=; b=Q+N9Z+qeGQJTLBdoX+j6pwxNcW
+	NTWJOfkMVWnxNPV7A/jImB2uaMeNckFe7TgpjB4t5iPBOlpekGHpFneZmCCiniAWoarR25AbllBgn
+	uzSrVddT1vx9kPbxDj52APGhMEsUyNIn0x9ahrgoNgulPSR5ZilmaJkQhAAqy+s64MIHD+QN+LwTu
+	lLcDdWznM6+zGLR6U+4qi3ysuhefugc8fldxwjzxcyG4EW2wnnjqgiOHxZpyAUzwF5H6betK44Bsg
+	LORDpPrMrXgu3J0DOlQlAF1cOlu8F4xOFxZx2IXqhrzDOqnyQ8xiAJ6ViN0Xbk8BHuom6ZzzdI7Zw
+	xjs1aTIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vadPQ-00000005729-1B7X;
-	Tue, 30 Dec 2025 17:21:24 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vadOy-000000056pj-23eY;
-	Tue, 30 Dec 2025 17:21:05 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E45CA1515;
-	Tue, 30 Dec 2025 09:20:47 -0800 (PST)
-Received: from 010265703453.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B9BC53F63F;
-	Tue, 30 Dec 2025 09:20:52 -0800 (PST)
-From: Robin Murphy <robin.murphy@arm.com>
-To: heiko@sntech.de,
-	neil.armstrong@linaro.org,
-	dianders@chromium.org,
-	thierry.reding@gmail.com,
-	sam@ravnborg.org
-Cc: jesszhan0024@gmail.com,
-	dri-devel@lists.freedesktop.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH 2/4] drm/panel-edp: Move FriendlyELEC HD702E
-Date: Tue, 30 Dec 2025 17:20:32 +0000
-Message-Id: <027763b36fbad2005d09eeb289b7716c57f65e76.1767111809.git.robin.murphy@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <cover.1767111804.git.robin.murphy@arm.com>
-References: <cover.1767111804.git.robin.murphy@arm.com>
+	id 1vaddX-000000058Qc-0UOZ;
+	Tue, 30 Dec 2025 17:36:00 +0000
+Received: from lahtoruutu.iki.fi ([2a0b:5c81:1c1::37])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vaddU-000000058Pk-0ctY
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 30 Dec 2025 17:35:57 +0000
+Received: from darkstar.musicnaut.iki.fi (85-76-162-171-nat.elisa-mobile.fi [85.76.162.171])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange secp256r1 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: aaro.koskinen)
+	by lahtoruutu.iki.fi (Postfix) with ESMTPSA id 4dggGl2dZJz49Q8K;
+	Tue, 30 Dec 2025 19:35:42 +0200 (EET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi; s=lahtoruutu;
+	t=1767116145;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=/IB+huzo10okk2OaTVTslD9guwUX3b+iP/CdZtUnaS8=;
+	b=C0J63I2rqTHg2c8seaXumRYMepfu9z8lkPKAr014D4AbO/8Mha3L9EDoepEa7PulAtIVdR
+	zzA9FZr8FHULlZ27pzfNSXAXc8FW5GkeVsdBw3PMQZiIditn5x33IyjDxPwlO0R36JObLT
+	cT9QMw5wmLNwIxYGx7Xe3YM1bFLWXDMLE0anIhK5RJxMt4QVN8xCV3EzVaCbMnRFv3QxXW
+	hGiaeOjwr7o/wTWNBpFahNI0xrEwDD7aVl49Rg4iplp6ipD0epXXFHfFBaEvqkvNuWMP2r
+	1q4EYYz7GShxddFmiFrrGYtA4w5+FjWex9S19mL3TGrpqjwF/3WMF9U2raTrxQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi;
+	s=lahtoruutu; t=1767116145;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=/IB+huzo10okk2OaTVTslD9guwUX3b+iP/CdZtUnaS8=;
+	b=Gfl/D9D/vVEHaO4gJY0CAoQqPjmvQ/8qjdkxdgTUNS8coc2XsHjv8gLUTNYjUAQJJ2hD9t
+	SKugwNgFJyVaDmoXuFo4nLSd6x8SnrkgY8MYs8TNI2JjizQKg6do2h/UYvQzTzua+MD3h6
+	esIDy7pvi398YIKclN9sfvr+Vjs5G29PyD20bpteVZT80FMC9hYPpzYoM6EoQ0HpWCDlCN
+	YEZLkQ6dGYgofgIA7953XxKfdT7a3YH8vE8M8jPP7dVdnlr7ZkAlDaB40NfL8p9WulwoEx
+	5LAeiaT87weV6gzNZA4LA1kXsQKskTkYs+8HlEbAXiwL8XC6emKC6HPkX9cFfw==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=aaro.koskinen smtp.mailfrom=aaro.koskinen@iki.fi
+ARC-Seal: i=1; a=rsa-sha256; d=iki.fi; s=lahtoruutu; cv=none; t=1767116145;
+	b=BhE4yi8POenZhEl4FPyDdkrAeQAlsFc0UbQRxqAz7as9BCgxglLYgQGdw78oHT/+rx3sN1
+	pNmRD3Vw4VJycfXGibYD/JmPRmdwr2v57sRxQBV46cIuiVCu89MpNNnbnUTKWKlcyiPOKW
+	a5IHP5RzSdqRZj33DuiboTKc0e6D70a5AM9eFyAWGnHXuJ5URqFHIAXKOnggZQw9OmMhO+
+	yfDJpfXrcFiBBRXuhZZMqQc14TtcG1CKlk61NV5ZITPaf9SbSj3KOWIood8rlOPHG6jomb
+	J6VqEGn00Si5D57jpPkwc7iUUvzkyoQYnOqL9ZtT8dUqTCeuAt9SK+MXuF8Grg==
+Date: Tue, 30 Dec 2025 19:35:40 +0200
+From: Aaro Koskinen <aaro.koskinen@iki.fi>
+To: Randy Dunlap <rdunlap@infradead.org>
+Cc: linux-arm-kernel@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>,
+	patches@armlinux.org.uk, Janusz Krzysztofik <jmkrzyszt@gmail.com>,
+	Tony Lindgren <tony@atomide.com>, linux-omap@vger.kernel.org,
+	Russell King <linux@armlinux.org.uk>
+Subject: Re: [PATCH] ARM: omap1: drop unused Kconfig symbol
+Message-ID: <aVQNbK4K_q4UtJP_@darkstar.musicnaut.iki.fi>
+References: <20251230055230.3212260-1-rdunlap@infradead.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251230055230.3212260-1-rdunlap@infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251230_092058_881211_05056D80 
-X-CRM114-Status: GOOD (  10.01  )
+X-CRM114-CacheID: sfid-20251230_093556_376828_B63847A5 
+X-CRM114-Status: GOOD (  12.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,105 +96,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-FriendlyELEC's HD702E module is an eDP panel (in as much as it's some
-LVDS LCD behind a Chrontel CH7511B eDP bridge), so move its data over
-to the eDP driver, also resolving the warning about the missing bpc
-value in the process.
+Hi,
 
-Signed-off-by: Robin Murphy <robin.murphy@arm.com>
----
- drivers/gpu/drm/panel/panel-edp.c    | 26 ++++++++++++++++++++++++++
- drivers/gpu/drm/panel/panel-simple.c | 25 -------------------------
- 2 files changed, 26 insertions(+), 25 deletions(-)
+On Mon, Dec 29, 2025 at 09:52:30PM -0800, Randy Dunlap wrote:
+> "select ARCH_HAS_HOLES_MEMORYMODEL" was mistakenly merged here
+> due to a botched rebase (says Arnd [1]).
+> 
+> Drop that line since that symbol is not used anywhere else in the
+> kernel source tree.
+> 
+> [1] https://lore.kernel.org/all/5e335232-89b4-4c35-93bd-efad7e4d8995@app.fastmail.com/
+> Fixes: 7036440eab3e ("ARM: omap1: enable multiplatform")
+> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
 
-diff --git a/drivers/gpu/drm/panel/panel-edp.c b/drivers/gpu/drm/panel/panel-edp.c
-index 415b894890ad..dd53ccc209ce 100644
---- a/drivers/gpu/drm/panel/panel-edp.c
-+++ b/drivers/gpu/drm/panel/panel-edp.c
-@@ -1256,6 +1256,29 @@ static const struct panel_desc boe_nv140fhmn49 = {
- 	},
- };
- 
-+static const struct drm_display_mode friendlyarm_hd702e_mode = {
-+	.clock		= 67185,
-+	.hdisplay	= 800,
-+	.hsync_start	= 800 + 20,
-+	.hsync_end	= 800 + 20 + 24,
-+	.htotal		= 800 + 20 + 24 + 20,
-+	.vdisplay	= 1280,
-+	.vsync_start	= 1280 + 4,
-+	.vsync_end	= 1280 + 4 + 8,
-+	.vtotal		= 1280 + 4 + 8 + 4,
-+	.flags		= DRM_MODE_FLAG_NVSYNC | DRM_MODE_FLAG_NHSYNC,
-+};
-+
-+static const struct panel_desc friendlyarm_hd702e = {
-+	.modes = &friendlyarm_hd702e_mode,
-+	.num_modes = 1,
-+	.bpc = 8,
-+	.size = {
-+		.width	= 94,
-+		.height	= 151,
-+	},
-+};
-+
- static const struct drm_display_mode innolux_n116bca_ea1_mode = {
- 	.clock = 76420,
- 	.hdisplay = 1366,
-@@ -1663,6 +1686,9 @@ static const struct of_device_id platform_of_match[] = {
- 	}, {
- 		.compatible = "boe,nv140fhmn49",
- 		.data = &boe_nv140fhmn49,
-+	}, {
-+		.compatible = "friendlyarm,hd702e",
-+		.data = &friendlyarm_hd702e,
- 	}, {
- 		.compatible = "innolux,n116bca-ea1",
- 		.data = &innolux_n116bca_ea1,
-diff --git a/drivers/gpu/drm/panel/panel-simple.c b/drivers/gpu/drm/panel/panel-simple.c
-index b26b682826bc..3ea52667b858 100644
---- a/drivers/gpu/drm/panel/panel-simple.c
-+++ b/drivers/gpu/drm/panel/panel-simple.c
-@@ -2359,28 +2359,6 @@ static const struct panel_desc frida_frd350h54004 = {
- 	.connector_type = DRM_MODE_CONNECTOR_DPI,
- };
- 
--static const struct drm_display_mode friendlyarm_hd702e_mode = {
--	.clock		= 67185,
--	.hdisplay	= 800,
--	.hsync_start	= 800 + 20,
--	.hsync_end	= 800 + 20 + 24,
--	.htotal		= 800 + 20 + 24 + 20,
--	.vdisplay	= 1280,
--	.vsync_start	= 1280 + 4,
--	.vsync_end	= 1280 + 4 + 8,
--	.vtotal		= 1280 + 4 + 8 + 4,
--	.flags		= DRM_MODE_FLAG_NVSYNC | DRM_MODE_FLAG_NHSYNC,
--};
--
--static const struct panel_desc friendlyarm_hd702e = {
--	.modes = &friendlyarm_hd702e_mode,
--	.num_modes = 1,
--	.size = {
--		.width	= 94,
--		.height	= 151,
--	},
--};
--
- static const struct drm_display_mode giantplus_gpg482739qs5_mode = {
- 	.clock = 9000,
- 	.hdisplay = 480,
-@@ -5235,9 +5213,6 @@ static const struct of_device_id platform_of_match[] = {
- 	}, {
- 		.compatible = "frida,frd350h54004",
- 		.data = &frida_frd350h54004,
--	}, {
--		.compatible = "friendlyarm,hd702e",
--		.data = &friendlyarm_hd702e,
- 	}, {
- 		.compatible = "giantplus,gpg482739qs5",
- 		.data = &giantplus_gpg482739qs5
--- 
-2.34.1
+Reviewed-by: Aaro Koskinen <aaro.koskinen@iki.fi>
 
+A.
+
+> ---
+> KernelVersion: 6.19-rc1
+> 
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Cc: patches@armlinux.org.uk
+> Cc: Aaro Koskinen <aaro.koskinen@iki.fi>
+> Cc: Janusz Krzysztofik <jmkrzyszt@gmail.com>
+> Cc: Tony Lindgren <tony@atomide.com>
+> Cc: linux-omap@vger.kernel.org
+> Cc: Russell King <linux@armlinux.org.uk>
+> 
+>  arch/arm/mach-omap1/Kconfig |    1 -
+>  1 file changed, 1 deletion(-)
+> 
+> --- linux-next-20251219.orig/arch/arm/mach-omap1/Kconfig
+> +++ linux-next-20251219/arch/arm/mach-omap1/Kconfig
+> @@ -4,7 +4,6 @@ menuconfig ARCH_OMAP1
+>  	depends on ARCH_MULTI_V4T || ARCH_MULTI_V5
+>  	depends on CPU_LITTLE_ENDIAN
+>  	depends on ATAGS
+> -	select ARCH_HAS_HOLES_MEMORYMODEL
+>  	select ARCH_OMAP
+>  	select CLKSRC_MMIO
+>  	select FORCE_PCI if PCCARD
+> 
 
