@@ -4,87 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCC16EE01F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 23:04:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E11BEE57C2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 23:36:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
-	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lvDGtOJlZOshVNKy7HhFV38ObB7SdC2/7YpvR2O0iOs=; b=cpR89xVbXxKet9KzYdgh6gDjGV
-	RYyAjYlSyGAdh0tpMGrnuxqEqwoGim+ouZb02ed4A0MmKpkTbpHdus2NZkfHtEYrF12bGADVIe2mX
-	TDsZctd2q+wp/GlQ9LcwrCFYAB0S/qyDsoFZaee6uC2FwBg/UhUtDnOiJJHXAAm+5yewchXRHpx4/
-	MBMwHgVJFPk4kxaYHiy+GY0No+Z4lpK8wjlzls3rjec9wf4oyyn3BKw/4eTcRFMA+5mGY8fyX7VQ6
-	uwnEf5mszcLjab6krVOOCnLJN31K2NqFru8dWmSOA0Ua2fmHTucWI2u/WiU4lCpUcT5U7r22dzS+9
-	wQLw7uLg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z9334s5hAbULqn6m+Gcf17fV9B6uuLr/aNZcFaMAYCY=; b=Tmx9nNQC31sbKNfX8CXpUyfsp1
+	C/VxDEh67Jo2ntcOseGEubOzK2fpfTGFlNUoFxyTTaNq9HE3ZpvSHbo9C/VbhXzivOMlxhStlnULx
+	e1nYvimg/fMI23vr6N3pKoaTtkP3ADqP3WopxMaqQVcUvSWVKh1X9F5KK0osG+p4OJeGSYiizEQ9B
+	Qi60sdDDCD0nPb3382tRm2WT1WnBuIcTkyv/oKrgLAV7gnGs07GwEnnZxxQwO8JFKnmXAqROB9NX6
+	mw4aQ3jrKNnpYO89Mkyz9NAlNpdrzOdnUlGHCMljvPBgB249F1AssK+v28JCRHZwjWvqTicaEYpKu
+	kUg3AjFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vailW-00000005PnI-1VCb;
-	Tue, 30 Dec 2025 23:04:34 +0000
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	id 1vajGA-00000005RwG-296L;
+	Tue, 30 Dec 2025 23:36:14 +0000
+Received: from mleia.com ([178.79.152.223] helo=mail.mleia.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaijX-00000005NBa-3o7F
+	id 1vajG8-00000005Ru9-12kF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Dec 2025 23:02:37 +0000
-Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-7bf5cdef41dso17583254b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Dec 2025 15:02:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1767135751; x=1767740551; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=lvDGtOJlZOshVNKy7HhFV38ObB7SdC2/7YpvR2O0iOs=;
-        b=mn4nNZLs2tDBz7GoZ1gCpqCDxWX9QcVEIUPuIAMFHy+AqXgugQA+qgQ4sg9LaKDIP0
-         JV0uqEVB4KXI2JaL/E1uS/kxwpNnO1PV8aKiTpPJxAiiPfCThIIU/dGE4wNTG8sJpPBt
-         mW+EDQKKqo9qGr4SrERgGlZVUepshO+3eGG3lAfcu0ZT7xVzl4DIMrLKmvbvq2I+ftNP
-         P1PXI43DgThiJpn52yjNxpDPSBRAXtQ1nxo/pGF8HT7mdthtmLE4168QX0awBalHzIfb
-         cpC5yiGXxGkc3IQyoDp+kNfCq+ZL4KFPKBy+U2+8ScquPekQgeWTtXiDmp+L864zCETH
-         kYcw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767135751; x=1767740551;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=lvDGtOJlZOshVNKy7HhFV38ObB7SdC2/7YpvR2O0iOs=;
-        b=mvoWcVPBmQHhaPf4xtoH9X6O+RujMpTVVFzfZM0Zryve0HLRbKH2N7S6pPSXGcXhEg
-         U3ye26VFW6s3fTs0CIdxmqBqWOQEL3XrvnhrTPkt0mj6UBCxtk12CCa40fW7360BR6W2
-         fxdFIeeTSKoKVJj3Uc8QV6e/apmjI6EyNNU+dosCeRVXsWE5aj0I23iwIQ0HrInOac6L
-         IBBtV3Wai7MlbSAYIW40Xn+/rmzmnOBW3R0JYA9IgM+sOEI3KqbSTMrX4U9ZsQge6n2F
-         LgMdeYD87tUidsE4A/PoOp0jSDwXhHPE3gGDsqSjPmgHXMbbZDI/bEyijV2FlZ2hPIXu
-         +emA==
-X-Forwarded-Encrypted: i=1; AJvYcCUdtQnhIxawhU1xkXKZ0UQ8kPFC/QoCbW82T0viVeo8ck3R8HlHKZVJMUz3iKRiMTLP1FCMFfp1RT8q4TKHy7hL@lists.infradead.org
-X-Gm-Message-State: AOJu0YzpjxbDlpMN3UUooExJE/PaEJO3mXeORBkikTkKErbyLVPe2Oro
-	ixJCYWYPJymcbl70k0D2dpKWzWHRkvFd0M/Jyax7hZMZoSxFugpQc5+uYYtYzbhQq/0wR4dMe7T
-	imK6TEg==
-X-Google-Smtp-Source: AGHT+IFl+E4iBtLvuy29ZNl15W5f+YM/yuQ6NLYMRsjb6K6O2MuWbmEY/dD/ZgE2AJbg2gFPgmlYtjYuvMQ=
-X-Received: from pfbem48.prod.google.com ([2002:a05:6a00:3770:b0:7f9:3450:d9b0])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:420b:b0:7e8:4471:ae55
- with SMTP id d2e1a72fcca58-7ff6745678amr28709155b3a.33.1767135750526; Tue, 30
- Dec 2025 15:02:30 -0800 (PST)
-Date: Tue, 30 Dec 2025 15:01:50 -0800
-In-Reply-To: <20251230230150.4150236-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20251230230150.4150236-1-seanjc@google.com>
-X-Mailer: git-send-email 2.52.0.351.gbe84eed79e-goog
-Message-ID: <20251230230150.4150236-22-seanjc@google.com>
-Subject: [PATCH v4 21/21] KVM: selftests: Test READ=>WRITE dirty logging
- behavior for shadow MMU
-From: Sean Christopherson <seanjc@google.com>
-To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oupton@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Sean Christopherson <seanjc@google.com>
-Cc: kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, loongarch@lists.linux.dev, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Yosry Ahmed <yosry.ahmed@linux.dev>
-Content-Type: text/plain; charset="UTF-8"
+	Tue, 30 Dec 2025 23:36:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
+	t=1767137768; bh=fRbNyr2cuRipwrLi8FVp7melLLkMjoIZA13ghnT0lS8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=sMi7S4cKutKVX/HnKgs8r+o63CntnvognGZ5p1Um4zhoI7xXB6za5k1FWWfO2aD5o
+	 HT7Z9Gip4Qd9f8KPmAcD8xHjvnTvImNtISAUsjqhdOH+xOyYS9TJ/Jqc+l96R63RtN
+	 PxWBbyBot3UXTxrLZLYitjTo3DJaBdJ0XKKBNlH4kMCc6bWYO/K7zQfx06Ieak4ut0
+	 0k90B4qlINbi2FxAPyn34tR9gbAGx/LMVFdWKQuxGg3WB9bOAtWK5GtivPP2FlbWUG
+	 2DN7mpEm5fXaMIzkhWD7pwOx0NVm0lDV/AD0mvUc7H/xDfqYxZiAiPkr5S/uwDEz1s
+	 Y86kuLCx27FtQ==
+Received: from mail.mleia.com (localhost [127.0.0.1])
+	by mail.mleia.com (Postfix) with ESMTP id BD7103E956D;
+	Tue, 30 Dec 2025 23:36:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
+	t=1767137768; bh=fRbNyr2cuRipwrLi8FVp7melLLkMjoIZA13ghnT0lS8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=sMi7S4cKutKVX/HnKgs8r+o63CntnvognGZ5p1Um4zhoI7xXB6za5k1FWWfO2aD5o
+	 HT7Z9Gip4Qd9f8KPmAcD8xHjvnTvImNtISAUsjqhdOH+xOyYS9TJ/Jqc+l96R63RtN
+	 PxWBbyBot3UXTxrLZLYitjTo3DJaBdJ0XKKBNlH4kMCc6bWYO/K7zQfx06Ieak4ut0
+	 0k90B4qlINbi2FxAPyn34tR9gbAGx/LMVFdWKQuxGg3WB9bOAtWK5GtivPP2FlbWUG
+	 2DN7mpEm5fXaMIzkhWD7pwOx0NVm0lDV/AD0mvUc7H/xDfqYxZiAiPkr5S/uwDEz1s
+	 Y86kuLCx27FtQ==
+Received: from [192.168.1.100] (91-159-24-186.elisa-laajakaista.fi [91.159.24.186])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.mleia.com (Postfix) with ESMTPSA id 369463E9491;
+	Tue, 30 Dec 2025 23:36:08 +0000 (UTC)
+Message-ID: <9bb897bd-a7b1-442b-8931-dac9826de2c9@mleia.com>
+Date: Wed, 31 Dec 2025 01:36:02 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] arm: dts: lpc32xx: add clocks property to Motor
+ Control PWM device tree node
+To: Rob Herring <robh@kernel.org>
+Cc: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+ Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+ linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20251228224907.1729627-1-vz@mleia.com>
+ <20251228224907.1729627-3-vz@mleia.com>
+ <20251230175933.GA864856-robh@kernel.org>
+From: Vladimir Zapolskiy <vz@mleia.com>
+In-Reply-To: <20251230175933.GA864856-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-49551924 
+X-CRM114-CacheID: sfid-20251230_233608_792516_4FCC31B4 
+X-CRM114-Status: GOOD (  16.24  )
+/bin/ln: failed to access 'reaver_cache/texts/20251230_233608_792516_4FCC31B4': No such file or directory
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251230_150232_064392_20867C73 
-X-CRM114-Status: GOOD (  23.61  )
+X-CRM114-CacheID: sfid-20251230_233608_792516_4FCC31B4 
+X-CRM114-Status: GOOD (  16.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,275 +92,51 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update the nested dirty log test to validate KVM's handling of READ faults
-when dirty logging is enabled.  Specifically, set the Dirty bit in the
-guest PTEs used to map L2 GPAs, so that KVM will create writable SPTEs
-when handling L2 read faults.  When handling read faults in the shadow MMU,
-KVM opportunistically creates a writable SPTE if the mapping can be
-writable *and* the gPTE is dirty (or doesn't support the Dirty bit), i.e.
-if KVM doesn't need to intercept writes in order to emulate Dirty-bit
-updates.
+On 12/30/25 19:59, Rob Herring wrote:
+> On Mon, Dec 29, 2025 at 12:49:07AM +0200, Vladimir Zapolskiy wrote:
+>> Motor Control PWM depends on its own supply clock, the clock gate control
+>> is present in TIMCLK_CTRL1 register.
+> 
+> You say it is required, so does that mean this hasn't ever worked? Or it
+> happened to work because something else turned on the clock?
 
-To actually test the L2 READ=>WRITE sequence, e.g. without masking a false
-pass by other test activity, route the READ=>WRITE and WRITE=>WRITE
-sequences to separate L1 pages, and differentiate between "marked dirty
-due to a WRITE access/fault" and "marked dirty due to creating a writable
-SPTE for a READ access/fault".  The updated sequence exposes the bug fixed
-by KVM commit 1f4e5fc83a42 ("KVM: x86: fix nested guest live migration
-with PML") when the guest performs a READ=>WRITE sequence.
+There is no upstream driver for this particular PWM controller, I'm about to
+submit one though, and so far I've completed my review of its dt properties.
 
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- .../selftests/kvm/include/x86/processor.h     |   1 +
- .../testing/selftests/kvm/lib/x86/processor.c |   7 ++
- .../selftests/kvm/x86/nested_dirty_log_test.c | 115 +++++++++++++-----
- 3 files changed, 90 insertions(+), 33 deletions(-)
+>>
+> 
+> Fixes tag?
 
-diff --git a/tools/testing/selftests/kvm/include/x86/processor.h b/tools/testing/selftests/kvm/include/x86/processor.h
-index ab29b1c7ed2d..8945c9eea704 100644
---- a/tools/testing/selftests/kvm/include/x86/processor.h
-+++ b/tools/testing/selftests/kvm/include/x86/processor.h
-@@ -1483,6 +1483,7 @@ bool kvm_cpu_has_tdp(void);
- void tdp_map(struct kvm_vm *vm, uint64_t nested_paddr, uint64_t paddr, uint64_t size);
- void tdp_identity_map_default_memslots(struct kvm_vm *vm);
- void tdp_identity_map_1g(struct kvm_vm *vm,  uint64_t addr, uint64_t size);
-+uint64_t *tdp_get_pte(struct kvm_vm *vm, uint64_t l2_gpa);
- 
- /*
-  * Basic CPU control in CR0
-diff --git a/tools/testing/selftests/kvm/lib/x86/processor.c b/tools/testing/selftests/kvm/lib/x86/processor.c
-index ab869a98bbdc..fab18e9be66c 100644
---- a/tools/testing/selftests/kvm/lib/x86/processor.c
-+++ b/tools/testing/selftests/kvm/lib/x86/processor.c
-@@ -390,6 +390,13 @@ static uint64_t *__vm_get_page_table_entry(struct kvm_vm *vm,
- 	return virt_get_pte(vm, mmu, pte, vaddr, PG_LEVEL_4K);
- }
- 
-+uint64_t *tdp_get_pte(struct kvm_vm *vm, uint64_t l2_gpa)
-+{
-+	int level = PG_LEVEL_4K;
-+
-+	return __vm_get_page_table_entry(vm, &vm->stage2_mmu, l2_gpa, &level);
-+}
-+
- uint64_t *vm_get_pte(struct kvm_vm *vm, uint64_t vaddr)
- {
- 	int level = PG_LEVEL_4K;
-diff --git a/tools/testing/selftests/kvm/x86/nested_dirty_log_test.c b/tools/testing/selftests/kvm/x86/nested_dirty_log_test.c
-index 89d2e86a0db9..1e7c1ed917e1 100644
---- a/tools/testing/selftests/kvm/x86/nested_dirty_log_test.c
-+++ b/tools/testing/selftests/kvm/x86/nested_dirty_log_test.c
-@@ -17,29 +17,39 @@
- 
- /* The memory slot index to track dirty pages */
- #define TEST_MEM_SLOT_INDEX		1
--#define TEST_MEM_PAGES			3
-+#define TEST_MEM_PAGES			4
- 
- /* L1 guest test virtual memory offset */
--#define GUEST_TEST_MEM			0xc0000000
-+#define GUEST_TEST_MEM1			0xc0000000
-+#define GUEST_TEST_MEM2			0xc0002000
- 
- /* L2 guest test virtual memory offset */
- #define NESTED_TEST_MEM1		0xc0001000
--#define NESTED_TEST_MEM2		0xc0002000
-+#define NESTED_TEST_MEM2		0xc0003000
- 
- #define L2_GUEST_STACK_SIZE 64
- 
-+#define TEST_SYNC_PAGE_MASK	0xfull
-+#define TEST_SYNC_READ_FAULT	BIT(4)
-+#define TEST_SYNC_WRITE_FAULT	BIT(5)
-+#define TEST_SYNC_NO_FAULT	BIT(6)
-+
- static void l2_guest_code(u64 *a, u64 *b)
- {
- 	READ_ONCE(*a);
-+	GUEST_SYNC(0 | TEST_SYNC_READ_FAULT);
- 	WRITE_ONCE(*a, 1);
--	GUEST_SYNC(true);
--	GUEST_SYNC(false);
-+	GUEST_SYNC(0 | TEST_SYNC_WRITE_FAULT);
-+	READ_ONCE(*a);
-+	GUEST_SYNC(0 | TEST_SYNC_NO_FAULT);
- 
- 	WRITE_ONCE(*b, 1);
--	GUEST_SYNC(true);
-+	GUEST_SYNC(2 | TEST_SYNC_WRITE_FAULT);
- 	WRITE_ONCE(*b, 1);
--	GUEST_SYNC(true);
--	GUEST_SYNC(false);
-+	GUEST_SYNC(2 | TEST_SYNC_WRITE_FAULT);
-+	READ_ONCE(*b);
-+	GUEST_SYNC(2 | TEST_SYNC_NO_FAULT);
-+	GUEST_SYNC(2 | TEST_SYNC_NO_FAULT);
- 
- 	/* Exit to L1 and never come back.  */
- 	vmcall();
-@@ -53,7 +63,7 @@ static void l2_guest_code_tdp_enabled(void)
- static void l2_guest_code_tdp_disabled(void)
- {
- 	/* Access the same L1 GPAs as l2_guest_code_tdp_enabled() */
--	l2_guest_code((u64 *)GUEST_TEST_MEM, (u64 *)GUEST_TEST_MEM);
-+	l2_guest_code((u64 *)GUEST_TEST_MEM1, (u64 *)GUEST_TEST_MEM2);
- }
- 
- void l1_vmx_code(struct vmx_pages *vmx)
-@@ -72,9 +82,11 @@ void l1_vmx_code(struct vmx_pages *vmx)
- 
- 	prepare_vmcs(vmx, l2_rip, &l2_guest_stack[L2_GUEST_STACK_SIZE]);
- 
--	GUEST_SYNC(false);
-+	GUEST_SYNC(0 | TEST_SYNC_NO_FAULT);
-+	GUEST_SYNC(2 | TEST_SYNC_NO_FAULT);
- 	GUEST_ASSERT(!vmlaunch());
--	GUEST_SYNC(false);
-+	GUEST_SYNC(0 | TEST_SYNC_NO_FAULT);
-+	GUEST_SYNC(2 | TEST_SYNC_NO_FAULT);
- 	GUEST_ASSERT_EQ(vmreadz(VM_EXIT_REASON), EXIT_REASON_VMCALL);
- 	GUEST_DONE();
- }
-@@ -91,9 +103,11 @@ static void l1_svm_code(struct svm_test_data *svm)
- 
- 	generic_svm_setup(svm, l2_rip, &l2_guest_stack[L2_GUEST_STACK_SIZE]);
- 
--	GUEST_SYNC(false);
-+	GUEST_SYNC(0 | TEST_SYNC_NO_FAULT);
-+	GUEST_SYNC(2 | TEST_SYNC_NO_FAULT);
- 	run_guest(svm->vmcb, svm->vmcb_gpa);
--	GUEST_SYNC(false);
-+	GUEST_SYNC(0 | TEST_SYNC_NO_FAULT);
-+	GUEST_SYNC(2 | TEST_SYNC_NO_FAULT);
- 	GUEST_ASSERT_EQ(svm->vmcb->control.exit_code, SVM_EXIT_VMMCALL);
- 	GUEST_DONE();
- }
-@@ -106,6 +120,11 @@ static void l1_guest_code(void *data)
- 		l1_svm_code(data);
- }
- 
-+static uint64_t test_read_host_page(uint64_t *host_test_mem, int page_nr)
-+{
-+	return host_test_mem[PAGE_SIZE * page_nr / sizeof(*host_test_mem)];
-+}
-+
- static void test_dirty_log(bool nested_tdp)
- {
- 	vm_vaddr_t nested_gva = 0;
-@@ -133,32 +152,45 @@ static void test_dirty_log(bool nested_tdp)
- 
- 	/* Add an extra memory slot for testing dirty logging */
- 	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS,
--				    GUEST_TEST_MEM,
-+				    GUEST_TEST_MEM1,
- 				    TEST_MEM_SLOT_INDEX,
- 				    TEST_MEM_PAGES,
- 				    KVM_MEM_LOG_DIRTY_PAGES);
- 
- 	/*
--	 * Add an identity map for GVA range [0xc0000000, 0xc0002000).  This
-+	 * Add an identity map for GVA range [0xc0000000, 0xc0004000).  This
- 	 * affects both L1 and L2.  However...
- 	 */
--	virt_map(vm, GUEST_TEST_MEM, GUEST_TEST_MEM, TEST_MEM_PAGES);
-+	virt_map(vm, GUEST_TEST_MEM1, GUEST_TEST_MEM1, TEST_MEM_PAGES);
- 
- 	/*
--	 * ... pages in the L2 GPA range [0xc0001000, 0xc0003000) will map to
--	 * 0xc0000000.
-+	 * ... pages in the L2 GPA ranges [0xc0001000, 0xc0002000) and
-+	 * [0xc0003000, 0xc0004000) will map to 0xc0000000 and 0xc0001000
-+	 * respectively.
- 	 *
- 	 * When TDP is disabled, the L2 guest code will still access the same L1
- 	 * GPAs as the TDP enabled case.
-+	 *
-+	 * Set the Dirty bit in the PTEs used by L2 so that KVM will create
-+	 * writable SPTEs when handling read faults (if the Dirty bit isn't
-+	 * set, KVM must intercept the next write to emulate the Dirty bit
-+	 * update).
- 	 */
- 	if (nested_tdp) {
- 		tdp_identity_map_default_memslots(vm);
--		tdp_map(vm, NESTED_TEST_MEM1, GUEST_TEST_MEM, PAGE_SIZE);
--		tdp_map(vm, NESTED_TEST_MEM2, GUEST_TEST_MEM, PAGE_SIZE);
-+		tdp_map(vm, NESTED_TEST_MEM1, GUEST_TEST_MEM1, PAGE_SIZE);
-+		tdp_map(vm, NESTED_TEST_MEM2, GUEST_TEST_MEM2, PAGE_SIZE);
-+
-+
-+		*tdp_get_pte(vm, NESTED_TEST_MEM1) |= PTE_DIRTY_MASK(&vm->stage2_mmu);
-+		*tdp_get_pte(vm, NESTED_TEST_MEM2) |= PTE_DIRTY_MASK(&vm->stage2_mmu);
-+	} else {
-+		*vm_get_pte(vm, GUEST_TEST_MEM1) |= PTE_DIRTY_MASK(&vm->mmu);
-+		*vm_get_pte(vm, GUEST_TEST_MEM2) |= PTE_DIRTY_MASK(&vm->mmu);
- 	}
- 
- 	bmap = bitmap_zalloc(TEST_MEM_PAGES);
--	host_test_mem = addr_gpa2hva(vm, GUEST_TEST_MEM);
-+	host_test_mem = addr_gpa2hva(vm, GUEST_TEST_MEM1);
- 
- 	while (!done) {
- 		memset(host_test_mem, 0xaa, TEST_MEM_PAGES * PAGE_SIZE);
-@@ -169,25 +201,42 @@ static void test_dirty_log(bool nested_tdp)
- 		case UCALL_ABORT:
- 			REPORT_GUEST_ASSERT(uc);
- 			/* NOT REACHED */
--		case UCALL_SYNC:
-+		case UCALL_SYNC: {
-+			int page_nr = uc.args[1] & TEST_SYNC_PAGE_MASK;
-+			int i;
-+
- 			/*
- 			 * The nested guest wrote at offset 0x1000 in the memslot, but the
- 			 * dirty bitmap must be filled in according to L1 GPA, not L2.
- 			 */
- 			kvm_vm_get_dirty_log(vm, TEST_MEM_SLOT_INDEX, bmap);
--			if (uc.args[1]) {
--				TEST_ASSERT(test_bit(0, bmap), "Page 0 incorrectly reported clean");
--				TEST_ASSERT(host_test_mem[0] == 1, "Page 0 not written by guest");
--			} else {
--				TEST_ASSERT(!test_bit(0, bmap), "Page 0 incorrectly reported dirty");
--				TEST_ASSERT(host_test_mem[0] == 0xaaaaaaaaaaaaaaaaULL, "Page 0 written by guest");
-+
-+			/*
-+			 * If a fault is expected, the page should be dirty
-+			 * as the Dirty bit is set in the gPTE.  KVM should
-+			 * create a writable SPTE even on a read fault, *and*
-+			 * KVM must mark the GFN as dirty when doing so.
-+			 */
-+			TEST_ASSERT(test_bit(page_nr, bmap) == !(uc.args[1] & TEST_SYNC_NO_FAULT),
-+				    "Page %u incorrectly reported %s on %s fault", page_nr,
-+				    test_bit(page_nr, bmap) ? "dirty" : "clean",
-+				    uc.args[1] & TEST_SYNC_NO_FAULT ? "no" :
-+				    uc.args[1] & TEST_SYNC_READ_FAULT ? "read" : "write");
-+
-+			for (i = 0; i < TEST_MEM_PAGES; i++) {
-+				if (i == page_nr && uc.args[1] & TEST_SYNC_WRITE_FAULT)
-+					TEST_ASSERT(test_read_host_page(host_test_mem, i) == 1,
-+						    "Page %u not written by guest", i);
-+				else
-+					TEST_ASSERT(test_read_host_page(host_test_mem, i) == 0xaaaaaaaaaaaaaaaaULL,
-+						    "Page %u written by guest", i);
-+
-+				if (i != page_nr)
-+					TEST_ASSERT(!test_bit(i, bmap),
-+						    "Page %u incorrectly reported dirty", i);
- 			}
--
--			TEST_ASSERT(!test_bit(1, bmap), "Page 1 incorrectly reported dirty");
--			TEST_ASSERT(host_test_mem[PAGE_SIZE / 8] == 0xaaaaaaaaaaaaaaaaULL, "Page 1 written by guest");
--			TEST_ASSERT(!test_bit(2, bmap), "Page 2 incorrectly reported dirty");
--			TEST_ASSERT(host_test_mem[PAGE_SIZE*2 / 8] == 0xaaaaaaaaaaaaaaaaULL, "Page 2 written by guest");
- 			break;
-+		}
- 		case UCALL_DONE:
- 			done = true;
- 			break;
+It'd make sense, however as I've said above formally there is no fixed
+runtime bug, if the scope is limited to the upstream only.
+
+Fixes: b7d41c937ed7 ("ARM: LPC32xx: Add the motor PWM to base dts file")
+
+>> Signed-off-by: Vladimir Zapolskiy <vz@mleia.com>
+>> ---
+>>   arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi | 1 +
+>>   1 file changed, 1 insertion(+)
+>>
+>> diff --git a/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi b/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
+>> index 39af48470ed5..abd401fda94e 100644
+>> --- a/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
+>> +++ b/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
+>> @@ -304,6 +304,7 @@ i2c2: i2c@400a8000 {
+>>   			mpwm: pwm@400e8000 {
+>>   				compatible = "nxp,lpc3220-motor-pwm";
+>>   				reg = <0x400e8000 0x78>;
+>> +				clocks = <&clk LPC32XX_CLK_MCPWM>;
+>>   				#pwm-cells = <3>;
+>>   				status = "disabled";
+>>   			};
+>> -- 
+>> 2.43.0
+>>
+
 -- 
-2.52.0.351.gbe84eed79e-goog
-
+Best wishes,
+Vladimir
 
