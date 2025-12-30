@@ -4,122 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A448EE4992
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 17:51:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99AAFEE4992
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 17:59:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m9PaIKfx0ypaAUCu3woRJo/bm3GevWJW36NU/5SDa5Q=; b=Oho+9O3fxo1vVOWGKJOplSTrv0
-	S7+1MAkKteuArkvwV+HbK6nfjMRY5e9cu/CkIkpps7czPSiZUYmh2Nx/pL07j9Xoh1HuqukajajXe
-	luT/cAgIYBZxDVLXqudc8WMR7GO/4D0jYVFUG+lJpzLmRwyAZElTnYBkZ/6Pyp2T+nC9KWnwRvco4
-	o7CcIghCTcOpVnKRG5iV+1erKahcFe0RiN/s/ASbUmap3LIqKAESVaGyNIj0dA0MgSjcmyJf25NDx
-	JN4X6gy8h1XI0z95jh9vw9ggtHRtEJOIUZ8YYxxQytlE2PqXsX1KOCZgIWOZd0UD6QWNedo3T56Hq
-	xy2kXXPw==;
+	bh=PaqDmlM/ryP+OBENWJT46WXB70y6ipu0Q/ItO4okUfU=; b=fopo+kOZmrPABwPHcXdenpvqRK
+	dKGfVgt7wB9TYiYAetNVnCyhSitdaEeS7Ue5msF49rwUOvtexi1pj9kfP+LWWFZ2Z4w3VBVTSdWEy
+	aKcviJsBprpOm8kuw6qiOaz+aFsPkxwQzQMTOJvHPA3JR5nJjb+gALrwtQmpRMkY59F/PHPE8Il0j
+	HWfu7eYyeRPc/EdVOI/NDA+bgJ9h5jp5AKz7MeqlECs19bdtl0QfIB28EW3ydVZ5bpAkZU8ltR+yW
+	VuU+Z1axhKpmYYmlF6az9RHgVOgKSpV2Fx4/21pGsOpv3KLjzBihnCuNtecnQ/lafETcX32MGe9rf
+	BGBOTWQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vadsf-000000059KM-2lbz;
-	Tue, 30 Dec 2025 17:51:37 +0000
-Received: from delivery.antispam.mailspamprotection.com ([185.56.87.9])
+	id 1vae0P-000000059c0-2jeS;
+	Tue, 30 Dec 2025 17:59:37 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vadsd-000000059JJ-0Ymf
+	id 1vae0O-000000059bu-3F3q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Dec 2025 17:51:36 +0000
-ARC-Seal: i=1; cv=none; a=rsa-sha256; d=outgoing.instance-europe-west4-xqw9.prod.antispam.mailspamprotection.com; s=arckey; t=1767117095;
-	 b=MzLiqCfXAmPYMFyG2/u+xvHxWqcghr3gROCJsCSLLCk4h9FKDvTGEkg16MPoMoQvirwp+OM3o8
-	  FT4NoZnVcuFVnk0KbcKxT9O3j8bBAmofAXAVxDkT32rMZkoH0rJTzz4ssFEQgJVez6R6Ugd/uV
-	  6CkQIog10AaKpnKfUbYu/iB+LuaV/0l4TaOO3fZ0NCD1gEBwW+qKskcROXGK7T10o1TFdKluQa
-	  jRZMyi4KIY3pYARAzbLdDgR20VXedNl47Hgp/LipIxa559meqOfTXaHGGi+85msm3cwTe64I2E
-	  4QGD3ZzGSYmUOHfNRyT7PNEdWiZ9diAUUInFKjG/4xrorA==;
-ARC-Authentication-Results: i=1; outgoing.instance-europe-west4-xqw9.prod.antispam.mailspamprotection.com; smtp.remote-ip=35.214.173.214;
-	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
-	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
-	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
-	arc=none
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=outgoing.instance-europe-west4-xqw9.prod.antispam.mailspamprotection.com; s=arckey; t=1767117095;
-	bh=rbAp8Me5ipLrzK0s4yeINnwWURv6z0zvULOwHoV3Zjo=;
-	h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:
-	  From:Date:DKIM-Signature:DKIM-Signature;
-	b=py3H65lqqYlHGkYS1t4qiknr+BgPURBYD4kcampVP1GAWi3Z6H2mTyS+Hh1bGQLQXsogX3PO3q
-	  psKqvWNsZ4/B+UDuQtNdU6VSsTR5AGNJGwsqreyQB8NjNvu2DT98rPxNlosGtvfbAUfX75cOh9
-	  98S/o/Ud/lzc8UzukPKujTOAAiehsKShjGNe/FI1bX/5t8BIXwIsmyGL39huFj94xi2RIZv1FQ
-	  sjSUpIjUUG3GAwFSDsiphvbE7acsBRL+cf1y7pED3bTJDHLz2c1aAagaIhPwypbJgGgTurzUPp
-	  +ubAF7mJ8Hf8O/11/7UedVto7TbuTAK5wKLT4mm9CDNBAQ==;
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=antispam.mailspamprotection.com; s=default; h=CFBL-Feedback-ID:CFBL-Address
-	:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	List-Unsubscribe:Content-Transfer-Encoding;
-	bh=m9PaIKfx0ypaAUCu3woRJo/bm3GevWJW36NU/5SDa5Q=; b=ILoRJX3kBdyzHfiQIAC17k5G5/
-	L+fwBWLBwkOZadVk5zG+dy1wRghODa+Nhr/ir9Xtg+m0VthlhBaQVPntVCS0NxYMzhq+eAtyCyFlb
-	8wBDocMADdoe8Vt4JdZQ+APQt/pX9MilvN8OvLKq0Ln6MLZCja5+OMn6Ws+TmrWAgsVE=;
-Received: from 214.173.214.35.bc.googleusercontent.com ([35.214.173.214] helo=esm19.siteground.biz)
-	by instance-europe-west4-xqw9.prod.antispam.mailspamprotection.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.98.1)
-	(envelope-from <francesco@valla.it>)
-	id 1vadsS-0000000Gsyd-4C0A
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Dec 2025 17:51:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=valla.it;
-	s=default; h=Subject:Cc:To:From:Date:list-help:list-unsubscribe:
-	list-subscribe:list-post:list-owner:list-archive;
-	bh=m9PaIKfx0ypaAUCu3woRJo/bm3GevWJW36NU/5SDa5Q=; b=oY3ZQkiBNW6lgBspY/QM72BsYg
-	eCV8rd9gLD4Wk3GCYQz2DQLCPcLmXEFq6ndzIluocwLsEl2gYCqjuYAWaegvIjTO/vSTrLctGAWNG
-	HQnt5d8N5eoKnbjuGWjMIEuEuwdSUF3zxRSxF2RNTmdaqnX+gu0HWHGUUzNAVjRGfOXM=;
-Received: from [95.248.141.113] (port=63913 helo=bywater)
-	by esm19.siteground.biz with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.98.1)
-	(envelope-from <francesco@valla.it>)
-	id 1vadsD-000000007p2-0fef;
-	Tue, 30 Dec 2025 17:51:09 +0000
-Date: Tue, 30 Dec 2025 18:51:07 +0100
-From: Francesco Valla <francesco@valla.it>
-To: Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Cc: Fabian Pflug <f.pflug@pengutronix.de>, Rob Herring <robh@kernel.org>,
+	Tue, 30 Dec 2025 17:59:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8B70D60017;
+	Tue, 30 Dec 2025 17:59:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BAD0C4CEFB;
+	Tue, 30 Dec 2025 17:59:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767117574;
+	bh=6GrivOnSV9jOqzRDnWFEmYWM9NxqNKhAy4AejbzzLN8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=oY9gtCTddPBLusMLKXjz44ZEQoG70XlxDQlVrLpwqqIhB/iHHkfWJlJgwVnZVgtji
+	 40CA0Ucz22UH0WllS4RzbHhfrPVdcRLMytqaZPVKLY+o7xFcEz56r6pq3Um30d6DQh
+	 TBBt/Wa+Ljgl9TOiNAZ/8pn7AeShmDaVQDtfUiKS3OW/u0kmhJcC9mklt01yBAxSgP
+	 VReAvCEmBmJcy4Ff8mzF9g3LepSGOlvqUjndhZMygqcG6A/3V4MjDDffkBcHz1gu6P
+	 BCKCoMLSYaUMvEX9erJXK1hqRzrcMXw7HOPTMcPkW1SHkIpSy5hncCuoCk4/r/0Wx7
+	 Fxc3OGu0ZbCkA==
+Date: Tue, 30 Dec 2025 11:59:33 -0600
+From: Rob Herring <robh@kernel.org>
+To: Vladimir Zapolskiy <vz@mleia.com>
+Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Haidong Zheng <haidong.zheng@nxp.com>,
-	Danwei Luo <danwei.luo@nxp.com>, Lei Xu <lei.xu@nxp.com>
-Subject: Re: [PATCH v4 2/2] arm64: dts: freescale: add support for NXP i.MX93
- FRDM
-Message-ID: <aVQRCzq8-Q5FguTN@bywater>
-References: <20251218-fpg-nxp-imx93-frdm-v4-0-cd3a9f6ac89a@pengutronix.de>
- <20251218-fpg-nxp-imx93-frdm-v4-2-cd3a9f6ac89a@pengutronix.de>
- <20251230171548.67289601@windsurf>
- <20251230172427.4f22ac7c@windsurf>
+	Conor Dooley <conor+dt@kernel.org>, Frank Li <Frank.Li@nxp.com>,
+	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+	linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/2] arm: dts: lpc32xx: add clocks property to Motor
+ Control PWM device tree node
+Message-ID: <20251230175933.GA864856-robh@kernel.org>
+References: <20251228224907.1729627-1-vz@mleia.com>
+ <20251228224907.1729627-3-vz@mleia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251230172427.4f22ac7c@windsurf>
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - esm19.siteground.biz
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - valla.it
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-SGantispam-id: 8a9dccd966a9b846d80cdbada4de540e
-AntiSpam-DLS: false
-AntiSpam-DLSP: 
-AntiSpam-DLSRS: 
-AntiSpam-TS: 1.0
-CFBL-Address: feedback@antispam.mailspamprotection.com; report=arf
-CFBL-Feedback-ID: 1vadsS-0000000Gsyd-4C0A-feedback@antispam.mailspamprotection.com
-Authentication-Results: outgoing.instance-europe-west4-xqw9.prod.antispam.mailspamprotection.com;
-	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
-	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
-	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
-	arc=none
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251230_095135_278934_B6673128 
-X-CRM114-Status: GOOD (  18.27  )
+In-Reply-To: <20251228224907.1729627-3-vz@mleia.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,57 +74,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Thomas,
+On Mon, Dec 29, 2025 at 12:49:07AM +0200, Vladimir Zapolskiy wrote:
+> Motor Control PWM depends on its own supply clock, the clock gate control
+> is present in TIMCLK_CTRL1 register.
 
-On Tue, Dec 30, 2025 at 05:24:27PM +0100, Thomas Petazzoni wrote:
-> Hello (again),
-> 
-> On Tue, 30 Dec 2025 17:15:48 +0100
-> Thomas Petazzoni <thomas.petazzoni@bootlin.com> wrote:
-> 
-> > I see the PMIC interrupt and the RTC interrupts are routed to the I2C
-> > GPIO expander at 1-0022, so I imagine either the PMIC or the RTC are
-> > triggering an interrupt (left enabled by U-Boot), and the kernel isn't
-> > compiled with the driver for either the PMIC or the RTC, and therefore
-> > there's no IRQ handler?
-> > 
-> > (I confess I didn't investigate more than that at this point.)
-> 
-> Upon closer inspection, I in fact get thousands over IRQ #100 per
-> seconds right after boot, until the point where it reaches 100000 IRQ
-> events, and the splat appears, with the IRQ being subsequently
-> disabled. So it's not just one interrupt, but a storm of it.
+You say it is required, so does that mean this hasn't ever worked? Or it 
+happened to work because something else turned on the clock?
+
 > 
 
-This recalls the behaviour seen on i.MX91 FRDM [0], and the hardware is
-indeed very similar: the GPIO expander and the TypeC port controller
-(PTN5110) share the same IRQ line, and if the first gets enabled before
-the second an interrupt storm will happen (because the PTN5110 is
-triggering interrupts that nobody services).
+Fixes tag?
 
-I did not see this during my testing - but maybe the probe sequence is 
-different. Any chance you are not loading the driver for the PTN5110?
-I see from your defconfig it should be compiled as module, but maybe
-you are not including it into the image or not loading it?
-
-The NXP downstream BSP is masking interrupts for the TypeC port
-controller as part of the U-Boot initialization, as they are enabled by
-default at reset. While it somewhat breaks the required isolation
-between the bootloader and the system it loads, I fear this is the only
-sensible option here, given this hardware limitation; this was the path
-that was chosen for the i.MX91 FRDM (which has been applied today [1]).
-
-> Thomas
+> Signed-off-by: Vladimir Zapolskiy <vz@mleia.com>
+> ---
+>  arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi | 1 +
+>  1 file changed, 1 insertion(+)
+> 
+> diff --git a/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi b/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
+> index 39af48470ed5..abd401fda94e 100644
+> --- a/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
+> +++ b/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
+> @@ -304,6 +304,7 @@ i2c2: i2c@400a8000 {
+>  			mpwm: pwm@400e8000 {
+>  				compatible = "nxp,lpc3220-motor-pwm";
+>  				reg = <0x400e8000 0x78>;
+> +				clocks = <&clk LPC32XX_CLK_MCPWM>;
+>  				#pwm-cells = <3>;
+>  				status = "disabled";
+>  			};
 > -- 
-> Thomas Petazzoni, co-owner and CEO, Bootlin
-> Embedded Linux and Kernel engineering and training
-> https://bootlin.com
+> 2.43.0
 > 
-
-[0] https://lore.kernel.org/all/aTBFCc-8NzeS4MzT@bywater/
-[1] https://lore.kernel.org/u-boot/CAOMZO5DsCi6GHrkvLEZTjsLy1D02A2e83YgMO36b3EMt8B6c5Q@mail.gmail.com/
-
-Reagrds,
-Francesco
-
 
