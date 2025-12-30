@@ -4,152 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A7B0EE49BB
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 20:13:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9392EE49BC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 20:19:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tj1/K7dWkyBv6qsp6OezuXLeXtpWM/HHMPTUUPPCFmg=; b=Tko6QjoMGUbJ/9u3dLS68IS2P6
-	uO6b8sbB9phMFXQnDpLNVR2hnC7iR9MDY3o1F9QpFClem6I5pR+OdDh4VtSChnfZvV3YQ2uxcTydy
-	D+ZG/YGThsUJCaCSVu+e/2jJ3X6idegQcLgz6SNBxjK+3bg6NUX5Hu9WNWBt7hYPbXs0Z8GwKNLHX
-	AA0iKa9SVV56JFP14uAzGYqAE7lSyKilbUE6/o7vKNkKam687k/I26hZNGVRyYna0THuV4XIkCePG
-	vXrlYi0Myf+m9ittfr3ZSsOvV5c6Y3q3/8A1+WH3UFxsSJbmxMyyfKTfqaRAPQhIfz9EUo0bNoUII
-	UASRUtDg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0SfS7It4rvjRfQ4WQvEi8GdAl8B6+kIRJmXbWAVgSfM=; b=n8/UqT9f1RUajYaeJuqxhgk7bi
+	82nskVUdYpHPXJXqGTHpwbyfKKS4RvWDsl/Y+BqqG4firhTsjlRfb6nbmNtLhJjSewK6zXUF63sQE
+	1YkLwe7pz1FQstkipg5iFEV8KogwNB9F7Tgtl+yPrK4hPftML/nRrQZo4JaPoId/LTpq0OxN10AfP
+	eAfKWimv2zGSmcqhrG8BmSNzqrBmNJPl17Hbexr6p8VlzB4FtAOiKuX9CH/QRhvNqQPWLfv6FH/Q1
+	3jAFBvFZCwKa46/mflmbACbYTb3xQdhiBrCFbQxrs1NkfFlPbvPScgPqYqlWxhsllzYpTwBipDpXO
+	kogYquDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vag5N-00000005GFD-1Vwh;
-	Tue, 30 Dec 2025 20:12:53 +0000
-Received: from mail-westus3azon11010001.outbound.protection.outlook.com ([52.101.201.1] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1vagBy-00000005Gid-3B0E;
+	Tue, 30 Dec 2025 20:19:42 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vag5L-00000005GES-1jBM
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Dec 2025 20:12:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GPDER6MCzT6KePZV6jOPTL81AewlcIEEeo2RCQy15rp/RYk2uUnzEbWJWg7m45R7aZCXKyjvp3reSmzW3VSTFCrMHB5bTHgUdkT1veCVQrSvnriH4/43UJokEZmAEhkMlZAEoO7Pa0TWSs+eht/2OMYU5iLpjFYMf7khimWD8xqWdwkjd8o3WI6O83SNM7gZtoBP+v1o37hDQO7FhgFogsVFZIC6LhNlTs1DjgqDk21x0WOdBvJyofkLH+Fm26tHoJdoubnyKQEAONEAcxdCDrBPYKQSK2FjPStyp0YHOMTjVgjva8SvCkCJLmwE/uhxLagNdU5f7Kxgkekhj3Sqgg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tj1/K7dWkyBv6qsp6OezuXLeXtpWM/HHMPTUUPPCFmg=;
- b=T0GYbQat1mU71s73FKXafVzCykvMi23DCmrA60MWH9v6iYdOdK6JG3woQQwWkmB2I6YCY0WpKqBM1E6mlPiUm1uDhJIvg091EbwPUU3p8xa6E765LEGmHY7TW2CTCzVQBcwSfi/gAPWf5PpBwZTkyuIniQ34RI7trDaVPD5GIYKzyoOrK3ClrcuRMX8oeuOFSFE6o8EWtmGwkn2YVGQhWvbd5qf/s9P4Uvh61C6plxPStIiRz3i/3MTssDRnFpOa8lukL6psCheaBcWCmVstyYsjBdQsKFoq7UjApcFOdvrW1D6iW7BWuyAN/rD2tkmCLOCwwlUXEmB1+z5l/vbxlw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tj1/K7dWkyBv6qsp6OezuXLeXtpWM/HHMPTUUPPCFmg=;
- b=sqpHxkA97pd7/4WqID5cNmkBnfuexxxR1Upidr/3g/RHXLAINMtb3Zan+g85OzNufo8DGLYBGKERNf2FT9LyRqVXLrOukwxj4bligkCvW/OyfMocPe1ASNtT5b89ZzNT9S8aSxaBLzMF4jXqWlvPbA5U3EZ13dLB9N+1y+6t/7Y=
-Received: from BN0PR03CA0035.namprd03.prod.outlook.com (2603:10b6:408:e7::10)
- by IA1PR10MB7285.namprd10.prod.outlook.com (2603:10b6:208:3fe::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Tue, 30 Dec
- 2025 20:12:44 +0000
-Received: from BN2PEPF000044A8.namprd04.prod.outlook.com
- (2603:10b6:408:e7:cafe::3b) by BN0PR03CA0035.outlook.office365.com
- (2603:10b6:408:e7::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9478.4 via Frontend Transport; Tue,
- 30 Dec 2025 20:12:42 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- BN2PEPF000044A8.mail.protection.outlook.com (10.167.243.102) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9478.4 via Frontend Transport; Tue, 30 Dec 2025 20:12:42 +0000
-Received: from DFLE215.ent.ti.com (10.64.6.73) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 30 Dec
- 2025 14:12:33 -0600
-Received: from DFLE215.ent.ti.com (10.64.6.73) by DFLE215.ent.ti.com
- (10.64.6.73) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 30 Dec
- 2025 14:12:33 -0600
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE215.ent.ti.com
- (10.64.6.73) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 30 Dec 2025 14:12:33 -0600
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5BUKCXQr1206900;
-	Tue, 30 Dec 2025 14:12:33 -0600
-Date: Tue, 30 Dec 2025 14:12:33 -0600
-From: Nishanth Menon <nm@ti.com>
-To: Michael Walle <mwalle@kernel.org>
-CC: Frank Binns <frank.binns@imgtec.com>, Matt Coster
-	<matt.coster@imgtec.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Vignesh
- Raghavendra" <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, Andrew Davis
-	<afd@ti.com>, Santosh Shilimkar <ssantosh@kernel.org>, Michael Turquette
-	<mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Kevin Hilman
-	<khilman@baylibre.com>, Randolph Sapp <rs@ti.com>,
-	<linux-clk@vger.kernel.org>, <dri-devel@lists.freedesktop.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v2 2/4] clk: keystone: don't cache clock rate
-Message-ID: <20251230201233.n36d5fiensqyb6fc@splice>
-References: <20251223124729.2482877-1-mwalle@kernel.org>
- <20251223124729.2482877-3-mwalle@kernel.org>
+	id 1vagBv-00000005GhL-2RY5;
+	Tue, 30 Dec 2025 20:19:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 083CE43653;
+	Tue, 30 Dec 2025 20:19:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id D7BEBC4CEFB;
+	Tue, 30 Dec 2025 20:19:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767125977;
+	bh=Z4EYAHZGekQfOTPPZ/bCzt9bocu5SLTKB2VfqWaqPQI=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=FuPDT1nx3mnhbx5G6nVRwGP+rZKcupMg1opSbM+WhfQGKspsTsikkcH1pfAoFAYm5
+	 WstWU7fCgbElEXy0uiEPvNqZaf7hLC12Y9fM7Xi3irNv+FoXakDPDpFynLNJT8C8dT
+	 eNe3EwjqmcyrPc0UlRzMPibHFSVCBXxpbgSw1b/9V99n4y4mwyRQNKZ3rWmex8j5go
+	 SzUfF4cc7gCN9bcszXfkhJJiN6KM8OgifqAmb/fwBZXBvBN595CLPe64YnMC9aBfgi
+	 d7WCrFRIjJfpznNY5//NgK2BoRXpzqgJoUBjD6cl6D+5hMy0IXbvFIevPDfDH2lX+E
+	 SCg21RkqXajtQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C38A0EE0203;
+	Tue, 30 Dec 2025 20:19:37 +0000 (UTC)
+From: Ricardo Pardini via B4 Relay <devnull+ricardo.pardini.net@kernel.org>
+Subject: [PATCH 0/3] arm64: dts: rockchip: Enable the NPU on some rk3588
+ boards
+Date: Tue, 30 Dec 2025 21:19:29 +0100
+Message-Id: <20251230-arm64-dts-rockchip-rk3588-npu-enablements-v1-0-d38b182a59e3@pardini.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20251223124729.2482877-3-mwalle@kernel.org>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF000044A8:EE_|IA1PR10MB7285:EE_
-X-MS-Office365-Filtering-Correlation-Id: d20f1127-0f02-41bf-76bd-08de47dfc9ef
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700013|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?eyh+m94nJ7xhlkRwq3ovPpQR4VKBSPuRLNMiUKduZVy7XGkDB9V7bEA1A8v7?=
- =?us-ascii?Q?mIhiM9SKB+KVUJ5D+a14AT/G79ZVtTqlbZ8bEqD9dLDPyDIEkcEOvVrCDRgg?=
- =?us-ascii?Q?UTTNRAeCDhVui9ZdHkay4G01bNx+iOEuWxKOLBMZNcGlrdM45HbKdu0XimRN?=
- =?us-ascii?Q?/UwYth0qIO42On6ajq4U/LFWnzopeWTy5T2XbnWMgA+EBsEK3ZQTFi1vq0ep?=
- =?us-ascii?Q?2PNNeY7naYK6Ab89lStMA09CM05nzfUiOg/GrARWt0fbUQBLQVUBxR5AQJyI?=
- =?us-ascii?Q?xRVCIukmPBRt9Q7mt37Yj1i2nzyX5PdVueNrPZ2J1DNGBLa+zQp4pjwVn770?=
- =?us-ascii?Q?HubD0RiVzpEO49nSC2Ol53u6PQYISeRcEUm4pMOqXY0ZKkBCIkbKDNnZgNSY?=
- =?us-ascii?Q?Xh0/7zZSeFcsDSbcqknjVrtbePStcARjYQs9SvkL6VEkHj8h39P097xYSLcF?=
- =?us-ascii?Q?lqV0qIGnWp9FQ9ed1D2P3xHqVUEmm4b8w8Lk7w3hXnmVSM1SAK9O1IQdH0wa?=
- =?us-ascii?Q?1Scdm1jGm7FuA4ZDkNP9xGTXPFYrrLC6LNIlFempWobrxfr0zEH9QUHu1gwV?=
- =?us-ascii?Q?Nqo5Q84omFUKUhJ9gy/NpRH2hdJgAQsYq8Mf4DXa5oxsMWTkxA5R2dzmb796?=
- =?us-ascii?Q?dgnEYlb9747fY84kdpFIk/kwMgbZupNe27dWEGwC/VEtCU8J0fbtQPOCbI1s?=
- =?us-ascii?Q?TAlAnmdv+0BClHdcKnNIKx9qfpx1Cd2Xwz12vCTgkhMYaWvHpEToXb+VMSZa?=
- =?us-ascii?Q?AOcL0RprpJkvRuB2g0JITuXG9JOUJKA/1vM8755ptYEC27+ZiZIs52NkCbd1?=
- =?us-ascii?Q?vCU36jz8pYR3zaWbqNdz3OCNNLh87M4QKp9JQBZYuX+mSC2Ww6S+LvcLL20C?=
- =?us-ascii?Q?/5HwtvxsLa7WwW1jQ8O4jLwfKiovWf8LCTwPNhnOw/XbueisVbDy0bB/KqoJ?=
- =?us-ascii?Q?G82mpRXILgElgma+Rh16Taj9FI0oDis5dg1nKG1yo52/VrGF8RPlUXYBoVnp?=
- =?us-ascii?Q?2n/EDYkOlMNQ17Q2bRSkwW4BiMYMCniiCBTb1iFzn3T4NUR2d6SyPEo+1RtR?=
- =?us-ascii?Q?WnSlrbWPpYG6j3GIr21VQk8z+9r7dwYoE6irhsmnm0/njelQ28ZVdFEjGJQZ?=
- =?us-ascii?Q?M+MwEp/n8R3vKkEvhv+X/FIY8P+m0N8nd+ZVkmqZ2IzIWspphHmlOhgW5U/P?=
- =?us-ascii?Q?fyF4FgY7+ASD0x65DgVI6+B4sJFpfFnx3iGpXj7VQIo6Sb7jH2SqhcMFb8OZ?=
- =?us-ascii?Q?TYDjCb9U3W5XMkEtqeVL/GHUNc2m4Ki2j/wC28aqZuv07Z6xrNAMI0ANtQru?=
- =?us-ascii?Q?K/vNTUe0vg5veolVKVRkenXQT3MSKtArlez4ELJif1gEn+qqDvE8ypGR5Jls?=
- =?us-ascii?Q?tpKJ/sosdil2QiPryqI70U/w/o+UZGQh8VttP8U38zuiSH35HLFwsp4akRRx?=
- =?us-ascii?Q?2xuoItusx5cmD9X7ZL8KMvI4GLirLQUBJNwRerTpYsZ14QlJIqnu0MBJAZKe?=
- =?us-ascii?Q?zF5y/N5dgNmMF/5qdR9k8sj78RPcDC2U/wXsJUa8SG6V3zR4hI9s4+EtEwRz?=
- =?us-ascii?Q?NSKAOFzzzSYsrF5ZmG0=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700013)(7416014)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Dec 2025 20:12:42.3304
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d20f1127-0f02-41bf-76bd-08de47dfc9ef
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF000044A8.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR10MB7285
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIANIzVGkC/x2NywrCMBAAf6Xs2YU8Wg3+inhIk9UutduwUSmU/
+ rvB4zAws0MlZapw7XZQ+nLlVRrYUwdpivIk5NwYnHGDdd5g1OXcY35X1DXNaeKCOvshBJTyQZI
+ 4vmghad6SC95kR5fRQOsVpQdv/9ftfhw/usSzmnsAAAA=
+X-Change-ID: 20251230-arm64-dts-rockchip-rk3588-npu-enablements-1e2830d2e7b0
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Ricardo Pardini <ricardo@pardini.net>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=878; i=ricardo@pardini.net;
+ h=from:subject:message-id;
+ bh=Z4EYAHZGekQfOTPPZ/bCzt9bocu5SLTKB2VfqWaqPQI=;
+ b=owEBbQGS/pANAwAIATteP+Oex+3pAcsmYgBpVDPYd76x2JB906NyNHFhO6NnaxWsW+lO80Uql
+ Ji2PwKD1t+JATMEAAEIAB0WIQSsGCMM9q/qytxIiJM7Xj/jnsft6QUCaVQz2AAKCRA7Xj/jnsft
+ 6UMPB/0aiS04N/PRQ7spsEThwruzr2esSQwAH9xDCV4eZcHZQTkVVHaH5RnanJ28d3fabRgZmSy
+ 1BmvrsltvRrqNQ3rI1Kay3RfkvZU2vn0IMEMA985DFXBjCEV43ZGCNMd2qX0JLBUZ73Q1lA4a3R
+ gtXRZZqOyY368C6QyJWVjFWfQjPzWtt4X8DKKQzcWLpC6O2FJWCA1NHr/0gr6MOgpwSViPL9P+C
+ fwKllrnSZeMRvupYc0FHxO5Z0JiGVY6fjB9mSAjzWSMszf6ZlvEB3ZLmfF2PdRTQKlH5FDx5KDl
+ j0E+pA6o3ysj2lr2BwqUO0AVil5ptuiZRO96Ot1J6lQWk7Bz
+X-Developer-Key: i=ricardo@pardini.net; a=openpgp;
+ fpr=AC18230CF6AFEACADC4888933B5E3FE39EC7EDE9
+X-Endpoint-Received: by B4 Relay for ricardo@pardini.net/default with
+ auth_id=588
+X-Original-From: Ricardo Pardini <ricardo@pardini.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251230_121251_569436_729D3932 
-X-CRM114-Status: GOOD (  22.49  )
+X-CRM114-CacheID: sfid-20251230_121939_649534_BDA680B4 
+X-CRM114-Status: UNSURE (   7.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,65 +92,31 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: ricardo@pardini.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13:47-20251223, Michael Walle wrote:
-> The TISCI firmware will return 0 if the clock or consumer is not
-> enabled although there is a stored value in the firmware. IOW a call to
-> set rate will work but at get rate will always return 0 if the clock is
-> disabled.
-> The clk framework will try to cache the clock rate when it's requested
-> by a consumer. If the clock or consumer is not enabled at that point,
-> the cached value is 0, which is wrong. Thus, disable the cache
-> altogether.
-> 
-> Signed-off-by: Michael Walle <mwalle@kernel.org>
-> Reviewed-by: Kevin Hilman <khilman@baylibre.com>
-> Reviewed-by: Randolph Sapp <rs@ti.com>
-> ---
->  drivers/clk/keystone/sci-clk.c | 8 ++++++++
->  1 file changed, 8 insertions(+)
-> 
-> diff --git a/drivers/clk/keystone/sci-clk.c b/drivers/clk/keystone/sci-clk.c
-> index 9d5071223f4c..0a1565fdbb3b 100644
-> --- a/drivers/clk/keystone/sci-clk.c
-> +++ b/drivers/clk/keystone/sci-clk.c
-> @@ -333,6 +333,14 @@ static int _sci_clk_build(struct sci_clk_provider *provider,
->  
->  	init.ops = &sci_clk_ops;
->  	init.num_parents = sci_clk->num_parents;
-> +
-> +	/*
-> +	 * A clock rate query to the SCI firmware will return 0 if either the
-> +	 * clock itself is disabled or the attached device/consumer is disabled.
-> +	 * This makes it inherently unsuitable for the caching of the clk
-> +	 * framework.
-> +	 */
-> +	init.flags = CLK_GET_RATE_NOCACHE;
->  	sci_clk->hw.init = &init;
->  
->  	ret = devm_clk_hw_register(provider->dev, &sci_clk->hw);
-> -- 
-> 2.47.3
-> 
+This series enables the NPU on a few Rockchip rk3588 boards.
+In every case here, the required regulator was already described.
 
-Reviewed-by: Nishanth Menon <nm@ti.com>
+Signed-off-by: Ricardo Pardini <ricardo@pardini.net>
+---
+Ricardo Pardini (3):
+      arm64: dts: rockchip: Enable the NPU on NanoPC T6/T6-LTS
+      arm64: dts: rockchip: Enable the NPU on FriendlyElec CM3588
+      arm64: dts: rockchip: Enable the NPU on Turing RK1
 
-I wish there was a better scheme, but inherently, just like SCMI and
-other systems where power management co-processor controls clocks, there
-is no real feasible caching scheme I can think of. I wonder if Stephen
-or others have a thought on this?
+ .../dts/rockchip/rk3588-friendlyelec-cm3588.dtsi   | 34 +++++++++++++++++++++
+ arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi | 35 ++++++++++++++++++++++
+ .../arm64/boot/dts/rockchip/rk3588-turing-rk1.dtsi | 34 +++++++++++++++++++++
+ 3 files changed, 103 insertions(+)
+---
+base-commit: 9448598b22c50c8a5bb77a9103e2d49f134c9578
+change-id: 20251230-arm64-dts-rockchip-rk3588-npu-enablements-1e2830d2e7b0
 
-That said, I wonder if we need fixes tag to this? I am sure there are
-other clocks susceptible to this as well. I wonder if
-commit 3c13933c6033 ("clk: keystone: sci-clk: add support for
-dynamically probing clocks") is the appropriate tag?
-
-
+Best regards,
 -- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+Ricardo Pardini <ricardo@pardini.net>
+
+
 
