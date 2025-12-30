@@ -4,89 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DE51E92FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 01:41:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4EE6E94107
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 01:53:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QmUAEGso/e7W3anGcR8xCuSpwYv5r5Z/wzKm2j4CwGM=; b=ftChh+9mosuI1k2ABfxZFIr8s6
-	DRu8lvi2FEikI5XHVw8k9Tn/W+EXY4r3q/MCwgvo8Qg2qM8LnwYbiVk8eRN1pVK14sjFAaeQEwkyb
-	byixTMyNq/5zEl0ArzED7i8G4IOYk7B6jFaCAvte4yizIz5vBIwodqFT44guXDFH3KOtw/9IwLxcE
-	MLyRBhLWMgUm8j7VwOAADB33xFFM2dHRH8HoJfzTD0hxZWrmGEW3kQagpNIOUuBm6DRx1fnhDZ/aw
-	0kKQBLun5IteBO80v86d+7NF79Poe67LXUIXxv8Wil4vfw0JwnNZBdqFEkX6g3KffovrnS3Bfozah
-	7INqSKRg==;
+	bh=qpoUGD/nQvuwJGs8fSJGimVrIe44lQKhSJUrrOso058=; b=ThyMsAj0Gcp5JaEh5iCMK0ZBib
+	eIBtt2hdXQLmkOBtLziWj9ZK87hAR0DSogXT2BALhmvtdZ/s6Z7PxR36Fk6g5FolMZ4Ld7pPfjuy/
+	zmzNoaGRzVJNWHWEBTcTcjD1Q1hcH41MAeUfWyInOyLT4yvBHrtxd+79Oc66ULQTXinI427GxDAEl
+	pU5HLymuu4i/XAyxUtEBrMnCFgEYJpShHYYWaY9kvtW//nFMYGKOvWeWEzJwO8F2ioxKjgIyxiQG7
+	pirfoZXhaF+GDvztCYlzucBg2Qr86HB3qKNWmrwJDe+60XcXvCSUNMv2dCE5jXQ+UIpGL6LZAVSB/
+	VMGYJKzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaOjY-00000004GqL-287j;
-	Tue, 30 Dec 2025 01:41:12 +0000
-Received: from mout-p-102.mailbox.org ([2001:67c:2050:0:465::102])
+	id 1vaOvk-00000004HMl-2IoE;
+	Tue, 30 Dec 2025 01:53:48 +0000
+Received: from mout-p-102.mailbox.org ([80.241.56.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaOjV-00000004Gpd-4AFY
+	id 1vaOvi-00000004HMN-0IF7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Dec 2025 01:41:11 +0000
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
+	Tue, 30 Dec 2025 01:53:47 +0000
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [10.196.197.202])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4dgG5H4jLMz9tdM;
-	Tue, 30 Dec 2025 02:41:07 +0100 (CET)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4dgGMp3Cbxz9tdM;
+	Tue, 30 Dec 2025 02:53:42 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1767058867;
+	t=1767059622;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=QmUAEGso/e7W3anGcR8xCuSpwYv5r5Z/wzKm2j4CwGM=;
-	b=hSANXZeUur6gSLo/1adoLIiGr37ZvYGRhZPY3zbgbHBL64/mEcT7ctDoTMT8dfFkRGu9Mq
-	DjdJpgF5R8ddBL4WDHfbsft6m1qerlyURDBsFDSE7Vfxb9X3TB4MotoA33BO9uQ6IVu9Hh
-	IP9EDxEHMlpLhTj0HHjZmWdT6bxn7V7suiwuHKiENUq0FzVQ9r1/TCePJQkutWA1+zWtCp
-	UwDv3N7SPkz++MJW49Vd1WW2rlH/WbhAdmElN+/aX9TiGtuiByq6jdrQiyIrsofLxCwf/N
-	K3zUmMOmaDKDyU+XcN6nQXAM73DQwt/ejIPoeERyyikFYMeT2JEk/YEnEmHCug==
-From: Marek Vasut <marek.vasut@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1767058865;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QmUAEGso/e7W3anGcR8xCuSpwYv5r5Z/wzKm2j4CwGM=;
-	b=jLos9jBF8UsaedZpwCbBBsNZ8tmLGr7dVBT/OvrdLVzqxSbrMTr0HFW/gB9t4LxaFpUrA/
-	/LaUZvmwqWBvQpsXKOnXxFPYd/0XdvTotUZWron4JITBGOMMzBC7KwC99o7vsqluH4bAIz
-	O+2VqvHnYxu5hTIyP33Dtr9t9WkLp8Ve5Bt2YIpQ5wIzPaMmVxNmg62KTryJ6aB8H6flZc
-	DJnz8ZhEOVrhs/y+orOwQpdbiUL2tPQtFDZGQNhGiGDp6eK8R4jzV30sGDriDQnxXuJOLh
-	slVCLPT3l86GMmSaPrwHjq+d/Oly+Q8qaKtXthMJMmNZuE+8XjacPLd/BOKzkw==
-To: linux-arm-kernel@lists.infradead.org
-Cc: Marek Vasut <marek.vasut@mailbox.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Jarkko Sakkinen <jarkko@kernel.org>,
-	Jason Gunthorpe <jgg@ziepe.ca>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Lukas Wunner <lukas@wunner.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Peter Huewe <peterhuewe@gmx.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-integrity@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 2/2] arm64: dts: imx8mp: Update Data Modul i.MX8M Plus eDM SBC DT to rev.903
-Date: Tue, 30 Dec 2025 02:40:35 +0100
-Message-ID: <20251230014047.149677-2-marek.vasut@mailbox.org>
-In-Reply-To: <20251230014047.149677-1-marek.vasut@mailbox.org>
-References: <20251230014047.149677-1-marek.vasut@mailbox.org>
+	bh=qpoUGD/nQvuwJGs8fSJGimVrIe44lQKhSJUrrOso058=;
+	b=rRJ7mr/JsYyKdWNKh7HM16eTWtEuXu3tGnUJvaLOG+/MmkoEP2Ld02L3Pd+X9FMr4VCDjC
+	r9ZyLZc1pkNFyA6vi4mHIZ2gt+QCZu0jKpNiRErAfE4us89kDbNFrTLRaBNjkbCQN+QNZ5
+	I9GR1TtcsrLkuugM0KLHyh9XDpLRWK72IGVTGBO4LcayOQEQ9SVfPFBiBJIX/37C06L3LT
+	uJe6KgnpkbncENJQMzxeRRDWMXN+wDVViQUCSyG7OrWhKh5JT/F4Lvm2pIMW9AgDu2He3z
+	YGkgcySP7IiYm6ufYpWUZKWBroUnP2m2Q3iZKkt2qC20pomA5LK/aHJJXIALKg==
+Message-ID: <53ea529f-3538-4ab5-aa99-0caa6729b4cd@mailbox.org>
+Date: Tue, 30 Dec 2025 02:53:38 +0100
 MIME-Version: 1.0
+Subject: Re: [PATCH] arm64: dts: imx95: Use GPU_CGC as core clock for GPU
+To: peng.fan@nxp.com, shawnguo@kernel.org, Frank.li@nxp.com
+Cc: conor+dt@kernel.org, devicetree@vger.kernel.org, festevam@gmail.com,
+ imx@lists.linux.dev, kernel@pengutronix.de, krzk+dt@kernel.org,
+ linux-arm-kernel@lists.infradead.org, robh@kernel.org,
+ s.hauer@pengutronix.de, Rain Yang <jiyu.yang@oss.nxp.com>
+References: <20251129143220.14834-1-marek.vasut@mailbox.org>
+ <aS-lEibp3zTsaR6T@oss.nxp.com>
+ <c6e0e55a-06da-4665-972e-e9b5b8c08bf7@mailbox.org>
+ <aTACuRjC_Zpf8IOU@oss.nxp.com>
+ <de36091e-c890-4897-b3e3-2a7575029a5d@mailbox.org>
+ <aTD5np-HGaJqhzkD@oss.nxp.com>
+ <5944d872-01a3-47e9-977b-029f3be4fd83@mailbox.org>
+ <aTKVMAMQ6v_BwD6R@oss.nxp.com>
+ <9b593731-898f-46a7-8ee5-68f8c170351c@mailbox.org>
+ <aTYxm_dfMwF4H0_b@oss.nxp.com>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <aTYxm_dfMwF4H0_b@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-META: 1zbogmpoi1ww8a67fj835frqd5mpwkcm
-X-MBO-RS-ID: 2d9ec7033f26c04665e
+X-MBO-RS-ID: 21bcf49a433a8f6c4b4
+X-MBO-RS-META: 4dfs449y7anjdqiphj1bofd5kx8drorp
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251229_174110_316532_29BBBC42 
-X-CRM114-Status: GOOD (  15.20  )
+X-CRM114-CacheID: sfid-20251229_175346_272159_10420119 
+X-CRM114-Status: GOOD (  11.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,347 +88,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update the DT to match newest Data Modul i.MX8M Plus eDM SBC rev.903
-board which implements significant changes. Keep some of the rev.900
-and rev.902 nodes in the DT so that a DTO can be used to support old
-rev.900 and rev.902 boards easily.
+On 12/8/25 3:02 AM, Rain Yang wrote:
 
-The changes from rev.900 to rev.902 are:
-- Both ethernet PHYs replaced from AR8031 to BCM54213PE
-- Both ethernet PHYs MDIO address changed
-- PCIe WiFi now comes with dedicated regulator
-- I2C TPM chip address
-- Additional GPIO expander for LVDS panel control added
-- Current EEPROM I2C address changed
-- Another optional EEPROM added onto another I2C bus
+>>> Okay, I’ll submit a patch later.
+>>> The commit message should reflect that only CLK_GPU_CGC is enabled.
+>>
+>> The commit message , and this change , is unrelated to GPUAPB clock.
+> The commit message is ambiguous. Could you clarify which parent clock
+> you are referring to, and whether it can be enabled by CLK_GPU_CGC?
+> If it was CLK_GPU, CLK_GPU_CGC can't be able to control it.
 
-The changes from rev.902 to rev.903 are:
-- Additional GPIO expander for WiFi and LVDS panel control added
-- Multiple GPIOs are reassigned
+The commit message clearly states "These new GPU_CGC clock
+gate the existing GPU clock." and "GPU_CGC as well as its parent GPU 
+clock." , I don't perceive any ambiguity, sorry.
 
-Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
----
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Fabio Estevam <festevam@gmail.com>
-Cc: Jarkko Sakkinen <jarkko@kernel.org>
-Cc: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Lukas Wunner <lukas@wunner.de>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-Cc: Peter Huewe <peterhuewe@gmx.de>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Shawn Guo <shawnguo@kernel.org>
-Cc: devicetree@vger.kernel.org
-Cc: imx@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-integrity@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
----
-V2: - Rebase on current next, update email address
----
- .../freescale/imx8mp-data-modul-edm-sbc.dts   | 148 +++++++++++++++---
- 1 file changed, 129 insertions(+), 19 deletions(-)
+Frankly, the whole GPUAPB discussion is entirely unrelated and it only 
+stalls application of this bugfix and keeps upstream broken. This is not 
+helping.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc.dts b/arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc.dts
-index 16078ff60ef08..7e46537a22a01 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-data-modul-edm-sbc.dts
-@@ -93,6 +93,17 @@ reg_panel_vcc: regulator-panel-vcc {
- 		status = "disabled";
- 	};
- 
-+	reg_pcie0: regulator-pcie {
-+		compatible = "regulator-fixed";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_wifi>;
-+		regulator-name = "WIFI_BT_RST#";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		gpio = <&gpio2 2 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
-+
- 	reg_usdhc2_vmmc: regulator-usdhc2-vmmc {
- 		compatible = "regulator-fixed";
- 		pinctrl-names = "default";
-@@ -190,7 +201,7 @@ &ecspi3 {	/* Display connector SPI */
- &eqos {	/* First ethernet */
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_eqos>;
--	phy-handle = <&phy_eqos>;
-+	phy-handle = <&phy_eqos_bcm>;
- 	phy-mode = "rgmii-id";
- 	status = "okay";
- 
-@@ -200,7 +211,7 @@ mdio {
- 		#size-cells = <0>;
- 
- 		/* Atheros AR8031 PHY */
--		phy_eqos: ethernet-phy@0 {
-+		phy_eqos_ath: ethernet-phy@0 {
- 			compatible = "ethernet-phy-ieee802.3-c22";
- 			reg = <0>;
- 			/*
-@@ -213,6 +224,7 @@ phy_eqos: ethernet-phy@0 {
- 			reset-deassert-us = <10000>;
- 			qca,keep-pll-enabled;
- 			vddio-supply = <&vddio_eqos>;
-+			status = "disabled";
- 
- 			vddio_eqos: vddio-regulator {
- 				regulator-name = "VDDIO_EQOS";
-@@ -224,13 +236,27 @@ vddh_eqos: vddh-regulator {
- 				regulator-name = "VDDH_EQOS";
- 			};
- 		};
-+
-+		/* Broadcom BCM54213PE PHY */
-+		phy_eqos_bcm: ethernet-phy@1 {
-+			compatible = "ethernet-phy-ieee802.3-c22";
-+			reg = <1>;
-+			/*
-+			 * Dedicated ENET_INT# and ENET_WOL# signals are
-+			 * unused, the PHY does not provide cable detect
-+			 * interrupt.
-+			 */
-+			reset-gpios = <&gpio1 15 GPIO_ACTIVE_LOW>;
-+			reset-assert-us = <10000>;
-+			reset-deassert-us = <10000>;
-+		};
- 	};
- };
- 
- &fec {	/* Second ethernet */
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_fec>;
--	phy-handle = <&phy_fec>;
-+	phy-handle = <&phy_fec_bcm>;
- 	phy-mode = "rgmii-id";
- 	fsl,magic-packet;
- 	status = "okay";
-@@ -240,7 +266,7 @@ mdio {
- 		#size-cells = <0>;
- 
- 		/* Atheros AR8031 PHY */
--		phy_fec: ethernet-phy@0 {
-+		phy_fec_ath: ethernet-phy@0 {
- 			compatible = "ethernet-phy-ieee802.3-c22";
- 			reg = <0>;
- 			/*
-@@ -253,6 +279,7 @@ phy_fec: ethernet-phy@0 {
- 			reset-deassert-us = <10000>;
- 			qca,keep-pll-enabled;
- 			vddio-supply = <&vddio_fec>;
-+			status = "disabled";
- 
- 			vddio_fec: vddio-regulator {
- 				regulator-name = "VDDIO_FEC";
-@@ -264,6 +291,20 @@ vddh_fec: vddh-regulator {
- 				regulator-name = "VDDH_FEC";
- 			};
- 		};
-+
-+		/* Broadcom BCM54213PE PHY */
-+		phy_fec_bcm: ethernet-phy@1 {
-+			compatible = "ethernet-phy-ieee802.3-c22";
-+			reg = <1>;
-+			/*
-+			 * Dedicated ENET_INT# and ENET_WOL# signals are
-+			 * unused, the PHY does not provide cable detect
-+			 * interrupt.
-+			 */
-+			reset-gpios = <&gpio2 9 GPIO_ACTIVE_LOW>;
-+			reset-assert-us = <10000>;
-+			reset-deassert-us = <10000>;
-+		};
- 	};
- };
- 
-@@ -378,13 +419,26 @@ usb-hub@2c {
- 		self-powered;
- 	};
- 
--	eeprom: eeprom@50 {
-+	tpm: tpm@2e {
-+		compatible = "st,st33tphf2ei2c", "tcg,tpm-tis-i2c";
-+		reg = <0x2e>;
-+	};
-+
-+	eeprom900: eeprom@50 {	/* board rev.900 */
- 		compatible = "atmel,24c32";
- 		reg = <0x50>;
- 		pagesize = <32>;
-+		status = "disabled";
-+	};
-+
-+	eeprom902: eeprom@51 {	/* board rev.902 */
-+		compatible = "atmel,24c32";
-+		reg = <0x51>;
-+		pagesize = <32>;
- 	};
- 
- 	rtc: rtc@68 {
-+		#clock-cells = <1>;
- 		compatible = "st,m41t62";
- 		reg = <0x68>;
- 		pinctrl-names = "default";
-@@ -408,6 +462,46 @@ &i2c2 {
- 	scl-gpios = <&gpio5 16 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
- 	sda-gpios = <&gpio5 17 (GPIO_ACTIVE_HIGH | GPIO_OPEN_DRAIN)>;
- 	status = "okay";
-+
-+	gpiolvds: io-expander@20 {
-+		compatible = "nxp,pca9554";
-+		reg = <0x20>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		gpio-line-names =
-+			"BL_ENABLE_V", "SEL_BL_12V",
-+			"SEL_PANEL_5V", "SEL_PANEL_12V",
-+			"SEL_BL_PWM", "SEL_BL_EN",
-+			"REVERSE_SCAN_PANEL", "GND_REV903";
-+	};
-+
-+	gpiowifi: io-expander@21 {
-+		compatible = "nxp,pca9554";
-+		reg = <0x21>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
-+		gpio-line-names =
-+			"BL_LVDS_ENABLE_3V3", "BL_LVDS_PWM_3V3",
-+			"M2_BT_WAKE_3V3#", "M2_W_DISABLE2_3V3#",
-+			"TFT_PANEL_ENABLE_3V3", "TPM_RESET_3V3#",
-+			"CSI2_PD_3V3", "CSI2_RESET_3V3#";
-+
-+		/* BL_LVDS_PWM_3V3 is patch-wired to BL_PWM_3V3 on rev.903 */
-+		pwm-input-hog {
-+			gpio-hog;
-+			gpios = <1 0>;
-+			input;
-+			line-name = "BL_LVDS_PWM_3V3_HOG";
-+		};
-+	};
-+
-+	eepromlvds: eeprom@51 {
-+		compatible = "atmel,24c32";
-+		reg = <0x51>;
-+		pagesize = <32>;
-+		/* Optional EEPROM, disabled by default. */
-+		status = "disabled";
-+	};
- };
- 
- &i2c3 {
-@@ -521,6 +615,7 @@ &pcie {
- 	pinctrl-0 = <&pinctrl_pcie0>;
- 	fsl,max-link-speed = <3>;
- 	reset-gpio = <&gpio1 5 GPIO_ACTIVE_LOW>;
-+	vpcie-supply = <&reg_pcie0>;
- 	status = "okay";
- };
- 
-@@ -598,7 +693,17 @@ &uart3 {	/* A53 Debug */
- &uart4 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_uart4>;
--	status = "disabled";
-+	uart-has-rtscts;
-+	status = "okay";
-+
-+	bluetooth {
-+		compatible = "infineon,cyw55572-bt";
-+		brcm,requires-autobaud-mode;
-+		clocks = <&rtc 0>;
-+		clock-names = "txco";
-+		max-speed = <921600>;
-+		shutdown-gpios = <&gpiowifi 3 GPIO_ACTIVE_HIGH>;
-+	};
- };
- 
- &usb3_phy0 {
-@@ -686,8 +791,6 @@ MX8MP_IOMUXC_ENET_RD2__ENET_QOS_RGMII_RD2	0x91
- 			MX8MP_IOMUXC_ENET_RD3__ENET_QOS_RGMII_RD3	0x91
- 			/* ENET_RST# */
- 			MX8MP_IOMUXC_GPIO1_IO15__GPIO1_IO15		0x6
--			/* ENET_INT# */
--			MX8MP_IOMUXC_GPIO1_IO11__GPIO1_IO11		0x40000090
- 		>;
- 	};
- 
-@@ -709,8 +812,6 @@ MX8MP_IOMUXC_SAI1_TXD4__ENET1_RGMII_TX_CTL	0x1f
- 			MX8MP_IOMUXC_SAI1_TXD5__ENET1_RGMII_TXC		0x1f
- 			/* ENET2_RST# */
- 			MX8MP_IOMUXC_SD1_DATA7__GPIO2_IO09		0x6
--			/* ENET2_INT# */
--			MX8MP_IOMUXC_SD1_DATA0__GPIO2_IO02		0x40000090
- 		>;
- 	};
- 
-@@ -754,10 +855,6 @@ MX8MP_IOMUXC_GPIO1_IO10__GPIO1_IO10		0x40000090
- 
- 			/* PG_V_IN_VAR# */
- 			MX8MP_IOMUXC_NAND_CE0_B__GPIO3_IO01		0x40000000
--			/* CSI2_PD_1V8 */
--			MX8MP_IOMUXC_NAND_DATA02__GPIO3_IO08		0x0
--			/* CSI2_RESET_1V8# */
--			MX8MP_IOMUXC_NAND_DATA03__GPIO3_IO09		0x0
- 
- 			/* DIS_USB_DN1 */
- 			MX8MP_IOMUXC_SAI2_RXFS__GPIO4_IO21		0x0
-@@ -771,8 +868,14 @@ MX8MP_IOMUXC_SAI5_RXD0__GPIO3_IO21		0x0
- 			/* GRAPHICS_PRSNT_1V8# */
- 			MX8MP_IOMUXC_SAI1_TXD6__GPIO4_IO18		0x40000000
- 
-+			/* TOUCH_RESET_3V3# */
-+			MX8MP_IOMUXC_GPIO1_IO00__GPIO1_IO00		0x2
-+			/* TOUCH_INT# */
-+			MX8MP_IOMUXC_GPIO1_IO10__GPIO1_IO10		0x40000140
- 			/* CLK_CCM_CLKO1_3V3 */
- 			MX8MP_IOMUXC_GPIO1_IO14__CCM_CLKO1		0x10
-+			/* ENET_INT# (rev.900,901) or M2_WDIS_BTIRQ_3V3# (rev.903) */
-+			MX8MP_IOMUXC_GPIO1_IO11__GPIO1_IO11		0x40000092
- 		>;
- 	};
- 
-@@ -875,12 +978,10 @@ pinctrl_pcie0: pcie-grp {
- 		fsl,pins = <
- 			/* M2_PCIE_RST# */
- 			MX8MP_IOMUXC_GPIO1_IO05__GPIO1_IO05		0x2
--			/* M2_W_DISABLE1_1V8# */
-+			/* M2_PCIE_WAKE_1V8# */
- 			MX8MP_IOMUXC_SAI5_RXD2__GPIO3_IO23		0x2
--			/* M2_W_DISABLE2_1V8# */
--			MX8MP_IOMUXC_SAI5_RXD3__GPIO3_IO24		0x2
--			/* CLK_M2_32K768 */
--			MX8MP_IOMUXC_GPIO1_IO00__CCM_EXT_CLK1		0x14
-+			/* M2_UART_WAKE_1V8# */
-+			MX8MP_IOMUXC_SAI5_RXD3__GPIO3_IO24		0x40000002
- 			/* M2_PCIE_WAKE# */
- 			MX8MP_IOMUXC_GPIO1_IO06__GPIO1_IO06		0x40000140
- 			/* M2_PCIE_CLKREQ# */
-@@ -974,6 +1075,8 @@ pinctrl_uart4: uart4-grp {
- 		fsl,pins = <
- 			MX8MP_IOMUXC_UART4_RXD__UART4_DCE_RX		0x49
- 			MX8MP_IOMUXC_UART4_TXD__UART4_DCE_TX		0x49
-+			MX8MP_IOMUXC_NAND_DATA02__UART4_DCE_CTS		0x149
-+			MX8MP_IOMUXC_NAND_DATA03__UART4_DCE_RTS		0x149
- 		>;
- 	};
- 
-@@ -1100,4 +1203,11 @@ MX8MP_IOMUXC_SPDIF_EXT_CLK__GPIO5_IO05		0x6
- 			MX8MP_IOMUXC_SD1_DATA6__GPIO2_IO08		0x26
- 		>;
- 	};
-+
-+	pinctrl_wifi: wifi-grp {
-+		fsl,pins = <
-+			/* WIFI_BT_RST_3V3# */
-+			MX8MP_IOMUXC_SD1_DATA0__GPIO2_IO02		0x40000090
-+		>;
-+	};
- };
--- 
-2.51.0
-
+So unless there is anything in particular that is on-topic and prevents 
+this patch from being applied, it would be good to apply it, otherwise 
+the GPU on MX95 in mainline Linux is not working.
 
