@@ -4,59 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88303E92FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 02:06:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4B2EE92FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 02:19:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xr3/3S+m/fk/qhvwWxW+siopYza20xJzcZQaFErg5gs=; b=qc9VvUBwK5d4HnxnSWKDTlmCsj
-	dtPbE+4vDkMiafQgVUDeqwbrYzfEGBKebF49dqTKPTBidy4aNnw5BjIB12y2qBG9yvI6w+OPBOh5H
-	cWc62GvtiJpL/jq4ikuwPiH9+KViTxmCebHU6eyFNzUChN83rWcn63wT1Mpu32h8i6cc1tNzwWAd2
-	HZTAXhW6P2bnLMdnl6uYHhqK2MIJQRpioxkwt6Df8GAjssb4rIX6cd9xJu9KbOJmWIbTNCuh1+3X9
-	3CZjHZqe0OMeaKnXZMzb4Nruhndme3HJ9eT1okQMtYDFc8YTOETp1Hxq39U1Qg5ioS0SMCXJPHQg6
-	6sCplbSw==;
+	bh=pXz52BDb0gVRRoyn2YWkB+/E8hzCdvW2udKwjplDP+E=; b=ezb2OEf1wyiQ9/GepF2voVrKl9
+	zubx9qtOHvzxzObAUgUAq36Ug9MYeQw3fr6B+4leYUJNEwhMZgAy4wJUOM/n7Ou1KisIUGtyWkpRb
+	X3QQNJ9zfGRRq19ffr9yPz9Y2byEMV94BJSpTIBIGnL2AvQA2XPnFKaJi5NVqJ+PVaWvAE+1/YGPT
+	Jrsw1b8BN1iq56GFebsdDePcjSZyWhKZhubPHMsSLkkYcrt+NyZ66Oyc8KRZaCAz8q8v/UcDyvaUT
+	uD4q7j1AoL4klOYi1UG0XydW1ZSqjnqTqcTIOOR3xn6ST+6BVpGM9rxAE6khjO8qOV4j04wC7EVtl
+	Lyu0m7Qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaP7U-00000004Hwa-0lLj;
-	Tue, 30 Dec 2025 02:05:56 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vaPKv-00000004IVE-0IYq;
+	Tue, 30 Dec 2025 02:19:49 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaP7T-00000004HwN-0xMi
+	id 1vaPKt-00000004IV7-0c42
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Dec 2025 02:05:55 +0000
+	Tue, 30 Dec 2025 02:19:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2997C6000A;
-	Tue, 30 Dec 2025 02:05:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12E54C4CEF7;
-	Tue, 30 Dec 2025 02:05:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4225D60010;
+	Tue, 30 Dec 2025 02:19:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C6C2C4CEF7;
+	Tue, 30 Dec 2025 02:19:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767060353;
-	bh=blBBr5bSdI6bhL85aAht4uJAb892PffQuaVXBuFiBI0=;
+	s=k20201202; t=1767061186;
+	bh=WsPnlXAeGWWyvfoz7fE2YJBhrIMmZkk6VEdC/cu1WMs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mOllXsWC4JEHwwVwUwGg85Ff/SrA1qmRa6BXj8Zn0T6SdS4FE6RsWYYFUQe3bo3iY
-	 uhAgu44OHcGKojNgfl+rk4n6nA6B46nhhqH4qXQGiQENRw17ThE5BzZfEYQK2aV1ba
-	 ygKZuKF3Q0Hjwr9ToloOT74GDsWhxqZwBQvP0WLoiaC9Z6lLl7AS1ae8BJNvPp9Wd/
-	 sUN1aHnqZhlwh276EL3VktTsmYqIGNwwSHkcr2XeKggu3p6tkWxvjla8jKdkO/c64w
-	 kshT+NY43FZvakCaRhlz4GC+PJgp520etkSurE5rH5Rhv49zjJ0YVEwsyPphM9Yoof
-	 X8ZEHvkB0A1LQ==
-Date: Tue, 30 Dec 2025 10:05:47 +0800
+	b=lGnKrIZJQzFQCw241+iLQOodHcNvwIGaG9yN0ld0s/xBn79ZHrh8XHm6tLEOewFjq
+	 MQSrgrrYGCnrZOO+zv3TchwuKQP7aSZa2kxHAAQDReFWs2AmP/w8aVJFeTlAhu57TM
+	 DgrqZNJ6OEDoiso0OEF6ldRMOQfVC0zGHxQowc+4N788x6KqpX186efW6r+5wI2IE1
+	 LzyLQcLDfF2OoiohoGYov3dDXy7oLgWOC7Sc5llJwnDLCT/tCYRfZM2AxcHQ6nIGri
+	 OtSZ7QHwPcdybRAVPuIrXb9UNF6mJ9FvbwqKcPFz5tx0aiZVteWoJxQuArwSbtt/Rp
+	 LYakBXwE4tEBQ==
+Date: Tue, 30 Dec 2025 10:19:40 +0800
 From: Shawn Guo <shawnguo@kernel.org>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Ian Ray <ian.ray@gehealthcare.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux@ew.tq-group.com,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Justin Waters <justin.waters@timesys.com>,
+	Akshay Bhat <akshay.bhat@timesys.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/1] arm64: dts: tqmls1046a: Move BMAN/QMAN buffers to
- DRAM1 area
-Message-ID: <aVMzew2DNhm0Vwf7@dragon>
-References: <20251201070333.6804-1-alexander.stein@ew.tq-group.com>
+Subject: Re: [PATCH] ARM: dts: imx6q-ba16: fix RTC interrupt level
+Message-ID: <aVM2vJIPggFjHn2t@dragon>
+References: <20251201095606.990-1-ian.ray@gehealthcare.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251201070333.6804-1-alexander.stein@ew.tq-group.com>
+In-Reply-To: <20251201095606.990-1-ian.ray@gehealthcare.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,12 +75,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 01, 2025 at 08:03:33AM +0100, Alexander Stein wrote:
-> DRAM1 is only 2GiB in size (0x00_8000_0000 - 0x01_0000_0000) which is
-> already used by Linux kernel, etc. Move the allocation area of BMAN and
-> QMAN to DRAM1 region. This frees the complete DRAM2 area for e.g. CMA.
+On Mon, Dec 01, 2025 at 11:56:05AM +0200, Ian Ray wrote:
+> RTC interrupt level should be set to "LOW". This was revealed by the
+> introduction of commit:
 > 
-> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+>   f181987ef477 ("rtc: m41t80: use IRQ flags obtained from fwnode")
+> 
+> which changed the way IRQ type is obtained.
+> 
+> Fixes: 56c27310c1b4 ("ARM: dts: imx: Add Advantech BA-16 Qseven module")
+> Signed-off-by: Ian Ray <ian.ray@gehealthcare.com>
 
 Applied, thanks!
 
