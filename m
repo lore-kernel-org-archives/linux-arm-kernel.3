@@ -4,81 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29C06E9412E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 09:17:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E070CE95A69
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 09:52:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rZGTwUQXXsaH9P/sj36gCU1NPe3EIdV70fYUKRoUz14=; b=jD3lXCjOc53M5Pj1QLTnvlqq/N
-	c9SflfWYkf/XbGqmwtFA6AhPylEoQVic1ib8vyb+2AQYnkRigfYaFd7HYcIgy/Lscx4J/aFRXd5/6
-	wJz1c+n27Z7uejasYd8lH27ZNdplbKKi3pevpYKKyljF+Khq/N7kOCgfm2x034u7SvHbanHKy5rJ4
-	cPHRftoohMZgInGkWJkSoVQzn8V4EAKJMJbM05f23LNuWKwdXgzkJ9w3AKeD772VQGL73B61Dce7t
-	G+DnDtjn5lyj8MSswGQCG6tAz5fP91E2RqhVXDXU8bciuRb1ZLQBQ6J0R4PWW7J9C97M9a5h1btyt
-	VjUkQJ1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oRBqWK754HQ+VnnEgg2rE343u4CjO7SAOMhkmKds39g=; b=Au5ePrhNZe7bbjJ0UhmD/BQTN/
+	SIIfoWYcp/lhSEg4q0PNR9uyZWUTSNEZYM11WwFenN5tU77oeYW9Uy1492Yj8oKTpaQEn2Y1n070N
+	wLgqto9nTbuRin3h1+ym8JuNO/A/LnDd8JTujSFQEed72L5V8LETHJwR/4ayEx0eytDTVxG2wxOmX
+	2+2c3P122Jv7IoWAqhs75L7oer9OEzq4qHuWouWbjHQiIZzCBXNaqU7GC68muqqSmVFwcOwSag+3i
+	skYapgz4FEATAwrtsgOULdnOaEYbpgvNwQOd2R3jAAL2k3pkYcbzTB60JbvBu8RaUuq7YY2fLuGDH
+	fBEPabXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaVrA-00000004f41-2Ib8;
-	Tue, 30 Dec 2025 09:17:32 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vaWOW-00000004gPB-2QR3;
+	Tue, 30 Dec 2025 09:52:00 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaVr7-00000004f3W-00EA;
-	Tue, 30 Dec 2025 09:17:31 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 37B664E40C59;
-	Tue, 30 Dec 2025 09:17:23 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id E54CE6072C;
-	Tue, 30 Dec 2025 09:17:22 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E979D113B05C1;
-	Tue, 30 Dec 2025 10:17:13 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1767086241; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=rZGTwUQXXsaH9P/sj36gCU1NPe3EIdV70fYUKRoUz14=;
-	b=CrPy81H0ZL6UTXpsNBD6TmghQkFld1EUqrMmDF/sauZPPbByFEHCvAfe9XNGnQNeDKRfIc
-	AxZslYDC3B68czrpggoz9i3fH7+4HCM1zh/TlP2eHZPlds25F8mr+9yAt90ws1Hc7hKHG7
-	4Pfw/d9dX6lnm51ysE4yyTkKBXjs2fuFiVpkLnYyZTTZ2GGPD6ZBdJ97epu9jA/+hhlOPu
-	UYCSytTI99tgN4NL9+kP1yL4KVpDrA1TR0lypBQN8ajzCb2Np8JTV6VvOhctGM90PvTYmK
-	zF3QLxNsYiGFylS/TvdJvFhe8w+FpMshXSIkJ8lPEYBMyjiySddhKV+2cmLHig==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Jonathan Corbet <corbet@lwn.net>, Alexey Brodkin <abrodkin@synopsys.com>, 
- Phong LE <ple@baylibre.com>, Liu Ying <victor.liu@nxp.com>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Kevin Hilman <khilman@baylibre.com>, 
- Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Hui Pu <Hui.Pu@gehealthcare.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-doc@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
-In-Reply-To: <20251216-drm-bridge-alloc-getput-drm_of_find_bridge-v3-0-b5165fab8058@bootlin.com>
-References: <20251216-drm-bridge-alloc-getput-drm_of_find_bridge-v3-0-b5165fab8058@bootlin.com>
-Subject: Re: [PATCH v3 00/22] drm/bridge: add of_drm_find_and_get_bridge()
- and a managed *next_bridge, deprecate of_drm_find_bridge()
-Message-Id: <176708623356.127863.8623917477288453126.b4-ty@bootlin.com>
-Date: Tue, 30 Dec 2025 10:17:13 +0100
+	id 1vaWOU-00000004gOe-1geE
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 30 Dec 2025 09:51:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3812B43E78;
+	Tue, 30 Dec 2025 09:51:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AA6CC4CEFB;
+	Tue, 30 Dec 2025 09:51:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767088317;
+	bh=gBRYhXzdxpgW2LbKNyYvsM7152M325zjOsxLOggdP+c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FbXCjB2fOucaUCT6DZ/4HYmb/t1btB8YpboCpdi4/TkEXOCWY5BL5HZ/thDpGB5SI
+	 kB/7ou2/eMO0Ov6ktO87snHDPIlPI9nvsNYZe3l1S70JLx4i15nK/kytMr2Lo/aaL4
+	 +MQcWMtecazKK1IY7rNYBe480dAGT51WHhSJlGIz8DV28oMXnJSX3MFL4xEVLPOTrO
+	 Jo8JOVZlm+WVSYlzNNL3NXsRB+eR2/8yLu+9Ui9uzpKggDKRJG8q8Om7WPhwYdQ1RR
+	 t4t8nJ4jILRNVX+8jU5qfBwi1l6GA1yUcOz+35Z7OdO2fKc6eMfKCL0VgK4sNbeaBE
+	 Y5LGO5wODwDSQ==
+Date: Tue, 30 Dec 2025 10:51:54 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Alexandru Chimac <alex@chimac.ro>
+Cc: Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Tomasz Figa <tomasz.figa@gmail.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/3] dt-bindings: pinctrl: samsung: Add
+ exynos9610-wakeup-eint node
+Message-ID: <20251230-dramatic-gregarious-stallion-15bc07@quoll>
+References: <20251228-exynos9610-pinctrl-v2-0-c9bbeee4c54b@chimac.ro>
+ <20251228-exynos9610-pinctrl-v2-2-c9bbeee4c54b@chimac.ro>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20251228-exynos9610-pinctrl-v2-2-c9bbeee4c54b@chimac.ro>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251230_011729_326410_A74ED6BA 
-X-CRM114-Status: UNSURE (   7.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251230_015158_467656_A461732C 
+X-CRM114-Status: GOOD (  13.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,67 +76,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Tue, 16 Dec 2025 18:58:33 +0100, Luca Ceresoli wrote:
-> This series deprecates of_drm_find_bridge(), adds a replacement which
-> handles bridge refcounting, and converts some of the direct users.
+On Sun, Dec 28, 2025 at 06:05:52PM +0000, Alexandru Chimac wrote:
+> Add a dedicated compatible for the exynos9610-wakeup-eint node,
+> which is compatbile with Exynos850's implementation (and the
+> Exynos7 fallback).
 > 
-> This is part of the work to support hotplug of DRM bridges. The grand plan
-> was discussed in [0].
+> Signed-off-by: Alexandru Chimac <alex@chimac.ro>
+> ---
+>  .../devicetree/bindings/pinctrl/samsung,pinctrl-wakeup-interrupt.yaml   | 2 ++
+>  1 file changed, 2 insertions(+)
 > 
-> Here's the work breakdown (➜ marks the current series):
-> 
-> [...]
+> diff --git a/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl-wakeup-interrupt.yaml b/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl-wakeup-interrupt.yaml
+> index f3c433015b12..deb2730855bd 100644
+> --- a/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl-wakeup-interrupt.yaml
+> +++ b/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl-wakeup-interrupt.yaml
+> @@ -48,6 +48,7 @@ properties:
+>            - enum:
+>                - google,gs101-wakeup-eint
+>                - samsung,exynos2200-wakeup-eint
+> +              - samsung,exynos9610-wakeup-eint
+>                - samsung,exynos9810-wakeup-eint
+>                - samsung,exynos990-wakeup-eint
+>                - samsung,exynosautov9-wakeup-eint
+> @@ -107,6 +108,7 @@ allOf:
+>            contains:
+>              enum:
+>                - samsung,exynos850-wakeup-eint
+> +              - samsung,exynos9610-wakeup-eint
 
-Applied, thanks!
+This is not needed. Device has 850 fallback, no?
 
-[01/22] drm/bridge: add of_drm_find_and_get_bridge()
-        commit: 293a8fd7721a90987d9bf149feab60e756dac269
-[02/22] drm/bridge: deprecate of_drm_find_bridge()
-        commit: 9da0e06abda87b1f97014113d5231fdeb4700749
-[03/22] drm/todo: add entry about converting to of_drm_find_and_get_bridge()
-        commit: c637217efb892ac5d0d5f9aea3df92147c2e24db
-[04/22] drm/bridge: make of_drm_find_bridge() a wrapper of of_drm_find_and_get_bridge()
-        commit: 5d7cb36254b5facd2a349331c1a47102d4e66e40
-[05/22] drm/arcpgu: convert to of_drm_find_and_get_bridge()
-        commit: 7282066e55347b26cb31784059ab62c2de8a3e01
-[06/22] drm/bridge: add next_bridge pointer to struct drm_bridge
-        commit: 3fdeae134ba956aacbd87d5532c025913c98fc49
-[07/22] drm/bridge: ite-it66121: get/put the next bridge
-        commit: 8f92a5fcbfe33f86b08f5f74dcc58a41425ea8c0
-[08/22] drm/bridge: imx8qxp-pixel-combiner: get/put the next bridge
-        commit: ae754f049ce1c01f09d175f80265970f0d5b4489
-[09/22] drm/bridge: simple-bridge: get/put the next bridge
-        commit: b9a7d5918bd436d64699b80af061f21c168df699
-[10/22] drm/meson: encoder_cvbs: get/put the next bridge
-        commit: 47fa48b3faa7cae925c9b14b18376cdc4622bae0
-[11/22] drm/meson: encoder_dsi: get/put the next bridge
-        commit: bfb8f5d0a9e756c57d4fc0f7966e4873bbfb34a5
-[12/22] drm/meson: encoder_hdmi: get/put the next bridge
-        commit: c87ad784aacb89cf88c00cde78970543010a6d67
-[13/22] drm/bridge: imx8qxp-pxl2dpi: simplify put of device_node pointers
-        commit: ceea3f7806a109baba4a23c9066eb9e86659408b
-[14/22] drm/bridge: imx8qxp-pxl2dpi: remove excess error message
-        commit: 54af17788629fbf343c5a9ebc55454d6a5486ff8
-[15/22] drm/bridge: imx8qxp-pxl2dpi: imx8qxp_pxl2dpi_find_next_bridge: return int, not ERR_PTR
-        commit: 0dc4a8d6d096f97a00b10919e8ffe2466666f03c
-[16/22] drm/bridge: imx8qxp-pxl2dpi: get/put the next bridge
-        commit: 6802c7ee360d98a018962adb8412d42dcca28272
-[17/22] drm/bridge: imx8qxp-pxl2dpi: get/put the companion bridge
-        commit: 900699ba830fd3558ba00f55fbf014022dc7ecdb
-[18/22] drm/bridge: imx8qxp-pixel-link: simplify logic to find next bridge
-        (no commit info)
-[19/22] drm/bridge: imx8qxp-pixel-link: simplify freeing of the remote device_node
-        (no commit info)
-[20/22] drm/bridge: imx8qxp-pixel-link: remove excess error message
-        commit: 40630210211a34f0714fe976530ccf1291e5ef78
-[21/22] drm/bridge: imx8qxp-pixel-link: imx8qxp_pixel_link_find_next_bridge: return int, not ERR_PTR
-        (no commit info)
-[22/22] drm/bridge: imx8qxp-pixel-link: get/put the next bridge
-        (no commit info)
 
 Best regards,
--- 
-Luca Ceresoli <luca.ceresoli@bootlin.com>
+Krzysztof
 
 
