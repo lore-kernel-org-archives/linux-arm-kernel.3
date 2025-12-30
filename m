@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56E21E9410A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 03:00:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE22BE92FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 03:13:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N8a1sx3itCAXO94VA3HQ7U54YmFfTU2DYVOqXzymjEk=; b=fzxm2jyoLuLZChc+P1K6hjDxAS
-	FXwgKq/P++NzCD0frz9M0pezGtN6tNFeteWxtNEpAzTz16MU+XifWTxOSb6hswbbE7q3mISuDq3VD
-	HTXQ3yRY3+q1sTRc3XM1VvL0gS4ocvyvSUkyq/Ht1sCftqPOHPJG8g0J4BJ7cAWB+pY0sqxadcqnS
-	Lfg6bpfundrVK0NVIeEQNTldYdE9WnvwX7/7xzqjvDFapBsGGDEtgIQTzlxEhYgScoS/EoXzgrQrv
-	PYOVto8EwwrhNEz32Sl3zJj6QruOJLCe/xo1pOJyxM59eaqCNnkqsx+DdiT498jSlBd/OMqZIOGnn
-	/umAHGKg==;
+	bh=x8epxQQ6xUkcc6EnU3IePNmeq7hU64iYP0kmQ8lPeMI=; b=rxXYXkljfroV5FiiNj7jKI6cp/
+	qR5yZqdM7pie9UaYX8KhsMIQcTtPUcBIQ2jOQnuPCuew97RwxTbI3IeaeYdq7FDZF7LQJ+ul3Btkx
+	z8KQhzBiRyFD29EmnC5xIUkTcGaWZMK8vSg/7fx9GKtxY3Vk58HuSnGKp/UF+aUjKlSnJEIg/6h3j
+	qaEn2Nzbz16fyX7m6YnQKuvwAFCpjtJF+KeI6rkYxEdHXxrUris/NKeriHBBTYFgh9Xq80ULBiv1y
+	lBtTkujcULzBdTOcb7xpWo6+gByOtvLmPXzJLgZiYCwLuBuGQ329pMcn7Ep3JtI1aBUmj/6C5ljap
+	3jEpizxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaPxk-00000004LHT-2b4w;
-	Tue, 30 Dec 2025 02:59:56 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vaQAw-00000004Lp9-3u0a;
+	Tue, 30 Dec 2025 03:13:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaPxj-00000004LHL-0jro
+	id 1vaQAu-00000004Lom-27Dc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Dec 2025 02:59:55 +0000
+	Tue, 30 Dec 2025 03:13:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2B2606000A;
-	Tue, 30 Dec 2025 02:59:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1D5F5C4CEF7;
-	Tue, 30 Dec 2025 02:59:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9EC8F404C1;
+	Tue, 30 Dec 2025 03:13:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 025F9C4CEF7;
+	Tue, 30 Dec 2025 03:13:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767063593;
-	bh=+BmXUEiiyeVcTdYDhJWiItwNydOodkCcStv+E5cUu+s=;
+	s=k20201202; t=1767064411;
+	bh=SChn05DCiVGJdEArMObQBUB0k7u74rd1jxqKVOfotXA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=m6ZGAiJrPHrIhhO4g4V1dz5F2Gww7i1mwBejaUoWSNhAvt9sbFb441e49xcEjLGK1
-	 leNRQPlBzQr8aeRVJ4sDm6/bZX86e+GoSZpeCc1cnX4dVeDqSzxW6c1Ug8Vpa+7Ro0
-	 M641v/KT0Qg9OrB6lVC676Vye6SzwZYcmX8ZkMDx6QUHOuGMI93uClOay+FxOLDt3i
-	 NNNeylg0ae+c5c2aytrnGj9QlU9ImKfqLUBhrQ/hGDA5mBR4Zq6Qrnl26112BR2Na4
-	 JgEpC0cMuXtkKOd+THjC2xSyu0hdJjVvB3d0dDyN4uIaFLtEQtJEnFNKD/xt8FMuY5
-	 O/IR7Z0IH9DiQ==
-Date: Tue, 30 Dec 2025 10:59:48 +0800
+	b=ZsMCxrhl0Y73xf02NnAyflBkAM8ZsZ/LKgcNJBMCS27TtnxlLNcKL5JH4COq9XRNr
+	 dtr0JtYv7gSSXvU6d7HOV9QRtzNap6B7u1FMnQu4Is5Er9VH0CfQDWZio13Kg/kFtk
+	 MdDeBycYF2n6lEKE8Orbhy5icD69jRNysg9o94du2c9xrZRgMEU2lCgqOnns1ohNxk
+	 5CNE1iRarixNZWS/YEwLz2gX4qF3s1Trc2QRxARpR++IizojkqGrOSDeJoHKNQ84BY
+	 2uXUy0v5jNnrewNFVcueycqXAYcTH6wUBvDTpZ4D2KuVJyL5EEurXLtOmOgrBsBbJX
+	 l0+FxIeNPirDQ==
+Date: Tue, 30 Dec 2025 11:13:26 +0800
 From: Shawn Guo <shawnguo@kernel.org>
 To: Francesco Dolcini <francesco@dolcini.it>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -53,13 +53,18 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Francesco Dolcini <francesco.dolcini@toradex.com>,
 	devicetree@vger.kernel.org, imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v1] arm64: dts: freescale: imx8-apalis: Add ethernet alias
-Message-ID: <aVNAJDTkBihpsmi8@dragon>
-References: <20251209085747.39009-1-francesco@dolcini.it>
+Subject: Re: [PATCH v1 0/3] arm64: dts: freescale:
+ imx8mp-(verdin|toradex-smarc): Add HDMI audio support
+Message-ID: <aVNDVu0ELBsKR11J@dragon>
+References: <20251209101754.54067-1-francesco@dolcini.it>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251209085747.39009-1-francesco@dolcini.it>
+In-Reply-To: <20251209101754.54067-1-francesco@dolcini.it>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251229_191332_564747_DA93136E 
+X-CRM114-Status: UNSURE (   9.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,14 +79,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 09, 2025 at 09:57:46AM +0100, Francesco Dolcini wrote:
+On Tue, Dec 09, 2025 at 11:17:48AM +0100, Francesco Dolcini wrote:
 > From: Francesco Dolcini <francesco.dolcini@toradex.com>
 > 
-> Add alias for the apalis first ethernet interface, this ensures
-> consistent interface naming (e.g. `end0`) and this is used by the
-> firmware to correctly set the MAC address.
+> Add support for HDMI audio on Verdin and Toradex SMARC iMX8M Plus boards, as
+> done in commit b21f87b8322f ("arm64: dts: imx8mp-evk: enable hdmi_pai device")
+> on the NXP i.MX8MP EVK board.
 > 
-> Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+> In addition a small cleanup on spurious comments.
+> 
+> Francesco Dolcini (3):
+>   arm64: dts: freescale: imx8mp-verdin: Remove obsolete TODO comments
+>   arm64: dts: freescale: imx8mp-verdin: enable hdmi_pai device
+>   arm64: dts: freescale: imx8mp-toradex-smarc: enable hdmi_pai device
 
-Applied, thanks!
+Applied all, thanks!
 
