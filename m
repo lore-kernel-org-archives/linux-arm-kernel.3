@@ -4,60 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEF5FE92FE3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 02:42:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44D3FE92FE3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 02:51:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KwLimuBH2pouyJ0zPW8xHExLdPzunz5tvUiU1WuWwyc=; b=X8VxHJ/QnFLJVp6SNN4MOyOe4g
-	qZzr3+FFxSu2FNm38Lcqw7bfjHJBuLKchC8b5it0/60RnU5CfXRN5YYQBpPzuZet9eX9euEiHskIT
-	ERFrY3wSbVUkTxbRRvnHV9O9sHdMJK9/Zwqo6pHcr0hRuRIH3s77ETO29asiyy2n++2oeJUSneltA
-	gEwv/GIU9HuNTI/FfQF/GS63RyPRlJ1EB4+avnUSeaib9D2T3HIS0I0Z/7kJ9DPNcPW+WA8s5sFaS
-	YaHNqduLyzF2SB3VSAR+vVoptmxk8uI6Dhwxrb4NyBTESIT3gql+Kpr6mP5kOfLcuS2jsdD4Tqd+d
-	jAonJ1og==;
+	bh=L1dPLv7u+8dOr8JeXMSA5l9e7FtcQyw81ZoFJylnkEY=; b=Nbb8/73sqOrEsJo61w92noi6rM
+	5Ar8Ji7/mYyij8MLpw5dYhSf3KVT0j9L+VK6T1f+vZLDJqQzrwaS4quBBKSwa18suB5PLCSuqNX0j
+	l3rKald/MsBOlIHMBQZxZiolFgZNT+AdlsGrSGbLFJ9erLL1a5B2Z8nL9LssqtUc/CnszHGCTh4JD
+	LpYABqXqTNjl2ZtO+XaI7hupFvOqzhm4jQJE3m86VyRdwpTjrnwRyfQybiRzERBNfWTB58qVMpZVS
+	qfA2YaQO9L3JBKKtxIlptZ0yox9cIz90Dw0suRbCWqb/sdEwk4oH+92xVUk+i7SK2FTt4UxrU8PLu
+	22KCgTWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaPgk-00000004KRK-1xCO;
-	Tue, 30 Dec 2025 02:42:22 +0000
+	id 1vaPpC-00000004KnY-424x;
+	Tue, 30 Dec 2025 02:51:06 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaPgj-00000004KRD-38Tl
+	id 1vaPpB-00000004KnP-1pIe
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Dec 2025 02:42:21 +0000
+	Tue, 30 Dec 2025 02:51:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C2D306000A;
-	Tue, 30 Dec 2025 02:42:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDE8BC4CEF7;
-	Tue, 30 Dec 2025 02:42:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5332660010;
+	Tue, 30 Dec 2025 02:51:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2ED9DC4CEF7;
+	Tue, 30 Dec 2025 02:50:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767062540;
-	bh=ex91xnF6MkNj7hiFlM7l/hy/nOh8ImjY8BhkJIjbKtk=;
+	s=k20201202; t=1767063064;
+	bh=Oaw8zlbEKeCp3Er7YfTJQKyFYMc/kre6qSyFVumm2vw=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bFqlen2QR6aChTne53MHAx91TnowKZLIlOlNnsjTxmoHllG26h/2ZCr8aafvipojx
-	 q5I5cUBDSmHm9wtRx4kQwQCGTysMxIPbBJjAk5a2sHRn1E7LMKHumemKcmylnJkMtS
-	 mfuldetu8tElRCdQqEndNX/eQwj0m16QqH8BJf6/E6uaGaWCUCIzc6VS9RX+rDMRqB
-	 VtmwDDCKGYe4a1VY7tIA0+bgM6oOuNmZs0EucEpgQXW3FnhzuzSXDWRKiokVLtjURh
-	 a2A6jcZP21dofp/0uzef+YJLdcy6lymNAls30E9f7djJUsO996HPVYjNTfRfVrmem2
-	 Ds9Og6lLevZ3Q==
-Date: Tue, 30 Dec 2025 10:42:14 +0800
+	b=ol6ETTKuuppcnaJb/fk6kB2AseOHnZigYn18blBEr/H+pt4dbJkTUas0IzNtWCzJl
+	 Q8QTapWlROn0G5amvtxKGvftdarHO4X/2cdeBSU5iJmyvrYZ+BEev/gJhaLPlFqGDd
+	 lPbZubZlGbW+pv9npvF6pb3phFMjBcDnB0qgY+qGvQ632ffNOwnGgkHJMwJTg3YlI9
+	 ggRTYZvaK7OXTepkMOJr1yNwUtp/WAKFQPJiJKE9rCzj4oc0Ac6aKMbxid1ZR/6lkc
+	 JSZ9AFAyZe6fMITs5HYKBIm6yElMNsYseEqIX3FLLz1mmfUsgK+Npv3E6xREM359RV
+	 Iuk1G0Hz58WBQ==
+Date: Tue, 30 Dec 2025 10:50:56 +0800
 From: Shawn Guo <shawnguo@kernel.org>
-To: Chancel Liu <chancel.liu@nxp.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+To: Yannic Moog <y.moog@phytec.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, upstream@lists.phytec.de,
 	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/5] arm64: dts: imx91-11x11-evk: Refine label and node
- name of WM8962
-Message-ID: <aVM8Btd9CYEfg9zz@dragon>
-References: <20251203070605.1868821-1-chancel.liu@nxp.com>
- <20251203070605.1868821-2-chancel.liu@nxp.com>
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Frank Li <Frank.Li@nxp.com>,
+	Stefan Riedmueller <s.riedmueller@phytec.de>,
+	Teresa Remmet <t.remmet@phytec.de>
+Subject: Re: [PATCH v2 0/4] arm64: dts: additions for imx8mp-phyboard-pollux
+Message-ID: <aVM-EKLH10KzU1ks@dragon>
+References: <20251205-imx8mp-dts-additions-v2-0-d4db54fbadd0@phytec.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251203070605.1868821-2-chancel.liu@nxp.com>
+In-Reply-To: <20251205-imx8mp-dts-additions-v2-0-d4db54fbadd0@phytec.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,36 +76,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 03, 2025 at 04:06:01PM +0900, Chancel Liu wrote:
-> Refine label with "wm8962" and node name with "codec" to follow
-> devicetree specification.
+On Fri, Dec 05, 2025 at 10:33:24AM +0100, Yannic Moog wrote:
+> This series adds missing miscellaneous hardware description to the
+> respective device tree files as well as a bluetooth/wifi expansion
+> board.
 > 
-> Signed-off-by: Chancel Liu <chancel.liu@nxp.com>
+> - i2c3 (basis for camera overlays)
+> - missing supply voltages
+> - PEB-WLBT-05 expansion board
+> 
 > ---
->  arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> Changes in v2:
+> - improved wording of i2c3 commit description
+> - removed regulator-always-on and regulator-boot-on properties
+> - rebased
+> - Link to v1: https://lore.kernel.org/r/20251020-imx8mp-dts-additions-v1-0-ea9ac5652b8b@phytec.de
 > 
-> diff --git a/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts b/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
-> index aca78768dbd4..313ebc7e8a9c 100644
-> --- a/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
-> +++ b/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
-> @@ -132,7 +132,7 @@ &lpi2c1 {
->  	pinctrl-names = "default";
->  	status = "okay";
->  
-> -	audio_codec: wm8962@1a {
-> +	wm8962: codec@1a {
-
-The node name could be better named as audio-codec.
-
-I fixed it up and applied the series.
-
-Shawn
-
->  		compatible = "wlf,wm8962";
->  		reg = <0x1a>;
->  		clocks = <&clk IMX93_CLK_SAI3_GATE>;
-> -- 
-> 2.50.1
+> ---
+> Stefan Riedmueller (1):
+>       arm64: dts: imx8mp-phyboard-pollux: Enable i2c3
 > 
+> Yannic Moog (3):
+>       arm64: dts: imx8mp-phyboard-pollux: add fan-supply
+>       arm64: dts: imx8mp-phycore-som: add spi-nor supply vcc
+>       arm64: dts: imx8mp-phyboard-pollux: add PEB-WLBT-05 expansion board
+
+Applied all, thanks!
 
