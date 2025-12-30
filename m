@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18C7FE95A79
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 11:16:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F898E95A77
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 11:32:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1guDDeJREHvuCw+ZPT1T95z9nhJbFOwEjHIzC5xChIk=; b=ZrC620bugrG5P6erAI02CcOFLD
-	GtxBrGMqtETdwS7O4EPEnEGY4qkvqbxo6P3hLAJaTdGYCHdO1JiHd/8394rE5LJqjFlyMwcIDL+l9
-	tnhnEt9ylapJJcT5i/HwLyVwOBCdN/r7M6RE8WPY19BIeCXShbdOvaw9OfGd6/TXrP8SQT4PtNXSj
-	/mKrlZLl3vzYaTdxUMcUWY2wtYhOYlTb5sh7ZyJ2gRUvHn109qEozgD8XGtMypqAGJgy+b+X+lFa4
-	rY0py50d5k/dOzA2rhpW0IpB8Qug8z2KVDXFlThI+FhoTB2SgB8W1G9pL5NJC6ekkIIjn5bK6GofL
-	3ez9mtKg==;
+	bh=K1snltsDxV+ytJEneWUq7yohHenCMNfAO6GgsDzcizc=; b=dMuYGX1G8c8W9yr8S9PtuXIfds
+	RyuW9dI182gi2JmuL+ZVlH2+OWuRGvASmkxv5QJ9+wKciS1PoJwW755jitIJ4WNrBb09PoPJlGd0z
+	erX9NZg9lyrUaOo6x8oWAt9L0otVP42vyNj/hGu39YGLrfGLETO15QHzW8x0GvWE6jZnt+/Kq7Hhp
+	zGfOl0U29pDuw6CvX8gsW1EoCZI6nkamm+ivz9/E8qcNHNhm2tDg9itcx3N3n5Bs7EiW/f+9tWpeD
+	PSq7WDO+491Wu2I0IhpyJaGS50oh5PxIAzdNEoEC3UxeLJpiVOIDTOwqZDhqBRZIYadsBfAsHwuhB
+	WyDy9cRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaXi7-00000004kjA-36ZD;
-	Tue, 30 Dec 2025 11:16:19 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vaXxr-00000004lLy-0bmN;
+	Tue, 30 Dec 2025 11:32:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaXi6-00000004kiz-14px
+	id 1vaXxo-00000004lLc-30Kq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Dec 2025 11:16:18 +0000
+	Tue, 30 Dec 2025 11:32:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 50E226000A;
-	Tue, 30 Dec 2025 11:16:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 764D6C4CEFB;
-	Tue, 30 Dec 2025 11:16:16 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E2EC942DDF;
+	Tue, 30 Dec 2025 11:32:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40BCCC4CEFB;
+	Tue, 30 Dec 2025 11:32:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767093377;
-	bh=uqmUVWYwiYG8qYbJoU6eyoDu1iIymIOMQ/K/g42OgHY=;
+	s=k20201202; t=1767094351;
+	bh=1wH3ZPxPRehzt76eXsHKSmF14QWef8nqajbMpVN7FTs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jSzI6+jS+0Ww9sc0VnhdAjjAKKd+S3PPhyjCgeEH1RD0s1QGtWRQds3lfArdQg6Vb
-	 f98a9p0WooJ2Dlr/WLYZOck4HR3QWDhA5q9+5NIn0lkfxXmR6anrNQlwntIMMyocRp
-	 rJv/zhVZ3SXk4OHG1j6DOheJJ12xbY3tWPojRB+DVOLdOFvNeWWe1gJRkOGhSMOMdd
-	 IiN2tMoq+PwJzjcT3n4cf5TRsk1KlJrQ98oe9GSKB6JTcBAO8A09Mk+Q9QnAe18Qc/
-	 vlsCg5peF9R0++ETlVktBhMsCPpwbY5cNvu7uHBQRNvWgzOjj2ARdR6SgJCgeSiwus
-	 wFYFmGU538QPw==
-Date: Tue, 30 Dec 2025 12:16:14 +0100
+	b=fJoVs731GixdCVTUbjmkQfw5Lom+AtRheYjXhRYYzis8E8Xo/4Ko8stdzG/yjG4ez
+	 XMpXvpsvlrka/pjpmYNysfd5B6InMlFl9AKY4NUdeBXFKdN9zHlJ0yfwmu564u7VCA
+	 J1dvjoUgfoSMVXQ2zsV61b/gOtz4SolDmpKEnC+RwEHtSlT0fF4kDDoU/pt+W+O45y
+	 snXYpfz0Km3MUVLamraTR2M50QiOIoRvJCzyJ3/ufBkTkc4JaKS+WWSccKYp5uHEzS
+	 bvfzFI+gOemVmxo9Y0XNxOmCjV4v6yMQHzpNdGeruNZOoiwVQBgTnuD9+LaPcLG0vH
+	 GlamK/hBL75Xw==
+Date: Tue, 30 Dec 2025 12:32:29 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Stefano Radaelli <stefano.radaelli21@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Stefano Radaelli <stefano.r@variscite.com>, Rob Herring <robh@kernel.org>, 
+To: Josua Mayer <josua.mayer@jm0.eu>
+Cc: Jonathan =?utf-8?Q?Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
+	Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Alexander Stein <alexander.stein@ew.tq-group.com>, Dario Binacchi <dario.binacchi@amarulasolutions.com>, 
-	Primoz Fiser <primoz.fiser@norik.com>, Markus Niebel <Markus.Niebel@tq-group.com>, 
-	Yannic Moog <y.moog@phytec.de>, Josua Mayer <josua@solid-run.com>, 
-	Francesco Dolcini <francesco.dolcini@toradex.com>, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 1/3] dt-bindings: arm: fsl: add Variscite DART-MX95
- Boards
-Message-ID: <20251230-cerulean-manatee-from-mars-be5ace@quoll>
-References: <20251229213726.79374-1-stefano.r@variscite.com>
- <20251229213726.79374-2-stefano.r@variscite.com>
+	Sebastian Reichel <sre@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Andreas Kemnade <andreas@kemnade.info>, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	Josua Mayer <josua@solid-run.com>
+Subject: Re: [PATCH 2/3] dt-bindings: mfd: netronix,ntxec: add reference to
+ power-supply
+Message-ID: <20251230-defiant-frisky-bull-95ecd0@quoll>
+References: <20251227-kobo-aura-battery-v1-0-328a90ef5122@jm0.eu>
+ <20251227-kobo-aura-battery-v1-2-328a90ef5122@jm0.eu>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251229213726.79374-2-stefano.r@variscite.com>
+In-Reply-To: <20251227-kobo-aura-battery-v1-2-328a90ef5122@jm0.eu>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251230_033232_809880_FEF876E8 
+X-CRM114-Status: GOOD (  11.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,19 +80,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 29, 2025 at 10:37:15PM +0100, Stefano Radaelli wrote:
-> From: Stefano Radaelli <stefano.r@variscite.com>
+On Sat, Dec 27, 2025 at 05:28:14PM +0100, Josua Mayer wrote:
+> The Netronix Embedded Controller supports monitoring of battery voltage.
 > 
-> Add DT compatible strings for Variscite DART-MX95 SoM and Variscite
-> development carrier Board.
+> Voltage monitoring functionality is self-contained and requires no
+> supply- or battery-specific runtime configuration.
 > 
-> Link: https://variscite.com/system-on-module-som/i-mx-9/dart-mx95/
-> Link: https://variscite.com/carrier-boards/sonata-board/
-> Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
-> ---
->  Documentation/devicetree/bindings/arm/fsl.yaml | 6 ++++++
+> Battery design characteristics (e.g. voltage-min-design-microvolt) are
+> useful for users to understand the charge level and are commonly
+> provided by a separate battery node linked with monitored-battery
+> property.
+> 
+> Add reference to power-supply.yaml so that power-supplies and
+> monitored-battery properties become available.
+> 
+> Further drop reg property description and replace it with maxItems 1 as
+> is common for i2c devices with single bus address.
+> 
+> Finally replace additionalProperties with unevaluatedProperties to
+> allow properties from referenced schemas.
+> 
+> Signed-off-by: Josua Mayer <josua@solid-run.com>
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+This does not match From address. Please use consistent identities for
+both.
 
 Best regards,
 Krzysztof
