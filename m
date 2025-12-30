@@ -4,73 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5114CE92FE3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 01:38:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42752E94108
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 01:41:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZR01wDLXfeVLgjQ9DoBqi1cHsnDT+MJQBOGRvBziLWQ=; b=x3uCbYupIpslBBKeEHz7o9nENV
-	kmId+n80Kz3qjE0NWqtdq1Q135zrBoJ4L0nUNGwJdrQhA92KObuv93qx/214pk7lNe64ZFXew+ea9
-	lz21p+qo+8my3zxNq0P/Afqc976CQAqXsQ25FtmEQDLHVHhIiem6Y5HCDy5nixhm9q1o7H8Mn32th
-	Jb0anuctISdWX1XVF8BJkyumgJe+RC4RHSy+cAQj084+T/YPTXwnx2a563REdrt8tJVfon5ZXAV9m
-	5NHiAMlBPGtQ+cDvMPi4onOaDqOx57foCE+MihRBK5UZKHgZIA77Uj6YZwS3gQ5Yl4SdnKavyA1V7
-	YMsjz4bA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7ssd4BciXQz+Gn/vBf6xCjurqrI43qxNxgTkSD8uqSk=; b=18UsQL+236lkw0p1ySBSYcWDds
+	1LhBsV+pKKFWK0KvdEcUAnhJmyWgibwSpaQKq7+PB15n/XEmWdelL6MNlHWQmmU7JJA+xFqPUnDAz
+	TTvp5Bo11oFhq/kMfIa2bfe5EWn+24nol3oWcHXGHsWpvHteXd3UGiQXqI4UA82wP9a1Qpw3G02Mk
+	FJnq1lrtDwuzOkljwqIjmsndIn6Bz7YLE1ISsjrzuh2J+Fk8oq53GFM3pdk57FLMWxOZiG+ugHLYn
+	LHGjvfwRbD75o+Vogu2h5ofYjSS/gLiF4b3MMLJWhYnebiAH4QaRHyc96T7/RQYtjj7ZhAL4vxLS5
+	UjnhChRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaOgd-00000004Gef-1wK7;
-	Tue, 30 Dec 2025 01:38:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vaOjY-00000004Gqd-3ORo;
+	Tue, 30 Dec 2025 01:41:12 +0000
+Received: from mout-p-102.mailbox.org ([80.241.56.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaOga-00000004GeD-49XM
+	id 1vaOjV-00000004Gpc-3wEy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Dec 2025 01:38:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 571CA440D8;
-	Tue, 30 Dec 2025 01:38:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15B2DC4CEF7;
-	Tue, 30 Dec 2025 01:38:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767058688;
-	bh=urCIY28Bgg/DWNEhGAokKr3T2XA/0hKP4bHhcr/Cd8E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ane3J7yRRaqVeKXcNFl0zPb8F1eUzeet5WWEV7XMk7579tlwZy76sgoUiQbfEF+Uq
-	 ye+KSU7k9a2XiwxqzgEuGpB7PwVPHtuVxyk4j5Wk0GkwFkLoTPwbKv+hNFR7qLqjm4
-	 eYZfS6OUXYMcEmDJbeas4P5nVszIgcs8/MPstXi+7ZPL5DHpj1eSXag+gfkGqu3fLd
-	 tpczmQLTtvsK3yW7drKcusScsXyQROhfD5Z7lBsRQbBuSEYO1wkgsxBgr2QYas4PdM
-	 4cIMyPzt30MRC6PpladfWCKr1uBgJtYFiD3UrD+Dw3AyDVR2Fy7mdH2HZxVAxUD8pA
-	 /8Pfl0Ckj9I8w==
-Date: Mon, 29 Dec 2025 19:38:07 -0600
-From: Rob Herring <robh@kernel.org>
-To: James Calligeros <jcalligeros99@gmail.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Tue, 30 Dec 2025 01:41:11 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4dgG5F1dYTz9tk9;
+	Tue, 30 Dec 2025 02:41:05 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1767058865;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=7ssd4BciXQz+Gn/vBf6xCjurqrI43qxNxgTkSD8uqSk=;
+	b=jW7ESLbdu/qmz3y8KLDmHascdwS/ghDG4YmiLmZSbD3SoNmpCsVtkIl/C07UNxgX7miLUu
+	jt7z055ID4XK47sPptIDmgelRaB0FQN+x+4HwDlesvR1xhBJY9hVep/hFPbatwG1XbEsne
+	nmcqCDOawTngP+Esr3STi9bgtpm6wjnwNWow3iYfP/s0G7I5IARhnsefexxLrIWLdmH4aE
+	u7K6dK2zDy31SGMJokp0Poq6mShpNY6NOKv93C1mbSkshIJHoXAcB/SY+SwCMB1C8afxET
+	RgTQOffXOLMyTUQ6wrQbWNBnNp4Csnu+EdMZRctFLauDjd9CrR1mfTZumcLu+g==
+From: Marek Vasut <marek.vasut@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1767058863;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=7ssd4BciXQz+Gn/vBf6xCjurqrI43qxNxgTkSD8uqSk=;
+	b=Q78Zf77n5wwRLa3iID7PPgeDCHC1zxeDioXek93c+azWJFLA1BWtSs4fhNfsw3IobWtVM6
+	WUxf0CdpKZz/P9LaKlBo6+ThpMc52WEo4w5C1xj6J7pUEN0Ccm3NEv3SltHGhKKId2DgMS
+	Kjnbpei5RZ1f6qcMr483NzgWGxMy1+jg+osAFESdy/QtRzoTLz4p+WHTZQnfWHkYoDc7G3
+	OtwjqlYXtQiEQSpyhCxT2WJh11Sb22EjEZOxg1JV6KG3x93tbvQ5cALJHc4t2/t313orNM
+	ZepGBlqyyEIwp6pJ+BVnCJOTSXn5ypG/7Ka37RMwSlLgExO7VF3GYSY2r8FYcw==
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marek.vasut@mailbox.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Fabio Estevam <festevam@gmail.com>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
-	Baojun Xu <baojun.xu@ti.com>, linux-sound@vger.kernel.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev
-Subject: Re: [PATCH v2 3/7] ASoC: dt-bindings: add TDM slot idle mode
- properties
-Message-ID: <20251230013807.GA3063323-robh@kernel.org>
-References: <20251221-tdm-idle-slots-v2-0-ed4d96413aec@gmail.com>
- <20251221-tdm-idle-slots-v2-3-ed4d96413aec@gmail.com>
+	Jarkko Sakkinen <jarkko@kernel.org>,
+	Jason Gunthorpe <jgg@ziepe.ca>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Lukas Wunner <lukas@wunner.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Peter Huewe <peterhuewe@gmx.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-integrity@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 1/2] dt-bindings: tpm: Add st,st33tphf2ei2c
+Date: Tue, 30 Dec 2025 02:40:34 +0100
+Message-ID: <20251230014047.149677-1-marek.vasut@mailbox.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251221-tdm-idle-slots-v2-3-ed4d96413aec@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-META: f6mz559iybyxjt7ykoyogncmr9zmeqit
+X-MBO-RS-ID: dac313bfe24767e9b80
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251229_173809_069016_3758310C 
-X-CRM114-Status: GOOD (  19.08  )
+X-CRM114-CacheID: sfid-20251229_174110_143010_D3FD1C03 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,79 +99,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Dec 21, 2025 at 07:35:59PM +1000, James Calligeros wrote:
-> Add properties to describe TDM slot idle behaviour. These properties can
-> be used to describe how a DAI is supposed to behave when not active.
-> 
-> For example, Apple Silicon laptops split a single I2S bus between two
-> physical lines which are combined at an OR gate in front of the
-> receiving port. One codec on each line is expected to transmit zeroes
-> during the active TDM slots of the opposite line, or we will have corrupted
-> data at the receiver.
-> 
-> Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
-> ---
->  .../bindings/sound/tdm-slot.yaml         | 33 +++++++++++++++++++++++++
->  1 file changed, 33 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/sound/tdm-slot.yaml b/Documentation/devicetree/bindings/sound/tdm-slot.yaml
-> index 5bc46048d689..e8b2d35a7c37 100644
-> --- a/Documentation/devicetree/bindings/sound/tdm-slot.yaml
-> +++ b/Documentation/devicetree/bindings/sound/tdm-slot.yaml
-> @@ -33,6 +33,17 @@ $defs:
->      $ref: /schemas/types.yaml#/definitions/uint32-array
->      description: Receive direction slot mask. Optional. Identical to TX mask.
->  
-> +  dai-tdm-idle-mode:
-> +    $ref: /schemas/types.yaml#/definitions/string
-> +    enum:
-> +      - none
-> +      - off
-> +      - zero
-> +      - pulldown
-> +      - hiz
-> +      - pullup
-> +      - drivehigh
-> +
->  properties:
->    dai-tdm-slot-num:
->      $ref: "#/$defs/dai-tdm-slot-num"
-> @@ -46,4 +57,26 @@ properties:
->    dai-tdm-slot-rx-mask:
->      $ref: "#/$defs/dai-tdm-slot-rx-mask"
->  
-> +  dai-tdm-slot-tx-idle-mode:
-> +    $ref: "#/$defs/dai-tdm-idle-mode"
-> +    description: Transmit direction idle slot mode. Optional. For hardware
-> +      that can configure its behaviour during idle TDM slots via
-> +      .set_tdm_idle(). "None" represents UB/unspecified behaviour and is the
-> +      same as not setting this property.
-> +
-> +  dai-tdm-slot-rx-idle-mode:
-> +    $ref: "#/$defs/dai-tdm-idle-mode"
-> +    description: Receive direction idle slot mode. Optional. Identical to TX
-> +      idle slot mode.
-> +
-> +  dai-tdm-slot-tx-idle-mask:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description: Transmit direction idle slot mask. Optional. 1 represents
-> +      an idle slot.
-> +
-> +  dai-tdm-slot-rx-idle-mask:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description: Receive direction idle slot mask. Optional. Identical to
-> +      TX mask.
+Add the ST chip st33tphf2ei2c to the supported compatible strings of the
+TPM TIS I2C schema. The chip is compliant with the TCG PC Client TPM
+Profile specification.
 
-These can be under a patternProperties:
+For reference, a databrief is available at:
+https://www.st.com/resource/en/data_brief/st33tphf2ei2c.pdf
 
-patternProperties:
-  '^dai-tdm-slot-[rt]x-idle-mode$':
-    ...
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
+---
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Fabio Estevam <festevam@gmail.com>
+Cc: Jarkko Sakkinen <jarkko@kernel.org>
+Cc: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Lukas Wunner <lukas@wunner.de>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+Cc: Peter Huewe <peterhuewe@gmx.de>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Shawn Guo <shawnguo@kernel.org>
+Cc: devicetree@vger.kernel.org
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-integrity@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+---
+V2: - Rebase on current next, update email address
+    - Add AB from Krzysztof
+---
+ Documentation/devicetree/bindings/tpm/tcg,tpm-tis-i2c.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-  '^dai-tdm-slot-[rt]x-idle-mask$':
-    ...
+diff --git a/Documentation/devicetree/bindings/tpm/tcg,tpm-tis-i2c.yaml b/Documentation/devicetree/bindings/tpm/tcg,tpm-tis-i2c.yaml
+index af7720dc4a12c..fdd7fd874e01e 100644
+--- a/Documentation/devicetree/bindings/tpm/tcg,tpm-tis-i2c.yaml
++++ b/Documentation/devicetree/bindings/tpm/tcg,tpm-tis-i2c.yaml
+@@ -33,6 +33,7 @@ properties:
+               - infineon,slb9673
+               - nuvoton,npct75x
+               - st,st33ktpm2xi2c
++              - st,st33tphf2ei2c
+           - const: tcg,tpm-tis-i2c
+ 
+       - description: TPM 1.2 and 2.0 chips with vendor-specific I²C interface
+-- 
+2.51.0
 
-And then remove the $defs.
-
-Rob
 
