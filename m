@@ -4,62 +4,181 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A7E2E94110
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 05:58:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C488E94110
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 06:32:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OkMPDFc+7+pvTUkgEgcry1QzhyDZMwTYtSS48pRapTg=; b=sYt2GttIobZNGf7uq9FZWOzRGq
-	Z2WJOoOY4/ekANFtOaaIGPYJFUOCuMpoMtjnA9wqvIJA+Wz97Iwb4+Lhc2d9P2Cx8eI32hNpZ7RZ5
-	ohpwMvnSq9CsBIFOU5fw6GhtWdNNvg+W8Q41oy3CHJLtx49B56FB540dH1jn+vAk5pNOetsa/jYPT
-	f5Mbo99SCqkh6QrT+Agk1SXYFxptCrS50wKehENXvDkP7dljnyqD6yISAtdOY2dzsqut0JZ1ycsXX
-	GhkIvJOl0rqJTlFRXJX5zZdbHPH7cxTRbNL3d+QUnYYdctWq0PE1OzYnY7mMifQGjhOsqX6yjRJLP
-	4KmgH3tg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tU/EEyG4GeLn1/VrfbmoeHrzp9769TWcVeum8hVZu80=; b=egCBa47g5gokHszshLlMH2zLTJ
+	anpXuHj/KD+JbSCdKeKqq6WWhP5pmBAvFeVUaz/4dWpG2Om1OKgzt+yMzaJHu3xmRRxmjVFc/I9sN
+	WtTlWJZSEab4U8xTU4s/julUUUew5Ta43tK2QY1qWeUbcZ8pRsHt4LoZH6+tK39up5zI6YgL5XLOG
+	px+YqFU73wbF5do6DBAZb1JYjJlDJHqR662opePt7keCwN1NzSaLxu6wBJGdzBqGkCMcrUD7HDFC8
+	Os/kbi6W4ZZUWe7vShlSpQtpbcm7kc5Whcxj7SPex3m2OhO2mKck5VQy7H1XdNMIzXIdv0tEJoBop
+	XpdOcsUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaSkS-00000004RmK-2vVT;
-	Tue, 30 Dec 2025 05:58:24 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1vaTGw-00000004T8k-1Fbk;
+	Tue, 30 Dec 2025 06:31:58 +0000
+Received: from mail-westeuropeazon11011039.outbound.protection.outlook.com ([52.101.70.39] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaSkO-00000004Rcq-0WXm;
-	Tue, 30 Dec 2025 05:58:21 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Tue, 30 Dec
- 2025 13:57:59 +0800
-Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Tue, 30 Dec 2025 13:57:59 +0800
-From: Jacky Chou <jacky_chou@aspeedtech.com>
-Date: Tue, 30 Dec 2025 13:58:00 +0800
-Subject: [PATCH v8 3/4] phy: aspeed: Add ASPEED PCIe PHY driver
+	id 1vaTGt-00000004T8K-3oDK
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 30 Dec 2025 06:31:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lmBl7sdpFQri2f4D1RE0G+9fksS5jjvuhQR/+vaZ0CQr77j0LZxYNNriUGt4/13luJoTqKp9Obrg/cS9TCh3zhBShjZ1mlrbhnCkv7DKgCN6XxNQNK0eGd3aeciFD5KRTCkkERnrpRJw99C3WPtr6Hx8pLCqjPsnZyjvg6desKXbIDFkEv9RnRaaYmotS+JWHSgUPyzQRIXrPRbrd0zYTNaK8Ask7m1MoVP4dvm/SbS7cOF7SIpN5YhkZApk9FDtfciH9LLgMHkEOfTAYP3194EFb7nWpoymMAGsW0L9Cmgg8X25Y0tdU526PLjrzARVT8ErGxss4A4+fQufBY5r7Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tU/EEyG4GeLn1/VrfbmoeHrzp9769TWcVeum8hVZu80=;
+ b=ZAa2DqLo69WBxN8ByTpwdVvyUJM+RjvAVO75tu9497TfxRxuirDxfu/W65H4qmq6gNvlf5W+uv8Pkm5HDmoIPIARLHKxjydaiMfUYlFadsRJUzVlEIaenSgFEoCiH8BGnXOXATWyUzCK9xF4r6s4PAgtxaQbqBor3B8UL6wOtBkeiy8GEQYqkV2yPXj7g76QrZk0g5tPiNRTnRUbQQ0Q4qgcZsEv991RGA4NniHQLIazxRT6oJZtgMfTdGUBdlIkSivvODUit+0skpz4qKYjKm6PyfyHKxjEdmmw8EPXZAN/4DioSuo+S+e77rlUNisqQablh0DXa3KugVGuTi4bbQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tU/EEyG4GeLn1/VrfbmoeHrzp9769TWcVeum8hVZu80=;
+ b=ZVZRV6DcEt1ixEjytdzbvn72O+V6426H/3NvtElB7dVoV1YviDGHXt+K/GCt9T8m+0k+1oXHNnwMIU6sr/tdYQgDqCAuVid5UVd4QfzxFMZNNyIYKff7Jek2u9AnTmD1V/Ucw9OSKk2jTM9t7ObwfJXd8HSwdE72g454oqsCc3Nc2GFs7qKN9DhxFmv7bt0VEilUvdND5MnwVBqTskViCUdApxFWN8t64BKPQTTXW9DWAkXLOL8vsn772cMFnQwPCyr+OjKSfR6rMe4z6W+JcPwdFj8dVWOYWXKD03LDO12Qj5is+f6MJy0olFfLz9ie7IYS8gLKZhFpfB+0vsK4Dw==
+Received: from AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19)
+ by GV1PR04MB10871.eurprd04.prod.outlook.com (2603:10a6:150:205::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Tue, 30 Dec
+ 2025 06:31:48 +0000
+Received: from AS8PR04MB8833.eurprd04.prod.outlook.com
+ ([fe80::209c:44e4:a205:8e86]) by AS8PR04MB8833.eurprd04.prod.outlook.com
+ ([fe80::209c:44e4:a205:8e86%7]) with mapi id 15.20.9456.013; Tue, 30 Dec 2025
+ 06:31:48 +0000
+From: Hongxing Zhu <hongxing.zhu@nxp.com>
+To: Shawn Guo <shawnguo@kernel.org>
+CC: "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"bhelgaas@google.com" <bhelgaas@google.com>, Frank Li <frank.li@nxp.com>,
+	"l.stach@pengutronix.de" <l.stach@pengutronix.de>, "lpieralisi@kernel.org"
+	<lpieralisi@kernel.org>, "kwilczynski@kernel.org" <kwilczynski@kernel.org>,
+	"mani@kernel.org" <mani@kernel.org>, "s.hauer@pengutronix.de"
+	<s.hauer@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH v10 4/4] arm64: dt: imx95: Add the missed ref clock for
+ PCIe[0,1]
+Thread-Topic: [PATCH v10 4/4] arm64: dt: imx95: Add the missed ref clock for
+ PCIe[0,1]
+Thread-Index: AQHcampFp3Vkyu7+PEuVstz2a4ALQbU5o9cAgAAytqA=
+Date: Tue, 30 Dec 2025 06:31:47 +0000
+Message-ID: <AS8PR04MB8833950FABA4829299CA3D6E8CBCA@AS8PR04MB8833.eurprd04.prod.outlook.com>
+References: <20251211064821.2707001-1-hongxing.zhu@nxp.com>
+ <20251211064821.2707001-5-hongxing.zhu@nxp.com> <aVNG0BjbEVHhgNCa@dragon>
+In-Reply-To: <aVNG0BjbEVHhgNCa@dragon>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS8PR04MB8833:EE_|GV1PR04MB10871:EE_
+x-ms-office365-filtering-correlation-id: ed98a638-c8e0-47be-ffa8-08de476d1c0b
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|19092799006|7416014|376014|366016|1800799024|38070700021;
+x-microsoft-antispam-message-info: =?gb2312?B?cnhJRWpQbGxPVExxN0ZzWTJ4YmNhMGlPMUZZWDh1NWdINS9zcDN5cU1NNHl6?=
+ =?gb2312?B?QzgyRnBXNUNqcnpBSEhZSnRqK0dKTDE1RU0wampYcDE4R3drSE5YWW9oc20v?=
+ =?gb2312?B?VTZDS2VFcnV0dGo3V0NIQ3RmOFlqbHBlVXdpemFsTDU0ckZhcWU4b0xKdXR4?=
+ =?gb2312?B?d3lQMHovOVRSdVVVdnJ4RkNCbkNpVEE3dDZuZXNLbXlXbElZU0FidDhUeUUw?=
+ =?gb2312?B?MUozVFNPT0RCa1ljWkpYcHhDZG1SR0hHVGFlZFVib1Fjd05tUTlRTmRqWWtw?=
+ =?gb2312?B?SEM2bjdXS1kxSlpRaWRvekZJNmxpb21XVUMrbVdrdjUzaTNCQzM1aVdQTzV2?=
+ =?gb2312?B?ZjFuUHlEOEtMS0xVZGFMcy9XTGtEbE9laE1pSWVYQVlYbzh6aVdpREduOVd3?=
+ =?gb2312?B?S2QxZndBMHF0d2F2b09vNHZuVkVIdnZHLzB6cXFHVG4vc09vOVN2bUk5QzNa?=
+ =?gb2312?B?MlA0akpLT01DM1M2ZzNJdDRUMzlzbldVdjMrb2I5QjJyZ2xrVFB5SXEwSTdJ?=
+ =?gb2312?B?ZGdRNDFaQ0FTSXdMVnEvMk9TdXVaM0k3eFRTb3lMRXVZM0hBbUtGRlZtbVN1?=
+ =?gb2312?B?ZDdLN3M1SFI2Q3JsczBkVG1hT1BLNmthMzg2OUMxNVp6dkNSd0NWNjZubHIy?=
+ =?gb2312?B?djJGZTMyY2V0VDV0TTRyTDU2ZmNkV0xyN29KRThXQVlINmdTeUczaUJFMVh1?=
+ =?gb2312?B?SHR2Z2NmbGJ5S2t5NWZIbUhUUnB4WDZpMllZZjdZUVlCMzROejNTQkZDcW4r?=
+ =?gb2312?B?a3E5dFVRazZybExSbmN2YTJjUDk0MWxpU1BEcVlza1JjeTltL2gyQmRrMTFm?=
+ =?gb2312?B?eVh4am1WWkpJQlR5TFdxN0JwamNmMmtkUkNSNWdGMWEzNEUrbE8xZzE5MFNI?=
+ =?gb2312?B?MXROWVNhYngyVWFWaGlXVSs3OERpTUNPSzVUSVAwMSthclh4UUZRNUdQUlhi?=
+ =?gb2312?B?YnNPYlMwRUlZcmVIVmQ1bTBjY3FNQmlxOUNPVzZSa1dCVkpHb3dSVnBicW1y?=
+ =?gb2312?B?dFZLQ1F0dTk0TDhGeHI5WDlNZ25LeENRQ2VXaWF2S2ZGOXl5cjZFRjZNUSs2?=
+ =?gb2312?B?R091c3ZHV2pENDhmN09GeXllU0FCQVprT2lObEJDN0VTT0tCblFsTmJPeExa?=
+ =?gb2312?B?TTZ4MURFMCtjdVZKc3JrRlByUHNzNWJhQ0cwWGljUklnd2YrNmNZQ0k1N09n?=
+ =?gb2312?B?OG5JZ2lNUjJ3SFRSUTVibHVPUy96KzlXcC8xZXZmYUhSVTViZnFYVjdmaWYz?=
+ =?gb2312?B?YmNNenRnQTVYelJjWWY1QXhXeWFXSDZEZFN1cE9MZHF3S0F6L09IOVE0QUUv?=
+ =?gb2312?B?N1pmNW5QYTVyZ05HbmF1RE5tVEtnb0pOSi92SmZNNWpkUWJtaEVZaU8vUWVu?=
+ =?gb2312?B?bHJqdVlGbTBYb0lWaXdTaEVQSEl6b2lhM205MUZNaCs4WXgrenZ2NDV5K21G?=
+ =?gb2312?B?TGJ1d1pLdzZxSk1kakJ4d3FXOWdXUmx1QlNwSmVJK2NrcllKbGNwMHdEb1V2?=
+ =?gb2312?B?UGNISmF1L1hsWlh4RzIwSXZPMkd6d2lIT2F6djhxTWRQUDgwamNEVUdZTmgv?=
+ =?gb2312?B?ZnVrMEk2dCsvelVmbXM0YTBIN05ldFB4Q2pIWTRnYk0yQXpQUGQ2RHNNNFEx?=
+ =?gb2312?B?SWhQZGlPZlI3V3FZVHhKNHB2b0t2RFhUZ0k0OWlEYTlFUVVzOGwzbFYwK3hR?=
+ =?gb2312?B?OHlUaEVmRm1rL3Z4aks5MEJ4QXB4OXA5aXFzVjdNdncyNEpLa3cwMmIyUFZP?=
+ =?gb2312?B?RngySVd1VTdhb3NlY3V1NjdlQmlTcmFNdjc5bktaY3hXR1FiSkk3QXcrd3Fo?=
+ =?gb2312?B?RnlkT3RUbERlODdENzhoazVVOEs3eU43ekFONlR6L1gwRVQyU3dGY3NJWjY0?=
+ =?gb2312?B?THZid2FPYnI4ejFraldVaW1SeFBPaVJHclQvZzY5bm9ESkxCY1BFbGZocDhi?=
+ =?gb2312?B?dWdIT01lKzRxZVArWEQxTUtCeGdYcTlnbjgrQXlsTFpqTmJlZzd0SmxEV3VK?=
+ =?gb2312?B?TmRZT3dHbkFyUUZTYWM1MnRMM3NMS1FHdDV0emY4RlV6b29QK0JLbHB4dzhX?=
+ =?gb2312?Q?jm/SMk?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-cn;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8833.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(376014)(366016)(1800799024)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?gb2312?B?T0xKMExqU2dHdWNnekYwcTFZTmpMRkU5NGxMKy9kOGFlbGFBR0Zna29Kam5o?=
+ =?gb2312?B?WlhyakxobFpwckQ3ZDFsOEJFQ0pnMVkyRkNXM0I5Qk1WdzBQNGZuQy9yZ21F?=
+ =?gb2312?B?RUlsVFlaenFxVnNRSlNnSm1XTm13UlZoQjc3bmI4R0svb2swVXdMRklCbFhK?=
+ =?gb2312?B?Rmo5NWJLbVY1WnVLYUpXT2JPVkxOTTg2N2FlTTFDSnRtTEZyWnJYMitHY1Qv?=
+ =?gb2312?B?cUJqK2pjRHhOWlZpTFJJK21lU0MzcXU0NW5ybWFjTEdqT2xxRStOODhWazVl?=
+ =?gb2312?B?MzNTdjhwUkNMQzNVdXgzT1MwMXZoamxrSlVVbzQ2ZlFaWHJCYTRocUFNMG1I?=
+ =?gb2312?B?ZFdvZXBOeEQvWXpkMllKOTQvT25KbXc3NzhwY1RaU0J5Y2o0Y21MbEx2ejh5?=
+ =?gb2312?B?QXJyWUhEWHBuSUZTVk5CbDZ1OGNmb1d1S1lZdTJNOWdRWjFLQzI4Zng1M0lz?=
+ =?gb2312?B?Mmxvd0xpSU8xL2F5NUNIOC9HZ2dMZmtQTUcyYk5ZRkYrQ3ZiTkY1OUR5d2Z6?=
+ =?gb2312?B?Vzl2c0VxR0FWQmh5UmxDZWIyczBHZENVMVJ5OTFlMlJsQUgxTFc3dGwrUUZB?=
+ =?gb2312?B?NElQdmZJdGRhbDNZUnNvSThBM1RmSDYzMnFXd25ESndYK2Jueno1Y3hkaUF1?=
+ =?gb2312?B?MGdkMWh5UWVoczBFR1B1cjVyTW13QW5jTlNDOFBneHVGZjR5Y05mWHNOWkh0?=
+ =?gb2312?B?cm12Mm4wd2FQWXhtSUc1VUlkRGJxa0FsR0M2OEVuRVVwdjY1RVQ1VUxWZGxJ?=
+ =?gb2312?B?RnQyV1I1Zlgxdzh1TVlRUk5jY0FVTzZobjJCd29pd0IrdU1HVVVnVzdDOWdT?=
+ =?gb2312?B?dDdTQzRTWGFSSVZrNGZDeDUrRzNtTjRPdzVrVStwQWgwTUJNeHgwNXZRMy94?=
+ =?gb2312?B?NW9PSHRtM2VjQnJYV0tZR1NYSUV5a05sN0hYenQwRW5TQ3ZMeENZeFJVSzgz?=
+ =?gb2312?B?OTBtbVphbmJ6TG1aa0F1T0VkZHVpd2g5VUw0WTFHSWlCOTl3RkduVXVPYzZU?=
+ =?gb2312?B?by9TeGgyZnU2S3VRV3BFcEdyY1JCR3lRT05DbHcwQjVOWjQ2VnVTY01WeW5T?=
+ =?gb2312?B?UXcvYlBacFFxTkxiZVpyZWhtV3hDNzlFTVdVYm1JYnpsSzlyQTJGelRLQTZl?=
+ =?gb2312?B?S01VdnZHWUFET08wWFMwMm1VcFJ4RmgzODBwNy9qWGQ1N3lteXJJeTgweitC?=
+ =?gb2312?B?SEJwa2c3NjlmUURZZzM0R1VxUnVWNVpRTVlDMzB6L2ltZmlUVkhJa3hYWGNt?=
+ =?gb2312?B?bmNQU1JFZWRIMDVYUzVXV0Q3ZCswcVVaMmE0Qm1odkwzQktROHltdm1qYkly?=
+ =?gb2312?B?SEdSSzA4SUxGdnViaHhOUG8wVFB3ZEcxNnlsSDg3N0NWUWY0T1E1MVBhR212?=
+ =?gb2312?B?OFRZMUlWWkcvUTBSQzVSTGxEbmovREJBY1dnTHZDNWRuYkVrOUF4Um10Wk9Z?=
+ =?gb2312?B?OTBIMC9MNlZtVjd6blhqYjdZMmcrZ21zUlFudHdvVFlSS294UGNQeEJrWlRE?=
+ =?gb2312?B?OW5HTHhFQ2Y3VHJncWVjek1KZUszYWJkeENWZHZNeHdKRndka1NkMUFCWGg1?=
+ =?gb2312?B?QXFBcFhwSnRIc3NKc2tITFpRYWxaTWxObXU5cHc5N2pxWklNeXBMVER0M2ow?=
+ =?gb2312?B?MXBJM0FoZ2FsOStOcy9neVRFRjV0N2Y4U0k4eXROQUVwMmlnZWMzak5VVXIy?=
+ =?gb2312?B?aHFpS29IRlNJU3ZrL1VGTjQ0UnhXN3A0OFNQZzJBK3JQUXpsTzRJUkErR1R6?=
+ =?gb2312?B?cHJ6RFpKYTFLVTZCR1JWNUZ4am1aMEk0MUNKRVhobElENkNBY2QwVi9tOWlU?=
+ =?gb2312?B?cWFMd1Z4WVMvcU9jclBPR2hOUW41bHFTK2FjNDNkeTBPTTdvWFptbVRINXZ3?=
+ =?gb2312?B?SHQ2dXhZYWFHUlAycFViMEljREZwbGxnSW10L2Vlc1NoZ0o0N1pqam01WXZY?=
+ =?gb2312?B?b1BGbUdYc2Y1VDkwdlZYbXFBSW1WRE52NXA2d1IwSllBTHhQcHF6d0RxcDJh?=
+ =?gb2312?B?UlMvSWtrUnJNT3k4YlVlNUhmWCthYmlaN0haMzZGTGxQN0FYYnY5cTk0N3lK?=
+ =?gb2312?B?MUlheHoxOVAwY2hXYitLODdZanZ6dXNubEFmMnVtUGJWVzYwcFVUZXpoWVcr?=
+ =?gb2312?B?bjNycHk5WGFsV2RwQzRTT0cvVWVKOCtDeVlaUXRrQ2ErN2FTZEtuNWRLWjAw?=
+ =?gb2312?B?UHB3QWlxQTByZGdqdXFXbE1LZWRUU3dEUm1jTVkyM1BaMDlaR2JEN2k2Uk92?=
+ =?gb2312?B?WWRkN1g1cVhIYy9sdUtzQ0ZEUmRHdEJ6MHB3S0FvYUx3UlI1ZHdYS2Nrc25I?=
+ =?gb2312?Q?Bllv8diXrJnfkn6pm1?=
+Content-Type: text/plain; charset="gb2312"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20251230-upstream_pcie_rc-v8-3-03598cdd80cd@aspeedtech.com>
-References: <20251230-upstream_pcie_rc-v8-0-03598cdd80cd@aspeedtech.com>
-In-Reply-To: <20251230-upstream_pcie_rc-v8-0-03598cdd80cd@aspeedtech.com>
-To: Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, "Andrew
- Jeffery" <andrew@codeconstruct.com.au>
-CC: <linux-aspeed@lists.ozlabs.org>, <linux-phy@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Jacky Chou <jacky_chou@aspeedtech.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1767074279; l=7886;
- i=jacky_chou@aspeedtech.com; s=20251031; h=from:subject:message-id;
- bh=iuA+GjJ84VtsIS3gDieMnU9uSG5jEHnAHxGjEw3iUOE=;
- b=o5sKUQF6StNa1Y/EZ3wjlXgfAydS8Nbjq1hm1Q/WPKrPB1HAXu6V/x4tqkzykbXJVOcWMqx9z
- boWx/EyECBxCCpoV+u8gWA1OdbEK0jkhsJlH5bKcYmdTzDt1JdohA+t
-X-Developer-Key: i=jacky_chou@aspeedtech.com; a=ed25519;
- pk=8XBx7KFM1drEsfCXTH9QC2lbMlGU4XwJTA6Jt9Mabdo=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8833.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ed98a638-c8e0-47be-ffa8-08de476d1c0b
+X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Dec 2025 06:31:48.0301
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: kOWLFQVTqH74RLYNhZ37Y5rg8lwETYMlMGfoUuXKMpjSPJKa0d54b+Lq5Bb94AnXENvTGThDo4Vh7zVgmpfZRA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10871
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251229_215820_175040_AB58B7AA 
-X-CRM114-Status: GOOD (  17.87  )
+X-CRM114-CacheID: sfid-20251229_223156_119715_37A95667 
+X-CRM114-Status: GOOD (  20.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,272 +193,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce support for Aspeed PCIe PHY controller available in
-AST2600/2700.
-
-Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
----
- drivers/phy/Kconfig                  |   1 +
- drivers/phy/Makefile                 |   1 +
- drivers/phy/aspeed/Kconfig           |  14 +++
- drivers/phy/aspeed/Makefile          |   2 +
- drivers/phy/aspeed/phy-aspeed-pcie.c | 194 +++++++++++++++++++++++++++++++++++
- 5 files changed, 212 insertions(+)
-
-diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
-index 678dd0452f0a..f6a8f06fd244 100644
---- a/drivers/phy/Kconfig
-+++ b/drivers/phy/Kconfig
-@@ -103,6 +103,7 @@ config PHY_NXP_PTN3222
- 
- source "drivers/phy/allwinner/Kconfig"
- source "drivers/phy/amlogic/Kconfig"
-+source "drivers/phy/aspeed/Kconfig"
- source "drivers/phy/broadcom/Kconfig"
- source "drivers/phy/cadence/Kconfig"
- source "drivers/phy/freescale/Kconfig"
-diff --git a/drivers/phy/Makefile b/drivers/phy/Makefile
-index bfb27fb5a494..18990c87dfb0 100644
---- a/drivers/phy/Makefile
-+++ b/drivers/phy/Makefile
-@@ -15,6 +15,7 @@ obj-$(CONFIG_PHY_AIROHA_PCIE)		+= phy-airoha-pcie.o
- obj-$(CONFIG_PHY_NXP_PTN3222)		+= phy-nxp-ptn3222.o
- obj-y					+= allwinner/	\
- 					   amlogic/	\
-+					   aspeed/	\
- 					   broadcom/	\
- 					   cadence/	\
- 					   freescale/	\
-diff --git a/drivers/phy/aspeed/Kconfig b/drivers/phy/aspeed/Kconfig
-new file mode 100644
-index 000000000000..f7aad553f3fd
---- /dev/null
-+++ b/drivers/phy/aspeed/Kconfig
-@@ -0,0 +1,14 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+#
-+# Phy drivers for Aspeed platforms
-+#
-+config PHY_ASPEED_PCIE
-+	tristate "ASPEED PCIe PHY driver"
-+	select GENERIC_PHY
-+	depends on ARCH_ASPEED
-+	help
-+	  This option enables support for the ASPEED PCIe PHY driver.
-+	  The driver provides the necessary interface to control and
-+	  configure the PCIe PHY hardware found on ASPEED SoCs.
-+	  It is required for proper operation of PCIe devices on
-+	  platforms using ASPEED chips.
-diff --git a/drivers/phy/aspeed/Makefile b/drivers/phy/aspeed/Makefile
-new file mode 100644
-index 000000000000..3edce7f522e1
---- /dev/null
-+++ b/drivers/phy/aspeed/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0
-+obj-$(CONFIG_PHY_ASPEED_PCIE)		+= phy-aspeed-pcie.o
-diff --git a/drivers/phy/aspeed/phy-aspeed-pcie.c b/drivers/phy/aspeed/phy-aspeed-pcie.c
-new file mode 100644
-index 000000000000..a3a696df459e
---- /dev/null
-+++ b/drivers/phy/aspeed/phy-aspeed-pcie.c
-@@ -0,0 +1,194 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+/*
-+ * Copyright 2025 Aspeed Technology Inc.
-+ */
-+
-+#include <linux/phy/pcie.h>
-+#include <linux/phy/phy.h>
-+#include <linux/platform_device.h>
-+
-+/* AST2600 PCIe Host Controller Registers */
-+#define PEHR_GLOBAL		0x30
-+#define  AST2600_PORT_TYPE_MASK		GENMASK(5, 4)
-+#define  AST2600_PORT_TYPE(x)		FIELD_PREP(AST2600_PORT_TYPE_MASK, x)
-+#define PEHR_LOCK		0x7c
-+#define  PCIE_UNLOCK			0xa8
-+
-+/* AST2700 PEHR */
-+#define PEHR_MISC_58		0x58
-+#define  LOCAL_SCALE_SUP		BIT(0)
-+#define PEHR_MISC_5C		0x5c
-+#define  CONFIG_RC_DEVICE		BIT(30)
-+#define PEHR_MISC_60		0x60
-+#define  AST2700_PORT_TYPE_MASK		GENMASK(7, 4)
-+#define  PORT_TYPE_ROOT			BIT(6)
-+#define PEHR_MISC_70		0x70
-+#define  POSTED_DATA_CREDITS(x)		FIELD_PREP(GENMASK(15, 0), x)
-+#define  POSTED_HEADER_CREDITS(x)	FIELD_PREP(GENMASK(27, 16), x)
-+#define PEHR_MISC_78		0x78
-+#define  COMPLETION_DATA_CREDITS(x)	FIELD_PREP(GENMASK(15, 0), x)
-+#define  COMPLETION_HEADER_CREDITS(x)	FIELD_PREP(GENMASK(27, 16), x)
-+
-+/**
-+ * struct aspeed_pcie_phy - PCIe PHY information
-+ * @dev: pointer to device structure
-+ * @reg: PCIe host register base address
-+ * @phy: pointer to PHY structure
-+ * @platform: platform specific information
-+ */
-+struct aspeed_pcie_phy {
-+	struct device *dev;
-+	void __iomem *reg;
-+	struct phy *phy;
-+	const struct aspeed_pcie_phy_platform *platform;
-+};
-+
-+/**
-+ * struct aspeed_pcie_phy_platform - Platform information
-+ * @phy_ops: phy operations
-+ */
-+struct aspeed_pcie_phy_platform {
-+	const struct phy_ops *phy_ops;
-+};
-+
-+static int ast2600_phy_init(struct phy *phy)
-+{
-+	struct aspeed_pcie_phy *pcie_phy = phy_get_drvdata(phy);
-+
-+	writel(PCIE_UNLOCK, pcie_phy->reg + PEHR_LOCK);
-+
-+	return 0;
-+}
-+
-+static int ast2600_phy_set_mode(struct phy *phy, enum phy_mode mode,
-+				int submode)
-+{
-+	struct aspeed_pcie_phy *pcie_phy = phy_get_drvdata(phy);
-+
-+	switch (submode) {
-+	case PHY_MODE_PCIE_RC:
-+		writel(AST2600_PORT_TYPE(0x3), pcie_phy->reg + PEHR_GLOBAL);
-+		break;
-+	default:
-+		dev_err(&phy->dev, "Unsupported submode %d\n", submode);
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct phy_ops ast2600_phy_ops = {
-+	.init		= ast2600_phy_init,
-+	.set_mode	= ast2600_phy_set_mode,
-+	.owner		= THIS_MODULE,
-+};
-+
-+static int ast2700_phy_init(struct phy *phy)
-+{
-+	struct aspeed_pcie_phy *pcie_phy = phy_get_drvdata(phy);
-+
-+	writel(POSTED_DATA_CREDITS(0xc0) | POSTED_HEADER_CREDITS(0xa),
-+	       pcie_phy->reg + PEHR_MISC_70);
-+	writel(COMPLETION_DATA_CREDITS(0x30) | COMPLETION_HEADER_CREDITS(0x8),
-+	       pcie_phy->reg + PEHR_MISC_78);
-+	writel(LOCAL_SCALE_SUP, pcie_phy->reg + PEHR_MISC_58);
-+
-+	return 0;
-+}
-+
-+static int ast2700_phy_set_mode(struct phy *phy, enum phy_mode mode,
-+				int submode)
-+{
-+	struct aspeed_pcie_phy *pcie_phy = phy_get_drvdata(phy);
-+	u32 cfg_val;
-+
-+	switch (submode) {
-+	case PHY_MODE_PCIE_RC:
-+		writel(CONFIG_RC_DEVICE, pcie_phy->reg + PEHR_MISC_5C);
-+		cfg_val = readl(pcie_phy->reg + PEHR_MISC_60);
-+		cfg_val &= ~AST2700_PORT_TYPE_MASK;
-+		cfg_val |= PORT_TYPE_ROOT;
-+		writel(cfg_val, pcie_phy->reg + PEHR_MISC_60);
-+		break;
-+	default:
-+		dev_err(&phy->dev, "Unsupported submode %d\n", submode);
-+		return -EINVAL;
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct phy_ops ast2700_phy_ops = {
-+	.init		= ast2700_phy_init,
-+	.set_mode	= ast2700_phy_set_mode,
-+	.owner		= THIS_MODULE,
-+};
-+
-+const struct aspeed_pcie_phy_platform pcie_phy_ast2600 = {
-+	.phy_ops = &ast2600_phy_ops,
-+};
-+
-+const struct aspeed_pcie_phy_platform pcie_phy_ast2700 = {
-+	.phy_ops = &ast2700_phy_ops,
-+};
-+
-+static int aspeed_pcie_phy_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct phy_provider *phy_provider;
-+	struct aspeed_pcie_phy *pcie_phy;
-+	const struct aspeed_pcie_phy_platform *md;
-+
-+	md = of_device_get_match_data(dev);
-+	if (!md)
-+		return -ENODEV;
-+
-+	pcie_phy = devm_kzalloc(dev, sizeof(*pcie_phy), GFP_KERNEL);
-+	if (!pcie_phy)
-+		return -ENOMEM;
-+
-+	pcie_phy->reg = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(pcie_phy->reg))
-+		return PTR_ERR(pcie_phy->reg);
-+
-+	pcie_phy->dev = dev;
-+	pcie_phy->platform = md;
-+
-+	pcie_phy->phy = devm_phy_create(dev, dev->of_node,
-+					pcie_phy->platform->phy_ops);
-+	if (IS_ERR(pcie_phy->phy))
-+		return dev_err_probe(dev, PTR_ERR(pcie_phy->phy),
-+				     "failed to create PHY\n");
-+
-+	phy_set_drvdata(pcie_phy->phy, pcie_phy);
-+	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
-+
-+	return PTR_ERR_OR_ZERO(phy_provider);
-+}
-+
-+static const struct of_device_id aspeed_pcie_phy_of_match_table[] = {
-+	{
-+		.compatible = "aspeed,ast2600-pcie-phy",
-+		.data = &pcie_phy_ast2600,
-+	},
-+	{
-+		.compatible = "aspeed,ast2700-pcie-phy",
-+		.data = &pcie_phy_ast2700,
-+	},
-+	{ },
-+};
-+MODULE_DEVICE_TABLE(of, aspeed_pcie_phy_of_match_table);
-+
-+static struct platform_driver aspeed_pcie_driver = {
-+	.probe		= aspeed_pcie_phy_probe,
-+	.driver = {
-+		.name	= "aspeed-pcie-phy",
-+		.of_match_table = aspeed_pcie_phy_of_match_table,
-+	},
-+};
-+
-+module_platform_driver(aspeed_pcie_driver);
-+
-+MODULE_AUTHOR("Jacky Chou <jacky_chou@aspeedtech.com>");
-+MODULE_DESCRIPTION("ASPEED PCIe PHY");
-+MODULE_LICENSE("GPL");
-
--- 
-2.34.1
-
+PiAtLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQ0KPiBGcm9tOiBTaGF3biBHdW8gPHNoYXduZ3Vv
+QGtlcm5lbC5vcmc+DQo+IFNlbnQ6IDIwMjXE6jEy1MIzMMjVIDExOjI4DQo+IFRvOiBIb25neGlu
+ZyBaaHUgPGhvbmd4aW5nLnpodUBueHAuY29tPg0KPiBDYzogcm9iaEBrZXJuZWwub3JnOyBrcnpr
+K2R0QGtlcm5lbC5vcmc7IGNvbm9yK2R0QGtlcm5lbC5vcmc7DQo+IGJoZWxnYWFzQGdvb2dsZS5j
+b207IEZyYW5rIExpIDxmcmFuay5saUBueHAuY29tPjsgbC5zdGFjaEBwZW5ndXRyb25peC5kZTsN
+Cj4gbHBpZXJhbGlzaUBrZXJuZWwub3JnOyBrd2lsY3p5bnNraUBrZXJuZWwub3JnOyBtYW5pQGtl
+cm5lbC5vcmc7DQo+IHMuaGF1ZXJAcGVuZ3V0cm9uaXguZGU7IGtlcm5lbEBwZW5ndXRyb25peC5k
+ZTsgZmVzdGV2YW1AZ21haWwuY29tOw0KPiBsaW51eC1wY2lAdmdlci5rZXJuZWwub3JnOyBsaW51
+eC1hcm0ta2VybmVsQGxpc3RzLmluZnJhZGVhZC5vcmc7DQo+IGRldmljZXRyZWVAdmdlci5rZXJu
+ZWwub3JnOyBpbXhAbGlzdHMubGludXguZGV2Ow0KPiBsaW51eC1rZXJuZWxAdmdlci5rZXJuZWwu
+b3JnDQo+IFN1YmplY3Q6IFJlOiBbUEFUQ0ggdjEwIDQvNF0gYXJtNjQ6IGR0OiBpbXg5NTogQWRk
+IHRoZSBtaXNzZWQgcmVmIGNsb2NrIGZvcg0KPiBQQ0llWzAsMV0NCj4gDQo+IE9uIFRodSwgRGVj
+IDExLCAyMDI1IGF0IDAyOjQ4OjIxUE0gKzA4MDAsIFJpY2hhcmQgWmh1IHdyb3RlOg0KPiA+IGku
+TVg5NSBQQ0llcyBoYXZlIHR3byByZWZlcmVuY2UgY2xvY2sgaW5wdXRzLCBvbmUgb2YgdGhlbSBp
+cyBmcm9tDQo+ID4gaW50ZXJuYWwgUExMLiBJdCdzIHdpcmVkIGluc2lkZSBjaGlwIGFuZCBwcmVz
+ZW50IGFzICJyZWYiIGNsb2NrLiBJdCdzDQo+ID4gbm90IGFuIG9wdGlvbmFsIGNsb2NrLg0KPiA+
+DQo+ID4gQWRkIHRoZSBtaXNzZWQgcmVmIGNsb2NrIGZvciBQQ0llWzAsMV0uDQo+ID4NCj4gPiBT
+aWduZWQtb2ZmLWJ5OiBSaWNoYXJkIFpodSA8aG9uZ3hpbmcuemh1QG54cC5jb20+DQo+IA0KPiBJ
+dCBkb2Vzbid0IHNlZW0gdG8gYXBwbHkgdG8gbXkgdHJlZS4NCkhpIFNoYXduDQpUaGFua3MgZm9y
+IHlvdXIgY29uY2VybnMuDQpZb3UncmUgcmlnaHQuDQpJIGNyZWF0ZSB0aGlzIHBhdGNoIGJhc2Vk
+IG9uIHI2LjE4LXJjMS4gQW5kIGl0IHdvdWxkbqGvdCBiZSBhcHBsaWVkIHRvIHI2LjE5LXJjMS4N
+ClBsZWFzZSBpZ25vcmUgaXQuIFRoYW5rcy4NCg0KQmVzdCBSZWdhcmRzDQpSaWNoYXJkIFpodQ0K
+PiANCj4gU2hhd24NCj4gDQo+ID4gLS0tDQo+ID4gIC4uLi9ib290L2R0cy9mcmVlc2NhbGUvaW14
+OTUtdHFtYTk1OTZzYS1tYi1zbWFyYy0yLmR0cyB8IDEwDQo+ID4gKysrKysrLS0tLQ0KPiA+ICAx
+IGZpbGUgY2hhbmdlZCwgNiBpbnNlcnRpb25zKCspLCA0IGRlbGV0aW9ucygtKQ0KPiA+DQo+ID4g
+ZGlmZiAtLWdpdA0KPiA+IGEvYXJjaC9hcm02NC9ib290L2R0cy9mcmVlc2NhbGUvaW14OTUtdHFt
+YTk1OTZzYS1tYi1zbWFyYy0yLmR0cw0KPiA+IGIvYXJjaC9hcm02NC9ib290L2R0cy9mcmVlc2Nh
+bGUvaW14OTUtdHFtYTk1OTZzYS1tYi1zbWFyYy0yLmR0cw0KPiA+IGluZGV4IDViNmIyYmI4MGIy
+ODguLjEyNThmY2I1NDY4MWUgMTAwNjQ0DQo+ID4gLS0tIGEvYXJjaC9hcm02NC9ib290L2R0cy9m
+cmVlc2NhbGUvaW14OTUtdHFtYTk1OTZzYS1tYi1zbWFyYy0yLmR0cw0KPiA+ICsrKyBiL2FyY2gv
+YXJtNjQvYm9vdC9kdHMvZnJlZXNjYWxlL2lteDk1LXRxbWE5NTk2c2EtbWItc21hcmMtMi5kdHMN
+Cj4gPiBAQCAtMjM3LDggKzIzNyw5IEBAICZwY2llMCB7DQo+ID4gIAljbG9ja3MgPSA8JnNjbWlf
+Y2xrIElNWDk1X0NMS19IU0lPPiwNCj4gPiAgCQkgPCZwY2llY2xrIDE+LA0KPiA+ICAJCSA8JnNj
+bWlfY2xrIElNWDk1X0NMS19IU0lPUExMX1ZDTz4sDQo+ID4gLQkJIDwmc2NtaV9jbGsgSU1YOTVf
+Q0xLX0hTSU9QQ0lFQVVYPjsNCj4gPiAtCWNsb2NrLW5hbWVzID0gInBjaWUiLCAicGNpZV9idXMi
+LCAicGNpZV9waHkiLCAicGNpZV9hdXgiOw0KPiA+ICsJCSA8JnNjbWlfY2xrIElNWDk1X0NMS19I
+U0lPUENJRUFVWD4sDQo+ID4gKwkJIDwmaHNpb19ibGtfY3RsIDA+Ow0KPiA+ICsJY2xvY2stbmFt
+ZXMgPSAicGNpZSIsICJwY2llX2J1cyIsICJwY2llX3BoeSIsICJwY2llX2F1eCIsICJyZWYiOw0K
+PiA+ICAJcmVzZXQtZ3BpbyA9IDwmZXhwYW5kZXIyIDkgR1BJT19BQ1RJVkVfTE9XPjsNCj4gPiAg
+CXN0YXR1cyA9ICJva2F5IjsNCj4gPiAgfTsNCj4gPiBAQCAtMjUwLDggKzI1MSw5IEBAICZwY2ll
+MSB7DQo+ID4gIAljbG9ja3MgPSA8JnNjbWlfY2xrIElNWDk1X0NMS19IU0lPPiwNCj4gPiAgCQkg
+PCZwY2llY2xrIDA+LA0KPiA+ICAJCSA8JnNjbWlfY2xrIElNWDk1X0NMS19IU0lPUExMX1ZDTz4s
+DQo+ID4gLQkJIDwmc2NtaV9jbGsgSU1YOTVfQ0xLX0hTSU9QQ0lFQVVYPjsNCj4gPiAtCWNsb2Nr
+LW5hbWVzID0gInBjaWUiLCAicGNpZV9idXMiLCAicGNpZV9waHkiLCAicGNpZV9hdXgiOw0KPiA+
+ICsJCSA8JnNjbWlfY2xrIElNWDk1X0NMS19IU0lPUENJRUFVWD4sDQo+ID4gKwkJIDwmaHNpb19i
+bGtfY3RsIDA+Ow0KPiA+ICsJY2xvY2stbmFtZXMgPSAicGNpZSIsICJwY2llX2J1cyIsICJwY2ll
+X3BoeSIsICJwY2llX2F1eCIsICJyZWYiOw0KPiA+ICAJcmVzZXQtZ3BpbyA9IDwmZXhwYW5kZXIy
+IDEwIEdQSU9fQUNUSVZFX0xPVz47DQo+ID4gIAlzdGF0dXMgPSAib2theSI7DQo+ID4gIH07DQo+
+ID4gLS0NCj4gPiAyLjM3LjENCj4gPg0K
 
