@@ -4,102 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAF81E9412D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 08:50:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E3BCE9412E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 09:04:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TKytMjDcx2cEgvRyAJOuwCgpAgUbSodYKmBemClDjaM=; b=GWpKesuBJoEDfOSBJKoALo9WDL
-	nUaEzryht5SL1jcxQwmWY4h1gc/3Ey1vrilC/xjPILs6IJ/O7qJc60oHD+hEF43iS34UE9OOHr2av
-	hV9ip+Q93v6SixyFD80gVX5LOIIYtuXKm5zMCmhXKAKpVmKdG/WNWje8zvBW6ywNQ2IWc/AhUvNP3
-	amuT1ZSlQLcT6BK1XmID+XEQTjFzSfjfaw/X5Jdl3eSDTkos8dlstuZz7xblVUJpBMcEGi3XvxhPi
-	Ai9nvvpHJVD+gf1neoyMGAhhuaDmDsk4E6ftE9HrElT/PzTFd41lHz/RU+hDAMhy2NKte62kJ46rN
-	3XHTuJJA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/VpoCnIgKsRZ92pzrMxwDZZP7i+qPNxm3KzgXs7KlAU=; b=zvTjJWgdLX4YfsvPHPKQEuUukV
+	w+n57pUbaMRLAK689v39CFokziCI/xvf6dJqVoXgi+eQonSWVjZQPvgBvt1O0mEl77FtGkl/rpdzZ
+	sy9GaU0cX3UNrP9d2kcZNK0GveNcqT7miQcfn+g5VzuUTunRFtqyTCn7mF0tE/nfdjkhGOqnHrzrx
+	ddl4YiQEPN3RaSvsQhtMJ/flsHMTZjxYPBuuRNDI7PYwegZllOUahePnQQPPNkqFOEnqSDHixSzY7
+	kzL1oecXpWjsSxEbNymAPJTD0D+BGdF44aBaBU3dXCUCdPXLtzOReejvLa0zHzIYMZu99Bzd3pLJj
+	/JIVFP9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaVRB-00000004bIs-19bs;
-	Tue, 30 Dec 2025 08:50:41 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vaVeQ-00000004cXl-0q8z;
+	Tue, 30 Dec 2025 09:04:22 +0000
+Received: from smtpbgsg1.qq.com ([54.254.200.92])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaVR6-00000004bI0-3AYE
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Dec 2025 08:50:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1767084633;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=TKytMjDcx2cEgvRyAJOuwCgpAgUbSodYKmBemClDjaM=;
-	b=dp/CvCmY0c45pt7oNwop83vwess7RJj781yLXRQGL3BIqA1JFQ32EmYYyNc4cAvkLE1bXq
-	C3xPdDAJQqHbXWbj0r/zurGw47oHGK0n1PfPnMC0t/TrpWOVHNRHnM3F6/m7ZzIttyIxeZ
-	yEcS8nduMhlBG+HtO/HWc3WX9t4bYb0=
-Received: from mail-oa1-f69.google.com (mail-oa1-f69.google.com
- [209.85.160.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-306-6Lq_FMlqPt-7ltw2YqbmrA-1; Tue, 30 Dec 2025 03:50:32 -0500
-X-MC-Unique: 6Lq_FMlqPt-7ltw2YqbmrA-1
-X-Mimecast-MFC-AGG-ID: 6Lq_FMlqPt-7ltw2YqbmrA_1767084631
-Received: by mail-oa1-f69.google.com with SMTP id 586e51a60fabf-3fda5f60035so6407050fac.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Dec 2025 00:50:31 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767084631; x=1767689431;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TKytMjDcx2cEgvRyAJOuwCgpAgUbSodYKmBemClDjaM=;
-        b=BbDP3HpvjA3jVQnexHeQuhApeYSmBMIw0GUgkYcYOt3fZzZtZUdoDMqemfQIxXQFnW
-         qQDxD9u2YoeelmgBWrtTL2D6Bjck+MOWo0ds8FMZeQsE8t+UmeQ+jGaIanh43SyTNadH
-         k+V7aygcvE4mp64TqYti1F0x/vVmN9HmSNnkkskeMg9joPw+px3DPJZwU7rVNF+KB10k
-         G7fToqB88xRlcEDKyVbHAzEqShlR3u6gtvYhA1f3OnkYQFVBaBimaTa0/nmp6b6Ay9n2
-         xyjkZZUJ3oTVyXEOt4+KHoy0qIiLF9+rY2p9RN/eR/6m1lLfVR4C/i2bJhkEfhMujFsS
-         sV2g==
-X-Forwarded-Encrypted: i=1; AJvYcCUkAIXOpoRc4uOrmCuls5grzkBpqOKn58bCbDM3i8n76EuzYuDWnXO8W5b5GtZGOnx4FdnoK73GZAGK/KlUDIli@lists.infradead.org
-X-Gm-Message-State: AOJu0YwuBy0c2YBPidLO/UaGCzDIQ1xOhODzgGahisDHQUmcV7dCajz+
-	378apnIXHriMTQRuoTgyK8zOatHOabD1tXCjGR42n6gsAZ87Mjvwr6DbN5dAZZtBj4JdN+bQEZ7
-	2IDXf02GM91wYwsm95jomiuv4N0v/t299OnCIkxP/R7AOq2+rX5/dlsZQA+hQ15B8Wd8Z8GdQt4
-	3J
-X-Gm-Gg: AY/fxX6mr+K7znyA/hNSDoNDZ9B29dEp/cNwfCqFZ7GcXx9EZDeIwHlQJROSec4wqLh
-	ncYSUePHBqe1ztqlOfCZbtbnXBxEY5OLoK7Lu2PF0+eTm+FpwqWVj8l43au45t7tfUoNyWgKE8+
-	npK4fWeVTneMuol1Prj5CS0edhaiD3naGDxldOqSr9vp4jIOYFSGod9oAHlye+o3FEjGIc/1OoE
-	AbTUG/KOehBr4f9g1q+aYjM6YhSa65tlIWdLYRciRVTAHWPdjVRcL9SoupedJPTM2IfAZMVfym8
-	xGx+ocyiuk7nmvzweHYnz3OF5YoYwIKz4TMb/jIk8wtbTyqf7gAd3/2LnTPDiyC2VYS9U2wAV4F
-	S
-X-Received: by 2002:a05:6870:7d8a:b0:3e9:35d4:213f with SMTP id 586e51a60fabf-3fda56056b2mr15471524fac.10.1767084631231;
-        Tue, 30 Dec 2025 00:50:31 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGMfpvG2CCJxNM6ePOW5CvdhtIiGZOipOUwNDSwmNEEJmtJ5IiPBkGWUWkmOkbvP8RoitQvSQ==
-X-Received: by 2002:a05:6870:7d8a:b0:3e9:35d4:213f with SMTP id 586e51a60fabf-3fda56056b2mr15471513fac.10.1767084630711;
-        Tue, 30 Dec 2025 00:50:30 -0800 (PST)
-Received: from localhost ([209.132.188.88])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-3fdaa92b5basm19742429fac.6.2025.12.30.00.50.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 30 Dec 2025 00:50:30 -0800 (PST)
-Date: Tue, 30 Dec 2025 16:48:14 +0800
-From: Coiby Xu <coxu@redhat.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	Arnaud Lefebvre <arnaud.lefebvre@clever-cloud.com>, Baoquan he <bhe@redhat.com>, Dave Young <dyoung@redhat.com>, 
-	Kairui Song <ryncsn@gmail.com>, Pingfan Liu <kernelfans@gmail.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Saravana Kannan <saravanak@google.com>, open list <linux-kernel@vger.kernel.org>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE" <devicetree@vger.kernel.org>
-Subject: Re: [PATCH] arm64/kdump: pass dm-crypt keys to kdump kernel
-Message-ID: <aVIR84RJSv42YEP1@Rk>
-References: <20251226141116.1379601-1-coxu@redhat.com>
- <20251227-funky-swallow-from-pluto-910b9d@quoll>
-MIME-Version: 1.0
-In-Reply-To: <20251227-funky-swallow-from-pluto-910b9d@quoll>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: BkFuLOshgjjkFFqOBwg3nx9IsKlM_5W009J4GwNcYJY_1767084631
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii; format=flowed
-Content-Disposition: inline
+	id 1vaVeM-00000004cVQ-1rRK;
+	Tue, 30 Dec 2025 09:04:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
+	s=altu2504; t=1767085407;
+	bh=/VpoCnIgKsRZ92pzrMxwDZZP7i+qPNxm3KzgXs7KlAU=;
+	h=From:To:Subject:Date:Message-Id;
+	b=rwxAVk/d7DubyMcA2DD7Yo08VoiBpyWogj10+wBd/ljg5ZFDYYT3J/BNg3fNSm6DG
+	 0D7N9vgbRHjsH9AOPlqKUq9E5sgUBhgX8Qdyk2+XCnC1HIFNPAVEBPYZByX0NwYYSW
+	 kXeL9PV3fWMJ281hSRSU8lyeZsbyoU0fKAHnTMKM=
+X-QQ-mid: esmtpgz16t1767085398tec99c1ed
+X-QQ-Originating-IP: /TmhuuJhxmP7FNa6N98cvNeOz2pDT9y88FQ2UnLeMZw=
+Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 30 Dec 2025 17:03:15 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 15785446282400789070
+From: Chaoyi Chen <kernel@airkyi.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Frank Wang <frank.wang@rock-chips.com>,
+	Alexey Charkov <alchark@gmail.com>,
+	Liang Chen <cl@rock-chips.com>,
+	Finley Xiao <finley.xiao@rock-chips.com>,
+	Elaine Zhang <zhangqing@rock-chips.com>,
+	Yifeng Zhao <yifeng.zhao@rock-chips.com>
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: rockchip: Fix wrong register range of rk3576 gpu
+Date: Tue, 30 Dec 2025 17:02:46 +0800
+Message-Id: <20251230090246.46-1-kernel@airkyi.com>
+X-Mailer: git-send-email 2.17.1
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
+X-QQ-XMAILINFO: MwQdfXoP8nuzj6ZsImoTwbRpq3kjUEZ+GsvAE7aPlYh11ur+xMi6Vvac
+	0QbMN19XpTW+AebC8zFI+VMLcPW4LKJYVnq7WRp6a8tPfteiCrikViTOjr33hRpCe4hEaD+
+	iit2VJ2+kQ7G1xtUDo6z3iobP7qnGWMdKXhH8sYafcCH+O8E//vq6QUwjT68/g+4jg5avbW
+	+E09WOGzF7dwhANaN5L12N4h9sjHOaDsquTN/ZyPllhCPFcyqDm8d8mmPHYAs9HURzd7B5Y
+	jZhJTBm18X2ISiMiV/rXYqGbt/Z79RnTb5bhyUAVwa8fl2irY7rdty4MV2KvF2H8P4IGMz0
+	QKw/8jcRF4hAk1YNX9T+e3NXHi1F0sXGheEqae9OC8xC+QoHBS6IefgDKms8gNOPKOk7ze5
+	IYZyUsPUao2An0i/oXq10mVwi09Ai2jtsPhteRZH0SQBm/Msah28P5OdNKRYTia+EpRsfjX
+	DTqEmShwrirj/KxnGHETPDyZJBCfwYy+tl7bf+EHO1uVPj6FGCD/OTt6btLVz58NPWd2jgR
+	pTl8lZOOVgW5OtYMgteqDoqdj53Eu41nKoZMMA34E+jbnR4uTS9l9z8hqEWwK1uYL5Ca27k
+	hD+pXCbw0k9MYG74ClcS/1tDiflgbp0N7WR71MM3X4n3ljUSLCGycZRdJ9qQktEZMB0ikwe
+	ryf/lgx81LYewcKHhGU8P433I52Y1wDIGs5QDtvpA9ntoXaFCay0Dvft5TxFNVThlzNdbnR
+	KzGvLwtecM5NVwXBk+HUebfATohKomKoxzaHAgflMM0uLbASqMk6raUfTyJpieWEtlnsZc1
+	/BZ/gg9QYHnAVNT4OkmE4RweeeHv0eCdae+lkOQ4ez3o0BWOHU9h+l9aSDc1cEeU4t6jI9q
+	YgA6P+GFwl54FQ6Gvu1WxLSLzbt1raeFGE5OI1xt5tpQX0tF9gRmZk//lqcQjdtjAzlCukB
+	Jp4PeI3rgARQwcnjoGxA8KKdzfYaqNglZgu5j4UeGEduG8QTHunRNOpzrKcVGjMbPy8c=
+X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251230_005036_868206_859D014C 
-X-CRM114-Status: GOOD (  16.60  )
+X-CRM114-CacheID: sfid-20251230_010418_936204_716AED32 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,51 +101,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-Thanks for your prompt feedback!
+According to RK3576 TRM part1 page13, the size of the GPU registers
+is 128 KB.
 
-On Sat, Dec 27, 2025 at 02:14:16PM +0100, Krzysztof Kozlowski wrote:
->On Fri, Dec 26, 2025 at 10:11:15PM +0800, Coiby Xu wrote:
->> Based on the CONFIG_CRASH_DM_CRYPT feature, this patch adds
->
->Don't use "this patch". See submitting patches.
+Fixes: 57b1ce903966 ("arm64: dts: rockchip: Add rk3576 SoC base DT")
+Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3576.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-I'll use imperative mood in next version, thanks for the reminder!
-
->
->> LUKS-encrypted device dump target support to ARM64 by addressing two
->> challenges [1],
->
->
->...
->
->> +static void __init early_init_dt_check_for_dmcryptkeys(unsigned long node)
->> +{
->> +	const __be32 *prop;
->> +
->> +	if (!IS_ENABLED(CONFIG_CRASH_DM_CRYPT))
->> +		return;
->> +
->> +	pr_debug("Looking for dmcryptkeys property... ");
->> +
->> +	prop = of_get_flat_dt_prop(node, "linux,dmcryptkeys", NULL);
->
->Where did you document the ABI?
-
-Thanks for raising the concern! I'll send a PR to  
-https://github.com/devicetree-org/dt-schema
-and include the link in next version.
-
->
->
->Best regards,
->Krzysztof
->
->
-
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+index 6284e7bdc442..b375015f0662 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+@@ -1271,7 +1271,7 @@ power-domain@RK3576_PD_VO1 {
+ 
+ 		gpu: gpu@27800000 {
+ 			compatible = "rockchip,rk3576-mali", "arm,mali-bifrost";
+-			reg = <0x0 0x27800000 0x0 0x200000>;
++			reg = <0x0 0x27800000 0x0 0x20000>;
+ 			assigned-clocks = <&scmi_clk SCMI_CLK_GPU>;
+ 			assigned-clock-rates = <198000000>;
+ 			clocks = <&cru CLK_GPU>;
 -- 
-Best regards,
-Coiby
+2.51.1
 
 
