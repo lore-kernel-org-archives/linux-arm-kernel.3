@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF41BE94108
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 09:10:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85CD9E94132
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 09:10:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Ul1sx6SisOFhLh/di/2baASqMZA0nouNac7q4rV+e4=; b=znSlZ02acYScBu616nfrMNgqBP
-	GpxTenYjZFssFdcwLISURBYO2gaPTY3i8/t7bIbWQu9KYb+dK3Z67GuXd8jNQQC0T3Ph4/IoJr5L/
-	E4OgwBHfxtMytYfto9FmBIX43eJQTcISsAvHwzdR+Opu7rr/7U24NvAQrA+l/b2Jy6WKKU2dDSb2R
-	/fTshD2tMcTx4KFZEiM4XUy+KCvGh6BHwj2a3BoKRieUkIi1nn0HPDQqUL3tRJHPS17XkOyKRbund
-	JDLXL4fp4PRNkb6zNb4r5LRqL83I7Qxhw1I/jC5FLrPJ3NOQBcAlGTmnKQGS+QUgYcIDjAqU13UIp
-	2DkuwG/w==;
+	bh=uc3gPkZ8r1FzOrpoqUSParmzRze+XCmA9FXhY+PgW+8=; b=XcAB+H1oDVxarJgBLKdHy5l5ny
+	JfEi8XyaquT96f20nDUD4maMdyxft1D+b2yVIDIVP0bpoq5OMAA6TxsP6fg7f81BFyQF97hYHo+Ys
+	ILZ7UVEAaZQw729XWFgsn1k0BitpHc/+v8q3iavm7aYwuQVeQwZ53agRQQic3UUlu7VBJyI7pIYnQ
+	tC6bdfgkbrvzorPhGHr1HZcLNz47vCUvkOqZu+fdOLwb+GPPIR/TRT5ZVe5+AgcabwFJwT49pebpt
+	bboMrhHUnd3vPI0UN1qXaECRaQqqHf2gRNaRQH765s3c4CyKo6qttRrro8tymi1AgBs5EqovALg+v
+	hbnlqt4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaVk2-00000004dCW-3Npm;
-	Tue, 30 Dec 2025 09:10:10 +0000
-Received: from out30-97.freemail.mail.aliyun.com ([115.124.30.97])
+	id 1vaVk3-00000004dD9-0fCM;
+	Tue, 30 Dec 2025 09:10:11 +0000
+Received: from out30-99.freemail.mail.aliyun.com ([115.124.30.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaVjy-00000004d9W-09wk
+	id 1vaVjz-00000004d9n-0dPk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Dec 2025 09:10:07 +0000
+	Tue, 30 Dec 2025 09:10:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=linux.alibaba.com; s=default;
-	t=1767085804; h=From:To:Subject:Date:Message-Id:MIME-Version;
-	bh=0Ul1sx6SisOFhLh/di/2baASqMZA0nouNac7q4rV+e4=;
-	b=WA95ZEx3NkR8yiMqU6fh23vD2wC4CZ3CNbeyaNaWfpLSs6XVxJnlQYJ+7HC1QN+OLSrnCkj4VFJtbBksv0/kbZJc1vv/Ye3RWAQVXFwIuunWfV688nPTteAEQcUr45Cd0mnhPW/6va67ayx1M0va2JF7ENxATkFaZrhrK8Vt6tM=
-Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0WvzWDA8_1767085799 cluster:ay36)
+	t=1767085805; h=From:To:Subject:Date:Message-Id:MIME-Version;
+	bh=uc3gPkZ8r1FzOrpoqUSParmzRze+XCmA9FXhY+PgW+8=;
+	b=WO/P3KeHExUw5ZBsQEw43vXi6fsb8YFxlcx6aFrJK26xMpzCpuamnMpS22H1qx3Omm4vkzJ3XAmJBEq7t44dsR+2WWakqLLITR9iY9BQpgZ6v2WdTHeDx+PLHFuYnf1Cj7B0pfu2M0IbCRkUhBq2Mu+FyZuDsZ8tnJsShicO/TY=
+Received: from localhost(mailfrom:tianruidong@linux.alibaba.com fp:SMTPD_---0WvzUnC-_1767085802 cluster:ay36)
           by smtp.aliyun-inc.com;
-          Tue, 30 Dec 2025 17:10:01 +0800
+          Tue, 30 Dec 2025 17:10:03 +0800
 From: Ruidong Tian <tianruidong@linux.alibaba.com>
 To: catalin.marinas@arm.com,
 	will@kernel.org,
@@ -53,17 +53,17 @@ To: catalin.marinas@arm.com,
 	misono.tomohiro@fujitsu.com,
 	fengwei_yin@linux.alibaba.com
 Cc: tianruidong@linux.alibaba.com
-Subject: [PATCH v5 04/17] ras: AEST: Unify the read/write interface for system and MMIO register
-Date: Tue, 30 Dec 2025 17:09:32 +0800
-Message-Id: <20251230090945.43969-5-tianruidong@linux.alibaba.com>
+Subject: [PATCH v5 05/17] ras: AEST: Probe RAS system architecture version
+Date: Tue, 30 Dec 2025 17:09:33 +0800
+Message-Id: <20251230090945.43969-6-tianruidong@linux.alibaba.com>
 X-Mailer: git-send-email 2.33.1
 In-Reply-To: <20251230090945.43969-1-tianruidong@linux.alibaba.com>
 References: <20251230090945.43969-1-tianruidong@linux.alibaba.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251230_011006_226769_DDD7FD9B 
-X-CRM114-Status: GOOD (  11.42  )
+X-CRM114-CacheID: sfid-20251230_011007_380353_CB8DBA12 
+X-CRM114-Status: GOOD (  11.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,150 +78,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use record_read/write to simultaneously read and write system registers and
-MMIO registers while maintaining code conciseness.
+The RAS version of a component can be probed via its ERRDEVARCH register.
+
+In cases where a component (e.g., SMMU) does not implement an ERRDEVARCH
+register, the driver falls back to using the RAS version of the Processing
+Element (PE).
 
 Signed-off-by: Ruidong Tian <tianruidong@linux.alibaba.com>
 ---
- drivers/ras/aest/aest-core.c |  1 +
- drivers/ras/aest/aest.h      | 94 ++++++++++++++++++++++++++++++++++++
- 2 files changed, 95 insertions(+)
+ arch/arm64/include/asm/ras.h |  3 +++
+ drivers/ras/aest/aest-core.c | 22 ++++++++++++++++++++++
+ drivers/ras/aest/aest.h      |  3 +++
+ 3 files changed, 28 insertions(+)
 
+diff --git a/arch/arm64/include/asm/ras.h b/arch/arm64/include/asm/ras.h
+index b6640b9972bf..da7c441252fe 100644
+--- a/arch/arm64/include/asm/ras.h
++++ b/arch/arm64/include/asm/ras.h
+@@ -4,6 +4,9 @@
+ 
+ #include <linux/types.h>
+ 
++/* ERRDEVARCH */
++#define ERRDEVARCH_REV GENMASK(19, 16)
++
+ struct ras_ext_regs {
+ 	u64 err_fr;
+ 	u64 err_ctlr;
 diff --git a/drivers/ras/aest/aest-core.c b/drivers/ras/aest/aest-core.c
-index acebb293ac75..f4a5119dc513 100644
+index f4a5119dc513..84b2fb8127ff 100644
 --- a/drivers/ras/aest/aest-core.c
 +++ b/drivers/ras/aest/aest-core.c
-@@ -29,6 +29,7 @@ static int aest_init_record(struct aest_record *record, int i,
- 		record->regs_base =
- 			node->base + sizeof(struct ras_ext_regs) * i;
+@@ -16,6 +16,27 @@ DEFINE_PER_CPU(struct aest_device, percpu_adev);
+ #undef pr_fmt
+ #define pr_fmt(fmt) "AEST: " fmt
  
-+	record->access = &aest_access[node->info->interface_hdr->type];
- 	record->addressing_mode = test_bit(i, node->info->addressing_mode);
- 	record->index = i;
- 	record->node = node;
++static int get_aest_node_ver(struct aest_node *node)
++{
++	u64 reg;
++	void *devarch_base;
++
++	if (node->type == ACPI_AEST_GIC_ERROR_NODE) {
++		devarch_base = ioremap(node->info->interface_hdr->address +
++					       GIC_ERRDEVARCH,
++				       PAGE_SIZE);
++		if (!devarch_base)
++			return 0;
++
++		reg = readl_relaxed(devarch_base);
++		iounmap(devarch_base);
++
++		return FIELD_GET(ERRDEVARCH_REV, reg);
++	}
++
++	return FIELD_GET(ID_AA64PFR0_EL1_RAS_MASK, read_cpuid(ID_AA64PFR0_EL1));
++}
++
+ static int aest_init_record(struct aest_record *record, int i,
+ 			    struct aest_node *node)
+ {
+@@ -108,6 +129,7 @@ static int aest_init_node(struct aest_device *adev, struct aest_node *node,
+ 	node->adev = adev;
+ 	node->info = anode;
+ 	node->type = anode->type;
++	node->version = get_aest_node_ver(node);
+ 	node->name = alloc_aest_node_name(node);
+ 	if (!node->name)
+ 		return -ENOMEM;
 diff --git a/drivers/ras/aest/aest.h b/drivers/ras/aest/aest.h
-index 3250675e99b7..31131cce9928 100644
+index 31131cce9928..bf0b9a49fdaa 100644
 --- a/drivers/ras/aest/aest.h
 +++ b/drivers/ras/aest/aest.h
-@@ -10,6 +10,11 @@
+@@ -61,6 +61,8 @@
+ #define ERXMISC2 0x30
+ #define ERXMISC3 0x38
  
- #define MAX_GSI_PER_NODE 2
- 
-+#define record_read(record, offset) \
-+	record->access->read(record->regs_base, offset)
-+#define record_write(record, offset, val) \
-+	record->access->write(record->regs_base, offset, val)
++#define GIC_ERRDEVARCH 0xFFBC
 +
- #define aest_dev_err(__adev, format, ...) \
- 	dev_err((__adev)->dev, format, ##__VA_ARGS__)
- #define aest_dev_info(__adev, format, ...) \
-@@ -47,6 +52,20 @@
- #define ERXGROUP_16K_ERRGSR_NUM 4
- #define ERXGROUP_64K_ERRGSR_NUM 14
- 
-+#define ERXFR 0x0
-+#define ERXCTLR 0x8
-+#define ERXSTATUS 0x10
-+#define ERXADDR 0x18
-+#define ERXMISC0 0x20
-+#define ERXMISC1 0x28
-+#define ERXMISC2 0x30
-+#define ERXMISC3 0x38
-+
-+struct aest_access {
-+	u64 (*read)(void *base, u32 offset);
-+	void (*write)(void *base, u32 offset, u64 val);
-+};
-+
- struct aest_record {
- 	char *name;
- 	int index;
-@@ -63,6 +82,7 @@ struct aest_record {
+ struct aest_access {
+ 	u64 (*read)(void *base, u32 offset);
+ 	void (*write)(void *base, u32 offset, u64 val);
+@@ -141,6 +143,7 @@ struct aest_node {
+ 	 *              error events.
  	 */
- 	int addressing_mode;
- 	struct aest_node *node;
-+	const struct aest_access *access;
- };
+ 	unsigned long *status_reporting;
++	int version;
  
- struct aest_group {
-@@ -159,3 +179,77 @@ static inline int aest_set_name(struct aest_device *adev,
- 
- 	return 0;
- }
-+
-+#define CASE_READ(res, x)                           \
-+	case (x): {                                 \
-+		res = read_sysreg_s(SYS_##x##_EL1); \
-+		break;                              \
-+	}
-+
-+#define CASE_WRITE(val, x)                            \
-+	case (x): {                                   \
-+		write_sysreg_s((val), SYS_##x##_EL1); \
-+		break;                                \
-+	}
-+
-+static inline u64 aest_sysreg_read(void *__unused, u32 offset)
-+{
-+	u64 res;
-+
-+	switch (offset) {
-+		CASE_READ(res, ERXFR)
-+		CASE_READ(res, ERXCTLR)
-+		CASE_READ(res, ERXSTATUS)
-+		CASE_READ(res, ERXADDR)
-+		CASE_READ(res, ERXMISC0)
-+		CASE_READ(res, ERXMISC1)
-+		CASE_READ(res, ERXMISC2)
-+		CASE_READ(res, ERXMISC3)
-+	default :
-+		res = 0;
-+	}
-+	return res;
-+}
-+
-+static inline void aest_sysreg_write(void *base, u32 offset, u64 val)
-+{
-+	switch (offset) {
-+		CASE_WRITE(val, ERXFR)
-+		CASE_WRITE(val, ERXCTLR)
-+		CASE_WRITE(val, ERXSTATUS)
-+		CASE_WRITE(val, ERXADDR)
-+		CASE_WRITE(val, ERXMISC0)
-+		CASE_WRITE(val, ERXMISC1)
-+		CASE_WRITE(val, ERXMISC2)
-+		CASE_WRITE(val, ERXMISC3)
-+	default :
-+		return;
-+	}
-+}
-+
-+static inline u64 aest_iomem_read(void *base, u32 offset)
-+{
-+	return readq_relaxed(base + offset);
-+}
-+
-+static inline void aest_iomem_write(void *base, u32 offset, u64 val)
-+{
-+	writeq_relaxed(val, base + offset);
-+}
-+
-+/* access type is decided by AEST interface type. */
-+static const struct aest_access aest_access[] = {
-+	[ACPI_AEST_NODE_SYSTEM_REGISTER] = {
-+		.read = aest_sysreg_read,
-+		.write = aest_sysreg_write,
-+	},
-+	[ACPI_AEST_NODE_MEMORY_MAPPED] = {
-+		.read = aest_iomem_read,
-+		.write = aest_iomem_write,
-+	},
-+	[ACPI_AEST_NODE_SINGLE_RECORD_MEMORY_MAPPED] = {
-+		.read = aest_iomem_read,
-+		.write = aest_iomem_write,
-+	},
-+	{ }
-+};
+ 	const struct aest_group *group;
+ 	struct aest_device *adev;
 -- 
 2.47.3
 
