@@ -4,93 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EA45E94102
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Dec 2025 23:57:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2723E94107
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 00:37:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
-	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vaCAmCD1pI2PB4kVDvq818qZSC88KaBTxMeyOFyVIUw=; b=MH1BZY5j1OMBB5zZWbXSi1HCaE
-	rkxdcCojfF2ffRG9fw06Oa8ROnKAxJfImoI1+oyOgWp51IUt6nV3YxAWahgDnWKXMfaLxg7/P8CQ1
-	akKn6h5dLwEAepHt2vEPZcQvhtwI+HVCTbB8VMGcAvLJW3dJo/ARJb4CbbuODWXAln98gQnIxYXa+
-	7f3XV8eosJgTSwIG92R1jWF+IjoDqpmWbwORaTZ+L5oxKHial5wxnp9f52fQesvlH8icnnpg2B3Lp
-	F3xLPbrjGP6Voa0IyiniK+Yhe3BaNbxPl4Rnz3QW8Xvzf5fzxhqTpPrI8Ne12FEk3FsLKUFWhwaTl
-	zuruulGA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IheJhIQLOL+uGWt6XQ0zIC5UxYwT55m5ifEVRi78ko8=; b=YXZ1fEsEgxsJeRM7tXPxGk/6rA
+	IsWgTh2LaXTOarWE5ZGiwgTt7Rmt1RKYHhPje5X94iQStyn8moTRXU5YY+8uESN+oRL2qmmLydu5e
+	yT6+ZccaHnqV2P+/BFMM4wVM31kZZ87+k3idrcHY4EEGfaZHuXNZoO3Q0xiFRpKm5b8F92vJdPuoy
+	2VaDLzA3YyKj7FYDNQLkqhBNS0E67fWUDOqbC4dIRDSkaGNwz6P9LOffPTAlieQiTpU8Ebg8aDBnc
+	XMZ0Tmvy1yg87HUhL05OqSgSWXAOZiM7qR3ydY8qKTxaJpD/YoH6rLkPRYsPRtz1k1kGfrN0Axf+7
+	iDgSRd8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaN7A-00000004ADM-1Z1c;
-	Mon, 29 Dec 2025 23:57:28 +0000
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	id 1vaNk2-00000004BP9-44zI;
+	Tue, 30 Dec 2025 00:37:38 +0000
+Received: from mail-ot1-x332.google.com ([2607:f8b0:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaN76-00000004ABy-3sB1
+	id 1vaNjz-00000004BOg-1Tha
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Dec 2025 23:57:26 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-7b9090d9f2eso17965645b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Dec 2025 15:57:23 -0800 (PST)
+	Tue, 30 Dec 2025 00:37:37 +0000
+Received: by mail-ot1-x332.google.com with SMTP id 46e09a7af769-7c7aee74dceso3708669a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Dec 2025 16:37:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1767052643; x=1767657443; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=vaCAmCD1pI2PB4kVDvq818qZSC88KaBTxMeyOFyVIUw=;
-        b=Exbi19g3iSDD1XlqrHs8hWXWfmGesph4xEIEbHgDuiBvpXDanlClvqhxWfmVOv6b2X
-         u35MpWa+wCc9krpswJEDzLDIGel0bqzE6PM7NoiU18jC84uTEvHIJDI7F2ZzM4+elE7K
-         6h5OfCk2Dt7J9TO+R4VK/8qbdTU6axjopdF2Rx/8SUKexFc0ERSicHfdocV6XEKGQIp4
-         vJhozZaaUvTy7sEDBYpJVoRCXxicW130vtn0xfH6iUzbp891u4BniP3pO0PasBaEgSiQ
-         4D3uHWji4cT4HxCqiJR97xASV+7IGhKfJNHnGWIjFjNZYlUwwaFBfHP8/Y+ADfM2t03X
-         EHyg==
+        d=kernel-dk.20230601.gappssmtp.com; s=20230601; t=1767055052; x=1767659852; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=IheJhIQLOL+uGWt6XQ0zIC5UxYwT55m5ifEVRi78ko8=;
+        b=eY41MafOUYO4V3In4oY0fe0rkU/maXDlq78eDKG34Abe4snQT2iaaYCTELkFXY8/N+
+         vo0INmNObZjV8i9e0ei0rq9GHA/iK1IHKBObfpVrBJ0rUtOd3Ks4rVksSsjaoVjzWavh
+         aom7t/fGcPzbTHRQitGKABwqjNG8kR3My+DFHRh63Uz5AGT/Msb0SRL23aGvGcC6hbq7
+         Z/8MLH679UTclgYe1tYpmsXTl80y9akewnrr1WPsrGEf1L83kWgMS5qLpS2TmiQAp7x8
+         6C7XPB0CUQ2/sU39BFjAjdMiQYNpbFeyQm1J0ilDmtN15pWN7mGlKK9+EYFP6AmHSQzh
+         h4Sw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767052643; x=1767657443;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=vaCAmCD1pI2PB4kVDvq818qZSC88KaBTxMeyOFyVIUw=;
-        b=ZuqhOjmHnpowrium/olskaxd3g5HGsZCJ4H/7i2RLAyPb6j7KWYnfR7qD7FnrIU3z/
-         0iNNSAD4sAvcMKXKKUndw34GnMsdI18+zws4g5OaaP3o7YC4AA2CK5GazI8J/q1zfXb8
-         Z1ITD4k14yM0I0243gMAFw1SYmHoyIcLqWJQOt0Vo15ChQMIx7euBxMHPnDbkDLFugzl
-         zKNTy6NWt+IPLZieeyDi46WdSfBUDbwL+BqsAQgfaxepWVU6aHtdEBMwZf508nqNdEYT
-         vwD1vxIEZ9H6Kq71tYBoEiBPuBKtgWfzjMHM7GpV4lufdVlzEr6Ld2+gIYLo1KFYneAI
-         gziw==
-X-Forwarded-Encrypted: i=1; AJvYcCUvQOsvPcimMMOeVvDpWuX9eKoOC+L9J2BzT8QqVewWjvIxTVM44iNInNI52gIInb8mHaGGXkCt8NB0JS7bqJ+o@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw49wyZmrXyL7S/mphNt/RubiI6fthgkqREUQqnbgvh5lsNGUyK
-	gKrAcEYELMFadHUraKeeju2ZmdH4k9Q87u+UAY0s34sV1eUJTb7NQ1xmUJmQUoIQEiJc1NqGpO7
-	ScvpTuQ==
-X-Google-Smtp-Source: AGHT+IGWSzvMBdAgSpc1cQ4FNAzud2F9vkcmbgsGWHl/uECW+mXFCBlsNw6jhBxprH27ZWhYhxw4eDFyKfA=
-X-Received: from pjhk89.prod.google.com ([2002:a17:90a:4ce2:b0:34c:1d76:2fe9])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:9185:b0:343:af1:9a57
- with SMTP id adf61e73a8af0-376aa8e98d6mr28981483637.56.1767052643109; Mon, 29
- Dec 2025 15:57:23 -0800 (PST)
-Date: Mon, 29 Dec 2025 15:57:21 -0800
-In-Reply-To: <43d1cde6-2277-4f3c-8e7d-59e6edb2228a@linux.intel.com>
-Mime-Version: 1.0
-References: <20251206001720.468579-1-seanjc@google.com> <20251206001720.468579-16-seanjc@google.com>
- <43d1cde6-2277-4f3c-8e7d-59e6edb2228a@linux.intel.com>
-Message-ID: <aVMVYY_WkNClfXuj@google.com>
-Subject: Re: [PATCH v6 15/44] KVM: x86/pmu: Snapshot host (i.e. perf's)
- reported PMU capabilities
-From: Sean Christopherson <seanjc@google.com>
-To: Dapeng Mi <dapeng1.mi@linux.intel.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
-	Mingwei Zhang <mizhang@google.com>, Xudong Hao <xudong.hao@intel.com>, 
-	Sandipan Das <sandipan.das@amd.com>, Xiong Zhang <xiong.y.zhang@linux.intel.com>, 
-	Manali Shukla <manali.shukla@amd.com>, Jim Mattson <jmattson@google.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+        d=1e100.net; s=20230601; t=1767055052; x=1767659852;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=IheJhIQLOL+uGWt6XQ0zIC5UxYwT55m5ifEVRi78ko8=;
+        b=Ha4662TC19E9J5ogX0l4GrRMsw8LuVnn2+BQ1aeLjRUkbOBXWSukezRKrOrkZ19KVp
+         6qHUpXMhYXwgPcKPsaPnpiB4LXwSkJQSdbMSPz0aPEIlhQHbiXPTrQC3dtkfan4xS8P0
+         sDbY5HeaatnROx4bvApQvD8G4JEXSU2wrI680mm5kVCjuT6kFotvt7itW787dy4QOnF4
+         K9FyTNLvmHyyRiP/j+uttRKJ9ohPQYUqsX28grympFS8Q2xwIE9We6oAwHyiOly2lLlL
+         mT8J+KCaRa2Lez3OM3fixpk75fVbmnEOTUlSupHjzLVEXiq9pn5ic4TTGnbx8g9JhSiu
+         6S+A==
+X-Forwarded-Encrypted: i=1; AJvYcCXTOauOd/woWObFElUMmzsGLhIF5pCTyrLJIhm4x1Ad/ghET6GhflKMYqMAhdVAY+naRIjXLgF5K5kgbtwl/DdR@lists.infradead.org
+X-Gm-Message-State: AOJu0YySMjr8whlTjAZhtXnIZACT59Vkr9RsP4HdeHnP/wvx21NlOsRV
+	M7unawSDmfXiM4bYCxFst3/hmxZ/gsfUkxA9AL+ifTKhh5Divf30qOLmfJLHH3bO4wo=
+X-Gm-Gg: AY/fxX46miV99ZgthGhOwrsQjcftEOL/GdXR1K+co7MO89Q9t1wkBHfBXWsXCChdlhM
+	a1n7PzKqd88MzZGG+Ak5amwl7dLEhkTrQbWCabx4S6fi5dWGOLW6SKQjnyWLEwj4oG/WDpte4+z
+	IbxHT61p5ZxXSgj4LDrfFupJo2BfUayK/KDhgRoi/FFbYpdGCYtn2buM6QctgBUIsNVJ/PIczZ7
+	aQfBX6JFJQHkwSqUmU02b6JT4SoLAprw9AXZ6rv/dTk7PX2ZgOmsS2AtErnqP8VDgr+vZtu1Ycx
+	nUNOSJLIypsHqT2OLDmKMbzoyO1nbl2J93LM+GIj9+JUzjvd5e0mLW8VPks48Ug+pK/PU8k3C6W
+	ZmDO46QlnC3bQw9im8BVlkMHRgIGoxgJLRTU9fAa9YK3P6jJfD+nKrYEFQr0E9a8socggLa9zGQ
+	xm+ApV6G13
+X-Google-Smtp-Source: AGHT+IFl9yxlJpaq7sZYozgWoQTaTewr4cBUOiverIAjbR/CmqFwp/DL9X0O2bEGHsivPH5Emtcv9g==
+X-Received: by 2002:a05:6830:2642:b0:7c7:6217:5c60 with SMTP id 46e09a7af769-7cc66a603d6mr14529090a34.25.1767055052471;
+        Mon, 29 Dec 2025 16:37:32 -0800 (PST)
+Received: from [192.168.1.150] ([198.8.77.157])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7cc667d4f62sm21773347a34.19.2025.12.29.16.37.29
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 29 Dec 2025 16:37:31 -0800 (PST)
+Message-ID: <0f65c4fe-8b10-403d-b5b6-ed33fc4eb69c@kernel.dk>
+Date: Mon, 29 Dec 2025 17:37:29 -0700
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 09/33] block: Protect against concurrent isolated cpuset
+ change
+To: Frederic Weisbecker <frederic@kernel.org>,
+ LKML <linux-kernel@vger.kernel.org>
+Cc: =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Chen Ridong <chenridong@huawei.com>, Danilo Krummrich <dakr@kernel.org>,
+ "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Gabriele Monaco <gmonaco@redhat.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+ Johannes Weiner <hannes@cmpxchg.org>, Lai Jiangshan
+ <jiangshanlai@gmail.com>, Marco Crivellari <marco.crivellari@suse.com>,
+ Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+ Paolo Abeni <pabeni@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Phil Auld <pauld@redhat.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
+ Roman Gushchin <roman.gushchin@linux.dev>,
+ Shakeel Butt <shakeel.butt@linux.dev>, Simon Horman <horms@kernel.org>,
+ Tejun Heo <tj@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
+ Will Deacon <will@kernel.org>, cgroups@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
+ linux-mm@kvack.org, linux-pci@vger.kernel.org, netdev@vger.kernel.org
+References: <20251224134520.33231-1-frederic@kernel.org>
+ <20251224134520.33231-10-frederic@kernel.org>
+Content-Language: en-US
+From: Jens Axboe <axboe@kernel.dk>
+In-Reply-To: <20251224134520.33231-10-frederic@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251229_155724_966064_BE082CA2 
-X-CRM114-Status: GOOD (  21.31  )
+X-CRM114-CacheID: sfid-20251229_163735_406898_03D47842 
+X-CRM114-Status: GOOD (  18.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,56 +124,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 25, 2025, Dapeng Mi wrote:
->=20
-> On 12/6/2025 8:16 AM, Sean Christopherson wrote:
-> > Take a snapshot of the unadulterated PMU capabilities provided by perf =
-so
-> > that KVM can compare guest vPMU capabilities against hardware capabilit=
-ies
-> > when determining whether or not to intercept PMU MSRs (and RDPMC).
-> >
-> > Reviewed-by: Sandipan Das <sandipan.das@amd.com>
-> > Tested-by: Xudong Hao <xudong.hao@intel.com>
-> > Signed-off-by: Sean Christopherson <seanjc@google.com>
-> > ---
-> >  arch/x86/kvm/pmu.c | 2 ++
-> >  1 file changed, 2 insertions(+)
-> >
-> > diff --git a/arch/x86/kvm/pmu.c b/arch/x86/kvm/pmu.c
-> > index 487ad19a236e..7c219305b61d 100644
-> > --- a/arch/x86/kvm/pmu.c
-> > +++ b/arch/x86/kvm/pmu.c
-> > @@ -108,6 +108,8 @@ void kvm_init_pmu_capability(const struct kvm_pmu_o=
-ps *pmu_ops)
-> >  	bool is_intel =3D boot_cpu_data.x86_vendor =3D=3D X86_VENDOR_INTEL;
-> >  	int min_nr_gp_ctrs =3D pmu_ops->MIN_NR_GP_COUNTERS;
-> > =20
-> > +	perf_get_x86_pmu_capability(&kvm_host_pmu);
-> > +
-> >  	/*
-> >  	 * Hybrid PMUs don't play nice with virtualization without careful
-> >  	 * configuration by userspace, and KVM's APIs for reporting supported
->=20
-> Hi Sean,
->=20
-> It looks a merging error here. We don't need this patch.
+On 12/24/25 6:44 AM, Frederic Weisbecker wrote:
+> The block subsystem prevents running the workqueue to isolated CPUs,
+> including those defined by cpuset isolated partitions. Since
+> HK_TYPE_DOMAIN will soon contain both and be subject to runtime
+> modifications, synchronize against housekeeping using the relevant lock.
+> 
+> For full support of cpuset changes, the block subsystem may need to
+> propagate changes to isolated cpumask through the workqueue in the
+> future.
+> 
+> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+> ---
+>  block/blk-mq.c | 6 +++++-
+>  1 file changed, 5 insertions(+), 1 deletion(-)
+> 
+> diff --git a/block/blk-mq.c b/block/blk-mq.c
+> index 1978eef95dca..0037af1216f3 100644
+> --- a/block/blk-mq.c
+> +++ b/block/blk-mq.c
+> @@ -4257,12 +4257,16 @@ static void blk_mq_map_swqueue(struct request_queue *q)
+>  
+>  		/*
+>  		 * Rule out isolated CPUs from hctx->cpumask to avoid
+> -		 * running block kworker on isolated CPUs
+> +		 * running block kworker on isolated CPUs.
+> +		 * FIXME: cpuset should propagate further changes to isolated CPUs
+> +		 * here.
+>  		 */
+> +		rcu_read_lock();
+>  		for_each_cpu(cpu, hctx->cpumask) {
+>  			if (cpu_is_isolated(cpu))
+>  				cpumask_clear_cpu(cpu, hctx->cpumask);
+>  		}
+> +		rcu_read_unlock();
 
-Gah, right you are.  I overlooked it because it didn't conflict on a rebase=
-, and
-I once again forgot to test on a hybrid PMU, grr.
+Want me to just take this one separately and get it out of your hair?
+Doesn't seem to have any dependencies.
 
-Thanks!
-
-> The original patch "51f34b1 ("KVM: x86/pmu: Snapshot host (i.e. perf's)
-> reported PMU capabilities")" had been merged into upstream and subsequent=
-ly
-> we submitted a new patch "034417c1439a ("KVM: x86/pmu: Don't try to get
-> perf capabilities for hybrid CPUs")" to fix the warning introduced from
-> previous patch=C2=A0 "51f34b1 ("KVM: x86/pmu: Snapshot host (i.e. perf's)
-> reported PMU capabilities")". Thanks.
->=20
-> -Dapeng Mi
->=20
->=20
+-- 
+Jens Axboe
 
