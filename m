@@ -4,68 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4687EE0209
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 14:52:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 713CFEE0203
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 15:05:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vvvtwsQjo2IhJny1kYDDsCKK+Mmi1e7mExEwPeGpCEI=; b=HWkiyFSwebfUCpFsyDIyn1Gzak
-	0P1qEFj34MFfHPC/r2bPf64J1En8JXEyjQVE00tD5l6CJQ/d0TlrxsTSDXR15HcmZzdhlYmhviWUW
-	deYp+EJFUc0zEJVK16iA/P/j5KKUf4OrKr/kVIUFzAQiYzDtApToRnp4jQ4btKiHskkBK253GcLpG
-	qQBg3tn3rJZ0jKLjTs4QzOHIvoxoifkRD4sAm1TEzJSd44X0W/T8G4YKyzTTob65nUE5IkR7Y64yR
-	cDZPmJo5ficZcedAytcmegebXrmxVNnLHRUTDbLbsgMM2z1AnBxy9GfuMr184N9f8i+nH0fMnkV1p
-	AENsICWA==;
+	bh=SZARmaZEXZR6ZbEbjtniLOp7yqHmUCZXPgdI02BKjmo=; b=WSQnzgv9ccrnKn5bJpgdFrzIr9
+	R+ROvnoXP2gjU1l9l5E0kbbIAwh0vYVGvvY16fUztIEH/tYL54WW0DknrqNfd3N4cG2KuKu0xbnTZ
+	3YeauVecyRSdBtYJEiXtGT1OjqlJkifSoPmUgZdAeMQTKB5K6f1ZsYyisUeZu4zRbTQ28LcTy6zkY
+	kpFJryvDHAMxzlKtsOLYmt2khatpLwGnO6cqiQpwGDMoxP4JDTQqNgAFC6iqyVSb+vOOfJl1pjzme
+	pzkaBmLHeTAz3hLYAm1QzQv7Z3K5SuHZe+VriEKU+waOuRA2tV1vfdJ6WfQLVR/2HksMm1PFRV1QX
+	hNfV0pZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vab4m-00000004xiO-3tXT;
-	Tue, 30 Dec 2025 14:51:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vabHo-00000004yUp-0euO;
+	Tue, 30 Dec 2025 15:05:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vab4k-00000004xgV-1SY5
+	id 1vabHl-00000004yTw-27eO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Dec 2025 14:51:55 +0000
+	Tue, 30 Dec 2025 15:05:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DABCD40746;
-	Tue, 30 Dec 2025 14:51:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A84D9C4CEFB;
-	Tue, 30 Dec 2025 14:51:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A645944354
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Dec 2025 15:05:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C243C2BC86
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Dec 2025 15:05:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767106313;
-	bh=WKE/XYNcBzOf0ZIHqjBiCq2xvyLfPnltvhfX9fnz+wg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Dl7+of8PQYOKIbHtdfkfn9V6WccfsEMLmBm3vSay7LfTce7rS6hUBXCstI6zqs2S2
-	 mxI2+AEmlNwOjAiayujxul9mbt0CziwYRSo+oZZC0Lv+e72cal3klBjWdwsV2+RjFT
-	 P8Kp+AFpAag9iEAu0Gnt3IgxXT/PL7gm8gOw7+6pJALE+pc3dwcUsevv82oP4+ReD9
-	 D2sO0MnaTNBfFsQ5stQAqV/48nqMI2q0Z1osWYDSYxPlxLQK1YCzK+qSBbLSVlbV9r
-	 OH5Iv257OUYsstpUXbYN9uT36JO5BBnJdHp0HAhaZaAxOk1YO4qRTACRjkknlqIKHG
-	 uex1b0GcXT11w==
-From: Jiri Olsa <jolsa@kernel.org>
-To: Steven Rostedt <rostedt@kernel.org>,
-	Florent Revest <revest@google.com>,
-	Mark Rutland <mark.rutland@arm.com>
-Cc: bpf@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Menglong Dong <menglong8.dong@gmail.com>,
-	Song Liu <song@kernel.org>
-Subject: [PATCHv6 bpf-next 9/9] bpf,x86: Use single ftrace_ops for direct calls
-Date: Tue, 30 Dec 2025 15:50:10 +0100
-Message-ID: <20251230145010.103439-10-jolsa@kernel.org>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20251230145010.103439-1-jolsa@kernel.org>
-References: <20251230145010.103439-1-jolsa@kernel.org>
+	s=k20201202; t=1767107120;
+	bh=k+sfLAHZ4od5Go1hQ8/E7tdBiePwz8C12d3QEmnz21s=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=sDJDMxdd8iQEMb144fHCJJyqbI88R8/JT+Y8pjWA5h/mTMhWBu6eB8klbj2u33F/S
+	 dM8Q8ElvqUeCwP8ekUB2cFVkoKZxMTOg4kpP0GXxyRgPsUv2SAI2/31/Itt0zrwEQI
+	 ik0EPJaCaLicRyrWS5uuRAoJN6ajUTtXkdPyJ5Ht0bZne1ZcftBRzAH6Hk3VKZfbwg
+	 K+i5sR/BDhRJkSLX7izk/HdxO2M+C3V30FqcOyE3oxwLSmO3k5k10KWYmuvRPejdeN
+	 LrckI/8dILhe59p6ZnbqEAB7fKF8sNwknS/afyvmjZTxqK+4UJtlkyvv8d21NWzxYp
+	 oB93I4QZh8C1w==
+Received: by mail-pj1-f50.google.com with SMTP id 98e67ed59e1d1-34c902f6845so14147722a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Dec 2025 07:05:20 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWosOV4I7XYomY7pU1PNNClbk5IPHon9aD+ulHoMgKTgD5SCY573jnzfBXDBuZ6HsA68ZY+QUOiqfpYdk3wIrPM@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxhp++jYqDBYmzPawUYvt2Z/xmVY0lbQDxy5soX2OyWwcnOzLKH
+	DKQu9QY2aKuD1NfwmB6dexG2DpGQYm8wrSMCtxJp3uJvgqTUruiH6qprn4rqGq5y17wHpWmsDx4
+	eDl/Cjer3Ilzk3ZTrXoBnGcZjLdcm+g==
+X-Google-Smtp-Source: AGHT+IHOLydLmmcmWVVnPVsyVGqwhF4/f5HUKm8mx3LlEuS0RmP9LmzBmhVmJflNaj+6zrgVN2DSmF0vgYG2pNCTGVo=
+X-Received: by 2002:a05:7022:3a83:b0:11c:b397:2657 with SMTP id
+ a92af1059eb24-121722be81emr36781711c88.22.1767107119963; Tue, 30 Dec 2025
+ 07:05:19 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250924103708.19071-1-angelogioacchino.delregno@collabora.com>
+ <20250924103708.19071-4-angelogioacchino.delregno@collabora.com>
+ <fb2c7169b3c3e2e376ee0b092699735dc38bcbb6.camel@mediatek.com> <51af30ea-dce9-49b8-a5e1-0ee8e9644879@collabora.com>
+In-Reply-To: <51af30ea-dce9-49b8-a5e1-0ee8e9644879@collabora.com>
+From: Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Date: Tue, 30 Dec 2025 15:05:06 +0000
+X-Gmail-Original-Message-ID: <CAAOTY_-y6QTu7txOQZoDrYih_0tH4MATku0orOKAqU5cL7oFcw@mail.gmail.com>
+X-Gm-Features: AQt7F2oOXBIit7sf6BOjsCE3xqBbn0Bu_G1yunIHCL6bSDsyps9snFVRQRZ00vI
+Message-ID: <CAAOTY_-y6QTu7txOQZoDrYih_0tH4MATku0orOKAqU5cL7oFcw@mail.gmail.com>
+Subject: Re: [PATCH 3/3] drm/mediatek: mtk_disp_rdma: Enable/disable interrupt
+ on bind/unbind
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: =?UTF-8?B?Q0sgSHUgKOiDoeS/iuWFiSk=?= <ck.hu@mediatek.com>, 
+	"chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>, Alexandre Mergnat <amergnat@baylibre.com>, 
+	"simona@ffwll.ch" <simona@ffwll.ch>, 
+	"dmitry.osipenko@collabora.com" <dmitry.osipenko@collabora.com>, 
+	"kernel@collabora.com" <kernel@collabora.com>, 
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>, 
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"djkurtz@chromium.org" <djkurtz@chromium.org>, "granquet@baylibre.com" <granquet@baylibre.com>, 
+	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>, 
+	=?UTF-8?B?QmliYnkgSHNpZWggKOisnea/n+mBoCk=?= <Bibby.Hsieh@mediatek.com>, 
+	"airlied@gmail.com" <airlied@gmail.com>, 
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, "littlecvr@chromium.org" <littlecvr@chromium.org>, 
+	=?UTF-8?B?UmV4LUJDIENoZW4gKOmZs+afj+i+sCk=?= <Rex-BC.Chen@mediatek.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251230_065154_436572_CC4D0246 
-X-CRM114-Status: GOOD (  20.21  )
+X-CRM114-CacheID: sfid-20251230_070521_588680_CE65C36B 
+X-CRM114-Status: GOOD (  33.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,356 +99,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Using single ftrace_ops for direct calls update instead of allocating
-ftrace_ops object for each trampoline.
+AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com> =E6=96=
+=BC
+2025=E5=B9=B410=E6=9C=8828=E6=97=A5=E9=80=B1=E4=BA=8C =E4=B8=8B=E5=8D=883:4=
+9=E5=AF=AB=E9=81=93=EF=BC=9A
+>
+> Il 28/10/25 10:49, CK Hu (=E8=83=A1=E4=BF=8A=E5=85=89) ha scritto:
+> > On Wed, 2025-09-24 at 12:37 +0200, AngeloGioacchino Del Regno wrote:
+> >> External email : Please do not click links or open attachments until y=
+ou have verified the sender or the content.
+> >>
+> >>
+> >> The RDMA driver is installing an ISR in the probe function but, if
+> >> the component is not bound yet, the interrupt handler may call the
+> >> vblank_cb ahead of time (while probing other drivers) or too late
+> >> (while removing other drivers), possibly accessing memory that it
+> >> should not try to access by reusing stale pointers.
+> >>
+> >> In order to fix this, like done in the OVL driver, add a new `irq`
+> >> member to struct mtk_disp_ovl and then set the NOAUTOEN flag to
+> >> the irq before installing the ISR to manually disable and clear
+> >> the hwirqs with register writes, and enable_irq() and disable_irq()
+> >> in the bind and unbind callbacks respectively.
+> >>
+> >> Fixes: 119f5173628a ("drm/mediatek: Add DRM Driver for Mediatek SoC MT=
+8173.")
+> >> Link: https://lore.kernel.org/r/20250402083628.20111-6-angelogioacchin=
+o.delregno@collabora.com
+> >> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@c=
+ollabora.com>
+> >> ---
+> >>   drivers/gpu/drm/mediatek/mtk_disp_rdma.c | 34 ++++++++++++++--------=
+--
+> >>   1 file changed, 20 insertions(+), 14 deletions(-)
+> >>
+> >> diff --git a/drivers/gpu/drm/mediatek/mtk_disp_rdma.c b/drivers/gpu/dr=
+m/mediatek/mtk_disp_rdma.c
+> >> index c9d41d75e7f2..9fd9bb1ee544 100644
+> >> --- a/drivers/gpu/drm/mediatek/mtk_disp_rdma.c
+> >> +++ b/drivers/gpu/drm/mediatek/mtk_disp_rdma.c
+> >> @@ -81,6 +81,7 @@ struct mtk_disp_rdma_data {
+> >>   struct mtk_disp_rdma {
+> >>          struct clk                      *clk;
+> >>          void __iomem                    *regs;
+> >> +       int                             irq;
+> >>          struct cmdq_client_reg          cmdq_reg;
+> >>          const struct mtk_disp_rdma_data *data;
+> >>          void                            (*vblank_cb)(void *data);
+> >> @@ -295,13 +296,23 @@ void mtk_rdma_layer_config(struct device *dev, u=
+nsigned int idx,
+> >>   static int mtk_disp_rdma_bind(struct device *dev, struct device *mas=
+ter,
+> >>                                void *data)
+> >>   {
+> >> -       return 0;
+> >> +       struct mtk_disp_rdma *priv =3D dev_get_drvdata(dev);
+> >> +
+> >> +       /* Disable and clear pending interrupts */
+> >> +       writel(0x0, priv->regs + DISP_REG_RDMA_INT_ENABLE);
+> >> +       writel(0x0, priv->regs + DISP_REG_RDMA_INT_STATUS);
+> >> +
+> >> +       enable_irq(priv->irq);
+> >>
+> >> +       return 0;
+> >>   }
+> >>
+> >>   static void mtk_disp_rdma_unbind(struct device *dev, struct device *=
+master,
+> >>                                   void *data)
+> >>   {
+> >> +       struct mtk_disp_rdma *priv =3D dev_get_drvdata(dev);
+> >> +
+> >> +       disable_irq(priv->irq);
+> >>   }
+> >>
+> >>   static const struct component_ops mtk_disp_rdma_component_ops =3D {
+> >> @@ -313,16 +324,15 @@ static int mtk_disp_rdma_probe(struct platform_d=
+evice *pdev)
+> >>   {
+> >>          struct device *dev =3D &pdev->dev;
+> >>          struct mtk_disp_rdma *priv;
+> >> -       int irq;
+> >>          int ret;
+> >>
+> >>          priv =3D devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+> >>          if (!priv)
+> >>                  return -ENOMEM;
+> >>
+> >> -       irq =3D platform_get_irq(pdev, 0);
+> >> -       if (irq < 0)
+> >> -               return irq;
+> >> +       priv->irq =3D platform_get_irq(pdev, 0);
+> >> +       if (priv->irq < 0)
+> >> +               return priv->irq;
+> >>
+> >>          priv->clk =3D devm_clk_get(dev, NULL);
+> >>          if (IS_ERR(priv->clk))
+> >> @@ -345,21 +355,17 @@ static int mtk_disp_rdma_probe(struct platform_d=
+evice *pdev)
+> >>          if (ret && (ret !=3D -EINVAL))
+> >>                  return dev_err_probe(dev, ret, "Failed to get rdma fi=
+fo size\n");
+> >>
+> >> -       /* Disable and clear pending interrupts */
+> >> -       writel(0x0, priv->regs + DISP_REG_RDMA_INT_ENABLE);
+> >> -       writel(0x0, priv->regs + DISP_REG_RDMA_INT_STATUS);
+> >
+> > Pending interrupt is cleared here, and interrupt is disabled here.
+> > So the problem you mention would not happen.
+> >
+>
+> When unbinding the component, the interrupt is not cleared nor disabled.
+>
+> If there is any pending interrupt while unbinding (or if the HW raises an=
+ interrupt
+> after rdma gets unbound) the ISR will produce a use-after-free issue.
 
-With single ftrace_ops object we can use update_ftrace_direct_* api
-that allows multiple ip sites updates on single ftrace_ops object.
+In mtk_drm_kms_deinit(), it call drm_atomic_helper_shutdown() before
+component_unbind_all().
+I think hardware should be disabled when drm_atomic_helper_shutdown().
+If hardware is not disabled, we should find out the reason.
+I like a symmetry design. After bind all sub driver, then enable
+hardware. disable hardware before unbind sub driver.
+This assume that hardware is disabled when boot up.
+If the hardware is enabled in bootloader stage, the tricky way is to
+disable interrupt before request irq in probe.
 
-Adding HAVE_SINGLE_FTRACE_DIRECT_OPS config option to be enabled on
-each arch that supports this.
+Regards,
+Chun-Kuang.
 
-At the moment we can enable this only on x86 arch, because arm relies
-on ftrace_ops object representing just single trampoline image (stored
-in ftrace_ops::direct_call). Archs that do not support this will continue
-to use *_ftrace_direct api.
-
-Signed-off-by: Jiri Olsa <jolsa@kernel.org>
----
- arch/x86/Kconfig        |   1 +
- kernel/bpf/trampoline.c | 220 ++++++++++++++++++++++++++++++++++------
- kernel/trace/Kconfig    |   3 +
- kernel/trace/ftrace.c   |   7 +-
- 4 files changed, 200 insertions(+), 31 deletions(-)
-
-diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
-index 80527299f859..53bf2cf7ff6f 100644
---- a/arch/x86/Kconfig
-+++ b/arch/x86/Kconfig
-@@ -336,6 +336,7 @@ config X86
- 	select SCHED_SMT			if SMP
- 	select ARCH_SUPPORTS_SCHED_CLUSTER	if SMP
- 	select ARCH_SUPPORTS_SCHED_MC		if SMP
-+	select HAVE_SINGLE_FTRACE_DIRECT_OPS	if X86_64 && DYNAMIC_FTRACE_WITH_DIRECT_CALLS
- 
- config INSTRUCTION_DECODER
- 	def_bool y
-diff --git a/kernel/bpf/trampoline.c b/kernel/bpf/trampoline.c
-index e5a0d58ed6dc..248cd368fa37 100644
---- a/kernel/bpf/trampoline.c
-+++ b/kernel/bpf/trampoline.c
-@@ -33,12 +33,40 @@ static DEFINE_MUTEX(trampoline_mutex);
- #ifdef CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
- static int bpf_trampoline_update(struct bpf_trampoline *tr, bool lock_direct_mutex);
- 
-+#ifdef CONFIG_HAVE_SINGLE_FTRACE_DIRECT_OPS
-+static struct bpf_trampoline *direct_ops_ip_lookup(struct ftrace_ops *ops, unsigned long ip)
-+{
-+	struct hlist_head *head_ip;
-+	struct bpf_trampoline *tr;
-+
-+	mutex_lock(&trampoline_mutex);
-+	head_ip = &trampoline_ip_table[hash_64(ip, TRAMPOLINE_HASH_BITS)];
-+	hlist_for_each_entry(tr, head_ip, hlist_ip) {
-+		if (tr->ip == ip)
-+			goto out;
-+	}
-+	tr = NULL;
-+out:
-+	mutex_unlock(&trampoline_mutex);
-+	return tr;
-+}
-+#else
-+static struct bpf_trampoline *direct_ops_ip_lookup(struct ftrace_ops *ops, unsigned long ip)
-+{
-+	return ops->private;
-+}
-+#endif /* CONFIG_HAVE_SINGLE_FTRACE_DIRECT_OPS */
-+
- static int bpf_tramp_ftrace_ops_func(struct ftrace_ops *ops, unsigned long ip,
- 				     enum ftrace_ops_cmd cmd)
- {
--	struct bpf_trampoline *tr = ops->private;
-+	struct bpf_trampoline *tr;
- 	int ret = 0;
- 
-+	tr = direct_ops_ip_lookup(ops, ip);
-+	if (!tr)
-+		return -EINVAL;
-+
- 	if (cmd == FTRACE_OPS_CMD_ENABLE_SHARE_IPMODIFY_SELF) {
- 		/* This is called inside register_ftrace_direct_multi(), so
- 		 * tr->mutex is already locked.
-@@ -137,6 +165,162 @@ void bpf_image_ksym_del(struct bpf_ksym *ksym)
- 			   PAGE_SIZE, true, ksym->name);
- }
- 
-+#ifdef CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
-+#ifdef CONFIG_HAVE_SINGLE_FTRACE_DIRECT_OPS
-+/*
-+ * We have only single direct_ops which contains all the direct call
-+ * sites and is the only global ftrace_ops for all trampolines.
-+ *
-+ * We use 'update_ftrace_direct_*' api for attachment.
-+ */
-+struct ftrace_ops direct_ops = {
-+	.ops_func = bpf_tramp_ftrace_ops_func,
-+};
-+
-+static int direct_ops_alloc(struct bpf_trampoline *tr)
-+{
-+	tr->fops = &direct_ops;
-+	return 0;
-+}
-+
-+static void direct_ops_free(struct bpf_trampoline *tr) { }
-+
-+static struct ftrace_hash *hash_from_ip(struct bpf_trampoline *tr, void *ptr)
-+{
-+	unsigned long ip, addr = (unsigned long) ptr;
-+	struct ftrace_hash *hash;
-+
-+	ip = ftrace_location(tr->ip);
-+	if (!ip)
-+		return NULL;
-+	hash = alloc_ftrace_hash(FTRACE_HASH_DEFAULT_BITS);
-+	if (!hash)
-+		return NULL;
-+	if (bpf_trampoline_use_jmp(tr->flags))
-+		addr = ftrace_jmp_set(addr);
-+	if (!add_ftrace_hash_entry_direct(hash, ip, addr)) {
-+		free_ftrace_hash(hash);
-+		return NULL;
-+	}
-+	return hash;
-+}
-+
-+static int direct_ops_add(struct bpf_trampoline *tr, void *addr)
-+{
-+	struct ftrace_hash *hash = hash_from_ip(tr, addr);
-+	int err;
-+
-+	if (!hash)
-+		return -ENOMEM;
-+	err = update_ftrace_direct_add(tr->fops, hash);
-+	free_ftrace_hash(hash);
-+	return err;
-+}
-+
-+static int direct_ops_del(struct bpf_trampoline *tr, void *addr)
-+{
-+	struct ftrace_hash *hash = hash_from_ip(tr, addr);
-+	int err;
-+
-+	if (!hash)
-+		return -ENOMEM;
-+	err = update_ftrace_direct_del(tr->fops, hash);
-+	free_ftrace_hash(hash);
-+	return err;
-+}
-+
-+static int direct_ops_mod(struct bpf_trampoline *tr, void *addr, bool lock_direct_mutex)
-+{
-+	struct ftrace_hash *hash = hash_from_ip(tr, addr);
-+	int err;
-+
-+	if (!hash)
-+		return -ENOMEM;
-+	err = update_ftrace_direct_mod(tr->fops, hash, lock_direct_mutex);
-+	free_ftrace_hash(hash);
-+	return err;
-+}
-+#else
-+/*
-+ * We allocate ftrace_ops object for each trampoline and it contains
-+ * call site specific for that trampoline.
-+ *
-+ * We use *_ftrace_direct api for attachment.
-+ */
-+static int direct_ops_alloc(struct bpf_trampoline *tr)
-+{
-+	tr->fops = kzalloc(sizeof(struct ftrace_ops), GFP_KERNEL);
-+	if (!tr->fops)
-+		return -ENOMEM;
-+	tr->fops->private = tr;
-+	tr->fops->ops_func = bpf_tramp_ftrace_ops_func;
-+	return 0;
-+}
-+
-+static void direct_ops_free(struct bpf_trampoline *tr)
-+{
-+	if (!tr->fops)
-+		return;
-+	ftrace_free_filter(tr->fops);
-+	kfree(tr->fops);
-+}
-+
-+static int direct_ops_add(struct bpf_trampoline *tr, void *ptr)
-+{
-+	unsigned long addr = (unsigned long) ptr;
-+	struct ftrace_ops *ops = tr->fops;
-+	int ret;
-+
-+	if (bpf_trampoline_use_jmp(tr->flags))
-+		addr = ftrace_jmp_set(addr);
-+
-+	ret = ftrace_set_filter_ip(ops, tr->ip, 0, 1);
-+	if (ret)
-+		return ret;
-+	return register_ftrace_direct(ops, addr);
-+}
-+
-+static int direct_ops_del(struct bpf_trampoline *tr, void *addr)
-+{
-+	return unregister_ftrace_direct(tr->fops, (long)addr, false);
-+}
-+
-+static int direct_ops_mod(struct bpf_trampoline *tr, void *ptr, bool lock_direct_mutex)
-+{
-+	unsigned long addr = (unsigned long) ptr;
-+	struct ftrace_ops *ops = tr->fops;
-+
-+	if (bpf_trampoline_use_jmp(tr->flags))
-+		addr = ftrace_jmp_set(addr);
-+	if (lock_direct_mutex)
-+		return modify_ftrace_direct(ops, addr);
-+	return modify_ftrace_direct_nolock(ops, addr);
-+}
-+#endif /* CONFIG_HAVE_SINGLE_FTRACE_DIRECT_OPS */
-+#else
-+static void direct_ops_free(struct bpf_trampoline *tr) { }
-+
-+static int direct_ops_alloc(struct bpf_trampoline *tr)
-+{
-+	return 0;
-+}
-+
-+static int direct_ops_add(struct bpf_trampoline *tr, void *addr)
-+{
-+	return -ENODEV;
-+}
-+
-+static int direct_ops_del(struct bpf_trampoline *tr, void *addr)
-+{
-+	return -ENODEV;
-+}
-+
-+static int direct_ops_mod(struct bpf_trampoline *tr, void *ptr, bool lock_direct_mutex)
-+{
-+	return -ENODEV;
-+}
-+#endif /* CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS */
-+
- static struct bpf_trampoline *bpf_trampoline_lookup(u64 key, unsigned long ip)
- {
- 	struct bpf_trampoline *tr;
-@@ -154,16 +338,11 @@ static struct bpf_trampoline *bpf_trampoline_lookup(u64 key, unsigned long ip)
- 	tr = kzalloc(sizeof(*tr), GFP_KERNEL);
- 	if (!tr)
- 		goto out;
--#ifdef CONFIG_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
--	tr->fops = kzalloc(sizeof(struct ftrace_ops), GFP_KERNEL);
--	if (!tr->fops) {
-+	if (direct_ops_alloc(tr)) {
- 		kfree(tr);
- 		tr = NULL;
- 		goto out;
- 	}
--	tr->fops->private = tr;
--	tr->fops->ops_func = bpf_tramp_ftrace_ops_func;
--#endif
- 
- 	tr->key = key;
- 	tr->ip = ftrace_location(ip);
-@@ -206,7 +385,7 @@ static int unregister_fentry(struct bpf_trampoline *tr, u32 orig_flags,
- 	int ret;
- 
- 	if (tr->func.ftrace_managed)
--		ret = unregister_ftrace_direct(tr->fops, (long)old_addr, false);
-+		ret = direct_ops_del(tr, old_addr);
- 	else
- 		ret = bpf_trampoline_update_fentry(tr, orig_flags, old_addr, NULL);
- 
-@@ -220,15 +399,7 @@ static int modify_fentry(struct bpf_trampoline *tr, u32 orig_flags,
- 	int ret;
- 
- 	if (tr->func.ftrace_managed) {
--		unsigned long addr = (unsigned long) new_addr;
--
--		if (bpf_trampoline_use_jmp(tr->flags))
--			addr = ftrace_jmp_set(addr);
--
--		if (lock_direct_mutex)
--			ret = modify_ftrace_direct(tr->fops, addr);
--		else
--			ret = modify_ftrace_direct_nolock(tr->fops, addr);
-+		ret = direct_ops_mod(tr, new_addr, lock_direct_mutex);
- 	} else {
- 		ret = bpf_trampoline_update_fentry(tr, orig_flags, old_addr,
- 						   new_addr);
-@@ -251,15 +422,7 @@ static int register_fentry(struct bpf_trampoline *tr, void *new_addr)
- 	}
- 
- 	if (tr->func.ftrace_managed) {
--		unsigned long addr = (unsigned long) new_addr;
--
--		if (bpf_trampoline_use_jmp(tr->flags))
--			addr = ftrace_jmp_set(addr);
--
--		ret = ftrace_set_filter_ip(tr->fops, (unsigned long)ip, 0, 1);
--		if (ret)
--			return ret;
--		ret = register_ftrace_direct(tr->fops, addr);
-+		ret = direct_ops_add(tr, new_addr);
- 	} else {
- 		ret = bpf_trampoline_update_fentry(tr, 0, NULL, new_addr);
- 	}
-@@ -910,10 +1073,7 @@ void bpf_trampoline_put(struct bpf_trampoline *tr)
- 	 */
- 	hlist_del(&tr->hlist_key);
- 	hlist_del(&tr->hlist_ip);
--	if (tr->fops) {
--		ftrace_free_filter(tr->fops);
--		kfree(tr->fops);
--	}
-+	direct_ops_free(tr);
- 	kfree(tr);
- out:
- 	mutex_unlock(&trampoline_mutex);
-diff --git a/kernel/trace/Kconfig b/kernel/trace/Kconfig
-index bfa2ec46e075..d7042a09fe46 100644
---- a/kernel/trace/Kconfig
-+++ b/kernel/trace/Kconfig
-@@ -50,6 +50,9 @@ config HAVE_DYNAMIC_FTRACE_WITH_REGS
- config HAVE_DYNAMIC_FTRACE_WITH_DIRECT_CALLS
- 	bool
- 
-+config HAVE_SINGLE_FTRACE_DIRECT_OPS
-+	bool
-+
- config HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS
- 	bool
- 
-diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
-index 02030f62d737..4ed910d3d00d 100644
---- a/kernel/trace/ftrace.c
-+++ b/kernel/trace/ftrace.c
-@@ -2631,8 +2631,13 @@ unsigned long ftrace_find_rec_direct(unsigned long ip)
- static void call_direct_funcs(unsigned long ip, unsigned long pip,
- 			      struct ftrace_ops *ops, struct ftrace_regs *fregs)
- {
--	unsigned long addr = READ_ONCE(ops->direct_call);
-+	unsigned long addr;
- 
-+#ifdef CONFIG_HAVE_SINGLE_FTRACE_DIRECT_OPS
-+	addr = ftrace_find_rec_direct(ip);
-+#else
-+	addr = READ_ONCE(ops->direct_call);
-+#endif
- 	if (!addr)
- 		return;
- 
--- 
-2.52.0
-
+>
+> I wrote this after experiencing the issue that I described in the commit =
+message,
+> didn't just go and casually write code.
+>
+> I also want to remind you that use-after-free may also be a security conc=
+ern.
+>
+> Regards,
+> Angelo
+>
+> > Regards,
+> > CK
+> >
+> >> -
+> >> -       ret =3D devm_request_irq(dev, irq, mtk_disp_rdma_irq_handler,
+> >> -                              IRQF_TRIGGER_NONE, dev_name(dev), priv)=
+;
+> >> -       if (ret < 0)
+> >> -               return dev_err_probe(dev, ret, "Failed to request irq =
+%d\n", irq);
+> >> -
+> >>          priv->data =3D of_device_get_match_data(dev);
+> >>
+> >>          platform_set_drvdata(pdev, priv);
+> >>
+> >>          pm_runtime_enable(dev);
+> >>
+> >> +       ret =3D devm_request_irq(dev, priv->irq, mtk_disp_rdma_irq_han=
+dler,
+> >> +                              IRQF_NO_AUTOEN, dev_name(dev), priv);
+> >> +       if (ret < 0)
+> >> +               return dev_err_probe(dev, ret, "Failed to request irq =
+%d\n", priv->irq);
+> >> +
+> >>          ret =3D component_add(dev, &mtk_disp_rdma_component_ops);
+> >>          if (ret) {
+> >>                  pm_runtime_disable(dev);
+> >> --
+> >> 2.51.0
+> >>
+> >>
+> >
+>
+>
 
