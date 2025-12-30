@@ -4,86 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C53FBE92FD2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 02:23:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1E48E92FD2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Dec 2025 02:23:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dKB/MFi2JJNcHgRM1ZVpW/6k+K0ih/df/zx7AJgRywM=; b=cC8jNci7+yuy1Eakejh8r7U6fu
-	gwi4tg+NjgZ1Wi0tMlq4Q6agn6+fB695VIrh5ZKvSAW0mEZ4/dgasBHYtzp4n+dPM8fvBIy7hfRQg
-	CrTYeBrGjeUSYDiuJPrB1vOhTqD2FwPl8rdn3eanWsNypUrLZQ2iYHVO6Hmlh0HGkdsyD3n+DiOjp
-	9HE9LQBhg/MB9EAiGLJJBiZRUmN9xLWa/hlKVZlYYe0l3OSE/8ASLL9bNNrxf+CKVElcEYSRAultX
-	9jBXW8it6ForVhYylsZjAhxFLIWkj18lL1WyOI1eKdfjUiv2+ipdjXB0Jaqj61L1URKOevgl6O5Oj
-	RJI1nomw==;
+	bh=BpxP2vNfkpZZbd9zsRHxayngZTjlIglUmQvt1A/hrdQ=; b=Z8tJOfZAljvwzdfqzxkDbz3GeS
+	KHHQxdnkq9P/RBScYTLbq8J2pH6haGl9W+OsDKQLAaIt8UAVK/cwTw2Efw2yjZDv6RvCZ+mNGtHPz
+	zX6MToo8WIQHz2xY5vi9Y9L7xMi7XAAIJH8VTrVEH+TyGdh8cLM7SgM/fRjpm1brtnfYwP8z0vIYh
+	+44mM2mziwDx4uuhddVM0vEgseYKrFofSujv8OamjjKhJ4dTerYwxauspNQzxIyuGhryChlaLeewB
+	rb8+Gcga6PChi4d3DgFGT9RCLppmd/2k6JOgfwVaqD1JURfdlxAhqD66quwxnZv6nWnozQ4EKNBzX
+	8oLV7moA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaPNu-00000004IgP-19MY;
-	Tue, 30 Dec 2025 02:22:54 +0000
-Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
+	id 1vaPOF-00000004Im6-2fnX;
+	Tue, 30 Dec 2025 02:23:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaPNs-00000004Ifw-1b1z
+	id 1vaPOA-00000004IkP-0PZu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Dec 2025 02:22:53 +0000
-Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-be8c77ecc63so14730393a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Dec 2025 18:22:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1767061371; x=1767666171; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:user-agent:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=dKB/MFi2JJNcHgRM1ZVpW/6k+K0ih/df/zx7AJgRywM=;
-        b=Tjn6PeV4Tlwg+crYl11LGOstO9pXaZyP8UIULzUKH27XV1NaFx0bQy1o814Ltpx41+
-         ZQuAZXYh7HS9z72VuWLb4zZ9hmLjjKKaF8ZYFIdKhv+TEjk7qU6cOD7LtAi0Q6rxH9NT
-         VlDcD0DUTbkB5ACoiuNYbR6SNlEW2LF1abYrj6X5exYGIXxZuSW1B/D3b1d7ExAU2dTn
-         sJIHpAftRzAxIoF0/HkJVuvf8pGFXkeU+eHgNvE63yLHbFS0WWMheW3ScIRq/Oww95oV
-         uOj+nir3g7yJ8IIyXrY0DZxUlDRDSNouGh39XUDNZIDi+CxYrvZpGAAf0NwF6Iomvrqs
-         +ltQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767061371; x=1767666171;
-        h=cc:to:from:subject:message-id:user-agent:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dKB/MFi2JJNcHgRM1ZVpW/6k+K0ih/df/zx7AJgRywM=;
-        b=HbkBKMsrtbymvqtQdba+vMqW7EUmfU0sIASFEdO5S+NWznhhSlm2tFCGmM5J+V+eLi
-         teYv21i1WzAsoT/Xg8pWLZZ39Ra/DNud9/qxnt7E2SLjVEUhYWEL1TZnCEb42jHFbRv4
-         iJMpo3cpNz+qizs8UiVlqUB3d2A7qxdMzeGAwIpxUA6AZz/wCI5CdrB3ykmyIdRJju+/
-         z+MD6tVshjXbDkO5WKxeEY2lOMBAA9pkEM42YT6ruH7VyGMm1qVZGUMyYI3aAsxb2Jmq
-         Kac8R+yZWTyxL/HZon6Ms+byvWOBGEgmCbjpLtbgWAv8AcySZ9bWbITo+fOW3kwAMKvi
-         yC5g==
-X-Forwarded-Encrypted: i=1; AJvYcCV4piJixj8HJjy7FnanuzO995qWdzuG0Se+x7sv67BcOpXlKURbjA4YYj52tUPUyy5fJ7yfcVGYoXiKtPfAeSNu@lists.infradead.org
-X-Gm-Message-State: AOJu0YwtPSQrRc/WT0qnezsaf12ApHR3QdmYeSLC76WPh8Tt9pn7BM31
-	OIgAC/2pzNe1mAry/USp9HXS8zARMjHnlVHSVu7S8mMVhLRernp/wX5XaCztOqjzErWiA7Zu3xL
-	M0VllkMR2aw==
-X-Google-Smtp-Source: AGHT+IELINBMPFmRxNHDW7vHWpdCROA3hncsEtneXbUH1OrOJmjFny3vsrRGMAMBfntFNvUrUIrN7tzzSSsU
-X-Received: from dlbsn2.prod.google.com ([2002:a05:7022:b902:b0:11f:300a:a308])
- (user=ynaffit job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:3718:b0:119:e569:f62e
- with SMTP id a92af1059eb24-121722ecbe0mr22094565c88.39.1767061371145; Mon, 29
- Dec 2025 18:22:51 -0800 (PST)
-Date: Mon, 29 Dec 2025 18:22:49 -0800
-In-Reply-To: <20251205-stable-disable-unit-ptr-warn-v2-1-cec53a8f736b@google.com>
- (Justin Stitt's message of "Fri, 05 Dec 2025 14:51:41 -0800")
-Mime-Version: 1.0
-References: <20251205-stable-disable-unit-ptr-warn-v2-1-cec53a8f736b@google.com>
-User-Agent: mu4e 1.12.12; emacs 30.1
-Message-ID: <dbx8ikdoso7a.fsf@ynaffit-andsys.c.googlers.com>
-Subject: Re: [PATCH 6.1.y RESEND v2] KVM: arm64: sys_regs: disable
- -Wuninitialized-const-pointer warning
-From: Tiffany Yang <ynaffit@google.com>
-To: Justin Stitt <justinstitt@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Alexandru Elisei <alexandru.elisei@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Christopher Covington <cov@codeaurora.org>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+	Tue, 30 Dec 2025 02:23:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 59006403F0;
+	Tue, 30 Dec 2025 02:23:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF22EC4CEF7;
+	Tue, 30 Dec 2025 02:23:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767061389;
+	bh=JJBLWrKZJscwjA3cx9oGiJGVinABxL8hJC6q1izjjk8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rqYbwLcCSdqZrAaL/5UsPcAo8T2EDLTfE1oTIkzwEfPaJdrUnSmDDV55LSKJ47gcj
+	 YBFLWcMkGwLr3aFXJVHwprtarb3yS9dlbYMKYiM4OqhCIxxs4Q97Ek/XhiqlRPx1Sv
+	 nDb2mTjXDgfzKwjRgVeMZFPprSPZqqIcIPaqNquB/3MJ1DqmTeQ2TmY0MftLWCNTl6
+	 cqGmi0dIvmVXdrDj6YK8R56n4hKb8eIBpFwSV1Kk7z+4rqNQmthXbHcx8mzUAFA6Jc
+	 DSD9co6p2wVqWwFbmKdRhUNdRodck8eHI5Nhd7DM4s2KfuXFVKjEH+7ipHXly8CiUr
+	 bBu6+rzZ9g9NA==
+Date: Tue, 30 Dec 2025 10:23:04 +0800
+From: Shawn Guo <shawnguo@kernel.org>
+To: maudspierings@gocontroll.com
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 0/3] arm64: dts: freescale: moduline-display: several
+ fixes
+Message-ID: <aVM3iCWrKkpcqe2N@dragon>
+References: <20251201-disp_fix-v2-0-9b03026311b6@gocontroll.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251201-disp_fix-v2-0-9b03026311b6@gocontroll.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251229_182252_438915_CA8064FB 
-X-CRM114-Status: UNSURE (   6.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251229_182310_154356_63E8506F 
+X-CRM114-Status: GOOD (  12.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,17 +77,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Justin Stitt <justinstitt@google.com> writes:
+On Mon, Dec 01, 2025 at 12:56:49PM +0100, Maud Spierings via B4 Relay wrote:
+> A couple of issues where discovered:
+> - compatibles should integrate the SoM
+> - the eqos mac address is stored in eth_mac1
+> 
+> The first one is breaking, but it is early enough that it can be
+> corrected without causing any issues.
+> 
+> Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
+> ---
+> Changes in v2:
+> - re-add the old compatible to fsl.yaml
+> - expand the reasoning for these changes in the commit messages
+> - Link to v1: https://lore.kernel.org/r/20251114-disp_fix-v1-0-49cbe826afc2@gocontroll.com
+> 
+> ---
+> Maud Spierings (3):
+>       dt-bindings: arm: fsl: moduline-display: fix compatible
+>       arm64: dts: freescale: moduline-display: fix compatible
+>       arm64: dts: freescale: tx8p-ml81: fix eqos nvmem-cells
 
-> A new warning in Clang 22 [1] complains that @clidr passed to
-> get_clidr_el1() is an uninitialized const pointer. get_clidr_el1()
-> doesn't really care since it casts away the const-ness anyways -- it is
-> a false positive.
-
-<snip>
-
-Reviewed-by: Tiffany Yang <ynaffit@google.com>
-
--- 
-Tiffany Y. Yang
+Applied all, thanks!
 
