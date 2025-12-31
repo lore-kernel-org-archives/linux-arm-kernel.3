@@ -4,163 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54958EE57F0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 15:25:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D59BEE57F0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 15:25:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-ID:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UWgUpoyBc42NruFhg6u3xoIJxWT3pGgLhWoSv5dY2/4=; b=NPInzeQKjlJfy7UJ9RHCVTNuju
-	6ohOHApccH/NnJPmGHxj4IUxpUgKPvAkd8EpKi4PeDI3DDmX3Eq4RCL+4S/mn1f/3nlsqis1T5bxL
-	O5c97+LTIJa2oGlcIZtrRDZz/Q5bdzBS938gKjuXbD8mvwjiAncmXkclv4v2G0ZsQEsh3oVIYkF2J
-	jOHRHoKAQwlqQcVLMYP4Yrm2QLaOfVuvEP5mKCPEBl0tv8C3r0e6sxYNcC/hu8dJKNgwexH+dY8qE
-	+8P1ybmrzzl6unU378S9xLo7+l03c6ppX6PUolUUiB7K1qqweGDzs2Zwh2IIklH6Jlt2UatVRsAzJ
-	4BefmCZA==;
+	bh=2pdAd0KBpKEzOG9SIUhcuMaXAWyHGcb00rsjHnz/GSg=; b=hL7PEGfIP4jT84YrWahP0ycveV
+	NwEGcLz/jNJqECSDL/kkUjDWgDWk5Vls/RTSGf6KRZRQBkJGQEYsei7I34t6RG4BwT8SWQIE6lse1
+	z/6QO6AYr6+uVevK4UkMexgld2FoBtcRIs5TrZZONJgTDq/3oIYWwkL/5gzwviCRq6Y5QBz2awhIf
+	exWMtGdD7VF5TX44DT7yFkjS0QLFoVPkVmqr7t734kj1doEzNry3NA1mTbGryTZUyoUr+2Uw+GUDL
+	6jnLNO/DiSUDNzYgz6GqyZ2S+ihdacYAcs8cFT5Fb7h7d/Uty2KygwU1h5Txy1ECH/MBjlRtQ8xWP
+	5CYWaTog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vay51-000000064rn-2sF0;
-	Wed, 31 Dec 2025 15:25:43 +0000
-Received: from mail-ukwestazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c206::3] helo=CWXP265CU009.outbound.protection.outlook.com)
+	id 1vay5C-000000064uK-4C6t;
+	Wed, 31 Dec 2025 15:25:55 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vay4z-000000064qt-0LU1
+	id 1vay5C-000000064u5-0vFv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 31 Dec 2025 15:25:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=OZUZar6irukVse/cK47oXss2QaqlZgvzG/kSoFF8RN1B+4ht5H4nsmWc1CN20HY2gnATM/EDbltU4svjW48JzUcG2YbuhXEg7FrQ42Bd6Yuo7LfAeT24wkpcmKf1exOpLgoXLGr5jK0zoTBezYH57BLbbVayuz0tFSOWAmcimLKbsY+VUqMadtruf0BrXNNL4kXwMK1vdCtsDmDrKmX1DGsNcTB9jr5cPPG5sr276c2C5bdF8+WrrbieHbcXAuQfc0p2uqCFds8YXObZ8dBQhUPLemGymyVmHXNnHMBNsazu5FItFPBoKSU35IFxyO/JNbNgvIpVpMH9bmq9yNzJYg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UWgUpoyBc42NruFhg6u3xoIJxWT3pGgLhWoSv5dY2/4=;
- b=h8cV0bBWN9n9mQsJPBHfRQjlYXX7NmiPHBhF3DINX9dTWlR8mN08dqZC81ksagRW6OOFY4T6qUy3X2W5DP8Mj8fpATcaejTovGMAsBF/nhUXPPtecVpi2tKNT6QFlnuqek8vqd5Hy1EWz8DlYy06twhv9vMxrPyr1HJCQg3Qo6Yc8jYOHtMzmg0dc841Z4dSdtIiBBMW1RfMkuYQRDPu/B8ZXUIXwT3kNk1m1y+CdFiKghrGLNZEHx2Yspi/7pLZyz+xCm+UE8mIKd994o270MDW90OOBPRAhg6ouaTHW7vqG43g4U7T1Cq4VRJvRt3Npei4/NuFz6LW2RAUpQUbPg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=garyguo.net; dmarc=pass action=none header.from=garyguo.net;
- dkim=pass header.d=garyguo.net; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=garyguo.net;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UWgUpoyBc42NruFhg6u3xoIJxWT3pGgLhWoSv5dY2/4=;
- b=wVraxb6MU1Tvms58vkZQY58naMUJXHIVbaQGPbjyRbwBjG60Qaz9XHfxg3X3EyasqjKiEWnyjkLZj3Ma4xUgaFbmAtzz9RP9SPta+724tx6kLXqd8lefKKPuKFT9+4/GyGzntG571HoxP1cZkiHlqe5yXiOEMAqA3NwAS9CDQ34=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=garyguo.net;
-Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:488::16)
- by LO2P265MB2784.GBRP265.PROD.OUTLOOK.COM (2603:10a6:600:147::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Wed, 31 Dec
- 2025 15:25:36 +0000
-Received: from LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
- ([fe80::ea6a:3ec2:375d:1ce0]) by LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
- ([fe80::ea6a:3ec2:375d:1ce0%7]) with mapi id 15.20.9478.004; Wed, 31 Dec 2025
- 15:25:36 +0000
-Date: Wed, 31 Dec 2025 15:25:34 +0000
-From: Gary Guo <gary@garyguo.net>
-To: Alice Ryhl <aliceryhl@google.com>
-Cc: Boqun Feng <boqun.feng@gmail.com>, Will Deacon <will@kernel.org>, Peter
- Zijlstra <peterz@infradead.org>, Richard Henderson
- <richard.henderson@linaro.org>, Matt Turner <mattst88@gmail.com>, Magnus
- Lindholm <linmag7@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>,
- Miguel Ojeda <ojeda@kernel.org>, "=?UTF-8?B?QmrDtnJu?= Roy Baron"
- <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, Andreas
- Hindborg <a.hindborg@kernel.org>, Trevor Gross <tmgross@umich.edu>, Danilo
- Krummrich <dakr@kernel.org>, Mark Rutland <mark.rutland@arm.com>, FUJITA
- Tomonori <fujita.tomonori@gmail.com>, Frederic Weisbecker
- <frederic@kernel.org>, Lyude Paul <lyude@redhat.com>, Thomas Gleixner
- <tglx@linutronix.de>, Anna-Maria Behnsen <anna-maria@linutronix.de>, John
- Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>, Alexander
- Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan
- Kara <jack@suse.cz>, linux-kernel@vger.kernel.org,
- linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- rust-for-linux@vger.kernel.org, linux-fsdevel@vger.kernel.org
-Subject: Re: [PATCH 3/5] rust: sync: support using bool with READ_ONCE
-Message-ID: <20251231152534.14903719.gary@garyguo.net>
-In-Reply-To: <20251231-rwonce-v1-3-702a10b85278@google.com>
-References: <20251231-rwonce-v1-0-702a10b85278@google.com>
-	<20251231-rwonce-v1-3-702a10b85278@google.com>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.51; x86_64-pc-linux-gnu)
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO4P123CA0616.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:314::16) To LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
- (2603:10a6:600:488::16)
+	Wed, 31 Dec 2025 15:25:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4977B60008;
+	Wed, 31 Dec 2025 15:25:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72AAFC113D0;
+	Wed, 31 Dec 2025 15:25:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767194753;
+	bh=3zCSe0pygUa6B0hxj7uhQQbY3y5VvVFZcfM1W6inRQ8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=s/MiUltoCktzz6D0wiCqcLuak2qC1jPP+t9uF/Wpp9NyhlhUYJRh4a7DANVK3dS3Y
+	 5TBAIkOcZD7Uzm31uIRNg+KPXeRfrFDCHo5KImNpcVVxeo6H0CXL4UnXKcwUINX/Ll
+	 U1vQ9nn+42I+5DqP4hDp4p5tUlokQFV23MAaxYG5+JRLq2JJ2SJ1zhhHcouBH7kW4n
+	 j7tnzqkJRksmGaZ82fg+JWX+rpM1JKmvmvmVA/5WAT8i/ukuaEkGR1UaA6w9uc8YRq
+	 7msaf9wYLApzpxDT1X8VKz50GKA//Mk01dWdH2ak+Kw+9n2yKX+4XwtHIVWi3pdEqj
+	 QbzdgFhA2MRZA==
+Date: Wed, 31 Dec 2025 16:25:49 +0100
+From: Frederic Weisbecker <frederic@kernel.org>
+To: Waiman Long <llong@redhat.com>
+Cc: LKML <linux-kernel@vger.kernel.org>,
+	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Chen Ridong <chenridong@huawei.com>,
+	Danilo Krummrich <dakr@kernel.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Gabriele Monaco <gmonaco@redhat.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Marco Crivellari <marco.crivellari@suse.com>,
+	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+	cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-block@vger.kernel.org, linux-mm@kvack.org,
+	linux-pci@vger.kernel.org, netdev@vger.kernel.org
+Subject: Re: [PATCH 33/33] doc: Add housekeeping documentation
+Message-ID: <aVVAfb2eaeyd7l-h@localhost.localdomain>
+References: <20251224134520.33231-1-frederic@kernel.org>
+ <20251224134520.33231-34-frederic@kernel.org>
+ <370149fc-1624-4a16-ac47-dd9b2dd0ed29@redhat.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LOVP265MB8871:EE_|LO2P265MB2784:EE_
-X-MS-Office365-Filtering-Correlation-Id: 70f5036d-d32c-4576-ebab-08de4880d8ce
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|10070799003|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?lb97B2vUOG5LhJj8l1KvoDMEZEQOuBlnSVwAaAfZzQJpiDMbG1cTmesOVaDK?=
- =?us-ascii?Q?87nYrepc3WVNfFNMlCK37e75eEU/oEqzBSLGBlhAQ9awiDpPUpWxIiAw4WsB?=
- =?us-ascii?Q?f15zc7ZvSFqUToxAEfPrgRyyC8r6+uWu3QhE9C7OzC62gFW5q5kVhuQ32975?=
- =?us-ascii?Q?z99I1DcH8N0nTmins/H6XjLmTEKnLMnpAY9wVq4pQN0FJLQjBt09FXgbkoYC?=
- =?us-ascii?Q?2BLC0Fy+FGsr4FMzkjz/oTwUXnUO+IH+hvqCioGOZThRzqGoQYOFyinpiPkD?=
- =?us-ascii?Q?pnIxgZx9vpNhjXm7INHLa+UnDqKrWzlciJ74CmRo++Af33iY99mqLPr3/u6/?=
- =?us-ascii?Q?Mert6NOJ27b906Tpbj/rWMuyK+KzK7igwXpTh4pSL41+6ZGegGwGRksy2wss?=
- =?us-ascii?Q?JPq5lmBZPU88OLaYSiO8bQ0ac0QWU1pZdv7TftzzgxPYwK9kUNHbwE+cOvnh?=
- =?us-ascii?Q?taTlmBQn5bq6qJASpwtPJv5RbGjHq9Qq6MWp9lK1Xh8ffBWTwui7vh1WLC2N?=
- =?us-ascii?Q?0xxXzjmLiwcFMT3ysQspFzamFWgUAsJCEL0EcV2bZLomHOB155N0qYzEYz4N?=
- =?us-ascii?Q?1mzVk7f3WMCbAhk/euHo2z4HBy3JgZ1lRZkbOz3rWY4MpgNq0JYtFZedJS0l?=
- =?us-ascii?Q?/FFGG9ZZqubYQMMSap7PTbtokx9IrfTragCSJAwOtpdt8h9LPQX9711L/PCO?=
- =?us-ascii?Q?JYila1DOonha9jAHzQBWWJNXxlLSO7GchPO8QmfCLGVNiduTomF9TDPYwSjG?=
- =?us-ascii?Q?62BRhd6iZ3yaGbDi1QPvixIUvOr5qPIMsDrXErpyYG3GqGHn0odEyQgOF+yV?=
- =?us-ascii?Q?Mpo7hQQmhcJ0qM+4sTAVFL90wUV7Vq+2+xZbL+bylbwbOgbQ7D5X6D75F94u?=
- =?us-ascii?Q?hX7Qixd6EQQIT2g6RYv8RVMsyVr3w+PO0pl9wRI1y3H8sbVinmJumekxpYaF?=
- =?us-ascii?Q?rwzZtQPJBP9od/zUrlcu42gnXPd1f6+WKTtxYYpuubpIkAYljMrWJ3r9HVqw?=
- =?us-ascii?Q?GpsgBnkywG78/gjrWPTZDcRJj7xCDup51OVdhAyWiSTJFgWJXXX8ntSUwUMS?=
- =?us-ascii?Q?QJg6sAvvjkmdvgqwnlWzLD7qxbXcZ8b5i56wWYSaLl0VNpTIt15uW0fTYmFO?=
- =?us-ascii?Q?NXCY0BeGEUkrARgpslEXaKrgl86C5IGM3Zln9pwYv1pZD5d862Q3NJIlMrzp?=
- =?us-ascii?Q?H6wT08bxZ8FmMOgCRcbomBq9CIM39ukKlhFSW445YAI47rBEzjvnOwFElq25?=
- =?us-ascii?Q?bkZPTBMppaamuth/9rU6JsjhCcf7gTd514A+ckaVnb52rHJ99bhnVLegqC1d?=
- =?us-ascii?Q?IyGty4CqnrfugfLJKt22OkvvWcAxHe0O+PUbaIxXmQD9B6SJ4MJYMJAU4N/l?=
- =?us-ascii?Q?vqHy8wg8nfbf9ZQuqYAOkSvHAiPURalXgWidk2yuX6hrkpchF2Zisv3Hc5lq?=
- =?us-ascii?Q?fqpKYJaKNbNwF/v1GxtjHd5xjp4JTz2p?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(10070799003)(7053199007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cZ8+568bcJ4ScllyGbSjtiLCTzWvlT+J/n/U1OTUVtfO6K8QROC5vAZ3NI9v?=
- =?us-ascii?Q?JNVnGUicMn+oJtdM2KgFCi6kWSsQzw9vZ0XJBiGHarChkTlEficqMvTxPMWH?=
- =?us-ascii?Q?YIdIn/ZGkee7mYeQajVGzxWYVkv2oPApyJn8mBT6eQHj+lxwRi5qlCPzWERc?=
- =?us-ascii?Q?Gv/FOrzrs4xVeSVahKuL4hE+VzhG5ETlcKz6gdAHtmOVeGKCALlzjM2DAthU?=
- =?us-ascii?Q?zLkf0g25nEwk3wHMC/QHWuEc3vic5GlrXhuAl140lZJQ/WQ/pUnG5iBoXBZy?=
- =?us-ascii?Q?4TlQ1R+LUsU6S7EfBhGIzQrH2D5rjlNzd74q6k8GqRn9XUDK3QA1c4GG+vfV?=
- =?us-ascii?Q?FUECBcV4zQJ60vw88HP9vcqwu2NlpMuduBYinaTXZ28AuyclVm7vR48boarv?=
- =?us-ascii?Q?RdVVk61q1/6zclRdKsBeqYO+46m/vMgGtKfdggxySuVvcEhEsxkA4OeC0XTR?=
- =?us-ascii?Q?aLZPNE7xxL1PNd2Hcfes78IaRmpKAKjuVHGfXEM6UOpcVVQDGDtaS4vc8oT8?=
- =?us-ascii?Q?ZqYyB9uoV+ylp5zYvxPs7KeLNhZnp/6W1E/YiZR4E9V9BBs6kXRfB0V1w5Z9?=
- =?us-ascii?Q?8PspOQ3KJr4lK7+ZxBheZsGRWilxFkl2vL2wiHVxdXHD7ZmtPMUKGwo0avEE?=
- =?us-ascii?Q?r5fRjG3V2sMqG7/twuMBUwgDhd6tfDB+0FuiwUMct3jX5hxRE9ZPlZgWm2ip?=
- =?us-ascii?Q?8zo8KrdgPce1gdELhahURMX65mfFntMHG7VYnbybgMEKWvTxxAO0y2/vmKnT?=
- =?us-ascii?Q?t3O06STsLS9wTvVlw31Cy75q+A1lsG/4RhCUCkjdMZknT2BALvBPL0VOrGwZ?=
- =?us-ascii?Q?youlJedD5sOqY7QvSvkiSdyUNyD2+dDuulxbECld72jySLFC2Hsasi/17/an?=
- =?us-ascii?Q?gL4Nq9agk6BvYPDiGfqgKAe59XeppC533BAYeI5hmMe5rrluUbupuTyttEfE?=
- =?us-ascii?Q?kgx8WJxaZleudl7GsiuZKTPxGJplZk9yDDUBYctl0hb1EEwWjIwE/KkO760O?=
- =?us-ascii?Q?/7uwgmM/otIjHu+T5fiR9YEkoCPL6qxSERCYSHxkuP7q7Lsb1yWir1AwAMRu?=
- =?us-ascii?Q?iVLH8otKqAgVKyt/KUv9GlTnTpbF/+UXBRKFNiI+R3IsFOPmZd4qaV/aZ2Zf?=
- =?us-ascii?Q?LGQS2mM3UOTYWpDOZIt+nHRKwDnIMD94FrmfbOXNlSns2gAmvs4DN999Yrl9?=
- =?us-ascii?Q?+BUzCdC3IAR4FrPbpT9DrQx3UFo2Xwuh6EU68JhIxsaXZwAHFB1ihdOz+phv?=
- =?us-ascii?Q?DtQgY9YRYYpggs7SqPC/DlPKA5mdJ3RqWR/+l/2SnlgjQP9BcDs8tVGLrpFI?=
- =?us-ascii?Q?oYMbChDTBtxTJrebL7BcwaWQeWt+Tv70QD6nNaa4RnZbOKoptW5/MVSN84Hd?=
- =?us-ascii?Q?CanxbowYW9hQJ06ggiKs3d8Y27vT+gpRhmAPdYRDCyI87BdlcSH9hLKZ36uR?=
- =?us-ascii?Q?5qoMMt9qAnCSX5oyJQhvf7gbhavzUUbU+bP27uSneFZw3ex5uA/hi2/3FtJJ?=
- =?us-ascii?Q?uC7OB0hwmyU/S1IZUqE9CC0Q1wTLY+dsfKRqo20wABY6YQJbVPadWD+sHZXf?=
- =?us-ascii?Q?SAy0ayFkbPhuHt6Jbp39XCuipGsKHkFZohGQXGlEp5KTPKKbMd5MpEGdw6Nf?=
- =?us-ascii?Q?o4Bw5SCg5NHS5afj6khJ8x4ZyDUpbamPHvvETDrVeDdBpY9RjNy+llQnSTHl?=
- =?us-ascii?Q?oyHT8cpnvuzHEwrfOAUqCH7CTp7FAj2yrnweq40ph+ptCgI4mWnUhYwSz+35?=
- =?us-ascii?Q?wE0bGzq2tQ=3D=3D?=
-X-OriginatorOrg: garyguo.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: 70f5036d-d32c-4576-ebab-08de4880d8ce
-X-MS-Exchange-CrossTenant-AuthSource: LOVP265MB8871.GBRP265.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 31 Dec 2025 15:25:36.4648
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: bbc898ad-b10f-4e10-8552-d9377b823d45
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vPspOcjpc8qFF1fdRHXLbi9Q24hFw07Tkm6o0CArKyLO0Q4ggnMeY2vtCKd+4AqrKTWgAllL+XutvryzYKE9Yg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LO2P265MB2784
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251231_072541_155831_C4216146 
-X-CRM114-Status: GOOD (  22.98  )
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <370149fc-1624-4a16-ac47-dd9b2dd0ed29@redhat.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,76 +96,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 31 Dec 2025 12:22:27 +0000
-Alice Ryhl <aliceryhl@google.com> wrote:
+Le Fri, Dec 26, 2025 at 07:39:28PM -0500, Waiman Long a écrit :
+> On 12/24/25 8:45 AM, Frederic Weisbecker wrote:
+> > Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+> > ---
+> >   Documentation/core-api/housekeeping.rst | 111 ++++++++++++++++++++++++
+> >   Documentation/core-api/index.rst        |   1 +
+> >   2 files changed, 112 insertions(+)
+> >   create mode 100644 Documentation/core-api/housekeeping.rst
+> > 
+> > diff --git a/Documentation/core-api/housekeeping.rst b/Documentation/core-api/housekeeping.rst
+> > new file mode 100644
+> > index 000000000000..e5417302774c
+> > --- /dev/null
+> > +++ b/Documentation/core-api/housekeeping.rst
+> > @@ -0,0 +1,111 @@
+> > +======================================
+> > +Housekeeping
+> > +======================================
+> > +
+> > +
+> > +CPU Isolation moves away kernel work that may otherwise run on any CPU.
+> > +The purpose of its related features is to reduce the OS jitter that some
+> > +extreme workloads can't stand, such as in some DPDK usecases.
+> Nit: "usecases" => "use cases"
 
-> Normally it is undefined behavior for a bool to take any value other
-> than 0 or 1. However, in the case of READ_ONCE(some_bool) is used, this
-> UB seems dangerous and unnecessary. I can easily imagine some Rust code
-> that looks like this:
-> 
-> 	if READ_ONCE(&raw const (*my_c_struct).my_bool_field) {
-> 	    ...
-> 	}
-> 
-> And by making an analogy to what the equivalent C code is, anyone
-> writing this probably just meant to treat any non-zero value as true.
+Are you sure? I'm not a native speaker but at least the kernel
+has established its use:
 
-In C, bool can only hold value `false` and `true`, too, and putting
-any other value there is going to be UB.
+$ git grep usecase | wc -l
+517
 
-The C language provides automatic cast so when you write an integer to it,
-non-zero values will cause `true` to be written. However, you're not
-allowed to cast it into a char ptr and write other values into it.
+> > +
+> > +The kernel work moved away by CPU isolation is commonly described as
+> > +"housekeeping" because it includes ground work that performs cleanups,
+> > +statistics maintainance and actions relying on them, memory release,
+> > +various deferrals etc...
+> > +
+> > +Sometimes housekeeping is just some unbound work (unbound workqueues,
+> > +unbound timers, ...) that gets easily assigned to non-isolated CPUs.
+> > +But sometimes housekeeping is tied to a specific CPU and requires
+> > +elaborated tricks to be offloaded to non-isolated CPUs (RCU_NOCB, remote
+> > +scheduler tick, etc...).
+> > +
+> > +Thus, a housekeeping CPU can be considered as the reverse of an isolated
+> > +CPU. It is simply a CPU that can execute housekeeping work. There must
+> > +always be at least one online housekeeping CPU at any time. The CPUs that
+> > +are not	isolated are automatically assigned as housekeeping.
+> Nit: extra white spaces between "not" and "isolated".
 
-So I think there shouldn't be any special treatment to boolean type in
-this regard.
+Somehow it has disappeared in my tree, some Brunaidh must have fixed
+that while I was sleeping. That's nice!
 
-Best,
-Gary
+> > diff --git a/Documentation/core-api/index.rst b/Documentation/core-api/index.rst
+> > index 5eb0fbbbc323..79fe7735692e 100644
+> > --- a/Documentation/core-api/index.rst
+> > +++ b/Documentation/core-api/index.rst
+> > @@ -25,6 +25,7 @@ it.
+> >      symbol-namespaces
+> >      asm-annotations
+> >      real-time/index
+> > +   housekeeping.rst
+> >   Data structures and low-level utilities
+> >   =======================================
+> Acked-by: Waiman Long <longman@redhat.com>
 
-> 
-> For WRITE_ONCE no special logic is required.
-> 
-> Signed-off-by: Alice Ryhl <aliceryhl@google.com>
-> ---
->  rust/kernel/sync/rwonce.rs | 19 +++++++++++++++++++
->  1 file changed, 19 insertions(+)
-> 
-> diff --git a/rust/kernel/sync/rwonce.rs b/rust/kernel/sync/rwonce.rs
-> index a1660e43c9ef94011812d1816713cf031a73de1d..73477f53131926996614df573b2d50fff98e624f 100644
-> --- a/rust/kernel/sync/rwonce.rs
-> +++ b/rust/kernel/sync/rwonce.rs
-> @@ -163,6 +163,7 @@ unsafe fn write_once(ptr: *mut Self, val: Self) {
->  // sizes, so picking the wrong helper should lead to a build error.
->  
->  impl_rw_once_type! {
-> +    bool, read_once_bool, write_once_1;
->      u8,   read_once_1, write_once_1;
->      i8,   read_once_1, write_once_1;
->      u16,  read_once_2, write_once_2;
-> @@ -186,3 +187,21 @@ unsafe fn write_once(ptr: *mut Self, val: Self) {
->      usize, read_once_8, write_once_8;
->      isize, read_once_8, write_once_8;
->  }
-> +
-> +/// Read an integer as a boolean once.
-> +///
-> +/// Returns `true` if the value behind the pointer is non-zero. Otherwise returns `false`.
-> +///
-> +/// # Safety
-> +///
-> +/// It must be safe to `READ_ONCE` the `ptr` with type `u8`.
-> +#[inline(always)]
-> +#[track_caller]
-> +unsafe fn read_once_bool(ptr: *const bool) -> bool {
-> +    // Implement `read_once_bool` in terms of `read_once_1`. The arch-specific logic is inside
-> +    // of `read_once_1`.
-> +    //
-> +    // SAFETY: It is safe to `READ_ONCE` the `ptr` with type `u8`.
-> +    let byte = unsafe { read_once_1(ptr.cast::<u8>()) };
-> +    byte != 0u8
-> +}
-> 
+Thanks! 
 
+-- 
+Frederic Weisbecker
+SUSE Labs
 
