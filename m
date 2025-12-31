@@ -4,114 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CC2FEE6428
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 12:36:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E763EE6428
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 12:44:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=FSZm6MhpkLM0mSUX0eMusNlykEAcKztTN5uBVLJdy0w=; b=M1P9L02SQJomZRZe+gGzesB/Ns
-	QqDA3RFGa/hbK9S7grnfS6UODEREMVJAJBg/TqEW7PVmufYRftzDTY/J2Bq4TLb6RxrYYTtTTpk/F
-	4KmdXtBVU11BrT0zmMzsagDHjgP3ZBQ8OtuU5Vdy4S5WChA+vic93bkym0k0r9jcyMWRjMB8fkZs7
-	vRt/jFMe7JaI5Yi8VObr3Slj0zxxM2At28HaCQ5V2WmT+guxOcmZ7eIAWJtIMsi0pJZ6RYGcSdsPE
-	58GLmRgdufJ4g9rCjXfsOYjdfthoD3LQYhUuuxJyYfsApI/ibEERhpylx0Jyt+neAsOD8WvEamezz
-	nHEwdyBA==;
+	bh=doIBT3kveDHefqqmJXIbpBpDJYXHZZ9gY6YG0CQ1W1s=; b=sztRgAhjCQvCZEIeNvO8GOvWUD
+	gbk0KDKRATR/Ma6DQw/PLwxdpxsHeBfPWC+dsqWZulvE9G/BUiLI/oVV9hLRO+GZqyJN8zGW0duRQ
+	w4gtrsXxL/BryeyI6e9Ao2M47GF+/qrgovC2BHcRGLEbIz+kIigZ2N42LnIxzsQtOz+r40BzDqOCP
+	qxlITJAz0649EMOaHAGnmxXnMII8iIL33gFrteQ5aid+eD5OEWc30pzfc2WMkgS4FrP8SIpgOk2FX
+	yIm4iVnafbuDq7qde1ygbQOrJRjhsz6jdq/3y9zCNf05E2iG6xG9f63LrKoE+JW3T7+P/no5VN0Fh
+	otUI0YdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vavQi-00000005z2r-2gBW;
-	Wed, 31 Dec 2025 12:35:56 +0000
-Received: from fout-b2-smtp.messagingengine.com ([202.12.124.145])
+	id 1vavZ0-00000005zOM-0Bq6;
+	Wed, 31 Dec 2025 12:44:30 +0000
+Received: from mail-ot1-f50.google.com ([209.85.210.50])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vavQg-00000005z2M-1eYF
+	id 1vavYw-00000005zNz-1ysW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 31 Dec 2025 12:35:55 +0000
-Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
-	by mailfout.stl.internal (Postfix) with ESMTP id 06E581D0013D;
-	Wed, 31 Dec 2025 07:35:04 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-03.internal (MEProxy); Wed, 31 Dec 2025 07:35:04 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:message-id:mime-version:reply-to
-	:subject:subject:to:to; s=fm3; t=1767184503; x=1767270903; bh=FS
-	Zm6MhpkLM0mSUX0eMusNlykEAcKztTN5uBVLJdy0w=; b=Qa5CwtZmTOLCOEEEND
-	5AimAkWhR7zNEJlJ/TmYOWgUULRue7+LBBKiQpDGAnILYopjlE81ueBS6ceI+Gra
-	y/KofGMd3vE7WACpej+3mtFl+u2N9bSW4Cr2biS6UnA8uJRNhZzNpg6fXba54Quv
-	F8f+7iXf/f7xgWPW1eG9mtzLEDeAR9Asm9QKsYI4GemxONuxVvm/GEZjjDhl9dCs
-	MU+qi5XjOw3qCj4+uqcqZU8Oprz1e/TIl9VRP9KV7ZaOJ8m+4hFC5uPEE0P/Jv9B
-	ZQJoSC5n4QTmEkvxHF74ihsqkPqxP1XIvdaD3ecV1oljkfEk7nt9eGB2/OU1f8Hs
-	I2MQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm2; t=1767184503; x=1767270903; bh=FSZm6MhpkLM0mSUX0eMusNlykEAc
-	KztTN5uBVLJdy0w=; b=mc5MjgTH7fyRbu2MzuEFBaKCdw2dPPO2a/q7bjzB4+R+
-	apCJrna+X7q1lr/ZC9voTFOwKS4hh43Vwq35OkKqwwrKOQ0jhgeQkfOETMuGKkWH
-	i1QsAmoESMiQ5fVOEJ/cOt4ob01vA4W4SEGMHblH4lMhpogOKIPU43/wvpiNG57e
-	HAFR/9aBJeuoSwm3E0rUClYPXrf7AhhaeIrDVsBT3s03XWMTE/KBnH4Qy4A8aHS8
-	KwTRUk8BqJV9/pArh5R6mZQY/N0zWHQk2GDdNqLYiiLK+M5/OQVpYVzI8KL2MP8V
-	si0CNa3IRpONcZ3+VRO5XPDkuvbMxXBLW2Bp4JKvqg==
-X-ME-Sender: <xms:dxhVaVp7x6XXhphhhli_Dnc-I4PoBhTLu7Cb_4x_5zIaWAuOJy8ayQ>
-    <xme:dxhVaVA52O0DHjuipYRgb7mkTc4VmZC3EeB3f9ilT8WZBzK2UqrDjwBwx3-hHh0Xo
-    uNWoFYxq8j7lxbA8GV_1Ixl5WiUXdKxE74WCLBXH_uOWN_wF5tjzA>
-X-ME-Received: <xmr:dxhVaZi-UJdlH8vK76SFt6794v1ZjwdRYHDJ82sQWxC0RYG62KA-vo6iCd3HuXtdaggOVItobXLqCjcGPb2AavMsNY0HbwjtfDZ9Xg>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdekvdelvdcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefhfffugggtgffkvfevofesthejredtredtjeenucfhrhhomheplfgrnhhnvgcuifhr
-    uhhnrghuuceojhesjhgrnhhnrghurdhnvghtqeenucggtffrrghtthgvrhhnpeefheeltd
-    ehfeetjeefvdehteeutddtteelgeduueetjeevteeifeeuvdefffdvieenucffohhmrghi
-    nhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpe
-    hmrghilhhfrhhomhepjhesjhgrnhhnrghurdhnvghtpdhnsggprhgtphhtthhopeelpdhm
-    ohguvgepshhmthhpohhuthdprhgtphhtthhopehnvggrlhesghhomhhprgdruggvvhdprh
-    gtphhtthhopehsvhgvnheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepjhesjhgrnhhn
-    rghurdhnvghtpdhrtghpthhtohepshhtrggslhgvsehvghgvrhdrkhgvrhhnvghlrdhorh
-    hgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhf
-    rhgruggvrggurdhorhhgpdhrtghpthhtohepvhhkohhulheskhgvrhhnvghlrdhorhhgpd
-    hrtghpthhtohepughmrggvnhhgihhnvgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgt
-    phhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprh
-    gtphhtthhopegrshgrhhhisehlihhsthhsrdhlihhnuhigrdguvghv
-X-ME-Proxy: <xmx:dxhVabYffhCS2EglTd1aG-fHV1C7Lrvfy5zZu0041sgxrCTPV8KsxA>
-    <xmx:dxhVaSkVayhi55PKeyHKdk5qpy-1tvKg56TnSEdgsJYvUIvHw9xGAQ>
-    <xmx:dxhVaZia4QMpfw8OtW4URSMEhpevcNtF03Kh0mrM15TG2nAV3tj51g>
-    <xmx:dxhVacToiw7nyZa8PtrlHQSqS3l-h6RRdinJINLgSmqvsC5aDGAjwg>
-    <xmx:dxhVaVkQZgPtTqHCBGSIui1Q417Mj0Ga695xxElXjXXKZxdSL9mgFGEA>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 31 Dec 2025 07:35:03 -0500 (EST)
-From: Janne Grunau <j@jannau.net>
-Date: Wed, 31 Dec 2025 13:34:59 +0100
-Subject: [PATCH] dmaengine: apple-admac: Add "apple,t8103-admac" compatible
+	Wed, 31 Dec 2025 12:44:28 +0000
+Received: by mail-ot1-f50.google.com with SMTP id 46e09a7af769-7c75b829eb6so6840483a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 31 Dec 2025 04:44:25 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767185065; x=1767789865;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=doIBT3kveDHefqqmJXIbpBpDJYXHZZ9gY6YG0CQ1W1s=;
+        b=Cv7eIf5CFvDGn2geQyEhWgAMBe/MKjZLQJlgLDwQW/1vB+QmUDLyDV4BLNmcyzb0jn
+         D4hLH6fwBBrjYMQ/QMrucnlV8bPwZt+tLbma8yLuF43V+8Qxo1ivoOy+imviB6Zfqkek
+         MODm/mOjSULBfV9m7Hr3S7zJ4nPB3GzVZO7Lb+9S/hTFOGgI9mNy3JfEMrWAxAslG4RS
+         d6J8ILdYzDffqOSOVutAzWmT1/aLHm7JGgFAHYgl4WFe90VsU0tP3gIi59hPWQpafSpP
+         cNzFe6RlQ1aCQYKxvdEdHS2sfrieEZNakxiS8VE10Rm82GJNx4467MZMbdGsxxCOQirZ
+         iWCQ==
+X-Gm-Message-State: AOJu0Yxc4uKpsbWG7njecvK4om/ukvJc21icIBHDxePrHo59tqLo4SYS
+	9tPxw9Z3+zeF5CHpmPc/gH4tpUHfn92Ey6d/BcX+h95pvidSXVKiVu7z
+X-Gm-Gg: AY/fxX5RgC6xOu7V9ju2jX6vwwamvuusl7qycWcFFTIGoUgAkcKcxuCZLiilhgDxoJc
+	CRNptUHLf25vfTMQMEo+hyw8YaEVCK6SuqOtKoox6kUPjKHzheLg7uOXsaXdAzBRJhnDCXp3exf
+	X67G6OGFd8eOHTXi3+XF966Xav9BZ7x7YFUWd/8E/eLJy7CLYd8KKuUEeyw528x9RBUPUjpKQ5D
+	uDueJdvVgtRAzBRaMEjm+IOG/tCnq/dg3ADZmS+JhnpsaEh9ryGG3+2pDGQvMCo7MV4jMf8ar+L
+	lc+yo/wTU2L7h7UL8W23UsEzZadKh+LKmaWptznldFTLtioROiRb+jIxO3ogUZOSOkRQs55F6M1
+	+L8fn5XgLGy4/EGhyRR++GNRBG0P86S54v+llRua0yVluO9Ck6DSPbeavkFDy2bZiqeng3LhjBh
+	Ozo1fysyMu1g==
+X-Google-Smtp-Source: AGHT+IFVj7a9FUlEf5NH6KpIT/kaUw0oiLWglRHiOzK9tALgQw37NwF6rJUHBW5v0Oj+IkC3OkEsQw==
+X-Received: by 2002:a05:6830:3154:b0:7c1:12c5:334e with SMTP id 46e09a7af769-7cc66a023c7mr23119448a34.17.1767185065067;
+        Wed, 31 Dec 2025 04:44:25 -0800 (PST)
+Received: from localhost ([2a03:2880:10ff::])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7cc667d6b04sm24557658a34.16.2025.12.31.04.44.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 31 Dec 2025 04:44:24 -0800 (PST)
+From: Breno Leitao <leitao@debian.org>
+Date: Wed, 31 Dec 2025 04:44:05 -0800
+Subject: [PATCH] arm64/mm: Fix annotated branch unbootable kernel
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251231-apple-admac-t8103-base-compat-v1-1-ec24a3708f76@jannau.net>
-X-B4-Tracking: v=1; b=H4sIAHIYVWkC/x3MwQqDMAwA0F+RnBcwKW5lvzJ2iG2mgamlFRHEf
- 7d4fJd3QNFsWuDdHJB1s2LLXEGPBsIo86BosRq45Y7YEUpKf0WJkwRcPbUOeymKYZmSrEievdd
- XfHLvoB4p68/2+/98z/MCEVjLTm8AAAA=
-X-Change-ID: 20251231-apple-admac-t8103-base-compat-18288e7d62b3
-To: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
- Vinod Koul <vkoul@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, Janne Grunau <j@jannau.net>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1589; i=j@jannau.net;
- s=yk2025; h=from:subject:message-id;
- bh=n6uWqlCqUnkkGqFubnmiCEnAuMileRggtN1Kaz1Lm/k=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhsxQidKEl1IfGm5416vGrniUeNk08M3qXaHKz9/WdDvKL
- b+s1N3VUcrCIMbFICumyJKk/bKDYXWNYkztgzCYOaxMIEMYuDgFYCKdwowMb2sX/9uz1Syi7f+m
- 1etuxRg9dzgaYDlJl29Ra15bf8NlV4Z/2tPivLxku2fGeb6+zLWqcc71fG2hpEwto5X84bUzTsg
- xAAA=
-X-Developer-Key: i=j@jannau.net; a=openpgp;
- fpr=8B336A6BE4E5695E89B8532B81E806F586338419
+Message-Id: <20251231-annotated-v1-1-9db1c0d03062@debian.org>
+X-B4-Tracking: v=1; b=H4sIAJUaVWkC/yXMwQqEIBQF0F953HVCKhH4KzEL01e9FjaoxUD07
+ 0O1PJtzonAWLnB0IvMhRbYER7ohhMWnmZVEOIJpTaeN1cqntFVfOaq+i2wna0PsRzSEb+ZJfs8
+ 1fF6XfVw51DvAdf0Be9PcO20AAAA=
+X-Change-ID: 20251231-annotated-75de3f33cd7b
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Laura Abbott <labbott@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-trace-kernel@vger.kernel.org, Steven Rostedt <rostedt@goodmis.org>, 
+ Masami Hiramatsu <mhiramat@kernel.org>, puranjay@kernel.org, 
+ usamaarif642@gmail.com, kernel-team@meta.com, stable@vger.kernel.org, 
+ Breno Leitao <leitao@debian.org>
+X-Mailer: b4 0.15-dev-47773
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1769; i=leitao@debian.org;
+ h=from:subject:message-id; bh=rtQ9YOzpTI1rtYAALDX3LhmxVAFBXeE/3oqvYKuAQ8c=;
+ b=owEBbQKS/ZANAwAIATWjk5/8eHdtAcsmYgBpVRqoMlyZ1wZ3Pzr1vXtCo85272KEY4xVGFmrE
+ b2oMh6CVkmJAjMEAAEIAB0WIQSshTmm6PRnAspKQ5s1o5Of/Hh3bQUCaVUaqAAKCRA1o5Of/Hh3
+ bQZwEACnPfBsC/ChcFSyk6SAwxKoOvb1ERUF80rfaNxXBJiaA1VgbqM7C/wBw+YbXrQmhzVqY/e
+ zB/ndUjEg1Qw/f1EkWqLpRYykPjwyQ/nZsHL8RUh+lvvsu2vH83B4FgCIL991+rvhDFZW75ecWY
+ Wx27xdC7xpaYRNPR/lCGRyKw9GRdkZybGZhUqed7Tu0UwVGNJkdEonPSWzsyXQhxdAKqPkaTXwP
+ yI+5HdfEAuA8nCB56AYgRaMxUUmY+Gg0JtwVD5CS/lsrFAcsngfXp0I0h2TMFDOYF1Hlwo5ZZ/z
+ w8qA3nMwS0murcRCerIFfvy/jgPPx+OW9JE1WcwbAEDqZjXSQ/Po0ENzua7Nu8JciG9+Xf46Ikv
+ xH/PK9ICIZQsNLJszbbllCh6smeoREyPb7MLH7utDd9lbPy0K7ALIeJJJOM77UoSBmIX3yJlEl8
+ 8FLJGGRpDH2/y2YbFkzWthRAgG9qFm3dVwpY8HtXJsFRnxAb2lQW3w99ahtwb5b+WzXzGXSaks4
+ csHXIdZitAVmfvtZvoZc2hJ9fpfI2ggf5vrK2Z+gT7SN4VIA6agvZWESHTh3BpTcabZIWqPxwIl
+ 7GUbaPEl3NeaOpCjDiB438p2p4W5UwQstGYeLrTvFjKj8PLdWHg5liU52jhLlKSvVXXC2iAk+iL
+ +BJxQOoAcO2C7tA==
+X-Developer-Key: i=leitao@debian.org; a=openpgp;
+ fpr=AC8539A6E8F46702CA4A439B35A3939FFC78776D
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251231_043554_476986_91CD89EA 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20251231_044426_542892_9CB59667 
+X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,50 +110,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After discussion with the devicetree maintainers we agreed to not extend
-lists with the generic compatible "apple,admac" anymore [1]. Use
-"apple,t8103-admac" as base compatible as it is the SoC the driver and
-bindings were written for.
+The arm64 kernel doesn't boot with annotated branches
+(PROFILE_ANNOTATED_BRANCHES) enabled and CONFIG_DEBUG_VIRTUAL together.
 
-[1]: https://lore.kernel.org/asahi/12ab93b7-1fc2-4ce0-926e-c8141cfe81bf@kernel.org/
+Bisecting it, I found that disabling branch profiling in arch/arm64/mm
+solved the problem. Narrowing down a bit further, I found that
+physaddr.c is the file that needs to have branch profiling disabled to
+get the machine to boot.
 
-Fixes: b127315d9a78 ("dmaengine: apple-admac: Add Apple ADMAC driver")
+I suspect that it might invoke some ftrace helper very early in the boot
+process and ftrace is still not enabled(!?).
+
+Disable branch profiling for physaddr.o to allow booting an arm64
+machine with CONFIG_PROFILE_ANNOTATED_BRANCHES and
+CONFIG_DEBUG_VIRTUAL together.
+
 Cc: stable@vger.kernel.org
-Reviewed-by: Neal Gompa <neal@gompa.dev>
-Signed-off-by: Janne Grunau <j@jannau.net>
+Fixes: ec6d06efb0bac ("arm64: Add support for CONFIG_DEBUG_VIRTUAL")
+Signed-off-by: Breno Leitao <leitao@debian.org>
 ---
-This is split off from the v1 series adding Apple M2 Pro/Max/Ultra
-device trees in
-https://lore.kernel.org/r/20250828-dt-apple-t6020-v1-0-507ba4c4b98e@jannau.net
-
-Changes compared to the patch in that series:
-- rebased onto v6.19-rc1
-- added "Fixes:" and "Cc: stable" tags for handling this as fix adding a
-  device id
-- added Neal's Reviewed-by:
+Another approach is to disable profiling on all arch/arm64 code, similarly to
+x86, where DISABLE_BRANCH_PROFILING is called for all arch/x86 code. See
+commit 2cbb20b008dba ("tracing: Disable branch profiling in noinstr
+code").
 ---
- drivers/dma/apple-admac.c | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/mm/Makefile | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/drivers/dma/apple-admac.c b/drivers/dma/apple-admac.c
-index bd49f03742912198804a02a22e38da2c21093761..04bbd774b3b444f928986c266c53becf286daeea 100644
---- a/drivers/dma/apple-admac.c
-+++ b/drivers/dma/apple-admac.c
-@@ -936,6 +936,7 @@ static void admac_remove(struct platform_device *pdev)
- }
+diff --git a/arch/arm64/mm/Makefile b/arch/arm64/mm/Makefile
+index c26489cf96cd..8bfe2451ea26 100644
+--- a/arch/arm64/mm/Makefile
++++ b/arch/arm64/mm/Makefile
+@@ -14,5 +14,10 @@ obj-$(CONFIG_ARM64_MTE)		+= mteswap.o
+ obj-$(CONFIG_ARM64_GCS)		+= gcs.o
+ KASAN_SANITIZE_physaddr.o	+= n
  
- static const struct of_device_id admac_of_match[] = {
-+	{ .compatible = "apple,t8103-admac", },
- 	{ .compatible = "apple,admac", },
- 	{ }
- };
++# Branch profiling isn't noinstr-safe
++ifdef CONFIG_TRACE_BRANCH_PROFILING
++CFLAGS_physaddr.o += -DDISABLE_BRANCH_PROFILING
++endif
++
+ obj-$(CONFIG_KASAN)		+= kasan_init.o
+ KASAN_SANITIZE_kasan_init.o	:= n
 
 ---
-base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-change-id: 20251231-apple-admac-t8103-base-compat-18288e7d62b3
+base-commit: c8ebd433459bcbf068682b09544e830acd7ed222
+change-id: 20251231-annotated-75de3f33cd7b
 
 Best regards,
--- 
-Janne Grunau <j@jannau.net>
+--  
+Breno Leitao <leitao@debian.org>
 
 
