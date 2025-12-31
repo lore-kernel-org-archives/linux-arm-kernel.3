@@ -4,107 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95AEFEE57D1
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 07:48:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24E1FEE57E9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 08:13:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fgO3d3cfXg+6/QYt8KnRapWTD1P8J4vhLpjrH4Sf7BU=; b=22mYuLSP4ErZrVOxqeigJhnEbt
-	8axzkO7ptpOfQpC+7bFOIkQpkWF/GhIXwZFp9+8VppAGp6OG/bDqAbEP9L7SSwDbTgtlU33Sf8scK
-	JXSnKLMebrel+M2U3DNrZlseiRIwHXW758UFofyvSbmW/Uhn9JKLbEXDjzHSVYyH6nEdh4DZIPHJU
-	41xTkdANlkqVt7gm6atCgjyKyNB6u1NyEgPrgI04bXIqTh+VpLjZIpGpoTzld85iY0djmE5sNsjuB
-	p4fWxpoOD86MNcH3a2T/DD3fmjTMCKV/8I1qn2n3BYt01Ju91OY/cUum/cXZBxwf5+c+EQsIEakl3
-	C84rfsPA==;
+	bh=PJXRdk/Jm/8W9JuE53zA910TazhkvqSxi7iqm+rHlCQ=; b=lf8ilm0dEZ+ISzol8ZH9tpWgrs
+	BouE0d5ESnzki7jUhy9V1Y5SwJOh1c49HGpaufp+QgQ/bmmMoOcAsqwEsy5/d6e26gQprsDW3JMKu
+	RBStLX26xR89A6qgYUC+b35N3buIBl1FZKiXEVK6jhJ9QeFWe2fu01I7lUCLRWfk7d8oZ20lUhcH4
+	fnnQ/9ecqhz8dlskFCqWNpl5fNstKAq0aUvd506xR0CRwEJQNiPKQOR+5W7X2LDxiPkfWajuxmQwV
+	xXyMMLeIXK0b36kZFUmbD4UtXwY6NDaoaN36eRRiAe9Cg4uS1J3wgQcaFMy2XGFaSWdEd5Sz8pO0x
+	3yJduVxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaqw9-00000005ls0-3v48;
-	Wed, 31 Dec 2025 07:48:05 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1varKC-00000005mcp-2t4m;
+	Wed, 31 Dec 2025 08:12:56 +0000
+Received: from mail-m32108.qiye.163.com ([220.197.32.108])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaqw7-00000005lrf-1PcE
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 31 Dec 2025 07:48:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AD66A40A88;
-	Wed, 31 Dec 2025 07:48:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE8EEC113D0;
-	Wed, 31 Dec 2025 07:47:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767167280;
-	bh=+JoxBFXPgHkTCqfkkq/J72vhYMS4j33YmQGqr0aZiPw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=CSV7luQoNCBxxEYn9LEYvZY0vACfWqy/j/7pPypvSczWKUsTchleYr7bkFTjQMo6c
-	 B0C9E1BoeJnOBE0abu8Do8SN+ImxUbG09qcUqUtZBmXYCVYN+tKaFB7Xlf2Zj8YIjE
-	 883knxrcybVfGW292NI4mqusektNUgNGl0FZQoAhjNyBhsRQJZVyyXrByCBh6LiX40
-	 4n7GYUvEjdiPRGcQ4eWfidb4ZWJF+5u85+zchrXhhUHhQxFp6y7nqy6r6jlO6BenvI
-	 nqjDgV+erd6uEzC47MRsd4NL9wmeIB5A8ALZ9vWKCvCmBmH6Nh2lQ48Ll4PPqixr/C
-	 MYTD/4CgomcaA==
-Message-ID: <ac0f8b8d-f6e4-4d60-9931-e820417c1abc@kernel.org>
-Date: Wed, 31 Dec 2025 08:47:56 +0100
+	id 1varK9-00000005mcH-0YgF;
+	Wed, 31 Dec 2025 08:12:54 +0000
+Received: from [172.16.12.16] (gy-adaptive-ssl-proxy-1-entmail-virt204.gy.ntes [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 2f223fb0b;
+	Wed, 31 Dec 2025 16:12:33 +0800 (GMT+08:00)
+Message-ID: <0de0f505-5858-4ea6-85a7-4c386ac205e9@rock-chips.com>
+Date: Wed, 31 Dec 2025 16:12:33 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/5] arm: dts: mstar: infinity: Correct opp table name
-To: Daniel Palmer <daniel@0x0f.com>, krzk+dt@kernel.org,
- romain.perier@gmail.com, robh@kernel.org, conor+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20251231025502.1139168-1-daniel@0x0f.com>
- <20251231025502.1139168-4-daniel@0x0f.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251231025502.1139168-4-daniel@0x0f.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v4 7/7] ARM: dts: rockchip: rk3506: Add pinctrl and rmio
+ dtsi for rk3506
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ tao.huang@rock-chips.com
+References: <20251227114957.3287944-1-ye.zhang@rock-chips.com>
+ <20251227114957.3287944-8-ye.zhang@rock-chips.com>
+ <ebb720f6-4756-437f-a71a-d94f45d732e8@kernel.org>
+From: Ye Zhang <ye.zhang@rock-chips.com>
+In-Reply-To: <ebb720f6-4756-437f-a71a-d94f45d732e8@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9b73773f5d09d8kunm7d1b63c029b1073
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQxhNQlZCH09PTEMYT0IeHkxWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=LlMTtoudwY0r8GtTq3kRlvFU7O9LrvHrzRYkwTvLuJkRNjj1JKUg8aTA2zm1GVSnbB29fNF/sO5ZNrbHF630uTJfymHO6MMom80zaV5fR4MvcHbT3Q7Z2oGbuWhzpyiLPBMMVoNSi4y6+caIs3cWB/JBkJ9NjVt0dG5DjCS22M8=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=PJXRdk/Jm/8W9JuE53zA910TazhkvqSxi7iqm+rHlCQ=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251230_234803_442137_749F31CF 
-X-CRM114-Status: UNSURE (   8.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251231_001253_650304_A2B2E6B2 
+X-CRM114-Status: GOOD (  10.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,17 +77,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31/12/2025 03:55, Daniel Palmer wrote:
-> The dt validation stuff expects the name of the opp table
-> to match a regexp and it currently doesn't.
-> 
-> Update the name to match the regexp.
-> 
-> Signed-off-by: Daniel Palmer <daniel@0x0f.com>
 
+在 2025/12/28 18:37, Krzysztof Kozlowski 写道:
+> On 27/12/2025 12:49, Ye Zhang wrote:
+>> +		/omit-if-no-ref/
+>> +		rm_io28_touch_key_in6: rm-io28-touch-key-in6 {
+>> +			rockchip,pins =
+>> +				<1 RK_PC3 7 &pcfg_pull_none>;
+>> +			rockchip,rmio-pins =
+>> +				<0 28 49>;
+>> +		};
+>> +
+>> +		/omit-if-no-ref/
+>> +		rm_io28_touch_key_in7: rm-io28-touch-key-in7 {
+>> +			rockchip,pins =
+>> +				<1 RK_PC3 7 &pcfg_pull_none>;
+>> +			rockchip,rmio-pins =
+>> +				<0 28 50>;
+>> +		};
+>> +
+>> +		/omit-if-no-ref/
+>> +		rm_io28_sai0_mclk: rm-io28-sai0-mclk {
+>> +			rockchip,pins =
+>> +				<1 RK_PC3 7 &pcfg_pull_none>;
+>> +			rockchip,rmio-pins =
+>> +				<0 28 51>;
+>> +		};
+>> +
+>> +		/omit-if-no-ref/
+>> +		rm_io28_sai0_sclk: rm-io28-sai0-sclk {
+>> +			rockchip,pins =
+>> +				<1 RK_PC3 7 &pcfg_pull_none>;
+>> +			rockchip,rmio-pins =
+>> +				<0 28 52>;
+>> +		};
+>> +
+>> +		/omit-if-no-ref/
+>> +		rm_io28_sai0_lrck: rm-io28-sai0-lrck {
+>> +			rockchip,pins =
+>> +				<1 RK_PC3 7 &pcfg_pull_none>;
+>> +			rockchip,rmio-pins =
+>> +				<0 28 53>;
+>> +		};
+>> +
+>> +		/omit-if-no-ref/
+>> +		rm_io28_sai0_sdi0: rm-io28-sai0-sdi0 {
+>> +			rockchip,pins =
+>> +				<1 RK_PC3 7 &pcfg_pull_none>;
+>> +			rockchip,rmio-pins =
+>> +				<0 28 54>;
+>> +		};
+> Why are you defining all pins? This is wrong, your driver has to do it,
+> not DTS. All these definitions when not used are just pointless.
+>
+This file is auto-generated to provide a complete set of RMIO 
+configurations.   Our intention is to offer a generic library for all 
+future board developers, so they can simply pick the needed nodes by 
+phandle without manually looking up register values in the datasheet 
+every time.   This improves usability and standardization.
 
-These two should be squashed. Don't align node names with bindings per node.
+We also used the /omit-if-no-ref/ tag, so this will strictly not 
+increase the size of the compiled DTB binary at all.
+
+Could you please reconsider if this  approach is acceptable given the 
+usability benefits?
+
+If you still consider the ~25k lines of source code bloat unacceptable 
+for upstream, we will have to drop this generic dtsi file and let users 
+manually define only the required nodes when adding board support.
 
 Best regards,
-Krzysztof
+Ye Zhang
 
