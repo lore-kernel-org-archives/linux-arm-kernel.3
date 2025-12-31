@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BFAEEE6440
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 13:45:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2523EE642F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 14:02:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vi5I+SfKE4aINlKxAmgMaZAdY1SDU/JEFetaMG2dxZE=; b=kZI83kYfOBWDfX7s3GiSH0zuYG
-	88glS/uDjmKAFaXMETgHVp5sAg5Fi1ZzNY1s7Vzyf6fnPrqW/RsaoZ0rKLqCAkjlrSEFOx6/Y3DF9
-	Z++EXlUGRRatTjYbnheOXtjgbxhSQWf4tZIZCkbAtvajau+x7mmmPy38132rXywUXgNVxwTpRYHgL
-	qDroWcYGnvNfPoQrRdPIhUmHLgnh1YG0RFk/gZeR2pdYBkD7dzVHC4ukzQJ49Xl7nNR9C8QeqNQIF
-	gY7VDLgWugM2hY/DZN+usjWUJ3Tm56IZq8rB9nHa0b+CpGgdT02MNvmUb04mn/EZCNzksZCBpLvAM
-	o4vIb6rQ==;
+	bh=NWHiYn4n+zWsJ54dXyXzY0GI3GkAZQGiV077bTpVEIE=; b=OKSN53w0ZNq0Xfz3lZ0URiaZF1
+	AWsTrSNzDtBZXA0dxPB2+oRbXAaHyIzWwwoqk1xVGEBMVX7j6OLNXtbVjvaqVFqiI6PWpa7+CNN8i
+	/zm0f2xLcjIckgLWObL7WOswjjw3s81bgJO23KAqN01KDyGoQBettV6SNCbXwaJbgykKERcqBlYBJ
+	zo2Fx1Lx1wqEcfzbd4jDBeRv7R+ObBnX8FyI1GOe1b6W0eKpTsTUgy7efxoKlSmw+m/HpdMYHX3BN
+	nTyZ9rhTeDq7r6XzZayOtJ+/B0ej8P4tJQP8DH0UHDevofDMTtaOktDwEUT3tqgFHJ3ZbzzsuqlDQ
+	nyNv3aKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vawW7-0000000610O-3052;
-	Wed, 31 Dec 2025 13:45:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vawmf-000000061Sl-1AJZ;
+	Wed, 31 Dec 2025 14:02:41 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vawW6-000000060zz-1UKs
+	id 1vawmc-000000061Sd-3qHd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 31 Dec 2025 13:45:34 +0000
+	Wed, 31 Dec 2025 14:02:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 175B860008;
-	Wed, 31 Dec 2025 13:45:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 438F4C113D0;
-	Wed, 31 Dec 2025 13:45:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C0D5660017;
+	Wed, 31 Dec 2025 14:02:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAA17C113D0;
+	Wed, 31 Dec 2025 14:02:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767188732;
-	bh=Y5lTmiVqic6uOses6/RBPW3lvTquV7zqhHPq8aQw34M=;
+	s=k20201202; t=1767189757;
+	bh=CBFfLku7dIdIU6H6oIpUvPWYyR6ucYYMUyo6GlFZdAE=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Vx1P2FfSkiM9kppodGYA35GpPxHALVz4tqlXMJw7IRuRoyhQc3Qx9tILc+uax6TC7
-	 E9oNlkBRd2Rs1GjCPqIEDj2UtwboDm+nyiXhVS4cpKvGjduLnDZUAkhmBouab0kgAE
-	 9iFHz545GjGqBURbPFBcct+xIbjqRKoEQGe2nWxgG+6p4IO8R8Au9Jm7Y9Krmwprxc
-	 HS8s1ug8q6nJc7bHQCVkjEoCysFcYtunXpn0pt+/iwuaDQ6zXF+kyUJavHNXJgl7UT
-	 Y4URPh1rDmzsjeYecL3DpbBHbSEjLZfzNZGbTbp/0Hdxg9F9Won6RzlhHNOiKEJBL1
-	 sy0xjelFd82aw==
-Date: Wed, 31 Dec 2025 14:45:29 +0100
+	b=V/KYCPL7ZtkMijc6GCGy07DqTpJm2bcO1Hyk7oeLdmLDr4cryXHiAbYSa0rdHoTmz
+	 xO1R86BMlXOvB7Bi6HCf0I6MrrXlvW4Tifmo/YaGV1r6/hXHdzochqy+Rx9CDugnW8
+	 KL0pY73twndKcZdjNDfVh7l6tZDUjQW4VDWv/nAL9ad6qz6ZAUtNrHXDCfP2Cywtm6
+	 ugYPs4h+jagAwy6hsofbysUt3OS9gH+6R84kJxL4x3DsSiKIXbQvIHr3qZRG6sMKpf
+	 M6jkkbfhDqzpVpnYKxH0r6jDyw29DBX9RAwbViO1Y+CIGYDKBMqcVEFznqc1PXd0Hw
+	 Qai/24OW/4z9w==
+Date: Wed, 31 Dec 2025 15:02:34 +0100
 From: Frederic Weisbecker <frederic@kernel.org>
-To: Waiman Long <llong@redhat.com>
+To: Jens Axboe <axboe@kernel.dk>
 Cc: LKML <linux-kernel@vger.kernel.org>,
 	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
@@ -57,7 +57,7 @@ Cc: LKML <linux-kernel@vger.kernel.org>,
 	Gabriele Monaco <gmonaco@redhat.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
+	Johannes Weiner <hannes@cmpxchg.org>,
 	Lai Jiangshan <jiangshanlai@gmail.com>,
 	Marco Crivellari <marco.crivellari@suse.com>,
 	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
@@ -68,20 +68,22 @@ Cc: LKML <linux-kernel@vger.kernel.org>,
 	Shakeel Butt <shakeel.butt@linux.dev>,
 	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
 	Thomas Gleixner <tglx@linutronix.de>,
-	Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
-	cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-block@vger.kernel.org, linux-mm@kvack.org,
-	linux-pci@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH 05/33] sched/isolation: Save boot defined domain flags
-Message-ID: <aVUo-csI1gqZL89O@localhost.localdomain>
+	Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
+	Will Deacon <will@kernel.org>, cgroups@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
+	linux-mm@kvack.org, linux-pci@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH 09/33] block: Protect against concurrent isolated cpuset
+ change
+Message-ID: <aVUs-mFYCO2qGmqT@localhost.localdomain>
 References: <20251224134520.33231-1-frederic@kernel.org>
- <20251224134520.33231-6-frederic@kernel.org>
- <04708b57-7ffe-4a97-925f-926d577061a6@redhat.com>
+ <20251224134520.33231-10-frederic@kernel.org>
+ <0f65c4fe-8b10-403d-b5b6-ed33fc4eb69c@kernel.dk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <04708b57-7ffe-4a97-925f-926d577061a6@redhat.com>
+In-Reply-To: <0f65c4fe-8b10-403d-b5b6-ed33fc4eb69c@kernel.dk>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,54 +98,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Thu, Dec 25, 2025 at 05:27:54PM -0500, Waiman Long a écrit :
-> On 12/24/25 8:44 AM, Frederic Weisbecker wrote:
-> > HK_TYPE_DOMAIN will soon integrate not only boot defined isolcpus= CPUs
-> > but also cpuset isolated partitions.
+Le Mon, Dec 29, 2025 at 05:37:29PM -0700, Jens Axboe a écrit :
+> On 12/24/25 6:44 AM, Frederic Weisbecker wrote:
+> > The block subsystem prevents running the workqueue to isolated CPUs,
+> > including those defined by cpuset isolated partitions. Since
+> > HK_TYPE_DOMAIN will soon contain both and be subject to runtime
+> > modifications, synchronize against housekeeping using the relevant lock.
 > > 
-> > Housekeeping still needs a way to record what was initially passed
-> > to isolcpus= in order to keep these CPUs isolated after a cpuset
-> > isolated partition is modified or destroyed while containing some of
-> > them.
-> > 
-> > Create a new HK_TYPE_DOMAIN_BOOT to keep track of those.
+> > For full support of cpuset changes, the block subsystem may need to
+> > propagate changes to isolated cpumask through the workqueue in the
+> > future.
 > > 
 > > Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
-> > Reviewed-by: Phil Auld <pauld@redhat.com>
 > > ---
-> >   include/linux/sched/isolation.h | 4 ++++
-> >   kernel/sched/isolation.c        | 5 +++--
-> >   2 files changed, 7 insertions(+), 2 deletions(-)
+> >  block/blk-mq.c | 6 +++++-
+> >  1 file changed, 5 insertions(+), 1 deletion(-)
 > > 
-> > diff --git a/include/linux/sched/isolation.h b/include/linux/sched/isolation.h
-> > index d8501f4709b5..109a2149e21a 100644
-> > --- a/include/linux/sched/isolation.h
-> > +++ b/include/linux/sched/isolation.h
-> > @@ -7,8 +7,12 @@
-> >   #include <linux/tick.h>
-> >   enum hk_type {
-> > +	/* Revert of boot-time isolcpus= argument */
-> > +	HK_TYPE_DOMAIN_BOOT,
-> >   	HK_TYPE_DOMAIN,
-> > +	/* Revert of boot-time isolcpus=managed_irq argument */
-> >   	HK_TYPE_MANAGED_IRQ,
-> > +	/* Revert of boot-time nohz_full= or isolcpus=nohz arguments */
-> >   	HK_TYPE_KERNEL_NOISE,
-> >   	HK_TYPE_MAX,
+> > diff --git a/block/blk-mq.c b/block/blk-mq.c
+> > index 1978eef95dca..0037af1216f3 100644
+> > --- a/block/blk-mq.c
+> > +++ b/block/blk-mq.c
+> > @@ -4257,12 +4257,16 @@ static void blk_mq_map_swqueue(struct request_queue *q)
+> >  
+> >  		/*
+> >  		 * Rule out isolated CPUs from hctx->cpumask to avoid
+> > -		 * running block kworker on isolated CPUs
+> > +		 * running block kworker on isolated CPUs.
+> > +		 * FIXME: cpuset should propagate further changes to isolated CPUs
+> > +		 * here.
+> >  		 */
+> > +		rcu_read_lock();
+> >  		for_each_cpu(cpu, hctx->cpumask) {
+> >  			if (cpu_is_isolated(cpu))
+> >  				cpumask_clear_cpu(cpu, hctx->cpumask);
+> >  		}
+> > +		rcu_read_unlock();
 > 
-> "Revert" is a verb. The term "Revert of" sound strange to me. I think using
-> "Inverse of" will sound better.
+> Want me to just take this one separately and get it out of your hair?
+> Doesn't seem to have any dependencies.
 
-Somehow I thought it could be a noun as well. At least I wouldn't mind if
-it ever turns that way.
+The patch could be applied alone but the rest of the patchset needs it,
+otherwise it may dereference freed memory. So I fear it needs to stay
+within the lot.
 
-Fixing that, thanks.
+I appreciate the offer though. But an ack would help, even if I must admit
+this single patch (which doesn't change current behaviour) leaves a
+bitter taste because complete handling of cpuset isolated partition change
+will require more work.
 
-> 
-> Cheers,
-> Longman
-> 
+Speaking of, is there a way that I missed to define/overwrite the above
+hctx->cpumask on runtime?
 
+Thanks.
 -- 
 Frederic Weisbecker
 SUSE Labs
