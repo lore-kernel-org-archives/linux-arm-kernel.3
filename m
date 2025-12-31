@@ -4,85 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C622CEE57D7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 14:22:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F07DBEE6428
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 14:28:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wXYjazt0zE5ZbXPCuIYC2wRZQfZaaSTiX/lQQ7YM9M4=; b=Fu2l1JrjAxsWqg+kYpH16TXnZC
-	jsstj1NoV5jfi0+TIyL991XYAS6uFBl8g6Y+QK5LRfxwPiXPh/pWKe7603T/BeQnvW+76QZ3DaM10
-	UmleYYNJ6BbXUJjIhFtEw+PDO6kTUeVFIc1M/8vLrpzd2bp4Te2hWTHU0mFh1gnhfa/C5/4SGpVeA
-	KyZGYclmMknpqnl7LKIGRW2Q/nysf5eJYfytuSIk0Dyk5XGWbrur/BIuLuRQU12oHmpB/uGjbn001
-	ddtQQEVWNpNYfOFp24bictWp3NId2AYUDyiW1qGdoVVBbNSqbbQXIBDlKxYajGO3Bm/s1ttNTC7Uj
-	VBujUM/A==;
+	bh=jMV6DeeoDol5vW6Ifpd5XnY16YMsP6em2WlQ7TohT2g=; b=vZXkPcLDUwwHyq+CVTCwHrdRPC
+	vigMiDJFqYH37D6v5nbqcKe5Jcc60PHBtpXN9eeoDcoUO1x3jJvo95BlPNU0bi0YSPhzzjQmAteRL
+	DS8leKGHLLxNXJk4gedChGdzzV/vlWpTNuYLLSLee4K20DncaaJrlHuq0y3zrhdjePPGoKVlFAbEV
+	/S/JbyuN29H8lLE0ietA55QTFFIozLF655M/vmF+mfR56kaayvQ04zEOrqVdt4QaKzXZ/2BzxS968
+	2hiw2ZhRtsnNkRuILY7l7QGsl1lb4QWdy/x5vt8Fr8l0Kj7PVmLROYhadgyWYFO2a2EwRsOaSoRWd
+	4mAm8WxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vax5O-000000062DG-12kN;
-	Wed, 31 Dec 2025 14:22:02 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vaxBW-000000062Ud-098O;
+	Wed, 31 Dec 2025 14:28:22 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vax5N-000000062D7-0hW2
+	id 1vaxBT-000000062Tp-3WN7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 31 Dec 2025 14:22:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1A02760008;
-	Wed, 31 Dec 2025 14:22:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41D7AC113D0;
-	Wed, 31 Dec 2025 14:21:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767190919;
-	bh=ThxbPyVAuuGbA1hxol61p5aRyqgSEJPk5GSWaXCro3w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fdkIy6Szlw8k7WZ5M4sr0W+mpchR0nIFJWieDi+fUljSS8EAjYlSchHFr67dKhexm
-	 KJJMdMWfYo8IWLH2chBoG8s+ZzgqZmkjbUlBC+Vq0AxW4efi7nbP/ljmMjJI+NbTL1
-	 sLgKSLCCNSmx6D/VujTYD1MVuxw2wr6bHhfmYE3B+2Va+JDWfgi0fQhFtPsUzwhJdE
-	 cLIAzLkpUT7dXDv7EQ9Fky4+vRRiwgjcI8gk7iiqsUR7/k1wzYboc2OATWu/Ld1MR1
-	 jUVkuUAHST53zHzaocUECX2wUK5wFha+6qsdBMVyGyNbCMW4qKIWzEnCyzkbvzH2oB
-	 lq9ruU1QKaHig==
-Date: Wed, 31 Dec 2025 15:21:56 +0100
-From: Frederic Weisbecker <frederic@kernel.org>
-To: Chen Ridong <chenridong@huaweicloud.com>
-Cc: LKML <linux-kernel@vger.kernel.org>,
-	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Chen Ridong <chenridong@huawei.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Gabriele Monaco <gmonaco@redhat.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
-	Will Deacon <will@kernel.org>, cgroups@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
-	linux-mm@kvack.org, linux-pci@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH 14/33] cpuset: Update HK_TYPE_DOMAIN cpumask from cpuset
-Message-ID: <aVUxhNlKaT0r6F5c@localhost.localdomain>
-References: <20251224134520.33231-1-frederic@kernel.org>
- <20251224134520.33231-15-frederic@kernel.org>
- <8ecb22ab-d719-44b4-ad40-5af0a185682a@huaweicloud.com>
+	Wed, 31 Dec 2025 14:28:21 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2a0d0788adaso97876085ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 31 Dec 2025 06:28:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1767191298; x=1767796098; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jMV6DeeoDol5vW6Ifpd5XnY16YMsP6em2WlQ7TohT2g=;
+        b=aGs7/8lHCNzVZBSZiZKgKA1/omytqqAPdT+cABNGFP4XVjokOgJ4bNRQDsSO/5d5w4
+         QwOnPDrH3QYtNwgh0Zua/n6hGP4QP5K56rIrY25qQ5umgDUj2lGVMZvJ8POtRZkaij6Z
+         mDu41tkxc0JT0glKBVH9vIu09LwoI0TksmOh+CQoVgxSYzEZcK9d+7vzU6FPpX+sLzzL
+         QCh5DzYZNf9QIiqoSmUf96eh12nlY19m03HNeCr3Dfv0RUoiUbDAqzbtVcQ8gHENYI/F
+         r7sY/6dfa5N2QzCIsrlpxCb6MirUScACvpBTiFPc6mfPRsfVYC41CLeqdyVW55N1hA/h
+         xOPg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767191298; x=1767796098;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=jMV6DeeoDol5vW6Ifpd5XnY16YMsP6em2WlQ7TohT2g=;
+        b=C6c75skhv6yPna1d4m1S5uMtQOVaT7Y3o7eDm3ssl4VcrVBbzndSkPMcSA+ugcWxXO
+         /0S+4VKCUJcAXUbGY40m/onM/fVuKtFI03oVI3RZ0tbkjNOPBlGjNJvjejfCiz00SFrD
+         Xlg4vsaz479+raVA2mCLjdk30kLf3jka3hCZsPr5vvv6AQgvlnbjKG/cVjR52W9INnuL
+         j2tXKWgfkhAkZenzO8yj5wQuDMTKv4y2tIRZkeXm12Nw+xO6QBPtgdXrHptyD29An7wv
+         WizT5jdZVxA3ZY5GFgmNEibcHSuKeGKFHQxyZIxgKpuOfqKuEVkAbpD1yvYZMMYLBwSb
+         RSsw==
+X-Forwarded-Encrypted: i=1; AJvYcCXTmSCrOv+oBeHIvTbKaGBGoatgcFtc5DbryBga4VLjGMGZoTuc4OipztoD+O+fjgCxm8MG4Au9Q3p/AqGxJg36@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXCl/DtcA9AG2SA0kxDuy3/P6F2JV6qvC6Kkh4r2QFBaMO2lch
+	UvruJcZ4kf9djgPwf6du2JkDqhwBFQ1k0LdsQuJ6s4mPlIaEUHcKnJJl
+X-Gm-Gg: AY/fxX5AMtoGxAQsWB6AfJqcf1RaDxX+eJkKyvdzQ6G77XZHoUPvhEV5sa2dQP1cGE+
+	dHkUb+xaO7gP1GzvlLG7GRj5y5bxs5Kp6XiDVG7k7cLQJurEc/qOUCnYUYrKavyYVsKyQ+kcs/5
+	JNKKvoxTlR1oWWz8IUdMftczZKGHmrZVrh34zguLgjb6A/2YQmpSnFelGb0wp9W0t5U/0TiLFCA
+	bMIeGdXFyqkH1uDlDBJLNa9jrSywfLkqcjJTxToamOMfvCM6KgI/b8yr1mXz66nXvrflXKfoESQ
+	HnyN9DL+ULzvYkOm9qbY3ZqBf11Wos3kR8TIDgzAWHjxvvDwW87Wdu+UBzAYcyr1ViVY2HS9bD4
+	pLsldIROU1r3/jFrNFm3att5nlInRfZ5G/hmOL8sO5PuZJ53fe2Fi+Is191itljkWq+Vu6kiqEy
+	y1fXK6rf+EntmJGb1liJ2p4w2C
+X-Google-Smtp-Source: AGHT+IHT1LbcUINYNqMyB9CX8YBrFNHzxw864OFLPJDnx9s6IC7xwrB55T2EWxDGNkf6J10kosGXXw==
+X-Received: by 2002:a05:7022:f698:b0:11d:bea3:c93d with SMTP id a92af1059eb24-121722eba22mr29428274c88.29.1767191298434;
+        Wed, 31 Dec 2025 06:28:18 -0800 (PST)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1217254ce49sm135194664c88.15.2025.12.31.06.28.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 31 Dec 2025 06:28:17 -0800 (PST)
+Date: Wed, 31 Dec 2025 06:28:17 -0800
+From: Guenter Roeck <linux@roeck-us.net>
+To: Janne Grunau <j@jannau.net>
+Cc: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>, asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] watchdog: apple: Add "apple,t8103-wdt" compatible
+Message-ID: <68e8bd60-85b1-4b4a-8a82-f47640ad0ad9@roeck-us.net>
+References: <20251231-watchdog-apple-t8103-base-compat-v1-1-1702a02e0c45@jannau.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <8ecb22ab-d719-44b4-ad40-5af0a185682a@huaweicloud.com>
+In-Reply-To: <20251231-watchdog-apple-t8103-base-compat-v1-1-1702a02e0c45@jannau.net>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251231_062819_882964_37CD7F79 
+X-CRM114-Status: GOOD (  20.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,44 +102,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Fri, Dec 26, 2025 at 04:08:04PM +0800, Chen Ridong a écrit :
-> > +int housekeeping_update(struct cpumask *isol_mask, enum hk_type type)
-> > +{
-> > +	struct cpumask *trial, *old = NULL;
-> > +
-> > +	if (type != HK_TYPE_DOMAIN)
-> > +		return -ENOTSUPP;
-> > +
+On Wed, Dec 31, 2025 at 01:07:21PM +0100, Janne Grunau wrote:
+> After discussion with the devicetree maintainers we agreed to not extend
+> lists with the generic compatible "apple,wdt" anymore [1]. Use
+> "apple,t8103-wdt" as base compatible as it is the SoC the driver and
+> bindings were written for.
 > 
-> Nit:
+> [1]: https://lore.kernel.org/asahi/12ab93b7-1fc2-4ce0-926e-c8141cfe81bf@kernel.org/
 > 
-> The current if statement indicates that we only support modifying the cpumask for HK_TYPE_DOMAIN,
-> which makes the type argument seem unnecessary. This seems to be designed for better scalability.
-> However, when a new type needs to be supported in the future, this statement would have to be
-> removed. Also, the use of cpumask_andnot below is not a general operation.
+I don't understand the rationake from the reference. This patch will need
+an Ack from a DT maintainer.
+
+Thanks,
+Guenter
+
+> Fixes: 4ed224aeaf66 ("watchdog: Add Apple SoC watchdog driver")
+> Cc: stable@vger.kernel.org
+> Reviewed-by: Neal Gompa <neal@gompa.dev>
+> Signed-off-by: Janne Grunau <j@jannau.net>
+> ---
+> This is split off from the v1 series adding Apple M2 Pro/Max/Ultra
+> device trees in [2].
 > 
-> Anyway, looks good to me.
-
-Ok, let's remove the parameter for now.
-
-> > diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
-> > index 475bdab3b8db..653e898a996a 100644
-> > --- a/kernel/sched/sched.h
-> > +++ b/kernel/sched/sched.h
-> > @@ -30,6 +30,7 @@
-> >  #include <linux/context_tracking.h>
-> >  #include <linux/cpufreq.h>
-> >  #include <linux/cpumask_api.h>
-> > +#include <linux/cpuset.h>
-> >  #include <linux/ctype.h>
-> >  #include <linux/file.h>
-> >  #include <linux/fs_api.h>
+> 2: https://lore.kernel.org/r/20250828-dt-apple-t6020-v1-0-507ba4c4b98e@jannau.net
+> ---
+>  drivers/watchdog/apple_wdt.c | 1 +
+>  1 file changed, 1 insertion(+)
 > 
-> Reviewed-by: Chen Ridong <chenridong@huawei.com>
-
-Thanks!
-
--- 
-Frederic Weisbecker
-SUSE Labs
+> diff --git a/drivers/watchdog/apple_wdt.c b/drivers/watchdog/apple_wdt.c
+> index 66a158f67a712bbed394d660071e02140e66c2e5..6b9b0f9b05cedfd7fc5d0d79ba19ab356dc2a080 100644
+> --- a/drivers/watchdog/apple_wdt.c
+> +++ b/drivers/watchdog/apple_wdt.c
+> @@ -218,6 +218,7 @@ static int apple_wdt_suspend(struct device *dev)
+>  static DEFINE_SIMPLE_DEV_PM_OPS(apple_wdt_pm_ops, apple_wdt_suspend, apple_wdt_resume);
+>  
+>  static const struct of_device_id apple_wdt_of_match[] = {
+> +	{ .compatible = "apple,t8103-wdt" },
+>  	{ .compatible = "apple,wdt" },
+>  	{},
+>  };
+> 
+> ---
+> base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+> change-id: 20251231-watchdog-apple-t8103-base-compat-8a623e9831b6
+> 
+> Best regards,
+> -- 
+> Janne Grunau <j@jannau.net>
+> 
 
