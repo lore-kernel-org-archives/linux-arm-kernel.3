@@ -4,115 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E785EE57F7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 09:42:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52CD3EE57F7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 09:48:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hS6XZTtAqHnnW+f1AAVumjb0R3JxUAZPLUP82F/FDSE=; b=cUwpt2+pE/CmtQwPg/aBBE3YYs
-	WrGlrHy4icdzde0aPKdxYqImPDMp3XKJtj4zyfiWvd90uQLAea+fMQNbNw+k4M/ox4Ck+4okeA4Oy
-	YOj4K6kowflcwkd2P9owCiRoRmIf3Z9rKmUD824BLyFvI5kkS84T6J5e03RpJhqVU3nL8b7BtUsCQ
-	c/H0gL3Z95NW/5pgdqk1i7XisfLgeQkNLDf3AXzK9w91Z1k84qUc5i+2ZfZzD6/7g8QzQDEImV9gK
-	RL7oxUQvaP4uLsZ5OvpbT1Jozi3xCZIftLCNhcdHGNu91QNzsTqGAE6q7kOmqsKUFhUrOWismusfQ
-	l7wZWsrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=haCQuoCXYQ/gLqJtaAKnRAAVEKmVc+FnF9eXlUn2Xg8=; b=skLVCsq12rTjDxMVbAn9Nh0D+t
+	qet+cxf3FfAGO2DzAEuYt2tgIoPet0aOZ5gdIkEYZpGiw3MY2P4yj9DhVIQlPHnP2I6Am71wnBTVE
+	b7zwBxlSZi28c0CtTb8pX7KQ1gdcl1TzPyFmWMB9CcOApCJRn8ZaCRi8MVTXYqn5qCdRqKBa4so2m
+	jc8qAyIMrAnJ3pEZhaB6lAb1ytOQJGiCoM75GJg+QR21dCXJGVUSTaU/OH/9844myHR2dXf+IXlg9
+	gfxCh1KRf7NPxH+5l3Bd6UGQAMO3Kvay50miRpwqPBKPwd6bORLfbXyOQsCfDgUMW0Kjxpl9GkZZx
+	dysdp8Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vasis-00000005q0m-1os3;
-	Wed, 31 Dec 2025 09:42:30 +0000
-Received: from fhigh-b8-smtp.messagingengine.com ([202.12.124.159])
+	id 1vasp1-00000005qSa-0FaK;
+	Wed, 31 Dec 2025 09:48:51 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vasip-00000005q0T-2feu
+	id 1vasoz-00000005qSU-3E3Y
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 31 Dec 2025 09:42:29 +0000
-Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id CB0807A010C;
-	Wed, 31 Dec 2025 04:42:23 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-03.internal (MEProxy); Wed, 31 Dec 2025 04:42:24 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:message-id:mime-version:reply-to
-	:subject:subject:to:to; s=fm3; t=1767174143; x=1767260543; bh=hS
-	6XZTtAqHnnW+f1AAVumjb0R3JxUAZPLUP82F/FDSE=; b=MLgsVcf8hl1RFoBH9J
-	Mnoa9A7Frol7Yuopv2Zmd6Y+RnjfAASz8BrrVbvaRaRfS0sZGcHQCNBwpCBZO72i
-	Y9q/w1KUc+qWpbHv3jkTLlNSRhCzhyuRa7JRPLwk9X85JVHCdYRHJ2xDVKPB07yz
-	bgoSmtYuUFoZUDjlC+t4ior8/twz4UXzSI6qKbvtf3ASIFQq5A3t7gpgv5uaLhaA
-	1zhaB6cXXGd1Lgis6P9BCtDoaVvGuS6hgR9gM9JZBBG9E+NO7/u+/1hjImwEhui7
-	7aXaS/3fp7WhXdyI9TgZZPn3CriVvoMoxUEJIaYQAkdWA9RenQtlJ1Hknnwe4CJ6
-	0Hxw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm2; t=1767174143; x=1767260543; bh=hS6XZTtAqHnnW+f1AAVumjb0R3Jx
-	UAZPLUP82F/FDSE=; b=zTD6P0KXMWm8MksJkqFWViwQbVeLN7xOf5vzohBLyH8e
-	HgXseWuBlF/EPwgyY7+9v1M3ZuuicMCEOANT+Di18c2yNwon/AWF/kL9Gal3UYad
-	CN7oOA3VjEWt+pH2AzSJo3t9G4TI13oSYTzXh4w/7XFrkQ+jGC3E1FcQ9PsMA4vX
-	/oQ2l+YpyvqLso9wLJFQoZIr4S6NCvrPosyD6IC862iHGhhjsJ679Gs5Httxa2TI
-	ycvpyibiFTGeejBaRy8FFst12hdJ2jxvYfw6PElfstUl/YUP8sRcndT12xjSTNAM
-	QD0EBXYw0zySnLne+XPZjEykAOfhyvq8Ciq/GgVnmg==
-X-ME-Sender: <xms:_-9UaQN8Ui9W-bVUdfMBhs-JSMHfjZXX0BfJqsrHHqz7JfpaABE_IA>
-    <xme:_-9UaZhfAWF1U2JALUoZ2pXRYc8wyIilU5Umc1QiQz07ofyA9injRxa8O5hdaU_KL
-    UJ6Fy8NenmMMInia7nC4HJcn9W0OEsbX7uwMRUcpPPclt0onlK2xw>
-X-ME-Received: <xmr:_-9Uaa4YtgC15-kLQLWiuKEwHRJNbr0Ob6SaMd3i4JLc70s0dO9d7kgBI2L9CHbBEbONPgXuin0TbSTZ6DCBMFxCoR_8-IDjRGitEQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdekvdehjecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefhfffugggtgffkvfevofesthejredtredtjeenucfhrhhomheplfgrnhhnvgcuifhr
-    uhhnrghuuceojhesjhgrnhhnrghurdhnvghtqeenucggtffrrghtthgvrhhnpeefheeltd
-    ehfeetjeefvdehteeutddtteelgeduueetjeevteeifeeuvdefffdvieenucffohhmrghi
-    nhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpe
-    hmrghilhhfrhhomhepjhesjhgrnhhnrghurdhnvghtpdhnsggprhgtphhtthhopeekpdhm
-    ohguvgepshhmthhpohhuthdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlh
-    eslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehnvggrlhesghho
-    mhhprgdruggvvhdprhgtphhtthhopehjsehjrghnnhgruhdrnhgvthdprhgtphhtthhope
-    hsthgrsghlvgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhig
-    qdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlvggvse
-    hkvghrnhgvlhdrohhrghdprhgtphhtthhopegrshgrhhhisehlihhsthhsrdhlihhnuhig
-    rdguvghvpdhrtghpthhtohepshhvvghnsehkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:_-9UaY2LqZmifgtncPRph7siEYH5HgDR5m875leypgLKIsoAlbZ3PA>
-    <xmx:_-9UadtIDS5WzDV--0QiwS0S69248s0B0igaklc_HEGC9sjkjbLlmA>
-    <xmx:_-9UaW59orB_iAPMtfWG-5qTF4-kLtukCX8vKbQjPgoAPGS6_wYIFw>
-    <xmx:_-9UaRc4TwCfDZL9KJyYxNe7cRNXq1Z4gfXPTKQKgcpotlecHxRsBg>
-    <xmx:_-9UaePBSgTnhK5OVDJpjSyQhH-c07gXY4nWWc1Ks4oJ5sadIwaAvRpo>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 31 Dec 2025 04:42:22 -0500 (EST)
-From: Janne Grunau <j@jannau.net>
-Date: Wed, 31 Dec 2025 10:42:12 +0100
-Subject: [PATCH v2] mfd: macsmc: Initialize mutex
+	Wed, 31 Dec 2025 09:48:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8F96B60097;
+	Wed, 31 Dec 2025 09:48:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DF5EC113D0;
+	Wed, 31 Dec 2025 09:48:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767174528;
+	bh=ImNInNwZR54+9UqA/UYM+30mhewaOzMKRmet2CMmOUQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=JcB9UFy8N0XMPkyl8EVl/AiwVf+7iZefYZWhxBbfrtHHKLcp/3sEePk3v+dXIQsev
+	 4ub/CvgkURGqNknrK4Z/dJhW8YnBTS7ldC3bzqic+UMziZ6f2KSh91WdtDn9WoelX/
+	 14QJiUrk/s/UOnhh5XkmCTy7YMAyQBplmO8CVHZ1fE9NcxCXi3f1NVh7WC2hWZWepk
+	 31iJeu4ZFmi6ky7PiA235WIlv1TZwMht0OANLwx7Z3bIhUZX9/0eEpHD8uF/8qv9kU
+	 yW19jOXoQcDU3ph0VgTwZGKC0rtRAG4k/wZQJAxSGmj614gLl20qiVXNHcmB/YY6lT
+	 oMUNDNVHRtxsA==
+Message-ID: <499ce4ea-c6bf-45f1-ab68-c37397196084@kernel.org>
+Date: Wed, 31 Dec 2025 10:48:44 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/5] arm: dts: mstar: infinity: Correct opp table name
+To: Daniel Palmer <daniel@0x0f.com>
+Cc: krzk+dt@kernel.org, romain.perier@gmail.com, robh@kernel.org,
+ conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20251231025502.1139168-1-daniel@0x0f.com>
+ <20251231025502.1139168-4-daniel@0x0f.com>
+ <ac0f8b8d-f6e4-4d60-9931-e820417c1abc@kernel.org>
+ <CAFr9PXn_-Ep9HzwTEErZ4Wmm9X8Q2ZkRP1LfmaAMhbYNfJVFuQ@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <CAFr9PXn_-Ep9HzwTEErZ4Wmm9X8Q2ZkRP1LfmaAMhbYNfJVFuQ@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251231-macsmc-mutex_init-v2-1-5818c9dc9b29@jannau.net>
-X-B4-Tracking: v=1; b=H4sIAPPvVGkC/32NQQ6CMBBFr0JmbQ2tLYgr72GIGcsgY0IxbSEY0
- rtbOYDL95L//gaBPFOAS7GBp4UDTy6DOhRgB3RPEtxlBlUqUzbKiBFtGK0Y50jrnR1HcS672j4
- Uou0R8u7tqed1b97azAOHOPnPfrHIn/1XW6SQQsuKGqq0rk/m+kLncD46itCmlL5blJHyswAAA
- A==
-X-Change-ID: 20250925-macsmc-mutex_init-80d7cb2aacfa
-To: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
- Lee Jones <lee@kernel.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
- Janne Grunau <j@jannau.net>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1305; i=j@jannau.net;
- s=yk2025; h=from:subject:message-id;
- bh=xJzCPQmr76VNl5jCxm+Qduv0QwPM15gusEARXhaF7Do=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhsyQ93+WP2h+Itt+OWydBMfzVeZX3+h8vvVm5UyVTK33n
- 49ELeln6ihlYRDjYpAVU2RJ0n7ZwbC6RjGm9kEYzBxWJpAhDFycAjCRbltGhudFh+5kPZmxNr5e
- 65HNZL21e75WtnHKyN2ae+swR7rpK2ZGhv2+0ec7ls3Tya0PuFo6TShHrzHB23uFlM0rPYU7slr
- GjAA=
-X-Developer-Key: i=j@jannau.net; a=openpgp;
- fpr=8B336A6BE4E5695E89B8532B81E806F586338419
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251231_014228_113041_2A042283 
-X-CRM114-Status: UNSURE (   8.19  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,43 +117,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Initialize struct apple_smc's mutex in apple_smc_probe(). Using the
-mutex uninitialized surprisingly resulted only in occasional NULL
-pointer dereferences in apple_smc_read() calls from the probe()
-functions of sub devices.
+On 31/12/2025 09:35, Daniel Palmer wrote:
+> Hi Krzysztof,
+> 
+> On Wed, 31 Dec 2025 at 16:48, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>>
+>> These two should be squashed. Don't align node names with bindings per node.
+> 
+> Sorry, I cannot parse what that means.
 
-Fixes: e038d985c9823 ("mfd: Add Apple Silicon System Management Controller")
-Cc: stable@vger.kernel.org
-Signed-off-by: Janne Grunau <j@jannau.net>
----
-Changes in v2:
-- rewritten commit message
-- added missing Cc: stable
-- rebased onto v6.19-rc1
-- Link to v1: https://lore.kernel.org/r/20250925-macsmc-mutex_init-v1-1-416e9e644735@jannau.net
----
- drivers/mfd/macsmc.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/mfd/macsmc.c b/drivers/mfd/macsmc.c
-index e3893e255ce5e4bb4832d80ad1fc002d413a291a..3015e8d36d6e5bfdcea342c7d05a7b34788d7845 100644
---- a/drivers/mfd/macsmc.c
-+++ b/drivers/mfd/macsmc.c
-@@ -413,6 +413,7 @@ static int apple_smc_probe(struct platform_device *pdev)
- 	if (!smc)
- 		return -ENOMEM;
- 
-+	mutex_init(&smc->mutex);
- 	smc->dev = &pdev->dev;
- 	smc->sram_base = devm_platform_get_and_ioremap_resource(pdev, 1, &smc->sram);
- 	if (IS_ERR(smc->sram_base))
-
----
-base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-change-id: 20250925-macsmc-mutex_init-80d7cb2aacfa
+I meant, two commits should be rather squashed. If you intend to rename
+the nodes, fix all names to be generic, not only some.
 
 Best regards,
--- 
-Janne Grunau <j@jannau.net>
-
+Krzysztof
 
