@@ -4,96 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25830EE6428
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 10:48:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C175EE6427
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 10:50:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:From:To:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F93O35PumyM940gks6WuFLpakwWFLPgJeDsUaIQB1m8=; b=C0Lpa6ZmT+uDy+PbVTAzC3Y8yc
-	csG+tLgUcY6VjQBnUiup4VDO2NGNMuQQD3p98jSnp4OH+etUDfGr1BkzCCOCvVkONxwqeNclDXBDX
-	sigi9VaY36+wvQPf1glbRgvSFWxi3SxGMuUmo9K8/ue+31XJqAPVY0wVS2QFeHwUNTmCLlbn+fA4R
-	OOLX6sNqSm++LjUuMRcGirBCHEv5HmYcqF1UIiGJnJjJwR9YY5kfBHXrZP3bNb3tNEODgwBIuJvSZ
-	jIdlF0yY0OA6HPh6AAMXfCiIvK6etIRGq14gg/yC2OQhIOyx5PGw0vAe6XHlt7gYBWrUqrXkEr6H7
-	BVGXwEIQ==;
+	bh=o/Z1oWMJuqMZIoKFGfzInyQtaixm68ScowVMHojeTZ4=; b=u/w2Kr0a3sc54mfb9ZNBlnklCM
+	drwJct+EpjiLm5QPUszd5AveuGdT1Gkv9YiKl1Si3gmQyVQHg6DcwoqGdaMYkBpea3lqUIGzOb95x
+	UQ+c3f4JLfWQ6elWJFwi8pBC/jksO4c351CEZZuJMBYPcOIT+d7JDt/Gj3WIWqfuS4B0zAq3e4lsY
+	wH56vD1gcIg4oRiP2kFE568rK0Z0dwhty15R342WGyK/Tjp64J/WJcz9yJUAUm4lWu9vbtDYb+3WU
+	l+oS5EFCjRen7H76jK10HbHZoBO+fHTe2OUNPGhnDiONeXAW42XyDPHPiQKkpG2eLWguanYohwCHz
+	v/MenQ8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vatkK-00000005tYu-3z7o;
-	Wed, 31 Dec 2025 10:48:04 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1vatmn-00000005tkM-0sIp;
+	Wed, 31 Dec 2025 10:50:37 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vatkI-00000005tYE-155e
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 31 Dec 2025 10:48:03 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-64d0d41404cso13042555a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 31 Dec 2025 02:48:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=pardini.net; s=google; t=1767178080; x=1767782880; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=F93O35PumyM940gks6WuFLpakwWFLPgJeDsUaIQB1m8=;
-        b=ifGKTaSWhbPppYeVL7Plftv8HN/7H4J8nzb/+fALDk/52jAXqfTZuQrbOFDStco7pN
-         bJehBj9i02IiMS8tyhG1PM2+UeB1YUpPqgKdCg65Trr3nmqXZFpsqpCBoJvIAc3Voqa0
-         4Z4mwyk0v/NgmG3Qw8EUkZf7zTGJcsjSRd0W8DyTSRyrjtNULWduv1JRGXsdL4IzC4UA
-         gUitfRBKiAoGs/mkTDvZr+4c/hLFZkaIR7nHArEHDwGBKcgU3d3NiJIXAizU98fmdvX1
-         G01uka7l9Mp1iG3b8GlJigICorMSG3/dsNuZ2VOWj49aI/y5iX6Md2XCUq/dWpsAfT5k
-         uz2Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767178080; x=1767782880;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=F93O35PumyM940gks6WuFLpakwWFLPgJeDsUaIQB1m8=;
-        b=J930v9LP/HMlVVZ83Utnd3D1ahUQ6WbDCCm3/YhvqWVXdO9c4nvBm3Sv/YTo53Z1hY
-         q+D1x6hbZCW+Guq0b/b0dGCLZg2YC9ZEaAY7HnNs79ubtnxvIdkKmVB6LQPdNtDJxbuA
-         J0q4kyrclYWbQ9BeYSLYmbgomfTJlE2gaFQ/w2KOB+DtNQUIRweBAurKvzY8UhrfG9sI
-         LrbDQxS1T8EJTAr+s7Ys5/3d29Skws1gVAWa4nj58bMFIWwQKyP8ZOZMclexMzfTgkrG
-         Eoj/5OakRS9jvPGtOS5tN1+oIeA9up6WQXFgH/WjUFzYTWhVGae0WOl1pJ3hkdPgX2WR
-         UuVA==
-X-Forwarded-Encrypted: i=1; AJvYcCXJEpvLadFOjDebdnWDsPF+aGW8E1fgMXDoWNiyipJT3XSgBvYuPKxIGCQTIomyqHcGT4DBxsmLYrczFut4mK8m@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3K/nqva5KwCskvCmTmTV2Jds8rT4m+lJJR7O0FAscQZgpmBpX
-	eo7pkZf1OanBZ/kI7WGLlkXnmV8xOcWeLPuSZHUt7EqLHVaLSngt0MBv/uvtJ/A4Bw==
-X-Gm-Gg: AY/fxX4rVDImMf0sHwCavs04b9s+Md5PjAP8jJw207h1CHxh8nsyiE00W7SI9Zuv4pe
-	GnkzVRZSMWweTCtuXYLmS3BREIRGMeMp7Gcom/5W01jKS1wwPNcvsnvujuxTCNz2dJR/ifrIk8V
-	uN/W0v+B3+dgM7+zCjy+z4roFgBDA3gswMhn5SoO7j7UGIt4m2l5QRUkCQkreksZa5TkVWE8fl1
-	rjJAKajf63eQwXzixvQhD4Uk/UN9m+V/oCwt+5y3RiKj2nbpxOFCGaBRFlWRcRwUqKL+NbY4pLq
-	fHgJl/kPKj84HYOmWHWtMRGvrHZjtVZJI7ROEboiNtYBcO0KlkOJH3B/kV0mUKqt2L7YlwB4DN9
-	so513xDIfLCHyVGhkAXXhJNblSeOroG+DtVxmJwPt0oPSCjls5OWpEReTkXTTIx8ZqdMSr2cqzh
-	p+mQ+WBsSrtxDNRRBLH89GThN9q6Pi+7VzdKxvJNcxO7BRG4MUnSwzu/ujIVwvS3EpjQV5nQW11
-	8jYmqi9ZiH536YWxeLttU/wlg84irF9lFWiIfLoJJk0qcb2A1VtN6PcZhW7xXPoT54p
-X-Google-Smtp-Source: AGHT+IF3qhSpzRRJ00xM16d/rHst6xExjWudsQHkK88MVOiMn97mRDN/nVNkVEeTmwCRmO4z98V2LA==
-X-Received: by 2002:a17:907:d64a:b0:b7c:e320:5232 with SMTP id a640c23a62f3a-b8036f0ae81mr3704046166b.5.1767178079658;
-        Wed, 31 Dec 2025 02:47:59 -0800 (PST)
-Received: from ?IPV6:2a02:a466:4d7a:0:4db8:192e:8b05:7bd4? (2a02-a466-4d7a-0-4db8-192e-8b05-7bd4.fixed6.kpn.net. [2a02:a466:4d7a:0:4db8:192e:8b05:7bd4])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8080e2177csm2948161966b.68.2025.12.31.02.47.58
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 31 Dec 2025 02:47:59 -0800 (PST)
-Message-ID: <448acb0f-fa4d-45f1-83c1-7146cda9fc25@pardini.net>
-Date: Wed, 31 Dec 2025 11:47:58 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] arm64: dts: rockchip: Enable the NPU on some rk3588
- boards
-To: Jimmy Hon <honyuenkwun@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- nicolas.frattaroli@collabora.com
-References: <20251230-arm64-dts-rockchip-rk3588-npu-enablements-v1-0-d38b182a59e3@pardini.net>
- <CALWfF7KHyKmDcEL9=mYzfCRWc_cymNscoFdeXr8P2frJeww5vA@mail.gmail.com>
-Content-Language: en-US
-From: Ricardo Pardini <ricardo@pardini.net>
-In-Reply-To: <CALWfF7KHyKmDcEL9=mYzfCRWc_cymNscoFdeXr8P2frJeww5vA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+	id 1vatmj-00000005tjy-1WJg;
+	Wed, 31 Dec 2025 10:50:35 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id D2CD4C1AE22;
+	Wed, 31 Dec 2025 10:50:02 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 4A06060744;
+	Wed, 31 Dec 2025 10:50:28 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 52745113B0761;
+	Wed, 31 Dec 2025 11:50:16 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1767178226; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=o/Z1oWMJuqMZIoKFGfzInyQtaixm68ScowVMHojeTZ4=;
+	b=SsqIb5ow7v/6UFYF34MR3rDUSBx3YczuZw7xKUxdk+tgkyoQgTiXQNv11eRgnwbhpuarKw
+	UeIQgJ1dioQ7o1MXOWuHqmtVIrpWKfvK5sqXw8geFXGwRo1gINFkN+RfKVIvRjG+HRbFNT
+	7RVR5xnIwrJ9zLALAGWwVBqa72bYwfYaH/9s8czYbZ8C97aQMKiEXHKI1WcGf1tsxNi6AW
+	h3tACyEXkQgbWLG61NjtwwWBjENblxG4eY2cmCq9ed9jeUVexoG931bT7Cx9Xt+UXBZdV1
+	d7+IE+kBV+JgFf93zyVPI/DpCiIdUX2tl4nMm0jVJT1oXZ700jLDDOVoRCqavw==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 31 Dec 2025 11:50:15 +0100
+Message-Id: <DFCCE8SW7MFX.ZOMBZPN1S2NX@bootlin.com>
+Cc: <Laurent.pinchart@ideasonboard.com>, <jonas@kwiboo.se>,
+ <jernej.skrabec@gmail.com>, <maarten.lankhorst@linux.intel.com>,
+ <mripard@kernel.org>, <tzimmermann@suse.de>, <airlied@gmail.com>,
+ <simona@ffwll.ch>, <shawnguo@kernel.org>, <s.hauer@pengutronix.de>,
+ <kernel@pengutronix.de>, <festevam@gmail.com>, <inki.dae@samsung.com>,
+ <sw0312.kim@samsung.com>, <kyungmin.park@samsung.com>, <krzk@kernel.org>,
+ <alim.akhtar@samsung.com>, <jingoohan1@gmail.com>,
+ <p.zabel@pengutronix.de>, <hjc@rock-chips.com>, <heiko@sntech.de>,
+ <andy.yan@rock-chips.com>, <dmitry.baryshkov@oss.qualcomm.com>,
+ <dianders@chromium.org>, <m.szyprowski@samsung.com>,
+ <jani.nikula@intel.com>, <linux-kernel@vger.kernel.org>,
+ <dri-devel@lists.freedesktop.org>, <imx@lists.linux.dev>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-samsung-soc@vger.kernel.org>, <linux-rockchip@lists.infradead.org>
+To: "Damon Ding" <damon.ding@rock-chips.com>, <andrzej.hajda@intel.com>,
+ <neil.armstrong@linaro.org>, <rfoss@kernel.org>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH v8 01/18] drm/display: bridge_connector: Ensure last
+ bridge determines EDID/modes detection capabilities
+X-Mailer: aerc 0.20.1
+References: <20251217093321.3108939-1-damon.ding@rock-chips.com>
+ <20251217093321.3108939-2-damon.ding@rock-chips.com>
+In-Reply-To: <20251217093321.3108939-2-damon.ding@rock-chips.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251231_024802_387946_DCDF1675 
-X-CRM114-Status: GOOD (  11.21  )
+X-CRM114-CacheID: sfid-20251231_025033_560775_36076D5C 
+X-CRM114-Status: UNSURE (   9.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,28 +90,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jimmy,
+On Wed Dec 17, 2025 at 10:33 AM CET, Damon Ding wrote:
+> When multiple bridges are present, EDID detection capability
+> (DRM_BRIDGE_OP_EDID) takes precedence over modes detection
+> (DRM_BRIDGE_OP_MODES). To ensure the above two capabilities are
+> determined by the last bridge in the chain, we handle three cases:
+>
+> Case 1: The later bridge declares only DRM_BRIDGE_OP_MODES
+>  - If the previous bridge declares DRM_BRIDGE_OP_EDID, set
+>    &drm_bridge_connector.bridge_edid to NULL and set
+>    &drm_bridge_connector.bridge_modes to the later bridge.
+>  - Ensure modes detection capability of the later bridge will not
+>    be ignored.
+>
+> Case 2: The later bridge declares only DRM_BRIDGE_OP_EDID
+>  - If the previous bridge declares DRM_BRIDGE_OP_MODES, set
+>    &drm_bridge_connector.bridge_modes to NULL and set
+>    &drm_bridge_connector.bridge_edid to the later bridge.
+>  - Although EDID detection capability has higher priority, this
+>    operation is for balance and makes sense.
+>
+> Case 3: the later bridge declares both of them
+>  - Assign later bridge as &drm_bridge_connector.bridge_edid and
+>    and &drm_bridge_connector.bridge_modes to this bridge.
+>  - Just leave transfer of these two capabilities as before.
+>
+> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+> Suggested-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
 
->> This series enables the NPU on a few Rockchip rk3588 boards.
->> In every case here, the required regulator was already described.
+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
-> Now that the pd_npu has defined the dependency to the vdd_npu_s0,
-> shouldn't the regulator-always-on be removed from the regulator? When
-> the Rock5B enabled the NPU, it didn't define the regulator with always
-> on. [1]
-> 
-> More specifically, the commit message for the introduction of the
-> pd_npu label mentions how the regulator no longer needs to be always
-> on. [2]
-> 
-> [1] https://lore.kernel.org/linux-rockchip/20250721-6-10-rocket-v9-10-77ebd484941e@tomeuvizoso.net/
-> [2] https://lore.kernel.org/linux-rockchip/20250721-6-10-rocket-v9-7-77ebd484941e@tomeuvizoso.net/
-Nice, I overlooked that. I'll send a v2 removing `regulator-always-on;` 
-from the regulator.
-
-And maybe a separate series removing it from the the other NPU-enabled 
-boards that still have it?
-
-Thanks,
-Ricardo
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
