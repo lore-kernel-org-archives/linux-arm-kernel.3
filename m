@@ -4,117 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5085FEE642E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 12:22:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56D85EE642E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 12:22:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zRvk/nOzB0Tp+A3fJ9KZKPiPm1cPPjhvzPZ3yF5gRls=; b=4fevsUAxF4FfMIWS/VRttTs+jN
-	vpyxl7LKDM7GEWxwUY3DQsxHw3tbgIElgXSoeZO+vubmYlCWYOVXi0P0X1BEL3xAxy0Z9G8u++C+4
-	oqOaFdd6AHJtRCFdFhoP48Ja1j+sDcaMGQv4TKdcCx+40lDyEnMrZitRWtPLsqBPATNgX2TUfxfYx
-	3RlnyQS+Mov0qR4Xv/NXvglgF5wOkF1XCOqjEHp4dToKAeh2QDChOM88KNR9CKThENNZIDG6MxtnY
-	xs18RPDORX+E/EnJSTzAtjAT6KPCPQeIrgjAuGcfElB11DFux4VRE23Rs1WthvQZS8PEy+JkmtxU3
-	tkqYUZZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UQVrUosci++sweVUg2oDGu1yrtQHcLYzZp5maq37Uks=; b=AfhI3oHUJy3iZzxV82j10W08Hv
+	55AdkuAJFT6W8SyUQMPFBRDf45upoagKQaEYSOil/v8KMnBRvoDcAIAs4PwK//jHWTryDXCz38VjP
+	87MnxS7kuWtIC94dhYuDpaRZPSpQvISXVzJMdR0vJtNh989hjCjpA5rMJ1Fhsmcx0d7NouC1bfN4u
+	KhRRJ1zwibWbvil3evi38/MaZbYgbpefTeB8YJjoz1W7ls4OMEUalFpgvJisxTDn+hqqE33FVMwvI
+	LtGSdIHzDKholjvUHd9UqHqQVbEmHgh1Jd38C/NFfkzu0b3jw5hzqqffyw5GPiuSmuHZGi5vdT2di
+	oESD7tiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vavDN-00000005xvj-32v7;
-	Wed, 31 Dec 2025 12:22:09 +0000
-Received: from fout-b1-smtp.messagingengine.com ([202.12.124.144])
+	id 1vavDu-00000005xzH-0JL0;
+	Wed, 31 Dec 2025 12:22:42 +0000
+Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vavDK-00000005xvM-3N76
+	id 1vavDr-00000005xyD-1kGv
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 31 Dec 2025 12:22:08 +0000
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfout.stl.internal (Postfix) with ESMTP id 6FFAB1D000CF;
-	Wed, 31 Dec 2025 07:22:05 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-01.internal (MEProxy); Wed, 31 Dec 2025 07:22:05 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:message-id:mime-version:reply-to
-	:subject:subject:to:to; s=fm3; t=1767183725; x=1767270125; bh=zR
-	vk/nOzB0Tp+A3fJ9KZKPiPm1cPPjhvzPZ3yF5gRls=; b=E+HOrg53Xnacj8NhCo
-	yh8/JIMB9hEAHPTVlPFFWgoajkbAe0E47uc0Rz91+55QqHQLeyOlETdfuZ8Zwf0o
-	YarHDctummfpoi+FDCPwRktH0WyauOFexRKrjpWoZruEl+lYgDpwm3xPlYe0Zj+L
-	3QmbKnNt+z6pdM2Eit1hCL5v671HBvs0u8WLkEhl/Y9JOlSpICyIY+Dlso5wgseV
-	v/8NRq1bLdDJhcrjfLKunLnG96LrEIfCGeOrm4mfsbB6i/NBEUWOfrVQB2kyWYZu
-	BGxTQxakrxHWKUFbXfDiIWPUsfPKbWUKXlkAqoEpxqgui8YtrgnHXH96TnEhb7F0
-	6XrQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm2; t=1767183725; x=1767270125; bh=zRvk/nOzB0Tp+A3fJ9KZKPiPm1cP
-	PjhvzPZ3yF5gRls=; b=o9WA2wTHA8+wgYgKRPho/ZIhOhyaSjLOB+Y7MgDI7J7r
-	qeom/dFVWG0HK29fkl2sG4x1TvU+k5F2BAE/utYJzRuxTvUcd6vZeR4yRSPjjT/a
-	8Tn3E6dWr0rEQgWaJmlAY7pC0AAr+tWV1hbL3NKoCVBda3elFCcWNkrqR+A4D1G5
-	Shk2+h10us4ozi7I3WKNXh57Fo8kF08nP5QNOFcYnus3lLKwA6OKae/S4ZMJ4YG5
-	a6YsUQUnkHaZZ3wHlSzLvYHpXm0xft66xkQ6J5nxor4/ejddnBGMMONUtgzenFMl
-	JjnO4/hF+x2xH31xVFmcUwNUfsnt2kej/IKsQZOzGQ==
-X-ME-Sender: <xms:bBVVad2v3144adM6FA6tLZFSxgatyc6A7tFftItfs1qJGz169gr1Bw>
-    <xme:bBVVaVqsqFVKZDjuBqBRd85_Kc3ZQ7Ih3HTUgykOcSwF6Cq7p8_RQ1anns5bUuSa_
-    I1T06BOw42HLGx3G52nR2GPHt6EE3LOtdyeV6cizj6BPhtj7CwL0EA>
-X-ME-Received: <xmr:bBVVadLULDlaKUsXEvzg-BXIlfuEy5d04oeixrZfXlMDuTyQyQRYKLU_kfks6q1Qd7H1f8Tq84TKxhrQym68W8yiqOtbVF1ZY6NgjA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdekvdeklecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefhfffugggtgffkvfevofesthejredtredtjeenucfhrhhomheplfgrnhhnvgcuifhr
-    uhhnrghuuceojhesjhgrnhhnrghurdhnvghtqeenucggtffrrghtthgvrhhnpeefheeltd
-    ehfeetjeefvdehteeutddtteelgeduueetjeevteeifeeuvdefffdvieenucffohhmrghi
-    nhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpe
-    hmrghilhhfrhhomhepjhesjhgrnhhnrghurdhnvghtpdhnsggprhgtphhtthhopeduuddp
-    mhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheprghsrghhiheslhhishhtshdrlhhinh
-    hugidruggvvhdprhgtphhtthhopehsvhgvnheskhgvrhhnvghlrdhorhhgpdhrtghpthht
-    ohepshhtrggslhgvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepmhhtuh
-    hrqhhuvghtthgvsegsrgihlhhisghrvgdrtghomhdprhgtphhtthhopehlihhnuhigqdgt
-    lhhksehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmh
-    dqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohep
-    nhgvrghlsehgohhmphgrrdguvghvpdhrtghpthhtohepshgsohihugeskhgvrhhnvghlrd
-    horhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghl
-    rdhorhhg
-X-ME-Proxy: <xmx:bBVVaRQb4hdswrJK_l5PU9gDkLJaKyZHTKtFtqn1mQ9UTqibN3EvIQ>
-    <xmx:bBVVaVONomfu0ogpm2Z4jtyaMssARlLc6r9-TARacenzwh_jGTcb6w>
-    <xmx:bBVVaeU8HcDEsnPtBRy594UGL2A-0Y3_lNrCfuY7t5_byQREgoZcvw>
-    <xmx:bBVVaQjNNEckMFdZjqt2SfOiAlSx7ctZnFKL98MWgGSQHm6V367fIA>
-    <xmx:bRVVaRnjyk9aiMLSM_RWjHRY2vxsbx3A9OnHY8UISqaimLOenESc83hh>
-Feedback-ID: i47b949f6:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 31 Dec 2025 07:22:04 -0500 (EST)
-From: Janne Grunau <j@jannau.net>
-Date: Wed, 31 Dec 2025 13:22:00 +0100
-Subject: [PATCH] clk: clk-apple-nco: Add "apple,t8103-nco" compatible
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251231-clk-apple-nco-t8103-base-compat-v1-1-6459e65b6299@jannau.net>
-X-B4-Tracking: v=1; b=H4sIAGcVVWkC/x3NywrCMBBG4Vcps3YgF8Tgq4iLcfqrgzUJSRGh9
- N0NLr/NORt1NEOn87RRw8e6lTzgDxPpU/IDbPMwBReOPkTPurxYal3AWQuvybvIN+lgLe8qK88
- QF09QRUo0KrXhbt//4XLd9x+PvR8UcQAAAA==
-X-Change-ID: 20251231-clk-apple-nco-t8103-base-compat-dea037ecce88
-To: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, 
- =?utf-8?q?Martin_Povi=C5=A1er?= <povik+lin@cutebit.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, Janne Grunau <j@jannau.net>
+	Wed, 31 Dec 2025 12:22:40 +0000
+Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-431054c09e3so6804849f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 31 Dec 2025 04:22:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1767183757; x=1767788557; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=UQVrUosci++sweVUg2oDGu1yrtQHcLYzZp5maq37Uks=;
+        b=E0n2hemb4u0S+pQGWMZkJuNgIry8e+y6Wodx9sR0xt+vuxubMzdEdi//X49r5erUkE
+         RYHg/+OagjEIiSbMT1rjLDL6/fVQkwOm0gNdYIELH57kl0M6tAkd1WRS/EISMLZcjtgC
+         mESAF2kPg5hrZOACzolsb4mLZnqt7/DGPRnmtmGDQ+DVSoR3LaFh4rQtIcoT+0Ywo79p
+         vza430Olwux0NrV7oQ9iIssRkJk4hz7Ox1PioyRiFY+IdZcNBH9uxHXN4HpwSIvAGvGi
+         cNQsUkIY9XWfqZyKboxIj2Kw7ZssSwrASa057MU4NJ4iihYstDQMkbTRijSnlJKAkeJ5
+         TD/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767183757; x=1767788557;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=UQVrUosci++sweVUg2oDGu1yrtQHcLYzZp5maq37Uks=;
+        b=P95RA+e/+C0Bl0AzHGD/Ioj4R8+gvukLZFCXOUHqxi4eGBFVlAAFRV4PdByQvkIkuL
+         jdgkcFtSJOQRlMDwdCiTv38s+va59gUM5SrqLjsaSDiDU4yNBoTvsDIt+5k8rD/B00gh
+         jMU8HhottUOjFw3+50dlGY3Apbl4tqBdoi4rLwePlIV2oQrb5d8dBMEdO0p+i9px5FdA
+         9s60K5UEJKwawnWp3+9Ahsd1uphmHXErlfR7OX9M2xq3mjhuCXGUAK3iM3D4A4gQq88X
+         Y3rQMJa81KJJAjzs1zkSf00N5w8m+5RXXtsbvn1GJmZ4R8AipgkUJRU6k0TP8aMqyn+r
+         ElQg==
+X-Forwarded-Encrypted: i=1; AJvYcCXp19kMfmbaHn24fpz/31FLVpfsuZNjnsyGzilQ5xpiyATLku89quSEbv/7JRsQS1zHCdMuiQgDBxG87CZS0o8u@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBtF0ikX68uN5rynfY3Kv2Je3rbn97vHjLVHx22RpugcN490Xc
+	4g2FqrcT5NlzC2qOwndfwD3Q/FJAPg0yojG/UyL413TUNyMKV1PAPh7xtmgLjIkC3aq8WS3ufjr
+	MU5IqbP2F6xm7AYLpJg==
+X-Google-Smtp-Source: AGHT+IFGevL4RjPve8xtRgOLaqwe1KRUGekHJd+lI5/ywPU8CYGMrfT3q1rcsX5yZhQNUWvXrJwartEV+7L+OGI=
+X-Received: from wro20.prod.google.com ([2002:a05:6000:41d4:b0:430:c782:27f3])
+ (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6000:609:b0:431:342:ad41 with SMTP id ffacd0b85a97d-4324e6fa1a7mr47643775f8f.61.1767183756634;
+ Wed, 31 Dec 2025 04:22:36 -0800 (PST)
+Date: Wed, 31 Dec 2025 12:22:24 +0000
+Mime-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIAIAVVWkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1NDI2MD3aLy/LzkVF3DVIsUo9RUg6TkNEsloOKCotS0zAqwQdGxtbUAFXT clFgAAAA=
+X-Change-Id: 20251230-rwonce-1e8d2ee0bcf9
+X-Developer-Key: i=aliceryhl@google.com; a=openpgp; fpr=49F6C1FAA74960F43A5B86A1EE7A392FDE96209F
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1686; i=aliceryhl@google.com;
+ h=from:subject:message-id; bh=DgkCDNZwcq8gq47PvBSES/tVZ/480I2oLP6adymLeb4=;
+ b=owEBbQKS/ZANAwAKAQRYvu5YxjlGAcsmYgBpVRWGF5bAiUtejlxi6BOwMVDKnGMRxV0brpJMZ
+ 4N76blF6DqJAjMEAAEKAB0WIQSDkqKUTWQHCvFIvbIEWL7uWMY5RgUCaVUVhgAKCRAEWL7uWMY5
+ Rq6PEACahBDOuqhWNRdS7KKKt5/h9IB0Ae0tEIYhZCaGdynMz9p5ZroHJGY3427iEbwD1Xf1sd3
+ krvr6Thhw3P3Xe/n9H8Zv/X9u1c5luZ3Xf4eCUMRH4chFWH9JwzEvBz7jXADexXhLdQpug7K2mb
+ wcyPQj1ud8v+7Di8+fu4PtJLHimoywoMf6ZFhCGnAxPySJWvVweGV7hUrW8LxDszplrE2HZ8tD9
+ RPAbn1uqanDGL40aeAib7oCMvMY0u3Qwpf7JB+7YpeulCoPXBOoLck6sczMbHd7yzidbpiP+RnS
+ 37uYnZopCUQmCd47pDgFlfMgZD27v6IYXqZ8zIryrOl3Sod72AtB9UoCLEW11pV2LQ1AlYpBJL3
+ rU7Ya3QisvjzdEQ6OOLsnzwTh0b25pX6GjpAOkQxz6xI3oeH9Epbm5H/pviAgf3R1wjJrOvIOxj
+ 0GmRhz2x4wq8lHjcbjoljHHRYDgHFXMm0qSjahun8/DqZkoYlfBxzuxT46T2n5gdefNJ8ejq+Dv
+ Sm69I+Q/czN4RKBQIQDvayvG7VhtPNqrAKgOupQ9wDPuDSMURnwra3sFVkMWxmkk6wr8VB86lin
+ 9RO+10zQWOISHeiZ3OkAmQ5U361UXsQx2g45A72GjESpW/kXTosPejSa7Qj5uclYBBvCaLrP0Uj f+YHVZGzb5+fZ7Q==
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1516; i=j@jannau.net;
- s=yk2025; h=from:subject:message-id;
- bh=NfH/EVhKHGNRXy6pl4rolyAG7g4vT7LN9g0dWp0UYdw=;
- b=owGbwMvMwCW2UNrmdq9+ahrjabUkhsxQ0awGtiW24TnbKu8kfsvpsFv+u/P+swPSAXs33d/zY
- EbLnSVrO0pZGMS4GGTFFFmStF92MKyuUYypfRAGM4eVCWQIAxenAEzkdjIjw+Oj2pbTll/x5yiX
- vBfCznfz8d+46ieX95/ekXjXkfn9tHsM/4McpTgWznz0ufOZ73SnzIlpV67kPguqkLGdzPClfF3
- 8cz4A
-X-Developer-Key: i=j@jannau.net; a=openpgp;
- fpr=8B336A6BE4E5695E89B8532B81E806F586338419
+Message-ID: <20251231-rwonce-v1-0-702a10b85278@google.com>
+Subject: [PATCH 0/5] Add READ_ONCE and WRITE_ONCE to Rust
+From: Alice Ryhl <aliceryhl@google.com>
+To: Boqun Feng <boqun.feng@gmail.com>, Will Deacon <will@kernel.org>, 
+	Peter Zijlstra <peterz@infradead.org>
+Cc: Richard Henderson <richard.henderson@linaro.org>, Matt Turner <mattst88@gmail.com>, 
+	Magnus Lindholm <linmag7@gmail.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Miguel Ojeda <ojeda@kernel.org>, Gary Guo <gary@garyguo.net>, 
+	"=?utf-8?q?Bj=C3=B6rn_Roy_Baron?=" <bjorn3_gh@protonmail.com>, Benno Lossin <lossin@kernel.org>, 
+	Andreas Hindborg <a.hindborg@kernel.org>, Trevor Gross <tmgross@umich.edu>, 
+	Danilo Krummrich <dakr@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	FUJITA Tomonori <fujita.tomonori@gmail.com>, Frederic Weisbecker <frederic@kernel.org>, 
+	Lyude Paul <lyude@redhat.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Anna-Maria Behnsen <anna-maria@linutronix.de>, John Stultz <jstultz@google.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, linux-kernel@vger.kernel.org, 
+	linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	rust-for-linux@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+	Alice Ryhl <aliceryhl@google.com>
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251231_042206_893439_6DE2B454 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20251231_042239_497226_B88E1F96 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,49 +117,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After discussion with the devicetree maintainers we agreed to not extend
-lists with the generic compatible "apple,nco" anymore [1]. Use
-"apple,t8103-nco" as base compatible as it is the SoC the driver and
-bindings were written for.
+There are currently a few places in the kernel where we use volatile
+reads when we really should be using `READ_ONCE`. To make it possible to
+replace these with proper `READ_ONCE` calls, introduce a Rust version of
+`READ_ONCE`.
 
-[1]: https://lore.kernel.org/asahi/12ab93b7-1fc2-4ce0-926e-c8141cfe81bf@kernel.org/
+A new config option CONFIG_ARCH_USE_CUSTOM_READ_ONCE is introduced so
+that Rust is able to use conditional compilation to implement READ_ONCE
+in terms of either a volatile read, or by calling into a C helper
+function, depending on the architecture.
 
-Fixes: 6641057d5dba ("clk: clk-apple-nco: Add driver for Apple NCO")
-Cc: stable@vger.kernel.org
-Acked-by: Stephen Boyd <sboyd@kernel.org>
-Reviewed-by: Neal Gompa <neal@gompa.dev>
-Signed-off-by: Janne Grunau <j@jannau.net>
+This series is intended to be merged through ATOMIC INFRASTRUCTURE.
+
+Signed-off-by: Alice Ryhl <aliceryhl@google.com>
 ---
-This is split off from the v1 series adding Apple M2 Pro/Max/Ultra
-device trees in [2].
+Alice Ryhl (5):
+      arch: add CONFIG_ARCH_USE_CUSTOM_READ_ONCE for arm64/alpha
+      rust: sync: add READ_ONCE and WRITE_ONCE
+      rust: sync: support using bool with READ_ONCE
+      rust: hrtimer: use READ_ONCE instead of read_volatile
+      rust: fs: use READ_ONCE instead of read_volatile
 
-Changes compared to that series:
-- add "Fixes:" and "Cc: stable" for handling this as fix adding a device
-  id
-- add Neal's and Stephen's trailers
+ MAINTAINERS                     |   2 +
+ arch/Kconfig                    |  11 +++
+ arch/alpha/Kconfig              |   1 +
+ arch/alpha/include/asm/rwonce.h |   4 +-
+ arch/arm64/Kconfig              |   1 +
+ arch/arm64/include/asm/rwonce.h |   4 +-
+ rust/helpers/helpers.c          |   1 +
+ rust/helpers/rwonce.c           |  34 +++++++
+ rust/kernel/fs/file.rs          |   8 +-
+ rust/kernel/sync.rs             |   2 +
+ rust/kernel/sync/rwonce.rs      | 207 ++++++++++++++++++++++++++++++++++++++++
+ rust/kernel/time/hrtimer.rs     |   8 +-
+ 12 files changed, 268 insertions(+), 15 deletions(-)
 ---
- drivers/clk/clk-apple-nco.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/drivers/clk/clk-apple-nco.c b/drivers/clk/clk-apple-nco.c
-index d3ced4a0f029ec0440ff42d49d31e314fdf86846..434c067968bbc1afdb5c9216277486bf826666c2 100644
---- a/drivers/clk/clk-apple-nco.c
-+++ b/drivers/clk/clk-apple-nco.c
-@@ -320,6 +320,7 @@ static int applnco_probe(struct platform_device *pdev)
- }
- 
- static const struct of_device_id applnco_ids[] = {
-+	{ .compatible = "apple,t8103-nco" },
- 	{ .compatible = "apple,nco" },
- 	{ }
- };
-
----
-base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-change-id: 20251231-clk-apple-nco-t8103-base-compat-dea037ecce88
+base-commit: f8f9c1f4d0c7a64600e2ca312dec824a0bc2f1da
+change-id: 20251230-rwonce-1e8d2ee0bcf9
 
 Best regards,
 -- 
-Janne Grunau <j@jannau.net>
+Alice Ryhl <aliceryhl@google.com>
 
 
