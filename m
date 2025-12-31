@@ -4,84 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D59BEE57F0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 15:25:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57AF2EE57D7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 15:30:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2pdAd0KBpKEzOG9SIUhcuMaXAWyHGcb00rsjHnz/GSg=; b=hL7PEGfIP4jT84YrWahP0ycveV
-	NwEGcLz/jNJqECSDL/kkUjDWgDWk5Vls/RTSGf6KRZRQBkJGQEYsei7I34t6RG4BwT8SWQIE6lse1
-	z/6QO6AYr6+uVevK4UkMexgld2FoBtcRIs5TrZZONJgTDq/3oIYWwkL/5gzwviCRq6Y5QBz2awhIf
-	exWMtGdD7VF5TX44DT7yFkjS0QLFoVPkVmqr7t734kj1doEzNry3NA1mTbGryTZUyoUr+2Uw+GUDL
-	6jnLNO/DiSUDNzYgz6GqyZ2S+ihdacYAcs8cFT5Fb7h7d/Uty2KygwU1h5Txy1ECH/MBjlRtQ8xWP
-	5CYWaTog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7QzVSYweQj11hd6fs/gbMsc1XDMFllelUQ/hmQuDpYw=; b=KRpULe+hH7docxDUg8e70MfX4e
+	A4i2zj1Q9XAPVCitR615F7ZCa+z1ow9wSzfPCPyksUumyZFRxoRQx01AtXSidn73dCobL5awWPfUh
+	T6oMAYi1AZkqma+2BV4PNEjLOCjEVw6ZpjYCQW8B3AEvi1Y2SB7rUkV/1AwWuLJbCllXedrmoB+33
+	EpyH8aEuAjyvQTL9eHJL6UoDoYQxxckcEUpPnof2z02J2M9RMUdrrEDILGcWO1cBMARiszVstRUDj
+	eOZXOkp+W0O3vdN8O9x167azvsKanKSRX9OQB13jJHkXsUeZAZ/HjXReHLNDmgJVYjzKazVhoJbZv
+	otUzSKnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vay5C-000000064uK-4C6t;
-	Wed, 31 Dec 2025 15:25:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vay9v-000000065Ln-0Tt7;
+	Wed, 31 Dec 2025 15:30:47 +0000
+Received: from mail-ot1-x329.google.com ([2607:f8b0:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vay5C-000000064u5-0vFv
+	id 1vay9r-000000065LG-3vmb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 31 Dec 2025 15:25:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4977B60008;
-	Wed, 31 Dec 2025 15:25:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72AAFC113D0;
-	Wed, 31 Dec 2025 15:25:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767194753;
-	bh=3zCSe0pygUa6B0hxj7uhQQbY3y5VvVFZcfM1W6inRQ8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=s/MiUltoCktzz6D0wiCqcLuak2qC1jPP+t9uF/Wpp9NyhlhUYJRh4a7DANVK3dS3Y
-	 5TBAIkOcZD7Uzm31uIRNg+KPXeRfrFDCHo5KImNpcVVxeo6H0CXL4UnXKcwUINX/Ll
-	 U1vQ9nn+42I+5DqP4hDp4p5tUlokQFV23MAaxYG5+JRLq2JJ2SJ1zhhHcouBH7kW4n
-	 j7tnzqkJRksmGaZ82fg+JWX+rpM1JKmvmvmVA/5WAT8i/ukuaEkGR1UaA6w9uc8YRq
-	 7msaf9wYLApzpxDT1X8VKz50GKA//Mk01dWdH2ak+Kw+9n2yKX+4XwtHIVWi3pdEqj
-	 QbzdgFhA2MRZA==
-Date: Wed, 31 Dec 2025 16:25:49 +0100
-From: Frederic Weisbecker <frederic@kernel.org>
-To: Waiman Long <llong@redhat.com>
-Cc: LKML <linux-kernel@vger.kernel.org>,
-	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Chen Ridong <chenridong@huawei.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Gabriele Monaco <gmonaco@redhat.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
-	cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-block@vger.kernel.org, linux-mm@kvack.org,
-	linux-pci@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH 33/33] doc: Add housekeeping documentation
-Message-ID: <aVVAfb2eaeyd7l-h@localhost.localdomain>
-References: <20251224134520.33231-1-frederic@kernel.org>
- <20251224134520.33231-34-frederic@kernel.org>
- <370149fc-1624-4a16-ac47-dd9b2dd0ed29@redhat.com>
+	Wed, 31 Dec 2025 15:30:45 +0000
+Received: by mail-ot1-x329.google.com with SMTP id 46e09a7af769-7c75b829eb6so6911666a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 31 Dec 2025 07:30:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=kernel-dk.20230601.gappssmtp.com; s=20230601; t=1767195042; x=1767799842; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=7QzVSYweQj11hd6fs/gbMsc1XDMFllelUQ/hmQuDpYw=;
+        b=A/BPz229lblMeneb0Ua+JlRfoY1PVhmnpcOtGr/hv4kwNiGbMur60Gump93AGkHeMe
+         G/LTFioMtrvyLGHHFAraW0urUgtdjKmS6uJ1k0Bfjpy+EuXYBsvrO9+aIZOQNy5ela2Y
+         MhO8nh6U8BgTWvusPbYhnEb3GYm4u1lWR5bf1F/TCq1NZsOnCZlzMeRbnZwR3maTQr5O
+         vXepyq6BNVT9LVFfwc1sR6hKs4lHdBrqhvuc+hVhf+4wMVvJqNjzhEm0/kDMxe/1KEuF
+         uISTzwAb4LCpzdMo5uWnEXCGnEcWpF10XxaSxv55XQ7n980F8cTIp2YSRgt2erVSbwc/
+         nw7A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767195042; x=1767799842;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=7QzVSYweQj11hd6fs/gbMsc1XDMFllelUQ/hmQuDpYw=;
+        b=mfT87QDUocK4DrCx2UO5QPIZfM5UEi/5Gyrpz9gQ4Th6hbBz1zvbp7ajWwQxjRWEmz
+         w/IIKaI35496CI45dRgBWqAn4w8VfQ/vbH0fpecbS25F2ZEsGGDda+adWujyEKhBPqY7
+         +hSIz+Gj5OoWNsT3cPMCOkMOIoiOnmxQSvT1bQL6t3VZHmD+D+VcbLJsVQHGpMln4kin
+         +Kp7dsVIlChV/v4YOYeWvhgZplGenvVMkJRD1LoqEvza8M3g1EQWs41SPshtzNf5QxTT
+         +hW5l3VHrEXkE0nfOSCcx1zGyEveklNf7SJTMP8HwyL2gfwOnHHzbwiTY+SF9UoxlNog
+         4p9A==
+X-Forwarded-Encrypted: i=1; AJvYcCWlC4ixKUwuxyt7nF/XnADa2c+xGCCJDpQKSzs6lCz1Rd72KuelqXLDdZ/z89+Hrm5Acu2GqRqipe2mnFqMkpJX@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy0c20LjxNYC/8zD91JJ3mNjMr2BQq3ef/MKlTqebI9BR9pAgaA
+	SVX1GjZabE8Akz1h4L/K5TO6oWjaXQMjX7a/IRccQK8JkrysJsJWNT2Q8X5ixvkSn3s=
+X-Gm-Gg: AY/fxX51yNBbNxQu/wE6MarWADo9hgSzjh7bb6HcP5twsnXFkaSbjJnS7UdQbcGEu+2
+	eqX0vNl0o3Uc6mFnlVbG6x/w6OQJ4D28y5c4UxhECxMrBI1e0133B3skFVuOLEYDAzGHh/IXJA7
+	VsFj5QapUdJDnc4WFf7UsKDRe0gQNhbgu6h24Mr+odxOAwjxSdT73eEVhX0415K8EoxDhcQAacF
+	rH9WdMJlLel4Zmu/zamnCdpFM2FyOxg1WyHZvEjn0HZNUzCej3Qjhtf1kDxOPvSEP8OBV3Mzw46
+	QzO7H/Ifz3wnl5cs84ko8dMQz7ElWe9hky1HuRb0utmOqLfhBDtSPHmiX8NgXWjBAYo44L92Nhw
+	nwUrYmIcBwwc9tVmnyqFlh8vHOfY77W2MVSDTpvR0rhUirXYLRM417/ZeR7zhJ6y6OaN1WxPWhO
+	9rnu+mnKys
+X-Google-Smtp-Source: AGHT+IFQ7Da3Vy7sb0sZ+gCFV6iNdLzjxsj+GHoPQqPF4ECDqs6GBYGgCjzmLYkOn7cGzscuabT/Ag==
+X-Received: by 2002:a4a:e252:0:b0:659:9a49:8fcc with SMTP id 006d021491bc7-65d0ebdd6e8mr11816060eaf.69.1767195042368;
+        Wed, 31 Dec 2025 07:30:42 -0800 (PST)
+Received: from [192.168.1.150] ([198.8.77.157])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-65d0f4cd66csm20954575eaf.7.2025.12.31.07.30.40
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 31 Dec 2025 07:30:41 -0800 (PST)
+Message-ID: <4156bbde-754b-470e-9dfb-a1e45bee81fb@kernel.dk>
+Date: Wed, 31 Dec 2025 08:30:39 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <370149fc-1624-4a16-ac47-dd9b2dd0ed29@redhat.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 09/33] block: Protect against concurrent isolated cpuset
+ change
+To: Frederic Weisbecker <frederic@kernel.org>
+Cc: LKML <linux-kernel@vger.kernel.org>, =?UTF-8?Q?Michal_Koutn=C3=BD?=
+ <mkoutny@suse.com>, Andrew Morton <akpm@linux-foundation.org>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Chen Ridong <chenridong@huawei.com>, Danilo Krummrich <dakr@kernel.org>,
+ "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Gabriele Monaco <gmonaco@redhat.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+ Johannes Weiner <hannes@cmpxchg.org>, Lai Jiangshan
+ <jiangshanlai@gmail.com>, Marco Crivellari <marco.crivellari@suse.com>,
+ Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
+ Paolo Abeni <pabeni@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
+ Phil Auld <pauld@redhat.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
+ Roman Gushchin <roman.gushchin@linux.dev>,
+ Shakeel Butt <shakeel.butt@linux.dev>, Simon Horman <horms@kernel.org>,
+ Tejun Heo <tj@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
+ Will Deacon <will@kernel.org>, cgroups@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
+ linux-mm@kvack.org, linux-pci@vger.kernel.org, netdev@vger.kernel.org
+References: <20251224134520.33231-1-frederic@kernel.org>
+ <20251224134520.33231-10-frederic@kernel.org>
+ <0f65c4fe-8b10-403d-b5b6-ed33fc4eb69c@kernel.dk>
+ <aVUs-mFYCO2qGmqT@localhost.localdomain>
+Content-Language: en-US
+From: Jens Axboe <axboe@kernel.dk>
+In-Reply-To: <aVUs-mFYCO2qGmqT@localhost.localdomain>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251231_073043_992784_2C7D05B4 
+X-CRM114-Status: GOOD (  19.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,74 +125,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Fri, Dec 26, 2025 at 07:39:28PM -0500, Waiman Long a écrit :
-> On 12/24/25 8:45 AM, Frederic Weisbecker wrote:
-> > Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
-> > ---
-> >   Documentation/core-api/housekeeping.rst | 111 ++++++++++++++++++++++++
-> >   Documentation/core-api/index.rst        |   1 +
-> >   2 files changed, 112 insertions(+)
-> >   create mode 100644 Documentation/core-api/housekeeping.rst
-> > 
-> > diff --git a/Documentation/core-api/housekeeping.rst b/Documentation/core-api/housekeeping.rst
-> > new file mode 100644
-> > index 000000000000..e5417302774c
-> > --- /dev/null
-> > +++ b/Documentation/core-api/housekeeping.rst
-> > @@ -0,0 +1,111 @@
-> > +======================================
-> > +Housekeeping
-> > +======================================
-> > +
-> > +
-> > +CPU Isolation moves away kernel work that may otherwise run on any CPU.
-> > +The purpose of its related features is to reduce the OS jitter that some
-> > +extreme workloads can't stand, such as in some DPDK usecases.
-> Nit: "usecases" => "use cases"
+On 12/31/25 7:02 AM, Frederic Weisbecker wrote:
+> Le Mon, Dec 29, 2025 at 05:37:29PM -0700, Jens Axboe a ?crit :
+>> On 12/24/25 6:44 AM, Frederic Weisbecker wrote:
+>>> The block subsystem prevents running the workqueue to isolated CPUs,
+>>> including those defined by cpuset isolated partitions. Since
+>>> HK_TYPE_DOMAIN will soon contain both and be subject to runtime
+>>> modifications, synchronize against housekeeping using the relevant lock.
+>>>
+>>> For full support of cpuset changes, the block subsystem may need to
+>>> propagate changes to isolated cpumask through the workqueue in the
+>>> future.
+>>>
+>>> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+>>> ---
+>>>  block/blk-mq.c | 6 +++++-
+>>>  1 file changed, 5 insertions(+), 1 deletion(-)
+>>>
+>>> diff --git a/block/blk-mq.c b/block/blk-mq.c
+>>> index 1978eef95dca..0037af1216f3 100644
+>>> --- a/block/blk-mq.c
+>>> +++ b/block/blk-mq.c
+>>> @@ -4257,12 +4257,16 @@ static void blk_mq_map_swqueue(struct request_queue *q)
+>>>  
+>>>  		/*
+>>>  		 * Rule out isolated CPUs from hctx->cpumask to avoid
+>>> -		 * running block kworker on isolated CPUs
+>>> +		 * running block kworker on isolated CPUs.
+>>> +		 * FIXME: cpuset should propagate further changes to isolated CPUs
+>>> +		 * here.
+>>>  		 */
+>>> +		rcu_read_lock();
+>>>  		for_each_cpu(cpu, hctx->cpumask) {
+>>>  			if (cpu_is_isolated(cpu))
+>>>  				cpumask_clear_cpu(cpu, hctx->cpumask);
+>>>  		}
+>>> +		rcu_read_unlock();
+>>
+>> Want me to just take this one separately and get it out of your hair?
+>> Doesn't seem to have any dependencies.
+> 
+> The patch could be applied alone but the rest of the patchset needs it,
+> otherwise it may dereference freed memory. So I fear it needs to stay
+> within the lot.
+> 
+> I appreciate the offer though. But an ack would help, even if I must admit
+> this single patch (which doesn't change current behaviour) leaves a
+> bitter taste because complete handling of cpuset isolated partition change
+> will require more work.
 
-Are you sure? I'm not a native speaker but at least the kernel
-has established its use:
+That's fine too:
 
-$ git grep usecase | wc -l
-517
+Acked-by: Jens Axboe <axboe@kernel.dk>
 
-> > +
-> > +The kernel work moved away by CPU isolation is commonly described as
-> > +"housekeeping" because it includes ground work that performs cleanups,
-> > +statistics maintainance and actions relying on them, memory release,
-> > +various deferrals etc...
-> > +
-> > +Sometimes housekeeping is just some unbound work (unbound workqueues,
-> > +unbound timers, ...) that gets easily assigned to non-isolated CPUs.
-> > +But sometimes housekeeping is tied to a specific CPU and requires
-> > +elaborated tricks to be offloaded to non-isolated CPUs (RCU_NOCB, remote
-> > +scheduler tick, etc...).
-> > +
-> > +Thus, a housekeeping CPU can be considered as the reverse of an isolated
-> > +CPU. It is simply a CPU that can execute housekeeping work. There must
-> > +always be at least one online housekeeping CPU at any time. The CPUs that
-> > +are not	isolated are automatically assigned as housekeeping.
-> Nit: extra white spaces between "not" and "isolated".
+> Speaking of, is there a way that I missed to define/overwrite the above
+> hctx->cpumask on runtime?
 
-Somehow it has disappeared in my tree, some Brunaidh must have fixed
-that while I was sleeping. That's nice!
-
-> > diff --git a/Documentation/core-api/index.rst b/Documentation/core-api/index.rst
-> > index 5eb0fbbbc323..79fe7735692e 100644
-> > --- a/Documentation/core-api/index.rst
-> > +++ b/Documentation/core-api/index.rst
-> > @@ -25,6 +25,7 @@ it.
-> >      symbol-namespaces
-> >      asm-annotations
-> >      real-time/index
-> > +   housekeeping.rst
-> >   Data structures and low-level utilities
-> >   =======================================
-> Acked-by: Waiman Long <longman@redhat.com>
-
-Thanks! 
+Only spot where it's set/manipulated right now is as part of setting up
+the hctx <-> ctx queue mappings, when the queue is configured (or
+reconfigured).
 
 -- 
-Frederic Weisbecker
-SUSE Labs
+Jens Axboe
 
