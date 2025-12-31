@@ -4,79 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2FC4EE644A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 21:51:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06EF1EE644A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 21:58:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JV16ip+6JwuZnL/TM8VaCJh+nZpSyXHTVW++zK0HfUU=; b=zEpN4nTuckjlGuV99eIOOxe1lJ
-	hdwY2a1RkoIhscMFM9xgXn/sIiUG5xo/3syoUMV+NJbEU7S9UHQeuxEvjMCqLLrCzuEhmaPHKLUJ4
-	M5f+q5RMJ6G5f2gatWj3fkJRF8LjkIS88IP6cquE8JurIf8NYw9KvWFjkV6hmvPDNiMBrL4wvQdqk
-	I1MEa2lnk6SKEGyLlMetEZ2HSWhe6oOH7XdjhrLXcOCQSE3cvL2JEz50gSlQX3EEicBoCm2OoDJGM
-	bi1NHth60Eendk78a+JLxCq2E7OMuGAxOh75xxrICagBATTZNEeWPZ8D1Tp/PMjbL/3GgEiAlRgsp
-	cv61it8g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6MkfhPAcjdQfhQ1QpiRGhAgCnSB/uKC3la2fXm3kl7A=; b=qHdA3H7XGEAFmSZDEEb58vvXid
+	vAlMKG2DU0JDIWgnwuyL4DUHxol7wZimRch0YgpsyFopqMkYqnX2xnYU28ikTyp1gPYZ8puZzRvhc
+	9fRe1aS0Du5US5tAyEN3vONni3DKuD/SCrSTUFrA0WGrWpOF141VGrSs8wGi+jU7qZGDfiLoLHmmD
+	FiaQmyN0RD2Lc0Qp646tsR78QRujJ9ZlrZA6kw3IIums04H11q6nEtCgTSBdhSIDXDIRvPTQajir/
+	MZ9VMsjdAopmVs/+PIaB6J3B1jWAG0EopgIzFLRo/avR4nZOH5rXYu9ccp2n9E6YLAbpmtQjH5Ck+
+	ZfXRUt2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vb465-00000006Mzu-03wH;
-	Wed, 31 Dec 2025 21:51:13 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vb4D0-00000006NJI-3JUv;
+	Wed, 31 Dec 2025 21:58:22 +0000
+Received: from mleia.com ([178.79.152.223] helo=mail.mleia.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vb463-00000006Mzm-13W5
+	id 1vb4Cx-00000006NHY-1Lcg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 31 Dec 2025 21:51:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 441C260017
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 31 Dec 2025 21:51:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADF51C2BCB1
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 31 Dec 2025 21:51:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767217866;
-	bh=1dgOiCMHW+Z7a4Iq31trxTmP5l0kzHmrGC9ib/clXB4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=sUhkrStJSwjGZ2XRy9OJb6HUvUKwET0l9AiU6cNZosCauIHjFKzQ1b7TOKHLwxRdc
-	 b5nPDpnnlCBqd2zATN+TSwKN09UnT06oJMorI7qRZ7tPu617nyFv3V/JLc41jgAqRO
-	 XU6yU5g2bc8G5DLtO5Ozd0fkI+hOKqEXLWbIojJAu9ZZq+xWNlLQtzqq3P3Qsr3p0t
-	 gYJsWSrl/Xsmn9vIJo+Et94QdgZtWVQIlhq/FSVhksJkp97iiSl60ZHTNxClwhfB4M
-	 GKWL2T1hvzLJoPdTS5xcn/Tl7IuVvFRWwIxokPYKkN8VdOAA4Gf3DDXugPLUC0V6Df
-	 uho202+Fyh+LA==
-Received: by mail-yw1-f175.google.com with SMTP id 00721157ae682-78fd0cd23faso78868327b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 31 Dec 2025 13:51:06 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXTs5ZoXjwFBiyTMaB6ydRVe8fepOGXCSijE1TROXRyZMPWt0ouzv3fS2RWOOTl3W59/ZadVIwm25JW3O91/vUW@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyv7Y/p3dmf7OQyNTePirCWUAk9QFqICuD8v3k3U+hzN6PBfyth
-	Fz5yaXwPSjOdCpl896E7e2K1qj2ev4Ln5bxnDpBNeK5aJKHFqvW5jiMppBFBh7ZyqcrgLqXyL0Z
-	YExtWawpNYHR57wpGPJ6WIyAKCkip+pE=
-X-Google-Smtp-Source: AGHT+IH29S99+HYf8SuC4lZx27OfrHABr4tetzXdccaN2xUVWn/wgVS/NlKdgLQVr0jKfoYAGzsi8EIIhZ5XvfkifzI=
-X-Received: by 2002:a05:690e:1486:b0:63e:b41:cebc with SMTP id
- 956f58d0204a3-6466a8395admr30714655d50.17.1767217865999; Wed, 31 Dec 2025
- 13:51:05 -0800 (PST)
+	Wed, 31 Dec 2025 21:58:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
+	t=1767218297; bh=2fn1G9/kTdcOLJ2E5DlSdCC8IejFxaTXVYVDAn7wO2M=;
+	h=From:To:Cc:Subject:Date:From;
+	b=sbcNWmBYxRwB+xVOuxtbktmXTtlSZrM1yhchXq0qbkk1GOqzbV7sRhmFhVkSV0MMF
+	 KU3l3O1iRBLAoBQMRHcnTmZmIG/ZlnMR4ollC1HaYphLKt1Znfmrw9Q/h9OCSWBq2F
+	 pJ3bHzZinBqXRZxfz2Q2jHT8UJY5Y4z+twZo1u7ov0Ko+WLmPO4M0oWmcoIc126T0a
+	 HVLWRpst48OdEI/XHk/eZsgLTyyDt6PIljSRYyJKk1pTIG/zhdZSZKh4b9UxRhwCOx
+	 usrSHceX30f2YeJ08CAHdHu8d8yn5hre8dEXHoQH/QqmdBd7bfolOgJ2XQNLRzTtjs
+	 UnJUzx6YoHGyw==
+Received: from mail.mleia.com (localhost [127.0.0.1])
+	by mail.mleia.com (Postfix) with ESMTP id 533313E98AF;
+	Wed, 31 Dec 2025 21:58:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
+	t=1767218297; bh=2fn1G9/kTdcOLJ2E5DlSdCC8IejFxaTXVYVDAn7wO2M=;
+	h=From:To:Cc:Subject:Date:From;
+	b=sbcNWmBYxRwB+xVOuxtbktmXTtlSZrM1yhchXq0qbkk1GOqzbV7sRhmFhVkSV0MMF
+	 KU3l3O1iRBLAoBQMRHcnTmZmIG/ZlnMR4ollC1HaYphLKt1Znfmrw9Q/h9OCSWBq2F
+	 pJ3bHzZinBqXRZxfz2Q2jHT8UJY5Y4z+twZo1u7ov0Ko+WLmPO4M0oWmcoIc126T0a
+	 HVLWRpst48OdEI/XHk/eZsgLTyyDt6PIljSRYyJKk1pTIG/zhdZSZKh4b9UxRhwCOx
+	 usrSHceX30f2YeJ08CAHdHu8d8yn5hre8dEXHoQH/QqmdBd7bfolOgJ2XQNLRzTtjs
+	 UnJUzx6YoHGyw==
+Received: from mail.mleia.com (91-159-24-186.elisa-laajakaista.fi [91.159.24.186])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.mleia.com (Postfix) with ESMTPSA id C275D3E97E3;
+	Wed, 31 Dec 2025 21:58:16 +0000 (UTC)
+From: Vladimir Zapolskiy <vz@mleia.com>
+To: Lee Jones <lee@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org
+Subject: [PATCH 0/5] ARM: dts: lpc32xx: Add DMA support to platform device tree
+Date: Wed, 31 Dec 2025 23:57:49 +0200
+Message-ID: <20251231215754.2222308-1-vz@mleia.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20251212-dev-b4-aaeon-mcu-driver-v1-0-6bd65bc8ef12@bootlin.com>
- <20251212-dev-b4-aaeon-mcu-driver-v1-3-6bd65bc8ef12@bootlin.com> <019aa49f-fe59-488d-aff8-f07cf07ee68d@kernel.org>
-In-Reply-To: <019aa49f-fe59-488d-aff8-f07cf07ee68d@kernel.org>
-From: Linus Walleij <linusw@kernel.org>
-Date: Wed, 31 Dec 2025 22:50:55 +0100
-X-Gmail-Original-Message-ID: <CAD++jLmKL4afaOn_eka6v=j_Wu0orZMb-2NbPZgP4SM2q4V7qw@mail.gmail.com>
-X-Gm-Features: AQt7F2pjZLgNxaiWJYqspkMb-XGMxgFbeL4lckn8FGNkckGZmMd1GQVA1LvpjDo
-Message-ID: <CAD++jLmKL4afaOn_eka6v=j_Wu0orZMb-2NbPZgP4SM2q4V7qw@mail.gmail.com>
-Subject: Re: [PATCH 3/8] dt-bindings: watchdog: Add AAEON embedded controller
- watchdog binding
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Bartosz Golaszewski <brgl@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, 
-	=?UTF-8?B?SsOpcsOpbWllIERhdXRoZXJpYmVz?= <jeremie.dautheribes@bootlin.com>, 
-	Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck <linux@roeck-us.net>, Lee Jones <lee@kernel.org>, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-49551924 
+X-CRM114-CacheID: sfid-20251231_215817_356454_52732E9C 
+X-CRM114-Status: GOOD (  13.43  )
+/bin/ln: failed to access 'reaver_cache/texts/20251231_215817_356454_52732E9C': No such file or directory
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251231_215817_356454_52732E9C 
+X-CRM114-Status: GOOD (  13.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,27 +89,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 12, 2025 at 9:20=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
-> On 12/12/2025 08:41, Thomas Perrot (Schneider Electric) wrote:
-> > +
-> > +additionalProperties: false
-> > +
-> > +examples:
-> > +  - |
-> > +    watchdog {
-> > +      compatible =3D "aaeon,srg-imx8pl-wdt";
->
-> No, that was discussed many times on the mailing list already. Fold the
-> child into the parent. Your driver model really do not matter for DT.
+At the moment NXP LPC32xx has basic DMA support in the platform code, it works
+well with NAND flash controllers, but it makes sense to extend it to other
+controllers.
 
-True. For an example in Linux check how I spawn a watchdog
-platform device from a timer node in:
-drivers/clocksource/timer-ixp4xx.c
+The SoC specific dts changes were extracted and updated from an old
+unapplied series, which added better DMA and I2S support to the platform:
+- https://lore.kernel.org/linux-arm-kernel/20240627150046.258795-1-piotr.wojtaszczyk@timesys.com/
 
-It's just one node in the device tree, in Linux it is in two different
-subsystems but we just deal with that in code.
+DMA support from the original change was dropped for a number of controllers
+due to driver related issues, which cause runtime regressions. While the .dtsi
+code seems to be correct, it cannot be tested and verified before making driver
+changes, this concerns:
+* ARM PL180 SDHC driver does not support a single 'rx-tx' type of DMA channel,
+* ARM PL022 SSP driver defers its probe instead of bailing out on DMA issues,
+* HS UART driver misses a feature to support DMA operations.
 
-Yours,
-Linus Walleij
+This patch series obsoletes another and smipler one:
+- https://lore.kernel.org/linux-arm-kernel/379f38ac-ab4a-4615-894b-e404bea4a6a1@mleia.com
+
+Piotr Wojtaszczyk (3):
+  ARM: dts: lpc32xx: Use syscon for system control block
+  ARM: dts: lpc32xx: Add missing DMA properties
+  ARM: dts: lpc32xx: Add missing properties to I2S device tree nodes
+
+Vladimir Zapolskiy (2):
+  dt-bindings: mfd: nxp: Add NXP LPC32xx System Control Block
+  ARM: dts: lpc32xx: Declare the second AHB master support on PL080 DMA controller
+
+ .../bindings/mfd/nxp,lpc3220-scb.yaml         | 74 +++++++++++++++++++
+ arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi        | 41 +++++++++-
+ 2 files changed, 111 insertions(+), 4 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/mfd/nxp,lpc3220-scb.yaml
+
+-- 
+2.43.0
+
 
