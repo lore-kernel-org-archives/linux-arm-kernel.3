@@ -4,97 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAF9EEE6428
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 12:13:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5085FEE642E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 12:22:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NK8HAsEbzuMAmJWJWMfro3WvF+de9PMAbtRd5ci+vDw=; b=5D6yrqikM/RPeen512j+uvcW9F
-	tGirqWijwxNhWnqqV8kOpiHwyKN7yyp9ChxouzccGusY+oX6usQT7wuEfhb7IE1cPm4le4gnIqhTN
-	wie1XI1CdnW0aAW6heLM1osuOnS7wjqYYlU8tMNZNGfvyDvQVbnu0Uy7NRLlohCMB+YSGuiLLRQzp
-	yKS7CevHADyasetjFt+H1B1Fq8bxZ1tA+aUdCNpjF4bowW8TxZU5qT6xMfV4QxkYh3C9oLdOKFMwR
-	J3vt91hVzholk+B+CytC+XiF8XdTbApXzFOM4r08cLldzzVurk1KqbHztgwPTrwylVcudW04bAhtr
-	O0F40T+w==;
+	bh=zRvk/nOzB0Tp+A3fJ9KZKPiPm1cPPjhvzPZ3yF5gRls=; b=4fevsUAxF4FfMIWS/VRttTs+jN
+	vpyxl7LKDM7GEWxwUY3DQsxHw3tbgIElgXSoeZO+vubmYlCWYOVXi0P0X1BEL3xAxy0Z9G8u++C+4
+	oqOaFdd6AHJtRCFdFhoP48Ja1j+sDcaMGQv4TKdcCx+40lDyEnMrZitRWtPLsqBPATNgX2TUfxfYx
+	3RlnyQS+Mov0qR4Xv/NXvglgF5wOkF1XCOqjEHp4dToKAeh2QDChOM88KNR9CKThENNZIDG6MxtnY
+	xs18RPDORX+E/EnJSTzAtjAT6KPCPQeIrgjAuGcfElB11DFux4VRE23Rs1WthvQZS8PEy+JkmtxU3
+	tkqYUZZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vav4t-00000005x4c-2Dr6;
-	Wed, 31 Dec 2025 12:13:23 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1vavDN-00000005xvj-32v7;
+	Wed, 31 Dec 2025 12:22:09 +0000
+Received: from fout-b1-smtp.messagingengine.com ([202.12.124.144])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vav4q-00000005x46-3ye4
+	id 1vavDK-00000005xvM-3N76
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 31 Dec 2025 12:13:22 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-477a2ab455fso102126965e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 31 Dec 2025 04:13:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1767183198; x=1767787998; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=NK8HAsEbzuMAmJWJWMfro3WvF+de9PMAbtRd5ci+vDw=;
-        b=cXAwGWZxbW7WiYgnhkGflQtK7DdRX0frzYnHEhNm1IVXsG0tH/aKfjo/hLbORpc6IT
-         W1rNUCXeKeNVc5t4OGcKB8S3huOsEgQpZqZ6XJMUQigSAuN3HgPtZQBEZgAjYwyADAOr
-         3/48gmsAx+YEcroIaNh+lG0YSQrkUVqlqA5Sjkty6WzLiu1B+tcaLLykcLZFphXkjr3j
-         +GarpK22saHoEPyso01mqgbQdbTZfYr4RlQ60QPR2IK22ceC/1Fo/wB12aYPFiGGq5ys
-         uz4qbLxPOrnJixCTnTLtai8KYHXo65yY4qntXeYe4qmHOp1hveWdYJfUBIdROtasmS7X
-         LpzA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767183198; x=1767787998;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NK8HAsEbzuMAmJWJWMfro3WvF+de9PMAbtRd5ci+vDw=;
-        b=vg5MlUkdHqgmHD1R37twugLf8G5ev/SylN7ux3Rf427waLCp2g23yZpA50Cb92ACcb
-         XTOLaUDOE6LwYxrevaQ0+vYO9980uWBczRLolRN0jSGAnETYLbXnHgB7+dXXx0jsrQI3
-         YojHDx8EMwWdU11VACLBG1uoGHVRY/vjTDqkA/KWakT83q32YOGvbxyhqgiPg0vlckAY
-         l4GmbEYZO9c009GI9tLhONY6Ls4n3OF2GSChZTcxW9+8Dj0qONSr7JXbdjjcpB1P3tWj
-         X0LNTzG8Oqxp2FctFColslLqDQGX441aiUuopKjpEQoanS891DVJ7Cu97FJMXuJxTgzr
-         DJPw==
-X-Forwarded-Encrypted: i=1; AJvYcCX9j+lJW5C6WMTwranpddYP+QwgCMlmTy1AWSPtnF/7Iu8owVpWACwqkBuDr8TQ4F3L2RAdXQJXfkBzu5gqwPRY@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDVm+KQAGzaqdZAhJhZZMuBHukqDzntNBqdwD6AHqrl6ln72Yy
-	20Tf5YVpDGwg//rEJnhdtPTsvLZ6qDc8yqVRr7L4Wvxkh8lxPikxYQLO6m4gdz2e8jw=
-X-Gm-Gg: AY/fxX4E4AT87K4oBvB1c0BgGTqD0IXs96LQqEFDebYBkx6ICaWSSWCP7FjJPuT9KJK
-	WT4xCRPGVxb2NZgd4vVYNw9a8WfCiNPzOpcs/OZWN2aHKspLVyo0lBYFmnKRqdRaIMfTVhu3y5J
-	HAag5FUtT5CyIj8BYv38nOP7qMHtqEniWWh3C0/osLzonRZLOFSF0mn4gg3lRa9JIbCVhtzJM1i
-	KLUKPMIIpQENWNPKGMNTjrR6rN17Rl23fck2NBKEOmfQ7g1Rmn85qFRofwlfUKL9vWNvXVkH1/e
-	z9Efj/hq9iHR2S+rTxGolcMUrXepfIW3r8fTlqOPvswf2j77uqBWfdr0Z4en6KOka5G8H1ijLuf
-	QM3Z7Tv5PUql/TSUs4LPLNMAiqh/O+G6aJCU8PUthjelnstjDELEZuyFGIbOj3oZ89obf99p35M
-	sDmm4pFF+K3y7wDD7Qd6qC
-X-Google-Smtp-Source: AGHT+IGLQlOVOkiDjec3oBGg4+Ay31+MFr1T1oasXTpgdA5gcl1YGVgHyCirJ2aVhoFz1PXleO1q3g==
-X-Received: by 2002:a5d:5f87:0:b0:431:327:5dd4 with SMTP id ffacd0b85a97d-4324e50db43mr41813742f8f.46.1767183198565;
-        Wed, 31 Dec 2025 04:13:18 -0800 (PST)
-Received: from ho-tower-lan.lan ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43277b0efefsm40904221f8f.25.2025.12.31.04.13.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 31 Dec 2025 04:13:18 -0800 (PST)
-From: James Clark <james.clark@linaro.org>
-Date: Wed, 31 Dec 2025 12:12:28 +0000
-Subject: [PATCH] perf vendor events arm64: Remove uncountable events
+	Wed, 31 Dec 2025 12:22:08 +0000
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfout.stl.internal (Postfix) with ESMTP id 6FFAB1D000CF;
+	Wed, 31 Dec 2025 07:22:05 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-01.internal (MEProxy); Wed, 31 Dec 2025 07:22:05 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:message-id:mime-version:reply-to
+	:subject:subject:to:to; s=fm3; t=1767183725; x=1767270125; bh=zR
+	vk/nOzB0Tp+A3fJ9KZKPiPm1cPPjhvzPZ3yF5gRls=; b=E+HOrg53Xnacj8NhCo
+	yh8/JIMB9hEAHPTVlPFFWgoajkbAe0E47uc0Rz91+55QqHQLeyOlETdfuZ8Zwf0o
+	YarHDctummfpoi+FDCPwRktH0WyauOFexRKrjpWoZruEl+lYgDpwm3xPlYe0Zj+L
+	3QmbKnNt+z6pdM2Eit1hCL5v671HBvs0u8WLkEhl/Y9JOlSpICyIY+Dlso5wgseV
+	v/8NRq1bLdDJhcrjfLKunLnG96LrEIfCGeOrm4mfsbB6i/NBEUWOfrVQB2kyWYZu
+	BGxTQxakrxHWKUFbXfDiIWPUsfPKbWUKXlkAqoEpxqgui8YtrgnHXH96TnEhb7F0
+	6XrQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm2; t=1767183725; x=1767270125; bh=zRvk/nOzB0Tp+A3fJ9KZKPiPm1cP
+	PjhvzPZ3yF5gRls=; b=o9WA2wTHA8+wgYgKRPho/ZIhOhyaSjLOB+Y7MgDI7J7r
+	qeom/dFVWG0HK29fkl2sG4x1TvU+k5F2BAE/utYJzRuxTvUcd6vZeR4yRSPjjT/a
+	8Tn3E6dWr0rEQgWaJmlAY7pC0AAr+tWV1hbL3NKoCVBda3elFCcWNkrqR+A4D1G5
+	Shk2+h10us4ozi7I3WKNXh57Fo8kF08nP5QNOFcYnus3lLKwA6OKae/S4ZMJ4YG5
+	a6YsUQUnkHaZZ3wHlSzLvYHpXm0xft66xkQ6J5nxor4/ejddnBGMMONUtgzenFMl
+	JjnO4/hF+x2xH31xVFmcUwNUfsnt2kej/IKsQZOzGQ==
+X-ME-Sender: <xms:bBVVad2v3144adM6FA6tLZFSxgatyc6A7tFftItfs1qJGz169gr1Bw>
+    <xme:bBVVaVqsqFVKZDjuBqBRd85_Kc3ZQ7Ih3HTUgykOcSwF6Cq7p8_RQ1anns5bUuSa_
+    I1T06BOw42HLGx3G52nR2GPHt6EE3LOtdyeV6cizj6BPhtj7CwL0EA>
+X-ME-Received: <xmr:bBVVadLULDlaKUsXEvzg-BXIlfuEy5d04oeixrZfXlMDuTyQyQRYKLU_kfks6q1Qd7H1f8Tq84TKxhrQym68W8yiqOtbVF1ZY6NgjA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdekvdeklecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefhfffugggtgffkvfevofesthejredtredtjeenucfhrhhomheplfgrnhhnvgcuifhr
+    uhhnrghuuceojhesjhgrnhhnrghurdhnvghtqeenucggtffrrghtthgvrhhnpeefheeltd
+    ehfeetjeefvdehteeutddtteelgeduueetjeevteeifeeuvdefffdvieenucffohhmrghi
+    nhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpe
+    hmrghilhhfrhhomhepjhesjhgrnhhnrghurdhnvghtpdhnsggprhgtphhtthhopeduuddp
+    mhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheprghsrghhiheslhhishhtshdrlhhinh
+    hugidruggvvhdprhgtphhtthhopehsvhgvnheskhgvrhhnvghlrdhorhhgpdhrtghpthht
+    ohepshhtrggslhgvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepmhhtuh
+    hrqhhuvghtthgvsegsrgihlhhisghrvgdrtghomhdprhgtphhtthhopehlihhnuhigqdgt
+    lhhksehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmh
+    dqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohep
+    nhgvrghlsehgohhmphgrrdguvghvpdhrtghpthhtohepshgsohihugeskhgvrhhnvghlrd
+    horhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghl
+    rdhorhhg
+X-ME-Proxy: <xmx:bBVVaRQb4hdswrJK_l5PU9gDkLJaKyZHTKtFtqn1mQ9UTqibN3EvIQ>
+    <xmx:bBVVaVONomfu0ogpm2Z4jtyaMssARlLc6r9-TARacenzwh_jGTcb6w>
+    <xmx:bBVVaeU8HcDEsnPtBRy594UGL2A-0Y3_lNrCfuY7t5_byQREgoZcvw>
+    <xmx:bBVVaQjNNEckMFdZjqt2SfOiAlSx7ctZnFKL98MWgGSQHm6V367fIA>
+    <xmx:bRVVaRnjyk9aiMLSM_RWjHRY2vxsbx3A9OnHY8UISqaimLOenESc83hh>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 31 Dec 2025 07:22:04 -0500 (EST)
+From: Janne Grunau <j@jannau.net>
+Date: Wed, 31 Dec 2025 13:22:00 +0100
+Subject: [PATCH] clk: clk-apple-nco: Add "apple,t8103-nco" compatible
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251231-james-perf-uncountable-events-v1-1-f2d9932999fd@linaro.org>
-X-B4-Tracking: v=1; b=H4sIACsTVWkC/x3MQQqDMBAF0KvIrB3QhNLWq4iLRH/aKe0oGZWCe
- PeGLt/mHWTIAqOuOihjF5NZC9q6ovEZ9AGWqZhc4y6t8w2/wgfGC3LiTcd50zXENxg7dDV2tzC
- lePfx6hOVY8lI8v3//XCeP4R9qiNvAAAA
-To: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
- Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, 
- Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, 
- Akio Kakuno <fj3333bs@aa.jp.fujitsu.com>, 
- Yoshihiro Furudera <fj5100bi@fujitsu.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-perf-users@vger.kernel.org, James Clark <james.clark@linaro.org>
-X-Mailer: b4 0.14.0
+Message-Id: <20251231-clk-apple-nco-t8103-base-compat-v1-1-6459e65b6299@jannau.net>
+X-B4-Tracking: v=1; b=H4sIAGcVVWkC/x3NywrCMBBG4Vcps3YgF8Tgq4iLcfqrgzUJSRGh9
+ N0NLr/NORt1NEOn87RRw8e6lTzgDxPpU/IDbPMwBReOPkTPurxYal3AWQuvybvIN+lgLe8qK88
+ QF09QRUo0KrXhbt//4XLd9x+PvR8UcQAAAA==
+X-Change-ID: 20251231-clk-apple-nco-t8103-base-compat-dea037ecce88
+To: Sven Peter <sven@kernel.org>, Neal Gompa <neal@gompa.dev>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, 
+ =?utf-8?q?Martin_Povi=C5=A1er?= <povik+lin@cutebit.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org, Janne Grunau <j@jannau.net>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1516; i=j@jannau.net;
+ s=yk2025; h=from:subject:message-id;
+ bh=NfH/EVhKHGNRXy6pl4rolyAG7g4vT7LN9g0dWp0UYdw=;
+ b=owGbwMvMwCW2UNrmdq9+ahrjabUkhsxQ0awGtiW24TnbKu8kfsvpsFv+u/P+swPSAXs33d/zY
+ EbLnSVrO0pZGMS4GGTFFFmStF92MKyuUYypfRAGM4eVCWQIAxenAEzkdjIjw+Oj2pbTll/x5yiX
+ vBfCznfz8d+46ieX95/ekXjXkfn9tHsM/4McpTgWznz0ufOZ73SnzIlpV67kPguqkLGdzPClfF3
+ 8cz4A
+X-Developer-Key: i=j@jannau.net; a=openpgp;
+ fpr=8B336A6BE4E5695E89B8532B81E806F586338419
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251231_041321_036324_865F11CE 
-X-CRM114-Status: GOOD (  16.08  )
+X-CRM114-CacheID: sfid-20251231_042206_893439_6DE2B454 
+X-CRM114-Status: GOOD (  10.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,100 +129,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These events are never countable by the PMU and are only intended to
-be used as external inputs to trace. Therefore showing them in 'perf
-list' is misleading so remove them.
+After discussion with the devicetree maintainers we agreed to not extend
+lists with the generic compatible "apple,nco" anymore [1]. Use
+"apple,t8103-nco" as base compatible as it is the SoC the driver and
+bindings were written for.
 
-The generator script doesn't emit these events when used with the new
-telemetry-solution input files [1].
+[1]: https://lore.kernel.org/asahi/12ab93b7-1fc2-4ce0-926e-c8141cfe81bf@kernel.org/
 
-'perf list' should only show countable events because there are events
-that are sometimes implemented, sometimes countable and sometimes not,
-for example TRB_TRIG. If we always include any implemented events
-whether they are countable or not then it's not possible to tell whether
-they are usable in perf without going to the docs, defeating the point
-of 'perf list'.
-
-It's also not useful yet to display implemented events that are not
-countable (for help in using trace rather than perf stat), because
-PMU_OVFS and PMU_HOVFS are practically always implemented and TRB_TRIG
-is always implemented when there is TRBE.
-
-[1]: https://gitlab.arm.com/telemetry-solution/telemetry-solution/-/tree/main/data/pmu/cpu
-
-Signed-off-by: James Clark <james.clark@linaro.org>
+Fixes: 6641057d5dba ("clk: clk-apple-nco: Add driver for Apple NCO")
+Cc: stable@vger.kernel.org
+Acked-by: Stephen Boyd <sboyd@kernel.org>
+Reviewed-by: Neal Gompa <neal@gompa.dev>
+Signed-off-by: Janne Grunau <j@jannau.net>
 ---
- tools/perf/pmu-events/arch/arm64/arm/cortex-a510/pmu.json  |  8 --------
- tools/perf/pmu-events/arch/arm64/common-and-microarch.json | 12 ------------
- tools/perf/pmu-events/arch/arm64/fujitsu/monaka/pmu.json   | 10 ----------
- 3 files changed, 30 deletions(-)
+This is split off from the v1 series adding Apple M2 Pro/Max/Ultra
+device trees in [2].
 
-diff --git a/tools/perf/pmu-events/arch/arm64/arm/cortex-a510/pmu.json b/tools/perf/pmu-events/arch/arm64/arm/cortex-a510/pmu.json
-deleted file mode 100644
-index d8b7b9f9e5fa..000000000000
---- a/tools/perf/pmu-events/arch/arm64/arm/cortex-a510/pmu.json
-+++ /dev/null
-@@ -1,8 +0,0 @@
--[
--    {
--        "ArchStdEvent": "PMU_OVFS"
--    },
--    {
--        "ArchStdEvent": "PMU_HOVFS"
--    }
--]
-diff --git a/tools/perf/pmu-events/arch/arm64/common-and-microarch.json b/tools/perf/pmu-events/arch/arm64/common-and-microarch.json
-index 2416d9f8a83d..468cb085d879 100644
---- a/tools/perf/pmu-events/arch/arm64/common-and-microarch.json
-+++ b/tools/perf/pmu-events/arch/arm64/common-and-microarch.json
-@@ -432,24 +432,12 @@
-         "EventName": "TRB_WRAP",
-         "BriefDescription": "Trace buffer current write pointer wrapped"
-     },
--    {
--        "PublicDescription": "PMU overflow, counters accessible to EL1 and EL0",
--        "EventCode": "0x400D",
--        "EventName": "PMU_OVFS",
--        "BriefDescription": "PMU overflow, counters accessible to EL1 and EL0"
--    },
-     {
-         "PublicDescription": "Trace buffer Trigger Event",
-         "EventCode": "0x400E",
-         "EventName": "TRB_TRIG",
-         "BriefDescription": "Trace buffer Trigger Event"
-     },
--    {
--        "PublicDescription": "PMU overflow, counters reserved for use by EL2",
--        "EventCode": "0x400F",
--        "EventName": "PMU_HOVFS",
--        "BriefDescription": "PMU overflow, counters reserved for use by EL2"
--    },
-     {
-         "PublicDescription": "PE Trace Unit external output 0",
-         "EventCode": "0x4010",
-diff --git a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/pmu.json b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/pmu.json
-deleted file mode 100644
-index 65bd6cdd0dd5..000000000000
---- a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/pmu.json
-+++ /dev/null
-@@ -1,10 +0,0 @@
--[
--    {
--        "ArchStdEvent": "PMU_OVFS",
--        "BriefDescription": "This event counts the event generated each time one of the condition occurs described in Arm Architecture Reference Manual for A-profile architecture. This event is only for output to the trace unit."
--    },
--    {
--        "ArchStdEvent": "PMU_HOVFS",
--        "BriefDescription": "This event counts the event generated each time an event is counted by an event counter <n> and all of the condition occur described in Arm Architecture Reference Manual for A-profile architecture. This event is only for output to the trace unit."
--    }
--]
+Changes compared to that series:
+- add "Fixes:" and "Cc: stable" for handling this as fix adding a device
+  id
+- add Neal's and Stephen's trailers
+---
+ drivers/clk/clk-apple-nco.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/clk/clk-apple-nco.c b/drivers/clk/clk-apple-nco.c
+index d3ced4a0f029ec0440ff42d49d31e314fdf86846..434c067968bbc1afdb5c9216277486bf826666c2 100644
+--- a/drivers/clk/clk-apple-nco.c
++++ b/drivers/clk/clk-apple-nco.c
+@@ -320,6 +320,7 @@ static int applnco_probe(struct platform_device *pdev)
+ }
+ 
+ static const struct of_device_id applnco_ids[] = {
++	{ .compatible = "apple,t8103-nco" },
+ 	{ .compatible = "apple,nco" },
+ 	{ }
+ };
 
 ---
-base-commit: cbd41c6d4c26c161a2b0e70ad411d3885ff13507
-change-id: 20251230-james-perf-uncountable-events-28adfb93b73f
+base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+change-id: 20251231-clk-apple-nco-t8103-base-compat-dea037ecce88
 
 Best regards,
 -- 
-James Clark <james.clark@linaro.org>
+Janne Grunau <j@jannau.net>
 
 
