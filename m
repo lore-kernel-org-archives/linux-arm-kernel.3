@@ -4,57 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52CD3EE57F7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 09:48:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ECD1EE57FA
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 09:49:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=haCQuoCXYQ/gLqJtaAKnRAAVEKmVc+FnF9eXlUn2Xg8=; b=skLVCsq12rTjDxMVbAn9Nh0D+t
-	qet+cxf3FfAGO2DzAEuYt2tgIoPet0aOZ5gdIkEYZpGiw3MY2P4yj9DhVIQlPHnP2I6Am71wnBTVE
-	b7zwBxlSZi28c0CtTb8pX7KQ1gdcl1TzPyFmWMB9CcOApCJRn8ZaCRi8MVTXYqn5qCdRqKBa4so2m
-	jc8qAyIMrAnJ3pEZhaB6lAb1ytOQJGiCoM75GJg+QR21dCXJGVUSTaU/OH/9844myHR2dXf+IXlg9
-	gfxCh1KRf7NPxH+5l3Bd6UGQAMO3Kvay50miRpwqPBKPwd6bORLfbXyOQsCfDgUMW0Kjxpl9GkZZx
-	dysdp8Tg==;
+	bh=4GReK1jsePjML4L+ElHSZ0N2tgbPu9EqR+4QJDp+B+c=; b=FsbJGbhf5Rvr+giFpBdiIVDse/
+	cjAtYs6iD3aX4vBaAGXt30eVwzVn5aJGgslvSQa0Zia+d2Rw0IdqtsqEn2VEjTnC7oy5oIcNhs0lT
+	mM/pneg6Y234nZzYCHeGmz78KxaReFHlsLEPNYqTFLMjhbfbQbnqU9aCV3NqPuZyIvbSs7eoFSm4m
+	parsjPtR4Bo3Wm4QB8llAc3kER5Nl+eRNYhwlIKSfseHdbWoB8NGuij4dEKbWp0689A9pVyz5eSaR
+	SVt097Wd3tETQUafIr4CFWyFlR207TLpYY8SjkYAP+dFAal1xV/iuMJRHN1cMrvjtKOQxK+0dL4qv
+	liJ7G5Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vasp1-00000005qSa-0FaK;
-	Wed, 31 Dec 2025 09:48:51 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vaspt-00000005qY8-1uMQ;
+	Wed, 31 Dec 2025 09:49:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vasoz-00000005qSU-3E3Y
+	id 1vaspr-00000005qXy-42KR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 31 Dec 2025 09:48:49 +0000
+	Wed, 31 Dec 2025 09:49:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8F96B60097;
-	Wed, 31 Dec 2025 09:48:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DF5EC113D0;
-	Wed, 31 Dec 2025 09:48:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1DECE60017;
+	Wed, 31 Dec 2025 09:49:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF832C113D0;
+	Wed, 31 Dec 2025 09:49:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767174528;
-	bh=ImNInNwZR54+9UqA/UYM+30mhewaOzMKRmet2CMmOUQ=;
+	s=k20201202; t=1767174582;
+	bh=16K9feCX5fKSYWAUxe75l9k5gpu0aIcgV76kUZ5o5wI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JcB9UFy8N0XMPkyl8EVl/AiwVf+7iZefYZWhxBbfrtHHKLcp/3sEePk3v+dXIQsev
-	 4ub/CvgkURGqNknrK4Z/dJhW8YnBTS7ldC3bzqic+UMziZ6f2KSh91WdtDn9WoelX/
-	 14QJiUrk/s/UOnhh5XkmCTy7YMAyQBplmO8CVHZ1fE9NcxCXi3f1NVh7WC2hWZWepk
-	 31iJeu4ZFmi6ky7PiA235WIlv1TZwMht0OANLwx7Z3bIhUZX9/0eEpHD8uF/8qv9kU
-	 yW19jOXoQcDU3ph0VgTwZGKC0rtRAG4k/wZQJAxSGmj614gLl20qiVXNHcmB/YY6lT
-	 oMUNDNVHRtxsA==
-Message-ID: <499ce4ea-c6bf-45f1-ab68-c37397196084@kernel.org>
-Date: Wed, 31 Dec 2025 10:48:44 +0100
+	b=OAW8S9lMgrMyNwEWuV2OlJF6RPAoGhroOcOWUaFV4UMukspYnjU1Fuzy1vPA5Z9wN
+	 dAd8ueL8YYDUd+AsVp+nTR2lyvTeChcOXxVUkIAcWoL1/bKsQHGxnpwZe/lND9QK+S
+	 AVEM0LBaO8zWorcOF1H0TXAY/iklHvV2gd3LsVFOXNvcSbTc+4WsjmpZyAqwmnmTlL
+	 V5agTDIRz9DOGfT9A8onEUPx1egOu1wfFVc8Cx3KqqSAht0SD3i83E7Yd0kYkWNYA5
+	 wJiRqjwy7/nYglNydxmVVQXyz32bJiaos9wGTYX5yS1iQyI7yt7uUwAZ8Io8/Mr0nh
+	 Ve2MR+EktwWfA==
+Message-ID: <50439d25-55a3-4d76-8864-81132db7598c@kernel.org>
+Date: Wed, 31 Dec 2025 10:49:39 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/5] arm: dts: mstar: infinity: Correct opp table name
-To: Daniel Palmer <daniel@0x0f.com>
-Cc: krzk+dt@kernel.org, romain.perier@gmail.com, robh@kernel.org,
- conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/5] arm: dts: mstar: breadbee: Correct regulator names
+To: Daniel Palmer <daniel@0x0f.com>, krzk+dt@kernel.org,
+ romain.perier@gmail.com, robh@kernel.org, conor+dt@kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 References: <20251231025502.1139168-1-daniel@0x0f.com>
- <20251231025502.1139168-4-daniel@0x0f.com>
- <ac0f8b8d-f6e4-4d60-9931-e820417c1abc@kernel.org>
- <CAFr9PXn_-Ep9HzwTEErZ4Wmm9X8Q2ZkRP1LfmaAMhbYNfJVFuQ@mail.gmail.com>
+ <20251231025502.1139168-2-daniel@0x0f.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,7 +98,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <CAFr9PXn_-Ep9HzwTEErZ4Wmm9X8Q2ZkRP1LfmaAMhbYNfJVFuQ@mail.gmail.com>
+In-Reply-To: <20251231025502.1139168-2-daniel@0x0f.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -117,17 +115,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31/12/2025 09:35, Daniel Palmer wrote:
-> Hi Krzysztof,
+On 31/12/2025 03:54, Daniel Palmer wrote:
+> The regulator names had a "@<n>" in them so the dt validation
+> stuff wanted a reg property. Fix the names to match what the regulator
+> is for and remove the "@<n>" bit.
 > 
-> On Wed, 31 Dec 2025 at 16:48, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>
->> These two should be squashed. Don't align node names with bindings per node.
+> Signed-off-by: Daniel Palmer <daniel@0x0f.com>
+> ---
+>  .../boot/dts/sigmastar/mstar-infinity-breadbee-common.dtsi  | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
 > 
-> Sorry, I cannot parse what that means.
+> diff --git a/arch/arm/boot/dts/sigmastar/mstar-infinity-breadbee-common.dtsi b/arch/arm/boot/dts/sigmastar/mstar-infinity-breadbee-common.dtsi
+> index 507ff2fba837..aedea0fbbce6 100644
+> --- a/arch/arm/boot/dts/sigmastar/mstar-infinity-breadbee-common.dtsi
+> +++ b/arch/arm/boot/dts/sigmastar/mstar-infinity-breadbee-common.dtsi
+> @@ -7,7 +7,7 @@
+>  #include <dt-bindings/gpio/gpio.h>
+>  
+>  / {
+> -	vcc_core: fixedregulator@0 {
+> +	vcc_core: reg-core {
 
-I meant, two commits should be rather squashed. If you intend to rename
-the nodes, fix all names to be generic, not only some.
+
+If renaming this then rather use one of the approved names, so either
+"regulator-foo" or "regulator-XvY" (which matches current format
+recommendation: 'regulator-[0-9]v[0-9]')
+
+https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/regulator/fixed-regulator.yaml
 
 Best regards,
 Krzysztof
