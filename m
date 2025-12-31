@@ -4,86 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4F16EE6440
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 14:37:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32FE0EE6428
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 14:43:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IZhm6FiEErHZWRKqhaamBZhn+rAQsirAJCfOeoMHpWU=; b=p6eUHVUxXLywycBIPP1eKLl/dQ
-	21iOUYiIBhcTC5DBrh24pBKaxfPQmvNp+N0VJ09jZVfpbMA9ywx70T4Ao0c+O31bH9Wb6kFNaLl4X
-	s+qJuuIPyvOg+P+eb0VUk7jrGFNeJWTt6kLshR3lTO3DoOUlCFSmUt8TJvdD7aiykRSaJFZNWDnAJ
-	bihv/ueW34Vzf/mKw61aordbtA6ZZ1/TUkacKSfWYlPm59qaWp8mnKY3mvzw/TCJA6LrMPv1BBd6t
-	vDjppTDnBnAcu1W3M21rTRoB2nTjHEzcQaQZYf5HGj7g1h0Yy7MjwD/MsMNE1LqkKUcWSWnFZhqcS
-	hvC8r06A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
+	Content-Type:Content-Transfer-Encoding:In-Reply-To:From:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=M8aPWywfPFOyTSGu0q6hhPXyHxVoa1F4hqfQwCmIl58=; b=anm62GnjCy+43U
+	bu1D9SH3cOppXsm/0f8fjmEjoxWRFCrs+pQCcLra8CafWMtKUUguT7si6ETzbcPTG+myVtcF2bF06
+	vXDidAO83CSzvrfnROX2kI7B9XRKCvi3EL7Vr3yIYdIy21G2I+oaqgUFs12hjB9h35sz3BCpUZ/Z7
+	NtbHRtS0iuDuabnUQdCnV7uAEdfYaoGZKxVhyPMr9b4RfPZV97Uewa0rFbtrmCFDjY/iEVcOiUuUj
+	IEqixt6Cd3ROe8BkwuFV8xzozIPYEQ2RTD/QCm4/Ey2onJ2rgNLSvjZUW0e1XjQYz8h1AYw4HJQfZ
+	KzTEIqNN3iv4x3ikj8Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaxKY-000000062ju-0aI4;
-	Wed, 31 Dec 2025 14:37:42 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vaxQK-0000000633h-2qB8;
+	Wed, 31 Dec 2025 14:43:40 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaxKX-000000062jm-01R4
+	id 1vaxQG-00000006336-2RFA
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 31 Dec 2025 14:37:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B583D60017;
-	Wed, 31 Dec 2025 14:37:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE058C113D0;
-	Wed, 31 Dec 2025 14:37:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767191859;
-	bh=rnNQxQRICVG0/bRCHLds18VIp4MhYcD23gBS1k4tm4w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ug55uySx/TS9I8SDIbLCqdWvgFFvx7oQBG42eNACAkO9SMq2ggXfcXb2F44FGN50K
-	 13mXv2fVVQh7P1dXLSg7Da7qFtZegjEtOHHfMgKfursGukFoc8GLy67UuFkBND8bmu
-	 1hRTfjdoq07zNV+R2kWXv/+mIgcBQN7SPKkBEeQau5EEWxacetnIh3vIMdssmjat6M
-	 H/l2aL8FQsS9UnMjZ/iiQf9qUG5o98tjDOaHYOou4DExuKYBxNh8n29IIOMSCteAyX
-	 9Xsvmkd6qooprztWFYZy7sLZa63PRgX3T04lKq3mgg7JBGjIe3B//fShIC1zjPD6kx
-	 ojzdtaOi8ppWA==
-Date: Wed, 31 Dec 2025 15:37:36 +0100
-From: Frederic Weisbecker <frederic@kernel.org>
-To: Chen Ridong <chenridong@huaweicloud.com>
-Cc: LKML <linux-kernel@vger.kernel.org>,
-	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Chen Ridong <chenridong@huawei.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Gabriele Monaco <gmonaco@redhat.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
-	Will Deacon <will@kernel.org>, cgroups@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
-	linux-mm@kvack.org, linux-pci@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH 17/33] PCI: Flush PCI probe workqueue on cpuset isolated
- partition change
-Message-ID: <aVU1MIyJ3VH4V80O@localhost.localdomain>
-References: <20251224134520.33231-1-frederic@kernel.org>
- <20251224134520.33231-18-frederic@kernel.org>
- <c724aac7-5647-4253-bf7b-4ea92ea5d167@huaweicloud.com>
+	Wed, 31 Dec 2025 14:43:38 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20251231144330euoutp01c58badeadda370d7c7c3cd9549da0f60~GU-Pi5Z5i3076130761euoutp013
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 31 Dec 2025 14:43:30 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20251231144330euoutp01c58badeadda370d7c7c3cd9549da0f60~GU-Pi5Z5i3076130761euoutp013
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1767192210;
+	bh=M8aPWywfPFOyTSGu0q6hhPXyHxVoa1F4hqfQwCmIl58=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=Alom80QxoG+L7ICMesd3Euki0jWEh5m9WrDQOO82KpT3M8GlUii6jb4NC/BUwrtla
+	 x3F2P1lkvxBq8MsCMGMLR2GRCZGVZ1OzbjGOF4McE9zgsSSTUJqP6FtdiWlME5ilT5
+	 BOXZctdYokjY0BnnWLe9y+syt3f3BRIA9KcPecjg=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20251231144330eucas1p2e45e514c58572acda6dc94e809f9d2ee~GU-PNyoET1215412154eucas1p27;
+	Wed, 31 Dec 2025 14:43:30 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20251231144321eusmtip23facba6ecea740b65bcbedd64e01dd62~GU-GtmYe61784117841eusmtip2B;
+	Wed, 31 Dec 2025 14:43:21 +0000 (GMT)
+Message-ID: <d19c559e-c93b-4a4d-9a0d-ec289ed4c2e6@samsung.com>
+Date: Wed, 31 Dec 2025 15:43:19 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH v2 4/8] dma-mapping: Separate DMA sync issuing and
+ completion waiting
+To: Barry Song <21cnbao@gmail.com>, Leon Romanovsky <leon@kernel.org>
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <CAGsJ_4y=yoYZn+_ztdfuOCj_dS-M0h8YWO51AXubPbeR1FH6uQ@mail.gmail.com>
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <c724aac7-5647-4253-bf7b-4ea92ea5d167@huaweicloud.com>
+X-CMS-MailID: 20251231144330eucas1p2e45e514c58572acda6dc94e809f9d2ee
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20251228213843eucas1p298280bb01abe59739cd6e0482f570455
+X-EPHeader: CA
+X-CMS-RootMailID: 20251228213843eucas1p298280bb01abe59739cd6e0482f570455
+References: <20251226225254.46197-1-21cnbao@gmail.com>
+	<20251226225254.46197-5-21cnbao@gmail.com> <20251227200706.GN11869@unreal>
+	<CAGsJ_4zyascnpQ1cB-BMO9PDeeRZTBAh8Z-j-ip=RcxApa4zSg@mail.gmail.com>
+	<20251228144909.GR11869@unreal>
+	<CGME20251228213843eucas1p298280bb01abe59739cd6e0482f570455@eucas1p2.samsung.com>
+	<CAGsJ_4y=yoYZn+_ztdfuOCj_dS-M0h8YWO51AXubPbeR1FH6uQ@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251231_064337_192325_83F4BBCF 
+X-CRM114-Status: GOOD (  35.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,42 +83,138 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Cc: Juergen Gross <jgross@suse.com>, Tangquan Zheng <zhengtangquan@oppo.com>, Stefano Stabellini <sstabellini@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, will@kernel.org, Anshuman Khandual <anshuman.khandual@arm.com>, catalin.marinas@arm.com, Joerg Roedel <joro@8bytes.org>, linux-kernel@vger.kernel.org, Suren Baghdasaryan <surenb@google.com>, iommu@lists.linux.dev, Marc Zyngier <maz@kernel.org>, Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>, xen-devel@lists.xenproject.org, robin.murphy@arm.com, Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Fri, Dec 26, 2025 at 04:48:10PM +0800, Chen Ridong a �crit :
-> > @@ -145,6 +146,7 @@ int housekeeping_update(struct cpumask *isol_mask, enum hk_type type)
-> >  
-> >  	synchronize_rcu();
-> >  
-> > +	pci_probe_flush_workqueue();
-> >  	mem_cgroup_flush_workqueue();
-> >  	vmstat_flush_workqueue();
-> >  
-> 
-> I am concerned that this flush work may slow down writes to the cpuset interface. I am not sure how
-> significant the impact will be.
+On 28.12.2025 22:38, Barry Song wrote:
+> On Mon, Dec 29, 2025 at 3:49 AM Leon Romanovsky <leon@kernel.org> wrote:
+>> On Sun, Dec 28, 2025 at 10:45:13AM +1300, Barry Song wrote:
+>>> On Sun, Dec 28, 2025 at 9:07 AM Leon Romanovsky <leon@kernel.org> wrote:
+>>>> On Sat, Dec 27, 2025 at 11:52:44AM +1300, Barry Song wrote:
+>>>>> From: Barry Song <baohua@kernel.org>
+>>>>>
+>>>>> Currently, arch_sync_dma_for_cpu and arch_sync_dma_for_device
+>>>>> always wait for the completion of each DMA buffer. That is,
+>>>>> issuing the DMA sync and waiting for completion is done in a
+>>>>> single API call.
+>>>>>
+>>>>> For scatter-gather lists with multiple entries, this means
+>>>>> issuing and waiting is repeated for each entry, which can hurt
+>>>>> performance. Architectures like ARM64 may be able to issue all
+>>>>> DMA sync operations for all entries first and then wait for
+>>>>> completion together.
+>>>>>
+>>>>> To address this, arch_sync_dma_for_* now issues DMA operations in
+>>>>> batch, followed by a flush. On ARM64, the flush is implemented
+>>>>> using a dsb instruction within arch_sync_dma_flush().
+>>>>>
+>>>>> For now, add arch_sync_dma_flush() after each
+>>>>> arch_sync_dma_for_*() call. arch_sync_dma_flush() is defined as a
+>>>>> no-op on all architectures except arm64, so this patch does not
+>>>>> change existing behavior. Subsequent patches will introduce true
+>>>>> batching for SG DMA buffers.
+>>>>>
+>>>>> Cc: Leon Romanovsky <leon@kernel.org>
+>>>>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>>>>> Cc: Will Deacon <will@kernel.org>
+>>>>> Cc: Marek Szyprowski <m.szyprowski@samsung.com>
+>>>>> Cc: Robin Murphy <robin.murphy@arm.com>
+>>>>> Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
+>>>>> Cc: Ard Biesheuvel <ardb@kernel.org>
+>>>>> Cc: Marc Zyngier <maz@kernel.org>
+>>>>> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+>>>>> Cc: Ryan Roberts <ryan.roberts@arm.com>
+>>>>> Cc: Suren Baghdasaryan <surenb@google.com>
+>>>>> Cc: Joerg Roedel <joro@8bytes.org>
+>>>>> Cc: Juergen Gross <jgross@suse.com>
+>>>>> Cc: Stefano Stabellini <sstabellini@kernel.org>
+>>>>> Cc: Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>
+>>>>> Cc: Tangquan Zheng <zhengtangquan@oppo.com>
+>>>>> Signed-off-by: Barry Song <baohua@kernel.org>
+>>>>> ---
+>>>>>   arch/arm64/include/asm/cache.h |  6 ++++++
+>>>>>   arch/arm64/mm/dma-mapping.c    |  4 ++--
+>>>>>   drivers/iommu/dma-iommu.c      | 37 +++++++++++++++++++++++++---------
+>>>>>   drivers/xen/swiotlb-xen.c      | 24 ++++++++++++++--------
+>>>>>   include/linux/dma-map-ops.h    |  6 ++++++
+>>>>>   kernel/dma/direct.c            |  8 ++++++--
+>>>>>   kernel/dma/direct.h            |  9 +++++++--
+>>>>>   kernel/dma/swiotlb.c           |  4 +++-
+>>>>>   8 files changed, 73 insertions(+), 25 deletions(-)
+>>>> <...>
+>>>>
+>>>>> +#ifndef arch_sync_dma_flush
+>>>>> +static inline void arch_sync_dma_flush(void)
+>>>>> +{
+>>>>> +}
+>>>>> +#endif
+>>>> Over the weekend I realized a useful advantage of the ARCH_HAVE_* config
+>>>> options: they make it straightforward to inspect the entire DMA path simply
+>>>> by looking at the .config.
+>>> I am not quite sure how much this benefits users, as the same
+>>> information could also be obtained by grepping for
+>>> #define arch_sync_dma_flush in the source code.
+>> It differs slightly. Users no longer need to grep around or guess whether this
+>> platform used the arch_sync_dma_flush path. A simple grep for ARCH_HAVE_ in
+>> /proc/config.gz provides the answer.
+> In any case, it is only two or three lines of code, so I am fine with
+> either approach. Perhaps Marek, Robin, and others have a point here?
 
-First, writing to cpuset is not something that should be considered as a fast
-path. It is a preparation work at configuration time that can tolerate a few
-milliseconds of delay, which I expect to be what we should encounter most
-of time here.
+If possible I would suggest to follow the already used style in the 
+given code even if it means a bit larger patch.
 
-Second, this is not a "usual" cpuset partition write. CPU isolation is a niche
-usecase (real time or Data plane). User must expect tradeoffs against the offer.
+>>>> Thanks,
+>>>> Reviewed-by: Leon Romanovsky <leonro@nvidia.com>
+>>> Thanks very much, Leon, for reviewing this over the weekend. One thing
+>>> you might have missed is that I place arch_sync_dma_flush() after all
+>>> arch_sync_dma_for_*() calls, for both single and sg cases. I also
+>>> used a Python script to scan the code and verify that every
+>>> arch_sync_dma_for_*() is followed by arch_sync_dma_flush(), to ensure
+>>> that no call is left out.
+>>>
+>>> In the subsequent patches, for sg cases, the per-entry flush is
+>>> replaced by a single flush of the entire sg. Each sg case has
+>>> different characteristics: some are straightforward, while others
+>>> can be tricky and involve additional contexts.
+>> I didn't overlook it, and I understand your rationale. However, this is
+>> not how kernel patches should be structured. You should not introduce
+>> code in patch X and then move it elsewhere in patch X + Y.
+> I am not quite convinced by this concern. This patch only
+> separates DMA sync issuing from completion waiting, and it
+> reflects that the development is done step by step.
+>
+>> Place the code in the correct location from the start. Your patches are
+>> small enough to review as is.
+> My point is that this patch places the code in the correct locations
+> from the start. It splits arch_sync_dma_for_*() into
+> arch_sync_dma_for_*() plus arch_sync_dma_flush() everywhere, without
+> introducing any functional changes from the outset.
+> The subsequent patches clearly show which parts are truly batched.
+>
+> In the meantime, I do not have a strong preference here. If you think
+> it is better to move some of the straightforward batching code here,
+> I can follow that approach. Perhaps I could move patch 5, patch 8,
+> and the iommu_dma_iova_unlink_range_slow change from patch 7 here,
+> while keeping
+>
+>    [PATCH 6] dma-mapping: Support batch mode for
+>    dma_direct_{map,unmap}_sg
+>
+> and the IOVA link part from patch 7 as separate patches, since that
+> part is not straightforward. The IOVA link changes affect both
+> __dma_iova_link() and dma_iova_sync(), which are two separate
+> functions and require a deeper understanding of the contexts to
+> determine correctness. That part also lacks testing.
+>
+> Would that be okay with you?
 
-Third, about this very patch, most pci probe should happen at boot time before
-cgroup is even accessible to userspace.
+Yes, this will be okay. The changes are easy to understand, so we don't 
+need to go there with such very small steps.
 
-> I'm concerned about potential deadlock risks. While preliminary investigation hasn't uncovered any
-> issues, we must ensure that the cpu write lock is not held during the work(writing cpuset interface
-> needs cpu read lock).
-
-That's what we have lockdep for :-)
-
-Thanks.
-
+Best regards
 -- 
-Frederic Weisbecker
-SUSE Labs
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
+
 
