@@ -4,88 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 324BAEE6428
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 15:53:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 656E3EE644C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 16:21:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VCjFp+pDGdRxDrsKK6M4AzYjr8nKeM2d1aD4T1BGjPU=; b=D2goFt7GdiGwYBK29Tco7768kk
-	iU7WdG9eY+YNd+sciFLuoF3zEfYevJxulORkwaiezEbG5AH7FASwCHh47O9j0B7Vx7aL6PefqD9k6
-	T5IBlmlXj9hthz3srQEDCWYC522ku527NOW1bYbRhF9dk/UfbByIg0CwF6P9k945bYefuBaeuY8Fl
-	nqiEneAi0mAxiT/8KzC3TwozH8hs2X8ix8cqINT9AtrBy3tSovcvTwSpJTy5jYj5mV5/6sFMnkjQQ
-	+m1V8jONtCgUjjO0OWC+Fg/wmqafJJLAn4L2DEOHJNn861yfR8QJv9lg6TZ/7lr26FV6MpWk+Xtda
-	YqZGnABQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4VxsJvPd3cI1KTNnl7L01TZ9c0Oijs9ErHb2bvB+BxA=; b=udr3LFc+SJjwNZzkgf21oHBrb5
+	khHqC6/OiUoVWi789+/MhdSHchT2AQlnHpfwubQI2BN6Qie7Hd6bKqNLG7KdgPWTxd4julllifGjT
+	M4maZsQxKF9AsPfVXoxIyxmFd0zz2PuGxVF8tENQ3Sb/Z5GiQQAdvVuOje9S86wLpS6qfeb4kB66n
+	BDfalWMpvxbYN+weNj4vZw4NLW+Z9xd6LA+w0oAQO/n2lRtOCz4GGND+KYHfu7zod9N2Zykb+Fx5F
+	/SjlEBzEKyfeqoYRav1PCUyT6LZaM/I+hJAMMJyquDRTgU8CzocYDa1CUF5tYRGdn+A2kLeOQgFB7
+	P/66H0kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vayVa-000000066ex-3pvD;
-	Wed, 31 Dec 2025 15:53:10 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vayx3-000000068Kn-0oOU;
+	Wed, 31 Dec 2025 16:21:33 +0000
+Received: from mail-oa1-x33.google.com ([2001:4860:4864:20::33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vayVX-000000066eQ-3oH7
+	id 1vayx0-000000068Ip-0Bm8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 31 Dec 2025 15:53:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CA2EF405A3;
-	Wed, 31 Dec 2025 15:53:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1961DC113D0;
-	Wed, 31 Dec 2025 15:53:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767196386;
-	bh=WuZtOdVS5pt77HE6C/4UqSC04WxBcGthdWDuudQRYgg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VxDab8BYNIAerqtNV5zwvbjoskp/SPlehgZo8EmzUsqwfpTjb+PHLvjB3/Qja0h31
-	 UULkJOtXQH1SfmAb7vyAh6oIHb0OjR053QxyQL9jp1E2EPXisgst2fDkb6Pwm1biyT
-	 VWmvvozz2gG6CzWs1cAr3cftru801On2WHgnh2PLITLRtRFg3votB3ExybxAyD/TCc
-	 E9pfkXScaZOYlT/k3gRfSRJG9ofOzMXgcL5MwRQUb7FcyRsFHUs49yU5OMxzP78nXN
-	 a9Vs6QnYfGFU1BHGsY59xWhfGdN5QneBF7NTvxT2/ddwqD5zYUeX9DP8WxIh0e0M9/
-	 Gody5xZN6Kx0w==
-Date: Wed, 31 Dec 2025 16:53:03 +0100
-From: Frederic Weisbecker <frederic@kernel.org>
-To: Waiman Long <llong@redhat.com>
-Cc: LKML <linux-kernel@vger.kernel.org>,
-	Michal =?iso-8859-1?Q?Koutn=FD?= <mkoutny@suse.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Chen Ridong <chenridong@huawei.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Gabriele Monaco <gmonaco@redhat.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>, Phil Auld <pauld@redhat.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Simon Horman <horms@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
-	cgroups@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-block@vger.kernel.org, linux-mm@kvack.org,
-	linux-pci@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH 19/33] cpuset: Propagate cpuset isolation update to
- timers through housekeeping
-Message-ID: <aVVG3-NBYIhJmVsk@localhost.localdomain>
-References: <20251224134520.33231-1-frederic@kernel.org>
- <20251224134520.33231-20-frederic@kernel.org>
- <a8262eaf-169d-415d-949e-70f1a17b1e38@redhat.com>
+	Wed, 31 Dec 2025 16:21:32 +0000
+Received: by mail-oa1-x33.google.com with SMTP id 586e51a60fabf-3fa11ba9ed5so7107054fac.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 31 Dec 2025 08:21:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linuxfoundation.org; s=google; t=1767198089; x=1767802889; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=4VxsJvPd3cI1KTNnl7L01TZ9c0Oijs9ErHb2bvB+BxA=;
+        b=UOc7rZgQ4ti5Chzcg8vmu0BOmyjLVcyKDlaPVgIEep5aKVyVZtWzRicDZwwW2xPS7/
+         EF9TM/LBrJ8RXicYrbY6Ls+f0zIu/UdhNZoPhn/SRw5TV/k7zx9mZKVOpWNyczi2NpUE
+         QhTe0Lk1123vk5IHvisFv0/O8MHCrZkJdnUPw=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767198089; x=1767802889;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=4VxsJvPd3cI1KTNnl7L01TZ9c0Oijs9ErHb2bvB+BxA=;
+        b=YGpH5nl9YXA0C/lASn81JAMS0mYGY/2I2xb2qtTkEjrAJdwq8OFleAp6Jk79GLt4aH
+         IwMJ+1/35tejHquMlGYAgF30D73wL6h9YH5RHiTbuyUdmtuBrWkt/ucADyTJrUapKkN9
+         ChXo432tAYMqL2s4NUtwYf8c+zuzWMdonEBL0RrAfbSGCgx+TPYLpHYg8bBy87VX9LNw
+         MGsXcJ8dxpCHXSz22EdaM7DOKrP4NS5umJZDMPgR0WK1sdaDv+VPwA7qAW5SGAqr2FLU
+         VRgloUzp+B9PlI2pNbv59MAx16r5ccPD5CiHWJS89VJzep9IEt4aaBOZItIUE+ITx40O
+         qogg==
+X-Forwarded-Encrypted: i=1; AJvYcCXDqPJ9JEeGzHWJJKDKRDbqeNOpeOrIgWSYn9Q6lMO08mZBScbpqFlavApESwfisrL88es4QK2tA8BgDt3ZmAlY@lists.infradead.org
+X-Gm-Message-State: AOJu0YwlrfDCj9usbX7kh2uiDJn5FxoID52LVNm6SYyTuOozK2V1hAb9
+	EyCnX7IHUvH4v0SmVLwYz/BmKHHLJy3I9Wei1shBTdENB0nb9vOh8G7fU4hmy7cZ/Uo=
+X-Gm-Gg: AY/fxX7R9AqT0nfuodsxM8C0/UDF5IwLZlT6eJfLjGb8HLQZDckgH0MvP6M4Ea+hTQn
+	EP4AymzEMjWMkyVICwzZo8tEpH859Uq6fRW20FKcp0pKy/2bvVAq661EZbEiaKMsT5SrkeCeIJT
+	CpHPr+j/ZtwRakOFIeTJt05QZDqUNpLG9fwuV3HwKAgSKqpfhEGaw51yDKWpix3u2WHwXJLkRwO
+	F2aWYFH1OD6x9JHy6WlCg2LEqSHNvzu0nR1v9AYl6KgydcKDQhriqTwFxR8cYpXTowumV0iXwC3
+	7o4NeF0DFwyM/bEATPyIsca7rOzBtZkb0EZGzySD6JZEChPbQN/ptAEUx7gPgQ5g89bwnx+Ce2R
+	GVMvfB9SauybKxBgS7Q1R/JwQUvwmI7dJUuG2vcFnqTq7LDRFJ0E4NPWiwdd1P0QVv2L1HFrWq7
+	0jjF7Am6UdgJItmzyWQWzNAUg=
+X-Google-Smtp-Source: AGHT+IEHyGzJlX9BG5IGxQWI+udvuX8r10ycrsNMN1UZ5U1HR75+jvZ88LGIfUUEQ4FL5FGJJHzKPg==
+X-Received: by 2002:a05:6870:c18b:b0:3ec:321c:b2ac with SMTP id 586e51a60fabf-3fda580edb0mr17664156fac.37.1767198088781;
+        Wed, 31 Dec 2025 08:21:28 -0800 (PST)
+Received: from [192.168.1.14] ([38.175.187.108])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-3fdaab65763sm22362927fac.13.2025.12.31.08.21.27
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 31 Dec 2025 08:21:28 -0800 (PST)
+Message-ID: <f9a32a91-e25a-4f25-8c1a-1e4c0e3b07e4@linuxfoundation.org>
+Date: Wed, 31 Dec 2025 09:21:26 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: Linux 6.19-rc1 mediatek mt7921e broke badly
+To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>
+Cc: Matthew Schwartz <matthew.schwartz@linux.dev>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ Eric Biggers <ebiggers@kernel.org>,
+ Mikhail Gavrilov <mikhail.v.gavrilov@gmail.com>,
+ Mario Limonciello <superm1@kernel.org>,
+ Johannes Berg <johannes@sipsolutions.net>, quan.zhou@mediatek.com,
+ Felix Fietkau <nbd@nbd.name>, lorenzo@kernel.org, ryder.lee@mediatek.com,
+ linux-wireless@vger.kernel.org,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ linux-mediatek@lists.infradead.org, shuah <shuah@kernel.org>,
+ Shuah Khan <skhan@linuxfoundation.org>
+References: <d7f3b00d-beec-41f0-b157-7cfb871f9a46@linuxfoundation.org>
+ <756e3f65-b2f2-4da3-985a-17754a7a872d@t-8ch.de>
+ <CAHk-=wjO-7uR5HBi-MFnkxAxjhpgfbAQ+HCMKPiXFVwM+AJ7tA@mail.gmail.com>
+ <6fc04df5-b753-4b2d-b978-0e59a7f48ff7@linux.dev>
+ <c1304430-dd7d-437b-8744-70af9ca85c0d@linuxfoundation.org>
+ <8c8c8f27-ba44-48eb-96f6-dae6d2d0cbf8@t-8ch.de>
+Content-Language: en-US
+From: Shuah Khan <skhan@linuxfoundation.org>
+In-Reply-To: <8c8c8f27-ba44-48eb-96f6-dae6d2d0cbf8@t-8ch.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <a8262eaf-169d-415d-949e-70f1a17b1e38@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251231_075307_998769_445DC510 
-X-CRM114-Status: GOOD (  20.05  )
+X-CRM114-CacheID: sfid-20251231_082130_489100_56B6BCA1 
+X-CRM114-Status: GOOD (  19.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,62 +114,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le Fri, Dec 26, 2025 at 03:40:25PM -0500, Waiman Long a �crit :
-> On 12/24/25 8:45 AM, Frederic Weisbecker wrote:
-> > Until now, cpuset would propagate isolated partition changes to
-> > timer migration so that unbound timers don't get migrated to isolated
-> > CPUs.
-> > 
-> > Since housekeeping now centralizes, synchronize and propagates isolation
-> > cpumask changes, perform the work from that subsystem for consolidation
-> > and consistency purposes.
-> > 
-> > Signed-off-by: Frederic Weisbecker<frederic@kernel.org>
-> > ---
-> >   kernel/cgroup/cpuset.c   | 3 ---
-> >   kernel/sched/isolation.c | 5 +++++
-> >   2 files changed, 5 insertions(+), 3 deletions(-)
-> > 
-> > diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
-> > index a492d23dd622..25ac6c98113c 100644
-> > --- a/kernel/cgroup/cpuset.c
-> > +++ b/kernel/cgroup/cpuset.c
-> > @@ -1487,9 +1487,6 @@ static void update_isolation_cpumasks(void)
-> >   	ret = housekeeping_update(isolated_cpus, HK_TYPE_DOMAIN);
-> >   	WARN_ON_ONCE(ret < 0);
-> > -	ret = tmigr_isolated_exclude_cpumask(isolated_cpus);
-> > -	WARN_ON_ONCE(ret < 0);
-> > -
-> >   	isolated_cpus_updating = false;
-> >   }
-> > diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
-> > index d224bca299ed..84a257d05918 100644
-> > --- a/kernel/sched/isolation.c
-> > +++ b/kernel/sched/isolation.c
-> > @@ -150,7 +150,12 @@ int housekeeping_update(struct cpumask *isol_mask, enum hk_type type)
-> >   	pci_probe_flush_workqueue();
-> >   	mem_cgroup_flush_workqueue();
-> >   	vmstat_flush_workqueue();
-> > +
-> >   	err = workqueue_unbound_housekeeping_update(housekeeping_cpumask(type));
-> > +	WARN_ON_ONCE(err < 0);
-> > +
-> > +	err = tmigr_isolated_exclude_cpumask(isol_mask);
-> > +	WARN_ON_ONCE(err < 0);
-> >   	kfree(old);
+On 12/31/25 03:36, Thomas Weißschuh wrote:
+> On 2025-12-30 16:57:20-0700, Shuah Khan wrote:
+>> On 12/29/25 21:21, Matthew Schwartz wrote:
+>>> On 12/29/25 4:41 PM, Linus Torvalds wrote:
+>>>> On Sat, 27 Dec 2025 at 04:25, Thomas Weißschuh <linux@weissschuh.net> wrote:
+>>>>>
+>>>>> Hi Shuah,
+>>>>>
+>>>>> On 2025-12-27 02:07:24-0700, Shuah Khan wrote:
+>>>>>> mt7921e doesn't load on my primary laptopn on Linux 6.19-rc1 and problem
+>>>>>> still there on 6.19-rc2.
+>>>>>
+>>>>> This should be a duplicate of
+>>>>> https://lore.kernel.org/all/CABXGCsMeAZyNJ-Axt_CUCXgyieWPV3rrcLpWsveMPT8R0YPGnQ@mail.gmail.com/
 > 
-> If you are doing "WARN_ON_ONCE() in housekeeping_update(), you don't need to
-> do it in update_isolation_cpumask() to avoid double warnings. Actually, you
-> don't need to return an error code from housekeeping_update() at all.
+> (...)
+>   
+>> Reverting the following fixed my problem.
+>> f804a5895eba ("wifi: mt76: Strip whitespace from build ddate")
+>>
+>> The above fixes an extra newline in the dmesg by making the
+>> code more complex it needs to introducing local buffers and
+>> strscpy() - the proposed fix replaces this with memcpy().
+>>
+>> Is there a simple way to do this than introducing memcpy()
+>> or strscpy() to remove an extra newline that might or might
+>> not exist? Why not check if newline exists or not using
+>> strstr()?
 > 
-> Cheers, Longman
+> We do have memtostr() which would be a perfect fit to use here.
+> That is still a memcpy() under the hood, but the code is clear and safe.
+> It does however require the source to be annotated as __nonstring.
+> Which also seems to be the right choice here anyways. However for
+> consistency, all other similar fields should also be annotated in the
+> same way. So it is a bit of a larger change than a pure bugfix.
+> 
 
-Ok, I'm keeping the error return for allocation failures at the beginning of
-housekeeping_update() but the rest will only warn in place.
+I am playing with just removing \n from dev_info() - there are
+three dev_info()s in the same routine that print the same
+information. I will also take a look to see if they are indeed
+needed.
 
-Thanks.
-
--- 
-Frederic Weisbecker
-SUSE Labs
+thanks,
+-- Shuah
 
