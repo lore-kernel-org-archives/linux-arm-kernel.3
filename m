@@ -4,69 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A8AEEE644A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 22:52:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 649D5EEB573
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 23:41:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=k/kZyK6TqAfwByqwpeHhw3JAJzGjFHO6FsGAvcnGlw8=; b=2ZWmXkxSPlVUK1xeyRvTjUgwMP
-	Jq/y0G8B4cxPzvS9nPr9EaXhg6vJJBCmtP6MivIPLOMGY+5prYYrs7sUJn9lENZD3UIjm70oxO0mf
-	udg0R2X8ye7gtEK6ywtE03u04qYkcaC1B5NO8YbuG7qgE3IEiYUMQErfkAmES4TB9DtcO8r7dyaTe
-	VHORcWNy0CIfp7BLBsGn+Bav7+gfAb7AkW6QchCfSioPZU3ugymFleR2MXwr27W5Zu5ki4AC766Mj
-	uiYCm7otjgmX1YOEsSyaXiwPnsH/LridKLPN1VrkNHGaeqquSvl6nPl+FJZFI2BybqZKgQryU6KnM
-	7oneYkbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BWy1gXyOOWYNnYUBz6Zo1eDM/lnD8SOnC63pK454g8g=; b=seoUhj4T+dUyalCCTIHlXN/JPO
+	/hZBD0sSO2k3TT5cUJHP4Mp4hBHMxCYgiJTZaT/zm7bJZ/LFh9gVHPmUFdfUsFqRNzlOXkNpkqCKF
+	BVUDgD1TNA2JUFXPL2aaAIXbqqt6nnjUw+8k5OFqW0jUYS+Y/mZdRsKQJH6pVgFL/ZFp9+VU+gQJV
+	faP5fH+4tITYvkWzQgIO2RS1ZTO1Z3HEwzO48slGoltURi/JsbnBq34qHqFbdAzSOAZQE/a5hiJK7
+	6ze5RgIL4tqGAS8IG/xtAplnjdw+6KFU3RKwgKpMY+lcPQcj/99nqYSlOrx1ODZ3n9WPh4KIqkNax
+	X7TdEK8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vb53Z-00000006PL5-1HzY;
-	Wed, 31 Dec 2025 22:52:41 +0000
-Received: from ms-10.1blu.de ([178.254.4.101])
+	id 1vb5oi-00000006QWh-2Uhx;
+	Wed, 31 Dec 2025 23:41:24 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vb53W-00000006PJz-0G19;
-	Wed, 31 Dec 2025 22:52:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=pace-systems.de; s=blu0479712; h=Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=k/kZyK6TqAfwByqwpeHhw3JAJzGjFHO6FsGAvcnGlw8=; b=dfRkWWFmmCS/OHh/s56CQOoFTl
-	txJhzr56PE7YmQZBtlvQjxdgtyJChzYD7xg1pGvghSBaV8uVwgY/qGRIXKQk4nXOHSuddfL1N4FB7
-	Loy5LgGlS3K56SKukiYDCL+2/oHBSCfgwOo9mexwvJ+shIB64FWkxP9BbVYAXizMtVu1Oz/byagP+
-	Ei3X8xEdGbcPzqDA3c7zFpkno6YnyOjSaeGTcoLgPA4NOVqp24UIRhBWvGBQkmGiyNSozOUFfGAgT
-	QznqP34YRAZRpa03vbHzn1Bf/xV5m5iRahbJxum4/Mr5wYHU1YKIkxvxnc7yP42IKw4XsFOZhE3OH
-	6MMM0IOw==;
-Received: from [178.201.20.114] (helo=sebastian-zbook)
-	by ms-10.1blu.de with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <Sebastian.Wolf@pace-systems.de>)
-	id 1vb53A-007wep-Ff;
-	Wed, 31 Dec 2025 23:52:16 +0100
-From: Sebastian Roland Wolf <Sebastian.Wolf@pace-systems.de>
-To: Felix Fietkau <nbd@nbd.name>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Sebastian Roland Wolf <srw@root533.premium-rootserver.net>,
-	Sebastian Roland Wolf <Sebastian.Wolf@pace-systems.de>
-Subject: [PATCH] net: mediatek: add null pointer check for hardware offloading
-Date: Wed, 31 Dec 2025 23:52:06 +0100
-Message-ID: <20251231225206.3212871-1-Sebastian.Wolf@pace-systems.de>
-X-Mailer: git-send-email 2.51.0
+	id 1vb5of-00000006QWC-1go5
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 31 Dec 2025 23:41:22 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-7aa2170adf9so8241504b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 31 Dec 2025 15:41:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1767224480; x=1767829280; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=BWy1gXyOOWYNnYUBz6Zo1eDM/lnD8SOnC63pK454g8g=;
+        b=D023eVkgXGZvGe7+Dd1MgrrU7qc7q6WKNI7J0O1V9DSs8OqCNY2eaXsqRHSiaotX01
+         Jjik1kVonjwTwgoR+jaw9RJC6yD+Z1WzW8cGzBUNTKBJD5vOgHC0Zd7u9+37vbP0qHFU
+         ImzrjsprBX6gQclYsUNYv5+d91Rdr9s3k8Zeth8shxYMqDNf4MTCsxRWNpxw7/m2Q8Jx
+         Xsw2mwyEa69ZCzcj6L25KnNmm8gMAvf42ekC75KLTRiL/Wlm3QNNV0uhnmVk2jOu4pFN
+         lMZJcPfx5c0OMS4cLCVE7/cv5bqRIKcgs/HiM0KQrU3Yf0fEGWvcSWLHcB8wpgWUjAGk
+         EI7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767224480; x=1767829280;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=BWy1gXyOOWYNnYUBz6Zo1eDM/lnD8SOnC63pK454g8g=;
+        b=cU/+v4XkRZNdvlbHLjfP1ad2AWR9rqHVlOR8JqTe2TQIAjNwFxICtEp9pkTCSaQiBG
+         WJzWM+HUxWIxdavLPqvH7ftJbpT0mwbuuQxpuS6lWW1UURv74EBlbpRmG4jxB56PKEIw
+         NDbPNDq/5pEr8wN2mjKZVaV16k4nOXPfUuEgCmWPAvhYYUz+FVch7z5DCJ/1a8H0XnTM
+         IU4Sc5Qg3nMEF2Xm/j+HEEtJCE8vcRHHxyDhNDLwwCADn7oRsSQlijHN8pPWwq7bqjAw
+         MxjtEM7/vYhp32dis2rGRVYI9HpOIkxCYMKhU9M+SMXSlxN8E6fX1bVx7BVMIP7yDn9i
+         RbZQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUAo3s8uJ2WftYhmAkQzRAFPilYAqvauhxcKPHXeEU+vdFVmEYpZAupTrKgGYaIXGk6D2kcXVVOX4LbzWPBaId/@lists.infradead.org
+X-Gm-Message-State: AOJu0YxcNF52xU860gPlWjxAx+4mMf645qP2lHvnk2vvCiqsCXdqM4Dx
+	q2R7ky7nYgelQrSrvwa9ik4dSRbzT9MO1BqhGzHIjiGII/5OlgeQNsrOefQj+Q==
+X-Gm-Gg: AY/fxX7tqMlPbmacDo2TRr7M2r7y7d8wEGXu978kh+t6cFfh5X1S0etrUpY4VaDyT34
+	Rj+GOUF6VrT7Fjqz/KZlYk1+d3evHkqAtjN7JlYQAvMN1tl51KzdSuntLWCL3NpSs0jP6s+TvqY
+	ZetW9nG0+gad6oU0L6LPQ/3zF0Z9TPzmZXpoYUuXiUisZ9WsMZ8qwfMz3aBFd/qrKCuCeLYsUdC
+	npHc4yJcDX/JuTgkmxExinB342XUpCYZZTyvSt64Mn7SJuHLw+MurzBHKXoodfWNA1Tr0TPaBeE
+	XoBzwl75/vK0q5pBr2g/nV/nwJfbvwVRR/t3I0XqIiney/lb05s03dMcsHMPryeka9g3PG9jr3b
+	/bj5GxeeUzkewtniBdbqiB1aVLh2NjFw9RzQkxOyt46NNmsQBXxMd6au+IuAzplgFnzWPzxQfPv
+	hAOTkJJ3/5diAKQ2QyM7IECqsk
+X-Google-Smtp-Source: AGHT+IHdS1XCFIF/s+R2MzEjCr3KsXQm81WSnRd7sNkVOMb7Y4hp3EFixXPpBvYYArS7H/0Gwn6dbQ==
+X-Received: by 2002:a05:7022:3b8d:b0:119:e55a:9bfa with SMTP id a92af1059eb24-121722b46d6mr35420452c88.22.1767224480383;
+        Wed, 31 Dec 2025 15:41:20 -0800 (PST)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1217253c058sm143562327c88.11.2025.12.31.15.41.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 31 Dec 2025 15:41:19 -0800 (PST)
+Date: Wed, 31 Dec 2025 15:41:18 -0800
+From: Guenter Roeck <linux@roeck-us.net>
+To: Nandor Han <nandor.han@gehealthcare.com>
+Cc: wim@linux-watchdog.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com,
+	linux-watchdog@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] watchdog: imx2_wdt: Allow to continue in low power
+ mode
+Message-ID: <ee2771f2-539d-4bb2-adc1-663e39488148@roeck-us.net>
+References: <20251229145000.421426-1-nandor.han@gehealthcare.com>
+ <20251229145000.421426-2-nandor.han@gehealthcare.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Con-Id: 282146
-X-Con-U: 0-sebastianwolf
-X-Originating-IP: 178.201.20.114
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251229145000.421426-2-nandor.han@gehealthcare.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251231_145238_401039_CEA69E16 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20251231_154121_464549_B659F89A 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,42 +105,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sebastian Roland Wolf <srw@root533.premium-rootserver.net>
+On Mon, Dec 29, 2025 at 04:49:59PM +0200, Nandor Han wrote:
+> By default, the driver suspends the watchdog in low power modes (STOP
+> and DOZE). In some situations this is not desired.
 
-Add a null pointer check to prevent kernel crashes when hardware
-offloading is active on MediaTek devices.
+Following up on Krzysztof's comment to the devicetree patch:
+Assuming the watchdog is in low power mode while the system is
+suspended, it is all but impossible to imagine what those situations
+might be. A reset by watchdog after the system is suspended simply
+does not make sense. A system which must not go into suspend mode
+must not be permitted to go into suspend mode to start with, or in
+other words suspend mode must not be enabled to start with on such
+systems.
 
-In some edge cases, the ethernet pointer or its associated netdev
-element can be NULL. Checking these pointers before access is
-mandatory to avoid segmentation faults and kernel oops.
-
-This improves the robustness of the validation check for mtk_eth
-ingress devices introduced in commit 73cfd947dbdb ("net: mediatek:
-add support for ingress traffic offloading").
-
-Fixes: 73cfd947dbdb ("net: mediatek: add support for ingress traffic offloading")
-net: mediatek: Add null pointer check to prevent crashes with active hardware offloading.
-
-Signed-off-by: Sebastian Roland Wolf <Sebastian.Wolf@pace-systems.de>
----
- drivers/net/ethernet/mediatek/mtk_ppe_offload.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/net/ethernet/mediatek/mtk_ppe_offload.c b/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
-index e9bd32741983..6900ac87e1e9 100644
---- a/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
-+++ b/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
-@@ -270,7 +270,8 @@ mtk_flow_offload_replace(struct mtk_eth *eth, struct flow_cls_offload *f,
- 		flow_rule_match_meta(rule, &match);
- 		if (mtk_is_netsys_v2_or_greater(eth)) {
- 			idev = __dev_get_by_index(&init_net, match.key->ingress_ifindex);
--			if (idev && idev->netdev_ops == eth->netdev[0]->netdev_ops) {
-+			if (idev && eth && eth->netdev[0] &&
-+			    idev->netdev_ops == eth->netdev[0]->netdev_ops) {
- 				struct mtk_mac *mac = netdev_priv(idev);
- 
- 				if (WARN_ON(mac->ppe_idx >= eth->soc->ppe_num))
--- 
-2.51.0
-
+Guenter
 
