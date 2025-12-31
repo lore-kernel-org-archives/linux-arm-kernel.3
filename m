@@ -4,79 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3080EE644A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 21:58:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A8AEEE644A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 22:52:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/bBtCPA30ebdutMRXzIsFYbMo3m7bo8sSvdhd/4paok=; b=q/XyeyyPjRXJeHxEaRntW+8OwA
-	HpW7P+ZoiFZJg+lOYWG7iDclsf/PhL3q2QqPh+SJYItGEw3Hk8kkyQqCZMH3YjkjgclSbNXHyxdGE
-	0pZRTC/4aCnpRj1QrndV11CogJnm5Z7bwH8M71oFOUWRemKF9ozBiotHciA67KWluo3voOo59yIJ+
-	nbR7WCTa/P2RVvkXonU6cnt++79pBUcGYkra/Rp+eJq1/TLHL73FEMGqSk2XD1YP+6yzs+RMdVb/V
-	96WkfSqBYtAajR9ABULi3ODMlZEu+6QkXwPGpjEMwQEuc71YeuArw4WnvR4gL8nCQwcW5Q6W9vPhw
-	bgQW+QCA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=k/kZyK6TqAfwByqwpeHhw3JAJzGjFHO6FsGAvcnGlw8=; b=2ZWmXkxSPlVUK1xeyRvTjUgwMP
+	Jq/y0G8B4cxPzvS9nPr9EaXhg6vJJBCmtP6MivIPLOMGY+5prYYrs7sUJn9lENZD3UIjm70oxO0mf
+	udg0R2X8ye7gtEK6ywtE03u04qYkcaC1B5NO8YbuG7qgE3IEiYUMQErfkAmES4TB9DtcO8r7dyaTe
+	VHORcWNy0CIfp7BLBsGn+Bav7+gfAb7AkW6QchCfSioPZU3ugymFleR2MXwr27W5Zu5ki4AC766Mj
+	uiYCm7otjgmX1YOEsSyaXiwPnsH/LridKLPN1VrkNHGaeqquSvl6nPl+FJZFI2BybqZKgQryU6KnM
+	7oneYkbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vb4D8-00000006NMH-0CVI;
-	Wed, 31 Dec 2025 21:58:32 +0000
-Received: from mleia.com ([178.79.152.223] helo=mail.mleia.com)
+	id 1vb53Z-00000006PL5-1HzY;
+	Wed, 31 Dec 2025 22:52:41 +0000
+Received: from ms-10.1blu.de ([178.254.4.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vb4Cz-00000006NIR-42ph
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 31 Dec 2025 21:58:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
-	t=1767218300; bh=m+mdNbHBwSu7JNOSxE57TwouE4jZO/PptGoxHs28w1A=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=sfVxD4Vl40LWt1+x3YeEcNvL8mp9yvmqrVrVyA5yG4lRBeFLyt+yE+ME4zStY85lc
-	 91si9N7iJY7R4ShWdRp1Eul0svyEFjce+cUqyAVf53hemKUlFX64MNuPtmnWPqUqDS
-	 hXE0jH001SMCk2bm+9HqJWc80UgeKxohwxu0X45ZZFSj8/ke2CxAouAAgDOvnEU+V7
-	 eUNLBXorvaqE7UXiovMQ32ZH2Q2OdNOG+f41d5yQ+478+54uZ9uRvwEaJqSFFraG5X
-	 FO2Gi9Y2Cd/CAFVkK12DT21RE7C5h1jn8SaU4y3B+ezlI4V9LV9ScI/EuPS4hLM1Vb
-	 zShuEYBLg19RQ==
-Received: from mail.mleia.com (localhost [127.0.0.1])
-	by mail.mleia.com (Postfix) with ESMTP id 5A6F73E99A9;
-	Wed, 31 Dec 2025 21:58:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
-	t=1767218300; bh=m+mdNbHBwSu7JNOSxE57TwouE4jZO/PptGoxHs28w1A=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=sfVxD4Vl40LWt1+x3YeEcNvL8mp9yvmqrVrVyA5yG4lRBeFLyt+yE+ME4zStY85lc
-	 91si9N7iJY7R4ShWdRp1Eul0svyEFjce+cUqyAVf53hemKUlFX64MNuPtmnWPqUqDS
-	 hXE0jH001SMCk2bm+9HqJWc80UgeKxohwxu0X45ZZFSj8/ke2CxAouAAgDOvnEU+V7
-	 eUNLBXorvaqE7UXiovMQ32ZH2Q2OdNOG+f41d5yQ+478+54uZ9uRvwEaJqSFFraG5X
-	 FO2Gi9Y2Cd/CAFVkK12DT21RE7C5h1jn8SaU4y3B+ezlI4V9LV9ScI/EuPS4hLM1Vb
-	 zShuEYBLg19RQ==
-Received: from mail.mleia.com (91-159-24-186.elisa-laajakaista.fi [91.159.24.186])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.mleia.com (Postfix) with ESMTPSA id CB2A83E99AB;
-	Wed, 31 Dec 2025 21:58:19 +0000 (UTC)
-From: Vladimir Zapolskiy <vz@mleia.com>
-To: Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH 5/5] ARM: dts: lpc32xx: Add missing properties to I2S device tree nodes
-Date: Wed, 31 Dec 2025 23:57:54 +0200
-Message-ID: <20251231215754.2222308-6-vz@mleia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251231215754.2222308-1-vz@mleia.com>
-References: <20251231215754.2222308-1-vz@mleia.com>
+	id 1vb53W-00000006PJz-0G19;
+	Wed, 31 Dec 2025 22:52:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=pace-systems.de; s=blu0479712; h=Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=k/kZyK6TqAfwByqwpeHhw3JAJzGjFHO6FsGAvcnGlw8=; b=dfRkWWFmmCS/OHh/s56CQOoFTl
+	txJhzr56PE7YmQZBtlvQjxdgtyJChzYD7xg1pGvghSBaV8uVwgY/qGRIXKQk4nXOHSuddfL1N4FB7
+	Loy5LgGlS3K56SKukiYDCL+2/oHBSCfgwOo9mexwvJ+shIB64FWkxP9BbVYAXizMtVu1Oz/byagP+
+	Ei3X8xEdGbcPzqDA3c7zFpkno6YnyOjSaeGTcoLgPA4NOVqp24UIRhBWvGBQkmGiyNSozOUFfGAgT
+	QznqP34YRAZRpa03vbHzn1Bf/xV5m5iRahbJxum4/Mr5wYHU1YKIkxvxnc7yP42IKw4XsFOZhE3OH
+	6MMM0IOw==;
+Received: from [178.201.20.114] (helo=sebastian-zbook)
+	by ms-10.1blu.de with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <Sebastian.Wolf@pace-systems.de>)
+	id 1vb53A-007wep-Ff;
+	Wed, 31 Dec 2025 23:52:16 +0100
+From: Sebastian Roland Wolf <Sebastian.Wolf@pace-systems.de>
+To: Felix Fietkau <nbd@nbd.name>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Sebastian Roland Wolf <srw@root533.premium-rootserver.net>,
+	Sebastian Roland Wolf <Sebastian.Wolf@pace-systems.de>
+Subject: [PATCH] net: mediatek: add null pointer check for hardware offloading
+Date: Wed, 31 Dec 2025 23:52:06 +0100
+Message-ID: <20251231225206.3212871-1-Sebastian.Wolf@pace-systems.de>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-49551924 
-X-CRM114-CacheID: sfid-20251231_215820_410486_3C6531FE 
-X-CRM114-Status: GOOD (  11.54  )
-/bin/ln: failed to access 'reaver_cache/texts/20251231_215820_410486_3C6531FE': No such file or directory
+X-Con-Id: 282146
+X-Con-U: 0-sebastianwolf
+X-Originating-IP: 178.201.20.114
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251231_215820_410486_3C6531FE 
-X-CRM114-Status: GOOD (  10.45  )
+X-CRM114-CacheID: sfid-20251231_145238_401039_CEA69E16 
+X-CRM114-Status: GOOD (  10.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,50 +81,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>
+From: Sebastian Roland Wolf <srw@root533.premium-rootserver.net>
 
-Add NXP LPC32xx I2S controller device tree properties in accordance to
-nxp,lpc3220-i2s.yaml.
+Add a null pointer check to prevent kernel crashes when hardware
+offloading is active on MediaTek devices.
 
-Link to the original change:
-* https://lore.kernel.org/linux-arm-kernel/20240627150046.258795-7-piotr.wojtaszczyk@timesys.com/
+In some edge cases, the ethernet pointer or its associated netdev
+element can be NULL. Checking these pointers before access is
+mandatory to avoid segmentation faults and kernel oops.
 
-Signed-off-by: Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>
-[vzapolskiy: changes to the commit message]
-Signed-off-by: Vladimir Zapolskiy <vz@mleia.com>
+This improves the robustness of the validation check for mtk_eth
+ingress devices introduced in commit 73cfd947dbdb ("net: mediatek:
+add support for ingress traffic offloading").
+
+Fixes: 73cfd947dbdb ("net: mediatek: add support for ingress traffic offloading")
+net: mediatek: Add null pointer check to prevent crashes with active hardware offloading.
+
+Signed-off-by: Sebastian Roland Wolf <Sebastian.Wolf@pace-systems.de>
 ---
- arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi | 6 ++++++
- 1 file changed, 6 insertions(+)
+ drivers/net/ethernet/mediatek/mtk_ppe_offload.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi b/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
-index 389777ee6850..53e12679ba5b 100644
---- a/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
-+++ b/arch/arm/boot/dts/nxp/lpc/lpc32xx.dtsi
-@@ -238,8 +238,11 @@ spi2: spi@20090000 {
- 			i2s0: i2s@20094000 {
- 				compatible = "nxp,lpc3220-i2s";
- 				reg = <0x20094000 0x1000>;
-+				interrupts = <22 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&clk LPC32XX_CLK_I2S0>;
- 				dmas = <&dma 0 1>, <&dma 13 1>;
- 				dma-names = "rx", "tx";
-+				#sound-dai-cells = <0>;
- 				status = "disabled";
- 			};
+diff --git a/drivers/net/ethernet/mediatek/mtk_ppe_offload.c b/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
+index e9bd32741983..6900ac87e1e9 100644
+--- a/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
++++ b/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
+@@ -270,7 +270,8 @@ mtk_flow_offload_replace(struct mtk_eth *eth, struct flow_cls_offload *f,
+ 		flow_rule_match_meta(rule, &match);
+ 		if (mtk_is_netsys_v2_or_greater(eth)) {
+ 			idev = __dev_get_by_index(&init_net, match.key->ingress_ifindex);
+-			if (idev && idev->netdev_ops == eth->netdev[0]->netdev_ops) {
++			if (idev && eth && eth->netdev[0] &&
++			    idev->netdev_ops == eth->netdev[0]->netdev_ops) {
+ 				struct mtk_mac *mac = netdev_priv(idev);
  
-@@ -256,8 +259,11 @@ sd: mmc@20098000 {
- 			i2s1: i2s@2009c000 {
- 				compatible = "nxp,lpc3220-i2s";
- 				reg = <0x2009c000 0x1000>;
-+				interrupts = <23 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&clk LPC32XX_CLK_I2S1>;
- 				dmas = <&dma 2 1>, <&dmamux 10 1 1>;
- 				dma-names = "rx", "tx";
-+				#sound-dai-cells = <0>;
- 				status = "disabled";
- 			};
- 
+ 				if (WARN_ON(mac->ppe_idx >= eth->soc->ppe_num))
 -- 
-2.43.0
+2.51.0
 
 
