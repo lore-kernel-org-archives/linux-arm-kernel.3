@@ -4,50 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C175EE6427
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 10:50:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53FDCEE642A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 11:11:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:From:To:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:
+	Subject:From:To:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
 	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o/Z1oWMJuqMZIoKFGfzInyQtaixm68ScowVMHojeTZ4=; b=u/w2Kr0a3sc54mfb9ZNBlnklCM
-	drwJct+EpjiLm5QPUszd5AveuGdT1Gkv9YiKl1Si3gmQyVQHg6DcwoqGdaMYkBpea3lqUIGzOb95x
-	UQ+c3f4JLfWQ6elWJFwi8pBC/jksO4c351CEZZuJMBYPcOIT+d7JDt/Gj3WIWqfuS4B0zAq3e4lsY
-	wH56vD1gcIg4oRiP2kFE568rK0Z0dwhty15R342WGyK/Tjp64J/WJcz9yJUAUm4lWu9vbtDYb+3WU
-	l+oS5EFCjRen7H76jK10HbHZoBO+fHTe2OUNPGhnDiONeXAW42XyDPHPiQKkpG2eLWguanYohwCHz
-	v/MenQ8w==;
+	bh=55XhYgANfix4/exU+jGGVTiGXqeuZF3yQcF00ZiG0dM=; b=CgTjcjOGfY9j9J6TSCiDYhilRM
+	sUiiwMPPnIih4j/4w+PPB0W/dVjaab4TfX9uAH4Z2C60kmhzzc7L+caqx9kO1sVegnGQBf1tHippz
+	5R/cF+4uZ3VOfYVMMVq6ZTGXIaaLYGAgPGSLjXMJ3oENMqn4nWjajj2paLBaEpUempN4DaYcU+upd
+	OQx9jWIA7L4RhcN8R9bc7eJeN3E5O7ZR58CKkqFEJlo8+IwVhJlr9xKLeBnzLWOgqz/Z4nUKovtj+
+	zuJczz1/n9VmMo3fFIwku9XZztcG9yI9KjJcMrhdGp3M/Pz4WQP0ZhXctoItjZ0grfmrw1v+wojs0
+	ENJ30mYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vatmn-00000005tkM-0sIp;
-	Wed, 31 Dec 2025 10:50:37 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vau6y-00000005uY5-2xBB;
+	Wed, 31 Dec 2025 11:11:28 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vatmj-00000005tjy-1WJg;
-	Wed, 31 Dec 2025 10:50:35 +0000
+	id 1vau6v-00000005uXP-35kM
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 31 Dec 2025 11:11:27 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id D2CD4C1AE22;
-	Wed, 31 Dec 2025 10:50:02 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 364B51A255B;
+	Wed, 31 Dec 2025 11:11:22 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 4A06060744;
-	Wed, 31 Dec 2025 10:50:28 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 52745113B0761;
-	Wed, 31 Dec 2025 11:50:16 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id E455C60744;
+	Wed, 31 Dec 2025 11:11:21 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 23832113B0764;
+	Wed, 31 Dec 2025 12:11:08 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1767178226; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1767179480; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=o/Z1oWMJuqMZIoKFGfzInyQtaixm68ScowVMHojeTZ4=;
-	b=SsqIb5ow7v/6UFYF34MR3rDUSBx3YczuZw7xKUxdk+tgkyoQgTiXQNv11eRgnwbhpuarKw
-	UeIQgJ1dioQ7o1MXOWuHqmtVIrpWKfvK5sqXw8geFXGwRo1gINFkN+RfKVIvRjG+HRbFNT
-	7RVR5xnIwrJ9zLALAGWwVBqa72bYwfYaH/9s8czYbZ8C97aQMKiEXHKI1WcGf1tsxNi6AW
-	h3tACyEXkQgbWLG61NjtwwWBjENblxG4eY2cmCq9ed9jeUVexoG931bT7Cx9Xt+UXBZdV1
-	d7+IE+kBV+JgFf93zyVPI/DpCiIdUX2tl4nMm0jVJT1oXZ700jLDDOVoRCqavw==
+	bh=55XhYgANfix4/exU+jGGVTiGXqeuZF3yQcF00ZiG0dM=;
+	b=SV1z9pfVtcvrATQfVDliiBBq97NU2utS5KLqyYqYIEj6QCeA4MJLMV0/aD0g5Kgy2ee3tw
+	veAPFFUoIjkP14Qn16fce692SQjf3ADHMll9fqtbkPG3bp6oQWbpgBpvzE+wWPpZgT+pXV
+	eYO2QQC1jxOxq44S19F4xyBKx0SCOpxb5zQ/ly1kI4hEIm4pb7Sh+yOhXln3rGW02DunPj
+	EJQlHqWuVLbsLvvlhtnaoHXIERp1gRaD4S6ql/3Yjzy47tbZM/cCNTPWXT5qCEu53eNF1P
+	AAve6YLAB9fWQWUp/Yu9yIzJrpJV1l1SZdgRcIuzp8Ez1v7p1prS1R34TIwyLw==
 Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Date: Wed, 31 Dec 2025 11:50:15 +0100
-Message-Id: <DFCCE8SW7MFX.ZOMBZPN1S2NX@bootlin.com>
+Date: Wed, 31 Dec 2025 12:11:08 +0100
+Message-Id: <DFCCU8AN0GZQ.2CYTKKV40JYLI@bootlin.com>
+To: "Damon Ding" <damon.ding@rock-chips.com>, <andrzej.hajda@intel.com>,
+ <neil.armstrong@linaro.org>, <rfoss@kernel.org>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH v8 04/18] drm/bridge: analogix_dp: Add
+ &analogix_dp_plat_data.next_bridge
 Cc: <Laurent.pinchart@ideasonboard.com>, <jonas@kwiboo.se>,
  <jernej.skrabec@gmail.com>, <maarten.lankhorst@linux.intel.com>,
  <mripard@kernel.org>, <tzimmermann@suse.de>, <airlied@gmail.com>,
@@ -62,20 +68,14 @@ Cc: <Laurent.pinchart@ideasonboard.com>, <jonas@kwiboo.se>,
  <dri-devel@lists.freedesktop.org>, <imx@lists.linux.dev>,
  <linux-arm-kernel@lists.infradead.org>,
  <linux-samsung-soc@vger.kernel.org>, <linux-rockchip@lists.infradead.org>
-To: "Damon Ding" <damon.ding@rock-chips.com>, <andrzej.hajda@intel.com>,
- <neil.armstrong@linaro.org>, <rfoss@kernel.org>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-Subject: Re: [PATCH v8 01/18] drm/display: bridge_connector: Ensure last
- bridge determines EDID/modes detection capabilities
 X-Mailer: aerc 0.20.1
 References: <20251217093321.3108939-1-damon.ding@rock-chips.com>
- <20251217093321.3108939-2-damon.ding@rock-chips.com>
-In-Reply-To: <20251217093321.3108939-2-damon.ding@rock-chips.com>
+ <20251217093321.3108939-5-damon.ding@rock-chips.com>
+In-Reply-To: <20251217093321.3108939-5-damon.ding@rock-chips.com>
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251231_025033_560775_36076D5C 
-X-CRM114-Status: UNSURE (   9.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251231_031125_900608_3A2D927A 
+X-CRM114-Status: GOOD (  15.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,36 +90,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello Damon,
+
 On Wed Dec 17, 2025 at 10:33 AM CET, Damon Ding wrote:
-> When multiple bridges are present, EDID detection capability
-> (DRM_BRIDGE_OP_EDID) takes precedence over modes detection
-> (DRM_BRIDGE_OP_MODES). To ensure the above two capabilities are
-> determined by the last bridge in the chain, we handle three cases:
+> In order to move the panel/bridge parsing and attachmenet to the
+> Analogix side, add component struct drm_bridge *next_bridge to
+> platform data struct analogix_dp_plat_data.
 >
-> Case 1: The later bridge declares only DRM_BRIDGE_OP_MODES
->  - If the previous bridge declares DRM_BRIDGE_OP_EDID, set
->    &drm_bridge_connector.bridge_edid to NULL and set
->    &drm_bridge_connector.bridge_modes to the later bridge.
->  - Ensure modes detection capability of the later bridge will not
->    be ignored.
->
-> Case 2: The later bridge declares only DRM_BRIDGE_OP_EDID
->  - If the previous bridge declares DRM_BRIDGE_OP_MODES, set
->    &drm_bridge_connector.bridge_modes to NULL and set
->    &drm_bridge_connector.bridge_edid to the later bridge.
->  - Although EDID detection capability has higher priority, this
->    operation is for balance and makes sense.
->
-> Case 3: the later bridge declares both of them
->  - Assign later bridge as &drm_bridge_connector.bridge_edid and
->    and &drm_bridge_connector.bridge_modes to this bridge.
->  - Just leave transfer of these two capabilities as before.
+> The movement makes sense because the panel/bridge should logically
+> be positioned behind the Analogix bridge in the display pipeline.
 >
 > Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-> Suggested-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 > Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+>
+> ---
+>
+> Changes in v4:
+> - Rename the &analogix_dp_plat_data.bridge to
+>   &analogix_dp_plat_data.next_bridge
+> ---
+>  include/drm/bridge/analogix_dp.h | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/include/drm/bridge/analogix_dp.h b/include/drm/bridge/analog=
+ix_dp.h
+> index cf17646c1310..582357c20640 100644
+> --- a/include/drm/bridge/analogix_dp.h
+> +++ b/include/drm/bridge/analogix_dp.h
+> @@ -27,6 +27,7 @@ static inline bool is_rockchip(enum analogix_dp_devtype=
+ type)
+>  struct analogix_dp_plat_data {
+>  	enum analogix_dp_devtype dev_type;
+>  	struct drm_panel *panel;
+> +	struct drm_bridge *next_bridge;
+>  	struct drm_encoder *encoder;
+>  	struct drm_connector *connector;
+>  	bool skip_connector;
 
-Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+It took a while to understand why you are adding the next_bridge pointer in
+struct analogix_dp_plat_data instead of struct analogix_dp_device, where it
+would be more natural. I found an answer in patch 16: with current code you
+need to place next_bridge in struct analogix_dp_plat_data because it is
+used by user drivers to attach, and those drivers have no access to struct
+analogix_dp_device. However patch 16 (which looks a very good cleanup BTW)
+next_bridge can be moved to struct analogix_dp_device.
+
+So I'd suggest to move patch 16 before this one if it easily doable, so
+that you can introduce next_bridge in struct analogix_dp_device from the
+beginning. Should that be impossible, you can send a separate patch to move
+next_bridge, after patch 16.
+
+Best regards,
+Luca
 
 --
 Luca Ceresoli, Bootlin
