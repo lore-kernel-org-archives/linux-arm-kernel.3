@@ -4,74 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32FE0EE6428
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 14:43:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 605A6EE6428
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 15:06:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
-	Content-Type:Content-Transfer-Encoding:In-Reply-To:From:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M8aPWywfPFOyTSGu0q6hhPXyHxVoa1F4hqfQwCmIl58=; b=anm62GnjCy+43U
-	bu1D9SH3cOppXsm/0f8fjmEjoxWRFCrs+pQCcLra8CafWMtKUUguT7si6ETzbcPTG+myVtcF2bF06
-	vXDidAO83CSzvrfnROX2kI7B9XRKCvi3EL7Vr3yIYdIy21G2I+oaqgUFs12hjB9h35sz3BCpUZ/Z7
-	NtbHRtS0iuDuabnUQdCnV7uAEdfYaoGZKxVhyPMr9b4RfPZV97Uewa0rFbtrmCFDjY/iEVcOiUuUj
-	IEqixt6Cd3ROe8BkwuFV8xzozIPYEQ2RTD/QCm4/Ey2onJ2rgNLSvjZUW0e1XjQYz8h1AYw4HJQfZ
-	KzTEIqNN3iv4x3ikj8Ew==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lM/LDEXQ59nBAxlq+a/Py0Lpzo0PBuXD2pbfBww4E0Y=; b=R/CwO+yO2DC45rerGvqve4nC1F
+	/msXJpaBLOyttkrXQ3jPpEf7DerQXZoeUH4pL4htgnGza5fuQJTP7u6Aqv5xFAdVa09ukh35b1Bw1
+	E60+IDUsRMlAKremRLPkOXoBT+fFH0Jyl8b8Q/oiGVqHYZsYUzrD6j7fOR4ArglZjTWm+GBtzBu+j
+	pVj4IpvL2ruk10D/Pexl4FTmeagheg1b1YlsNQAyyvRik0WOE8x04e7J+t+KGsisPmC9SMx5CvBq6
+	O2rZZ3x+fLjrfHCS9LZxozkDnRDIsnvbf8s02KwUljH4LmuFW26aHwC97LNkZCuhikRFfo8C6ZDTt
+	UmJLiVYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaxQK-0000000633h-2qB8;
-	Wed, 31 Dec 2025 14:43:40 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1vaxmj-0000000640J-1rKQ;
+	Wed, 31 Dec 2025 15:06:49 +0000
+Received: from mout-p-103.mailbox.org ([80.241.56.161])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vaxQG-00000006336-2RFA
+	id 1vaxmg-000000063zk-0M53
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 31 Dec 2025 14:43:38 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20251231144330euoutp01c58badeadda370d7c7c3cd9549da0f60~GU-Pi5Z5i3076130761euoutp013
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 31 Dec 2025 14:43:30 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20251231144330euoutp01c58badeadda370d7c7c3cd9549da0f60~GU-Pi5Z5i3076130761euoutp013
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1767192210;
-	bh=M8aPWywfPFOyTSGu0q6hhPXyHxVoa1F4hqfQwCmIl58=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=Alom80QxoG+L7ICMesd3Euki0jWEh5m9WrDQOO82KpT3M8GlUii6jb4NC/BUwrtla
-	 x3F2P1lkvxBq8MsCMGMLR2GRCZGVZ1OzbjGOF4McE9zgsSSTUJqP6FtdiWlME5ilT5
-	 BOXZctdYokjY0BnnWLe9y+syt3f3BRIA9KcPecjg=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20251231144330eucas1p2e45e514c58572acda6dc94e809f9d2ee~GU-PNyoET1215412154eucas1p27;
-	Wed, 31 Dec 2025 14:43:30 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20251231144321eusmtip23facba6ecea740b65bcbedd64e01dd62~GU-GtmYe61784117841eusmtip2B;
-	Wed, 31 Dec 2025 14:43:21 +0000 (GMT)
-Message-ID: <d19c559e-c93b-4a4d-9a0d-ec289ed4c2e6@samsung.com>
-Date: Wed, 31 Dec 2025 15:43:19 +0100
+	Wed, 31 Dec 2025 15:06:47 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4dhCwG0DDkz9tl6;
+	Wed, 31 Dec 2025 16:06:38 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1767193598;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=lM/LDEXQ59nBAxlq+a/Py0Lpzo0PBuXD2pbfBww4E0Y=;
+	b=Asx1XP+iK6i9hd9W7t7F6twLwvZLgknRFiVWAJtmFEKwWhEpg95MI/5bPlJ7BuTiu9g4jZ
+	zwLA4V3y5lWOjd1jhSVH+2OE8Z9jy33X2Z/OBimKm9vYIganTuJN+dObTeGLj9fT5yyZRp
+	dJcT3/qsedaLjTXA4e1fL/x2pP99YFb350pAtz7Dy7AfiKdOMiIWzHPS0XuJJ7n8tXrW49
+	yG5jgR7LNN7ejW2yPmqB+F8vfNG76QzcGpqus0cEMxDE5JZuxSoB1LvYhvyq8JwBpUDmc4
+	OG6Y6VoLWEvvETwUSIpt8kiiPGOR4NMBIpHVwmvPzDHMGmiBtd3bbAjVXj7b0A==
+Message-ID: <37489cb7-820d-46cd-a7ea-0f9097604895@mailbox.org>
+Date: Wed, 31 Dec 2025 15:11:21 +0100
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH v2 4/8] dma-mapping: Separate DMA sync issuing and
- completion waiting
-To: Barry Song <21cnbao@gmail.com>, Leon Romanovsky <leon@kernel.org>
+Subject: Re: [PATCH] arm64: dts: imx95: remove CLK_GPUAPB
+To: Rain Yang <jiyu.yang@oss.nxp.com>, imx@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+ festevam@gmail.com, Frank.Li@nxp.com, liviu.dudau@arm.com,
+ Rain Yang <jiyu.yang@nxp.com>
+References: <20251231031915.752262-1-jiyu.yang@oss.nxp.com>
 Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <CAGsJ_4y=yoYZn+_ztdfuOCj_dS-M0h8YWO51AXubPbeR1FH6uQ@mail.gmail.com>
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20251231144330eucas1p2e45e514c58572acda6dc94e809f9d2ee
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20251228213843eucas1p298280bb01abe59739cd6e0482f570455
-X-EPHeader: CA
-X-CMS-RootMailID: 20251228213843eucas1p298280bb01abe59739cd6e0482f570455
-References: <20251226225254.46197-1-21cnbao@gmail.com>
-	<20251226225254.46197-5-21cnbao@gmail.com> <20251227200706.GN11869@unreal>
-	<CAGsJ_4zyascnpQ1cB-BMO9PDeeRZTBAh8Z-j-ip=RcxApa4zSg@mail.gmail.com>
-	<20251228144909.GR11869@unreal>
-	<CGME20251228213843eucas1p298280bb01abe59739cd6e0482f570455@eucas1p2.samsung.com>
-	<CAGsJ_4y=yoYZn+_ztdfuOCj_dS-M0h8YWO51AXubPbeR1FH6uQ@mail.gmail.com>
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <20251231031915.752262-1-jiyu.yang@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-META: cj1nf6xkoodfn1a4i3danjiknax1xpez
+X-MBO-RS-ID: 487dd8ea82aa49fe10d
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251231_064337_192325_83F4BBCF 
-X-CRM114-Status: GOOD (  35.43  )
+X-CRM114-CacheID: sfid-20251231_070646_275002_A85B6B18 
+X-CRM114-Status: GOOD (  14.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,138 +78,39 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Juergen Gross <jgross@suse.com>, Tangquan Zheng <zhengtangquan@oppo.com>, Stefano Stabellini <sstabellini@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, will@kernel.org, Anshuman Khandual <anshuman.khandual@arm.com>, catalin.marinas@arm.com, Joerg Roedel <joro@8bytes.org>, linux-kernel@vger.kernel.org, Suren Baghdasaryan <surenb@google.com>, iommu@lists.linux.dev, Marc Zyngier <maz@kernel.org>, Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>, xen-devel@lists.xenproject.org, robin.murphy@arm.com, Ard Biesheuvel <ardb@kernel.org>, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28.12.2025 22:38, Barry Song wrote:
-> On Mon, Dec 29, 2025 at 3:49 AM Leon Romanovsky <leon@kernel.org> wrote:
->> On Sun, Dec 28, 2025 at 10:45:13AM +1300, Barry Song wrote:
->>> On Sun, Dec 28, 2025 at 9:07 AM Leon Romanovsky <leon@kernel.org> wrote:
->>>> On Sat, Dec 27, 2025 at 11:52:44AM +1300, Barry Song wrote:
->>>>> From: Barry Song <baohua@kernel.org>
->>>>>
->>>>> Currently, arch_sync_dma_for_cpu and arch_sync_dma_for_device
->>>>> always wait for the completion of each DMA buffer. That is,
->>>>> issuing the DMA sync and waiting for completion is done in a
->>>>> single API call.
->>>>>
->>>>> For scatter-gather lists with multiple entries, this means
->>>>> issuing and waiting is repeated for each entry, which can hurt
->>>>> performance. Architectures like ARM64 may be able to issue all
->>>>> DMA sync operations for all entries first and then wait for
->>>>> completion together.
->>>>>
->>>>> To address this, arch_sync_dma_for_* now issues DMA operations in
->>>>> batch, followed by a flush. On ARM64, the flush is implemented
->>>>> using a dsb instruction within arch_sync_dma_flush().
->>>>>
->>>>> For now, add arch_sync_dma_flush() after each
->>>>> arch_sync_dma_for_*() call. arch_sync_dma_flush() is defined as a
->>>>> no-op on all architectures except arm64, so this patch does not
->>>>> change existing behavior. Subsequent patches will introduce true
->>>>> batching for SG DMA buffers.
->>>>>
->>>>> Cc: Leon Romanovsky <leon@kernel.org>
->>>>> Cc: Catalin Marinas <catalin.marinas@arm.com>
->>>>> Cc: Will Deacon <will@kernel.org>
->>>>> Cc: Marek Szyprowski <m.szyprowski@samsung.com>
->>>>> Cc: Robin Murphy <robin.murphy@arm.com>
->>>>> Cc: Ada Couprie Diaz <ada.coupriediaz@arm.com>
->>>>> Cc: Ard Biesheuvel <ardb@kernel.org>
->>>>> Cc: Marc Zyngier <maz@kernel.org>
->>>>> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
->>>>> Cc: Ryan Roberts <ryan.roberts@arm.com>
->>>>> Cc: Suren Baghdasaryan <surenb@google.com>
->>>>> Cc: Joerg Roedel <joro@8bytes.org>
->>>>> Cc: Juergen Gross <jgross@suse.com>
->>>>> Cc: Stefano Stabellini <sstabellini@kernel.org>
->>>>> Cc: Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>
->>>>> Cc: Tangquan Zheng <zhengtangquan@oppo.com>
->>>>> Signed-off-by: Barry Song <baohua@kernel.org>
->>>>> ---
->>>>>   arch/arm64/include/asm/cache.h |  6 ++++++
->>>>>   arch/arm64/mm/dma-mapping.c    |  4 ++--
->>>>>   drivers/iommu/dma-iommu.c      | 37 +++++++++++++++++++++++++---------
->>>>>   drivers/xen/swiotlb-xen.c      | 24 ++++++++++++++--------
->>>>>   include/linux/dma-map-ops.h    |  6 ++++++
->>>>>   kernel/dma/direct.c            |  8 ++++++--
->>>>>   kernel/dma/direct.h            |  9 +++++++--
->>>>>   kernel/dma/swiotlb.c           |  4 +++-
->>>>>   8 files changed, 73 insertions(+), 25 deletions(-)
->>>> <...>
->>>>
->>>>> +#ifndef arch_sync_dma_flush
->>>>> +static inline void arch_sync_dma_flush(void)
->>>>> +{
->>>>> +}
->>>>> +#endif
->>>> Over the weekend I realized a useful advantage of the ARCH_HAVE_* config
->>>> options: they make it straightforward to inspect the entire DMA path simply
->>>> by looking at the .config.
->>> I am not quite sure how much this benefits users, as the same
->>> information could also be obtained by grepping for
->>> #define arch_sync_dma_flush in the source code.
->> It differs slightly. Users no longer need to grep around or guess whether this
->> platform used the arch_sync_dma_flush path. A simple grep for ARCH_HAVE_ in
->> /proc/config.gz provides the answer.
-> In any case, it is only two or three lines of code, so I am fine with
-> either approach. Perhaps Marek, Robin, and others have a point here?
+On 12/31/25 4:19 AM, Rain Yang wrote:
+> From: Rain Yang <jiyu.yang@nxp.com>
+> 
+> Dropping CLK_GPUAPB simplifies OPP handling and avoids unnecessary
+> complexity.
+> 
+> Fixes: 67934f248e64 ("arm64: dts: imx95: Describe Mali G310 GPU")
+> Signed-off-by: Rain Yang <jiyu.yang@nxp.com>
+> ---
+>   arch/arm64/boot/dts/freescale/imx95.dtsi | 4 ++--
+>   1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
+> index 88bde59e61b2..ab446aa6f73c 100644
+> --- a/arch/arm64/boot/dts/freescale/imx95.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
+> @@ -2164,8 +2164,8 @@ netc_emdio: mdio@0,0 {
+>   		gpu: gpu@4d900000 {
+>   			compatible = "nxp,imx95-mali", "arm,mali-valhall-csf";
+>   			reg = <0 0x4d900000 0 0x480000>;
+> -			clocks = <&scmi_clk IMX95_CLK_GPU_CGC>, <&scmi_clk IMX95_CLK_GPUAPB>;
+> -			clock-names = "core", "coregroup";
+> +			clocks = <&scmi_clk IMX95_CLK_GPU_CGC>;
+> +			clock-names = "core";
 
-If possible I would suggest to follow the already used style in the 
-given code even if it means a bit larger patch.
+I don't think this is correct, SM can disable the GPUAPB clock from the 
+SM monitor:
 
->>>> Thanks,
->>>> Reviewed-by: Leon Romanovsky <leonro@nvidia.com>
->>> Thanks very much, Leon, for reviewing this over the weekend. One thing
->>> you might have missed is that I place arch_sync_dma_flush() after all
->>> arch_sync_dma_for_*() calls, for both single and sg cases. I also
->>> used a Python script to scan the code and verify that every
->>> arch_sync_dma_for_*() is followed by arch_sync_dma_flush(), to ensure
->>> that no call is left out.
->>>
->>> In the subsequent patches, for sg cases, the per-entry flush is
->>> replaced by a single flush of the entire sg. Each sg case has
->>> different characteristics: some are straightforward, while others
->>> can be tricky and involve additional contexts.
->> I didn't overlook it, and I understand your rationale. However, this is
->> not how kernel patches should be structured. You should not introduce
->> code in patch X and then move it elsewhere in patch X + Y.
-> I am not quite convinced by this concern. This patch only
-> separates DMA sync issuing from completion waiting, and it
-> reflects that the development is done step by step.
->
->> Place the code in the correct location from the start. Your patches are
->> small enough to review as is.
-> My point is that this patch places the code in the correct locations
-> from the start. It splits arch_sync_dma_for_*() into
-> arch_sync_dma_for_*() plus arch_sync_dma_flush() everywhere, without
-> introducing any functional changes from the outset.
-> The subsequent patches clearly show which parts are truly batched.
->
-> In the meantime, I do not have a strong preference here. If you think
-> it is better to move some of the straightforward batching code here,
-> I can follow that approach. Perhaps I could move patch 5, patch 8,
-> and the iommu_dma_iova_unlink_range_slow change from patch 7 here,
-> while keeping
->
->    [PATCH 6] dma-mapping: Support batch mode for
->    dma_direct_{map,unmap}_sg
->
-> and the IOVA link part from patch 7 as separate patches, since that
-> part is not straightforward. The IOVA link changes affect both
-> __dma_iova_link() and dma_iova_sync(), which are two separate
-> functions and require a deeper understanding of the contexts to
-> determine correctness. That part also lacks testing.
->
-> Would that be okay with you?
+ >$ clock.w gpuapb off
 
-Yes, this will be okay. The changes are easy to understand, so we don't 
-need to go there with such very small steps.
-
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
-
+Linux has to make sure the GPUAPB clock are enabled to access the GPU 
+register, hence the clock have to be described in DT.
 
