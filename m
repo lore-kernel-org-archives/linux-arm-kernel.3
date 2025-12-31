@@ -4,113 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57AF2EE57D7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 15:30:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBEA7EE6457
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 15:42:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7QzVSYweQj11hd6fs/gbMsc1XDMFllelUQ/hmQuDpYw=; b=KRpULe+hH7docxDUg8e70MfX4e
-	A4i2zj1Q9XAPVCitR615F7ZCa+z1ow9wSzfPCPyksUumyZFRxoRQx01AtXSidn73dCobL5awWPfUh
-	T6oMAYi1AZkqma+2BV4PNEjLOCjEVw6ZpjYCQW8B3AEvi1Y2SB7rUkV/1AwWuLJbCllXedrmoB+33
-	EpyH8aEuAjyvQTL9eHJL6UoDoYQxxckcEUpPnof2z02J2M9RMUdrrEDILGcWO1cBMARiszVstRUDj
-	eOZXOkp+W0O3vdN8O9x167azvsKanKSRX9OQB13jJHkXsUeZAZ/HjXReHLNDmgJVYjzKazVhoJbZv
-	otUzSKnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=I6oRe6tM7R6Ju3l0/UD6yTJIFi+xI6pVQx4B5hRZ+Eg=; b=bQfs73iV+mZBtC
+	0zBa184aQfSjtDcyVvlEBqk75gIvN8nO0801LSweaYUMP53j2SFH6EPdbbRqK2VAGjGNCngAYd7s1
+	d3MZ06AOEtJRV951YnchBIzjRKHknkNwXlmZkc96hb2xaGGJe1MU4fmWtIXrueLi/m79JxFMrEyS/
+	JNn7JtsScZmJtdxt5b/RRDStMcx5jmOjviHXqZhlRHz7u03nH1xOaYJVVBNTyBXLK2ydVAGB5c+tg
+	m7qw2vmq8MwkRxSUuLepBzlxOO8hhfUfXIWQE1Bkv7K3WMJW1gLjFT+h1d/ZPfoDy5qS1kfdpRfU+
+	CoyCQ6fvb4mr0Cly/DuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vay9v-000000065Ln-0Tt7;
-	Wed, 31 Dec 2025 15:30:47 +0000
-Received: from mail-ot1-x329.google.com ([2607:f8b0:4864:20::329])
+	id 1vayLZ-000000065qH-1VGu;
+	Wed, 31 Dec 2025 15:42:49 +0000
+Received: from fhigh-b3-smtp.messagingengine.com ([202.12.124.154])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vay9r-000000065LG-3vmb
+	id 1vayLW-000000065pT-1rwi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 31 Dec 2025 15:30:45 +0000
-Received: by mail-ot1-x329.google.com with SMTP id 46e09a7af769-7c75b829eb6so6911666a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 31 Dec 2025 07:30:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=kernel-dk.20230601.gappssmtp.com; s=20230601; t=1767195042; x=1767799842; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=7QzVSYweQj11hd6fs/gbMsc1XDMFllelUQ/hmQuDpYw=;
-        b=A/BPz229lblMeneb0Ua+JlRfoY1PVhmnpcOtGr/hv4kwNiGbMur60Gump93AGkHeMe
-         G/LTFioMtrvyLGHHFAraW0urUgtdjKmS6uJ1k0Bfjpy+EuXYBsvrO9+aIZOQNy5ela2Y
-         MhO8nh6U8BgTWvusPbYhnEb3GYm4u1lWR5bf1F/TCq1NZsOnCZlzMeRbnZwR3maTQr5O
-         vXepyq6BNVT9LVFfwc1sR6hKs4lHdBrqhvuc+hVhf+4wMVvJqNjzhEm0/kDMxe/1KEuF
-         uISTzwAb4LCpzdMo5uWnEXCGnEcWpF10XxaSxv55XQ7n980F8cTIp2YSRgt2erVSbwc/
-         nw7A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767195042; x=1767799842;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=7QzVSYweQj11hd6fs/gbMsc1XDMFllelUQ/hmQuDpYw=;
-        b=mfT87QDUocK4DrCx2UO5QPIZfM5UEi/5Gyrpz9gQ4Th6hbBz1zvbp7ajWwQxjRWEmz
-         w/IIKaI35496CI45dRgBWqAn4w8VfQ/vbH0fpecbS25F2ZEsGGDda+adWujyEKhBPqY7
-         +hSIz+Gj5OoWNsT3cPMCOkMOIoiOnmxQSvT1bQL6t3VZHmD+D+VcbLJsVQHGpMln4kin
-         +Kp7dsVIlChV/v4YOYeWvhgZplGenvVMkJRD1LoqEvza8M3g1EQWs41SPshtzNf5QxTT
-         +hW5l3VHrEXkE0nfOSCcx1zGyEveklNf7SJTMP8HwyL2gfwOnHHzbwiTY+SF9UoxlNog
-         4p9A==
-X-Forwarded-Encrypted: i=1; AJvYcCWlC4ixKUwuxyt7nF/XnADa2c+xGCCJDpQKSzs6lCz1Rd72KuelqXLDdZ/z89+Hrm5Acu2GqRqipe2mnFqMkpJX@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0c20LjxNYC/8zD91JJ3mNjMr2BQq3ef/MKlTqebI9BR9pAgaA
-	SVX1GjZabE8Akz1h4L/K5TO6oWjaXQMjX7a/IRccQK8JkrysJsJWNT2Q8X5ixvkSn3s=
-X-Gm-Gg: AY/fxX51yNBbNxQu/wE6MarWADo9hgSzjh7bb6HcP5twsnXFkaSbjJnS7UdQbcGEu+2
-	eqX0vNl0o3Uc6mFnlVbG6x/w6OQJ4D28y5c4UxhECxMrBI1e0133B3skFVuOLEYDAzGHh/IXJA7
-	VsFj5QapUdJDnc4WFf7UsKDRe0gQNhbgu6h24Mr+odxOAwjxSdT73eEVhX0415K8EoxDhcQAacF
-	rH9WdMJlLel4Zmu/zamnCdpFM2FyOxg1WyHZvEjn0HZNUzCej3Qjhtf1kDxOPvSEP8OBV3Mzw46
-	QzO7H/Ifz3wnl5cs84ko8dMQz7ElWe9hky1HuRb0utmOqLfhBDtSPHmiX8NgXWjBAYo44L92Nhw
-	nwUrYmIcBwwc9tVmnyqFlh8vHOfY77W2MVSDTpvR0rhUirXYLRM417/ZeR7zhJ6y6OaN1WxPWhO
-	9rnu+mnKys
-X-Google-Smtp-Source: AGHT+IFQ7Da3Vy7sb0sZ+gCFV6iNdLzjxsj+GHoPQqPF4ECDqs6GBYGgCjzmLYkOn7cGzscuabT/Ag==
-X-Received: by 2002:a4a:e252:0:b0:659:9a49:8fcc with SMTP id 006d021491bc7-65d0ebdd6e8mr11816060eaf.69.1767195042368;
-        Wed, 31 Dec 2025 07:30:42 -0800 (PST)
-Received: from [192.168.1.150] ([198.8.77.157])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-65d0f4cd66csm20954575eaf.7.2025.12.31.07.30.40
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 31 Dec 2025 07:30:41 -0800 (PST)
-Message-ID: <4156bbde-754b-470e-9dfb-a1e45bee81fb@kernel.dk>
-Date: Wed, 31 Dec 2025 08:30:39 -0700
+	Wed, 31 Dec 2025 15:42:48 +0000
+Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 32F7F7A011B;
+	Wed, 31 Dec 2025 10:42:44 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-03.internal (MEProxy); Wed, 31 Dec 2025 10:42:44 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:message-id:mime-version:reply-to
+	:subject:subject:to:to; s=fm3; t=1767195764; x=1767282164; bh=I6
+	oRe6tM7R6Ju3l0/UD6yTJIFi+xI6pVQx4B5hRZ+Eg=; b=jhTBESzBoAdAlpku+d
+	xL/KVxF57a0d+v7qceHkGA279nAhmiKOXPMORorbXKrS0YZZJm2zYPUgLKch/MDd
+	mvT5Okgcrp838I8fxxnoOmkN08RI0NPZb530wmQ1UMkNpI/ZYN11XWpGh+SKza7r
+	ISrJ3O9T4wHl/UvxdaqUZCN3NPNcNtj3xH7voHYTEKqvjBox2GDTP3LQ/K6010bB
+	UFXTbiagmUN4ulxll+vcRBMNaigdqMLdD+I9otQJEOXHYyBn9tqMf7t/TlHiLq8c
+	chbr0yytZyVDm+DSDiReKCel1xL6zpPyIo3gh/LIKmSxD5JoZ2TphPC06MUyBiij
+	wFpg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm2; t=1767195764; x=1767282164; bh=I6oRe6tM7R6Ju3l0/UD6yTJIFi+x
+	I6pVQx4B5hRZ+Eg=; b=emrrACMrzmuwagPrTygCkHEJeu5yncGjK1Bwe3AV3RWe
+	AaleHMcOeifuihFieddpPS0qewDVe1Z056VPAzEyGrIjJv5wsG7eApX7S3w8cGnm
+	XUhVBfs8GKafhWAGZp1cKSozOiz7oIOTKworPXeTk+mjxype/fO1al0zAX36WZ3I
+	HIuQ7z8Iq6DYMd27yQCeF3zH87dd5faSO3egWjFhus66u7SxcLMS07/ny97GQzqJ
+	GbekHxPZ5SI887Kuh4/BpYBrU2AEPlxOyIWhxwHJrF2YdoHRaKOIwXSUBmqpyUat
+	ZiFNj/AQBG9GYQO8/vJ1WYPGTEV9sC9m1YPG0jHf8g==
+X-ME-Sender: <xms:c0RVaR31Yhv5FFUGawspHUC6_GssS7CI1zj4hdM7dc2drnSfVie5vA>
+    <xme:c0RVaUFpzo4KGcEaEPMsfIY7-spBabchdTxHAONWlv5e0PChfmPcUptwqMOxLF4rh
+    BRFSdNdkQVgpTQvqa7NJEt_eAn37U4SFM8DueluaXk0aMYsjbj2cw>
+X-ME-Received: <xmr:c0RVaUGHIinlXWwG3C2g5WjfQdfcMwvn0Y5K9JnHZHGOAbk0qGW_oSkrGq5kdSsnTp7dDtPoiXUddQP2btRs6oW1-0hXs41-v7Xq7A>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdekfedvlecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefhufffkfggtgfgvfevofesthejredtredtjeenucfhrhhomheplfgrnhhnvgcuifhr
+    uhhnrghuuceojhesjhgrnhhnrghurdhnvghtqeenucggtffrrghtthgvrhhnpeeulefghf
+    efvdegleefudeuhfefhfejiefhffeufeejiefhhfehueetuedvuefhhfenucffohhmrghi
+    nhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpe
+    hmrghilhhfrhhomhepjhesjhgrnhhnrghurdhnvghtpdhnsggprhgtphhtthhopeekpdhm
+    ohguvgepshhmthhpohhuthdprhgtphhtthhopehjsehjrghnnhgruhdrnhgvthdprhgtph
+    htthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgt
+    phhtthhopegrshgrhhhisehlihhsthhsrdhlihhnuhigrdguvghvpdhrtghpthhtohepfi
+    hilhhlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhn
+    rghssegrrhhmrdgtohhmpdhrtghpthhtoheprhhosghinhdrmhhurhhphhihsegrrhhmrd
+    gtohhmpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhi
+    nhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepshhvvghnsehkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:c0RVaf7c18kU6C2rY6GTj7sXYaBz-5R5k17glCuKgcjcTJ6U9K4rGA>
+    <xmx:c0RVaRwhu2aL7oh-Pw_BbyOZy6kJ9aoNKe6IToHFmevp-sOOax2N2A>
+    <xmx:c0RVaWP2yLiyyFn54RyjTC0v8Caal1E_GLKzudCib8GKhWltBdr9zw>
+    <xmx:c0RVafkJsrkJuQvRKmA1kjJkzEa4CzvcarBox64u53jehiaU8c1QkA>
+    <xmx:dERVabGFEc5XcgRVvTEspDQKjlpiGQE_SF3EX6hC87tVe2-_CdXKjcf5>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 31 Dec 2025 10:42:43 -0500 (EST)
+From: Janne Grunau <j@jannau.net>
+Subject: [PATCH 0/2] arm64: defconfig: Enable Apple Silicon drivers
+Date: Wed, 31 Dec 2025 16:42:37 +0100
+Message-Id: <20251231-arch-arm64-apple-defconfig-v1-0-4ff19805ba39@jannau.net>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 09/33] block: Protect against concurrent isolated cpuset
- change
-To: Frederic Weisbecker <frederic@kernel.org>
-Cc: LKML <linux-kernel@vger.kernel.org>, =?UTF-8?Q?Michal_Koutn=C3=BD?=
- <mkoutny@suse.com>, Andrew Morton <akpm@linux-foundation.org>,
- Bjorn Helgaas <bhelgaas@google.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Chen Ridong <chenridong@huawei.com>, Danilo Krummrich <dakr@kernel.org>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Gabriele Monaco <gmonaco@redhat.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
- Johannes Weiner <hannes@cmpxchg.org>, Lai Jiangshan
- <jiangshanlai@gmail.com>, Marco Crivellari <marco.crivellari@suse.com>,
- Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
- Paolo Abeni <pabeni@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
- Phil Auld <pauld@redhat.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
- Roman Gushchin <roman.gushchin@linux.dev>,
- Shakeel Butt <shakeel.butt@linux.dev>, Simon Horman <horms@kernel.org>,
- Tejun Heo <tj@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
- Will Deacon <will@kernel.org>, cgroups@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
- linux-mm@kvack.org, linux-pci@vger.kernel.org, netdev@vger.kernel.org
-References: <20251224134520.33231-1-frederic@kernel.org>
- <20251224134520.33231-10-frederic@kernel.org>
- <0f65c4fe-8b10-403d-b5b6-ed33fc4eb69c@kernel.dk>
- <aVUs-mFYCO2qGmqT@localhost.localdomain>
-Content-Language: en-US
-From: Jens Axboe <axboe@kernel.dk>
-In-Reply-To: <aVUs-mFYCO2qGmqT@localhost.localdomain>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAG1EVWkC/x3MMQqAMAxA0atIZgM2WgevIg4lTTWgtbQggnh3i
+ 8uHt/wHimSVAlPzQJZLi56xwrQN8ObiKqi+Gqgja6g36DJvNcc4oEtpF/QS+IxBVyTyYq3rvWG
+ GOkhZgt7/fF7e9wNAW+YlbAAAAA==
+X-Change-ID: 20251231-arch-arm64-apple-defconfig-22de55a3d1cc
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Sven Peter <sven@kernel.org>
+Cc: Robin Murphy <robin.murphy@arm.com>, linux-kernel@vger.kernel.org, 
+ asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Janne Grunau <j@jannau.net>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1321; i=j@jannau.net;
+ s=yk2025; h=from:subject:message-id;
+ bh=KqSgDg7CquEl312Ugml0wCimCxIYnUg6l1lGkneON8I=;
+ b=owGbwMvMwCW2UNrmdq9+ahrjabUkhsxQl8J31xgu7J4uU2aw8Z+H/SvPpRXVtvr6cafc76uJT
+ m2bLDKpo5SFQYyLQVZMkSVJ+2UHw+oaxZjaB2Ewc1iZQIYwcHEKwERaFRn+ihtMFZgc3Bwae8Gr
+ 2k532mUb/SNPVXeX/UgrjDT/w/vUjeGfjYi/Y+OtvbnZDNpKb7tyktwWHwh7eO99FmOU/ZL5Vne
+ 4AQ==
+X-Developer-Key: i=j@jannau.net; a=openpgp;
+ fpr=8B336A6BE4E5695E89B8532B81E806F586338419
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251231_073043_992784_2C7D05B4 
-X-CRM114-Status: GOOD (  19.11  )
+X-CRM114-CacheID: sfid-20251231_074247_025819_BD21C534 
+X-CRM114-Status: UNSURE (   6.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,66 +126,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/31/25 7:02 AM, Frederic Weisbecker wrote:
-> Le Mon, Dec 29, 2025 at 05:37:29PM -0700, Jens Axboe a ?crit :
->> On 12/24/25 6:44 AM, Frederic Weisbecker wrote:
->>> The block subsystem prevents running the workqueue to isolated CPUs,
->>> including those defined by cpuset isolated partitions. Since
->>> HK_TYPE_DOMAIN will soon contain both and be subject to runtime
->>> modifications, synchronize against housekeeping using the relevant lock.
->>>
->>> For full support of cpuset changes, the block subsystem may need to
->>> propagate changes to isolated cpumask through the workqueue in the
->>> future.
->>>
->>> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
->>> ---
->>>  block/blk-mq.c | 6 +++++-
->>>  1 file changed, 5 insertions(+), 1 deletion(-)
->>>
->>> diff --git a/block/blk-mq.c b/block/blk-mq.c
->>> index 1978eef95dca..0037af1216f3 100644
->>> --- a/block/blk-mq.c
->>> +++ b/block/blk-mq.c
->>> @@ -4257,12 +4257,16 @@ static void blk_mq_map_swqueue(struct request_queue *q)
->>>  
->>>  		/*
->>>  		 * Rule out isolated CPUs from hctx->cpumask to avoid
->>> -		 * running block kworker on isolated CPUs
->>> +		 * running block kworker on isolated CPUs.
->>> +		 * FIXME: cpuset should propagate further changes to isolated CPUs
->>> +		 * here.
->>>  		 */
->>> +		rcu_read_lock();
->>>  		for_each_cpu(cpu, hctx->cpumask) {
->>>  			if (cpu_is_isolated(cpu))
->>>  				cpumask_clear_cpu(cpu, hctx->cpumask);
->>>  		}
->>> +		rcu_read_unlock();
->>
->> Want me to just take this one separately and get it out of your hair?
->> Doesn't seem to have any dependencies.
-> 
-> The patch could be applied alone but the rest of the patchset needs it,
-> otherwise it may dereference freed memory. So I fear it needs to stay
-> within the lot.
-> 
-> I appreciate the offer though. But an ack would help, even if I must admit
-> this single patch (which doesn't change current behaviour) leaves a
-> bitter taste because complete handling of cpuset isolated partition change
-> will require more work.
+Many Apple silicon specific drivers used "default ARCH_APPLE". [1]
+attempted to fix this and add the drivers to arm64's defconfig. While
+default Kconfig removals were merged adding the drivers to defconfig
+was not. A follow-up based on the discussion was never sent and then
+apparently forgotten.
+This small series addresses that. APPLE_PMGR_PWRSTATE is now selected by
+ARCH_APPLE as it is considered critical for booting just like interrupt
+controller. Since its absence does not break booting completely but
+leaves just a mostly useless system allow !PM builds without
+APPLE_PMGR_PWRSTATE.
+The defconfig change is updated to include forgotten drivers and drivers
+which were added in the meantime.
 
-That's fine too:
+1: https://lore.kernel.org/asahi/20250612-apple-kconfig-defconfig-v1-0-0e6f9cb512c1@kernel.org/
 
-Acked-by: Jens Axboe <axboe@kernel.dk>
+Signed-off-by: Janne Grunau <j@jannau.net>
+---
+Janne Grunau (1):
+      arm64: select APPLE_PMGR_PWRSTATE for ARCH_APPLE
 
-> Speaking of, is there a way that I missed to define/overwrite the above
-> hctx->cpumask on runtime?
+Sven Peter (1):
+      arm64: defconfig: Enable Apple Silicon drivers
 
-Only spot where it's set/manipulated right now is as part of setting up
-the hctx <-> ctx queue mappings, when the queue is configured (or
-reconfigured).
+ arch/arm64/Kconfig.platforms |  1 +
+ arch/arm64/configs/defconfig | 27 +++++++++++++++++++++++++++
+ 2 files changed, 28 insertions(+)
+---
+base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+change-id: 20251231-arch-arm64-apple-defconfig-22de55a3d1cc
 
+Best regards,
 -- 
-Jens Axboe
+Janne Grunau <j@jannau.net>
+
 
