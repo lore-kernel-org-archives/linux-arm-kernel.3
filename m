@@ -4,114 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73620EE57CA
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 00:03:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2D49EE57CF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 01:27:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QRzc+r79m3rzfJc+FmxmTipVTJ4rtMAJvY9eZc6ZTZo=; b=38tflNsTgM2TRwa4FbGXEJ+KP0
-	IBPjPPJO28e1pPztKg/wnz+6snWu+jYlK2yrX0g7y3eelQlnuQwAP1VTJQLDcHGFCb/UED11dxPWE
-	SQQk8iXflSJ+GoHHYm6gLlDsQ44bj3EhOiCjJWhUhiERGEbij4vT94mQkDLfUI4WoGY4S8d9WRAm7
-	Ae+dvuvm+ONU+2XpOzydCr6Z9I3yBDcVqd+KXlb2Mh24OFYv1wEHlgkKwwjEjvwHAOFxPyo6Xh72f
-	av6LtdGsvnyaYb57UaNtEjeRYUUplQza74DLAeo+nBzIivxp48qWsL6iCP9U1y5PGFiOMkHxDjVA4
-	B8fWanyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/c6SVq3C/6p3QmBlE8qRyzuxT87KjBEE1uJ/bQ91nLs=; b=FPUzWUNj6jen2Xngn+6bgfhU9w
+	fLbB/hIiAezGE3ka3h0T/QRU98pzZ+EzpB6YilkSPlpckMS4Y8fIyuiHcagcAuDvQI0nDRwHZvuEt
+	nLQDSQLceG6t76pjVokTlL2SdC8dzonyFc/ppsH0rIua/5qz1Gy4MtQ3jj+s1jOQefE55Vr7jjYUk
+	nsQz8chNT+g+ZZMDwyEmC5ylFsoBvThvSi96vSc5C32flwYhsl2rbEMbFYkrve2kqKdd+E/e352ah
+	exJ8YpUiCr4FSW4hoG3T2XXlV2D/3Hho6tUqBZLpUglk3csu4UiUECtdIz6mhINxXJ62tI6Cfhqdc
+	R7hK45WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vajgP-00000005Tw9-44Q5;
-	Wed, 31 Dec 2025 00:03:21 +0000
-Received: from fhigh-b2-smtp.messagingengine.com ([202.12.124.153])
+	id 1vakzw-00000005WX7-0fOQ;
+	Wed, 31 Dec 2025 01:27:36 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vajgM-00000005Tvo-3MWx
+	id 1vakzt-00000005WWS-0ztK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 31 Dec 2025 00:03:20 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id E78B47A006D;
-	Tue, 30 Dec 2025 19:03:16 -0500 (EST)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Tue, 30 Dec 2025 19:03:17 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1767139396;
-	 x=1767225796; bh=QRzc+r79m3rzfJc+FmxmTipVTJ4rtMAJvY9eZc6ZTZo=; b=
-	kWNNJlAJO2dOlkp3eLjvSAKUZ2ijMHrgTU53ftWnFS1liHjl+7n2egHnqc0lkDNX
-	JGRFYIijWaJBI3nAeWYlPItLv134EMipNkKg46pztWKXBh8DLgEhl70jpxgrqCwT
-	wwBs5mUWP1bd4PPUjmU+8USQYlv1bhzpiP7/9me1Jqv8U0VqZQXYm6eWn8beUtZV
-	PCDtgQ3ftEkPZp1SAAwupyTuUpasZfC2/c0DOd8OGYKOya+pxSd2Llaz+TtvJL14
-	fsAAYTe+JQ2s9P1+gS+0w+GB5w0+3wOkEGimbcdpKIYirnFrwCi/Hg7WYKih31YD
-	XChQ9givn/8HdBiO+v7KGA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1767139396; x=
-	1767225796; bh=QRzc+r79m3rzfJc+FmxmTipVTJ4rtMAJvY9eZc6ZTZo=; b=Q
-	tbQYduwBpoeicJboUxv1y59uHQ3/E8PyyLgwd/K++TOXmWqKqpuZ5N6z3H4hk+hn
-	ali0FDUHGVG86VPuDAmHt6rPoIisovNgSsuZ68SVENxk9l8kbKnR5oPWrRAXdiXm
-	aBxXwyk70rC04/OD9qXlSu7JDpeXymqgFGJbbZujLVPhMIKY9C3hkGpXh+CCmg0C
-	YI1KAIWHqR6S03QlrKvlRX65NoyGvtl4YpFrlrHgt05e4JXx5woou+0PUt/x+GSs
-	hOhl1UpbkV+XoSKgweZMT0UgFg3ajTX49fwktgVKSJnWcDUHlJKEtlW0QTPVoAIk
-	svwuiHMo5odhUp9sKuaNg==
-X-ME-Sender: <xms:Q2hUaZ3h3hoEOnVMh9ao5-2Bw__05Xz-h4hpaxna8KgV1rJuhrnXZQ>
-    <xme:Q2hUaa7x462diljF7XPle_2NlOLXOJZE_p28HoW8RLdb_gNVe_k1Guv6oMl4RqEWT
-    8P-46KXVgHFWJtEk9kaPCkEX7NNvyInPEQJ4V-IeXlwkKOHlmocHQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdekudegudcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
-    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
-    hnpeelffehlefffeehvdfgveefudelieeiveffvdfgiedukeeihfejheduudduhffgtden
-    ucffohhmrghinheplhhkmhhlrdhorhhgnecuvehluhhsthgvrhfuihiivgeptdenucfrrg
-    hrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthht
-    ohepudehpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehgrhgvghhorhihrdgtlh
-    gvmhgvnhhtsegsohhothhlihhnrdgtohhmpdhrtghpthhtoheprhhosggvrhhtrdhjrghr
-    iihmihhksehfrhgvvgdrfhhrpdhrtghpthhtohepghgvvghrthdorhgvnhgvshgrshesgh
-    hlihguvghrrdgsvgdprhgtphhtthhopehhrghojhhirghnrdiihhhurghnghesghhmrghi
-    lhdrtghomhdprhgtphhtthhopehmrghgnhhushdruggrmhhmsehgmhgrihhlrdgtohhmpd
-    hrtghpthhtohepshgvsggrshhtihgrnhdrhhgvshhsvghlsggrrhhthhesghhmrghilhdr
-    tghomhdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpth
-    htohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhhosghhsehk
-    vghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:Q2hUafBMbG612pjQukbbeIYolVOoThuv5W9-PKtyH7Si-0xH9WxBBA>
-    <xmx:Q2hUadZsJ3nIw2LOEaQHS_tJvTqp0FJEf4RdY79ocTOffndCW3I5Hw>
-    <xmx:Q2hUaZ_6jJ4aw7u8cP5co-MNdV1imw-0I2MKSVK7GqEo7mR3iQRWHA>
-    <xmx:Q2hUaZgXFyzNzo57dS9kHCOgH0rkLq-Fl8iX_9Eq7qPemGl7NEpzTQ>
-    <xmx:RGhUaaducKixJlXmKPS72lDnfupk-jUfAaCnqrNFcBCe18a6OJqlhwT_>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id BFD1B700065; Tue, 30 Dec 2025 19:03:15 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Wed, 31 Dec 2025 01:27:34 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-b804646c718so1118107466b.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Dec 2025 17:27:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linux-foundation.org; s=google; t=1767144450; x=1767749250; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=/c6SVq3C/6p3QmBlE8qRyzuxT87KjBEE1uJ/bQ91nLs=;
+        b=IEN41nZOpEvz2GIvr+k6UmWAIZe7WvWG7yyoyK1JQ07cC9UuDzaI4s4DjkVfWlPIaU
+         lHvxQujfhqqN2zw+IHak+UlA3eHoRRPGVeQrpaMOJvdKkcTPJ4SmjLB7TBKf9ReN//1I
+         iwOK6iMQirbEZjuu3qj1aQuvlpSOoK+GaOahA=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767144450; x=1767749250;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/c6SVq3C/6p3QmBlE8qRyzuxT87KjBEE1uJ/bQ91nLs=;
+        b=W9p8m6SI0chixJ+FnHV0Qp35lEj3+uIgdmCMnm4pg8ImOifHSp2cN6cK39AZz63GwA
+         xSwnDl5BM6kIL0d/PcAIN1uk99waIcXJ75ZwZFEY9JgWsSIPmQdaok88sbMY5J7qPClD
+         ygjYbK7GRwRKm/kQaPurzrKWSsL7u/Lp6HE5U5MgLFLKBiuw47ipibsvO1MeJvn0PChY
+         MgLaGMs43RWq/k+pJ5C5UZuFms0NNJEDwHPa0BN7qmJ909YqUm1AtJxUeqvYKDH1sqKs
+         KWGvpUB50iPcTA9CusrhZuoV1XMFbTKaM8Jh4q+2/bnhlVSlTYTOVZpzJoDbn/CO41KK
+         uSlg==
+X-Forwarded-Encrypted: i=1; AJvYcCX76ART95gr4PVNTO+eMNNPg/o25dvIDaokGJccSVPxrSP6jo6que9XwIoPXJlodx90NLuqLvj8O16YED4vBAlm@lists.infradead.org
+X-Gm-Message-State: AOJu0YxdksVB0nZE8JgDDkiJYLxCDewrEwl3/JvmKZDsjyt3+EHvWfaN
+	jQYfrR+bpW4L1rz2BhkxdryE9dWukug9eqS3htPmvmP9ojaRQQgg38qwqRLBwKtUEacYwBM8AjL
+	Ruoa89XE=
+X-Gm-Gg: AY/fxX63sFwJRHdiA+nSLdBcAk0dky4at3/jmh3hDjmwqFh8CV8C/8Db1Bx37elFo5D
+	FkvmAMmtct7F0yFsU8ko0JRgQKsqIPyKt1KvZWMqHjnVArfsJ+1MwAboIBVn5PlK9wEZf1ulF3x
+	vPQIAvGy3FBaC7KaPvT7M4851BR58OsXbq44s6dFhLz81vpsRn/tJbWKRJHU7sE6qRhmGfRucpt
+	dZuE3q4k9q0xXpuLTW9FL/S9o2w+rhI4OCpVog6zPtWL+6VXLc9GLPPTpbptl0vHg4ElPuIPLi2
+	sL+voTHOslspEig6MlPhLPRY6xQMYgl3VmdrJWrem+stZLWaZYPRXDKNiEoarTV8KCi3YG9ovsD
+	XDNs0vWXDfUtf91+hF0tdokLLzx8+u14bhcX+OgtI5vUISNDeldVYWsGniYeEoMhWXuXdpRyUNs
+	MIwd7ziUjZcfIP/xu08eIn8LVlYVLzyN+5kx2b/4KT7FlhRNuPRruq1bZ0PU+F
+X-Google-Smtp-Source: AGHT+IHfGMN1Sgm6keLs2JZWfKRVhr3AaK9ftyk1BbseF3HKTtA91XIs+qlDGTkhtZ4ELlEF4ve58w==
+X-Received: by 2002:a17:906:eecd:b0:b83:7b8c:7c5f with SMTP id a640c23a62f3a-b837b8c7d0fmr696528966b.1.1767144450387;
+        Tue, 30 Dec 2025 17:27:30 -0800 (PST)
+Received: from mail-ej1-f42.google.com (mail-ej1-f42.google.com. [209.85.218.42])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8037a614b7sm3854410066b.1.2025.12.30.17.27.29
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 30 Dec 2025 17:27:29 -0800 (PST)
+Received: by mail-ej1-f42.google.com with SMTP id a640c23a62f3a-b713c7096f9so1643145466b.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Dec 2025 17:27:29 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCX6nXz87OWxqkpQnqEn759SCP5+gnkXTBuXvDrDDfk/vShcx777sSdPb+jb4VQeqXGNe+nyMAfZWsXC+9pBdX3l@lists.infradead.org
+X-Received: by 2002:a17:906:c108:b0:b6d:6d66:e8e9 with SMTP id
+ a640c23a62f3a-b80371f98e6mr3867217966b.61.1767144449430; Tue, 30 Dec 2025
+ 17:27:29 -0800 (PST)
 MIME-Version: 1.0
-X-ThreadId: AXfFZUabNlQ-
-Date: Wed, 31 Dec 2025 01:02:55 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Robert Jarzmik" <robert.jarzmik@free.fr>
-Cc: "Rob Herring" <robh@kernel.org>,
- "Geert Uytterhoeven" <geert+renesas@glider.be>,
- "Magnus Damm" <magnus.damm@gmail.com>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Daniel Mack" <daniel@zonque.org>,
- "Haojian Zhuang" <haojian.zhuang@gmail.com>, "Andrew Lunn" <andrew@lunn.ch>,
- "Gregory Clement" <gregory.clement@bootlin.com>,
- "Sebastian Hesselbarth" <sebastian.hesselbarth@gmail.com>,
- Linux-Renesas <linux-renesas-soc@vger.kernel.org>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Message-Id: <4e5c631e-8c7f-4f38-a60e-2db829ff9f06@app.fastmail.com>
-In-Reply-To: <m2wm26lv28.fsf@free.fr>
-References: <20251212203226.458694-4-robh@kernel.org> <m2345fmkg7.fsf@free.fr>
- <35405ed3-1319-4d3a-84a5-ad67f4c823ad@app.fastmail.com>
- <m2wm26lv28.fsf@free.fr>
-Subject: Re: [PATCH] ARM: dts: intel: Drop pxa2xx
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+References: <d7f3b00d-beec-41f0-b157-7cfb871f9a46@linuxfoundation.org>
+ <756e3f65-b2f2-4da3-985a-17754a7a872d@t-8ch.de> <CAHk-=wjO-7uR5HBi-MFnkxAxjhpgfbAQ+HCMKPiXFVwM+AJ7tA@mail.gmail.com>
+ <6fc04df5-b753-4b2d-b978-0e59a7f48ff7@linux.dev> <c1304430-dd7d-437b-8744-70af9ca85c0d@linuxfoundation.org>
+In-Reply-To: <c1304430-dd7d-437b-8744-70af9ca85c0d@linuxfoundation.org>
+From: Linus Torvalds <torvalds@linux-foundation.org>
+Date: Tue, 30 Dec 2025 17:27:13 -0800
+X-Gmail-Original-Message-ID: <CAHk-=wh6WP0Wq=rbC2Md6vsFrV-+nvDjxgfx9NpMzUmVFNkJ9A@mail.gmail.com>
+X-Gm-Features: AQt7F2r8OZntlpbgM6EMdT1QVs39OIAPruiONmqMbrsqySDpE_sREcU70uzNBZw
+Message-ID: <CAHk-=wh6WP0Wq=rbC2Md6vsFrV-+nvDjxgfx9NpMzUmVFNkJ9A@mail.gmail.com>
+Subject: Re: Linux 6.19-rc1 mediatek mt7921e broke badly
+To: Shuah Khan <skhan@linuxfoundation.org>
+Cc: Matthew Schwartz <matthew.schwartz@linux.dev>, =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <linux@weissschuh.net>, 
+	Eric Biggers <ebiggers@kernel.org>, Mikhail Gavrilov <mikhail.v.gavrilov@gmail.com>, 
+	Mario Limonciello <superm1@kernel.org>, Johannes Berg <johannes@sipsolutions.net>, quan.zhou@mediatek.com, 
+	Felix Fietkau <nbd@nbd.name>, lorenzo@kernel.org, ryder.lee@mediatek.com, 
+	linux-wireless@vger.kernel.org, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, linux-mediatek@lists.infradead.org, 
+	shuah <shuah@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251230_160319_164937_DE569556 
-X-CRM114-Status: GOOD (  22.90  )
+X-CRM114-CacheID: sfid-20251230_172733_342710_CFFA2DA7 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,76 +112,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Dec 28, 2025, at 12:11, Robert Jarzmik wrote:
+On Tue, 30 Dec 2025 at 15:57, Shuah Khan <skhan@linuxfoundation.org> wrote:
 >
->> Robert, let me know if you or someone else is able to spend
->> some time on sending (warning-free) dts files for pxa2xx
->> machines soon. If not, I'd plan to remove whatever is there
->> along with the board files and drivers.
->
-> Here is one attached, the previously mentioned mioa701 board dts 
-> file
-> I've been using for years (the date of the patch should be funny
-> enough). It was first submitted here :
->   https://lkml.org/lkml/2018/9/15/321
->
-> I'm not very sure pxa25x and pxa27x should survive though. Lately, 
-> the platform which I have left have 64MB of RAM, and cannot cope with 
-> recent binaries sizes. And to my best knowledge, pxa2xx architecture are 
-> not built anymore nor supported ...
+> I would recommend reverting f804a5895eba instead of trying
+> fix it. Then find a better way to eliminate extra newline that
+> shows up in dmesg when firmware build date happens to have
+> a newline.
 
-Thanks for posting this one, that is helpful both for reference
-and in case anyone wants to keep using or bringing back pxa27x
-after we remove it.
+Yeah. Let's revert it.
 
-My feeling is that if neither you nor Daniel are planning on
-actually using PXA2xx on future kernels, we're better off
-removing both PXA25x and PXA27x along with the board files
-and only keep PXA3xx around for Raumfeld.
+And the way to fix the extra newline is trivial: just remove it from
+the "dev_info()" format string.
 
-Looking at when PXA2xx was used, I see a lot of handhelds
-from 2002 to 2007 but not much later, as smartphones then
-started moved to newer Marvell chips, or TI and Qualcomm
-alternatives. The last embedded PXA2xx boards were in 2010
-(Colibri/Income, Voipac vpac270, Arcom Zeus), and were all
-discontinued by their manufacturers years ago, usually 10
-years after the hardware introduction, and nobody
-complained when I removed the board files in 2022.
+Our kernel printing logic will add a newline for the next line anyway
+if it is missing (unless somebody explicitly uses PR_CONT).
 
-I had left the gumstix boards in the source tree at the time
-because it had more memory than the others and was supported
-by qemu. The upstream qemu releases now removed that as well.
+Can whoever saw the problem confirm that just a revert and a "remove
+\n from that dev_info()" fixes the output for them?
 
-If you or anyone else is still using PXA27x, we can always
-bring it back later, but I'd then put the burden on them to
-submit the dts file for inclusion without introducing DT
-warnings.
-
-> The drivers might still be useful (the DMA, the SPI for intel CPU, 
-> ...).
-
-Right, most drivers have to stay as they are still used on newer
-chips. The ones that I think would become obsolete without pxa2xx
-are pinctrl, cpufreq, camera, mtd, udc and pcmcia. Especially
-the latter two have come up a few times during cleanups where they
-cause extra work from complexity that probably nobody is using any
-more.
-
-> +	docg3: flash@0 {
-> +		compatible = "m-systems,diskonchip-g3";
-> +		reg = <0x0 0x2000>;
-> +	};
-
-This currently has no upstream users I can see, so
-removing pxa27x would probably mean we should remove
-that as well.
-
-> +	panel {
-> +		compatible = "toshiba,ltm0305a776";
-> +		lcd-type = "color-tft";
-
-I don't see a driver that matches the compatible string,
-does this one actually work?
-
-       Arnd
+              Linus
 
