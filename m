@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7682EE57CE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 01:57:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 935CFEE499C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 02:13:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qMI6ajuZVIMZiEQhaVHWRg1fswU4kVOnbMHiINfGSvM=; b=FiXIoa+Xxl/K4q5xhh2tykT5NZ
-	scULSUzMbBhl8k3v3/t4mThu8RYD0s3waomAFqZh2QfRmGcszLgzz19anBz9TtmedAv97mXyFP5fx
-	nIGZ3RZ5BHmeiBsJV8DyyrK06UGLCkQ1J5HBaiwnuUlPncYYx87jcUUu/VvW/Z/KQc+5VJ4eEirFd
-	GEnUa0P3ogCQi2VvEO8xgz/LIVEXdV1IomEj9yEjEwwoispWeNjeEgsaFdu+eNC9M4ECMN1csisj2
-	1ioEuj9hDlh64rmRS9MhF9Irh4GnOCi8seCD3GNyN93jbxnV+pgoKO+W2EtQTC/dqvM36Ra9C5h5K
-	ooGQ3kxQ==;
+	bh=ko1PBYnAT8egz+JnKmbCvCQlCqzSxgJzhveEIqLEVKY=; b=WyeXqZxoXLciNgmhzwrUHHW9P5
+	VdZ0i9bBebV8RqL6b1tgHQN7NBRMZgjSCAvsf22mGXgBtKsEVh/t6wmnj4CChlUK78JFOAqnYifjf
+	YJk5offKWdLEvhXzweHDVOEndcA16cogoXExMXNx9LAdflhWWff9rzSECa+qHe+hZ4aMQhNQZGnpQ
+	leUZfLBDWXfzrYDVNdeEXGmU80nVQZGGoZ6/1mOaaRZizK4LsGPCmZ6EBzq0WI02GGvfF1jZR4elo
+	F+CLZgLmTZGAuvOtZe9a3IQRyY8OJu8/kTdHMZroCGQ+w8sBJa0I+nXOMeB3Q+tgyEY7hJGTAntI/
+	7h36sTOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1valSt-00000005YTi-3UcU;
-	Wed, 31 Dec 2025 01:57:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1valiJ-00000005Z7r-0ztz;
+	Wed, 31 Dec 2025 02:13:27 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1valSr-00000005YTK-3MUP;
-	Wed, 31 Dec 2025 01:57:30 +0000
+	id 1valiG-00000005Z7K-2jU1
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 31 Dec 2025 02:13:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 27D8C4053A;
-	Wed, 31 Dec 2025 01:57:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71115C116C6;
-	Wed, 31 Dec 2025 01:57:26 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BBE1A4394A;
+	Wed, 31 Dec 2025 02:13:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D097C116C6;
+	Wed, 31 Dec 2025 02:13:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767146246;
-	bh=BEzGWJOVbkdOfvP+jxM8kRiE+88PF5GTUjfJy2MLec4=;
+	s=k20201202; t=1767147203;
+	bh=PCoedTJGv1Pig+WmC7clDH0HKtaOVbe/hHN1RGvcRTM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TDaAT+/rZ5rJby0gP47mwGNIqBGfNAGp8InD/a+DoxM+Qbsl3nyBw0CUZXyM+fL01
-	 XvaXV0vJs9cnDRtgexhJe2okyTMGhTKI/PCVqW8c7NxiBmCffPqCieyHwGks9yqCbF
-	 MmW5nsLh6+P8TToE0duTYa02+4C65NOJ6Jy75gbzaltzbg0ZT+rXOpcXUG/UDm2ZM7
-	 66tSeknHYczlniNcFMFZUoH2XgbNWL1oyihdm636S819jYCPeI1uZ5zQcK7IlS9xzM
-	 GtDgAuD5+SRTSwDal7uylPAW1Fuey0gF4SEOK6L5w6pQ24FguVvNlUMxA/MEjBOjjO
-	 Dm47SXeT3l9Cw==
-Date: Tue, 30 Dec 2025 17:57:12 -0800
-From: Eric Biggers <ebiggers@kernel.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Shuah Khan <skhan@linuxfoundation.org>,
-	Matthew Schwartz <matthew.schwartz@linux.dev>,
-	Thomas =?iso-8859-1?Q?Wei=DFschuh?= <linux@weissschuh.net>,
-	Mikhail Gavrilov <mikhail.v.gavrilov@gmail.com>,
-	Mario Limonciello <superm1@kernel.org>,
-	Johannes Berg <johannes@sipsolutions.net>, quan.zhou@mediatek.com,
-	Felix Fietkau <nbd@nbd.name>, lorenzo@kernel.org,
-	ryder.lee@mediatek.com, linux-wireless@vger.kernel.org,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux ARM <linux-arm-kernel@lists.infradead.org>,
-	linux-mediatek@lists.infradead.org, shuah <shuah@kernel.org>
-Subject: Re: Linux 6.19-rc1 mediatek mt7921e broke badly
-Message-ID: <20251231015712.GA2299@sol>
-References: <d7f3b00d-beec-41f0-b157-7cfb871f9a46@linuxfoundation.org>
- <756e3f65-b2f2-4da3-985a-17754a7a872d@t-8ch.de>
- <CAHk-=wjO-7uR5HBi-MFnkxAxjhpgfbAQ+HCMKPiXFVwM+AJ7tA@mail.gmail.com>
- <6fc04df5-b753-4b2d-b978-0e59a7f48ff7@linux.dev>
- <c1304430-dd7d-437b-8744-70af9ca85c0d@linuxfoundation.org>
- <CAHk-=wh6WP0Wq=rbC2Md6vsFrV-+nvDjxgfx9NpMzUmVFNkJ9A@mail.gmail.com>
+	b=Jzd9x2z76lUHE9i9/eoEcrwHT8qHqY3qSXA48kgRVpCeyo7CO+0S2ywMuWq/M2/1+
+	 CwkXyDvT1a1J/siUxm6NupKhrp+tD9b6MxCjHu8299ifXVHi2+XZyTtNR4ktvRkqxk
+	 W/J3ML4F9IpfFFSWAwu04gpCmVos3xCVcQuMsWebbysbGeYr7jWKxG3cF6I30pyNfh
+	 6y3Z2HyvpqElq/7uYQfd+/oUeo5wI9SI/gSwYEaBcjZcgTeYBw8zaR7mcMgZhoVs72
+	 l6TvWsh2dix9Jgij9XHwhv/PpHaicsLw8uT4A3+GB2H/ukfGgpKQwTe5Q6yZWaVW5g
+	 igsA+lSp/amwg==
+Date: Wed, 31 Dec 2025 10:13:17 +0800
+From: Shawn Guo <shawnguo@kernel.org>
+To: Francesco Dolcini <francesco@dolcini.it>
+Cc: Max Krummenacher <max.krummenacher@toradex.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, max.oss.09@gmail.com
+Subject: Re: [PATCH v1 0/3] arm64: dts: imx8x-colibri: add additional
+ functionality
+Message-ID: <aVSGvY0Zls3Fxr84@dragon>
+References: <20251031125003.275033-1-max.oss.09@gmail.com>
+ <aVOolTfi5s9jqG2v@livingston.pivistrello.it>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAHk-=wh6WP0Wq=rbC2Md6vsFrV-+nvDjxgfx9NpMzUmVFNkJ9A@mail.gmail.com>
+In-Reply-To: <aVOolTfi5s9jqG2v@livingston.pivistrello.it>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251230_175729_863234_702159EE 
-X-CRM114-Status: GOOD (  16.78  )
+X-CRM114-CacheID: sfid-20251230_181324_713596_8E4D5ACD 
+X-CRM114-Status: GOOD (  10.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,28 +80,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 30, 2025 at 05:27:13PM -0800, Linus Torvalds wrote:
-> On Tue, 30 Dec 2025 at 15:57, Shuah Khan <skhan@linuxfoundation.org> wrote:
-> >
-> > I would recommend reverting f804a5895eba instead of trying
-> > fix it. Then find a better way to eliminate extra newline that
-> > shows up in dmesg when firmware build date happens to have
-> > a newline.
+On Tue, Dec 30, 2025 at 11:25:25AM +0100, Francesco Dolcini wrote:
+> Hello Shawn,
 > 
-> Yeah. Let's revert it.
+> On Fri, Oct 31, 2025 at 01:49:40PM +0100, max.oss.09@gmail.com wrote:
+> > Provide a pwm-backlight.
+> > Provide the 32kHz Wi-Fi clock used during low-power operation.
+> > Configure CMA from the device tree.
 > 
-> And the way to fix the extra newline is trivial: just remove it from
-> the "dev_info()" format string.
-> 
-> Our kernel printing logic will add a newline for the next line anyway
-> if it is missing (unless somebody explicitly uses PR_CONT).
-> 
-> Can whoever saw the problem confirm that just a revert and a "remove
-> \n from that dev_info()" fixes the output for them?
+> This series was not applied, any concern? Anything to change?
 
-That works for me.  The revert by itself makes the FORTIFY_SOURCE crash
-go away and reintroduces a blank line in the log.  Removing the \n from
-the string passed to dev_info as well makes the blank line go away.
+Sorry for missing it.  Applied, thanks!
 
-- Eric
+Shawn
 
