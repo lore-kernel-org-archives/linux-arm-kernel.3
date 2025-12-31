@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5CF1EE57C8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 02:55:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20445EE57C8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 02:55:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OtxBcRpBORYIa5rqVGM8zqMG6Euvj5S5afX/620YI/4=; b=qTH6fl3Ll9ZAiX1Mhpbk+sZLHW
-	K7fWhaINeVk7rCyRakaQy3Xfc6dnftMGkC31LgzegZWQrLVM9OCLi8klTJ3stuiv2zK8ZMZaXs9gs
-	ABiQZLXl93kL+KuRswKZeuVOArQ7IBxPlUO6OLABTkps+7bJUt6h77/LvcSpoodvt6qLl3TKeVqQI
-	CK8guXX7NbFOEeISDj5NJp+R2D8OExWOsBT6MKsbF5RFIg1PZZoZeByNVryvZ9BvV59FQnKXnavxt
-	1In+4mi4sgyI1EYYolATVUzii936BI8XdTXgADugaKS46TMLMxN8jOQ5cyF4BEuLUxDCL+0aIDfDD
-	g3YRyeGw==;
+	bh=5H6KXg9o2QtM55dEd8AiNf+pVaQWGHEPICjIkw8m5C0=; b=V5RXREn+z2rlB6OiU005kM/2yC
+	BWzzinwsr9+poRF7oYGKNSaIys7J1OqhPMTcUfOoGbzu2hs/ivWZ/XTxIeH4xtCRmtmFq6j6F5K7D
+	Jb25myYEwBNFZmoallFYiNRBDx1cPhTCVXurHKLmhjF96jq+VmgcrNHqxVtq9vHWcfGa/dodknF7o
+	ioZk1HVuzyEoKRAnXX1p0/qn3U6+YnRRVZ7cQ+ehYblYNez4uD+DtX1XI2cmY+xrrFZzWBB9r0ri5
+	GXMTyDSJsXZSc8o63D2nmqRSlzzeXBG3Ex/ubwx050kE1u/tNhdGvwj3jlNVVt6CsUPJrsOtfkLE0
+	m/fnFs0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vamNH-00000005bUt-1Iy4;
+	id 1vamNH-00000005bUW-01Bt;
 	Wed, 31 Dec 2025 02:55:47 +0000
 Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vamNB-00000005bSH-1Xgf
+	id 1vamN9-00000005bQ3-2AnB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 31 Dec 2025 02:55:42 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2a0bb2f093aso105635135ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Dec 2025 18:55:41 -0800 (PST)
+	Wed, 31 Dec 2025 02:55:40 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2a0ac29fca1so88758115ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Dec 2025 18:55:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=0x0f.com; s=google; t=1767149741; x=1767754541; darn=lists.infradead.org;
+        d=0x0f.com; s=google; t=1767149739; x=1767754539; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=OtxBcRpBORYIa5rqVGM8zqMG6Euvj5S5afX/620YI/4=;
-        b=iP16oV/fu8Umnthi5yA1W4OWSVS/OeF9s6VKIcXmT6s+9Fo7jm4KiqtNMSq/M7RFWM
-         SDJo44U5TA+E0L9ftN0Z5UtQS89Uz/AWxP4IEL7j+r+lrEKqEJJDedseErY71X2fFIGV
-         HcxdnH6kQwAa+/UVMyIqc11mu1/BGAnxKnw8E=
+        bh=5H6KXg9o2QtM55dEd8AiNf+pVaQWGHEPICjIkw8m5C0=;
+        b=fvB3nsPkuFBpvPHFt0kfoukvxWFheBpD1SR2WzfD0MgzRMSeO6ir2u5hlI44Qg6iFW
+         B1QcNw9Yi7P30lSqB7eQB9tKvIDxg9tY/MUa17UA+o9pkUjA821GlsNTPTuZ5qEXRuN4
+         tbNoYCUeg4EY5cIdpJolesQfYi4qcxemLYPyM=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767149741; x=1767754541;
+        d=1e100.net; s=20230601; t=1767149739; x=1767754539;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=OtxBcRpBORYIa5rqVGM8zqMG6Euvj5S5afX/620YI/4=;
-        b=nDvQquhLCOGQcgY7GQMLEoQ80ZMzgWrn8Rv4LkNoXhCgPAt1Ne6PtX3K5YKLJzYI/s
-         YRm9P3iUO7LdM10VahE1UfmBqijFnRj//pCMrURIrrz2+Z8FNqFo3WtByHyA54PNlO/5
-         fD8BqU+p3BwI0Ua2yUBoPcUuZJl8vMRVfWcfa5vNQNUzioT90PR/WU/Hx2CmpX7lu1oA
-         Rt4E1yNvdUjFrzRS3ofAv8U1Nslr66k19bFu0DifZaAmdeIcE9dg4p0tGjCBmUg0Ekfh
-         N47HQ70MYdbzfkOkhRAIG0JdxnMa1iXTXu30mvzkUdEDs6gvztCvpjSnv8GGzIgYxffM
-         NgrA==
-X-Forwarded-Encrypted: i=1; AJvYcCWqOQC/08Xm5/m3H0TrLhD1N9ldQLlxp352X1bfUwzAjoIy7aZIQvvAR+OMmc8uCT3E3BOB+vyh5CEW7bc433YW@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8SiDCMhAgY1HfC8SJ3bGp3SAVJFl7/wIeYwXY043FCLubyKio
-	E1e/EU8fDIJYTs7lb8Y3+uPhhMTvLFZ76FpDk2BJdlAizzb4T9b9uVbF8SHUqX1OSDw=
-X-Gm-Gg: AY/fxX5SbPox9JpbtNQewK6Ck2pyzvY/yUf9HB8YeLa+cnQ6j/r0gDO2v6z7Gkap/KT
-	o+U2fj+9ixBuNekA3bM61Pr2rEm8L1lpoy/3H6NiO1uahJr5TZXdIagRMJW5oDKCsYlTp/SwXdO
-	Ky5xmdATU63GqCCGQ7scqasnUybdfBKtrNRAd+BrumjN5qmwgSzNcQVka3SwqzRr0FyIIOlW/8a
-	SZWPjScqHwRoiXN1695YsjxYY5+dq+P2PYrsheDS/Y3WDvbvTFgCPQ+WUBZvVCLeQhlHeFMDjxB
-	ExaJw7NhFV+dt5Eh2YHmn4XEWCr+hNQWLC6nPNJkRTbQC8hCKpH10ELUDzTU3B9dnY6Db+PXJ0G
-	51pgTTsxG+EIYdyPStIjdI1WmekxMrxMhiTp8A4IR5XJZ9lG7ZNuvlfDqVUjeQQQyH8AXKGncVz
-	KbNIEWHOfOkunGsHuSRMlvtOBB+MB9WJJC5zEvJttegESul8LtJKqG
-X-Google-Smtp-Source: AGHT+IHfqKaBGSEJYcl1RPRPR+KftXdRoeAqBfFeFsFQaC4YaWRX9vPiSWkSBKAcgee3eF5BzLLM9A==
-X-Received: by 2002:a17:903:110e:b0:2a0:971d:12ad with SMTP id d9443c01a7336-2a2f2732b44mr354805905ad.31.1767149740791;
-        Tue, 30 Dec 2025 18:55:40 -0800 (PST)
+        bh=5H6KXg9o2QtM55dEd8AiNf+pVaQWGHEPICjIkw8m5C0=;
+        b=faoxy8nIuuu96uuzzq8SZ7KLtarI6aBStN9P6CIc0Qz5WLAepPTTaXUFCulAYpYVPI
+         MRL2wMHK7GgidgMmQQT+Zw7eSXeGfTsAAIRc704T/tGiLPzWh8dCmbRZZoTb9Un/2+mZ
+         s2uk+i1G4qdw0gFMvTjua6/qcOWCx9oveUxuS0JGcuVgu1tHHbc3RKkz8xE3KG9FJrCf
+         tJEg+ySuTjPVYdJqvEtVSNOr+3YyblzMf74YKCQpHZo2XWrgZsDKpCwL1wn5v575CWlc
+         YhSlql9TMUIm7VAS+hmxwPdRmvQNRtvQP2pizx9KMUdR+hMEPD0rThfWxZrjm8O8oJL6
+         7RdA==
+X-Forwarded-Encrypted: i=1; AJvYcCVp7rhf1eIP0dFD1+vR/EkOqFW9Dt9tzBQ7Ho6EXY6uaHImkFbj5u32yBqrJx6phrqF3taad21yU6V4FjJDBCOR@lists.infradead.org
+X-Gm-Message-State: AOJu0YwZDUOQJsRMNrlyBQpz2d8qXQWar2sDvi88HkyuJoMcUY71QS28
+	z8er9P5r72RZqLTzBY0isr64S1YQEu29VGXldbY65rrNXErsgfZjfuIMxpTYXoiitR8=
+X-Gm-Gg: AY/fxX4rKeiN0YE2l9bbaB0SgItZJC3Q9jE1KbW8hbO8YkRA+trp3qXS/ihGDyc9X2b
+	QjVF4ka5wKAaQdyZOIqachcpHl0DqyI2+1SHDbj+qzfg1ubX/FuVhlYd/G7rQLAltioApm7Hw+D
+	zg3CrIj8DFgDUNfnN3Ag+k8qBLYcX8QuLLcuGq73B+BE1Nhun3HGbRVfC2AARaWicxrYMvU3liv
+	ULrI8MGrg+X1/OItGzaRcmy3qCsndofbbgBg/iAM7lJ8KHnQHl2/Y9RoSCXcqgz/MkTF88Nql6t
+	jwbiuX4iNgNupRErIHvC/ovl9Pv+srlrjT6OxrKhXV0ctzV2Ff3hglnusGaizIr9NLwko4NE3ih
+	bSBz4vg14l5G7Qdje54OqIpiyDXMIuLqSEI5rc+E64mIaLA46E0L1gTvf3I0jJREPW5hthRZdjp
+	xOWcVLrnpWASNjJJ88lDpJTeIacAc7vQDilCAOXHYevPHt4MGstX4a
+X-Google-Smtp-Source: AGHT+IGNZWmQD+37d10BuOX8nsQ+wmTlSI5nVUSJjKMPtoRhSKCQeiaZCOWCDQHE5uljxYAncU1GZA==
+X-Received: by 2002:a17:902:f60e:b0:2a0:9028:11af with SMTP id d9443c01a7336-2a2f2a41622mr349634425ad.59.1767149738625;
+        Tue, 30 Dec 2025 18:55:38 -0800 (PST)
 Received: from shiro (p1536247-ipxg00c01sizuokaden.shizuoka.ocn.ne.jp. [122.26.212.247])
-        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-2a2f3d5d3e1sm307762945ad.76.2025.12.30.18.55.38
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-2a2f3d5d3e1sm307762945ad.76.2025.12.30.18.55.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 30 Dec 2025 18:55:40 -0800 (PST)
+        Tue, 30 Dec 2025 18:55:38 -0800 (PST)
 From: Daniel Palmer <daniel@0x0f.com>
 To: krzk+dt@kernel.org,
 	romain.perier@gmail.com,
@@ -76,17 +76,17 @@ To: krzk+dt@kernel.org,
 Cc: devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Daniel Palmer <daniel@0x0f.com>
-Subject: [PATCH 5/5] arm: dts: mstar: v7: Add sizes and ranges to sram
-Date: Wed, 31 Dec 2025 11:55:02 +0900
-Message-ID: <20251231025502.1139168-6-daniel@0x0f.com>
+Subject: [PATCH 4/5] arm: dts: mstar: v7: Move the reboot node
+Date: Wed, 31 Dec 2025 11:55:01 +0900
+Message-ID: <20251231025502.1139168-5-daniel@0x0f.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251231025502.1139168-1-daniel@0x0f.com>
 References: <20251231025502.1139168-1-daniel@0x0f.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251230_185541_414714_566004DF 
-X-CRM114-Status: GOOD (  10.40  )
+X-CRM114-CacheID: sfid-20251230_185539_569476_1658B4D4 
+X-CRM114-Status: GOOD (  12.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,28 +101,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add some missing properties to the SRAM node to make the dt
-validation happy.
+The reboot node is currently inside of soc and that makes
+the dt validation stuff complain that it wants some properties
+that don't exist for reboot which is just some glue and not
+a real device.
+
+Move the node out of soc to fix the warnings.
 
 Signed-off-by: Daniel Palmer <daniel@0x0f.com>
 ---
- arch/arm/boot/dts/sigmastar/mstar-v7.dtsi | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/arm/boot/dts/sigmastar/mstar-v7.dtsi | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
 
 diff --git a/arch/arm/boot/dts/sigmastar/mstar-v7.dtsi b/arch/arm/boot/dts/sigmastar/mstar-v7.dtsi
-index db661e189eec..e50e4000d1ee 100644
+index 3eeafd8c7121..db661e189eec 100644
 --- a/arch/arm/boot/dts/sigmastar/mstar-v7.dtsi
 +++ b/arch/arm/boot/dts/sigmastar/mstar-v7.dtsi
-@@ -187,6 +187,9 @@ pm_uart: serial@221000 {
- 		imi: sram@a0000000 {
- 			compatible = "mmio-sram";
- 			reg = <0xa0000000 0x10000>;
-+			#address-cells = <1>;
-+			#size-cells = <1>;
-+			ranges = <0 0xa0000000 0x10000>;
+@@ -73,6 +73,13 @@ xtal_div2: xtal_div2 {
  		};
  	};
- };
+ 
++	reboot {
++		compatible = "syscon-reboot";
++		regmap = <&pmsleep>;
++		offset = <0xb8>;
++		mask = <0x79>;
++	};
++
+ 	soc: soc {
+ 		compatible = "simple-bus";
+ 		#address-cells = <1>;
+@@ -105,13 +112,6 @@ pmsleep: syscon@1c00 {
+ 				reg = <0x1c00 0x100>;
+ 			};
+ 
+-			reboot {
+-				compatible = "syscon-reboot";
+-				regmap = <&pmsleep>;
+-				offset = <0xb8>;
+-				mask = <0x79>;
+-			};
+-
+ 			rtc@2400 {
+ 				compatible = "mstar,msc313-rtc";
+ 				reg = <0x2400 0x40>;
 -- 
 2.51.0
 
