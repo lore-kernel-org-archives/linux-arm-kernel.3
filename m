@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F41A3E9410C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Jan 2026 03:43:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A7D1EE57CE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Jan 2026 03:43:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jIeA2KNOq3j25EC6hciLGLT0ZJhCWc6ylGKcYpLnhhU=; b=I1rvwjl/fcjbVGp5zRXK/FuyrC
-	ajRAlBPUF1fSkRewToMEHqccA+zcC+nkgCKs2K/Zsv3fp+vPUzZfWKCHD4llUGErG6bgsSrKEpDan
-	i6lF+JanMrjzxhOCeAdUm82b/XjhveSUsM3mrkO9DTXoUpPgJ3a5+PMB5ZQdRX8sTFG2k8nvfZjFh
-	DEvi3YOmLE2JXMxJEtY+nlRTUUblnEeJFcFV+LRmEoc6X4OhPYA2mgnTRqnlxEdvPptNSxygpwFQl
-	gIHheJBK461Tm+ZRcxdHjgGHXQ0Qw8Bjs4k+XPM2mT3u4RhZhimy7eTLcidCZNfsvbggsyVQeoUcd
-	prYloD8w==;
+	bh=CfA/CbhDb6Z2fvP1pbOmphPSTdUHIDS9WPfL/3T4NWg=; b=jFWQG+Aeku6FBR3IC7roex5PD1
+	K/W26Nj7kR6QUF6t3evSzN/qzB3++VULYWlLg2/g8NxoqHGjF3SmyPbgJjud/3ZkINP3xmOPiw3As
+	yw8UUiT0Yq7je3G86exZWrer/g5Xlm4SEXPWmQGcto008gtksFcsjgqzKlJ24Dxh2YyqWxi0CmbR+
+	b3XFmf2EGm79axSf79JoND9MGvnk8Nz7w8bHk/UkilzmnRxqwzoYLo0K9V7Orswj4rGtJYhKfW5Wo
+	aLp+Jn7p2923U68G3EV+C8meFS3sJLqfDSF1VzwyyqA2Jo0ynar1jBJ0cal/HxX8eB4g/FoNh3pHt
+	dK0xJnKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vb9b3-00000006Ynn-1Jjv;
-	Thu, 01 Jan 2026 03:43:33 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1vb9bD-00000006Yqe-0yDM;
+	Thu, 01 Jan 2026 03:43:43 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vb9b0-00000006Yn3-3nLN
+	id 1vb9b7-00000006Yor-3GWI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Jan 2026 03:43:31 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2a0f3f74587so159260515ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 31 Dec 2025 19:43:30 -0800 (PST)
+	Thu, 01 Jan 2026 03:43:39 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2a0d67f1877so145344305ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 31 Dec 2025 19:43:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=0x0f.com; s=google; t=1767239010; x=1767843810; darn=lists.infradead.org;
+        d=0x0f.com; s=google; t=1767239017; x=1767843817; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=jIeA2KNOq3j25EC6hciLGLT0ZJhCWc6ylGKcYpLnhhU=;
-        b=J82Rhxfx4UIvVDtu4ye6IFHDQIh6EnDPB2ZeEtxDgbwOAknwK1L+JE8HDXzPOBvKxu
-         ENoWM5PzSe1Mop+35juX3p0dRfJhl099Cy6ASYSQrpO644JTrc+WZbrG25Wi3AErcy3Q
-         1BLJIxM7iHALtJFIq3XJgw4MatvOyjF/7bBfM=
+        bh=CfA/CbhDb6Z2fvP1pbOmphPSTdUHIDS9WPfL/3T4NWg=;
+        b=iPIOCCqhAqfQX+0k4x2xak/ppM1M+Iahe7NGD87GK7caooH060ZQ+UlUQpo+nFRlC/
+         hjRZKdnnLpv580mcl/lStiuOCBX3iX8YD+xuY4UsDBn4OG2v7w44140Iyud79FBrUF0F
+         cGT9cFbcWG1LjksC31aE0ddikZKYGnIQm5oJo=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767239010; x=1767843810;
+        d=1e100.net; s=20230601; t=1767239017; x=1767843817;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=jIeA2KNOq3j25EC6hciLGLT0ZJhCWc6ylGKcYpLnhhU=;
-        b=hAZhTP+n7TSRhBe7qjjJl9gzpjAeZbmoKBJPir7zU1GP/qU3Kjt9JsIayx8ed7i6qH
-         zgH9dIrIYrOPZ3yZ/Bz0/V+xkxiISLg/Za+Iy+HTHOyO0t+q8t1HoNMxNs611KV/NIGQ
-         1c/EhNTMeT83EIFt7+HCTKxlV0h/ei+2oODU50E0BRnNePWqyByf1j0Z3+9hiLqEEWbk
-         3YkREwXckEyIeuDfnR/HAHfUdLd+dtXI+kp1Ai+cb9YZeI+4aHt4pCPNq5/T0NJy9kkc
-         upXpP8Tza6L9X21Qpo6pjHqETjsh1l5EE0txww7x4lxQmO8Q9ZbsJ+xGYG8k2+iqb6g9
-         jD8g==
-X-Forwarded-Encrypted: i=1; AJvYcCUpmfNokapU5dYCczHQWRzgbTdu2Fl/ZXh6c/hNrxUWy2e7SLvmgkB5NI/LSEuhx5LXiGiTt/fFqD7LJlsQSfAE@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUHXYFDG9iB5tMl4DJYUUirrZ8sPKj4d82DnhhQaSEfmQod73X
-	JzGXK/zSeTqVo/eN+46Ya6o4qnbNPNx63U/lPuZnAyGl1bNIcm2DMUd4R5gqyrU/6Qc=
-X-Gm-Gg: AY/fxX5izlnQ6jXvHOEFGWnkAnNJUMc92Vczs7gOpGEq1a+PLw9z3Enw2sFv3W/yFcN
-	iac7/8XpJoSIaboZfKFUvZqvUDtKNJqF024Gmhpo+/AWDEYmqUvGpcy2CF0o7Bqe+94La5AisuG
-	/YJ7RJzPTppqHkHin0vXoKDQihL14epTtczlS7Un2Q5qv3vUtCTEZunZCjTooXFtzA/vohd14p1
-	txeUWpEyucERSgf1antfC7qnhbjpepLfibnQG7Yy7EUCXkWvoyhcAzn1Xm37Y3BS9z95+Fygd/g
-	pNogX+qWuwzdcBkOICaKDdGtTSyW55rib3tP7yAMnSd3+wb7oxyxM7vhUFmkYidzqd8FwI9BmC3
-	ScYxXjEpHfE3dYE7LuQxAWhOf8yjZpIdfj6w5vGBU5mm2XntycMgnkb92fzCyyK5sIvusnhqyvj
-	nHV0Vm0i3rUX6b3DIqzkRDuk+qbxqP2YCj0dUE+ZXdTJqVOShrezuu
-X-Google-Smtp-Source: AGHT+IHWLoj2dAsPZaFCTMWbBUjlUV2x4LqvvsY9iW6nKl/Lm6h8sT6ZFW0RZnH1hPW3hXhIU6VfSQ==
-X-Received: by 2002:a17:903:1208:b0:295:20b8:e104 with SMTP id d9443c01a7336-2a2f2a5721dmr298948875ad.58.1767239010025;
-        Wed, 31 Dec 2025 19:43:30 -0800 (PST)
+        bh=CfA/CbhDb6Z2fvP1pbOmphPSTdUHIDS9WPfL/3T4NWg=;
+        b=YtuR9uaqoTQjSa5dD4Zi2BIfXcgGpER+4cfiti8/GIdum5trQbykU5yuVIPKbpFhKT
+         KSnN7ZrH7zfaVv7fXQD/hdPzsCEzgttBqkSspQ8Ya4pZ0qg0jiFFaHbsFr1SirLKYr0c
+         LzuRlDKlzN4mXLpH75zxiDFF3BDnd9EaPuyQDKCvmzKeRKfuH7TlFV06X8MHPxrsbFvp
+         ScTBnzcxXa/xypN4FZQRVPC63ralwLIH9x8EHL5RnNwg4iXcuAN96vZMZ3rlJQcsZibl
+         x8YTJe2WHd+NwNUKT2uMsMAPuFqwG4JBigho+b2LQTnHsCMFQp8to4pP/si52luxuw16
+         70bA==
+X-Forwarded-Encrypted: i=1; AJvYcCWxnRdWkO7IZOJFrPXF6joh8JkhDEamf+Gj+0Da07exHnnKLSCHZysRpi64IZiNWHJnB1+jqUyQhJDhfkGzSf6u@lists.infradead.org
+X-Gm-Message-State: AOJu0YylvgVKtYWRllsCirQacwK2uCz1DHH3tsbGrsHzQJsDBTG66ueD
+	/4FokO1ZEwxR374RvNu7UhMVnwhkEM5NEEUhS+T6erDTHdcVmUVIKC8wyA1kScNBHCQ=
+X-Gm-Gg: AY/fxX62r9f6F0aEuSm5s6E4znrhfEOXdEHVpSsUK8UWZwugasy7NaiZQOhSwt4VDzW
+	4CDIhuF8l6VMP9d6VpCog+KpyWMRZTog61RYVjW680YZjV0CjGlTdmYer3JI/6T5WcqVL0xcCbW
+	zneSd1jPsQrJVG5zFLxa2B0Yfit2ODrLOdW4mDdzEQ6g3oDB0E6xDy7U2z0OMrlkwP3CAhKSxor
+	kErJZUcVfakHLU9xsXmglxk6Be/uQtfbpgeucuPLAMU8+PETxAZ12LzdTEPWykntiQzYPK8G7DE
+	FWJsQrfEOMfxl91aOUiGgstRrjpgZhlZsym8tQktZqRjG2DHyVlZGNM4YMsuAe8ijMLgy8zYJDF
+	yNSa29C26aQ7kEbZWZGDw/jzOib81acrzenQkJtlqcwgE3DFvvhjBdEwjru78v9FlbNyrjJmq7Q
+	4o1HVefEj8GGRmSDTYYsGDYaNpaGoN1D61P+pvuDzLsyGDoEb/ac7R
+X-Google-Smtp-Source: AGHT+IG5ivYwNnKALjPqDlmOWulO/0XSWhu0KCN2LU+ZvUE01qjlIYvbQDaQH4x2zBE+8o5Ohayqdw==
+X-Received: by 2002:a17:903:3c6e:b0:2a0:c1e4:e25 with SMTP id d9443c01a7336-2a2f293bdc3mr356242205ad.54.1767239017029;
+        Wed, 31 Dec 2025 19:43:37 -0800 (PST)
 Received: from shiro (p1536247-ipxg00c01sizuokaden.shizuoka.ocn.ne.jp. [122.26.212.247])
-        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-2a2f3c8286esm340437965ad.33.2025.12.31.19.43.28
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-2a2f3c8286esm340437965ad.33.2025.12.31.19.43.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 31 Dec 2025 19:43:29 -0800 (PST)
+        Wed, 31 Dec 2025 19:43:36 -0800 (PST)
 From: Daniel Palmer <daniel@0x0f.com>
 To: krzk+dt@kernel.org,
 	romain.perier@gmail.com,
@@ -76,17 +76,17 @@ To: krzk+dt@kernel.org,
 Cc: devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Daniel Palmer <daniel@0x0f.com>
-Subject: [PATCH v2 1/8] dt-bindings: clk: mstar msc313 cpupll: Correct clock-cells value
-Date: Thu,  1 Jan 2026 12:42:59 +0900
-Message-ID: <20260101034306.1233091-2-daniel@0x0f.com>
+Subject: [PATCH v2 4/8] arm: dts: mstar: breadbee: Switch from "activity" led trigger to "cpu"
+Date: Thu,  1 Jan 2026 12:43:02 +0900
+Message-ID: <20260101034306.1233091-5-daniel@0x0f.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260101034306.1233091-1-daniel@0x0f.com>
 References: <20260101034306.1233091-1-daniel@0x0f.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251231_194330_941702_0E6E2782 
-X-CRM114-Status: GOOD (  11.10  )
+X-CRM114-CacheID: sfid-20251231_194337_821618_7D08B88A 
+X-CRM114-Status: GOOD (  15.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,41 +101,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-clock-cells should have been 0 and causes warnings when
-validating devicetrees.
+The activity trigger exists but is not documented in the LED binding.
+A patch was sent to document it but wasn't accepted.
 
-Fix the value and fix the binding example.
+The intention of the LED is to show if the system is busy or not
+so the cpu trigger is good enough so switch to that to clean up
+the warning.
 
+Link: https://lore.kernel.org/all/20210923065500.2284347-4-daniel@0x0f.com/
 Signed-off-by: Daniel Palmer <daniel@0x0f.com>
 ---
- .../devicetree/bindings/clock/mstar,msc313-cpupll.yaml       | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
+ arch/arm/boot/dts/sigmastar/mstar-infinity-breadbee-common.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/clock/mstar,msc313-cpupll.yaml b/Documentation/devicetree/bindings/clock/mstar,msc313-cpupll.yaml
-index a9ad7ab5230c..889419fba269 100644
---- a/Documentation/devicetree/bindings/clock/mstar,msc313-cpupll.yaml
-+++ b/Documentation/devicetree/bindings/clock/mstar,msc313-cpupll.yaml
-@@ -18,7 +18,7 @@ properties:
-     const: mstar,msc313-cpupll
- 
-   "#clock-cells":
--    const: 1
-+    const: 0
- 
-   clocks:
-     maxItems: 1
-@@ -36,10 +36,9 @@ additionalProperties: false
- 
- examples:
-   - |
--    #include <dt-bindings/clock/mstar-msc313-mpll.h>
-     cpupll: cpupll@206400 {
-         compatible = "mstar,msc313-cpupll";
-         reg = <0x206400 0x200>;
--        #clock-cells = <1>;
-+        #clock-cells = <0>;
-         clocks = <&mpll MSTAR_MSC313_MPLL_DIV2>;
-     };
+diff --git a/arch/arm/boot/dts/sigmastar/mstar-infinity-breadbee-common.dtsi b/arch/arm/boot/dts/sigmastar/mstar-infinity-breadbee-common.dtsi
+index 71da10d9228f..0f03f471a344 100644
+--- a/arch/arm/boot/dts/sigmastar/mstar-infinity-breadbee-common.dtsi
++++ b/arch/arm/boot/dts/sigmastar/mstar-infinity-breadbee-common.dtsi
+@@ -35,7 +35,7 @@ leds {
+ 		compatible = "gpio-leds";
+ 		led-red {
+ 			gpios = <&gpio MSC313_GPIO_SR_IO16 GPIO_ACTIVE_HIGH>;
+-			linux,default-trigger = "activity";
++			linux,default-trigger = "cpu";
+ 		};
+ 		led-yellow {
+ 			gpios = <&gpio MSC313_GPIO_SR_IO17 GPIO_ACTIVE_HIGH>;
 -- 
 2.51.0
 
