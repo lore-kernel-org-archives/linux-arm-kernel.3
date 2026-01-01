@@ -4,94 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 352AEEEEC1C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Jan 2026 22:19:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06692EEEC1C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Jan 2026 22:33:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ArkG22qdZfeZQL1mg0jDVHZEGKaocQfpykvwK+7103I=; b=UqssPiTiO0nbfJVAxH1zkJqMsj
-	gDWbtiBSb+kZJuIdU+lBJHkjHc93IVzDKBudSLuMy7L0qejHdwrE/CnWfjSe60x64G4IKveCBGxqa
-	acYrH3kAY1FIxs990RLMc+hA+NXS382v3LgBTzvaIEnGQIEUYO/ONGOMwqUlD5KJ7Ul/fws+mxFDN
-	WPxs7bNyh8dzmIZseCu7Evl1D6Q4B31jmcnIwqyfb0cnrKcuTFuhPSh7l3/JvCNhZ6p0vhpVMBo8k
-	u+A/45B2hyUlRsTrz9rF9Aw5AfUmC9tio92VxtLiqRyeEc+LoGTiyqGMAFIVoUnLlSCHTAqofP77H
-	ID6mOAdA==;
+	bh=UXGKdezBnhqWJT3z28AVcODOOBkRsqGWkgI6uf542F4=; b=pGHf9mH1t+8TPMh/ZDsXEWBh5p
+	XttVlpvkn4LVrQhl16GZjBi+Ow+Hdd2F9iptvca0NYla6ba/b5OsAW7Suq2hn1nr9e5aTUOe6slmA
+	Ra86GCkbjf/fZc+lbB08AeGJ5D5BIRIQHLYn9P2YOGknAsR0T+T05ROhDED/OzjUms2AYTowdwuBa
+	n84xylR2EWlAWpZiiqXnc9IGtNJ7yfl11etBPH98vQMNtW7D/vpFAxQUcGO2aFQLRdrkcRAPZmjPt
+	ePRBoGQY8FhOf+FYBwg5swA44bm5zua2APccdeQWzlMld1hFcQ0uRQBGQ9VN8JnxzxzR0qMyb+CFd
+	Hddx3Y1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbR0Q-00000007a47-1z3G;
-	Thu, 01 Jan 2026 22:18:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vbREj-00000007bHI-0a7x;
+	Thu, 01 Jan 2026 22:33:41 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbR09-00000007Zno-1TiJ
+	id 1vbREg-00000007bGv-2dk3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Jan 2026 22:18:50 +0000
+	Thu, 01 Jan 2026 22:33:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0865F4390A;
-	Thu,  1 Jan 2026 22:18:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD9BBC4CEF7;
-	Thu,  1 Jan 2026 22:18:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C020360097
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Jan 2026 22:33:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B9E3C19424
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Jan 2026 22:33:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767305916;
-	bh=kluxsGzh3yUyBuEdMQW2ChyzrN9Wa4B73tu4Iho0QMM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=sCUxHlmBfKU8mEXn9Gb6CiqvN470rNDukwLhsH8IJ25cs2s+T2WMY+Xx+K/FU+2r6
-	 PWsWM16rGucx0Nc742fDtSvNWY1bkV0VUXsF5pfaMbTJnzC0FB4VXwwfk3OsCfrrVs
-	 Aes5McW6JYJvBoWjkGtGQNrKdKBRINtBXSrrCueLNNFZzd6m1GyhdBfhN8pvt1oVLz
-	 dWFggAnFJp+V6MOO6xFIu638EERhe2JFPZVw8ufLBF2V/0fMA7B289koJ3yAHePmjy
-	 LNdt9BUzdzGeognpYEt6DWKuX1Q1Af8Yn0+HYm26nah83C++ezo5x4vFhlYHpufrs9
-	 Ycf6r9GynPcvQ==
-From: Frederic Weisbecker <frederic@kernel.org>
-To: LKML <linux-kernel@vger.kernel.org>
-Cc: Frederic Weisbecker <frederic@kernel.org>,
-	=?UTF-8?q?Michal=20Koutn=C3=BD?= <mkoutny@suse.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Chen Ridong <chenridong@huawei.com>,
-	Danilo Krummrich <dakr@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Gabriele Monaco <gmonaco@redhat.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jens Axboe <axboe@kernel.dk>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Marco Crivellari <marco.crivellari@suse.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Muchun Song <muchun.song@linux.dev>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Phil Auld <pauld@redhat.com>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Simon Horman <horms@kernel.org>,
-	Tejun Heo <tj@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vlastimil Babka <vbabka@suse.cz>,
-	Waiman Long <longman@redhat.com>,
-	Will Deacon <will@kernel.org>,
-	cgroups@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-block@vger.kernel.org,
-	linux-mm@kvack.org,
-	linux-pci@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: [PATCH 32/33] kthread: Document kthread_affine_preferred()
-Date: Thu,  1 Jan 2026 23:13:57 +0100
-Message-ID: <20260101221359.22298-33-frederic@kernel.org>
-X-Mailer: git-send-email 2.51.1
-In-Reply-To: <20260101221359.22298-1-frederic@kernel.org>
-References: <20260101221359.22298-1-frederic@kernel.org>
+	s=k20201202; t=1767306817;
+	bh=UXGKdezBnhqWJT3z28AVcODOOBkRsqGWkgI6uf542F4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=K8BtYGxL5UrgFaeruJ2bYpsWno6NCzwubi/XDjFvI+iHYbQvO3xnO0Y7wyhj2cCLP
+	 VaKgc3w0IX4QpiURYPgms9c4pkzF8tbO1vcMDyjBiUnBRL8v90Jjd/by7AwRJFPhNC
+	 YjgEEgIlWtpX14PD2WYaQmPm6VsfJDvCvmPi/pFWu5LWuaBGcjnvxbyDCSguflNbtq
+	 VNEjL1IEIzAE2Wf4+e33ukYHmF/6wWLuvhZScRrjR43mYuQq2dp3Nxhbo/NKUeE0NA
+	 MG2XkD6FMCKMY5fQWnAdIQG4AnKuPbokMsi6dCmbx6jOG1HNMPe7ucmUeCczCATjh3
+	 4INYWRS+JrrrA==
+Received: by mail-yx1-f53.google.com with SMTP id 956f58d0204a3-6468f0d5b1cso6904310d50.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 01 Jan 2026 14:33:37 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCVkk/zghBE7Z5dRPLuTiIl+GHLSc7VexyNVYroE8oA2kFhhUHiAddy96BuRcDd7V6XuOfs05xJHeJF62sAMMB3v@lists.infradead.org
+X-Gm-Message-State: AOJu0YwW7fYZrirU6XycZwCklJv7tIrw0y1zcbNmGWsEgmVhuBTe1Jt7
+	i5J5ScT7LhJwvjT2fAKBQErP8zzN/9zCD1kReHEqA00McOytmsLBDjA2g2WiArNVQhzptAay09o
+	yiX+Png1zxbziQqft8kfewA2H323ZiGY=
+X-Google-Smtp-Source: AGHT+IEBLNKuoraxNZDnarHv/8QNfjLvaAF0ad1d03H/wN5pMxpPWQbhNg4O3Lwnms+Q6/yKd55/WFSt9fl6Hz8W+0k=
+X-Received: by 2002:a53:bacd:0:b0:63f:b0a3:7400 with SMTP id
+ 956f58d0204a3-6466a9133c5mr22966072d50.66.1767306816672; Thu, 01 Jan 2026
+ 14:33:36 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260101_141844_233865_7D18AA7A 
-X-CRM114-Status: GOOD (  12.89  )
+References: <20251223142726.73417-3-krzysztof.kozlowski@oss.qualcomm.com>
+In-Reply-To: <20251223142726.73417-3-krzysztof.kozlowski@oss.qualcomm.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Thu, 1 Jan 2026 23:33:25 +0100
+X-Gmail-Original-Message-ID: <CAD++jLnVaeq39ZcNRjjqaXJ-BNGiR8nO3OzG+Fb-Zz7Db_Lfjg@mail.gmail.com>
+X-Gm-Features: AQt7F2pNYT3pv7P7qW-qHrpoGWDYRLqHE5UdSIokYzrI55tQFL698Vhw1A_9duc
+Message-ID: <CAD++jLnVaeq39ZcNRjjqaXJ-BNGiR8nO3OzG+Fb-Zz7Db_Lfjg@mail.gmail.com>
+Subject: Re: [PATCH 1/2] Documentation/process: maintainer-soc: Be more
+ explicit about defconfig
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Linus Walleij <linus.walleij@linaro.org>, 
+	Drew Fustini <fustini@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev, 
+	workflows@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,38 +85,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The documentation of this new API has been overlooked during its
-introduction. Fill the gap.
+On Tue, Dec 23, 2025 at 3:27=E2=80=AFPM Krzysztof Kozlowski
+<krzysztof.kozlowski@oss.qualcomm.com> wrote:
 
-Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
----
- kernel/kthread.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+> It is already documented but people still send noticeable amount of
+> patches ignoring the rule - get_maintainers.pl does not work on
+> arm64/configs/defconfig or any other shared ARM defconfig.
+>
+> Be more explicit, that one must not rely on typical/simple approach
+> here for getting To/Cc list.
+>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-diff --git a/kernel/kthread.c b/kernel/kthread.c
-index 51f419139dea..c50f4c0eabfe 100644
---- a/kernel/kthread.c
-+++ b/kernel/kthread.c
-@@ -856,6 +856,18 @@ int kthreadd(void *unused)
- 	return 0;
- }
- 
-+/**
-+ * kthread_affine_preferred - Define a kthread's preferred affinity
-+ * @p: thread created by kthread_create().
-+ * @mask: preferred mask of CPUs (might not be online, must be possible) for @p
-+ *        to run on.
-+ *
-+ * Similar to kthread_bind_mask() except that the affinity is not a requirement
-+ * but rather a preference that can be constrained by CPU isolation or CPU hotplug.
-+ * Must be called before the first wakeup of the kthread.
-+ *
-+ * Returns 0 if the affinity has been applied.
-+ */
- int kthread_affine_preferred(struct task_struct *p, const struct cpumask *mask)
- {
- 	struct kthread *kthread = to_kthread(p);
--- 
-2.51.1
+Despite the complaints that the patch does not fix the problem
+there is nothing wrong with the patch.
 
+Reviewed-by: Linus Walleij <linusw@kernel.org>
+
+Yours,
+Linus Walleij
 
