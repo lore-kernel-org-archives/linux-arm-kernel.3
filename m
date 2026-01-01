@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E7CCEEEC1C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Jan 2026 22:14:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B436DEEEC1C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Jan 2026 22:14:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bLzPvP10lPZmnoDZlVjZaj2C4mTuFn9mkofErYVOVAU=; b=AeeRUXOaNpOdU56mZQIJTquv1l
-	1vW4pSxeaSZAlh2q7r7rd8WFXtBH2fbjfOMZlDL+GQ/WiwLITdEz7bPpT0ZKTRI2xzh6Bxb+2GsMg
-	8d6iWzx9jixRKG7AsPDh5j6BNiTLIFoWICjkc2P66mNk3CDRivukfMr09YuSz5ixk+uqsfQOzU/lk
-	mPFdT4BbVFEKKd3cqSAtcl1PeT3S3bo1TBoexBuBDi7+W9x425hPZ4S/w8L5EpG7zm3O5h8j3rCh+
-	flZPcrKn2YxvOODaCQ+QiShs1F8ibKs8/PwwE8bPohUe0cY+JeCMIlt8K844HBwgwCs3sgxObxRXb
-	TxAR4AdQ==;
+	bh=+NxPIB+sKOAQabBh8M/jSikEflAZ+lcyW9sJi6TniPc=; b=gXXg5nzg1IALemC/z1YfZk7Lrc
+	I+LOE5WKMcb3mn1ChhftnEPiYFmjWyAZb5eU3OetguLx5Y5ktovMBgQzF0GfQwzGO4wbXW3092hO0
+	tgPYAWkebgwtp3jyHmsTSay5uJHbVJNAfQkMIr3ubM6f89nsY46WyHD2qyzHiszCIDHIDSSyW/M1s
+	fct3ZmZWcIW6YUomx2HA978DPLygyFV2xVZ/RLMQl8aLMgHnEnbAZwPRFMS3n3FgpIMsgpYiqsNY2
+	4qvE2iasRD1rjKzebjh9LTgXftg+tNeEw2QrzZ2uiW5OLPDWSPfjEJClrpq4pOOBlApDito3ILkkK
+	ZtTl+mBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbQwK-00000007Xeu-16qK;
-	Thu, 01 Jan 2026 22:14:40 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vbQwS-00000007XjM-2NY4;
+	Thu, 01 Jan 2026 22:14:48 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbQwI-00000007Xe3-28Di
+	id 1vbQwQ-00000007Xh6-14nD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Jan 2026 22:14:38 +0000
+	Thu, 01 Jan 2026 22:14:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6D45860055;
+	by sea.source.kernel.org (Postfix) with ESMTP id 912AE44032;
+	Thu,  1 Jan 2026 22:14:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E32CC4CEF7;
 	Thu,  1 Jan 2026 22:14:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F29DC116D0;
-	Thu,  1 Jan 2026 22:14:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767305677;
-	bh=xkhk7ZGxynk2RcaH6iYDB0TKNwEPyWR7khi8Efbu4u0=;
+	s=k20201202; t=1767305685;
+	bh=gBHkj0y4jQxeMV2qzbEciSScfrXq1yZennkNx/2Itiw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=bPTqFrIPuMeDiUKjLJf1BdJZTy8900oENIeuIH1dkJxlc6njI1s0k74kL6OtDCJJ8
-	 R0azKjfphZArLtU64G3kGqplYYG9rSP2gHe1okwairy5AcP1hIu/yPGli7wVh+MMLx
-	 Cf4HBRsfB7tB3ryzbCrOSwtSLh1ZhMMxFnpbplQa4efDNabKMfYGXmlvewbsq3eSLw
-	 Q1gD7Sfampvfq3ZlL6yE+MwTbAdJW22yf9odVWI6MJ/KVLI6k1vg2L2FqskDdTxYRE
-	 zgzfjdPOV14ZLPrpP77hkiEf1Z3io3x+v2KJKdO0dh6Rp9zb43IWkyhypLpv3OfYav
-	 /RgNIaTo+1D9Q==
+	b=eUUVJ4QlV2Ud1CrS6GjbiF6v46hq34xCiNh0ZJVjVwX1TXlPBFeyAEgU8UViw5n7D
+	 i59CAEMxlUC3VxC9iEwmbmBwuKfcfVzPUUaZD6pH8UiyBaJnaMjvHjrcuuVjuwPRY/
+	 88byT+kZctItQI+QgXaYFZ8RmSFVhJsjKDttq+hwL8Wx0ETwMm6W1gzDxv7AULKKam
+	 YJnAGrRKYx/MpQRZJU91JeeCHIxHJewdUxbzC9D5Z/RjPXLAk6MIhhlLqAIn3gDP0V
+	 HcXzQ3FppfamhiEne7w0DLSThz/ucPmLuVjZrVFub7h2zTJg0+6DD93qqzEmXwyKQN
+	 Z4zpqik3l7rJg==
 From: Frederic Weisbecker <frederic@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Frederic Weisbecker <frederic@kernel.org>,
@@ -81,14 +81,17 @@ Cc: Frederic Weisbecker <frederic@kernel.org>,
 	linux-mm@kvack.org,
 	linux-pci@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH 03/33] memcg: Prepare to protect against concurrent isolated cpuset change
-Date: Thu,  1 Jan 2026 23:13:28 +0100
-Message-ID: <20260101221359.22298-4-frederic@kernel.org>
+Subject: [PATCH 04/33] mm: vmstat: Prepare to protect against concurrent isolated cpuset change
+Date: Thu,  1 Jan 2026 23:13:29 +0100
+Message-ID: <20260101221359.22298-5-frederic@kernel.org>
 X-Mailer: git-send-email 2.51.1
 In-Reply-To: <20260101221359.22298-1-frederic@kernel.org>
 References: <20260101221359.22298-1-frederic@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260101_141446_338467_6B9D6B4D 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,66 +107,42 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 The HK_TYPE_DOMAIN housekeeping cpumask will soon be made modifiable at
-runtime. In order to synchronize against memcg workqueue to make sure
-that no asynchronous draining is pending or executing on a newly made
-isolated CPU, target and queue a drain work under the same RCU critical
-section.
+runtime. In order to synchronize against vmstat workqueue to make sure
+that no asynchronous vmstat work is pending or executing on a newly made
+isolated CPU, target and queue a vmstat work under the same RCU read
+side critical section.
 
-Whenever housekeeping will update the HK_TYPE_DOMAIN cpumask, a memcg
+Whenever housekeeping will update the HK_TYPE_DOMAIN cpumask, a vmstat
 workqueue flush will also be issued in a further change to make sure
 that no work remains pending after a CPU has been made isolated.
 
 Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
 ---
- mm/memcontrol.c | 21 +++++++++++++++++----
- 1 file changed, 17 insertions(+), 4 deletions(-)
+ mm/vmstat.c | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
 
-diff --git a/mm/memcontrol.c b/mm/memcontrol.c
-index be810c1fbfc3..2289a0299331 100644
---- a/mm/memcontrol.c
-+++ b/mm/memcontrol.c
-@@ -2003,6 +2003,19 @@ static bool is_memcg_drain_needed(struct memcg_stock_pcp *stock,
- 	return flush;
- }
+diff --git a/mm/vmstat.c b/mm/vmstat.c
+index 65de88cdf40e..ed19c0d42de6 100644
+--- a/mm/vmstat.c
++++ b/mm/vmstat.c
+@@ -2144,11 +2144,13 @@ static void vmstat_shepherd(struct work_struct *w)
+ 		 * infrastructure ever noticing. Skip regular flushing from vmstat_shepherd
+ 		 * for all isolated CPUs to avoid interference with the isolated workload.
+ 		 */
+-		if (cpu_is_isolated(cpu))
+-			continue;
++		scoped_guard(rcu) {
++			if (cpu_is_isolated(cpu))
++				continue;
  
-+static void schedule_drain_work(int cpu, struct work_struct *work)
-+{
-+	/*
-+	 * Protect housekeeping cpumask read and work enqueue together
-+	 * in the same RCU critical section so that later cpuset isolated
-+	 * partition update only need to wait for an RCU GP and flush the
-+	 * pending work on newly isolated CPUs.
-+	 */
-+	guard(rcu)();
-+	if (!cpu_is_isolated(cpu))
-+		schedule_work_on(cpu, work);
-+}
-+
- /*
-  * Drains all per-CPU charge caches for given root_memcg resp. subtree
-  * of the hierarchy under it.
-@@ -2032,8 +2045,8 @@ void drain_all_stock(struct mem_cgroup *root_memcg)
- 				      &memcg_st->flags)) {
- 			if (cpu == curcpu)
- 				drain_local_memcg_stock(&memcg_st->work);
--			else if (!cpu_is_isolated(cpu))
--				schedule_work_on(cpu, &memcg_st->work);
-+			else
-+				schedule_drain_work(cpu, &memcg_st->work);
- 		}
+-		if (!delayed_work_pending(dw) && need_update(cpu))
+-			queue_delayed_work_on(cpu, mm_percpu_wq, dw, 0);
++			if (!delayed_work_pending(dw) && need_update(cpu))
++				queue_delayed_work_on(cpu, mm_percpu_wq, dw, 0);
++		}
  
- 		if (!test_bit(FLUSHING_CACHED_CHARGE, &obj_st->flags) &&
-@@ -2042,8 +2055,8 @@ void drain_all_stock(struct mem_cgroup *root_memcg)
- 				      &obj_st->flags)) {
- 			if (cpu == curcpu)
- 				drain_local_obj_stock(&obj_st->work);
--			else if (!cpu_is_isolated(cpu))
--				schedule_work_on(cpu, &obj_st->work);
-+			else
-+				schedule_drain_work(cpu, &obj_st->work);
- 		}
+ 		cond_resched();
  	}
- 	migrate_enable();
 -- 
 2.51.1
 
