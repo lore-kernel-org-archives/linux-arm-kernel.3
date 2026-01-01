@@ -4,155 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1AA8EEB576
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Jan 2026 00:39:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A3FCEEB575
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Jan 2026 00:53:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8IP4GMUhu1cAV8SFopfcL4wyICRM1PJsgylFhfZnJD4=; b=X5OanqUMt6+2pl6USewYtOJnpn
-	bLyaLt/HBT/X+srjCUm9VB3bdq6K4nCUnmEz9c9NKmBYNgxSU2aLN4cLwH+ZYFjPBYfk/jFuyGRT5
-	9miL+qhM52PITvENiJZ5cs1FEy4Ms/wYfEBvbQo+kXztO2OYkqnY8fLj9pF0sIPGtYFm4uhBfwdJg
-	UJlM5hcRvvjL5CfNbRolmSsFMP5Bw10QvcKQ8r9Hf0wl6CYa7fNrSOYgBw293h8aK4oCCzE8NJRz3
-	BWanZzhN5ZnGAAnPAMugXvVl4mXq+B752v56FT6zsXdPb8jmUHErHqmZCVNOJnYoADzVd1qH+3SKx
-	aBLOTQfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+QFfUDZLHXqrssXREAMstbEvZEB57K8Jrko24t+VTVM=; b=PZdkT5YJD2gKcYvNtua2vsh3GS
+	avG50dIp6JXrx2ZFtLAInNKhNa4J+8KoTN9fhaYmL1JLx8Sx3HQJ4w7zJhtNN/Xje5VUa/AphatyI
+	x+XF0j/lNXW6oXp1Dq4fMrE8i32htOsB6e4+Xn+TbFa3ZTjad+3taNro2rr/rW1S4T2W+rP2jHLoE
+	W8JxG5nGxf1fozTMxf+xlWrQevetYEHRXJ6/8kKygb+oR/e8FdWAaEXaoQyvcmI7PnIccteuZGdnx
+	jSRDc3TVuQMKMhkrRSCkepazXgqGiKJGiAl4pglpHaL2mU3wGjLmCBzASnHh3h4TBN1ffr2Hfxxv6
+	KhrGgkqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vb6id-00000006T6j-0pIX;
-	Thu, 01 Jan 2026 00:39:11 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1vb6wO-00000006Tao-1nP8;
+	Thu, 01 Jan 2026 00:53:24 +0000
+Received: from nick.sneptech.io ([178.62.38.78])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vb6ia-00000006T6G-1vJy
+	id 1vb6wM-00000006TaN-0rPI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Jan 2026 00:39:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KFtVJncEaGRxDzLE5fLJFyVrYmBwoIjGmUgqubUmljlIdk5N3hCj53hEQ0+1guar1PuB3tJ7ijGrTdFoTXha/3KtLoEI+JcyKSzNYowtd65H6iIObsq2/6zgvgIrdQq3jerDWxdPBVdxp4dhYFijxCZT7fYX91CWaZ9fvTPEW+VJOsHV4sMFa7hLkNG4BeZfegM9bKSeOg+Ol6aswjT1I94WJHuogHDgun6HkGycOlJajZyxT9ckUgfrNZJZfOI5nnEoInSsZVNe0mtnOe9hjqkWJRoLQx56woF2EN7ivTIRCAlHEWij0Zcp5pgIUg9fsbRmj9UrZ67qTCr9+jP4EA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8IP4GMUhu1cAV8SFopfcL4wyICRM1PJsgylFhfZnJD4=;
- b=RKZnM/WL1AjLYGuHgv0Lhl4VVArCqp8MZQ5Zun77xpF7ggO2CKtLgx+vNSD3yNKc43eK1x4HuSzHRU5kbEs9MfyWnaizu4EQCjmoxUgaGyiL9XzEezUHVfyGDyT5RHBQX4P3KUkCKwihYy/18kxiyMpOJ7FSUbXaO0UghEp/VXJ5Np42Q4YBJkzAVDnr5G3UcHFe/aEluvShmR4wBqbKYfLWZRutOTmN1MpEoOPNzj4muY+fbW/imFoXpjTfeH54npRLcN/y0oNqurF4nl1Z1Mx3myeOv4qAMObkDJIK5OUC1JgcR4FKtB4leWA/t/rR5Ek6wp/w0bIhxVo739fp3A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8IP4GMUhu1cAV8SFopfcL4wyICRM1PJsgylFhfZnJD4=;
- b=hpjDS+nW1H9+ntUj2ZydRmwMD0BjA9ZnPngLX9a2YFhLexajzNun1Ge3s7kMFoHK/mTal/GrcT27TsdYa9BurBAZdRwczWMUGmjfWdWiksn0TET1nJ6uszglesnUBKlXpiSawIQ0tpjmNsfAKerZ1Cjghi2tOI09bA8vLdBWsW3SHzZ3owJ1Y4ApC5ZFXP79WR4TIHZ2rZwWZqNdyQDNf1dk9a7nMBYUtzAGmeWk0U7F6tYrSZU7FlAfLnly1wtO5o0c1XLt/QKsuSDnSBs3JRIe6F5z2ay5l2GF+c2GXtrAD2jxpQwy3siybjR26EY0c+PgQfmAt/LnhntnUHskzA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by GV1PR04MB10197.eurprd04.prod.outlook.com (2603:10a6:150:1a4::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9456.14; Thu, 1 Jan
- 2026 00:39:01 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.9478.004; Thu, 1 Jan 2026
- 00:39:01 +0000
-Date: Thu, 1 Jan 2026 08:37:28 +0800
-From: Rain Yang <jiyu.yang@oss.nxp.com>
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: jiyu.yang@oss.nxp.com, Frank.Li@nxp.com, conor+dt@kernel.org,
-	devicetree@vger.kernel.org, festevam@gmail.com, imx@lists.linux.dev,
-	jiyu.yang@nxp.com, kernel@pengutronix.de, krzk+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	liviu.dudau@arm.com, marek.vasut@mailbox.org, robh@kernel.org,
-	s.hauer@pengutronix.de, shawnguo@kernel.org
-Subject: Re: [PATCH] arm64: dts: imx95: remove CLK_GPUAPB
-Message-ID: <aVXByNiEfC66RDG0@oss.nxp.com>
-References: <20251231031915.752262-1-jiyu.yang@oss.nxp.com>
- <37489cb7-820d-46cd-a7ea-0f9097604895@mailbox.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <37489cb7-820d-46cd-a7ea-0f9097604895@mailbox.org>
-X-ClientProxiedBy: SI1PR02CA0006.apcprd02.prod.outlook.com
- (2603:1096:4:1f7::11) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Thu, 01 Jan 2026 00:53:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=philpem.me.uk;
+	s=mail; t=1767228768;
+	bh=zluA8146THLIKlrNSlXQInf01PFqTRlbIt8H+adc1+4=;
+	h=Date:From:Subject:To:References:In-Reply-To:From;
+	b=ws46NGomq0YQskPKzX2vY1YbWLQDedCpSdBcQrygdWF5TFJEMkKz/ctutRc8m7qeC
+	 Dz7eb+vIhcxx4Ls66C6CNvbZoNVVeRMupdZkmoIL2K1QlhJN4CBlNxHgbaKXuQrppK
+	 /qqgGAX86VgNKyPPOS4L5BEpiP8/NzccicD9rHLE=
+Received: from wolf.philpem.me.uk (81-187-163-148.ip4.reverse-dns.uk [81.187.163.148])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
+	(No client certificate requested)
+	(Authenticated sender: mailrelay_wolf@philpem.me.uk)
+	by nick.sneptech.io (Postfix) with ESMTPSA id F1C68BD357
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Jan 2026 00:52:47 +0000 (UTC)
+Received: from [192.168.1.196] (host86-149-125-116.range86-149.btcentralplus.com [86.149.125.116])
+	by wolf.philpem.me.uk (Postfix) with ESMTPSA id 9CB715FCF2
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  1 Jan 2026 00:52:47 +0000 (GMT)
+Message-ID: <b1416419-8315-43bd-8369-8a1fbd8ed85f@philpem.me.uk>
+Date: Thu, 1 Jan 2026 00:52:46 +0000
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|GV1PR04MB10197:EE_
-X-MS-Office365-Filtering-Correlation-Id: 63e2a9a4-e0dd-4cb5-6132-08de48ce2855
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|52116014|376014|19092799006|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?TJ/xfmnw5zCFTT7AV+0wtlB/nIp2enUS5D/tESAVDwcqafhjFCIt4jYY+OkM?=
- =?us-ascii?Q?87/wnhVwDHPSe4vpniVvs+AST3BnWPjbp8/mNezBngYOPrErDTh57wzNVGyS?=
- =?us-ascii?Q?u8Iz06vaSjKF/CiCO47emDI356LH4g08u4flcfmnKqSrwbtjmPSHyz3m6XP4?=
- =?us-ascii?Q?Z5RVwef7AOvPb4cJE/IM9/85apIZ7+jWUVX4fViIpDXVzsPn3zak7ZyUZrM/?=
- =?us-ascii?Q?855MrWyx0rkVoboLwhBEquNkECQaONRnrPIi+V4cRBYHqd9Fb247veX3kq4K?=
- =?us-ascii?Q?ee2zDtX51hO66+3jFHCHTquEOywmxMTj8Lx2PnUA+XIw3ZXAF+o1HisE/9n4?=
- =?us-ascii?Q?mn3QX6CQ1xgi62zHLiQTdn8YL5zaEAUEdEHBxdkD8XoJtop7VFvUcVDGna+1?=
- =?us-ascii?Q?gaoNB/v4ArU2w9NQN//KW9vFBorm6S+NGvK04Jlixe9txMzk5vh8o52ydj72?=
- =?us-ascii?Q?duAgzFn73cnIN86Njh3cwyrL4h0c45NISRfP4oluOoWs3QYAhXaeu0i0/B/p?=
- =?us-ascii?Q?gj5F5GFPWIi2rtR7YSNfMQc6rgQmA7/X1sBK2GCsKkoiBarAvuuvIuIOpWGX?=
- =?us-ascii?Q?QTYjyp0MztA6TUkdfDxl3jeL9epR3HoZ+V9Fxh7xLENXMY1WkEudrHGUKV7H?=
- =?us-ascii?Q?YJKg/1Hp87LDEyAKaiGed53VqRAOBliaOyrwbDGsQawfnfrEwZLQRBv6lMBg?=
- =?us-ascii?Q?MTt85+dwGMA5QVSAPAWRWew2YMdlqffaiMwYCdXFC9vPO62iS6/Z2MM+fXW8?=
- =?us-ascii?Q?RmfcXdS00snGsfX22/wCmfsyH8YRV+XvVTOx5WjmQnUC0eOeYeem30EDYpDM?=
- =?us-ascii?Q?nWtYbHISa/NhwQzpW+IzQDi4Mlg8W+L+KZQ3O5TvYR0zMNKpFuwUXAKh/ZN1?=
- =?us-ascii?Q?CaqWKe+LCWXgGjUFrlKmSc99/lFAwJ8fvm9xPDS8oivzpOr5E6nHjxN8SR7t?=
- =?us-ascii?Q?UGo6Yg0YSalevG1czyN9OQPbbvWyaUVQQdiru9lYNLWACqVbRrqfdKQ0EuYn?=
- =?us-ascii?Q?n/QZBtE6IvmkWvhE1vprYCqLJjPk+Uj5FqNjr6StRCMPhQQNKUD9gs1IuGo8?=
- =?us-ascii?Q?SAwAqX3nX8Ek5EjTq7rUluiwaW4nbHtWj7G/yyZwuCQH2gIZDwq9HJbl1fwz?=
- =?us-ascii?Q?Gk4ZGwy45zEspyiaVcRqNGqmnPXbElpUXwZQYDX7VTu60YOdtcAzWAEmK20J?=
- =?us-ascii?Q?XaRN9zxm0pVsKalPRgE3zd5y+at76gZtoNGxeRfzcnmheezOKIMDAl4LnKmy?=
- =?us-ascii?Q?QlFSMlzNl8NrpeE0WS33tvkXg+ERu5NPzkTwcfpNfQ2DrON42/zgAw+u13bZ?=
- =?us-ascii?Q?TXkMJAsCSl55cg7UjD02ts0yDiZ8vwxH1PeosYFElqkdnJuS8q3wx/HVU0P+?=
- =?us-ascii?Q?vpTCSk8Wk22kjry5H24HbAWXMFxJ8jOTqAhJBlJbRrlYFdTW3nk2foto6aQ6?=
- =?us-ascii?Q?ePZAhhXC1deWheZx/9qUl6uOUaV/Lt61+APqIvbyu746cbvK8Ialj2Q2jYq8?=
- =?us-ascii?Q?wDGdIOBd+rV3881tcL5FqMYRcI9bwSiqjrWo?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(52116014)(376014)(19092799006)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?P3qJ30TeS2PvIGicRctx2+KTvt6XjznXek4PV9xFnikqUJY1zkANwjizjEH6?=
- =?us-ascii?Q?gyqBS+6RGnYsF/16gHegD6Y/7+9+Pw5H3WRbG0cSGpHxxvkkTSjKrwnZvZkQ?=
- =?us-ascii?Q?tnVpXUUV3fVjB/w+byJewzzKUAFuQ1TCZ7AO0HknP/ghvirG9FB9DU/ftoSi?=
- =?us-ascii?Q?1oh1IEJGRPmupVKDlry+lSyuq/A0++kXwd6bcFmMwqAytzYkkoWXaWKvETbq?=
- =?us-ascii?Q?RoRDmWxefInJWQ352/IE/GrZI3eLUC4S72POEbfe1zIXs5DnC0S8H2b3JtLA?=
- =?us-ascii?Q?lLHUzpdiDTv9kgUeqV1NHYFcAzsFnq4NeIx4iZX/uOt6qNcT44hX0+z/yVrk?=
- =?us-ascii?Q?9vGNJIQ/30Uy+kdjd2iqjkTSDCtmZLkimeNArgrgsG0FhDhas6FvjVD5a3p6?=
- =?us-ascii?Q?Vjn+31sbaKsNufapz2HXvdLKDdYbBVrUq3gwcQkT5N8FVpBDdazl7Cl/cNS7?=
- =?us-ascii?Q?7PyEMvXTZfSnOk2n8cvgemnfpphdX7xu1A2zFzYD/ovZA8YedpxxRJ95LD0O?=
- =?us-ascii?Q?1Hf75ZhlPX03cs3i6fnLTPMjSdb742b/mFQ23A5bR5DqQaqlR0BeutlLJnnc?=
- =?us-ascii?Q?78dSQZjvlO6n6eVNRUuKKq+EGx5sXzVCvzoalBJ1ygQIwbJo/m+cXW6lmR/W?=
- =?us-ascii?Q?jftc0hAkaNa/HDVK6lF5VltXqcN7TO0HGHiZ4Qd+/U4gKMn0UNfUSAGsCx69?=
- =?us-ascii?Q?lrd74/cfw1OI63cL6f76TwYHJjaV/W3BUXWFiqhoLDrCofppLD4mMQbJLiSJ?=
- =?us-ascii?Q?QvgiUGZ3FYqBPgSm35eECy2pQcgUH3TXwmH8lqbM025kOnog8+sFo5HzLG8u?=
- =?us-ascii?Q?kZX0OUG5WofPsM/EWiO7n3+7/Ysg9FeEeq7tij41tF0jCkPMlumXw9AQGBVw?=
- =?us-ascii?Q?mA11/+Ok2qjBaGR2DB/csrTCd7ujc6vvxcz3bpjX920s/1T0hKMfMwQF7JAJ?=
- =?us-ascii?Q?u5OFk2rWoXHW9l1JpXWYf+k/a0rwadQmsHCuRDJM4ZOUuzifac4L8Gyuz+TO?=
- =?us-ascii?Q?DugX2wa+md4PMiO0JifIIbVO+Sg+l/DQJNAFzMnIdWl85roqjPleuSth0NyK?=
- =?us-ascii?Q?jIvR8DrskdCGnFjrOBkN/70hAm65EFQVZng2RCURi+WwDY6v3Ynwu7E0nBuL?=
- =?us-ascii?Q?d8oZAkoPFj/dBSAKT8uwOj6dkytIACu4hL7h/tUKUKMhAWHLVdK4hj/ynNAq?=
- =?us-ascii?Q?aNlnyL5gPFb4sTIkvpwLl+U8QfosBYUCGhbt1S3AL1HIIke3K+FVyrrsaqMY?=
- =?us-ascii?Q?1RVo7UgVC5PkRDaf6R6y5KU8MXRAMm22qCz5V4LrURIC5koob3gcez1ZhUzK?=
- =?us-ascii?Q?VPzD5le1h403LzwNELpWBitllhQ8KJcC1I+OaR+VL9jPnuFPl7wgCcEwsFrX?=
- =?us-ascii?Q?0x6dVi8WHX6ZL59GJooYsxC+9O5hkpcu/gED+w2QGcX5ormZS9pi3oaWzJH7?=
- =?us-ascii?Q?IyJeoVCMG61GGoT6HEpNalcYN5kTz2dvNKbzAL1JnszuMFMOt69QVvMOD17N?=
- =?us-ascii?Q?twB55CZIH5nG+1sRkr0xhTNvCPekNb+rbTfsDmqUr9foiOscgjXe3PsSwxfE?=
- =?us-ascii?Q?Elwd+kcZeoXwPrT/I3KyIeHPbfBpD0NwzQ8Xg3/JEAnXc6Xe5TkcsLcRhza9?=
- =?us-ascii?Q?P3cbeJZ72ibeOfrWwhUANZhm9Yp4G6yJLY711yAZ0S6zmJls2Jc97yl4E8Uz?=
- =?us-ascii?Q?rVVyxO+A6J/U1GdWWbcAj1R10p3QhdskEeqCyjq+mitegther4xNVS7tO1IG?=
- =?us-ascii?Q?+KtVHcR+9Q=3D=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 63e2a9a4-e0dd-4cb5-6132-08de48ce2855
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jan 2026 00:39:01.5303
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 2OH0mLiEoUta4GWWb0OntNs+gPwJlhlzvqJBvzrUfu56dceMWNMjuigIPxMIx6Or0eqsVA2VEkmbz8kcfzdjSA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10197
+User-Agent: Mozilla Thunderbird
+From: Philip Pemberton <lists@philpem.me.uk>
+Subject: Re: EP29xx (TS-7200/TS-7300) board status
+To: linux-arm-kernel@lists.infradead.org
+References: <022f07dd-9c48-42d8-b5c2-172cf755f30f@philpem.me.uk>
+Content-Language: en-US
+In-Reply-To: <022f07dd-9c48-42d8-b5c2-172cf755f30f@philpem.me.uk>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251231_163908_977750_0FDB319C 
-X-CRM114-Status: GOOD (  13.76  )
+X-CRM114-CacheID: sfid-20251231_165322_410759_387C6E21 
+X-CRM114-Status: GOOD (  35.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,44 +73,168 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 31, 2025 at 03:11:21PM +0100, Marek Vasut wrote:
->On 12/31/25 4:19 AM, Rain Yang wrote:
->> From: Rain Yang <jiyu.yang@nxp.com>
->> 
->> Dropping CLK_GPUAPB simplifies OPP handling and avoids unnecessary
->> complexity.
->> 
->> Fixes: 67934f248e64 ("arm64: dts: imx95: Describe Mali G310 GPU")
->> Signed-off-by: Rain Yang <jiyu.yang@nxp.com>
->> ---
->>   arch/arm64/boot/dts/freescale/imx95.dtsi | 4 ++--
->>   1 file changed, 2 insertions(+), 2 deletions(-)
->> 
->> diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
->> index 88bde59e61b2..ab446aa6f73c 100644
->> --- a/arch/arm64/boot/dts/freescale/imx95.dtsi
->> +++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
->> @@ -2164,8 +2164,8 @@ netc_emdio: mdio@0,0 {
->>   		gpu: gpu@4d900000 {
->>   			compatible = "nxp,imx95-mali", "arm,mali-valhall-csf";
->>   			reg = <0 0x4d900000 0 0x480000>;
->> -			clocks = <&scmi_clk IMX95_CLK_GPU_CGC>, <&scmi_clk IMX95_CLK_GPUAPB>;
->> -			clock-names = "core", "coregroup";
->> +			clocks = <&scmi_clk IMX95_CLK_GPU_CGC>;
->> +			clock-names = "core";
->
->I don't think this is correct, SM can disable the GPUAPB clock from the SM
->monitor:
->
->>$ clock.w gpuapb off
->
->Linux has to make sure the GPUAPB clock are enabled to access the GPU
->register, hence the clock have to be described in DT.
-Hi Marek,
+A bit of an update to my previous message, quoted below. And happy new year!
 
-CLK_GPU and CLK_GPUAPB can only be controlled internally by the SM, not by Linux.
-CLK_GPUAPB always runs at a fixed frequency, does not require dynamic adjustment,
-and is practically always on.
-Additionally, CLK_GPUAPB's frequency is absent from all OPP entries. Removing it
-could simplify OPP handling logic and reduce unnecessary complexity.
+I've put my kernel configs and bootloader patches on Github at:
+   <https://github.com/philpem/ts7300/>
+and will be adding more to this repository soon.
+
+Most of the issues I had with the TS7300 board seem to be down to a mix 
+of the bootloader and a misunderstanding of the memory layout.
+
+The memory layout on the 32MiB SDRAM TS-7300 is non-contiguous:
+   - 8 MiB at 0x0000_0000 (to 0x007F_FFFF)
+   - 8 MiB at 0x0100_0000 (to 0x017F_FFFF)
+   - 8 MiB at 0x0400_0000 (to 0x047F_FFFF)
+   - 8 MiB at 0x0500_0000 (to 0x057F_FFFF)
+
+(If anyone has a 64MB or 128MB board it'd be nice to know what chips are 
+fitted, and what /proc/iomem says about the RAM layout. Cirrus DS785UM1 
+page 13-12/13-13 suggests that this layout holds for 64MiB SDRAM chips 
+in a 13x10x4 row*col*bank layout - except that there would be four more 
+8MB stripes at 02xx_, 03xx_, 06xx_ and 07xx_)
+
+The TS-SDBOOT code in the 2K SPI EEPROM initialises SDRAM, loads the 
+first sector (MBR) of the SD Card and executes it at 0x1000 in ARM Thumb 
+mode. The boot sector then loads the kernel and initramfs, builds the 
+ATAGS and jumps to the kernel.
+
+The problem is, the kernel is loaded at 0x0021_8000 (2144K into the 
+first RAM block): if the kernel image is uncompressed, this limits the 
+size of an uncompressed (Image) kernel to 8MB less 2144K = 6048K, and 
+the loading base needs to be changed.
+With a compressed (zImage) kernel and the default boot loader, the 
+uncompressed and compressed images must fit into the same 8MB block!
+
+I patched the boot sector to load the kernel at 0400_0000, giving 8 MiB 
+each for the uncompressed zImage, initramfs and compressed kernel. This 
+solves the kernel size issue nicely. (another way to go would be 
+patching it to load the kernel at 0x8000).
+
+Kernel 6.18.1 (built with Ubuntu arm-linux-gnueabi-gcc 
+13.3.0-6ubuntu2~24.04 and Binutils 2.42) seems to work pretty well after 
+some configuration to remove unnecessary features and disable strong 
+stack guarding (see my previous message).
+
+So far the main issues are:
+
+   * '/sbin/reboot' crashes at "Reboot failed -- System halted" and the 
+board hangs. (This may need a kernel patch as I think the only way to 
+reboot this board is by tripping the TS-7300 Watchdog)
+
+   * DHCP doesn't pass the NFS server and root path onto NFS - this 
+breaks NFS booting. Passing the NFS root on the command line 
+(nfsroot=10.1.2.3:/nfs/armroot,v3,nolock,tcp) works as a workaround.
+
+   * There's no SD Card driver, I presume because while TS provided 
+source as part of their modified 2.4 kernel, it's flagged "License: 
+Proprietary". I need to look at options for this.
+
+   * The kernel needs a DTB to boot, and the bootloader pre-dates Device 
+Trees. The easy fix is to use a compressed kernel and 'cat' the DTB onto 
+the end, and make sure the relevant CONFIG_ option is set to allow this.
+
+This also seems to happen after a few minutes runtime but it doesn't 
+affect the system otherwise and I'm not sure what causes it:
+
+> Unable to handle kernel NULL pointer dereference at virtual address 00000030 when read
+> [00000030] *pgd=00000000
+> Internal error: Oops: 17 [#1] ARM
+> Modules linked in:
+> CPU: 0 UID: 0 PID: 24 Comm: kworker/u4:2 Not tainted 6.18.2 #8 NONE 
+> Hardware name: Generic DT based system
+> Workqueue: events_unbound idle_cull_fn
+> PC is at __set_cpus_allowed_ptr+0x48/0x88
+> LR is at __set_cpus_allowed_ptr+0x28/0x88
+> pc : [<c0047834>]    lr : [<c0047814>]    psr: 60000093
+> sp : c611dea8  ip : c143422c  fp : c611debc
+> r10: c1408d05  r9 : c06bc59c  r8 : c0696888
+> r7 : 00000122  r6 : 00000100  r5 : c142dc00  r4 : c611dec4
+> r3 : c06c1a04  r2 : c0698440  r1 : 00000030  r0 : c0698440
+> Flags: nZCv  IRQs off  FIQs on  Mode SVC_32  ISA ARM  Segment none
+> Control: c000717f  Table: 016f4000  DAC: 00000053
+> Register r0 information: non-slab/vmalloc memory
+> Register r1 information: non-paged memory
+> Register r2 information: non-slab/vmalloc memory
+> Register r3 information: non-slab/vmalloc memory
+> Register r4 information: 2-page vmalloc region starting at 0xc611c000 allocated at kernel_clone+0xac/0x1f4
+> Register r5 information: slab task_struct start c142dc00 pointer offset 0 size 1792
+> Register r6 information: non-paged memory
+> Register r7 information: non-paged memory
+> Register r8 information: non-slab/vmalloc memory
+> Register r9 information: non-slab/vmalloc memory
+> Register r10 information: slab kmalloc-256 start c1408d00 pointer offset 5 size 256
+> Register r11 information: 2-page vmalloc region starting at 0xc611c000 allocated at kernel_clone+0xac/0x1f4
+> Register r12 information: slab kmalloc-128 start c1434200 pointer offset 44 size 128
+> Process kworker/u4:2 (pid: 24, stack limit = 0x(ptrval))
+> Stack: (0xc611dea8 to 0xc611e000)
+> dea0:                   20000013 00000000 c1434200 c611df00 c611ded4 c0047940
+> dec0: c1434200 c06c1a04 00000000 00000000 61c88647 c0037970 c1434200 c00389cc
+> dee0: c0696888 c0696830 00000000 c06a5cd0 c0696888 c0038a68 c1408d00 00000000
+> df00: c1434200 c1434200 c1655780 c1655780 c1408d00 c1409000 c069688c c003919c
+> df20: 00000000 00000002 c157e300 c157e300 c157e300 c1409000 c1655780 c1655780
+> df40: c140902c c1409000 c0039694 c157e300 00000402 c16557ac 00000000 c0039808
+> df60: 00000000 c1655a80 c1657920 c157e300 c0039694 c1655780 00000001 00000000
+> df80: 00000000 c0040efc c1657920 c157e300 c1657920 c0040d5c 00000000 00000000
+> dfa0: 00000000 00000000 00000000 c000834c 00000000 00000000 00000000 00000000
+> dfc0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+> dfe0: 00000000 00000000 00000000 00000000 00000013 00000000 00000000 00000000
+> Call trace: 
+>  __set_cpus_allowed_ptr from set_cpus_allowed_ptr+0x24/0x30
+>  set_cpus_allowed_ptr from unbind_worker+0x38/0xc4
+>  unbind_worker from detach_dying_workers+0x2c/0x48
+>  detach_dying_workers from idle_cull_fn+0x80/0xb0
+>  idle_cull_fn from process_scheduled_works+0x184/0x268
+>  process_scheduled_works from worker_thread+0x174/0x1fc
+>  worker_thread from kthread+0x1a0/0x1c0
+>  kthread from ret_from_fork+0x14/0x28
+> Exception stack(0xc611dfb0 to 0xc611dff8)
+> dfa0:                                     00000000 00000000 00000000 00000000
+> dfc0: 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000
+> dfe0: 00000000 00000000 00000000 00000000 00000013 00000000
+> Code: e5943008 e313000e 1a000009 e5943000 (e5911000) 
+> ---[ end trace 0000000000000000 ]---
+> note: kworker/u4:2[24] exited with irqs disabled
+
+I've no idea what's going on with this but it seems benign?
+
+Cheers
+Phil.
+
+On 29/12/2025 21:48, Philip Pemberton wrote:
+> Hi,
+> 
+> I wondered if anyone knew what condition the EP39xx kernel support was 
+> currently in, and whether anything special (configuration etc.) was 
+> needed to get recent kernels to boot on the TS-7300 hardware?
+> 
+> The latest kernel I've had working out-of-box was 4.17.19, which gets as 
+> far as trying to mount the root filesystem (the initrd the TS bootloader 
+> loads doesn't seem to be recognised).
+> 4.18.1 also works works, so long as I run "make menuconfig" after "make 
+> ep93xx_defconfig" and set CONFIG_STACKPROTECTOR_STRONG=n.
+> 
+> 4.19.1 and 4.20.9 crash before printing the "Uncompressing Linux" banner 
+> and eventually reboot. This holds for every later kernel I've tried.
+> I've also seen this error while bisecting from 4.18.1 to 4.19.1:
+>    Uncompressing Linux... done, booting the kernel.
+>    Warning: Neither atags nor dtb found
+> Which doesn't make any sense. But nor did the bad commit:
+>    # first bad commit: [9a76aba02a37718242d7cdc294f0a3901928aa57] Merge 
+> git://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next
+> 
+> The boot sector loads the compressed kernel in SDRAM at 0x218000, the 
+> initrd at 0x01000000, and the ATAGS end up at 0x100.
+> 
+> I'm using the gcc-linaro-6.4.1-2017.11-x86_64_arm-linux-gnueabihf 
+> compiler as it's a similar vintage to the 4.x kernels and I wanted to 
+> rule out issues with the gcc-13 Debian gcc.
+> 
+> Thanks.
+
+-- 
+Phil.
+philpem@philpem.me.uk
+http://www.philpem.me.uk
+
 
