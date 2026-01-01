@@ -4,56 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A460EEE57CE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Jan 2026 06:44:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A710FEE57CE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Jan 2026 06:44:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WZX/dZjtI+F19LaYU8udICG3jzC2LKrcizLtuHAcnNI=; b=KW907stIZfMOVPFN7+foQ6BLet
-	qIgl/rg9CmPXZ5pPxPKT8v9bAFiQhqUscyuC4+Cphxfk6eLLIv6LOKJkXeNlz9v3JWTov6rCiYJ1K
-	wgrIb04sAAGJhX04N0fVOoDxuKYif1DZWbsvg+6NhMwja+QIvTYRp8UvIbu9kB1dlRa6IrInKhN5J
-	Z5cyyUz62qh1L+331wFRJBZSr172/S2IWHgdt0j9G356y6XMgS0bR+J4vxSZ4vVQu9IAld73L1HUx
-	duPluSjfmoWIwhJN2W6BXGf1kpZ+ZHEVPo25oyH2NRmeR4yv1wXlBq1LdC8EnURyG8XKjP6zeEz3y
-	IIzxCDPw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9Ce0IQ22OEvZ15kOczUXkuEUGZ+sfY8S3Y9JIhVO7Tg=; b=FAdQTA7p71rfjbbeZRy/aYdSe+
+	03HUBMZfkFgQ3Pg9o0dvGqZMTDbOIJ9ZuKpPGL2z+zL8/1P8/zoGnsQ7ok5jNiU0OtV8xi/YQLuy+
+	5oPWHwkGlyODChULIK1M9NIJ7/KEW+J7ZtG9No3z9gKtJl+y4bCtMICEFBnnB64N7IWDKdjxbHJZ4
+	XSpQtcyPVHfBGwR1l2v7KsPOrzsXWYB7lbmD9r2ydBkYvd1GJ0A1EUWbE73B+7Zq2kmdQML6yp6P5
+	4SJmLcxF37FAA7mp17+a4jLq5KOj0jrK1lOh3R0lKtZygX9/qcKnP6tfOaNxva0yw0Uso4+4NU16z
+	F0BfNrpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbCPY-00000006eal-2zEn;
-	Thu, 01 Jan 2026 06:43:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vbCPm-00000006egL-0YwN;
+	Thu, 01 Jan 2026 06:44:06 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbCPW-00000006eZg-1bvZ;
-	Thu, 01 Jan 2026 06:43:50 +0000
+	id 1vbCPW-00000006eZf-1FPa;
+	Thu, 01 Jan 2026 06:43:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D07C360054;
+	by sea.source.kernel.org (Postfix) with ESMTP id 52CE143B49;
 	Thu,  1 Jan 2026 06:43:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 41EC7C19422;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 28573C4CEF7;
 	Thu,  1 Jan 2026 06:43:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1767249827;
-	bh=ip9zrZpjsUv5RAPXj+UMAq++aMcleYwwYvHtDmgnJNk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=dQ4n8ON2tSvDvYCsuBmQ1D0RxEIwp0t2MuL9rF3ucNwhBQZ4CwOGfoObn69df6rVx
-	 /EGfwFdKx8dOhAOwgpGK0Ot7UBDrSuLJG9GWNXP85RsWiKiVtAbC8m9oxJzR5ZVZYD
-	 nVcvYD/sPuT3VhuJ1UTSYvL0vBcuFE3YFwKS3dTIogStlbKk8eb6mH1piaQ/SMJD2H
-	 df8CIytSiVtfobVTfjBo9HX5vtp8Ro5faUhBwavNixuIQTM671xKWa9v3EhWlGKaRh
-	 zzAR1pcuGsNUy26rZ/p/AJT/7+d6grw3v3Y868lRkwxkZJpEYQfG647zvApPhVpzGT
-	 BC2wD4dwe9ByQ==
+	bh=y7Xib1VykIOIuwDYT1LgmZreFH/0h6GvKNisTgW4mqI=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=nR5CrW/cM9k8+tnsaoQ4NYozG1YKD2+qzZaGNzpfDFY9pluKwFohDwRjJ4VIS0Fop
+	 5HTFL3xU8oycuPdD9LWIjt9MW1Gc/qPhBwsB56KpjiBYC9yU3wyztg/YwJ1yLhSW3O
+	 oZCzQOVqW0EH/0/wSLr8qlzrpq3qUIrNKzdPcUZVmnlja0aJlXvixQ+Mt0xc04AalX
+	 Oh3en9aPQ9txHIi2S7fl3NNtWNugMDi4tGM8yXFuqdwYAyheIO2i5lQFBxIqKNXmLD
+	 J21nzWJwjyQ9NsLXK1ks4+3Bz9UFLH0UWZfssaz4AfHsxFD2odl4zZzpIWlXAHtQ8/
+	 HfTNpRDhSpLyQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 35142EEB57C;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 13EF9EE57CE;
 	Thu,  1 Jan 2026 06:43:47 +0000 (UTC)
 From: Ricardo Pardini via B4 Relay <devnull+ricardo.pardini.net@kernel.org>
-Date: Thu, 01 Jan 2026 07:43:10 +0100
-Subject: [PATCH v2 2/3] arm64: dts: rockchip: Enable the NPU on
- FriendlyElec CM3588
+Subject: [PATCH v2 0/3] arm64: dts: rockchip: Enable the NPU on some rk3588
+ boards
+Date: Thu, 01 Jan 2026 07:43:08 +0100
+Message-Id: <20260101-arm64-dts-rockchip-rk3588-npu-enablements-v2-0-013cf5d5c39d@pardini.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260101-arm64-dts-rockchip-rk3588-npu-enablements-v2-2-013cf5d5c39d@pardini.net>
-References: <20260101-arm64-dts-rockchip-rk3588-npu-enablements-v2-0-013cf5d5c39d@pardini.net>
-In-Reply-To: <20260101-arm64-dts-rockchip-rk3588-npu-enablements-v2-0-013cf5d5c39d@pardini.net>
+X-B4-Tracking: v=1; b=H4sIAHwXVmkC/52NTQ6CMBBGr0K6dkx/RKsr72FYFDrKBGmbKRIN4
+ e5WjuDyfV/y3iIyMmEWl2oRjDNliqGA3lWi6114IJAvLLTUtdJGguPxeAA/ZeDYDV1PCXgwtbU
+ Q0gswuPaJI4byK9TWSK/x1EpRfInxTu+tdWsK95SnyJ8tPavf+k9lViDBG9sqq119RnNNjj0F2
+ gecRLOu6xcK/hwP5AAAAA==
+X-Change-ID: 20251230-arm64-dts-rockchip-rk3588-npu-enablements-1e2830d2e7b0
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
@@ -61,21 +64,24 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Jimmy Hon <honyuenkwun@gmail.com>, Tomeu Vizoso <tomeu@tomeuvizoso.net>, 
  Ricardo Pardini <ricardo@pardini.net>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1738;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1792;
  i=ricardo@pardini.net; h=from:subject:message-id;
- bh=/oDfWXpDVXmpYIy9Sg0dUU5JsZFn82Eu22Dm+M4KcYk=;
- b=owEBbQGS/pANAwAIATteP+Oex+3pAcsmYgBpVheh6Ix5kMNtCOZEa8p5wxVW4TXI1nDb4wTxR
- eVy/gjRLBSJATMEAAEIAB0WIQSsGCMM9q/qytxIiJM7Xj/jnsft6QUCaVYXoQAKCRA7Xj/jnsft
- 6Rw2B/9cyLpVG+UBbhSTB1cTyTqKi+MrY1YtRWkV5VIfAqlzqYg2sVUHh9AekDM/m/e3ElbrYLI
- 5D4Ti5xAjF8R3gwRhn8vAjLJ5i6aYsRaiiFz6Sc2bnDGCTEhLLuKU15bH20l/YUzXkV1MZ0a9tx
- ur5I5yevDj2mt/MSxLjawDvI1PPtWq7ejCXnhjOCcQHTjI1uBRSOLA14tmzNucSgbDgMMnPUWML
- vgIEtjjeLoYx5mwhoX68+SGNnpuR3ybXTyLg27CaZuXjBhTrB1dhSifNSoVwu41mHVFVpjSMvfv
- 7ltO5HSriyc0h6hGC/cOhRbVtJ0UQ9MV3YeOaugSyN20f2W0
+ bh=y7Xib1VykIOIuwDYT1LgmZreFH/0h6GvKNisTgW4mqI=;
+ b=owEBbQGS/pANAwAIATteP+Oex+3pAcsmYgBpVhehlL5HowYfiZYW+zzvkD9xqKEkcqkG8am37
+ CxHDRvpsiWJATMEAAEIAB0WIQSsGCMM9q/qytxIiJM7Xj/jnsft6QUCaVYXoQAKCRA7Xj/jnsft
+ 6e9hB/4l4ovOHeAw15WbmnPtzYpJE+kbvTCuT64We5Nn1iXZyE1UjGdXsKSb+jIlx1Zm2x4HPXE
+ WE1ixuJDeShaDWmsAOcokRLsHDmkQUkyoSyodWOBd1+varM7QAxbGztMA+SXI1SA5EQ2x5cp0Or
+ ocyRcOyVzLsSyPMyY9LcYwJhQWlbJhULCPn0FC/bZ0BGDawmWLI+KZd8tnr3+TQaIDrKeiwMQMT
+ dNFApaPBJNwFxIT4xW5bYBe49qRg64wWtvCwiPaAcdFLRIU44WxK5Z21CDV69zX1dJMs4bxqZKS
+ BLl44+U6rmW0wHngUCODQPWR5T15qd7I5nNXBjQ3HQL0IUIh
 X-Developer-Key: i=ricardo@pardini.net; a=openpgp;
  fpr=AC18230CF6AFEACADC4888933B5E3FE39EC7EDE9
 X-Endpoint-Received: by B4 Relay for ricardo@pardini.net/default with
  auth_id=588
 X-Original-From: Ricardo Pardini <ricardo@pardini.net>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251231_224350_386015_9263DA8E 
+X-CRM114-Status: GOOD (  11.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,81 +97,45 @@ Reply-To: ricardo@pardini.net
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ricardo Pardini <ricardo@pardini.net>
+This series enables the NPU on a few Rockchip rk3588 boards.
+In every case here, the required regulator was already in place.
+As suggested by Jimmy Hon [1], since the NPU power domain supply is
+being described, also remove the always-on property from the regulator.
 
-Enable the NPU on FriendlyElec CM3588.
-The regulator vdd_npu_s0 was already in place; since
-the NPU power domain supply is now described, remove the
-regulator's always-on.
+In Jimmy's words: the commit message for the introduction of the 
+pd_npu label mentions how the regulator no longer needs to be always on. 
+[2]
+
+I might send a separate series dropping always-on from the same regulator
+on the boards that have already added the NPU bits with no changes to 
+the regulator. I wonder if I should add Fixes for those.
+
+[1] https://lore.kernel.org/all/CALWfF7KHyKmDcEL9=mYzfCRWc_cymNscoFdeXr8P2frJeww5vA@mail.gmail.com/
+[2] https://lore.kernel.org/linux-rockchip/20250721-6-10-rocket-v9-7-77ebd484941e@tomeuvizoso.net/
 
 Signed-off-by: Ricardo Pardini <ricardo@pardini.net>
 ---
- .../dts/rockchip/rk3588-friendlyelec-cm3588.dtsi   | 35 +++++++++++++++++++++-
- 1 file changed, 34 insertions(+), 1 deletion(-)
+Changes in v2:
+- Drop the always-on from the vdd_npu_s0 regulator.
+- Link to v1: https://lore.kernel.org/r/20251230-arm64-dts-rockchip-rk3588-npu-enablements-v1-0-d38b182a59e3@pardini.net
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588.dtsi
-index af431fdcbea7a..49cf4b85c4e96 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588.dtsi
-@@ -182,7 +182,6 @@ vdd_npu_s0: regulator@42 {
- 		reg = <0x42>;
- 		fcs,suspend-voltage-selector = <1>;
- 		regulator-name = "vdd_npu_s0";
--		regulator-always-on;
- 		regulator-boot-on;
- 		regulator-min-microvolt = <550000>;
- 		regulator-max-microvolt = <950000>;
-@@ -264,6 +263,10 @@ &pd_gpu {
- 	domain-supply = <&vdd_gpu_s0>;
- };
- 
-+&pd_npu {
-+	domain-supply = <&vdd_npu_s0>;
-+};
-+
- &pinctrl {
- 	gpio-leds {
- 		led_sys_pin: led-sys-pin {
-@@ -294,6 +297,36 @@ sd_s0_pwr: sd-s0-pwr {
- 	};
- };
- 
-+&rknn_core_0 {
-+	npu-supply = <&vdd_npu_s0>;
-+	sram-supply = <&vdd_npu_s0>;
-+	status = "okay";
-+};
-+
-+&rknn_core_1 {
-+	npu-supply = <&vdd_npu_s0>;
-+	sram-supply = <&vdd_npu_s0>;
-+	status = "okay";
-+};
-+
-+&rknn_core_2 {
-+	npu-supply = <&vdd_npu_s0>;
-+	sram-supply = <&vdd_npu_s0>;
-+	status = "okay";
-+};
-+
-+&rknn_mmu_0 {
-+	status = "okay";
-+};
-+
-+&rknn_mmu_1 {
-+	status = "okay";
-+};
-+
-+&rknn_mmu_2 {
-+	status = "okay";
-+};
-+
- &saradc {
- 	vref-supply = <&avcc_1v8_s0>;
- 	status = "okay";
+---
+Ricardo Pardini (3):
+      arm64: dts: rockchip: Enable the NPU on NanoPC T6/T6-LTS
+      arm64: dts: rockchip: Enable the NPU on FriendlyElec CM3588
+      arm64: dts: rockchip: Enable the NPU on Turing RK1
 
+ .../dts/rockchip/rk3588-friendlyelec-cm3588.dtsi   | 35 ++++++++++++++++++++-
+ arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi | 36 +++++++++++++++++++++-
+ .../arm64/boot/dts/rockchip/rk3588-turing-rk1.dtsi | 35 ++++++++++++++++++++-
+ 3 files changed, 103 insertions(+), 3 deletions(-)
+---
+base-commit: 9448598b22c50c8a5bb77a9103e2d49f134c9578
+change-id: 20251230-arm64-dts-rockchip-rk3588-npu-enablements-1e2830d2e7b0
+
+Best regards,
 -- 
-2.52.0
+Ricardo Pardini <ricardo@pardini.net>
 
 
 
