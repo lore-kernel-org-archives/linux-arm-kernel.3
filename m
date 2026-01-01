@@ -4,95 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26955EE644A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 31 Dec 2025 23:46:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1AA8EEB576
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Jan 2026 00:39:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6lECKX6HYn/UFgYHW3Lep9ULLvDa097/tngl+1jpf04=; b=MRjzqzhpz5G+Y3eGF1CZ8f0VRv
-	Fq0CzSnhc+pcFJ3klIu2Pvl5pK0OJSN8mMcSJ4wRQ88PvpYgGB6qIGEtlTtxuS6ei7BBMVPZ2LODX
-	0SrtbSildEhKUyC7L+wuVQobVY6GQMwf9de43bsvHznV8+wzduYvHbgdhlzgvf4DjKAfVlV1DzI4H
-	AzectJAgyIj8fKnnAgqpBl+uTduigkur5lhf87aDuZCnEIV7ioEcrZnLTJC/qW5c6BG8C4lOBP+kM
-	BcOPNo6h/B36wmg/ezayva7u8E8bLvmh1Kpnu09WvviqAK1tyI1hNU4eCRkp1YRdy3GfucltTikYR
-	msUScHOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8IP4GMUhu1cAV8SFopfcL4wyICRM1PJsgylFhfZnJD4=; b=X5OanqUMt6+2pl6USewYtOJnpn
+	bLyaLt/HBT/X+srjCUm9VB3bdq6K4nCUnmEz9c9NKmBYNgxSU2aLN4cLwH+ZYFjPBYfk/jFuyGRT5
+	9miL+qhM52PITvENiJZ5cs1FEy4Ms/wYfEBvbQo+kXztO2OYkqnY8fLj9pF0sIPGtYFm4uhBfwdJg
+	UJlM5hcRvvjL5CfNbRolmSsFMP5Bw10QvcKQ8r9Hf0wl6CYa7fNrSOYgBw293h8aK4oCCzE8NJRz3
+	BWanZzhN5ZnGAAnPAMugXvVl4mXq+B752v56FT6zsXdPb8jmUHErHqmZCVNOJnYoADzVd1qH+3SKx
+	aBLOTQfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vb5to-00000006QuP-1KoK;
-	Wed, 31 Dec 2025 23:46:40 +0000
-Received: from mail-ot1-x342.google.com ([2607:f8b0:4864:20::342])
+	id 1vb6id-00000006T6j-0pIX;
+	Thu, 01 Jan 2026 00:39:11 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vb5tl-00000006Qtd-0BiP
+	id 1vb6ia-00000006T6G-1vJy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 31 Dec 2025 23:46:38 +0000
-Received: by mail-ot1-x342.google.com with SMTP id 46e09a7af769-7c6d13986f8so9290435a34.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 31 Dec 2025 15:46:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linuxfoundation.org; s=google; t=1767224795; x=1767829595; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=6lECKX6HYn/UFgYHW3Lep9ULLvDa097/tngl+1jpf04=;
-        b=CtpRkS4TL0jP6s7QfG5dkyGSqB0tGs5Tb5VM7tLh89uACzH/CPN5dlYkigciMUvi5j
-         27lGvG88D1oc/n1qQ2OHkzJd4I5Wc+UGE+5RIUjI4LtLRWeEP+ABO3R7yTkK6vk9JVjl
-         6Q8BtG2F994Bj7ns6aC3UwD7bUFaRk76+Yblo=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767224795; x=1767829595;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=6lECKX6HYn/UFgYHW3Lep9ULLvDa097/tngl+1jpf04=;
-        b=oYU2P00BHe7X3ZivnE4I3IsN63frQ+mLSeSlj2iUteck560BPJvpXeRUIH76p4GkjD
-         i3WOZ4mKYK55WiO7TGB7dghPbPwDGMP3As7ExhWcjvMO8PoDaHtF3WcAbuEhjDb4cEjs
-         RPdTaufnY05V/Vgp2/3MxK2Pn2w0vdRRJoVUcAbdSRc9083rcs34Jgdgauci+7itj9ay
-         YtUmOp5D9jh6kBmgaMLkEQlyNpYzUAR8LhEqAHFK3zI2DDL5U/cBaNvbRxy+cKTQ0UMN
-         L6DGDyw12Kjh/AATlnvAB6L6Qe+ftRgkvAQvP4z/uW6KcFSgA4iONN31VCySl8VLjJUQ
-         65Sw==
-X-Forwarded-Encrypted: i=1; AJvYcCVfjVSVYWS8ae/HAnQoHAZLdMrfQR7HF4A9FHZLyY/imeSbm6TQEd+zXwo1vXizYlmvYZajar4gOUvex0SNfhGF@lists.infradead.org
-X-Gm-Message-State: AOJu0YwZe9LfAYNWO8ZFN8ftOkMCYk92n6a2+BuNwlIrUqnYNWkQjZO5
-	UmndUyEPvuB5v2qWNbLbKPShv+tO2l6xiEEHohHWTwj4usHBOa1MDNxHgWTKvazqguE=
-X-Gm-Gg: AY/fxX50t0iV28IjKyaBF3DPQ21/ZLR3zf5rE7Uw7kikJFG1fHEyeTGzPtGdpHPy2+D
-	qPeIqNuGensKZo1Hq/EngBFFq4VZZqwMFBNs8D2RR2Tfz+uXd8KoLaFI9bp0Hmuwz2QwGoXIqxZ
-	FlKAGIOvJYeRytkqRJG3hfPgbk3Jx+tDjFsruBnS3IO8jeeztcd25K4XGE3GIprO84sLe0JmzbV
-	WHkmspsq2A/SvoBC3pfuoyzU9HICiyJykPS/5j/7DOodwVgIP4WEEm+9mFrcRf88Tf5cFOng9BA
-	WYTgsmzMV7Qhm0O8FQ1nbKZXDg6CdydqfFt8ntPjpAPIpxVtYZBx3wEpoNOQZxqCa5qwVl3IOgC
-	lJkraGvWTNYNd9jwc6ki0jDz+uvOJtJHYcAl1mkR5B69q0YQ8xOAYnYg7bt9fHcaJbXbBFm2Flx
-	arzfwIiUvnZwX1dT0wZbF5ln7nYF4TFLaBKRNi
-X-Google-Smtp-Source: AGHT+IFV2BaGqD0BAddR/5VHavfl8Mnol7saz3Bsj0Em4upn6uAvpba1yOclRSKtiPCjPQk30vcWYg==
-X-Received: by 2002:a05:6830:2e06:b0:7c7:64f3:690a with SMTP id 46e09a7af769-7cc65eb8a4emr20258833a34.18.1767224795618;
-        Wed, 31 Dec 2025 15:46:35 -0800 (PST)
-Received: from shuah-framework.internal ([38.175.187.108])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7cc667ec367sm25187288a34.23.2025.12.31.15.46.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 31 Dec 2025 15:46:35 -0800 (PST)
-From: Shuah Khan <skhan@linuxfoundation.org>
-To: nbd@nbd.name,
-	ryder.lee@mediatek.com,
-	shayne.chen@mediatek.com,
-	sean.wang@mediatek.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	torvalds@linux-foundation.org,
-	johannes@sipsolutions.net,
-	ebiggers@kernel.org,
-	matthew.schwartz@linux.dev,
-	linux@weissschuh.net
-Cc: Shuah Khan <skhan@linuxfoundation.org>,
-	linux-wireless@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Mario Limonciello <superm1@gmail.com>
-Subject: [PATCH] wifi: mt76: Remove blank line after mt792x firmware version dmesg
-Date: Wed, 31 Dec 2025 16:46:26 -0700
-Message-ID: <20251231234627.11867-1-skhan@linuxfoundation.org>
-X-Mailer: git-send-email 2.51.0
+	Thu, 01 Jan 2026 00:39:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KFtVJncEaGRxDzLE5fLJFyVrYmBwoIjGmUgqubUmljlIdk5N3hCj53hEQ0+1guar1PuB3tJ7ijGrTdFoTXha/3KtLoEI+JcyKSzNYowtd65H6iIObsq2/6zgvgIrdQq3jerDWxdPBVdxp4dhYFijxCZT7fYX91CWaZ9fvTPEW+VJOsHV4sMFa7hLkNG4BeZfegM9bKSeOg+Ol6aswjT1I94WJHuogHDgun6HkGycOlJajZyxT9ckUgfrNZJZfOI5nnEoInSsZVNe0mtnOe9hjqkWJRoLQx56woF2EN7ivTIRCAlHEWij0Zcp5pgIUg9fsbRmj9UrZ67qTCr9+jP4EA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8IP4GMUhu1cAV8SFopfcL4wyICRM1PJsgylFhfZnJD4=;
+ b=RKZnM/WL1AjLYGuHgv0Lhl4VVArCqp8MZQ5Zun77xpF7ggO2CKtLgx+vNSD3yNKc43eK1x4HuSzHRU5kbEs9MfyWnaizu4EQCjmoxUgaGyiL9XzEezUHVfyGDyT5RHBQX4P3KUkCKwihYy/18kxiyMpOJ7FSUbXaO0UghEp/VXJ5Np42Q4YBJkzAVDnr5G3UcHFe/aEluvShmR4wBqbKYfLWZRutOTmN1MpEoOPNzj4muY+fbW/imFoXpjTfeH54npRLcN/y0oNqurF4nl1Z1Mx3myeOv4qAMObkDJIK5OUC1JgcR4FKtB4leWA/t/rR5Ek6wp/w0bIhxVo739fp3A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8IP4GMUhu1cAV8SFopfcL4wyICRM1PJsgylFhfZnJD4=;
+ b=hpjDS+nW1H9+ntUj2ZydRmwMD0BjA9ZnPngLX9a2YFhLexajzNun1Ge3s7kMFoHK/mTal/GrcT27TsdYa9BurBAZdRwczWMUGmjfWdWiksn0TET1nJ6uszglesnUBKlXpiSawIQ0tpjmNsfAKerZ1Cjghi2tOI09bA8vLdBWsW3SHzZ3owJ1Y4ApC5ZFXP79WR4TIHZ2rZwWZqNdyQDNf1dk9a7nMBYUtzAGmeWk0U7F6tYrSZU7FlAfLnly1wtO5o0c1XLt/QKsuSDnSBs3JRIe6F5z2ay5l2GF+c2GXtrAD2jxpQwy3siybjR26EY0c+PgQfmAt/LnhntnUHskzA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by GV1PR04MB10197.eurprd04.prod.outlook.com (2603:10a6:150:1a4::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9456.14; Thu, 1 Jan
+ 2026 00:39:01 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.9478.004; Thu, 1 Jan 2026
+ 00:39:01 +0000
+Date: Thu, 1 Jan 2026 08:37:28 +0800
+From: Rain Yang <jiyu.yang@oss.nxp.com>
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: jiyu.yang@oss.nxp.com, Frank.Li@nxp.com, conor+dt@kernel.org,
+	devicetree@vger.kernel.org, festevam@gmail.com, imx@lists.linux.dev,
+	jiyu.yang@nxp.com, kernel@pengutronix.de, krzk+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	liviu.dudau@arm.com, marek.vasut@mailbox.org, robh@kernel.org,
+	s.hauer@pengutronix.de, shawnguo@kernel.org
+Subject: Re: [PATCH] arm64: dts: imx95: remove CLK_GPUAPB
+Message-ID: <aVXByNiEfC66RDG0@oss.nxp.com>
+References: <20251231031915.752262-1-jiyu.yang@oss.nxp.com>
+ <37489cb7-820d-46cd-a7ea-0f9097604895@mailbox.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <37489cb7-820d-46cd-a7ea-0f9097604895@mailbox.org>
+X-ClientProxiedBy: SI1PR02CA0006.apcprd02.prod.outlook.com
+ (2603:1096:4:1f7::11) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|GV1PR04MB10197:EE_
+X-MS-Office365-Filtering-Correlation-Id: 63e2a9a4-e0dd-4cb5-6132-08de48ce2855
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|366016|52116014|376014|19092799006|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?TJ/xfmnw5zCFTT7AV+0wtlB/nIp2enUS5D/tESAVDwcqafhjFCIt4jYY+OkM?=
+ =?us-ascii?Q?87/wnhVwDHPSe4vpniVvs+AST3BnWPjbp8/mNezBngYOPrErDTh57wzNVGyS?=
+ =?us-ascii?Q?u8Iz06vaSjKF/CiCO47emDI356LH4g08u4flcfmnKqSrwbtjmPSHyz3m6XP4?=
+ =?us-ascii?Q?Z5RVwef7AOvPb4cJE/IM9/85apIZ7+jWUVX4fViIpDXVzsPn3zak7ZyUZrM/?=
+ =?us-ascii?Q?855MrWyx0rkVoboLwhBEquNkECQaONRnrPIi+V4cRBYHqd9Fb247veX3kq4K?=
+ =?us-ascii?Q?ee2zDtX51hO66+3jFHCHTquEOywmxMTj8Lx2PnUA+XIw3ZXAF+o1HisE/9n4?=
+ =?us-ascii?Q?mn3QX6CQ1xgi62zHLiQTdn8YL5zaEAUEdEHBxdkD8XoJtop7VFvUcVDGna+1?=
+ =?us-ascii?Q?gaoNB/v4ArU2w9NQN//KW9vFBorm6S+NGvK04Jlixe9txMzk5vh8o52ydj72?=
+ =?us-ascii?Q?duAgzFn73cnIN86Njh3cwyrL4h0c45NISRfP4oluOoWs3QYAhXaeu0i0/B/p?=
+ =?us-ascii?Q?gj5F5GFPWIi2rtR7YSNfMQc6rgQmA7/X1sBK2GCsKkoiBarAvuuvIuIOpWGX?=
+ =?us-ascii?Q?QTYjyp0MztA6TUkdfDxl3jeL9epR3HoZ+V9Fxh7xLENXMY1WkEudrHGUKV7H?=
+ =?us-ascii?Q?YJKg/1Hp87LDEyAKaiGed53VqRAOBliaOyrwbDGsQawfnfrEwZLQRBv6lMBg?=
+ =?us-ascii?Q?MTt85+dwGMA5QVSAPAWRWew2YMdlqffaiMwYCdXFC9vPO62iS6/Z2MM+fXW8?=
+ =?us-ascii?Q?RmfcXdS00snGsfX22/wCmfsyH8YRV+XvVTOx5WjmQnUC0eOeYeem30EDYpDM?=
+ =?us-ascii?Q?nWtYbHISa/NhwQzpW+IzQDi4Mlg8W+L+KZQ3O5TvYR0zMNKpFuwUXAKh/ZN1?=
+ =?us-ascii?Q?CaqWKe+LCWXgGjUFrlKmSc99/lFAwJ8fvm9xPDS8oivzpOr5E6nHjxN8SR7t?=
+ =?us-ascii?Q?UGo6Yg0YSalevG1czyN9OQPbbvWyaUVQQdiru9lYNLWACqVbRrqfdKQ0EuYn?=
+ =?us-ascii?Q?n/QZBtE6IvmkWvhE1vprYCqLJjPk+Uj5FqNjr6StRCMPhQQNKUD9gs1IuGo8?=
+ =?us-ascii?Q?SAwAqX3nX8Ek5EjTq7rUluiwaW4nbHtWj7G/yyZwuCQH2gIZDwq9HJbl1fwz?=
+ =?us-ascii?Q?Gk4ZGwy45zEspyiaVcRqNGqmnPXbElpUXwZQYDX7VTu60YOdtcAzWAEmK20J?=
+ =?us-ascii?Q?XaRN9zxm0pVsKalPRgE3zd5y+at76gZtoNGxeRfzcnmheezOKIMDAl4LnKmy?=
+ =?us-ascii?Q?QlFSMlzNl8NrpeE0WS33tvkXg+ERu5NPzkTwcfpNfQ2DrON42/zgAw+u13bZ?=
+ =?us-ascii?Q?TXkMJAsCSl55cg7UjD02ts0yDiZ8vwxH1PeosYFElqkdnJuS8q3wx/HVU0P+?=
+ =?us-ascii?Q?vpTCSk8Wk22kjry5H24HbAWXMFxJ8jOTqAhJBlJbRrlYFdTW3nk2foto6aQ6?=
+ =?us-ascii?Q?ePZAhhXC1deWheZx/9qUl6uOUaV/Lt61+APqIvbyu746cbvK8Ialj2Q2jYq8?=
+ =?us-ascii?Q?wDGdIOBd+rV3881tcL5FqMYRcI9bwSiqjrWo?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(52116014)(376014)(19092799006)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?P3qJ30TeS2PvIGicRctx2+KTvt6XjznXek4PV9xFnikqUJY1zkANwjizjEH6?=
+ =?us-ascii?Q?gyqBS+6RGnYsF/16gHegD6Y/7+9+Pw5H3WRbG0cSGpHxxvkkTSjKrwnZvZkQ?=
+ =?us-ascii?Q?tnVpXUUV3fVjB/w+byJewzzKUAFuQ1TCZ7AO0HknP/ghvirG9FB9DU/ftoSi?=
+ =?us-ascii?Q?1oh1IEJGRPmupVKDlry+lSyuq/A0++kXwd6bcFmMwqAytzYkkoWXaWKvETbq?=
+ =?us-ascii?Q?RoRDmWxefInJWQ352/IE/GrZI3eLUC4S72POEbfe1zIXs5DnC0S8H2b3JtLA?=
+ =?us-ascii?Q?lLHUzpdiDTv9kgUeqV1NHYFcAzsFnq4NeIx4iZX/uOt6qNcT44hX0+z/yVrk?=
+ =?us-ascii?Q?9vGNJIQ/30Uy+kdjd2iqjkTSDCtmZLkimeNArgrgsG0FhDhas6FvjVD5a3p6?=
+ =?us-ascii?Q?Vjn+31sbaKsNufapz2HXvdLKDdYbBVrUq3gwcQkT5N8FVpBDdazl7Cl/cNS7?=
+ =?us-ascii?Q?7PyEMvXTZfSnOk2n8cvgemnfpphdX7xu1A2zFzYD/ovZA8YedpxxRJ95LD0O?=
+ =?us-ascii?Q?1Hf75ZhlPX03cs3i6fnLTPMjSdb742b/mFQ23A5bR5DqQaqlR0BeutlLJnnc?=
+ =?us-ascii?Q?78dSQZjvlO6n6eVNRUuKKq+EGx5sXzVCvzoalBJ1ygQIwbJo/m+cXW6lmR/W?=
+ =?us-ascii?Q?jftc0hAkaNa/HDVK6lF5VltXqcN7TO0HGHiZ4Qd+/U4gKMn0UNfUSAGsCx69?=
+ =?us-ascii?Q?lrd74/cfw1OI63cL6f76TwYHJjaV/W3BUXWFiqhoLDrCofppLD4mMQbJLiSJ?=
+ =?us-ascii?Q?QvgiUGZ3FYqBPgSm35eECy2pQcgUH3TXwmH8lqbM025kOnog8+sFo5HzLG8u?=
+ =?us-ascii?Q?kZX0OUG5WofPsM/EWiO7n3+7/Ysg9FeEeq7tij41tF0jCkPMlumXw9AQGBVw?=
+ =?us-ascii?Q?mA11/+Ok2qjBaGR2DB/csrTCd7ujc6vvxcz3bpjX920s/1T0hKMfMwQF7JAJ?=
+ =?us-ascii?Q?u5OFk2rWoXHW9l1JpXWYf+k/a0rwadQmsHCuRDJM4ZOUuzifac4L8Gyuz+TO?=
+ =?us-ascii?Q?DugX2wa+md4PMiO0JifIIbVO+Sg+l/DQJNAFzMnIdWl85roqjPleuSth0NyK?=
+ =?us-ascii?Q?jIvR8DrskdCGnFjrOBkN/70hAm65EFQVZng2RCURi+WwDY6v3Ynwu7E0nBuL?=
+ =?us-ascii?Q?d8oZAkoPFj/dBSAKT8uwOj6dkytIACu4hL7h/tUKUKMhAWHLVdK4hj/ynNAq?=
+ =?us-ascii?Q?aNlnyL5gPFb4sTIkvpwLl+U8QfosBYUCGhbt1S3AL1HIIke3K+FVyrrsaqMY?=
+ =?us-ascii?Q?1RVo7UgVC5PkRDaf6R6y5KU8MXRAMm22qCz5V4LrURIC5koob3gcez1ZhUzK?=
+ =?us-ascii?Q?VPzD5le1h403LzwNELpWBitllhQ8KJcC1I+OaR+VL9jPnuFPl7wgCcEwsFrX?=
+ =?us-ascii?Q?0x6dVi8WHX6ZL59GJooYsxC+9O5hkpcu/gED+w2QGcX5ormZS9pi3oaWzJH7?=
+ =?us-ascii?Q?IyJeoVCMG61GGoT6HEpNalcYN5kTz2dvNKbzAL1JnszuMFMOt69QVvMOD17N?=
+ =?us-ascii?Q?twB55CZIH5nG+1sRkr0xhTNvCPekNb+rbTfsDmqUr9foiOscgjXe3PsSwxfE?=
+ =?us-ascii?Q?Elwd+kcZeoXwPrT/I3KyIeHPbfBpD0NwzQ8Xg3/JEAnXc6Xe5TkcsLcRhza9?=
+ =?us-ascii?Q?P3cbeJZ72ibeOfrWwhUANZhm9Yp4G6yJLY711yAZ0S6zmJls2Jc97yl4E8Uz?=
+ =?us-ascii?Q?rVVyxO+A6J/U1GdWWbcAj1R10p3QhdskEeqCyjq+mitegther4xNVS7tO1IG?=
+ =?us-ascii?Q?+KtVHcR+9Q=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 63e2a9a4-e0dd-4cb5-6132-08de48ce2855
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Jan 2026 00:39:01.5303
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 2OH0mLiEoUta4GWWb0OntNs+gPwJlhlzvqJBvzrUfu56dceMWNMjuigIPxMIx6Or0eqsVA2VEkmbz8kcfzdjSA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10197
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251231_154637_492193_221CEE94 
-X-CRM114-Status: GOOD (  11.69  )
+X-CRM114-CacheID: sfid-20251231_163908_977750_0FDB319C 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,65 +167,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-An extra blank line gets printed after printing firmware version
-because the build date is null terminated. Remove the "\n" from
-dev_info() calls to print firmware version and build date to fix
-the problem.
+On Wed, Dec 31, 2025 at 03:11:21PM +0100, Marek Vasut wrote:
+>On 12/31/25 4:19 AM, Rain Yang wrote:
+>> From: Rain Yang <jiyu.yang@nxp.com>
+>> 
+>> Dropping CLK_GPUAPB simplifies OPP handling and avoids unnecessary
+>> complexity.
+>> 
+>> Fixes: 67934f248e64 ("arm64: dts: imx95: Describe Mali G310 GPU")
+>> Signed-off-by: Rain Yang <jiyu.yang@nxp.com>
+>> ---
+>>   arch/arm64/boot/dts/freescale/imx95.dtsi | 4 ++--
+>>   1 file changed, 2 insertions(+), 2 deletions(-)
+>> 
+>> diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
+>> index 88bde59e61b2..ab446aa6f73c 100644
+>> --- a/arch/arm64/boot/dts/freescale/imx95.dtsi
+>> +++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
+>> @@ -2164,8 +2164,8 @@ netc_emdio: mdio@0,0 {
+>>   		gpu: gpu@4d900000 {
+>>   			compatible = "nxp,imx95-mali", "arm,mali-valhall-csf";
+>>   			reg = <0 0x4d900000 0 0x480000>;
+>> -			clocks = <&scmi_clk IMX95_CLK_GPU_CGC>, <&scmi_clk IMX95_CLK_GPUAPB>;
+>> -			clock-names = "core", "coregroup";
+>> +			clocks = <&scmi_clk IMX95_CLK_GPU_CGC>;
+>> +			clock-names = "core";
+>
+>I don't think this is correct, SM can disable the GPUAPB clock from the SM
+>monitor:
+>
+>>$ clock.w gpuapb off
+>
+>Linux has to make sure the GPUAPB clock are enabled to access the GPU
+>register, hence the clock have to be described in DT.
+Hi Marek,
 
-Reported-by: Mario Limonciello <superm1@gmail.com>
-Signed-off-by: Shuah Khan <skhan@linuxfoundation.org>
----
-
-Note: adding discussion threads about revert and simpler fix
-for this. Mario sent me email offline about being away for
-bit. Sending the patch since I have it ready before I disappear
-for New Years.
-
-Relevant threads:
-- Revert for f804a5895ebad2b2d4fb8a3688d2115926e993d5
-  https://lore.kernel.org/all/20251231035645.5545-1-skhan@linuxfoundation.org/
-
-  This patch depends on revert patch.
-- Discussion abour reverting:
-  https://lore.kernel.org/all/d7f3b00d-beec-41f0-b157-7cfb871f9a46@linuxfoundation.org/
-- Proposed fix for reverted commit
-  https://lore.kernel.org/all/CABXGCsMeAZyNJ-Axt_CUCXgyieWPV3rrcLpWsveMPT8R0YPGnQ@mail.gmail.com/
-
- drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c b/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c
-index fba7025ffd3f..0457712286d5 100644
---- a/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt76_connac_mcu.c
-@@ -3019,7 +3019,7 @@ int mt76_connac2_load_ram(struct mt76_dev *dev, const char *fw_wm,
- 	}
- 
- 	hdr = (const void *)(fw->data + fw->size - sizeof(*hdr));
--	dev_info(dev->dev, "WM Firmware Version: %.10s, Build Time: %.15s\n",
-+	dev_info(dev->dev, "WM Firmware Version: %.10s, Build Time: %.15s",
- 		 hdr->fw_ver, hdr->build_date);
- 
- 	ret = mt76_connac_mcu_send_ram_firmware(dev, hdr, fw->data, false);
-@@ -3048,7 +3048,7 @@ int mt76_connac2_load_ram(struct mt76_dev *dev, const char *fw_wm,
- 	}
- 
- 	hdr = (const void *)(fw->data + fw->size - sizeof(*hdr));
--	dev_info(dev->dev, "WA Firmware Version: %.10s, Build Time: %.15s\n",
-+	dev_info(dev->dev, "WA Firmware Version: %.10s, Build Time: %.15s",
- 		 hdr->fw_ver, hdr->build_date);
- 
- 	ret = mt76_connac_mcu_send_ram_firmware(dev, hdr, fw->data, true);
-@@ -3124,7 +3124,7 @@ int mt76_connac2_load_patch(struct mt76_dev *dev, const char *fw_name)
- 	}
- 
- 	hdr = (const void *)fw->data;
--	dev_info(dev->dev, "HW/SW Version: 0x%x, Build Time: %.16s\n",
-+	dev_info(dev->dev, "HW/SW Version: 0x%x, Build Time: %.16s",
- 		 be32_to_cpu(hdr->hw_sw_ver), hdr->build_date);
- 
- 	for (i = 0; i < be32_to_cpu(hdr->desc.n_region); i++) {
--- 
-2.51.0
-
+CLK_GPU and CLK_GPUAPB can only be controlled internally by the SM, not by Linux.
+CLK_GPUAPB always runs at a fixed frequency, does not require dynamic adjustment,
+and is practically always on.
+Additionally, CLK_GPUAPB's frequency is absent from all OPP entries. Removing it
+could simplify OPP handling logic and reduce unnecessary complexity.
 
