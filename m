@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 913FAEEB57B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Jan 2026 22:17:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DB0AFA3724
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Jan 2026 22:17:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4UJ1ramTmwq0TOU26wCD+4lkcdtP6hAE80Mx9/FS/w0=; b=rnkgzq64tAhX5OmQFy0BWTAni6
-	6V58Njs64VfBOYT5kCsxxvyoC38+E10s5EpUWutyl9GmoVZQBbTiJhYEx0+Vd3aevVPC8RTGp9KW9
-	CFeHTNiK0UfXYDM8vJfyU7kFK2vviCAuXOUZLBoEI8R/R4yjPaNMculVu8HQWtM0v7ynHofrqbFyr
-	WPQGVelQIDOaOmExFch6S+NveN1R82Fvi1rshSVrLmgIDtGr+rHMjUPsmBw1HLgOCHJLI4qP/P/V7
-	JPB2S9rMjJdcaacrZh+DWJwBrm6IH3DEcmgbzWnVw2yl0AHiPymHu2YgCXEK7rAG78kF4oKA1npiQ
-	hQ9r3YQA==;
+	bh=deF+JrfXKJMQQONv/Z/SCp87iSCloLUAUVLjyUPPk0E=; b=GIJcxATa+I2q2qlChmud0mABv3
+	6XUQdpxqfQAE8Pevk1AwVZ4kOvHSf0m4R3F1RVJaNxRSpqo/PUPw1MobjjK7pX5G/RDGqc7W4etr+
+	t1fgkoqqwAZEdC9UoRTNIkHf9ikDa86e1mBRiFvnpCLIR+Lc/CEEeWdQ8w9RceslFMNXUeJNOXZHj
+	UT9SbPIIcIMobDn1iEo6Frh2cdsjqs3Hpikngx5Tp7S1NnpgcNLPlO1LEN5u+E0XEpvoHOGPjJhjD
+	57MhEwNxZTsvYQDt3uxVfkWmnRbNMAjF0WOmPykjYMiCvQ415pGQb1MHtSCqCdt9vCLfKPlh5OxHX
+	pr2N9XQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbQyo-00000007YoY-0F6M;
-	Thu, 01 Jan 2026 22:17:14 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vbQyp-00000007Yqp-2ZMq;
+	Thu, 01 Jan 2026 22:17:15 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbQyQ-00000007Yaf-3fLi
+	id 1vbQyZ-00000007Yh1-02rf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Jan 2026 22:16:53 +0000
+	Thu, 01 Jan 2026 22:17:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5143360054;
+	by tor.source.kernel.org (Postfix) with ESMTP id 703EB600B0;
+	Thu,  1 Jan 2026 22:16:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71B19C4CEF7;
 	Thu,  1 Jan 2026 22:16:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07E77C4CEF7;
-	Thu,  1 Jan 2026 22:16:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767305810;
-	bh=gHNQqhw7VVZ8HDLj3PD4gbaFv3v5iPq7Y3Tkp7jU9lg=;
+	s=k20201202; t=1767305818;
+	bh=xcMcLXp9lSxfZhVrsREHiMXj3hvNw6ylCQ2N03wRKM0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Q2Ouwrvp911JzA1XOUT9i1PXT2TImUcJ292gV1k9bzM8Z48Nu5G39zXRCd7XiMHvb
-	 aNik9aNs647YqthJkcEskFhllX1LhrZDWfe+1ctM3768mJsf7gQq5EN55ryfdkRAhP
-	 K4j/qAOHEidsOnpB982JjlxYPZF8/m+O2D2X17v4WKfESJLHnkJmRCUH1Ui6XE0WUe
-	 0PI44xkxibtnf3j+PlSun3PxXSwrPwckMDuOvI/OzSnPUEFQjwd54MLgl8u38AtP22
-	 VgL6pjrPdo2ZmLhJVr+5PxWUfWuG5ABgmW5ZG+AGxAIJ0drQDPLssux7e4m3Oo6Qyk
-	 oMI3wMcafwcfQ==
+	b=C2srymamUA0MXxivD0ZeKbuJECZYnpJecM0twnYUVIw4QXxFyrb6VkzOgcYkmHia7
+	 +DnWEgfnwas3kVZuLf9KnTKlIMAuWVsPt4pwS9udwPhgI+qL1DxK7Sod9D8m263NIa
+	 W7qFbUW/tCcxsOubXiycdmSVDZ9lABvy+cWUVjffImRmPd4OCVaeJltguOh1R2iLNZ
+	 JtcehsjD6GO3wNqGufbqTqFGlp6vOWIx4t10NRQc+URkLgOMwMUo+VgTIAgOoZRK6F
+	 RExsJ3KheHEyeLBvwtNieJ9/RZAvnTRNxtfaiadl5mYG2GYxsztP4x+qItJkx55huk
+	 8+pERh53gsTmQ==
 From: Frederic Weisbecker <frederic@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Frederic Weisbecker <frederic@kernel.org>,
@@ -81,9 +81,9 @@ Cc: Frederic Weisbecker <frederic@kernel.org>,
 	linux-mm@kvack.org,
 	linux-pci@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH 19/33] cpuset: Propagate cpuset isolation update to timers through housekeeping
-Date: Thu,  1 Jan 2026 23:13:44 +0100
-Message-ID: <20260101221359.22298-20-frederic@kernel.org>
+Subject: [PATCH 20/33] timers/migration: Remove superfluous cpuset isolation test
+Date: Thu,  1 Jan 2026 23:13:45 +0100
+Message-ID: <20260101221359.22298-21-frederic@kernel.org>
 X-Mailer: git-send-email 2.51.1
 In-Reply-To: <20260101221359.22298-1-frederic@kernel.org>
 References: <20260101221359.22298-1-frederic@kernel.org>
@@ -103,52 +103,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Until now, cpuset would propagate isolated partition changes to
-timer migration so that unbound timers don't get migrated to isolated
-CPUs.
+Cpuset isolated partitions are now included in HK_TYPE_DOMAIN. Testing
+if a CPU is part of an isolated partition alone is now useless.
 
-Since housekeeping now centralizes, synchronize and propagates isolation
-cpumask changes, perform the work from that subsystem for consolidation
-and consistency purposes.
+Remove the superflous test.
 
 Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+Reviewed-by: Waiman Long <longman@redhat.com>
 ---
- kernel/cgroup/cpuset.c   | 3 ---
- kernel/sched/isolation.c | 4 ++++
- 2 files changed, 4 insertions(+), 3 deletions(-)
+ kernel/time/timer_migration.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
-diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
-index ea9925652d99..12a47922b7ce 100644
---- a/kernel/cgroup/cpuset.c
-+++ b/kernel/cgroup/cpuset.c
-@@ -1487,9 +1487,6 @@ static void update_isolation_cpumasks(void)
- 	ret = housekeeping_update(isolated_cpus);
- 	WARN_ON_ONCE(ret < 0);
- 
--	ret = tmigr_isolated_exclude_cpumask(isolated_cpus);
--	WARN_ON_ONCE(ret < 0);
--
- 	isolated_cpus_updating = false;
+diff --git a/kernel/time/timer_migration.c b/kernel/time/timer_migration.c
+index 3879575a4975..6da9cd562b20 100644
+--- a/kernel/time/timer_migration.c
++++ b/kernel/time/timer_migration.c
+@@ -466,9 +466,8 @@ static inline bool tmigr_is_isolated(int cpu)
+ {
+ 	if (!static_branch_unlikely(&tmigr_exclude_isolated))
+ 		return false;
+-	return (!housekeeping_cpu(cpu, HK_TYPE_DOMAIN) ||
+-		cpuset_cpu_is_isolated(cpu)) &&
+-	       housekeeping_cpu(cpu, HK_TYPE_KERNEL_NOISE);
++	return (!housekeeping_cpu(cpu, HK_TYPE_DOMAIN) &&
++		housekeeping_cpu(cpu, HK_TYPE_KERNEL_NOISE));
  }
  
-diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
-index 2f4f184cef2b..61580023cf9d 100644
---- a/kernel/sched/isolation.c
-+++ b/kernel/sched/isolation.c
-@@ -147,9 +147,13 @@ int housekeeping_update(struct cpumask *isol_mask)
- 	pci_probe_flush_workqueue();
- 	mem_cgroup_flush_workqueue();
- 	vmstat_flush_workqueue();
-+
- 	err = workqueue_unbound_housekeeping_update(housekeeping_cpumask(HK_TYPE_DOMAIN));
- 	WARN_ON_ONCE(err < 0);
- 
-+	err = tmigr_isolated_exclude_cpumask(isol_mask);
-+	WARN_ON_ONCE(err < 0);
-+
- 	kfree(old);
- 
- 	return 0;
+ /*
 -- 
 2.51.1
 
