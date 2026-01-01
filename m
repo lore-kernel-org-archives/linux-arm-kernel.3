@@ -4,56 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5115EED630
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Jan 2026 17:57:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41D58EED630
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Jan 2026 18:55:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y2LHsCmAIp6K7mL6VLrkDIB2ev1RPKuedFqPCMtxwoQ=; b=aMeNBaT6lFkmdpW3Np0T0avCMg
-	LvfTGfB3JimIUR2LF4MFCoLddTZfCs8G5HJuw09aIqcp4PDBG4yY0jrcCumofMNBei0z+BnUiVpum
-	P/Mf55NXvc6nD+Q6o1TwSPvUcL8VEWYkTb0YSsy6MUXnnvzHgm02YxNkGg17d7oOiuoXd7VQLYiO5
-	nj6vUieigTJGa0tvzRPVgqLxGUkoi0pjT+1zVt0bkW4yFGMpOrj6NiKSJ/rU+fOk+3ALQgnMC2Q3S
-	82TLCfY5fshe53s5eUmrr30zYkDnzwHUcxPemUK4S0F95OPet8vhESXzCTYL0j/75GvnDzGbI46VK
-	OP5kIwQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Mdf3B8fU1rHtVZcr0wKBLSmrL9GQVgF+ChrPdZsXKe8=; b=I2lXrCdbz4Caal7JRqcv9RDrbE
+	WKUtTbMWirFj+QTSlaPjCZ2i40Rs4KqzP/fr/uVBQtZgXrr0RTt48EDwwYUCeLdryjbL0uRLcnMBB
+	M2zgBbEsFtH9Vb+UjtUyIKlaYA3++pJk1Hiwbfl0saGm9K5tMaI7Ryqe7KbgB/4KMpZn3fCwDtICQ
+	qCdd99Ew3bK4NQzvnfVK3pS4EB0MTLfk3oZQrouycfwqqusC2QSesTXHKjbebmAKwVmVWwqc2KcQx
+	W7c8gjzvFRZuhNRrKlQtAQRmPg5eKyCWQnOkcFR2cOkaCSoRtjQsU6gv6yniwYvpat7rRNsiVM4jZ
+	ifItmyPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbMvk-00000007Q1u-2qJk;
-	Thu, 01 Jan 2026 17:57:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbMve-00000007Q1S-0KpA
+	id 1vbNpI-00000007RfT-1FuR;
+	Thu, 01 Jan 2026 18:55:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vbNpH-00000007RfJ-04ZN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Jan 2026 17:57:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1B8F4497;
-	Thu,  1 Jan 2026 09:57:34 -0800 (PST)
-Received: from usa.arm.com (e133711.arm.com [10.1.197.51])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id D5E143F63F;
-	Thu,  1 Jan 2026 09:57:39 -0800 (PST)
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: cristian.marussi@arm.com,
-	Vivek Aknurwar <vivek.aknurwar@oss.qualcomm.com>
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	linux-kernel@vger.kernel.org,
+	Thu, 01 Jan 2026 18:55:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 13D9260017;
+	Thu,  1 Jan 2026 18:55:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BE9FC4CEF7;
+	Thu,  1 Jan 2026 18:55:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767293709;
+	bh=di9RKFHA3WeLyoVzrPsOzx/4yiXAPIxza2ATvMON+0Q=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=UMAf3OkZ/Gq08AKEI4W1OtZKf3FXlo2uhnIUxSvROTDc76swIKFNGDnvzWftZgiSf
+	 ZdlXM9DQAOfyehWVXyQA45wjtDqLytkx1Lj+N7XPjbhy+i3oyZrKYXXPLLtFz6pzOo
+	 fTBJuoNgVwON+l2pfUqDML6oCRQNwwdMnmziYECy/wkFIuKIKjE9THSmcDb9S4JnoY
+	 K6cEXN4EOTUx2cHQUjeS5Q3qNkPpRSc+T1xcVqScUR8tG7Hy28VcREsaqm67qRB3F4
+	 V3gZWNlk0kuAY5ISWRxkquElwEy6zgQMzJn63UjiDWbmmG5CcSZ345WH+4T2AYgoNK
+	 VAmK/A+2xZl6g==
+Received: from lfbn-nan-1-2237-32.w92-139.abo.wanadoo.fr ([92.139.188.32] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vbNpC-0000000GMmY-3UcR;
+	Thu, 01 Jan 2026 18:55:07 +0000
+Date: Thu, 01 Jan 2026 18:55:05 +0000
+Message-ID: <87o6ndduye.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Lucas Wei <lucaswei@google.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	sjadavani@google.com,
+	kernel test robot <lkp@intel.com>,
+	stable@vger.kernel.org,
+	kernel-team@android.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	mike.tipton@oss.qualcomm.com
-Subject: Re: [PATCH 1/1] firmware: arm_scmi: Increase MAX_OPPS to 64
-Date: Thu,  1 Jan 2026 17:57:36 +0000
-Message-ID: <176729019292.118211.14540259893282155265.b4-ty@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251014073454.461999-1-vivek.aknurwar@oss.qualcomm.com>
-References: <20251014073454.461999-1-vivek.aknurwar@oss.qualcomm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260101_095742_154098_CE80C11C 
-X-CRM114-Status: UNSURE (   6.00  )
-X-CRM114-Notice: Please train this message.
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: errata: Workaround for SI L1 downstream coherency issue
+In-Reply-To: <20251229033621.996546-1-lucaswei@google.com>
+References: <20251229033621.996546-1-lucaswei@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 92.139.188.32
+X-SA-Exim-Rcpt-To: lucaswei@google.com, catalin.marinas@arm.com, will@kernel.org, corbet@lwn.net, sjadavani@google.com, lkp@intel.com, stable@vger.kernel.org, kernel-team@android.com, linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,18 +88,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 14 Oct 2025 00:34:54 -0700, Vivek Aknurwar wrote:
-> Some upcoming SoCs define more than 32 operating performance points (OPPs),
-> exceeding the current SCMI protocol limit. Increase MAX_OPPS to 64
-> (next power of 2) to support these configurations.
+On Mon, 29 Dec 2025 03:36:19 +0000,
+Lucas Wei <lucaswei@google.com> wrote:
 > 
+> When software issues a Cache Maintenance Operation (CMO) targeting a
+> dirty cache line, the CPU and DSU cluster may optimize the operation by
+> combining the CopyBack Write and CMO into a single combined CopyBack
+> Write plus CMO transaction presented to the interconnect (MCN).
+> For these combined transactions, the MCN splits the operation into two
+> separate transactions, one Write and one CMO, and then propagates the
+> write and optionally the CMO to the downstream memory system or external
+> Point of Serialization (PoS).
+> However, the MCN may return an early CompCMO response to the DSU cluster
+> before the corresponding Write and CMO transactions have completed at
+> the external PoS or downstream memory. As a result, stale data may be
+> observed by external observers that are directly connected to the
+> external PoS or downstream memory.
+> 
+> This erratum affects any system topology in which the following
+> conditions apply:
+>  - The Point of Serialization (PoS) is located downstream of the
+>    interconnect.
+>  - A downstream observer accesses memory directly, bypassing the
+>    interconnect.
+> 
+> Conditions:
+> This erratum occurs only when all of the following conditions are met:
+>  1. Software executes a data cache maintenance operation, specifically,
+>     a clean or invalidate by virtual address (DC CVAC, DC CIVAC, or DC
+>     IVAC), that hits on unique dirty data in the CPU or DSU cache. This
+>     results in a combined CopyBack and CMO being issued to the
+>     interconnect.
+>  2. The interconnect splits the combined transaction into separate Write
+>     and CMO transactions and returns an early completion response to the
+>     CPU or DSU before the write has completed at the downstream memory
+>     or PoS.
+>  3. A downstream observer accesses the affected memory address after the
+>     early completion response is issued but before the actual memory
+>     write has completed. This allows the observer to read stale data
+>     that has not yet been updated at the PoS or downstream memory.
+> 
+> The implementation of workaround put a second loop of CMOs at the same
+> virtual address whose operation meet erratum conditions to wait until
+> cache data be cleaned to PoC.. This way of implementation mitigates
+> performance panalty compared to purly duplicate orignial CMO.
 
-Applied to sudeep.holla/linux (for-next/scmi/updates), thanks!
+penalty, purely, original.
 
-[1/1] firmware: arm_scmi: Increase MAX_OPPS to 64
-      https://git.kernel.org/sudeep.holla/c/6c2fd7a71e7a
---
-Regards,
-Sudeep
+How does one identify the "erratum conditions"?
 
+> 
+> Reported-by: kernel test robot <lkp@intel.com>
+
+Well, no.
+
+> Cc: stable@vger.kernel.org # 6.12.x
+> Signed-off-by: Lucas Wei <lucaswei@google.com>
+> ---
+> 
+> Changes in v2:
+> 
+>  1. Fixed warning from kernel test robot by changing
+>     arm_si_l1_workaround_4311569 to static 
+>     [Reported-by: kernel test robot <lkp@intel.com>]
+> 
+> ---
+>  Documentation/arch/arm64/silicon-errata.rst |  3 ++
+>  arch/arm64/Kconfig                          | 19 +++++++++++++
+>  arch/arm64/include/asm/assembler.h          | 10 +++++++
+>  arch/arm64/kernel/cpu_errata.c              | 31 +++++++++++++++++++++
+>  arch/arm64/mm/cache.S                       | 13 ++++++++-
+>  arch/arm64/tools/cpucaps                    |  1 +
+>  6 files changed, 76 insertions(+), 1 deletion(-)
+> 
+> diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+> index a7ec57060f64..98efdf528719 100644
+> --- a/Documentation/arch/arm64/silicon-errata.rst
+> +++ b/Documentation/arch/arm64/silicon-errata.rst
+> @@ -213,6 +213,9 @@ stable kernels.
+>  | ARM            | GIC-700         | #2941627        | ARM64_ERRATUM_2941627       |
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  +----------------+-----------------+-----------------+-----------------------------+
+> +| ARM            | SI L1           | #4311569        | ARM64_ERRATUM_4311569       |
+> ++----------------+-----------------+-----------------+-----------------------------+
+
+Keep ARM within a single section (no double line -- there's already a
+pointless extra one before 2941627).
+
+> ++----------------+-----------------+-----------------+-----------------------------+
+>  | Broadcom       | Brahma-B53      | N/A             | ARM64_ERRATUM_845719        |
+>  +----------------+-----------------+-----------------+-----------------------------+
+>  | Broadcom       | Brahma-B53      | N/A             | ARM64_ERRATUM_843419        |
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 65db12f66b8f..a834d30859cc 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -1153,6 +1153,25 @@ config ARM64_ERRATUM_3194386
+>  
+>  	  If unsure, say Y.
+>  
+> +config ARM64_ERRATUM_4311569
+> +	bool "SI L1: 4311569: workaround for premature CMO completion erratum"
+> +	default y
+> +	help
+> +	  This option adds the workaround for ARM SI L1 erratum 4311569.
+> +
+> +	  The erratum of SI L1 can cause an early response to a combined write
+> +	  and cache maintenance operation (WR+CMO) before the operation is fully
+> +	  completed to the Point of Serialization (POS).
+> +	  This can result in a non-I/O coherent agent observing stale data,
+> +	  potentially leading to system instability or incorrect behavior.
+> +
+> +	  Enabling this option implements a software workaround by inserting a
+> +	  second loop of Cache Maintenance Operation (CMO) immediately following the
+> +	  end of function to do CMOs. This ensures that the data is correctly serialized
+> +	  before the buffer is handed off to a non-coherent agent.
+> +
+> +	  If unsure, say Y.
+> +
+>  config CAVIUM_ERRATUM_22375
+>  	bool "Cavium erratum 22375, 24313"
+>  	default y
+> diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
+> index f0ca7196f6fa..d3d46e5f7188 100644
+> --- a/arch/arm64/include/asm/assembler.h
+> +++ b/arch/arm64/include/asm/assembler.h
+> @@ -381,6 +381,9 @@ alternative_endif
+>  	.macro dcache_by_myline_op op, domain, start, end, linesz, tmp, fixup
+>  	sub	\tmp, \linesz, #1
+>  	bic	\start, \start, \tmp
+> +alternative_if ARM64_WORKAROUND_4311569
+> +	mov	\tmp, \start
+> +alternative_else_nop_endif
+>  .Ldcache_op\@:
+>  	.ifc	\op, cvau
+>  	__dcache_op_workaround_clean_cache \op, \start
+> @@ -402,6 +405,13 @@ alternative_endif
+>  	add	\start, \start, \linesz
+>  	cmp	\start, \end
+>  	b.lo	.Ldcache_op\@
+> +alternative_if ARM64_WORKAROUND_4311569
+> +	.ifnc	\op, cvau
+> +	mov	\start, \tmp
+> +	mov	\tmp, xzr
+> +	cbnz	\start, .Ldcache_op\@
+> +	.endif
+> +alternative_else_nop_endif
+>  	dsb	\domain
+>  
+>  	_cond_uaccess_extable .Ldcache_op\@, \fixup
+> diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+> index 8cb3b575a031..5c0ab6bfd44a 100644
+> --- a/arch/arm64/kernel/cpu_errata.c
+> +++ b/arch/arm64/kernel/cpu_errata.c
+> @@ -141,6 +141,30 @@ has_mismatched_cache_type(const struct arm64_cpu_capabilities *entry,
+>  	return (ctr_real != sys) && (ctr_raw != sys);
+>  }
+>  
+> +#ifdef CONFIG_ARM64_ERRATUM_4311569
+> +static DEFINE_STATIC_KEY_FALSE(arm_si_l1_workaround_4311569);
+> +static int __init early_arm_si_l1_workaround_4311569_cfg(char *arg)
+> +{
+> +	static_branch_enable(&arm_si_l1_workaround_4311569);
+> +	pr_info("Enabling cache maintenance workaround for ARM SI-L1 erratum 4311569\n");
+> +
+> +	return 0;
+> +}
+> +early_param("arm_si_l1_workaround_4311569", early_arm_si_l1_workaround_4311569_cfg);
+> +
+> +/*
+> + * We have some earlier use cases to call cache maintenance operation functions, for example,
+> + * dcache_inval_poc() and dcache_clean_poc() in head.S, before making decision to turn on this
+> + * workaround. Since the scope of this workaround is limited to non-coherent DMA agents, its
+> + * safe to have the workaround off by default.
+> + */
+> +static bool
+> +need_arm_si_l1_workaround_4311569(const struct arm64_cpu_capabilities *entry, int scope)
+> +{
+> +	return static_branch_unlikely(&arm_si_l1_workaround_4311569);
+> +}
+> +#endif
+
+But this isn't a detection mechanism. That's relying on the user
+knowing they are dealing with broken hardware. How do they find out?
+You don't even call out what platform is actually affected...
+
+The other elephant in the room is virtualisation: how does a guest
+performing CMOs deals with this? How does it discover the that the
+host is broken? I also don't see any attempt to make KVM handle the
+erratum on behalf of the guest...
+
+Thanks,
+
+	M.
+
+-- 
+Jazz isn't dead. It just smells funny.
 
