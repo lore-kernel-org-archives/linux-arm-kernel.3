@@ -4,65 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B8E4EEB57F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Jan 2026 11:08:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47E04EEB57E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Jan 2026 11:51:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HA/Gty4bffKjDHJBqcHn+tzVR7NNSONJo7eGXQhFd0Q=; b=wG+A/twz7fwJaScRJqq/qzaIA4
-	Q2CLlENK6SufiAkiS+uJBfFNWAt4nzaxY0dI0SgB7tj4ZejWUoTUdNkafwnEKnmInWpDPFcuCxOMH
-	I4RYBA93vRk3wyrr3IuoKCf6UNDZ881v/Gz4Aou19BeBlQe2UgpeSWONfsN+EfqaXe2nm+V3olI/P
-	8TPHHl5I7rft/XzNHbAH7XnXwKFYIdY6vhxe7/xAyMI1PHG1c4pUxVRSTIo3K9FhdryxO54yKOhbv
-	mPePH///UC8B9sYal5y52kVbHNQ6NsF37VNhM1uZhDf/GFymz5g6ImWRUakr1ssL1CXKgElztf87Q
-	3gLyLfKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6xun5nAVdAtTvwCkV1ZZrOCWvvKCdra8g44MnjBJe1Y=; b=uDRsHwRYPr2x4ZpTlFqV7oevFS
+	TS5eQ+hy6w/XrqG0FVsQ5wtXDqQ4erevklBt9X3LBM8JblVgsgTFzWXHdXWP3nn2SY09jgidk/bku
+	rhEApeOD4F57tpCaN4MLos/etpiEqcqWBRrL4xlx0JTiLqg/4yGLMqlKXxYZi+6R9PxQeF8y26cpC
+	GgqfvpowJULMzIzpa/owt46YbMud8HZkzqyt2iPiarsUdQSVqnpYMnKzK2xvw5uwtQZo0u9MbiKR+
+	XLCQg44cg5ZflHJw/QcJbXyi3eMvTEt9Oi4byYy0nu2si1s+44YkztoOHF1IwhDXHvW2Le/yWvDj0
+	bbjXbT9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbGXY-00000006o1C-0wqq;
-	Thu, 01 Jan 2026 11:08:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vbHD7-00000006pOW-3Rfp;
+	Thu, 01 Jan 2026 11:51:21 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbGXV-00000006nzs-0s4r;
-	Thu, 01 Jan 2026 11:08:22 +0000
+	id 1vbHD5-00000006pOO-3HHn
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 01 Jan 2026 11:51:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C8332443DF;
-	Thu,  1 Jan 2026 11:08:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15080C116B1;
-	Thu,  1 Jan 2026 11:08:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E61FA60008;
+	Thu,  1 Jan 2026 11:51:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A062C4CEF7;
+	Thu,  1 Jan 2026 11:51:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767265700;
-	bh=oDX9OY3aMzQan91I3g8b+LhbDuDdQqiBxOgdnT9r130=;
-	h=From:To:In-Reply-To:References:Subject:Date:From;
-	b=GWOsDNdxz2NIQGByn4jsxvXUao/5a52yd5gNMaHfXOQOT+5kLGTdiz06Bwam00uD+
-	 0IgLgGTTAQotzc4Ud2nlMG1GWtdZHPRYYhtsmOO6maQWHSrse6MxT65rcbhQG8C32g
-	 8vdae/OMGHzZWPgw45+d1Mpref8xc3SU5HQoFnAnsgJTbhQpDHUQ6NjxCGnHbQXdf4
-	 zm51WKVJ4Pim0i5+Io3w2ni+p0iISEhDwgKG0IZ0u2SvH5pj/mJ0ajmkAJIN9v90rO
-	 EJ5SFt7OZYCTepC+ZOolQFfo4qCRXpVlxFkk8I1Q5jNu1iyWVXEiKoB12L2tqWPimN
-	 qyYhaskoXB53Q==
+	s=k20201202; t=1767268278;
+	bh=RLsSabfas5/C1+TbA4/GiVfPW37dt/rGXwX8nVp6QVI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Ar2Cr2B0aQU9dFwhMmo+/bf6IyS7BPuG+cWXtHxa7d7mQmQuCrLgXJyCXysHneQ90
+	 KCgHxWKkhK6PfF663+qKzYNwXi3QAV0vnM5QEclffItM7YRLGV0mcNkalhItKZclFu
+	 T88yIRmgYhMXaPtjFXz75ExTQw2FSYmZI1CCPUSiUCvd7GbIyIXou/lBk2pVPZMnyd
+	 ANPwrZQO3taXMk1knw6Fd7gDrFt5takK6s8yLXJOcog+XOQNOrvXI3YXonUh4JXn/H
+	 qNgMi6QoTAt7siBmXHKhr3tIh18y7JYdg56j7DXaQB5K5R6KwXUj1JSJNftlsDclVy
+	 14IZ9eVhlAmtg==
+Date: Thu, 1 Jan 2026 17:21:15 +0530
 From: Vinod Koul <vkoul@kernel.org>
-To: Neil Armstrong <neil.armstrong@linaro.org>, 
- Geert Uytterhoeven <geert+renesas@glider.be>, 
- Magnus Damm <magnus.damm@gmail.com>, Heiko Stuebner <heiko@sntech.de>, 
- linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-In-Reply-To: <20251224124407.208354-4-krzysztof.kozlowski@oss.qualcomm.com>
-References: <20251224124407.208354-4-krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH 1/3] phy: rockchip: usb: Simplify with scoped for each
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Lars-Peter Clausen <lars@metafoo.de>,
+	Michal Simek <michal.simek@amd.com>, dmaengine@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/2] dmaengine: axi-dmac: Simplify with scoped for each
  OF child loop
-Message-Id: <176726569771.201416.11757049759201403821.b4-ty@kernel.org>
-Date: Thu, 01 Jan 2026 16:38:17 +0530
+Message-ID: <aVZfs3yPrkWYwNCw@vaman>
+References: <20251224124531.208682-3-krzysztof.kozlowski@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.13.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260101_030821_292340_15FB076B 
-X-CRM114-Status: UNSURE (   5.41  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251224124531.208682-3-krzysztof.kozlowski@oss.qualcomm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,25 +70,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 24 Dec 2025 13:44:08 +0100, Krzysztof Kozlowski wrote:
+On 24-12-25, 13:45, Krzysztof Kozlowski wrote:
 > Use scoped for-each loop when iterating over device nodes to make code a
 > bit simpler.
+
+Hey Krzysztof,
+
+This fails to apply for me, can you please rebase and post again
+
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> ---
+>  drivers/dma/dma-axi-dmac.c | 15 ++++++---------
+>  1 file changed, 6 insertions(+), 9 deletions(-)
 > 
-> 
+> diff --git a/drivers/dma/dma-axi-dmac.c b/drivers/dma/dma-axi-dmac.c
+> index 5b06b0dc67ee..45364b1e47f4 100644
+> --- a/drivers/dma/dma-axi-dmac.c
+> +++ b/drivers/dma/dma-axi-dmac.c
+> @@ -925,24 +925,21 @@ static int axi_dmac_parse_chan_dt(struct device_node *of_chan,
+>  
+>  static int axi_dmac_parse_dt(struct device *dev, struct axi_dmac *dmac)
+>  {
+> -	struct device_node *of_channels, *of_chan;
+> -	int ret;
+> +	struct device_node *of_channels;
+> +	int ret = 0;
+>  
+>  	of_channels = of_get_child_by_name(dev->of_node, "adi,channels");
+>  	if (of_channels == NULL)
+>  		return -ENODEV;
+>  
+> -	for_each_child_of_node(of_channels, of_chan) {
+> +	for_each_child_of_node_scoped(of_channels, of_chan) {
+>  		ret = axi_dmac_parse_chan_dt(of_chan, &dmac->chan);
+> -		if (ret) {
+> -			of_node_put(of_chan);
+> -			of_node_put(of_channels);
+> -			return -EINVAL;
+> -		}
+> +		if (ret)
+> +			break;
+>  	}
+>  	of_node_put(of_channels);
+>  
+> -	return 0;
+> +	return ret;
+>  }
+>  
+>  static int axi_dmac_read_chan_config(struct device *dev, struct axi_dmac *dmac)
+> -- 
+> 2.51.0
 
-Applied, thanks!
-
-[1/3] phy: rockchip: usb: Simplify with scoped for each OF child loop
-      commit: 943dbe1470529d7191dccdb56ee0bff83d3606c5
-[2/3] phy: core: Simplify with scoped for each OF child loop
-      commit: 175b46f31fe60d7772fae19f731f282327cb333f
-[3/3] phy: renesas: rcar-gen2: Simplify with scoped for each OF child loop
-      commit: b64b32791fb557f922beebddf74c47baf338cef0
-
-Best regards,
 -- 
 ~Vinod
-
-
 
