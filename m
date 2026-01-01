@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C8B2EEEC1C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Jan 2026 22:17:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6A4AEEEC1C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Jan 2026 22:18:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7Ta9Qma4wwycxicKBPaHTDueDxthkRH6/qUe89KkYso=; b=L+Ag/oemlxowJk1Usswz5Txp0H
-	B9qd75Wu71TadK+Aq6liGiKRxoK8JzhYSioBZ9LlV7Rj6i/TTzH4Bh6/su2N9AZ6vj+g2VwqfGIJY
-	8GEuNVSfYTd+SlX2dr2Q8TB4PRfWqotAm1s2e9CAx1jfuwqCl8SN08YxKEsHvm/wQf2iqAtBP+DvC
-	uBmXdjicXHj3JlnqiIw7iB0+7nVtt8xoMUXrZmlf5tYbukPW8e8nqDgoXHF0OIH94+2qNdo309Bx/
-	5ClJIZiyUVCNRB+OAqlUZ87Wh5Pl82Snz4eavX1G86lJ4MhczcO2pVoHrGzsgbXWmmiEV5ScjPWOg
-	7CIsZpWg==;
+	bh=Qz+DGGx2ncZ3Mxc9/jgxTMCGdzAmp3ATkT9oSs7t3lw=; b=ILup5qmft77U+dkGgLzc9WnZK3
+	vC9eP/Nk9jxXPXGnilLDw5tj8uEkYFnMA+OFQYqusmcHIPQQUJ79b7GdUIrzmbESPQslliq/Lr1kI
+	miTrtv4gIzG8xJMT+uQvbTMOPxwu5Zxx4fU87VaqNPFknvcFGRGtqMqgq/e4V5ZXh32trvRNflNrH
+	0095IFqrUiiCg/Vp/oKeR2MDnUDz5AfKOW/TTLAECrEBhMIPKSn5SyhkUYdfgdyKJ5GrbWtdwt2YI
+	MHBBWtxrVq4+LMGn0m3fhGAveMKQg5EHyLQdJsuO+2okML1V1CRW6dyqUm2AuVVbRlUJ+ndd9Tyc+
+	0k78e2vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbQzL-00000007ZHF-0MCl;
-	Thu, 01 Jan 2026 22:17:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vbQzM-00000007ZIu-2E25;
+	Thu, 01 Jan 2026 22:17:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbQz4-00000007Z1Z-3pLP
+	id 1vbQzD-00000007ZAv-0lEz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Jan 2026 22:17:37 +0000
+	Thu, 01 Jan 2026 22:17:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 625F44376C;
+	by tor.source.kernel.org (Postfix) with ESMTP id 890D660054;
+	Thu,  1 Jan 2026 22:17:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE941C4CEF7;
 	Thu,  1 Jan 2026 22:17:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BC3FC116D0;
-	Thu,  1 Jan 2026 22:17:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767305850;
-	bh=9wXcGCZqYAJGFwoghpjYmoH+2WL5WXQJ0azxL3BmHRY=;
+	s=k20201202; t=1767305858;
+	bh=FQiUYX134QuRdMK2UHqgCPVDFLi7Mj4zGAJtAEtu0Bs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=g9oq21WUCSC9/OwMtP02aP+LKfuyP4kYwo32TkRpa0R3GEVyItpW2xdt5TsQ8px7w
-	 KOYa0zIReJE24qH3uyrQI69LumAM1w2VW5Muq6an21EFetBZwX+ghiR8MGoLll8pZa
-	 Grf0QhLyYxz+6c5k0RlzzEvY1FgNVf13Dx8LwwDOAUsBeBeestfbDJ/bcBkfyyk46T
-	 B1qvUJ1xauqWykSaNT1jWVtE2ZlOOpKgPYpyqjW2SijootHw/wpYpnEeS0pAVzKwMj
-	 Qd/25qKpu/WlwmyRYUyxMwRydQAHhEqa7Oj+MF5/FNfpGrT+4s9srD9geS0nLM5iM1
-	 8o6BlmW893OEQ==
+	b=XUUyVasV1u3U2OAhlAsfAFSvZ4/84T9b+/Yagnb//7l06XW+pfb5SupHsl14EiZpO
+	 A7lsNvE8Gz+f+oav882CaJu+Xr395Aa7paTMq2wgWOtR+SCJ7KEkBgm/Nqga2j78Uv
+	 n0MCp/pybncPc+ax+ldjdWVCiUZtymea0X7ESH0dyW5NSBWCHbzy4fDnSkNN0RchSd
+	 9li0iyITeAlfDOmRXA/n5dUyWiFv4oc1wW0hluBRrDSwHC9VV3yDZGdZ3gy3FS4xaB
+	 r1/38N02msJBlnvE+rPs8/2v5u9pgbKK9m+UOQpt8txpDDJyrkxcvJloMMe3jpoqJf
+	 D1of5SnkyyUJA==
 From: Frederic Weisbecker <frederic@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Frederic Weisbecker <frederic@kernel.org>,
@@ -81,17 +81,14 @@ Cc: Frederic Weisbecker <frederic@kernel.org>,
 	linux-mm@kvack.org,
 	linux-pci@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH 24/33] kthread: Refine naming of affinity related fields
-Date: Thu,  1 Jan 2026 23:13:49 +0100
-Message-ID: <20260101221359.22298-25-frederic@kernel.org>
+Subject: [PATCH 25/33] kthread: Include unbound kthreads in the managed affinity list
+Date: Thu,  1 Jan 2026 23:13:50 +0100
+Message-ID: <20260101221359.22298-26-frederic@kernel.org>
 X-Mailer: git-send-email 2.51.1
 In-Reply-To: <20260101221359.22298-1-frederic@kernel.org>
 References: <20260101221359.22298-1-frederic@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260101_141731_064211_F252C59B 
-X-CRM114-Status: GOOD (  15.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,133 +103,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The kthreads preferred affinity related fields use "hotplug" as the base
-of their naming because the affinity management was initially deemed to
-deal with CPU hotplug.
+The managed affinity list currently contains only unbound kthreads that
+have affinity preferences. Unbound kthreads globally affine by default
+are outside of the list because their affinity is automatically managed
+by the scheduler (through the fallback housekeeping mask) and by cpuset.
 
-The scope of this role is going to broaden now and also deal with
-cpuset isolated partition updates.
+However in order to preserve the preferred affinity of kthreads, cpuset
+will delegate the isolated partition update propagation to the
+housekeeping and kthread code.
 
-Switch the naming accordingly.
+Prepare for that with including all unbound kthreads in the managed
+affinity list.
 
 Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
-Acked-by: Waiman Long <longman@redhat.com>
+Reviewed-by: Waiman Long <longman@redhat.com>
 ---
- kernel/kthread.c | 38 +++++++++++++++++++-------------------
- 1 file changed, 19 insertions(+), 19 deletions(-)
+ kernel/kthread.c | 70 ++++++++++++++++++++++++++++--------------------
+ 1 file changed, 41 insertions(+), 29 deletions(-)
 
 diff --git a/kernel/kthread.c b/kernel/kthread.c
-index 99a3808d086f..f1e4f1f35cae 100644
+index f1e4f1f35cae..51c0908d3d02 100644
 --- a/kernel/kthread.c
 +++ b/kernel/kthread.c
-@@ -35,8 +35,8 @@ static DEFINE_SPINLOCK(kthread_create_lock);
- static LIST_HEAD(kthread_create_list);
- struct task_struct *kthreadd_task;
+@@ -365,9 +365,10 @@ static void kthread_fetch_affinity(struct kthread *kthread, struct cpumask *cpum
+ 	if (kthread->preferred_affinity) {
+ 		pref = kthread->preferred_affinity;
+ 	} else {
+-		if (WARN_ON_ONCE(kthread->node == NUMA_NO_NODE))
+-			return;
+-		pref = cpumask_of_node(kthread->node);
++		if (kthread->node == NUMA_NO_NODE)
++			pref = housekeeping_cpumask(HK_TYPE_KTHREAD);
++		else
++			pref = cpumask_of_node(kthread->node);
+ 	}
  
--static LIST_HEAD(kthreads_hotplug);
--static DEFINE_MUTEX(kthreads_hotplug_lock);
-+static LIST_HEAD(kthread_affinity_list);
-+static DEFINE_MUTEX(kthread_affinity_lock);
- 
- struct kthread_create_info
- {
-@@ -69,7 +69,7 @@ struct kthread {
- 	/* To store the full name if task comm is truncated. */
- 	char *full_name;
- 	struct task_struct *task;
--	struct list_head hotplug_node;
-+	struct list_head affinity_node;
- 	struct cpumask *preferred_affinity;
- };
- 
-@@ -128,7 +128,7 @@ bool set_kthread_struct(struct task_struct *p)
- 
- 	init_completion(&kthread->exited);
- 	init_completion(&kthread->parked);
--	INIT_LIST_HEAD(&kthread->hotplug_node);
-+	INIT_LIST_HEAD(&kthread->affinity_node);
- 	p->vfork_done = &kthread->exited;
- 
- 	kthread->task = p;
-@@ -323,10 +323,10 @@ void __noreturn kthread_exit(long result)
- {
+ 	cpumask_and(cpumask, pref, housekeeping_cpumask(HK_TYPE_KTHREAD));
+@@ -380,32 +381,29 @@ static void kthread_affine_node(void)
  	struct kthread *kthread = to_kthread(current);
- 	kthread->result = result;
--	if (!list_empty(&kthread->hotplug_node)) {
--		mutex_lock(&kthreads_hotplug_lock);
--		list_del(&kthread->hotplug_node);
--		mutex_unlock(&kthreads_hotplug_lock);
-+	if (!list_empty(&kthread->affinity_node)) {
-+		mutex_lock(&kthread_affinity_lock);
-+		list_del(&kthread->affinity_node);
-+		mutex_unlock(&kthread_affinity_lock);
+ 	cpumask_var_t affinity;
  
- 		if (kthread->preferred_affinity) {
- 			kfree(kthread->preferred_affinity);
-@@ -390,9 +390,9 @@ static void kthread_affine_node(void)
- 			return;
- 		}
+-	WARN_ON_ONCE(kthread_is_per_cpu(current));
++	if (WARN_ON_ONCE(kthread_is_per_cpu(current)))
++		return;
  
--		mutex_lock(&kthreads_hotplug_lock);
--		WARN_ON_ONCE(!list_empty(&kthread->hotplug_node));
--		list_add_tail(&kthread->hotplug_node, &kthreads_hotplug);
-+		mutex_lock(&kthread_affinity_lock);
-+		WARN_ON_ONCE(!list_empty(&kthread->affinity_node));
-+		list_add_tail(&kthread->affinity_node, &kthread_affinity_list);
- 		/*
- 		 * The node cpumask is racy when read from kthread() but:
- 		 * - a racing CPU going down will either fail on the subsequent
-@@ -402,7 +402,7 @@ static void kthread_affine_node(void)
- 		 */
- 		kthread_fetch_affinity(kthread, affinity);
- 		set_cpus_allowed_ptr(current, affinity);
--		mutex_unlock(&kthreads_hotplug_lock);
-+		mutex_unlock(&kthread_affinity_lock);
- 
- 		free_cpumask_var(affinity);
+-	if (kthread->node == NUMA_NO_NODE) {
+-		housekeeping_affine(current, HK_TYPE_KTHREAD);
+-	} else {
+-		if (!zalloc_cpumask_var(&affinity, GFP_KERNEL)) {
+-			WARN_ON_ONCE(1);
+-			return;
+-		}
+-
+-		mutex_lock(&kthread_affinity_lock);
+-		WARN_ON_ONCE(!list_empty(&kthread->affinity_node));
+-		list_add_tail(&kthread->affinity_node, &kthread_affinity_list);
+-		/*
+-		 * The node cpumask is racy when read from kthread() but:
+-		 * - a racing CPU going down will either fail on the subsequent
+-		 *   call to set_cpus_allowed_ptr() or be migrated to housekeepers
+-		 *   afterwards by the scheduler.
+-		 * - a racing CPU going up will be handled by kthreads_online_cpu()
+-		 */
+-		kthread_fetch_affinity(kthread, affinity);
+-		set_cpus_allowed_ptr(current, affinity);
+-		mutex_unlock(&kthread_affinity_lock);
+-
+-		free_cpumask_var(affinity);
++	if (!zalloc_cpumask_var(&affinity, GFP_KERNEL)) {
++		WARN_ON_ONCE(1);
++		return;
  	}
-@@ -873,16 +873,16 @@ int kthread_affine_preferred(struct task_struct *p, const struct cpumask *mask)
- 		goto out;
- 	}
- 
--	mutex_lock(&kthreads_hotplug_lock);
++
 +	mutex_lock(&kthread_affinity_lock);
- 	cpumask_copy(kthread->preferred_affinity, mask);
--	WARN_ON_ONCE(!list_empty(&kthread->hotplug_node));
--	list_add_tail(&kthread->hotplug_node, &kthreads_hotplug);
 +	WARN_ON_ONCE(!list_empty(&kthread->affinity_node));
 +	list_add_tail(&kthread->affinity_node, &kthread_affinity_list);
- 	kthread_fetch_affinity(kthread, affinity);
- 
- 	scoped_guard (raw_spinlock_irqsave, &p->pi_lock)
- 		set_cpus_allowed_force(p, affinity);
- 
--	mutex_unlock(&kthreads_hotplug_lock);
++	/*
++	 * The node cpumask is racy when read from kthread() but:
++	 * - a racing CPU going down will either fail on the subsequent
++	 *   call to set_cpus_allowed_ptr() or be migrated to housekeepers
++	 *   afterwards by the scheduler.
++	 * - a racing CPU going up will be handled by kthreads_online_cpu()
++	 */
++	kthread_fetch_affinity(kthread, affinity);
++	set_cpus_allowed_ptr(current, affinity);
 +	mutex_unlock(&kthread_affinity_lock);
- out:
- 	free_cpumask_var(affinity);
++
++	free_cpumask_var(affinity);
+ }
  
-@@ -903,9 +903,9 @@ static int kthreads_online_cpu(unsigned int cpu)
- 	struct kthread *k;
- 	int ret;
- 
--	guard(mutex)(&kthreads_hotplug_lock);
-+	guard(mutex)(&kthread_affinity_lock);
- 
--	if (list_empty(&kthreads_hotplug))
-+	if (list_empty(&kthread_affinity_list))
- 		return 0;
- 
- 	if (!zalloc_cpumask_var(&affinity, GFP_KERNEL))
-@@ -913,7 +913,7 @@ static int kthreads_online_cpu(unsigned int cpu)
- 
- 	ret = 0;
- 
--	list_for_each_entry(k, &kthreads_hotplug, hotplug_node) {
-+	list_for_each_entry(k, &kthread_affinity_list, affinity_node) {
- 		if (WARN_ON_ONCE((k->task->flags & PF_NO_SETAFFINITY) ||
- 				 kthread_is_per_cpu(k->task))) {
+ static int kthread(void *_create)
+@@ -919,8 +917,22 @@ static int kthreads_online_cpu(unsigned int cpu)
  			ret = -EINVAL;
+ 			continue;
+ 		}
+-		kthread_fetch_affinity(k, affinity);
+-		set_cpus_allowed_ptr(k->task, affinity);
++
++		/*
++		 * Unbound kthreads without preferred affinity are already affine
++		 * to housekeeping, whether those CPUs are online or not. So no need
++		 * to handle newly online CPUs for them.
++		 *
++		 * But kthreads with a preferred affinity or node are different:
++		 * if none of their preferred CPUs are online and part of
++		 * housekeeping at the same time, they must be affine to housekeeping.
++		 * But as soon as one of their preferred CPU becomes online, they must
++		 * be affine to them.
++		 */
++		if (k->preferred_affinity || k->node != NUMA_NO_NODE) {
++			kthread_fetch_affinity(k, affinity);
++			set_cpus_allowed_ptr(k->task, affinity);
++		}
+ 	}
+ 
+ 	free_cpumask_var(affinity);
 -- 
 2.51.1
 
