@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 849C4EEB57D
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C405EEB56F
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  1 Jan 2026 03:43:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,61 +12,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/KI+UGanmxYGqAKse2EbXibaUExpozwdVeK25/oicMI=; b=Qlb7V6Nzq3jkCl9q0DQJw/JGld
-	eu9EiwCb8z83pwN6gPjMZhFzId/Ur9NL0af0WpaAbUIEyDaxSAOes0y1WKclsZtU9vgulksBoi3Vt
-	KdsAbhAVhBPDS4zbo0HB+xIAT3uaq9M+d5st69KERrMDXertluA+xGtDL3+PbotzIF1pGLg6saSuU
-	8UW6dcCQdYyTD1Skf+KcL1Q4qJ4wL6soBxrxJitRLX0TAm7tWvM6OlP7VdNs22SNawE9PWhKc4kBe
-	GbosHPM/8K57rQoe4+dW9mOd1+0xFIkfw3RG/lZGT2qasTQle/8K/R/vncNWiHoy84mmq1i3egImw
-	UFmMU9yw==;
+	bh=bWMyKK2ygqMKtep8wPExCQcNZJJYioQ3HkAIOidcavk=; b=F8SZiVN0TGjYOjYqAPduwC+wID
+	wXg0/6V1QVJ6HVPnJdcqI84LO4+am+1wOtxDu0dmzalucWZoyZx8UMw44Km4Ub15Gc89v8CCxv1Nt
+	NIj6d7vQY1Dols98F0kNy3tZ9lnqUBbbCcSYYgnA5M6Yb1lHUkpHdrnhgW7r01Hke9k2ny9WOVD28
+	VpydcokyRQZBIL7Dzo+H/RwsGuMRHVpmAR/Ha3UCdHapSB/g11fRwS4GIQo23IG0t2ZL5bbrmKwXX
+	KUlMV+ZFNT3ucH1x3Ln6jRmNJxItBe4KXPpsded1Uv+wXAhEoiLeJ6h4v25EcFtjgqB28HL3pYye5
+	kcbeZG2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vb9bC-00000006YqG-3stO;
-	Thu, 01 Jan 2026 03:43:42 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1vb9bD-00000006Yqy-2G07;
+	Thu, 01 Jan 2026 03:43:43 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vb9b5-00000006Yo0-0v5P
+	id 1vb9bA-00000006YpK-07rD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 01 Jan 2026 03:43:38 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2a12ebe4b74so200332215ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 31 Dec 2025 19:43:35 -0800 (PST)
+	Thu, 01 Jan 2026 03:43:41 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2a0bb2f093aso113181205ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 31 Dec 2025 19:43:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=0x0f.com; s=google; t=1767239014; x=1767843814; darn=lists.infradead.org;
+        d=0x0f.com; s=google; t=1767239019; x=1767843819; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=/KI+UGanmxYGqAKse2EbXibaUExpozwdVeK25/oicMI=;
-        b=ZfEyF7iXAgDnNJIuFxpwFziDEsT7ocfwpxkSpJra+8O6TMEH+WRiKHBRCQSNW+3T28
-         /psNmE4/l0tXsP5ghEBv5i6uQZ4kEVsTsDc7A9wEmPc8myIUHPh4msnnXQyuKcieZECF
-         aqIOjVtVIE9rOPsQ9rVsU5ZWK+XnEb82ri2II=
+        bh=bWMyKK2ygqMKtep8wPExCQcNZJJYioQ3HkAIOidcavk=;
+        b=mY38mitunUdcb1SNnWvW80f/4dC9ZjoxG1Q5j2+KfF7VZTNT+hS3hwZjSrqlBbqh8X
+         xS+Sj5ONILlcxsOF1KqY2tVOELEdSBQLtkf3w8S5fRkiuEoBORNaB4OaXVxlqlLSBoat
+         TEyky+i+6QA0L5BQwwa1c4cnps8knveaWVvsM=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767239014; x=1767843814;
+        d=1e100.net; s=20230601; t=1767239019; x=1767843819;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=/KI+UGanmxYGqAKse2EbXibaUExpozwdVeK25/oicMI=;
-        b=AhIrQjdvZ2da+NDVeVjpgUnFHIAkd43Ve/VvgiKg4f79L7rEJLaQs3qlnHhSUbgPrL
-         Tt7bSJ8Xjml+hTLZRGYAxPmRHNSl6jcPKHtQmcqDNylemFN5VCL5zIIBv/+j128hi7R4
-         fTKlhbedowiyBDh4tVj2ttLNHjrZHAVJl08KB8LjtpEtwHVXcgn79PH+C2nBZlDkCUMX
-         2E/1YIgP08R7vSIyZWGMlbqrIztEAsbdtcb0OcKqcR1OCKRajxkggZpxUpJHANpYJm4M
-         1C0post75VmBTcSk/JGDRXCjrR4Jz0q9J91fJoZxOQ5G2h8JEPAYe+NgYcnBo54m9QJn
-         1lAw==
-X-Forwarded-Encrypted: i=1; AJvYcCWcTQhwM10fzSuHwzscS0/GMyiMI/qNDwXmJa0FfcAlhGsEEaCAXiHG5nxsU9qko6tTIhKsOyfMlYLF75AQhfN3@lists.infradead.org
-X-Gm-Message-State: AOJu0YzfWSG6Q7njpfhFhqMq3j1IHwa9lvMr3evYGYdUm3mAhzOwHynP
-	WuoUicdtpbWaGtE7JP1SNxpdTzr0QU50NAiedGGGuwlXvP50vCOs71vLOkeIKY8271Y=
-X-Gm-Gg: AY/fxX70IdnhVukXKwhTpweI/d8K8/xHSQkC167vOvJmteiZqE9vcv6WmEt8Mv0dXxv
-	CZX5fzGv6DGQfbQSKwUmrvZNjao1hYdtdZ1/YUAjwjhzDZccXTkIr26cFgXX1O+XzVS+4jFJZov
-	M+cvr2jNFmgEbnYzuBUEUvuQ1hrzrp7JWx3L1qzCqeAdsYqENOL4KLP0Srb+4roU0v0X/VH/30E
-	G+DDadMgRakxxO6+Bo/r2p+0lWzaYGZzs2GWgb9snYL4MlhkgBnrAyxu6rDU3pqoLK1eerSrfq0
-	6oqjDFhxnXiFDS2qx3sYZ5PLRwouQbBuP457ex4G/8a0dAl2r09DJ4W7ofXrMrAuL+u73WmWXP5
-	LOYs/VoOc3LxKGexGa7juRYyKf0CMzBjM6COlELPsqmbkR3AhYsq1hjCsdb7QLUeK44kOcF/9EY
-	Gehs2EWgaLS/jYdTO+F5GRC70moOROpHvKm4aT3LNNUMEpxc0zbXFG
-X-Google-Smtp-Source: AGHT+IFP/Po4KbsYeJgW+vqwUnVd6wIylfBCZgy7LIUD5OSHe88aJPgScWN7w+I9m/BZkSpnQJSIYg==
-X-Received: by 2002:a17:902:e747:b0:2a0:b02b:2114 with SMTP id d9443c01a7336-2a2f220697cmr371104935ad.11.1767239014441;
-        Wed, 31 Dec 2025 19:43:34 -0800 (PST)
+        bh=bWMyKK2ygqMKtep8wPExCQcNZJJYioQ3HkAIOidcavk=;
+        b=e/iIwBFe6RzsTGP4n71Jw9pWwOR0KEAbxXYJy/Cqqh/fOhK/SyM2OyHlvSOvP29psI
+         XfauihfisI2afI/or0DUcApI2ecU3NHnF6G5HnU9pRyPq9wXsliPHhM+s0C0i/r8lm+d
+         O903euFKu37MOxmMusvfKjnhR9yJiBwupzQtFiY9CC3+vh2NW9ZIT+pdgtjt95Ps/PMk
+         X8XauOhz1Rl2Z02drTiXhB4k3Z/hwd/TtkyCWziWojgzg+i9WvQjlEDlC9fsuTNnTM3P
+         qRiH/evSd3/fEmHj30EnL+Ix9YtczuvUXwdc2okti7bp672UiRxYAC+4dj9IxWDT2yFQ
+         Ux3A==
+X-Forwarded-Encrypted: i=1; AJvYcCWtDeQZAFBqOtb3RrubNEzxwS0IGuF2ZqXjn7twDs3hCi2UqCebPsrr5fon69G771zKRdQYCuLQQ4Nlopv5BMxp@lists.infradead.org
+X-Gm-Message-State: AOJu0YzRhvFti7UAJJxnSHFgb3chadwzkPFbViTT5cK0TWGZ/4xCcjVG
+	M+w1buI4WxiK1A0HsGOeCJpOXf++wKk44G61UK+O+bz9/IAXQmBzmSZxYmOy+lj1JoA=
+X-Gm-Gg: AY/fxX4Jm685evl7YbSVqMMnZDi3XV0v+cci2ZXHstnKOlBGeNsoLac4NapjJN8xNG5
+	1sHBxKC0I9H1tpyT2Q+yCFR6d9AN8Tt4Pk47Azn554IRero1DZm6QLx92k1qFlw/MMWAGGeiAbp
+	Co5IuAK2a3ZZgKmlYjZicbHvNVhT+8xw/x+YJPtGzK63Do4eu33Ek7tOmp/108z1adYTdQnaAz9
+	V++L1xz4ERHwvD5XS0kOirG64bPfAj4BQakz5HVmX2pKLCsb68UDo6VlouFTxLF1XCMKA/eTrv9
+	Iik7x9NeTkVGEK2sBPlBRfkjqeSb8F1My5Lu+DkbTRm2BZ8WTPKfZqrnIWb/GixCB2TFir6KVtC
+	pBtUEX5Q16z1FM6fOvFV18A7ZOj0eUlRGtlBZpgiEj7j7sR4Rlx1zRHQUKM096khkNnGsd21Cld
+	WOmT4llbXRgdWTFgeKTqlEbS4wdIWuBjfQAhYfbwtd62hlMyPFMj2G
+X-Google-Smtp-Source: AGHT+IEIBXaAygueTWxJNAUied3BgqfMTeSt+mQtoXDY4HsMTM2B1djVm4ABb7qzMPAl+DjFRSHexg==
+X-Received: by 2002:a17:902:e849:b0:2a2:bff6:42ef with SMTP id d9443c01a7336-2a2f2202e4cmr437213265ad.7.1767239019278;
+        Wed, 31 Dec 2025 19:43:39 -0800 (PST)
 Received: from shiro (p1536247-ipxg00c01sizuokaden.shizuoka.ocn.ne.jp. [122.26.212.247])
-        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-2a2f3c8286esm340437965ad.33.2025.12.31.19.43.32
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-2a2f3c8286esm340437965ad.33.2025.12.31.19.43.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 31 Dec 2025 19:43:34 -0800 (PST)
+        Wed, 31 Dec 2025 19:43:38 -0800 (PST)
 From: Daniel Palmer <daniel@0x0f.com>
 To: krzk+dt@kernel.org,
 	romain.perier@gmail.com,
@@ -76,17 +76,17 @@ To: krzk+dt@kernel.org,
 Cc: devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Daniel Palmer <daniel@0x0f.com>
-Subject: [PATCH v2 3/8] arm: dts: mstar: breadbee: Correct LED names
-Date: Thu,  1 Jan 2026 12:43:01 +0900
-Message-ID: <20260101034306.1233091-4-daniel@0x0f.com>
+Subject: [PATCH v2 5/8] arm: dts: mstar: infinity: Correct opp table name
+Date: Thu,  1 Jan 2026 12:43:03 +0900
+Message-ID: <20260101034306.1233091-6-daniel@0x0f.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20260101034306.1233091-1-daniel@0x0f.com>
 References: <20260101034306.1233091-1-daniel@0x0f.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251231_194337_340668_B50507D8 
-X-CRM114-Status: GOOD (  11.53  )
+X-CRM114-CacheID: sfid-20251231_194340_067649_35190A56 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,34 +101,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The dt validation stuff whats the names of the leds to match
-a regexp.
+The dt validation stuff expects the name of the opp table
+to match a regexp and it currently doesn't.
 
-Prefix the names with "led-" to make the validation happy.
+Update the name to match the regexp.
 
 Signed-off-by: Daniel Palmer <daniel@0x0f.com>
 ---
- .../boot/dts/sigmastar/mstar-infinity-breadbee-common.dtsi    | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/arm/boot/dts/sigmastar/mstar-infinity.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm/boot/dts/sigmastar/mstar-infinity-breadbee-common.dtsi b/arch/arm/boot/dts/sigmastar/mstar-infinity-breadbee-common.dtsi
-index 99f5a5603dc7..71da10d9228f 100644
---- a/arch/arm/boot/dts/sigmastar/mstar-infinity-breadbee-common.dtsi
-+++ b/arch/arm/boot/dts/sigmastar/mstar-infinity-breadbee-common.dtsi
-@@ -33,11 +33,11 @@ vcc_io: regulator-io {
+diff --git a/arch/arm/boot/dts/sigmastar/mstar-infinity.dtsi b/arch/arm/boot/dts/sigmastar/mstar-infinity.dtsi
+index 441a917b88ba..40e38d995542 100644
+--- a/arch/arm/boot/dts/sigmastar/mstar-infinity.dtsi
++++ b/arch/arm/boot/dts/sigmastar/mstar-infinity.dtsi
+@@ -9,7 +9,7 @@
+ #include <dt-bindings/gpio/msc313-gpio.h>
  
- 	leds {
- 		compatible = "gpio-leds";
--		red {
-+		led-red {
- 			gpios = <&gpio MSC313_GPIO_SR_IO16 GPIO_ACTIVE_HIGH>;
- 			linux,default-trigger = "activity";
- 		};
--		yellow {
-+		led-yellow {
- 			gpios = <&gpio MSC313_GPIO_SR_IO17 GPIO_ACTIVE_HIGH>;
- 			linux,default-trigger = "heartbeat";
- 		};
+ / {
+-	cpu0_opp_table: opp_table0 {
++	cpu0_opp_table: opp-table {
+ 		compatible = "operating-points-v2";
+ 		opp-shared;
+ 
 -- 
 2.51.0
 
