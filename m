@@ -4,81 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35207FA3728
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 16:52:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42321FA3728
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 16:54:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fiXoIhZXqbH4WSMEmhh+FWvDqNneq8/8kjfeIEfXpaM=; b=wVXElJlb6fSECTy2lawxzFH4ZC
-	QGZ8/pxcvSN7wvNInrcoa6jxaACcF0DlDSFaZPqDN1Kgk2xf1998Q8zqocGydV2mPh6fcPFSOd3kh
-	qoS5EMPWN3ayiZXiSjc9JcS+x0WdjAZ5jbZX4W2bX0qlL+V1jQjreX2VZF30XI8B1tPMAY7SGZRJV
-	VC7hKnaj7lEl1axy3n/Z/tN8wpf7Wah+ZCjsLCwhkCpoDvPUv1DklL7vb9Mou+W8A6vfm5hyvExg6
-	WnIxZMm/PMZTXmTQ8MjRJHRgITeC2i7y6ky2C+6Be4/V2Hn2g8N0hpOYffwx9j9WWOnJfnTlB0an5
-	wq7xfrtg==;
+	bh=VquIGlMG22FiqzSomuVxO3pJuNTPu1MzbM7EM1lJb+o=; b=m7IcT791MsUkUCUeR4E0gb/TrF
+	jVd+KlSn95Ml50SmXbXWVgpbDtZM3c3bxqx+JCe0yfV7HD47mb1rxSvgm9FDffWefcvj7AQvZUD1d
+	gyVRR9RJcaBbHyqShN6i994PsjCl/Prjj6hNRc6BnKAIWtVDZzKqUhKV2hCKRhj/X9t9zzQD5KKJo
+	lofrZiQOvc02IafkaWYqqpu8TaJQK+mGWDO947yitKw39PCV/nc1SS+uNhTkLQrdr+roHFI89THQi
+	r6iLnGNuvPd8F7KI5K9gA4Qv/27KDAmiAIsRryaDFePWEDHCvxXDYqJ0EFvdTRCJTnollJTXRJ+j/
+	2yN6GTJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbiNr-00000008Vpy-2xU5;
-	Fri, 02 Jan 2026 16:52:15 +0000
-Received: from mgamail.intel.com ([192.198.163.8])
+	id 1vbiPc-00000008W2C-34eK;
+	Fri, 02 Jan 2026 16:54:04 +0000
+Received: from out-186.mta1.migadu.com ([95.215.58.186])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbiNo-00000008VpY-3amr
+	id 1vbiPa-00000008W11-0WJy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Jan 2026 16:52:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1767372732; x=1798908732;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=8V8fLvUiGyIBRMLZV4pVuc+83WP4F3JFApJ+XuTFOos=;
-  b=cDjQgvptmhZhHRGtR8/eFgOohkPmTEpukA7htsEIlFE7EbngigeGVyfT
-   dprp7AFyhDjJRYO44ejD8iQ+y1niz8Eyu/PWDUCxHmTtFNiwIrfljPysk
-   mQYAK01e4Eb5qgqocWlABUT0B03uk43xiE/xNVK22vlqmY9G+GHa4qsOg
-   Ly2Zlm2/hsQMLnRl62Q17MdtLFBWNgQ990f1OG9sf6T6ESdUStp/fOWUF
-   mrqZ9QhnBrOTyZEUahroxUv8K6KYJyE1b7elbTwCH1fz1oS3/kdJH0qJ0
-   R+uQWI8GWaFTIjzjtdHRUQaqumjJVG8p4ROVPbmKlRSKtlD0MYCXGnIlk
-   A==;
-X-CSE-ConnectionGUID: qlu3JpUnQQKMNjxCPgPlBw==
-X-CSE-MsgGUID: rgnQoscdREmRIvEkF8QP8A==
-X-IronPort-AV: E=McAfee;i="6800,10657,11659"; a="86447227"
-X-IronPort-AV: E=Sophos;i="6.21,197,1763452800"; 
-   d="scan'208";a="86447227"
-Received: from orviesa001.jf.intel.com ([10.64.159.141])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Jan 2026 08:52:11 -0800
-X-CSE-ConnectionGUID: AtlIZsjJRxaIYByQkePOyA==
-X-CSE-MsgGUID: 7oYYZE7eQnyR4Qc6dhv6GQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,197,1763452800"; 
-   d="scan'208";a="239301491"
-Received: from lkp-server01.sh.intel.com (HELO c9aa31daaa89) ([10.239.97.150])
-  by orviesa001.jf.intel.com with ESMTP; 02 Jan 2026 08:52:08 -0800
-Received: from kbuild by c9aa31daaa89 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vbiNh-000000002MP-2IRD;
-	Fri, 02 Jan 2026 16:52:05 +0000
-Date: Sat, 3 Jan 2026 00:51:35 +0800
-From: kernel test robot <lkp@intel.com>
-To: Ruidong Tian <tianruidong@linux.alibaba.com>, catalin.marinas@arm.com,
-	will@kernel.org, lpieralisi@kernel.org, guohanjun@huawei.com,
-	sudeep.holla@arm.com, xueshuai@linux.alibaba.com,
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, rafael@kernel.org,
-	lenb@kernel.org, tony.luck@intel.com, bp@alien8.de,
-	yazen.ghannam@amd.com, misono.tomohiro@fujitsu.com,
-	fengwei_yin@linux.alibaba.com
-Cc: oe-kbuild-all@lists.linux.dev, tianruidong@linux.alibaba.com
-Subject: Re: [PATCH v5 16/17] ras: AEST: support vendor node CMN700
-Message-ID: <202601030052.0TftLGp4-lkp@intel.com>
-References: <20251230091342.50404-1-tianruidong@linux.alibaba.com>
+	Fri, 02 Jan 2026 16:54:03 +0000
+Date: Fri, 2 Jan 2026 16:53:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1767372839;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VquIGlMG22FiqzSomuVxO3pJuNTPu1MzbM7EM1lJb+o=;
+	b=l8nGBsb6lcyGITzO1rS8L7sOEvvbDsF0q1xzPBnA1VBVgO2qsGxHHVFzHuTMKoxJA8/fIc
+	ZPY6yVO7dLnhsu3KIQ46bH0iqlkuMomJ7RJeWsJOcx0dqFyiBfmubRB78b7n2QyK+kWXGV
+	aJ8HKdAX2Zlj2vRx+JXzi/VwQhF1NO0=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Yosry Ahmed <yosry.ahmed@linux.dev>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oupton@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 08/21] KVM: selftests: Add a "struct kvm_mmu_arch
+ arch" member to kvm_mmu
+Message-ID: <zeiyns2xhtw76xtmn3so2jiyvcakszb5p2p6fak3dm62szzxon@rxkwn7peicen>
+References: <20251230230150.4150236-1-seanjc@google.com>
+ <20251230230150.4150236-9-seanjc@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251230091342.50404-1-tianruidong@linux.alibaba.com>
+In-Reply-To: <20251230230150.4150236-9-seanjc@google.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_085212_932352_E79327B6 
-X-CRM114-Status: GOOD (  12.19  )
+X-CRM114-CacheID: sfid-20260102_085402_529679_2A647CBB 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,60 +76,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ruidong,
+On Tue, Dec 30, 2025 at 03:01:37PM -0800, Sean Christopherson wrote:
+> Add an arch structure+field in "struct kvm_mmu" so that architectures can
+> track arch-specific information for a given MMU.
+> 
+> No functional change intended.
+> 
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
 
-kernel test robot noticed the following build errors:
+Reviewed-by: Yosry Ahmed <yosry.ahmed@linux.dev>
 
-[auto build test ERROR on rafael-pm/linux-next]
-[also build test ERROR on rafael-pm/bleeding-edge ras/edac-for-next linus/master v6.19-rc3 next-20251219]
-[cannot apply to arm64/for-next/core tip/smp/core]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Ruidong-Tian/ACPI-AEST-Parse-the-AEST-table/20251230-172000
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git linux-next
-patch link:    https://lore.kernel.org/r/20251230091342.50404-1-tianruidong%40linux.alibaba.com
-patch subject: [PATCH v5 16/17] ras: AEST: support vendor node CMN700
-config: alpha-allyesconfig (https://download.01.org/0day-ci/archive/20260103/202601030052.0TftLGp4-lkp@intel.com/config)
-compiler: alpha-linux-gcc (GCC) 15.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260103/202601030052.0TftLGp4-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202601030052.0TftLGp4-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> drivers/perf/arm-cmn.c:5:10: fatal error: asm/arm-cmn.h: No such file or directory
-       5 | #include <asm/arm-cmn.h>
-         |          ^~~~~~~~~~~~~~~
-   compilation terminated.
-
-
-vim +5 drivers/perf/arm-cmn.c
-
-     4	
-   > 5	#include <asm/arm-cmn.h>
-     6	#include <linux/acpi.h>
-     7	#include <linux/bitfield.h>
-     8	#include <linux/bitops.h>
-     9	#include <linux/debugfs.h>
-    10	#include <linux/interrupt.h>
-    11	#include <linux/io.h>
-    12	#include <linux/io-64-nonatomic-lo-hi.h>
-    13	#include <linux/kernel.h>
-    14	#include <linux/list.h>
-    15	#include <linux/module.h>
-    16	#include <linux/of.h>
-    17	#include <linux/perf_event.h>
-    18	#include <linux/platform_device.h>
-    19	#include <linux/slab.h>
-    20	#include <linux/sort.h>
-    21	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> ---
+>  tools/testing/selftests/kvm/include/arm64/kvm_util_arch.h     | 2 ++
+>  tools/testing/selftests/kvm/include/kvm_util.h                | 2 ++
+>  tools/testing/selftests/kvm/include/loongarch/kvm_util_arch.h | 1 +
+>  tools/testing/selftests/kvm/include/riscv/kvm_util_arch.h     | 1 +
+>  tools/testing/selftests/kvm/include/s390/kvm_util_arch.h      | 1 +
+>  tools/testing/selftests/kvm/include/x86/kvm_util_arch.h       | 2 ++
+>  6 files changed, 9 insertions(+)
+> 
+> diff --git a/tools/testing/selftests/kvm/include/arm64/kvm_util_arch.h b/tools/testing/selftests/kvm/include/arm64/kvm_util_arch.h
+> index b973bb2c64a6..4a2033708227 100644
+> --- a/tools/testing/selftests/kvm/include/arm64/kvm_util_arch.h
+> +++ b/tools/testing/selftests/kvm/include/arm64/kvm_util_arch.h
+> @@ -2,6 +2,8 @@
+>  #ifndef SELFTEST_KVM_UTIL_ARCH_H
+>  #define SELFTEST_KVM_UTIL_ARCH_H
+>  
+> +struct kvm_mmu_arch {};
+> +
+>  struct kvm_vm_arch {
+>  	bool	has_gic;
+>  	int	gic_fd;
+> diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
+> index 39558c05c0bf..c1497515fa6a 100644
+> --- a/tools/testing/selftests/kvm/include/kvm_util.h
+> +++ b/tools/testing/selftests/kvm/include/kvm_util.h
+> @@ -92,6 +92,8 @@ struct kvm_mmu {
+>  	bool pgd_created;
+>  	uint64_t pgd;
+>  	int pgtable_levels;
+> +
+> +	struct kvm_mmu_arch arch;
+>  };
+>  
+>  struct kvm_vm {
+> diff --git a/tools/testing/selftests/kvm/include/loongarch/kvm_util_arch.h b/tools/testing/selftests/kvm/include/loongarch/kvm_util_arch.h
+> index e43a57d99b56..d5095900e442 100644
+> --- a/tools/testing/selftests/kvm/include/loongarch/kvm_util_arch.h
+> +++ b/tools/testing/selftests/kvm/include/loongarch/kvm_util_arch.h
+> @@ -2,6 +2,7 @@
+>  #ifndef SELFTEST_KVM_UTIL_ARCH_H
+>  #define SELFTEST_KVM_UTIL_ARCH_H
+>  
+> +struct kvm_mmu_arch {};
+>  struct kvm_vm_arch {};
+>  
+>  #endif  // SELFTEST_KVM_UTIL_ARCH_H
+> diff --git a/tools/testing/selftests/kvm/include/riscv/kvm_util_arch.h b/tools/testing/selftests/kvm/include/riscv/kvm_util_arch.h
+> index e43a57d99b56..d5095900e442 100644
+> --- a/tools/testing/selftests/kvm/include/riscv/kvm_util_arch.h
+> +++ b/tools/testing/selftests/kvm/include/riscv/kvm_util_arch.h
+> @@ -2,6 +2,7 @@
+>  #ifndef SELFTEST_KVM_UTIL_ARCH_H
+>  #define SELFTEST_KVM_UTIL_ARCH_H
+>  
+> +struct kvm_mmu_arch {};
+>  struct kvm_vm_arch {};
+>  
+>  #endif  // SELFTEST_KVM_UTIL_ARCH_H
+> diff --git a/tools/testing/selftests/kvm/include/s390/kvm_util_arch.h b/tools/testing/selftests/kvm/include/s390/kvm_util_arch.h
+> index e43a57d99b56..d5095900e442 100644
+> --- a/tools/testing/selftests/kvm/include/s390/kvm_util_arch.h
+> +++ b/tools/testing/selftests/kvm/include/s390/kvm_util_arch.h
+> @@ -2,6 +2,7 @@
+>  #ifndef SELFTEST_KVM_UTIL_ARCH_H
+>  #define SELFTEST_KVM_UTIL_ARCH_H
+>  
+> +struct kvm_mmu_arch {};
+>  struct kvm_vm_arch {};
+>  
+>  #endif  // SELFTEST_KVM_UTIL_ARCH_H
+> diff --git a/tools/testing/selftests/kvm/include/x86/kvm_util_arch.h b/tools/testing/selftests/kvm/include/x86/kvm_util_arch.h
+> index 972bb1c4ab4c..456e5ca170df 100644
+> --- a/tools/testing/selftests/kvm/include/x86/kvm_util_arch.h
+> +++ b/tools/testing/selftests/kvm/include/x86/kvm_util_arch.h
+> @@ -10,6 +10,8 @@
+>  
+>  extern bool is_forced_emulation_enabled;
+>  
+> +struct kvm_mmu_arch {};
+> +
+>  struct kvm_vm_arch {
+>  	vm_vaddr_t gdt;
+>  	vm_vaddr_t tss;
+> -- 
+> 2.52.0.351.gbe84eed79e-goog
+> 
 
