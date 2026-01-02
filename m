@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A96CFA3755
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 15:53:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54B8DFA3752
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 15:54:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pRXKKDZvWwJE0OYBlGbJ1CNY/8nw7dOoKs0YtDMUS1E=; b=WwtNprLlDn9yRefQKdylbtfw20
-	udpR6xBav6w0vm0gxhx05b23u893OZ4Bb2tgHqXtpODQWlIuDW2X5vShfFV+RHcaIcTSFpg38qK6S
-	q7HDGLdKd9l5LWdwSauXxt+m9T56dmbgR2BASEp3yQKJRW6RvjJAqIrxAFuOFXMhATY7uM+8G1ieS
-	6ePRsKZkg3kpV4EHS8+Xg7CYo4oLDfHqCDOMmf+dMUAB9b4n3P0hGXThbwqNAEhfcf63IyBQskqad
-	zU7yv4/Fon+Q5SbJlEIymXB/+hQynpCwYAsuTJvbV4Puuo515Gp7Hcdp+ld3WLiGOZrQCww1ER9nO
-	RYBsXnMA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TTGeIMt25YFQMOKiNe5dlnsk2HQeFBOtHs64bmOahIU=; b=FzMiBDWtqyfxMaFAmIefWDjXSp
+	iVereNc0mo07diwqHBzYMii5jNC56hg9wViS1sa43zYIbvFM6FyP3VHWlT3vJumyd40EJKLfSli4p
+	KDG2pU9JLqPDmu3wdbLrBkZVHL4/6Ts82XqX7HppgnB9NUlviOJ+flJO78KwL2OkNhJCApP7OT0Dw
+	jLYzixfMoMS/1qpbUANd46E46boZvANk3imwJ3jj1yMni35ekkt+6RCGcKlRc6SpvDv15Tat00djp
+	A9t3i+bd0HpSGWuaLgGIjNPVnZYH0uDVm9aj5gNAfg/EqVdwGihEi711TPk6hrgiwvewBgrUmy6hI
+	xgzr4ubQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbhTP-00000008SQY-12pN;
-	Fri, 02 Jan 2026 15:53:55 +0000
-Received: from mx4.wp.pl ([212.77.101.12])
+	id 1vbhTT-00000008SU2-0K3M;
+	Fri, 02 Jan 2026 15:53:59 +0000
+Received: from mx3.wp.pl ([212.77.101.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbhTK-00000008SNz-0gEc
+	id 1vbhTQ-00000008SPl-3IrU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Jan 2026 15:53:52 +0000
-Received: (wp-smtpd smtp.wp.pl 27487 invoked from network); 2 Jan 2026 16:53:42 +0100
+	Fri, 02 Jan 2026 15:53:58 +0000
+Received: (wp-smtpd smtp.wp.pl 32318 invoked from network); 2 Jan 2026 16:53:47 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=20241105;
-          t=1767369222; bh=pRXKKDZvWwJE0OYBlGbJ1CNY/8nw7dOoKs0YtDMUS1E=;
+          t=1767369227; bh=TTGeIMt25YFQMOKiNe5dlnsk2HQeFBOtHs64bmOahIU=;
           h=From:To:Cc:Subject;
-          b=wsnC3jaCLgQp/yVY5DchfJcu6eLbbhhuaB0l20xYlHBuuYH61frnWYuQZQV5ElqZq
-           FOAVPof4sWOtNrK/oUsgfGusJb6XX1EBj4HQ4qhSevIGN9WmPrHTP+bOc6s9RWsFw4
-           PBDuGRGhrusKNkfawrjlLbCJZ0/pGyvBMXIrYO01xXVjhoCHCpo1GfIjc4AKTh+esn
-           jWIo10vHmF0hyOcZiKWUnwuDy2BRevOs4T6RVVcpNoAVXGOsILqKV8dWQ9FfAHCOxF
-           aSdJj00AN5qhaNkLyem0LcgmAG6siuSH2x+IjDT2jKU74ViI25PDA1QEIQMAE67Yww
-           qPlBC9AHLjwCg==
+          b=oOYRycXCsRyk+B/Ca18edU2AKKDlzAzcLRAB4fvsVuhdQedWv9wCd2GYSs0z4gdgT
+           W0x0l52G/q4Qyx1xulNw3ma7UgLk6emEu7eoQCERSlLVv+VC9/sY6gMjZCluOwnjXO
+           lvOaOWapATbMIvat+NpA9EPnyTGuW/DYENZOpGGQfSIxkzK5uTwDY8g16I5TYpGOaZ
+           HP5iwuyibqgc6+PQLYSuPxkoFfbO0r1cKqbtE2ilPG/geG0L+eCSh9fuhJO1tShFh8
+           RVmszpbUJz5ENLQ0M5X8+0QUMKYLsSpV1peBHCP0PdWSR4slIxQJOY62NZgAmVn7uy
+           vCnOipsR4BT2w==
 Received: from 83.5.157.18.ipv4.supernova.orange.pl (HELO laptop-olek.lan) (olek2@wp.pl@[83.5.157.18])
           (envelope-sender <olek2@wp.pl>)
           by smtp.wp.pl (WP-SMTPD) with ECDHE-RSA-AES256-GCM-SHA384 encrypted SMTP
-          for <benjamin.larsson@genexis.eu>; 2 Jan 2026 16:53:42 +0100
+          for <benjamin.larsson@genexis.eu>; 2 Jan 2026 16:53:47 +0100
 From: Aleksander Jan Bajkowski <olek2@wp.pl>
 To: benjamin.larsson@genexis.eu,
 	chester.a.unal@arinc9.com,
@@ -61,19 +61,21 @@ To: benjamin.larsson@genexis.eu,
 	linux-mediatek@lists.infradead.org,
 	linux-mips@vger.kernel.org
 Cc: Aleksander Jan Bajkowski <olek2@wp.pl>
-Subject: [PATCH v3 1/3] dt-bindings: crypto: eip93: add clock gate and reset line
-Date: Fri,  2 Jan 2026 16:47:33 +0100
-Message-ID: <20260102155341.3682013-1-olek2@wp.pl>
+Subject: [PATCH v3 3/3] mips: dts: ralink: mt7621: add crypto offload support
+Date: Fri,  2 Jan 2026 16:47:35 +0100
+Message-ID: <20260102155341.3682013-3-olek2@wp.pl>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20260102155341.3682013-1-olek2@wp.pl>
+References: <20260102155341.3682013-1-olek2@wp.pl>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-WP-DKIM-Status: good (id: wp.pl)                                                      
-X-WP-MailID: df5d0ea41a222bf13e7a762f03b71f91
+X-WP-MailID: 7b471dd560ee9b622f99c1c75cb1178e
 X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
-X-WP-SPAM: NO 0000007 [8RRh]                               
+X-WP-SPAM: NO 0000000 [8SOE]                               
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_075350_676643_E8989518 
-X-CRM114-Status: UNSURE (   7.88  )
+X-CRM114-CacheID: sfid-20260102_075356_984037_B5790393 
+X-CRM114-Status: UNSURE (   8.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -89,56 +91,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the clock gate and reset line, both of which are available
-on the Airoha AN7581.
+Add support for the built-in cryptographic accelerator. This accelerator
+supports 3DES, AES (128/192/256 bit), ARC4, MD5, SHA1, SHA224, and SHA256.
+It also supports full IPSEC, SRTP and TLS offload.
 
 Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
 ---
 v3:
-- introduce patch
+- Add reset line and clock gate
+- Change commit description
+- Wrap long line
 ---
- .../crypto/inside-secure,safexcel-eip93.yaml       | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+ arch/mips/boot/dts/ralink/mt7621.dtsi | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml b/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml
-index 997bf9717f9e..c6c99c08dc68 100644
---- a/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml
-+++ b/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml
-@@ -48,20 +48,34 @@ properties:
-   interrupts:
-     maxItems: 1
+diff --git a/arch/mips/boot/dts/ralink/mt7621.dtsi b/arch/mips/boot/dts/ralink/mt7621.dtsi
+index 0704eab4a80b..e1047dd861c0 100644
+--- a/arch/mips/boot/dts/ralink/mt7621.dtsi
++++ b/arch/mips/boot/dts/ralink/mt7621.dtsi
+@@ -361,6 +361,19 @@ cdmm: cdmm@1fbf8000 {
+ 		reg = <0x1fbf8000 0x8000>;
+ 	};
  
-+  clocks:
-+    maxItems: 1
++	crypto@1e004000 {
++		compatible = "mediatek,mt7621-eip93",
++			     "inside-secure,safexcel-eip93ies";
++		reg = <0x1e004000 0x1000>;
 +
-+  resets:
-+    maxItems: 1
++		clocks = <&sysc MT7621_CLK_CRYPTO>;
 +
- required:
-   - compatible
-   - reg
-   - interrupts
-+  - clocks
-+  - resets
- 
- additionalProperties: false
- 
- examples:
-   - |
-+    #include <dt-bindings/clock/en7523-clk.h>
-     #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/reset/airoha,en7581-reset.h>
- 
-     crypto@1e004000 {
-       compatible = "airoha,en7581-eip93", "inside-secure,safexcel-eip93ies";
-       reg = <0x1fb70000 0x1000>;
- 
-+      clocks = <&scuclk EN7523_CLK_CRYPTO>;
++		interrupt-parent = <&gic>;
++		interrupts = <GIC_SHARED 19 IRQ_TYPE_LEVEL_HIGH>;
 +
-       interrupts = <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>;
++		resets = <&sysc MT7621_RST_CRYPTO>;
++	};
 +
-+      resets = <&scuclk EN7581_CRYPTO_RST>;
-     };
+ 	ethernet: ethernet@1e100000 {
+ 		compatible = "mediatek,mt7621-eth";
+ 		reg = <0x1e100000 0x10000>;
 -- 
 2.47.3
 
