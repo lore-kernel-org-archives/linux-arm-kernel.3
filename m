@@ -4,137 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51283FA3741
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 14:06:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA762FA374B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 14:09:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zcdn/7Q48JsxusxJpdZxfM0eNzXVTYp1I4zI3xtwG7Y=; b=kZNjLqBxBqbXs8rrpEjjcKnBXX
-	awzBEKE2hYZVoSkmCFvxKlS4rpSzjUJEP6XqwAGBUCViozhre53pwS+8egF7KKzYDQcLNmTfqSOR6
-	Yj5f+GRd3frS8GrjOQaD13iK+ykWMJ6jquzzcveO5cYaCzem0pPSeUL/wB4YBHdcO5AZCkmzFxJ9J
-	X59+X6NXdWgs+nDYSSf/Ldt0/ORlaZpclcCpGGjKEj1k/X6W0+wWg+V9XYqqEB/+zLDBuWGJRoXd/
-	Zb2LDLaKFBD/b39tGM9vTavyoNTNGGro7TTeGfvZHGAvEcljPIsxv5nvPkFi3PH5F/dWbgbbDKoln
-	Y0wdct5g==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PaBxGQvhkItgh9dRbcZg4fYw8o4jsQ20vI1Dk43ab7U=; b=qlqUxyCr/6QUvp3RjSzpegjYY5
+	rYnfXUuDvK2P/7opWm3lVSgwE00IrbODM/xIWbGJcYK/WKTsS9LDc86034Vhr2sMPt3xF70MNe92v
+	nLMFPc3DWB291BCM5JyaKsKUJQpff9TAhBrgy4YIo8S8vB+YnNftVt/Xj4IhqoGzKKW5FECERW++i
+	A05MfMIxII3FlrLy1VehfKm6xNTN267uzKBenuaVUbZUUSZJ8xvmM3VQyffuVe10xVeZFqFWHWQ/k
+	lOGANZitkyOg9fG1o/MMZK80YAIAWU6Z32FNFiZCngaVRMBCN+2yVCYoM022zxfTcUzN6VvpD/m23
+	TD35Q0XQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbfmy-00000008Kpo-1wu7;
-	Fri, 02 Jan 2026 14:06:00 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbfmr-00000008Kp0-26YS
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Jan 2026 14:05:59 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 602Bnlrd1095017
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 2 Jan 2026 14:05:52 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	Zcdn/7Q48JsxusxJpdZxfM0eNzXVTYp1I4zI3xtwG7Y=; b=gp/t4rNJTeHYaLXS
-	r/aON5l/KJXOfgVUHGel9MdiD77nu3z75PPbsamCbsTKqaYOKHcXsLjxo17ptTEO
-	IsTZgkcmPuGgbvOYefHQNctgxKTogYy5wUZnSHm56XwfPiz/KPv2/ykCWQ65iF0C
-	Y1JxlTqFreKr0qy4ioVzeOToPkVf0XwAZx/tCigtYgNm96kdI9G2IhcB1dk0kGo7
-	CODVjPpFHC99wiClNOUDGGa/ij/PFvp9t2ve5dQW6KUOh+D95MxhtPtErbZNWcjV
-	Mp8WTJSOn3l+99fuCBXnZIO5s5RtBABehHAog7yfHgjpxWwtKC3ix8K3WY1xl/o1
-	BENKng==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bedg407ej-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Jan 2026 14:05:52 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-8c231297839so197666385a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Jan 2026 06:05:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1767362752; x=1767967552; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Zcdn/7Q48JsxusxJpdZxfM0eNzXVTYp1I4zI3xtwG7Y=;
-        b=Ah70cd/MxvtA4XzOxBBXEM3duLeJXAkQN+owYfQlQAVSSe+gBn8abMA+9W6BNWGey4
-         L+fuJ4x4911RxFttjHJqZyQFZJS4xOJfgneEpXjD2ijs3jrBpRiBhn6rs+L7IdET6nHJ
-         Iq2CYj468J8aBqBmOdv4NvXqttBR940/KVkAe1T/iji86YlW9vHMah09snQfwvwJ6E5x
-         MKZM1E15tYDlDKLYFUawBHc/11o1eO6i+e86SsVCDQhHGGkMsxBQVR1nhGSREpmDg43k
-         DUYdMZv86J66YslOnCY7Y6rwkI7HHJs8ZrXp3asFF1rsUU6OQyTtTtpuAyBVuHlB6jiu
-         /Hzw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767362752; x=1767967552;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Zcdn/7Q48JsxusxJpdZxfM0eNzXVTYp1I4zI3xtwG7Y=;
-        b=kK7AGdQoKhsM3UY1+h6OICjzdAwIPi8Z3s5hqY7GoAd7CsSz4oIaYLZmwMEwQvq8D3
-         lCbFdBEKYSVbKzVojwIIM/z2VLGJGwneHgC8Np5mqNG6+8gbtFKQFZzO8wnjmYM2i4xO
-         CDdWxbQRctGNup7BXrwpyg5aNYUDc/nYmNhPDkIrf3dasoYzd+5+EuZM3cwCjUCmm9/r
-         CmJn7nhlMJPFKkz342ElTrVfAvLUD8F6NrzSAHQa5u4BGYn1qGPCQ3+mtyK5a3L2H6vb
-         pDxs5vJvH+MubnMly8woZJgxZndDJXYdje1KF2dNVnt031RFvtnP139orxsw0u9jU5zW
-         HjXw==
-X-Forwarded-Encrypted: i=1; AJvYcCWwibLWz8GpnTUj7zUW8rOrUHNMPaIfsLDs4tLmF9wuQzYXyiAMXiHlnwLZU0yB+R0LuTcG4JD0EqL/+t2Y+Wfl@lists.infradead.org
-X-Gm-Message-State: AOJu0YyomY2mRbPPtElTHXNHiAkRrpXrqKz/a5JsHdpeKFGq8SUsHi7S
-	qg1v4MYSzXfAkNL9kMGyJk1t+FGmkuHF88GxjNh4C1Phd1ArkcBaCMalZ0CTdUO7N2wneb+sPQk
-	uOq8pWzxLdl+u41LdWW9iqmhcgnLcvUj6PlcaITDbddgmbP6VtTR6wocuzhYYIAlD+8whFhVNnF
-	UXuw==
-X-Gm-Gg: AY/fxX5BxuKDiy92JVgeIGMG9AcByyArns0IW033T6aOVTyw8q/cApq+BEof6QaEZV9
-	JWmKajFa5ggyyhqkjA1k3SVAXGqDrapY8KfOrBMjvGX2dXejkvE3wzCCt6RbmRU/9svoY6p8msW
-	/S86RdBkQBksX+qsrKaCKwBPuUBWmL8SxvZuMF4kYJgzk8GPpJM+YiO/RsWN701fELcScccV+He
-	y6StcggV9dpfESJeYiVPg/iix09KdEjhZgP0LRxe/ob/9T++OIuUGXiycH4/v9Pfyws1vZh/j7I
-	fUpmkEazBwpxo8ZXDnUaVIIe+1zWtG6Ry0/E/mA4s1jNvUezqWz2k8qiuOnqUALYchIVzrE5wD+
-	MpDd+aMviQDDZenp3uQnVHePR+x0pb/AY35q1wJ1AGzGQKIda9P46Wff7pCD/pj6EWg==
-X-Received: by 2002:a05:622a:28c:b0:4ee:1fbe:80dd with SMTP id d75a77b69052e-4f4d620461emr392952821cf.5.1767362751617;
-        Fri, 02 Jan 2026 06:05:51 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGvPcr+EyW78LnxZztu6gmFgyoAOWuar2cL8fl5R9dQjwJN8gd7F8C+4SSN+nYk+ChCz+Yvow==
-X-Received: by 2002:a05:622a:28c:b0:4ee:1fbe:80dd with SMTP id d75a77b69052e-4f4d620461emr392952151cf.5.1767362751086;
-        Fri, 02 Jan 2026 06:05:51 -0800 (PST)
-Received: from [192.168.119.72] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8037f13847sm4429125666b.57.2026.01.02.06.05.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 02 Jan 2026 06:05:50 -0800 (PST)
-Message-ID: <237b8ced-7d93-4229-b1bf-f6993c25dd5c@oss.qualcomm.com>
-Date: Fri, 2 Jan 2026 15:05:48 +0100
+	id 1vbfqT-00000008L7f-2LzI;
+	Fri, 02 Jan 2026 14:09:37 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vbfqQ-00000008L76-0hfu;
+	Fri, 02 Jan 2026 14:09:35 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C207F497;
+	Fri,  2 Jan 2026 06:09:25 -0800 (PST)
+Received: from [10.57.94.221] (unknown [10.57.94.221])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3DD043F63F;
+	Fri,  2 Jan 2026 06:09:28 -0800 (PST)
+Message-ID: <719b7b99-3615-46cd-84d9-8b8fc21e3ce9@arm.com>
+Date: Fri, 2 Jan 2026 14:09:26 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu: arm-smmu: Simplify with scoped for each OF child
- loop
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-        Rob Clark <robin.clark@oss.qualcomm.com>,
-        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        Joerg Roedel <joro@8bytes.org>, iommu@lists.linux.dev,
-        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org
-References: <20260102125003.64962-2-krzysztof.kozlowski@oss.qualcomm.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20260102125003.64962-2-krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH v3 2/3] prandom: Convert prandom_u32_state() to
+ __always_inline
+Content-Language: en-GB
+To: "Jason A. Donenfeld" <Jason@zx2c4.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Huacai Chen <chenhuacai@kernel.org>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Mark Rutland <mark.rutland@arm.com>,
+ Ard Biesheuvel <ardb@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-hardening@vger.kernel.org
+References: <20260102131156.3265118-1-ryan.roberts@arm.com>
+ <20260102131156.3265118-3-ryan.roberts@arm.com>
+ <CAHmME9qHiVZwf4TAringRHSZ-yqHuPwmP=Wnx98n09jv7Vu_Rg@mail.gmail.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <CAHmME9qHiVZwf4TAringRHSZ-yqHuPwmP=Wnx98n09jv7Vu_Rg@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: z0aVmKkR448VPFKZtFr_C5Ima95l_DT0
-X-Authority-Analysis: v=2.4 cv=IssTsb/g c=1 sm=1 tr=0 ts=6957d0c0 cx=c_pps
- a=qKBjSQ1v91RyAK45QCPf5w==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=9ra_KJl88v3tURVkoeQA:9
- a=QEXdDO2ut3YA:10 a=NFOGd7dJGGMPyQGDc5-O:22
-X-Proofpoint-GUID: z0aVmKkR448VPFKZtFr_C5Ima95l_DT0
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTAyMDEyNiBTYWx0ZWRfX/8VzOtrUfU8E
- huClsu6nH8t8nqAzwfiRQz5noAirp50+oP5LLVvGxgPY/TPxUsI/2EseKxB7WtubgkB8sh9MuK1
- MtWJ/NqmnSG229MX3wDs5KBtWawblhAs+7FqmeH9ILrldznVpbUFcpgPLLtoG4rPVIVdc+gUQY5
- gKmTYM7IdjHOH/ozXgWSetkSEZ3iiRWmGKWBzJxQRSYafwuFO95pKZXawIDiD7/ttonlO9BzNKu
- iO7iQyaGzhJcIgOnVTNDwSDnUsJMdWjZ05Ex6iSNMyrPTpygZAC+diYWlhVEtznFg7tv6a1xM0Z
- eizvikc1Kg/39JX2DUz+l4B7DCed7xK3domSPkzCGBJXnhcJGyylWOa7E0vs3qg+agnls3Xw7Q9
- 8lzX3HUduqg6PV3DmvOuoJ6AcBYQhiNn56mAN0o5SqP2gPpiE8PmViGTu495bIgXTZgfBPndbQs
- wSVWsShc6V0biyX74yw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2026-01-02_02,2025-12-31_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 phishscore=0 suspectscore=0 priorityscore=1501 adultscore=0
- clxscore=1015 impostorscore=0 lowpriorityscore=0 malwarescore=0 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601020126
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_060558_313647_E0FD98B3 
-X-CRM114-Status: GOOD (  10.43  )
+X-CRM114-CacheID: sfid-20260102_060934_323535_93D9237D 
+X-CRM114-Status: GOOD (  18.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,14 +80,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/2/26 1:50 PM, Krzysztof Kozlowski wrote:
-> Use scoped for-each loop when iterating over device nodes to make code a
-> bit simpler.
+On 02/01/2026 13:39, Jason A. Donenfeld wrote:
+> Hi Ryan,
 > 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-> ---
+> On Fri, Jan 2, 2026 at 2:12 PM Ryan Roberts <ryan.roberts@arm.com> wrote:
+>> context. Given the function is just a handful of operations and doesn't
+> 
+> How many? What's this looking like in terms of assembly? 
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+25 instructions on arm64:
 
-Konrad
+0000000000000000 <prandom_u32_state>:
+   0:	29401403 	ldp	w3, w5, [x0]
+   4:	aa0003e1 	mov	x1, x0
+   8:	29410002 	ldp	w2, w0, [x0, #8]
+   c:	531e74a4 	lsl	w4, w5, #2
+  10:	530e3468 	lsl	w8, w3, #18
+  14:	4a0400a5 	eor	w5, w5, w4
+  18:	4a031863 	eor	w3, w3, w3, lsl #6
+  1c:	53196047 	lsl	w7, w2, #7
+  20:	53134806 	lsl	w6, w0, #13
+  24:	4a023442 	eor	w2, w2, w2, lsl #13
+  28:	4a000c00 	eor	w0, w0, w0, lsl #3
+  2c:	121b6884 	and	w4, w4, #0xffffffe0
+  30:	120d3108 	and	w8, w8, #0xfff80000
+  34:	121550e7 	and	w7, w7, #0xfffff800
+  38:	120c2cc6 	and	w6, w6, #0xfff00000
+  3c:	2a456c85 	orr	w5, w4, w5, lsr #27
+  40:	2a433504 	orr	w4, w8, w3, lsr #13
+  44:	2a4254e3 	orr	w3, w7, w2, lsr #21
+  48:	2a4030c2 	orr	w2, w6, w0, lsr #12
+  4c:	4a020066 	eor	w6, w3, w2
+  50:	4a050080 	eor	w0, w4, w5
+  54:	4a0000c0 	eor	w0, w6, w0
+  58:	29001424 	stp	w4, w5, [x1]
+  5c:	29010823 	stp	w3, w2, [x1, #8]
+  60:	d65f03c0 	ret
+
+> It'd also be
+> nice to have some brief analysis of other call sites to have
+> confirmation this isn't blowing up other users.
+
+I compiled defconfig before and after this patch on arm64 and compared the text
+sizes:
+
+$ ./scripts/bloat-o-meter -t vmlinux.before vmlinux.after
+add/remove: 3/4 grow/shrink: 4/1 up/down: 836/-128 (708)
+Function                                     old     new   delta
+prandom_seed_full_state                      364     932    +568
+pick_next_task_fair                         1940    2036     +96
+bpf_user_rnd_u32                             104     196     +92
+prandom_bytes_state                          204     260     +56
+e843419@0f2b_00012d69_e34                      -       8      +8
+e843419@0db7_00010ec3_23ec                     -       8      +8
+e843419@02cb_00003767_25c                      -       8      +8
+bpf_prog_select_runtime                      448     444      -4
+e843419@0aa3_0000cfd1_1580                     8       -      -8
+e843419@0aa2_0000cfba_147c                     8       -      -8
+e843419@075f_00008d8c_184                      8       -      -8
+prandom_u32_state                            100       -    -100
+Total: Before=19078072, After=19078780, chg +0.00%
+
+So 708 bytes more after inlining. The main cost is prandom_seed_full_state(),
+which calls prandom_u32_state() 10 times (via prandom_warmup()). I expect we
+could turn that into a loop to reduce ~450 bytes overall.
+
+I'm not really sure if 708 is good or bad...
+
+> 
+>> +static __always_inline u32 prandom_u32_state(struct rnd_state *state)
+> 
+> Why not just normal `inline`? Is gcc disagreeing with the inlinability
+> of this function?
+
+Given this needs to be called from a noinstr function, I didn't want to give the
+compiler the opportunity to decide not to inline it, since in that case, some
+instrumentation might end up being applied to the function body which would blow
+up when called in the noinstr context.
+
+I think the other 2 options are to keep prandom_u32_state() in the c file but
+mark it noinstr or rearrange all the users so that thay don't call it until
+instrumentation is allowable. The latter is something I was trying to avoid.
+
+There is some previous discussion of this at [1].
+
+[1] https://lore.kernel.org/all/aS65LFUfdgRPKv1l@J2N7QTR9R3/
+
+Perhaps keeping prandom_u32_state() in the c file and making it noinstr is the
+best compromise?
+
+Thanks,
+Ryan
+
+> 
+> Jason
+
 
