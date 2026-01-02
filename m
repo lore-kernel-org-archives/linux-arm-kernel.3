@@ -4,157 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D76AEEE25C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 10:39:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1487E9410B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 10:51:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UF621uhy7+HoJb/pJV8qcpBBnR1omX2LJmV7wcD1Nr4=; b=eiwwjUMPMhWF8yYYfGGjZXTiBY
-	RKkoA4QEk8n3SumA0N7GgscUS4VuzjBdWwnoCEkf/QrJKtXuFGRHxlvVhy7cVGLjcgWF4o61jOxay
-	dT8UzHO2xaLoaAmEvv58CT36udQclS+ltmVzJzjss2s0zyZqgKnWVLztcwSBegqsE8wTgZQjkpC8M
-	ILQkbe0PwaZilwRy9z7ObmC1YT6LAdlGhgsEMPvf2kVIZ05ZTbbTR8NK91MZ+ffyaqWBUd8nGwFt5
-	K+meBxOfwyPNnttDtAFv+FO6Boa5Xxwbtx88zT17YRkfXfKSTKV/EOrceuxORt9Rv5krFsJSvt2ba
-	3NM0GcPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:From:
+	To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Wm8iFenI7rV4BHDLWQQC9m1LuaI6pjS4oGcE2me2wdo=; b=Ylnx2/Dx1MeqJv43EdkXOoVNdp
+	mFJ6Z6hjT5Tqup3i+2p7rbTy9Tzfwm+Fiak+Ysa19PkkyLTsrqbis1Z0EYGn1H/eEIH5NUJ3YpYJW
+	ovs9lDiUw4y52bQWWydTO8J9omV8/37vUF8uZd8Cxs3eclSToCtpHYDPK7mlUiOJjs/+J//Uzmwkr
+	tEG7v2teXLLCDZ/VlUOIYRT50wFNB9Mcirb4BwSRpv3MsHu/Gf6ipW9yLA37LCU8TwvH3p0b2lcni
+	XRDXXoHM9KaK7UltgK8CF1nB3e+vbwFGBnmvIKp1YA0fQMGQa8b8Q+MiLyQCc/IdRvBWNFwKGsCgu
+	0r421bdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbcZH-000000084sB-2bYU;
-	Fri, 02 Jan 2026 10:39:39 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1vbckS-000000085KR-09RS;
+	Fri, 02 Jan 2026 10:51:12 +0000
+Received: from mail-106116.protonmail.ch ([79.135.106.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbcZF-000000084rq-0vlG
+	id 1vbckP-000000085K3-0j5A
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Jan 2026 10:39:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ByD7uDqd2UwXyKoQCNa7VtjFA3vD57Y+LDCjjtp4wjdr/kit2pDgtwqU86riPMd2TNP71Ma1nuHjbpqANpd0dvSEkH2kLLIC0PhCY8xMQHhH++1wXxZjprg66ks+y/+RKZWLRvPT2u248dII4GZNViuw393j4PYYulItC1/Dv2VQsD9ycRzZ7rjqQ9XlRa/uUObsbpGUC8LDaRKlTiUYe2Q4FWoBJPyBcVHhd8xDCwyNz7EW2V6tu7bC8jwFEHK6B3vEvLFemlEdjMWai4y1/EGGzTWarBYwjnOOsariB+LPJCPZFF6iOvcfyj8/91rcctQGSHVyusAOej/vcO0nvw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=UF621uhy7+HoJb/pJV8qcpBBnR1omX2LJmV7wcD1Nr4=;
- b=VdJh0A1YkSv9/GXX3DklKGy8PWXY7su81ZX6qy471v4wD9qd1tCtq9mmxTb1AMHU0uBOZfbbO+mDnsZtayeLgQVPnptchi1+3SgpsRerKJl1fL5mT6XNFU7iEvuvQHe8cElBN6hqbpfozhl//XZSjYXxe2Wfx1iIpfQgcWXAoFuXCiab7qESCKBLdUz4IEc9XkVSS/RuyJA6WxE/hgte+VL7x1LzaFAmWfKrzbg3husDMTvn0C2MLhVI3jtFTI0m2YmenI4WVrSbSR0jf7J4/dsMgWluHCDSaVdNZH0oGwmMt1Bau23cKHimKaPC/Br7nxr6iur5Jspl93dfxFZO3g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=UF621uhy7+HoJb/pJV8qcpBBnR1omX2LJmV7wcD1Nr4=;
- b=DHgvTd4eRYBcTtw5iNTX34XoT5CLh6ErGFHc4z96y2uIuMMV7rXaAcDPHouTW6BweSxGoIGx9CUOi8Rajsg3EXGQxnmjwoAqf5trnJVpMqkEBq/M3VXiPqfwkR7wS6pHoV6qsDIgNB+jOZwCEuDglaiGRRcpbhoTWSnnEUCvdlVFt2y5kQ66YxTXpRr2l4eU3SXMnrlXGbM+5FqCwwnyu/H+qJS995akYZ5LaaMyJYQ7uGxrtVgWnNjfuAr4nV15IDJ9ColZJ3r8EODMXPjzFSvqr/xQU3QpTNS/Ml6mdL8LUvswdwbV8m7S/nske/jQJ71w8geDQregJNJQeFh2aw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by PA4PR04MB7805.eurprd04.prod.outlook.com (2603:10a6:102:c2::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Fri, 2 Jan
- 2026 10:39:31 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.9478.004; Fri, 2 Jan 2026
- 10:39:30 +0000
-Date: Fri, 2 Jan 2026 18:37:54 +0800
-From: Rain Yang <jiyu.yang@oss.nxp.com>
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: Frank.Li@nxp.com, conor+dt@kernel.org, devicetree@vger.kernel.org,
-	festevam@gmail.com, imx@lists.linux.dev, jiyu.yang@nxp.com,
-	kernel@pengutronix.de, krzk+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	liviu.dudau@arm.com, marek.vasut@mailbox.org, robh@kernel.org,
-	s.hauer@pengutronix.de, shawnguo@kernel.org
-Subject: Re: [PATCH] arm64: dts: imx95: remove CLK_GPUAPB
-Message-ID: <aVegAt002L20oBGf@oss.nxp.com>
-References: <20251231031915.752262-1-jiyu.yang@oss.nxp.com>
- <37489cb7-820d-46cd-a7ea-0f9097604895@mailbox.org>
- <aVXByNiEfC66RDG0@oss.nxp.com>
- <b2dd2109-c2d9-412e-9b11-5851485acf04@mailbox.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <b2dd2109-c2d9-412e-9b11-5851485acf04@mailbox.org>
-X-ClientProxiedBy: SG2PR02CA0055.apcprd02.prod.outlook.com
- (2603:1096:4:54::19) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Fri, 02 Jan 2026 10:51:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=chimac.ro;
+	s=protonmail2; t=1767351062; x=1767610262;
+	bh=Wm8iFenI7rV4BHDLWQQC9m1LuaI6pjS4oGcE2me2wdo=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=l1HqgXMmMKg/G/y/hrjp5w5NLDbzu6bAnCleWW0aF0bBOclzustHcaR8DAp2pRLxi
+	 bFkR/CTrovwjKtwjlQS2uNQEML/hkYWvjG4n+znncN2B9xPsWhswjOyRngS9I7p/YL
+	 Ilx4iQe5+K1ZsjbPSkDiWpjUlMyvTzM5iQGxTBhbYk6idOQQIvqvi5bpBHj6d1UnhD
+	 6OhcPl0U8E7CcYGYGZWNFR3E2prkYpExHyisQtL4w62zFpbnMoI31abqpR31g1F+zH
+	 TH4tSdG4f6MYI0emEcHpl5+AAs71O/Cc4mQlFpa1lHt/vJQe8z+vzdJFxLSllt1gys
+	 XX0KHRKPqY9FQ==
+Date: Fri, 02 Jan 2026 10:50:55 +0000
+To: Krzysztof Kozlowski <krzk@kernel.org>
+From: Alexandru Chimac <alex@chimac.ro>
+Cc: Sylwester Nawrocki <s.nawrocki@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Tomasz Figa <tomasz.figa@gmail.com>, linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/3] dt-bindings: pinctrl: samsung: Add exynos9610-wakeup-eint node
+Message-ID: <SIUwFRvVetTkOo41ZvVr5kiSwjfVoFRJ9HPWVYoNFQgd06BUJSDLEdl95hV1W3INlc50uZNQppCZaA41mTA22kQfpDOjseC-PiHgyIfTCSA=@chimac.ro>
+In-Reply-To: <fb98e395-d590-47f7-8dba-d9a691a2c174@kernel.org>
+References: <20251228-exynos9610-pinctrl-v2-0-c9bbeee4c54b@chimac.ro> <20251228-exynos9610-pinctrl-v2-2-c9bbeee4c54b@chimac.ro> <20251230-dramatic-gregarious-stallion-15bc07@quoll> <yB5WFgsxeeqHQgi87UeNPD8K2OlQbWWC6-BovxADBtgusN3n8UOrm7Gi6jz6Th0dsMA9J-LEpx69sWjNmWTH_-jx9r7AgvXNTwR2hQW7-SM=@chimac.ro> <fb98e395-d590-47f7-8dba-d9a691a2c174@kernel.org>
+Feedback-ID: 139133584:user:proton
+X-Pm-Message-ID: fcae599c395b499a3659dfd5541d73bbf461087c
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PA4PR04MB7805:EE_
-X-MS-Office365-Filtering-Correlation-Id: 57cdcc48-7f97-4706-7d14-08de49eb35f6
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|1800799024|366016|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ppLfTqsFLFY4kO94x64XVnyITvd0c2e18tB918U5A0+3QY2kiWU34Eb32Uod?=
- =?us-ascii?Q?pXHCNy2wcPviuKxA+gnbafB/2RoHDc+hq9WvAaiqte4eepHlU2c9PAAnY0Oq?=
- =?us-ascii?Q?vrhItfe7o1LrnfAgNtazmCr8VBPThxHJmTGwgzV0ebRDrOu3fr0019V5gwOl?=
- =?us-ascii?Q?nHhpOQCxAhEev15oeMp9oPUrKrSP9e9Iy2BYtR+fQEzOsJHuNuP749gfqefh?=
- =?us-ascii?Q?Fx1Mck7LaWMiOCQ8rm+xUe2sPMrmiIDQfA2gxb1NgnNRAYXiJEK7Xg4E7Ve5?=
- =?us-ascii?Q?1RgVM2AqDqrGya5KjfdRLCSDT+rFlaSH6Fwgs+tEdKu0eqlCAdCd570/8r9P?=
- =?us-ascii?Q?UTQkJRduMER5WT7u5OME321B1sHXD84Is3DnB68iz0wrcfNQG7ZSpot2AM4M?=
- =?us-ascii?Q?OuCNWcC/pg2qC/aRiLpBuPaCua3zMssT236/u1DQfCN/urv5v9/poRlD/Ts3?=
- =?us-ascii?Q?vIwBoJAOFMvAe0zUemFjTEvdObmbBLL9VGdwXIRyH7QINw0Tpp+6QVTXfXx+?=
- =?us-ascii?Q?tEfN7V7UDsxLeruKX0PA/GCDJsAIjNb7EfusA4X5ogbyz38HjLzRoQ0O73bX?=
- =?us-ascii?Q?EPO++TQw2Ky521s6QjffAp44oi/xuef3M9CLbxYg61O7eevq93Jd61BjLTyi?=
- =?us-ascii?Q?UgbpqZEhT8O0t/vQKeBcywfL6wtjZCbHB40BW5NRzmg+RzFH5zuvIxZK277a?=
- =?us-ascii?Q?1PJZ9mM01j/VUYoTzonPIzIeazdepwx5xHq5NGiQSliowMYUO/6R/Xv0ChEb?=
- =?us-ascii?Q?HdwmCY4ORIuLDr2vmcVOLhzI2jTOCyS4LVrc6mYFL1xxC2mL8aWTofZVxVlt?=
- =?us-ascii?Q?xHn+EbTggtDkL+JDhx5HwgJaJH674hvMvrzjEuKgMABEKNH9DIOc0aTxr304?=
- =?us-ascii?Q?XgSxvC8WALp21ywpKBMgl7XbU6FcNlXvuJIifgncj8JWMt90O9H92S/Gnujm?=
- =?us-ascii?Q?/FH9fO7uiG6tQuS3j6lNyVtExczckxx4Ozgb5UB5N3OQK311b8+zknh7POfE?=
- =?us-ascii?Q?qBcVZL4oUJUxKe+WS+bIwtSZjzSG8vG+Yz2BDBwyRiSzMoF8dr4s5tpV5X3o?=
- =?us-ascii?Q?Bhk4S8pPbl2W8J9LglS2z6yZ01l9j72sEY6clQxJ7BiVb3UMs5oivF85m3FW?=
- =?us-ascii?Q?WRFHO07vYqasdT9vDUfNCJ9Csa3OoibldYh6UiIrwrvc9wP4EVnBXqglGX5z?=
- =?us-ascii?Q?tJE6OKdastbJoPKAE53Dtra7WtJSmnxRxzgc6CnH6UFhS5FlUv10M4iPPpa2?=
- =?us-ascii?Q?hAXVKQV8a7Mlv74paZE5IeL17JieXVgNT2qDawLXiR1LDMizD/hvOVdjZDZW?=
- =?us-ascii?Q?hS09g+daxSm98vs+AtIbmLWwlj/UOL0R8nbpCUfZkDEJOWaIIudO9c3onM+s?=
- =?us-ascii?Q?xqs/g2QD96th3yenJkviA6p+gTQeYB+WA7yLj8hUXNoi+s535SnnSUmar4oy?=
- =?us-ascii?Q?S/AEA8jvqc09z0DhH+4Ea7IO7xRWpCFIGK/CGSKjCh8w38fe/l8HYY4peKwp?=
- =?us-ascii?Q?SLnW3riCMR2XJd0doL2AAbSEy5mCtlEXyTtO?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(1800799024)(366016)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?NlVr7NfL4U9PQjA/pwXse0tPMhtE5P7qCuTyocgsdLYS3eYOEYG2Nn4q8F3c?=
- =?us-ascii?Q?F24eUOg6YnFcgTn1ysTnE+TgA7vmrhEbAxs196qHXWuHfaMxjAOS0fOudHNW?=
- =?us-ascii?Q?cK2KM7XtA8lV5kwu8ARY7PMT2uVSAws+gL7zwhd2VuJEDj79kpZ5JdodP9Zr?=
- =?us-ascii?Q?ekt2PsV1TnYo1j2MPcWrKMKcSBxwr7tzVOXj0CUWUpY2UhCGX1umCVBZLNFh?=
- =?us-ascii?Q?Zbh+kHPTxQnxgdoPh7NDdPPho4sF0h7zMgbWUWcA4/T/GPS6BVOWmwwzaluL?=
- =?us-ascii?Q?f/x9SJ9WIzwS4nWxzaI5We1fIMYEsqn7NaD1Taggz1a3wHeGGWgWRr45dgsg?=
- =?us-ascii?Q?Nj2AUMa/w2bnJAyoTRdpg1/e8DWcJUzog8oXERxrKS2Fieli98msEUexVXfm?=
- =?us-ascii?Q?3AytYVRvnV29/4qfkiCWT2IblnygbwwBecaX+YE6r7PP/+FoV0JbqJjOWM3I?=
- =?us-ascii?Q?hHBJfeEWfJEGu0H76ESg1IsSVDp/HyXdceH/BAAyQF1I/VOn0fb19ZH2LzBO?=
- =?us-ascii?Q?d15V4l97BNGUpqJ9LyAGWWARrp7nsKHkAVE5i7KryYL1AHLAFNL37oSuJDBB?=
- =?us-ascii?Q?A9uKPWFfQFkEaJz7LMChvtLNho1zNYepIgmh2Su204Z/jyMriq7oXPYLugRQ?=
- =?us-ascii?Q?llfVO5egIHHGOhmJTUbNwp0LYrN6A3U0EV6rTNWcPDdxqEuqydYFAgkyrBml?=
- =?us-ascii?Q?xbuGoxKdq7SRItSfHjADR6OLJ5ZDj8HLl3F7Hmo+u+Z5g8WGW0GAi1LI1CyR?=
- =?us-ascii?Q?Ci/PJboyeLionOH99k/PRe4Hdj9LacachieNvhcO/awLIwCakOaatRvJTSEb?=
- =?us-ascii?Q?IFfto6obqz/D6SKEkP6TqU7Ig+usb1hIZoEBrcaKmtHIWCnSx0V2HqcLhoHT?=
- =?us-ascii?Q?POXfkXnTxXCPF1d6IoxP42HeLYU9NKDcvZZssqZJAx+4Mk9e4Lfpq8h84t3U?=
- =?us-ascii?Q?eypgbBUpRdRSbUfDAIeYIKB6q6AHbIJo72Vsei62GiEnuf1qc9+iXTMDyk6W?=
- =?us-ascii?Q?+OnxIqDn6WCzR2r+FAe79JlIxCQ/7v2mBWaJtKMzJ7KUp3ky6b3imavrF9hH?=
- =?us-ascii?Q?XFskHU0IhG3j1EIC75/pjxCv02BzpBuf9sy0hYzZG+rpq1SQGILd/cE/8rKG?=
- =?us-ascii?Q?BZZtIOUizV20QrL8FDYr4r96aOhz9CChVF5Fd5Dyt1y6VyPZ2Mc93UPpuznH?=
- =?us-ascii?Q?6p3poqX6pGAGluR2klCy+j73dCY49gl4r6c209PHQfOpzBeWIG52VVXrKGnU?=
- =?us-ascii?Q?qVlVqjyQQQbTiYM6mywz7PVYexRrbi6S+z7h2mZldnEu43SRJLkJB6aGIWhS?=
- =?us-ascii?Q?YoD5wHyiUSyoq6hadk5w2N345CgNwqb8AjR0Ou/cGrCCWfQPl4eFlpPMdhdl?=
- =?us-ascii?Q?qI5xJm/IPFG7/xJSpy/1mqNBh0NScvc35pqjKekj9gQiaHZqTzmkwESalBz4?=
- =?us-ascii?Q?qR8sl+JEnIxKTlgDTA9gRiEm7b0v3AnTgew3w9J64oWg9C2/YpE3uRcGXT8m?=
- =?us-ascii?Q?diX17xdOA4TGI96rkRSDAAUiI5ohbdNMkBGUsAdY1LdWWdGsmC3+HkCjceP+?=
- =?us-ascii?Q?jIcbYSaqCO90eTeCglxmmt9MyB6C4SkavycoIV1Cve2JwPhhJhRGaW4qvflO?=
- =?us-ascii?Q?J4CGUg8IgoHhEPDhuNUzog1ahTJUFebohK3viaDkIb6W8p7vNLzxPUdxzSWt?=
- =?us-ascii?Q?apqvudhaYLrKhA3s3m8+zq+KckIbJQ6pGNXqhw2Q0yAoK+mv5L8r97pwRsth?=
- =?us-ascii?Q?jZNh5PoLsw=3D=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 57cdcc48-7f97-4706-7d14-08de49eb35f6
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jan 2026 10:39:30.8958
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: mQ0qncD+Sk5K3KTIbM7695G4etL2RNe1JCfV6ekkES4TvwscDdakM2CXlx9miHEMI8F+SXqnml4uv5ndyV7G7A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7805
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_023937_274018_7CFCD542 
-X-CRM114-Status: GOOD (  22.76  )
+X-CRM114-CacheID: sfid-20260102_025109_837784_FEB4B602 
+X-CRM114-Status: GOOD (  22.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,61 +69,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jan 01, 2026 at 05:51:12PM +0100, Marek Vasut wrote:
->On 1/1/26 1:37 AM, Rain Yang wrote:
->> On Wed, Dec 31, 2025 at 03:11:21PM +0100, Marek Vasut wrote:
->> > On 12/31/25 4:19 AM, Rain Yang wrote:
->> > > From: Rain Yang <jiyu.yang@nxp.com>
->> > > 
->> > > Dropping CLK_GPUAPB simplifies OPP handling and avoids unnecessary
->> > > complexity.
->> > > 
->> > > Fixes: 67934f248e64 ("arm64: dts: imx95: Describe Mali G310 GPU")
->> > > Signed-off-by: Rain Yang <jiyu.yang@nxp.com>
->> > > ---
->> > >    arch/arm64/boot/dts/freescale/imx95.dtsi | 4 ++--
->> > >    1 file changed, 2 insertions(+), 2 deletions(-)
->> > > 
->> > > diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
->> > > index 88bde59e61b2..ab446aa6f73c 100644
->> > > --- a/arch/arm64/boot/dts/freescale/imx95.dtsi
->> > > +++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
->> > > @@ -2164,8 +2164,8 @@ netc_emdio: mdio@0,0 {
->> > >    		gpu: gpu@4d900000 {
->> > >    			compatible = "nxp,imx95-mali", "arm,mali-valhall-csf";
->> > >    			reg = <0 0x4d900000 0 0x480000>;
->> > > -			clocks = <&scmi_clk IMX95_CLK_GPU_CGC>, <&scmi_clk IMX95_CLK_GPUAPB>;
->> > > -			clock-names = "core", "coregroup";
->> > > +			clocks = <&scmi_clk IMX95_CLK_GPU_CGC>;
->> > > +			clock-names = "core";
->> > 
->> > I don't think this is correct, SM can disable the GPUAPB clock from the SM
->> > monitor:
->> > 
->> > > $ clock.w gpuapb off
->> > 
->> > Linux has to make sure the GPUAPB clock are enabled to access the GPU
->> > register, hence the clock have to be described in DT.
->> Hi Marek,
->
->Hello Jiyu,
->
->> CLK_GPU and CLK_GPUAPB can only be controlled internally by the SM, not by Linux.
->> CLK_GPUAPB always runs at a fixed frequency, does not require dynamic adjustment,
->> and is practically always on.
->> Additionally, CLK_GPUAPB's frequency is absent from all OPP entries. Removing it
->> could simplify OPP handling logic and reduce unnecessary complexity.
->
->But the SM can turn the GPUAPB clock off, correct ?
->
->Linux has to be able to turn GPUAPB clock on, therefore the GPUAPB clock have
->to be described in DT, correct ?
 
-Yes, CLK_GPUAPB can be turned off by the SM, but by default it remains on, just like
-CLK_GPU. AFAIK, there is no scenario where either of these clocks could or would be
-disabled in both SM and Linux.
 
-If enabling or disabling CLK_GPUAPB in Linux was wanted, the same shall apply to CLK_GPU
-to make this approach reasonable.
-Also, OPP framework shall be adjusted to meet these changes too.
+
+
+
+On Friday, January 2nd, 2026 at 12:02, Krzysztof Kozlowski <krzk@kernel.org=
+> wrote:
+
+>=20
+>=20
+> On 31/12/2025 13:28, Alexandru Chimac wrote:
+>=20
+> > On Tuesday, December 30th, 2025 at 11:51, Krzysztof Kozlowski krzk@kern=
+el.org wrote:
+> >=20
+> > > On Sun, Dec 28, 2025 at 06:05:52PM +0000, Alexandru Chimac wrote:
+> > >=20
+> > > > Add a dedicated compatible for the exynos9610-wakeup-eint node,
+> > > > which is compatbile with Exynos850's implementation (and the
+> > > > Exynos7 fallback).
+> > > >=20
+> > > > Signed-off-by: Alexandru Chimac alex@chimac.ro
+> > > > ---
+> > > > .../devicetree/bindings/pinctrl/samsung,pinctrl-wakeup-interrupt.ya=
+ml | 2 ++
+> > > > 1 file changed, 2 insertions(+)
+> > > >=20
+> > > > diff --git a/Documentation/devicetree/bindings/pinctrl/samsung,pinc=
+trl-wakeup-interrupt.yaml b/Documentation/devicetree/bindings/pinctrl/samsu=
+ng,pinctrl-wakeup-interrupt.yaml
+> > > > index f3c433015b12..deb2730855bd 100644
+> > > > --- a/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl-wak=
+eup-interrupt.yaml
+> > > > +++ b/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl-wak=
+eup-interrupt.yaml
+> > > > @@ -48,6 +48,7 @@ properties:
+> > > > - enum:
+> > > > - google,gs101-wakeup-eint
+> > > > - samsung,exynos2200-wakeup-eint
+> > > > + - samsung,exynos9610-wakeup-eint
+> > > > - samsung,exynos9810-wakeup-eint
+> > > > - samsung,exynos990-wakeup-eint
+> > > > - samsung,exynosautov9-wakeup-eint
+> > > > @@ -107,6 +108,7 @@ allOf:
+> > > > contains:
+> > > > enum:
+> > > > - samsung,exynos850-wakeup-eint
+> > > > + - samsung,exynos9610-wakeup-eint
+> > >=20
+> > > This is not needed. Device has 850 fallback, no?
+> > > It's not required, but I guess it would make the device tree look bet=
+ter. If this patch isn't to be merged, it doesn't functionally affect anyth=
+ing so it can just be dropped instead of requiring another patchset revisio=
+n.
+>=20
+>=20
+> Please wrap your replies.
+>=20
+> I did not comment on the patch. Comments are in specific places
+> discussing specific lines. I asked why do you need this enum to grow?
+Oh, sorry, I thought you meant the whole commit. Yeah, it looks wrong.
+Thanks for noticing, I will fix it in v3.
+>=20
+>=20
+> Best regards,
+> Krzysztof
+Best regards,
+Alexandru Chimac 
 
