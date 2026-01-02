@@ -4,54 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2542FA3729
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 15:21:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB140FA374B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 15:22:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
-	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X9XrpT/II9J7gpNVR31dLqWVwWAIyIdhjOJQcj/HGRo=; b=KAeuXqNTZhOKElk5eBqMrk3flq
-	uRMWkUImPhVE3OJ3upKA6WyPYxlWqkBg99W+61pss2vTPqjmzGwoXeccg9EPmsz5RUd16ZwgCW+IB
-	w4TeLOmmBFdUfxlKlrgIibC8NR7N/+zfau5ZpLeaboDKADMtdR/B9vWKgFJvdOtcwdPeY2eJ9BCGS
-	3W9rP1lSDrscJZQUWnDqXVRZ/fRE2Y+LZ62X4HwzWDR2MKW8CBkOEXCRWF3VlcpsQHP3SX8Xd9Ic4
-	5C9C2YIAaroq1OR8DqC4p5+zfmV3CGuWsdW1BAMq6rddXT37m0QBrudkpJ81q5ThsWbsRhuueM+Mz
-	YOQZVTTg==;
+	bh=Mfp0vOpU/C0y9oWZefdEhz0M9QMslqJoP/j34iw2EJc=; b=p1bXKbBlX97PTyA6GAKY3OH3VL
+	VlQbJ+ffPnBVgJBFOUZk229XVeqXcXJLwwzfNTHMVG6ULSvxBl1L4cjRRN+2kJFay7hdCHOudifiR
+	7KSW2Ji3PoNrZlnAPdZfD85BuZwzspG7XWKC5xGqTW4dz9VmtcQQajnLCqpn/NSHnCrztDiRspFBi
+	enoeCAo7FtfNFLW73TlvLR7op0I5FMIRjGA/6+y5cVzG0/KuRIykzmkZqwMkTS29pqb/u7dLXNENn
+	t/LSf4k3MqZI4kerg8+SuzFSDi5HvO2PyKObmk70yXfJeEWRetKbWqZJ84HfYZ6M9hKLUjuh/bH/5
+	5lvdjLAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbgxl-00000008QOY-0oEv;
-	Fri, 02 Jan 2026 15:21:13 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vbgyt-00000008QWe-2K4p;
+	Fri, 02 Jan 2026 15:22:23 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbgxj-00000008QOG-3kez
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Jan 2026 15:21:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9A9B460017;
-	Fri,  2 Jan 2026 15:21:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B27EDC116B1;
-	Fri,  2 Jan 2026 15:21:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767367270;
-	bh=pMXCQW12wPyvlfidixRLtglysi2HvG9+Wl6UmWXVbTA=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date:From;
-	b=ZDb6Smp5r1qwHf5O207uvXnwSlFpojpN3A/HXVReK3KkTSOxHLxMEQ/j2WMrJuMiy
-	 n+Zei+fXQ07vbkh2w7l57kLDGDVkAeR46Dxkc61yPQ1a/8ihN8C76oCCwF9x8HepVZ
-	 lrScZ1Ro6BJO/3boeJ3Zfpg0U/krYZ3Y4R78M7TaEBgQoRPoNVQcDjjKE7TfMC5RXj
-	 MQxgeoAB5KWO0fw+Ml+h6bQJYmD+GlqbxArV4vrHdv06E5tkyYP5JCeiEUfinYrtBF
-	 weDu5tMwWpipFifeMpWkwFz63wZSAevA5pxIRchyKKGVaenyfmrg2KpYDV+FLjYZUb
-	 c8qh6H96DdwnA==
-Content-Type: multipart/mixed; boundary="===============7827669722571794812=="
+	id 1vbgys-00000008QWG-2Nlx
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 02 Jan 2026 15:22:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Mfp0vOpU/C0y9oWZefdEhz0M9QMslqJoP/j34iw2EJc=; b=aWVJdlHC5dLL0Orukc+rZLMyXb
+	wOoBw7oxhxZDILMWSN0N9Cw088qKKM3wBoDdGXPjRy537XJlLV0nMa8SBYB3vtGWiZHcWDdL+lx9p
+	s47NzV1YbwPcnEUXW1Me4hpp3Fr/P35kgFBf+o0iSAN7T79Z0gt0dHjTqKCwdZ2bRYCHhTmfPyby0
+	SL77zSmY2CGgLRjeIfWp/4pjPZ4HfV/ovYCZ4SLNEKaglry8EK9yP9OY63aFvZeulItXe7QgnA6Mj
+	Rr0Qjkh4B4rcrLSIp+mgXkVwDFvob1Baft90Or1EDxR7ASDVcPIX3PbgVqvubwxGn4sscUjFenNrz
+	ULJtY4Og==;
+Received: from willy by casper.infradead.org with local (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vbgyq-00000006eoL-49Ea;
+	Fri, 02 Jan 2026 15:22:21 +0000
+Date: Fri, 2 Jan 2026 15:22:20 +0000
+From: Matthew Wilcox <willy@infradead.org>
+To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
+Cc: Russell King <linux@armlinux.org.uk>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Russell King <rmk+kernel@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Arnd Bergmann <arnd@arndb.de>, stable@vger.kernel.org
+Subject: Re: [PATCH] ARM: fix memset64() on big-endian
+Message-ID: <aVfirJvsYt0-jDRD@casper.infradead.org>
+References: <20260102-armeb-memset64-v1-1-9aa15fb8e820@linutronix.de>
 MIME-Version: 1.0
-Message-Id: <45f1e1978b7dc28e522dcc0a72954d892b37a85220749bd027c7395edb01d991@mail.kernel.org>
-In-Reply-To: <20260102150032.53106-2-leon.hwang@linux.dev>
-References: <20260102150032.53106-2-leon.hwang@linux.dev>
-Subject: Re: [PATCH bpf-next 1/4] bpf: tailcall: Introduce bpf_arch_tail_call_prologue_offset
-From: bot+bpf-ci@kernel.org
-To: leon.hwang@linux.dev,bpf@vger.kernel.org
-Cc: ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,martin.lau@linux.dev,eddyz87@gmail.com,song@kernel.org,yonghong.song@linux.dev,john.fastabend@gmail.com,kpsingh@kernel.org,sdf@fomichev.me,haoluo@google.com,jolsa@kernel.org,puranjay@kernel.org,xukuohai@huaweicloud.com,catalin.marinas@arm.com,will@kernel.org,davem@davemloft.net,dsahern@kernel.org,tglx@linutronix.de,mingo@redhat.com,bp@alien8.de,dave.hansen@linux.intel.com,x86@kernel.org,hpa@zytor.com,akpm@linux-foundation.org,linux-arm-kernel@lists.infradead.org,linux-kernel@vger.kernel.org,netdev@vger.kernel.org,kernel-patches-bot@fb.com,leon.hwang@linux.dev,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
-Date: Fri,  2 Jan 2026 15:21:09 +0000 (UTC)
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20260102-armeb-memset64-v1-1-9aa15fb8e820@linutronix.de>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,39 +70,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---===============7827669722571794812==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+On Fri, Jan 02, 2026 at 08:15:46AM +0100, Thomas Weiﬂschuh wrote:
+> On big-endian systems the 32-bit low and high halves need to be swapped,
+> for the underlying assembly implemenation to work correctly.
 
-> diff --git a/kernel/bpf/arraymap.c b/kernel/bpf/arraymap.c
-> index 1eeb31c5b317..beedd1281c22 100644
-> --- a/kernel/bpf/arraymap.c
-> +++ b/kernel/bpf/arraymap.c
-> @@ -127,6 +127,9 @@ static struct bpf_map *array_map_alloc(union bpf_attr *attr)
->  			array_size += (u64) max_entries * elem_size;
->  		}
->  	}
-> +	if (attr->map_type == BPF_MAP_TYPE_PROG_ARRAY && bpf_arch_tail_call_prologue_offset())
-> +		/* Store tailcall targets */
-> +		array_size += (u64) max_entries * sizeof(void *);
+Heh.  In my heart, ARM will always be a litte-endian architecture.
+I'm not really surprised this bug took, er, 8 years to show up; big-endian
+arm is rare enough and memset64() isn't much used on 32-bit systems.
+And it turns out that many of the users pass a constant 0 as the value,
+which was kind of not the point, but it seems to be an easier API to
+use than memset, so whatever ;-)
 
-Should array_map_mem_usage() also account for this additional space?
-Currently array_map_mem_usage() handles special cases for percpu arrays
-and mmapable arrays, but has no corresponding check for PROG_ARRAY maps
-when bpf_arch_tail_call_prologue_offset() is non-zero. This would cause
-the reported memory usage to be lower than the actual allocation when
-an architecture implements this function (e.g., x86_64 and arm64 in the
-subsequent patches of this series).
+> Fixes: fd1d362600e2 ("ARM: implement memset32 & memset64")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Thomas Weiﬂschuh <thomas.weissschuh@linutronix.de>
 
-[ ... ]
-
-
----
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
-
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/20660615603
-
---===============7827669722571794812==--
+Reviewed-by: Matthew Wilcox (Oracle) <willy@infradead.org>
 
