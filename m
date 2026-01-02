@@ -4,75 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63408E9410B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 08:55:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2633EEB57A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 08:55:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FgxeFhQEmdQG8SiC1NxXcu8Ej/mmP9Gpsq8A155OxqE=; b=sBHRB1T4RIwPz5638IsGx5Ruzk
-	jy9OASaQrYK07bfEdUDkxdrlrqPT5OqIeDpmCBLrDCblZd5irZIfNjmKD6hwkyDfEYheEsoQO3fgm
-	LEpG+yvzF4Onx50VLXXb/m/uKsozV+M8weND8ZPncCQtDWNWlwxqr4B8a+dLiEN5g+IVRY83jGIek
-	hj3XSUQ16sNu1r7az03ZEzmfWAWfjfX7aINhml49UA8p8qBOqsdzTOUIWTx4bia2FucrNFN6B7BdB
-	xl4wmJMYx+7DbAkKxDyf6TrM86xdL/ByiJ/TZvz4b6X2J1/UZyAgX2w1wnvPFBd8LazSzdJ9blQrV
-	LaVQUfYg==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1n0GBmZN8YoiNkT5cUhMNMTblt2s2nH5jjCBaZC4rJ0=; b=Gh48KhYHQThOp7OhL/Ekq98Xuj
+	DplwXOuKfXumHRAWpCMZb+m/UTNWUb43zo4i7mu+o85uU20Odo4+sQTGCKoeL2LMR+If7swpNiQBY
+	1LbLVSv7HomcJsy0i6GkYL+fOs5Lvvm4l//w/dMIF9c832tur4DXmp7u5OlilDmfM2rNYTF7CwF1z
+	LaLCE8nSj0OgLjBIxmOFqY7u4HASqszL1EfOflWPFqw/Ug5JukvaFh9fpBVHr1XU+rPqAmiaV9RDy
+	lJ6PZHaBvWrzQUTerTmej1Bgdzq/cTeX/rLZVyfW8dqGOSAtRqzsc+n5m+X9NjitWrcRqrtGMU0yW
+	D2azvUSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbawU-00000007zx7-0glm;
-	Fri, 02 Jan 2026 08:55:30 +0000
-Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	id 1vbawW-00000007zy9-1aPI;
+	Fri, 02 Jan 2026 08:55:32 +0000
+Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbawR-00000007zwI-2kEI
+	id 1vbawT-00000007zwf-1oXh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Jan 2026 08:55:29 +0000
+	Fri, 02 Jan 2026 08:55:31 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DYfi9D4WShgkPuvTkHdC98gioZ0NwcWfEIeNfGjy5JQrQPIRFZIjB7Gqr3HJv2jx3jJ3p8fbnLwT6D43D3aD7JpO12p70EU9laLhZ7cZHw+zTGbZUX6XaQksE+23XDmTvv3GeKySOlcGMFIyumcGDALP5NcESjzQcXzf6hvGRkDMSaHaursrX/8SRk0L0MKUVv8NfGA05sxpRY1uRr1vQtEpJcYpA+fo8FxrOzNM4vjetfh7Int7P42Jua5Wz9S6RXHouWYwHeeq4kM25SJEN5i/+0RtKyff7MpU0xfE2TILig3jcd11KsfnbBw7yc5io4X9TPxKsdlBF7t0ldC7dA==
+ b=LN3hzEsroN9/kUadoyaX1jFFNN7uyCKeHYwV/LhDMsTSuL9PyQQRGKn/GmnGYYM8OefV/0AEPbGgqOLqMXmDKz4pF/xKytNhRvCkxRQuwII/slKzw9eCV7Dqb2IWZG5Vv5cEWO8v/Tg9LA0PIvUBOJm7yEE6FHleP3bt7evv45R9KwdOOOs8eSo2+gWQGpiLacemA9cbIWdZfS8dhOuk8APLczCMhjHVXARzAai1e1D1cJuRuqO0W+QzOrx2geLxpMOV3RpADcj1yCglgiKWVTBer7y1iqpK6l210/e2kZ2Kf27QpW+nlTcA1U6uIhdCYmd0euAzOvHarFsOlwmxEw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FgxeFhQEmdQG8SiC1NxXcu8Ej/mmP9Gpsq8A155OxqE=;
- b=LlaZ53PqPqQAIqxPwZzkFjxYH4fpwB6dFQtgRpO+b9H5rPwt3mMs6U0z3nXrKh2La5enzohgQeO+29z7g4A/VeI/jbejON871FkrKBuoywdFgiBaFQxPXn5r45VGarWUBK96kRoYEqObPvAWK5E+OlehZKdw8I4iPF7ZKsBw5KZoHp9680oaG7V/bSkMO0BlPh8zOVL7MQMcfvdlrR6PBjS5jEsiboTGC0HskyFlv3QDRc34FQje2I8PE+OlPsU3MnoVBqw7MMDwCczNduj/PV62sq6Z5Jm3/MbV4xkvpSCxusj5H/thBJBOZwN4aMcSS+xNulMLqCKoOS22akvMIQ==
+ bh=1n0GBmZN8YoiNkT5cUhMNMTblt2s2nH5jjCBaZC4rJ0=;
+ b=WHNscQDrFKpEieIHMjW0nMpzQQ9tWGtplKF+4Kry+lduTG+p9z6M8Lu81QLKqwRVnRp88gbKbR8FnEN2wp8C8jDCeww2zjabE9oTc0Z/5NZCExOfY8t+sT5ZP3KKoBhkW/C/8NfdFFVD2rj86k4SHDrAAtwEKPlhc4YpZ0EJtvR5floBVlh/q0Dgi8Zuo/jJcbDffJDvlk20FmTsJURQ5kq/+pSP4gwkVi23bGjFsj+IiQ5QXIUCw5Ehi1G7E0hs0GVO8HSJHJCK2xItHFBxtTI8meFEt/RCq9e8ldLxq+7DRaMLqbEuhqsFBr19FH9jcL8bdt7RDLT7G4RgYAycZA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=baylibre.com smtp.mailfrom=amd.com;
  dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
  header.from=amd.com; dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FgxeFhQEmdQG8SiC1NxXcu8Ej/mmP9Gpsq8A155OxqE=;
- b=nT2HOoYz3nAjhQqzx4GC4Gld7ep/BoAoaGxHVxh/8xCy+v0Bn68A0hORdhnPgi+jWc2gPrE9XqCx7U+PMyAQrlcYXpbTlXHd4yTcVH1rpjRzTum6tNVNupOb8SBIiNmF/LYFuvtztRAC/8AkjLemXpglUQ3+GCWpHf3mlEd0d54=
-Received: from CH0P220CA0020.NAMP220.PROD.OUTLOOK.COM (2603:10b6:610:ef::33)
- by PH7PR12MB7892.namprd12.prod.outlook.com (2603:10b6:510:27e::19) with
+ bh=1n0GBmZN8YoiNkT5cUhMNMTblt2s2nH5jjCBaZC4rJ0=;
+ b=kTX30Swd+kbPspY8W/EVO7vseEZ3EopRy8cSVbx9KFJWxNEJmVjHH+f7qCsj8o0SQpE8Ouyhm49QOEpVs2+RmIKKJNDAbQpMNlVKAjjYKdcoVbyBUqDIYEUQd1tj0FA5Sh6LLmQ8tu9mQ447xXT5nJHLOiyqd+h1EbZ2LqqbtEg=
+Received: from SJ0PR03CA0004.namprd03.prod.outlook.com (2603:10b6:a03:33a::9)
+ by MN2PR12MB4045.namprd12.prod.outlook.com (2603:10b6:208:1d6::15) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Fri, 2 Jan
- 2026 08:55:20 +0000
-Received: from CH3PEPF00000013.namprd21.prod.outlook.com
- (2603:10b6:610:ef:cafe::64) by CH0P220CA0020.outlook.office365.com
- (2603:10b6:610:ef::33) with Microsoft SMTP Server (version=TLS1_3,
+ 2026 08:55:12 +0000
+Received: from SJ1PEPF00001CDE.namprd05.prod.outlook.com
+ (2603:10b6:a03:33a:cafe::1) by SJ0PR03CA0004.outlook.office365.com
+ (2603:10b6:a03:33a::9) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.20.9478.4 via Frontend Transport; Fri, 2
- Jan 2026 08:55:00 +0000
+ Jan 2026 08:55:11 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
  smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
 Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- CH3PEPF00000013.mail.protection.outlook.com (10.167.244.118) with Microsoft
+ client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
+Received: from satlexmb08.amd.com (165.204.84.17) by
+ SJ1PEPF00001CDE.mail.protection.outlook.com (10.167.242.6) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9499.0 via Frontend Transport; Fri, 2 Jan 2026 08:55:20 +0000
-Received: from Satlexmb09.amd.com (10.181.42.218) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ 15.20.9499.1 via Frontend Transport; Fri, 2 Jan 2026 08:55:11 +0000
+Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Fri, 2 Jan
- 2026 02:55:11 -0600
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb09.amd.com
- (10.181.42.218) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Fri, 2 Jan
- 2026 00:55:11 -0800
+ 2026 02:55:03 -0600
 Received: from xhdsuragupt40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
  (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Fri, 2 Jan 2026 02:55:08 -0600
+ Transport; Fri, 2 Jan 2026 02:55:00 -0600
 From: Suraj Gupta <suraj.gupta2@amd.com>
 To: <mturquette@baylibre.com>, <sboyd@kernel.org>,
 	<radhey.shyam.pandey@amd.com>, <andrew+netdev@lunn.ch>,
@@ -81,63 +77,62 @@ To: <mturquette@baylibre.com>, <sboyd@kernel.org>,
 CC: <sean.anderson@linux.dev>, <linux@armlinux.org.uk>,
 	<linux-clk@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
 	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: [RFC PATCH 2/2] net: axienet: Fix resource release ordering
-Date: Fri, 2 Jan 2026 14:24:54 +0530
-Message-ID: <20260102085454.3439195-3-suraj.gupta2@amd.com>
+Subject: [RFC PATCH 0/2] Add devm_clk_bulk_get_optional_enable() helper and use in AXI Ethernet driver
+Date: Fri, 2 Jan 2026 14:24:52 +0530
+Message-ID: <20260102085454.3439195-1-suraj.gupta2@amd.com>
 X-Mailer: git-send-email 2.49.1
-In-Reply-To: <20260102085454.3439195-1-suraj.gupta2@amd.com>
-References: <20260102085454.3439195-1-suraj.gupta2@amd.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PEPF00000013:EE_|PH7PR12MB7892:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0abf7fac-300f-45fa-4322-08de49dca877
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CDE:EE_|MN2PR12MB4045:EE_
+X-MS-Office365-Filtering-Correlation-Id: 74d9de3a-9d53-401c-3902-08de49dca382
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|36860700013|1800799024|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?0kXEgNxFlcK9bHczVUnEoRLzhKmegCFfFU4t9lfjpwfTmPBVyZLEg+R8p/0y?=
- =?us-ascii?Q?bn5qxT27237TLX5l5nlM4hZqC7ZEyDItZBWCE+I7O6uGZSW1IFZksZBCa3qd?=
- =?us-ascii?Q?YXgqf/tc2La+4dbEL7tVZKQCMaLmIBavhtcv5MtfyDKzuH728DhkMnI47nTd?=
- =?us-ascii?Q?9iZ87GqB64afjtXvBYmTZIQUhXbk5p/ZLlm3IoGfBpcJi4uH6aOGVatCkb34?=
- =?us-ascii?Q?CNNTuGxgfQU8idlzUzGAK3aQZ8FhFu707mUtpqVwHyD2npfnHzf7U+W+d26D?=
- =?us-ascii?Q?R/HK3UDlePICn6SZvsWhQ7OdXvYM+pS180OskIuqQpUzOnjCh0MivVi7k06C?=
- =?us-ascii?Q?VaOYOQ5qdNw0HZYqMFq6D8zgwgN0EzHsejItUrUohm6TDE9y1AhSVzAKTCt5?=
- =?us-ascii?Q?cDl9QIyKZv2zfKjxiCMTMbhM3IIGElHzscbkGwLfq2gTyC+5cd/YqvFQDNW6?=
- =?us-ascii?Q?YHc0Xa7DsGq7WFQgnhxii1hzjkiBqA3xxICD3p+nf9hOFensu6mye5z3FehS?=
- =?us-ascii?Q?KIoq/8VTt6uH/hET65qBRbe76tXiRjx507YW0GtflfyTYdw4ls2SBDUlXS7g?=
- =?us-ascii?Q?rw7me418Cd9denELZJJApabo648lFYToWnlf9P2ZJI2Ps91fgOOcABozB1bK?=
- =?us-ascii?Q?ThTM2+fh5lErMQxmMG/YFyPuzg2PEINsqVafCqJQapIefnoX2a3Uo2o9fl5o?=
- =?us-ascii?Q?YqfTup0o9McIehYWq4qR47+XOjVCBpb/rZ0LRqG/hNe6Znie9OJuC78aukwf?=
- =?us-ascii?Q?WnJHCjw0gDvOUC1ylxyf6b+t7B/HKYClPRBnomUB+qNED6x2NaV7JX+VvD7V?=
- =?us-ascii?Q?mMYgLv7jQM6fm1lTuGWe0MoWA4lQr63FGdLY7NbgMinNS03udVRB5+DK2Lpk?=
- =?us-ascii?Q?pqTYzb7tYXY3EcBojMFO11IRqtN6LjZTz/2ybcxYO9SxTz6mnFuX/JuLPmeb?=
- =?us-ascii?Q?wnMETWKzB08gdYFbkH4LvnwblJvWygFZCuVFwgL2i2oKe1Lczr+vIJsLkNk8?=
- =?us-ascii?Q?+cH7wIFl2gnY6LQo7WAoxIYZn3LuGM+PTg91G1OkrynGkYtQwgXKNT+xiZuu?=
- =?us-ascii?Q?rsIHIoekYpx90Ws29vOTe2SUvUETXKTjyhQwFXLFj+MNL8/CZ3TB729mVusB?=
- =?us-ascii?Q?LzVkw+f8jpKrmSSAg2xZYmMAi5ylmmUO4V1pvFuNUmYocWeCyEvBUi/0H8oI?=
- =?us-ascii?Q?z04fMFYnsmjTJbPFY7oQBIdbZn0bwGUG+WowDhVH+cvcVmextn2SPFVi2Wo+?=
- =?us-ascii?Q?pDCgyLntt0cwLTe0qsIQu1OIWH+P8S2eSZyuFoQeT/SliYYwUB0jwhG2uIEi?=
- =?us-ascii?Q?mDVuV5m/6RQDKod+obbGQ47nOHJyz93ni8XQF5oasdSq87Xr8QvXfwnYQYP2?=
- =?us-ascii?Q?HEhYJclcvteSiTf8Clfd47XTPtTimwOkeLUou2PkB3tuKH9vUHAOmRckt8Iv?=
- =?us-ascii?Q?aOeXFaf+izyw9lYlpnLjQ3m23uTod/RRWkC87WAa+Kuyt+rx1FR9qIeKMAb7?=
- =?us-ascii?Q?PLmS06I8LcKH+BKfq/kCHmYbd5vzKRWrp0jXR4dtOClJWRTTiF6kab2cMo6y?=
- =?us-ascii?Q?3p0b+0iNi8tjiBAdHDA=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700013)(1800799024)(82310400026);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|36860700013|7416014|82310400026|13003099007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ppFaR61LzmXh7p0VbmG4pHloWmGKY8uaD1wmDXLT3YpDnsbn9wuB+jzL65J9?=
+ =?us-ascii?Q?NK/3Cl0nJ+bUqip8oRqebshktJ6Pj/n3pHXPV0K8cdR4TVgwjRWL3Z3y86s4?=
+ =?us-ascii?Q?I09/uHKOl7F/M5HSikEijb9YPPBp2tpDbLnJoJZWAnDd5w4X0drbmat/CNiL?=
+ =?us-ascii?Q?l0zZKT60Gij97OiHWFb2EzhytJEDWPojPcLSpQaMnXqfPiRbgR60Ed8TfOu+?=
+ =?us-ascii?Q?FHpmceC9lghMV++tgj1npQFSfxihgjvl9zxdCtS17zLDXdQ1Mblx6HimpvAI?=
+ =?us-ascii?Q?h36QLlkIIlPcRx74jo7TvYkBtziXNZTr5MpFGqBfRuFr9Z7T+U8Oy/ntrRon?=
+ =?us-ascii?Q?UmPyumN+O7iOlg2OJy0b8ADGHRrzmK0/JP1uaEZtWdPJq0cnTvAdp/vUbMl2?=
+ =?us-ascii?Q?sNdnocmq0rGA4+hvsP0+t7fsu14CnoWUxV7xl7y+qOEexiwXj55+cJbIcGQF?=
+ =?us-ascii?Q?q9uuxhmtf7xGfgV4NqeXG/uZuy2eRbw61WqyiZv7cLls4btCMIDUlTZEBaGt?=
+ =?us-ascii?Q?GFRsTs7G6haLycMYQ2uyeNUWFUvmub+SL5aRWquVfJjs/NuMKjRZz04dlURu?=
+ =?us-ascii?Q?GGa0b4AAeFPWbdLvghRl28i7Z2beDc77gMzgQ/gERdDZpSnqNcPeDMcFOAs0?=
+ =?us-ascii?Q?wbHl7SlcmPX0fFAUdVHUNbIcp5QMvq3oSoSWSlek/t4RE8QAE/1ePHrbf9NT?=
+ =?us-ascii?Q?6GyLKNn6OPm3cycFK0W2PkdX3uAZY5Lflnx0NP+Jou3ruJZCb8RCUuzafEA1?=
+ =?us-ascii?Q?/5uYY4KwudAi9JoxBkAfBydgJLeJdhMs2mPeBJUFgUjUEevwLEDq81K1XvUg?=
+ =?us-ascii?Q?6SIFZLWApFWUaBSN92yt37FRAjUJUCtBjpRb4T5zr5/51nwC02XJB6g6pQ4j?=
+ =?us-ascii?Q?8q7cgIi/mODE7K4FQSOnFQbWCtgjm52zrH3qgUR9TZOAEbtXAJFlAocXH7l2?=
+ =?us-ascii?Q?awDR/cjT+k1yAUJMeeQEPnqe+OpbxbU0p4l4ktZ8za4E5oDS/ltI2WT3Gr8V?=
+ =?us-ascii?Q?tH/463+zaLWBBA1xKdLoMw3lYAkjJGA8SBN7F0Zv/lPBP+B+4XZ20pUIdxB8?=
+ =?us-ascii?Q?1SsX421Nfo3Ytq9gtDC74crZ8mwIpJtKD0RrpvM2j6I5dbn2FJaOUbn+FncR?=
+ =?us-ascii?Q?B7ysXRVRwE9tTnrbRRJwU0UYCwvu9QsiwMxAVRcbp2BTlmZtoYa5I1oPc2py?=
+ =?us-ascii?Q?xKr7Re4BJT1QnVTOWx5JMDF0T0/NJZVsHGQ/YXTlzKd1M7JK1fn7lOcvZ2n1?=
+ =?us-ascii?Q?hMljE4g8myF/uwokrrrq0lTUgk1zPX9A0/9V1+QSeZh39Q+Mln1MUUUlCs4a?=
+ =?us-ascii?Q?5N1PuttCs3+XEkKmai6I3ajbClkxEam9KgeHVVbbFrblPXbtYM0a1kKjTNd0?=
+ =?us-ascii?Q?5txNyuKYXUxGZKCJ+MAHEWoq7wNzK56fun2gHlU7iFY2F8H33p2iKK5W+PV1?=
+ =?us-ascii?Q?0PaWKY1wViWybsDxgUubvK/g1QO+zjPpoYouokhJWBakGAA5z/KJ72ZTe8bT?=
+ =?us-ascii?Q?NEpOCSaVSFqRvvKxc1M/04b43oS1xViZDrj7Ys6+QIk9mKxG38EOZgG+8aCj?=
+ =?us-ascii?Q?JnPoEkhQt978jE5dHa4=3D?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(36860700013)(7416014)(82310400026)(13003099007);DIR:OUT;SFP:1101;
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jan 2026 08:55:20.0887
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jan 2026 08:55:11.7223
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0abf7fac-300f-45fa-4322-08de49dca877
+X-MS-Exchange-CrossTenant-Network-Message-Id: 74d9de3a-9d53-401c-3902-08de49dca382
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF00000013.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CDE.namprd05.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7892
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4045
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_005527_810790_DDC230F2 
-X-CRM114-Status: GOOD (  21.10  )
+X-CRM114-CacheID: sfid-20260102_005529_483250_DE7060E7 
+X-CRM114-Status: UNSURE (   9.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,217 +147,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sean Anderson <sean.anderson@linux.dev>
+This patch series introduces a new managed clock framework helper function
+and demonstrates its usage in AXI ethernet driver.
 
-Device-managed resources are released after manually-managed resources.
-Therefore, once any manually-managed resource is acquired, all further
-resources must be manually-managed too.
+Device drivers frequently need to get optional bulk clocks, prepare them,
+and enable them during probe, while ensuring automatic cleanup on device
+unbind. Currently, this requires three separate operations with manual
+cleanup handling.
 
-Convert all resources before the MDIO bus is created into device-managed
-resources. In all cases but one there are already devm variants available.
+The new devm_clk_bulk_get_optional_enable() helper combines these
+operations into a single managed call, eliminating boilerplate code and
+following the established pattern of devm_clk_bulk_get_all_enabled().
 
-Fixes: 46aa27df8853 ("net: axienet: Use devm_* calls")
-Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
-Co-developed-by: Suraj Gupta <suraj.gupta2@amd.com>
-Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
----
+Note:
+Prepared this series as per mainline discussion here:
+https://lore.kernel.org/all/540737b2-f155-4c55-ab95-b18f113e0031@linux.dev
+
+
+Sean Anderson (1):
+  net: axienet: Fix resource release ordering
+
+Suraj Gupta (1):
+  clk: Add devm_clk_bulk_get_optional_enable() helper
+
+ drivers/clk/clk-devres.c                      | 50 +++++++++++
  .../net/ethernet/xilinx/xilinx_axienet_main.c | 83 ++++++-------------
- 1 file changed, 27 insertions(+), 56 deletions(-)
+ include/linux/clk.h                           | 23 +++++
+ 3 files changed, 100 insertions(+), 56 deletions(-)
 
-diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-index 284031fb2e2c..998bacd508b8 100644
---- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-+++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-@@ -2787,7 +2787,7 @@ static int axienet_probe(struct platform_device *pdev)
- 	int addr_width = 32;
- 	u32 value;
- 
--	ndev = alloc_etherdev(sizeof(*lp));
-+	ndev = devm_alloc_etherdev(&pdev->dev, sizeof(*lp));
- 	if (!ndev)
- 		return -ENOMEM;
- 
-@@ -2815,41 +2815,32 @@ static int axienet_probe(struct platform_device *pdev)
- 	seqcount_mutex_init(&lp->hw_stats_seqcount, &lp->stats_lock);
- 	INIT_DEFERRABLE_WORK(&lp->stats_work, axienet_refresh_stats);
- 
--	lp->axi_clk = devm_clk_get_optional(&pdev->dev, "s_axi_lite_clk");
-+	lp->axi_clk = devm_clk_get_optional_enabled(&pdev->dev,
-+						    "s_axi_lite_clk");
- 	if (!lp->axi_clk) {
- 		/* For backward compatibility, if named AXI clock is not present,
- 		 * treat the first clock specified as the AXI clock.
- 		 */
--		lp->axi_clk = devm_clk_get_optional(&pdev->dev, NULL);
--	}
--	if (IS_ERR(lp->axi_clk)) {
--		ret = PTR_ERR(lp->axi_clk);
--		goto free_netdev;
--	}
--	ret = clk_prepare_enable(lp->axi_clk);
--	if (ret) {
--		dev_err(&pdev->dev, "Unable to enable AXI clock: %d\n", ret);
--		goto free_netdev;
-+		lp->axi_clk = devm_clk_get_optional_enabled(&pdev->dev, NULL);
- 	}
-+	if (IS_ERR(lp->axi_clk))
-+		return dev_err_probe(&pdev->dev, PTR_ERR(lp->axi_clk),
-+				     "could not get AXI clock\n");
- 
- 	lp->misc_clks[0].id = "axis_clk";
- 	lp->misc_clks[1].id = "ref_clk";
- 	lp->misc_clks[2].id = "mgt_clk";
- 
--	ret = devm_clk_bulk_get_optional(&pdev->dev, XAE_NUM_MISC_CLOCKS, lp->misc_clks);
--	if (ret)
--		goto cleanup_clk;
--
--	ret = clk_bulk_prepare_enable(XAE_NUM_MISC_CLOCKS, lp->misc_clks);
-+	ret = devm_clk_bulk_get_optional_enable(&pdev->dev, XAE_NUM_MISC_CLOCKS,
-+						lp->misc_clks);
- 	if (ret)
--		goto cleanup_clk;
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "could not get/enable misc. clocks\n");
- 
- 	/* Map device registers */
- 	lp->regs = devm_platform_get_and_ioremap_resource(pdev, 0, &ethres);
--	if (IS_ERR(lp->regs)) {
--		ret = PTR_ERR(lp->regs);
--		goto cleanup_clk;
--	}
-+	if (IS_ERR(lp->regs))
-+		return PTR_ERR(lp->regs);
- 	lp->regs_start = ethres->start;
- 
- 	/* Setup checksum offload, but default to off if not specified */
-@@ -2918,19 +2909,17 @@ static int axienet_probe(struct platform_device *pdev)
- 			lp->phy_mode = PHY_INTERFACE_MODE_1000BASEX;
- 			break;
- 		default:
--			ret = -EINVAL;
--			goto cleanup_clk;
-+			return -EINVAL;
- 		}
- 	} else {
- 		ret = of_get_phy_mode(pdev->dev.of_node, &lp->phy_mode);
- 		if (ret)
--			goto cleanup_clk;
-+			return ret;
- 	}
- 	if (lp->switch_x_sgmii && lp->phy_mode != PHY_INTERFACE_MODE_SGMII &&
- 	    lp->phy_mode != PHY_INTERFACE_MODE_1000BASEX) {
- 		dev_err(&pdev->dev, "xlnx,switch-x-sgmii only supported with SGMII or 1000BaseX\n");
--		ret = -EINVAL;
--		goto cleanup_clk;
-+		return -EINVAL;
- 	}
- 
- 	if (!of_property_present(pdev->dev.of_node, "dmas")) {
-@@ -2945,7 +2934,7 @@ static int axienet_probe(struct platform_device *pdev)
- 				dev_err(&pdev->dev,
- 					"unable to get DMA resource\n");
- 				of_node_put(np);
--				goto cleanup_clk;
-+				return ret;
- 			}
- 			lp->dma_regs = devm_ioremap_resource(&pdev->dev,
- 							     &dmares);
-@@ -2962,19 +2951,17 @@ static int axienet_probe(struct platform_device *pdev)
- 		}
- 		if (IS_ERR(lp->dma_regs)) {
- 			dev_err(&pdev->dev, "could not map DMA regs\n");
--			ret = PTR_ERR(lp->dma_regs);
--			goto cleanup_clk;
-+			return PTR_ERR(lp->dma_regs);
- 		}
- 		if (lp->rx_irq <= 0 || lp->tx_irq <= 0) {
- 			dev_err(&pdev->dev, "could not determine irqs\n");
--			ret = -ENOMEM;
--			goto cleanup_clk;
-+			return -ENOMEM;
- 		}
- 
- 		/* Reset core now that clocks are enabled, prior to accessing MDIO */
- 		ret = __axienet_device_reset(lp);
- 		if (ret)
--			goto cleanup_clk;
-+			return ret;
- 
- 		/* Autodetect the need for 64-bit DMA pointers.
- 		 * When the IP is configured for a bus width bigger than 32 bits,
-@@ -3001,14 +2988,13 @@ static int axienet_probe(struct platform_device *pdev)
- 		}
- 		if (!IS_ENABLED(CONFIG_64BIT) && lp->features & XAE_FEATURE_DMA_64BIT) {
- 			dev_err(&pdev->dev, "64-bit addressable DMA is not compatible with 32-bit architecture\n");
--			ret = -EINVAL;
--			goto cleanup_clk;
-+			return -EINVAL;
- 		}
- 
- 		ret = dma_set_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(addr_width));
- 		if (ret) {
- 			dev_err(&pdev->dev, "No suitable DMA available\n");
--			goto cleanup_clk;
-+			return ret;
- 		}
- 		netif_napi_add(ndev, &lp->napi_rx, axienet_rx_poll);
- 		netif_napi_add(ndev, &lp->napi_tx, axienet_tx_poll);
-@@ -3018,15 +3004,12 @@ static int axienet_probe(struct platform_device *pdev)
- 
- 		lp->eth_irq = platform_get_irq_optional(pdev, 0);
- 		if (lp->eth_irq < 0 && lp->eth_irq != -ENXIO) {
--			ret = lp->eth_irq;
--			goto cleanup_clk;
-+			return lp->eth_irq;
- 		}
- 		tx_chan = dma_request_chan(lp->dev, "tx_chan0");
--		if (IS_ERR(tx_chan)) {
--			ret = PTR_ERR(tx_chan);
--			dev_err_probe(lp->dev, ret, "No Ethernet DMA (TX) channel found\n");
--			goto cleanup_clk;
--		}
-+		if (IS_ERR(tx_chan))
-+			return dev_err_probe(lp->dev, PTR_ERR(tx_chan),
-+					     "No Ethernet DMA (TX) channel found\n");
- 
- 		cfg.reset = 1;
- 		/* As name says VDMA but it has support for DMA channel reset */
-@@ -3034,7 +3017,7 @@ static int axienet_probe(struct platform_device *pdev)
- 		if (ret < 0) {
- 			dev_err(&pdev->dev, "Reset channel failed\n");
- 			dma_release_channel(tx_chan);
--			goto cleanup_clk;
-+			return ret;
- 		}
- 
- 		dma_release_channel(tx_chan);
-@@ -3139,13 +3122,6 @@ static int axienet_probe(struct platform_device *pdev)
- 		put_device(&lp->pcs_phy->dev);
- 	if (lp->mii_bus)
- 		axienet_mdio_teardown(lp);
--cleanup_clk:
--	clk_bulk_disable_unprepare(XAE_NUM_MISC_CLOCKS, lp->misc_clks);
--	clk_disable_unprepare(lp->axi_clk);
--
--free_netdev:
--	free_netdev(ndev);
--
- 	return ret;
- }
- 
-@@ -3163,11 +3139,6 @@ static void axienet_remove(struct platform_device *pdev)
- 		put_device(&lp->pcs_phy->dev);
- 
- 	axienet_mdio_teardown(lp);
--
--	clk_bulk_disable_unprepare(XAE_NUM_MISC_CLOCKS, lp->misc_clks);
--	clk_disable_unprepare(lp->axi_clk);
--
--	free_netdev(ndev);
- }
- 
- static void axienet_shutdown(struct platform_device *pdev)
 -- 
 2.25.1
 
