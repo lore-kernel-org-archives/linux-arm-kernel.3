@@ -4,60 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BAF0FA3734
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 11:39:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7471FA3734
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 11:40:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HI9/nMVpOcUkZTNNwY+3xQDHuaB+3VVB+uhisAIxriE=; b=YR4pSJ9LdehWr0QWIHy6fGpq1J
-	SZ2YRvpcyVPepptBRntvBAaWdrE1YoudhSqCNO2qZlB4WA2+News6Ae+VuZOptao2jqJJijAT3xG5
-	4eK8GKKT5uJ5Vbpd2LWly69kd7aErCU8CMoLKsihqO1G9XJzEg/jnu0K1xfps4sRIAFidALW7SM94
-	ilLj8j/iq4XaJ1ErDnop8Sive/G3X4H5gbQhq9WH8vzZlPv5D/3Q8xEJw8wHfvhR6xa/yrvWdgGDq
-	XHXD5STeQcp2T7EArC2QcJ9HqVKg7gKlDQAfcusEtKiouHEz1ulwjnRpd7OqUQy4lnL65JyGhu/4/
-	MnffAsZA==;
+	bh=vzLksA8mJvCThQLX71x1j9Gpd7hHqh7AUy4d1Lu+wbc=; b=QVznMbwIpuyka0Xu8CKOzrEYcY
+	snwcFVJqDj2SY61L4s5+qgbnPoekLQIspixwZFjk5wHwpTWj45Dhb/ykcrlHDd08qxRrlr5jopZUR
+	3Q3YIzRwtZ2kgKd9P5nMR/ErNWaJrVIBe1gVDkHBaAH/DXTJbcGtyabvEuB0cv5DQbe2T2XIfe6on
+	qajK9xyvGlMsYdpk/QiGD0z5sSi789l9VZICMmIrVbdIzOeyhl0JTjEvr5zT86tIHI7DfVG9JhRIY
+	+Ts12XSzT06wvkT+Ir9Bo8VaL+ycvH9GLslymq2BI5QhBCiHvEZMGqRjR315JdQ+zezYtbBSZ/VYC
+	fPEVe6Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbdV0-000000089JU-0OGs;
-	Fri, 02 Jan 2026 11:39:18 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vbdVj-000000089Sd-0A0a;
+	Fri, 02 Jan 2026 11:40:03 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbdUy-000000089JI-0LFl
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Jan 2026 11:39:16 +0000
+	id 1vbdVe-000000089R4-2GJw;
+	Fri, 02 Jan 2026 11:40:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 42D4160017;
-	Fri,  2 Jan 2026 11:39:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65C93C116B1;
-	Fri,  2 Jan 2026 11:39:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D21C444000;
+	Fri,  2 Jan 2026 11:39:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B0B8C116B1;
+	Fri,  2 Jan 2026 11:39:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767353955;
-	bh=D7x2+MlJTJopSk/N8pBc8Qbs3BKNVmvRcJVrdtF4XQQ=;
+	s=k20201202; t=1767353997;
+	bh=RIuKksoiIttHYtaOPePhnyywTncoVbvOBkuFklXk5u4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CKN7FheybVdWyw/4a0Hc1ZRpGUlsTpwZKRJvZDIz93nvq9aKsjRqcgxabZOH79tBs
-	 7Riixoxnfwhc1uKBMzoaaoHWE16fQYhLWjfjTfvOEnbuNEFAmawp+c4xy3uZKcwEHn
-	 V1q48bt+C0So+tvD19B4SCCxViCg66c6vwdy0CiGq8mA/FBcgdHZBn6eO4tTl7uOiA
-	 AIelWp1WObnZp8ehX4OxaS9+9j2hKloyjsK099UYkMYrBVDYeLSFWt+wowt64GzMP/
-	 QGactYkon+csaT+7tdKFUlgRQQ/GTkbKUWd37gSeRDdodRDgw6ae4jGrBovairhqM2
-	 E1aqFh9Wh5IaA==
-Date: Fri, 2 Jan 2026 12:39:12 +0100
+	b=R2c0+FbjKVU34koV/+tCZSlHrjdvF+OnIeYXbFtqYUNMDfv6alETUBifxxduDWn8s
+	 foAxCji/VgTMwIrmlWMesT8JsYZSW8WSxd1oa71DhK0bKJBgvbdw4PQ/PaeEqKyD7H
+	 ssnxdu6afTTlGoVR51KE+NAeNYTSVw2fHBZ5DxEeQquM50J1e8AdIIoE7TLE6Dzgae
+	 FCqw/AIMYBv4XyjARsTo+jkubBRvKk9Xmteb27tNDfgHUTCqZGYt3bqc2aYr8o6HRX
+	 L/g2beYTzb7YvhFmfFK38TQJxPjppDydj+t/IiB8a6zhxc6ael8UFr5mNNfbBCrGPs
+	 sekt34Ht9Cs4A==
+Date: Fri, 2 Jan 2026 12:39:55 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: arm-scmi@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
-	Cristian Marussi <cristian.marussi@arm.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Sudeep Holla <sudeep.holla@arm.com>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] dt-bindings: firmware: arm,scmi: Document
- arm,poll-transport property
-Message-ID: <20260102-masked-spirited-labrador-33eae0@quoll>
-References: <20251231213016.185575-1-marek.vasut+renesas@mailbox.org>
+To: Aleksander Jan Bajkowski <olek2@wp.pl>
+Cc: ansuelsmth@gmail.com, herbert@gondor.apana.org.au, davem@davemloft.net, 
+	chester.a.unal@arinc9.com, sergio.paracuellos@gmail.com, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, matthias.bgg@gmail.com, 
+	tsbogend@alpha.franken.de, angelogioacchino.delregno@collabora.com, 
+	linux-crypto@vger.kernel.org, linux-mips@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v2 1/2] dt-bindings: crypto: Add support for Mediatek
+ MT7621 SoC
+Message-ID: <20260102-prudent-woodlouse-from-saturn-56634f@quoll>
+References: <20260101172052.1862252-1-olek2@wp.pl>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251231213016.185575-1-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20260101172052.1862252-1-olek2@wp.pl>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260102_033958_595735_F1A76C4B 
+X-CRM114-Status: GOOD (  15.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,64 +76,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 31, 2025 at 10:29:18PM +0100, Marek Vasut wrote:
-> Document new property arm,poll-transport, which sets all SCMI operation into
-
-Please wrap commit message according to Linux coding style / submission
-process (neither too early nor over the limit):
-https://elixir.bootlin.com/linux/v6.4-rc1/source/Documentation/process/submitting-patches.rst#L597
-
-> poll mode. This is meant to work around uncooperative SCP implementations,
-> which do not generate completion interrupts. This applies primarily on mbox
-> shmem based implementations.
+On Thu, Jan 01, 2026 at 06:20:04PM +0100, Aleksander Jan Bajkowski wrote:
+> Add compatible for Mediatek MT7621 SoC. The implementation is exactly the
+> same os in the Airoha SoC.
 > 
-> With this property set, such implementations which do not generate interrupts
-> can be interacted with, until they are fixed to generate interrupts properly.
-> 
-> Note that, because the original base protocol exchange also requires some
-> sort of completion mechanism, it is not possible to query SCMI itself for
-> this property and it must be described in DT. While this does look a bit
-> like policy, the SCMI provider is part of the hardware, hence DT.
-> 
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+> Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
 > ---
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Cristian Marussi <cristian.marussi@arm.com>
-> Cc: Florian Fainelli <florian.fainelli@broadcom.com>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Sudeep Holla <sudeep.holla@arm.com>
-> Cc: arm-scmi@vger.kernel.org
-> Cc: devicetree@vger.kernel.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-renesas-soc@vger.kernel.org
+> v2:
+>  - Corrected commit description
 > ---
-> V2: s@mean@&t and limit poll transport to mailbox/shmem only
-> ---
->  .../devicetree/bindings/firmware/arm,scmi.yaml         | 10 ++++++++++
->  1 file changed, 10 insertions(+)
+>  .../bindings/crypto/inside-secure,safexcel-eip93.yaml          | 3 +++
+>  1 file changed, 3 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
-> index be817fd9cc34b..f4bf4173c5c7e 100644
-> --- a/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
-> +++ b/Documentation/devicetree/bindings/firmware/arm,scmi.yaml
-> @@ -146,6 +146,13 @@ properties:
->        this platform. If set, the value should be non-zero.
->      minimum: 1
->  
-> +  arm,poll-transport:
-> +    type: boolean
-> +    description:
-> +      An optional property which unconditionally forces polling in all transports.
-> +      This is mainly meant to work around uncooperative SCP, which does not generate
+> diff --git a/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml b/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml
+> index 997bf9717f9e..8ccff64f5c1c 100644
+> --- a/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml
+> +++ b/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml
+> @@ -33,6 +33,9 @@ properties:
+>        - items:
+>            - const: airoha,en7581-eip93
+>            - const: inside-secure,safexcel-eip93ies
+> +      - items:
+> +          - const: mediatek,mt7621-eip93
 
-Also not wrapped.
-
-Anyway, you described the desired Linux feature or behavior, not the
-actual hardware. The bindings are about the latter, so instead you need
-to rephrase the property and its description to match actual hardware
-capabilities/features/configuration etc.
-
+Why this is not part of enum with other entry using the same fallback?
 
 Best regards,
 Krzysztof
