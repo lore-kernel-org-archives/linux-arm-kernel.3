@@ -4,52 +4,189 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6EABFA3755
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 18:54:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A165CFA3728
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 19:05:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X0ZFCMDFHw+w2kM9nvC7aXw31HhK2s0rUyJq29A+hpc=; b=TgnTh1wBydzyP0aFJ/Va4AW/2f
-	NgR4j5WINCgi4iLyftAfUqShin/6upEUpB+K1G0YXUyzwA5Gi3PVR8Vq629pU4GpJT1WLG4UFHOU8
-	TEL0+6LGbkEPGQDVgSabca2efpuIN3C7oElvPwbT4IkAkV6xxEDB6VRRU6c9B1Aw+O23BggRwkMRf
-	jJE/5Xp07Yx7C8j3uiT8aYvrD0704n+tDNB8DS25q3KtHcUFa1tVZ3Hm8uzoymCnBQFBC57zzU5uH
-	jbJpHm28bBWgk5OJgutWTuYs0dQ/qgIYiP6aNuek90eTj0IvPOMlBxH1FqKl4UJTTZXcGj8tH66Kd
-	XapG1+Iw==;
+	bh=BWu79DcAFnHs0ZzvCxoy0mAX1IeXFx909rt1cT40H+U=; b=kylhantaFSUbAiUMDY/hbrpZIz
+	ySbserDLlhhb3Fq8O44XfwYy3Qq5BZ55NkgvoSNx8N8qqBfJC5GzMywlOzzk0Kr95GiBMWWAHRKnq
+	UBSmzIOT1klmkP8l0fnQznonaOnatJv2nlzX9q45CzlgVAil4DVkHLx5pGm8gTwOLvOnfptoQt1Bc
+	mz9akACGiQ5pzvyznTL87Gp2YsQ/yIDPBW/00IW7FlGGGWUEez8Kly/nH0kuI4raMemakWZUkzbmI
+	HCVPWjIMTiGgafdYe59H096A0scMn7B3aAS8JysrmVjES5MtvmcFWj5u3H4/WuaK4jTaFRwwD1afh
+	0N5H35Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbkHe-00000008eSs-0yUB;
-	Fri, 02 Jan 2026 18:53:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbkHb-00000008eSR-21Em
+	id 1vbkSd-00000008evR-2vNt;
+	Fri, 02 Jan 2026 19:05:19 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vbkSa-00000008eus-0x7K
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Jan 2026 18:53:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5C70C497;
-	Fri,  2 Jan 2026 10:53:45 -0800 (PST)
-Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1E46E3F694;
-	Fri,  2 Jan 2026 10:53:50 -0800 (PST)
-Date: Fri, 2 Jan 2026 18:53:48 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Jianpeng Chang <jianpeng.chang.cn@windriver.com>
-Cc: will@kernel.org, ying.huang@linux.alibaba.com, ardb@kernel.org,
-	anshuman.khandual@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [v3 PATCH] arm64: mm: Fix kexec failure after
- pte_mkwrite_novma() change
-Message-ID: <aVgUPNzXHHIBhh5A@arm.com>
-References: <20251204062722.3367201-1-jianpeng.chang.cn@windriver.com>
-MIME-Version: 1.0
+	Fri, 02 Jan 2026 19:05:18 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=JgH+XH/O9p47plAM2wqoPTyKe1A9kTPCe1w9h1RRcdupenN7uDg0r73SeCjz2aEMeNmbbT5A9TYHuXiMFBPsMh4AVrc5knb/mwgEvzWuIPm4C6HFXxa9wPLl1O60wp/4dmbB5ZG3oG0V6Dm5UhH2Cq2EMLRGveT/gjc1L+kH4ycy5/nBMIHTne2WHNreirMQoMLEz88RoucL5lf0veXnmt4P/LaQq6fpoeqDs8uWzjujlM5Y6ldOHc8Ge3gl+6A4tWTSCu1Y8rTprVZmLICLRfRD+Aejw5XtHAN0vVA4dkuLerwK+QyIF4IsliNacCoHPcaG9bsh5TVRMoGmX1QXcQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BWu79DcAFnHs0ZzvCxoy0mAX1IeXFx909rt1cT40H+U=;
+ b=AWip0Up8dIqDkYk7R3/oy2n2hBwjuBHr0jKe1ZWsjEkLsfz6SmObU7n2nU0KzjkgyY9DtEeOJedmvDWeQRsjyDdanr8n75/bArxItql4/vY6B4LJdeGJ82uT7kiuKWMtYBT1UaYTqTrwrDpEd6Z+OSII9SZ2IA8ET9rs7Ni0b3EzFON5lrQGNtYAkiMUNHBNrx3qU5dGC2vCSGozpjSa5RrEF4WlwYXYbNgWPwhuxgicKPF4qyLp/s43w+KiWB4fknbjho0gH6NlnN6DRdxIh2x4gmOcjoFo3GgWcYCmtYQ65XZwja9mfZYLH/m/NqMmTdZydC1zfI89qK3qOTZEaQ==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 4.158.2.129) smtp.rcpttodomain=linux-foundation.org smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BWu79DcAFnHs0ZzvCxoy0mAX1IeXFx909rt1cT40H+U=;
+ b=GcC8N5xbxd3OFYW/YF1H2kDZ7UVuRX3YaN47PNjy9SD0s9gLzRmi43/evp6D+LRZpuFgzx+5JvGSMHrq7+n4dsqCes6Cm/Tyr3yruGb050wQxM2V1AgXZsrhySx0ZICgD+N13bdCh8/Z2K9btUQ+sBNr+dFObE2NqMk7gJSzNPM=
+Received: from AS4P250CA0013.EURP250.PROD.OUTLOOK.COM (2603:10a6:20b:5df::15)
+ by DU0PR08MB9107.eurprd08.prod.outlook.com (2603:10a6:10:474::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Fri, 2 Jan
+ 2026 19:05:09 +0000
+Received: from AM2PEPF0001C711.eurprd05.prod.outlook.com
+ (2603:10a6:20b:5df:cafe::fe) by AS4P250CA0013.outlook.office365.com
+ (2603:10a6:20b:5df::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9478.4 via Frontend Transport; Fri, 2
+ Jan 2026 19:05:09 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
+ client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
+Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
+ AM2PEPF0001C711.mail.protection.outlook.com (10.167.16.181) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.1
+ via Frontend Transport; Fri, 2 Jan 2026 19:05:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ipT+VDqs3SPxRlZbk7vocmP3mb/I4Q/pVWGODcqNeQIHFb9GEEFU0QAuekSzdFV8dt+1bgqLoexRqkezGi8VNCrE4ilfhl/KhKxuwYE1CQSU8IkROMvG+dR9nI9X6ac4ftNbmkYK31/tC1koTh25rcUjgIccS7V3auO31tKqZEalAQxyXguRxo8d+hwJp4EBAEGJ8AS+dVFT2FcrupXnug55NmW8AwKNpqiLLAsBXZ8aGfOE0VdOYyYSDgEeKwyBTl3lZd/S0a5FajwREKsLw9J+aiQybsFk1id7Qw09mZZneGy5Yl/SsXCXDc2fMoZxvuFLCM/SvnO1GQSZpC77/w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BWu79DcAFnHs0ZzvCxoy0mAX1IeXFx909rt1cT40H+U=;
+ b=wmb8Kg7IobW0LR8U5syl4qjdgNS8Goj2/mh0rCA2IEKpQPZ3y21EVPyM7rWkwttvYCeu4XlrsqC6Y1bgI2mZMKnYvgQwoJXyj/GwcjOItj8eUb/0GiZ8I5bHv2wezQweFtWVRqN+t4kBvchhcC/MYKemRKqzbf5yyTE0WdtiLYxj0CPs3FyugTQIsKSitGP0w1RYlctAtZt6qhY+R0xYdjOKNjAyNKu5liRbjwBB3HQ/Vn/KTSrJO62uylARHv59leel5oaCdCKjlFxBKeLFHm40Wa84eUBpBGYvLmk8SVsVHOkqg1s7voxcNwZVTjx5QNbhilWaNRbKQ4BjJujs2w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BWu79DcAFnHs0ZzvCxoy0mAX1IeXFx909rt1cT40H+U=;
+ b=GcC8N5xbxd3OFYW/YF1H2kDZ7UVuRX3YaN47PNjy9SD0s9gLzRmi43/evp6D+LRZpuFgzx+5JvGSMHrq7+n4dsqCes6Cm/Tyr3yruGb050wQxM2V1AgXZsrhySx0ZICgD+N13bdCh8/Z2K9btUQ+sBNr+dFObE2NqMk7gJSzNPM=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20) by GV4PR08MB11275.eurprd08.prod.outlook.com
+ (2603:10a6:150:2eb::20) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Fri, 2 Jan
+ 2026 19:04:03 +0000
+Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
+ ([fe80::d430:4ef9:b30b:c739%3]) with mapi id 15.20.9478.004; Fri, 2 Jan 2026
+ 19:04:02 +0000
+Date: Fri, 2 Jan 2026 19:03:59 +0000
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: akpm@linux-foundation.org, pjw@kernel.org, leitao@debian.org,
+	catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
+	coxu@redhat.com
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH v2] arm64: kernel: initialize missing kexec_buf->random
+ field
+Message-ID: <aVgWn2NjVkKAABM1@e129823.arm.com>
+References: <20251201105118.2786335-1-yeoreum.yun@arm.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251204062722.3367201-1-jianpeng.chang.cn@windriver.com>
+In-Reply-To: <20251201105118.2786335-1-yeoreum.yun@arm.com>
+X-ClientProxiedBy: LO4P265CA0195.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:318::12) To GV1PR08MB10521.eurprd08.prod.outlook.com
+ (2603:10a6:150:163::20)
+MIME-Version: 1.0
+X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|GV4PR08MB11275:EE_|AM2PEPF0001C711:EE_|DU0PR08MB9107:EE_
+X-MS-Office365-Filtering-Correlation-Id: 79a8f32c-a38b-427f-ae79-08de4a31d87d
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|366016|1800799024;
+X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?htRa93quUlRwzfAc5pL76KhVVqhHBGRmbnZiO/SFlS239eYkdd4jXHMP9f1o?=
+ =?us-ascii?Q?WS7aq0+uT6Jcp5JgGDio8azmOrgXrIFNCqH2JJ0B/dpKv3gDzo3x82LgvzlF?=
+ =?us-ascii?Q?EOHGfdpNJNHAo+9smj7oQneFjqlQVluS1daCAGVKK6dd7Wzvqk6PX0pkzAdi?=
+ =?us-ascii?Q?kZO2Dru7QUfXPinI7XmMBoTkqdvb984IIv7PwKpwacIESXALEMVE0OyCSJsd?=
+ =?us-ascii?Q?nN+gNGkA1yJflNv8CAls+XxzyoX3zk1zG9H/w8wtNEYZpV26T6r/YZ1iDkpD?=
+ =?us-ascii?Q?M1B4pzo+RaSTluAdnqS0GoXRDBsWXh6+ozdC+Ki8S3Y9fUZ17k9xyIEmthoZ?=
+ =?us-ascii?Q?59HAy1VP9NdLFsXpQcSOFaFDklQvyvk3asT3B4q2z2JCLPwy4ME5gX5F9QsM?=
+ =?us-ascii?Q?l0v0iOf/HW0wuyV8G8UngT9VqUU7cW6Nq3BEv7wfuRpJ97fbJgUtA8XCAz9K?=
+ =?us-ascii?Q?JlF39HxCiNEEGV4LHw64L81gTs2XMsXxpxyoxRoVLKNF0MfBYnnFmHY5WBeV?=
+ =?us-ascii?Q?1iFw0Z3XvRJlnRnCf8y81CeFweu4433SFLE9tpPU4lyrLnETJvgZijRrh53o?=
+ =?us-ascii?Q?i8lnbTA/ePXlzU0JPu0HWCxf1jyMElKR9iAFvnBxWSLdEIL5OQ7WQiY/+F4x?=
+ =?us-ascii?Q?Dos1KzHFo3o8pgWq32Dv7sUMvYOOmjPsMf7CadrdhJXbaoqxW3ox13wyT4UL?=
+ =?us-ascii?Q?MEJp2PCr9OiVyitiZuLkVBNM1FdtAxNhxImjwrRswiPs2D4V5CSNuPQWInwi?=
+ =?us-ascii?Q?dWegmUL29eZLLxd4e1tGxx1idtL7/xJxNu6IYLg2o/MoGUZGKLJL4r+5UVij?=
+ =?us-ascii?Q?c1E7YIv0JY/TiVKqwjgDGYZnH5wl76gZDGkqRQMb1yVfZKdL16tRVTLUZI5W?=
+ =?us-ascii?Q?1HjUwAIf+SP0jnRSTUQCj+J3noi/jWZ4LTQ1KG0Y4b6Eclp5pU0a7vI6Qkd+?=
+ =?us-ascii?Q?kx3tLZcbKgFN8PhOrUg/VTQ2A0ltS+D7QZvcQloMbpetmDLM75dKQtePSPRa?=
+ =?us-ascii?Q?etTi3kJOeIKnsI9lmfe4FB99Tv/924U84Nx5ZYLwSjy2euHWRZ2aJsPIGIZM?=
+ =?us-ascii?Q?a0bAf9wd0VQRR1D0sqxYcsjNFKyMMZL24fJ7DALJ3nJd8J0v4BhwuMnpJtEV?=
+ =?us-ascii?Q?OL5jGlimT2Y79E+AMZLKSI82WWs9dTAzw9m0C3crcylJ/OwNp8NY31eJfUWZ?=
+ =?us-ascii?Q?2/B3p/vqc4gU7PiuAUG8M/LcXuYve2z9gabdmg73MEFHrirUu8CFkCoVsF8k?=
+ =?us-ascii?Q?bT1cP48MdkOTI/k/f2Z4HYcisooLHKl3rDT5//99Z23tWUyDRQfCCqT34cVm?=
+ =?us-ascii?Q?Po1LXI4nWltyG+ApDeqZq2+Kt6DSFD1XBTjmeAh2Ysu1NBSZUJkeF4TOJYA5?=
+ =?us-ascii?Q?j1a8qkDlMb0QN3jq4G0vbFGTpqIQGgWljLC9lD8u90XwRLM9ivyRZ3b1VQbj?=
+ =?us-ascii?Q?sVKYvYHeQOBhnN89x1iDVDKKACp8uu9E?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR08MB11275
+X-EOPAttributedMessage: 0
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM2PEPF0001C711.eurprd05.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: cebfdcf6-2da8-46ed-e571-08de4a31b15a
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|36860700013|1800799024|35042699022|14060799003|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?K/Oi5Rc4CEpTzU2HXAXhq13FD9sFmPnnytLsdn7aGPDhjwkjOci+UXp+LdfU?=
+ =?us-ascii?Q?sR58w6eDcoBb2f1OXkDpalth4SDZoJlPxyYCfcpQW0b03jr2U1gGIOjKQMf0?=
+ =?us-ascii?Q?6u4h++tygHqA7Sj4Iiav+s0x+kOXdKJJrkT2XpoIabYznQvjo35uSZVmEf4z?=
+ =?us-ascii?Q?rVizfyKqF6Oc+WcKjEsq3gPC1n53jl1YtgV6mjeCaSQbTzG+YiNnA7Gmws+A?=
+ =?us-ascii?Q?qorxxFmjnEftxCB1eGFbaqxrTOpEOFO4Eocze7I/MTxAlHKrj99/58lpnfJ2?=
+ =?us-ascii?Q?BEbm5RJ6PvJY48WAoD63JCDKC3IxrJ+popBHgrVXyLpav6NHRWG+51QudB/X?=
+ =?us-ascii?Q?MFrgznq1x949aP+/2pQhwvr4iNAO6H/J/yykAJztdffUxaeEi/gCnbp6gdBe?=
+ =?us-ascii?Q?haoeypIaRT/1GuZKH9HllsXc+M+yND4/279wQc16jnHCmh+7nv2sGB0ASHw1?=
+ =?us-ascii?Q?u3s5+jpbLs0drMAKzQbxE23Or4JfEMCP+OAxjDnpRQAFZMxX6ZrnO0Dr3tGm?=
+ =?us-ascii?Q?V0SefyQhXODkjQUug/mo6myNU3e2AA41ZtTQQUNo+ftnHGe2crPqR5VnMtdO?=
+ =?us-ascii?Q?vxOyqmNZ/EtXMRR6ugNtJZMRdgguXhl7N2V9U1pV1v3xOIg5TPlfb8Q94+SD?=
+ =?us-ascii?Q?VqjaWCCpNmk/R2JLlWuncZn2eOl6z7XKgNScKgyledgsW7KmLx45ZQIBfXhA?=
+ =?us-ascii?Q?mdPhdvy4MzcuEvPSPBTEiZTSTblHCKchyiovvF/zzOADiSDSoFMBJb8yO1Y2?=
+ =?us-ascii?Q?GmiUfyX3nwNSzK5wkSvJiBlOBxXMdTLx0sLFytrBWI60zTHLcuHBupHvPSDl?=
+ =?us-ascii?Q?Xtmk4oV+REklxwkNS5M87jrHYUlHripiUv1xSz6VAfsrgBlSvTl5fuKpY3tJ?=
+ =?us-ascii?Q?1/37e+cgC6T5CIrEh6CDaKXqV/BkrABOjeCStuNDjE/FWdfWe5Nb9WRwr4dU?=
+ =?us-ascii?Q?FGTgClo3B3YYoqTr6bqBEZuyrUL3TeVfz1LWeeiuD+c3oveecyF39cX3/ufF?=
+ =?us-ascii?Q?xgP+vEZpAntCBAvcACiwkU6cgX9S69EPYyDHuTuoxX5CtB+ZqZO/k93NL9CV?=
+ =?us-ascii?Q?RNG7SIQo259WTUG9gB9S7ku9tju/k4e47TZlE36RyS/tfllpMP78zlQOyG+p?=
+ =?us-ascii?Q?xTofxrJ97zR3iOng0QEdHhE9KEhnHGNzjpepeDldVo/A5OqKyylILG9KSTy0?=
+ =?us-ascii?Q?ISBtyFinrJcAE54CuYosTx06rgiYzlrz2IqiAB/tY2RDuEbvKN39GllMYyD5?=
+ =?us-ascii?Q?PmXdRKcBFlhwjZ5gs9lgJOMcP4vKe1TOPxv+JULa/VOnLiuMYQDNouLEmIeR?=
+ =?us-ascii?Q?TcNar5hWWFXFd4s/4mvaSwCwgqPh/GQ9OJjLyT7uW6q1c9WJGdr9xeKtSBlK?=
+ =?us-ascii?Q?VXplUBKayMCOEwHjVzTxo0lDmo7Qq+FX19LxcNZMo3BVCfAoXJfcFcCkbHMT?=
+ =?us-ascii?Q?h4DNaOYu40r4q7yHjhisj2iAfpV8taZRNvCUf7qVRowrbWFFcDb86veEo1K4?=
+ =?us-ascii?Q?++cjbxhNx9vviTj2ZTIvD7dlYN9hKF9UYK9hqngq1mtnwivyR0BQbtmstn5z?=
+ =?us-ascii?Q?rDrRWWG7S0Te1y3icB8=3D?=
+X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(36860700013)(1800799024)(35042699022)(14060799003)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jan 2026 19:05:07.8217
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 79a8f32c-a38b-427f-ae79-08de4a31d87d
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM2PEPF0001C711.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB9107
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_105355_599162_D3C9CEF8 
-X-CRM114-Status: GOOD (  34.73  )
+X-CRM114-CacheID: sfid-20260102_110516_574827_E9E48C27 
+X-CRM114-Status: GOOD (  19.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,130 +201,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 04, 2025 at 02:27:22PM +0800, Jianpeng Chang wrote:
-> Commit 143937ca51cc ("arm64, mm: avoid always making PTE dirty in
-> pte_mkwrite()") modified pte_mkwrite_novma() to only clear PTE_RDONLY
-> when the page is already dirty (PTE_DIRTY is set). While this optimization
-> prevents unnecessary dirty page marking in normal memory management paths,
-> it breaks kexec on some platforms like NXP LS1043.
-> 
-> The issue occurs in the kexec code path:
-> 1. machine_kexec_post_load() calls trans_pgd_create_copy() to create a
->    writable copy of the linear mapping
-> 2. _copy_pte() calls pte_mkwrite_novma() to ensure all pages in the copy
->    are writable for the new kernel image copying
-> 3. With the new logic, clean pages (without PTE_DIRTY) remain read-only
-> 4. When kexec tries to copy the new kernel image through the linear
->    mapping, it fails on read-only pages, causing the system to hang
->    after "Bye!"
-> 
-> The same issue affects hibernation which uses the same trans_pgd code path.
-> 
-> Fix this by marking pages dirty with pte_mkdirty() in _copy_pte(), which
-> ensures pte_mkwrite_novma() clears PTE_RDONLY for both kexec and
-> hibernation, making all pages in the temporary mapping writable regardless
-> of their dirty state. This preserves the original commit's optimization
-> for normal memory management while fixing the kexec/hibernation regression.
-> 
-> Using pte_mkdirty() causes redundant bit operations when the page is
-> already writable (redundant PTE_RDONLY clearing), but this is acceptable
-> since it's not a hot path and only affects kexec/hibernation scenarios.
-> 
-> Fixes: 143937ca51cc ("arm64, mm: avoid always making PTE dirty in pte_mkwrite()")
-> Signed-off-by: Jianpeng Chang <jianpeng.chang.cn@windriver.com>
-> Reviewed-by: Huang Ying <ying.huang@linux.alibaba.com>
+Gentle ping in case of forgotten.
+
+On Mon, Dec 01, 2025 at 10:51:18AM +0000, Yeoreum Yun wrote:
+> Commit bf454ec31add ("kexec_file: allow to place kexec_buf randomly")
+> introduced the kexec_buf->random field to enable random placement of
+> kexec_buf.
+>
+> However, this field was never properly initialized for kexec images
+> that do not need to be placed randomly, leading to the following UBSAN
+> warning:
+>
+> [  +0.364528] ------------[ cut here ]------------
+> [  +0.000019] UBSAN: invalid-load in ./include/linux/kexec.h:210:12
+> [  +0.000131] load of value 2 is not a valid value for type 'bool' (aka '_Bool')
+> [  +0.000003] CPU: 4 UID: 0 PID: 927 Comm: kexec Not tainted 6.18.0-rc7+ #3 PREEMPT(full)
+> [  +0.000002] Hardware name: QEMU QEMU Virtual Machine, BIOS 0.0.0 02/06/2015
+> [  +0.000000] Call trace:
+> [  +0.000001]  show_stack+0x24/0x40 (C)
+> [  +0.000006]  __dump_stack+0x28/0x48
+> [  +0.000002]  dump_stack_lvl+0x7c/0xb0
+> [  +0.000002]  dump_stack+0x18/0x34
+> [  +0.000001]  ubsan_epilogue+0x10/0x50
+> [  +0.000002]  __ubsan_handle_load_invalid_value+0xc8/0xd0
+> [  +0.000003]  locate_mem_hole_callback+0x28c/0x2a0
+> [  +0.000003]  kexec_locate_mem_hole+0xf4/0x2f0
+> [  +0.000001]  kexec_add_buffer+0xa8/0x178
+> [  +0.000002]  image_load+0xf0/0x258
+> [  +0.000001]  __arm64_sys_kexec_file_load+0x510/0x718
+> [  +0.000002]  invoke_syscall+0x68/0xe8
+> [  +0.000001]  el0_svc_common+0xb0/0xf8
+> [  +0.000002]  do_el0_svc+0x28/0x48
+> [  +0.000001]  el0_svc+0x40/0xe8
+> [  +0.000002]  el0t_64_sync_handler+0x84/0x140
+> [  +0.000002]  el0t_64_sync+0x1bc/0x1c0
+>
+> To address this, initialise kexec_buf->random field properly.
+>
+> Fixes: bf454ec31add ("kexec_file: allow to place kexec_buf randomly")
+> Suggested-by: Breno Leitao <leitao@debian.org>
+> Cc: <stable@vger.kernel.org>
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 > ---
-> v3: 
->   - Add the description about pte_mkdirty in commit message
->   - Note that the redundant bit operations in commit message
->   - Fix the comments following the suggestions
-> v2: https://lore.kernel.org/all/20251202022707.2720933-1-jianpeng.chang.cn@windriver.com/
->   - Use pte_mkwrite_novma(pte_mkdirty(pte)) instead of manual bit manipulation
->   - Updated comments to clarify pte_mkwrite_novma() alone cannot be used
-> v1: https://lore.kernel.org/all/20251127034350.3600454-1-jianpeng.chang.cn@windriver.com/
-> 
->  arch/arm64/mm/trans_pgd.c | 17 +++++++++++++++--
->  1 file changed, 15 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/mm/trans_pgd.c b/arch/arm64/mm/trans_pgd.c
-> index 18543b603c77..766883780d2a 100644
-> --- a/arch/arm64/mm/trans_pgd.c
-> +++ b/arch/arm64/mm/trans_pgd.c
-> @@ -40,8 +40,14 @@ static void _copy_pte(pte_t *dst_ptep, pte_t *src_ptep, unsigned long addr)
->  		 * Resume will overwrite areas that may be marked
->  		 * read only (code, rodata). Clear the RDONLY bit from
->  		 * the temporary mappings we use during restore.
-> +		 *
-> +		 * For both kexec and hibernation, writable accesses are required
-> +		 * for all pages in the linear map to copy over new kernel image.
-> +		 * Hence mark these pages dirty first via pte_mkdirty() to ensure
-> +		 * pte_mkwrite_novma() subsequently clears PTE_RDONLY - providing
-> +		 * required write access for the pages.
->  		 */
-> -		__set_pte(dst_ptep, pte_mkwrite_novma(pte));
-> +		__set_pte(dst_ptep, pte_mkwrite_novma(pte_mkdirty(pte)));
->  	} else if (!pte_none(pte)) {
->  		/*
->  		 * debug_pagealloc will removed the PTE_VALID bit if
-> @@ -57,7 +63,14 @@ static void _copy_pte(pte_t *dst_ptep, pte_t *src_ptep, unsigned long addr)
->  		 */
->  		BUG_ON(!pfn_valid(pte_pfn(pte)));
->  
-> -		__set_pte(dst_ptep, pte_mkvalid(pte_mkwrite_novma(pte)));
-> +		/*
-> +		 * For both kexec and hibernation, writable accesses are required
-> +		 * for all pages in the linear map to copy over new kernel image.
-> +		 * Hence mark these pages dirty first via pte_mkdirty() to ensure
-> +		 * pte_mkwrite_novma() subsequently clears PTE_RDONLY - providing
-> +		 * required write access for the pages.
-> +		 */
-> +		__set_pte(dst_ptep, pte_mkvalid(pte_mkwrite_novma(pte_mkdirty(pte))));
->  	}
->  }
+>  arch/arm64/kernel/kexec_image.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/arm64/kernel/kexec_image.c b/arch/arm64/kernel/kexec_image.c
+> index 532d72ea42ee..b70f4df15a1a 100644
+> --- a/arch/arm64/kernel/kexec_image.c
+> +++ b/arch/arm64/kernel/kexec_image.c
+> @@ -41,7 +41,7 @@ static void *image_load(struct kimage *image,
+>  	struct arm64_image_header *h;
+>  	u64 flags, value;
+>  	bool be_image, be_kernel;
+> -	struct kexec_buf kbuf;
+> +	struct kexec_buf kbuf = {};
+>  	unsigned long text_offset, kernel_segment_number;
+>  	struct kexec_segment *kernel_segment;
+>  	int ret;
+> --
+> LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+>
 
-Looking through the history, in 4.16 commit 41acec624087 ("arm64: kpti:
-Make use of nG dependent on arm64_kernel_unmapped_at_el0()") simplified
-PAGE_KERNEL to only depend on PROT_NORMAL. All correct so far with
-PAGE_KERNEL still having PTE_DIRTY.
-
-Later on in 5.4, commit aa57157be69f ("arm64: Ensure VM_WRITE|VM_SHARED
-ptes are clean by default") dropped PTE_DIRTY from PROT_NORMAL. This
-wasn't an issue even with DBM disabled as we don't set PTE_RDONLY, so
-it's considered pte_hw_dirty() anyway.
-
-Huang's commit you mentioned changed the assumptions above, so
-pte_mkwrite() no longer makes a read-only (kernel) pte fully writeable.
-This is fine for user mappings (either trap or DBM will make it fully
-writeable) but not for kernel mappings.
-
-Your commit above should work but I wonder whether it's better to go
-back to having the kernel mappings marked dirty irrespective of their
-permission:
-
---------------8<---------------------------
-diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
-index 161e8660eddd..113c257d19c4 100644
---- a/arch/arm64/include/asm/pgtable-prot.h
-+++ b/arch/arm64/include/asm/pgtable-prot.h
-@@ -50,11 +50,11 @@
-
- #define _PAGE_DEFAULT		(_PROT_DEFAULT | PTE_ATTRINDX(MT_NORMAL))
-
--#define _PAGE_KERNEL		(PROT_NORMAL)
--#define _PAGE_KERNEL_RO		((PROT_NORMAL & ~PTE_WRITE) | PTE_RDONLY)
--#define _PAGE_KERNEL_ROX	((PROT_NORMAL & ~(PTE_WRITE | PTE_PXN)) | PTE_RDONLY)
--#define _PAGE_KERNEL_EXEC	(PROT_NORMAL & ~PTE_PXN)
--#define _PAGE_KERNEL_EXEC_CONT	((PROT_NORMAL & ~PTE_PXN) | PTE_CONT)
-+#define _PAGE_KERNEL		(PROT_NORMAL | PTE_DIRTY)
-+#define _PAGE_KERNEL_RO		((PROT_NORMAL & ~PTE_WRITE) | PTE_RDONLY | PTE_DIRTY)
-+#define _PAGE_KERNEL_ROX	((PROT_NORMAL & ~(PTE_WRITE | PTE_PXN)) | PTE_RDONLY | PTE_DIRTY)
-+#define _PAGE_KERNEL_EXEC	((PROT_NORMAL & ~PTE_PXN) | PTE_DIRTY)
-+#define _PAGE_KERNEL_EXEC_CONT	((PROT_NORMAL & ~PTE_PXN) | PTE_CONT | PTE_DIRTY)
-
- #define _PAGE_SHARED		(_PAGE_DEFAULT | PTE_USER | PTE_RDONLY | PTE_NG | PTE_PXN | PTE_UXN | PTE_WRITE)
- #define _PAGE_SHARED_EXEC	(_PAGE_DEFAULT | PTE_USER | PTE_RDONLY | PTE_NG | PTE_PXN | PTE_WRITE)
---------------8<---------------------------
-
--- 
-Catalin
+--
+Sincerely,
+Yeoreum Yun
 
