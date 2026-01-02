@@ -4,70 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA354FA3748
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 13:45:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB286FA3741
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 13:53:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Content-Type:Date:Message-ID:In-Reply-To:References:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=odpTuxH9kYZ3GnKkdybEyntftVSqh6ui7FmUigsWUfo=; b=mVRdQRFvDZXZDureJnjIQQ/Bd+
-	eXYFwaBh6iNotLv9lqe+QabbDdheu//cLAO7/zW0BOt9Trx4ZlzwEIOCI83cCsTauzUpOMyKiOkMH
-	zBHdB+EZ6ksGrKH7In/xjG6Wp21cC2loSRSb6lShlib3JQ4uRPmpQPmY9MX5Nern4S+FDRjnLky2A
-	wwkg48q3dztyy0kcqdr08ePluwqu90McPn95GHPxUs2rmHBejr1NCnwUXD8xToxg0cv+QQRTbcBjN
-	2uNcpqQ4kQ25KaP6BB3pQ+HngCR8/zeTc6f+NcPDWsrdLDFS2gwBzpmE0DrfUSPfeO0PBg52CrPAp
-	Or8R0o2w==;
+	bh=ujVKOuzo5WqYG+lz+h/KUlxw8OmDWuGVBGYVvXW42P0=; b=Jam3XrO1Jtr7e0gQ3jMJAMTHHe
+	uEBXoprql9N0JvfJdZO3zpd5DNIYiF2Spw34x61rjiTON7+KOh4KiyAQi1blDqbQOTMUdZp2Jqzg8
+	+pmDe43k7BkaX12S7a3WT8Srb+ud1p87alnfj3GzqU6C/g9lJwc2JLqk2FUPFX3u9EtQ1+XnvB6nW
+	Tp2VwbyXP8jRfPKEzwKLYCHmC3IKpaYYxtClEm2EBueS/4wxlOvsSgH4NHsfajNP3IiosiPTTO29t
+	KhHjLK3WA8Kth8W9P43q9O08b9ZqMeA/DxWVoV/WtLsEXK4k5jdzGvJtuLkd5zLSK3C4y5Cb28FRf
+	0TbTtp8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbfTP-00000008JPJ-4AAe;
-	Fri, 02 Jan 2026 13:45:47 +0000
-Received: from ms-10.1blu.de ([178.254.4.101])
+	id 1vbfb4-00000008Ju3-00Mu;
+	Fri, 02 Jan 2026 13:53:42 +0000
+Received: from mout-p-202.mailbox.org ([80.241.56.172])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbfTM-00000008JOY-3vV6;
-	Fri, 02 Jan 2026 13:45:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=pace-systems.de; s=blu0479712; h=Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Date:Message-ID:In-Reply-To:References:Subject:Cc:To:From:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=odpTuxH9kYZ3GnKkdybEyntftVSqh6ui7FmUigsWUfo=; b=XVOtwCq0iU57pqACQQxvCNHc3F
-	vfIZmPvCu3a4sbVOl7hBfqnj69w1JV7vyztxFCmB5JKDchGhH5MS30WKHPkv1ZuaCYHG9J0YB12lt
-	fULne1bjakxyZMRPzvB3dbqHk7QWROCxBIKPy0DywJXBsdqjfJkzmykC2+msMOgHM4LtVsfM9MQxl
-	84ryxhshWLanjoTA3WO0H0Dp/uW/SwT0YIuAvmHtbR8tAFvBiGJDY2b+OVZHXm0o76oEJLIq0CoAs
-	/+he+Ilp2Ec791/J+FplcKyVD5aZA2sNlFwty/H/Lihaw8PaE+Zxu40Kl5zkwoRKyRi3uyVWrAWNI
-	Ik3jbSRw==;
-Received: from [178.254.3.181] (helo=nc.pace-systems.de)
-	by ms-10.1blu.de with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <Sebastian.Wolf@pace-systems.de>)
-	id 1vbfSz-005D98-NS;
-	Fri, 02 Jan 2026 14:45:21 +0100
-From: Sebastian Wolf <Sebastian.Wolf@pace-systems.de>
-To: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
- Lorenzo Bianconi <lorenzo@kernel.org>, Vadim Fedorenko
- <vadim.fedorenko@linux.dev>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Matthias Brugger
- <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, Sebastian Roland Wolf
- <srw@root533.premium-rootserver.net>
-Subject: Re: [PATCH] net: mediatek: add null pointer check for hardware
- offloading
-References: <6856f6aa-c6b8-4966-9dd2-9bf0315395c2@linux.dev>
-In-Reply-To: <6856f6aa-c6b8-4966-9dd2-9bf0315395c2@linux.dev>
-Message-ID: <20260102134521.Horde.OJhG83vhDBgeJWzIiPESJP-@nc.pace-systems.de>
-User-Agent: Horde Application Framework 5
-Date: Fri, 02 Jan 2026 13:45:21 +0000
-Content-Type: text/plain; charset=utf-8
+	id 1vbfb1-00000008JtZ-2Tbz
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 02 Jan 2026 13:53:40 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4djQC270Gsz9stX;
+	Fri,  2 Jan 2026 14:53:34 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1767362015;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ujVKOuzo5WqYG+lz+h/KUlxw8OmDWuGVBGYVvXW42P0=;
+	b=mihNgPx/gLD9uHoofpTBP+ijkKRfW9R0iSjTMv2iJ87GXsbO6ZXnbANN4HYn+OeuE3Iz4x
+	YmmXoeJdARn7pITD1kHG6QtBjvD3u0l5juuQUKJxnUjaW4F1sHdDClXfk19gpbdNaqilpD
+	re9v7+ZgkVY8RK2JMHogg1PECqRzA6lp/kCPId/C0tR/RoVnEmPL5niryFmko5oJKb4mUn
+	gufNrKNpSICS1BMKOzTfC/ZiDp8ScZRrQ8W03McScz4NQiUOzd34SG+wLp4bfO5w8eOfzY
+	obyRXY2ol/5SefQn98MgCRDHKpzlSwVhukROUYHoE0sbGrM9SQGv+IsBLgc2mw==
+Message-ID: <0de33175-1dc3-417b-8dab-9b57940f0789@mailbox.org>
+Date: Fri, 2 Jan 2026 14:53:31 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Con-Id: 282146
-X-Con-U: 0-sebastianwolf
-X-Originating-IP: 178.254.3.181
+Subject: Re: [PATCH] arm64: dts: imx95: remove CLK_GPUAPB
+To: Rain Yang <jiyu.yang@oss.nxp.com>
+Cc: Frank.Li@nxp.com, conor+dt@kernel.org, devicetree@vger.kernel.org,
+ festevam@gmail.com, imx@lists.linux.dev, jiyu.yang@nxp.com,
+ kernel@pengutronix.de, krzk+dt@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ liviu.dudau@arm.com, robh@kernel.org, s.hauer@pengutronix.de,
+ shawnguo@kernel.org
+References: <20251231031915.752262-1-jiyu.yang@oss.nxp.com>
+ <37489cb7-820d-46cd-a7ea-0f9097604895@mailbox.org>
+ <aVXByNiEfC66RDG0@oss.nxp.com>
+ <b2dd2109-c2d9-412e-9b11-5851485acf04@mailbox.org>
+ <aVegAt002L20oBGf@oss.nxp.com>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <aVegAt002L20oBGf@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-ID: e019832cff23643e43e
+X-MBO-RS-META: y1eoui7nrfmfe6kre5jnazb59cqu4f7q
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_054545_287633_7B5DC665 
-X-CRM114-Status: GOOD (  32.36  )
+X-CRM114-CacheID: sfid-20260102_055339_788557_C7311A7C 
+X-CRM114-Status: GOOD (  23.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,66 +85,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vadim,
-"Vadim Fedorenko" vadim.fedorenko@linux.dev – 2. Januar 2026 12:20
-> On 31/12/2025 22:52, Sebastian Roland Wolf wrote:
-> > From: Sebastian Roland Wolf <srw@root533.premium-rootserver.net>
-> > 
-> > Add a null pointer check to prevent kernel crashes when hardware
-> > offloading is active on MediaTek devices.
-> > 
-> > In some edge cases, the ethernet pointer or its associated netdev
-> > element can be NULL. Checking these pointers before access is
-> > mandatory to avoid segmentation faults and kernel oops.
-> > 
-> > This improves the robustness of the validation check for mtk_eth
-> > ingress devices introduced in commit 73cfd947dbdb ("net: mediatek:
-> > add support for ingress traffic offloading").
-> > 
-> > Fixes: 73cfd947dbdb ("net: mediatek: add support for ingress traffic offloading")
-> > net: mediatek: Add null pointer check to prevent crashes with active hardware offloading.
-> > 
-> > Signed-off-by: Sebastian Roland Wolf <Sebastian.Wolf@pace-systems.de>
-> > ---
-> > drivers/net/ethernet/mediatek/mtk_ppe_offload.c | 3 ++-
-> > 1 file changed, 2 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/drivers/net/ethernet/mediatek/mtk_ppe_offload.c b/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
-> > index e9bd32741983..6900ac87e1e9 100644
-> > --- a/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
-> > +++ b/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
-> > @@ -270,7 +270,8 @@ mtk_flow_offload_replace(struct mtk_eth *eth, struct flow_cls_offload *f,
-> > flow_rule_match_meta(rule, &match);
-> > if (mtk_is_netsys_v2_or_greater(eth)) {
-> 
-> The code dereferences eth here ...
-> 
-> > idev = __dev_get_by_index(&init_net, match.key->ingress_ifindex);
-> > - if (idev && idev->netdev_ops == eth->netdev[0]->netdev_ops) {
-> > + if (idev && eth && eth->netdev[0] &&
-> 
-> ... but it is checked a couple of lines after.
-> 
-You are right that 'eth' is already dereferenced above, so checking it here is redundant. I will remove the 'eth' check in a V2 of this patch. (As this is first patch ever I hope I do it right)
-> Even more, the function starts with providing rhahstable to lookup
-> cookie. I'm really doubt eth can be NULL.
-> At the same time lack of eth->netdev[0] looks like a design problem,
-> because according to the code there might be up to 3 netdev devices
-> registered for ppe.
-While it might point to a deeper design issue, the check for 'eth->netdev[0]' is necessary to prevent the immediate kernel oops I am seeing. Forcing this check prevents the crash, which is the lesser evil compared to a complete system failure, even if hardware offloading might not function correctly in that specific state.
-> 
-> I'm not familiar with the code, but it would be better to have a splat
-> of crash to check what was exactly missing, and drgn can help you find
-> if there were other netdevs available at the moment of crash.
-Unfortunately, I am not a regular kernel developer and have no experience with drgn. Furthermore, I am testing this on a production device which limits my ability to perform deep interactive debugging or long-term crash analysis.
-> 
-> > + idev->netdev_ops == eth->netdev[0]->netdev_ops) {
-> > struct mtk_mac *mac = netdev_priv(idev);
-> > 
-> > if (WARN_ON(mac->ppe_idx >= eth->soc->ppe_num))
-> 
->
-I will send a V2 shortly, focusing on the 'eth->netdev[0]' check while removing the redundant 'eth' check.
-Best regards,
-Sebastian
+On 1/2/26 11:37 AM, Rain Yang wrote:
+> On Thu, Jan 01, 2026 at 05:51:12PM +0100, Marek Vasut wrote:
+>> On 1/1/26 1:37 AM, Rain Yang wrote:
+>>> On Wed, Dec 31, 2025 at 03:11:21PM +0100, Marek Vasut wrote:
+>>>> On 12/31/25 4:19 AM, Rain Yang wrote:
+>>>>> From: Rain Yang <jiyu.yang@nxp.com>
+>>>>>
+>>>>> Dropping CLK_GPUAPB simplifies OPP handling and avoids unnecessary
+>>>>> complexity.
+>>>>>
+>>>>> Fixes: 67934f248e64 ("arm64: dts: imx95: Describe Mali G310 GPU")
+>>>>> Signed-off-by: Rain Yang <jiyu.yang@nxp.com>
+>>>>> ---
+>>>>>     arch/arm64/boot/dts/freescale/imx95.dtsi | 4 ++--
+>>>>>     1 file changed, 2 insertions(+), 2 deletions(-)
+>>>>>
+>>>>> diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
+>>>>> index 88bde59e61b2..ab446aa6f73c 100644
+>>>>> --- a/arch/arm64/boot/dts/freescale/imx95.dtsi
+>>>>> +++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
+>>>>> @@ -2164,8 +2164,8 @@ netc_emdio: mdio@0,0 {
+>>>>>     		gpu: gpu@4d900000 {
+>>>>>     			compatible = "nxp,imx95-mali", "arm,mali-valhall-csf";
+>>>>>     			reg = <0 0x4d900000 0 0x480000>;
+>>>>> -			clocks = <&scmi_clk IMX95_CLK_GPU_CGC>, <&scmi_clk IMX95_CLK_GPUAPB>;
+>>>>> -			clock-names = "core", "coregroup";
+>>>>> +			clocks = <&scmi_clk IMX95_CLK_GPU_CGC>;
+>>>>> +			clock-names = "core";
+>>>>
+>>>> I don't think this is correct, SM can disable the GPUAPB clock from the SM
+>>>> monitor:
+>>>>
+>>>>> $ clock.w gpuapb off
+>>>>
+>>>> Linux has to make sure the GPUAPB clock are enabled to access the GPU
+>>>> register, hence the clock have to be described in DT.
+>>> Hi Marek,
+>>
+>> Hello Jiyu,
+>>
+>>> CLK_GPU and CLK_GPUAPB can only be controlled internally by the SM, not by Linux.
+>>> CLK_GPUAPB always runs at a fixed frequency, does not require dynamic adjustment,
+>>> and is practically always on.
+>>> Additionally, CLK_GPUAPB's frequency is absent from all OPP entries. Removing it
+>>> could simplify OPP handling logic and reduce unnecessary complexity.
+>>
+>> But the SM can turn the GPUAPB clock off, correct ?
+>>
+>> Linux has to be able to turn GPUAPB clock on, therefore the GPUAPB clock have
+>> to be described in DT, correct ?
+> 
+> Yes, CLK_GPUAPB can be turned off by the SM, but by default it remains on, just like
+> CLK_GPU. AFAIK, there is no scenario where either of these clocks could or would be
+> disabled in both SM and Linux.
+> 
+> If enabling or disabling CLK_GPUAPB in Linux was wanted, the same shall apply to CLK_GPU
+> to make this approach reasonable.
+> Also, OPP framework shall be adjusted to meet these changes too.
+
+You can not depend on the state in which bootloader or any other prior 
+stage left the platform. If the clock can be turned off, you must make 
+sure they are turned on for correct hardware operation.
+
+CLK_GPU is enabled as parent clock of CLK_GPUCGC already.
+
+I don't understand your concerns about the OPP framework, this keeps 
+coming up in the discussion one way or the other, but it is not clear to 
+me what this is about. Can you elaborate on the OPP framework concern ?
 
