@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C157FA374F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 591C3FA3729
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 15:09:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EHP3WjxyhG9zpGC5UMW5P5vDzi6wY1bKiGNYIKQlh6Q=; b=Arztv0M0lgKWuJf3iewN8eoHTO
-	H3GhLmiXS+6jgczJozriVOe1C0NSn0y0Xh6LFm5sDNIqmZdSG+tH2L56txKkd/B++hRY5CqsFm0rZ
-	jVACiaNjU9Rn35Wzn6cMNr71gSv21QE7qQygGXAgfj5ryJrJwdxL4LvYT8J2T0aW30YEyTDIwmFek
-	3p2kthgXDIk+F2RUpdaqGrlAuqqia60O8KQ9Z4gpeH12GAJ9qzG+BbJrbk15ovdOjiAojWa1+5ntk
-	vXZBjY88bVy2L2Uf4qy+Ll4hwxgDq4uV5b7nZ1XgYGSZ1NQmVxDFgd20fbUtp3wUPEXvPq/0BxBP5
-	BpBUlBrA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hFu/Wt+kz5TeV9D0u4FVe6sV6yI+nx5xXApYV33ud6s=; b=sbjIVriQ60JjvyjOqHGJxQ18a5
+	p6/zMuos2nMcdXkSWtC6wt3PqSrtwMR8JVp/xY+L5p3Ujea7Pzpj5VOMv8CaEDp03QYe299vDW5A8
+	64p1jSGgDaVkCKpqNNm6BexKZN3YRNxrRglyLzyQXQw+Lm0hMXZciMK3BlGx4p8lE0gbywUlkFhdw
+	UwEuflPU2QuLjdRJEC+ftdZJbKTlPD2y69TcW/R6PZ+A2eKzik9CSd8UMERAL4YCDeE9/nMngCoig
+	1Qsh08NZmkR8Tt6F6fqixXZfeCn9nX6VplLMlUTR2cgVswIvhkrh84fB7JrhLW80fHuueW7WPZFmp
+	Ug53KpAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbgmB-00000008PO5-2RwY;
-	Fri, 02 Jan 2026 15:09:15 +0000
+	id 1vbgm9-00000008PNW-1UcP;
+	Fri, 02 Jan 2026 15:09:14 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbgm7-00000008PN8-3MbG
+	id 1vbgm6-00000008PMs-1pjq
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Jan 2026 15:09:12 +0000
+	Fri, 02 Jan 2026 15:09:11 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E6BA81424;
-	Fri,  2 Jan 2026 07:09:03 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A0BBF497;
+	Fri,  2 Jan 2026 07:09:00 -0800 (PST)
 Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id CA1AB3F5A1;
-	Fri,  2 Jan 2026 07:09:07 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 825D03F5A1;
+	Fri,  2 Jan 2026 07:09:04 -0800 (PST)
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: catalin.marinas@arm.com,
 	will@kernel.org,
@@ -56,17 +56,15 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-rt-devel@lists.linux.dev,
 	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v4 1/3] arm64: mmu: introduce pgtable_alloc_t
-Date: Fri,  2 Jan 2026 15:07:34 +0000
-Message-Id: <20260102150736.1378818-2-yeoreum.yun@arm.com>
+Subject: [PATCH v4 0/3] fix wrong usage of memory allocation APIs under PREEMPT_RT in arm64
+Date: Fri,  2 Jan 2026 15:07:33 +0000
+Message-Id: <20260102150736.1378818-1-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260102150736.1378818-1-yeoreum.yun@arm.com>
-References: <20260102150736.1378818-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_070911_955009_F19DFDB8 
-X-CRM114-Status: UNSURE (   8.53  )
+X-CRM114-CacheID: sfid-20260102_070910_516450_B20F724B 
+X-CRM114-Status: UNSURE (   6.86  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,102 +80,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is preparation patch to use preallocated page tables
-for linear_map_split_to_ptes().
+Under PREEMPT_RT, calling generic memory allocation/free APIs
+(e.x) __get_free_pages(), pgtable_alloc(), free_pages() and etc
+with preemption disabled is not allowed, but allow only nolock() APIs series
+because it may acquire a spin lock that becomes sleepable on RT,
+potentially causing a sleep during page allocation
+(See Documentation/core-api/real-time/differences.rst, Memory allocation section).
 
-Define pgtable_alloc_t type for callback used by create_XXX_mapping().
+However, In arm64, __linear_map_split_to_ptes() and
+__kpti_install_ng_mappings() called by stopper thread via stop_machine()
+use generic memory allocation/free APIs.
 
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
----
- arch/arm64/mm/mmu.c | 18 ++++++++++--------
- 1 file changed, 10 insertions(+), 8 deletions(-)
+This patchset fixes this problem and based on v6.19-rc1
 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 8e1d80a7033e..4b4908ae189b 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -74,6 +74,8 @@ EXPORT_SYMBOL(empty_zero_page);
- static DEFINE_SPINLOCK(swapper_pgdir_lock);
- static DEFINE_MUTEX(fixmap_lock);
- 
-+typedef phys_addr_t (pgtable_alloc_t)(enum pgtable_type);
-+
- void noinstr set_swapper_pgd(pgd_t *pgdp, pgd_t pgd)
- {
- 	pgd_t *fixmap_pgdp;
-@@ -197,7 +199,7 @@ static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
- static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
- 			       unsigned long end, phys_addr_t phys,
- 			       pgprot_t prot,
--			       phys_addr_t (*pgtable_alloc)(enum pgtable_type),
-+			       pgtable_alloc_t pgtable_alloc,
- 			       int flags)
- {
- 	unsigned long next;
-@@ -252,7 +254,7 @@ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
- 
- static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
- 		    phys_addr_t phys, pgprot_t prot,
--		    phys_addr_t (*pgtable_alloc)(enum pgtable_type), int flags)
-+		    pgtable_alloc_t pgtable_alloc, int flags)
- {
- 	unsigned long next;
- 
-@@ -292,7 +294,7 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
- static int alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
- 			       unsigned long end, phys_addr_t phys,
- 			       pgprot_t prot,
--			       phys_addr_t (*pgtable_alloc)(enum pgtable_type),
-+			       pgtable_alloc_t pgtable_alloc,
- 			       int flags)
- {
- 	int ret;
-@@ -349,7 +351,7 @@ static int alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
- 
- static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
- 			  phys_addr_t phys, pgprot_t prot,
--			  phys_addr_t (*pgtable_alloc)(enum pgtable_type),
-+			  pgtable_alloc_t pgtable_alloc,
- 			  int flags)
- {
- 	int ret = 0;
-@@ -415,7 +417,7 @@ static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
- 
- static int alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
- 			  phys_addr_t phys, pgprot_t prot,
--			  phys_addr_t (*pgtable_alloc)(enum pgtable_type),
-+			  pgtable_alloc_t pgtable_alloc,
- 			  int flags)
- {
- 	int ret;
-@@ -467,7 +469,7 @@ static int alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
- static int __create_pgd_mapping_locked(pgd_t *pgdir, phys_addr_t phys,
- 				       unsigned long virt, phys_addr_t size,
- 				       pgprot_t prot,
--				       phys_addr_t (*pgtable_alloc)(enum pgtable_type),
-+				       pgtable_alloc_t pgtable_alloc,
- 				       int flags)
- {
- 	int ret;
-@@ -500,7 +502,7 @@ static int __create_pgd_mapping_locked(pgd_t *pgdir, phys_addr_t phys,
- static int __create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
- 				unsigned long virt, phys_addr_t size,
- 				pgprot_t prot,
--				phys_addr_t (*pgtable_alloc)(enum pgtable_type),
-+				pgtable_alloc_t pgtable_alloc,
- 				int flags)
- {
- 	int ret;
-@@ -516,7 +518,7 @@ static int __create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
- static void early_create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
- 				     unsigned long virt, phys_addr_t size,
- 				     pgprot_t prot,
--				     phys_addr_t (*pgtable_alloc)(enum pgtable_type),
-+				     pgtable_alloc_t pgtable_alloc,
- 				     int flags)
- {
- 	int ret;
--- 
+Patch History
+==============
+from v3 to v4:
+  - rebase to v6.19-rc3
+  - introduce pgtable_alloc_t
+  - following several suggestions from @Ryan Roberts
+  - https://lore.kernel.org/all/20251218194750.395301-1-yeoreum.yun@arm.com/
+
+from v2 to v3:
+  - remove split-mode and split_args.
+    pass proper function pointer while spliting.
+  - rename function name.
+  - https://lore.kernel.org/all/20251217182007.2345700-1-yeoreum.yun@arm.com/
+
+from v1 to v2:
+  - drop pagetable_alloc_nolock()
+  - following @Ryan Roberts suggestion.
+  - https://lore.kernel.org/all/20251212161832.2067134-1-yeoreum.yun@arm.com/
+
+
+Yeoreum Yun (3):
+  arm64: mmu: introduce pgtable_alloc_t
+  arm64: mmu: avoid allocating pages while splitting the linear mapping
+  arm64: mmu: avoid allocating pages while installing ng-mapping for
+    KPTI
+
+ arch/arm64/mm/mmu.c | 243 ++++++++++++++++++++++++++++++++++----------
+ 1 file changed, 188 insertions(+), 55 deletions(-)
+
+--
 LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
 
