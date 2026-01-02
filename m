@@ -4,56 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1670DFA3726
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 11:21:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A7FDFA372A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 11:23:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QEXNvYOLhbEMpD5dMRCyQrR7MZO5fbQkWY4maZAD62E=; b=yV5z9Ra9n2eeIWHH5av0prpbuh
-	XQ2a2cSfUcaNuGVRmBESVus6/MoWi7zKnq4FrwVC4usfphyrwGuaF4yF69EDkM/drJMbH+N1DKqmn
-	fGlFsEVIN4d9M7nbwJeyggz7wndmGsVx+cgVFVvZcBXSjLeiH6GNnS6w0a3KPmo4HfboY1+AKkTfL
-	F0mzGB9oyMRr0a8D3czdjqZzByOqF5wsSKGD3sNZw6otVMBo8OOIj96Lzd/Az/K/Prvz+5VUlDgbn
-	+VuydPLZSWRv7PoEvNZBjzAfaL/3M9x71MGKRVSwIvYaQxVbaizva2D1t78B+qtzJmZxc9NK3SDwI
-	SjmLnUeQ==;
+	bh=GjCw3B/ZE6UsbRGFFrEOWgoAv9dKcIBGeE3THIAgxpw=; b=G0rNgYVgkywrkimRRsiYO3aKCl
+	CGSEmjR1QWTUPndZ8BsRtbuWKaPIhr+uXKJEkDHKe1Xlol6cJ4h9i8iXM3BYnIlsudJQ2CB8jDOXu
+	KK1ZezpynpdxBHs/b5lSG7P5mp1lL0/GgJXpXr137wLY64MI8xxLlwxo9dTkrPjVG/tEeLyux/f5S
+	Awa5wsnUsDhoEa7CChnIIK9z5MDdUXEd+Hg7rDvhRteKmnKGKtDbIFUk0NyRMl1L0pPgleXyJmuKF
+	+FzyegdebXzzW296PKiE9O31jyAGWIsrLJ8/0NxW4DMRIpq139M+LGCw3HAyqi0e7N1aWMamxPwJC
+	HntKCN6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbdDt-000000087re-0zcb;
-	Fri, 02 Jan 2026 11:21:37 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbdDq-000000087rG-2Y2g
+	id 1vbdF8-000000087yV-2c44;
+	Fri, 02 Jan 2026 11:22:54 +0000
+Received: from out-177.mta1.migadu.com ([95.215.58.177])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vbdF6-000000087o7-1Gg3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Jan 2026 11:21:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E78E7497;
-	Fri,  2 Jan 2026 03:21:25 -0800 (PST)
-Received: from usa.arm.com (e133711.arm.com [10.1.197.51])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A4EA23F63F;
-	Fri,  2 Jan 2026 03:21:31 -0800 (PST)
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org,
-	Cristian Marussi <cristian.marussi@arm.com>
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	philip.radford@arm.com,
-	peng.fan@oss.nxp.com
-Subject: Re: [PATCH 0/2] Rework protocol version negotiation core logic
-Date: Fri,  2 Jan 2026 11:21:25 +0000
-Message-ID: <176735282490.185874.1375589507295412646.b4-ty@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251227164132.1311988-1-cristian.marussi@arm.com>
-References: <20251227164132.1311988-1-cristian.marussi@arm.com>
+	Fri, 02 Jan 2026 11:22:53 +0000
+Message-ID: <6856f6aa-c6b8-4966-9dd2-9bf0315395c2@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1767352837;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=GjCw3B/ZE6UsbRGFFrEOWgoAv9dKcIBGeE3THIAgxpw=;
+	b=lUQSooyi39lfIMRVjaV/kmKb7WdyvSWRxBnlGP3xc7CZNiG0dOFmTTzioIzLXkKrGeGHx9
+	lasbtDCBKxbzFDV+WYUYuNUwnSsnqm+3PQ9iL5AzpZ0pAi2o/XZImmck8yhSNLNwagcyb2
+	drVc+NYVSsYpBIhkYqQwHgaGHcI5Byo=
+Date: Fri, 2 Jan 2026 11:20:28 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH] net: mediatek: add null pointer check for hardware
+ offloading
+To: Sebastian Roland Wolf <Sebastian.Wolf@pace-systems.de>,
+ Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Sebastian Roland Wolf <srw@root533.premium-rootserver.net>
+References: <20251231225206.3212871-1-Sebastian.Wolf@pace-systems.de>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Vadim Fedorenko <vadim.fedorenko@linux.dev>
+In-Reply-To: <20251231225206.3212871-1-Sebastian.Wolf@pace-systems.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_032134_707040_CCF2E549 
-X-CRM114-Status: UNSURE (   7.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260102_032252_483507_6CF84096 
+X-CRM114-Status: GOOD (  22.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,26 +76,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 27 Dec 2025 16:41:30 +0000, Cristian Marussi wrote:
-> this small series rectifies the protocol negotiation logic employed by the
-> core SCMI stack when trying to cope with newer unknown protocol versions
-> advertised by the platform under any circumstances.
+On 31/12/2025 22:52, Sebastian Roland Wolf wrote:
+> From: Sebastian Roland Wolf <srw@root533.premium-rootserver.net>
 > 
-> The existing protocol negotiation logic per-se was fine, but unfortunately
-> the whole negotiation process was started at the end of the per-protocol
-> initialization phase since it relies on the version querying performed by
-> each protocol initialization logic.
+> Add a null pointer check to prevent kernel crashes when hardware
+> offloading is active on MediaTek devices.
 > 
-> [...]
+> In some edge cases, the ethernet pointer or its associated netdev
+> element can be NULL. Checking these pointers before access is
+> mandatory to avoid segmentation faults and kernel oops.
+> 
+> This improves the robustness of the validation check for mtk_eth
+> ingress devices introduced in commit 73cfd947dbdb ("net: mediatek:
+> add support for ingress traffic offloading").
+> 
+> Fixes: 73cfd947dbdb ("net: mediatek: add support for ingress traffic offloading")
+> net: mediatek: Add null pointer check to prevent crashes with active hardware offloading.
+> 
+> Signed-off-by: Sebastian Roland Wolf <Sebastian.Wolf@pace-systems.de>
+> ---
+>   drivers/net/ethernet/mediatek/mtk_ppe_offload.c | 3 ++-
+>   1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/net/ethernet/mediatek/mtk_ppe_offload.c b/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
+> index e9bd32741983..6900ac87e1e9 100644
+> --- a/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
+> +++ b/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
+> @@ -270,7 +270,8 @@ mtk_flow_offload_replace(struct mtk_eth *eth, struct flow_cls_offload *f,
+>   		flow_rule_match_meta(rule, &match);
+>   		if (mtk_is_netsys_v2_or_greater(eth)) {
 
-Applied to sudeep.holla/linux (for-next/scmi/updates), thanks!
+The code dereferences eth here ...
 
-[1/2] firmware: arm_scmi: Rework protocol version negotiation logic
-      https://git.kernel.org/sudeep.holla/c/0fac05fdd9af
-[2/2] firmware: arm_scmi: Remove legacy protocol versioning logic
-      https://git.kernel.org/sudeep.holla/c/24a0ffefe3f0
---
-Regards,
-Sudeep
+>   			idev = __dev_get_by_index(&init_net, match.key->ingress_ifindex);
+> -			if (idev && idev->netdev_ops == eth->netdev[0]->netdev_ops) {
+> +			if (idev && eth && eth->netdev[0] &&
+
+... but it is checked a couple of lines after.
+
+Even more, the function starts with providing rhahstable to lookup
+cookie. I'm really doubt eth can be NULL.
+At the same time lack of eth->netdev[0] looks like a design problem,
+because according to the code there might be up to 3 netdev devices
+registered for ppe.
+
+I'm not familiar with the code, but it would be better to have a splat
+of crash to check what was exactly missing, and drgn can help you find
+if there were other netdevs available at the moment of crash.
+
+> +			    idev->netdev_ops == eth->netdev[0]->netdev_ops) {
+>   				struct mtk_mac *mac = netdev_priv(idev);
+>   
+>   				if (WARN_ON(mac->ppe_idx >= eth->soc->ppe_num))
 
 
