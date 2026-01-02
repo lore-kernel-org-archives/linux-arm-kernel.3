@@ -4,61 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 097BBE9410B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 10:02:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A192BE9410B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 10:03:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EY4Gf1NP2ZmGROzYwflOncoU95tf9DDjgpLojIvDyP4=; b=Z8tvAXA9lYO3nCpzAftsFuVqTD
-	POC1yM0hZeDf9Lznst9cw4B6kqLVcuuBaEqcEnnPe+EfJYNP1R3V0v68OYiuWa3KIYcEGqkZM7DVC
-	IR2Iew1T2Qz1x13k0ZdOHEAstg0carX9uUz9/UkfElfxO3TAG+EUJX0Mn/DMgK8IjAgWzUs8qML2h
-	GwmWas9gWs/zBeLgWrYAXJamPZHcPwGlUxDpsiwoY40w4hQ9t9hb2qqANFb4sbBlUL0Moxo/3MPKL
-	Uzeb3pOMmI82VoaE+zhYVgArzLzxU2BRHUGll/ocJwcRE+zF3f04nh0jjhWMEW7/VTCacONSUTsz2
-	g2Z/QLWg==;
+	bh=aFZ21SNsNzIyuIa9EMJq4V5gW1vzB+b1ga49eUXD9es=; b=biyGQBpi2AvFuqb9hBhmExrcNu
+	OCoPLEiJwiRl0NajtuQB/DrNceNbnIJZXjjeT58IoQR72v0shzKI9AehfnmNOQEQCcgOkVhS139IG
+	x33QrO6ChPMirmCT7H0wchrPHxRkJ9ZYV61ukpaEfW0vQdrsmzF553AEF8wxGz8GsN8jPT1tcYsOV
+	KRFF2o95+DaxaccWogOxC71/3jTDXNV4TspqJNl7UWG8nN9zWYs5ovRdaauHGrY2t0QD73ZM9XKkc
+	azvSAVKICdqiPBN3v66vZFVOPDqTN/Gd0adM9cf05INdAVhnUEPNK+5d6msfcPSUi0ViFU6ppveMD
+	P82C+oLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbbzB-000000082zK-2xZS;
-	Fri, 02 Jan 2026 10:02:21 +0000
+	id 1vbc0X-0000000838U-2gw0;
+	Fri, 02 Jan 2026 10:03:45 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbbz9-000000082yy-0TOc
+	id 1vbc0V-00000008387-24oN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Jan 2026 10:02:20 +0000
+	Fri, 02 Jan 2026 10:03:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 81D8E43244;
-	Fri,  2 Jan 2026 10:02:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3369C116B1;
-	Fri,  2 Jan 2026 10:02:15 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 24A4441B38;
+	Fri,  2 Jan 2026 10:03:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DC3CC116B1;
+	Fri,  2 Jan 2026 10:03:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767348138;
-	bh=EY4Gf1NP2ZmGROzYwflOncoU95tf9DDjgpLojIvDyP4=;
+	s=k20201202; t=1767348223;
+	bh=tSmsCxNP8ko6gAaXY0hwUV1Erue0bu7yDAJ6jLiynoM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=vJQK5NR4CSEvsWmRCaL1mmA2VOeXtD+V/wKCa6xZ0tiV6mp4D3c1zQZMCN8KZimds
-	 MQdV4BJt9vFpH+LlS7k7FyPtCE4QNAaNJ0Dp65YjZJ8mV6Fa1YAc+fzpKP+qYzQJz4
-	 0D37iufpZplEASOhYgLGme8hKqKqaL0DhI/tItKLylkIb1m1tsmEoMwl1dnStdCeou
-	 0GYyjEGLtYua58oMtojtJaXvd+lGl3JDrFkWdGQQy77KytZk/VnUvrJVIo8jZkP2Ot
-	 xMZwXcKPZe1Gs1Iw9FkgqHgCumAM6ZqE+Qt3noErmEf0d7LvpHWlo6c0LeWRWPdb3e
-	 NNceh6CSYxA1Q==
-Message-ID: <fb98e395-d590-47f7-8dba-d9a691a2c174@kernel.org>
-Date: Fri, 2 Jan 2026 11:02:13 +0100
+	b=Ij0puTv+QwH0gLyoWlRCcCWKiS2DEFVa8iwU7bfTCpG+aXvPJ3V8F/Sr68izmn/i3
+	 eEopezrN8PB1Af58/Dxbgd6A2eqtFyqVx5Hacd+D/AlVPxhfn6fiM6yrSJ36geACha
+	 ocWKcJpfPFEpT3ouDa/HBuYr0nhvEzfoEcqzF41ktc3Kvz0bWC7sFkjxCHC9NSlA1E
+	 viY4RJD8/MRxXiMR2sy1LbGVYQlfTynO2fXn4EVNZKu4sNo+Or5SHDIR96/7VCVMM+
+	 rh9dwJdFhZU686RJ19aDWYBLYJ03SFIJ9zisJbUKqqfjyIVbrQmqnye472Jvb/3XnQ
+	 YAdMtyBdFvqYw==
+Message-ID: <fe88cb4d-19f9-413a-8cd1-aa75b3b421bc@kernel.org>
+Date: Fri, 2 Jan 2026 11:03:39 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] dt-bindings: pinctrl: samsung: Add
- exynos9610-wakeup-eint node
-To: Alexandru Chimac <alex@chimac.ro>
-Cc: Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Alim Akhtar <alim.akhtar@samsung.com>, Linus Walleij <linusw@kernel.org>,
- Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Tomasz Figa <tomasz.figa@gmail.com>, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org,
+Subject: Re: [PATCH 3/5] arm: dts: mstar: infinity: Correct opp table name
+To: Daniel Palmer <daniel@0x0f.com>
+Cc: krzk+dt@kernel.org, romain.perier@gmail.com, robh@kernel.org,
+ conor+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20251228-exynos9610-pinctrl-v2-0-c9bbeee4c54b@chimac.ro>
- <20251228-exynos9610-pinctrl-v2-2-c9bbeee4c54b@chimac.ro>
- <20251230-dramatic-gregarious-stallion-15bc07@quoll>
- <yB5WFgsxeeqHQgi87UeNPD8K2OlQbWWC6-BovxADBtgusN3n8UOrm7Gi6jz6Th0dsMA9J-LEpx69sWjNmWTH_-jx9r7AgvXNTwR2hQW7-SM=@chimac.ro>
+References: <20251231025502.1139168-1-daniel@0x0f.com>
+ <20251231025502.1139168-4-daniel@0x0f.com>
+ <ac0f8b8d-f6e4-4d60-9931-e820417c1abc@kernel.org>
+ <CAFr9PXn_-Ep9HzwTEErZ4Wmm9X8Q2ZkRP1LfmaAMhbYNfJVFuQ@mail.gmail.com>
+ <499ce4ea-c6bf-45f1-ab68-c37397196084@kernel.org>
+ <CAFr9PXkn=ZMd6v=yX_KbfynKq7quBKUnCBDJBaU0LyYYMbKEXA@mail.gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,12 +102,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <yB5WFgsxeeqHQgi87UeNPD8K2OlQbWWC6-BovxADBtgusN3n8UOrm7Gi6jz6Th0dsMA9J-LEpx69sWjNmWTH_-jx9r7AgvXNTwR2hQW7-SM=@chimac.ro>
+In-Reply-To: <CAFr9PXkn=ZMd6v=yX_KbfynKq7quBKUnCBDJBaU0LyYYMbKEXA@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_020219_223082_F9DD05F6 
-X-CRM114-Status: GOOD (  15.73  )
+X-CRM114-CacheID: sfid-20260102_020343_600861_F72D1B5D 
+X-CRM114-Status: GOOD (  11.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,47 +122,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31/12/2025 13:28, Alexandru Chimac wrote:
-> On Tuesday, December 30th, 2025 at 11:51, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>
->>
->> On Sun, Dec 28, 2025 at 06:05:52PM +0000, Alexandru Chimac wrote:
->>
->>> Add a dedicated compatible for the exynos9610-wakeup-eint node,
->>> which is compatbile with Exynos850's implementation (and the
->>> Exynos7 fallback).
->>>
->>> Signed-off-by: Alexandru Chimac alex@chimac.ro
->>> ---
->>> .../devicetree/bindings/pinctrl/samsung,pinctrl-wakeup-interrupt.yaml | 2 ++
->>> 1 file changed, 2 insertions(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl-wakeup-interrupt.yaml b/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl-wakeup-interrupt.yaml
->>> index f3c433015b12..deb2730855bd 100644
->>> --- a/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl-wakeup-interrupt.yaml
->>> +++ b/Documentation/devicetree/bindings/pinctrl/samsung,pinctrl-wakeup-interrupt.yaml
->>> @@ -48,6 +48,7 @@ properties:
->>> - enum:
->>> - google,gs101-wakeup-eint
->>> - samsung,exynos2200-wakeup-eint
->>> + - samsung,exynos9610-wakeup-eint
->>> - samsung,exynos9810-wakeup-eint
->>> - samsung,exynos990-wakeup-eint
->>> - samsung,exynosautov9-wakeup-eint
->>> @@ -107,6 +108,7 @@ allOf:
->>> contains:
->>> enum:
->>> - samsung,exynos850-wakeup-eint
->>> + - samsung,exynos9610-wakeup-eint
->>
->>
->> This is not needed. Device has 850 fallback, no?
-> It's not required, but I guess it would make the device tree look better. If this patch isn't to be merged, it doesn't functionally affect anything so it can just be dropped instead of requiring another patchset revision.
+On 31/12/2025 11:17, Daniel Palmer wrote:
+> Hi Krzysztof,
+> 
+> On Wed, 31 Dec 2025 at 18:48, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>> I meant, two commits should be rather squashed. If you intend to rename
+>> the nodes, fix all names to be generic, not only some.
+> 
+> There are 3 commits that correct node names:
+> arm: dts: mstar: breadbee: Correct regulator names
+> arm: dts: mstar: breadbee: Correct LED names
+> arm: dts: mstar: infinity: Correct opp table name
+> 
+> The top two are in the same dts board file, the bottom one is in a
+> different dtsi file for a chip family.
 
-Please wrap your replies.
+You are right, so it's fine.
+> Should I squash all of them into one commit, squash the top two for
+> the same board into one commit?
 
-I did not comment on the patch. Comments are in specific places
-discussing specific lines. I asked why do you need this enum to grow?
 
 
 Best regards,
