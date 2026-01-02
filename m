@@ -4,104 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A760FA3751
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 22:54:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FA86FA3755
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 23:05:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=StGZh5UIhFdeUEf/ngmSy2NSY5Z+LAPTFt5BciOr9oI=; b=sPjmPL3sUraEh/pA8wRZ85AkTl
-	P7tdrrSorjlJKKH4oUJMNFEStQKtJdnnNzreAmal1rBGM5pS/yGv/c6O8bYgitwi+OGzd+EOTUZV7
-	jRjTixiew16XKmEK7FqT73uACrq7M1b11qB+M918wSSLivlzPz6IL3BhgeBzaBFJuoY5vYy8TsXyY
-	/1jVVXIduKUy48dbzvv3i+hwOAzYVlaxW9Q4hm5yFfk9lViN9cqQMah5LcqNagzrSnjL7ZuWtxhrJ
-	i9itQ0Z+VY99/FOhEoVgtitOY0Qdlu+e/2m/6igVcw3GSt4wnylhy2jDJ4twv8Lk8cGRi1aqGfENp
-	hjNEcHUQ==;
+	bh=gATuC38XoDqmbs1Y0VN60Xh8p2YBvlk1d2ihfjSJrZM=; b=YcQGTzzg69qtmP39rsHG+LXj3x
+	riOE3/Iuvh/lsyAiF7WgWdYC/u+2Y0LczIQbHeD3Gh2WAD6PjqFTk/lq71reEEEESN+QvgXP5JHqC
+	RYQ/fwMBUBXhnBhSihS7eiQNGMgvCTZTSCi2uf8/wlIGkwy1olkhsxEboKhz8yjI36OWu/Oce8R0j
+	28Ecsq4w9cFEvKO8Ny7+dwV97a5bvaTiTIAjsSmuOLnoeeKrgc5zEo6ae2ZADyHWmu+jydjebKy/V
+	yzJMZsZvqD1QfG/i2EaAn1+sCFJURQMQ1LXq0xlfg3aZFCYqvbeVHnWAubU2RMjoyNa2ZUxSFS9uT
+	j9D4sm2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbo2B-00000008lZi-2Gup;
-	Fri, 02 Jan 2026 22:54:15 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1vboDG-00000008m3Z-1Sk7;
+	Fri, 02 Jan 2026 23:05:42 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbo24-00000008lYr-11N8
+	id 1vboDB-00000008m3A-3g6b
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Jan 2026 22:54:13 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-42fb5810d39so8032392f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Jan 2026 14:54:07 -0800 (PST)
+	Fri, 02 Jan 2026 23:05:41 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-47a8195e515so75075945e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Jan 2026 15:05:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1767394446; x=1767999246; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1767395136; x=1767999936; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:subject:cc:to:from:date:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=StGZh5UIhFdeUEf/ngmSy2NSY5Z+LAPTFt5BciOr9oI=;
-        b=WKXP+dusyiXr2HpiwDKr/rj0U6VekvJkp99psk45kXDMvG+8ParsnA8Vuu1FNyyr0+
-         +JIJVtdE+XjLJnvfH8G3YUs0kCtGeHP77NVqqxXukhVIi7/mAhgao8yKTMfG6yJHihY0
-         ghQoXMPQ87LkkiuQehNEEU67P302yiR7Pq9FwXL6oK77XR+PUpDmVq9l2rj0axZDG+ow
-         EJjYvB0uI0ae1TDyVf2iZ4xW1EBkZhp/BD6olkjSv2hzNwQ7II+PfIXQHkKxVm8mAmM4
-         9K5YufbgVemdsyYBEwLyY00bT8O4AKdm5mhY0wirp5vjStDHoHO/XFtER43K98CcmbPa
-         kniQ==
+        bh=gATuC38XoDqmbs1Y0VN60Xh8p2YBvlk1d2ihfjSJrZM=;
+        b=D665v7g1VcA8zrPuhTeAf2AImPs7Sf0Em5OuEcCEJM9B956cnHmXt9v9FMzN1mx3fB
+         rCr2VcqsV0zp5Yp0yHXzrdEOmVGYNopkxKKDTtuykXjMbJHK4ORr+nZubsN1Q/DhhMAN
+         whlZJqWT7SAMZvGZTdMHKbuKvbdxT7Ptt+L/NWz8w2ldpUGtfhBbmfiG6g5xydVAQ04F
+         ERDDc2brj7DQtWnPyn4E1/8/h4vIz/Ig6Rkb1iiNtrIoIeX5Y9ddIwnM2GnbtEfDr7h+
+         IwP/jPgXjvt09L6ns1ndg4oCt0NALv21DOkV/AC0ceQl0HsKDCFycIQnqJvKibVFxgRn
+         2q5Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767394446; x=1767999246;
+        d=1e100.net; s=20230601; t=1767395136; x=1767999936;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=StGZh5UIhFdeUEf/ngmSy2NSY5Z+LAPTFt5BciOr9oI=;
-        b=wBmM+kI3DTC9Yc9cyerExGX7fX5Sg50zzsz979f56RPCYm9Ks2FnM3FMHvjX7ZyOxB
-         QOrrbLnIu8QUhhMd0Mfpkjvi2TEsIoVYPY+AW5YoWospqda6vHzMZjxrNsowQrgXGx8U
-         N+5Tiyhn+nDOqtDGH7+SD4ssXxAQ7JPfCggi1V5OjdtczrWe8ESx+HfmenRnh/owGa8j
-         vrHi+AUCw2VeiS3w7b5rl/yCIAdSLbBfLG6LhzHBOt0V/C8xptmDcm5nKyTKeDMxHL3A
-         HdXB0h0Q0qV2O1pRydRlV/8KW4bs2r17LQx06WMjnGSs1l6QiAOYlCEOpofeBBsLf88s
-         xTKQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXFQF1kDmueH+2A3HIF3pPbMMUnxJ5Aats4gwWNRiLeUSGx3IRr5WDRoHksnPOgxeZENFwMoZwOyATIDw5ZnwAT@lists.infradead.org
-X-Gm-Message-State: AOJu0YwnOU9diS3WlIkKSo1xpJkiI4rirHp/k7l6GEpvDuqXvTdObR9/
-	TiFr7sTEVxXaTuLVYZqYabM6cs+eRWCk95kXEnpEQeoGwuR2DyaqPEye
-X-Gm-Gg: AY/fxX4Bl7XBBNGclshsmxtt5liSjKmCpHuCmuDvy9ogvy5FoMsi4O+uUPTGbHXU/Ti
-	VwriWVs0rUe5pU2+n4rubILefsd7uTbZN+pyNRJmXhET/rk/M+pmhfsU8DV1JYt1k2XD2qYkHaT
-	9fF05+6K/NbqF3hnf13Vs/8cfyAN0Qlow6jAkyi3KXhOodeVDI+Ch+XjTWDNESVZB9lApQ2mVZ9
-	+CQUy9SQS25xKXAWRboX3g4jNGEe8Zunzrt/8l9Bx9pTmj+tSve6ufgYkC02siQJJaZJqEvo8qZ
-	JH8ee68j7FreKT/D/B8IIeWAHfxWZzR77bzz43yxVjn0xh4kYUMvf8EGE7dtQ6hgw8SSRVXv7GE
-	a55vFTij4SfczZKpvfcQHFBhPe9ANuq7hY2CBqsOxTp7Oin0tYJudyeV7kb3979MXX0tWphsM3H
-	sKMw6soH96mAuNd6RZCUc47H0R4ZGQIafgGl0gNihxYhWkTVu+hfU7
-X-Google-Smtp-Source: AGHT+IHhZlcstoHojBz97OFk5owjy0cbb1cp4fYnQEbcnWo+WUycqSneA9mdGDNlnSrZ5xQclO2tXg==
-X-Received: by 2002:a5d:5392:0:b0:42f:edb6:3642 with SMTP id ffacd0b85a97d-4324e704c03mr44422531f8f.60.1767394445433;
-        Fri, 02 Jan 2026 14:54:05 -0800 (PST)
+        bh=gATuC38XoDqmbs1Y0VN60Xh8p2YBvlk1d2ihfjSJrZM=;
+        b=oDazrmz3ZsybGkm+iCdqX3i02AWmyVIhisHKupnYQrHLGuCn1Hegy/ZLUZQJAjK227
+         WmbdKrQ0cS+OivKKCtJB1MFf3kZQ/0GQ1covZQ6/jL+iuQBZifrMIlG4G+mMhmSPeYy9
+         pG/vm8DaQhQAJrPxfIL7qCYaJWt6XqFWdsv2C2Cjax9ODtoxl86XX6zWYZXXSzp3pEdk
+         dYmV3cNrzPBJq/vWjTYwSoX6IEaC+JZKyHaEdFMjf1L+pOZCwzsFV/aNtDpt8eqJJlmB
+         oBgQI/Zh5vBivisrXisR/VJ354MGSHhsbuw7Iv7GWrl3Pe7c267Opq6Vz3B5gdkYgqL3
+         o63g==
+X-Forwarded-Encrypted: i=1; AJvYcCUjSrpzTmmvmrtNoGHdGOx8s5e7DJG6uJz5foP5nSwUz8Ni85uhcXnv80naghnEkcHeu2RXgYyVTl/w1N02VbQ5@lists.infradead.org
+X-Gm-Message-State: AOJu0YwndnIpOXja0tT+1UXmu1gXOgWLq1VdLiy/LTq9QxfIc416mXdm
+	LI/45Iop/mrlles7XIbKu8FaOSRm+Ugkg/SN1bGX3QA1/SE0p/EQpY/X/EhiLQ==
+X-Gm-Gg: AY/fxX4uthoBYI1VLA9ZDC++G6KQFAgDzNOmY05VdFZjHZVOtkqMdRrFknfxk1Fk5iT
+	af30cF0HR6I6VDvifzb2HaPeRx9DnOy+O7FZvgdKjLYX/SlwxKLNvJcocEZRUTWh/Ede2PR691A
+	aOvoM+bpdwGtdaCN5sgoAIqWfVgLMHaR3/EaZGutSeAzVow209zF7W2wF6Ruj9elLap9C14VrbG
+	nxD+sMoj3UlApd/O5ZLUaVyGo5CIDEdc6fxiQvrESRy8jTBfCt8OvniG2tVb4w4Z6KS+1qjKWzj
+	dIDFpIqxTXJ3LC47eNLqk6PFD/MoN43t3yn2tN+uOi4jIaTn9IpXY8FL4OtL7itLzqvO9KuYN7C
+	lkPHpxKbeLGnrcmo8WWIqwlyxOSZ5XDLKUeax0nMW38rz2zGSen0j9tNskRwC6Kf5QQA3ienuLH
+	cXuLnU4GZVrCfT7KFRlNVzXhPvLYdxQQtC3882nfyuy02k2BtBPibz
+X-Google-Smtp-Source: AGHT+IH496nx63x7Ywh5WtJLuS+N+LqIyhglkqM7MecPJHigBzdkDAY96pkr8teZzNbzWf1tn9XsUA==
+X-Received: by 2002:a05:600d:108:20b0:477:214f:bd95 with SMTP id 5b1f17b1804b1-47d1c036d6cmr411887275e9.23.1767395136005;
+        Fri, 02 Jan 2026 15:05:36 -0800 (PST)
 Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4324eab2ebfsm86000586f8f.40.2026.01.02.14.54.04
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4324ea2278dsm88571673f8f.18.2026.01.02.15.05.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Jan 2026 14:54:05 -0800 (PST)
-Date: Fri, 2 Jan 2026 22:54:03 +0000
+        Fri, 02 Jan 2026 15:05:35 -0800 (PST)
+Date: Fri, 2 Jan 2026 23:05:33 +0000
 From: David Laight <david.laight.linux@gmail.com>
-To: "Jason A. Donenfeld" <Jason@zx2c4.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Huacai Chen
- <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, Michael
- Ellerman <mpe@ellerman.id.au>, Paul Walmsley <pjw@kernel.org>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Heiko
- Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, Alexander
- Gordeev <agordeev@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
- <dave.hansen@linux.intel.com>, Kees Cook <kees@kernel.org>, "Gustavo A. R.
- Silva" <gustavoars@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Mark Rutland
- <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>, Jeremy Linton
- <jeremy.linton@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v3 2/3] prandom: Convert prandom_u32_state() to
- __always_inline
-Message-ID: <20260102225403.78e26214@pumpkin>
-In-Reply-To: <CAHmME9qHiVZwf4TAringRHSZ-yqHuPwmP=Wnx98n09jv7Vu_Rg@mail.gmail.com>
-References: <20260102131156.3265118-1-ryan.roberts@arm.com>
-	<20260102131156.3265118-3-ryan.roberts@arm.com>
-	<CAHmME9qHiVZwf4TAringRHSZ-yqHuPwmP=Wnx98n09jv7Vu_Rg@mail.gmail.com>
+To: Matthew Wilcox <willy@infradead.org>
+Cc: Thomas =?UTF-8?B?V2Vpw59zY2h1aA==?= <thomas.weissschuh@linutronix.de>,
+ Russell King <linux@armlinux.org.uk>, Andrew Morton
+ <akpm@linux-foundation.org>, Russell King <rmk+kernel@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Arnd
+ Bergmann <arnd@arndb.de>, stable@vger.kernel.org
+Subject: Re: [PATCH] ARM: fix memset64() on big-endian
+Message-ID: <20260102230533.4fb1d8ef@pumpkin>
+In-Reply-To: <aVfirJvsYt0-jDRD@casper.infradead.org>
+References: <20260102-armeb-memset64-v1-1-9aa15fb8e820@linutronix.de>
+	<aVfirJvsYt0-jDRD@casper.infradead.org>
 X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_145408_343692_44C985FA 
-X-CRM114-Status: GOOD (  14.24  )
+X-CRM114-CacheID: sfid-20260102_150539_997990_4C5FEA17 
+X-CRM114-Status: GOOD (  18.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,32 +104,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2 Jan 2026 14:39:21 +0100
-"Jason A. Donenfeld" <Jason@zx2c4.com> wrote:
+On Fri, 2 Jan 2026 15:22:20 +0000
+Matthew Wilcox <willy@infradead.org> wrote:
 
-> Hi Ryan,
-...
-> > +static __always_inline u32 prandom_u32_state(struct rnd_state *state)  
-> 
-> Why not just normal `inline`? Is gcc disagreeing with the inlinability
-> of this function?
+> On Fri, Jan 02, 2026 at 08:15:46AM +0100, Thomas Wei=C3=9Fschuh wrote:
+> > On big-endian systems the 32-bit low and high halves need to be swapped,
+> > for the underlying assembly implemenation to work correctly. =20
+>=20
+> Heh.  In my heart, ARM will always be a litte-endian architecture.
+> I'm not really surprised this bug took, er, 8 years to show up; big-endian
+> arm is rare enough and memset64() isn't much used on 32-bit systems.
+> And it turns out that many of the users pass a constant 0 as the value,
+> which was kind of not the point, but it seems to be an easier API to
+> use than memset, so whatever ;-)
 
-gcc has a mind of its own when it comes to inlining.
-If there weren't some massive functions marked 'inline' that should never
-really be inlined then making 'inline' '__always_inline' would make sense.
-But first an audit would be needed.
-(This has come up several times in the past.)
-But if you need a function to be inlined (for any reason) it needs to be
-always_inline.
-
-Whether there should be an non-inlined 'option' here is another matter.
-There could be a normal function that calls the inlined version.
+I'd have thought that part of the point of memset64() was to remove
+all the 'alignment' and 'tail handling' that a normal memset() has.
+Clearly someone thought otherwise :-)
 
 	David
 
-
-> 
-> Jason
-> 
+>=20
+> > Fixes: fd1d362600e2 ("ARM: implement memset32 & memset64")
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Thomas Wei=C3=9Fschuh <thomas.weissschuh@linutronix.de> =
+=20
+>=20
+> Reviewed-by: Matthew Wilcox (Oracle) <willy@infradead.org>
+>=20
 
 
