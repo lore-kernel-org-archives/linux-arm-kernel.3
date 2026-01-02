@@ -4,57 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81E6CFA3748
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 14:43:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 696F7FA374F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 14:43:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D9/cyym+/DfK2OFFlTAuA/gYJ7fuinLT7BhZQPgGI3M=; b=lg1+LTvnM4tX355sFSfObnb+ke
-	jWHNPc6O3hf6ULpLOLS6IKh5P1ZUji/bX73YhM5NBwPTD3D00Rqqa8x5AKttuhZr+Pqf3BaJR42er
-	7PTm4qCA/SKUbX15/2lcaP2hm0CaNGLffH83NU8qBa+jaGVVAgBOYXEGiIjeeybMK8b9SH3pP1721
-	P8vnHLHvcZWRMGRArC4T8sCT8g+AOUMuPSOKJ8tXkEZiTxUSqLLlxpl6kTFd9iYoo4qqB+8//4nxG
-	3RvHCq9VWYlQRUlu7nfSgAFJOBceCKsyMPX/bfznVKBq27nZjKUyqMvIocNE9F81+G3EqK+oFwcUO
-	0KAQklaQ==;
+	bh=Qq8RcxFNiIq9RObModb4D/ZI7wC30AgdoCHpeIHNZEE=; b=haxVc3yXQfuHwkNnyP14fDzdKa
+	DBX70QzCnYmXng0PNXy9pdbUSg/iay2IuZWYiC1vyELbhwec4CqSQZwqE3UNSwWUaRM6VLQntWd1w
+	7LipI/nO784jlpEyQUEVOrsWiSjWsZbMXLFTZ3JANif6eJLzSAm3rtT8vxjEf48qyLYp3tFo6J+h7
+	EiZF0Lo4q4mt3kNidGrVPKwgirv46W7qxrGqd0fVzh+UgCJvJA3kov/dOVp2c10lSh/JwwVvDWzxP
+	5s29bS5ydlOAQ1fj9oZlZTMtHfiF0ToVoWP5fO9PnbH/ILYrXpKWA3VALTHq6D9bAFHQTQnIsxd5W
+	5zbWasjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbgNJ-00000008N7w-3Tc3;
-	Fri, 02 Jan 2026 14:43:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vbgNP-00000008NB7-1gqF;
+	Fri, 02 Jan 2026 14:43:39 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbgNJ-00000008N7l-0mYy
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Jan 2026 14:43:33 +0000
+	id 1vbgNM-00000008N9A-117p;
+	Fri, 02 Jan 2026 14:43:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 443B860017;
-	Fri,  2 Jan 2026 14:43:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C85CAC116B1;
-	Fri,  2 Jan 2026 14:43:31 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7888544367;
+	Fri,  2 Jan 2026 14:43:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D406C116B1;
+	Fri,  2 Jan 2026 14:43:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767365012;
-	bh=A+8X0NBzr9TPRNyigMz6i3+r5a1fElrFiP6pdg32e2s=;
+	s=k20201202; t=1767365015;
+	bh=0Df0SE8dgCkt3UZVXXK8qLY/Fji0JTvOS7Cm6KxuTP0=;
 	h=From:Date:Cc:To:In-Reply-To:References:Subject:From;
-	b=QrIZ2SJagVn0VER8RsCenBI2lwkRIcXI+ZiKV81NxH44DK+7uiWIJwem6zPmI5Atl
-	 t69f6RLSCBYeokHmW7hU/a6HO5t9SWeqzC2JfpX2LoK1c+PsmEz9KcqcXpY86YiW+h
-	 agel48jjUFxVfbiCLTVuacH5qIbw4UgYXy/mumBYD7PuU3wMCR4xc+N6O2eA6Pkn4z
-	 rDvf2oFkAtnB9eaanp7ZOUSLSdaAEQmP+J6Jo0oZVvycF3qfeKTW3s1h1RaQV7Wabt
-	 14HXkH8VLhu8ryESQM2nz7Hm/Mqf0HINzk33HYGxa98q+hWi1chjRcDIsVulAIzdzH
-	 uNbw4pWDpcQJQ==
+	b=j6XwfdPvYusFqQJYWmtSc+sIl1PgjyDXKoTZsEFOL63JI66uhz/QsN2fD9KsbK84j
+	 DdSRedWHQU4eQdUEbjROQu2HEhlX7UtxUssxBAjaXYVG51CqGQaot+scXbC+YnUvmj
+	 o5PlnWWJEYex8cxwrnRzeps4PTqPPA14poWOuvjDmAmpEwl6GY9MRPke/2CFn3sB5r
+	 QOdWhbLyw83s7K9jLY6RIn8AKob2qE97e1cSTlz/29fsDfUGLOky7BvKvcpDNMT2F/
+	 msNHDTUkN3yF/Kn681Eu4TK0iuV0zo757gZ05upkBklv6ixP0bSlwCRSqj8HhPZIvb
+	 IZp9z2KyW0KZA==
 From: Rob Herring <robh@kernel.org>
-Date: Fri, 02 Jan 2026 08:43:30 -0600
+Date: Fri, 02 Jan 2026 08:43:33 -0600
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Cc: conor+dt@kernel.org, krzk+dt@kernel.org, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, romain.perier@gmail.com
-To: Daniel Palmer <daniel@0x0f.com>
-In-Reply-To: <20251231025502.1139168-1-daniel@0x0f.com>
-References: <20251231025502.1139168-1-daniel@0x0f.com>
-Message-Id: <176736452633.3671396.18144388035733380364.robh@kernel.org>
-Subject: Re: [PATCH 0/5] Sigmastar DT warnings fixing part 1.
+Cc: Heiko Stuebner <heiko@sntech.de>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Alvin Sun <sk.alvin.x@gmail.com>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org
+To: Ke Sun <sunke@kylinos.cn>
+In-Reply-To: <20260101083415.1327341-1-sunke@kylinos.cn>
+References: <20260101083415.1327341-1-sunke@kylinos.cn>
+Message-Id: <176736452757.3671448.8519494279051899382.robh@kernel.org>
+Subject: Re: [PATCH v1] arm64: dts: rockchip: Add USB Type-C support for
+ Radxa ZERO 3W
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260102_064336_310911_0FE67D46 
+X-CRM114-Status: GOOD (  13.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,40 +74,16 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Wed, 31 Dec 2025 11:54:57 +0900, Daniel Palmer wrote:
-> I saw a slide at LPC that had sigmastar in the "hall of shame"
-> for DT warnings. I finally got some time to look at this so
-> I have fixed the ones that are obvious and quick to fix.
+On Thu, 01 Jan 2026 16:34:15 +0800, Ke Sun wrote:
+> Add vbus_typec regulator and fusb302 Type-C controller configuration
+> for Radxa ZERO 3W board.
 > 
-> I'll fix the rest but they might take a bit longer i.e. one
-> of them is about the register shift for the UART registers,
-> that'll need the binding to be updated I think?
-> 
-> FWIW this platform isn't dead and I have been rebasing all
-> of the out of tree stuff that make it useful (Audio support,
-> display, hardware video decoding etc) but its basically stuck
-> on rewriting the clock driver so that it is mainline-able.
-> 
-> Some other people have taken the limited support in mainline
-> and my out of tree stuff and made it run on old MStar MIPS
-> machines too..
-> 
-> Daniel Palmer (5):
->   arm: dts: mstar: breadbee: Correct regulator names
->   arm: dts: mstar: breadbee: Correct LED names
->   arm: dts: mstar: infinity: Correct opp table name
->   arm: dts: mstar: v7: Move the reboot node
->   arm: dts: mstar: v7: Add sizes and ranges to sram
-> 
->  .../mstar-infinity-breadbee-common.dtsi         | 10 +++++-----
->  arch/arm/boot/dts/sigmastar/mstar-infinity.dtsi |  2 +-
->  arch/arm/boot/dts/sigmastar/mstar-v7.dtsi       | 17 ++++++++++-------
->  3 files changed, 16 insertions(+), 13 deletions(-)
-> 
-> --
-> 2.51.0
-> 
-> 
+> Link: https://dl.radxa.com/zero3/docs/hw/3w/radxa_zero_3w_v1110_schematic.pdf
+> Signed-off-by: Ke Sun <sunke@kylinos.cn>
+> ---
+>  .../dts/rockchip/rk3566-radxa-zero-3.dtsi     | 10 +++++++++
+>  .../dts/rockchip/rk3566-radxa-zero-3w.dts     | 22 +++++++++++++++++++
+>  2 files changed, 32 insertions(+)
 > 
 
 
@@ -129,22 +109,12 @@ This patch series was applied (using b4) to base:
 If this is not the correct base, please add 'base-commit' tag
 (or use b4 which does this automatically)
 
-New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/sigmastar/' for 20251231025502.1139168-1-daniel@0x0f.com:
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/rockchip/' for 20260101083415.1327341-1-sunke@kylinos.cn:
 
-arch/arm/boot/dts/sigmastar/mstar-infinity-msc313-breadbee_crust.dtb: leds (gpio-leds): led-red:linux,default-trigger: 'oneOf' conditional failed, one must be fixed:
-	'activity' is not one of ['backlight', 'default-on', 'heartbeat', 'disk-activity', 'disk-read', 'disk-write', 'timer', 'pattern', 'audio-micmute', 'audio-mute', 'bluetooth-power', 'flash', 'kbd-capslock', 'mtd', 'nand-disk', 'netdev', 'none', 'rc-feedback', 'torch', 'usb-gadget', 'usb-host', 'usbport']
-	'activity' does not match '^cpu[0-9]*$'
-	'activity' does not match '^hci[0-9]+-power$'
-	'activity' does not match '^mmc[0-9]+$'
-	'activity' does not match '^phy[0-9]+tx$'
-	from schema $id: http://devicetree.org/schemas/leds/leds-gpio.yaml
-arch/arm/boot/dts/sigmastar/mstar-infinity3-msc313e-breadbee.dtb: leds (gpio-leds): led-red:linux,default-trigger: 'oneOf' conditional failed, one must be fixed:
-	'activity' is not one of ['backlight', 'default-on', 'heartbeat', 'disk-activity', 'disk-read', 'disk-write', 'timer', 'pattern', 'audio-micmute', 'audio-mute', 'bluetooth-power', 'flash', 'kbd-capslock', 'mtd', 'nand-disk', 'netdev', 'none', 'rc-feedback', 'torch', 'usb-gadget', 'usb-host', 'usbport']
-	'activity' does not match '^cpu[0-9]*$'
-	'activity' does not match '^hci[0-9]+-power$'
-	'activity' does not match '^mmc[0-9]+$'
-	'activity' does not match '^phy[0-9]+tx$'
-	from schema $id: http://devicetree.org/schemas/leds/leds-gpio.yaml
+arch/arm64/boot/dts/rockchip/rk3566-radxa-zero-3w.dtb: fusb302@22 (fcs,fusb302): 'sel-gpios' does not match any of the regexes: '^pinctrl-[0-9]+$'
+	from schema $id: http://devicetree.org/schemas/usb/fcs,fusb302.yaml
+arch/arm64/boot/dts/rockchip/rk3566-radxa-zero-3w.dtb: fusb302@22 (fcs,fusb302): 'connector' is a required property
+	from schema $id: http://devicetree.org/schemas/usb/fcs,fusb302.yaml
 
 
 
