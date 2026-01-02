@@ -4,66 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D59BFA3751
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 21:53:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB60DFA3755
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 22:17:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oNaPKUGx0i7GPxS9qV3ftiVed/UzQ6HG+Hft9CuDkyk=; b=2WSrRfL/z5foC1AlKFPZ3NRA7z
-	ascrfk8lBLia2GlvfyRcQkbF7KTvwBY5vM/5hxcordS7rmMt0fVxOf9v5C80voOjLF5Ppacut9YsL
-	6d6dz/ypRqxrraJH+jdMU93P7333Yc9LEfleDT8IQ1/YH0zy7Sy0q207XP+401tbn5B1sH8oRIkbO
-	yC4DrA9iW5GEr7TMV3f39vL17igs112Nw54HpRLr8TX1bb/GI426G4Rtp3wwIJqSB0g9S1ChJAW9b
-	NDCdhqbhf5CmoJUhTDstWYITkHGLyrJarKIGlr3dHRNKIzXQznhLShUqkHHoAXjEudc2vGbgScVYN
-	oHN52Bcw==;
+	bh=/64Co2q0kgEgA6DPpVmvrLqtt4+bKlfMdoKNXVNCcsQ=; b=3/jXAJOzCGuwEIwDOHyc9OzV8E
+	eoPX4SUJhzY+fpgD4DYEtvAHCbkJDnroLgS4bb/s4CSKg5upMyfn3yTLjwp/Yfidoz0DFE9xQG3sF
+	Iy6StTpt9YpY/2MlkxUZf7kL3sV+Lg7/L1Uxy1Lxv6fb9gs3z7nvyTLyv3aVOhuuiKKXaOo2B023m
+	XVeasdYp/NJB8J5SB8fh7+8hfsxc0M2HN6fClAa+0k7S1fanXrZrmxO2fsPN3iEQThLmrou6uu4GX
+	luObKtFBqoWH4fF44JpvE1pXLmEplVj235o22K4C8AB/HxWGY7WWCHlizexpHrnpLFOftT6s0SBsq
+	qA+E13hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbn5K-00000008jvI-3oBX;
-	Fri, 02 Jan 2026 21:53:26 +0000
+	id 1vbnSp-00000008kXN-1LWK;
+	Fri, 02 Jan 2026 22:17:44 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbn5J-00000008jv9-1mJk;
-	Fri, 02 Jan 2026 21:53:25 +0000
+	id 1vbnSo-00000008kX2-1r6a
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 02 Jan 2026 22:17:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2D1D76013D;
-	Fri,  2 Jan 2026 21:53:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48D09C116B1;
-	Fri,  2 Jan 2026 21:53:23 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 23C7B60142
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  2 Jan 2026 22:17:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1561C4AF09
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  2 Jan 2026 22:17:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767390803;
-	bh=oNaPKUGx0i7GPxS9qV3ftiVed/UzQ6HG+Hft9CuDkyk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ogDzbZHKQU2RBx2fdNIwScC07hsN0kNwhvw61Cp1uwYQF9wL9aqBSUXCUHzW+rIGT
-	 4QwueY/wh3z5MoMKqkPRVZjdTLNM/MUZW1xCRckve05zeOnnbu9Ryn1ji6V1Nugt8G
-	 +U50XhR5on5uJ7E/nyGPNweV7lBotly6NVuxFBF1riH+tR6hf/LQKE/8wofZU3FD4S
-	 RYx2QBbOCdyJm6NcdUasdWS2i75pPF/XNFb5vVu7zcKTqkWeatboEOCC/JZDrsjLd6
-	 5ufIwbcI1v1WW1qYzf10IGubd119PdiNX9b+8sdiUVP6C2i2t5uif4+zJI/vefRl6f
-	 Nc6THmFT3pzZQ==
-Message-ID: <a033a402-e3c5-4982-9fff-b6a4c55817ae@kernel.org>
-Date: Fri, 2 Jan 2026 13:53:22 -0800
+	s=k20201202; t=1767392259;
+	bh=/64Co2q0kgEgA6DPpVmvrLqtt4+bKlfMdoKNXVNCcsQ=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=ge2fF73iJ8fd9je/5EvWRvXS4+eNAXKRDPzkWl71vlZSnTL/QfKna/aIUVBrNzqh5
+	 mDsdGxhIVjOAF5DgyQXjyPdkWInWTLYyR9nBQBjvEYKXdK4AlCDsxA4DRs7FKwJd55
+	 qbNGH1+8COzIcaBwqUZtXwBOXEyk4P7MwVgy80b4xpW7IdeVJUU16yVWcdTMFVs1VE
+	 a/shbiUuWL8wYX6p4iaLWpnQh2+AczJFAcfhA1YoN3SzJA9UdLIX7SN1jvxiC3iOfj
+	 7D4GSVWzrtB2v8A78o2IxK2poTFA4PCSHN/pB4Gh1eYAhTxFCE8mUEEVm572e5YK5f
+	 d5bdHvqxa8TAA==
+Received: by mail-ej1-f52.google.com with SMTP id a640c23a62f3a-b83b72508f3so292933466b.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Jan 2026 14:17:39 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWlvGgaQqtPTS+sEZumzSiXVTFqQ3V13QN7BVzUlxfgEtfYVYG9l6R8QE+B8qFGuC//nMmLqkJAMMF0bOmzux72@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5AwVgBw2umYI4E1xkp72DgySXTXMAPRZ7kUDIsa2oVdODxTTT
+	Wlt6GUtqX+w+K9kPYomPxFp0Jk4rKL3TTvK2aYsEEzh4mWQu5TGdlgIeAKLKmG7lUgp4un3kkAL
+	cIhVGlhXCtqQa+jVSRcCYtHY9uOU5jQ==
+X-Google-Smtp-Source: AGHT+IGcdjYMdq8WHlapJ12+Pohp79IeQ6Qp00t62ofYPur0Xu5Cyh0Zdwx3rcPrWR7fro3HFhzV7izpL+ysUdN6FT8=
+X-Received: by 2002:a17:907:da17:b0:b83:3770:a0e4 with SMTP id
+ a640c23a62f3a-b833770a15emr2280910966b.34.1767392258434; Fri, 02 Jan 2026
+ 14:17:38 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/5] ARC: uapi: Stop leaking CONFIG_ARC_HAS_SWAPE
- reference to userspace
-To: Arnd Bergmann <arnd@arndb.de>,
- =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
- Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>,
- Dinh Nguyen <dinguyen@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>
-Cc: linux-snps-arc@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20251230-headers_install-config-leak-v1-0-efba5c58073d@linutronix.de>
- <20251230-headers_install-config-leak-v1-1-efba5c58073d@linutronix.de>
- <9ecebf46-c230-4074-9001-7ba9d65634f1@app.fastmail.com>
-From: Vineet Gupta <vgupta@kernel.org>
-Content-Language: en-US
-In-Reply-To: <9ecebf46-c230-4074-9001-7ba9d65634f1@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20251217153917.3998544-1-arnaud.pouliquen@foss.st.com>
+ <20251217153917.3998544-2-arnaud.pouliquen@foss.st.com> <20251229232530.GA2753472-robh@kernel.org>
+ <aVOzHWmlJ-eneS-2@sumit-xelite>
+In-Reply-To: <aVOzHWmlJ-eneS-2@sumit-xelite>
+From: Rob Herring <robh@kernel.org>
+Date: Fri, 2 Jan 2026 16:17:27 -0600
+X-Gmail-Original-Message-ID: <CAL_Jsq+_S8UY7s7WQg9jXuBXCYMBWVCy=kVDMdkKTx6RctqQJA@mail.gmail.com>
+X-Gm-Features: AQt7F2qSpJIFr1cZ7Ak2PMJj_kJpZOMaYqr6WPt7b6SXNB2GqwyfYzNGk02nLo4
+Message-ID: <CAL_Jsq+_S8UY7s7WQg9jXuBXCYMBWVCy=kVDMdkKTx6RctqQJA@mail.gmail.com>
+Subject: Re: [PATCH v20 1/6] dt-bindings: firmware: Add TEE remoteproc service binding
+To: Sumit Garg <sumit.garg@kernel.org>
+Cc: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>, Bjorn Andersson <andersson@kernel.org>, 
+	Mathieu Poirier <mathieu.poirier@linaro.org>, Jens Wiklander <jens.wiklander@linaro.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-remoteproc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, op-tee@lists.trustedfirmware.org, 
+	devicetree@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,55 +87,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
-
-Long time no see. Happy New Year !
-
-On 12/30/25 13:23, Arnd Bergmann wrote:
-> On Tue, Dec 30, 2025, at 08:10, Thomas Weißschuh wrote:
->> UAPI headers are not supposed to leak references to kconfig symbols.
->> These won't be set when building userspace. Hide the kconfig reference
->> behind 'if defined(__KERNEL__)', so it will be stripped by
->> headers_install.sh. The result for userspace will be the same, but the
->> exception in headers_install.sh can also be removed.
->>
->> Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
-> Acked-by: Arnd Bergmann <arnd@arndb.de>
+On Tue, Dec 30, 2025 at 5:10=E2=80=AFAM Sumit Garg <sumit.garg@kernel.org> =
+wrote:
 >
-> Same as for the nios2 version, I think the nicer solution would
-> be to use the asm-generic header for uapi and move this one
-> to arch/arc/include/asm/swab.h for kernel-internal use.
+> On Mon, Dec 29, 2025 at 05:25:30PM -0600, Rob Herring wrote:
+> > On Wed, Dec 17, 2025 at 04:39:12PM +0100, Arnaud Pouliquen wrote:
+> > > Add a device tree binding for the TEE-based remote processor control
+> > > service implemented as an OP-TEE Trusted Application identified by
+> > > UUID 80a4c275-0a47-4905-8285-1486a9771a08.
+> > >
+> > > The TEE service node is a child of the "linaro,optee-tz" firmware nod=
+e and
+> > > acts as a container for remoteproc devices that are controlled via TE=
+E.
+> >
+> > Is this generic for any remoteproc device or just ST's remoteproc. Look=
+s
+> > like the latter to me.
 >
-> In theory, using 'select ARCH_USE_BUILTIN_BSWAP' in Kconfig should
-> let the compiler pick the best swap instruction, which would
-> be even less code, but I'm not sure if there was a reason that
-> nios2 and arc don't already do this.
+> That's true, the DT description of the remoteproc subnode is very
+> specific to the vendor which in this case is ST.
+>
+> >
+> > > In addition, the "linaro,optee-tz" binding is updated to specify the
+> > > '#address-cells' and '#size-cells' values used for child TEE service
+> > > nodes.
+> >
+> > I'm pretty sure I already rejected per service/app child nodes for
+> > OP-TEE when its binding was submitted.
+>
+> That was the reason to have discoverable TEE bus in first place and I
+> have been motivating people to dynamically discover firmware properties
+> rather than hardcoding in the DT.
+>
+> > If we do need something in DT
+> > to define some resources, then can't we have some sort of
+> > standard/common communications channel? I don't care to see some sort o=
+f
+> > free-for-all where we have every vendor doing their own thing. OP-TEE
+> > needs to standarize this.
+>
+> I suppose this requires a wider scope work as you can see the DT resource
+> dependence from here [1]. By standardize communication channel, do you
+> mean to say if adding an alternative backend to fwnode for TEE in
+> parallel to DT, ACPI or swnode is the way to go for discovering fw
+> properties?
 
-The builtins didn't exist when the insns were first rolled out in hw.
-It seems ARCH_USE_BUILTIN_BSWAP assumes 16,32,64 variants to be available which
-surprisingly seems to be true.
+No, not at all.
 
-foo32:
-    j_s.d    [blink]
-    swape    r0,r0
+> Or do you have any other suggestion here?
 
-foo16:
-    exth_s    r0,r0
-    asl    r2,r0,8
-    lsr_s    r0,r0,8
-    or_s    r0,r0,r2
-    j_s.d    [blink]
-    exth_s    r0,r0
+What I mean is why doesn't the TEE define the communication channel
+(mailbox+shmem and notification interrupt) rather than each TEE app?
 
-foo64:
-    mov_s    r2,r1    ;4
-    swape    r1,r0
-    j_s.d    [blink]
-    swape    r0,r2
+More generally, is having TEE apps depending on random DT resources
+really a box we want to open? Is the next thing going to be a TEE
+clock/reset/gpio/power provider? Where do we draw the line?
 
-And as you said, since all upstream cores support SWAPE, we can really get rid
-of all the legacy stuff and just rely on builtins.
-
-Thx,
--Vineet
+Rob
 
