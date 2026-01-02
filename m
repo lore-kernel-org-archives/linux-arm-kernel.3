@@ -4,73 +4,140 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB286FA3741
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 13:53:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72B90FA374B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 14:04:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ujVKOuzo5WqYG+lz+h/KUlxw8OmDWuGVBGYVvXW42P0=; b=Jam3XrO1Jtr7e0gQ3jMJAMTHHe
-	uEBXoprql9N0JvfJdZO3zpd5DNIYiF2Spw34x61rjiTON7+KOh4KiyAQi1blDqbQOTMUdZp2Jqzg8
-	+pmDe43k7BkaX12S7a3WT8Srb+ud1p87alnfj3GzqU6C/g9lJwc2JLqk2FUPFX3u9EtQ1+XnvB6nW
-	Tp2VwbyXP8jRfPKEzwKLYCHmC3IKpaYYxtClEm2EBueS/4wxlOvsSgH4NHsfajNP3IiosiPTTO29t
-	KhHjLK3WA8Kth8W9P43q9O08b9ZqMeA/DxWVoV/WtLsEXK4k5jdzGvJtuLkd5zLSK3C4y5Cb28FRf
-	0TbTtp8w==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Zcdn/7Q48JsxusxJpdZxfM0eNzXVTYp1I4zI3xtwG7Y=; b=mkzjoJH63yjlSNP1wOVUbezmIg
+	Uz6CqK5LC0NN7ULK0cxEpRJOPH1F9koIZsTCO6evN9Wj2Ggnr5hWUBns9n3pPby9WVevafGWypJYG
+	hygSgkykLhH4sqXd93vwu2k7nkZg82ibTG0gMipHjJstIJ8K3LzSAhPa26CveuyL8fdikHvt/lYRW
+	nIREF2CYxmaNs8TUu9i+GtTaD37PaWj4mZXleUSPaAQSN+7EBOF8RrNoHT4G9DTCi33yveEn3bs0j
+	SOwj0h7+h64sY5onBPy1LXvDHKnfQha7XNwXR4qpoku/GlBm6P6XCuoFPQQ7COhIMwbLwEVRLtRqM
+	WGBSZIHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbfb4-00000008Ju3-00Mu;
-	Fri, 02 Jan 2026 13:53:42 +0000
-Received: from mout-p-202.mailbox.org ([80.241.56.172])
+	id 1vbflO-00000008KYV-0QG1;
+	Fri, 02 Jan 2026 14:04:22 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbfb1-00000008JtZ-2Tbz
+	id 1vbflK-00000008KY4-3msl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Jan 2026 13:53:40 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4djQC270Gsz9stX;
-	Fri,  2 Jan 2026 14:53:34 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1767362015;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ujVKOuzo5WqYG+lz+h/KUlxw8OmDWuGVBGYVvXW42P0=;
-	b=mihNgPx/gLD9uHoofpTBP+ijkKRfW9R0iSjTMv2iJ87GXsbO6ZXnbANN4HYn+OeuE3Iz4x
-	YmmXoeJdARn7pITD1kHG6QtBjvD3u0l5juuQUKJxnUjaW4F1sHdDClXfk19gpbdNaqilpD
-	re9v7+ZgkVY8RK2JMHogg1PECqRzA6lp/kCPId/C0tR/RoVnEmPL5niryFmko5oJKb4mUn
-	gufNrKNpSICS1BMKOzTfC/ZiDp8ScZRrQ8W03McScz4NQiUOzd34SG+wLp4bfO5w8eOfzY
-	obyRXY2ol/5SefQn98MgCRDHKpzlSwVhukROUYHoE0sbGrM9SQGv+IsBLgc2mw==
-Message-ID: <0de33175-1dc3-417b-8dab-9b57940f0789@mailbox.org>
-Date: Fri, 2 Jan 2026 14:53:31 +0100
+	Fri, 02 Jan 2026 14:04:20 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6029WDQ8207424
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 2 Jan 2026 14:04:18 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Zcdn/7Q48JsxusxJpdZxfM0eNzXVTYp1I4zI3xtwG7Y=; b=gmWAS9B5k/YF2KxC
+	pUQLKgVfTCvW7eB18XPzrAXbjsLtFEqwFoekY1DlvPcq9nJEAAAwqOZL06d4JS9x
+	3EPB+GriLWm4xz1H5rpr9clywND3baDb25GB4WG0XQv10GHvGyCXYqf6MXMYOCk0
+	vwB8iPQtMBG1r4lwSy4I+rDPmPa7rSiBGXqz9ychUf/KSy1mIyoPIrFDCQpZ2h4E
+	45VjA+uQ2jn6MmIWm0jFjZmhUl33AKRPDh5UFAtCdd8uAssXeii2caNh3Y6ZM/WX
+	N8JHWp9gqKjscxBk22kkLvCSxWxlMcmQ9ntjHBQz+kdWUOukRXl6jgKRvP3azU1J
+	9+nqrw==
+Received: from mail-yx1-f69.google.com (mail-yx1-f69.google.com [74.125.224.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bcx74cmr1-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Jan 2026 14:04:17 +0000 (GMT)
+Received: by mail-yx1-f69.google.com with SMTP id 956f58d0204a3-646518169caso2754287d50.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Jan 2026 06:04:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1767362657; x=1767967457; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Zcdn/7Q48JsxusxJpdZxfM0eNzXVTYp1I4zI3xtwG7Y=;
+        b=Y9ITnyqvMiywXqrXKB8bthxfOiZ7mc3Mwrfm1VOwMGECEo8B/pFvvJ8Hk+Q/OuNa5H
+         bTM/GkuXCmES+4lxgcCGxSNe11Pe5/cucjVqVVibcOD3IoqB2QPdsHbpwNWMcA7+law8
+         8hIfP9g5epU3elf8kfSYzhY8MnjWUohfIfUA4km/LIeCK+N+s/HDBIbUwSx5U0qDxdg8
+         Z2ihkn22mcq5OB/oAx1NBP5+SB5kgA5TOmmQylzgiZSu/+hXwopjjMEMQtJdHb2ALte+
+         CkCuMWYxF46pGz4rKJPZpRA8cF9OC0NG8LaE7gfJeKG80y28+FdR0QHZz6K+o1GSmfmj
+         usxg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767362657; x=1767967457;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Zcdn/7Q48JsxusxJpdZxfM0eNzXVTYp1I4zI3xtwG7Y=;
+        b=v28CRa5MDzxteRGtohDck0+l+h82hdjYNSUh9cwjj+qCVQsOYRbDulANUhUQdiVY29
+         5vUUEFtZkKnfEFM2AAGSE5zvpVF+HjNAyL0d5LVREb0nW1xW1MlmyfIqI33IgMXzqm3b
+         wcOUubx5lgHesoba3Bad7i8QgWNwBveM+za7qNPDJVAqL2mNHCyuG2hF9dL8sdWO/vF5
+         hPGuaZIiALZrLmh9IAO5oU/Hly/Rs/NHqqGxnuW1OumFtg5degs8ihTZgZt+qjbfWaYu
+         c7bG4FW8z+5NOUY6GaYUWGRUC+tuVIStCuezxt91TrXTMNHjSRbMq29NF7GvwzgQ4W4w
+         aS4g==
+X-Forwarded-Encrypted: i=1; AJvYcCXNk7Z1ObmBWHmUzTvwgTmEwq+Wa4uP+D74IcTAYizxCK0GC8vScRyNNLl7Qj9SZHHgvumTz9hQLJ/8ZPHS/OJb@lists.infradead.org
+X-Gm-Message-State: AOJu0YxFxaD/t9nyD87BM1NqDoKxjrwnFM6VYL1ewCHjpOI6lZMttz9m
+	G/NJwEz6lR3l3AcXi0ni24UIkItzJRGgmEAGf9ula0kROKXuNcj5LXP+8d3FUNhIbECj8wW+0As
+	MON44QWmIfp/lScBdzk0rpHKfJGeUWE8U93Vme8wJ6sqgBFuWfbtgMgwB8L+AoF6PkQenxQrdhe
+	TuaUoDyGRiqA==
+X-Gm-Gg: AY/fxX7SDw+m8gdjfwMeF+Pj9PvHKSkx0PwKKMYzHZckzABTsqWvo1F/K3FVRIUfVvc
+	j6kggX8NrlDIHlQn8lGqpobGDxHhcV/ce26V57PPDRHm30FWzSmlDY39yC1Su9Ed08mvkWT/wR6
+	nznj4mtNyMq9icQLGF3+EYrnEpIvOEQEhXxune1alQpMMgBEXjDksBO0lPuyLzqZsnbcVV68MpE
+	yzkfhxPLaQSQHKwq1Z2EHfwv3EZ4Vqp62jf+s1DJbvwJmJ38821nE3Vro0/kZzYiFfyw2rdGdbQ
+	A4spmze/iuXmEFZpLI5g++wZlnpjoa7DgKlYznFxPYOhkOEzNOVrEiXZv5tnW2UVvHPcRFIoPIO
+	PBDUNX43I7eovCuFRErnH1B04PgntktqeqPoez9q2Isz1cjhYOCL0qN5cpCURqL7NEw==
+X-Received: by 2002:a05:690c:fc1:b0:78c:2d45:519f with SMTP id 00721157ae682-78fb3e6e5a4mr318529107b3.0.1767362657099;
+        Fri, 02 Jan 2026 06:04:17 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHDY9o/Da3MH+qVOhc/qqaBC7t55MFtKFA+nrAgBn0dEzUb9bRjnu5r7OGAxL5CcAAw/v349w==
+X-Received: by 2002:a05:690c:fc1:b0:78c:2d45:519f with SMTP id 00721157ae682-78fb3e6e5a4mr318528797b3.0.1767362656686;
+        Fri, 02 Jan 2026 06:04:16 -0800 (PST)
+Received: from [192.168.119.72] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b8037f089fesm4586018066b.46.2026.01.02.06.04.15
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 02 Jan 2026 06:04:16 -0800 (PST)
+Message-ID: <01a884cc-f5c3-4b1b-9fd9-7459227cf455@oss.qualcomm.com>
+Date: Fri, 2 Jan 2026 15:04:14 +0100
 MIME-Version: 1.0
-Subject: Re: [PATCH] arm64: dts: imx95: remove CLK_GPUAPB
-To: Rain Yang <jiyu.yang@oss.nxp.com>
-Cc: Frank.Li@nxp.com, conor+dt@kernel.org, devicetree@vger.kernel.org,
- festevam@gmail.com, imx@lists.linux.dev, jiyu.yang@nxp.com,
- kernel@pengutronix.de, krzk+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- liviu.dudau@arm.com, robh@kernel.org, s.hauer@pengutronix.de,
- shawnguo@kernel.org
-References: <20251231031915.752262-1-jiyu.yang@oss.nxp.com>
- <37489cb7-820d-46cd-a7ea-0f9097604895@mailbox.org>
- <aVXByNiEfC66RDG0@oss.nxp.com>
- <b2dd2109-c2d9-412e-9b11-5851485acf04@mailbox.org>
- <aVegAt002L20oBGf@oss.nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] bus: qcom-ebi2: Simplify with scoped for each OF
+ child loop
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Gatien Chevallier <gatien.chevallier@foss.st.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org
+References: <20260102125030.65186-3-krzysztof.kozlowski@oss.qualcomm.com>
 Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <aVegAt002L20oBGf@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20260102125030.65186-3-krzysztof.kozlowski@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-MBO-RS-ID: e019832cff23643e43e
-X-MBO-RS-META: y1eoui7nrfmfe6kre5jnazb59cqu4f7q
+X-Proofpoint-ORIG-GUID: fzHnCZH-ZhcjkuxrRAnpAiSTxzaflzdH
+X-Proofpoint-GUID: fzHnCZH-ZhcjkuxrRAnpAiSTxzaflzdH
+X-Authority-Analysis: v=2.4 cv=HNvO14tv c=1 sm=1 tr=0 ts=6957d061 cx=c_pps
+ a=J+5FMm3BkXb42VdG8aMU9w==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
+ a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=9ra_KJl88v3tURVkoeQA:9
+ a=QEXdDO2ut3YA:10 a=Epx66wHExT0cjJnnR-oj:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTAyMDEyMiBTYWx0ZWRfX3L1VJ+/JEk4K
+ GTP6ABZbzKwveTO8PPJUDpb5dhSUCZ1MJ/HioJbVrz8et8I2coP97PHs7SHyY6FXfCPev5H9yF3
+ tkq96qfRoIFg8F3n+cG9C6HalP8Wv0WS0X+e42M5ufQ2TAQltcheHlijoWHm01pqztoo1cRAIR+
+ encTmBmu6fiygMRQVRlkTfKQRQkfxo0j+o9u4MXMJrpMUKm+pvvRZoYLfDrN64XQxyd2zaRPKaE
+ rKO5769M0iTmmMKQxSMd5FvzViB/np/PpAVWBhqEhH6dmZnPGe9esqhLYecTsrm24+yQmd+OaOm
+ I5UZtyLD7MyCh0QAkummsuDWUetm4yp/Vi9BuQu/fam6ej46LOMRsdVvs/nVf2sLqr/BZdc55o6
+ 0hO2azk0bgBV9fGlH/EBICOJUamNlnAZxXCXx0wkHioOgGQ9ejA9zcNjXV/03+j5to+4w9zyPTU
+ ASoNGsCpck1FSadz0Ow==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-02_02,2025-12-31_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 impostorscore=0 bulkscore=0 adultscore=0 suspectscore=0
+ priorityscore=1501 lowpriorityscore=0 clxscore=1015 spamscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601020122
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_055339_788557_C7311A7C 
-X-CRM114-Status: GOOD (  23.28  )
+X-CRM114-CacheID: sfid-20260102_060419_088431_C2158215 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,72 +152,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 1/2/26 11:37 AM, Rain Yang wrote:
-> On Thu, Jan 01, 2026 at 05:51:12PM +0100, Marek Vasut wrote:
->> On 1/1/26 1:37 AM, Rain Yang wrote:
->>> On Wed, Dec 31, 2025 at 03:11:21PM +0100, Marek Vasut wrote:
->>>> On 12/31/25 4:19 AM, Rain Yang wrote:
->>>>> From: Rain Yang <jiyu.yang@nxp.com>
->>>>>
->>>>> Dropping CLK_GPUAPB simplifies OPP handling and avoids unnecessary
->>>>> complexity.
->>>>>
->>>>> Fixes: 67934f248e64 ("arm64: dts: imx95: Describe Mali G310 GPU")
->>>>> Signed-off-by: Rain Yang <jiyu.yang@nxp.com>
->>>>> ---
->>>>>     arch/arm64/boot/dts/freescale/imx95.dtsi | 4 ++--
->>>>>     1 file changed, 2 insertions(+), 2 deletions(-)
->>>>>
->>>>> diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
->>>>> index 88bde59e61b2..ab446aa6f73c 100644
->>>>> --- a/arch/arm64/boot/dts/freescale/imx95.dtsi
->>>>> +++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
->>>>> @@ -2164,8 +2164,8 @@ netc_emdio: mdio@0,0 {
->>>>>     		gpu: gpu@4d900000 {
->>>>>     			compatible = "nxp,imx95-mali", "arm,mali-valhall-csf";
->>>>>     			reg = <0 0x4d900000 0 0x480000>;
->>>>> -			clocks = <&scmi_clk IMX95_CLK_GPU_CGC>, <&scmi_clk IMX95_CLK_GPUAPB>;
->>>>> -			clock-names = "core", "coregroup";
->>>>> +			clocks = <&scmi_clk IMX95_CLK_GPU_CGC>;
->>>>> +			clock-names = "core";
->>>>
->>>> I don't think this is correct, SM can disable the GPUAPB clock from the SM
->>>> monitor:
->>>>
->>>>> $ clock.w gpuapb off
->>>>
->>>> Linux has to make sure the GPUAPB clock are enabled to access the GPU
->>>> register, hence the clock have to be described in DT.
->>> Hi Marek,
->>
->> Hello Jiyu,
->>
->>> CLK_GPU and CLK_GPUAPB can only be controlled internally by the SM, not by Linux.
->>> CLK_GPUAPB always runs at a fixed frequency, does not require dynamic adjustment,
->>> and is practically always on.
->>> Additionally, CLK_GPUAPB's frequency is absent from all OPP entries. Removing it
->>> could simplify OPP handling logic and reduce unnecessary complexity.
->>
->> But the SM can turn the GPUAPB clock off, correct ?
->>
->> Linux has to be able to turn GPUAPB clock on, therefore the GPUAPB clock have
->> to be described in DT, correct ?
+On 1/2/26 1:50 PM, Krzysztof Kozlowski wrote:
+> Use scoped for-each loop when iterating over device nodes to make code a
+> bit simpler.
 > 
-> Yes, CLK_GPUAPB can be turned off by the SM, but by default it remains on, just like
-> CLK_GPU. AFAIK, there is no scenario where either of these clocks could or would be
-> disabled in both SM and Linux.
-> 
-> If enabling or disabling CLK_GPUAPB in Linux was wanted, the same shall apply to CLK_GPU
-> to make this approach reasonable.
-> Also, OPP framework shall be adjusted to meet these changes too.
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> ---
 
-You can not depend on the state in which bootloader or any other prior 
-stage left the platform. If the clock can be turned off, you must make 
-sure they are turned on for correct hardware operation.
+Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 
-CLK_GPU is enabled as parent clock of CLK_GPUCGC already.
-
-I don't understand your concerns about the OPP framework, this keeps 
-coming up in the discussion one way or the other, but it is not clear to 
-me what this is about. Can you elaborate on the OPP framework concern ?
+Konrad
 
