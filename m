@@ -4,60 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F913FA374B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 15:17:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2542FA3729
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 15:21:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
+	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g+Y4tZlmMOhjlcOrMF+gAjQhfVMW14x1bbX35EdHZ1g=; b=Ouy7Vs1GUGVCm5lf08k24xEqjR
-	PwowERjy8otKFf+N9wK5lPzaZ2eupa/kZPzeEH13OoU3mbwRN2gscmfklXsx4e/tIfreeWQ0QyUPa
-	/QIe3i9vMvkwMbZefFRzzZuI2p9LLRx0Jggr9t9LZQmG0DegPG8F1n+QbWPk3bp4vxo3aoRm9Jzc8
-	lkeMU3x3mb/pFLM2kl1xLuctxRFyj/ObK8cMuMLdT2IZI/M+ammAuZFf8JjO2Um32v1wsXYJWWO9i
-	Vy/Fmh+QCQ4Z1TAHfwoCilmrx5S0tb3ZsNHIdPH4OixecDho4K8ZaR/1pRkxYS1Va0zwfLZVM73xX
-	Qr7wuntQ==;
+	bh=X9XrpT/II9J7gpNVR31dLqWVwWAIyIdhjOJQcj/HGRo=; b=KAeuXqNTZhOKElk5eBqMrk3flq
+	uRMWkUImPhVE3OJ3upKA6WyPYxlWqkBg99W+61pss2vTPqjmzGwoXeccg9EPmsz5RUd16ZwgCW+IB
+	w4TeLOmmBFdUfxlKlrgIibC8NR7N/+zfau5ZpLeaboDKADMtdR/B9vWKgFJvdOtcwdPeY2eJ9BCGS
+	3W9rP1lSDrscJZQUWnDqXVRZ/fRE2Y+LZ62X4HwzWDR2MKW8CBkOEXCRWF3VlcpsQHP3SX8Xd9Ic4
+	5C9C2YIAaroq1OR8DqC4p5+zfmV3CGuWsdW1BAMq6rddXT37m0QBrudkpJ81q5ThsWbsRhuueM+Mz
+	YOQZVTTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbguE-00000008QAM-05Nt;
-	Fri, 02 Jan 2026 15:17:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vbgxl-00000008QOY-0oEv;
+	Fri, 02 Jan 2026 15:21:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbguB-00000008Q9x-1KjR
+	id 1vbgxj-00000008QOG-3kez
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Jan 2026 15:17:32 +0000
+	Fri, 02 Jan 2026 15:21:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9812140ACE;
-	Fri,  2 Jan 2026 15:17:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56B16C116B1;
-	Fri,  2 Jan 2026 15:17:29 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9A9B460017;
+	Fri,  2 Jan 2026 15:21:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B27EDC116B1;
+	Fri,  2 Jan 2026 15:21:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767367050;
-	bh=rulx+EHiKkHIaxqey/GNbl30vR/k8uss/CMSgWMUHm0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aPeRyB/lM7PAZuJCMi+rKby9A+HuQ77O2vNTC3Ol0XMi5XQ+Rhd4pkGt1QPBgf8KQ
-	 SP2QE2foTsYOsSCDdMjDFjky/LyEWHcKJan95zSANSFjC0Xz2RfHKB3SORZU7Ya7aw
-	 H29TUFNJH3gcAY7/AfKvG7koaaBgCixokzfQSopcJA6XFQZu5woAueFMhd3CrVkhjp
-	 iG1OSIKex6QGytqHHHJYDq/p8iyVR0x3z9nx4ZYDu97xEG8+AunALoiXIUAjqUUwyd
-	 Y0q7hTK7Vn9dk2HmPAAE1JN6i1VKOVqZpqJ33oLhkGHXmCYnFlNGVrxmBpBkbA6MCx
-	 9nwRSvSseJMuw==
-Date: Fri, 2 Jan 2026 15:17:25 +0000
-From: Will Deacon <will@kernel.org>
-To: Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org
-Subject: Re: SMP boot issue during system resume
-Message-ID: <aVfhhXHfFE6lzlzp@willie-the-truck>
-References: <dfa19ca7-c4c6-4386-a54d-44d623c8d3ed@quicinc.com>
+	s=k20201202; t=1767367270;
+	bh=pMXCQW12wPyvlfidixRLtglysi2HvG9+Wl6UmWXVbTA=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date:From;
+	b=ZDb6Smp5r1qwHf5O207uvXnwSlFpojpN3A/HXVReK3KkTSOxHLxMEQ/j2WMrJuMiy
+	 n+Zei+fXQ07vbkh2w7l57kLDGDVkAeR46Dxkc61yPQ1a/8ihN8C76oCCwF9x8HepVZ
+	 lrScZ1Ro6BJO/3boeJ3Zfpg0U/krYZ3Y4R78M7TaEBgQoRPoNVQcDjjKE7TfMC5RXj
+	 MQxgeoAB5KWO0fw+Ml+h6bQJYmD+GlqbxArV4vrHdv06E5tkyYP5JCeiEUfinYrtBF
+	 weDu5tMwWpipFifeMpWkwFz63wZSAevA5pxIRchyKKGVaenyfmrg2KpYDV+FLjYZUb
+	 c8qh6H96DdwnA==
+Content-Type: multipart/mixed; boundary="===============7827669722571794812=="
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <dfa19ca7-c4c6-4386-a54d-44d623c8d3ed@quicinc.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_071731_376380_296BBDB1 
-X-CRM114-Status: GOOD (  19.48  )
+Message-Id: <45f1e1978b7dc28e522dcc0a72954d892b37a85220749bd027c7395edb01d991@mail.kernel.org>
+In-Reply-To: <20260102150032.53106-2-leon.hwang@linux.dev>
+References: <20260102150032.53106-2-leon.hwang@linux.dev>
+Subject: Re: [PATCH bpf-next 1/4] bpf: tailcall: Introduce bpf_arch_tail_call_prologue_offset
+From: bot+bpf-ci@kernel.org
+To: leon.hwang@linux.dev,bpf@vger.kernel.org
+Cc: ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,martin.lau@linux.dev,eddyz87@gmail.com,song@kernel.org,yonghong.song@linux.dev,john.fastabend@gmail.com,kpsingh@kernel.org,sdf@fomichev.me,haoluo@google.com,jolsa@kernel.org,puranjay@kernel.org,xukuohai@huaweicloud.com,catalin.marinas@arm.com,will@kernel.org,davem@davemloft.net,dsahern@kernel.org,tglx@linutronix.de,mingo@redhat.com,bp@alien8.de,dave.hansen@linux.intel.com,x86@kernel.org,hpa@zytor.com,akpm@linux-foundation.org,linux-arm-kernel@lists.infradead.org,linux-kernel@vger.kernel.org,netdev@vger.kernel.org,kernel-patches-bot@fb.com,leon.hwang@linux.dev,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
+Date: Fri,  2 Jan 2026 15:21:09 +0000 (UTC)
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,40 +66,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 22, 2025 at 11:30:19AM +0530, Pavan Kondeti wrote:
-> We are seeing a SMP boot issue during system resume when CPUs are brought 
-> online via pm_sleep_enable_secondary_cpus()->thaw_secondary_cpus()->_cpu_up() 
-> on ARM64.
-> 
-> The _cpu_up() sets a global variable
-> 
-> secondary_data.task = idle;
-> 
-> and wait for the secondary CPU to come online. A 5 second timeout is
-> used here. If at all, the secondary CPU comes online after this timeout,
-> we expect it to loop in kernel via __secondary_too_slow(). However, this
-> depends on secondary_data.task value. Since we are bringing all disabled
-> cores, after timeout, we set this global variable to the next CPU idle
-> task and the late secondary CPU thinks the value is its idle task and
-> does not enter __secondary_too_slow().
-> 
-> An earlier attempt [1] to fix similar issue incrased the timout to 5
-> seconds. We could reproduce this issue in Linux guest where vCPU
-> scheduling latency can be higher under heavy load on the host.
-> 
-> I would like to seek your inputs on how we can improve the current
-> situation. We would like to avoid __secondary_too_slow() spin even when
-> the CPU comes late. This is probably not a desired behavior for other cases like 
-> Linux running bare metal or some guests. Having a Kconfig option or
-> kernel param might help here.
+--===============7827669722571794812==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
-You probably want to use the parallel hotplug machinery (or one of the
-interim steps) for this, as it avoids the global state entirely. I spoke
-about it at KVM forum [1] and I have some old hacks at [2]. I can dust
-those off and post them to the list if you like?
+> diff --git a/kernel/bpf/arraymap.c b/kernel/bpf/arraymap.c
+> index 1eeb31c5b317..beedd1281c22 100644
+> --- a/kernel/bpf/arraymap.c
+> +++ b/kernel/bpf/arraymap.c
+> @@ -127,6 +127,9 @@ static struct bpf_map *array_map_alloc(union bpf_attr *attr)
+>  			array_size += (u64) max_entries * elem_size;
+>  		}
+>  	}
+> +	if (attr->map_type == BPF_MAP_TYPE_PROG_ARRAY && bpf_arch_tail_call_prologue_offset())
+> +		/* Store tailcall targets */
+> +		array_size += (u64) max_entries * sizeof(void *);
 
-Will
+Should array_map_mem_usage() also account for this additional space?
+Currently array_map_mem_usage() handles special cases for percpu arrays
+and mmapable arrays, but has no corresponding check for PROG_ARRAY maps
+when bpf_arch_tail_call_prologue_offset() is non-zero. This would cause
+the reported memory usage to be lower than the actual allocation when
+an architecture implements this function (e.g., x86_64 and arm64 in the
+subsequent patches of this series).
 
-[1] https://www.youtube.com/watch?v=Q6kOshnnQuE
-[2] https://git.kernel.org/pub/scm/linux/kernel/git/will/linux.git/log/?h=cpu-hotplug
+[ ... ]
+
+
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/20660615603
+
+--===============7827669722571794812==--
 
