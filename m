@@ -4,107 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAC18FA3727
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 09:25:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3523E9410B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 09:31:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xboeX7iqp3yKPiHunSosJbagSL4sCsNu5Hh7gtei0fw=; b=aF6982YXnkLWigjB5oZKnrML57
-	UPTqqBgXu0dH9NrPAuUcWG4AuLq6v9F1bR7foGBN9BA/h0HKWKHj8WtAeqm2XyQDx9z64vUdu8fFJ
-	Ezm0/jRPrQdZUPd8/V5DFWBujCLirWxYl1QcOtvoEmiLeUASE63PmIxP9NCIijPrDZh0Wb/lj7PVt
-	1ZcPCm32px+JnnTCIQXdH0ls5UlKzlPkdnWTwtMbBYUf+1rOCXMiN70kAiBs5hYTmDVT5giwj0JtI
-	V4lhp0X8Wzb+/arxSFXTdFJQHIye4Yg+eH84ECQMiYdO4p+AZ8HbVta29wjdEeTnGsXjGEi5ObJdz
-	+QLgtjmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8YcZUjg0311ZROYKDXEwwP7sobLx9I06Jhc3I1W6jb0=; b=X7nAbnXyYTbK5diM17EisRHj6v
+	cQNyjHQFNIOUuwOMFCPTIoRcXu/jwewy/kyixsC5ueZWoIB1BrMQe52zCZGy87DFetoPeJkmgmi2L
+	8NmWaON160c8p1cV/mpHsmJkAoyFLN5CQkBTbApRxrgW0GawdbNXymDxH/TbX5h4gDPSpLSeIfVWN
+	+2nUpdl+MxCuloraDR3SWgTNq8xQ8JG20HW8CNONh6q2AFBTSx3BFcnyq1OxXudVJVUw5ktTEbeI8
+	Tc5mIRJdbJu3eOeu22XpEUKvzwGKsdTNcU3il87DFk1LHnfxfurby8OzgKTn2/OmiSjnlzrvjNEU/
+	a2wcqlDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbbP4-0000000819S-0XCf;
-	Fri, 02 Jan 2026 09:25:02 +0000
-Received: from fhigh-a5-smtp.messagingengine.com ([103.168.172.156])
+	id 1vbbUo-000000081Nl-3wrg;
+	Fri, 02 Jan 2026 09:30:59 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbbP0-0000000818N-2m3E
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Jan 2026 09:25:00 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id EA5F614000AD;
-	Fri,  2 Jan 2026 04:24:54 -0500 (EST)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-04.internal (MEProxy); Fri, 02 Jan 2026 04:24:54 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1767345894;
-	 x=1767432294; bh=xboeX7iqp3yKPiHunSosJbagSL4sCsNu5Hh7gtei0fw=; b=
-	aDSBt+A79WKXvc4f0lRnxJqT6zEOJQGqJKzz3e0zmZJkSJ+I98bstXT497fL+tFB
-	64XDyFgpEIVa8NioYlhI0HrziMsCSN0iU+XXmsn0KAPjGsTsVCt2Dcg3r31poSVc
-	W5XnidRgQUtXRZygFuv+TWGQqtFbnYWrrWCs3b9x2Be0+sJLM4w+w8iA1iBuZEdf
-	+8EiLJf34Tc7PHog57vADOP8pL+HoRmCkKZ8ikR8NuW/hL4OC5gN+kCYdEn/2NJS
-	S/u5ahvNqCPn/ne3n9p3RfSGFCv4L3HnVMI1//ygbE7YCKZFZ1mjcP9Orw66q9MZ
-	zkq4O2KDvRG470mIqZNxfw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1767345894; x=
-	1767432294; bh=xboeX7iqp3yKPiHunSosJbagSL4sCsNu5Hh7gtei0fw=; b=H
-	gncAOTv5hXasZnfO+DefsoIKG6IcQscodgz1nK3zYRriD4dbYPJUW9OMXhU1MCDo
-	ev/NmqZrrb/w7grftiyv2y4H/3cK5kX4RY6NXblDcg8uZtuYjq5DGkC/gzQor3ee
-	Gt79KRxlj3XdVtxadlFGLH8WHdsrtBScfBP6FGVZ8D5eUf/xVvadrka7RVZNDQr4
-	wVUN1JCjseOCXF1MfpQgr9EtYXsjHdGDaR054RIJfG3BuamBU74W0zrVnS4Bus4n
-	eyXYjfF1ZKfkwAaRpbG5A/OF0I31M8oxaE8fVjS0LAmENKOJQ20PQTTLxAcPWHwl
-	Z+Mc/XjDX2VkLjITzVJIA==
-X-ME-Sender: <xms:5Y5XaYihxTgTDU1PZ-z290UhDEZaTS5s2suS9_yef3GyND0SJtVilQ>
-    <xme:5Y5Xab3KNHDn0jKFStcNpwGM4MaHDVjJ-5rVatUc-KGgVgkbrir8d9rx6DpU6uu4k
-    Ls1pkf0Ug0-u35alpN3Lqs6-LPgYnPkGiJxudhJuPJmCJZkGQpBscw>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdekkeeftdcutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecunecujfgurhepofggfffhvfevkfgjfhfutgfgsehtqhertd
-    ertdejnecuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhn
-    uggsrdguvgeqnecuggftrfgrthhtvghrnhepvdfhvdekueduveffffetgfdvveefvdelhe
-    dvvdegjedvfeehtdeggeevheefleejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghr
-    rghmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtoh
-    epkedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheplhhinhhugiesrghrmhhlihhn
-    uhigrdhorhhgrdhukhdprhgtphhtthhopehrmhhkodhkvghrnhgvlhesrghrmhhlihhnuh
-    igrdhorhhgrdhukhdprhgtphhtthhopeifihhllhihsehinhhfrhgruggvrggurdhorhhg
-    pdhrtghpthhtohepthhhohhmrghsrdifvghishhsshgthhhuhheslhhinhhuthhrohhnih
-    igrdguvgdprhgtphhtthhopegrkhhpmheslhhinhhugidqfhhouhhnuggrthhiohhnrdho
-    rhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinh
-    hfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgv
-    rhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshhtrggslhgvsehvghgvrhdrkhgvrh
-    hnvghlrdhorhhg
-X-ME-Proxy: <xmx:5Y5XaRzIjTbUNLrxGr0sqwE_YbxvX-6eNffzwqOge8lpG-o2ae4jTQ>
-    <xmx:5Y5XaRsSmW-Q-K1mA_xlGV_8lFLPpH2Iwio-p9VGk-n03dH_YACR0w>
-    <xmx:5Y5XacDzW-6O6VxqoF5s4oMP8TDbdqXmRiRW-vjIMMRDuU49G0B1Iw>
-    <xmx:5Y5XabEv8cZh6nZOD0UjfmY1X4grWK9bHRazqxmFbV3UnwBikPb-WQ>
-    <xmx:5o5XacrIRGAev8YYYemAQzEnmYkiOpUc9zw5f3ALgJqjIDJ-NP0kA6ex>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id C5156700065; Fri,  2 Jan 2026 04:24:53 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1vbbUj-000000081NI-3K26;
+	Fri, 02 Jan 2026 09:30:56 +0000
+Date: Fri, 2 Jan 2026 10:30:48 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1767346250;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8YcZUjg0311ZROYKDXEwwP7sobLx9I06Jhc3I1W6jb0=;
+	b=avoC+DkYQZwGI05C6gFL2VwUUth9gGo3h2p/6b/8kXLMTZ9y5buFMYwCjSUJLnVovf0Wsg
+	V9bdt982VUpWV/nAzfFAjyNuHs+Av3WLRaTitb2t24jqTV6LkVOT8uU+Eqflu87LXr2OHo
+	bkzRuRWfp2e11+jhBFwhXgdL0Uv77O+tJPZVuJ5ToHr5/2xNfP9zOHwsTRmnazt0SLGW1a
+	OPCBWX1cFdGalZJyvCsQI8WkMG32ECjDY3su8Y8msn066hp4h3o1hxxzINyACzWSlCDA1v
+	C4KFqo+uVu9HSPVv8p9jT1wWHJV871NRtg3+Tzljr+dXyRWIFODyr2SpA1swwQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1767346250;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=8YcZUjg0311ZROYKDXEwwP7sobLx9I06Jhc3I1W6jb0=;
+	b=VSC9aYeyN9I/qJAosGOK7GzWpi2d6w4BCnz12QUjMWzwKSqvOnKSx6FCVdQ0Q5UzEXnoM0
+	MiX5oXCf0qlMPMCw==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Vineet Gupta <vgupta@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+	Dinh Nguyen <dinguyen@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+	linux-snps-arc@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 4/5] x86/uapi: Stop leaking kconfig references to
+ userspace
+Message-ID: <20260102093803-77269163-861e-4ea3-acdc-73be77c190a1@linutronix.de>
+References: <20251230-headers_install-config-leak-v1-0-efba5c58073d@linutronix.de>
+ <20251230-headers_install-config-leak-v1-4-efba5c58073d@linutronix.de>
+ <a745a59f-947c-4847-b31c-5e32125a51a4@app.fastmail.com>
 MIME-Version: 1.0
-X-ThreadId: AtSnlUpPuEWk
-Date: Fri, 02 Jan 2026 10:24:33 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
- "Russell King" <linux@armlinux.org.uk>,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "Matthew Wilcox" <willy@infradead.org>
-Cc: "Russell King" <rmk+kernel@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-Message-Id: <bfd7776e-574a-4828-99a2-f70a3b9015e6@app.fastmail.com>
-In-Reply-To: <20260102-armeb-memset64-v1-1-9aa15fb8e820@linutronix.de>
-References: <20260102-armeb-memset64-v1-1-9aa15fb8e820@linutronix.de>
-Subject: Re: [PATCH] ARM: fix memset64() on big-endian
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <a745a59f-947c-4847-b31c-5e32125a51a4@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_012459_255831_AAFFFF0B 
-X-CRM114-Status: UNSURE (   9.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260102_013054_072859_1EECB20D 
+X-CRM114-Status: GOOD (  24.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,20 +84,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 2, 2026, at 08:15, Thomas Wei=C3=9Fschuh wrote:
-> On big-endian systems the 32-bit low and high halves need to be swappe=
-d,
-> for the underlying assembly implemenation to work correctly.
+On Tue, Dec 30, 2025 at 10:08:04PM +0100, Arnd Bergmann wrote:
+> On Tue, Dec 30, 2025, at 08:10, Thomas Weißschuh wrote:
+> > 
+> >  /* entries in ARCH_DLINFO: */
+> > -#if defined(CONFIG_IA32_EMULATION) || !defined(CONFIG_X86_64)
+> > +#if defined(__KERNEL__) && (defined(CONFIG_IA32_EMULATION) || 
+> > !defined(CONFIG_X86_64))
+> >  # define AT_VECTOR_SIZE_ARCH 3
+> >  #else /* else it's non-compat x86-64 */
+> >  # define AT_VECTOR_SIZE_ARCH 2
+> 
+> While this patch clearly keeps the current behavior, I think it's
+> wrong, and 32-bit userspace should see a '3' instead of '2' here.
 >
-> Fixes: fd1d362600e2 ("ARM: implement memset32 & memset64")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Thomas Wei=C3=9Fschuh <thomas.weissschuh@linutronix.de>
-> ---
-> Found by the string_test_memset64 KUnit test.
+> It can probably just be '3' unconditionally, or we can
+> make it more complex and have a userspace definition based
+> on __x86_64__ being defined.
 
-Good catch! I guess that likely means you are the first one to
-run kunit test on armbe since the tests got added. Did you find
-any other differences between BE and LE kernels running kunit?
+Does userspace even need to see this definition at all?
+This value only makes sense in combination with AT_VECTOR_SIZE_BASE
+which itself is not part of the UAPI. Debian codesearch did not bring
+up a user for it. Not even CRIU, as they use their own definitions.
+The value is wrong today on x86 and nobody seems to have noticed.
+(Based on both the kconfig variables and the vDSO cmdline switches).
+Also UML shares the same UAPI headers but in the kernel has its own
+ARCH_DLINFO, so the values is "wrong" there, too.
 
-Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+> I also wonder if there is a problem with the third
+> x86-64 entry being zero rather than AT_IGNORE. I see that
+> some architectures do it like this, to keep the number constant
+> even if some entries are missing:
+> 
+>         if (likely(signal_minsigstksz))                          \
+>                 NEW_AUX_ENT(AT_MINSIGSTKSZ, signal_minsigstksz); \
+>         else                                                     \
+>                 NEW_AUX_ENT(AT_IGNORE, 0);                       \
+> 
+>      Arnd
+
+The whole AUX_ENT handling seems brittle and slighly broken. Many changes to
+AT_VECTOR_SIZE_BASE are done as fixes, as they were forgotten in the original
+changes to the process setup code. The addition of AT_HWCAP3/AT_HWCAP4 is
+still not reflected in AT_VECTOR_SIZE_BASE. (AT_HWCAP4 is never used anyways)
+
+Then the same logic is duplicated between binfmt_elf.c and binfmt_elf_fdpic.c,
+except that it is slightly different and the latter is missing some fields.
+We should deduplicate this code and find a way add a static assertion.
+
+Also space is wasted as more entries than possible are allocated in many cases.
+For example AT_BASE_PLATFORM and AT_RSEQ_*. And those are not stubbed out with
+AT_IGNORE either.
+
+
+So I'd like to keep my current patch as is, to reach my current goal of getting
+rid of kconfig leaks in the UAPI headers. In parallel we can remove
+AT_VECTOR_SIZE_ARCH from the UAPI and fix the auxiliary vector handling in
+two different patch series.
+
+
+Thomas
 
