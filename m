@@ -4,84 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6609EFA3737
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 11:58:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30C1EFA373C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 12:12:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lir7N+PKdb6wAs4ijty5cr6Rc1e4WEGVLKOhpiWnZnQ=; b=GH8IZmOsle4tawBFaDKKL7XpzM
-	LnnUDKVNowwmPgHSev/3OsJ2sLgU21+a3Af/ZsPqksrKDRbVO8c/ibHB/ksjPS6gjQxokRtmJWzKS
-	qea7PqOxQeiN3/dY6TcTyJtDpjuoKD3xvTXndZjqDhfxxj8Rvc2oCyUdz3lfxgesS0tMQ5X0Wy4Mc
-	Cbbl4wBAHO7znwZJ/AOnuujrngG5pzwQxD7zfTAfk+KYQpKeJkKTRvcB7Ah1dVJp3lEX8hccTu/TR
-	m8POtdlNvSjzOCvvW0e9z6JlXI+05GBngB24bpFZ3odwzfLYAy3Eod61n/tM6k9oxfGXAk1y900Ki
-	gpAklUBw==;
+	bh=lczeKFA1ojXuz98gJwf0pgHJcOtJg8IgdWAAGiyU6eA=; b=zgF5FTH36Pyo5y7NazwCWHnzH5
+	SfXDXwKm80FK6W6hS9EbJE6jGKmCS31Ho1jfOTY6AZWPKALsmr1S3AvFKNWy1ZYzotuDimIfzQRUG
+	8gSrsgSD1gQh8TsBQJO6vhQ1oOh3vPLCgrXzZOAFTZEpKh0HKrMP/e/r6WzhcjWPhO90M0RgYUzdR
+	GVRe4DQ8wnknvuFL1HaZ0H+n6TMBbPJ8NaRfxb0wz0KOiyJLAU7CSCixjQJ7EUrDUxekZut6+VDi3
+	EP1xp0hPs5b/U952nSnnoNuzj3QZYrfvW0SS9X+JFO5UoNLPvShYqBswp7Wm91O0DObJ+FeijhBpZ
+	bTKEJtAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbdnA-00000008AN5-495Q;
-	Fri, 02 Jan 2026 11:58:04 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbdn8-00000008AMi-2rrU
+	id 1vbe0s-00000008Axs-4APR;
+	Fri, 02 Jan 2026 12:12:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vbe0q-00000008AxU-23GS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Jan 2026 11:58:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 985C7441F2
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  2 Jan 2026 11:58:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DA0FC16AAE
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  2 Jan 2026 11:58:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767355081;
-	bh=OOGEjXmkNZBdRQAKqI/w24brTc3UbeLXjGqJU6rxA9Q=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=IeWTKfd+Fk/gvvkFii9UdxAE2Rdwm85vq/0Y9Oi3EGgKimj2KuJmRqZTLflWf0Jf3
-	 jVsIPfZSP89LMYOd70vs7WqZ0f/woBAcjA6ShM1Ssv2oo7eHeLAzAe9hAqmvwCQLSI
-	 //nH1cWuZnfaoATJuIzNAr5/E3ZzCcKxB555G13mcMJ6CHrUj3mLYME/Q6FMdRnrLF
-	 0/Sw8II2tW8yocs75r1Em3Vsntl/7dk2AmR6tX89XhPF6Xo2n0qMQG2ZigBjvSxDyj
-	 FNmdf++W0fnYXpbJq1accwd0I+Y+i6cMOWY22LFMViiNCh+8fGbtDHR8AQ8LrRUFJe
-	 WgL+Vo2yHu1NQ==
-Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-59584301f0cso2865739e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Jan 2026 03:58:01 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUnkDb8D4qxhvY8qt/2l/AuUUR2OEu0M1ZOxoixu9eF3nyM5h7bYHPMWDZiwYddafOATvGdYN27aU9vZB9gp+F1@lists.infradead.org
-X-Gm-Message-State: AOJu0YwRkdPO8VG7B2mWhBRgItvXZfJchsvdepTmbQ2Mn8ZJ30VOp/hG
-	9+LwAnU07UBIF4EbOboDKZVqgbwRMslyMt4qQaUm152aMlBPAul1cJ/9TSlkpmpyRz0Xffr0msu
-	QDWsX4KyZ6E03PXj/RXsf9t08DpPd+Ct/AFOAvNnQ9Q==
-X-Google-Smtp-Source: AGHT+IES0kIDjgnYGEOnKFGJNYFH0vsVl7fqRNUatfgND9VTY3QWFONMo7Hx4HSU6Gk61wbu2Oe+VULtLcRg9b8wJ6Y=
-X-Received: by 2002:a05:6512:4887:b0:59a:10c1:8f25 with SMTP id
- 2adb3069b0e04-59a17d5dac9mr8692071e87.41.1767355079664; Fri, 02 Jan 2026
- 03:57:59 -0800 (PST)
+	Fri, 02 Jan 2026 12:12:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5EC6E497;
+	Fri,  2 Jan 2026 04:12:03 -0800 (PST)
+Received: from [10.57.94.221] (unknown [10.57.94.221])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3072E3F63F;
+	Fri,  2 Jan 2026 04:12:07 -0800 (PST)
+Message-ID: <85094ce2-21a8-4d25-bd96-7d809c5daa3b@arm.com>
+Date: Fri, 2 Jan 2026 12:12:05 +0000
 MIME-Version: 1.0
-References: <20251228-arm-psci-system_reset2-vendor-reboots-v19-0-ebb956053098@oss.qualcomm.com>
- <20251228-arm-psci-system_reset2-vendor-reboots-v19-6-ebb956053098@oss.qualcomm.com>
-In-Reply-To: <20251228-arm-psci-system_reset2-vendor-reboots-v19-6-ebb956053098@oss.qualcomm.com>
-From: Bartosz Golaszewski <brgl@kernel.org>
-Date: Fri, 2 Jan 2026 12:57:47 +0100
-X-Gmail-Original-Message-ID: <CAMRc=Me8WQ=aMd-NJ1yzzHzqU8fT1u4eb7as=EjSpZ+Rpv9+rg@mail.gmail.com>
-X-Gm-Features: AQt7F2p2LtuO3Z-xskVqWJd7KmTcH-PyEGQI74hc0fHTK246U1sFcvAjuK93DWQ
-Message-ID: <CAMRc=Me8WQ=aMd-NJ1yzzHzqU8fT1u4eb7as=EjSpZ+Rpv9+rg@mail.gmail.com>
-Subject: Re: [PATCH v19 06/10] power: reset: Add psci-reboot-mode driver
-To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Bjorn Andersson <andersson@kernel.org>, Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Sudeep Holla <sudeep.holla@arm.com>, Souvik Chakravarty <Souvik.Chakravarty@arm.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Andy Yan <andy.yan@rock-chips.com>, 
-	John Stultz <john.stultz@linaro.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	Moritz Fischer <moritz.fischer@ettus.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Conor Dooley <conor+dt@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
-	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, Andre Draszik <andre.draszik@linaro.org>, 
-	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
-	Srinivas Kandagatla <srini@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 3/5] arm64: mm: support batch clearing of the young
+ flag for large folios
+Content-Language: en-GB
+To: Baolin Wang <baolin.wang@linux.alibaba.com>, akpm@linux-foundation.org,
+ david@kernel.org, catalin.marinas@arm.com, will@kernel.org
+Cc: lorenzo.stoakes@oracle.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
+ rppt@kernel.org, surenb@google.com, mhocko@suse.com, riel@surriel.com,
+ harry.yoo@oracle.com, jannh@google.com, willy@infradead.org,
+ baohua@kernel.org, dev.jain@arm.com, linux-mm@kvack.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <cover.1766455377.git.baolin.wang@linux.alibaba.com>
+ <3b427d9010a6d52f2b91342760f12be097d21cf6.1766455378.git.baolin.wang@linux.alibaba.com>
+ <c5df1f9f-952a-4e83-9ae0-bd0a83dedd36@arm.com>
+ <02239ca7-9701-4bfa-af0f-dcf0d05a3e89@linux.alibaba.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <02239ca7-9701-4bfa-af0f-dcf0d05a3e89@linux.alibaba.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_035802_767978_8991A44C 
-X-CRM114-Status: GOOD (  18.86  )
+X-CRM114-CacheID: sfid-20260102_041212_611149_0FF9DCF2 
+X-CRM114-Status: GOOD (  28.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,88 +72,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Dec 28, 2025 at 6:21=E2=80=AFPM Shivendra Pratap
-<shivendra.pratap@oss.qualcomm.com> wrote:
->
+On 25/12/2025 02:48, Baolin Wang wrote:
+> 
+> 
+> On 2025/12/24 22:07, Ryan Roberts wrote:
+>> On 23/12/2025 05:48, Baolin Wang wrote:
+>>> Currently, contpte_ptep_test_and_clear_young() and
+>>> contpte_ptep_clear_flush_young()
+>>> only clear the young flag and flush TLBs for PTEs within the contiguous range.
+>>> To support batch PTE operations for other sized large folios in the following
+>>> patches, adding a new parameter to specify the number of PTEs that map
+>>> consecutive
+>>> pages of the same large folio in a single VMA and a single page table.
+>>>
+>>> While we are at it, rename the functions to maintain consistency with other
+>>> contpte_*() functions.
+>>>
+>>> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+>>> ---
+>>>   arch/arm64/include/asm/pgtable.h | 12 ++++++------
+>>>   arch/arm64/mm/contpte.c          | 33 ++++++++++++++++++--------------
+>>>   2 files changed, 25 insertions(+), 20 deletions(-)
+>>>
+>>> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+>>> index 445e18e92221..d5fbe72e820a 100644
+>>> --- a/arch/arm64/include/asm/pgtable.h
+>>> +++ b/arch/arm64/include/asm/pgtable.h
+>>> @@ -1648,10 +1648,10 @@ extern void contpte_clear_full_ptes(struct mm_struct
+>>> *mm, unsigned long addr,
+>>>   extern pte_t contpte_get_and_clear_full_ptes(struct mm_struct *mm,
+>>>                   unsigned long addr, pte_t *ptep,
+>>>                   unsigned int nr, int full);
+>>> -extern int contpte_ptep_test_and_clear_young(struct vm_area_struct *vma,
+>>> -                unsigned long addr, pte_t *ptep);
+>>> -extern int contpte_ptep_clear_flush_young(struct vm_area_struct *vma,
+>>> -                unsigned long addr, pte_t *ptep);
+>>> +int contpte_test_and_clear_young_ptes(struct vm_area_struct *vma,
+>>> +                unsigned long addr, pte_t *ptep, unsigned int nr);
+>>> +int contpte_clear_flush_young_ptes(struct vm_area_struct *vma,
+>>> +                unsigned long addr, pte_t *ptep, unsigned int nr);
+>>>   extern void contpte_wrprotect_ptes(struct mm_struct *mm, unsigned long addr,
+>>>                   pte_t *ptep, unsigned int nr);
+>>>   extern int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
+>>> @@ -1823,7 +1823,7 @@ static inline int ptep_test_and_clear_young(struct
+>>> vm_area_struct *vma,
+>>>       if (likely(!pte_valid_cont(orig_pte)))
+>>>           return __ptep_test_and_clear_young(vma, addr, ptep);
+>>>   -    return contpte_ptep_test_and_clear_young(vma, addr, ptep);
+>>> +    return contpte_test_and_clear_young_ptes(vma, addr, ptep, CONT_PTES);
+>>
+>> As per your fixup patch, I agree that nr should be 1 here, not CONT_PTES.
+> 
+> Yes.
+> 
+>>>   }
+>>>     #define __HAVE_ARCH_PTEP_CLEAR_YOUNG_FLUSH
+>>> @@ -1835,7 +1835,7 @@ static inline int ptep_clear_flush_young(struct
+>>> vm_area_struct *vma,
+>>>       if (likely(!pte_valid_cont(orig_pte)))
+>>>           return __ptep_clear_flush_young(vma, addr, ptep);
+>>>   -    return contpte_ptep_clear_flush_young(vma, addr, ptep);
+>>> +    return contpte_clear_flush_young_ptes(vma, addr, ptep, CONT_PTES);
+>>
+>> And same here.
+>>
+>>>   }
+>>>     #define wrprotect_ptes wrprotect_ptes
+>>> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
+>>> index e4ddeb46f25d..b929a455103f 100644
+>>> --- a/arch/arm64/mm/contpte.c
+>>> +++ b/arch/arm64/mm/contpte.c
+>>> @@ -508,8 +508,9 @@ pte_t contpte_get_and_clear_full_ptes(struct mm_struct *mm,
+>>>   }
+>>>   EXPORT_SYMBOL_GPL(contpte_get_and_clear_full_ptes);
+>>>   -int contpte_ptep_test_and_clear_young(struct vm_area_struct *vma,
+>>> -                    unsigned long addr, pte_t *ptep)
+>>> +int contpte_test_and_clear_young_ptes(struct vm_area_struct *vma,
+>>> +                    unsigned long addr, pte_t *ptep,
+>>> +                    unsigned int nr)
+>>>   {
+>>>       /*
+>>>        * ptep_clear_flush_young() technically requires us to clear the access
+>>> @@ -518,41 +519,45 @@ int contpte_ptep_test_and_clear_young(struct
+>>> vm_area_struct *vma,
+>>>        * contig range when the range is covered by a single folio, we can get
+>>>        * away with clearing young for the whole contig range here, so we avoid
+>>>        * having to unfold.
+>>> +     *
+>>> +     * The 'nr' means consecutive (present) PTEs that map consecutive pages
+>>> +     * of the same large folio in a single VMA and a single page table.
+>>>        */
+>>>   +    unsigned long end = addr + nr * PAGE_SIZE;
+>>>       int young = 0;
+>>> -    int i;
+>>>   -    ptep = contpte_align_down(ptep);
+>>> -    addr = ALIGN_DOWN(addr, CONT_PTE_SIZE);
+>>> -
+>>> -    for (i = 0; i < CONT_PTES; i++, ptep++, addr += PAGE_SIZE)
+>>> +    ptep = contpte_align_addr_ptep(&addr, &end, ptep, nr);
+>>> +    for (; addr != end; ptep++, addr += PAGE_SIZE)
+>>>           young |= __ptep_test_and_clear_young(vma, addr, ptep);
+>>>         return young;
+>>>   }
+>>> -EXPORT_SYMBOL_GPL(contpte_ptep_test_and_clear_young);
+>>> +EXPORT_SYMBOL_GPL(contpte_test_and_clear_young_ptes);
+>>>   -int contpte_ptep_clear_flush_young(struct vm_area_struct *vma,
+>>> -                    unsigned long addr, pte_t *ptep)
+>>> +int contpte_clear_flush_young_ptes(struct vm_area_struct *vma,
+>>> +                unsigned long addr, pte_t *ptep,
+>>> +                unsigned int nr)
+>>>   {
+>>>       int young;
+>>>   -    young = contpte_ptep_test_and_clear_young(vma, addr, ptep);
+>>> +    young = contpte_test_and_clear_young_ptes(vma, addr, ptep, nr);
+>>>         if (young) {
+>>> +        unsigned long end = addr + nr * PAGE_SIZE;
+>>> +
+>>> +        contpte_align_addr_ptep(&addr, &end, ptep, nr);
+>>>           /*
+>>>            * See comment in __ptep_clear_flush_young(); same rationale for
+>>>            * eliding the trailing DSB applies here.
+>>>            */
+>>> -        addr = ALIGN_DOWN(addr, CONT_PTE_SIZE);
+>>> -        __flush_tlb_range_nosync(vma->vm_mm, addr, addr + CONT_PTE_SIZE,
+>>> +        __flush_tlb_range_nosync(vma->vm_mm, addr, end,
+>>>                        PAGE_SIZE, true, 3);
+>>
+>> Hmm... The requirement is that we must flush the _page_ if clearing access for a
+>> pte that does not have the contiguous bit set, or we must flush the _contpte
+>> block_ if clearing access for a pte that does have the contiguous bit set.
+>>
+>> With your changes, you may call for a large range that covers multiple contpte
+>> blocks but only has a single pte in a single contpte block for which the access
+>> bit was previously set. But that will cause flushing the TLB for the full range.
+>> Could this cause a performance issue? Yes, no, maybe... I think it's unlikely
+>> but I wouldn't rule it out in some edge case.
+>>
+>> I wonder if it's better to track the sub-ranges where access was cleared and
+>> only issue tlbi for those sub-ranges? Probably just keep it simple (the way you
+>> have done it) until/unless we see an actual problem?
+> 
+> Good question. Indeed, as you said, we flush the TLB per folio now, which might
+> increase the flush range. However, I think this approach is relatively
+> reasonable for now.
+> 
+> First, the mm-core also tracks the access status per folio, and it's really
+> unnecessary to add excessive complexity to track the access status of sub-pages
+> (or sub-ranges). I can already imagine that tracking the access status for each
+> cont-block range as well as for non-cont pages across the entire large folio
+> range, which can be too complicated.
+> 
+> Second, __flush_tlb_range_nosync() is a lightweight flush. I quickly ran a
+> measurement on my machine and found that the overhead of
+> __flush_tlb_range_nosync() barely changes between nr=16 and nr=256 (both are
+> around 40 ns).
 
-[snip]
+I'm not concerned about the direct cost of the flush; I agree it should be
+lightweight given we elide the trailing DSB. (although there is a possible case
+on older HW that doesn't support TLBI-by-range where this will be converted to
+multiple TLBI-by-page instructions and that can cause stalls if there are too
+many of them).
 
-> +
-> +static int psci_reboot_mode_probe(struct faux_device *fdev)
-> +{
-> +       struct reboot_mode_driver *reboot;
-> +       struct device_node *psci_np;
-> +       struct device_node *np;
-> +       int ret;
-> +
-> +       psci_np =3D of_find_compatible_node(NULL, NULL, "arm,psci-1.0");
-> +       if (!psci_np)
-> +               return -ENODEV;
-> +
-> +       /*
-> +        * Find the psci:reboot-mode node.
-> +        * If NULL, continue to register predefined modes.
-> +        * np refcount to be handled by dev;
-> +        * psci_np refcount is decremented by of_find_node_by_name;
-> +        */
+My concern was the opportunity cost of evicting the entries for all the
+non-accessed parts of the folio from the TLB. But of course, I'm talking
+nonsense because the architecture does not allow caching non-accessed entries in
+the TLB.
 
-Can you make this comment into full sentences, I had trouble parsing
-the meaning for a minute.
+So doesn't sound like a problem; I think we can ignore this. Sorry for the noise.
 
-> +       np =3D of_find_node_by_name(psci_np, "reboot-mode");
-> +       fdev->dev.of_node =3D np;
+> 
+> Therefore, I would still prefer to keep the logic here simple.
 
-The logic of the device assigning its own node is a bit sketchy,
-ideally this should be done before the device probes.
+Agreed.
 
-> +
-> +       reboot =3D devm_kzalloc(&fdev->dev, sizeof(*reboot), GFP_KERNEL);
-> +       if (!reboot)
-> +               return -ENOMEM;
-> +
-> +       psci_reboot_mode_set_predefined_modes(reboot);
-> +       reboot->write =3D psci_reboot_mode_write;
-> +       reboot->dev =3D &fdev->dev;
-> +
-> +       ret =3D devm_reboot_mode_register(&fdev->dev, reboot);
-> +       if (ret) {
-> +               dev_err(&fdev->dev, "devm_reboot_mode_register failed %d\=
-n", ret);
-> +               return ret;
+Thanks,
+Ryan
 
-Use dev_err_probe().
-
-> +       }
-> +
-> +       return 0;
-> +}
-> +
-> +static struct faux_device_ops psci_reboot_mode_ops =3D {
-> +       .probe =3D psci_reboot_mode_probe,
-> +};
-> +
-> +static int __init psci_reboot_mode_init(void)
-> +{
-> +       struct faux_device *fdev;
-> +
-> +       fdev =3D faux_device_create("psci-reboot-mode", NULL, &psci_reboo=
-t_mode_ops);
-> +       if (!fdev)
-> +               return -ENODEV;
-
-This will always create this device for everyone who includes this
-module. Move the of_find_compatible_node(NULL, NULL, "arm,psci-1.0")
-call from probe() here instead and don't create the device if it
-fails.
-
-Bart
-
-> +
-> +       return 0;
-> +}
-> +device_initcall(psci_reboot_mode_init);
->
-> --
-> 2.34.1
->
 
