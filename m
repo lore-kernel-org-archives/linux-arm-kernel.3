@@ -4,76 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2202FA3728
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 17:02:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 547B6FA3753
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 17:03:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VSmPqVNTnBjhIVXfobqokP88AkkG9BV/FYeKkeFDdIs=; b=yDv/9px2p5iNyC6yUwuTG0JU+0
-	mO3P66RPFPJWIMiPnH6kNVcm5Qn/YHZZXzNB87ta5sWGbxTgl8C02VGu4VCed4z8glXAxdbhzCd/r
-	4d5nRkN3TqBr8hIiQw2iL+E08eqPs1ez7MY4/glLhgBgxs59iDfrp1sqcRWlvFlS3ExAzcGrLB6Wq
-	w71n9mmHboWwtgCt09ZGLtlye004lEuW8/dZPXzng0Dt+vyY541y+W4s+ByiuB0//YtEdUEy4O3NH
-	C/EVZlekWIigozCHC2tFLvhes4GFNo3nScUwtdTxWC2c1in25juG12z/QHFaOGS+ImReKMqZ43UaY
-	GbM3rkuA==;
+	bh=VquIGlMG22FiqzSomuVxO3pJuNTPu1MzbM7EM1lJb+o=; b=xX9ph9LnNnzbS/nMfrOntkS+iB
+	0IFiUA7GjruVC5Q4CF5FUq3b84CuxNirWUUTNwAI4Nyxs4TeIB2OCz7VBgxIDAdaX6qfARRzvTpOU
+	VKNxkdBmOHJGufRl+dIpjPWg4BmDCZGuxDAWXJiDC26VoNpr/DVqfZazEDpR3USzeujqpdCMJryFF
+	4myb3vsPbiZuEQUzWWdAktYQHQjE1PFUe+ZTe1eky4QoyFHrKTvde2XdQUfWOjvXJo6UH9UjFcuNh
+	YtIFdPvhP3UrMPWJNFPh5O1EWK+Hf34bfySjCx3S6RMMltuIlmrrqUr4ngsFJ4NZBZQvltkTnsT+P
+	2GXpR/3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbiXs-00000008Wv0-0CQE;
-	Fri, 02 Jan 2026 17:02:36 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1vbiYN-00000008X85-1ZAH;
+	Fri, 02 Jan 2026 17:03:07 +0000
+Received: from out-179.mta0.migadu.com ([91.218.175.179])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbiXp-00000008Wth-27jE
+	id 1vbiYK-00000008X6A-2cmI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Jan 2026 17:02:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1767373352; x=1798909352;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=b2FcMDI/Onb6TJ2aAIjlXHZ4EvhM59xQTjBh6PFYK+8=;
-  b=v9PIpiBMXIEb4wuyuC6usniS/opNy2qSA6WapTg8iXlE4SAigQ8UlsdI
-   yRbsVkh8Z5tY1JH5OiJ78dU0FFcHBIDiweHRnljFT0xbgoE2s9adDslmc
-   ec0mbF5P3Z6KYLc8nX+9taxp+dkchvr4bmQoKm8WnsWohPtnlcPz/EURQ
-   5x5TuzTuUbEVkWcsDn7BJ8ZqdEpOdgL/Jj9XPBkHeLMaimjogYXJ2Evq8
-   giUi1ApQM1Ut9vxKxFDIv87cL+IyAzSCKoeTHVodlXSZKty3q9se2K5cT
-   ic9uzN4dIq5G7wvcVNwqNqv79LTx9YK7g39j0Y8qG8SAjHVBc3PS/LgUJ
-   w==;
-X-CSE-ConnectionGUID: AQIGzmznQ9aRzmgEiLNGFw==
-X-CSE-MsgGUID: C2HUDPFbRKOMTMajxM987w==
-X-IronPort-AV: E=Sophos;i="6.21,197,1763449200"; 
-   d="scan'208";a="282656849"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 02 Jan 2026 10:02:32 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Fri, 2 Jan 2026 10:01:38 -0700
-Received: from ROU-LL-M43238.microchip.com (10.10.85.11) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Fri, 2 Jan 2026 10:01:35 -0700
-From: <nicolas.ferre@microchip.com>
-To: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-CC: Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
-	<claudiu.beznea@tuxon.dev>, Balamanikandan Gunasundar
-	<balamanikandan.gunasundar@microchip.com>, Ryan Wanner
-	<ryan.wanner@microchip.com>, Conor Dooley <conor.dooley@microchip.com>, "Hari
- Prasath Gujulan Elango" <hari.prasathge@microchip.com>,
-	<stable@vger.kernel.org>
-Subject: [PATCH 1/5] ARM: dts: microchip: sama7d65: fix the ranges property for flx9
-Date: Fri, 2 Jan 2026 18:01:30 +0100
-Message-ID: <20260102170135.70717-2-nicolas.ferre@microchip.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260102170135.70717-1-nicolas.ferre@microchip.com>
-References: <20260102170135.70717-1-nicolas.ferre@microchip.com>
+	Fri, 02 Jan 2026 17:03:06 +0000
+Date: Fri, 2 Jan 2026 17:02:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1767373380;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=VquIGlMG22FiqzSomuVxO3pJuNTPu1MzbM7EM1lJb+o=;
+	b=GONbZMowDit/CV6j92ss1DbpkpRLpd6qgnfPipRYspttY2hjT9J8/ZF3pok9rWI/4fjbSf
+	hs+i0uPiXAMWZJwTtp/Fzpg+0n0R9LSGrjR5qoZU2OU/PKQk7gz+ub8uJKEEqVgu6Pn7fL
+	J/YI5uLwXzBRESM9/1oHrvonV9ZHBoA=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Yosry Ahmed <yosry.ahmed@linux.dev>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oupton@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 08/21] KVM: selftests: Add a "struct kvm_mmu_arch
+ arch" member to kvm_mmu
+Message-ID: <sckc5rvtxzmzra5l4otjoe5smm3r2xmieyybyx6xlxibrngegi@4r7iks23pa56>
+References: <20251230230150.4150236-1-seanjc@google.com>
+ <20251230230150.4150236-9-seanjc@google.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251230230150.4150236-9-seanjc@google.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_090233_550081_7E94AEB2 
-X-CRM114-Status: GOOD (  11.59  )
+X-CRM114-CacheID: sfid-20260102_090304_855862_8B92F431 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,36 +76,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Hari Prasath Gujulan Elango <hari.prasathge@microchip.com>
+On Tue, Dec 30, 2025 at 03:01:37PM -0800, Sean Christopherson wrote:
+> Add an arch structure+field in "struct kvm_mmu" so that architectures can
+> track arch-specific information for a given MMU.
+> 
+> No functional change intended.
+> 
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
 
-Update the ranges property for the flexcom9 as per the datasheet and
-align with the reg property.
+Reviewed-by: Yosry Ahmed <yosry.ahmed@linux.dev>
 
-Fixes: b51e4aea3ecf ("ARM: dts: microchip: sama7d65: Add FLEXCOMs to sama7d65 SoC")
-Cc: <stable@vger.kernel.org> # 6.16+
-Signed-off-by: Hari Prasath Gujulan Elango <hari.prasathge@microchip.com>
-Signed-off-by: Nicolas Ferre <nicolas.ferre@microchip.com>
----
-Note: Hari's email address will bounce. Change to whichever suits you.
-
-
- arch/arm/boot/dts/microchip/sama7d65.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/arch/arm/boot/dts/microchip/sama7d65.dtsi b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-index cd2cf9a6f40b..5f3a7b178aa7 100644
---- a/arch/arm/boot/dts/microchip/sama7d65.dtsi
-+++ b/arch/arm/boot/dts/microchip/sama7d65.dtsi
-@@ -676,7 +676,7 @@ i2c8: i2c@600 {
- 		flx9: flexcom@e2820000 {
- 			compatible = "microchip,sama7d65-flexcom", "atmel,sama5d2-flexcom";
- 			reg = <0xe2820000 0x200>;
--			ranges = <0x0 0xe281c000 0x800>;
-+			ranges = <0x0 0xe2820000 0x800>;
- 			clocks = <&pmc PMC_TYPE_PERIPHERAL 43>;
- 			#address-cells = <1>;
- 			#size-cells = <1>;
--- 
-2.43.0
-
+> ---
+>  tools/testing/selftests/kvm/include/arm64/kvm_util_arch.h     | 2 ++
+>  tools/testing/selftests/kvm/include/kvm_util.h                | 2 ++
+>  tools/testing/selftests/kvm/include/loongarch/kvm_util_arch.h | 1 +
+>  tools/testing/selftests/kvm/include/riscv/kvm_util_arch.h     | 1 +
+>  tools/testing/selftests/kvm/include/s390/kvm_util_arch.h      | 1 +
+>  tools/testing/selftests/kvm/include/x86/kvm_util_arch.h       | 2 ++
+>  6 files changed, 9 insertions(+)
+> 
+> diff --git a/tools/testing/selftests/kvm/include/arm64/kvm_util_arch.h b/tools/testing/selftests/kvm/include/arm64/kvm_util_arch.h
+> index b973bb2c64a6..4a2033708227 100644
+> --- a/tools/testing/selftests/kvm/include/arm64/kvm_util_arch.h
+> +++ b/tools/testing/selftests/kvm/include/arm64/kvm_util_arch.h
+> @@ -2,6 +2,8 @@
+>  #ifndef SELFTEST_KVM_UTIL_ARCH_H
+>  #define SELFTEST_KVM_UTIL_ARCH_H
+>  
+> +struct kvm_mmu_arch {};
+> +
+>  struct kvm_vm_arch {
+>  	bool	has_gic;
+>  	int	gic_fd;
+> diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
+> index 39558c05c0bf..c1497515fa6a 100644
+> --- a/tools/testing/selftests/kvm/include/kvm_util.h
+> +++ b/tools/testing/selftests/kvm/include/kvm_util.h
+> @@ -92,6 +92,8 @@ struct kvm_mmu {
+>  	bool pgd_created;
+>  	uint64_t pgd;
+>  	int pgtable_levels;
+> +
+> +	struct kvm_mmu_arch arch;
+>  };
+>  
+>  struct kvm_vm {
+> diff --git a/tools/testing/selftests/kvm/include/loongarch/kvm_util_arch.h b/tools/testing/selftests/kvm/include/loongarch/kvm_util_arch.h
+> index e43a57d99b56..d5095900e442 100644
+> --- a/tools/testing/selftests/kvm/include/loongarch/kvm_util_arch.h
+> +++ b/tools/testing/selftests/kvm/include/loongarch/kvm_util_arch.h
+> @@ -2,6 +2,7 @@
+>  #ifndef SELFTEST_KVM_UTIL_ARCH_H
+>  #define SELFTEST_KVM_UTIL_ARCH_H
+>  
+> +struct kvm_mmu_arch {};
+>  struct kvm_vm_arch {};
+>  
+>  #endif  // SELFTEST_KVM_UTIL_ARCH_H
+> diff --git a/tools/testing/selftests/kvm/include/riscv/kvm_util_arch.h b/tools/testing/selftests/kvm/include/riscv/kvm_util_arch.h
+> index e43a57d99b56..d5095900e442 100644
+> --- a/tools/testing/selftests/kvm/include/riscv/kvm_util_arch.h
+> +++ b/tools/testing/selftests/kvm/include/riscv/kvm_util_arch.h
+> @@ -2,6 +2,7 @@
+>  #ifndef SELFTEST_KVM_UTIL_ARCH_H
+>  #define SELFTEST_KVM_UTIL_ARCH_H
+>  
+> +struct kvm_mmu_arch {};
+>  struct kvm_vm_arch {};
+>  
+>  #endif  // SELFTEST_KVM_UTIL_ARCH_H
+> diff --git a/tools/testing/selftests/kvm/include/s390/kvm_util_arch.h b/tools/testing/selftests/kvm/include/s390/kvm_util_arch.h
+> index e43a57d99b56..d5095900e442 100644
+> --- a/tools/testing/selftests/kvm/include/s390/kvm_util_arch.h
+> +++ b/tools/testing/selftests/kvm/include/s390/kvm_util_arch.h
+> @@ -2,6 +2,7 @@
+>  #ifndef SELFTEST_KVM_UTIL_ARCH_H
+>  #define SELFTEST_KVM_UTIL_ARCH_H
+>  
+> +struct kvm_mmu_arch {};
+>  struct kvm_vm_arch {};
+>  
+>  #endif  // SELFTEST_KVM_UTIL_ARCH_H
+> diff --git a/tools/testing/selftests/kvm/include/x86/kvm_util_arch.h b/tools/testing/selftests/kvm/include/x86/kvm_util_arch.h
+> index 972bb1c4ab4c..456e5ca170df 100644
+> --- a/tools/testing/selftests/kvm/include/x86/kvm_util_arch.h
+> +++ b/tools/testing/selftests/kvm/include/x86/kvm_util_arch.h
+> @@ -10,6 +10,8 @@
+>  
+>  extern bool is_forced_emulation_enabled;
+>  
+> +struct kvm_mmu_arch {};
+> +
+>  struct kvm_vm_arch {
+>  	vm_vaddr_t gdt;
+>  	vm_vaddr_t tss;
+> -- 
+> 2.52.0.351.gbe84eed79e-goog
+> 
 
