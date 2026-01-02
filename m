@@ -4,82 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21552EED628
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 17:44:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 348E1EED628
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 18:01:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xo1zfFOrpx9ToCKbwUkMuT7WGkFpFw8oNHe7AZu9NSU=; b=WEEp7rbtq+LPb0vP2eoKcO1VK8
-	jJ4HBzSdxUDGvUjWEFQq650rei9ey0ulp9AgV6GNbSnt4kN2jChPS92vSd1dKU7j/rZUlJJrKK49R
-	lge//q198QGgTtdHqukqQSCpPT5fuxHhy34zs5YGjQaZDc5HwLLZIYSydYGv7GftW50CenJJ/mpPp
-	cvOde9v6V8eDk3K9tq3h2U0zuEfjKWydO42BN2dLPolF1QMWEqJYArCz7GpCfVldRx7PX5Z4xttlj
-	ywZ7Rr3IZhLbXMs5zwPFl/0O4deoqQyvsg6XCZ1C9kMUhUy12v6lKB5SaAbFFB870l0PQ7rcUcpGj
-	qqbiZGVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=X87cwCCWZjshqk0f71Zpbr2Hwf6QMx80ZDoysBFiT2k=; b=NFp7AqhC6cCq+3
+	j/r0xJ6eUbAO66vYfldp7coj4W/5/5//5zc4TgWQtY8vHbdBhlCGjM4rkblt6Tukts//8OcwDp3m6
+	Mj4WEMFNcWNOzCYjpvMr7NvOyIz4CeNrBE23yAkT2v7U9iXAs118M6wNWV2uFEA6VNqXbany/xcN6
+	94OMujOm5+0UDvkFu+gfecOKEy9dLwH9oUzzCrYnRnopRjAwAqX2eWqsCBb7iflcIXq+37FWxnf/H
+	K/dJspq+zoO32fIEOlShqzCxcq+A5p/bLvSaiu5ZunY/zZ1cCG70paWEyE1R/k5Vhw0mex8DLAvWN
+	caE0Unj0S9d8QmCMEJEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbjCC-00000008aMS-49Hm;
-	Fri, 02 Jan 2026 17:44:17 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1vbjSQ-00000008ay7-0dWW;
+	Fri, 02 Jan 2026 18:01:02 +0000
+Received: from mo4-p01-ob.smtp.rzone.de ([85.215.255.53])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbjCA-00000008aM6-2mWO
+	id 1vbjSM-00000008awg-48IC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Jan 2026 17:44:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1767375855; x=1798911855;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=KOZ5foOUSxYaKCChUnSfgSGAhjJZijduMAvs7fjhWnQ=;
-  b=BdcbgCyIJXunKdxYc0Bww/GNU63zKGP0DnMudrOPSM+UbyK0msEnufja
-   A49Eng0EsNNWsvnQQmjBZL0f3AQ19bbkVRIpG/x44H6PqewK+SV/+f6si
-   GdTFmrpCeDJ+j8bB5QFQ8WDdURCB6AdieHIrOfwjJhKUI8KG94R8j7DP6
-   pRDev+s+CMr52OrU8HsDe015Blvu3PNjbF81VpZ9Ou7zzgp97GXHb2Myo
-   nLxIdUYVshNBQ6YAP+6ut0Jqcb3k2eV7PGF4cpuIUxgHY4+HWdRbGMO4v
-   UYFOInManELHF0tK8j4oHC8IMNeSfC8j7lqt02paDil811sjmEjcs7Heg
-   A==;
-X-CSE-ConnectionGUID: W47iGAprTw+6KF3/RS3FvA==
-X-CSE-MsgGUID: LtZmrXRcQIypEwBPZ/NF6g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11659"; a="68850816"
-X-IronPort-AV: E=Sophos;i="6.21,197,1763452800"; 
-   d="scan'208";a="68850816"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Jan 2026 09:44:14 -0800
-X-CSE-ConnectionGUID: bAvvsgMxSXaUZ4i9QLqufw==
-X-CSE-MsgGUID: lJ3tcmuLSl6pj5WjLyGVng==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,197,1763452800"; 
-   d="scan'208";a="202818406"
-Received: from lkp-server01.sh.intel.com (HELO c9aa31daaa89) ([10.239.97.150])
-  by fmviesa010.fm.intel.com with ESMTP; 02 Jan 2026 09:44:09 -0800
-Received: from kbuild by c9aa31daaa89 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vbjC3-000000002Nt-095Q;
-	Fri, 02 Jan 2026 17:44:07 +0000
-Date: Sat, 3 Jan 2026 01:43:28 +0800
-From: kernel test robot <lkp@intel.com>
-To: Ruidong Tian <tianruidong@linux.alibaba.com>, catalin.marinas@arm.com,
-	will@kernel.org, lpieralisi@kernel.org, guohanjun@huawei.com,
-	sudeep.holla@arm.com, xueshuai@linux.alibaba.com,
-	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, rafael@kernel.org,
-	lenb@kernel.org, tony.luck@intel.com, bp@alien8.de,
-	yazen.ghannam@amd.com, misono.tomohiro@fujitsu.com,
-	fengwei_yin@linux.alibaba.com
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	tianruidong@linux.alibaba.com
-Subject: Re: [PATCH v5 16/17] ras: AEST: support vendor node CMN700
-Message-ID: <202601030129.ltAsW4vh-lkp@intel.com>
-References: <20251230091342.50404-1-tianruidong@linux.alibaba.com>
+	Fri, 02 Jan 2026 18:01:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1767376836; cv=none;
+    d=strato.com; s=strato-dkim-0002;
+    b=R81mB6Z9VJ4Ii4xrsDL2irsPcgBOsbJz07vtZawbGzA6YZni6Qly1GlhkCk0Oe6aEf
+    K1ospmM6VS8uxlNFBabVxNBIN9M2NeSi4kSjE354HTFm/JkM3Dc6UBKD1Z/TGYj8o5ht
+    QK8zahcX8yPQglF95glDV/E/8RPWAKlxvxekPmReZI6/OvjLwW9bWITfOZCY3evDMPKL
+    8X+wVXKa+NkNhh/9STowuGUx6k/XpwlcFxgieLoguqoM0qlOxGrg+aKNsi8gfsKb4Qjl
+    wCFGCgf3gDyFvTQ0TKlCFieqRT8g/Oeh3C4WEqgK5T1qT5ALNO83PV5BdUnbZoP13t5H
+    nOXg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1767376836;
+    s=strato-dkim-0002; d=strato.com;
+    h=Cc:To:Message-Id:Date:Subject:From:Cc:Date:From:Subject:Sender;
+    bh=X87cwCCWZjshqk0f71Zpbr2Hwf6QMx80ZDoysBFiT2k=;
+    b=hZIQEIWX74OYWYtETkjqHTm3U14u8wCE/lczXeGMQvgT1AhaYxjCCDt68O/PoI59lh
+    w5jO2pMrSXkV1VebcxdLy981JHPfKRs1hhxiXUT+sYh1B3VyKnRXBffy1yT2y8JG8Dvp
+    MF164vYjzRohkcxymCD/g0lMt13k6lmwusiVz/lWcEcxYbmU+bginDBuJ2mFzYN2Gztu
+    3fY+DuOsdv2rlwy6YO2pdP3G8AlSLUmMNMslLIY6J4TVRrQuQoZuS11oLqtCKBJcoThh
+    EbFjeGmj8SvlsczuGvSZq5cs4PhkHzmyTzKOyocTTF3IElEjn6jzssgpQLI0EsDXc8t8
+    m9vg==
+ARC-Authentication-Results: i=1; strato.com;
+    arc=none;
+    dkim=none
+X-RZG-CLASS-ID: mo01
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1767376836;
+    s=strato-dkim-0002; d=jm0.eu;
+    h=Cc:To:Message-Id:Date:Subject:From:Cc:Date:From:Subject:Sender;
+    bh=X87cwCCWZjshqk0f71Zpbr2Hwf6QMx80ZDoysBFiT2k=;
+    b=q41phBFqlZBicChEMpeuuin+iegmOKujno6JpI3HfQGexfGx5E4xxOjFQEq8E4U079
+    0tM/5dgjosm6SJVXwWrmu98u73PyD5gLYMIyl/y2mvB7pW57wEfoyRm1VlrB0xsL/hvN
+    j7vWbC1T8+Cs0esjTEG2LCuP8ScXVB4wzYF2ny3bkHuvrzHOxcsQVGTiKMxwjjE3XQvN
+    B8rgq02L+w/qTxFSDv76AWL7IzX/gvd144CbojCGTvBDJ6neSM5ArEsbMkf2jvY3xD7Y
+    O91TgGznMvWKhOrkZRAFyy7gTJkIbAdpnuEa1DdbOsnCiV2wvTP/BuP36GPOo1aXuOZj
+    rVlg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1767376836;
+    s=strato-dkim-0003; d=jm0.eu;
+    h=Cc:To:Message-Id:Date:Subject:From:Cc:Date:From:Subject:Sender;
+    bh=X87cwCCWZjshqk0f71Zpbr2Hwf6QMx80ZDoysBFiT2k=;
+    b=TrOOrQJ11RmMe3y0TVhn3tkCGDCKMAdN0wS/iRGFHIZ8O1aEuVgLhTY5XgyJJxsZqP
+    AzFtV9Q+9bQKZ+42tzDA==
+X-RZG-AUTH: ":JmMXYEHmdv4HaV2cbPh7iS0wbr/uKIfGM0EPTeoCaRth8YQivJ4sfKeu9QyRDNI="
+Received: from Wablet.localdomain
+    by smtp.strato.de (RZmta 54.1.0 DYNA|AUTH)
+    with ESMTPSA id z0d4ec202I0YEU8
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
+	(Client did not present a certificate);
+    Fri, 2 Jan 2026 19:00:34 +0100 (CET)
+From: Josua Mayer <josua.mayer@jm0.eu>
+Subject: [PATCH 0/4] power: supply: add battery driver for netronix ec
+Date: Fri, 02 Jan 2026 19:00:29 +0100
+Message-Id: <20260102-kobo-aura-battery-v1-0-501f2a8fa575@jm0.eu>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251230091342.50404-1-tianruidong@linux.alibaba.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAL0HWGkC/x3MQQ5AMBBA0avIrE3SVhCuIhYtg4lEZYqQxt01l
+ m/xf4RAwhSgzSIIXRzYbwk6z2BY7DYT8pgMRplSG1Pj6p1He4pFZ4+D5MGCKuUGXTajriB1u9D
+ E9//s+vf9AFGv+c1jAAAA
+To: =?utf-8?q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
+ Lee Jones <lee@kernel.org>, Sebastian Reichel <sre@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+ devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, Josua Mayer <josua.mayer@jm0.eu>
+X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_094414_785232_F0F20307 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20260102_100059_276429_D073CDD0 
+X-CRM114-Status: GOOD (  10.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,60 +110,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ruidong,
+This series adds a new battery driver for the netronix embedded
+controller multi-function device.
 
-kernel test robot noticed the following build errors:
+Bindings are updated supporting a monitored battery, and battery
+description is added to kobo aura device-tree.
 
-[auto build test ERROR on rafael-pm/linux-next]
-[also build test ERROR on rafael-pm/bleeding-edge ras/edac-for-next linus/master v6.19-rc3 next-20251219]
-[cannot apply to arm64/for-next/core tip/smp/core]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Signed-off-by: Josua Mayer <josua.mayer@jm0.eu>
+---
+Changes in v2:
+- Fixed identity mixup between from address and SoB.
+  (Reported-by: Krzysztof Kozlowski <krzk@kernel.org>)
+- Changed patch ordering, device-tree first.
+- Separated new driver and mfd subdevice changes into separate patches.
+  (Reported-by: Jonathan Neuschäfer <j.neuschaefer@gmx.net>)
+- reworded Kconfig to explicitly mention device-tree
+  instead of vague firmware tables expression.
+  (Reported-by: Jonathan Neuschäfer <j.neuschaefer@gmx.net>)
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Ruidong-Tian/ACPI-AEST-Parse-the-AEST-table/20251230-172000
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git linux-next
-patch link:    https://lore.kernel.org/r/20251230091342.50404-1-tianruidong%40linux.alibaba.com
-patch subject: [PATCH v5 16/17] ras: AEST: support vendor node CMN700
-config: hexagon-allmodconfig (https://download.01.org/0day-ci/archive/20260103/202601030129.ltAsW4vh-lkp@intel.com/config)
-compiler: clang version 17.0.6 (https://github.com/llvm/llvm-project 6009708b4367171ccdbf4b5905cb6a803753fe18)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20260103/202601030129.ltAsW4vh-lkp@intel.com/reproduce)
+---
+Josua Mayer (4):
+      dt-bindings: mfd: netronix,ntxec: add reference to power-supply
+      ARM: dts: imx: imx50-kobo-aura: add description for battery
+      power: supply: add battery driver for netronix ec
+      mfd: ntxec: register battery subdevice.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202601030129.ltAsW4vh-lkp@intel.com/
+ .../devicetree/bindings/mfd/netronix,ntxec.yaml    |   9 +-
+ arch/arm/boot/dts/nxp/imx/imx50-kobo-aura.dts      |   9 ++
+ drivers/mfd/ntxec.c                                |   1 +
+ drivers/power/supply/Kconfig                       |   9 ++
+ drivers/power/supply/Makefile                      |   1 +
+ drivers/power/supply/ntxec-battery.c               | 101 +++++++++++++++++++++
+ 6 files changed, 127 insertions(+), 3 deletions(-)
+---
+base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+change-id: 20251227-kobo-aura-battery-3e60bc159d16
 
-All errors (new ones prefixed by >>):
-
->> drivers/perf/arm-cmn.c:5:10: fatal error: 'asm/arm-cmn.h' file not found
-       5 | #include <asm/arm-cmn.h>
-         |          ^~~~~~~~~~~~~~~
-   1 error generated.
-
-
-vim +5 drivers/perf/arm-cmn.c
-
-     4	
-   > 5	#include <asm/arm-cmn.h>
-     6	#include <linux/acpi.h>
-     7	#include <linux/bitfield.h>
-     8	#include <linux/bitops.h>
-     9	#include <linux/debugfs.h>
-    10	#include <linux/interrupt.h>
-    11	#include <linux/io.h>
-    12	#include <linux/io-64-nonatomic-lo-hi.h>
-    13	#include <linux/kernel.h>
-    14	#include <linux/list.h>
-    15	#include <linux/module.h>
-    16	#include <linux/of.h>
-    17	#include <linux/perf_event.h>
-    18	#include <linux/platform_device.h>
-    19	#include <linux/slab.h>
-    20	#include <linux/sort.h>
-    21	
-
+Best regards,
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Josua Mayer <josua.mayer@jm0.eu>
+
 
