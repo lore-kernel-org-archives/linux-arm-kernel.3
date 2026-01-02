@@ -4,90 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0A08FA3728
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 18:28:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A66AFA3755
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 18:40:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UdgCAqNkZh5ZPsycE8zm74NWIwUscD6iQ05BC6RkYo4=; b=fMT+yV9hQ1/AFxhjhcSf8FFXPm
-	H/xnyOl9DDEgExr3KpI37CT8pfr1tkg/oGZFufX41Av2C90cKQ9IiVxEm6ChszGhyrtuzp8EkoGft
-	7NwntiOdKTcfoL0qg1twKJ1gmtMX+ZNQl51coRdmNqEsJMdfoTQJsAeQjSP1X5QZ9vRbI9Ikj5J4e
-	eMe+Uxo62X0xhpFoTEdsb6mkD/Z3XzakFaaVvAnvqrWoKS6XAbOrPSPDgoqHIBf2PG3WgJrR4HOtm
-	uXdZI9KKtHBuAKNgEk3zdZaciuwZzEmfl8DeSmVdfOk4vNIi6IbGf3/0dNIMRpK6VXN/OV93E8/7n
-	MT6lNCHw==;
+	bh=XklsumNaYTk5nCv6O1s3RlEP7dngRfn+ncOZHuOPA30=; b=3C/8haIsfc1HGlzTNu1tpWGcC2
+	HABwLpQh6ycCkoHpwqMUMgU4fpHMxtk0k09lQCuy0ZnbAL3shpBvZLdsgv4MHiL0DMK1ifAR8zUJi
+	5rtFdY7IzUfOTMshTelUX5Z2U15Q6SCcdW9zHlXDjfknmNTilGCn3bJAGjPnhhVS78Rk18mEQy67w
+	G/xVzeutyPOvajpyjtKgBIPZszFjXOfJnn4kkNkyfa6CJwaKCHOzXj42FdVzzBunRgtk28QBeyjyM
+	RTEmsm5o7gZaKq60aNNF9CR/pVzrm5p4FT3zFfOEungywX/BpNXiLcU7wHlWFzPtrwcEkAYqvcdwB
+	EdZ7FhBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbjsQ-00000008d8J-1ieP;
-	Fri, 02 Jan 2026 18:27:55 +0000
-Received: from mail-wm1-x341.google.com ([2a00:1450:4864:20::341])
+	id 1vbk4k-00000008dXs-1Prp;
+	Fri, 02 Jan 2026 18:40:38 +0000
+Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbjsO-00000008d7E-1eO9
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Jan 2026 18:27:53 +0000
-Received: by mail-wm1-x341.google.com with SMTP id 5b1f17b1804b1-4779e2ac121so2295e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Jan 2026 10:27:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1767378470; x=1767983270; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=UdgCAqNkZh5ZPsycE8zm74NWIwUscD6iQ05BC6RkYo4=;
-        b=ql1JQ3oIhXJTjbu6063YeSVbp7dxR75Zw5cspuTUGuYXVYRDgxoFwXV1QpIUUfn72j
-         DwuldXz9bxm3JP9TUyNQfwhYzdJWwhOEtyuwFD5SdKuPfrN0lCEZY5e+Vb51F6W3GlMB
-         GKNgA9IYlpFISeQnz3fh6R8woZvxHPgbNG9z2GotuMGhSvQ/teO0LIltP/KISkT4PgQ7
-         Nx5fjf0qtj9/guagAwvPWsoMAHlFXI6sXTYy4BdiD4w2/DS825tD6ckcEM97fo2LD+sm
-         caV4Qdu0lSqWgpycpLcChTimU6bAWa2TGB3729QWVOZ9jutytsxNwDdY/L0Fxsvm5G61
-         ODbg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767378470; x=1767983270;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=UdgCAqNkZh5ZPsycE8zm74NWIwUscD6iQ05BC6RkYo4=;
-        b=dM6icYz0lDtl5S6fWwGHpPZZ+q9tHHV23ArJ1t2uOC8EMqbyA75SB5GiK+daUBRNYM
-         iYKaLzO5rWUA5+m6OAYxQkllnkRwiSrPHaS73W7nI0swM58r7X/51w/Kl/62eboCHQQq
-         SwX2raA6u5b4PQTeaN7cCN/u4j0yoK8swDtBVhOebfWnpd8ab3w1TP2aw55pXrapLqJ+
-         WDNucGuDZpL7MW93s25Gf5yAJvy2VF/6AYpdPLGM+hMYebiR5BRKfu45QtZZ58KQ97XT
-         6Mf7oi/rxBOIXJArr5I8jbaYg22CYB4P2XHLSJa09yxyHnTcMhKmTd99FfxxRM6gRc/y
-         PoXg==
-X-Forwarded-Encrypted: i=1; AJvYcCXge2h5X5AQEfBekwUG7ZbHY0QqYrAMZG0jUYcJaseQjC63iLR3hQP5fIvTc38Kt5Zjh+xjkFNNYlCH3N4qWrMJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZTYsKrNMhGGdPhd3wPTY2nCh+qgVBmJiB3NSSJCvB5KAFDgLK
-	UifJrnsUe52nvihUIFtqQ4eVMd7p/VlgLXLH7NtwtTLZd8Gxssc9QcvbA7oqr5xqOw==
-X-Gm-Gg: AY/fxX61EuMy3k3QyYVbB10SzksvqnnOn0UKjFN81E70lkLHMTpcn7U24rYb2B7VTWc
-	EQb2mNqWKeFBJJMhw3sC93YrQGLT5+Y+hIpxjMfudHsPictUHalD7vd6U43wz/E9qTiCRuZx7dI
-	d2pb81vMO2G5a3MsETYSTZaEJKxOV22CR8ru+L7b4J7WdLof/4QDx21LOUUn2faD9ytQaeBnmn1
-	0Ty7mHrbEpi/oQppGqin06FUNmZ3BkXkNkJWXC/w2YKYAGpGqIzcbpdc3m8Zq2r61FHYiqLtunc
-	HZ8tuQQqJHiRJGIJhvMiRgntSeyiG5CfGoZLVa9LQuQNZysAu+5vfofrnX0IQWTXkuJiDJ7ISlz
-	zUgbtJAzwyou+TcKvlkaQN+eT7Q8QGSopKlXmyzveFPTE4zLr7pn6wTndxIcld7Za2CfZerKb81
-	70S+CnkeZXPDzYxHeX/+ERwbm0iCfrSESciXUI718zXDs+4taayT1/
-X-Google-Smtp-Source: AGHT+IEx91EhhV8c0GunswPgms6CpKa884g+uF8BO4bQNAeeUoTI6cnVz5taHMhdrNBCz6Dt0KZDDw==
-X-Received: by 2002:a7b:cd82:0:b0:453:672b:5b64 with SMTP id 5b1f17b1804b1-47d6c328d28mr15475e9.2.1767378470275;
-        Fri, 02 Jan 2026 10:27:50 -0800 (PST)
-Received: from google.com (171.85.155.104.bc.googleusercontent.com. [104.155.85.171])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4324ea227casm85164260f8f.15.2026.01.02.10.27.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Jan 2026 10:27:49 -0800 (PST)
-Date: Fri, 2 Jan 2026 18:27:46 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: will@kernel.org, robin.murphy@arm.com, jgg@nvidia.com, joro@8bytes.org,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, skolothumtho@nvidia.com,
-	praan@google.com, xueshuai@linux.alibaba.com
-Subject: Re: [PATCH rc v5 4/4] iommu/arm-smmu-v3-test: Add nested
- s1bypass/s1dssbypass coverage
-Message-ID: <aVgOImSnVorozaJH@google.com>
-References: <cover.1766093909.git.nicolinc@nvidia.com>
- <68d48a88a64223a1d9b76b59c05f4743f1953c9c.1766093909.git.nicolinc@nvidia.com>
+	id 1vbk4h-00000008dXU-2zQi;
+	Fri, 02 Jan 2026 18:40:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=K/dvASGRWa0Wtxq0QUyrW0E1P6ZrC5cdX70BgllyNU34N5KgLp+r/5yPNHT8QGE2gbmGmfLIGK3AwE4aW9P+rIVBEhmd+xdjVleb1cJleFDxNQS4RMDgnJb14Yb4D0g51uACu85OicTaA2V4tWfLhCs60FkMaI3GBH8yV3aVgAoZEP0BKYSqZlAvdQ0z+6zNJKLjnHGpMVOIq6gpU8LPW571zjygweysbUW4F09AtP8yEtrkxq6fwnuguN1a13ztxZmceh+L5ncDrZBouO4uDJf50bxo5NmciFH0jycjEn8BYiEzz/KSXuGDkQzE8EfjSe80DXGpF4RRy2oHUB1dug==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XklsumNaYTk5nCv6O1s3RlEP7dngRfn+ncOZHuOPA30=;
+ b=OUD0TqCBQzMWfk013LzoOBDfQaOWz85tj88kWssJAhori7dLfVQRA8JY0bY8kB/zEOh/JkHPqhXFngNvmAlZdWk7e4u7qa/QrxTS7eQa1G0PVyrDT1R1Uvgn/P/8SD31La9cMpnQjY1GgeFtBPimQHxqgMHY4OicETglTk4nmx3j41pQUt489PEsoPHx+6kAhfBGFbuCTBf+1aOQgbeAaxd37Ozs1zGIQnFyXPdtm0w8H1SCraP/dBLciJ6bptuokwK9h4ChZjUXy9llgx6E9zN2KD8hEzUOxUw8mZubqaGv3zRufNDZk12fOyECFHoRZXAM2kBdwNwOh/DK6ElGKA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XklsumNaYTk5nCv6O1s3RlEP7dngRfn+ncOZHuOPA30=;
+ b=V57+ce6DL8FOezmoddPsVGcWq280s1U5DyLJr5o7m6wVDsglK6gxIC1jeLAKDcvKGshD+AdG7J9hBlx9YwKrbL32iaI58x2MKUMO8oCyMAmu0Z1zsBEzQMQL3ABfG3Px6x5nHiSPp1btxWj/9g1Ut6MrDi2aMsPIC3/namUvmn4=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from BL1PR12MB5126.namprd12.prod.outlook.com (2603:10b6:208:312::8)
+ by LV2PR12MB5919.namprd12.prod.outlook.com (2603:10b6:408:173::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Fri, 2 Jan
+ 2026 18:40:30 +0000
+Received: from BL1PR12MB5126.namprd12.prod.outlook.com
+ ([fe80::c3e7:1bc5:2b91:1cfe]) by BL1PR12MB5126.namprd12.prod.outlook.com
+ ([fe80::c3e7:1bc5:2b91:1cfe%4]) with mapi id 15.20.9478.004; Fri, 2 Jan 2026
+ 18:40:29 +0000
+Message-ID: <cdf6a704-88f8-414a-adf1-65ea7237337f@amd.com>
+Date: Fri, 2 Jan 2026 13:40:21 -0500
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 00/11] Plane Color Pipeline support for MediaTek
+To: Shengyu Qu <wiagn233@outlook.com>,
+ =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ daniels@collabora.com, ariel.dalessandro@collabora.com,
+ kernel@collabora.com, xaver.hugl@gmail.com
+References: <20251223-mtk-ovl-pre-blend-colorops-v1-0-0cb99bd0ab33@collabora.com>
+ <TY4PR01MB144323B0DDC18B05EE1472B5298BFA@TY4PR01MB14432.jpnprd01.prod.outlook.com>
+ <TY4PR01MB14432E7601C0BE848D25E80C398BAA@TY4PR01MB14432.jpnprd01.prod.outlook.com>
+Content-Language: en-US
+From: Harry Wentland <harry.wentland@amd.com>
+In-Reply-To: <TY4PR01MB14432E7601C0BE848D25E80C398BAA@TY4PR01MB14432.jpnprd01.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: YT4PR01CA0424.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:10b::24) To BL1PR12MB5126.namprd12.prod.outlook.com
+ (2603:10b6:208:312::8)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <68d48a88a64223a1d9b76b59c05f4743f1953c9c.1766093909.git.nicolinc@nvidia.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL1PR12MB5126:EE_|LV2PR12MB5919:EE_
+X-MS-Office365-Filtering-Correlation-Id: bc24faf2-1fb7-42a6-d952-08de4a2e6760
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?eFVyUFpLdDA2SERFNEhJYjh3aG85RSsrVkptRmZJU0g2bXRzZVA3WUZCd3ZR?=
+ =?utf-8?B?VlRBWWxmQ2FtTlFkMHFXbU91b0lTSWszbkZWYnVFVlFFNDBORDV5M2w4RHVD?=
+ =?utf-8?B?MmxOMTloRllsemxYdm0xM2x2eUFMQ2p0VVBFUkpud09aMG5SVFpaKzdLdUt3?=
+ =?utf-8?B?ZDVFdkNkVGNpdFBuSkpvVDltbzZXQXBuK21nbXliQ3VGSHFJdDJGRGV1aHJQ?=
+ =?utf-8?B?UTRqR2FQVUhUMTRSNjY5ZmlMWTVWalFNTWg4ZGMrVzBBeEs4NCtaTzZhaTBl?=
+ =?utf-8?B?NVBOdTJGU1FCMkc3dXg3bkF0RnByd0dlSTBSb25hQlJMUEtYOU56RUlueUgz?=
+ =?utf-8?B?Qko1bWRoNjZHWXFyUUhPNkpJaXhpZUxLb05VZDJiSlNJa3ZWNjlBTjNGaWVZ?=
+ =?utf-8?B?SkduN0l5cjZ4ejFQQU93R2RQNnpRdm8wTEJOWHdxQjZ0VUNwbmtOV3FuN1k3?=
+ =?utf-8?B?L0pmMDJpVFpseTR3UEh4N2dnWTRCWUR6STdtVm1nOHZPT2U2MDVRNDc5L1Vt?=
+ =?utf-8?B?eCtPUGZkUW1iVXZXY2RCbmpvVmUrZlVNd1R1aVRLekFwTWpuOVFkVUptNGVC?=
+ =?utf-8?B?R3FpVFhUYWpHcm1JZWx6SjBsM0JRNEN6ZHF6LzZ0T1BhQml1SjlPTW1ub3kz?=
+ =?utf-8?B?QlM0T2RVZDROLzgvckJuQ0xPSDAwN2FRdit4OWIzcHROSlovRkMxdGJjRVRJ?=
+ =?utf-8?B?cGpMNlZmSkFJQ2Nxa3ZkR3d1QWswdEVjbzBOOVFIUXdxVGZjUmxuc2FwakNR?=
+ =?utf-8?B?U3VrY0hwNkxmaGpGeSs2ZmUrUDZlNE5rN3lvaTlRVWxRQmw1d2J3M05mTmV3?=
+ =?utf-8?B?enE2TVViSFFuMDV0UVdTRFVHTHhVa3d6VXMxQ3BWMTNta3l6UUJHRlhNRi9N?=
+ =?utf-8?B?a1JISUMrdXJZSFpsMytxOWJrd1VHTDZFbGRmazRJY3ovYytzWmhpQVFaQUJx?=
+ =?utf-8?B?ODFuUjZZSiswcEl6d08wUTg2VlpXRENEMkhrN1FEbWRVMEdiMTFYRXZlRmcz?=
+ =?utf-8?B?cm90eXpSWFlsSjBvbllDMUZuQnYxZGNkd1BMZ1dsd05aSEgxOXNSUW5uWC9T?=
+ =?utf-8?B?bXB5bUdOM1loWTZYcUVkVXB4WHNtUGNLUWwxVzVkY1FGczJodjc4YzluVWRu?=
+ =?utf-8?B?ci8vSXZOZlloU1Z2NklIRmkrTmxHbmcwTHYvTkkwLzMvazkyNkE1WVpPalQ2?=
+ =?utf-8?B?RU9OUS82cUdNQXVybDBILzZEaDhOOHhTZGI3aWVSZFNyUWFwZWE5VDhXTk14?=
+ =?utf-8?B?dkkyQmJ3R1FGUXlXaG4rLzAzaGY5dXB2RkJjWEYyWFpwRjNhdFR1U0VlclM5?=
+ =?utf-8?B?cjdzSCtwQk9CUk85c0J4Nk9YRWNQNWdxUkRockw0cHhtV01SOFRjNEhhVHlK?=
+ =?utf-8?B?b0ZLeU9XSCtZWEphY01KajJwQVVKdm9iME1ydklDN2d2bCtpeU90M3RrSm1L?=
+ =?utf-8?B?bHJ3WmJQa2p0T051SjAveWhGUmp4OEQ3YzVENWlOa0puSjRkRnh0OVZLWEd5?=
+ =?utf-8?B?cXZQUldlV05SRXpvR2plQ1NWRUtHc2dyMnZic1dKRVFpZkE0NllIVG9LSVdy?=
+ =?utf-8?B?Z2FHVG9HV0M1RjB0czY1c3lVek8wOUt0ZFA1RzNmcDBsaHAyMUcrNHpkSnQ0?=
+ =?utf-8?B?QW1NenFlY1RtbGJsK2N4djg2VVdKam1FZm9sVGJFU0htS3FlNUppVEMzMWVr?=
+ =?utf-8?B?SXBudkZORnoxSURjYVB5VE9tUlkxckdndFNFNW0zMXBIN1piQkR0SC9XTGJ4?=
+ =?utf-8?B?bDQwWDVzNHdVbFFCZkI2YjNIeXhsbmpKK09UZURJUHo4WE9EejB5SFZYLzZO?=
+ =?utf-8?B?OGZrd0U3cit0bkw3by90cDJQeTA0bkR0aWNFeUdUMG5iRW94SjhucldnZVZh?=
+ =?utf-8?B?eUROWWYyMHF0N3d2bmRETkk3SjUwaWphZkhFM29QZEJlTXpOblNKMU5QUFNH?=
+ =?utf-8?B?ZWc3dFdQem85Vk5RZnpJbUhuTENiODdpWTVPd3pjaHV5Smh0V2xPVTBXVnkw?=
+ =?utf-8?B?dWxLekl0cEcxM2JGTnV4KzhEaTNvc3BJZFNsbUF6SmVHUVl6ZU16UWNncWJX?=
+ =?utf-8?Q?Y0iu1r?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL1PR12MB5126.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YW9LV2ZZM1lFajFjRHJnV0lwOHZOYm04OFMyQ2FyRzA1ZkxDQWVlU3hqaGRL?=
+ =?utf-8?B?Smc0MmlnYS9sK2ZhakZFQk4rUWV1dFJ1MjFCMUYyNkY4d2x3cWVZOEhrVEVH?=
+ =?utf-8?B?VUh3bVVXWDNlcWJMMWZRWENxVVZkMHpNSVd0Rlg0dER0c1V0RnBBa3cwMXgr?=
+ =?utf-8?B?bWt0WVdxWXd4ZlQrMUJsYjdWRnhyU25SM3JHKzZWSmdITjFYTnRUYU5WVFNQ?=
+ =?utf-8?B?dkdURkFvUVoxZjNWREMvVlpMMGwvdk5nNWlTMExSWUNLcEpPYWlHZ0F4cjFE?=
+ =?utf-8?B?Y1RuNEJaQTVUTDhCRlVNV0g5NEZuT2g2aEt4bGZnMnlTY2IrTnc3VzZBQTVk?=
+ =?utf-8?B?SHNJNE5ZRjlEbkdyRGJKMm4zdHVPT21MdEZSWHRjak5RUk04OXpNY1ZwOURI?=
+ =?utf-8?B?OE9jMTBSanpmWDd1RFJFN0JOZ21nNFpkNVJzQTRKYWJIZll6S2srMG12TVp6?=
+ =?utf-8?B?UCtzaDE1UlI0RFN1OGc4TThTSGlkcm0vclZRd2tGM056UlI3T0NNdmFReDd3?=
+ =?utf-8?B?U0xERTcySVpjbUJ6Uks5V3VWU0VUdDJFdUYvRitHOGJmdjYyeTBQYTN4WU4y?=
+ =?utf-8?B?MDMxNEFuc2xrU2hWdDAwZy92dFkwdVU4TllCK1NGYkdGMkozd2xGcE5CbXE1?=
+ =?utf-8?B?S0hSRDAzbm9KRU5CUzNkL0dscTl2WDd2WDNNYytGL3UyOWF3QmU2NHdLQkVv?=
+ =?utf-8?B?Tm0xZ3NWOUE4VlhNY25Gc3Z3NU42M25CaHNrcWgyK2lLQXNZWEpVSVlrdEh6?=
+ =?utf-8?B?RFExNTlDaWJIMkZWN1M3RzdLMFRrWDhsVHk1YWljcXRIczRLRlBUMmxkQzZ2?=
+ =?utf-8?B?WjRLUzNhcTNuN0FMTDNVczZaaFRES2tSVndPTHluWG1qYmdFMXZmOGkvTFdJ?=
+ =?utf-8?B?aEZoUUZaMzlnS3RDajBJR1BFa3BLbmRPQUhCV0p3SllyVDgyMGE0Mm9md2Qz?=
+ =?utf-8?B?ZDBFYzlZTEhaKzhqTVZyNlMxTTMyelhweE1qUnVScTlzTW9ua2tvOWR1V1Ju?=
+ =?utf-8?B?MkZqMm1ZRm1JZDdpWE9GbFg4TmpYWVd0cGN0U0c1bGQySVVyNHVFYkZiMHRr?=
+ =?utf-8?B?ekVBS0lGS0pGblRxV0pJNHdCUnpIa1BXQVd6WERBa0p1MXdKZjRJMUV4YXAw?=
+ =?utf-8?B?eHQraENYWnlhYzhhZTZDeVFkenkvZWVzWHg2ZVZWOHZLK2xQYkY0cDhtaU00?=
+ =?utf-8?B?Ni94ekpjVWE2K3BkekJoT1FGYk13VzA2ZXl6NkRxbGM3a2E1TzNYSStwaWVL?=
+ =?utf-8?B?ekJrMjJ4alM1N1Z2UWZEcWJTa2QxdVh0NnpTR2JrbTNFbWE0VTZqYSszZzMy?=
+ =?utf-8?B?L0JTdTBTWGRMMFFHWW44dHpjdkpmbEFKREhVQ3B6NHI2NDBOb25STGdqYzl2?=
+ =?utf-8?B?c0x5VVYyeWhlSVdqYkNWdktKS21FYm5HT3BGZGJXMHJoK05wWFYxeTFHNS9R?=
+ =?utf-8?B?SHNaSHV6MURaVnIzaGlJdHA1WlBKbDNPRjNPeXQrYTlBTVd0NTUrcXNYT0dL?=
+ =?utf-8?B?L1RsbVg0MExrelh6Z09sQkVxUlJDVlF5bHVMUS9DaEpUak40WnpYZFlSbjcv?=
+ =?utf-8?B?eFFCVWpMVzVvUzFYby9CeXY0SWlkbEZjTllCVFh3WEZTTGpWcDJsTytHWVRn?=
+ =?utf-8?B?Tlg1Y3JjK3pGWkp6S3VDYjJhUlN1UTBNZVNjOW81anVYOXlSKzVydWpETURV?=
+ =?utf-8?B?dlRCVHhwRGFiQUdUUis1TzhWUGlWWVB3NStwNzIxMUNaQ1lpanRPVWxxbEtz?=
+ =?utf-8?B?dlhpSmdMVWw5QU9FejEwS01nNk92djlEVHpYbkQ4eXcwZWNLQXpmK2VaTmgr?=
+ =?utf-8?B?R1VyUTlyK0xNRngybDlIMEVnUUR6S0xPUDJ2U3VpWDM1K0U1WkdHaiswZ3ly?=
+ =?utf-8?B?QXk4a2czMjI2dUNTVWpiQWZxRU51T2dJWXR2Sjg3MzZOQitFaHVWb0YyajJU?=
+ =?utf-8?B?K2Q0UE5NYktqUlpQRlE5OXR5OU54TFlOVHhHVEtyTW4wOTA5SmNTamhROExp?=
+ =?utf-8?B?dnB0WW0yQVVzVFJ5c2xNWjYvMTIyZk1RNWFMVVFpMXJiR09ZVWtpcFJ2WkRz?=
+ =?utf-8?B?VTY1VVI4NjdpV1MrRGRmNE9FdTVKSXpnM3FUYkxGckRMMlBKR1pjYVlrcC8v?=
+ =?utf-8?B?c2NoMGpUcjVDQWRobDdVVUozS2Voc2xkSXJHbGZOZDd0SGdQM2wrandBaXo0?=
+ =?utf-8?B?V1dNNFBpT01MV3c2S2g0Zk5TYmRpRjJhUmR3c3Vkc1lzSDlVSXJ3UXI4cnNN?=
+ =?utf-8?B?Mk9pK1I3b09pRThnS2RFaDR2YjRMSGFvNys2VG9Ka0hTOXhHejhXMHFob1VX?=
+ =?utf-8?B?YllXWmc5R0lvQ0VqYUF6QmgxeE40d1pSQWZaYmJNS2k1RGhrU2dhZz09?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bc24faf2-1fb7-42a6-d952-08de4a2e6760
+X-MS-Exchange-CrossTenant-AuthSource: BL1PR12MB5126.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jan 2026 18:40:29.7768
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Y8NcVQdDUBUW4x/S+S+0gIlRLeXf+2R8lhN96IHfCdxaypLcq6HpG7kWh6cUkMN0Ri0NzRs+XixugdSdI3EZXg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR12MB5919
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_102752_459542_636E1EE3 
-X-CRM114-Status: GOOD (  21.46  )
+X-CRM114-CacheID: sfid-20260102_104035_834754_BFDECBB1 
+X-CRM114-Status: GOOD (  22.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,107 +190,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 18, 2025 at 01:41:59PM -0800, Nicolin Chen wrote:
-> STE in a nested case requires both S1 and S2 fields. And this makes the use
-> case different from the existing one.
-> 
-> Add coverage for previously failed cases shifting between S2-only and S1+S2
-> STEs.
-> 
-> Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 
-Reviewed-by: Mostafa Saleh <smostafa@google.com>
 
-Thanks,
-Mostafa
+On 2026-01-01 07:37, Shengyu Qu wrote:
+> 
+> 
+> 在 2025/12/30 02:53, Shengyu Qu 写道:
+>>
+>>
+>> 在 2025/12/24 3:44, NÃ colas F. R. A. Prado 写道:
+>>> This series implements a plane color pipeline for MediaTek platforms,
+>>> specifically for MT8195-compatible SoCs.
+>>>
+>>> The pipeline is composed of the following blocks:
+>>>
+>>> Inverse Gamma -> RGB to RGB Color Space Conversion (R2R CSC) -> Gamma
+>>> (1D Curve)       (3x3 Matrix)                                   (1D Curve)
+>>>
+>>> The curves supported by Inverse Gamma are:
+>>> * scRGB
+>>> * BT.709
+>>
+>> scRGB? That means this HW supports float point format surface, are you sure this is not standard sRGB?
+> 
+> Sorry, I mistook between Microsoft's modified float scRGB implementation between standard scRGB spec. But that's still weird to support such format in hardware, as this means frame buffer is 16bit uint per color.
+> 
+>>
+>>> The curves supported by Gamma are:
+>>> * scRGB
+>>> * BT.709
+>>> * BT.2020
+>>> * HLG
+>>>
+>>> Given the lack of support for writeback connectors on the MediaTek KMS
+>>> driver, combined with limited hardware documentation, I haven't been
+>>> able to verify the correctness of each curve, only that they were
+>>> visually sane (gamma curves made the image on the display brighter,
+>>> while inverse gamma made it darker).
+>>
+>> Hmmm I don't think this is acceptable. sRGB/scRGB has two transfer functions mentioned in original specification[1]. To keep color accuracy, we need someone from mediatek confirm whether this is piece- wise or pure power 2.2 transfer function, this is already done in original amdgpu color pipeline series, sRGB means piece-wise while also dedicated power 2.2 function exists.
 
-> ---
->  .../iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c  | 47 +++++++++++++++++++
->  1 file changed, 47 insertions(+)
+Not sure what you mean with this not being acceptable. This is about enabling HW support for this functionality. Not every HW has writeback for testing. At some point you'll have to trust the driver devs if you're going to use functionality of the driver. We're not always going to get everything perfect, but if that's really such a worry you can always use shaders to do precisely what you want.
+
+Harry
+
+>>
+>> Also +cc Xaver for a review as userspace compositor developer.
+>>
+>> [1] https://gitlab.freedesktop.org/pq/color-and-hdr/-/issues/30
+>>
+>>> This series depends on "drm: Color pipeline teardown and follow-up
+>>> fixes/improvements" [1].
+>>>
+>>> This series was tested on the MT8195-Tomato Chromebook.
+>>>
+>>> Regarding the support of color operations in OVL for different SoCs:
+>>> * it's not supported by MT8183, and presumably also not by older
+>>>    generations
+>>> * On MT8192 it's supported by ovl0 and ovl_2l0, but not ovl_2l2 (despite
+>>>    the same compatible as ovl_2l0).
+>>>
+>>> For this series I'm only enabling it on MT8195 since that's the one
+>>> where I can readily test.
+>>>
+>>> [1] https://lore.kernel.org/all/20251219065614.190834-1- chaitanya.kumar.borah@intel.com/#t
+>>>
+>>> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+>>> ---
+>>> Nícolas F. R. A. Prado (11):
+>>>        drm/mediatek: Introduce DDP plane_colorops_init() hook
+>>>        drm/mediatek: Initialize colorops when creating plane
+>>>        drm/mediatek: ovl: Add supports_plane_colorops flag
+>>>        drm/mediatek: ovl: Enable per-plane color operations on MT8195
+>>>        drm/mediatek: ovl: Implement support for Inverse Gamma
+>>>        drm/mediatek: Add plane_colorops_init() DDP hook for OVL
+>>>        drm/colorop: Introduce HLG EOTF
+>>>        drm/mediatek: ovl: Implement support for Gamma
+>>>        drm/colorop: Introduce 3x3 Matrix
+>>>        drm/mediatek: ovl: Enable support for R2R Color Space Conversion
+>>>        drm/mediatek: Check 3x3 Matrix colorop has DATA set
+>>>
+>>>   drivers/gpu/drm/drm_atomic.c            |   1 +
+>>>   drivers/gpu/drm/drm_atomic_uapi.c       |   3 +
+>>>   drivers/gpu/drm/drm_colorop.c           |  22 +++
+>>>   drivers/gpu/drm/mediatek/mtk_crtc.c     |  36 +++-
+>>>   drivers/gpu/drm/mediatek/mtk_ddp_comp.c |   1 +
+>>>   drivers/gpu/drm/mediatek/mtk_ddp_comp.h |   2 +
+>>>   drivers/gpu/drm/mediatek/mtk_disp_drv.h |   1 +
+>>>   drivers/gpu/drm/mediatek/mtk_disp_ovl.c | 287 ++++++++++++++++++++++ ++++++++++
+>>>   include/drm/drm_colorop.h               |  13 ++
+>>>   include/uapi/drm/drm_mode.h             |  16 ++
+>>>   10 files changed, 381 insertions(+), 1 deletion(-)
+>>> ---
+>>> base-commit: 1783cdadb70e74a30dfee250f8c2dc13b4e61128
+>>> change-id: 20251219-mtk-ovl-pre-blend-colorops-95b7b2883d95
+>>>
+>>> Best regards,
+>>
 > 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-> index 5db14718fdd6..4a072c2c367c 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-> @@ -33,8 +33,12 @@ static struct mm_struct sva_mm = {
->  enum arm_smmu_test_master_feat {
->  	ARM_SMMU_MASTER_TEST_ATS = BIT(0),
->  	ARM_SMMU_MASTER_TEST_STALL = BIT(1),
-> +	ARM_SMMU_MASTER_TEST_NESTED = BIT(2),
->  };
->  
-> +static void arm_smmu_test_make_s2_ste(struct arm_smmu_ste *ste,
-> +				      enum arm_smmu_test_master_feat feat);
-> +
->  static bool arm_smmu_entry_differs_in_used_bits(const __le64 *entry,
->  						const __le64 *used_bits,
->  						const __le64 *target,
-> @@ -197,6 +201,18 @@ static void arm_smmu_test_make_cdtable_ste(struct arm_smmu_ste *ste,
->  	};
->  
->  	arm_smmu_make_cdtable_ste(ste, &master, ats_enabled, s1dss);
-> +	if (feat & ARM_SMMU_MASTER_TEST_NESTED) {
-> +		struct arm_smmu_ste s2ste;
-> +		int i;
-> +
-> +		arm_smmu_test_make_s2_ste(&s2ste,
-> +					  feat & ~ARM_SMMU_MASTER_TEST_NESTED);
-> +		ste->data[0] |= cpu_to_le64(
-> +			FIELD_PREP(STRTAB_STE_0_CFG, STRTAB_STE_0_CFG_NESTED));
-> +		ste->data[1] |= cpu_to_le64(STRTAB_STE_1_MEV);
-> +		for (i = 2; i < NUM_ENTRY_QWORDS; i++)
-> +			ste->data[i] = s2ste.data[i];
-> +	}
->  }
->  
->  static void arm_smmu_v3_write_ste_test_bypass_to_abort(struct kunit *test)
-> @@ -554,6 +570,35 @@ static void arm_smmu_v3_write_ste_test_s2_to_s1_stall(struct kunit *test)
->  						       NUM_EXPECTED_SYNCS(3));
->  }
->  
-> +static void
-> +arm_smmu_v3_write_ste_test_nested_s1dssbypass_to_s1bypass(struct kunit *test)
-> +{
-> +	struct arm_smmu_ste s1_ste;
-> +	struct arm_smmu_ste s2_ste;
-> +
-> +	arm_smmu_test_make_cdtable_ste(
-> +		&s1_ste, STRTAB_STE_1_S1DSS_BYPASS, fake_cdtab_dma_addr,
-> +		ARM_SMMU_MASTER_TEST_ATS | ARM_SMMU_MASTER_TEST_NESTED);
-> +	arm_smmu_test_make_s2_ste(&s2_ste, 0);
-> +	/* Expect an additional sync to unset ignored bits: EATS and MEV */
-> +	arm_smmu_v3_test_ste_expect_hitless_transition(test, &s1_ste, &s2_ste,
-> +						       NUM_EXPECTED_SYNCS(3));
-> +}
-> +
-> +static void
-> +arm_smmu_v3_write_ste_test_nested_s1bypass_to_s1dssbypass(struct kunit *test)
-> +{
-> +	struct arm_smmu_ste s1_ste;
-> +	struct arm_smmu_ste s2_ste;
-> +
-> +	arm_smmu_test_make_cdtable_ste(
-> +		&s1_ste, STRTAB_STE_1_S1DSS_BYPASS, fake_cdtab_dma_addr,
-> +		ARM_SMMU_MASTER_TEST_ATS | ARM_SMMU_MASTER_TEST_NESTED);
-> +	arm_smmu_test_make_s2_ste(&s2_ste, 0);
-> +	arm_smmu_v3_test_ste_expect_hitless_transition(test, &s2_ste, &s1_ste,
-> +						       NUM_EXPECTED_SYNCS(2));
-> +}
-> +
->  static void arm_smmu_v3_write_cd_test_sva_clear(struct kunit *test)
->  {
->  	struct arm_smmu_cd cd = {};
-> @@ -600,6 +645,8 @@ static struct kunit_case arm_smmu_v3_test_cases[] = {
->  	KUNIT_CASE(arm_smmu_v3_write_cd_test_s1_change_asid),
->  	KUNIT_CASE(arm_smmu_v3_write_ste_test_s1_to_s2_stall),
->  	KUNIT_CASE(arm_smmu_v3_write_ste_test_s2_to_s1_stall),
-> +	KUNIT_CASE(arm_smmu_v3_write_ste_test_nested_s1dssbypass_to_s1bypass),
-> +	KUNIT_CASE(arm_smmu_v3_write_ste_test_nested_s1bypass_to_s1dssbypass),
->  	KUNIT_CASE(arm_smmu_v3_write_cd_test_sva_clear),
->  	KUNIT_CASE(arm_smmu_v3_write_cd_test_sva_release),
->  	{},
-> -- 
-> 2.43.0
-> 
+
 
