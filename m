@@ -4,64 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 523B9FA3728
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 16:58:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 713FBFA3728
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 17:01:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/adiBUQZ/Qfmrr9PCE7JkH+ijh6pLAj2iSLGgdDMeSc=; b=pUeWGLKpCFbxu8yXZ79/5YEHnE
-	31r5twRcat8Dm2eTz7SAkqOFjMwicxF/Rh+y2+Y3Bhjpa0R1iSrGdq5uJjFbvLe2eS7ks4l/daag7
-	ODMZZ02i+4St3+3gMNeOUSwUYj1dUpa9j2nE2bBWAakMHgzz2cmckHjAzABgd5lRdRkem7Lk83B3f
-	elw5TJCwH3SWMhJpv+d8WCLRcmXLUWfqaHjYVfJNcxSQpo1kZN9ZRaAUydDtrtU9BhgJehV/DKGZa
-	P3R30SuH6i1xZQvo5ajC8j/+GsvFBf6nGMzFm/G5yx30XP6Rh23UZiFJJ9lwjB4oInzjPsazKTPud
-	sWgWJXvw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=dNKx9N1uuZ87KLeMwjnruL9uVGluo1yUq50Z8XjtsYs=; b=Br43bAk6BhudsgE1zuY2WJS6Li
+	mHNwhH9yImFKW1LmOGJceWo7epAO5SCo0bXSKgC0GxxqJjs/B8SnZnsAVIRbmF24l1DSe2dUI4tBR
+	cNnGK8MbjwApfjXFv2p7YVRWTVykVTdmLBEV0Ypx/ldP0NmzfKanxXlSBKftuOGuek3fwmNv6BR4k
+	UATEZZNRWWBra1O/N5eUq7rXxXMtibclEkFEzzJnshykZiWF5dRFk0zqLWfvJlwcTm3BboAnVEKG8
+	brCsbLo8D+HctNygOGfQnZsWqFkprhlSi3Q8d2EAvs+Q0T1E+Q+WW/LHf87An2b6K3eRN3X1YtVNJ
+	07oGWWKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbiUD-00000008WKi-0iTP;
-	Fri, 02 Jan 2026 16:58:49 +0000
-Received: from out-180.mta1.migadu.com ([2001:41d0:203:375::b4])
+	id 1vbiXB-00000008Weq-1svV;
+	Fri, 02 Jan 2026 17:01:53 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbiUA-00000008WJU-0odr
+	id 1vbiX8-00000008Wds-1R41
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Jan 2026 16:58:48 +0000
-Date: Fri, 2 Jan 2026 16:58:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1767373123;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/adiBUQZ/Qfmrr9PCE7JkH+ijh6pLAj2iSLGgdDMeSc=;
-	b=k+stiLoG2msiz8lDhi0bK0hfFL0ljxjmLODRlAEWWpsz6Wk7P/3pT/HCHF3JyWeTPpcJ7d
-	aMGosRJm7ObB3I3sfFf1GgVxnCt+zIl5yM+WCAw1Kyhwc2MFBg3u7RCuEJ/6ztn6B2lauL
-	lKPJ7WtdryBm5BSsd21cHGaTirpQ1pU=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Yosry Ahmed <yosry.ahmed@linux.dev>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oupton@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>, 
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, loongarch@lists.linux.dev, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 11/21] KVM: selftests: Stop passing VMX metadata to
- TDP mapping functions
-Message-ID: <pa4l62zp7wf77xdxoliuj2f7gliyan37fdcyl5tyblpknfu5iu@voe5mj6tz7vk>
-References: <20251230230150.4150236-1-seanjc@google.com>
- <20251230230150.4150236-12-seanjc@google.com>
+	Fri, 02 Jan 2026 17:01:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1767373310; x=1798909310;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=t3PcIvP1bEc49Jqd/h18j6QKB31/UewEwIs7h8/S3Ro=;
+  b=DWteqf+PPAS7LRG7YtAjA0ezhqDMDKbbuEFLhBrOUQyPYiPKEK9ctVWP
+   tfofDTRZ+xosDI4KyJ+lmXBVsQEV7y+Jposb9GrRBKQMUoUxXhfzDTODO
+   jiSPlPbx6LCQQjBWWDfcTdhXNe03vUT6W3aeKawYrRcivT8yY/HaMFOMF
+   ppc0P8SapUDGcl9rwHk31Nj9ftWspOYi75dPutnN9wxDwKFmKtRHtU8/D
+   9mEXi06/FU1cer/F7hPZmOzXEs+Bh/U5Q8q5E4kFCgL5D0+TxOY2Msqjp
+   vWnLeXioWlpDwvVt2s9Xi0r+Pq0tPA/61/VbsZhPtYGUr62bhWeX38IrU
+   A==;
+X-CSE-ConnectionGUID: dCrVUlstT/WCgDlJ76zoeQ==
+X-CSE-MsgGUID: si3s1oQ4Q1OYb9j53Tc6EA==
+X-IronPort-AV: E=Sophos;i="6.21,197,1763449200"; 
+   d="scan'208";a="58167743"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Jan 2026 10:01:48 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.87.71) by
+ chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.29; Fri, 2 Jan 2026 10:01:35 -0700
+Received: from ROU-LL-M43238.microchip.com (10.10.85.11) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Fri, 2 Jan 2026 10:01:33 -0700
+From: <nicolas.ferre@microchip.com>
+To: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+CC: Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea
+	<claudiu.beznea@tuxon.dev>, Balamanikandan Gunasundar
+	<balamanikandan.gunasundar@microchip.com>, Ryan Wanner
+	<ryan.wanner@microchip.com>, Conor Dooley <conor.dooley@microchip.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>
+Subject: [PATCH 0/5] ARM: dts: microchip: sama7d65: flexcom nodes upgrade
+Date: Fri, 2 Jan 2026 18:01:29 +0100
+Message-ID: <20260102170135.70717-1-nicolas.ferre@microchip.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251230230150.4150236-12-seanjc@google.com>
-X-Migadu-Flow: FLOW_OUT
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_085846_392976_0DA58C8E 
-X-CRM114-Status: GOOD (  26.24  )
+X-CRM114-CacheID: sfid-20260102_090150_595612_1E8BD673 
+X-CRM114-Status: UNSURE (   8.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,224 +86,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 30, 2025 at 03:01:40PM -0800, Sean Christopherson wrote:
-> From: Yosry Ahmed <yosry.ahmed@linux.dev>
-> 
-> The root GPA can now be retrieved from the nested MMU, stop passing VMX
-> metadata. This is in preparation for making these functions work for
-> NPTs as well.
+From: Nicolas Ferre <nicolas.ferre@microchip.com>
 
-Super nit: I think at this point the root GPA is already being retrieved
-from the nested MMU, so maybe s/can now be/is?
+This series collects some additions and fixes for flexcom nodes on the sama7d65
+platform. It enables access to all usart, spi and i2c controllers of this SoC.
 
-Also, maybe call it TDP MMU or stage2 MMU since it was renamed.
+Hari Prasath Gujulan Elango (1):
+  ARM: dts: microchip: sama7d65: fix the ranges property for flx9
 
-> 
-> Opportunistically drop tdp_pg_map() since it's unused.
-> 
-> No functional change intended.
-> 
-> Signed-off-by: Yosry Ahmed <yosry.ahmed@linux.dev>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  tools/testing/selftests/kvm/include/x86/vmx.h | 11 ++-----
->  .../testing/selftests/kvm/lib/x86/memstress.c | 11 +++----
->  tools/testing/selftests/kvm/lib/x86/vmx.c     | 33 +++++++------------
->  .../selftests/kvm/x86/vmx_dirty_log_test.c    |  9 +++--
->  4 files changed, 24 insertions(+), 40 deletions(-)
-> 
-> diff --git a/tools/testing/selftests/kvm/include/x86/vmx.h b/tools/testing/selftests/kvm/include/x86/vmx.h
-> index 1fd83c23529a..4dd4c2094ee6 100644
-> --- a/tools/testing/selftests/kvm/include/x86/vmx.h
-> +++ b/tools/testing/selftests/kvm/include/x86/vmx.h
-> @@ -557,14 +557,9 @@ bool load_vmcs(struct vmx_pages *vmx);
->  
->  bool ept_1g_pages_supported(void);
->  
-> -void tdp_pg_map(struct vmx_pages *vmx, struct kvm_vm *vm, uint64_t nested_paddr,
-> -		uint64_t paddr);
-> -void tdp_map(struct vmx_pages *vmx, struct kvm_vm *vm, uint64_t nested_paddr,
-> -	     uint64_t paddr, uint64_t size);
-> -void tdp_identity_map_default_memslots(struct vmx_pages *vmx,
-> -				       struct kvm_vm *vm);
-> -void tdp_identity_map_1g(struct vmx_pages *vmx, struct kvm_vm *vm,
-> -			 uint64_t addr, uint64_t size);
-> +void tdp_map(struct kvm_vm *vm, uint64_t nested_paddr, uint64_t paddr, uint64_t size);
-> +void tdp_identity_map_default_memslots(struct kvm_vm *vm);
-> +void tdp_identity_map_1g(struct kvm_vm *vm,  uint64_t addr, uint64_t size);
->  bool kvm_cpu_has_ept(void);
->  void vm_enable_ept(struct kvm_vm *vm);
->  void prepare_virtualize_apic_accesses(struct vmx_pages *vmx, struct kvm_vm *vm);
-> diff --git a/tools/testing/selftests/kvm/lib/x86/memstress.c b/tools/testing/selftests/kvm/lib/x86/memstress.c
-> index 00f7f11e5f0e..3319cb57a78d 100644
-> --- a/tools/testing/selftests/kvm/lib/x86/memstress.c
-> +++ b/tools/testing/selftests/kvm/lib/x86/memstress.c
-> @@ -59,7 +59,7 @@ uint64_t memstress_nested_pages(int nr_vcpus)
->  	return 513 + 10 * nr_vcpus;
->  }
->  
-> -static void memstress_setup_ept_mappings(struct vmx_pages *vmx, struct kvm_vm *vm)
-> +static void memstress_setup_ept_mappings(struct kvm_vm *vm)
->  {
->  	uint64_t start, end;
->  
-> @@ -68,16 +68,15 @@ static void memstress_setup_ept_mappings(struct vmx_pages *vmx, struct kvm_vm *v
->  	 * KVM can shadow the EPT12 with the maximum huge page size supported
->  	 * by the backing source.
->  	 */
-> -	tdp_identity_map_1g(vmx, vm, 0, 0x100000000ULL);
-> +	tdp_identity_map_1g(vm, 0, 0x100000000ULL);
->  
->  	start = align_down(memstress_args.gpa, PG_SIZE_1G);
->  	end = align_up(memstress_args.gpa + memstress_args.size, PG_SIZE_1G);
-> -	tdp_identity_map_1g(vmx, vm, start, end - start);
-> +	tdp_identity_map_1g(vm, start, end - start);
->  }
->  
->  void memstress_setup_nested(struct kvm_vm *vm, int nr_vcpus, struct kvm_vcpu *vcpus[])
->  {
-> -	struct vmx_pages *vmx;
->  	struct kvm_regs regs;
->  	vm_vaddr_t vmx_gva;
->  	int vcpu_id;
-> @@ -87,11 +86,11 @@ void memstress_setup_nested(struct kvm_vm *vm, int nr_vcpus, struct kvm_vcpu *vc
->  
->  	vm_enable_ept(vm);
->  	for (vcpu_id = 0; vcpu_id < nr_vcpus; vcpu_id++) {
-> -		vmx = vcpu_alloc_vmx(vm, &vmx_gva);
-> +		vcpu_alloc_vmx(vm, &vmx_gva);
->  
->  		/* The EPTs are shared across vCPUs, setup the mappings once */
->  		if (vcpu_id == 0)
-> -			memstress_setup_ept_mappings(vmx, vm);
-> +			memstress_setup_ept_mappings(vm);
->  
->  		/*
->  		 * Override the vCPU to run memstress_l1_guest_code() which will
-> diff --git a/tools/testing/selftests/kvm/lib/x86/vmx.c b/tools/testing/selftests/kvm/lib/x86/vmx.c
-> index 9d4e391fdf2c..ea1c09f9e8ab 100644
-> --- a/tools/testing/selftests/kvm/lib/x86/vmx.c
-> +++ b/tools/testing/selftests/kvm/lib/x86/vmx.c
-> @@ -409,8 +409,8 @@ static void tdp_create_pte(struct kvm_vm *vm,
->  }
->  
->  
-> -void __tdp_pg_map(struct vmx_pages *vmx, struct kvm_vm *vm,
-> -		  uint64_t nested_paddr, uint64_t paddr, int target_level)
-> +void __tdp_pg_map(struct kvm_vm *vm, uint64_t nested_paddr, uint64_t paddr,
-> +		  int target_level)
->  {
->  	const uint64_t page_size = PG_LEVEL_SIZE(target_level);
->  	void *eptp_hva = addr_gpa2hva(vm, vm->arch.tdp_mmu->pgd);
-> @@ -453,12 +453,6 @@ void __tdp_pg_map(struct vmx_pages *vmx, struct kvm_vm *vm,
->  	}
->  }
->  
-> -void tdp_pg_map(struct vmx_pages *vmx, struct kvm_vm *vm,
-> -		uint64_t nested_paddr, uint64_t paddr)
-> -{
-> -	__tdp_pg_map(vmx, vm, nested_paddr, paddr, PG_LEVEL_4K);
-> -}
-> -
->  /*
->   * Map a range of EPT guest physical addresses to the VM's physical address
->   *
-> @@ -476,9 +470,8 @@ void tdp_pg_map(struct vmx_pages *vmx, struct kvm_vm *vm,
->   * Within the VM given by vm, creates a nested guest translation for the
->   * page range starting at nested_paddr to the page range starting at paddr.
->   */
-> -void __tdp_map(struct vmx_pages *vmx, struct kvm_vm *vm,
-> -	       uint64_t nested_paddr, uint64_t paddr, uint64_t size,
-> -		  int level)
-> +void __tdp_map(struct kvm_vm *vm, uint64_t nested_paddr, uint64_t paddr,
-> +	       uint64_t size, int level)
->  {
->  	size_t page_size = PG_LEVEL_SIZE(level);
->  	size_t npages = size / page_size;
-> @@ -487,23 +480,22 @@ void __tdp_map(struct vmx_pages *vmx, struct kvm_vm *vm,
->  	TEST_ASSERT(paddr + size > paddr, "Paddr overflow");
->  
->  	while (npages--) {
-> -		__tdp_pg_map(vmx, vm, nested_paddr, paddr, level);
-> +		__tdp_pg_map(vm, nested_paddr, paddr, level);
->  		nested_paddr += page_size;
->  		paddr += page_size;
->  	}
->  }
->  
-> -void tdp_map(struct vmx_pages *vmx, struct kvm_vm *vm,
-> -	     uint64_t nested_paddr, uint64_t paddr, uint64_t size)
-> +void tdp_map(struct kvm_vm *vm, uint64_t nested_paddr, uint64_t paddr,
-> +	     uint64_t size)
->  {
-> -	__tdp_map(vmx, vm, nested_paddr, paddr, size, PG_LEVEL_4K);
-> +	__tdp_map(vm, nested_paddr, paddr, size, PG_LEVEL_4K);
->  }
->  
->  /* Prepare an identity extended page table that maps all the
->   * physical pages in VM.
->   */
-> -void tdp_identity_map_default_memslots(struct vmx_pages *vmx,
-> -				       struct kvm_vm *vm)
-> +void tdp_identity_map_default_memslots(struct kvm_vm *vm)
->  {
->  	uint32_t s, memslot = 0;
->  	sparsebit_idx_t i, last;
-> @@ -520,16 +512,15 @@ void tdp_identity_map_default_memslots(struct vmx_pages *vmx,
->  		if (i > last)
->  			break;
->  
-> -		tdp_map(vmx, vm, (uint64_t)i << vm->page_shift,
-> +		tdp_map(vm, (uint64_t)i << vm->page_shift,
->  			(uint64_t)i << vm->page_shift, 1 << vm->page_shift);
->  	}
->  }
->  
->  /* Identity map a region with 1GiB Pages. */
-> -void tdp_identity_map_1g(struct vmx_pages *vmx, struct kvm_vm *vm,
-> -			    uint64_t addr, uint64_t size)
-> +void tdp_identity_map_1g(struct kvm_vm *vm, uint64_t addr, uint64_t size)
->  {
-> -	__tdp_map(vmx, vm, addr, addr, size, PG_LEVEL_1G);
-> +	__tdp_map(vm, addr, addr, size, PG_LEVEL_1G);
->  }
->  
->  bool kvm_cpu_has_ept(void)
-> diff --git a/tools/testing/selftests/kvm/x86/vmx_dirty_log_test.c b/tools/testing/selftests/kvm/x86/vmx_dirty_log_test.c
-> index 5c8cf8ac42a2..370f8d3117c2 100644
-> --- a/tools/testing/selftests/kvm/x86/vmx_dirty_log_test.c
-> +++ b/tools/testing/selftests/kvm/x86/vmx_dirty_log_test.c
-> @@ -80,7 +80,6 @@ void l1_guest_code(struct vmx_pages *vmx)
->  static void test_vmx_dirty_log(bool enable_ept)
->  {
->  	vm_vaddr_t vmx_pages_gva = 0;
-> -	struct vmx_pages *vmx;
->  	unsigned long *bmap;
->  	uint64_t *host_test_mem;
->  
-> @@ -96,7 +95,7 @@ static void test_vmx_dirty_log(bool enable_ept)
->  	if (enable_ept)
->  		vm_enable_ept(vm);
->  
-> -	vmx = vcpu_alloc_vmx(vm, &vmx_pages_gva);
-> +	vcpu_alloc_vmx(vm, &vmx_pages_gva);
->  	vcpu_args_set(vcpu, 1, vmx_pages_gva);
->  
->  	/* Add an extra memory slot for testing dirty logging */
-> @@ -120,9 +119,9 @@ static void test_vmx_dirty_log(bool enable_ept)
->  	 * GPAs as the EPT enabled case.
->  	 */
->  	if (enable_ept) {
-> -		tdp_identity_map_default_memslots(vmx, vm);
-> -		tdp_map(vmx, vm, NESTED_TEST_MEM1, GUEST_TEST_MEM, PAGE_SIZE);
-> -		tdp_map(vmx, vm, NESTED_TEST_MEM2, GUEST_TEST_MEM, PAGE_SIZE);
-> +		tdp_identity_map_default_memslots(vm);
-> +		tdp_map(vm, NESTED_TEST_MEM1, GUEST_TEST_MEM, PAGE_SIZE);
-> +		tdp_map(vm, NESTED_TEST_MEM2, GUEST_TEST_MEM, PAGE_SIZE);
->  	}
->  
->  	bmap = bitmap_zalloc(TEST_MEM_PAGES);
-> -- 
-> 2.52.0.351.gbe84eed79e-goog
-> 
+Nicolas Ferre (4):
+  ARM: dts: microchip: sama7d65: fix size-cells property for i2c3
+  ARM: dts: microchip: sama7d65: add dma properties to usart6
+  ARM: dts: microchip: sama7d65: add fifo-size to usart
+  ARM: dts: microchip: sama7d65: add missing flexcom nodes
+
+ arch/arm/boot/dts/microchip/sama7d65.dtsi | 283 +++++++++++++++++++++-
+ 1 file changed, 281 insertions(+), 2 deletions(-)
+
+-- 
+2.43.0
+
 
