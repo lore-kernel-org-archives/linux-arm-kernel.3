@@ -4,151 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9B5DFA3744
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 12:51:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5EA3FA3744
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 12:54:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nUcD6pb0PVlZ39xOW5NFx+GBSd4bs/4hPrMvTVDDLMY=; b=d68ytJt9pdcURfIh+6ewc9J2Up
-	1K429J5dFO921qpcg+hA1MYL5pyMzPffet6pr6QMbf1++YM5nSdR15JDfGw+eCg/N9g5+1IxdGxXA
-	Ugvoavu+E5A51Kw6dizUrHuj5rviutAcSSWXjhdYIdx+pUofAPVskp2g5U30wYaW8Dgfzx0bFbAC8
-	gGiSa8W1+VeYaEQuSNHdcqnJKAGVCvBQXOQRcrI+olplaCw5iB0zwR+BcJWn61WzkR/30xTuRHeBB
-	OonUW6Zhk8n9KhcT80SOh7c2HEoWft0l9qH3rXh/AT1p0T333VGkZupQKnsMp2unARH6+TI5firmy
-	9Uu+APRA==;
+	bh=d9B8E3TVj6VWgfixOf/l/AZu6MjDsVz0BBtXGKPFts8=; b=nX30L67VH4o/I0IpKoxPOn/rcD
+	sWzBgzaAATDC3zeYVp9PW7c+P1OgA8/n+mwtIhRTEbPmyBy2tjIiJcnsxWqmg5l/8eGLabp7ehg3P
+	Xb2zb5SqcCDi1watOlLa11DJN5iVGuszX+b3rqakSVGApI0veaoeJmimuCEX+SIVjXEScHIA6lM4/
+	TdYZYEJslycyoUOuUL04qaPTFlLSz/YQNeq4PCaPrgeSSOFW8Q7nJPnrJwnFUfpIOPhiXSGrPJbOm
+	TTpW2iq7cMEB9cWfTQbkkYMsf2BcSCkeycQuuGonqNrTkASqZeiOs8NAMYl15QPyZu9pquozC5uaq
+	nAc1yAmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbecP-00000008FOc-0KNr;
-	Fri, 02 Jan 2026 12:51:01 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vbeg0-00000008FsU-3026;
+	Fri, 02 Jan 2026 12:54:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbecD-00000008FGa-281U
+	id 1vbefx-00000008Fs9-43Yz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Jan 2026 12:50:57 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 602C02xo314674
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 2 Jan 2026 12:50:49 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=nUcD6pb0PVl
-	Z39xOW5NFx+GBSd4bs/4hPrMvTVDDLMY=; b=lPsT48SGumWSYeYLa9JC9HNNgaW
-	4tkT81SK3bG69TQVI9+jNnhST4lXfdbVwlFdHUb9ydRTqO1slc/lN0m4mUthbYiX
-	X24ImfTWNqtIvSRjMirxBxWYpEZZinjkjfQgCXWKjSbQywkm7/cBUCumCUl/qlF7
-	yGEo3xTFPJfJ4cp3pdeo/u2cdg0G7calDrldsVxVLxZOAqavtr0xOzKM90zf0WFq
-	nRXjLErqpX99Qlu4Iz9Af0LYEMIIkDZ/LTkNrv3NJL8eLRWzsPRTHdqmTBL2TaJz
-	wGZkcO+DTSiAPOyeqwOw3V/GjttYjl1gIHUh0N6kW71A/wEgysrotduNvNQ==
-Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bedmxr2u0-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Jan 2026 12:50:49 +0000 (GMT)
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-4f4ab58098eso300373341cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Jan 2026 04:50:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1767358248; x=1767963048; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nUcD6pb0PVlZ39xOW5NFx+GBSd4bs/4hPrMvTVDDLMY=;
-        b=XbEY+cM88Kv5rsh6MMTCSS7PtsokHQen/n0ewh2jgTYzTFCysWfBXIV9XkzpzgqN+W
-         MERUliSn46SKvB4rg/tEnxYQundetVpzr6c34whY7RhvJknnGRAuRk0aQ4XyCW0R4KaJ
-         zqmJejVlaiasrJ2msL5a5O38huQjHpoaO60v8r8qaSIk0E6tnMc01TRRphz4Q7xxsxp6
-         JIWv1eBRwv8SCelZYWLn6PXATZXpVEy14iyFFkoeCr6OCvCtEwMs9UIBWWUXDFnqE6yD
-         ljnmEjOWfezHYbz6/X0Qd11dflPeeNe5/I2PRnfPY3XC904oFOA5ARNhv5ZifUPB7sDb
-         Yhpg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767358248; x=1767963048;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=nUcD6pb0PVlZ39xOW5NFx+GBSd4bs/4hPrMvTVDDLMY=;
-        b=KRJk7Rs9iQkMJMp5nQ3tUPqgwxmL018AXTjH2n2JxGkIwyuEaLb9tuQVIbGHieJK8c
-         hyOIFdc5oXBDHVWpC43UgDL5iSoCyVL9V2poE3W4EE/XB2Zb511YfpxelQvq1Ympr66s
-         J9+JLRgiLdqViddo3eLQkPsR/VCKhSUIluncj9ioz2qHkCo/CdcNIxv8QEcokINaOsWh
-         iVGbTs5ZDM/DotEBvIxuP+wpxJFzFcicXdAocJda25psmbDM/7HOoj6s+n8BX2QBSvMd
-         F5U5OfKTyjRyyeUEHQ2wo30vCJCy6eRfGBeI/3QONxNPmM/7BOQ6IoawqHXN9fHtoJ9c
-         GiLw==
-X-Forwarded-Encrypted: i=1; AJvYcCVZGS/ZL9gsf8tUs9/LVMUYBnFusvPwFxE8/MeQuDTUjz6SQPY/yXPq88JwlU+Os2tGqjgORX1tmPUKDFDrlgXt@lists.infradead.org
-X-Gm-Message-State: AOJu0YwAhSXbQA0R/kFTxGbaA9ClwJnL2izYXex3V/D2p4oiuAQqBw2a
-	Dodgp0Sajo1cLmhACYHVKHPmAvrowp0NiSAfuZvXYdDw9o4SfnTTv8Jgxasr2qckylR+Kh9V6Nc
-	WQSKw4APBxTUkKCyVYwSFSC2Alhzw8/8KHkGtoMwprtsubq0rMBOKIG9k66PUgKtcQN1htFqaPa
-	RXxg==
-X-Gm-Gg: AY/fxX6I292wEQNb8YGwUDlTI2sbs0M4KewFbHtJ7A8wYPwZMsjj97JYWrIhimw1roN
-	hPwesWm62ADJcgFnkxdN8ZUu0+IGQaMafGEepLO7E28Wjvnuf/OTGi3HGJKeGdORrPdfVFrfvoT
-	UW5fUh66cAgbb+gOYTPfjzHuGJJHbyZSq8QGSB817+nLkUX9Bl778LK7rVVznsC3uMkhRAQ2l2f
-	VfYy2vggAZ4sRiGtohEYZysgm2izTBBF/x19odvyCvpu1YZa0K1bvycOyxkcj33kln2yomjqHoI
-	D6ZcgrVxKNEgiiz65Tc7C0EOmJUCSpPo97mTSwS/pdecsN4WkkuPT0RQ+hVqGdK9FJKcaSyOTBJ
-	f2YdEytCGySvdqOYDGks0ZPMs5w==
-X-Received: by 2002:a05:622a:2b43:b0:4ee:15af:b938 with SMTP id d75a77b69052e-4f4abdb9888mr636639631cf.70.1767358248090;
-        Fri, 02 Jan 2026 04:50:48 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHgMLeHLiaApDhr4y+t46crL0OCq2r5fx6YzaQIeAPiktL/EPDH+eFPWsNm9PgPDb379iiEJg==
-X-Received: by 2002:a05:622a:2b43:b0:4ee:15af:b938 with SMTP id d75a77b69052e-4f4abdb9888mr636639121cf.70.1767358247588;
-        Fri, 02 Jan 2026 04:50:47 -0800 (PST)
-Received: from quoll ([178.197.218.229])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4324ea1aef7sm84491369f8f.7.2026.01.02.04.50.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Jan 2026 04:50:47 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-To: Damien Le Moal <dlemoal@kernel.org>, Niklas Cassel <cassel@kernel.org>,
-        Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-        Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam <festevam@gmail.com>,
-        Nathan Chancellor <nathan@kernel.org>,
-        Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-        Bill Wendling <morbo@google.com>,
-        Justin Stitt <justinstitt@google.com>, linux-ide@vger.kernel.org,
-        linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-        linux-arm-kernel@lists.infradead.org, llvm@lists.linux.dev
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Subject: [PATCH 2/3] ata: ahci-imx: Fix Wvoid-pointer-to-enum-cast warning
-Date: Fri,  2 Jan 2026 13:50:42 +0100
-Message-ID: <20260102125040.65256-5-krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260102125040.65256-4-krzysztof.kozlowski@oss.qualcomm.com>
-References: <20260102125040.65256-4-krzysztof.kozlowski@oss.qualcomm.com>
+	Fri, 02 Jan 2026 12:54:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7BCC443CB2;
+	Fri,  2 Jan 2026 12:54:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20581C116B1;
+	Fri,  2 Jan 2026 12:54:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767358481;
+	bh=UeTFQF1PziKAmdLwwjNI7yNAsyhVBMKAkEAuEqIHDaU=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=OtLFpswexxJuC50BSkYOlGAoAe6ToG+qgpaKowWUxBbyGmJdJxXrBfzBMduLzp1eU
+	 ZE18eOolo3cqXLU8d8ylsp4WVd+TouXva7hjW2B5HcM6cOAfy3Ogev6Z/w8hZ93EJP
+	 k4e1+P8ycLwDJhKnrAeex+kGSBo4PBSCtpBlw/qTjxUkxWaq42YPUsRpJPx+k83bkN
+	 JMo92fdntFbKpk4mfpvLXJYnYnzn5wo9rFnidc4P962f9hX13kI7HjMuZJcfObK61A
+	 pf3CuQ3upylErHfI5Vq+oCCp6H1xePcOkGcpVtR8a4GKN/MER36kgODlM0Lo6MCgfn
+	 of0y3K7D7ah2A==
+Message-ID: <1eef3c49-83a7-48d4-96ad-ffb71df2be7a@kernel.org>
+Date: Fri, 2 Jan 2026 13:54:38 +0100
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=963; i=krzysztof.kozlowski@oss.qualcomm.com;
- h=from:subject; bh=bF6I3Il5StjpcdVfuPvLmyNYtVe2Yc4DUSHgz9j7Kc0=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpV78htTPTsLhXFjjjfDr74HmSdB3AHf42Z5Y8+
- c1TGemZXLWJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaVe/IQAKCRDBN2bmhouD
- 16n1D/4pE1qzGL1s8HEKW7GRJAes9KGNCUeOwpOsXUDMiez4dAEYFZhEy46nbNa5OMSgone+q9h
- yrZ8uiKuxnkXHDAOXKLpMWFByOe6oLQveIr/8nhyuDQcSDJtiYGXQARD8rrHNhyajEYXHoo0xNy
- 2HhL6FHPA9t5cHJZ6yRFqlax3bogb/yaWfk3WAmZF8rZE/2lrSt2Prs9uuO7C8rq0wlnuqXu6Zb
- 2/M0eJSJkkt9nv8BgLYYVRXnSFxzfeCIHh3wqRFRDYERcnTfh56xYZ+6n0J2iTPufvt/JNsjzR4
- DCjmaN0hnlgsVXaae5MZGbTql8qCwp957eS6EpUu1WIQ+HBXnR2dESKNPm3+olmAMTODlNLxG1T
- o9pttb+XTBJ+wQb25WVA++EKFElhU6qE6v7fxRqe2Jf+gxFuLdpHiSZQnmDx1euYkm7SYF9AtK1
- /VpX4wqa+NSmv9QNCaSrjxzqnUTfzIusIOOQolhuDOl/N1lMu4ZxzQ1vt0GNtAoCggXyb3LG672
- EGfA2BlognhlEtOIyR2VPms7t9G6jM+br3Ek4U2GB7qYdjCOxsI/WfV2BqfPG8lpo3dt++PpxiF
- yQsOyAwt6i/AACbE4f5wsRpGpIAawtWaqnfER33Y3I9gh2Cjx0TrYY/8H8Gpl1urFlgt8Z4eHET 7k3nYo5wutjTiVg==
-X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=GupPO01C c=1 sm=1 tr=0 ts=6957bf29 cx=c_pps
- a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=Eb9f15NH/cHKzfGOmZSO4Q==:17
- a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=EUspDBNiAAAA:8 a=7zQf0MV6msiRB6oW4MAA:9 a=dawVfQjAaf238kedN5IG:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTAyMDExNCBTYWx0ZWRfXzcmMsk/afSLw
- /1WBi+SQEtiBwrDA+IjfMmWj+cReu45tezRC4EF91wTDZ9Kv2zx0p6mcgo3NBHN42A2zhu2kj14
- RVb6eZi34xk/H2c90wk2Y6kA3MnbuoKQCMTldWstBXOHeN3G8/kn7AEZkF0GRzbGVUVhcakro1b
- qD1wrhcorZzSd2wi2wwrcq0WRqpD01KjrDl4QwMn2LDGU75wKiBv2EFotBpYbG7hHbQvRARSiOU
- GjDhS2tU6PvuK6Mp0rq0upuZfHbMbMUXDj4GCeL9JqPgieVuNQ2L4e3QI2d6nqy8bUvJfkru2LP
- 3Sq3Hmwni0V16rb2/75hw+MfXeAYOKZnP04nix8aa45hrRss+1iooQmfZRVtxxpio4IzjdZ3DWE
- MitiSpzx9K3c/YVjxpbQGSP+hACq4j6TtPaHISD8VOCu6H+S206cnRoLbf8JD5v1aevwTiKWcDL
- 19a35UkftPl/982+LQQ==
-X-Proofpoint-GUID: uYrR1LXCBi0pwtMRDTYzhI6iUYzgrpoh
-X-Proofpoint-ORIG-GUID: uYrR1LXCBi0pwtMRDTYzhI6iUYzgrpoh
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2026-01-02_01,2025-12-31_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 suspectscore=0 impostorscore=0 priorityscore=1501
- lowpriorityscore=0 adultscore=0 phishscore=0 malwarescore=0 spamscore=0
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2512120000
- definitions=main-2601020114
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] soc: nxp: Add a simple NXP LPC32xx socinfo driver
+To: Vladimir Zapolskiy <vz@mleia.com>, Arnd Bergmann <arnd@arndb.de>
+Cc: Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260101235647.2411062-1-vz@mleia.com>
+ <20260101235647.2411062-3-vz@mleia.com>
+ <accb4ab1-07fa-4e33-a74c-2c588ca415ac@kernel.org>
+ <eb9ef21a-c0b4-4c8d-b1b1-6c76f45c53aa@mleia.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <eb9ef21a-c0b4-4c8d-b1b1-6c76f45c53aa@mleia.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_045049_567128_24C686F0 
-X-CRM114-Status: GOOD (  15.47  )
+X-CRM114-CacheID: sfid-20260102_045442_053017_5B95EF08 
+X-CRM114-Status: GOOD (  16.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,30 +119,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-"imxpriv->type" is an enum, thus cast of pointer on 64-bit compile test
-with clang W=1 causes:
+On 02/01/2026 13:36, Vladimir Zapolskiy wrote:
+> On 1/2/26 11:58, Krzysztof Kozlowski wrote:
+>> On 02/01/2026 00:56, Vladimir Zapolskiy wrote:
+>>> Add NXP LPC32xx specific driver to get unique SoC ID from System Control
+>>> Block registers and export it to userspace.
+>>>
+>>> Signed-off-by: Vladimir Zapolskiy <vz@mleia.com>
+>>> ---
+>>>   drivers/soc/Kconfig           |   1 +
+>>>   drivers/soc/Makefile          |   1 +
+>>>   drivers/soc/nxp/Kconfig       |  16 +++++
+>>>   drivers/soc/nxp/Makefile      |   2 +
+>>>   drivers/soc/nxp/lpc32xx-soc.c | 114 ++++++++++++++++++++++++++++++++++
+>>>   5 files changed, 134 insertions(+)
+>>>   create mode 100644 drivers/soc/nxp/Kconfig
+>>>   create mode 100644 drivers/soc/nxp/Makefile
+>>>   create mode 100644 drivers/soc/nxp/lpc32xx-soc.c
+>>>
+>>> diff --git a/drivers/soc/Kconfig b/drivers/soc/Kconfig
+>>> index a2d65adffb80..c21b0d2f58fc 100644
+>>> --- a/drivers/soc/Kconfig
+>>> +++ b/drivers/soc/Kconfig
+>>> @@ -18,6 +18,7 @@ source "drivers/soc/loongson/Kconfig"
+>>>   source "drivers/soc/mediatek/Kconfig"
+>>>   source "drivers/soc/microchip/Kconfig"
+>>>   source "drivers/soc/nuvoton/Kconfig"
+>>> +source "drivers/soc/nxp/Kconfig"
+>>>   source "drivers/soc/pxa/Kconfig"
+>>>   source "drivers/soc/qcom/Kconfig"
+>>>   source "drivers/soc/renesas/Kconfig"
+>>> diff --git a/drivers/soc/Makefile b/drivers/soc/Makefile
+>>> index 47a3925ff84c..a04c21a8a5a4 100644
+>>> --- a/drivers/soc/Makefile
+>>> +++ b/drivers/soc/Makefile
+>>> @@ -24,6 +24,7 @@ obj-y				+= loongson/
+>>>   obj-y				+= mediatek/
+>>>   obj-y				+= microchip/
+>>>   obj-y				+= nuvoton/
+>>> +obj-y				+= nxp/
+>>>   obj-y				+= pxa/
+>>>   obj-y				+= qcom/
+>>>   obj-y				+= renesas/
+>>
+>> Missing maintainers entry.
+>>
+>>
+>>> +
+>>> +static int lpc32xx_soc_probe(struct platform_device *pdev)
+>>> +{
+>>> +	struct soc_device_attribute *soc_dev_attr;
+>>> +	struct device *dev = &pdev->dev;
+>>> +	struct soc_device *soc_dev;
+>>> +	struct regmap *scb;
+>>> +	u32 serial_id[4];
+>>> +	int ret;
+>>> +
+>>> +	soc_dev_attr = devm_kzalloc(dev, sizeof(*soc_dev_attr), GFP_KERNEL);
+>>> +	if (!soc_dev_attr)
+>>> +		return -ENOMEM;
+>>> +
+>>> +	soc_dev_attr->family = "NXP LPC32xx";
+>>> +
+>>> +	ret = of_property_read_string(of_root, "model", &soc_dev_attr->machine);
+>>> +	if (ret)
+>>> +		return ret;
+>>> +
+>>> +	scb = syscon_regmap_lookup_by_compatible("nxp,lpc3220-scb");
+>>
+>> This is undocumented ABI.
+> 
+> What is the expected level of documentation for syscon?
 
-  ahci_imx.c:872:18: error: cast to smaller integer type 'enum ahci_imx_type' from 'const void *' [-Werror,-Wvoid-pointer-to-enum-cast]
+git grep nxp,lpc3220-scb
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
----
- drivers/ata/ahci_imx.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+gives me 0 results.
 
-diff --git a/drivers/ata/ahci_imx.c b/drivers/ata/ahci_imx.c
-index 86aedd5923ac..3d26595524d3 100644
---- a/drivers/ata/ahci_imx.c
-+++ b/drivers/ata/ahci_imx.c
-@@ -869,7 +869,7 @@ static int imx_ahci_probe(struct platform_device *pdev)
- 	imxpriv->ahci_pdev = pdev;
- 	imxpriv->no_device = false;
- 	imxpriv->first_time = true;
--	imxpriv->type = (enum ahci_imx_type)device_get_match_data(dev);
-+	imxpriv->type = (unsigned long)device_get_match_data(dev);
- 
- 	imxpriv->sata_clk = devm_clk_get(dev, "sata");
- 	if (IS_ERR(imxpriv->sata_clk)) {
--- 
-2.51.0
+Documentation is supposed to be in this patchset. If it is not, you have
+changelog part to explain dependencies and unusual things.
+> 
+>> Anyway, you should look up devices via phandles.
+>>
+> 
+> I may miss the context, was syscon_regmap_lookup_by_compatible() deprecated?
 
+Not deprecated. It has its own purpose, so you can explain why here you
+cannot have phandle.
+
+Without phandle you do not have proper device probe ordering and you do
+not properly express the dependency between hardware modules. Maybe this
+is not even real hardware, which you attach your driver to, so that's
+another thing to consider. Anyway, commit msg should explain all these.
+
+> 
+> Most of drivers/soc uses syscon_regmap_lookup_by_compatible() variant over
+> syscon_regmap_lookup_by_phandle(), and overall
+
+They have their own reason.
+
+> 
+> % git grep syscon_regmap_lookup_by_compatible v6.19-rc1 | wc -l
+> 105
+> 
+
+
+Best regards,
+Krzysztof
 
