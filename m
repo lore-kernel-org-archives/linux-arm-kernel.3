@@ -4,96 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 841CDFA3741
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 13:18:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CC97FA3744
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 13:21:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Kh0+1+chHjNEp1bDD22RGjxNzSGu6tfL89BVhbtvA6w=; b=bIO77TMzwiVIpNhrLLw3FEEUqL
-	ySCcAAr8C9Xteac+1qlQLKTm2U2+ODeMvfofgpBtCUM1rv5mtDVsClQAtrNJTNuaQfVNI4LKdnHUT
-	Z+hDRyrRT/+95Qarxm+y+BwJb4yJqMw+pmak98Hz9I2SsQ8IasI+VTQ9xTvMA6LEaQQsdQJp65rLH
-	9vsMhh3h581CVwwfzUeTJIaZVgmm/JB22SVP1LOUqqJXGH+wQsOaSFkj+D3eZLMzKyxIzkqSCWg3Z
-	+mac/5iGuYGsr12BYVCSxogLLAKWWhYbSDSACRaABa1ZUYEEz3+NRKx6JBvJiQtqmeWwfm2Xid4pk
-	NpWo/d0g==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=w30f0aKhzY/BrVZBK+sZ1MLz2lJKq7HC3XmXGjiFEzY=; b=zi0mESQVMJPBnffR55FMijdFc5
+	OZ2S7UD5rKzjMj1Lpj8p9TshjOsZGdfEe5tCLlh9rV+SHmXGlZU2MwZV5Xt3CcIesPFP9MuV+1kJR
+	AlAS0Y8+t7nj0m+2e0h8NfLbPPQdm+QOUrW9y1X2/VxD45OwUzCwCGcZGPSnlM/A2FzbFt1QCVyl5
+	2z3Q7ngKbEvzX+pp3NgenOXldluVnY11/SSrj01Vrc6ooFtznwPTP7U4pxtZu7ItJg3orsyA05zwp
+	driAZDmdP8XKrlYW82uxXIMkMXPXm6msw0YJIYIraIkIEg+/nUKFwlC4CKRNZRHtiIS2wSWTPGGU7
+	Mvss/j7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbf38-00000008HgO-1Lbr;
-	Fri, 02 Jan 2026 13:18:38 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1vbf6D-00000008HvB-3cIG;
+	Fri, 02 Jan 2026 13:21:49 +0000
+Received: from mleia.com ([178.79.152.223] helo=mail.mleia.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbf34-00000008HfU-2Wpz
+	id 1vbf6A-00000008Hum-3udn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Jan 2026 13:18:36 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-7f89d0b37f0so5504413b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Jan 2026 05:18:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1767359914; x=1767964714; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Kh0+1+chHjNEp1bDD22RGjxNzSGu6tfL89BVhbtvA6w=;
-        b=CCWUutFpeRLJpk/7HSCsDYK1yXwAcOU/kpO0P4YPk0AQ3HQpSWVkiBX+1akN4lBCU6
-         M9LAvW5wuAw/Zm77hI0l5No0UknesZLNbm6HshEgOcnvc40wmSb8ye6EzFO6B4jKdoaT
-         Qp17iGmTT5gNX16ndO8+cBQa2yXp0wB4LmUktbMGRjlY38m0VLBaoAMcLF952gJxmeES
-         7Gii+Bfsahm4hsugF6AVYqWfJyw9/opsZgc+yABf4RTclE05w8odOvJpSAULwz7tXRKf
-         kj/2VSy2c6nWuUCU1u4DzUfPUejDwJbwaWRR/8dyvNWpfcv9t6yj5Sef1EIcISprikvg
-         f8bA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767359914; x=1767964714;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Kh0+1+chHjNEp1bDD22RGjxNzSGu6tfL89BVhbtvA6w=;
-        b=TaaD/Fh+l4YQJEiI7G/I2tMnZlTmEgGVrvr4HqUSExzPnyoR0OROnuSvug+aVC3gi3
-         X8JYAHAp3VllzHzkEkiUEFpzm6GkUzwxS/rwt27k/cn9G61Uqqb7RSrYh7gJbm0KT940
-         3gqjwk0MPF5eGob5+h4fWf4aJT8spngNboRdHcAIPyOz2enKzBbt1z35RmLPhXYFh/u6
-         QTbRJnLxEyLD2h/yKu1k/zyD5n29liydNT4IwyCxizsQzYsW0rmeclI/HL85iXJx0ngC
-         POJN1l+L0AfRZxkRe5bCZXUcOdd60IxlqElsGqVLT7bBsoIYvNihVWDs4tDNx734HZKd
-         v4Lg==
-X-Forwarded-Encrypted: i=1; AJvYcCUqEnTnLwiNUP4w4AUEGYCxh1yh4izS5aMUEIa1vF4wb3q8j8+Ujp4GHJMgT3GJIbu91k3eQ1RbQQ+R2m3XJ2BA@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxyyhu3MP8MCVujtR/2d2Xx/HBVYlqNg6+sNzGqA3Qsi879B8OK
-	5sQAWXYNyvvYsIcwltnRkl7B8dRqVGcYimisvASHdZEn357gbNc/OCUL
-X-Gm-Gg: AY/fxX42M3SsPzvyyZWZLm3aQUq68C3Xz1SCYrWBYAyb4TS/yN62cgUrieu/NAwASxp
-	/yB49LHmnCbEfw/BTuJ9ZsXuN2pIMcbrGI/SS5P0TGE1xf8qODxnaPVIK3GvZml7ObHMcsIt30z
-	9WWjdN7yUmsq6Sm4RB5aJ2YxUhaUKKGL+0P0xYgYqjVqf8oceyrxdv8FF19I7R69X0JRpJNyvJC
-	yhMcu76Bzs40UIFfl65g6zjClLUWyCSQ+FBF1YcF6doR5i0m/hmgEw+CCND3/ClSZAQUe3Xb+ce
-	QKRRhFpeNVzVbvX9MVvyp2fOXleKSjdua2lrpxI64GxARZbP7ra1e6Dtb9m6idkWxoSnKBKtj+U
-	GQzLovGP/hmue5XPrOdBUZK0VR5GtcE/IU8WkTvS/kSrNgsXC3FA3V65aNwt1zPc/V3CTlNy7hw
-	GyTV0nXg==
-X-Google-Smtp-Source: AGHT+IFOoSD4aT3DrhU3ikdyAs6DYGzFL5+ZFBK1G4TTasauTKe+kqxCEq8s+rYlew1jpVJY/wcLlw==
-X-Received: by 2002:a05:6a20:3d07:b0:35d:8881:e69b with SMTP id adf61e73a8af0-3769f3352c8mr41132629637.18.1767359909649;
-        Fri, 02 Jan 2026 05:18:29 -0800 (PST)
-Received: from rockpi-5b ([45.112.0.8])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c1e7961e039sm35278770a12.7.2026.01.02.05.18.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Jan 2026 05:18:29 -0800 (PST)
-From: Anand Moon <linux.amoon@gmail.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Niklas Cassel <cassel@kernel.org>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Hans Zhang <18255117159@163.com>,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	linux-pci@vger.kernel.org (open list:PCI NATIVE HOST BRIDGE AND ENDPOINT DRIVERS),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Rockchip SoC support),
-	linux-rockchip@lists.infradead.org (open list:ARM/Rockchip SoC support),
-	linux-kernel@vger.kernel.org (open list)
-Cc: Anand Moon <linux.amoon@gmail.com>
-Subject: [PATCH v2] PCI: dw-rockchip: Add runtime PM support to Rockchip PCIe
-Date: Fri,  2 Jan 2026 18:47:50 +0530
-Message-ID: <20260102131819.123745-1-linux.amoon@gmail.com>
-X-Mailer: git-send-email 2.50.1
+	Fri, 02 Jan 2026 13:21:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
+	t=1767360105; bh=cEVMRQP8y3po3C2OZqVBVcXcp0ZrdjOz8UuEbKUXPSE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=A43fywxtve3bdIZ2ks69LwrHc37hXB1kG8cTiSeC8cQeo4TF868gL4WCZpJ7tlPwC
+	 1Mm4F/qqF9wo9L5ecs9lwOu6xK7BT6u7VlmyEx6z+sK+89kNNTLIY6G3n8wWHZmcF0
+	 1d2JGf8HCtxfjKP2sQhMDGQjgjwhY6aS+hH/S2faxxURu99GfT+cm1CSCNKt+aICdQ
+	 SbIhxM92StWcpo4S52gjoUgilB2KxlKDZ4oCIPYdU4RpNRd5UvMLec2JA5eX+ecWMf
+	 5RJ358AEc0ljpEh2Bt/f+EarwNwEaJSWN17rYhENrZ6DlQ2L7vfKJ6xCWayA9dHi0J
+	 BemkJXw6TTzlw==
+Received: from mail.mleia.com (localhost [127.0.0.1])
+	by mail.mleia.com (Postfix) with ESMTP id 264A43E9C54;
+	Fri,  2 Jan 2026 13:21:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
+	t=1767360105; bh=cEVMRQP8y3po3C2OZqVBVcXcp0ZrdjOz8UuEbKUXPSE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=A43fywxtve3bdIZ2ks69LwrHc37hXB1kG8cTiSeC8cQeo4TF868gL4WCZpJ7tlPwC
+	 1Mm4F/qqF9wo9L5ecs9lwOu6xK7BT6u7VlmyEx6z+sK+89kNNTLIY6G3n8wWHZmcF0
+	 1d2JGf8HCtxfjKP2sQhMDGQjgjwhY6aS+hH/S2faxxURu99GfT+cm1CSCNKt+aICdQ
+	 SbIhxM92StWcpo4S52gjoUgilB2KxlKDZ4oCIPYdU4RpNRd5UvMLec2JA5eX+ecWMf
+	 5RJ358AEc0ljpEh2Bt/f+EarwNwEaJSWN17rYhENrZ6DlQ2L7vfKJ6xCWayA9dHi0J
+	 BemkJXw6TTzlw==
+Received: from [192.168.1.100] (91-159-24-186.elisa-laajakaista.fi [91.159.24.186])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.mleia.com (Postfix) with ESMTPSA id BFCA53E98AF;
+	Fri,  2 Jan 2026 13:21:44 +0000 (UTC)
+Message-ID: <1a336af6-6c27-4211-9c8c-ede4d091eb17@mleia.com>
+Date: Fri, 2 Jan 2026 15:21:44 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] soc: nxp: Add a simple NXP LPC32xx socinfo driver
+To: Krzysztof Kozlowski <krzk@kernel.org>, Arnd Bergmann <arnd@arndb.de>
+Cc: Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260101235647.2411062-1-vz@mleia.com>
+ <20260101235647.2411062-3-vz@mleia.com>
+ <accb4ab1-07fa-4e33-a74c-2c588ca415ac@kernel.org>
+ <eb9ef21a-c0b4-4c8d-b1b1-6c76f45c53aa@mleia.com>
+ <1eef3c49-83a7-48d4-96ad-ffb71df2be7a@kernel.org>
+From: Vladimir Zapolskiy <vz@mleia.com>
+In-Reply-To: <1eef3c49-83a7-48d4-96ad-ffb71df2be7a@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-49551924 
+X-CRM114-CacheID: sfid-20260102_132145_174016_E8DD0099 
+X-CRM114-Status: GOOD (  20.12  )
+/bin/ln: failed to access 'reaver_cache/texts/20260102_132145_174016_E8DD0099': No such file or directory
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_051835_460839_293BCAD8 
-X-CRM114-Status: GOOD (  15.10  )
+X-CRM114-CacheID: sfid-20260102_132145_174016_E8DD0099 
+X-CRM114-Status: GOOD (  21.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,69 +92,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add runtime powwe manageement functionality into the Rockchip DesignWare
-PCIe controller driver. Calling devm_pm_runtime_enable() during device
-probing allows the controller to report its runtime PM status, enabling
-power management controls to be applied consistently across the entire
-connected PCIe hierarchy.
+On 1/2/26 14:54, Krzysztof Kozlowski wrote:
+> On 02/01/2026 13:36, Vladimir Zapolskiy wrote:
+>> On 1/2/26 11:58, Krzysztof Kozlowski wrote:
+>>> On 02/01/2026 00:56, Vladimir Zapolskiy wrote:
+>>>> Add NXP LPC32xx specific driver to get unique SoC ID from System Control
+>>>> Block registers and export it to userspace.
+>>>>
+>>>> Signed-off-by: Vladimir Zapolskiy <vz@mleia.com>
+>>>> ---
+>>>>    drivers/soc/Kconfig           |   1 +
+>>>>    drivers/soc/Makefile          |   1 +
+>>>>    drivers/soc/nxp/Kconfig       |  16 +++++
+>>>>    drivers/soc/nxp/Makefile      |   2 +
+>>>>    drivers/soc/nxp/lpc32xx-soc.c | 114 ++++++++++++++++++++++++++++++++++
+>>>>    5 files changed, 134 insertions(+)
+>>>>    create mode 100644 drivers/soc/nxp/Kconfig
+>>>>    create mode 100644 drivers/soc/nxp/Makefile
+>>>>    create mode 100644 drivers/soc/nxp/lpc32xx-soc.c
+>>>>
+>>>> diff --git a/drivers/soc/Kconfig b/drivers/soc/Kconfig
+>>>> index a2d65adffb80..c21b0d2f58fc 100644
+>>>> --- a/drivers/soc/Kconfig
+>>>> +++ b/drivers/soc/Kconfig
+>>>> @@ -18,6 +18,7 @@ source "drivers/soc/loongson/Kconfig"
+>>>>    source "drivers/soc/mediatek/Kconfig"
+>>>>    source "drivers/soc/microchip/Kconfig"
+>>>>    source "drivers/soc/nuvoton/Kconfig"
+>>>> +source "drivers/soc/nxp/Kconfig"
+>>>>    source "drivers/soc/pxa/Kconfig"
+>>>>    source "drivers/soc/qcom/Kconfig"
+>>>>    source "drivers/soc/renesas/Kconfig"
+>>>> diff --git a/drivers/soc/Makefile b/drivers/soc/Makefile
+>>>> index 47a3925ff84c..a04c21a8a5a4 100644
+>>>> --- a/drivers/soc/Makefile
+>>>> +++ b/drivers/soc/Makefile
+>>>> @@ -24,6 +24,7 @@ obj-y				+= loongson/
+>>>>    obj-y				+= mediatek/
+>>>>    obj-y				+= microchip/
+>>>>    obj-y				+= nuvoton/
+>>>> +obj-y				+= nxp/
+>>>>    obj-y				+= pxa/
+>>>>    obj-y				+= qcom/
+>>>>    obj-y				+= renesas/
+>>>
+>>> Missing maintainers entry.
+>>>
+>>>
+>>>> +
+>>>> +static int lpc32xx_soc_probe(struct platform_device *pdev)
+>>>> +{
+>>>> +	struct soc_device_attribute *soc_dev_attr;
+>>>> +	struct device *dev = &pdev->dev;
+>>>> +	struct soc_device *soc_dev;
+>>>> +	struct regmap *scb;
+>>>> +	u32 serial_id[4];
+>>>> +	int ret;
+>>>> +
+>>>> +	soc_dev_attr = devm_kzalloc(dev, sizeof(*soc_dev_attr), GFP_KERNEL);
+>>>> +	if (!soc_dev_attr)
+>>>> +		return -ENOMEM;
+>>>> +
+>>>> +	soc_dev_attr->family = "NXP LPC32xx";
+>>>> +
+>>>> +	ret = of_property_read_string(of_root, "model", &soc_dev_attr->machine);
+>>>> +	if (ret)
+>>>> +		return ret;
+>>>> +
+>>>> +	scb = syscon_regmap_lookup_by_compatible("nxp,lpc3220-scb");
+>>>
+>>> This is undocumented ABI.
+>>
+>> What is the expected level of documentation for syscon?
+> 
+> git grep nxp,lpc3220-scb
+> 
+> gives me 0 results.
+> 
+> Documentation is supposed to be in this patchset. If it is not, you have
+> changelog part to explain dependencies and unusual things.
 
-Signed-off-by: Anand Moon <linux.amoon@gmail.com>
----
-v2:
-   improve the commit message
-   Drop the .remove patch
-   Drop the disable_pm_runtime
-v1:
- https://lore.kernel.org/all/20251027145602.199154-3-linux.amoon@gmail.com/
----
- drivers/pci/controller/dwc/pcie-dw-rockchip.c | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
+The documentation is under review, as a DT maintainer you are in To: list
+and should have it in the mailbox, for anyone's convenience the dependency
+is mentioned in the cover letter to this changeset also.
 
-diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index f8605fe61a415..2498ff5146a5a 100644
---- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-+++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-@@ -20,6 +20,7 @@
- #include <linux/of_irq.h>
- #include <linux/phy/phy.h>
- #include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
- #include <linux/regmap.h>
- #include <linux/reset.h>
- 
-@@ -709,6 +710,20 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto deinit_phy;
- 
-+	ret = pm_runtime_set_suspended(dev);
-+	if (ret)
-+		goto deinit_clk;
-+
-+	ret = devm_pm_runtime_enable(dev);
-+	if (ret) {
-+		ret = dev_err_probe(dev, ret, "Failed to enable runtime PM\n");
-+		goto deinit_clk;
-+	}
-+
-+	ret = pm_runtime_resume_and_get(dev);
-+	if (ret)
-+		goto deinit_clk;
-+
- 	switch (data->mode) {
- 	case DW_PCIE_RC_TYPE:
- 		ret = rockchip_pcie_configure_rc(pdev, rockchip);
-@@ -730,6 +745,8 @@ static int rockchip_pcie_probe(struct platform_device *pdev)
- 
- deinit_clk:
- 	clk_bulk_disable_unprepare(rockchip->clk_cnt, rockchip->clks);
-+	pm_runtime_disable(dev);
-+	pm_runtime_no_callbacks(dev);
- deinit_phy:
- 	rockchip_pcie_phy_deinit(rockchip);
- 
+>>
+>>> Anyway, you should look up devices via phandles.
+>>>
+>>
+>> I may miss the context, was syscon_regmap_lookup_by_compatible() deprecated?
+> 
+> Not deprecated. It has its own purpose, so you can explain why here you
+> cannot have phandle.
+> 
+> Without phandle you do not have proper device probe ordering and you do
+> not properly express the dependency between hardware modules. Maybe this
+> is not even real hardware, which you attach your driver to, so that's
+> another thing to consider. Anyway, commit msg should explain all these.
 
-base-commit: b69053dd3ffbc0d2dedbbc86182cdef6f641fe1b
+Ack.
+
+>>
+>> Most of drivers/soc uses syscon_regmap_lookup_by_compatible() variant over
+>> syscon_regmap_lookup_by_phandle(), and overall
+> 
+> They have their own reason.
+
+Here the reason to use syscon by a compatible is the same reason as it's
+among the sibling drivers, I'll specify it in the commit message, thanks.
+
+FWIW there is no intention to convert the SCB register region into its
+owm device.
+
+>>
+>> % git grep syscon_regmap_lookup_by_compatible v6.19-rc1 | wc -l
+>> 105
+>>
+
 -- 
-2.50.1
-
+Best wishes,
+Vladimir
 
