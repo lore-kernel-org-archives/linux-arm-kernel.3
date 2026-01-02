@@ -4,83 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E56D1FA3729
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 15:02:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C157FA374F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 15:09:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SWoEF/+O4yZ7+ZS1SC3d02+me9C0QQC50vg1G2pDlFk=; b=sl8QSRrvBydNBHBAR1QPml2wlC
-	ALrWizlnG8Rrx3Pn0Px/s1/A+8yla0xVe3CQwqugZ4EneHiJGKpbv3yl8RM+XB/zy8p4alLUFAyv0
-	LK992VRbeQ4P8Xp7mQipPGADWZlB6kBlnGFwo9DJzM6G1xYvRGoLbfPRsSSEsIsT2QACEaiFoXVE4
-	rKF5Ewtw5xBVUkJ4Cs5c8LCjNwROpmV83kSXTWUnrAhJZGNXOFfJ7czO4NLblToAf4NCCZafZFsCo
-	fCXDI3oTl67HBNOQ4l5QSDgFksCBzTtvXT5MH2G4DudbW0MdDVCXlNbEqPNFKRoVpYOYgBdZbJdEl
-	ddWRhaNA==;
+	bh=EHP3WjxyhG9zpGC5UMW5P5vDzi6wY1bKiGNYIKQlh6Q=; b=Arztv0M0lgKWuJf3iewN8eoHTO
+	H3GhLmiXS+6jgczJozriVOe1C0NSn0y0Xh6LFm5sDNIqmZdSG+tH2L56txKkd/B++hRY5CqsFm0rZ
+	jVACiaNjU9Rn35Wzn6cMNr71gSv21QE7qQygGXAgfj5ryJrJwdxL4LvYT8J2T0aW30YEyTDIwmFek
+	3p2kthgXDIk+F2RUpdaqGrlAuqqia60O8KQ9Z4gpeH12GAJ9qzG+BbJrbk15ovdOjiAojWa1+5ntk
+	vXZBjY88bVy2L2Uf4qy+Ll4hwxgDq4uV5b7nZ1XgYGSZ1NQmVxDFgd20fbUtp3wUPEXvPq/0BxBP5
+	BpBUlBrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbgfU-00000008Ord-0mw1;
-	Fri, 02 Jan 2026 15:02:20 +0000
-Received: from out-180.mta1.migadu.com ([95.215.58.180])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbgfR-00000008OpC-0ZcH
+	id 1vbgmB-00000008PO5-2RwY;
+	Fri, 02 Jan 2026 15:09:15 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vbgm7-00000008PN8-3MbG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Jan 2026 15:02:18 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1767366134;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=SWoEF/+O4yZ7+ZS1SC3d02+me9C0QQC50vg1G2pDlFk=;
-	b=dTd7xJ82NQ50raWJ1auBfjVAEwvFe1zNPFyY3dHzp/bG923whF4XKdS/DUgHQEvXkI3H+D
-	2cu4C7PnzuE4zP0oxCJ+qzCDPlfxsgn1+i8mteiHNpH+MSZjsfbzjqr+Fwb8306pMkT6qV
-	7dilcsPQzEAPjUodluMNHjnbf0UKuoQ=
-From: Leon Hwang <leon.hwang@linux.dev>
-To: bpf@vger.kernel.org
-Cc: Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Hao Luo <haoluo@google.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Puranjay Mohan <puranjay@kernel.org>,
-	Xu Kuohai <xukuohai@huaweicloud.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	David Ahern <dsahern@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	linux-arm-kernel@lists.infradead.org,
+	Fri, 02 Jan 2026 15:09:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E6BA81424;
+	Fri,  2 Jan 2026 07:09:03 -0800 (PST)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id CA1AB3F5A1;
+	Fri,  2 Jan 2026 07:09:07 -0800 (PST)
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org,
+	ryan.roberts@arm.com,
+	akpm@linux-foundation.org,
+	david@kernel.org,
+	kevin.brodsky@arm.com,
+	quic_zhenhuah@quicinc.com,
+	dev.jain@arm.com,
+	yang@os.amperecomputing.com,
+	chaitanyas.prakash@arm.com,
+	bigeasy@linutronix.de,
+	clrkwllms@kernel.org,
+	rostedt@goodmis.org,
+	lorenzo.stoakes@oracle.com,
+	ardb@kernel.org,
+	jackmanb@google.com,
+	vbabka@suse.cz,
+	mhocko@suse.com
+Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	kernel-patches-bot@fb.com,
-	Leon Hwang <leon.hwang@linux.dev>
-Subject: [PATCH bpf-next 4/4] bpf, lib/test_bpf: Fix broken tailcall tests
-Date: Fri,  2 Jan 2026 23:00:32 +0800
-Message-ID: <20260102150032.53106-5-leon.hwang@linux.dev>
-In-Reply-To: <20260102150032.53106-1-leon.hwang@linux.dev>
-References: <20260102150032.53106-1-leon.hwang@linux.dev>
+	linux-rt-devel@lists.linux.dev,
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: [PATCH v4 1/3] arm64: mmu: introduce pgtable_alloc_t
+Date: Fri,  2 Jan 2026 15:07:34 +0000
+Message-Id: <20260102150736.1378818-2-yeoreum.yun@arm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20260102150736.1378818-1-yeoreum.yun@arm.com>
+References: <20260102150736.1378818-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_070217_321738_444D8E20 
-X-CRM114-Status: GOOD (  19.65  )
+X-CRM114-CacheID: sfid-20260102_070911_955009_F19DFDB8 
+X-CRM114-Status: UNSURE (   8.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,112 +82,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update the tail call tests in test_bpf to work with the new tail call
-optimization that requires:
-  1. A valid used_maps array pointing to the prog array
-  2. Precomputed tail call targets in array->ptrs[max_entries + index]
+This is preparation patch to use preallocated page tables
+for linear_map_split_to_ptes().
 
-Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
+Define pgtable_alloc_t type for callback used by create_XXX_mapping().
+
+Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
 ---
- lib/test_bpf.c | 39 ++++++++++++++++++++++++++++++++++-----
- 1 file changed, 34 insertions(+), 5 deletions(-)
+ arch/arm64/mm/mmu.c | 18 ++++++++++--------
+ 1 file changed, 10 insertions(+), 8 deletions(-)
 
-diff --git a/lib/test_bpf.c b/lib/test_bpf.c
-index af0041df2b72..680d34d46f19 100644
---- a/lib/test_bpf.c
-+++ b/lib/test_bpf.c
-@@ -15448,26 +15448,45 @@ static void __init destroy_tail_call_tests(struct bpf_array *progs)
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index 8e1d80a7033e..4b4908ae189b 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -74,6 +74,8 @@ EXPORT_SYMBOL(empty_zero_page);
+ static DEFINE_SPINLOCK(swapper_pgdir_lock);
+ static DEFINE_MUTEX(fixmap_lock);
+ 
++typedef phys_addr_t (pgtable_alloc_t)(enum pgtable_type);
++
+ void noinstr set_swapper_pgd(pgd_t *pgdp, pgd_t pgd)
  {
- 	int i;
- 
--	for (i = 0; i < ARRAY_SIZE(tail_call_tests); i++)
--		if (progs->ptrs[i])
--			bpf_prog_free(progs->ptrs[i]);
-+	for (i = 0; i < ARRAY_SIZE(tail_call_tests); i++) {
-+		struct bpf_prog *fp = progs->ptrs[i];
-+
-+		if (!fp)
-+			continue;
-+
-+		/*
-+		 * The used_maps points to fake maps that don't have
-+		 * proper ops, so clear it before bpf_prog_free to avoid
-+		 * bpf_free_used_maps trying to process it.
-+		 */
-+		kfree(fp->aux->used_maps);
-+		fp->aux->used_maps = NULL;
-+		fp->aux->used_map_cnt = 0;
-+		bpf_prog_free(fp);
-+	}
- 	kfree(progs);
- }
- 
- static __init int prepare_tail_call_tests(struct bpf_array **pprogs)
+ 	pgd_t *fixmap_pgdp;
+@@ -197,7 +199,7 @@ static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
+ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+ 			       unsigned long end, phys_addr_t phys,
+ 			       pgprot_t prot,
+-			       phys_addr_t (*pgtable_alloc)(enum pgtable_type),
++			       pgtable_alloc_t pgtable_alloc,
+ 			       int flags)
  {
-+	int prologue_offset = bpf_arch_tail_call_prologue_offset();
- 	int ntests = ARRAY_SIZE(tail_call_tests);
-+	u32 max_entries = ntests + 1;
- 	struct bpf_array *progs;
- 	int which, err;
+ 	unsigned long next;
+@@ -252,7 +254,7 @@ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
  
- 	/* Allocate the table of programs to be used for tail calls */
--	progs = kzalloc(struct_size(progs, ptrs, ntests + 1), GFP_KERNEL);
-+	progs = kzalloc(struct_size(progs, ptrs, max_entries * 2), GFP_KERNEL);
- 	if (!progs)
- 		goto out_nomem;
+ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+ 		    phys_addr_t phys, pgprot_t prot,
+-		    phys_addr_t (*pgtable_alloc)(enum pgtable_type), int flags)
++		    pgtable_alloc_t pgtable_alloc, int flags)
+ {
+ 	unsigned long next;
  
-+	/* Set max_entries before JIT, as it's used in JIT */
-+	progs->map.max_entries = max_entries;
-+
- 	/* Create all eBPF programs and populate the table */
- 	for (which = 0; which < ntests; which++) {
- 		struct tail_call_test *test = &tail_call_tests[which];
-+		struct bpf_map *map = &progs->map;
- 		struct bpf_prog *fp;
- 		int len, i;
+@@ -292,7 +294,7 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+ static int alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
+ 			       unsigned long end, phys_addr_t phys,
+ 			       pgprot_t prot,
+-			       phys_addr_t (*pgtable_alloc)(enum pgtable_type),
++			       pgtable_alloc_t pgtable_alloc,
+ 			       int flags)
+ {
+ 	int ret;
+@@ -349,7 +351,7 @@ static int alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
  
-@@ -15487,10 +15506,16 @@ static __init int prepare_tail_call_tests(struct bpf_array **pprogs)
- 		if (!fp)
- 			goto out_nomem;
+ static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+ 			  phys_addr_t phys, pgprot_t prot,
+-			  phys_addr_t (*pgtable_alloc)(enum pgtable_type),
++			  pgtable_alloc_t pgtable_alloc,
+ 			  int flags)
+ {
+ 	int ret = 0;
+@@ -415,7 +417,7 @@ static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
  
-+		fp->aux->used_maps = kmalloc_array(1, sizeof(map), GFP_KERNEL);
-+		if (!fp->aux->used_maps)
-+			goto out_nomem;
-+
- 		fp->len = len;
- 		fp->type = BPF_PROG_TYPE_SOCKET_FILTER;
- 		fp->aux->stack_depth = test->stack_depth;
- 		fp->aux->tail_call_reachable = test->has_tail_call;
-+		fp->aux->used_maps[0] = map;
-+		fp->aux->used_map_cnt = 1;
- 		memcpy(fp->insnsi, test->insns, len * sizeof(struct bpf_insn));
- 
- 		/* Relocate runtime tail call offsets and addresses */
-@@ -15548,6 +15573,10 @@ static __init int prepare_tail_call_tests(struct bpf_array **pprogs)
- 				if ((long)__bpf_call_base + insn->imm != addr)
- 					*insn = BPF_JMP_A(0); /* Skip: NOP */
- 				break;
-+
-+			case BPF_JMP | BPF_TAIL_CALL:
-+				insn->imm = 0;
-+				break;
- 			}
- 		}
- 
-@@ -15555,11 +15584,11 @@ static __init int prepare_tail_call_tests(struct bpf_array **pprogs)
- 		if (err)
- 			goto out_err;
- 
-+		progs->ptrs[max_entries + which] = (void *) fp->bpf_func + prologue_offset;
- 		progs->ptrs[which] = fp;
- 	}
- 
- 	/* The last entry contains a NULL program pointer */
--	progs->map.max_entries = ntests + 1;
- 	*pprogs = progs;
- 	return 0;
- 
+ static int alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
+ 			  phys_addr_t phys, pgprot_t prot,
+-			  phys_addr_t (*pgtable_alloc)(enum pgtable_type),
++			  pgtable_alloc_t pgtable_alloc,
+ 			  int flags)
+ {
+ 	int ret;
+@@ -467,7 +469,7 @@ static int alloc_init_p4d(pgd_t *pgdp, unsigned long addr, unsigned long end,
+ static int __create_pgd_mapping_locked(pgd_t *pgdir, phys_addr_t phys,
+ 				       unsigned long virt, phys_addr_t size,
+ 				       pgprot_t prot,
+-				       phys_addr_t (*pgtable_alloc)(enum pgtable_type),
++				       pgtable_alloc_t pgtable_alloc,
+ 				       int flags)
+ {
+ 	int ret;
+@@ -500,7 +502,7 @@ static int __create_pgd_mapping_locked(pgd_t *pgdir, phys_addr_t phys,
+ static int __create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
+ 				unsigned long virt, phys_addr_t size,
+ 				pgprot_t prot,
+-				phys_addr_t (*pgtable_alloc)(enum pgtable_type),
++				pgtable_alloc_t pgtable_alloc,
+ 				int flags)
+ {
+ 	int ret;
+@@ -516,7 +518,7 @@ static int __create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
+ static void early_create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
+ 				     unsigned long virt, phys_addr_t size,
+ 				     pgprot_t prot,
+-				     phys_addr_t (*pgtable_alloc)(enum pgtable_type),
++				     pgtable_alloc_t pgtable_alloc,
+ 				     int flags)
+ {
+ 	int ret;
 -- 
-2.52.0
+LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
 
