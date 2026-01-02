@@ -4,90 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D8C2FA3728
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 18:26:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A1C7FA3728
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 18:27:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C6VmRE84hy1tV7GxjuvF11hL7eqNjgvI2Nm6sb2SoCM=; b=McGaKRhAJkjrQ02ZlIX+1oves3
-	b1TIJBZa4I+pHdKqzmYPJL8gYIJ4XAp++JmF7Ybi90grr6HW91Nm4BJhGt2zOOep6FqwGME+fLtoj
-	3gXvD1s1xkP17dRyAHqFPNstfI/utTcyAYC3yfwNGTDXo2ILhaIy+Ka6FfcWxfnD09lJtF/xE88X8
-	xKRjT2Cg4rddm8LY0PDPWfhgG/Q/mMxuZBP0mvwH76hm+yhVQlZlBZkVLHE0bTDkGKkvzQLFq071p
-	VDE37Hkg5nQY6F9XLjQFgqRCKpuVpFy90k5PN0zGkIs0O6/AzrqMQyQzqFS5I+4MzY3zasu7hH29o
-	GMGRO/nw==;
+	bh=wggzIh/uyggaVGyCJ7Xg7yzsieoJ97AxIjCXSYL+yg8=; b=U2RXIggpgXU/jYdLZBL8v7xCn/
+	qJXCyo8VkYxpRVwGacVDxjzHkrFEgDf7zrg/6bZunIzbJzw2hgK2zLIoKqJMOOtOIURArb2z9A5v0
+	BFYn+7ZoN5RWTjecldQ00z+hivgdpMXPJ2lGGzuMPojbjd3F2JBjJh8ECuV9W/LfMl8mThg7FPo83
+	hKAe2XhsYWFnhNsGvsutT0oJ0AHIPSlmBl/Y6C07AjKvq/5JM7WfBpnZFE1qCd1sXVFQZwKDc5V9P
+	EWJM3Y+UfzYSvFJ/F99FIWUBtDo4PXdtSGU8Jo+dY12wWFDRaf6s9OSlBvCkEiz7uxfMhBQvyQK11
+	P7nCe3MA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbjrN-00000008cun-0zPQ;
-	Fri, 02 Jan 2026 18:26:49 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1vbjrm-00000008czW-0HOY;
+	Fri, 02 Jan 2026 18:27:14 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbjrK-00000008cuD-30sZ
+	id 1vbjrj-00000008cyo-3hPo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Jan 2026 18:26:47 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-47a95a96d42so1945e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Jan 2026 10:26:46 -0800 (PST)
+	Fri, 02 Jan 2026 18:27:13 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-47a95a96d42so2005e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Jan 2026 10:27:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1767378405; x=1767983205; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1767378430; x=1767983230; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=C6VmRE84hy1tV7GxjuvF11hL7eqNjgvI2Nm6sb2SoCM=;
-        b=R6erduFoNOYvWCLQGOG/xmz3paUt87BwzwQve9drrcABTUeTGRpBBEqbBkq6WIz32o
-         NQMHTVRUzHokmNO90wjah0COUFNcWnwPlwL+vRhhyFoEcKz0zJZenQyilGY/LHjOfYzI
-         B794Aks5Piw/b1iczpP6x6KRxHYnz83Fy4uF//uMmNPzQmrszapXiAWfDzt0Qp2xLUHe
-         Z3hsj634vuYfPfbW02gpvECVqPIFvPoQ6ZKixFoXAlgALsafl1uam51YlI5OvK33XWmG
-         +smAvCT6Y6rolUol8jks09Zkn0056YbegIYsJT8AUmdq/sQsqbsdlvxVh/NP5LpdJBQR
-         sdxA==
+        bh=wggzIh/uyggaVGyCJ7Xg7yzsieoJ97AxIjCXSYL+yg8=;
+        b=IVBnqcCAtrX/eDdB2pq+zDuzicd0fb9pIoIS7BZN7r2vC7kDXV31nFs1jjL1Ly6fUF
+         druW8nUZRGfz022NzQsJoTr56AOJK8vE9GsN+aiN9ZDKATG7VAU5bK+LOaB4MACpIZ5J
+         LiZRgkfZhT2IbnzZB/GP4DdaM1UKEOWfF+H0MMRa2BO+joFBkG3cR7eWprQb7i+gbxUJ
+         lIU65e9IYn/XtQuyYfvbTtXUUQyFErI3CLSkgzeNEgqTs5hey1I4UzuPpRmTmjdT67SA
+         FPRSXaZeRU2ice9JGesgHQrAOKuhoFkuqCyZGFyJuov01cZswF1F0qvqkyOOKygc8CNp
+         /zAA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767378405; x=1767983205;
+        d=1e100.net; s=20230601; t=1767378430; x=1767983230;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=C6VmRE84hy1tV7GxjuvF11hL7eqNjgvI2Nm6sb2SoCM=;
-        b=gW4DDyoWWl13PGfWNnk/TNQE1e390cDDAyXs9GQGl4CSNEQ+r6AeNP780YHdUtPC8z
-         +SBuuO9S0tfNNuzsWpDwlOX9QhRO+QPrU5OO7FpVjlV5C0HuDEVboypRNI95ddAdPVOE
-         KW5ZCVCyldfDd7Dy1WfibcNP0oVWGCjc9KvGPadj00jF0qTQ7P1xBitWEReMHR+CEzoA
-         kqlmqrGNEKmx4Z6MTNmMdl6j2Nntx0ziseT/F8m8+KAxNwOzMSdYOh9gVzfaHvNb8RYi
-         I5mNUMueBpmKfjOdSIkNGy0yhq4v4TdBlaU0Q9QO5m79JqJqW0qVEn47pRLlDTMfPeKx
-         PsjQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXgC0jCPLyV1YSyVPcv95jsK56TO1505ri1m9SEKmiUIznCqJpKHNPjOZnIFNyY81f82Mc1OEI/DZnfduOP35Mn@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw7WZz4F69FJ+wD9UvbD7376ALHYXTaLCPoCp2igZkTwdWmvygw
-	rCgv+Kkg5gzip1YQRlG0/pn8JNmMEsXo8tzw3Tevw2DrACVML/KYY0xPI/05zuse7g==
-X-Gm-Gg: AY/fxX7AAp/RchqKBR5fFTmBaG5yYy2jZEDbqkltPNozmVYWB6ZzAOMHzJx3RHHgPpM
-	pAIogrWILxibsUAQJnQhHwK1hBUigH4Kv777VFarRlhWxbMAs/n9i6oT4AZw4ZUYTgghovnAjPu
-	d/eHollaECilIrZWqfTyNg/K4YB4EAG8vS+n3YYlZq8onD1VOw14juwnQ/q4/FKz3iBt5cmqZCX
-	j9uwIe2+pDNhuFws5rXe3z1zBjRs9vbgTxflDHtqlziCN9TFLMvHNeSWqcmPruMsB2iNl6/260+
-	18+awVT0qZ+zIhTTzrpFA4FvA32iaB7xqdZcXKQl6/3vfaK2KQ66e75AfvtZXium+Dr6dm9rldi
-	Zy2WvMrCypGkNblPAwGGmFY8GjmQDeGxn5V5KuUn7+BP4JpytVnChiys1OHdsaOyowIYsl5UMb0
-	bElIzkq2QDMZhLGHneq+eHcPjmJE7KOxHdvP2dk43Up8K9Ygb3UBVum14KfWocTqM=
-X-Google-Smtp-Source: AGHT+IGwg8Fa4ecp7Nausir70D/wkitZs+xtIWbvFB+O66NW8MoGvR5fFj6DnKi9U+mtSuI4iqzZiw==
-X-Received: by 2002:a05:600c:207:b0:47a:80ec:b2f7 with SMTP id 5b1f17b1804b1-47d6c367ecemr12085e9.14.1767378404531;
-        Fri, 02 Jan 2026 10:26:44 -0800 (PST)
+        bh=wggzIh/uyggaVGyCJ7Xg7yzsieoJ97AxIjCXSYL+yg8=;
+        b=YgsdYAlK58MpJzYIs1JYrq/jO9G1f1AvZ73L8S5pxrxR/tp5PlMBf2mRa8bl7FG+uP
+         zPAiwRnRrZvXy+xTTYfRwrTrHfmG6MR7oQlW377PfgDwPe3o0vcDxZPiz+lkNl8cTh/h
+         8IiKKVZWNKQT5iDtW0ULjn4k4wOgRv4OMJJgIOjG6KsDt1LsNFtOKpPgLgUbZrq8AEL1
+         RDXhRVN1fjm+y3s2nx/KOmwTKifGGvUDAuo0j7AqBsPm7nYYLpPpyMUceffrAXk26cq2
+         V1YslkC2DA7qL8voG2/a1Gyy2qlauqWd7StNwrbIFQdH2NZPH+N9evyUSP5QrgmwhDWB
+         sWWw==
+X-Forwarded-Encrypted: i=1; AJvYcCUhWwwDjAFU3eGGAB/v2BlkTRyVXnyeApP6m8Bng8p2i6WeMpjujYK/OGj++H4KracI5qMxeWC38fpu1pWKJ/v0@lists.infradead.org
+X-Gm-Message-State: AOJu0YyRHcS7AdtP3sK6WmNKfIo5haxGVCeb50GeA5MBaaXeNcWkdiCG
+	VSX40snpAWOs/eOjJ8JTM/plYNj7OBXcHQvRy2gfhx9k6FJl7Jl7irsVHOppvqmAkA==
+X-Gm-Gg: AY/fxX4r5B29UchrUBXeiWi7qxA97LYZBO43GDu6IT5sjVOHQ6cpPuMACEY+q4Y6FYF
+	50+V6GSr3jNapVRixwg7XBPV6u/rVdt7Qz6ZIXxPa4g2L0sEEEYXaerNzHyrmeLKXJJwn+OQC32
+	3UdSyTmCSK7oqRGrZEDLSRVlX5+C6nVNjCs5Xa5FBegGr+/EzCNozjB/uwnltekBB6iQnxDy7v3
+	Sp1kDYaUIKszqVoh83krm3DLWRawfHL2I7jM9d/AGO92aXNHIZe7wYvfjoBcYSBSOn5puJQmcVe
+	gX0Us97nxI4wtOp85g8lrlU959w38bnSRax0ZDti+LZU0qOHYRtFyYiYb0qGVOKgh1jVTjMUEUr
+	Vu5UMn2LzsqzX2lD35qrUPnXjZa/4ou8LgXZG6+A+Tjr3g0iVuURW7wCYaTbnBm6w3Ibn33Jb3h
+	mOSXgK6GgbTxUuJItcr8l2MErfITuD1XfI+kLIC6WrdtQQqXBAo3ynSlCnjG6JbSU=
+X-Google-Smtp-Source: AGHT+IFR2BUb1i2YwkzJ6Oviq2NnQ/74j9hvEehkMoSH/0nN8LiscExmmh5dawi9pBS5mAmdCJrXoQ==
+X-Received: by 2002:a05:600c:37ca:b0:475:da0c:38a8 with SMTP id 5b1f17b1804b1-47d6c328d1dmr13525e9.4.1767378429991;
+        Fri, 02 Jan 2026 10:27:09 -0800 (PST)
 Received: from google.com (171.85.155.104.bc.googleusercontent.com. [104.155.85.171])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d193621c8sm751447155e9.7.2026.01.02.10.26.43
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4324e9ba877sm86824635f8f.0.2026.01.02.10.27.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Jan 2026 10:26:43 -0800 (PST)
-Date: Fri, 2 Jan 2026 18:26:40 +0000
+        Fri, 02 Jan 2026 10:27:09 -0800 (PST)
+Date: Fri, 2 Jan 2026 18:27:06 +0000
 From: Mostafa Saleh <smostafa@google.com>
 To: Nicolin Chen <nicolinc@nvidia.com>
 Cc: will@kernel.org, robin.murphy@arm.com, jgg@nvidia.com, joro@8bytes.org,
 	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
 	linux-kernel@vger.kernel.org, skolothumtho@nvidia.com,
 	praan@google.com, xueshuai@linux.alibaba.com
-Subject: Re: [PATCH rc v5 1/4] iommu/arm-smmu-v3: Add update_safe bits to fix
- STE update sequence
-Message-ID: <aVgN4KrTEw4qGz5L@google.com>
+Subject: Re: [PATCH rc v5 2/4] iommu/arm-smmu-v3: Mark STE MEV safe when
+ computing the update sequence
+Message-ID: <aVgN-mkyoOcifTjE@google.com>
 References: <cover.1766093909.git.nicolinc@nvidia.com>
- <58f5af553fa7c3b5fd16f1eb13a81ae428f85678.1766093909.git.nicolinc@nvidia.com>
+ <83f991cbbb1331213aabe7c1fc5f725e79f60ecd.1766093909.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <58f5af553fa7c3b5fd16f1eb13a81ae428f85678.1766093909.git.nicolinc@nvidia.com>
+In-Reply-To: <83f991cbbb1331213aabe7c1fc5f725e79f60ecd.1766093909.git.nicolinc@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_102646_812127_76C4FC5E 
-X-CRM114-Status: GOOD (  38.37  )
+X-CRM114-CacheID: sfid-20260102_102711_934517_DFB108B8 
+X-CRM114-Status: GOOD (  23.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,221 +102,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 18, 2025 at 01:41:56PM -0800, Nicolin Chen wrote:
+On Thu, Dec 18, 2025 at 01:41:57PM -0800, Nicolin Chen wrote:
 > From: Jason Gunthorpe <jgg@nvidia.com>
 > 
-> C_BAD_STE was observed when updating nested STE from an S1-bypass mode to
-> an S1DSS-bypass mode. As both modes enabled S2, the used bit is slightly
-> different than the normal S1-bypass and S1DSS-bypass modes. As a result,
-> fields like MEV and EATS in S2's used list marked the word1 as a critical
-> word that requested a STE.V=0. This breaks a hitless update.
+> Nested CD tables set the MEV bit to try to reduce multi-fault spamming on
+> the hypervisor. Since MEV is in STE word 1 this causes a breaking update
+> sequence that is not required and impacts real workloads.
 > 
-> However, both MEV and EATS aren't critical in terms of STE update. One
-> controls the merge of the events and the other controls the ATS that is
-> managed by the driver at the same time via pci_enable_ats().
+> For the purposes of STE updates the value of MEV doesn't matter, if it is
+> set/cleared early or late it just results in a change to the fault reports
+> that must be supported by the kernel anyhow. The spec says:
 > 
-> Add an arm_smmu_get_ste_update_safe() to allow STE update algorithm to
-> relax those fields, avoiding the STE update breakages.
+>  Note: Software must expect, and be able to deal with, coalesced fault
+>  records even when MEV == 0.
 > 
-> After this change, entry_set has no caller checking its return value, so
-> change it to void.
+> So mark STE MEV safe when computing the update sequence, to avoid creating
+> a breaking update.
 > 
-> Note that this change is required by both MEV and EATS fields, which were
-> introduced in different kernel versions. So add get_update_safe() first.
-> MEV and EATS will be added to arm_smmu_get_ste_update_safe() separately.
-> 
-> Fixes: 1e8be08d1c91 ("iommu/arm-smmu-v3: Support IOMMU_DOMAIN_NESTED")
+> Fixes: da0c56520e88 ("iommu/arm-smmu-v3: Set MEV bit in nested STE for DoS mitigations")
 > Cc: stable@vger.kernel.org
 > Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 > Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
 > Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 
 Reviewed-by: Mostafa Saleh <smostafa@google.com>
+
 Thanks,
 Mostafa
 
 > ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  2 ++
->  .../iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c  | 18 ++++++++++---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 27 ++++++++++++++-----
->  3 files changed, 37 insertions(+), 10 deletions(-)
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
 > 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> index ae23aacc3840..a6c976fa9df2 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> @@ -900,6 +900,7 @@ struct arm_smmu_entry_writer {
->  
->  struct arm_smmu_entry_writer_ops {
->  	void (*get_used)(const __le64 *entry, __le64 *used);
-> +	void (*get_update_safe)(__le64 *safe_bits);
->  	void (*sync)(struct arm_smmu_entry_writer *writer);
->  };
->  
-> @@ -911,6 +912,7 @@ void arm_smmu_make_s2_domain_ste(struct arm_smmu_ste *target,
->  
->  #if IS_ENABLED(CONFIG_KUNIT)
->  void arm_smmu_get_ste_used(const __le64 *ent, __le64 *used_bits);
-> +void arm_smmu_get_ste_update_safe(__le64 *safe_bits);
->  void arm_smmu_write_entry(struct arm_smmu_entry_writer *writer, __le64 *cur,
->  			  const __le64 *target);
->  void arm_smmu_get_cd_used(const __le64 *ent, __le64 *used_bits);
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-> index d2671bfd3798..5db14718fdd6 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-> @@ -38,13 +38,16 @@ enum arm_smmu_test_master_feat {
->  static bool arm_smmu_entry_differs_in_used_bits(const __le64 *entry,
->  						const __le64 *used_bits,
->  						const __le64 *target,
-> +						const __le64 *safe,
->  						unsigned int length)
->  {
->  	bool differs = false;
->  	unsigned int i;
->  
->  	for (i = 0; i < length; i++) {
-> -		if ((entry[i] & used_bits[i]) != target[i])
-> +		__le64 used = used_bits[i] & ~safe[i];
-> +
-> +		if ((entry[i] & used) != (target[i] & used))
->  			differs = true;
->  	}
->  	return differs;
-> @@ -56,12 +59,17 @@ arm_smmu_test_writer_record_syncs(struct arm_smmu_entry_writer *writer)
->  	struct arm_smmu_test_writer *test_writer =
->  		container_of(writer, struct arm_smmu_test_writer, writer);
->  	__le64 *entry_used_bits;
-> +	__le64 *safe;
->  
->  	entry_used_bits = kunit_kzalloc(
->  		test_writer->test, sizeof(*entry_used_bits) * NUM_ENTRY_QWORDS,
->  		GFP_KERNEL);
->  	KUNIT_ASSERT_NOT_NULL(test_writer->test, entry_used_bits);
->  
-> +	safe = kunit_kzalloc(test_writer->test,
-> +			     sizeof(*safe) * NUM_ENTRY_QWORDS, GFP_KERNEL);
-> +	KUNIT_ASSERT_NOT_NULL(test_writer->test, safe);
-> +
->  	pr_debug("STE value is now set to: ");
->  	print_hex_dump_debug("    ", DUMP_PREFIX_NONE, 16, 8,
->  			     test_writer->entry,
-> @@ -79,14 +87,17 @@ arm_smmu_test_writer_record_syncs(struct arm_smmu_entry_writer *writer)
->  		 * configuration.
->  		 */
->  		writer->ops->get_used(test_writer->entry, entry_used_bits);
-> +		if (writer->ops->get_update_safe)
-> +			writer->ops->get_update_safe(safe);
->  		KUNIT_EXPECT_FALSE(
->  			test_writer->test,
->  			arm_smmu_entry_differs_in_used_bits(
->  				test_writer->entry, entry_used_bits,
-> -				test_writer->init_entry, NUM_ENTRY_QWORDS) &&
-> +				test_writer->init_entry, safe,
-> +				NUM_ENTRY_QWORDS) &&
->  				arm_smmu_entry_differs_in_used_bits(
->  					test_writer->entry, entry_used_bits,
-> -					test_writer->target_entry,
-> +					test_writer->target_entry, safe,
->  					NUM_ENTRY_QWORDS));
->  	}
->  }
-> @@ -106,6 +117,7 @@ arm_smmu_v3_test_debug_print_used_bits(struct arm_smmu_entry_writer *writer,
->  static const struct arm_smmu_entry_writer_ops test_ste_ops = {
->  	.sync = arm_smmu_test_writer_record_syncs,
->  	.get_used = arm_smmu_get_ste_used,
-> +	.get_update_safe = arm_smmu_get_ste_update_safe,
->  };
->  
->  static const struct arm_smmu_entry_writer_ops test_cd_ops = {
 > diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index d16d35c78c06..8dbf4ad5b51e 100644
+> index 8dbf4ad5b51e..12a9669bcc83 100644
 > --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
 > +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -1082,6 +1082,12 @@ void arm_smmu_get_ste_used(const __le64 *ent, __le64 *used_bits)
->  }
->  EXPORT_SYMBOL_IF_KUNIT(arm_smmu_get_ste_used);
->  
-> +VISIBLE_IF_KUNIT
-> +void arm_smmu_get_ste_update_safe(__le64 *safe_bits)
-> +{
-> +}
-> +EXPORT_SYMBOL_IF_KUNIT(arm_smmu_get_ste_update_safe);
-> +
->  /*
->   * Figure out if we can do a hitless update of entry to become target. Returns a
->   * bit mask where 1 indicates that qword needs to be set disruptively.
-> @@ -1094,13 +1100,22 @@ static u8 arm_smmu_entry_qword_diff(struct arm_smmu_entry_writer *writer,
+> @@ -1085,6 +1085,16 @@ EXPORT_SYMBOL_IF_KUNIT(arm_smmu_get_ste_used);
+>  VISIBLE_IF_KUNIT
+>  void arm_smmu_get_ste_update_safe(__le64 *safe_bits)
 >  {
->  	__le64 target_used[NUM_ENTRY_QWORDS] = {};
->  	__le64 cur_used[NUM_ENTRY_QWORDS] = {};
-> +	__le64 safe[NUM_ENTRY_QWORDS] = {};
->  	u8 used_qword_diff = 0;
->  	unsigned int i;
->  
->  	writer->ops->get_used(entry, cur_used);
->  	writer->ops->get_used(target, target_used);
-> +	if (writer->ops->get_update_safe)
-> +		writer->ops->get_update_safe(safe);
->  
->  	for (i = 0; i != NUM_ENTRY_QWORDS; i++) {
-> +		/*
-> +		 * Safe is only used for bits that are used by both entries,
-> +		 * otherwise it is sequenced according to the unused entry.
-> +		 */
-> +		safe[i] &= target_used[i] & cur_used[i];
-> +
->  		/*
->  		 * Check that masks are up to date, the make functions are not
->  		 * allowed to set a bit to 1 if the used function doesn't say it
-> @@ -1109,6 +1124,7 @@ static u8 arm_smmu_entry_qword_diff(struct arm_smmu_entry_writer *writer,
->  		WARN_ON_ONCE(target[i] & ~target_used[i]);
->  
->  		/* Bits can change because they are not currently being used */
-> +		cur_used[i] &= ~safe[i];
->  		unused_update[i] = (entry[i] & cur_used[i]) |
->  				   (target[i] & ~cur_used[i]);
->  		/*
-> @@ -1121,7 +1137,7 @@ static u8 arm_smmu_entry_qword_diff(struct arm_smmu_entry_writer *writer,
->  	return used_qword_diff;
+> +	/*
+> +	 * MEV does not meaningfully impact the operation of the HW, it only
+> +	 * changes how many fault events are generated, thus we can relax it
+> +	 * when computing the ordering. The spec notes the device can act like
+> +	 * MEV=1 anyhow:
+> +	 *
+> +	 *  Note: Software must expect, and be able to deal with, coalesced
+> +	 *  fault records even when MEV == 0.
+> +	 */
+> +	safe_bits[1] |= cpu_to_le64(STRTAB_STE_1_MEV);
 >  }
+>  EXPORT_SYMBOL_IF_KUNIT(arm_smmu_get_ste_update_safe);
 >  
-> -static bool entry_set(struct arm_smmu_entry_writer *writer, __le64 *entry,
-> +static void entry_set(struct arm_smmu_entry_writer *writer, __le64 *entry,
->  		      const __le64 *target, unsigned int start,
->  		      unsigned int len)
->  {
-> @@ -1137,7 +1153,6 @@ static bool entry_set(struct arm_smmu_entry_writer *writer, __le64 *entry,
->  
->  	if (changed)
->  		writer->ops->sync(writer);
-> -	return changed;
->  }
->  
->  /*
-> @@ -1207,12 +1222,9 @@ void arm_smmu_write_entry(struct arm_smmu_entry_writer *writer, __le64 *entry,
->  		entry_set(writer, entry, target, 0, 1);
->  	} else {
->  		/*
-> -		 * No inuse bit changed. Sanity check that all unused bits are 0
-> -		 * in the entry. The target was already sanity checked by
-> -		 * compute_qword_diff().
-> +		 * No inuse bit changed, though safe bits may have changed.
->  		 */
-> -		WARN_ON_ONCE(
-> -			entry_set(writer, entry, target, 0, NUM_ENTRY_QWORDS));
-> +		entry_set(writer, entry, target, 0, NUM_ENTRY_QWORDS);
->  	}
->  }
->  EXPORT_SYMBOL_IF_KUNIT(arm_smmu_write_entry);
-> @@ -1543,6 +1555,7 @@ static void arm_smmu_ste_writer_sync_entry(struct arm_smmu_entry_writer *writer)
->  static const struct arm_smmu_entry_writer_ops arm_smmu_ste_writer_ops = {
->  	.sync = arm_smmu_ste_writer_sync_entry,
->  	.get_used = arm_smmu_get_ste_used,
-> +	.get_update_safe = arm_smmu_get_ste_update_safe,
->  };
->  
->  static void arm_smmu_write_ste(struct arm_smmu_master *master, u32 sid,
 > -- 
 > 2.43.0
 > 
