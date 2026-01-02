@@ -4,64 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5AD2FA3730
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 11:48:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6609EFA3737
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 11:58:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zd62XC9/EfX5WngL7XBUzvY5KFcBBz0+v2tQe/X4mv4=; b=rBD3bCT0QJYCdm7ZUo9hTRyDx0
-	F8OfMEzorp01g6LQKkcjU9rmtS4WUfdj9M8R9NUxKRgCZevO4UmHmQNC0UZW5WIBg34YPNNB5XIKG
-	+dm7pTKOJF4/ptEPbDzNGBW7YtuM0ksCD6AIkEq4Qny4IS/2WG9v+hriawjyLhesanGfo1Pr/AwhQ
-	wVFdtNWdMdkCWjaVWWDalLc1vXbqeeaEinWR76BCX8Msz+Ig5XRH9FzWu24/Qg4LR/RMueXZ4fxSM
-	HMSlSA8ZxTeGB1ZlhGeqnLswrHiwY1dhUMO24ir16yIY8chJ9xVnOLZm4g2wfKBztzrNP6pYu7xa0
-	/eOB2Gaw==;
+	bh=Lir7N+PKdb6wAs4ijty5cr6Rc1e4WEGVLKOhpiWnZnQ=; b=GH8IZmOsle4tawBFaDKKL7XpzM
+	LnnUDKVNowwmPgHSev/3OsJ2sLgU21+a3Af/ZsPqksrKDRbVO8c/ibHB/ksjPS6gjQxokRtmJWzKS
+	qea7PqOxQeiN3/dY6TcTyJtDpjuoKD3xvTXndZjqDhfxxj8Rvc2oCyUdz3lfxgesS0tMQ5X0Wy4Mc
+	Cbbl4wBAHO7znwZJ/AOnuujrngG5pzwQxD7zfTAfk+KYQpKeJkKTRvcB7Ah1dVJp3lEX8hccTu/TR
+	m8POtdlNvSjzOCvvW0e9z6JlXI+05GBngB24bpFZ3odwzfLYAy3Eod61n/tM6k9oxfGXAk1y900Ki
+	gpAklUBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbddq-00000008A3F-3PQs;
-	Fri, 02 Jan 2026 11:48:26 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbddn-00000008A2t-1lPe
+	id 1vbdnA-00000008AN5-495Q;
+	Fri, 02 Jan 2026 11:58:04 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vbdn8-00000008AMi-2rrU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Jan 2026 11:48:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F3FAF497;
-	Fri,  2 Jan 2026 03:48:14 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0A2C63F63F;
-	Fri,  2 Jan 2026 03:48:16 -0800 (PST)
-Message-ID: <c3132e11-a4e5-4a74-96b5-4a253ff9e3e3@arm.com>
-Date: Fri, 2 Jan 2026 11:48:15 +0000
+	Fri, 02 Jan 2026 11:58:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 985C7441F2
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  2 Jan 2026 11:58:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7DA0FC16AAE
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  2 Jan 2026 11:58:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767355081;
+	bh=OOGEjXmkNZBdRQAKqI/w24brTc3UbeLXjGqJU6rxA9Q=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=IeWTKfd+Fk/gvvkFii9UdxAE2Rdwm85vq/0Y9Oi3EGgKimj2KuJmRqZTLflWf0Jf3
+	 jVsIPfZSP89LMYOd70vs7WqZ0f/woBAcjA6ShM1Ssv2oo7eHeLAzAe9hAqmvwCQLSI
+	 //nH1cWuZnfaoATJuIzNAr5/E3ZzCcKxB555G13mcMJ6CHrUj3mLYME/Q6FMdRnrLF
+	 0/Sw8II2tW8yocs75r1Em3Vsntl/7dk2AmR6tX89XhPF6Xo2n0qMQG2ZigBjvSxDyj
+	 FNmdf++W0fnYXpbJq1accwd0I+Y+i6cMOWY22LFMViiNCh+8fGbtDHR8AQ8LrRUFJe
+	 WgL+Vo2yHu1NQ==
+Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-59584301f0cso2865739e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Jan 2026 03:58:01 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUnkDb8D4qxhvY8qt/2l/AuUUR2OEu0M1ZOxoixu9eF3nyM5h7bYHPMWDZiwYddafOATvGdYN27aU9vZB9gp+F1@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRkdPO8VG7B2mWhBRgItvXZfJchsvdepTmbQ2Mn8ZJ30VOp/hG
+	9+LwAnU07UBIF4EbOboDKZVqgbwRMslyMt4qQaUm152aMlBPAul1cJ/9TSlkpmpyRz0Xffr0msu
+	QDWsX4KyZ6E03PXj/RXsf9t08DpPd+Ct/AFOAvNnQ9Q==
+X-Google-Smtp-Source: AGHT+IES0kIDjgnYGEOnKFGJNYFH0vsVl7fqRNUatfgND9VTY3QWFONMo7Hx4HSU6Gk61wbu2Oe+VULtLcRg9b8wJ6Y=
+X-Received: by 2002:a05:6512:4887:b0:59a:10c1:8f25 with SMTP id
+ 2adb3069b0e04-59a17d5dac9mr8692071e87.41.1767355079664; Fri, 02 Jan 2026
+ 03:57:59 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 13/45] KVM: arm64: Force guest EL1 to use user-space's
- partid configuration
-To: Oliver Upton <oupton@kernel.org>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, carl@os.amperecomputing.com,
- dave.martin@arm.com, david@kernel.org, dfustini@baylibre.com,
- fenghuay@nvidia.com, gshan@redhat.com, james.morse@arm.com,
- jonathan.cameron@huawei.com, kobak@nvidia.com, lcherian@marvell.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- peternewman@google.com, punit.agrawal@oss.qualcomm.com,
- quic_jiles@quicinc.com, reinette.chatre@intel.com, rohit.mathew@arm.com,
- scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- tan.shaopeng@fujitsu.com, xhao@linux.alibaba.com, catalin.marinas@arm.com,
- will@kernel.org, corbet@lwn.net, maz@kernel.org, joey.gouly@arm.com,
- suzuki.poulose@arm.com, kvmarm@lists.linux.dev
-References: <20251219181147.3404071-1-ben.horgan@arm.com>
- <20251219181147.3404071-14-ben.horgan@arm.com> <aUWxLp2GUk2_p58e@kernel.org>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <aUWxLp2GUk2_p58e@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20251228-arm-psci-system_reset2-vendor-reboots-v19-0-ebb956053098@oss.qualcomm.com>
+ <20251228-arm-psci-system_reset2-vendor-reboots-v19-6-ebb956053098@oss.qualcomm.com>
+In-Reply-To: <20251228-arm-psci-system_reset2-vendor-reboots-v19-6-ebb956053098@oss.qualcomm.com>
+From: Bartosz Golaszewski <brgl@kernel.org>
+Date: Fri, 2 Jan 2026 12:57:47 +0100
+X-Gmail-Original-Message-ID: <CAMRc=Me8WQ=aMd-NJ1yzzHzqU8fT1u4eb7as=EjSpZ+Rpv9+rg@mail.gmail.com>
+X-Gm-Features: AQt7F2p2LtuO3Z-xskVqWJd7KmTcH-PyEGQI74hc0fHTK246U1sFcvAjuK93DWQ
+Message-ID: <CAMRc=Me8WQ=aMd-NJ1yzzHzqU8fT1u4eb7as=EjSpZ+Rpv9+rg@mail.gmail.com>
+Subject: Re: [PATCH v19 06/10] power: reset: Add psci-reboot-mode driver
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Bjorn Andersson <andersson@kernel.org>, Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Sudeep Holla <sudeep.holla@arm.com>, Souvik Chakravarty <Souvik.Chakravarty@arm.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Andy Yan <andy.yan@rock-chips.com>, 
+	John Stultz <john.stultz@linaro.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	Moritz Fischer <moritz.fischer@ettus.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Conor Dooley <conor+dt@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+	Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, Andre Draszik <andre.draszik@linaro.org>, 
+	Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>, linux-pm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org, 
+	Srinivas Kandagatla <srini@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_034823_522765_5ABF5721 
-X-CRM114-Status: GOOD (  16.57  )
+X-CRM114-CacheID: sfid-20260102_035802_767978_8991A44C 
+X-CRM114-Status: GOOD (  18.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,63 +96,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Oliver,
+On Sun, Dec 28, 2025 at 6:21=E2=80=AFPM Shivendra Pratap
+<shivendra.pratap@oss.qualcomm.com> wrote:
+>
 
-On 12/19/25 20:10, Oliver Upton wrote:
-> On Fri, Dec 19, 2025 at 06:11:15PM +0000, Ben Horgan wrote:
->> From: James Morse <james.morse@arm.com>
->>
->> While we trap the guest's attempts to read/write the MPAM control
->> registers, the hardware continues to use them. Guest-EL0 uses KVM's
->> user-space's configuration, as the value is left in the register, and
->> guest-EL1 uses either the host kernel's configuration, or in the case of
->> VHE, the UNKNOWN reset value of MPAM1_EL1.
->>
->> We want to force the guest-EL1 to use KVM's user-space's MPAM
->> configuration. On nVHE rely on MPAM0_EL1 and MPAM1_EL1 always being
->> programmed the same and on VHE copy MPAM0_EL1 into the guest's
->> MPAM1_EL1. There is no need to restore as this is out of context once TGE
->> is set.
->>
->> Signed-off-by: James Morse <james.morse@arm.com>
->> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
->> ---
->> Changes since rfc:
->> Drop the unneeded __mpam_guest_load() in nvhre and the MPAM1_EL1 save restore
->> Defer EL2 handling until next patch
->> ---
->>  arch/arm64/kvm/hyp/vhe/sysreg-sr.c | 11 +++++++++++
->>  1 file changed, 11 insertions(+)
->>
->> diff --git a/arch/arm64/kvm/hyp/vhe/sysreg-sr.c b/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
->> index f28c6cf4fe1b..a2e8f6187675 100644
->> --- a/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
->> +++ b/arch/arm64/kvm/hyp/vhe/sysreg-sr.c
->> @@ -183,6 +183,16 @@ void sysreg_restore_guest_state_vhe(struct kvm_cpu_context *ctxt)
->>  }
->>  NOKPROBE_SYMBOL(sysreg_restore_guest_state_vhe);
->>  
->> +/*
->> + * The _EL0 value was written by the host's context switch and belongs to the
->> + * VMM. Copy this into the guest's _EL1 register.
->> + */
->> +static inline void __mpam_guest_load(void)
->> +{
->> +	if (system_supports_mpam())
->> +		write_sysreg_el1(read_sysreg_s(SYS_MPAM0_EL1), SYS_MPAM1);
-> 
-> nit: I'd prefer using a mask to extract the fields of interest, guarding
-> against future architecture doing something silly with the RES0 fields
-> of these registers.
+[snip]
 
-Sure, I'll make this change.
+> +
+> +static int psci_reboot_mode_probe(struct faux_device *fdev)
+> +{
+> +       struct reboot_mode_driver *reboot;
+> +       struct device_node *psci_np;
+> +       struct device_node *np;
+> +       int ret;
+> +
+> +       psci_np =3D of_find_compatible_node(NULL, NULL, "arm,psci-1.0");
+> +       if (!psci_np)
+> +               return -ENODEV;
+> +
+> +       /*
+> +        * Find the psci:reboot-mode node.
+> +        * If NULL, continue to register predefined modes.
+> +        * np refcount to be handled by dev;
+> +        * psci_np refcount is decremented by of_find_node_by_name;
+> +        */
 
-> 
-> Thanks,
-> Oliver
+Can you make this comment into full sentences, I had trouble parsing
+the meaning for a minute.
 
-Thanks,
+> +       np =3D of_find_node_by_name(psci_np, "reboot-mode");
+> +       fdev->dev.of_node =3D np;
 
-Ben
+The logic of the device assigning its own node is a bit sketchy,
+ideally this should be done before the device probes.
 
+> +
+> +       reboot =3D devm_kzalloc(&fdev->dev, sizeof(*reboot), GFP_KERNEL);
+> +       if (!reboot)
+> +               return -ENOMEM;
+> +
+> +       psci_reboot_mode_set_predefined_modes(reboot);
+> +       reboot->write =3D psci_reboot_mode_write;
+> +       reboot->dev =3D &fdev->dev;
+> +
+> +       ret =3D devm_reboot_mode_register(&fdev->dev, reboot);
+> +       if (ret) {
+> +               dev_err(&fdev->dev, "devm_reboot_mode_register failed %d\=
+n", ret);
+> +               return ret;
+
+Use dev_err_probe().
+
+> +       }
+> +
+> +       return 0;
+> +}
+> +
+> +static struct faux_device_ops psci_reboot_mode_ops =3D {
+> +       .probe =3D psci_reboot_mode_probe,
+> +};
+> +
+> +static int __init psci_reboot_mode_init(void)
+> +{
+> +       struct faux_device *fdev;
+> +
+> +       fdev =3D faux_device_create("psci-reboot-mode", NULL, &psci_reboo=
+t_mode_ops);
+> +       if (!fdev)
+> +               return -ENODEV;
+
+This will always create this device for everyone who includes this
+module. Move the of_find_compatible_node(NULL, NULL, "arm,psci-1.0")
+call from probe() here instead and don't create the device if it
+fails.
+
+Bart
+
+> +
+> +       return 0;
+> +}
+> +device_initcall(psci_reboot_mode_init);
+>
+> --
+> 2.34.1
+>
 
