@@ -4,58 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A760AFA3741
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 12:21:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBDD1FA3741
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 12:21:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QXM8LJ6n5DBtUq8ca9svyjVLB1Hucrj6X6R3AG8yJB0=; b=VK4JRWUF3AGksW6nswLyFN2kOu
-	2IVB6WG8wutc6qYHBk9coU4yue8Lkszov6OunP/LyuU98HROem+yRQpjs4s3ldGTGcwqV6IfkBkzP
-	I8AwMsAafh2B6Z24N00rtUWVpy20gva4QE+6cdPLVgXum/D8o6JzhYXbFBaI2DjDrSlNJzkXl9r81
-	hzQAxbseMn5EpP4SjoKB8JKyEEIOrkm8KBOOggJ5W7g3dZeXOlhfC3hfu9dTK8eOXoaoLfSlToDEt
-	BNtFl/89fZ3Q6y1c3lFy03eNugXUIbSm4GBl2Qn963EoRj9k04J1Fj1+QjaLwHUYF1TxYeZejUsEW
-	5QXVHbQw==;
+	bh=FDmxq7UbPc6WXsDXx35rYodAwATOMhDsPcIJFdwUcxI=; b=aXjGDNtpsU8TV0gjMCLvuSFJFZ
+	T4XH+3+fbl5wBdDKT4PD0z4VMN4K/VqejSTb08rrmPgW5Jpn+mmRutPuTwFAOtKKLQwBzqDP6fZeu
+	YAF+fGq8xSJByxxNTxaII+bCvKX/Jl8yDMtDjOoaRvS54iDyPSs7l0K7V76gxKVMTgKHb7pNdiJ/r
+	Q87Z3HRD+LXA6E3yUxNs71UCTleTFIRFq2tSAYIosnMtWo4AwrGKbwP8XJBuN7KdbIC90+wUTcVik
+	aqJVLVz7Hc0PCg2Va8LwT2l4wK2pu1AiINPMCFDK1AnWc3CffRe+7mHn3NRajCYohHrhGOv201C01
+	SOcbahTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbe9i-00000008Bef-4ABE;
-	Fri, 02 Jan 2026 12:21:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbe9g-00000008BeC-2Hii
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Jan 2026 12:21:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9B0B4497;
-	Fri,  2 Jan 2026 04:21:12 -0800 (PST)
-Received: from [10.57.94.221] (unknown [10.57.94.221])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 77F283F63F;
-	Fri,  2 Jan 2026 04:21:16 -0800 (PST)
-Message-ID: <fdf816d2-716a-466a-97be-9d8e8b442be5@arm.com>
-Date: Fri, 2 Jan 2026 12:21:14 +0000
+	id 1vbeAB-00000008Bm7-3SfN;
+	Fri, 02 Jan 2026 12:21:51 +0000
+Received: from smtpbgau2.qq.com ([54.206.34.216])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vbeA9-00000008Bfz-0g13;
+	Fri, 02 Jan 2026 12:21:50 +0000
+X-QQ-mid: zesmtpsz6t1767356458t5fcba08d
+X-QQ-Originating-IP: Ayds/8A1YveSLFt2cgvOK9/WokTop4Ihr+EA4NhAefI=
+Received: from [192.168.254.128] ( [106.150.157.243])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 02 Jan 2026 20:20:56 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 15471507593968518145
+Message-ID: <BDDA8BCAC5E40754+f8a6f461-6f79-4ba3-b77e-a7664896799d@radxa.com>
+Date: Fri, 2 Jan 2026 21:20:55 +0900
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 3/5] arm64: mm: support batch clearing of the young
- flag for large folios
-Content-Language: en-GB
-To: Baolin Wang <baolin.wang@linux.alibaba.com>, akpm@linux-foundation.org,
- david@kernel.org, catalin.marinas@arm.com, will@kernel.org
-Cc: lorenzo.stoakes@oracle.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
- rppt@kernel.org, surenb@google.com, mhocko@suse.com, riel@surriel.com,
- harry.yoo@oracle.com, jannh@google.com, willy@infradead.org,
- baohua@kernel.org, dev.jain@arm.com, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <cover.1766631066.git.baolin.wang@linux.alibaba.com>
- <a5138065a70a7588904d0bcfc569a5d856dcc65e.1766631066.git.baolin.wang@linux.alibaba.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <a5138065a70a7588904d0bcfc569a5d856dcc65e.1766631066.git.baolin.wang@linux.alibaba.com>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH v1] arm64: dts: rockchip: Add USB Type-C support for Radxa
+ ZERO 3W
+To: Ke Sun <sunke@kylinos.cn>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ devicetree@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ Alvin Sun <sk.alvin.x@gmail.com>
+References: <20260101083415.1327341-1-sunke@kylinos.cn>
+Content-Language: en-US
+From: FUKAUMI Naoki <naoki@radxa.com>
+In-Reply-To: <20260101083415.1327341-1-sunke@kylinos.cn>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:radxa.com:qybglogicsvrsz:qybglogicsvrsz4b-0
+X-QQ-XMAILINFO: NyAagKVozfn5v0hb6uyMXmLzpL2tCiEsp6JETTFHFsz6Nn8j8X4IMgvM
+	ZwaNfdVd/5YjKNEjYL4oir4rq9xu0XKOd1TbkGPwIHa4j7F2pecdsb6N1OE36yLnDp2wYUP
+	326eX4uD/R43DI/7rsZdRQ4AYpfAqL1gdkydvrEGDZdU1XwecZs628IC1yrqiM4X94CCCj9
+	6nKHLXjpbS5nzPZcFUDZB5ngssr8iwRVMhrGN10S1T9r+SNAgG0VRKzBzae++pOKsR3swoF
+	cUaKHQKCdb4/n5YKXJeCT+xe9EdXbOGkNiMMK2QnLErkKo9vHv5FfgvIQbg3XAyBHfT4Wtj
+	3+gvJDr7sZmStmT6gzlXLRRcAVc3iOZ/p7Aj9tPdSUCJoUL1eaRlOgre8q9LBshGpBUggHb
+	DuieSGtF0rSVSQiTLwEwL9Wi3XkOYk7cMDCpoM2saRotmga4cSYdp+X9l1fUrownz7FD7gO
+	zW6W33imYpS9qOxbLKu3/UgwgFKFbSBmwEC7JFZpthfG3XnmkdtDDGmZYxbiPaFzeYULm4R
+	3kYk/GJQoLkyhLwcnyY5ChD7dNx5Bqxp6QqSkhuw7N6q/bfW0MGdRLEr7LZ4hlzfI0T2BSj
+	kCOvDdytJKAXssSRgijc0iw2rSzLKurImHnUl0WsN34btX4yn6IX0Koys8Dit0UrViOdnf2
+	G8t3fVSpaNe+8LG3pac9MNsRgRQn7PnbOgy6lLnyQV8iPXiRW6KVBoLMkCTtv/wBrTyZcWh
+	zRObLQ48CyPMk/dLxbvNLnsnkRNvjvZM6l8DXlM2Mg5StuYwLlmOT2XqGNPnXlQytnDD66s
+	nZGeoPrKgLcY4GVjHBAhtjD3T6bg3iHV6AsSqmXEaDOzNyBh6tchDL0FOpGV/y6DBRdBM5J
+	ZAVrOulpEB1Rv8SHvyMVyCeDccuMB+BithMi0Aanjuj60bL832bE+uVZePeBS661dDHf0Qj
+	3BEbkQL5WbRLs50AerGQp/T0CuKrJ5aG2tlggXPlStc1wb3sAzsKhTEyl2vKjzG8E3I0509
+	a7Y5b1Bw==
+X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_042120_684357_A7890835 
-X-CRM114-Status: GOOD (  19.80  )
+X-CRM114-CacheID: sfid-20260102_042149_636155_0C457323 
+X-CRM114-Status: GOOD (  11.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,135 +89,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 26/12/2025 06:07, Baolin Wang wrote:
-> Currently, contpte_ptep_test_and_clear_young() and contpte_ptep_clear_flush_young()
-> only clear the young flag and flush TLBs for PTEs within the contiguous range.
-> To support batch PTE operations for other sized large folios in the following
-> patches, adding a new parameter to specify the number of PTEs that map consecutive
-> pages of the same large folio in a single VMA and a single page table.
-> 
-> While we are at it, rename the functions to maintain consistency with other
-> contpte_*() functions.
-> 
-> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+Hi Ke,
 
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-
+On 1/1/26 17:34, Ke Sun wrote:
+> Add vbus_typec regulator and fusb302 Type-C controller configuration
+> for Radxa ZERO 3W board.
+> 
+> Link: https://dl.radxa.com/zero3/docs/hw/3w/radxa_zero_3w_v1110_schematic.pdf
+> Signed-off-by: Ke Sun <sunke@kylinos.cn>
 > ---
->  arch/arm64/include/asm/pgtable.h | 12 ++++++------
->  arch/arm64/mm/contpte.c          | 33 ++++++++++++++++++--------------
->  2 files changed, 25 insertions(+), 20 deletions(-)
+>   .../dts/rockchip/rk3566-radxa-zero-3.dtsi     | 10 +++++++++
+>   .../dts/rockchip/rk3566-radxa-zero-3w.dts     | 22 +++++++++++++++++++
+>   2 files changed, 32 insertions(+)
 > 
-> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> index 445e18e92221..5e9ff16146c3 100644
-> --- a/arch/arm64/include/asm/pgtable.h
-> +++ b/arch/arm64/include/asm/pgtable.h
-> @@ -1648,10 +1648,10 @@ extern void contpte_clear_full_ptes(struct mm_struct *mm, unsigned long addr,
->  extern pte_t contpte_get_and_clear_full_ptes(struct mm_struct *mm,
->  				unsigned long addr, pte_t *ptep,
->  				unsigned int nr, int full);
-> -extern int contpte_ptep_test_and_clear_young(struct vm_area_struct *vma,
-> -				unsigned long addr, pte_t *ptep);
-> -extern int contpte_ptep_clear_flush_young(struct vm_area_struct *vma,
-> -				unsigned long addr, pte_t *ptep);
-> +int contpte_test_and_clear_young_ptes(struct vm_area_struct *vma,
-> +				unsigned long addr, pte_t *ptep, unsigned int nr);
-> +int contpte_clear_flush_young_ptes(struct vm_area_struct *vma,
-> +				unsigned long addr, pte_t *ptep, unsigned int nr);
->  extern void contpte_wrprotect_ptes(struct mm_struct *mm, unsigned long addr,
->  				pte_t *ptep, unsigned int nr);
->  extern int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
-> @@ -1823,7 +1823,7 @@ static inline int ptep_test_and_clear_young(struct vm_area_struct *vma,
->  	if (likely(!pte_valid_cont(orig_pte)))
->  		return __ptep_test_and_clear_young(vma, addr, ptep);
->  
-> -	return contpte_ptep_test_and_clear_young(vma, addr, ptep);
-> +	return contpte_test_and_clear_young_ptes(vma, addr, ptep, 1);
->  }
->  
->  #define __HAVE_ARCH_PTEP_CLEAR_YOUNG_FLUSH
-> @@ -1835,7 +1835,7 @@ static inline int ptep_clear_flush_young(struct vm_area_struct *vma,
->  	if (likely(!pte_valid_cont(orig_pte)))
->  		return __ptep_clear_flush_young(vma, addr, ptep);
->  
-> -	return contpte_ptep_clear_flush_young(vma, addr, ptep);
-> +	return contpte_clear_flush_young_ptes(vma, addr, ptep, 1);
->  }
->  
->  #define wrprotect_ptes wrprotect_ptes
-> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
-> index e4ddeb46f25d..b929a455103f 100644
-> --- a/arch/arm64/mm/contpte.c
-> +++ b/arch/arm64/mm/contpte.c
-> @@ -508,8 +508,9 @@ pte_t contpte_get_and_clear_full_ptes(struct mm_struct *mm,
->  }
->  EXPORT_SYMBOL_GPL(contpte_get_and_clear_full_ptes);
->  
-> -int contpte_ptep_test_and_clear_young(struct vm_area_struct *vma,
-> -					unsigned long addr, pte_t *ptep)
-> +int contpte_test_and_clear_young_ptes(struct vm_area_struct *vma,
-> +					unsigned long addr, pte_t *ptep,
-> +					unsigned int nr)
->  {
->  	/*
->  	 * ptep_clear_flush_young() technically requires us to clear the access
-> @@ -518,41 +519,45 @@ int contpte_ptep_test_and_clear_young(struct vm_area_struct *vma,
->  	 * contig range when the range is covered by a single folio, we can get
->  	 * away with clearing young for the whole contig range here, so we avoid
->  	 * having to unfold.
-> +	 *
-> +	 * The 'nr' means consecutive (present) PTEs that map consecutive pages
-> +	 * of the same large folio in a single VMA and a single page table.
->  	 */
->  
-> +	unsigned long end = addr + nr * PAGE_SIZE;
->  	int young = 0;
-> -	int i;
->  
-> -	ptep = contpte_align_down(ptep);
-> -	addr = ALIGN_DOWN(addr, CONT_PTE_SIZE);
-> -
-> -	for (i = 0; i < CONT_PTES; i++, ptep++, addr += PAGE_SIZE)
-> +	ptep = contpte_align_addr_ptep(&addr, &end, ptep, nr);
-> +	for (; addr != end; ptep++, addr += PAGE_SIZE)
->  		young |= __ptep_test_and_clear_young(vma, addr, ptep);
->  
->  	return young;
->  }
-> -EXPORT_SYMBOL_GPL(contpte_ptep_test_and_clear_young);
-> +EXPORT_SYMBOL_GPL(contpte_test_and_clear_young_ptes);
->  
-> -int contpte_ptep_clear_flush_young(struct vm_area_struct *vma,
-> -					unsigned long addr, pte_t *ptep)
-> +int contpte_clear_flush_young_ptes(struct vm_area_struct *vma,
-> +				unsigned long addr, pte_t *ptep,
-> +				unsigned int nr)
->  {
->  	int young;
->  
-> -	young = contpte_ptep_test_and_clear_young(vma, addr, ptep);
-> +	young = contpte_test_and_clear_young_ptes(vma, addr, ptep, nr);
->  
->  	if (young) {
-> +		unsigned long end = addr + nr * PAGE_SIZE;
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3566-radxa-zero-3.dtsi b/arch/arm64/boot/dts/rockchip/rk3566-radxa-zero-3.dtsi
+> index 1ee5d96a46a1b..79448016ab490 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3566-radxa-zero-3.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3566-radxa-zero-3.dtsi
+> @@ -35,6 +35,16 @@ led-green {
+>   		};
+>   	};
+>   
+> +	vbus_typec: vbus-typec-regulator {
+> +		compatible = "regulator-fixed";
+> +		regulator-name = "vbus_typec";
+> +		regulator-always-on;
+> +		regulator-boot-on;
+> +		regulator-min-microvolt = <5000000>;
+> +		regulator-max-microvolt = <5000000>;
+> +		vin-supply = <&vcc_sys>;
+> +	};
 > +
-> +		contpte_align_addr_ptep(&addr, &end, ptep, nr);
->  		/*
->  		 * See comment in __ptep_clear_flush_young(); same rationale for
->  		 * eliding the trailing DSB applies here.
->  		 */
-> -		addr = ALIGN_DOWN(addr, CONT_PTE_SIZE);
-> -		__flush_tlb_range_nosync(vma->vm_mm, addr, addr + CONT_PTE_SIZE,
-> +		__flush_tlb_range_nosync(vma->vm_mm, addr, end,
->  					 PAGE_SIZE, true, 3);
->  	}
->  
->  	return young;
->  }
-> -EXPORT_SYMBOL_GPL(contpte_ptep_clear_flush_young);
-> +EXPORT_SYMBOL_GPL(contpte_clear_flush_young_ptes);
->  
->  void contpte_wrprotect_ptes(struct mm_struct *mm, unsigned long addr,
->  					pte_t *ptep, unsigned int nr)
+>   	vcc_1v8: regulator-1v8-vcc {
+>   		compatible = "regulator-fixed";
+>   		regulator-name = "vcc_1v8";
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3566-radxa-zero-3w.dts b/arch/arm64/boot/dts/rockchip/rk3566-radxa-zero-3w.dts
+> index f92475c59deb4..54f20856bcfc6 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3566-radxa-zero-3w.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3566-radxa-zero-3w.dts
+> @@ -50,6 +50,12 @@ wifi_wake_host_h: wifi-wake-host-h {
+>   			rockchip,pins = <0 RK_PB7 RK_FUNC_GPIO &pcfg_pull_none>;
+>   		};
+>   	};
+> +
+> +	usb-typec {
+> +		usbc0_int: usbc0-int {
+> +			rockchip,pins = <3 RK_PC7 RK_FUNC_GPIO &pcfg_pull_up>;
+> +		};
+> +	};
+>   };
+>   
+>   &sdhci {
+> @@ -90,3 +96,19 @@ &uart1 {
+>   	uart-has-rtscts;
+>   	status = "okay";
+>   };
+> +
+> +&i2c3 {
+> +	status = "okay";
+> +	pinctrl-0 = <&i2c3m1_xfer>;
+> +
+> +	usbc0: fusb302@22 {
+> +		compatible = "fcs,fusb302";
+> +		reg = <0x22>;
+> +		interrupt-parent = <&gpio3>;
+> +		interrupts = <RK_PC7 IRQ_TYPE_LEVEL_LOW>;
+> +		sel-gpios= <&gpio0 RK_PC5 GPIO_ACTIVE_HIGH>;
+
+Where is "sel-gpios" defined or handled?
+
+Best regards,
+
+--
+FUKAUMI Naoki
+Radxa Computer (Shenzhen) Co., Ltd.
+
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&usbc0_int>;
+> +		vbus-supply = <&vbus_typec>;
+> +	};
+> +};
 
 
