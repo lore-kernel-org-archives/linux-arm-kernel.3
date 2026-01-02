@@ -4,134 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2633EEB57A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 08:55:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAC18FA3727
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  2 Jan 2026 09:25:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1n0GBmZN8YoiNkT5cUhMNMTblt2s2nH5jjCBaZC4rJ0=; b=Gh48KhYHQThOp7OhL/Ekq98Xuj
-	DplwXOuKfXumHRAWpCMZb+m/UTNWUb43zo4i7mu+o85uU20Odo4+sQTGCKoeL2LMR+If7swpNiQBY
-	1LbLVSv7HomcJsy0i6GkYL+fOs5Lvvm4l//w/dMIF9c832tur4DXmp7u5OlilDmfM2rNYTF7CwF1z
-	LaLCE8nSj0OgLjBIxmOFqY7u4HASqszL1EfOflWPFqw/Ug5JukvaFh9fpBVHr1XU+rPqAmiaV9RDy
-	lJ6PZHaBvWrzQUTerTmej1Bgdzq/cTeX/rLZVyfW8dqGOSAtRqzsc+n5m+X9NjitWrcRqrtGMU0yW
-	D2azvUSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xboeX7iqp3yKPiHunSosJbagSL4sCsNu5Hh7gtei0fw=; b=aF6982YXnkLWigjB5oZKnrML57
+	UPTqqBgXu0dH9NrPAuUcWG4AuLq6v9F1bR7foGBN9BA/h0HKWKHj8WtAeqm2XyQDx9z64vUdu8fFJ
+	Ezm0/jRPrQdZUPd8/V5DFWBujCLirWxYl1QcOtvoEmiLeUASE63PmIxP9NCIijPrDZh0Wb/lj7PVt
+	1ZcPCm32px+JnnTCIQXdH0ls5UlKzlPkdnWTwtMbBYUf+1rOCXMiN70kAiBs5hYTmDVT5giwj0JtI
+	V4lhp0X8Wzb+/arxSFXTdFJQHIye4Yg+eH84ECQMiYdO4p+AZ8HbVta29wjdEeTnGsXjGEi5ObJdz
+	+QLgtjmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbawW-00000007zy9-1aPI;
-	Fri, 02 Jan 2026 08:55:32 +0000
-Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1vbbP4-0000000819S-0XCf;
+	Fri, 02 Jan 2026 09:25:02 +0000
+Received: from fhigh-a5-smtp.messagingengine.com ([103.168.172.156])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbawT-00000007zwf-1oXh
+	id 1vbbP0-0000000818N-2m3E
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 02 Jan 2026 08:55:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LN3hzEsroN9/kUadoyaX1jFFNN7uyCKeHYwV/LhDMsTSuL9PyQQRGKn/GmnGYYM8OefV/0AEPbGgqOLqMXmDKz4pF/xKytNhRvCkxRQuwII/slKzw9eCV7Dqb2IWZG5Vv5cEWO8v/Tg9LA0PIvUBOJm7yEE6FHleP3bt7evv45R9KwdOOOs8eSo2+gWQGpiLacemA9cbIWdZfS8dhOuk8APLczCMhjHVXARzAai1e1D1cJuRuqO0W+QzOrx2geLxpMOV3RpADcj1yCglgiKWVTBer7y1iqpK6l210/e2kZ2Kf27QpW+nlTcA1U6uIhdCYmd0euAzOvHarFsOlwmxEw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1n0GBmZN8YoiNkT5cUhMNMTblt2s2nH5jjCBaZC4rJ0=;
- b=WHNscQDrFKpEieIHMjW0nMpzQQ9tWGtplKF+4Kry+lduTG+p9z6M8Lu81QLKqwRVnRp88gbKbR8FnEN2wp8C8jDCeww2zjabE9oTc0Z/5NZCExOfY8t+sT5ZP3KKoBhkW/C/8NfdFFVD2rj86k4SHDrAAtwEKPlhc4YpZ0EJtvR5floBVlh/q0Dgi8Zuo/jJcbDffJDvlk20FmTsJURQ5kq/+pSP4gwkVi23bGjFsj+IiQ5QXIUCw5Ehi1G7E0hs0GVO8HSJHJCK2xItHFBxtTI8meFEt/RCq9e8ldLxq+7DRaMLqbEuhqsFBr19FH9jcL8bdt7RDLT7G4RgYAycZA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=baylibre.com smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1n0GBmZN8YoiNkT5cUhMNMTblt2s2nH5jjCBaZC4rJ0=;
- b=kTX30Swd+kbPspY8W/EVO7vseEZ3EopRy8cSVbx9KFJWxNEJmVjHH+f7qCsj8o0SQpE8Ouyhm49QOEpVs2+RmIKKJNDAbQpMNlVKAjjYKdcoVbyBUqDIYEUQd1tj0FA5Sh6LLmQ8tu9mQ447xXT5nJHLOiyqd+h1EbZ2LqqbtEg=
-Received: from SJ0PR03CA0004.namprd03.prod.outlook.com (2603:10b6:a03:33a::9)
- by MN2PR12MB4045.namprd12.prod.outlook.com (2603:10b6:208:1d6::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Fri, 2 Jan
- 2026 08:55:12 +0000
-Received: from SJ1PEPF00001CDE.namprd05.prod.outlook.com
- (2603:10b6:a03:33a:cafe::1) by SJ0PR03CA0004.outlook.office365.com
- (2603:10b6:a03:33a::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9478.4 via Frontend Transport; Fri, 2
- Jan 2026 08:55:11 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- SJ1PEPF00001CDE.mail.protection.outlook.com (10.167.242.6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9499.1 via Frontend Transport; Fri, 2 Jan 2026 08:55:11 +0000
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Fri, 2 Jan
- 2026 02:55:03 -0600
-Received: from xhdsuragupt40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Fri, 2 Jan 2026 02:55:00 -0600
-From: Suraj Gupta <suraj.gupta2@amd.com>
-To: <mturquette@baylibre.com>, <sboyd@kernel.org>,
-	<radhey.shyam.pandey@amd.com>, <andrew+netdev@lunn.ch>,
-	<davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
-	<pabeni@redhat.com>, <michal.simek@amd.com>
-CC: <sean.anderson@linux.dev>, <linux@armlinux.org.uk>,
-	<linux-clk@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: [RFC PATCH 0/2] Add devm_clk_bulk_get_optional_enable() helper and use in AXI Ethernet driver
-Date: Fri, 2 Jan 2026 14:24:52 +0530
-Message-ID: <20260102085454.3439195-1-suraj.gupta2@amd.com>
-X-Mailer: git-send-email 2.49.1
+	Fri, 02 Jan 2026 09:25:00 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id EA5F614000AD;
+	Fri,  2 Jan 2026 04:24:54 -0500 (EST)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-04.internal (MEProxy); Fri, 02 Jan 2026 04:24:54 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1767345894;
+	 x=1767432294; bh=xboeX7iqp3yKPiHunSosJbagSL4sCsNu5Hh7gtei0fw=; b=
+	aDSBt+A79WKXvc4f0lRnxJqT6zEOJQGqJKzz3e0zmZJkSJ+I98bstXT497fL+tFB
+	64XDyFgpEIVa8NioYlhI0HrziMsCSN0iU+XXmsn0KAPjGsTsVCt2Dcg3r31poSVc
+	W5XnidRgQUtXRZygFuv+TWGQqtFbnYWrrWCs3b9x2Be0+sJLM4w+w8iA1iBuZEdf
+	+8EiLJf34Tc7PHog57vADOP8pL+HoRmCkKZ8ikR8NuW/hL4OC5gN+kCYdEn/2NJS
+	S/u5ahvNqCPn/ne3n9p3RfSGFCv4L3HnVMI1//ygbE7YCKZFZ1mjcP9Orw66q9MZ
+	zkq4O2KDvRG470mIqZNxfw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1767345894; x=
+	1767432294; bh=xboeX7iqp3yKPiHunSosJbagSL4sCsNu5Hh7gtei0fw=; b=H
+	gncAOTv5hXasZnfO+DefsoIKG6IcQscodgz1nK3zYRriD4dbYPJUW9OMXhU1MCDo
+	ev/NmqZrrb/w7grftiyv2y4H/3cK5kX4RY6NXblDcg8uZtuYjq5DGkC/gzQor3ee
+	Gt79KRxlj3XdVtxadlFGLH8WHdsrtBScfBP6FGVZ8D5eUf/xVvadrka7RVZNDQr4
+	wVUN1JCjseOCXF1MfpQgr9EtYXsjHdGDaR054RIJfG3BuamBU74W0zrVnS4Bus4n
+	eyXYjfF1ZKfkwAaRpbG5A/OF0I31M8oxaE8fVjS0LAmENKOJQ20PQTTLxAcPWHwl
+	Z+Mc/XjDX2VkLjITzVJIA==
+X-ME-Sender: <xms:5Y5XaYihxTgTDU1PZ-z290UhDEZaTS5s2suS9_yef3GyND0SJtVilQ>
+    <xme:5Y5Xab3KNHDn0jKFStcNpwGM4MaHDVjJ-5rVatUc-KGgVgkbrir8d9rx6DpU6uu4k
+    Ls1pkf0Ug0-u35alpN3Lqs6-LPgYnPkGiJxudhJuPJmCJZkGQpBscw>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdekkeeftdcutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecunecujfgurhepofggfffhvfevkfgjfhfutgfgsehtqhertd
+    ertdejnecuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhn
+    uggsrdguvgeqnecuggftrfgrthhtvghrnhepvdfhvdekueduveffffetgfdvveefvdelhe
+    dvvdegjedvfeehtdeggeevheefleejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghr
+    rghmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtoh
+    epkedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheplhhinhhugiesrghrmhhlihhn
+    uhigrdhorhhgrdhukhdprhgtphhtthhopehrmhhkodhkvghrnhgvlhesrghrmhhlihhnuh
+    igrdhorhhgrdhukhdprhgtphhtthhopeifihhllhihsehinhhfrhgruggvrggurdhorhhg
+    pdhrtghpthhtohepthhhohhmrghsrdifvghishhsshgthhhuhheslhhinhhuthhrohhnih
+    igrdguvgdprhgtphhtthhopegrkhhpmheslhhinhhugidqfhhouhhnuggrthhiohhnrdho
+    rhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinh
+    hfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgv
+    rhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshhtrggslhgvsehvghgvrhdrkhgvrh
+    hnvghlrdhorhhg
+X-ME-Proxy: <xmx:5Y5XaRzIjTbUNLrxGr0sqwE_YbxvX-6eNffzwqOge8lpG-o2ae4jTQ>
+    <xmx:5Y5XaRsSmW-Q-K1mA_xlGV_8lFLPpH2Iwio-p9VGk-n03dH_YACR0w>
+    <xmx:5Y5XacDzW-6O6VxqoF5s4oMP8TDbdqXmRiRW-vjIMMRDuU49G0B1Iw>
+    <xmx:5Y5XabEv8cZh6nZOD0UjfmY1X4grWK9bHRazqxmFbV3UnwBikPb-WQ>
+    <xmx:5o5XacrIRGAev8YYYemAQzEnmYkiOpUc9zw5f3ALgJqjIDJ-NP0kA6ex>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id C5156700065; Fri,  2 Jan 2026 04:24:53 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CDE:EE_|MN2PR12MB4045:EE_
-X-MS-Office365-Filtering-Correlation-Id: 74d9de3a-9d53-401c-3902-08de49dca382
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|36860700013|7416014|82310400026|13003099007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ppFaR61LzmXh7p0VbmG4pHloWmGKY8uaD1wmDXLT3YpDnsbn9wuB+jzL65J9?=
- =?us-ascii?Q?NK/3Cl0nJ+bUqip8oRqebshktJ6Pj/n3pHXPV0K8cdR4TVgwjRWL3Z3y86s4?=
- =?us-ascii?Q?I09/uHKOl7F/M5HSikEijb9YPPBp2tpDbLnJoJZWAnDd5w4X0drbmat/CNiL?=
- =?us-ascii?Q?l0zZKT60Gij97OiHWFb2EzhytJEDWPojPcLSpQaMnXqfPiRbgR60Ed8TfOu+?=
- =?us-ascii?Q?FHpmceC9lghMV++tgj1npQFSfxihgjvl9zxdCtS17zLDXdQ1Mblx6HimpvAI?=
- =?us-ascii?Q?h36QLlkIIlPcRx74jo7TvYkBtziXNZTr5MpFGqBfRuFr9Z7T+U8Oy/ntrRon?=
- =?us-ascii?Q?UmPyumN+O7iOlg2OJy0b8ADGHRrzmK0/JP1uaEZtWdPJq0cnTvAdp/vUbMl2?=
- =?us-ascii?Q?sNdnocmq0rGA4+hvsP0+t7fsu14CnoWUxV7xl7y+qOEexiwXj55+cJbIcGQF?=
- =?us-ascii?Q?q9uuxhmtf7xGfgV4NqeXG/uZuy2eRbw61WqyiZv7cLls4btCMIDUlTZEBaGt?=
- =?us-ascii?Q?GFRsTs7G6haLycMYQ2uyeNUWFUvmub+SL5aRWquVfJjs/NuMKjRZz04dlURu?=
- =?us-ascii?Q?GGa0b4AAeFPWbdLvghRl28i7Z2beDc77gMzgQ/gERdDZpSnqNcPeDMcFOAs0?=
- =?us-ascii?Q?wbHl7SlcmPX0fFAUdVHUNbIcp5QMvq3oSoSWSlek/t4RE8QAE/1ePHrbf9NT?=
- =?us-ascii?Q?6GyLKNn6OPm3cycFK0W2PkdX3uAZY5Lflnx0NP+Jou3ruJZCb8RCUuzafEA1?=
- =?us-ascii?Q?/5uYY4KwudAi9JoxBkAfBydgJLeJdhMs2mPeBJUFgUjUEevwLEDq81K1XvUg?=
- =?us-ascii?Q?6SIFZLWApFWUaBSN92yt37FRAjUJUCtBjpRb4T5zr5/51nwC02XJB6g6pQ4j?=
- =?us-ascii?Q?8q7cgIi/mODE7K4FQSOnFQbWCtgjm52zrH3qgUR9TZOAEbtXAJFlAocXH7l2?=
- =?us-ascii?Q?awDR/cjT+k1yAUJMeeQEPnqe+OpbxbU0p4l4ktZ8za4E5oDS/ltI2WT3Gr8V?=
- =?us-ascii?Q?tH/463+zaLWBBA1xKdLoMw3lYAkjJGA8SBN7F0Zv/lPBP+B+4XZ20pUIdxB8?=
- =?us-ascii?Q?1SsX421Nfo3Ytq9gtDC74crZ8mwIpJtKD0RrpvM2j6I5dbn2FJaOUbn+FncR?=
- =?us-ascii?Q?B7ysXRVRwE9tTnrbRRJwU0UYCwvu9QsiwMxAVRcbp2BTlmZtoYa5I1oPc2py?=
- =?us-ascii?Q?xKr7Re4BJT1QnVTOWx5JMDF0T0/NJZVsHGQ/YXTlzKd1M7JK1fn7lOcvZ2n1?=
- =?us-ascii?Q?hMljE4g8myF/uwokrrrq0lTUgk1zPX9A0/9V1+QSeZh39Q+Mln1MUUUlCs4a?=
- =?us-ascii?Q?5N1PuttCs3+XEkKmai6I3ajbClkxEam9KgeHVVbbFrblPXbtYM0a1kKjTNd0?=
- =?us-ascii?Q?5txNyuKYXUxGZKCJ+MAHEWoq7wNzK56fun2gHlU7iFY2F8H33p2iKK5W+PV1?=
- =?us-ascii?Q?0PaWKY1wViWybsDxgUubvK/g1QO+zjPpoYouokhJWBakGAA5z/KJ72ZTe8bT?=
- =?us-ascii?Q?NEpOCSaVSFqRvvKxc1M/04b43oS1xViZDrj7Ys6+QIk9mKxG38EOZgG+8aCj?=
- =?us-ascii?Q?JnPoEkhQt978jE5dHa4=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(1800799024)(36860700013)(7416014)(82310400026)(13003099007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Jan 2026 08:55:11.7223
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 74d9de3a-9d53-401c-3902-08de49dca382
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CDE.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4045
+X-ThreadId: AtSnlUpPuEWk
+Date: Fri, 02 Jan 2026 10:24:33 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
+ "Russell King" <linux@armlinux.org.uk>,
+ "Andrew Morton" <akpm@linux-foundation.org>,
+ "Matthew Wilcox" <willy@infradead.org>
+Cc: "Russell King" <rmk+kernel@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+Message-Id: <bfd7776e-574a-4828-99a2-f70a3b9015e6@app.fastmail.com>
+In-Reply-To: <20260102-armeb-memset64-v1-1-9aa15fb8e820@linutronix.de>
+References: <20260102-armeb-memset64-v1-1-9aa15fb8e820@linutronix.de>
+Subject: Re: [PATCH] ARM: fix memset64() on big-endian
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_005529_483250_DE7060E7 
-X-CRM114-Status: UNSURE (   9.52  )
+X-CRM114-CacheID: sfid-20260102_012459_255831_AAFFFF0B 
+X-CRM114-Status: UNSURE (   9.88  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -147,35 +119,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series introduces a new managed clock framework helper function
-and demonstrates its usage in AXI ethernet driver.
+On Fri, Jan 2, 2026, at 08:15, Thomas Wei=C3=9Fschuh wrote:
+> On big-endian systems the 32-bit low and high halves need to be swappe=
+d,
+> for the underlying assembly implemenation to work correctly.
+>
+> Fixes: fd1d362600e2 ("ARM: implement memset32 & memset64")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Thomas Wei=C3=9Fschuh <thomas.weissschuh@linutronix.de>
+> ---
+> Found by the string_test_memset64 KUnit test.
 
-Device drivers frequently need to get optional bulk clocks, prepare them,
-and enable them during probe, while ensuring automatic cleanup on device
-unbind. Currently, this requires three separate operations with manual
-cleanup handling.
+Good catch! I guess that likely means you are the first one to
+run kunit test on armbe since the tests got added. Did you find
+any other differences between BE and LE kernels running kunit?
 
-The new devm_clk_bulk_get_optional_enable() helper combines these
-operations into a single managed call, eliminating boilerplate code and
-following the established pattern of devm_clk_bulk_get_all_enabled().
-
-Note:
-Prepared this series as per mainline discussion here:
-https://lore.kernel.org/all/540737b2-f155-4c55-ab95-b18f113e0031@linux.dev
-
-
-Sean Anderson (1):
-  net: axienet: Fix resource release ordering
-
-Suraj Gupta (1):
-  clk: Add devm_clk_bulk_get_optional_enable() helper
-
- drivers/clk/clk-devres.c                      | 50 +++++++++++
- .../net/ethernet/xilinx/xilinx_axienet_main.c | 83 ++++++-------------
- include/linux/clk.h                           | 23 +++++
- 3 files changed, 100 insertions(+), 56 deletions(-)
-
--- 
-2.25.1
-
+Reviewed-by: Arnd Bergmann <arnd@arndb.de>
 
