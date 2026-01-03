@@ -4,58 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9110FA3750
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Jan 2026 12:43:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D974FFC6179
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Jan 2026 12:46:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ml3RHk6kRBT37njG0R4eb6uztrcNodBSVGrEuOrbQWA=; b=EkByuuwrNhGQnmpBjOnsNFb+nN
-	2XO8bbrqaVcmuUO8ojbbBil9pahNAyFbKI3WE2SuA4I4hLzqSNCNk76k/8a44T/3F6rd1QgE1kfEk
-	2CLdbpie2srtlotsnT8gmje198xscKltn10oDNBJH39lnoMPAduTV+roayr6h5V6MQNrBzLIRWiWa
-	qcvDcOEXy55YBW44Y1/2AkNiy47kVxpiu4vd/6pDvMZ5Jk6K5aCXbIvw2QhiwwMbbbMyFBChFo65K
-	lF27BogbnnMnySY6Djm3xjy5+WgACKQ7HkEPWEruh0/JfwYfSE1L9M5mYMwNa9hEDlerIr1Z1SyOo
-	gPvOzWrg==;
+	bh=uaFyBbZx5dPPxMkoQSLQ3B8wJOEPXf94U5/REU5p6Oc=; b=h97+nwLZV5m2+XrFVAuLTBcgFx
+	vz379ODq30eocpSy/FKrnDe02a89rw0xjayK1menSe0P7v1XLwra12fNJlocLmDvsQ0GWuG/GrAEL
+	x8mO4AQJUzJiLteWufDD06VQT2g2U7a5fslDD7KOdrtyd4r50pxzXNta/z3JwSsR8OaHRwlQiLq+z
+	cH4Md3+v/DB6fkS37eqDgXZAuO6f/D2nCPbueDoH85UAdYftrCwICKOINGHGZROMyCeuI3hUvHBRi
+	8QomP2bwLQyPmZc1nC9un9GMGLTSmYTSPGE0OS8kvwObg/EdHCm/UNkJhppZvEEB963PrkhxVsr7y
+	6e8wYR+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vc0yn-00000009MQy-3iWc;
-	Sat, 03 Jan 2026 12:43:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vc11K-00000009Mc8-2DuH;
+	Sat, 03 Jan 2026 12:46:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vc0yl-00000009MQW-1C8d
+	id 1vc11I-00000009Mbl-0LEY
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Jan 2026 12:43:36 +0000
+	Sat, 03 Jan 2026 12:46:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1B1BA40BCE;
-	Sat,  3 Jan 2026 12:43:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1232C113D0;
-	Sat,  3 Jan 2026 12:43:30 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 375E2429EE;
+	Sat,  3 Jan 2026 12:46:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CAF5C113D0;
+	Sat,  3 Jan 2026 12:46:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767444211;
-	bh=WKzSagjUrc1Ok9kQYkkRHAtz/xqko+E580OAxbZPQhk=;
+	s=k20201202; t=1767444371;
+	bh=IWi1owsdnUFXHUhehNkUIPb8EZMDzi2ktoQlNVEekFk=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qMJMLvmV85nrOxG9pg5sUOmzinCv9jmhQgDVANjnNOCriiWl0b1cbW2AD7DsAsud0
-	 Oucmok9Q0MJXnzBIWow2eyDl0lokatkEQmR8yInw6zPQDV+yfoTECkzQeLdHWweb3a
-	 yHqVJYHZUircK0kMpLCbzXDxazelsWVai+f+4hjDmWSzQ3S2Mf9PWOYjmX/CXtxQN6
-	 t6vB4GPz0nn87X/5LRdb2eW/eDdxSLjxUrfqxMpz6WUdvPGQj7GITLlQIEpUJggwR5
-	 V0PyDtNUb6bUoA3tbNLS9JPnvVnXeVJf4yADtHV/HsXo9d4waCj/WX6rbLD7Zbf5YC
-	 VEyJk03Zs4OIg==
-Message-ID: <a77325ae-fc53-4554-a7d8-3bdd841e1065@kernel.org>
-Date: Sat, 3 Jan 2026 13:43:29 +0100
+	b=nVvwsnNGx+ZrQi0kjL1hxWxX2iq1xQNDdjSKc3daBedCnPjaFE4W2+pXSYLdaaiLk
+	 PgXFEjfiKbU7SuirfuLQmIW30FE8L76uvg60zhrqG1vhBREldl22y/lktv/wL0JdmV
+	 Bi/y3MFvsGBu8m17fdWrcIYSgflurw1+Jff2rF+gPMwgu9tV5e60xMNjQuP57jWvpI
+	 m1Ey3dvxsB9aNrRmwZpSIjohHglLnLV2e6RS9zb0f5MkK+052AJKmbqZogGkP4EivK
+	 nXC8DaTUJ0o48cd06PFMtu4VC9PMZ3WYOkLpFgdRshiKilEd9MDz4/oOEPGWtX82Gb
+	 3MUGLu6EazrRQ==
+Message-ID: <cb2865b6-3bcc-4e64-9941-168076787c5a@kernel.org>
+Date: Sat, 3 Jan 2026 13:46:07 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] soc: nxp: Add a simple NXP LPC32xx socinfo driver
-To: Vladimir Zapolskiy <vz@mleia.com>, Arnd Bergmann <arnd@arndb.de>
-Cc: Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20260101235647.2411062-1-vz@mleia.com>
- <20260101235647.2411062-3-vz@mleia.com>
- <accb4ab1-07fa-4e33-a74c-2c588ca415ac@kernel.org>
- <eb9ef21a-c0b4-4c8d-b1b1-6c76f45c53aa@mleia.com>
- <1eef3c49-83a7-48d4-96ad-ffb71df2be7a@kernel.org>
- <1a336af6-6c27-4211-9c8c-ede4d091eb17@mleia.com>
+Subject: Re: [PATCH 2/2] arm64: defconfig: Enable Apple Silicon drivers
+To: Janne Grunau <j@jannau.net>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Sven Peter <sven@kernel.org>
+Cc: Robin Murphy <robin.murphy@arm.com>, linux-kernel@vger.kernel.org,
+ asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+References: <20251231-arch-arm64-apple-defconfig-v1-0-4ff19805ba39@jannau.net>
+ <20251231-arch-arm64-apple-defconfig-v1-2-4ff19805ba39@jannau.net>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -101,12 +98,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <1a336af6-6c27-4211-9c8c-ede4d091eb17@mleia.com>
+In-Reply-To: <20251231-arch-arm64-apple-defconfig-v1-2-4ff19805ba39@jannau.net>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260103_044335_379791_9DBD7EA3 
-X-CRM114-Status: GOOD (  15.71  )
+X-CRM114-CacheID: sfid-20260103_044612_220744_F96C023C 
+X-CRM114-Status: UNSURE (   9.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,94 +119,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/01/2026 14:21, Vladimir Zapolskiy wrote:
-> On 1/2/26 14:54, Krzysztof Kozlowski wrote:
->> On 02/01/2026 13:36, Vladimir Zapolskiy wrote:
->>> On 1/2/26 11:58, Krzysztof Kozlowski wrote:
->>>> On 02/01/2026 00:56, Vladimir Zapolskiy wrote:
->>>>> Add NXP LPC32xx specific driver to get unique SoC ID from System Control
->>>>> Block registers and export it to userspace.
->>>>>
->>>>> Signed-off-by: Vladimir Zapolskiy <vz@mleia.com>
->>>>> ---
->>>>>    drivers/soc/Kconfig           |   1 +
->>>>>    drivers/soc/Makefile          |   1 +
->>>>>    drivers/soc/nxp/Kconfig       |  16 +++++
->>>>>    drivers/soc/nxp/Makefile      |   2 +
->>>>>    drivers/soc/nxp/lpc32xx-soc.c | 114 ++++++++++++++++++++++++++++++++++
->>>>>    5 files changed, 134 insertions(+)
->>>>>    create mode 100644 drivers/soc/nxp/Kconfig
->>>>>    create mode 100644 drivers/soc/nxp/Makefile
->>>>>    create mode 100644 drivers/soc/nxp/lpc32xx-soc.c
->>>>>
->>>>> diff --git a/drivers/soc/Kconfig b/drivers/soc/Kconfig
->>>>> index a2d65adffb80..c21b0d2f58fc 100644
->>>>> --- a/drivers/soc/Kconfig
->>>>> +++ b/drivers/soc/Kconfig
->>>>> @@ -18,6 +18,7 @@ source "drivers/soc/loongson/Kconfig"
->>>>>    source "drivers/soc/mediatek/Kconfig"
->>>>>    source "drivers/soc/microchip/Kconfig"
->>>>>    source "drivers/soc/nuvoton/Kconfig"
->>>>> +source "drivers/soc/nxp/Kconfig"
->>>>>    source "drivers/soc/pxa/Kconfig"
->>>>>    source "drivers/soc/qcom/Kconfig"
->>>>>    source "drivers/soc/renesas/Kconfig"
->>>>> diff --git a/drivers/soc/Makefile b/drivers/soc/Makefile
->>>>> index 47a3925ff84c..a04c21a8a5a4 100644
->>>>> --- a/drivers/soc/Makefile
->>>>> +++ b/drivers/soc/Makefile
->>>>> @@ -24,6 +24,7 @@ obj-y				+= loongson/
->>>>>    obj-y				+= mediatek/
->>>>>    obj-y				+= microchip/
->>>>>    obj-y				+= nuvoton/
->>>>> +obj-y				+= nxp/
->>>>>    obj-y				+= pxa/
->>>>>    obj-y				+= qcom/
->>>>>    obj-y				+= renesas/
->>>>
->>>> Missing maintainers entry.
->>>>
->>>>
->>>>> +
->>>>> +static int lpc32xx_soc_probe(struct platform_device *pdev)
->>>>> +{
->>>>> +	struct soc_device_attribute *soc_dev_attr;
->>>>> +	struct device *dev = &pdev->dev;
->>>>> +	struct soc_device *soc_dev;
->>>>> +	struct regmap *scb;
->>>>> +	u32 serial_id[4];
->>>>> +	int ret;
->>>>> +
->>>>> +	soc_dev_attr = devm_kzalloc(dev, sizeof(*soc_dev_attr), GFP_KERNEL);
->>>>> +	if (!soc_dev_attr)
->>>>> +		return -ENOMEM;
->>>>> +
->>>>> +	soc_dev_attr->family = "NXP LPC32xx";
->>>>> +
->>>>> +	ret = of_property_read_string(of_root, "model", &soc_dev_attr->machine);
->>>>> +	if (ret)
->>>>> +		return ret;
->>>>> +
->>>>> +	scb = syscon_regmap_lookup_by_compatible("nxp,lpc3220-scb");
->>>>
->>>> This is undocumented ABI.
->>>
->>> What is the expected level of documentation for syscon?
->>
->> git grep nxp,lpc3220-scb
->>
->> gives me 0 results.
->>
->> Documentation is supposed to be in this patchset. If it is not, you have
->> changelog part to explain dependencies and unusual things.
+On 31/12/2025 16:42, Janne Grunau wrote:
+> From: Sven Peter <sven@kernel.org>
 > 
-> The documentation is under review, as a DT maintainer you are in To: list
-> and should have it in the mailbox, for anyone's convenience the dependency
-> is mentioned in the cover letter to this changeset also.
+> Enable drivers for hardware present on Apple Silicon machines. None of
+> these drivers are critical so build them as modules. The reset and RTC
+> macsmc drivers would be useful as built-in drivers but they have large
+> dependencies so keep them as modules.
+> 
+> The size increases are minor and are offsetted by already merged
+> "default ARCH_APPLE" removals from the linked original submission.
+> 
+> vmlinux 157782640 -> 157902032 (+119392)
+> Image    41007616 ->  41073152 (+ 65536)
+> 
+> Link: https://lore.kernel.org/asahi/20250612-apple-kconfig-defconfig-v1-0-0e6f9cb512c1@kernel.org/
+> Signed-off-by: Sven Peter <sven@kernel.org>
+> Signed-off-by: Janne Grunau <j@jannau.net>
+> 
 
 
-There is nothing about dependency and nothing about binding in the cover
-letter, so no - this is not explained nowhere and must have been explained.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Best regards,
 Krzysztof
