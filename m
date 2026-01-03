@@ -4,107 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D974FFC6179
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Jan 2026 12:46:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D400EFC6180
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Jan 2026 13:53:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uaFyBbZx5dPPxMkoQSLQ3B8wJOEPXf94U5/REU5p6Oc=; b=h97+nwLZV5m2+XrFVAuLTBcgFx
-	vz379ODq30eocpSy/FKrnDe02a89rw0xjayK1menSe0P7v1XLwra12fNJlocLmDvsQ0GWuG/GrAEL
-	x8mO4AQJUzJiLteWufDD06VQT2g2U7a5fslDD7KOdrtyd4r50pxzXNta/z3JwSsR8OaHRwlQiLq+z
-	cH4Md3+v/DB6fkS37eqDgXZAuO6f/D2nCPbueDoH85UAdYftrCwICKOINGHGZROMyCeuI3hUvHBRi
-	8QomP2bwLQyPmZc1nC9un9GMGLTSmYTSPGE0OS8kvwObg/EdHCm/UNkJhppZvEEB963PrkhxVsr7y
-	6e8wYR+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d9H7y6YgOMKmHV3+yZbIO63YJ0wpHijUok8tAbtehVI=; b=2+f2k7MqkNMu6V1EVLzbuoxlUE
+	QEJIrwV4c5jM1jr7tmMSG61X2CKND0TddSiq68WpTgCzquVv/n8ADeerjUOaVE9KptIW8PzVS0FsL
+	TR1eCKws78Atqss8mw/83br0oxPjzeW/BsnWKu6Ezlw+gKBq/uJGEi5ashfzCN8HoMd2pmjEccamX
+	t+X90DZ+AGwJBfqxDU/QCmNu1ghnCFksBBK9Ji5piDFN4/GdDoQ6xgznrzojrpHkQCGwaH7IT471o
+	A9VuykIuwehwN8dQ9qD50cLBCGKEb9LNu2uw6wEtj/zD/5fFFDcAarTXxzK0/b5gS8CFBf6I/Sr5Y
+	NWTp/6BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vc11K-00000009Mc8-2DuH;
-	Sat, 03 Jan 2026 12:46:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vc24J-00000009OFh-3Nc0;
+	Sat, 03 Jan 2026 13:53:23 +0000
+Received: from sender4-pp-g123.zoho.com ([136.143.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vc11I-00000009Mbl-0LEY
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Jan 2026 12:46:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 375E2429EE;
-	Sat,  3 Jan 2026 12:46:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CAF5C113D0;
-	Sat,  3 Jan 2026 12:46:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767444371;
-	bh=IWi1owsdnUFXHUhehNkUIPb8EZMDzi2ktoQlNVEekFk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=nVvwsnNGx+ZrQi0kjL1hxWxX2iq1xQNDdjSKc3daBedCnPjaFE4W2+pXSYLdaaiLk
-	 PgXFEjfiKbU7SuirfuLQmIW30FE8L76uvg60zhrqG1vhBREldl22y/lktv/wL0JdmV
-	 Bi/y3MFvsGBu8m17fdWrcIYSgflurw1+Jff2rF+gPMwgu9tV5e60xMNjQuP57jWvpI
-	 m1Ey3dvxsB9aNrRmwZpSIjohHglLnLV2e6RS9zb0f5MkK+052AJKmbqZogGkP4EivK
-	 nXC8DaTUJ0o48cd06PFMtu4VC9PMZ3WYOkLpFgdRshiKilEd9MDz4/oOEPGWtX82Gb
-	 3MUGLu6EazrRQ==
-Message-ID: <cb2865b6-3bcc-4e64-9941-168076787c5a@kernel.org>
-Date: Sat, 3 Jan 2026 13:46:07 +0100
+	id 1vc24G-00000009OF9-2TKJ;
+	Sat, 03 Jan 2026 13:53:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1767448380; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=IDcuSeXH2CICFAdm65XISS6csPuDye1jA/nhxRiRK6YMQM12LYDxTaCVVQ4rbbIdp27i5JRf16TAhfu1JYS+zTQt/CIh03k2luJ3uVWsNuBM08iTOHxAvrDFSIrqDylrgxWGNJ1sjDAqJeOuojaWudVLknBaQmJ7yYY7DmXgdL8=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1767448380; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=d9H7y6YgOMKmHV3+yZbIO63YJ0wpHijUok8tAbtehVI=; 
+	b=DqtH6+e3u69ksoK5kcrZTy0bIIZw3+54+VHz34hV59f4WSuVCxPJ/W6DbiG6qqKlqpajswX3i5hv63fh92v+dJcO6x2yuDx+gNp4rNbEMBtqUFZcDJ5iNqq1dpxGKABGg80YOnHChy6mMuNU0LWy/yEjM4gX+FOlUCh4p0WW2DE=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1767448380;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=d9H7y6YgOMKmHV3+yZbIO63YJ0wpHijUok8tAbtehVI=;
+	b=Sxq5VpntLYcVgyUsXFWqi2JLqQB6A3kAks8oO07M3eVS0R2IpY+LCS02nVEbZRL/
+	U0NDdJSSazUI68G0BqabQ3XugbHJQ5J7Pk5tdUENmcXgSC4mh0tJD5/4s2bvyV4Ehv2
+	3VLeUumbLQptuQKi8LgI/DpZ6K7XpKFqbaZjMe+Y=
+Received: by mx.zohomail.com with SMTPS id 1767448375895378.81651063590607;
+	Sat, 3 Jan 2026 05:52:55 -0800 (PST)
+Received: by venus (Postfix, from userid 1000)
+	id 7AB8F18054C; Sat, 03 Jan 2026 14:52:50 +0100 (CET)
+Date: Sat, 3 Jan 2026 14:52:50 +0100
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Anand Moon <linux.amoon@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+	FUKAUMI Naoki <naoki@radxa.com>, Diederik de Haas <didi.debian@cknow.org>, 
+	Yongbo Zhang <giraffesnn123@gmail.com>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
+	"moderated list:ARM/Rockchip SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>, 
+	"open list:USB TYPEC CLASS" <linux-usb@vger.kernel.org>
+Subject: Re: [PATCH v1 1/3] arm64: dts: rockchip: rk3588-rock-5b-5bp-5t:
+ Correct Type-C pin bias settings
+Message-ID: <aVke1kQnHJLqWGHi@venus>
+References: <20260103083232.9510-1-linux.amoon@gmail.com>
+ <20260103083232.9510-2-linux.amoon@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] arm64: defconfig: Enable Apple Silicon drivers
-To: Janne Grunau <j@jannau.net>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Sven Peter <sven@kernel.org>
-Cc: Robin Murphy <robin.murphy@arm.com>, linux-kernel@vger.kernel.org,
- asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20251231-arch-arm64-apple-defconfig-v1-0-4ff19805ba39@jannau.net>
- <20251231-arch-arm64-apple-defconfig-v1-2-4ff19805ba39@jannau.net>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251231-arch-arm64-apple-defconfig-v1-2-4ff19805ba39@jannau.net>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="j3clvygndka2x6e6"
+Content-Disposition: inline
+In-Reply-To: <20260103083232.9510-2-linux.amoon@gmail.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-1.4.3/267.430.24
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260103_044612_220744_F96C023C 
-X-CRM114-Status: UNSURE (   9.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260103_055320_744348_93735A44 
+X-CRM114-Status: GOOD (  18.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,28 +92,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 31/12/2025 16:42, Janne Grunau wrote:
-> From: Sven Peter <sven@kernel.org>
-> 
-> Enable drivers for hardware present on Apple Silicon machines. None of
-> these drivers are critical so build them as modules. The reset and RTC
-> macsmc drivers would be useful as built-in drivers but they have large
-> dependencies so keep them as modules.
-> 
-> The size increases are minor and are offsetted by already merged
-> "default ARCH_APPLE" removals from the linked original submission.
-> 
-> vmlinux 157782640 -> 157902032 (+119392)
-> Image    41007616 ->  41073152 (+ 65536)
-> 
-> Link: https://lore.kernel.org/asahi/20250612-apple-kconfig-defconfig-v1-0-0e6f9cb512c1@kernel.org/
-> Signed-off-by: Sven Peter <sven@kernel.org>
-> Signed-off-by: Janne Grunau <j@jannau.net>
-> 
 
+--j3clvygndka2x6e6
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v1 1/3] arm64: dts: rockchip: rk3588-rock-5b-5bp-5t:
+ Correct Type-C pin bias settings
+MIME-Version: 1.0
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Hi,
 
-Best regards,
-Krzysztof
+On Sat, Jan 03, 2026 at 02:01:17PM +0530, Anand Moon wrote:
+> As pre FUSB302 datasheet interrupt line (INT_N) is an open-drain,
+> active-low signal. It requires a pull-up resistor to maintain a stable
+> high state when deasserted. Similarly, the TYPEC5V_PWREN_H enable signal
+> requires a pull-down resistor to ensure it defaults to a low state,
+> preventing unintended power delivery during the boot sequence.
+>=20
+> Update the pinctrl entries to use pcfg_pull_up for usbc0_int and
+> pcfg_pull_down for vbus5v0_typec_en to align with the hardware's
+> electrical requirements.
+>=20
+> Cc: Sebastian Reichel <sebastian.reichel@collabora.com>
+> Fixes: 67b2c15d8fb3 ("arm64: dts: rockchip: add USB-C support for ROCK 5B=
+/5B+/5T")
+> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+> ---
+> v1: As per the shematics CC_INT_L interrupt pin is GPIO3_B4_u
+>     As per the shematics TYPEC5V_PWREN_H pin is GPIO2_B6_d
+> ---
+
+Checking the schematics:
+
+5B v1.45 - CC_INT_L - R2613 10K pull-up resistor
+5B v1.45 - TYPEC5V_PWREN_H - GPIO is effectively unused because R95035 is NC
+
+5B+ v1.2 - CC_INT_L - R2613 10K pull-up resistor
+5B+ v1.2 - TYPEC5V_PWREN_H - R163 100K pull-down resistor
+
+5T v1.2 - CC_INT_L - R2613 10K pull-up resistor
+5T v1.2 - TYPEC5V_PWREN_H - R163 100K pull-down resistor
+
+TLDR: All GPIOs have pull resistors in discrete hardware and do not
+need them muxed in the SoC.
+
+Greetings,
+
+-- Sebastian
+
+>  arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi b/ar=
+ch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
+> index b3e76ad2d869..0cd8ac7bf538 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
+> @@ -537,11 +537,11 @@ pcie3_vcc3v3_en: pcie3-vcc3v3-en {
+> =20
+>  	usb {
+>  		usbc0_int: usbc0-int {
+> -			rockchip,pins =3D <3 RK_PB4 RK_FUNC_GPIO &pcfg_pull_none>;
+> +			rockchip,pins =3D <3 RK_PB4 RK_FUNC_GPIO &pcfg_pull_up>;
+>  		};
+> =20
+>  		vbus5v0_typec_en: vbus5v0-typec-en {
+> -			rockchip,pins =3D <2 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
+> +			rockchip,pins =3D <2 RK_PB6 RK_FUNC_GPIO &pcfg_pull_down>;
+>  		};
+>  	};
+>  };
+> --=20
+> 2.50.1
+>=20
+
+--j3clvygndka2x6e6
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmlZHy8ACgkQ2O7X88g7
++po4Og/9H83sPXhEoMq5arPCN6/ta/CDQCipwx6OZLyN6znuNtnhXP5yq7ymZ/wf
+06Nuv4Abjr7/hl3DyyprGK8nSQiZ6BpFNzbqP/9VcVxdZHHbOrqRLLb8DllfhZeR
+OgeIx5Lg1NkyyEIPLEUn72KuI7FD+jwfKzk1ptdYc8VW3woDefWwKVOCD1pFlyb0
+jYbSI+4oVtq7sPLlH+Eu0H2ef7btVvmOFNFbuM0xgQQnL5jxHLux4fOd66hVJQb6
+5PGzVQkppms6Srq34fF11/+pdCEAZFs3D1nIXsF46HkxILxHhObUkz21FIZ2MKOX
+VaYyb0aFGxgqKnFMGFUXlvDWHZreHKZZHwTpaMABiQGp+4E/k0ORW3FmX3Djgu69
+UPdPf16M1mZNYzj7N0iR36Jb6lGkeW0BAc4+qdEhuJc78t73kHObkM1KoNXXzFEx
+fuANSDk/OAw6o8eCv0Jw3H/bPrwj2J67YLN1ZITxrWxWjuX3bPq2aorWWW5aBMPo
+d3PXQwHz0r3bcvgsSY/DWa2xaQilt8w2iT/1OY49zkFty+1EDznqZExprL3TM8zG
+4uOw9kMuk7+RvbZjZzgxlowzroN08ICWYhCgPld36DCb25YMQNeARU4/y+lBpnoA
+XPy+YtUpDtM1I/JRXDsMdEIeyTK6GwgvoaS7xsnephRytgPosuQ=
+=NzfA
+-----END PGP SIGNATURE-----
+
+--j3clvygndka2x6e6--
 
