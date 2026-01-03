@@ -4,104 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E4D6FC6166
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Jan 2026 00:37:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FECBFC6165
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Jan 2026 00:50:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lu2XOwAewPAf2hIqWYAVG0zECJ1HMFf+2EIxiKJs26A=; b=EDcVXaXzgesaAZeALKbha7WSqH
-	L3TUHk0md9KpHGGe70e6xBVemxk9XVKq1Q3avAuiO0SbWUNVOXHodnLUQtwJ54gO2r6HUXUSppZIi
-	GEpf/NG0skSu1XZz4jutNPTiFZXQDuqvlWaKZnx7COuK0JZwRSN+e5Ai66wKh/i9k/oWg8t4SvN7V
-	mpYV5LaL5sGjSOeGC4GoQ7JUKYpq5aLw4K8+0JDPIjXNriF0Sts92v7KNfy82ZI04tNBxSCxGIcJU
-	1rAVRPj//dpK1GDhv+GQ2THtgQ3vNuxQfgL1XH0kO5Ehc6CSZlfMnaDRDKTmT2GPiT8moIP89l1ht
-	ZCKGSYpw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KViZW5fwyykO6fUVHMd4MvYMBNQgS9IVd0D0l1O9UVc=; b=J9if0Ua/+7/HdGNBKp9o8IEGpG
+	6k6wgKQQIyeaMhRL82jlFNFuzU8aYpZXESsiqVj9bMDJ9GxqHI2uCZfTdBfai2nrUhdt70S3HxB2S
+	sTmSUW1xYJvF9KLExpSfp2MNo5SDuSgwFGcV35Epu4x9+PjOXPFweSW+IIB6AKAiWM6rdTC4m6RyS
+	IgLMgFhS7XUUqlvIpbBLGBSWtfbbVfhoubP/u76ViKRH7DBoF3c+5G68msoEFwM06fQFBEvQ2o9nn
+	gXrNJ9g9V63aHFz0C9Opp+FUhxilz7kiTuZOcLVb2r/LLltHJ8BHmLtRrRze4CctDzZpBGp1Utjf1
+	z7yjhr0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbpe4-00000008osL-3WDt;
-	Sat, 03 Jan 2026 00:37:29 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1vbpqt-00000008pT9-1OwI;
+	Sat, 03 Jan 2026 00:50:43 +0000
+Received: from ms-10.1blu.de ([178.254.4.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbpe2-00000008ory-1raO
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Jan 2026 00:37:27 +0000
-Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-b7277324204so1814060566b.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Jan 2026 16:37:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1767400644; x=1768005444; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Lu2XOwAewPAf2hIqWYAVG0zECJ1HMFf+2EIxiKJs26A=;
-        b=kSiN5LuKL1dn4Qxd2uG4/VLvyKmMke39Pyc2m8h/xOR4buO4xraaifFGVA2kdL1alV
-         gPoHYpc0ws0heyUrNu8P/9r41EkDsBw4aFZB7+bg74cpXDRaVtbCLk5u2lMYKlPKDbYI
-         GZC53/1prI8SvOkQiEj85kPqjwm1zp18sD3dOaoG2sPiR5Y6iWaqyQe1f/pYjSO1FUMs
-         NyV+09zNK9ZT0it0Qo/5uigH6uA86V3cqUjYdk9ZsDJ00NzwtbD60cqdLHkWJWGwNE70
-         br2FhygcASc5FQwtWg1XQIJ6snYXzrKfv2drtausZZQ1KuiKoRkKz5NR6uauOu11u90F
-         LeMg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767400644; x=1768005444;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Lu2XOwAewPAf2hIqWYAVG0zECJ1HMFf+2EIxiKJs26A=;
-        b=v1WiiHqeHbdHI1WWosL49t3DFDrNPCi5stFxkjCm0czLo3fNKpsQK0hq402uQkTgMb
-         4ChKRI2JMZp8JRCXsnX7GjykXMoVoj1g02VXyHs+OJ9PMKw/2OON2EqMCGE6mMI1x6aH
-         IyOY4/nSq/Q27QN8MXAMsXc6C0FI8t182JtQGst2b03MzBue0z0RCJdb435Vjwp5x6tB
-         p8HzXBLoZUB40GvT6vqY49vFF7qInzDRhgA5d+VtYevoZf45N+MKOuYhRdOcfP3c6NGd
-         52FdIYDgLfx95hP4jS3qAGzrrYqzEPPAjELYtj+ix3Qzywu9tDIOAyfW/U+qLDdpgXze
-         RbFQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXyMkCNd8JuhBsBscLd29QRXJlGN+QyAQ1K5Qy7QN4FQBS7PbWhOeRn+98AFRbQCybivZ/zK1ONxya2f/Mzlu45@lists.infradead.org
-X-Gm-Message-State: AOJu0YwvPU+mZjlAbpMVp/X4ch4I0KL7RR1slVFw7tEMi04Bt3maAEOp
-	iFjxqvaWN8jJ5w4Romel0ajECxbj39762OSXaQysv9Asdk4FnE93OCBZFAURow==
-X-Gm-Gg: AY/fxX7ibL08o0DQh4QTJkncgQB+oezNgN5t68yllbgGxqQ/825sHaSwriwEhI9HDQe
-	cW3r80Y+s/HRsjJLDKt7WBqstZ9P8+xUR+R+bkJRO25RbYJ58IS/tGDPQkEb7ugSIk8XtkzKDcD
-	7Y4O+50Y3nB0CBr5G3SllpgQNL4W4qgCOrvt51re+zEQB3oycSVb420jxtpCg8PCIG8fuELN8R9
-	ppEPApsVWYLVHukVAX+IbLaAnRzDU+oxzFLVfHlGehCvgUgruCOMHg2c/cofrMt/1A8V+O8A3iN
-	f8KyiT4K9+ro2QWCqgDOwcMTRefYSKN6r08e9xgFSPyET8qH2O2zHIE8A64oWq/JXmIu3gwWWfR
-	NRegpMHQerbuzhaUqV+L7zNVBt5VBEgSKzEJeValqWRnHI8MSGNjAeti3/DZ/ARzcuX+ydApFl5
-	MGSPlJcyO7Yq8kG2onBN9E7jkA7FEeQPxuXLJUyZmQhGvx2aP7+JCt
-X-Google-Smtp-Source: AGHT+IFdvdEcrAIYSA22XzNr2wKPflwtXqsVf2mK8AXHiedc5sR4d+y6uOcJKoLds0TT7gNd5aiiog==
-X-Received: by 2002:a05:600c:458e:b0:47a:9560:ec28 with SMTP id 5b1f17b1804b1-47d19566d27mr540529425e9.13.1767393875116;
-        Fri, 02 Jan 2026 14:44:35 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d6d452c69sm6169675e9.9.2026.01.02.14.44.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 Jan 2026 14:44:34 -0800 (PST)
-Date: Fri, 2 Jan 2026 22:44:32 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
- <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan
- <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley
- <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
- <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Thomas
- Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav
- Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, Kees Cook
- <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, Arnd
- Bergmann <arnd@arndb.de>, Mark Rutland <mark.rutland@arm.com>, "Jason A.
- Donenfeld" <Jason@zx2c4.com>, Ard Biesheuvel <ardb@kernel.org>, Jeremy
- Linton <jeremy.linton@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-hardening@vger.kernel.org,
- stable@vger.kernel.org
-Subject: Re: [PATCH v3 1/3] randomize_kstack: Maintain kstack_offset per
- task
-Message-ID: <20260102224432.172b1247@pumpkin>
-In-Reply-To: <20260102131156.3265118-2-ryan.roberts@arm.com>
-References: <20260102131156.3265118-1-ryan.roberts@arm.com>
-	<20260102131156.3265118-2-ryan.roberts@arm.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	id 1vbpqb-00000008pSU-3UHx;
+	Sat, 03 Jan 2026 00:50:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=pace-systems.de; s=blu0479712; h=Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=KViZW5fwyykO6fUVHMd4MvYMBNQgS9IVd0D0l1O9UVc=; b=NKyTFur2+419d4urisS5kRu4Sp
+	419Ea7chY3PN0ab7HcPqpnORKAub58r9wZdS2iPgR055gGS9DvurWO4axrFG6m8/PQsThhFcTUvlx
+	2ybgGvjmt1BnCvIToJRgKQyoSFiOYqHVmstAhOa6J1KYYmdzZWpWPGUTM4Lik32MgQ4Y/ggQdJB0i
+	gBrvXLZAiP+do7WUp/aP2hPv0zjUa6Mz7U5FOshxpOpAZfBjlYUe6s+XQGRMMwWTKCfDnkPjvPLJW
+	x2WzAarSjct6JfimYR8D39ECmuKWj7kS/yc7QTdW8eIAoCFbiot/zc0FB8xeJyc/i9N771qWtDFW7
+	CyDzENBQ==;
+Received: from [178.201.20.114] (helo=sebastian-zbook)
+	by ms-10.1blu.de with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <Sebastian.Wolf@pace-systems.de>)
+	id 1vbpqO-00F1iG-OS;
+	Sat, 03 Jan 2026 01:50:12 +0100
+From: Sebastian Roland Wolf <Sebastian.Wolf@pace-systems.de>
+To: Felix Fietkau <nbd@nbd.name>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Sebastian Roland Wolf <srw@root533.premium-rootserver.net>,
+	Sebastian Roland Wolf <Sebastian.Wolf@pace-systems.de>
+Subject: [PATCH v2] net: mediatek: add null pointer check for hardware offloading
+Date: Sat,  3 Jan 2026 01:50:08 +0100
+Message-ID: <20260103005008.438081-1-Sebastian.Wolf@pace-systems.de>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Con-Id: 282146
+X-Con-U: 0-sebastianwolf
+X-Originating-IP: 178.201.20.114
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_163726_521313_AACBBE5F 
-X-CRM114-Status: GOOD (  38.70  )
+X-CRM114-CacheID: sfid-20260102_165029_712608_B32A8840 
+X-CRM114-Status: GOOD (  10.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,161 +81,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri,  2 Jan 2026 13:11:52 +0000
-Ryan Roberts <ryan.roberts@arm.com> wrote:
+From: Sebastian Roland Wolf <srw@root533.premium-rootserver.net>
 
-> kstack_offset was previously maintained per-cpu, but this caused a
-> couple of issues. So let's instead make it per-task.
-> 
-> Issue 1: add_random_kstack_offset() and choose_random_kstack_offset()
-> expected and required to be called with interrupts and preemption
-> disabled so that it could manipulate per-cpu state. But arm64, loongarch
-> and risc-v are calling them with interrupts and preemption enabled. I
-> don't _think_ this causes any functional issues, but it's certainly
-> unexpected and could lead to manipulating the wrong cpu's state, which
-> could cause a minor performance degradation due to bouncing the cache
-> lines. By maintaining the state per-task those functions can safely be
-> called in preemptible context.
-> 
-> Issue 2: add_random_kstack_offset() is called before executing the
-> syscall and expands the stack using a previously chosen rnadom offset.
-                                                           <>
-	David
+Add a null pointer check to prevent kernel crashes when hardware
+offloading is active on MediaTek devices.
 
-> choose_random_kstack_offset() is called after executing the syscall and
-> chooses and stores a new random offset for the next syscall. With
-> per-cpu storage for this offset, an attacker could force cpu migration
-> during the execution of the syscall and prevent the offset from being
-> updated for the original cpu such that it is predictable for the next
-> syscall on that cpu. By maintaining the state per-task, this problem
-> goes away because the per-task random offset is updated after the
-> syscall regardless of which cpu it is executing on.
-> 
-> Fixes: 39218ff4c625 ("stack: Optionally randomize kernel stack offset each syscall")
-> Closes: https://lore.kernel.org/all/dd8c37bc-795f-4c7a-9086-69e584d8ab24@arm.com/
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
-> ---
->  include/linux/randomize_kstack.h | 26 +++++++++++++++-----------
->  include/linux/sched.h            |  4 ++++
->  init/main.c                      |  1 -
->  kernel/fork.c                    |  2 ++
->  4 files changed, 21 insertions(+), 12 deletions(-)
-> 
-> diff --git a/include/linux/randomize_kstack.h b/include/linux/randomize_kstack.h
-> index 1d982dbdd0d0..5d3916ca747c 100644
-> --- a/include/linux/randomize_kstack.h
-> +++ b/include/linux/randomize_kstack.h
-> @@ -9,7 +9,6 @@
->  
->  DECLARE_STATIC_KEY_MAYBE(CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT,
->  			 randomize_kstack_offset);
-> -DECLARE_PER_CPU(u32, kstack_offset);
->  
->  /*
->   * Do not use this anywhere else in the kernel. This is used here because
-> @@ -50,15 +49,14 @@ DECLARE_PER_CPU(u32, kstack_offset);
->   * add_random_kstack_offset - Increase stack utilization by previously
->   *			      chosen random offset
->   *
-> - * This should be used in the syscall entry path when interrupts and
-> - * preempt are disabled, and after user registers have been stored to
-> - * the stack. For testing the resulting entropy, please see:
-> - * tools/testing/selftests/lkdtm/stack-entropy.sh
-> + * This should be used in the syscall entry path after user registers have been
-> + * stored to the stack. Preemption may be enabled. For testing the resulting
-> + * entropy, please see: tools/testing/selftests/lkdtm/stack-entropy.sh
->   */
->  #define add_random_kstack_offset() do {					\
->  	if (static_branch_maybe(CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT,	\
->  				&randomize_kstack_offset)) {		\
-> -		u32 offset = raw_cpu_read(kstack_offset);		\
-> +		u32 offset = current->kstack_offset;			\
->  		u8 *ptr = __kstack_alloca(KSTACK_OFFSET_MAX(offset));	\
->  		/* Keep allocation even after "ptr" loses scope. */	\
->  		asm volatile("" :: "r"(ptr) : "memory");		\
-> @@ -69,9 +67,9 @@ DECLARE_PER_CPU(u32, kstack_offset);
->   * choose_random_kstack_offset - Choose the random offset for the next
->   *				 add_random_kstack_offset()
->   *
-> - * This should only be used during syscall exit when interrupts and
-> - * preempt are disabled. This position in the syscall flow is done to
-> - * frustrate attacks from userspace attempting to learn the next offset:
-> + * This should only be used during syscall exit. Preemption may be enabled. This
-> + * position in the syscall flow is done to frustrate attacks from userspace
-> + * attempting to learn the next offset:
->   * - Maximize the timing uncertainty visible from userspace: if the
->   *   offset is chosen at syscall entry, userspace has much more control
->   *   over the timing between choosing offsets. "How long will we be in
-> @@ -85,14 +83,20 @@ DECLARE_PER_CPU(u32, kstack_offset);
->  #define choose_random_kstack_offset(rand) do {				\
->  	if (static_branch_maybe(CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT,	\
->  				&randomize_kstack_offset)) {		\
-> -		u32 offset = raw_cpu_read(kstack_offset);		\
-> +		u32 offset = current->kstack_offset;			\
->  		offset = ror32(offset, 5) ^ (rand);			\
-> -		raw_cpu_write(kstack_offset, offset);			\
-> +		current->kstack_offset = offset;			\
->  	}								\
->  } while (0)
-> +
-> +static inline void random_kstack_task_init(struct task_struct *tsk)
-> +{
-> +	tsk->kstack_offset = 0;
-> +}
->  #else /* CONFIG_RANDOMIZE_KSTACK_OFFSET */
->  #define add_random_kstack_offset()		do { } while (0)
->  #define choose_random_kstack_offset(rand)	do { } while (0)
-> +#define random_kstack_task_init(tsk)		do { } while (0)
->  #endif /* CONFIG_RANDOMIZE_KSTACK_OFFSET */
->  
->  #endif
-> diff --git a/include/linux/sched.h b/include/linux/sched.h
-> index d395f2810fac..9e0080ed1484 100644
-> --- a/include/linux/sched.h
-> +++ b/include/linux/sched.h
-> @@ -1591,6 +1591,10 @@ struct task_struct {
->  	unsigned long			prev_lowest_stack;
->  #endif
->  
-> +#ifdef CONFIG_RANDOMIZE_KSTACK_OFFSET
-> +	u32				kstack_offset;
-> +#endif
-> +
->  #ifdef CONFIG_X86_MCE
->  	void __user			*mce_vaddr;
->  	__u64				mce_kflags;
-> diff --git a/init/main.c b/init/main.c
-> index b84818ad9685..27fcbbde933e 100644
-> --- a/init/main.c
-> +++ b/init/main.c
-> @@ -830,7 +830,6 @@ static inline void initcall_debug_enable(void)
->  #ifdef CONFIG_RANDOMIZE_KSTACK_OFFSET
->  DEFINE_STATIC_KEY_MAYBE_RO(CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT,
->  			   randomize_kstack_offset);
-> -DEFINE_PER_CPU(u32, kstack_offset);
->  
->  static int __init early_randomize_kstack_offset(char *buf)
->  {
-> diff --git a/kernel/fork.c b/kernel/fork.c
-> index b1f3915d5f8e..b061e1edbc43 100644
-> --- a/kernel/fork.c
-> +++ b/kernel/fork.c
-> @@ -95,6 +95,7 @@
->  #include <linux/thread_info.h>
->  #include <linux/kstack_erase.h>
->  #include <linux/kasan.h>
-> +#include <linux/randomize_kstack.h>
->  #include <linux/scs.h>
->  #include <linux/io_uring.h>
->  #include <linux/bpf.h>
-> @@ -2231,6 +2232,7 @@ __latent_entropy struct task_struct *copy_process(
->  	if (retval)
->  		goto bad_fork_cleanup_io;
->  
-> +	random_kstack_task_init(p);
->  	stackleak_task_init(p);
->  
->  	if (pid != &init_struct_pid) {
+In some edge cases, the ethernet pointer or its associated netdev
+element can be NULL. Checking these pointers before access is
+mandatory to avoid segmentation faults and kernel oops.
+
+This improves the robustness of the validation check for mtk_eth
+ingress devices introduced in commit 73cfd947dbdb ("net: mediatek:
+add support for ingress traffic offloading").
+
+Fixes: 73cfd947dbdb ("net: mediatek: add support for ingress traffic offloading")
+net: mediatek: Add null pointer check to prevent crashes with active hardware offloading.
+
+Signed-off-by: Sebastian Roland Wolf <Sebastian.Wolf@pace-systems.de>
+---
+ drivers/net/ethernet/mediatek/mtk_ppe_offload.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/ethernet/mediatek/mtk_ppe_offload.c b/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
+index e9bd32741983..72bc4a42eac1 100644
+--- a/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
++++ b/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
+@@ -270,7 +270,8 @@ mtk_flow_offload_replace(struct mtk_eth *eth, struct flow_cls_offload *f,
+ 		flow_rule_match_meta(rule, &match);
+ 		if (mtk_is_netsys_v2_or_greater(eth)) {
+ 			idev = __dev_get_by_index(&init_net, match.key->ingress_ifindex);
+-			if (idev && idev->netdev_ops == eth->netdev[0]->netdev_ops) {
++			if (idev && eth->netdev[0] &&
++			    idev->netdev_ops == eth->netdev[0]->netdev_ops) {
+ 				struct mtk_mac *mac = netdev_priv(idev);
+ 
+ 				if (WARN_ON(mac->ppe_idx >= eth->soc->ppe_num))
+-- 
+2.51.0
 
 
