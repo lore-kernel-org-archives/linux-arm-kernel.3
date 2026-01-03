@@ -4,98 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DD1FFC6160
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Jan 2026 06:38:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D23BFC6160
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Jan 2026 08:01:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ByoD4jWST79BUe/fxqijcSiTeboyFHDF95yg254b5r0=; b=2MP7jGyd6VoxcTCV1uSPQINAf5
-	+KHwVvyqnIq/iaBfwuKmcwxddOzcqGZpD/esRUjPzjZnmDvekLSqxLU1EXvtxyeEIXtbMusM0RNZD
-	XECeKQpdp1Y3P+wJvTwOCQzisPLNy905417Td1gY7v4g/Y58h426RSst1hTnScrIwousvxoFu6fsk
-	KwDgCGjde021aP7RPQzuhHaYgq6oKvzCRbbzZoE7JNDiGmsricW185GpPI+pe7agTkheoPtdnty6J
-	eAZD6WIfYT0jLhabxiu4S0rSZwuKSKdnyq7pHITcYt8BKxRfpEHay5ciDkjhtbWAS8ZV5Aah+YXEK
-	ZMbYlo9Q==;
+	bh=j73oDxy8SiZUpE5Ll9bt+1jsi1FeXMi2dgKae70Pj8A=; b=Lz7zC35uKt/Fky4shcPRtilbkG
+	f5h27vX6qUK3ef8/Sdby0EA+kr3xnZQIf5jJ9qt1ielXFSPS8ubmH8AZWV8V8rLuVvS+1++Kro3ru
+	4cEGDkuo910Mv/aMdYdzUZv1f+qh0ZS8yw2mZLBAa2osFb1tXOyNzz7LpXG5zdtupywcTp3+r2WK2
+	anfaC3VrxAYjnwqPVElCpA7dMH/cEWd3+63nE2NXT54c5jVs7s2Gug3Oy4yxXJ13wVZLpSx3gT7Fs
+	5lZ1BSa88jjKc09ZDjMFzshiDOyDxR8l8Zt56q0aej4F3bZ+/DJR5Wg/kX+YCaUPB3MTS6u6wNAnn
+	19OeO92A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbvGt-0000000925I-1lsf;
-	Sat, 03 Jan 2026 06:37:55 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1vbwZb-0000000957B-4AoO;
+	Sat, 03 Jan 2026 08:01:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbvGr-0000000924q-0isv
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Jan 2026 06:37:54 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-7d26a7e5639so14267360b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Jan 2026 22:37:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1767422272; x=1768027072; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ByoD4jWST79BUe/fxqijcSiTeboyFHDF95yg254b5r0=;
-        b=TnnCupTGPYKBHhPtzgD0E9hoz4oxdPJruQ6qTtjtwYFfqiFvvgM3KSl9olIsNl2pvx
-         MF3JnoKk270+8awAqR28xMeqlSJ2khZn6e2QUYDyqd2g/m8qPM/PWUJBnfA/+7RtOcOB
-         poL6qcEUXtqkcw6GWMBJlUcZgaaJ0ii0U+bWkatt8XnV1v8F+5pevxxKYchy8GA5lZRQ
-         SNngHU1R/0hoTtKEUYA1IuspiQpBkz+JjPsnazyCZ7IIR/BdV6Fqnypi9CEaJnO0mnTj
-         bzA6RtCmOwAAL9Vk51zIW4JOUM/WBNwMKLfzuBqGvcYgIxdsSRsbImi0yT6utu1Mr3d1
-         5PwQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767422272; x=1768027072;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ByoD4jWST79BUe/fxqijcSiTeboyFHDF95yg254b5r0=;
-        b=Ggz9GUT4lWo6OYKE7GdomESEyfmDwMWE9PN7sUp2ReU6Nq/iEQjCYeb0Exov1pV7HU
-         88C82M3AR9+0FJbY1rzSLXj2fPspUBZ2mH6kWEfD5UY105CWmavS0Ya0oWP2PgHzRxVx
-         HX59OgNEYAsyLiDESV2ry0hExQSc1+qAfV4v7VfeUs+q2gVU38pZi/RG+Lb6wS6/+jSo
-         nWPOFGdgU5/dpvumZW+p0i2AZD9aaCZl3fdBum9l+/6p3klsjpakz54Gw1UgvMnT60lm
-         bTjXRvcVai6SURhLrBVxp/3QzyGgfOqlP65aNQT+N6FUQDJuBAyvcLqVRJiJSaHrHS3T
-         wgkQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVppgLSxff24Zxcr8jYyeuEWWmdSVOl3pvuwpNveoBiMDbuRC9/HVE8OBpOISEHEmdDaUinyBcnSPEFMe8t8qi+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzi300QC578RYNlCFVvIswYzQk5VUBzjDF4j1wClSmfRYTLykdh
-	kZu2KWWp8NupqzA5NzzP1oeBVfqdels+5LF6eZ4LNDe3/eVUbcw+++0q36WnVdDkmZ4=
-X-Gm-Gg: AY/fxX7qkw7kYAocHmBNLUui+Cq8loW4VdcEiG7d4ojJfgZCgrn4+Ke9dm7omecLUV5
-	REYfBIO0U4kpV1tdCARf/do912jN0lhI5hbZ4KD1/kRZ6+FIk/4JM1xcd1jfRYDI6+eI0DiKKtZ
-	OIpzBy6b6FSEGXV49f1h9Gtw6v80uC7+DVaGXU63QmLtSfA2iLjj7Mr3sNMWR4UI9Ly7BQPJe4S
-	W+22Yh/LgruabVi4xR5XKlLSKGZK9ZPaJdjOQqpkDE930GLGJX6MJfb5yM/7DL0yhC3WLSJkWod
-	FC3Q5bPJiqzIo4cSLgBFLTMNMRUZTMRrN10nOc8xPec7o5g4JoTpRdDA88bInMv0rALg+KGuVx3
-	uC9dWcKuk4DRts7gNSKz4rpgZBM3m3UijdIXxzWZ/M4sgClT/58OUDIGQ1W//p6A8EV1+WfHavw
-	EffPwujvsqC6pp0txFxuhtS9TIVhRjVQjRkEPHjfSmHrDvBfbw2IFm9lavRqUKXJzh
-X-Google-Smtp-Source: AGHT+IHOn/shxgu6O9AbZYxbJun3BCH+nZYMReTx1ZUY3Ku/Rcc6T4HDI4a+cvUWlCqKmwFxIHrgIA==
-X-Received: by 2002:a05:6a20:12c6:b0:366:14ac:e205 with SMTP id adf61e73a8af0-376aa8ffdb4mr41042704637.67.1767422272279;
-        Fri, 02 Jan 2026 22:37:52 -0800 (PST)
-Received: from ?IPV6:2405:6e00:642:d187:9f0f:f4ff:8fd1:e7bf? ([2405:6e00:642:d187:9f0f:f4ff:8fd1:e7bf])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c1e7961c130sm36229897a12.3.2026.01.02.22.37.43
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 02 Jan 2026 22:37:51 -0800 (PST)
-Message-ID: <8c7fcd35-3b29-4621-b4e1-df0c88a00cba@linaro.org>
-Date: Sat, 3 Jan 2026 08:37:41 +0200
+	id 1vbwZZ-0000000956l-2sKU;
+	Sat, 03 Jan 2026 08:01:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6630343EE9;
+	Sat,  3 Jan 2026 08:01:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F995C113D0;
+	Sat,  3 Jan 2026 08:01:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767427272;
+	bh=KKYEiR4A+67li/fFpjG1HROz1QpvJKjgQzHkEoFFZiE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=O2dC+8T8gLSx916MuYF0Nv/n+kAhEibPvx9RD3n/K6gNRgXeyrwyz4uU8aTklMuqb
+	 ye+atMNGHS6wdxKsPZxvXUEEqpNaatEzj7VjqCwpvrAwz/E/QlXTPBKGgCizdRGEJd
+	 QkzM1rkeUsfMNQCO0uJ1AP+0mPCVJGkTsn87cVlNhtojPICkAQ0yuXsiUwu3RDCUU4
+	 rTJVRVdf/uj6gpCzRpD9lUoldPn2jPoAbKRL5HEwgOCEl4141r4AUnllUH3lZDvAtS
+	 WP/RQb4Bk7X7Xb6a+D6+pim/xregRZElEZqieR+HdyIvI2EGOf21g05IQx1ZAGxkHU
+	 IdhpwKw5S9wog==
+Message-ID: <563a5d0d-c27a-45de-9495-a82403026886@kernel.org>
+Date: Sat, 3 Jan 2026 09:00:55 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 19/26] mm/numa: Register information into meminspect
-To: Mike Rapoport <rppt@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org, tglx@linutronix.de, andersson@kernel.org,
- pmladek@suse.com, rdunlap@infradead.org, corbet@lwn.net, david@redhat.com,
- mhocko@suse.com, tudor.ambarus@linaro.org, mukesh.ojha@oss.qualcomm.com,
- linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
- jonechou@google.com, rostedt@goodmis.org, linux-doc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org,
- linux-arch@vger.kernel.org, tony.luck@intel.com, kees@kernel.org
-References: <20251119154427.1033475-1-eugen.hristev@linaro.org>
- <20251119154427.1033475-20-eugen.hristev@linaro.org>
- <aVImhhgEsHInebeh@kernel.org>
-From: Eugen Hristev <eugen.hristev@linaro.org>
-Content-Language: en-US
-In-Reply-To: <aVImhhgEsHInebeh@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH v3 2/3] prandom: Convert prandom_u32_state() to
+ __always_inline
+To: Ryan Roberts <ryan.roberts@arm.com>, "Jason A. Donenfeld"
+ <Jason@zx2c4.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Huacai Chen <chenhuacai@kernel.org>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Mark Rutland <mark.rutland@arm.com>,
+ Ard Biesheuvel <ardb@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-hardening@vger.kernel.org
+References: <20260102131156.3265118-1-ryan.roberts@arm.com>
+ <20260102131156.3265118-3-ryan.roberts@arm.com>
+ <CAHmME9qHiVZwf4TAringRHSZ-yqHuPwmP=Wnx98n09jv7Vu_Rg@mail.gmail.com>
+ <719b7b99-3615-46cd-84d9-8b8fc21e3ce9@arm.com>
+Content-Language: fr-FR
+From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+In-Reply-To: <719b7b99-3615-46cd-84d9-8b8fc21e3ce9@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_223753_217361_07E96971 
-X-CRM114-Status: GOOD (  13.43  )
+X-CRM114-CacheID: sfid-20260103_000117_829731_8318AF2A 
+X-CRM114-Status: GOOD (  19.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,51 +93,185 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 12/29/25 08:58, Mike Rapoport wrote:
-> Hi Eugen,
+Le 02/01/2026 à 15:09, Ryan Roberts a écrit :
+> On 02/01/2026 13:39, Jason A. Donenfeld wrote:
+>> Hi Ryan,
+>>
+>> On Fri, Jan 2, 2026 at 2:12 PM Ryan Roberts <ryan.roberts@arm.com> wrote:
+>>> context. Given the function is just a handful of operations and doesn't
+>>
+>> How many? What's this looking like in terms of assembly?
 > 
-> On Wed, Nov 19, 2025 at 05:44:20PM +0200, Eugen Hristev wrote:
->> Register dynamic information into meminspect:
->>  - dynamic node data for each node
->>
->> This information is being allocated for each node, as physical address,
->> so call memblock_mark_inspect that will mark the block accordingly.
->>
->> Signed-off-by: Eugen Hristev <eugen.hristev@linaro.org>
->> ---
->>  mm/numa.c | 2 ++
->>  1 file changed, 2 insertions(+)
->>
->> diff --git a/mm/numa.c b/mm/numa.c
->> index 7d5e06fe5bd4..379065dd633e 100644
->> --- a/mm/numa.c
->> +++ b/mm/numa.c
->> @@ -4,6 +4,7 @@
->>  #include <linux/printk.h>
->>  #include <linux/numa.h>
->>  #include <linux/numa_memblks.h>
->> +#include <linux/meminspect.h>
->>  
->>  struct pglist_data *node_data[MAX_NUMNODES];
->>  EXPORT_SYMBOL(node_data);
->> @@ -20,6 +21,7 @@ void __init alloc_node_data(int nid)
->>  	if (!nd_pa)
->>  		panic("Cannot allocate %zu bytes for node %d data\n",
->>  		      nd_size, nid);
->> +	memblock_mark_inspect(nd_pa, nd_size);
-> 
-> Won't plain meminspect_register_pa() work here?
+> 25 instructions on arm64:
 
-Yes it would work, but as explained in the other email, it would not go
-through memblock API.
-We can continue the discussion there
+31 instructions on powerpc:
+
+00000000 <prandom_u32_state>:
+    0:	7c 69 1b 78 	mr      r9,r3
+    4:	80 63 00 00 	lwz     r3,0(r3)
+    8:	80 89 00 08 	lwz     r4,8(r9)
+    c:	81 69 00 04 	lwz     r11,4(r9)
+   10:	80 a9 00 0c 	lwz     r5,12(r9)
+   14:	54 67 30 32 	slwi    r7,r3,6
+   18:	7c e7 1a 78 	xor     r7,r7,r3
+   1c:	55 66 10 3a 	slwi    r6,r11,2
+   20:	54 88 68 24 	slwi    r8,r4,13
+   24:	54 63 90 18 	rlwinm  r3,r3,18,0,12
+   28:	7d 6b 32 78 	xor     r11,r11,r6
+   2c:	7d 08 22 78 	xor     r8,r8,r4
+   30:	54 aa 18 38 	slwi    r10,r5,3
+   34:	54 e7 9b 7e 	srwi    r7,r7,13
+   38:	7c e7 1a 78 	xor     r7,r7,r3
+   3c:	51 66 2e fe 	rlwimi  r6,r11,5,27,31
+   40:	54 84 38 28 	rlwinm  r4,r4,7,0,20
+   44:	7d 4a 2a 78 	xor     r10,r10,r5
+   48:	55 08 5d 7e 	srwi    r8,r8,21
+   4c:	7d 08 22 78 	xor     r8,r8,r4
+   50:	7c e3 32 78 	xor     r3,r7,r6
+   54:	54 a5 68 16 	rlwinm  r5,r5,13,0,11
+   58:	55 4a a3 3e 	srwi    r10,r10,12
+   5c:	7d 4a 2a 78 	xor     r10,r10,r5
+   60:	7c 63 42 78 	xor     r3,r3,r8
+   64:	90 e9 00 00 	stw     r7,0(r9)
+   68:	90 c9 00 04 	stw     r6,4(r9)
+   6c:	91 09 00 08 	stw     r8,8(r9)
+   70:	91 49 00 0c 	stw     r10,12(r9)
+   74:	7c 63 52 78 	xor     r3,r3,r10
+   78:	4e 80 00 20 	blr
+
+Among those, 8 instructions are for reading/writing the state in stack. 
+They of course disappear when inlining.
 
 > 
->>  	/* report and initialize */
->>  	pr_info("NODE_DATA(%d) allocated [mem %#010Lx-%#010Lx]\n", nid,
->> -- 
->> 2.43.0
->>
+>> It'd also be
+>> nice to have some brief analysis of other call sites to have
+>> confirmation this isn't blowing up other users.
 > 
+> I compiled defconfig before and after this patch on arm64 and compared the text
+> sizes:
+> 
+> $ ./scripts/bloat-o-meter -t vmlinux.before vmlinux.after
+> add/remove: 3/4 grow/shrink: 4/1 up/down: 836/-128 (708)
+> Function                                     old     new   delta
+> prandom_seed_full_state                      364     932    +568
+> pick_next_task_fair                         1940    2036     +96
+> bpf_user_rnd_u32                             104     196     +92
+> prandom_bytes_state                          204     260     +56
+> e843419@0f2b_00012d69_e34                      -       8      +8
+> e843419@0db7_00010ec3_23ec                     -       8      +8
+> e843419@02cb_00003767_25c                      -       8      +8
+> bpf_prog_select_runtime                      448     444      -4
+> e843419@0aa3_0000cfd1_1580                     8       -      -8
+> e843419@0aa2_0000cfba_147c                     8       -      -8
+> e843419@075f_00008d8c_184                      8       -      -8
+> prandom_u32_state                            100       -    -100
+> Total: Before=19078072, After=19078780, chg +0.00%
+> 
+> So 708 bytes more after inlining. The main cost is prandom_seed_full_state(),
+> which calls prandom_u32_state() 10 times (via prandom_warmup()). I expect we
+> could turn that into a loop to reduce ~450 bytes overall.
+> 
+With following change the increase of prandom_seed_full_state() remains 
+reasonnable and performance wise it is a lot better as it avoids the 
+read/write of the state via the stack
 
+diff --git a/lib/random32.c b/lib/random32.c
+index 24e7acd9343f6..28a5b109c9018 100644
+--- a/lib/random32.c
++++ b/lib/random32.c
+@@ -94,17 +94,11 @@ EXPORT_SYMBOL(prandom_bytes_state);
+
+  static void prandom_warmup(struct rnd_state *state)
+  {
++	int i;
++
+  	/* Calling RNG ten times to satisfy recurrence condition */
+-	prandom_u32_state(state);
+-	prandom_u32_state(state);
+-	prandom_u32_state(state);
+-	prandom_u32_state(state);
+-	prandom_u32_state(state);
+-	prandom_u32_state(state);
+-	prandom_u32_state(state);
+-	prandom_u32_state(state);
+-	prandom_u32_state(state);
+-	prandom_u32_state(state);
++	for (i = 0; i < 10; i++)
++		prandom_u32_state(state);
+  }
+
+  void prandom_seed_full_state(struct rnd_state __percpu *pcpu_state)
+
+The loop is:
+
+  248:	38 e0 00 0a 	li      r7,10
+  24c:	7c e9 03 a6 	mtctr   r7
+  250:	55 05 30 32 	slwi    r5,r8,6
+  254:	55 46 68 24 	slwi    r6,r10,13
+  258:	55 27 18 38 	slwi    r7,r9,3
+  25c:	7c a5 42 78 	xor     r5,r5,r8
+  260:	7c c6 52 78 	xor     r6,r6,r10
+  264:	7c e7 4a 78 	xor     r7,r7,r9
+  268:	54 8b 10 3a 	slwi    r11,r4,2
+  26c:	7d 60 22 78 	xor     r0,r11,r4
+  270:	54 a5 9b 7e 	srwi    r5,r5,13
+  274:	55 08 90 18 	rlwinm  r8,r8,18,0,12
+  278:	54 c6 5d 7e 	srwi    r6,r6,21
+  27c:	55 4a 38 28 	rlwinm  r10,r10,7,0,20
+  280:	54 e7 a3 3e 	srwi    r7,r7,12
+  284:	55 29 68 16 	rlwinm  r9,r9,13,0,11
+  288:	7d 64 5b 78 	mr      r4,r11
+  28c:	7c a8 42 78 	xor     r8,r5,r8
+  290:	7c ca 52 78 	xor     r10,r6,r10
+  294:	7c e9 4a 78 	xor     r9,r7,r9
+  298:	50 04 2e fe 	rlwimi  r4,r0,5,27,31
+  29c:	42 00 ff b4 	bdnz    250 <prandom_seed_full_state+0x7c>
+
+Which replaces the 10 calls to prandom_u32_state()
+
+   fc:	91 3f 00 0c 	stw     r9,12(r31)
+  100:	7f e3 fb 78 	mr      r3,r31
+  104:	48 00 00 01 	bl      104 <prandom_seed_full_state+0x88>
+			104: R_PPC_REL24	prandom_u32_state
+  108:	7f e3 fb 78 	mr      r3,r31
+  10c:	48 00 00 01 	bl      10c <prandom_seed_full_state+0x90>
+			10c: R_PPC_REL24	prandom_u32_state
+  110:	7f e3 fb 78 	mr      r3,r31
+  114:	48 00 00 01 	bl      114 <prandom_seed_full_state+0x98>
+			114: R_PPC_REL24	prandom_u32_state
+  118:	7f e3 fb 78 	mr      r3,r31
+  11c:	48 00 00 01 	bl      11c <prandom_seed_full_state+0xa0>
+			11c: R_PPC_REL24	prandom_u32_state
+  120:	7f e3 fb 78 	mr      r3,r31
+  124:	48 00 00 01 	bl      124 <prandom_seed_full_state+0xa8>
+			124: R_PPC_REL24	prandom_u32_state
+  128:	7f e3 fb 78 	mr      r3,r31
+  12c:	48 00 00 01 	bl      12c <prandom_seed_full_state+0xb0>
+			12c: R_PPC_REL24	prandom_u32_state
+  130:	7f e3 fb 78 	mr      r3,r31
+  134:	48 00 00 01 	bl      134 <prandom_seed_full_state+0xb8>
+			134: R_PPC_REL24	prandom_u32_state
+  138:	7f e3 fb 78 	mr      r3,r31
+  13c:	48 00 00 01 	bl      13c <prandom_seed_full_state+0xc0>
+			13c: R_PPC_REL24	prandom_u32_state
+  140:	7f e3 fb 78 	mr      r3,r31
+  144:	48 00 00 01 	bl      144 <prandom_seed_full_state+0xc8>
+			144: R_PPC_REL24	prandom_u32_state
+  148:	80 01 00 24 	lwz     r0,36(r1)
+  14c:	7f e3 fb 78 	mr      r3,r31
+  150:	83 e1 00 1c 	lwz     r31,28(r1)
+  154:	7c 08 03 a6 	mtlr    r0
+  158:	38 21 00 20 	addi    r1,r1,32
+  15c:	48 00 00 00 	b       15c <prandom_seed_full_state+0xe0>
+			15c: R_PPC_REL24	prandom_u32_state
+
+
+So approx the same number of instructions in size, while better performance.
+
+> I'm not really sure if 708 is good or bad...
+
+That's in the noise compared to the overall size of vmlinux, but if we 
+change it to a loop we also reduce pressure on the cache.
+
+Christophe
 
