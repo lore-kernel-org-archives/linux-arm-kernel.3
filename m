@@ -4,73 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D77A4FC6179
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Jan 2026 12:02:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3478FA3750
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Jan 2026 12:38:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0hmbKY42MLvly76iySmumfC2E8JY6gEF8ASEf0nqLlg=; b=0idhr/w551ScEeIO9mE/+4mD4X
-	UKzCRwyIYU9IlBlYD/HJyCPyDtCzm8c4Qkr3BbYGQL3kZLV+45QWqhy0dq23zAKpaDFKhMXojJ+xC
-	qZZd+AAuXYlwW4/2dIaj8CGHjT20IrPM95hZ+bgl5LgJf74dcQk3Qtx54wyxH3v1yxxlOLXS5NUFH
-	4oGSuDPA8FRvdI3kB4xcMHs1XeaAjyvn004UghtJ9yXFQeBVDbe3qW3qyHi+AMIM/V6K+omL6K/cQ
-	EsR29lz6L9vyGN/5Im/Lkr+OAxCemcD5Nq6D/G0SlJwXFx8kjq+8PgDYbVis+hMnMlerLQ0Fn3AoG
-	5liWoY2w==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7AGEQXVff4Cjra/LEG8aFJKzdBMi+jbn5H5NG2dDiwk=; b=ogLiJ2QhIU5tK1RBHQ2WyzR+dT
+	HTzZZOQpxHfldt+7VyoDngfJ8hyfs2IB32+arF7RtUbiLbQenyoDIjSRHAF893F8GCxBFMp6SE7d6
+	5SqyrNiN4xoQElvy1/d8aPfRhiPJpSaB7gHOdHv0nbmp+d5/QWVOqjjFLNQnmGU6MgAcxjksljT6H
+	OqzZDNG7o6Obs5vGHq3E9V76jrBXybokDTNhodnRyZV2GSRKOtsnzpe//kQwRw3fosoQ9CnPObtkd
+	8OUugvkIzOnNt9ewA6oM3f1yZlvxBT0P8b6zG6nTYDqVaPiYrjMIgv9a2pV1P+i3RSqJ0LTpDPjPD
+	c63asqHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vc0Ke-00000009L9Z-1XGB;
-	Sat, 03 Jan 2026 12:02:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vc0tu-00000009M60-3Puf;
+	Sat, 03 Jan 2026 12:38:34 +0000
+Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vc0Kd-00000009L9O-0c2y;
-	Sat, 03 Jan 2026 12:02:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E71616014D;
-	Sat,  3 Jan 2026 12:02:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA7CCC113D0;
-	Sat,  3 Jan 2026 12:02:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767441725;
-	bh=1x1FZr6RcPuO0JFTJZCAvrYneabcp2bRuH04E9/5pX4=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=Vtskogp2qUAVd/DM4TkDqX7xhp75/RE4O/3djH0Ggd1RNArNybeRlzM9h+4xWnEXY
-	 XHN81oSHhzHnJVvX/LYYI+eORArVWUOZUrf70THyHL6THPbDXlv/2B4F/adETfbJsJ
-	 Bp2HlCanAv3xncnNRucIJI2Hz9n0JHN5pyGnfYOWLrhkiM9L46ZgUE7Q18kaz0uHhC
-	 3jxgcirES+Q0OYgP5Nft2bzET7CDZqJ1fERAAEJEVJx/MTyePCUxDX7TCYKv6D6aPb
-	 cCken4S8d5opzrahawWNIi6hVZYvZsLvHTe6BvRh4sDzw2xxFpIHDbhi4T3bme/S51
-	 r53uT1Zxm/bXA==
-Message-ID: <6f30a01c-8fc4-4368-88ef-7c513c505515@kernel.org>
-Date: Sat, 3 Jan 2026 13:01:58 +0100
+	id 1vc0ts-00000009M5a-3kJt
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 03 Jan 2026 12:38:34 +0000
+Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-37bbb36c990so5650111fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 03 Jan 2026 04:38:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1767443911; x=1768048711; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7AGEQXVff4Cjra/LEG8aFJKzdBMi+jbn5H5NG2dDiwk=;
+        b=laRzB5ViPpPMcBJl266ATxRxmhlauYDYvq+UImEU3zMcTzkOekRI1FUGqOymXfhNtN
+         PPp0AOcQ2qm7zHFri9m/WBM5/2//9e4FcydMJUqV9+tavMezlGp7IRKJmT8r5C76H2dy
+         7ChxhSEJKJ1/qezZRbqfsR44qUQS2xHnft/89IovN6CLoLxdZubLfybytYxZDYwQBlLt
+         MTL90cL+AqiIXbsygCaAy1LNCFouz83JQs8iaO6OKIeg5PDLVHPIWeM+Ipr725+IzElh
+         cwiW9mhhWZs/VYv4lgdkcZWbYRe3P+XvXDbzFKLTYuVNklOKJLGEPpVrN8MAn/t5ZkLO
+         m6Fw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767443911; x=1768048711;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=7AGEQXVff4Cjra/LEG8aFJKzdBMi+jbn5H5NG2dDiwk=;
+        b=g4JbPQwNOgeOij8G5yIwbfX/SOIUk99FvDM8xYvDeFBKwnXuO+x/DmBp5GDyDBBVfr
+         N2woTEyeZwLCgJooXJKgppikaxRfee3akSu38puFk+l+ZHpKaJUYPUGrfD8uFObbJ+DH
+         EOL/adhIM9scPXYBoovtmGMTNLJOe8wKtDB5iZAn0ORf0HopH7QZ45fvza56IOfoCT+0
+         /tZ0GsZkL1NN7eOn7xS76f+tniH/b6CNX3aO463rak+wOu97ccZiAeuA+sjYcSM670vP
+         p5sHyLT1dg8D1WTYQy6ocwKukVSwA9lczc94UGAgnkLVIWL8sxpbwCXbJjRw2KojS10N
+         el4A==
+X-Forwarded-Encrypted: i=1; AJvYcCXJIHjD4ORZJNBWsALuFiKh4sXkIql1d8nJACV7KkmSa6uhoDUizRRYjEdogNodxWmR2tGjLgkkOXbTFfCV+wbU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7+LhkBnyr7sPIkxVBCXGSLXyd6RjwoM8dVD48NrbP/EeZg9x5
+	sYkV/XMKVitkEwvdHAB0CrO9x02KaDNcJWFuYhD8hjVsa4XVKjwPRaUy
+X-Gm-Gg: AY/fxX6kZMHt88hSOjmZJ1jH+4cvehgUkH12z9NnpJCckRwguL2lIEZoUiqmqLgf4P3
+	SUYVN1zRXFrh/jdTKTU3e67ZjrJKfKnf+54GGAvDfUK1+pak6Qc8Kvx0TJGZ9Fkz1/NkC8iCSxq
+	NJzeZ+YH9O9ulLXRA0XAhqy9DThecFQvmlZ7Erqm/PPv3zatvp78ckbxU55vsHqckV5PX3d8TNt
+	nQfDkf4XwfFwQGJEs3RE8QKUpMgT6eS2loxX7y9ckMATRMb96P/coQ0ZbN02QdkGGips4ErsbHd
+	Sl9KZBvzkx5kXVusQyjndji86K3+/0h7BLE5Lcj1IoWkNWCM16AbqFnXrENJGRlYZLUtT+XPvdX
+	3xVylm8xfpi4TIMkmg2v94ojDowt9Z9QkRdetc8hB1QESKuzs0SwSptjE3bieXSBOg07gz7RJ0Q
+	0fNrM6Gj+f5hhoYdoieizMkkoW4jUgkzS9EMo5lEkoEQIyH4Exjs1h
+X-Google-Smtp-Source: AGHT+IGuPwj5c90N/yOSzvW/fHyvSi9BbZ6Md54mttsoAORSkjxjxsJYQaWeJvjkrO56uLXSAEKKNQ==
+X-Received: by 2002:a05:600c:198a:b0:477:9fa0:7495 with SMTP id 5b1f17b1804b1-47d6c803ca7mr16959765e9.14.1767437190097;
+        Sat, 03 Jan 2026 02:46:30 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d6c0c148bsm13448405e9.18.2026.01.03.02.46.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 03 Jan 2026 02:46:29 -0800 (PST)
+Date: Sat, 3 Jan 2026 10:46:27 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: "Jason A. Donenfeld" <Jason@zx2c4.com>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Huacai Chen
+ <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, Michael
+ Ellerman <mpe@ellerman.id.au>, Paul Walmsley <pjw@kernel.org>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Heiko
+ Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, Alexander
+ Gordeev <agordeev@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+ <dave.hansen@linux.intel.com>, Kees Cook <kees@kernel.org>, "Gustavo A. R.
+ Silva" <gustavoars@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Mark Rutland
+ <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>, Jeremy Linton
+ <jeremy.linton@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-hardening@vger.kernel.org
+Subject: Re: [PATCH v3 2/3] prandom: Convert prandom_u32_state() to
+ __always_inline
+Message-ID: <20260103104627.2f385d20@pumpkin>
+In-Reply-To: <719b7b99-3615-46cd-84d9-8b8fc21e3ce9@arm.com>
+References: <20260102131156.3265118-1-ryan.roberts@arm.com>
+	<20260102131156.3265118-3-ryan.roberts@arm.com>
+	<CAHmME9qHiVZwf4TAringRHSZ-yqHuPwmP=Wnx98n09jv7Vu_Rg@mail.gmail.com>
+	<719b7b99-3615-46cd-84d9-8b8fc21e3ce9@arm.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 3/3] usb: typec: fusb302: Switch to threaded interrupt
- handler
-To: Anand Moon <linux.amoon@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Sebastian Reichel <sebastian.reichel@collabora.com>,
- FUKAUMI Naoki <naoki@radxa.com>,
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Yongbo Zhang <giraffesnn123@gmail.com>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>,
- "moderated list:ARM/Rockchip SoC support"
- <linux-arm-kernel@lists.infradead.org>,
- "open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>,
- "open list:USB TYPEC CLASS" <linux-usb@vger.kernel.org>
-References: <20260103083232.9510-1-linux.amoon@gmail.com>
- <20260103083232.9510-4-linux.amoon@gmail.com>
-From: Hans de Goede <hansg@kernel.org>
-Content-Language: en-US, nl
-In-Reply-To: <20260103083232.9510-4-linux.amoon@gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260103_043832_992434_E3F329F0 
+X-CRM114-Status: GOOD (  30.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,149 +117,188 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Fri, 2 Jan 2026 14:09:26 +0000
+Ryan Roberts <ryan.roberts@arm.com> wrote:
 
-On 3-Jan-26 09:31, Anand Moon wrote:
-> The fusb302 driver triggers a "BUG: Invalid wait context" lockdep warning
-> under certain configurations (such as when CONFIG_PROVE_RAW_LOCK_NESTING
-> is enabled). This occurs because the interrupt handler, fusb302_irq_intn,
-> attempts to acquire a regular spinlock (&chip->irq_lock) while running
-> in hardirq context can lead to invalid wait context reports if the lock is
-> considered "sleepable" or has incompatible nesting levels with the
-> underlying interrupt controller's locks.
-> 
-> lockdep warnings:
-> 
-> [   38.935276] [      C0] =============================
-> [   38.935690] [      C0] [ BUG: Invalid wait context ]
-> [   38.936106] [      C0] 6.19.0-rc2-2-ARM64-GCC #2 Tainted: GT
-> [   38.936716] [      C0] -----------------------------
-> [   38.937129] [      C0] kworker/0:0/8 is trying to lock:
-> [   38.937566] [      C0] ffff000112c04190 (&chip->irq_lock){....}-{3:3}, at: fusb302_irq_intn+0x38/0x98 [fusb302]
-> [   38.938450] [      C0] other info that might help us debug this:
-> [   38.938953] [      C0] context-{2:2}
-> [   38.939247] [      C0] 2 locks held by kworker/0:0/8:
-> [   38.939670] [      C0]  #0: ffff000100025148 ((wq_completion)events_freezable){+.+.}-{0:0}, at: process_one_work+0x224/0x4b8
-> [   38.940645] [      C0]  #1: ffff8000800fbd90 ((work_completion)(&(&host->detect)->work)){+.+.}-{0:0}, at: process_one_work+0x24c/0x4b8
-> [   38.941691] [      C0] stack backtrace:
-> [   38.942010] [      C0] CPU: 0 UID: 0 PID: 8 Comm: kworker/0:0 Tainted: GT   6.19.0-rc2-2-ARM64-GCC #2 PREEMPT(full)  bd73c5afc1bd41f04ef9699c14f0381f835f4deb
-> [   38.942017] [      C0] Tainted: [T]=RANDSTRUCT
-> [   38.942019] [      C0] Hardware name: Radxa ROCK 5B (DT)
-> [   38.942022] [      C0] Workqueue: events_freezable mmc_rescan
-> [   38.942031] [      C0] Call trace:
-> [   38.942033] [      C0]  show_stack+0x24/0x40 (C)
-> [   38.942041] [      C0]  dump_stack_lvl+0x90/0xd8
-> [   38.942047] [      C0]  dump_stack+0x1c/0x3c
-> [   38.942051] [      C0]  __lock_acquire+0x5e8/0x9c8
-> [   38.942059] [      C0]  lock_acquire+0x134/0x280
-> [   38.942065] [      C0]  _raw_spin_lock_irqsave+0x80/0xb0
-> [   38.942072] [      C0]  fusb302_irq_intn+0x38/0x98 [fusb302 634bac905a09c450b54f88b96019accd2820228f]
-> [   38.942082] [      C0]  __handle_irq_event_percpu+0x138/0x3f0
-> [   38.942088] [      C0]  handle_irq_event+0x58/0xd8
-> [   38.942093] [      C0]  handle_level_irq+0x108/0x190
-> [   38.942099] [      C0]  handle_irq_desc+0x4c/0x78
-> [   38.942106] [      C0]  generic_handle_domain_irq+0x24/0x40
-> [   38.942113] [      C0]  rockchip_irq_demux+0x128/0x240
-> [   38.942120] [      C0]  handle_irq_desc+0x4c/0x78
-> [   38.942127] [      C0]  generic_handle_domain_irq+0x24/0x40
-> [   38.942133] [      C0]  __gic_handle_irq_from_irqson.isra.0+0x260/0x370
-> [   38.942141] [      C0]  gic_handle_irq+0x68/0xa0
-> [   38.942146] [      C0]  call_on_irq_stack+0x48/0x68
-> [   38.942152] [      C0]  do_interrupt_handler+0x74/0x98
-> [   38.942158] [      C0]  el1_interrupt+0x88/0xb0
-> [   38.942165] [      C0]  el1h_64_irq_handler+0x1c/0x30
-> [   38.942170] [      C0]  el1h_64_irq+0x84/0x88
-> [   38.942175] [      C0]  arch_counter_get_cntpct+0x4/0x20 (P)
-> [   38.942181] [      C0]  __const_udelay+0x30/0x48
-> [   38.942187] [      C0]  mci_send_cmd.constprop.0+0x84/0xc8
-> [   38.942194] [      C0]  dw_mci_setup_bus+0x60/0x210
-> [   38.942200] [      C0]  dw_mci_set_ios+0x1c8/0x260
-> [   38.942206] [      C0]  mmc_set_initial_state+0x110/0x140
-> [   38.942211] [      C0]  mmc_rescan_try_freq+0x154/0x198
-> [   38.942216] [      C0]  mmc_rescan+0x1cc/0x278
-> [   38.942221] [      C0]  process_one_work+0x284/0x4b8
-> [   38.942225] [      C0]  worker_thread+0x264/0x3a0
-> [   38.942230] [      C0]  kthread+0x11c/0x138
-> [   38.942236] [      C0]  ret_from_fork+0x10/0x20
-> [   38.969307] [     T11] rockchip-dw-pcie a41000000.pcie: PCI host bridge to bus 0004:40
-> [   38.969995] [     T11] pci_bus 0004:40: root bus resource [bus 40-4f]
-> 
-> Following changes resolves the lockdep warnings and aligns the driver with best
-> practices for I2C-based interrupt handling.
-> 
-> Cc: Hans de Goede <hansg@kernel.org>
-> Cc: Yongbo Zhang <giraffesnn123@gmail.com>
-> Cc: Sebastian Reichel <sebastian.reichel@collabora.com>
-> Fixes: 309b6341d557 ("usb: typec: fusb302: Revert incorrect threaded irq fix")
-> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+> On 02/01/2026 13:39, Jason A. Donenfeld wrote:
+> > Hi Ryan,
+> >=20
+> > On Fri, Jan 2, 2026 at 2:12=E2=80=AFPM Ryan Roberts <ryan.roberts@arm.c=
+om> wrote: =20
+> >> context. Given the function is just a handful of operations and doesn'=
+t =20
+> >=20
+> > How many? What's this looking like in terms of assembly?  =20
+>=20
+> 25 instructions on arm64:
+>=20
+> 0000000000000000 <prandom_u32_state>:
+>    0:	29401403 	ldp	w3, w5, [x0]
+>    4:	aa0003e1 	mov	x1, x0
+>    8:	29410002 	ldp	w2, w0, [x0, #8]
+>    c:	531e74a4 	lsl	w4, w5, #2
+>   10:	530e3468 	lsl	w8, w3, #18
+>   14:	4a0400a5 	eor	w5, w5, w4
+>   18:	4a031863 	eor	w3, w3, w3, lsl #6
+>   1c:	53196047 	lsl	w7, w2, #7
+>   20:	53134806 	lsl	w6, w0, #13
+>   24:	4a023442 	eor	w2, w2, w2, lsl #13
+>   28:	4a000c00 	eor	w0, w0, w0, lsl #3
+>   2c:	121b6884 	and	w4, w4, #0xffffffe0
+>   30:	120d3108 	and	w8, w8, #0xfff80000
+>   34:	121550e7 	and	w7, w7, #0xfffff800
+>   38:	120c2cc6 	and	w6, w6, #0xfff00000
+>   3c:	2a456c85 	orr	w5, w4, w5, lsr #27
+>   40:	2a433504 	orr	w4, w8, w3, lsr #13
+>   44:	2a4254e3 	orr	w3, w7, w2, lsr #21
+>   48:	2a4030c2 	orr	w2, w6, w0, lsr #12
+>   4c:	4a020066 	eor	w6, w3, w2
+>   50:	4a050080 	eor	w0, w4, w5
+>   54:	4a0000c0 	eor	w0, w6, w0
+>   58:	29001424 	stp	w4, w5, [x1]
+>   5c:	29010823 	stp	w3, w2, [x1, #8]
+>   60:	d65f03c0 	ret
 
-If you look closer at the code then you will see that
-fusb302_irq_intn() is effectively doing its own threaded
-interrupt handling this is done to be able to delay
-the threaded part till after the i2c-controller is
-resumed when a fusb302 irq wakes up the system.
+That is gcc, clang seems to generate something horrid (from godbolt).
+I'm not sure what it has tried to do (and maybe it can't in kernel)
+but it clearly doesn't help!
+.LCPI0_0:
+        .word   18
+        .word   2
+        .word   7
+        .word   13
+.LCPI0_1:
+        .word   6
+        .word   2
+        .word   13
+        .word   3
+.LCPI0_2:
+        .word   4294443008
+        .word   4294967264
+        .word   4294965248
+        .word   4293918720
+.LCPI0_3:
+        .word   4294967283
+        .word   4294967269
+        .word   4294967275
+        .word   4294967284
+prandom_u32_state:
+        adrp    x9, .LCPI0_1
+        ldr     q0, [x0]
+        adrp    x10, .LCPI0_3
+        ldr     q1, [x9, :lo12:.LCPI0_1]
+        adrp    x9, .LCPI0_0
+        ldr     q3, [x10, :lo12:.LCPI0_3]
+        ldr     q2, [x9, :lo12:.LCPI0_0]
+        adrp    x9, .LCPI0_2
+        mov     x8, x0
+        ushl    v1.4s, v0.4s, v1.4s
+        ushl    v2.4s, v0.4s, v2.4s
+        eor     v0.16b, v1.16b, v0.16b
+        ldr     q1, [x9, :lo12:.LCPI0_2]
+        and     v1.16b, v2.16b, v1.16b
+        ushl    v0.4s, v0.4s, v3.4s
+        orr     v0.16b, v0.16b, v1.16b
+        ext     v1.16b, v0.16b, v0.16b, #8
+        str     q0, [x8]
+        eor     v1.8b, v0.8b, v1.8b
+        fmov    x9, d1
+        lsr     x10, x9, #32
+        eor     w0, w9, w10
+        ret
 
-See commit 207338ec5a27 ("usb: typec: fusb302: Improve
-suspend/resume handling") for details.
+The x86 versions are a little longer (arm's barrel shifter helps a lot).
 
-And if you look at the fusb302 git history then you'll
-seen an earlier change the switch the interrupt handler
-to a threaded IRQ which was reverted (mostly due to it
-also making other undesirable changes).
+>=20
+> > It'd also be
+> > nice to have some brief analysis of other call sites to have
+> > confirmation this isn't blowing up other users. =20
+>=20
+> I compiled defconfig before and after this patch on arm64 and compared th=
+e text
+> sizes:
+>=20
+> $ ./scripts/bloat-o-meter -t vmlinux.before vmlinux.after
+> add/remove: 3/4 grow/shrink: 4/1 up/down: 836/-128 (708)
+> Function                                     old     new   delta
+> prandom_seed_full_state                      364     932    +568
+> pick_next_task_fair                         1940    2036     +96
+> bpf_user_rnd_u32                             104     196     +92
+> prandom_bytes_state                          204     260     +56
+> e843419@0f2b_00012d69_e34                      -       8      +8
+> e843419@0db7_00010ec3_23ec                     -       8      +8
+> e843419@02cb_00003767_25c                      -       8      +8
+> bpf_prog_select_runtime                      448     444      -4
+> e843419@0aa3_0000cfd1_1580                     8       -      -8
+> e843419@0aa2_0000cfba_147c                     8       -      -8
+> e843419@075f_00008d8c_184                      8       -      -8
+> prandom_u32_state                            100       -    -100
+> Total: Before=3D19078072, After=3D19078780, chg +0.00%
+>=20
+> So 708 bytes more after inlining.
 
-This change is different though. This is actually quite
-similar to commit cee3dba7b741 ("mei: vsc: Fix "BUG: Invalid
-wait context" lockdep error"). Where I fixed more or less
-the same issue in the same way. So I guess this change also
-is ok.
+Doesn't look like there are many calls.
 
-Still ideally we would solve this in another way then
-switching to a threaded IRQ handler.
+> The main cost is prandom_seed_full_state(),
+> which calls prandom_u32_state() 10 times (via prandom_warmup()). I expect=
+ we
+> could turn that into a loop to reduce ~450 bytes overall.
 
-As the commit message of the mei-vsc fix mentions
-the root cause of these errors is typically an interrupt
-chip driver which uses IRQF_NO_THREAD disabling the auto
-threading of all interrupt handlers in RT mode.
+That would always have helped the code size.
+And I suspect the other costs of that code make unrolling the loop pointles=
+s.
 
-So the first question here would be to see if that flag is
-used in the interrupt chip and if yes, is that flag really
-necessary ?
+>=20
+> I'm not really sure if 708 is good or bad...
+>=20
+> >  =20
+> >> +static __always_inline u32 prandom_u32_state(struct rnd_state *state)=
+ =20
+> >=20
+> > Why not just normal `inline`? Is gcc disagreeing with the inlinability
+> > of this function? =20
+>=20
+> Given this needs to be called from a noinstr function, I didn't want to g=
+ive the
+> compiler the opportunity to decide not to inline it, since in that case, =
+some
+> instrumentation might end up being applied to the function body which wou=
+ld blow
+> up when called in the noinstr context.
+>=20
+> I think the other 2 options are to keep prandom_u32_state() in the c file=
+ but
+> mark it noinstr or rearrange all the users so that thay don't call it unt=
+il
+> instrumentation is allowable. The latter is something I was trying to avo=
+id.
+>=20
+> There is some previous discussion of this at [1].
+>=20
+> [1] https://lore.kernel.org/all/aS65LFUfdgRPKv1l@J2N7QTR9R3/
+>=20
+> Perhaps keeping prandom_u32_state() in the c file and making it noinstr i=
+s the
+> best compromise?
 
-Regards,
+Or define prandom_u32_state_inline() as always_inline and have the
+real function:
+u32 prandom_u32_state(struct rnd_state *state)
+{
+	return prandom_u32_state_inline(state);
+}
 
-Hans
+So that the callers can pick the inline version if it really matters.
 
+	David
 
-
-
-
-
-
-
-
-
-
-> ---
->  drivers/usb/typec/tcpm/fusb302.c | 7 ++++---
->  1 file changed, 4 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/usb/typec/tcpm/fusb302.c b/drivers/usb/typec/tcpm/fusb302.c
-> index 870a71f953f6..089722b52fbb 100644
-> --- a/drivers/usb/typec/tcpm/fusb302.c
-> +++ b/drivers/usb/typec/tcpm/fusb302.c
-> @@ -1755,9 +1755,10 @@ static int fusb302_probe(struct i2c_client *client)
->  		goto destroy_workqueue;
->  	}
->  
-> -	ret = request_irq(chip->gpio_int_n_irq, fusb302_irq_intn,
-> -			  IRQF_ONESHOT | IRQF_TRIGGER_LOW,
-> -			  "fsc_interrupt_int_n", chip);
-> +	ret = request_threaded_irq(chip->gpio_int_n_irq,
-> +				   NULL, fusb302_irq_intn,
-> +				   IRQF_ONESHOT | IRQF_TRIGGER_LOW,
-> +				   "fsc_interrupt_int_n", chip);
->  	if (ret < 0) {
->  		dev_err(dev, "cannot request IRQ for GPIO Int_N, ret=%d", ret);
->  		goto tcpm_unregister_port;
+>=20
+> Thanks,
+> Ryan
+>=20
+> >=20
+> > Jason =20
+>=20
+>=20
 
 
