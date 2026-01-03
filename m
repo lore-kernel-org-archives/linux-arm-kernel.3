@@ -4,80 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91B38FC617F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Jan 2026 14:05:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1911AFC617F
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Jan 2026 14:11:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sclPIbTuFBUw6SwfyH8YCc5Ug5qVUgcMP6TFoeELZHA=; b=Jc+seN6oN2J78UhxgVibgtoSmu
-	2+lHyVef5hf/unu3Q0DSfABHwhrHodZq5yvJivKTwj4yq0eD5FhghZ1dfQhLLy7s5Z97HVdALZ8tR
-	RwtNYBHoBqlEKk7FCtE6Srt1pznX9zRn4zN5Rpouus8KaRBgFulVGYzu/I/TpUlZWm3s3eZoDMMD2
-	9Eh+18czbyOOaTv0ujNqSsJMtT+fYyDA1f6r+Y5JSIg+2AAQvO9pxI6mOzUyCICiAM0LoLnRInJKJ
-	ndyKINLFbWMo6JhwH1jt/D9i4S2lAOk4JrP/hz/BicrweVUhDY9i2hCv3L8AWUgAjqj8t3t7uv5Nt
-	4wiY6wNQ==;
+	bh=BVWiNa4LlD/mq5u0ETtKYjcKFCY48LgG2i3vO/zTCo8=; b=DdvtsEcm2WpXoxySR1ecqtI127
+	EdLffUGlUtk/t0VyB5FeBKTgKHBU3s8Wl/ozcd7wQDY6mK6fRIOpUalTBXuRjQB5A1Rrn9O/zlubQ
+	OhNHz04R9NB7iS1Yiiu/0a0cL+HLY+Jh0TwPwE40abTnuWRNYyJzgiJmdC9CIzIsWeKecwTq4XO2f
+	tlLmGaFNf30kH6mhfYZOB1GjFrPCADBLpf+iQqlrtYjTh4rBoIdevoSamy2dJdT11soW7BoyPcFs7
+	mB9axcmm0dp1+su1chnFRnxOONR0fZWTjIH/wwI2CmV6a6cW0hzG2eIvUZdg3aug8p3IWAKrR8SZi
+	3Zk6MprA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vc2Fs-00000009OfC-3p6n;
-	Sat, 03 Jan 2026 14:05:20 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vc2M5-00000009Ori-0fSp;
+	Sat, 03 Jan 2026 14:11:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vc2Fb-00000009Oeb-3rpZ;
-	Sat, 03 Jan 2026 14:05:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1767449095; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=YRa4h1EQKHxjfU+6npG5r/xqTnNpN/jB8rwYJCF4nuXy/jqrnz48j+gkSIT3TXr62gF2IzoI8DRp9RzVZt5Ic5Qv5MHQ3xjd8nrM6JoF/V4CuGzntnfX9fPpbP2dqIpAtPBw5Dgq3yWkEVvCkG6XCc1UkEulfnZ7KBh8+NqtkYc=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1767449095; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=sclPIbTuFBUw6SwfyH8YCc5Ug5qVUgcMP6TFoeELZHA=; 
-	b=KaEoR/UEk1mtY1aH711qYegTdXg4jVe51X8YBcwTHbogmd0M+GnHPwBOJKhRLIILQZJSTRA3SidEA4RwI0XbtDTAPbLSPx912pVBLGL4Fs1bB8upJSI0mpR/KyrcqoNuBcIX72eRuDxR0y9S6YKDURMc+VWGsuxz9c+ZSbSygXI=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1767449095;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=sclPIbTuFBUw6SwfyH8YCc5Ug5qVUgcMP6TFoeELZHA=;
-	b=ERkT8XduG5w+z9adyLzBkItLI3DKSMCSysdnGKEWlinvM453YMBXZamMDpjrKbOX
-	aIksk9GW6cID8EQ2YURl6NI2nRtWrLZx5QBaiXu2AwDRGuVk6mcujM0n5L4/QIn3QAS
-	c+XXiWDvJAEjmwWnj46ixxSmHAHVfzWM7towiuoE=
-Received: by mx.zohomail.com with SMTPS id 1767449092519959.3621110978988;
-	Sat, 3 Jan 2026 06:04:52 -0800 (PST)
-Received: by venus (Postfix, from userid 1000)
-	id 4BEF418054C; Sat, 03 Jan 2026 15:04:47 +0100 (CET)
-Date: Sat, 3 Jan 2026 15:04:47 +0100
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Anand Moon <linux.amoon@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
-	FUKAUMI Naoki <naoki@radxa.com>, Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
-	Yongbo Zhang <giraffesnn123@gmail.com>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
-	"moderated list:ARM/Rockchip SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>, 
-	"open list:USB TYPEC CLASS" <linux-usb@vger.kernel.org>
-Subject: Re: [PATCH v1 2/3] arm64: dts: rockchip: rk3588-rock-5b-5bp-5t: Fix
- USB host phy-supply on Rock 5b-5bp-5t SbC
-Message-ID: <aVkfNBUDUumzV0-X@venus>
-References: <20260103083232.9510-1-linux.amoon@gmail.com>
- <20260103083232.9510-3-linux.amoon@gmail.com>
+	id 1vc2M0-00000009Oqs-1t7v;
+	Sat, 03 Jan 2026 14:11:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A2C28438C0;
+	Sat,  3 Jan 2026 14:11:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3434C113D0;
+	Sat,  3 Jan 2026 14:11:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767449499;
+	bh=mwX86YyiwWbrjWAZfajgtdKslPeAHqJC9wmqoN1Xwtc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=G10aLiLkZdu4eabbRJ039jDAhGApii8n98XPG+kba+Ri1G3TPWScGatZFNto7waaa
+	 D/oYTL5boTKgoU4wv8uE8hFXpf3TjaKH/+Hbl4mauDtBTo+P8uwZVL1KmGZCJ+x8Je
+	 9+daN0Caux4KU1UEjZTmlh8LrGdAjrvYaOSVezQN22sP394uvXAkyPZEYel/iotKT+
+	 IdESCSD2VlWotCiRr3p59FQPDSqwGm7BCo8cgpkixrac0/V4r/PgtOR6x0P9rzC9Mr
+	 d9HW/aPXgvjtkwpCnnrFVpcE5TTu4D8Lzv5VVLLmeUcNIFIDa74uQr3BQnXsL2xyJC
+	 dylCSN9UGv/ew==
+Date: Sat, 3 Jan 2026 15:11:36 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Aleksander Jan Bajkowski <olek2@wp.pl>
+Cc: benjamin.larsson@genexis.eu, chester.a.unal@arinc9.com, 
+	davem@davemloft.net, angelogioacchino.delregno@collabora.com, ansuelsmth@gmail.com, 
+	conor+dt@kernel.org, herbert@gondor.apana.org.au, krzk+dt@kernel.org, 
+	matthias.bgg@gmail.com, robh@kernel.org, sergio.paracuellos@gmail.com, 
+	tsbogend@alpha.franken.de, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	linux-mips@vger.kernel.org
+Subject: Re: [PATCH v3 1/3] dt-bindings: crypto: eip93: add clock gate and
+ reset line
+Message-ID: <20260103-sweet-micro-manul-12eaee@quoll>
+References: <20260102155341.3682013-1-olek2@wp.pl>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="kv5ni5kly6ecqwne"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20260103083232.9510-3-linux.amoon@gmail.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-1.4.3/267.430.24
-X-ZohoMailClient: External
+In-Reply-To: <20260102155341.3682013-1-olek2@wp.pl>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260103_060518_569327_7BB2C0CD 
-X-CRM114-Status: GOOD (  18.99  )
+X-CRM114-CacheID: sfid-20260103_061141_418541_68045B3B 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,88 +76,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---kv5ni5kly6ecqwne
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v1 2/3] arm64: dts: rockchip: rk3588-rock-5b-5bp-5t: Fix
- USB host phy-supply on Rock 5b-5bp-5t SbC
-MIME-Version: 1.0
-
-Hi,
-
-On Sat, Jan 03, 2026 at 02:01:18PM +0530, Anand Moon wrote:
-> The USB host USB2 and USB3 on the Rock 5B, 5BP, and 5T is powered by the
-> USB_HOST_PWREN_H gpio pin which is used to enable vcc5v0_host host
-> regulator which ensures proper power sequencing and management for onboard
-> Double-USB-HOST.
->=20
-> Update the u2phy2_host node to reference the correct phy-supply.
->=20
-> Cc: Sebastian Reichel <sebastian.reichel@collabora.com>
-> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+On Fri, Jan 02, 2026 at 04:47:33PM +0100, Aleksander Jan Bajkowski wrote:
+> Add the clock gate and reset line, both of which are available
+> on the Airoha AN7581.
+> 
+> Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
 > ---
+> v3:
+> - introduce patch
+> ---
+>  .../crypto/inside-secure,safexcel-eip93.yaml       | 14 ++++++++++++++
+>  1 file changed, 14 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml b/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml
+> index 997bf9717f9e..c6c99c08dc68 100644
+> --- a/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml
+> +++ b/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml
+> @@ -48,20 +48,34 @@ properties:
+>    interrupts:
+>      maxItems: 1
+>  
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  resets:
+> +    maxItems: 1
+> +
+>  required:
+>    - compatible
+>    - reg
+>    - interrupts
+> +  - clocks
+> +  - resets
 
-u2phy2_host is connected to an onboard USB hub chip, which is
-powered by &vcc5v0_sys as the comment says.
+That's ABI break without explanation in the commit msg.
 
-You can see this on page 9 of the v1.45 ROCK 5B schematics (page
-name USB2HUB). The usb hub chip uses VCC5V0_SYS + VCC_3V3_S0 and is
-connected to USB20_HOST0_DP, USB20_HOST0_DM. The related USB
-controller for that in the upstream DT is &usb_host0_ehci, which
-in turn is using &u2phy2_host. Thus at least for the ROCK 5B the
-existing DT is correct. Properly describing the downstream port
-VBUS regulator would require something like the following series:
+Best regards,
+Krzysztof
 
-https://lore.kernel.org/all/20250911-v6-16-topic-usb-onboard-dev-v4-0-1af28=
-8125d74@pengutronix.de/
-
-Greetings,
-
--- Sebastian
-
->  arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
->=20
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi b/ar=
-ch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
-> index 0cd8ac7bf538..886d788572fc 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi
-> @@ -981,8 +981,7 @@ &u2phy2 {
->  };
-> =20
->  &u2phy2_host {
-> -	/* connected to USB hub, which is powered by vcc5v0_sys */
-> -	phy-supply =3D <&vcc5v0_sys>;
-> +	phy-supply =3D <&vcc5v0_host>;
->  	status =3D "okay";
->  };
-> =20
-> --=20
-> 2.50.1
->=20
-
---kv5ni5kly6ecqwne
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmlZIfsACgkQ2O7X88g7
-+ppfnBAAlkhFx+COcza3lA5ddFOvmfszMCpFeKSBHkXDGlL5a12sMSXTlQqO0S0A
-LR2IHlvQWQy+k0gRuh12FByzc+UmFcfw9BF27Hyk6sSZLfiivT1bD6P7/99+4qwJ
-NO7O8GrJDH4FRacbTQy1qi4Yv/S1R4juSsdHUHL5Zi/Y+Yc6YjW5c+d0shZ661kd
-kEfw1KuNGdeG4DDrgGqKgUTd+Cy82VicsBw8gqoG/Ur1I65HLFZtJSVLjN4oK3HM
-pE9fixoWUR0GPsmDEEFjy5jnWs9hc+bW8Zb80QbUFPBLRe+0P8rcm9M/zOVzibX4
-A2MRLqOmq8JEwPIaxjL3KI1xerbMGjeK+V6qBKJxRv6TTDMGNh+IbbDoq1N5APJv
-1xaTUPXZxYnu3HasyGpjytPzYeP3W5T0T1OWgQ28TruwPqHtvMM61xxLMjM3Wpa9
-3EibGeXO2VzPJBPq6z2SxguIY3uPG7hTznTMMAq9yantUdhCBkevDncyXJjja/Wd
-gYzkXhCokKk2JzlvExvkjzkhQSrFuFaiDF1vHkxykGnWjdxuBUkMDcCNYieMuUHx
-cFwHljZUeM7wImpi/4kYaSAiEN+IArTtWDusptTaCOC0nMYd6tjn7YV12jFDaRZM
-h2o1H0TPQ9cXOMv5of6qEpichDrcuU9fN8D+0cR7PW17yfDzvr0=
-=j8HA
------END PGP SIGNATURE-----
-
---kv5ni5kly6ecqwne--
 
