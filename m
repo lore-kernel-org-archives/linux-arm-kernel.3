@@ -4,105 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3478FA3750
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Jan 2026 12:38:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9110FA3750
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Jan 2026 12:43:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7AGEQXVff4Cjra/LEG8aFJKzdBMi+jbn5H5NG2dDiwk=; b=ogLiJ2QhIU5tK1RBHQ2WyzR+dT
-	HTzZZOQpxHfldt+7VyoDngfJ8hyfs2IB32+arF7RtUbiLbQenyoDIjSRHAF893F8GCxBFMp6SE7d6
-	5SqyrNiN4xoQElvy1/d8aPfRhiPJpSaB7gHOdHv0nbmp+d5/QWVOqjjFLNQnmGU6MgAcxjksljT6H
-	OqzZDNG7o6Obs5vGHq3E9V76jrBXybokDTNhodnRyZV2GSRKOtsnzpe//kQwRw3fosoQ9CnPObtkd
-	8OUugvkIzOnNt9ewA6oM3f1yZlvxBT0P8b6zG6nTYDqVaPiYrjMIgv9a2pV1P+i3RSqJ0LTpDPjPD
-	c63asqHQ==;
+	bh=Ml3RHk6kRBT37njG0R4eb6uztrcNodBSVGrEuOrbQWA=; b=EkByuuwrNhGQnmpBjOnsNFb+nN
+	2XO8bbrqaVcmuUO8ojbbBil9pahNAyFbKI3WE2SuA4I4hLzqSNCNk76k/8a44T/3F6rd1QgE1kfEk
+	2CLdbpie2srtlotsnT8gmje198xscKltn10oDNBJH39lnoMPAduTV+roayr6h5V6MQNrBzLIRWiWa
+	qcvDcOEXy55YBW44Y1/2AkNiy47kVxpiu4vd/6pDvMZ5Jk6K5aCXbIvw2QhiwwMbbbMyFBChFo65K
+	lF27BogbnnMnySY6Djm3xjy5+WgACKQ7HkEPWEruh0/JfwYfSE1L9M5mYMwNa9hEDlerIr1Z1SyOo
+	gPvOzWrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vc0tu-00000009M60-3Puf;
-	Sat, 03 Jan 2026 12:38:34 +0000
-Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
+	id 1vc0yn-00000009MQy-3iWc;
+	Sat, 03 Jan 2026 12:43:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vc0ts-00000009M5a-3kJt
+	id 1vc0yl-00000009MQW-1C8d
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Jan 2026 12:38:34 +0000
-Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-37bbb36c990so5650111fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 03 Jan 2026 04:38:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1767443911; x=1768048711; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7AGEQXVff4Cjra/LEG8aFJKzdBMi+jbn5H5NG2dDiwk=;
-        b=laRzB5ViPpPMcBJl266ATxRxmhlauYDYvq+UImEU3zMcTzkOekRI1FUGqOymXfhNtN
-         PPp0AOcQ2qm7zHFri9m/WBM5/2//9e4FcydMJUqV9+tavMezlGp7IRKJmT8r5C76H2dy
-         7ChxhSEJKJ1/qezZRbqfsR44qUQS2xHnft/89IovN6CLoLxdZubLfybytYxZDYwQBlLt
-         MTL90cL+AqiIXbsygCaAy1LNCFouz83JQs8iaO6OKIeg5PDLVHPIWeM+Ipr725+IzElh
-         cwiW9mhhWZs/VYv4lgdkcZWbYRe3P+XvXDbzFKLTYuVNklOKJLGEPpVrN8MAn/t5ZkLO
-         m6Fw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767443911; x=1768048711;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=7AGEQXVff4Cjra/LEG8aFJKzdBMi+jbn5H5NG2dDiwk=;
-        b=g4JbPQwNOgeOij8G5yIwbfX/SOIUk99FvDM8xYvDeFBKwnXuO+x/DmBp5GDyDBBVfr
-         N2woTEyeZwLCgJooXJKgppikaxRfee3akSu38puFk+l+ZHpKaJUYPUGrfD8uFObbJ+DH
-         EOL/adhIM9scPXYBoovtmGMTNLJOe8wKtDB5iZAn0ORf0HopH7QZ45fvza56IOfoCT+0
-         /tZ0GsZkL1NN7eOn7xS76f+tniH/b6CNX3aO463rak+wOu97ccZiAeuA+sjYcSM670vP
-         p5sHyLT1dg8D1WTYQy6ocwKukVSwA9lczc94UGAgnkLVIWL8sxpbwCXbJjRw2KojS10N
-         el4A==
-X-Forwarded-Encrypted: i=1; AJvYcCXJIHjD4ORZJNBWsALuFiKh4sXkIql1d8nJACV7KkmSa6uhoDUizRRYjEdogNodxWmR2tGjLgkkOXbTFfCV+wbU@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7+LhkBnyr7sPIkxVBCXGSLXyd6RjwoM8dVD48NrbP/EeZg9x5
-	sYkV/XMKVitkEwvdHAB0CrO9x02KaDNcJWFuYhD8hjVsa4XVKjwPRaUy
-X-Gm-Gg: AY/fxX6kZMHt88hSOjmZJ1jH+4cvehgUkH12z9NnpJCckRwguL2lIEZoUiqmqLgf4P3
-	SUYVN1zRXFrh/jdTKTU3e67ZjrJKfKnf+54GGAvDfUK1+pak6Qc8Kvx0TJGZ9Fkz1/NkC8iCSxq
-	NJzeZ+YH9O9ulLXRA0XAhqy9DThecFQvmlZ7Erqm/PPv3zatvp78ckbxU55vsHqckV5PX3d8TNt
-	nQfDkf4XwfFwQGJEs3RE8QKUpMgT6eS2loxX7y9ckMATRMb96P/coQ0ZbN02QdkGGips4ErsbHd
-	Sl9KZBvzkx5kXVusQyjndji86K3+/0h7BLE5Lcj1IoWkNWCM16AbqFnXrENJGRlYZLUtT+XPvdX
-	3xVylm8xfpi4TIMkmg2v94ojDowt9Z9QkRdetc8hB1QESKuzs0SwSptjE3bieXSBOg07gz7RJ0Q
-	0fNrM6Gj+f5hhoYdoieizMkkoW4jUgkzS9EMo5lEkoEQIyH4Exjs1h
-X-Google-Smtp-Source: AGHT+IGuPwj5c90N/yOSzvW/fHyvSi9BbZ6Md54mttsoAORSkjxjxsJYQaWeJvjkrO56uLXSAEKKNQ==
-X-Received: by 2002:a05:600c:198a:b0:477:9fa0:7495 with SMTP id 5b1f17b1804b1-47d6c803ca7mr16959765e9.14.1767437190097;
-        Sat, 03 Jan 2026 02:46:30 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d6c0c148bsm13448405e9.18.2026.01.03.02.46.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 03 Jan 2026 02:46:29 -0800 (PST)
-Date: Sat, 3 Jan 2026 10:46:27 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: "Jason A. Donenfeld" <Jason@zx2c4.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Huacai Chen
- <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, Michael
- Ellerman <mpe@ellerman.id.au>, Paul Walmsley <pjw@kernel.org>, Palmer
- Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Heiko
- Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, Alexander
- Gordeev <agordeev@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
- <dave.hansen@linux.intel.com>, Kees Cook <kees@kernel.org>, "Gustavo A. R.
- Silva" <gustavoars@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Mark Rutland
- <mark.rutland@arm.com>, Ard Biesheuvel <ardb@kernel.org>, Jeremy Linton
- <jeremy.linton@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v3 2/3] prandom: Convert prandom_u32_state() to
- __always_inline
-Message-ID: <20260103104627.2f385d20@pumpkin>
-In-Reply-To: <719b7b99-3615-46cd-84d9-8b8fc21e3ce9@arm.com>
-References: <20260102131156.3265118-1-ryan.roberts@arm.com>
-	<20260102131156.3265118-3-ryan.roberts@arm.com>
-	<CAHmME9qHiVZwf4TAringRHSZ-yqHuPwmP=Wnx98n09jv7Vu_Rg@mail.gmail.com>
-	<719b7b99-3615-46cd-84d9-8b8fc21e3ce9@arm.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Sat, 03 Jan 2026 12:43:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1B1BA40BCE;
+	Sat,  3 Jan 2026 12:43:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1232C113D0;
+	Sat,  3 Jan 2026 12:43:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767444211;
+	bh=WKzSagjUrc1Ok9kQYkkRHAtz/xqko+E580OAxbZPQhk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qMJMLvmV85nrOxG9pg5sUOmzinCv9jmhQgDVANjnNOCriiWl0b1cbW2AD7DsAsud0
+	 Oucmok9Q0MJXnzBIWow2eyDl0lokatkEQmR8yInw6zPQDV+yfoTECkzQeLdHWweb3a
+	 yHqVJYHZUircK0kMpLCbzXDxazelsWVai+f+4hjDmWSzQ3S2Mf9PWOYjmX/CXtxQN6
+	 t6vB4GPz0nn87X/5LRdb2eW/eDdxSLjxUrfqxMpz6WUdvPGQj7GITLlQIEpUJggwR5
+	 V0PyDtNUb6bUoA3tbNLS9JPnvVnXeVJf4yADtHV/HsXo9d4waCj/WX6rbLD7Zbf5YC
+	 VEyJk03Zs4OIg==
+Message-ID: <a77325ae-fc53-4554-a7d8-3bdd841e1065@kernel.org>
+Date: Sat, 3 Jan 2026 13:43:29 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] soc: nxp: Add a simple NXP LPC32xx socinfo driver
+To: Vladimir Zapolskiy <vz@mleia.com>, Arnd Bergmann <arnd@arndb.de>
+Cc: Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260101235647.2411062-1-vz@mleia.com>
+ <20260101235647.2411062-3-vz@mleia.com>
+ <accb4ab1-07fa-4e33-a74c-2c588ca415ac@kernel.org>
+ <eb9ef21a-c0b4-4c8d-b1b1-6c76f45c53aa@mleia.com>
+ <1eef3c49-83a7-48d4-96ad-ffb71df2be7a@kernel.org>
+ <1a336af6-6c27-4211-9c8c-ede4d091eb17@mleia.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <1a336af6-6c27-4211-9c8c-ede4d091eb17@mleia.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260103_043832_992434_E3F329F0 
-X-CRM114-Status: GOOD (  30.64  )
+X-CRM114-CacheID: sfid-20260103_044335_379791_9DBD7EA3 
+X-CRM114-Status: GOOD (  15.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,188 +121,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2 Jan 2026 14:09:26 +0000
-Ryan Roberts <ryan.roberts@arm.com> wrote:
+On 02/01/2026 14:21, Vladimir Zapolskiy wrote:
+> On 1/2/26 14:54, Krzysztof Kozlowski wrote:
+>> On 02/01/2026 13:36, Vladimir Zapolskiy wrote:
+>>> On 1/2/26 11:58, Krzysztof Kozlowski wrote:
+>>>> On 02/01/2026 00:56, Vladimir Zapolskiy wrote:
+>>>>> Add NXP LPC32xx specific driver to get unique SoC ID from System Control
+>>>>> Block registers and export it to userspace.
+>>>>>
+>>>>> Signed-off-by: Vladimir Zapolskiy <vz@mleia.com>
+>>>>> ---
+>>>>>    drivers/soc/Kconfig           |   1 +
+>>>>>    drivers/soc/Makefile          |   1 +
+>>>>>    drivers/soc/nxp/Kconfig       |  16 +++++
+>>>>>    drivers/soc/nxp/Makefile      |   2 +
+>>>>>    drivers/soc/nxp/lpc32xx-soc.c | 114 ++++++++++++++++++++++++++++++++++
+>>>>>    5 files changed, 134 insertions(+)
+>>>>>    create mode 100644 drivers/soc/nxp/Kconfig
+>>>>>    create mode 100644 drivers/soc/nxp/Makefile
+>>>>>    create mode 100644 drivers/soc/nxp/lpc32xx-soc.c
+>>>>>
+>>>>> diff --git a/drivers/soc/Kconfig b/drivers/soc/Kconfig
+>>>>> index a2d65adffb80..c21b0d2f58fc 100644
+>>>>> --- a/drivers/soc/Kconfig
+>>>>> +++ b/drivers/soc/Kconfig
+>>>>> @@ -18,6 +18,7 @@ source "drivers/soc/loongson/Kconfig"
+>>>>>    source "drivers/soc/mediatek/Kconfig"
+>>>>>    source "drivers/soc/microchip/Kconfig"
+>>>>>    source "drivers/soc/nuvoton/Kconfig"
+>>>>> +source "drivers/soc/nxp/Kconfig"
+>>>>>    source "drivers/soc/pxa/Kconfig"
+>>>>>    source "drivers/soc/qcom/Kconfig"
+>>>>>    source "drivers/soc/renesas/Kconfig"
+>>>>> diff --git a/drivers/soc/Makefile b/drivers/soc/Makefile
+>>>>> index 47a3925ff84c..a04c21a8a5a4 100644
+>>>>> --- a/drivers/soc/Makefile
+>>>>> +++ b/drivers/soc/Makefile
+>>>>> @@ -24,6 +24,7 @@ obj-y				+= loongson/
+>>>>>    obj-y				+= mediatek/
+>>>>>    obj-y				+= microchip/
+>>>>>    obj-y				+= nuvoton/
+>>>>> +obj-y				+= nxp/
+>>>>>    obj-y				+= pxa/
+>>>>>    obj-y				+= qcom/
+>>>>>    obj-y				+= renesas/
+>>>>
+>>>> Missing maintainers entry.
+>>>>
+>>>>
+>>>>> +
+>>>>> +static int lpc32xx_soc_probe(struct platform_device *pdev)
+>>>>> +{
+>>>>> +	struct soc_device_attribute *soc_dev_attr;
+>>>>> +	struct device *dev = &pdev->dev;
+>>>>> +	struct soc_device *soc_dev;
+>>>>> +	struct regmap *scb;
+>>>>> +	u32 serial_id[4];
+>>>>> +	int ret;
+>>>>> +
+>>>>> +	soc_dev_attr = devm_kzalloc(dev, sizeof(*soc_dev_attr), GFP_KERNEL);
+>>>>> +	if (!soc_dev_attr)
+>>>>> +		return -ENOMEM;
+>>>>> +
+>>>>> +	soc_dev_attr->family = "NXP LPC32xx";
+>>>>> +
+>>>>> +	ret = of_property_read_string(of_root, "model", &soc_dev_attr->machine);
+>>>>> +	if (ret)
+>>>>> +		return ret;
+>>>>> +
+>>>>> +	scb = syscon_regmap_lookup_by_compatible("nxp,lpc3220-scb");
+>>>>
+>>>> This is undocumented ABI.
+>>>
+>>> What is the expected level of documentation for syscon?
+>>
+>> git grep nxp,lpc3220-scb
+>>
+>> gives me 0 results.
+>>
+>> Documentation is supposed to be in this patchset. If it is not, you have
+>> changelog part to explain dependencies and unusual things.
+> 
+> The documentation is under review, as a DT maintainer you are in To: list
+> and should have it in the mailbox, for anyone's convenience the dependency
+> is mentioned in the cover letter to this changeset also.
 
-> On 02/01/2026 13:39, Jason A. Donenfeld wrote:
-> > Hi Ryan,
-> >=20
-> > On Fri, Jan 2, 2026 at 2:12=E2=80=AFPM Ryan Roberts <ryan.roberts@arm.c=
-om> wrote: =20
-> >> context. Given the function is just a handful of operations and doesn'=
-t =20
-> >=20
-> > How many? What's this looking like in terms of assembly?  =20
->=20
-> 25 instructions on arm64:
->=20
-> 0000000000000000 <prandom_u32_state>:
->    0:	29401403 	ldp	w3, w5, [x0]
->    4:	aa0003e1 	mov	x1, x0
->    8:	29410002 	ldp	w2, w0, [x0, #8]
->    c:	531e74a4 	lsl	w4, w5, #2
->   10:	530e3468 	lsl	w8, w3, #18
->   14:	4a0400a5 	eor	w5, w5, w4
->   18:	4a031863 	eor	w3, w3, w3, lsl #6
->   1c:	53196047 	lsl	w7, w2, #7
->   20:	53134806 	lsl	w6, w0, #13
->   24:	4a023442 	eor	w2, w2, w2, lsl #13
->   28:	4a000c00 	eor	w0, w0, w0, lsl #3
->   2c:	121b6884 	and	w4, w4, #0xffffffe0
->   30:	120d3108 	and	w8, w8, #0xfff80000
->   34:	121550e7 	and	w7, w7, #0xfffff800
->   38:	120c2cc6 	and	w6, w6, #0xfff00000
->   3c:	2a456c85 	orr	w5, w4, w5, lsr #27
->   40:	2a433504 	orr	w4, w8, w3, lsr #13
->   44:	2a4254e3 	orr	w3, w7, w2, lsr #21
->   48:	2a4030c2 	orr	w2, w6, w0, lsr #12
->   4c:	4a020066 	eor	w6, w3, w2
->   50:	4a050080 	eor	w0, w4, w5
->   54:	4a0000c0 	eor	w0, w6, w0
->   58:	29001424 	stp	w4, w5, [x1]
->   5c:	29010823 	stp	w3, w2, [x1, #8]
->   60:	d65f03c0 	ret
 
-That is gcc, clang seems to generate something horrid (from godbolt).
-I'm not sure what it has tried to do (and maybe it can't in kernel)
-but it clearly doesn't help!
-.LCPI0_0:
-        .word   18
-        .word   2
-        .word   7
-        .word   13
-.LCPI0_1:
-        .word   6
-        .word   2
-        .word   13
-        .word   3
-.LCPI0_2:
-        .word   4294443008
-        .word   4294967264
-        .word   4294965248
-        .word   4293918720
-.LCPI0_3:
-        .word   4294967283
-        .word   4294967269
-        .word   4294967275
-        .word   4294967284
-prandom_u32_state:
-        adrp    x9, .LCPI0_1
-        ldr     q0, [x0]
-        adrp    x10, .LCPI0_3
-        ldr     q1, [x9, :lo12:.LCPI0_1]
-        adrp    x9, .LCPI0_0
-        ldr     q3, [x10, :lo12:.LCPI0_3]
-        ldr     q2, [x9, :lo12:.LCPI0_0]
-        adrp    x9, .LCPI0_2
-        mov     x8, x0
-        ushl    v1.4s, v0.4s, v1.4s
-        ushl    v2.4s, v0.4s, v2.4s
-        eor     v0.16b, v1.16b, v0.16b
-        ldr     q1, [x9, :lo12:.LCPI0_2]
-        and     v1.16b, v2.16b, v1.16b
-        ushl    v0.4s, v0.4s, v3.4s
-        orr     v0.16b, v0.16b, v1.16b
-        ext     v1.16b, v0.16b, v0.16b, #8
-        str     q0, [x8]
-        eor     v1.8b, v0.8b, v1.8b
-        fmov    x9, d1
-        lsr     x10, x9, #32
-        eor     w0, w9, w10
-        ret
+There is nothing about dependency and nothing about binding in the cover
+letter, so no - this is not explained nowhere and must have been explained.
 
-The x86 versions are a little longer (arm's barrel shifter helps a lot).
-
->=20
-> > It'd also be
-> > nice to have some brief analysis of other call sites to have
-> > confirmation this isn't blowing up other users. =20
->=20
-> I compiled defconfig before and after this patch on arm64 and compared th=
-e text
-> sizes:
->=20
-> $ ./scripts/bloat-o-meter -t vmlinux.before vmlinux.after
-> add/remove: 3/4 grow/shrink: 4/1 up/down: 836/-128 (708)
-> Function                                     old     new   delta
-> prandom_seed_full_state                      364     932    +568
-> pick_next_task_fair                         1940    2036     +96
-> bpf_user_rnd_u32                             104     196     +92
-> prandom_bytes_state                          204     260     +56
-> e843419@0f2b_00012d69_e34                      -       8      +8
-> e843419@0db7_00010ec3_23ec                     -       8      +8
-> e843419@02cb_00003767_25c                      -       8      +8
-> bpf_prog_select_runtime                      448     444      -4
-> e843419@0aa3_0000cfd1_1580                     8       -      -8
-> e843419@0aa2_0000cfba_147c                     8       -      -8
-> e843419@075f_00008d8c_184                      8       -      -8
-> prandom_u32_state                            100       -    -100
-> Total: Before=3D19078072, After=3D19078780, chg +0.00%
->=20
-> So 708 bytes more after inlining.
-
-Doesn't look like there are many calls.
-
-> The main cost is prandom_seed_full_state(),
-> which calls prandom_u32_state() 10 times (via prandom_warmup()). I expect=
- we
-> could turn that into a loop to reduce ~450 bytes overall.
-
-That would always have helped the code size.
-And I suspect the other costs of that code make unrolling the loop pointles=
-s.
-
->=20
-> I'm not really sure if 708 is good or bad...
->=20
-> >  =20
-> >> +static __always_inline u32 prandom_u32_state(struct rnd_state *state)=
- =20
-> >=20
-> > Why not just normal `inline`? Is gcc disagreeing with the inlinability
-> > of this function? =20
->=20
-> Given this needs to be called from a noinstr function, I didn't want to g=
-ive the
-> compiler the opportunity to decide not to inline it, since in that case, =
-some
-> instrumentation might end up being applied to the function body which wou=
-ld blow
-> up when called in the noinstr context.
->=20
-> I think the other 2 options are to keep prandom_u32_state() in the c file=
- but
-> mark it noinstr or rearrange all the users so that thay don't call it unt=
-il
-> instrumentation is allowable. The latter is something I was trying to avo=
-id.
->=20
-> There is some previous discussion of this at [1].
->=20
-> [1] https://lore.kernel.org/all/aS65LFUfdgRPKv1l@J2N7QTR9R3/
->=20
-> Perhaps keeping prandom_u32_state() in the c file and making it noinstr i=
-s the
-> best compromise?
-
-Or define prandom_u32_state_inline() as always_inline and have the
-real function:
-u32 prandom_u32_state(struct rnd_state *state)
-{
-	return prandom_u32_state_inline(state);
-}
-
-So that the callers can pick the inline version if it really matters.
-
-	David
-
->=20
-> Thanks,
-> Ryan
->=20
-> >=20
-> > Jason =20
->=20
->=20
-
+Best regards,
+Krzysztof
 
