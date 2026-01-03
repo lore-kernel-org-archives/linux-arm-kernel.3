@@ -4,78 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAD88FC6180
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Jan 2026 14:24:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B8D4FC617C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Jan 2026 16:38:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ih+WSwVVDojt8+S5KlRj+VrWY8LbNzRPse4rqBZZ5G0=; b=TJF2q1dNkqBne1DWLh/CJyNaSS
-	c0ReK+dZNwQSn4296OzYf/dynF+c1SJz7gNY/dxVwzpLB+Z7CsZziJzKHZq/eoRzl6qSBJL7eS1It
-	nDBfHg97xxl20+wymHFAv13dJ6G+FX9SH2xnkG49kAG/6mAQr/KsPt5sFE9v0JWrYRBaVLV3VaJVJ
-	8Ff5s0N+7ZFEIDURKoVtLJZ3So72IarVLokI1/RWwPzUEPsrUMnC2D39+kbO4QkrQbowh4BRXemXD
-	gmDnq1Dn2LCW1rMwmp+TISxk/SKyZwPdhJyeWS19/QrgDQcGn6ut3UW0ldWB7k8ms+7b8TlbZ+4cS
-	8usNP1ig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FEJdWzcgO1wWmrKO/GtACSCjJ2V1a5B/5oU/evmLnQc=; b=bMGD5659wSGbzi7lWdrh3nLy6U
+	SqhSb2Yrkz+XjJwvr6R1CbYJTzIzNMIr5Pqm+XwRlBfGD5t9uAvR5TZKhtXE/13C5uFE38PIroi3t
+	aB97d8wxK9IIanVPhtB93u10h/Wt9odiy7zilZo6OBZyJDDKNpeJk+AsIiCf69bA0tBiRFYaLb4Ao
+	A+c/Ok9sp4JLiZdPwfKFl3iqLcJE5INMIGcn98QkHPvwcMV9TVJ9FCFJGtoH3TiTgfFS2Fa57LJyI
+	MbO4QMfmkk28Ie7X3vnCSVhIAVtnKCmzH6ZysNM8TF3/Sufm5hISlrL8k0wx9sSIaQnQtyfcC1vIM
+	/6PD3PmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vc2YI-00000009PEW-2xe7;
-	Sat, 03 Jan 2026 14:24:22 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vc4dx-00000009cd8-2Hjo;
+	Sat, 03 Jan 2026 16:38:21 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vc2YF-00000009PE8-3ghT;
-	Sat, 03 Jan 2026 14:24:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1767450251; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=GrDAJsOcMRqa4lmRjcJ8byk9lPym882PrTIq79tcqvVWrr6QsydRXjaVBVtI3T/zgVCHVY8IroVf0Q2YwKgOwThXT5gz1ac63sKPV7Jzvre9ewDed+efyyggAJvj+cdV1yFPbtnjMCfFKDCnXrY/2l0ycWiP2TmOx+DCLMN6m5k=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1767450251; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Ih+WSwVVDojt8+S5KlRj+VrWY8LbNzRPse4rqBZZ5G0=; 
-	b=mVJ63CjVN7jPXgOHuxu07CPxAqC0rV4eEoSFgaCCmR/wXImHSGLWcubp1BgJ0u8nW9nnadcqTSpbWxY6chxBrmn9bRC6/mMSpbh0+2g9joNJ6Sl8U8Obb19n2/v0PXWEBSBU1NC3hS7Lfq5wWm4MyFqgqI258flC/r6KfC956JU=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
-	dmarc=pass header.from=<sebastian.reichel@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1767450251;
-	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
-	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
-	bh=Ih+WSwVVDojt8+S5KlRj+VrWY8LbNzRPse4rqBZZ5G0=;
-	b=MpCacc/zU7n4iYLpFcx3C1+y7S1j8UVNz1NHwBplAokSKOgMRlDU5WYfUC+SdFgi
-	cCbEQz3/3E+UcaTmCbm9pimWXbU3Ll990H2KRkCmyTi0QYMSOrElO8ZwlSnAVndCs+l
-	zKXqFK8XoJyYI2w6vIxu1BNyeUWimIAvV+2mDCdc=
-Received: by mx.zohomail.com with SMTPS id 1767450248307364.7110964115078;
-	Sat, 3 Jan 2026 06:24:08 -0800 (PST)
-Received: by venus (Postfix, from userid 1000)
-	id 8D11E18054C; Sat, 03 Jan 2026 15:24:03 +0100 (CET)
-Date: Sat, 3 Jan 2026 15:24:03 +0100
-From: Sebastian Reichel <sebastian.reichel@collabora.com>
-To: Anand Moon <linux.amoon@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, FUKAUMI Naoki <naoki@radxa.com>, 
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Diederik de Haas <didi.debian@cknow.org>, 
-	Yongbo Zhang <giraffesnn123@gmail.com>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
-	"moderated list:ARM/Rockchip SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>, 
-	"open list:USB TYPEC CLASS" <linux-usb@vger.kernel.org>
-Subject: Re: [PATCH v1 0/3] Typc fusb302 powerloss issue on Radxa Rock 5b
-Message-ID: <aVkinPvh_jxdh9wm@venus>
-References: <20260103083232.9510-1-linux.amoon@gmail.com>
+	id 1vc4du-00000009caG-0byy
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 03 Jan 2026 16:38:19 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4779adb38d3so83468565e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 03 Jan 2026 08:38:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1767458294; x=1768063094; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=FEJdWzcgO1wWmrKO/GtACSCjJ2V1a5B/5oU/evmLnQc=;
+        b=eKL1fFrY8yAg4dakfjndAj3yFu+EDmSlStObAUmR1xO3JnjIgJcf52Kn21/UoRVJoE
+         EXrfPI/Cxh3wnQxMYFpmULbdww2A7huNQ7bBuNj02aqqMyxzFKXRe4QvNf49AePxnTNV
+         yiHGlpZajS875bCVYy5Fdse2rKzG1NPTrysjgkJ9eUM9KsSYiMJf5X4kgJitC7Ey4L+X
+         0wsArYHn4BUqqeEOGcZd6q6VQQ1993xWfTq6z0uVJ4nr0zWTO65qjrftZvnkug9Bc9/J
+         fSB2LqatUNr/bPlXRVwQnyfZ8qPvZZsoLQK6kVgPfva8D3rA8qTnyT+XBpSyPwfcsu1i
+         lQwA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767458294; x=1768063094;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FEJdWzcgO1wWmrKO/GtACSCjJ2V1a5B/5oU/evmLnQc=;
+        b=J0vrI3YzKPXHLmBVnk54W/27oKH+/67d2TAHbwCvU/ONQEZ8GK3emab9V8otmG1H6D
+         PWEVQAvn/wWo4SIkvPKrQN9Kxw+bGaEPGqmS8VKPsyaQCWO8pEoxEiWktK/YTNd8yNuU
+         vXxCxvh+I39oE4LQla859/bItT4KdQDtE9XugG+3DDuAY7xrIDYNUkrUE8B9MxGY7i+K
+         HUzmYa93gDnxwHOVsextbgVCZB4LhaX29194OOHvWt0vsrHtJjrKV4IP85sIzfxKLcPS
+         TJNI3YfLRP8qvCZ2nqdLG9AgNsrWGor6no/ZgUHwObq09pa/GwVAzrSdr9IC8NLKR3hF
+         2viQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVQmcAKPSZf8KX54CIaK1BaOPFylFKa/yAqwWiTfjekwb/e47RaKywQztkMfecZPK6Hxjj7sGjo/6YZdK44heXO@lists.infradead.org
+X-Gm-Message-State: AOJu0YwggkWnFqZIAQuJCzJpLrMjEqgkFFlTeaUrbpjdrClor+sIuWcX
+	bAX3p1IpAhsiHjX8b7iQEI0GWFBWbeAoInam2cmDf21zT92AQFO7EQ0Sw133s/Tt9pQ=
+X-Gm-Gg: AY/fxX7ptT0qCgeSv4kho1mDs7yKCVEIX23MeYrsEES5VZYOwR6KuLIfqgAiN8smTqB
+	wutXx9YBuPnOAKMlLcaNE6x4mn+WImiwsQ9aJPo8h10ZB42zz8toRLOCVl5pqsOAJzYiG9qbazR
+	1qqC7o+/JTBfnqqjGoxjXoczZf//j2LTrp/r9tdC1g/IeOqRnknsd+zpEeLRwFA/7AsA5C4VZNE
+	MogUPBUUu5uN2q+/5HabzdfrHok5L02fplMCWEitpOqtWqaAYGGdE0OYSSzrbwrxiyIpYOGeF5b
+	cReGIDYnx2NSXT3abWyWsl/NEZ4Twv2gwNYQ4nxylqf5Dh6PLkBM3KLNHIlw36zMi+WahPl8zzy
+	hLGxVkAN296Sm9e9KTK5JeYJYa0vv+HbmzI9vS0eCwNabyWbm02K4mO45qr1ZwPH3IXYZK4TjbT
+	KBVIuzEmxlC1ay82jl
+X-Google-Smtp-Source: AGHT+IG4JAdlO0U8i+J5bpIjo4ekwqJRiQzRTsLhZBn+ylFbVsnbcAn7FdWwOfpr/LkRch/vZBHwDw==
+X-Received: by 2002:a05:600c:540e:b0:479:2651:3f9c with SMTP id 5b1f17b1804b1-47d1955794dmr485976865e9.14.1767458294378;
+        Sat, 03 Jan 2026 08:38:14 -0800 (PST)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d6be5e2eesm19201905e9.5.2026.01.03.08.38.13
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 03 Jan 2026 08:38:13 -0800 (PST)
+Message-ID: <951f10c5-e1ac-45d4-b7ca-56aa32e57cd6@linaro.org>
+Date: Sat, 3 Jan 2026 16:38:12 +0000
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="fhxt6xjqdij5sxjm"
-Content-Disposition: inline
-In-Reply-To: <20260103083232.9510-1-linux.amoon@gmail.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-1.4.3/267.430.24
-X-ZohoMailClient: External
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] perf vendor events arm64: Remove uncountable events
+To: Ian Rogers <irogers@google.com>
+Cc: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+ Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
+ Akio Kakuno <fj3333bs@aa.jp.fujitsu.com>,
+ Yoshihiro Furudera <fj5100bi@fujitsu.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org
+References: <20251231-james-perf-uncountable-events-v1-1-f2d9932999fd@linaro.org>
+ <CAP-5=fUNJLoy25rS=diSXNR9h-h4m6EFPTy8M+KpTKxm6HtDSA@mail.gmail.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <CAP-5=fUNJLoy25rS=diSXNR9h-h4m6EFPTy8M+KpTKxm6HtDSA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260103_062419_962290_9FB099CD 
-X-CRM114-Status: GOOD (  25.32  )
+X-CRM114-CacheID: sfid-20260103_083818_248496_454C665E 
+X-CRM114-Status: GOOD (  21.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,125 +112,115 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---fhxt6xjqdij5sxjm
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v1 0/3] Typc fusb302 powerloss issue on Radxa Rock 5b
-MIME-Version: 1.0
 
-Hello Anand,
+On 02/01/2026 3:29 pm, Ian Rogers wrote:
+> On Wed, Dec 31, 2025 at 4:13 AM James Clark <james.clark@linaro.org> wrote:
+>>
+>> These events are never countable by the PMU and are only intended to
+>> be used as external inputs to trace. Therefore showing them in 'perf
+>> list' is misleading so remove them.
+> 
+> What does "trace" mean in this context?
+> 
 
-On Sat, Jan 03, 2026 at 02:01:16PM +0530, Anand Moon wrote:
-> On the Radxa Rock 5B, the system occasionally experiences intermittent
-> hard resets during the boot process. Initially, I suspected a power supply
-> issue, but further investigation points to the Type-C fusb302 module as
-> the cause.
->=20
-> Specifically, probing or reloading the fusb302 module triggers a hard res=
-et,
-> which can result in immediate power loss and a reboot.
->=20
-> [root@rockpi-5b ~]# rmmod fusb302
-> [root@rockpi-5b ~]# lsmod | grep  fusb302
-> [root@rockpi-5b ~]# modprobe fusb302
-> [root@rockpi-5b ~]# [ 3389.031608][ T7143] typec_fusb302 4-0022: Initiati=
-ng hard-reset, which might result in machine power-loss.
-> [ 3390.030444][ T7143] typec_fusb302 4-0022: Initiating hard-reset, which=
- might result in machine power-loss.
+CPU trace, Either ETE (Embedded Trace Extension) or ETM (Embedded Trace 
+Macrocell). You can select PMU events as inputs to the trace block to 
+make it do things like start and stop tracing.
 
-If you see this message the TypeC port manager (TCPM) state machine
-reached the hard reset error state. A USB-PD hard reset involves
-removing VBUS for a short time, which effectively removes the board
-power on ROCK 5B. Unfortunately the situation is quite complex :)
+> Thanks,
+> Ian
+> 
+>> The generator script doesn't emit these events when used with the new
+>> telemetry-solution input files [1].
+>>
+>> 'perf list' should only show countable events because there are events
+>> that are sometimes implemented, sometimes countable and sometimes not,
+>> for example TRB_TRIG. If we always include any implemented events
+>> whether they are countable or not then it's not possible to tell whether
+>> they are usable in perf without going to the docs, defeating the point
+>> of 'perf list'.
+>>
+>> It's also not useful yet to display implemented events that are not
+>> countable (for help in using trace rather than perf stat), because
+>> PMU_OVFS and PMU_HOVFS are practically always implemented and TRB_TRIG
+>> is always implemented when there is TRBE.
+>>
+>> [1]: https://gitlab.arm.com/telemetry-solution/telemetry-solution/-/tree/main/data/pmu/cpu
+>>
+>> Signed-off-by: James Clark <james.clark@linaro.org>
+>> ---
+>>   tools/perf/pmu-events/arch/arm64/arm/cortex-a510/pmu.json  |  8 --------
+>>   tools/perf/pmu-events/arch/arm64/common-and-microarch.json | 12 ------------
+>>   tools/perf/pmu-events/arch/arm64/fujitsu/monaka/pmu.json   | 10 ----------
+>>   3 files changed, 30 deletions(-)
+>>
+>> diff --git a/tools/perf/pmu-events/arch/arm64/arm/cortex-a510/pmu.json b/tools/perf/pmu-events/arch/arm64/arm/cortex-a510/pmu.json
+>> deleted file mode 100644
+>> index d8b7b9f9e5fa..000000000000
+>> --- a/tools/perf/pmu-events/arch/arm64/arm/cortex-a510/pmu.json
+>> +++ /dev/null
+>> @@ -1,8 +0,0 @@
+>> -[
+>> -    {
+>> -        "ArchStdEvent": "PMU_OVFS"
+>> -    },
+>> -    {
+>> -        "ArchStdEvent": "PMU_HOVFS"
+>> -    }
+>> -]
+>> diff --git a/tools/perf/pmu-events/arch/arm64/common-and-microarch.json b/tools/perf/pmu-events/arch/arm64/common-and-microarch.json
+>> index 2416d9f8a83d..468cb085d879 100644
+>> --- a/tools/perf/pmu-events/arch/arm64/common-and-microarch.json
+>> +++ b/tools/perf/pmu-events/arch/arm64/common-and-microarch.json
+>> @@ -432,24 +432,12 @@
+>>           "EventName": "TRB_WRAP",
+>>           "BriefDescription": "Trace buffer current write pointer wrapped"
+>>       },
+>> -    {
+>> -        "PublicDescription": "PMU overflow, counters accessible to EL1 and EL0",
+>> -        "EventCode": "0x400D",
+>> -        "EventName": "PMU_OVFS",
+>> -        "BriefDescription": "PMU overflow, counters accessible to EL1 and EL0"
+>> -    },
+>>       {
+>>           "PublicDescription": "Trace buffer Trigger Event",
+>>           "EventCode": "0x400E",
+>>           "EventName": "TRB_TRIG",
+>>           "BriefDescription": "Trace buffer Trigger Event"
+>>       },
+>> -    {
+>> -        "PublicDescription": "PMU overflow, counters reserved for use by EL2",
+>> -        "EventCode": "0x400F",
+>> -        "EventName": "PMU_HOVFS",
+>> -        "BriefDescription": "PMU overflow, counters reserved for use by EL2"
+>> -    },
+>>       {
+>>           "PublicDescription": "PE Trace Unit external output 0",
+>>           "EventCode": "0x4010",
+>> diff --git a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/pmu.json b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/pmu.json
+>> deleted file mode 100644
+>> index 65bd6cdd0dd5..000000000000
+>> --- a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/pmu.json
+>> +++ /dev/null
+>> @@ -1,10 +0,0 @@
+>> -[
+>> -    {
+>> -        "ArchStdEvent": "PMU_OVFS",
+>> -        "BriefDescription": "This event counts the event generated each time one of the condition occurs described in Arm Architecture Reference Manual for A-profile architecture. This event is only for output to the trace unit."
+>> -    },
+>> -    {
+>> -        "ArchStdEvent": "PMU_HOVFS",
+>> -        "BriefDescription": "This event counts the event generated each time an event is counted by an event counter <n> and all of the condition occur described in Arm Architecture Reference Manual for A-profile architecture. This event is only for output to the trace unit."
+>> -    }
+>> -]
+>>
+>> ---
+>> base-commit: cbd41c6d4c26c161a2b0e70ad411d3885ff13507
+>> change-id: 20251230-james-perf-uncountable-events-28adfb93b73f
+>>
+>> Best regards,
+>> --
+>> James Clark <james.clark@linaro.org>
+>>
 
-> I attempted to trace the issue using ftrace but was unable to
-> pinpoint the root cause. The problem appears to originate either
-> from the I2C controller or the PMIC reset.
-
-I2C and PMIC are not at fault. This is all about USB-PD
-communication itself.
-
-> I have identified a potential workaround involving the I2C SCL debounce s=
-ettings
-> for the RK3588 and submitted a patch here:
->=20
-> [1] https://lore.kernel.org/all/20260103052506.6743-1-linux.amoon@gmail.c=
-om/
-
-This is most likely a red herring and just slightly changing timings
-in the USB PD communication.
-
-> Please note that the submitted changes address a minor aspect but do not =
-fully
-> resolve the underlying issue.
-
-I don't expect any fix from this series regarding your problem. Also
-I suggest having a look at my talk at the Linux Plumbers Conference
-=66rom last month where I discussed this issue :)
-
-slides: https://lpc.events/event/19/contributions/2156/attachments/1784/386=
-1/improving-stability-for-TCPM-using-boards-that-are-not-self-powered.pdf
-video: https://www.youtube.com/watch?v=3DDmLsePJoH8I
-
-Something that might be sensible to do on your end is figure out
-*how* the state machine ended up in the error state and check if
-we can avoid it. The related code for that lives in
-drivers/usb/typec/tcpm/tcpm.c and quite complex. I use the
-following two patches to ease debugging:
-
- * https://gitlab.collabora.com/hardware-enablement/rockchip-3588/linux/-/c=
-ommit/6edc68e3c0ec4c209b5e96b848e17201059ce9ee
- * https://gitlab.collabora.com/hardware-enablement/rockchip-3588/linux/-/c=
-ommit/8ca8b1d6ee36e80f794bcf351a8b78d5a96daf06
-
-Combined with CONFIG_DYNAMIC_DEBUG=3Dy and booting with the following
-kernel arguments: loglevel=3D8 tcpm.dyndbg=3D"+p" fusb302.dyndbg=3D"+p"
-
-Greetings,
-
--- Sebastian
-
->=20
-> Thanks
-> -Anand
->=20
-> Anand Moon (3):
->   arm64: dts: rockchip: rk3588-rock-5b-5bp-5t: Correct Type-C pin bias
->     settings
->   arm64: dts: rockchip: rk3588-rock-5b-5bp-5t: Fix USB host phy-supply
->     on Rock 5b-5bp-5t SbC
->   usb: typec: fusb302: Switch to threaded interrupt handler
->=20
->  arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi | 7 +++----
->  drivers/usb/typec/tcpm/fusb302.c                        | 7 ++++---
->  2 files changed, 7 insertions(+), 7 deletions(-)
->=20
->=20
-> base-commit: 805f9a061372164d43ddef771d7cd63e3ba6d845
-> --=20
-> 2.50.1
->=20
-
---fhxt6xjqdij5sxjm
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmlZJoAACgkQ2O7X88g7
-+prmAQ//Szd3e+4Q3obakorrCA/Rkjd/Falf3rVKj3JWkmeucNnOTL2jHofdgZPQ
-Up3hSKfSWMN/zCotdRopg8tBkTAC6IfHfouCbq5n/ksodO4+yXH8VZ/XqisJW6wi
-b+Nd4pWrThDpeQ4a8Tq+qEpvFbmRUxbCktoKVb8hQY6YF0GMvjGUOWiJ3NhwrKEC
-M+PIICA6+pDqwvkY3ULR65kYBE9o7fIlaRwvz9MT+R+XzdJ4v6q7L+p6w4fNgppJ
-Yf4I0PgROlpHTWhaeYKS/EdlMqszFKrW+3ykVrO2BxusCFEtzI5jm065tNomBWoC
-Yy/LWQcyCE4yb5/fupabsBgmbSN/AZqpGMS1OMivIP1DLlF4s5Qzcn4Tpoeqzjo+
-JU6BVpXv5v3ms4DUZN1cCwOf8lg2KugFccqut6uH640IndAlwrfElsC/ac6NNAWK
-uhXfnJ7VDJtVFjF3t0qQ/960JdA+MpMnEHI3px+9IP46Mq43OTL4YITn5mSetckz
-Jie3G1ctO4nroo0ZBWlDh7zNn97bDbhpshBYKK9fR8lhEmchoVBhRJ1nRPtX9cW3
-ulvUri6WY1/QEi/erCXrsVxYMhYSm1H/is7tXDChwdbb0eZfmJBRzSK2CMxbsbyr
-O1zEi87Ei8ax4giABrrIVB2XsNmQNvpL/OCqHmog9v0Al0ysdm0=
-=tlFx
------END PGP SIGNATURE-----
-
---fhxt6xjqdij5sxjm--
 
