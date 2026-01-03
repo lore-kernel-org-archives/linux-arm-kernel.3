@@ -4,87 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D31B2FC6177
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Jan 2026 09:38:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42731FA374F
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Jan 2026 10:03:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pWZkKPiFtnR/rs3kiMr68GAakSXnMiP1ZnZ9OMgWTpU=; b=E61VdowrgfMIQUzlMoZudDdyIH
-	m5p38kaE6+SyQWzPsofUBMAGyiZoH5gBnCTIuODeti/KjlA1PFpmzZtDGaUXfkyULOiGGCbCxkl2+
-	5iaHhRfOA90EviNfBvO/fbgkjGH46N7mCHLgyPEVLSuUH9RLh260OKHwQCQQccnz769SStcmDoJ9g
-	YabEGxIQaW5EssAoR8wncrfEEcSJIze7a+KpdWDE5u2jXwOnMACIKvFpSgfnSTS390g9QkczGoodS
-	cOKo5lz9q+it3yFe6FJEWvj+BdRnYHn550EH10BHhT942kj08T/3C3bBGYkUt5Yz3VwfjVzITeNJx
-	MrMYW5Pg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bDXSZppGA43wphmZJyL9aJJ8iAZCIXmj8aHnH0wAQ/k=; b=HdljJ2QfftKFeZYkJHtU/P3FvO
+	RZLYxBKr5BNCM+A44Rmgi4iYoJKhMqYWcQzlPEmOK9p3gWqMYYV4kv2X+e/bBXJ37XI/F9BeS05p4
+	j/XB5m+uyhI/e91QpeeXxZsa8i11eq6lOBPA7xunuk5bMr6sODLYJwxxx2eVG6jX6kBUsm4tJPkgx
+	2upANi7xZ+Ig7a9oGcv8Wl9vyak4JjDLc/5s5kCnySaJ9mnwk6aV2vUQR5wfXzQCPv7yGwCOEbXex
+	6Sr6y1ofdctJFKPEqeyWXFsBiNsvdnmUXWqA8C//uekNpg3debFbsCQHbPLr3M1oUOlaTRUx55UBt
+	3789zzVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vby58-000000099h6-1IaN;
-	Sat, 03 Jan 2026 09:37:58 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1vbyTo-00000009BEc-2PSC;
+	Sat, 03 Jan 2026 10:03:28 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vby55-000000099gk-4AO5
+	id 1vbyTm-00000009BE4-120j
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Jan 2026 09:37:57 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-598f8136a24so14125033e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 03 Jan 2026 01:37:54 -0800 (PST)
+	Sat, 03 Jan 2026 10:03:27 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-59445ee9738so10106144e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 03 Jan 2026 02:03:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1767433073; x=1768037873; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=pWZkKPiFtnR/rs3kiMr68GAakSXnMiP1ZnZ9OMgWTpU=;
-        b=d9ZaLEagQeL/arg+56M/YTJZ8SjfwI5nW9hHR8LZ0biCZntkCu9lxulFm1+wHwwtUE
-         O0E5BIOeBPPJcrbDhZKU1NA5yOjHIVjlyuu383Ehaza7GKqhLPDycXmEDo3JvJtR3LOL
-         aDXwjeDISDafJFW3KkKHQY0lhJu12YxD2LDKZIP+8pnQqGkdqHMxpj5m1ysymMg5wPF1
-         n4/0JuiRHPSxD9IXPxsnamDvpz3o2I7MhjN5ULEIe6LFEJ8E5YEHGtRkpeV8LqOw/iEe
-         iRflB8lR+ZQyAzK5g06hP6F4KEPkcpfir+x79ZnackMtYee/8hjKsMBjtMYGQlhyCFyl
-         Jzcg==
+        d=linaro.org; s=google; t=1767434604; x=1768039404; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=bDXSZppGA43wphmZJyL9aJJ8iAZCIXmj8aHnH0wAQ/k=;
+        b=lcZtTYTqclRpyGhhwnPYy1PdS6Tct/2kij3AjkMw/enz2GOwRwMz0FgMnvz/CLK9tz
+         vRM0M/UDSXg27yryhoGLatLTsnnQuOURfkY/SGG/1g/PUV+6/aqFC4auOCd5A3WuOCP6
+         rmBllADDyUJd6MHlbapTjsvbdYteSOIhJUj+3KV1iprXcLxQogiNxDNyoaQKmDNgDTop
+         a97H8T1ZMpayBbsFWqT2wAmd9wmgpHKUbEGgZMAPt/fEG/iA2UtoFxNfi+NgOfcUEnyT
+         HanXRjEv8soyh47dk2xtIV//oobXy1XgVWAkr7fcmsTRrQdZXR3zKjkUYWrY/Sptr0E6
+         J14w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767433073; x=1768037873;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1767434604; x=1768039404;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=pWZkKPiFtnR/rs3kiMr68GAakSXnMiP1ZnZ9OMgWTpU=;
-        b=IiTcIjHIjlNEJDl2S417Eh2E4ujju5PKZ6V+YEkozHNLsPI2hz79FPQOEIq9TVk2gf
-         jYvWeXfY0qK+Tw8mYDcPRtr0suLDPmHrP2x2NB0J0MzLWtaLmvCjHTP5J018Org9TWyZ
-         AbzW1UEQ/IusTAYz4kP7khUwMBcT12zzry62XFu3Gb9Xzd/o1cjxexZbx8BLMYVn9xSW
-         buFkk5HXOkENa6jtVCL6UW/ghpjLtrcMGBzAkHZtwQeIElX/FplIHXDHy2rgl9xXjEiV
-         VFbZwg4t4/P6xI1QIFUrqXJa7mf66L8LUx4I0y4GUxMjFFjGaXWJ/CoyKjapzKEEa5Mk
-         Jo2g==
-X-Forwarded-Encrypted: i=1; AJvYcCX+6XVL8uZwOjI4JuEmkrWU4Aj30Yj2hwgO1LyqQnG2u/BuVRGnavBWhqbspmsGUlrJoQ8lwKlrAt2izrAN34sK@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/JkuGlzk/uyz89/eL9BrgC8J/Z4EIEyLd+rzs5LcWn6mZICZV
-	l1fm69tHOkO4de/YR1LdaKchLKPnQqiQn2NSnr33octvjSeOdv+soDP9DU03qhsRnQE=
-X-Gm-Gg: AY/fxX7o3ZHCRSWC3HH6jlgUR8Pm/xYvF/ILRx5fbnkJ8ok5LVK9GqlQagI4+5L6GzH
-	BJfcgogg2iPfpUj/Dz/bBxtSt6aeb+zh44cl5+RcD8UfAACVpCL5eLDlYTzAQAi963R0DSsBWWM
-	kovzHrs2NDsV5+0L/90OHm7RA8/T+A/CuWxrqazlobaRAY95ux4IMVGjVUeJFfIjvl33LwMXl9K
-	uMWbRUcDn6u6ur0AL7h/P72MGiEKHrUqACv47fIYagQepH0HJa2VnZsOL9PxqELMmalRUhKp/yB
-	uzxySZUCcfgVStu8MGMCqVR+EqAQTlckRGMEbTd5/Hoyry5Z/SBen9oJrVXbDSL6BhT/NNNpf6h
-	HFVEoQG18z5EsfGpB/zt+8KTk0EZ8Re0bqFGi+vulbSaFWnMLxGy5oM4oc99I2G19YFo7pLoAvG
-	czTcI+wf1YbRBozWShHsNkmVxVMzqtFm2Rs+ENisIdcxRw4zU9mTI7d0hZZdJM
-X-Google-Smtp-Source: AGHT+IE+2jMoWfH0mG2kim3lvOWpG5hQP8AXw3e+htxPH4TjM8NTe2jcV7wlyub4Ua3gnsY82BxoQQ==
-X-Received: by 2002:a05:6512:747:b0:59b:29b0:11e9 with SMTP id 2adb3069b0e04-59b29b01201mr7236169e87.53.1767433072874;
-        Sat, 03 Jan 2026 01:37:52 -0800 (PST)
-Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59a185ddc12sm12970431e87.37.2026.01.03.01.37.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 03 Jan 2026 01:37:52 -0800 (PST)
-From: Ulf Hansson <ulf.hansson@linaro.org>
-To: Linus <torvalds@linux-foundation.org>,
-	linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Ulf Hansson <ulf.hansson@linaro.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] pmdomain fixes for v6.19-rc4
-Date: Sat,  3 Jan 2026 10:37:51 +0100
-Message-ID: <20260103093751.58526-1-ulf.hansson@linaro.org>
-X-Mailer: git-send-email 2.43.0
+        bh=bDXSZppGA43wphmZJyL9aJJ8iAZCIXmj8aHnH0wAQ/k=;
+        b=HjT9+Rbtq7fBCE19nQQQphwqF/mlZNtHwJzE/Jwv2FxKOIPphghseUi5IvuNzIDuD6
+         3sM/JFIbVdme6OHXhPNAuQ3+oENYOQt1ryWBRWjkZyhwKE06U2AzmAklbS2Kxk9RKeHB
+         uLjKBWw2b1rvmLb1mgn2otzNDDwFuhWCCkmJbbat8INdxS/RpA2jqngBq3yW3x6K06ga
+         ZBIGA/yxZoRAebhUOiXzqkZhf6ww5EmsoqwrF3S6Z0ku7nzX+UL6X8MHIYcLwx+DR2CN
+         XI0n5KehYvyFCwMm9PEINXzidK+pbbtUjmjqiPwfHf/YSGjrWC55mV9r2a+f9gWoCvqS
+         QZ+A==
+X-Forwarded-Encrypted: i=1; AJvYcCV4fi6w1SQfJa15+hxikKEBrTba3wPYY+UqJ2JqtHEcnW0s7Z5GxUmfxCmn6gktzAbZlpxg8bzpQW40Q5r9GEc3@lists.infradead.org
+X-Gm-Message-State: AOJu0YxS4oeThIVN3srDjNAgQWxukeZyU1EtfHa+haWRkgo5ZGSJuj8Z
+	Q9iSJRB4v926WjF/ssniXP+/3odTe8UFTpeT80qQRfcDzlelC0LjOISuJqsGgiZImby0PwgjY8a
+	3+ZSCWDDNsYC2qQELWkLVuwnsKyoMansLcruVbN9UJw==
+X-Gm-Gg: AY/fxX54hao1xmRgLvLtqrKSUd9ciTTusXpomMMGuoKoGYZH2MWL4xbw5TAvpGOR/H7
+	Cz3ug8L08u7lepfrj+PRaVV7X/VUOPLPWUdjnbC/DB2U/JGwPqrto3zh2TNSfBxfZGMz5J0vVpa
+	T6494SBcNCTFP1hyFloThK7HMSKsFNHHrcXgHxBbkWX5BGpeAU0k9UG6nU3Yi/b9uF78LWG0l6H
+	VyGJiF0sjfGNkHXToMqG93fxXKOXiCFkne0Jc1L1Rusm3eDvwRh33Si6f9HM95ooZOGzsSo
+X-Google-Smtp-Source: AGHT+IFKB5FPDCXC2bA+k7uKQBiw0br0n5E1yiLNSCnfVzhkAKxTdSHEp5ZWB2TbHk2W/He8NymlZBgfriNTTFeJlI0=
+X-Received: by 2002:a05:6512:10cf:b0:59a:108a:31fa with SMTP id
+ 2adb3069b0e04-59a17d18076mr14943741e87.10.1767434604071; Sat, 03 Jan 2026
+ 02:03:24 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20251205015428.643-1-ming.qian@oss.nxp.com> <20251205015428.643-3-ming.qian@oss.nxp.com>
+In-Reply-To: <20251205015428.643-3-ming.qian@oss.nxp.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Sat, 3 Jan 2026 11:02:48 +0100
+X-Gm-Features: AQt7F2oMTRKk7t89Y9gE75MVMNztzWV9UDfi1TNNrPc77CmFOSHTt5sl2zwMryU
+Message-ID: <CAPDyKFq2iWX-axxnKHisRHwKJqnyHYm5oM2_UKZaeQduKdYkFw@mail.gmail.com>
+Subject: Re: [PATCH v4 2/3] pmdomain: imx8m-blk-ctrl: Remove separate rst and
+ clk mask for 8mq vpu
+To: ming.qian@oss.nxp.com
+Cc: linux-media@vger.kernel.org, mchehab@kernel.org, hverkuil-cisco@xs4all.nl, 
+	nicolas@ndufresne.ca, benjamin.gaignard@collabora.com, p.zabel@pengutronix.de, 
+	sebastian.fricke@collabora.com, shawnguo@kernel.org, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, linux-imx@nxp.com, 
+	l.stach@pengutronix.de, Frank.li@nxp.com, peng.fan@nxp.com, 
+	eagle.zhou@nxp.com, imx@lists.linux.dev, linux-pm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260103_013756_069735_38CCE0EC 
-X-CRM114-Status: UNSURE (   8.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260103_020326_316376_5BFE137C 
+X-CRM114-Status: GOOD (  20.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,42 +99,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
+On Fri, 5 Dec 2025 at 02:55, <ming.qian@oss.nxp.com> wrote:
+>
+> From: Ming Qian <ming.qian@oss.nxp.com>
+>
+> For i.MX8MQ platform, the ADB in the VPUMIX domain has no separate reset
+> and clock enable bits, but is ungated and reset together with the VPUs.
+> So we can't reset G1 or G2 separately, it may led to the system hang.
+> Remove rst_mask and clk_mask of imx8mq_vpu_blk_ctl_domain_data.
+> Let imx8mq_vpu_power_notifier() do really vpu reset.
+>
+> Fixes: 608d7c325e85 ("soc: imx: imx8m-blk-ctrl: add i.MX8MQ VPU blk-ctrl")
+> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+> Reviewed-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+> Reviewed-by: Peng Fan <peng.fan@nxp.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Here's a pull-request with a couple of pmdomain fixes intended for v6.19-rc4.
-Details about the highlights are as usual found in the signed tag.
-
-Please pull this in!
+Applied for fixes and by adding a stable tag, thanks!
 
 Kind regards
-Ulf Hansson
+Uffe
 
 
-The following changes since commit f8f9c1f4d0c7a64600e2ca312dec824a0bc2f1da:
-
-  Linux 6.19-rc3 (2025-12-28 13:24:26 -0800)
-
-are available in the Git repository at:
-
-  git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v6.19-rc3
-
-for you to fetch changes up to 73cb5f6eafb0ac7aea8cdeb8ff12981aa741d8fb:
-
-  pmdomain: imx: Fix reference count leak in imx_gpc_probe() (2025-12-29 11:41:09 +0100)
-
-----------------------------------------------------------------
-pmdomain providers:
- - mediatek: Fix spinlock recursion fix during probe
- - imx: Fix reference count leak during probe
-
-----------------------------------------------------------------
-Macpaul Lin (1):
-      pmdomain: mtk-pm-domains: Fix spinlock recursion fix in probe
-
-Wentao Liang (1):
-      pmdomain: imx: Fix reference count leak in imx_gpc_probe()
-
- drivers/pmdomain/imx/gpc.c                 |  5 ++---
- drivers/pmdomain/mediatek/mtk-pm-domains.c | 21 ++++++---------------
- 2 files changed, 8 insertions(+), 18 deletions(-)
+> ---
+> v3
+> - Add some comments
+> v2
+> - Update commit message
+>
+>  drivers/pmdomain/imx/imx8m-blk-ctrl.c | 11 +++++++----
+>  1 file changed, 7 insertions(+), 4 deletions(-)
+>
+> diff --git a/drivers/pmdomain/imx/imx8m-blk-ctrl.c b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
+> index 5c83e5599f1e..74bf4936991d 100644
+> --- a/drivers/pmdomain/imx/imx8m-blk-ctrl.c
+> +++ b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
+> @@ -846,22 +846,25 @@ static int imx8mq_vpu_power_notifier(struct notifier_block *nb,
+>         return NOTIFY_OK;
+>  }
+>
+> +/*
+> + * For i.MX8MQ, the ADB in the VPUMIX domain has no separate reset and clock
+> + * enable bits, but is ungated and reset together with the VPUs.
+> + * Resetting G1 or G2 separately may led to system hang.
+> + * Remove the rst_mask and clk_mask from the domain data of G1 and G2,
+> + * Let imx8mq_vpu_power_notifier() do really vpu reset.
+> + */
+>  static const struct imx8m_blk_ctrl_domain_data imx8mq_vpu_blk_ctl_domain_data[] = {
+>         [IMX8MQ_VPUBLK_PD_G1] = {
+>                 .name = "vpublk-g1",
+>                 .clk_names = (const char *[]){ "g1", },
+>                 .num_clks = 1,
+>                 .gpc_name = "g1",
+> -               .rst_mask = BIT(1),
+> -               .clk_mask = BIT(1),
+>         },
+>         [IMX8MQ_VPUBLK_PD_G2] = {
+>                 .name = "vpublk-g2",
+>                 .clk_names = (const char *[]){ "g2", },
+>                 .num_clks = 1,
+>                 .gpc_name = "g2",
+> -               .rst_mask = BIT(0),
+> -               .clk_mask = BIT(0),
+>         },
+>  };
+>
+> --
+> 2.52.0
+>
 
