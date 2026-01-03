@@ -4,86 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 492C6FA374F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Jan 2026 10:03:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89B71FC617D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Jan 2026 10:03:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OYf6bvkaEWvrggi0yuuffaRuhv37HK8SVIBsgUUmv1A=; b=dzLRf9YDaKdfO/HAV+ZY6nXLie
-	HSMcFXIfUj8G4spKyPspIRfznlHDjHuko2dJk6D16GxmiQ9aWoOk/rGbrIWhwN4XYbv6vuGoQa2Sc
-	WiU49KcoutjwkEAA7VHrY1jsVBuWi5KfZYNfuwO7mO/uJ0FvCegdELj0QQf0tnDo2vsDYeS95L0SL
-	cDftoc/MdHiQcJJYs27Fncj0ZkF51/Z9SDe8pLwgVxoX44SEVHZTuWwiMUUi5XyQLRIzIMN7vCM8u
-	OmxE5QlnEZ0FKJRMqL/097oh+vLCwiN0wKaxSTd5xQLNKSqIZc5aqiHoYvu31ans13iAaay5clO0c
-	LsZHHbNQ==;
+	bh=HHxJTJ6jLGr4jRZYNFd3Wgy5zhSvQPzyDXSFu1NA0Mk=; b=2PvZY5lMer5fRd+ECtN+87/ZUV
+	imhmk8ZoncU99x06pYYD8EZrXuQQIJnUw7bihrRhqWGqGix7PGnX7Fw+SsZikXONVbI+2RQiYc98/
+	tU2lAm/r4JLmt2WHniLvB2jAwT3vhiTsv150yTfAHrPNpU8/ZWMCTgOAtVAW+c0mtsjAs0xK+wP4e
+	kQZ2nqxxS71ouvlUcQ7lSwb2rg6SQFibKz/7BqwoqFnjA1r5+zUe+1duKtOtB66dAc3R9bA5ql/47
+	QAdIcnuUwp4LFaEorrhL02yRL8y5K183PtSiUMDmkxnywJmlE2SQ7G69/VB4xtfmwlLeP7/kE2gdI
+	8IYjdLYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbyTu-00000009BGT-3hKG;
-	Sat, 03 Jan 2026 10:03:35 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1vbyTx-00000009BHo-2wnl;
+	Sat, 03 Jan 2026 10:03:37 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbyTr-00000009BEs-2xEo
+	id 1vbyTu-00000009BFS-0L8V
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Jan 2026 10:03:33 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-59584301f0cso3644233e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 03 Jan 2026 02:03:31 -0800 (PST)
+	Sat, 03 Jan 2026 10:03:36 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-5942b58ac81so10266436e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 03 Jan 2026 02:03:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1767434609; x=1768039409; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1767434612; x=1768039412; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=OYf6bvkaEWvrggi0yuuffaRuhv37HK8SVIBsgUUmv1A=;
-        b=tCK3ZQXWsdOlBeNkj4eyEcILC61UndsSixBvD83El1yr2cCScijpOVJCg8avp3DYZz
-         hrpGhjl8E4Q1GDyqKBPe/EKQBP0F6Gab1NY1nHTHkApPBVt1OSF9CzXjlJLFp1ErHARR
-         nQinps7pzaXw3U3LSWBDOpM2I7+U+ILun0k1k/FPvkqYk7RWdhSQ2qFwPvh+Ql7BsDFW
-         FTYG+Mx9ZTo+RbnpKAldLN4JC3C02x1y4Kqcq12rRZhy+tp11uVZ2G9OKVnT7Q7J0HO1
-         7Ld8hOrQ4Wf544S7UoitwYNDaNXi0XYwOO8CZAEOR5lAAkYG1AMTPH3eAo6B+f5H274D
-         rvfg==
+        bh=HHxJTJ6jLGr4jRZYNFd3Wgy5zhSvQPzyDXSFu1NA0Mk=;
+        b=oj365sEadk0vhXqiW0DKcGXhoIsIlGVbgRn2jlDR1Qe48phuNq4GjxJSujCZwOmuXN
+         tosLHi/0alYayRX7XDRaoRC52iY68U/xF0mgjaKtQIl6vAqZ3b5My8wfiN/yp7KdVJli
+         RQqBkeqX20Y5Q308Fvq9jzY4R7h3AvryxyiinNopqs7aC+PIIhTCFH9ZUDx2GowWbHTi
+         kI0JULlLSCwtt9bPnbQG4tSrn5/KtqVQwLAXqyj5GwN8ZZ5yRW8eqRvFGhTKlnYNudAs
+         Y6YCRWOx75TKfNwkRWZ+20+FfZBiUGx863OaL5qRLGLdeb9KqvH+3feSecoSs3N9gMRu
+         VkQA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767434609; x=1768039409;
+        d=1e100.net; s=20230601; t=1767434612; x=1768039412;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=OYf6bvkaEWvrggi0yuuffaRuhv37HK8SVIBsgUUmv1A=;
-        b=NOA/dKrL7kWSUnyZUp3s0qxP9eVoHL+0apvZuwsr5ccbbVWF7kqIWj6J1dkkEzl+F4
-         0aECACqJ1WXHjnCjXlux07/EJvSnw0S1kS20ypa1f8VC0GBC8JQ2nqHYX1ITfswOBdbk
-         yzdLcmcQ7XqJOMRuMP+uw8T65YCsurw2EMQeFE/NzlOHAf56nl81T1tmXi0aiDVofZsu
-         VScQnesRmKn6TDzdop9n2Yb0Zc0HEfq74zpAh0JQNWbEZeZVS4YuDWUwNhvF03LtrIUO
-         xLf4eLdzxsz/L3EuTdwQb8oDwMvUFWVZyk2+PTzdZBS2xq6S62H+DjSlqS84JxRyQf3i
-         +TGQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXMCIYV6IH7upzHZ8uKtifOcGLZfwhk7eyalocskWZCujp2s83nmMDj8nU4rQ7OROh/bsg0C+i4RUlqKvJUzLE9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1K0UDmHLgT1yUHvG9WuluOeP5+DL7vIJFkiwMMXjC05383CfK
-	E6KGym93Gnk3bU7Kp+kQvOpkf8cQbcWP76nNFpcKbMv3E/SjDumsL4flrWUNJSuED+13T+wuL5t
-	Gbk/F6rNeSceBG4d1lcWO+KEvUL3O/utYxprOGpB1Rw==
-X-Gm-Gg: AY/fxX5stUz5M/vLyk2PKq2yNtzw6iTalGk6L2I6z71D0N6L/6/pIeprHvVCc2A1WB3
-	Yhfp67pQUpJfR7xZ0uLzvl4+mnbJVaYINjph/3g+GDxTuRsvMlA6U4oPQBR6wsSA8QqbbZIyAHP
-	qk1TfF9NnG3TUs331ERmzRr1YxMXO8zf0ojU/WS60qVyPujM9hnfTKSzCTo2rigI6nC+vr/mxRU
-	yFYOAGgt4JC6safCYWbC1rpAAYHqNIM0I6v9oHOvQ0WKRqB8SVycc16nvB862xWrhZs9IGSffzw
-	WTIurFA=
-X-Google-Smtp-Source: AGHT+IGNyZ6pT/xuZoiBS1OalP/VwiTV2zPp40cAw0CI5np24s1GG3PVuf+rgxF02Pij4HSXYC6sqLVM0BYsiEuGK2M=
-X-Received: by 2002:a05:6512:3f09:b0:594:4e9f:98ec with SMTP id
- 2adb3069b0e04-59a17d253ffmr17191725e87.20.1767434609415; Sat, 03 Jan 2026
- 02:03:29 -0800 (PST)
+        bh=HHxJTJ6jLGr4jRZYNFd3Wgy5zhSvQPzyDXSFu1NA0Mk=;
+        b=B9COa6vMY4dEPTkxYeBdpXuzlJbB9TJPvvUqsMixAGEm+kkBvCix87SgBfPUG25bi/
+         /NlP2Su3MvA0JHCFEfVSehfuXrvgNNtgFedj8Kq4GgwdZchq30O3VHUZ3sTnM4xshcPi
+         egcsPJ1PIWBB4TY3DHFW1UFwLHN/l6UqMMHQXqZAJWOUEuqW7f+BlWeEFw4ktpg9RwD0
+         2YoWS4CD5dFrmbR/YUIo7vxV2zj7gu2mV3DaSkP5EjDX9swZ59hH3V48vM9283RrKibg
+         uB8FCmRdQ3c/Tax1MvvzMdLq/joh3ouY4IcdzG/zsBF+CjGc8Ptrd+kKbNqwbSNID9u8
+         a4Cg==
+X-Forwarded-Encrypted: i=1; AJvYcCXr/emROq0Gljad59PrPNaqBjmCqtH/0JgaQPATjTSNnidsiNN9CmyKbIhEj8lr7MQEFKcZMReUiy6/W+/ZzPxu@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUgLIgvyioxpG8krZiug6FvTFszUJ60wgZGSUpdqtlo9zzPSG6
+	Vv3vtZCUXUEUlZNate+RDyGh+YjGQ0Dk/pi857GM/p8Tu5uvF1kIjPr4h2xG4UoRTn1chwzZlyx
+	YiSgpBerf1cpLhq5usWKjJNM03cksSztFGI+/lzDIFA==
+X-Gm-Gg: AY/fxX4ggGbmPdJv1Dk/n52qd9O7MMpKM+gtOOLRpofHyShZMApQj7PBcrAhxCi1XYj
+	1LRfXbBiQHntqC91deDSRrnrUYdWaAVsaV+Sd7rXlcGcQ/aQsKyOYrItD9NTIbW+pG2K8tKiklt
+	I88ylcG0aRRcTDpe/Reg8zTyXpU4dyQmXhhIrBIEofPkBclP00Tn/epD0LQAghwOGnsDHh1oRER
+	DzXaWtMHl3BBIhyPwuYNJUVWT1vR20WpZkgAmklsjGQ19Kv3e8xFYUXsxwf5wWQy0uvo3hd
+X-Google-Smtp-Source: AGHT+IHTuUDA2frL2lWGCTN+qAVB9fALj4UxhdOgtU5kDcFiw+PtpJTP7vF0X8xaSzS7IFgYXZBQXy2NaxWawmUtdow=
+X-Received: by 2002:a05:6512:ac9:b0:594:2c42:abaf with SMTP id
+ 2adb3069b0e04-59a17ddb4a1mr17911978e87.34.1767434611895; Sat, 03 Jan 2026
+ 02:03:31 -0800 (PST)
 MIME-Version: 1.0
-References: <20251230-pmdomain-v1-1-3a009d1ff72e@ti.com>
-In-Reply-To: <20251230-pmdomain-v1-1-3a009d1ff72e@ti.com>
+References: <20260102124840.64424-2-krzysztof.kozlowski@oss.qualcomm.com>
+In-Reply-To: <20260102124840.64424-2-krzysztof.kozlowski@oss.qualcomm.com>
 From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Sat, 3 Jan 2026 11:02:52 +0100
-X-Gm-Features: AQt7F2rBg1MhVL6_AIF2mPeFOu0N7IPe2SjP0xQ7-SqCBNvV7cnprqAVZvFVSCk
-Message-ID: <CAPDyKFqP+k9HPSLG4SSmz5iaNiY4yLf3-7q9p0ChJt1dj4aSiQ@mail.gmail.com>
-Subject: Re: [PATCH] pmdomain: ti_sci: handle wakeup constraint for
- out-of-band wakeup
-To: Kendall Willis <k-willis@ti.com>
-Cc: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, 
-	Santosh Shilimkar <ssantosh@kernel.org>, d-gole@ti.com, vishalm@ti.com, sebin.francis@ti.com, 
-	msp@baylibre.com, khilman@baylibre.com, a-kaur@ti.com, s-kochidanadu@ti.com, 
-	linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
+Date: Sat, 3 Jan 2026 11:02:56 +0100
+X-Gm-Features: AQt7F2o_tAyNn2nFZ_Fhmspn1PF6naWnC3_O52iyThpjfOwNV7jebNizhJNd23k
+Message-ID: <CAPDyKFp9zYd+-LyTEka8UwcBeAnOWug_Kiy=K4J0GCL+DBWrhg@mail.gmail.com>
+Subject: Re: [PATCH] pmdomain: mediatek: Simplify with scoped for each OF
+ child loop
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, linux-pm@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260103_020332_067735_15FBB68E 
-X-CRM114-Status: GOOD (  26.22  )
+X-CRM114-CacheID: sfid-20260103_020334_146752_F019BFC5 
+X-CRM114-Status: GOOD (  17.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,87 +96,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 30 Dec 2025 at 22:37, Kendall Willis <k-willis@ti.com> wrote:
+On Fri, 2 Jan 2026 at 13:48, Krzysztof Kozlowski
+<krzysztof.kozlowski@oss.qualcomm.com> wrote:
 >
-> For devices capable of out-of-band system wakeups via I/O daisy chaining,
-> prevent sending wakeup constraints to the PM co-processor. This allows
-> the system to enter deeper low power modes, as the device is not marked
-> as requiring power.
+> Use scoped for-each loop when iterating over device nodes to make code a
+> bit simpler.
 >
-> Replaces the logic from commit b06bc4727991 ("pmdomain: ti_sci: handle
-> wake IRQs for IO daisy chain wakeups") since checking out-of-band wakeup
-> will cover the same functionality.
->
-> Detect out-of-band wakeup in the suspend path, and if it exists, skip
-> sending the constraint.
->
-> Signed-off-by: Kendall Willis <k-willis@ti.com>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Applied for next, thanks!
 
 Kind regards
 Uffe
 
+
 > ---
-> Implementation
-> --------------
-> This patch is intended to be implemented along with the following
-> series. This patch has no dependencies on any of the other series:
+>  drivers/pmdomain/mediatek/mtk-pm-domains.c | 8 ++------
+>  1 file changed, 2 insertions(+), 6 deletions(-)
 >
-> 1. "pmdomain: ti_sci: handle wakeup constraint for out-of-band wakeup"
->    (this patch): Skips setting constraints for wakeup sources that have
->    out-of-band wakeup capability.
->    https://github.com/kwillis01/linux/commits/v6.19/uart-daisy-chain/pmdomain
+> diff --git a/drivers/pmdomain/mediatek/mtk-pm-domains.c b/drivers/pmdomain/mediatek/mtk-pm-domains.c
+> index 80561d27f2b2..ab2514c78c14 100644
+> --- a/drivers/pmdomain/mediatek/mtk-pm-domains.c
+> +++ b/drivers/pmdomain/mediatek/mtk-pm-domains.c
+> @@ -1191,7 +1191,6 @@ static int scpsys_probe(struct platform_device *pdev)
+>         struct device *dev = &pdev->dev;
+>         struct device_node *np = dev->of_node;
+>         const struct scpsys_soc_data *soc;
+> -       struct device_node *node;
+>         struct device *parent;
+>         struct scpsys *scpsys;
+>         int num_domains, ret;
+> @@ -1235,21 +1234,18 @@ static int scpsys_probe(struct platform_device *pdev)
+>                 return ret;
 >
-> 2. "serial: 8250: omap: set out-of-band wakeup if wakeup pinctrl exists":
->    Implements out-of-band wakeup from the UARTs for TI K3 SoCs
->    https://github.com/kwillis01/linux/tree/v6.19/uart-daisy-chain/uart-wakeup
+>         ret = -ENODEV;
+> -       for_each_available_child_of_node(np, node) {
+> +       for_each_available_child_of_node_scoped(np, node) {
+>                 struct generic_pm_domain *domain;
 >
-> 3. "arm64: dts: ti: k3-am62: Support Main UART wakeup": Implements the
->    functionality to wakeup the system from the Main UART
->    https://github.com/kwillis01/linux/tree/b4/uart-daisy-chain-dts
-
-FWIW:
-I had a quick look at 2) and 3), both seem fine to me.
-
-
->
-> Testing
-> -------
-> Tested on a AM62P SK EVM board with all series and dependencies
-> implemented. Suspend/resume verified with the Main UART wakeup source
-> by entering a keypress on the console.
->
-> This github branch has all the necessary patches to test the series
-> using v6.19-rc1:
-> https://github.com/kwillis01/linux/tree/v6.19/uart-daisy-chain/all
-> ---
->  drivers/pmdomain/ti/ti_sci_pm_domains.c | 5 +++--
->  1 file changed, 3 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/pmdomain/ti/ti_sci_pm_domains.c b/drivers/pmdomain/ti/ti_sci_pm_domains.c
-> index e5d1934f78d9ee0a02eb05aa1301cd5a59e134d6..18d33bc35dee1b3bf6107af1e414db377d515199 100644
-> --- a/drivers/pmdomain/ti/ti_sci_pm_domains.c
-> +++ b/drivers/pmdomain/ti/ti_sci_pm_domains.c
-> @@ -91,8 +91,9 @@ static inline void ti_sci_pd_set_wkup_constraint(struct device *dev)
->                  * If device can wakeup using IO daisy chain wakeups,
->                  * we do not want to set a constraint.
->                  */
-> -               if (dev->power.wakeirq) {
-> -                       dev_dbg(dev, "%s: has wake IRQ, not setting constraints\n", __func__);
-> +               if (device_out_band_wakeup(dev)) {
-> +                       dev_dbg(dev, "%s: has out of band wakeup, not setting constraints\n", \
-> +                                       __func__);
->                         return;
+>                 domain = scpsys_add_one_domain(scpsys, node);
+>                 if (IS_ERR(domain)) {
+>                         ret = PTR_ERR(domain);
+> -                       of_node_put(node);
+>                         goto err_cleanup_domains;
 >                 }
 >
+>                 ret = scpsys_add_subdomain(scpsys, node);
+> -               if (ret) {
+> -                       of_node_put(node);
+> +               if (ret)
+>                         goto err_cleanup_domains;
+> -               }
+>         }
 >
-> ---
-> base-commit: f8f9c1f4d0c7a64600e2ca312dec824a0bc2f1da
-> change-id: 20251230-pmdomain-e71bed9b40f8
->
-> Best regards,
+>         if (ret) {
 > --
-> Kendall Willis <k-willis@ti.com>
+> 2.51.0
 >
 
