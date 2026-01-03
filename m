@@ -4,64 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1911AFC617F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Jan 2026 14:11:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAD88FC6180
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Jan 2026 14:24:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BVWiNa4LlD/mq5u0ETtKYjcKFCY48LgG2i3vO/zTCo8=; b=DdvtsEcm2WpXoxySR1ecqtI127
-	EdLffUGlUtk/t0VyB5FeBKTgKHBU3s8Wl/ozcd7wQDY6mK6fRIOpUalTBXuRjQB5A1Rrn9O/zlubQ
-	OhNHz04R9NB7iS1Yiiu/0a0cL+HLY+Jh0TwPwE40abTnuWRNYyJzgiJmdC9CIzIsWeKecwTq4XO2f
-	tlLmGaFNf30kH6mhfYZOB1GjFrPCADBLpf+iQqlrtYjTh4rBoIdevoSamy2dJdT11soW7BoyPcFs7
-	mB9axcmm0dp1+su1chnFRnxOONR0fZWTjIH/wwI2CmV6a6cW0hzG2eIvUZdg3aug8p3IWAKrR8SZi
-	3Zk6MprA==;
+	bh=Ih+WSwVVDojt8+S5KlRj+VrWY8LbNzRPse4rqBZZ5G0=; b=TJF2q1dNkqBne1DWLh/CJyNaSS
+	c0ReK+dZNwQSn4296OzYf/dynF+c1SJz7gNY/dxVwzpLB+Z7CsZziJzKHZq/eoRzl6qSBJL7eS1It
+	nDBfHg97xxl20+wymHFAv13dJ6G+FX9SH2xnkG49kAG/6mAQr/KsPt5sFE9v0JWrYRBaVLV3VaJVJ
+	8Ff5s0N+7ZFEIDURKoVtLJZ3So72IarVLokI1/RWwPzUEPsrUMnC2D39+kbO4QkrQbowh4BRXemXD
+	gmDnq1Dn2LCW1rMwmp+TISxk/SKyZwPdhJyeWS19/QrgDQcGn6ut3UW0ldWB7k8ms+7b8TlbZ+4cS
+	8usNP1ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vc2M5-00000009Ori-0fSp;
-	Sat, 03 Jan 2026 14:11:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vc2YI-00000009PEW-2xe7;
+	Sat, 03 Jan 2026 14:24:22 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vc2M0-00000009Oqs-1t7v;
-	Sat, 03 Jan 2026 14:11:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A2C28438C0;
-	Sat,  3 Jan 2026 14:11:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3434C113D0;
-	Sat,  3 Jan 2026 14:11:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767449499;
-	bh=mwX86YyiwWbrjWAZfajgtdKslPeAHqJC9wmqoN1Xwtc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=G10aLiLkZdu4eabbRJ039jDAhGApii8n98XPG+kba+Ri1G3TPWScGatZFNto7waaa
-	 D/oYTL5boTKgoU4wv8uE8hFXpf3TjaKH/+Hbl4mauDtBTo+P8uwZVL1KmGZCJ+x8Je
-	 9+daN0Caux4KU1UEjZTmlh8LrGdAjrvYaOSVezQN22sP394uvXAkyPZEYel/iotKT+
-	 IdESCSD2VlWotCiRr3p59FQPDSqwGm7BCo8cgpkixrac0/V4r/PgtOR6x0P9rzC9Mr
-	 d9HW/aPXgvjtkwpCnnrFVpcE5TTu4D8Lzv5VVLLmeUcNIFIDa74uQr3BQnXsL2xyJC
-	 dylCSN9UGv/ew==
-Date: Sat, 3 Jan 2026 15:11:36 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Aleksander Jan Bajkowski <olek2@wp.pl>
-Cc: benjamin.larsson@genexis.eu, chester.a.unal@arinc9.com, 
-	davem@davemloft.net, angelogioacchino.delregno@collabora.com, ansuelsmth@gmail.com, 
-	conor+dt@kernel.org, herbert@gondor.apana.org.au, krzk+dt@kernel.org, 
-	matthias.bgg@gmail.com, robh@kernel.org, sergio.paracuellos@gmail.com, 
-	tsbogend@alpha.franken.de, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
-	linux-mips@vger.kernel.org
-Subject: Re: [PATCH v3 1/3] dt-bindings: crypto: eip93: add clock gate and
- reset line
-Message-ID: <20260103-sweet-micro-manul-12eaee@quoll>
-References: <20260102155341.3682013-1-olek2@wp.pl>
+	id 1vc2YF-00000009PE8-3ghT;
+	Sat, 03 Jan 2026 14:24:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1767450251; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=GrDAJsOcMRqa4lmRjcJ8byk9lPym882PrTIq79tcqvVWrr6QsydRXjaVBVtI3T/zgVCHVY8IroVf0Q2YwKgOwThXT5gz1ac63sKPV7Jzvre9ewDed+efyyggAJvj+cdV1yFPbtnjMCfFKDCnXrY/2l0ycWiP2TmOx+DCLMN6m5k=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1767450251; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=Ih+WSwVVDojt8+S5KlRj+VrWY8LbNzRPse4rqBZZ5G0=; 
+	b=mVJ63CjVN7jPXgOHuxu07CPxAqC0rV4eEoSFgaCCmR/wXImHSGLWcubp1BgJ0u8nW9nnadcqTSpbWxY6chxBrmn9bRC6/mMSpbh0+2g9joNJ6Sl8U8Obb19n2/v0PXWEBSBU1NC3hS7Lfq5wWm4MyFqgqI258flC/r6KfC956JU=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1767450251;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=Ih+WSwVVDojt8+S5KlRj+VrWY8LbNzRPse4rqBZZ5G0=;
+	b=MpCacc/zU7n4iYLpFcx3C1+y7S1j8UVNz1NHwBplAokSKOgMRlDU5WYfUC+SdFgi
+	cCbEQz3/3E+UcaTmCbm9pimWXbU3Ll990H2KRkCmyTi0QYMSOrElO8ZwlSnAVndCs+l
+	zKXqFK8XoJyYI2w6vIxu1BNyeUWimIAvV+2mDCdc=
+Received: by mx.zohomail.com with SMTPS id 1767450248307364.7110964115078;
+	Sat, 3 Jan 2026 06:24:08 -0800 (PST)
+Received: by venus (Postfix, from userid 1000)
+	id 8D11E18054C; Sat, 03 Jan 2026 15:24:03 +0100 (CET)
+Date: Sat, 3 Jan 2026 15:24:03 +0100
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Anand Moon <linux.amoon@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, FUKAUMI Naoki <naoki@radxa.com>, 
+	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, Diederik de Haas <didi.debian@cknow.org>, 
+	Yongbo Zhang <giraffesnn123@gmail.com>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
+	"moderated list:ARM/Rockchip SoC support" <linux-arm-kernel@lists.infradead.org>, 
+	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>, open list <linux-kernel@vger.kernel.org>, 
+	"open list:USB TYPEC CLASS" <linux-usb@vger.kernel.org>
+Subject: Re: [PATCH v1 0/3] Typc fusb302 powerloss issue on Radxa Rock 5b
+Message-ID: <aVkinPvh_jxdh9wm@venus>
+References: <20260103083232.9510-1-linux.amoon@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="fhxt6xjqdij5sxjm"
 Content-Disposition: inline
-In-Reply-To: <20260102155341.3682013-1-olek2@wp.pl>
+In-Reply-To: <20260103083232.9510-1-linux.amoon@gmail.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-1.4.3/267.430.24
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260103_061141_418541_68045B3B 
-X-CRM114-Status: GOOD (  12.75  )
+X-CRM114-CacheID: sfid-20260103_062419_962290_9FB099CD 
+X-CRM114-Status: GOOD (  25.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,42 +90,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 02, 2026 at 04:47:33PM +0100, Aleksander Jan Bajkowski wrote:
-> Add the clock gate and reset line, both of which are available
-> on the Airoha AN7581.
-> 
-> Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
-> ---
-> v3:
-> - introduce patch
-> ---
->  .../crypto/inside-secure,safexcel-eip93.yaml       | 14 ++++++++++++++
->  1 file changed, 14 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml b/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml
-> index 997bf9717f9e..c6c99c08dc68 100644
-> --- a/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml
-> +++ b/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml
-> @@ -48,20 +48,34 @@ properties:
->    interrupts:
->      maxItems: 1
->  
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  resets:
-> +    maxItems: 1
-> +
->  required:
->    - compatible
->    - reg
->    - interrupts
-> +  - clocks
-> +  - resets
 
-That's ABI break without explanation in the commit msg.
+--fhxt6xjqdij5sxjm
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v1 0/3] Typc fusb302 powerloss issue on Radxa Rock 5b
+MIME-Version: 1.0
 
-Best regards,
-Krzysztof
+Hello Anand,
 
+On Sat, Jan 03, 2026 at 02:01:16PM +0530, Anand Moon wrote:
+> On the Radxa Rock 5B, the system occasionally experiences intermittent
+> hard resets during the boot process. Initially, I suspected a power supply
+> issue, but further investigation points to the Type-C fusb302 module as
+> the cause.
+>=20
+> Specifically, probing or reloading the fusb302 module triggers a hard res=
+et,
+> which can result in immediate power loss and a reboot.
+>=20
+> [root@rockpi-5b ~]# rmmod fusb302
+> [root@rockpi-5b ~]# lsmod | grep  fusb302
+> [root@rockpi-5b ~]# modprobe fusb302
+> [root@rockpi-5b ~]# [ 3389.031608][ T7143] typec_fusb302 4-0022: Initiati=
+ng hard-reset, which might result in machine power-loss.
+> [ 3390.030444][ T7143] typec_fusb302 4-0022: Initiating hard-reset, which=
+ might result in machine power-loss.
+
+If you see this message the TypeC port manager (TCPM) state machine
+reached the hard reset error state. A USB-PD hard reset involves
+removing VBUS for a short time, which effectively removes the board
+power on ROCK 5B. Unfortunately the situation is quite complex :)
+
+> I attempted to trace the issue using ftrace but was unable to
+> pinpoint the root cause. The problem appears to originate either
+> from the I2C controller or the PMIC reset.
+
+I2C and PMIC are not at fault. This is all about USB-PD
+communication itself.
+
+> I have identified a potential workaround involving the I2C SCL debounce s=
+ettings
+> for the RK3588 and submitted a patch here:
+>=20
+> [1] https://lore.kernel.org/all/20260103052506.6743-1-linux.amoon@gmail.c=
+om/
+
+This is most likely a red herring and just slightly changing timings
+in the USB PD communication.
+
+> Please note that the submitted changes address a minor aspect but do not =
+fully
+> resolve the underlying issue.
+
+I don't expect any fix from this series regarding your problem. Also
+I suggest having a look at my talk at the Linux Plumbers Conference
+=66rom last month where I discussed this issue :)
+
+slides: https://lpc.events/event/19/contributions/2156/attachments/1784/386=
+1/improving-stability-for-TCPM-using-boards-that-are-not-self-powered.pdf
+video: https://www.youtube.com/watch?v=3DDmLsePJoH8I
+
+Something that might be sensible to do on your end is figure out
+*how* the state machine ended up in the error state and check if
+we can avoid it. The related code for that lives in
+drivers/usb/typec/tcpm/tcpm.c and quite complex. I use the
+following two patches to ease debugging:
+
+ * https://gitlab.collabora.com/hardware-enablement/rockchip-3588/linux/-/c=
+ommit/6edc68e3c0ec4c209b5e96b848e17201059ce9ee
+ * https://gitlab.collabora.com/hardware-enablement/rockchip-3588/linux/-/c=
+ommit/8ca8b1d6ee36e80f794bcf351a8b78d5a96daf06
+
+Combined with CONFIG_DYNAMIC_DEBUG=3Dy and booting with the following
+kernel arguments: loglevel=3D8 tcpm.dyndbg=3D"+p" fusb302.dyndbg=3D"+p"
+
+Greetings,
+
+-- Sebastian
+
+>=20
+> Thanks
+> -Anand
+>=20
+> Anand Moon (3):
+>   arm64: dts: rockchip: rk3588-rock-5b-5bp-5t: Correct Type-C pin bias
+>     settings
+>   arm64: dts: rockchip: rk3588-rock-5b-5bp-5t: Fix USB host phy-supply
+>     on Rock 5b-5bp-5t SbC
+>   usb: typec: fusb302: Switch to threaded interrupt handler
+>=20
+>  arch/arm64/boot/dts/rockchip/rk3588-rock-5b-5bp-5t.dtsi | 7 +++----
+>  drivers/usb/typec/tcpm/fusb302.c                        | 7 ++++---
+>  2 files changed, 7 insertions(+), 7 deletions(-)
+>=20
+>=20
+> base-commit: 805f9a061372164d43ddef771d7cd63e3ba6d845
+> --=20
+> 2.50.1
+>=20
+
+--fhxt6xjqdij5sxjm
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmlZJoAACgkQ2O7X88g7
++prmAQ//Szd3e+4Q3obakorrCA/Rkjd/Falf3rVKj3JWkmeucNnOTL2jHofdgZPQ
+Up3hSKfSWMN/zCotdRopg8tBkTAC6IfHfouCbq5n/ksodO4+yXH8VZ/XqisJW6wi
+b+Nd4pWrThDpeQ4a8Tq+qEpvFbmRUxbCktoKVb8hQY6YF0GMvjGUOWiJ3NhwrKEC
+M+PIICA6+pDqwvkY3ULR65kYBE9o7fIlaRwvz9MT+R+XzdJ4v6q7L+p6w4fNgppJ
+Yf4I0PgROlpHTWhaeYKS/EdlMqszFKrW+3ykVrO2BxusCFEtzI5jm065tNomBWoC
+Yy/LWQcyCE4yb5/fupabsBgmbSN/AZqpGMS1OMivIP1DLlF4s5Qzcn4Tpoeqzjo+
+JU6BVpXv5v3ms4DUZN1cCwOf8lg2KugFccqut6uH640IndAlwrfElsC/ac6NNAWK
+uhXfnJ7VDJtVFjF3t0qQ/960JdA+MpMnEHI3px+9IP46Mq43OTL4YITn5mSetckz
+Jie3G1ctO4nroo0ZBWlDh7zNn97bDbhpshBYKK9fR8lhEmchoVBhRJ1nRPtX9cW3
+ulvUri6WY1/QEi/erCXrsVxYMhYSm1H/is7tXDChwdbb0eZfmJBRzSK2CMxbsbyr
+O1zEi87Ei8ax4giABrrIVB2XsNmQNvpL/OCqHmog9v0Al0ysdm0=
+=tlFx
+-----END PGP SIGNATURE-----
+
+--fhxt6xjqdij5sxjm--
 
