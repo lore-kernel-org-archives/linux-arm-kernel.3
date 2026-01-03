@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA995FC6174
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Jan 2026 06:37:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DD1FFC6160
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Jan 2026 06:38:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n009qAjQa1f/gx1JlFPWaK6vp1HVpsaalQe/6LgsF9o=; b=uuOM4lmtQMFbiyZqSg8XPWGmZl
-	WV5BeMyC0qq5QrFgJcxubi717mCxaprV2mixEwD3J8pIn0CAtSdDBPC6Wzr5zbpb+V6QWTCK+rjji
-	Yg36KNuh1iiH+M5L95A6+Dyga34PgHYBoIS+cfjWZTTH2JkwGX6WNMrb4Xxa8kYenU7Mx3ReIx6RQ
-	3ghklx88Kqd2DY9n+OL2Q/1pdRDuyOZshPmOb/J3JrFNH2mpKwmv+rYOrfMjDX1LLLJDJyEY5iMPW
-	gTaN4h1BR8v3uNO+Of8CUF99CPiFkLhafF8EzB4fPzqgEVDnI8wvEk4mSZ3FeXLPS7ghIzr5/tBgU
-	QOo2+/Hg==;
+	bh=ByoD4jWST79BUe/fxqijcSiTeboyFHDF95yg254b5r0=; b=2MP7jGyd6VoxcTCV1uSPQINAf5
+	+KHwVvyqnIq/iaBfwuKmcwxddOzcqGZpD/esRUjPzjZnmDvekLSqxLU1EXvtxyeEIXtbMusM0RNZD
+	XECeKQpdp1Y3P+wJvTwOCQzisPLNy905417Td1gY7v4g/Y58h426RSst1hTnScrIwousvxoFu6fsk
+	KwDgCGjde021aP7RPQzuhHaYgq6oKvzCRbbzZoE7JNDiGmsricW185GpPI+pe7agTkheoPtdnty6J
+	eAZD6WIfYT0jLhabxiu4S0rSZwuKSKdnyq7pHITcYt8BKxRfpEHay5ciDkjhtbWAS8ZV5Aah+YXEK
+	ZMbYlo9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbvFx-000000091zU-3Wtd;
-	Sat, 03 Jan 2026 06:36:57 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1vbvGt-0000000925I-1lsf;
+	Sat, 03 Jan 2026 06:37:55 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbvFv-000000091z7-06Uz
+	id 1vbvGr-0000000924q-0isv
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Jan 2026 06:36:56 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-7aae5f2633dso13104871b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Jan 2026 22:36:54 -0800 (PST)
+	Sat, 03 Jan 2026 06:37:54 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-7d26a7e5639so14267360b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 02 Jan 2026 22:37:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1767422213; x=1768027013; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1767422272; x=1768027072; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=n009qAjQa1f/gx1JlFPWaK6vp1HVpsaalQe/6LgsF9o=;
-        b=cAVqHOxxFE4PXtc/IXav7y0I7OjTTz6Y2YRGAD5so5d6L2+7JqCGIt29XMJUlho5wC
-         gdMpudpSdNW8oP1YpeOdNEQBXRbsyY+I5aIFBQGa/wSdOY/HNi/kLPI77/Tv3dLbfguO
-         Yui1c6UzgG8aCAdsBHrEqQQhIdo9CS3nFo3ktmIlKpa1QVRdMLCGpy4DbEUXDef95wK3
-         mSA5HIs4DFybUN79kSCaJ35/tS/gLNTbYOvoH8SJjtATh+qwhMAWSuIpoNd/bVzlhV89
-         A8iSMidnXQ9Nu8k/5hNeTznrpzNtvNkUJZBlGl0MWH4TnsRR7bdu/1iXXLeSql4VbOgw
-         DE4Q==
+        bh=ByoD4jWST79BUe/fxqijcSiTeboyFHDF95yg254b5r0=;
+        b=TnnCupTGPYKBHhPtzgD0E9hoz4oxdPJruQ6qTtjtwYFfqiFvvgM3KSl9olIsNl2pvx
+         MF3JnoKk270+8awAqR28xMeqlSJ2khZn6e2QUYDyqd2g/m8qPM/PWUJBnfA/+7RtOcOB
+         poL6qcEUXtqkcw6GWMBJlUcZgaaJ0ii0U+bWkatt8XnV1v8F+5pevxxKYchy8GA5lZRQ
+         SNngHU1R/0hoTtKEUYA1IuspiQpBkz+JjPsnazyCZ7IIR/BdV6Fqnypi9CEaJnO0mnTj
+         bzA6RtCmOwAAL9Vk51zIW4JOUM/WBNwMKLfzuBqGvcYgIxdsSRsbImi0yT6utu1Mr3d1
+         5PwQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767422213; x=1768027013;
+        d=1e100.net; s=20230601; t=1767422272; x=1768027072;
         h=content-transfer-encoding:in-reply-to:content-language:from
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=n009qAjQa1f/gx1JlFPWaK6vp1HVpsaalQe/6LgsF9o=;
-        b=tINiDHs7g7DBhn6lWY0zCV0Mk9qhJtNQqlGmuPJ5Y+8a/LtVkME5X8jjr1a8MIx9BP
-         c5z2cI50lDfK8MbvfNLMgrRm4EfBt2YktyjQSIqjkV+7p001OX8JiuYyohhsZRHB5Zws
-         z8U6n1llEqGrh2NmpKn+btToIDUCwu/wg2hhDtD8tiAq7h/cAuujVoAgc+WwjkYeUjWl
-         PpTsVgNfKhP/wpGQxoq4CXudPP9BqhwEs9OiFTjPwt8HQidCwU6gMTzhmE4q0pY7Ebbo
-         trMQfPuvLf/Y/xWK4uGhHzCD52EswZgbukHH6eF8lhiJC7hngQ0j5102XwHkDOYWd4ry
-         bvtQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWio1zjJqjWRQjO7gI5qVXC/EB9ZsNbx2B637MXFGTnX0H+q8sKP5UAiMoYvbgu0NB9WFboFLumJnw1U+Bfegpt@lists.infradead.org
-X-Gm-Message-State: AOJu0YxnjryvGzVY+FWhCQ3zY2DgUlptD6TDOYk8Jcinz2zIQuPD2H/Q
-	55Naf2NoPl5C8di4gKVFK0ThNvGdaAFdZmrJozd2Ijisc3GdfokFlKcIIHSF+qfqRq8=
-X-Gm-Gg: AY/fxX7HyXGyXNyjQli/AL16k2euec8ssZZDl8gCjx06JzAsCoK+HteaCK0H9H63/6y
-	Cxupi73kERkUzeg8Og3wzvC4zFNor/3iEFwWx9MP5yZhPCKGLkDDwBipsOd9K6YHsxKZMhwFt9e
-	fBedUdo2YtG87Du0xApuJdzaweC2dxfIghvOJF1Gcq894Ro6W16ZjptCAcznuRi98jKdvI72gVO
-	cqPBOq506PWw9d0LcvKI4VOCsJo4HfYEfg00zNBsqol/kptZ7TbzNSx7OXhgshX/eLOOrBCT0GI
-	7BAvV+8M7xyjYwS5068/TjSQBwtXroBnaYuB693mApFrD6YRyWU9TdA61o490c/Ixu7Q55QYIXB
-	qQ6vrHukG5cS5OpVjX8Pqw5XS8pXNgndpjUV6YDTPSaXNTVJR+KgVpjyAzpsv9fR2XfOMm8bm8u
-	JejsyRJmKJwK5+PZIfg3FyaSl/eCdfbzXeYui+6dBfnIPWy1CdAHINnAQGxfrV9NYC
-X-Google-Smtp-Source: AGHT+IFjVDKmB/xNuLtQKRYfU/ITUXwxCDRtTDnOfIZDb5jRoUr7iNoQ0th445p4ZZcSbNCPgjHtMA==
-X-Received: by 2002:a05:6a00:140f:b0:807:c2b9:38ec with SMTP id d2e1a72fcca58-807c2b93f63mr22110230b3a.15.1767422213430;
-        Fri, 02 Jan 2026 22:36:53 -0800 (PST)
+        bh=ByoD4jWST79BUe/fxqijcSiTeboyFHDF95yg254b5r0=;
+        b=Ggz9GUT4lWo6OYKE7GdomESEyfmDwMWE9PN7sUp2ReU6Nq/iEQjCYeb0Exov1pV7HU
+         88C82M3AR9+0FJbY1rzSLXj2fPspUBZ2mH6kWEfD5UY105CWmavS0Ya0oWP2PgHzRxVx
+         HX59OgNEYAsyLiDESV2ry0hExQSc1+qAfV4v7VfeUs+q2gVU38pZi/RG+Lb6wS6/+jSo
+         nWPOFGdgU5/dpvumZW+p0i2AZD9aaCZl3fdBum9l+/6p3klsjpakz54Gw1UgvMnT60lm
+         bTjXRvcVai6SURhLrBVxp/3QzyGgfOqlP65aNQT+N6FUQDJuBAyvcLqVRJiJSaHrHS3T
+         wgkQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVppgLSxff24Zxcr8jYyeuEWWmdSVOl3pvuwpNveoBiMDbuRC9/HVE8OBpOISEHEmdDaUinyBcnSPEFMe8t8qi+@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzi300QC578RYNlCFVvIswYzQk5VUBzjDF4j1wClSmfRYTLykdh
+	kZu2KWWp8NupqzA5NzzP1oeBVfqdels+5LF6eZ4LNDe3/eVUbcw+++0q36WnVdDkmZ4=
+X-Gm-Gg: AY/fxX7qkw7kYAocHmBNLUui+Cq8loW4VdcEiG7d4ojJfgZCgrn4+Ke9dm7omecLUV5
+	REYfBIO0U4kpV1tdCARf/do912jN0lhI5hbZ4KD1/kRZ6+FIk/4JM1xcd1jfRYDI6+eI0DiKKtZ
+	OIpzBy6b6FSEGXV49f1h9Gtw6v80uC7+DVaGXU63QmLtSfA2iLjj7Mr3sNMWR4UI9Ly7BQPJe4S
+	W+22Yh/LgruabVi4xR5XKlLSKGZK9ZPaJdjOQqpkDE930GLGJX6MJfb5yM/7DL0yhC3WLSJkWod
+	FC3Q5bPJiqzIo4cSLgBFLTMNMRUZTMRrN10nOc8xPec7o5g4JoTpRdDA88bInMv0rALg+KGuVx3
+	uC9dWcKuk4DRts7gNSKz4rpgZBM3m3UijdIXxzWZ/M4sgClT/58OUDIGQ1W//p6A8EV1+WfHavw
+	EffPwujvsqC6pp0txFxuhtS9TIVhRjVQjRkEPHjfSmHrDvBfbw2IFm9lavRqUKXJzh
+X-Google-Smtp-Source: AGHT+IHOn/shxgu6O9AbZYxbJun3BCH+nZYMReTx1ZUY3Ku/Rcc6T4HDI4a+cvUWlCqKmwFxIHrgIA==
+X-Received: by 2002:a05:6a20:12c6:b0:366:14ac:e205 with SMTP id adf61e73a8af0-376aa8ffdb4mr41042704637.67.1767422272279;
+        Fri, 02 Jan 2026 22:37:52 -0800 (PST)
 Received: from ?IPV6:2405:6e00:642:d187:9f0f:f4ff:8fd1:e7bf? ([2405:6e00:642:d187:9f0f:f4ff:8fd1:e7bf])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7ff7e0a2e3esm41753812b3a.37.2026.01.02.22.36.42
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c1e7961c130sm36229897a12.3.2026.01.02.22.37.43
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 02 Jan 2026 22:36:52 -0800 (PST)
-Message-ID: <4b8953ac-567b-4d68-9c25-72a69afdf1b3@linaro.org>
-Date: Sat, 3 Jan 2026 08:36:40 +0200
+        Fri, 02 Jan 2026 22:37:51 -0800 (PST)
+Message-ID: <8c7fcd35-3b29-4621-b4e1-df0c88a00cba@linaro.org>
+Date: Sat, 3 Jan 2026 08:37:41 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 18/26] mm/memblock: Add MEMBLOCK_INSPECT flag
+Subject: Re: [PATCH 19/26] mm/numa: Register information into meminspect
 To: Mike Rapoport <rppt@kernel.org>
 Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-mm@kvack.org, tglx@linutronix.de, andersson@kernel.org,
@@ -86,16 +86,16 @@ Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
  devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org,
  linux-arch@vger.kernel.org, tony.luck@intel.com, kees@kernel.org
 References: <20251119154427.1033475-1-eugen.hristev@linaro.org>
- <20251119154427.1033475-19-eugen.hristev@linaro.org>
- <aVImIneFgOngYdSn@kernel.org>
+ <20251119154427.1033475-20-eugen.hristev@linaro.org>
+ <aVImhhgEsHInebeh@kernel.org>
 From: Eugen Hristev <eugen.hristev@linaro.org>
 Content-Language: en-US
-In-Reply-To: <aVImIneFgOngYdSn@kernel.org>
+In-Reply-To: <aVImhhgEsHInebeh@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260102_223655_088819_28E70D69 
-X-CRM114-Status: GOOD (  26.52  )
+X-CRM114-CacheID: sfid-20260102_223753_217361_07E96971 
+X-CRM114-Status: GOOD (  13.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,136 +112,48 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 12/29/25 08:56, Mike Rapoport wrote:
+On 12/29/25 08:58, Mike Rapoport wrote:
 > Hi Eugen,
 > 
-> On Wed, Nov 19, 2025 at 05:44:19PM +0200, Eugen Hristev wrote:
->> This memblock flag indicates that a specific block is registered
->> into an inspection table.
->> The block can be marked for inspection using memblock_mark_inspect()
->> and cleared with memblock_clear_inspect()
-> 
-> Can you explain why memblock should treat memory registered for inspection
-> differently?
-
-It should not, at a first glance.
-
-The purpose of the flag is to let memblock be aware of it.
-The flag is there to have a "memblock way" of registering the memory,
-which inside memblock , it can translate to a meminspect way of
-registering the memory. It's just an extra layer on top of meminspect.
-With this, it would be avoided to call meminspect all over the places it
-would be required, but rather use the memblock API.
-And further, inside memblock, it would be a single point where
-meminspect can be disabled (while preserving a no-op memblock flag), or
-easily changed to another API if needed.
-Ofcourse, one can call here directly the meminspect API if this is desired.
-Do you think it would be better to have it this way ?
-
-Thanks for looking into it,
-Eugen
-
-
-> 
+> On Wed, Nov 19, 2025 at 05:44:20PM +0200, Eugen Hristev wrote:
+>> Register dynamic information into meminspect:
+>>  - dynamic node data for each node
+>>
+>> This information is being allocated for each node, as physical address,
+>> so call memblock_mark_inspect that will mark the block accordingly.
+>>
 >> Signed-off-by: Eugen Hristev <eugen.hristev@linaro.org>
 >> ---
->>  include/linux/memblock.h |  7 +++++++
->>  mm/memblock.c            | 36 ++++++++++++++++++++++++++++++++++++
->>  2 files changed, 43 insertions(+)
+>>  mm/numa.c | 2 ++
+>>  1 file changed, 2 insertions(+)
 >>
->> diff --git a/include/linux/memblock.h b/include/linux/memblock.h
->> index 221118b5a16e..c3e55a4475cf 100644
->> --- a/include/linux/memblock.h
->> +++ b/include/linux/memblock.h
->> @@ -51,6 +51,10 @@ extern unsigned long long max_possible_pfn;
->>   * memory reservations yet, so we get scratch memory from the previous
->>   * kernel that we know is good to use. It is the only memory that
->>   * allocations may happen from in this phase.
->> + * @MEMBLOCK_INSPECT: memory region is annotated in kernel memory inspection
->> + * table. This means a dedicated entry will be created for this region which
->> + * will contain the memory's address and size. This allows kernel inspectors
->> + * to retrieve the memory.
->>   */
->>  enum memblock_flags {
->>  	MEMBLOCK_NONE		= 0x0,	/* No special request */
->> @@ -61,6 +65,7 @@ enum memblock_flags {
->>  	MEMBLOCK_RSRV_NOINIT	= 0x10,	/* don't initialize struct pages */
->>  	MEMBLOCK_RSRV_KERN	= 0x20,	/* memory reserved for kernel use */
->>  	MEMBLOCK_KHO_SCRATCH	= 0x40,	/* scratch memory for kexec handover */
->> +	MEMBLOCK_INSPECT	= 0x80,	/* memory selected for kernel inspection */
->>  };
->>  
->>  /**
->> @@ -149,6 +154,8 @@ unsigned long memblock_addrs_overlap(phys_addr_t base1, phys_addr_t size1,
->>  bool memblock_overlaps_region(struct memblock_type *type,
->>  			      phys_addr_t base, phys_addr_t size);
->>  bool memblock_validate_numa_coverage(unsigned long threshold_bytes);
->> +int memblock_mark_inspect(phys_addr_t base, phys_addr_t size);
->> +int memblock_clear_inspect(phys_addr_t base, phys_addr_t size);
->>  int memblock_mark_hotplug(phys_addr_t base, phys_addr_t size);
->>  int memblock_clear_hotplug(phys_addr_t base, phys_addr_t size);
->>  int memblock_mark_mirror(phys_addr_t base, phys_addr_t size);
->> diff --git a/mm/memblock.c b/mm/memblock.c
->> index e23e16618e9b..a5df5ab286e5 100644
->> --- a/mm/memblock.c
->> +++ b/mm/memblock.c
->> @@ -17,6 +17,7 @@
->>  #include <linux/seq_file.h>
->>  #include <linux/memblock.h>
->>  #include <linux/mutex.h>
+>> diff --git a/mm/numa.c b/mm/numa.c
+>> index 7d5e06fe5bd4..379065dd633e 100644
+>> --- a/mm/numa.c
+>> +++ b/mm/numa.c
+>> @@ -4,6 +4,7 @@
+>>  #include <linux/printk.h>
+>>  #include <linux/numa.h>
+>>  #include <linux/numa_memblks.h>
 >> +#include <linux/meminspect.h>
 >>  
->>  #ifdef CONFIG_KEXEC_HANDOVER
->>  #include <linux/libfdt.h>
->> @@ -1016,6 +1017,40 @@ static int __init_memblock memblock_setclr_flag(struct memblock_type *type,
->>  	return 0;
->>  }
->>  
->> +/**
->> + * memblock_mark_inspect - Mark inspectable memory with flag MEMBLOCK_INSPECT.
->> + * @base: the base phys addr of the region
->> + * @size: the size of the region
->> + *
->> + * Return: 0 on success, -errno on failure.
->> + */
->> +int __init_memblock memblock_mark_inspect(phys_addr_t base, phys_addr_t size)
->> +{
->> +	int ret;
->> +
->> +	ret = memblock_setclr_flag(&memblock.memory, base, size, 1, MEMBLOCK_INSPECT);
->> +	if (ret)
->> +		return ret;
->> +
->> +	meminspect_lock_register_pa(base, size);
->> +
->> +	return 0;
->> +}
->> +
->> +/**
->> + * memblock_clear_inspect - Clear flag MEMBLOCK_INSPECT for a specified region.
->> + * @base: the base phys addr of the region
->> + * @size: the size of the region
->> + *
->> + * Return: 0 on success, -errno on failure.
->> + */
->> +int __init_memblock memblock_clear_inspect(phys_addr_t base, phys_addr_t size)
->> +{
->> +	meminspect_lock_unregister_pa(base, size);
->> +
->> +	return memblock_setclr_flag(&memblock.memory, base, size, 0, MEMBLOCK_INSPECT);
->> +}
->> +
->>  /**
->>   * memblock_mark_hotplug - Mark hotpluggable memory with flag MEMBLOCK_HOTPLUG.
->>   * @base: the base phys addr of the region
->> @@ -2704,6 +2739,7 @@ static const char * const flagname[] = {
->>  	[ilog2(MEMBLOCK_RSRV_NOINIT)] = "RSV_NIT",
->>  	[ilog2(MEMBLOCK_RSRV_KERN)] = "RSV_KERN",
->>  	[ilog2(MEMBLOCK_KHO_SCRATCH)] = "KHO_SCRATCH",
->> +	[ilog2(MEMBLOCK_INSPECT)] = "INSPECT",
->>  };
->>  
->>  static int memblock_debug_show(struct seq_file *m, void *private)
+>>  struct pglist_data *node_data[MAX_NUMNODES];
+>>  EXPORT_SYMBOL(node_data);
+>> @@ -20,6 +21,7 @@ void __init alloc_node_data(int nid)
+>>  	if (!nd_pa)
+>>  		panic("Cannot allocate %zu bytes for node %d data\n",
+>>  		      nd_size, nid);
+>> +	memblock_mark_inspect(nd_pa, nd_size);
+> 
+> Won't plain meminspect_register_pa() work here?
+
+Yes it would work, but as explained in the other email, it would not go
+through memblock API.
+We can continue the discussion there
+
+> 
+>>  	/* report and initialize */
+>>  	pr_info("NODE_DATA(%d) allocated [mem %#010Lx-%#010Lx]\n", nid,
 >> -- 
 >> 2.43.0
 >>
