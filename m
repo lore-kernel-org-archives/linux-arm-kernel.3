@@ -4,86 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E92C4FA3750
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Jan 2026 11:57:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D77A4FC6179
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Jan 2026 12:02:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gmnAKAfv29ulmMb0BC0UKs0MVt+IkK2zMRYsdR6rhaE=; b=wPdsa9YGByl9W5kjlJ8UmFsBUx
-	lIiUANX2UzIMLz2AauHM09+mcbupQso3OLXMEp75q7S4VxQ6Bga7u4c2nv66Pg9zuNVbCxrXbuOYC
-	HILrMsiI10k0YjU2O/TLze0cSyI6HX3J6P0IWtXKdLKML/jVkxHEU15b+fb7hBJA8zpzoN//dyxKP
-	eP8/1WWRHZH7o+ilGYstJ2Sw8NrqZsaORrIlqxzfrxeyqyclssPFFofEttLsm39+nyflmZGwTKxsw
-	gdT5XoL0085G1f0U5EgP/kqhpCqJnKnhUCn44/89+n4xcXQYZ2auXlUIq0eVYlukjV4rQ2cp0YPUB
-	jy1CP4mg==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0hmbKY42MLvly76iySmumfC2E8JY6gEF8ASEf0nqLlg=; b=0idhr/w551ScEeIO9mE/+4mD4X
+	UKzCRwyIYU9IlBlYD/HJyCPyDtCzm8c4Qkr3BbYGQL3kZLV+45QWqhy0dq23zAKpaDFKhMXojJ+xC
+	qZZd+AAuXYlwW4/2dIaj8CGHjT20IrPM95hZ+bgl5LgJf74dcQk3Qtx54wyxH3v1yxxlOLXS5NUFH
+	4oGSuDPA8FRvdI3kB4xcMHs1XeaAjyvn004UghtJ9yXFQeBVDbe3qW3qyHi+AMIM/V6K+omL6K/cQ
+	EsR29lz6L9vyGN/5Im/Lkr+OAxCemcD5Nq6D/G0SlJwXFx8kjq+8PgDYbVis+hMnMlerLQ0Fn3AoG
+	5liWoY2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vc0Fd-00000009Kvr-0oHu;
-	Sat, 03 Jan 2026 11:56:57 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1vc0Ke-00000009L9Z-1XGB;
+	Sat, 03 Jan 2026 12:02:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vc0Fa-00000009Kv7-3qlu
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 03 Jan 2026 11:56:56 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-64d80a47491so1342856a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 03 Jan 2026 03:56:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1767441413; x=1768046213; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gmnAKAfv29ulmMb0BC0UKs0MVt+IkK2zMRYsdR6rhaE=;
-        b=SPiPNadf66kJfrnPFE2V3qjm5DTW3Jua9WbbxBs35oTU0QWzLjmvXlUzhoW2+jxRQb
-         hZfSG+yjPPbXalW7FRiwICp/6eHycXb51dmjLiKxs9qwEzPbrC/96KRSV1+sgYcSHBNn
-         LaequKQurdS8kNC5hIebSbYiCIV22jxKj5pK2pBlp+qUXgalCik7s0UqR2iE6n2fhZIe
-         bZwV+jEOK0bgToK6ztf+5I5ulWZf2fKDwIx4M4EJk6xq0V4hVSTFLpR3dbFRT62y/k+p
-         fjnInigklixCQ50NUBw9dNB4jr8Kb5qeeWb2jdWHtA51T9V62R2F/v0wWPM9QAI3O9A4
-         vrLw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767441413; x=1768046213;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=gmnAKAfv29ulmMb0BC0UKs0MVt+IkK2zMRYsdR6rhaE=;
-        b=B3iqTqgHnGn6SJYDRX0sS6z/qz309BE9oX1HwvWFSBxju3nEUrgRfeSQxXPhNfabf0
-         8jBgt/HoFHPB7ULdJ5bOKsccWHNtfnLMCFbilZPQ1Q1NGon7ZZNtQm68Jx5HYbhsJwbo
-         YupBhZwnveat9bVGeSaCIiHUTIVk3Gdu+shn5X/gkqLMUNoW/CNbebz0FWzPTrvCzp/o
-         0DqKP5817ikAU5lFNW5pGDvcHAYXSOBqZ0woKLmPBFJVad3hJnGoA6W3xvFX4yf7+iCV
-         IEtwDaM1/Agjxb9898Fm7STqXMydlUrmBx4wvSyDkLhh+jj7+P2Uh4D/qusUaUVEfJid
-         cmBg==
-X-Forwarded-Encrypted: i=1; AJvYcCUz3SGADKiHRt3q90IxnW9SWmiWPpHrjIayD+odegUlKu3XCzrC2/0MmMl/y5rKplqT/JTKIoivbf6xd15bDJkS@lists.infradead.org
-X-Gm-Message-State: AOJu0YyOB9CKP/1X6GnZVFquujWCLN+yg68k8Wqq+DIb57FYgH27ujWO
-	SgQlYxl61tMJtACBKhDnV1pJ8JxtJPnwiHWAwHBfSqxkTPUK5uXGnW0ApMythR5DfjgDzNb0bEO
-	Cbv/Fd6Yq4gTztenYGbv6T6fuzwiMVrU=
-X-Gm-Gg: AY/fxX6gozCAwUFH23hW+jbsN+OrubIknM373efO1W49zNOJHndS7BXG5fQpcBfhNN8
-	tHKbCrunX+5M8rGzDTe8CIXHv2HCHNo474uqQ0Itme5BUgYI2OB6y65guGL28k0a/idT4weHU3I
-	WD+o6ADcVpKOo/5NkUzQJL0NRKy2Sq7eXxun0XgKJYhOxbnz/fXnyk5qLW5n9ya6Fm0ohPDzju3
-	7MkZYsEDWGDKgxYvzVp41/RAOf1McB+zZLcoclD6L3B1rudo4f3YLAD+BHETV8PDqw=
-X-Google-Smtp-Source: AGHT+IF2b3MvhL62iZeikJ+ttx+pza0Q8AuLmmDSQvLMMwKTmV2H/BFIvhu8dzQh+T0cfdAPWyIo8+97JC3VbvgZOtQ=
-X-Received: by 2002:a05:6402:2750:b0:64d:4149:4924 with SMTP id
- 4fb4d7f45d1cf-64fd4929c52mr2235323a12.4.1767441412727; Sat, 03 Jan 2026
- 03:56:52 -0800 (PST)
+	id 1vc0Kd-00000009L9O-0c2y;
+	Sat, 03 Jan 2026 12:02:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E71616014D;
+	Sat,  3 Jan 2026 12:02:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA7CCC113D0;
+	Sat,  3 Jan 2026 12:02:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767441725;
+	bh=1x1FZr6RcPuO0JFTJZCAvrYneabcp2bRuH04E9/5pX4=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=Vtskogp2qUAVd/DM4TkDqX7xhp75/RE4O/3djH0Ggd1RNArNybeRlzM9h+4xWnEXY
+	 XHN81oSHhzHnJVvX/LYYI+eORArVWUOZUrf70THyHL6THPbDXlv/2B4F/adETfbJsJ
+	 Bp2HlCanAv3xncnNRucIJI2Hz9n0JHN5pyGnfYOWLrhkiM9L46ZgUE7Q18kaz0uHhC
+	 3jxgcirES+Q0OYgP5Nft2bzET7CDZqJ1fERAAEJEVJx/MTyePCUxDX7TCYKv6D6aPb
+	 cCken4S8d5opzrahawWNIi6hVZYvZsLvHTe6BvRh4sDzw2xxFpIHDbhi4T3bme/S51
+	 r53uT1Zxm/bXA==
+Message-ID: <6f30a01c-8fc4-4368-88ef-7c513c505515@kernel.org>
+Date: Sat, 3 Jan 2026 13:01:58 +0100
 MIME-Version: 1.0
-References: <20260103052506.6743-1-linux.amoon@gmail.com> <1802774.yIU609i1g2@diego>
-In-Reply-To: <1802774.yIU609i1g2@diego>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Sat, 3 Jan 2026 17:26:37 +0530
-X-Gm-Features: AQt7F2ro1kfUI7JqsGT_zw2XVqyjk2_hY7-ZX3rtcNoyAWEVImrlYTmVULYv9uo
-Message-ID: <CANAwSgR5RxmeUA-XdTCD5tr9SjPt4EqdH0W305tzsgh+73F7bw@mail.gmail.com>
-Subject: Re: [PATCH v1] i2c: rk3x: Add support for SCL output enable debounce
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
-Cc: Andi Shyti <andi.shyti@kernel.org>, 
-	"moderated list:ARM/Rockchip SoC support" <linux-arm-kernel@lists.infradead.org>, 
-	"open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>, 
-	"open list:I2C SUBSYSTEM HOST DRIVERS" <linux-i2c@vger.kernel.org>, open list <linux-kernel@vger.kernel.org>, 
-	David Wu <david.wu@rock-chips.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260103_035654_996151_476EF777 
-X-CRM114-Status: GOOD (  18.74  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 3/3] usb: typec: fusb302: Switch to threaded interrupt
+ handler
+To: Anand Moon <linux.amoon@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ FUKAUMI Naoki <naoki@radxa.com>,
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+ Yongbo Zhang <giraffesnn123@gmail.com>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>,
+ "moderated list:ARM/Rockchip SoC support"
+ <linux-arm-kernel@lists.infradead.org>,
+ "open list:ARM/Rockchip SoC support" <linux-rockchip@lists.infradead.org>,
+ open list <linux-kernel@vger.kernel.org>,
+ "open list:USB TYPEC CLASS" <linux-usb@vger.kernel.org>
+References: <20260103083232.9510-1-linux.amoon@gmail.com>
+ <20260103083232.9510-4-linux.amoon@gmail.com>
+From: Hans de Goede <hansg@kernel.org>
+Content-Language: en-US, nl
+In-Reply-To: <20260103083232.9510-4-linux.amoon@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,50 +85,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Heiko,
+Hi,
 
-Thanks for your review comment.
+On 3-Jan-26 09:31, Anand Moon wrote:
+> The fusb302 driver triggers a "BUG: Invalid wait context" lockdep warning
+> under certain configurations (such as when CONFIG_PROVE_RAW_LOCK_NESTING
+> is enabled). This occurs because the interrupt handler, fusb302_irq_intn,
+> attempts to acquire a regular spinlock (&chip->irq_lock) while running
+> in hardirq context can lead to invalid wait context reports if the lock is
+> considered "sleepable" or has incompatible nesting levels with the
+> underlying interrupt controller's locks.
+> 
+> lockdep warnings:
+> 
+> [   38.935276] [      C0] =============================
+> [   38.935690] [      C0] [ BUG: Invalid wait context ]
+> [   38.936106] [      C0] 6.19.0-rc2-2-ARM64-GCC #2 Tainted: GT
+> [   38.936716] [      C0] -----------------------------
+> [   38.937129] [      C0] kworker/0:0/8 is trying to lock:
+> [   38.937566] [      C0] ffff000112c04190 (&chip->irq_lock){....}-{3:3}, at: fusb302_irq_intn+0x38/0x98 [fusb302]
+> [   38.938450] [      C0] other info that might help us debug this:
+> [   38.938953] [      C0] context-{2:2}
+> [   38.939247] [      C0] 2 locks held by kworker/0:0/8:
+> [   38.939670] [      C0]  #0: ffff000100025148 ((wq_completion)events_freezable){+.+.}-{0:0}, at: process_one_work+0x224/0x4b8
+> [   38.940645] [      C0]  #1: ffff8000800fbd90 ((work_completion)(&(&host->detect)->work)){+.+.}-{0:0}, at: process_one_work+0x24c/0x4b8
+> [   38.941691] [      C0] stack backtrace:
+> [   38.942010] [      C0] CPU: 0 UID: 0 PID: 8 Comm: kworker/0:0 Tainted: GT   6.19.0-rc2-2-ARM64-GCC #2 PREEMPT(full)  bd73c5afc1bd41f04ef9699c14f0381f835f4deb
+> [   38.942017] [      C0] Tainted: [T]=RANDSTRUCT
+> [   38.942019] [      C0] Hardware name: Radxa ROCK 5B (DT)
+> [   38.942022] [      C0] Workqueue: events_freezable mmc_rescan
+> [   38.942031] [      C0] Call trace:
+> [   38.942033] [      C0]  show_stack+0x24/0x40 (C)
+> [   38.942041] [      C0]  dump_stack_lvl+0x90/0xd8
+> [   38.942047] [      C0]  dump_stack+0x1c/0x3c
+> [   38.942051] [      C0]  __lock_acquire+0x5e8/0x9c8
+> [   38.942059] [      C0]  lock_acquire+0x134/0x280
+> [   38.942065] [      C0]  _raw_spin_lock_irqsave+0x80/0xb0
+> [   38.942072] [      C0]  fusb302_irq_intn+0x38/0x98 [fusb302 634bac905a09c450b54f88b96019accd2820228f]
+> [   38.942082] [      C0]  __handle_irq_event_percpu+0x138/0x3f0
+> [   38.942088] [      C0]  handle_irq_event+0x58/0xd8
+> [   38.942093] [      C0]  handle_level_irq+0x108/0x190
+> [   38.942099] [      C0]  handle_irq_desc+0x4c/0x78
+> [   38.942106] [      C0]  generic_handle_domain_irq+0x24/0x40
+> [   38.942113] [      C0]  rockchip_irq_demux+0x128/0x240
+> [   38.942120] [      C0]  handle_irq_desc+0x4c/0x78
+> [   38.942127] [      C0]  generic_handle_domain_irq+0x24/0x40
+> [   38.942133] [      C0]  __gic_handle_irq_from_irqson.isra.0+0x260/0x370
+> [   38.942141] [      C0]  gic_handle_irq+0x68/0xa0
+> [   38.942146] [      C0]  call_on_irq_stack+0x48/0x68
+> [   38.942152] [      C0]  do_interrupt_handler+0x74/0x98
+> [   38.942158] [      C0]  el1_interrupt+0x88/0xb0
+> [   38.942165] [      C0]  el1h_64_irq_handler+0x1c/0x30
+> [   38.942170] [      C0]  el1h_64_irq+0x84/0x88
+> [   38.942175] [      C0]  arch_counter_get_cntpct+0x4/0x20 (P)
+> [   38.942181] [      C0]  __const_udelay+0x30/0x48
+> [   38.942187] [      C0]  mci_send_cmd.constprop.0+0x84/0xc8
+> [   38.942194] [      C0]  dw_mci_setup_bus+0x60/0x210
+> [   38.942200] [      C0]  dw_mci_set_ios+0x1c8/0x260
+> [   38.942206] [      C0]  mmc_set_initial_state+0x110/0x140
+> [   38.942211] [      C0]  mmc_rescan_try_freq+0x154/0x198
+> [   38.942216] [      C0]  mmc_rescan+0x1cc/0x278
+> [   38.942221] [      C0]  process_one_work+0x284/0x4b8
+> [   38.942225] [      C0]  worker_thread+0x264/0x3a0
+> [   38.942230] [      C0]  kthread+0x11c/0x138
+> [   38.942236] [      C0]  ret_from_fork+0x10/0x20
+> [   38.969307] [     T11] rockchip-dw-pcie a41000000.pcie: PCI host bridge to bus 0004:40
+> [   38.969995] [     T11] pci_bus 0004:40: root bus resource [bus 40-4f]
+> 
+> Following changes resolves the lockdep warnings and aligns the driver with best
+> practices for I2C-based interrupt handling.
+> 
+> Cc: Hans de Goede <hansg@kernel.org>
+> Cc: Yongbo Zhang <giraffesnn123@gmail.com>
+> Cc: Sebastian Reichel <sebastian.reichel@collabora.com>
+> Fixes: 309b6341d557 ("usb: typec: fusb302: Revert incorrect threaded irq fix")
+> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
 
-On Sat, 3 Jan 2026 at 16:09, Heiko St=C3=BCbner <heiko@sntech.de> wrote:
->
-> Am Samstag, 3. Januar 2026, 06:25:04 Mitteleurop=C3=A4ische Normalzeit sc=
-hrieb Anand Moon:
-> > From: David Wu <david.wu@rock-chips.com>
-> >
-> > As per the RK3399 and RK3588 datasheets Rockchip I2C controllers featur=
-e
-> > a SCL_OE_DB register (0x24). This register is used to configure the
-> > debounce time for the SCL output enable signal, which helps prevent
-> > glitches and ensures timing compliance during bus handover or slave clo=
-ck
-> > stretching.
-> >
-> > Introduce a 'has_scl_oe_debounce' flag to rk3x_i2c_soc_data to
-> > distinguish between hardware versions. For supported SoCs, calculate
-> > the debounce counter dynamically based on the current clock rate
-> > and program it during divider adaptation.
-> >
-> > Signed-off-by: Anand Moon <linux.amoon@gmail.com>
-> > Signed-off-by: David Wu <david.wu@rock-chips.com>
->
-> Signed-off-by lines are in the wrong order.
->
-> Original author first, then yours as you're the one handling
-> the patch last.
->
-Ok, I will fix this in the next version, with a new feedback,
->
-> Also, does this fix a problem for you, or is this more a case of
-> "this looks useful"?
->
-Actually, I am investigating a boot reset issue on the Radxa Rock 5B,
-Specifically related to the fusb302 Type-C driver. So I was looking for
-type-c fusb302 module to communicate with the I2C protocol.
-I submitted small changes for this, waiting for feedback
+If you look closer at the code then you will see that
+fusb302_irq_intn() is effectively doing its own threaded
+interrupt handling this is done to be able to delay
+the threaded part till after the i2c-controller is
+resumed when a fusb302 irq wakes up the system.
 
-> Thanks
-> Heiko
+See commit 207338ec5a27 ("usb: typec: fusb302: Improve
+suspend/resume handling") for details.
 
-Thanks
--Anand
+And if you look at the fusb302 git history then you'll
+seen an earlier change the switch the interrupt handler
+to a threaded IRQ which was reverted (mostly due to it
+also making other undesirable changes).
+
+This change is different though. This is actually quite
+similar to commit cee3dba7b741 ("mei: vsc: Fix "BUG: Invalid
+wait context" lockdep error"). Where I fixed more or less
+the same issue in the same way. So I guess this change also
+is ok.
+
+Still ideally we would solve this in another way then
+switching to a threaded IRQ handler.
+
+As the commit message of the mei-vsc fix mentions
+the root cause of these errors is typically an interrupt
+chip driver which uses IRQF_NO_THREAD disabling the auto
+threading of all interrupt handlers in RT mode.
+
+So the first question here would be to see if that flag is
+used in the interrupt chip and if yes, is that flag really
+necessary ?
+
+Regards,
+
+Hans
+
+
+
+
+
+
+
+
+
+
+
+> ---
+>  drivers/usb/typec/tcpm/fusb302.c | 7 ++++---
+>  1 file changed, 4 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/usb/typec/tcpm/fusb302.c b/drivers/usb/typec/tcpm/fusb302.c
+> index 870a71f953f6..089722b52fbb 100644
+> --- a/drivers/usb/typec/tcpm/fusb302.c
+> +++ b/drivers/usb/typec/tcpm/fusb302.c
+> @@ -1755,9 +1755,10 @@ static int fusb302_probe(struct i2c_client *client)
+>  		goto destroy_workqueue;
+>  	}
+>  
+> -	ret = request_irq(chip->gpio_int_n_irq, fusb302_irq_intn,
+> -			  IRQF_ONESHOT | IRQF_TRIGGER_LOW,
+> -			  "fsc_interrupt_int_n", chip);
+> +	ret = request_threaded_irq(chip->gpio_int_n_irq,
+> +				   NULL, fusb302_irq_intn,
+> +				   IRQF_ONESHOT | IRQF_TRIGGER_LOW,
+> +				   "fsc_interrupt_int_n", chip);
+>  	if (ret < 0) {
+>  		dev_err(dev, "cannot request IRQ for GPIO Int_N, ret=%d", ret);
+>  		goto tcpm_unregister_port;
+
 
