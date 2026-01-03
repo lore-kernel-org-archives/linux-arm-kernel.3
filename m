@@ -4,171 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85F72FC618A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Jan 2026 21:05:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 053A5FC619C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Jan 2026 22:15:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Eg89aQ9YDc9eStp3LDIEe/pefNUfKptlKojX+qfGOE=; b=ezd1ZfGKDWxPAcXwo8rXJ0GLdl
-	Rrt26dgyGBtGVHRfdpt/5kkwji9Hi9lMX0thJVIrYsUPztYkMeXwyVOHdds8DrfY+/CkBrV4/z7Ie
-	BvbXRjZduSJC6DK4Kkbe6jCFv79RuGB0dmC9JdmZ8HBUAoxNs6+IP2yy9M9ytzFIpkMpvsB7Bkcfa
-	aK1UFtW/kvTaPAm5V8Tu0tjtPXcAd6fOEdyz3YPJpg1kVPH5EKP6lvubsqRb9V8XnrgKLF+8C8z5V
-	wU8KT0LGAMa9fADFNgVyUuFTdoAy8n67NCwiYjnrQSm0+eUoI+Nh4A5mcAZlWXdfM7EGltsX/S794
-	TPRioySQ==;
+	bh=XCX5Ea0Jxf6XlmcYmX/pWhqkbSLp0TFbsAJdTRKXfY0=; b=eS5d0P9Eq63VTUrHMel51682ci
+	zNkyr/KFfTtQ0UouUbzvwg+uDXtvOUmS7z4NS88IWfdQTv+nzWhbyMXFh1gBdP1FkR1YNsj46oSz3
+	nlWtaluE2U+adAD5eXiJlhvWgc295FFmR9svg8KwSq0Ta5HaR6KPRkFWQevgDHIRBQRY1c4Kh9pV0
+	0jSamHhYy6St4DXgxOBpc5md+zTCNnmK4vtsCTVnv5aEjpQ0faQuHlbma590I8oCg3ebOk2z+TYf0
+	kVexmayWUAx+4VDskgYaZp+OiFpO/KrYSTTAXNuHKFerXTnCYlO9N4zqfcaPekMMcAKjaQC6hQ1/U
+	NLHwPsCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vc8oh-00000009p8d-2IAt;
-	Sat, 03 Jan 2026 21:05:43 +0000
-Received: from mail-westeuropeazon11011036.outbound.protection.outlook.com ([52.101.70.36] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1vc9tk-00000009s7t-3JQv;
+	Sat, 03 Jan 2026 22:15:00 +0000
+Received: from mleia.com ([178.79.152.223] helo=mail.mleia.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vc8oW-00000009oIP-1c6U;
-	Sat, 03 Jan 2026 21:05:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yQ8S0UY6AJoeL1PcvC95nn+IViLdjySLux7sGnhICYRR/LtwTAVYXJG8d68N5VzCPhOHkryZJ5T35PNrF7HYTB4SZT/xTVmN89f/lFIPv57/D/qtxRWFpzLgkDb9yqskxtq/3n7NKhrsOQERc4CISV2D/j9jNEcjXwSsRjm4e9Unm+ul8s3ARYbYbV1gv5eYU+nM0u3fahdM9nzGTIxqTwNVhqDFedYngsqRmYZk215pS6PsDjcWgRwfzvyhE6h2HJnpKKtagTgqjGFtBv5Lex1G5mOHyQerC2je2IycMUzFXS0IuBv9nHm34S2QweQsxzLLyRxpg7LWbgpxIelumw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+Eg89aQ9YDc9eStp3LDIEe/pefNUfKptlKojX+qfGOE=;
- b=bafORXPYgD8E3IbT0xs2Bvd95ZrL6NqVfIXCTKbOefWUI7gEdlmNh+D0PXVlgdC2y1qQew8ScL4XQ1j6OPbEREKjn39pvUMjX52W2Ejm4wVUkCPQytTooWIZgb68xDE6QVu1/SwWgLivjbXN3AA7gq+7xdtgs27nRTXDi0dJIP2bdK8fq41KPH0zNJ1B8KzudfrscA7FK6Ablmo7ExxioL0vpDnZAk/qzWANppMtMuiMqRYAQ+ealbh7lH9gUqbsWcJGFBGGxf3fAExTWe8wnKeqv/NNpJQTxvhabKCn8qd0MP0cKqaRmS40OAUsV2EPMA3QTBn9klNDmWu5Roy/bQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+Eg89aQ9YDc9eStp3LDIEe/pefNUfKptlKojX+qfGOE=;
- b=IiXQxnAVLvCUDG/hBOKgyVr83sVJ0GojEzC1Y8F448BtSfiyjo2Z8gkemG9FoWZIhyJ9gAAKulKY9pqEYLze3qGuMWEG+qcgFDfeIr6pZ84lnTgHb145FenRKcC1yaFbmirsUr3cShg2I6wlcBv+J+A5t4kNQgSC0tmzYdOt8Wpfwr50ndFq5h3hXvnh//O9XEK+H64ppWWWfqxbeTk6pQrkfqpOqV+6YPLRZYwoMmCeq5nLiN3dvAn6Wphr60TK2bFMhRt/nzSdGrA8xrt/ePxMqqoI0SL49v+eOzLF70hKEs+yluGuS9gPBViUzdOfCiIqZr7iWhh8YfyzfahRKw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8584.eurprd04.prod.outlook.com (2603:10a6:10:2db::24)
- by AS8PR04MB8088.eurprd04.prod.outlook.com (2603:10a6:20b:3f7::24) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Sat, 3 Jan
- 2026 21:05:21 +0000
-Received: from DU2PR04MB8584.eurprd04.prod.outlook.com
- ([fe80::3f9d:4a01:f53c:952d]) by DU2PR04MB8584.eurprd04.prod.outlook.com
- ([fe80::3f9d:4a01:f53c:952d%3]) with mapi id 15.20.9456.013; Sat, 3 Jan 2026
- 21:05:21 +0000
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-phy@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Daniel Golle <daniel@makrotopia.org>,
-	Horatiu Vultur <horatiu.vultur@microchip.com>,
-	=?UTF-8?q?Bj=C3=B8rn=20Mork?= <bjorn@mork.no>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Eric Woudstra <ericwouds@gmail.com>,
-	=?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>,
-	Lee Jones <lee@kernel.org>,
-	Patrice Chotard <patrice.chotard@foss.st.com>
-Subject: [PATCH v2 net-next 10/10] net: pcs: pcs-mtk-lynxi: deprecate "mediatek,pnswap"
-Date: Sat,  3 Jan 2026 23:04:03 +0200
-Message-Id: <20260103210403.438687-11-vladimir.oltean@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20260103210403.438687-1-vladimir.oltean@nxp.com>
-References: <20260103210403.438687-1-vladimir.oltean@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: AS4P195CA0027.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:20b:5d6::16) To DU2PR04MB8584.eurprd04.prod.outlook.com
- (2603:10a6:10:2db::24)
+	id 1vc9th-00000009s7Q-3SzP
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 03 Jan 2026 22:14:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
+	t=1767478494; bh=+++SixFN2dXkNl6evCsHoVjFXSkSy5ytKxka2Y6aKkg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ijdVh3Emsq1dNxVLXY3UVu3xAan4Bb93QrXDZ/Ol1rMhj09yF136cxffXRbLrfwjv
+	 PXD6wkwTeXejyGWoosTz9GXDOUdeGNQuYiTsdZWvMCZBeUxfveVhaVVJtBBOqByEOu
+	 adBi24qVCaAyYertWXII8MTYNhyZSe9lycxWJEfkGfHfGUPG+Q6CXU14pw8EhTOlo6
+	 yFnT1k6768+oJelZuOwXtWdM2EpD+Ix3D8YbJl0imr75N1zE2UEudUKOy86T0IjsDH
+	 J/ZzpO2ao5+QpUvDZ38aYN/PiRkZYUZHR6HVxOvXC7GhhHdz7Lpt0829KcevmaHHkR
+	 55rdvW8/lmB8g==
+Received: from mail.mleia.com (localhost [127.0.0.1])
+	by mail.mleia.com (Postfix) with ESMTP id E6BFC3E9E05;
+	Sat,  3 Jan 2026 22:14:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=mleia.com; s=mail;
+	t=1767478493; bh=+++SixFN2dXkNl6evCsHoVjFXSkSy5ytKxka2Y6aKkg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=BXB0pKfVHiBD0myRsxR3DCF2NPycISL+FKUsFiqVJ/l2r5+LKCr1rBfq6HPeUw4Wl
+	 AJGjnr03LoRpi40K9q3UZvSnhFyGFv7q4MmI3CCTrqZJ5jAFim4uamfNr0f1jDO3PN
+	 Beao8NiHT3xPn7YkWUg/bSj35malukkcavBNGOLy1kTmNmjsQT4zzJlyyYl3FwDM4X
+	 AiPLr9BcNp0K2icWCSkHkTl/8ZxvVyqzOqPQsWTCsgp1QANPMQ9Rn41U6RmVXW3iH4
+	 +3Xo51/LLanpZY5AUFC+b11ByHH32MUwvnm2PNX+SEymc9G9985/Oav/9wbwSYft1k
+	 cuQRofugWPpnA==
+Received: from [192.168.1.100] (91-159-24-186.elisa-laajakaista.fi [91.159.24.186])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.mleia.com (Postfix) with ESMTPSA id 891A23E9B45;
+	Sat,  3 Jan 2026 22:14:53 +0000 (UTC)
+Message-ID: <28841a34-eee6-46fc-97de-27e4b9c0d0bc@mleia.com>
+Date: Sun, 4 Jan 2026 00:14:49 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8584:EE_|AS8PR04MB8088:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3e3f67d3-5518-455b-577e-08de4b0bcd24
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|52116014|376014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?VSkvHjXzV7o2JOAEpIGg70AqdYSVk5fMT6zrRDKpAuXVGGUA0mtNwS1LPGAe?=
- =?us-ascii?Q?V5fbulgwjb71wZL0eGpBj9gmr1Uxf4FF90Uf2h5CAE834+D66aSeXVxIyYHN?=
- =?us-ascii?Q?RgkywFtWmJQrVDgPQpD4FVXJgJAdaucL7N0Tv4TdZyugVtVQOg678Y7P0P+s?=
- =?us-ascii?Q?2hKAwlWFETokfVoP0TA17ejgtJhMTzEiIbPFCsnCFVzFVObbKMNN4P2jKr63?=
- =?us-ascii?Q?asHZSNq34MRV5WxyFFraqRta2rIAaOVG4x6fvfYnrZTok1Ky8jbGIJmvmrd/?=
- =?us-ascii?Q?OCqaYV7CKug7CeyBvzLOie+MdMJwVUwoqXQ2zD7akGljj4OQwZFsaURiLneD?=
- =?us-ascii?Q?NdGSPv8HR1Yk6VWh1hdPiuY5NgFe7DBs397QmwziWM+MJPAjBi333qShDGlb?=
- =?us-ascii?Q?b2kOP0hVOxXwgKKJ3dIYLS9u9pykOQWHmGVxITotGgh3tZxOk7ePOhuDN0me?=
- =?us-ascii?Q?3Csk4ePX9V8y+QpeqTLMKQSCtXmYrQTVJAtFScISja0WAqiQs00YhTOiUOrR?=
- =?us-ascii?Q?bEuQQswUek6KlmC9NI/ppV8/JfaSQuHNksQ5L9CAJAVvrgxtoX5tkUniBi6g?=
- =?us-ascii?Q?H2/XiDeqh6Mb88BTrn4nEcZZ7u0DnzgoyMKiQvpJ2yA/YE5ZhVVf5gltDU9e?=
- =?us-ascii?Q?AjlXLGLoVRWnFm8jTTWje/bsS14S63N1b5L5JcfotHAs2/Gnf5qkeO1CutLx?=
- =?us-ascii?Q?4cR6KY874U24Gf11jUfDKJMqwlUyRkxx3Rz5AIcEdOdscwD+iWqXV1nXq9W/?=
- =?us-ascii?Q?iUDmKUfzLRqRjOOFaaqfto4V4d5rBYxI04H4udmnBG0GCfd43MBBrow6s/2L?=
- =?us-ascii?Q?nOkNER09kNr0rKaq5GTc4ONhLxJz9RuDTX9iyMkx65TI5fxrnmHOMN30/6l6?=
- =?us-ascii?Q?c5IqF9LM7uovTUPLmHmiijV4UDmCmBFh1sgfDwzkgkFOrfkGMDhGcD7x0yxW?=
- =?us-ascii?Q?lIcn/RmYcZUnIF3iVPs66poxCKzcn5ND+yufBMjKnAbnktxYP2/aWgqH2ftg?=
- =?us-ascii?Q?8F83w53dahto6Qvi5hEjIDRbdGN/rGFQE+SxoP6RHP/p1ugzp5lP59Iv7XfQ?=
- =?us-ascii?Q?3wanxyHxDS8F6SgY9NCV05RhVcvxVcykYYsEw5hwdWZCSqMH8dSoDoTQORlg?=
- =?us-ascii?Q?27MZ4Qu4PRqcuBduo2jLYBIQTWGd8zDov1BHjHcOBDIAzhPLabkPzRf1XpSs?=
- =?us-ascii?Q?OSbsjLT2kND/AlIuo2sjaQL8pIoF03IwSi1Y89hx7vYLEro/lJSqSX0Wh8xd?=
- =?us-ascii?Q?tgjaTIKtCgr3gjmPhUmwrqBVe/HpKgE+x4SFRqtG3XW3BleqbDx7f0kvV4eE?=
- =?us-ascii?Q?03nFVWaP3M0qCcAhaYKYWQ+95P4+pV3MU53fFOVGAUnX73UzrnZKbIQMx881?=
- =?us-ascii?Q?cmqmQ2ffK0InPp2X+M+kyECnLy8kUvnAhpXW4diycVL64JrbBEqfRn2bZRSh?=
- =?us-ascii?Q?QPleEN265nx54dSiS6tBWfhZZEpORmFwGfG3gTiN/1l40V+dUV2jmwkYbjT+?=
- =?us-ascii?Q?MMRumKV8hJzdwAak1nbaJ1mtDqbaLa6nmwkI?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8584.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(52116014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?lf+o/qfk0EWFeHX0AfhD72XvAl5HJxTJmHwWNIrNj7zqEonF83Ph4KVbJ3Ab?=
- =?us-ascii?Q?frlVo9OEfSWbGPm/MMZWMvn+qqk5szzJu6361Yfuvd7nYImMoS1GDaClHI9w?=
- =?us-ascii?Q?jYbrt7muud7jJrjeu1QE1lmELgKdqwOD7qWMq2bdH0dx5+5F6snCMWqAbsc4?=
- =?us-ascii?Q?Oed2pq/Ags298o3lA7KVz8u01YqKhv+rbJUsqif/jUd5i/AOylLCwSTEhsmT?=
- =?us-ascii?Q?63lNZJwXYBBR5+7OsoZSKx7x7qhTxJMPgtFKwY0EoSqNZ5Tqg1FgutkHhm+v?=
- =?us-ascii?Q?i23qyzz2un1Uj0i0Rp1gvU95uwRxJb8cGn3oGTriC8CuxTHFhB+o3EHqBaFZ?=
- =?us-ascii?Q?iRTYEDmHk/+BdT7TgE4HScb3/UlxiVJrGNKotJAxwuyYXHvrsndfpj1LPMj8?=
- =?us-ascii?Q?AjnZ7XinddpQ7mUdxDf5FVrTyFebAfSTsQKT0Ii1eHXh/aSx3TWwAqjj1jSK?=
- =?us-ascii?Q?P7z9zZiYl0Q1m+RHZ1TzAAbF3g7kLRZwYnzBntZZ5U0nFayV1mKz8c14MkfW?=
- =?us-ascii?Q?cqcGLPnTwyVtr/66U5G4yr364FQBmQP6OZQkXfu3yJqyOjGSXa+Gaf3A22ZA?=
- =?us-ascii?Q?UeWbpzTpa+mDP72Aku6xvaHfdXwO2iBujuCxTPhYkI/+YFVDGkdgBBTDETp7?=
- =?us-ascii?Q?eqlFlYiFL2v/wTg8SMESbrd4KcLg/V2Q/cdYQ2RPSFd0Xinq6jOPXV8WPVoE?=
- =?us-ascii?Q?Jo9HdgKlsqYVIy+XV09eDo2zIWigbiz3n9E0pGKsU6oclnauOHPWIAoCXuf2?=
- =?us-ascii?Q?6mwvt4bM6VSQvZQ8bZoKujYWp3f8MtNoxOK2rdM9YjwcfpO3xRG5YL+U9dXi?=
- =?us-ascii?Q?cShbLMypd7G9+z+Gi3BF9FhyMjRJPdg/DeIoKIBsZUe3XXT3FF6b93/aKukG?=
- =?us-ascii?Q?pJDpDYfmWeN0b/enV05QU/RSi9CgH2EczexzAlUagOPJgx73CfPv8OZ+33XA?=
- =?us-ascii?Q?zoEvB3lb4f2nqwXjUQt3j+39pKcKBFrt7dGT3+Dz5zGq1Hd9dS3t2TWxtQcS?=
- =?us-ascii?Q?5DpyiBUZqYuFMW/pR9WawLoFU1b9Vfr2AxaKu1670+sadh8SAi9+unBpQe9D?=
- =?us-ascii?Q?PP96E6cQGUCAg09cveVunsJd5I84N0F0lDQuYaMwfxZYw/t0UyKyXnrrsG4u?=
- =?us-ascii?Q?GLdKxUu78S8emv05kWyYKJuem71qCpmY+fq3qsVHSIlqMN1w33PhSrovAQ5S?=
- =?us-ascii?Q?sVBkPmpGvTXNL3n7Chryo6RXzASW8bQUsmo07O7QqfvTEZFceOsj3kGnUkIc?=
- =?us-ascii?Q?1YnXJJMcr2aahNoA1VaIAKkSZaccbTwQMNyoMmwUEtvMt87KDqz5x+pbrh+Q?=
- =?us-ascii?Q?n9S8d79ZopGBo/gT+XhPUfq6aax7nriuISpEFRUp8GGHuAVw/P5COWCBoEzb?=
- =?us-ascii?Q?y0rSmxFxBqwsRhryEN0IO7RbOWt3RqyRDVyTTTshAbi4D/CvzulqqSVIBhZb?=
- =?us-ascii?Q?2+Tp5pauoZn37KfM7eXZlaID8iSvuMIlwzoHYvC7tA0nEtTxWbdECQ/pKUDx?=
- =?us-ascii?Q?xlY7eNOgcRTAXSmHF5nP108tx4x9cIQ0pbgdIWsQ9y1xQMlNZ8MItAGodQ4H?=
- =?us-ascii?Q?BZ/qgfS9rsnytNSLZ4bpD+rCXe+iUnBG+Q1iEIwin75CppiPf2RVx2SD6W+0?=
- =?us-ascii?Q?8HNpy/j4sMYs5RVvTJWEkj86rwoTGndK8rqeJdl2+jmxfB57B/PJJR7vmD2w?=
- =?us-ascii?Q?Ls7H2p6lNLUNjitpQw/i0+Fig7sDTUV3C4r/I8bmaEgInaYxMMjcMuE3dy9l?=
- =?us-ascii?Q?j8YuYJOrKAuL9IcH4RLGw/ouyMKOkyM=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3e3f67d3-5518-455b-577e-08de4b0bcd24
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8584.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jan 2026 21:05:21.0347
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: tuRHOYFqpsbTVsTQgen5cJjRRXahlEf4RFqC1rlBLqNGsX4UPFw3vHG3++yMRzuymN0Vul3obuEPFOS3rMxdZg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8088
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] soc: nxp: Add a simple NXP LPC32xx socinfo driver
+To: Krzysztof Kozlowski <krzk@kernel.org>, Arnd Bergmann <arnd@arndb.de>
+Cc: Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20260101235647.2411062-1-vz@mleia.com>
+ <20260101235647.2411062-3-vz@mleia.com>
+ <accb4ab1-07fa-4e33-a74c-2c588ca415ac@kernel.org>
+ <eb9ef21a-c0b4-4c8d-b1b1-6c76f45c53aa@mleia.com>
+ <1eef3c49-83a7-48d4-96ad-ffb71df2be7a@kernel.org>
+ <1a336af6-6c27-4211-9c8c-ede4d091eb17@mleia.com>
+ <a77325ae-fc53-4554-a7d8-3bdd841e1065@kernel.org>
+From: Vladimir Zapolskiy <vz@mleia.com>
+In-Reply-To: <a77325ae-fc53-4554-a7d8-3bdd841e1065@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-49551924 
+X-CRM114-CacheID: sfid-20260103_221453_963060_5C857AA6 
+X-CRM114-Status: GOOD (  15.90  )
+/bin/ln: failed to access 'reaver_cache/texts/20260103_221453_963060_5C857AA6': No such file or directory
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260103_130532_473652_BC5DDEEC 
-X-CRM114-Status: GOOD (  17.97  )
+X-CRM114-CacheID: sfid-20260103_221453_963060_5C857AA6 
+X-CRM114-Status: GOOD (  19.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,129 +94,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Prefer the new "rx-polarity" and "tx-polarity" properties, which in this
-case have the advantage that polarity inversion can be specified per
-direction (and per protocol, although this isn't useful here).
+On 1/3/26 14:43, Krzysztof Kozlowski wrote:
+> On 02/01/2026 14:21, Vladimir Zapolskiy wrote:
+>> On 1/2/26 14:54, Krzysztof Kozlowski wrote:
+>>> On 02/01/2026 13:36, Vladimir Zapolskiy wrote:
+>>>> On 1/2/26 11:58, Krzysztof Kozlowski wrote:
+>>>>> On 02/01/2026 00:56, Vladimir Zapolskiy wrote:
+>>>>>> Add NXP LPC32xx specific driver to get unique SoC ID from System Control
+>>>>>> Block registers and export it to userspace.
+>>>>>>
+>>>>>> Signed-off-by: Vladimir Zapolskiy <vz@mleia.com>
+>>>>>> ---
+>>>>>>     drivers/soc/Kconfig           |   1 +
+>>>>>>     drivers/soc/Makefile          |   1 +
+>>>>>>     drivers/soc/nxp/Kconfig       |  16 +++++
+>>>>>>     drivers/soc/nxp/Makefile      |   2 +
+>>>>>>     drivers/soc/nxp/lpc32xx-soc.c | 114 ++++++++++++++++++++++++++++++++++
+>>>>>>     5 files changed, 134 insertions(+)
+>>>>>>     create mode 100644 drivers/soc/nxp/Kconfig
+>>>>>>     create mode 100644 drivers/soc/nxp/Makefile
+>>>>>>     create mode 100644 drivers/soc/nxp/lpc32xx-soc.c
+>>>>>>
+>>>>>> diff --git a/drivers/soc/Kconfig b/drivers/soc/Kconfig
+>>>>>> index a2d65adffb80..c21b0d2f58fc 100644
+>>>>>> --- a/drivers/soc/Kconfig
+>>>>>> +++ b/drivers/soc/Kconfig
+>>>>>> @@ -18,6 +18,7 @@ source "drivers/soc/loongson/Kconfig"
+>>>>>>     source "drivers/soc/mediatek/Kconfig"
+>>>>>>     source "drivers/soc/microchip/Kconfig"
+>>>>>>     source "drivers/soc/nuvoton/Kconfig"
+>>>>>> +source "drivers/soc/nxp/Kconfig"
+>>>>>>     source "drivers/soc/pxa/Kconfig"
+>>>>>>     source "drivers/soc/qcom/Kconfig"
+>>>>>>     source "drivers/soc/renesas/Kconfig"
+>>>>>> diff --git a/drivers/soc/Makefile b/drivers/soc/Makefile
+>>>>>> index 47a3925ff84c..a04c21a8a5a4 100644
+>>>>>> --- a/drivers/soc/Makefile
+>>>>>> +++ b/drivers/soc/Makefile
+>>>>>> @@ -24,6 +24,7 @@ obj-y				+= loongson/
+>>>>>>     obj-y				+= mediatek/
+>>>>>>     obj-y				+= microchip/
+>>>>>>     obj-y				+= nuvoton/
+>>>>>> +obj-y				+= nxp/
+>>>>>>     obj-y				+= pxa/
+>>>>>>     obj-y				+= qcom/
+>>>>>>     obj-y				+= renesas/
+>>>>>
+>>>>> Missing maintainers entry.
+>>>>>
+>>>>>
+>>>>>> +
+>>>>>> +static int lpc32xx_soc_probe(struct platform_device *pdev)
+>>>>>> +{
+>>>>>> +	struct soc_device_attribute *soc_dev_attr;
+>>>>>> +	struct device *dev = &pdev->dev;
+>>>>>> +	struct soc_device *soc_dev;
+>>>>>> +	struct regmap *scb;
+>>>>>> +	u32 serial_id[4];
+>>>>>> +	int ret;
+>>>>>> +
+>>>>>> +	soc_dev_attr = devm_kzalloc(dev, sizeof(*soc_dev_attr), GFP_KERNEL);
+>>>>>> +	if (!soc_dev_attr)
+>>>>>> +		return -ENOMEM;
+>>>>>> +
+>>>>>> +	soc_dev_attr->family = "NXP LPC32xx";
+>>>>>> +
+>>>>>> +	ret = of_property_read_string(of_root, "model", &soc_dev_attr->machine);
+>>>>>> +	if (ret)
+>>>>>> +		return ret;
+>>>>>> +
+>>>>>> +	scb = syscon_regmap_lookup_by_compatible("nxp,lpc3220-scb");
+>>>>>
+>>>>> This is undocumented ABI.
+>>>>
+>>>> What is the expected level of documentation for syscon?
+>>>
+>>> git grep nxp,lpc3220-scb
+>>>
+>>> gives me 0 results.
+>>>
+>>> Documentation is supposed to be in this patchset. If it is not, you have
+>>> changelog part to explain dependencies and unusual things.
+>>
+>> The documentation is under review, as a DT maintainer you are in To: list
+>> and should have it in the mailbox, for anyone's convenience the dependency
+>> is mentioned in the cover letter to this changeset also.
+> 
+> There is nothing about dependency and nothing about binding in the cover
+> letter, so no - this is not explained nowhere and must have been explained.
+> 
 
-We use the vendor specific ones as fallback if the standard description
-doesn't exist.
+If you do not find the asked information, then let me repeat my question, what
+dependency or information does this changeset miss? What "undocumented ABI"
+you'd expect to resolve?
 
-Daniel, referring to the Mediatek SDK, clarifies that the combined
-SGMII_PN_SWAP_TX_RX register field should be split like this: bit 0 is
-TX and bit 1 is RX:
-https://lore.kernel.org/linux-phy/aSW--slbJWpXK0nv@makrotopia.org/
+Intentionally the driver works without a present "nxp,lpc3220-scb" compatible
+device tree node, anyway, since it's mentioned in the driver, such a device
+tree node is described over the link to another changeset.
 
-Suggested-by: Daniel Golle <daniel@makrotopia.org>
-Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
----
-v1->v2: patch is new
-
- drivers/net/pcs/Kconfig         |  1 +
- drivers/net/pcs/pcs-mtk-lynxi.c | 50 +++++++++++++++++++++++++++++----
- 2 files changed, 45 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/net/pcs/Kconfig b/drivers/net/pcs/Kconfig
-index ecbc3530e780..5f94a11f6332 100644
---- a/drivers/net/pcs/Kconfig
-+++ b/drivers/net/pcs/Kconfig
-@@ -20,6 +20,7 @@ config PCS_LYNX
- 
- config PCS_MTK_LYNXI
- 	tristate
-+	select GENERIC_PHY_COMMON_PROPS
- 	select REGMAP
- 	help
- 	  This module provides helpers to phylink for managing the LynxI PCS
-diff --git a/drivers/net/pcs/pcs-mtk-lynxi.c b/drivers/net/pcs/pcs-mtk-lynxi.c
-index 7f719da5812e..74dbce205f71 100644
---- a/drivers/net/pcs/pcs-mtk-lynxi.c
-+++ b/drivers/net/pcs/pcs-mtk-lynxi.c
-@@ -11,6 +11,7 @@
- #include <linux/mdio.h>
- #include <linux/of.h>
- #include <linux/pcs/pcs-mtk-lynxi.h>
-+#include <linux/phy/phy-common-props.h>
- #include <linux/phylink.h>
- #include <linux/regmap.h>
- 
-@@ -62,8 +63,9 @@
- 
- /* Register to QPHY wrapper control */
- #define SGMSYS_QPHY_WRAP_CTRL		0xec
--#define SGMII_PN_SWAP_MASK		GENMASK(1, 0)
--#define SGMII_PN_SWAP_TX_RX		(BIT(0) | BIT(1))
-+#define SGMII_PN_SWAP_RX		BIT(1)
-+#define SGMII_PN_SWAP_TX		BIT(0)
-+
- 
- /* struct mtk_pcs_lynxi -  This structure holds each sgmii regmap andassociated
-  *                         data
-@@ -121,6 +123,42 @@ static void mtk_pcs_lynxi_get_state(struct phylink_pcs *pcs,
- 					 FIELD_GET(SGMII_LPA, adv));
- }
- 
-+static int mtk_pcs_config_polarity(struct mtk_pcs_lynxi *mpcs,
-+				   phy_interface_t interface)
-+{
-+	struct fwnode_handle *fwnode = mpcs->fwnode, *pcs_fwnode;
-+	unsigned int pol, default_pol = PHY_POL_NORMAL;
-+	unsigned int val = 0;
-+	int ret;
-+
-+	if (fwnode_property_read_bool(fwnode, "mediatek,pnswap"))
-+		default_pol = PHY_POL_INVERT;
-+
-+	pcs_fwnode = fwnode_get_named_child_node(fwnode, "pcs");
-+
-+	ret = phy_get_rx_polarity(pcs_fwnode, phy_modes(interface),
-+				  BIT(PHY_POL_NORMAL) | BIT(PHY_POL_INVERT),
-+				  default_pol, &pol);
-+	if (ret) {
-+		fwnode_handle_put(pcs_fwnode);
-+		return ret;
-+	}
-+	if (pol == PHY_POL_INVERT)
-+		val |= SGMII_PN_SWAP_RX;
-+
-+	ret = phy_get_tx_polarity(pcs_fwnode, phy_modes(interface),
-+				  BIT(PHY_POL_NORMAL) | BIT(PHY_POL_INVERT),
-+				  default_pol, &pol);
-+	fwnode_handle_put(pcs_fwnode);
-+	if (ret)
-+		return ret;
-+	if (pol == PHY_POL_INVERT)
-+		val |= SGMII_PN_SWAP_TX;
-+
-+	return regmap_update_bits(mpcs->regmap, SGMSYS_QPHY_WRAP_CTRL,
-+				  SGMII_PN_SWAP_RX | SGMII_PN_SWAP_TX, val);
-+}
-+
- static int mtk_pcs_lynxi_config(struct phylink_pcs *pcs, unsigned int neg_mode,
- 				phy_interface_t interface,
- 				const unsigned long *advertising,
-@@ -130,6 +168,7 @@ static int mtk_pcs_lynxi_config(struct phylink_pcs *pcs, unsigned int neg_mode,
- 	bool mode_changed = false, changed;
- 	unsigned int rgc3, sgm_mode, bmcr;
- 	int advertise, link_timer;
-+	int ret;
- 
- 	advertise = phylink_mii_c22_pcs_encode_advertisement(interface,
- 							     advertising);
-@@ -169,10 +208,9 @@ static int mtk_pcs_lynxi_config(struct phylink_pcs *pcs, unsigned int neg_mode,
- 		regmap_set_bits(mpcs->regmap, SGMSYS_RESERVED_0,
- 				SGMII_SW_RESET);
- 
--		if (fwnode_property_read_bool(mpcs->fwnode, "mediatek,pnswap"))
--			regmap_update_bits(mpcs->regmap, SGMSYS_QPHY_WRAP_CTRL,
--					   SGMII_PN_SWAP_MASK,
--					   SGMII_PN_SWAP_TX_RX);
-+		ret = mtk_pcs_config_polarity(mpcs, interface);
-+		if (ret)
-+			return ret;
- 
- 		if (interface == PHY_INTERFACE_MODE_2500BASEX)
- 			rgc3 = SGMII_PHY_SPEED_3_125G;
 -- 
-2.34.1
-
+Best wishes,
+Vladimir
 
