@@ -4,142 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5223FC6179
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Jan 2026 09:29:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D31B2FC6177
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  3 Jan 2026 09:38:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Joke38XwL+48ap+zDpfU6EkR5QCjIWvWYHxN+wRJJt8=; b=z4AmbySyzKC+B4/1p/Xk3389WO
-	qARzLMmeKoZz5IpbZEJhZqswk5oMELiMkmmMHhFSGcXonc4uCsj4C4bwjdozVB2WdFR9SA4kCQdAZ
-	BtNdyDM9QqTOgg46NRjsjiwRMzr23zeM8PT+U0pZVqakS4qXdNNNpSY1XK4ezMxTLLMT+BTTASGZp
-	M32DxpZgx9ELZmzYfRLIyej+F5oazQfhbYi9lxjeod905s1Fq4DfEE1OtQz1IXZu92VgOWsO40Bk7
-	gkCQsLYl96vjmfnI8HEmcXaiuWXXpKfXpJ10UnfsGwuUqs6wHFeogORAZyJOqIPK+9b+SybZE0zaB
-	ONzKV5zg==;
+	bh=pWZkKPiFtnR/rs3kiMr68GAakSXnMiP1ZnZ9OMgWTpU=; b=E61VdowrgfMIQUzlMoZudDdyIH
+	m5p38kaE6+SyQWzPsofUBMAGyiZoH5gBnCTIuODeti/KjlA1PFpmzZtDGaUXfkyULOiGGCbCxkl2+
+	5iaHhRfOA90EviNfBvO/fbgkjGH46N7mCHLgyPEVLSuUH9RLh260OKHwQCQQccnz769SStcmDoJ9g
+	YabEGxIQaW5EssAoR8wncrfEEcSJIze7a+KpdWDE5u2jXwOnMACIKvFpSgfnSTS390g9QkczGoodS
+	cOKo5lz9q+it3yFe6FJEWvj+BdRnYHn550EH10BHhT942kj08T/3C3bBGYkUt5Yz3VwfjVzITeNJx
+	MrMYW5Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbxwM-000000099GV-14xE;
-	Sat, 03 Jan 2026 09:28:54 +0000
-Received: from mail-japanwestazolkn19011029.outbound.protection.outlook.com ([52.103.66.29] helo=OS0P286CU010.outbound.protection.outlook.com)
+	id 1vby58-000000099h6-1IaN;
+	Sat, 03 Jan 2026 09:37:58 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vbxwJ-000000099G4-1Pmu;
-	Sat, 03 Jan 2026 09:28:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HVmT39icgkLTYGzH0ozSLi0Ksen5uYNNECKtjTuaGl+o91029Tpa+tMdw9Z3xI0wIrdIWcEikBDNl/RSf2zQC+RdyUMJCUtY1JhUEN4a6eB5jNCedodZoaJ0eZvj1CZW5tSqLmWtfcNk/JCn2UIbP75GHn5Gs6UW9LVkoMVTs0AW28+nkGNFvG9PWIE3rzc0OmcNN6oph5+C4cPzrasY6HyZ/AVJjCJyiAaypcf4XvwDV4j5YcwRHT4KGNKmHUkpkZrKGbapXI/ch5Sdo9p2wfPWc8QPb5dH0AEBHV//UZNmftBzk0gLTksIF3Qe5pOlG4bDHV/sG7Ym/VF39QF/lg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Joke38XwL+48ap+zDpfU6EkR5QCjIWvWYHxN+wRJJt8=;
- b=VOzCK5ffQs/R+M1dWJ8QfiyHjjjFOtxIoaXvQKV/Kb7hB20lmX4OZIUGmjZPVnBxMmpW7UBualc4pTGpwbteomQLMSfg3+WYpgFQdLeIHLfk2y6ZtnuctL5wD48eZ97lQUKjvCbhjULaVZAUFpeVzRxIdLyHnxj2go+XkdOLE2ciR8gj4+10CJWH8wSqDnrrSkY+onihcur3jZCAitZhC8tDtVQVIHuwUdxsWm5j8aOHYc6D9O+Fgt3c7pOPIAc4SVrmxaDfz4SWTVkID/0X4GrysR0qP7r9DHRbgdpWMvT5xrXbkxj75nCxiNp/JfuscEhUUGd6Ab73l3C4JlQZUw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Joke38XwL+48ap+zDpfU6EkR5QCjIWvWYHxN+wRJJt8=;
- b=UDnVWfqLi8od8Gv6uXZTAqkHcoou+r6pFx/NHfSrIzUS5gBYvNsOwXlWiBZOwY5nLwAQ0Mb9u6uaIHkVzDKoojWWFQPtKYBNbsH5CZIoPj80noWp2Vp3M7LphQL+fpCl30jM/Ym476fxe6kffMXCkqgBPRaqAp0TbfCNHd0R0mD7jywiZqSxGH+HOxXk+jDv3YgDtNW54c9MW2zzg4ksnsUCmSeFXqsH09RGQMm6Ro7psKiSOgrZVuU63JHM5pjtg7xfeg7Tn7GxH9T80b2DquFl6bizKzzRGFqjvYUkinKa++VO9cLdWLxDW+1JWCMO29MnUekrQj7IiUdwKAcAWQ==
-Received: from OS7PR01MB13834.jpnprd01.prod.outlook.com
- (2603:1096:604:36a::14) by OSRPR01MB11645.jpnprd01.prod.outlook.com
- (2603:1096:604:232::8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9499.1; Sat, 3 Jan
- 2026 09:28:40 +0000
-Received: from OS7PR01MB13834.jpnprd01.prod.outlook.com
- ([fe80::6e58:e4b5:3405:28d6]) by OS7PR01MB13834.jpnprd01.prod.outlook.com
- ([fe80::6e58:e4b5:3405:28d6%4]) with mapi id 15.20.9499.001; Sat, 3 Jan 2026
- 09:28:40 +0000
-From: Shiji Yang <yangshiji66@outlook.com>
-To: linux-mediatek@lists.infradead.org
-Cc: Sean Wang <sean.wang@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Weijie Gao <weijie.gao@mediatek.com>,
-	Chunfeng Yun <chunfeng.yun@mediatek.com>,
-	GSS_MTK_Uboot_upstream <GSS_MTK_Uboot_upstream@mediatek.com>,
-	Christian Marangi <ansuelsmth@gmail.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Shiji Yang <yangshiji66@outlook.com>
-Subject: [BUG] pinctrl: mt7981: some obviously incorrect register maps
-Date: Sat,  3 Jan 2026 17:28:16 +0800
-Message-ID: <OS7PR01MB13834E7D3E265DAFD58CEFF92BCB8A@OS7PR01MB13834.jpnprd01.prod.outlook.com>
-X-Mailer: git-send-email 2.51.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2P153CA0028.APCP153.PROD.OUTLOOK.COM (2603:1096:4:190::9)
- To OS7PR01MB13834.jpnprd01.prod.outlook.com (2603:1096:604:36a::14)
-X-Microsoft-Original-Message-ID: <20260103092817.3164866-1-yangshiji66@outlook.com>
+	id 1vby55-000000099gk-4AO5
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 03 Jan 2026 09:37:57 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-598f8136a24so14125033e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 03 Jan 2026 01:37:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1767433073; x=1768037873; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=pWZkKPiFtnR/rs3kiMr68GAakSXnMiP1ZnZ9OMgWTpU=;
+        b=d9ZaLEagQeL/arg+56M/YTJZ8SjfwI5nW9hHR8LZ0biCZntkCu9lxulFm1+wHwwtUE
+         O0E5BIOeBPPJcrbDhZKU1NA5yOjHIVjlyuu383Ehaza7GKqhLPDycXmEDo3JvJtR3LOL
+         aDXwjeDISDafJFW3KkKHQY0lhJu12YxD2LDKZIP+8pnQqGkdqHMxpj5m1ysymMg5wPF1
+         n4/0JuiRHPSxD9IXPxsnamDvpz3o2I7MhjN5ULEIe6LFEJ8E5YEHGtRkpeV8LqOw/iEe
+         iRflB8lR+ZQyAzK5g06hP6F4KEPkcpfir+x79ZnackMtYee/8hjKsMBjtMYGQlhyCFyl
+         Jzcg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767433073; x=1768037873;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pWZkKPiFtnR/rs3kiMr68GAakSXnMiP1ZnZ9OMgWTpU=;
+        b=IiTcIjHIjlNEJDl2S417Eh2E4ujju5PKZ6V+YEkozHNLsPI2hz79FPQOEIq9TVk2gf
+         jYvWeXfY0qK+Tw8mYDcPRtr0suLDPmHrP2x2NB0J0MzLWtaLmvCjHTP5J018Org9TWyZ
+         AbzW1UEQ/IusTAYz4kP7khUwMBcT12zzry62XFu3Gb9Xzd/o1cjxexZbx8BLMYVn9xSW
+         buFkk5HXOkENa6jtVCL6UW/ghpjLtrcMGBzAkHZtwQeIElX/FplIHXDHy2rgl9xXjEiV
+         VFbZwg4t4/P6xI1QIFUrqXJa7mf66L8LUx4I0y4GUxMjFFjGaXWJ/CoyKjapzKEEa5Mk
+         Jo2g==
+X-Forwarded-Encrypted: i=1; AJvYcCX+6XVL8uZwOjI4JuEmkrWU4Aj30Yj2hwgO1LyqQnG2u/BuVRGnavBWhqbspmsGUlrJoQ8lwKlrAt2izrAN34sK@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/JkuGlzk/uyz89/eL9BrgC8J/Z4EIEyLd+rzs5LcWn6mZICZV
+	l1fm69tHOkO4de/YR1LdaKchLKPnQqiQn2NSnr33octvjSeOdv+soDP9DU03qhsRnQE=
+X-Gm-Gg: AY/fxX7o3ZHCRSWC3HH6jlgUR8Pm/xYvF/ILRx5fbnkJ8ok5LVK9GqlQagI4+5L6GzH
+	BJfcgogg2iPfpUj/Dz/bBxtSt6aeb+zh44cl5+RcD8UfAACVpCL5eLDlYTzAQAi963R0DSsBWWM
+	kovzHrs2NDsV5+0L/90OHm7RA8/T+A/CuWxrqazlobaRAY95ux4IMVGjVUeJFfIjvl33LwMXl9K
+	uMWbRUcDn6u6ur0AL7h/P72MGiEKHrUqACv47fIYagQepH0HJa2VnZsOL9PxqELMmalRUhKp/yB
+	uzxySZUCcfgVStu8MGMCqVR+EqAQTlckRGMEbTd5/Hoyry5Z/SBen9oJrVXbDSL6BhT/NNNpf6h
+	HFVEoQG18z5EsfGpB/zt+8KTk0EZ8Re0bqFGi+vulbSaFWnMLxGy5oM4oc99I2G19YFo7pLoAvG
+	czTcI+wf1YbRBozWShHsNkmVxVMzqtFm2Rs+ENisIdcxRw4zU9mTI7d0hZZdJM
+X-Google-Smtp-Source: AGHT+IE+2jMoWfH0mG2kim3lvOWpG5hQP8AXw3e+htxPH4TjM8NTe2jcV7wlyub4Ua3gnsY82BxoQQ==
+X-Received: by 2002:a05:6512:747:b0:59b:29b0:11e9 with SMTP id 2adb3069b0e04-59b29b01201mr7236169e87.53.1767433072874;
+        Sat, 03 Jan 2026 01:37:52 -0800 (PST)
+Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59a185ddc12sm12970431e87.37.2026.01.03.01.37.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 03 Jan 2026 01:37:52 -0800 (PST)
+From: Ulf Hansson <ulf.hansson@linaro.org>
+To: Linus <torvalds@linux-foundation.org>,
+	linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Ulf Hansson <ulf.hansson@linaro.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [GIT PULL] pmdomain fixes for v6.19-rc4
+Date: Sat,  3 Jan 2026 10:37:51 +0100
+Message-ID: <20260103093751.58526-1-ulf.hansson@linaro.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: OS7PR01MB13834:EE_|OSRPR01MB11645:EE_
-X-MS-Office365-Filtering-Correlation-Id: 00803475-d05f-4797-5b26-08de4aaa7a54
-X-Microsoft-Antispam: BCL:0;ARA:14566002|461199028|23021999003|15080799012|5072599009|8060799015|19110799012|12121999013|3412199025|440099028|53005399003|40105399003|1710799026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?zSj0mM2BOrVF5nu4HwbmIXJWw9RrBiRuezrjWy9AFf8cu8kHqXqpm8/BKl8H?=
- =?us-ascii?Q?u1vpapIzR0Wx742GshWzJwHliNk8mghKB9uiE3Bq7NKBn1BJZN1TFYalq9gY?=
- =?us-ascii?Q?xJ8B53eP/uNlwalCkg799sqT4eT5FF6TwE5xV8tKq1qsnO2Tgjtx+hpoMVUk?=
- =?us-ascii?Q?HmflOdVtEqxIWbaz8Oo95S+NG2WCHsSGbeFevF7mEC92R5sGDxYI8XbNhfyE?=
- =?us-ascii?Q?KpQsF1UA04XMNAlogl+u/M4YHxxeUjXG5W+SO0W6pINTUPg8nrpgE7oNJhv2?=
- =?us-ascii?Q?niMuiwfPM2jr/zedpqFl68RNn9Ureawthid+dNB/AweFh3YRfJMZLIbc5eYy?=
- =?us-ascii?Q?phIF4MPqGzQwFI4nkN8ioG6bYSr9npkZ/up9xzxKZT85daJ5SPjeZ34LKTcQ?=
- =?us-ascii?Q?2TbA2pjBnTsU7CuFXZAOnaoiup43w7dOGg5TL8Io04WG9m17IkghoYi5Lwbc?=
- =?us-ascii?Q?GpsdRdr0TFcQarxDbIQmms+XRH7W1Va8Hdq1K0zz6zjyqYE+v0ysB5rIgMU3?=
- =?us-ascii?Q?g4kaQXGuK0wiqHBNr+stitW6WKGNar7Bq0eVNyVQbMudDZr5ArPssJXea7h9?=
- =?us-ascii?Q?vTTVWK0PvTgQ4tifuONILktoiSQaejfCmQzD9u3sxB+jz7IdxvaFK6NXPdp4?=
- =?us-ascii?Q?UcAKXXy3QxYOt9/rM5v7f105s6MNZl4jDwJPAkNOslXRMvN5PchHbL5yOi2A?=
- =?us-ascii?Q?b5b9n0ic7+SA85qpHpkaIhePJSHhGXWsRda2uVyDxfcBwOFlhtJT3KK/MOjp?=
- =?us-ascii?Q?KSAzkmsq3oR1jMZvmsk0IRY0Vjws1vW1ehFzJY59cijfwWwAV1XVvVe9XCVJ?=
- =?us-ascii?Q?fBjDQ+1MT0xPXncDHQZyvBGHqDom53ZR02lN/HgTT9/Bo6IXNGeiRyL1VR3U?=
- =?us-ascii?Q?o4zf30rIkoAd2HxwU/rJ6H7Q7Erq2HP4tzQPi29YKBqBFF6PDIkPgoYgyHZC?=
- =?us-ascii?Q?sZ34NfX5kQ2GrJl3oWTOwCVkKrrIPw4K2MvP7nRZmx9ubphga4TyNUERpKsC?=
- =?us-ascii?Q?sZ/AIY+zElCbYI1AI2OOs6GoqWeEB9V3lXMHKFzMCJ9iG+x/Pdab/g3WAdjP?=
- =?us-ascii?Q?USyl8zZ8bb5uXbv1XRXNvtHRr+nrTVRLmp0ShTqvXPJH8W16yxnbZV4ZA8cP?=
- =?us-ascii?Q?5YTrqLO2GDwL8soTKDKY0IhdT+aKR0ZO6yzO3LP7b7sArOkBVvQcCrA9cDxT?=
- =?us-ascii?Q?w+6yWwwweSdxLByyo92L9S1AAD7Q39h/O5le35hYj/QDE+PA9BdVpFJotmk?=
- =?us-ascii?Q?=3D?=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?SIKSCb5kCBNCXU0FpyZ+TtEhHBQPqVl8ykBdcH7b78/63AK4TO8R/cH5OaJi?=
- =?us-ascii?Q?mXzQJJg2otVcrscHe0lcPnl2zm+Zt2caOB/IW1qnDn9xPekNti2r5ZcWLTYV?=
- =?us-ascii?Q?7iABXb6lSdRexhiY+YCZx1LDCaNwgQxctrVcunZgX9rzFp31pidfrGIbUW/C?=
- =?us-ascii?Q?BCn42+PXb1TmWTjewZp2lgr3ZKuc4E7qzlNdf4q4eRVncJpRwgKchowcc6sB?=
- =?us-ascii?Q?JsUZJi2BOxCdbciGASk4D3XSmMhmuWBJoDRIdXb90leil2A2pTcBGLgbRrrZ?=
- =?us-ascii?Q?v4DJrOUj16XmK7hFy8N6JX8oaeCrDUQDWNx0uJlKimxApTtiTocXexI4MXMg?=
- =?us-ascii?Q?aGKwAr3dI3ew3aVVGLKy2AcbFHfOl9aqqQcD0puuGITSBq5U06GP0XOrYZ/6?=
- =?us-ascii?Q?MzH09tEeVenIPQ/Jsk3DnRKACCqnT+1DpP7zOxG7xCXmPsAXyLKkorJdXTi2?=
- =?us-ascii?Q?0LXN+6gM6iCzTbgNN9a+ZS/z4n/QbG8tlX6JU9sh2+WuBw18MuxwGCcXeAHc?=
- =?us-ascii?Q?v+GNjxA6jVkqv1k1D22zhagq4/YTcmUqBQabPCIcj8qHnc0besBEcXM7pc3J?=
- =?us-ascii?Q?nrENpih1+9DWGOzlH/oLSc4z/Lp02nzges5oKSUvnJMz0nZbXpD1R/1VxXEh?=
- =?us-ascii?Q?6nr2ELQcn4eK9XYqLYZVzfUAxyPOwt83nA6AD1MPtSbOojAwGWbQFkNo7Wir?=
- =?us-ascii?Q?aEtbxtMUVVgi6Yv7+IlqlMsFwWVApVY5FKUieAWP/N1ncfGjb38JoV4Fbs4S?=
- =?us-ascii?Q?TWXhbN433ukx5uShaXZaMgUXuTRmJEaqXHASTfsITA4ldgABbvAyfkDDtj4I?=
- =?us-ascii?Q?LJylSY7w8tMZstH6CYPWliiLrzkOSmj1wRIH7GoQuTYQN1+Vurrv2jso0lN/?=
- =?us-ascii?Q?bDkpJIbRxZ0UrGOpfgClkANgssUVpXv0d0iuqQQB5YoGc2flOS7O2N8tYUDA?=
- =?us-ascii?Q?GV3Wq/m6XX/WdsbQdEpxkpGuQ5xOw0twOE9w2BI3jswDeyy7ifs6w5pzrG/9?=
- =?us-ascii?Q?OYpTm0m7QyyQdUsYiS8jFYW0gKtrOTdAWvxUDnvDRak0ijeQoO1X905nLLvl?=
- =?us-ascii?Q?g+TNEy6oljOecYMWqpHAb+9imwPP/72NSqbd6uJ7nhJPMx34T+RfjWSrsZnz?=
- =?us-ascii?Q?K7tYgPxPbSUmJUQHyQSJ017MvhyorDxyJicfGy3O92uaKmkQH6sBXoj0SpDI?=
- =?us-ascii?Q?WQJPptEG3eunHv2urAhgIu1o8vXKBZK6w+ZUtNCFgqXbY1P4pSIFSYm1FpH6?=
- =?us-ascii?Q?4HIU+5wCLd+e0DvjPySvqElOtu7Srl8IWoBMxjTncnnoZ8pnetaHA1pkNqxB?=
- =?us-ascii?Q?1qIn4LJXwaQxSwgeN9IoplM+J66MzeMtxoKNNiKP4uKiAMhq99yBS5MSmAp3?=
- =?us-ascii?Q?9NmYSpeNCjWkYS+0slQGkch1jk3Wj3E+NBEXHZ/hrumyYUc+kA=3D=3D?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 00803475-d05f-4797-5b26-08de4aaa7a54
-X-MS-Exchange-CrossTenant-AuthSource: OS7PR01MB13834.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jan 2026 09:28:39.4531
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OSRPR01MB11645
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260103_012851_455072_84A93B8B 
-X-CRM114-Status: UNSURE (   5.53  )
+X-CRM114-CacheID: sfid-20260103_013756_069735_38CCE0EC 
+X-CRM114-Status: UNSURE (   8.53  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -155,36 +99,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-In 'drivers/pinctrl/mediatek/pinctrl-mt7981.c', I noticed that some
-register map definitions are clearly incorrect because the same bits
-are used to control different pin functions. I think these are obvious
-copy && paste issues. Perhaps there are more wrong PIN_FIELD_BASE
-definitions than what I've found here. If you have relevant programming
-guide documents, please help check and fix them.
+Hi Linus,
 
-```
-static const struct mtk_pin_field_calc mt7981_pin_ies_range[] = {
-	PIN_FIELD_BASE(11, 11, 5, 0x40, 0x10, 10, 1), // regmap overlap
-};
+Here's a pull-request with a couple of pmdomain fixes intended for v6.19-rc4.
+Details about the highlights are as usual found in the signed tag.
 
-static const struct mtk_pin_field_calc mt7981_pin_smt_range[] = {
-	PIN_FIELD_BASE(44, 44, 7, 0x30, 0x10, 8, 1), // regmap overlap
-};
+Please pull this in!
 
-static const struct mtk_pin_field_calc mt7981_pin_drv_range[] = {
-	PIN_FIELD_BASE(3, 3, 4, 0x00, 0x10, 18, 1), // ? need check
-	PIN_FIELD_BASE(11, 11, 5, 0x00, 0x10, 0, 3), // regmap overlap
-	PIN_FIELD_BASE(13, 13, 5, 0x00, 0x10, 3, 3), // regmap overlap
-	PIN_FIELD_BASE(15, 15, 2, 0x00, 0x10, 0, 3), // regmap overlap
-	PIN_FIELD_BASE(34, 34, 4, 0x00, 0x10, 15, 3), // ? need check
-};
+Kind regards
+Ulf Hansson
 
-static const struct mtk_pin_field_calc mt7981_pin_pupd_range[] = {
-	PIN_FIELD_BASE(20, 20, 2, 0x90, 0x10, 3, 1), // regmap overlap
-};
-```
 
-Regards,
-Shiji Yang
+The following changes since commit f8f9c1f4d0c7a64600e2ca312dec824a0bc2f1da:
+
+  Linux 6.19-rc3 (2025-12-28 13:24:26 -0800)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v6.19-rc3
+
+for you to fetch changes up to 73cb5f6eafb0ac7aea8cdeb8ff12981aa741d8fb:
+
+  pmdomain: imx: Fix reference count leak in imx_gpc_probe() (2025-12-29 11:41:09 +0100)
+
+----------------------------------------------------------------
+pmdomain providers:
+ - mediatek: Fix spinlock recursion fix during probe
+ - imx: Fix reference count leak during probe
+
+----------------------------------------------------------------
+Macpaul Lin (1):
+      pmdomain: mtk-pm-domains: Fix spinlock recursion fix in probe
+
+Wentao Liang (1):
+      pmdomain: imx: Fix reference count leak in imx_gpc_probe()
+
+ drivers/pmdomain/imx/gpc.c                 |  5 ++---
+ drivers/pmdomain/mediatek/mtk-pm-domains.c | 21 ++++++---------------
+ 2 files changed, 8 insertions(+), 18 deletions(-)
 
