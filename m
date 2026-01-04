@@ -4,77 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4CBEC2A062
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Jan 2026 19:15:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F357C2A062
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Jan 2026 21:18:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=krUEwvQtFBfxhDWJO7NHKWidgy0n/k7HYBmF9kBHcZE=; b=rN2L8EC5RI4ZJj9lx77DrLYSns
-	A3XEifdnUY3Sest/4OFnb4tKWybNDAmHuZoRH1C4IoWBqwhZuLW7NZLWfNsXZwd34nLEzrorNivMx
-	1+QFUodBdlkgZvCo0nOlwMae9U3wWS8E03fAAVEZNIBFN3g1IZKcnIcTUq0yzTjAbEw7Vbi+0csNb
-	fo7r4hgDBHSOxUiVJXwvlEgfBCpVXHvWadTa1IFZi5VmLOwE+oMrSV0HrnK3mbc/4dpUUjAg2pzl0
-	cDYRu1SY8ooDO6NHHOrW4od1CHByXXTCJQz9H5XSZMuuJV4EZJVBKZFRdi+KgR84VYsvYT685tWfZ
-	L6eIZ2CA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=tepgPxkWQoWSCPBBfZHvdZxQ6mSx0uKcFph+KN39cVg=; b=rMfAHT0zatc62WvMlspO6iI1QF
+	PxsTjERu2wqvWV2FWcnqshfztaDw81QZjK8LzI2Alb1/G5svN8CTiyMZVR3HBHg9YFaJCnpeWmXsf
+	RRMhR7cdCdV8vGjF9fyfMuWwJf4ZWUF0L14TphI2EtEtwuRN1is0j+PxzbQiB6rSwEVrbMZEbR3LW
+	aLBbgtH9UABV9JaVSevpWQ3n5eCIfikK9nW5mA755/yke9+KXuDtmXIGlTc+F7NtWFHwQKDLX5aew
+	9gO2YeTWLu+U2Lp3w+aNlLsXF02ge258hiKF1mpAu12GsUBrvPI5sujObHkPmrW4fQp2h52/+e03i
+	B/ao1wUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcTZL-0000000AOll-1WbB;
-	Sun, 04 Jan 2026 19:15:15 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vcVUn-0000000ASqi-15jJ;
+	Sun, 04 Jan 2026 21:18:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcTZJ-0000000AOkH-0fME;
-	Sun, 04 Jan 2026 19:15:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=krUEwvQtFBfxhDWJO7NHKWidgy0n/k7HYBmF9kBHcZE=; b=AWUKqaRfrM3RISkMVZSYaY9A3x
-	XI7aSWnAnbPEIj6zQDEwGRwHFWR6lGtDZRIkkKnvGBm5Xf4DYvohsQ9cU+Oml50Avbirc0IENKy8+
-	ryQ9MHuzLxpY417KcdMEDH1fXxTVwinLhJsNZJGMgzsnDXp1hWeR+j0zppRfcf7vYbZcLOxD6RpoF
-	ZVrhXnEnQxLuUu1/jwlZ2a9GGzb/yISVseMw/EWXnz+l9pjwPEYgvQtLOKGa4wy8juZ64axr2+AM4
-	0LFoHgNuf//upg/IV6C9eJ/p4W7/wWKC6dRHWfosNx2DzpeG/geY7B3Mtp0jI4xhUFvIjNEQHsQ54
-	ASNQNEHQ==;
-Received: from gloria.sntech.de ([185.11.138.130])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcTZG-00000007HIC-1054;
-	Sun, 04 Jan 2026 19:15:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
-	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type;
-	bh=krUEwvQtFBfxhDWJO7NHKWidgy0n/k7HYBmF9kBHcZE=; b=o4Y87TThVKhJGNENMgptNDzxC9
-	0Bos1zVLGBH7Y/NT4m5kd2ah+v+0u97/rug+/6f1SmNQsoN0W+LfyBCSr55sQkWVm9aHZKXsiLv8D
-	fWB3amjeQh7UdMj6/+qOyH845mWSVirpS66Ea5ZAwK6wAv4JEJFEB41463xXWjqTlGm7jVe58zLkE
-	72kavU9ayuFFVbCvOmZByoo1yumfkPD0pbBdpO6tZgU6gjWFIU+73cQCrjWOpr9TrMInvtJ8ToykK
-	ES9WycngaP0ViBhok1b361V8kjVanRxHTIuKQEmTANX54fQj3LjEFfFVdwvPuy8aJqBznzvQKZ/vb
-	bCZMcOcw==;
-Received: from i53875ac4.versanet.de ([83.135.90.196] helo=phil..)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1vcTZB-0012Mf-IS; Sun, 04 Jan 2026 20:15:06 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: heiko@sntech.de
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	uwe@kleine-koenig.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 4/5] dt-bindings: arm: rockchip: add TS133 to RK356x-based QNAP NAS devices
-Date: Sun,  4 Jan 2026 20:14:47 +0100
-Message-ID: <20260104191448.2693309-5-heiko@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20260104191448.2693309-1-heiko@sntech.de>
-References: <20260104191448.2693309-1-heiko@sntech.de>
+	id 1vcVUl-0000000ASqJ-16ps;
+	Sun, 04 Jan 2026 21:18:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1F0C1409B3;
+	Sun,  4 Jan 2026 21:18:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E81C4C4CEF7;
+	Sun,  4 Jan 2026 21:18:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767561518;
+	bh=qmsbKPbX1+sTQZ0QzAzI0MrRK6GYbgNVPa9s4pvCfbc=;
+	h=From:Date:Subject:To:Cc:From;
+	b=aCl9K+CB2+aZuzO65xUsu9TKwmmGuVlnCCobp4NwalzEh9zavwlCG1D/cRf6fGpMy
+	 gkNnngON4M6X77TNYSlCLiyJK5nuyj6E0aHLIM9C3QkR7xvD8KC69vBFOkQL5CJI+t
+	 FWwCitey73izmA0WpJ2c1s89JGvTHODpSenyQ8y2Ok19EsKHBsbrMieLhRzGacljYE
+	 dFA268A1/8fiPS2UDwjSkgayWQXoPRLAgFTI9TV9Z6qJiWTOBhXAkVsR4gxI5TQY+N
+	 5greOSht/FkAJeoCGShLrOFTmfQIoFYzraOsKelMTHoayFEifvsga2b4+8BJ7Im8Fk
+	 i/UeLHfMSwUSw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DFA84C2A06C;
+	Sun,  4 Jan 2026 21:18:37 +0000 (UTC)
+From: Sven Peter <sven@kernel.org>
+Date: Sun, 04 Jan 2026 22:18:31 +0100
+Subject: [PATCH next] phy: apple: atc: Actually check return value of
+ devm_apple_tunable_parse
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260104-atcphy-tunable-fix-v1-1-40bf00feaac0@kernel.org>
+X-B4-Tracking: v=1; b=H4sIACbZWmkC/x2MQQqAIBAAvxJ7bkGlLPpKdLBcayEs1KKI/p50n
+ IGZByIFpghd8UCgkyNvPoMsC5gW42dCtplBCaWFFBWaNO3LjenwZlwJHV9Yy6ZV2mpHzkIO90B
+ Z/9MePF0Jhvf9AOlMAr1qAAAA
+X-Change-ID: 20260104-atcphy-tunable-fix-517826d6fefd
+To: Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
+ Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Thomas Glanzmann <thomas@glanzmann.de>, Sven Peter <sven@kernel.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3484; i=sven@kernel.org;
+ h=from:subject:message-id;
+ bh=qmsbKPbX1+sTQZ0QzAzI0MrRK6GYbgNVPa9s4pvCfbc=;
+ b=owGbwMvMwCXmIlirolUq95LxtFoSQ2bUTe3pSZWHQk0WVMpvdHxZcLpp0gkxf/0n51f+idksd
+ HDZnYBzHaUsDGJcDLJiiizb99ubPnn4RnDppkvvYeawMoEMYeDiFICJ9Bkw/A9fmLPN/tvt5H9J
+ akkBktq9fi0KHhOUl5vJnPgdUZu3m4Xhr3zIV2XVuNWfHGUnT2Kc/bQkIPyQn+TJaSeeTXkXIel
+ TygUA
+X-Developer-Key: i=sven@kernel.org; a=openpgp;
+ fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
+X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
+ auth_id=407
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260104_191510_382980_912C49C0 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20260104_131839_349911_F6340EFC 
+X-CRM114-Status: GOOD (  12.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,44 +90,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-QNAP builds a number of variants of the RK356x-based NAS design.
+Let's actually check the return value of devm_apple_tunable_parse
+instead of trying to check IS_ERR on a pointer to the return value which
+is always going to be valid. This prevent a oops when the tunables are
+invalid or when they don't exist:
 
-Add the 1-bay TS133 variant.
+[   42.819119] ------------[ cut here ]------------
+[   42.819121] WARNING: CPU: 6 PID: 88 at drivers/phy/apple/atc.c:2145 atcphy_mux_set+0xf60/0x1128 [phy_apple_atc]
+[   42.819302] CPU: 6 UID: 0 PID: 88 Comm: kworker/6:1 Tainted: G S                  6.18+unreleased-asahi #1 PREEMPTLAZY  Debian 6.18.2-0-1~exp1
+[   42.819311] Tainted: [S]=CPU_OUT_OF_SPEC
+[   42.819314] Hardware name: Apple Mac mini (M1, 2020) (DT)
+[   42.819316] Workqueue: events cd321x_update_work [tps6598x]
+[   42.819332] pstate: 81400009 (Nzcv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
+[   42.819338] pc : atcphy_mux_set+0xf60/0x1128 [phy_apple_atc]
+[   42.819344] lr : atcphy_mux_set+0x30/0x1128 [phy_apple_atc]
+[   42.819348] sp : ffffc000813c7c00
+[   42.819350] x29: ffffc000813c7c00 x28: ffff800016babeb8 x27: ffff800016babc80
+[   42.819357] x26: 0000000000000001 x25: 0000000000000001 x24: 0000000000000000
+[   42.819364] x23: ffff800016babec0 x22: 00000000ffffffa1 x21: 0000000000000003
+[   42.819371] x20: ffff80000c1b3680 x19: ffff80000dcdd080 x18: 0000000000000000
+[   42.819376] x17: 0000000000000000 x16: ffffd42e6ede6e08 x15: 0000000000000000
+[   42.819382] x14: ffffd42e707b6980 x13: 0000000000025c68 x12: 726f703d54524f50
+[   42.819388] x11: 0000000000000040 x10: 0000000000000000 x9 : ffffd42e555ed9c0
+[   42.819394] x8 : 0000000000000006 x7 : ffff80000a000dd8 x6 : 0000000000000002
+[   42.819399] x5 : 0000000000000000 x4 : 0000000000000000 x3 : 0000000000000001
+[   42.819404] x2 : 0000000000000005 x1 : 000000000000ff01 x0 : 0000000000000001
+[   42.819410] Call trace:
+[   42.819412]  atcphy_mux_set+0xf60/0x1128 [phy_apple_atc] (P)
+[   42.819419]  typec_mux_set+0x74/0xd8 [typec]
+[   42.819444]  cd321x_update_work+0x440/0x8a8 [tps6598x]
+[   42.819453]  process_one_work+0x170/0x3e0
+[   42.819466]  worker_thread+0x25c/0x390
+[   42.819473]  kthread+0x148/0x240
+[   42.819479]  ret_from_fork+0x10/0x20
+[   42.819488] ---[ end trace 0000000000000000 ]---
 
-This one is a tiny bit special as it is based around the RK3566 variant
-of the mostly similar RK3566/RK3568 SoCs.
-
-Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+Reported-by: Thomas Glanzmann <thomas@glanzmann.de>
+Fixes: 8e98ca1e74db ("phy: apple: Add Apple Type-C PHY")
+Signed-off-by: Sven Peter <sven@kernel.org>
 ---
- .../devicetree/bindings/arm/rockchip.yaml          | 14 +++++++++-----
- 1 file changed, 9 insertions(+), 5 deletions(-)
+ drivers/phy/apple/atc.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
-index d496421dbd87..2a5105be3d34 100644
---- a/Documentation/devicetree/bindings/arm/rockchip.yaml
-+++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
-@@ -894,11 +894,15 @@ properties:
-           - const: rockchip,rk3568
+diff --git a/drivers/phy/apple/atc.c b/drivers/phy/apple/atc.c
+index c8a58ee64b7aad3205df51cf16ae778471ad2c5d..716c1e70de38ca604803739fedaa543d91f7501b 100644
+--- a/drivers/phy/apple/atc.c
++++ b/drivers/phy/apple/atc.c
+@@ -2178,10 +2178,10 @@ static int atcphy_load_tunables(struct apple_atcphy *atcphy)
+ 	for (int i = 0; i < ARRAY_SIZE(tunables); i++) {
+ 		*tunables[i].tunable = devm_apple_tunable_parse(
+ 			atcphy->dev, atcphy->np, tunables[i].dt_name, tunables[i].res);
+-		if (IS_ERR(tunables[i].tunable)) {
++		if (IS_ERR(*tunables[i].tunable)) {
+ 			dev_err(atcphy->dev, "Failed to read tunable %s: %ld\n",
+-				tunables[i].dt_name, PTR_ERR(tunables[i].tunable));
+-			return PTR_ERR(tunables[i].tunable);
++				tunables[i].dt_name, PTR_ERR(*tunables[i].tunable));
++			return PTR_ERR(*tunables[i].tunable);
+ 		}
+ 	}
  
-       - description: QNAP TS-x33 NAS devices
--        items:
--          - enum:
--              - qnap,ts233
--              - qnap,ts433
--          - const: rockchip,rk3568
-+        oneOf:
-+          - items:
-+              - const: qnap,ts133
-+              - const: rockchip,rk3566
-+          - items:
-+              - enum:
-+                  - qnap,ts233
-+                  - qnap,ts433
-+              - const: rockchip,rk3568
- 
-       - description: Radxa Compute Module 3 (CM3)
-         items:
+
+---
+base-commit: add66a6673bc4aacd0ef0f3c4a51271501770b17
+change-id: 20260104-atcphy-tunable-fix-517826d6fefd
+
+Best regards,
 -- 
-2.47.2
+Sven Peter <sven@kernel.org>
+
 
 
