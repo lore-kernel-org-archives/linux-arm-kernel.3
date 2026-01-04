@@ -4,71 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3283C2A06C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Jan 2026 13:35:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3BE8C2A062
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Jan 2026 13:36:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=35k2Qius4SFCnV/aj/qYOl0lTPhCwV+oICdVuqJczm4=; b=29i+Bs+OF1nfOmscuglMBRfxep
-	Oi7+Sua8R/Zp1cxpOZizIwRX3xkt+vigA7NgXLWT1/jWI1+l/Piy3nPT9DGzj+F2iGbHhhERCaHku
-	k6g3M+Ufr2m1cbIKZ6IaTG+G679gnUF5BHHl4cGWMWlyY+AtCqI7+DUakYnDrM8rnGUASnym84Hwo
-	NLWeAbAHnFlrJTST7AmVTqUW7eWZ4Aq/J+9qxpx1LNT8c/Ik6aiLT2Ic8tTQF/fA0QT4YLaedTebq
-	QbcxXVF4N/8vMCKTBCKGAzsC8HNufmmtg110bKEBt1bifPicr6tz+5+8GuZ0V/ohDzE0pZVK81nRr
-	J/5wEv/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tnzMXDHXXL9NNS4k3AnnQ9myHIZaZb8uzsVSt6dVi30=; b=o6ZMmHHDsXRf5FL0DQfqWbi2XO
+	Tw92EonjeE6AlCSM9J/Ej0bnyJSSlq4xpmXCTP4PHSd54v8t+ZkMZp3C4fOWrDrEmYdM3b3PNn3Io
+	SiXxIDUlmkT+lFLnF9Nb8eCs5n1mWSR2D/vGnNSuXihpbf+lp8UBCzHtBY9OU5VV/dtwt8k745jao
+	115EnMAIRUA7TUHy2j+JPeG4eRBgP2/bB34ccB6oMlveILwYvzzEBEzDkukQ2xPgYIInYHgbA6+SK
+	l8qis+arFrxA43lVJNoCYNl8PhLEoDLVctbuWrRfz629IZNxLX7lvQ4hD68afeWlrYGFeBjCAv8p/
+	vuJlSWAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcOGB-0000000AG77-0lzG;
-	Sun, 04 Jan 2026 13:35:07 +0000
-Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
+	id 1vcOGz-0000000AGJC-2Kju;
+	Sun, 04 Jan 2026 13:35:57 +0000
+Received: from out-185.mta0.migadu.com ([91.218.175.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcOG8-0000000AG5s-1Viz
+	id 1vcOGw-0000000AGFw-0ldN
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Jan 2026 13:35:06 +0000
-dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=35k2Qius4SFCnV/aj/qYOl0lTPhCwV+oICdVuqJczm4=;
-	b=QJDPpwCj/f1x6vJ/sxE/k8xds5nH1n4hpcvGDKbgDLB6GSMUiEEPFiHzSKwlzwf/CzT1nsg4p
-	c241toTjDFCKwx4K82z1AsKDjPqn1OrtCV8AJCxMjboQJrm1wTMv+0ttJJG3BqkFGM7hjQ7IIEa
-	LzNhvN2HR72wYK7GkJtiHcY=
-Received: from mail.maildlp.com (unknown [172.19.163.163])
-	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4dkdcc6RDNzmVB1;
-	Sun,  4 Jan 2026 21:31:28 +0800 (CST)
-Received: from kwepemf100008.china.huawei.com (unknown [7.202.181.222])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3606740565;
-	Sun,  4 Jan 2026 21:34:43 +0800 (CST)
-Received: from huawei.com (10.50.87.109) by kwepemf100008.china.huawei.com
- (7.202.181.222) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Sun, 4 Jan
- 2026 21:34:42 +0800
-From: Zeng Heng <zengheng4@huawei.com>
-To: <james.morse@arm.com>, <ben.horgan@arm.com>, <miko.lenczewski@arm.com>,
-	<thuth@redhat.com>, <mark.rutland@arm.com>, <yeoreum.yun@arm.com>,
-	<robh@kernel.org>, <james.clark@linaro.org>, <ahmed.genidi@arm.com>,
-	<xry111@xry111.site>, <oupton@kernel.org>, <lpieralisi@kernel.org>,
-	<catalin.marinas@arm.com>, <mrigendra.chaubey@gmail.com>,
-	<suzuki.poulose@arm.com>, <maz@kernel.org>, <ardb@kernel.org>,
-	<broonie@kernel.org>, <will@kernel.org>, <kevin.brodsky@arm.com>,
-	<leo.yan@arm.com>, <anshuman.khandual@arm.com>,
-	<yang@os.amperecomputing.com>, <frederic@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<bobo.shaobowang@huawei.com>
-Subject: [PATCH] arm64: cpufeature: Add support for the MPAM v0.1 architecture version
-Date: Sun, 4 Jan 2026 21:34:34 +0800
-Message-ID: <20260104133434.1887677-1-zengheng4@huawei.com>
-X-Mailer: git-send-email 2.25.1
+	Sun, 04 Jan 2026 13:35:55 +0000
+Date: Sun, 4 Jan 2026 21:35:32 +0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1767533736;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=tnzMXDHXXL9NNS4k3AnnQ9myHIZaZb8uzsVSt6dVi30=;
+	b=qSrjK0AtRce/nc9H7pvBQSyTFKoO3HjCKs8u1Dp8B/5zTb+WB183UzOMgQAjXjSzwlVeNt
+	ZgXqTmXFAvn7vS84wsvtHHjM+zDYs0g6WyWdcPK3oqmgajD8MJbjZH9uCJaIIwd+MuUZ8w
+	z+LdLGNtOXOHa+kmLYDUeorMT+9ZZh8=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Dawei Li <dawei.li@linux.dev>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, set_pte_at@outlook.com,
+	stable@vger.kernel.org, dawei.li@linux.dev
+Subject: Re: [PATCH] iommu/arm-smmu-v3: Maintain valid access attributes for
+ non-coherent SMMU
+Message-ID: <20260104133532.GA173992@wendao-VirtualBox>
+References: <20251229002354.162872-1-dawei.li@linux.dev>
+ <20260102184113.GA125261@ziepe.ca>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.87.109]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemf100008.china.huawei.com (7.202.181.222)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260102184113.GA125261@ziepe.ca>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260104_053505_092755_E38531C6 
-X-CRM114-Status: GOOD (  15.93  )
+X-CRM114-CacheID: sfid-20260104_053554_453625_CBD25C0C 
+X-CRM114-Status: GOOD (  42.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,129 +71,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-According to the MPAM spec [1], the supported architecture versions are
-v1.0, v1.1 and v0.1. MPAM versions v0.1 and v1.1 are functionally
-identical, but v0.1 additionally supports the FORCE_NS feature.
+Jeson,
 
-ID_AA64PR | ID_AA64PR | MPAM Extension | Notes
-F0_EL1.   | F1_EL1.   | Architecture   |
-MPAM      | MPAM_frac | version        |
----------------------------------------------------------------------------
-0b0000    | 0b0001    | v0.1           | MPAM v0.1 is implemented.
-          |           |                | MPAM v0.1 is the same as MPAM v1.1
-          |           |                | with FORCE_NS which is
-          |           |                | incompatible with MPAM v1.0.
----------------------------------------------------------------------------
-0b0001    | 0b0000    | v1.0           | MPAM v1.0 is implemented.
----------------------------------------------------------------------------
-0b0001    | 0b0001    | v1.1           | MPAM v1.1 is implemented.
-          |           |                | MPAM v1.1 includes all features of
-          |           |                | MPAM v1.0.
-          |           |                | It must not include FORCE_NS.
+On Fri, Jan 02, 2026 at 02:41:13PM -0400, Jason Gunthorpe wrote:
+> On Mon, Dec 29, 2025 at 08:23:54AM +0800, Dawei Li wrote:
+> > According to SMMUv3 architecture specification, IO-coherent access for
+> > SMMU is supported for:
+> > - Translation table walks.
+> > - Fetches of L1STD, STE, L1CD and CD.
+> > - Command queue, Event queue and PRI queue access.
+> > - GERROR, CMD_SYNC, Event queue and PRI queue MSIs, if supported
+> 
+> I was recently looking at this too..  IMHO this is not really a clean
+> description of what this patch is doing.
+> 
+> I would write this description as:
+> 
+> When the SMMU does a DMA for itself it can set various memory access
+> attributes which control how the interconnect should execute the
+> DMA. Linux uses these to differentiate DMA that must snoop the cache
+> and DMA that must bypass it because Linux has allocated non-coherent
+> on the CPU.
+> 
+> In Table "13.8 Attributes for SMMU-originated accesses" each of the
+> different types of DMA is categorized and the specific bits
+> controlling the memory attribute for the fetch are identified.
 
-FORCE_NS is a feature that operates in EL3 mode. Consequently, the current
-Linux MPAM driver is also compatible with MPAM v0.1. To support v0.1, the
-existing driver which only checks ID_AA64PFR0_EL1.MPAM for the major
-version needs to examine ID_AA64PFR1_EL1.MPAM_frac for the minor version
-as well.
+Turns out I missed some of DMA types listed in 13.8, thanks for the
+headsup.
 
-[1] https://developer.arm.com/documentation/ddi0598/db/?lang=en
+> 
+> Make this consisent globally. If Linux has cache flushed the buffer,
+> or allocated a DMA incoherenet buffer, then it should set the
+> non-caching memory attribute so the DMA matches.
+> 
+> This is important for some of the allocations where Linux is currently
+> allocating DMA coherent memory, meaning nothing has made the CPU cache
+> coherent and doing any coherent access to that memory may result in
+> cache inconsistencies.
+> 
+> This may solve problems in systems where the SMMU driver thinks the
+> SMMU is non-coherent, but in fact, the SMMU and the interconnect
+> selectively supports coherence and setting the wrong memory attributes
+> will cause non-working cached access.
+> 
+> [and then if you have a specific SOC that shows an issue please
+> describe the HW]
+> 
+> > +static __always_inline bool smmu_coherent(struct arm_smmu_device *smmu)
+> > +{
+> > +	return !!(smmu->features & ARM_SMMU_FEAT_COHERENCY);
+> > +}
+> > +
+> >  /* High-level queue accessors */
+> > -static int arm_smmu_cmdq_build_cmd(u64 *cmd, struct arm_smmu_cmdq_ent *ent)
+> > +static int arm_smmu_cmdq_build_cmd(u64 *cmd, struct arm_smmu_cmdq_ent *ent,
+> > +				   struct arm_smmu_device *smmu)
+> >  {
+> >  	memset(cmd, 0, 1 << CMDQ_ENT_SZ_SHIFT);
+> >  	cmd[0] |= FIELD_PREP(CMDQ_0_OP, ent->opcode);
+> > @@ -358,8 +364,13 @@ static int arm_smmu_cmdq_build_cmd(u64 *cmd, struct arm_smmu_cmdq_ent *ent)
+> >  		} else {
+> >  			cmd[0] |= FIELD_PREP(CMDQ_SYNC_0_CS, CMDQ_SYNC_0_CS_SEV);
+> >  		}
+> > -		cmd[0] |= FIELD_PREP(CMDQ_SYNC_0_MSH, ARM_SMMU_SH_ISH);
+> > -		cmd[0] |= FIELD_PREP(CMDQ_SYNC_0_MSIATTR, ARM_SMMU_MEMATTR_OIWB);
+> > +		if (smmu_coherent(smmu)) {
+> > +			cmd[0] |= FIELD_PREP(CMDQ_SYNC_0_MSH, ARM_SMMU_SH_ISH);
+> > +			cmd[0] |= FIELD_PREP(CMDQ_SYNC_0_MSIATTR, ARM_SMMU_MEMATTR_OIWB);
+> > +		} else {
+> > +			cmd[0] |= FIELD_PREP(CMDQ_SYNC_0_MSH, ARM_SMMU_SH_OSH);
+> > +			cmd[0] |= FIELD_PREP(CMDQ_SYNC_0_MSIATTR, ARM_SMMU_MEMATTR_OINC);
+> > +		}
+> 
+> And then please go through your patch and add comments actually
+> explaining what the DMA is and what memory is being reached by it -
+> since it is not always very clear from the ARM mnemonics
 
-Signed-off-by: Zeng Heng <zengheng4@huawei.com>
----
- arch/arm64/include/asm/cpufeature.h |  7 +++++++
- arch/arm64/include/asm/el2_setup.h  |  4 +++-
- arch/arm64/kernel/cpufeature.c      | 15 +++++++++++----
- 3 files changed, 21 insertions(+), 5 deletions(-)
+Acked.
 
-diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-index 4de51f8d92cb..a57870fa96db 100644
---- a/arch/arm64/include/asm/cpufeature.h
-+++ b/arch/arm64/include/asm/cpufeature.h
-@@ -620,6 +620,13 @@ static inline bool id_aa64pfr0_mpam(u64 pfr0)
- 	return val > 0;
- }
- 
-+static inline bool id_aa64pfr1_mpamfrac(u64 pfr1)
-+{
-+	u32 val = cpuid_feature_extract_unsigned_field(pfr1, ID_AA64PFR1_EL1_MPAM_frac_SHIFT);
-+
-+	return val > 0;
-+}
-+
- static inline bool id_aa64pfr1_mte(u64 pfr1)
+> 
+> For instance, this is:
+>  /* DMA for "CMDQ MSI" which targets q->base_dma allocated by arm_smmu_init_one_queue() */
+> 
+> > @@ -1612,11 +1624,18 @@ void arm_smmu_make_cdtable_ste(struct arm_smmu_ste *target,
+> >  		(cd_table->cdtab_dma & STRTAB_STE_0_S1CTXPTR_MASK) |
+> >  		FIELD_PREP(STRTAB_STE_0_S1CDMAX, cd_table->s1cdmax));
+> >  
+> > +	if (smmu_coherent(smmu)) {
+> > +		val = FIELD_PREP(STRTAB_STE_1_S1CIR, STRTAB_STE_1_S1C_CACHE_WBRA) |
+> > +		      FIELD_PREP(STRTAB_STE_1_S1COR, STRTAB_STE_1_S1C_CACHE_WBRA) |
+> > +		      FIELD_PREP(STRTAB_STE_1_S1CSH, ARM_SMMU_SH_ISH);
+> > +	} else {
+> > +		val = FIELD_PREP(STRTAB_STE_1_S1CIR, STRTAB_STE_1_S1C_CACHE_NC) |
+> > +		      FIELD_PREP(STRTAB_STE_1_S1COR, STRTAB_STE_1_S1C_CACHE_NC) |
+> > +		      FIELD_PREP(STRTAB_STE_1_S1CSH, ARM_SMMU_SH_OSH);
+> > +	}
+> 
+> This one is "CD fetch" allocated by arm_smmu_alloc_cd_ptr()
+> 
+> etc
+> 
+> And note that the above will need this hunk too:
+> 
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+> @@ -432,6 +432,14 @@ size_t arm_smmu_get_viommu_size(struct device *dev,
+>             !(smmu->features & ARM_SMMU_FEAT_S2FWB))
+>                 return 0;
+>  
+> +       /*
+> +        * When running non-coherent we can't suppot S2FWB since it will also
+> +        * force a coherent CD fetch, aside from the question of what
+> +        * S2FWB/CANWBS even does with non-coherent SMMUs.
+> +        */
+> +       if (!smmu_coherent(smmu))
+> +               return 0;
+
+I was wondering why S2FWB can affect CD fetching before reading 13.8.
+
+Does diff below suffice?
+
+@@ -1614,8 +1619,12 @@ void arm_smmu_make_cdtable_ste(struct arm_smmu_ste *target,
  {
- 	u32 val = cpuid_feature_extract_unsigned_field(pfr1, ID_AA64PFR1_EL1_MTE_SHIFT);
-diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
-index cacd20df1786..606cf14e4044 100644
---- a/arch/arm64/include/asm/el2_setup.h
-+++ b/arch/arm64/include/asm/el2_setup.h
-@@ -501,7 +501,9 @@
- #endif
- 
- .macro finalise_el2_state
--	check_override id_aa64pfr0, ID_AA64PFR0_EL1_MPAM_SHIFT, .Linit_mpam_\@, .Lskip_mpam_\@, x1, x2
-+	check_override id_aa64pfr0, ID_AA64PFR0_EL1_MPAM_SHIFT, .Linit_mpam_\@, .Lmpam_minor_\@, x1, x2
-+.Lmpam_minor_\@:
-+	check_override id_aa64pfr1, ID_AA64PFR1_EL1_MPAM_frac_SHIFT, .Linit_mpam_\@, .Lskip_mpam_\@, x1, x2
- 
- .Linit_mpam_\@:
- 	msr_s	SYS_MPAM2_EL2, xzr		// use the default partition
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index c840a93b9ef9..e8fa6f7cf2a2 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -1159,6 +1159,14 @@ static __init void detect_system_supports_pseudo_nmi(void)
- static inline void detect_system_supports_pseudo_nmi(void) { }
- #endif
- 
-+static bool detect_ftr_has_mpam(void)
-+{
-+	u64 pfr0 = read_sanitised_ftr_reg(SYS_ID_AA64PFR0_EL1);
-+	u64 pfr1 = read_sanitised_ftr_reg(SYS_ID_AA64PFR1_EL1);
-+
-+	return id_aa64pfr0_mpam(pfr0) || id_aa64pfr1_mpamfrac(pfr1);
-+}
-+
- void __init init_cpu_features(struct cpuinfo_arm64 *info)
- {
- 	/* Before we start using the tables, make sure it is sorted */
-@@ -1206,7 +1214,7 @@ void __init init_cpu_features(struct cpuinfo_arm64 *info)
- 		cpacr_restore(cpacr);
- 	}
- 
--	if (id_aa64pfr0_mpam(read_sanitised_ftr_reg(SYS_ID_AA64PFR0_EL1))) {
-+	if (detect_ftr_has_mpam()) {
- 		info->reg_mpamidr = read_cpuid(MPAMIDR_EL1);
- 		init_cpu_ftr_reg(SYS_MPAMIDR_EL1, info->reg_mpamidr);
- 	}
-@@ -1462,7 +1470,7 @@ void update_cpu_features(int cpu,
- 		cpacr_restore(cpacr);
- 	}
- 
--	if (id_aa64pfr0_mpam(read_sanitised_ftr_reg(SYS_ID_AA64PFR0_EL1))) {
-+	if (detect_ftr_has_mpam()) {
- 		info->reg_mpamidr = read_cpuid(MPAMIDR_EL1);
- 		taint |= check_update_ftr_reg(SYS_MPAMIDR_EL1, cpu,
- 					info->reg_mpamidr, boot->reg_mpamidr);
-@@ -2473,7 +2481,7 @@ cpucap_panic_on_conflict(const struct arm64_cpu_capabilities *cap)
- static bool
- test_has_mpam(const struct arm64_cpu_capabilities *entry, int scope)
- {
--	if (!has_cpuid_feature(entry, scope))
-+	if (!detect_ftr_has_mpam())
- 		return false;
- 
- 	/* Check firmware actually enabled MPAM on this cpu. */
-@@ -3078,7 +3086,6 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
- 		.capability = ARM64_MPAM,
- 		.matches = test_has_mpam,
- 		.cpu_enable = cpu_enable_mpam,
--		ARM64_CPUID_FIELDS(ID_AA64PFR0_EL1, MPAM, 1)
- 	},
- 	{
- 		.desc = "Memory Partitioning And Monitoring Virtualisation",
--- 
-2.25.1
+        struct arm_smmu_ctx_desc_cfg *cd_table = &master->cd_table;
+        struct arm_smmu_device *smmu = master->smmu;
++       bool coherent, fwb;
+        u64 val;
 
++       coherent = smmu_coherent(smmu);
++       fwb = !!(smmu->features & ARM_SMMU_FEAT_S2FWB);
++
+        memset(target, 0, sizeof(*target));
+        target->data[0] = cpu_to_le64(
+                STRTAB_STE_0_V |
+@@ -1624,14 +1633,24 @@ void arm_smmu_make_cdtable_ste(struct arm_smmu_ste *target,
+                (cd_table->cdtab_dma & STRTAB_STE_0_S1CTXPTR_MASK) |
+                FIELD_PREP(STRTAB_STE_0_S1CDMAX, cd_table->s1cdmax));
+
++       /*
++        * DMA for "CD fetch" targets cd_table->linear.table or cd_table->l2.l1tab
++        * allocated by arm_smmu_alloc_cd_ptr().
++        */
+        if (smmu_coherent(smmu)) {
+                val = FIELD_PREP(STRTAB_STE_1_S1CIR, STRTAB_STE_1_S1C_CACHE_WBRA) |
+                      FIELD_PREP(STRTAB_STE_1_S1COR, STRTAB_STE_1_S1C_CACHE_WBRA) |
+                      FIELD_PREP(STRTAB_STE_1_S1CSH, ARM_SMMU_SH_ISH);
+        } else {
+-               val = FIELD_PREP(STRTAB_STE_1_S1CIR, STRTAB_STE_1_S1C_CACHE_NC) |
+-                     FIELD_PREP(STRTAB_STE_1_S1COR, STRTAB_STE_1_S1C_CACHE_NC) |
+-                     FIELD_PREP(STRTAB_STE_1_S1CSH, ARM_SMMU_SH_OSH);
++               if (!fwb) {
++                       val = FIELD_PREP(STRTAB_STE_1_S1CIR, STRTAB_STE_1_S1C_CACHE_NC) |
++                               FIELD_PREP(STRTAB_STE_1_S1COR, STRTAB_STE_1_S1C_CACHE_NC) |
++                               FIELD_PREP(STRTAB_STE_1_S1CSH, ARM_SMMU_SH_OSH);
++               } else {
++                       dev_warn(&smmu->dev, "Inconsitency between COHACC & S2FWB\n");
++                       /* FIX ME */
++                       return;
++               }
+        }
+
+
+> 
+> > @@ -3746,7 +3765,7 @@ int arm_smmu_init_one_queue(struct arm_smmu_device *smmu,
+> >  	q->cons_reg	= page + cons_off;
+> >  	q->ent_dwords	= dwords;
+> >  
+> > -	q->q_base  = Q_BASE_RWA;
+> > +	q->q_base  = smmu_coherent(smmu) ? Q_BASE_RWA : 0;
+> 
+> CMDQ fetch, though do we even need to manage RWA? Isn't it ignored if
+> IC/OC/SH are set to their non-cachable values?
+
+My first thought was "why don't we just whack them all?", yet the spec
+reads:
+
+"Cache allocation hints are present in each _BASE register and are ignored
+ unless a cacheable type is used for the table or queue to which the
+ register corresponds"
+
+You are right, gonna remove it.
+
+> 
+> etc..
+> 
+> Jason
+
+Thanks,
+
+	Dawei
 
