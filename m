@@ -4,62 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 236B1C2A061
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Jan 2026 01:55:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F72AC2A069
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Jan 2026 02:38:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZIpYAVwIb6CxAYeydnlfw07j25D/J9qOjlgY2htp9h8=; b=rIQf85RW9KKB3HQAMIuAA/+9pE
-	fDFKd22aXb1S8WoN0fR9vsfO58wfKc+WqDtUsMG0JfksMmmQk6R+KAYVLCvhnwiW2vWTA4HukQjgc
-	b985q1thmz21CpKhBJQCOge+xcznEAFo83aK3Sd4LaHGRRVq2qqbbHrsL/fsJbT0KhZLi4ZblNYgw
-	nryZwCLNQsCWz/zX9UUoK1fMty9itSMk2BES1V8grVMjDcGOrli+PCOoHfdfKYuCZb1zK2c2+9b1+
-	65spF9/EyC7CiwJmGZwVXlIi8AkIRAJLvFVdt0fXaPSfdTG5blNGo4RxPeZnOHqc9wye2NHiS8sc5
-	8mnjTXOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=y/k9MsuSNbweF0g4tN+QXLsS5KGlTItZo2xUIwWpYCY=; b=x0KaeuPxv6XRtUJqTJZV7zJvsb
+	ZwGDGhNJ1WhkQv5zIklcOVx46iHxL1Obvui0LjsFWANJSKa7QrNt3h76Yu6ErHAf4J/3FK6aBWPGq
+	yyRkHOkQh8W37Jt4Fonu60ruViuh+p3eCSzeerDTsj3GaGE2d18eNnfeS6RS0qgwQMRP+S96m1kLh
+	r3KFb5Alk+n6nQvnII7DW7hkTVDl+mZpKRCband239nn4PTVywqp2pVCO1PoFmHXx5ZpDx0NJZTwL
+	T9JmDBDLSpUE+ggw5J0NPNNazzwO/46eVXkvqs8ziiOZ7fOnQAPAJ11wMG7nrfX0Eo7wPgrBDg404
+	HQMEzHhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcDLG-00000009x48-1yhs;
-	Sun, 04 Jan 2026 01:55:38 +0000
-Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
+	id 1vcE0E-00000009yAN-1svP;
+	Sun, 04 Jan 2026 02:37:58 +0000
+Received: from smtpbguseast2.qq.com ([54.204.34.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcDLD-00000009x3m-1vJh
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Jan 2026 01:55:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1767491727; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=ZIpYAVwIb6CxAYeydnlfw07j25D/J9qOjlgY2htp9h8=;
-	b=Tm9irvb794kFsZrWts53YNNhZi+uFFwu921vipbp8mMzvRi7//55VywajgxdCrIBTK6OlpzyaxN3mn6iCcdweON4XMQJkmtiVoKBOAqWWB7lGSyy/xcDQrf73gmohj20EOsVECJCyfF857e8I82miU6bymVOUrGRfR7smCJU5SY=
-Received: from 30.74.144.131(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0WwA2gEm_1767491724 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Sun, 04 Jan 2026 09:55:24 +0800
-Message-ID: <e94f80ff-cde9-42b0-b717-419fae3e7385@linux.alibaba.com>
-Date: Sun, 4 Jan 2026 09:55:23 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/5] arm64: mm: support batch clearing of the young
- flag for large folios
-To: Ryan Roberts <ryan.roberts@arm.com>, akpm@linux-foundation.org,
- david@kernel.org, catalin.marinas@arm.com, will@kernel.org
-Cc: lorenzo.stoakes@oracle.com, Liam.Howlett@oracle.com, vbabka@suse.cz,
- rppt@kernel.org, surenb@google.com, mhocko@suse.com, riel@surriel.com,
- harry.yoo@oracle.com, jannh@google.com, willy@infradead.org,
- baohua@kernel.org, dev.jain@arm.com, linux-mm@kvack.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <cover.1766455377.git.baolin.wang@linux.alibaba.com>
- <3b427d9010a6d52f2b91342760f12be097d21cf6.1766455378.git.baolin.wang@linux.alibaba.com>
- <c5df1f9f-952a-4e83-9ae0-bd0a83dedd36@arm.com>
- <02239ca7-9701-4bfa-af0f-dcf0d05a3e89@linux.alibaba.com>
- <85094ce2-21a8-4d25-bd96-7d809c5daa3b@arm.com>
-From: Baolin Wang <baolin.wang@linux.alibaba.com>
-In-Reply-To: <85094ce2-21a8-4d25-bd96-7d809c5daa3b@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+	id 1vcE0B-00000009y8N-2DIb;
+	Sun, 04 Jan 2026 02:37:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
+	s=altu2504; t=1767494238;
+	bh=y/k9MsuSNbweF0g4tN+QXLsS5KGlTItZo2xUIwWpYCY=;
+	h=From:To:Subject:Date:Message-Id;
+	b=b3HvH97f8XaBBKZeKsmLCndtu4l8IRnOn6vFTgJ52AjxMRrKDwhzXjAR6F+zj8b0+
+	 +YpfRy+BZ3iUihlZ6d3lSo6WmytPQNzP1TzQJ++THwQ9RUOH9S+Q8qznq2e+2ABvXE
+	 9nQUABXJqcZyvQct6dLWxA/P72Fj6jceSROR2y5E=
+X-QQ-mid: zesmtpsz2t1767494230t5d583093
+X-QQ-Originating-IP: 9UpFS0FDHhr7aE4H1iWq2hxD7exHLmk+JfcEu07uhxo=
+Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Sun, 04 Jan 2026 10:37:07 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 16655950832647765738
+EX-QQ-RecipientCnt: 22
+From: Chaoyi Chen <kernel@airkyi.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Quentin Schulz <quentin.schulz@cherry.de>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	John Clark <inindev@gmail.com>,
+	FUKAUMI Naoki <naoki@radxa.com>,
+	Jimmy Hon <honyuenkwun@gmail.com>,
+	Dragan Simic <dsimic@manjaro.org>,
+	Michael Riesch <michael.riesch@collabora.com>,
+	Peter Robinson <pbrobinson@gmail.com>,
+	Alexey Charkov <alchark@gmail.com>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Andy Yan <andy.yan@rock-chips.com>
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/2] arm64: dts: rockchip: Add rk3576 evb2 board
+Date: Sun,  4 Jan 2026 10:37:01 +0800
+Message-Id: <20260104023703.118-1-kernel@airkyi.com>
+X-Mailer: git-send-email 2.17.1
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
+X-QQ-XMAILINFO: NuC9jha5hp0iacXbxXGz0i3+bouJlW+d+yrOdqbPCuyQQbEjmhjQ9I3t
+	yZq1ITXuleg3mjHwp4VkA9jcl8h9jSIdzK68KjiwthMmTDTGwkThh1+pHlkDrsZWUEsJa3I
+	n65JLdd/ZnVrB2SkGI/mSPsh925ylFvdaSOi1SazKdiEaczNJEY1LhqQ8Us9sPxhXzE65bT
+	EyGM13j23IPA0nqUrK9Ys1GE5jmf17wi7ya3k1K9ohiJFivbQjmCDonIirNt05uIv3ozgAV
+	LaE6fcKKDvxplYDBhQ2wYH6FauXS6kyoDEhZoktzfwGu2WYVXpx4BDkYhMnukVO3sCyF7O9
+	A2dNf5M+T5heYunm4ot78qX9nRofH1VS4MPF2nFCmawF3Mv98fCcVPbO8iqwm0JE/Xygsfk
+	SvMxr0v2zpcbmA3rtCwnIRfA72n21nCIMPx6PQ7ky97y9hkNh/A7ceIA1GsjtVhybgW91Q3
+	xR2TtO8a0NmS6xOnf8KG3QOiWxaFAsNwZbY2NChNquRQdDB54dOBpAVL9njgCRqWGGTkaKx
+	1mVu/wCvH1Oma7Vo6wma9/ENt7kgS321dZQgyTRw6yNzil/jnrtgpUi+SYsSQZFtpP/+Tiv
+	jwPlXT6crrqynfJ3s/8UPRJEuwo6Sdb4XDQa7yngA9kz2AoppHsw1VoQyHDU74c1OoB4WwF
+	mI7ReVjfm2MtO2PrNhoDGg7PwSfrLN+A4+0xZ3rJc/IwaQmu//6UEUKBnjy3oeWfQ91D16p
+	Nk3R/c0uyS6R+yuDHiq+O+oL0JNHyUUVeWaMSSdDK3J4vUkNhKcfLEtiJ0v0GAZ+H/PdsQP
+	YQWEAKYhDNMGlXo/oeGga3CUb/jVloMFI2NZQ6sn8MOwj8VEIN/Hq22V6zm4Zu0diEJm+9p
+	JPD/nYXkcyKhDvexg519l2SGca4Pu1zy6wxva1hfzZLPSWJJvbBU+v8JciIg5CTgEY5M57n
+	ogDyMwIukqS6ifeR3X4IJhiZrTBudve/8xcKSYNgGWg7rcAaLuXY4heXzAyTvXyHu96A=
+X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260103_175536_072531_8A0F38A9 
-X-CRM114-Status: GOOD (  26.93  )
+X-CRM114-CacheID: sfid-20260103_183756_283137_E43FD59B 
+X-CRM114-Status: UNSURE (   8.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,184 +106,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
+Hi,
 
-On 1/2/26 8:12 PM, Ryan Roberts wrote:
-> On 25/12/2025 02:48, Baolin Wang wrote:
->>
->>
->> On 2025/12/24 22:07, Ryan Roberts wrote:
->>> On 23/12/2025 05:48, Baolin Wang wrote:
->>>> Currently, contpte_ptep_test_and_clear_young() and
->>>> contpte_ptep_clear_flush_young()
->>>> only clear the young flag and flush TLBs for PTEs within the contiguous range.
->>>> To support batch PTE operations for other sized large folios in the following
->>>> patches, adding a new parameter to specify the number of PTEs that map
->>>> consecutive
->>>> pages of the same large folio in a single VMA and a single page table.
->>>>
->>>> While we are at it, rename the functions to maintain consistency with other
->>>> contpte_*() functions.
->>>>
->>>> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
->>>> ---
->>>>    arch/arm64/include/asm/pgtable.h | 12 ++++++------
->>>>    arch/arm64/mm/contpte.c          | 33 ++++++++++++++++++--------------
->>>>    2 files changed, 25 insertions(+), 20 deletions(-)
->>>>
->>>> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
->>>> index 445e18e92221..d5fbe72e820a 100644
->>>> --- a/arch/arm64/include/asm/pgtable.h
->>>> +++ b/arch/arm64/include/asm/pgtable.h
->>>> @@ -1648,10 +1648,10 @@ extern void contpte_clear_full_ptes(struct mm_struct
->>>> *mm, unsigned long addr,
->>>>    extern pte_t contpte_get_and_clear_full_ptes(struct mm_struct *mm,
->>>>                    unsigned long addr, pte_t *ptep,
->>>>                    unsigned int nr, int full);
->>>> -extern int contpte_ptep_test_and_clear_young(struct vm_area_struct *vma,
->>>> -                unsigned long addr, pte_t *ptep);
->>>> -extern int contpte_ptep_clear_flush_young(struct vm_area_struct *vma,
->>>> -                unsigned long addr, pte_t *ptep);
->>>> +int contpte_test_and_clear_young_ptes(struct vm_area_struct *vma,
->>>> +                unsigned long addr, pte_t *ptep, unsigned int nr);
->>>> +int contpte_clear_flush_young_ptes(struct vm_area_struct *vma,
->>>> +                unsigned long addr, pte_t *ptep, unsigned int nr);
->>>>    extern void contpte_wrprotect_ptes(struct mm_struct *mm, unsigned long addr,
->>>>                    pte_t *ptep, unsigned int nr);
->>>>    extern int contpte_ptep_set_access_flags(struct vm_area_struct *vma,
->>>> @@ -1823,7 +1823,7 @@ static inline int ptep_test_and_clear_young(struct
->>>> vm_area_struct *vma,
->>>>        if (likely(!pte_valid_cont(orig_pte)))
->>>>            return __ptep_test_and_clear_young(vma, addr, ptep);
->>>>    -    return contpte_ptep_test_and_clear_young(vma, addr, ptep);
->>>> +    return contpte_test_and_clear_young_ptes(vma, addr, ptep, CONT_PTES);
->>>
->>> As per your fixup patch, I agree that nr should be 1 here, not CONT_PTES.
->>
->> Yes.
->>
->>>>    }
->>>>      #define __HAVE_ARCH_PTEP_CLEAR_YOUNG_FLUSH
->>>> @@ -1835,7 +1835,7 @@ static inline int ptep_clear_flush_young(struct
->>>> vm_area_struct *vma,
->>>>        if (likely(!pte_valid_cont(orig_pte)))
->>>>            return __ptep_clear_flush_young(vma, addr, ptep);
->>>>    -    return contpte_ptep_clear_flush_young(vma, addr, ptep);
->>>> +    return contpte_clear_flush_young_ptes(vma, addr, ptep, CONT_PTES);
->>>
->>> And same here.
->>>
->>>>    }
->>>>      #define wrprotect_ptes wrprotect_ptes
->>>> diff --git a/arch/arm64/mm/contpte.c b/arch/arm64/mm/contpte.c
->>>> index e4ddeb46f25d..b929a455103f 100644
->>>> --- a/arch/arm64/mm/contpte.c
->>>> +++ b/arch/arm64/mm/contpte.c
->>>> @@ -508,8 +508,9 @@ pte_t contpte_get_and_clear_full_ptes(struct mm_struct *mm,
->>>>    }
->>>>    EXPORT_SYMBOL_GPL(contpte_get_and_clear_full_ptes);
->>>>    -int contpte_ptep_test_and_clear_young(struct vm_area_struct *vma,
->>>> -                    unsigned long addr, pte_t *ptep)
->>>> +int contpte_test_and_clear_young_ptes(struct vm_area_struct *vma,
->>>> +                    unsigned long addr, pte_t *ptep,
->>>> +                    unsigned int nr)
->>>>    {
->>>>        /*
->>>>         * ptep_clear_flush_young() technically requires us to clear the access
->>>> @@ -518,41 +519,45 @@ int contpte_ptep_test_and_clear_young(struct
->>>> vm_area_struct *vma,
->>>>         * contig range when the range is covered by a single folio, we can get
->>>>         * away with clearing young for the whole contig range here, so we avoid
->>>>         * having to unfold.
->>>> +     *
->>>> +     * The 'nr' means consecutive (present) PTEs that map consecutive pages
->>>> +     * of the same large folio in a single VMA and a single page table.
->>>>         */
->>>>    +    unsigned long end = addr + nr * PAGE_SIZE;
->>>>        int young = 0;
->>>> -    int i;
->>>>    -    ptep = contpte_align_down(ptep);
->>>> -    addr = ALIGN_DOWN(addr, CONT_PTE_SIZE);
->>>> -
->>>> -    for (i = 0; i < CONT_PTES; i++, ptep++, addr += PAGE_SIZE)
->>>> +    ptep = contpte_align_addr_ptep(&addr, &end, ptep, nr);
->>>> +    for (; addr != end; ptep++, addr += PAGE_SIZE)
->>>>            young |= __ptep_test_and_clear_young(vma, addr, ptep);
->>>>          return young;
->>>>    }
->>>> -EXPORT_SYMBOL_GPL(contpte_ptep_test_and_clear_young);
->>>> +EXPORT_SYMBOL_GPL(contpte_test_and_clear_young_ptes);
->>>>    -int contpte_ptep_clear_flush_young(struct vm_area_struct *vma,
->>>> -                    unsigned long addr, pte_t *ptep)
->>>> +int contpte_clear_flush_young_ptes(struct vm_area_struct *vma,
->>>> +                unsigned long addr, pte_t *ptep,
->>>> +                unsigned int nr)
->>>>    {
->>>>        int young;
->>>>    -    young = contpte_ptep_test_and_clear_young(vma, addr, ptep);
->>>> +    young = contpte_test_and_clear_young_ptes(vma, addr, ptep, nr);
->>>>          if (young) {
->>>> +        unsigned long end = addr + nr * PAGE_SIZE;
->>>> +
->>>> +        contpte_align_addr_ptep(&addr, &end, ptep, nr);
->>>>            /*
->>>>             * See comment in __ptep_clear_flush_young(); same rationale for
->>>>             * eliding the trailing DSB applies here.
->>>>             */
->>>> -        addr = ALIGN_DOWN(addr, CONT_PTE_SIZE);
->>>> -        __flush_tlb_range_nosync(vma->vm_mm, addr, addr + CONT_PTE_SIZE,
->>>> +        __flush_tlb_range_nosync(vma->vm_mm, addr, end,
->>>>                         PAGE_SIZE, true, 3);
->>>
->>> Hmm... The requirement is that we must flush the _page_ if clearing access for a
->>> pte that does not have the contiguous bit set, or we must flush the _contpte
->>> block_ if clearing access for a pte that does have the contiguous bit set.
->>>
->>> With your changes, you may call for a large range that covers multiple contpte
->>> blocks but only has a single pte in a single contpte block for which the access
->>> bit was previously set. But that will cause flushing the TLB for the full range.
->>> Could this cause a performance issue? Yes, no, maybe... I think it's unlikely
->>> but I wouldn't rule it out in some edge case.
->>>
->>> I wonder if it's better to track the sub-ranges where access was cleared and
->>> only issue tlbi for those sub-ranges? Probably just keep it simple (the way you
->>> have done it) until/unless we see an actual problem?
->>
->> Good question. Indeed, as you said, we flush the TLB per folio now, which might
->> increase the flush range. However, I think this approach is relatively
->> reasonable for now.
->>
->> First, the mm-core also tracks the access status per folio, and it's really
->> unnecessary to add excessive complexity to track the access status of sub-pages
->> (or sub-ranges). I can already imagine that tracking the access status for each
->> cont-block range as well as for non-cont pages across the entire large folio
->> range, which can be too complicated.
->>
->> Second, __flush_tlb_range_nosync() is a lightweight flush. I quickly ran a
->> measurement on my machine and found that the overhead of
->> __flush_tlb_range_nosync() barely changes between nr=16 and nr=256 (both are
->> around 40 ns).
-> 
-> I'm not concerned about the direct cost of the flush; I agree it should be
-> lightweight given we elide the trailing DSB. (although there is a possible case
-> on older HW that doesn't support TLBI-by-range where this will be converted to
-> multiple TLBI-by-page instructions and that can cause stalls if there are too
-> many of them).
-> 
-> My concern was the opportunity cost of evicting the entries for all the
-> non-accessed parts of the folio from the TLB. But of course, I'm talking
-> nonsense because the architecture does not allow caching non-accessed entries in
-> the TLB.
+This series add support for rk3576 evb2 board.
 
-Ah, now I understand your concern:). Yes, agree.
+General features for rk3576 evb2 board:
+    - Rockchip RK3576
+    - LPDDR4/4X
+    - eMMC5.1
+    - RK806-2x2pcs + DiscretePower
+    - 1x HDMI2.1 TX / HDMI2.0 RX
+    - 1x full size DP1.4 TX (Only 2 Lanes)
+    - 2x 10/100/1000M Ethernet
+    - 5x SATA3.0 7Pin Slot
+    - 2x USB3.2 Gen1 Host
+    - 3x USB2.0 Host
+    - WIFI/BT
+    - ...
 
-> So doesn't sound like a problem; I think we can ignore this. Sorry for the noise.
+Chaoyi Chen (2):
+  dt-bindings: arm: rockchip: Add rk3576 evb2 board
+  arm64: dts: rockchip: Add rk3576 evb2 board
 
-OK. No worries.
+ .../devicetree/bindings/arm/rockchip.yaml     |   4 +-
+ arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+ .../boot/dts/rockchip/rk3576-evb2-v10.dts     | 941 ++++++++++++++++++
+ 3 files changed, 945 insertions(+), 1 deletion(-)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-evb2-v10.dts
 
->> Therefore, I would still prefer to keep the logic here simple.
-> 
-> Agreed.
+-- 
+2.51.1
 
-Thanks for your reviewing and valuable input.
 
