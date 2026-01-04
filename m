@@ -4,156 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F9BDC2A074
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Jan 2026 11:46:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3A37C2A074
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Jan 2026 11:48:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fea+kQGkvvXPIv49NDxKAAnZ1Rg/TYrLnMgNtwsPdXE=; b=4VPZVVMqCJ0ulQWYVuBA3308KR
-	DQiftmPBiu5aG8PxojuXCqZpTPplgMbECUCyfPBqgXmzvRyvUEIWxVutNQ9qnas1Futf0HS8gvwI5
-	FKkQ9QOBriNQDMHnoE5c6393MKDBoPiH315CsX/7jh6wklmo/pqI7hZm/qM83uW6AKW2JTOSwmqTs
-	29NDQWUxAGL1UFIFqbORIfS1c86C6g7Ok7TtODimWCBSmBSHu1IV5y4JsC+BysbFstK4NmV/XJ461
-	WKOIilyyjg2lOO46LUWQSdu2BCN5VhVkpsSoO+2ayhVozPTnjPBlUDxYV51qHKtaAwSWTamFFQt8N
-	Qm5IzVYw==;
+	bh=e4uQTn1+ESOxyNSsQVXvd87WkSOpBRdjyDbi0+Cmnuw=; b=CAeolbl1ZRZjsXxtd8vaLIEeWU
+	yg9RCs5FQ7RKWtUHqDp+l+T9sUTtd56GfAiZHFeNvglJ/DddtiFs+N7z73uIqGLxz/v+AJYbIOLhu
+	W14l8LUWNrzziFgPkOXo40fjjgckbcZ2iPJ7ZeukcPLWI/GKFIdwWTalRj2sxbNzr/X98yzYMKxKx
+	wORNBE1VS7f50Ftt1oHeArU28Oqnd8Jkpz7VgZBht/miXCXDeT7i28P/cQL3jkEOrT1MbPgc4d79S
+	e6RdcdhLfx5nOeqy5h3crU53uBOMxevUnn0xJEQA7DGWcF550KmKiSBzstAAivUZ0BBp3v51SLFlB
+	muvjmTJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcMZR-0000000ACdT-1kBx;
-	Sun, 04 Jan 2026 11:46:53 +0000
-Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1vcMar-0000000ACkG-0Za5;
+	Sun, 04 Jan 2026 11:48:21 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcMZO-0000000ACcz-1bTR;
-	Sun, 04 Jan 2026 11:46:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=gYzv3SADKEWc/vTYrEJpHn/u2TKLIG7l0ehBel73SPbtYzHETHCcVjuoMj7h7EuC9k3GwogteVdEOCqt8h/vZHMsw6sCgIdSVTWSbkW8qpqIW6ZZYWfzwtg3DUR82pBG+5m0g9DbY87tJgY4LKA78M4O1GnaDMjJle6H/nb5B1s/A8kjOQKQH5BVbY91lEDfrVBi4OYISbWbatcbLMQKjxdAUw98zGFxVUfbXllepSTUwaOA4uJ7GDc1nFgPlkjb8iQAx8rpClyiG8IJq74F5rDGUDXf8w1RHlNyvtHm+tz7CpFEkpKQgl/Uya/4I+mCo6S4b8jadbkmekT2GGQ/yQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=fea+kQGkvvXPIv49NDxKAAnZ1Rg/TYrLnMgNtwsPdXE=;
- b=ybnybQXGJV53WN7F21OEWWrZOWZMFUZF3jmKZgokR9TH17q7KGrrHictN1PlI8V7Z1ZZ6XmUJGoysaPrBUhFZYTlt+8K7V9LJln2Gtc1LMS2ZfTTcuDEf3CW8qUFHfPUsIXU3yq4s1/xouHVVFNk0zx1irWkYDpL9ntbLVczJz4YLU1aR6FgxmLce6XNptWYF5wiOHZGpG9PzeveUeaSIE8FT0qTX8/qSUPcP4xIMths9c6JGBV7iBGwkbLZJTiBVFnG8/UekZGrnKti/C0c+1dtMecm+4lveL7FWe0X1nBapqC/iXwEw2VFPGb8lZ4a+ThZ8oOrPBAabTOHS4L4KA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.23.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=fea+kQGkvvXPIv49NDxKAAnZ1Rg/TYrLnMgNtwsPdXE=;
- b=ciHXd6JPbkQTSMOeYRpiptKp+kjNNnpEVLb8Qb+KPUlo9CvpHYrnqIWgf60SBuLtOtXM+hop6U6GX8K8HiamzPJmotJQ/YtI6KeyOzOMwZX42uaDeM0/yVMATSZ/w9DoJuRhiL56pp2h3nzoSnSabzpiqo2uHdnIDNSSxqNxglg=
-Received: from BY5PR04CA0026.namprd04.prod.outlook.com (2603:10b6:a03:1d0::36)
- by BN0PR10MB4917.namprd10.prod.outlook.com (2603:10b6:408:116::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Sun, 4 Jan
- 2026 11:46:46 +0000
-Received: from SJ1PEPF00002319.namprd03.prod.outlook.com
- (2603:10b6:a03:1d0:cafe::fc) by BY5PR04CA0026.outlook.office365.com
- (2603:10b6:a03:1d0::36) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9478.4 via Frontend Transport; Sun, 4
- Jan 2026 11:46:45 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
-Received: from lewvzet201.ext.ti.com (198.47.23.195) by
- SJ1PEPF00002319.mail.protection.outlook.com (10.167.242.229) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9499.1 via Frontend Transport; Sun, 4 Jan 2026 11:46:45 +0000
-Received: from DLEE202.ent.ti.com (157.170.170.77) by lewvzet201.ext.ti.com
- (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sun, 4 Jan
- 2026 05:46:43 -0600
-Received: from DLEE203.ent.ti.com (157.170.170.78) by DLEE202.ent.ti.com
- (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sun, 4 Jan
- 2026 05:46:43 -0600
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE203.ent.ti.com
- (157.170.170.78) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Sun, 4 Jan 2026 05:46:43 -0600
-Received: from [10.249.139.123] ([10.249.139.123])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 604BkbYI3541868;
-	Sun, 4 Jan 2026 05:46:38 -0600
-Message-ID: <34f809e1-4a39-4c8c-bc63-3f66d1ef355b@ti.com>
-Date: Sun, 4 Jan 2026 17:16:36 +0530
+	id 1vcMao-0000000ACjp-2vIs
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 04 Jan 2026 11:48:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 31039437AC
+	for <linux-arm-kernel@lists.infradead.org>; Sun,  4 Jan 2026 11:48:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DFC8C2BC86
+	for <linux-arm-kernel@lists.infradead.org>; Sun,  4 Jan 2026 11:48:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767527297;
+	bh=I0lPw9M6IVwRkDiioixB1o0oDbNxBQ4cmgrqp3BqxJ0=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=VTRDI2LV3o0jW3eDCcz3JGlJcAzoTiTJMtQRDQjjL0QcvH/P06AhyP0iDs3E12a08
+	 1bfxjFMZZ3CmHsPe1cS9LIXwtY+ZCnVpEbsNrpdOO0s4po/T41MHkk83TlaAGXCXW3
+	 kit3OGb+YURbF08TywxCta/NnVWdLxoo2Z3s3rPpew2oo7FhFw/4buvHAyAQp8S64V
+	 2UVye59DCf76EBcO+U/qZmAgqFV8OyXJ0uLCj+r7/AS+AudNccgN01p3zQQup9XHEy
+	 K+d+idy47k6m7FfYb7fpEOkWSMUWCcznJUpsByww7zU6XLXZCqVl53Ardig/2qjCd8
+	 enQA+A6xY/khg==
+Received: by mail-yx1-f54.google.com with SMTP id 956f58d0204a3-64669a2ecb5so1073320d50.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Jan 2026 03:48:16 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUJk2wVprAFl6GLCKdb1x+Xj29lSu8HjSG6iTekhi9DFV/Xje362OZLhxzWV2T944WiFJrgRvmtSVygdfX2WpbM@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzlyr1Dsun04HkE4JgqqKQUKATlEWAMiYdUgVQUZ4pAwNIB5EiI
+	leoUMdkhJYwFIIEpA7kMIpdg/aLRgu3RXSJuyAJlgd4KGgTCWybA/BtUpdNehSrQh0+cH5AMEG6
+	rpASwZWWK0O3tVZpCsTgBL+Joi0JKi2w=
+X-Google-Smtp-Source: AGHT+IEH4Sm8WJaFK+x+RlCyRzWOrDqAadQrajL3EXv2yzCn2zhpj2YARFH+oUXmFDV1NIRkB+W/xitiP829rCgCnRg=
+X-Received: by 2002:a05:690e:4189:b0:645:559f:d7dd with SMTP id
+ 956f58d0204a3-646e3398ac1mr3243278d50.14.1767527296406; Sun, 04 Jan 2026
+ 03:48:16 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: phy: Add PHY_TYPE_XAUI definition
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: <vkoul@kernel.org>, <neil.armstrong@linaro.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <sjakhade@cadence.com>,
-	<rogerq@kernel.org>, <linux-phy@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <srk@ti.com>, <s-vadapalli@ti.com>
-References: <20251224054905.763399-1-s-vadapalli@ti.com>
- <20251224054905.763399-2-s-vadapalli@ti.com>
- <20251227-airborne-energetic-kingfisher-adc4fb@quoll>
-Content-Language: en-US
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-In-Reply-To: <20251227-airborne-energetic-kingfisher-adc4fb@quoll>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF00002319:EE_|BN0PR10MB4917:EE_
-X-MS-Office365-Filtering-Correlation-Id: 780a457c-1eae-4f8e-7a6e-08de4b86f008
-X-LD-Processed: e5b49634-450b-4709-8abb-1e2b19b982b7,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700013|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?SjFvbTNPaVlEbEppbS9QQVovdjg3V0tkQ2pBK0hraVdlR3UvNWt2ZVRteW5M?=
- =?utf-8?B?NzkzWkxza3k1Y2dOQ1VZQzVDK3dsUStXUGVNS0IxM2FuTXJic0xBRjF5ZE1v?=
- =?utf-8?B?bTRYZGRneUdYa1dWQ1IrNlQrRUFjY0pEUms4QUtKVGZpTVNqa0h3RXRpNGZU?=
- =?utf-8?B?L3JUUjdFZnFwUkZtVUt1Z0VzTDJ0TUZlMEcwNndpZU9sTlFoY1NCK3IxM1R2?=
- =?utf-8?B?emU2LzBrN0xUTTBaOG1XN1lpRzdWbTU3d2tnZzJEZkZtemRYZkp2ZE5uMFEx?=
- =?utf-8?B?aUFGRndzakNvT3BBUlpXSW03QTdXc1ZNVkFkZ2J2NEs5YmYvZ2RETjVpc1hS?=
- =?utf-8?B?dGM5WWFqdlpDKzFVQ1ZoTzFWVTFqYWN4aWlUTUJyLzl3cGxLMXBBRE9KcnRj?=
- =?utf-8?B?cUVJL0tYeHFhQ09XOVNaa2ZUMFo2cUdrb2ZqVTJqRGJhWWxKSmN1SlBpZGNM?=
- =?utf-8?B?Wmd4andUelkzYnJaYWc2djVJL0RidVhRemRrQ3Y2di9DYWVYU2kwQjZJV01a?=
- =?utf-8?B?aks2bHRkTTJzUkp6SzhGelNZTEcwNnVOMjYwc0RqcTR6bmlXU0tBcm52ZU1s?=
- =?utf-8?B?SlRIaHNDNHpaR2kwZGtBTDNFVjFMMFJyNUU0VG1oVWx5NGJnMFB0MGNMY0lq?=
- =?utf-8?B?L1VTUGdQamUrREZ4M3N3bXNzaDgyZ3ZuRHpvS3VCRGt4Y2lNWUhiTjE0aUtJ?=
- =?utf-8?B?eHlNT01PMzE0ZkQycjhxcUJxMjRNWU9KcUtSNEZYZzBPcThlRG1xRi9Vcm5w?=
- =?utf-8?B?RG5LSlBGc2Q3aUF0cW9qa0xaUHJsYTdON1JsbGJtTnljL0RzcE8zTWZ5K2hw?=
- =?utf-8?B?WHRtTklVamcyNUxwd3Z1S0FTbVBVbFprTHl0V1puOUNOcC9EY3R3azZ6ckky?=
- =?utf-8?B?TmNWVkFzVzlQSzRic0pMbExWV2gwT2FJMjVJTGJWeWVCWklTanBkY1V6VEx1?=
- =?utf-8?B?MU5LRHlNbmw0VG1GbFpTYlA0WXZyQW1MVFBuQW1SNU9vdGlmYXF5dUtBRUM3?=
- =?utf-8?B?VkM4TlZzVnc2Umk3dWFub3lTbHlCSFd2dmxRQlIxUHFWRDVRMVpOZkJvSmQz?=
- =?utf-8?B?dzNLVDBaVVNyeVpLaGVkbDZuMWx3TUpXQVVWM1NlcUVCdHlwK1hHVUorZTc4?=
- =?utf-8?B?T0QwOEFPemFtNmFDLzVOVW9FWHVmbzhOaHNkTlFjUkthTWhnSUdUYUVrRXho?=
- =?utf-8?B?blRmbVdsUmF5QmNrcm1wTFVydHRBK0dqZEh0Q3dQUkNERVdFbkYzMkhjTkRp?=
- =?utf-8?B?TlcxN1dPWlM2aVV0OGU4Zk5UZWZRTE4zYWNZUm9mTlh4RklrdU9WdzdCQmtV?=
- =?utf-8?B?bFdSbjhmejBENWxzYU9rVURoVDhpWkZXOG41alNPdzlDWUlLbnIwUUxaWWVG?=
- =?utf-8?B?azF0a0lwd3YyeUpNWnRya1l5eUwwRU5hdDE0aFdSbEtTQml1eXhZZkFhOVVP?=
- =?utf-8?B?SDMwSFVxOFRhdVJPYm5YaVg1Ukx3NytZSzFkbEN4VzhaaHZ3RzJqa3k2WHFn?=
- =?utf-8?B?U0dGZ3RyKzVydHNJYTJ0YjlET3NNS1pmMTFtQ3V1RVZoSlV6ZmNram9uMGhh?=
- =?utf-8?B?NVdyRmNGR1p3eVRidGQ0anQrZmEvTmtpcWFCdjFROE5UUDViV0lyZmxVQjQz?=
- =?utf-8?B?ZDkyQ1NibWg2VTFacElUcHpTTWgyUThoOXUvK2dudlhtRmIzQ0dyVktkMUpI?=
- =?utf-8?B?K2I4K2FRSVhmVm9ZbldyVXVqK1B5K1ZtTFkzcEQ3bkNtUE1tZ1hwdlFQMmp2?=
- =?utf-8?B?SXExUjNybTVmenJ4a3d6aXVDbmp4Y0hCZzlXTFpLODU0V3NiaWxORElCR1dL?=
- =?utf-8?B?eHFscTlsaXB1UHZtRlBDZldkVWhsUTY0Tk5GWDQ4bC9KSnBoQXBXRXdtSFVn?=
- =?utf-8?B?bHdRNzV4UEZFT3gxZ2JRQ2p5b2R3bHdJNi9xbTZ5TUl3ZUVCaitxdlhNc2dt?=
- =?utf-8?B?SUIzNTQxYVpsTUwvNWNaclc5RmNiVjROR0pTZnFGQmgyTkFlekdOK2J5N01T?=
- =?utf-8?B?aGQzTHhSSGhDeW05d0M4bzRSWVhtZXJ1QXNIV1FMcmkya1FXLzNZSGtWZ1Yx?=
- =?utf-8?B?N1lkRnBrMGNrVCtTdDkyakVQdnBjRjBRNFBXRGR5RnpuVHhaNDZGdHNkY2g1?=
- =?utf-8?Q?9LvY=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700013)(7416014)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Jan 2026 11:46:45.6567
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 780a457c-1eae-4f8e-7a6e-08de4b86f008
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002319.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN0PR10MB4917
+References: <20251227114957.3287944-1-ye.zhang@rock-chips.com> <20251227114957.3287944-6-ye.zhang@rock-chips.com>
+In-Reply-To: <20251227114957.3287944-6-ye.zhang@rock-chips.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Sun, 4 Jan 2026 12:48:04 +0100
+X-Gmail-Original-Message-ID: <CAD++jL=fri43Q1XbMJoOUeoWJw9RwMDJLjcjO8zSbyHb7z+Dzg@mail.gmail.com>
+X-Gm-Features: AQt7F2oTWlXUXjidoWo77Ak7o32fHRY2YlKW0oxaqrPEmcpXVDJKxEyAH8MVM9k
+Message-ID: <CAD++jL=fri43Q1XbMJoOUeoWJw9RwMDJLjcjO8zSbyHb7z+Dzg@mail.gmail.com>
+Subject: Re: [PATCH v4 5/7] dt-bindings: pinctrl: rockchip: Add rk3506 rmio support
+To: Ye Zhang <ye.zhang@rock-chips.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	tao.huang@rock-chips.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260104_034650_455985_ABD8CF38 
-X-CRM114-Status: GOOD (  10.63  )
+X-CRM114-CacheID: sfid-20260104_034818_784592_34CC0805 
+X-CRM114-Status: GOOD (  12.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,23 +87,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/12/25 6:33 PM, Krzysztof Kozlowski wrote:
-> On Wed, Dec 24, 2025 at 11:18:58AM +0530, Siddharth Vadapalli wrote:
->> From: Swapnil Jakhade <sjakhade@cadence.com>
->>
->> Add definition for XAUI phy type.
-> 
-> What is XAUI?
-> 
-> Your commit msg duplicates subject and is obvious - repeats what is
-> in the diff. Pretty pointless.
+On Sat, Dec 27, 2025 at 12:55=E2=80=AFPM Ye Zhang <ye.zhang@rock-chips.com>=
+ wrote:
 
-I have posted the v2 series at:
-https://lore.kernel.org/r/20260104114422.2868321-1-s-vadapalli@ti.com/
-providing a detailed description of XAUI in the commit message.
+> +      rockchip,rmio-pins:
+> +        $ref: /schemas/types.yaml#/definitions/uint32-matrix
+> +        minItems: 1
+> +        items:
+> +          items:
+> +            - minimum: 0
+> +              description: RMIO ID (Controller index)
+> +            - minimum: 0
+> +              description: Pin index within the RMIO controller
+> +            - minimum: 0
+> +              description: Function Mux ID
+> +        description:
+> +          Configuration for the Rockchip Matrix I/O (RMIO) block. The fo=
+rmat
+> +          is <rmio_id pin_id function_id>. This acts as a secondary muxi=
+ng
+> +          layer when the primary 'rockchip,pins' mux is set to the RMIO
+> +          function.
 
-Thank you for the feedback.
+I think this should just use the standard pinmux =3D <>; property
+with some shifting and masking.
 
-Regards,
-Siddharth.
+Yours,
+Linus Walleij
 
