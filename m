@@ -4,79 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0705EC2A070
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Jan 2026 21:56:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A231C2A062
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Jan 2026 21:57:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jqQ03H4XRcuXm7IX8FTomxBcIIW7Zlg6dLSCcpxfiPE=; b=0KLA/YphOQzfTRLPAoFtO0if1y
-	bcT9R0LQNnO65XO0vRn3d0ssEgQtSQM6uWycRpKMWPldY6EM6tRFMgDquTeRClwJYyrT1qWbe4piD
-	i0PIZFuv1Ya10HsowbdjAIW25781mDT6HJ1Vi3Jh88CebIYJ9MSC3IC2//TvnX5B1uTpSqMeB7ePB
-	V/o9iViULOMszy0fOet8WgJNs9ha+m6fV8vmsiAMx7ta2dd2ergVSJYAb38jGME3ewGBEkJjtwBTS
-	h6962Ey4+nvVJb6gvinJ7LdOizOcTAjuLnvFL35Lf5VhUpigLGxbM74HMUcSRJpDydyus9PEAgnXN
-	fNn8JhBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=a8yx7++jg95Fb4tBgX4wIqK/rRdM6i4vlQ2QFhbgYXo=; b=Y/Ng7s+7/yV5vS4r3v1aqGx2Lo
+	nUjTGbaEBWbk7p4RxmtTvTYxbpn0pCTBVWgiadlUByua18pxO7pYG2zmT9mKADVBiUZx8q367RBCx
+	hoi1xZ4YJJobZHpVEK7r3RgbE6dNIMPFGjyiscy+PJYNoeI9jQDtRiqYJFabdW/bv93AUiON5/BAD
+	Jum+4WsTIgFXBtL3CbbrKwyX3EQPJcwXRib39FPVH+Xm6h8NecJ83L9nAQrg/i0CRRz3EMDK66zju
+	tY9pgDdQJHCLlHLdK/6C+kXd2J8LCzZ0xahEQOkpCCeoUGfPknbfpFRGlyASlcKUGtcRQVBC/KmGc
+	J3s7WoXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcW5h-0000000AUhV-0pKJ;
-	Sun, 04 Jan 2026 21:56:49 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vcW6g-0000000AUmo-0csj;
+	Sun, 04 Jan 2026 21:57:50 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcW5d-0000000AUh7-3oib;
-	Sun, 04 Jan 2026 21:56:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1F3A042DBC;
-	Sun,  4 Jan 2026 21:56:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id E752DC4CEF7;
-	Sun,  4 Jan 2026 21:56:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767563805;
-	bh=uWGulKN2lHSRnMj0osTbo7QLy+1zIg8tXJwHMSqsZzg=;
-	h=From:Date:Subject:To:Cc:From;
-	b=kYKCQut2cTh8Ohmx4hvaUEr9k9PTQt1G0ilGF9h+3nvQAWugHizx9aXdSM0WkSEbZ
-	 aiIP9xYxkxDNUvB+ql8ORvVwEfleduzTrW9tFCen8ky7F3ggxcNRuRNgeyKZI27ffX
-	 i9T1ciLi/VxI5r2vsmZ2kcplfd9VW7tW/+FvUl876IsM8V0fgZWBhYBcosGfc9wfnD
-	 d4/8KiDz/OIwu9+kQ4UCyZeZwWjFX/BYB5BMRHU5ABfRWeXrP69KbrcJhNzGkj1EE5
-	 BhJuMHiwAg8+SkQ+7ks6BnCCXWYQsF7vsuUqm1mYTs2D7x1bIeuwrS/vFi7+W03b6Y
-	 OjpqeD2qJfgBw==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id DCA24C2A070;
-	Sun,  4 Jan 2026 21:56:44 +0000 (UTC)
-From: Sven Peter <sven@kernel.org>
-Date: Sun, 04 Jan 2026 22:56:39 +0100
-Subject: [PATCH next v2] phy: apple: atc: Actually check return value of
- devm_apple_tunable_parse
+	id 1vcW6e-0000000AUm1-0eWN;
+	Sun, 04 Jan 2026 21:57:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=a8yx7++jg95Fb4tBgX4wIqK/rRdM6i4vlQ2QFhbgYXo=; b=PYFToY2sN7Jzq2mmZS7ocAZZ2x
+	MPXpdCkvqJLnofT6bbjDC1rRJyPgqhwUp1413ssxq05SNQCjnbwpQ8kDLJhHN5ceyGP4GOW2e9ByM
+	zd3TjPKCMToAOTBXSSNqob1YbAi83GveFi++P5HUXz8OeLFp5lLxBbrFgYUxhHr4Q86g=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vcW6S-001PDp-9m; Sun, 04 Jan 2026 22:57:36 +0100
+Date: Sun, 4 Jan 2026 22:57:36 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: vkoul@kernel.org, neil.armstrong@linaro.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, sjakhade@cadence.com,
+	rogerq@kernel.org, krzk@kernel.org, linux-phy@lists.infradead.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, srk@ti.com
+Subject: Re: [PATCH v2 2/2] phy: cadence-torrent: Add PCIe + XAUI multilink
+ configuration for 100MHz refclk
+Message-ID: <7fd42221-d602-4ce4-9f7f-6754ed91e7aa@lunn.ch>
+References: <20260104114422.2868321-1-s-vadapalli@ti.com>
+ <20260104114422.2868321-3-s-vadapalli@ti.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20260104-atcphy-tunable-fix-v2-1-84e5c2a57aaa@kernel.org>
-X-B4-Tracking: v=1; b=H4sIABbiWmkC/32NQQ6DIBBFr2Jm3WkGYmnTVe/RuEAdhNSAAWo0x
- ruXcIAu//v57x+QODpO8GwOiLy65IIvQV4aGKz2E6MbSwZJUpGgFnUeFrtj/nrdz4zGbXgT94d
- UozJsRijDJXLBVfoGz1uGrlDrUg5xr0+rqN0/6SpQYEu9ITKs9UCvD0fP8zXECbrzPH+Amfemu
- wAAAA==
-X-Change-ID: 20260104-atcphy-tunable-fix-517826d6fefd
-To: Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
- Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Thomas Glanzmann <thomas@glanzmann.de>, Sven Peter <sven@kernel.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4402; i=sven@kernel.org;
- h=from:subject:message-id;
- bh=uWGulKN2lHSRnMj0osTbo7QLy+1zIg8tXJwHMSqsZzg=;
- b=owGbwMvMwCXmIlirolUq95LxtFoSQ2bUIyk5+WNWvS27v5hr3lnM1HHkoOXx0mnvGdj+9MhKz
- 660z7/RUcrCIMbFICumyLJ9v73pk4dvBJduuvQeZg4rE8gQBi5OAZjIzUpGho0bnNeLCO589vd9
- 98d7uf3bg+/kZP7OEd13u+Qnc/almIuMDMuyP97byOQ7ieFR0xzHCYz3MrX3WJ1c+EMxtyDndcT
- ZmwwA
-X-Developer-Key: i=sven@kernel.org; a=openpgp;
- fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
-X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
- auth_id=407
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260104114422.2868321-3-s-vadapalli@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260104_135646_000278_E4800DAF 
-X-CRM114-Status: GOOD (  13.73  )
+X-CRM114-CacheID: sfid-20260104_135748_194479_32EF7612 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,91 +71,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Let's actually check the return value of devm_apple_tunable_parse
-instead of trying to check IS_ERR on a pointer to the return value which
-is always going to be valid. This prevent a oops when the tunables are
-invalid or when they don't exist:
+On Sun, Jan 04, 2026 at 05:14:18PM +0530, Siddharth Vadapalli wrote:
+> From: Swapnil Jakhade <sjakhade@cadence.com>
+> 
+> Add register sequences for PCIe + XAUI multilink configuration for
+> 100MHz reference clock.
+> 
+> Signed-off-by: Swapnil Jakhade <sjakhade@cadence.com>
+> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+> ---
+> 
+> v1 of this patch is at:
+> https://lore.kernel.org/r/20251224054905.763399-3-s-vadapalli@ti.com/
+> No changes since v1.
+> 
+> Regards,
+> Siddharth.
+> 
+>  drivers/phy/cadence/phy-cadence-torrent.c | 143 ++++++++++++++++++++--
+>  1 file changed, 136 insertions(+), 7 deletions(-)
+> 
+> diff --git a/drivers/phy/cadence/phy-cadence-torrent.c b/drivers/phy/cadence/phy-cadence-torrent.c
+> index 37fa4bad6bd7..f0d870886cca 100644
+> --- a/drivers/phy/cadence/phy-cadence-torrent.c
+> +++ b/drivers/phy/cadence/phy-cadence-torrent.c
+> @@ -300,6 +300,7 @@ enum cdns_torrent_phy_type {
+>  	TYPE_USB,
+>  	TYPE_USXGMII,
+>  	TYPE_PCIE_ML,
+> +	TYPE_XAUI,
+>  };
+>  
+>  enum cdns_torrent_ref_clk {
+> @@ -320,14 +321,14 @@ enum cdns_torrent_ssc_mode {
+>  /* Unique key id for vals table entry
+>   * REFCLK0_RATE | REFCLK1_RATE | LINK0_TYPE | LINK1_TYPE | SSC_TYPE
+>   */
+> -#define REFCLK0_SHIFT	12
+> -#define REFCLK0_MASK	GENMASK(14, 12)
+> -#define REFCLK1_SHIFT	9
+> -#define REFCLK1_MASK	GENMASK(11, 9)
+> -#define LINK0_SHIFT	6
+> -#define LINK0_MASK	GENMASK(8, 6)
+> +#define REFCLK0_SHIFT	15
+> +#define REFCLK0_MASK	GENMASK(18, 15)
+> +#define REFCLK1_SHIFT	11
+> +#define REFCLK1_MASK	GENMASK(14, 11)
+> +#define LINK0_SHIFT	7
+> +#define LINK0_MASK	GENMASK(10, 7)
 
-[   57.664567] Unable to handle kernel paging request at virtual address fffffffffffffffe
-[   57.664584] Mem abort info:
-[   57.664589]   ESR = 0x0000000096000007
-[   57.664595]   EC = 0x25: DABT (current EL), IL = 32 bits
-[   57.664602]   SET = 0, FnV = 0
-[   57.664607]   EA = 0, S1PTW = 0
-[   57.664611]   FSC = 0x07: level 3 translation fault
-[   57.664617] Data abort info:
-[   57.664621]   ISV = 0, ISS = 0x00000007, ISS2 = 0x00000000
-[   57.664626]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-[   57.664631]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-[   57.664640] swapper pgtable: 16k pages, 47-bit VAs, pgdp=0000000b4391c000
-[   57.664647] [fffffffffffffffe] pgd=0000000000000000, p4d=0000000000000000, pud=0000000b44188403, pmd=0000000b4418c403, pte=0000000000000000
-[   57.664670] Internal error: Oops: 0000000096000007 [#1]  SMP
-[   57.665047] CPU: 1 UID: 0 PID: 23 Comm: kworker/1:0 Tainted: G S                  6.18.2+ #2 PREEMPTLAZY
-[   57.665061] Tainted: [S]=CPU_OUT_OF_SPEC
-[   57.665066] Hardware name: Apple Mac mini (M1, 2020) (DT)
-[   57.665072] Workqueue: events cd321x_update_work [tps6598x]
-[   57.665100] pstate: 61400009 (nZCv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
-[   57.665111] pc : apple_tunable_apply+0x8/0x80 [apple_tunable]
-[   57.665121] lr : atcphy_mux_set+0x3e0/0x1138 [phy_apple_atc]
-[   57.665133] sp : ffffc000802a7c00
-[   57.665138] x29: ffffc000802a7c00 x28: 0000000000000003 x27: ffff800016c84080
-[   57.665151] x26: 0000000000000002 x25: ffff800016c84090 x24: ffff800016c8408f
-[   57.665163] x23: 0000000000020004 x22: 0000000000000001 x21: 0000000000000006
-[   57.665175] x20: ffff80000d6da9b0 x19: ffff80000d6da880 x18: 0000000000000002
-[   57.665188] x17: 0000000000000000 x16: ffffe22de59e0e38 x15: 0000000000000002
-[   57.665199] x14: ffffe22de76ecff8 x13: 0000000000000001 x12: ffff9dd5f90bc000
-[   57.665211] x11: 00000000000000c0 x10: 048abc15ceba0919 x9 : ffffe22dbc5fde10
-[   57.665223] x8 : ffff80000175e0d8 x7 : 0000000000000004 x6 : 0000000000000000
-[   57.665234] x5 : 0000000000000001 x4 : 0000000d6d132db7 x3 : 00000000000155db
-[   57.665246] x2 : 0000000000000000 x1 : fffffffffffffffe x0 : ffffc00082b80000
-[   57.665258] Call trace:
-[   57.665265]  apple_tunable_apply+0x8/0x80 [apple_tunable] (P)
-[   57.665276]  typec_mux_set+0x74/0xe0 [typec]
-[   57.665315]  cd321x_update_work+0x440/0x8c0 [tps6598x]
-[   57.665332]  process_one_work+0x178/0x3d0
-[   57.665346]  worker_thread+0x260/0x390
-[   57.665354]  kthread+0x150/0x250
-[   57.665369]  ret_from_fork+0x10/0x20
-[   57.665386] Code: e69a0ae8 ffffe22d aa1e03e9 d503201f (f9400022)
-[   57.665394] ---[ end trace 0000000000000000 ]---
+Why do these change? It would be good to add an explanation to the
+commit message about this, because it is not obvious why these need to
+change.
 
-Reported-by: Thomas Glanzmann <thomas@glanzmann.de>
-Fixes: 8e98ca1e74db ("phy: apple: Add Apple Type-C PHY")
-Signed-off-by: Sven Peter <sven@kernel.org>
----
-Changes in v2:
-- Copy/paste error: Copied a WARN instead of the kernel oops this patch fixes
-- Link to v1: https://patch.msgid.link/20260104-atcphy-tunable-fix-v1-1-40bf00feaac0@kernel.org
----
- drivers/phy/apple/atc.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/phy/apple/atc.c b/drivers/phy/apple/atc.c
-index c8a58ee64b7aad3205df51cf16ae778471ad2c5d..716c1e70de38ca604803739fedaa543d91f7501b 100644
---- a/drivers/phy/apple/atc.c
-+++ b/drivers/phy/apple/atc.c
-@@ -2178,10 +2178,10 @@ static int atcphy_load_tunables(struct apple_atcphy *atcphy)
- 	for (int i = 0; i < ARRAY_SIZE(tunables); i++) {
- 		*tunables[i].tunable = devm_apple_tunable_parse(
- 			atcphy->dev, atcphy->np, tunables[i].dt_name, tunables[i].res);
--		if (IS_ERR(tunables[i].tunable)) {
-+		if (IS_ERR(*tunables[i].tunable)) {
- 			dev_err(atcphy->dev, "Failed to read tunable %s: %ld\n",
--				tunables[i].dt_name, PTR_ERR(tunables[i].tunable));
--			return PTR_ERR(tunables[i].tunable);
-+				tunables[i].dt_name, PTR_ERR(*tunables[i].tunable));
-+			return PTR_ERR(*tunables[i].tunable);
- 		}
- 	}
- 
-
----
-base-commit: add66a6673bc4aacd0ef0f3c4a51271501770b17
-change-id: 20260104-atcphy-tunable-fix-517826d6fefd
-
-Best regards,
--- 
-Sven Peter <sven@kernel.org>
-
-
+       Andrew
 
