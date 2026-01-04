@@ -4,86 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E05A7C2A062
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Jan 2026 21:38:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 042EAC2A06C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Jan 2026 21:40:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yBAOLlPWvQKPDIs4oNpFowTmGYJ0Aw9K3RVBoc5XL58=; b=ZCgaR8eSl4B45psGerq40WRXrJ
-	7eCAt6oMhUfTeQZoBVmk/tTlBAjcNNVj9ZmqXM4M0/8m7RDUwmfLmcf1Dv5Kr2Dxho94/vzAwtPA5
-	hM0AKt5QS5NoI6jO4rN6zZq5pcGAsCrBNvcq/UX9FGMmm3rigN5wzSnimn7FJ+zf/P8J75lMwl1MU
-	72FgHLLCCXLqy5MNu45gY2Ds6rtnKsmr8m5Iu4jatpiq6Bm+LH14ERmKbKV+gmlFCcMnwOEQIWb+o
-	7lS+VPdcgMqKspg7L3E/xPUaZzu1IfHQ1XBewh9ps/T4RymQKPtZUeW8+5pJIf3MmqPWr2Y7u5qjj
-	LyXt2Yqw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gcJ4qySzjY0KVAwHFonFKf4MTj/0gwZsfwoy4TTth9c=; b=DKaQ0bffKDvUAYebPL1v8JC2gm
+	449wLoG460oj7rbF+S8e4YjSQH1I0IUzwEUxIL+izkdnKdngZdB1ZOtELdrXi/tpiKnsYQifwuEtW
+	+l8n9dsYc4vL7dPuESYZzOwb9CzPRC7W1HT58T8bDzB8yoh/Qz3ln1AHrd6Jcx6k+yM87A5W27nw1
+	lWWm8DqxQNwVezjD3ddPPX7KYD0agyi7f7pm23IP+WaDY+PLnPIaAP1p+7WKn8hpWnwR+W8waRwSG
+	0XOOYBJzYntXZsKUkj4W5s2NL057edLlMyHYwGvUxy5Y1xu9a9RoqNG8sGp5JugbHA0zwroQxvXfH
+	Mka1tSpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcVnT-0000000ATdd-1JlS;
-	Sun, 04 Jan 2026 21:37:59 +0000
-Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
+	id 1vcVpq-0000000ATvT-03Qf;
+	Sun, 04 Jan 2026 21:40:26 +0000
+Received: from mout-p-201.mailbox.org ([2001:67c:2050:0:465::201])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcVnR-0000000ATd0-1I2d
+	id 1vcVpn-0000000ATue-2AY4
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Jan 2026 21:37:58 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [10.196.197.1])
+	Sun, 04 Jan 2026 21:40:24 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4dkrPs397pz9tQk;
-	Sun,  4 Jan 2026 22:37:53 +0100 (CET)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4dkrSg0v8tz9ssn;
+	Sun,  4 Jan 2026 22:40:19 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1767562673;
+	t=1767562819;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=yBAOLlPWvQKPDIs4oNpFowTmGYJ0Aw9K3RVBoc5XL58=;
-	b=aTO66WcaO2ZLlVvq4JDA5p7yBXNrVyPdJrvbmt8f1NmePrda1TZXKMnUGiPwksOeCIN6Mg
-	vRbjDw3fGufGRD0m0wamyD9P3iHs6hbqX6DFb42jNk5P+9vM/mgNz54av+PUiTMYDx45ql
-	BaZOzUiwYm30b6TKtRmXYwskRo1PlK2aLNepYRnBsJIvwsUjIMSwjR1nGg9ZcGRlvTf4Q9
-	jLi09rrT159NORZkYK0t7nYTYB8mk3K6ZdpYTZ6IKSdlwfZxScZMMyHdsyxlKo64ohQi9w
-	3Emlc0Ons27WINVJ84jbP0Ggms9gI3qFKnLLbhl1cur2ML5lW7gtWObEmdjoOA==
-From: Marek Vasut <marek.vasut@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1767562671;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=yBAOLlPWvQKPDIs4oNpFowTmGYJ0Aw9K3RVBoc5XL58=;
-	b=J7f/WaJSMmCS7cVrcvcidcItnK33nQnmhVlAADhOZQqBIZRH0/eqO7D2YENp/nhze4d5pg
-	psXihdu0bDo7yo+bFJ93PJ7p/8sSKeEEYDVI1gDBkPm49iU3R1CUIT1avj1MyHOMdqbznd
-	S+TcPjTsEs7e3Sjr8YIC8AJxirB5mhus6nW6TtocPS/CiSpX8PfekDbsibRDXkm3cvUaft
-	qB2zdqlICAmaLWSsZuTmL8oNq5CpuuwQvDhqhYcJ8Foj7ol/8/if5B8Wt48YNcSEjebkwC
-	F8fTROEtStEI9AyCgUI+HOFTXJICLbQBjAiff+ng2N+lJriN4EBahKrEpCrG2w==
-To: dri-devel@lists.freedesktop.org
-Cc: Marek Vasut <marek.vasut@mailbox.org>,
-	Abel Vesa <abelvesa@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Liu Ying <victor.liu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Peng Fan <peng.fan@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org
-Subject: [PATCH v3] drm/imx: dc-plane: Add more RGB swizzling options
-Date: Sun,  4 Jan 2026 22:37:29 +0100
-Message-ID: <20260104213743.129012-1-marek.vasut@mailbox.org>
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=gcJ4qySzjY0KVAwHFonFKf4MTj/0gwZsfwoy4TTth9c=;
+	b=Msu6Gk2uRTh5Wq0JBpm6P79Un8o0EIiWk7gZyzhdv1eu7gjtktlm0JfFbc5Mru1GIjkcfm
+	MSuBQ/6/odPVQ5sR9YsFCVD7dv+F5jq5STFexwJX3ae2hwQmh4J9bcEnJXf43Ak5KOuH5e
+	CoJ5u5JHO6Nju1m8shUA/9tD/0WskxcnsFyMzo7B71D83LSFLg+bUlKBB02HfQm8JnzCZy
+	sc7BoxXDNU806d5wxTCkSgWK6t4IQ5hEakURlxbah3WuTOzjSltSV26Z4zCeW9/2KABVUD
+	FklBU0Nhat3neYUY6xLBuqDIUop6f8E/q3PIxutPe30bgGl67nbHIut9AA9yyg==
+Message-ID: <e4504a0b-65af-4749-8702-7b51dc933059@mailbox.org>
+Date: Sun, 4 Jan 2026 22:09:18 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-META: iyjq8igyayzh8csskzzn8sx7t147bmuk
-X-MBO-RS-ID: 8419a03abb6d8fa209e
+Subject: Re: [PATCH] drm/bridge: fsl-ldb: Parse register offsets from DT
+To: Liu Ying <victor.liu@nxp.com>, dri-devel@lists.freedesktop.org
+Cc: Abel Vesa <abelvesa@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Lucas Stach <l.stach@pengutronix.de>, Peng Fan <peng.fan@nxp.com>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org
+References: <20251017154029.105099-1-marek.vasut@mailbox.org>
+ <dc4b1b65-542f-4bd2-bd91-af3fe4223b63@nxp.com>
+ <55d44163-4f37-462f-b860-c862cb5ada5a@mailbox.org>
+ <b65d9221-bdb3-4e69-beed-6b7646c5d5eb@nxp.com>
+ <3064e20f-92c8-4e3b-82bc-ef949f312826@mailbox.org>
+ <ac21053f-21d9-4844-9049-09deb3708a6d@nxp.com>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <ac21053f-21d9-4844-9049-09deb3708a6d@nxp.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-ID: 4ef6ba8cb8fdf258150
+X-MBO-RS-META: 376wawhc1tkcnnz9scobhr58t5iu3ewg
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260104_133757_560018_543A87C4 
-X-CRM114-Status: GOOD (  10.70  )
+X-CRM114-CacheID: sfid-20260104_134023_705892_674AF5F7 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,81 +89,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add additional buffer format swizzling options beyond XR24, the
-hardware is capable of sampling other formats, fill them in.
+On 11/4/25 6:25 AM, Liu Ying wrote:
 
-Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
----
-Cc: Abel Vesa <abelvesa@kernel.org>
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Fabio Estevam <festevam@gmail.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
-Cc: Liu Ying <victor.liu@nxp.com>
-Cc: Lucas Stach <l.stach@pengutronix.de>
-Cc: Peng Fan <peng.fan@nxp.com>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Shawn Guo <shawnguo@kernel.org>
-Cc: Thomas Zimmermann <tzimmermann@suse.de>
-Cc: devicetree@vger.kernel.org
-Cc: dri-devel@lists.freedesktop.org
-Cc: imx@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-clk@vger.kernel.org
----
-V2: - Adjust commit subject
-    - Drop the alpha formats for now, add RGB888/BGR888 to dc_plane_formats[]
-V3: - Drop even more formats for now, because they do not work with
-      prefetch engine, which seems currently unimplemented.
----
- drivers/gpu/drm/imx/dc/dc-fu.c    | 16 ++++++++++++++++
- drivers/gpu/drm/imx/dc/dc-plane.c |  4 ++++
- 2 files changed, 20 insertions(+)
+Hello Liu,
 
-diff --git a/drivers/gpu/drm/imx/dc/dc-fu.c b/drivers/gpu/drm/imx/dc/dc-fu.c
-index 1d8f74babef8a..8a2c1c2a54d2c 100644
---- a/drivers/gpu/drm/imx/dc/dc-fu.c
-+++ b/drivers/gpu/drm/imx/dc/dc-fu.c
-@@ -65,6 +65,22 @@ static const struct dc_fu_pixel_format pixel_formats[] = {
- 		DRM_FORMAT_XRGB8888,
- 		R_BITS(8)   | G_BITS(8)   | B_BITS(8)   | A_BITS(0),
- 		R_SHIFT(16) | G_SHIFT(8)  | B_SHIFT(0)  | A_SHIFT(0),
-+	}, {
-+		DRM_FORMAT_XBGR8888,
-+		R_BITS(8)   | G_BITS(8)   | B_BITS(8)   | A_BITS(0),
-+		R_SHIFT(0)  | G_SHIFT(8)  | B_SHIFT(16) | A_SHIFT(0),
-+	}, {
-+		DRM_FORMAT_RGBX8888,
-+		R_BITS(8)   | G_BITS(8)   | B_BITS(8)   | A_BITS(0),
-+		R_SHIFT(24) | G_SHIFT(16) | B_SHIFT(8)  | A_SHIFT(0),
-+	}, {
-+		DRM_FORMAT_BGRX8888,
-+		R_BITS(8)   | G_BITS(8)   | B_BITS(8)   | A_BITS(0),
-+		R_SHIFT(8)  | G_SHIFT(16) | B_SHIFT(24) | A_SHIFT(0),
-+	}, {
-+		DRM_FORMAT_RGB565,
-+		R_BITS(5)   | G_BITS(6)   | B_BITS(5)   | A_BITS(0),
-+		R_SHIFT(11) | G_SHIFT(5)  | B_SHIFT(0)  | A_SHIFT(0),
- 	},
- };
- 
-diff --git a/drivers/gpu/drm/imx/dc/dc-plane.c b/drivers/gpu/drm/imx/dc/dc-plane.c
-index e40d5d66c5c1f..2f009a5a1fb3c 100644
---- a/drivers/gpu/drm/imx/dc/dc-plane.c
-+++ b/drivers/gpu/drm/imx/dc/dc-plane.c
-@@ -33,6 +33,10 @@ do {									\
- 
- static const uint32_t dc_plane_formats[] = {
- 	DRM_FORMAT_XRGB8888,
-+	DRM_FORMAT_XBGR8888,
-+	DRM_FORMAT_RGBX8888,
-+	DRM_FORMAT_BGRX8888,
-+	DRM_FORMAT_RGB565,
- };
- 
- static const struct drm_plane_funcs dc_plane_funcs = {
--- 
-2.51.0
+sorry for my late reply.
 
+>>>>>> +++ b/drivers/gpu/drm/bridge/fsl-ldb.c
+>>>>>> @@ -61,24 +61,16 @@ enum fsl_ldb_devtype {
+>>>>>>     };
+>>>>>>       struct fsl_ldb_devdata {
+>>>>>> -    u32 ldb_ctrl;
+>>>>>> -    u32 lvds_ctrl;
+>>>>>>         bool lvds_en_bit;
+>>>>>>         bool single_ctrl_reg;
+>>>>>
+>>>>> single_ctrl_reg can be dropped then, as it can be expressed by failing to
+>>>>> get the second register.
+>>>>>
+>>>>> Furthermore, with this done, lvds_en_bit is the only member left and hence
+>>>>> struct fsl_ldb_devdata can also be dropped, as IIRC there is no need to
+>>>>> use a structure for device data with only a flag.
+>>>> I plan to add more bits into the driver match data when adding the MX95,
+>>>> so I would like to retain these instead of removing them and the adding
+>>>> them back.
+>>>
+>>> i.MX95 LDB supports two LVDS channels.  Two DRM bridges are needed in single
+>>> or separate LDB mode, while one DRM bridge is needed in split LDB mode.
+>>
+>> What do you refer to by "split LDB mode" , some interleaving or some such
+>> thing ?
+> 
+> I mean "Split Channel DI0" and "Split Channel DI1" use cases in the below
+> table in i.MX95 TRM.
+> 
+> +------------------------------------------------------------+
+> |Table: Channel Mapping                                      |
+> |------------------------------------------------------------|
+> |Use Case           |  LVDS Channel 0   |  LVDS Channel 1    |
+> |------------------------------------------------------------|
+> |Single Channel DI0 | DI0               | Disabled           |
+> |------------------------------------------------------------|
+> |Single Channel DI1 | Disabled          | DI1                |
+> |------------------------------------------------------------|
+> |Separate Channels  | DI0               | DI1                |
+> |------------------------------------------------------------|
+> |Dual Channels DI0  | DI0               | DI0                |
+> |------------------------------------------------------------|
+> |Dual Channels DI1  | DI1               | DI1                |
+> |------------------------------------------------------------|
+> |Split Channel DI0  | DI0 (first pixel) | DI0 (second pixel) |
+> |------------------------------------------------------------|
+> |Split Channel DI1  | DI1 (first pixel) | DI1 (second pixel) |
+> +------------------------------------------------------------+
+So yes, split mode is effectively interleaving. But that should only be 
+a matter of syscon configuration.
 
