@@ -4,76 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B1ACC2A06C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Jan 2026 11:54:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4EABC2A06C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Jan 2026 11:56:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wMRS1hawpXjSE/jqEs1wFYAMlU20xkQy7Yxg3/tOt8M=; b=laVJyZS4AU/REbjWSB2tWkCi3n
-	Ne8hNtj1W3B/oB/wOcNyKB33wXwWOnJ8NpGik4smqWJZYDJuveQrydLzD1DXTPKmVHtwcvtdhwCQH
-	Cdusvb9MtaGQzIWUhNYomOlouR1ZmzJOr7k4YxEDII+FTAefAWH4UlrDPHvsACycvxvbSeQtYhI9l
-	5+ap7KHzzvMuoBc/jRfkeu/Q93UglgQWgxBEEfopzMJvfg/mwUgbF1RE+gB5Hnte5kBAHAvlYLWge
-	HnmeeCeg9Fbq4lpxfDy2mZQE1ZLv96aEp6MdB7ohdRcVX6JYiJAGX/vKiZTpJZT/y7IANa96py+sL
-	VTxgWM7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HHWuScMnE43MBF17SntuhCPn9/ypQW7BMwUOJWNkTIA=; b=qYcD337CufDJQaCJlfCRoxskhW
+	JR0MuVdoWKg0nVJeaV825Lqwx0CozL6+cmnV0mD6Y6KCm2cKGFIldMHkHdHt0kOcQPbHAsEWDJNNp
+	8DJIug9qGgFF3sdc62ciyJ1F54kQzTeXE+xwph7j6MuH73CRSNiJdd25s/ap/jtCeaXrRMLgeEV96
+	L50BAQEBoj1zGLcOEC3LidK2cZIz8jyFrIHHwPsSyDUExxPhy3WsPigyaoTBfnn6VIdbpeIQGvMoJ
+	bheO5phUJRKZJDB37cXeQc11wQBq5Fh7EHfJPPitLHWsQoP6P/q/GGguJivGnanJwZQpG6O9EuR/b
+	AncpJgFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcMgZ-0000000ACvO-1wzu;
-	Sun, 04 Jan 2026 11:54:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vcMie-0000000AD49-0dMn;
+	Sun, 04 Jan 2026 11:56:24 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcMgW-0000000ACuk-37gQ
+	id 1vcMib-0000000AD3l-2zuw
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Jan 2026 11:54:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E3EA2441F2
-	for <linux-arm-kernel@lists.infradead.org>; Sun,  4 Jan 2026 11:54:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C942AC2BCB3
-	for <linux-arm-kernel@lists.infradead.org>; Sun,  4 Jan 2026 11:54:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767527651;
-	bh=AcdRLvhNh8FGlzW+TOR1NqwjouA0EJJ3chB+HVQXgi4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=sLJTDnXkODOe54DMJPdkGdMjK7+W+FDQTWtC76a2OPbF207Hkfy5bx3ckBzBHKLyj
-	 miINtekufMc9Ljcjnt5+rNJTNLzXcdnhtuQF47x2zhdZ2ECk4b6T38waUlOnrOFgrj
-	 s3u5rkHHFyVr7bsYCLT4eML3Yc+t2dq9DHc7SMNxcdbIlB9vgCdC6Y8+EFnDdtqxWB
-	 fkawMUjfVMEl4FA2xWwp/j6l4V0XzCLT7dWLYFbd7npCTAIVIzObe9BANJ1tcCSCI/
-	 juq2qYkAD2upk/VXWejTMWDF/faqBP4zXoZAupF/51fJs0q2QOMwC+6JPMe0mK2rfE
-	 IAnF8Y50bOxvA==
-Received: by mail-yw1-f178.google.com with SMTP id 00721157ae682-78fdb90b670so84188407b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Jan 2026 03:54:11 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXOJK6p4vDazi56YHoGJadhS5DrBMl/mFWFRji0F7Zwa3A6oYl+gdLtCLg1RQleJZ9v8NER+j5K+ueYvTQ92zCk@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5cJNp3kMhwiO9b5G/gPLbm74LHfMgHuB+6BCyU1bk1xo/kkDC
-	ALHZCXaOz2r+ylxjNLZtl4YJPjcOjmxDy4bIhndKk7IrDaqJDGGIq+Srvh44Jllh9Zy1GKuezYa
-	j4Nh8y7cLJlT/Zgldf+GAVAQIbqDXVGM=
-X-Google-Smtp-Source: AGHT+IGi7QFbFfC9+u8deXvEkGUtUoDMSC7p+FUi+Vu2ikgFZWwDkuLdG6m590kIpmNyayCsx7hnVPTUXHZ7MMSOHHM=
-X-Received: by 2002:a05:690c:6c08:b0:786:7aaa:a070 with SMTP id
- 00721157ae682-78fb400fb2dmr389515767b3.10.1767527651098; Sun, 04 Jan 2026
- 03:54:11 -0800 (PST)
+	Sun, 04 Jan 2026 11:56:23 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-477619f8ae5so83684615e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Jan 2026 03:56:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1767527779; x=1768132579; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=HHWuScMnE43MBF17SntuhCPn9/ypQW7BMwUOJWNkTIA=;
+        b=AEb7bdJucT/Fi6Noxnx6I1PwB/sBetXnU1wqClS95a3/M6kRz4nqZM9Gz8mgg1R1DR
+         AI5iOmCg13DXicqf8NINmlkTljqZfG65nhShRcK20zrwOstvWBqKDiP0Xnys69nGlPaN
+         lTUkbeIca7XmjtCHmU3EKwIRj68rTz8rDN1EXBCw9fyO+xp9m6duT7aIoLXAJQ6CYiJX
+         IlrXxmuhsoyZ6HC9/LCC8J2TTgKsDYlDrBpBo1jDCyp80He3UAYVq7n4hm3fFrq+Jx6E
+         0Vhan4wvIaj2H+EmTIB5WZLWl7PheNZR7blTWqjJEgnLYaN4mdWoPoMORujUq4efr9hd
+         jSdQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767527779; x=1768132579;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=HHWuScMnE43MBF17SntuhCPn9/ypQW7BMwUOJWNkTIA=;
+        b=JflhCuLX9aaSR5V0rR+BBz+F993+AZdiYa6J2gPqvQyHn5gAijtvwPRmYe2ZUS7VM5
+         XtmeuJBESR7RDjAbyp+5UhLkRUYn+YQ0cSq60TVWRG01erTk13YSZp0hfsB9EjNy+jOh
+         p5sBb5Mjsp1/JBuhNdFFRiCfb0C7fdsdgnY6DgTgZR4mUuyzFwrgHcQE5Z24F//sPEMV
+         UgMr4mFIBlI6SqZlr5elTqSTQPC6Jomlf5VkJ4fjVMdCtOprY5MQqVlA4+YCdQJcuzFO
+         WwWeC2CmM4XOytZswlWCb4hkUJaHtEF6emktKpysBkeBDqyL/M2ZBWNn+jEwxYtMWHBU
+         5H+g==
+X-Forwarded-Encrypted: i=1; AJvYcCVQ3FPgXt6DDMu1EofITtjAZmDUG44m8d/mE4/crV5suQJ71AWfMAtORqaNcLooqtiewRRyfF9wF8KGBalBsl4b@lists.infradead.org
+X-Gm-Message-State: AOJu0YxCRoZ9Y8u+utFGQ8YYCZ2keHi5tLl0vDS/LXzHeG8Fv6asNZ1X
+	9/NGm/0hQD9EIqvpD2X2eKYj2/hcOoWh/ar0u4bWI+ipoIAOYHTmWSo9
+X-Gm-Gg: AY/fxX4R6xoLrp25ZMHQoQwjDFyfZXR+0rsXpLqLzJAfn/afRnfBkyUf6D/epu3GUu6
+	YhasuJSvtzrRRcO12zkTKfSooXVEpwlDYYOCqp2jJMoJEBiiSRsDgOIiZM6V4HOT+Nf3N04ftJR
+	ohOnCtODHqTfUciNZHNVdwNEGemmP1eShSop4RMSkDQFauuXvWIXtZmq6k/Uin0q0Ei/rhLZUFM
+	PzepNrvzX0GCnTKmCeyArIGEyJrhyrMkY6lRxxvVG6mgkeBJU/bs4q7Vdc+B7VHKkzl/CUH2HoH
+	b4xEFO+A+SFvt2bG+qEzio2lwDH0xeZ5yNtq1W3nXrwh4xqWMXI5AZiCHWnf/coy77CD+dGzG4g
+	ZT+G7fBCk2LsTgL8WcMIP1PI+KNL2c9dIL0JgY8n6wNykhYO8HM5pJndSFB/8
+X-Google-Smtp-Source: AGHT+IHIZnfdFKqNFB8eAXksIPvZyz9IWgsHY++6OlvULt6SnYStqYI9H7OUETi7olVZTWz0wUJceA==
+X-Received: by 2002:a05:600c:a31c:b0:47d:264e:b435 with SMTP id 5b1f17b1804b1-47d264eb68dmr411443735e9.22.1767527779267;
+        Sun, 04 Jan 2026 03:56:19 -0800 (PST)
+Received: from krava ([2a02:8308:a00c:e200::b44f])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d6ba5001esm36036965e9.3.2026.01.04.03.56.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 04 Jan 2026 03:56:18 -0800 (PST)
+From: Jiri Olsa <olsajiri@gmail.com>
+X-Google-Original-From: Jiri Olsa <jolsa@kernel.org>
+Date: Sun, 4 Jan 2026 12:56:17 +0100
+To: Will Deacon <will@kernel.org>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Peter Zijlstra <peterz@infradead.org>, bpf@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, x86@kernel.org,
+	Yonghong Song <yhs@fb.com>, Song Liu <songliubraving@fb.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Mahe Tardy <mahe.tardy@gmail.com>
+Subject: Re: [BUG/RFC 1/2] arm64/ftrace,bpf: Fix partial regs after
+ bpf_prog_run
+Message-ID: <aVpVYUaBOWk22RtO@krava>
+References: <20251105125924.365205-1-jolsa@kernel.org>
+ <aVfbqYsWdGXu4lh8@willie-the-truck>
 MIME-Version: 1.0
-References: <20251227114957.3287944-1-ye.zhang@rock-chips.com> <20251227114957.3287944-4-ye.zhang@rock-chips.com>
-In-Reply-To: <20251227114957.3287944-4-ye.zhang@rock-chips.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Sun, 4 Jan 2026 12:54:00 +0100
-X-Gmail-Original-Message-ID: <CAD++jLnWRy_i7ergPouu4LK+r4g_a-ry+iN0m+jgSGn3+Zhjdw@mail.gmail.com>
-X-Gm-Features: AQt7F2oL3yzobHab3UPIxoHqEHXwAO3naOHfp6yFtxa1dYpd6Lg-Kfe1G-jLF64
-Message-ID: <CAD++jLnWRy_i7ergPouu4LK+r4g_a-ry+iN0m+jgSGn3+Zhjdw@mail.gmail.com>
-Subject: Re: [PATCH v4 3/7] arm64: dts: rockchip: rv1126b: Add pinconf and
- pinctrl dtsi for rv1126b
-To: Ye Zhang <ye.zhang@rock-chips.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	tao.huang@rock-chips.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aVfbqYsWdGXu4lh8@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260104_035412_814075_D9A7DA42 
-X-CRM114-Status: GOOD (  13.73  )
+X-CRM114-CacheID: sfid-20260104_035621_796273_1EE1DC30 
+X-CRM114-Status: GOOD (  33.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,48 +107,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ye,
+On Fri, Jan 02, 2026 at 02:52:25PM +0000, Will Deacon wrote:
+> On Wed, Nov 05, 2025 at 01:59:23PM +0100, Jiri Olsa wrote:
+> > hi,
+> > Mahe reported issue with bpf_override_return helper not working
+> > when executed from kprobe.multi bpf program on arm.
+> > 
+> > The problem seems to be that on arm we use alternate storage for
+> > pt_regs object that is passed to bpf_prog_run and if any register
+> > is changed (which is the case of bpf_override_return) it's not
+> > propagated back to actual pt_regs object.
+> > 
+> > The change below seems to fix the issue, but I have no idea if
+> > that's proper fix for arm, thoughts?
+> > 
+> > I'm attaching selftest to actually test bpf_override_return helper
+> > functionality, because currently we only test that we are able to
+> > attach a program with it, but not the override itself.
+> > 
+> > thanks,
+> > jirka
+> > 
+> > 
+> > ---
+> >  arch/arm64/include/asm/ftrace.h | 11 +++++++++++
+> >  include/linux/ftrace.h          |  3 +++
+> >  kernel/trace/bpf_trace.c        |  1 +
+> >  3 files changed, 15 insertions(+)
+> > 
+> > diff --git a/arch/arm64/include/asm/ftrace.h b/arch/arm64/include/asm/ftrace.h
+> > index ba7cf7fec5e9..ad6cf587885c 100644
+> > --- a/arch/arm64/include/asm/ftrace.h
+> > +++ b/arch/arm64/include/asm/ftrace.h
+> > @@ -157,6 +157,17 @@ ftrace_partial_regs(const struct ftrace_regs *fregs, struct pt_regs *regs)
+> >  	return regs;
+> >  }
+> >  
+> > +static __always_inline void
+> > +ftrace_partial_regs_fix(const struct ftrace_regs *fregs, struct pt_regs *regs)
+> > +{
+> > +	struct __arch_ftrace_regs *afregs = arch_ftrace_regs(fregs);
+> > +
+> > +	if (afregs->pc != regs->pc) {
+> > +		afregs->pc = regs->pc;
+> > +		afregs->regs[0] = regs->regs[0];
+> > +	}
+> > +}
+> 
+> This looks a bit grotty to me and presumably other architectures would
+> need similar treatement. Wouldn't it be cleaner to reuse the existing
+> API instead? For example, by calling ftrace_regs_set_instruction_pointer()
+> and ftrace_regs_set_return_value() to update the relevant registers from
+> the core code?
 
-thanks for your patch!
+I knew I forgot some change.. thanks for replying
 
-On Sat, Dec 27, 2025 at 12:55=E2=80=AFPM Ye Zhang <ye.zhang@rock-chips.com>=
- wrote:
+ftrace_partial_regs is overloaded in arm64 and because of that we need
+to propagate the change to pt_regs, so I think the ftrace_partial_regs_fix
+code is arm64 specific, so can't see that in core code
 
-> +       /omit-if-no-ref/
-> +       pcfg_pull_none_drv_level_4_00: pcfg-pull-none-drv-level-4-00 {
-> +               bias-disable;
-> +               drive-strength =3D <0x2c>;
+also wrt ftrace_partial_regs_fix name, I was thinking it might be better
+to have begin/end functions, like:
 
-Normally drive-strength should be in mA, it is very strange to use hex
-for an SI unit.
+  ftrace_partial_regs_begin
+  ftrace_partial_regs_end
 
-> +&pinctrl {
-> +       aupll_clk {
-> +               /omit-if-no-ref/
-> +               aupll_clk_pins: aupll-clk-pins {
-> +                       rockchip,pins =3D
-> +                               /* aupll_clk_in */
-> +                               <7 RK_PA1 1 &pcfg_pull_none>;
+thanks,
+jirka
 
-This looks better as:
 
-pinmux =3D <7 << 16 | RK_PA1 << 8 | 1>;
-bias-none;
-drive-strength =3D <...>;
-
-It's just weird to have the phandle at the end of the
-pins creating something "necessarily different" from what
-everyone else is doing.
-
-I would change the bindings, driver and whatever script
-generates this to use pinmux.
-
-I understand this scheme looks comfortable when just doing
-Rockchip all day, but as subsystem maintainer I need to
-take into consideration how this will look for people working
-with multiple SoC:s and maintenance, and anything different
-from standard pinmux =3D <>; is just a big pain.
-
-Yours,
-Linus Walleij
+--- a/kernel/trace/bpf_trace.c
++++ b/kernel/trace/bpf_trace.c
+@@ -2560,10 +2560,11 @@ kprobe_multi_link_prog_run(struct bpf_kprobe_multi_link *link,
+ 	}
+ 
+ 	rcu_read_lock();
+-	regs = ftrace_partial_regs(fregs, bpf_kprobe_multi_pt_regs_ptr());
++	regs = ftrace_partial_regs_begin(fregs, bpf_kprobe_multi_pt_regs_ptr());
+ 	old_run_ctx = bpf_set_run_ctx(&run_ctx.session_ctx.run_ctx);
+ 	err = bpf_prog_run(link->link.prog, regs);
+ 	bpf_reset_run_ctx(old_run_ctx);
++	ftrace_partial_regs_end(fregs, bpf_kprobe_multi_pt_regs_ptr());
+ 	rcu_read_unlock();
+ 
+  out:
 
