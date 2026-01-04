@@ -4,77 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46215C2A06C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Jan 2026 21:40:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A532DC2A06C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Jan 2026 21:43:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S+gEUJyRQxX9zRoXvtfQn/geVRqVRcr9TfoOgFU3GM4=; b=CPbA0yBkT1UQlTRYtZoEkZ/+Ms
-	IHEcsg3m9grVaXKXcA27ztvm3t6HnT1l8NtX2mQP8xpH+KWIxarCr/2Us5JlLC4JKlKlTqv5GE9ix
-	RePW6vwAqzfxgBTCoRp2TONY4vgqFAhFSaOB60bO/3SNIDRkXcV9+6QAl/3xs1EtISHGkV147jWUo
-	2VEuufAQWVs2YfWPER9FuhbVc3mNDoRSYLeiVPJyRCThRsWxa57QWeOdhSRh7ssIm0NbJn1CROSfq
-	kr4u6bXtHrhymqosHC3R4hubSgMycbGXLUs6ccj8Zcy3LBr0YIgZSbyQ1eC+oJaAkdik2HiQolSag
-	X0/wpWQg==;
+	bh=kJ9hvaIgQkb2Ldds6KzrQ1Gqe9ey1L/CjFXEAMQEWtM=; b=N4FKF9My+2hipTUfKE1oReUuxi
+	ZLAXSs0usL3bnGnzC3YaZYVRUpWu8+qn8xaVQzACi3w7pV7ktifIHTkq9Rbb+PtvpLAsWV0YjIaFU
+	8vdv7OUBSDbSyz4r2vo8cp44AXA8YkzSKVUHt2saVAmV2AnHhV//vjEdGbDhzJlrTs/Bk9yHqrXmG
+	iSF44IcNZ1EYmgZDQlfndiBZ+ebCTNtb4ywsn3AhVCFqD9bkkow+XWlZIULcr4jYFP/OwJI8TyuPa
+	RNujTTGOQ7vDEDM76xdNUgsWMDMo0RZLxzAY0sDiEh35mELCzX3jL0kcJSsAxgr4oKFZ8bYDwr6hu
+	ubMrh8Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcVpv-0000000ATxg-3rEV;
-	Sun, 04 Jan 2026 21:40:31 +0000
-Received: from mout-p-101.mailbox.org ([80.241.56.151])
+	id 1vcVsK-0000000AUFC-26wL;
+	Sun, 04 Jan 2026 21:43:00 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcVps-0000000ATvV-3wAE
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Jan 2026 21:40:30 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4dkrSk3cqZz9tS0;
-	Sun,  4 Jan 2026 22:40:22 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1767562822;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=S+gEUJyRQxX9zRoXvtfQn/geVRqVRcr9TfoOgFU3GM4=;
-	b=WZMBlF/p+hA2xPvmB8qCL4fj16BobTkngZIXAz74BDUxJPhu+Dr2q+GHsc+5yp7c1y1I9V
-	FU9CvQQnUIdLWKR0OfX0WvfksmDmKJW7Z+fYkNk+hv+inmwgkGl827+Gniufj3rab0SUPk
-	fgg0mv/bpPEJphNwkwnt3L3jE/cyVbPqXinBhz1gikP71aP2spQdd0v4ez9954Harfptre
-	dV8qSvS0L/r5LnENlIcBRtsaAhKdmjr9Ioci3Fy6eXw5d4javSHc1Be53pzlNsSrCHspqk
-	nIy8TmlelypxzbBgFT+OD5W/1YuoU7F4YfZ+3/QAJKMJRlRPdCbq0tiRMUYuMQ==
-Message-ID: <11e63b0a-57fe-40ce-b211-e502e8e20329@mailbox.org>
-Date: Sun, 4 Jan 2026 22:39:00 +0100
+	id 1vcVsG-0000000AUEk-3Qox;
+	Sun, 04 Jan 2026 21:42:58 +0000
+Received: from pps.filterd (m0246630.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 604L3MdA4144301;
+	Sun, 4 Jan 2026 21:42:53 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	corp-2025-04-25; bh=kJ9hvaIgQkb2Ldds6KzrQ1Gqe9ey1L/CjFXEAMQEWtM=; b=
+	gKRYdO5Ei96WSxyfQ75p5+FfyGkrcQ177jtCrBpf7NZpmR7DBRtudBI6ApxHWtAK
+	2dxEwa9doM0SN28POZsv/q+PHWmZzeOwjV5wSKw8Z2bcpnxBbeZkaBOY5JIBRR79
+	QfphensM58H5pmyuUd96XVykZ1TfRdINy/Nds9KhKRddeX37c2k4nMYDLEI5eYKB
+	a86rQA1t5u3olrmuZnD1cFDcQ46vjna0xkGjMHuT+HseJciGxhLN0HYqZlunYdea
+	b/I1Gzel9ae1M66FNjkV7W2bpzd/8592RQgfwW2e+i6wio8Em5celMIzmBP3SOHF
+	qPmVI5z0Z+Zlg1uh3uywCw==
+Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4bev6ngxwk-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Sun, 04 Jan 2026 21:42:53 +0000 (GMT)
+Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 604GXW1O030837;
+	Sun, 4 Jan 2026 21:42:52 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 4besjarf2x-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Sun, 04 Jan 2026 21:42:52 +0000
+Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 604LgpIo034017;
+	Sun, 4 Jan 2026 21:42:52 GMT
+Received: from ca-mkp2.ca.oracle.com.com (mpeterse-ol9.allregionaliads.osdevelopmeniad.oraclevcn.com [100.100.251.135])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTP id 4besjarf2n-2;
+	Sun, 04 Jan 2026 21:42:52 +0000
+From: "Martin K. Petersen" <martin.petersen@oracle.com>
+To: Peter Wang <peter.wang@mediatek.com>,
+        Chaotian Jing <chaotian.jing@mediatek.com>,
+        Stanley Jhu <chu.stanley@gmail.com>,
+        "James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+        linux-scsi@vger.kernel.org, linux-mediatek@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org,
+        Colin Ian King <colin.i.king@gmail.com>
+Cc: "Martin K . Petersen" <martin.petersen@oracle.com>,
+        kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH][next] scsi: ufs: host: mediatek: make read-only array scale_us static const
+Date: Sun,  4 Jan 2026 16:42:42 -0500
+Message-ID: <176756271713.1812936.16233360275459977513.b4-ty@oracle.com>
+X-Mailer: git-send-email 2.51.2
+In-Reply-To: <20251219214428.492744-1-colin.i.king@gmail.com>
+References: <20251219214428.492744-1-colin.i.king@gmail.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH v2] drm/bridge: fsl-ldb: Parse register offsets from DT
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>,
- dri-devel@lists.freedesktop.org,
- Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>
-Cc: Abel Vesa <abelvesa@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Liu Ying <victor.liu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>,
- Peng Fan <peng.fan@nxp.com>, Pengutronix Kernel Team
- <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
-References: <20251102170257.65491-1-marek.vasut@mailbox.org>
- <DDZ6KCUVYB55.330X4X5ETRXR3@bootlin.com>
- <25cd3b11-8417-44d3-af28-fa73419c713b@mailbox.org>
- <DE0YJPERKME9.2CYGFAPULFMZV@bootlin.com>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <DE0YJPERKME9.2CYGFAPULFMZV@bootlin.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-MBO-RS-META: xe6tfc41bu8yafn454ox53nyfw7mrfmg
-X-MBO-RS-ID: 474479228642215823a
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-04_06,2025-12-31_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 bulkscore=0 phishscore=0 adultscore=0
+ malwarescore=0 suspectscore=0 mlxscore=0 spamscore=0 mlxlogscore=999
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2512120000
+ definitions=main-2601040199
+X-Proofpoint-ORIG-GUID: rdbf5b7C6LSRjtelOVvQBuVBo-52Jzyo
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA0MDIwMCBTYWx0ZWRfX3DMDsQH9i3eP
+ K72TDB1rXgB+fizy4hpq6EU+U3E6Hdl6X+QRag1hlF+e8+II1ZIfstSvs+4uzL1jAQXhOzn+z1v
+ wT3GZENzc4EMcb2zTmYgm0pchMQez3G/U49L16XJUI/Q8ap2CAevhXncIDQJSA5TXs2ZO1pPCHv
+ i8mxxDcvPz3Xg/NAvsM61GwHUaz+M+PnGrSovnQmr90GmScAa6TOnmQZUX/2dUYqoUWGpEnQRmS
+ uWVBUz6e2R07fJU+PyaEfgoxOT9VDTg0vr20lg1ArOhzZbpz0i+4lrA+yFcwN4ul3gtdEMrEhdr
+ DdSnmsHtR3tyNxyHFpxn8TNGwzQjQMj4HX4Dfp4IYrmIB5+HBraRlnADxDPzqC7HvU1eAVGBty8
+ bvlSZaj+BD95SgwyPHGuYn9ZJmwJtO+S7ce9cZd9PAw/M6uHIF5w444ebR5Eu89KMlbROYGRwNh
+ YY9ea6DMOYxttU3kh26Tx0X2D1ymHpuvv2AaWB9k=
+X-Proofpoint-GUID: rdbf5b7C6LSRjtelOVvQBuVBo-52Jzyo
+X-Authority-Analysis: v=2.4 cv=QtFTHFyd c=1 sm=1 tr=0 ts=695adedd b=1 cx=c_pps
+ a=e1sVV491RgrpLwSTMOnk8w==:117 a=e1sVV491RgrpLwSTMOnk8w==:17
+ a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=VwQbUJbxAAAA:8 a=ymggwW1gcb6NkITVt5gA:9 a=QEXdDO2ut3YA:10 cc=ntf
+ awl=host:13654
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260104_134029_245257_8C6FC2A9 
-X-CRM114-Status: GOOD (  23.72  )
+X-CRM114-CacheID: sfid-20260104_134256_977852_F3C20C4E 
+X-CRM114-Status: UNSURE (   8.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,73 +117,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/5/25 7:03 PM, Luca Ceresoli wrote:
+On Fri, 19 Dec 2025 21:44:28 +0000, Colin Ian King wrote:
 
-Hello Luca,
-
-sorry for the late reply.
-
->>> On Sun Nov 2, 2025 at 6:02 PM CET, Marek Vasut wrote:
->>>> The DT binding for this bridge describe register offsets for the LDB,
->>>> parse the register offsets from DT instead of hard-coding them in the
->>>> driver. No functional change.
->>>>
->>>> Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
->>>
->>> I was initially a bit skeptical because normally register offsets are
->>> derived from the compatible string, not from device tree. But then I
->>> realized this is about the LDB which has its two registers in the
->>> MEDIA_BLK. This means all in all this looks somewhat like an integration
->>> aspect (the LDB component uses two resources of the MEDIA_CLK component)
->>> and your patch mekse sense.
->>>
->>> So my only remark is that the above may be in the commit message, to make
->>> the "why" clear from the beginning. It took a bit of research for me to
->>> find out.
->>
->> Actually, the LDB was always meant to parse the 'reg' offsets out of the
->> DT, it then went somewhat ... wrong ... and we ended up with hard-coded
->> reg<->compatible mapping. It was never intended to be that way. That is
->> all there is to it, there isn't any deeper reason behind it.
->>
->> What would you add into the commit message ?
+> Don't populate the read-only array scale_us on the stack at run time,
+> instead make it static const.
 > 
-> The above paragraph is a good draft of what I woudl add.
 > 
->>> [0] https://lore.kernel.org/dri-devel/20251103-dcif-upstreaming-v6-3-76fcecfda919@oss.nxp.com/
->>>
->>>> @@ -309,6 +302,27 @@ static int fsl_ldb_probe(struct platform_device *pdev)
->>>>    	fsl_ldb->dev = &pdev->dev;
->>>>    	fsl_ldb->bridge.of_node = dev->of_node;
->>>>
->>>> +	/* No "reg-names" property likely means single-register LDB */
->>>
->>> Uh? If it is "likely" it means we are not sure this code is not introducing
->>> regressions, and that would be bad.
->>
->> I can drop the 'likely' part.
-> 
-> If you are sure it's not "likely" but "sure", then OK. However it all
-> depends on the bindings, which leads to the below question.
 
-Fixed in V3
+Applied to 6.19/scsi-fixes, thanks!
 
->>>> +	idx = of_property_match_string(dev->of_node, "reg-names", "ldb");
->>>> +	if (idx < 0) {
->>>> +		fsl_ldb->single_ctrl_reg = true;
->>>> +		idx = 0;
->>>> +	}
->>>
->>>   From the bindings I understand that having two 'reg' values and no
->>> 'reg-names' at all is legal. Your patch implies differently. Who's right
->>> here?
->> I think if you have two two reg values, you should have reg-names , so
->> the binding should be updated ?
-> 
-> If the bindings are unclear or ambiguous (or wrong) then they should be
-> fixed in the first place. With bad bindings we can either have a bad but
-> compliant implementation or a good but non-compliant implementation.
-Binding update sent:
+[1/1] scsi: ufs: host: mediatek: make read-only array scale_us static const
+      https://git.kernel.org/mkp/scsi/c/309a29b5965a
 
-https://lore.kernel.org/dri-devel/20260104213457.128734-1-marek.vasut@mailbox.org/
+-- 
+Martin K. Petersen
 
