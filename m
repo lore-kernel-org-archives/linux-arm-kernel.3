@@ -4,105 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A532DC2A06C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Jan 2026 21:43:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0705EC2A070
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Jan 2026 21:56:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kJ9hvaIgQkb2Ldds6KzrQ1Gqe9ey1L/CjFXEAMQEWtM=; b=N4FKF9My+2hipTUfKE1oReUuxi
-	ZLAXSs0usL3bnGnzC3YaZYVRUpWu8+qn8xaVQzACi3w7pV7ktifIHTkq9Rbb+PtvpLAsWV0YjIaFU
-	8vdv7OUBSDbSyz4r2vo8cp44AXA8YkzSKVUHt2saVAmV2AnHhV//vjEdGbDhzJlrTs/Bk9yHqrXmG
-	iSF44IcNZ1EYmgZDQlfndiBZ+ebCTNtb4ywsn3AhVCFqD9bkkow+XWlZIULcr4jYFP/OwJI8TyuPa
-	RNujTTGOQ7vDEDM76xdNUgsWMDMo0RZLxzAY0sDiEh35mELCzX3jL0kcJSsAxgr4oKFZ8bYDwr6hu
-	ubMrh8Yg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jqQ03H4XRcuXm7IX8FTomxBcIIW7Zlg6dLSCcpxfiPE=; b=0KLA/YphOQzfTRLPAoFtO0if1y
+	bcT9R0LQNnO65XO0vRn3d0ssEgQtSQM6uWycRpKMWPldY6EM6tRFMgDquTeRClwJYyrT1qWbe4piD
+	i0PIZFuv1Ya10HsowbdjAIW25781mDT6HJ1Vi3Jh88CebIYJ9MSC3IC2//TvnX5B1uTpSqMeB7ePB
+	V/o9iViULOMszy0fOet8WgJNs9ha+m6fV8vmsiAMx7ta2dd2ergVSJYAb38jGME3ewGBEkJjtwBTS
+	h6962Ey4+nvVJb6gvinJ7LdOizOcTAjuLnvFL35Lf5VhUpigLGxbM74HMUcSRJpDydyus9PEAgnXN
+	fNn8JhBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcVsK-0000000AUFC-26wL;
-	Sun, 04 Jan 2026 21:43:00 +0000
-Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
+	id 1vcW5h-0000000AUhV-0pKJ;
+	Sun, 04 Jan 2026 21:56:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcVsG-0000000AUEk-3Qox;
-	Sun, 04 Jan 2026 21:42:58 +0000
-Received: from pps.filterd (m0246630.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 604L3MdA4144301;
-	Sun, 4 Jan 2026 21:42:53 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	corp-2025-04-25; bh=kJ9hvaIgQkb2Ldds6KzrQ1Gqe9ey1L/CjFXEAMQEWtM=; b=
-	gKRYdO5Ei96WSxyfQ75p5+FfyGkrcQ177jtCrBpf7NZpmR7DBRtudBI6ApxHWtAK
-	2dxEwa9doM0SN28POZsv/q+PHWmZzeOwjV5wSKw8Z2bcpnxBbeZkaBOY5JIBRR79
-	QfphensM58H5pmyuUd96XVykZ1TfRdINy/Nds9KhKRddeX37c2k4nMYDLEI5eYKB
-	a86rQA1t5u3olrmuZnD1cFDcQ46vjna0xkGjMHuT+HseJciGxhLN0HYqZlunYdea
-	b/I1Gzel9ae1M66FNjkV7W2bpzd/8592RQgfwW2e+i6wio8Em5celMIzmBP3SOHF
-	qPmVI5z0Z+Zlg1uh3uywCw==
-Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4bev6ngxwk-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Sun, 04 Jan 2026 21:42:53 +0000 (GMT)
-Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
-	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 604GXW1O030837;
-	Sun, 4 Jan 2026 21:42:52 GMT
-Received: from pps.reinject (localhost [127.0.0.1])
-	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 4besjarf2x-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Sun, 04 Jan 2026 21:42:52 +0000
-Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 604LgpIo034017;
-	Sun, 4 Jan 2026 21:42:52 GMT
-Received: from ca-mkp2.ca.oracle.com.com (mpeterse-ol9.allregionaliads.osdevelopmeniad.oraclevcn.com [100.100.251.135])
-	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTP id 4besjarf2n-2;
-	Sun, 04 Jan 2026 21:42:52 +0000
-From: "Martin K. Petersen" <martin.petersen@oracle.com>
-To: Peter Wang <peter.wang@mediatek.com>,
-        Chaotian Jing <chaotian.jing@mediatek.com>,
-        Stanley Jhu <chu.stanley@gmail.com>,
-        "James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        linux-scsi@vger.kernel.org, linux-mediatek@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org,
-        Colin Ian King <colin.i.king@gmail.com>
-Cc: "Martin K . Petersen" <martin.petersen@oracle.com>,
-        kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH][next] scsi: ufs: host: mediatek: make read-only array scale_us static const
-Date: Sun,  4 Jan 2026 16:42:42 -0500
-Message-ID: <176756271713.1812936.16233360275459977513.b4-ty@oracle.com>
-X-Mailer: git-send-email 2.51.2
-In-Reply-To: <20251219214428.492744-1-colin.i.king@gmail.com>
-References: <20251219214428.492744-1-colin.i.king@gmail.com>
+	id 1vcW5d-0000000AUh7-3oib;
+	Sun, 04 Jan 2026 21:56:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1F3A042DBC;
+	Sun,  4 Jan 2026 21:56:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E752DC4CEF7;
+	Sun,  4 Jan 2026 21:56:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767563805;
+	bh=uWGulKN2lHSRnMj0osTbo7QLy+1zIg8tXJwHMSqsZzg=;
+	h=From:Date:Subject:To:Cc:From;
+	b=kYKCQut2cTh8Ohmx4hvaUEr9k9PTQt1G0ilGF9h+3nvQAWugHizx9aXdSM0WkSEbZ
+	 aiIP9xYxkxDNUvB+ql8ORvVwEfleduzTrW9tFCen8ky7F3ggxcNRuRNgeyKZI27ffX
+	 i9T1ciLi/VxI5r2vsmZ2kcplfd9VW7tW/+FvUl876IsM8V0fgZWBhYBcosGfc9wfnD
+	 d4/8KiDz/OIwu9+kQ4UCyZeZwWjFX/BYB5BMRHU5ABfRWeXrP69KbrcJhNzGkj1EE5
+	 BhJuMHiwAg8+SkQ+7ks6BnCCXWYQsF7vsuUqm1mYTs2D7x1bIeuwrS/vFi7+W03b6Y
+	 OjpqeD2qJfgBw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id DCA24C2A070;
+	Sun,  4 Jan 2026 21:56:44 +0000 (UTC)
+From: Sven Peter <sven@kernel.org>
+Date: Sun, 04 Jan 2026 22:56:39 +0100
+Subject: [PATCH next v2] phy: apple: atc: Actually check return value of
+ devm_apple_tunable_parse
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2026-01-04_06,2025-12-31_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 bulkscore=0 phishscore=0 adultscore=0
- malwarescore=0 suspectscore=0 mlxscore=0 spamscore=0 mlxlogscore=999
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2512120000
- definitions=main-2601040199
-X-Proofpoint-ORIG-GUID: rdbf5b7C6LSRjtelOVvQBuVBo-52Jzyo
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA0MDIwMCBTYWx0ZWRfX3DMDsQH9i3eP
- K72TDB1rXgB+fizy4hpq6EU+U3E6Hdl6X+QRag1hlF+e8+II1ZIfstSvs+4uzL1jAQXhOzn+z1v
- wT3GZENzc4EMcb2zTmYgm0pchMQez3G/U49L16XJUI/Q8ap2CAevhXncIDQJSA5TXs2ZO1pPCHv
- i8mxxDcvPz3Xg/NAvsM61GwHUaz+M+PnGrSovnQmr90GmScAa6TOnmQZUX/2dUYqoUWGpEnQRmS
- uWVBUz6e2R07fJU+PyaEfgoxOT9VDTg0vr20lg1ArOhzZbpz0i+4lrA+yFcwN4ul3gtdEMrEhdr
- DdSnmsHtR3tyNxyHFpxn8TNGwzQjQMj4HX4Dfp4IYrmIB5+HBraRlnADxDPzqC7HvU1eAVGBty8
- bvlSZaj+BD95SgwyPHGuYn9ZJmwJtO+S7ce9cZd9PAw/M6uHIF5w444ebR5Eu89KMlbROYGRwNh
- YY9ea6DMOYxttU3kh26Tx0X2D1ymHpuvv2AaWB9k=
-X-Proofpoint-GUID: rdbf5b7C6LSRjtelOVvQBuVBo-52Jzyo
-X-Authority-Analysis: v=2.4 cv=QtFTHFyd c=1 sm=1 tr=0 ts=695adedd b=1 cx=c_pps
- a=e1sVV491RgrpLwSTMOnk8w==:117 a=e1sVV491RgrpLwSTMOnk8w==:17
- a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=VwQbUJbxAAAA:8 a=ymggwW1gcb6NkITVt5gA:9 a=QEXdDO2ut3YA:10 cc=ntf
- awl=host:13654
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260104-atcphy-tunable-fix-v2-1-84e5c2a57aaa@kernel.org>
+X-B4-Tracking: v=1; b=H4sIABbiWmkC/32NQQ6DIBBFr2Jm3WkGYmnTVe/RuEAdhNSAAWo0x
+ ruXcIAu//v57x+QODpO8GwOiLy65IIvQV4aGKz2E6MbSwZJUpGgFnUeFrtj/nrdz4zGbXgT94d
+ UozJsRijDJXLBVfoGz1uGrlDrUg5xr0+rqN0/6SpQYEu9ITKs9UCvD0fP8zXECbrzPH+Amfemu
+ wAAAA==
+X-Change-ID: 20260104-atcphy-tunable-fix-517826d6fefd
+To: Janne Grunau <j@jannau.net>, Neal Gompa <neal@gompa.dev>, 
+ Vinod Koul <vkoul@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Thomas Glanzmann <thomas@glanzmann.de>, Sven Peter <sven@kernel.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4402; i=sven@kernel.org;
+ h=from:subject:message-id;
+ bh=uWGulKN2lHSRnMj0osTbo7QLy+1zIg8tXJwHMSqsZzg=;
+ b=owGbwMvMwCXmIlirolUq95LxtFoSQ2bUIyk5+WNWvS27v5hr3lnM1HHkoOXx0mnvGdj+9MhKz
+ 660z7/RUcrCIMbFICumyLJ9v73pk4dvBJduuvQeZg4rE8gQBi5OAZjIzUpGho0bnNeLCO589vd9
+ 98d7uf3bg+/kZP7OEd13u+Qnc/almIuMDMuyP97byOQ7ieFR0xzHCYz3MrX3WJ1c+EMxtyDndcT
+ ZmwwA
+X-Developer-Key: i=sven@kernel.org; a=openpgp;
+ fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
+X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
+ auth_id=407
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260104_134256_977852_F3C20C4E 
-X-CRM114-Status: UNSURE (   8.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260104_135646_000278_E4800DAF 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,18 +91,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 19 Dec 2025 21:44:28 +0000, Colin Ian King wrote:
+Let's actually check the return value of devm_apple_tunable_parse
+instead of trying to check IS_ERR on a pointer to the return value which
+is always going to be valid. This prevent a oops when the tunables are
+invalid or when they don't exist:
 
-> Don't populate the read-only array scale_us on the stack at run time,
-> instead make it static const.
-> 
-> 
+[   57.664567] Unable to handle kernel paging request at virtual address fffffffffffffffe
+[   57.664584] Mem abort info:
+[   57.664589]   ESR = 0x0000000096000007
+[   57.664595]   EC = 0x25: DABT (current EL), IL = 32 bits
+[   57.664602]   SET = 0, FnV = 0
+[   57.664607]   EA = 0, S1PTW = 0
+[   57.664611]   FSC = 0x07: level 3 translation fault
+[   57.664617] Data abort info:
+[   57.664621]   ISV = 0, ISS = 0x00000007, ISS2 = 0x00000000
+[   57.664626]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+[   57.664631]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+[   57.664640] swapper pgtable: 16k pages, 47-bit VAs, pgdp=0000000b4391c000
+[   57.664647] [fffffffffffffffe] pgd=0000000000000000, p4d=0000000000000000, pud=0000000b44188403, pmd=0000000b4418c403, pte=0000000000000000
+[   57.664670] Internal error: Oops: 0000000096000007 [#1]  SMP
+[   57.665047] CPU: 1 UID: 0 PID: 23 Comm: kworker/1:0 Tainted: G S                  6.18.2+ #2 PREEMPTLAZY
+[   57.665061] Tainted: [S]=CPU_OUT_OF_SPEC
+[   57.665066] Hardware name: Apple Mac mini (M1, 2020) (DT)
+[   57.665072] Workqueue: events cd321x_update_work [tps6598x]
+[   57.665100] pstate: 61400009 (nZCv daif +PAN -UAO -TCO +DIT -SSBS BTYPE=--)
+[   57.665111] pc : apple_tunable_apply+0x8/0x80 [apple_tunable]
+[   57.665121] lr : atcphy_mux_set+0x3e0/0x1138 [phy_apple_atc]
+[   57.665133] sp : ffffc000802a7c00
+[   57.665138] x29: ffffc000802a7c00 x28: 0000000000000003 x27: ffff800016c84080
+[   57.665151] x26: 0000000000000002 x25: ffff800016c84090 x24: ffff800016c8408f
+[   57.665163] x23: 0000000000020004 x22: 0000000000000001 x21: 0000000000000006
+[   57.665175] x20: ffff80000d6da9b0 x19: ffff80000d6da880 x18: 0000000000000002
+[   57.665188] x17: 0000000000000000 x16: ffffe22de59e0e38 x15: 0000000000000002
+[   57.665199] x14: ffffe22de76ecff8 x13: 0000000000000001 x12: ffff9dd5f90bc000
+[   57.665211] x11: 00000000000000c0 x10: 048abc15ceba0919 x9 : ffffe22dbc5fde10
+[   57.665223] x8 : ffff80000175e0d8 x7 : 0000000000000004 x6 : 0000000000000000
+[   57.665234] x5 : 0000000000000001 x4 : 0000000d6d132db7 x3 : 00000000000155db
+[   57.665246] x2 : 0000000000000000 x1 : fffffffffffffffe x0 : ffffc00082b80000
+[   57.665258] Call trace:
+[   57.665265]  apple_tunable_apply+0x8/0x80 [apple_tunable] (P)
+[   57.665276]  typec_mux_set+0x74/0xe0 [typec]
+[   57.665315]  cd321x_update_work+0x440/0x8c0 [tps6598x]
+[   57.665332]  process_one_work+0x178/0x3d0
+[   57.665346]  worker_thread+0x260/0x390
+[   57.665354]  kthread+0x150/0x250
+[   57.665369]  ret_from_fork+0x10/0x20
+[   57.665386] Code: e69a0ae8 ffffe22d aa1e03e9 d503201f (f9400022)
+[   57.665394] ---[ end trace 0000000000000000 ]---
 
-Applied to 6.19/scsi-fixes, thanks!
+Reported-by: Thomas Glanzmann <thomas@glanzmann.de>
+Fixes: 8e98ca1e74db ("phy: apple: Add Apple Type-C PHY")
+Signed-off-by: Sven Peter <sven@kernel.org>
+---
+Changes in v2:
+- Copy/paste error: Copied a WARN instead of the kernel oops this patch fixes
+- Link to v1: https://patch.msgid.link/20260104-atcphy-tunable-fix-v1-1-40bf00feaac0@kernel.org
+---
+ drivers/phy/apple/atc.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-[1/1] scsi: ufs: host: mediatek: make read-only array scale_us static const
-      https://git.kernel.org/mkp/scsi/c/309a29b5965a
+diff --git a/drivers/phy/apple/atc.c b/drivers/phy/apple/atc.c
+index c8a58ee64b7aad3205df51cf16ae778471ad2c5d..716c1e70de38ca604803739fedaa543d91f7501b 100644
+--- a/drivers/phy/apple/atc.c
++++ b/drivers/phy/apple/atc.c
+@@ -2178,10 +2178,10 @@ static int atcphy_load_tunables(struct apple_atcphy *atcphy)
+ 	for (int i = 0; i < ARRAY_SIZE(tunables); i++) {
+ 		*tunables[i].tunable = devm_apple_tunable_parse(
+ 			atcphy->dev, atcphy->np, tunables[i].dt_name, tunables[i].res);
+-		if (IS_ERR(tunables[i].tunable)) {
++		if (IS_ERR(*tunables[i].tunable)) {
+ 			dev_err(atcphy->dev, "Failed to read tunable %s: %ld\n",
+-				tunables[i].dt_name, PTR_ERR(tunables[i].tunable));
+-			return PTR_ERR(tunables[i].tunable);
++				tunables[i].dt_name, PTR_ERR(*tunables[i].tunable));
++			return PTR_ERR(*tunables[i].tunable);
+ 		}
+ 	}
+ 
 
+---
+base-commit: add66a6673bc4aacd0ef0f3c4a51271501770b17
+change-id: 20260104-atcphy-tunable-fix-517826d6fefd
+
+Best regards,
 -- 
-Martin K. Petersen
+Sven Peter <sven@kernel.org>
+
+
 
