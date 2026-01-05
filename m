@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61D00C79FA8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 17:12:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39C6DC79FAD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 17:12:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GFmEDDnD6XZjnjjYmH9jlEYQ3bgUmXRlz07hVOHi+fg=; b=miy7gZppBCnScD7HbOFDvGacue
-	ge3UyMfMXMqjVqs0Cvf7UdMr9tO8rbXhs3Ti/1oaF/XM2gESZW1vlmy/fs53NGw+wJEOghWOMoWWS
-	kd9iNn5dsgPY1TV+J8uZymNf/2fZEtLEXglwhm1a+ym8c6OAgez7iPitoozJG3wgg0VtaGloHLnn+
-	AJd6hRaqUsCNKxt5W1H2gvts27TVyYzruE9hiDB6sJWcG5hK+0V+zgt4wtZwPDBSt04amty7poHgj
-	5dk4v7CvzAqxSgItoT8RHoAZYnvJHa674unWAfuL/V1TpsfHW7YLqTI9a28yFwbJ+9Lzqaz61KWCE
-	vDb9pIug==;
+	bh=9lZt1g+4EUlA6HCcCKY8uwK8iqcTwkMlSJ7DuO1anJg=; b=T6Zx9lP39h9M7/atGyyKNOLO1+
+	IpihgR1GD4U6uCokt4SznRdK+d9My4OzzN9ECrVTVuVv7bFEHGeNT/g9DaRqB9MvOgb7c5Zyi/RCA
+	GROD3tr8V3TTR8KvsPK7KF3aOBw1X6Enr7aBseh9UH/2V+/mtWAtQVX5JPFJMz3GnoSjBbcN4AmgO
+	n6LWygTobYJ02YKVVBdeYvrJLCDupn0n54yMbF9+u/KNlDbRjSR22Sx7CTLw6cx/P4z/tYKoA2LUG
+	sXlbwqFLFSLgfIPzVZQeW0Mgx6lXH1CHKQiEcCM5PtzboFZw5u7om7Fo09XltfdPXDbprC6T09/G+
+	5qRE4w4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vco7p-0000000BnF5-42Eu;
-	Mon, 05 Jan 2026 17:12:13 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vco7n-0000000BnDd-0QqD;
-	Mon, 05 Jan 2026 17:12:12 +0000
-Received: from rui-Precision-7560.local (unknown [209.216.103.65])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 4B9A026D1;
-	Mon,  5 Jan 2026 18:11:47 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1767633109;
-	bh=pDIvxJGIlX+hjy9FPe//FACZ0eNRYp4yWgqfgSVzjBg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=D8swEKdlCt4EECcT3W9lhQhwoxfmQdRuN/04e2sWFC8pTYuRHbdUVvh3ihUBh86/O
-	 x8IwdtlXNST1Xf4IZmASJpiKYEOB3Fm+HV0K79LxbadfVpgav8R8uvbuxWb4yreQo3
-	 Smj0jhtMcQmVhCjR5jUZfTu5Fe8ZrbcFPcGbSkTc=
-From: Rui Wang <rui.wang@ideasonboard.com>
-To: linux-media@vger.kernel.org,
-	dafna@fastmail.com,
-	laurent.pinchart@ideasonboard.com,
-	mchehab@kernel.org,
-	heiko@sntech.de,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: libcamera-devel@lists.libcamera.org,
-	Rui Wang <rui.wang@ideasonboard.com>
-Subject: [PATCH v4 1/1] media: rkisp1: Fix filter mode register configuration
-Date: Mon,  5 Jan 2026 12:11:42 -0500
-Message-ID: <20260105171142.147792-2-rui.wang@ideasonboard.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260105171142.147792-1-rui.wang@ideasonboard.com>
-References: <20260105171142.147792-1-rui.wang@ideasonboard.com>
+	id 1vco86-0000000BnON-1TyV;
+	Mon, 05 Jan 2026 17:12:32 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vco83-0000000BnMC-2G9W
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 Jan 2026 17:12:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C3A7E339;
+	Mon,  5 Jan 2026 09:12:17 -0800 (PST)
+Received: from [10.1.38.150] (XHFQ2J9959.cambridge.arm.com [10.1.38.150])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 595063F5A1;
+	Mon,  5 Jan 2026 09:12:23 -0800 (PST)
+Message-ID: <b098b6ba-74b7-4e2e-bc3e-a417f921c782@arm.com>
+Date: Mon, 5 Jan 2026 17:12:22 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 02/13] arm64: mm: Introduce a C wrapper for by-range
+ TLB invalidation
+Content-Language: en-GB
+To: Linu Cherian <linu.cherian@arm.com>
+Cc: Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>,
+ Linus Torvalds <torvalds@linux-foundation.org>,
+ Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>,
+ Dev Jain <dev.jain@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20251216144601.2106412-1-ryan.roberts@arm.com>
+ <20251216144601.2106412-3-ryan.roberts@arm.com>
+ <aVtNLmXgaxwPXG6q@a079125.arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <aVtNLmXgaxwPXG6q@a079125.arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_091211_282709_3DACAB5C 
-X-CRM114-Status: UNSURE (   9.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260105_091227_703135_59B8F36F 
+X-CRM114-Status: GOOD (  18.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,48 +72,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The rkisp1_flt_config() function performs an initial direct write to
-RKISP1_CIF_ISP_FILT_MODE without including the RKISP1_CIF_ISP_FLT_ENA
-bit, which clears the filter enable bit in the hardware.
+On 05/01/2026 05:33, Linu Cherian wrote:
+> Ryan,
+> 
+> On Tue, Dec 16, 2025 at 02:45:47PM +0000, Ryan Roberts wrote:
+>> As part of efforts to reduce our reliance on complex preprocessor macros
+>> for TLB invalidation routines, introduce a new C wrapper for by-range
+>> TLB invalidation which can be used instead of the __tlbi() macro and can
+>> additionally be called from C code.
+>>
+>> Each specific tlbi range op is implemented as a C function and the
+>> appropriate function pointer is passed to __tlbi_range(). Since
+>> everything is declared inline and is statically resolvable, the compiler
+>> will convert the indirect function call to a direct inline execution.
+>>
+>> Suggested-by: Linus Torvalds <torvalds@linux-foundation.org>
+>> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+>> ---
+>>  arch/arm64/include/asm/tlbflush.h | 33 ++++++++++++++++++++++++++++++-
+>>  1 file changed, 32 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
+>> index 13a59cf28943..c5111d2afc66 100644
+>> --- a/arch/arm64/include/asm/tlbflush.h
+>> +++ b/arch/arm64/include/asm/tlbflush.h
+>> @@ -459,6 +459,37 @@ static inline void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
+>>   *    operations can only span an even number of pages. We save this for last to
+>>   *    ensure 64KB start alignment is maintained for the LPA2 case.
+>>   */
+>> +static __always_inline void rvae1is(u64 arg)
+>> +{
+>> +	__tlbi(rvae1is, arg);
+>> +}
+>> +
+>> +static __always_inline void rvale1(u64 arg)
+>> +{
+>> +	__tlbi(rvale1, arg);
+>> +	__tlbi_user(rvale1, arg);
+> 
+> Should this __tlbi_user be added as part of patch 3 ?
 
-The subsequent read/modify/write sequence then reads back the register
-with the enable bit already cleared and cannot restore it, resulting in
-the filter being inadvertently disabled.
+Yes! I've screwed up a rebase since vale1/rvale1 only started being used in
+v6.19-rc1; I attempted to add it incrementally and have clearly screwed it up.
+I'll fix it all in the next rev.
 
-Remove the redundant direct write. The read/modify/write sequence alone
-correctly preserves the existing enable bit state while updating the
-DNR mode and filter configuration bits.
+Thanks,
+Ryan
 
-Signed-off-by: Rui Wang <rui.wang@ideasonboard.com>
----
- 
-Changelog since v1:
- 1. Update version number from v1 to v4 to clarify the confusing
-
-Reviewed-by Stefan Klug and Kieran Bingham
- from v1 are carried over (no function code changes).
-
- drivers/media/platform/rockchip/rkisp1/rkisp1-params.c | 6 ------
- 1 file changed, 6 deletions(-)
-
-diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-index c9f88635224c..6442436a5e42 100644
---- a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-+++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-@@ -411,12 +411,6 @@ static void rkisp1_flt_config(struct rkisp1_params *params,
- 	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_FILT_LUM_WEIGHT,
- 		     arg->lum_weight);
- 
--	rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_FILT_MODE,
--		     (arg->mode ? RKISP1_CIF_ISP_FLT_MODE_DNR : 0) |
--		     RKISP1_CIF_ISP_FLT_CHROMA_V_MODE(arg->chr_v_mode) |
--		     RKISP1_CIF_ISP_FLT_CHROMA_H_MODE(arg->chr_h_mode) |
--		     RKISP1_CIF_ISP_FLT_GREEN_STAGE1(arg->grn_stage1));
--
- 	/* avoid to override the old enable value */
- 	filt_mode = rkisp1_read(params->rkisp1, RKISP1_CIF_ISP_FILT_MODE);
- 	filt_mode &= RKISP1_CIF_ISP_FLT_ENA;
--- 
-2.43.0
+> 
+>> +}
+>> +
+>> +static __always_inline void rvale1is(u64 arg)
+>> +{
+>> +	__tlbi(rvale1is, arg);
+>> +}
+>> +
+>> +static __always_inline void rvaale1is(u64 arg)
+>> +{
+>> +	__tlbi(rvaale1is, arg);
+>> +}
+>> +
+>> +static __always_inline void ripas2e1is(u64 arg)
+>> +{
+>> +	__tlbi(ripas2e1is, arg);
+>> +}
+>> +
+>> +static __always_inline void __tlbi_range(tlbi_op op, u64 arg)
+>> +{
+>> +	op(arg);
+>> +}
+>> +
+>>  #define __flush_tlb_range_op(op, start, pages, stride,			\
+>>  				asid, tlb_level, tlbi_user, lpa2)	\
+>>  do {									\
+>> @@ -486,7 +517,7 @@ do {									\
+>>  		if (num >= 0) {						\
+>>  			addr = __TLBI_VADDR_RANGE(__flush_start >> shift, asid, \
+>>  						scale, num, tlb_level);	\
+>> -			__tlbi(r##op, addr);				\
+>> +			__tlbi_range(r##op, addr);			\
+>>  			if (tlbi_user)					\
+>>  				__tlbi_user(r##op, addr);		\
+>>  			__flush_start += __TLBI_RANGE_PAGES(num, scale) << PAGE_SHIFT; \
+>> -- 
+>> 2.43.0
+>>
 
 
