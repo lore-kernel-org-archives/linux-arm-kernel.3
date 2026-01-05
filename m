@@ -4,54 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5812CCD040B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 21:07:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE4D5CD0407
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 21:07:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=SJsjFCIxu1r7u2PpCyw5JVanCvdGiFKo/+5ZFu/3kAc=; b=igY6wCuC8RkvKW
-	c2060tQbGJQgCWKcS6YgUhoMz1uVtRfhqiGVhDybdJ2mUYSq0rD6esC34T8mwZpYHCAhfzyvcmfYA
-	9GHgxzrbLZTViFaTODqmUepzTyHgXKmDxVnWkDcxQr4AO5uBfKX0GDWceiqJymDh0l3lfoTI5011M
-	rNY9XGb5FYE8ywkQKCNVk6j9m0prNe5+nW44/kl9ZiEI/dG/AINsPuVXt6+FSxxLmuT26tPlIZnDk
-	iqdt3UlywqvSL+TanCyLD5podRqsJrnLT6NSEDNpLrfIi/VuslPNJiApkA3eqkqnoj6dKk2kZzBNu
-	wbnBVAkyBVb0xd63WOJw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RIK/yWT4gmqEgudddbAq8btpLkwd9Fjo6GrK0pF2XKk=; b=cCdc4CBUNMEDlPzN8rB2zLsBCI
+	UR52rTvacFaAIX6nQH4tYYyLAAGziealW6qWCQjzmIn2YiTQYcECtX9qOpw5g1HmezRSVzXchn8aq
+	Y0dnvbJc1CrExJkW/C9/tiVPvUnCxguG9HRE6Ql2m17oK3S8Vhf13zY+m5pnAlVs1p+uY/WhYBTuf
+	sFaT/7K+9kNcIfcXmNfwdYZPgjoH9Wngkn9ZDjLK1kd6D0l04GfZ4ZaHUPhEKvb42A3EqFb4dd/fW
+	P3glrOcUQL3VD0eHoCaxssSpWlt2opklLWumCKgg+sXsxTOcJvHyT7WrxtRQFH6sYXuZmqtnsEy6j
+	1odq1ing==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcrmv-0000000C5mp-1w1P;
-	Mon, 05 Jan 2026 21:06:53 +0000
+	id 1vcrmz-0000000C5pq-3mdy;
+	Mon, 05 Jan 2026 21:06:57 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcrmt-0000000C5lZ-2T2m;
-	Mon, 05 Jan 2026 21:06:52 +0000
+	id 1vcrmu-0000000C5mO-44t0;
+	Mon, 05 Jan 2026 21:06:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A17BB4079E;
-	Mon,  5 Jan 2026 21:06:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6883DC116D0;
-	Mon,  5 Jan 2026 21:06:50 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A8485443ED;
+	Mon,  5 Jan 2026 21:06:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71CA1C19422;
+	Mon,  5 Jan 2026 21:06:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767647210;
-	bh=vgIKhiITZo8Rsj2kJJV4QLNruYSdES9wetKIFYKZ3zE=;
-	h=From:Subject:Date:To:Cc:From;
-	b=o7IlEK8L/KJCQTwTM4ke+O58lICYB0g8b8potUisdygO7Xnt6XX9spI/7ZO6Z6wye
-	 /TaM4fum5V5vKj0NmUiovIDou+FhAN3hFQC2EWn6hYeG5wXbfGBjsVQTs6Dq3oPzDG
-	 ehjbJ9FGV+CWzIwh1FVRpPAx3M31DzTigqulYSJlxD7z20KV50EODSaMgh+WYzgB1V
-	 jVsuAL14/UtlAxPaqoxPnfCfxcbxhY8P/RJIRGcf43efGL3zPw4GhlOqnYqar36nVM
-	 CiZZHrToJk2cTmbJLBw6pPYmBrnQQN0GK+ksO6NlHyEmkSjvGGJBBmdyHWAGrr6Xmy
-	 pPVSf4JHdA5wQ==
+	s=k20201202; t=1767647212;
+	bh=lWkeK6GxsB7JPSrlBWBTBnBGRtTyszh1kU8Zxb0tROM=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=TvlKP2lkzxBmUCUcoCIyBeR7akPDjhJ0aRsyDtqgdYs1dIMsR12VJB7Oz/eX5UnQF
+	 0TaHX0twD1/wtlAXgAz0wfMVaezRcYRjju3TGZ3FVd115aOUkmRUEU4IR+EK64o5xg
+	 W2HlHJwc3j6DtfurFhaT75Mjb1+ks8kota/3xfREWGp49xynOwl6lK+X8fFqmEcwoO
+	 LnKq76lWu1AMhdpuvsfB4EPMBS4o6GdY6xsEu/zIOm9pRcoIzVr9khrYNnLlJoQ4nP
+	 RXI6hvJbcIkQ7Phowhz8eHNRuJo5TT68Nm/N9Opc9avIIg3CN/0IRW/fBF40637xOv
+	 rXoC5A/vYxncQ==
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Subject: [PATCH v3 0/3] at91: Remove of_platform_default_populate() calls
-Date: Mon, 05 Jan 2026 15:06:42 -0600
-Message-Id: <20260105-at91-probe-v3-0-594013ff2965@kernel.org>
+Date: Mon, 05 Jan 2026 15:06:44 -0600
+Subject: [PATCH v3 2/3] ARM: at91: Move PM init functions to .init_late
+ hook
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAOInXGkC/23MQQ7CIBCF4as0sxYDY2rAlfcwXQAdWqIpzdAQT
- cPdxa5d/i953w6ZOFKGW7cDU4k5pqXF5dSBn+0ykYhja0CJvVIohd2MEisnRwJlcJ6MvY7KQTu
- sTCG+D+wxtJ5j3hJ/Drvgb/3LFBRSaK97g0Eiabo/iRd6nRNPMNRav/U2LYWlAAAA
-X-Change-ID: 20251120-at91-probe-20fbce9a6d1b
+Message-Id: <20260105-at91-probe-v3-2-594013ff2965@kernel.org>
+References: <20260105-at91-probe-v3-0-594013ff2965@kernel.org>
+In-Reply-To: <20260105-at91-probe-v3-0-594013ff2965@kernel.org>
 To: Miquel Raynal <miquel.raynal@bootlin.com>, 
  Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
  Nicolas Ferre <nicolas.ferre@microchip.com>, 
@@ -62,9 +61,8 @@ Cc: linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
 X-Mailer: b4 0.15-dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_130651_651116_DDB733B5 
-X-CRM114-Status: UNSURE (   9.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260105_130653_056569_E8AE3B62 
+X-CRM114-Status: GOOD (  10.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,47 +77,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is another attempt at removing of_platform_default_populate() calls 
-on at91 platforms. The last attempts were in 2018[1] and 2023[2]. The 
-problems reported are PM and NAND failures. Both of these depend on SRAM 
-pool which doesn't have any fw_devlink tracking. Also, the PM code is 
-not a driver, so fw_devlink wouldn't help. For the NAND driver, we can 
-simply defer probe. For the PM init, we can move it to the .late_init 
-hook.
+Move the AT91 PM init functions to .init_late hook to ensure driver
+dependencies have probed.
 
-Rob
-
-[1] https://lore.kernel.org/all/20180712192222.32481-1-robh@kernel.org/
-[2] https://lore.kernel.org/all/3908fa6f-dc33-4aac-c21f-4a676a3a6b23@microchip.com/
-
+Acked-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Tested-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
-Changes in v3:
-- Fixup mismatch in my author vs. Sob.
-- Fixup the split between patch 2 and 3 to fix bisection
-- Use dev_err_probe() in NAND driver
-- Link to v2: https://patch.msgid.link/20251120-at91-probe-v2-0-8c8592f02e8e@kernel.org
+v3:
+ - Fix author name adding "(Arm)"
+ - Fixup split between patch 2 and 3
 
+v2:
+ - new patch
 ---
-Rob Herring (Arm) (3):
-      mtd: nand: atmel: Defer probe if SRAM is missing
-      ARM: at91: Move PM init functions to .init_late hook
-      ARM: at91: remove unnecessary of_platform_default_populate calls
+ arch/arm/mach-at91/at91rm9200.c | 3 +--
+ arch/arm/mach-at91/at91sam9.c   | 3 +--
+ arch/arm/mach-at91/sam9x60.c    | 3 +--
+ arch/arm/mach-at91/sam9x7.c     | 3 +--
+ arch/arm/mach-at91/sama5.c      | 5 +++--
+ arch/arm/mach-at91/sama7.c      | 2 +-
+ 6 files changed, 8 insertions(+), 11 deletions(-)
 
- arch/arm/mach-at91/at91rm9200.c              | 12 +-----------
- arch/arm/mach-at91/at91sam9.c                | 12 +-----------
- arch/arm/mach-at91/sam9x60.c                 | 12 +-----------
- arch/arm/mach-at91/sam9x7.c                  | 12 +-----------
- arch/arm/mach-at91/sama5.c                   | 21 +++------------------
- arch/arm/mach-at91/sama7.c                   | 11 +----------
- drivers/mtd/nand/raw/atmel/nand-controller.c |  6 ++----
- 7 files changed, 10 insertions(+), 76 deletions(-)
----
-base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
-change-id: 20251120-at91-probe-20fbce9a6d1b
+diff --git a/arch/arm/mach-at91/at91rm9200.c b/arch/arm/mach-at91/at91rm9200.c
+index 4f8186211619..2ac564eb8bbb 100644
+--- a/arch/arm/mach-at91/at91rm9200.c
++++ b/arch/arm/mach-at91/at91rm9200.c
+@@ -17,8 +17,6 @@
+ static void __init at91rm9200_dt_device_init(void)
+ {
+ 	of_platform_default_populate(NULL, NULL, NULL);
+-
+-	at91rm9200_pm_init();
+ }
+ 
+ static const char *const at91rm9200_dt_board_compat[] __initconst = {
+@@ -27,6 +25,7 @@ static const char *const at91rm9200_dt_board_compat[] __initconst = {
+ };
+ 
+ DT_MACHINE_START(at91rm9200_dt, "Atmel AT91RM9200")
++	.init_late	= at91rm9200_pm_init,
+ 	.init_machine	= at91rm9200_dt_device_init,
+ 	.dt_compat	= at91rm9200_dt_board_compat,
+ MACHINE_END
+diff --git a/arch/arm/mach-at91/at91sam9.c b/arch/arm/mach-at91/at91sam9.c
+index 7e572189a5eb..cf07cba4ee5d 100644
+--- a/arch/arm/mach-at91/at91sam9.c
++++ b/arch/arm/mach-at91/at91sam9.c
+@@ -17,8 +17,6 @@
+ static void __init at91sam9_init(void)
+ {
+ 	of_platform_default_populate(NULL, NULL, NULL);
+-
+-	at91sam9_pm_init();
+ }
+ 
+ static const char *const at91_dt_board_compat[] __initconst = {
+@@ -28,6 +26,7 @@ static const char *const at91_dt_board_compat[] __initconst = {
+ 
+ DT_MACHINE_START(at91sam_dt, "Atmel AT91SAM9")
+ 	/* Maintainer: Atmel */
++	.init_late	= at91sam9_pm_init,
+ 	.init_machine	= at91sam9_init,
+ 	.dt_compat	= at91_dt_board_compat,
+ MACHINE_END
+diff --git a/arch/arm/mach-at91/sam9x60.c b/arch/arm/mach-at91/sam9x60.c
+index d8c739d25458..a31beaaeffcd 100644
+--- a/arch/arm/mach-at91/sam9x60.c
++++ b/arch/arm/mach-at91/sam9x60.c
+@@ -18,8 +18,6 @@
+ static void __init sam9x60_init(void)
+ {
+ 	of_platform_default_populate(NULL, NULL, NULL);
+-
+-	sam9x60_pm_init();
+ }
+ 
+ static const char *const sam9x60_dt_board_compat[] __initconst = {
+@@ -29,6 +27,7 @@ static const char *const sam9x60_dt_board_compat[] __initconst = {
+ 
+ DT_MACHINE_START(sam9x60_dt, "Microchip SAM9X60")
+ 	/* Maintainer: Microchip */
++	.init_late	= sam9x60_pm_init,
+ 	.init_machine	= sam9x60_init,
+ 	.dt_compat	= sam9x60_dt_board_compat,
+ MACHINE_END
+diff --git a/arch/arm/mach-at91/sam9x7.c b/arch/arm/mach-at91/sam9x7.c
+index e1ff30b5b09b..0c73f7fefd4f 100644
+--- a/arch/arm/mach-at91/sam9x7.c
++++ b/arch/arm/mach-at91/sam9x7.c
+@@ -17,8 +17,6 @@
+ static void __init sam9x7_init(void)
+ {
+ 	of_platform_default_populate(NULL, NULL, NULL);
+-
+-	sam9x7_pm_init();
+ }
+ 
+ static const char * const sam9x7_dt_board_compat[] __initconst = {
+@@ -28,6 +26,7 @@ static const char * const sam9x7_dt_board_compat[] __initconst = {
+ 
+ DT_MACHINE_START(sam9x7_dt, "Microchip SAM9X7")
+ 	/* Maintainer: Microchip */
++	.init_late	= sam9x7_pm_init,
+ 	.init_machine	= sam9x7_init,
+ 	.dt_compat	= sam9x7_dt_board_compat,
+ MACHINE_END
+diff --git a/arch/arm/mach-at91/sama5.c b/arch/arm/mach-at91/sama5.c
+index bf2b5c6a18c6..576654cba82d 100644
+--- a/arch/arm/mach-at91/sama5.c
++++ b/arch/arm/mach-at91/sama5.c
+@@ -33,7 +33,6 @@ static void __init sama5_secure_cache_init(void)
+ static void __init sama5_dt_device_init(void)
+ {
+ 	of_platform_default_populate(NULL, NULL, NULL);
+-	sama5_pm_init();
+ }
+ 
+ static const char *const sama5_dt_board_compat[] __initconst = {
+@@ -43,6 +42,7 @@ static const char *const sama5_dt_board_compat[] __initconst = {
+ 
+ DT_MACHINE_START(sama5_dt, "Atmel SAMA5")
+ 	/* Maintainer: Atmel */
++	.init_late	= sama5_pm_init,
+ 	.init_machine	= sama5_dt_device_init,
+ 	.dt_compat	= sama5_dt_board_compat,
+ MACHINE_END
+@@ -55,6 +55,7 @@ static const char *const sama5_alt_dt_board_compat[] __initconst = {
+ DT_MACHINE_START(sama5_alt_dt, "Atmel SAMA5")
+ 	/* Maintainer: Atmel */
+ 	.init_machine	= sama5_dt_device_init,
++	.init_late	= sama5_pm_init,
+ 	.dt_compat	= sama5_alt_dt_board_compat,
+ 	.l2c_aux_mask	= ~0UL,
+ MACHINE_END
+@@ -62,7 +63,6 @@ MACHINE_END
+ static void __init sama5d2_init(void)
+ {
+ 	of_platform_default_populate(NULL, NULL, NULL);
+-	sama5d2_pm_init();
+ }
+ 
+ static const char *const sama5d2_compat[] __initconst = {
+@@ -74,6 +74,7 @@ DT_MACHINE_START(sama5d2, "Atmel SAMA5")
+ 	/* Maintainer: Atmel */
+ 	.init_machine	= sama5d2_init,
+ 	.init_early	= sama5_secure_cache_init,
++	.init_late	= sama5d2_pm_init,
+ 	.dt_compat	= sama5d2_compat,
+ 	.l2c_aux_mask	= ~0UL,
+ MACHINE_END
+diff --git a/arch/arm/mach-at91/sama7.c b/arch/arm/mach-at91/sama7.c
+index bd43733ede18..8bf57a020f1c 100644
+--- a/arch/arm/mach-at91/sama7.c
++++ b/arch/arm/mach-at91/sama7.c
+@@ -17,7 +17,6 @@
+ static void __init sama7_dt_device_init(void)
+ {
+ 	of_platform_default_populate(NULL, NULL, NULL);
+-	sama7_pm_init();
+ }
+ 
+ static const char *const sama7_dt_board_compat[] __initconst = {
+@@ -27,6 +26,7 @@ static const char *const sama7_dt_board_compat[] __initconst = {
+ 
+ DT_MACHINE_START(sama7_dt, "Microchip SAMA7")
+ 	/* Maintainer: Microchip */
++	.init_late	= sama7_pm_init,
+ 	.init_machine	= sama7_dt_device_init,
+ 	.dt_compat	= sama7_dt_board_compat,
+ MACHINE_END
 
-Best regards,
---  
-Rob Herring (Arm) <robh@kernel.org>
+-- 
+2.51.0
 
 
