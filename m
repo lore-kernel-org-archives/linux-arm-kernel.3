@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CDD6C79FAF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 17:59:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0831C79FB0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 18:02:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QF9ktmARelwGuuNPenUTHLZP4SvE48Z4qmieIm7E85I=; b=VmNq4svtX46/ETg/W/KHzK0UFp
-	/XnM6g8G9YPK0zJF1SwKUBPu4hmhRZNnB8bz2ia5aYYqSOUaazDfTk9IUPAEqiSoRIZhwFSAWqRpA
-	PfEmw67bByV0+mL/tyj+uAXxBKi9Rx44U1RFgmdASg8jRh5X8co0ugN+8k3JckQrKF6KyOqfz/QPJ
-	k+NPT0Em1SDsayBIvwkelPCmVYXeoQxTOj1iRJcN8PaX4zaxMZs4PjPB5VMqBp/jIKpNeHECgiR4X
-	t3RXUnQBKFVskJE8+Iun6kszBbsZOi+CCfSztThqDRReJzTYlZ3oT0Pt9GGZgQhYrrZMX5tGW1cXY
-	0IZGaKbQ==;
+	bh=f9JqwSxrJzrIJI3yTZmJSVVQIbwKbuboJWXmIAZsdzs=; b=UQh1oO9iW5raVpT6lfD94vKUsw
+	7Zxp2BlO4pTCLQnWdBv7q1nnn7IWMhvE4RIvktpXGdma+L+WFnlCwywLX3kSlea0+2adZpk3wXaWj
+	MHbF8yFCLhmkTWZinAmTyHxvdWl39bx5Cjkigd43Tx+vaLvjXtFZNrOrEBeZWs9PAr/c6A4+IrumA
+	3mH0Mhp//aEtHlKLYE6wmby2tPCL+3GhwYJmLaRKKELZKSokhv5ipBSLUMNQsgQxiB+3Scu3sJbTE
+	QSLI2vdQRa8EIjvdaZ6u/OHqCctfp4YfOcK6j6SZEUAreBLUtO1EF3azPcCR06+yz+deTgzFgBXpK
+	65TPZY2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcor2-0000000BtDH-0iC4;
-	Mon, 05 Jan 2026 17:58:56 +0000
+	id 1vcouZ-0000000BtYs-3Cfy;
+	Mon, 05 Jan 2026 18:02:35 +0000
 Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcoqx-0000000BtBC-1vzW
+	id 1vcouW-0000000BtXz-3wAP
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 17:58:53 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.83])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dlMVZ1DBwzJ468h;
-	Tue,  6 Jan 2026 01:58:46 +0800 (CST)
+	Mon, 05 Jan 2026 18:02:34 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.107])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dlMZn0prVzHnGhd;
+	Tue,  6 Jan 2026 02:02:25 +0800 (CST)
 Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 7193240086;
-	Tue,  6 Jan 2026 01:58:46 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id B9E6240571;
+	Tue,  6 Jan 2026 02:02:27 +0800 (CST)
 Received: from localhost (10.126.174.38) by dubpeml100005.china.huawei.com
  (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Mon, 5 Jan
- 2026 17:58:44 +0000
-Date: Mon, 5 Jan 2026 17:58:43 +0000
+ 2026 18:02:25 +0000
+Date: Mon, 5 Jan 2026 18:02:24 +0000
 From: Jonathan Cameron <jonathan.cameron@huawei.com>
 To: Ben Horgan <ben.horgan@arm.com>
 CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
@@ -53,12 +53,12 @@ CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
 	<xhao@linux.alibaba.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
 	<corbet@lwn.net>, <maz@kernel.org>, <oupton@kernel.org>,
 	<joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <kvmarm@lists.linux.dev>
-Subject: Re: [PATCH v2 20/45] arm_mpam: resctrl: Implement helpers to update
- configuration
-Message-ID: <20260105175843.00007e35@huawei.com>
-In-Reply-To: <20251219181147.3404071-21-ben.horgan@arm.com>
+Subject: Re: [PATCH v2 21/45] arm_mpam: resctrl: Add plumbing against arm64
+ task and cpu hooks
+Message-ID: <20260105180224.000028e3@huawei.com>
+In-Reply-To: <20251219181147.3404071-22-ben.horgan@arm.com>
 References: <20251219181147.3404071-1-ben.horgan@arm.com>
-	<20251219181147.3404071-21-ben.horgan@arm.com>
+	<20251219181147.3404071-22-ben.horgan@arm.com>
 X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
 Content-Type: text/plain; charset="US-ASCII"
@@ -67,8 +67,9 @@ X-Originating-IP: [10.126.174.38]
 X-ClientProxiedBy: lhrpeml500012.china.huawei.com (7.191.174.4) To
  dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_095852_583347_4606C14B 
-X-CRM114-Status: GOOD (  22.22  )
+X-CRM114-CacheID: sfid-20260105_100233_162614_B5B8C31B 
+X-CRM114-Status: UNSURE (   6.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,63 +84,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 19 Dec 2025 18:11:22 +0000
+On Fri, 19 Dec 2025 18:11:23 +0000
 Ben Horgan <ben.horgan@arm.com> wrote:
 
 > From: James Morse <james.morse@arm.com>
 > 
-> resctrl has two helpers for updating the configuration.
-> resctrl_arch_update_one() updates a single value, and is used by the
-> software-controller to apply feedback to the bandwidth controls, it has to
-> be called on one of the CPUs in the resctrl:domain.
+> arm64 provides helpers for changing a tasks and a cpus mpam partid/pmg
+
+task's and cpu's 
+(at least I think that is the intent)
+> values.
 > 
-> resctrl_arch_update_domains() copies multiple staged configurations, it can
-> be called from anywhere.
-> 
-> Both helpers should update any changes to the underlying hardware.
-> 
-> Implement resctrl_arch_update_domains() to use
-> resctrl_arch_update_one(). Neither need to be called on a specific CPU as
-> the mpam driver will send IPIs as needed.
+> These are used to back a number of resctrl_arch_ functions. Connect them
+> up.
 > 
 > Signed-off-by: James Morse <james.morse@arm.com>
 > Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-One trivial thing inline.
 
 Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 
-> ---
-> list_for_each_entry -> list_for_each_entry_rcu
-> return 0
-> Restrict scope of local variables
-> ---
->  drivers/resctrl/mpam_resctrl.c | 70 ++++++++++++++++++++++++++++++++++
->  1 file changed, 70 insertions(+)
-> 
-> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-> index 607e5f41f9e7..e5ec5438eca8 100644
-> --- a/drivers/resctrl/mpam_resctrl.c
-> +++ b/drivers/resctrl/mpam_resctrl.c
-> @@ -210,6 +210,76 @@ u32 resctrl_arch_get_config(struct rdt_resource *r, struct rdt_ctrl_domain *d,
->  	}
->  }
->  
-> +int resctrl_arch_update_one(struct rdt_resource *r, struct rdt_ctrl_domain *d,
-> +			    u32 closid, enum resctrl_conf_type t, u32 cfg_val)
-> +{
-...
-
-> +	partid = resctrl_get_config_index(closid, t);
-> +	if (!r->alloc_capable || partid >= resctrl_arch_get_num_closid(r)) {
-> +		pr_debug("Not alloc capable or computed PARTID out of range\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +       /*
-
-Spaces instead of a tab.
-
-> +	* Copy the current config to avoid clearing other resources when the
-> +	* same component is exposed multiple times through resctrl.
-> +	*/
 
