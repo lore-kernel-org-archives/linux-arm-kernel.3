@@ -4,55 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2FE9C79FBA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 19:39:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C33C3C79FBC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 19:46:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WQiw5ZuqbRa/R+rOzhfPK59j8NEJ1LOlep90YkURlxE=; b=oJtxdnfKN90wnrRubbLbR/OCSq
-	Zf/Q/jVRIGpsGlfjZQZF5gIphF4aML5pwCnkBvaaTn+2Incrlja0WxIw0bFblnIOqpTjWxdxsr6YV
-	EA386lQEX8SyBxUPde+Z1ctVnqPROPgORo+rsdR/QeySketI+ImKMqYlambLxUXcFkxyyFhs4ECyZ
-	GscS7rKPvU2HIXP+g0ghISuGXEyEG8lR5vAHdnSB+9qA4UJaYcrhWkeFVhzLMZl5MrX2C6dxOi9GK
-	3JcyOHDgkOmnqZhY4bbhTpTwxUemiOCak/lppYNEZbGzy0yTTEU8EI3D5rIi68pW2XL0Yegq20Osk
-	9REWDSKg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4RaAvlZzyK9NhBPWSVfzEIIZ87kNMFeTYAHmz9f/nVE=; b=zMxr7hdjxG9qbF2u1nB4WSDx+s
+	AQkmCNTbR79Bxy3R69G7uO3Z57pI5uHBKqY5kf6g04FPfWftMUVSEobzoFwner7TsiSGg6IgTweAk
+	qjSGGjLljlsPmzBK9udYgTIyb5myxNNrHW8LxMi6EA+hjXwJ7XGcmNCr1IBjI6oQMJnTILZcjBrXZ
+	jnI+vL0Gk/rWIZ7HgcoWqtkip/vnejeNd2b09ibU6eayEBEpIJyDs47c1rKS1+u0wJiqRXVEU9pP1
+	0E1APUhQPSZ6LoEbquGTgeUvGpZRYyfvLOtbd4iRxj/eNfaoRsUHyVQ/rg3RPnY8JScazNe1BxN3b
+	QIc0GKZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcqQA-0000000BzTV-2jzZ;
-	Mon, 05 Jan 2026 19:39:18 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcqQ8-0000000BzSz-0G21;
-	Mon, 05 Jan 2026 19:39:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A0934339;
-	Mon,  5 Jan 2026 11:39:07 -0800 (PST)
-Received: from [10.57.46.243] (unknown [10.57.46.243])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F1CB63F694;
-	Mon,  5 Jan 2026 11:39:12 -0800 (PST)
-Message-ID: <c76ae679-d05a-4192-8ffe-189649799ee4@arm.com>
-Date: Mon, 5 Jan 2026 19:39:04 +0000
+	id 1vcqXK-0000000Bzss-0f56;
+	Mon, 05 Jan 2026 19:46:42 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vcqXI-0000000Bzsg-3IdM
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 Jan 2026 19:46:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D275360010;
+	Mon,  5 Jan 2026 19:46:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B29FC116D0;
+	Mon,  5 Jan 2026 19:46:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767642399;
+	bh=uXHOetpzVfMY5FeZnGkLH3rPKDi0N+YTnGd6QXJf5v4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=kUDUFGZDo1OvCCnRLo4G/PnCJSebI1OqSHrhRdxZkWrWgtTiCoftVBhgaqYWpR/HN
+	 FiumkftU67LUov1SU/Ri+dcoap71J8Z3NLcchyZgtu8YE17Z2nxf3mfleUp291fTku
+	 vQm+TzRQ7dkVi11CraT85Gmmccao+DJCmX0IAxfr58PfCiUdMog0uAXhAEtvbTUYyU
+	 nB7otustWu2Y6zmz7T1EErVeoI0d5DhFGjfv3IHeQnaGJuKEuVliKXpZkNgY/diD5v
+	 FmqUVEGRfG2Ja9ydPnmX1J00upeEUTkLtQwCwNMA0DuCrWvq3GojeS9brWK6Bq/FnL
+	 1gHUhBmIoGbUw==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: marvell: Add missing "#phy-cells" to "usb-nop-xceiv"
+Date: Mon,  5 Jan 2026 13:46:34 -0600
+Message-ID: <20260105194636.3188884-1-robh@kernel.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/4] arm64: dts: rockchip: Add overlay for FriendlyElec
- HD702E
-To: Doug Anderson <dianders@chromium.org>
-Cc: heiko@sntech.de, neil.armstrong@linaro.org, thierry.reding@gmail.com,
- sam@ravnborg.org, jesszhan0024@gmail.com, dri-devel@lists.freedesktop.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-References: <cover.1767111804.git.robin.murphy@arm.com>
- <bc54c6c700a4be244bd4f81cb846cf628313a6ee.1767111810.git.robin.murphy@arm.com>
- <CAD=FV=VB9XOm33VvsTN4cd22rBf9A-7ie4hN80TAByciQropfg@mail.gmail.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <CAD=FV=VB9XOm33VvsTN4cd22rBf9A-7ie4hN80TAByciQropfg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_113916_219286_DE8F3682 
-X-CRM114-Status: GOOD (  31.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,147 +71,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Doug,
+The "usb-nop-xceiv" binding requires "#phy-cells" property with a value
+of 0 though it is not really used. Add it where missing from Marvell
+platforms.
 
-On 2026-01-05 5:39 pm, Doug Anderson wrote:
-> Hi,
-> 
-> On Tue, Dec 30, 2025 at 9:21 AM Robin Murphy <robin.murphy@arm.com> wrote:
->>
->> +&{/} {
->> +       pwm_bl: backlight {
-> 
-> nit: up to you, but I happened to notice that other rk3399 boards just
-> use the label "backlight:" instead of "pwm_bl:"
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ arch/arm64/boot/dts/marvell/armada-3720-db.dts                | 1 +
+ arch/arm64/boot/dts/marvell/armada-3720-espressobin-ultra.dts | 1 +
+ arch/arm64/boot/dts/marvell/armada-8040-db.dts                | 2 ++
+ arch/arm64/boot/dts/marvell/cn9130-crb.dtsi                   | 2 ++
+ arch/arm64/boot/dts/marvell/cn9130-db.dtsi                    | 2 ++
+ arch/arm64/boot/dts/marvell/cn9131-db.dtsi                    | 1 +
+ arch/arm64/boot/dts/marvell/cn9132-db.dtsi                    | 2 ++
+ 7 files changed, 11 insertions(+)
 
-Sure, if you prefer.
+diff --git a/arch/arm64/boot/dts/marvell/armada-3720-db.dts b/arch/arm64/boot/dts/marvell/armada-3720-db.dts
+index bd4e61d5448e..06d4a3a93f84 100644
+--- a/arch/arm64/boot/dts/marvell/armada-3720-db.dts
++++ b/arch/arm64/boot/dts/marvell/armada-3720-db.dts
+@@ -41,6 +41,7 @@ exp_usb3_vbus: usb3-vbus {
+ 
+ 	usb3_phy: usb3-phy {
+ 		compatible = "usb-nop-xceiv";
++		#phy-cells = <0>;
+ 		vcc-supply = <&exp_usb3_vbus>;
+ 	};
+ 
+diff --git a/arch/arm64/boot/dts/marvell/armada-3720-espressobin-ultra.dts b/arch/arm64/boot/dts/marvell/armada-3720-espressobin-ultra.dts
+index 97a180c8dcd9..e82284888b9a 100644
+--- a/arch/arm64/boot/dts/marvell/armada-3720-espressobin-ultra.dts
++++ b/arch/arm64/boot/dts/marvell/armada-3720-espressobin-ultra.dts
+@@ -37,6 +37,7 @@ reg_usb3_vbus: usb3-vbus {
+ 
+ 	usb3_phy: usb3-phy {
+ 		compatible = "usb-nop-xceiv";
++		#phy-cells = <0>;
+ 		vcc-supply = <&reg_usb3_vbus>;
+ 	};
+ 
+diff --git a/arch/arm64/boot/dts/marvell/armada-8040-db.dts b/arch/arm64/boot/dts/marvell/armada-8040-db.dts
+index 21ecb9c12505..c7102f74d4d5 100644
+--- a/arch/arm64/boot/dts/marvell/armada-8040-db.dts
++++ b/arch/arm64/boot/dts/marvell/armada-8040-db.dts
+@@ -51,6 +51,7 @@ cp0_reg_usb3_1_vbus: cp0-usb3-1-vbus {
+ 
+ 	cp0_usb3_0_phy: cp0-usb3-0-phy {
+ 		compatible = "usb-nop-xceiv";
++		#phy-cells = <0>;
+ 		vcc-supply = <&cp0_reg_usb3_0_vbus>;
+ 	};
+ 
+@@ -65,6 +66,7 @@ cp1_reg_usb3_0_vbus: cp1-usb3-0-vbus {
+ 
+ 	cp1_usb3_0_phy: cp1-usb3-0-phy {
+ 		compatible = "usb-nop-xceiv";
++		#phy-cells = <0>;
+ 		vcc-supply = <&cp1_reg_usb3_0_vbus>;
+ 	};
+ };
+diff --git a/arch/arm64/boot/dts/marvell/cn9130-crb.dtsi b/arch/arm64/boot/dts/marvell/cn9130-crb.dtsi
+index 5e7d6de3cdde..5689a8bdfd03 100644
+--- a/arch/arm64/boot/dts/marvell/cn9130-crb.dtsi
++++ b/arch/arm64/boot/dts/marvell/cn9130-crb.dtsi
+@@ -47,10 +47,12 @@ cp0_reg_usb3_vbus1: regulator-2 {
+ 
+ 	cp0_usb3_0_phy0: usb-phy-1 {
+ 		compatible = "usb-nop-xceiv";
++		#phy-cells = <0>;
+ 	};
+ 
+ 	cp0_usb3_0_phy1: usb-phy-2 {
+ 		compatible = "usb-nop-xceiv";
++		#phy-cells = <0>;
+ 		vcc-supply = <&cp0_reg_usb3_vbus1>;
+ 	};
+ 
+diff --git a/arch/arm64/boot/dts/marvell/cn9130-db.dtsi b/arch/arm64/boot/dts/marvell/cn9130-db.dtsi
+index 3cc320f569ad..7156739aa31a 100644
+--- a/arch/arm64/boot/dts/marvell/cn9130-db.dtsi
++++ b/arch/arm64/boot/dts/marvell/cn9130-db.dtsi
+@@ -50,6 +50,7 @@ cp0_reg_usb3_vbus0: regulator-2 {
+ 
+ 	cp0_usb3_0_phy0: usb-phy-1 {
+ 		compatible = "usb-nop-xceiv";
++		#phy-cells = <0>;
+ 		vcc-supply = <&cp0_reg_usb3_vbus0>;
+ 	};
+ 
+@@ -64,6 +65,7 @@ cp0_reg_usb3_vbus1: regulator-3 {
+ 
+ 	cp0_usb3_0_phy1: usb-phy-2 {
+ 		compatible = "usb-nop-xceiv";
++		#phy-cells = <0>;
+ 		vcc-supply = <&cp0_reg_usb3_vbus1>;
+ 	};
+ 
+diff --git a/arch/arm64/boot/dts/marvell/cn9131-db.dtsi b/arch/arm64/boot/dts/marvell/cn9131-db.dtsi
+index 626042fce7e2..26dc91c88677 100644
+--- a/arch/arm64/boot/dts/marvell/cn9131-db.dtsi
++++ b/arch/arm64/boot/dts/marvell/cn9131-db.dtsi
+@@ -31,6 +31,7 @@ cp1_reg_usb3_vbus0: regulator-6 {
+ 
+ 	cp1_usb3_0_phy0: usb-phy-3 {
+ 		compatible = "usb-nop-xceiv";
++		#phy-cells = <0>;
+ 		vcc-supply = <&cp1_reg_usb3_vbus0>;
+ 	};
+ 
+diff --git a/arch/arm64/boot/dts/marvell/cn9132-db.dtsi b/arch/arm64/boot/dts/marvell/cn9132-db.dtsi
+index f91fc69905b8..f82d45e62753 100644
+--- a/arch/arm64/boot/dts/marvell/cn9132-db.dtsi
++++ b/arch/arm64/boot/dts/marvell/cn9132-db.dtsi
+@@ -28,6 +28,7 @@ cp2_reg_usb3_vbus0: regulator-7 {
+ 
+ 	cp2_usb3_0_phy0: usb-phy-4 {
+ 		compatible = "usb-nop-xceiv";
++		#phy-cells = <0>;
+ 		vcc-supply = <&cp2_reg_usb3_vbus0>;
+ 	};
+ 
+@@ -42,6 +43,7 @@ cp2_reg_usb3_vbus1: regulator-8 {
+ 
+ 	cp2_usb3_0_phy1: usb-phy-5 {
+ 		compatible = "usb-nop-xceiv";
++		#phy-cells = <0>;
+ 		vcc-supply = <&cp2_reg_usb3_vbus1>;
+ 	};
+ 
+-- 
+2.51.0
 
->> +               compatible = "pwm-backlight";
->> +               pwms = <&pwm0 0 25000 0>;
-> 
-> 40kHz is awfully fast for a PWM backlight. Are you sure you need it that fast?
-
-I guess I just copied this from somewhere without too much thought, but 
-double-checking the schematic[1] now, the backlight driver where this 
-signal ends up is apparently a SY7200A, whose datasheet says "And the 
-recommend dimming frequency range is 20kHz~1MHz." So relative to that 
-range it doesn't seem too bad!
-
-> 
->> +               enable-gpios = <&gpio4 RK_PD5 GPIO_ACTIVE_HIGH>;
-> 
-> Not that I'm doing a thorough review here, but I happened to notice
-> that you're referring to a GPIO without adding a pinctrl entry. I
-> think the usual convention is to add one.
-
-Ah yes, good point! (Too easy to forget the boring details when doing a 
-holiday project away from home...)
-
->> +               brightness-levels = <0 255>;
->> +               default-brightness-level = <200>;
->> +               num-interpolated-steps = <255>;
->> +       };
->> +};
->> +
->> +&edp {
->> +       force-hpd;
->> +       status = "okay";
->> +
->> +       aux-bus {
->> +               edp-panel {
->> +                       compatible = "friendlyarm,hd702e";
-> 
-> As per my response in your driver patch, any chance this can just be
-> "edp-panel"?
-
-Per the cover letter, I did try...
-
->> +                       backlight = <&pwm_bl>;
->> +                       no-hpd;
->> +                       power-supply = <&vcc12v0_sys>;
-> 
-> While not strictly required, it seems highly likely that you want
-> "hpd-absent-delay-ms". It's highly unlikely that you would have
-> "no-hpd" plus a "power-supply" but no hardcoded delay to wait here. I
-> haven't seen panels that turn on and respond instantly.
-
-...but even with both delays bumped up and up and up to a ridiculous 
-2000ms it still didn't work. It reads the EDID as all-zeros then fails 
-to probe due to a lack of modes. Whereas with the hard-coded mode, the 
-display lights up immediately upon probe, so I don't think it's a timing 
-issue. My working theory is that there's some fundamental ordering issue 
-based on the comments in analogix_dp_detect_hpd() about aux not working 
-until HPD is forced at the controller end, and from a brief skim of the 
-history, quite possibly related to f2600d08d4e8 ("drm/bridge: 
-analogix_dp: Improve panel on time") which maybe prevents that happening?
-
-By that point it's well beyond my expertise, hence my conclusion that 
-since I'm not *adding* the legacy panel data, just rearranging what's 
-already upstream to finally put it to proper use, that's just about 
-acceptable :)
-
-The power-supply entry is really just for cleanliness, to avoid a "dummy 
-regulator" message - the screen module has all its own regulation on 
-board, which didn't seem worth modelling in detail as it's all fixed and 
-always-on, but the source is the board's main 12V input, so that much 
-*is* true.
-
->> +
->> +                       port {
->> +                               panel_in_edp: endpoint {
->> +                                       remote-endpoint = <&edp_out_panel>;
->> +                               };
->> +                       };
->> +               };
->> +       };
->> +};
->> +
->> +&edp_out {
->> +       edp_out_panel: endpoint {
->> +               remote-endpoint = <&panel_in_edp>;
->> +       };
->> +};
->> +
->> +&i2c4 {
->> +       #address-cells = <1>;
->> +       #size-cells = <0>;
-> 
-> The base dts already specifies #address-cells and #size-cells, right?
-
-Indeed, but dtc doesn't know that when compiling the .dtbo in isolation.
-
->> +       touchscreen@5d {
->> +               compatible = "goodix,gt9271";
->> +               reg = <0x5d>;
->> +               interrupt-parent = <&gpio1>;
->> +               interrupts = <RK_PC4 IRQ_TYPE_EDGE_FALLING>;
->> +               irq-gpios = <&gpio1 RK_PC4 GPIO_ACTIVE_HIGH>;
->> +               reset-gpios = <&gpio1 RK_PB5 GPIO_ACTIVE_HIGH>;
-> 
-> There's no power supply here, so I'll assume it follows the power
-> supply of the panel? You probably want to be a "panel-follower" then,
-> right? AKA you'd want to add a "panel = " node here to refer to your
-> edp-panel.
-> 
-> Oh, except that the goodix driver you're using doesn't support
-> panel-follower. That's annoying. I guess you'd have to add support for
-> that (see history around "is_panel_follower" in "i2c-hid-core.c")?
-> Without it then I assume you'll just be lucky that things work? ...or
-> you'd need to mark the power supply as always-on?
-
-Yeah, as above it is in fact always-on anyway - somehow I missed that 
-the goodix driver is getting regulators too. The 12V input is stepped 
-down to a main VDD_3.3V rail from which everything else is derived, so 
-if I add a fixed-regulator node for that which is sufficiently close to 
-the truth for both these and the panel supply, would that be clear enough?
-
-> I guess I can also note the same comment that there is no pinctrl for
-> your GPIOs here.
-
-Ack.
-
-Cheers,
-Robin.
-
-[1] https://wiki.friendlyelec.com/wiki/images/f/f3/LCD-HD702E-2106_SCH.PDF
 
