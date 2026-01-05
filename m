@@ -4,94 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BDD1C2A088
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 10:33:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2E8AC2A074
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 10:34:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=87+FuFMoLYug0z7gqUq5Z8pX0X/7AkUpO+9WJeqmtao=; b=p82zlkADe8zPUxhy8FgRl6QbMI
-	dQP29YFRDJSgmdNP20Qxy4sBBsgjJj3cHYSAYLtBFp3hTIY1FD3/tb2hTQYmX7MxpXtZxZ7Gktacv
-	Vpfnw8ebtZkQL+oSRrdXLolfM3HHFMq5d4g/hEn73hNaKuOaGq1q3TctEbxgERnHM45l/AYHPeCDs
-	YO0isj5diH1WXiehL6Y14Bdfw1/UPd4LobsstHZarTW30qH6KjySelbkh4wBo1iC8FygLhUT9jI8b
-	Chfg1A52ZZPKjBNcgzj/hGCD7Gz8C3gS6iCKwkEBe7rchQnVJdkF0fkXrkBE+qt6LSW8pnowfJHP2
-	YiI8f3DQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YEK8YLKA2JBq8NjwO2GPf8YTOu7n2L9Plr8/+v8u1Tw=; b=lqtQqe61+bljxhz+6l1nAs68Ze
+	nupRV231taqDaABUiQyFXHoYAwzHfUdGQQkwcKSm5ft+0QMISYYy7nChGA7jwlomvE3u3qb/LDerf
+	ulux9c3I4QH54n4p3O80xHTuVLSHrj2EvAaTHVxKvZEa5vaJcYT1o5MN5+OkWUxL6I8p6LfdT7r2Z
+	KTKss0OKPBLS7gFAyDDTq8ozeS9nl849HpzGtLULtKxWiAoCqkdpOS9i1u0ZZr7Y4R4UOkK/huBVN
+	ozn2AYEpLZ5ouWtJ7EAvXZw2zRumzNs+wVuY77TXqxJz3jf2bh8y8/8WpzGgHxEUBKABwk49791vx
+	jTEhesug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vchu6-0000000B765-3P6h;
-	Mon, 05 Jan 2026 10:33:38 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vchu2-0000000B75R-1Lbo
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 10:33:36 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-430f3ef2d37so11182967f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 02:33:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1767609212; x=1768214012; darn=lists.infradead.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=87+FuFMoLYug0z7gqUq5Z8pX0X/7AkUpO+9WJeqmtao=;
-        b=sedozrj83r/kn9R4N/F45atBT62TGLl2SaRIsDotrtdOUT8Tb1FpVcc/k/AonZRnk2
-         wG8D3qkn9JI200F0nE944NKiDddyxQhngvBFByyEVwIOIQ3Z8CzH0fLymIvLlhgI86a3
-         aTbGEDwo4+4DlyKtz0CT1hSq3I7LbFv7q9BeViw0gfw7vNrhVTUA0IBPqvKeR898U+dx
-         nhjnoTE07e3LybKjcqn8CICmbrL3mP0VD20x8fJZmizUimexB9uQTMkK94dtSH9KmVU4
-         l9T2GCIQbu6NrTdxuBfwlsg4WRDj9g4GZ8G1yuLKuqlWmNFO4W06gTREPIaSQ95vkanZ
-         RufQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767609212; x=1768214012;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=87+FuFMoLYug0z7gqUq5Z8pX0X/7AkUpO+9WJeqmtao=;
-        b=Npes8FbNkT1GEK0Civ9+MAkjuZy1LMF0TlNXjg30Pthb8mZY/vy1Cd60bwfaL+buHN
-         YFn5Hh1uVn6uR+NKF15HTasJSzA5oZR/v2EPPNPg1t2wnNLgvTrChNN4TcGTPrfUEnnW
-         Td45z2nGn1ZCsmDvwRAvg/a+lg5kaJrONiN5hdHoTzaQ2L7X+ce74LKU73ZCTT26iEW5
-         b7wa5l5CcmsrXOJsG6uHNbTUdlKA7VBJ5jEIceQ/1Pq6GLNu4IYoufUj2Wll5fpMBkc/
-         yeDOJtz8I+PfziZMAQ4xmnddi6YKD1GzDJrd+dVzODJfvMzaoDkokUilGxxlFzboWfKk
-         F4ZQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV90qDtTXxQ1uEF1kpSZ/6FaHFIFXYZgwPPluZK65AHjK6Air2axNbsN9K+MSyoGL2MyJ7iydZECBSeADV5YsJq@lists.infradead.org
-X-Gm-Message-State: AOJu0YyT+ekGEy2dtHKrTpMmgmreH4foijtWT9PhXb5MIk1Sy8B78sb7
-	AysMpkw+35ikSmUmrnFHOi8cCMELCIkmO9qUnR++C51mUT9HNWYDYbcglu0MY3676X4=
-X-Gm-Gg: AY/fxX4VeWg2SHiS8FYn9I2qHvPTkbF1yiljY5nNhyA7RGvy7GOnbf3nPcOEhSBN2CG
-	HxcAbotFHIV5K+qPKvw6dHA4grT3fEY/j66svbf6U+cCGy6NAKssMKpKrkBv8msMzMRlZiScnvM
-	xmYKB3q3zF4m23cRBGihJAF0csQPtKhMaZhxBe3cpZhTj+OusImcDqhcNSsQB0U8OI/wJzqw0dk
-	q9Q8EJka4YVPFRnQt7RilTCpmS+vzvqmnRER6aEyIM8Vzmiy/G0gH+fAhbzJ4JrNtZa/qA8bwlc
-	0Fg3HujOI9GM3+08/kQ9xk8aFM9mauv/00hFNmHI/VjglcwiFBuBXpJZ2PjaNP+UGjhYCNHmBWO
-	gZ0cVCBHz8gyyTRKrC0DjWb6jXbvqikyXVB1aNduUJBnIs4f5m4OGqtTYQsaXk0224fzXsOXPiK
-	LSONYF
-X-Google-Smtp-Source: AGHT+IF5w2X/mECN9ZuV3JAcY3/jRJaPTYNcLs1xlZ4DkVwaHx1/DlQVheIQWCeAyX3a9MMJxgLOAg==
-X-Received: by 2002:a05:6000:4202:b0:430:f5ab:dc8e with SMTP id ffacd0b85a97d-4324e4c6338mr65493674f8f.13.1767609211878;
-        Mon, 05 Jan 2026 02:33:31 -0800 (PST)
-Received: from localhost ([195.52.160.197])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-43277b0efefsm67215868f8f.25.2026.01.05.02.33.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Jan 2026 02:33:30 -0800 (PST)
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=4e65c143e89b164e7daa8cca0ebf34813a0d86c08fe8a1a41299070c2a1e;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Mon, 05 Jan 2026 11:33:21 +0100
-Message-Id: <DFGL60RQ7MV5.Z6I2EWG19UZQ@baylibre.com>
-Cc: <d-gole@ti.com>, <vishalm@ti.com>, <sebin.francis@ti.com>,
- <msp@baylibre.com>, <khilman@baylibre.com>, <a-kaur@ti.com>,
- <s-kochidanadu@ti.com>, <linux-arm-kernel@lists.infradead.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 0/5] arm64: dts: ti: k3-am62: Support Main UART
- wakeup
-From: "Markus Schneider-Pargmann" <msp@baylibre.com>
-To: "Kendall Willis" <k-willis@ti.com>, "Nishanth Menon" <nm@ti.com>,
- "Vignesh Raghavendra" <vigneshr@ti.com>, "Tero Kristo" <kristo@kernel.org>,
- "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
- <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>
-X-Mailer: aerc 0.21.0
-References: <20251230-b4-uart-daisy-chain-dts-v2-0-fa5257ec54bb@ti.com>
-In-Reply-To: <20251230-b4-uart-daisy-chain-dts-v2-0-fa5257ec54bb@ti.com>
+	id 1vchvG-0000000B7DE-2xms;
+	Mon, 05 Jan 2026 10:34:50 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vchvD-0000000B7Cn-28ji;
+	Mon, 05 Jan 2026 10:34:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2E915497;
+	Mon,  5 Jan 2026 02:34:39 -0800 (PST)
+Received: from [10.1.38.150] (XHFQ2J9959.cambridge.arm.com [10.1.38.150])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A24513F6A8;
+	Mon,  5 Jan 2026 02:34:42 -0800 (PST)
+Message-ID: <76a21b45-31f4-462d-a51f-9ae72004ffc7@arm.com>
+Date: Mon, 5 Jan 2026 10:34:41 +0000
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/3] prandom: Convert prandom_u32_state() to
+ __always_inline
+Content-Language: en-GB
+To: David Laight <david.laight.linux@gmail.com>
+Cc: "Jason A. Donenfeld" <Jason@zx2c4.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Huacai Chen <chenhuacai@kernel.org>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Mark Rutland <mark.rutland@arm.com>,
+ Ard Biesheuvel <ardb@kernel.org>, Jeremy Linton <jeremy.linton@arm.com>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-hardening@vger.kernel.org
+References: <20260102131156.3265118-1-ryan.roberts@arm.com>
+ <20260102131156.3265118-3-ryan.roberts@arm.com>
+ <CAHmME9qHiVZwf4TAringRHSZ-yqHuPwmP=Wnx98n09jv7Vu_Rg@mail.gmail.com>
+ <719b7b99-3615-46cd-84d9-8b8fc21e3ce9@arm.com>
+ <20260103104627.2f385d20@pumpkin>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20260103104627.2f385d20@pumpkin>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_023334_656037_55973766 
-X-CRM114-Status: GOOD (  11.37  )
+X-CRM114-CacheID: sfid-20260105_023447_630176_40BB3984 
+X-CRM114-Status: GOOD (  29.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,33 +83,184 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---4e65c143e89b164e7daa8cca0ebf34813a0d86c08fe8a1a41299070c2a1e
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
+On 03/01/2026 10:46, David Laight wrote:
+> On Fri, 2 Jan 2026 14:09:26 +0000
+> Ryan Roberts <ryan.roberts@arm.com> wrote:
+> 
+>> On 02/01/2026 13:39, Jason A. Donenfeld wrote:
+>>> Hi Ryan,
+>>>
+>>> On Fri, Jan 2, 2026 at 2:12 PM Ryan Roberts <ryan.roberts@arm.com> wrote:  
+>>>> context. Given the function is just a handful of operations and doesn't  
+>>>
+>>> How many? What's this looking like in terms of assembly?   
+>>
+>> 25 instructions on arm64:
+>>
+>> 0000000000000000 <prandom_u32_state>:
+>>    0:	29401403 	ldp	w3, w5, [x0]
+>>    4:	aa0003e1 	mov	x1, x0
+>>    8:	29410002 	ldp	w2, w0, [x0, #8]
+>>    c:	531e74a4 	lsl	w4, w5, #2
+>>   10:	530e3468 	lsl	w8, w3, #18
+>>   14:	4a0400a5 	eor	w5, w5, w4
+>>   18:	4a031863 	eor	w3, w3, w3, lsl #6
+>>   1c:	53196047 	lsl	w7, w2, #7
+>>   20:	53134806 	lsl	w6, w0, #13
+>>   24:	4a023442 	eor	w2, w2, w2, lsl #13
+>>   28:	4a000c00 	eor	w0, w0, w0, lsl #3
+>>   2c:	121b6884 	and	w4, w4, #0xffffffe0
+>>   30:	120d3108 	and	w8, w8, #0xfff80000
+>>   34:	121550e7 	and	w7, w7, #0xfffff800
+>>   38:	120c2cc6 	and	w6, w6, #0xfff00000
+>>   3c:	2a456c85 	orr	w5, w4, w5, lsr #27
+>>   40:	2a433504 	orr	w4, w8, w3, lsr #13
+>>   44:	2a4254e3 	orr	w3, w7, w2, lsr #21
+>>   48:	2a4030c2 	orr	w2, w6, w0, lsr #12
+>>   4c:	4a020066 	eor	w6, w3, w2
+>>   50:	4a050080 	eor	w0, w4, w5
+>>   54:	4a0000c0 	eor	w0, w6, w0
+>>   58:	29001424 	stp	w4, w5, [x1]
+>>   5c:	29010823 	stp	w3, w2, [x1, #8]
+>>   60:	d65f03c0 	ret
+> 
+> That is gcc, clang seems to generate something horrid (from godbolt).
+> I'm not sure what it has tried to do (and maybe it can't in kernel)
+> but it clearly doesn't help!
+> .LCPI0_0:
+>         .word   18
+>         .word   2
+>         .word   7
+>         .word   13
+> .LCPI0_1:
+>         .word   6
+>         .word   2
+>         .word   13
+>         .word   3
+> .LCPI0_2:
+>         .word   4294443008
+>         .word   4294967264
+>         .word   4294965248
+>         .word   4293918720
+> .LCPI0_3:
+>         .word   4294967283
+>         .word   4294967269
+>         .word   4294967275
+>         .word   4294967284
+> prandom_u32_state:
+>         adrp    x9, .LCPI0_1
+>         ldr     q0, [x0]
+>         adrp    x10, .LCPI0_3
+>         ldr     q1, [x9, :lo12:.LCPI0_1]
+>         adrp    x9, .LCPI0_0
+>         ldr     q3, [x10, :lo12:.LCPI0_3]
+>         ldr     q2, [x9, :lo12:.LCPI0_0]
+>         adrp    x9, .LCPI0_2
+>         mov     x8, x0
+>         ushl    v1.4s, v0.4s, v1.4s
+>         ushl    v2.4s, v0.4s, v2.4s
+>         eor     v0.16b, v1.16b, v0.16b
+>         ldr     q1, [x9, :lo12:.LCPI0_2]
+>         and     v1.16b, v2.16b, v1.16b
+>         ushl    v0.4s, v0.4s, v3.4s
+>         orr     v0.16b, v0.16b, v1.16b
+>         ext     v1.16b, v0.16b, v0.16b, #8
+>         str     q0, [x8]
+>         eor     v1.8b, v0.8b, v1.8b
+>         fmov    x9, d1
+>         lsr     x10, x9, #32
+>         eor     w0, w9, w10
+>         ret
+> 
+> The x86 versions are a little longer (arm's barrel shifter helps a lot).
+> 
+>>
+>>> It'd also be
+>>> nice to have some brief analysis of other call sites to have
+>>> confirmation this isn't blowing up other users.  
+>>
+>> I compiled defconfig before and after this patch on arm64 and compared the text
+>> sizes:
+>>
+>> $ ./scripts/bloat-o-meter -t vmlinux.before vmlinux.after
+>> add/remove: 3/4 grow/shrink: 4/1 up/down: 836/-128 (708)
+>> Function                                     old     new   delta
+>> prandom_seed_full_state                      364     932    +568
+>> pick_next_task_fair                         1940    2036     +96
+>> bpf_user_rnd_u32                             104     196     +92
+>> prandom_bytes_state                          204     260     +56
+>> e843419@0f2b_00012d69_e34                      -       8      +8
+>> e843419@0db7_00010ec3_23ec                     -       8      +8
+>> e843419@02cb_00003767_25c                      -       8      +8
+>> bpf_prog_select_runtime                      448     444      -4
+>> e843419@0aa3_0000cfd1_1580                     8       -      -8
+>> e843419@0aa2_0000cfba_147c                     8       -      -8
+>> e843419@075f_00008d8c_184                      8       -      -8
+>> prandom_u32_state                            100       -    -100
+>> Total: Before=19078072, After=19078780, chg +0.00%
+>>
+>> So 708 bytes more after inlining.
+> 
+> Doesn't look like there are many calls.
+> 
+>> The main cost is prandom_seed_full_state(),
+>> which calls prandom_u32_state() 10 times (via prandom_warmup()). I expect we
+>> could turn that into a loop to reduce ~450 bytes overall.
+> 
+> That would always have helped the code size.
+> And I suspect the other costs of that code make unrolling the loop pointless.
+> 
+>>
+>> I'm not really sure if 708 is good or bad...
+>>
+>>>   
+>>>> +static __always_inline u32 prandom_u32_state(struct rnd_state *state)  
+>>>
+>>> Why not just normal `inline`? Is gcc disagreeing with the inlinability
+>>> of this function?  
+>>
+>> Given this needs to be called from a noinstr function, I didn't want to give the
+>> compiler the opportunity to decide not to inline it, since in that case, some
+>> instrumentation might end up being applied to the function body which would blow
+>> up when called in the noinstr context.
+>>
+>> I think the other 2 options are to keep prandom_u32_state() in the c file but
+>> mark it noinstr or rearrange all the users so that thay don't call it until
+>> instrumentation is allowable. The latter is something I was trying to avoid.
+>>
+>> There is some previous discussion of this at [1].
+>>
+>> [1] https://lore.kernel.org/all/aS65LFUfdgRPKv1l@J2N7QTR9R3/
+>>
+>> Perhaps keeping prandom_u32_state() in the c file and making it noinstr is the
+>> best compromise?
+> 
+> Or define prandom_u32_state_inline() as always_inline and have the
+> real function:
+> u32 prandom_u32_state(struct rnd_state *state)
+> {
+> 	return prandom_u32_state_inline(state);
+> }
+> 
+> So that the callers can pick the inline version if it really matters.
 
-On Wed Dec 31, 2025 at 3:38 AM CET, Kendall Willis wrote:
-> This series adds wakeup support for the Main UART in the device tree of
-> the TI AM62 family of devices. It defines the specific pins and pinctrl
-> states needed to wakeup the system from the Main UART via I/O
-> daisy-chaining. The wakeup-source property is configured to describe the
-> low power modes the system can wakeup from using the Main UART.
+Ahh yes, that sounds like the simplest/best idea to me. I'll take this approach
+for the next version assuming Jason is ok with it?
 
-Reviewed-by: Markus Schneider-Pargmann <msp@baylibre.com>
+Thanks,
+Ryan
 
-Best
-Markus
+> 
+> 	David
+> 
+>>
+>> Thanks,
+>> Ryan
+>>
+>>>
+>>> Jason  
+>>
+>>
+> 
 
---4e65c143e89b164e7daa8cca0ebf34813a0d86c08fe8a1a41299070c2a1e
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iKMEABYKAEsWIQSJYVVm/x+5xmOiprOFwVZpkBVKUwUCaVuTcRsUgAAAAAAEAA5t
-YW51MiwyLjUrMS4xMSwyLDIRHG1zcEBiYXlsaWJyZS5jb20ACgkQhcFWaZAVSlN0
-cAEAsymWEGyn3zumRS4qBP2frRfRk/M0ptrcMeU2m2GEl3EA/jw/uSKEntBvWLh7
-+3vrcNWot2uGtEQlf/nbvxYohiAP
-=CCHc
------END PGP SIGNATURE-----
-
---4e65c143e89b164e7daa8cca0ebf34813a0d86c08fe8a1a41299070c2a1e--
 
