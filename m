@@ -4,69 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7396ECD0403
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 20:55:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84FE6CD0402
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 20:55:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ntFGq1LHiZkFXKklC//fNpqLH1hG7zqTkRT7osbgy6g=; b=K/B3ckq+e7RNFZMnugZZ3M7h8H
-	Ol4AEXmUOUj3vmOjP/Sao3gTJV1x/TR2VlFIsqUmrHysbC3xTI+xFXjyzo/ljSsF1jcuUH1tdxi6o
-	BxjwLErawqQKatmbC3efyp8dXMIknzvvVD2h7lwoZ64oqkCkQ/CvxLR+P7W/AFUXDAuZgYumW1Uyr
-	+qIqkZJhP25eYMbKvb+IO5IymI6Xi16jIMcLhUxSd8mRk1N6miPcBnSw6ydIYpUqrYncvmU/VMjqx
-	x0+EedOhgNLwXXI+dS5JxXE611H4FhCY/e3ASiq7PGb+uudxs5qJzJoKWfZ32aQTYfD1nchdaco96
-	LgWj3WPw==;
+	bh=Z8khihi+OTS3DbmwGaQQ5QNmCINXg1t+QNpzKMIH1qg=; b=g747H722oEH23rUAny4saCefYF
+	Ufk8V9Bn3rB1AB7rm9iWkUPZHwkALihU+ayNzA6B/Nwz/P3iac0umczm672Z3Cj9zh1C21RYG5tfV
+	6+WSd/Bkt8B72dS5T4kx+7aIKiLxhNuqlr5ILof5gBrs3OKXD9Ehq5i4mxA3IeG2YTFDlPcNX5tjS
+	rI30dbV3FA6pwCM9qfijtFryRUaijYQ7GfIOHyTqU8XdQjsd0TQeZe6E9jCqgeQr3rMxGIyP74ecU
+	WeMYCRPOhGQh04BwhXTyLRKVqhgEwuy7ed7gf91SQDKGHm3MjFj8PHy5QuCNmNEXsQo/JL0E1JVK9
+	ic65xaaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcrbk-0000000C5AO-0lwU;
-	Mon, 05 Jan 2026 20:55:20 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vcrcF-0000000C5EO-24Hv;
+	Mon, 05 Jan 2026 20:55:51 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcrbi-0000000C5AI-3s0n
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 20:55:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C53296013A;
-	Mon,  5 Jan 2026 20:55:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE134C116D0;
-	Mon,  5 Jan 2026 20:55:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767646517;
-	bh=X0kZc9BzjwN5JH7faivqULek50zMy1V0qKnPhSZPR40=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=d+mzFxg2snhJMgHzYxsep1urxQ3+v79zFd17Eu5NrQpC2a7sDkFxwkqY6MCNFHhHQ
-	 0oTsesBLF1iss1X4rlnlkvRCzjUWGzNdQV506obKfjc0QkCZI+DjxXnPGQGxHED+A3
-	 tujFZt8Ib24w9bNmWtE1wyXqSW5lAvn/MKtl/mNmHgce5QOgnJ61fLhN58qQxaYuYk
-	 vPClOfvEX1NYgrkegC7SBERDPxVnjCOfuPyats2f3xXGYEZd2rpv/fPtMTf3zuvlfH
-	 UkwxfK5wqPapHGgkjfNcaBk0rwL0tWXdEGApwuxHH0GwHPCHV0VhYEmjk/BYa9QU+e
-	 7hmEZO0Oj2ZDg==
-Date: Mon, 5 Jan 2026 20:55:10 +0000
-From: Will Deacon <will@kernel.org>
-To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
-Cc: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Shuah Khan <shuah@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	Russell King <rmk+kernel@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	Arnd Bergmann <arnd@arndb.de>, linux-api@vger.kernel.org
-Subject: Re: [PATCH 8/9] arm64: vdso32: Provide clock_getres_time64()
-Message-ID: <aVwlLmvwXDFs--S7@willie-the-truck>
-References: <20251223-vdso-compat-time32-v1-0-97ea7a06a543@linutronix.de>
- <20251223-vdso-compat-time32-v1-8-97ea7a06a543@linutronix.de>
+	id 1vcrcC-0000000C5Dp-1mbY;
+	Mon, 05 Jan 2026 20:55:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1767646548; x=1799182548;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=WVnWbjYOpqIDwisoDyPelz9EoJY5dPQN7uCwfAGaPOw=;
+  b=BAAKaW8Z3uz0MAC0Ztl7qvoUD+rdWujpEok3eT8LoVUvXTtUmpqjNiD0
+   xYFzLVcC+F53WcP0dpZ2+WcmN7Mha06tEDMVcm3wI6xd/krWBdlFWvDho
+   2HBqoiIn29J7kUzHBcESY+mm7BCpRr4rP0FVznwN3JDSxddB7ieRuJPfZ
+   VsumMDCYeugaxahs6EHtrD+IR+zTamEGnyKtNsShcpqCc6ZJtF1Swhqb3
+   r3BUbIbRzgIB3aBCL5g/Wsy22LMGixJLQ/Q+wuKp4IlrvIG+tCQH+7fcH
+   Yg2uqOSnM5+x1hCz46UcGU/2n/LZIn0PrRuEZPwjXJeXYSsiA3TNAvn4r
+   Q==;
+X-CSE-ConnectionGUID: KuaDqId9Ry+Br+lTpoxJIA==
+X-CSE-MsgGUID: 24/dvIw7RV2o1Lz/2BhR/g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11662"; a="72863470"
+X-IronPort-AV: E=Sophos;i="6.21,204,1763452800"; 
+   d="scan'208";a="72863470"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Jan 2026 12:55:44 -0800
+X-CSE-ConnectionGUID: vVhRYXs2Sa+I91rilLBy4A==
+X-CSE-MsgGUID: MMI8n2KmS3y+WWgOlzEMug==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,204,1763452800"; 
+   d="scan'208";a="202534141"
+Received: from igk-lkp-server01.igk.intel.com (HELO 92b2e8bd97aa) ([10.211.93.152])
+  by orviesa008.jf.intel.com with ESMTP; 05 Jan 2026 12:55:41 -0800
+Received: from kbuild by 92b2e8bd97aa with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vcrc1-000000001BN-36Ax;
+	Mon, 05 Jan 2026 20:55:37 +0000
+Date: Mon, 5 Jan 2026 21:55:01 +0100
+From: kernel test robot <lkp@intel.com>
+To: Jai Luthra <jai.luthra@ideasonboard.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+	bcm-kernel-feedback-list@broadcom.com,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>
+Cc: Paul Gazzillo <paul@pgazz.com>,
+	Necip Fazil Yildiran <fazilyildiran@gmail.com>,
+	oe-kbuild-all@lists.linux.dev, Phil Elwell <phil@raspberrypi.com>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	Jai Luthra <jai.luthra@ideasonboard.com>
+Subject: Re: [PATCH v2 4/6] platform/raspberrypi: vchiq-mmal: Use vc-sm-cma
+ to support zero copy
+Message-ID: <202601052123.hNOfRem6-lkp@intel.com>
+References: <20260105-b4-vc-sm-cma-v2-4-4daea749ced9@ideasonboard.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251223-vdso-compat-time32-v1-8-97ea7a06a543@linutronix.de>
+In-Reply-To: <20260105-b4-vc-sm-cma-v2-4-4daea749ced9@ideasonboard.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260105_125548_539954_F80435C1 
+X-CRM114-Status: UNSURE (   9.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,52 +102,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 23, 2025 at 07:59:19AM +0100, Thomas Weiﬂschuh wrote:
-> For consistency with __vdso_clock_gettime64() there should also be a
-> 64-bit variant of clock_getres(). This will allow the extension of
-> CONFIG_COMPAT_32BIT_TIME to the vDSO and finally the removal of 32-bit
-> time types from the kernel and UAPI.
-> 
-> Signed-off-by: Thomas Weiﬂschuh <thomas.weissschuh@linutronix.de>
-> ---
->  arch/arm64/kernel/vdso32/vdso.lds.S      | 1 +
->  arch/arm64/kernel/vdso32/vgettimeofday.c | 6 ++++++
->  2 files changed, 7 insertions(+)
-> 
-> diff --git a/arch/arm64/kernel/vdso32/vdso.lds.S b/arch/arm64/kernel/vdso32/vdso.lds.S
-> index e02b27487ce8..c374fb0146f3 100644
-> --- a/arch/arm64/kernel/vdso32/vdso.lds.S
-> +++ b/arch/arm64/kernel/vdso32/vdso.lds.S
-> @@ -86,6 +86,7 @@ VERSION
->  		__vdso_gettimeofday;
->  		__vdso_clock_getres;
->  		__vdso_clock_gettime64;
-> +		__vdso_clock_getres_time64;
->  	local: *;
->  	};
->  }
-> diff --git a/arch/arm64/kernel/vdso32/vgettimeofday.c b/arch/arm64/kernel/vdso32/vgettimeofday.c
-> index 29b4d8f61e39..d7b39b0a9668 100644
-> --- a/arch/arm64/kernel/vdso32/vgettimeofday.c
-> +++ b/arch/arm64/kernel/vdso32/vgettimeofday.c
-> @@ -32,6 +32,12 @@ int __vdso_clock_getres(clockid_t clock_id,
->  	return __cvdso_clock_getres_time32(clock_id, res);
->  }
->  
-> +int __vdso_clock_getres_time64(clockid_t clock_id,
-> +			       struct __kernel_timespec *res)
-> +{
-> +	return __cvdso_clock_getres(clock_id, res);
-> +}
-> +
->  /* Avoid unresolved references emitted by GCC */
->  
->  void __aeabi_unwind_cpp_pr0(void)
+Hi Jai,
 
-Acked-by: Will Deacon <will@kernel.org>
+kernel test robot noticed the following build warnings:
 
-Please merge this along with the 32-bit Arm change, as it doesn't make
-sense otherwise.
+[auto build test WARNING on 3e7f562e20ee87a25e104ef4fce557d39d62fa85]
 
-Will
+url:    https://github.com/intel-lab-lkp/linux/commits/Jai-Luthra/platform-raspberrypi-vchiq-mmal-Reset-buffers_with_vpu-on-port_enable/20260105-170249
+base:   3e7f562e20ee87a25e104ef4fce557d39d62fa85
+patch link:    https://lore.kernel.org/r/20260105-b4-vc-sm-cma-v2-4-4daea749ced9%40ideasonboard.com
+patch subject: [PATCH v2 4/6] platform/raspberrypi: vchiq-mmal: Use vc-sm-cma to support zero copy
+config: sh-kismet-CONFIG_BCM2835_VCHIQ-CONFIG_BCM2835_VCHIQ_MMAL-0-0 (https://download.01.org/0day-ci/archive/20260105/202601052123.hNOfRem6-lkp@intel.com/config)
+reproduce: (https://download.01.org/0day-ci/archive/20260105/202601052123.hNOfRem6-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202601052123.hNOfRem6-lkp@intel.com/
+
+kismet warnings: (new ones prefixed by >>)
+>> kismet: WARNING: unmet direct dependencies detected for BCM2835_VCHIQ when selected by BCM2835_VCHIQ_MMAL
+   WARNING: unmet direct dependencies detected for BCM2835_VCHIQ
+     Depends on [n]: BCM_VIDEOCORE [=y] && HAS_DMA [=n]
+     Selected by [y]:
+     - BCM2835_VCHIQ_MMAL [=y] && BCM_VIDEOCORE [=y]
+     - BCM_VC_SM_CMA [=y] && BCM_VIDEOCORE [=y]
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
