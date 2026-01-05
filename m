@@ -4,58 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BE38C79FA5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51BF1C79FA7
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 16:46:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sBLPNH6vEtDcW0OeMW8E9IPd4cE2lTMSKDShN6v0ee8=; b=Bx+Fc2CUf2bpiama15SE4qgQlV
-	z92P8ZyKGvaDBX5VQPw9CyTRAbcHcIfQ8ioQGOmg7SxLkYfwOKgdTKKjnekKt829OVo3Q1S3Okz8A
-	VRTxM9W60pEve8fd1Fogi0Ex5BagQWa1CspwIjsx8F9/+bemeOEQhVmL5xPx6iQoVO7+IeAck+zxW
-	KMH36gCUDLW5krl+lPmK30GDvxYkrVt2PcXQ3QatFaLv3fJLjAP2xXYC3lEeCryVoP9mxQjGmQaBD
-	ZqBjNeUUj5m2oX57RTobMsmLvmHxw8VQeffpo0XMKDr18Pf/qLUcr0kpzdoVeVfR1wplynMt8ESXK
-	SkYSdLDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AxCpOBj5Ugt2Ls4JeNvRbvyW3tOKH0s2HHjYQxctAkQ=; b=G7w8gdgLHcrWQNMrXi8k76TuQG
+	LpBDHg5od70zucA0qIkFypwz+oEI2UnSs0rwNzL9gkftubq4FewhPCHLHzGlQkDc5xPpmJH9tOy0l
+	6AblOiPQnir/+xY08Bj38E0lVMWSdLyJgDSPiCHCag591R6nDgxesFuW0VvVhDKB+fqiDpne0o0Fk
+	fc/Cj4fTj6/peqIK4Zc20tMIBJXWn7mc7mNo3ayAuMtH1a8KGYVm3oaPUryDXKdTecmXLMaTIEy/V
+	opOseQKj7d4/6Z7X5I8WMwrUnHP5NSRB+LQiHcLb7srg2okYEO7HzujQonPjvniumiJGEVv5kl919
+	3S6kG/FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcniX-0000000Bkq8-0VzS;
-	Mon, 05 Jan 2026 16:46:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcniQ-0000000Bkoe-26wL
-	for linux-arm-kernel@lists.infradead.org;
+	id 1vcniR-0000000Bkou-1ogO;
 	Mon, 05 Jan 2026 16:46:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7C0BD339;
-	Mon,  5 Jan 2026 08:45:50 -0800 (PST)
-Received: from [10.57.65.127] (unknown [10.57.65.127])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 722B33F6A8;
-	Mon,  5 Jan 2026 08:45:55 -0800 (PST)
-Message-ID: <53e92af3-67cb-425a-a9c0-5746ce349247@arm.com>
-Date: Mon, 5 Jan 2026 16:45:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vcniP-0000000BkoV-0AiM
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 Jan 2026 16:45:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 21DE86013A;
+	Mon,  5 Jan 2026 16:45:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B224C116D0;
+	Mon,  5 Jan 2026 16:45:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767631555;
+	bh=hRalsOfosJADEMwrxolfPeTiI+tRS96R5nKkLXSFV/Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dPfguw5wUf0G5rvgYSSC+g28McqYU8gqXVj8JYZ+U8ufWLR7fto+11FmxnlkVAxpl
+	 N7iSNf2UWBzRnGn+E1W12qH2/H+zIhgltq1o+HRYJA6RrIeL5Jyqv/WVux6VeBIM2j
+	 uTYiGXzfhMmrH2o7mFMzPfqVGZQgD/acDW0xD67Fy5HXACXJKk0PCRSJkfEAZ7vkdL
+	 BCDDhWuwbUSAnGqGGrgJpAIFoGeZ6aPJtbJeZwPKvP7KL2exfNnBx8jZ52jx1XNasD
+	 Ut3JWJH/qncBbGk9Tdbkd2sW1v+zKNwNRvPUnuM/jhFQAxKfXQv+6T59eyayyKb1py
+	 7Z/KNGAwnelPg==
+Date: Mon, 5 Jan 2026 16:45:50 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 4/4] KVM: selftests: arm64: Skip all 32 bit IDs when
+ set_id_regs is aarch64 only
+Message-ID: <90fb25bd-fa79-4980-902b-497346a3e6d5@sirena.org.uk>
+References: <20251219-kvm-arm64-set-id-regs-aarch64-v3-0-bfa474ec3218@kernel.org>
+ <20251219-kvm-arm64-set-id-regs-aarch64-v3-4-bfa474ec3218@kernel.org>
+ <363e440d-4e29-4286-ade4-b4be2f856859@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 00/13] coresight: Update timestamp attribute to be an
- interval instead of bool
-To: Mike Leach <mike.leach@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jonathan Corbet <corbet@lwn.net>, Leo Yan <leo.yan@arm.com>,
- Randy Dunlap <rdunlap@infradead.org>, James Clark <james.clark@linaro.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- Jie Gan <jie.gan@oss.qualcomm.com>
-References: <20251128-james-cs-syncfreq-v8-0-4d319764cc58@linaro.org>
- <176763112483.1193329.14214589661973805304.b4-ty@arm.com>
-Content-Language: en-GB
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <176763112483.1193329.14214589661973805304.b4-ty@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_084559_032250_B9123128 
-X-CRM114-Status: GOOD (  12.04  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="jUgQ9HrVrHCgvOyK"
+Content-Disposition: inline
+In-Reply-To: <363e440d-4e29-4286-ade4-b4be2f856859@arm.com>
+X-Cookie: So many women
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,71 +78,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/01/2026 16:39, Suzuki K Poulose wrote:
-> 
-> On Fri, 28 Nov 2025 11:55:12 +0000, James Clark wrote:
->> Do some cleanups then expand the timestamp format attribute from 1 bit
->> to 4 bits for ETMv4 in Perf mode. The current interval is too high for
->> most use cases, and particularly on the FVP the number of timestamps
->> generated is excessive. This change not only still allows disabling or
->> enabling timestamps, but also allows the interval to be configured.
->>
->> The old bit is kept deprecated and undocumented for now. There are known
->> broken versions of Perf that don't read the format attribute positions
->> from sysfs and instead hard code the timestamp bit. We can leave the old
->> bit in the driver until we need the bit for another feature or enough
->> time has passed that these old Perfs are unlikely to be used.
->>
->> [...]
-> 
-> Applied, thanks!
-> 
-> [01/13] coresight: Change syncfreq to be a u8
->          (no commit info)
-> [02/13] coresight: Repack struct etmv4_drvdata
->          (no commit info)
-> [03/13] coresight: Refactor etm4_config_timestamp_event()
->          (no commit info)
-> [04/13] coresight: Hide unused ETMv3 format attributes
->          (no commit info)
-> [05/13] coresight: Define format attributes with GEN_PMU_FORMAT_ATTR()
->          (no commit info)
-> [06/13] coresight: Interpret ETMv3 config with ATTR_CFG_GET_FLD()
->          (no commit info)
-> [07/13] coresight: Don't reject unrecognized ETMv3 format attributes
->          (no commit info)
-> [08/13] coresight: Interpret perf config with ATTR_CFG_GET_FLD()
->          (no commit info)
-> [09/13] coresight: Interpret ETMv4 config with ATTR_CFG_GET_FLD()
->          (no commit info)
-> [10/13] coresight: Remove misleading definitions
->          (no commit info)
-> [11/13] coresight: Prepare to allow setting the timestamp interval
->          (no commit info)
-> [12/13] coresight: Extend width of timestamp format attribute
->          (no commit info)
-> [13/13] coresight: docs: Document etm4x timestamp interval option
->          (no commit info)
 
-Indeed they were applied, ;-)
+--jUgQ9HrVrHCgvOyK
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-https://git.kernel.org/coresight/c/19214ad0a4e3
-https://git.kernel.org/coresight/c/6c75940eb76d
-https://git.kernel.org/coresight/c/f4d2f5fec06a
-https://git.kernel.org/coresight/c/3285c471d0c0
-https://git.kernel.org/coresight/c/afed86e6e141
-https://git.kernel.org/coresight/c/b945d3677754
-https://git.kernel.org/coresight/c/d633fd22e810
-https://git.kernel.org/coresight/c/a1d19cd2b1a6
-https://git.kernel.org/coresight/c/458db6257149
-https://git.kernel.org/coresight/c/20bc2ea23774
-https://git.kernel.org/coresight/c/b02450de6ba6
-https://git.kernel.org/coresight/c/38f4c4273499
-https://git.kernel.org/coresight/c/10d4dbdc8fbc
+On Fri, Jan 02, 2026 at 02:50:07PM +0000, Ben Horgan wrote:
+> On 12/19/25 19:28, Mark Brown wrote:
 
+> > +			if (aarch64_only && sys_reg_CRm(reg_id) < 4) {
+> > +				ksft_test_result_skip("%s value seen in guest\n",
+> > +						      get_reg_name(reg_id));
+> > +				break;
+> > +			}
+> > +
 
-Suzuki
-> 
-> Best regards,
+> Unnecessary? The decision for which regs are testing is made in
+> guest_code().
 
+The guest code has a fixed list of registers it reads blindly and we
+skip the write for these so our expected value won't be something we
+explicitly set.  The actual test is done here in the host code and it
+seems both more maintainable to keep the skip adjacent to the live test
+and clearer to be more explicit about nothing actually being tested.
+
+> > +	if (aarch64_only && sys_reg_CRm(encoding) < 4) {
+
+> Doesn't this exclude more registers than needed? E.g. MIDR?
+
+Yes, I took this test from somewhere without thinking about it properly
+- it's been so long I can't remember but it was clearly wrong in this
+context.  I'll update.
+
+--jUgQ9HrVrHCgvOyK
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmlb6r0ACgkQJNaLcl1U
+h9B3Wwf9Ei81DVRAliYp+f2cGXjW5ohJtH7FHEVkRHuPfeDT/8tWAFsmGjASwsQv
+4Xm4CiVybCEghpj+Ld9vTaF0LYm1yaNVkTPl0EuIWBxMXBxI2OaXhqZ2+N8tzhQ7
+vdBXg9vaumylp81y7RDEeaHySwWg7ZtydV4zNMoq6bRkq02iwcuuDuC6hYwUSOFR
+hpr3yKDBfZ/kDHzZ3IUFrKiGQQCKuHtZ0FZgBPP0syz9rMVmxBaAAyKPGNmEtuvv
+iH5iQy58lagYJfMrRFTxYnAg4w0jN9VIFjiSxabF213G+fIyx0qtpw6X2SiZBof9
+e6MtF7Jgpg4sNydpvFXSxryixWYU3A==
+=HcmY
+-----END PGP SIGNATURE-----
+
+--jUgQ9HrVrHCgvOyK--
 
