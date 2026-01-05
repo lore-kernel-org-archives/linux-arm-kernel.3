@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20628C2A075
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 08:58:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A441C2A079
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 08:58:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/pCOJ/lNcueIJm40WFpsVzud66W464mBQEieQPMFnbQ=; b=Pjva3bR/LxNsn2NEXsDVSCuQIt
-	C5fTe+aU5mNZevAQa/RmY31vTXCd+Sgzb/o/5fyxwWp4hKIuiPkRv6uOTOqkuhbwbEeeQpoZVMwDI
-	EIJJi1iO9wQYBw59+H8JlskQc/DPIjJJAYe3WgXnP83/Bcgygb3pBGWaXHvlr3yOb09RfJDHZ9nDc
-	b+uFhCRFPOMHUZPzcC8FF8k6ffl+LxkDLVLMaNiEhVh0IaN51TxMY3qHA7IKp6nb29Z3fjf81pIHT
-	7Ue/KsDPDFx4IllBB0wtlU8tOmLcHYIYakUAwGT8sj8C/3pXeEvhy5Llk8Tkg7pPwqHwTFIlYuSla
-	j7Tp7VLg==;
+	bh=tuIvcq7drU9eatPBMs/qyzSrFQMsSzSQssjw4BpuGcI=; b=3YO4EEHrQQUkBAHId54B0l8jci
+	4gx7qPgWRq5BIwhwqq3HVKV6nlJidaPXZTS10PXV5i8OAtntDDUP3q+s2+VZSRvNMCTtgJ6Kh9mXy
+	i9AAariHDzmPD0Vl2nG+8b1xL4rGk8DSUyuWmgzVhbOXR9V8XtzR2wyK4ZF0YMBCWySER2vMEmCEE
+	hoYStDCQoQWC3SXzm9zx4MU5avJr2oMSLgPpzQIqLu+JsU17N3zdAzt9tHS2hoGbEd6MqCEbbj0WZ
+	YZ/QZSTsQRh+1CAASRfB6sXVBE5qh1jnWU15xVeqhf5662lXnxoY42MvfFzj3PcgWRo95mA2QLmI0
+	WWWqgSRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcgPq-0000000B1Cn-3Cj2;
-	Mon, 05 Jan 2026 08:58:18 +0000
+	id 1vcgQA-0000000B1JH-1Kap;
+	Mon, 05 Jan 2026 08:58:40 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcgPo-0000000B1C2-0OZG;
-	Mon, 05 Jan 2026 08:58:17 +0000
+	id 1vcgQ2-0000000B1GW-3pN3;
+	Mon, 05 Jan 2026 08:58:37 +0000
 Received: from mail.ideasonboard.com (unknown [223.190.87.50])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 2E8E1103D;
-	Mon,  5 Jan 2026 09:57:53 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 0967622A;
+	Mon,  5 Jan 2026 09:58:08 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1767603474;
-	bh=Y37QqX1z5ND57dXhUkEl4k4NLtL9Lq7cfe1c4EYWGJc=;
+	s=mail; t=1767603489;
+	bh=yaP3HyKstBhKWf2536vAbnaHRYAmQhF5Pn7rz8yvAm4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=nLobJJOPZkHbrnv46JSAQRLKUWJYORpaJ7L5DDXtC8VrVkHNNuBb0mmN0Wv6jhwaU
-	 HNYB0XMmNqd1NF1wbfm7N0DNFvUr+umfOBSF9WQ+TRXJcFjZB4Gp+Ww5DeoHKGTiOE
-	 s33gnr9y5DKOKg+oSJWaWrXjw7F1t964YCX4EIRo=
+	b=aP4I+0RyVbaPlmv0gI1lCr7ICSFm+QBe2dzmy3/0qoViabq2wYHQ1L85X4nGgkztV
+	 ECY9220BPnXc9jMBl9jHvqPITmNPGWCogkmGVRcq9u/9u40wUnPRdVviCFs/yp6krv
+	 oyO7Szurqwq1sAL4Bpxiiqq704pdoLHUh2M3EmpE=
 From: Jai Luthra <jai.luthra@ideasonboard.com>
-Date: Mon, 05 Jan 2026 14:26:47 +0530
-Subject: [PATCH v2 1/6] platform/raspberrypi: vchiq-mmal: Reset
- buffers_with_vpu on port_enable
+Date: Mon, 05 Jan 2026 14:26:48 +0530
+Subject: [PATCH v2 2/6] platform/raspberrypi: vchiq: Store audio device in
+ driver management struct
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20260105-b4-vc-sm-cma-v2-1-4daea749ced9@ideasonboard.com>
+Message-Id: <20260105-b4-vc-sm-cma-v2-2-4daea749ced9@ideasonboard.com>
 References: <20260105-b4-vc-sm-cma-v2-0-4daea749ced9@ideasonboard.com>
 In-Reply-To: <20260105-b4-vc-sm-cma-v2-0-4daea749ced9@ideasonboard.com>
 To: Florian Fainelli <florian.fainelli@broadcom.com>, 
@@ -58,28 +58,28 @@ Cc: Phil Elwell <phil@raspberrypi.com>, Stefan Wahren <wahrenst@gmx.net>,
  =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  linux-rpi-kernel@lists.infradead.org, 
- Jai Luthra <jai.luthra@ideasonboard.com>, stable@vger.kernel.org
+ Jai Luthra <jai.luthra@ideasonboard.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1302;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2939;
  i=jai.luthra@ideasonboard.com; h=from:subject:message-id;
- bh=JSgZMYealuIOds6HnKWiS/7lNVz/h69ewVfRbYUXbFE=;
- b=owEBbQKS/ZANAwAKAUPekfkkmnFFAcsmYgBpW3z5GpoW5BzlikLwvbXckRSzs6+GF/mA06/Xa
- Wsnj2/3hNeJAjMEAAEKAB0WIQRN4NgY5dV16NRar8VD3pH5JJpxRQUCaVt8+QAKCRBD3pH5JJpx
- RSOmEACCIQy+1kWfGHlfjnX6xuXtGaquCw0u35BY55qUwUq+ptoWF4h/jMIk86igSlucEXlA9Qh
- mAEuhKTIaI49agEDsJKmmTtBMe0UP9ckmig44prPwRmknT7WqfLwFx5IEhFcqf6oMcD3qSwYtvC
- oTExTLI+a15jWq9xdZwh7DOQ1Ppz1M+eKMNnE9u/8jdAvk7WRbG/E/qWvKmOPJthjfNHQy4c3sW
- WYL/9nq5iciVf1Z8xgHDWRZUdDVwyNzzLNBILP+9Xwxmjrj4voBiibxlH61qkzI6YS0AiodxPrJ
- 5l/p0LfJkW0oess+AiUiETktSChi1Q56i1saVbmbaRXX4X2/sbo9CkSc2lkMUJbFpJuV/ACyHp6
- CrP0jLHIVmJyW/Dfk8Y2/hypt2qMkrr9N2V2HeaKHcdabb27qRT5i1XBSs6VEb6RNwHi7dOEgup
- mweLinLJlAMPSjzsNzLoaioNp8MuPsuMwntbB3z8sBefoJZvrLn1usZZzciv6DxCO0o0AAeWDOq
- ehMtm16b0Uu/GNt/fT/VULzedgRkjEuaF/hIvNeamcxEyv6PgtE+92D+2yPwNAMyd6NXCoiWbhy
- fVwYw/LScJuOp6WCo1hzL8bsnjLUJqwOMBL4WQZLDwJhqsCnNev1duswio6RLSwjUHyr+Db7MyY
- XiemDOqq2HzT3wA==
+ bh=yaP3HyKstBhKWf2536vAbnaHRYAmQhF5Pn7rz8yvAm4=;
+ b=owEBbQKS/ZANAwAKAUPekfkkmnFFAcsmYgBpW3z6Mn9Yr/vXGIvYrWYdNbtQ0+Bt8XuJQuqPg
+ iFAbXHGs72JAjMEAAEKAB0WIQRN4NgY5dV16NRar8VD3pH5JJpxRQUCaVt8+gAKCRBD3pH5JJpx
+ RT5JD/wPBWLOrysUl0tM7jiCnNlmX4YpLyhefMmi2ioK3A9RhwN8JNcUZyPRtMCyw6ZthaOVuq2
+ xNf55FAjxpa4AIejODCDBRKfN9Nos8c/lSXBB0xctkBmh/l19I+5vYc6rtknnSMoK6RSQQOo8M0
+ Fg9aZdCmw03c8WFERF17HGDaJrlOOuIS2fLPuCRsaThOJ2wv6sz1g6qnfmFOswP4ZKe4rt5jS43
+ faTYSCgfFTshB74d8liXNKWIgf7FaqMp6jucNhYK95GVkgSRjfe/c/RABIG9BdXtEy9YTjI6fbz
+ cQXa9C1aqZuDIPe6Tros9xU+ML6VuujgvGDM2XyUXTeq319vLN83AkOZcBJdcV26an7QFhMWuDc
+ S/9D5MWqjjIoLaBPa+an8G/XfL++2guyggYa8FByqUBK7Fvd+AsdGNkP7qtiKw8nxn/zXWL1uYl
+ 5WEYO2c/V05v97PBaOhipAK5RxIR8CS1WAg8Vj9PAeQ/N4YctPV1oQ/La5HCFxcwa67PetMBI+q
+ IertMtjgqLtgkRvdkTbTwVvcdgybLT5Ef+HiKQ+3Ihye6v0Q+pLFrpZdUVlQE/A9i8SajBaoMQV
+ LzTG/1pOlzsqYxu+qTrxe9lyq0qGkbcPuiGzlzYnFWVRn2f/K0Klq3ZkyrSCGvnHGq1AT04AFq2
+ gif3b/P6sUoLrkg==
 X-Developer-Key: i=jai.luthra@ideasonboard.com; a=openpgp;
  fpr=4DE0D818E5D575E8D45AAFC543DE91F9249A7145
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_005816_280719_77DCD29F 
-X-CRM114-Status: GOOD (  10.49  )
+X-CRM114-CacheID: sfid-20260105_005831_096284_FF99DC78 
+X-CRM114-Status: GOOD (  16.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,38 +94,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Dave Stevenson <dave.stevenson@raspberrypi.com>
+The VCHIQ firmware devices are not discoverable, so they must be tracked
+manually by the driver. Previously, the bcm2835 audio device was stored
+in a static global pointer.
 
-Should we go through the timeout failure case with port_disable
-not returning all buffers for whatever reason, the
-buffers_with_vpu counter gets left at a non-zero value, which
-will cause reference counting issues should the instance be
-reused.
+Move the audio device pointer into struct vchiq_drv_mgmt instead, so it
+is properly associated with the driver instance and lifecycle. This
+avoids global state and makes device registration and removal follow the
+platform device more cleanly.
 
-Reset the count when the port is enabled again, but before
-any buffers have been sent to the VPU.
+No functional change intended.
 
-Fixes: 70ec64ccdaac ("staging: bcm2835-camera: Ensure all buffers are returned on disable")
-Cc: stable@vger.kernel.org
-Signed-off-by: Dave Stevenson <dave.stevenson@raspberrypi.com>
 Signed-off-by: Jai Luthra <jai.luthra@ideasonboard.com>
 ---
- drivers/platform/raspberrypi/vchiq-mmal/mmal-vchiq.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c | 11 ++---------
+ include/linux/raspberrypi/vchiq_arm.h                    |  8 ++++++++
+ 2 files changed, 10 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/platform/raspberrypi/vchiq-mmal/mmal-vchiq.c b/drivers/platform/raspberrypi/vchiq-mmal/mmal-vchiq.c
-index cd073ed3ea2dd9c45b137f1a32e236e520b7b320..e76551948bd9c4f60bef1138280fe8dd9d32477b 100644
---- a/drivers/platform/raspberrypi/vchiq-mmal/mmal-vchiq.c
-+++ b/drivers/platform/raspberrypi/vchiq-mmal/mmal-vchiq.c
-@@ -1364,6 +1364,8 @@ static int port_enable(struct vchiq_mmal_instance *instance,
+diff --git a/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c b/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c
+index 6a7b96d3dae6275a483ef15dc619c5510454765e..2cc7574a6132d9a26278439eb5f89c7bad94d764 100644
+--- a/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c
++++ b/drivers/platform/raspberrypi/vchiq-interface/vchiq_arm.c
+@@ -57,13 +57,6 @@
+ #define KEEPALIVE_VER 1
+ #define KEEPALIVE_VER_MIN KEEPALIVE_VER
  
- 	port->enabled = true;
+-/*
+- * The devices implemented in the VCHIQ firmware are not discoverable,
+- * so we need to maintain a list of them in order to register them with
+- * the interface.
+- */
+-static struct vchiq_device *bcm2835_audio;
+-
+ static const struct vchiq_platform_info bcm2835_info = {
+ 	.cache_line_size = 32,
+ };
+@@ -1421,7 +1414,7 @@ static int vchiq_probe(struct platform_device *pdev)
  
-+	atomic_set(&port->buffers_with_vpu, 0);
+ 	vchiq_debugfs_init(&mgmt->state);
+ 
+-	bcm2835_audio = vchiq_device_register(&pdev->dev, "bcm2835-audio");
++	mgmt->audio_dev = vchiq_device_register(&pdev->dev, "bcm2835-audio");
+ 
+ 	return 0;
+ }
+@@ -1430,7 +1423,7 @@ static void vchiq_remove(struct platform_device *pdev)
+ {
+ 	struct vchiq_drv_mgmt *mgmt = dev_get_drvdata(&pdev->dev);
+ 
+-	vchiq_device_unregister(bcm2835_audio);
++	vchiq_device_unregister(mgmt->audio_dev);
+ 	vchiq_debugfs_deinit();
+ 	vchiq_deregister_chrdev();
+ 	vchiq_platform_uninit(mgmt);
+diff --git a/include/linux/raspberrypi/vchiq_arm.h b/include/linux/raspberrypi/vchiq_arm.h
+index e32b02f990244b46ab97c463dab6a973fdd97033..541b4efd64d9a8229c7e4b5bc21137a9899af9c6 100644
+--- a/include/linux/raspberrypi/vchiq_arm.h
++++ b/include/linux/raspberrypi/vchiq_arm.h
+@@ -11,6 +11,7 @@
+ #include <linux/platform_device.h>
+ #include <linux/semaphore.h>
+ #include <linux/atomic.h>
++#include "vchiq_bus.h"
+ #include "vchiq_core.h"
+ #include "vchiq_debugfs.h"
+ 
+@@ -54,6 +55,13 @@ struct vchiq_drv_mgmt {
+ 	void __iomem *regs;
+ 
+ 	struct vchiq_state state;
 +
- 	if (port->buffer_cb) {
- 		/* send buffer headers to videocore */
- 		hdr_count = 1;
++	/*
++	 * The devices implemented in the VCHIQ firmware are not discoverable,
++	 * so we need to maintain a list of them in order to register them with
++	 * the interface.
++	 */
++	struct vchiq_device *audio_dev;
+ };
+ 
+ struct user_service {
 
 -- 
 2.52.0
