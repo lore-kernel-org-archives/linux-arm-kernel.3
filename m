@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3E64C79F9D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 15:50:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82FDFC79F9F
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 15:50:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nxJ+kBv6yMhwxFKSsykfbxsDRhQgP+63Ernq+02/PgQ=; b=JUzCa0azkLYonLCAVq9mNYm9cB
-	4wKbZ/o9czfI7v5fKbq86pJLWeB26+sb0m0kIJfV+XuTbZ2TnyI2ttrEWzOjJFZgqidlGsAoLT4K7
-	k+PurGzhKuJ26e2G0Crd57N51givp+VevOojJMq3O9sXRKW9Ab7bVtB+jerquVdi9jfqapwuhaj/4
-	yvx96DtPetR7ceXg4ubS5jVtlMMApFo0uqY0ZH1Q/XxtUbjQ0DWNqhubYJxfMdBgaQGNuk04fEMZ2
-	ZMYIAy0ZkwHxO8PICYg/JRvy2cwJJFiX1N1y500VJYCpGi4pVPOWVnc1qh+BRb5ON+Ag5n5QTJxjM
-	2yjVqj9g==;
+	bh=cc44NczAazQA/EyUOHdZg2rgKHEc/d8MVzARsuPsENo=; b=je5RwfYbreHqNJRnk29WYE5k6X
+	vbxeDEPctYyP3WdxYcgtQTT42IGHz16jB6TfgwQSNXl4j8r6zx49mSms/wDvivzhxjwd53e6zByQy
+	CgFeJ3F6BjxhvvgxrGmyVLqL+Cm8hKtJgw/rRDJpOSPyczfnYqhZqbSP2sa23YwlOk2sFHwIAe0/I
+	e8Xeun5P8BubZ3MJCshoNp9UN6otX+OWV9oOhvC/0IK7UwbTZ99gOYOVCBHFFah/L7PUne6xR4SYT
+	S2LMQkj2WKtvOFS+4NwHN6k/dkKPp/VjCcQsvTDgsKHy8uMoaH4zJ2Lzy+zoDNlm5tDuDLSAgahS7
+	13URgFDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcmqy-0000000Be7n-1LDv;
-	Mon, 05 Jan 2026 15:50:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vcmr0-0000000BeAy-3247;
+	Mon, 05 Jan 2026 15:50:46 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcmqu-0000000Be21-1Jg6
+	id 1vcmqx-0000000Be64-1SjV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 15:50:42 +0000
+	Mon, 05 Jan 2026 15:50:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E5A3A409BB;
-	Mon,  5 Jan 2026 15:50:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F463C19422;
-	Mon,  5 Jan 2026 15:50:37 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0B0DE409BB;
+	Mon,  5 Jan 2026 15:50:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58034C2BC86;
+	Mon,  5 Jan 2026 15:50:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767628239;
-	bh=6G8rwd4Cp4GzcAdEjkhvN/tkAkcxL4sQESVuYpuTUTE=;
+	s=k20201202; t=1767628242;
+	bh=qoVYpen1ot9+zckdKOrRl6patLQCwhmwP11TPG1QGCc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IOam0qNF5J5kwyYbbOemetk4Qyz6Q1RNcofuyRkoFGYgQv/i+uiWvZJnVwP8SpiBh
-	 Fa9A+5eMUmBEPH0bgba16tuh+ySCEM2jWhJd82rhkvv2wbSeoI77pKghmK3dkEzvOQ
-	 EkxnqRHiF1VZaI2/1+NWtgSPhXUUMILeiPemBM3HRmc3t0mDYNuzP1vGlq4xj2sNKC
-	 iORF/3GPF1TVs1bGE+xhLbx2C3czB9DR7TtcTVULm3CueCBKd02Qz27hi4974hJDSn
-	 EBst/ZjVJrA1SAXyglyI8jsTWMUtKMxZDYR73Y/IOf55ngYIC3+4sWkQDXytNpfRJB
-	 78H21W7xcEzwQ==
+	b=o37UXH+d2UdpG3NYHzvxp1n7iRvDGlDwM740z0eYCdJJ3rKQlbWsoYvNkxUoC4k57
+	 2PBilLB6dRXoAgJ1YCh8rUo+ZOhfPApI8vpP0n0ld6zoVbV3BzwA2XMpTzUUOO5AsA
+	 GcdOdiwjuRJmxQs8M2AcNoeQno9Fc8ex7jDG0IoCSab9bBqBBVeGbVM08F+rvGSNdW
+	 JEEkPYqiavWtVLw5ewdcJrOFqHo13lfKVAKp0O1+XuxHhpH8e2II+G2n5jk7i3X4G+
+	 q636v6YpY3ifvbEsN7ZhcwrIl5x0j5Qz0lMFd5IpEVKw5f5nqr4B8/ivvcA8gKKPie
+	 zd8uRf5R2crew==
 From: Will Deacon <will@kernel.org>
 To: kvmarm@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -56,17 +56,17 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Fuad Tabba <tabba@google.com>,
 	Vincent Donnefort <vdonnefort@google.com>,
 	Mostafa Saleh <smostafa@google.com>
-Subject: [PATCH 16/30] KVM: arm64: Inject SIGSEGV on illegal accesses
-Date: Mon,  5 Jan 2026 15:49:24 +0000
-Message-ID: <20260105154939.11041-17-will@kernel.org>
+Subject: [PATCH 17/30] KVM: arm64: Generalise kvm_pgtable_stage2_set_owner()
+Date: Mon,  5 Jan 2026 15:49:25 +0000
+Message-ID: <20260105154939.11041-18-will@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20260105154939.11041-1-will@kernel.org>
 References: <20260105154939.11041-1-will@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_075040_432519_6C5A2F64 
-X-CRM114-Status: GOOD (  22.20  )
+X-CRM114-CacheID: sfid-20260105_075043_467121_4001B75D 
+X-CRM114-Status: GOOD (  18.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,153 +81,171 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Quentin Perret <qperret@google.com>
+kvm_pgtable_stage2_set_owner() can be generalised into a way to store
+up to 62 bits in the page tables, as long as we don't set the 'valid' or
+KVM_INVALID_PTE_LOCKED bits.
 
-The pKVM hypervisor will currently panic if the host tries to access
-memory that it doesn't own (e.g. protected guest memory). Sadly, as
-guest memory can still be mapped into the VMM's address space, userspace
-can trivially crash the kernel/hypervisor by poking into guest memory.
+Let's do that and reduce the owner field to 4 bits to free up more
+annotation space for future work.
 
-To prevent this, inject the abort back in the host with S1PTW set in the
-ESR, hence allowing the host to differentiate this abort from normal
-userspace faults and inject a SIGSEGV cleanly.
-
-Signed-off-by: Quentin Perret <qperret@google.com>
 Signed-off-by: Will Deacon <will@kernel.org>
 ---
- arch/arm64/kvm/hyp/nvhe/mem_protect.c | 50 ++++++++++++++++++++++++++-
- arch/arm64/mm/fault.c                 | 22 ++++++++++++
- 2 files changed, 71 insertions(+), 1 deletion(-)
+ arch/arm64/include/asm/kvm_pgtable.h  | 21 +++++++++++++--------
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c | 14 ++++++++++++--
+ arch/arm64/kvm/hyp/pgtable.c          | 17 ++++++-----------
+ 3 files changed, 31 insertions(+), 21 deletions(-)
 
+diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+index 9ce55442b621..ddbe0e506e4c 100644
+--- a/arch/arm64/include/asm/kvm_pgtable.h
++++ b/arch/arm64/include/asm/kvm_pgtable.h
+@@ -97,14 +97,17 @@ typedef u64 kvm_pte_t;
+ 					 KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W | \
+ 					 KVM_PTE_LEAF_ATTR_HI_S2_XN)
+ 
+-#define KVM_INVALID_PTE_OWNER_MASK	GENMASK(9, 2)
+-#define KVM_MAX_OWNER_ID		3
++/* pKVM invalid pte encodings */
++#define KVM_INVALID_PTE_OWNER_MASK	GENMASK(4, 1)
++#define KVM_INVALID_PTE_EXTRA_MASK	GENMASK(62, 5)
++#define KVM_INVALID_PTE_ANNOT_MASK	(KVM_INVALID_PTE_OWNER_MASK | \
++					 KVM_INVALID_PTE_EXTRA_MASK)
+ 
+ /*
+  * Used to indicate a pte for which a 'break-before-make' sequence is in
+  * progress.
+  */
+-#define KVM_INVALID_PTE_LOCKED		BIT(10)
++#define KVM_INVALID_PTE_LOCKED		BIT(63)
+ 
+ static inline bool kvm_pte_valid(kvm_pte_t pte)
+ {
+@@ -657,14 +660,16 @@ int kvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
+ 			   void *mc, enum kvm_pgtable_walk_flags flags);
+ 
+ /**
+- * kvm_pgtable_stage2_set_owner() - Unmap and annotate pages in the IPA space to
+- *				    track ownership.
++ * kvm_pgtable_stage2_annotate() - Unmap and annotate pages in the IPA space
++ *				   to track ownership (and more).
+  * @pgt:	Page-table structure initialised by kvm_pgtable_stage2_init*().
+  * @addr:	Base intermediate physical address to annotate.
+  * @size:	Size of the annotated range.
+  * @mc:		Cache of pre-allocated and zeroed memory from which to allocate
+  *		page-table pages.
+- * @owner_id:	Unique identifier for the owner of the page.
++ * @annotation:	A 62-bit value that will be stored in the page tables.
++ *		@annotation[0] and @annotation[63] must be 0.
++ * 		@annotation[62:1] is stored in the page tables.
+  *
+  * By default, all page-tables are owned by identifier 0. This function can be
+  * used to mark portions of the IPA space as owned by other entities. When a
+@@ -673,8 +678,8 @@ int kvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
+  *
+  * Return: 0 on success, negative error code on failure.
+  */
+-int kvm_pgtable_stage2_set_owner(struct kvm_pgtable *pgt, u64 addr, u64 size,
+-				 void *mc, u8 owner_id);
++int kvm_pgtable_stage2_annotate(struct kvm_pgtable *pgt, u64 addr, u64 size,
++				void *mc, kvm_pte_t annotation);
+ 
+ /**
+  * kvm_pgtable_stage2_unmap() - Remove a mapping from a guest stage-2 page-table.
 diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index edbfe0e3dc58..0336143cbb24 100644
+index 0336143cbb24..6c32bdc689ed 100644
 --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
 +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -603,6 +603,50 @@ static int host_stage2_idmap(u64 addr)
+@@ -539,15 +539,25 @@ static void __host_update_page_state(phys_addr_t addr, u64 size, enum pkvm_page_
+ 		set_host_state(page, state);
+ }
+ 
++static kvm_pte_t kvm_init_invalid_leaf_owner(u8 owner_id)
++{
++	return FIELD_PREP(KVM_INVALID_PTE_OWNER_MASK, owner_id);
++}
++
+ int host_stage2_set_owner_locked(phys_addr_t addr, u64 size, u8 owner_id)
+ {
++	kvm_pte_t annotation;
+ 	int ret;
+ 
++	if (!FIELD_FIT(KVM_INVALID_PTE_OWNER_MASK, owner_id))
++		return -EINVAL;
++
+ 	if (!range_is_memory(addr, addr + size))
+ 		return -EPERM;
+ 
+-	ret = host_stage2_try(kvm_pgtable_stage2_set_owner, &host_mmu.pgt,
+-			      addr, size, &host_s2_pool, owner_id);
++	annotation = kvm_init_invalid_leaf_owner(owner_id);
++	ret = host_stage2_try(kvm_pgtable_stage2_annotate, &host_mmu.pgt,
++			      addr, size, &host_s2_pool, annotation);
+ 	if (ret)
+ 		return ret;
+ 
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index 9abc0a6cf448..749ee5863601 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -114,11 +114,6 @@ static kvm_pte_t kvm_init_valid_leaf_pte(u64 pa, kvm_pte_t attr, s8 level)
+ 	return pte;
+ }
+ 
+-static kvm_pte_t kvm_init_invalid_leaf_owner(u8 owner_id)
+-{
+-	return FIELD_PREP(KVM_INVALID_PTE_OWNER_MASK, owner_id);
+-}
+-
+ static int kvm_pgtable_visitor_cb(struct kvm_pgtable_walk_data *data,
+ 				  const struct kvm_pgtable_visit_ctx *ctx,
+ 				  enum kvm_pgtable_walk_flags visit)
+@@ -563,7 +558,7 @@ void kvm_pgtable_hyp_destroy(struct kvm_pgtable *pgt)
+ struct stage2_map_data {
+ 	const u64			phys;
+ 	kvm_pte_t			attr;
+-	u8				owner_id;
++	kvm_pte_t			pte_annot;
+ 
+ 	kvm_pte_t			*anchor;
+ 	kvm_pte_t			*childp;
+@@ -946,7 +941,7 @@ static int stage2_map_walker_try_leaf(const struct kvm_pgtable_visit_ctx *ctx,
+ 	if (!data->annotation)
+ 		new = kvm_init_valid_leaf_pte(phys, data->attr, ctx->level);
+ 	else
+-		new = kvm_init_invalid_leaf_owner(data->owner_id);
++		new = data->pte_annot;
+ 
+ 	/*
+ 	 * Skip updating the PTE if we are trying to recreate the exact
+@@ -1100,16 +1095,16 @@ int kvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
  	return ret;
  }
  
-+static void host_inject_abort(struct kvm_cpu_context *host_ctxt)
-+{
-+	u64 spsr = read_sysreg_el2(SYS_SPSR);
-+	u64 esr = read_sysreg_el2(SYS_ESR);
-+	u64 ventry, ec;
-+
-+	/* Repaint the ESR to report a same-level fault if taken from EL1 */
-+	if ((spsr & PSR_MODE_MASK) != PSR_MODE_EL0t) {
-+		ec = ESR_ELx_EC(esr);
-+		if (ec == ESR_ELx_EC_DABT_LOW)
-+			ec = ESR_ELx_EC_DABT_CUR;
-+		else if (ec == ESR_ELx_EC_IABT_LOW)
-+			ec = ESR_ELx_EC_IABT_CUR;
-+		else
-+			WARN_ON(1);
-+		esr &= ~ESR_ELx_EC_MASK;
-+		esr |= ec << ESR_ELx_EC_SHIFT;
-+	}
-+
-+	/*
-+	 * Since S1PTW should only ever be set for stage-2 faults, we're pretty
-+	 * much guaranteed that it won't be set in ESR_EL1 by the hardware. So,
-+	 * let's use that bit to allow the host abort handler to differentiate
-+	 * this abort from normal userspace faults.
-+	 *
-+	 * Note: although S1PTW is RES0 at EL1, it is guaranteed by the
-+	 * architecture to be backed by flops, so it should be safe to use.
-+	 */
-+	esr |= ESR_ELx_S1PTW;
-+
-+	write_sysreg_el1(esr, SYS_ESR);
-+	write_sysreg_el1(spsr, SYS_SPSR);
-+	write_sysreg_el1(read_sysreg_el2(SYS_ELR), SYS_ELR);
-+	write_sysreg_el1(read_sysreg_el2(SYS_FAR), SYS_FAR);
-+
-+	ventry = read_sysreg_el1(SYS_VBAR);
-+	ventry += get_except64_offset(spsr, PSR_MODE_EL1h, except_type_sync);
-+	write_sysreg_el2(ventry, SYS_ELR);
-+
-+	spsr = get_except64_cpsr(spsr, system_supports_mte(),
-+				 read_sysreg_el1(SYS_SCTLR), PSR_MODE_EL1h);
-+	write_sysreg_el2(spsr, SYS_SPSR);
-+}
-+
- void handle_host_mem_abort(struct kvm_cpu_context *host_ctxt)
+-int kvm_pgtable_stage2_set_owner(struct kvm_pgtable *pgt, u64 addr, u64 size,
+-				 void *mc, u8 owner_id)
++int kvm_pgtable_stage2_annotate(struct kvm_pgtable *pgt, u64 addr, u64 size,
++				void *mc, kvm_pte_t pte_annot)
  {
- 	struct kvm_vcpu_fault_info fault;
-@@ -627,7 +671,11 @@ void handle_host_mem_abort(struct kvm_cpu_context *host_ctxt)
- 	addr = FIELD_GET(HPFAR_EL2_FIPA, fault.hpfar_el2) << 12;
+ 	int ret;
+ 	struct stage2_map_data map_data = {
+ 		.mmu		= pgt->mmu,
+ 		.memcache	= mc,
+-		.owner_id	= owner_id,
+ 		.force_pte	= true,
+ 		.annotation	= true,
++		.pte_annot	= pte_annot,
+ 	};
+ 	struct kvm_pgtable_walker walker = {
+ 		.cb		= stage2_map_walker,
+@@ -1118,7 +1113,7 @@ int kvm_pgtable_stage2_set_owner(struct kvm_pgtable *pgt, u64 addr, u64 size,
+ 		.arg		= &map_data,
+ 	};
  
- 	ret = host_stage2_idmap(addr);
--	BUG_ON(ret && ret != -EAGAIN);
-+
-+	if (ret == -EPERM)
-+		host_inject_abort(host_ctxt);
-+	else
-+		BUG_ON(ret && ret != -EAGAIN);
- }
+-	if (owner_id > KVM_MAX_OWNER_ID)
++	if (pte_annot & ~KVM_INVALID_PTE_ANNOT_MASK)
+ 		return -EINVAL;
  
- struct check_walk_data {
-diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-index be9dab2c7d6a..2294f2061866 100644
---- a/arch/arm64/mm/fault.c
-+++ b/arch/arm64/mm/fault.c
-@@ -43,6 +43,7 @@
- #include <asm/system_misc.h>
- #include <asm/tlbflush.h>
- #include <asm/traps.h>
-+#include <asm/virt.h>
- 
- struct fault_info {
- 	int	(*fn)(unsigned long far, unsigned long esr,
-@@ -269,6 +270,15 @@ static inline bool is_el1_permission_fault(unsigned long addr, unsigned long esr
- 	return false;
- }
- 
-+static bool is_pkvm_stage2_abort(unsigned int esr)
-+{
-+	/*
-+	 * S1PTW should only ever be set in ESR_EL1 if the pkvm hypervisor
-+	 * injected a stage-2 abort -- see host_inject_abort().
-+	 */
-+	return is_pkvm_initialized() && (esr & ESR_ELx_S1PTW);
-+}
-+
- static bool __kprobes is_spurious_el1_translation_fault(unsigned long addr,
- 							unsigned long esr,
- 							struct pt_regs *regs)
-@@ -279,6 +289,9 @@ static bool __kprobes is_spurious_el1_translation_fault(unsigned long addr,
- 	if (!is_el1_data_abort(esr) || !esr_fsc_is_translation_fault(esr))
- 		return false;
- 
-+	if (is_pkvm_stage2_abort(esr))
-+		return false;
-+
- 	local_irq_save(flags);
- 	asm volatile("at s1e1r, %0" :: "r" (addr));
- 	isb();
-@@ -395,6 +408,8 @@ static void __do_kernel_fault(unsigned long addr, unsigned long esr,
- 			msg = "read from unreadable memory";
- 	} else if (addr < PAGE_SIZE) {
- 		msg = "NULL pointer dereference";
-+	} else if (is_pkvm_stage2_abort(esr)) {
-+		msg = "access to hypervisor-protected memory";
- 	} else {
- 		if (esr_fsc_is_translation_fault(esr) &&
- 		    kfence_handle_page_fault(addr, esr & ESR_ELx_WNR, regs))
-@@ -621,6 +636,13 @@ static int __kprobes do_page_fault(unsigned long far, unsigned long esr,
- 					 addr, esr, regs);
- 	}
- 
-+	if (is_pkvm_stage2_abort(esr)) {
-+		if (!user_mode(regs))
-+			goto no_context;
-+		arm64_force_sig_fault(SIGSEGV, SEGV_ACCERR, far, "stage-2 fault");
-+		return 0;
-+	}
-+
- 	perf_sw_event(PERF_COUNT_SW_PAGE_FAULTS, 1, regs, addr);
- 
- 	if (!(mm_flags & FAULT_FLAG_USER))
+ 	ret = kvm_pgtable_walk(pgt, addr, size, &walker);
 -- 
 2.52.0.351.gbe84eed79e-goog
 
