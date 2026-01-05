@@ -4,62 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F215C79FA7
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 17:35:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95E1BC79FAD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 17:38:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=hQ4uICTlNXpekPtn9vswe4r0aAmTeEXI4c21WdWj3Rg=; b=pIRZjtbBrGV425
-	iBqSRib3jUdM7ND9a9DGda/k3Xm8aTa6/1iMV+H6m0fWIMxq+Es4PVufLAdbr4mmXCuoczHvrKwKe
-	akymOeKXcZbfkqmh2wQr/2eZMfF2HAgh0MATWJOirXHxkLA/DDJEPW4MOoatys+nKi4K1mJSh7svV
-	n4LnWSQgVhXjDGPP/VVM49dNE3nXosxSaMsyiEmeeRxTQRIefwqoKqdiZrn0bsJsJp2/t/cEMV47y
-	wRMGcLCmLWiGPKKwFUe/6dilfaLRLBDsvPKmhj7MW8sLOz0HseyRwzfpENEoyxtL0NmuOnE1Gq6Js
-	KdByrBvi4B+vfPj4rFfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:References:MIME-Version:
+	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lF582LJ40LqQgFk7CFzcyzEsbDMIx+eoKuMIyxCDbPo=; b=F8ajvv7bFB30oVGGLkVwz3asnQ
+	nSvmrUYLJ5lFWFua8Nl6VjtiHsp/Cv0+URMULme16UrahTG2MuY6/QzIrPL7EUUla5y/1C4XnP1dM
+	lter0pmLej/R67hzxQQPoGngnn3DLgLbkFslO37Q6lQGHdpIVCleXUJHZVfI4K+9TKu+jushiBSYp
+	H0geJlYs6HR2/1+mFYJI8gT71MdMmavqxPZKuT+A0D6LazvLHWM3bMGaZrlvi0Ys9LBO+hoqJN0ht
+	mNpJOlwgx7AuJyd71KdxFeZuu8+F2MB3GrMTUPjjrC9V0sn1LRHgGni55OY6rL4+hdrNnRh5K+vmh
+	s/u1ZMSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcoUU-0000000BqXZ-0ACQ;
-	Mon, 05 Jan 2026 17:35:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vcoXT-0000000BqhY-3wLt;
+	Mon, 05 Jan 2026 17:38:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcoUS-0000000BqXJ-25cy
+	id 1vcoXQ-0000000BqgQ-0nwo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 17:35:36 +0000
+	Mon, 05 Jan 2026 17:38:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6E99760010;
-	Mon,  5 Jan 2026 17:35:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 034C6C116D0;
-	Mon,  5 Jan 2026 17:35:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 746BE443BD
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  5 Jan 2026 17:38:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A77CC19421
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  5 Jan 2026 17:38:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767634535;
-	bh=hRDqJrql8dctEWP20Bj6GrBkP/6rK2t9UtbGS9Tl++I=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=liIZlzFhR9hQE/xJKCJAxhlo6ZD+9klal2OD/fPnl0tnPPOmGWCvjlUk49eulgzVd
-	 tgXv/z2EoaboHYtvkORhUCs7wGU5MhwzrFIsTGRKsYpUgUZ4Q2uDx9xTybyFhtF7oT
-	 kmPp+MAwvzGI9gfRQIrBMjuNYuXy4giW1ZKeVQWMh9+8BUdHRjWr0raqrzQcadpqpx
-	 vk5jbBJut7BR4a1r3e+bP+sbrcyrquLaBtE7/tEJWqDi/qwauyxwy2sZg9ADWV7zZ5
-	 vY6BWqS1xKewfo2q0klPQ0kvTSh5NmkFdf5r2g/UX06MEl/nmcWx0WuM0y40fb36UK
-	 JN1rNMDUMa2Mw==
-Date: Mon, 5 Jan 2026 11:35:33 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
-	Robert Moore <robert.moore@intel.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@arm.com>, Marc Zyngier <maz@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>, linux-acpi@vger.kernel.org,
-	acpica-devel@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org
-Subject: Re: [PATCH v2 4/7] PCI/MSI: Make the pci_msi_map_rid_ctlr_node()
- interface firmware agnostic
-Message-ID: <20260105173533.GA322546@bhelgaas>
+	s=k20201202; t=1767634719;
+	bh=Xp0i1Ix8i4EVXbO6cbFPIEaut/C7zGARDQHbCBH0TDs=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
+	b=ih9Qw6lz1Sko5fL7pFLbomG8nmlCZWV5f7VzhNkCv3qefRr8/DZCKpPozic2neoTd
+	 Xw4fRybgZh/FRbdFzVZ7KJ3VUaI+bO8UXaC0hYJ6BHPod+ZT9Fbf54stFIjt889hVF
+	 JrGDcMSZtE2iEZp6xZj9JnTOSTTs2m75dLdvvRvpmnYM4/IqnM5c5fRWYDDFtGfmU5
+	 buKtj+8Sw+3eOCb2sKEA4X7KO3Dgn3T6udqPNwd+kNITAJjjP5Wv1CZDkGPCa7Ftr9
+	 GnV7m7L+1R6UyMjEMJ0APffCchNsz13K5mszzy3M2J0GHXoIaUObJ8m0lFNZY6a2Oa
+	 N9eikJpKN+0jA==
+Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-37fd6e91990so1345741fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 09:38:39 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUu0AXJJjywJf6wQgYNOMY8pVEPJHanN90UkpldTXRc97RXkT3Qo50DZkNXTz84IcoxUj8rQtpkCOr1HKGj2lPT@lists.infradead.org
+X-Gm-Message-State: AOJu0YxEgQBzJituDiKrKIoqo36wD8+zYtHlHKWNI0x9o7lRPE1GoPxx
+	n8azC6nBQhlOMFjADhybeVs1UUAfW9xCUO0Yi2rogdArGfJhixRjm6+wagdinkt5bo0dEXq3O93
+	v/Q82/OKdrHmOLp/2J076tH6U7Sv3nCWy6guYaC5qeg==
+X-Google-Smtp-Source: AGHT+IG6SIPigJxkJHInO+tkcsToIW/YovjrsTkuD8gZ0NGaSCdwwzyT7wEbNisz6v64WdN2v0/svdmJHeaElAERj4U=
+X-Received: by 2002:a2e:ad13:0:b0:382:8844:2080 with SMTP id
+ 38308e7fff4ca-382eaabb736mr255161fa.25.1767634717790; Mon, 05 Jan 2026
+ 09:38:37 -0800 (PST)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 5 Jan 2026 09:38:36 -0800
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 5 Jan 2026 09:38:36 -0800
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <CAFBinCAc7CO8gfNQakCu3LfkYXuyTd2iRpMRm8EKXSL0mwOnJw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251218-gicv5-host-acpi-v2-4-eec76cd1d40b@kernel.org>
+References: <20260105150509.56537-1-bartosz.golaszewski@oss.qualcomm.com> <CAFBinCAc7CO8gfNQakCu3LfkYXuyTd2iRpMRm8EKXSL0mwOnJw@mail.gmail.com>
+Date: Mon, 5 Jan 2026 09:38:36 -0800
+X-Gmail-Original-Message-ID: <CAMRc=MeYWm=5bwfT5s+w6_kjt=wROonZSYo8=kA3Eyva4hpp1g@mail.gmail.com>
+X-Gm-Features: AQt7F2oSq5mFA1y8aimNhkWa6uJgJwLZMRBreFji3RmTtVrRuRT8uL2rJ5zqO0Q
+Message-ID: <CAMRc=MeYWm=5bwfT5s+w6_kjt=wROonZSYo8=kA3Eyva4hpp1g@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: meson: mark the GPIO controller as sleeping
+To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: Linus Walleij <linusw@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Bartosz Golaszewski <brgl@kernel.org>, linux-gpio@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, 
+	Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260105_093840_267643_9519A154 
+X-CRM114-Status: GOOD (  10.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,125 +92,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 18, 2025 at 11:14:30AM +0100, Lorenzo Pieralisi wrote:
-> To support booting with OF and ACPI seamlessly, GIC ITS parent code
-> requires the PCI/MSI irqdomain layer to implement a function to retrieve
-> an MSI controller fwnode and map an RID in a firmware agnostic way
-> (ie pci_msi_map_rid_ctlr_node()).
-> 
-> Convert pci_msi_map_rid_ctlr_node() to an OF agnostic interface
-> (fwnode_handle based) and update the GIC ITS MSI parent code to reflect
-> the pci_msi_map_rid_ctlr_node() change.
-> 
-> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Bjorn Helgaas <bhelgaas@google.com>
-> Cc: Marc Zyngier <maz@kernel.org>
+On Mon, 5 Jan 2026 18:28:23 +0100, Martin Blumenstingl
+<martin.blumenstingl@googlemail.com> said:
+> Hi Bartosz,
+>
+> On Mon, Jan 5, 2026 at 4:05=E2=80=AFPM Bartosz Golaszewski
+> <bartosz.golaszewski@oss.qualcomm.com> wrote:
+> [...]
+>>   mutex_lock_nested+0x24/0x30
+>>   pinctrl_get_device_gpio_range+0x44/0x128
+>>   pinctrl_gpio_set_config+0x40/0xdc
+>>   gpiochip_generic_config+0x28/0x3c
+>>   gpio_do_set_config+0xa8/0x194
+> $ git grep gpiochip_generic_config drivers/pinctrl/meson/
+> drivers/pinctrl/meson/pinctrl-amlogic-a4.c:     .set_config
+>  =3D gpiochip_generic_config,
+> drivers/pinctrl/meson/pinctrl-meson.c:  pc->chip.set_config =3D
+> gpiochip_generic_config;
+>
+> pinctrl-amlogic-a4.c still has:
+>   .can_sleep =3D false,
+>
+> Are there plans to send a separate fix for pinctrl-amlogic-a4.c - or
+> was the intention to fix "all" Amlogic pin controllers in this patch
+> (which would mean that the change to pinctrl-amlogic-a4.c is missing)?
+>
+>
 
-Acked-by: Bjorn Helgaas <bhelgaas@google.com>
+Yeah, I missed it. I will send a follow-up tomorrow.
 
-I assume this series will be merged via some non-PCI tree.  Let me
-know if you need anything else.
-
-> ---
->  drivers/irqchip/irq-gic-its-msi-parent.c |  8 ++++----
->  drivers/pci/msi/irqdomain.c              | 22 +++++++++++++++++-----
->  include/linux/msi.h                      |  3 ++-
->  3 files changed, 23 insertions(+), 10 deletions(-)
-> 
-> diff --git a/drivers/irqchip/irq-gic-its-msi-parent.c b/drivers/irqchip/irq-gic-its-msi-parent.c
-> index 12f45228c867..4d1ad1ee005d 100644
-> --- a/drivers/irqchip/irq-gic-its-msi-parent.c
-> +++ b/drivers/irqchip/irq-gic-its-msi-parent.c
-> @@ -104,7 +104,7 @@ static int its_pci_msi_prepare(struct irq_domain *domain, struct device *dev,
->  static int its_v5_pci_msi_prepare(struct irq_domain *domain, struct device *dev,
->  				  int nvec, msi_alloc_info_t *info)
->  {
-> -	struct device_node *msi_node = NULL;
-> +	struct fwnode_handle *msi_node = NULL;
->  	struct msi_domain_info *msi_info;
->  	struct pci_dev *pdev;
->  	phys_addr_t pa;
-> @@ -116,15 +116,15 @@ static int its_v5_pci_msi_prepare(struct irq_domain *domain, struct device *dev,
->  
->  	pdev = to_pci_dev(dev);
->  
-> -	rid = pci_msi_map_rid_ctlr_node(pdev, &msi_node);
-> +	rid = pci_msi_map_rid_ctlr_node(domain->parent, pdev, &msi_node);
->  	if (!msi_node)
->  		return -ENODEV;
->  
-> -	ret = its_translate_frame_address(msi_node, &pa);
-> +	ret = its_translate_frame_address(to_of_node(msi_node), &pa);
->  	if (ret)
->  		return -ENODEV;
->  
-> -	of_node_put(msi_node);
-> +	fwnode_handle_put(msi_node);
->  
->  	/* ITS specific DeviceID */
->  	info->scratchpad[0].ul = rid;
-> diff --git a/drivers/pci/msi/irqdomain.c b/drivers/pci/msi/irqdomain.c
-> index a329060287b5..3136341e802c 100644
-> --- a/drivers/pci/msi/irqdomain.c
-> +++ b/drivers/pci/msi/irqdomain.c
-> @@ -376,23 +376,35 @@ u32 pci_msi_domain_get_msi_rid(struct irq_domain *domain, struct pci_dev *pdev)
->  }
->  
->  /**
-> - * pci_msi_map_rid_ctlr_node - Get the MSI controller node and MSI requester id (RID)
-> + * pci_msi_map_rid_ctlr_node - Get the MSI controller fwnode_handle and MSI requester id (RID)
-> + * @domain:	The interrupt domain
->   * @pdev:	The PCI device
-> - * @node:	Pointer to store the MSI controller device node
-> + * @node:	Pointer to store the MSI controller fwnode_handle
->   *
-> - * Use the firmware data to find the MSI controller node for @pdev.
-> + * Use the firmware data to find the MSI controller fwnode_handle for @pdev.
->   * If found map the RID and initialize @node with it. @node value must
->   * be set to NULL on entry.
->   *
->   * Returns: The RID.
->   */
-> -u32 pci_msi_map_rid_ctlr_node(struct pci_dev *pdev, struct device_node **node)
-> +u32 pci_msi_map_rid_ctlr_node(struct irq_domain *domain, struct pci_dev *pdev,
-> +			      struct fwnode_handle **node)
->  {
-> +	struct device_node *of_node;
->  	u32 rid = pci_dev_id(pdev);
->  
->  	pci_for_each_dma_alias(pdev, get_msi_id_cb, &rid);
->  
-> -	return of_msi_xlate(&pdev->dev, node, rid);
-> +	of_node = irq_domain_get_of_node(domain);
-> +	if (of_node) {
-> +		struct device_node *msi_ctlr_node = NULL;
-> +
-> +		rid = of_msi_xlate(&pdev->dev, &msi_ctlr_node, rid);
-> +		if (msi_ctlr_node)
-> +			*node = of_fwnode_handle(msi_ctlr_node);
-> +	}
-> +
-> +	return rid;
->  }
->  
->  /**
-> diff --git a/include/linux/msi.h b/include/linux/msi.h
-> index 8003e3218c46..8ddb05d5c96a 100644
-> --- a/include/linux/msi.h
-> +++ b/include/linux/msi.h
-> @@ -702,7 +702,8 @@ void __pci_write_msi_msg(struct msi_desc *entry, struct msi_msg *msg);
->  void pci_msi_mask_irq(struct irq_data *data);
->  void pci_msi_unmask_irq(struct irq_data *data);
->  u32 pci_msi_domain_get_msi_rid(struct irq_domain *domain, struct pci_dev *pdev);
-> -u32 pci_msi_map_rid_ctlr_node(struct pci_dev *pdev, struct device_node **node);
-> +u32 pci_msi_map_rid_ctlr_node(struct irq_domain *domain, struct pci_dev *pdev,
-> +			      struct fwnode_handle **node);
->  struct irq_domain *pci_msi_get_device_domain(struct pci_dev *pdev);
->  void pci_msix_prepare_desc(struct irq_domain *domain, msi_alloc_info_t *arg,
->  			   struct msi_desc *desc);
-> 
-> -- 
-> 2.50.1
-> 
+Bartosz
 
