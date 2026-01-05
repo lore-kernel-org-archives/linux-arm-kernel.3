@@ -4,69 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63D0FCD0423
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 22:59:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD46CCD0424
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 22:59:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F7JV/PJ0VnrzWpBv4LESf97hWHvhonfUJamLTdd+SvM=; b=IgF4eI1YlGrQTChaFevT3tISBe
-	YIpg9IheVWocbnn8yKZw0jq995IVLvZvWzy5IWH9GWm2+hHOieHYbM7eH4d3doP/dfmP4OFK5vDTO
-	zDOfNEjsRCBjqaNDK8dCahqa4jiuS/Ihg7jJvbR1pEGmFi4KbQ5SsK8RWJOFUU5q4I3AOiubdz8Wf
-	U1+RtXUImBwixRY1yKJWAuvEU8eQJdJFTYxEwPzDvdAJ88D8p6fWH8W2RzPpK0DceUrqVPV80yr9U
-	ZQqe2nzJv+x9qPVv8GNLyj9uJKE6YgjqlUf/3gTZ5/jPD6uqgiSAKhmjEdmvh4o6j6MyYhRXVT2QM
-	WPNuX9iw==;
+	bh=o5PSAYeyNVf/+UQNPLJho1eErOR/SfKnQsVypZlqRNA=; b=kR8jXM3icvMky/2y8yXY6UwU8p
+	D1voHUIrFJ3OHctfNb+XKMxBd8C6E0gJeF3q136b7QbKYeSCy8UVO/fHj71PGU/RM5TmRHtv80CFr
+	+CianTokW/tA18AFuLZUXP1QdLpILQ/IzBJKkHJfJPvRZZIp/tJQjNW8w3B7q7Qp0LLwXhLHzYD0n
+	Inib5Cp6L8F6/VD3/tU7hbXFMiKzJXGy1hDW6gX/mktFEPJbcRS1ksJMvdZ0QSaICDFtssvpMnI+P
+	U3YDdcgC17W/mjVKOCxwVVpSSNQUF2QLZhK+BUYgE5h9abB3F3GwbDvAEi4M/fcK7/zs4BflalKAQ
+	CiIWMUKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vctXa-0000000CD4C-30s8;
-	Mon, 05 Jan 2026 22:59:10 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vctXi-0000000CDBG-0Fah;
+	Mon, 05 Jan 2026 22:59:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vctXZ-0000000CD1u-0ANn
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 22:59:10 +0000
+	id 1vctXc-0000000CD63-38MB;
+	Mon, 05 Jan 2026 22:59:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AEF2744189;
-	Mon,  5 Jan 2026 22:59:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35C25C19422;
-	Mon,  5 Jan 2026 22:59:06 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5A068403B1;
+	Mon,  5 Jan 2026 22:59:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F616C116D0;
+	Mon,  5 Jan 2026 22:59:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767653948;
-	bh=mjbsh5qTsWiK+bL9N+lcIzG0oeu7SbZwJAqsk6DZtZ4=;
+	s=k20201202; t=1767653952;
+	bh=MEkyDErUS6Fel9lwzIrHo9OgWUdBuOYVWyJEsTcqV2Y=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=KqZDpgzzTWS+c/2QXiq/v/J7NmbO7ILss8exfk3eSj8L2zYvix7/ZDY6YEIknZLWe
-	 FpRw1hjFCwKszZ9aNsXLyG9S3+EybZNzMCez1zXD/ipLfJj4axjzgEzaQ2vE9RHy2d
-	 oNPNn72qyclj0t+0DddSe/43RKPLNjlVWd7WW53s0tygrpoOLp2uHbe9dly/4BOba0
-	 pM9bOKBfSEk8vWSvwLzWwmeldPsN4pYBtXmmkENKiprTz6PI8eb0OPwrl5i5tmTZZp
-	 K6ViYlHOkbkdajt65tSVHcRnqUDNp9q+RQ03aBTp/a+KaCXzlNOerzXR/iFypoPjtW
-	 NnYRTs3WEDW5Q==
+	b=B/e27yM1Uo+eqLH3XgQ5mzZZQgzs5xG8DfsjcQbKX9v+IzN0VMu//p3EiYm7SugTk
+	 N4YOnEVUMNX5Z71ZhVhv2OVglKZQjcFb6VQcApg5LpRbnMEXqvSebw9GvmM5LTuy87
+	 zG5E251p0BvG/B+EGgGf/5/LA4M5Odom8s088SyCguToJfGF2dJQyHEbwg8HI3eySY
+	 JFS1t/Vo1q2JvaTV34z/4ybnN99ilSUSDfHoCznH2bI879hEy+1CL/5jn6nrC4vthr
+	 cHZp0bxJz9FdtRNBPuTKlWWly1QVhNwUpm4N8h60Q+D3SU16esUqjFCndwqMhNYXqK
+	 DJa+kOKEE0BBA==
 From: Will Deacon <will@kernel.org>
-To: akpm@linux-foundation.org,
-	pjw@kernel.org,
-	leitao@debian.org,
-	catalin.marinas@arm.com,
-	mark.rutland@arm.com,
-	coxu@redhat.com,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
+To: Atish Patra <atish.patra@linux.dev>,
+	Anup Patel <anup@brainfault.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Ji Sheng Teoh <jisheng.teoh@starfivetech.com>,
+	linux-riscv@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2] arm64: kernel: initialize missing kexec_buf->random field
-Date: Mon,  5 Jan 2026 22:58:29 +0000
-Message-ID: <176764846370.1457992.3931677360070887996.b4-ty@kernel.org>
+	"Yury Norov (NVIDIA)" <yury.norov@gmail.com>
+Cc: catalin.marinas@arm.com,
+	kernel-team@android.com,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH] drivers: perf: use bitmap_empty() where appropriate
+Date: Mon,  5 Jan 2026 22:58:30 +0000
+Message-ID: <176764558097.1441586.5364156428350110916.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251201105118.2786335-1-yeoreum.yun@arm.com>
-References: <20251201105118.2786335-1-yeoreum.yun@arm.com>
+In-Reply-To: <20251216012004.341288-1-yury.norov@gmail.com>
+References: <20251216012004.341288-1-yury.norov@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_145909_105228_E177BEFC 
-X-CRM114-Status: UNSURE (   8.05  )
+X-CRM114-CacheID: sfid-20260105_145912_810488_DCE401FD 
+X-CRM114-Status: UNSURE (   6.49  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,21 +85,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 01 Dec 2025 10:51:18 +0000, Yeoreum Yun wrote:
-> Commit bf454ec31add ("kexec_file: allow to place kexec_buf randomly")
-> introduced the kexec_buf->random field to enable random placement of
-> kexec_buf.
+On Mon, 15 Dec 2025 20:20:03 -0500, Yury Norov (NVIDIA) wrote:
+> bitmap_empty() is more verbose and efficient, as it stops traversing
+> bitmaps as soon as the 1st set bit found.
 > 
-> However, this field was never properly initialized for kexec images
-> that do not need to be placed randomly, leading to the following UBSAN
-> warning:
+> Switch perf code to using bitmap_empty() where appropriate, and
+> correspondingly use boolean types.
+> 
 > 
 > [...]
 
-Applied to arm64 (for-next/misc), thanks!
+Applied to will (for-next/perf), thanks!
 
-[1/1] arm64: kernel: initialize missing kexec_buf->random field
-      https://git.kernel.org/arm64/c/15dd20dda979
+[1/1] drivers: perf: use bitmap_empty() where appropriate
+      https://git.kernel.org/will/c/0c7c64146f70
 
 Cheers,
 -- 
