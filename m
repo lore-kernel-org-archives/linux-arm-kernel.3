@@ -4,166 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF644C2A062
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 07:26:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCA33C2A062
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 07:28:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tYUEi3AMBgCtF4FBqUes8AGHKBEoECwNZpocuLpSrSk=; b=PLJ2KedOl+O1g6U56yiEtkliMH
-	0fz7AW2GSBisq6OtJKHFsXAzyhq+MKz4QkgA85ORcYW5jkUaxeZdV8EB/3zuQpBNMjuNgtKOXaemO
-	287qUoxV0WPqdQ204mqndr6GUy7QD8bVdoxnL3bsRlv65zc0dyRwvsJqzzZP73TWggZWPGqnGlC2p
-	8AbwYgbee3q3tKk2Vn1XwVcYa924++FzYTpchrpfvONHC9iiNPOkpcaG3uvoxdSmsD6TGiXX5Gfds
-	AweX2Yh3cW4LyFEhUHZaF/cb4+ejg7U0ez3QtYFL/xMwd8ySdpEkKZU5TxaJImtwN7kU5EoLdNRLo
-	TLa8x7Jw==;
+	bh=h3ZGbyZVf8U8NF5zpidvHSh4SyBhksY05yS3zxJ5faA=; b=IviFna+1PC2g4liDopzp+eCdYU
+	XDq6kAYvTcqsdrJ4nlBmdP2G1D50iHDhscIyXKBrvvwAU7K4F/U/6/Oh4GZRoNt/sMqBxSZsxF0ct
+	Z9jY4uujmzefxgKeSwFsa4TGNRF3tyHRf515L/yz9x6L2XD4gWQ7SBb7tkXGu1wtNG6lKOEBH6+bH
+	HZ7VWq4SUeaONt8t1dhmA/8WrllakUWtuHEfLs8FEXXDZm2ppH55E7b3n/oaA9ZJS5G69vrncjXV1
+	gPDqlxibQorUJtBOshzOmIWRwCB3+xy3Vhlah/krXlYmoa0jYJwo3yee1pnVvS++BMSBaOGNRjF12
+	Z4uPLzcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vceyl-0000000Auh2-3Bb0;
-	Mon, 05 Jan 2026 07:26:15 +0000
-Received: from mail-swedencentralazon11013041.outbound.protection.outlook.com ([52.101.83.41] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vcf0n-0000000AuuH-1ZH3;
+	Mon, 05 Jan 2026 07:28:21 +0000
+Received: from mail-southcentralusazon11011050.outbound.protection.outlook.com ([40.93.194.50] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vceyj-0000000AugY-11by;
-	Mon, 05 Jan 2026 07:26:14 +0000
+	id 1vcf0k-0000000Autt-0DWv
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 Jan 2026 07:28:20 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WCu9kpszoEsb9w1cDelbtczseOAz4bmshWmrVAoFVCai6PVCLHn3l2kxxTzl+QHKZrgQzM+Cw7NyZjwbsWDycluW1FLsn0xagtc/PYqi5Mlmm05uBz6BiGzq7BxSbiENaAwMgVkPV2+ayKbiV18b9ccUToWF+D+3YPG6TSSQU+z71z4PcYfeN5GpnnutYUzKKq+WT7AVCd8k2iToPZVEWmuBDmQLycqzQJVnRCCbn3QKD8QSD6HAPMh3lrQxHqaaMg+TzD3B8eUepTSKPBTwSem4dRnLqaxtB+kDwFUXd75IHsJgYA4Jn17hxn6BGJuTTRTAv3RnDlK85eWsOWOUBQ==
+ b=YYU0YhII1/3cgUtF1d+kUL3tP2hMkIA2Lf1/GXpoR71ZJ759iPbnSywdNTOCoVosfERxVMV2wW504m+gnwsv2JOS3yUqlpxARiQ6vth212K8TRp8ovmYq3eHChE2HnrNz8mxeKJUe4o9rAdIqJzt2g6cZHuDIMVvrHjUGKHpG9Qljp3dP8E0qoVOyVZ9EpusoeriG16MOV9m5wj9c3Zq12+gP8velzZndCID+5MKsfK20lVrcN1CA6MML0HUCeJP9aA1ENWSfX7Nfu8Vo88c9bg+Ic9voTH5j2iEc25ib6M8+62p/7gEF24nMPYYLuHy7Y6SF54R7qOq+xxw0uTudQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tYUEi3AMBgCtF4FBqUes8AGHKBEoECwNZpocuLpSrSk=;
- b=LZ9OQJat/Aiw6MEZLWyzfI68lMZ9AJA+QhmQMX45oHovcmkgSq22to7cleyUQn2dKNkQzx1nAli3A1L6AkQOap16YwlUU38shOPmnc02scqvxK6It3u0g2sPNSCo2y0BBYI3Rx4Jc9U7rO10eYWQfIB3CDdd4zIz4bdAOza+kwGUACE/u57TdL5SzOZBCuMoTYvELCV0n6qjAMB+1Om0GFSgAshPs8gNTMAVO2E+w9JpjacFkN1WgqRTfGTAsTM9xnjxvjnFjCUUyvSLIwLawtTOT9uoHIbo0S5Lupjq+g11dc2yQN7dpk0gLoKKZFyG6kcfDYA6c0AJ4pmSlRsbjA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.60) smtp.rcpttodomain=oss.qualcomm.com smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ bh=h3ZGbyZVf8U8NF5zpidvHSh4SyBhksY05yS3zxJ5faA=;
+ b=ce/gO9TzhotA55N7ifo7fEecA7NKBcaOHablgr8wl5v3gJfiAEeSVHBMp66gBjgm/oRBfzML2RliXJCSWNeiKAgO+yfPIlycr5IdaKm5M/zUzTxkEtFdT4xk+mCk7lKJVayl9zIK0nrsp5eIeEI3aDbAT7fyFNmfpdLXsKX0UG8KsJyRSAtXKdLfFcZWSPf0/sFY9wDw96LJ69jTOrSH3OAQwoe0yTUtUe3AznC3mBcK2nka0HO82XSD9JQmyCetsXf41tMjfxk1uWk1Y+DQGv0rPKZE+OeELFkTqI5gWiEtBRyJQrwBlpOrD7QGGREy4WuK5sO6nS9Gg9lVJrQV4g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.23.195) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
  dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tYUEi3AMBgCtF4FBqUes8AGHKBEoECwNZpocuLpSrSk=;
- b=E6E457/n64iyq84BJrbjfORSAQcYGhiW3B6M8qCiinDDkuFlu1z+ZVdfGEJE2CMvTmkATY95Hd2yaNQKDCw5oicx8wIIgFthf8/HKEluon9lEWKvTklTZvbDbIIimhqTdE8kDWSTCwwhCyVsOuwpfw0J6aPPN7P1g78MowPPZtk4i46NMwzitbYF5Jm4OOH7OzTCbWHCVycWPuavw6iU3PlO/CVRwG+lnYvpQO9Ja80N376qBQJYCyMLxLkvrIkFXa7Beg5zQGIBYsqQLNXkpxYVRbyDVsIgbWROzwSjBRI0cXzQbzCYiltxOKJa8wTa6Avq4P8sjxcM21m+GN9RvA==
-Received: from DB9PR06CA0021.eurprd06.prod.outlook.com (2603:10a6:10:1db::26)
- by DB8PR10MB3306.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:11f::13) with
+ bh=h3ZGbyZVf8U8NF5zpidvHSh4SyBhksY05yS3zxJ5faA=;
+ b=Wu8n0CU2fGOYGMLgcftl5Z9zN+dFqhnrnPlFfsDrZElIlQVl3TwQwoK4xb50E/ghe1wKPQ5I376Z8PmRxU0xP9sbGxccTOup0Xu5wt1UK9Oa2zv9/mYeBIiFUXnzNJGElQL6mLzVntgpiaFPYLLsrBVBoDnOLLPNMNwDMESdvyU=
+Received: from MW4PR03CA0234.namprd03.prod.outlook.com (2603:10b6:303:b9::29)
+ by MW4PR10MB6297.namprd10.prod.outlook.com (2603:10b6:303:1e1::18) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Mon, 5 Jan
- 2026 07:26:06 +0000
-Received: from DU6PEPF0000A7E4.eurprd02.prod.outlook.com
- (2603:10a6:10:1db:cafe::22) by DB9PR06CA0021.outlook.office365.com
- (2603:10a6:10:1db::26) with Microsoft SMTP Server (version=TLS1_3,
+ 2026 07:28:13 +0000
+Received: from MWH0EPF000971E6.namprd02.prod.outlook.com
+ (2603:10b6:303:b9:cafe::29) by MW4PR03CA0234.outlook.office365.com
+ (2603:10b6:303:b9::29) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.20.9478.4 via Frontend Transport; Mon, 5
- Jan 2026 07:25:49 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.60)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.60 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.60; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.60) by
- DU6PEPF0000A7E4.mail.protection.outlook.com (10.167.8.43) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9499.1 via Frontend Transport; Mon, 5 Jan 2026 07:26:05 +0000
-Received: from STKDAG1NODE1.st.com (10.75.128.132) by smtpO365.st.com
- (10.250.44.72) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Mon, 5 Jan
- 2026 08:27:18 +0100
-Received: from [10.48.87.93] (10.48.87.93) by STKDAG1NODE1.st.com
- (10.75.128.132) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Mon, 5 Jan
- 2026 08:26:03 +0100
-Message-ID: <92c8b930-adc2-4204-b9c1-0dc1e31115f3@foss.st.com>
-Date: Mon, 5 Jan 2026 08:26:02 +0100
+ Jan 2026 07:28:02 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.23.195)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.23.195 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.23.195; helo=lewvzet201.ext.ti.com; pr=C
+Received: from lewvzet201.ext.ti.com (198.47.23.195) by
+ MWH0EPF000971E6.mail.protection.outlook.com (10.167.243.74) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9499.1 via Frontend Transport; Mon, 5 Jan 2026 07:28:12 +0000
+Received: from DLEE200.ent.ti.com (157.170.170.75) by lewvzet201.ext.ti.com
+ (10.4.14.104) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 5 Jan
+ 2026 01:28:09 -0600
+Received: from DLEE202.ent.ti.com (157.170.170.77) by DLEE200.ent.ti.com
+ (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 5 Jan
+ 2026 01:28:08 -0600
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE202.ent.ti.com
+ (157.170.170.77) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Mon, 5 Jan 2026 01:28:08 -0600
+Received: from [10.249.130.12] ([10.249.130.12])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 6057S3Z7890380;
+	Mon, 5 Jan 2026 01:28:04 -0600
+Message-ID: <8c25aeb1-fd5a-4b49-86cd-03324dc14633@ti.com>
+Date: Mon, 5 Jan 2026 12:58:03 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 07/12] i2c: st: set device parent and of_node through the
- adapter struct
-To: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>, Wolfram Sang
-	<wsa+renesas@sang-engineering.com>, Mukesh Kumar Savaliya
-	<mukesh.savaliya@oss.qualcomm.com>, Viken Dadhaniya
-	<viken.dadhaniya@oss.qualcomm.com>, Andi Shyti <andi.shyti@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui
-	<rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, "Broadcom
- internal kernel review list" <bcm-kernel-feedback-list@broadcom.com>, Vignesh
- R <vigneshr@ti.com>, Aaro Koskinen <aaro.koskinen@iki.fi>, Janusz Krzysztofik
-	<jmkrzyszt@gmail.com>, Tony Lindgren <tony@atomide.com>, Andreas Kemnade
-	<andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>, Roger Quadros
-	<rogerq@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, "Magnus
- Damm" <magnus.damm@gmail.com>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
-	<s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Linus Walleij <linusw@kernel.org>
-CC: Bartosz Golaszewski <brgl@kernel.org>, <linux-i2c@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-	<linux-omap@vger.kernel.org>, <linux-renesas-soc@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <imx@lists.linux.dev>,
-	<linux-rpi-kernel@lists.infradead.org>
-References: <20251223-i2c-adap-dev-config-v1-0-4829b1cf0834@oss.qualcomm.com>
- <20251223-i2c-adap-dev-config-v1-7-4829b1cf0834@oss.qualcomm.com>
+Subject: Re: [PATCH 1/3] dt-bindings: remoteproc: Add bindings for HSM core on
+ TI K3 SoCs
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: <andersson@kernel.org>, <mathieu.poirier@linaro.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <nm@ti.com>, <vigneshr@ti.com>,
+	<kristo@kernel.org>, <afd@ti.com>, <u-kumar1@ti.com>, <hnagalla@ti.com>,
+	<linux-remoteproc@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
+References: <20251231165102.950644-1-b-padhi@ti.com>
+ <20251231165102.950644-2-b-padhi@ti.com>
+ <20260102-shrewd-unnatural-lynx-b7d214@quoll>
+ <3ac93229-3c37-4800-8e56-cbab13d4299d@ti.com>
+ <18a350ed-bf1d-4700-81b0-02e1c2b85493@kernel.org>
 Content-Language: en-US
-From: Patrice CHOTARD <patrice.chotard@foss.st.com>
-In-Reply-To: <20251223-i2c-adap-dev-config-v1-7-4829b1cf0834@oss.qualcomm.com>
-Content-Type: text/plain; charset="UTF-8"
+From: "Padhi, Beleswar" <b-padhi@ti.com>
+In-Reply-To: <18a350ed-bf1d-4700-81b0-02e1c2b85493@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.93]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE1.st.com
- (10.75.128.132)
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU6PEPF0000A7E4:EE_|DB8PR10MB3306:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3c0cac0e-5012-4f9a-14b2-08de4c2bb02f
+X-MS-TrafficTypeDiagnostic: MWH0EPF000971E6:EE_|MW4PR10MB6297:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6ee2ee6e-9e2f-4bb9-39ae-08de4c2bfc05
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|36860700013|82310400026|921020|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?U1JCU0Zsc1BIRHVJVCtTakx1bFM1ZWlWR1Vwd2RtZ0NVVjR2SEhkcXA1UE03?=
- =?utf-8?B?aFVGekNBSjdScUdKS0oyeVcxZlVBWmk3K1Ezd1crKzR2dnRMQnltU1NCdTUv?=
- =?utf-8?B?YlFMYkErZGFpNEJJaHAvQ3duQmpWWm93RURBVEpuS1hLMXFUZGJzT1VhOEEy?=
- =?utf-8?B?eGtHSWJsSGNVaWMvU0xsMnBRQ3ZhQlZPZ0lHOUdpRkNBODM3bDVudHF4cENk?=
- =?utf-8?B?cE9sS3Y1cGowbjRSU3V5UjFjRGxXSWllMldYU2h0VGUydnpWeTdMUGk2ZWt4?=
- =?utf-8?B?dFNvOFVIeVcxZElCb2xnVUxpSlIzSlVIQ0FYZU4yaEVmSUtrSmxHeVZ4Tnph?=
- =?utf-8?B?RTlnVzdyQWgwTStySGMrWGU3dXhXcFM1eUxpYmdRSnROTmZQUUdPR2hzeVdM?=
- =?utf-8?B?a05GWXFYM0gydGhwWVBxR29oaGF3d1R0RWFyVVZ0K0lHMnJFeGV0S3dKQm1R?=
- =?utf-8?B?MktCRjRBZkhXTTYvdW1ZaDdNVzRwUGsraVdmbVBFOGROSDhzWDNwYU9aOWJH?=
- =?utf-8?B?TVBSY3MycExlYW9aVkVDTm5ZMGdvL05TV1R6eUhweXlHSi9jcDMreVNtSGR4?=
- =?utf-8?B?cXBROHAzNEpIdVhHQ0JpN1VzNGhEMjZYK0VvWEQyMkk3K2d0bHFrN1NhTjB5?=
- =?utf-8?B?bUlkazU4czJzUlVTUmdESWFyUHk1VU4vTWFkMWs0UnJMWlhJTzZPTXJmZUpz?=
- =?utf-8?B?Yy94SU1RQTV5SlRjUkFFR0N1bHh3cTZyVU5ieFV5cStDQ0YvMEQ2WnQvNkgx?=
- =?utf-8?B?amhPOTYwcWdjbXN5WFN6VmMvUytWbE9FcHd3L0krZVlscWlDR1VEaEp6NE1x?=
- =?utf-8?B?M29iNGxOanN1TWFBV0d3TWNTRk95b1NYOEN3UzJpV0lqWHRDdzNTOHM3WUhx?=
- =?utf-8?B?TEt4M1dUWkx3WW5kcFFLeGFaRytQd1FJVlFZeUxKclZ0ZXQ4eml5UE8wMXh2?=
- =?utf-8?B?aml1d0d1Q1B5bFo4YlFUbkwrYlROOTFWY3hmakRmd1J4eWNTQnF1M1ZRZ1Br?=
- =?utf-8?B?VmdWMHM2SklmbzZ3RUcrZ2NNK0hTKzlXdFJuSVZpd3Z4MXhCZkdTSnF3K0Nh?=
- =?utf-8?B?SXo5elA5VWxKV0dPQzNSSlNibEcwVlltSzE4b3RlSzV2RFhaMWVGREJIUnNB?=
- =?utf-8?B?aVYvZ0NuN3NDWTl6V2pORHlJNStYeDMwR3pFZTNvSHlJc3pjLzd5eXlhbkFo?=
- =?utf-8?B?Ti80TUZlRG9OZEdVVENtVzV0NVhNQnBjVS90dERIcitKNWdzMEJlV0xZeEZ2?=
- =?utf-8?B?S1N4THoxdTVoZm1ieXVpNTJWQUlJOWd5cWFyWDdtTUxIdklzdHhmZmpOc3Nk?=
- =?utf-8?B?R1ZjeHdSdDJYRjExb1Q1VVdFWDNWUGRWdTdyTUpocHh1ZW5hck1wNFQrZ000?=
- =?utf-8?B?VWppSWxHY0wwVURBSEZjQjZrdnBEU2EwZmFuRWowU0N4MjRFRy9wb1h0SWcx?=
- =?utf-8?B?cXJ3eFYyUGlaVERZT1FXZFl0emZoVDNlTExVNFFrUjV1TlgyMlVxMWE3Y0Ft?=
- =?utf-8?B?SzliTHoxQkIvM0hST1BRTHpXWXc5UU1haDNWSXd5bTBESnkwRGRiVXArSzF3?=
- =?utf-8?B?OUVzOEN0cDVaMHQvWFVrY3drK0h0S2NHYW1lMHlna0RablVNNTlsZUh2cjJZ?=
- =?utf-8?B?OTN2TUJBZmhiWHBYWGQvNi9XMENRMkZXUCttUDdSd3VNcHE4b0U3VHhQRUha?=
- =?utf-8?B?WFNFdlR1SzdhVVB4QlNCMFZ2RkVwWWlIOVlabGw3d3l0RXpyZWpzTFRnTE1i?=
- =?utf-8?B?OE5vVDU1a0h0aERCQW1BSUVqeUQxQ0phaC9xcGxPOUtxckE5WWxZSzNrcDVT?=
- =?utf-8?B?aXdjZXA3eHV0VW91Tk5sUkdTT0pCeGU3Vy9UY1k1NGlQSlRYd2hmVU83WjB5?=
- =?utf-8?B?VWNsSHdOOStFUlRYT3V5UjNZQjFNRnppTUFwbnVWMGhOWFRYeVA3UUp2bGdR?=
- =?utf-8?B?TFFuVno4c0lDY0VzYnlOOElFWSs1bTBSM1dUMTQ3M2ZvQ2Y0QjNhb29td29K?=
- =?utf-8?B?ckh0bjA5bkRlcDNBUTFvbTA5SHF5bzkwc0w1VU9QU24xQmVOdVJ3RlZpWVFP?=
- =?utf-8?B?SUtuRHBQa2IxemF1NlYyQ0lpVmFUYWI4eXFTRFRxVjJrdHZBeG1jV3RGVnQ0?=
- =?utf-8?Q?dCkLI7yqYPYS6AvM+ckZbErSs?=
-X-Forefront-Antispam-Report: CIP:164.130.1.60;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(36860700013)(82310400026)(921020)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: XhOIkKigiqcgBC4YONy8k00dBReqFN3Dao+NmHFl+fQrxIN3tHsnEI8MWfYyPy0IYibIDTMDMar1uYpi4Jm5nBY9IhzBJmfoMIEGyIDOBgIasF7d2TWq5NchNtknip5M9cJDAkUwgjnizgQrqznK3GSY+yLd1K7Chpjcl7plM/p2Zm815000zu20YrMtltLguN3ePqOqpHMuTvAefGymZGOtLLe9VGAJgzMTJL/KfjXjbUwVFXMIusaoBGLkArRr8dh2w7ktVG3NJ4Jfz7hvLTi7wssY2rzZY1HMf1FrPNOvz6fmy1nFS7Cd1OfJk4mU5Fq3ejBfRAy9WkmEnTSaHBYR5ivvNZBwQp/D9hsXVxoUSnTp4Lm04tT1wEPEq5IhHl5cR1jTP9h2N0Zy58VM7VLjXbNe+I4FS5u+8ZBM0yz4nspouO6SuhxWoJh05Lwl/WPNtJDGKVIkAPuS7sN6C6/R43WCab3ifFiD7L6mCbbKS/3hALpWJK1zde8mh6uLmkRaZ+G6ca7ARrEDfXMROI+2S31i4x00xXY2QqKewcXcdbifBpDbMlfKNP8rgF31qDJ7ITtphodNMRWqTofuqkXrTo+Owi1YuX2YrR7tj572EA5KMsrQojYK3d+O1JI2ixf0AQ8DYcdCK/wRMuPb6b/gIJvrYUcmnmKlVYXiDk0EQFHFSoUgWOl44VmQoUvt
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jan 2026 07:26:05.5599
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|376014|7416014|82310400026;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?eTQvZG13aTR6Z2RCUXRVWnJCQ1FJOVBOc0dTRk82bUNlendpbW1xRElPWWp1?=
+ =?utf-8?B?cWtHOElzeE5vUThkV1RNMTFvRktiOCtrVzNlWGNSZEZ5TkMrVmlkU0Jmd2VN?=
+ =?utf-8?B?ODZPbnZSWXdITElVZ2tBa3JxTzJ6dDNCU0RDNFdqNTk1aXRHeFNyTWZEb2Rm?=
+ =?utf-8?B?S25taTJSNkNJK3hkNyt5eTdUUWMrcUZScnJvUHFITWg2SUNUczFta2JaU1lL?=
+ =?utf-8?B?ZUd4QUpVeWJ6cy9KMnBOU0ZGOU02Y1RHN1lwMlFoQlRKcG1hOTRrdXVKUDFP?=
+ =?utf-8?B?RHU5dnpPTWY3Rld5M09JOXBsWDBadUkwTzNBS28wSEcxR2VvYTBFZkJJTkpL?=
+ =?utf-8?B?cEc3cTVyT0dmN0ZaaDRFWnVKRU1qT0REREFFcnN0Zlg0MHptazJCVkt2MC8v?=
+ =?utf-8?B?S3Rlby83ZldhL3VkREZzejBqQkZPbDh0MHZ1M0w0ckpQOEtUQmJJbkxOMFBM?=
+ =?utf-8?B?dDRFMUlDeTl6VTBiaVh0LzZOdXFDNnIyYmhqSjlCNDlVSmNmWlRtbDlzZEJo?=
+ =?utf-8?B?dWVGSmVldHVsdy9PWStTc1gwa3pqQis0NndyREt3Y0V3cVBmQTEyaERWQlcr?=
+ =?utf-8?B?REZzODAyTGZkdHFjbm5wdTMwV0tNamdCekdPU0ZObFBuWGtHZVlwNEJnSTA3?=
+ =?utf-8?B?Y1hGUWJwRU0zeHUxUklPcG9raHZGVG9oSkNTVDZFRXJYR3krRVBnM2lid2lt?=
+ =?utf-8?B?TTlMV3VXV3luN3ErRmdoa2lSUjdmT1dZd0Fwa1pBMVJveWRkUzFRNUI1TVJF?=
+ =?utf-8?B?d1pnNnFrVTNEOFhlelV5aTgrOU9XdmpucU9TZk9OZjNiM3RoYTV3Y0VDS25S?=
+ =?utf-8?B?YVBiV0tiSWtnaGZvdm02aXVwNVpQa0s1UzFSTjdYbGROYjN2MEZNbW92WHVU?=
+ =?utf-8?B?R3pteFpxOW50SWtNeTF2bDhtNkxRMzFCSjhHaCt6OG0vWm9GYnkwOG11TTFN?=
+ =?utf-8?B?dWloTDB6WWF4WVpESmkySmdNSWNBUlZydGE3clExdnlJRFY0Si9CUWFkK25F?=
+ =?utf-8?B?OFJ4aHIrSTRlRVJQYlQvajhOb0lYSXcxZCt2NlZWQkl0SFZWYXhuZHhXOHUy?=
+ =?utf-8?B?RHpBOGQ0N09VMU1CeXBzRndiczBuSng2a0Z2eVlaczlySndTRlJmVHhQSnhm?=
+ =?utf-8?B?RGZWWG0zV3o0bGtVYm9VUDB6VVFOOHdPWkpEenZoVWlpdCs5REtRa21SRDRZ?=
+ =?utf-8?B?ck1KTmtHV0Y5QmhSaWtsRDVWeHNpUHI5WGNkRFpraDhIYnlTakJrNGY1eXdr?=
+ =?utf-8?B?a0N3RzBDYmZGcWc5MkJYeXdjbWVRTnNDbmM4dUxMVkMvVkpoblBYanVSSHBH?=
+ =?utf-8?B?TTBqSWpyMEZRMkpWdmtqeDhCbnMwakd6OU5yRE1wbUNxOERTL2JEU044UzJX?=
+ =?utf-8?B?Wm5oSHY1Ylp1NGtKQXhrYTZLeVEvMXlaQXVmekpUZVBES1NqREJwMFBYTXFq?=
+ =?utf-8?B?b2Q4NVl6S3ZqZ2N2S1FkdmZyTkRTSlNJNnhGMTVQWVp3b3NFbGFhSlIrV2Jy?=
+ =?utf-8?B?WGJjc1VNZkZ5dEEzOEFCZXBHcy81YzBpMXBCV1BMUnZHN2RIK1ZCL0tFT3hz?=
+ =?utf-8?B?ME5UdHcvUXZkNVA5OTNKWGlXOVBzalVSTjYvQ1JZbU9EbnVWMDIyeXdBYW5J?=
+ =?utf-8?B?YytRaWwzaFpTMEpOV0xXWHptQTY0cVp4dXlzWTROUElWV0kzMW12c2Z4cVFX?=
+ =?utf-8?B?bmpJN1RVK1dKQm4wUGJuMXFrY0lmYTBydm5Ec1hFbEhWekFiMllOVHUwMnRM?=
+ =?utf-8?B?bWc4OUNKQllCOXVNNWdBRU43T2lSNDFlQzJLcm9VbmJ3QzRYeEtzdWJGdDBR?=
+ =?utf-8?B?Y2ZiYnZNSGZWYUlqZ2ExT0hXVGpUNmY0ZWxHQklzTGk5U21OOVB6OFZiZXJ5?=
+ =?utf-8?B?KzhPQkJkWVdKd0c5MmkzWlNZWTBwWHJFUnhyb3VoOXhyR20xUG1ycjhpdnRo?=
+ =?utf-8?B?cHJQUjE5UUowdy85OUFXaXJKSGp4V0ZlV3VLdkFJaHF4TmZPYm01ZVFDYWov?=
+ =?utf-8?B?MTJMTkJzM0FUcnRJQmR1QTdRM2hJOUJSbXRCTGptbDVNM0FyY0lUTFhncXl0?=
+ =?utf-8?B?cTFQY25DSlZIYVZyQVNZMFAwOFRNUHhpSU9UVTd0T2pkZWpBbjdtY05mcTJZ?=
+ =?utf-8?Q?RuFk=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.23.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:lewvzet201.ext.ti.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(376014)(7416014)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jan 2026 07:28:12.7346
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3c0cac0e-5012-4f9a-14b2-08de4c2bb02f
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.60];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000A7E4.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6ee2ee6e-9e2f-4bb9-39ae-08de4c2bfc05
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.23.195];Helo=[lewvzet201.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000971E6.namprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR10MB3306
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR10MB6297
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260104_232613_620341_67F4C0B1 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20260104_232818_202608_333A752E 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,34 +172,50 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+On 1/5/2026 12:40 PM, Krzysztof Kozlowski wrote:
+> On 05/01/2026 06:56, Padhi, Beleswar wrote:
+>> On 1/2/2026 6:00 PM, Krzysztof Kozlowski wrote:
+>>> On Wed, Dec 31, 2025 at 10:21:00PM +0530, Beleswar Padhi wrote:
+>>>> Some of the TI K3 family of SoCs have a HSM (High Security Module) M4F
+>>>> core in the Wakeup Voltage Domain which could be used to run secure
+>>>> services like Authentication. Add the device tree bindings document for
+>>>> this HSM M4F core.
+>>>>
+>>>> The added example illustrates the DT node for the HSM core present on K3
+>>>> J722S SoC.
+>>> A nit, subject: drop second/last, redundant "bindings for". The
+>>> "dt-bindings" prefix is already stating that these are bindings.
+>>> See also:
+>>> https://elixir.bootlin.com/linux/v6.17-rc3/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
+>>>
+>>>> Signed-off-by: Beleswar Padhi <b-padhi@ti.com>
+>>>> ---
+>>>>    .../bindings/remoteproc/ti,k3-hsm-rproc.yaml  | 79 +++++++++++++++++++
+>>>>    1 file changed, 79 insertions(+)
+>>>>    create mode 100644 Documentation/devicetree/bindings/remoteproc/ti,k3-hsm-rproc.yaml
+>>>>
+>>>> diff --git a/Documentation/devicetree/bindings/remoteproc/ti,k3-hsm-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/ti,k3-hsm-rproc.yaml
+>>>> new file mode 100644
+>>>> index 0000000000000..f61e4046843af
+>>>> --- /dev/null
+>>>> +++ b/Documentation/devicetree/bindings/remoteproc/ti,k3-hsm-rproc.yaml
+>>> Filename must match the compatible. Are you sure you are following
+>>> internal TI guidelines? Did you read them?
+>>
+>> Will address all comments in v2. Most of these issues exist with other
+>> upstreamed TI dt-bindings as well, will send out a separate cleanup
+>> series for those too.
+> This was not my question. Are you following carefully internal TI
+> guidelines to avoid common mistakes?
 
-On 12/23/25 11:04, Bartosz Golaszewski wrote:
-> Configure the parent device and the OF-node using dedicated fields in
-> struct i2c_adapter and avoid dereferencing the internal struct device.
-> 
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-> ---
->  drivers/i2c/busses/i2c-st.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/i2c/busses/i2c-st.c b/drivers/i2c/busses/i2c-st.c
-> index 97d70e66722706f242cd97153387c3a865abc12d..b50be2c39eaa4b9b95a71b038a4d63f3c5fd7c4b 100644
-> --- a/drivers/i2c/busses/i2c-st.c
-> +++ b/drivers/i2c/busses/i2c-st.c
-> @@ -849,8 +849,8 @@ static int st_i2c_probe(struct platform_device *pdev)
->  	adap->retries = 0;
->  	adap->algo = &st_i2c_algo;
->  	adap->bus_recovery_info = &st_i2c_recovery_info;
-> -	adap->dev.parent = &pdev->dev;
-> -	adap->dev.of_node = pdev->dev.of_node;
-> +	adap->parent = &pdev->dev;
-> +	adap->of_node = pdev->dev.of_node;
->  
->  	init_completion(&i2c_dev->complete);
->  
-> 
-Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
 
-Thanks
-Patrice
+Yes I did. All of the internal guidelines & tests passed with my patches
+and only then I submitted this series. That guideline does not have
+this check which is why it didn't complain for the older bindings too,
+which don't follow this rule:
+
+https://github.com/torvalds/linux/blob/master/Documentation/devicetree/bindings/remoteproc/ti%2Ck3-m4f-rproc.yaml
+https://github.com/torvalds/linux/blob/master/Documentation/devicetree/bindings/remoteproc/ti%2Ck3-dsp-rproc.yaml
+https://github.com/torvalds/linux/blob/master/Documentation/devicetree/bindings/remoteproc/ti%2Ck3-r5f-rproc.yaml
+
 
