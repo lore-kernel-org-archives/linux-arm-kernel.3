@@ -4,105 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A0AC79F87
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 12:44:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53D16C79F8A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 12:47:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1YS8lFsnLAjU18Rfk6Snas2BJi/TSPZsxUtHEFOwEiU=; b=CxK9zSjrpqSWIjTh/8PA7Cdo4c
-	KIrCB0vTLMPmPqkBo6iPpRXnv0hNqaLIfTsxPSlLLazbY3U/X95r9hObfSEclLdjUL++95UxCBjg2
-	8pGZb2CxbndTV3A/5OrMcD+Mm96qVuklxYMEY8LNMBPQqsAh4KWFYOMK6YASThl5zgyYWL60P7uHn
-	dSGnGZ9M9cCRog/doyAiEG0VbHYWAiV+YQ92tKVEbh972aGsBJBVHkqx5NT8LXHvtU7j0JyGAkUTZ
-	oeT3DZ+7GjIHTH7xIb6BMOHm9oAgGDtsvcCYapttbXhCtkQGx39vaPQqzXldBCoerntrDHX6lK4Sg
-	ZrmoJXHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DcK9JhgklTlks/dbMU+80cGJYIWzHkB6Fy6SWnC+6X4=; b=Cd8+UVrki+f1Rhp5I5YkuXNIt5
+	TycQG5fZhca0xV0St0gKfx3YQi17m1wV44MswfwEJaK4tJsBA23LMlL2Astxw5//rLfo9/cBElhlS
+	zClD/Uhkbx7EKnpxKayiyr3l863h7hm3RxrMfO4m1uCQla5irTacoKAEfJGaP+ZIxeOn6jjiU+oTM
+	Tfn/xb2D1EvrpSPQC+LGjE1Wj9shyXdI9U5hy6HDf7iw7fXgiitnwZ3vaj8YXnH87ZJjOKKstw3zc
+	MDbevOVfgOtCTqM4I8TLSWhM1khTHo46dquagto7GXTFQbOLglOdHZUwJypuJ7fxdKZqwr7yp+sZx
+	PB7CvCaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcjwQ-0000000BK9E-190V;
-	Mon, 05 Jan 2026 12:44:10 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vcjzL-0000000BKhV-1YE6;
+	Mon, 05 Jan 2026 12:47:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcjwO-0000000BK8m-3dSv
+	id 1vcjzJ-0000000BKg0-1aCI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 12:44:08 +0000
+	Mon, 05 Jan 2026 12:47:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F179C60010;
-	Mon,  5 Jan 2026 12:44:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E298C116D0;
-	Mon,  5 Jan 2026 12:44:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5B9F040DC8;
+	Mon,  5 Jan 2026 12:47:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3606CC116D0;
+	Mon,  5 Jan 2026 12:47:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767617047;
-	bh=9yuehNiF5bpoPRMIpYC2M6gGBmTgnVnvTg/ORASQVzc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RB9iQfjAioQK+w31hs5ps/Xe1YI6lf1ZBQel4lBMiR2dwihjaiW2HO8E23zclGX3f
-	 FuOx6e56vLUoA0lOtE/bRU7VXn4CYd6JfaOiFQwoR7IwcbgjDHiTtU0qmY27BeZCdC
-	 C2Y/s56gGda1+f8tZQNCW6AWE+DlgrvC5q+0mJfGcoW6wdvKOXYaOHb9ytDhwVDNCh
-	 OVNEagusuWpI0n8sTDY707U+P513raqqJs8W9QJ+xH+eUNiT7SEShlGTakdQLR0Aym
-	 l8ro0YlrwfivZjjcSx0GcZ+K96p+3QhdgeWFwbNhRR9M3GDP+ohYw9Ffhjl2vviOhR
-	 Gur71KnAENMtQ==
-Message-ID: <4cebcda4-b419-4f1e-b9bb-870d1c7d769a@kernel.org>
-Date: Mon, 5 Jan 2026 13:44:03 +0100
+	s=k20201202; t=1767617227;
+	bh=DcK9JhgklTlks/dbMU+80cGJYIWzHkB6Fy6SWnC+6X4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Nz5BKJw/SW7aFh5PDOn4mjTKTV+LFDrfIA0RGg+0ukrtI/PWWaAkWyRxPhjHOORJ2
+	 F/w6WBFrMWFgCSU2ISdgFwjDlN6RJQGUpNtbSDFRgxj0nCBCNDcP/L8EDfUCsH9gEc
+	 mlu4FBl2Ci2EU2Ws0he3TS3VVhUptlYr949Nb1Pt3prNClT7c60WGSzHXKmRhXNJ6j
+	 AahYn0rfC6Gh2cHn5zTWUzZEAv/8eKMksb2N723rGz9Dh7iCNZ/zP1/Y/1u5wxBIyA
+	 1Un3saqGObtBBTQaXpEhtVjmp3anbCGER1NIrZ5yjgzlo4HO5YIiuhg64BQYow0aEu
+	 K25kQXvV5JU6Q==
+Date: Mon, 5 Jan 2026 12:46:57 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Robert Marko <robert.marko@sartura.hr>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev, herbert@gondor.apana.org.au,
+	davem@davemloft.net, vkoul@kernel.org, andi.shyti@kernel.org,
+	lee@kernel.org, andrew+netdev@lunn.ch, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, linusw@kernel.org,
+	Steen.Hegelund@microchip.com, daniel.machon@microchip.com,
+	UNGLinuxDriver@microchip.com, olivia@selenic.com,
+	radu_nicolae.pirea@upb.ro, richard.genoud@bootlin.com,
+	gregkh@linuxfoundation.org, jirislaby@kernel.org,
+	lars.povlsen@microchip.com, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-crypto@vger.kernel.org, dmaengine@vger.kernel.org,
+	linux-i2c@vger.kernel.org, netdev@vger.kernel.org,
+	linux-gpio@vger.kernel.org, linux-spi@vger.kernel.org,
+	linux-serial@vger.kernel.org, linux-usb@vger.kernel.org,
+	luka.perkov@sartura.hr, Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v4 04/15] dt-bindings: spi: at91: add
+ microchip,lan9691-spi
+Message-ID: <2ff4b417-871b-4b0e-a4f5-424ce535ebd3@sirena.org.uk>
+References: <20251229184004.571837-1-robert.marko@sartura.hr>
+ <20251229184004.571837-5-robert.marko@sartura.hr>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mailbox: exynos: drop unneeded runtime pointer (pclk)
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Jassi Brar <jassisinghbrar@gmail.com>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Peter Griffin <peter.griffin@linaro.org>,
- Will McVicker <willmcvicker@google.com>, Juan Yescas <jyescas@google.com>,
- kernel-team@android.com, linux-kernel@vger.kernel.org,
- linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20260105-mailbox-acpm-pclk-ptr-v1-1-8474de8c4584@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20260105-mailbox-acpm-pclk-ptr-v1-1-8474de8c4584@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="L5qsEAHx6q9dJj52"
+Content-Disposition: inline
+In-Reply-To: <20251229184004.571837-5-robert.marko@sartura.hr>
+X-Cookie: So many women
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260105_044709_442618_5D8CFE88 
+X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,18 +91,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/01/2026 13:34, André Draszik wrote:
-> pclk is not needed past probe(), just drop it. This saves a little bit
-> of runtime memory.
-> 
-> Signed-off-by: André Draszik <andre.draszik@linaro.org>
-> ---
->  drivers/mailbox/exynos-mailbox.c | 9 ++++-----
->  1 file changed, 4 insertions(+), 5 deletions(-)
 
+--L5qsEAHx6q9dJj52
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+On Mon, Dec 29, 2025 at 07:37:45PM +0100, Robert Marko wrote:
 
-Best regards,
-Krzysztof
+> Document Microchip LAN969x SPI compatible.
+
+Please submit patches using subject lines reflecting the style for the
+subsystem, this makes it easier for people to identify relevant patches.
+Look at what existing commits in the area you're changing are doing and
+make sure your subject lines visually resemble what they're doing.
+There's no need to resubmit to fix this alone.
+
+--L5qsEAHx6q9dJj52
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmlbssAACgkQJNaLcl1U
+h9D4Xwf/SR39qhC6yLd9TVLdTbJvbv9td/1UUXSFHjr1far0W1wTnHIk9agrEcs+
+/CUvNmq9Xga7s68neH9NM4e3phBnJZt74a3J3zzhvBekn3xXCyKfmhw9WFU+rGGC
+dLJg/c/VyK4Dzfq6tzvajmvH8NYGkfWsf8TDYMAQkWfyFf3iASqrWODzvobA5l8D
+f4Q5wCZqo6GnSlAfW2+galQbUNMK85g0ponFRfi1JfjuTyYb2ZKghpKWLJGOTJzj
+PMinOleBkv3jp7jH4T6Lh+DiCyhddXuYJhoGGfDIlnhZrm+1fCifyVtpxwbXKXH3
+bT3c73me1CxD3Ncn8Q6E2gOrpidxdg==
+=VKTA
+-----END PGP SIGNATURE-----
+
+--L5qsEAHx6q9dJj52--
 
