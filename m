@@ -4,99 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC3A9C2A062
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 07:47:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8A73C2A062
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 07:51:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2Smn7G9NNF4TKpSBrLZt6/rkru/ozPf2jYkxgsCOt/U=; b=P4Xc3qV2C6h9vjkHSRHujLBDlQ
-	VQFQds/vipg0q8ShLlHvMRTgJHaLP3TloiDUzbUi+MInF0bjmxgd4QaYtLUN/JxSTJukjQJBPtZKY
-	jZ68EXbXhd+Fkmid9CL3SjsjkdU8imbbbJnosKdz7pEkswtXBfIAfIZfx12qWM8hlWV6Sf7jvLhHv
-	hiCSoYuE+PlNYVpRq94LiAa7dbO0bWSPRqGod8CFyiuM5LiIq8keDyKbj8krBAGlzDXg+XTlGjI4Y
-	woeuTMa8OXttTbhJGdQuRtbyk3bi3dOrmkHyGGrX0WdDEhR8TSG1XiIrZAf5Y1HTmzupR9cyUDGEv
-	tAMM9jyg==;
+	bh=ej8tixVab4Csa5LP85L7d//tuATCC5+B3KkIV+txH78=; b=m21ZkkuB5wPhoCflEO9EZVdMzN
+	RpImKGKjSXDzyOthWt1s0E4OBYjvWHXwT4NZbmsprlZHZMwc28Ez3rHsCJqIeOo9Xjw5Br87zCWa4
+	1fMo7KnFWN+pOslmZox20th19CoJFXPIbYl493jXEvtc+5D+z/j79h6yeMC1dF3pn5JbVBOHBXJAX
+	v+o1I1pSLQY+aEnZ5TYVkua+HV7o1gw+pQK98uCf76YpSWdcXkhhZkup5mcygolkhicy/NJV3gu6K
+	WtI34VUzwQwBXU9t4fZB57u0mbD0Yv5unKKA+ETzLDlOlWIwUFK/Ip6jF6N82WjuIFNu6TXusuVbU
+	6sbg39gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcfJQ-0000000AvfC-1OCx;
-	Mon, 05 Jan 2026 07:47:36 +0000
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+	id 1vcfMw-0000000Aw06-15KV;
+	Mon, 05 Jan 2026 07:51:14 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcfJN-0000000AveT-1eFq
+	id 1vcfMt-0000000Avzk-1vdi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 07:47:35 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-c1e4a9033abso12231513a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Jan 2026 23:47:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1767599252; x=1768204052; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2Smn7G9NNF4TKpSBrLZt6/rkru/ozPf2jYkxgsCOt/U=;
-        b=BiBPPtyqr4IQCbYYfTBKfXz1F7mRwBl5bvagFOFJIVnaJF2QTrrWpd/YMcgor5mEC+
-         qNnIwWmrhI88sQ6MXAnKtZ0I3G/0FBHdfQ9YVvoLU536U17FFheESm1FL0xpj630U6de
-         RgqVgG24GGLPrgcGvbT8H1dzjdC/4DojBqOKr/E4UPKEDPX91ZlSxWJS8LjAuK2s/itO
-         joyeFm6ql1JsgQ1/+d8+1j4gUjrbzc3zhkNob4vzH1X+604bisj9i/Ksu2r1Gn8kPkD7
-         TF+s0YtHeF/VTeLTLblJnuPBGeCn31p5R++YAP6RkcNvJSFXPXbMTY9ntRY1s6b4Pg0h
-         Wjcg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767599252; x=1768204052;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=2Smn7G9NNF4TKpSBrLZt6/rkru/ozPf2jYkxgsCOt/U=;
-        b=B5Me+OZGzo0CbHCGCs4XXl7dvLb8lwHmetjRQMmjllC7R2JstO2fVxfedxqoIuvcOl
-         mlbwIiPWjZngWDZvnhksl/Sd5x4+/RK4eBTbrU2iIqgtwGD3abyRzIsK803BPDkTQ1ka
-         hZstzEeEd6eHaue8rLPWJwp3aWYPXxb+3ocqeoDl4yiVucXu+VhkGi5GKPlZUSpOUZSt
-         JWV1NxoMFxQPWVgw/RXQG0UhRfkRY/dci+f03xY8cOkq1OVn6MLGrjVnwkhg/qq9qDGW
-         0kX6Iyb2iMykxs0QPnw+pTvBJesovoNNE1jVnZ96NuIlFP98kBC8vbAUc283+k3kiXDV
-         KMLg==
-X-Forwarded-Encrypted: i=1; AJvYcCVB8gZg9I0AbxgEawPKK/Hp/5Vnj9mR5ZWHUkTEbewbG7E1gGSa5KAZKZCSODIq6dmO7SsBkDcmrhjMela7Llcv@lists.infradead.org
-X-Gm-Message-State: AOJu0YyuZXBwdwAfLquSgNHbyl7veV8hrJJ+tItk4/4sUpB3tR9dyDSe
-	TjoT/CDvMTBR9VZP2Eq3iXGleyAIc2vQGtocJO5wF7/gxB9fu6Jb6wYRJvLUiCVwoLA=
-X-Gm-Gg: AY/fxX5aSKup5ZtErcKmiLZ73JRJx4942pBheHPQD59mWmWGemo68H3iYZwLx8FHvt3
-	AmeCJhAHOLwE1dXYYQFsOBTREt/YCL4AYKal4WNgtKBq53Fe8aA4kDkgyHZE/snY8k9ntNal93q
-	N5tknM6M28pb5EOQtI8hSIMbPZfzXDwqTJtEX/bW8oGLho1jqnYou+Tn36JGeCJ63D+RpYVAYQo
-	T6mI6sipAYg8YN0x8I2oaMnfDDG3NV+WQC2hFmqkxsnPXXb0EArKekEgpI8ADNyC86wPMfkKsAt
-	lfu9etcpetA8Nqkabt5ncXh/Jap5Mo47CWUlGoYpjN8dscZCVVIyZsSPa0FuNimOU6LlWYsVbnZ
-	clj2cq2acmqVyqpsJXEEHVWlY7lMKkJZpovFcElJGY+Y9rFUOqyRHduYzrAtH9ZgkvF+KOfe1tA
-	==
-X-Google-Smtp-Source: AGHT+IHVaBHzL3ldcoq10mQ0DvSoQNAzO29+h1IBrSy2gZY7Qh6quSoh5XWNmgIvhDzcT+gz+HyNHQ==
-X-Received: by 2002:a05:693c:8008:b0:2b0:4f8e:3273 with SMTP id 5a478bee46e88-2b05ebd7223mr36936529eec.6.1767599252090;
-        Sun, 04 Jan 2026 23:47:32 -0800 (PST)
-Received: from gmail.com ([2a09:bac5:1f0f:28::4:33f])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b05ffad66fsm101610210eec.4.2026.01.04.23.47.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 04 Jan 2026 23:47:31 -0800 (PST)
-From: Qingfang Deng <dqfext@gmail.com>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-crypto@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A. Donenfeld" <Jason@zx2c4.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	linux-arm-kernel@lists.infradead.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org,
-	Holger Dengler <dengler@linux.ibm.com>,
-	Harald Freudenberger <freude@linux.ibm.com>
-Subject: Re: [PATCH 02/36] lib/crypto: aes: Introduce improved AES library
-Date: Mon,  5 Jan 2026 15:47:12 +0800
-Message-ID: <20260105074712.498-1-dqfext@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20260105051311.1607207-3-ebiggers@kernel.org>
-References: <20260105051311.1607207-1-ebiggers@kernel.org> <20260105051311.1607207-3-ebiggers@kernel.org>
+	Mon, 05 Jan 2026 07:51:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mcSQQRfIIJSb5iBxGsqjPul1+quYN94UBNs7UEGigkgAmtBK0VEYRSBRsddknIicd4sIoGvL07bsAhR82GDCXEaOOhcV1UGoFvtfTNG8gVsyXWm31K6X9Yyv3/4F0ZXPslqUpAsFfP+j/f7v+nEvQa4Uc5axszqljLoubF+Njrnd5X+IYWNjHaeogLusrP/SAKBZHA+kEJvKuJvOnd6HbdLeqL+KcFo07w8HYiWYEgq3/amP9lehsgBGSLvZ2yrBmYEUcWit96AW0IU6+oZvvx6g7hmIfAtKh4aPQAK/5JftoT7XuLxfF5nv/M0q/sSO/aO/ZBW29ra8xK+Mmq3aRA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ej8tixVab4Csa5LP85L7d//tuATCC5+B3KkIV+txH78=;
+ b=eKaFGzO91dtFEN2+UMSTpY1tqbv7PiAaPa2JrbgpI5lyomI/4TaOXh5WeHBOsot9i9yftMK3l8vgtQ+milf9sdkZbcZIV0EdbEXhk2thv2TarUfdOh6BuKiXsI9N5BXp0OIzRrlcR0tvowQ6/+kDGr2KIALyCsl95x5Uw1t1DlVbTFyDbXIkg2rg3PoDku24vVr1qPoSaUgBxXC7S9g60UTkN4Hx63SMxlkUxf1EdPJSlHgsVnPMhv3F8PkToNADFItv3bC45uh/QnLpepDvYRAwKdgt/RbdFNN1xsHlCOUvLTYcPPoDNo2UhzqdTlpGZyBpkSOD+a1gyftaORtVAA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.59) smtp.rcpttodomain=mess.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ej8tixVab4Csa5LP85L7d//tuATCC5+B3KkIV+txH78=;
+ b=NNfK/c/5YyosPRuS7mdWJ4THpyeTnflV2I1kTMnm16Kr3rZOqZcc0+OKqQ5STHYnv4QrU5N+hY4pMp9TVAKBbxG6GkBqNxVRMgcwnnvu7RvFoPsOkAfM9pdlBZhHW9VWrbZzrMIRI5SRbxK3ljDr8V6irYi6kY3hZ+2q1jggS+lPEdgREsL4Gr5j3QLPwudWN+ZAN+qyM7yGT6xMStUnmc+iDOEbkIsgy5Iy4DboW5sX9IEXQIYrsTOwEy7RYHBUyfpM7ENAwD+VIyq5gIyEeR4DWNBJl28woQdM1FxU2SRBYtOfSAioFC9cgs1Yo/nT12dWUoPphJlK+aa5Md1Raw==
+Received: from AS8PR07CA0020.eurprd07.prod.outlook.com (2603:10a6:20b:451::13)
+ by AS2PR10MB7106.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:5e9::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Mon, 5 Jan
+ 2026 07:51:06 +0000
+Received: from AM4PEPF00025F97.EURPRD83.prod.outlook.com
+ (2603:10a6:20b:451:cafe::bc) by AS8PR07CA0020.outlook.office365.com
+ (2603:10a6:20b:451::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.1 via Frontend Transport; Mon, 5
+ Jan 2026 07:51:06 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.59; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.59) by
+ AM4PEPF00025F97.mail.protection.outlook.com (10.167.16.6) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9520.0 via Frontend Transport; Mon, 5 Jan 2026 07:51:06 +0000
+Received: from STKDAG1NODE1.st.com (10.75.128.132) by smtpo365.st.com
+ (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Mon, 5 Jan
+ 2026 08:52:19 +0100
+Received: from [10.48.87.93] (10.48.87.93) by STKDAG1NODE1.st.com
+ (10.75.128.132) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Mon, 5 Jan
+ 2026 08:51:04 +0100
+Message-ID: <8d8b5d79-4b70-4ad0-9496-8d409495cbc9@foss.st.com>
+Date: Mon, 5 Jan 2026 08:51:03 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] media: rc: rc_unregister_device() should not call
+ rc_free_device()
+To: Sean Young <sean@mess.org>, Andrzej Hajda <andrzej.hajda@intel.com>, "Neil
+ Armstrong" <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
+	<jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, "Maarten
+ Lankhorst" <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
+	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	=?UTF-8?Q?Bruno_Pr=C3=A9mont?= <bonbons@linux-vserver.org>, Jiri Kosina
+	<jikos@kernel.org>, Benjamin Tissoires <bentiss@kernel.org>, Hans Verkuil
+	<hverkuil@kernel.org>, Mauro Carvalho Chehab <mchehab@kernel.org>, "Maxim
+ Levitsky" <maximlevitsky@gmail.com>, Chen-Yu Tsai <wens@kernel.org>, "Samuel
+ Holland" <samuel@sholland.org>, =?UTF-8?Q?David_H=C3=A4rdeman?=
+	<david@hardeman.nu>, Benjamin Valentin <benpicco@googlemail.com>, "Greg
+ Kroah-Hartman" <gregkh@linuxfoundation.org>
+CC: Haotian Zhang <vulab@iscas.ac.cn>, <dri-devel@lists.freedesktop.org>,
+	<linux-kernel@vger.kernel.org>, <linux-input@vger.kernel.org>,
+	<linux-media@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-sunxi@lists.linux.dev>, <linux-staging@lists.linux.dev>
+References: <20251220222757.7063-1-sean@mess.org>
+Content-Language: en-US
+From: Patrice CHOTARD <patrice.chotard@foss.st.com>
+In-Reply-To: <20251220222757.7063-1-sean@mess.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.93]
+X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE1.st.com
+ (10.75.128.132)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM4PEPF00025F97:EE_|AS2PR10MB7106:EE_
+X-MS-Office365-Filtering-Correlation-Id: a79621e0-ae8f-4dab-64ef-08de4c2f2e8d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|36860700013|82310400026|7053199007|13003099007|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?WkN5TGxJbDB4RXBVYmlsUytjdVZ2ZzFjUjZta0tTeURJaTdXZmtSeG8zTmJ3?=
+ =?utf-8?B?K1ZsS2FRaGNIMzl2OTVrNGpVOGRYRlRQQUt0ZzJSYndPQitra2xXT0VTUFJU?=
+ =?utf-8?B?bjQ4c0YrOG1Lcnc1US9mclliN0RPYXRqV3RJVWNFSzhWV29lR3hnbGVmNXZD?=
+ =?utf-8?B?Y1grNDYrcjFiaXRxVjk5UXBEdEkwY1FhazVNKzEyUVhzcjFlTVpibTZBUEs3?=
+ =?utf-8?B?YU9xLy85ZTNIOFRwSFI4V2F5dWFpWTZnTk9iODFjdXVTSytwZGxJSTc2a0d3?=
+ =?utf-8?B?ZWFEQWY0bDZtWU1EaXVUSWIzOTlBUUNHUm1YZEY3Tm9TK2FuWWxvdll0L2g4?=
+ =?utf-8?B?WS9uTDdhUzNZUjZUWGw1REFCU285UENtSGJBS2pDU2tRTXZBajhKNnFrVDlS?=
+ =?utf-8?B?WmJKSDcvbHpHSnVHWnZvY2dsMENIbGJuMGI1OTBRb0hnUTJCZElCaXcyZTh5?=
+ =?utf-8?B?ZVc5cmM2eXM5SGI0T0x1aDBDUjhmMjNiMDd5N3YyTzBrNHJpaUpMZ0hrQjZt?=
+ =?utf-8?B?ZHVkekUrWTRaaXJiQ2dOd3g2WmVReFE5RnNscHdvb3ZqMThtSTAwYkYxK3VM?=
+ =?utf-8?B?NjVPdldOM083c25HUkQ3OTRsM0M5OXlQU0lEOG5vNHlHVUk5djB3ZjQvSUZH?=
+ =?utf-8?B?dGZxaUpTMnArN3M1Rzg1cHBjSFVjQkE1aU9xSHd0eks2RU8vLzk5enlrcWF2?=
+ =?utf-8?B?Zzd2cEw1VUsvSkk1d3lTVk4yZG93V2dCRTRmRUo2UUxSbVlMTmtIMmc5Si9X?=
+ =?utf-8?B?OHFNNXVUR1gzSm5LM3ZyMmR1VFlTZnlIN000L0tIVnVDb2N4aDFSZTA3aGJu?=
+ =?utf-8?B?YzNZWXM1SDN5VWg0Rzc4T0RzTTdiN1dQYlp3N3hnb01ZNTRmWncyTTZtaHAz?=
+ =?utf-8?B?NVhBdWV5dUtKeWFqb0czNGFCTVR0cHV1Y2JpUWJnR3RSR2s1RmZOVUNCaTBM?=
+ =?utf-8?B?MHVyWUw4Mjl6SThDUFNGcG1ZZ2JEN0lLanljazhyUnEvUkVSOVBuZFM4QVpB?=
+ =?utf-8?B?b0JwNlJ1Vko5WEh2bUJkR09oL0o1STZkVGVFSDRFMVZ2TWp1dGNjYkw3ZmJH?=
+ =?utf-8?B?ektCVEIwM0hLYUg1YUo5eC9jdTllaEp1SHFuSGl4L0REa04wUERXbnVMRFF4?=
+ =?utf-8?B?SDZKM2dORFY0VTlmdC9ld2UzaFI4VXZFTE05UGRDUkR5WWxvem1mTUpCMm11?=
+ =?utf-8?B?cEJHRWlNV2tZanUwMmRVR3lGUFlKWlZ2ai96SnhSNmVTdjhZZ0pNVytqSnVr?=
+ =?utf-8?B?eERma1lyTFFmWm5KRzVVVjNvcXh4NHF6bk00Q2w5eWNEM1ZlTVNzMC9KbmJh?=
+ =?utf-8?B?Q3ZrNlJWNk94MkVpcEU5R0dxV1BnakY3L3JOSmdvajFRY002T2JrRlgrOTNu?=
+ =?utf-8?B?RnZoVUY2ZEp5OGd0akQ0cXZuQWlqZmFya2grMnp2TlI3RGVpU1pNckFHNEl4?=
+ =?utf-8?B?M011dW5MdWs0QTBuOEE0TjVtN29kc1E1R0U5bkIybTNodFhWTUlFV3NxcXZC?=
+ =?utf-8?B?ZHU4S2VZdStiVWk1dmFqaS9mb1doeHdqYWlRZkU4ZFhnSjY5dWc3QVdYWmNo?=
+ =?utf-8?B?bVJCc09HWFJKRzBVb0FMSjFxRlhVMEhTL3h2M0ZlUTFRVWFyeE1TQ3NtSno4?=
+ =?utf-8?B?NFduVXBEWHgrVlIwb0dQWFNSQUo2bkFMeVp1L0lGUEVPQ1ZTNW0zdC90ZkNZ?=
+ =?utf-8?B?N1pVeVFkb0tJcHYwZ2xvMG9zcXJLbnc0NVVwUkxmMDlCSzArcVp2Qlc3c1dY?=
+ =?utf-8?B?Vk5Mc1l0S3FGTHVpZU51aVAxUUJBY21UVjlCUlM4Tkl5bXhJZ055VDAxelQv?=
+ =?utf-8?B?Zk0ySmlwOUkxK3NrRHc1MmJsZDdJZlpEaU9vYW8wcW1YTENHRk84NEF4Mm8v?=
+ =?utf-8?B?R1R2NUk5UlBjd2QrNWlYUVVmaS9YU1RVQjYybU1qQWNwLzhCUTdobXdmL0Uw?=
+ =?utf-8?B?ZnZaMWhYeHZ5a2lsaCtxSm4vdFNNSFFnbG1sMnZ3N25CMm5iSHRwQlpmaFlj?=
+ =?utf-8?B?YW9DS1dtdUFlU25oMVplY3dSWUI5NVNMZHQ3bWhUSTBjWkljSGdoZllnVGxj?=
+ =?utf-8?B?blZBOWcxekhmTUFrdHFiOHdobGtWN0p1RSs5clJWanZUbnBEekt1enBzKzRF?=
+ =?utf-8?B?MFRBQ2pYcExZRHlubWpUNC94SENQOUxqV2tlMmMwWm5mL09PVStRTVNDOUFa?=
+ =?utf-8?B?ZHc9PQ==?=
+X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(36860700013)(82310400026)(7053199007)(13003099007)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: CobXj9tYxhWVAkSvd1gKJXGTV5918KBac9bymEkGS3QgMIcCW5MIRLhvup0tof/gLhgOusQxtzkudxn45p/THhDVSs5pKcOdAuT10LeK20irnzs5nKwdrLvimhqEdzGVQcvU1pCxweekUvXFxlSxmDol8uUWu4mNr+iVqhsQT3rWkuiX10RPUsUfKYImu8zPPOQuBH+/QtOWvelz5r9eak1qM6QBY2gTERlPyvUrH8a/+KeruAaIK4975CN3veFzVA4hkE7QkjufPdq8hbqtfbm/Um9P/2AuWywOW7yzLwMcuRsykcMOrAV7/yjsi20AAuL4rNcwepoeYZnPK7P1z3+wPlJNC3qgV23MR1MFTKjfgYgxXUB4rBnIW2c7XBkPeHpr031I48fol0Mxetwt74n5QuQiZuCbToI3V3lD9AJ+BjnGEjuMIAoeEqKeSeRKB2KkfLBQ+Vojb+VYNbqaTk6VOIZiruI/GnBXiFSOiJ0NHd3+3Jz9/1BwHITkBHIfJrFT1xSwFWDRsru+x5my63rK5sZEj2Tu5NEIy+z7azCybZ4z4r+aZ73PKInqHvUyWIJ4fADIiYv0mtyfKjM1+q8usSFCUHDFx5jcGXN6BCq+U9fgDlSw5Dky3mhq4dHCgfosQ5X2ypjhGNeKQBEkXVhwtf1zAs+hyKxjaYxxiuwe8ifBPYGPZ30tBPbfOvb+
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jan 2026 07:51:06.0889
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a79621e0-ae8f-4dab-64ef-08de4c2f2e8d
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00025F97.EURPRD83.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR10MB7106
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260104_234733_425687_F5FD802F 
-X-CRM114-Status: UNSURE (   7.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260104_235111_777297_6F8930A4 
+X-CRM114-Status: GOOD (  20.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,19 +178,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4 Jan 2026 21:12:35 -0800, Eric Biggers wrote:
->  extern const u8 crypto_aes_sbox[];
->  extern const u8 crypto_aes_inv_sbox[];
-> +extern const u32 __cacheline_aligned aes_enc_tab[256];
-> +extern const u32 __cacheline_aligned aes_dec_tab[256];
- 
-__cacheline_aligned puts the array in ".data..cacheline_aligned"
-section. As a const array, it should be in ".rodata" section, so
-____cacheline_aligned (note the extra underscores) should be used
-instead.
-You can also apply the same to crypto_aes_sbox and crypto_aes_inv_sbox
-while at it.
 
-Regards,
-Qingfang
+
+On 12/20/25 23:27, Sean Young wrote:
+> rc_unregister_device() does two things: it marks the device as
+> unregistered, so no new commands can be issued via the lirc chardev,
+> and also frees the rc device. Device drivers want to both cancel
+> in-flight commands (i.e. kill urbs) and prevent further commands from
+> being issued. Only once both are done, can we really free the rc device,
+> because it might be referenced in urb callbacks. This is impossible to
+> do with the current way of things.
+> 
+> This change removes the implicit call to rc_free_device() from
+> rc_unregister_device(). This means that device drivers can call
+> rc_unregister_device() in their remove or disconnect function, then cancel
+> all the urbs and interrupts before explicitly calling rc_free_device().
+> 
+> Note this is an alternative fix for an issue found by Haotian Zhang, see
+> the Closes: tags.
+> 
+> Reported-by: Haotian Zhang <vulab@iscas.ac.cn>
+> Closes: https://lore.kernel.org/linux-media/20251114101432.2566-1-vulab@iscas.ac.cn
+> Closes: https://lore.kernel.org/linux-media/20251114101418.2548-1-vulab@iscas.ac.cn
+> Closes: https://lore.kernel.org/linux-media/20251114101346.2530-1-vulab@iscas.ac.cn/
+> Closes: https://lore.kernel.org/linux-media/20251114090605.2413-1-vulab@iscas.ac.cn/
+> Signed-off-by: Sean Young <sean@mess.org>
+> ---
+>  drivers/gpu/drm/bridge/sil-sii8620.c        | 1 +
+>  drivers/hid/hid-picolcd_cir.c               | 1 +
+>  drivers/media/cec/core/cec-core.c           | 2 +-
+>  drivers/media/common/siano/smsir.c          | 1 +
+>  drivers/media/i2c/ir-kbd-i2c.c              | 2 ++
+>  drivers/media/pci/bt8xx/bttv-input.c        | 1 +
+>  drivers/media/pci/cx23885/cx23885-input.c   | 1 +
+>  drivers/media/pci/cx88/cx88-input.c         | 1 +
+>  drivers/media/pci/dm1105/dm1105.c           | 1 +
+>  drivers/media/pci/mantis/mantis_input.c     | 1 +
+>  drivers/media/pci/saa7134/saa7134-input.c   | 1 +
+>  drivers/media/pci/smipcie/smipcie-ir.c      | 1 +
+>  drivers/media/pci/ttpci/budget-ci.c         | 1 +
+>  drivers/media/rc/ati_remote.c               | 4 ++--
+>  drivers/media/rc/ene_ir.c                   | 2 +-
+>  drivers/media/rc/fintek-cir.c               | 3 ++-
+>  drivers/media/rc/igorplugusb.c              | 1 +
+>  drivers/media/rc/iguanair.c                 | 1 +
+>  drivers/media/rc/img-ir/img-ir-hw.c         | 3 ++-
+>  drivers/media/rc/img-ir/img-ir-raw.c        | 3 ++-
+>  drivers/media/rc/imon.c                     | 3 ++-
+>  drivers/media/rc/ir-hix5hd2.c               | 2 +-
+>  drivers/media/rc/ir_toy.c                   | 1 +
+>  drivers/media/rc/ite-cir.c                  | 2 +-
+>  drivers/media/rc/mceusb.c                   | 1 +
+>  drivers/media/rc/rc-ir-raw.c                | 5 -----
+>  drivers/media/rc/rc-loopback.c              | 1 +
+>  drivers/media/rc/rc-main.c                  | 6 +-----
+>  drivers/media/rc/redrat3.c                  | 4 +++-
+>  drivers/media/rc/st_rc.c                    | 2 +-
+>  drivers/media/rc/streamzap.c                | 3 ++-
+>  drivers/media/rc/sunxi-cir.c                | 1 +
+>  drivers/media/rc/ttusbir.c                  | 2 +-
+>  drivers/media/rc/winbond-cir.c              | 2 +-
+>  drivers/media/rc/xbox_remote.c              | 3 ++-
+>  drivers/media/usb/au0828/au0828-input.c     | 1 +
+>  drivers/media/usb/dvb-usb-v2/dvb_usb_core.c | 1 +
+>  drivers/media/usb/dvb-usb/dvb-usb-remote.c  | 6 ++++--
+>  drivers/media/usb/em28xx/em28xx-input.c     | 1 +
+>  drivers/staging/media/av7110/av7110_ir.c    | 1 +
+>  include/media/rc-core.h                     | 2 --
+>  41 files changed, 52 insertions(+), 30 deletions(-)
+> 
+
+[...]
+
+> diff --git a/drivers/media/rc/st_rc.c b/drivers/media/rc/st_rc.c
+> index 6b70bac5f45d6..0ba06bfc9e14b 100644
+> --- a/drivers/media/rc/st_rc.c
+> +++ b/drivers/media/rc/st_rc.c
+> @@ -203,6 +203,7 @@ static void st_rc_remove(struct platform_device *pdev)
+>  	device_init_wakeup(&pdev->dev, false);
+>  	clk_disable_unprepare(rc_dev->sys_clock);
+>  	rc_unregister_device(rc_dev->rdev);
+> +	rc_free_device(rc_dev->rdev);
+>  }
+>  
+>  static int st_rc_open(struct rc_dev *rdev)
+> @@ -334,7 +335,6 @@ static int st_rc_probe(struct platform_device *pdev)
+>  	return ret;
+>  rcerr:
+>  	rc_unregister_device(rdev);
+> -	rdev = NULL;
+>  clkerr:
+>  	clk_disable_unprepare(rc_dev->sys_clock);
+>  err:
+> diff --git a/drivers/media/rc/streamzap.c b/drivers/media/rc/streamzap.c
+> index d3b48a0dd1f47..b9b241fe46ea1 100644
+
+Reviewed-by: Patrice Chotard <patrice.chotard@foss.st.com>
+
+Thanks
+Patrice
+
 
