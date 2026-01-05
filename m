@@ -4,92 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AF1EC79FA0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 14:37:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E7A0C79F9C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 14:38:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FqozQF9M5zlw+9sgUgeqaaoOc0kHvJsMdTuoFXpVzqw=; b=RnTNUR0c+fW+HEdOriWmQeIypE
-	btmoaG5n2f/d8LTcb4Ck6vgDfARhklyyaxupJ6+XmZJM04hR55F206qXWjrNtp9uyHYNFP2L5Dk/3
-	G3n/FkF+SVbXfwXwZa9Z1fRsirmZpfI5bJfetvX2wYnxw4OuKpTGSE/qa+oX9e3b4m5HqvifvHzI8
-	OshJY9YguDQ6U7zROUzJvrb0jPJDGIq+SdrvopSLVF482mvmrcCauZelG1GRvOBGEHxQHc6ILIiz9
-	1Kcix9n1Y1Yp9bDlLWrZqSs8TncqCIC+Xzq7UVBN3wO80AnXTplWPRW4tywCpPCCFzm+ZsiVuX1Vs
-	+IXAUmFQ==;
+	bh=Ti6doOokkOuf1fU82BjOqYUG2AtLj8E38n45wx271uo=; b=ZibOb9TB+5e6BlBsVZzwLUuECG
+	u0SLBEopwyb2zN3STNDvAOk8+BNNV6f6cl8bPs9Zmle6kRYmL2xytanKKej2rC6FfWSaJk8zcAojW
+	QVd6G/mI1s9nLA+93g2eEJjPXOwRcHEm5Z7mLolmqUNNiQWnX02lrlVl9dHS0ULPekL1kZEy2UgYt
+	sahAzWiYNGXqQAaCzTjfh4cXYuP0m855J8vKvW3EZQorhWpuJEqOciIYxJQ0ybb5/PmYe7LHynLJX
+	b4z+EF1j7mo57Gdentg8d0iB9p1mmYTX2mitLiCJMZ0U4movDcPxHopOYQukQzZPbM4sGh/2rPnTG
+	p2iVHt6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vclhp-0000000BYG0-3gO9;
-	Mon, 05 Jan 2026 14:37:14 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vclil-0000000BYQh-2z49;
+	Mon, 05 Jan 2026 14:38:11 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vclho-0000000BYEo-10cw
+	id 1vclij-0000000BYQK-2gJJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 14:37:13 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6058516O978642
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 5 Jan 2026 14:37:11 GMT
+	Mon, 05 Jan 2026 14:38:10 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6059eS8p3542060
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 5 Jan 2026 14:38:09 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=FqozQF9M5zl
-	w+9sgUgeqaaoOc0kHvJsMdTuoFXpVzqw=; b=hT+urKRWB2PgUU+9W9m2vd67RTD
-	G5sZqtP03NPU8xe2O4uRbZbmhxuHsqrSqoO4sOtbmof6cVwcdbna8bnnm/z1BVhD
-	lx3PFkOboTzXIUxtR2FJI/aYVujyVeca0KB8rPvN/UzG9j+zgDpTb+/huL0YiHOW
-	qNT17fnob5oFSsL9MWzcLvwShr2r94b9UygBl2ZaHHtEj/PHWGeSzE/CxlDJ2Ucv
-	PkrR8TQ4xvJ7q2jW79Pqc8ng03Aohpm+r7bPxoRHzvhSDoK5rwo74bAT+G9oR/Eb
-	X6K3EuaI9FbQwldOaTCAf1J8yaZt6OjvdJgT4AKdLI65wJAWErdwj6QsOsQ==
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Ti6doOokkOuf1fU82BjOqYUG2AtLj8E38n45wx271uo=; b=Sjz5YZFkbaAgPHjf
+	Xr9nC2IK8gcOosOfbQR9gmuDiLdzRNN5Gn80x+bjHA2o3r6yQdPWewpxp4r83EiG
+	Zv1au6np+62NArsD3ELCAopT/5HYpXUqLYBd57s8/Y2kwb0VU7Pu6Ib2+scoeMjc
+	XQ1fybwC1yz7qIJ5t64pYUsPJj/rMVzHYBdCnIMmcihLEuaSzveP3gHrD2aD8AMu
+	yaRi2Fi5N/SxdCuFh3uQ8TasAG0N4yuZjqXgZstePbkeYhoU/5Ncw1paanNhNFop
+	+0wyqVHuwnX7aqdQz0LZLyqB1xqVKdCyo3Tu/zH0LuE+AgAl8ObPt730ZVAf1a3p
+	Hv93GA==
 Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bg9fth1vn-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bg57shsyf-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 14:37:10 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4ee0488e746so51578861cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 06:37:10 -0800 (PST)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 14:38:09 +0000 (GMT)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4edad69b4e8so48975641cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 06:38:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1767623830; x=1768228630; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=FqozQF9M5zlw+9sgUgeqaaoOc0kHvJsMdTuoFXpVzqw=;
-        b=cr81UeoLrDC6SSXp5xuMgwRxSUlcDzixwG+Xu+fBEttW9RIE8j/r9T+85iAqePwq8w
-         n5MXashokwxys5HWt9LV2P6+lko8xbNcgqQ8D0JLg26yyAoyCtcZsGncDa7cqrd492vc
-         bsqbD6iuD9B69sed1gfMeWIA8ZO+gK2DDrKXzY6Cy8drxtgbHpbsTr7TNO+5cuIAxD/k
-         0iKYDHgx9AONA7OdUVBzapnXVTbqfm+qqxCJNm9OuyxWIwTpsr/4oOPVBpcjSfYsPRj+
-         luC4MvB1p6xyFvU+T15IlBes53J3wPevGPe4oUz5s8nL097Ug+O5APlfWAoy2+BiC3+r
-         SnPg==
+        d=oss.qualcomm.com; s=google; t=1767623888; x=1768228688; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ti6doOokkOuf1fU82BjOqYUG2AtLj8E38n45wx271uo=;
+        b=j8eTsZsGTlWT4CycKgSl89L4FBNJ6GAvSvmnV3xSTH265NLrS0t6lDSm72kg4e9kab
+         J/jPnaEdURzqhumBG2FY5v59CTNM9X2mplF9LaWPKJDu7UN8H6TK6wMj8yD7qFknHeCO
+         0n1iDPXhdQ8mg5AQ8Pmur0yvqwiLMZLaVPdKC9y2po6k/eqT9gEaDw5UmQguDChQz1DR
+         ESgcKwKty8o7nsKAp0+mc6ppQLGe8ecJGWTWB03+kEL2d+rikKyymkNqTMRPLxVTVgdr
+         biu4+rlEjNaVM8M3yTp5r0+ZQ020DLgZM+NY356ZS4PDpy/XkoQgag4Bsjh+dPJsigUw
+         5WRA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767623830; x=1768228630;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=FqozQF9M5zlw+9sgUgeqaaoOc0kHvJsMdTuoFXpVzqw=;
-        b=t6dZdikBZIUD0h6OAX0e+6tmKme/c3b7KCeqflnq1YLsn/L/IGWl2wyz0OFRKQnZt4
-         zrUdlE7iOkOyORapFNWQVLpAmbTf32mvVZdtT9u6mhG+x01sVyaXGllHiRLoUj7OGF/9
-         9MrPjFsKDKHvV3ylekoF+yMr2VuGFovMlDYwkRqCefiAsJ5VbMKj1AgjH9QPVfZDLpuu
-         1YaDXJPkJBMw6kEg72nkOSR0usLku8EmF4Inp8yob+sYVIb6taiUskEi5NqjlAzAAe2E
-         7IBKotGf8y47mC0SwgvoiZwaAUAk48TqNjVeT2Dg5MMyXKcEbKqWOVknATgJJ6e1KHeh
-         F12w==
-X-Forwarded-Encrypted: i=1; AJvYcCUSNtvWnFT/hTqjHhfizSnbA1aR8YxM4Lz9hQWC5pkp/+Vvf1ORMWWs2/JK5WBHIXvrKvhghqfszGBiy4wZvUkr@lists.infradead.org
-X-Gm-Message-State: AOJu0YzPT6nZqK7YzrO8N2S+C92Ks8Q/S5EHgZ3WOQ03Bzo/1lzX/rwG
-	Y8zR05t6aQ5hy5Pm+pn3ETttPCBR05Wc85oThI7RRsxuiOQz/B8qcz8+oJs1LEboxKeSwPiWOh0
-	bMjIjjxCTwhxEkgR4bh/Mh3m1KH0oNhWSOvW+9/dw79cFXO/+nG0rukcHSSiCECudNrAnpx0EhP
-	wmrQ==
-X-Gm-Gg: AY/fxX42EI7uzR6qpusPH9b4rbDoxuvsRCzcRcP4RlXz6GDLdnVpSngplHCM8XOL8nq
-	6Y4+qDB2GK2wMrZh7Pd7ZkIhsFPd/r0Bt5hZ2NH8mOli9D+BeiV0x7tbPt+98J/907nyFVx6Vsx
-	YJNT/1VndmtwTUcTml17nb1K2eNp8qwedarVZ2F0Z1GE8IXLt9LXpcJ04I2MExkqlsUgEOPJhfO
-	pZyW38S93TqvpstVl6gPxvQTIBXxb6vvIbGxMgb+FLFq1bGqTZDnPjxERQlX6YR1VhSbAwDD8as
-	gMbdA7Y1EO3vELh7fmYVJd9qe8mRrwxAnG+1fn2x2PrSHHVQl44sZhfF9iyhbv5R4v7BP6GdJD8
-	B82EyWvjOhab7OaWGPRQmwFxWAA==
-X-Received: by 2002:a05:622a:40f:b0:4ed:a2dc:9e51 with SMTP id d75a77b69052e-4ff46b05e66mr102381851cf.21.1767623830066;
-        Mon, 05 Jan 2026 06:37:10 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEJjWpZc2AHE030Ob1/BCoZ7+aZaco3pbYM4/m1iVzjjWTRyFsEiy5jveuZbG4ytMZcGxbzzQ==
-X-Received: by 2002:a05:622a:40f:b0:4ed:a2dc:9e51 with SMTP id d75a77b69052e-4ff46b05e66mr102381391cf.21.1767623829493;
-        Mon, 05 Jan 2026 06:37:09 -0800 (PST)
-Received: from quoll ([178.197.218.229])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b84267ba062sm2914066b.71.2026.01.05.06.37.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Jan 2026 06:37:08 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+        d=1e100.net; s=20230601; t=1767623888; x=1768228688;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ti6doOokkOuf1fU82BjOqYUG2AtLj8E38n45wx271uo=;
+        b=DTSi/otZ0qdZY1LK2BHL9Rej2cX4u/EfyEwLP9uQvZXobETAeswiFjdo6+306mQHKE
+         kQqHzAL7uFoIT7l/D0yionwFeDLJXI+l6ryE8t1AxM9ncpq3LrdKF96zMIywa9RJItH4
+         qc4UXwdEfYs6xQ1SRkgZVrH8XbcXqGbTj4gwz3wrxH3utuHMOcWZO7DkMWMvT/gjCScz
+         DsaMWC/kRTev/KEN0blh7yq/nYCggiSeZCRQp0ohEtOh3tFfXwZghNh5378yT3HcCOXU
+         UfB2YJ/zUOnKzPCVi+dheWdHlKGr/5vcB/SnGh39yFGTig5I7aoB7CW0cE9zzvEKcxW1
+         haGw==
+X-Forwarded-Encrypted: i=1; AJvYcCWq+zBBzUjcKwYuw5oHC/C9e1Om4oVt84RFuny4dL2Wxy3+yLS98doJfPSUJ19ugm+DxKxuiKMF2IlwvegrB7lo@lists.infradead.org
+X-Gm-Message-State: AOJu0YzxOhyCKLKJ/edgkFeHLCd5Uu+n90AKC7l3L8J9eZ0JHPejOVxU
+	aebloRLifg0tp4uDhQHSSg1CMgcYvmFUP2zJ7iHrsozVdLnZvsp0aYRtgnG0huVXwf2DxYVN1Bh
+	kgLnP6uAV5HDsu0Mv0wgk/zxouQtgki9M2nK3107rDHQFoz257IoM8sXAPgqc93LfflWhWT6rcf
+	1coA==
+X-Gm-Gg: AY/fxX4fy/z4wdn9f7X0VzK9Zmb2Qm4k0LkGYXIjFp/FkzZNTQNlMiHyzZb0e7vaODN
+	5f2XHD3WHdeIcTBbFtR7lmw8rlCVgp03xPeQ2Y7LZ4Sq6gLtN3PufT0cYd9cmtTrCJtb6PLsdAY
+	EpqDFrf+EJDtpsri2x1cHoydmFt4bMUq6dbsxlwRufhLBbfsXX91MWaTPy0g/KopPgl58kNz+PX
+	gbCcW/toF38iNlEpM8tat3I5DuZpHT8heLxz4Ixnd0DKYSAGiCBtKR08luBTNRs2b2QnCD/GPDp
+	tf0a50IzfD4ff6SQnokSt5F0tzPMlQmTXcZ0PuGUKzgk1Srehun5tF3UNBo2PM8Q/iFHIjKdOds
+	2P/ehNVWhhaaZFv5FUPQW2HBCvmEVcxwhncVRKQ==
+X-Received: by 2002:a05:622a:1188:b0:4f1:bd8a:9fdb with SMTP id d75a77b69052e-4ff4508b502mr108113121cf.2.1767623888145;
+        Mon, 05 Jan 2026 06:38:08 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHgicMyDjA5PM/+eqsrIBwMK144H65yoEKhRKChcbGfAHLmAZEHZwjzOBn9OnYAC/WqGr9WyQ==
+X-Received: by 2002:a05:622a:1188:b0:4f1:bd8a:9fdb with SMTP id d75a77b69052e-4ff4508b502mr108112691cf.2.1767623887721;
+        Mon, 05 Jan 2026 06:38:07 -0800 (PST)
+Received: from [192.168.1.29] ([178.197.218.229])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b84267a5063sm3411466b.69.2026.01.05.06.38.06
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 05 Jan 2026 06:38:07 -0800 (PST)
+Message-ID: <715cb873-6bf9-4902-b586-f02ebf5a611a@oss.qualcomm.com>
+Date: Mon, 5 Jan 2026 15:38:05 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/3] bus: qcom-ebi2: Simplify with scoped for each OF
+ child loop
 To: Bjorn Andersson <andersson@kernel.org>,
         Konrad Dybcio <konradybcio@kernel.org>,
         Gatien Chevallier <gatien.chevallier@foss.st.com>,
@@ -98,56 +105,84 @@ To: Bjorn Andersson <andersson@kernel.org>,
         linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
         linux-stm32@st-md-mailman.stormreply.com,
         linux-arm-kernel@lists.infradead.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
-        Jonathan Cameron <jonathan.cameron@huawei.com>
-Subject: [PATCH v2 3/3] bus: stm32_firewall: Use scoped allocation to simplify cleanup
-Date: Mon,  5 Jan 2026 15:37:00 +0100
-Message-ID: <20260105143657.383621-6-krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20260105143657.383621-4-krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
 References: <20260105143657.383621-4-krzysztof.kozlowski@oss.qualcomm.com>
-MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1644; i=krzysztof.kozlowski@oss.qualcomm.com;
- h=from:subject; bh=JhtX/Jw0mKrE2rMCEG9hntzTYqIHi3SC7k8hVDUxXa4=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpW8yL/ba+hyOLq3Ya9b+2xC+hXQ9RLMEHV4Owj
- 9LZU+4DabqJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaVvMiwAKCRDBN2bmhouD
- 19uQD/0R9t/Sz6ycv5D28YQM7k6kABPNb9FjMVhuv7gGXPQ4VAxA/B8iZYtX6lCjaK5+BmF7d3h
- XrhlhtmK0HD5CAhdhNV7Ri2RixOpNXk9dNw6zAFog8FlcPZahMzIo4QT+wOlutTEWCdPK+W86bp
- 1UerkQ74pVYKEjaB4gSO/gMFeSM1h4Jrmfa9aa7K6nTOOWXbSHC68m276IQ/1WLn0XdSVJGVrC0
- 444dSX/teYoO8GFUN21SWIiDDBWNcRCIQ4aj1HnrNevjTnGqbnmqeRaeHHUpEghce6MIj/iC8Hu
- vzzsJAtynI6xDOe70/tFWbWQb3Evys3t6FNrvULVI/O8oDkYDjRZhdEOtTROmU8jwKPnK2RvQud
- jx7/I8N2RLRNMER/xIJ10OzPK8H4FpVqt16VYDalGUw55n19QNNYIXmHfu7ACFeM/iQ9jH/DHnX
- wy6LWfNqyQpzYCEWz3GFwPXcJTJqlIVRwxYaGVoESUIV30WD9XCvBq06DtsPD8oP3Hzi69LdrRw
- Ul+s9RgHzpF6liooHeDaHDZs4UeZpPnUdvwy28g+JWQ2k5RYM5nFaULfDXGXE5g5TOXtGqIUfkQ
- crp990mGt6mkGXi1r57MEGhLM3qnRkeDVBL3vn04sKrF+WFcjV4zrVQ90FkttV8V/r5Z/LWmSvg VEecn/h3toCBUdA==
-X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-GUID: pnop-Kj0pIIDjvT4E2MTtCXEoaqfeUk9
-X-Authority-Analysis: v=2.4 cv=GboaXAXL c=1 sm=1 tr=0 ts=695bcc96 cx=c_pps
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Content-Language: en-US
+Autocrypt: addr=krzysztof.kozlowski@oss.qualcomm.com; keydata=
+ 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
+ cwzYbmi/Et7T2+47PN9NZAOyb771QoVr8A==
+In-Reply-To: <20260105143657.383621-4-krzysztof.kozlowski@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Authority-Analysis: v=2.4 cv=UJ/Q3Sfy c=1 sm=1 tr=0 ts=695bccd1 cx=c_pps
  a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=Eb9f15NH/cHKzfGOmZSO4Q==:17
- a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=i0EeH86SAAAA:8 a=EUspDBNiAAAA:8 a=vwHuHT9Ri9izzjm89PkA:9
- a=a_PwQJl-kcHnX1M80qC6:22
-X-Proofpoint-ORIG-GUID: pnop-Kj0pIIDjvT4E2MTtCXEoaqfeUk9
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA1MDEyOCBTYWx0ZWRfXzqexKRj3ivtu
- QotVdGT/TwBK2ssJiFOissIav/upfN8svUpWkiLtx29X2YW05Tw6TGy0Ek/3HVwI3zwc27APXWH
- 01yPo5fZh2l5bs1oAcmSQ34ob0FY3Ne5MquNoB1KAKx9AyMEQH98s99vq66aa8pS58+R1rGpImy
- MtIe4oMnF0dKZLqpuBsyQhtH9oC+iF4XfYkiOMpnwPmLm5oeLmvHBnlUM4MGdxQ4QUTivO/j7dm
- UUJ0M0MDRbl8oIKB6yTQ/7e1weUbRvflRlCutvq6tgtK/nLbXV9S0pIqLt4XdVAyvQBlb3FcDtV
- wBedp9Yb0H8EMFdySP6H21NRV7HV1PfWff9nHNLU7ru3L+JsbpIEZt/Cf6+LTxkhNamIFtWJtR2
- 6gAMJs/Bk8NTyMVL85ndVrJnkTolHhpLUA4sGj6tUefgw5ijBRKQm4LFObm8+dPPGtEJrnthocE
- efp6w5OPatdkXKRfokw==
+ a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=pJbpxMvPcy3AeZgjqcEA:9
+ a=QEXdDO2ut3YA:10 a=QYH75iMubAgA:10 a=a_PwQJl-kcHnX1M80qC6:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA1MDEyOCBTYWx0ZWRfX7gKLhf7TGm16
+ zCXy37K7pCEepd8DNsO3VC+QyfoYGB+9InHOXz8WSROxLmD+GcOkJ/Fs+yNs3qleE/9Epos6oDz
+ AX9lqx1QeoCS0Ph+8krXiSRF/ddjiuIZpLvyjnkooAax8lmYlGo+GgRxv0VEWl85H5pw7uMkF9L
+ 5AZ3cZHfECFatzMj6aOC6FEyULx40qh9b7dzvbbuJhHrU3FzanhQDPbDWr6EvXRLiMLJV4xdfcZ
+ /yqWI8dpBxwnPYKZwFe/ynPmsQ/JNwVzbnNA9QrOd2mWOW6koeJiJNkebwjvXozV+wpz+X1kmQl
+ 0w1Jv7eGOc3Vr5tTXS8I1zu02jMNVgvFJcIJQqbSStSd4Djtd8MDg+u3IcYMzAwzc8LVK9694pz
+ wVfSiSHr9x08k+UHHuG4PY/phoFBdjxDoq6uYTNqdx/7Q1eATzPpqZYjzCsN4Eq01R3/nNvDa0a
+ GYPMY8iCIBts2uaUXpQ==
+X-Proofpoint-ORIG-GUID: yJgA7i2qlTQYxX0mLgNgzg9AMH-jcbl1
+X-Proofpoint-GUID: yJgA7i2qlTQYxX0mLgNgzg9AMH-jcbl1
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
  definitions=2026-01-05_01,2026-01-05_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 phishscore=0 bulkscore=0 lowpriorityscore=0 priorityscore=1501
- suspectscore=0 impostorscore=0 spamscore=0 malwarescore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601050128
+ suspectscore=0 adultscore=0 spamscore=0 bulkscore=0 phishscore=0
+ lowpriorityscore=0 clxscore=1015 priorityscore=1501 impostorscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2512120000
+ definitions=main-2601050128
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_063712_396075_05977E64 
-X-CRM114-Status: GOOD (  17.14  )
+X-CRM114-CacheID: sfid-20260105_063809_689362_E620202C 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,61 +197,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allocate the memory with scoped/cleanup.h to reduce error handling and
-make the code a bit simpler.
+On 05/01/2026 15:36, Krzysztof Kozlowski wrote:
+> Use scoped for-each loop when iterating over device nodes to make code a
+> bit simpler.
+> 
+> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> 
+> ---
+> 
+> Changes in v2:
+> 1. Add Rb tag
+> ---
 
-Suggested-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Please ignore this one patch #1. I am sorry, this was already applied.
 
----
-
-Changes in v2:
-1. New patch
----
- drivers/bus/stm32_firewall.c | 10 +++-------
- 1 file changed, 3 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/bus/stm32_firewall.c b/drivers/bus/stm32_firewall.c
-index fae881cea9a0..92414a4c7bb1 100644
---- a/drivers/bus/stm32_firewall.c
-+++ b/drivers/bus/stm32_firewall.c
-@@ -240,7 +240,6 @@ EXPORT_SYMBOL_GPL(stm32_firewall_controller_unregister);
- 
- int stm32_firewall_populate_bus(struct stm32_firewall_controller *firewall_controller)
- {
--	struct stm32_firewall *firewalls;
- 	struct device *parent;
- 	unsigned int i;
- 	int len;
-@@ -257,15 +256,14 @@ int stm32_firewall_populate_bus(struct stm32_firewall_controller *firewall_contr
- 		if (len <= 0)
- 			return -EINVAL;
- 
--		firewalls = kcalloc(len, sizeof(*firewalls), GFP_KERNEL);
-+		struct stm32_firewall *firewalls __free(kfree) =
-+			kcalloc(len, sizeof(*firewalls), GFP_KERNEL);
- 		if (!firewalls)
- 			return -ENOMEM;
- 
- 		err = stm32_firewall_get_firewall(child, firewalls, (unsigned int)len);
--		if (err) {
--			kfree(firewalls);
-+		if (err)
- 			return err;
--		}
- 
- 		for (i = 0; i < len; i++) {
- 			if (firewall_controller->grant_access(firewall_controller,
-@@ -279,8 +277,6 @@ int stm32_firewall_populate_bus(struct stm32_firewall_controller *firewall_contr
- 					child->full_name);
- 			}
- 		}
--
--		kfree(firewalls);
- 	}
- 
- 	return 0;
--- 
-2.51.0
-
+Best regards,
+Krzysztof
 
