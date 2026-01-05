@@ -4,170 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6592AC79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 15:40:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FF39C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 15:46:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:Subject:References:Cc
-	:To:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K/SyEFboBJRMVI1zenrCqgDw4qYn0/JfuIpdzYy39LA=; b=Mj/IGobjywvWc7aDYw0nmRBJ96
-	nWm3NOYnQ9qMbOIvVnG2hb9H0if+h4U0XTmkUwpl5kYvWIvPLJuMBHRut83NFchi62gTjFyHlknhU
-	WmbRt09eEj/1XNuKkfDeyZTIqVId6bh0yt5E7IS0qhoK6mdazyUhyl1zJNR5qExX2whVB5FgQLQIT
-	vRqvc9OS9cdfve0RW3A9vd42jwogH6yEoaj/MfBNzHo3RBrJjEsHh7Vc1zGLBAQDvpHPQnC3W2NLS
-	0910Ce5u+VsyiUMYWxbEFVwRqtbk0m6ksFCaCZdYPQdx+sk9s7SjoxXAkYM1qyqLSZaLKRjkaJpNq
-	JXxOAvag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=urFj5GEfGN8FUr9AOM2C6eqiJQ8QOnGyn9HuswUxntE=; b=m6740EGg0t5h6uUOvt4cTltzHx
+	4R1n4KzH/A/hFrVyc7nS+9EmVGVDFRdQ2abKYtRjXpeg5pA+TjzceVhxDFvJ05qGmYTA5/n0vazjd
+	8HAga/wXeM0p+ab7q6LJ/TzLfnRzui1QSEzDmTLVupLMoF6d5QNKXtvqmSHOaQIncqZyUE9zaVro7
+	vNMEzf900YdeIzg+uyMfIU+V00AYOlx1luJg+iJ9sGsJ5TZ5y9S8u+IoHhjZBnedZPGRCL7PgJFhn
+	aMAAmoYFY4TrD3hGGmUA98jxjPWyjqn+VqrockT5A6blXJ8qIoAx5rwvbpQN16bZhNqt6wLCTtCdO
+	rJbVZDng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcmh8-0000000BcgR-104c;
-	Mon, 05 Jan 2026 15:40:34 +0000
-Received: from mail-northcentralusazon11010070.outbound.protection.outlook.com ([52.101.193.70] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1vcmmX-0000000Bd6S-3QlA;
+	Mon, 05 Jan 2026 15:46:09 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcmh5-0000000BcfV-3pKk;
-	Mon, 05 Jan 2026 15:40:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=f0xDPFJA+gkPK0NGVT8mkux7honSQr78A2FVu+0AmpxVmaBaEn1RPeimeATcdDkQrfPuyY8wWqLZ7DhH5wfVUz9E7y7IIUmGgDgLwB7Tpx94GKqydM7nkg4VInG7DJmHGsHee2212VMpui4rWs5jKuejnNi/8EWO4TD4TiGdb3MfsRlSvbs8lUHJK6+BtCIyR5HV/+yi+/mLVaBJQCzr0oyTo/9KcqhMViZ1q0tFX1ZCpfknsczId2VCwZGH2sma4xNfeW+gmV9/fp0lNtrcof5gCvLlD5ofQSoiOUk9gSWUytCLVbW3tbuoiHvkVVYn+LiScBjD9AZ6etPVRglccg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=K/SyEFboBJRMVI1zenrCqgDw4qYn0/JfuIpdzYy39LA=;
- b=QhooKH0JPyuRbeETE2jNMFFx6pyuxC/pcH5+VBo8az5gtXV8Sg5nlp7PJy8zQSYjrVhqTfRK1bYluOWPZZCofmiYW2cRy8s+WORDhA2B2VIPxucRfik8oCDo1sNh6SLRvtb4JkDwzVUWOpVYCN0yrwVJhiOMC5ABFKDOMtQEQbGe/9dBL+Ke0kd0bXjxPOoyfBGVNHrZ1RwNf3DF4kInxkJcy8SGfCPhrVsJxfPdpOSS/3QeYz2oN+gXetSHhuKaRucMkfdLXUowprZfFKsXT/qDK1Rj08JozKphd4hDWfNxLulZdIiiEQd88H98yoCc9fowWqfE6DowXlNkLTp0ig==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=citrix.com; dmarc=pass action=none header.from=citrix.com;
- dkim=pass header.d=citrix.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=citrix.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=K/SyEFboBJRMVI1zenrCqgDw4qYn0/JfuIpdzYy39LA=;
- b=Gy7TVWzGQWZkXXUV5/o8XHxG/tSFfcQ2n0AGjpb8JpIsuihxu2rV5ZMuFfazTmcEgNaSaCewjiDfYMX6BM1DYg2SnrYrnHlZRyd32EDZDx6Y/u2XBqz1gLD5/YMtkA0ps5q4H/q4MA8XxFj6oP8ziC83Jjf5zgO+Werx9XW7bHw=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=citrix.com;
-Received: from CH8PR03MB8275.namprd03.prod.outlook.com (2603:10b6:610:2b9::7)
- by PH8PR03MB989118.namprd03.prod.outlook.com (2603:10b6:510:3a9::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Mon, 5 Jan
- 2026 15:40:27 +0000
-Received: from CH8PR03MB8275.namprd03.prod.outlook.com
- ([fe80::a70d:dc32:bba8:ce37]) by CH8PR03MB8275.namprd03.prod.outlook.com
- ([fe80::a70d:dc32:bba8:ce37%4]) with mapi id 15.20.9478.004; Mon, 5 Jan 2026
- 15:40:26 +0000
-Message-ID: <859377de-cb72-4e87-8ee5-97f8c58a5720@citrix.com>
-Date: Mon, 5 Jan 2026 15:40:22 +0000
-User-Agent: Mozilla Thunderbird
-To: ebiggers@kernel.org
-Cc: Andrew Cooper <andrew.cooper3@citrix.com>, Jason@zx2c4.com,
- ardb@kernel.org, dengler@linux.ibm.com, freude@linux.ibm.com,
- herbert@gondor.apana.org.au, linux-arm-kernel@lists.infradead.org,
- linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org, x86@kernel.org
-References: <20260105051311.1607207-20-ebiggers@kernel.org>
-Subject: Re: [PATCH 19/36] Bluetooth: SMP: Use new AES library API
-Content-Language: en-GB
-From: Andrew Cooper <andrew.cooper3@citrix.com>
-In-Reply-To: <20260105051311.1607207-20-ebiggers@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: LO4P123CA0594.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:295::23) To IA1PR03MB8288.namprd03.prod.outlook.com
- (2603:10b6:208:59e::6)
+	id 1vcmmR-0000000Bd4k-3ah7
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 Jan 2026 15:46:08 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 10F974E41F7F;
+	Mon,  5 Jan 2026 15:46:00 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id D0C1C60726;
+	Mon,  5 Jan 2026 15:45:59 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5BF16103C8589;
+	Mon,  5 Jan 2026 16:45:50 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1767627958; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=urFj5GEfGN8FUr9AOM2C6eqiJQ8QOnGyn9HuswUxntE=;
+	b=siYqSzl40Vyi3gRkzXNtwSMwEya76+IHz+53auu6Pjt5ozNbdfPZkTRqqklql44NeDop1b
+	g6skmldwyiDb3s414SWmAGzorvgwWlL7tjuFf8dfYjqUbJziGpnCtn4JmMyrLAZvkY65+/
+	Wad8Z/Xsgu7aVPaJ9jLbde9LuDKwZvkxi2PWu1RplG+8Pgaoc3a1Fc5YBiAhgmVD0t3DNU
+	o/f3kJQQEUpi5xDULWXoaFWYJv0ohNpe+07F6lCVXE+658vVHMueSf+9yr5DZYPzejXDNd
+	VJ+0XZjsUSqZ02HoL4dTROlwgBBOHtXuQx1EH4M3EWIEEA1EO2Q3FCeqzoHJaQ==
+Date: Mon, 5 Jan 2026 16:45:48 +0100
+From: Kory Maincent <kory.maincent@bootlin.com>
+To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Cc: "Jyri Sarha" <jyri.sarha@iki.fi>, "Tomi Valkeinen"
+ <tomi.valkeinen@ideasonboard.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
+ <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Rob Herring"
+ <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, "Russell King" <linux@armlinux.org.uk>,
+ "Bartosz Golaszewski" <brgl@bgdev.pl>, "Tony Lindgren" <tony@atomide.com>,
+ "Andrzej Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
+ <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>, "Laurent
+ Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
+ <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Markus
+ Schneider-Pargmann" <msp@baylibre.com>, "Bajjuri Praneeth"
+ <praneeth@ti.com>, "Louis Chauvet" <louis.chauvet@bootlin.com>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>, "Miguel Gazquez"
+ <miguel.gazquez@bootlin.com>, <dri-devel@lists.freedesktop.org>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-omap@vger.kernel.org>
+Subject: Re: [PATCH v2 13/20] drm/tilcdc: Remove the useless module list
+ support
+Message-ID: <20260105164548.0f760c66@kmaincent-XPS-13-7390>
+In-Reply-To: <DF0K7JPSOKLU.3V1FT4LAZSPGB@bootlin.com>
+References: <20251211-feature_tilcdc-v2-0-f48bac3cd33e@bootlin.com>
+	<20251211-feature_tilcdc-v2-13-f48bac3cd33e@bootlin.com>
+	<DF0K7JPSOKLU.3V1FT4LAZSPGB@bootlin.com>
+Organization: bootlin
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH8PR03MB8275:EE_|PH8PR03MB989118:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6f0b81cd-66ac-4829-82a1-08de4c70bf4a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZGNHT1dZRmJQeDloNFRxNE9LRWxORUdNcDRidWhEQ3dGdkNMR3Vtb01YZnF0?=
- =?utf-8?B?OTd0emxWSG5OckhWRVNCSXF1c3pGZjU2UmhQakNDeHYydXVWY09nVjc2VlRT?=
- =?utf-8?B?cldsZndaTmg1bjlTSkRIb0hMMy9yOWtYSjgrK3V1cFdQRGtTRCt1M2hpbzN3?=
- =?utf-8?B?Vy91SzFDNmJobHJoclFNM240bDEzUmtFRFpiR000UTkxWDc1blpVQm1EUlNV?=
- =?utf-8?B?UzAxRGt2d2FnYmhvVm5lQ1Fhdm00ODByTkE3SjRHbkhhYWhmSUNEaEFXVFRL?=
- =?utf-8?B?NUlIUmRZM0tJbElsQ3p6Z21xL3plbFZ1V3RPRG53ZVlxR0ZFNlhFTzZXMjFD?=
- =?utf-8?B?Z00vc0xaWjVwNGltcjVuYWtQbnp3UmlCeWhNSmtIWU1jM01rMml6bzFMaEs1?=
- =?utf-8?B?Tk5NYldaVU1vbHl2RFl5bzJOakZJblZ2K2MvZzNZeDNXajZ1TUZLSXJLNFQy?=
- =?utf-8?B?eXZWaklKUjdNOUpxSjRSZDlIZ2JiVFVzVFJSOW1WK2dsQWl0QVhlVkI0YXpa?=
- =?utf-8?B?K21zQjlnUkVNQlI0MHIzRGl6YlJSaU5RZStRRGQ3SnJkcnJnRVl3cTlzT2RJ?=
- =?utf-8?B?VFZJcFlFWTUzQVd2eUl5TktCUzVwTE5CSU9uMU92YTlMaXlTYjdiTnMvVVdh?=
- =?utf-8?B?R3pMQ1lrcUQ5K05LZDMwUVlZQnE1bjFEeElRQzhLd3NTTkl4eEtQb1hDamk0?=
- =?utf-8?B?dS9zcEFxVjk0WWIrUGt5Tnc1NmhocHZaVlpuRnIvei9CK09zcy8vNGFHWGI5?=
- =?utf-8?B?NnlnR1JubWhXSWxsVWpUS1NYbTlKckhFaFFvZU5QWW1WNnI2WmpWNHpEVHVS?=
- =?utf-8?B?N3N6VmxvNmFtT055TmRWdVJxUEdBTHNHb05uUFdDRkIxc0JYUUI4aTdRZHRX?=
- =?utf-8?B?WGV4Z2gwbWRHNGRENTBuNGNMTm92YUI3eTh0eGVpK2Y0YVNsQ212UDV3eFAw?=
- =?utf-8?B?akZBYkd4N1V0QnRvcCtsZkthUzZwZDBVaDNOeXNnK0p1WFJ6Z2JZZFdYZ0Zs?=
- =?utf-8?B?RXJoenNBNElxdlRya2hPUkJJZzg2REhLeElZRmVIQ25hU05YQ29TWTM1TkV2?=
- =?utf-8?B?d3RGTE9SWGduSGN1VlE2M0w3dW40TU5XNGNHSGdpVEV0K1dDMDVZS0dSbVFF?=
- =?utf-8?B?TXZVM2QwUlBUMmpodWxPdEo2aU11MGFibkdObVhCMTArS3didTlXV2s3bGdi?=
- =?utf-8?B?TVhRSzlpSnVGMDVLcFJYcUJ3WHoya01VaWx3NFFMazV5ODFzcVFLS1RvSEMv?=
- =?utf-8?B?c3drVjZsRmlJbnJaN2dtdVhidmovYjVQNUxPMThzdmNweHp0QTB5K3VScnVI?=
- =?utf-8?B?VTcvMlJDSS9wTDBKbXNGT3VCZkJwYUhFbkUxa3dMQVJGdnhBZVlicU8rdUd0?=
- =?utf-8?B?S0FtOVBESzlVSXpYYkw0c1VmaWNzenU1cXhJc25YN2lWYWttbWRBMjJLTlQ1?=
- =?utf-8?B?ZnAveGVFZDNwV0xxVGJrUmNVWFpObXIxTnZsTFNONDhXenZJUGp3L2pGbGxl?=
- =?utf-8?B?UE5BcENoaE5XcnBKaXFyNzAzTW05T1BJTWxaL1RqODZ2NVdtOE1LdWhqb1p4?=
- =?utf-8?B?ZHFxTDU0QkwzdUE5aVMvcjNHYzRaZjZZOUo4MnFrbEttcDhpaThhanRrMzFM?=
- =?utf-8?B?RW9WNlcvZmZTbjhpWkE3WHNLcGFITGFXYVYxTjN5NXdaeG9yNUFGOEVqTy96?=
- =?utf-8?B?VHArSVNPMmpXU1dnaEtoWHArVk04bjBpc2hqaXB3WVV5ZHlWZjhweHlHSDZx?=
- =?utf-8?B?dCtHVFVZOC9VcVp3L2J2NWdlNTV1NU1xVnFtUUZlZ2NoeTMwbG1XN1F0bXVG?=
- =?utf-8?B?QzdaSEQ3VW1ZU2huQ21lTzVMNmY2c1dlNXVZYUlLcTNiYTYrNWVMbWM0ZXpx?=
- =?utf-8?B?THFxa1ExcllDQk9VdmZYL1ppVjV3SE1Ga3lqVjJBWkdWYXNYRTU5UGJUbnRP?=
- =?utf-8?Q?waZAuU/QC9qktBZpMPwquqw/EEZ5P/hN?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH8PR03MB8275.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?V2FRT3k4M2l3Rm00R1psTkZBem8zZUJESmxRYnlhN1o1WFNrK0s0d1Y4MUJ1?=
- =?utf-8?B?QVdZZUJKa1d5R2tOMUE2L3JyT3MyUUE3WitaRVhOR09ZTlJSNm1CdEpVN2w3?=
- =?utf-8?B?N2pKMzcxSnZWV2xQVmNXL2VXMkpxK2JESERZZ3lqK294aWhpd25qMTJEek1I?=
- =?utf-8?B?bjZvR1JjN0lFOWR3MkVPbXB3RTJCSkhuOVhuK3l3eXNSaW9HU2FPblhCb2Ni?=
- =?utf-8?B?TllobWRkekRqS29RN0dVdXhzQ1p6NjZRZVR6UmR0ZjVNcTdudFk4YjdzTWRj?=
- =?utf-8?B?dG05YlQyVndPVzV5ZEdUamhEY214Qm8ycHVoU3dCSFZQVWxTaW85S3I3YVg4?=
- =?utf-8?B?OHNHb2Z6TDRxbmZDNWZ3QlRVU2pvTnk1MWkzRmtJQnRoZWw3TzM1RE16elhP?=
- =?utf-8?B?dmhabkdpVWp4cmZpQTNFT2tadk9oL2FnV2tUc0duVzc4dFB4VUxHK0xPLzVU?=
- =?utf-8?B?dUNhcUlMN1Zhc2YyUVkyK2VqNGQ3alB2YndxdmF6R2JNdUNxZ2llaW1rZmJi?=
- =?utf-8?B?UGlrZ21WMmtjNGFXNzNrS0VDK0E2cERma0JHMXQ3NDdFVXdBd1NBYlNxbk0x?=
- =?utf-8?B?eXpHa2hQcTY2MGZBNWpSeHVzZ0p2UmppSnllbjBDeWwwd1ZhN3Zjd3kzQ1Z1?=
- =?utf-8?B?Nm9jLzdLZUlLQVBMV0dtUXcrMWJzK21jL2tWUm5GVGJvdGF1SEFZUXZjNDZ2?=
- =?utf-8?B?Z2JIaXR3K1MzR3pYMk83SFAzbWN5dlJuK2ZxRXBrWmIrek5QQ3ZYTlBlcXAw?=
- =?utf-8?B?ZWlQR0ljT2RQbFF2cUFQdUdpOTE5eTlQU3M2T0F3dlRUVXA3akJKMmV5T2FE?=
- =?utf-8?B?WmRrVWo3TGhOUkNHRkxCeWd2YXIrWGlWSzlYVnRISkFMNkhsZDJhSVh5U3kv?=
- =?utf-8?B?c0M1RXZNY0gwL0ZLd1gvNjUvc0pJV3BwcXF6djYzbEQ4eWdtQjRrb0lKd1Ny?=
- =?utf-8?B?dDZEbThBZGI1eFBxYVlsSjJJeWdZOTZVVTdJd1VxZ1dQK01jekJZRUxlMlNk?=
- =?utf-8?B?NVdhSi9tYjdXNkN6SERqYjZVdTBsMkM1WUJWRFl3OTU5bEk2QUN4VWQvaXpn?=
- =?utf-8?B?N1ZPUzN1dlA0MFdlSGRyQlNPcHMzNG81TVhwSjd6czduRndLb1M5eURMT3By?=
- =?utf-8?B?eTRwR2dNUG5zYkJMeUs0ejRRZlUzbVEyS3JoVEViTU5FakZOVVh0elJmd3hQ?=
- =?utf-8?B?N2R1MlNZRFBYYVhkT1NoanBjYS80SjFLS09lamVyNEg0K1dDd0pPTHdHNDNY?=
- =?utf-8?B?RkhVQ2xVTlhWMjdrMFhCK0h4Y0lSQlQxM1JJM3hIMXVpeFh6MXZsSkJGS3Yz?=
- =?utf-8?B?ZlNHbUVEOHk0aFJSMmJRS1VDWkFscjhONHBzYUg3dFZGYmJsaWtxTjdBbzMv?=
- =?utf-8?B?eWgvbkltVFFCd0NFY0lzWDRSbkFxRkdiM1hpTWlOdzMvWnJnTG9oLzVDYXB4?=
- =?utf-8?B?b1JRNFduaFY0aTBXbTlmRFJJUTFJNGttWTJwYk4zQ3N4RzVacEx6NzJUZlA4?=
- =?utf-8?B?WndIQkdWOEhUTjJzdStKR3lxbXhYaGM3U1FCZjdDaS8xNEhVcmo2cG9sNmhh?=
- =?utf-8?B?VnFEVyt6ZHZpWVpINlZVaXZkcUlNNkIxYjFZdzZndjNaeVd2bDVMWTc3b1Rn?=
- =?utf-8?B?ZTJTR1RHVE5MSHczRzFyUWowYXB4WEh6cTkraEI3ZUt1S0ZOamJsNVpxZzRE?=
- =?utf-8?B?QUdHanJIcFMzdDVEa3dlRm5JeUkzQUxXUjdxNnV6NWo0R3IyY0ZodFR2eWhJ?=
- =?utf-8?B?aWJwN2dDUHh6bkxPcGs3RkxmZlVYY3Z0c29pR2pCU0JFZWdHcDROcjhPb1lJ?=
- =?utf-8?B?K0hrZDN0cHo4aC9LVVFMaXIrQTg2dGhIY2Voa2wwV090TWp2UVk5Ly9CTTV4?=
- =?utf-8?B?N1gvcjZwVG96ZnpKWjJHRFhvQkFqYWE5eHVWai9jdm5tSVJmdUlTRm5lRHRB?=
- =?utf-8?B?SFBGWCswNTdIbkczQXR5RTYxbUJKc0RLMGZ2bXA1azFidldOTWkzUm82UC8x?=
- =?utf-8?B?ZnErbFF0NWtWSnZ2TUs1K09pcFZnNitEWWQ2ZkJ5U29RdS93N2NnY292UXFM?=
- =?utf-8?B?TFZ5NFVDc0ZTc3lnY2tQc2s4WWFvTnVJaDJ6SDNReHVpZmVUMkpDRmhnMVF3?=
- =?utf-8?B?dGdrU0pNb2UyUXNiK3dEVWVsSUM2UUdER0dZV2g2enY2aGVlTDZvd3RaNjZF?=
- =?utf-8?B?QUFXYnZZY2V2WEFxekNqN0NyNCsxNkpiYjdJblZvekRnV2pQVmlFODZacC9J?=
- =?utf-8?B?ZnhTTDBrekJyUUlvWHFML0krTWQ0V3gwOFVJUWorRTFXc3ZKelduN1lWY3NH?=
- =?utf-8?B?UitrZGhsYnVMcmFSVjJOWFYxYU1Nd2M2RGRpN3d3T3ZIRWc0VFRVdz09?=
-X-OriginatorOrg: citrix.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6f0b81cd-66ac-4829-82a1-08de4c70bf4a
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR03MB8288.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jan 2026 15:40:26.8428
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 335836de-42ef-43a2-b145-348c2ee9ca5b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ypj4k0v0cQBN6pfz9bvMZ6cHe6UtKlueBfPooMiaNJ5GH0YtZwxoppOzD390pdBWw8Q8QsynKRSr/H8Bjou9fQzAssoZtBH3LLclDBCUfTw=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR03MB989118
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_074031_963732_9CE30A75 
-X-CRM114-Status: UNSURE (   5.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260105_074604_050167_75707104 
+X-CRM114-Status: GOOD (  18.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,28 +95,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->  	/* Most significant octet of plaintextData corresponds to data[0] */
->  	swap_buf(r, data, 16);
->  
-> - aes_encrypt(&ctx, data, data); + aes_encrypt_new(&aes, data, data);
+On Wed, 17 Dec 2025 15:25:40 +0100
+"Luca Ceresoli" <luca.ceresoli@bootlin.com> wrote:
 
-One thing you might want to consider, which reduces the churn in the series.
+> On Thu Dec 11, 2025 at 5:38 PM CET, Kory Maincent (TI.com) wrote:
+> > The tilcdc driver previously supported a sub-module system where
+> > external display drivers (panels, encoders) could register themselves
+> > through tilcdc_module_init() and be automatically initialized through
+> > a module list. This infrastructure became unused after the component
+> > framework support and panel driver was removed.
+> >
+> > Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com> =20
+>=20
+> [...]
+>=20
+> > @@ -562,24 +533,7 @@ static struct platform_driver tilcdc_platform_driv=
+er =3D
+> > { .of_match_table =3D tilcdc_of_match,
+> >  	},
+> >  };
+> > -
+> > -static int __init tilcdc_drm_init(void)
+> > -{
+> > -	if (drm_firmware_drivers_only())
+> > -		return -ENODEV;
+> > -
+> > -	DBG("init");
+> > -	return platform_driver_register(&tilcdc_platform_driver);
+> > -}
+> > -
+> > -static void __exit tilcdc_drm_fini(void)
+> > -{
+> > -	DBG("fini");
+> > -	platform_driver_unregister(&tilcdc_platform_driver);
+> > -}
+> > -
+> > -module_init(tilcdc_drm_init);
+> > -module_exit(tilcdc_drm_fini);
+> > +module_platform_driver(tilcdc_platform_driver); =20
+>=20
+> Is this hunk related to the removal of the module list? Looks like it
+> should be a separate patch.
 
-You can use _Generic() to do type-based dispatch on the first pointer. 
-Something like this:
+Indeed it is not directly related, but a following cleanup. I will put it in
+another patch.
 
-void aes_encrypt(const struct crypto_aes_ctx *ctx, u8 *out, const u8 *in);
-void aes_encrypt_new(aes_encrypt_arg key, u8 out[at_least AES_BLOCK_SIZE],
-             const u8 in[at_least AES_BLOCK_SIZE]);
-
-#define aes_encrypt(ctx, out, in)                                       \
-    _Generic(ctx,                                                       \
-             const struct crypto_aes_ctx *: aes_encrypt(ctx, out, in),  \
-             aes_encrypt_arg: aes_encrypt_new(ctx, out, in))
-
-
-i.e. it keeps the _new()-ism in a single header, without needing to
-change the drivers a second time.
-
-~Andrew
+>=20
+> With that hunk removed (or kept if I'm wrong and it should stay):
+> Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+--=20
+K=C3=B6ry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
 
