@@ -4,86 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27DDCC79FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 16:10:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 973D1C79F9E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 16:19:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D0DJn6bhtUde5El/agPjqhhHYLWYhGTtS9+RTZ1Ix2o=; b=SwHrVXPVSZhkQ5fEFHvt7roTAZ
-	95/OIwUlKmpsi63NuQDUmfHWyb6Dr2ARLdJaDVktXWnhK96E7Dp2RNS9hYGgj1QsCN0UbGvGzBfZY
-	pVfw8C8H5jh4e2n8TuETin3HibrcwnGeyak0lKhstHXg7NU9X3JugEh16zi5sozO4tIlU+mc0fe53
-	A9Co02HT5Ikys2EXXhJi6NnIYGLKAsMF9QA6wU3+EKcsnzWMAw4V/+L/X3PA9G+cqmW54RnEUEQWL
-	OFDKfyohPvYzIf7N2qwNPmVOI2Aohnv3UVf1eKvrnvfZQFd28dxwU9x83QGCG14BrlqFbnC6T9IUw
-	m3AG/Bgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Hm0Q/ZILNh2fzgoPyAWYDIh1OduLf7FQ4tXir9jNByo=; b=didgxTwLXVQEwOMZ9TZYW1qjB3
+	Ckq/dvx5lWuUSvow+e9nhR5tg41A1LE+q99ZrG2L0c6/tTvumGUTUtcAMKF+XPg1QYOR9+yihwvtC
+	6Uym8QlAc/Mp18O0IqVWgZ58zE147gfbablrILX4SAXB9OknB0s2zvAgk3J6MDXukqFu2TtbfdPjS
+	VEfBOg7c11JWFeL6btzGbnIJfferR3NgAcD3xZ2qzb8G1iojlUcPYA+9o2GvuXKz3T7mVDEiSaF6t
+	s+fAgrkGmawlfrvI3jY4tfXPygYT9FhiF9Ma9z64EKDc6FGRt5/UVOvFH05/Urlz07Of+B+qg1MUo
+	CYFHOWmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcnA5-0000000BhnX-323R;
-	Mon, 05 Jan 2026 16:10:31 +0000
-Received: from mgamail.intel.com ([198.175.65.11])
+	id 1vcnIl-0000000BibV-0GRs;
+	Mon, 05 Jan 2026 16:19:27 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcnA3-0000000BhnB-1XSw
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 16:10:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1767629427; x=1799165427;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=kzCRFUztXQTIWieGzaPRB5F9NacR2ZhvKHo9n5T7lCs=;
-  b=dgQc0b4bkVdYXVUk7Sfz79trgYSNc4RnsHIBQuSZyhsnxODh+tDI0pbL
-   Pm6Qqc+F84QfruQ4xUz8iS3xKAk4HWWDV1nL/Tj3kFbvLAV65HYE56cJL
-   TCq6RyalR9CyZTkKfDPlCvdsqagGIptLdukZbnzGifjHaMJhP3F7Xi5l5
-   IaPSoMURAQ7gLqR8nhsq4Q3kW+9O/YRSJaNAr3orkgZC4uMCCgbqYjaR5
-   slCNaSMMM9YHhRsrt+QnyCC3hFPRoeduJIcGDAZjbSjnlEFqK+30V+JKc
-   iLAt575Hj/0/ffEEG5vJfmUcngKZn+L/KN9XyibD5VQgFko6ZuKB8Yf5t
-   Q==;
-X-CSE-ConnectionGUID: gAxWSLgDRX6z7lwixKjpCQ==
-X-CSE-MsgGUID: Fc6f1JyZSyqlT6LPs1gjDw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11662"; a="79300047"
-X-IronPort-AV: E=Sophos;i="6.21,203,1763452800"; 
-   d="scan'208";a="79300047"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Jan 2026 08:10:26 -0800
-X-CSE-ConnectionGUID: zs90m1P/T/6PV/+GxPKxMQ==
-X-CSE-MsgGUID: 6BWfqYvcS/SbRp4lnJP65w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,203,1763452800"; 
-   d="scan'208";a="202469155"
-Received: from rfrazer-mobl3.amr.corp.intel.com (HELO kuha) ([10.124.222.12])
-  by orviesa008.jf.intel.com with SMTP; 05 Jan 2026 08:10:20 -0800
-Received: by kuha (sSMTP sendmail emulation); Mon, 05 Jan 2026 18:10:01 +0200
-Date: Mon, 5 Jan 2026 18:10:01 +0200
-From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-To: amitsd@google.com
-Cc: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Lee Jones <lee@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Badhri Jagan Sridharan <badhri@google.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>, linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
-Subject: Re: [PATCH v3 5/5] usb: typec: tcpm/tcpci_maxim: deprecate WAR for
- setting charger mode
-Message-ID: <aVvhvuq6Ls1v3B_E@kuha>
-References: <20251227-max77759-charger-v3-0-54e664f5ca92@google.com>
- <20251227-max77759-charger-v3-5-54e664f5ca92@google.com>
+	id 1vcnIi-0000000Biav-0Chx;
+	Mon, 05 Jan 2026 16:19:26 +0000
+Received: from [127.0.1.1] (cpc141996-chfd3-2-0-cust928.12-3.cable.virginm.net [86.13.91.161])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 28E7518D7;
+	Mon,  5 Jan 2026 17:18:59 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1767629939;
+	bh=k+H14FOgcNNYSO/kdraYro88vCxWdjv0/jWKuACripk=;
+	h=From:Date:Subject:To:Cc:From;
+	b=hNvkxA11QVi8Fwl6EhQHven4EtpHBMGu4/pgSWo4eCZfEd0+pMf1Mly3CoCgx7iqY
+	 LQoZlREm2InK9Qv76ACWl7u93hls0S/D1rPAw5b7Ckhcj8HCzA1jLUjToB2jTk38Y2
+	 /VTpjYdGMI6YjqNWQ6i4+zI795jta0PhXrKw+ScU=
+From: Daniel Scally <dan.scally@ideasonboard.com>
+Date: Mon, 05 Jan 2026 16:19:08 +0000
+Subject: [PATCH] media: rkisp1: request/free irqs in PM runtime ops
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251227-max77759-charger-v3-5-54e664f5ca92@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260105-rkisp1-irqs-v1-1-922f6a94a2e2@ideasonboard.com>
+X-B4-Tracking: v=1; b=H4sIAHvkW2kC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDIzMDQwNT3aLszOICQ93MosJiXYvENNNEw1SDJAsLcyWgjoKi1LTMCrBp0bG
+ 1tQBZ//rtXQAAAA==
+X-Change-ID: 20260105-rkisp1-irqs-8af5a1e0b887
+To: Dafna Hirschfeld <dafna@fastmail.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Daniel Scally <dan.scally@ideasonboard.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=8476;
+ i=dan.scally@ideasonboard.com; h=from:subject:message-id;
+ bh=k+H14FOgcNNYSO/kdraYro88vCxWdjv0/jWKuACripk=;
+ b=owEBbQKS/ZANAwAKAchJV3psRXUyAcsmYgBpW+SGrnyffhPiwN+tXg9mQFM6G3WLd5dKT21yk
+ sGjEF6RS5SJAjMEAAEKAB0WIQQqyuwyDnZdb+mxmm/ISVd6bEV1MgUCaVvkhgAKCRDISVd6bEV1
+ MhHvD/4stCLG18wjznfIsL1mTHYju7uzDWj18j6GLnZ0DKfwsihAsKNRMjq1RYYAYsbFeLtLqYj
+ CRTuNk4iAYnnuwwkGSXpO/qcKI2TFHPIVmEKdg3BoPUUkyWNsUy0H88j3kGB711TxhCrtphF0le
+ N2p8VyGhbShCuEmZeqULrsG7b1Y5gLeTntM3EMiDG9igJ745+43eVWZWXjESSTZURzniAJaUqNh
+ cjZT6a3SzUDrVmb+bfsE/gcTM8OYxP2vCd2zRcaLv7NnqlV7d0DJV1hBwE8znS9MTqfnHZC9ICQ
+ 6qkt/7B2ARBSu1wdLcjhuq/9HSgmBVatGig2YFpFf4tFOljyrKl2LlYcVTyprDTEolWU0rZd1Uy
+ APFwWbtLwfTkMj6lEHtx2tVQRrnqsuY/SSMdSJNBPmTdBF4DTJRVR0ZmByWWdQJfnXcfX+TWTwj
+ r4u+GGLsCfOIzzQV2N6NUk/uFFmQuZGDPX18C6anYvE8Kec2bj+uHzBrld70XIHWZbHo3A/zj/C
+ 4lfAiVaJh0+yqHpOOIq11tHTaKVImM696N/h/YelW0pnpt59ql6wp1TrSDRBKiccDrOB4EHoxDg
+ FKBBpVH9bm1p2NHnKxxW+xzAg6OUWn9uKWXhBIbdyEFYO2xbIJIows+H+5EkAzYkgu5h+AHkQGW
+ fUSTDEbvIdHt15Q==
+X-Developer-Key: i=dan.scally@ideasonboard.com; a=openpgp;
+ fpr=EEC699ACA1B7CB5D31330C0BBD501C2A3546CCF6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_081027_474731_B01EC5E3 
-X-CRM114-Status: GOOD (  25.37  )
+X-CRM114-CacheID: sfid-20260105_081924_398013_422243D1 
+X-CRM114-Status: GOOD (  32.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,133 +90,230 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sat, Dec 27, 2025 at 12:04:25AM +0000, Amit Sunil Dhamne via B4 Relay kirjoitti:
-> From: Amit Sunil Dhamne <amitsd@google.com>
-> 
-> TCPCI maxim driver directly writes to the charger's register space to
-> set charger mode depending on the power role. As MAX77759 chg driver
-> exists, this WAR is not required.
-> 
-> Instead, use a regulator interface to source vbus when typec is in
-> source power mode. In other power modes, this regulator will be turned
-> off if active.
-> 
-> Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
+The rkisp1 driver tracks whether the IRQ handlers should take any
+action through the use of an "irqs_enabled" flag which is set true
+at the end of .runtime_resume() and false at the start of
+.runtime_suspend(). In .runtime_suspend(), after setting the flag,
+there's then a short window during which the hardware has not yet
+been disabled by the clock APIs but interrupts remain enabled. If an
+interrupt is triggered during that window the IRQ handlers will return
+IRQ_NONE and fail to clear the ISP's IRQ reset registers.
 
-Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+Instead, delay calling request_irq() from .probe() to the end of the
+.runtime_resume() callback, and call free_irq() at the start of the
+.runtime_suspend() callback. This will prevent the interrupt handlers
+being called at all for the device once .runtime_suspend() has been
+called for it.
 
-> ---
->  drivers/usb/typec/tcpm/tcpci_maxim.h      |  1 +
->  drivers/usb/typec/tcpm/tcpci_maxim_core.c | 54 +++++++++++++++++++------------
->  2 files changed, 34 insertions(+), 21 deletions(-)
-> 
-> diff --git a/drivers/usb/typec/tcpm/tcpci_maxim.h b/drivers/usb/typec/tcpm/tcpci_maxim.h
-> index b33540a42a95..b314606eb0f6 100644
-> --- a/drivers/usb/typec/tcpm/tcpci_maxim.h
-> +++ b/drivers/usb/typec/tcpm/tcpci_maxim.h
-> @@ -60,6 +60,7 @@ struct max_tcpci_chip {
->  	struct tcpm_port *port;
->  	enum contamiant_state contaminant_state;
->  	bool veto_vconn_swap;
-> +	struct regulator *vbus_reg;
->  };
->  
->  static inline int max_tcpci_read16(struct max_tcpci_chip *chip, unsigned int reg, u16 *val)
-> diff --git a/drivers/usb/typec/tcpm/tcpci_maxim_core.c b/drivers/usb/typec/tcpm/tcpci_maxim_core.c
-> index 19f638650796..e9e2405c5ca0 100644
-> --- a/drivers/usb/typec/tcpm/tcpci_maxim_core.c
-> +++ b/drivers/usb/typec/tcpm/tcpci_maxim_core.c
-> @@ -10,6 +10,7 @@
->  #include <linux/kernel.h>
->  #include <linux/module.h>
->  #include <linux/regmap.h>
-> +#include <linux/regulator/consumer.h>
->  #include <linux/usb/pd.h>
->  #include <linux/usb/tcpci.h>
->  #include <linux/usb/tcpm.h>
-> @@ -35,12 +36,6 @@
->   */
->  #define TCPC_RECEIVE_BUFFER_LEN				32
->  
-> -#define MAX_BUCK_BOOST_SID				0x69
-> -#define MAX_BUCK_BOOST_OP				0xb9
-> -#define MAX_BUCK_BOOST_OFF				0
-> -#define MAX_BUCK_BOOST_SOURCE				0xa
-> -#define MAX_BUCK_BOOST_SINK				0x5
-> -
->  static const struct regmap_range max_tcpci_tcpci_range[] = {
->  	regmap_reg_range(0x00, 0x95)
->  };
-> @@ -202,32 +197,49 @@ static void process_rx(struct max_tcpci_chip *chip, u16 status)
->  	tcpm_pd_receive(chip->port, &msg, rx_type);
->  }
->  
-> +static int get_vbus_regulator_handle(struct max_tcpci_chip *chip)
-> +{
-> +	if (IS_ERR_OR_NULL(chip->vbus_reg)) {
-> +		chip->vbus_reg = devm_regulator_get_exclusive(chip->dev,
-> +							      "vbus");
-> +		if (IS_ERR_OR_NULL(chip->vbus_reg)) {
-> +			dev_err(chip->dev,
-> +				"Failed to get vbus regulator handle");
-> +			return -ENODEV;
-> +		}
-> +	}
-> +
-> +	return 0;
-> +}
-> +
->  static int max_tcpci_set_vbus(struct tcpci *tcpci, struct tcpci_data *tdata, bool source, bool sink)
->  {
->  	struct max_tcpci_chip *chip = tdata_to_max_tcpci(tdata);
-> -	u8 buffer_source[2] = {MAX_BUCK_BOOST_OP, MAX_BUCK_BOOST_SOURCE};
-> -	u8 buffer_sink[2] = {MAX_BUCK_BOOST_OP, MAX_BUCK_BOOST_SINK};
-> -	u8 buffer_none[2] = {MAX_BUCK_BOOST_OP, MAX_BUCK_BOOST_OFF};
-> -	struct i2c_client *i2c = chip->client;
->  	int ret;
->  
-> -	struct i2c_msg msgs[] = {
-> -		{
-> -			.addr = MAX_BUCK_BOOST_SID,
-> -			.flags = i2c->flags & I2C_M_TEN,
-> -			.len = 2,
-> -			.buf = source ? buffer_source : sink ? buffer_sink : buffer_none,
-> -		},
-> -	};
-> -
->  	if (source && sink) {
->  		dev_err(chip->dev, "Both source and sink set\n");
->  		return -EINVAL;
->  	}
->  
-> -	ret = i2c_transfer(i2c->adapter, msgs, 1);
-> +	ret = get_vbus_regulator_handle(chip);
-> +	if (ret) {
-> +		/*
-> +		 * Regulator is not necessary for sink only applications. Return
-> +		 * success in cases where sink mode is being modified.
-> +		 */
-> +		return source ? ret : 1;
-> +	}
-> +
-> +	if (source) {
-> +		if (!regulator_is_enabled(chip->vbus_reg))
-> +			ret = regulator_enable(chip->vbus_reg);
-> +	} else {
-> +		if (regulator_is_enabled(chip->vbus_reg))
-> +			ret = regulator_disable(chip->vbus_reg);
-> +	}
->  
-> -	return  ret < 0 ? ret : 1;
-> +	return ret < 0 ? ret : 1;
->  }
->  
->  static void process_power_status(struct max_tcpci_chip *chip)
-> 
-> -- 
-> 2.52.0.351.gbe84eed79e-goog
-> 
+Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
+---
+We noticed this problem when testing hibernation with the streams
+running. In a typical use-case the stream might be stopped before the
+runtime PM suspend callback is called, and so the problem is avoided,
+but when hibernated with active streams there are sufficient interrupts
+coming in to reliably land one in the window between the irqs_enabled
+flag being set to false and the hardware being disabled through
+clk_bulk_disable_unprepare().
 
+I'm under the impression that requesting the IRQs when the device is
+in use in the manner of this patch and releasing the when it is not
+in use is preferred over requesting them in the .probe() function -
+possibly an impression I picked up from Linux Device Drivers. It
+doesn't seem to be a particularly common model though, so I thought
+I'd flag the method here.
+---
+ .../platform/rockchip/rkisp1/rkisp1-capture.c      |  3 -
+ .../media/platform/rockchip/rkisp1/rkisp1-common.h |  2 -
+ .../media/platform/rockchip/rkisp1/rkisp1-csi.c    |  3 -
+ .../media/platform/rockchip/rkisp1/rkisp1-dev.c    | 82 +++++++++++++++-------
+ .../media/platform/rockchip/rkisp1/rkisp1-isp.c    |  3 -
+ 5 files changed, 57 insertions(+), 36 deletions(-)
+
+diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c
+index 6dcefd144d5abe358323e37ac6133c6134ac636e..510d1e8d8bbc86e8b8be3579571e308e5ad9f260 100644
+--- a/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c
++++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c
+@@ -820,9 +820,6 @@ irqreturn_t rkisp1_capture_isr(int irq, void *ctx)
+ 	unsigned int i;
+ 	u32 status;
+ 
+-	if (!rkisp1->irqs_enabled)
+-		return IRQ_NONE;
+-
+ 	status = rkisp1_read(rkisp1, RKISP1_CIF_MI_MIS);
+ 	if (!status)
+ 		return IRQ_NONE;
+diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
+index 5e6a4d5f6fd12baf45a0083eff75de1095162b2d..2a5f6f69b217cdba2fa7c4d1f230ede5aff49149 100644
+--- a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
++++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
+@@ -507,7 +507,6 @@ struct rkisp1_debug {
+  * @debug:	   debug params to be exposed on debugfs
+  * @info:	   version-specific ISP information
+  * @irqs:          IRQ line numbers
+- * @irqs_enabled:  the hardware is enabled and can cause interrupts
+  */
+ struct rkisp1_device {
+ 	void __iomem *base_addr;
+@@ -532,7 +531,6 @@ struct rkisp1_device {
+ 	struct rkisp1_debug debug;
+ 	const struct rkisp1_info *info;
+ 	int irqs[RKISP1_NUM_IRQS];
+-	bool irqs_enabled;
+ };
+ 
+ /*
+diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-csi.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-csi.c
+index ddc6182f3e4bdacdd1962c86f6259334b16aa505..bfc33365ad9d09ccace4ccbb2b19a2fbe1b77eb2 100644
+--- a/drivers/media/platform/rockchip/rkisp1/rkisp1-csi.c
++++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-csi.c
+@@ -196,9 +196,6 @@ irqreturn_t rkisp1_csi_isr(int irq, void *ctx)
+ 	struct rkisp1_device *rkisp1 = dev_get_drvdata(dev);
+ 	u32 val, status;
+ 
+-	if (!rkisp1->irqs_enabled)
+-		return IRQ_NONE;
+-
+ 	status = rkisp1_read(rkisp1, RKISP1_CIF_MIPI_MIS);
+ 	if (!status)
+ 		return IRQ_NONE;
+diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
+index 1791c02a40ae18205f5eb2fd6edca6cda6b459bf..6fa76423bacf3e92cbbb4ef1ceb55e194b88d963 100644
+--- a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
++++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
+@@ -307,28 +307,62 @@ static int rkisp1_subdev_notifier_register(struct rkisp1_device *rkisp1)
+  * Power
+  */
+ 
+-static int __maybe_unused rkisp1_runtime_suspend(struct device *dev)
++static void rkisp1_free_irqs(struct rkisp1_device *rkisp1)
+ {
+-	struct rkisp1_device *rkisp1 = dev_get_drvdata(dev);
++	for (unsigned int i = 0; i < ARRAY_SIZE(rkisp1->irqs); i++) {
++		if (rkisp1->irqs[i] == -1)
++			continue;
+ 
+-	rkisp1->irqs_enabled = false;
+-	/* Make sure the IRQ handler will see the above */
+-	mb();
++		if (irq_has_action(rkisp1->irqs[i]))
++			free_irq(rkisp1->irqs[i], rkisp1->dev);
++	}
++}
+ 
+-	/*
+-	 * Wait until any running IRQ handler has returned. The IRQ handler
+-	 * may get called even after this (as it's a shared interrupt line)
+-	 * but the 'irqs_enabled' flag will make the handler return immediately.
+-	 */
+-	for (unsigned int il = 0; il < ARRAY_SIZE(rkisp1->irqs); ++il) {
+-		if (rkisp1->irqs[il] == -1)
++static int rkisp1_request_irqs(struct rkisp1_device *rkisp1)
++{
++	const struct rkisp1_info *info = rkisp1->info;
++	int ret;
++
++	for (unsigned int irqn = 0; irqn < ARRAY_SIZE(rkisp1->irqs); irqn++) {
++		unsigned int isrn;
++
++		if (rkisp1->irqs[irqn] == -1)
+ 			continue;
+ 
+-		/* Skip if the irq line is the same as previous */
+-		if (il == 0 || rkisp1->irqs[il - 1] != rkisp1->irqs[il])
+-			synchronize_irq(rkisp1->irqs[il]);
++		if (irq_has_action(rkisp1->irqs[irqn]))
++			continue;
++
++		for (isrn = 0; isrn < info->isr_size; isrn++)
++			if ((info->isrs[isrn].line_mask & BIT(irqn)))
++				break;
++
++		if (isrn == info->isr_size) {
++			dev_err(rkisp1->dev, "Failed to find IRQ handler\n");
++			return -EINVAL;
++		}
++
++		ret = request_irq(rkisp1->irqs[irqn], info->isrs[isrn].isr,
++				  IRQF_SHARED, dev_driver_string(rkisp1->dev),
++				  rkisp1->dev);
++		if (ret) {
++			dev_err(rkisp1->dev, "Failed to request IRQ\n");
++			goto err_free_irqs;
++		}
+ 	}
+ 
++	return 0;
++
++err_free_irqs:
++	rkisp1_free_irqs(rkisp1);
++	return ret;
++}
++
++static int __maybe_unused rkisp1_runtime_suspend(struct device *dev)
++{
++	struct rkisp1_device *rkisp1 = dev_get_drvdata(dev);
++
++	rkisp1_free_irqs(rkisp1);
++
+ 	clk_bulk_disable_unprepare(rkisp1->clk_size, rkisp1->clks);
+ 	return pinctrl_pm_select_sleep_state(dev);
+ }
+@@ -345,11 +379,16 @@ static int __maybe_unused rkisp1_runtime_resume(struct device *dev)
+ 	if (ret)
+ 		return ret;
+ 
+-	rkisp1->irqs_enabled = true;
+-	/* Make sure the IRQ handler will see the above */
+-	mb();
++	ret = rkisp1_request_irqs(rkisp1);
++	if (ret)
++		goto err_clk_disable;
+ 
+ 	return 0;
++
++err_clk_disable:
++	clk_bulk_disable_unprepare(rkisp1->clk_size, rkisp1->clks);
++
++	return ret;
+ }
+ 
+ static const struct dev_pm_ops rkisp1_pm_ops = {
+@@ -694,13 +733,6 @@ static int rkisp1_probe(struct platform_device *pdev)
+ 			if (info->isrs[i].line_mask & BIT(il))
+ 				rkisp1->irqs[il] = irq;
+ 		}
+-
+-		ret = devm_request_irq(dev, irq, info->isrs[i].isr, IRQF_SHARED,
+-				       dev_driver_string(dev), dev);
+-		if (ret) {
+-			dev_err(dev, "request irq failed: %d\n", ret);
+-			return ret;
+-		}
+ 	}
+ 
+ 	ret = rkisp1_init_clocks(rkisp1);
+diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
+index 2311672cedb1b6c9dd7f1b883adcac1516a685ae..c6b1ecd2d0c260f6739726c9f32562b98ca31364 100644
+--- a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
++++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
+@@ -1106,9 +1106,6 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
+ 	struct rkisp1_device *rkisp1 = dev_get_drvdata(dev);
+ 	u32 status, isp_err;
+ 
+-	if (!rkisp1->irqs_enabled)
+-		return IRQ_NONE;
+-
+ 	status = rkisp1_read(rkisp1, RKISP1_CIF_ISP_MIS);
+ 	if (!status)
+ 		return IRQ_NONE;
+
+---
+base-commit: ee5b462b97162dbb6c536e18a37b3048f6520019
+change-id: 20260105-rkisp1-irqs-8af5a1e0b887
+
+Best regards,
 -- 
-heikki
+Daniel Scally <dan.scally@ideasonboard.com>
+
 
