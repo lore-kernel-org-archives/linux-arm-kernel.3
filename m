@@ -4,85 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B68AC79FB0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 17:19:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 124AEC79FA7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 17:19:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jIBkZttH8UcrhXyn62V/vifYHtr3RdH6TLU19ogc48M=; b=VCA9Uf4R2LmZwMKzSrDxIgcol+
-	2zOhhUwH1O5bTqNhGRHlEhRwzG/8n5u2ShqB0gIjjPWST946HrmwyhkvUpL6YtAL9JZtd1slx8PK0
-	k0MbR/AQyZLb9n2X6CruX85hAZ1VIM50sU2YdvqwMItFVzm8T37uU6nk0z6o8GtVPhBy6k6SmKzfj
-	/9kvbwz7rDZgc/3A0tcq9zBjoa6X2W7PsnOsM/BVQKWhQ3bADNvbb6ywJi9KTarqL3Am/yRpqz2qW
-	jyGY148ngbIEDsRNVGKD8QevEYXsvtqnvAhYajEWhRrxyJkH69pERRijqmDnm8p2P91frsY4Dtg2l
-	ZmgxrZng==;
+	bh=jyEq9qa7TDQIzBWJq5aVUtj/juytXvj0ykbdRsaUi5E=; b=p73zDd1A9elDCH9usyOA9EUNdw
+	i63U6rgiL/1omTvYWUHnKgGGYaQljN2uRxuoBip1Brs09VfJcr/+O2GTG8BUFI0Yxaw5PDqB+HJel
+	1aCWV4cwMJehxgA2ps3kfJtzM8sDYsecv4CeGr3VrQ52K8aHPdG4hG1mXssPGSfSCv0Nwkpf9LPLp
+	ute7I7tZkLDiwKTD/x2pjkE+Mnb7DThHFCHC5/Uisxfn/mibkO+bVQv74JtlsItRWPzVW9CphticN
+	VuXEAAFnkQCajdiGiQ94WNWU9e5BIk7zzSvpfHhQ1meN8BivaPIGpEllW232sPFQjevxX7ZVmZhCe
+	47mlmfGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcoEI-0000000Bo5r-3F9O;
-	Mon, 05 Jan 2026 17:18:54 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vcoER-0000000Bo8v-3lRR;
+	Mon, 05 Jan 2026 17:19:03 +0000
+Received: from mail-ej1-x642.google.com ([2a00:1450:4864:20::642])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcoEE-0000000Bo56-2rki
+	id 1vcoEP-0000000Bo7V-1ZHi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 17:18:52 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 909B01A2667;
-	Mon,  5 Jan 2026 17:18:45 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 5787760726;
-	Mon,  5 Jan 2026 17:18:45 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 859B4103C85AF;
-	Mon,  5 Jan 2026 18:18:39 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1767633524; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=jIBkZttH8UcrhXyn62V/vifYHtr3RdH6TLU19ogc48M=;
-	b=Lgt1/wWNFRp8ZDmb4YxYLjkiBRcb7CtoVKmTRMZ07W0U/br6Dh3BJWJMTCYTx3gk9yo5me
-	xVBBu3t77YwByxcwFqBpDuk8U4O7hBLh/oP5g71HenWMA4xI7vHRcUm5Z9ZtzOcZVuysNt
-	bRHiWBmjoR+i2zexcxaE9zdDtikD61FniAZQJYOp+9QYJkIAd0Z43TNx4bhO2i1havaIzR
-	Fppa2taeXE/HzEaPkj85nvh8yN6jO297zAoQ9AVoqAQe1qUyBFvrA5fYX7/bN/TBFseok9
-	7iNat9VoBDAXYM3IVTcoqyJz9uKtvjg1NeNZfFNiiqU2vUTkn2Sya1FAGxzOBg==
-Date: Mon, 5 Jan 2026 18:18:38 +0100
-From: Kory Maincent <kory.maincent@bootlin.com>
-To: Herve Codina <herve.codina@bootlin.com>
-Cc: "Luca Ceresoli" <luca.ceresoli@bootlin.com> (by way of Kory Maincent
- <kory.maincent@bootlin.com>), "Jyri Sarha" <jyri.sarha@iki.fi>, "Tomi
- Valkeinen" <tomi.valkeinen@ideasonboard.com>, "Maarten Lankhorst"
- <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
- "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
- <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Rob Herring"
- <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, "Russell King" <linux@armlinux.org.uk>,
- "Bartosz Golaszewski" <brgl@bgdev.pl>, "Tony Lindgren" <tony@atomide.com>,
- "Andrzej Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
- <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>, "Laurent
- Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
- <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Markus
- Schneider-Pargmann" <msp@baylibre.com>, "Bajjuri Praneeth"
- <praneeth@ti.com>, "Louis Chauvet" <louis.chauvet@bootlin.com>, "Thomas
- Petazzoni" <thomas.petazzoni@bootlin.com>, "Miguel Gazquez"
- <miguel.gazquez@bootlin.com>, <dri-devel@lists.freedesktop.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-omap@vger.kernel.org>
-Subject: Re: [PATCH v2 05/20] drm/tilcdc: Convert legacy panel binding via
- DT overlay at boot time
-Message-ID: <20260105181838.1f307964@kmaincent-XPS-13-7390>
-In-Reply-To: <20260105172220.2d2edd28@bootlin.com>
-References: <20251211-feature_tilcdc-v2-0-f48bac3cd33e@bootlin.com>
-	<20251211-feature_tilcdc-v2-5-f48bac3cd33e@bootlin.com>
-	<DF0K5UFX46JA.OH85T6IPC5MW@bootlin.com>
-	<20260105172220.2d2edd28@bootlin.com>
-Organization: bootlin
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
+	Mon, 05 Jan 2026 17:19:02 +0000
+Received: by mail-ej1-x642.google.com with SMTP id a640c23a62f3a-b79e7112398so27276866b.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 09:19:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1767633537; x=1768238337; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jyEq9qa7TDQIzBWJq5aVUtj/juytXvj0ykbdRsaUi5E=;
+        b=CqFaxefakUQgZQn6LDfOJk+lFGitXTkywNZkltoQNF0z9/CEdNt6myO+TMYd61kBvP
+         h963Ge6SD4h/oAFD8XYlTVPI9WOXYEuoXq8UB8IloUphdc8PizNxVUL0opO9vFiG3BF7
+         ENnFs0v1Pt06huVQn7GCWZvFNdhXdTUelwo0U=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767633537; x=1768238337;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=jyEq9qa7TDQIzBWJq5aVUtj/juytXvj0ykbdRsaUi5E=;
+        b=WOaGlUxYvksNfHDDRwEGE7tu6+CQp9AWcBd/vrU71KQBg13x99SaeQsuxqZteqkQzQ
+         aF1lRH9yOHOo2yv15PnLC4/Tf9yJrRMJZ//eS27RXREyyniCHJVUs6VMD+0ajtwVn6ef
+         RRLd8vP7Ns8OCnbnOhuVA3EuY7yMukaCTsLsw447RqWuifOZHnJLAhhclHOsXby2wf+o
+         o2NMkzfwImEfK2hKncFDLjKrPt6GvowyNAe77HPsBjXtR6Ic+vJt6ot03ALgFyQlKAPB
+         5VKlhb6viTPGERsrpOtUfHlszqyv637hGNXWwPZNwRQysAt17PjbVGYA5L7DTT/KQ7oL
+         H0Tw==
+X-Forwarded-Encrypted: i=1; AJvYcCWFVm402bhzNHRknnoAQKg7ts+tPCuzZ3DFayg/aVYf1rN+F+s35h/QiWCGHgXqpxzH/v2yeblzFrgwsnhgUuZI@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4RSfou+C5wJWmcLFF+8KzxzuoNoP4LI8K8QD4TV6DZ9uX53Y7
+	F2EjUPBP0JTYuQTr6561zJRhO4m17V5vR5rXH+B7PvoUvRmOhl2ex0ie/nqFVlxtYCixkuIGTID
+	o4Nuri7Wk
+X-Gm-Gg: AY/fxX5GRBLpwIfcJg50PTVM8aupLeDeV7+dD7k2VpU8h0RZ38PHqVlG59+XAXuWclu
+	l0nkyfrgPMqF5Q/xCAf3eF/iPSnxozBM5vGHn4Gqi1oIz5dhJGmhvdPLET3Tf2fL+cPs/Nj2Bdl
+	KHQehGwFWQewDMNvHinzCvfzHScbFZZtkDDmlFWgucWyj/TW7vwQh95xIob96UmZ+HRKi4Mox6d
+	/3zpX1RSM10kb02IHF/j0FMn9YTgonNpGBw6wAY2Q3FJb2/a/XMgLJsUL5XASFbPvk8JI1Xzw9J
+	aEgGE7pXrQrCKAffBRcbeykDkHhTGeTTZ5tBr++nRsh6I8fC6Gw/dYnZ7Q1soAe9s7XtzZ1vFdh
+	vEMpcCt1/SexccN7Gxx5fJOSnQU8r+nbdtntRuQDB0RPkmwWrl0Ffxh7B0PBXgZbULiVpRxfYu1
+	7nJOyVoG749JPk+HWlr+In6a9w0ijBs1iKIKsdijgFSEmHEtrIUA==
+X-Google-Smtp-Source: AGHT+IGYSr+SyyjqO/QoiTHKQUvqMWqYf2pzFua5F5K0lCyt1YmbLAvcSntfuwIiJudct4+4HQVhXw==
+X-Received: by 2002:a17:907:934c:b0:b74:983b:4056 with SMTP id a640c23a62f3a-b8426a4ea77mr47997066b.8.1767633537523;
+        Mon, 05 Jan 2026 09:18:57 -0800 (PST)
+Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com. [209.85.221.42])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b84265abfd5sm47461966b.2.2026.01.05.09.18.56
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 05 Jan 2026 09:18:56 -0800 (PST)
+Received: by mail-wr1-f42.google.com with SMTP id ffacd0b85a97d-42e2ba54a6fso37343f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 09:18:56 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUjFCWdjhhaIHCbTzRrWNtZM2q1rf18GuNq+sN6MdSNVn5nCi967RZHcqfj6oue03dNwS/BQRtaLxzk3zfKIAgj@lists.infradead.org
+X-Received: by 2002:a05:6000:2209:b0:432:b951:e9ff with SMTP id
+ ffacd0b85a97d-432bca50942mr736622f8f.53.1767633535813; Mon, 05 Jan 2026
+ 09:18:55 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+References: <cover.1767111804.git.robin.murphy@arm.com> <027763b36fbad2005d09eeb289b7716c57f65e76.1767111809.git.robin.murphy@arm.com>
+In-Reply-To: <027763b36fbad2005d09eeb289b7716c57f65e76.1767111809.git.robin.murphy@arm.com>
+From: Doug Anderson <dianders@chromium.org>
+Date: Mon, 5 Jan 2026 09:18:44 -0800
+X-Gmail-Original-Message-ID: <CAD=FV=V4Q7MxsHJivfaO6JD5uW0Dqa4K1OsYmmerdsw5Apjkcw@mail.gmail.com>
+X-Gm-Features: AQt7F2pluFldn98dXmv9Vd4lrpkG1uNZNZvh3TeVxvGJlWd-_jEbDvtmnHtLVpg
+Message-ID: <CAD=FV=V4Q7MxsHJivfaO6JD5uW0Dqa4K1OsYmmerdsw5Apjkcw@mail.gmail.com>
+Subject: Re: [PATCH 2/4] drm/panel-edp: Move FriendlyELEC HD702E
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: heiko@sntech.de, neil.armstrong@linaro.org, thierry.reding@gmail.com, 
+	sam@ravnborg.org, jesszhan0024@gmail.com, dri-devel@lists.freedesktop.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_091851_044598_4678F3D8 
-X-CRM114-Status: GOOD (  28.91  )
+X-CRM114-CacheID: sfid-20260105_091901_421014_9392AD62 
+X-CRM114-Status: GOOD (  20.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,121 +107,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 5 Jan 2026 17:22:20 +0100
-Herve Codina <herve.codina@bootlin.com> wrote:
+Hi,
 
-> Hi Luca, Kory,
->=20
-> On Wed, 17 Dec 2025 15:23:26 +0100
-> "Luca Ceresoli" <luca.ceresoli@bootlin.com> (by way of Kory Maincent
-> <kory.maincent@bootlin.com>) wrote:
->=20
-> > Hi,
-> >=20
-> > Cc: Herv=C3=A9, can you review the DT overlay aspects? =20
->=20
-> Yes sure.
->=20
-> Here is my global review.
->=20
-> Depending on the discussion on things I have spotted, I will go deeper in
-> patch details.
->=20
-> ...
->=20
-> > > +
-> > > +static void __init
-> > > +tilcdc_panel_update_prop(struct device_node *node, char *name,
-> > > +			 void *val, int length)
-> > > +{
-> > > +	struct property *prop;
-> > > +
-> > > +	prop =3D kzalloc(sizeof(*prop), GFP_KERNEL);
-> > > +	if (!prop)
-> > > +		return;
-> > > +
-> > > +	prop->name =3D kstrdup(name, GFP_KERNEL);
-> > > +	prop->length =3D length;
-> > > +	prop->value =3D kmemdup(val, length, GFP_KERNEL);
-> > > +	of_update_property(node, prop); =20
->=20
-> I would use OF changesets to perform the modification.
->=20
-> OF changesets are kind of atomic. You first prepare all modifications in a
-> changeset and then you apply the changeset.
-> If something goes wrong, the changeset is removed.
->=20
-> Also, if something goes wrong during the changeset preparation, you can a=
-bort
-> without any modification on the live device-tree.
-
-Ok, I will take a look at changeset to use it to copy all the properties to=
- new
-the panel-dpi node.
-
-...
-
-> > > +
-> > > +	ret =3D of_overlay_fdt_apply(dtbo_start, dtbo_size, &ovcs_id,
-> > > NULL);
-> > > +	if (ret)
-> > > +		goto out; =20
->=20
-> As soon as the overlay is applied, the driver handling the panel-dti node
-> can be probed.
+On Tue, Dec 30, 2025 at 9:20=E2=80=AFAM Robin Murphy <robin.murphy@arm.com>=
+ wrote:
 >
-> Modifying some properties after applying the overlay could be not seen by=
- the
-> driver.
+> FriendlyELEC's HD702E module is an eDP panel (in as much as it's some
+> LVDS LCD behind a Chrontel CH7511B eDP bridge), so move its data over
+> to the eDP driver, also resolving the warning about the missing bpc
+> value in the process.
+>
+> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+> ---
+>  drivers/gpu/drm/panel/panel-edp.c    | 26 ++++++++++++++++++++++++++
+>  drivers/gpu/drm/panel/panel-simple.c | 25 -------------------------
+>  2 files changed, 26 insertions(+), 25 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/panel/panel-edp.c b/drivers/gpu/drm/panel/pa=
+nel-edp.c
+> index 415b894890ad..dd53ccc209ce 100644
+> --- a/drivers/gpu/drm/panel/panel-edp.c
+> +++ b/drivers/gpu/drm/panel/panel-edp.c
+> @@ -1256,6 +1256,29 @@ static const struct panel_desc boe_nv140fhmn49 =3D=
+ {
+>         },
+>  };
+>
+> +static const struct drm_display_mode friendlyarm_hd702e_mode =3D {
+> +       .clock          =3D 67185,
+> +       .hdisplay       =3D 800,
+> +       .hsync_start    =3D 800 + 20,
+> +       .hsync_end      =3D 800 + 20 + 24,
+> +       .htotal         =3D 800 + 20 + 24 + 20,
+> +       .vdisplay       =3D 1280,
+> +       .vsync_start    =3D 1280 + 4,
+> +       .vsync_end      =3D 1280 + 4 + 8,
+> +       .vtotal         =3D 1280 + 4 + 8 + 4,
+> +       .flags          =3D DRM_MODE_FLAG_NVSYNC | DRM_MODE_FLAG_NHSYNC,
+> +};
+> +
+> +static const struct panel_desc friendlyarm_hd702e =3D {
+> +       .modes =3D &friendlyarm_hd702e_mode,
+> +       .num_modes =3D 1,
+> +       .bpc =3D 8,
+> +       .size =3D {
+> +               .width  =3D 94,
+> +               .height =3D 151,
+> +       },
+> +};
+> +
+>  static const struct drm_display_mode innolux_n116bca_ea1_mode =3D {
+>         .clock =3D 76420,
+>         .hdisplay =3D 1366,
+> @@ -1663,6 +1686,9 @@ static const struct of_device_id platform_of_match[=
+] =3D {
+>         }, {
+>                 .compatible =3D "boe,nv140fhmn49",
+>                 .data =3D &boe_nv140fhmn49,
+> +       }, {
+> +               .compatible =3D "friendlyarm,hd702e",
+> +               .data =3D &friendlyarm_hd702e,
 
-I disagree here. This driver is loaded at subsys_initcall (initcall 4) while
-the panel is loaded at device_initcall (initcall 6) so the panel driver won=
-'t
-probe in-between.
+Do you actually need this? I notice that in the DTS patch you've got
+things under the DP AUX bus, which should enable you to use the
+generic "edp-panel" compatible string assuming the EDID is populated
+properly and there are no problems with power sequencing. IMO the only
+reasons we should be adding new entries to "platform_of_match" these
+days is if we need to work with some legacy eDP controller that can't
+be updated to handle the DP AUX BUS or we've got a controller with a
+bogus EDID...
 
-...
-
-> > > +subsys_initcall(tilcdc_panel_legacy_init); =20
->=20
-> IMHO, the call to tilcdc_panel_legacy_init() will be too late.
->=20
-> subsys initcalls are called after arch initcalls.
->=20
-> During arch initcalls, of_platform_populate_init() is called
-> https://elixir.bootlin.com/linux/v6.19-rc3/source/drivers/of/platform.c#L=
-599
->=20
-> The root node is populated and handled by the platform bus.
->=20
-> Later at subsys initcall, the tilcdc_panel_legacy_init() function is call=
-ed.
-> This function starts by applying the overlay and so a new node (panel-dpi)
-> is added at the root node.
->=20
-> This trigger an OF_RECONFIG_CHANGE_ADD event handled by the platform bus.
-> https://elixir.bootlin.com/linux/v6.19-rc3/source/drivers/of/platform.c#L=
-731
->=20
-> If the "panel-dpi" compatible driver is available, its probe() is called =
-but
-> the panel-dpi DT node is not fully correct. Indeed, tilcdc_panel_copy_pro=
-ps()
-> has not be called yet.
-
-As said before, I don't think this will happen due to the initcall differen=
-ce
-value.
-
-> Also, the legacy compatible string is removed after the
-> of_platform_populate_init() call. The legacy driver could have been alrea=
-dy
-> probed.
-
-Same here.
-
-Regards,
---=20
-K=C3=B6ry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
+-Doug
 
