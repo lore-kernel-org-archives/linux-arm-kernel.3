@@ -4,147 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04BA8C79F8B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 13:23:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBE78C79F8B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 13:24:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q+F00psFLrpHKEwOeoLMUnXEqQzGx68LP+XtTjxm1hw=; b=Sf2zKBzDUiTiEnuQejAULCjFnT
-	yZ7NVeWIWaI3ngmzUBGaGRZs3wnNwXnWACTKjGcpOVLwZn3zOi2EErwlzt2F144pfUcnwdu+iAH95
-	IlvSheKQzk3kt+uZRR3O2M5dktYIG2G1hccIGaVFsnL8Snrxd1qeTfpi3vnE4gyCFyx7rWKiSrLw7
-	5yYR4ABe4s2JqHLlh1aN7bAwYYq0LPEX9IEpvUpc2zHav6MG6mEXUqoxZM5vaJXsew7rO7Bfk0Vgi
-	XJaaWYtxIngbM1YqAn9D6bQs6QAtxTpRb3ZMwMuyAfUCEa/F0R2co4J5FlyYOyQurLxIp0rjvNYmY
-	jEXfsJuQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Eli6fqrZOyGgPo0RRp93X/UYPVvD/TPDy57HcpAA1oE=; b=NarLQhgKm69dKLMaH5mTWk8Mpq
+	fYMfef96ABDJDiK7DE91IzvF38wRXgZsEKVdKq4cjGfSlZVx5KqWOzfizKEo1FVSrrRyCfTLhXkGd
+	khjnI++hryyE0F44J8nFY4B8tzhOuxfvvUhejypHfps6hOrDoMWY4dbJf9mqMX4e6t2Kf4f8p3SaB
+	husHetTqivIX7P1J64kyvP2Kx51biD/OCzwEJYQX1exShl0RF4Zc8FrWx0TCXzNHgMLba0TZc2nO4
+	m0vHexHDOkdIikGAGqCncsEog9FpvcZuDeA1j018cEm1JAD7qw2sONi1VtaMEIS9qHk8d9OekMwFj
+	l2RNw5rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vckYB-0000000BR6h-3bH7;
-	Mon, 05 Jan 2026 13:23:11 +0000
-Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1vckZc-0000000BRN9-1sND;
+	Mon, 05 Jan 2026 13:24:40 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vckY7-0000000BR5f-0yw6
+	id 1vckZZ-0000000BRLs-2dAq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 13:23:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UPXD+Pta9eIsOtGhAfJRnNPvfVQ0GF2z98fFgvrAGGcgW0vpkSsbg3f2yFgw3NDuCYXDZSXH55AJ8ACLTiOM1F1Q98eT9ztpKakrH9EHJ402NelQW6WVGdxlvy8ubZb3oAbJdXFqBZ3xlGIqRSy10NgbmGWTtNejhAtx3r6fd2JChglTMQsxqZjmsmpCcDho3m1pc+0mUGuVxdsjuP5Go1RtBlVWV74xVpmRXYM2Qj/AJjbUONVEzOskJKQoU5soSRSqMXTmHRoKaZ1ywokeVl+S7rgdBrKWpydq3QSVUhQRdozvjItDUPDoWKErGYEKwSK0XvFWtl0uhWnxPSCE2A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=q+F00psFLrpHKEwOeoLMUnXEqQzGx68LP+XtTjxm1hw=;
- b=ecIiYgmWeLcFHYlbg54clnRO44OYNHyirU2YcU8n3dCKIbDMNXj7LeyEXx3f15jbWmNWdmXlCJAS3v32wuW3DhtChh2X56LN0uxi3QgRxGdhgwFdrhsmG+Qhqjg6/PeITg+DYjQL8cJhyQvmSHRG1itTkkjqy/huoX+XKXGL8rNT1pPwa2Z6hRKp3Oc5VLnV/G0wja0YoGXWNlX4OaPEuT1fbrA7jaudjrG6UwD3Psx/lZAl/yl0tteIe7mmDYLAaEdt3un++lij2suI3fUU8ZyZr8HJNLAlAAC8uLVJYwS0qCk/K5hWTZZBBGQBtSGOs5A4n8fptbJiYu3cLkQZqg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.195) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=q+F00psFLrpHKEwOeoLMUnXEqQzGx68LP+XtTjxm1hw=;
- b=HXMKY3xvX5TCN7hS+q5qi0M7kKTyba5ZoBFH+dYKoy9Q4OKUI3n9kofVDAWoNROf5Fh0mzG0O1GQu9OHD5a1ygFSRvHLbYnu9CFGuME6o9OnNbvoPWUOtJOQaAgmzF4alsoBNiiLTWR3pmaRPbZzycsAbsycRqm5U6MCHXWKMUI=
-Received: from BY3PR05CA0049.namprd05.prod.outlook.com (2603:10b6:a03:39b::24)
- by CH0PR10MB4939.namprd10.prod.outlook.com (2603:10b6:610:c0::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Mon, 5 Jan
- 2026 13:23:01 +0000
-Received: from MWH0EPF000971E7.namprd02.prod.outlook.com
- (2603:10b6:a03:39b:cafe::5c) by BY3PR05CA0049.outlook.office365.com
- (2603:10b6:a03:39b::24) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9499.1 via Frontend Transport; Mon, 5
- Jan 2026 13:22:55 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.195)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.195 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.195; helo=flwvzet201.ext.ti.com; pr=C
-Received: from flwvzet201.ext.ti.com (198.47.21.195) by
- MWH0EPF000971E7.mail.protection.outlook.com (10.167.243.75) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9499.1 via Frontend Transport; Mon, 5 Jan 2026 13:22:59 +0000
-Received: from DFLE208.ent.ti.com (10.64.6.66) by flwvzet201.ext.ti.com
- (10.248.192.32) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 5 Jan
- 2026 07:22:58 -0600
-Received: from DFLE210.ent.ti.com (10.64.6.68) by DFLE208.ent.ti.com
- (10.64.6.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 5 Jan
- 2026 07:22:58 -0600
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE210.ent.ti.com
- (10.64.6.68) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Mon, 5 Jan 2026 07:22:58 -0600
-Received: from localhost (lcpd911.dhcp.ti.com [172.24.233.130])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 605DMvrl1208312;
-	Mon, 5 Jan 2026 07:22:57 -0600
-Date: Mon, 5 Jan 2026 18:52:56 +0530
-From: Dhruva Gole <d-gole@ti.com>
-To: Kendall Willis <k-willis@ti.com>
-CC: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, "Tero
- Kristo" <kristo@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Bryan
- Brattlof" <bb@ti.com>, <vishalm@ti.com>, <sebin.francis@ti.com>,
-	<msp@baylibre.com>, <khilman@baylibre.com>, <a-kaur@ti.com>,
-	<s-kochidanadu@ti.com>, <linux-arm-kernel@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 1/3] arm64: dts: ti: k3-am62l: include WKUP_UART0 in
- wakeup peripheral window
-Message-ID: <20260105132256.yon7nxe7whnl6k25@lcpd911>
-References: <20251230-wkup-uart-wakeup-v1-0-cd6e15f8d956@ti.com>
- <20251230-wkup-uart-wakeup-v1-1-cd6e15f8d956@ti.com>
+	Mon, 05 Jan 2026 13:24:39 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.83])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dlFPz3KBCzHnGjc;
+	Mon,  5 Jan 2026 21:24:23 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id B4D0340569;
+	Mon,  5 Jan 2026 21:24:25 +0800 (CST)
+Received: from localhost (10.48.147.217) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Mon, 5 Jan
+ 2026 13:24:24 +0000
+Date: Mon, 5 Jan 2026 13:24:21 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+CC: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+	Robert Moore <robert.moore@intel.com>, Thomas Gleixner <tglx@linutronix.de>,
+	Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>, Marc
+ Zyngier <maz@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	<linux-acpi@vger.kernel.org>, <acpica-devel@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-pci@vger.kernel.org>
+Subject: Re: [PATCH v2 5/7] irqchip/gic-v5: Add ACPI IRS probing
+Message-ID: <20260105132421.00000213@huawei.com>
+In-Reply-To: <20251218-gicv5-host-acpi-v2-5-eec76cd1d40b@kernel.org>
+References: <20251218-gicv5-host-acpi-v2-0-eec76cd1d40b@kernel.org>
+	<20251218-gicv5-host-acpi-v2-5-eec76cd1d40b@kernel.org>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20251230-wkup-uart-wakeup-v1-1-cd6e15f8d956@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000971E7:EE_|CH0PR10MB4939:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8a186d91-dad7-4eb5-dac8-08de4c5d8bd4
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700013|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?g51mjJZiZnf0PETBFPNlvqW+TtiJmCx+Nl83Ojl0XO7VqYevcp+iHIB84M0n?=
- =?us-ascii?Q?/Giecn7hfuDOG2Jm4TIvvkp9UOQFfCZQW5ltjo2B9qSCy42QBk4wkbHum4gZ?=
- =?us-ascii?Q?EAPegjjySbZ/b3iL/Trwfw+7c/adTis9gHDi7iKYB8wjlEegK1cgWHvbDgUD?=
- =?us-ascii?Q?IzuvzAX6vOxMDdQAbAik1uiNGSuzGhwbkChbxyxrnAvEgCoGs/JWfJd501os?=
- =?us-ascii?Q?CR6r4norM1StjOWzQnDVVzO9cyUoBRZVyffSO9UESVnb4VXhT14cdqfC1E56?=
- =?us-ascii?Q?BOadOg61l/yOrgFay6+WK8O8AR1l+1UhrOfWe7l6vN9CN26Ggrqp8tKibpbF?=
- =?us-ascii?Q?ivaB77iSHEqTBH6WjpTnSrtTagsM8osyj29md0Oba+Y+izLa+0pcmUxCX1fO?=
- =?us-ascii?Q?IXKdbNoSDDf4oR16X0u+trcUwv5qRzm11o54OYAS3GKxXPM1VCVyX06LcFMQ?=
- =?us-ascii?Q?CcooNoKogJsXlJKxYYDPDW7/SlzbjV7PLNfxShugVCrJnwmbXkC4z2SWgK+C?=
- =?us-ascii?Q?jMA8atE9E+NIV4tmDeJnph+gYIGddKanY9fRotx93YOO7a7ameu45JFa4m22?=
- =?us-ascii?Q?UP54lKMs2byj9TMA4NSmuXOq7SgNMAJeEvcRKUECbe4srye+hYUyyBge1mKj?=
- =?us-ascii?Q?wiVrZ2xbaEgUJOwNlKt4Ycl/8E2sfJvCkSM0T2Nwhwtw1+IvXaTxaqjurXfe?=
- =?us-ascii?Q?O6v5S9w0uTMKqgOoFDay3Kd+ta4STcvXL7k5e3z1n65wGyIg1hn3X/YkRt5j?=
- =?us-ascii?Q?ClDI7/R9wICTjafDegJSGYJrXUGvMWNJGCDMOsy5hDLfvQ/w6db4LN0Qphh6?=
- =?us-ascii?Q?N8V2P+N2Y2vqOCbUfPcRZd7Ylu/328wIcnTxZdDhwB+yR+DkkoZxZ/lXB2hr?=
- =?us-ascii?Q?jkgEbxcnckscr12wxgBFBkb2INvHYkeyOocTKXRacxcyaTTM9xwH3roZwYtL?=
- =?us-ascii?Q?1aajHZWS/33QWCokb/ORNTfzDpnsFfpuh2IsaNsYhK3VJXgFHNBWz25p7mx7?=
- =?us-ascii?Q?XdsWbXNrv8OQ0+4RLIBTCvFywog2VRnoA+4+xkm0Uyj8o/3StQw7q87fmWk7?=
- =?us-ascii?Q?IbsUQjN+Gj6pq1t1CoQW9hFis3l607NchIqUs5KNcI7DSCHa8nc/Dvh7KOqg?=
- =?us-ascii?Q?j92LjLDitqsj4GF9oaHTVSzcUEndvpSUooYYuGy1zFeul5+PIYpbBBJ5VNK7?=
- =?us-ascii?Q?HZqa8C1NU2rSO2bnRAinPJ9XeSZun2oumnaDEib5ztQ6XgZE7CVAkye9sekV?=
- =?us-ascii?Q?HM15Y1aWAQeWtKE5EPhSqh8dlZ6YQWdeLhUByxAfXFqLpdVTiZvlvNqc+bK+?=
- =?us-ascii?Q?UZ20nuaKXJuOPlUpa4DPtNSVDu/xgFKXcuP2otBs1SqKmR7H8cImd890VZTB?=
- =?us-ascii?Q?B6SblJ6nwQQ+LAPFuLWwW6bSgxXvtSHhPeix3k3v/A8dm4SxIp/Pz1ccaswU?=
- =?us-ascii?Q?Vdqghrje4Z81YLJ+2SozkSelPW6QSY1FfbjNMEMDMGmDQRBDjOCxLjKnJkvi?=
- =?us-ascii?Q?Piw8+BNWnlzpQr43T3A31WmBEwawvSJfSl8XcDyQ+PsPqvhgbxQA80Qod6Uu?=
- =?us-ascii?Q?a5oHJs0klasEI7sMcOY=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.21.195;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet201.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700013)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jan 2026 13:22:59.3485
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8a186d91-dad7-4eb5-dac8-08de4c5d8bd4
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.195];Helo=[flwvzet201.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000971E7.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH0PR10MB4939
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.147.217]
+X-ClientProxiedBy: lhrpeml100012.china.huawei.com (7.191.174.184) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_052307_280987_1132DED7 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20260105_052437_985661_0BCD2F2A 
+X-CRM114-Status: GOOD (  43.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,39 +76,348 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Dec 30, 2025 at 20:51:40 -0600, Kendall Willis wrote:
-> WKUP_UART0 is apart of the wakeup peripherals and has a range from
+On Thu, 18 Dec 2025 11:14:31 +0100
+Lorenzo Pieralisi <lpieralisi@kernel.org> wrote:
 
-Nit: a _space_ part
+> On ARM64 ACPI systems GICv5 IRSes are described in MADT sub-entries.
+> 
+> Add the required plumbing to parse MADT IRS firmware table entries and
+> probe the IRS components in ACPI.
+> 
+> Refactor the OF based probe so that common code paths can be reused for
+> ACPI as well in the process.
+> 
+> Augment the irqdomain_ops.translate() for PPI and SPI IRQs in order to
+> provide support for their ACPI based firmware translation.
+> 
+> Implement an irqchip ACPI based callback to initialize the global GSI
+> domain upon an MADT IRS detection.
+> 
+> The IRQCHIP_ACPI_DECLARE() entry in the top level GICv5 driver is only used
+> to trigger the IRS probing (ie the global GSI domain is initialized once on
+> the first call on multi-IRS systems); IRS probing takes place by calling
+> acpi_table_parse_madt() in the IRS sub-driver, that probes all IRSes
+> in sequence.
+> 
+> Add a new ACPI interrupt model so that it can be detected at runtime and
+> distinguished from previous GIC architecture models.
+> 
+> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: "Rafael J. Wysocki" <rafael@kernel.org>
+> Cc: Marc Zyngier <maz@kernel.org>
+Just a few minor comments inline.
 
-> 0x002B300000 to 0x002B3001FF. Expand the wakeup peripheral window to
-> include WKUP_UART0.
-> 
-> Fixes: 5f016758b0ab ("arm64: dts: ti: k3-am62l: add initial infrastructure")
-> Signed-off-by: Kendall Willis <k-willis@ti.com>
-> ---
->  arch/arm64/boot/dts/ti/k3-am62l.dtsi | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/boot/dts/ti/k3-am62l.dtsi b/arch/arm64/boot/dts/ti/k3-am62l.dtsi
-> index 23acdbb301fe38e6045c0ef3ae340196009ed217..e01e342c26daaa06a72036cc3a9a7b13a60e6738 100644
-> --- a/arch/arm64/boot/dts/ti/k3-am62l.dtsi
-> +++ b/arch/arm64/boot/dts/ti/k3-am62l.dtsi
-> @@ -92,7 +92,7 @@ cbass_main: bus@f0000 {
->  			 <0x00 0x00b00000 0x00 0x00b00000 0x00 0x00001400>, /* VTM */
->  			 <0x00 0x04080000 0x00 0x04080000 0x00 0x00008000>, /* PDCFG */
->  			 <0x00 0x04201000 0x00 0x04201000 0x00 0x00000100>, /* GPIO */
-> -			 <0x00 0x2b100000 0x00 0x2b100000 0x00 0x00100100>, /* Wakeup Peripheral Window */
-> +			 <0x00 0x2b100000 0x00 0x2b100000 0x00 0x00200200>, /* Wakeup Peripheral Window */
->  			 <0x00 0x40800000 0x00 0x40800000 0x00 0x00014000>, /* DMA */
->  			 <0x00 0x43000000 0x00 0x43000000 0x00 0x00080000>; /* CTRL MMRs */
->  		#address-cells = <2>;
-> @@ -104,7 +104,7 @@ cbass_wakeup: bus@a80000 {
+> diff --git a/drivers/irqchip/irq-gic-v5-irs.c b/drivers/irqchip/irq-gic-v5-irs.c
+> index ce2732d649a3..07c3df5692af 100644
+> --- a/drivers/irqchip/irq-gic-v5-irs.c
+> +++ b/drivers/irqchip/irq-gic-v5-irs.c
+> @@ -5,6 +5,7 @@
+>  
+>  #define pr_fmt(fmt)	"GICv5 IRS: " fmt
+>  
+> +#include <linux/acpi.h>
+>  #include <linux/kmemleak.h>
+>  #include <linux/log2.h>
+>  #include <linux/of.h>
+> @@ -545,15 +546,15 @@ int gicv5_irs_register_cpu(int cpuid)
+>  
+>  static void __init gicv5_irs_init_bases(struct gicv5_irs_chip_data *irs_data,
+>  					void __iomem *irs_base,
+> -					struct fwnode_handle *handle)
+> +					struct fwnode_handle *handle,
+> +					bool noncoherent)
+>  {
+> -	struct device_node *np = to_of_node(handle);
+>  	u32 cr0, cr1;
+>  
+>  	irs_data->fwnode = handle;
+
+Looking this again as you are touching it.
+
+This feels a tiny bit out of place, as not obvious to me why the fwnode being
+set is related to initializing bases.  Perhaps that belongs at the caller?
  
-Reviewed-by: Dhruva Gole <d-gole@ti.com>
+>  	irs_data->irs_base = irs_base;
+>  
+> -	if (of_property_read_bool(np, "dma-noncoherent")) {
+> +	if (noncoherent) {
+>  		/*
+>  		 * A non-coherent IRS implies that some cache levels cannot be
+>  		 * used coherently by the cores and GIC. Our only option is to mark
+> @@ -678,49 +679,13 @@ static void irs_setup_pri_bits(u32 idr1)
+>  	}
+>  }
+>  
 
--- 
-Best regards,
-Dhruva Gole
-Texas Instruments Incorporated
+...
+
+> +static int __init gicv5_irs_of_init(struct device_node *node)
+> +{
+
+Not sure whether it would be worth it by inclination would have been
+a noop refactor patch, then the ACPI support. I'd have found it a little
+bit easier to review.
+
+> +	struct gicv5_irs_chip_data *irs_data;
+> +	void __iomem *irs_base;
+> +	u8 iaffid_bits;
+> +	u32 idr;
+> +	int ret;
+> +
+> +	irs_data = kzalloc(sizeof(*irs_data), GFP_KERNEL);
+> +	if (!irs_data)
+> +		return -ENOMEM;
+> +
+> +	raw_spin_lock_init(&irs_data->spi_config_lock);
+> +
+> +	ret = of_property_match_string(node, "reg-names", "ns-config");
+> +	if (ret < 0) {
+> +		pr_err("%pOF: ns-config reg-name not present\n", node);
+> +		goto out_err;
+
+Obviously comes form original code, but this label could give some indication
+of where we are going and why. out_free_data maybe?
+
+Perhaps I'm just being fussy as I had to open the code up to check given
+it didn't end up in the context.
+
+> +	}
+> +
+...
+
+> +static int __init gic_acpi_parse_iaffid(union acpi_subtable_headers *header,
+> +					const unsigned long end)
+> +{
+> +	struct acpi_madt_generic_interrupt *gicc = (struct acpi_madt_generic_interrupt *)header;
+> +	int cpu;
+> +
+> +	if (!(gicc->flags & (ACPI_MADT_ENABLED | ACPI_MADT_GICC_ONLINE_CAPABLE)))
+> +		return 0;
+> +
+> +	if (gicc->irs_id == current_irsid) {
+Unless this is going to get more complex I'd flip the log for an early return on
+'not this one'
+	if (gicc->irs_id != current_irsid)
+		return 0;
+
+mostly to save on long lines where they aren't needed.
+
+> +		cpu = get_logical_index(gicc->arm_mpidr);
+> +
+> +		if (gicc->iaffid & ~GENMASK(current_iaffid_bits - 1, 0)) {
+> +			pr_warn("CPU %d iaffid 0x%x exceeds IRS iaffid bits\n", cpu, gicc->iaffid);
+> +			return 0;
+> +		}
+> +
+> +		// Bind the IAFFID and the CPU
+> +		per_cpu(cpu_iaffid, cpu).iaffid = gicc->iaffid;
+> +		per_cpu(cpu_iaffid, cpu).valid = true;
+> +		pr_debug("Processed IAFFID %u for CPU%d", per_cpu(cpu_iaffid, cpu).iaffid, cpu);
+> +
+> +		// We also know that the CPU is connected to this IRS
+> +		per_cpu(per_cpu_irs_data, cpu) = current_irs_data;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int __init gicv5_irs_acpi_init_affinity(u32 irsid, struct gicv5_irs_chip_data *irs_data)
+> +{
+> +	u32 idr;
+> +
+> +	current_irsid = irsid;
+> +	current_irs_data = irs_data;
+> +
+> +	idr = irs_readl_relaxed(irs_data, GICV5_IRS_IDR1);
+> +	current_iaffid_bits = FIELD_GET(GICV5_IRS_IDR1_IAFFID_BITS, idr) + 1;
+> +
+> +	acpi_table_parse_madt(ACPI_MADT_TYPE_GENERIC_INTERRUPT, gic_acpi_parse_iaffid, 0);
+> +
+> +	return 0;
+> +}
+
+> +
+> +static int __init gic_acpi_parse_madt_irs(union acpi_subtable_headers *header,
+> +					  const unsigned long end)
+> +{
+> +	struct acpi_madt_gicv5_irs *irs = (struct acpi_madt_gicv5_irs *)header;
+> +	struct gicv5_irs_chip_data *irs_data;
+> +	void __iomem *irs_base;
+> +	struct resource *r;
+> +	int ret;
+> +
+> +	// Per-IRS data structure
+
+It's your code to look after, so I don't care that strongly but this does
+seem to be inconsistent wrt to local style and use of C style
+single line comments.  I'd stick to /* */ throughout.
+
+
+> +	irs_data = kzalloc(sizeof(*irs_data), GFP_KERNEL);
+> +	if (!irs_data)
+> +		return -ENOMEM;
+> +
+> +	// This spinlock is used for SPI config changes
+> +	raw_spin_lock_init(&irs_data->spi_config_lock);
+> +
+> +	irs_base = ioremap(irs->config_base_address, ACPI_GICV5_IRS_MEM_SIZE);
+> +	if (!irs_base) {
+> +		pr_err("Unable to map GIC IRS registers\n");
+> +		ret = -ENOMEM;
+> +		goto out_free;
+> +	}
+> +
+> +	r = gic_request_region(irs->config_base_address, ACPI_GICV5_IRS_MEM_SIZE, "GICv5 IRS");
+
+Really minor but I wonder if this should follow the same ordering as
+of_io_request_and_map() which does the request_mem_region() before
+trying to ioremap()?
+
+Nice to have the same ordering though that would then put you at odds iwth the
+gicv3 redist code that does it in this order.  Guess can't win them all and
+an ephemeral mapping that is then torn down on error of the second call
+doesn't really matter.  
+
+> +	if (!r) {
+> +		ret = -EBUSY;
+> +		goto out_map;
+> +	}
+> +
+> +	gicv5_irs_init_bases(irs_data, irs_base, NULL, irs->flags & ACPI_MADT_IRS_NON_COHERENT);
+> +
+> +	gicv5_irs_acpi_init_affinity(irs->irs_id, irs_data);
+> +
+> +	ret = gicv5_irs_init(irs_data);
+> +	if (ret)
+> +		goto out_release;
+> +
+> +	if (irs_data->spi_range) {
+> +		pr_info("%s @%llx detected SPI range [%u-%u]\n", "IRS", irs->config_base_address,
+> +									irs_data->spi_min,
+> +									irs_data->spi_min +
+> +									irs_data->spi_range - 1);
+> +	}
+> +
+> +	return 0;
+> +
+> +out_release:
+> +	release_mem_region(r->start, resource_size(r));
+> +out_map:
+> +	iounmap(irs_base);
+> +out_free:
+> +	kfree(irs_data);
+> +	return ret;
+> +}
+
+> diff --git a/drivers/irqchip/irq-gic-v5.c b/drivers/irqchip/irq-gic-v5.c
+> index 41ef286c4d78..23fd551c4347 100644
+> --- a/drivers/irqchip/irq-gic-v5.c
+> +++ b/drivers/irqchip/irq-gic-v5.c
+> @@ -579,16 +579,36 @@ static __always_inline int gicv5_irq_domain_translate(struct irq_domain *d,
+>  						      unsigned int *type,
+>  						      const u8 hwirq_type)
+>  {
+> -	if (!is_of_node(fwspec->fwnode))
+> -		return -EINVAL;
+> +	unsigned int hwirq_trigger;
+> +	u8 fwspec_irq_type;
+>  
+> -	if (fwspec->param_count < 3)
+> -		return -EINVAL;
+> +	if (is_of_node(fwspec->fwnode)) {
+>  
+> -	if (fwspec->param[0] != hwirq_type)
+> -		return -EINVAL;
+> +		if (fwspec->param_count < 3)
+> +			return -EINVAL;
+>  
+> -	*hwirq = fwspec->param[1];
+> +		fwspec_irq_type = fwspec->param[0];
+> +
+> +		if (fwspec->param[0] != hwirq_type)
+> +			return -EINVAL;
+> +
+> +		*hwirq = fwspec->param[1];
+> +		hwirq_trigger = fwspec->param[2];
+> +	}
+> +
+> +	if (is_fwnode_irqchip(fwspec->fwnode)) {
+> +
+> +		if (fwspec->param_count != 2)
+> +			return -EINVAL;
+> +
+> +		fwspec_irq_type = FIELD_GET(GICV5_HWIRQ_TYPE, fwspec->param[0]);
+> +
+> +		if (fwspec_irq_type != hwirq_type)
+> +			return -EINVAL;
+> +
+> +		*hwirq = FIELD_GET(GICV5_HWIRQ_ID, fwspec->param[0]);
+> +		hwirq_trigger = fwspec->param[1];
+> +	}
+>  
+>  	switch (hwirq_type) {
+>  	case GICV5_HWIRQ_TYPE_PPI:
+> @@ -600,7 +620,7 @@ static __always_inline int gicv5_irq_domain_translate(struct irq_domain *d,
+>  							 IRQ_TYPE_EDGE_RISING;
+>  		break;
+>  	case GICV5_HWIRQ_TYPE_SPI:
+> -		*type = fwspec->param[2] & IRQ_TYPE_SENSE_MASK;
+> +		*type = hwirq_trigger & IRQ_TYPE_SENSE_MASK;
+>  		break;
+>  	default:
+>  		BUILD_BUG_ON(1);
+> @@ -660,10 +680,18 @@ static void gicv5_irq_domain_free(struct irq_domain *domain, unsigned int virq,
+>  static int gicv5_irq_ppi_domain_select(struct irq_domain *d, struct irq_fwspec *fwspec,
+>  				       enum irq_domain_bus_token bus_token)
+>  {
+> +	u32 hwirq_type;
+> +
+>  	if (fwspec->fwnode != d->fwnode)
+>  		return 0;
+>  
+> -	if (fwspec->param[0] != GICV5_HWIRQ_TYPE_PPI)
+> +	if (is_of_node(fwspec->fwnode))
+> +		hwirq_type = fwspec->param[0];
+> +
+> +	if (is_fwnode_irqchip(fwspec->fwnode))
+> +		hwirq_type = FIELD_GET(GICV5_HWIRQ_TYPE, fwspec->param[0]);
+
+Bit borderline but maybe worth a helper for getting the irq type from
+the fwspec? Or a more generic helper that optionally gets that and the other
+stuff you need in gicv5_irq_domain_translate()
+
+> +
+> +	if (hwirq_type != GICV5_HWIRQ_TYPE_PPI)
+>  		return 0;
+>  
+>  	return (d == gicv5_global_data.ppi_domain);
+> @@ -718,10 +746,18 @@ static int gicv5_irq_spi_domain_alloc(struct irq_domain *domain, unsigned int vi
+>  static int gicv5_irq_spi_domain_select(struct irq_domain *d, struct irq_fwspec *fwspec,
+>  				       enum irq_domain_bus_token bus_token)
+>  {
+> +	u32 hwirq_type;
+> +
+>  	if (fwspec->fwnode != d->fwnode)
+>  		return 0;
+>  
+> -	if (fwspec->param[0] != GICV5_HWIRQ_TYPE_SPI)
+> +	if (is_of_node(fwspec->fwnode))
+> +		hwirq_type = fwspec->param[0];
+> +
+> +	if (is_fwnode_irqchip(fwspec->fwnode))
+> +		hwirq_type = FIELD_GET(GICV5_HWIRQ_TYPE, fwspec->param[0]);
+> +
+> +	if (hwirq_type != GICV5_HWIRQ_TYPE_SPI)
+>  		return 0;
+>  
+>  	return (d == gicv5_global_data.spi_domain);
+> @@ -1082,16 +1118,12 @@ static inline void __init gic_of_setup_kvm_info(struct device_node *node)
+>  }
+>  #endif // CONFIG_KVM
+
+Thanks,
+
+Jonathan
+
 
