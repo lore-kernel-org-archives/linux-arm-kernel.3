@@ -4,55 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C80E9C79FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 16:42:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EE32C79FA8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 16:42:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Hk7tF1kExeP9jqtvKR3Dy5vw7dYXW5dPVBknzKbQkig=; b=zal90SS0QsTgIKaLt9IIYTrEut
-	cLH4hDXSalKuTRlSX66lwRBHiiAQ/gLgqYgpQ+i3Rm29HIPRqojwpxKDb2Nf68YytBWtFj9bcSUk6
-	Jdgn7r3oFGEciLk+VksfPAyp9Lp4Td+DR2AoYXjUz8tsXg1Bey9Pe0AO+CZujPKnr1wvUnuBAxGEi
-	xP0I/dYc2TqXYuz5grAQnzKDr5ZgJDq+am8ujWEXfdmssPudjt2Zh8XmecgktU740N8i1+0Oxk7e/
-	a3P51qljTsxFV/CyRn2D0mIW7LeawsWXwp9jDC1CDXKk3uAKDJWmSL3l1jhV0vtWyzu0PvtcEP+BH
-	6ZqFcY8g==;
+	bh=OyCREwze6wuRU2UsbFO8TEdIlanzdvvtH1ABUGO9pDk=; b=3xG/nfOjRXbX5J+BYlrGNdge7p
+	xqwqWxLKc2rycecrUDRqpvokqZ0PTxFvTYF3VByXOacipRwjGRgGWjycc2wECRcmLneKaWVkBVkAu
+	A0Gso3DEgXciPzyHDkwZFI8zt0QZumDDbhB3hUQvhmRuRTHjqUPFphY1CzlLT7m87Xy2kqFJKpIwI
+	K+Z+W7Hq5zLuTyYkR0qRLT0otQfB0dIIODPHGBIajStyik1LRWctTidhr/HCF8RF5Ft83ke0o2Wtw
+	XCOsVAUZL0445N00hG32NZKx/2iNIRZowVYfUVGEfqdiTz3F04pdlMvH4f5VT2OXWPZ++AVhCYewL
+	JlCg/mlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcnf2-0000000BkGJ-49Ra;
-	Mon, 05 Jan 2026 16:42:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcnf0-0000000BkFc-3BBl
+	id 1vcnf5-0000000BkGm-1C7i;
+	Mon, 05 Jan 2026 16:42:31 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vcnf1-0000000BkFd-29zz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 16:42:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 975A1339;
-	Mon,  5 Jan 2026 08:42:15 -0800 (PST)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4C7F33F6A8;
-	Mon,  5 Jan 2026 08:42:20 -0800 (PST)
-Date: Mon, 5 Jan 2026 16:42:09 +0000
-From: Alexandru Elisei <alexandru.elisei@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
-	yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	james.clark@linaro.org, mark.rutland@arm.com, james.morse@arm.com
-Subject: Re: [RFC PATCH v6 16/35] KVM: arm64: Advertise SPE version in
- ID_AA64DFR0_EL1.PMSver
-Message-ID: <aVvppjU3OXXIcJIo@raptor>
-References: <20251114160717.163230-1-alexandru.elisei@arm.com>
- <20251114160717.163230-17-alexandru.elisei@arm.com>
- <36416368-4447-4b16-8496-3e3d603d88d4@arm.com>
+	Mon, 05 Jan 2026 16:42:28 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-47a8195e515so977585e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 08:42:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1767631345; x=1768236145; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=OyCREwze6wuRU2UsbFO8TEdIlanzdvvtH1ABUGO9pDk=;
+        b=BeUbO8Jk6vWrPY8IoEb9sZtzyuT9e6qElyAoU5k6YYC/sc5v/hdZV1ayOwdw0/zcXl
+         /bNw4VrwM8ius2e9qEAs36HCaxQZSe0SoyJwUOJLyfLdRW7Nj2LEvfh2hy7xHONKi3an
+         xmHtk7Yrpqb3PLoVECiZHvr5PZmVPJ5Th8X11Uwwf1nymWFmRlW7vOkE8QeqNu4WtSf3
+         wVDvg0LyZicZl5ABQqm/ZE3SYuIiyEim/1HpP7VeOS2IqKFUePF81ksN+Qsn/rUFB/sv
+         yG+TUJaIgulglh9oLixtnr5w/lPxa0FK4Rgq45lEwlTGY5jEZq/YCviphbLrbmmYbZNg
+         NT1g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767631345; x=1768236145;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=OyCREwze6wuRU2UsbFO8TEdIlanzdvvtH1ABUGO9pDk=;
+        b=Nmkdg9lY5bYimNh3Sha5MUVCaOCh0wtOyDqcytpDqaAjq4JX/p1qWCsOokyhMZ6BSU
+         xxmB6kbG5iCzAan3fPUXdtdVRerUoVUzXS4AheuBqzAheOxOHVRiIGF/XT1HILqh1SCq
+         GKjzazpEklmotuo/Wbt6ELxCWL8cNU0azE/0zWwhIT7FN5FIy44wZAwSbV+ZgjyOjyYh
+         WttJ5mn5hUcnxE18EvQZt1uVNVY7eeYMPNqeq+7vR82aK1T+SJ9fETxfo6eOGR4XBmYX
+         /d/jrvCzuTFEqxTk2nGv/SmRzqxVMObyRFKrfyABFOFaz265TesUGHlFqa4okPeqqKTk
+         wsaA==
+X-Forwarded-Encrypted: i=1; AJvYcCWAIibDHcG5H48IUx7kjYK1xe8gYuZV2YkBoMvpOdeRJM5Y8Xxowpil4/tnBvZklabivfQAS2+AQKEVZpSqMugK@lists.infradead.org
+X-Gm-Message-State: AOJu0YxrWnHhIuPkT7p/LQd+a1Z+VH4lzkSpLFv6e1ZrH/ciTZvLuqWx
+	vpBAd5PaofJU10Xt8DqfUwg8iqNwew0sUaeQzA0bvBhUjeYHRO5akKDc
+X-Gm-Gg: AY/fxX61Vp/oXnZOcJBWedBNoLfKfmGXp45yXKw4tr1VZ+nAvJcMb1c0TOhr3PpOyGo
+	sSwiXMYEpWuM5hQfSBZPkBK6qvyrBlK4NVh/sJwt1t6Eu5sDjxVuy7mcAB16SiVyrLmpkoffMCY
+	3wAGSkJT7YZmOIk4pS2OPoQDULBHgU/tgTo2yuk27pO8px1Z7chHqs7oEO+ZFaXRIWFvd25rLud
+	o0Ghrdknww+uuxd3BQb795n6IpPAI9eYVRaTA1ufPC9XfGgtX6ptIXw0DIEJAheUAzY+sAuIfYq
+	mu3qokYMIKo8JmGURgHLMTnprNJOruayN3OLNEH7XwBZ7pXab/QlEMiAkLV0vot+nB4Eww7p5kc
+	FSJ4N2iYAIa1N7YqrsKbwq1sztFM4IuF5h9Bbr2T826Mjpkv2quT8/1odzobBaIOCxRuaFk3iwp
+	1CPn5zgty8+ok=
+X-Google-Smtp-Source: AGHT+IE/JjorzXLwwkJgsbApvm+a3QMCRUUp3o9LGdUjHP2iI1zq9V8yb9BydDK6HAKwFcoQXH8UFg==
+X-Received: by 2002:a05:600c:1c29:b0:46e:37a7:48d1 with SMTP id 5b1f17b1804b1-47d1959d4bamr704429525e9.34.1767631345377;
+        Mon, 05 Jan 2026 08:42:25 -0800 (PST)
+Received: from eichest-laptop ([2a02:168:af72:0:20bb:19ed:fbb2:7e2d])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-432bca532c6sm442805f8f.27.2026.01.05.08.42.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 Jan 2026 08:42:24 -0800 (PST)
+Date: Mon, 5 Jan 2026 17:42:23 +0100
+From: Stefan Eichenberger <eichest@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, shawnguo@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+	linux-stm32@st-md-mailman.stormreply.com, netdev@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, francesco.dolcini@toradex.com,
+	robh@kernel.org,
+	Stefan Eichenberger <stefan.eichenberger@toradex.com>
+Subject: Re: [PATCH RESEND net-next v2] net: stmmac: dwmac: Add a fixup for
+ the Micrel KSZ9131 PHY
+Message-ID: <aVvp70S2Lr3o_jyB@eichest-laptop>
+References: <20260105100245.19317-1-eichest@gmail.com>
+ <6ee0d55a-69de-4c28-8d9d-d7755d5c0808@bootlin.com>
+ <aVuxv3Pox-y5Dzln@eichest-laptop>
+ <a597b9d6-2b32-461f-ac90-2db5bb20cdb2@lunn.ch>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <36416368-4447-4b16-8496-3e3d603d88d4@arm.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <a597b9d6-2b32-461f-ac90-2db5bb20cdb2@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_084226_912252_2A2AE4B1 
-X-CRM114-Status: GOOD (  31.54  )
+X-CRM114-CacheID: sfid-20260105_084227_569321_653C6FBC 
+X-CRM114-Status: GOOD (  19.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,136 +112,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Suzuki,
+Hi Andrew,
 
-Thanks for having a look.
-
-On Tue, Dec 16, 2025 at 11:40:20AM +0000, Suzuki K Poulose wrote:
-> On 14/11/2025 16:06, Alexandru Elisei wrote:
-> > The VCPU registers are reset during the KVM_ARM_VCPU_INIT ioctl, before
-> > userspace can set the desired SPU. Assume that the VCPU is initialized from
+On Mon, Jan 05, 2026 at 04:26:40PM +0100, Andrew Lunn wrote:
+> > Unfortunately, I'm afraid of breaking something on the platforms
+> > that are already working, as this is an Ethernet controller
+> > issue. As I understand it, the PHY works according to the standard.
 > 
-> 
-> > a thread that runs on one of the physical CPUs that correspond to the SPU
-> > that userspace will choose for the VM. Set PMSVer to that CPUs hardware
-> > value.
-> 
-> This doesn't match the code. See below.
+> What is the exact wording of the standard? I'm assuming this is IEEE
+> 802.3?  Please could you quote the relevant part.
 
-Indeed.
+Yes this is correct. ERR050694 from NXP states:
+The IEEE 802.3 standard states that, in MII/GMII modes, the byte
+preceding the SFD (0xD5), SMD-S (0xE6,0x4C, 0x7F, or 0xB3), or SMD-C
+(0x61, 0x52, 0x9E, or 0x2A) byte can be a non-PREAMBLE byte or there can
+be no preceding preamble byte. The MAC receiver must successfully
+receive a packet without any preamble(0x55) byte preceding the SFD,
+SMD-S, or SMD-C byte.
+However due to the defect, in configurations where frame preemption is
+enabled, when preamble byte does not precede the SFD, SMD-S, or SMD-C
+byte, the received packet is discarded by the MAC receiver. This is
+because, the start-of-packet detection logic of the MAC receiver
+incorrectly checks for a preamble byte.
 
-> 
-> > 
-> > Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
-> > ---
-> >   arch/arm64/include/asm/kvm_spe.h |  6 ++++++
-> >   arch/arm64/kvm/spe.c             | 10 ++++++++++
-> >   arch/arm64/kvm/sys_regs.c        | 10 +++++++++-
-> >   3 files changed, 25 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/arch/arm64/include/asm/kvm_spe.h b/arch/arm64/include/asm/kvm_spe.h
-> > index 6ce70cf2abaf..5e6d7e609a48 100644
-> > --- a/arch/arm64/include/asm/kvm_spe.h
-> > +++ b/arch/arm64/include/asm/kvm_spe.h
-> > @@ -33,6 +33,8 @@ static __always_inline bool kvm_supports_spe(void)
-> >   void kvm_spe_init_vm(struct kvm *kvm);
-> >   int kvm_spe_vcpu_first_run_init(struct kvm_vcpu *vcpu);
-> > +u8 kvm_spe_get_pmsver_limit(void);
-> > +
-> >   int kvm_spe_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
-> >   int kvm_spe_get_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
-> >   int kvm_spe_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr);
-> > @@ -53,6 +55,10 @@ static inline int kvm_spe_vcpu_first_run_init(struct kvm_vcpu *vcpu)
-> >   {
-> >   	return 0;
-> >   }
-> > +static inline u8 kvm_spe_get_pmsver_limit(void)
-> > +{
-> > +	return 0;
-> > +}
-> >   static inline int kvm_spe_set_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
-> >   {
-> >   	return -ENXIO;
-> > diff --git a/arch/arm64/kvm/spe.c b/arch/arm64/kvm/spe.c
-> > index 6bd074e40f6c..0c4896c6a873 100644
-> > --- a/arch/arm64/kvm/spe.c
-> > +++ b/arch/arm64/kvm/spe.c
-> > @@ -68,6 +68,16 @@ int kvm_spe_vcpu_first_run_init(struct kvm_vcpu *vcpu)
-> >   	return 0;
-> >   }
-> > +u8 kvm_spe_get_pmsver_limit(void)
-> > +{
-> > +	unsigned int pmsver;
-> > +
-> > +	pmsver = SYS_FIELD_GET(ID_AA64DFR0_EL1, PMSVer,
-> > +			       read_sanitised_ftr_reg(SYS_ID_AA64DFR0_EL1));
-> 
-> The read_sanitised_ftr_reg() gives you the system wide sanitised
-> version, not the one on the current CPU. You may need
-> read_sysreg_s() instead here.
+NXP refers to IEEE 802.3 where in clause 35.2.3.2.2 Receive case (GMII)
+they show two tables one where the preamble is preceding the SFD and one
+where it is not. The text says:
+The operation of 1000 Mb/s PHYs can result in shrinkage of the preamble
+between transmission at the source GMII and reception at the destination
+GMII. Table 35–3 depicts the case where no preamble bytes are conveyed
+across the GMII. This case may not be possible with a specific PHY, but
+illustrates the minimum preamble with which MAC shall be able to
+operate. Table 35–4 depicts the case where the entire preamble is
+conveyed across the GMII.
 
-Yes.
+We would change the behavior from "no preamble is preceding SFD" to "the
+enitre preamble is preceding SFD". Both are listed in the standard and
+shall be supported by the MAC.
 
-> 
-> 
-> > +
-> > +	return min(pmsver, ID_AA64DFR0_EL1_PMSVer_V1P5);
-> > +}
-> > +
-> >   static u64 max_buffer_size_to_pmbidr_el1(u64 size)
-> >   {
-> >   	u64 msb_idx, num_bits;
-> > diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> > index e67eb39ddc11..ac859c39c2be 100644
-> > --- a/arch/arm64/kvm/sys_regs.c
-> > +++ b/arch/arm64/kvm/sys_regs.c
-> > @@ -29,6 +29,7 @@
-> >   #include <asm/kvm_hyp.h>
-> >   #include <asm/kvm_mmu.h>
-> >   #include <asm/kvm_nested.h>
-> > +#include <asm/kvm_spe.h>
-> >   #include <asm/perf_event.h>
-> >   #include <asm/sysreg.h>
-> > @@ -1652,6 +1653,9 @@ static s64 kvm_arm64_ftr_safe_value(u32 id, const struct arm64_ftr_bits *ftrp,
-> >   		case ID_AA64DFR0_EL1_DebugVer_SHIFT:
-> >   			kvm_ftr.type = FTR_LOWER_SAFE;
-> >   			break;
-> > +		case ID_AA64DFR0_EL1_PMSVer_SHIFT:
-> > +			kvm_ftr.type = FTR_LOWER_SAFE;
-> 
-> PMSVer is already FTR_LOWER_SAFE, and we don't need to override it here ?
-> (unlike the DebugVer or PMU Ver)
+I hope this helps.
 
-Don't need to override it, yes, didn't realize that it's FTR_LOWER_SAFE in
-cpufeature.c when I wrote this.
-
-> 
-> > +			break;
-> >   		}
-> >   		break;
-> >   	case SYS_ID_DFR0_EL1:
-> > @@ -2021,8 +2025,11 @@ static u64 sanitise_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
-> >   		val |= SYS_FIELD_PREP(ID_AA64DFR0_EL1, PMUVer,
-> >   				      kvm_arm_pmu_get_pmuver_limit());
-> > -	/* Hide SPE from guests */
-> >   	val &= ~ID_AA64DFR0_EL1_PMSVer_MASK;
-> > +	if (vcpu_has_spe(vcpu)) {
-> > +		val |= SYS_FIELD_PREP(ID_AA64DFR0_EL1, PMSVer,
-> > +				      kvm_spe_get_pmsver_limit());
-> > +	}
-> 
-> So, we ignore value that the user sets and go with what the SPE instance
-> that has been chosen ? Should we make it non-writable then ?
-
-I modelled this after how PMUVer is handled, though that's not an excuse for
-getting it wrong. My intention was to limit the maximum version that userspace
-can set to the version of the SPU assigned to the VM.
-
-But now that I think about it, some SPE versions introduce new fields in a
-record, and there's no way for KVM to hide that if userspace set a lower version
-for the VM. So I guess for now I'll not allow userspace to write PMSVer and
-revisit it if someone wants it.
-
-Thanks,
-Alex
+Regards,
+Stefan
 
