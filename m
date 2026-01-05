@@ -4,87 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F14F5C79F9E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 16:19:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29C87C79FA3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 16:22:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0zWDE4vNKO/FXsXJuKZlL/iXpVrXuELtxAg4QURSIDc=; b=B7lXZSMibTwPvo60a7bjKzWhFw
-	S2KzPGfC/wm+E3t1ZR5YMtJ/R8FtF7mKYAaUp09WjXWEcHToWDabT9Z6HnRqxgrun5pagDzyhbkAO
-	z7+JsYlt4vPrcK2hvSAL/lfE5he/VvW2qNfMouTlN4WNhfBKAeOCIvubE8OMq52PiOJHg+xLfskqQ
-	PPb6puz5mB1b5dgFjSHiAvrgerNfCYXia1EHgvRGdBWnp7xy944GoXKCEN0pZ09qvJugp22MY29Og
-	qVbkmFyGa/bcsu2etZROjAPfSg0Y8M9Av188O9cDKfEvRMl7pD+ViHY0WHsKRRygYGoU7o16FUQqL
-	z2XTMicg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MASj0+5F+BhI0O8zz8NrhU8cFe/vl+IgpIDneI/8zCU=; b=08igv139zFcD13HolhgMASe6oT
+	YZ1/vfA/WjQyKSys585qnorry3Fe9zSnALBmgLs11vk34ejHx/hlnli0bxxissHikmjXXwYBuFXKj
+	THrNpU7xVAVhj2+s6LLgJikH9ADtAl1w5AnsDoxujM4jwWS8TxUE+yGQ6RcZqunKFeSJhD9b5JqUT
+	qcKNymIYvzIwwR+uh2WBsz/GMq0dT3lL/DLU1YRH3hCbaHl/q4qm/glHRuSkclcsqNErhWruUJgs4
+	YkO0Ue/0jGEo/MCpYNbKVWyNLSeS0trxPLDogM+r+hLipOXUD2n6Kx5rRvimN6kV1WcNCoFNZGOE0
+	gRUoMoUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcnJB-0000000Bigq-3qi1;
-	Mon, 05 Jan 2026 16:19:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vcnLr-0000000Bj5b-0nHc;
+	Mon, 05 Jan 2026 16:22:39 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcnJ9-0000000BigJ-3D58;
-	Mon, 05 Jan 2026 16:19:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 867A960147;
-	Mon,  5 Jan 2026 16:19:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE25AC116D0;
-	Mon,  5 Jan 2026 16:19:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767629990;
-	bh=AtN7od0JeLsN9YbMUfbbQk/4L1P9KKm0XcoR8cmj7CA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KhHlARlNAGXphZOOMOLPXXdYboH6rQGoEW00D0fi7fuAHJOXGzeRgKYG5X1gpaPFj
-	 uzXh4SM8KE4Na2K2V9fmxDxkWzBKNxqKopKgrNor3jKn7aZ4gRQLdsF3X5+jLkxh4U
-	 0SjmlPwW3RkL7OZV9qDHm54Wi5IR/Al4nYVxEV392JoniVlmeAEahNMfp1JOK7ns/o
-	 liXgqtNjg/fiLGTcysf30O4NzJSIrFMFIdeHpIqm/F1jF8Uc7Kjsgi/Ihe8FPPnrY3
-	 DDJqu93pjX4IWDHcObkDD4CagtAouZaUKOTXJ3tft846K9m7kLSRbZtQZs8CYaPD91
-	 0Xn6ZM8O1egOQ==
-Date: Mon, 5 Jan 2026 17:19:38 +0100
-From: Niklas Cassel <cassel@kernel.org>
-To: Sumit Kumar <sumit.kumar@oss.qualcomm.com>
-Cc: Bjorn Helgaas <bhelgaas@google.com>, Jingoo Han <jingoohan1@gmail.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Yue Wang <yue.wang@amlogic.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Greentime Hu <greentime.hu@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Chuanhua Lei <lchuanhua@maxlinear.com>,
-	Marek Vasut <marek.vasut+renesas@gmail.com>,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Pratyush Anand <pratyush.anand@gmail.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>, linux-pci@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, imx@lists.linux.dev,
-	linux-amlogic@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org, linux-tegra@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 2/2] PCI: dwc: Add multi-port controller support
-Message-ID: <aVvkmkd5mWPmxeiS@ryzen>
-References: <20260105-dt-parser-v1-0-b11c63cb5e2c@oss.qualcomm.com>
- <20260105-dt-parser-v1-2-b11c63cb5e2c@oss.qualcomm.com>
+	id 1vcnLo-0000000Bj4y-0Br5
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 Jan 2026 16:22:38 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 09CEDC1E48A;
+	Mon,  5 Jan 2026 16:22:07 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id F102A60726;
+	Mon,  5 Jan 2026 16:22:32 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 362D1103C8581;
+	Mon,  5 Jan 2026 17:22:22 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1767630151; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=MASj0+5F+BhI0O8zz8NrhU8cFe/vl+IgpIDneI/8zCU=;
+	b=wfyASmZYAXZDOEI9ogI1szLZusLvXiw3hq/bBEIuPMHGAjW+PCHy4rELj73K3KzyrFrPZO
+	TEDzqz/Jr0x2JkdZiTTpfWBWBg0MGxmkkTPmKMe3FN+aQpm7fIf1Ak/W1lkcc2AhEY412W
+	dI9HvO5+bzTPhEB/eVPG48ldJ+aYfLHrdN1e2Le4vOqajsUib3r4MaJXsa3t0RYt0yOF9k
+	N73Cb6I252QKdqNZ/QkqD2c5Yk/imngKg/nIoGC8nsKA1bNlLZgkrC9UXjwo3HVf0rGzxS
+	wHPP0PRX/alh9zs6FQdYIus8qT+KGVSoOk1unbSanDxfmERwOeLe0yu8SM3Lfw==
+Date: Mon, 5 Jan 2026 17:22:20 +0100
+From: Herve Codina <herve.codina@bootlin.com>
+To: "Luca Ceresoli" <luca.ceresoli@bootlin.com> (by way of Kory Maincent
+ <kory.maincent@bootlin.com>)
+Cc: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>, "Jyri Sarha"
+ <jyri.sarha@iki.fi>, "Tomi Valkeinen" <tomi.valkeinen@ideasonboard.com>,
+ "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
+ <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David
+ Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Rob
+ Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Russell King"
+ <linux@armlinux.org.uk>, "Bartosz Golaszewski" <brgl@bgdev.pl>, "Tony
+ Lindgren" <tony@atomide.com>, "Andrzej Hajda" <andrzej.hajda@intel.com>,
+ "Neil Armstrong" <neil.armstrong@linaro.org>, "Robert Foss"
+ <rfoss@kernel.org>, "Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>,
+ "Jonas Karlman" <jonas@kwiboo.se>, "Jernej Skrabec"
+ <jernej.skrabec@gmail.com>, "Markus Schneider-Pargmann" <msp@baylibre.com>,
+ "Bajjuri Praneeth" <praneeth@ti.com>, "Louis Chauvet"
+ <louis.chauvet@bootlin.com>, "Thomas Petazzoni"
+ <thomas.petazzoni@bootlin.com>, "Miguel Gazquez"
+ <miguel.gazquez@bootlin.com>, <dri-devel@lists.freedesktop.org>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-omap@vger.kernel.org>
+Subject: Re: [PATCH v2 05/20] drm/tilcdc: Convert legacy panel binding via
+ DT overlay at boot time
+Message-ID: <20260105172220.2d2edd28@bootlin.com>
+In-Reply-To: <DF0K5UFX46JA.OH85T6IPC5MW@bootlin.com>
+References: <20251211-feature_tilcdc-v2-0-f48bac3cd33e@bootlin.com>
+	<20251211-feature_tilcdc-v2-5-f48bac3cd33e@bootlin.com>
+	<DF0K5UFX46JA.OH85T6IPC5MW@bootlin.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20260105-dt-parser-v1-2-b11c63cb5e2c@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260105_082236_373362_5D351E72 
+X-CRM114-Status: GOOD (  33.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,45 +97,241 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Jan 05, 2026 at 05:57:55PM +0530, Sumit Kumar wrote:
-> The current DesignWare PCIe RC implementation supports only the controller
-> (Host Bridge) node for specifying the Root Port properties in an assumption
-> that the underlying platform only supports a single root Port per
-> controller instance. This limits support for multi-port controllers where
-> different ports may have different lane configurations and speed limits.
+Hi Luca, Kory,
+
+On Wed, 17 Dec 2025 15:23:26 +0100
+"Luca Ceresoli" <luca.ceresoli@bootlin.com> (by way of Kory Maincent <kory.maincent@bootlin.com>) wrote:
+
+> Hi,
 > 
-> Introduce a separate dw_pcie_port structure to enable multi-port support.
-> Each Root Port can have independent lane count, speed limit through pcie@N
-> child nodes in device tree. Add dw_pcie_parse_root_ports()
-> API to parse these child nodes.
+> Cc: Hervé, can you review the DT overlay aspects?
+
+Yes sure.
+
+Here is my global review.
+
+Depending on the discussion on things I have spotted, I will go deeper in
+patch details.
+
+...
+
+> > +
+> > +static void __init
+> > +tilcdc_panel_update_prop(struct device_node *node, char *name,
+> > +			 void *val, int length)
+> > +{
+> > +	struct property *prop;
+> > +
+> > +	prop = kzalloc(sizeof(*prop), GFP_KERNEL);
+> > +	if (!prop)
+> > +		return;
+> > +
+> > +	prop->name = kstrdup(name, GFP_KERNEL);
+> > +	prop->length = length;
+> > +	prop->value = kmemdup(val, length, GFP_KERNEL);
+> > +	of_update_property(node, prop);
+
+I would use OF changesets to perform the modification.
+
+OF changesets are kind of atomic. You first prepare all modifications in a
+changeset and then you apply the changeset.
+If something goes wrong, the changeset is removed.
+
+Also, if something goes wrong during the changeset preparation, you can abort
+without any modification on the live device-tree.
+
+> > +}
+> > +
+> > +static int __init tilcdc_panel_copy_props(struct device_node *old_panel,
+> > +					  struct device_node *new_panel)
+> > +{
+> > +	struct device_node *child, *old_timing, *new_timing, *panel_info;
+> > +	u32 invert_pxl_clk = 0, sync_edge = 0;
+> > +	struct property *prop;
+> > +
+> > +	/* Copy all panel properties to the new panel node */
+> > +	for_each_property_of_node(old_panel, prop) {
+> > +		if (!strncmp(prop->name, "compatible", sizeof("compatible")))
+> > +			continue;
+> > +
+> > +		tilcdc_panel_update_prop(new_panel, prop->name,
+> > +					 prop->value, prop->length);
+> > +	}
+> > +
+> > +	child = of_get_child_by_name(old_panel, "display-timings");  
 > 
-> Equalization presets and link width detection currently use common DBI
-> space for all the root ports. Per-port DBI space assignment for these
-> features will be added in future.
+> There's some housekeeping code in this function to ensure you put all the
+> device_node refs. It would be simpler and less error prone to use a cleanup
+> action. E.g.:
 > 
-> Signed-off-by: Sumit Kumar <sumit.kumar@oss.qualcomm.com>
+> -	struct device_node *child, *old_timing, *new_timing, *panel_info;
+> 
+> -	child = of_get_child_by_name(old_panel, "display-timings");
+> +	struct device_node *child __free(device_node) = of_get_child_by_name(old_panel, "display-timings");
+> 
+> > +	if (!child)
+> > +		return -EINVAL;
+> > +
+> > +	/* The default display timing is the one specified as native-mode.
+> > +	 * If no native-mode is specified then the first node is assumed
+> > +	 * to be the native mode.
+> > +	 */
+> > +	old_timing = of_parse_phandle(child, "native-mode", 0);
+> > +	if (!old_timing) {
+> > +		old_timing = of_get_next_child(child, NULL);
+> > +		if (!old_timing) {
+> > +			of_node_put(child);
+> > +			return -EINVAL;
+> > +		}
+> > +	}
+> > +	of_node_put(child);
+> > +
+> > +	new_timing = of_get_child_by_name(new_panel, "panel-timing");
+> > +	if (!new_timing)
+> > +		return -EINVAL;
 
-Hello Sumit,
+Here, for instance, you have already modified your live tree and you abort the
+operation. Your live tree is somewhat corrupted.
 
-Is there a reason why you represent this as a list of ports rather than a
-simple array?
+> > +
+> > +	/* Copy all panel timing property to the new panel node */
+> > +	for_each_property_of_node(old_timing, prop)
+> > +		tilcdc_panel_update_prop(new_timing, prop->name,
+> > +					 prop->value, prop->length);
+> > +
+> > +	panel_info = of_get_child_by_name(old_panel, "panel-info");
+> > +	if (!panel_info)
+> > +		return -EINVAL;  
+> 
+> tilcdc_panel_update_prop() has previously done various allocations which
+> will not be freed if you return here. You shoudl probably do all the
+> of_get_*() at the top, and if they all succeed start copying data along
+> with with the needed allocations.
+> 
+> > +	/* Looked only for these two parameter as all the other are always
+> > +	 * set to default and not related to common DRM properties.
+> > +	 */
+> > +	of_property_read_u32(panel_info, "invert-pxl-clk", &invert_pxl_clk);
+> > +	of_property_read_u32(panel_info, "sync-edge", &sync_edge);
+> > +
+> > +	if (!invert_pxl_clk)
+> > +		tilcdc_panel_update_prop(new_timing, "pixelclk-active",
+> > +					 &(int){1}, sizeof(int));
+> > +
+> > +	if (!sync_edge)
+> > +		tilcdc_panel_update_prop(new_timing, "syncclk-active",
+> > +					 &(int){1}, sizeof(int));
+> > +
+> > +	of_node_put(panel_info);
+> > +	of_node_put(old_timing);
+> > +	of_node_put(new_timing);
+> > +	return 0;
+> > +}
+> > +
+> > +static const struct of_device_id tilcdc_panel_of_match[] __initconst = {
+> > +	{ .compatible = "ti,tilcdc,panel", },
+> > +	{},
+> > +};
+> > +
+> > +static const struct of_device_id tilcdc_of_match[] __initconst = {
+> > +	{ .compatible = "ti,am33xx-tilcdc", },
+> > +	{ .compatible = "ti,da850-tilcdc", },
+> > +	{},
+> > +};
+> > +
+> > +static int __init tilcdc_panel_legacy_init(void)
+> > +{
+> > +	struct device_node *panel, *lcdc, *new_panel;
+> > +	void *dtbo_start;
+> > +	u32 dtbo_size;
+> > +	int ovcs_id;
+> > +	int ret;
+> > +
+> > +	lcdc = of_find_matching_node(NULL, tilcdc_of_match);
+> > +	panel = of_find_matching_node(NULL, tilcdc_panel_of_match);
+> > +
+> > +	if (!of_device_is_available(panel) ||
+> > +	    !of_device_is_available(lcdc)) {
+> > +		ret = -ENODEV;
+> > +		goto out;
+> > +	}
+> > +
+> > +	dtbo_start = __dtbo_tilcdc_panel_legacy_begin;
+> > +	dtbo_size = __dtbo_tilcdc_panel_legacy_end -
+> > +		    __dtbo_tilcdc_panel_legacy_begin;
+> > +
+> > +	ret = of_overlay_fdt_apply(dtbo_start, dtbo_size, &ovcs_id, NULL);
+> > +	if (ret)
+> > +		goto out;
 
-The number of ports is known by parsing the device tree, so it should be
-static, no?
+As soon as the overlay is applied, the driver handling the panel-dti node
+can be probed.
 
-At least to me, this seem similar to e.g. how a gpio_device has multiple
-gpio_descriptors "struct gpio_desc *descs":
-https://github.com/torvalds/linux/blob/master/drivers/gpio/gpiolib.h#L68C1-L68C26
+Modifying some properties after applying the overlay could be not seen by the
+driver.
 
-A list is usually used for something that is dynamic.
-I don't think that the number of ports to a PCIe controller will be dynamic.
+> > +
+> > +	new_panel = of_find_node_by_name(NULL, "panel-dpi");
+> > +	if (!new_panel) {
+> > +		ret = -ENODEV;
+> > +		goto overlay_remove;
+> > +	}
+> > +
+> > +	ret = tilcdc_panel_copy_props(panel, new_panel);
+> > +	if (ret)
+> > +		goto overlay_remove;
+> > +
+> > +	/* Remove compatible property to avoid any driver compatible match */
+> > +	of_remove_property(panel, of_find_property(panel, "compatible",
+> > +						   NULL));
+> > +overlay_remove:
+> > +	of_overlay_remove(&ovcs_id);  
+> 
+> Is it correct to remove the overlay here? Won't it remove what you have
+> just added?
 
-I can see that struct qcom_pcie in pcie-qcom.c has struct list_head ports,
-but that does not necessarily mean that we need to have a list of ports in
-pcie-designware-host.c. (pcie-qcom could also be modified to have an array
-of ports if there is a desire for similar design pattern.)
+Agreed, the overlay should not be removed here.
 
+> 
+> > +out:
+> > +	of_node_put(new_panel);
+> > +	of_node_put(panel);
+> > +	of_node_put(lcdc);  
+> 
+> Here too you can use cleanup actions, even though the current code is
+> slightly simpler than tilcdc_panel_copy_props as far as of_node_put() is
+> concerned.
+> 
+> > +	return ret;
+> > +}
+> > +
+> > +subsys_initcall(tilcdc_panel_legacy_init);
 
-Kind regards,
-Niklas
+IMHO, the call to tilcdc_panel_legacy_init() will be too late.
+
+subsys initcalls are called after arch initcalls.
+
+During arch initcalls, of_platform_populate_init() is called
+https://elixir.bootlin.com/linux/v6.19-rc3/source/drivers/of/platform.c#L599
+
+The root node is populated and handled by the platform bus.
+
+Later at subsys initcall, the tilcdc_panel_legacy_init() function is called.
+This function starts by applying the overlay and so a new node (panel-dpi)
+is added at the root node.
+
+This trigger an OF_RECONFIG_CHANGE_ADD event handled by the platform bus.
+https://elixir.bootlin.com/linux/v6.19-rc3/source/drivers/of/platform.c#L731
+
+If the "panel-dpi" compatible driver is available, its probe() is called but
+the panel-dpi DT node is not fully correct. Indeed, tilcdc_panel_copy_props()
+has not be called yet.
+
+Also, the legacy compatible string is removed after the of_platform_populate_init()
+call. The legacy driver could have been already probed.
+
+Of course, please correct me if I have misunderstood something.
+
+Best regards,
+Hervé
 
