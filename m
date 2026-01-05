@@ -4,156 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FCC1C2A09B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 11:35:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E44C7D5B160
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 11:42:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e/UYstX4hnjc4sadogv8VbKD2rPz/XtK16w+KJyc0Us=; b=KFKUBYVPp197u9gA5DIY/SFmdh
-	1oFyUvUUQqkFFFHOpvrav3ysA0xLitVYf5uQ13hSQT22niXNWusCYTlor9URRBAOQlO0GT2QGgozc
-	W6evFrX418YqipejmmNCpj0FdCQP0E2IWAX150sTsBGa8IfxnmSqQxvnJy6YT0moxojm7fDKBIyGE
-	f6B+1emPdFfjdXM2eWUobTXH+xFJB2PuurZ6DNhXdF8vSNRowzik9dZ4l2vq35LAs/ZknkF5PLKHk
-	GXc5HvawKYAKGeiRZPt4It70ypEQaHDBNrFC8jwOaS4tX5TLGpa6lDI3h613Vp3aWMpAAAdDzXk+c
-	PmLELkGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mI+Cro7p+Gcp0ZdfXr5nvjZutzVRgDK9X5NPoqngEE0=; b=ShM10qVRU9kzGhcP9j01GJyGKm
+	YzSzYsZ7E/rCwkEexyUZ6138oDZqWa/GPVQuRbkTBKasjfMhQ2nYbhw9y2IGm1kuxzM5WDFl81zr+
+	OuSgpkK3btt4X4dBFEGwLbGz68c80ZMz8pBTxPe4vl8sGyXV2aldu+zCfalMBVwZUw5kMS0dox9t2
+	kgcojsoIgYYefHdYeJQ+JP6OoQWOIwT+3oVg97XEC5OjKTC4fakv0zDpwFRxaXOkRltV2bC1jiOus
+	k6OwEZLnWnZPKxE+/PGX+mOdyLvsP1jap0C5xLJF3KEqbC9t7TCDAr+P+CmV+W2/TbbtzQ25ZcL08
+	/x7VUjmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcis3-0000000BCrB-41vb;
-	Mon, 05 Jan 2026 11:35:38 +0000
-Received: from mail-northeuropeazon11010006.outbound.protection.outlook.com ([52.101.84.6] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1vciyo-0000000BD91-2CFp;
+	Mon, 05 Jan 2026 11:42:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcis1-0000000BCqo-0Vfv
+	id 1vciyn-0000000BD8t-2Zxc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 11:35:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=P8mV5aSkmIptEFNBnkocNxTNeuJZD7ETjpx4AdIe0av9+2zEOH3w4OjqBMA2WChKVclR2Foy9A51wER85V5r2gbrakBx3Qw61cxjdIEtCOKzWJ1klDVZ5l/cFJfDwgCoR+jlQq7pzxg31bqqVa4V+dUmpiZdWQSuddRmsBa4Uz96XSC6Jt4dFOSHefD0YqNdqIELcG92dl50cksXvGyiWLkL/PH3zp7Q2C+cODD4SZUkuubKWZgTCx4BnRGvXz/t3exMq7E3loS3N+IhAZZ7P28mbtZY6Slu5SBYbv1KgEl9ajM8Bgx7iGmQSFKmobsqYAC7yJ1P0gEubH+vaUcgZQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=e/UYstX4hnjc4sadogv8VbKD2rPz/XtK16w+KJyc0Us=;
- b=GCGHoR3RmQieTAcJVtmk5M7hh2Ihm7LABhNGYjW9jgi42Vnm+o2kBoT246lYInWqLnGput7M5YTL7k4dzyK+hp57SCx/QTpxgRts75GcM0am7miN+ZMhcxuDny7kB6US5iiC7uhbAMCZnO3X9DMPRvHoe/DGlxzUhEkcEiUTMnVYjonX8vCCl+AHW43R1U3o6gBLTwLFbFQx8ZrWuaqWTC5ulOmDdVbUBPqIj5WhvexPmzrWlZy1dSoDrbxnUdBQvNdb5FUTtn+HtldehL+sMUUq03STKclesBhCceY6v8VLmk/2jdeeTrHzB0VmW6mMIBnIdb8w4Dql4ur1DnOyBQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=e/UYstX4hnjc4sadogv8VbKD2rPz/XtK16w+KJyc0Us=;
- b=AZnE2oz544cTakFM9aOPdnZ/VGvkgJO83rPEcauomJtkQC/YBIfREhvxlbyGLa7rpgdgZDkXyx25/jxh10beAq5IWi5+TosWLwydOjH5ncK05uZHzBNvwjbqP6Tg+YVqW2aH1DW8oF65XDd5bpnO7666VrvZ3YvdATrbcvOXhb5UCX/J9p/zqMxfObPkkaIdKhmgl+s5GDkCfhK45Fbi1rKY/e60xebhrO0slJlF9p8aoLXLGYZLTr4dE8uK1GNeRpkW3GTIAw/1RT1LL9EDbMyhqTASb/Da5VxHgnmzQO8kx+1gV3pteVOU+Fxn6CjuYxDLf0YGFe3pn0MGZu+4Tg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by VI0PR04MB11700.eurprd04.prod.outlook.com (2603:10a6:800:2fc::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Mon, 5 Jan
- 2026 11:35:26 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9478.004; Mon, 5 Jan 2026
- 11:35:26 +0000
-Date: Mon, 5 Jan 2026 20:49:24 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, arm-scmi@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 0/2] firmware: arm_scmi/imx: Support dump syslog
-Message-ID: <aVuzVNmG2l-igiEB@nxa18884-linux.ap.freescale.net>
-References: <20251029-sm-syslog-v3-v3-0-64e14a6e3f87@nxp.com>
- <aUCy5+vAPzDGeux3@shlinux89>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aUCy5+vAPzDGeux3@shlinux89>
-X-ClientProxiedBy: MA5PR01CA0054.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:1b8::17) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Mon, 05 Jan 2026 11:42:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A290C6013B;
+	Mon,  5 Jan 2026 11:42:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A5C4C116D0;
+	Mon,  5 Jan 2026 11:42:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767613352;
+	bh=Lfq9OKSBveYeitWjDBWnDMCM9DlJ5bEI/x++ksAnupc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=V3N5Qiz+Qb4bo8/lKNZL3p40XKfe3CgtTlj3YFv566c4aR/Vu8jisDbbpAn8kSS3M
+	 At+91CTpceHrYDSKVIRvYz+hNJGsDIbHbxZdhb4YRiQZ0Wyl+O45w6wpByFzdXpbwC
+	 y0EbDP49sXh4MX2MlN7Wj7e+1dHn2ExxKviXq4kgct3yFhDCG7XkWAv5j4H8bJvdEI
+	 vtv+a609Zr/iJFES+x8mZ6kl0CV7e/E5fp8fO1P63VxWKLouwj9Q+noraO+ZIoWBTu
+	 R9jAYDP4S0psrmhVOEikJ0cVLOTkzk9NYNDqvWtJnsqfPBkio5WuvkHVHAJ5OQSnTv
+	 jlsGtUcIrqO0w==
+Message-ID: <83338b57-2e8e-4b77-9e93-fadfb0f6a5fc@kernel.org>
+Date: Mon, 5 Jan 2026 12:42:27 +0100
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|VI0PR04MB11700:EE_
-X-MS-Office365-Filtering-Correlation-Id: aee1f4b0-2e6f-486f-56d1-08de4c4e8502
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|376014|7416014|52116014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?KTdW0acIsOzHEPs3PCUsMNngfcXyehzaz8XQPj2PSiaygKoqmW1FsAMMbPtO?=
- =?us-ascii?Q?ajOol7rij2/Ag1iClRpOBBBz5HHKuctFllANl3injNeMMi5SEpj6ytvj3XlP?=
- =?us-ascii?Q?NU34p+++GGETcjhTKMu6zM7KAeMOwIdSmN0qjzlmaX0UHCqpo+PPKDuJcQgA?=
- =?us-ascii?Q?MZTFMA+M5GDUSaQV/OwQfyYwrsMpe++rkpZmz0hNSxSsdrTM2G9n4Z1VXMSk?=
- =?us-ascii?Q?vZ//TbxtRL69zBAD/DZpyG3jwOYWU7lbGrI+sCXuMMDtVOzLzCTyesTnWRtt?=
- =?us-ascii?Q?mGuhD51AFyJHWwafwPX0dkmKN4LcJvBu9zYhHpJihKtPjiC+Afoebfn+elcD?=
- =?us-ascii?Q?ln/th+3bB+7knY9IQhcDt6t6klr9HEmXwERYQ0Srvr6dUcUvpntiluxzRJV8?=
- =?us-ascii?Q?Q+9Q5tP1C6fK5mdN6Ol0in/jq0x+et4ELhrunO01EMkuL5Va6Xc2wMGbons5?=
- =?us-ascii?Q?hoIp/Xk0YKix1yFBK7ClaFZxq+CE7NDrPWuuiCyESVzHuChSAFH9ESFIPp2X?=
- =?us-ascii?Q?xgIZ4AzhqLZynj4YqzbAkCA72GXwOLbX7Ub973wFmiOBp326r8/FusW5+WH7?=
- =?us-ascii?Q?EsmL2Ri7PzsArOVgIgZQZvr1l4iVBu1M83Oq8RLsMGSez5qcux/3WeMQp2v9?=
- =?us-ascii?Q?JBCeCGh9vdfYtrdaaqjgR5iK2JrkE2C0eAfHpXh/PDv64Qg40cKgq4w1kOTD?=
- =?us-ascii?Q?dzd+l3mdZnSdebjOXUoXc/CE6jyszo5z/bNi2JXqtvnFHgdsr4RHTSIXG/cg?=
- =?us-ascii?Q?yz+m2tVknAfoY+siyBtQGHx47Bj8U7oO/3ydEZlUeF6xdbVoIT7jaA8vxSxz?=
- =?us-ascii?Q?1RUkAUltoxhTPxihJpAgg6IdoHHLCFhpKo38mrMgdS17lutJDNRFPYbFfoT6?=
- =?us-ascii?Q?sQSIsF6nIYw7RY+b+S7mE/ZgfRA7ObHaNAYX7YACmjRHX2KMMZj3igIDJ2lo?=
- =?us-ascii?Q?OLg8jTLXJzsY9RpSpADooXSQC6kJGAgMhFsNcC96grnGbzvwihovmUTZJQXm?=
- =?us-ascii?Q?QxufpfKkpRD+1jO1tjyvpWwdO4Umq7vNocVy5EIVFU0uvyafHrC5P29gN4KO?=
- =?us-ascii?Q?oMRj/zQDNcNA9uAytzSDnotitcHdIzjyZB+I1tHbYbIrgrmh0WGiefpO5xH0?=
- =?us-ascii?Q?WS9dMhEGyog6Av5jv35HIUK7zoTZYW96a2fWIcoYxpvn+L3cvHKR4GQ1sen2?=
- =?us-ascii?Q?KYYftcS0WipLDCLqGF0X2btI0iJsNyezh3YZ0/koFefYFTo+/anipbxFKgcd?=
- =?us-ascii?Q?7nRb9aQ8IAGMyO2Kn2YN2xzN9tYmhXWcmG0CzNxK8goi9fd2jcTcETuT4ENp?=
- =?us-ascii?Q?sQL6f3w7HwDl1j7UQvI5wHWk4vkNstIwDWNTqVj7vqFgSg0tT7jEyA0/cHyw?=
- =?us-ascii?Q?eP0WmDxMkR/3IEPBRdLWpF7J4J0/MErUAmIiPdsdgRLeQGRz9ZO/W/JvIl3G?=
- =?us-ascii?Q?3TlnBuedqrAlMLhpQjAuSpZKOaZ31sUB9Z2RIpeLuEphKbx+iWlczQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(376014)(7416014)(52116014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?P6DIV42lKS11DX0O2sghlM5v9rn1Vhkm46Zl7A8fAo2kJwf/d/kbol6GBbgD?=
- =?us-ascii?Q?Ny1Mj1hDmiFltefGh0I/8I+/U7TpdVRjzGtTggDt6K2HYm+/6EBdEHVUtbA3?=
- =?us-ascii?Q?Jp64c3KdX+KHn8ymX+L5BwvmZ1+462FI+Wyy1vHjM4XKVgA0Ynds1oo8TP7l?=
- =?us-ascii?Q?XxJvxGES/UOGp0WvXT/fjDToBxiElVk4fjHsOX+Jcp2zbH/N4FeCkjaMOmiQ?=
- =?us-ascii?Q?63lg62qKmZrPO5TwlCXZ0YhxWsTrHjm2B80Y4BLbsUprp2O6Tz7G2LHhjyUo?=
- =?us-ascii?Q?Lm7DwJde9FJtu3zuiJjquD8QmEeovuB8KxkV+PbwsXX8AQI1M+AePYgHnDYN?=
- =?us-ascii?Q?oBw5ymn0/NTbv11ITAzfOtVgghGjUYiqXhoUqB63BalfDODVv4vsaA7HCMuS?=
- =?us-ascii?Q?E+je4G+8gVNijmgRA+vuekPyLbk4i1eOaUnR5ep+BVJtG4yIC2b99hn/gJ0j?=
- =?us-ascii?Q?D19tW3hbikt/ZrbQKb2TLVCN6abN4AbQuNKmWMRJ0trqYeqyzxApCazcmfqr?=
- =?us-ascii?Q?T5XpzcaR/pZ/6hWD8bTpgVASMwEYIYgIwe1IoOJPmnjzndM8T7Hn0tevKDMF?=
- =?us-ascii?Q?2auHpal6eHTIJ/W6kbvrn0UFExaRlrwv5o80ZGl/nEp0oBdsTB50+SDwitlf?=
- =?us-ascii?Q?3o4YupMekSzKRlAbaLOslY+nMXFKntfzDrBB0A9WB54hBZjZaIQAzZbEsADn?=
- =?us-ascii?Q?HuNVL8xpwh3fjt6obj4mDqpLeuly7bd48ZgweSa2RvG2hNLEdPniGG+eevwW?=
- =?us-ascii?Q?9jdV0S75jowr/2pOe7tH4koUV4jKQYSnA2+fFNxTO9ZOZ4TPa5LY5LyOyRUv?=
- =?us-ascii?Q?bjZ7ji6Pi7hLR4Fo8zjekVCWWBZN5u7jdoguOhIh0MsSWqeXS8MyarvXzO4O?=
- =?us-ascii?Q?p8nFXYCGiuo/smU7RG9GIYuNgSQ5FoOa4P5FbCJSH9esKfa5TitvkLgqRdfC?=
- =?us-ascii?Q?n7/106ay4+0xFNtzI6aeJgJIWFay0G1BlCALzytzQWvH1Dg7rZnp90n1EK7g?=
- =?us-ascii?Q?b7wmog/z//ScNIZib5+lwoXdFJSXeDVuy1EwAhzEmLI9OJmmACB5FwF43Dmu?=
- =?us-ascii?Q?c7UpGK7YTtcuZqXCpzoh3y+X0jHvOTOqY8WV7GeLK9MvvweTokvS/o7QznQg?=
- =?us-ascii?Q?B4oCgvcPOUU+T5k3jJiSk+KvSRdvc/mQTuDKbBK3sRdogBrf8WlIa24fe7Y5?=
- =?us-ascii?Q?GAEkGSPTcK1uex5NQWQio/cui8scFbrbL7JeDmH/kV43QWucKR4xXO2a7UIr?=
- =?us-ascii?Q?hjiePkRubox4X/zdD215BOgDe25tMMB5TiN3C8AWMcFXkqwZBaXqZOr5/8oh?=
- =?us-ascii?Q?TKuu8cz9veESpAXPnjuyCIpqqYBFVXjS/7RrYca03dTToozv5mENb+1n61DB?=
- =?us-ascii?Q?xbtCJsKmTR0sQGCLCf7HOk/SV1C4n0SmJodJRpCeSJuOeq+SDm1NZfUx8CW2?=
- =?us-ascii?Q?TLYbFIeocpnx+YdoZn+hUOMW5/OOe4ZP3e9Xu9b8V4hTX1RJA/SYJVmoRpME?=
- =?us-ascii?Q?9g1ZaO+8gLs0DPySN88GOX/rEvSbnhOuvRWGnZs7YGrBl47F5QJ4Q3fEGCRf?=
- =?us-ascii?Q?DD9xoJWTJg612ml1r0jZUtfcMytnpqKI1I/X+AGVgaHTbQUmpROcSCOglnpC?=
- =?us-ascii?Q?5LWtsZX3j947s5j2OSKOrFehLC5oVB7kbKvKyZQYLIWEok79YYk5MWHiPsm+?=
- =?us-ascii?Q?rXW5Y/q2To79GESWchmiTJRoWzZvZbjRrgMKVGtlFz/e50uZI/laVZnUJZUp?=
- =?us-ascii?Q?OsfPAmrlOg=3D=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: aee1f4b0-2e6f-486f-56d1-08de4c4e8502
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jan 2026 11:35:25.9628
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: BpoN0ctt+q7mH5Ey105hRjRt2YmwgDrW9wQgQ48djoyZQF3/nPU7NZK94Qwnk6IFiL8m8k23SbOg8D/dyUF6jw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11700
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_033533_179493_DAE2C9D0 
-X-CRM114-Status: GOOD (  17.91  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: dts: exynosautov920: Add DT node for all I2C
+ ports
+To: Faraz Ata <faraz.ata@samsung.com>, 'Andi Shyti' <andi.shyti@kernel.org>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ alim.akhtar@samsung.com, linux-i2c@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ rosa.pila@samsung.com, dev.tailor@samsung.com, pritam.sutar@samsung.com
+References: <CGME20251014111455epcas5p30731028365023e101dad3b9ba1f90bec@epcas5p3.samsung.com>
+ <20251014112338.2023223-1-faraz.ata@samsung.com>
+ <2knbzksxobg2kl3aexuiwluctgafgzxblsqc5q5rcikuruuegr@cqlizryhhx4s>
+ <7ba31fb7-8f1b-4277-a3cf-649a76c7dda5@kernel.org>
+ <000001dc7e34$b809a030$281ce090$@samsung.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <000001dc7e34$b809a030$281ce090$@samsung.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,78 +121,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sudeep,
+On 05/01/2026 12:16, Faraz Ata wrote:
+> HI Krzysztof
+> 
+> I want to follow up on my I2C patches submitted.
+> Please let me know if anything else needs to be done or do I have to resend the patches
 
-Hope you're doing well. Apologies for following up again, but this v3 patchset
-has been pending for quite some time. I wanted to check if everything looks
-good on your end.
+There is nothing from my side, this was a correct posting. I am still
+waiting for the bindings being applied (or letting me know about that).
 
-Could you please confirm whether you plan to pick both patches? Or do you need
-an A-b from the i.MX maintainer for patch 2? Alternatively, I can ask Shawn to
-pick patch 2 if you only intend to take patch 1.
-
-Please let me know your thoughts.
-
-Thanks,
-Peng
-
-On Tue, Dec 16, 2025 at 09:16:23AM +0800, Peng Fan wrote:
->Hi Sudeep, Cristian
->
->Just checking in - did you get a chance to review this patchset?
->Please let me know if you need any additional details or context.
->
->Thanks,
->Peng
->On Wed, Oct 29, 2025 at 08:07:00PM +0800, Peng Fan wrote:
->>This is the patch 5 and 6 from patchset [1] with switching to using raw
->>dump, per check with Sudeep and NXP i.MX SM firmware owner
->>
->>System Manager firmware provides API to dump system log information.
->>So add the interface for Linux to retrieve the information.
->>
->>In patch 1, I drop the two structures compared to patch 5 in [1]:
->>struct scmi_imx_misc_sys_sleep_rec
->>struct scmi_imx_misc_syslog
->>No other changes in this patch.
->>
->>In patch 2, I switched to use debugfs to do raw dump the syslog, compared
->>with patch 6 in [1].
->>
->>[1] https://lore.kernel.org/arm-scmi/PAXPR04MB845937237E3C1AF5A2ABA8FA880CA@PAXPR04MB8459.eurprd04.prod.outlook.com/T/#m6ed303ac9c584c6e2ab39f89359f3131b
->>dfcc9e5
->>
->>Signed-off-by: Peng Fan <peng.fan@nxp.com>
->>---
->>Changes in v3:
->>- Rebased to next-20251028
->>- Drop unused variable to avoid build warning reported by kernel test robot
->>- Link to v2: https://lore.kernel.org/arm-scmi/20251011-sm-syslog-v2-1-v2-0-f43a3f6b32e4@nxp.com/
->>
->>Changes in v2:
->>- Rebased to next-20251010
->>- Patch 2: Remove the IS_ERR check for debugfs_create_dir per Dan Carpenter
->>           Change 'return 0' to 'return devm_add_action_or_reset'
->>	   Drop the size check
->>	   Include 'linux/sizes.h' to avoid build break
->>- Link to v1: https://lore.kernel.org/r/20250910-sm-syslog-v1-0-5b36f8f21da6@nxp.com
->>
->>---
->>Peng Fan (2):
->>      firmware: arm_scmi: imx: Support getting syslog of MISC protocol
->>      firmware: imx: sm-misc: Dump syslog info
->>
->> .../firmware/arm_scmi/vendors/imx/imx-sm-misc.c    | 83 ++++++++++++++++++++++
->> drivers/firmware/imx/sm-misc.c                     | 37 +++++++++-
->> include/linux/scmi_imx_protocol.h                  |  2 +
->> 3 files changed, 121 insertions(+), 1 deletion(-)
->>---
->>base-commit: f7d2388eeec24966fc4d5cf32d706f0514f29ac5
->>change-id: 20251029-sm-syslog-v3-0143f85b0ce6
->>
->>Best regards,
->>-- 
->>Peng Fan <peng.fan@nxp.com>
->>
->
+Best regards,
+Krzysztof
 
