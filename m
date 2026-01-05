@@ -4,66 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A28FCCD0425
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 22:59:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21364CD0424
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 22:59:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u/7/zaTL3GJcOBMaH65uBE5CKKtBuyY0N2uf94X/zdM=; b=QU16FYVCoFSE/3J1/1leIIyeDs
-	e6PoAKk5QOB0O8sYAKKUWTlk8g8abiqIP+AC7ASAp6JBxUmL8j2mu7ZMIR8t9dYCP9pjJtMOn7mIc
-	mVtE+0sWaAMpZadAr8+gvSTic/2tTaSac+chCRwrR8kNg8un13/0P7V3Ru3IY0xIb+Ef/AD2w9Qjb
-	UCor6Lhjn1WJ/+8mynMnKPMGOq8FzDkZf0hkhezOpJb1EWQ727j1fvuda8ec7GNlgtyoLK7yPTlg7
-	qKoLb16fnqAxy0A+X8gxEp7ZZOz1gdkGFHm7uUE4tDrH+7FZHedcgtp1YFhrU6uC8dv5CPve7/oDc
-	slml71MA==;
+	bh=ncq2s6474sa9D3GpMgpfMtTeehSgLMBJB69IsErTnNc=; b=OUvz/FDt8WCRKjXETtpwyY630R
+	qg4flPfzBw1ljDuez/DG7DydQbUVipnyOqtE8fJ5ois/Tu4W5kKZgaxeOixg5zTYtQE3nSr0fR2k1
+	SiARmn2yOdzaHLI4afGbHmXYUcyCyMomx9HCS5ea/308cBYCypDjC659YqUPLHNPAXba/nOk3IfgC
+	jyi5+1NYU3PYOLH2e3hn75n6U6tmxYA6TmedVmgGLqrvGMKnVKEQDGRT4RqUdgxZrh+e009pqkr+I
+	ZEkCDg5o57aJf0wBtKcdrG3+srlW0NmgrPytZAtdUI0oJGAB36/UEyhGYD02VMh2ymyR69PzB5WRO
+	/MBp9Ufw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vctXT-0000000CCvj-0qpw;
-	Mon, 05 Jan 2026 22:59:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vctXV-0000000CCxj-05Gl;
+	Mon, 05 Jan 2026 22:59:05 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vctXQ-0000000CCtd-1OSA
+	id 1vctXU-0000000CCwi-0hVk
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 22:59:01 +0000
+	Mon, 05 Jan 2026 22:59:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7F32443639;
+	by tor.source.kernel.org (Postfix) with ESMTP id 9068A6013C;
+	Mon,  5 Jan 2026 22:59:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F27DDC16AAE;
 	Mon,  5 Jan 2026 22:58:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD4B5C16AAE;
-	Mon,  5 Jan 2026 22:58:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767653939;
-	bh=gIOnnaQJwb5PHVOw5B64r1U717QrU8ad3YegmX5iF0M=;
+	s=k20201202; t=1767653943;
+	bh=zS32bjl8HU3aHzxK9HhcHAJYRjhoEVD8h0LSMzZgws8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=I5526VeTbg+YDq0xF+TPpwbuSJXoGpYHgrK77YOGNILRrrAmscgVPoxt7RpnnWcsx
-	 GuNXm0g+cyJE8kGCuvsg3oH0ok/PkmkSJ9fDBr8fHJpke0zPxb6jkLQf0icelo1Sqy
-	 gxc0x7UlMnizMXDNXD3wQ7HBsMotq0G3iEyK7wNAryV7WSgJ74T+IBZUzwie8Oaqqp
-	 DSzy1SMOt7/v0yq1RcsTF4QeIJ57igw/xcOtdYSfx0UuPQDd7JP1F0hD398GTEawWW
-	 iVLIO90etT5hIDnApSvHIhkuWLVPP+Ax3fPp3AoYmZ8PQa2BLXK5U+pwU7JXLcjvoO
-	 jLHIpwoaTkJJg==
+	b=uQq7rcV6+nC2mF0eCHJofNA/Jd/xgG8BXfSx/PnYUKGR3FN0AlYke0z6DJ8JUzVXZ
+	 fxBeU343LqrmmUwNY7PqAiiZqbgnz1kfUUzrW+F6R0kkAJkP9ISkmqJvnXP+ozVYng
+	 kmxssDEAHiRCtKt4mpGEumc2ZYWFg3xZf+ovOeDFg7tkoxvNdTTW9FXkk+Sfu+SE48
+	 /xqaeHrG96Ct8z4hZZ/iuCHORNbYW9CQF0foj0YexltwDrEZkWatCX5R7LD9Z5xw7n
+	 deeoqBOy/RykHGXmvaLZhz6S4v7UQb2uPZ8plLkTmBLcNC5bhGpJFxGIKNjh1IcAl0
+	 EUfPq9nhBwmKw==
 From: Will Deacon <will@kernel.org>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: catalin.marinas@arm.com,
-	kernel-team@android.com,
-	Will Deacon <will@kernel.org>,
+To: linux@armlinux.org.uk,
+	catalin.marinas@arm.com,
+	chris@zankel.net,
+	jcmvbkbc@gmail.com,
+	ldv@strace.io,
+	charlie@rivosinc.com,
+	deller@gmx.de,
+	macro@orcam.me.uk,
+	akpm@linux-foundation.org,
 	mark.rutland@arm.com,
+	rostedt@goodmis.org,
+	tglx@linutronix.de,
 	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	michal.simek@amd.com
-Subject: Re: [PATCH] perf/arm-cmn: Support CMN-600AE
-Date: Mon,  5 Jan 2026 22:58:26 +0000
-Message-ID: <176763174079.1386255.16352848900159993179.b4-ty@kernel.org>
+	linux-kernel@vger.kernel.org,
+	Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: kernel-team@android.com,
+	Will Deacon <will@kernel.org>
+Subject: Re: [PATCH v2 0/2] syscall: Cleanup and improve syscall_get_arguments()
+Date: Mon,  5 Jan 2026 22:58:27 +0000
+Message-ID: <176763166882.1385538.15950355888937561559.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <f0c6e66df6b74f073df77c00bdf9ed560ca9c703.1764002394.git.robin.murphy@arm.com>
-References: <f0c6e66df6b74f073df77c00bdf9ed560ca9c703.1764002394.git.robin.murphy@arm.com>
+In-Reply-To: <20251201120633.1193122-1-ruanjinjie@huawei.com>
+References: <20251201120633.1193122-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_145900_514305_015C9D8A 
-X-CRM114-Status: UNSURE (   9.78  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,20 +83,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 24 Nov 2025 16:39:54 +0000, Robin Murphy wrote:
-> The functional safety features of CMN-600AE have little to no impact on
-> the PMU relative to the base CMN-600 design, so for simplicity we can
-> reasonably just treat it as the same thing. The only obvious difference
-> is that the revision numbers aren't aligned, so we may hide some aliases
-> for events which do actually exist, but those can still be specified via
-> the underlying "type,eventid" format so it's not too big a deal.
+On Mon, 01 Dec 2025 20:06:31 +0800, Jinjie Ruan wrote:
+> Remove unused SYSCALL_MAX_ARGS and avoid memcpy() for
+> syscall_get_arguments() for arm64.
+> 
+> Jinjie Ruan (2):
+>   syscall.h: Remove unused SYSCALL_MAX_ARGS
+>   arm64: Avoid memcpy() for syscall_get_arguments()
 > 
 > [...]
 
-Applied to will (for-next/perf), thanks!
+Applied to arm64 (for-next/entry), thanks!
 
-[1/1] perf/arm-cmn: Support CMN-600AE
-      https://git.kernel.org/will/c/12a94953c37e
+[1/2] syscall.h: Remove unused SYSCALL_MAX_ARGS
+      https://git.kernel.org/arm64/c/35c3dcb1ac2c
+[2/2] arm64: Avoid memcpy() for syscall_get_arguments()
+      https://git.kernel.org/arm64/c/98cc091262ef
 
 Cheers,
 -- 
