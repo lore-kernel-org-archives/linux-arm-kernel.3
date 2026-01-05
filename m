@@ -4,63 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAE6AC2A062
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 08:35:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5332AC2A072
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 08:44:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dRrn7iXBX54ym8ORivPRiW4qF7+GO2bv+9LCoG65VvI=; b=4oM7I/MhQv8UgWktrbRcmrOKQe
-	YdZMHoSikU+0DLH7VszTtZ3HGfhOH2eqJxtJ8CJbTlXKeUy4THbHLMQRyD0iz8LuxMeAi0xZWX537
-	B/0a0wlSW7uEa4c9sV73/meuVvEO0G7YPxa261T+c57qeEyZXCCzzNoGWUCr0y8r5Jfp5CxDwO3YZ
-	u5LvZj2ZvoZ0TEok4U/psgL7o4ytlRW9Edy8NQ2ynWl4W1Gj4FT7CiFLcDXbMaoU/jTQYhonJAFDF
-	pW9PioEV3ytMPWihtOu7u3pfHwLnbzLWevT7MREgevoJVvVGcrkrL10GXad4zebBtwIibNi1vvyXB
-	sjTbaXwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jF+mu+wWw/O9fHqXXgiokoR8QYz8JufcfZjOKbIj9YQ=; b=Rd8bpT8jOkiGqZ8RLAUievEtf8
+	dPDPgDIsv2HCcFDNo4jU30GxVxx7ix/7biijgZiTRC8k9p9dM0hHQyZI9yMEMs/R6LKKdmDL4GQOl
+	S2NZ1yChxoZD9dJslrTqYnuJOj0F95zXIwwX3Bb13sedhLZCagrEKTIRqfw4AI11xT3lCk0uAasqf
+	EDiuYADlZJgS7cD9oAvyxh+9AiQj4bQQoiZ7UKNCMZub5wuazZOdLzyb9BYJo4/nhAyuE1BtAc1VO
+	6qnbGQ7qdCF+hcUdFr64FZLaSbJQJ85hB8DwoUrDmChWtDZEF8spLzu85WHqbK1ZOFrPOPPoUOxFu
+	uRTqjb/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcg3j-0000000Azs5-17g1;
-	Mon, 05 Jan 2026 08:35:27 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vcgBs-0000000B0MT-1WTn;
+	Mon, 05 Jan 2026 08:43:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcg3i-0000000Azrz-0mqJ
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 08:35:26 +0000
+	id 1vcgBp-0000000B0M5-3b8G;
+	Mon, 05 Jan 2026 08:43:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 539A66000A;
-	Mon,  5 Jan 2026 08:35:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 736E2C116D0;
-	Mon,  5 Jan 2026 08:35:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3B3124406B;
+	Mon,  5 Jan 2026 08:43:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64E8CC116D0;
+	Mon,  5 Jan 2026 08:43:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767602125;
-	bh=5BG9GD5tzxlgpo0fpFvXnFFO5JdVa3ur9v+uv3OzPOA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dt7inGrujEUEquTjd6QkbLSE4dU3RYh+293qKlFjAt1qPVFoV9oIWSQ9+JLRQZM2T
-	 /Y3PQ/ha0SknxemeMtJ+jZyMC4NJgGee5a4AqlFJKJ12zx3leoTQZjWMZra4gfpzXG
-	 RJb3F38WsZ6YSQwePz0NzfiBwraz7UQehVUbzqUUlHyQR/tX0xSZ+IXiVqPMwvbcFQ
-	 9tYLLbdhUXx4Sre7MtsOi3SmqTDOKykyedyTjuXBfNs0TOBjHoONfJrUdjrmrhfQZL
-	 LVUnyXxM3w7Xwa1xRoo4vXr4nG5YiwY9he7OCXGMq7uPX1L+Mk/ig1w2Y7lC+cr3VY
-	 tvgzPM6r4H75Q==
-Date: Mon, 5 Jan 2026 09:35:22 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Josua Mayer <josua.mayer@jm0.eu>
-Cc: Jonathan =?utf-8?Q?Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
-	Lee Jones <lee@kernel.org>, Sebastian Reichel <sre@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/4] dt-bindings: mfd: netronix,ntxec: add reference to
- power-supply
-Message-ID: <20260105-auspicious-swallow-of-prestige-3c13cb@quoll>
-References: <20260102-kobo-aura-battery-v1-0-501f2a8fa575@jm0.eu>
- <20260102-kobo-aura-battery-v1-1-501f2a8fa575@jm0.eu>
+	s=k20201202; t=1767602629;
+	bh=waNyVge8NYPcsyHa3vlJh2SgD9ALMl/hI611CV/VDkE=;
+	h=From:Date:Subject:To:Cc:From;
+	b=IQIVFs1rpYvr1nF3+vIATUcJMMDPKv1fgAcx5+vn6ZOt1tEkEInaT+C43KDts5ptF
+	 Wh9XHOhlH9BCij0ZMd0PXurCD7ZYw8qu0Mtw/VY56pqg/boW7ZjzDCU9wpzuTxiACm
+	 J3R7HicmNMfftwoVA1Lpd0e5bQBPsp6gbaeuqHWsan9lkCU1KH1sIF8qTgZRoe1/Ny
+	 ZMxBv/vuwuTMJ3kWwKCaZBCs010vTyL2guA8lzkKNJ0kBqR7NKs/5EDbL/v9quVdF9
+	 W3r/jhwD5UUbGOOF3kIJr9PBxuqsiQAitYSfvCXXho1SOv7LUksZYu4JbjVTnKJ8UD
+	 bDGowLfvo0e3A==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Mon, 05 Jan 2026 09:43:31 +0100
+Subject: [PATCH net v2] net: airoha: Fix schedule while atomic in
+ airoha_ppe_deinit()
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20260102-kobo-aura-battery-v1-1-501f2a8fa575@jm0.eu>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20260105-airoha-fw-ethtool-v2-1-3b32b158cc31@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32NQQ6CMBBFr0JmbQ0drUFX3sOwKO1AJxJKpgQ1p
+ He3cgDzV+8n//0NEglTglu1gdDKieNUAA8VuGCngRT7woA1Go14UpYlBqv6l6IlLDGOCnVvzl2
+ N7tp0UHazUM/v3floCwdOS5TPfrHqX/vPtmpV4juvzaVxpjH3J8lE4zHKAG3O+QutZT55swAAA
+ A==
+X-Change-ID: 20251223-airoha-fw-ethtool-21f54b02c98b
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+X-Mailer: b4 0.14.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260105_004349_927734_D59ADC3F 
+X-CRM114-Status: UNSURE (   9.54  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,39 +79,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 02, 2026 at 07:00:30PM +0100, Josua Mayer wrote:
-> The Netronix Embedded Controller supports monitoring of battery voltage.
-> 
-> Voltage monitoring functionality is self-contained and requires no
-> supply- or battery-specific runtime configuration.
-> 
-> Battery design characteristics (e.g. voltage-min-design-microvolt) are
-> useful for users to understand the charge level and are commonly
-> provided by a separate battery node linked with monitored-battery
-> property.
+airoha_ppe_deinit() runs airoha_npu_ppe_deinit() in atomic context.
+airoha_npu_ppe_deinit routine allocates ppe_data buffer with GFP_KERNEL
+flag. Rely on rcu_replace_pointer in airoha_ppe_deinit routine in order
+to fix schedule while atomic issue in airoha_npu_ppe_deinit() since we
+do not need atomic context there.
 
-b4 diff '20260102-kobo-aura-battery-v1-1-501f2a8fa575@jm0.eu'
-Breaking thread to remove parents of 20260102-kobo-aura-battery-v1-0-501f2a8fa575@jm0.eu
+Fixes: 00a7678310fe3 ("net: airoha: Introduce flowtable offload support")
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
-Analyzing 6 messages in the thread
-Could not find lower series to compare against.
+Changes in v2:
+- Update commit log.
+- Link to v1: https://lore.kernel.org/r/20251223-airoha-fw-ethtool-v1-1-1dbd1568c585@kernel.org
+---
+ drivers/net/ethernet/airoha/airoha_ppe.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
 
+diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+index 0caabb0c3aa06948e46ad087c50eba5babc81994..2221bafaf7c9fed73dcf8d30ff3b1c5eecc463d4 100644
+--- a/drivers/net/ethernet/airoha/airoha_ppe.c
++++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+@@ -1547,13 +1547,16 @@ void airoha_ppe_deinit(struct airoha_eth *eth)
+ {
+ 	struct airoha_npu *npu;
+ 
+-	rcu_read_lock();
+-	npu = rcu_dereference(eth->npu);
++	mutex_lock(&flow_offload_mutex);
++
++	npu = rcu_replace_pointer(eth->npu, NULL,
++				  lockdep_is_held(&flow_offload_mutex));
+ 	if (npu) {
+ 		npu->ops.ppe_deinit(npu);
+ 		airoha_npu_put(npu);
+ 	}
+-	rcu_read_unlock();
++
++	mutex_unlock(&flow_offload_mutex);
+ 
+ 	rhashtable_destroy(&eth->ppe->l2_flows);
+ 	rhashtable_destroy(&eth->flow_table);
 
-Make it easier for us to review, not more difficult.
-
-> 
-> Add reference to power-supply.yaml so that power-supplies and
-> monitored-battery properties become available.
-> 
-> Further drop reg property description and replace it with maxItems 1 as
-> is common for i2c devices with single bus address.
-> 
-> Finally replace additionalProperties with unevaluatedProperties to
-> allow properties from referenced schemas.
-
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+---
+base-commit: c303e8b86d9dbd6868f5216272973292f7f3b7f1
+change-id: 20251223-airoha-fw-ethtool-21f54b02c98b
 
 Best regards,
-Krzysztof
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
 
 
