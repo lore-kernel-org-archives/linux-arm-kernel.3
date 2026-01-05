@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1C56C79FBD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 19:46:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB236C79FBD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 19:47:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4FjM/HGADyunZKsQ5wlCWc9WRstz1PXBATyIEm2nhGs=; b=Mbc1VmwGUI6Z7MJdr7MjELAMLb
-	Ppt1aOaURW4vkMWZFNCIvIbNa+XKAfHxlOktih3+HrYa4sE6emgAIKjcabb4NH5SDhn84kgOFtkYE
-	uxFnboxdDGdfx+cfZScWtCAo/bEW/69nR/NyrfwCcnhhBBvd8uPuRxOnCKWCt+fsoPwzBnjDcawHL
-	TvxO20c/ZhJ1agRi3tyZInQg/SZCcTf2x4NKqDku5+TjxXQdBgZr+LKYWYwY4ODW155hJiaD+Fvid
-	awh0oVZ+tj9ZV+itoz2IRzu3We+pMPEXu3BI62aABgjocnUXlN8Yeq9tEmmloMhxJPv8KV2oAO1d+
-	WlJUp4mQ==;
+	bh=UD9iK+q2pIW9Gl4M0KMaVvHXVFEbjqWrf11eTTNsMsI=; b=s9eh2Ea91PFQzOxE4l4iAiKFN9
+	VcEnAEizgguXi5mpJOadiccJsIT2bSKiYwXfQZLaMod0Xybhy0Rgbd/10ji6cdPBPnV6E9EdDRE9m
+	ZFHVdWcVj7R6XyeiTYRnO/K1voa+NmRWJE3Bs9seBPOV843FQKpw9flEsmsGLo5m8iDLo/SOjqMyY
+	SGJ9KnM5HY3Ujfclkuqoql1P54yqja8eUDW4xODlU0kY2u8mpsZzivoOrVLEvO1xuR/UFJUvXDZqv
+	E/aftMFoC1mAcRSi03zkxiLnv5iRt2kDUbO+gCLIeJcYhBC69YjMAxxM1izV5B6g1y9Hp4MuufvVG
+	PGbKXykA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcqXT-0000000Bzve-34IZ;
-	Mon, 05 Jan 2026 19:46:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vcqXa-0000000Bzyr-2RW3;
+	Mon, 05 Jan 2026 19:46:58 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcqXT-0000000Bzv0-0nh1
+	id 1vcqXY-0000000BzxO-26Hp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 19:46:51 +0000
+	Mon, 05 Jan 2026 19:46:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 49A626013C;
-	Mon,  5 Jan 2026 19:46:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D011FC19422;
-	Mon,  5 Jan 2026 19:46:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A6FC043C3F;
+	Mon,  5 Jan 2026 19:46:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E0DEC116D0;
+	Mon,  5 Jan 2026 19:46:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767642410;
-	bh=4d4Kz6wZLKZJMC8dluV+ZOL4eRSU5mD/Cf1EU5faObM=;
+	s=k20201202; t=1767642415;
+	bh=1iZEURVnC5EHBu7RqBBmRA9ws4DI038EuiShk+6L6ak=;
 	h=From:To:Cc:Subject:Date:From;
-	b=Wg7l7fbqsWe80PFqqn4VUq0vZtdUwGnvQS9QbiP7DUTk94SKY1E+fwVG4gnrz6AEH
-	 ro5ezLrCNnlEsQhHiZ8I14DukAC4Sl6azVsGb+v+umGYRyAO0Pjmfm1ki5TuvV45DO
-	 yp+4pMb3uKr/JgLJ5nMINwaCx7Isvi4/tlhD5agaTqg7sU7NGR1cl6y9jndMdLwHbO
-	 Qh3Z78IF6c+pH4ROlNvoy9WwXumBesesDKO37xux6429RQJ4B8UtTkAadoD70EN3Bg
-	 /+u4mHTAiszhyI3NoCZiVN5UEvRFujop5QGGbxsIWWVl9Km0fYBgdnQhxWc2qBWy1l
-	 ro+orBsttd94A==
+	b=XvPttCa0iUhdJKH1lrTp45IYnscelYmdPBYoAOUheFKu85kDzl4aNNNcDVIAF+xQs
+	 o714Lsu8J8IhefgiLzEUpOSVCaamuNHhcgUG/8NAqkk5TrAWH5Oj8Au49r6L/nLr6x
+	 6bfKoXBR6X7ohBQDKHA2VWBmKCWfiNgQhn1pRC10PF0X6J/IxVbAJlSE8NOo7YYAXx
+	 +LPuud+fgAygUa/MzIu3k9X+MiC580Trksqedx+fLZt53kkpao3SllRQnaYDV/XWRY
+	 EnDhsGojwSraPGlc30iVhw/0E4wN9O+x6aqjNI5Ht4j4vp5EGdLFAhZRwbx09xdZfs
+	 AWoGqYkVMHveg==
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Andrew Lunn <andrew@lunn.ch>,
 	Gregory Clement <gregory.clement@bootlin.com>,
@@ -51,12 +51,16 @@ To: Andrew Lunn <andrew@lunn.ch>,
 Cc: linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: marvell: cn9131-cf-solidwan: Add missing GPIO properties on "nxp,pca9536"
-Date: Mon,  5 Jan 2026 13:46:46 -0600
-Message-ID: <20260105194647.3189303-1-robh@kernel.org>
+Subject: [PATCH] arm64: dts: marvell: change regulator-gpio to regulator-fixed
+Date: Mon,  5 Jan 2026 13:46:52 -0600
+Message-ID: <20260105194653.3189515-1-robh@kernel.org>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260105_114656_561350_5D0CBD56 
+X-CRM114-Status: UNSURE (   9.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,26 +75,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The PCA9536 is always a GPIO provider, so add the missing properties.
+A "regulator-gpio" must have a GPIO control, hence the name. There's no
+GPIO on a couple of Marvell platforms at least as far as the DT is
+defined, so change the regulator type from GPIO to fixed.
 
 Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- arch/arm64/boot/dts/marvell/cn9131-cf-solidwan.dts | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/arm64/boot/dts/marvell/armada-3720-gl-mv1000.dts | 9 ++-------
+ arch/arm64/boot/dts/marvell/cn9131-db-comexpress.dtsi | 3 ++-
+ 2 files changed, 4 insertions(+), 8 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/marvell/cn9131-cf-solidwan.dts b/arch/arm64/boot/dts/marvell/cn9131-cf-solidwan.dts
-index 338853d3b179..b6aeba7d0a61 100644
---- a/arch/arm64/boot/dts/marvell/cn9131-cf-solidwan.dts
-+++ b/arch/arm64/boot/dts/marvell/cn9131-cf-solidwan.dts
-@@ -202,6 +202,8 @@ fan-controller@18 {
- 	expander0: gpio@41 {
- 		compatible = "nxp,pca9536";
- 		reg = <0x41>;
-+		gpio-controller;
-+		#gpio-cells = <2>;
+diff --git a/arch/arm64/boot/dts/marvell/armada-3720-gl-mv1000.dts b/arch/arm64/boot/dts/marvell/armada-3720-gl-mv1000.dts
+index 9f4bafeddd82..a881a3326dba 100644
+--- a/arch/arm64/boot/dts/marvell/armada-3720-gl-mv1000.dts
++++ b/arch/arm64/boot/dts/marvell/armada-3720-gl-mv1000.dts
+@@ -26,16 +26,11 @@ memory@0 {
+ 	};
  
- 		usb-a-vbus0-ilimit-hog {
- 			gpio-hog;
+ 	vcc_sd_reg1: regulator {
+-		compatible = "regulator-gpio";
++		compatible = "regulator-fixed";
+ 		regulator-name = "vcc_sd1";
+-		regulator-min-microvolt = <1800000>;
++		regulator-min-microvolt = <3300000>;
+ 		regulator-max-microvolt = <3300000>;
+ 		regulator-boot-on;
+-
+-		gpios-states = <0>;
+-		states = <1800000 0x1
+-			3300000 0x0>;
+-		enable-active-high;
+ 	};
+ 
+ 	keys {
+diff --git a/arch/arm64/boot/dts/marvell/cn9131-db-comexpress.dtsi b/arch/arm64/boot/dts/marvell/cn9131-db-comexpress.dtsi
+index 6f3914bcfd01..71c225221617 100644
+--- a/arch/arm64/boot/dts/marvell/cn9131-db-comexpress.dtsi
++++ b/arch/arm64/boot/dts/marvell/cn9131-db-comexpress.dtsi
+@@ -15,8 +15,9 @@ / {
+ };
+ 
+ &ap0_reg_sd_vccq {
++	compatible = "regulator-fixed";
+ 	regulator-max-microvolt = <1800000>;
+-	states = <1800000 0x1 1800000 0x0>;
++	/delete-property/ states;
+ 	/delete-property/ gpios;
+ };
+ 
 -- 
 2.51.0
 
