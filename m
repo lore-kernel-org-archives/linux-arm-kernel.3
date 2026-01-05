@@ -4,64 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DCD4CD0408
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 21:22:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E863CCD0408
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 21:22:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xNBBz22BNiYZmnE1VS1UVyX/0UoXiRRfFiVmzO9VkJk=; b=Lo4S18EHgX2D821BLx8yXIR07G
-	qM6euY1wEZppTjnWwk/+Jye7rsrVS4j3srWenBpOYk0EDs0/Q3P8aprZawJvkNRtVai5nJnLsnQAS
-	/WkqHz7A3H6cx/xd+TqSurTETTsdyTfaadFbuIZg81dsY9HnyYN+LqHi0UoORxJrdz4CQRcP/EeV0
-	d3rYIvBWcWnSMNNQY+ndF4+OOir6QoOzqIxnrx1fpRajxVdlpDE9aJhrscMYNoMhICpsnFXtONzsj
-	bIbcGYgjcdLBVIO6wwKNBbJ8xWRcPgTMJlgl0/Ro81Lrpl3NfXMV93R8spAer8z+haO+7c4KpYlbq
-	rE9akrZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jiFEeW5gN2osECrGX/NxhvJp4KMe2lAyJaSIXSOT3Og=; b=2i/KiKFbQ2QHp4oDGYD98GEvSP
+	YvuBzUTIqGQAkHCfB7t/e7X/Y67HhpVt4wtfo1Vc2niHCpKOP1tMiaLSi/vYBfj4aAh+hprMIlZlE
+	dP0qx+jlLi4U8NxIkphZCC8CU4EM+g/RgDv7KBUY+fBqXnFFbuiY1vylO9A/XjU9EZaG2W8KNvb6W
+	2GC1V43BiTiipANqFnnFHt0nWxyUD3JCUw21Gbq/bNqS7HG2qFWvsNl3dapsFFnkzUoURoSrdoVEd
+	RdnLHewDKSdtQyXrgjUr3MBBZNxxBp6N4WelnKopixJHf+ATNkNhkL703ySdQUuktVsdthgGurDea
+	NkmFsg5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcs1k-0000000C7Lc-1m7Y;
-	Mon, 05 Jan 2026 21:22:12 +0000
-Received: from smtprelay0015.hostedemail.com ([216.40.44.15] helo=relay.hostedemail.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcs1e-0000000C7LD-0iPX
+	id 1vcs1w-0000000C7OM-4C2o;
+	Mon, 05 Jan 2026 21:22:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vcs1r-0000000C7MS-1i2V
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 21:22:09 +0000
-Received: from omf02.hostedemail.com (a10.router.float.18 [10.200.18.1])
-	by unirelay04.hostedemail.com (Postfix) with ESMTP id 078001A0230;
-	Mon,  5 Jan 2026 21:22:00 +0000 (UTC)
-Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf02.hostedemail.com (Postfix) with ESMTPA id 5A2488000F;
-	Mon,  5 Jan 2026 21:21:58 +0000 (UTC)
-Date: Mon, 5 Jan 2026 16:22:20 -0500
-From: Steven Rostedt <rostedt@goodmis.org>
-To: "Masami Hiramatsu (Google)" <mhiramat@kernel.org>
-Cc: Jiri Olsa <jolsa@kernel.org>, Will Deacon <will@kernel.org>, Peter
- Zijlstra <peterz@infradead.org>, bpf@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- x86@kernel.org, Yonghong Song <yhs@fb.com>, Song Liu
- <songliubraving@fb.com>, Andrii Nakryiko <andrii@kernel.org>, Mark Rutland
- <mark.rutland@arm.com>, Mahe Tardy <mahe.tardy@gmail.com>
-Subject: Re: [BUG/RFC 1/2] arm64/ftrace,bpf: Fix partial regs after
- bpf_prog_run
-Message-ID: <20260105162220.6ba5129a@gandalf.local.home>
-In-Reply-To: <20260104223415.0a31f423c861c0b651de966b@kernel.org>
-References: <20251105125924.365205-1-jolsa@kernel.org>
-	<aVfbqYsWdGXu4lh8@willie-the-truck>
-	<20260104223415.0a31f423c861c0b651de966b@kernel.org>
-X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
+	Mon, 05 Jan 2026 21:22:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 94C52339;
+	Mon,  5 Jan 2026 13:22:09 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F3BDC3F694;
+	Mon,  5 Jan 2026 13:22:15 -0800 (PST)
+Date: Mon, 5 Jan 2026 21:22:13 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Puranjay Mohan <puranjay12@gmail.com>
+Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Rob Herring <robh+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Martin KaFai Lau <martin.lau@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Breno Leitao <leitao@debian.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, kernel-team@meta.com
+Subject: Re: [RFC PATCH] perf/arm64: Add BRBE support for
+ bpf_get_branch_snapshot()
+Message-ID: <20260105212213.GA336318@e132581.arm.com>
+References: <20260102214043.1410242-1-puranjay@kernel.org>
+ <CANk7y0j7hAJ7OcH_HgN0cVGnUh=iBz=iuD9sYZmSy-koMjB_cg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Rspamd-Queue-Id: 5A2488000F
-X-Stat-Signature: xt5nzh7j77fp944s7jzizhee1d83wp5j
-X-Rspamd-Server: rspamout08
-X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
-X-Session-ID: U2FsdGVkX19QBzPgleTeDd4xKX+cLaHUy58FxQPd0Kc=
-X-HE-Tag: 1767648118-884322
-X-HE-Meta: U2FsdGVkX1+rGfZVoK/OULBRFq26IDTCOyJJZkPrf1/Qa14p2mE3SqwSd2AimRvlIvDVEd8pQgw0Y72mGmizrkSEvnjFQ91d+SsTt2Ihf1ODGxFW+OEY6DInWgnHijwrMtbOQ58FqR6KY7yGryX5bEkGZExbO4di5WotTjnQacEQ42hk8Ktkd7J9fG0WrCvcO97/OKDk+be0YtNFkroPVr4HXRGjix1N8zS6oUsNujtLAyaaVLmj5YsKDUOXe9fRTNDkdHckDe1ArW4kboKsHf2mGMb2i4ClK7czP2og0vQZQniUMj3+3yvA4v+IhIQWnzBFXkWNPqDrdzlbtpx/y5s3DpEYaggy
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CANk7y0j7hAJ7OcH_HgN0cVGnUh=iBz=iuD9sYZmSy-koMjB_cg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_132206_273674_9F2DCC92 
-X-CRM114-Status: GOOD (  15.40  )
+X-CRM114-CacheID: sfid-20260105_132219_488934_1F3775BF 
+X-CRM114-Status: GOOD (  13.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,43 +74,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 4 Jan 2026 22:34:15 +0900
-Masami Hiramatsu (Google) <mhiramat@kernel.org> wrote:
+Hi,
 
-> > This looks a bit grotty to me and presumably other architectures would
-> > need similar treatement. Wouldn't it be cleaner to reuse the existing
-> > API instead? For example, by calling ftrace_regs_set_instruction_pointer()
-> > and ftrace_regs_set_return_value() to update the relevant registers from
-> > the core code?  
+On Fri, Jan 02, 2026 at 09:51:15PM +0000, Puranjay Mohan wrote:
+> Hi Catalin, Will, Mark, and Rob.
 > 
-> I agreed with using the generic APIs. Also, ftrace_partial_regs_fix() is
-> not self-explained. Maybe ftrace_regs_set_by_regs()?
+> I don't have access to BRBE enabled hardware and Qemu doesn't support
+> this as well therefore I just sent the compile tested version.
+> 
+> Can you help me with testing this:
+> 
+> The relevant bpf self test is:
+> 
+> ./test_progs -t get_branch_snapshot
+> #132     get_branch_snapshot:SKIP
+> Summary: 1/0 PASSED, 1 SKIPPED, 0 FAILED
+> 
+> skipped for my setup as it is not supported.
 
-Or perhaps: ftrace_partial_regs_update() where you call it if you need to
-update the regs.
+eBPF selftest build is quite heavy (many dependencies), finally I built
+it cleanly.
 
-/*
- * ftrace_partial_regs_update - update the original ftrace_regs from regs
- * @fregs: The ftrace_regs to update from @regs
- * @regs: The partial regs from ftrace_partial_regs() that was updated
- *
- * Some architectures have the partial regs living in the ftrace_regs
- * structure, whereas other architectures need to make a different copy
- * of the @regs. If a partial @regs is retrieved by ftrace_partial_regs() and
- * if the code using @regs updates a field (like the instruction pointer or
- * stack pointer) it may need to propagate that change to the original @fregs
- * it retrieved the partial @regs from. Use this function to guarantee that
- * update happens.
- */
-static __always_inline void
-ftrace_partial_regs_update(const struct ftrace_regs *fregs, struct pt_regs *regs) {
-	struct __arch_ftrace_regs *afregs = arch_ftrace_regs(fregs);
+I did a test on FVP RevC, the test hit NULL pointer deference and kernel
+panic in armv8pmu_sched_task().  See https://termbin.com/peg4, the
+backtrace should can give you hints for the issue.
 
-	if (afregs->pc != regs->pc) {
-		afregs->pc = regs->pc;
-		afregs->regs[0] = regs->regs[0];
-	}
-}
+Thanks,
+Leo
 
--- Steve
+P.s. some logs are duplicate, this might be caused by two cores both hit
+the NULL pointer issue ?
 
