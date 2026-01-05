@@ -4,63 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB236C79FBD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 19:47:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFE56C79FBC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 19:47:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UD9iK+q2pIW9Gl4M0KMaVvHXVFEbjqWrf11eTTNsMsI=; b=s9eh2Ea91PFQzOxE4l4iAiKFN9
-	VcEnAEizgguXi5mpJOadiccJsIT2bSKiYwXfQZLaMod0Xybhy0Rgbd/10ji6cdPBPnV6E9EdDRE9m
-	ZFHVdWcVj7R6XyeiTYRnO/K1voa+NmRWJE3Bs9seBPOV843FQKpw9flEsmsGLo5m8iDLo/SOjqMyY
-	SGJ9KnM5HY3Ujfclkuqoql1P54yqja8eUDW4xODlU0kY2u8mpsZzivoOrVLEvO1xuR/UFJUvXDZqv
-	E/aftMFoC1mAcRSi03zkxiLnv5iRt2kDUbO+gCLIeJcYhBC69YjMAxxM1izV5B6g1y9Hp4MuufvVG
-	PGbKXykA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=npmWMOTIb0xePzM7TigOBLuJxrMPtNkDuKrlIQ6LcIg=; b=kpBnk6iASnBWEQxIkSZOQqSPk+
+	0AZj6VrQ53EMkL/ea/ttQuTOLB84meMK6CNc7q8eOPtTBYCvNAbpZrM903CPM5FTiJYbr/u+ID2vg
+	PxRYRsWmNzzjr+TXogqGSjDzrgw1cjWASo9ZzECK94BWYnZXHVcnPEA0mtf52owWH2VI3QYEDuP1k
+	enPhquyyKz9U/OcEPJtArCupM6I6Cor05AjnbFkUAg6xYuwIkRJnoe+DP4JgCtiahSvSMTWGNqiwV
+	6hRi7X3fc4qeyVm7ymtDIgKCQJg7+UNXmaZWPs+Z/MKvJfycjD4rV7d5/06Pn+uaKbPstPFchrZK0
+	LDc/V/Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcqXa-0000000Bzyr-2RW3;
-	Mon, 05 Jan 2026 19:46:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vcqXx-0000000C06V-3quQ;
+	Mon, 05 Jan 2026 19:47:21 +0000
+Received: from out-188.mta1.migadu.com ([2001:41d0:203:375::bc])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcqXY-0000000BzxO-26Hp
+	id 1vcqXo-0000000BzyC-1qaH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 19:46:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A6FC043C3F;
-	Mon,  5 Jan 2026 19:46:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E0DEC116D0;
-	Mon,  5 Jan 2026 19:46:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767642415;
-	bh=1iZEURVnC5EHBu7RqBBmRA9ws4DI038EuiShk+6L6ak=;
-	h=From:To:Cc:Subject:Date:From;
-	b=XvPttCa0iUhdJKH1lrTp45IYnscelYmdPBYoAOUheFKu85kDzl4aNNNcDVIAF+xQs
-	 o714Lsu8J8IhefgiLzEUpOSVCaamuNHhcgUG/8NAqkk5TrAWH5Oj8Au49r6L/nLr6x
-	 6bfKoXBR6X7ohBQDKHA2VWBmKCWfiNgQhn1pRC10PF0X6J/IxVbAJlSE8NOo7YYAXx
-	 +LPuud+fgAygUa/MzIu3k9X+MiC580Trksqedx+fLZt53kkpao3SllRQnaYDV/XWRY
-	 EnDhsGojwSraPGlc30iVhw/0E4wN9O+x6aqjNI5Ht4j4vp5EGdLFAhZRwbx09xdZfs
-	 AWoGqYkVMHveg==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Gregory Clement <gregory.clement@bootlin.com>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: marvell: change regulator-gpio to regulator-fixed
-Date: Mon,  5 Jan 2026 13:46:52 -0600
-Message-ID: <20260105194653.3189515-1-robh@kernel.org>
-X-Mailer: git-send-email 2.51.0
+	Mon, 05 Jan 2026 19:47:20 +0000
+Message-ID: <edc0ff1e-475b-4eeb-b70a-cd92d5bd2162@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1767642415;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=npmWMOTIb0xePzM7TigOBLuJxrMPtNkDuKrlIQ6LcIg=;
+	b=Syh/ky0XYiNacl6o1T/r3mNo59F0c+hIOzBhuXbwZB3QSQ84R5lpx7cJQTYzG+46ANyPIW
+	0aUjr5DYilFZcPTd0/q5Bbuxo8ROZw5QTuewQkaAH1I82GjUCsaIDUegQzd9B5soChlYr1
+	iVjap4Fj8RF6A8R+gbyBCuXFor3e8iU=
+Date: Mon, 5 Jan 2026 14:46:50 -0500
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH 2/3] drm: zynqmp: Make the video plane primary
+To: "Klymenko, Anatoliy" <Anatoliy.Klymenko@amd.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Mike Looijmans <mike.looijmans@topic.nl>, David Airlie <airlied@gmail.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, Simona Vetter <simona@ffwll.ch>,
+ "Simek, Michal" <michal.simek@amd.com>
+References: <20251113203715.2768107-1-sean.anderson@linux.dev>
+ <20251113203715.2768107-3-sean.anderson@linux.dev>
+ <MW4PR12MB71651E0E82AD8E4898DBD017E6CDA@MW4PR12MB7165.namprd12.prod.outlook.com>
+ <680bee12-6bac-4634-8a02-4b1717a90aa2@linux.dev>
+ <MW4PR12MB7165F8413848B53CB8C7C031E6CBA@MW4PR12MB7165.namprd12.prod.outlook.com>
+ <7248b96f-be82-4b89-87e4-f86b3898bc55@linux.dev>
+ <MW4PR12MB7165FECBD72C189B803D859AE6A6A@MW4PR12MB7165.namprd12.prod.outlook.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Sean Anderson <sean.anderson@linux.dev>
+In-Reply-To: <MW4PR12MB7165FECBD72C189B803D859AE6A6A@MW4PR12MB7165.namprd12.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_114656_561350_5D0CBD56 
-X-CRM114-Status: UNSURE (   9.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260105_114717_759120_F0A957C3 
+X-CRM114-Status: GOOD (  48.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,55 +84,257 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A "regulator-gpio" must have a GPIO control, hence the name. There's no
-GPIO on a couple of Marvell platforms at least as far as the DT is
-defined, so change the regulator type from GPIO to fixed.
+Hi Anatoliy,
 
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
----
- arch/arm64/boot/dts/marvell/armada-3720-gl-mv1000.dts | 9 ++-------
- arch/arm64/boot/dts/marvell/cn9131-db-comexpress.dtsi | 3 ++-
- 2 files changed, 4 insertions(+), 8 deletions(-)
+Sorry for the delay.
 
-diff --git a/arch/arm64/boot/dts/marvell/armada-3720-gl-mv1000.dts b/arch/arm64/boot/dts/marvell/armada-3720-gl-mv1000.dts
-index 9f4bafeddd82..a881a3326dba 100644
---- a/arch/arm64/boot/dts/marvell/armada-3720-gl-mv1000.dts
-+++ b/arch/arm64/boot/dts/marvell/armada-3720-gl-mv1000.dts
-@@ -26,16 +26,11 @@ memory@0 {
- 	};
- 
- 	vcc_sd_reg1: regulator {
--		compatible = "regulator-gpio";
-+		compatible = "regulator-fixed";
- 		regulator-name = "vcc_sd1";
--		regulator-min-microvolt = <1800000>;
-+		regulator-min-microvolt = <3300000>;
- 		regulator-max-microvolt = <3300000>;
- 		regulator-boot-on;
--
--		gpios-states = <0>;
--		states = <1800000 0x1
--			3300000 0x0>;
--		enable-active-high;
- 	};
- 
- 	keys {
-diff --git a/arch/arm64/boot/dts/marvell/cn9131-db-comexpress.dtsi b/arch/arm64/boot/dts/marvell/cn9131-db-comexpress.dtsi
-index 6f3914bcfd01..71c225221617 100644
---- a/arch/arm64/boot/dts/marvell/cn9131-db-comexpress.dtsi
-+++ b/arch/arm64/boot/dts/marvell/cn9131-db-comexpress.dtsi
-@@ -15,8 +15,9 @@ / {
- };
- 
- &ap0_reg_sd_vccq {
-+	compatible = "regulator-fixed";
- 	regulator-max-microvolt = <1800000>;
--	states = <1800000 0x1 1800000 0x0>;
-+	/delete-property/ states;
- 	/delete-property/ gpios;
- };
- 
--- 
-2.51.0
+On 12/4/25 17:33, Klymenko, Anatoliy wrote:
+> [AMD Official Use Only - AMD Internal Distribution Only]
+> 
+> Hi Sean,
+> 
+>> -----Original Message-----
+>> From: Sean Anderson <sean.anderson@linux.dev>
+>> Sent: Monday, November 17, 2025 8:10 AM
+>> To: Klymenko, Anatoliy <Anatoliy.Klymenko@amd.com>; Laurent Pinchart
+>> <laurent.pinchart@ideasonboard.com>; Tomi Valkeinen
+>> <tomi.valkeinen@ideasonboard.com>; dri-devel@lists.freedesktop.org
+>> Cc: linux-kernel@vger.kernel.org; Mike Looijmans <mike.looijmans@topic.nl>;
+>> David Airlie <airlied@gmail.com>; Thomas Zimmermann
+>> <tzimmermann@suse.de>; Maarten Lankhorst
+>> <maarten.lankhorst@linux.intel.com>; Maxime Ripard <mripard@kernel.org>;
+>> linux-arm-kernel@lists.infradead.org; Simona Vetter <simona@ffwll.ch>; Simek,
+>> Michal <michal.simek@amd.com>
+>> Subject: Re: [PATCH 2/3] drm: zynqmp: Make the video plane primary
+>>
+>> Caution: This message originated from an External Source. Use proper caution
+>> when opening attachments, clicking links, or responding.
+>>
+>>
+>> On 11/14/25 19:57, Klymenko, Anatoliy wrote:
+>> > [AMD Official Use Only - AMD Internal Distribution Only]
+>> >
+>> >> -----Original Message-----
+>> >> From: dri-devel <dri-devel-bounces@lists.freedesktop.org> On Behalf Of
+>> Sean
+>> >> Anderson
+>> >> Sent: Thursday, November 13, 2025 2:52 PM
+>> >> To: Klymenko, Anatoliy <Anatoliy.Klymenko@amd.com>; Laurent Pinchart
+>> >> <laurent.pinchart@ideasonboard.com>; Tomi Valkeinen
+>> >> <tomi.valkeinen@ideasonboard.com>; dri-devel@lists.freedesktop.org
+>> >> Cc: linux-kernel@vger.kernel.org; Mike Looijmans
+>> <mike.looijmans@topic.nl>;
+>> >> David Airlie <airlied@gmail.com>; Thomas Zimmermann
+>> >> <tzimmermann@suse.de>; Maarten Lankhorst
+>> >> <maarten.lankhorst@linux.intel.com>; Maxime Ripard
+>> <mripard@kernel.org>;
+>> >> linux-arm-kernel@lists.infradead.org; Simona Vetter <simona@ffwll.ch>;
+>> Simek,
+>> >> Michal <michal.simek@amd.com>
+>> >> Subject: Re: [PATCH 2/3] drm: zynqmp: Make the video plane primary
+>> >>
+>> >> Caution: This message originated from an External Source. Use proper
+>> caution
+>> >> when opening attachments, clicking links, or responding.
+>> >>
+>> >>
+>> >> On 11/13/25 17:45, Klymenko, Anatoliy wrote:
+>> >> > [AMD Official Use Only - AMD Internal Distribution Only]
+>> >> >
+>> >> > Hi Sean,
+>> >> >
+>> >> > Thanks a lot for the patch (and tackling the alpha issue in general)
+>> >> >
+>> >> >> -----Original Message-----
+>> >> >> From: Sean Anderson <sean.anderson@linux.dev>
+>> >> >> Sent: Thursday, November 13, 2025 12:37 PM
+>> >> >> To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>; Tomi
+>> Valkeinen
+>> >> >> <tomi.valkeinen@ideasonboard.com>; dri-devel@lists.freedesktop.org
+>> >> >> Cc: linux-kernel@vger.kernel.org; Mike Looijmans
+>> >> <mike.looijmans@topic.nl>;
+>> >> >> David Airlie <airlied@gmail.com>; Thomas Zimmermann
+>> >> >> <tzimmermann@suse.de>; Maarten Lankhorst
+>> >> >> <maarten.lankhorst@linux.intel.com>; Klymenko, Anatoliy
+>> >> >> <Anatoliy.Klymenko@amd.com>; Maxime Ripard <mripard@kernel.org>;
+>> >> linux-
+>> >> >> arm-kernel@lists.infradead.org; Simona Vetter <simona@ffwll.ch>;
+>> Simek,
+>> >> >> Michal <michal.simek@amd.com>; Sean Anderson
+>> >> >> <sean.anderson@linux.dev>
+>> >> >> Subject: [PATCH 2/3] drm: zynqmp: Make the video plane primary
+>> >> >>
+>> >> >> Caution: This message originated from an External Source. Use proper
+>> >> caution
+>> >> >> when opening attachments, clicking links, or responding.
+>> >> >>
+>> >> >>
+>> >> >> The zynqmp has two planes: "video" and "graphics". The video plane
+>> >> >>
+>> >> >> - Is on the bottom (zpos=0) (except when chroma keying as the master
+>> >> plane)
+>> >> >> - Supports "live" input (e.g. from an external source)
+>> >> >> - Supports RGB, YUV, and YCbCr formats, including XRGB8888
+>> >> >> - Does not support transparency, except via chroma keying (colorkey)
+>> >> >> - Must cover the entire screen (translation/resizing not supported)
+>> >> >>
+>> >> >> The graphics plane
+>> >> >>
+>> >> >> - Is on the top (zpos=1)
+>> >> >> - Supports "live" input (e.g. from an external source)
+>> >> >> - Supports RGB and YUV444 formats, but not XRGB8888
+>> >> >> - Supports transparency either via
+>> >> >>   - Global alpha channel, which disables per-pixel alpha when enabled
+>> >> >>   - Per-pixel alpha, which cannot be used with global alpha
+>> >> >>   - Chroma keying (colorkey)
+>> >> >> - Must cover the entire screen (translation/resizing not supported)
+>> >> >>
+>> >> >> Currently the graphics plane is the primary plane. Make the video plane
+>> >> >> the primary plane:
+>> >> >>
+>> >> >> - The video plane supports XRGB8888, which is the default 24-bit
+>> >> >>   colorspace for X. This results in improved performance when compared
+>> >> >>   to RGB565.
+>> >> >> - The graphics plane can be used as an overlay because it has a higher
+>> >> >>   z-pos and supports a per-pixel alpha channel. Unfortunately, clients
+>> >> >>   like weston cannot currently take advantage of this because they
+>> >> >>   expect overlay planes to support translation/resizing.
+>> >> >>
+>> >> >> One downside to this approach could be that the graphics plane has
+>> worse
+>> >> >> support for YUV and YCBCr, so it may be more difficult to compose video
+>> >> >
+>> >> > Not just more difficult but practically impossible:
+>> >> > 1. GFX (in Xilinx terminology) plane doesn't support pixel upscaling, so
+>> >> > no support for NV12, YUY2 and other common video pixel formats.
+>> >> > 2. Both planes are unscalable, this means we can only output native
+>> >> > display resolution video on the top plane, or display thick black frame
+>> >> > around the picture. We are losing GFX masking capabilities.
+>> >>
+>> >> The graphics masking capabilities are the same as they always were.
+>> >>
+>> >> > 3. We won't be able to render subtitles on top of the video.
+>> >> > Probably the only practical video player option remains here is to render
+>> >> > video to a texture and embed it into graphics composition.
+>> >>
+>> >> OK, but none of this is currently possible either because of the global
+>> >> alpha setting. So do you have a specific program in mind that plays
+>> >> video and will do it with an "underlay" plane?
+>> >>
+>> >
+>> > webOS, Roku OS, just to name a few. But most importantly, AMD has quite
+>> > a few customers using "underlay" plane because of its YUV 420 capability.
+>>
+>> Can you link to a specific example where the plane is selected based on
+>> its primary/overlay status and not based on its format support?  I'm not
+>> too familiar with these distros, but e.g. [1] selects the plane based on
+>> the format, and doesn't care which one is primary.
+>>
+> 
+> The plane selection by the type may not be explicit. For instance, if a
+> graphics compositor uses legacy API with drmModeSetCrtc, it would allocate
+> the primary plane implicitly. Or some compositor may just rely on planes
+> z-order. For instance, here [2] you may see exact z-order WebOS compositor
+> expects from the HW planes (both VideoPlane and FullscreenPlane are used
+> for the video playback, the graphics lives on MainPlane). Anyways, the
+> probability of primary plane being reserved for a graphics compositor is
+> too high to ignore.
+> Back to example [1], in our case the renderer would fail this check:
+> if ((ovr->possible_crtcs & (1 << pipe)) && !ovr->crtc_id)
+> for the primary plane pre-occupied by the graphics, and this check:
+> if (!format_support(ovr, p->fourcc))
+> for the overlay plane lacking pixel upsampling support.
+> 
+> [2] https://github.com/webosose/luna-surfacemanager/blob/b2fef6f73232244f6f13102aa66d2d3f5942835e/modules/weboscompositor/webossurfaceitem.cpp#L1794
 
+Does this matter? The z-order of the planes is fixed in hardware, no
+matter what software wishes it were. Regardless, the z-order does not
+change with this patch, so nothing should break. And from looking around
+in that repo, I cannot find any references to the primary plane, nor can
+I see any DRM calls.
+
+Plus, the purpose of the z-order stuff is to support punch-through
+rendering. But that can't work on ZynqMP without the following patch to
+fix the alpha channel.
+
+--Sean
+
+>> --Sean
+>>
+>> [1] https://github.com/webosose/omx-
+>> components/blob/27b33e17c25023f2c7ffbbfda10169fb500dacdc/src/omxdrm/vid
+>> eorenderer.cpp#L469
+>>
+>> >> >> streams into the window of a media player. However, no existing software
+>> >> >> could rely on this because there is no way to enable the per-pixel alpha
+>> >> >> channel when the graphics plane is enabled. This makes it impossible to
+>> >> >
+>> >> > This situation is a driver bug not a fatum.
+>> >>
+>> >> And yet the driver bug provides ample evidence that no one is doing this,
+>> >> so we don't need to worry about it.
+>> >>
+>> >> --Sean
+>> >>
+>> >> > Per pixel alpha blending works
+>> >> > just fine if we disable global alpha. We just need to avoid enabling it when
+>> >> > we have alpha capable GFX plane format.
+>> >> >
+>> >> >> "carve out" an area in the graphics plane where the video plane shows
+>> >> >> through. This limitation is addressed in the next patch, but it means we
+>> >> >> do not need to worry about compatibility in this area.
+>> >> >>
+>> >> >> An alternate approach could be to pretend that the graphics plane
+>> >> >> supports XRGB8888 by using the supported ARGB8888 mode instead
+>> and
+>> >> >> enabling the global alpha channel. However, this would rule out ever
+>> >> >> using the per-pixel alpha channel.
+>> >> >>
+>> >> >> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
+>> >> >> ---
+>> >> >>
+>> >> >>  drivers/gpu/drm/xlnx/zynqmp_kms.c | 6 +++---
+>> >> >>  1 file changed, 3 insertions(+), 3 deletions(-)
+>> >> >>
+>> >> >> diff --git a/drivers/gpu/drm/xlnx/zynqmp_kms.c
+>> >> >> b/drivers/gpu/drm/xlnx/zynqmp_kms.c
+>> >> >> index c80a2d4034f3..456ada9ac003 100644
+>> >> >> --- a/drivers/gpu/drm/xlnx/zynqmp_kms.c
+>> >> >> +++ b/drivers/gpu/drm/xlnx/zynqmp_kms.c
+>> >> >> @@ -161,8 +161,8 @@ static int zynqmp_dpsub_create_planes(struct
+>> >> >> zynqmp_dpsub *dpsub)
+>> >> >>                 if (!formats)
+>> >> >>                         return -ENOMEM;
+>> >> >>
+>> >> >> -               /* Graphics layer is primary, and video layer is overlay. */
+>> >> >> -               type = i == ZYNQMP_DPSUB_LAYER_VID
+>> >> >> +               /* Graphics layer is overlay, and video layer is primary. */
+>> >> >> +               type = i == ZYNQMP_DPSUB_LAYER_GFX
+>> >> >>                      ? DRM_PLANE_TYPE_OVERLAY :
+>> >> >> DRM_PLANE_TYPE_PRIMARY;
+>> >> >>                 ret = drm_universal_plane_init(&dpsub->drm->dev, plane, 0,
+>> >> >>                                                &zynqmp_dpsub_plane_funcs,
+>> >> >> @@ -322,7 +322,7 @@ static const struct drm_crtc_funcs
+>> >> >> zynqmp_dpsub_crtc_funcs = {
+>> >> >>
+>> >> >>  static int zynqmp_dpsub_create_crtc(struct zynqmp_dpsub *dpsub)
+>> >> >>  {
+>> >> >> -       struct drm_plane *plane = &dpsub->drm-
+>> >> >> >planes[ZYNQMP_DPSUB_LAYER_GFX];
+>> >> >> +       struct drm_plane *plane = &dpsub->drm-
+>> >> >> >planes[ZYNQMP_DPSUB_LAYER_VID];
+>> >> >>         struct drm_crtc *crtc = &dpsub->drm->crtc;
+>> >> >>         int ret;
+>> >> >>
+>> >> >> --
+>> >> >> 2.35.1.1320.gc452695387.dirty
+>> >> >
+>> >> > Thank you,
+>> >> > Anatoliy
+>> >
+>> > Thank you,
+>> > Anatoliy
+> 
+> Thank you,
+> Anatoliy
 
