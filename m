@@ -4,85 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2B3CC79F9F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 16:00:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 195F9C79FA1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 16:02:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=3WeX3bT5s+OT8VIdljNj7+krconZGdqv+VIUg1emz0E=; b=Q/nhLN8bNH/mpo
-	hIdt0q2qM5Ng1NmEjLzoDpkVSH+AYz2TT0UrDIzWo6AiOQo0MHxSQxfRxemGACG+MkZn1ORmwQCai
-	e/FzanFSfmOCA5Ty/NZ3p37NThApJTIgNv6rRe4qt0ghDprf3q9tG/fDl0DbRAhifyBFeHh1KVj/B
-	hHJ6rSCSETDVkTq7zQJc847ypIM37zSJV/Fm3hzd+uCsqLOaN9mkLU+mA+kNFzSjEB/s/jv9jjCQF
-	CXFESCz9kwXbBQ5ucIDL4OplYjS2M5G1pvufQwqRLCCvUtKN+C/Xbg+IixHmodu/SwoMzu5KPfYpp
-	Sa2huvwrRIGHannJaFgQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6YL9DyYHKVPZ0CNrK+ZXgPJmmz/Zun3fU5uAg8wFG9w=; b=ayimc9ytqkmkb2yDbXCgYduClH
+	evjJCWrzHk4Qd1QArn/CIBP+OReOKu0cFk1XQcI4BUWG9zme09XgoTOzSI9INe+lbE14j/8pYcqxc
+	RNsOuQy+HxaRU4mSUCan2NSXNMlDz8l3HTCZkhB5rC4obyZw6Oh9XSwH2nBlAnZ0wCnmTA4B7K+lE
+	2mvs14OMlwaMrhY+cir76m6X9ZOLkPH422a4QSWGROAnOhQ9IpRHEr+emMfMX/OVnMLn/hvFHLT0i
+	wriC71xTgHpzLt+yek8/W4q/u7MOYNNIgRVEKhRgsx8xhMgqOq4Izk6i5wZrauQEQi0SMxcb2aBmL
+	RpET0XVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcn0I-0000000Bh86-0iWQ;
-	Mon, 05 Jan 2026 16:00:22 +0000
-Received: from out162-62-57-64.mail.qq.com ([162.62.57.64])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcn03-0000000Bgwv-1CmY;
-	Mon, 05 Jan 2026 16:00:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1767628796; bh=3WeX3bT5s+OT8VIdljNj7+krconZGdqv+VIUg1emz0E=;
-	h=From:Date:Subject:To:Cc;
-	b=K/PiSX82MSFDXGbCLbe3GViDBf/6RDUpAaU4UFMdiwdA5eyUMOYK40AATjlVwCK3S
-	 30F7nv0KBMnPE81ZCw+i92mCTRjG0JWOkT/PVoHJRR4di0LwSdXsZOKScCZ0Xl+6hr
-	 TTfBGh4gu3G6Zq7rckdmDIeCef6g69n0IxX+HXBE=
-Received: from junjungu-PC.localdomain ([223.167.147.103])
-	by newxmesmtplogicsvrsza53-0.qq.com (NewEsmtp) with SMTP
-	id EF627A59; Mon, 05 Jan 2026 23:59:54 +0800
-X-QQ-mid: xmsmtpt1767628794tr0jci5fx
-Message-ID: <tencent_0B346CE1589FE10E0110418896F129323709@qq.com>
-X-QQ-XMAILINFO: NFIgmBUYVYTpNalnUa9mLZPXg2XFb1ZTzEyZxEoFXqyT0NrWEKUy48GSJLDgYQ
-	 UYmFa1M0a7TTTuoWqNfIkyqlSSt6VUpBxPDRP6f9cHsHxLHveFwa6Oi2yCUCSPfB4HiIrQbnuS/+
-	 6elU3TBe+GDUvZVJRidGsIZU0jiZZ4m5faZXytDiZF2TZCVnPm02bpM3vqmoDoKfC4AQHnMzrQAg
-	 HJ0a1JlaDqsqSuAWXwiF4Vr3LMgbQvINVpZJCdE5RaxQaL0TzMYYqRMj4sIDq5UJYP1VBKLBnIV5
-	 6PheMEs8pYirzDdOXFO2kLqTMkgdc/v7FXfij5Iz0RYHciKLYDXEnSARr2Hyh6LJf0I3CYii+Qjb
-	 ppsV0nKWWW/3O+VLWtJh2/sdI8WU4sm1rtErEpXi/9bNQQuZm2dXXG98xFZHbUmkT9Ymai7dKb5p
-	 QZISQMEH9aZIIkAa41+TeTiwRIlLVsR4fvc0MnXTI/Su67f3U1d8go1NCYJ1iZ3Ldv0qH3i3fK3s
-	 I9VLBIF1FHaS4dahKHivYQmf7nUnn+z3yGg6NwA2WPTTMt5HmcN9y5/Mpc6HrT6cwM2NOuDMY0p9
-	 Wg+ih54a8z0fykRDvpA7BeG5aUuutbBgqpISJTnPP83eeJvYOq0qeQANLtb/9bK5GqMSWL0WmIMk
-	 ttp2qP4ZIKwYfZRbuwhpm7qlukykW6H4fmNrHGcjVYDxfmiVsPFPvzN/RQ50arMaTRWqv4J2qiDK
-	 tP2ziFYvKi0ScbA92waeqRcgMj1puQOZHqOZ+MWRBzzJNEvYksR+g2IRYr/3ZsEgax892UkftgJP
-	 8AVcJMRPgErMEHs9xa81WvgR5VBzQGh0+v0F9eR67rcX15/hZxr+Z7SGaWXP8BMncTEcFRz5A6pK
-	 m4/Ge4AOrVielNgCnG+I3EtbRsOeG2qCYyreZKab69jBGCraEG0LKFqPMDiAzqZgWnz+TAbJlH4i
-	 QB7wEe0BwYMR7K4iLBd1CoiqMEAT5DoOUlKUsFBV0JDgR8180FPEOCGh+87qCBp4Uwe0sSaih6yz
-	 gbSSBzp9LmtJl0Tt5V+u8/WiQF+fYUUOTy7LiX0Uo881utbOtKxi7z6laKnki64cdw+dnR5iUuIR
-	 WLSG1wAC5G+PwocXOOtsrv7jxDxGffO2n/HfIOI47G0ZtuTB/NB7QxtOP9TBEofV9uiXt4asC82T
-	 eqYFI=
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
-From: Felix Gu <gu_0233@qq.com>
-Date: Mon, 05 Jan 2026 23:59:40 +0800
-Subject: [PATCH] cpufreq: mediatek-hw: Fix resource leaks in init function
+	id 1vcn2a-0000000BhLV-4AZX;
+	Mon, 05 Jan 2026 16:02:44 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vcn2W-0000000BhKz-00wm
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 Jan 2026 16:02:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 73603339;
+	Mon,  5 Jan 2026 08:02:31 -0800 (PST)
+Received: from [10.57.49.14] (unknown [10.57.49.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C2F973F6A8;
+	Mon,  5 Jan 2026 08:02:36 -0800 (PST)
+Message-ID: <f253d6aa-1dc2-4b1a-85df-f43b06719c04@arm.com>
+Date: Mon, 5 Jan 2026 16:02:34 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] iommu/arm-smmu-v3: Maintain valid access attributes for
+ non-coherent SMMU
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Dawei Li <dawei.li@linux.dev>, will@kernel.org, joro@8bytes.org,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org, set_pte_at@outlook.com, stable@vger.kernel.org
+References: <20251229002354.162872-1-dawei.li@linux.dev>
+ <c25309d1-0424-495e-82af-d025b3e6d8c8@arm.com>
+ <20260105145321.GD125261@ziepe.ca>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20260105145321.GD125261@ziepe.ca>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-OQ-MSGID: <20260105-mediatek-cpufreq-hw-v1-1-69ad43d6ab1f@qq.com>
-X-B4-Tracking: v=1; b=H4sIAOvfW2kC/x3MSQqAMAxA0atI1gZqoSpeRVyEmmoQp9YJpHe3u
- HyL/18I7IUDNNkLni8Jsi4JRZ6BHWkZGKVPBq10qQplcOZe6OAJ7XY6zzuON5ImR8bWujIEqdw
- 8O3n+a9vF+AGvz+eCZQAAAA==
-To: "Rafael J. Wysocki" <rafael@kernel.org>, 
- Viresh Kumar <viresh.kumar@linaro.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- Felix Gu <gu_0233@qq.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1767628794; l=1651;
- i=gu_0233@qq.com; h=from:subject:message-id;
- bh=N1hoyS8vAEYeNcKmQMNtf0b1xMeM++/15iIyYizaztg=;
- b=m3kmr/y/heV8l/1/sXa7s6mw6GRn0lgdc5gisKmjjSANU0xwK678ZTBHg/ZwxEQTwReOy0RGB
- ptIja3YhbHGCvBVucI4f7DEqg5Vl8gUPIXlq5ditsq+bcgz3fK3aq8a
-X-Developer-Key: i=gu_0233@qq.com; a=ed25519;
- pk=fjUXwmjchVN7Ja6KGP55IXOzFeCl9edaHoQIEUA+/hw=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_080007_911463_EBDAB114 
-X-CRM114-Status: GOOD (  11.46  )
+X-CRM114-CacheID: sfid-20260105_080241_953943_04628374 
+X-CRM114-Status: GOOD (  31.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,55 +68,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In mtk_cpu_resources_init(), if mtk_cpu_create_freq_table() fails, the
-function returns directly without releasing the resources.
+On 2026-01-05 2:53 pm, Jason Gunthorpe wrote:
+> On Mon, Jan 05, 2026 at 01:33:34PM +0000, Robin Murphy wrote:
+>> The assumption is that if the SMMU is not I/O-coherent, then the Normal
+>> Cacheable attribute will inherently degrade to a non-snooping (and thus
+>> effectively Normal Non-Cacheable) one, as that's essentially what AXI will
+>> do in practice, and thus the attribute doesn't actually matter all that much
+>> in terms of functional correctness. If the SMMU _is_ capable of snooping but
+>> is not described as such then frankly firmware is wrong.
+> 
+> Sadly I am aware of people doing this.. Either a HW bug or some other
+> weird issue forces the FW to set a non-coherent FW attribute even
+> though the HW is partially or fully able to process cachable AXI
+> attributes.
 
-Similarly, in mtk_cpufreq_hw_cpu_init(), if the driver returns -ENODEV,
- it fails to clean up. Fix this by calling mtk_cpufreq_hw_cpu_exit()
-to properly release resources.
+What I've seen more often is that firmware authors ignore (or don't even 
+realise) I/O-coherency, then someone ends up trying to "fix" Linux with 
+wacky DMA API patches when things start going wrong on mis-described 
+hardware... Yes, they might happen to get away with it with stuff like 
+SMMUs or Mali GPUs where a "well-behaved" driver might have control of 
+the source attributes, but where AxCACHE/AxDOMAIN are hard-wired there's 
+really no option other than to describe the hardware correctly, hence 
+that should always be the primary consideration.
 
-Signed-off-by: Felix Gu <gu_0233@qq.com>
----
- drivers/cpufreq/mediatek-cpufreq-hw.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+And as I say, if there *is* some reason to specifically avoid using 
+certain attributes, then deliberately describing the hardware 
+incorrectly, in the hope that OS drivers might be "well-behaved" in a 
+way that just happens to lead to them not using those attributes, is 
+really not a robust workaround anyway.
 
-diff --git a/drivers/cpufreq/mediatek-cpufreq-hw.c b/drivers/cpufreq/mediatek-cpufreq-hw.c
-index ae4500ab4891..f28a3de1604f 100644
---- a/drivers/cpufreq/mediatek-cpufreq-hw.c
-+++ b/drivers/cpufreq/mediatek-cpufreq-hw.c
-@@ -278,13 +278,15 @@ static int mtk_cpu_resources_init(struct platform_device *pdev,
- 	ret = mtk_cpu_create_freq_table(pdev, data);
- 	if (ret) {
- 		dev_info(dev, "Domain-%d failed to create freq table\n", index);
--		return ret;
-+		goto unmap_base;
- 	}
- 
- 	policy->freq_table = data->table;
- 	policy->driver_data = data;
- 
- 	return 0;
-+unmap_base:
-+	iounmap(base);
- release_region:
- 	release_mem_region(res->start, resource_size(res));
- 	return ret;
-@@ -322,6 +324,8 @@ static int mtk_cpufreq_hw_cpu_init(struct cpufreq_policy *policy)
- 		if (!(sig & CPUFREQ_HW_STATUS)) {
- 			pr_info("cpufreq hardware of CPU%d is not enabled\n",
- 				policy->cpu);
-+			/* call mtk_cpufreq_hw_cpu_exit to cleanup the resource */
-+			mtk_cpufreq_hw_cpu_exit(policy);
- 			return -ENODEV;
- 		}
- 
+> It is reasonable that Linux will set the attributes properly based on
+> what it is doing. Setting the wrong attributes and expecting the HW to
+> ignore them seems like a hacky direction.
 
----
-base-commit: 52ae6ea5bd7c7286dcba463b6323b640b22af833
-change-id: 20260105-mediatek-cpufreq-hw-a2afa5c8275a
+Oh, I'm not saying that we *shouldn't* set our attributes more exactly - 
+this would still be needed for doing things the "right" way too - I just 
+want to be very clear on the reasons why. The current assumption is not 
+a bug per se, and although it's indeed not 100% robust, the cases where 
+it doesn't hold are more often than not for the wrong reason. Therefore 
+I would say doing this purely for the sake of working around bad 
+firmware - and especially errata - is just as hacky if not more so.
 
-Best regards,
--- 
-Felix Gu <gu_0233@qq.com>
+> I didn't see anything in the spec that says COHACC means the memory
+> attributes are ignored and forced to non-coherent, even though that is
+> the current assumption of the driver.
 
+It kinda works the other way round: COHACC==1 says that the Cacheability 
+and Shareability attributes *can* be configured to snoop CPU caches 
+(although do not have to be); therefore the "If a system does not 
+support IO-coherent access from the SMMU, SMMU_IDR0.COHACC must be 0" 
+case implies that the SMMU is incapable of snooping regardless of how 
+those attributes are set, thus must at least be in a different Inner 
+Shareability domain from the CPUs, at which point the Cacheability 
+domains probably aren't too meaningful either. I would consider it would 
+be unexpectedly incorrect behaviour for an SMMU reporting COHACC==0 to 
+actually be capable of snooping.
+
+>> If prople have a good reason for wanting to use a coherent SMMU
+>> non-coherently (and/or control of allocation hints), then that should really
+>> be some kind of driver-level option - it would need a bit of additional DMA
+>> API work (which has been low down my to-do list for a few years now...), but
+>> it's perfectly achievable, and I think it's still preferable to abusing the
+>> COHACC override in firmware.
+> 
+> IMHO, this is a different topic, and something that will probably
+> become interesting this year. I'm aware of some HW/drivers that needs
+> optional non-coherent mappings for isochronous flows - but it is not
+> the DMA API that is the main issue but the page table walks :\
+
+Hmm, yeah, potentially configuring PTW attributes for a DMA domain is 
+something I hadn't even thought about - the DMA API aspect I mean is 
+that in general we need some sort of DMA_ATTR_NO_SNOOP when 
+mapping/allocating such isochronous buffers/pagetables etc., to make the 
+DMA layer still do the cache maintenance/non-cacheable remaps despite 
+dev_is_dma_coherent() being true.
+
+Thanks,
+Robin.
 
