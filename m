@@ -4,123 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A7BEC79F8A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 12:52:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD684C79F87
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 12:56:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DIfhp3vJVBySXs5/naEXyaaROJC4kEOY5dOC0TJhcN0=; b=FIoOt0BMZeI4N5TUkN+vPWG3Vg
-	jz+wc6Si6R7xvkciL0FDbLr41KJaHTfIH+lRzyrQnXDKm5MiEWQk7snNU1m3w0SpKnnspMMEostNT
-	iRGICaxTsKjSp4v5/wptgGWM4nT3edKUQZi7Uk4VB0TrHyEVa8ZULGQYWoqPFltKUx2umTQvVjJHU
-	rXBEAsgqDmjIByjY14juXsExMii7wW8YFRZcQeQaN6p3FGtfqTf+bdNLdXqFwHY8ZJtzj+85vqsGZ
-	rllmjC/L5i2ydC2qZsLy1S4rW8SWQbBbR0o1XyDaC7kgsduUOieIkJUlUjw14AyFrhZjlomys7I4K
-	FYHqkmug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=en2pW9puE35IFTbs++BWoNNKvbkB1aM3UnUzh6oqOZ4=; b=ij/xUErRHhBmdmsrib7oelKOoq
+	QvnRyRvH8FRf0nrX0YIjpBuArkw9k04z9hZLkAdMZP7kwFGZ81bOhwJqteDdxnTATOng5U+mfQBHW
+	DHUyEMIIwa4EEMioRQEcs8WYoLxOugTESXMFf7U/CgBeDjbFwMGT1q6U+aE9L5CIYMn8heAduX85z
+	o0yKy7EShE8chx3j+CyagH5oKASrxGnsjatUEAo1JWSICW04FcTHHnZ3YhrOrkTMkC9UEn6zS+sRc
+	lv8Ls4Y2Hj4xd30YP+83k3KNHTg4DvaE8u9t4HmoUtT9QEWTr4aocIkOPyWo51yhcdgZy6gLbBPCo
+	iVBv1/2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vck4N-0000000BLby-2ZQs;
-	Mon, 05 Jan 2026 12:52:23 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1vck8c-0000000BMPG-2G0p;
+	Mon, 05 Jan 2026 12:56:46 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vck4K-0000000BLaL-2NdY
+	id 1vck8a-0000000BMO4-1lr7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 12:52:22 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-42fb5810d39so9321383f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 04:52:19 -0800 (PST)
+	Mon, 05 Jan 2026 12:56:45 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-64d0d41404cso18432110a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 04:56:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1767617538; x=1768222338; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=DIfhp3vJVBySXs5/naEXyaaROJC4kEOY5dOC0TJhcN0=;
-        b=a3XzevQzmxBmGXDbbG8lMnM8xdp8oyj8xKyux2iW8aZ7UHybILVFAIpT1AO6SGVk0s
-         Gpbo0exRFnP5pSDQQd5bfFOQib491ckMd0aaT2sUOvBLZ0WpWkSXA3BCJvj38nOGyPBR
-         pEMKpBZUEcdSKumHEaMUIrhz8iZrRuyZ7NTfqFnF8Zaju6HlexTzXs8NDgTwBO5HI6Fh
-         onHCTFfp4SuQGDEGPARcBheGf8V0YwGuRivBcumxqI1C4rbsA3v3ZlzqAnHLLCV6/n75
-         /1kph/COT0z9KaS5R+wfOSRghZy+xVDv26zWAklAYZnTMo/Ca0vFykb9VeIxVZr95i4K
-         x3UQ==
+        d=googlemail.com; s=20230601; t=1767617802; x=1768222602; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=en2pW9puE35IFTbs++BWoNNKvbkB1aM3UnUzh6oqOZ4=;
+        b=WsKes/SNSZYBZzffwpWS35Y8Wvn0rA3trU//TiukoLh2911ZLx0pGxBGqx8NZa57ic
+         rko5CqeZQTiqdrbByMqEflyjrvEL/i1otHO0x7lGSfCAALScuDsBnqJS/7HSjuAEL+Id
+         UUJB+5GZbR5U/A+IZuvaBlFnYsuRIGrLOSt02eQOBRUx8002sLm+tzRyHVwyLa0DrGqP
+         s9gKSufLx/5yXwfMCn4+McmKD5BLYUacdoKo6BAfe3ftfJP3aCTbbFlBdT4tD8AHHLUT
+         O07bTHBt+BE8CeJ3KZRUm5aQsl/xHFG7Y305UjY4Jk/LyLX34oM3zVktX1gOvM/f1JlH
+         Tx2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767617538; x=1768222338;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=DIfhp3vJVBySXs5/naEXyaaROJC4kEOY5dOC0TJhcN0=;
-        b=Es3UWjoz64XHdiKQPLhBx5Gg3eI3NxDqMOMtXTdERC6sSYXNYsRH3Wf+sUsOjNfcUv
-         54jwOAYFCmNNUz0ZJH7O6LizgGFaycSiwP4IQBIP1eUbtu8hCWbkSkyl9ovIXbr1zw1K
-         Z5PJfQGWliX2kpRYgfpeYGBNdp3UyyBigO5geQUL03AWxQOLHxylEBhjLPiykgGFPllF
-         qLnCjOH1qswKVnWHb5bTYo3PMpa1s0aOdzzjnDno8E6uBPQXoEc2ikPXm5JUigPDyyCq
-         uvyng23MiMkPCJspTkrc7XLuC/9gHrTIWafLBoXl6a0oNNBz6sJenBOAUDRoZSs7dZST
-         c21w==
-X-Forwarded-Encrypted: i=1; AJvYcCX6YrxjbUSLy1PETWxnRv7uMbDv5FLu8L9jCpRpAYmtEsMj7NTBtUlP9bZEHEkT8/GBtVj2ZVkpTDILRwduNR26@lists.infradead.org
-X-Gm-Message-State: AOJu0YxJKc9sB8/c5sptuFbOy8Me8BwB1ePxkKQFrNa9jE70ibDNJTvN
-	8qtM+uPuhhJVSTjdekUwmwzu10gy1fx+J00ng6EwcWWC2k0y7TIPcr4MO+V5mbghMDY=
-X-Gm-Gg: AY/fxX53ClolcUFYvG+K54/GIu2U/SP7spTsBtssoZopvceUaT22oPzbkHjCNup4FOA
-	BPfCo8lVRY2PqDXF0uBmLfo9SIpCvMKJ2BDbcpCIm39XeR27VsBelTTvlckC26G6D7RQBNnOwHg
-	kGpwoWxXKWYP0KLDrnKUTGjJwFnqlemZ2w+MjTBZ/FuhzYGN7stHf8glTjtsiisG0/cnEkEUZBs
-	xQqRhuDcA4J6wVGD3+zilGUac9htAuD4SGvAhBjUw6vWWcxVSeBdoPzvBKaYhkcyqBfHAulTWYK
-	Ejn0gbC7Yv+Pp+nqm4p26ynt7sJk/rvM2XaieKsv2owUG2+8Fdd+5Sfexo8Lciou/cASbwhR4Os
-	et20oXA+aihvrBek4SW57gbJ+vgTRizFEdnFDoZXO+kwc1temVZ8/lgQBr2YR9qj0pfzuALabEZ
-	kI8EukkYk9i8mc0iMm0L4hPWQRsfeBQjVdTo+fl3HgKlFHHAEo8XSDVDF5L+ca85ruUrer6lBrK
-	pxSphleeOwpevVQhdJxRlImtWTxlXV8OGA9R7rGxjiC9oE1CmUZc7xS3NlTN9LVq3/KOkus8Hrt
-	3mUjD+0=
-X-Google-Smtp-Source: AGHT+IE4Mz004OZ0As7rWOFq5sPjHYJ4N8Pzam8+bOUXJdXGQOskOlJaecSDta7VRdPfx5XGGjwohQ==
-X-Received: by 2002:a05:6000:1844:b0:432:8504:b8a9 with SMTP id ffacd0b85a97d-4328504b8e1mr37753933f8f.62.1767617537725;
-        Mon, 05 Jan 2026 04:52:17 -0800 (PST)
-Received: from aspen.lan (aztw-34-b2-v4wan-166919-cust780.vm26.cable.virginm.net. [82.37.195.13])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4324ea1b36fsm100029761f8f.5.2026.01.05.04.52.15
+        d=1e100.net; s=20230601; t=1767617802; x=1768222602;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=en2pW9puE35IFTbs++BWoNNKvbkB1aM3UnUzh6oqOZ4=;
+        b=asuq9E7uzsJWRSBt4acpYj4PCSk3zoNcti9bjMUmEv7qncw5CrzP4IvxrPJc8IqU+d
+         1aufuvf4hf6ILPNtyaQgufgtYPH1bM7Hn7swrakfiuTMQDqhiFux1frXFEvTObQokGO3
+         FwDlyCHBqAY02sOIET39cUiahN1jMiWySd6PKvrczQOkwiHSNxI63HPMY5y1N9UXmlcS
+         8qtR7GGsCrDShmMIqAzZDNgzmnrrlSfGkgxen2/6JUN+G+PoYZgZWO+G+0tkvRyUa9tO
+         GFVmaH1D0XBMcTmvkJaP3ST8wqUBjquuhXm+3Xp9O9IiVk4MxuxPL7Opn95o90QO7H4Q
+         43MA==
+X-Forwarded-Encrypted: i=1; AJvYcCVsQAdZn5as3OsojEijiVsgmHZB+w2mDEBjOvVC1x+KFybDpqGQkzdZFdw0ETX0hTBwgmiL3cMGWIAWC8o/WCAT@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHJvIAUpLjVcodeKxEkjg+D2QNDScgJWcjrdEfKesmcgH1OYja
+	gaq5VHotE66IDuO6ydKeRapmZF84B+uby10/ELe46oistl08OnG+iOEJ
+X-Gm-Gg: AY/fxX449JOcqS3Whrys8pnvVwcXyXZMJj636wOCE2zBGGOGcN9DpAYF7hCZVz9ozxa
+	LucODVI2wgNeamQiZHQKNlLpHzLn3EhsRsY2Y1MJ7uLzgHt5Y5ZZxo2uLy78lhqGOxt16RxM51H
+	oWWX1eXcOw8yLZEMbg8cnSZ7Zz0isEHSTYHZFFHmMQwcwIfhP38WMtIvXiclARG8wDwJk3xdN3l
+	80lG3ze+PI4gx98qScrW4El+silZZDbdjgyO64YhicYXuHQ4NZSvxNW8uqbr+hqWyqgmkbt5j4b
+	6zI3XgKtFTv/8b74CK5o47utL4YZrUMarfL4/k1g5lj4qsQkFol7yxPIsAIs9JgB+wTDar8svgF
+	WtZVKiWCkQOZdyeK9XHOj69R261GbHbCA2pU2NKMsljQRX6gKmbFNjAmCFQPoyiw3Tp23OP2H6d
+	6ZRIPNq25kF9HKLmx9T+K61kgKI6HFFBm+PwJMpHJRRqGB3LSd9HxN3YeVUU29VwA9UkGUWq/M4
+	8YWJ7dPUBJGBhHxH+yrw/8zS+CD47de+YPoQR6ZTAc9Rl4XfXrW
+X-Google-Smtp-Source: AGHT+IGkQHUVn4G1LTfeKcgEt+M7w3okEoSSOC40iYpGOWHCsX59BOszv9hkdCiQgf3kosmWwCeYyQ==
+X-Received: by 2002:a05:6402:3587:b0:64d:3b22:a5b9 with SMTP id 4fb4d7f45d1cf-64d3b22a88fmr37161484a12.9.1767617801949;
+        Mon, 05 Jan 2026 04:56:41 -0800 (PST)
+Received: from blackbox (dynamic-2a02-3100-a8ad-5500-1e86-0bff-fe2f-57b7.310.pool.telefonica.de. [2a02:3100:a8ad:5500:1e86:bff:fe2f:57b7])
+        by smtp.googlemail.com with ESMTPSA id 4fb4d7f45d1cf-64b90f53b21sm53582712a12.5.2026.01.05.04.56.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Jan 2026 04:52:17 -0800 (PST)
-Date: Mon, 5 Jan 2026 12:52:14 +0000
-From: Daniel Thompson <daniel@riscstar.com>
-To: Marcos Paulo de Souza <mpdesouza@suse.com>
-Cc: Richard Weinberger <richard@nod.at>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Jason Wessel <jason.wessel@windriver.com>,
-	Daniel Thompson <danielt@kernel.org>,
-	Douglas Anderson <dianders@chromium.org>,
-	Petr Mladek <pmladek@suse.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	John Ogness <john.ogness@linutronix.de>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Jiri Slaby <jirislaby@kernel.org>, Breno Leitao <leitao@debian.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
-	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Nicholas Piggin <npiggin@gmail.com>,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jacky Huang <ychuang3@nuvoton.com>,
-	Shan-Chun Hung <schung@nuvoton.com>,
-	Laurentiu Tudor <laurentiu.tudor@nxp.com>,
-	linux-um@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kgdb-bugreport@lists.sourceforge.net, linux-serial@vger.kernel.org,
-	netdev@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
-	linux-hardening@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	sparclinux@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org
-Subject: Re: [PATCH 00/19] printk cleanup - part 3
-Message-ID: <aVuz_hpbrk8oSCVC@aspen.lan>
-References: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
+        Mon, 05 Jan 2026 04:56:41 -0800 (PST)
+From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+To: linux-amlogic@lists.infradead.org,
+	linux-pci@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	bhelgaas@google.com,
+	robh@kernel.org,
+	mani@kernel.org,
+	kwilczynski@kernel.org,
+	lpieralisi@kernel.org,
+	yue.wang@Amlogic.com,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Subject: [PATCH] PCI: meson: Drop unused WAIT_LINKUP_TIMEOUT macro
+Date: Mon,  5 Jan 2026 13:56:25 +0100
+Message-ID: <20260105125625.239497-1-martin.blumenstingl@googlemail.com>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_045220_883888_6E6FAB1D 
-X-CRM114-Status: GOOD (  17.74  )
+X-CRM114-CacheID: sfid-20260105_045644_467913_203445FC 
+X-CRM114-Status: GOOD (  11.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,88 +105,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marcos
+Commit 113d9712f63b ("PCI: meson: Report that link is up while in ASPM
+L0s and L1 states") removed the waiting loop in meson_pcie_link_up()
+making #define WAIT_LINKUP_TIMEOUT now unused.
 
-On Sat, Dec 27, 2025 at 09:16:07AM -0300, Marcos Paulo de Souza wrote:
-> The parts 1 and 2 can be found here [1] and here[2].
->
-> The changes proposed in this part 3 are mostly to clarify the usage of
-> the interfaces for NBCON, and use the printk helpers more broadly.
-> Besides it, it also introduces a new way to register consoles
-> and drop thes the CON_ENABLED flag. It seems too much, but in reality
-> the changes are not complex, and as the title says, it's basically a
-> cleanup without changing the functional changes.
+Drop the now unused variable to keep the driver code clean.
 
-I ran this patchset through the kgdb test suite and I'm afraid it is
-reporting functional changes.
+Signed-off-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+---
+ drivers/pci/controller/dwc/pci-meson.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-Specifically the earlycon support for kdb has regressed (FWIW the
-problem bisects down to the final patch in the series where CON_ENABLED
-is removed).
+diff --git a/drivers/pci/controller/dwc/pci-meson.c b/drivers/pci/controller/dwc/pci-meson.c
+index a1c389216362..0694084f612b 100644
+--- a/drivers/pci/controller/dwc/pci-meson.c
++++ b/drivers/pci/controller/dwc/pci-meson.c
+@@ -37,7 +37,6 @@
+ #define PCIE_CFG_STATUS17		0x44
+ #define PM_CURRENT_STATE(x)		(((x) >> 7) & 0x1)
+ 
+-#define WAIT_LINKUP_TIMEOUT		4000
+ #define PORT_CLK_RATE			100000000UL
+ #define MAX_PAYLOAD_SIZE		256
+ #define MAX_READ_REQ_SIZE		256
+-- 
+2.52.0
 
-Reproduction on x86-64 KVM outside of the test suite should be easy:
-
-    make defconfig
-    scripts/config \
-        --enable DEBUG_INFO \
-	--enable DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT \
-	--enable DEBUG_FS \
-	--enable KALLSYMS_ALL \
-	--enable MAGIC_SYSRQ \
-	--enable KGDB \
-	--enable KGDB_TESTS \
-	--enable KGDB_KDB \
-	--enable KDB_KEYBOARD \
-	--enable LKDTM \
-	--enable SECURITY_LOCKDOWN_LSM
-    make olddefconfig
-    make -j$(nproc)
-    qemu-system-x86_64 \
-        -m 1G -smp 2 -nographic \
-	-kernel arch/x86/boot/bzImage \
-	-append "console=ttyS0,115200 kgdboc=ttyS0 earlycon=uart8250,io,0x3f8 kgdboc_earlycon kgdbwait"
-
-In a successful test the kdb prompt will appear after only a few lines
-of output:
-~~~
-[    0.000000] Linux version 6.19.0-rc4-00020-g4b7f3b144021 (drt@wychelm) (gcc (Debian 14.2.0-19) 14.2.0, GNU ld (GNU Binutils for Debian) 2.44) #2 SMP PREEMPT_DYNAMIC Mon Jan 6
-[    0.000000] Command line: console=ttyS0,115200 kgdboc=ttyS0 earlycon=uart8250,io,0x3f8 kgdboc_earlycon kgdbwait
-[    0.000000] BIOS-provided physical RAM map:
-[    0.000000] BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff] usable
-[    0.000000] BIOS-e820: [mem 0x000000000009fc00-0x000000000009ffff] reserved
-[    0.000000] BIOS-e820: [mem 0x00000000000f0000-0x00000000000fffff] reserved
-[    0.000000] BIOS-e820: [mem 0x0000000000100000-0x000000003ffdffff] usable
-[    0.000000] BIOS-e820: [mem 0x000000003ffe0000-0x000000003fffffff] reserved
-[    0.000000] BIOS-e820: [mem 0x00000000fffc0000-0x00000000ffffffff] reserved
-[    0.000000] BIOS-e820: [mem 0x000000fd00000000-0x000000ffffffffff] reserved
-[    0.000000] earlycon: uart8250 at I/O port 0x3f8 (options '')
-[    0.000000] printk: legacy bootconsole [uart8250] enabled
-[    0.000000] kgdboc: Going to register kgdb with earlycon 'uart'
-[    0.000000] KGDB: Registered I/O driver kgdboc_earlycon
-[    0.000000] KGDB: Waiting for connection from remote gdb...
-
-Entering kdb (current=0x0000000000000000, pid 0) on processor 0 due to NonMaskable Interrupt @ 0xffffffff9101491f
-[0]kdb>
-~~~
-
-After this patchset is applied the earlycon triggers do not work
-correctly and we get:
-~~~
-[    0.000000] Linux version 6.19.0-rc4-00019-g882df99205ba (drt@wychelm) (gcc (Debian 14.2.0-19) 14.2.0, GNU ld (GNU Binutils for Debian) 2.44) #3 SMP PREEMPT_DYNAMIC Mon Jan 6
-[    0.000000] Command line: console=ttyS0,115200 kgdboc=ttyS0 earlycon=uart8250,io,0x3f8 kgdboc_earlycon kgdbwait
-[    0.000000] BIOS-provided physical RAM map:
-[    0.000000] BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff] usable
-[    0.000000] BIOS-e820: [mem 0x000000000009fc00-0x000000000009ffff] reserved
-[    0.000000] BIOS-e820: [mem 0x00000000000f0000-0x00000000000fffff] reserved
-[    0.000000] BIOS-e820: [mem 0x0000000000100000-0x000000003ffdffff] usable
-[    0.000000] BIOS-e820: [mem 0x000000003ffe0000-0x000000003fffffff] reserved
-[    0.000000] BIOS-e820: [mem 0x00000000fffc0000-0x00000000ffffffff] reserved
-[    0.000000] BIOS-e820: [mem 0x000000fd00000000-0x000000ffffffffff] reserved
-[    0.000000] earlycon: uart8250 at I/O port 0x3f8 (options '')
-[    0.000000] kgdboc: No suitable earlycon yet, will try later
-...
-~~~
-
-
-Daniel.
 
