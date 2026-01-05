@@ -4,70 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17AE3C79FB3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 18:07:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAC78C79FB3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 18:07:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=koyNuAYHed6J5Jl1VuK5dAOOpOEiHY4ZnY3gKSVR2l4=; b=V9U9ks5+peFH734fH76LX7/tZa
-	SRKbrlm1ivQyENxa8353Qkf1hb8t4IY59z1+fXuak640NHYCvq9Pj3PyCCkdvuRda+1bJeu/vepj/
-	ie9rWJE1ZgUiv73Mw04/fq9QJjgWIFdVarYCeM31c4Vz9ataUpr300xYNjZTNRq4OhN3GbZUfEga3
-	XB0LbLTKtw7ev5RK3awXDkHarQyB1DaE1Ry8kRb8rCxmS02Ggbaq7iMhnetdFhNGJkn+AxzujFbet
-	zd6/R07ZpNbx8RG5zmiWCH4NVSGXwW704ChqIy84gALAe0mtvtYxV1PlyPmqkHbJWOcNlrEeWxvtv
-	pLAR32gw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ISZ5KdlFNm4QMiSYu8ataQ4t+3TWra8fgifo7YvecI8=; b=o1gilYQRCP8e1zKBjvpD1Ot3Og
+	30olvKtTAnWo0NZfu106tj3FbZWUfhNdGu+GyVk8MWzdWZLWM1iF8pOqeb+2l1oGHYtP2qxxKkcXh
+	4Ttsz3z8loNfyzT/DTz9W6RmhSH860dcxwvZs86Go5YNEhgqEfIoF2wgRxFWIf5Qe9o2lNnRQ25/a
+	hnLuHehn/4NRtYpHqwntC1D3AhQoWs+90lM7X0+e9ZgaimwVxl1Uco1HYbAeZyk5B8U2V1sx4VJ+0
+	7cHuTEz8h5PGetdDA2EwVo9+vUm4/ICKuPEmIJ204HRQiQ2lih11iGZXIf5QqvY6nlHeZfdxXrpsu
+	A1LHj7ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcoz0-0000000BuBy-1pHZ;
-	Mon, 05 Jan 2026 18:07:10 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vcozf-0000000BuLP-3CCM;
+	Mon, 05 Jan 2026 18:07:51 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcoyx-0000000BuAk-0SB6
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 18:07:08 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.83])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dlMh73cXdzJ46BT;
-	Tue,  6 Jan 2026 02:07:03 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id C6D5040086;
-	Tue,  6 Jan 2026 02:07:03 +0800 (CST)
-Received: from localhost (10.126.174.38) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Mon, 5 Jan
- 2026 18:07:02 +0000
-Date: Mon, 5 Jan 2026 18:07:00 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Ben Horgan <ben.horgan@arm.com>
-CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
-	<baolin.wang@linux.alibaba.com>, <carl@os.amperecomputing.com>,
-	<dave.martin@arm.com>, <david@kernel.org>, <dfustini@baylibre.com>,
-	<fenghuay@nvidia.com>, <gshan@redhat.com>, <james.morse@arm.com>,
-	<kobak@nvidia.com>, <lcherian@marvell.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<peternewman@google.com>, <punit.agrawal@oss.qualcomm.com>,
-	<quic_jiles@quicinc.com>, <reinette.chatre@intel.com>,
-	<rohit.mathew@arm.com>, <scott@os.amperecomputing.com>,
-	<sdonthineni@nvidia.com>, <tan.shaopeng@fujitsu.com>,
-	<xhao@linux.alibaba.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<corbet@lwn.net>, <maz@kernel.org>, <oupton@kernel.org>,
-	<joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <kvmarm@lists.linux.dev>
-Subject: Re: [PATCH v2 22/45] arm_mpam: resctrl: Add CDP emulation
-Message-ID: <20260105180700.000037c8@huawei.com>
-In-Reply-To: <20251219181147.3404071-23-ben.horgan@arm.com>
-References: <20251219181147.3404071-1-ben.horgan@arm.com>
-	<20251219181147.3404071-23-ben.horgan@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	id 1vcozd-0000000BuJt-0Hob;
+	Mon, 05 Jan 2026 18:07:50 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-152.bb.dnainternet.fi [81.175.209.152])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 67F57591;
+	Mon,  5 Jan 2026 19:07:24 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1767636444;
+	bh=zRxW+WZPUDHP4oyJE2pbwtIHuE8/tdQr/GQ0IO95NIU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fTdqGib0D4lb2SZSUnMZhCqS5Ih1tnaBjnCdMTZ2oDFZGLkQnJH5xEW3G7xkM6bi5
+	 BZvxFJCG4JiMNh/Zf4qRy0hCj12prn6+p/xkpJlUh0nTI9iZoQ68L/GF3cJLfaVU/G
+	 RrbGYTnH3nR5ZAETdqRuVUze29+YH9LPHlO7Me5g=
+Date: Mon, 5 Jan 2026 20:07:26 +0200
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Daniel Scally <dan.scally@ideasonboard.com>
+Cc: Dafna Hirschfeld <dafna@fastmail.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] media: rkisp1: request/free irqs in PM runtime ops
+Message-ID: <20260105180726.GG10026@pendragon.ideasonboard.com>
+References: <20260105-rkisp1-irqs-v1-1-922f6a94a2e2@ideasonboard.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.126.174.38]
-X-ClientProxiedBy: lhrpeml500012.china.huawei.com (7.191.174.4) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20260105-rkisp1-irqs-v1-1-922f6a94a2e2@ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_100707_438912_54F66670 
-X-CRM114-Status: GOOD (  20.41  )
+X-CRM114-CacheID: sfid-20260105_100749_393578_4663ED41 
+X-CRM114-Status: GOOD (  47.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,66 +69,235 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 19 Dec 2025 18:11:24 +0000
-Ben Horgan <ben.horgan@arm.com> wrote:
+On Mon, Jan 05, 2026 at 04:19:08PM +0000, Daniel Scally wrote:
+> The rkisp1 driver tracks whether the IRQ handlers should take any
+> action through the use of an "irqs_enabled" flag which is set true
+> at the end of .runtime_resume() and false at the start of
+> .runtime_suspend(). In .runtime_suspend(), after setting the flag,
+> there's then a short window during which the hardware has not yet
+> been disabled by the clock APIs but interrupts remain enabled. If an
+> interrupt is triggered during that window the IRQ handlers will return
+> IRQ_NONE and fail to clear the ISP's IRQ reset registers.
+> 
+> Instead, delay calling request_irq() from .probe() to the end of the
+> .runtime_resume() callback, and call free_irq() at the start of the
+> .runtime_suspend() callback. This will prevent the interrupt handlers
+> being called at all for the device once .runtime_suspend() has been
+> called for it.
+> 
+> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
+> ---
+> We noticed this problem when testing hibernation with the streams
+> running. In a typical use-case the stream might be stopped before the
+> runtime PM suspend callback is called, and so the problem is avoided,
+> but when hibernated with active streams there are sufficient interrupts
+> coming in to reliably land one in the window between the irqs_enabled
+> flag being set to false and the hardware being disabled through
+> clk_bulk_disable_unprepare().
+> 
+> I'm under the impression that requesting the IRQs when the device is
+> in use in the manner of this patch and releasing the when it is not
+> in use is preferred over requesting them in the .probe() function -
+> possibly an impression I picked up from Linux Device Drivers. It
+> doesn't seem to be a particularly common model though, so I thought
+> I'd flag the method here.
 
-> From: James Morse <james.morse@arm.com>
-> 
-> Intel RDT's CDP feature allows the cache to use a different control value
-> depending on whether the accesses was for instruction fetch or a data
-> access. MPAM's equivalent feature is the other way up: the CPU assigns a
-> different partid label to traffic depending on whether it was instruction
-> fetch or a data access, which causes the cache to use a different control
-> value based solely on the partid.
-> 
-> MPAM can emulate CDP, with the side effect that the alternative partid is
-> seen by all MSC, it can't be enabled per-MSC.
-> 
-> Add the resctrl hooks to turn this on or off. Add the helpers that match a
-> closid against a task, which need to be aware that the value written to
-> hardware is not the same as the one resctrl is using.
-> 
-> Update the 'arm64_mpam_global_default' variable the arch code uses during
-> context switch to know when the per-cpu value should be used instead.
-> 
-> Awkwardly, the MB controls don't implement CDP. To emulate this, the MPAM
-> equivalent needs programming twice by the resctrl glue, as resctrl expects
-> the bandwidth controls to be applied independently for both data and
-> instruction-fetch.
-> 
-> CC: Dave Martin <Dave.Martin@arm.com>
-> CC: Amit Singh Tomar <amitsinght@marvell.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+I'm not aware of drivers doing this commonly, so the approach taken in
+this patch seems wrong.
 
-Minor thing below.
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-
-
-> diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
-> index 5a78299ec464..ba0312b55d9f 100644
-> --- a/include/linux/arm_mpam.h
-> +++ b/include/linux/arm_mpam.h
-> @@ -5,6 +5,7 @@
->  #define __LINUX_ARM_MPAM_H
+> ---
+>  .../platform/rockchip/rkisp1/rkisp1-capture.c      |  3 -
+>  .../media/platform/rockchip/rkisp1/rkisp1-common.h |  2 -
+>  .../media/platform/rockchip/rkisp1/rkisp1-csi.c    |  3 -
+>  .../media/platform/rockchip/rkisp1/rkisp1-dev.c    | 82 +++++++++++++++-------
+>  .../media/platform/rockchip/rkisp1/rkisp1-isp.c    |  3 -
+>  5 files changed, 57 insertions(+), 36 deletions(-)
+> 
+> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c
+> index 6dcefd144d5abe358323e37ac6133c6134ac636e..510d1e8d8bbc86e8b8be3579571e308e5ad9f260 100644
+> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c
+> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c
+> @@ -820,9 +820,6 @@ irqreturn_t rkisp1_capture_isr(int irq, void *ctx)
+>  	unsigned int i;
+>  	u32 status;
 >  
->  #include <linux/acpi.h>
-> +#include <linux/resctrl_types.h>
-
-This seems odd as nothing added to the header in this path appears to need it.
-Maybe should be down in the c file or in a different patch?
-
->  #include <linux/types.h>
+> -	if (!rkisp1->irqs_enabled)
+> -		return IRQ_NONE;
+> -
+>  	status = rkisp1_read(rkisp1, RKISP1_CIF_MI_MIS);
+>  	if (!status)
+>  		return IRQ_NONE;
+> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
+> index 5e6a4d5f6fd12baf45a0083eff75de1095162b2d..2a5f6f69b217cdba2fa7c4d1f230ede5aff49149 100644
+> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
+> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
+> @@ -507,7 +507,6 @@ struct rkisp1_debug {
+>   * @debug:	   debug params to be exposed on debugfs
+>   * @info:	   version-specific ISP information
+>   * @irqs:          IRQ line numbers
+> - * @irqs_enabled:  the hardware is enabled and can cause interrupts
+>   */
+>  struct rkisp1_device {
+>  	void __iomem *base_addr;
+> @@ -532,7 +531,6 @@ struct rkisp1_device {
+>  	struct rkisp1_debug debug;
+>  	const struct rkisp1_info *info;
+>  	int irqs[RKISP1_NUM_IRQS];
+> -	bool irqs_enabled;
+>  };
 >  
->  struct mpam_msc;
-> @@ -56,6 +57,8 @@ void resctrl_arch_set_cpu_default_closid(int cpu, u32 closid);
->  void resctrl_arch_set_closid_rmid(struct task_struct *tsk, u32 closid, u32 rmid);
->  void resctrl_arch_set_cpu_default_closid_rmid(int cpu, u32 closid, u32 rmid);
->  void resctrl_arch_sched_in(struct task_struct *tsk);
-> +bool resctrl_arch_match_closid(struct task_struct *tsk, u32 closid);
-> +bool resctrl_arch_match_rmid(struct task_struct *tsk, u32 closid, u32 rmid);
+>  /*
+> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-csi.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-csi.c
+> index ddc6182f3e4bdacdd1962c86f6259334b16aa505..bfc33365ad9d09ccace4ccbb2b19a2fbe1b77eb2 100644
+> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-csi.c
+> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-csi.c
+> @@ -196,9 +196,6 @@ irqreturn_t rkisp1_csi_isr(int irq, void *ctx)
+>  	struct rkisp1_device *rkisp1 = dev_get_drvdata(dev);
+>  	u32 val, status;
 >  
->  /**
->   * mpam_register_requestor() - Register a requestor with the MPAM driver
+> -	if (!rkisp1->irqs_enabled)
+> -		return IRQ_NONE;
+> -
+>  	status = rkisp1_read(rkisp1, RKISP1_CIF_MIPI_MIS);
+>  	if (!status)
+>  		return IRQ_NONE;
+> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
+> index 1791c02a40ae18205f5eb2fd6edca6cda6b459bf..6fa76423bacf3e92cbbb4ef1ceb55e194b88d963 100644
+> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
+> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-dev.c
+> @@ -307,28 +307,62 @@ static int rkisp1_subdev_notifier_register(struct rkisp1_device *rkisp1)
+>   * Power
+>   */
+>  
+> -static int __maybe_unused rkisp1_runtime_suspend(struct device *dev)
+> +static void rkisp1_free_irqs(struct rkisp1_device *rkisp1)
+>  {
+> -	struct rkisp1_device *rkisp1 = dev_get_drvdata(dev);
+> +	for (unsigned int i = 0; i < ARRAY_SIZE(rkisp1->irqs); i++) {
+> +		if (rkisp1->irqs[i] == -1)
+> +			continue;
+>  
+> -	rkisp1->irqs_enabled = false;
+> -	/* Make sure the IRQ handler will see the above */
+> -	mb();
+> +		if (irq_has_action(rkisp1->irqs[i]))
+> +			free_irq(rkisp1->irqs[i], rkisp1->dev);
+> +	}
+> +}
+>  
+> -	/*
+> -	 * Wait until any running IRQ handler has returned. The IRQ handler
+> -	 * may get called even after this (as it's a shared interrupt line)
+> -	 * but the 'irqs_enabled' flag will make the handler return immediately.
+> -	 */
+> -	for (unsigned int il = 0; il < ARRAY_SIZE(rkisp1->irqs); ++il) {
+> -		if (rkisp1->irqs[il] == -1)
+> +static int rkisp1_request_irqs(struct rkisp1_device *rkisp1)
+> +{
+> +	const struct rkisp1_info *info = rkisp1->info;
+> +	int ret;
+> +
+> +	for (unsigned int irqn = 0; irqn < ARRAY_SIZE(rkisp1->irqs); irqn++) {
+> +		unsigned int isrn;
+> +
+> +		if (rkisp1->irqs[irqn] == -1)
+>  			continue;
+>  
+> -		/* Skip if the irq line is the same as previous */
+> -		if (il == 0 || rkisp1->irqs[il - 1] != rkisp1->irqs[il])
+> -			synchronize_irq(rkisp1->irqs[il]);
+> +		if (irq_has_action(rkisp1->irqs[irqn]))
+> +			continue;
+> +
+> +		for (isrn = 0; isrn < info->isr_size; isrn++)
+> +			if ((info->isrs[isrn].line_mask & BIT(irqn)))
+> +				break;
+> +
+> +		if (isrn == info->isr_size) {
+> +			dev_err(rkisp1->dev, "Failed to find IRQ handler\n");
+> +			return -EINVAL;
+> +		}
+> +
+> +		ret = request_irq(rkisp1->irqs[irqn], info->isrs[isrn].isr,
+> +				  IRQF_SHARED, dev_driver_string(rkisp1->dev),
+> +				  rkisp1->dev);
+> +		if (ret) {
+> +			dev_err(rkisp1->dev, "Failed to request IRQ\n");
+> +			goto err_free_irqs;
+> +		}
+>  	}
+>  
+> +	return 0;
+> +
+> +err_free_irqs:
+> +	rkisp1_free_irqs(rkisp1);
+> +	return ret;
+> +}
+> +
+> +static int __maybe_unused rkisp1_runtime_suspend(struct device *dev)
+> +{
+> +	struct rkisp1_device *rkisp1 = dev_get_drvdata(dev);
+> +
+> +	rkisp1_free_irqs(rkisp1);
+> +
+>  	clk_bulk_disable_unprepare(rkisp1->clk_size, rkisp1->clks);
+>  	return pinctrl_pm_select_sleep_state(dev);
+>  }
+> @@ -345,11 +379,16 @@ static int __maybe_unused rkisp1_runtime_resume(struct device *dev)
+>  	if (ret)
+>  		return ret;
+>  
+> -	rkisp1->irqs_enabled = true;
+> -	/* Make sure the IRQ handler will see the above */
+> -	mb();
+> +	ret = rkisp1_request_irqs(rkisp1);
+> +	if (ret)
+> +		goto err_clk_disable;
+>  
+>  	return 0;
+> +
+> +err_clk_disable:
+> +	clk_bulk_disable_unprepare(rkisp1->clk_size, rkisp1->clks);
+> +
+> +	return ret;
+>  }
+>  
+>  static const struct dev_pm_ops rkisp1_pm_ops = {
+> @@ -694,13 +733,6 @@ static int rkisp1_probe(struct platform_device *pdev)
+>  			if (info->isrs[i].line_mask & BIT(il))
+>  				rkisp1->irqs[il] = irq;
+>  		}
+> -
+> -		ret = devm_request_irq(dev, irq, info->isrs[i].isr, IRQF_SHARED,
+> -				       dev_driver_string(dev), dev);
+> -		if (ret) {
+> -			dev_err(dev, "request irq failed: %d\n", ret);
+> -			return ret;
+> -		}
+>  	}
+>  
+>  	ret = rkisp1_init_clocks(rkisp1);
+> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
+> index 2311672cedb1b6c9dd7f1b883adcac1516a685ae..c6b1ecd2d0c260f6739726c9f32562b98ca31364 100644
+> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
+> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
+> @@ -1106,9 +1106,6 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
+>  	struct rkisp1_device *rkisp1 = dev_get_drvdata(dev);
+>  	u32 status, isp_err;
+>  
+> -	if (!rkisp1->irqs_enabled)
+> -		return IRQ_NONE;
+> -
+>  	status = rkisp1_read(rkisp1, RKISP1_CIF_ISP_MIS);
+>  	if (!status)
+>  		return IRQ_NONE;
+> 
+> ---
+> base-commit: ee5b462b97162dbb6c536e18a37b3048f6520019
+> change-id: 20260105-rkisp1-irqs-8af5a1e0b887
 
+-- 
+Regards,
+
+Laurent Pinchart
 
