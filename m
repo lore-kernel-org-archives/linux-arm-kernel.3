@@ -4,103 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3903FC2A062
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  4 Jan 2026 23:01:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1630C2A062
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 00:02:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qjmKR/eiCoAVpyGnbyfS9wTkl7aiV0GxbUH0ODK6l+U=; b=UV1DtX2HZnhuhN/TbUQPwiZ2eg
-	DsgKA4dWIN+4xMM+dF/TNlVbt8Ix8U1LEuJSv1c75v3gFblUNgulUaobc7MlJV55adzvjhtAHjRg0
-	G+WrJ40ysLVTHtkOQQvItESn1lKSuTiiusP94C5DFl6s+j/38IZzhVUbtMvjlcNjoFaNQiRmb709e
-	3/FuK+6jUrXCkntoS6TxWzRjRSvgMWA3sSvTKsQO+6SgvS9Wp/82gxz9bWZO2DDHHUkXX7FnesdLg
-	P+HGQLNjOq4sGwSoSrqEQvv4TY+/CLV6S7OoCKwCI40lA1XHmJ8qVVYXVv7npIGy3e6PlhVdEsLmf
-	+151XGXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8+jSiPWTak82xdkGqmhBxUT/Rw7weH7GEOHsr3Ick4Q=; b=N1wkyZXc2iAJFBSlhVBGv9bOpU
+	yMCgnMbgIA2OocZvODQ6lD4hzRHDlvLGJ/5OYVCwfGL47JwFcwf7Jzx9En48tIADbWcvDNVZtYF+N
+	M5zfj+Ce3Q2qrJV1Xl0Qf6kzLues5b4v1MTWEZJGuHyBjyjCP/UfA3UPzlRs0SqInnPxqRGF8UR+w
+	k2jJgdIXvy53VZiFZxRx2a+ZAHxqU5KhYQKO0CJ6QA2tA/OAEwA1hXXvqxDCgqyLAJi4N7VV5s/My
+	r1nFdIX0McLcXTkHTT5ClPsCxJCC+wtAhzAUncTCbgVdqbVW3IRcQy249lOpSOREYDOonTFrLmvqe
+	KBBBqxpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcX6Y-0000000AXIu-43cK;
-	Sun, 04 Jan 2026 23:01:46 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1vcY3Q-0000000AZHl-401G;
+	Mon, 05 Jan 2026 00:02:36 +0000
+Received: from mail-qk1-x735.google.com ([2607:f8b0:4864:20::735])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcX6V-0000000AXHj-1J1R
+	id 1vcY3O-0000000AZHN-2pS3
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 04 Jan 2026 23:01:44 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-431048c4068so709847f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Jan 2026 15:01:41 -0800 (PST)
+	Mon, 05 Jan 2026 00:02:36 +0000
+Received: by mail-qk1-x735.google.com with SMTP id af79cd13be357-8b2d7c38352so139183785a.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Jan 2026 16:02:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1767567700; x=1768172500; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qjmKR/eiCoAVpyGnbyfS9wTkl7aiV0GxbUH0ODK6l+U=;
-        b=hTSV515b18AO70GXYckibs+eV1Yf40cmefJ3AECPmzgJXY0x69zumpmOx780Wn1yDB
-         NBDc9G/W6wB6GHURfQaQxJwlDfzjB3hUnmUo2o5EikOfsXuZqTT2VUU7ZPqkaUfEY0hQ
-         EoXY61CoiQYuqoGHt4+8EyYEEDRb7y2a+Ejd3Cdnf8LtAvZk9/XySyjY9wipOiqTXvow
-         S7xpehxZG26PEcAXRbgoIdOnuAa6IElqXR+Nga6FJwDZPi6sUqlqr9N8Q64RarGyErjQ
-         XuHz0Y3r+wk2UXYuazNXLWehBUkJ2bLaDOzOtKU0VEwuiRF2vMgYR5EV9X7cNsYgQd5G
-         uO3g==
+        d=ziepe.ca; s=google; t=1767571353; x=1768176153; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=8+jSiPWTak82xdkGqmhBxUT/Rw7weH7GEOHsr3Ick4Q=;
+        b=JbnXe+MJfqNG9HdbAxGzGuBgaKir80IcjKMEGDmZpwiu8F9H0zo++qARTqE2zZk8NR
+         90sjjtoU3Hb53kkvAf/ZgmqFkLek5VhyaSy+c7SnJR5N19iqHPBTOu39WajwLRdAtI7c
+         sr6hcf9XUjCj2XvdRhrWyV8MC7n5VloWUN2v9kDu6xzBtz/ywD0zh3IE1o9qXIEC/gTo
+         E/Nx9tsO2L/qpyC7BLIwMDSJ2u3k89PpXG+lJyFa+pkevXzw1iEmUL+MPgpbV200fUEu
+         yA5Ck3EEkWN6NuRPkjuqFgftwRuAEFT9l+56p0F9upXTOqnPugtYZMAAEkYPNpLQSTK1
+         uRTQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767567700; x=1768172500;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=qjmKR/eiCoAVpyGnbyfS9wTkl7aiV0GxbUH0ODK6l+U=;
-        b=EdO6cg/W/H39YZhd2OilTR8Bvj4UHnM+r4l2Ykfu3Fedz4HaSIRE2fadtyx/8/FM7v
-         QSSRmQ19PLNtcRZuFQamc98kdTTfkVey+Dn5JcHk7auKvwplXKxQUt6L8tDbFQQv1EGx
-         EZgstUZM4S4jKyjEulbcmcNyUvnq2CQgGp2yp+pIJ5ENwYml6lsgmnRcSOcJpRV1a71j
-         8czRFXcfZAkuwMNCcssHndP+pxPGPFtflEooFQ4KJtSJu8jSfi1Y+/FC8kbeiKu/rSup
-         oruGIIvShs54ZMs93spj1xafa4ena6yU6BFGcOvfOEA5bTvm2KOkD1lvbhGb841YhMVi
-         ZKwg==
-X-Forwarded-Encrypted: i=1; AJvYcCUgGvAi3TY+63EuAK2i8QFMkDlR8sTGW18MKFO8lkdqATMO7DHOeIw3mFECvlpATrhUURD7Y3GtN31+x9DPAlu7@lists.infradead.org
-X-Gm-Message-State: AOJu0YwhSWJBGZvP+pVMivzvtoggRNx0q/uaNru7OlNxT0e9Ye5NyqaW
-	0KypfJFzZO/wyrhXx/9LtEgkz+fDyWIFh/pZu06qQ6PqcdhN4N62R0AW
-X-Gm-Gg: AY/fxX7OZf35nzgmw77+BfsSqL4VxCizc3dbesj0qDT7knnlUsSMuORi69qQRKKRJmK
-	GMSSeatDAxyNsYdB+OvYnMbjQOa8zTcWQBYIKHZLKFa+JUgkiHvDLedzTAqZjaBAIvWOqu5QogU
-	EE05cTPP9jfhXvC+XcNTizJheMBOEAccC3nHkGrjNA/4l1u8hBDYj4xISxGVCjwVSdUhN9MgTcc
-	yseaoAbQEXCnCQQMwSZIEjO4TBul5+eOG7O1kzeMSJZsS9uqhlEEREkh/FONmtdZ2PeInxZ0Ou3
-	QPhQQt+r/A7kKsK2kqdt1pG8dO2+x0EP+DkKZN4C2h73HyZcvGFHjOgi7XCuAs3J4tdp/gkIJcJ
-	kaS5o7lyYYiSjokRt048O9/XElVSfvMRnKVubpgN8HNp9qvrcrCORC5uKayQT0wu+63ylJ8uCxO
-	pw+xXOMGbNdTiVuNlAsa3en5FmdhrQcDLixDo3oITy7ObWYDTOv3tX
-X-Google-Smtp-Source: AGHT+IEPxlgtmoJsOcbnrDXHkchjsFc7moeHiVQTpzEoBA2t+H1hGAq+A791EuxHgrzC5U6Ox/NHuQ==
-X-Received: by 2002:a05:6000:3111:b0:430:fe6c:b1aa with SMTP id ffacd0b85a97d-432aa434e77mr7977363f8f.26.1767567699992;
-        Sun, 04 Jan 2026 15:01:39 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4324ea227e0sm99650545f8f.17.2026.01.04.15.01.37
+        d=1e100.net; s=20230601; t=1767571353; x=1768176153;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=8+jSiPWTak82xdkGqmhBxUT/Rw7weH7GEOHsr3Ick4Q=;
+        b=c7sWPDyTMAcrlC1CR+0Bl2HggcZQ/UPxTPbr46dTaQZA1ybYeaGlmbxdInQGKGbT8E
+         INCKlAA4b+NCT56oltPbEbp6Bq6qzWcRassnP2IlHw/fTn4gG7qLBa8McrajBqbLa0bx
+         b7eEanj4o6XRqh5UxNpPcM8yReI3VZvS/aqif6imjpJWz6R7exo5NHGCboKv6V08yCmb
+         T1UworpfcnIp6sY55V50FUTTZTt11T2kk9LhAqNXLALpNRgx0f6s+A0Gb3ZkfzPGI0dX
+         hXN1DjTgdi74M5ng0hBesvDDVlCj2Ooi5pklYyZ956EDOFs8d2yvculXpi5obMkJsB92
+         gjWQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUAdWg7tb5tOlMO1TA9QXUuLC32Qcz62rgF14GuXiu7yGrWLhULbcJC/pvXIl5Hin3eQ5JDPFNCZb+WShWw0EsM@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQhDQiV5H5DWvXsX3YxWyIdG74/5+NKStLW01+MAWKhyxIFDHZ
+	VBoxxfGbgv08SzP0Fx2MASUmlZ5+h9KpLjeI+yoezDzx1BGGFvj6SbUN8yrG0TP+nFg=
+X-Gm-Gg: AY/fxX4KpdL60subjQAn73aYAS0wno0w30xZIRVggAQbfKjkg4NIs4s12zPqJ3RxTa9
+	kJswa2YIGkumTJrwMlFdZ16Fa1tiI9+pr1G8EHoS/HTBKzKajaYGvYyTghryKvpnsdy6ALC/mrB
+	859CvNZDcHmitz2zE/WR4dN54AEZoznduxd4Wy1il1xdk063SSuYXH2AaleXhH6BypjTIjUDW85
+	FQQydd3SqlSDHklDwUc7uTHLv5UcC1rqvhEpBxRCKbZsYulxkSpT67Zh71WAIEeEsWruU46pH8T
+	W10/Io97xQoSzYlNUvbfaJ/eziraNiqd1l+ltaU5CIAE/SEWWcJUC01qZPzJMH00cileUMs871j
+	EzknbmrQBHvyKI3oZIzOx3VQAgQBhO47b6GQMbNiJj/Z3xr296J0JyZ/IhZ1jc4ZOXmNnefGa+J
+	Pik/vhLWsWTgFuDMW9TLXm08a83j9NS6gcvZ7sAtxmvQ0RgOuOm4YQV9cmvPCK94GpD70=
+X-Google-Smtp-Source: AGHT+IGiRum5OAeqK7KwLoeA3fYC8uB4/qk0h6ByodkxfauKgGSblQTUCpTabkdDEAjM1i6E2aZiIQ==
+X-Received: by 2002:a05:620a:440b:b0:8a2:595f:657 with SMTP id af79cd13be357-8c356f10068mr814244585a.21.1767571350945;
+        Sun, 04 Jan 2026 16:02:30 -0800 (PST)
+Received: from ziepe.ca (hlfxns017vw-142-162-112-119.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.162.112.119])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8c09688e3d4sm3545746985a.13.2026.01.04.16.02.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 04 Jan 2026 15:01:38 -0800 (PST)
-Date: Sun, 4 Jan 2026 23:01:36 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
- <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan
- <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley
- <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik
- <gor@linux.ibm.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Thomas
- Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav
- Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, Kees Cook
- <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>, Arnd
- Bergmann <arnd@arndb.de>, Mark Rutland <mark.rutland@arm.com>, "Jason A.
- Donenfeld" <Jason@zx2c4.com>, Ard Biesheuvel <ardb@kernel.org>, Jeremy
- Linton <jeremy.linton@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-hardening@vger.kernel.org
-Subject: Re: [PATCH v3 3/3] randomize_kstack: Unify random source across
- arches
-Message-ID: <20260104230136.7aaf8886@pumpkin>
-In-Reply-To: <20260102131156.3265118-4-ryan.roberts@arm.com>
-References: <20260102131156.3265118-1-ryan.roberts@arm.com>
-	<20260102131156.3265118-4-ryan.roberts@arm.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+        Sun, 04 Jan 2026 16:02:30 -0800 (PST)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1vcY3J-0000000156c-2OeL;
+	Sun, 04 Jan 2026 20:02:29 -0400
+Date: Sun, 4 Jan 2026 20:02:29 -0400
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Dawei Li <dawei.li@linux.dev>
+Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, set_pte_at@outlook.com,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] iommu/arm-smmu-v3: Maintain valid access attributes for
+ non-coherent SMMU
+Message-ID: <20260105000229.GC125261@ziepe.ca>
+References: <20251229002354.162872-1-dawei.li@linux.dev>
+ <20260102184113.GA125261@ziepe.ca>
+ <20260104133532.GA173992@wendao-VirtualBox>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260104133532.GA173992@wendao-VirtualBox>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260104_150143_443155_A7984980 
-X-CRM114-Status: GOOD (  27.61  )
+X-CRM114-CacheID: sfid-20260104_160234_887040_C33F401E 
+X-CRM114-Status: GOOD (  16.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,73 +107,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri,  2 Jan 2026 13:11:54 +0000
-Ryan Roberts <ryan.roberts@arm.com> wrote:
-
-> Previously different architectures were using random sources of
-> differing strength and cost to decide the random kstack offset. A number
-> of architectures (loongarch, powerpc, s390, x86) were using their
-> timestamp counter, at whatever the frequency happened to be. Other
-> arches (arm64, riscv) were using entropy from the crng via
-> get_random_u16().
+> >  /* DMA for "CMDQ MSI" which targets q->base_dma allocated by arm_smmu_init_one_queue() */
+> > 
+> > > @@ -1612,11 +1624,18 @@ void arm_smmu_make_cdtable_ste(struct arm_smmu_ste *target,
+> > >  		(cd_table->cdtab_dma & STRTAB_STE_0_S1CTXPTR_MASK) |
+> > >  		FIELD_PREP(STRTAB_STE_0_S1CDMAX, cd_table->s1cdmax));
+> > >  
+> > > +	if (smmu_coherent(smmu)) {
+> > > +		val = FIELD_PREP(STRTAB_STE_1_S1CIR, STRTAB_STE_1_S1C_CACHE_WBRA) |
+> > > +		      FIELD_PREP(STRTAB_STE_1_S1COR, STRTAB_STE_1_S1C_CACHE_WBRA) |
+> > > +		      FIELD_PREP(STRTAB_STE_1_S1CSH, ARM_SMMU_SH_ISH);
+> > > +	} else {
+> > > +		val = FIELD_PREP(STRTAB_STE_1_S1CIR, STRTAB_STE_1_S1C_CACHE_NC) |
+> > > +		      FIELD_PREP(STRTAB_STE_1_S1COR, STRTAB_STE_1_S1C_CACHE_NC) |
+> > > +		      FIELD_PREP(STRTAB_STE_1_S1CSH, ARM_SMMU_SH_OSH);
+> > > +	}
+> > 
+> > This one is "CD fetch" allocated by arm_smmu_alloc_cd_ptr()
+> > 
+> > etc
+> > 
+> > And note that the above will need this hunk too:
+> > 
+> > +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+> > @@ -432,6 +432,14 @@ size_t arm_smmu_get_viommu_size(struct device *dev,
+> >             !(smmu->features & ARM_SMMU_FEAT_S2FWB))
+> >                 return 0;
+> >  
+> > +       /*
+> > +        * When running non-coherent we can't suppot S2FWB since it will also
+> > +        * force a coherent CD fetch, aside from the question of what
+> > +        * S2FWB/CANWBS even does with non-coherent SMMUs.
+> > +        */
+> > +       if (!smmu_coherent(smmu))
+> > +               return 0;
 > 
-> There have been concerns that in some cases the timestamp counters may
-> be too weak, because they can be easily guessed or influenced by user
-> space. And get_random_u16() has been shown to be too costly for the
-> level of protection kstack offset randomization provides.
-> 
-> So let's use a common, architecture-agnostic source of entropy; a
-> per-cpu prng, seeded at boot-time from the crng. This has a few
-> benefits:
-> 
->   - We can remove choose_random_kstack_offset(); That was only there to
->     try to make the timestamp counter value a bit harder to influence
->     from user space.
-> 
->   - The architecture code is simplified. All it has to do now is call
->     add_random_kstack_offset() in the syscall path.
-> 
->   - The strength of the randomness can be reasoned about independently
->     of the architecture.
-> 
->   - Arches previously using get_random_u16() now have much faster
->     syscall paths, see below results.
-> 
-> There have been some claims that a prng may be less strong than the
-> timestamp counter if not regularly reseeded. But the prng has a period
-> of about 2^113. So as long as the prng state remains secret, it should
-> not be possible to guess. If the prng state can be accessed, we have
-> bigger problems.
+> I was wondering why S2FWB can affect CD fetching before reading 13.8.
 
-If you have 128 bits of output from consecutive outputs I think you
-can trivially determine the full state using (almost) 'school boy' maths
-that could be done on pencil and paper.
-(Most of the work only has to be done once.)
+Yeah, that table is super useful
 
-The underlying problem is that the TAUSWORTHE() transformation is 'linear'
-So that TAUSWORTHE(x ^ y) == TAUSWORTHE(x) ^ TAUSWORTHE(y).
-(This is true of a LFSR/CRC and TOUSWORTH() is doing some subset of CRCs.)
-This means that each output bit is the 'xor' of some of the input bits.
-The four new 'state' values are just xor of the the bits of the old ones.
-The final xor of the four states gives a 32bit value with each bit just
-an xor of some of the 128 state bits.
-Get four consecutive 32 bit values and you can solve the 128 simultaneous
-equations (by trivial substitution) and get the initial state.
-The solution gives you the 128 128bit constants for:
-	u128 state = 0;
-	u128 val = 'value returned from 4 calls';
-	for (int i = 0; i < 128; i++)
-		state |= parity(const128[i] ^ val) << i;
-You done need all 32bits, just accumulate 128 bits.  
-So if you can get the 5bit stack offset from 26 system calls you know the
-value that will be used for all the subsequent calls.
+> +               if (!fwb) {
+> +                       val = FIELD_PREP(STRTAB_STE_1_S1CIR, STRTAB_STE_1_S1C_CACHE_NC) |
+> +                               FIELD_PREP(STRTAB_STE_1_S1COR, STRTAB_STE_1_S1C_CACHE_NC) |
+> +                               FIELD_PREP(STRTAB_STE_1_S1CSH, ARM_SMMU_SH_OSH);
+> +               } else {
+> +                       dev_warn(&smmu->dev, "Inconsitency between COHACC & S2FWB\n");
+> +                       /* FIX ME */
+> +                       return;
 
-Simply changing the final line to use + not ^ makes the output non-linear
-and solving the equations a lot harder.
+I prefer we block it as I showed instead of printing a warning, cache
+inconsistencies in virtualization can become security problems.
 
-I might sit down tomorrow and see if I can actually code it...
+Though it is probably good to add a comment here about s2fwb also
 
-	David
-
- 
+Jason
 
