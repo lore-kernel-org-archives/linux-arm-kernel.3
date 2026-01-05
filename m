@@ -4,60 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 965CFC79FA8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 17:14:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE445C79FA8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 17:16:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K4jFEQuVI3QIOGJYR4+pIsBIQEVO+EmPpuKCtslS3D0=; b=DpL6Ch0smoh95ABptt9Sy3nH/z
-	hzkksut5L1JLMKX2RGCe5ZIFz6fT+6Dr2Ow9eK7+JEeuyfdnBKtlMszYsQlDs/ON5bp5ioQdO+i9Y
-	iBDxA5JlJ84+19NFqUdSHl6Wd2Lohypbvkp4tLjgMbGrBqt/1ROXKXizgp1dkLQuucpBfi63MMOMy
-	NwXzQmUASdPgjjTGmiQX7owwag6t4seXaRrBs1YLN6hXA/rw4fG0Y+NrdiqvteHMmUJpQzNKGNmyE
-	wkF0NmMD3JTEY7uUklP3rgPy19Cr6RxOSQs786Lrfq8IFSzQbCzkUmQoFeQ+W9HL8d3F+Y1MMa+Cb
-	ppigc6zw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BP6Gu/c4u72ZuJtLgtoBCZcMdP8EzVQc6SErXMu+NVM=; b=G6tfWXHPMcB3yUAsGLejjkPAR9
+	iXB7nv1QI8cB0KNrbLWIY4UpDkf9ZT4rf0795Kqp6X4cRVkca0tri4FAV8OZcWovroP8RfED3F92f
+	w3P9lTRG63zEiBiu7DHSOJbAe6Mv1CptueiPmp6MEK7+w4fugH32gUNkI4DM38H4wzOloZ7OJXUUR
+	wrnpS1NPh3b/aL48MCg76TwgJl1KbGfEfldlJ/+hnizwnbNUgZwyV8D07CerQdLdGZUDyY8hTGSwx
+	rotguwL7lQLBKbtC9dsQJv9JxI1fEuMXjoi8sdbfLxm8l+E74+kGoayGl6EnrOJTGcNBd7Oli+XuB
+	1Dpf0fLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vco9X-0000000BndP-2VGX;
-	Mon, 05 Jan 2026 17:13:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vco9V-0000000Bncx-24b6
+	id 1vcoBf-0000000BnqO-2sbW;
+	Mon, 05 Jan 2026 17:16:11 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vcoBZ-0000000BnpL-1EGR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 17:13:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E1D5D339;
-	Mon,  5 Jan 2026 09:13:48 -0800 (PST)
-Received: from [10.1.38.150] (XHFQ2J9959.cambridge.arm.com [10.1.38.150])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7628A3F5A1;
-	Mon,  5 Jan 2026 09:13:54 -0800 (PST)
-Message-ID: <e41f0f57-bf39-45ac-9995-5a90b3d8a3cb@arm.com>
-Date: Mon, 5 Jan 2026 17:13:53 +0000
+	Mon, 05 Jan 2026 17:16:10 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 605FoYhr1617144
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 5 Jan 2026 17:16:04 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	BP6Gu/c4u72ZuJtLgtoBCZcMdP8EzVQc6SErXMu+NVM=; b=iJK2TIcElu/UfXQV
+	UvzgwnNdTKPmjV+ldOkt+wmncU7M/+LJK8zj7oxg0lQnKO9M3nVatd5QseCCMdlm
+	v6Gf9MfKK1QWOptn1ZfV4OUGZGA2OawuLhP1qZo1TY9E493FDAbuSi8QlWI7eVFr
+	0nd6Ie6hremkkOfX5HjfV8L80MUEVI2cu/4akS8xssybFVCiurZ2NnXhfUVhV4cs
+	jEyavDC65WsZZdtzEGDX/Xw0oQcuXrHVEgEzUIu8UWAEdUn0jX7Y/Vmk7z5v3GXM
+	6M1Nk/2oSjIfJIH2QVS+1xTieirzDgWkStxqNKs36epIh5mF/T4c2inJeobU0BMo
+	Od8Z8Q==
+Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bgg9yr958-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 17:16:04 +0000 (GMT)
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2a0f47c0e60so2069715ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 09:16:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1767633364; x=1768238164; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=BP6Gu/c4u72ZuJtLgtoBCZcMdP8EzVQc6SErXMu+NVM=;
+        b=FdHLHc8Yr5fBGvB9ZKDuOsdJZpWDKgf0hfO/KZPUC3ou3EpO1BQiCzH3I0lciqS6GE
+         zatLpUxHyRZpG8CZ5BNCgbfCQfJlk+cvAspXZkCVAQTYULh4MS6ZX/oneT/MXg4JzS+j
+         kl0K+Yl0Uhm/5YOhXu0hIccwP2OKGLdomroBRKIcBRCnTsmkiIOvBMmvRxi+cieTIIHW
+         SO9sq6IBXRAr8hPhECYxz55bL8eNUChnCkiu7rCjmjvChttpynT/Qt2wYNeFEhWN6ba+
+         2cPpjt0xixdgaPWr89vi2Kshc6udpLEYTnZH3aWKcQKElN2Rtlw9kl/WSDmJX+kWqGCq
+         yUuw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767633364; x=1768238164;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=BP6Gu/c4u72ZuJtLgtoBCZcMdP8EzVQc6SErXMu+NVM=;
+        b=s0QYHtE4kxYt8PWjfMOe/fwPtqD6fFb0x+F3xt4jCotj9ONNW5Gv+0YpvIIvxZfms9
+         Xf0P35/TQDPbEL24kAh6NUW21GCEzSM8e88f8f3T7+bBJHWZLhHuPfu5W6gyQOE/+tAz
+         3An4nhig0wQQh+HD9CMTXBQY30xqk+ru3RABr5sbrH+IWp22ZqaCufOKgPyMS/o9+QJ3
+         qVS0aKcFZV/xmRxfqNzWxbmsW8YLyAQsChia5HN3pGaZ799mXUSgIQt6LJgPDfv1pbrs
+         ikAk9GPKSZ39sTvDGO6i/T2vgW4ceyzy/y2sWuE0nOo2KCt8pBKm56dcaXpXj0k5jEs4
+         Pb4A==
+X-Forwarded-Encrypted: i=1; AJvYcCXspEdHiK6fMcNfj4cXugG8MwPSsbIaT/57b+ZSDD7pVG//T8NO2boQxK6SUt49oL3ldidX+Zp7owj7/DsRLRBK@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy8AQxB1m59aXMJErRxjW79ez2GOtlY5y4GZ+I+b7c1EX29RNAF
+	IElC+OGsFfPf6YmNZVEAdgj/nbjI+O6DVT0yHHF6aVmpQ4tauVizEbi75HdQLX2rVcwKXaY9CZJ
+	/z+YOY3eV+LH8dLmSPXCq/J7X4jklD2zTSTJHZz2sn8VUu+RnXvD+n7ISHXR2UoLS+rBYyd1PQ5
+	6NNQ==
+X-Gm-Gg: AY/fxX6qBjT4GYDxWk7OdUd1bH63YcUIJ3UneXDnmx9BKSQv9vvEMkhsQKQgGEnhzNV
+	qQB8fDQGTLSyamVTRqQfCauG8p4V02UxalUGH6rkpLrAiCVv0UHOUe8gJnByfjQuz6f0NaM4Y65
+	4qK9U+kUgxVKOPQ9l+UyNVW/c9SpaStJq2j7eAcbGRDrj6zzvV4mlsZYblxkHej8wqLlaWyr4QQ
+	m9zjtByGjUtXG4wb5MtrUIaP6HYClRW/p9cFABDOCtKxaQ9tA2Yr2ecPWaN/f7r/u12kJlrmRIX
+	fi7P62eaZkvQQ9nSUL2edkBmi5vk1MtenA4kPiuIDK2DK1JR3Se49mwqPrUl/YD9+JXDYA3hqvT
+	o+79wdJkrDkj3F4UWFLZQjMkwAw==
+X-Received: by 2002:a05:6a20:3c8e:b0:371:53a7:a4ba with SMTP id adf61e73a8af0-389822fca65mr45921637.30.1767633363798;
+        Mon, 05 Jan 2026 09:16:03 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFDb3ibB9yyf+XjsFBKFvP7NjPBf6cbuRzUcRVAfkOINXdA704jnRwHCauACbYKxkz5R4nWrA==
+X-Received: by 2002:a05:6a20:3c8e:b0:371:53a7:a4ba with SMTP id adf61e73a8af0-389822fca65mr45883637.30.1767633363170;
+        Mon, 05 Jan 2026 09:16:03 -0800 (PST)
+Received: from work ([120.56.194.222])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c4bfca6fbccsm199197a12.3.2026.01.05.09.15.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 Jan 2026 09:16:02 -0800 (PST)
+Date: Mon, 5 Jan 2026 22:45:56 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+        Bjorn Helgaas <helgaas@kernel.org>
+Cc: Yue Wang <yue.wang@amlogic.com>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Kevin Hilman <khilman@baylibre.com>,
+        Jerome Brunet <jbrunet@baylibre.com>,
+        Linnaea Lavia <linnaea-von-lavia@live.com>,
+        FUKAUMI Naoki <naoki@radxa.com>,
+        Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
+        linux-amlogic@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org,
+        linux-kernel@vger.kernel.org, Bjorn Helgaas <bhelgaas@google.com>,
+        stable@vger.kernel.org, Ricardo Pardini <ricardo@pardini.net>
+Subject: Re: [PATCH] PCI: meson: Remove meson_pcie_link_up() timeout,
+ message, speed check
+Message-ID: <2veit3krpnauq67smexshnknbahup4yuckjgd6bxqisfqswkqe@dbhcgpiaajga>
+References: <20251103221930.1831376-1-helgaas@kernel.org>
+ <176603796183.17581.9416209133990924154.b4-ty@kernel.org>
+ <CAFBinCAPpiq=M00ZQXAB4Pu2Myjo8gpXC7DByKkGN6Z_Ahqafg@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 03/13] arm64: mm: Implicitly invalidate user ASID based
- on TLBI operation
-Content-Language: en-GB
-To: Linu Cherian <linu.cherian@arm.com>
-Cc: Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Mark Rutland <mark.rutland@arm.com>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>,
- Dev Jain <dev.jain@arm.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20251216144601.2106412-1-ryan.roberts@arm.com>
- <20251216144601.2106412-4-ryan.roberts@arm.com>
- <aVtNXhd1VRfktfAx@a079125.arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <aVtNXhd1VRfktfAx@a079125.arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAFBinCAPpiq=M00ZQXAB4Pu2Myjo8gpXC7DByKkGN6Z_Ahqafg@mail.gmail.com>
+X-Authority-Analysis: v=2.4 cv=M89A6iws c=1 sm=1 tr=0 ts=695bf1d4 cx=c_pps
+ a=cmESyDAEBpBGqyK7t0alAg==:117 a=3dEILRYKsVIWdVk4w2Qziw==:17
+ a=IkcTkHD0fZMA:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=6FUes5m74a-6EvCHSkUA:9
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=1OuFwYUASf3TG4hYMiVC:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA1MDE1MCBTYWx0ZWRfX7p/jegG/McNm
+ 1Rbd6f64BGtPbi8HhOTj9o9I2q9CJxATqmu3KaQxVBGLQMU0VOtqCR3easlGR9M/3zoOfTIbR31
+ 9mT++NnSrnxH4K1Eo4mHLOVH6e4koUnCxnGle5WZL1seQhnGZWGQEj/VKaER0GFRgFo7Duv60Iw
+ P+mSmR+40+zMDOU916hWalfQB1teWoO7pcFymGCPPcg0H7hFrBjZcEgDAVxzO1uuILpbb1GRcTm
+ w5MZtsHeETnJhS7THO2bzs3d1QFAkCjfiP6VsML8uM1Kevaca/lNXJtjU1VcpUFnLR+uQo08gAK
+ PSsLOJYB8mJ+bgDS9O6U/kJAW0Nn8KVLOxcHy+70fSWAjnb65TKTP5LYKLJNXFCrfE0TnR3Cki5
+ FOO4tRKY3ZD5avG+O97azTHH4twZ0gv7Mw0fb7U17h+Ei/rnsOcbRXhCAEdfIJ9tXnl0Bhw/LZB
+ C/cR61CcRTeZu+fnbvA==
+X-Proofpoint-ORIG-GUID: w0k0yPRdRgSPNt8fJanCsvbLQSPA-Ke0
+X-Proofpoint-GUID: w0k0yPRdRgSPNt8fJanCsvbLQSPA-Ke0
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2026-01-05_01,2026-01-05_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 malwarescore=0 priorityscore=1501 phishscore=0 clxscore=1015
+ lowpriorityscore=0 impostorscore=0 spamscore=0 adultscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601050150
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_091357_625502_A8C7CF4C 
-X-CRM114-Status: GOOD (  16.94  )
+X-CRM114-CacheID: sfid-20260105_091608_648101_DF81DDE6 
+X-CRM114-Status: GOOD (  23.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,149 +156,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/01/2026 05:34, Linu Cherian wrote:
-> Hi Ryan,
+On Mon, Jan 05, 2026 at 05:49:00PM +0100, Martin Blumenstingl wrote:
+> Hi Mani,
 > 
-> On Tue, Dec 16, 2025 at 02:45:48PM +0000, Ryan Roberts wrote:
->> When kpti is enabled, separate ASIDs are used for userspace and
->> kernelspace, requiring ASID-qualified TLB invalidation by virtual
->> address to invalidate both of them.
->>
->> Push the logic for invalidating the two ASIDs down into the low-level
->> tlbi-op-specific functions and remove the burden from the caller to
->> handle the kpti-specific behaviour.
->>
->> Co-developed-by: Will Deacon <will@kernel.org>
->> Signed-off-by: Will Deacon <will@kernel.org>
->> Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
->> ---
->>  arch/arm64/include/asm/tlbflush.h | 27 ++++++++++-----------------
->>  1 file changed, 10 insertions(+), 17 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
->> index c5111d2afc66..31f43d953ce2 100644
->> --- a/arch/arm64/include/asm/tlbflush.h
->> +++ b/arch/arm64/include/asm/tlbflush.h
->> @@ -110,6 +110,7 @@ typedef void (*tlbi_op)(u64 arg);
->>  static __always_inline void vae1is(u64 arg)
->>  {
->>  	__tlbi(vae1is, arg);
->> +	__tlbi_user(vae1is, arg);
->>  }
->>  
->>  static __always_inline void vae2is(u64 arg)
->> @@ -126,6 +127,7 @@ static __always_inline void vale1(u64 arg)
->>  static __always_inline void vale1is(u64 arg)
->>  {
->>  	__tlbi(vale1is, arg);
->> +	__tlbi_user(vale1is, arg);
->>  }
->>  
->>  static __always_inline void vale2is(u64 arg)
->> @@ -162,11 +164,6 @@ static __always_inline void __tlbi_level(tlbi_op op, u64 addr, u32 level)
->>  	op(arg);
->>  }
->>  
->> -#define __tlbi_user_level(op, arg, level) do {				\
->> -	if (arm64_kernel_unmapped_at_el0())				\
->> -		__tlbi_level(op, (arg | USER_ASID_FLAG), level);	\
->> -} while (0)
->> -
->>  /*
->>   * This macro creates a properly formatted VA operand for the TLB RANGE. The
->>   * value bit assignments are:
->> @@ -435,8 +432,6 @@ static inline void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
->>   * @stride:	Flush granularity
->>   * @asid:	The ASID of the task (0 for IPA instructions)
->>   * @tlb_level:	Translation Table level hint, if known
->> - * @tlbi_user:	If 'true', call an additional __tlbi_user()
->> - *              (typically for user ASIDs). 'flase' for IPA instructions
->>   * @lpa2:	If 'true', the lpa2 scheme is used as set out below
->>   *
->>   * When the CPU does not support TLB range operations, flush the TLB
->> @@ -462,6 +457,7 @@ static inline void arch_tlbbatch_flush(struct arch_tlbflush_unmap_batch *batch)
->>  static __always_inline void rvae1is(u64 arg)
->>  {
->>  	__tlbi(rvae1is, arg);
->> +	__tlbi_user(rvae1is, arg);
->>  }
->>  
->>  static __always_inline void rvale1(u64 arg)
->> @@ -473,6 +469,7 @@ static __always_inline void rvale1(u64 arg)
->>  static __always_inline void rvale1is(u64 arg)
->>  {
->>  	__tlbi(rvale1is, arg);
->> +	__tlbi_user(rvale1is, arg);
->>  }
->>  
->>  static __always_inline void rvaale1is(u64 arg)
->> @@ -491,7 +488,7 @@ static __always_inline void __tlbi_range(tlbi_op op, u64 arg)
->>  }
->>  
->>  #define __flush_tlb_range_op(op, start, pages, stride,			\
->> -				asid, tlb_level, tlbi_user, lpa2)	\
->> +				asid, tlb_level, lpa2)			\
->>  do {									\
->>  	typeof(start) __flush_start = start;				\
->>  	typeof(pages) __flush_pages = pages;				\
->> @@ -506,8 +503,6 @@ do {									\
->>  		    (lpa2 && __flush_start != ALIGN(__flush_start, SZ_64K))) {	\
->>  			addr = __TLBI_VADDR(__flush_start, asid);	\
->>  			__tlbi_level(op, addr, tlb_level);		\
->> -			if (tlbi_user)					\
->> -				__tlbi_user_level(op, addr, tlb_level);	\
->>  			__flush_start += stride;			\
->>  			__flush_pages -= stride >> PAGE_SHIFT;		\
->>  			continue;					\
->> @@ -518,8 +513,6 @@ do {									\
->>  			addr = __TLBI_VADDR_RANGE(__flush_start >> shift, asid, \
->>  						scale, num, tlb_level);	\
->>  			__tlbi_range(r##op, addr);			\
->> -			if (tlbi_user)					\
->> -				__tlbi_user(r##op, addr);		\
->>  			__flush_start += __TLBI_RANGE_PAGES(num, scale) << PAGE_SHIFT; \
->>  			__flush_pages -= __TLBI_RANGE_PAGES(num, scale);\
->>  		}							\
->> @@ -528,7 +521,7 @@ do {									\
->>  } while (0)
->>  
->>  #define __flush_s2_tlb_range_op(op, start, pages, stride, tlb_level) \
->> -	__flush_tlb_range_op(op, start, pages, stride, 0, tlb_level, false, kvm_lpa2_is_enabled());
->> +	__flush_tlb_range_op(op, start, pages, stride, 0, tlb_level, kvm_lpa2_is_enabled());
->>  
->>  static inline bool __flush_tlb_range_limit_excess(unsigned long start,
->>  		unsigned long end, unsigned long pages, unsigned long stride)
->> @@ -568,10 +561,10 @@ static inline void __flush_tlb_range_nosync(struct mm_struct *mm,
->>  
->>  	if (last_level)
->>  		__flush_tlb_range_op(vale1is, start, pages, stride, asid,
->> -				     tlb_level, true, lpa2_is_enabled());
->> +				     tlb_level, lpa2_is_enabled());
->>  	else
->>  		__flush_tlb_range_op(vae1is, start, pages, stride, asid,
->> -				     tlb_level, true, lpa2_is_enabled());
->> +				     tlb_level, lpa2_is_enabled());
->>  
->>  	mmu_notifier_arch_invalidate_secondary_tlbs(mm, start, end);
->>  }
->> @@ -630,7 +623,7 @@ static inline void flush_tlb_kernel_range(unsigned long start, unsigned long end
->>  
->>  	dsb(ishst);
->>  	__flush_tlb_range_op(vaale1is, start, pages, stride, 0,
->> -			     TLBI_TTL_UNKNOWN, false, lpa2_is_enabled());
->> +			     TLBI_TTL_UNKNOWN, lpa2_is_enabled());
->>  	dsb(ish);
->>  	isb();
+> On Thu, Dec 18, 2025 at 7:06 AM Manivannan Sadhasivam
+> <manivannan.sadhasivam@oss.qualcomm.com> wrote:
+> >
+> >
+> > On Mon, 03 Nov 2025 16:19:26 -0600, Bjorn Helgaas wrote:
+> > > Previously meson_pcie_link_up() only returned true if the link was in the
+> > > L0 state.  This was incorrect because hardware autonomously manages
+> > > transitions between L0, L0s, and L1 while both components on the link stay
+> > > in D0.  Those states should all be treated as "link is active".
+> > >
+> > > Returning false when the device was in L0s or L1 broke config accesses
+> > > because dw_pcie_other_conf_map_bus() fails if the link is down, which
+> > > caused errors like this:
+> > >
+> > > [...]
+> >
+> > Applied, thanks!
+> >
+> > [1/1] PCI: meson: Remove meson_pcie_link_up() timeout, message, speed check
+> >       commit: 11647fc772e977c981259a63c4a2b7e2c312ea22
+> My understanding is that this is queued for -next.
+> Ricardo (Cc'ed) reported that this patch fixes PCI link up on his Odroid-HC4.
+> Is there a chance to get this patch into -fixes, so it can be pulled
+> by Linus for one of the next -rc?
 > 
-> 
-> 
->  __flush_tlb_range_op call in local_flush_tlb_contpte is missed out.
 
-Thanks; this is part of my botched rebase. I'll fix it in the next rev.
+Hmm, I looked at the Fixes tag and mistakenly assumed that the issue existed
+from the beginning.
 
-> 
-> 
-> --
-> Linu Cherian
+Bjorn, could you please include this patch in the next fixes PR?
 
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
