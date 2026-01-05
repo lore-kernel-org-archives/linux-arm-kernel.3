@@ -4,153 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2AD7C79FBC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 19:57:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DB85C79FBC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 19:58:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SsMWRGysGmlJeqqidXmOpRIwPjT5+nAivgMIxnsw5FA=; b=Y00aPnCFo839SsoUQdM+xAhJea
-	XBqY/2D0CdopDlkyARQzHOuI+PVdBF7fbVZOEOVmdOzPgtDbGPGnpd3p4u25C/EKKeOHbYsyXJqZe
-	i+rFzqAM5+Gnn5uehZqtTUqcEZIsRcIHHdqWxL7iRWd8nnI+BvnRjK3yRqhWj0xPhEhkdF7LCAPgo
-	QtksoR+J7xQ6hp/BmyEK/Mygslpqst2kHyk2LhMQkJ03Whk+84i2Gvqw4B8EzmYUbh6HQkbMPqB+V
-	4nkHPqbTKwIkVt/iPbNXypctCNSa0vm6QGdI2ZlyA+JOTBc4hsuGQMvx5jDX083QmSXSxI85SKPSA
-	+h+spbOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MQOHBIIdr9wb3UwAOgWeXeSOOFCWd5Ehvaxx7a4u9wQ=; b=dUEHcYZh5seuA9S4YCRlIm7ZTQ
+	gtpiaLUCV2K17fjc4X0Byad8Y5AgG6fB4iVQ4/PjpMvKE7d9YQErdzIpoRiGNOAUVhcy2jR8cd4ME
+	OPeMfU/tw4Fd8xTknDl8eaK3bgpNHlRaW7E6goWLNnmpmBqZwUJEzF1C3boLbg3C++SoS5mSzW9Hc
+	aIeDxJeR/n7weqrwRXDih+LFQJdRggE7KttB2dRFRo5QbbkjZ72DrT36qQj5g6ipT4N4aiZcgFz+b
+	shiQ22PbQPPa6Ne6q7kSeo4/IS9sGvnh0bXMAXEHcRDhAYCwMAD+oCVgOMNrOWY89fgpFlEHe8Dxn
+	PvsozZ9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcqhN-0000000C0uw-3YOI;
-	Mon, 05 Jan 2026 19:57:14 +0000
-Received: from mail-francesouthazon11011063.outbound.protection.outlook.com ([40.107.130.63] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1vcqir-0000000C14j-1Z0S;
+	Mon, 05 Jan 2026 19:58:37 +0000
+Received: from out-172.mta0.migadu.com ([91.218.175.172])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcqh8-0000000C0uG-2sTx
+	id 1vcqip-0000000C13q-0H8L
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 19:57:01 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ghc0i9ZbnXthXGv5ehhbMARplyIXWKaEAm9zCIyi17hNribHD/o8/3n7xc0ElYYULbWblgVF0Ahgao4hTEse4xu+nWs2TvFdFhP5q6PpKoKNIM4c2sJiHluDUAsbEyM4L4rHC2DphQG1A33M4RxtmrEZLA9Ei3AZA3vrr3+2LN343NNS7UCm4G+pIlvUvoM6wCCulnrXDJQzG2FKkbwtu6ePVVveLmIcwlHChysiyS5uIx7lLsZaDfDRrPyYWhYTYveBBRt/R1nLasKaSt7kMdy5ykZF8tdjM7ZY4PI0ElUg1lkxp0cfKXvYaGhGZtrgvZldMAW21l5VqZP029kAvg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SsMWRGysGmlJeqqidXmOpRIwPjT5+nAivgMIxnsw5FA=;
- b=TG+RLMGHGLMzH2OO8Tc8l4sXwnT5dw7S1GO17Wbi5MIktILHtuUjZ1xFoDzZ5V1HR3vIrRc3HTuikiB4i2cCPzOozY7uXzsBenkbsTI5cb/Bg+0+1nvF9lLgVv2USCDcuvMNTkqLNJdPg4wsXaYlhfxl41dBvnhFEaYmWe8C+FyaAxrv30749QnNjQJdU6vfJgw9gjXo5mQsEuEDpaTiYURG+txExgFrmvr4zkPCYdGPM1U146X7OIOwW14/6eMTyAaKrPYV5Huh0FQpUMXVoPS8PH6z362HKho+rxKPXKcb9SY1UHQ79Kjb8gGPq0Q9ri44z3XxoozsKKotwvyraA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SsMWRGysGmlJeqqidXmOpRIwPjT5+nAivgMIxnsw5FA=;
- b=fHZDeoBSZmUH/pSOux3nKzwvlkPHgXowzSHuSxmKart5rtNwBhmH7rWxTg0mdFBZ+7vcoxhCd7aXS9PX/KybgeNLvRYXtRXICr3y2wUD1fhYkVZl5gaBzWjm/n+xy6bk7Rjtwg6ea9q7N8SYOPlDnwM+CyX3u+5O4wKmJkj9+kgNbOANiCu79CDvZ3HrK90DMTJ7HjKOfKcLBdE1MP6v+EMYOQvBmbOWoqu1xawy6L6HalYXDZeDgUEyOfLXfY9Sc5bipkzvrjn8oSdo6PH0WAOCg8EoHhYEhkXdWSbG9nREcpUAWRaCvOVEcfxzIFzcFugcAcWGfItC4VWIcTsMYw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
- by PAXPR04MB8607.eurprd04.prod.outlook.com (2603:10a6:102:21a::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Mon, 5 Jan
- 2026 19:56:45 +0000
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9478.004; Mon, 5 Jan 2026
- 19:56:45 +0000
-Date: Mon, 5 Jan 2026 14:56:37 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/3] ARM: dts: imx: cleanup most gpmi related CHECK_DTB
- warning
-Message-ID: <aVwXdU3yEqkFBIHh@lizhi-Precision-Tower-5810>
-References: <20251104-gpmi_dts-v1-0-886865393d0f@nxp.com>
- <aQqxXuOei/wtOBar@shlinux89>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aQqxXuOei/wtOBar@shlinux89>
-X-ClientProxiedBy: SJ0PR05CA0143.namprd05.prod.outlook.com
- (2603:10b6:a03:33d::28) To DU2PR04MB8951.eurprd04.prod.outlook.com
- (2603:10a6:10:2e2::22)
+	Mon, 05 Jan 2026 19:58:36 +0000
+Message-ID: <c28be0ef-f6c9-42e3-8f7b-133a93378d48@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1767643110;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MQOHBIIdr9wb3UwAOgWeXeSOOFCWd5Ehvaxx7a4u9wQ=;
+	b=kEePRUG7Bn7W31+FpUyH1Drkt4k55aSIkcEwC0LQ0v+Xdk+5so+Rn+p6C+mvxgZ4cJrzPS
+	PZHL/K9e8ozNfpKTPZhfzmXGmcglbewyD0WHrmttQQ6486kMaBDvWSOroXHf9cZ59QZF/n
+	kTa6aczXX3vLcaQAWQu59ws4X2nkAF0=
+Date: Mon, 5 Jan 2026 14:58:25 -0500
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|PAXPR04MB8607:EE_
-X-MS-Office365-Filtering-Correlation-Id: 11a58bc1-3f7b-4ac4-108c-08de4c948dfa
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|366016|376014|19092799006|7416014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?908LfdF8jcSIkwbVmvcE9ReeTJBZFh3dfWSssSKJdsZwtD79OEYkxdQc9XRo?=
- =?us-ascii?Q?M3Hx270vbOciNwgy/6MhPe6HtHVXwjA53ifM0hz3BF8fABPb0b1Cubc1xxu7?=
- =?us-ascii?Q?KlLUxL0Y42lURC2IVaW5kKw15vXK4GJ4ZFPh6qB71CgodQ0G8oemLO5k8Ni6?=
- =?us-ascii?Q?75um12CS1TC9F8qRJYvRAUywxTMlPQ+fhHwoUQ99UBchTG6/aTVr0nb0qW2a?=
- =?us-ascii?Q?jGQL0ntMzIvD4v5huMdpT51GsmlNr+a70ulfD2lQ3q2mVbA/6LpBUILFu58g?=
- =?us-ascii?Q?FfsCuhuPuxXcb/zJAkNNhCfiBESuDJZ1XYAKDzNFDeSYTBc8NC6O4j/wQnyg?=
- =?us-ascii?Q?vaP7IBYYIOGrYMjLKSR0x7HinZQLFp3ycE2bR6v7iUn82pfUFOGGnZimCRV8?=
- =?us-ascii?Q?8qp8bSiT/ssYZ10+jyg3Ea3LizLYkvr6qv7sbdSeiBNjy6TpRtO19ifSe1LS?=
- =?us-ascii?Q?P2MVYYrNXmU+kIqbBx0EFlswzf3b4fs2Af9PQ+08RD9fLye+eXoQTlJU6xQc?=
- =?us-ascii?Q?I1j73MFicFGfIyHOUAXL9+p+etCdp+8UUlHonMQILs+Y9p21NklcoPa/774w?=
- =?us-ascii?Q?FYv2SgK3fsDfx/GDOs1N+HjOk8sv5S0J2CpTuMV+PqA7nYq4/71+v/GzEpAV?=
- =?us-ascii?Q?7ideDGYfwa1jwoulRdlrwhkzNSTeTLTXOTzTL59aWTXsxcjh8fpnI+K/bJ5+?=
- =?us-ascii?Q?WwpyTtL8u20p4z+0ZN+AmyqrJO62DO6cBpAhAm8rXCcRpYKSeTw2uPxfeeNG?=
- =?us-ascii?Q?4zfwL9PCmR5r+4/e/Cqzo+fLq+e44nHRQAHBwh/AugEHsS3Xb+rhV/7cN0wg?=
- =?us-ascii?Q?RFcKD4Veo175WOpeZuBo1WNsGCRQdsw37969Bosv9jkT10gLgUtb1iZJ/qlX?=
- =?us-ascii?Q?PoF5UK7Jwiu8ykAgADjy+mjPEcQ7VTVXzrX6efVAFlZx8wtib57vt1EbhZaf?=
- =?us-ascii?Q?ypDAXvlHUee/VsMcLABYewBO/yp0D5k0D6nMVtgXSigJILXR3C3eKTcxZGqt?=
- =?us-ascii?Q?yetGp2kGvgXArmSbOLaWru0JilUj6/pRVLuCpwVthACB1mhqQm0Q/qPYcVWQ?=
- =?us-ascii?Q?EIWhjWuK0eJJks2PVZvgU/FrzLCqB2hgYVcTWgbUvYbQmwC+hjoXBEHoCpK0?=
- =?us-ascii?Q?bWdTuPZxpGRBPGNIua5OCS1AfFVvqOzpiG79BejvUnoU1bocBQxJIxhGHvii?=
- =?us-ascii?Q?teTp6UnxgNvROr12IPrGIktAqzuVrzPiJJiCSrgH0C47L3P4eaNNskis/FOy?=
- =?us-ascii?Q?sgGSvJzCxAtQET7RhQV1qjSEmKKiA1rofgV4aoKq8vBaC2k5LInz50v4STIi?=
- =?us-ascii?Q?oE6awNJleRaRDrvZX7j/T4l3hGS1I8DJh+pje/yQYocQBfkOTtzmfauDz8Gc?=
- =?us-ascii?Q?XU4qaTtYrS6jaWx6Sn6P8emKHNqI5TmtALe3qi8eSxVx81F5B2Q1myweNOA9?=
- =?us-ascii?Q?VwOkb6ZQPMkHXbIIuIe3jH5zMJIqwe1oM8WZwO1cnc2QxKex659N4uLTU8pY?=
- =?us-ascii?Q?BhsfMC3uX6dBoYFHw01Usxn27ZasnTXY++FO?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(366016)(376014)(19092799006)(7416014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?fZbBzPiVmZjcNwEaGt1DnYLR5YqeT8u2iQNtOvuVIrjpcpUBX33c9F7o/VoB?=
- =?us-ascii?Q?uGCUqgQJZZL9c3bTFyWWqEXkVN4TsBuO1OftjpWHXy3C+ElLHN7PfQ3kvV4h?=
- =?us-ascii?Q?ymOQ2ANPPiGNgQK69OGDZALklloZ5B2QqCiWnWt/jzEOM1BR2gXyHVjoYe3P?=
- =?us-ascii?Q?Xr3dsJtSL7iM4qPOFqb66Rms3pcAUQ5TPmkinX7CNP9A9rFxjj2VnXtoPeth?=
- =?us-ascii?Q?ePe/NVkgsfU/6CFFnzjSJHi4PPI5qp1yXPidWvoY7H6IM18aaK/1R6qlujMs?=
- =?us-ascii?Q?gOO6e+00xIIkEi3tDz0Rw9IYtvMWTnquMQbLL6MaJuk0sqL06D33kHxrs8cG?=
- =?us-ascii?Q?DZKirMAT/2Sp/B0o/pqoEJDnek5ph7+HsN5ZUtXj2mitVLsZvDKKNM1dzQEd?=
- =?us-ascii?Q?XexHcmxpet4JiClOC/J3B5PbgRG/LubnAFC3VQGCGIVEXazELBSaZIgiTR9s?=
- =?us-ascii?Q?4nwaV2K/1uK1Rb5HgyG7583/9xjO5E92NpjKTKkL9Z/Q0HEaUomdBCGGTVu3?=
- =?us-ascii?Q?0UW7HrnZa+1gIOgg+W4MXumXHc/rBHCVd0UD3ZsdFe3mbIAu+EHBslgfx/LW?=
- =?us-ascii?Q?iJodOv0RSqyRzLxVvorTDwyInrr6eyvhFOSBoqlrZALzU67CYHxXERJBUpH8?=
- =?us-ascii?Q?RFAvhrsL6JqYf1ZM/e0n1jBOwO0nnWp7SlqCcQ5Qgi9sjmz217dEknzycNxT?=
- =?us-ascii?Q?bwCkjeshquwCZkUsinGfjczfKwUz0DQfB9ej4d/FhgvDB2W7jsrG1DM7Pefw?=
- =?us-ascii?Q?oFUAQj5+8oa+UKYzaghi9NypY95zj0j6JvA1vpTYvxLLqwKQeKlr4pRSqTcd?=
- =?us-ascii?Q?DjOeU82t2ajgAalDTpHxEDN4rOazQ9fXrBFfhmzJeqtVk6l1H5y8UqUnvCST?=
- =?us-ascii?Q?aJZLxkDGZxXRXO1PgwvWGL9k8womWJzgoUvPuqshTFkYjciH9HGIPAJ1AZLW?=
- =?us-ascii?Q?cq8wVsZosz91vmjEvLKm7JIUxWm/voyQlb0mgRm3fAwyWUSRfRdiTPcal/tt?=
- =?us-ascii?Q?Cq27aMaXSm/5y4etdKgONXKBs0NHdf0pErhPuyMPA7x1ea6MBdSJC3Mwt/KM?=
- =?us-ascii?Q?9l2/VNmaBJxd2cgLmcgkdqGezOkY/cKtL+fuBHFgxl/iOE2Ab4oRMNsvHkJw?=
- =?us-ascii?Q?+y5BHD21Avw8NcDyAGhSLdznS3fCwW4OOKAu5MzYwT/RhdHvhBaqAys0JVFi?=
- =?us-ascii?Q?sNu8DM/n9C8+bEc7GyT1FwnEJSBPvt3UXwMJRqB1kyDHTOnr2FfkHXeo+BI7?=
- =?us-ascii?Q?SkWOGa5MVPiSDZ3qUsunosxBbPWBAhXbtkr2f2tECg8Yu3/VSnq/eEl696yG?=
- =?us-ascii?Q?MU/ZhZs6NAQ8QzpTKsh28tk7dawNJxiXTOnEwSZxv1E4NsXp/rDZBZrKSGAT?=
- =?us-ascii?Q?jDh3kuq7sLzoYsLG631pcRAsKxl4fnyz+TQOQpG4edXGloMOPiU1X0FCyvjY?=
- =?us-ascii?Q?EeTyyomfW+0j31mWGwz/QU+BRKxJCMmjkkWuhw0+XtOPr3WKuvIJ9OV8xtTa?=
- =?us-ascii?Q?EqMiUeIPiFmzZuNS7uxax/iOb8CtHyQrQTkVl8eF1ccgsqzqz7oHL34DFVwg?=
- =?us-ascii?Q?t2JpWAuE1jF8uVigBA5taLBpKVqEv218VJCAmAj+++gPK4+uJcpELpR0ZnaP?=
- =?us-ascii?Q?T163xDCza/69heOT5xlqXvyeY7s1ObPWw/0sLQwPvY7NN3OpzfYIQA5doLLT?=
- =?us-ascii?Q?eDiy1kxjwqeikDboJ3AjAqSIjpUvLczthdJ/cQWpbo2beC62?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 11a58bc1-3f7b-4ac4-108c-08de4c948dfa
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jan 2026 19:56:45.5013
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: cfLDJXjolu9d1A5gCxw5CdGex6ce6obtx+GzST8CcaX3Rfa0vHMLD9St8nq3jZj8ymp5N4sGZTrcr53Dtds4Yw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8607
+Subject: Re: [PATCH 3/3] drm: zynqmp: Add blend mode property to graphics
+ plane
+To: "Klymenko, Anatoliy" <Anatoliy.Klymenko@amd.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Mike Looijmans <mike.looijmans@topic.nl>, David Airlie <airlied@gmail.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, Simona Vetter <simona@ffwll.ch>,
+ "Simek, Michal" <michal.simek@amd.com>
+References: <20251113203715.2768107-1-sean.anderson@linux.dev>
+ <20251113203715.2768107-4-sean.anderson@linux.dev>
+ <MW4PR12MB716514EB76EE4585605D0E5AE6CDA@MW4PR12MB7165.namprd12.prod.outlook.com>
+ <b97065ce-2dc0-453b-ab8e-b2d134fc3467@linux.dev>
+ <MW4PR12MB7165C437114B30DB21702365E6CBA@MW4PR12MB7165.namprd12.prod.outlook.com>
+ <7f7423e9-809d-4023-be01-db59e6dd755e@linux.dev>
+ <MW4PR12MB7165CDDB17CF0855EA19AACDE6A6A@MW4PR12MB7165.namprd12.prod.outlook.com>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Sean Anderson <sean.anderson@linux.dev>
+In-Reply-To: <MW4PR12MB7165CDDB17CF0855EA19AACDE6A6A@MW4PR12MB7165.namprd12.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_115650_729853_79159263 
-X-CRM114-Status: GOOD (  16.72  )
+X-CRM114-CacheID: sfid-20260105_115835_263769_EFC4EBB9 
+X-CRM114-Status: GOOD (  30.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,35 +85,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 05, 2025 at 10:07:26AM +0800, Peng Fan wrote:
-> On Tue, Nov 04, 2025 at 05:27:11PM -0500, Frank Li wrote:
-> >Only few warning left because original data is wrong
-> >arch/arm/boot/dts/nxp/imx/imx6ull-engicam-microgea-bmm.dtb: nand-controller@1806000 (fsl,imx6q-gpmi-nand): nand@0:nand-ecc-step-size: 0 is less than the minimum of 1
-> >
-> >driver will leave default value when these value is 0, but binding require
-> >start from 1.
-> >
-> >Since 2019 year, commit
-> >        (212e496935929 dt-bindings: mtd: Add YAML schemas for the generic NAND options)
-> >        NAND related property is preferred located under nand@<n> even though only
-> >        one NAND chip supported.
-> >
-> >NAND related property should be located under nand@0. This format already
-> >support quite long time, so it should be safe to switch to modern format.
-> >
-> >Signed-off-by: Frank Li <Frank.Li@nxp.com>
-> >---
-> >Frank Li (3):
-> >      ARM: dts: imx6qdl: add '#address-cells' and '#size-cells' for gpmi-nand
-> >      ARM: dts: imx6sx: update gpmi #size-cells to 0
-> >      ARM: dts: imx: move nand related property under nand@0
-> >
->
+On 12/4/25 16:16, Klymenko, Anatoliy wrote:
+> [AMD Official Use Only - AMD Internal Distribution Only]
+> 
+> Hi Sean,
+> 
+>> -----Original Message-----
+>> From: Sean Anderson <sean.anderson@linux.dev>
+>> Sent: Monday, November 17, 2025 7:36 AM
+>> To: Klymenko, Anatoliy <Anatoliy.Klymenko@amd.com>; Laurent Pinchart
+>> <laurent.pinchart@ideasonboard.com>; Tomi Valkeinen
+>> <tomi.valkeinen@ideasonboard.com>; dri-devel@lists.freedesktop.org
+>> Cc: linux-kernel@vger.kernel.org; Mike Looijmans <mike.looijmans@topic.nl>;
+>> David Airlie <airlied@gmail.com>; Thomas Zimmermann
+>> <tzimmermann@suse.de>; Maarten Lankhorst
+>> <maarten.lankhorst@linux.intel.com>; Maxime Ripard <mripard@kernel.org>;
+>> linux-arm-kernel@lists.infradead.org; Simona Vetter <simona@ffwll.ch>; Simek,
+>> Michal <michal.simek@amd.com>
+>> Subject: Re: [PATCH 3/3] drm: zynqmp: Add blend mode property to graphics
+>> plane
+>>
+>> Caution: This message originated from an External Source. Use proper caution
+>> when opening attachments, clicking links, or responding.
+>>
+>>
+>> On 11/14/25 19:12, Klymenko, Anatoliy wrote:
+>> > [AMD Official Use Only - AMD Internal Distribution Only]
+>> >
+>> >> -----Original Message-----
+>> >> From: dri-devel <dri-devel-bounces@lists.freedesktop.org> On Behalf Of
+>> Sean
+>> >> Anderson
+>> >> Sent: Thursday, November 13, 2025 3:07 PM
+>> >> To: Klymenko, Anatoliy <Anatoliy.Klymenko@amd.com>; Laurent Pinchart
+>> >> <laurent.pinchart@ideasonboard.com>; Tomi Valkeinen
+>> >> <tomi.valkeinen@ideasonboard.com>; dri-devel@lists.freedesktop.org
+>> >> Cc: linux-kernel@vger.kernel.org; Mike Looijmans
+>> <mike.looijmans@topic.nl>;
+>> >> David Airlie <airlied@gmail.com>; Thomas Zimmermann
+>> >> <tzimmermann@suse.de>; Maarten Lankhorst
+>> >> <maarten.lankhorst@linux.intel.com>; Maxime Ripard
+>> <mripard@kernel.org>;
+>> >> linux-arm-kernel@lists.infradead.org; Simona Vetter <simona@ffwll.ch>;
+>> Simek,
+>> >> Michal <michal.simek@amd.com>
+>> >> Subject: Re: [PATCH 3/3] drm: zynqmp: Add blend mode property to graphics
+>> >> plane
+>> >>
+>> >> Caution: This message originated from an External Source. Use proper
+>> caution
+>> >> when opening attachments, clicking links, or responding.
+>> >>
+>> >>
+>> >> On 11/13/25 18:03, Klymenko, Anatoliy wrote:
+>> >> > [AMD Official Use Only - AMD Internal Distribution Only]
+>> >> >
+>> >> > Hi Sean,
+>> >> >
+>> >> > Thank you for the patch.
+>> >> >
+>> >> >> -----Original Message-----
+>> >> >> From: Sean Anderson <sean.anderson@linux.dev>
+>> >> >> Sent: Thursday, November 13, 2025 12:37 PM
+>> >> >> To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>; Tomi
+>> Valkeinen
+>> >> >> <tomi.valkeinen@ideasonboard.com>; dri-devel@lists.freedesktop.org
+>> >> >> Cc: linux-kernel@vger.kernel.org; Mike Looijmans
+>> >> <mike.looijmans@topic.nl>;
+>> >> >> David Airlie <airlied@gmail.com>; Thomas Zimmermann
+>> >> >> <tzimmermann@suse.de>; Maarten Lankhorst
+>> >> >> <maarten.lankhorst@linux.intel.com>; Klymenko, Anatoliy
+>> >> >> <Anatoliy.Klymenko@amd.com>; Maxime Ripard <mripard@kernel.org>;
+>> >> linux-
+>> >> >> arm-kernel@lists.infradead.org; Simona Vetter <simona@ffwll.ch>;
+>> Simek,
+>> >> >> Michal <michal.simek@amd.com>; Sean Anderson
+>> >> >> <sean.anderson@linux.dev>
+>> >> >> Subject: [PATCH 3/3] drm: zynqmp: Add blend mode property to graphics
+>> >> plane
+>> >> >>
+>> >> >> Caution: This message originated from an External Source. Use proper
+>> >> caution
+>> >> >> when opening attachments, clicking links, or responding.
+>> >> >>
+>> >> >>
+>> >> >> When global alpha is enabled, per-pixel alpha is ignored. Allow
+>> >> >> userspace to explicitly specify whether to use per-pixel alpha by
+>> >> >> exposing it through the blend mode property. I'm not sure whether the
+>> >> >> per-pixel alpha is pre-multiplied or not [1], but apparently it *must* be
+>> >> >> pre-multiplied so I guess we have to advertise it.
+>> >> >>
+>> >> >> [1] All we get is "The alpha value available with the graphics stream
+>> >> >>     will define the transparency of the graphics."
+>> >> >>
+>> >> >> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
+>> >> >> ---
+>> >> >>
+>> >> >>  drivers/gpu/drm/xlnx/zynqmp_kms.c | 24 ++++++++++++++++++++++--
+>> >> >>  1 file changed, 22 insertions(+), 2 deletions(-)
+>> >> >>
+>> >> >> diff --git a/drivers/gpu/drm/xlnx/zynqmp_kms.c
+>> >> >> b/drivers/gpu/drm/xlnx/zynqmp_kms.c
+>> >> >> index 456ada9ac003..fa1cfc16db36 100644
+>> >> >> --- a/drivers/gpu/drm/xlnx/zynqmp_kms.c
+>> >> >> +++ b/drivers/gpu/drm/xlnx/zynqmp_kms.c
+>> >> >> @@ -61,6 +61,13 @@ static int
+>> zynqmp_dpsub_plane_atomic_check(struct
+>> >> >> drm_plane *plane,
+>> >> >>         if (!new_plane_state->crtc)
+>> >> >>                 return 0;
+>> >> >>
+>> >> >> +       if (new_plane_state->pixel_blend_mode !=
+>> >> >> DRM_MODE_BLEND_PIXEL_NONE &&
+>> >> >> +           new_plane_state->alpha >> 8 != 0xff) {
+>> >> >> +               drm_dbg_kms(plane->dev,
+>> >> >> +                           "Plane alpha must be 1.0 when using pixel alpha\n");
+>> >> >> +               return -EINVAL;
+>> >> >> +       }
+>> >> >> +
+>> >> >>         crtc_state = drm_atomic_get_crtc_state(state, new_plane_state-
+>> >crtc);
+>> >> >>         if (IS_ERR(crtc_state))
+>> >> >>                 return PTR_ERR(crtc_state);
+>> >> >> @@ -117,9 +124,13 @@ static void
+>> >> >> zynqmp_dpsub_plane_atomic_update(struct drm_plane *plane,
+>> >> >>
+>> >> >>         zynqmp_disp_layer_update(layer, new_state);
+>> >> >>
+>> >> >> -       if (plane->index == ZYNQMP_DPSUB_LAYER_GFX)
+>> >> >> -               zynqmp_disp_blend_set_global_alpha(dpsub->disp, true,
+>> >> >> +       if (plane->index == ZYNQMP_DPSUB_LAYER_GFX) {
+>> >> >> +               bool blend = plane->state->pixel_blend_mode ==
+>> >> >> +                            DRM_MODE_BLEND_PIXEL_NONE;
+>> >> >> +
+>> >> >> +               zynqmp_disp_blend_set_global_alpha(dpsub->disp, blend,
+>> >> >>                                                    plane->state->alpha >> 8);
+>> >> >> +       }
+>> >> >>
+>> >> >>         /*
+>> >> >>          * Unconditionally enable the layer, as it may have been disabled
+>> >> >> @@ -179,9 +190,18 @@ static int zynqmp_dpsub_create_planes(struct
+>> >> >> zynqmp_dpsub *dpsub)
+>> >> >>                         return ret;
+>> >> >>
+>> >> >>                 if (i == ZYNQMP_DPSUB_LAYER_GFX) {
+>> >> >> +                       unsigned int blend_modes =
+>> >> >> +                               BIT(DRM_MODE_BLEND_PIXEL_NONE) |
+>> >> >> +                               BIT(DRM_MODE_BLEND_PREMULTI);
+>> >> >
+>> >> > | BIT(DRM_MODE_BLEND_COVERAGE) - this is what implemented in the
+>> >> hardware.
+>> >>
+>> >> Do you have a datasheet (or other) reference?
+>> >>
+>> >
+>> > Yes https://docs.amd.com/v/u/en-US/ug1085-zynq-ultrascale-trm
+>>
+>> There is no mention of this in the TRM.
+>>
+>> | Video Blending is defined for two RGB video streams. One of these
+>> | streams will be graphics that have an alpha value along with RGB
+>> | stream. The alpha value available with the graphics stream will define
+>> | the transparency of the graphics. Alpha value defined for blending
+>> | function is always 8-bit. 1-bit alpha and 4-bit alpha are also
+>> | supported, but these are scaled to 8-bits before they are used for
+>> | alpha blending
+>>
+>> Please quote a specific section where the alpha blending formula is
+>> documented.
+>>
+> 
+> Yes, there is no explicit alpha blending formula in the TRM, although
+> absence of "premultiplied alpha" term anywhere in the doc suggests that
+> alpha is treated as a straight. Anyways, I cooked a quick test that proved
+> the straight alpha theory: https://github.com/onotole/zynqmp-dp-alpha
+> 
+>> >> But in any case, DRM_MODE_BLEND_PREMULTI is mandatory even if we
+>> >> don't support
+>> >> it. See drm_plane_create_blend_mode_property for details.
+>> >>
+>> >
+>> > No doubts here
+>>
+>> OK, so regardless of what the hardware does, we have to pretend to
+>> support pre-multiplied alpha.
+>>
+> 
+> Yes, we my pretend so, or we may work around backward compatibility check
+> in drm_plane_create_blend_mode_property by setting blend mode to
+> DRM_MODE_BLEND_COVERAGE immediately and later reject plane states
+> with DRM_MODE_BLEND_PREMULTI mode.
 
-Shawn:
-	Do you have chance to check this?
+OK, I'll add a patch to allow blend mode without premulti for v2. The
+comment on the function says that it's a default for old userspace, but
+we don't have a userspace that expects a particular blend mode in the
+first place.
 
-Frank
-
-> Reviewed-by: Peng Fan <peng.fan@nxp.com>
+--Sean
 
