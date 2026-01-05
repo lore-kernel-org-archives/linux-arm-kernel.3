@@ -4,79 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53D16C79F8A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 12:47:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A7BEC79F8A
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 12:52:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DcK9JhgklTlks/dbMU+80cGJYIWzHkB6Fy6SWnC+6X4=; b=Cd8+UVrki+f1Rhp5I5YkuXNIt5
-	TycQG5fZhca0xV0St0gKfx3YQi17m1wV44MswfwEJaK4tJsBA23LMlL2Astxw5//rLfo9/cBElhlS
-	zClD/Uhkbx7EKnpxKayiyr3l863h7hm3RxrMfO4m1uCQla5irTacoKAEfJGaP+ZIxeOn6jjiU+oTM
-	Tfn/xb2D1EvrpSPQC+LGjE1Wj9shyXdI9U5hy6HDf7iw7fXgiitnwZ3vaj8YXnH87ZJjOKKstw3zc
-	MDbevOVfgOtCTqM4I8TLSWhM1khTHo46dquagto7GXTFQbOLglOdHZUwJypuJ7fxdKZqwr7yp+sZx
-	PB7CvCaA==;
+	bh=DIfhp3vJVBySXs5/naEXyaaROJC4kEOY5dOC0TJhcN0=; b=FIoOt0BMZeI4N5TUkN+vPWG3Vg
+	jz+wc6Si6R7xvkciL0FDbLr41KJaHTfIH+lRzyrQnXDKm5MiEWQk7snNU1m3w0SpKnnspMMEostNT
+	iRGICaxTsKjSp4v5/wptgGWM4nT3edKUQZi7Uk4VB0TrHyEVa8ZULGQYWoqPFltKUx2umTQvVjJHU
+	rXBEAsgqDmjIByjY14juXsExMii7wW8YFRZcQeQaN6p3FGtfqTf+bdNLdXqFwHY8ZJtzj+85vqsGZ
+	rllmjC/L5i2ydC2qZsLy1S4rW8SWQbBbR0o1XyDaC7kgsduUOieIkJUlUjw14AyFrhZjlomys7I4K
+	FYHqkmug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcjzL-0000000BKhV-1YE6;
-	Mon, 05 Jan 2026 12:47:11 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vck4N-0000000BLby-2ZQs;
+	Mon, 05 Jan 2026 12:52:23 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcjzJ-0000000BKg0-1aCI
+	id 1vck4K-0000000BLaL-2NdY
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 12:47:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5B9F040DC8;
-	Mon,  5 Jan 2026 12:47:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3606CC116D0;
-	Mon,  5 Jan 2026 12:47:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767617227;
-	bh=DcK9JhgklTlks/dbMU+80cGJYIWzHkB6Fy6SWnC+6X4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Nz5BKJw/SW7aFh5PDOn4mjTKTV+LFDrfIA0RGg+0ukrtI/PWWaAkWyRxPhjHOORJ2
-	 F/w6WBFrMWFgCSU2ISdgFwjDlN6RJQGUpNtbSDFRgxj0nCBCNDcP/L8EDfUCsH9gEc
-	 mlu4FBl2Ci2EU2Ws0he3TS3VVhUptlYr949Nb1Pt3prNClT7c60WGSzHXKmRhXNJ6j
-	 AahYn0rfC6Gh2cHn5zTWUzZEAv/8eKMksb2N723rGz9Dh7iCNZ/zP1/Y/1u5wxBIyA
-	 1Un3saqGObtBBTQaXpEhtVjmp3anbCGER1NIrZ5yjgzlo4HO5YIiuhg64BQYow0aEu
-	 K25kQXvV5JU6Q==
-Date: Mon, 5 Jan 2026 12:46:57 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Robert Marko <robert.marko@sartura.hr>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev, herbert@gondor.apana.org.au,
-	davem@davemloft.net, vkoul@kernel.org, andi.shyti@kernel.org,
-	lee@kernel.org, andrew+netdev@lunn.ch, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, linusw@kernel.org,
-	Steen.Hegelund@microchip.com, daniel.machon@microchip.com,
-	UNGLinuxDriver@microchip.com, olivia@selenic.com,
-	radu_nicolae.pirea@upb.ro, richard.genoud@bootlin.com,
-	gregkh@linuxfoundation.org, jirislaby@kernel.org,
-	lars.povlsen@microchip.com, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-crypto@vger.kernel.org, dmaengine@vger.kernel.org,
-	linux-i2c@vger.kernel.org, netdev@vger.kernel.org,
-	linux-gpio@vger.kernel.org, linux-spi@vger.kernel.org,
-	linux-serial@vger.kernel.org, linux-usb@vger.kernel.org,
-	luka.perkov@sartura.hr, Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v4 04/15] dt-bindings: spi: at91: add
- microchip,lan9691-spi
-Message-ID: <2ff4b417-871b-4b0e-a4f5-424ce535ebd3@sirena.org.uk>
-References: <20251229184004.571837-1-robert.marko@sartura.hr>
- <20251229184004.571837-5-robert.marko@sartura.hr>
+	Mon, 05 Jan 2026 12:52:22 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-42fb5810d39so9321383f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 04:52:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1767617538; x=1768222338; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=DIfhp3vJVBySXs5/naEXyaaROJC4kEOY5dOC0TJhcN0=;
+        b=a3XzevQzmxBmGXDbbG8lMnM8xdp8oyj8xKyux2iW8aZ7UHybILVFAIpT1AO6SGVk0s
+         Gpbo0exRFnP5pSDQQd5bfFOQib491ckMd0aaT2sUOvBLZ0WpWkSXA3BCJvj38nOGyPBR
+         pEMKpBZUEcdSKumHEaMUIrhz8iZrRuyZ7NTfqFnF8Zaju6HlexTzXs8NDgTwBO5HI6Fh
+         onHCTFfp4SuQGDEGPARcBheGf8V0YwGuRivBcumxqI1C4rbsA3v3ZlzqAnHLLCV6/n75
+         /1kph/COT0z9KaS5R+wfOSRghZy+xVDv26zWAklAYZnTMo/Ca0vFykb9VeIxVZr95i4K
+         x3UQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767617538; x=1768222338;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=DIfhp3vJVBySXs5/naEXyaaROJC4kEOY5dOC0TJhcN0=;
+        b=Es3UWjoz64XHdiKQPLhBx5Gg3eI3NxDqMOMtXTdERC6sSYXNYsRH3Wf+sUsOjNfcUv
+         54jwOAYFCmNNUz0ZJH7O6LizgGFaycSiwP4IQBIP1eUbtu8hCWbkSkyl9ovIXbr1zw1K
+         Z5PJfQGWliX2kpRYgfpeYGBNdp3UyyBigO5geQUL03AWxQOLHxylEBhjLPiykgGFPllF
+         qLnCjOH1qswKVnWHb5bTYo3PMpa1s0aOdzzjnDno8E6uBPQXoEc2ikPXm5JUigPDyyCq
+         uvyng23MiMkPCJspTkrc7XLuC/9gHrTIWafLBoXl6a0oNNBz6sJenBOAUDRoZSs7dZST
+         c21w==
+X-Forwarded-Encrypted: i=1; AJvYcCX6YrxjbUSLy1PETWxnRv7uMbDv5FLu8L9jCpRpAYmtEsMj7NTBtUlP9bZEHEkT8/GBtVj2ZVkpTDILRwduNR26@lists.infradead.org
+X-Gm-Message-State: AOJu0YxJKc9sB8/c5sptuFbOy8Me8BwB1ePxkKQFrNa9jE70ibDNJTvN
+	8qtM+uPuhhJVSTjdekUwmwzu10gy1fx+J00ng6EwcWWC2k0y7TIPcr4MO+V5mbghMDY=
+X-Gm-Gg: AY/fxX53ClolcUFYvG+K54/GIu2U/SP7spTsBtssoZopvceUaT22oPzbkHjCNup4FOA
+	BPfCo8lVRY2PqDXF0uBmLfo9SIpCvMKJ2BDbcpCIm39XeR27VsBelTTvlckC26G6D7RQBNnOwHg
+	kGpwoWxXKWYP0KLDrnKUTGjJwFnqlemZ2w+MjTBZ/FuhzYGN7stHf8glTjtsiisG0/cnEkEUZBs
+	xQqRhuDcA4J6wVGD3+zilGUac9htAuD4SGvAhBjUw6vWWcxVSeBdoPzvBKaYhkcyqBfHAulTWYK
+	Ejn0gbC7Yv+Pp+nqm4p26ynt7sJk/rvM2XaieKsv2owUG2+8Fdd+5Sfexo8Lciou/cASbwhR4Os
+	et20oXA+aihvrBek4SW57gbJ+vgTRizFEdnFDoZXO+kwc1temVZ8/lgQBr2YR9qj0pfzuALabEZ
+	kI8EukkYk9i8mc0iMm0L4hPWQRsfeBQjVdTo+fl3HgKlFHHAEo8XSDVDF5L+ca85ruUrer6lBrK
+	pxSphleeOwpevVQhdJxRlImtWTxlXV8OGA9R7rGxjiC9oE1CmUZc7xS3NlTN9LVq3/KOkus8Hrt
+	3mUjD+0=
+X-Google-Smtp-Source: AGHT+IE4Mz004OZ0As7rWOFq5sPjHYJ4N8Pzam8+bOUXJdXGQOskOlJaecSDta7VRdPfx5XGGjwohQ==
+X-Received: by 2002:a05:6000:1844:b0:432:8504:b8a9 with SMTP id ffacd0b85a97d-4328504b8e1mr37753933f8f.62.1767617537725;
+        Mon, 05 Jan 2026 04:52:17 -0800 (PST)
+Received: from aspen.lan (aztw-34-b2-v4wan-166919-cust780.vm26.cable.virginm.net. [82.37.195.13])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4324ea1b36fsm100029761f8f.5.2026.01.05.04.52.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 05 Jan 2026 04:52:17 -0800 (PST)
+Date: Mon, 5 Jan 2026 12:52:14 +0000
+From: Daniel Thompson <daniel@riscstar.com>
+To: Marcos Paulo de Souza <mpdesouza@suse.com>
+Cc: Richard Weinberger <richard@nod.at>,
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Jason Wessel <jason.wessel@windriver.com>,
+	Daniel Thompson <danielt@kernel.org>,
+	Douglas Anderson <dianders@chromium.org>,
+	Petr Mladek <pmladek@suse.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	John Ogness <john.ogness@linutronix.de>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Jiri Slaby <jirislaby@kernel.org>, Breno Leitao <leitao@debian.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Kees Cook <kees@kernel.org>, Tony Luck <tony.luck@intel.com>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jacky Huang <ychuang3@nuvoton.com>,
+	Shan-Chun Hung <schung@nuvoton.com>,
+	Laurentiu Tudor <laurentiu.tudor@nxp.com>,
+	linux-um@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kgdb-bugreport@lists.sourceforge.net, linux-serial@vger.kernel.org,
+	netdev@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
+	linux-hardening@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	sparclinux@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org
+Subject: Re: [PATCH 00/19] printk cleanup - part 3
+Message-ID: <aVuz_hpbrk8oSCVC@aspen.lan>
+References: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="L5qsEAHx6q9dJj52"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251229184004.571837-5-robert.marko@sartura.hr>
-X-Cookie: So many women
+In-Reply-To: <20251227-printk-cleanup-part3-v1-0-21a291bcf197@suse.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_044709_442618_5D8CFE88 
-X-CRM114-Status: UNSURE (   9.21  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260105_045220_883888_6E6FAB1D 
+X-CRM114-Status: GOOD (  17.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,35 +135,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Marcos
 
---L5qsEAHx6q9dJj52
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+On Sat, Dec 27, 2025 at 09:16:07AM -0300, Marcos Paulo de Souza wrote:
+> The parts 1 and 2 can be found here [1] and here[2].
+>
+> The changes proposed in this part 3 are mostly to clarify the usage of
+> the interfaces for NBCON, and use the printk helpers more broadly.
+> Besides it, it also introduces a new way to register consoles
+> and drop thes the CON_ENABLED flag. It seems too much, but in reality
+> the changes are not complex, and as the title says, it's basically a
+> cleanup without changing the functional changes.
 
-On Mon, Dec 29, 2025 at 07:37:45PM +0100, Robert Marko wrote:
+I ran this patchset through the kgdb test suite and I'm afraid it is
+reporting functional changes.
 
-> Document Microchip LAN969x SPI compatible.
+Specifically the earlycon support for kdb has regressed (FWIW the
+problem bisects down to the final patch in the series where CON_ENABLED
+is removed).
 
-Please submit patches using subject lines reflecting the style for the
-subsystem, this makes it easier for people to identify relevant patches.
-Look at what existing commits in the area you're changing are doing and
-make sure your subject lines visually resemble what they're doing.
-There's no need to resubmit to fix this alone.
+Reproduction on x86-64 KVM outside of the test suite should be easy:
 
---L5qsEAHx6q9dJj52
-Content-Type: application/pgp-signature; name="signature.asc"
+    make defconfig
+    scripts/config \
+        --enable DEBUG_INFO \
+	--enable DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT \
+	--enable DEBUG_FS \
+	--enable KALLSYMS_ALL \
+	--enable MAGIC_SYSRQ \
+	--enable KGDB \
+	--enable KGDB_TESTS \
+	--enable KGDB_KDB \
+	--enable KDB_KEYBOARD \
+	--enable LKDTM \
+	--enable SECURITY_LOCKDOWN_LSM
+    make olddefconfig
+    make -j$(nproc)
+    qemu-system-x86_64 \
+        -m 1G -smp 2 -nographic \
+	-kernel arch/x86/boot/bzImage \
+	-append "console=ttyS0,115200 kgdboc=ttyS0 earlycon=uart8250,io,0x3f8 kgdboc_earlycon kgdbwait"
 
------BEGIN PGP SIGNATURE-----
+In a successful test the kdb prompt will appear after only a few lines
+of output:
+~~~
+[    0.000000] Linux version 6.19.0-rc4-00020-g4b7f3b144021 (drt@wychelm) (gcc (Debian 14.2.0-19) 14.2.0, GNU ld (GNU Binutils for Debian) 2.44) #2 SMP PREEMPT_DYNAMIC Mon Jan 6
+[    0.000000] Command line: console=ttyS0,115200 kgdboc=ttyS0 earlycon=uart8250,io,0x3f8 kgdboc_earlycon kgdbwait
+[    0.000000] BIOS-provided physical RAM map:
+[    0.000000] BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff] usable
+[    0.000000] BIOS-e820: [mem 0x000000000009fc00-0x000000000009ffff] reserved
+[    0.000000] BIOS-e820: [mem 0x00000000000f0000-0x00000000000fffff] reserved
+[    0.000000] BIOS-e820: [mem 0x0000000000100000-0x000000003ffdffff] usable
+[    0.000000] BIOS-e820: [mem 0x000000003ffe0000-0x000000003fffffff] reserved
+[    0.000000] BIOS-e820: [mem 0x00000000fffc0000-0x00000000ffffffff] reserved
+[    0.000000] BIOS-e820: [mem 0x000000fd00000000-0x000000ffffffffff] reserved
+[    0.000000] earlycon: uart8250 at I/O port 0x3f8 (options '')
+[    0.000000] printk: legacy bootconsole [uart8250] enabled
+[    0.000000] kgdboc: Going to register kgdb with earlycon 'uart'
+[    0.000000] KGDB: Registered I/O driver kgdboc_earlycon
+[    0.000000] KGDB: Waiting for connection from remote gdb...
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmlbssAACgkQJNaLcl1U
-h9D4Xwf/SR39qhC6yLd9TVLdTbJvbv9td/1UUXSFHjr1far0W1wTnHIk9agrEcs+
-/CUvNmq9Xga7s68neH9NM4e3phBnJZt74a3J3zzhvBekn3xXCyKfmhw9WFU+rGGC
-dLJg/c/VyK4Dzfq6tzvajmvH8NYGkfWsf8TDYMAQkWfyFf3iASqrWODzvobA5l8D
-f4Q5wCZqo6GnSlAfW2+galQbUNMK85g0ponFRfi1JfjuTyYb2ZKghpKWLJGOTJzj
-PMinOleBkv3jp7jH4T6Lh+DiCyhddXuYJhoGGfDIlnhZrm+1fCifyVtpxwbXKXH3
-bT3c73me1CxD3Ncn8Q6E2gOrpidxdg==
-=VKTA
------END PGP SIGNATURE-----
+Entering kdb (current=0x0000000000000000, pid 0) on processor 0 due to NonMaskable Interrupt @ 0xffffffff9101491f
+[0]kdb>
+~~~
 
---L5qsEAHx6q9dJj52--
+After this patchset is applied the earlycon triggers do not work
+correctly and we get:
+~~~
+[    0.000000] Linux version 6.19.0-rc4-00019-g882df99205ba (drt@wychelm) (gcc (Debian 14.2.0-19) 14.2.0, GNU ld (GNU Binutils for Debian) 2.44) #3 SMP PREEMPT_DYNAMIC Mon Jan 6
+[    0.000000] Command line: console=ttyS0,115200 kgdboc=ttyS0 earlycon=uart8250,io,0x3f8 kgdboc_earlycon kgdbwait
+[    0.000000] BIOS-provided physical RAM map:
+[    0.000000] BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff] usable
+[    0.000000] BIOS-e820: [mem 0x000000000009fc00-0x000000000009ffff] reserved
+[    0.000000] BIOS-e820: [mem 0x00000000000f0000-0x00000000000fffff] reserved
+[    0.000000] BIOS-e820: [mem 0x0000000000100000-0x000000003ffdffff] usable
+[    0.000000] BIOS-e820: [mem 0x000000003ffe0000-0x000000003fffffff] reserved
+[    0.000000] BIOS-e820: [mem 0x00000000fffc0000-0x00000000ffffffff] reserved
+[    0.000000] BIOS-e820: [mem 0x000000fd00000000-0x000000ffffffffff] reserved
+[    0.000000] earlycon: uart8250 at I/O port 0x3f8 (options '')
+[    0.000000] kgdboc: No suitable earlycon yet, will try later
+...
+~~~
+
+
+Daniel.
 
