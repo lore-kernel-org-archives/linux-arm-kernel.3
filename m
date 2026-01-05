@@ -4,72 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7385C79FAF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 17:21:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F50CC79FA7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 17:22:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RS1ItFhvzjX7BnadsXiWDqcrUU+B8GPogSIcN3dzi8s=; b=W0DGBgjXCM+8H4mXZXgh52c/T6
-	02gXzTvet1zst34bTwI7+Pop9NS14MG2QGVJjNxqot5pChE7x9gsq0OCxFzW9nlY/phVRUAzGeyDM
-	74bmKt3lsOHVbU91q7x5k6Cpl/k8nveLQrdVgOLIzxzsG59aD4FpBduifX/ubnqSwyI/0JriSTJyE
-	usGeRT0Iw+GsHcHVyf/M+020oanVQdAcjrLu3ka1d82mb+V0jeVA6wNW6Gl6iMMn1MHkWf5bln5RZ
-	ISI5uvm8KboCnwngPWnLjIb/d/vqlG/UOoOeT+D7UwMAEtwNnzSSMCD3D5xze5kv5g3eZcp5UZfGQ
-	OwdW2uIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y2FHi0dzgE+dqqPgYZfajdBDD3UVgJc3g1jEBVrDUxo=; b=N/vq9ypeb5hkhaUIsggQSphj6c
+	6goyfPvH2Z9AAYAwQLq5RjSb6px1P/oK7w9E9sr7iYsmaQrryos1oq2tNq3PVv5V7ZBohDmBagS45
+	Gt5oiFnpTh+C6oALzYIpUyyoa1aKFurxPZ5Fw10fWKhWgC7WjSZFlXfaBYOHzspj3BYHRQRv/UPwS
+	21QNx+xYRcQAbKKwDsNN19Ylu1ydviAiBatb5SiLFTQg+l1QjwMGxbE2alL24IwUpvJVP4UVEMxiK
+	jDNd7CbbOzxEawZiOJ9gNENByoulJYAPvPrkw4SgEWfWhfPAQQnTbfkKDGLy5DavKKB8LvMZ4W1cP
+	dORGA4Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcoH7-0000000Bolf-2ga6;
-	Mon, 05 Jan 2026 17:21:49 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1vcoHI-0000000Boq8-287A;
+	Mon, 05 Jan 2026 17:22:00 +0000
+Received: from mail-francesouthazon11011060.outbound.protection.outlook.com ([40.107.130.60] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcoH5-0000000Bol6-2EoS
+	id 1vcoHF-0000000Boom-21Fp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 17:21:48 +0000
-Received: from mail.maildlp.com (unknown [172.18.224.107])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dlLgr56kzzJ46DH;
-	Tue,  6 Jan 2026 01:21:44 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id ED53F40571;
-	Tue,  6 Jan 2026 01:21:44 +0800 (CST)
-Received: from localhost (10.126.174.38) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Mon, 5 Jan
- 2026 17:21:43 +0000
-Date: Mon, 5 Jan 2026 17:21:41 +0000
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Ben Horgan <ben.horgan@arm.com>
-CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
-	<baolin.wang@linux.alibaba.com>, <carl@os.amperecomputing.com>,
-	<dave.martin@arm.com>, <david@kernel.org>, <dfustini@baylibre.com>,
-	<fenghuay@nvidia.com>, <gshan@redhat.com>, <james.morse@arm.com>,
-	<kobak@nvidia.com>, <lcherian@marvell.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<peternewman@google.com>, <punit.agrawal@oss.qualcomm.com>,
-	<quic_jiles@quicinc.com>, <reinette.chatre@intel.com>,
-	<rohit.mathew@arm.com>, <scott@os.amperecomputing.com>,
-	<sdonthineni@nvidia.com>, <tan.shaopeng@fujitsu.com>,
-	<xhao@linux.alibaba.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<corbet@lwn.net>, <maz@kernel.org>, <oupton@kernel.org>,
-	<joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <kvmarm@lists.linux.dev>
-Subject: Re: [PATCH v2 12/45] arm64: mpam: Add helpers to change a task or
- cpu's MPAM PARTID/PMG values
-Message-ID: <20260105172141.00006d06@huawei.com>
-In-Reply-To: <20251219181147.3404071-13-ben.horgan@arm.com>
-References: <20251219181147.3404071-1-ben.horgan@arm.com>
-	<20251219181147.3404071-13-ben.horgan@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Mon, 05 Jan 2026 17:21:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oXrELvKRbpFNr2lmKxCSUMXaMTHO9UozLJs4kYJ8CVl5GJTHWJgCp6eKU0LEA3vy0hgC7fv9qG4xQFou2hv49JYS/T/qMCitUAIEzaVP7MHOkz31oKc0SxhNpmrhvmOIoOXJN8FLMW4swvgWwEdPUKlz/p6/7eCTBoTYJ8hEbQLRGueQX1CYPocmLc0YuqOF+5ztaTLqcHaniJ8OkZVx7I36h0Uh/ec0Qsx413Ui+bbls71G0TKQKWlA1J0xXf6c/sHfNiMW5Pu+lL25iXq/J+FnjxENOWj5O7lmNUV4W3subNXKEvx1BDe7x8ERRCxNdE8so6y2QyTfqcj62cctQQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=y2FHi0dzgE+dqqPgYZfajdBDD3UVgJc3g1jEBVrDUxo=;
+ b=in0f8EymyDG6ePMIZ/x02Ey4YeErqWUMBbVuqKcebnqAoAP483Of5ePmoULluz0bYw+++Te6WmiVtGsEVzIjP0zG77cNYXOrqn94SHUb7VlT5EHXJ2nZONRU7NvKJYfTti6v202PXl41bPFpQP208HEJwA/3fTbSPk3Pc8MLVVdV+P98dFTdExLjcNJmg42I4eaaNLs7qGKkd7iUDT3bKUzc4dGAaWpJ+KhphWxULPY1VA3aSNKTX03XBT1zwC+0qR5d1cZ16ICkEdQ2+V8raxrFaJZISjRKW5sP8tPa/d7s9h3dlBbH+1jbbKcL74hgFFeEE46DL2VRTJdM+vIALQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=y2FHi0dzgE+dqqPgYZfajdBDD3UVgJc3g1jEBVrDUxo=;
+ b=Izd26wBgV5zAG8GAcbXDY9mK4ADyHcj/ub/IC3Hmp669NVtfN3+KFhUG9HlRhk7nD4AU/vuu/htpfVYvFnwYBtTvR/9NgRI6EYHHIqRY2rHME82VFdNCoAVeWEk2ZKwB9qcptvkC1tdg3ggzV8ePu9SHwEZxpafNFJrOardLvMLXB6biiDVASHoVf0M0i0usBn2oIuCKJ3nM7w5d37bj6acrMZgOqEgWeMuNePx5Qhb2scpaq1YoXm34QmdnYJKJLrdEIApv3tl6hEwEqt5oNahoqPZ9wA7nqm58XUHBYPacki/40CbmFpT3UVmhMIayaBGZ2c69LxTq/+e84ehnjQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
+ by DU0PR04MB9252.eurprd04.prod.outlook.com (2603:10a6:10:353::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9478.4; Mon, 5 Jan
+ 2026 17:21:52 +0000
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9478.004; Mon, 5 Jan 2026
+ 17:21:52 +0000
+Date: Mon, 5 Jan 2026 12:21:45 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Marco Felsch <m.felsch@pengutronix.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 1/1] arm64: dts: imx8mp-skov: add pinctrl-name 'reset' to
+ fix CHECK_DTB warning
+Message-ID: <aVvzKQKjaZUVs5oi@lizhi-Precision-Tower-5810>
+References: <20251229165127.4006134-1-Frank.Li@nxp.com>
+ <20260105111448.slm2yqiwivx2t3vh@pengutronix.de>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20260105111448.slm2yqiwivx2t3vh@pengutronix.de>
+X-ClientProxiedBy: PH8P220CA0052.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:2d9::6) To DU2PR04MB8951.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e2::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.126.174.38]
-X-ClientProxiedBy: lhrpeml500012.china.huawei.com (7.191.174.4) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|DU0PR04MB9252:EE_
+X-MS-Office365-Filtering-Correlation-Id: 387d5ca1-6ee8-467b-7b92-08de4c7eeabf
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|52116014|376014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ANqCe6dEZRO1j10Qs9Tt0pthoGFwyJo3ovyW79JOt4UJu908/47hyEu+/e6D?=
+ =?us-ascii?Q?kXUQ1hO2xk0qn4nIa5QpxjI9eAxyFtRhz05jcUOIclZc+1qAQezavlBm4iSA?=
+ =?us-ascii?Q?T/4ZuprOFHEJpAlzhn7Q1oNvNNASAR9zxOxRcHZ8RiYi9rmreuaK1I0iOYmr?=
+ =?us-ascii?Q?iizN6sAf4Oy28VkBJ9PIfPDbkgq9bl63EfyoDduA7ePBnaP+80CgnKSWw1AB?=
+ =?us-ascii?Q?fvPVirUBulbc0Vw6+AQqSSc5S2zgcDWIMDuL2iV6tPvhItta+6hg2v3v0Up+?=
+ =?us-ascii?Q?4w3lDT/QUYRqrhS/t5cZ4tnZPFSEEVYXGnCLT3TO/b7okr1BF1FHVmZcEP3J?=
+ =?us-ascii?Q?tann6z+R/RYULgI+420Q9BxokzmQoWjXvTAWGrtpw8PjUuh2BCFHgyTKIgi8?=
+ =?us-ascii?Q?RxcrUFScsY2lUUfckB4O34Z14XjNcf15zx4/W33jnEquII+Z8zvQKrgsuaZ9?=
+ =?us-ascii?Q?dupZ6rIQmR6KTbjDi9O/1lXqRifRV3oBEbBSJBcti0nuog+UEc/4WbBQrRIS?=
+ =?us-ascii?Q?SWNBE1prKlcyd3rIYxJrBXJ2ElRIm8ZGPgYl1Cup5dM9Legb9XoFictcuZAl?=
+ =?us-ascii?Q?xF4twbXGK6o0DSVzbO7qiaUGPfbnJwypSBGUe8U+y4bpLk2k7wLI3BncAnrd?=
+ =?us-ascii?Q?CkZY28bJm7ykZmX6qbuUC5jDd+ObA9lr/uuSxgCPW0Gi/zhL45R8unM+TgqU?=
+ =?us-ascii?Q?HS8ipq+HswSi5vHkmyiGM4Ku5XK6tuvT4/xsQ/5fNmJBfIfhEjGCxMlBZSmd?=
+ =?us-ascii?Q?zMFav8nHmEmU9w+64+OKJwaj56K5xvWXb3WdwyVWXo6BO6Q3vY5OKGO8FuWS?=
+ =?us-ascii?Q?xVfIwXMghx10H5i34qkaUrCSRb5dpFwFmitSs7kbrPBQ0dorrHmjvJcHLEMz?=
+ =?us-ascii?Q?E3QzoDgdQaB2NRGjFb7MlXPI64khck2h8/js9B2/PEbo9jXEA0fX0PioQ5dE?=
+ =?us-ascii?Q?1yHuO0FBQ+YIUYTBULRESQD2v4WzfUyCU0+wiqCLez/HAB2TSN21Uzf+BNTY?=
+ =?us-ascii?Q?leDVW8o01f5Se1PgeZUInuM/FFUARIXNTBxt0qMQ+9exYMOe9YU9gvihUDlB?=
+ =?us-ascii?Q?eHt+EsdyZI3MYkOiZyLX6/xi8BGTQ+om30YeRrk0v3dhisDJCXNY7Vo909G5?=
+ =?us-ascii?Q?IVNi7TrAGCvUOCcKcvDra0GfPjHmiAr72uwa+9cLLiDe4vioYSjmqDk5AZ2/?=
+ =?us-ascii?Q?Z+1lvIjTWoa/aI4PKqGErwNBNSHCjRr/odJ2Auv/NaJlmnPmIulzroS4bVbe?=
+ =?us-ascii?Q?LPXrEY6VUPu5XWjsx4xBo4u9oUkHTS1ZFrTuQ31eopKM880C+xCclLwyzEMT?=
+ =?us-ascii?Q?d9dpoXFsUE26GM+7ncel2qt8syYSkiSibV4+SUS2EFt/zK+oYWoezlXFYKHB?=
+ =?us-ascii?Q?ES4HIPJ6i3RI2PYadLgDw8W01CwtF8h91YmKOCPhED7RvPVbTSVKmAeSQPjO?=
+ =?us-ascii?Q?XP66oWDpaLLoe9T8neaJMFvpfpK8k6EeA26saqez4azKL6E4eC/hNA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(52116014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Zc7J6yezD9LK6SMtlg5QygeY6G2PAPiRM+C8qUgXNNelC0yf+klxeJ2foL6W?=
+ =?us-ascii?Q?E7W++utiRJgmgsV2ZgCP6/VS+E3HumZvVdCdS6OwKG3Ybaj9lSwwNLqFHDep?=
+ =?us-ascii?Q?V/f8gXgsWD0fGBca+f20E/3bgWHoIzur8xqyne4crie417/r+tRrDzjMeNGA?=
+ =?us-ascii?Q?7JlSgDqyi7oFMMS82bD7lOf/SceHrVXX4/Ct262k/5apkPfofMX/3RwT81DZ?=
+ =?us-ascii?Q?fcYsIzDVwJf44QpqKCK28KS3/SbawZNGEYOyPulvPT2f4HwpEW5dao3bXTQ9?=
+ =?us-ascii?Q?rDGbLEcF80clThLDfnig5D8nnwIl71uscUzi75qTJvwjlPF1/HNlP3WpgzF2?=
+ =?us-ascii?Q?2IpfaWJ3eigccfEC6dXad5GkPh9ze/AGvkm0KYAkz8lmjlYC2qSGShcFSDiZ?=
+ =?us-ascii?Q?OSQt7uzR+Yv0YbureFCQ3ti8xkcsK2ZARrQC5eEkvs/feddzIHKEgJ0fEQwc?=
+ =?us-ascii?Q?fqpEZFxIVeQ3n1dNKqGGNp54bWOdc7JzpafaprvRvX1tR+HllyJ/xqcHCHNd?=
+ =?us-ascii?Q?+VHDcfQCJDQRjgcsq2BO9NBPjh01wRYjWc+4Mao9larIW96jcYaTbDsBMkev?=
+ =?us-ascii?Q?kskcgJh8tLSUkgtouSaXI3V3QLV7XsdomgCxjNprZKyFH5Z5L80Z2gkcuzKW?=
+ =?us-ascii?Q?T+o1+gBo7UkuS6PVghU28BeRe2Y1R2Gi/FqxIZpWhudCR3WeI6njLnclfTxW?=
+ =?us-ascii?Q?YQNILeitdsEFvnVSJ2FPtQBDBqGhY6v2l+xaHRdp5Tg6yAwbIs5jcM5PG/Xv?=
+ =?us-ascii?Q?BI2xq2IcyWVcmH1Fh7Th/H7i/1FAonyPhiw987Q9d5Ys40XyN6r3sjnJJX9U?=
+ =?us-ascii?Q?ERaNv75z6Qkqy30v45EtQPcLXYJrHuwS7/05Jev0vVN+XoWp+aXijEcd5N0g?=
+ =?us-ascii?Q?SRkS7h2F9RuQYUrTtwDx3/M84xK3yX8MjN9Y3YH1YIXfoUKkUzgAXks6WtCb?=
+ =?us-ascii?Q?khlLrg3H7V+G6tXdpAgA3iOUL2Eo4/LA5/h2M+0mhWEI+Gzc44fe+MRl10PS?=
+ =?us-ascii?Q?6w5WcxoZ7BxtXoBO/a6BK7mA15jhLYoC7cBb/IylItxPw4W1zXKu47xj2wHB?=
+ =?us-ascii?Q?gfmJYo+A+BK80F6CXtz3o2k9KyR3uTkfgQZp+uPJmKBIE4P0psjCZmrGQE2n?=
+ =?us-ascii?Q?38B14mkJm0Wq8EbSp1xt44OaWrQh/L9lBPVvYBeP9s9183iN+q3Wbk5VTx+v?=
+ =?us-ascii?Q?IyflaZ0N/GFRVv8OWB1i8p2hay3WxCxV486sagu10LUmEpIGfllLzoOAZ9fI?=
+ =?us-ascii?Q?zuKN7lCYmqGCqSQvl7s3JlHLfC0tP+IGtbIhHVP9MoHL/UoEC18/Bp7Fp8ix?=
+ =?us-ascii?Q?1AQQLoC9d/WxrBvALkE8/MJnhLYwhiBkL9/tDUkdvUqzBp66VFWXKpiRFwv3?=
+ =?us-ascii?Q?ZmlrdVW5ThWpIy+z32kg8tQV8ocNIBMkWd4rRC8kJIcRO5tWwQGa/E76XA2B?=
+ =?us-ascii?Q?t8JG9cULFDkx/TO1AANiFgUHwL5w41o8sE0g7SXo/apar32UlJPigfFnIL3d?=
+ =?us-ascii?Q?2DhNr3cve7TzMkmfLON8sBvgqyt0OhF4/7/Rpv1AwJvguPGpltFVx57rYe3s?=
+ =?us-ascii?Q?HmLtJjRTari9LT61vfB1ejJcK60T9iSbuKp4dcYK651B76Yj4RI7KTf79mYT?=
+ =?us-ascii?Q?7O+LVvn2Q6NCsN3hLLoLIdWkqD0OcYHkadAXn5C36KBtG2AHmGvehv5RVcPF?=
+ =?us-ascii?Q?xD9RAkxG11TJF8Yhhu47HCHCN57pE/9RbTtffb1yiCfRiIe0vod6p4Fnrmsu?=
+ =?us-ascii?Q?p3IfV9px0Q=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 387d5ca1-6ee8-467b-7b92-08de4c7eeabf
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jan 2026 17:21:52.2894
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: pZA2C3BvCHXoOza+1+73zQHeT5fnQHYmqT+kCPOva3P9LCNKN9f80tFpexKspS7BwT8xqbxPEPxZwND0MDaqyw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9252
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_092147_723119_640E549E 
-X-CRM114-Status: UNSURE (   7.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20260105_092157_523958_3DD3ABB4 
+X-CRM114-Status: GOOD (  25.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,21 +167,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 19 Dec 2025 18:11:14 +0000
-Ben Horgan <ben.horgan@arm.com> wrote:
+On Mon, Jan 05, 2026 at 12:14:48PM +0100, Marco Felsch wrote:
+> Hi Frank,
+>
+> On 25-12-29, Frank Li wrote:
+> > Add pinctrl-name 'reset' to fix below CHECK_DTB warnings:
+> >   arch/arm64/boot/dts/freescale/imx8mp-skov-basic.dtb: switch@5f (microchip,ksz9893): pinctrl-names: ['default'] is too short
+> > 	from schema $id: http://devicetree.org/schemas/net/dsa/microchip,ksz.yaml#
+> >
+> > The commit (e469b87e0fb0d dt-bindings: net: dsa: microchip: Add strap
+> > description to set SPI mode" force use two pinctrl-name 'default' and
+> > 'reset'. switch@5f doesn't use SPI, so it is safe to use the same pinctrl
+> > setting for both.
+>
+> please see:
+> - https://lore.kernel.org/all/20251112084717.ea7fchu7jcz6dzsi@pengutronix.de/
+>
+> I stumbled over the same warning, but came to the conclusion, that the
+> dt-bindings should be fixed instead of workaround broken bindings within
+> the dtb.
 
-> From: James Morse <james.morse@arm.com>
-> 
-> Care must be taken when modifying the PARTID and PMG of a task in any
-> per-task structure as writing these values may race with the task being
-> scheduled in, and reading the modified values.
-> 
-> Add helpers to set the task properties, and the CPU default value.  These
-> use WRITE_ONCE() that pairs with the READ_ONCE() in mpam_get_regval() to
-> avoid causing torn values.
-> 
-> CC: Dave Martin <Dave.Martin@arm.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+I have not seen "the conclusion" at above thread. I think patch 'reset' may
+be reasonable for SPI pin, which used for stub at reset. And there are not
+good method to distinguish under SPI or I2C.
+
+Frank
+
+>
+> Regards,
+>   Marco
+>
+> >
+> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > ---
+> >  arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi | 4 ++--
+> >  1 file changed, 2 insertions(+), 2 deletions(-)
+> >
+> > diff --git a/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
+> > index 020f20c8ce667..7d2fc5fdd3bd1 100644
+> > --- a/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
+> > +++ b/arch/arm64/boot/dts/freescale/imx8mp-skov-reva.dtsi
+> > @@ -373,8 +373,8 @@ &i2c4 {
+> >
+> >  	switch: switch@5f {
+> >  		compatible = "microchip,ksz9893";
+> > -		pinctrl-names = "default";
+> > -		pinctrl-0 = <&pinctrl_switch>;
+> > +		pinctrl-names = "default", "reset";
+> > +		pinctrl-0 = <&pinctrl_switch>, <&pinctrl_switch>;
+> >  		reset-gpios = <&gpio5 1 GPIO_ACTIVE_LOW>;
+> >  		reg = <0x5f>;
+> >
+> > --
+> > 2.34.1
+> >
+> >
+> >
+>
+> --
+> #gernperDu
+> #CallMeByMyFirstName
+>
+> Pengutronix e.K.                           |                             |
+> Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
+> 31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
+> Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
 
