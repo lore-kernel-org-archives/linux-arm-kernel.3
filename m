@@ -4,60 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55026C79FBC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 19:33:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7471C79FBA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 19:35:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yvVPbxb+Jf0fLe9ecX0ZIOIZVlGQSF1bFG8YI0gWLvM=; b=4vPc+DtGMMrEV8qjj1M8Q7VOO+
-	DuSVvSGugiaqGHBxAM6lVX/AS10hMr31NuxI3CcyRT0skjPG4sA0kQqdRxYCQ7YoBvMIYxZ1hv51c
-	iCM/3z68RInfuoJuAEM2vBOQ/T+4F9+8jfX0GiyagRLsJXhPbIBJbRnNdkwTX3WIl+bk0M8r0eb77
-	kj8jB3PVztMbyR6c+pcNluliJUeNWLdWqmSTA/OKHKxqkQWlNV6dhp6ngfuxoeZa9WK39Ym4bWRnn
-	h7GxUGdVattKMGe+MHDwMpCApLmAL+VvMXKjjLLMbODMaQiRMsuqpDuN7Gqa7i1A9ghBwziL9b/YF
-	ifHABv9Q==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cCvkvL2C/5gj+RhnXidCQE8qJ7m+kanbEcL9OclNPb4=; b=EgSCFG7Z+X3NeldozFqQcNphBJ
+	KPmCXeJO+3PLF9ws3WkKBJzCUzkMOhRKtf/1ythq2xV7Dysgy0b+hxCYBKbbfkc7lyhEaFEeBh6La
+	oSi/9SzSGkm4Z6JDPk+RoaYRiDGzizDlHjdoTKt8+8v9wjDb4/oH/TANFwlD4xfM5KRGtRTUbHFsA
+	0zyFlBp8d1bJD4OuNGNFpBGOuE6T1UwhL6Ofbvu0IhLAYcYFRG59YdLiteLQV8Ik8KBk1l7Ow8m7p
+	H86NBznCn5j/pgYcxKdeDIL96AwqZkLXrsK0+rA3/nwEsybz2Iu9x7kNrmPzbILbPrV84HJ2tgSws
+	j7jggisQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcqK3-0000000Byzg-3l4F;
-	Mon, 05 Jan 2026 19:32:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vcqMp-0000000BzGF-0CIC;
+	Mon, 05 Jan 2026 19:35:51 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcqK1-0000000ByzB-2X8w;
-	Mon, 05 Jan 2026 19:32:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B91D0429F0;
-	Mon,  5 Jan 2026 19:32:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F2D5C116D0;
-	Mon,  5 Jan 2026 19:32:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767641576;
-	bh=PR0XZGtoFMCwR/4sKrH7vwiahr0M5+UDd/92nG3vRBw=;
-	h=From:To:Cc:Subject:Date:From;
-	b=tOTeemel9LzhhV2R0rp4vgWHp2RszJDuT6i+62e73KKXmsRJBXZHpyCV2bM1SEUdg
-	 NE22EJugKYqQqNYFRBcYSXOQZBMI55Z1V93vriFPFUP7+7b45PmPjG6yJUguyLJZJe
-	 ExYY5K56RryzSXW0OqgSiOBRkPg0WLmzPKTcLBvMKABr0wyjAnZU2XRyBQsrVEj23a
-	 ODcmLv5psMxHSZ4k10qHiApN4EBUU5oCyyERB1FBW6zTDNZzrW8IVQgU2xQ6ovi20H
-	 zuLzwZ6ewSBrFl9fH9lzEDtgiF64nUoxtGKRin6KESo2GJ5bqHbs2ZgYxQKr5/Uohh
-	 4FXgaMEFAw/1g==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: rockchip: rk3399-roc-pc-plus: Add missing everest,es8388 supplies
-Date: Mon,  5 Jan 2026 13:32:44 -0600
-Message-ID: <20260105193245.3167500-1-robh@kernel.org>
-X-Mailer: git-send-email 2.51.0
+	id 1vcqMg-0000000BzFB-1nQc
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 05 Jan 2026 19:35:49 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-b7ffa5d1b80so48108566b.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 11:35:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1767641739; x=1768246539; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=cCvkvL2C/5gj+RhnXidCQE8qJ7m+kanbEcL9OclNPb4=;
+        b=g7AklKKac3z+zSV8AkisHWJYANZUAFfk6rISttgwg2CNrVxEngJd6Fmf4g5c4NMgli
+         GPq+h6AbTeiNop7SA3WnhTKYfcZSQumMsaylA8PVQ4Qsf1kS5S1E5X4TZ/G0PusAem/L
+         nO7rvnhPQDjtpbasajJB8nhK40XfGNIyIEQSc=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767641739; x=1768246539;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=cCvkvL2C/5gj+RhnXidCQE8qJ7m+kanbEcL9OclNPb4=;
+        b=fqNI7OEkks2bGsNUBT/A7bep0vMbz3NaorMNPpArFZwlL9uYjyLCtPTd1RFBacmVSz
+         OAQLUt5OEji+1wcu08BUw10cHLv41CEdBP6HzRGOkqgbJf+7D4Zzff6TWgEJUtb9izGf
+         Nf5qkzdPhzIdVCn5O71eT9SE9DS8l6VVyn/b8Vk/kWKoz70mhlXU8Z0N/VUFTKDunbm0
+         k+dXHQnZxjJJXnJTYwCB5uE3tVj8GwdfD9+sjfNx9A7zrIui1GHnTEOwwNC69m1//ate
+         Q8vQ2lFP7nDkE6lbOKs6K+KemQI92YxBebdlvbsP4I3msOkyKy/FMICFFZmLIUM2f0WH
+         kmhg==
+X-Forwarded-Encrypted: i=1; AJvYcCXZfog6XS2vv6BEs1X6EZBpTOS8ULN9T8YQM0NVQU/mqXWlXoUBWvrb+6qoiJ50Lmh0CbGDWUXw1BJcwFFN7Rww@lists.infradead.org
+X-Gm-Message-State: AOJu0YynzjTUzy9sAWOW08BJkKAJce5JSHMx+uvwB2lmrWiiIbBYEZvQ
+	QU+WF4iexFv4QWfbWV9NzBHEwLLAiWyRHChgAxVVPj83G0egi+uwGYitFrN69CjGiex1DlTlMJC
+	hkYgA+A==
+X-Gm-Gg: AY/fxX6tIlvAuJgD2wyJb3MlXi0LHY4qMFHIGaCtwjkEBhaepK9DvApZ4v9hWwwH01t
+	quSgwc4lZqRV1KIpvJwvSWV+aE3+vvUeLa/ylx+MN5KAbznsPordkGTjvGD26IzWA9MR3wa+4Tb
+	xLQRkMTIEoqmU6W57BN3dHD/gjl9X1RbTgh1mPflv1JPoIg6rbzSJGl2SqXbTofWi6ni9DG+aFn
+	Kjmvx37NOc3GjZMbQ92vsfu9ZprNQBLpVH5LCIfk4Tqk2SJ5GJaulD84sC1uEuU2z3enYgMCpJH
+	5MVRPk/ojsBK7ULcxiEqQ27SKnwW54rNv64/107ZaZPEUNu1Iw6w6IxxI3RESaFQxHS02YTixNC
+	Dh2kNtLFNkmga99T+vZLqSzq9fTv+r9adfwX1DVMt4ameW9yBAJAnc7Z2+O1TxhDrTG6wpRwOXd
+	E+fAJuwvUd+N1Q1xWl04QWqNOIRK3xrFfC6BLknnTnLYjkrN9y06oNdloKw5tP
+X-Google-Smtp-Source: AGHT+IFBV89cCUl4L4x2uAL0ADacybVHy+BqtuEo4eH3BFuSCUzY+Towp5xHUCerY1aw+tXgKXTLlg==
+X-Received: by 2002:a17:907:608d:b0:b83:1326:a504 with SMTP id a640c23a62f3a-b8426c96d63mr97867366b.60.1767641739383;
+        Mon, 05 Jan 2026 11:35:39 -0800 (PST)
+Received: from mail-wr1-f45.google.com (mail-wr1-f45.google.com. [209.85.221.45])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b842a4d1c61sm9096566b.35.2026.01.05.11.35.38
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 05 Jan 2026 11:35:38 -0800 (PST)
+Received: by mail-wr1-f45.google.com with SMTP id ffacd0b85a97d-42fbc305882so135005f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 11:35:38 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXwlFKrocshiDewdjMDe4gVMN4gjrCWXGwwnEUk/vOqjVnl2HqkTE//yz8rZN9OFCRxJbL0qMo48DmmJdw/co4o@lists.infradead.org
+X-Received: by 2002:a05:6000:2089:b0:431:53:1f49 with SMTP id
+ ffacd0b85a97d-432bca5166emr1151221f8f.41.1767641738057; Mon, 05 Jan 2026
+ 11:35:38 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <cover.1767111804.git.robin.murphy@arm.com>
+In-Reply-To: <cover.1767111804.git.robin.murphy@arm.com>
+From: Doug Anderson <dianders@chromium.org>
+Date: Mon, 5 Jan 2026 11:35:26 -0800
+X-Gmail-Original-Message-ID: <CAD=FV=UkCYRPbs3u3jGRZaqs4EW4-zA75iAaqM+=Weom1uojmw@mail.gmail.com>
+X-Gm-Features: AQt7F2qVclSy_2QUaj476pwucQuko2WJOWlBn7va8S3tPYkC358gB4ruqkJGhvQ
+Message-ID: <CAD=FV=UkCYRPbs3u3jGRZaqs4EW4-zA75iAaqM+=Weom1uojmw@mail.gmail.com>
+Subject: Re: [PATCH 0/4] Properly support FriendlyElec HD702E
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: heiko@sntech.de, neil.armstrong@linaro.org, thierry.reding@gmail.com, 
+	sam@ravnborg.org, jesszhan0024@gmail.com, dri-devel@lists.freedesktop.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_113257_660903_01D24F99 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20260105_113547_081493_B631FDE9 
+X-CRM114-Status: GOOD (  18.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,49 +107,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The regulator supplies for everest,es8388 audio codec are missing and
-are required. Add them based on the schematics found here:
+Hi,
 
-https://personalbsd.org/download/Documents/SCH/ROC-RK3399-PC-PLUS-V20-20210809.pdf
+On Tue, Dec 30, 2025 at 9:20=E2=80=AFAM Robin Murphy <robin.murphy@arm.com>=
+ wrote:
+>
+> Hi all,
+>
+> I've been using the HD702E LCD/touchscreen on my NanoPC-T4 for a few
+> years using my own DT with the "simple-panel" binding, but now we have
+> upstream overlays I figured it's about time to try doing it properly.
+> The screen itself doesn't seem to want to work as a generic "edp-panel",
+> as it appears the EDID isn't readable until after the whole lot is
+> enabled - I'm guessing this might be to do with the Analogix driver's
+> force-hpd behaviour - but since we do already have the legacy data, it
+> doesn't seem unreasonable to keep using it.
 
-With this, "regulator-always-on" should no longer be necessary for LDO5.
+Oh, I guess I should have read the cover letter before the patches. Sorry! =
+:(
 
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
----
-I don't have this h/w, so completely untested.
----
- arch/arm64/boot/dts/rockchip/rk3399-roc-pc-plus.dts | 4 ++++
- arch/arm64/boot/dts/rockchip/rk3399-roc-pc.dtsi     | 1 -
- 2 files changed, 4 insertions(+), 1 deletion(-)
+I'm hoping that with the "hpd-absent-delay-ms" you'll be able to read
+the EDID. I'd be surprised if something else is required, but let me
+know if that doesn't work.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-roc-pc-plus.dts b/arch/arm64/boot/dts/rockchip/rk3399-roc-pc-plus.dts
-index 8e3858cf988c..4f2831097624 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-roc-pc-plus.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-roc-pc-plus.dts
-@@ -116,6 +116,10 @@ es8388: es8388@11 {
- 		reg = <0x11>;
- 		clocks = <&cru SCLK_I2S_8CH_OUT>;
- 		#sound-dai-cells = <0>;
-+		AVDD-supply = <&vcca3v0_codec>;
-+		DVDD-supply = <&vcca1v8_codec>;
-+		HPVDD-supply = <&vcca3v0_codec>;
-+		PVDD-supply = <&vcca1v8_codec>;
- 	};
- };
- 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-roc-pc.dtsi b/arch/arm64/boot/dts/rockchip/rk3399-roc-pc.dtsi
-index fc9279627ef6..ac62e8f5d9f5 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-roc-pc.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-roc-pc.dtsi
-@@ -408,7 +408,6 @@ regulator-state-mem {
- 
- 			vcca3v0_codec: LDO_REG5 {
- 				regulator-name = "vcca3v0_codec";
--				regulator-always-on;
- 				regulator-boot-on;
- 				regulator-min-microvolt = <3000000>;
- 				regulator-max-microvolt = <3000000>;
--- 
-2.51.0
-
+-Doug
 
