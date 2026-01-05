@@ -4,89 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87353CD0405
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 21:09:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E300CD0406
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 21:09:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4tSkxCKwZXCfTTNee+KHC5cdt2q9BOYUvx4EdY3LV9o=; b=zJPYelff6P3LnYTouIS9arl/o5
-	RNKXXsxyZmlWPnMGOsiENuKI66Qk74p9VztUyICwSjSJromD5sUvSNqF4kt31qM98RG3I4H3UOzbR
-	hQm7TPo2dXdQfsYUQsT4a9JtO2m+AC/SNdC7MHFaqMhdGzHoH0mTjumZDVBlW30eiub4Oz9blXv8F
-	In0B2cpQxs2CqUIu4FkK523L8pi9oOAGgZbe7WuPnSsOYLkkjHH0AfhoKBWg3r9eFhPvXR0u9fo0U
-	fP6+gkYh5dgWMiaKXy7TSN782QdiCkk8+jChPOwUl3to4XDVSqnzNoQRpIjZX/+1nvP+m9k0xj+qx
-	WSzrxuyw==;
+	bh=TQdo2EOjBsLaL7c/IhHgPthtfqDDodUtjO1I2hWw6X0=; b=l2C0tImhJdy8ehsbAZ47dvQhpF
+	BaU8UYGCa3p+96mO2PiPTN1eRObg4OQ4CUh/ksBLPEyFdsDwKfS3TKG7jGXFg9T17UW/XtUJrl5cJ
+	5ClbN2VrJNm7qw9a67f6Ace0lehe9DEgivLH21HNotlC6UB8R3QbpOH+jQGPZ+GIkgOa/ek/C9ppN
+	Ma0BiUqNiD8IBks6KTepifeSAr8ejoVFdVvz6Bx2pjjYPXt8QGpFXu9br+H6RZX71XtKY9Yys4b7m
+	kS7yxG2/fFt2Mp76cQvjNBEacVyo+td65DwJ0pJBcCeZFO07V7d+7vN/3a0sruLpYYylSWxo7rwB+
+	adAvAipg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcrpO-0000000C6U3-11Tv;
-	Mon, 05 Jan 2026 21:09:26 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1vcrpY-0000000C6Vt-2HnH;
+	Mon, 05 Jan 2026 21:09:36 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcrpL-0000000C6Tg-1Da2
+	id 1vcrpW-0000000C6VP-2aYF
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 21:09:24 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-29f0f875bc5so4686855ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 13:09:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1767647362; x=1768252162; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=4tSkxCKwZXCfTTNee+KHC5cdt2q9BOYUvx4EdY3LV9o=;
-        b=aYC1bLsActI3x5rSv5WZ0JKaONe7Nb4n0Gui9OvKgxpvIQ8e/ID9E98CDHmIwez7HT
-         iDk0Nnz1Asi8EK4Dw2WF5tB53oe/RYvP3oNkqVpSRD/2yr8ALLN2dEL7u7OhTtXJxn6a
-         il357q3HHThcqOPcDq/J0hj2y1xtsctVKvCtHLB2oxGS2ouc/q4luUppc5zLvA8Xz0ct
-         8p6DqdZ/K7U5Ghju/MEZqRyRmvoS1G/cjBpYajEw4sErtPLo8tlY0UsMiV3pP01Y6D6V
-         nNqPPfNvi8a8+yxMtKM7bHDENpiGQkxeQ6VqyTrKhUfmQDFK8zmCAoQrGXH+4zgfISdY
-         8yjQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767647362; x=1768252162;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=4tSkxCKwZXCfTTNee+KHC5cdt2q9BOYUvx4EdY3LV9o=;
-        b=rxkaANzlAzrxTsJQJ4C2XTyXSPCMqRjXrzRuDQAWO05UnN78qinL78EwhetpuwfSa+
-         zjvL4Ur1JxwXd+jvzMqjA7ZfVqgU5u5hbtr8WpK1AP4mvfPSjWyxfhiuyA6Ejz7bfePT
-         sH7Zit4pKwNI2eXtJ2vTPjJ+ZP55DHnWMUGOjBJVDZprt6jXAXfZwokqTX1MYhk9C6r6
-         3ORphgWuNxf00ce7qx231i+024n1i+KJuYcsQiCWy9wdtZ7rXyszHQolgfhtHi1v65qZ
-         4jNn1kEhs/KuoasrhK7wpb+Fagy8W8zZB+P2fY8CMptqt96ycs6IP+nKaFTYgWGBTepA
-         qd8w==
-X-Forwarded-Encrypted: i=1; AJvYcCUjlELJb4lEQbvgXhOJbvDSDBJRjgkJUw6eaAqVirKmUYqbCmYF86lQnMcWDn804LXTKBBkscIoQza3fnxG7dav@lists.infradead.org
-X-Gm-Message-State: AOJu0YyFtpzZBrw9b1dqamO/92fw/ZCFWsA8LQ7ZLs289h0ZscKvYys0
-	Gz123a85uyZUy+N5KJC4MfNFGHFbc5fowNe/+IHhF7sjvctODsQQC2MEh5P9YV7uVns=
-X-Gm-Gg: AY/fxX4i+NRmCvb4oqDNvbfIdPgqth5Sp3diC1KoFRRbPEUXEJFkclzOD/k0UJcvc/E
-	VIpJI8cs41APjw908xNgmOGnaa/q4UMizlAwe4vm0dFyBXny6jYP5G4YZSDuZwdBoA0Qj8qfOAD
-	aAHYYuJ+F57b5R9QSAdYndLxkKnXUkhE6rsgztimpcmd+KpC4qL9zrzL4I31ipyFRIbuMIv/d2n
-	zoM/6ITTZWR0sHFT12+msYxqh15+pZXC2KPP9h3eha4QHYYzKcssxDOiLdkk/honucZ2rTQBOyc
-	XpPigOohSjln7EY44IdLsvdqENOyJcN3pbrHqvbkdu2Trn0gzUewjP/aLuY5kiowdp10wF1yvd3
-	9LfQ6NPvBj/37M7+4hLH8xiboJgUU+YRW20Lwm6Z5YOneBeFeqsdB/m2tnmHa/Qr1m/3ZZcg8Ki
-	Cngr7DlWvrUsbi6g==
-X-Google-Smtp-Source: AGHT+IHXo6DMFCW0WpfI4RbwmQ0/+SMw7AIolM0jI+6hLOC2qL1pTqhGB59TCu4aAjBQnNj3aCaTnQ==
-X-Received: by 2002:a17:903:2f46:b0:29f:2b8a:d3d with SMTP id d9443c01a7336-2a3e2d7896dmr8294395ad.4.1767647361918;
-        Mon, 05 Jan 2026 13:09:21 -0800 (PST)
-Received: from p14s ([2604:3d09:148c:c800:3f6b:5551:220f:8f13])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2a3e3ba03f9sm1721825ad.0.2026.01.05.13.09.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Jan 2026 13:09:21 -0800 (PST)
-Date: Mon, 5 Jan 2026 14:09:19 -0700
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Shengjiu Wang <shengjiu.wang@nxp.com>
-Cc: andersson@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com, daniel.baluta@nxp.com,
-	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] remoteproc: imx_dsp_rproc: only reset carveout memory
- at RPROC_OFFLINE state
-Message-ID: <aVwof_w31EMxi5st@p14s>
-References: <20251218071750.2692132-1-shengjiu.wang@nxp.com>
+	Mon, 05 Jan 2026 21:09:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 43FA943E73;
+	Mon,  5 Jan 2026 21:09:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32BA6C116D0;
+	Mon,  5 Jan 2026 21:09:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767647374;
+	bh=Bo2mz1wPMluDbvj1elOIEegGzA0WmkT7yrJG4cxsqlM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Q/xj8TW9LZABZbPiV5Okvvz+WY5plTAtOdalIV5ynCNGDES3JCEsjtoJi9NZRcpBg
+	 LWyYlPwBSFpXOC2nsLK8QoWZ4y33dgumC+x4WuN6i2TK79Q2DW08eqggs80VJk7j7W
+	 rsXNzHWATKyFdDyHFtfmLo+V7nhGB1wvLOJMLpj/Cydrfk+zH5ecgUJvqGbaFkBk+z
+	 H5CbaKUIlk/sCPfXhnNI6qxk1kZZ3pOzNEnPT+g4LLnWR9+uVyBl3YrEKbP8ped7ZV
+	 yfOUo8h8cTRef2xs5GJkVgIpz4KrDSzqLTkPhLdbM/aqs18755zZjg7Sa9nXqWLeGT
+	 Dwd87DjLyPJ1g==
+Date: Mon, 5 Jan 2026 21:09:28 +0000
+From: Will Deacon <will@kernel.org>
+To: Ahmed Tiba <ahmed.tiba@arm.com>
+Cc: linux-acpi@vger.kernel.org, devicetree@vger.kernel.org,
+	tony.luck@intel.com, bp@alien8.de, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, catalin.marinas@arm.com,
+	linux-arm-kernel@lists.infradead.org, rafael@kernel.org,
+	linux-doc@vger.kernel.org, Dmitry.Lamerov@arm.com,
+	Michael.Zhao2@arm.com
+Subject: Re: [PATCH 11/12] ras: add DeviceTree estatus provider driver
+Message-ID: <aVwoiM9bCFe2Zqn_@willie-the-truck>
+References: <aUVMWMMmiG8_I2I2@willie-the-truck>
+ <20251219172212.2844694-1-ahmed.tiba@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251218071750.2692132-1-shengjiu.wang@nxp.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251219172212.2844694-1-ahmed.tiba@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_130923_334925_5C383702 
-X-CRM114-Status: GOOD (  21.00  )
+X-CRM114-CacheID: sfid-20260105_130934_697962_26193A3A 
+X-CRM114-Status: GOOD (  39.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,48 +77,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 18, 2025 at 03:17:50PM +0800, Shengjiu Wang wrote:
-> Do not reset memory at suspend and resume stage, because some
-> memory is used to save the software state for resume, if it is cleared,
-> the resume operation can fail.
+On Fri, Dec 19, 2025 at 05:21:54PM +0000, Ahmed Tiba wrote:
+> On Fri, 19 Dec 2025 13:00:08 +0000, Will Deacon wrote:
+> >On Fri, Dec 19, 2025 at 09:02:35AM +0000, Ahmed Tiba wrote:
+> >> On Thu, 18 Dec 2025 03:19:17PM +0000, Will Deacon wrote:
+> >> > On Thu, Dec 18, 2025 at 01:42:47PM +0000, Ahmed Tiba wrote:
+> >> >> On Thu, 18 Dec 2025 12:13:25PM +0000, Will Deacon wrote:
+> >> >> >> Introduce a platform driver that maps the CPER status block described
+> >> >> >> in DeviceTree, feeds it into the estatus core and handles either IRQ- or
+> >> >> >> poll-driven notifications. Arm64 gains a FIX_ESTATUS_IRQ slot so the
+> >> >> >> driver can safely map the shared buffer while copying records.
+> >> >> >>
+> >> >> >> Signed-off-by: Ahmed Tiba <ahmed.tiba@arm.com>
+> >> >> >> ---
+> >> >> >>  MAINTAINERS                     |   1 +
+> >> >> >>  arch/arm64/include/asm/fixmap.h |   5 +
+> >> >> >>  drivers/ras/Kconfig             |  14 ++
+> >> >> >>  drivers/ras/Makefile            |   1 +
+> >> >> >>  drivers/ras/estatus-dt.c        | 318 ++++++++++++++++++++++++++++++++
+> >> >> >>  include/linux/estatus.h         |   3 +-
+> >> >> >>  6 files changed, 341 insertions(+), 1 deletion(-)
+> >> >> >>  create mode 100644 drivers/ras/estatus-dt.c
+> >> >> >>
+> >> >> >> diff --git a/MAINTAINERS b/MAINTAINERS
+> >> >> >> index 6b2ef2ddc0c7..5567d5e82053 100644
+> >> >> >> --- a/MAINTAINERS
+> >> >> >> +++ b/MAINTAINERS
+> >> >> >> @@ -21761,6 +21761,7 @@ RAS ERROR STATUS
+> >> >> >>  M:   Ahmed Tiba <ahmed.tiba@arm.com>
+> >> >> >>  S:   Maintained
+> >> >> >>  F:   Documentation/devicetree/bindings/ras/arm,ras-ffh.yaml
+> >> >> >> +F:   drivers/ras/estatus-dt.c
+> >> >> >>  F:   drivers/firmware/efi/estatus.c
+> >> >> >>  F:   include/linux/estatus.h
+> >> >> >>
+> >> >> >> diff --git a/arch/arm64/include/asm/fixmap.h b/arch/arm64/include/asm/fixmap.h
+> >> >> >> index 65555284446e..85ffba87bab9 100644
+> >> >> >> --- a/arch/arm64/include/asm/fixmap.h
+> >> >> >> +++ b/arch/arm64/include/asm/fixmap.h
+> >> >> >> @@ -64,6 +64,11 @@ enum fixed_addresses {
+> >> >> >>  #endif
+> >> >> >>  #endif /* CONFIG_ACPI_APEI_GHES */
+> >> >> >>
+> >> >> >> +#ifdef CONFIG_RAS_ESTATUS_DT
+> >> >> >> +     /* Used for ESTATUS mapping from assorted contexts */
+> >> >> >> +     FIX_ESTATUS_IRQ,
+> >> >> >> +#endif /* CONFIG_RAS_ESTATUS_DT */
+> >> >> >
+> >> >> > Why do we need this in addition to the four existing GHES slots? The DT
+> >> >> > code doesn't use it and I was assuming that the ACPI code would continue
+> >> >> > to use the existing irq; is that not the case?
+> >> >>
+> >> >>
+> >> >> We still need a dedicated slot when only the DT provider is built.
+> >> >> All four GHES slots are defined as part of the ACPI implementation,
+> >> >> so they are not present in a DT-only configuration.
+> >> >>
+> >> >> The estatus core always requests a fixmap index from each provider
+> >> >> before copying a CPER record. As a result, the DT driver must supply
+> >> >> its own slot to return a valid enum value to satisfy the common code.
+> >> >
+> >> > Sorry, but I still don't follow this. The DT code doesn't use the fixmap,
+> >> > does it? It looks like it maps the buffer ahead of time using
+> >> > devm_ioremap_resource() and then the accessors don't use the fixmap
+> >> > index at all, hence the horrible '(void)fixmap_idx;' cast which presumably
+> >> > stops the compiler from complaining about an unused variable.
+> >> 
+> >> Correct. The current DT driver keeps the CPER buffer permanently mapped with
+> >> devm_ioremap_resource() and that (void)fixmap_idx; line is just silencing
+> >> the warning. I’ll fix that by dropping the permanent mapping and copying the
+> >> status block via the fixmap entry, so the DT implementation mirrors GHES. That
+> >> gets rid of the cast and makes FIX_ESTATUS_IRQ do real work.
 > 
-> Fixes: c4c432dfb00f ("remoteproc: imx_dsp_rproc: Add support of recovery and coredump process")
-> Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-> Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
-> Reviewed-by: Iuliana Prodan <iuliana.prodan@nxp.com>
-> ---
-> changes in v2:
-> - refine commit message.
->
+> > Why can't you just drop FIX_ESTATUS_IRQ entirely? Your original
+> > justification was:
+> >
+> >> We still need a dedicated slot when only the DT provider is built.
+> >
+> > but as above, the DT driver doesn't actually need it.
+> 
+> The DT provider is intended to mirror the GHES path, so both need to supply a
+> fixmap slot to satisfy the estatus core interface.
 
-Applied.
+If the fixmap slot isn't needed, we should either change the core code
+not to require it or you should reuse the ACPI slots. There's no
+justification at all for allocating new VA space in the fixmap area that
+is never used to map anything at runtime.
 
-Thanks,
-Mathieu
- 
->  drivers/remoteproc/imx_dsp_rproc.c | 8 +++++---
->  1 file changed, 5 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
-> index d03017d6b214..ac8aa71aa56c 100644
-> --- a/drivers/remoteproc/imx_dsp_rproc.c
-> +++ b/drivers/remoteproc/imx_dsp_rproc.c
-> @@ -984,9 +984,11 @@ static int imx_dsp_rproc_load(struct rproc *rproc, const struct firmware *fw)
->  	 * Clear buffers after pm rumtime for internal ocram is not
->  	 * accessible if power and clock are not enabled.
->  	 */
-> -	list_for_each_entry(carveout, &rproc->carveouts, node) {
-> -		if (carveout->va)
-> -			memset(carveout->va, 0, carveout->len);
-> +	if (rproc->state == RPROC_OFFLINE) {
-> +		list_for_each_entry(carveout, &rproc->carveouts, node) {
-> +			if (carveout->va)
-> +				memset(carveout->va, 0, carveout->len);
-> +		}
->  	}
->  
->  	ret = imx_dsp_rproc_elf_load_segments(rproc, fw);
-> -- 
-> 2.34.1
-> 
+Will
 
