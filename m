@@ -4,60 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 524D3C79FA5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 17:01:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EB59C79FA5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 17:05:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WAb9H6PboC1iB7CxS1P1uaGviy58ws+pZ0PmE+nPja0=; b=YugbI9dYHpqTAN5XPclYBITlVp
-	cjK0q1Kv63igaHqFaxQLATnd+lSldc3HwVj5xmZo6e4GPcob2RGfUHlJ38o8aA6nAlFa8oXI9CsU2
-	mzYBdgIV4OwiEvrPS5ZV8z7ZYsaq8uB8EYBDYlfwddAW9FASLKrgK2ndJs+Q8rXxJnk4zvodLb66Q
-	AlTxt5Aav82ndE8CY4NYe0scpDfjsHYdjaN/s5fmJorsVwNdf3SCW/MzH3z544ghop9SdXjj6Ltyu
-	/TfZp5sCtjSyHULAvDP+3k9bPTG9O573o/h45qYeWRx3PQc+FtszQrkXCzwsOUT/BtGOB/+BD8Aim
-	1P4dacDw==;
+	bh=Z+mzXtY6EqIuDAHlHlhOhz9G80HQtmYpy2CfkZjwJew=; b=2Cq2GFwLG70X758q5UESodRqE5
+	9eJst0+TgY0UCmlbE6QP7xf5lMrBbcMs9SbCHJFZ7pZ+ur1QSXaOozDCkY/TW6pHz19NKGhlwCQxJ
+	YwJMfuV0xnLBYrHLFEM3yEKkYDKZ5nKNwF2qZih2IwWw/vVANdqXzxh7L8HKHQPdmFyf1TAwQ4/IE
+	CwPRG9a2rpPklB4joJ4xTc6ZQGZGgP+T7kBBY3wp6P3y5RJb0eWKlwPmhfHjrhB5w628vl6MFd4xB
+	Y+WmGXSuRUvwbtSIC8kmD38NMPjVAPNH8IAW8eCwryiq1jt1I6LtD/DyhamceQwwF6dG4w7zIG+WU
+	C1Ei2nMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcnx0-0000000BmBi-1lqa;
-	Mon, 05 Jan 2026 17:01:02 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcnwy-0000000BmAy-0m8B
+	id 1vco15-0000000BmPS-3Hm1;
+	Mon, 05 Jan 2026 17:05:15 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vco12-0000000BmOq-2kY7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 17:01:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CC344339;
-	Mon,  5 Jan 2026 09:00:51 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C06A03F5A1;
-	Mon,  5 Jan 2026 09:00:56 -0800 (PST)
-Message-ID: <819a6bf5-438d-44ae-a730-77252e92080b@arm.com>
-Date: Mon, 5 Jan 2026 17:00:55 +0000
+	Mon, 05 Jan 2026 17:05:14 +0000
+Received: from mail.maildlp.com (unknown [172.18.224.150])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTPS id 4dlLJZ2rPMzHnGch;
+	Tue,  6 Jan 2026 01:05:02 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id EAEDF40565;
+	Tue,  6 Jan 2026 01:05:04 +0800 (CST)
+Received: from localhost (10.126.174.38) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.36; Mon, 5 Jan
+ 2026 17:04:53 +0000
+Date: Mon, 5 Jan 2026 17:04:51 +0000
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Ben Horgan <ben.horgan@arm.com>
+CC: <amitsinght@marvell.com>, <baisheng.gao@unisoc.com>,
+	<baolin.wang@linux.alibaba.com>, <carl@os.amperecomputing.com>,
+	<dave.martin@arm.com>, <david@kernel.org>, <dfustini@baylibre.com>,
+	<fenghuay@nvidia.com>, <gshan@redhat.com>, <james.morse@arm.com>,
+	<kobak@nvidia.com>, <lcherian@marvell.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<peternewman@google.com>, <punit.agrawal@oss.qualcomm.com>,
+	<quic_jiles@quicinc.com>, <reinette.chatre@intel.com>,
+	<rohit.mathew@arm.com>, <scott@os.amperecomputing.com>,
+	<sdonthineni@nvidia.com>, <tan.shaopeng@fujitsu.com>,
+	<xhao@linux.alibaba.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<corbet@lwn.net>, <maz@kernel.org>, <oupton@kernel.org>,
+	<joey.gouly@arm.com>, <suzuki.poulose@arm.com>, <kvmarm@lists.linux.dev>
+Subject: Re: [PATCH v2 07/45] arm64: mpam: Context switch the MPAM registers
+Message-ID: <20260105170451.00005669@huawei.com>
+In-Reply-To: <20251219181147.3404071-8-ben.horgan@arm.com>
+References: <20251219181147.3404071-1-ben.horgan@arm.com>
+	<20251219181147.3404071-8-ben.horgan@arm.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/4] KVM: selftests: arm64: Skip all 32 bit IDs when
- set_id_regs is aarch64 only
-To: Mark Brown <broonie@kernel.org>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>,
- Oliver Upton <oupton@kernel.org>, linux-arm-kernel@lists.infradead.org,
- kvmarm@lists.linux.dev, kvm@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20251219-kvm-arm64-set-id-regs-aarch64-v3-0-bfa474ec3218@kernel.org>
- <20251219-kvm-arm64-set-id-regs-aarch64-v3-4-bfa474ec3218@kernel.org>
- <363e440d-4e29-4286-ade4-b4be2f856859@arm.com>
- <90fb25bd-fa79-4980-902b-497346a3e6d5@sirena.org.uk>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <90fb25bd-fa79-4980-902b-497346a3e6d5@sirena.org.uk>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="US-ASCII"
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.126.174.38]
+X-ClientProxiedBy: lhrpeml500012.china.huawei.com (7.191.174.4) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_090100_265443_C131200A 
-X-CRM114-Status: GOOD (  12.42  )
+X-CRM114-CacheID: sfid-20260105_090513_020507_ACCDDD2A 
+X-CRM114-Status: GOOD (  45.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,30 +82,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,
+On Fri, 19 Dec 2025 18:11:09 +0000
+Ben Horgan <ben.horgan@arm.com> wrote:
 
-On 1/5/26 16:45, Mark Brown wrote:
-> On Fri, Jan 02, 2026 at 02:50:07PM +0000, Ben Horgan wrote:
->> On 12/19/25 19:28, Mark Brown wrote:
+> From: James Morse <james.morse@arm.com>
 > 
->>> +			if (aarch64_only && sys_reg_CRm(reg_id) < 4) {
->>> +				ksft_test_result_skip("%s value seen in guest\n",
->>> +						      get_reg_name(reg_id));
->>> +				break;
->>> +			}
->>> +
+> MPAM allows traffic in the SoC to be labeled by the OS, these labels are
+> used to apply policy in caches and bandwidth regulators, and to monitor
+> traffic in the SoC. The label is made up of a PARTID and PMG value. The x86
+> equivalent calls these CLOSID and RMID, but they don't map precisely.
 > 
->> Unnecessary? The decision for which regs are testing is made in
->> guest_code().
+> MPAM has two CPU system registers that is used to hold the PARTID and PMG
+> values that traffic generated at each exception level will use. These can
+> be set per-task by the resctrl file system. (resctrl is the defacto
+> interface for controlling this stuff).
 > 
-> The guest code has a fixed list of registers it reads blindly and we
-> skip the write for these so our expected value won't be something we
-> explicitly set.  The actual test is done here in the host code and it
-> seems both more maintainable to keep the skip adjacent to the live test
-> and clearer to be more explicit about nothing actually being tested.
+> Add a helper to switch this.
+> 
+> struct task_struct's separate CLOSID and RMID fields are insufficient to
+> implement resctrl using MPAM, as resctrl can change the PARTID (CLOSID) and
+> PMG (sort of like the RMID) separately. On x86, the rmid is an independent
+> number, so a race that writes a mismatched closid and rmid into hardware is
+> benign. On arm64, the pmg bits extend the partid.
+> (i.e. partid-5 has a pmg-0 that is not the same as partid-6's pmg-0).  In
+> this case, mismatching the values will 'dirty' a pmg value that resctrl
+> believes is clean, and is not tracking with its 'limbo' code.
+> 
+> To avoid this, the partid and pmg are always read and written as a pair.
+> Instead of making struct task_struct's closid and rmid fields an
+> endian-unsafe union, add the value to struct thread_info and always use
+> READ_ONCE()/WRITE_ONCE() when accessing this field.
+I'm still hammering on this one ;)
 
-Thanks for the explanation, it seems like a sensible decision.
+The comment below is better way of putting that it would basically leave
+some fields that look like they can be used which can't. Given they
+are under ifdef CONFIG_X86_CPU_RESCTRL anyway it would be very odd
+to use a union. Would just be a new appropriately ifdef protected variable
+right next to them in the file.  I'd be tempted to just drop the bit
+about union and say why it makes sense to instead put it in
+struct thread_info (basically because it's arch specific and we can
+avoid even more ifdef mess?)
 
-Ben
+
+> 
+> Resctrl allows a per-cpu 'default' value to be set, this overrides the
+> values when scheduling a task in the default control-group, which has
+> PARTID 0. The way 'code data prioritisation' gets emulated means the
+> register value for the default group needs to be a variable.
+> 
+> The current system register value is kept in a per-cpu variable to avoid
+> writing to the system register if the value isn't going to change.  Writes
+> to this register may reset the hardware state for regulating bandwidth.
+> 
+> Finally, there is no reason to context switch these registers unless there
+> is a driver changing the values in struct task_struct. Hide the whole thing
+> behind a static key. This also allows the driver to disable MPAM in
+> response to errors reported by hardware. Move the existing static key to
+> belong to the arch code, as in the future the MPAM driver may become a
+> loadable module.
+> 
+> All this should depend on whether there is an MPAM driver, hide it behind
+> CONFIG_ARM64_MPAM.
+> 
+> CC: Amit Singh Tomar <amitsinght@marvell.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Signed-off-by: Ben Horgan <ben.horgan@arm.com>
+> ---
+> CONFIG_MPAM -> CONFIG_ARM64_MPAM in commit message
+> Remove extra DECLARE_STATIC_KEY_FALSE
+> Function name in comment, __mpam_sched_in() -> mpam_thread_switch()
+> Remove unused headers
+> Expand comment (Jonathan)
+> ---
+>  arch/arm64/Kconfig                   |  2 +
+>  arch/arm64/include/asm/mpam.h        | 73 ++++++++++++++++++++++++++++
+>  arch/arm64/include/asm/thread_info.h |  3 ++
+>  arch/arm64/kernel/Makefile           |  1 +
+>  arch/arm64/kernel/mpam.c             | 13 +++++
+>  arch/arm64/kernel/process.c          |  7 +++
+>  drivers/resctrl/mpam_devices.c       |  2 -
+>  drivers/resctrl/mpam_internal.h      |  4 +-
+>  8 files changed, 101 insertions(+), 4 deletions(-)
+>  create mode 100644 arch/arm64/include/asm/mpam.h
+>  create mode 100644 arch/arm64/kernel/mpam.c
+> 
+
+> diff --git a/arch/arm64/include/asm/mpam.h b/arch/arm64/include/asm/mpam.h
+> new file mode 100644
+> index 000000000000..2ab3dca6977c
+> --- /dev/null
+> +++ b/arch/arm64/include/asm/mpam.h
+
+> +/*
+> + * The resctrl filesystem writes to the partid/pmg values for threads and CPUs,
+> + * which may race with reads in mpam_thread_switch(). Ensure only one of the old
+> + * or new values are used. Particular care should be taken with the pmg field as
+> + * mpam_thread_switch() may read a partid and pmg that don't match, causing this
+> + * value to be stored with cache allocations, despite being considered 'free' by
+> + * resctrl.
+> + *
+> + * A value in struct thread_info is used instead of struct task_struct as the
+> + * cpu's u64 register format is used. In struct task_struct there are two u32,
+> + * rmid and closid for the x86 case, but as we can't use them here do something
+> + * else. Creating a union would mean only accesses from the created u64 would be
+> + * endian safe and so be less clear.
+
+I'd just put this as something:
+  * The closid and rmid in task_struct can't be directly reused as a u64 is needed.
+  * As such, a suitable variable in struct thread_info is used instead with the
+  * benefit of that being clearly an architecture specific location.
+
+or be more cynical and keep it for the patch description only. To me location
+of this u64 doesn't really feel like a design decision we need to record for the ages.
+
+With something like the suggested text, or the paragraph just dropped
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+
+> + */
+> +static inline u64 mpam_get_regval(struct task_struct *tsk)
+> +{
+> +#ifdef CONFIG_ARM64_MPAM
+> +	return READ_ONCE(task_thread_info(tsk)->mpam_partid_pmg);
+> +#else
+> +	return 0;
+> +#endif
+> +}
+
 
 
