@@ -4,70 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1880BC2A062
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 07:37:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC3A9C2A062
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 07:47:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hBh3+Fc9fmKvv7ALR0Ga5+M3oQ1D+mCzNE32QmkZwog=; b=c3QwsO3fKTRfJ2qIZZOF6gkxyO
-	k4U6b8irRyaIEDVUouQ2Y491nS6UKTIMyw3GzVKOB66iwB4tJsyt/DQ44gCEodg7Tj7cIZIj2noLu
-	ZHEAiFE3hexLJH0a+Kf8sZ7a+tAatQS+5HGCpobiT2AvpCdhGedaQwEljrwLiyzw+5GUFF+Rq2zcB
-	ckbK2Y2deweNfAqWT6baoryM3PgZT2fDB+j/csDQVoCa7GkWX2+hSsdOTGf2WuuoJcwU4/WS7S5rK
-	CrqJqfchV/ymKrdU1z1qalSY0jAwF/m+p8EUZUkdJKB8Zatkj+RY3qUl0XziwBJyK+N8uTSKhuGY3
-	pNbGo6ew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2Smn7G9NNF4TKpSBrLZt6/rkru/ozPf2jYkxgsCOt/U=; b=P4Xc3qV2C6h9vjkHSRHujLBDlQ
+	VQFQds/vipg0q8ShLlHvMRTgJHaLP3TloiDUzbUi+MInF0bjmxgd4QaYtLUN/JxSTJukjQJBPtZKY
+	jZ68EXbXhd+Fkmid9CL3SjsjkdU8imbbbJnosKdz7pEkswtXBfIAfIZfx12qWM8hlWV6Sf7jvLhHv
+	hiCSoYuE+PlNYVpRq94LiAa7dbO0bWSPRqGod8CFyiuM5LiIq8keDyKbj8krBAGlzDXg+XTlGjI4Y
+	woeuTMa8OXttTbhJGdQuRtbyk3bi3dOrmkHyGGrX0WdDEhR8TSG1XiIrZAf5Y1HTmzupR9cyUDGEv
+	tAMM9jyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcf9R-0000000AvKL-1IxA;
-	Mon, 05 Jan 2026 07:37:17 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vcfJQ-0000000AvfC-1OCx;
+	Mon, 05 Jan 2026 07:47:36 +0000
+Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcf9P-0000000AvKE-1vvl
+	id 1vcfJN-0000000AveT-1eFq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 07:37:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8E3CF6000A;
-	Mon,  5 Jan 2026 07:37:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 126D3C116D0;
-	Mon,  5 Jan 2026 07:37:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1767598634;
-	bh=xZXhNGf8vmrb3CmFuHN4pbqIFbluYGuFSRI363D+f+E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AQARnNlfezTetrzJA3Ray5fzyIVC7UjBIgH+mtbm6iAII3CHO5cPZ/tTo2CFVCyR+
-	 DVcS7Kf+SULOiiEUwHK+zBr3c6t2RDNvqWFx0g8IMhzcLPIxBvGTxj9LSdH7/gQfnh
-	 jg3ZcE+6SAgF8GcJTDyHVjo6e6aizljBqBpNZrOSUX2A01xZv6E2RPv86uFsE4ADdl
-	 kUccWGdUJQp9rs4iGzgVns76/lKBxKlJRY6rmVuu6woz1a+lXQYu8T8a+HSihzBCuG
-	 esf0xbDHDWkpCIoxrL3ngYar990BhCFJs0hiZlu6koA1zN0bTHNUeoFavPAK2Yl9i9
-	 T+Zhy5zaQHyZg==
-Date: Mon, 5 Jan 2026 13:07:05 +0530
-From: Sumit Garg <sumit.garg@kernel.org>
-To: Rob Herring <robh@kernel.org>
-Cc: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Jens Wiklander <jens.wiklander@linaro.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-stm32@st-md-mailman.stormreply.com,
+	Mon, 05 Jan 2026 07:47:35 +0000
+Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-c1e4a9033abso12231513a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 04 Jan 2026 23:47:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1767599252; x=1768204052; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2Smn7G9NNF4TKpSBrLZt6/rkru/ozPf2jYkxgsCOt/U=;
+        b=BiBPPtyqr4IQCbYYfTBKfXz1F7mRwBl5bvagFOFJIVnaJF2QTrrWpd/YMcgor5mEC+
+         qNnIwWmrhI88sQ6MXAnKtZ0I3G/0FBHdfQ9YVvoLU536U17FFheESm1FL0xpj630U6de
+         RgqVgG24GGLPrgcGvbT8H1dzjdC/4DojBqOKr/E4UPKEDPX91ZlSxWJS8LjAuK2s/itO
+         joyeFm6ql1JsgQ1/+d8+1j4gUjrbzc3zhkNob4vzH1X+604bisj9i/Ksu2r1Gn8kPkD7
+         TF+s0YtHeF/VTeLTLblJnuPBGeCn31p5R++YAP6RkcNvJSFXPXbMTY9ntRY1s6b4Pg0h
+         Wjcg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767599252; x=1768204052;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=2Smn7G9NNF4TKpSBrLZt6/rkru/ozPf2jYkxgsCOt/U=;
+        b=B5Me+OZGzo0CbHCGCs4XXl7dvLb8lwHmetjRQMmjllC7R2JstO2fVxfedxqoIuvcOl
+         mlbwIiPWjZngWDZvnhksl/Sd5x4+/RK4eBTbrU2iIqgtwGD3abyRzIsK803BPDkTQ1ka
+         hZstzEeEd6eHaue8rLPWJwp3aWYPXxb+3ocqeoDl4yiVucXu+VhkGi5GKPlZUSpOUZSt
+         JWV1NxoMFxQPWVgw/RXQG0UhRfkRY/dci+f03xY8cOkq1OVn6MLGrjVnwkhg/qq9qDGW
+         0kX6Iyb2iMykxs0QPnw+pTvBJesovoNNE1jVnZ96NuIlFP98kBC8vbAUc283+k3kiXDV
+         KMLg==
+X-Forwarded-Encrypted: i=1; AJvYcCVB8gZg9I0AbxgEawPKK/Hp/5Vnj9mR5ZWHUkTEbewbG7E1gGSa5KAZKZCSODIq6dmO7SsBkDcmrhjMela7Llcv@lists.infradead.org
+X-Gm-Message-State: AOJu0YyuZXBwdwAfLquSgNHbyl7veV8hrJJ+tItk4/4sUpB3tR9dyDSe
+	TjoT/CDvMTBR9VZP2Eq3iXGleyAIc2vQGtocJO5wF7/gxB9fu6Jb6wYRJvLUiCVwoLA=
+X-Gm-Gg: AY/fxX5aSKup5ZtErcKmiLZ73JRJx4942pBheHPQD59mWmWGemo68H3iYZwLx8FHvt3
+	AmeCJhAHOLwE1dXYYQFsOBTREt/YCL4AYKal4WNgtKBq53Fe8aA4kDkgyHZE/snY8k9ntNal93q
+	N5tknM6M28pb5EOQtI8hSIMbPZfzXDwqTJtEX/bW8oGLho1jqnYou+Tn36JGeCJ63D+RpYVAYQo
+	T6mI6sipAYg8YN0x8I2oaMnfDDG3NV+WQC2hFmqkxsnPXXb0EArKekEgpI8ADNyC86wPMfkKsAt
+	lfu9etcpetA8Nqkabt5ncXh/Jap5Mo47CWUlGoYpjN8dscZCVVIyZsSPa0FuNimOU6LlWYsVbnZ
+	clj2cq2acmqVyqpsJXEEHVWlY7lMKkJZpovFcElJGY+Y9rFUOqyRHduYzrAtH9ZgkvF+KOfe1tA
+	==
+X-Google-Smtp-Source: AGHT+IHVaBHzL3ldcoq10mQ0DvSoQNAzO29+h1IBrSy2gZY7Qh6quSoh5XWNmgIvhDzcT+gz+HyNHQ==
+X-Received: by 2002:a05:693c:8008:b0:2b0:4f8e:3273 with SMTP id 5a478bee46e88-2b05ebd7223mr36936529eec.6.1767599252090;
+        Sun, 04 Jan 2026 23:47:32 -0800 (PST)
+Received: from gmail.com ([2a09:bac5:1f0f:28::4:33f])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2b05ffad66fsm101610210eec.4.2026.01.04.23.47.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 04 Jan 2026 23:47:31 -0800 (PST)
+From: Qingfang Deng <dqfext@gmail.com>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-crypto@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A. Donenfeld" <Jason@zx2c4.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	op-tee@lists.trustedfirmware.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH v20 1/6] dt-bindings: firmware: Add TEE remoteproc
- service binding
-Message-ID: <aVtqITUxy--E8HJt@sumit-xelite>
-References: <20251217153917.3998544-1-arnaud.pouliquen@foss.st.com>
- <20251217153917.3998544-2-arnaud.pouliquen@foss.st.com>
- <20251229232530.GA2753472-robh@kernel.org>
- <aVOzHWmlJ-eneS-2@sumit-xelite>
- <CAL_Jsq+_S8UY7s7WQg9jXuBXCYMBWVCy=kVDMdkKTx6RctqQJA@mail.gmail.com>
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org,
+	Holger Dengler <dengler@linux.ibm.com>,
+	Harald Freudenberger <freude@linux.ibm.com>
+Subject: Re: [PATCH 02/36] lib/crypto: aes: Introduce improved AES library
+Date: Mon,  5 Jan 2026 15:47:12 +0800
+Message-ID: <20260105074712.498-1-dqfext@gmail.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20260105051311.1607207-3-ebiggers@kernel.org>
+References: <20260105051311.1607207-1-ebiggers@kernel.org> <20260105051311.1607207-3-ebiggers@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAL_Jsq+_S8UY7s7WQg9jXuBXCYMBWVCy=kVDMdkKTx6RctqQJA@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20260104_234733_425687_F5FD802F 
+X-CRM114-Status: UNSURE (   7.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,73 +111,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 02, 2026 at 04:17:27PM -0600, Rob Herring wrote:
-> On Tue, Dec 30, 2025 at 5:10 AM Sumit Garg <sumit.garg@kernel.org> wrote:
-> >
-> > On Mon, Dec 29, 2025 at 05:25:30PM -0600, Rob Herring wrote:
-> > > On Wed, Dec 17, 2025 at 04:39:12PM +0100, Arnaud Pouliquen wrote:
-> > > > Add a device tree binding for the TEE-based remote processor control
-> > > > service implemented as an OP-TEE Trusted Application identified by
-> > > > UUID 80a4c275-0a47-4905-8285-1486a9771a08.
-> > > >
-> > > > The TEE service node is a child of the "linaro,optee-tz" firmware node and
-> > > > acts as a container for remoteproc devices that are controlled via TEE.
-> > >
-> > > Is this generic for any remoteproc device or just ST's remoteproc. Looks
-> > > like the latter to me.
-> >
-> > That's true, the DT description of the remoteproc subnode is very
-> > specific to the vendor which in this case is ST.
-> >
-> > >
-> > > > In addition, the "linaro,optee-tz" binding is updated to specify the
-> > > > '#address-cells' and '#size-cells' values used for child TEE service
-> > > > nodes.
-> > >
-> > > I'm pretty sure I already rejected per service/app child nodes for
-> > > OP-TEE when its binding was submitted.
-> >
-> > That was the reason to have discoverable TEE bus in first place and I
-> > have been motivating people to dynamically discover firmware properties
-> > rather than hardcoding in the DT.
-> >
-> > > If we do need something in DT
-> > > to define some resources, then can't we have some sort of
-> > > standard/common communications channel? I don't care to see some sort of
-> > > free-for-all where we have every vendor doing their own thing. OP-TEE
-> > > needs to standarize this.
-> >
-> > I suppose this requires a wider scope work as you can see the DT resource
-> > dependence from here [1]. By standardize communication channel, do you
-> > mean to say if adding an alternative backend to fwnode for TEE in
-> > parallel to DT, ACPI or swnode is the way to go for discovering fw
-> > properties?
-> 
-> No, not at all.
-> 
-> > Or do you have any other suggestion here?
-> 
-> What I mean is why doesn't the TEE define the communication channel
-> (mailbox+shmem and notification interrupt) rather than each TEE app?
+On 4 Jan 2026 21:12:35 -0800, Eric Biggers wrote:
+>  extern const u8 crypto_aes_sbox[];
+>  extern const u8 crypto_aes_inv_sbox[];
+> +extern const u32 __cacheline_aligned aes_enc_tab[256];
+> +extern const u32 __cacheline_aligned aes_dec_tab[256];
+ 
+__cacheline_aligned puts the array in ".data..cacheline_aligned"
+section. As a const array, it should be in ".rodata" section, so
+____cacheline_aligned (note the extra underscores) should be used
+instead.
+You can also apply the same to crypto_aes_sbox and crypto_aes_inv_sbox
+while at it.
 
-The synchronous communication channel is already there for each TEE app
-based on (invoke commands + TEE shared memory). OP-TEE does support
-notification interrupts too but those haven't been exposed to TEE client
-drivers yet. I suppose this remoteproc use-case can be a good example to
-expose that as a generic TEE notification interface too.
-
-> 
-> More generally, is having TEE apps depending on random DT resources
-> really a box we want to open? Is the next thing going to be a TEE
-> clock/reset/gpio/power provider? Where do we draw the line?
-
-This is really a hard line to draw since silicon/OEM vendors based on their
-hardware security architecture partition various resources among TEE and
-the Linux world. And one general principle we try to follow for the TEE
-is to keep it's Trusted Computing Base (TCB) to a minimal too.
-
-IMHO, if the threat model is well understood then we should allow for
-this hetrogenous partitioning of system resources.
-
--Sumit
+Regards,
+Qingfang
 
