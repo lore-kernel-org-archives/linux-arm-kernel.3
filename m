@@ -4,114 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1C58C2A074
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 10:18:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80EA8C2A074
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 10:23:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZDEZfxXGKUHqnD6uzu3JESKT0vdq+bi9ssWL2yPlp2w=; b=l9KzviZMFkkKba8PFtCAIc4aJc
-	Yo76JAUotnLDpwAx22Bhf0o1OkbLyBA9nnPT0NHIq90E/IyAMAn3JBM3kcPdSJ/tSv69KdwTuXOfc
-	CMcc9Bumq4ibq3uGK+DSi9DgE0y/ZBZKsgAbfOm7IneDvDSqIWS6fhMRIunvSUb3DpAYUkQXJ+f2U
-	GLe+G42v+WBAwIyaaFPDvD10MkEz1uUoas6QznQhjccPG37zIjjZ7fMpsXs/Uyte/5dUkUEVdTsz/
-	6ayRasoZGbklAWjDG8wLhtqEzps5G4OqS3iD4B1RHpol27tlV/q0eRRruKYADlQnrAF7o5BzeepZU
-	yxYgYwaA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HjPNX53qsmSbQa6/MqIrhJqUn4vzLuo+5d9DC74SH6w=; b=nP6NWFk87+WVMtYeIAtMnMesYb
+	uCG/vlO2egkWCSUCxF40xMuZrWl4VV2JyALrwkuGXPJhXj56meuTXuvV7UWsOC5pexOXS75v2FrrV
+	kayW4531NW9qUytVotz15z1C08oF0G9XPzCbO8bstMFrMVP/lnTtMKVk/O5cOeEQGL1zRCPb/1blc
+	Qka8krE9coDOUIxqWFPnh1Cvvw/kvX2yAwy+tWTkiSYVroXdrtWt6yoSIfCODMmIX7ikVhWNfK4Fp
+	NqmNmcDKyBtGr5hCc5Orqx3159JP5GR+k5DD2s+ROxADONZSYGgCgk8mp/ZD9faK8syRJnFlosuJr
+	0PHrYIzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcheu-0000000B61r-3ohd;
-	Mon, 05 Jan 2026 10:17:56 +0000
-Received: from mail-pg1-x563.google.com ([2607:f8b0:4864:20::563])
+	id 1vchjy-0000000B6GI-2rkb;
+	Mon, 05 Jan 2026 10:23:10 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcher-0000000B61U-3JUh
+	id 1vchjv-0000000B6Fw-0G3I
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 10:17:55 +0000
-Received: by mail-pg1-x563.google.com with SMTP id 41be03b00d2f7-c1e7cdf0905so10401267a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 02:17:52 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767608272; x=1768213072;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ZDEZfxXGKUHqnD6uzu3JESKT0vdq+bi9ssWL2yPlp2w=;
-        b=LzlgzFHOYljvYEPjwiD1Ola0YHfEsfmWRrGDtpCMVCGiI+ZB+vI4anFvTgjzpQ3F+e
-         njOk2Gi7xLD4HrTPkslMgvWjkmwkKjEIAkCrfEJXFigLeBwAEag3bOH49n+z8cs+SUkw
-         /sEzFMYJKhuHWXJE1N3WBup3dmt7XHtWXyXNjo6yMofP3DXZ/OYZlamur1HBOA1ig/k0
-         o3LuWlnqEgy0uymqQfPRAGdBq4wYC0U9PR8FMAJNoQZQDEaxakv/J0cBX188mZ1u2xrG
-         2kP+788tP2M59aClsW1dWTPkKUHRi8BgGTwbo8oAvDb2bHtkd63XHX2nnWCFQOu6DjBs
-         /ESw==
-X-Forwarded-Encrypted: i=1; AJvYcCV9X61bci90FqIjAcnia5QVEbUJbOc0UKf7o4ZYCZFufg5o+VjDAjo/bqCkt+tea3eyiwNg42d7RLH4MlqlmKdD@lists.infradead.org
-X-Gm-Message-State: AOJu0YzDAUfYuGbCQjgJyjlp0o42UfgYa8NcNsefhvN/A+glhAYk1TkG
-	2elCf0HGavo5HaMJyfb5Q4I1dI+d6X6ecWHs3/BRWCtb+AuMwREcWw4aHw13nNrIzrxgaY2Tb8t
-	AZfa+jZauyfoW+4N0G9nWAJbd7SGwsb1rrvwGAb75U8o+Haj3aJaMVNlv6P1GUgT2hA+r28B5og
-	V4/j9ZbEZsf4ZWKRN+em7yWagfK0tcMJqvM9gGcosWLaG3B+hf6GZZHIMRvZ8nVHoCP7JjN25Ek
-	tPHnNSkIwZTzs2eb+x43uxNGoGrfcn8UT0Q
-X-Gm-Gg: AY/fxX5N4QQphAflKEMTg11S/VY+QGgYBAJP+sUHXDJX5mLAXBKZt2Bw/ZmzYDvbIa8
-	CUuLffxVHfSO3D4GYzfgo+sWpwXf7yN+ftSJqjMon3X/3btrgVW/vxpf6lcAc1V56SGAKvYtWk3
-	iUYrwSvI4Syo86bNo5VErn1hP6akyLg599zqFA1bpjUchRqS7yCQiK41lN/ZDnrNDJsp86FpE/g
-	0XSWvil91qDOm5BQnAW4cgLiTXFBg32SMQznpkssD/Gr7iC0DgHFbaqwgXQ9ErMxrijX/aJ77Et
-	lbeZpae7lWa4RinvRA5XsXQBMU3I7+oK2YoPr14jtiWUh4sNj1u4rx0AEGmbr692PBrwO/LoYNM
-	kHVnfAKsEJVaQtL5n2S9mKnuRb/cojBHIOMMv48JhTFdaSqFLVp2kvkqgZ4quyHPxathUJp1F/F
-	0CD0KhWl4a7ndCU73JyNmcolCAcPXQUwRuPOsiEYOpLL5V6Dk65Y8=
-X-Google-Smtp-Source: AGHT+IG9m/u2TtfJb6Io9UYHjaInYXVESvRtcBZILrdJajL4Kl5x2jl+lXRfgSGL/8l6FpST4gp5SxDjAfvH
-X-Received: by 2002:a05:7300:8289:b0:2a4:3593:9697 with SMTP id 5a478bee46e88-2b05ec30e85mr40229046eec.20.1767608271900;
-        Mon, 05 Jan 2026 02:17:51 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-117.dlp.protect.broadcom.com. [144.49.247.117])
-        by smtp-relay.gmail.com with ESMTPS id 5a478bee46e88-2b140c614f7sm1340334eec.4.2026.01.05.02.17.51
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 05 Jan 2026 02:17:51 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-7b90740249dso24664927b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 02:17:50 -0800 (PST)
+	Mon, 05 Jan 2026 10:23:08 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-477a219dbcaso111654585e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 02:23:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1767608270; x=1768213070; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZDEZfxXGKUHqnD6uzu3JESKT0vdq+bi9ssWL2yPlp2w=;
-        b=PkEa9UvkQlUPklowzNx98fdm6Rl3G9INA8eZoJaZ8sr6gw06luq/hBcstws28hpSNE
-         BRR37iPjlOxuSq37kDgqzRX2cUu+aKERKR8KpVn1l05NzzZzgUTJuyoIEqryjpP9xGCG
-         /t/zHWTCl1DjkdthancI/mQSOR8risN/ifqpI=
-X-Forwarded-Encrypted: i=1; AJvYcCW6u/eQLKPBbw+ffHV/gy8ONgIyt4xPDAIkkpeo4cID6d9sLdSz5/OkSz3VE/ps1bVX/81OwgoE24QlSzKBPDFz@lists.infradead.org
-X-Received: by 2002:a05:7023:905:b0:11d:fd26:234e with SMTP id a92af1059eb24-121722b821amr43934355c88.16.1767608269929;
-        Mon, 05 Jan 2026 02:17:49 -0800 (PST)
-X-Received: by 2002:a05:7023:905:b0:11d:fd26:234e with SMTP id a92af1059eb24-121722b821amr43934337c88.16.1767608269346;
-        Mon, 05 Jan 2026 02:17:49 -0800 (PST)
-Received: from shivania.lvn.broadcom.net ([192.19.161.250])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1217254d369sm170077924c88.16.2026.01.05.02.17.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Jan 2026 02:17:49 -0800 (PST)
-From: Shivani Agarwal <shivani.agarwal@broadcom.com>
-To: stable@vger.kernel.org,
-	gregkh@linuxfoundation.org
-Cc: sudeep.holla@arm.com,
-	cristian.marussi@arm.com,
-	rafael@kernel.org,
-	viresh.kumar@linaro.org,
-	arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	ajay.kaher@broadcom.com,
-	alexey.makhalov@broadcom.com,
-	vamsi-krishna.brahmajosyula@broadcom.com,
-	yin.ding@broadcom.com,
-	tapas.kundu@broadcom.com,
-	Henry Martin <bsdhenrymartin@gmail.com>,
-	Sasha Levin <sashal@kernel.org>,
-	Shivani Agarwal <shivani.agarwal@broadcom.com>
-Subject: [PATCH v5.10] cpufreq: scmi: Fix null-ptr-deref in scmi_cpufreq_get_rate()
-Date: Mon,  5 Jan 2026 01:57:01 -0800
-Message-Id: <20260105095701.659420-1-shivani.agarwal@broadcom.com>
-X-Mailer: git-send-email 2.25.1
+        d=linaro.org; s=google; t=1767608584; x=1768213384; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=HjPNX53qsmSbQa6/MqIrhJqUn4vzLuo+5d9DC74SH6w=;
+        b=qDYGfmVk0thLntx57tA0o3me+39ksgsThCUZWHMFcrSGB6LWKondPze8AdnLWEXlyU
+         50v9QBKvHuxENk9H0NfaCipmQ0JH07Y/7Oz+6s163J1MnVnpAuYeCekYQySD/MhyZy6h
+         V6v7mlRugT8Yc0dGdZoxs+0/YNa7tLdG23TzD8sIpMoiGa1TmpatWGiobvmjRUzmT3pR
+         +uucJfzlWWMDVfvAzBGccbUmQOucf8ewfK9kQWF/wvbbDlcqWMXBGWLwNgsEefHWrzG/
+         Q6Luo2q0pYqXCW1idUr+rG+D0z05T+lI1EgyfUCmPR+HgAL+6z0O4o+6Byh2aMvdHsFF
+         D6Xw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1767608584; x=1768213384;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=HjPNX53qsmSbQa6/MqIrhJqUn4vzLuo+5d9DC74SH6w=;
+        b=Jyvp4DrqUM8R91inMO1iznqOjaop7fOvbLOukm341cgY5WezGF0QdYuu5vaDNPATcS
+         +IrROtnb6BmKfipjAlKC37v8ljL7LfrvqcpvHCmUAF4pnKZh60euyYTJgWTceOZ38ybp
+         oZipghqM+y7fldKJiFc46GAmEwQCUVwHhyYhwnneLp6s615ej0wREf//JpuL6evB6cvK
+         gXaSEBbiuLJ4uGcYzXOAKVhDNEZJOm0PD0zHU6JepQbLhE8Zg1PY9K01tolx12iNVRQc
+         wnW6LZkRrHIGEoAnKO1/G/B6+Jy4VYP4d7g6+yZ2etxIJ+cE2w+cp3AsN6axv5oqmJS9
+         1Wgw==
+X-Forwarded-Encrypted: i=1; AJvYcCUQMkUV2L0d0/0Y5Vz9U8vPNvJjF0tGoFGQOeo0HFbukD6zigeVxIrYPj3i/JPh3h3V7CqQL75ZhKBZqv0KFKcl@lists.infradead.org
+X-Gm-Message-State: AOJu0YzlPudAPcH3YHR8B9XJp3dCpDjV5Gan3dT614edHKVYeGf1zgYO
+	46ZUl55dTRGVW9kN7DJnEtFiNf/WMzoEuglMTulS3OyvZqD7yRsb3D+robwqzJ7WEbQ=
+X-Gm-Gg: AY/fxX7Qkrt+ent3gd71EP9Ouv8UMhfxMRdcsxOdDNUzdHewotx9cKO2Zjb2srczmVn
+	B6NqR5eofYMc7ZJM5mpCycrGFfEztO/Dk7UNTnd83dwQhs/N9al809Uj4/Jp0zuazedvErEXFpT
+	EhBamBtiIWE8FnjllI2dh5ZOGjqWTvMeARCVskNCxSDQqeewghxCdq1mZOdbJqLWtKPnBy/zsq7
+	9IoyxEZIUbhqNZBRiCgCqkVPZW7cBYlFWbS1kcqnq7folNAcpEZzt0xSUbdrAbgo45ycA6IMcpD
+	4Q/PRsMa39cEaSFmUYeSs//3Ffs+ntHlINssMB98Bh6aj7N5OirSN4dYdbVDtyZ59FuGZGOqXTq
+	ETTkH62p7Le3jQoVQ2pDCp4G0GMPA3hYiOe6tOOKBgjEop1sYK2FEeALC2oUCd/pRl5LVYXPh76
+	lmZH+shKuKLYLlaAg0
+X-Google-Smtp-Source: AGHT+IH9tKuyAlhktoMiOiAQvOA0pymhdCPq5V+2Yc35glT3RWVKqXpIPiYAUmAPxYxpzICFB6Domg==
+X-Received: by 2002:a05:600c:8107:b0:477:c478:46d7 with SMTP id 5b1f17b1804b1-47d19595f00mr640717415e9.22.1767608583849;
+        Mon, 05 Jan 2026 02:23:03 -0800 (PST)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47d6d452a3bsm142078455e9.11.2026.01.05.02.23.02
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 05 Jan 2026 02:23:03 -0800 (PST)
+Message-ID: <3513a638-c207-4ce5-b966-b274891beffe@linaro.org>
+Date: Mon, 5 Jan 2026 10:23:01 +0000
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] perf vendor events arm64: Remove uncountable events
+To: Ian Rogers <irogers@google.com>
+Cc: John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+ Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
+ Akio Kakuno <fj3333bs@aa.jp.fujitsu.com>,
+ Yoshihiro Furudera <fj5100bi@fujitsu.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org
+References: <20251231-james-perf-uncountable-events-v1-1-f2d9932999fd@linaro.org>
+ <CAP-5=fUNJLoy25rS=diSXNR9h-h4m6EFPTy8M+KpTKxm6HtDSA@mail.gmail.com>
+ <951f10c5-e1ac-45d4-b7ca-56aa32e57cd6@linaro.org>
+ <CAP-5=fWQU59Vyb6y+W6ObOTh3nzFSofsn8sc6JzwZp7FiV+n6w@mail.gmail.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <CAP-5=fWQU59Vyb6y+W6ObOTh3nzFSofsn8sc6JzwZp7FiV+n6w@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_021753_985141_FDBAD8EB 
-X-CRM114-Status: GOOD (  14.45  )
+X-CRM114-CacheID: sfid-20260105_022307_164189_37E15FFE 
+X-CRM114-Status: GOOD (  20.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,53 +113,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Henry Martin <bsdhenrymartin@gmail.com>
 
-[ Upstream commit 484d3f15cc6cbaa52541d6259778e715b2c83c54 ]
 
-cpufreq_cpu_get_raw() can return NULL when the target CPU is not present
-in the policy->cpus mask. scmi_cpufreq_get_rate() does not check for
-this case, which results in a NULL pointer dereference.
+On 04/01/2026 1:27 am, Ian Rogers wrote:
+> On Sat, Jan 3, 2026 at 8:38 AM James Clark <james.clark@linaro.org> wrote:
+>>
+>>
+>>
+>> On 02/01/2026 3:29 pm, Ian Rogers wrote:
+>>> On Wed, Dec 31, 2025 at 4:13 AM James Clark <james.clark@linaro.org> wrote:
+>>>>
+>>>> These events are never countable by the PMU and are only intended to
+>>>> be used as external inputs to trace. Therefore showing them in 'perf
+>>>> list' is misleading so remove them.
+>>>
+>>> What does "trace" mean in this context?
+>>>
+>>
+>> CPU trace, Either ETE (Embedded Trace Extension) or ETM (Embedded Trace
+>> Macrocell). You can select PMU events as inputs to the trace block to
+>> make it do things like start and stop tracing.
+> 
+> Ah ok, trace immediately makes me think of `perf trace` currently.
+> Presumably there's no perf integration for ETE and ETM that somehow
+> use these event encodings? Looks not and the changes make sense to me.
 
-Add NULL check after cpufreq_cpu_get_raw() to prevent this issue.
+Not yet, currently you have to create kernel modules to do complex trace 
+configs.
 
-Fixes: 99d6bdf33877 ("cpufreq: add support for CPU DVFS based on SCMI message protocol")
-Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
-Acked-by: Sudeep Holla <sudeep.holla@arm.com>
-Signed-off-by: Viresh Kumar <viresh.kumar@linaro.org>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
-[Shivani: Modified to apply on 5.10.y]
-Signed-off-by: Shivani Agarwal <shivani.agarwal@broadcom.com>
----
- drivers/cpufreq/scmi-cpufreq.c | 10 ++++++++--
- 1 file changed, 8 insertions(+), 2 deletions(-)
+> 
+> Reviewed-by: Ian Rogers <irogers@google.com>
+> 
+> Thanks,
+> Ian
+>
 
-diff --git a/drivers/cpufreq/scmi-cpufreq.c b/drivers/cpufreq/scmi-cpufreq.c
-index bb1389f27..6b65d537c 100644
---- a/drivers/cpufreq/scmi-cpufreq.c
-+++ b/drivers/cpufreq/scmi-cpufreq.c
-@@ -29,12 +29,18 @@ static const struct scmi_handle *handle;
- 
- static unsigned int scmi_cpufreq_get_rate(unsigned int cpu)
- {
--	struct cpufreq_policy *policy = cpufreq_cpu_get_raw(cpu);
-+	struct cpufreq_policy *policy;
-+	struct scmi_data *priv;
- 	const struct scmi_perf_ops *perf_ops = handle->perf_ops;
--	struct scmi_data *priv = policy->driver_data;
- 	unsigned long rate;
- 	int ret;
- 
-+	policy = cpufreq_cpu_get_raw(cpu);
-+	if (unlikely(!policy))
-+		return 0;
-+
-+	priv = policy->driver_data;
-+
- 	ret = perf_ops->freq_get(handle, priv->domain_id, &rate, false);
- 	if (ret)
- 		return 0;
--- 
-2.40.4
+Thanks!
+
+>>> Thanks,
+>>> Ian
+>>>
+>>>> The generator script doesn't emit these events when used with the new
+>>>> telemetry-solution input files [1].
+>>>>
+>>>> 'perf list' should only show countable events because there are events
+>>>> that are sometimes implemented, sometimes countable and sometimes not,
+>>>> for example TRB_TRIG. If we always include any implemented events
+>>>> whether they are countable or not then it's not possible to tell whether
+>>>> they are usable in perf without going to the docs, defeating the point
+>>>> of 'perf list'.
+>>>>
+>>>> It's also not useful yet to display implemented events that are not
+>>>> countable (for help in using trace rather than perf stat), because
+>>>> PMU_OVFS and PMU_HOVFS are practically always implemented and TRB_TRIG
+>>>> is always implemented when there is TRBE.
+>>>>
+>>>> [1]: https://gitlab.arm.com/telemetry-solution/telemetry-solution/-/tree/main/data/pmu/cpu
+>>>>
+>>>> Signed-off-by: James Clark <james.clark@linaro.org>
+>>>> ---
+>>>>    tools/perf/pmu-events/arch/arm64/arm/cortex-a510/pmu.json  |  8 --------
+>>>>    tools/perf/pmu-events/arch/arm64/common-and-microarch.json | 12 ------------
+>>>>    tools/perf/pmu-events/arch/arm64/fujitsu/monaka/pmu.json   | 10 ----------
+>>>>    3 files changed, 30 deletions(-)
+>>>>
+>>>> diff --git a/tools/perf/pmu-events/arch/arm64/arm/cortex-a510/pmu.json b/tools/perf/pmu-events/arch/arm64/arm/cortex-a510/pmu.json
+>>>> deleted file mode 100644
+>>>> index d8b7b9f9e5fa..000000000000
+>>>> --- a/tools/perf/pmu-events/arch/arm64/arm/cortex-a510/pmu.json
+>>>> +++ /dev/null
+>>>> @@ -1,8 +0,0 @@
+>>>> -[
+>>>> -    {
+>>>> -        "ArchStdEvent": "PMU_OVFS"
+>>>> -    },
+>>>> -    {
+>>>> -        "ArchStdEvent": "PMU_HOVFS"
+>>>> -    }
+>>>> -]
+>>>> diff --git a/tools/perf/pmu-events/arch/arm64/common-and-microarch.json b/tools/perf/pmu-events/arch/arm64/common-and-microarch.json
+>>>> index 2416d9f8a83d..468cb085d879 100644
+>>>> --- a/tools/perf/pmu-events/arch/arm64/common-and-microarch.json
+>>>> +++ b/tools/perf/pmu-events/arch/arm64/common-and-microarch.json
+>>>> @@ -432,24 +432,12 @@
+>>>>            "EventName": "TRB_WRAP",
+>>>>            "BriefDescription": "Trace buffer current write pointer wrapped"
+>>>>        },
+>>>> -    {
+>>>> -        "PublicDescription": "PMU overflow, counters accessible to EL1 and EL0",
+>>>> -        "EventCode": "0x400D",
+>>>> -        "EventName": "PMU_OVFS",
+>>>> -        "BriefDescription": "PMU overflow, counters accessible to EL1 and EL0"
+>>>> -    },
+>>>>        {
+>>>>            "PublicDescription": "Trace buffer Trigger Event",
+>>>>            "EventCode": "0x400E",
+>>>>            "EventName": "TRB_TRIG",
+>>>>            "BriefDescription": "Trace buffer Trigger Event"
+>>>>        },
+>>>> -    {
+>>>> -        "PublicDescription": "PMU overflow, counters reserved for use by EL2",
+>>>> -        "EventCode": "0x400F",
+>>>> -        "EventName": "PMU_HOVFS",
+>>>> -        "BriefDescription": "PMU overflow, counters reserved for use by EL2"
+>>>> -    },
+>>>>        {
+>>>>            "PublicDescription": "PE Trace Unit external output 0",
+>>>>            "EventCode": "0x4010",
+>>>> diff --git a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/pmu.json b/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/pmu.json
+>>>> deleted file mode 100644
+>>>> index 65bd6cdd0dd5..000000000000
+>>>> --- a/tools/perf/pmu-events/arch/arm64/fujitsu/monaka/pmu.json
+>>>> +++ /dev/null
+>>>> @@ -1,10 +0,0 @@
+>>>> -[
+>>>> -    {
+>>>> -        "ArchStdEvent": "PMU_OVFS",
+>>>> -        "BriefDescription": "This event counts the event generated each time one of the condition occurs described in Arm Architecture Reference Manual for A-profile architecture. This event is only for output to the trace unit."
+>>>> -    },
+>>>> -    {
+>>>> -        "ArchStdEvent": "PMU_HOVFS",
+>>>> -        "BriefDescription": "This event counts the event generated each time an event is counted by an event counter <n> and all of the condition occur described in Arm Architecture Reference Manual for A-profile architecture. This event is only for output to the trace unit."
+>>>> -    }
+>>>> -]
+>>>>
+>>>> ---
+>>>> base-commit: cbd41c6d4c26c161a2b0e70ad411d3885ff13507
+>>>> change-id: 20251230-james-perf-uncountable-events-28adfb93b73f
+>>>>
+>>>> Best regards,
+>>>> --
+>>>> James Clark <james.clark@linaro.org>
+>>>>
+>>
 
 
