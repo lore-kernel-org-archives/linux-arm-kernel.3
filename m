@@ -4,62 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E863CCD0408
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 21:22:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BAD1CD0402
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 21:25:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jiFEeW5gN2osECrGX/NxhvJp4KMe2lAyJaSIXSOT3Og=; b=2i/KiKFbQ2QHp4oDGYD98GEvSP
-	YvuBzUTIqGQAkHCfB7t/e7X/Y67HhpVt4wtfo1Vc2niHCpKOP1tMiaLSi/vYBfj4aAh+hprMIlZlE
-	dP0qx+jlLi4U8NxIkphZCC8CU4EM+g/RgDv7KBUY+fBqXnFFbuiY1vylO9A/XjU9EZaG2W8KNvb6W
-	2GC1V43BiTiipANqFnnFHt0nWxyUD3JCUw21Gbq/bNqS7HG2qFWvsNl3dapsFFnkzUoURoSrdoVEd
-	RdnLHewDKSdtQyXrgjUr3MBBZNxxBp6N4WelnKopixJHf+ATNkNhkL703ySdQUuktVsdthgGurDea
-	NkmFsg5Q==;
+	bh=fH19RE7Po3v8c9Ryy2a6XxmLoV9SbMmzMoPQngKMgaE=; b=ZGC+HtjU3vzz1LbbGtlReFFnIe
+	AKWRdnj1fT4mrDmJu7WtQWRrJZj8nosAbmfeg9Gnh/6HlkyQZ+PWhgS126nBycqMsyGHty8KayThT
+	nLjCqq9oN60L6TwRXBOaaGunOCOCRoYmHiX71bJkd5eUSMKp9aYrquVrdzU/QSbEEHjanCksh+Ckm
+	I/qR8WxlNxZXqi6UVjAO3TmN7POaJ36h9d2AZexdTvV0yTm2X/7MC/1EH11qe4BV/hMAY2ktjKj+G
+	4LxmtwNdtUXAt2AFbY14FpbP5M8arKlml14xP5FYRZgqaoUJWE0nZCsnq9jJ5om0UOB70g6sSNaQi
+	Shs6s0Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcs1w-0000000C7OM-4C2o;
-	Mon, 05 Jan 2026 21:22:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vcs1r-0000000C7MS-1i2V
+	id 1vcs57-0000000C7as-2Qi7;
+	Mon, 05 Jan 2026 21:25:41 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vcs56-0000000C7am-1Qrg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 21:22:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 94C52339;
-	Mon,  5 Jan 2026 13:22:09 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F3BDC3F694;
-	Mon,  5 Jan 2026 13:22:15 -0800 (PST)
-Date: Mon, 5 Jan 2026 21:22:13 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Puranjay Mohan <puranjay12@gmail.com>
-Cc: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
-	Rob Herring <robh+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Martin KaFai Lau <martin.lau@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Breno Leitao <leitao@debian.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, kernel-team@meta.com
-Subject: Re: [RFC PATCH] perf/arm64: Add BRBE support for
- bpf_get_branch_snapshot()
-Message-ID: <20260105212213.GA336318@e132581.arm.com>
-References: <20260102214043.1410242-1-puranjay@kernel.org>
- <CANk7y0j7hAJ7OcH_HgN0cVGnUh=iBz=iuD9sYZmSy-koMjB_cg@mail.gmail.com>
+	Mon, 05 Jan 2026 21:25:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id AE97D60010;
+	Mon,  5 Jan 2026 21:25:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0F8CC116D0;
+	Mon,  5 Jan 2026 21:25:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1767648339;
+	bh=emnuWaNbQ/8r/CtexRe8ZoNLJgQGD8zcqE9kgbYDXbw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=DMqnwYu3huICq9qp/8JaBvCQHBJWgeL+xOc0H3SsW56bt1rS9BavzrXVhL7tkllhc
+	 yHpM9qcealhig6gpwQyQqQoQTHu/KcujzUdKZiwNCfYP9q4mS5xUS7n9v7oWxAjhgd
+	 8CUi7aVA65YS3+9OSF5utS9vgoPkBALhMseN/QgvmMiPse/aTnhkTVyGiDHA+CG27P
+	 A+O5df3wxGMoWU+So3tHJrasroflA2GlBDghfTiRZtEl6i02lBFu386w71Z4ELQbKo
+	 F1aAmft3iDgjqdGiDVxg3+D89cuhemkeTxTLcUbD5QRe3ROwxUjwXYFXXPYY4x/+V+
+	 owYPatY0lTPDw==
+Date: Mon, 5 Jan 2026 21:25:34 +0000
+From: Will Deacon <will@kernel.org>
+To: Chaitanya Kulkarni <ckulkarnilinux@gmail.com>, joro@8bytes.org
+Cc: robin.murphy@arm.com, robin.clark@oss.qualcomm.com,
+	linux-arm-kernel@lists.infradead.org, kch@nvidia.com,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] iommu/io-pgtable-arm: fix size_t signedness bug in unmap
+ path
+Message-ID: <aVwsThVhGG-6bINs@willie-the-truck>
+References: <20251219232858.51902-1-ckulkarnilinux@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CANk7y0j7hAJ7OcH_HgN0cVGnUh=iBz=iuD9sYZmSy-koMjB_cg@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_132219_488934_1F3775BF 
-X-CRM114-Status: GOOD (  13.36  )
+In-Reply-To: <20251219232858.51902-1-ckulkarnilinux@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,34 +70,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On Fri, Jan 02, 2026 at 09:51:15PM +0000, Puranjay Mohan wrote:
-> Hi Catalin, Will, Mark, and Rob.
+On Fri, Dec 19, 2025 at 03:28:58PM -0800, Chaitanya Kulkarni wrote:
+> __arm_lpae_unmap() returns size_t but was returning -ENOENT (negative
+> error code) when encountering an unmapped PTE. Since size_t is unsigned,
+> -ENOENT (typically -2) becomes a huge positive value (0xFFFFFFFFFFFFFFFE
+> on 64-bit systems).
 > 
-> I don't have access to BRBE enabled hardware and Qemu doesn't support
-> this as well therefore I just sent the compile tested version.
+> This corrupted value propagates through the call chain:
+>   __arm_lpae_unmap() returns -ENOENT as size_t
+>   -> arm_lpae_unmap_pages() returns it
+>   -> __iommu_unmap() adds it to iova address
+>   -> iommu_pgsize() triggers BUG_ON due to corrupted iova
 > 
-> Can you help me with testing this:
+> This can cause IOVA address overflow in __iommu_unmap() loop and
+> trigger BUG_ON in iommu_pgsize() from invalid address alignment.
 > 
-> The relevant bpf self test is:
+> Fix by returning 0 instead of -ENOENT. The WARN_ON already signals
+> the error condition, and returning 0 (meaning "nothing unmapped")
+> is the correct semantic for size_t return type. This matches the
+> behavior of other io-pgtable implementations (io-pgtable-arm-v7s,
+> io-pgtable-dart) which return 0 on error conditions.
 > 
-> ./test_progs -t get_branch_snapshot
-> #132     get_branch_snapshot:SKIP
-> Summary: 1/0 PASSED, 1 SKIPPED, 0 FAILED
+> Fixes: 3318f7b5cefb ("iommu/io-pgtable-arm: Add quirk to quiet WARN_ON()")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Chaitanya Kulkarni <ckulkarnilinux@gmail.com>
+> ---
+>  drivers/iommu/io-pgtable-arm.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> skipped for my setup as it is not supported.
+> diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
+> index e6626004b323..05d63fe92e43 100644
+> --- a/drivers/iommu/io-pgtable-arm.c
+> +++ b/drivers/iommu/io-pgtable-arm.c
+> @@ -637,7 +637,7 @@ static size_t __arm_lpae_unmap(struct arm_lpae_io_pgtable *data,
+>  	pte = READ_ONCE(*ptep);
+>  	if (!pte) {
+>  		WARN_ON(!(data->iop.cfg.quirks & IO_PGTABLE_QUIRK_NO_WARN));
+> -		return -ENOENT;
+> +		return 0;
+>  	}
+>  
+>  	/* If the size matches this level, we're in the right place */
 
-eBPF selftest build is quite heavy (many dependencies), finally I built
-it cleanly.
+Acked-by: Will Deacon <will@kernel.org>
 
-I did a test on FVP RevC, the test hit NULL pointer deference and kernel
-panic in armv8pmu_sched_task().  See https://termbin.com/peg4, the
-backtrace should can give you hints for the issue.
+Joerg -- please can you pick this one up for 6.19-rc?
 
-Thanks,
-Leo
+Cheers,
 
-P.s. some logs are duplicate, this might be caused by two cores both hit
-the NULL pointer issue ?
+Will
 
