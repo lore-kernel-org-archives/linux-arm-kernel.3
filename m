@@ -4,131 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4CE8C2A099
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 10:55:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D3FCC2A074
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  5 Jan 2026 11:05:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MEkWzBbnfz8We3qDGpvoZp5+bJ/kryjzDFwZRQ2Ij4s=; b=k0nE1cAztjoW1Chk/5JpnVQs7h
-	B3V2xqOpPC8kp0HEgn/zybyJ00WmSniFnSqMscB9Y4DDilkH1WRYN9+9Ihpn/FvOIefrs8eUgbtTQ
-	iK30UK5Xxu1/sa0ZqNdd774PNR3rV70OJIfJ+8FOTJszk17f3Z+MDYWD126cJj6NiyP5zzoQ6OVXm
-	ZRvS7yV3vlKZWt2/Eddwo9mIN9sUjcB4rnfodveggp+qwabWXaxQvIQtKdnnMrArZALvCBg2h+6EW
-	tqC4ZmcjqGqYtR5fOuVfuTk0NO4XAOYJb9jCcex2RPun0E4qHlcD+PMXVH5C/TKtb+q5wHCjzUJKb
-	1OZVmnBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MJYHkYuydpY2/DvHn3CvEN2xXedIpu0NCd5blmdiT8A=; b=wt+C4SoFR2T9GnxTadYnn7Q+TH
+	85b+5f4DL3Js3uP7eVifCz3HiDoY0dqI/h47c5HI8Eifh7VTCKCu1PqEGPkxKC0edjXi/XA41hKKD
+	cN2CayYdjorBTzRseQVHfC2VtSd2mTu0OCT7jGs9uOR9IhG+GHGcAUN/+GK/HqcdO3dZSe8OUIVS5
+	ODTgFEHe5mHq9r8JCG3dJ9aKMMf7Q9bvbwopFLAxAaoriwLhcO0rc29dY+d2PKqTqc41+O2VuDruO
+	o45jwy/qjFI+C5+wp3BXyj+hsSUEQkJTl/7p0kVTq8yXi1zxi3A8euYYYP1rl7lupwC7QY6FdEvUj
+	PaiOD35w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vciEh-0000000B9By-3HrR;
-	Mon, 05 Jan 2026 10:54:55 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vciEe-0000000B9BS-4Ae4
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 05 Jan 2026 10:54:54 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6058KAUD3867998
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 5 Jan 2026 10:54:51 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=MEkWzBbnfz8We3qDGpvoZp5+
-	bJ/kryjzDFwZRQ2Ij4s=; b=fuuF22yHKXhKayGE5q3TviVOE4zUh9m9d15M/cFh
-	w96XC4zz07sYaNe52gqWb0r/6gB4YaLFH5bxj6WI9qnwXAq49BwkCkuCcfZZ7HAy
-	yFQ6FCergy6oNCELrZ4e0fpLzUxSsftw9BJokv2IVbysGtvNHO1msIWcVensAcvx
-	sxDdO2TLoNV0iwkhC4aMu9igJ3WSIhPAQfQzX8wHytB75WJSFORtRXdWZgv0yvRI
-	KDQCjfACHiHhDwYYqihxG0ljjIDbyw+5bHz0KdjxbUewFzPaV8vX0DNg5zF+2Qal
-	C3cF4lCavipPRmzXHAsC77pySWQcjjkJ1Hx7VEvpiDEbDA==
-Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4bfyx0hpp3-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 10:54:51 +0000 (GMT)
-Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-7ba92341f38so14993571b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 05 Jan 2026 02:54:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1767610490; x=1768215290; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=MEkWzBbnfz8We3qDGpvoZp5+bJ/kryjzDFwZRQ2Ij4s=;
-        b=K20Fl5QMLClD4h5o46BmjpFR9/Y1ScDJ0j3o6razqukmXhWZGMVud8tvqlThzVto/s
-         vCNZlJ0bRK+dJupq84Py5Gp4VrR1Lsnerv1rtOhKmBKwEGZ2+jp0/q7PsnU72Uho4bja
-         802loVURH0/uaffT92xHmMJCRET5FBjoFkDvvQtMr6oEOmXwuh/WEMiPVHDzQg2PCkM8
-         3d0WqK+YrMsXNJOoNHZvX8lK7V2FmV4NVWPBpmuf57DtbhKjXYVorQlXKu0M4uHRw96c
-         0D4z8I/E+1actW+I7pCRUFFqmMGuX7UJTkzFfWRxiOIoYeZgpDSunT97XyRTVUasxyAo
-         DGaA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1767610490; x=1768215290;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=MEkWzBbnfz8We3qDGpvoZp5+bJ/kryjzDFwZRQ2Ij4s=;
-        b=NCOEu9L10U3Jst/mg+w0Er/58vQyzg0FW/jKu5YzybBSL3kA74AOUs37v/cq7X+3qG
-         Cc+VKfFuw33MKFCLmm9uJc6CoDM6x9PPV6viv6Qlh+apPR08O2PdzLTLUwKmDSUuEZmy
-         EMSFV/AfUpULq3M/jCV72XP9I2QeaAsdqIQ1hGUz3RnyjMF4JUPDyIfK/8RvfU86l3OC
-         e2QBHDCxFaZdhX5x6zAAmiJbAT3brX1ICXLnqokwME1ot5nK29OGr/pUV3RQa/ySZCiR
-         nhiBxMH3yIaXAwsn/XvX9ZcymQGkT8jTcJ/0z8EGIyaR9B0PNLjUmm9GneKcwsLEr2lY
-         Zx8Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWYQ9dxTk03F6fLP7ySushlzXo0sUhhJR5EBFvzOmzn2f/+Jxwoy3K1vKFi6oDMoAwsGkO2kuUJvKuw0TO+PM3J@lists.infradead.org
-X-Gm-Message-State: AOJu0YzeZ6N06ab/2NXVNxvXEEi4jB+i/J0R+zoADPr+QCvqon83EGwn
-	lD871Ae6YqSacT8aEJmRc3x0OD7BJ0D8DIxoma94YkR/3GRFJnpOfrfzBqNLmRESdrBEPwqp+7y
-	a2acUDCW3CYmJTHex6agLljrgZwSJqop5kbj6XDAdCwsVy9NwcSQueV4jNfM5xbi5zSlWsgoHzQ
-	a1Xw==
-X-Gm-Gg: AY/fxX6ISAVIUzs6LTk1jT2txfl8O9hsvd935brBpXZhTvFPLAu9g7gT6/TcZrEmH0p
-	sGg9Ku5lSDwG1tEQaiFqp2lEgkKSGZNvTyl/bC359FfT9HbtBr8FvxRkUb5qhTrEpGXx4MynUKn
-	QrFpqr0gJmumMrBZb6j/LQdkZBOIZpF4JEuZzfcdn9oZZH6O9hIYFs3uP2vSVmKQW/xvuUE7JyO
-	U5cFD/dj3sg7JTwQFzWFKPfkvXo7uiZeZTBm6XBk0v25BddUta1Ou8HaigOOfUsYm3iDE6EMrn6
-	5rGtGydkW5cxEJZ69INIUk5xF6faoUvPht4CxH28y+T6yKyMOq2M971sfWAbxoAC+XGgZnwOIjl
-	OYZm5mS32ob6DTlOvkMgO0Hd/kjPuAjpEiy7/d0VOpKQ=
-X-Received: by 2002:a05:6a00:4484:b0:7e8:43f5:bd3c with SMTP id d2e1a72fcca58-7ff66d5fe23mr42311658b3a.40.1767610490146;
-        Mon, 05 Jan 2026 02:54:50 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGAITuP7fdCdESz0ZEvgIRpDOtfsj9uOLwGoYUIF8cPX5p7VnJeq0LMZkYIVp8Nva6oZtar7Q==
-X-Received: by 2002:a05:6a00:4484:b0:7e8:43f5:bd3c with SMTP id d2e1a72fcca58-7ff66d5fe23mr42311636b3a.40.1767610489638;
-        Mon, 05 Jan 2026 02:54:49 -0800 (PST)
-Received: from hu-pkondeti-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7ff7e48f300sm47905161b3a.54.2026.01.05.02.54.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 05 Jan 2026 02:54:49 -0800 (PST)
-Date: Mon, 5 Jan 2026 16:24:44 +0530
-From: Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>
-To: Will Deacon <will@kernel.org>
-Cc: Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org
-Subject: Re: SMP boot issue during system resume
-Message-ID: <e71b9bc5-42c1-4295-998e-4a9d71d84b25@quicinc.com>
-References: <dfa19ca7-c4c6-4386-a54d-44d623c8d3ed@quicinc.com>
- <aVfhhXHfFE6lzlzp@willie-the-truck>
+	id 1vciOs-0000000B9b0-3TTO;
+	Mon, 05 Jan 2026 11:05:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vciOq-0000000B9ab-0ScC;
+	Mon, 05 Jan 2026 11:05:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E6BC5497;
+	Mon,  5 Jan 2026 03:05:15 -0800 (PST)
+Received: from [10.1.38.150] (XHFQ2J9959.cambridge.arm.com [10.1.38.150])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 652C93F5A1;
+	Mon,  5 Jan 2026 03:05:19 -0800 (PST)
+Message-ID: <60c5d7b1-1ab7-490c-8cb8-dfd50cf23856@arm.com>
+Date: Mon, 5 Jan 2026 11:05:18 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aVfhhXHfFE6lzlzp@willie-the-truck>
-X-Authority-Analysis: v=2.4 cv=CZYFJbrl c=1 sm=1 tr=0 ts=695b987b cx=c_pps
- a=WW5sKcV1LcKqjgzy2JUPuA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=kj9zAlcOel0A:10 a=vUbySO9Y5rIA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=JKDgdTFgQULNwJHYBRAA:9
- a=CjuIK1q_8ugA:10 a=OpyuDcXvxspvyRM73sMx:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYwMTA1MDA5NSBTYWx0ZWRfX8GcmVX9DnzdG
- NEXiRLLSEI4I9r6DKt2sTRpbJWRCA3gLgx9EQhmCaWaUO9CYaVVtonYo2SqQ/XlGd7xPfDztX8a
- rGoE9xcfFkBCDAHbS66DVZ+4ltVJp/k3mpZzbkq2JRi309KGskIbbWO4A5k2mBnUz2Dh6XGKnIM
- 9ZJiduLmocsgP65EzOU18ttGt9b6jxJLg84861cBvOmAtnom/vVg4+DEHViUwnHhTMcsoBJxi5Q
- yA/9BFdwLA4lC2Dw2EYe1hDQa0N26OEvMWzKCca2WaPhEzdRiAnj4nr3djqiDflr7WC/jJ83rpH
- 0yLR2zE+T4OKHk1h+xgaXCvM8De0pmfEDwCRYQS/FYkZla9dCtNMug4uCwR/oELzWVbk3R49KJF
- MiiXh1R6oddliH3XR9Ka9AQZ+vHwgIM2HRzYjTemctE8smNa79rSi5zUlNSwv9Ckn8tCxL8+Kpl
- V9LYm+CHoHde4qfe3TA==
-X-Proofpoint-GUID: 0StdkdUj5XaZ7bVQxLWIXbA2qBRS2Ijg
-X-Proofpoint-ORIG-GUID: 0StdkdUj5XaZ7bVQxLWIXbA2qBRS2Ijg
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2026-01-05_01,2025-12-31_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 priorityscore=1501 spamscore=0 bulkscore=0 lowpriorityscore=0
- impostorscore=0 suspectscore=0 adultscore=0 phishscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2512120000 definitions=main-2601050095
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/3] randomize_kstack: Unify random source across
+ arches
+Content-Language: en-GB
+To: David Laight <david.laight.linux@gmail.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Huacai Chen <chenhuacai@kernel.org>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Paul Walmsley <pjw@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Kees Cook <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Mark Rutland <mark.rutland@arm.com>,
+ "Jason A. Donenfeld" <Jason@zx2c4.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Jeremy Linton <jeremy.linton@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-hardening@vger.kernel.org
+References: <20260102131156.3265118-1-ryan.roberts@arm.com>
+ <20260102131156.3265118-4-ryan.roberts@arm.com>
+ <20260104230136.7aaf8886@pumpkin>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20260104230136.7aaf8886@pumpkin>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20260105_025453_161733_F37C232F 
-X-CRM114-Status: GOOD (  31.41  )
+X-CRM114-CacheID: sfid-20260105_030524_252313_BBD434F4 
+X-CRM114-Status: GOOD (  33.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,50 +80,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Jan 02, 2026 at 03:17:25PM +0000, Will Deacon wrote:
-> On Mon, Dec 22, 2025 at 11:30:19AM +0530, Pavan Kondeti wrote:
-> > We are seeing a SMP boot issue during system resume when CPUs are brought 
-> > online via pm_sleep_enable_secondary_cpus()->thaw_secondary_cpus()->_cpu_up() 
-> > on ARM64.
-> > 
-> > The _cpu_up() sets a global variable
-> > 
-> > secondary_data.task = idle;
-> > 
-> > and wait for the secondary CPU to come online. A 5 second timeout is
-> > used here. If at all, the secondary CPU comes online after this timeout,
-> > we expect it to loop in kernel via __secondary_too_slow(). However, this
-> > depends on secondary_data.task value. Since we are bringing all disabled
-> > cores, after timeout, we set this global variable to the next CPU idle
-> > task and the late secondary CPU thinks the value is its idle task and
-> > does not enter __secondary_too_slow().
-> > 
-> > An earlier attempt [1] to fix similar issue incrased the timout to 5
-> > seconds. We could reproduce this issue in Linux guest where vCPU
-> > scheduling latency can be higher under heavy load on the host.
-> > 
-> > I would like to seek your inputs on how we can improve the current
-> > situation. We would like to avoid __secondary_too_slow() spin even when
-> > the CPU comes late. This is probably not a desired behavior for other cases like 
-> > Linux running bare metal or some guests. Having a Kconfig option or
-> > kernel param might help here.
+On 04/01/2026 23:01, David Laight wrote:
+> On Fri,  2 Jan 2026 13:11:54 +0000
+> Ryan Roberts <ryan.roberts@arm.com> wrote:
 > 
-> You probably want to use the parallel hotplug machinery (or one of the
-> interim steps) for this, as it avoids the global state entirely. I spoke
-> about it at KVM forum [1] and I have some old hacks at [2]. I can dust
-> those off and post them to the list if you like?
+>> Previously different architectures were using random sources of
+>> differing strength and cost to decide the random kstack offset. A number
+>> of architectures (loongarch, powerpc, s390, x86) were using their
+>> timestamp counter, at whatever the frequency happened to be. Other
+>> arches (arm64, riscv) were using entropy from the crng via
+>> get_random_u16().
+>>
+>> There have been concerns that in some cases the timestamp counters may
+>> be too weak, because they can be easily guessed or influenced by user
+>> space. And get_random_u16() has been shown to be too costly for the
+>> level of protection kstack offset randomization provides.
+>>
+>> So let's use a common, architecture-agnostic source of entropy; a
+>> per-cpu prng, seeded at boot-time from the crng. This has a few
+>> benefits:
+>>
+>>   - We can remove choose_random_kstack_offset(); That was only there to
+>>     try to make the timestamp counter value a bit harder to influence
+>>     from user space.
+>>
+>>   - The architecture code is simplified. All it has to do now is call
+>>     add_random_kstack_offset() in the syscall path.
+>>
+>>   - The strength of the randomness can be reasoned about independently
+>>     of the architecture.
+>>
+>>   - Arches previously using get_random_u16() now have much faster
+>>     syscall paths, see below results.
+>>
+>> There have been some claims that a prng may be less strong than the
+>> timestamp counter if not regularly reseeded. But the prng has a period
+>> of about 2^113. So as long as the prng state remains secret, it should
+>> not be possible to guess. If the prng state can be accessed, we have
+>> bigger problems.
+> 
+> If you have 128 bits of output from consecutive outputs I think you
+> can trivially determine the full state using (almost) 'school boy' maths
+> that could be done on pencil and paper.
+> (Most of the work only has to be done once.)
+> 
+> The underlying problem is that the TAUSWORTHE() transformation is 'linear'
+> So that TAUSWORTHE(x ^ y) == TAUSWORTHE(x) ^ TAUSWORTHE(y).
+> (This is true of a LFSR/CRC and TOUSWORTH() is doing some subset of CRCs.)
+> This means that each output bit is the 'xor' of some of the input bits.
+> The four new 'state' values are just xor of the the bits of the old ones.
+> The final xor of the four states gives a 32bit value with each bit just
+> an xor of some of the 128 state bits.
+> Get four consecutive 32 bit values and you can solve the 128 simultaneous
+> equations (by trivial substitution) and get the initial state.
+> The solution gives you the 128 128bit constants for:
+> 	u128 state = 0;
+> 	u128 val = 'value returned from 4 calls';
+> 	for (int i = 0; i < 128; i++)
+> 		state |= parity(const128[i] ^ val) << i;
 
-Thanks Will for pointing to your informative talk. I see that your patch
-depends on PSCIv0.2 extension to CPU_ON (context argument) [1]. I am not
-sure if this suit our immediate needs, but it is good to know that we
-have a plan for parallel vCPU hotplug.
+What is const128[] here?
 
-I am happy to test if you have any other patches that address /
-workaround this problem w/o depending on backend/firmware.
+> You done need all 32bits, just accumulate 128 bits.  
+> So if you can get the 5bit stack offset from 26 system calls you know the
+> value that will be used for all the subsequent calls.
+
+It's not immediately obvious to me how user space would do this, but I'll take
+it on faith that it may be possible.
+
+> 
+> Simply changing the final line to use + not ^ makes the output non-linear
+> and solving the equations a lot harder.
+
+There has been pushback on introducing new primitives [1] but I don't think
+that's a reason not to considder it.
+
+[1] https://lore.kernel.org/all/aRyppb8PCxFKVphr@zx2c4.com/
+
+> 
+> I might sit down tomorrow and see if I can actually code it...
+
+Thanks for the analysis! I look forward to seeing your conclusion... although
+I'm not sure I'll be qualified to evaluate it mathematically.
+
+FWIW, I previously had a go at various schemes using siphash to calculate some
+random bits. I found it to be significantly slower than this prng. I've so far
+taken the view that 6 bits of randomness is not much of a defence against brute
+force so we really shouldn't be spending too many cycles to generate the bits.
+If we can get to approach to work, I think that's best.
 
 Thanks,
-Pavan
+Ryan
 
-[1]
-https://git.kernel.org/pub/scm/linux/kernel/git/will/linux.git/commit/?h=cpu-hotplug&id=6ac1e52f7cdfc2437dbe3ea727bd01df342a0fbc
+> 
+> 	David
+> 
+>  
+
 
